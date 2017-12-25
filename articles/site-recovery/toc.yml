@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: 設定 IP 定址以在容錯移轉之後存取次要站台
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: 內部部署至 Azure 的網路介面管理案例
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: 災害復原
       items:
         - name: Hyper-V VM 至 Azure
