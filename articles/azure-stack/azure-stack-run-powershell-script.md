@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>部署 Azure Stack 開發套件
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 12/13/2017
 1. 在主機電腦成功開機進入 CloudBuilder.vhdx 映像之後，使用在先前步驟中指定的系統管理員認證進行登入。 
 2. 開啟已提升權限的 PowerShell 主控台並執行 **\AzureStack_Installer\asdk-installer.ps1** 指令碼 (目前可能是在 Cloudbuilder.vhdx 映像中的其他磁碟機上)。 按一下 [Install] 。
 3. 在 [類型] 下拉式方塊中，選取 [Azure 雲端] 或 [AD FS]。
-    - **Azure 雲端**：將 Azure Active Directory (Azure AD) 設定為識別提供者。 若要使用此選項，您需有網際網路連線、Azure AD 目錄租用戶的完整名稱 (採用 *domainname*.onmicrosoft.com 形式)，以及所指定目錄的全域管理員認證。 
+    - **Azure 雲端**：將 Azure Active Directory (Azure AD) 設定為識別提供者。 若要使用此選項，您需有網際網路連線、Azure AD 目錄租用戶的完整名稱 (採用 *domainname*.onmicrosoft.com 形式或 Azure AD 驗證的自訂網域名稱)，以及所指定目錄的全域管理員認證。 
     - **AD FS**：預設戳記目錄服務會作為識別提供者。 用於登入的預設帳戶是 azurestackadmin@azurestack.local，而要使用的密碼是您在設定過程中所提供的密碼。
 4. 在 [本機系統管理員密碼] 底下的 [密碼] 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按一下 [下一步]。
 5. 選取要用於開發套件的網路介面卡，然後按一下 [下一步]。
@@ -206,7 +206,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>"
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 如果您的環境**並未**啟用 DHCP，則您必須將下列其他參數包含在上述其中一個選項 (提供範例使用方式)： 
@@ -219,7 +219,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |參數|必要/選用|說明|
 |-----|-----|-----|
 |AdminPassword|必要|在開發套件部署過程中建立的所有虛擬機器上，設定本機系統管理員帳戶和其他所有使用者帳戶。 此密碼必須符合主機上的目前本機系統管理員密碼。|
-|InfraAzureDirectoryTenantName|必要|設定租用戶目錄。 使用此參數來指定 AAD 帳戶有權限管理多重目錄的特定目錄。 AAD 目錄租用戶的完整名稱，格式為 .onmicrosoft.com。|
+|InfraAzureDirectoryTenantName|必要|設定租用戶目錄。 使用此參數來指定 AAD 帳戶有權限管理多重目錄的特定目錄。 AAD 目錄租用戶的完整名稱 (採用 .onmicrosoft.com 形式或 Azure AD 驗證的自訂網域名稱)。|
 |TimeServer|必要|使用此參數來指定特定時間伺服器。 此參數必須以有效的時間伺服器 IP 位址形式提供。 不支援伺服器名稱。|
 |InfraAzureDirectoryTenantAdminCredential|選用|設定 Azure Active Directory 使用者名稱與密碼。 這些 Azure 認證必須是組織識別碼。|
 |InfraAzureEnvironment|選用|選取您要用來註冊此 Azure Stack 部署的 Azure 環境。 選項包括公用 Azure、Azure - 中國、Azure - 美國政府。|

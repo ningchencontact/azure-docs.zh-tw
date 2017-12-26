@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立含有一個事件中樞的事件中樞命名空間並啟用擷取
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用範本來建立含有事件中樞的命名空間並啟用擷取
 
 本文說明如何使用 Azure Resource Manager 範本來建立含有一個事件中樞執行個體的事件中樞命名空間，也可在該事件中樞上啟用[擷取功能](event-hubs-capture-overview.md)。 此文章說明如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 10/11/2017
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ ms.lasthandoff: 10/11/2017
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ ms.lasthandoff: 10/11/2017
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-已擷取事件的目的地資料夾路徑。這是 Data Lake Store 中的資料夾，而事件將從「擷取」推送至該資料夾。 如需在此資料夾上設定權限，請參考[使用 Azure Data Lake Store 從事件中樞擷取資料](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)這篇文章
+已擷取事件的目的地資料夾路徑。 這是 Data Lake Store 中的資料夾，而事件會在擷取作業期間推送至該資料夾。 若要在此資料夾上設定權限，請參閱[使用 Azure Data Lake Store 從事件中樞擷取資料](../data-lake-store/data-lake-store-archive-eventhub-capture.md)。
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>要針對 Azure 儲存體部署為已擷取事件之目的地的資源
 
-建立類型為 **EventHubs**、含有一個事件中樞，而且也會啟用「擷取至 Azure Blob 儲存體」功能的命名空間。
+建立類型為 **EventHub**、含有一個事件中樞，而且也會啟用「擷取至 Azure Blob 儲存體」功能的命名空間。
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>要針對 Azure Data Lake Store 部署為目的地的資源
 
-建立類型為 **EventHubs**、含有一個事件中樞，而且也會啟用「擷取至 Azure Data Lake Store」功能的命名空間。
+建立類型為 **EventHub**、含有一個事件中樞，而且也會啟用「擷取至 Azure Data Lake Store」功能的命名空間。
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>Azure CLI
 
-選擇 Azure Blob 儲存體作為目的地：
+Azure Blob 儲存體作為目的地：
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-選擇 Azure Data Lake Store 作為目的地：
+Azure Data Lake Store 作為目的地：
 
 ```azurecli
 azure config mode arm

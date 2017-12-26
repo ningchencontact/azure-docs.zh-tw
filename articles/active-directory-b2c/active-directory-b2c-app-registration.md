@@ -1,12 +1,11 @@
 ---
-title: "Azure Active Directory B2C：應用程式註冊 | Microsoft Docs"
+title: "應用程式註冊 - Azure Active Directory B2C"
 description: "如何向 Azure Active Directory B2C 註冊您的應用程式"
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C：註冊您的應用程式
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 若要建置可接受取用者註冊與登入的應用程式，您必須先使用 Azure Active Directory B2C 租用戶註冊該應用程式。 使用 [建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)中概述的步驟來建立您自己的租用戶。
 
-在 Azure 入口網站中從 [Azure AD B2C] 刀鋒視窗建立的應用程式，必須從相同的位置進行管理。 如果您使用 PowerShell 或另一個入口網站編輯 B2C 應用程式，系統則不支援這些應用程式支援且無法搭配 Azure AD B2C 運作。 如需詳細資料，請參閱[ 發生錯誤的應用程式](#faulted-apps)一節。 
+在 Azure 入口網站中建立的應用程式必須從相同的位置進行管理。 如果您使用 PowerShell 或另一個入口網站編輯 Azure AD B2C 應用程式，系統則不支援這些應用程式支援且無法搭配 Azure AD B2C 運作。 如需詳細資料，請參閱[ 發生錯誤的應用程式](#faulted-apps)一節。 
 
 本文使用的範例將協助您開始使用我們的範例。 您可以在後續的文章中深入了解這些範例。
 
@@ -117,7 +116,7 @@ ms.lasthandoff: 12/11/2017
 
 選擇行動/原生應用程式的重新導向 URI 時，有兩個重要的考量︰
 
-* **唯一**︰每個應用程式的重新導向 URI 的配置都應該是唯一。 在我們的範例 (com.onmicrosoft.contoso.appname://redirect/path) 中，我們會使用 com.onmicrosoft.contoso.appname 做為配置。 我們建議您遵循此模式。 如果兩個應用程式共用相同的結構描述，則使用者會看到「選擇應用程式」對話方塊。 如果使用者選擇不正確的項目，則會登入失敗。
+* **唯一**︰每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 (com.onmicrosoft.contoso.appname://redirect/path) 中，com.onmicrosoft.contoso.appname 為配置。 我們建議您遵循此模式。 如果兩個應用程式共用相同的結構描述，則使用者會看到「選擇應用程式」對話方塊。 如果使用者選擇不正確的項目，則會登入失敗。
 * **完成**︰重新導向 URI 必須有配置和路徑。 路徑中的網域之後必須包含至少一個正斜線 (例如，//contoso/ 可行，而 //contoso 不可行)。
 
 確定重新導向 uri 中沒有任何特殊字元，例如底線。
@@ -126,10 +125,10 @@ ms.lasthandoff: 12/11/2017
 
 下列情況不得編輯 B2C 應用程式：
 
-* 在其他應用程式管理入口網站上，例如[Azure 傳統入口網站](https://manage.windowsazure.com/)和[應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
+* 在其他應用程式管理員入口網站上，例如[應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
 * 使用圖形 API 或 PowerShell
 
-如果您編輯 B2C 應用程式 (如上所述) 並再次嘗試在 Azure 入口網站上的 Azure AD B2C 功能刀鋒視窗中進行編輯，該應用程式會變為錯誤的應用程式，而且無法再搭配 Azure AD B2C 運作。 您必須刪除應用程式並重新加以建立。
+如果您編輯 Azure AD B2C 應用程式 (如上所述) 並再次嘗試在 Azure 入口網站上的 Azure AD B2C 功能中進行編輯，該應用程式會變為錯誤的應用程式，而且無法再搭配 Azure AD B2C 運作。 您必須刪除應用程式並重新加以建立。
 
 若要刪除應用程式，請移至[應用程式註冊入口網站](https://apps.dev.microsoft.com/)並在此刪除應用程式。 為了讓應用程式得以顯示，您必須是應用程式的擁有者 (而不只是租用戶的系統管理員)。
 

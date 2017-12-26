@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署規劃工具報告
 產生的 Microsoft Excel 報告包含下列工作表：
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/05/2017
 
 ![VMware 環境的內部部署摘要](media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png)
 
-[開始日期] 和 [結束日期]：考慮用於產生報告之剖析資料的開始和結束日期。 根據預設，開始日期是剖析開始的日期，而結束日期是剖析停止的日期。 如果使用這些參數產生報告，這可以是 'StartDate' 和 'EndDate' 值。
+[開始日期] 和 [結束日期]：考慮用於產生報告之分析資料的開始和結束日期。 根據預設，開始日期是分析開始的日期，而結束日期是分析停止的日期。 如果使用這些參數產生報告，這可以是 'StartDate' 和 'EndDate' 值。
 
-**剖析總天數**：為其產生報告之開始和結束日期之間的剖析總天數。
+**分析總天數**：為其產生報告之開始和結束日期之間的分析總天數。
 
 **相同的虛擬機器數目**：相容的 VM 總數，系統會計算其所需的網路頻寬、所需的儲存體帳戶、Microsoft Azure 核心及組態伺服器和額外處理序伺服器的數目。
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/05/2017
 
 **所需的頻寬 (Mbps)**：在產生報告時針對 ‘Bandwidth’ 參數所傳遞的值，用來估計可用的 RPO。
 
-**每日觀察到的典型資料變換 (GB)**：在所有剖析天數中觀察到的平均資料變換。 此數字可做為其中一個輸入值，以決定部署中所要使用的組態伺服器與額外處理序伺服器數目。
+**每日觀察到的典型資料變換 (GB)**：在所有分析天數中觀察到的平均資料變換。 此數字可做為其中一個輸入值，以決定部署中所要使用的組態伺服器與額外處理序伺服器數目。
 
 ## <a name="recommendations"></a>建議
 
@@ -54,15 +54,15 @@ ms.lasthandoff: 12/05/2017
 ### <a name="profiled-data"></a>剖析的資料
 ![Deployment Planner 中已剖析的資料檢視](media/site-recovery-vmware-deployment-planner-analyze-report/profiled-data-v2a.png)
 
-**剖析的資料期間**：執行剖析的期間。 根據預設，此工具會在計算中包含所有剖析的資料，除非在報告產生期間使用 StartDate 和 EndDate 選項來針對特定期間產生此報告。
+**分析的資料期間**：執行分析的期間。 根據預設，此工具會在計算中包含所有剖析的資料，除非在報告產生期間使用 StartDate 和 EndDate 選項來針對特定期間產生此報告。
 
 **伺服器名稱**：為其產生 VM 報告之 VMware vCenter 或 ESXi 主機的名稱或 IP 位址。
 
 **所需的 RPO**：您部署的復原點目標。 預設會計算 RPO 值 15、30 和 60 分鐘所需的網路頻寬。 根據選取項目，在工作表上更新受影響的值。 如果您在產生報告時使用了 DesiredRPOinMin 參數，該值會顯示於所需 RPO 結果中。
 
-### <a name="profiling-overview"></a>剖析概觀
+### <a name="profiling-overview"></a>分析概觀
 
-![Deployment Planner 中的剖析結果](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-v2a.png)
+![Deployment Planner 中的分析結果](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-v2a.png)
 
 **剖析的虛擬機器總數**：可取得其剖析資料的 VM 總數。 如果 VMListFile 包含任何未剖析的 VM 名稱，則這些 VM 不會納入報告產生考量並從剖析的 VM 總計數中排除。
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 12/05/2017
 ## <a name="compatible-vms"></a>相容的 VM
 ![相容 VM 的 Excel 試算表](media/site-recovery-vmware-deployment-planner-analyze-report/compatible-vms-v2a.png)
 
-**VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在剖析期間探索到 VM 時其所在位置的主機。
+**VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
 **VM 相容性**：值為 [是] 和 [是\*]。 **[是\*]** 適用於 VM 適合於 [Azure 進階儲存體](https://aka.ms/premium-storage-workload)的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如：
 * <128 GB 為 P10。
@@ -198,9 +198,9 @@ ms.lasthandoff: 12/05/2017
 
 **儲存體帳戶**︰使用建議儲存體帳戶前置詞的名稱。
 
-**R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載讀/寫 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在剖析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
+**R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載讀/寫 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
 
-**資料變換 (Mbps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在剖析期間每一分鐘之變換總和的尖峰。
+**資料變換 (Mbps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **Azure VM 大小**：此內部部署 VM 理想的對應 Azure 雲端服務虛擬機器大小。 對應是以內部部署 VM 的記憶體、磁碟/核心/NIC 數目和讀/寫 IOPS 為基礎。 建議一律是符合所有內部部署 VM 特性的最低 Azure VM 大小。
 
@@ -223,7 +223,7 @@ ms.lasthandoff: 12/05/2017
 ![不相容 VM 的 Excel 試算表
 ](media/site-recovery-vmware-deployment-planner-analyze-report/incompatible-vms-v2a.png)
 
-**VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁 VMDK。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在剖析期間探索到 VM 時其所在位置的主機。
+**VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁 VMDK。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
 **VM 相容性**：指出為何指定的 VM 不適合與 Site Recovery 搭配使用。 相關原因會針對 VM 的每個不相容磁碟進行說明，且根據發佈的[儲存體限制](https://aka.ms/azure-storage-scalbility-performance)，原因可能是下列其中一項：
 
@@ -234,14 +234,14 @@ ms.lasthandoff: 12/05/2017
 * VM 大小總計 (複寫 + TFO) 超過支援的儲存體帳戶大小限制 (35 TB)。 當 VM 中單一磁碟的效能特性超過標準儲存體支援的最大 Azure 或 Site Recovery 限制，通常會發生此不相容情況。 這類情況會將 VM 推送到進階儲存體區域中。 不過，進階儲存體帳戶支援的大小上限為 35 TB，而單一的受保護 VM 無法跨多個儲存體帳戶受到保護。 也請注意，在受保護的 VM 上執行測試容錯移轉時，它會在正在進行複寫的相同儲存體帳戶中執行。 在此例中，設定 2 倍的磁碟大小，以便進行複寫並以平行方式繼續進行測試容錯移轉。
 * 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個磁碟 5000)。
 * 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個 VM 80,000)。
-* 平均資料變換超出磁碟平均 IO 大小支援的 Site Recovery 資料變換限制 10 MBps。
-* VM 上所有磁碟的資料變換總計超過每個 VM 支援的 Site Recovery 資料變換限制 54 MBps。
+* 平均資料變換超出磁碟平均 IO 大小支援的 Site Recovery 資料變換限制 10 MB/s。
+* VM 上所有磁碟的資料變換總計超過每個 VM 支援的 Site Recovery 資料變換限制 54 MB/s。
 * 磁碟的平均有效寫入 IOPS 超過支援的 Site Recovery IOPS 限制 840。
 * 計算的快照集儲存體超過支援的快照集儲存體限制 10 TB。
 
-**R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在剖析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
+**R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
 
-**資料變換 (Mbps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在剖析期間每一分鐘之變換總和的尖峰。
+**資料變換 (Mbps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **磁碟數目**：VM 上的 VMDK 總數。
 
@@ -263,12 +263,12 @@ ms.lasthandoff: 12/05/2017
  
 **複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
 ---|---|---|---
-標準儲存體 | 8 KB | 2 MBps | 每個磁碟 168 GB
-進階 P10 或 P15 磁碟 | 8 KB  | 2 MBps | 每個磁碟 168 GB
-進階 P10 或 P15 磁碟 | 16 KB | 4 MBps |  每個磁碟 336 GB
-進階 P10 或 P15 磁碟 | 32 KB 或更大 | 8 MBps | 每個磁碟 672 GB
-進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MBps | 每個磁碟 421 GB
-進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MBps | 每個磁碟 842 GB
+標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
+進階 P10 或 P15 磁碟 | 8 KB  | 2 MB/秒 | 每個磁碟 168 GB
+進階 P10 或 P15 磁碟 | 16 KB | 4 MB/秒 |  每個磁碟 336 GB
+進階 P10 或 P15 磁碟 | 32 KB 或更大 | 8 MB/秒 | 每個磁碟 672 GB
+進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
+進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MB/秒 | 每個磁碟 842 GB
 
 以上是採用 30% I/O 重疊時的平均數字。 Site Recovery 能夠處理更高的輸送量 (以重疊比為基礎)、較大的寫入大小和實際工作負載 I/O 行為。 先前數字採用大約五分鐘的典型積壓。 也就是說，資料上傳之後，便會進行處理並在五分鐘內建立復原點。
 

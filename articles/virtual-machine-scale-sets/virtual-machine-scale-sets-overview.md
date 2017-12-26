@@ -3,8 +3,8 @@ title: "Azure 虛擬機器擴展集概觀 | Microsoft Docs"
 description: "深入了解 Azure 虛擬機器擴展集"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
-虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
+虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、大量資料和容器化工作負載，建置大規模服務。
 
 對於需要相應放大計算資源的應用程式，調整作業會隱含地平衡分散到容錯網域和更新網域。 如需擴展集的進一步介紹，請參閱 [Azure 部落格通知](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="autoscale"></a>Autoscale
 若要維持一致的應用程式效能，您可以自動增加或減少擴展集之中的 VM 執行個體數目。 這個自動調整功能會降低隨著客戶一段時間的需求，監視及調整擴展集的額外管理負荷。 您可以根據效能計量、應用程式回應或固定排程，以及必要的擴展集自動調整，來定義規則。
 
-對於自動調整規則，您可以使用主機型效能計量，例如 CPU 使用量或磁碟 I/O。 這些主機型計量立即可用，不需要安裝及設定其他代理程式或擴充功能。 可以使用下列其中一個工具來建立使用主機型計量的自動調整規則：
+對於自動調整規則，您可以使用主機型效能計量，例如 CPU 使用量或磁碟 I/O。 這些主機型計量自動可用，不需要安裝及設定其他代理程式或擴充功能。 可以使用下列其中一個工具來建立使用主機型計量的自動調整規則：
 
 - [Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,7 +159,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 **問：** 在擴展集內使用多個延伸模組時，是否可以強制執行「執行順序」？
 
-**答：** 不是直接，但針對 customScript 擴充，您的指令碼可以等候另一個擴充完成。 您可以在部落格文章︰ [Extension Sequencing in Azure VM Scale Sets (Azure VM 擴展集中的擴充排序)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) 中取得有關擴充排序的其他指導方針。
+**答：** 不是直接，但針對 customScript 擴充，您的指令碼可以等候另一個擴充完成。 您可以在部落格文章︰[Extension Sequencing in Azure virtual machine Scale Sets (Azure 虛擬機器擴展集中的擴充排序)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) 中取得有關擴充排序的其他指導方針。
 
 **問：** 擴展集是否可與 Azure 可用性設定組組搭配使用？
 

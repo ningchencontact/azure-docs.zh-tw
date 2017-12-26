@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -72,6 +72,22 @@ ms.lasthandoff: 11/22/2017
 - `predicate=<string>`
   - 用於伺服器端篩選的 where 子句。
 
+'multiChartStack=<true/false>' 參數可在圖表中啟用堆疊，而 'multiChartSameScale=<true/false>' 參數可在選用參數內的不同時段啟用相同的 Y 軸刻度。  
+
+- 'multiChartStack=false'
+  - 預設會啟用 'True'，所以傳遞 'false' 進行堆疊。
+- 'multiChartStack=false&multiChartSameScale=true' 
+  - 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  如果預設為 'false'，則傳遞 'true' 可啟用此功能。  
+  
+'timeBucketUnit=<Unit>&timeBucketSize=<integer>' 可讓您調整間隔滑桿，以提供更精細或更平滑、更整體的圖表檢視。  
+- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+  - 單位 = 天、小時、分鐘、秒、毫秒。  單位一律大寫。
+  - 對 timeBucketSize 傳遞所需的整數，以定義單位數。  請注意，您最多可以平滑處理 7 天。  
+  
+'timezoneOffset=<integer>' 參數可讓您針對要以 UTC 位移檢視的圖表設定時區。  
+  - 'timezoneOffset=-<integer>'
+    - 整數一律以毫秒為單位。  
+    - 請注意，這項功能與我們在 TSI 總管中啟用的功能稍有不同，在 TSI 總管中我們可讓您選擇本機 (瀏覽器時間) 或 UTC。  
  
 ### <a name="examples"></a>範例
 

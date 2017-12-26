@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/08/2017
 
 每個應用程式資源最多可以建立 100 項可用性測試。
 
-## <a name="create"></a>1.開啟可用性測試報告的資源
+## <a name="create"></a>開啟可用性測試報告的資源
 
 **如果您已針對應用程式設定 Application Insights**，請在 [Azure 入口網站](https://portal.azure.com)中開啟其 Application Insights 資源。
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/08/2017
 
 按一下 [所有資源]  ，以開啟新資源的 [概觀] 刀鋒視窗。
 
-## <a name="setup"></a>2.建立 URL Ping 測試
+## <a name="setup"></a>建立 URL Ping 測試
 開啟 [可用性] 刀鋒視窗並新增一項測試。
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/08/2017
 加入更多測試。 例如，除了測試首頁以外，您也可以測試搜尋的 URL 來確定資料庫在執行中。
 
 
-## <a name="monitor"></a>3.查看可用性測試結果
+## <a name="monitor"></a>查看可用性測試結果
 
 數分鐘之後，按一下 [重新整理] 來查看測試結果。 
 
@@ -102,14 +102,11 @@ ms.lasthandoff: 12/08/2017
 從可用性測試結果，您可以：
 
 * 檢查從伺服器收到的回應。
-* 在處理失敗的要求執行個體時，開啟應用程式伺服器所傳送的遙測。
+* 使用在處理失敗的要求執行個體時收集的伺服器端遙測來診斷失敗。
 * 在 Git 或 VSTS 中記錄問題或工作項目來追蹤問題。 Bug 將包含此事件的連結。
 * 在 Visual Studio 中開啟 Web 測試結果。
 
-
-*看起來正常，但回報為失敗？* 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。
-
-沒有相關項目？ 如果您已針對伺服器端應用程式設定 Application Insights，這可能是因為正在進行[取樣](app-insights-sampling.md)。 
+*看起來正常，但回報為失敗？* 請參閱[常見問題集](#qna)以取得降低雜訊的方法。
 
 ## <a name="multi-step-web-tests"></a>多重步驟 Web 測試
 您可以監視涉及一連串 URL 的案例。 例如，如果您正在監視銷售網站，您可以測試將項目加入購物車正確運作。
@@ -256,6 +253,20 @@ Web 測試外掛程式提供將時間參數化的方法。
 * 設定會在產生警示時呼叫的 [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
 
 ## <a name="qna"></a>有疑問嗎？ 有問題嗎？
+* *包含通訊協定違規錯誤的間歇性測試失敗？*
+
+    此錯誤 (「通訊協定違規..CR 後面必須接著 LF」) 表示伺服器 (或相依性) 有問題。 這會發生於回應中設定的標頭格式不正確時。 可能是由負載平衡器或 CDN 所造成。 具體來說，某些標頭可能未使用 CRLF 來指出行尾，這違反了 HTTP 規格，因此無法通過 .NET WebRequest 層級的驗證。 檢查回應以找出可能違規的標頭。
+    
+    注意：在 HTTP 標頭驗證寬鬆的瀏覽器上，URL 可能不會失敗。 請參閱此部落格文章中有關此問題的詳細說明：http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *網站看似正常，但我看到測試失敗？*
+
+    * 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
+
+    * 若要從暫時性網路標誌等降低雜訊的可能性，請確保已核取 [啟用測試失敗的重試次數] 組態。 您也可以從多個位置進行測試並據以管理警示規則臨界值，以免發生會造成過度警示的特定位置問題。
+    
+* *我沒看到任何相關的伺服器端遙測可診斷測試失敗？*
+    
+    如果您已針對伺服器端應用程式設定 Application Insights，這可能是因為正在進行[取樣](app-insights-sampling.md)。
 * *可以從我的 Web 測試呼叫程式碼嗎？*
 
     否。 測試步驟必須在 .webtest 檔案中。 而且您不能呼叫其他 Web 測試或使用迴圈。 但是這裡有一些您會覺得有用的外掛程式。
