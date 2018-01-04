@@ -4,7 +4,7 @@ description: "涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。"
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 06d217b38ff8e33bd6c5a42a93aa532c0d1efa4d
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/04/2017
 
    **例如：**
    ```
-   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://gateway.contoso.msappproxy.net/`nrequire pre-authentication:i:1"
+   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
 
 9. 若要確認自訂 RDP 屬性的修改，以及檢視將會針對此集合從 RDWeb 下載的 RDP 檔案內容，請執行下列命令：
@@ -121,8 +121,8 @@ ms.lasthandoff: 11/04/2017
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [Publish the RD host endpoint] (發佈 RD 主機端點)[](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
-2. 在 [Direct RDS traffic to Application Proxy] (將 RDS 流量導向應用程式 Proxy)[](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
+1. 在 [Publish the RD host endpoint] [發佈 RD 主機端點](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 **通道**。
+2. 在 [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy)(將 RDS 流量導向應用程式 Proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

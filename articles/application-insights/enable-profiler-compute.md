@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 66ea24cfe9dd03ed62c06daa76ee043886ad7bcc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>針對 Azure VM、Service Fabric 和雲端服務啟用 Application Insights Profiler
 
 本文示範如何在 Azure 計算資源所裝載的 Azure ASP.NET 應用程式上啟用 Application Insights Profiler。 
 
-本文中的範例包括對於 Azure 虛擬機器、虛擬機器擴展集、Azure Service Fabric 和 Azure 雲端服務的支援。 範例依賴支援 [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) 部署模型的範本。  
+本文中的範例包括對於 Azure 虛擬機器、虛擬機器擴展集、Azure Service Fabric 和 Azure 雲端服務的支援。 範例依賴支援 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 部署模型的範本。  
 
 
 ## <a name="overview"></a>概觀
@@ -47,14 +47,14 @@ ms.lasthandoff: 10/26/2017
 這個執行個體應該與您的應用程式相同。 它被設定來將遙測資料傳送至每個要求。
 Profiler 結果也可以在此執行個體中使用。  
 
-在 Azure 入口網站中，完成[啟用分析工具](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler)中所述的步驟，以完成設定分析工具的 Application Insights 執行個體。 您不需要針對這篇文章中的範例連結 Web 應用程式。 只要確定在入口網站中啟用分析工具即可。
+在 Azure 入口網站中，完成[啟用分析工具](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler)中所述的步驟，以完成設定分析工具的 Application Insights 執行個體。 您不需要針對這篇文章中的範例連結 Web 應用程式。 只要確定在入口網站中啟用分析工具即可。
 
 
 ## <a name="set-up-the-application-source-code"></a>設定應用程式原始程式碼
 
 設定您的應用程式以將遙測資料傳送至每個 `Request` 作業上的 Application Insights 執行個體：  
 
-1. 將 [Application Insights SDK](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview#get-started) 新增至您的應用程式專案。 請確定 NuGet 套件版本如下：  
+1. 將 [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) 新增至您的應用程式專案。 請確定 NuGet 套件版本如下：  
   - 針對 ASP.NET 應用程式：[Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 或更新版本。
   - 針對 ASP.NET Core 應用程式：[Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 或更新版本。
   - 針對其他 .NET 和.NET Core 應用程式 (例如，Service Fabric 無狀態服務或雲端服務背景工作角色)：[Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 或 [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 或更新版本。  
@@ -85,7 +85,7 @@ Profiler 結果也可以在此執行個體中使用。
     }
     ```
 
-  不支援在另一個 `StartOperation<RequestTelemetry>` 範圍中呼叫 `StartOperation<RequestTelemetry>`。 您可以改為在巢狀範圍中使用 `StartOperation<DependencyTelemetry>`。 例如：  
+  不支援在另一個 `StartOperation<RequestTelemetry>` 範圍中呼叫 `StartOperation<RequestTelemetry>`。 您可以改為在巢狀範圍中使用 `StartOperation<DependencyTelemetry>`。 例如︰  
 
     ```csharp
     using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
@@ -138,9 +138,9 @@ Profiler 結果也可以在此執行個體中使用。
   * [虛擬機器擴展集](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
   * [Service Fabric 叢集](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
-1. 若要確保使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本，確認部署的作業系統是 `Windows Server 2012 R2` 或更新版本就足夠。
+1. 若要確保使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本，確認部署的作業系統是 `Windows Server 2012 R2` 或更新版本就足夠。
 
-2. 在部署範本檔案中找出 [Azure 診斷](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics)擴充功能，並新增下列 `SinksConfig` 區段作為 `WadCfg` 的子元素。 將 `ApplicationInsightsProfiler` 屬性值取代為您自己的 Application Insights 檢測金鑰：  
+2. 在部署範本檔案中找出 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)擴充功能，並新增下列 `SinksConfig` 區段作為 `WadCfg` 的子元素。 將 `ApplicationInsightsProfiler` 屬性值取代為您自己的 Application Insights 檢測金鑰：  
   ```json
   "SinksConfig": {
     "Sink": [
@@ -152,16 +152,16 @@ Profiler 結果也可以在此執行個體中使用。
   }
   ```
 
-  如需將診斷擴充功能新增至部署範本的詳細資訊，請參閱[使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+  如需將診斷擴充功能新增至部署範本的詳細資訊，請參閱[使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 
 ### <a name="cloud-services"></a>雲端服務
 
-1. 若要確保使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本，確認 ServiceConfiguration.\*.cscfg 檔案的 `osFamily` 值為 **"5"** 或更新版本就足夠。
+1. 若要確保使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本，確認 ServiceConfiguration.\*.cscfg 檔案的 `osFamily` 值為 **"5"** 或更新版本就足夠。
 
-2. 針對您的應用程式角色找出 [Azure 診斷](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx 檔案：  
+2. 針對您的應用程式角色找出 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx 檔案：  
   ![診斷組態檔的位置](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
-  如果找不到檔案以便了解如何在您的雲端服務專案中啟用診斷擴充功能，請參閱[為 Azure 雲端服務和虛擬機器設定診斷](https://docs.microsoft.com/en-us/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them)。
+  如果找不到檔案以便了解如何在您的雲端服務專案中啟用診斷擴充功能，請參閱[為 Azure 雲端服務和虛擬機器設定診斷](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them)。
 
 3. 新增下列 `SinksConfig` 區段作為 `WadCfg` 的子元素：  
   ```xml
@@ -205,11 +205,11 @@ Profiler 結果也可以在此執行個體中使用。
 
 2. 如果預期的應用程式是透過 [IIS](https://www.microsoft.com/web/platform/server.aspx) 執行，則啟用 `IIS Http Tracing` Windows 功能：  
   
-  1. 建立環境的遠端存取，然後使用 [新增 Windows 功能][]( https://docs.microsoft.com/en-us/iis/configuration/system.webserver/tracing/) 視窗或在 PowerShell 中執行下列命令 (以系統管理員身分)：  
+  1. 建立環境的遠端存取，然後使用 [新增 Windows 功能]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) 視窗或在 PowerShell 中執行下列命令 (以系統管理員身分)：  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-  2. 如果建立遠端存取發生問題，您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) 來執行下列命令：  
+  2. 如果建立遠端存取發生問題，您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 來執行下列命令：  
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
@@ -223,7 +223,7 @@ Profiler 結果也可以在此執行個體中使用。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 產生應用程式的流量 (例如，啟動[可用性測試](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-web-app-availability))。 然後，等待 10 到 15 分鐘，讓追蹤開始傳送到 Application Insights 執行個體。
-- 請參閱 Azure 入口網站中的 [Profiler 追蹤](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler)。
+- 產生應用程式的流量 (例如，啟動[可用性測試](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability))。 然後，等待 10 到 15 分鐘，讓追蹤開始傳送到 Application Insights 執行個體。
+- 請參閱 Azure 入口網站中的 [Profiler 追蹤](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler)。
 - 在 [Profiler 疑難排解](app-insights-profiler.md#troubleshooting)中取得針對 Profiler 問題進行疑難排解的說明。
 - 深入了解 [Application Insights Profiler](app-insights-profiler.md) 中的分析工具。

@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>設定 Azure App Service 的部署認證
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 支援兩種認證類，用於[本機 Git 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 這些與您的 Azure Active Directory 認證不相同。
 
-* **使用者層級認證**︰一組用於整個 Azure 帳戶的認證。 它可以用來將任何應用程式部署至 Azure 帳戶有權存取的任何訂用帳戶的 App Service 中。 有些預設認證集是在 [App Service]  >  [&lt;app_name>]  >  [部署認證] 中設定。 也有些預設認證集是呈現在入口網站 GUI 中 (例如應用程式的[資源刀鋒視窗](../azure-resource-manager/resource-group-portal.md#manage-resources)的 [概觀] 和 [屬性])。
+* **使用者層級認證**︰一組用於整個 Azure 帳戶的認證。 它可以用來將任何應用程式部署至 Azure 帳戶有權存取的任何訂用帳戶的 App Service 中。 有些預設認證集是在 [App Service]  >  [&lt;app_name>]  >  [部署認證] 中設定。 這也是預設值組，會顯示在入口網站 GUI (例如**概觀**和**屬性**應用程式[資源頁面](../azure-resource-manager/resource-group-portal.md#manage-resources))。
 
     > [!NOTE]
     > 透過角色型存取控制 (RBAC) 或共同管理員權限委派 Azure 資源的存取權時，收到應用程式存取權的每個 Azure 使用者都可以使用他/她的個人使用者層級認證，直到存取權被撤銷為止。 這些部署認證不得與其他 Azure 使用者共用。
@@ -38,16 +38,16 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>設定及重設使用者層級的認證
 
-您可以在任何應用程式的[資源刀鋒視窗](../azure-resource-manager/resource-group-portal.md#manage-resources)中，設定使用者層級認證。 無論在哪一個應用程式中設定這些認證，它都會套用至所有應用程式和您的 Azure 帳戶中的所有訂用帳戶。 
+您可以在任何應用程式中設定您的使用者層級認證[資源頁面](../azure-resource-manager/resource-group-portal.md#manage-resources)。 無論在哪一個應用程式中設定這些認證，它都會套用至所有應用程式和您的 Azure 帳戶中的所有訂用帳戶。 
 
 設定使用者層級認證：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] > &lt;any_app>  >  [部署認證]。
 
     > [!NOTE]
-    > 在入口網站中，您必須至少有一個應用程式，才能存取 [部署認證] 刀鋒視窗。 不過，若使用 [Azure CLI](/cli/azure/webapp/deployment/user#set)，沒有現有應用程式也可以設定使用者層級認證。
+    > 在入口網站中，您必須至少一個應用程式才能存取的部署認證 頁面。 不過，若使用 [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set)，沒有現有應用程式也可以設定使用者層級認證。
 
-2. 設定使用者名稱和密碼，然後按一下儲存。
+2. 設定使用者名稱和密碼，然後按一下 [儲存]。
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
@@ -84,7 +84,7 @@ App Service 中每個應用程式的認證會儲存在 XML 發佈設定檔中。
 
 若要重設應用程式層級的認證：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >&lt;any_app>  >  [概觀]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >&lt;any_app>  >  **概觀**。
 
 2. 按一下 [...更多]  >  [重設發行設定檔]。 按一下 [是] 確認重設。
 
