@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>設定 Operations Management Suite 中的服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -28,16 +28,16 @@ ms.lasthandoff: 11/22/2017
 ## <a name="dependency-agent-downloads"></a>相依性代理程式下載
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>連接的來源
 服務對應會從 Microsoft 相依性代理程式取得它的資料。 「相依性代理程式」有賴於 OMS 代理程式，以連線至 Operations Management Suite。 這表示，伺服器必須先安裝並設定 OMS 代理程式，然後才能安裝相依性代理程式。 下表描述服務對應解決方案支援的連線來源。
 
-| 連線的來源 | 支援 | 描述 |
+| 連線的來源 | 支援 | 說明 |
 |:--|:--|:--|
-| Windows 代理程式 | 是 | 服務對應會分析並收集來自 Windows 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-windows-agents.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| Windows 代理程式 | 是 | 服務對應會分析並收集來自 Windows 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | Linux 代理程式 | 是 | 服務對應會分析並收集來自 Linux 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-linux-agents.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | System Center Operations Manager 管理群組 | 是 | 服務對應會在連線的 [System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。|
 | Azure 儲存體帳戶 | 否 | 服務對應會收集來自代理程式電腦的資料，因此不會從 Azure 儲存體收集資料。 |
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/22/2017
 
 請使用下列步驟在每一部 Windows 電腦上安裝相依性代理程式：
 
-1.  依照[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agents.md)的指示來安裝 OMS 代理程式。
+1.  依照[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agent.md)的指示來安裝 OMS 代理程式。
 2.  下載 Windows 代理程式，並以下列命令來執行： <br>`InstallDependencyAgent-Windows.exe`
 3.  遵循精靈來安裝代理程式。
 4.  如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Windows 代理程式上，記錄檔的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。 
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/22/2017
 
     InstallDependencyAgent-Windows.exe /?
 
-| 旗標 | 描述 |
+| 旗標 | 說明 |
 |:--|:--|
 | /? | 取得命令列選項的清單。 |
 | /S | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -106,7 +106,7 @@ Windows 相依性代理程式的檔案預設位於 C:\Program Files\Microsoft De
 
     InstallDependencyAgent-Linux64.bin -help
 
-| 旗標 | 描述 |
+| 旗標 | 說明 |
 |:--|:--|
 | -help | 取得命令列選項的清單。 |
 | -s | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -254,7 +254,7 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 下表列出代碼和建議的解決方式。
 
-| 代碼 | 描述 | 解決方案 |
+| 代碼 | 說明 | 解決方案 |
 |:--|:--|:--|
 | 0x17 | 程式庫安裝程式會要求尚未安裝的 Windows 更新。 | 查看最新的程式庫安裝程式記錄。<br><br>如果提到 "Windows8.1-KB2999226-x64.msu"，隨後一行是 "Error 0x80240017: Failed to execute MSU package"，則表示您尚未具備安裝 KB2999226 所需的必要條件。 請依照 [Windows 中的通用 C 執行階段](https://support.microsoft.com/kb/2999226) \(機器翻譯\) 中必要條件一節的指示進行。 您可能需要執行 Windows Update 並重新開機多次，才能安裝必要條件。<br><br>再次執行 Microsoft 相依性代理程式安裝程式。 |
 
@@ -262,8 +262,8 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 #### <a name="server-doesnt-appear-in-service-map"></a>伺服器未出現在服務對應中
 如果相依性代理程式安裝成功，但是在服務對應解決方案中沒有看到您的伺服器︰
 * 相依性代理程式是否安裝成功？ 您可以查看是否已安裝服務並且執行，以便驗證。<br><br>
-**Windows**︰尋找名稱為「Microsoft 相依性代理程式」的服務。<br>
-**Linux**：尋找執行中的處理序 "microsoft-dependency-agent"。
+**Windows**： 尋找服務名稱為 「 Microsoft 相依性代理程式 」。<br>
+**Linux**： 尋找執行處理的 「 microsoft-相依性-代理程式。 」
 
 * 您是否屬於 [Operations Management Suite/Log Analytics 的免費定價層](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)？ 免費方案允許最多五個唯一的服務對應伺服器。 任何後續伺服器則不會顯示在服務對應中，即使先前五個伺服器不會再傳送資料。
 
@@ -350,8 +350,8 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| 16.04 | 4.4.0-98 |
-| 14.04 | 3.13.0-135<br>4.4.0-98 |
+| 16.04 | 4.4.0-103<br>4.11.0-1016 |
+| 14.04 | 3.13.0-137<br>4.4.0-103 |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 搭載 Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
@@ -367,8 +367,6 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 | 作業系統版本 | 核心版本
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,16 +375,10 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | 作業系統版本 | 核心版本
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| 作業系統版本 | 核心版本
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>診斷和使用量資料
 當您使用服務對應服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 使用這項資料來提供和改進服務對應服務的品質、安全性和完整性。 這項資料包含軟體組態 (如作業系統和版本) 的相關資訊。 它也會包含 IP 位址、DNS 名稱和工作站名稱，以便能夠正確且有效率地進行疑難排解。 我們不會收集姓名、地址或其他連絡資訊。

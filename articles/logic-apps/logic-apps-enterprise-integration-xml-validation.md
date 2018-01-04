@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>針對企業整合驗證 XML
 
@@ -30,29 +30,29 @@ ms.lasthandoff: 10/11/2017
 
 2. 將 [要求 - 收到 HTTP 要求時]  觸發程序新增到您的邏輯應用程式。
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. 若要新增 [XML 驗證] 動作，選擇 [新增動作]。
 
 4. 若要篩選所有動作直到找到您想要的，請在搜尋方塊中輸入 *xml*。 選擇 [XML 驗證]。
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. 若要指定您想要驗證的 XML 內容，請選取 [內容]。
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. 選取內文標記做為要驗證的內容。
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. 若要指定用來驗證前面 *content* 輸入的結構描述，請選擇 [結構描述名稱]。
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. 儲存您的工作   
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 現在您已完成設定驗證連接器。 在實際的應用程式中，您可能要將驗證的資料儲存在 SalesForce 之類的商業 (LOB) 應用程式。 若要將驗證的輸出傳送到 Salesforce，請新增一個動作。
 

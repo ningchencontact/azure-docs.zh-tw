@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
 ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>秘訣
+## <a name="tips"></a>祕訣
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體型編碼器時，請關閉任何不必要的程式。
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a id=configure_tricaster_rtmp></a>設定 NewTek TriCaster 編碼器
-在本教學課程中會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
+在本教學課程中，我們會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
 
 **視訊**：
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 3. 開啟功能表後，按一下 [連接] 標題下的 [新增]  。 當系統提示您選取連接類型時，請選取 [Adobe Flash] 。
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 5. 現在按一下 [串流設定檔] 下方的下拉式清單箭頭，並瀏覽至 [瀏覽]，即可匯入 FMLE 設定檔。
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)

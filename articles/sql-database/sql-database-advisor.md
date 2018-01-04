@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>效能建議
 
@@ -57,7 +57,12 @@ Azure SQL Database 會持續監視正在執行的查詢，並找出可改善效�
 
 一旦套用此建議之後，它將在幾分鐘內於您的資料庫上啟用強制參數化，而它將開始監視程序，此程序大約會持續 24 小時。 經過這段期間之後，您就能看到驗證報告，其中顯示資料庫在套用建議前後 24 小時的 CPU 使用量。 SQL Database 建議程式有一項安全機制，會在偵測到效能變差時，自動還原套用的建議。
 
-## <a name="fix-schema-issues-recommendations"></a>修正結構描述問題建議
+## <a name="fix-schema-issues-recommendations-preview"></a>請修正結構描述問題的建議 （預覽）
+
+> [!IMPORTANT]
+> Microsoft 正在淘汰 「 修正結構描述問題 」 的建議。 您應該開始使用[智慧型 Insights](sql-database-intelligent-insights.md)自動監視您的資料庫效能問題，包括 「 修正結構描述問題 」 建議涵蓋先前的結構描述問題。
+> 
+
 當 SQL Database 服務注意到 Azure SQL Database上發生結構描述數目異常狀況相關的 SQL 錯誤時，即會出現**修正結構描述問題**建議。 您的資料庫在一小時內遇到多個結構描述相關的錯誤時 (無效的資料行名稱、無效的物件名稱等)，通常會出現此建議。
 
 「結構描述問題」是 SQL Server 中一個語法錯誤的類別，當 SQL 查詢定義與資料庫結構描述定義不符時即會發生此問題。 例如，查詢預期的其中一個資料行可能在目標資料表中遺失，反之亦然。 

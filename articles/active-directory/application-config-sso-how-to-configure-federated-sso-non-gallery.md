@@ -4,7 +4,7 @@ description: "如何為您想要與 Azure AD 整合且不在資源庫內的自�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 781d06d2a8234d4cedf546ef059d49b7ece8783d
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: 8e16e348630d0c94b3f531a84852e3f242458cab
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定同盟單一登入
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/13/2017
 
 10. 在 [模式] 下拉式清單中選取 [SAML 登入]。
 
-11. 在 [網域及 URL] 中輸入必要值。 這些值應從應用程式廠商處取得。
+11. 在 [網域及 URL] 中輸入必要值 這些值應從應用程式廠商處取得。
 
    1. 若要將應用程式設定為 IdP 啟始的 SSO，請輸入回覆 URL 與識別碼。
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/13/2017
 
    新增屬性：
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/13/2017
 
 9.  若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
-   新增屬性：
+   若要新增屬性︰
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -142,7 +142,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

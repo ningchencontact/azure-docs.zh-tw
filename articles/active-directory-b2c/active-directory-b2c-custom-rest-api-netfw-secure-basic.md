@@ -4,7 +4,7 @@ description: "使用 HTTP 基本驗證在您的 Azure AD B2C 中保護您的自�
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 在 [Azure AD B2C 相關文章](active-directory-b2c-custom-rest-api-netfw.md)中，您在未經驗證的情況下，即建立了與 Azure Active Directory B2C (Azure AD B2C) 使用者旅程圖整合的 RESTful 服務 (Web API)。 
 
 在此文章中，您將 HTTP 基本驗證新增至 RESTful 服務，使得只有經過驗證的使用者 (包括 B2C) 可存取您的 API。 利用 HTTP 基本驗證，您可以在自訂原則中設定使用者認證 (應用程式識別碼和應用程式密碼)。 
 
-如需詳細資訊，請參閱[ASP.NET Web API 中的基本驗證](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication)。
+如需詳細資訊，請參閱[ASP.NET Web API 中的基本驗證](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)。
 
 ## <a name="prerequisites"></a>必要條件
 完成[將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中](active-directory-b2c-custom-rest-api-netfw.md)文章的步驟。
@@ -239,7 +239,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 7. 針對 [金鑰使用方法]，選取 [密碼]。
 
-8. 選取 [ **建立**]。
+8. 選取 [建立] 。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientId` 金鑰。
 
@@ -259,7 +259,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 7. 針對 [金鑰使用方法]，選取 [密碼]。
 
-8. 選取 [ **建立**]。
+8. 選取 [建立] 。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientSecret` 金鑰。
 

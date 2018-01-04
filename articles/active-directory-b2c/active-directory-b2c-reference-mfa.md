@@ -4,7 +4,7 @@ description: "如何在受 Azure Active Directory B2C 保護的取用者導向�
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 62ec48ab067cf02bc8409aca6da704a5418ec270
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8fc6c43a0197c203cda5b2200e0a5c01258d1613
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C：在取用者導向應用程式中啟用 Multi-Factor Authentication
 Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) ，讓您能夠針對取用者導向應用程式的註冊與登入使用體驗，增添第二層安全性。 您連一行程式碼都不用寫，即可達成此目標。 目前我們支援撥打電話與簡訊驗證。 如果您已經建立註冊和登入原則，您仍然可以啟用 Multi-Factor Authentication。
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 按一下 [註冊原則] 。
 3. 按一下以開啟註冊原則 (例如 "B2C_1_SiUp")。
-4. 按一下 [多重要素驗證]，並將 [狀態] 設為 [開啟]。 按一下 [確定] 。
+4. 按一下 [多重要素驗證]，並將 [狀態] 設為 [開啟]。 按一下 [SERVICEPRINCIPAL] 。
 5. 按一下刀鋒視窗頂端的 [儲存]  。
 
 您可以使用原則上的「立即執行」功能來驗證取用者體驗。 確認下列項目：
@@ -47,8 +47,8 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 ## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>修改登入原則以啟用 Multi-Factor Authentication
 1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 按一下 [登入原則] 。
-3. 按一下以開啟登入原則 (例如 "B2C_1_SiIn")。 按一下刀鋒視窗頂端的 [編輯]  。
-4. 按一下 [多重要素驗證]，並將 [狀態] 設為 [開啟]。 按一下 [確定] 。
+3. 按一下以開啟登入原則 (例如 "B2C_1_SiIn")。 按一下刀鋒視窗頂端的 [編輯] 。
+4. 按一下 [多重要素驗證]，並將 [狀態] 設為 [開啟]。 按一下 [SERVICEPRINCIPAL] 。
 5. 按一下刀鋒視窗頂端的 [儲存]  。
 
 您可以使用原則上的「立即執行」功能來驗證取用者體驗。 確認下列項目：

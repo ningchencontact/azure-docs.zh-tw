@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>設定 ExpressRoute 線路的網路效能監視器 (預覽)
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 ### <a name="proxy"></a>2.3：設定 Proxy 設定 (選擇性)
 
-如果您要使用 Web Proxy 來存取網際網路，請使用下列步驟來設定 Microsoft Monitoring Agent 的 Proxy 設定。 針對每一部伺服器執行這些步驟。 如果您需要設定許多伺服器，使用指令碼將此程序自動化會比較容易。 如果是這種情況，請參閱[使用指令碼設定 Microsoft Monitoring Agent 的 Proxy 設定](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script)。
+如果您要使用 Web Proxy 來存取網際網路，請使用下列步驟來設定 Microsoft Monitoring Agent 的 Proxy 設定。 針對每一部伺服器執行這些步驟。 如果您需要設定許多伺服器，使用指令碼將此程序自動化會比較容易。 如果是這種情況，請參閱[使用指令碼設定 Microsoft Monitoring Agent 的 Proxy 設定](../log-analytics/log-analytics-windows-agent.md)。
 
 使用 [控制台] 來設定 Microsoft Monitoring Agent 的 Proxy 設定：
 

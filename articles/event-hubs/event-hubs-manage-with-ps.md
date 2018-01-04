@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>使用 PowerShell 來管理事件中樞資源
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>建立取用者群組
 
-若要在事件中樞內建立取用者群組，請使用上一節中的指令碼來執行命名空間和事件中樞檢查。 然後使用 [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) Cmdlet，以在事件中樞內建立取用者群組。 例如：
+若要在事件中樞內建立取用者群組，請使用上一節中的指令碼來執行命名空間和事件中樞檢查。 然後使用 [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) Cmdlet，以在事件中樞內建立取用者群組。 例如︰
 
 ```powershell
 # Check if consumer group already exists

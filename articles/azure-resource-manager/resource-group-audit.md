@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>檢視活動記錄以稽核對資源的動作
 透過活動記錄檔，您可以判斷︰
@@ -38,10 +38,10 @@ ms.lasthandoff: 10/11/2017
    
     ![檢視活動記錄檔](./media/resource-group-audit/select-monitor.png)
 
-   或者，若要自動篩選特定資源或資源群組的活動記錄檔，請從該資源刀鋒視窗中選取 [活動記錄]。 請注意，選取的資源會自動篩選活動記錄檔。
+   或者，若要自動篩選特定資源或資源群組的活動記錄檔，選取**活動記錄檔**。 請注意，選取的資源會自動篩選活動記錄檔。
    
     ![依資源篩選](./media/resource-group-audit/filtered-by-resource.png)
-2. 在 [活動記錄] 刀鋒視窗中，您會看到最近作業的摘要。
+2. 在**活動記錄檔**，您看到最近作業的摘要。
    
     ![顯示動作](./media/resource-group-audit/audit-summary.png)
 3. 若要限制顯示的作業數目，可以選取不同的條件。 例如，下圖顯示變更 [時間範圍] 和 [事件起始者] 欄位，以檢視特定使用者或應用程式在上個月所採取的動作。 選取 [套用]  以檢視查詢的結果。
@@ -147,4 +147,5 @@ ms.lasthandoff: 10/11/2017
 * 如要了解如何設定安全性原則，請參閱 [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)。
 * 若要深入了解檢視部署作業的命令，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
 * 若要了解如何防止刪除所有使用者的資源，請參閱 [使用 Azure Resource Manager 鎖定資源](resource-group-lock-resources.md)。
+* 若要查看每個 Microsoft Azure 資源管理員提供者可用的作業清單，請參閱[Azure 資源管理員資源提供者作業](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

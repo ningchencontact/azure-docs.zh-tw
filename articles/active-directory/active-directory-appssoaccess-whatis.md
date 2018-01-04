@@ -4,7 +4,7 @@ description: "您可以使用 Azure Active Directory 來單一登入到您進行
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如輸入密碼)。
@@ -54,7 +54,7 @@ Azure AD 支援三種不同的方式登入應用程式：
  以下是有關這些單一登入模式和佈建的詳細資訊。
 
 ### <a name="federated-single-sign-on"></a>同盟單一登入
-同盟單一登入可讓您組織中的使用者，使用 Azure AD 的使用者帳戶資訊，由 Azure AD 自動登入協力廠商的 SaaS 應用程式。
+同盟單一登入可讓您的組織中的使用者，會自動登入協力廠商 SaaS 應用程式使用 Azure AD 的使用者帳戶資訊的 Azure ad。
 
 在此案例中，如果您已經登入 Azure AD，而且您想要存取由協力廠商 SaaS 應用程式控制的資源，同盟就可以讓使用者不需要重新驗證。
 

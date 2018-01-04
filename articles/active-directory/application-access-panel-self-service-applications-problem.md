@@ -4,7 +4,7 @@ description: "針對自助應用程式存取的相關問題進行疑難排解"
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dcd3ea1269ff40e4777cc9b0ca46f0b64560f923
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problem-using-self-service-application-access"></a>使用自助應用程式存取時遇到問題
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  從該清單選取您要啟用自助存取的應用程式。
 

@@ -1,10 +1,10 @@
 ---
-title: "將 Azure AD 整合至 iOS 應用程式 | Microsoft Docs"
+title: "開始使用 azure AD iOS |Microsoft 文件"
 description: "如何建置 iOS 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: ios
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>將 Azure AD 整合至 iOS 應用程式
+# <a name="azure-ad-ios-getting-started"></a>開始使用 azure AD iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> 試用新[開發人員入口網站](https://identity.microsoft.com/Docs/iOS) 的預覽版本，這可協助您在短短幾分鐘內啟動並執行 Azure Active Directory！  開發人員入口網站會引導您完成註冊應用程式並將 Azure AD 整合至您的程式碼的程序。  當您完成時，您會有可驗證租用戶中使用者的簡單應用程式，以及可接受權杖並執行驗證的後端。 
-> 
-> 
 
 Azure Active Directory (Azure AD) 提供 Active Directory 驗證程式庫 (ADAL) 給需要存取受保護資源的 iOS 用戶端。 ADAL 可簡化您的應用程式用來取得存取權杖的程序。 為了示範究竟多麼簡單，我們會在本文中建置一個可執行下列動作的 Objective C 待辦事項清單應用程式：
 
@@ -59,7 +54,7 @@ iOS 格式的重新導向 URI：
 ```
 
 * **aap-scheme** - 這已在您的 XCode 專案中註冊。 它是其他應用程式呼叫您的方式。 您可以在 Info.plist -> URL types -> URL Identifier 下找到此項目。 如果您尚未設定任何一個，建議您建立一個。
-* **bundle-id** - 這是在您的 XCode 專案設定中，[identity] 下可找到的 [Bundle Identifier]。
+* **套件組合識別碼**-這是 「 識別 」 下找到您的 XCode 專案設定中的配套識別碼。
 
 此 QuickStart 程式碼的範例：***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

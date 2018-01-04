@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 監視工作負載
 本文說明如何使用動態管理檢視 (DMV)，在 Azure SQL 資料倉儲中監視工作負載及調查查詢執行。
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查詢正在主動等候另一個查詢的資源，則狀態會是 **AcquireResources**。  如果查詢具有全部的所需資源，則狀態會是 **Granted**。
 
 ## <a name="monitor-tempdb"></a>監視 tempdb
-高 tempdb 使用量是效能緩慢及記憶體不足問題的根本原因。 請先檢查是否有資料扭曲或品質低落的資料列群組，並採取適當的動作。 如果您在查詢執行期間發現 tempdb 達到其上限，請考慮調整您的資料倉儲。 以下描述如何識別每個節點上每個查詢的 tempdb 使用量。 
+高 tempdb 使用量是效能緩慢及記憶體不足問題的根本原因。 如果您在查詢執行期間發現 tempdb 達到其上限，請考慮調整您的資料倉儲。 以下描述如何識別每個節點上每個查詢的 tempdb 使用量。 
 
 建立下列檢視，以針對 sys.dm_pdw_sql_requests 建立適當節點識別碼的關聯。 這可讓您運用其他傳遞 DMV，並將這些資料表與 sys.dm_pdw_sql_requests 聯結。
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>監視記憶體
 
-記憶體是效能緩慢及記憶體不足問題的根本原因。 請先檢查是否有資料扭曲或品質低落的資料列群組，並採取適當的動作。 如果您在查詢執行期間發現 SQL Server 記憶體使用量達到其上限，請考慮調整您的資料倉儲。
+記憶體是效能緩慢及記憶體不足問題的根本原因。 如果您在查詢執行期間發現 SQL Server 記憶體使用量達到其上限，請考慮調整您的資料倉儲。
 
 下列查詢會傳回每個節點的 SQL Server 記憶體使用量和記憶體不足壓力：   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>監視交易記錄大小
-下列查詢會傳回每個發佈上的交易記錄大小。 請檢查是否有資料扭曲或品質低落的資料列群組，並採取適當的動作。 如果其中一個記錄檔達到 160 GB，您應該考慮將您的執行個體相應放大或限制您交易的大小。 
+下列查詢會傳回每個發佈上的交易記錄大小。 如果其中一個記錄檔達到 160 GB，您應該考慮將您的執行個體相應放大或限制您交易的大小。 
 ```sql
 -- Transaction log size
 SELECT

@@ -4,7 +4,7 @@ description: "了解如何使用 Azure 入口網站來管理裝置。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
 
@@ -190,7 +190,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 
 
-## <a name="audit-logs"></a>稽核記錄檔
+## <a name="audit-logs"></a>稽核記錄
 
 
 您可以透過活動記錄來取得裝置活動。 這包括由裝置註冊服務和使用者所觸發的活動：
@@ -203,7 +203,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
  
 稽核資料的進入點是 [裝置] 頁面之 [活動] 區段中的 [稽核記錄]。
 
-![稽核記錄檔](./media/device-management-azure-portal/61.png)
+![稽核記錄](./media/device-management-azure-portal/61.png)
 
 
 稽核記錄的預設清單檢視顯示︰
@@ -216,11 +216,11 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 - 活動 (項目)
 
-![稽核記錄檔](./media/device-management-azure-portal/63.png)
+![稽核記錄](./media/device-management-azure-portal/63.png)
 
 您可以按一下工具列中的 [資料行] 來自訂清單檢視。
  
-![稽核記錄檔](./media/device-management-azure-portal/64.png)
+![稽核記錄](./media/device-management-azure-portal/64.png)
 
 
 若要將報告的資料縮小至您適用的層級，您可以使用下列欄位篩選稽核資料︰
@@ -234,7 +234,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 除了篩選，您還可以搜尋特定項目。
 
-![稽核記錄檔](./media/device-management-azure-portal/65.png)
+![稽核記錄](./media/device-management-azure-portal/65.png)
 
 ## <a name="next-steps"></a>後續步驟
 

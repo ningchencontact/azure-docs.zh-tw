@@ -3,7 +3,7 @@ title: "管理 Azure DNS 中的 DNS 區域 - Azure CLI 2.0 | Microsoft Docs"
 description: "您可以使用 Azure CLI 2.0 管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域。"
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 區域
 
 > [!div class="op_single_selector"]
 > * [入口網站](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 本指南說明如何使用適用於 Windows、Mac 和 Linux 的跨平台 Azure CLI 來管理 DNS 區域。 您也可以使用 [Azure PowerShell](dns-operations-dnszones.md) 或 Azure 入口網站來管理 DNS 區域。
-
-## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
-
-您可以使用下列其中一個 CLI 版本來完成工作︰
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - 適用於傳統和資源管理部署模型的 CLI。
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) - 適用於資源管理部署模型的新一代 CLI。
 
 ## <a name="introduction"></a>簡介
 
@@ -49,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 * Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-* 安裝最新版的 Azure CLI 2.0，該 CLI 適用於 Windows、Linux 或 MAC。 您可以在[安裝 Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2) 中取得詳細資訊。
+* 安裝最新版的 Azure CLI 2.0，該 CLI 適用於 Windows、Linux 或 MAC。 您可以在[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 中取得詳細資訊。
 
 ### <a name="sign-in-to-your-azure-account"></a>登入您的 Azure 帳戶
 
@@ -67,7 +59,7 @@ az login
 az account list
 ```
 
-選擇要使用哪一個 Azure 訂用帳戶。
+選擇其中一個要使用的 Azure 訂用帳戶。
 
 ```azurecli
 az account set --subscription "subscription name"
@@ -75,7 +67,7 @@ az account set --subscription "subscription name"
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-Azure Resource Manager 需要所有的資源群組指定一個位置。 這用來作為該資源群組中資源的預設位置。 然而，因為所有 DNS 資源是全球性，而非區域性，資源群組位置的選擇不會對 Azure DNS 造成影響。
+Azure 資源管理員需要所有的資源群組指定一個位置。 這用來作為該資源群組中資源的預設位置。 然而，因為所有 DNS 資源是全球性，而非區域性，資源群組位置的選擇不會對 Azure DNS 造成影響。
 
 如果您使用現有的資源群組，則可略過此步驟。
 
@@ -85,7 +77,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>取得說明
 
-所有與 Azure DNS 相關的 CLI 2.0 命令都會以 `az network dns` 開頭。 使用 `--help` 選項 (簡短形式為 `-h`) 即可取得每個命令的說明。  例如：
+所有與 Azure DNS 相關的 CLI 2.0 命令都會以 `az network dns` 開頭。 使用 `--help` 選項 (簡短形式為 `-h`) 即可取得每個命令的說明。  例如︰
 
 ```azurecli
 az network dns --help

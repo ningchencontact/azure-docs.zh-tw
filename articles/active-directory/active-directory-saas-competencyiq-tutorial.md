@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 CompetencyIQ 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: e262bf7e-cc7d-4d0e-aea7-861f00d8837d
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: ad3cec3de9034ddab2161952620d31540ae51978
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dde08788744aa13e1f43974431393993ca1bc52a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>教學課程：Azure Active Directory 與 CompetencyIQ 整合
 
@@ -47,13 +47,13 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 CompetencyIQ
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-competencyiq-from-the-gallery"></a>從資源庫新增 CompetencyIQ
-若要設定 CompetencyIQ 與 Azure AD 整合，您需要從資源庫將 CompetencyIQ 新增到受管理的 SaaS App 清單。
+若要設定 CompetencyIQ 與 Azure AD 整合，您需要從資源庫將 CompetencyIQ 新增到受控 SaaS App 清單。
 
 **若要從資源庫新增 CompetencyIQ，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **CompetencyIQ**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_search.png)
 
-5. 在結果窗格中，選取 CompetencyIQ，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [CompetencyIQ]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_addfromgallery.png)
 
@@ -112,7 +112,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<customer>.competencyiq.com/`
     
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，輸入 URL：`https://www.competencyiq.com/`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.competencyiq.com/`
 
     > [!NOTE] 
     > [登入 URL] 值並非實際值，因此請將該值更新為實際的登入 URL。 請連絡 [CompetencyIQ 用戶端支援小組](https://www.competencyiq.com/)以取得此值。 
@@ -160,11 +160,11 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-competencyiq-test-user"></a>建立 CompetencyIQ 測試使用者
 

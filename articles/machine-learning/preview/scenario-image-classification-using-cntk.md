@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
 
@@ -51,7 +53,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 3. 一部 Windows 電腦。 Windows 作業系統是必要項目，因為 Workbench 僅支援 Windows 和 MacOS，而 Microsoft 的 Cognitive Toolkit (我們使用它作為深入學習程式庫) 只支援 Windows 和 Linux。
 4. 不需要專用 GPU 來執行第 1 部分的 SVM 訓練，但需要它來進行第 2 部分所描述的 DNN 調整作業。 如果您缺乏強大的 GPU、想要在多個 GPU 上訓練或沒有一部 Windows 電腦，請考慮搭配使用 Azure 的深度學習虛擬機器與 Windows 作業系統。 請參閱[這裡](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)以取得一鍵部署指南。 一旦部署之後，請透過遠端桌面連線連接到 VM，在該處安裝 Workbench，並在 VM 的本機上執行程式碼。
 5. 需要安裝各種 Python 程式庫，例如 OpenCV。 從 Workbench 的 [檔案] 功能表按一下 [開啟命令提示字元]，並執行下列命令來安裝這些相依性：  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - 從 http://www.lfd.uci.edu/~gohlke/pythonlibs/ 下載 OpenCV Wheel 之後，執行 `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` (確切的檔名和版本可能變更)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +63,11 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 ### <a name="troubleshooting--known-bugs"></a>疑難排解/已知錯誤
 - 第 2 部分需要 GPU，否則在嘗試調整 DNN 時會擲回錯誤「尚未實作 CPU 上的批次正規化訓練」。
 - 透過降低迷你批次的大小 (`PARAMETERS.py`中的變數 `cntk_mb_size`)，即可避免在 DNN 訓練期間發生記憶體不足錯誤。
-- 此程式碼已使用 CNTK 2.0 和 2.1 進行測試，並且也應該在沒有任何 (或只有微幅) 變更的情況下於較新版本上執行。
+- 使用 CNTK 2.2 測試的程式碼，並應該在較舊 （最多 v2.0） 上執行也和較新版本，不含任何或僅有些微變更。
 - 在撰寫本文時，Azure Machine Learning Workbench 出現筆記本大於 5 MB 的問題。 如果在顯示所有儲存格輸出的情況下儲存筆記本，便可能會出現這種大型的筆記本。 如果您遇到這個錯誤，則從 Workbench 內部的 [檔案] 功能表開啟命令提示字元、執行 `jupyter notebook`、開啟筆記本、清除所有輸出，然後儲存筆記本。 執行這些步驟之後，筆記本會在 Azure Machine Learning Workbench 內部再次正確開啟。
+- 此範例中所提供的所有指令碼必須是在本機執行，而不是在例如 docker 遠端環境。 所有筆記本都必須設定為本機專案核心具有名稱"PROJECTNAME 本機"(例如"myImgClassUsingCNTK 本機 」) 的核心使用來執行。
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>建立新的 Workbench 專案
 
 使用此範例作為範本來建立新專案：
@@ -72,7 +75,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 2.  在 [專案] 頁面上，按一下 **+** 符號，然後選取 [新增專案]。
 3.  在 [建立新專案] 窗格中，填入新專案的資訊。
 4.  在 [搜尋專案範本] 搜尋方塊中，輸入「影像分類」並選取範本。
-5.  按一下 [建立] 。
+5.  按一下頁面底部的 [新增] 。
 
 執行這些步驟會建立專案結構，如下所示。 專案目錄限制為小於 25 MB，因為 Azure Machine Learning Workbench 在每次執行後都會建立這個資料夾的複本 (以啟用執行歷程記錄)。 因此，所有影像和暫存檔案都是在目錄 *~/Desktop/imgClassificationUsingCntk_data* (本文件中稱為 *DATA_DIR*) 中來回儲存。
 
@@ -91,7 +94,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 
 本教學課程使用最多由 428 個影像所組成的上衣紋理資料集作為執行範例。 每個影像都會標註為三種不同紋理 (圖點、條紋、豹紋) 的其中一個。 我們將影像數目保持在少量，以便可以快速執行本教學課程。 不過，程式碼已經過完整測試，可處理數以萬計的影像或更多影像。 所有影像已依照[第 3 部分](#using-a-custom-dataset)的說明，使用 Bing 圖片搜尋擷取並手動標註。 影像 URL 及其各自屬性都列在 */resources/fashionTextureUrls.tsv* 檔案中。
 
-指令碼 `0_downloadData.py` 會將所有影像下載到 *DATA_DIR/images/fashionTexture/* 目錄。 428 個 URL 中可能有某些 URL 已中斷。 這不構成問題，而只表示我們進行訓練和測試的影像稍微較少。
+指令碼 `0_downloadData.py` 會將所有影像下載到 *DATA_DIR/images/fashionTexture/* 目錄。 428 個 URL 中可能有某些 URL 已中斷。 這不構成問題，而只表示我們進行訓練和測試的影像稍微較少。 此範例中所提供的所有指令碼必須是在本機執行，而不是在例如 docker 遠端環境。
 
 下圖顯示圓點 (左側)、條紋 (中間) 和豹紋 (右側) 特徵的範例。 會根據上衣項目完成註解。
 
@@ -114,7 +117,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 ### <a name="step-1-data-preparation"></a>步驟 1：資料準備
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-`showImages.ipynb` 筆記本可用來將影像視覺化，並視需要修正其註解。 若要執行筆記本，請在 Azure Machine Learning Workbench 中開啟它，在 [啟動筆記本伺服器] 顯示時按一下此選項，然後執行筆記本中的所有儲存格。 如果您收到提報筆記本太大而無法顯示的錯誤，請參閱本文件中的＜疑難排解＞一節。
+`showImages.ipynb` 筆記本可用來將影像視覺化，並視需要修正其註解。 若要執行筆記本中 Azure 機器學習工作，在 「 開始筆記本伺服器 」 則顯示這個選項，如果變更本機專案核心，具有名稱"PROJECTNAME 本機"（例如 「 myImgClassUsingCNTK 區域 」），按一下 , 開啟和執行的所有資料格筆記型電腦。 如果您收到提報筆記本太大而無法顯示的錯誤，請參閱本文件中的＜疑難排解＞一節。
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +181,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-最後，提供 `showResults.py` 筆記本來捲動瀏覽測試影像，並將其各自的分類分數視覺化：
+最後，筆記本`showResults.py`提供捲動測試映像，並以視覺化方式檢視其各自的分類分數。 步驟 1 所述，在此範例中的每個筆記本需要使用本機專案核心具有名稱"PROJECTNAME 本機":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +193,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 ### <a name="step-6-deployment"></a>步驟 6：部署
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-訓練的系統現在可以發行為 REST API。 部署會在 `deploy.ipynb` 筆記本中加以說明，並以 Azure Machine Learning Workbench 內部的功能為基礎。 另請參閱[光圈教學課程](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3)中的絕佳部署一節。
+定型的系統現在可以為 REST API 發行。 筆記本中會說明部署`deploy.ipynb`，並根據 Azure 機器學習工作臺內的功能 （請記住要設為核心本機專案核心具有名稱"PROJECTNAME 區域 」）。 另請參閱的絕佳部署區段[光圈教學課程](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3)多個部署的相關資訊。
 
 一旦部署之後，就可以使用 `6_callWebservice.py` 指令碼來呼叫 Web 服務。 請注意，必須先在指令碼中設定 Web 服務的 IP 位址 (本機或雲端上)。 `deploy.ipynb` 筆記本說明如何尋找此 IP 位址。
 

@@ -148,7 +148,7 @@
    
         using Microsoft.Azure.NotificationHubs;
 
-6. 以下列程式碼取代 `Notifications` 類別定義，並以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 傳統入口網站](http://manage.windowsazure.com)取代) 取代兩個預留位置：
+6. 取代`Notifications`類別定義為下列程式碼，並取代為您的通知中樞和中樞名稱 （具有完整權限） 連接字串的兩個預留位置 (位於[Azure 入口網站](http://portal.azure.com)):
    
         public class Notifications
         {
@@ -359,7 +359,7 @@
 
 3. 在 [建立 App Service] 視窗中，選取您的 Azure 帳戶。 選取 [變更類型] > [Web 應用程式]。 保留預設 [Web 應用程式名稱]，然後選取 [訂用帳戶]、[資源群組] 和 [App Service 方案]。 
 
-4. 選取 [ **建立**]。
+4. 選取 [建立] 。
 
 5. 記下 [摘要] 區段中的 [網站 URL] 屬性。 此 URL 是您在本教學課程中稍後使用的「後端端點」。 
 

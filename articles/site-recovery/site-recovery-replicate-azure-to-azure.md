@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>將 Azure 虛擬機器複寫到另一個 Azure 區域
 
@@ -76,19 +76,19 @@ ms.lasthandoff: 11/22/2017
     > [!TIP]
     > 建議您保留與復原服務保存庫相同的目標位置。
 
-2. **目標資源群組：**所有複寫的虛擬機器都會屬於此資源群組。 根據預設，Azure Site Recovery 會在目標區域中建立名稱尾碼具有 "asr" 的新資源群組。 如果 Azure Site Recovery 建立的資源群組已經存在，則它會被重複使用。 您也可以選擇對它進行自訂，如下所示。    
-3. **目標虛擬網路：**根據預設，Azure Site Recovery 將在目標區域中建立新的虛擬網路，其名稱會有 "asr" 尾碼。 這將對應於來源網路，並且將用於任何未來的保護。
+2. **目標資源群組：**它是所有複寫的虛擬機器所屬的資源群組。 依預設 Azure Site Recovery 會建立新的資源群組名稱有"asr"後置詞與目標區域中。 如果 Azure Site Recovery 建立的資源群組已經存在，則它會被重複使用。 您也可以選擇對它進行自訂，如下所示。    
+3. **目標虛擬網路：**依預設，Azure Site Recovery 建立新的虛擬網路中的目標地區個名稱有"asr"後置詞。 這將對應於來源網路，並且將用於任何未來的保護。
 
     > [!NOTE]
     > [檢查網路服務詳細資料](site-recovery-network-mapping-azure-to-azure.md)，深入了解網路對應。
 
-4. **目標儲存體帳戶：**根據預設，Azure Site Recovery 將建立新目標儲存體帳戶，模擬來源 VM 儲存體組態。 如果 Azure Site Recovery 建立的儲存體帳戶已經存在，則它會被重複使用。
+4. **目標儲存體帳戶：**依預設，Azure Site Recovery 會建立新的目標儲存體帳戶，模擬來源 VM 存放裝置設定。 如果 Azure Site Recovery 建立的儲存體帳戶已經存在，則它會被重複使用。
 
 5. **快取儲存體帳戶：**Azure Site Recovery 需要在來源地區中有額外的儲存體帳戶 (稱為快取儲存體)。 在來源 VM 上發生的所有變更都會受到追蹤，並傳送到快取儲存體帳戶，然後複寫到目標位置。
 
-6. **可用性設定組：**根據預設，Azure Site Recovery 將在目標區域中建立新的可用性設定組，其名稱會有 "asr" 尾碼。 如果 Azure Site Recovery 建立的可用性設定組已經存在，則它會被重複使用。
+6. **可用性設定組：**依預設，Azure Site Recovery 會建立新的可用性設定中的目標地區名稱有"asr"後置詞。 如果已建立 Azure Site recovery 的可用性集存在，就會重複使用。
 
-7.  **複寫原則：**這會定義復原點保留歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 將對於復原點保留使用「24 小時」預設設定建立新的複寫原則，並對於應用程式一致快照集頻率使用「60 分鐘」。
+7.  **複寫原則：**這會定義復原點保留歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會建立新的複寫原則 '24 小時的復原點保留和' 60 分鐘的應用程式一致快照頻率的預設值。
 
     ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -102,14 +102,14 @@ ms.lasthandoff: 11/22/2017
 
 3. **目標虛擬網路：**您可以找到目標位置中所有虛擬網路的清單。
 
-4. **可用性設定組：**您只能將可用性集合設定新增到來源區域中的可用性所屬的虛擬機器。
+4. **可用性設定組：**您只能新增屬於來源範圍中的可用性的虛擬機器可用性集合設定。
 
 5. **目標儲存體帳戶：**
 
 ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/customize.PNG)按一下**建立目標資源**及 [啟用複寫]
 
 
-虛擬機器受到保護之後，您就可以在**複寫項目**下檢查 VM 健全狀況的狀態
+一旦虛擬機器受到保護，您可以檢查 Vm 底下的健全狀況狀態**複寫項目**
 
 >[!NOTE]
 >在初始複寫期間，狀態可能需要一些時間才能重新整理，因此您有一段時間不會看見進度。 您可以按一下刀鋒視窗頂端的 [重新整理] 按鈕，以取得最新狀態。

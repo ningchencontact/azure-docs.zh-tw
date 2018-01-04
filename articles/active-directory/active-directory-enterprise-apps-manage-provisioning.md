@@ -4,7 +4,7 @@ description: "了解如何使用 Azure Active Directory 管理企業應用程式
 services: active-directory
 documentationcenter: 
 author: asmalser
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 這篇文章說明如何使用 [Azure 入口網站](https://portal.azure.com)來自動化管理使用者帳戶的佈建和解除佈建，以用於支援它的應用程式，尤其是透過 [Azure Active Directory 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)的「精選」類別新增的應用程式。 如需深入了解自動化使用者佈建，請參閱 [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)。
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="settings"></a>設定
 這個部分可讓管理員為所選的應用程式啟動和停止 Azure AD 佈建服務，以及選擇性地清除佈建快取並重新啟動服務。
 
-如果是初次為應用程式啟用佈建，將 [佈建狀態] 變更為 [開啟] 即可開啟服務。 這會導致 Azure AD 佈建服務執行初始同步處理，此程序會讀取 [使用者和群組] 區段中指派的使用者，查詢他們的目標應用程式，並接著執行在 Azure AD [對應] 區段中定義的佈建動作。 在此程序中，佈建服務會儲存快取的資料 (有關管理哪些使用者帳戶)，所以不曾在指派範圍中的目標應用程式內的非受管理帳戶，不會受到解除佈建作業的影響。 初始同步處理之後，每隔十分鐘佈建服務會自動同步處理使用者和群組物件。
+如果是初次為應用程式啟用佈建，將 [佈建狀態] 變更為 [開啟] 即可開啟服務。 這會導致 Azure AD 佈建服務執行初始同步處理，此程序會讀取 [使用者和群組] 區段中指派的使用者，查詢他們的目標應用程式，並接著執行在 Azure AD [對應] 區段中定義的佈建動作。 在此程序中，佈建服務會儲存快取的資料 (有關管理哪些使用者帳戶)，所以不曾在指派範圍中的目標應用程式內的非受控帳戶，不會受到解除佈建作業的影響。 初始同步處理之後，每隔十分鐘佈建服務會自動同步處理使用者和群組物件。
 
 將 [佈建狀態] 變更為 [關閉] 只會暫停佈建服務。 在此狀態下，Azure 不會建立、更新或移除應用程式中的任何使用者或群組物件。 將狀態變更回開啟，服務會從停止的地方繼續。
 

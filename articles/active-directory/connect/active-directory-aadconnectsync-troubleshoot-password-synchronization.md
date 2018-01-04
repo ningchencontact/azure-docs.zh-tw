@@ -4,7 +4,7 @@ description: "本文提供如何針對密碼同步化問題進行疑難排解的
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼同步處理進行疑難排解
 本主題提供如何針對密碼同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。
@@ -212,7 +212,7 @@ ms.lasthandoff: 10/19/2017
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
-   例如：
+   例如︰
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
@@ -285,7 +285,7 @@ ms.lasthandoff: 10/19/2017
 
     a. 啟動 [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [連接器] 。
+    b. 按一下 [連接器] 。
 
     c. 選取使用者所在的 **Active Directory 連接器**。
 
@@ -332,7 +332,7 @@ ms.lasthandoff: 10/19/2017
 | SourceConnectorNotPresent |在內部部署 Active Directory 連接器空間中找不到任何物件。 |
 | TargetNotExportedToDirectory |尚未匯出 Azure AD 連接器空間中的物件。 |
 | MigratedCheckDetailsForMoreInfo |記錄項目建立於組建 1.0.9125.0 之前，並且以其舊版的狀態顯示。 |
-| 錯誤 |服務傳回未知的錯誤。 |
+| Error |服務傳回未知的錯誤。 |
 | 不明 |嘗試處理密碼雜湊的批次時發生錯誤。  |
 | MissingAttribute |無法使用 Azure AD Domain Services 所需的特定屬性 (例如，Kerberos 雜湊)。 |
 | RetryRequestedByTarget |先前無法使用 Azure AD Domain Services 所需的特定屬性 (例如，Kerberos 雜湊)。 會嘗試重新同步處理使用者的密碼雜湊。 |

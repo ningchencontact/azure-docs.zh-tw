@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Litmos 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: jeedes
 ms.assetid: cfaae4bb-e8e5-41d1-ac88-8cc369653036
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ef1b5860ba0a406022bbd11afb366d14bee2c57d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2447cc5dbb01aa718e4418386499c6e50e9f5184
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>教學課程：Azure Active Directory 與 Litmos 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Litmos
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-litmos-from-the-gallery"></a>從資源庫加入 Litmos
-若要設定將 Litmos 整合到 Azure AD 中，您需要從資源庫將 Litmos 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Litmos 整合到 Azure AD 中，您需要從資源庫將 Litmos 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Litmos，請執行下列步驟：**
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 
     ![新增屬性對話方塊](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_05.png)
 
-    b.這是另一個 C# 主控台應用程式。 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 
     c. 在 [值] 清單中，選取該列所顯示的值。
     
@@ -155,7 +155,7 @@ ms.lasthandoff: 10/11/2017
    
     ![整合索引標籤][23] 
 
-10. 在 整合 索引標籤上，向下捲動至 協力廠商整合，然後按一下SAML 2.0 索引標籤。
+10. 在 [整合] 索引標籤上，向下捲動至 [協力廠商整合]，然後按一下 [SAML 2.0] 索引標籤。
    
     ![SAML 2.0 區段][24] 
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 10/11/2017
      
      a. 按一下 [啟用 SAML] 。
     
-     b.這是另一個 C# 主控台應用程式。 在記事本中開啟您的 Base-64 編碼憑證、將其內容複製到剪貼簿，然後將它貼到 [SAML X.509 憑證] 文字方塊中。
+     b. 在記事本中開啟您的 Base-64 編碼憑證、將其內容複製到剪貼簿，然後將它貼到 [SAML X.509 憑證] 文字方塊中。
      
      c. 按一下 [儲存變更] 。
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-litmos-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-litmos-tutorial/create_aaduser_02.png)
 
@@ -206,7 +206,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-litmos-test-user"></a>建立 Litmos 測試使用者
 
@@ -225,7 +225,7 @@ Litmos 應用程式支援 Just-in-Time 佈建。 這表示，在使用存取面�
    
     ![整合索引標籤][23] 
 
-4. 在 整合 索引標籤上，向下捲動至 協力廠商整合，然後按一下SAML 2.0 索引標籤。
+4. 在 [整合] 索引標籤上，向下捲動至 [協力廠商整合]，然後按一下 [SAML 2.0] 索引標籤。
    
     ![SAML 2.0][24] 
     
@@ -265,7 +265,7 @@ Litmos 應用程式支援 Just-in-Time 佈建。 這表示，在使用存取面�
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。  
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。  
 
 當您在「存取面板」中按一下 [Litmos] 磚時，應該會自動登入您的 [Litmos] 應用程式。 
 

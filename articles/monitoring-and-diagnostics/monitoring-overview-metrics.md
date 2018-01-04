@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure 中的度量概觀
 本文章說明何謂 Microsoft Azure 中的度量、其優點，以及如何開始使用它們。  
@@ -89,11 +89,11 @@ Azure 監視器的預覽版本也可讓使用者體驗新的計量圖表。 這�
 ## <a name="access-metrics-via-the-rest-api"></a>透過 REST API 存取度量
 可以透過 Azure 監視器 API 存取 Azure 度量。 有兩個 API 可協助您探索及存取度量：
 
-* 使用 [Azure 監視器計量定義 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) 來存取可供服務使用的計量清單和任何維度。
-* 使用 [Azure 監視器計量 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) 來分類、篩選和存取實際的計量資料。
+* 使用 [Azure 監視器計量定義 REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) 來存取可供服務使用的計量清單和任何維度。
+* 使用 [Azure 監視器計量 REST API](https://docs.microsoft.com/rest/api/monitor/metrics) 來分類、篩選和存取實際的計量資料。
 
 > [!NOTE]
-> 本文章透過 Azure 資源的 [新度量 API](https://docs.microsoft.com/en-us/rest/api/monitor/) 涵蓋度量。 新計量定義和計量 API 的 API 版本為 2017-05-01-preview。 可以使用 API 版本 2014-04-01 存取舊版的度量定義和度量。
+> 本文章透過 Azure 資源的 [新度量 API](https://docs.microsoft.com/rest/api/monitor/) 涵蓋度量。 新計量定義和計量 API 的 API 版本為 2017-05-01-preview。 可以使用 API 版本 2014-04-01 存取舊版的度量定義和度量。
 >
 >
 

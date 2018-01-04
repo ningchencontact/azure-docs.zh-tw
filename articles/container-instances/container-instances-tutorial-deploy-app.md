@@ -1,40 +1,42 @@
 ---
 title: "Azure 容器執行個體教學課程 - 部署應用程式"
-description: "Azure 容器執行個體教學課程 - 部署應用程式"
+description: "Azure 容器執行個體教學課程第 3 之 3-部署的應用程式"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a6b36349c7fae09e70178ae7e7c2b6c15c0c26d4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>將容器部署至 Azure 容器執行個體
 
-這是三段式教學課程的最後一段。 在前面幾節中，我們[已建立容器映像](container-instances-tutorial-prepare-app.md)並[推送至 Azure Container Registry](container-instances-tutorial-prepare-acr.md)。 本節會將容器部署至 Azure 容器執行個體，以完成本教學課程。 完成的步驟包括：
+這是三部分系列的最後一個教學課程。 先前的數列，[建立容器映像來源](container-instances-tutorial-prepare-app.md)和[推送至 Azure 容器登錄中](container-instances-tutorial-prepare-acr.md)。 這篇文章完成教學課程系列 Azure 容器執行個體來部署容器。
+
+在本教學課程中，您：
 
 > [!div class="checklist"]
-> * 使用 Azure CLI 從 Azure Container Registry 部署容器
+> * 部署 Azure 容器登錄中使用 Azure CLI 從容器
 > * 在瀏覽器中檢視應用程式
-> * 檢視容器記錄
+> * 檢視容器的記錄檔
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程需要您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+本教學課程需要您執行 Azure CLI 版本 2.0.23 或更新版本。 執行 `az --version` 以尋找版本。 如果您要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
 
-若要完成本教學課程，您需要 Docker 開發環境。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
+若要完成本教學課程中，您必須安裝在本機上的 Docker 開發環境。 Docker 提供套件，輕鬆地在任何設定 Docker [Mac][docker-mac]， [Windows][docker-windows]，或[Linux] [ docker-linux]系統。
 
-Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 因此，我們建議您本機安裝 Azure CLI 和 Docker 開發環境。
+Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 您必須完成本教學課程在本機電腦上安裝 Azure CLI 和 Docker 的開發環境。
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>使用 Azure CLI 來部署容器
 
-Azure CLI 能夠透過單一命令將容器部署至 Azure 容器執行個體。 由於容器映像裝載在私人 Azure Container Registry 中，因此您必須納入所需的認證才能存取該映像。 如有必要，您可以查詢這些認證，如下所示。
+Azure CLI 能夠透過單一命令將容器部署至 Azure 容器執行個體。 由於容器映像裝載在私人 Azure Container Registry 中，因此您必須納入所需的認證才能存取該映像。 取得使用下列 Azure CLI 命令的認證。
 
 容器登錄的登入伺服器 (以登錄名稱來更新)：
 
@@ -51,23 +53,23 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 若要從容器登錄中部署要求 1 個 CPU 核心和 1 GB 記憶體資源的容器映像，請執行下列命令。 以您從先前兩個命令取得的值取代 `<acrLoginServer>` 和 `<acrPassword>`。
 
 ```azurecli
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80 -g myResourceGroup
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
 ```
 
-在幾秒內，您應該就會從 Azure Resource Manager 收到首次的回應。 若要檢視部署的狀態，請使用 [az container show](/cli/azure/container#az_container_show)：
+在幾秒內，您應該就會從 Azure Resource Manager 收到首次的回應。 若要檢視部署的狀態，請使用[az 容器顯示][az-container-show]:
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-重複執行 `az container show` 命令，直到狀態從 *Pending* (暫止) 變更為 *Running* (執行中) 為止，這應該會在一分鐘內完成。 當容器狀態為 *Running* (執行中) 時，請繼續進行下一個步驟。
+重複[az 容器顯示][ az-container-show]命令之前的狀態變更從*暫止*至*執行*，這應該一些一分鐘才能完成。 當容器狀態為 *Running* (執行中) 時，請繼續進行下一個步驟。
 
 ## <a name="view-the-application-and-container-logs"></a>檢視應用程式和容器記錄
 
-部署成功之後，請使用 [az container show](/cli/azure/container#az_container_show) 命令來顯示容器的公用 IP 位址：
+部署成功後，顯示容器的公用 IP 位址與[az 容器顯示][ az-container-show]命令：
 
 ```bash
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
 ```
 
 範例輸出：`"13.88.176.27"`
@@ -79,7 +81,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 您也可以檢視容器的記錄輸出：
 
 ```azurecli
-az container logs --name aci-tutorial-app -g myResourceGroup
+az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
 輸出：
@@ -92,7 +94,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您已不再需要在這個教學課程系列中建立的任何資源，便可以執行 [az group delete](/cli/azure/group#delete) 命令來移除資源群組及其包含的所有資源。 此命令除了會刪除執行中的容器和所有相關資源之外，也會刪除您所建立的容器登錄。
+如果您不再需要的任何您在此教學課程中建立的資源，您可以執行[az 群組刪除][ az-group-delete]命令以移除資源群組和它所包含的所有資源。 此命令除了會刪除執行中的容器和所有相關資源之外，也會刪除您所建立的容器登錄。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -103,12 +105,23 @@ az group delete --name myResourceGroup
 在本教學課程中，您已完成將容器部署至 Azure 容器執行個體的程序。 已完成下列步驟：
 
 > [!div class="checklist"]
-> * 使用 Azure CLI 從 Azure Container Registry 部署容器
+> * 部署 Azure 容器登錄中使用 Azure CLI 從容器
 > * 在瀏覽器中檢視應用程式
-> * 檢視容器記錄
-
-<!-- LINKS -->
-[prepare-app]: ./container-instances-tutorial-prepare-app.md
+> * 檢視容器的記錄檔
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-delete]: /cli/azure/group#az_group_delete
+[azure-cli-install]: /cli/azure/install-azure-cli
+[prepare-app]: ./container-instances-tutorial-prepare-app.md

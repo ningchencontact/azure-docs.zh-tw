@@ -3,7 +3,7 @@ title: "在 Azure AD 中設定 LinkedIn 整合 | Microsoft Docs"
 description: "說明如何在 Azure Active Directory 中為 Microsoft 應用程式啟用或停用 LinkedIn 整合。"
 services: active-directory
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 48b26bfcce67ce915c404a0ab2ac0f399c3b821d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15c161542d6826e6aeb5f708a0d9c3fa1f1885e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enabling-linkedin-integration-in-azure-active-directory"></a>在 Azure Active Directory 中啟用 LinkedIn 整合
 啟用 LinkedIn 整合可讓使用者存取公用的 LinkedIn 資料，而且如果他們願意的話，也可以存取其在 Microsoft 應用程式內的個人 LinkedIn 網路。 每個使用者都可以獨立地選擇將其工作帳戶連結到其 LinkedIn 帳戶。
@@ -41,7 +41,7 @@ Azure AD 中預設會啟用企業版的 LinkedIn 整合。 因此，當您對租
 4. 在 [LinkedIn 整合] 底下，選取 [是] 來啟用 LinkedIn 整合，或選取 [否] 來予以停用。
    ![啟用 LinkedIn 整合](./media/linkedin-integration/LinkedIn-integration.PNG)
 
-### <a name="learn-more"></a>詳細資訊 
+### <a name="learn-more"></a>深入了解 
 * [Microsoft 應用程式中的 LinkedIn 資訊和功能](https://go.microsoft.com/fwlink/?linkid=850740)
 
 * [LinkedIn 說明中心](https://www.linkedin.com/help/linkedin)

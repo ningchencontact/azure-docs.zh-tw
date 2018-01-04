@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>設定 Linux RDMA 叢集以執行 MPI 應用程式
 了解如何使用[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)在 Azure 中設定 Linux RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 本文提供準備 Linux HPC 映像以在叢集上執行 Intel MPI 的步驟。 準備之後，您會使用此映像和其中一個支援 RDMA 的 Azure VM 大小 (目前為 H16r、H16mr、A8 或 A9) 來部署 VM 的叢集。 請使用此叢集來執行透過低延遲、高輸送量網路有效率地進行通訊的 MPI 應用程式，此網路是以遠端直接記憶體存取 (RDMA) 技術為基礎。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 ## <a name="cluster-deployment-options"></a>叢集部署選項
 您可以使用下列方法來建立包含或不含作業排程器的 Linux RDMA 叢集。
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 * **Azure 訂用帳戶**：如果您沒有訂用帳戶，只需要幾分鐘就可以建立[免費帳戶](https://azure.microsoft.com/free/)。 針對較大的叢集，請考慮隨用隨付訂用帳戶或其他購買選項。
 * **VM 大小可用性**：下列執行個體大小有支援 RDMA︰H16r、H16mr、A8 及 A9。 如需了解 Azure 區域中的可用性，請查看 [依區域提供的產品](https://azure.microsoft.com/regions/services/) 。
 * **核心配額**：您可能需要增加核心配額，才能部署計算密集型 VM 的叢集。 例如，如本文所示，如果您想要部署 8 個 A9 VM，將至少需要 128 個核心。 您的訂用帳戶可能也會限制您可以在特定 VM 大小系列 (包括 H 系列) 中部署的核心數目。 若要要求增加配額，可免費[開啟線上客戶支援要求](../../../azure-supportability/how-to-create-azure-support-request.md)。
-* **Azure CLI**：[安裝](../../../cli-install-nodejs.md) Azure CLI 並從用戶端電腦[連接到您的 Azure 訂用帳戶](../../../xplat-cli-connect.md)。
+* **Azure CLI**：[安裝](../../../cli-install-nodejs.md) Azure CLI 並從用戶端電腦[連接到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>佈建 SLES 12 SP1 HPC VM
 使用 Azure CLI 登入 Azure 之後，請執行 `azure config list` 來確認輸出顯示服務管理模式。 如果不是，請執行此命令來設定模式：
@@ -109,7 +109,7 @@ VM 完成佈建之後，使用 VM 的外部 IP 位址 (或 DNS 名稱) 以及您
     ```
 
   > [!NOTE]
-  > 基於測試目的，您也可以將 memlock 設定為無限制。 例如， `<User or group name>    hard    memlock unlimited`。 如需詳細資訊，請參閱[設定鎖定的記憶體大小的最佳已知方法](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size)。
+  > 基於測試目的，您也可以將 memlock 設定為無限制。 例如：`<User or group name>    hard    memlock unlimited`。 如需詳細資訊，請參閱[設定鎖定的記憶體大小的最佳已知方法](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size)。
   >
   >
 * **SLES VM 的 SSH 金鑰**：產生 SSH 金鑰以在執行 MPI 作業時，於 SLES 叢集的所有計算節點之間建立使用者帳戶信任。 如果您部署 CentOS 型 HPC VM，請勿遵循此步驟。 請參閱本文稍後的指示，在您擷取映像並部署叢集之後，設定叢集節點間的無密碼 SSH 信任。

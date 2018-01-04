@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
-您可以在 [Azure Key Vault](../key-vault/key-vault-whatis.md) 中為資料存放區儲存認證。 執行活動 (該活動使用資料存放區) 時，Azure Data Factory 會擷取認證。 目前，只有[動態連接器](connector-dynamics-crm-office-365.md)和 [Salesforce 連接器](connector-salesforce.md)支援這項功能。
+您可以在 [Azure Key Vault](../key-vault/key-vault-whatis.md) 中為資料存放區儲存認證。 執行活動 (該活動使用資料存放區) 時，Azure Data Factory 會擷取認證。
+
+目前， [Dynamics 連接器](connector-dynamics-crm-office-365.md)， [Salesforce 連接器](connector-salesforce.md)和一些新啟用連接器支援這項功能。 預期更多即將更新版本。 您可以檢查詳細資料的每個連接器 」 主題。 密碼欄位支援這項功能，您會看到請注意，在描述說 「*您可以選擇將這個欄位標記以 securestring 的形式將它安全地儲存在 ADF，或將密碼儲存在 Azure 金鑰保存庫，並讓從該處複製活動提取當執行資料複製-深入從金鑰保存庫中存放區認證。*"
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
@@ -44,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | type 屬性必須設為：**AzureKeyVault**。 | 是 |
+| type | type 屬性必須設為：**AzureKeyVault**。 | 是 |
 | baseUrl | 指定 Azure Key Vault URL。 | 是 |
 
 **範例：**
@@ -67,7 +69,7 @@ ms.lasthandoff: 11/10/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 欄位的 type 屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
+| type | 欄位的 type 屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
 | secretName | Azure Key Vault 中密碼的名稱。 | 是 |
 | secretVersion | Azure Key Vault 中密碼的版本。<br/>如果未指定，它會一律使用最新版本的密碼。<br/>如果指定，則它會遵循指定的版本。| 否 |
 | store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | 是 |

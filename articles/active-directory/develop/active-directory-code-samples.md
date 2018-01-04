@@ -4,7 +4,7 @@ description: "依案例的組織的 Azure Active Directory 程式碼範例的索
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 19d71e65dc2c78663d94c74228dcff038566391b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 程式碼範例
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -124,7 +124,7 @@ ms.lasthandoff: 10/11/2017
 | C#/.NET |[使用 Azure AD 保護 Windows 市集應用程式和 REST Web 服務](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) |使用 Azure AD 和 [Azure AD 驗證程式庫 (ADAL)](active-directory-authentication-libraries.md)建立簡單 Web API 資源和 Windows 市集用戶端應用程式。 |
 | C#/.NET |[使用 Graph API 來查詢 Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |設定 Microsoft .NET 應用程式，以使用 Azure AD Graph API 從 Azure AD 租用戶目錄存取資料。 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 ##### <a name="other-resources"></a>其他資源
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 

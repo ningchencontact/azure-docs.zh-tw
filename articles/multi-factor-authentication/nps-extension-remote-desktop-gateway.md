@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure MFA, 整合遠端桌面閘道, Azure Active Directory, 網路原則伺服器擴充功能"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: fe831dc21f5e91bc2e78a1f38b655205bbc68971
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -114,7 +114,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 3. 選取 [屬性] 。
 4. 在 [屬性] 刀鋒視窗中，按一下 [目錄識別碼] 旁邊的 [複製] 圖示 (如下所示)，將識別碼複製到剪貼簿。
 
- ![屬性](./media/nps-extension-remote-desktop-gateway/image1.png)
+ ![properties](./media/nps-extension-remote-desktop-gateway/image1.png)
 
 ### <a name="install-the-nps-extension"></a>安裝 NPS 擴充功能
 在已安裝網路原則與存取服務 (NPS) 角色的伺服器上安裝 NPS 擴充功能。 這可當作您的設計的 RADIUS 伺服器。 
@@ -292,7 +292,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
  ![條件](./media/nps-extension-remote-desktop-gateway/image23.png)
 
-7. 按一下 [確定] 。 當系統提示您檢視對應的說明主題時，請按一下 [否]。
+7. 按一下 [SERVICEPRINCIPAL] 。 當系統提示您檢視對應的說明主題時，請按一下 [否]。
 8. 請確定新原則位於清單的頂端，已啟用原則，而且它會授與存取權。
 
  ![網路原則](./media/nps-extension-remote-desktop-gateway/image24.png)
@@ -377,6 +377,6 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 ## <a name="next-steps"></a>後續步驟
 [如何取得 Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
-[使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)
+[使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)
 
 [整合您的內部部署目錄與 Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)

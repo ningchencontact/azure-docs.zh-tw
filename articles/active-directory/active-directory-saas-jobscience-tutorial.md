@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Jobscience 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 66bec35a8f17482433dbf02827b90620d1cff378
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a2840968cadb3d78dee9d35fd0048d5941508cd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>教學課程：Azure Active Directory 與 Jobscience 整合
 
@@ -47,13 +47,13 @@ Jobscience 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Jobscience
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-jobscience-from-the-gallery"></a>從資源庫新增 Jobscience
-若要設定將 Jobscience 整合到 Azure AD 中，您需要從資源庫將 Jobscience 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Jobscience 整合到 Azure AD 中，您需要從資源庫將 Jobscience 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Jobscience，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Jobscience**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. 在結果面板中，選取 Jobscience，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Jobscience]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -133,7 +133,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
    
    ![設定](./media/active-directory-saas-jobscience-tutorial/IC784358.png "設定")
 
-9. 在 系統管理員 區段的左方導覽窗格中，按一下 網域管理 展開相關的區段，然後按一下我的網域 來開啟 我的網域 頁面。 
+9. 在 [系統管理員] 區段的左方導覽窗格中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。 
    
    ![我的網域](./media/active-directory-saas-jobscience-tutorial/ic767825.png "我的網域")
 
@@ -141,7 +141,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     ![已部署到使用者的網域](./media/active-directory-saas-jobscience-tutorial/ic784377.png "已部署到使用者的網域")
 
-11. 在 Jobscience 公司網站上，按一下 安全性控制項，然後按一下單一登入設定。
+11. 在 Jobscience 公司網站上，按一下 [安全性控制項]，然後按一下 [單一登入設定]。
     
     ![安全性控制項](./media/active-directory-saas-jobscience-tutorial/ic784364.png "安全性控制項")
 
@@ -151,7 +151,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
     
     a. 選取 [已啟用 SAML] 。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [新增] 。
+    b. 按一下 [新增] 。
 
 13. 在 [SAML 單一登入設定編輯]  對話方塊中，執行下列步驟：
     
@@ -159,7 +159,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
     
     a. 在 [名稱]  文字方塊中，輸入您的組態名稱。
 
-    b.這是另一個 C# 主控台應用程式。 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
+    b. 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
     c. 在 [實體識別碼] 文字方塊中，輸入 `https://salesforce-jobscience.com`
 
@@ -173,9 +173,9 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     h. 在 [識別提供者登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
-    i. 按一下 [儲存] 。
+    i. 按一下 [檔案] 。
 
-14. 在 系統管理員 區段的左方導覽窗格中，按一下 網域管理 展開相關的區段，然後按一下我的網域 來開啟 我的網域 頁面。 
+14. 在 [系統管理員] 區段的左方導覽窗格中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。 
     
     ![我的網域](./media/active-directory-saas-jobscience-tutorial/ic767825.png "我的網域")
 
@@ -183,7 +183,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
     
     ![登入頁面商標](./media/active-directory-saas-jobscience-tutorial/ic767826.png "登入頁面商標")
 
-16. [登入頁面商標] 頁面的 [驗證服務] 區段中，會顯示您的 [SAML SSO 設定] 的名稱。 請選取該名稱，然後按一下儲存 。
+16. [登入頁面商標] 頁面的 [驗證服務] 區段中，會顯示您的 [SAML SSO 設定] 的名稱。 請選取該名稱，然後按一下 [儲存] 。
     
     ![登入頁面商標](./media/active-directory-saas-jobscience-tutorial/ic784366.png "登入頁面商標")
 
@@ -222,11 +222,11 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-jobscience-test-user"></a>建立 Jobscience 測試使用者
 
@@ -255,7 +255,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
    
    a. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
    
-   b.這是另一個 C# 主控台應用程式。 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
+   b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
    
    c. 在 [別名] 文字方塊中，輸入使用者的別名，例如 brittas。
 
@@ -265,7 +265,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
    f. 在 [暱稱] 文字方塊中，輸入使用者的暱稱，例如 Simon。
 
-   g. 按一下 [儲存] 。
+   g. 按一下 [檔案] 。
 
     
 > [!NOTE]

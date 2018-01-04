@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>準備 Azure Container Service (AKS) 的應用程式
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和基本 Docker 命令。 如有需要，請參閱[開始使用 Docker]( https://docs.docker.com/get-started/)以取得容器基本概念入門。 
+本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和基本 Docker 命令。 如有需要請參閱[開始使用 Docker] [ docker-get-started]為容器的基本概念的入門。 
 
-若要完成本教學課程，您需要 Docker 開發環境。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
+若要完成本教學課程，您需要 Docker 開發環境。 Docker 提供套件，輕鬆地在任何設定 Docker [Mac][docker-for-mac]， [Windows][docker-for-windows]，或[Linux] [ docker-for-linux]系統。
 
 Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 因此，我們建議使用完整的 Docker 開發環境。
 
@@ -58,15 +58,15 @@ cd azure-voting-app-redis
 
 ## <a name="create-container-images"></a>建立容器映像
 
-[Docker Compose](https://docs.docker.com/compose/) 可用來將容器映像的組建和多容器應用程式的部署進行自動化。
+[Docker 撰寫][ docker-compose]可用來自動化組建現成可用的容器映像和多個容器應用程式的部署。
 
-執行 `docker-compose.yml`檔案以建立容器映像、下載 Redis 映像，並啟動應用程式。
+執行 `docker-compose.yaml`檔案以建立容器映像、下載 Redis 映像，並啟動應用程式。
 
 ```console
 docker-compose up -d
 ```
 
-完成時，使 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來查看所建立的映像。
+完成時，使用[docker 映像][ docker-images]命令以查看建立映像。
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-執行 [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) 命令可查看執行中的容器。
+執行[docker ps] [ docker-ps]命令以查看執行中的容器。
 
 ```console
 docker ps
@@ -131,4 +131,16 @@ docker-compose down
 前往下一個教學課程，了解如何在 Azure Container Registry 中儲存容器映像。
 
 > [!div class="nextstepaction"]
-> [將映像推送至 Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
+> [推入至 Azure 容器登錄中的映像][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

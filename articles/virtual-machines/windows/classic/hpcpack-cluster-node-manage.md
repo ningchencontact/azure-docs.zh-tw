@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>在 Azure 的 HPC Pack 叢集中管理計算節點的數目和可用性
 如果您已在 Azure VM 中建立 HPC Pack 2012 R2 叢集，您可能會需要可輕易地在叢集中新增、移除、啟動 (佈建) 或停止 (解除佈建) 一些計算節點 VM 的方法。 若要執行這些工作，請執行安裝在前端節點 VM 上的 Azure PowerShell 指令碼。 這些指令碼可協助您控制 HPC Pack 叢集資源的數目和可用性，讓您得以控制成本。
 
 > [!IMPORTANT] 
-> 本文適用於 Azure 中使用傳統部署模型建立的 HPC Pack 2012 R2 叢集。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> 本文適用於 Azure 中使用傳統部署模型建立的 HPC Pack 2012 R2 叢集。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 > 此外，本文中所述的 PowerShell 指令碼不適用於 HPC Pack 2016。
 
 ## <a name="prerequisites"></a>必要條件
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>參數
 * **ServiceName**：會新增計算節點 VM 之雲端服務的名稱。
-* **ImageName**：Azure VM 映像名稱，透過 Azure 傳統入口網站或 Azure PowerShell Cmdlet **Get-AzureVMImage** 可以取得此名稱。 這些映像必須符合下列需求：
+* **ImageName**: Azure VM 映像名稱，可透過 Azure 入口網站或 Azure PowerShell cmdlet 取得**Get-azurevmimage**。 這些映像必須符合下列需求：
   
   1. 必須安裝 Windows 作業系統。
   2. 必須在計算節點角色中安裝 HPC Pack。

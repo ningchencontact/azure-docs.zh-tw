@@ -3,7 +3,7 @@ title: "Azure 自動化 Runbook 類型 | Microsoft Docs"
 description: "描述您在 Azure 自動化中可使用的各種 Runbook，以及您在決定使用何種類型時應該納入的考量。 "
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自動化 Runbook 類型
 Azure 自動化支援下表中簡短描述的幾種 Runbook。  下列各節提供各種類型的進一步資訊，包括每種類別何時使用的考量。
@@ -96,9 +96,9 @@ Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使�
 ### <a name="known-issues"></a>已知問題
 以下是 Python Runbook 目前已知的問題。
 
-* 若要使用第三方程式庫，必須在 [Windows 混合式 Runbook 背景工作角色](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install)或 [Linux 混合式 Runbook 背景工作角色](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install)上執行 Runbook，且必須已先在機器上安裝程式庫，再啟動 Runbook。
+* 若要使用第三方程式庫，必須在 [Windows 混合式 Runbook 背景工作角色](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install)或 [Linux 混合式 Runbook 背景工作角色](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install)上執行 Runbook，且必須已先在機器上安裝程式庫，再啟動 Runbook。
 
-## <a name="considerations"></a>考量
+## <a name="considerations"></a>注意事項
 在決定特定 Runbook 要使用何種類型時，您應該考慮下列其他事項。
 
 * 您無法將 Runbook 從圖形化轉換為文字類型，反之亦然。

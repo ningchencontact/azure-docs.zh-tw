@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: raynew
-ms.openlocfilehash: 86806c5dbafc1fd88c434dcee6292683d050cd2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 02f68b68491250f89e8b0e3057f2363b177ab32e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-azure-iaas-virtual-machines-between-azure-regions-with-azure-site-recovery"></a>使用 Azure Site Recovery 在 Azure 區域之間移轉 Azure IaaS 虛擬機器
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 歡迎使用 Azure Site Recovery！ 如果您想要在 Azure 區域之間移轉 Azure VM，請使用本文。
 >[!NOTE]
 >
@@ -29,11 +29,9 @@ ms.lasthandoff: 10/11/2017
 
 開始之前，請注意：
 
-* Azure 建立和處理資源的部署模型有二種：Azure Resource Manager 和傳統。 Azure 也有兩個入口網站 – 支援傳統部署模型的 Azure 傳統入口網站，以及支援兩種部署模型的 Azure 入口網站。 無論您是在 Resource Manager 還是傳統中設定 Site Recovery，基本的移轉步驟都是相同的。 不過本文中的 UI 指示和螢幕擷取畫面都是和 Azure 入口網站相關。
+* Azure 建立和處理資源的部署模型有二種：Azure Resource Manager 和傳統。 Azure 入口網站支援兩種部署模型。 無論您是在 Resource Manager 還是傳統中設定 Site Recovery，基本的移轉步驟都是相同的。 
 
-
-
-在這篇文章下方或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
+在這篇文章下方或 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
 
 ## <a name="prerequisites"></a>必要條件
 以下是您針對此部署所需要的項目︰
@@ -41,14 +39,11 @@ ms.lasthandoff: 10/11/2017
 * **IaaS 虛擬機器**：您想要移轉的 VM。 您可以將那些 VM 視為實體機器來移轉它們。
 
 ## <a name="deployment-steps"></a>部署步驟
-本節描述新 Azure 入口網站中的部署步驟。
+本節說明在 Azure 入口網站的部署步驟。
 
 1. [建立保存庫](site-recovery-azure-to-azure.md#create-a-recovery-services-vault)。
-2. 針對您需要移轉的虛擬機器[啟用複寫](site-recovery-azure-to-azure.md)，並選擇 Azure 作為來源。
-  >[!NOTE]
-  >
-  > 目前不支援使用受管理磁碟的 Azure VM 原生複寫。 您可以使用[這份文件](site-recovery-vmware-to-azure.md)中的「實體至 Azure」選項，使用受管理的磁碟來移轉 VM。
-3. [執行容錯移轉](site-recovery-failover.md)。 初始複寫完成之後，您可以執行從一個 Azure 區域到另一個區域的容錯移轉。 (選擇性) 您可以建立復原計劃並執行容錯移轉，在區域與區域之間移轉多部虛擬機器。 [深入了解](site-recovery-create-recovery-plans.md) 復原計劃。
+2. 針對您需要移轉的虛擬機器[啟用複寫](site-recovery-azure-to-azure.md)，並選擇 Azure 作為來源。 目前不支援使用受控磁碟的 Azure VM 原生複寫。 您可以使用[這份文件](site-recovery-vmware-to-azure.md)中的「實體至 Azure」選項，使用受控磁碟來移轉 VM。
+1. [執行容錯移轉](site-recovery-failover.md)。 初始複寫完成之後，您可以執行從一個 Azure 區域到另一個區域的容錯移轉。 (選擇性) 您可以建立復原計劃並執行容錯移轉，在區域與區域之間移轉多部虛擬機器。 [深入了解](site-recovery-create-recovery-plans.md) 復原計劃。
 
 ## <a name="next-steps"></a>後續步驟
 在 [什麼是 Azure Site Recovery？](site-recovery-overview.md)

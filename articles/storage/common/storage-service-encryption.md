@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體服務加密
 待用資料的 Azure 儲存體服務加密 (SSE) 會協助您保護資料安全，以符合組織安全性和法規遵循承諾。 利用此功能，Azure 儲存體會自動加密資料，再保存到儲存體，以及在擷取之前解密。 以完全無感的方式處理所有加密、解密和金鑰管理。
@@ -155,11 +155,11 @@ Azure 檔案服務可在雲端中使用標準的 SMB 通訊協定提供檔案共
 
 **問︰是否可以撤銷加密金鑰的存取權？**
 
-答︰目前不行。金鑰完全是由 Microsoft 管理。
+答︰目前不行。金鑰完全由 Microsoft 管理。
 
 **問︰我建立新的儲存體帳戶時是否預設啟用 SSE？**
 
-答：預設未啟用 SSE；您可以使用 Azure 入口網站來啟用它。 您也可以以程式設計方式，使用儲存體資源提供者 REST API 來啟用這項功能。
+答： Azure 儲存體小組正在使用 Microsoft 管理的金鑰，所有的資料寫入 Azure 儲存體 （Blob、 檔案、 資料表和佇列儲存體），以及所有儲存體帳戶 （Azure 資源管理員] 和 [傳統儲存體，根據預設啟用加密帳戶），新的和現有。
 
 **問︰這項功能與 Azure 磁碟加密有什麼不同？**
 

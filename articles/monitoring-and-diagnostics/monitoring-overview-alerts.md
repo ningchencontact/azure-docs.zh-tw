@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
 本文說明 Microsoft Azure 中的各種警示來源、這些警示的目的和優點，以及如何開始使用這些警示。 此內容特別適用於 Azure 監視器，但也會提供其他警示服務的指示。 警示是在 Azure 中進行監視的一種方法，可讓您對資料設定條件，並在最近的監視資料符合條件時收到通知。
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Azure 警示的分類
 Azure 使用下列詞彙來描述警示及其功能：
@@ -32,8 +33,13 @@ Azure 使用下列詞彙來描述警示及其功能：
 * **通知** - 警示成為作用中時所採取的動作。
 * **動作** - 傳送給通知接收者的特定呼叫 (例如以電子郵件傳送位址或張貼到 Webhook URL)。 通知通常可觸發多個動作。
 
+    > [!NOTE]
+    > 在 Azure 中的警示演進，新的統一的體驗適用於預覽。 新警示 （預覽） 體驗使用不同的分類。 深入了解[警示 （預覽）](monitoring-overview-unified-alerts.md)。 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>不同 Azure 服務中的警示
 警示可跨數個 Azure 監視服務使用。 如需如何及何時使用這些服務的資訊，[請參閱這篇文章](./monitoring-overview.md)。 以下是可跨 Azure 使用之警示類型的細分：
+
 
 | 服務 | 警示類型 | 支援的服務 | 說明 |
 |---|---|---|---|
@@ -50,10 +56,10 @@ Azure 監視器中可用資料的警示類型有三種：計量警示、近乎�
 * **度量警示**：當指定的度量值超出您指派的閾值時會觸發這個警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，警示會產生通知。 Azure 監視器所支援的可用度量清單會不斷成長，如需此清單，請參閱 [Azure 監視器上支援的度量清單](monitoring-supported-metrics.md)。
 * **近乎即時計量警示 (預覽)**  - 這些警示類似於計量警示，但在一些方面有差異。 首先，顧名思義，這些警示能近乎即時觸發 (最快可每 1 分鐘觸發一次)。 它們也支援監視多個 (目前支援兩個) 計量。  當警示「啟用」時 (每個計量的閾值同時超過且符合警示條件)，或當警示「解決」時 (當至少有一個計量再次超過閾值且已不符合條件)，警示都會產生通知。
 
-> [!NOTE]
-> 近乎即時計量警示目前處於公開預覽狀態。 功能與使用者體驗可能會變更。
->
->
+    > [!NOTE]
+    > 近乎即時計量警示目前處於公開預覽狀態。 功能與使用者體驗可能會變更。
+    >
+    >
 
 * **活動記錄警示** - 當產生符合您已指派之篩選準則的活動記錄事件時會觸發資料流記錄警示。 這些警示只有「已啟動」這個狀態，因為警示引擎只會將篩選準則套用至任何新的事件。 您可以使用這些警示，在發生新的服務健康狀態事件時，或是在使用者或應用程式於您的訂用帳戶中執行作業時 (例如「刪除虛擬機器」)，收到通知。
 
@@ -91,3 +97,4 @@ Azure 監視器中可用資料的警示類型有三種：計量警示、近乎�
 * 深入了解[近乎即時計量警示](monitoring-near-real-time-metric-alerts.md)
 * 深入了解[服務通知](monitoring-service-notifications.md)
 * 深入了解[動作群組](monitoring-action-groups.md)
+* 設定[警示透過警示 （預覽）](monitor-alerts-unified-usage.md)

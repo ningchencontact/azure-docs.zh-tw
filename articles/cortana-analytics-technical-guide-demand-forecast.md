@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
 ## <a name="overview"></a>**概觀**
@@ -82,7 +82,7 @@ Azure HDInsight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasupport
 
 可以透過以下方式找到 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/) 查詢：
 
-* 登入 [Azure 入口網站](https://manage.windowsazure.com/)
+* 登入 [Azure 入口網站](https://portal.azure.com/)
 * 找出部署解決方案時所產生的串流分析作業 ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png)。 一個用於將資料推送至 Blob 儲存體 (例如 mytest1streaming432822asablob)，另一種用於將資料推送至 Power BI (例如 mytest1streaming432822asapbi)。
 * 選取
 
@@ -196,7 +196,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
    在移至後續步驟之前，您將需要**資料庫伺服器名稱、資料庫名稱、使用者名稱和密碼** 。 以下是引導您如何尋找的步驟。
 
-   * 一旦您的解決方案範本圖表上的 Azure SQL Database 變成綠色，請按一下它，然後按一下開啟。 您將會前往 Azure 入口網站，而且您的資料庫資訊頁面也會開啟。
+   * 一旦您的解決方案範本圖表上的 [Azure SQL Database] 變成綠色，請按一下它，然後按一下 [開啟]。 您將會前往 Azure 入口網站，而且您的資料庫資訊頁面也會開啟。
    * 在該頁面上，您可以找到 [資料庫] 區段。 它會列出您已建立的資料庫。 您的資料庫名稱應該是 **「您的解決方案名稱 + 隨機數字 + 'db'」** (例如 "mytest12345db")。
    * 按一下您的資料庫，在新的快顯面板上方，就可以找到您的資料庫伺服器名稱。 您的資料庫伺服器名稱應該是 `"Your Solution Name + Random Number + 'database.windows.net,1433'"` (例如，"mytest12345.database.windows.net,1433")。
    * 您的資料庫**使用者名稱**和**密碼**使用解決方案部署期間記錄的相同使用者名稱和密碼。
@@ -207,7 +207,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
      一旦開啟，請在檔案的頂端按一下 [編輯查詢] 。 在快顯視窗中，按兩下右面板上的 [來源]。
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
-   * 在快顯視窗中，將 伺服器和 資料庫 取代為您自己的伺服器和資料庫名稱，然後按一下確定。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 忽略畫面上出現的警告訊息。
+   * 在快顯視窗中，將 [伺服器]和 [資料庫] 取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 忽略畫面上出現的警告訊息。
    * 在下一個快顯視窗中，您會在左側窗格上看到兩個選項 ([Windows] 和 [資料庫])。 按一下 [資料庫]，填入您的 [使用者名稱] 和 [密碼] \(這是當您首次部署解決方案並建立 Azure SQL Database 時輸入的使用者名稱和密碼)。 在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。 然後按一下 [連接] 。
    * 一旦引導您回到上一頁，請關閉視窗。 隨即快顯訊息 - 按一下 [套用]。 最後，按一下 [儲存]  按鈕以儲存變更。 您的 Power BI 檔案現在已建立與伺服器的連線。 如果視覺效果是空的，請確定將視覺效果上的選取範圍都清除，以將所有資料視覺化，成法是按一下圖例右上角的橡皮擦圖示。 使用重新整理按鈕在視覺效果上反映新的資料。 最初，您只會在視覺效果上看到種子資料，因為 Data Factory 排定為每 3 個小時重新整理。 3 小時後，當您重新整理資料時，會看到新的預測反映在視覺效果中。
 3. (選擇性) 將冷路徑儀表板發佈至 [Power BI 線上版](http://www.powerbi.com/)。 請注意，這個步驟需要 Power BI 帳戶 (或 Office 365 帳戶)。

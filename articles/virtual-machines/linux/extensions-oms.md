@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/05/2017
 
 Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視、警示和警示補救功能。 Microsoft 已發佈和支援適用於 Linux 的 OMS 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 OMS 代理程式，並且在現有的 OMS 工作區中註冊虛擬機器。 本文件詳述適用於 Linux 的 OMS 虛擬機器擴充功能所支援的平台、組態和部署選項。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -48,7 +48,7 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
-適用於 Linux 的 OMS 代理程式擴充功能會要求目標虛擬機器連線到網際網路。 
+適用於 Linux 的 OMS 代理程式擴充功能會要求目標虛擬機器連接到網際網路。 
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
@@ -83,7 +83,7 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| 類型 | OmsAgentForLinux |
+| type | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
 | workspaceId (例如) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -93,7 +93,7 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署一或多部需要部署後設定的虛擬機器時，很適合使用範本。 在 [Azure 快速啟動資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)上可找到包含 OMS 代理程式 VM 擴充功能的範例 Resource Manager 範本。 
 
-虛擬機器擴充功能的 JSON 設定可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 設定的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-manager-template-child-resource.md)。 
+虛擬機器擴充功能的 JSON 設定可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 設定的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources)。 
 
 下列範例假設 OMS 擴充功能以巢狀方式置於虛擬機器資源內部。 在巢狀處理擴充資源時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
 
@@ -182,7 +182,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 10 | VM 已經連線到 OMS 工作區 | 若要將 VM 連線到擴充功能結構描述中所指定的工作區，請在公用設定中將 stopOnMultipleConnections 設定為 false，或是移除此屬性。 針對此 VM 所連線的每個工作區都會向此 VM 計費一次。 |
 | 11 | 提供給擴充功能的組態無效 | 依照上述範例來設定部署所需的所有屬性值。 |
 | 12 | dpkg 套件管理員已鎖定 | 請確定機器上的所有 dpkg 更新作業皆已完成，然後重試。 |
-| 20 | 啟用提前呼叫 | [將 Azure Linux 代理程式更新](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent)為最新的可用版本。 |
+| 20 | 啟用提前呼叫 | [將 Azure Linux 代理程式更新](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)為最新的可用版本。 |
 | 51 | VM 的作業系統上不支援此擴充功能 | |
 | 55 | 無法連線至 Microsoft Operations Management Suite 服務 | 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請確認工作區識別碼是否正確。 |
 

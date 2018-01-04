@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/02/2017
 ## <a name="gather-diagnostics-information"></a>蒐集診斷資訊
 當您在尋求協助時，如果能夠提供診斷資訊，有時可能會相當有幫助。 以下是記錄檔的所在位置：
 
-### <a name="installer"></a>安裝程式
+### <a name="installer-log"></a>安裝程式記錄檔
 如果您在安裝期間遇到問題，可以在以下位置找到安裝程式記錄檔：
 
 ```
@@ -40,18 +40,7 @@ ms.lasthandoff: 12/02/2017
 ```
 您可以將這些目錄的內容壓縮，然後傳送給我們進行診斷。
 
-### <a name="app-update"></a>應用程式更新 
-#### <a name="no-update-notification-on-windows-desktop"></a>Windows 桌面上沒有更新通知 
-未來更新將解決這個問題。 在此同時，因應措施是避免從釘選在工作列上的捷徑啟動應用程式。 改為使用 [開始] 功能表或開始搜尋列，或桌面上的捷徑 (如果有的話) 來啟動應用程式。 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Ubuntu 資料科學虛擬機器 (DSVM) 上沒有更新通知
-執行下列步驟以下載最新的應用程式：   
-   - 移除資料夾 \Users\AppData\Local\amlworkbench
-   - 移除指令碼 `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - 移除可啟動上述指令碼的桌面捷徑
-   - 使用 [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi) 輕易安裝
-
-### <a name="workbench-desktop-app"></a>Workbench 傳統型應用程式
+### <a name="workbench-desktop-app-log"></a>Workbench 傳統型應用程式記錄檔
 如果您無法登入，或如果 Workbench 傳統型應用程式當機，就可以在以下位置找到記錄檔：
 ```
 # Windows
@@ -62,7 +51,7 @@ ms.lasthandoff: 12/02/2017
 ``` 
 您可以將這些目錄的內容壓縮，然後傳送給我們進行診斷。
 
-### <a name="experiment-execution"></a>實驗執行
+### <a name="experiment-execution-log"></a>實驗執行記錄
 如果從傳統型應用程式提交時，特定指令碼發生失敗，請嘗試透過 CLI 使用 `az ml experiment submit` 命令來重新提交。 這應該會以 JSON 格式提供您完整的錯誤訊息，最重要的是，它會包含**作業識別碼**值。 請將包含**作業識別碼**的 JSON 檔案傳送給我們，我們將可協助進行診斷。 
 
 如果特定指令碼在提交時成功，但在執行時失敗，它應該會顯示**執行識別碼**來識別該特定執行。 您可以使用下列命令來封裝相關的記錄檔︰
@@ -96,6 +85,8 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 
 - 只有在 Windows 和 Linux (在 Docker 容器中) 上支援 RevoScalePy 程式庫。 在 macOS 上不提供支援。
 
+- Jupyter 筆記本具有的最大的大小限制為 5 MB 時從 Workbench 應用程式中開啟它們。 您可以從 CLI 使用 'az ml 筆記本 start' 命令中，開啟大型筆記本，並清除資料格輸出減少檔案大小。
+
 ## <a name="cant-update-workbench"></a>無法更新 Workbench
 有新的更新可用時，Workbench 應用程式首頁會顯示一則訊息，通知您有關新的更新。 您應會看到更新徽章出現在鈴鐺圖示上應用程式的左下角。 按一下徽章並遵循安裝程式精靈來安裝更新。 
 
@@ -113,7 +104,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
    - 移除可啟動上述指令碼的桌面捷徑
    - 下載安裝程式 https://aka.ms/azureml-wb-msi 並重新安裝。
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>在登入後卡在「正在檢查測試帳戶」畫面
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>登入之後卡在 「 檢查試驗帳戶 」 畫面
 登入之後，Workbench 應用程式可能會卡在空白畫面，並會顯示「正在檢查測試帳戶」訊息及旋轉的滾輪。 若要解決此問題，請採取下列步驟：
 1. 關閉應用程式
 2. 刪除以下檔案：
@@ -147,6 +138,13 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 ## <a name="file-name-too-long-on-windows"></a>檔案名稱在 Windows 上太長
 如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能呈現為「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。
+
+## <a name="interrupt-cli-execution-output"></a>插斷 CLI 執行輸出
+如果您開始使用執行試驗`az ml experiment submit`或`az ml notebook start`和您想要中斷輸出： 
+- 在 Windows 上使用 Ctrl-break 鍵盤按鍵的組合
+- 在 macOS，使用 Ctrl + c。
+
+請注意，這只會中斷 CLI 視窗中的輸出資料流。 它不會實際停止正在執行的工作。 如果您想要取消執行中的工作，使用`az ml experiment cancel -r <run_id> -t <target name>`命令。
 
 ## <a name="docker-error-read-connection-refused"></a>Docker 錯誤 "read: connection refused"
 對本機 Docker 容器執行時，有時您可能會看到下列錯誤： 
@@ -198,9 +196,20 @@ username ALL=(ALL) NOPASSWD:ALL
 $ docker system prune -a
 ```
 
-您也可以新增資料磁碟並將 Docker 引擎設定為使用資料磁碟來儲存映像。 以下說明[如何新增資料磁碟](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk)。 您可以接著[變更 Docker 儲存映像的位置](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169)。
+您也可以新增資料磁碟並將 Docker 引擎設定為使用資料磁碟來儲存映像。 以下說明[如何新增資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。 您可以接著[變更 Docker 儲存映像的位置](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169)。
 
-或者，您可以展開作業系統磁碟，但不必碰觸 Docker 引擎組態。 以下說明[如何展開作業系統磁碟](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk)。
+或者，您可以展開作業系統磁碟，但不必碰觸 Docker 引擎組態。 以下說明[如何展開作業系統磁碟](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)。
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>在 Windows 上共用 C 磁碟機
 如果您在 Windows 上的本機 Docker 容器中執行，將 `aml_config` 底下 `docker.compute` 檔案中的 `sharedVolumes` 設定為 `true` 可以改善執行效能。 不過，您必須在 _Docker for Windows 工具_ 中共用 C 磁碟機。 如果您不能共用 C 磁碟機，請嘗試下列秘訣：
@@ -213,6 +222,18 @@ $ docker system prune -a
 * 使用網域認證共用 C 磁碟機時，若所在網路無法連線網域控制站 (例如，家用網路、公用 WiFi 等)，則共用可能會停止運作。 如需詳細資訊，請參閱[這篇文章](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) \(英文\)。
 
 您也可以在 `docker.compute` 檔案中將 `sharedVolumne` 設定為`false`，以很少的效能成本避開共用問題。
+
+## <a name="wipe-clean-workbench-installation"></a>抹除全新 Workbench 安裝
+您通常不需要執行這項操作。 但如果您必須抹除全新安裝，步驟如下：
+
+- 在 Windows 上：
+  - 先確定您使用_新增或移除程式_applet 中的_控制台_移除_Azure 機器學習 Workbench_應用程式項目。  
+  - 然後您可以下載並執行下列指令碼的其中一個：
+    - [Windows 命令列指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd)。
+    - [Windows PowerShell 指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1)。 (您可能需要執行`Set-ExecutionPolicy Unrestricted`才能執行指令碼的權限提升權限 PowerShell 視窗中。)
+- 在 macOS 上：
+  - 只要下載並執行[macOS 撞殼層指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh)。
+
 
 ## <a name="some-useful-docker-commands"></a>一些實用的 Docker 命令
 

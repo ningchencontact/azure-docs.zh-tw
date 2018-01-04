@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 81614f8061fdf15c55e61ee06eec54fa6a6a02f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Azure 事件中樞擷取
 
@@ -39,7 +39,13 @@ Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到�
 事件中樞擷取可讓您設定要控制擷取的範圍。 此範圍是具有「先者勝出原則」的最小大小和時間組態，這表示所遇到的第一個觸發條件會導致擷取作業。 如果您有一個 15 分鐘 100 MB 的擷取範圍，且傳送速率為每秒 1 MB，則大小範圍會比時間範圍更早觸發。 每個分割區都會獨立擷取，並在擷取時寫入已完成的區塊 Blob，而且會以遇到擷取間隔的時間命名。 儲存體命名慣例如下︰
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+請注意，日期值會以零填補。範例檔名可能是：
+
+```
+https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>調整至輸送量單位
@@ -50,7 +56,7 @@ Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到�
 
 ## <a name="setting-up-event-hubs-capture"></a>設定事件中樞擷取
 
-您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本，在建立事件中樞時設定擷取功能。 如需詳細資訊，請參閱下列文章。
+您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本，在建立事件中樞時設定擷取功能。 如需詳細資訊，請參閱下列文章：
 
 - [使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
 - [使用 Azure Resource Manager 範本建立含有一個事件中樞的事件中樞命名空間並啟用擷取](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)

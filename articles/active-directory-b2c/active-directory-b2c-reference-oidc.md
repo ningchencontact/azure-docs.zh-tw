@@ -4,7 +4,7 @@ description: "使用 OpenID Connect 驗證通訊協定的 Azure Active Directory
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C：利用 OpenID Connect 的 Web 登入
 OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將使用者安全地登入 Web 應用程式。 藉由使用 OpenID Connect 的 Azure Active Directory B2C (Azure AD B2C) 實作，您就能將 Web 應用程式中的註冊、登入及其他識別管理體驗外包給 Azure Active Directory (Azure AD)。 本指南會以與語言無關的方式示範如何執行此動作。 而是在說明如何傳送和接收 HTTP 訊息，但不使用我們的任何開放原始碼程式庫。
@@ -105,7 +105,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | --- | --- |
 | id_token |應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。 |
 | code |應用程式要求的授權碼 (如果您使用 `response_type=code+id_token`)。 應用程式可以使用授權碼來要求目標資源的存取權杖。 授權碼的存留期很短。 通常會在大約 10 分鐘後過期。 |
-| state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值完全相同。 |
+| state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
 
 錯誤回應也能夠傳送到 `redirect_uri` 參數，讓應用程式能適當地處理：
 
@@ -120,7 +120,7 @@ error=access_denied
 | --- | --- |
 | 錯誤 |可用以分類所發生的錯誤類型，以及可用來回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
-| state |如需完整說明，請參閱本節的第一個表格。 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值完全相同。 |
+| state |如需完整說明，請參閱本節的第一個表格。 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
 
 ## <a name="validate-the-id-token"></a>驗證識別碼權杖
 只收到識別碼權杖並不足以驗證使用者。 您必須驗證識別碼權杖的簽章，並依照應用程式的要求來確認權杖中的宣告。 Azure AD B2C 使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密編譯來簽署權杖及驗證其是否有效。
@@ -175,7 +175,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | p |必要 |用來取得授權碼的原則。 您無法在此要求中使用不同的原則。 請注意，您要將這個參數新增到查詢字串，而不是 `POST` 主體。 |
 | client_id |必要 |[Azure 入口網站](https://portal.azure.com/) 指派給您應用程式的應用程式識別碼。 |
 | grant_type |必要 |授與的類型，針對授權碼流程來說，必須是 `authorization_code` 。 |
-| scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API，其會由與用戶端相同的應用程式識別碼來表示。 `offline_access` 範圍表示您的應用程式將需要重新整理權杖，才能長久存取資源。 |
+| scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API，其會由與用戶端相同的應用程式識別碼來表示。 `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。 |
 | code |必要 |您在流程的第一個階段中取得的授權碼。 |
 | redirect_uri |必要 |應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
 | client_secret |必要 |您在 [Azure 入口網站](https://portal.azure.com/)中產生的應用程式祕密。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 您也應該定期輪換此用戶端祕密。 |

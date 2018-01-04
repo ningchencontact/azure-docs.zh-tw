@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>使用 Jenkins 和 Azure CLI 來部署到 Azure App Service
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](https://jenkins.io/doc/book/pipeline/)中使用 Azure CLI。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 必須要有 Azure 認證，才能執行 Azure CLI。
 
 * 在 Jenkins 儀表板中，按一下 [Credentials] \(認證\) -> [System] \(系統\) -> 。 按一下 [Global credentials(unrestricted)] \(全域認證 (不受限)\)。
-* 按一下 [Add Credentials] \(新增認證\) 來填寫 [Subscription ID] \(訂用帳戶 ID\)、[Client ID] \(用戶端識別碼\)、[Client Secret] \(用戶端祕密\) 及 [OAuth 2.0 Token Endpoint] \(OAuth 2.0 權杖端點\)，以新增 [Microsoft Azure 服務主體](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)。 請提供一個要在後續步驟中使用的識別碼。
+* 按一下 [Add Credentials] \(新增認證\) 來填寫 [Subscription ID] \(訂用帳戶 ID\)、[Client ID] \(用戶端識別碼\)、[Client Secret] \(用戶端祕密\) 及 [OAuth 2.0 Token Endpoint] \(OAuth 2.0 權杖端點\)，以新增 [Microsoft Azure 服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)。 請提供一個要在後續步驟中使用的識別碼。
 
 ![新增認證](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
@@ -153,7 +153,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ## <a name="create-jenkins-pipeline"></a>建立 Jenkins 管線
 在網頁瀏覽器中開啟 Jenkins，按一下 [New Item] \(新增項目\)。 
 
-* 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 按一下 [確定] 。
+* 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 按一下 [SERVICEPRINCIPAL] 。
 * 接著，按一下 [Pipeline] \(管線\) 索引標籤。 
 * 針對 [Definition] \(定義\)，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)。
 * 針對 [SCM]，選取 [Git]。

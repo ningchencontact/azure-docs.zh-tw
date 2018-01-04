@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: f5d6bb066f9cee0d072ddb3129867cefefe3e66f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>搭配使用 Docker VM 擴充程式與 Azure 傳統入口網站
+# <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>使用 Azure 入口網站上的 Docker VM 擴充功能
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。 您可以使用 [Azure Linux 代理程式] 所管理的 Docker VM 延伸模組，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。
 
 > [!NOTE]
-> 本主題說明如何從 Azure 入口網站建立 Docker VM。 若要查看如何在命令列建立 Docker VM，請參閱 [如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 延伸模組]。 若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)(英文)。
+> 本主題說明如何從 Azure 入口網站建立 Docker VM。 若要查看如何在命令列建立 Docker VM，請參閱 [如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 擴充程式]。 若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)(英文)。
 > 
 > 
 
@@ -130,7 +130,7 @@ WARNING: No swap limit support
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
-您已準備好開始移至 [Docker 使用者指南] ，並使用 Docker VM。 如果您想透過命令列介面在 Azure VM 上自動建立 Docker主機，請參閱 [如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 延伸模組]
+您已準備好開始移至 [Docker 使用者指南] ，並使用 Docker VM。 如果您想透過命令列介面在 Azure VM 上自動建立 Docker主機，請參閱 [如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 擴充程式]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]:#createvm
@@ -153,7 +153,7 @@ WARNING: No swap limit support
 
 
 <!--Link references-->
-[如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 延伸模組]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 擴充程式]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Azure Linux 代理程式]:../agent-user-guide.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 

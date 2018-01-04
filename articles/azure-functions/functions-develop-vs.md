@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -68,7 +68,7 @@ Azure Functions Tools 提供下列優點：
 
 1. 在 Visual Studio 中，開啟 [Cloud Explorer]，展開 [儲存體帳戶] > 「您的儲存體帳戶」，然後選取 [屬性] 並複製 [主要連接字串] 值。   
 
-2. 在您的專案中，開啟 local.settings.json 專案檔案並將 **AzureWebJobsStorage** 機碼的值設定為您所複製的連接字串。
+2. 在專案中，開啟 local.settings.json 檔案和設定的值**AzureWebJobsStorage**您複製到連接字串索引鍵。
 
 3. 重複上一步，針對函數所需的其他任何連接，將唯一機碼新增至 [值] 陣列。  
 
@@ -106,7 +106,7 @@ Azure Functions Tools 提供下列優點：
     } 
     ````
  
-    會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會作為參數傳遞。  
+    會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會當做參數傳遞給**QueueTrigger**屬性。
 
 ## <a name="testing-functions"></a>測試函式
 

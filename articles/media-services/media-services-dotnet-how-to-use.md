@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-本主題討論如何使用 .NET 開始開發媒體服務應用程式。
+這篇文章會討論如何開始開發使用.NET 的 Media Services 應用程式。
 
 **Azure Media Services .NET SDK 程式庫** 可讓您使用 .NET 對媒體服務進行程式設計。 為了讓使用 .NET 進行開發更為簡單，會提供 **Azure Media Services .NET SDK 延伸模組** 程式庫。 此程式庫包含一組延伸方法和協助程式函數，以簡化 .NET 程式碼。 這兩個程式庫都是透過 **NuGet** 和 **GitHub** 取得。
 
 ## <a name="prerequisites"></a>必要條件
-* 新的或現有 Azure 訂用帳戶中的媒體服務帳戶。 請參閱主題 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 新的或現有 Azure 訂用帳戶中的媒體服務帳戶。 請參閱文章[如何建立 Media Services 帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
-* .NET Framework 4.5。
+* .NET framework 4.5 或更新版本。
 * Visual Studio。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
@@ -60,28 +60,21 @@ ms.lasthandoff: 12/05/2017
    
     2. [管理參考] 對話方塊隨即出現。
     3. 在 .NET Framework 組件底下，尋找並選取 System.Configuration 組件，然後按 [確定]。
-6. 開啟 App.config 檔案並將 **appSettings** 區段新增至檔案。     
-   
-    設定連接媒體服務 API 時所需的值。 如需詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+6. 開啟 App.config 檔案並將 **appSettings** 區段新增至檔案。 設定連接媒體服務 API 時所需的值。 如需詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-    如果您使用[使用者驗證](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)，您的設定檔可能會有 Azure AD 租用戶網域和 AMS REST API 端點的值。
-    
-    >[!Note]
-    >Azure 媒體服務文件集中大多數的程式碼範例，以使用者 (互動式) 的驗證類型連線到 AMS API。 這種驗證方法適用於管理或監控原生應用程式：行動應用程式、Windows 應用程式和主控台應用程式。
-    
-    >[!Important]
-    > **互動式**驗證方法不適用於伺服器、Web 服務、API 類型的應用程式。 對於這些類型的應用程式，請使用**服務主體**驗證方法。 如需詳細資訊，請參閱[使用 Azure AD 驗證存取 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
+設定使用的連接時所需的值**服務主體**驗證方法。  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
-
         </configuration>
-
-7. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 **using** 陳述式。
+7. 新增**System.Configuration**參考加入專案。
+7. 覆寫現有**使用**為下列程式碼的 Program.cs 檔案開頭的陳述式：
            
         using System;
         using System.Configuration;
@@ -100,17 +93,26 @@ ms.lasthandoff: 12/05/2017
     class Program
     {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
     
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-    
+
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
     
             // List all available Media Processors

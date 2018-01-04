@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 vxMaintain 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ad87534af448356b8cc80d8ddd278bfb8a9165e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>教學課程：整合 Azure Active Directory 與 vxMaintain
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 * 設定並測試 Azure AD 單一登入
 
 ## <a name="add-vxmaintain-from-the-gallery"></a>從資源庫新增 vxMaintain
-若要設定將 vxMaintain 與 Azure AD 整合，您需要從資源庫將 vxMaintain 新增到受管理的 SaaS 應用程式清單。
+若要設定將 vxMaintain 與 Azure AD 整合，您需要從資源庫將 vxMaintain 新增到受控 SaaS 應用程式清單。
 
 若要從資源庫新增 vxMaintain，請執行下列動作：
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中產生的值。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
  
 ### <a name="create-a-vxmaintain-test-user"></a>建立 vxMaintain 測試使用者
 

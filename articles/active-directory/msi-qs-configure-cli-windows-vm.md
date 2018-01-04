@@ -1,10 +1,10 @@
 ---
 title: "如何使用 Azure CLI 設定 Azure VM 上的 MSI"
-description: "使用 Azure CLI 在 Azure VM 上設定「受管理的服務身分識別 (MSI)」的逐步指示。"
+description: "使用 Azure CLI 在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.openlocfilehash: a8050383a03344e41c90af06e00dbca3885aa566
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 70500ab572be9902c040388ee31a3fbed601445f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>使用 Azure CLI 設定「VM 受管理的服務身分識別 (MSI)」
+# <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>使用 Azure CLI 設定「VM 受控服務身分識別 (MSI)」
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-在 Azure Active Directory 中，「受管理的服務身分識別」會提供自動受管理的身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您將了解如何使用 Azure CLI 啟用和移除 Azure VM 的 MSI。
 
@@ -95,7 +95,8 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="related-content"></a>相關內容
 
-- [受管理的服務識別概觀](msi-overview.md)
+- 
+            [受控服務識別概觀](msi-overview.md)
 - 如需完整的 Azure VM 建立快速入門，請參閱： 
 
   - [使用 CLI 建立 Windows 虛擬機器](../virtual-machines/windows/quick-create-cli.md)  

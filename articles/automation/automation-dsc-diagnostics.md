@@ -3,7 +3,7 @@ title: "將 Azure Automation DSC 報表資料轉送到 OMS Log Analytics | Micro
 description: "這篇文章示範如何將期望的狀態設定 (DSC) 報表資料傳送到 Microsoft Operations Management Suite Log Analytics，以提供額外的深入解析和管理。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,21 +12,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>將 Azure Automation DSC 報表資料轉送到 OMS Log Analytics
 
 自動化可以將 DSC 節點狀態資料傳送到您的 Microsoft Operations Management Suite (OMS) Log Analytics 工作區。  
 節點以及節點設定中個別 DSC 資源的合規性狀態會顯示在 Azure 入口網站中，或使用 PowerShell 顯示。 透過 Log Analytics，您可以：
 
-* 取得受管理節點與個別資源的合規性資訊
+* 取得受控節點與個別資源的合規性資訊
 * 根據合規性狀態觸發電子郵件或警示
-* 撰寫受管理節點之間的進階查詢
+* 撰寫受控節點之間的進階查詢
 * 相互關聯自動化帳戶之間的合規性狀態
 * 以視覺化方式呈現一段時間的合規性歷程記錄
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 若要開始從 Azure Automation DSC 將資料匯入 Log Analytics，請完成下列步驟：
 
-1. 在 PowerShell 中登入您的 Azure 帳戶。 請參閱[使用 Azure PowerShell 登入](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. 在 PowerShell 中登入您的 Azure 帳戶。 請參閱[使用 Azure PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. 執行下列 PowerShell 命令以取得自動化帳戶的 _ResourceId_：(如有多個自動化帳戶，請選擇您想要設定的帳戶 _ResourceID_)。
 
   ```powershell
@@ -126,16 +126,16 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | TimeGenerated |執行合規性檢查的日期和時間。 |
 | OperationName |DscNodeStatusData |
 | ResultType |節點是否符合規範。 |
-| NodeName_s |受管理的節點名稱。 |
+| NodeName_s |受控節點名稱。 |
 | NodeComplianceStatus_s |節點是否符合規範。 |
 | DscReportStatus |合規性檢查是否已順利執行。 |
 | ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__、__"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄檔中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄檔中報告差異，然後重新套用目前的設定。</li></ul> |
-| HostName_s | 受管理的節點名稱。 |
-| IPAddress | 受管理節點的 IPv4 位址。 |
+| HostName_s | 受控節點名稱。 |
+| IPAddress | 受控節點的 IPv4 位址。 |
 | 類別 | DscNodeStatus |
 | 資源 | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
-| NodeId_g |識別受管理節點的 GUID。 |
+| NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
 | LastSeenTime_t |上一次檢視報表的日期和時間。 |
 | ReportStartTime_t |報表開始的日期和時間。 |
@@ -157,11 +157,11 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | TimeGenerated |執行合規性檢查的日期和時間。 |
 | OperationName |DscResourceStatusData|
 | ResultType |資源是否符合規範。 |
-| NodeName_s |受管理的節點名稱。 |
+| NodeName_s |受控節點名稱。 |
 | 類別 | DscNodeStatus |
 | 資源 | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
-| NodeId_g |識別受管理節點的 GUID。 |
+| NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
 | DscResourceId_s |DSC 資源執行個體的名稱。 |
 | DscResourceName_s |DSC 資源的名稱。 |
@@ -181,7 +181,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |為更新狀態報告之相互關聯識別碼的 GUID。 |
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 只要將 Automation DSC 資料傳送到 Log Analytics，您就可以透過下列方式，更深入了解 Automation DSC 節點的狀態：
 

@@ -4,7 +4,7 @@ description: "針對常見錯誤訊息提供特定解決方案，協助您解決
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 5f27bac7f2de0411dacd5b981a09a93c80084af9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 
@@ -106,9 +106,10 @@ ms.lasthandoff: 11/15/2017
 
 如需其他協助，請透過 [Azure Multi-Factor Authentication Server 支援](https://support.microsoft.com/oas/default.aspx?prid=14947)連絡支援專業人員。 連絡我們時，請盡量包含有關問題的最多資訊，這樣會十分有幫助。 您可以提供的資訊包含您看到錯誤的頁面、特定錯誤碼、特定工作階段 ID、使用者 (看到錯誤者) 識別碼，以及偵錯記錄。
 
-若要收集偵錯記錄以支援診斷，請使用下列步驟︰ 
+若要收集偵錯記錄檔，以支援的診斷資訊，請在 NPS 伺服器上使用下列步驟：
 
-1. 開啟系統管理員命令提示字元並執行下列命令︰
+1. 開啟登錄編輯器並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 組**VERBOSE_LOG**至**，則為 TRUE**
+2. 開啟系統管理員命令提示字元並執行下列命令︰
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ ms.lasthandoff: 11/15/2017
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. 重現問題
+3. 重現問題
 
-3. 使用下列命令停止追蹤︰
+4. 使用下列命令停止追蹤︰
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ ms.lasthandoff: 11/15/2017
    Start .
    ```
 
-4. 壓縮 C:\NPS 資料夾的內容，並將壓縮的檔案附加到支援案例。
+5. 開啟登錄編輯器並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 組**VERBOSE_LOG**至**FALSE**
+6. 壓縮 C:\NPS 資料夾的內容，並將壓縮的檔案附加到支援案例。
 
 

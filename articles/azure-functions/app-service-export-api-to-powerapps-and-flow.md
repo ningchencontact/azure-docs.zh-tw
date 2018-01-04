@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 若要匯出 API 定義，請遵循以下步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 Azure Functions 或 App Service 應用程式。
+1. 在[Azure 入口網站](https://portal.azure.com)，瀏覽至您的 Azure 函式或另一個應用程式服務應用程式。
 
     如果使用 Azure Functions，請選取您的函式應用程式，然後依序選擇 [平台功能]、[API 定義]。
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 10/11/2017
 
     ![[匯出至 PowerApps 和 Microsoft Flow] 按鈕](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. 選取 [匯出模式]：
+3. 選取**匯出模式**:
 
-    [快速] 可讓您從 Azure 入口網站建立自訂連接器。 您必須登入 PowerApps 或 Microsoft Flow，而且擁有在目標環境中建立連接器的權限。 如果可符合該需求，則這是建議的方法。 如果使用此模式，請依照下面的[使用快速匯出](#express)指示執行。
+    [快速] 可讓您從 Azure 入口網站建立自訂連接器。 您必須登入 PowerApps 或 Microsoft Flow，而且擁有在目標環境中建立連接器的權限。 如果可以符合這兩項需求，這是建議的方法。 如果使用此模式，請依照下面的[使用快速匯出](#express)指示執行。
 
-    [手動] 可讓您匯出 API 定義，稍後再使用 PowerApps 或 Microsoft Flow 入口網站匯入。 如果 Azure 使用者和具有建立連接器權限的使用者是不同的人，或連接器必須在另一個租用戶中建立，則這是建議的方法。 如果使用此模式，請依照下面的[使用手動匯出](#manual)指示執行。
+    [手動] 可讓您匯出 API 定義，稍後再使用 PowerApps 或 Microsoft Flow 入口網站匯入。 如果 Azure 的使用者和使用者建立接點的權限不同的人，或是連接器必須建立另一個 Azure 租用戶中，這是建議的方法。 如果使用此模式，請依照下面的[使用手動匯出](#manual)指示執行。
 
     ![匯出模式](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
  
     ![快速匯出至 PowerApps 和 Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
-3. 按一下 [確定] 。 自訂連接現已建置並新增至您指定的環境。
+3. 按一下 [SERVICEPRINCIPAL] 。 自訂連接現已建置並新增至您指定的環境。
 
 如需使用「快速」模式搭配 Azure Functions 的範例，請參閱[從 PowerApps 呼叫函式](functions-powerapps-scenario.md)和[從 Microsoft Flow 呼叫函式](functions-flow-scenario.md)。
 
@@ -95,21 +95,25 @@ ms.lasthandoff: 10/11/2017
 
     本範例展示 OpenAPI 定義中包含的 API 金鑰安全性定義。
 
-既然您已經匯出 API 定義，可以在 PowerApps 和 Microsoft Flow 中匯入以建立自訂連接器。 以下範例使用 PowerApps，不過因為這兩項服務共用自訂連接器，因此您只需要匯入定義一次。
+既然您已經匯出 API 定義，可以在 PowerApps 和 Microsoft Flow 中匯入以建立自訂連接器。 自訂連接器會由這兩項服務共用，因此您只需要匯入定義一次。
 
 若要將 API 定義匯入 PowerApps 和 Microsoft Flow 中，請依照下列步驟執行：
 
-1. 登入 [web.powerapps.com](https://web.powerapps.com) 或 [flow.microsoft.com](https://flow.microsoft.com/)。 
+1. 移至[powerapps.com](https://web.powerapps.com)或[flow.microsoft.com](https://flow.microsoft.com)。
 
-2. 按一下頁面右上角的 [設定] 按鈕 (齒輪圖示)，然後選取 [自訂連接器]。
+2. 在右上角，按一下齒輪圖示，然後按一下**自訂連接器**。
 
-    ![自訂連接器](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![在服務中的齒輪圖示](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. 按一下 [建立自訂連接器]。
+3. 按一下**建立自訂的連接器**，然後按一下 **匯入 OpenAPI 定義**。
 
-4. 在 [一般] 索引標籤上提供您 API 的名稱，然後上傳 OpenAPI 定義或貼到中繼資料 URL 中。 依序按一下 [上傳] 和 [繼續]。
+   ![建立自訂的連接器](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![[一般] 索引標籤](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. 輸入的名稱是自訂連接器，然後按一下瀏覽至您已匯出，OpenAPI 定義並**繼續**。
+
+   ![上傳 OpenAPI 定義](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. 在**一般**索引標籤上，檢閱來自 OpenAPI 定義的資訊。
 
 5. 在 [安全性] 索引標籤上，如果系統提示您提供驗證詳細資訊，請輸入適當的驗證類型值。 按一下 [繼續]。
 

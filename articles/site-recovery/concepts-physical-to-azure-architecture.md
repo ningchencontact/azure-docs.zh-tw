@@ -1,24 +1,16 @@
 ---
-title: "檢閱將實體伺服器複寫至 Azure 的架構 | Microsoft Docs"
+title: "在 Azure Site Recovery 的 Azure 複寫架構的實體伺服器 |Microsoft 文件"
 description: "本文概述使用 Azure Site Recovery 服務將內部部署實體伺服器複寫至 Azure 時，所使用的元件和架構"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>實體伺服器至 Azure 複寫架構
 
@@ -63,22 +55,18 @@ ms.lasthandoff: 10/11/2017
 設定複寫並已執行災害復原演練 (測試容錯移轉) 來檢查一切如預期般運作之後，您可以視需要執行容錯移轉和容錯回復。 請注意：
 
 - 不支援有計劃的容錯移轉。
-- 您必須容錯回復到內部部署 VMware VM。 這表示您需要內部部署 VMware 基礎結構，即使是將內部部署實體伺服器複寫到 Azure。
-
-
-1. 您可容錯移轉單一機器，或建立復原方案，同時容錯移轉多部機器。
-2. 當您執行容錯移轉時，系統會從 Azure 儲存體中複寫的資料建立 Azure VM。
-3. 觸發初始容錯移轉之後，您要認可讓它開始從 Azure VM 存取工作負載。
-
-當主要的內部部署網站恢復可用狀態時，您就可以容錯回復。
-
-1. 您需要設定容錯回復基礎結構，包括：
+- 您必須容錯回復到內部部署 VMware VM。 這表示您需要在內部部署 VMware 基礎結構中，即使您將在內部部署實體伺服器複寫至 Azure。
+- 您可容錯移轉單一機器，或建立復原方案，同時容錯移轉多部機器。
+- 當您執行容錯移轉時，系統會從 Azure 儲存體中複寫的資料建立 Azure VM。
+- 觸發初始容錯移轉之後，您要認可讓它開始從 Azure VM 存取工作負載。
+- 當主要的內部部署網站恢復可用狀態時，您就可以容錯回復。
+- 您需要設定容錯回復基礎結構，包括：
     - **Azure 中的暫時處理序伺服器**︰若要從 Azure 容錯回復，您可設定 Azure VM 來作為處理序伺服器，以處理來自 Azure 的複寫。 容錯回復完成後，您可以刪除此 VM。
     - **VPN 連線**：若要容錯回復，您需要有從 Azure 網路到內部部署網站的 VPN 連線 (或 Azure ExpressRoute)。
     - **個別的主要目標伺服器**︰根據預設，隨著組態伺服器安裝的主要目標伺服器 (在內部部署 VMware VM 上) 會處理容錯回復。 不過，如果您需要容錯回復大量流量，您應該針對此目的設定個別的內部部署主要目標伺服器。
     - **容錯回復原則**︰若要複寫回到內部部署網站，您需要容錯回復原則。 此原則會在您建立從內部部署環境到 Azure 的複寫原則時自動建立。
     - **VMware 基礎結構**：您需要 VMware 基礎結構進行容錯回復。 您無法容錯回復到實體伺服器。
-2. 備妥元件後，容錯回復分三個階段進行：
+- 備妥元件後，容錯回復分三個階段進行：
     - 第 1 階段：重新保護 Azure VM，使其能從 Azure 複寫回到內部部署 VMware VM。
     - 第 2 階段：執行容錯移轉至內部部署網站。
     - 第 3 階段：容錯回復工作負載之後，您會重新啟用複寫。
@@ -90,5 +78,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-請檢閱「遵循教學課程」支援對照表，以啟用 VMware 到 Azure 複寫。
-執行容錯移轉和容錯回復。
+請遵循[本教學課程](tutorial-physical-to-azure.md)啟用實體伺服器到 Azure 的複寫。

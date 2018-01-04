@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Collaborative Innova
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5706ba9f4e7c92de77a0edc5146aa150de379c9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b043d2ce9fd689b700ea2067f320600cde008fd7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>教學課程：Azure Active Directory 與 Collaborative Innovation 整合
 
@@ -47,13 +47,13 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Collaborative Innovation
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-collaborative-innovation-from-the-gallery"></a>從資源庫新增 Collaborative Innovation
-若要設定 Collaborative Innovation 與 Azure AD 整合，您需要從資源庫將 Collaborative Innovation 新增到受管理的 SaaS 應用程式清單。
+若要設定 Collaborative Innovation 與 Azure AD 整合，您需要從資源庫將 Collaborative Innovation 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Collaborative Innovation，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Collaborative Innovation**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_search.png)
 
-5. 在結果窗格中，選取 Collaborative Innovation，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Collaborative Innovation]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_addfromgallery.png)
 
@@ -128,13 +128,13 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
     | givenname | user.givenname |
     | surname | user.surname |
     | emailaddress | user.userprincipalname |
-    | 名稱 | user.userprincipalname |
+    | name | user.userprincipalname |
 
     a. 按一下該屬性開啟 [編輯屬性] 視窗。
 
     ![設定單一登入](./media/active-directory-saas-collaborativeinnovation-tutorial/url_update.png)
 
-    b.這是另一個 C# 主控台應用程式。 刪除 **Namespace** 中的 URL 值。
+    b. 刪除 **Namespace** 中的 URL 值。
     
     c. 按一下 [確定] 儲存設定。
 
@@ -177,11 +177,11 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-collaborative-innovation-test-user"></a>建立 Collaborative Innovation 測試使用者
 

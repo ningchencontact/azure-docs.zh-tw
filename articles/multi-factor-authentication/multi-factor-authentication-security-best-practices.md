@@ -4,7 +4,7 @@ description: "本文件提供搭配 Azure 帳戶使用 Azure MFA 的最佳做法
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2be36bce1b4cffdab2d25d150bd5a0e8451e422d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 465b6cac8ac04b48d27890893c1a4459e652dc28
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>搭配 Azure AD 帳戶使用 Azure Multi-Factor Authentication 的安全性最佳做法
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 11/15/2017
 因為大多數使用者已經習慣僅使用密碼來驗證，所以公司務必讓所有使用者了解此程序。 這番了解可以避免使用者因為 MFA 的小問題就連絡技術人員。 不過，有一些案例是需要暫時停用 MFA。 使用下列指導方針了解如何處理這些案例：
 
 * 如果使用者因為行動裝置應用程式未收到通知或電話來電而無法登入，請訓練您的技術支援工作人員處理這種情況。 技術支援人員可以[啟用單次許可](multi-factor-authentication-whats-next.md#one-time-bypass)，讓使用者「略過」雙步驟驗證而只需要驗證一次。 許可只是暫時性，經過指定的秒數之後就會到期。
-* 請考慮使用 Azure MFA 中的[信任的 IP 功能](multi-factor-authentication-whats-next.md#trusted-ips)，以盡量避免雙步驟驗證。 受管理或同盟租用戶的管理員可以利用此功能，讓從公司近端內部網路登入的使用者略過雙步驟驗證。 這些功能適用於擁有 Azure AD Premium、Enterprise Mobility Suite 或 Azure Multi-Factor Authentication 授權的 Azure AD 租用戶。
+* 請考慮使用 Azure MFA 中的[信任的 IP 功能](multi-factor-authentication-whats-next.md#trusted-ips)，以盡量避免雙步驟驗證。 受控或同盟租用戶的管理員可以利用此功能，讓從公司近端內部網路登入的使用者略過雙步驟驗證。 這些功能適用於擁有 Azure AD Premium、Enterprise Mobility Suite 或 Azure Multi-Factor Authentication 授權的 Azure AD 租用戶。
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>內部部署的最佳作法
 如果您的公司決定採用自己的基礎結構來啟用 MFA，則您需要在內部部署 Azure Multi-Factor Authentication Server。 下圖顯示 MFA Server 元件：

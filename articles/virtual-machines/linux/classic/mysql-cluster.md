@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>在 Linux 上使用負載平衡集合將 MySQL 叢集化
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如果您需要部署 MySQL 叢集，則可取得 [Resource Manager 範本](https://azure.microsoft.com/documentation/templates/mysql-replication/)。
+> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如果您需要部署 MySQL 叢集，則可取得 [Resource Manager 範本](https://azure.microsoft.com/documentation/templates/mysql-replication/)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本文探索與說明要在 Microsoft Azure 上部署高度可用 Linux 架構服務的其他可用方法，首先從 MySQL Server 高可用性開始。 您可在 [第 9 頻道](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)(英文) 上找到說明此方法的影片。
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/07/2017
   * Corosync 和 Pacemaker
 
 ### <a name="affinity-group"></a>同質群組
-建立解決方案的同質群組，方法是登入 Azure 傳統入口網站，選取 [設定]，然後建立同質群組。 並將稍後建立的配置資源指派給此同質群組。
+解決方案的同質群組建立登入 Azure 入口網站中，選取**設定**，以及建立同質群組。 並將稍後建立的配置資源指派給此同質群組。
 
 ### <a name="networks"></a>網路
 建立新網路，並在該網路內建立一個子網路。 此範例使用內部只有一個 /24 子網路的 10.10.10.0/24 網路。
@@ -237,7 +237,7 @@ Corosync 在 Azure 上的主要限制是，Corosync 偏好的通訊順序為多�
 
     sudo service start corosync
 
-在啟動服務不久後，系統應會在目前環中建立叢集，並組成仲裁。 我們可以透過檢閱記錄檔或執行下列程式碼來檢查此功能：
+在啟動服務不久後，系統應會在目前通道中建立叢集，並組成仲裁。 我們可以透過檢閱記錄檔或執行下列程式碼來檢查此功能：
 
     sudo corosync-quorumtool –l
 

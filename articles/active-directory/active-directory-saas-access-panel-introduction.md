@@ -4,7 +4,7 @@ description: "了解如何使用各種存取面板 (網頁瀏覽器、Android �
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a63e2d583e1203708e49c0fcef99876d2055343a
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/23/2017
 
 若要觸達存取面板，您必須透過 Azure AD 中的公司或學校帳戶進行驗證。 Azure AD 可以直接驗證您。 或者，如果組織已經使用 Active Directory 同盟服務 (ADFS) 或其他技術設定同盟，則可由 Windows Server Active Directory 驗證您。
 
-如果您具備 Azure 或 Office 365 的訂用帳戶，而且已在使用 Azure 入口網站或 Office 365 應用程式，您可以看到應用程式清單，而不需再次登入。 如果您未經過驗證，系統會提示您在 Azure AD 中使用您帳戶的使用者名稱和密碼進行登入。 如果您的組織已設定同盟，則輸入使用者名稱已經足夠。
+如果您具備 Azure 或 Office 365 的訂用帳戶，而且已在使用 Azure 入口網站或 Office 365 應用程式，您可以看到應用程式清單，而不需再次登入。 如果您不會驗證當系統提示您在 Azure AD 中使用使用者名稱和密碼為您的帳戶登入。 如果您的組織已設定同盟，則輸入使用者名稱已經足夠。
 
 經過驗證後，您就能夠與由系統管理員整合到目錄的應用程式互動。 若要了解如何整合應用程式與 Azure AD，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
@@ -97,7 +97,7 @@ Azure Active Directory 團隊發佈 My Apps 行動應用程式。 當您安裝�
 
 
 
-## <a name="managed-browser-for-my-apps"></a>My Apps 適用的受管理瀏覽器
+## <a name="managed-browser-for-my-apps"></a>My Apps 適用的受控瀏覽器
 
 My Apps 也已在 Intune Managed Browser 中整合。 確保行動裝置上的資料安全無虞時，適用於 iOS 和 Android 裝置的 Intune Managed Browser 扮演重要角色。 它可讓您安全地檢視和瀏覽可能包含公司資訊的網頁，並提供安全的網頁瀏覽經驗。  
 您可在 Managed Browser 首頁上以及您的書籤中尋求快速存取 My Apps，只有按幾下滑鼠就可以觸達您想要存取的任何應用程式。

@@ -1,29 +1,21 @@
 ---
-title: "檢閱 Azure 區域之間的 Azure VM 複寫架構 | Microsoft Docs"
+title: "在 Azure Site Recovery 的 azure 至 Azure 複寫架構 |Microsoft 文件"
 description: "本文概要說明使用 Azure Site Recovery 服務複寫 Azure 區域之間的 Azure VM 時所用的元件和架構。"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: f9cd57e47a8463440148b2bcc6c21beacd54382a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 至 Azure 複寫架構
 
 
-本文說明透過 [Azure Site Recovery](site-recovery-overview.md) 服務，在 Azure 區域之間複寫、容錯移轉和復原 Azure 虛擬機器 (VM) 時所使用的架構和程序。
+這篇文章說明架構時複寫、 容錯移轉和復原 Azure 虛擬機器 (Vm) 使用的 Azure 地區之間使用[Azure Site Recovery](site-recovery-overview.md)服務。
 
 >[!NOTE]
 >Site Recovery 服務的 Azure VM 複寫目前為預覽狀態。
@@ -45,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="step-1"></a>步驟 1
 
-當您啟用 Azure VM 複寫時，系統會根據來源區域設定，在目標區域中自動建立下面所示的資源。 您可以視需要自訂目標來源設定。 
+當您啟用 Azure VM 複寫時，下列資源會自動建立在目標區域中，根據的來源地區設定。 您可以視需要自訂目標來源設定。
 
 ![啟用複寫程序，步驟 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -53,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 --- | ---
 **目標資源群組** | 在容錯移轉之後複寫的 VM 所屬的資源群組。
 **目標虛擬網路** | 在容錯移轉之後複寫的 VM 所在的虛擬網路。 在來源和目標的虛擬網路之間會建立網路對應，反之亦然。
-**快取儲存體帳戶** | 在來源 VM 變更複寫到目標儲存體帳戶之前，系統會進行追蹤變更並傳送到目標位置中的快取儲存體帳戶。 這可確保對於 VM 上執行的生產應用程式所造成的影響降到最低。
+**快取儲存體帳戶** | 來源 VM 變更複寫到目標儲存體帳戶之前，它們會追蹤並傳送至來源位置的快取儲存體帳戶。 這個步驟可確保在 VM 上執行的實際執行應用程式上的影響降到最低。
 **目標儲存體帳戶**  | 將資料複寫至其中的目標位置儲存體帳戶。
 **目標可用性設定組**  | 在容錯移轉之後複寫的 VM 所在的可用性設定組。
 
@@ -67,8 +59,17 @@ ms.lasthandoff: 10/11/2017
 
    ![啟用複寫程序，步驟 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
- Site Recovery 永遠不會需要 VM 的輸入連線能力。 僅需要 Site Recovery 服務 URL/IP 位址、Office 365 驗證 URL/IP 位址和快取儲存體帳戶 IP 位址的輸出連線能力。
+
+ Site Recovery 永遠不會需要 VM 的輸入連線能力。 僅輸出連線所需的下列。
+
+ - 站台復原服務 Url/IP 位址
+ - Office 365 驗證 Url/IP 位址
+ - 快取儲存體帳戶的 IP 位址
+
+如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 請確認有沒有封鎖透過通訊埠 20004 Vm 之間的內部通訊的防火牆應用裝置。
+
+> [!IMPORTANT]
+如果您想要在屬於複寫群組的 Linux Vm，請確定輸出流量在連接埠 20004 手動開啟根據特定的 Linux 版本的指引。
 
 ### <a name="step-3"></a>步驟 3
 
@@ -82,5 +83,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-請檢閱「遵循教學課程」支援對照表，以啟用 Azure VM 複寫到次要區域。
-執行容錯移轉和容錯回復。
+[快速複寫](azure-to-azure-quickstart.md)Azure VM 到次要區域。

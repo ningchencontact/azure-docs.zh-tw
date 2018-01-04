@@ -4,7 +4,7 @@ description: "涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。"
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 57218346d236b376d2227e0ffaea6c6dd5ebe855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 877c4491b3ebc2164f7cb2ecb9392d9c71e1667a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -77,7 +77,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 2. 移至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] > 選取您要管理的應用程式 > [Application Proxy]。
 3. 將 [轉譯應用程式主體中的 URL] 切換為 [是]。
 
-   ![選取 [是] 可轉譯應用程式主體中的 URL](./media/application-proxy-link-translation/select_yes.png)。
+   ![選取 [是] 可轉譯應用程式主體中的 URL](./media/application-proxy-link-translation/select_yes.png).
 4. 選取 [儲存] 以套用變更。
 
 現在，當您的使用者存取此應用程式時，Proxy 會自動掃描已透過您租用戶上的 Application Proxy 發佈的內部 URL。

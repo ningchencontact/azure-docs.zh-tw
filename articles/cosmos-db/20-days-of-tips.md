@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB 每日秘訣 20 則
 
 ![每一天了解新的 Azure Cosmos DB 提示](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
 
-如果您已經在 [Twitter](https://twitter.com/simona_cotin) 和 [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/detail/recent-activity/shares/) 上看過 Simona Cotin 的 Azure Cosmos DB 每日秘訣 20 則，可能會希望它們能集中在同一個地方。 那麼，就在這裡！
+如果您已經在 [Twitter](https://twitter.com/simona_cotin) 和 [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/detail/recent-activity/shares/) 上看過 Azure Cosmos DB 的 20 天秘訣 (作者 Simona Cotin)，可能會需要它們全都在單一位置上可供使用。 那麼，就在這裡！
 
 每天造訪此頁面，以獲得從 9 月 5 日到 9 月 29 日的新秘訣！
 
-## <a name="tip-1-what-is-cosmos"></a>秘訣 1：Cosmos 是什麼？
+## <a name="tip-1-what-is-cosmos"></a>秘訣 1：為何 Cosmos？
 
 為何 #cosmosdb？ 您未使用的最佳 NoSQL 資料庫！ [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 
 祕訣 11：使用 React、Node.js 和 Azure Cosmos DB 建置 Hero 追蹤應用程式。
 
-文章：[使用 React 和 Azure Cosmos DB 建立 MongoDB 應用程式](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+文章：[使用 React 和 Azure Cosmos DB 建立 MongoDB 應用程式](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -117,9 +117,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="tip-13-mean-app-from-scratch"></a>祕訣 13：從頭建立 MEAN 應用程式
 
-祕訣 13：與 @John_Papa 起用 Azure Cosmos DB 無中生有， 了解如何從頭建置 MEAN 應用程式
+祕訣 13：使用 @John_Papa 和 Azure Cosmos DB 來從無到有。 了解如何從頭建置 MEAN 應用程式
 
-文章：[使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+文章：[使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 10/11/2017
 
 提示 20：人人都愛良好的舊速查表。 Azure #CosmosDB 也有。 可在 [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl) 中查看
 
-速查表：[Azure Cosmos DB：DocumentDB API SQL 查詢速查表 PDF](https://aka.ms/Nt01nl)
+速查表： [Azure Cosmos DB: SQL 查詢小祕技 PDF](https://aka.ms/Nt01nl)
 
 [![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

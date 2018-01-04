@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: ebb78c9ae4e0ae02f9f9d74f4909d9108cd8aef7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: df0a319cdeabef8c854d7c60c7b90ef775be3ce1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>簡介
-Azure IoT 中樞是一項完全受管理的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [開始使用 IoT 中樞]教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫裝置應用程式，以傳送裝置到雲端的訊息。
+Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [開始使用 IoT 中樞]教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫裝置應用程式，以傳送裝置到雲端的訊息。
 
 本教學課程是以 [開始使用 IoT 中樞]為基礎。 這會說明如何：
 
@@ -93,7 +93,7 @@ Azure IoT 中樞是一項完全受管理的服務，有助於讓數百萬個裝�
 1. 在目前的 Visual Studio 方案中，使用 [主控台應用程式] 專案範本來建立「Visual C# 傳統型應用程式」專案。 將專案命名為 **SendCloudToDevice**。
    
     ![Visual Studio 中的新專案][20]
-2. 在 方案總管 中，以滑鼠右鍵按一下方案，然後按一下 **管理方案的 NuGet 封裝...**。 
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [ **管理方案的 NuGet 封裝...**]。 
    
     此動作會開啟 [管理 NuGet 套件] 視窗。
 3. 搜尋 **Microsoft.Azure.Devices**，按一下 [安裝]，然後接受使用規定。 
@@ -116,7 +116,7 @@ Azure IoT 中樞是一項完全受管理的服務，有助於讓數百萬個裝�
         }
    
     這個方法會將新的雲端到裝置訊息傳送給識別碼為 `myFirstDevice`的裝置。 只有在您修改了[開始使用 IoT 中樞]內的方法時，才要變更此參數。
-7. 最後，將下列幾行加入至 **Main** 方法：
+7. 最後，將下列幾行新增至 **Main** 方法：
    
         Console.WriteLine("Send Cloud-to-Device message\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
@@ -193,5 +193,5 @@ Azure IoT 中樞是一項完全受管理的服務，有助於讓數百萬個裝�
 [Azure IoT 中樞開發人員指南]: iot-hub-devguide.md
 [開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT 套件]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[Azure IoT 套件]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT 裝置 SDK]: iot-hub-devguide-sdks.md

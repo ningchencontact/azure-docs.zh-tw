@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Domain Services：管理受管理網域上的群組原則 | Microsoft Docs"
-description: "管理 Azure Active Directory Domain Services 受管理網域上的群組原則"
+title: "Azure Active Directory Domain Services：管理受控網域上的群組原則 | Microsoft Docs"
+description: "管理 Azure Active Directory Domain Services 受控網域上的群組原則"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory-ds
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: aad9e07e040bebe9572af1dd4a2f74b8b384f651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 316ddc2cbd67cfafaf44318c5baebcd8da366f93
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD Domain Services 受管理網域上的群組原則
-Azure Active Directory Domain Services 有「AADDC 使用者」和「AADDC 電腦」容器專用的內建群組原則物件 (GPO)。 您可以自訂這些內建 GPO，來設定受管理網域上的群組原則。 此外，「AAD DC 系統管理員」群組的成員可以在受管理網域內建立自己的自定組織單位 (OU)。 他們也可以建立自訂 GPO，並將它們連結至這些自訂的 OU。 屬於「AAD DC 系統管理員」群組的使用者會獲得受管理網域上的「群組原則」系統管理權限。
+# <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD Domain Services 受控網域上的群組原則
+Azure Active Directory Domain Services 有「AADDC 使用者」和「AADDC 電腦」容器專用的內建群組原則物件 (GPO)。 您可以自訂這些內建 GPO，來設定受控網域上的群組原則。 此外，「AAD DC 系統管理員」群組的成員可以在受控網域內建立自己的自定組織單位 (OU)。 他們也可以建立自訂 GPO，並將它們連結至這些自訂的 OU。 屬於「AAD DC 系統管理員」群組的使用者會獲得受控網域上的「群組原則」系統管理權限。
 
 ## <a name="before-you-begin"></a>開始之前
 若要執行本文中所列的工作，您需要︰
@@ -29,17 +29,18 @@ Azure Active Directory Domain Services 有「AADDC 使用者」和「AADDC 電�
 1. 有效的 **Azure 訂用帳戶**。
 2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
 3. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](active-directory-ds-getting-started.md)所述的所有工作來進行。
-4. **已加入網域的虛擬機器** ，您可在其中管理 Azure AD 網域服務受管理的網域。 如果您沒有這類虛擬機器，請依照名為[將 Windows 虛擬機器加入受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的所有工作進行操作。
-5. 您需要目錄中**屬於「AAD DC 系統管理員」群組之使用者帳戶**的認證，才能管理受管理網域的群組原則。
+4. 
+            **已加入網域的虛擬機器** ，您可在其中管理 Azure AD 網域服務受控網域。 如果您沒有這類虛擬機器，請依照名為[將 Windows 虛擬機器加入受控網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的所有工作進行操作。
+5. 您需要目錄中**屬於「AAD DC 系統管理員」群組之使用者帳戶**的認證，才能管理受控網域的群組原則。
 
 <br>
 
-## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-group-policy-for-the-managed-domain"></a>工作 1 - 佈建已加入網域的虛擬機器以從遠端管理受管理網域的群組原則
-使用 Active Directory 管理中心 (ADAC) 或 AD PowerShell 等熟悉的 Active Directory 系統管理工具，可以從遠端管理 Azure AD 網域服務受管理的網域。 同樣地，使用群組原則伺服器系統管理工具，可以從遠端管理受管理網域的群組原則。
+## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-group-policy-for-the-managed-domain"></a>工作 1 - 佈建已加入網域的虛擬機器以從遠端管理受控網域的群組原則
+使用 Active Directory 管理中心 (ADAC) 或 AD PowerShell 等熟悉的 Active Directory 系統管理工具，可以從遠端管理 Azure AD 網域服務受控網域。 同樣地，使用群組原則伺服器系統管理工具，可以從遠端管理受控網域的群組原則。
 
-Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連接受管理網域上的網域控制站。 「AAD DC 系統管理員」群組的成員可以遠端管理受管理網域的群組原則。 他們可以使用已加入受管理網域的 Windows Server/用戶端電腦上的群組原則工具。 可以將群組原則工具安裝為 Windows Server/用戶端電腦 (已加入受管理網域) 上群組原則管理選用功能的一部分。
+Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連接受控網域上的網域控制站。 「AAD DC 系統管理員」群組的成員可以遠端管理受控網域的群組原則。 他們可以使用已加入受控網域的 Windows Server/用戶端電腦上的群組原則工具。 可以將群組原則工具安裝為 Windows Server/用戶端電腦 (已加入受控網域) 上群組原則管理選用功能的一部分。
 
-第一個工作是佈建已加入受管理網域的 Windows Server 虛擬機器。 如需相關指示，請參閱標題為 [將 Windows Server 虛擬機器加入 Azure AD 網域服務受管理網域](active-directory-ds-admin-guide-join-windows-vm.md)的文章。
+第一個工作是佈建已加入受控網域的 Windows Server 虛擬機器。 如需相關指示，請參閱標題為 [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)的文章。
 
 ## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>工作 2 - 在虛擬機器上安裝群組原則工具
 執行下列步驟，在已加入網域的虛擬機器上安裝群組原則管理工具。
@@ -70,10 +71,10 @@ Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連�
     ![確認電子郵件](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
 
 ## <a name="task-3---launch-the-group-policy-management-console-to-administer-group-policy"></a>工作 3 - 啟動群組原則管理主控台來管理群組原則
-您可以使用已加入網域的虛擬機器上的「群組原則」管理主控台來管理受管理網域上的群組原則。
+您可以使用已加入網域的虛擬機器上的「群組原則」管理主控台來管理受控網域上的群組原則。
 
 > [!NOTE]
-> 您必須是「AAD DC 系統管理員」群組的成員，才能管理受管理網域的群組原則。
+> 您必須是「AAD DC 系統管理員」群組的成員，才能管理受控網域的群組原則。
 >
 >
 
@@ -85,12 +86,12 @@ Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連�
     ![群組原則主控台](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
 ## <a name="task-4---customize-built-in-group-policy-objects"></a>工作 4 - 自訂內建群組原則物件
-有兩個內建群組原則物件 (GPO)，各自用於受管理網域中的「AADDC 電腦」和「AADDC 使用者」容器。 您可以自訂這些 GPO，來設定受管理網域上的群組原則。
+有兩個內建群組原則物件 (GPO)，各自用於受控網域中的「AADDC 電腦」和「AADDC 使用者」容器。 您可以自訂這些 GPO，來設定受控網域上的群組原則。
 
-1. 在 [群組原則管理] 主控台中，按一下 [Forest: contoso100.com] 和 [Domains] 節點加以展開，查看您的受管理網域的群組原則。
+1. 在 [群組原則管理] 主控台中，按一下 [Forest: contoso100.com] 和 [Domains] 節點加以展開，查看您的受控網域的群組原則。
 
     ![內建 GPO](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. 您可以自訂這些內建 GPO，來設定受管理網域上的群組原則。 以滑鼠右鍵按一下 GPO，然後按一下 [編輯...] 以自訂內建 GPO。 [群組原則設定編輯器] 工具可讓您自訂 GPO。
+2. 您可以自訂這些內建 GPO，來設定受控網域上的群組原則。 以滑鼠右鍵按一下 GPO，然後按一下 [編輯...] 以自訂內建 GPO。 [群組原則設定編輯器] 工具可讓您自訂 GPO。
 
     ![編輯內建 GPO](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 3. 現在您可以使用 [群組原則管理編輯器] 主控台來編輯內建的 GPO。 例如，下列螢幕擷取畫面示範如何自訂內建「AADDC 電腦」的 GPO。
@@ -98,10 +99,10 @@ Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連�
     ![自訂 GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
 ## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>工作 5 - 建立自訂群組原則物件 (GPO)
-您可以建立或匯入自己的自訂群組原則物件。 您也可以將自訂 GPO 連結到您在受管理網域中建立的自訂 OU。 如需建立自訂組織單位的詳細資訊，請參閱[在受管理網域上建立自訂 OU](active-directory-ds-admin-guide-create-ou.md)。
+您可以建立或匯入自己的自訂群組原則物件。 您也可以將自訂 GPO 連結到您在受控網域中建立的自訂 OU。 如需建立自訂組織單位的詳細資訊，請參閱[在受控網域上建立自訂 OU](active-directory-ds-admin-guide-create-ou.md)。
 
 > [!NOTE]
-> 您必須是「AAD DC 系統管理員」群組的成員，才能管理受管理網域的群組原則。
+> 您必須是「AAD DC 系統管理員」群組的成員，才能管理受控網域的群組原則。
 >
 >
 
@@ -123,6 +124,8 @@ Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連�
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* [將 Windows Server 虛擬機器加入 Azure AD 網域服務受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受管理的網域)](active-directory-ds-admin-guide-administer-domain.md)
+* 
+            [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
+* 
+            [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受控網域)](active-directory-ds-admin-guide-administer-domain.md)
 * [群組原則管理主控台](https://technet.microsoft.com/library/cc753298.aspx)

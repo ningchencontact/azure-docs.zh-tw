@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排驗證
 
@@ -128,7 +128,7 @@ SAS 權杖中的 [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedacce
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-若要在服務匯流排命名空間上建立 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 物件，請以序列化為 JSON 或 XML 的規則資訊在此端點上執行 POST 作業。 例如：
+若要在服務匯流排命名空間上建立 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 物件，請以序列化為 JSON 或 XML 的規則資訊在此端點上執行 POST 作業。 例如︰
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -343,7 +343,7 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 設定主題的授權規則 |管理 |任何有效的主題位址 |
 | 傳送至主題 |傳送 |任何有效的主題位址 |
 | **訂用帳戶** | | |
-| 建立訂閱 |管理 |任何命名空間位址 |
+| 建立訂用帳戶 |管理 |任何命名空間位址 |
 | 刪除訂用帳戶 |管理 |../myTopic/Subscriptions/mySubscription |
 | 列舉訂用帳戶 |管理 |../myTopic/Subscriptions |
 | 取得訂用帳戶描述 |管理 |../myTopic/Subscriptions/mySubscription |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安裝 Durable Functions 擴充和範例 (Azure Functions)
 
@@ -62,7 +62,7 @@ Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) �
 
 * 安裝[最新版的 Visual Studio Code](https://code.visualstudio.com/Download) 
 
-* 遵循[撰寫 Azure Functions 並在本機進行測試](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)上＜安裝 Azure Functions Core Tools＞下方的指示
+* 遵循[撰寫 Azure Functions 並在本機進行測試](https://docs.microsoft.com/azure/azure-functions/functions-run-local)上＜安裝 Azure Functions Core Tools＞下方的指示
 
     >[!IMPORTANT]
     > 如果您已經有 Azure Functions Cross Platform Tools，請將它更新為最新的可用版本。

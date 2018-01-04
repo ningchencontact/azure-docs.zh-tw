@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 ## <a name="overview"></a>概觀
@@ -34,7 +34,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 ## <a name="features"></a>功能比較
 下表比較 App Service、雲端服務、虛擬機器及 Service Fabric 的功能，以協助您做出最佳選擇。 如需每個選項目前的 SLA 資訊，請參閱＜ [Azure 服務等級協定](https://azure.microsoft.com/support/legal/sla/)＞。
 
-| 功能 | App Service (Web 應用程式) | 雲端服務 (Web 角色) | 虛擬機器 | Service Fabric | 注意事項 |
+| 功能 | App Service (Web 應用程式) | 雲端服務 (Web 角色) | 虛擬機器 | Service Fabric | 注意 |
 | --- | --- | --- | --- | --- | --- |
 | 近乎即時的部署 |X | | |X |將應用程式或應用程式更新部署到雲端服務，或建立 VM，至少需要幾分鐘的時間；將應用程式部署到 Web 應用程式只需要幾秒鐘。 |
 | 向上調整至更大的機器而不重新部署 |X | | |X | |
@@ -110,6 +110,8 @@ Azure App Service 是此案例的絕佳解決方案，因為您可先免費使�
 * 使用應用程式庫迅速設定熱門的 Web 應用程式，例如 WordPress。
 * 視需要新增其他 Azure 服務與功能至您的應用程式。
 * 使用 HTTPS 來保護 Web 應用程式。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a> 我是網頁或平面設計師，想要幫客戶設計及建立網站
 對於 Web 開發人員和設計人員，Azure App Service 可輕鬆整合各種架構和工具、提供 Git 和 FTP 的部署支援，並與 Visual Studio 和 SQL Database 等工具和服務密切整合。 使用 App Service，您可以：

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Onit 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bc479a28-8fcd-493f-ac53-681975a5149c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 47c0055b89dbcf6a30a7f9ac5a33913e7bf463fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f001d2f9d5efd2b9252f0affc32506bd615437af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>教學課程：Azure Active Directory 與 Onit 整合
 
@@ -49,13 +49,13 @@ Onit 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Onit
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-onit-from-the-gallery"></a>從資源庫新增 Onit
-若要設定將 Onit 整合到 Azure AD 中，您需要從資源庫將 Onit 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Onit 整合到 Azure AD 中，您需要從資源庫將 Onit 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Onit，請執行下列步驟：**
 
@@ -142,7 +142,7 @@ Onit 與 Azure AD 整合提供下列優點：
 
     d. 讓 [命名空間] 保持空白。
     
-    e. 按一下 [ **確定**]。
+    e. 按一下 [確定] 。
 
 7. 按一下 [儲存]  按鈕。
 
@@ -193,7 +193,7 @@ Onit 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-onit-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-onit-tutorial/create_aaduser_02.png)
 
@@ -211,7 +211,7 @@ Onit 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-onit-test-user"></a>建立 Onit 測試使用者
 
@@ -222,7 +222,7 @@ Onit 與 Azure AD 整合提供下列優點：
 **若要設定使用者佈建，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 **Onit** 公司網站。
-2. 按一下 [加入使用者] 。
+2. 按一下 [新增使用者] 。
    
    ![管理](./media/active-directory-saas-onit-tutorial/IC791180.png "管理")
 3. 在 [新增使用者]  對話頁面上，執行下列步驟：
@@ -230,7 +230,7 @@ Onit 與 Azure AD 整合提供下列優點：
    ![新增使用者](./media/active-directory-saas-onit-tutorial/IC791181.png "新增使用者")
    
   1. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱] 與 [電子郵件地址]。
-  2. 按一下 [建立] 。    
+  2. 按一下頁面底部的 [新增] 。    
    
  > [!NOTE]
  > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。

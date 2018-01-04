@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 92c4850f623aea331e9834b5c8da66a7de34107f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>升級 Azure Container Service (AKS) 叢集
 
@@ -35,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-我們有三個版本可進行升級：1.7.9、1.8.1 和 1.8.2。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，會仔細地[隔離並清空](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) \(英文\) 節點，將執行應用程式的中斷情況降到最低。  開始進行叢集升級之前，請確定您有足夠的額外計算容量可處理新增和移除叢集節點時的工作負載。
+我們有三個版本可進行升級：1.7.9、1.8.1 和 1.8.2。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，節點會仔細[cordoned 和清空][ kubernetes-drain]執行應用程式的中斷情況降到最低。  開始進行叢集升級之前，請確定您有足夠的額外計算容量可處理新增和移除叢集節點時的工作負載。
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -116,4 +116,10 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 使用 AKS 教學課程深入了解部署和管理 AKS。
 
 > [!div class="nextstepaction"]
-> [AKS 教學課程](./tutorial-kubernetes-prepare-app.md)
+> [AKS 教學課程][aks-tutorial-prepare-app]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

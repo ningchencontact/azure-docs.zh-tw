@@ -23,6 +23,7 @@
 ### [管理資料庫使用者](analysis-services-database-users.md)
 ### [管理伺服器管理員](analysis-services-server-admins.md)
 ### [監視伺服器計量](analysis-services-monitor.md)
+### [設定診斷記錄](analysis-services-logging.md)
 ## 連線
 ### [取得用戶端程式庫](analysis-services-data-providers.md)
 ### [與 Excel 連線](analysis-services-connect-excel.md)

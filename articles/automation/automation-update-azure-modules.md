@@ -3,7 +3,7 @@ title: "更新 Azure 自動化中的 Azure 模組 | Microsoft Docs"
 description: "本文說明現在要如何更新 Azure 自動化中預設提供的通用 Azure PowerShell 模組。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f5e7c66cfd26bd6927d48ffd8bc0f82e9a3e2d13
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何更新 Azure 自動化中的 Azure PowerShell 模組
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="updating-azure-modules"></a>更新 Azure 模組
 
-1. 自動化帳戶的 [模組] 刀鋒視窗中有一個稱為**更新 Azure 模組**的選項。  它一律為啟用狀態。<br><br> ![[模組] 刀鋒視窗中的 [更新 Azure 模組] 選項](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. 在您的自動化帳戶的 [模組] 頁面上，沒有選項**更新 Azure 模組**。 它一律為啟用狀態。<br><br> ![更新模組 頁面中的 Azure 模組選項](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. 按一下 [更新 Azure 模組]，您便會看到確認通知，詢問您是否要繼續。<br><br> ![更新 Azure 模組通知](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. 按一下**更新 Azure 模組**，您會看到確認通知，詢問您是否要繼續。<br><br> ![更新 Azure 模組通知](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. 按一下 [是]便會開始模組更新程序。  更新程序大約需要 15-20 分鐘來更新下列模組︰
+3. 按一下**是**模組更新程序開始。 更新程序大約需要 15-20 分鐘來更新下列模組︰
 
   * Azure
   * Azure.Storage
@@ -43,12 +43,12 @@ ms.lasthandoff: 10/11/2017
   * AzureRm.Sql
   * AzureRm.Storage
 
-    如果模組已是最新狀態，此程序在幾秒鐘內便會完成。  更新程序完成時，您會收到通知。<br><br> ![更新 Azure 模組更新狀態](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    如果模組已有最新狀態，然後在程序完成在幾秒鐘的時間。 在更新程序完成時，系統會通知您。<br><br> ![更新 Azure 模組更新狀態](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
 > 執行新的排程工作時，Azure 自動化會使用自動化帳戶中的最新模組。    
 
-如果您在 Runbook 中使用來自這些 Azure PowerShell 模組的 Cmdlet 來管理 Azure 資源，則您會想要每隔大約一個月執行一次此更新程序，以確保您擁有最新模組。
+如果您使用 runbook 中的下列 Azure PowerShell 模組 cmdlet 來管理 Azure 資源，然後您想要執行這個更新程序的每個月或因此若要確保您可以將最新的模組。
 
 ## <a name="next-steps"></a>後續步驟
 

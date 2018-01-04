@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Salesforce 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 49384b8b-3836-4eb1-b438-1c46bb9baf6f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動使用者佈建
 
@@ -89,19 +89,21 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
-11. 在 Azure 入口網站中，按一下 [測試連接]，以確保 Azure AD 可以連接到您的 Salesforce 應用程式。
+11. **租用戶 URL**應輸入 Salesforce 執行個體是否位於 Salesforce 政府雲端上。 否則，它是選擇性的。 輸入 Salesforce 執行個體的名稱取代您執行個體的租用戶 URL 使用 https://your-instance.my.salesforce.com，格式。
 
-12. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
+12. 在 Azure 入口網站中，按一下 [測試連接]，以確保 Azure AD 可以連接到您的 Salesforce 應用程式。
 
-13. 按一下 [儲存]。  
+13. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
+
+14. 按一下 [儲存]。  
     
-14.  在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Salesforce]。
+15.  在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Salesforce]。
 
-15. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 Salesforce 的使用者屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 Salesforce 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
+16. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 Salesforce 的使用者屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 Salesforce 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
-16. 若要啟用 Salesforce 的 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
+17. 若要啟用 Salesforce 的 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
 
-17. 按一下 [儲存]。
+18. 按一下 [儲存]。
 
 這會啟動在 [使用者和群組] 區段中指派給 Salesforce 的任何使用者和/或群組之首次同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 20 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Salesforce 應用程式上的佈建服務所執行之所有動作。
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -27,7 +27,7 @@ Azure 串流分析會將執行一個作業的效能「權重」彙總為串流�
 
 為了達到低延遲的串流處理，Azure 串流分析作業會在記憶體中執行所有處理。 當記憶體用完時，串流工作將會失敗。 因此，對於生產作業來說，請務必監視串流作業的資源使用狀況，並配置足夠的資源讓作業保持全天候運作。
 
-計量是從 0% 到 100% 的百分比數值。 對於使用量最少的串流作業來說，SU % 使用量度量通常介於 10% 到 20% 間。 建議您最好將計量保持低於 80%，以因應偶發的尖峰使用量。  您可以設定度量警示 (請參閱[這裡以設定度量警示](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal))。
+計量是從 0% 到 100% 的百分比數值。 對於使用量最少的串流作業來說，SU % 使用量度量通常介於 10% 到 20% 間。 建議您最好將計量保持低於 80%，以因應偶發的尖峰使用量。  您可以設定度量警示 (請參閱[這裡以設定度量警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal))。
 
 
 
@@ -82,7 +82,7 @@ Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理�
 
 一旦查詢已分割時，便會分散到多個節點。 如此一來，進入到每個節點的 clusterid 數目便會降低，因此也降低了運算子群組的基數。 
 
-事件中樞分割區應依據群組索引鍵來分割，以避免需要進行減量步驟。 如需其他詳細資料，請參閱[這裡](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview)。 
+事件中樞分割區應依據群組索引鍵來分割，以避免需要進行減量步驟。 如需其他詳細資料，請參閱[這裡](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview)。 
 #### <a name="temporal-join"></a>時態性聯結
 時態性聯結的狀態大小，與聯結時態性扭擺空間內的事件數目成正比，也就是事件輸入速率乘以扭擺空間大小。 
 

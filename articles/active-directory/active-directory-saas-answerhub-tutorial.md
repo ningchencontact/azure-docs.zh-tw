@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 AnswerHub 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a1c9cc5d7a2ebe28e9fb7e0e6ed8e3d393873ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b5e367c35582d569dc592aaf09034e39bfb0fa65
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>教學課程：Azure Active Directory 與 AnswerHub 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 AnswerHub
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-answerhub-from-the-gallery"></a>從資源庫新增 AnswerHub
-若要設定將 AnswerHub 整合到 Azure AD 中，您需要從資源庫將 AnswerHub 新增到受管理的 SaaS 應用程式清單。
+若要設定將 AnswerHub 整合到 Azure AD 中，您需要從資源庫將 AnswerHub 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 AnswerHub，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **AnswerHub**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_search.png)
 
-5. 在結果面板中，選取 AnswerHub，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [AnswerHub]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_addfromgallery.png)
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 10/11/2017
   
      a. 在 [IDP 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的「SAML 單一登入服務 URL」。
   
-     b.這是另一個 C# 主控台應用程式。 在 [IDP 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的「登出 URL」。
+     b. 在 [IDP 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的「登出 URL」。
      
      c. 在 [IDP 名稱識別碼格式] 文字方塊中，輸入與在 Azure 入口網站的 [使用者屬性] 區段中所選相同的使用者識別碼值。
   
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
  
      a. 在記事本中開啟您從 Azure 入口網站下載的 Base-64 編碼憑證，將其內容複製到剪貼簿，然後貼到 [IDP 公開金鑰 (x509 格式)] 文字方塊中。
   
-     b.這是另一個 C# 主控台應用程式。 按一下 [儲存] 。
+     b. 按一下 [檔案] 。
 
 14. 在 [IDP 設定] 索引標籤上，按一下 [儲存]。
 
@@ -192,11 +192,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-answerhub-test-user"></a>建立 AnswerHub 測試使用者
 
@@ -215,7 +215,7 @@ ms.lasthandoff: 10/11/2017
    
    ![使用者和群組](./media/active-directory-saas-answerhub-tutorial/ic785175.png "使用者和群組")
 
-5. 在相關的文字方塊中，輸入您要佈建之有效 Azure Active Directory 帳戶的 電子郵件地址、使用者名稱 和 密碼，然後按一下儲存。
+5. 在相關的文字方塊中，輸入您要佈建之有效 Azure Active Directory 帳戶的 [電子郵件地址]、[使用者名稱] 和 [密碼]，然後按一下 [儲存]。
 
 >[!NOTE]
 >您可以使用任何其他的 AnswerHub 使用者帳戶建立工具或 AnswerHub 提供的 API 來佈建 AAD 使用者帳戶。

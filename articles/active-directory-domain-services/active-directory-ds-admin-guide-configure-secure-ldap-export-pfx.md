@@ -1,10 +1,10 @@
 ---
 title: "在 Azure AD Domain Services 中設定安全的 LDAP (LDAPS) | Microsoft Docs"
-description: "針對 Azure AD 網域服務受管理網域設定安全的 LDAP (LDAPS)"
+description: "針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 5d46f376d46b8bbf3f93de57a7d4e31abdbcdb2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4d495fcef89a68ca544100dcea8e6c55d4709ae0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受管理網域設定安全的 LDAP (LDAPS)
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 
 ## <a name="before-you-begin"></a>開始之前
 確定您已完成[工作 1 - 取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)。
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
     ![匯出憑證的私密金鑰](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
     > [!WARNING]
-    > 您必須匯出私密金鑰以及憑證。 如果您提供的 PFX 未包含憑證的私密金鑰，則為受管理網域啟用安全的 LDAP 會失敗。
+    > 您必須匯出私密金鑰以及憑證。 如果您提供的 PFX 未包含憑證的私密金鑰，則為受控網域啟用安全的 LDAP 會失敗。
     >
     >
 13. 在 [匯出檔案格式] 頁面上，選取 [個人資訊交換 - PKCS #12 (.PFX)] 作為匯出憑證的檔案格式。
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
     ![憑證匯出的密碼 ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
-    > 記下此密碼。 在[工作 3 - 為受管理的網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md) 中針對此受管理的網域啟用安全 LDAP 時，需要這個密碼
+    > 記下此密碼。 在[工作 3 - 為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md) 中針對此受控網域啟用安全 LDAP 時，需要這個密碼
     >
     >
 15. 在 [要匯出的檔案]  頁面上，指定檔案名稱及接收匯出憑證的位置。
@@ -93,4 +93,5 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="next-step"></a>後續步驟
-[工作 3 - 為受管理的網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+
+            [工作 3 - 為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

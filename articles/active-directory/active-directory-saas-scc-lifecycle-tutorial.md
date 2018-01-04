@@ -4,7 +4,7 @@ description: "了解如何使用 SCC LifeCycle 搭配 Azure Active Directory 來
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a30bcca720ff135d0180d73f46e78403e9bca43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0716bc6697b8350ec3f6c890e5fb7a1eb743bdd2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>教學課程：Azure Active Directory 與 SCC LifeCycle 整合
 本教學課程的目的是要示範 Azure 與 SCC LifeCycle 的整合。  
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 6. 在 [搜尋] 對話方塊中，輸入 **SCC LifeCycle**。
    
     ![應用程式資源庫](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "應用程式資源庫")
-7. 在結果窗格中，選取 SCC LifeCycle，然後按一下完成 來新增應用程式。
+7. 在結果窗格中，選取 [SCC LifeCycle]，然後按一下 [完成] 來新增應用程式。
    
     ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
    
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
    > 
    > 
 
-6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
+6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
    
     ![設定單一登入](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "設定單一登入")
    
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="assign-users"></a>指派使用者
-若要測試您的組態，則需指派您所允許使用您應用程式的 Azure AD 使用者，藉此授予其存取組態的權限。
+若要測試您的組態，您需要指派使用者，授予存取權給您想要允許其使用您的應用程式存取設定的 Azure AD 使用者。
 
 **若要將使用者指派給 SCC LifeCycle，請執行下列步驟：**
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 2. 在 [SCC LifeCycle] 應用程式整合頁面上，按一下 [指派使用者]。
    
     ![指派使用者](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "指派使用者")
-3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
+3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
    
     ![是](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "是")
 

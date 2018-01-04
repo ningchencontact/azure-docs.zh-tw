@@ -4,7 +4,7 @@ description: "提供如何使用 Azure 入口網站將一個資源的 MSI 存取
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.openlocfilehash: 5cd17d48f1653c9606e54e2759f1458d627aa03e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 88abc2a9836633e5d88a91e59f7078a388b26068
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站將受管理服務識別 (MSI) 存取權指派給資源
+# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站將受控服務識別 (MSI) 存取權指派給資源
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-以受管理服務識別 (MSI) 設定 Azure 資源後，您就可以將 MSI 存取權提供給另一個資源，就像任何安全性主體一樣。 本文示範如何使用 Azure 入口網站將 Azure 虛擬機器的 MSI 存取權提供給 Azure 儲存體帳戶。
+以受控服務識別 (MSI) 設定 Azure 資源後，您就可以將 MSI 存取權提供給另一個資源，就像任何安全性主體一樣。 本文示範如何使用 Azure 入口網站將 Azure 虛擬機器的 MSI 存取權提供給 Azure 儲存體帳戶。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="related-content"></a>相關內容
 
-- 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](msi-overview.md)。
-- 若要在 Azure VM 上啟用 MSI，請參閱[使用 Azure 入口網站設定 Azure VM 受管理的服務身分識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。
+- 如需 MSI 的概觀，請參閱[受控服務識別概觀](msi-overview.md)。
+- 若要在 Azure VM 上啟用 MSI，請參閱[使用 Azure 入口網站設定 Azure VM 受控服務身分識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。
 
 

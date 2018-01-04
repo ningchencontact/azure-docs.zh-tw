@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Procore SSO 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 9818edd3-48c0-411d-b05a-3ec805eafb2e
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6bae8e24f252a535571308467b428832b542e48
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>教學課程：Azure Active Directory 與 Procore SSO 整合
 
@@ -55,13 +55,13 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Procore SSO
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-procore-sso-from-the-gallery"></a>從資源庫新增 Procore SSO
-若要設定將 Procore SSO 整合到 Azure AD 中，您需要從資源庫將 Procore SSO 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Procore SSO 整合到 Azure AD 中，您需要從資源庫將 Procore SSO 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Procore SSO，請執行下列步驟：**
 
@@ -71,17 +71,17 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Procore SSO**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-procoresso-tutorial/tutorial_procoresso_search.png)
 
-5. 在結果窗格中，選取 Procore SSO，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Procore SSO]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-procoresso-tutorial/tutorial_procoresso_addfromgallery.png)
 
@@ -160,7 +160,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
  
 - To configure access polices for Procore SSO users, see Access Policies.
  
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
+- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
@@ -188,11 +188,11 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-procore-sso-test-user"></a>建立 Procore SSO 測試使用者
 
@@ -216,7 +216,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     d. 將 [權限範本] 選取為 [稍後套用權限範本]。
 
-    e. 按一下 [建立] 。
+    e. 按一下頁面底部的 [新增] 。
 
 4. 檢查並更新新增之連絡人的詳細資料。
 

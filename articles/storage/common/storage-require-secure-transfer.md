@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 1bb87cf3e37e486f9a03da43df652442c19fd218
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 儲存體中要求使用安全傳輸
 
@@ -54,8 +54,8 @@ ms.lasthandoff: 10/11/2017
 
 若要以程式設計方式要求使用安全傳輸，請使用儲存體帳戶屬性中的設定 _supportsHttpsTrafficOnly_ 搭配 REST API、工具或程式庫：
 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) \(英文\) (版本：2016-12-01)
-* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) \(英文\) (版本：4.1.0)
+* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) \(英文\) (版本：2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) \(英文\) (版本：4.1.0)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) \(英文\) (版本：2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) \(英文\) (版本：1.1.0)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) \(英文\) (版本：6.3.0)

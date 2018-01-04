@@ -4,7 +4,7 @@ description: "本文章列出 Azure AD Connect 和 Azure AD Sync 的所有版本
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
-
-本文旨在協助您追蹤已發行的版本，以及了解您是否需要更新為最新版本。
+' 這篇文章設計用來協助您追蹤已發行的版本，並了解是否需要更新為最新版本，或不。
 
 下列為相關主題的清單︰
 
 
-主題 |  詳細資料
+
+話題 |  詳細資料
 --------- | --------- |
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
-下載| [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
 
+下載 |[下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="116540"></a>1.1.654.0
+2017 年 12 月 12 日狀態：
+
+>[!NOTE]
+>這是安全性相關的 Azure AD Connect 的 hotfix
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+改進已給 Azure AD Connect 版 1.1.654.0 （，） 以確保建議的權限變更底下所述的章節[AD DS 帳戶的存取權的鎖定](#lock)會自動套用當 Azure AD連接會在建立 AD DS 帳戶。 
+
+- 設定 Azure AD Connect，請安裝系統管理員可以提供現有的 AD DS 帳戶，或讓自動建立帳戶的 Azure AD Connect。 AD DS 帳戶所建立的 Azure AD Connect 在安裝期間，會自動套用權限變更。 不會套用到現有安裝的系統管理員提供的 AD DS 帳戶。
+- 已升級您較舊版本的 Azure AD Connect 1.1.654.0 （或之後），權限的客戶將不會回溯套用變更至現有的 AD DS 帳戶，在升級之前建立。 它們只會套用到在升級之後所建立的新 AD DS 帳戶。 會發生這種情況是當您新增新的 AD 樹系同步至 Azure AD。
+
+>[!NOTE]
+>此版本只會移除的弱點可能會針對新的安裝程序所建立的服務帳戶所在的 Azure AD Connect 的安裝。 針對現有安裝，或在其中您提供帳戶自己的情況下，您應該確定這項弱點不存在。
+
+#### <a name="lock"></a>鎖定 AD DS 帳戶的存取權
+藉由在內部部署實作下列權限變更 AD DS 帳戶的存取權的鎖定 AD:  
+
+*   停用指定的物件上的繼承
+*   移除特定物件，除了特有 SELF Ace 上所有的 Ace。 我們想要保留的預設權限時設為本身。
+*   指派這些特定的權限：
+
+類型     | 名稱                          | Access               | 套用至
+---------|-------------------------------|----------------------|--------------|
+允許    | 系統                        | 完全控制         | 此物件  |
+允許    | 企業系統管理員             | 完全控制         | 此物件  |
+允許    | Domain Admins                 | 完全控制         | 此物件  |
+允許    | 系統管理員                | 完全控制         | 此物件  |
+允許    | 企業網域控制站 | 列出內容        | 此物件  |
+允許    | 企業網域控制站 | 讀取全部內容  | 此物件  |
+允許    | 企業網域控制站 | 讀取權限     | 此物件  |
+允許    | 已驗證的使用者           | 列出內容        | 此物件  |
+允許    | 已驗證的使用者           | 讀取全部內容  | 此物件  |
+允許    | 已驗證的使用者           | 讀取權限     | 此物件  |
+
+若要加強設定為 AD DS 帳戶，您可以執行[這個 PowerShell 指令碼](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)。 PowerShell 指令碼將會指派到 AD DS 帳戶上述權限。
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>此功能來加強預先存在的服務帳戶的 PowerShell 指令碼
+
+要套用到預先存在的 AD DS 帳戶，這些設定，請使用 PowerShell 指令碼 （ether 貴組織所提供或由先前安裝的 Azure AD Connect，請下載指令碼從上述提供的連結。
+
+##### <a name="usage"></a>Usage :
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = 需要再提高其權限的 Active Directory 帳戶。
+
+**$Credential** = 具備必要的權限來限制 $ObjectDN 帳戶的權限的系統管理員認證。 這通常是在企業或網域系統管理員。 使用系統管理員帳戶的完整的網域名稱，以避免帳戶查閱失敗。 範例： contoso.com\admin。
+
+>[!NOTE] 
+>$credential。使用者名稱應該採用 FQDN\username 格式。 範例： contoso.com\admin 
+
+##### <a name="example"></a>範例：
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>用來取得未經授權的存取這項弱點嗎？
+
+若要查看已用於此的弱點可能會危害您的 Azure AD Connect 設定，您應該確認的最後一個密碼重設服務帳戶的日期。  如果在未預期的時間戳記，進一步調查事件記錄檔中，透過該密碼重設事件，應該進行。
+
+如需詳細資訊，請參閱[Microsoft 安全性摘要報告 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 狀態：2017 年 10 月 27 日
@@ -458,12 +525,12 @@ AD FS 管理
 **新功能/改進︰**
 
 Azure AD Connect 同步處理
-* Azure AD Connect Sync 現在支援使用「虛擬服務帳戶」、「受管理的服務帳戶」及「群組受管理服務帳戶」作為其服務帳戶。 這僅適用於新的 Azure AD Connect 安裝。 安裝 Azure AD Connect 時：
+* Azure AD Connect Sync 現在支援使用「虛擬服務帳戶」、「受控服務帳戶」及「群組受控服務帳戶」作為其服務帳戶。 這僅適用於新的 Azure AD Connect 安裝。 安裝 Azure AD Connect 時：
     * 根據預設，Azure AD Connect 精靈會建立一個「虛擬服務帳戶」，並使用它作為其服務帳戶。
     * 如果您是在網域控制站上進行安裝，Azure AD Connect 就會回復成先前的行為，也就是會建立網域使用者帳戶，並改用它作為服務帳戶。
     * 您可以透過提供下列其中一項，來覆寫預設的行為：
-      * 群組受管理服務帳戶
-      * 受管理的服務帳戶
+      * 群組受控服務帳戶
+      * 受控服務帳戶
       * 網域使用者帳戶
       * 本機使用者帳戶
 * 以前，如果您升級至包含連接器更新或同步處理規則變更的新 Azure AD Connect 組建，Azure AD Connect 會觸發一個完整的同步處理週期。 現在，Azure AD Connect 會選擇性地僅針對具有更新的連接器觸發「完整匯入」步驟，以及僅針對具有同步處理規則變更的連接器觸發「完整同步處理」步驟。
@@ -509,7 +576,7 @@ Azure AD Connect 同步處理
 AD FS 管理
 * 新增對更新「AD FS 伺服器陣列 SSL 憑證」的支援。
 * 新增對管理 AD FS 2016 的支援。
-* 您現在可以在安裝 AD FS 時指定現有的 gMSA (群組受管理服務帳戶)。
+* 您現在可以在安裝 AD FS 時指定現有的 gMSA (群組受控服務帳戶)。
 * 您現在可以為 Azure AD 信賴憑證者信任設定 SHA-256 作為簽章雜湊演算法。
 
 密碼重設

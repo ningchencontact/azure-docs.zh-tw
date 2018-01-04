@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>如何搭配使用彈性查詢與 SQL 資料倉儲
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="elastic-querying"></a>彈性查詢
 
-- 外部資料表和內部快取資料表會以不同物件的形式存在 SQL Database 執行個體中。 請考慮建立能綜觀資料表快取部分和外部資料表的視野，取得這兩份資料表的聯集，以及在每份資料表的分界點套用篩選條件。
+- 在許多情況下，其中可能會想要管理延展的資料表，其中資料表的部分是 SQL Database 中為快取資料以供效能與其餘的 SQL 資料倉儲中儲存的資料類型。 您必須在 SQL Database 中有兩個物件： 參考 SQL 資料倉儲和 SQL 資料庫中資料表的 「 快取的 」 部分中的基底資料表的 SQL Database 中的外部資料表。 請考慮建立檢視頂端的資料表和外部資料表的快取部分上方的等位和資料表適用於將資料具體化公開會透過外部資料表的 SQL Database 和 SQL 資料倉儲資料內的篩選器。
 
   想像我們要將最近一年來的資料保存在 SQL Database 執行個體中。 我們有兩份資料表：**ext.Orders** 參考資料倉儲訂單資料表，而 **dbo.Orders** 代表 SQL Database 執行個體中最近一年來的資料。 與其徵詢使用者要查詢哪一份資料表，不如在最近一年的分割點上建立綜觀這兩份資料表的視野。
 
@@ -135,13 +135,17 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="faq"></a>常見問題集
 
-問：我可以使用彈性資料庫集區中的資料庫搭配彈性查詢嗎？
+問： 是否可以使用資料庫內具有彈性查詢彈性集區？
 
-答： 會。 彈性集區中的 SQL Database 可以使用彈性查詢。 
+答： 會。 彈性集區中的 SQL 資料庫可以使用彈性的查詢。 
 
-問：用於彈性查詢的資料庫數目有上限嗎？
+問： 是否有多少可用的彈性查詢的資料庫端點？
 
-答：邏輯伺服器採用 DTU 限制來預防客戶意外過度使用。 如果您除了 SQL 資料倉儲之外另啟用好幾個資料庫來進行彈性查詢，可能會不經意地達到上限。 如果發生這種情況，請提交要求來提高邏輯伺服器的 DTU 限制。 您可以藉由[建立支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，並選取 [配額] 做為要求類型來增加配額
+答： 沒有任何硬上限多少資料庫可用於彈性查詢。 不過，每個彈性查詢 （叫用 SQL 資料倉儲的查詢） 都會算正常的並行存取限制。
+
+問： 有涉及彈性查詢的 DTU 限制嗎？
+
+答： DTU 限制不加諸任何以不同的方式與彈性查詢。 標準原則時，邏輯伺服器中用來防止意外 overspending 客戶具有 DTU 限制。 如果您除了 SQL 資料倉儲之外另啟用好幾個資料庫來進行彈性查詢，可能會不經意地達到上限。 如果發生這種情況，請提交要求來提高邏輯伺服器的 DTU 限制。 您可以藉由[建立支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，並選取 [配額] 做為要求類型來增加配額
 
 問：我可以使用資料列層級安全性/動態資料遮罩來搭配彈性查詢嗎？
 

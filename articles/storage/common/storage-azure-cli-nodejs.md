@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>使用 Azure CLI 1.0 搭配 Azure 儲存體
 
@@ -95,7 +95,7 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>使用 Azure CLI 管理儲存體帳戶
 ### <a name="connect-to-your-azure-subscription"></a>連接到 Azure 訂用帳戶
-雖然大多數儲存體命令在沒有 Azure 訂用帳戶的情況下也能運作，但是仍建議您從 Azure CLI 連接到您的訂用帳戶。 若要設定讓 Azure CLI 與您的訂用帳戶搭配運作，請依照 [從 Azure CLI 連接到 Azure 訂用帳戶](../../xplat-cli-connect.md)中的步驟操作。
+雖然大多數儲存體命令在沒有 Azure 訂用帳戶的情況下也能運作，但是仍建議您從 Azure CLI 連接到您的訂用帳戶。 若要設定讓 Azure CLI 與您的訂用帳戶搭配運作，請依照 [從 Azure CLI 連接到 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)中的步驟操作。
 
 ### <a name="create-a-new-storage-account"></a>建立新的儲存體帳戶
 若要使用 Azure 儲存體，您將需要儲存體帳戶。 設定電腦以連接至您的訂用帳戶之後，您可以建立新的 Azure 儲存體帳戶。

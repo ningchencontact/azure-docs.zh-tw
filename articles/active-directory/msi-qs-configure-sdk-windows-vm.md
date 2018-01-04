@@ -1,10 +1,10 @@
 ---
 title: "如何使用 Azure SDK 設定已啟用 MSI 的 Azure VM"
-description: "提供如何使用 Azure SDK 在 Azure VM 上設定及使用「受管理服務識別 (MSI)」的逐步指示。"
+description: "提供如何使用 Azure SDK 在 Azure VM 上設定及使用「受控服務識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: bryanla
-ms.openlocfilehash: 25bbe7bbfbc32441cd3dbbb1e213fdce556b410b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>使用 Azure SDK 設定虛擬機器受管理服務識別 (MSI)
+# <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>使用 Azure SDK 設定虛擬機器受控服務識別 (MSI)
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-受管理服務識別在 Azure Active Directory (AD) 中為 Azure 服務提供自動管理的身分識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+受控服務識別在 Azure Active Directory (AD) 中為 Azure 服務提供自動管理的身分識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您將了解如何使用 Azure SDK 來啟用和移除 Azure VM 的 MSI。
 

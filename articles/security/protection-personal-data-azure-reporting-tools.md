@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>使用 Azure 報告工具記載個人資料的保護
 
@@ -90,7 +90,7 @@ Azure Active Directory 報告還包含兩種類型的安全性報告：[標幟�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) 可以[從 Azure 監視器收集資料](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage)，使它與其他資料相互關聯並提供其他分析。 Azure 監視器可收集和分析 Azure 環境的監視資料。 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) 可以[從 Azure 監視器收集資料](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)，使它與其他資料相互關聯並提供其他分析。 Azure 監視器可收集和分析 Azure 環境的監視資料。 
 
 Log Analytics 中的分析工具 (例如記錄搜尋、檢視和解決方案) 可處理所有收集的資料，進而為您提供整個環境的集中式分析。 Log Analytics 可彙總及分析 Windows 事件記錄、IIS 記錄和 Syslog，其有助於偵測可能會對未經授權的使用者公開個人資料的潛在個人資料缺口。
 

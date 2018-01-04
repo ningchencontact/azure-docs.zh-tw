@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Clever 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 84082ff567e37d7fff80be9e089c67cfab911861
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>教學課程：Azure Active Directory 與 Clever 整合
 
@@ -48,13 +48,13 @@ Clever 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Clever
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-clever-from-the-gallery"></a>從資源庫新增 Clever
-若要設定將 Clever 整合到 Azure AD 中，您需要從資源庫將 Clever 新增到受管理的 SaaS 應用程式清單中。
+若要設定將 Clever 整合到 Azure AD 中，您需要從資源庫將 Clever 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Clever，請執行下列步驟：**
 
@@ -157,7 +157,7 @@ Clever 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [端點] 以開啟 [端點] 對話方塊。  
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
     
     ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
 
@@ -190,7 +190,7 @@ Clever 與 Azure AD 整合提供下列優點：
 
       c. 在 [中繼資料 URL]文字方塊中輸入**中繼資料 URL**。
       
-      d. 按一下 [儲存] 。
+      d. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ Clever 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-clever-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-clever-tutorial/create_aaduser_02.png)
 
@@ -226,7 +226,7 @@ Clever 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-clever-test-user"></a>建立 Clever 測試使用者
 

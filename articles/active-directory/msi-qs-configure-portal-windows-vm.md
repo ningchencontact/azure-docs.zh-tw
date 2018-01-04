@@ -1,10 +1,10 @@
 ---
 title: "如何使用 Azure 入口網站設定 Azure VM 上的 MSI"
-description: "使用 Azure 入口網站在 Azure VM 上設定「受管理的服務身分識別 (MSI)」的逐步指示。"
+description: "使用 Azure 入口網站在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: bryanla
-ms.openlocfilehash: 09ec59f9239e08005732b120ca653dcc833708a8
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 8decfcedec94b9d78eac73a3e8db1219fac02029
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VM 受管理的服務身分識別 (MSI)」
+# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VM 受控服務身分識別 (MSI)」
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-在 Azure Active Directory 中，「受管理的服務身分識別」會提供自動受管理的身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您將了解如何使用 Azure 入口網站啟用和移除 Azure VM 的 MSI。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/23/2017
 
 2. 瀏覽到需要的虛擬機器。
 
-2. 按一下 [組態] 頁面，並選取「受管理的服務身分識別」下的 [是] 來啟用 VM 上的 MSI，然後按一下 [儲存] 。 此作業可能需要 60 秒以上才能完成：
+2. 按一下 [組態] 頁面，並選取「受控服務身分識別」下的 [是] 來啟用 VM 上的 MSI，然後按一下 [儲存] 。 此作業可能需要 60 秒以上才能完成：
 
    ![組態頁面螢幕擷取畫面](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -60,13 +60,13 @@ ms.lasthandoff: 11/23/2017
 
 2. 瀏覽到需要的虛擬機器。
 
-3. 按一下 [組態] 頁面，並選取「受管理的服務身分識別」下的 [否] 來移除 VM 上的 MSI，然後按一下 [儲存] 。 此作業可能需要 60 秒以上才能完成：
+3. 按一下 [組態] 頁面，並選取「受控服務身分識別」下的 [否] 來移除 VM 上的 MSI，然後按一下 [儲存] 。 此作業可能需要 60 秒以上才能完成：
 
    ![組態頁面螢幕擷取畫面](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>相關內容
 
-- 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](msi-overview.md)。
+- 如需 MSI 的概觀，請參閱[受控服務識別概觀](msi-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

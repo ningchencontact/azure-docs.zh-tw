@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Cezanne HR Software 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>教學課程：Azure Active Directory 與 Cezanne HR Software 整合
 
@@ -48,13 +48,13 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Cezanne HR Software
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-cezanne-hr-software-from-the-gallery"></a>從資源庫加入 Cezanne HR Software
-若要設定 Cezanne HR Software 與 Azure AD 整合，您需要從資源庫將 Cezanne HR Software 新增到受管理的 SaaS 應用程式清單。
+若要設定 Cezanne HR Software 與 Azure AD 整合，您需要從資源庫將 Cezanne HR Software 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Cezanne HR Software，請執行下列步驟：**
 
@@ -110,7 +110,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，輸入 URL：`https://w3.cezanneondemand.com/CezanneOnDemand/`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://w3.cezanneondemand.com/CezanneOnDemand/`
 
     c. 在 [回覆 URL] 文字方塊中，輸入 URL：`https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
     
@@ -125,25 +125,29 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. 在 [Cezanne HR Software 組態] 區段上，按一下 [設定 Cezanne HR Software] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體 ID 和 SAML 單一登入服務 URL]。
+6. 在 [Cezanne HR Software 組態] 區段上，按一下 [設定 Cezanne HR Software] 以開啟 [設定登入] 視窗。
 
-    ![Cezanne HR Software 設定](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Cezanne HR Software 設定](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Cezanne HR Software 租用戶。
+7. 向下捲動至**快速參考**> 一節。 複製**SAML 單一登入服務 URL 和 SAML 實體識別碼**從**快速參考 > 一節。**
 
-8. 在左側的導覽窗格上，按一下 [系統設定] 。 移至 [安全性設定] 。 然後瀏覽至 [單一登入設定] 。
+    ![Cezanne HR Software 設定](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Cezanne HR Software 租用戶。
+
+9. 在左側的導覽窗格上，按一下 [系統設定] 。 移至 [安全性設定] 。 然後瀏覽至 [單一登入設定] 。
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. 在 [允許使用者使用下列的單一登入 (SSO) 服務來登入] 面板中檢查 [SAML 2.0] 方塊，然後選取 [進階組態] 選項。
+10. 在 [允許使用者使用下列的單一登入 (SSO) 服務來登入] 面板中檢查 [SAML 2.0] 方塊，然後選取 [進階組態] 選項。
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. 按一下 [新增]  按鈕。
+11. 按一下 [新增]  按鈕。
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. 在 [SAML 2.0 身分識別提供者]  區段中執行下列步驟。
+12. 在 [SAML 2.0 身分識別提供者]  區段中執行下列步驟。
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
     
     g. 按一下 [確定] 按鈕。 
 
-12. 按一下 [儲存]  按鈕。
+13. 按一下 [儲存]  按鈕。
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
@@ -199,7 +203,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-cezanne-hr-software-test-user"></a>建立 Cezanne HR Software 測試使用者
 
@@ -219,7 +223,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
     
     a. 將 [內部使用者] 設定為 OFF。
     
-    b.這是另一個 C# 主控台應用程式。 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。  
+    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。  
  
     c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
     
@@ -231,11 +235,11 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
     
     a. 在 [使用者名稱] 文字方塊中，輸入像是 Brittasimon@contoso.com 的使用者電子郵件。
     
-    b.這是另一個 C# 主控台應用程式。 在 [密碼] 文字方塊中，輸入使用者的密碼。
+    b. 在 [密碼] 文字方塊中，輸入使用者的密碼。
     
     c. 選取 [HR Professional] 做為 [安全性角色]。
     
-    d. 按一下 [確定] 。
+    d. 按一下 [SERVICEPRINCIPAL] 。
 
 5. 瀏覽至 [單一登入] 索引標籤並選取 [SAML 2.0 識別碼] 區域中的 [新增]。
 

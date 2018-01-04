@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像。
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如需 Resource Manager 模型的資訊，請參閱[在 Azure 中擷取一般化 VM 的受管理映像](../capture-image-resource.md)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需 Resource Manager 模型的資訊，請參閱[在 Azure 中擷取一般化 VM 的受控映像](../capture-image-resource.md)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本文說明如何擷取執行 Windows 的 Azure 虛擬機器，以便用它作為映像來建立其他虛擬機器。 此映像包括作業系統磁碟和任何連結至虛擬機器的資料磁碟。 它不包含網路組態，因此，當您建立其他使用此映像的虛擬機器時，將需要設定網路組態。
@@ -42,7 +42,7 @@ Azure 會將映像儲存於 [VM 映像 (傳統)] 下方，當您檢視所有 Azu
 >
 >
 
-擷取 Azure 虛擬機器映像之前，建議先備份目標虛擬機器。 Azure 虛擬機器可使用 Azure 備份進行備份。 如需詳細資訊，請參閱 [備份 Azure 虛擬機器](../../../backup/backup-azure-vms.md)。 來自認證合作夥伴的其他解決方案也可供使用。 若要了解目前可用的項目，請搜尋 Azure Marketplace。
+擷取 Azure 虛擬機器映像之前，建議先備份目標虛擬機器。 Azure 虛擬機器可使用 Azure 備份進行備份。 如需詳細資訊，請參閱 [備份 Azure 虛擬機器](../../../backup/backup-azure-arm-vms.md)。 來自認證合作夥伴的其他解決方案也可供使用。 若要了解目前可用的項目，請搜尋 Azure Marketplace。
 
 ## <a name="capture-the-virtual-machine"></a>擷取虛擬機器
 1. 在 [Azure 入口網站](http://portal.azure.com)中，**連接**到虛擬機器。 如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器][How to sign in to a virtual machine running Windows Server]。
@@ -52,7 +52,7 @@ Azure 會將映像儲存於 [VM 映像 (傳統)] 下方，當您檢視所有 Azu
 
    * 在 [系統清理動作] 中選取 [Enter System Out-of-Box Experience (OOBE)]，並確認 [一般化] 已勾選。 如需 Sysprep 的詳細用法，請參閱[如何使用 Sysprep：簡介][How to Use Sysprep: An Introduction]。
    * 在 [關機選項] 中選取 [關機]。
-   * 按一下 [確定] 。
+   * 按一下 [SERVICEPRINCIPAL] 。
 
    ![執行 Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep 會將虛擬機器關機，並會在 Azure 入口網站中，將虛擬機器的狀態變更為 [ **已停止**]。

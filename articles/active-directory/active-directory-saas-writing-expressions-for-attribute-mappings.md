@@ -4,7 +4,7 @@ description: "了解在 Azure Active Directory 中自動化佈建 SaaS 應用程
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -26,8 +26,8 @@ ms.lasthandoff: 10/18/2017
 屬性對應的運算式語法是 Visual Basic for Applications (VBA) 函式。
 
 * 整個運算式必須以函式定義，由函式名稱後面接著以括號括住的引數組成： <br>
-  *FunctionName(<<argument 1>>,<<argument N>>)*
-* 您可以在函式內互相巢狀函式。 例如： <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName (<< 引數 1 >> <<argument N>>)*
+* 您可以在函式內互相巢狀函式。 例如︰ <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * 您可以將三種不同類型的引數傳入函式：
   
   1. 屬性，必須以方括弧括住。 例如：[attributeName]
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/18/2017
 * 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如："公司名稱：\"Contoso\""
 
 ## <a name="list-of-functions"></a>函式的清單
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [將](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[附加](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [聯結](#join)&nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [不](#not) &nbsp; &nbsp; &nbsp; &nbsp; [取代](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [交換器](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -46,10 +46,10 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |String |通常為 source 物件的屬性名稱 |
-| **suffix** |必要 |String |您想要附加至 source 值結尾的字串。 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱 |
+| **suffix** |必要 |字串 |您想要附加至 source 值結尾的字串。 |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -59,11 +59,11 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |String |通常為 source 物件的屬性名稱。 |
-| **inputFormat** |必要 |String |source 值的預期格式。 如需支援的格式，請參閱 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
-| **outputFormat** |必要 |String |輸出日期的格式。 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
+| **inputFormat** |必要 |字串 |source 值的預期格式。 如需支援的格式，請參閱 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
+| **outputFormat** |必要 |字串 |輸出日期的格式。 |
 
 - - -
 ### <a name="join"></a>Join
@@ -75,10 +75,10 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **separator** |必要 |String |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
-| **source1  … sourceN ** |必要，變動次數 |String |要聯結在一起的字串值。 |
+| **separator** |必要 |字串 |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
+| **source1  … sourceN ** |必要，變動次數 |字串 |要聯結在一起的字串值。 |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -88,9 +88,9 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |String |通常為屬性的名稱。 |
+| **source** |必要 |字串 |通常為屬性的名稱。 |
 | **start** |必要 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
 | **length** |必要 |integer |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
 
@@ -102,12 +102,12 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
 
 - - -
-### <a name="replace"></a>將
+### <a name="replace"></a>Replace
 **函式：**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **說明：**<br>
@@ -129,15 +129,27 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |String |通常為 source 物件的屬性名稱。 |
-| **oldValue** |選用 |String |在 **source** 或 **template** 中要被取代的值。 |
-| **regexPattern** |選用 |String |在 **source**中要被取代的值的規則運算式模式。 或者，如果使用了 replacementPropertyName，要從取代屬性擷取值的模式。 |
-| **regexGroupName** |選用 |String |**regexPattern**內的群組名稱。 只有當使用了 replacementPropertyName 時，我們才會從取代屬性擷取此群組的值做為 replacementValue。 |
-| **replacementValue** |選用 |String |要取代舊值的新值。 |
-| **replacementAttributeName** |選用 |String |當 source 沒有任何值時，要用於取代值的屬性名稱。 |
-| **template** |選用 |String |提供 **template** 值時，我們會尋找 template 內的 **oldValue** 並以 source 值取代。 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
+| **oldValue** |選用 |字串 |在 **source** 或 **template** 中要被取代的值。 |
+| **regexPattern** |選用 |字串 |在 **source**中要被取代的值的規則運算式模式。 或者，如果使用了 replacementPropertyName，要從取代屬性擷取值的模式。 |
+| **regexGroupName** |選用 |字串 |**regexPattern**內的群組名稱。 只有當使用了 replacementPropertyName 時，我們才會從取代屬性擷取此群組的值做為 replacementValue。 |
+| **replacementValue** |選用 |字串 |要取代舊值的新值。 |
+| **replacementAttributeName** |選用 |字串 |當 source 沒有任何值時，要用於取代值的屬性名稱。 |
+| **template** |選用 |字串 |提供 **template** 值時，我們會尋找 template 內的 **oldValue** 並以 source 值取代。 |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**函式：**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**說明：**<br> 傳回單一 appRoleAssignment 從所有 appRoleAssignments 指派給特定應用程式的使用者清單。 此函式，才能將 appRoleAssignments 物件轉換成單一角色名稱的字串。 請注意，最佳的作法是確定只有一個 appRoleAssignment 指派給一位使用者一次，如果多個角色指派給傳回的角色字串可能不是可預測。
+
+**參數：**<br> 
+
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |必要 |字串 |**[appRoleAssignments]**物件。 |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -147,9 +159,9 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |String |**source** 值。 |
+| **source** |必要 |字串 |**source** 值。 |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -159,12 +171,12 @@ ms.lasthandoff: 10/18/2017
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意事項 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |String |**Source** 值。 |
-| **defaultValue** |選用 |String |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
-| **key** |必要 |String |要與 **source** 值比較的 **key**。 |
-| **value** |必要 |String |符合 key 的 **source** 的取代值。 |
+| **source** |必要 |字串 |**Source** 值。 |
+| **defaultValue** |選用 |字串 |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
+| **key** |必要 |字串 |要與 **source** 值比較的 **key**。 |
+| **value** |必要 |字串 |符合 key 的 **source** 的取代值。 |
 
 ## <a name="examples"></a>範例
 ### <a name="strip-known-domain-name"></a>刪去已知的網域名稱

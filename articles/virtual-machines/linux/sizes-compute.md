@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 18b2e380bf51262f7dd78f164a925603ff6ab94f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 006f79f2017a12cfc131013acfe66f2befa93a80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>計算最佳化的虛擬機器大小
 
@@ -36,4 +36,4 @@ ms.lasthandoff: 11/17/2017
 - [高效能計算](sizes-hpc.md)
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [Azure 計算單位 (ACU)](../windows/acu.md) 如何協助您比較各個 Azure SKU 的計算效能。
+深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。

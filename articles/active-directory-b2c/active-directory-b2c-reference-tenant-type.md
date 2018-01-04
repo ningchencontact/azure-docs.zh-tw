@@ -4,7 +4,7 @@ description: "有關 Azure Active Directory B2C 租用戶類型的主題"
 services: active-directory-b2c
 documentationcenter: 
 author: gsacavdm
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
 ms.service: active-directory-b2c
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: gsacavdm
-ms.openlocfilehash: facd66f0324e382ea7609a035de8129ba433846f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C：區域可用性和資料存留處
 區域可用性和資料存留處是兩個非常不同的概念，這些概念套用到 Azure AD B2C 的方式與套用到其餘 Azure 的方式不同。 本文將說明這兩個概念之間的差異，並比較它們如何套用在 Azure 與 Azure AD B2C。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 Azure AD B2C 是**在全球正式運作**，具有**資料存留處在美國或歐洲**的選項。
 
 ## <a name="concepts"></a>概念

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,6 +43,56 @@ ms.lasthandoff: 11/17/2017
 下圖顯示 Data Factory 中管線、活動、資料集及已連結服務之間的關聯性：
 
 ![管線、活動、資料集、已連結的服務之間的關聯性](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>連結的服務 JSON
+Data Factory 中的連結的服務中定義的 JSON 格式，如下所示：
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+下表描述上述 JSON 的屬性：
+
+屬性 | 說明 | 必要 |
+-------- | ----------- | -------- |
+name | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
+type | 連結服務的類型。 例如： AzureStorage （資料存放區） 或 AzureBatch （計算）。 請參閱 typeProperties 的描述。 | 是 |
+typeProperties | 型別屬性不同的每個資料存放區，或計算。 <br/><br/> 支援的資料存放區型別和其型別屬性，請參閱[資料集類型](#dataset-type)本文章中的資料表。 瀏覽至 資料存放區連接器文件以了解特定的資料存放區的類型屬性。 <br/><br/> 支援的計算類型和其型別屬性，請參閱[計算連結的服務](compute-linked-services.md)。 | 是 |
+connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure 整合執行階段或之自我裝載整合執行階段 （如果您的資料存放區位於私人網路）。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否
+
+## <a name="linked-service-example"></a>已連結的服務範例
+下列連結的服務是 Azure 儲存體連結服務。 請注意，型別設定為 AzureStorage。 Azure 儲存體連結服務的型別內容包含連接字串。 Data Factory 服務會使用此連接字串連接到在執行階段資料存放區。 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>資料集 JSON
 Data Factory 中的資料集會以 JSON 格式定義如下：
@@ -72,12 +122,12 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 ```
 下表描述上述 JSON 的屬性：
 
-屬性 | 說明 | 必要 | 預設值
--------- | ----------- | -------- | -------
-名稱 | 資料集的名稱。 | 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 | 是 | NA
-類型 | 資料集的類型。 | 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-types)。 | 是 | NA
-structure | 資料集的結構描述。 | 如需詳細資料，請參閱[資料集結構](#dataset-structure)。 | 否 | NA
-typeProperties | 每個類型 (例如：Azure Blob、Azure SQL 資料表) 的類型屬性都不同。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 | NA
+屬性 | 說明 | 必要 |
+-------- | ----------- | -------- |
+name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
+type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-types)。 | 是 |
+structure | 資料集的結構描述。 如需詳細資料，請參閱[資料集結構](#dataset-structure)。 | 否 |
+typeProperties | 每個類型 (例如：Azure Blob、Azure SQL 資料表) 的類型屬性都不同。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
 
 ## <a name="dataset-example"></a>資料集範例
 在下列範例中，資料集代表 SQL Database 中名為 MyTable 的資料表。
@@ -104,28 +154,6 @@ typeProperties | 每個類型 (例如：Azure Blob、Azure SQL 資料表) 的類
 - 類型設為 AzureSqlTable。
 - tableName 類型屬性 (針對 AzureSqlTable 類型) 設定為 MyTable。
 - linkedServiceName 係指 AzureSqlDatabase 類型的已連結服務，在接下來的 JSON 程式碼片段中將會定義。
-
-## <a name="linked-service-example"></a>已連結的服務範例
-AzureSqlLinkedService 定義如下︰
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-在上述 JSON 程式碼片段中：
-
-- **type** 是設定為 AzureSqlDatabase。
-- **connectionString** 類型屬性會指定用以連接到 SQL Database 的資訊。
-
-如您所見，已連結的服務會定義如何連接到 SQL Database。 資料集會定義使用哪個資料表作為管線中活動的輸入和輸出。
 
 ## <a name="dataset-type"></a>資料集類型
 有許多不同類型的資料集，視您使用的資料存放區而定。 如需 Data Factory 所支援的資料存放區清單，請參閱下表。 按一下某個資料存放區，即可了解如何為該資料存放區建立已連結的服務和資料集。
@@ -170,8 +198,8 @@ structure 中的每個資料行都包含下列屬性︰
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-名稱 | 資料行的名稱。 | 是
-類型 | 資料行的資料類型。 | 否
+name | 資料行的名稱。 | 是
+type | 資料行的資料類型。 | 否
 culture | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設值為 `en-us`。 | 否
 format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 | 否
 

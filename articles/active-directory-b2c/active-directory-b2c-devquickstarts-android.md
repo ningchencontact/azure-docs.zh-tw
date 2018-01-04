@@ -4,7 +4,7 @@ description: "本文將說明如何建立 Android 應用程式，以使用 AppAu
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: d00947c3-dcaa-4cb3-8c2e-d94e0746d8b2
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd08c666c09b651e6c0def72a89eda56ba73e34d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C︰使用 Android 應用程式登入
 
@@ -42,8 +42,6 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 * 在應用程式中加入**原生用戶端**。
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 稍後您將會需要此資訊。
 * 設定原生用戶端**重新導向 URI** (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)。 稍後您也會需要此資訊。
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>建立您的原則
 

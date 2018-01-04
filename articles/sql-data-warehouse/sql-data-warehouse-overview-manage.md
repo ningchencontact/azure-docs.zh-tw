@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的資料庫
 SQL 資料倉儲會自動化管理您的資料庫的各個層面。 例如，若要調整效能，您只需要調整並支付適當等級的計算資源，然後讓 SQL 資料倉儲執行相應放大和調整回來的所有工作。
@@ -33,7 +33,7 @@ SQL 資料倉儲會自動化管理您的資料庫的各個層面。 例如，若
 * 暫停與繼續
 * 效能最佳作法
 * 查詢監控
-* Security
+* 安全性
 * 備份與還原
 
 ## <a name="management-tools"></a>管理工具
@@ -47,7 +47,7 @@ SQL 資料倉儲會自動化管理您的資料庫的各個層面。 例如，若
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Visual Studio 中的 SQL Server Data Tools
 Visual Studio 中的 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) 可讓您連接、管理及開發資料庫。 如果您是熟悉 Visual Studio 或其他整合式開發環境 (IDE) 的應用程式開發人員，請嘗試使用 Visual Studio 中的 SSDT。
 
-SSDT 包含的 SQL Server 物件總管，可讓您針對 SQL 資料倉儲資料庫視覺化、連接和執行指令碼。 若要快速連線至 SQL 資料倉儲，只需在 Azure 傳統入口網站檢視資料庫的詳細資料時，按一下命令列中的 [在 Visual Studio 中開啟]  按鈕即可。  
+SSDT 包含的 SQL Server 物件總管，可讓您針對 SQL 資料倉儲資料庫視覺化、連接和執行指令碼。 若要快速地連接到 SQL 資料倉儲，您可以只按一下**Visual Studio 中開啟**命令列時檢視資料庫詳細資料在 Azure 入口網站中的按鈕。  
 
 若要開始使用 Visual Studio 中的 SSDT，請參閱[使用 Visual Studio 來查詢 Azure SQL 資料倉儲][Query Azure SQL Data Warehouse with Visual Studio]。
 

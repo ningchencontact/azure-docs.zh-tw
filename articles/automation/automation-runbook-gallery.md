@@ -3,7 +3,7 @@ title: "Azure 自動化的 Runbook 和模組資源庫 | Microsoft Docs"
 description: "來自 Microsoft 和社群的 Runbook 和模組可供您在 Azure 自動化環境中安裝及使用。  本文說明如何存取這些資源以及將您的 Runbook 貢獻至資源庫。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d3fee7b4-630a-4c10-8425-9bf51d7c9e58
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e46c09a0cfecf07514f85b5801129fbd8162510f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 您可以存取各種已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。  您可以不加修改地使用這些案例，或者使用它們做為起點並針對您的特定需求進行編輯。
@@ -54,10 +54,10 @@ ms.lasthandoff: 10/11/2017
    
     ![瀏覽資源庫](media/automation-runbook-gallery/browse-gallery.png)
 5. 按一下 [檢視來源專案]  以檢視 [TechNet 指令碼中心](http://gallery.technet.microsoft.com/)中的項目。
-6. 若要匯入項目，請按一下以檢視其詳細資料，然後按一下匯入  按鈕。
+6. 若要匯入項目，請按一下以檢視其詳細資料，然後按一下 [匯入]  按鈕。
    
     ![匯入按鈕](media/automation-runbook-gallery/gallery-item-detail.png)
-7. 選擇性變更 Runbook 的名稱，然後按一下確定  以匯入 Runbook。
+7. 選擇性變更 Runbook 的名稱，然後按一下 [確定]  以匯入 Runbook。
 8. Runbook 會出現在自動化帳戶的 [Runbook] 索引標籤上。
 
 ### <a name="adding-a-runbook-to-the-runbook-gallery"></a>將 Runbook 新增至 Runbook 資源庫
@@ -70,7 +70,7 @@ Microsoft 鼓勵您將您認為可能有助於其他客戶的 Runbook 新增至 
 * 上傳的摘要會顯示在 Runbook 資源庫結果中，因此，您應該提供詳細資訊，幫助使用者識別 Runbook 的功能。
 * 您應該對上傳項目指派 1 到 3 個下列標記。  在精靈中，Runbook 會列在符合其標記的類別底下。  精靈會略過不在此清單上的任何標記。 如果您未指定任何相符的標記，Runbook 會列在 [其他] 類別底下。
   
-  * 備份
+  * Backup 
   * 產能管理
   * 變更控制
   * 法規遵循

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics
 您可以使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
@@ -43,9 +43,9 @@ ms.lasthandoff: 10/17/2017
 | 資源 | 資源類型 | 舊版 API 版本 | 升級的 API 版本 |
 |:---|:---|:---|:---|
 | 工作區   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| 搜尋      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | 資料來源 | datasources   | 2015-11-01-preview | 2015-11-01-preview |
-| 方案    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+| 解決方法    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>建立及設定 Log Analytics 工作區
@@ -141,7 +141,7 @@ ms.lasthandoff: 10/17/2017
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retention": "[parameters('dataRetention')]"
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {

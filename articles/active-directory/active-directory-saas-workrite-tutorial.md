@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Workrite 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 2a5c2956-a011-4d5c-877b-80679b6587b5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 4358c4c621634c17cbbd7fa1c72f12746b8e4a2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6d44a3719e01be8f6a414aeb9a9c73040ac3defa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>教學課程：Azure Active Directory 與 Workrite 整合
 
@@ -48,13 +48,13 @@ Workrite 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Workrite
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-workrite-from-the-gallery"></a>從資源庫新增 Workrite
-若要設定 Workrite 與 Azure AD 整合，您需要從資源庫將 Workrite 新增到受管理的 SaaS 應用程式清單。
+若要設定 Workrite 與 Azure AD 整合，您需要從資源庫將 Workrite 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Workrite，請執行下列步驟：**
 
@@ -143,7 +143,7 @@ Workrite 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-workrite-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-workrite-tutorial/create_aaduser_02.png)
 
@@ -161,7 +161,7 @@ Workrite 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-workrite-test-user"></a>建立 Workrite 測試使用者
 
@@ -175,7 +175,7 @@ Workrite 與 Azure AD 整合提供下列優點：
    
     ![管理員控制][400]
 
-3. 移至 快速連結，然後按一下建立使用者 。
+3. 移至 [快速連結]，然後按一下 [建立使用者] 。
    
     ![[建立使用者] 區段][401]
 
@@ -185,13 +185,13 @@ Workrite 與 Azure AD 整合提供下列優點：
     
     a. 在 [電子郵件] 文字方塊中，輸入像是 Brittasimon@contoso.com 的使用者電子郵件地址。
 
-    b.這是另一個 C# 主控台應用程式。 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
+    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
 
     c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
     
     d. 對 [選擇角色] 選取 [用戶端系統管理員]。
     
-    e. 按一下 [儲存] 。   
+    e. 按一下 [檔案] 。   
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

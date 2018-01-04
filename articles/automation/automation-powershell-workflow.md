@@ -3,7 +3,7 @@ title: "了解適用於 Azure 自動化的 PowerShell 工作流程 | Microsoft D
 description: "本文旨在做為熟悉 PowerShell 的作者的快速課程，以了解 PowerShell 和 PowerShell 工作流程的特定差異，以及適用於自動化 Runbook 的概念。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念 
 Azure 自動化中的 Runbook 會實作為 Windows PowerShell 工作流程。  Windows PowerShell 工作流程類似於 Windows PowerShell 指令碼，但有一些顯著的差異可能會對新使用者造成混淆。  雖然本文旨在協助您使用 PowerShell 工作流程撰寫 Runbook，但是除非您需要檢查點，否則建議您使用 PowerShell 來撰寫 Runbook。  在撰寫 PowerShell 工作流程 Runbook 時有許多語法差異，而這些差異需要更多的工作來撰寫有效的工作流程。  
 
-工作流程是一連串的程式化、連接步驟，執行長時間執行的工作，或是需要跨多個裝置或受管理節點協調多個步驟。 透過標準的指令碼工作流程的好處包括能夠同時對多個裝置執行動作，以及可自動從失敗復原的能力。 Windows PowerShell 工作流程是使用 Windows Workflow Foundation 的 Windows PowerShell 指令碼。 雖然工作流程是使用 Windows PowerShell 語法編寫，並由 Windows PowerShell 啟動，它是由 Windows Workflow Foundation 來處理。
+工作流程是一連串的程式化、連接步驟，執行長時間執行的工作，或是需要跨多個裝置或受控節點協調多個步驟。 透過標準的指令碼工作流程的好處包括能夠同時對多個裝置執行動作，以及可自動從失敗復原的能力。 Windows PowerShell 工作流程是使用 Windows Workflow Foundation 的 Windows PowerShell 指令碼。 雖然工作流程是使用 Windows PowerShell 語法編寫，並由 Windows PowerShell 啟動，它是由 Windows Workflow Foundation 來處理。
 
 如需這篇文章中的主題的完整詳細資訊，請參閱 [開始使用 Windows PowerShell 工作流程](http://technet.microsoft.com/library/jj134242.aspx)。
 
@@ -199,7 +199,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 >
 
 ## <a name="checkpoints"></a>檢查點
-*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，則下次執行時就會從其最後一個檢查點開始，而不是工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。
+*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程以錯誤結束，或已暫停，然後的下次執行時就會開始從其最後一個檢查點，而不是工作流程的開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。
 
 在下列範例程式碼中，Activity2 之後發生的例外狀況造成工作流程結束。 工作流程再次執行時，它會先執行 Activity2，因為這是緊接在設定的最後一個檢查點之後。
 
@@ -209,7 +209,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
     <Exception>
     <Activity3>
 
-在活動可能容易發生例外狀況，且不應在工作流程繼續執行之後重複執行時，您應該在工作流程中設定檢查點。 例如，您的工作流程可能會建立虛擬機器。 您可以在建立虛擬機器命令的前面和後面設定檢查點。 如果建立失敗，若再次開始工作流程，命令可能會重複。 如果建立成功之後工作流程失敗，當工作流程繼續時，將不會再次建立虛擬機器。
+在活動可能容易發生例外狀況，且不應在工作流程繼續執行之後重複執行時，您應該在工作流程中設定檢查點。 例如，您的工作流程可能會建立虛擬機器。 您可以在建立虛擬機器命令的前面和後面設定檢查點。 如果建立失敗，若再次開始工作流程，命令可能會重複。 如果建立成功之後，就會失敗的工作流程，然後虛擬機器將不會建立一次時繼續工作流程。
 
 下列範例會將多個檔案複製到網路位置，並在每個檔案後設定檢查點。  如果遺失網路位置，工作流程結束時會發生錯誤。  當重新啟動時，它會從最後一個檢查點繼續，表示只會略過已複製的檔案。
 

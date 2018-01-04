@@ -4,7 +4,7 @@ description: "了解如何使用 OAuth 2.0 隱含流程搭配 Azure Active Direc
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
 
@@ -126,7 +126,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | scope |權杖有效的範圍。 您也可以使用範圍來快取權杖，以供稍後使用。 |
 | id_token |應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。 |
-| state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值完全相同。 |
+| state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
 錯誤回應也能傳送到重新導向 URI，以便讓應用程式能夠適當地處理它們：
@@ -142,7 +142,7 @@ error=access_denied
 | --- | --- |
 | 錯誤 |用於將發生之錯誤分類的錯誤碼字串。 您也可以使用錯誤碼進行錯誤處理。 |
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
-| state |如需完整說明，請參閱前一個表格。 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值完全相同。|
+| state |如需完整說明，請參閱前一個表格。 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。|
 
 ## <a name="validate-the-id-token"></a>驗證識別碼權杖
 收到識別碼權杖並不足以驗證使用者。 您必須驗證識別碼權杖的簽章，並依照應用程式的要求來確認權杖中的宣告。 Azure AD B2C 使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密編譯來簽署權杖及驗證其是否有效。
@@ -162,7 +162,7 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使�
 當您從 OpenID Connect 中繼資料端點取得中繼資料文件之後，就可以使用 RSA-256 公開金鑰 (位於此端點) 來驗證識別碼權杖的簽章。 此端點可能隨時會列出多個金鑰，每個都由 `kid` 所識別。 `id_token` 的標頭也包含 `kid` 宣告。 它指出使用了這其中哪個金鑰來簽署識別碼權杖。 如需詳細資訊 (包括了解如何[驗證權杖](active-directory-b2c-reference-tokens.md))，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md#token-validation)。
 <!--TODO: Improve the information on this-->
 
-驗證識別碼權杖的簽章之後，也需要驗證數個宣告。 例如：
+驗證識別碼權杖的簽章之後，也需要驗證數個宣告。 例如︰
 
 * 驗證 `nonce` 宣告，以防止權杖重新執行攻擊。 其值應該是您在登入要求中所指定的內容。
 * 驗證 `aud` 宣告，以確保已針對您的應用程式簽發識別碼權杖。 這個值就是您應用程式的應用程式識別碼。
@@ -258,7 +258,7 @@ error=user_authentication_required
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
 當您想要將使用者登出應用程式時，請將使用者重新導向到 Azure AD 進行登出。如果沒有這麼做，使用者可能不必重新輸入認證，就能夠向您的應用程式重新驗證自己的身分。 這是因為使用者將擁有有效的 Azure AD 單一登入工作階段。
 
-您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如：
+您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如︰
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?

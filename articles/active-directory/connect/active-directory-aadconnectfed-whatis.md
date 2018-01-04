@@ -4,7 +4,7 @@ description: "此頁面是使用 Azure AD Connect 之 AD FS 作業的所有相�
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和同盟
 Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Directory 同盟服務 (AD FS) 與 Azure AD 來設定同盟。 使用同盟登入，您可以讓使用者使用他們的內部部署密碼登入 Azure AD 服務，並且在使用公司網路時，無須再次輸入密碼就可登入服務。 您可以藉由使用具備 AD FS 的同盟選項來部署新安裝的 AD FS，或者您可以在 Windows Server 2012 R2 伺服器陣列中指定現有的安裝。
@@ -26,12 +26,12 @@ Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Dir
 本主題是 Azure AD Connect 同盟相關功能的主要資訊來源。 它會列出所有相關的主題連結。 如需 Azure AD Connect 的連結，請參閱 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect：同盟主題
-| 主題 | 涵蓋內容和閱讀時機 |
+| 話題 | 涵蓋內容和閱讀時機 |
 |:--- |:--- |
 | **Azure AD Connect 使用者登入選項** | |
 | [了解使用者登入選項](active-directory-aadconnect-user-signin.md) |了解各種使用者登入選項及其如何影響 Azure 登入使用者體驗。 |
 | **使用 Azure AD Connect 安裝 AD FS** | |
-| [必要條件](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |請查看透過 Azure AD Connect 成功安裝 AD FS 安裝的必要條件。 |
+| [先決條件](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |請查看透過 Azure AD Connect 成功安裝 AD FS 安裝的必要條件。 |
 | [設定 AD FS 伺服器陣列](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |使用 Azure AD Connect 安裝新的 AD FS 伺服器陣列。 |
 | [使用替代登入識別碼與 Azure AD 建立同盟關係](active-directory-aadconnect-federation-management.md#alternateid) | 使用替代登入識別碼設定同盟  |
 | **修改 AD FS 組態** | |

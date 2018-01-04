@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 New Relic 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 45106b499b9a541d5e6120538cfe1715608be118
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>教學課程：Azure Active Directory 與 New Relic 整合
 
@@ -48,13 +48,13 @@ New Relic 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 New Relic
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-new-relic-from-the-gallery"></a>從資源庫新增 New Relic
-若要設定將 New Relic 整合到 Azure AD 中，您需要從資源庫將 New Relic 新增到受管理的 SaaS app 清單。
+若要設定將 New Relic 整合到 Azure AD 中，您需要從資源庫將 New Relic 新增到受控 SaaS app 清單。
 
 **若要從資源庫新增 New Relic，請執行下列步驟：**
 
@@ -70,7 +70,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **New Relic**，從結果面板中選取 New Relic，然後按一下新增 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **New Relic**，從結果面板中選取 [New Relic]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 New Relic](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_addfromgallery.png)
 
@@ -143,7 +143,7 @@ New Relic 與 Azure AD 整合提供下列優點：
    
    a. 按一下 [選擇檔案]  上傳已下載的 Azure Active Directory 憑證。
 
-   b.這是另一個 C# 主控台應用程式。 在 [遠端登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**「SAML 單一登入服務 URL」**值。
+   b. 在 [遠端登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**「SAML 單一登入服務 URL」**值。
    
    c. 在 [登出登陸 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
@@ -165,7 +165,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-new-relic-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-new-relic-tutorial/create_aaduser_02.png)
 
@@ -183,7 +183,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-new-relic-test-user"></a>建立 New Relic 測試使用者
 
@@ -197,7 +197,7 @@ New Relic 與 Azure AD 整合提供下列優點：
    
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/ic797040.png "帳戶設定")
 
-3. 在左邊的**帳戶**窗格中按一下 摘要，然後按一下新增使用者。
+3. 在左邊的**帳戶**窗格中按一下 [摘要]，然後按一下 [新增使用者]。
    
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/ic797041.png "帳戶設定")
 
@@ -207,7 +207,7 @@ New Relic 與 Azure AD 整合提供下列優點：
    
     a. 在 [電子郵件]  文字方塊中輸入您想要佈建的有效 Azure Active Directory 使用者電子郵件地址。
 
-    b.這是另一個 C# 主控台應用程式。 針對 [角色]，選取 [使用者]。
+    b. 針對 [角色]，選取 [使用者]。
 
     c. 按一下 [新增此使用者] 。
 

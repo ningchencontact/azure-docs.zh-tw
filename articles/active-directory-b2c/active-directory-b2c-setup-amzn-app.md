@@ -4,7 +4,7 @@ description: "在受 Azure Active Directory B2C 保護的應用程式中，針�
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: dcc97e1b7f6287bd7692c52bf068950065a26572
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C：針對具有 Amazon 帳戶的取用者提供註冊和登入
 ## <a name="create-an-amazon-application"></a>建立 Amazon 應用程式
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 5. 在 [Web 設定] 區段中，複製 [用戶端識別碼] 和 [用戶端密碼] 的值。 (您需要按一下 [顯示密碼] 按鈕，才能看到它)。您必須使用這兩個值，將 Amazon 設為租用戶中的身分識別提供者。 按一下位於區段底部的 [編輯]。 **用戶端密碼** 是重要的安全性認證。
    
     ![針對您在 Amazon 上的新應用程式提供用戶端識別碼和用戶端密碼](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
-6. 在 [允許的 JavaScript 原始來源] 欄位中輸入 `https://login.microsoftonline.com`，並在 [允許的傳回 URL] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contoso.onmicrosoft.com) 來取代 **{tenant}**。 按一下 [儲存] 。 **{tenant}** 值會區分大小寫。
+6. 在 [允許的 JavaScript 原始來源] 欄位中輸入 `https://login.microsoftonline.com`，並在 [允許的傳回 URL] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contoso.onmicrosoft.com) 來取代 **{tenant}**。 按一下 [檔案] 。 **{tenant}** 值會區分大小寫。
    
     ![針對您在 Amazon 上的新應用程式提供 JavaScript 原始來源及傳回 URL](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 

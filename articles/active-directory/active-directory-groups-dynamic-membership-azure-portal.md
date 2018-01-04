@@ -4,23 +4,23 @@ description: "如何建立動態群組成員資格的進階規則，包括支援
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
 在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。
@@ -28,13 +28,13 @@ ms.lasthandoff: 11/28/2017
 當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組上的規則，就會將他們新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。
 
 > [!NOTE]
-> - 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
+> 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
 >
-> - 此功能要求新增到至少一個動態群組的每個使用者成員都具有 Azure AD Premium P1 授權。 不一定要實際將授權指派給使用者，讓他們成為動態群組的成員，但是您必須在租用戶中有最小數量的授權，以涵蓋所有這類使用者。 例如：如果您的租用戶中所有動態群組有總計 1000 個唯一使用者，則必須至少具有 Azure AD Premium P1 或以上版本的 1000 個授權，以符合授權需求。
+> 此功能要求新增到至少一個動態群組的每個使用者成員都具有 Azure AD Premium P1 授權。 不一定要實際將授權指派給使用者，讓他們成為動態群組的成員，但是您必須在租用戶中有最小數量的授權，以涵蓋所有這類使用者。 例如：如果您的租用戶中所有動態群組有總計 1000 個唯一使用者，則必須至少具有 Azure AD Premium P1 或以上版本的 1000 個授權，以符合授權需求。
 >
-> - 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置物件的規則。
-
-> - 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
+> 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置物件的規則。
+> 
+> 目前，不可能建立裝置群組，依據擁有使用者的屬性。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
 
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
 1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/28/2017
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
 不管有沒有連字號前置詞，均可使用所有運算子。 優先順序不符合您的需求時，才需要括號。
-例如：
+例如︰
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/28/2017
 * -eq
 * -ne
 
-| 屬性 | 允許的值 | 使用量 |
+| properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/28/2017
 * -in
 * -notIn
 
-| 屬性 | 允許的值 | 使用量 |
+| properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | city |任何字串值或 *null* |(user.city -eq "value") |
 | country |任何字串值或 *null* |(user.country -eq "value") |
@@ -191,7 +191,7 @@ ms.lasthandoff: 11/28/2017
 * -contains
 * -notContains
 
-| 屬性 | 允許的值 | 使用量 |
+| properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | otherMails |任何字串值 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -202,11 +202,11 @@ ms.lasthandoff: 11/28/2017
 * -any (集合中至少有一個項目符合條件時滿足)
 * -all (集合中的所有項目符合條件時滿足)
 
-| 屬性 | 值 | 使用量 |
+| properties | 值 | 使用量 |
 | --- | --- | --- |
 | assignedPlans |集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
-多重值屬性是相同類型之物件的集合。 您可以使用 -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。 例如：
+多重值屬性是相同類型之物件的集合。 您可以使用 -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。 例如︰
 
 assignedPlans 是多重值屬性，可列出所有指派給使用者的服務方案。 下列運算式將會選取擁有 Exchange Online (方案 2) 服務方案 (也處於 [已啟用] 狀態) 的使用者：
 
@@ -293,7 +293,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>將動態成員資格變更為靜態，反之亦然
 您可以變更在群組中管理成員資格的方式。 當您想要在系統中保留相同的群組名稱和識別碼，讓任何現有的群組參考仍然有效時，這非常實用；建立新的群組需要更新這些參考。
 
-我們正在更新 Azure 入口網站以支援此功能。 同時，您可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com) (依照[這裡](active-directory-groups-dynamic-membership-azure-portal.md)的指示) 或使用 PowerShell Cmdlet，如下所示。
+我們正在更新 Azure 入口網站以支援此功能。 在此同時，您可以使用 PowerShell cmdlet，如下所示。
 
 > [!WARNING]
 > 將現有的靜態群組變更為動態群組時，系統將從群組中移除所有現有的成員，然後再處理成員資格規則，以加入新的成員。 如果群組用來控制對應用程式或資源的存取，則在完全處理成員資格規則之前，原始成員可能會失去存取權。
@@ -303,7 +303,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 **使用 PowerShell 變更群組上的成員資格管理**
 
 > [!NOTE]
-> 若要變更動態群組屬性，您必須使用**預覽版本** [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝預覽版本。
+> 若要變更動態群組屬性，您必須使用**預覽版本** [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝預覽版本。
 
 以下是在現有群組上切換成員資格管理的函式範例。 請注意，請小心並正確地操作 GroupTypes 屬性，並保留可能存在該處，與動態成員資格不相關的任何值。
 

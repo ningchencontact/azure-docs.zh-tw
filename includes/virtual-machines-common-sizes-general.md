@@ -4,7 +4,7 @@
 
 - D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。 D 系列 VM 提供更快的處理器、較高的記憶體與 vCPU 比率，以及適用於暫存磁碟的固態硬碟 (SSD)。 如需詳細資訊，請參閱 Azure 部落格的公告， [新 D 系列的虛擬機器大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
 
-- Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+- Dv3 系列、 Dv2 數列，後續的原始 D 系列，以提供更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
 - 基本層大小主要適用於開發工作負載，以及其他不需要負載平衡、自動調整或記憶體高用量虛擬機器的應用程式。 如需更適合用於生產應用程式的 VM 大小相關資訊，請參閱 (虛擬機器的大小) [virtual-machines-size-specs.md]，而如需 VM 價格資訊，請參閱[虛擬機器價格](https://azure.microsoft.com/pricing/details/virtual-machines/)。
 
@@ -23,11 +23,11 @@ B 系列高載的 VM 非常適合不需要持續性完整 CPU 效能的工作負
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3 系列*
+## <a name="dsv3-series-sup1sup"></a>Dsv3 數列<sup>1</sup>
 
 ACU：160-190
 
-Dsv3 系列大小以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器為基礎，且搭配 Intel 渦輪加速技術 2.0 可達 3.5 GHz 並可使用進階儲存體。 Dsv3 系列大小提供 CPU、記憶體與暫存儲存憶體組合，適用於大多數生產環境工作負載。
+Dsv3 數列大小基礎 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器或最新的 2.3 GHz Intel XEON® E5-2673 v4 可以達到 3.5 Intel 快速提升技術 2.0 GHz 和使用進階儲存體 (Broadwell) 處理器。 Dsv3 系列大小提供 CPU、記憶體與暫存儲存憶體組合，適用於大多數生產環境工作負載。
 
 
 | 大小             | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
@@ -38,13 +38,14 @@ Dsv3 系列大小以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器為�
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / 高                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 極高                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / 極高                                       |
-*Dsv3 系列 VM 的功能 Intel® 超執行緒技術
 
-## <a name="dv3-series"></a>Dv3 系列* 
+<sup>1</sup> Dsv3 系列 VM 的功能 Intel® 超執行緒技術中
+
+## <a name="dv3-series-sup1sup"></a>Dv3 數列<sup>1</sup>
 
 ACU：160-190
 
-Dv3 系列大小以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器為基礎，且搭配 Intel 渦輪加速技術 2.0 可達 3.5 GHz。 Dv3 系列大小提供 CPU、記憶體與暫存儲存體組合，適用於大多數生產環境工作負載。
+Dv3 數列大小基礎 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器或 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 可以達成 3.5 Intel 快速提升技術 2.0 GHz 的處理器。 Dv3 系列大小提供 CPU、記憶體與暫存儲存體組合，適用於大多數生產環境工作負載。
 
 資料磁碟儲存體與虛擬機器分開計費。 若要使用進階儲存體磁碟，請使用 Dsv3 大小。 Dsv3 大小的定價和計費方式與 Dv3 系列相同。 
 
@@ -57,7 +58,8 @@ Dv3 系列大小以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器為基
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / 高                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / 極高                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / 極高                     |
-*Dv3 系列 VM 的功能 Intel® 超執行緒技術
+
+<sup>1</sup> Dv3 系列 VM 的功能 Intel® 超執行緒技術中
 
 ## <a name="dsv2-series"></a>DSv2 系列
 
@@ -137,7 +139,7 @@ ACU：50 - 100
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (HDD)：GiB | 最大資料磁碟 | 最大資料磁碟輸送量︰IOPS | 最大 NIC/預期的網路頻寬 (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0.768 |20 |1 |1x500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
@@ -147,7 +149,7 @@ ACU：50 - 100
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
 <br>
 
-*A0 大小已在實體硬體上過度訂閱。 僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。 以下概述的相對效能為預期的基準，受限於近似變化性的 15%。
+<sup>1</sup> A0 大小是過度訂閱實體硬體上。 僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。 以下概述的相對效能為預期的基準，受限於近似變化性的 15%。
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>使用 CLI 和 PowerShell 的標準 A0 - A4
 在傳統部署模型中，部分 VM 大小名稱會與 CLI 和 PowerShell 中的稍有不同：

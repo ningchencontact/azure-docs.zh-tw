@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/17/2017
 
    ![選取應用程式](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 [範例應用程式](#sample-applications) 區段中的應用程式會參考此值作為用戶端識別碼。
+1. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 某些[範例應用程式](#log-in-as-the-application)將此值為用戶端識別碼。
 
    ![用戶端識別碼](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/17/2017
 
 1. 瀏覽至您想要讓應用程式指派至的範圍層級。 例如，若要在訂用帳戶範圍指派角色，請選取 [訂用帳戶]。 您可以改為選取資源群組或資源。
 
-   ![select subscription](./media/resource-group-create-service-principal-portal/select-subscription.png)
+   ![選取訂用帳戶](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
 1. 選取特定訂用帳戶作為指派應用程式的對象 (資源群組或資源)。
 

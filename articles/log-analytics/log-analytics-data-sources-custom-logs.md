@@ -1,6 +1,6 @@
 ---
-title: "在 OMS Log Analytics 中收集自訂記錄 | Microsoft Docs"
-description: "Log Analytics 可從 Windows 和 Linux 電腦上的文字檔收集事件。  本文說明如何定義新的自訂記錄檔，以及它們在 OMS 儲存機制中建立的記錄詳細資料。"
+title: "收集 Azure 記錄分析的自訂記錄檔 |Microsoft 文件"
+description: "Log Analytics 可從 Windows 和 Linux 電腦上的文字檔收集事件。  本文說明如何定義新的自訂記錄檔，以及他們在記錄分析工作區中建立的記錄詳細資料。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics 中的自訂記錄檔
-Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。  在收集之後，您就可以使用 Log Analytics 的[自訂欄位](log-analytics-custom-fields.md)功能將記錄中的每一筆記錄剖析成個別欄位。
+Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。  一旦收集完成，您可以剖析每一筆記錄中的登入使用的個別欄位[自訂欄位](log-analytics-custom-fields.md)記錄分析的功能。
 
 ![自訂記錄檔收集](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,11 +42,11 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 使用下列程序來定義自訂記錄檔。  如需新增自訂記錄檔之範例的逐步解說，請捲動到本文結尾處。
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>步驟 1. 開啟自訂記錄檔精靈
-自訂記錄檔精靈會在 OMS 入口網站中執行，並可讓您定義要收集的新自訂記錄檔。
+自訂記錄精靈會在 Azure 入口網站中執行，並可讓您定義新的自訂記錄檔收集。
 
-1. 在 OMS 入口網站中，移至 [設定] 。
-2. 按一下 [資料]，然後按一下 [自訂記錄檔]。
-3. 根據預設，所有設定變更都會自動發送給所有代理程式。  若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。  如果您想以手動方式在每個 Linux 代理程式上修改這個檔案，只要取消核取 *[Apply below configuration to my Linux machines]* \(將下列設定套用至我的 Linux 機器) 方塊即可。
+1. 在 Azure 入口網站中，選取**記錄分析**> 您的工作區 >**進階設定**。
+2. 按一下**資料** > **自訂記錄檔**。
+3. 根據預設，所有組態變更都會自動發送給所有代理程式。  若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。  如果您想以手動方式在每個 Linux 代理程式上修改這個檔案，只要取消核取 *[Apply below configuration to my Linux machines]* \(將下列設定套用至我的 Linux 機器) 方塊即可。
 4. 按一下 [新增+]  開啟自訂記錄檔精靈。
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>步驟 2. 上傳和剖析範例記錄檔
@@ -54,14 +54,14 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 
 **新行字元** 是預設的分隔符號，並且會用於每行一個項目的記錄檔。  如果一行的開頭是其中一種可用格式的日期和時間，則您可以指定 **時間戳記** 分隔符號，其可支援跨越多行的多個項目。
 
-如果使用時間戳記分隔符號，則儲存在 OMS 中的每一筆記錄的 TimeGenerated 屬性會填入針對記錄檔中的該項目指定的日期/時間。  如果使用新行字元分隔符號，則 TimeGenerated 會填入 Log Analytics 收集項目時的日期和時間。
+如果使用時間戳記分隔符號，則會使用該記錄檔中的項目指定的日期/時間填入儲存在記錄分析的每一筆記錄的 TimeGenerated 屬性。  如果使用新行字元分隔符號，則 TimeGenerated 會填入 Log Analytics 收集項目時的日期和時間。
 
 
 1. 按一下 [瀏覽]  並瀏覽至範例檔案。  請注意，在某些瀏覽器中，這個按鈕可能標示為 [選擇檔案]  。
-2. 按一下 [下一步] 。
+2. 按 [下一步] 。
 3. 自訂記錄檔精靈會上傳檔案並列出其識別的記錄。
 4. 變更用來識別新記錄的分隔符號，並選取最能識別記錄檔中的記錄的分隔符號。
-5. 按一下 [下一步] 。
+5. 按 [下一步] 。
 
 ### <a name="step-3-add-log-collection-paths"></a>步驟 3. 新增記錄檔收集路徑
 您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。  這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。  您也可以為單一記錄檔提供多個路徑。
@@ -70,7 +70,7 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 
 下表提供可用來指定不同記錄檔的有效模式範例。
 
-| 說明 | 路徑 |
+| 說明 | Path |
 |:--- |:--- |
 | Windows 代理程式上的 *C:\Logs* 中，副檔名為 .txt 的所有檔案 |C:\Logs\\\*.txt |
 | Windows 代理程式上的 *C:\Logs* 中，名稱開頭為 log 且副檔名為 .txt 的所有檔案 |C:\Logs\log\*.txt |
@@ -103,13 +103,12 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 
 這裡並未提供用來剖析自訂記錄檔項目的詳細步驟。  如需這項資訊，請參閱 [自訂欄位](log-analytics-custom-fields.md) 文件。
 
-## <a name="disabling-a-custom-log"></a>停用自訂記錄檔
-自訂記錄檔定義一旦建立就無法移除，但您可以移除其所有集合路徑來停用它。
+## <a name="removing-a-custom-log"></a>移除自訂的記錄檔
+使用 Azure 入口網站中的下列程序，移除您先前定義的自訂記錄檔。
 
-1. 在 OMS 入口網站中，移至 [設定] 。
-2. 按一下 [資料]，然後按一下 [自訂記錄檔]。
-3. 按一下自訂記錄檔定義旁邊的 [詳細資料] 來停用它。
-4. 移除自訂記錄檔定義的每個集合路徑。
+1. 從**資料**功能表**進階設定**為您工作區中，選取**自訂記錄檔**列出所有自訂記錄檔。
+2. 按一下**移除**旁邊要移除的自訂記錄檔。
+
 
 ## <a name="data-collection"></a>資料收集
 Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每 5 分鐘。  代理程式會記錄它在從中收集項目的每個記錄檔中的位置。  如果代理程式離線一段時間，Log Analytics 即會從上次停止的地方收集項目，即使這些項目是在代理程式離線時所建立亦同。
@@ -127,7 +126,7 @@ Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每
 | ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  若為其他代理程式，此為 AOI-\<工作區 ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>使用自訂記錄檔記錄來記錄搜尋
-和來自任何其他資料來源的記錄一樣，來自自訂記錄檔的記錄會儲存在 OMS 儲存機制中。  其類型會符合您在定義記錄檔時提供的名稱，因此您可以在搜尋中使用 [類型] 屬性，以擷取從特定記錄檔收集而來的記錄。
+從自訂的記錄檔的記錄會儲存在記錄分析工作區中，就像任何其他資料來源的記錄。  其類型會符合您在定義記錄檔時提供的名稱，因此您可以在搜尋中使用 [類型] 屬性，以擷取從特定記錄檔收集而來的記錄。
 
 下表提供從自訂記錄檔擷取記錄之記錄檔搜尋的不同範例。
 
@@ -172,5 +171,5 @@ Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每
 ![有自訂欄位的記錄檔查詢](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 使用[自訂欄位](log-analytics-custom-fields.md)，以將自訂記錄中的項目剖析至個別欄位。
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，以分析從資料來源和解決方案所收集的資料。
+* 使用[自訂欄位](log-analytics-custom-fields.md)剖析自訂的登入到個別的欄位中的項目。
+* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。

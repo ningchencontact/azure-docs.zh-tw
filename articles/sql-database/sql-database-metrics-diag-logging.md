@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -214,7 +214,7 @@ SQL Database 計量和診斷記錄可以串流到事件中樞，方法是使用�
 所選的資料串流到事件中樞之後，您很快就能啟用進階監視案例。 事件中樞是作為事件管線的大門。 資料收集到事件中樞之後，這些資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 事件中樞會讓事件串流的產生從這些事件的取用分離。 如此一來，事件消費者可以在自己的排程存取事件。 如需事件中樞的詳細資訊，請參閱：
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 
 這裡有一些您可以使用串流功能的方法：
@@ -318,7 +318,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_id_d|查詢存放區中查詢的識別碼。|
 |plan_id_d|查詢存放區中計劃的識別碼。|
 
-深入了解[查詢存放區執行階段統計資料](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)。
+深入了解[查詢存放區執行階段統計資料](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)。
 
 ### <a name="query-store-wait-statistics"></a>查詢存放區等候統計資料
 
@@ -356,7 +356,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_id_d|查詢存放區中查詢的識別碼。|
 |plan_id_d|查詢存放區中計劃的識別碼。|
 
-深入了解[查詢存放區等候統計資料](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)。
+深入了解[查詢存放區等候統計資料](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)。
 
 ### <a name="errors-dataset"></a>錯誤資料集
 
@@ -414,7 +414,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |delta_wait_time_ms_d|期間內的總等候時間。|
 |delta_waiting_tasks_count_d|等候工作數目。|
 
-深入了解[資料庫等候統計資料](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)。
+深入了解[資料庫等候統計資料](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)。
 
 ### <a name="time-outs-dataset"></a>逾時資料集
 
@@ -476,6 +476,6 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 若要了解事件中樞，請閱讀：
 
 * [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 若要深入了解儲存體，請參閱如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)。

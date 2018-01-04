@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -94,11 +94,11 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
 
 ## <a name="geo-replication-pricing"></a>異地複寫價格
 
-異地複寫是 Azure Container Registry 之[進階 SKU](container-registry-skus.md#premium) 的功能。 當您要複寫登錄到您想要的區域時，您會產生每個區域的進階登錄費用。
+異地複寫是 Azure Container Registry 之[進階 SKU](container-registry-skus.md) 的功能。 當您要複寫登錄到您想要的區域時，您會產生每個區域的進階登錄費用。
 
 在上述範例中，Contoso 會將兩個登錄向下合併成一個，並將複本新增至美國東部、加拿大中部和西歐。 Contoso 應支付每月的次進階費用，不含任何額外的設定或管理。 每個區域現在會在本機提取其映像，改善效能和可靠性，而不會衍生從美國西部到加拿大和美國東部的網路輸出費用。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 利用異地複寫，您可以將區域資料中心作為一個全域雲端管理。 在許多 Azure 服務中使用映像，您可以從單一管理平面獲益，同時維持網路關閉、快速，及可靠提取本機映像。
 

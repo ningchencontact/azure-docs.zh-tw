@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Domain Services：將 Windows Server VM 加入受管理的網域 | Microsoft Docs"
+title: "Azure Active Directory Domain Services：將 Windows Server VM 加入受控網域 | Microsoft Docs"
 description: "將 Windows Server 虛擬機器加入 Azure AD 網域服務"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory-ds
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 1ea3f7271bd165bf42d520e4a0267a80dcca58d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>將 Windows Server 虛擬機器加入受管理的網域
-本文將說明如何使用 Azure 入口網站來部署 Windows Server 虛擬機器。 然後會說明如何將虛擬機器加入 Azure AD Domain Services 受管理網域。
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>將 Windows Server 虛擬機器加入受控網域
+本文將說明如何使用 Azure 入口網站來部署 Windows Server 虛擬機器。 然後會說明如何將虛擬機器加入 Azure AD Domain Services 受控網域。
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>步驟 1︰建立 Windows Server 虛擬機器
 執行下列步驟，以建立 Windows 虛擬機器，並將其加入已在其中啟用 Azure AD 網域服務的虛擬網路。
@@ -43,14 +43,14 @@ ms.lasthandoff: 10/20/2017
 
     ![選取虛擬機器的大小](./media/active-directory-domain-services-admin-guide/create-windows-vm-size.png)
 
-6. 在精靈的 [設定] 頁面中，選取您的 Azure AD Domain Services 受管理網域部署所在的虛擬網路。 挑選與您的受管理網域部署所在的不同子網路。 對於其他設定，請保留預設值並按一下 [確定]。
+6. 在精靈的 [設定] 頁面中，選取您的 Azure AD Domain Services 受控網域部署所在的虛擬網路。 挑選與您的受控網域部署所在的不同子網路。 對於其他設定，請保留預設值並按一下 [確定]。
 
     ![選取虛擬機器的虛擬網路](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
     > [!TIP]
     > **挑選適當的虛擬網路和子網路。**
-    > 選取您的受管理網域部署所在的虛擬網路，或使用虛擬網路對等互連與其連線的虛擬網路兩者之一。 如果您選取未連線的虛擬網路，則無法將虛擬機器加入受管理的網域中。
-    > 建議您將受管理網域部署至專用的子網路。 因此，請勿挑選已啟用受管理網域所在的子網路。
+    > 選取您的受控網域部署所在的虛擬網路，或使用虛擬網路對等互連與其連線的虛擬網路兩者之一。 如果您選取未連線的虛擬網路，則無法將虛擬機器加入受控網域中。
+    > 建議您將受控網域部署至專用的子網路。 因此，請勿挑選已啟用受控網域所在的子網路。
 
 7. 在 [購買] 頁面上，檢閱設定然後按一下 [確定] 來部署虛擬機器。
 8. VM 部署已釘選到 Azure 入口網站儀表板。
@@ -74,8 +74,8 @@ ms.lasthandoff: 10/20/2017
 此時，您應該已使用本機系統管理員認證登入到新建立的 Windows 虛擬機器。 下一個步驟是將虛擬機器加入網域。
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-aad-ds-managed-domain"></a>步驟 3︰將 Windows Server 虛擬機器加入 AAD-DS 受管理網域
-請執行下列步驟，以將 Windows Server 虛擬機器加入 AAD-DS 受管理網域。
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-aad-ds-managed-domain"></a>步驟 3︰將 Windows Server 虛擬機器加入 AAD-DS 受控網域
+請執行下列步驟，以將 Windows Server 虛擬機器加入 AAD-DS 受控網域。
 
 1. 如步驟 2 所示連線到 Windows Server。 在 [開始] 畫面中開啟 [伺服器管理員] 。
 2. 按一下 [伺服器管理員] 視窗之左窗格中的 [本機伺服器]  。
@@ -84,10 +84,10 @@ ms.lasthandoff: 10/20/2017
 3. 按一下 [屬性] 區段底下的 [工作群組]。 在 [系統屬性] 屬性頁中，按一下 [變更] 來加入網域。
 
     ![[系統屬性] 頁面](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
-4. 在 [網域] 文字方塊中指定 Azure AD Domain Services 受管理網域的網域名稱，然後按一下 [確定]。
+4. 在 [網域] 文字方塊中指定 Azure AD Domain Services 受控網域的網域名稱，然後按一下 [確定]。
 
     ![指定要加入的網域](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
-5. 系統會提示您輸入認證以便加入網域。 請確定您是 **指定屬於 AAD DC 系統管理員群組之使用者的認證** 。 只有此群組的成員才有權限可以將機器加入受管理的網域。
+5. 系統會提示您輸入認證以便加入網域。 請確定您是 **指定屬於 AAD DC 系統管理員群組之使用者的認證** 。 只有此群組的成員才有權限可以將機器加入受控網域。
 
     ![指定用於加入網域的認證](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. 您可以透過下列任一方式指定認證︰
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/20/2017
 
 * 確定虛擬機器已連線到您已在其中啟用網域服務的相同虛擬網路。 若非如此，虛擬機器便無法連線到網域，因此無法加入網域。
 * 確定虛擬機器所在的虛擬網路會輪流連接到您已啟用網域服務的虛擬網路。
-* 嘗試使用受管理網域的網域名稱來 ping 網域 (例如 'ping contoso100.com')。 如果您無法這麼做，請嘗試 ping 頁面上所顯示、您已在其中啟用 Azure AD 網域服務之網域的 IP 位址 (例如 'ping 10.0.0.4')。 如果您能夠 ping 該 IP 位址，但無法 ping 網域，則表示 DNS 的設定可能不正確。 檢查網域的 IP 位址是否設定為虛擬網路的 DNS 伺服器。
+* 嘗試使用受控網域的網域名稱來 ping 網域 (例如 'ping contoso100.com')。 如果您無法這麼做，請嘗試 ping 頁面上所顯示、您已在其中啟用 Azure AD 網域服務之網域的 IP 位址 (例如 'ping 10.0.0.4')。 如果您能夠 ping 該 IP 位址，但無法 ping 網域，則表示 DNS 的設定可能不正確。 檢查網域的 IP 位址是否設定為虛擬網路的 DNS 伺服器。
 * 請嘗試排清虛擬機器上的 DNS 解析程式快取 ('ipconfig /flushdns')。
 
 如果您看到對話方塊要求您提供認證以加入網域，則表示您沒有連線問題。
@@ -127,4 +127,5 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受管理的網域)](active-directory-ds-admin-guide-administer-domain.md)
+* 
+            [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受控網域)](active-directory-ds-admin-guide-administer-domain.md)

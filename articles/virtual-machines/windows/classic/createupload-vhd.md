@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: fa672fd7811e68368c311ef6a3f57eac4b240a4a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>建立並上傳 Windows Server VHD 到 Azure
 本文說明如何上傳您自己的一般化 VM 映像做為虛擬硬碟 (VHD)，以便使用它來建立虛擬機器。 如需 Microsoft Azure 中磁碟和 VHD 的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 您也可以使用 Resource Manager 模型來[上傳](../upload-generalized-managed.md)虛擬機器。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 您也可以使用 Resource Manager 模型來[上傳](../upload-generalized-managed.md)虛擬機器。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="prerequisites"></a>必要條件
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/08/2017
    ![啟動 Sysprep](./media/createupload-vhd/sysprepgeneral.png)
 4. 在 [系統準備工具] 中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化]。
 5. 在 [關機選項] 中選取 [關機]。
-6. 按一下 [確定] 。
+6. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a name="step-2-create-a-storage-account-and-a-container"></a>步驟 2：建立儲存體帳戶和容器
 您需要 Azure 中的儲存體帳戶，讓您有空間可上傳 .vhd 檔案。 此步驟說明如何建立帳戶，或從現有的帳戶取得您需要的資訊。 使用您自己的資訊來取代 &lsaquo; 括號 &rsaquo;中的變數。
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/08/2017
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>步驟 3：上傳 .vhd 檔案
-使用 [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) 來上傳 VHD。
+使用 [Add-AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) 來上傳 VHD。
 
 從您在上一個步驟中使用的 Azure PowerShell 視窗中，輸入下列命令並以您自己的資訊取代 &lsaquo; 括號 &rsaquo; 中的變數。
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>步驟 4：將映像新增到您的自訂映像清單
-使用 [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) Cmdlet 將映像新增到您的自訂映像清單。
+使用 [Add-AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) Cmdlet 將映像新增到您的自訂映像清單。
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

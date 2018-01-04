@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a03bbfbdedd418216c26379e9d8dbd780fa89fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -28,7 +28,7 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 AKS，可�
 
 ## <a name="before-you-begin"></a>開始之前
 
-在先前的教學課程中，已建立容器映像並上傳到 Azure Container Registry 執行個體。 如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./tutorial-kubernetes-prepare-app.md)。
+在先前的教學課程中，已建立容器映像並上傳到 Azure Container Registry 執行個體。 如果您有未完成這些步驟，並想要跟著做，返回[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>啟用您 Azure 訂用帳戶的 AKS 預覽
 雖然 AKS 處於預覽狀態，但是建立新叢集需要訂用帳戶的功能旗標。 您可以為您想要使用之任意數量的訂用帳戶要求這項功能。 使用 `az provider register` 命令來註冊 AKS 提供者：
@@ -41,7 +41,7 @@ az provider register -n Microsoft.ContainerService
 
 ## <a name="create-kubernetes-cluster"></a>建立 Kubernetes 叢集
 
-下列範例會在名為 `myResourceGroup` 的資源群組中，建立名為 `myK8sCluster` 的叢集。 我們已在[先前的教學課程](./tutorial-kubernetes-prepare-acr.md)中建立此資源群組。
+下列範例會在名為 `myResourceGroup` 的資源群組中，建立名為 `myK8sCluster` 的叢集。 此資源群組中建立[上一個教學課程][aks-tutorial-prepare-acr]。
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -51,7 +51,7 @@ az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 
 
 ## <a name="install-the-kubectl-cli"></a>安裝 kubectl CLI
 
-若要從用戶端電腦連線到 Kubernetes 叢集，請使用 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) (Kubernetes 命令列用戶端)。
+若要從用戶端電腦連接到 Kubernetes 叢集，請使用[kubectl][kubectl]，Kubernetes 命令列用戶端。
 
 如果您是使用 Azure CloudShell，則已安裝 kubectl。 如果您想要在本機進行安裝，請執行下列命令：
 
@@ -67,7 +67,7 @@ az aks install-cli
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-若要確認與叢集的連線，請執行 [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令。
+若要驗證您的叢集的連線，執行[kubectl 取得節點][ kubectl-get]命令。
 
 ```azurecli
 kubectl get nodes
@@ -94,4 +94,13 @@ k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
 請前往下一個教學課程，以了解如何在叢集上執行應用程式。
 
 > [!div class="nextstepaction"]
-> [在 Kubernetes 中部署應用程式](./tutorial-kubernetes-deploy-application.md)
+> [部署應用程式中 Kubernetes][aks-tutorial-deploy-app]
+
+<!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

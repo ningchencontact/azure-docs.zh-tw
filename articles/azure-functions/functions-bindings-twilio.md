@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae97045c27f3ad8b62e7798b2060ea59ccd66ac5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions 的 Twilio 繫結
 
@@ -32,13 +32,13 @@ ms.lasthandoff: 11/30/2017
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#c-example)
-* [C# 指令碼](#c-script-example)
+* [C#](#c-example)
+* [C# 指令碼 (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例說明的[先行編譯 C# 函式](functions-dotnet-class-library.md)，可在受到佇列訊息觸發時傳送文字簡訊。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)，傳送文字訊息觸發的佇列訊息時。
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，請使用 [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) 中。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio)。
 
 如需可設定的屬性內容相關資訊，請參閱[設定](#configuration)。 以下是方法簽章中的 `TwilioSms` 屬性範例：
 
@@ -213,7 +213,7 @@ public static SMSMessage Run(
 }
  ```
 
-如需完整範例，請參閱[先行編譯 C# 範例](#c-example)。
+如需完整範例，請參閱[C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 

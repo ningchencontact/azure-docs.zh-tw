@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>使用 OMS 進行事件分析和視覺效果
 
@@ -26,7 +26,7 @@ Operations Management Suite (OMS) 是管理服務集合，可協助您監視及�
 
 ## <a name="log-analytics-and-the-oms-workspace"></a>Log Analytics 和 OMS 工作區
 
-Log Analytics 會從 Managed 資源 (包括 Azure 儲存體資料表或代理程式) 收集資料，並在中央存放庫中維護資料。 此資料可接著用於分析、警示和視覺效果，或進一步匯出。 Log Analytics 支援事件、效能資料或任何其他自訂資料。
+Log Analytics 會從受控資源 (包括 Azure 儲存體資料表或代理程式) 收集資料，並在中央存放庫中維護資料。 此資料可接著用於分析、警示和視覺效果，或進一步匯出。 Log Analytics 支援事件、效能資料或任何其他自訂資料。
 
 設定 OMS 時，您可以存取特定 *OMS 工作區*，以從中查詢資料或在儀表板中視覺化該資料。
 
@@ -41,7 +41,7 @@ Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理�
 
 ## <a name="using-the-oms-agent"></a>使用 OMS 代理程式
 
-建議使用 EventFlow 和 WAD 作為彙總解決方案，因為它們允許以更模組化的方式進行診斷和監視。 例如，如果您想要變更 EventFlow 中的輸出，您不需要變更實際工具，只要簡單修改設定檔即可。 不過，如果您決定使用 OMS Log Analytics，您應該設定 [OMS 代理程式](../log-analytics/log-analytics-windows-agents.md)。 您也應該在將容器部署至叢集時使用 OMS 代理程式，如下所述。 
+建議使用 EventFlow 和 WAD 作為彙總解決方案，因為它們允許以更模組化的方式進行診斷和監視。 例如，如果您想要變更 EventFlow 中的輸出，您不需要變更實際工具，只要簡單修改設定檔即可。 不過，如果您決定使用 OMS Log Analytics，您應該設定 [OMS 代理程式](../log-analytics/log-analytics-windows-agent.md)。 您也應該在將容器部署至叢集時使用 OMS 代理程式，如下所述。 
 
 參閱[將 OMS 代理程式新增至叢集](service-fabric-diagnostics-oms-agent.md)了解此作業的步驟。
 

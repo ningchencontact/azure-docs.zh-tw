@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>使用 Azure 入口網站對路由進行疑難排解
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](virtual-network-routes-troubleshoot-portal.md)
+> * [HttpTrigger Nodejs 函數](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/31/2017
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>檢視虛擬機器的有效路由
 若要查看套用到 VM 的彙總路由，請完成下列步驟︰
 
-1. 登入 Azure 入口網站，位址是 https://portal.azure.com。
+1. 登入 Azure 入口網站，位址是 https://portal.azure.com。您的帳戶必須指派*Microsoft.Network/networkInterfaces/effectiveRouteTable/action*網路介面的作業。 若要了解如何將作業指派給帳戶，請參閱[建立自訂角色的所有存取控制](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
 2. 按一下 [更多服務]，然後在出現的清單中按一下 [虛擬機器]。
 3. 從出現的清單中選取要進行疑難排解的 VM，此時會出現一個有選項的 VM 刀鋒視窗。
 4. 按一下 [診斷並解決問題]，然後選取常見的問題。 例如選取了 [我無法連接到我的 Windows VM]  。
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/31/2017
    >
    >
 
-## <a name="considerations"></a>考量
+## <a name="considerations"></a>注意事項
 檢閱傳回的路由清單時，請記住下列幾點事項︰
 
 * 路由是根據 UDR、BGP 和系統路由之間的最長首碼比對 (LPM)。 如果有多個符合相同 LPM 的路由，則會根據其來源，以下列順序選取路由：

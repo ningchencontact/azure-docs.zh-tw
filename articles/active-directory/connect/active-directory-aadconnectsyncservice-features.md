@@ -4,7 +4,7 @@ description: "描述 Azure AD Connect 同步處理服務的服務端功能。"
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: c2873510c280a2683c235cfdce3d2617c3b665cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
 Azure AD connect 同步處理功能有兩個元件：
@@ -40,7 +40,7 @@ Azure AD connect 同步處理功能有兩個元件：
 | DirSyncFeature | 註解 |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |不只主要 SMTP 位址，還允許物件聯結 userPrincipalName。 |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |可讓同步處理引擎更新受管理/授權 (非同盟) 使用者的 userPrincipalName 屬性。 |
+| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |可讓同步處理引擎更新受控/授權 (非同盟) 使用者的 userPrincipalName 屬性。 |
 
 啟用功能後，即無法將其停用。
 
@@ -104,7 +104,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 啟用這項功能之後，現有的 userPrincipalName 值會保持不變。 下次 userPrincipalName 屬性的內部部署變更時，使用者的一般差異同步處理即會更新 UPN。  
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 

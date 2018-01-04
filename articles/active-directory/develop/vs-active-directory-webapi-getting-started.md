@@ -4,7 +4,7 @@ description: "使用 Visual Studio 已連接服務連接 Azure AD 或建立 Azur
 services: active-directory
 documentationcenter: 
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: 
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: a756316054dd3bb63f3b0a9f59621bb1345bc693
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3d510c193ab8c7e65340275017cb2dcd4c76def0
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案)
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
 title: "Azure 入口網站中的 Migrate 傳統原則 | Microsoft Docs"
-description: "Azure 入口網站中的 Migrate 傳統原則。"
+description: "了解您需要知道要在 Azure 入口網站的傳統原則移轉。"
 services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure 入口網站中的 Migrate 傳統原則 
 
 
-[條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者如何存取您的雲端應用程式。 雖然目的仍相同，但新版的 Azure 入口網站也導入了條件式存取如何運作的重大改善。 您在 Azure 入口網站外設定的條件式存取原則，可與您正在 Azure 入口網站中建立的新原則並存。 只要您不停用或移除它們，它們仍然會套用至您的環境。 不過，我們建議您將傳統原則遷移到新的 Azure AD 條件式存取原則，因為：
+[條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者如何存取您的雲端應用程式。 目的仍然是相同，而新的 Azure 入口網站的發行版本導入了解條件式存取如何運作的重大增強功能。
 
-- 新的原則可讓您處理傳統原則無法處理的案例。
+您應該考慮將移轉因為時，您已不在 Azure 入口網站中建立的原則：
+
+- 您現在可以解決無法處理之前的案例。
 
 - 您可以合併它們以減少必須管理的原則數目。   
 
-本主題可協助您將現有的傳統原則遷移至新的 Azure AD 條件式存取原則。
+- 您可以管理您所有單一中央位置的條件式存取原則。
 
+- Azure 傳統入口網站將會停用。   
 
+這篇文章會說明您需要知道要將現有的條件式存取原則移轉到新的架構。
+ 
 ## <a name="classic-policies"></a>傳統原則
 
-您未在 Azure 入口網站中建立的 Azure AD 和 Intune 條件式存取原則，也稱為**傳統原則**。 若要遷移傳統原則，您不需要存取 Azure 傳統入口網站。 Azure 入口網站提供 [[傳統原則 (預覽)] 檢視](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)，讓您檢閱您的傳統原則。
+在[Azure 入口網站](https://portal.azure.com)、[條件式存取-原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)頁面是您進入點，您的條件式存取原則。 不過，在您環境中，您可能也有您不建立使用此頁面的條件式存取原則。 這些原則稱為*傳統原則*。 傳統的原則是條件式存取原則，您已建立在：
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- Azure 傳統入口網站
+- Intune 傳統入口網站
+- Intune 應用程式保護入口網站
 
 
-### <a name="open-a-classic-policy"></a>開啟傳統原則
+在**條件式存取**頁面，即可存取您的傳統原則[**傳統原則 （預覽）** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)中**管理**一節。 
 
-**開啟傳統原則：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側導覽列上，按一下 [Azure Active Directory]。
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+**傳統原則**檢視為您提供的選項：
 
-    ![條件式存取](./media/active-directory-conditional-access-migration/02.png)
+- 篩選傳統原則。
  
-2. 在 [條件式存取 - 原則] 頁面的 [管理] 區段中，按一下 [傳統原則 (預覽)]。
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. 從傳統原則清單中，選取您關心的原則。   
+- 停用傳統的原則。
 
-    ![條件式存取](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- 檢閱設定的傳統的原則 （和將其停用）。
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+如果您已停用傳統的原則，您也無法再還原此步驟。 這就是為什麼您可以修改在傳統的原則使用的群組成員資格**詳細資料**檢視。 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+藉由變更所選的群組或排除特定群組，您可以測試一些測試使用者的已停用傳統原則的效果，然後再停用所有包含的使用者和群組原則。 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Azure AD 條件式存取原則
 
-本主題提供您詳細的步驟，讓您不熟悉 Azure AD 條件式存取原則也能遷移傳統原則。 不過，熟悉 Azure AD 條件式存取的基本概念與術語，有利於改善您的遷移體驗。
+您可以使用 Azure 入口網站中的條件式存取，來管理您的所有原則在單一中央位置。 因為解條件式存取的實作已經大幅變更，您應該熟悉基本概念移轉您的傳統原則之前。
 
 請參閱：
 
-- [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)以了解基本概念與術語
+- [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)深入了解基本概念與術語。
 
-- [開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)以熟悉 Azure 入口網站的使用者介面
+- [Azure Active Directory 中的條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)取得部署條件式存取您組織中的一些指引。
+
+- [開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)讓自己熟悉如何使用 Azure 入口網站中的使用者介面。
 
 
  
+## <a name="migration-considerations"></a>移轉考量
+
+在本文中，Azure AD 條件式存取原則也稱為*新原則*。
+傳統原則繼續與新的原則並存運作，直到您停用或刪除它們。 
+
+在下列方面是重要原則彙總的內容中：
+
+- 雖然傳統的原則所繫結到特定雲端應用程式，您可以選取當您需要在新的原則中的雲端應用程式數目。
+
+- 傳統的原則與雲端應用程式的新原則的控制項需要所有的控制項 (*AND*) 來完成。 
+
+
+- 在新的原則，您可以：
+ 
+    - 如果您的案例需要，結合多個條件。 
+
+    - 選取數個授與需求與存取控制，並將它們結合使用邏輯*OR* （需要其中一個選取的控制項） 或邏輯*AND* （需要所有選取的控制項）。
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 的 Exchange online
 
-## <a name="multi-factor-authentication-policy"></a>Multi-Factor Authentication 原則 
+如果您想要移轉的傳統原則**Office 365 Exchange online**包括**Exchange Active Sync**做為用戶端應用程式的條件，您可能無法將其合併成一個新的原則。 
 
-這個範例示範如何遷移需要雲端應用程式 Multi-Factor Authentication** 的傳統規則。 
+看到這個憑證，例如，如果您想要支援所有的用戶端應用程式類型。 在新的原則具有**Exchange Active Sync**做為用戶端應用程式的條件，您無法選取其他用戶端應用程式。
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+彙總成一個新的原則，也不可以如果傳統原則包含數個條件。 新的原則具有**Exchange Active Sync**成用戶端應用程式設定的條件不支援其他條件：   
 
-**遷移傳統原則：**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [開啟傳統原則](#open-a-classic-policy)以取得組態設定。
-2. 建立新的 Azure AD 條件式存取原則，以取代您的傳統原則。 
+如果您有新的原則具有**Exchange Active Sync**成用戶端應用程式設定的條件，您必須確定所有其他條件未設定。 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>建立新的條件式存取原則
+[應用程式為基礎](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)傳統 Office 365 Exchange Online 的原則包含**Exchange Active Sync**做為用戶端應用程式條件允許**支援**和**不受支援**[裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 雖然您無法設定個別的裝置平台相關的新原則中，您可以限制來支援[支援裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)只。 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側導覽列上，按一下 [Azure Active Directory]。
+您可以合併多個包含的傳統原則**Exchange Active Sync**做為用戶端應用程式條件有：
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- 只有**Exchange Active Sync**做為條件 
 
-2. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+- 授與存取設定的幾項需求
 
-    ![條件式存取](./media/active-directory-conditional-access-migration/02.png)
+常見的案例之一是彙總：
 
+- 從 Azure 傳統入口網站，以裝置為基礎的傳統原則 
+- Intune 應用程式保護入口網站中，應用程式為基礎的傳統原則 
+ 
+在此情況下，您可以將傳統原則合併成一個新的原則有兩個選取的需求。
 
-
-3. 若要在 [條件式存取] 頁面上開啟 [新增] 頁面，請在頂端的工具列中按一下 [新增]。
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/03.png)
-
-4. 在 [新增] 頁面的 [名稱] 文字方塊中，鍵入您的原則名稱。
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/29.png)
-
-5. 在 [指派] 區段中，按一下 [使用者和群組]。
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/05.png)
-
-    a. 如已選取傳統原則中的所有使用者，請按一下 [所有使用者]。 
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/35.png)
-
-    b. 如已選取傳統原則中的群組，請按一下 [選取使用者和群組]，然後選取所需的使用者和群組。
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/36.png)
-
-    c. 如已排除群組，請按一下 [排除] 索引標籤，然後選取所需的使用者和群組。 
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/37.png)
-
-6. 在 [新增] 頁面上，若要開啟 [雲端應用程式] 頁面，請在 [指派] 區段中，按一下 [雲端應用程式]。
-
-    ![條件式存取](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. 在 [雲端應用程式] 頁面上，執行下列步驟︰
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/08.png)
-
-    a. 按一下 [選取應用程式]。
-
-    b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
-
-    c. 在 [選取] 頁面上，選取您的雲端應用程式，然後按一下 [選取]。
-
-    d. 在 [雲端應用程式] 頁面上，按一下 [完成]。
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. 如已選取 [需要多重要素驗證]：
+### <a name="device-platforms"></a>裝置平台
 
-    ![條件式存取](./media/active-directory-conditional-access-migration/26.png)
+與傳統原則[應用程式為基礎的控制項](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)會預先設定 iOS 和 Android 為[裝置平台條件](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 
 
-    a. 在 [存取控制] 區段中，按一下 [授與]。
+在新的原則中，您必須選取[裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)您想要個別支援。
 
-    ![條件式存取](./media/active-directory-conditional-access-migration/27.png)
-
-    b. 在 [授與] 頁面上，按一下 [授與存取權]，然後按一下 [需要多重要素驗證]。
-
-    c. 按一下 [選取] 。
-
-
-10. 按一下 [開啟] 以啟用您的原則。
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/30.png)
-
-11. 停用傳統原則。 
-
-    ![條件式存取](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

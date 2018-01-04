@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -56,9 +56,7 @@ ms.lasthandoff: 12/16/2017
 
 不建議使用部署在自助服務維護**可用性設定組**因為這些是高可用性安裝，其中只有一個更新網域會影響在任何指定時間。 
     - 可讓 Azure 觸發程序維護，但請注意，受到影響的更新網域的順序不一定會以循序方式，以及有更新網域之間的 30 分鐘暫停。
-    - 如果暫時無法使用某些容量 （1/更新網域計數） 的問題，它可以輕鬆地彌補在維護期間配置加入執行個體。 
-
-**不要**以下情況使用自助服務維護： 
+    - 如果暫時無法使用某些容量 （1/更新網域計數） 的問題，它可以輕鬆地彌補新增執行個體配置在維護期間**不**在下列使用自助服務維護案例： 
     - 如果您關閉 Vm 常見問題，請以手動方式，使用 DevTest labs，使用 自動關閉，或下列排程，其無法還原維護狀態，因此會造成額外的停機時間。
     - 在您知道將會刪除維護 wave 結尾之前存留較短 Vm。 
     - 大型的狀態儲存在本機 （臨時） 磁碟維護更新時想要的工作負載。 
@@ -93,8 +91,8 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 | IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 ||
 | PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 ||
 | PreMaintenanceWindowEndTime           | 維修自助期間的結束，此時您可以在 VM 上起始維修 ||
-| MaintenanceWindowStartTime            | 排定維修期間的開始，此時您可以在 VM 上起始維修 ||
-| MaintenanceWindowEndTime              | 排定維修期間的結束，此時您可以在 VM 上起始維修 ||
+| MaintenanceWindowStartTime            | Azure 會起始您的 VM 上的維護排程的維護開始處 ||
+| MaintenanceWindowEndTime              | Azure 會起始您的 VM 上維護的維護排程視窗結尾 ||
 | LastOperationResultCode               | 前次嘗試在 VM 上起始維修的結果 ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **問：重新啟動我的虛擬機器需要多久時間？**
 
-**答：**根據您的 VM 大小，重新啟動最長可能需要幾分鐘的時間。 請注意，如果您使用雲端服務 （Web/背景工作角色）、 虛擬機器設定小數位數，或可用性設定組，您將有 30 分鐘每個群組的 Vm (UD) 之間。 
+**答：**根據您的 VM 大小，重新開機最長可能需要幾分鐘的時間在自助服務維護期間。 在 Azure 期間起始重新開機，在排程的維護視窗中，重新開機將 typicall take 大約 25 分鐘。 請注意，如果您使用雲端服務 （Web/背景工作角色）、 虛擬機器設定小數位數，或可用性設定組，您將有 30 分鐘為單位的每個群組的 Vm (UD) 在排程的維護期間。 
 
 **問： 什麼是在雲端服務 （Web/背景工作角色）、 Service Fabric 和虛擬機器擴展集的情況下經驗？**
 

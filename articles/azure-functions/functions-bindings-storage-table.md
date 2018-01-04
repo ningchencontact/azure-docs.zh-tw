@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 11/29/2017
 
 請參閱特定語言的範例：
 
-* [先行編譯 C# 讀取單一實體](#input---c-example-1)
-* [先行編譯 C# 讀取多個實體](#input---c-example-2)
+* [C# 讀取一個實體](#input---c-example-1)
+* [C# 讀取多個實體](#input---c-example-2)
 * [C# 指令碼 - 讀取單一實體](#input---c-script-example-1)
 * [C# 指令碼 - 讀取多個實體](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/29/2017
 
 ### <a name="input---c-example-1"></a>輸入 - C# 範例 1
 
-下列範例所示範的是讀取單一資料表列的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。 
+下列範例所示[C# 函式](functions-dotnet-class-library.md)讀取單一資料表資料列。 
 
 列索引鍵值 "{queueTrigger}" 表示資料列索引鍵來自佇列訊息字串。
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>輸入 - C# 範例 2
 
-下列範例示範讀取多個資料表列的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。 請注意，`MyPoco` 類別衍生自 `TableEntity`。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)讀取多個資料表資料列。 請注意，`MyPoco` 類別衍生自 `TableEntity`。
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>輸入 - 屬性
  
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性以設定資料表輸入繫結：
+在[C# 類別庫](functions-dotnet-class-library.md)，來設定資料表的輸入繫結中使用下列屬性：
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中。
 
@@ -316,7 +316,7 @@ module.exports = function (context, myQueueItem) {
   }
   ```
 
-  如需完整範例，請參閱[輸入 - 先行編譯 C# 範例](#input---c-example)。
+  如需完整範例，請參閱[輸入 – C# 範例](#input---c-example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -389,14 +389,14 @@ module.exports = function (context, myQueueItem) {
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#output---c-example)
-* [C# 指令碼](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 指令碼 (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例所示範的是使用 HTTP 觸發程序寫入單一資料表列的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。 
+下列範例所示[C# 函式](functions-dotnet-class-library.md)，會使用 HTTP 觸發程序，以寫入單一資料表資料列。 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，定義在 NuGet 套件[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
 
 屬性的建構函式採用資料表名稱。 它可以用於 `out` 參數或函式的傳回值，如下列範例所示：
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
 
-您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[輸入 - 屬性](#input---attributes-for-precompiled-c)。
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[輸入 - 屬性](#input---attributes)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 

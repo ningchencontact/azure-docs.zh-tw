@@ -4,7 +4,7 @@ description: "說明如何疑難排解 Azure AD 應用程式 Proxy 中的錯誤�
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6534320d36653d296f254dfff129d4c5031f8ce8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 87c88f9ba9932c101e979c949121aae0884e9f24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/14/2017
 ## <a name="the-page-is-not-rendered-correctly"></a>無法正確轉譯頁面
 您可能會遇到應用程式轉譯有問題或運作不正確，但沒有收到特定錯誤訊息的情況。 如果您已發佈文章路徑，但應用程式需要存在於該路徑以外的內容，就可能發生此問題。
 
-例如，如果您發佈的路徑是 https://yourapp/app ， 但應用程式呼叫的是 https://yourapp/media 中的影像，系統便不會轉譯那些影像。 請確定您是使用包含所有相關內容所需的最高層級路徑來發佈應用程式。 在此範例中，它會是 http://yourapp/。
+例如，如果您發佈的路徑是 https://yourapp/app，但應用程式呼叫的是 https://yourapp/media 中的影像，系統便不會轉譯那些影像。 請確定您是使用包含所有相關內容所需的最高層級路徑來發佈應用程式。 在此範例中，它會是 http://yourapp/。
 
 如果您變更路徑以包含參考的內容，但仍需要使用者登入該路徑中更深層的連結，請參閱部落格文章 [在 Azure AD 存取面板和 Office 365 應用程式啟動程式中為應用程式 Proxy 應用程式設定正確的連結](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/14/2017
 
 若您在事件記錄檔中找到連接器錯誤，則使用這份常見錯誤表格來解決問題︰
 
-| 錯誤 | 建議的步驟 |
+| Error | 建議的步驟 |
 | ----- | ----------------- |
 | 連接器註冊失敗︰確定您已在 Azure 管理入口網站中啟用應用程式 Proxy，並已正確地輸入您的 Active Directory 使用者名稱和密碼。 錯誤︰「發生一或多個錯誤。」 | 如果您在未登入 Azure AD 的情況下關閉註冊視窗，請再次執行連接器精靈，並註冊連接器。 <br><br> 如果註冊視窗隨即開啟，然後立即關閉，而不讓您登入，您可能會發生此錯誤。 您的系統有網路錯誤時，就會發生此錯誤。 確定可以從瀏覽器連線至公用網站，並如 [應用程式 Proxy 先決條件](active-directory-application-proxy-enable.md)所指定開啟連接埠。 |
 | 清除錯誤會顯示在註冊視窗中。 無法繼續 | 如果您看到這個錯誤且視窗隨後關閉，表示您輸入錯誤的使用者名稱或密碼。 請再試一次。 |
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/14/2017
 
 這個表格涵蓋有關 Kerberos 設定和組態的常見錯誤，並建議解決辦法。
 
-| 錯誤 | 建議的步驟 |
+| Error | 建議的步驟 |
 | ----- | ----------------- |
 | 無法擷取目前的執行原則以供執行 PowerShell 指令碼。 | 如果連接器安裝失敗，請檢查以確定未停用 PowerShell 執行原則。<br><br>1.開啟 [群組原則編輯器]。<br>2.移至 [電腦設定] > [系統管理範本] > [Windows 元件] > [Windows PowerShell]，按兩下 [開啟指令碼執行]。<br>3.執行原則可以設定為 [未設定] 或 [已啟用]。 如果是設定為 [已啟用]，請確定 [選項] 底下的 [執行原則] 是設定為 [允許本機指令碼和遠端已簽署的指令碼] 或 [允許所有指令碼]。 |
 | 12008 - Azure AD 已超出後端伺服器允許的 Kerberos 驗證嘗試次數上限。 | 此錯誤可能表示 Azure AD 與後端應用程式伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 後端伺服器拒絕了 Azure AD 所建立的 Kerberos 票證。 確認 Azure AD 和後端應用程式伺服器的設定正確無誤。 確定 Azure AD 與後端應用程式伺服器的日期和時間設定已同步。 |
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/14/2017
 
 這份清單涵蓋您的終端使用者嘗試存取應用程式並失敗時可能會遇到的錯誤。 
 
-| 錯誤 | 建議的步驟 |
+| Error | 建議的步驟 |
 | ----- | ----------------- |
 | 網站無法顯示頁面。 | 如果應用程式是 IWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 為此應用程式定義的 SPN 可能不正確。 若是 IWA 應用程式，確定為此應用程式設定的 SPN 正確無誤。 |
 | 網站無法顯示頁面。 | 如果應用程式是 OWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 這可能是由下列下列其中一項所造成︰<br><li>為此應用程式定義的 SPN 不正確。 確定為此應用程式設定的 SPN 正確無誤。</li><li>嘗試存取應用程式的使用者使用 Microsoft 帳戶，而不是使用適當的公司帳戶進行登入，或使用者是來賓使用者。 確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。 Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。</li><li>未在內部部署端針對此應用程式正確地定義嘗試存取應用程式的使用者。 確定此使用者具有適當的權限，如在內部部署電腦上針對此後端應用程式所定義的權限。 |
@@ -86,7 +86,7 @@ ms.lasthandoff: 11/14/2017
 
 如果您遇到的 Azure AD 應用程式 Proxy 錯誤或問題沒有列在這份疑難排解指南中，我們想要知道更多。 請用電子郵件將該錯誤的詳細資料傳送給我們的[意見反應小組](mailto:aadapfeedback@microsoft.com)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [啟用 Azure Active Directory 的應用程式 Proxy](active-directory-application-proxy-enable.md)
 * [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 * [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)

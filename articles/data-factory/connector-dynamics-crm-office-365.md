@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/21/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Dynamics 365/Dynamics CRM 複製資料
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/04/2017
 - Dynamics 365 for Marketing
 
 > [!NOTE]
-> 若要使用 Dynamics 連接器，請將您的密碼儲存在 Azure Key Vault 中，然後讓 ADF 在執行資料複製時從該處提取密碼。 若要了解如何設定，請參閱[已連結的服務屬性](#linked-service-properties)一節。
+> 若要使用 Dynamics 連接器，將您的密碼儲存在 Azure 金鑰保存庫，讓從該處複製活動提取時執行資料複製。 若要了解如何設定，請參閱[已連結的服務屬性](#linked-service-properties)一節。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -60,9 +60,9 @@ ms.lasthandoff: 12/04/2017
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 和 Dynamics CRM Online
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**Dynamics**。 | 是 |
+| type | 類型屬性必須設定為：**Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | 是 |
 | organizationName | Dynamics 執行個體的組織名稱。 | 否，當與使用者關聯的 Dynamics 執行個體超過一個時，應該指定。 |
 | authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | 是 |
@@ -107,9 +107,9 @@ ms.lasthandoff: 12/04/2017
 
 相較於 Dyanmics Online，額外的屬性為 "hostName" 和 "port"。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**Dynamics**。 | 是 |
+| type | 類型屬性必須設定為：**Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| 是 |
 | **hostName** | 內部部署 Dynamics 伺服器的主機名稱。 | 是 |
 | **port** | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
@@ -160,9 +160,9 @@ ms.lasthandoff: 12/04/2017
 
 若要從/至 Dynamics 複製資料，請將資料集的類型屬性設定為 **DynamicsEntity**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**DynamicsEntity** |是 |
+| type | 資料集的類型屬性必須設定為：**DynamicsEntity** |是 |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
@@ -213,9 +213,9 @@ ms.lasthandoff: 12/04/2017
 
 若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**DynamicsSource**  | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**DynamicsSource**  | 是 |
 | query  | FetchXML 是一個在 Microsoft Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱以下範例，若要深入了解，請參閱[使用 FetchXML 建立查詢](https://msdn.microsoft.com/en-us/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName")  |
 
 **範例：**
@@ -274,9 +274,9 @@ ms.lasthandoff: 12/04/2017
 
 若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的類型屬性必須設定為：**DynamicsSink**  | 是 |
+| type | 複製活動接收器的類型屬性必須設定為：**DynamicsSink**  | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為：**"Upsert"**。 | 是 |
 | writeBatchSize | 每個批次中寫入 Dynamics 的資料列計數。 | 否 (預設值為 10) |
 | ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 null 值 (索引鍵欄位除外)。<br/>允許的值為：**true** 和 **false**。<br>- true：進行 upsert/更新作業時，目的地物件中的資料保持不變，進行插入作業時，插入定義的預設值。<br/>- false：進行 upsert/更新作業時，將目的地物件中的資料更加為 NULL，進行插入作業時，插入 NULL 值。  | 否 (預設值為 false) |
@@ -322,28 +322,28 @@ ms.lasthandoff: 12/04/2017
 
 從 Dynamics 複製資料時，會使用下列從 Dynamics 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
 
-請參考以下的對應表，根據您的來源 Dynamics 資料類型，在資料集結構中設定對應的 ADF 資料類型：
+在您的來源 Dynamics 資料為基礎的資料集結構中設定對應的 Data Factory 資料型別對應表中使用下列類型：
 
 | Dynamics 資料類型 | Data Factory 過渡期資料類型 | 支援作為來源 | 支援作為接收 |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ |  |
-| AttributeType.DateTime | Datetime | ✓ | ✓ |
+| AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | 十進位 | ✓ | ✓ |
-| AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.Double | 兩倍 | ✓ | ✓ |
+| AttributeType.EntityName | 字串 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ |  |
-| AttributeType.ManagedProperty | Boolean | ✓ |  |
-| AttributeType.Memo | String | ✓ | ✓ |
-| AttributeType.Money | 十進位 | ✓ |  |
+| AttributeType.ManagedProperty | BOOLEAN | ✓ |  |
+| AttributeType.Memo | 字串 | ✓ | ✓ |
+| AttributeType.Money | 十進位 | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.String | 字串 | ✓ | ✓ |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]

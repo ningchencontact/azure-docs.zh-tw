@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 ADP GlobalView 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e9a5e65c484dfb98d1a7bc63d55f6ef92039554b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7271efe4a1cd943f84d322e7333c92d6f60b62aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>教學課程：Azure Active Directory 與 ADP GlobalView 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 ADP GlobalView
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-adp-globalview-from-the-gallery"></a>從資源庫新增 ADP GlobalView
-若要設定將 ADP GlobalView 整合到 Azure AD 中，您需要從資源庫將 ADP GlobalView 新增到受管理的 SaaS 應用程式清單。
+若要設定將 ADP GlobalView 整合到 Azure AD 中，您需要從資源庫將 ADP GlobalView 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 ADP GlobalView，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **ADP GlobalView**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_search.png)
 
-5. 在結果面板中，選取 ADP GlobalView，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [ADP GlobalView]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_addfromgallery.png)
 
@@ -143,12 +143,12 @@ ms.lasthandoff: 10/11/2017
 
     c. 在 [值] 清單中，選取該列所顯示的值。
     
-    d. 按一下 [ **確定**]。
+    d. 按一下 [確定] 。
 
     > [!NOTE] 
     > 您必須先連絡 [ADP GlobalView 支援小組](https://www.adp.com/contact-us/overview.aspx)，向其要求租用戶的唯一識別碼屬性值，才能設定 SAML 判斷提示。 您需要此值來設定應用程式的自訂宣告。 
 
-8. 在 [ADP GlobalView 組態] 區段上，按一下 [設定 ADP GlobalView] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」。
+8. 在 [ADP GlobalView 組態] 區段上，按一下 [設定 ADP GlobalView] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_configure.png) 
 
@@ -186,11 +186,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-adp-globalview-test-user"></a>建立 ADP GlobalView 測試使用者
 

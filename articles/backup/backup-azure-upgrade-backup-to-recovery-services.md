@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/11/2017
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>升級之後對自動化及工具的變更
 
 當您在準備保存庫升級的基礎結構時，必須更新您現有的自動化或工具，確保它在升級之後會繼續運作。
-請參閱 PowerShell Cmdlet 參考以了解 [Service Manager 部署模型](backup-client-automation-classic.md)和 [Resource Manager 部署模型](backup-client-automation.md)。
+請參閱 PowerShell cmdlet 參考[Resource Manager 部署模型](backup-client-automation.md)。
 
 
 ## <a name="before-you-upgrade"></a>您在升級之前
@@ -60,10 +60,10 @@ ms.lasthandoff: 11/11/2017
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** - 正在進行升級的保存庫之訂用帳戶識別碼編號。<br/>
-**VaultName** - 正在進行升級的備份保存庫之名稱。<br/>
-**Location** - 正在進行升級的保存庫之位置。<br/>
-**ResourceType** - 使用 BackupVault。<br/>
-**TargetResourceGroupName** - 因為您要將保存庫升級至以 Resource Manager 為基礎的部署，因此要指定資源群組。 您可以使用現有的資源群組，或提供新的名稱來建立一個新的群組。 如果您將資源群組的名稱拼錯，可以建立新的資源群組。 若要深入了解資源群組，請閱讀此[資源群組概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+**VaultName** -正在升級的備份保存庫的名稱。<br/>
+**位置**-正在升級的保存庫的位置。<br/>
+**ResourceType** -使用 BackupVault。<br/>
+**TargetResourceGroupName** -因為您要升級的保存庫資源管理員為基礎的部署，以指定資源群組。 您可以使用現有的資源群組，或提供新的名稱來建立一個新的群組。 如果您將資源群組的名稱拼錯，可以建立新的資源群組。 若要深入了解資源群組，請閱讀此[資源群組概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 
 >[!NOTE]
 > 資源群組名稱具有條件約束。 請務必遵循指導方針；若無法這樣做，可能導致保存庫升級失敗。
@@ -117,7 +117,7 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **升級計畫是否會影響我進行中的備份？**</br>
-否。 在升級期間和升級之後，進行中的備份持續不受干擾。
+編號 在升級期間和升級之後，進行中的備份持續不受干擾。
 
 **如果我不打算立即升級，那麼我的保存庫會怎麼樣？**</br>
 所有新功能只適用於復原服務保存庫，因此您最好將保存庫升級。 Microsoft 終究會淘汰掉傳統入口網站。 2017 年 9 月 1 日起，Microsoft 會開始將備份保存庫自動升級為復原服務保存庫。 2017 年 11 月 30 日之後，您就無法再使用 PowerShell 建立備份保存庫。 您的保存庫會其間的任何時間自動升級。 Microsoft 建議您盡快升級您的保存庫。
@@ -129,19 +129,19 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 依您所升級的資源數目而定。 對於較小型的部署 (數十個受保護的執行個體)，整個升級應該花費不到 20 分鐘的時間。 對於較大型的部署，應該花費最多一小時的時間。
 
 **升級之後可以復原嗎？**</br>
-否。 將資源成功升級之後，即不支援復原。
+編號 將資源成功升級之後，即不支援復原。
 
 **我是否可以驗證訂用帳戶或資源，以查看是否能夠將它們升級？**</br>
-是。 升級的第一個步驟是驗證這些資源是否能夠升級。 如果必要條件驗證失敗，您將會收到無法完成升級的所有原因相關訊息。
+可以。 升級的第一個步驟是驗證這些資源是否能夠升級。 如果必要條件驗證失敗，您將會收到無法完成升級的所有原因相關訊息。
 
 **若要觸發保存庫升級，我應該具備哪些權限？**</br>
 若要執行保存庫升級，必須在 Azure 傳統入口網站中將您新增為訂用帳戶的共同管理員。 即使已經在 Azure 入口網站中將您列示為擁有者，還是必須執行此操作。 請嘗試在 Azure 傳統入口網站中新增訂用帳戶的共同管理員，以查明您是否為訂用帳戶的共同管理員。 如果您無法新增共同管理員，請連絡服務管理員或訂用帳戶的共同管理員，請他將您新增為共同管理員。
 
 **可以升級以 CSP 為基礎的備份保存庫嗎？**</br>
-否。 您目前無法升級以 CSP 為基礎的備份保存庫。 我們會在後續版本中新增以 CSP 為基礎之備份保存庫的升級支援。
+編號 您目前無法升級以 CSP 為基礎的備份保存庫。 我們會在後續版本中新增以 CSP 為基礎之備份保存庫的升級支援。
 
 **在升級後可以檢視我的傳統保存庫嗎？**</br>
-否。 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
+編號 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
 
 **我升級失敗，但要求進行更新之代理程式所在的電腦已不存在。這種情況下我該怎麼做？**</br>
 如果您需要使用存放區作為這台電腦長期保存的備份，就無法升級保存庫。 在日後的版本中，我們會新增這類保存庫的升級支援。

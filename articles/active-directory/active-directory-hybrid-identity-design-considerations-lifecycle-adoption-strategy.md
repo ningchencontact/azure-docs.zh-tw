@@ -4,7 +4,7 @@ description: "協助根據每個生命週期階段可用的選項，定義混合
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>判斷混合式身分識別生命週期採用策略
 在這項工作中，您將為混合式身分識別解決方案定義身分識別管理策略，以滿足您在 [判斷混合式身分識別管理工作](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)中定義的商務需求。
@@ -49,7 +49,7 @@ Azure AD RBAC 可讓公司限制個人存取 Azure 管理入口網站之後可�
 
 您可以取消佈建以移除服務或元件。 例如，取消佈建帳戶表示從資源中刪除該帳戶。
 
-混合式資源佈建模型結合要求型和角色型方法 (Azure AD 同時支援這兩者)。 在一部分的員工或受管理系統中，企業可以透過角色型指派將存取自動化。 企業也可以透過要求型的模型，處理其他所有存取要求或例外狀況。 有些企業剛開始會採用手動指派，然後逐漸演化成混合式模型，目標是在未來達到完全角色型的部署。
+混合式資源佈建模型結合要求型和角色型方法 (Azure AD 同時支援這兩者)。 在一部分的員工或受控系統中，企業可以透過角色型指派將存取自動化。 企業也可以透過要求型的模型，處理其他所有存取要求或例外狀況。 有些企業剛開始會採用手動指派，然後逐漸演化成混合式模型，目標是在未來達到完全角色型的部署。
 
 基於商業理由，其他公司可能認為達到完全角色型佈建不切實際，而以混合式方法為期望的目標。 還有其他公司只要有要求型佈建就很滿足，不想投入更多心力來定義和管理角色型、自動化佈建原則。
 
@@ -72,7 +72,7 @@ Azure AD 中的群組型授權管理可讓系統管理員將使用者指派到�
 Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入和增強的應用程式存取安全性。 如需 Azure Active Directory 應用程式資源庫中支援的 SaaS 應用程式的詳細清單，請參閱「Azure Active Directory 同盟相容性清單：使用協力廠商身分識別提供者實作單一登入」
 
 ## <a name="define-synchronization-management"></a>定義同步處理管理
-將內部部署目錄與 Azure AD 整合可提供通用身分識別供存取雲端和內部部署資源，進而讓您的使用者更具生產力。 透過此整合，使用者和組織可以享受到下列好處：
+將內部部署目錄與 Azure AD 整合可提供一個通用身分識別來存取雲端和內部部署資源，讓使用者變得更有生產力。 透過此整合，使用者和組織可以享受到下列好處：
 
 * 組織可以運用 Windows Server Active Directory，然後連線到 Azure Active Directory，提供跨內部部署或雲端架構服務的通用混合式身分識別給使用者。
 * 系統管理員可以根據應用程式資源、裝置和使用者身分識別、網路位置及多因素驗證，提供條件式存取。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
-ms.translationtype: HT
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
 
@@ -90,7 +90,7 @@ public static async Task<List<string>> Run(
     * **TaskScheduled**：活動函式已排程。 活動函式的名稱是在 `Name` 資料行中擷取。
     * **TaskCompleted**：活動函式已完成。 函式的結果是在 `Result` 資料行中。
     * **TimerCreated**：建立長期計時器。 `FireAt` 資料行包含計時器到期的已排程 UTC 時間。
-    * **TimerFired**：長期計時器已到期。
+    * **TimerFired**： 永久性計時器引發。
     * **EventRaised**：外部事件傳送至協調流程執行個體。 `Name` 資料行會擷取事件的名稱，而 `Input` 資料行會擷取事件的裝載。
     * **OrchestratorCompleted**：協調器函式已等候。
     * **ContinueAsNew**：協調器函式已完成，並且以新的狀態自行重新啟動。 `Result` 資料行包含值，可作為重新啟動執行個體的輸入。
@@ -98,10 +98,10 @@ public static async Task<List<string>> Run(
 * **Timestamp**：歷程記錄事件的 UTC 時間戳記。
 * **Name**：被叫用之函式的名稱。
 * **Input**：函式的 JSON 格式輸入。
-* **Output**：函式的輸出，也就是它的傳回值。
+* **結果**: 函式的輸出，也就是它的傳回值。
 
 > [!WARNING]
-> 它作為偵錯工具相當有用，請勿在此資料表上採用任何相依性。 當長期函式延伸模組進化時，它可能會有變化。
+> 它作為偵錯工具相當有用，請勿在此資料表上採用任何相依性。 當 Durable Functions 擴充功能進化時，此相依性可能會改變。
 
 每次函式從 `await` 繼續時，長期工作架構就會從頭重新執行協調器函式。 在每次重新執行時，它會查詢執行歷程記錄以判斷是否已發生目前的非同步作業。  如果作業已發生，架構會立即重新執行該作業的輸出，並且移至下一個 `await`。 此程序會繼續直到整個歷程記錄已重新執行，此時協調器函式中的所有本機變數會還原至其先前的值。
 

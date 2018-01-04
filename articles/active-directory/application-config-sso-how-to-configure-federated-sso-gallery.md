@@ -4,7 +4,7 @@ description: "如何為現有的 Azure AD 資源庫應用程式設定同盟單�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 1b1d00718981b2c7d11f5b88428d02e16dd0b34d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d8c22d20151fa70ba33ef017ab24c787f71fe6e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>如何為 Azure AD 資源庫應用程式設定同盟單一登入
 
@@ -58,7 +58,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 8.  新增應用程式之前，您可以從 [名稱] 文字方塊變更其名稱。
 
-9.  按一下 [新增] 按鈕以新增應用程式。
+9.  按一下 [新增] 按鈕新增應用程式。
 
 稍候片刻，您便能看見應用程式的設定刀鋒視窗。
 
@@ -98,7 +98,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
   新增屬性：
    
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    1. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -137,11 +137,11 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 9.  若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
-   新增屬性：
+   若要新增屬性︰
   
    1. 按一下 [新增屬性]。 輸入**名稱**，然後從下拉式清單選取**值**。
 
-   2. 按一下 [儲存] 。 您會在資料表中看到新屬性。
+   2. 按一下 [檔案] 。 您會在資料表中看到新屬性。
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>下載 Azure AD 中繼資料或憑證
 
@@ -171,7 +171,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

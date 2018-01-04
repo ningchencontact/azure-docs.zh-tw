@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>將 Operations Manager 連接到 Log Analytics
 若要維護 System Center Operations Manager 中的現有投資，並使用 Log Analytics 的延伸功能，您可以整合 Operations Manager 與 OMS 工作區。  這可讓您利用 OMS 的機會，同時繼續使用 Operations Manager：
@@ -40,9 +40,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="system-requirements"></a>系統需求
 開始之前，請檢閱下列詳細資料，以確認符合必要條件。
 
-* OMS 僅支援 Operations Manager 2016、Operations Manager 2012 SP1 UR10 和更新版本，以及 Operations Manager 2012 R2 UR11 和更新版本。
+* OMS 僅支援 Operations Manager 2016、Operations Manager 2012 SP1 UR6 和更新版本，以及 Operations Manager 2012 R2 UR2 和更新版本。  Operations Manager 2012 SP1 UR7 和 Operations Manager 2012 R2 UR3 中已加入 Proxy 支援。
 * 所有 Operations Manager 代理程式必須符合最低支援需求。 請確定代理程式已安裝最低更新版本，否則 Windows 代理程式流量會失敗，許多錯誤可能會填滿 Operations Manager 事件記錄。
-* Azure Log Analytics 訂用帳戶。  如需進一步資訊，請檢閱 [開始使用 Log Analytics](log-analytics-get-started.md)。
+* OMS 訂用帳戶。  如需進一步資訊，請檢閱 [開始使用 Log Analytics](log-analytics-get-started.md)。
 
 ### <a name="network"></a>網路
 下列資訊列出 Operations Manager 代理程式、管理伺服器及 Operations 主控台與 OMS 通訊所需的 Proxy 和防火牆組態資訊。  每個元件的流量會從您的網路輸出至 OMS 服務。     
@@ -85,31 +85,31 @@ ms.lasthandoff: 10/11/2017
 6. 在 [Operations Management Suite 登入精靈：摘要] 頁面上，確認您的設定，如果正確無誤，請按一下 [建立]。
 7. 在 [Operations Management Suite 登入精靈：完成] 頁面上，按一下 [關閉]。
 
-### <a name="add-agent-managed-computers"></a>加入代理程式所管理的電腦
-設定與 OMS 工作區的整合之後，這只會建立與 OMS 的連接，並不會從向管理群組回報的代理程式收集任何資料。 除非您設定特定代理程式管理的哪些電腦會收集 Log Analytics 的資料，否則不會發生這種情況。 您可以個別選取電腦物件，也可以選取包含 Windows 電腦物件的群組。 您無法選取包含另一個類別之執行個體 (例如邏輯磁碟或 SQL 資料庫) 的群組。
+### <a name="add-agent-managed-computers"></a>加入代理程式的受控電腦
+設定與 OMS 工作區的整合之後，這只會建立與 OMS 的連接，並不會從向管理群組回報的代理程式收集任何資料。 除非您設定哪些特定代理程式的受控電腦會收集 Log Analytics 的資料，否則不會發生這種情況。 您可以個別選取電腦物件，也可以選取包含 Windows 電腦物件的群組。 您無法選取包含另一個類別之執行個體 (例如邏輯磁碟或 SQL 資料庫) 的群組。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
 2. 展開 Operations Management Suite 節點，然後按一下 [連接] 。
 3. 按一下窗格右側之 [執行] 標題下方的 [加入電腦/群組]  連結。
-4. 在 [電腦搜尋] 對話方塊中，您可以搜尋 Operations Manager 監視的電腦或群組。 選取電腦或群組以登入 OMS，並按一下 新增，然後按一下確定。
+4. 在 [電腦搜尋] 對話方塊中，您可以搜尋 Operations Manager 監視的電腦或群組。 選取電腦或群組以登入 OMS，並按一下 [新增]，然後按一下 [確定]。
 
-在 Operations 主控台的 [管理]  工作區中，您可以檢視電腦和群組，這些電腦和群組設定成收集來自 Operations Management Suite 下方之 [受管理的電腦] 節點的資料。  您可以視需要在這裡新增或移除電腦和群組。
+在 Operations 主控台的 [管理]  工作區中，您可以檢視電腦和群組，這些電腦和群組設定成收集來自 Operations Management Suite 下方之 [受控電腦] 節點的資料。  您可以視需要在這裡新增或移除電腦和群組。
 
 ### <a name="configure-oms-proxy-settings-in-the-operations-console"></a>在 Operations 主控台中設定 OMS Proxy 設定
 如果內部 Proxy 伺服器位在管理群組與 OMS Web 服務之間，請執行下列步驟。  這些設定是從管理群組進行集中管理，並且散發至範圍中所含的代理程式所管理系統，來收集 OMS 的資料。  特定解決方案略過管理伺服器並將資料直接傳送給 OMS Web 服務時，這十分有幫助。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
-2. 展開 Operations Management Suite，然後按一下連接 。
+2. 展開 Operations Management Suite，然後按一下 [連接] 。
 3. 在 [OMS 連線] 檢視中，按一下 [設定 Proxy 伺服器] 。
-4. 在 Operations Management Suite 精靈：Proxy 伺服器 頁面上，選取 使用 Proxy 伺服器來存取 Operations Management Suite，然後輸入具有連接埠號碼的 URL (例如， http://corpproxy:80 )，然後按一下完成。
+4. 在 [Operations Management Suite 精靈：Proxy 伺服器] 頁面上，選取 [使用 Proxy 伺服器來存取 Operations Management Suite]，然後輸入具有連接埠號碼的 URL (例如， http://corpproxy:80 )，然後按一下 [完成]。
 
-如果 Proxy 伺服器需要驗證，請執行下列步驟來設定認證和設定，這些需要傳播到管理群組中向 OMS 回報的受管理電腦。
+如果 Proxy 伺服器需要驗證，請執行下列步驟來設定認證和設定，這些需要傳播到管理群組中向 OMS 回報的受控電腦。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
 2. 在 [RunAs 組態] 底下，選取 [設定檔]。
 3. 開啟 [ **System Center Advisor 執行身份設定檔 Proxy** ] 設定檔。
 4. 在 [執行身分設定檔精靈] 中，按一下 [加入] 使用執行身分帳戶。 您可以建立[執行身分帳戶](https://technet.microsoft.com/library/hh321655.aspx)，或使用現有的帳戶。 此帳戶必須有足夠的權限，才能通過 Proxy 伺服器。
-5. 若要設定帳戶來管理，請選擇 [選取的類別、群組或物件]，按一下 [選取…] 然後按一下群組… 開啟 [群組搜尋] 方塊。
+5. 若要設定帳戶來管理，請選擇 [選取的類別、群組或物件]，按一下 [選取…] 然後按一下 [群組…] 開啟 [群組搜尋] 方塊。
 6. 搜尋，然後選取 [Microsoft System Center Advisor 監控伺服器群組] 。  選取群組之後，按一下 [確定] 關閉 [群組搜尋] 方塊。
 7. 按一下 [確定] 以關閉 [新增執行身分帳戶] 方塊。
 8. 按一下 [儲存]  完成精靈並儲存變更。
@@ -208,7 +208,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

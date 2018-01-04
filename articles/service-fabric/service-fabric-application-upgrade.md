@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 應用程式升級
-Azure Service Fabric 應用程式是服務集合。 在升級期間，Service Fabric 會比較新的 [應用程式資訊清單](service-fabric-application-model.md#describe-an-application) 與舊版本，並決定應用程式中哪些服務需要更新。 Service Fabric 會比較服務資訊清單中的版本號碼和上一版中的版本號碼。 如果服務未變更，則該服務不會升級。
+Azure Service Fabric 應用程式是服務集合。 在升級期間，Service Fabric 會比較新的 [應用程式資訊清單](service-fabric-application-and-service-manifests.md) 與舊版本，並決定應用程式中哪些服務需要更新。 Service Fabric 會比較服務資訊清單中的版本號碼和上一版中的版本號碼。 如果服務未變更，則該服務不會升級。
 
 ## <a name="rolling-upgrades-overview"></a>輪流升級概觀
 在輪流應用程式升級中，升級是階段執行。 在每個階段中，升級會套用至叢集中的節點子集，稱為更新網域。 如此一來，應用程式在整個升級過程中仍然可供使用。 升級期間，叢集可能包含舊和新版本的混合。
@@ -47,14 +47,14 @@ Service Fabric 在升級期間進行的健康狀態原則以及檢查不限於�
 不受監控手動模式在每次於更新網域上升級之後都需要手動介入，以開始進行下一個更新網域上的升級。 系統不會執行任何 Service Fabric 健康狀態檢查。 系統管理員在開始下一個更新網域中的升級之前，會執行健康狀態或狀態檢查。
 
 ## <a name="upgrade-default-services"></a>升級預設服務
-您可以在應用程式的升級程序期間升級 Service Fabric 應用程式內的預設服務。 預設服務會在[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)中定義。 升級預設服務的標準規則如下︰
+您可以在應用程式的升級程序期間升級 Service Fabric 應用程式內的預設服務。 預設服務會在[應用程式資訊清單](service-fabric-application-and-service-manifests.md)中定義。 升級預設服務的標準規則如下︰
 
-1. 會建立不存在於叢集中的新[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)中的預設服務。
+1. 會建立不存在於叢集中的新[應用程式資訊清單](service-fabric-application-and-service-manifests.md)中的預設服務。
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 必須設為 true，以啟用下列規則。 從 v5.5 可支援此功能。
 
-2. 會更新在上一個[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)及新版本中的預設服務。 在新版本中的服務描述將會覆寫已在叢集中的部分。 在更新預設服務失敗時，應用程式升級會自動回復。
-3. 會刪除上一個[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)中的預設服務，但不會刪除新版中的預設服務。 **請注意，無法還原此刪除預設服務。**
+2. 會更新在上一個[應用程式資訊清單](service-fabric-application-and-service-manifests.md)及新版本中的預設服務。 在新版本中的服務描述將會覆寫已在叢集中的部分。 在更新預設服務失敗時，應用程式升級會自動回復。
+3. 會刪除上一個[應用程式資訊清單](service-fabric-application-and-service-manifests.md)中的預設服務，但不會刪除新版中的預設服務。 **請注意，無法還原此刪除預設服務。**
 
 如果應用程式升級已回復，預設服務會還原為開始升級前的狀態。 但永遠無法建立已刪除的服務。
 

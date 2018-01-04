@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
-本教學課程將教導您如何使用 Site Recovery 將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 將 EC2 執行個體移轉至 Azure 時，VM 會被視為實體的內部部署電腦。 在本教學課程中，您將了解如何：
+本教學課程將教導您如何使用 Site Recovery 將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 當移轉 EC2 執行個體至 Azure 時，Vm 會被視為如同它們是實體，在內部部署電腦。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 準備 Azure 資源
@@ -70,8 +70,8 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 移轉 (容錯移轉) 之後建立的 Azure VM 會加入此網路。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 **[新增]** > **[網路]** >
-    **[虛擬網路]**
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [新增]**** > [網路]**** >
+   [虛擬網路]****
 3. 在 [名稱] 中，輸入 *myMigrationNetwork*。
 4. 保留 [位址空間] 的預設值。
 5. 在 [訂用帳戶] 中，選取適當的訂用帳戶。
@@ -139,7 +139,7 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
     
 6. 在 VM 上，執行 **cspsconfigtool.exe**，以在設定伺服器上建立一或多個管理帳戶。 在您想要移轉的 EC2 執行個體上，請確定管理帳戶具有系統管理員權限。 
 
-組態伺服器設定完成時，請回到入口網站，並選取您剛才建立作為**組態伺服器**的伺服器，然後按一下 [確定] * ，以前往步驟 3「目標準備」。
+組態伺服器設定完成時，請回到入口網站，並選取您剛才建立作為**組態伺服器**的伺服器，然後按一下 [確定]，以前往步驟 3「目標準備」。
 
 ### <a name="3-target-prepare"></a>3 目標準備 
 
@@ -231,8 +231,8 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
     - **最近的應用程式一致**：此選項會將所有 VM 容錯移轉到最新的應用程式一致復原點。 隨即顯示時間戳記。
     - **自訂**：選取任何復原點。
 3. 在 [測試容錯移轉] 中，選取 Azure VM 在容錯移轉之後要連線的目標 Azure 網路。 這應該是您在[準備 Azure 資源](#prepare-azure-resources)一節所建立的網路。
-4. 按一下 [確定]  即可開始容錯移轉。 您可以按一下 VM 開啟其屬性以追蹤進度。 ove on to step 3 Targeove on to step 3 Targe或者，您可以在保存庫頁面上，按一下 **[監視與報告]**  >  **[作業]**  >
-    **[Site Recovery 作業]** 中的 **[測試容錯移轉]** 作業。
+4. 按一下 [確定]  即可開始容錯移轉。 您可以按一下 VM 開啟其屬性以追蹤進度。 或者，您可以在保存庫頁面上，按一下 [監視與報告] > [作業] >
+   [Site Recovery 作業] 中的 [測試容錯移轉] 作業。
 5. 容錯移轉完成之後，複本 Azure VM 會出現在 Azure 入口網站> [虛擬機器] 中。 確認 VM 為適當的大小、其已連線到正確的網路，而且正在執行中。
 6. 您現在應該能夠連線到 Azure 中複寫的 VM。
 7. 若要刪除測試容錯移轉期間建立的 Azure VM，請按一下復原計劃上的 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存關於測試容錯移轉的任何觀察。

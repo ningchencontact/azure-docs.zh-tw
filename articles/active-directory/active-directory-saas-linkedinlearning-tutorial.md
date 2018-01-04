@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 LinkedIn Learning �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6ad28cb3adaa63ddc3d3769a650d26ca6a7e2695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 07d19a3fb457093d05afc13e1953c120ece3a280
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>教學課程：Azure Active Directory 與 LinkedIn Learning 整合
 
@@ -47,13 +47,13 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 LinkedIn Learning
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-linkedin-learning-from-the-gallery"></a>從資源庫新增 LinkedIn Learning
-如要設定將 LinkedIn Learning 整合到 Azure AD 中，您需要從資源庫中將 LinkedIn Learning 新增到受管理的 SaaS 應用程式清單。
+如要設定將 LinkedIn Learning 整合到 Azure AD 中，您需要從資源庫中將 LinkedIn Learning 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 LinkedIn Learning，請執行下列步驟：**
 
@@ -63,11 +63,11 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **LinkedIn Learning**。 從結果面板中，按一下 [LinkedIn Learning] 以新增應用程式。
 
@@ -118,7 +118,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [實體 ID] 
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [判斷提示取用者存取 (ACS) URL]
+    b. 在 [回覆 URL] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [判斷提示取用者存取 (ACS) URL]
 
 7. 如果您想要在 [SP 起始] 下設定 SSO，請按一下 [設定] 區段中的 [顯示進階 URL 設定] 選項，然後以下列模式設定登入 URL：
 
@@ -147,7 +147,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_05.png)
     
-    b.這是另一個 C# 主控台應用程式。 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
     
     c. 在 [值] 清單中，選取該列所顯示的值。
     
@@ -159,7 +159,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
 
-    b.這是另一個 C# 主控台應用程式。 刪除**命名空間**中的 URL 值。
+    b. 刪除**命名空間**中的 URL 值。
     
     c. 按一下 [確定] 以儲存設定。
 
@@ -167,7 +167,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
-12. 按一下 [儲存] 。
+12. 按一下 [檔案] 。
 
     ![設定單一登入](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
@@ -204,11 +204,11 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。 
+    d. 按一下頁面底部的 [新增] 。 
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>建立 LinkedIn Learning 測試使用者
 

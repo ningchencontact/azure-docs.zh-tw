@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -43,13 +43,13 @@ ms.lasthandoff: 11/29/2017
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#trigger---c-example)
-* [C# 指令碼](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例示範在 `samples-workitems` 容器中新增或更新 blob 時，寫入記錄的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)新增或更新中的 blob 時寫入記錄檔`samples-workitems`容器。
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-如需有關 `BlobTrigger` 屬性的詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes-for-precompiled-c)。
+如需有關 `BlobTrigger` 屬性的詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 *function.json* 檔案和 [C# 指令碼](functions-reference-csharp.md)中的 Blob 觸發程序繫結。 在 `samples-workitems` 容器中新增或更新 Blob 時，函數會寫入記錄。
+下列範例示範 blob 觸發程序中的繫結*function.json*檔案和[C# 指令碼 (.csx)](functions-reference-csharp.md)使用繫結的程式碼。 在 `samples-workitems` 容器中新增或更新 Blob 時，函數會寫入記錄。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性以設定 Blob 觸發程序：
+在[C# 類別庫](functions-dotnet-class-library.md)，若要設定 blob 的觸發程序使用下列屬性：
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -168,7 +168,7 @@ module.exports = function(context) {
   }
   ```
 
-  如需完整範例，請參閱[觸發程序 - 先行編譯 C# 範例](#trigger---c-example)。
+  如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -316,13 +316,13 @@ Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsS
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#input--output---c-example)
-* [C# 指令碼](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [C# 指令碼 (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>輸入和輸出 - C# 範例
 
-下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的[先行編譯 C#](functions-dotnet-class-library.md) 函式。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
+下列範例是[C# 函式](functions-dotnet-class-library.md)使用 blob 的觸發程序和兩個輸出 blob 繫結。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>輸入和輸出 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 function.json 檔案，以及 [C# 指令碼](functions-reference-csharp.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+下列範例示範 blob 輸入和輸出中的繫結*function.json*檔案和[C# 指令碼 (.csx)](functions-reference-csharp.md)使用繫結的程式碼。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>輸出和輸出 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，定義在 NuGet 套件[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
 
 屬性的建構函式會採用 Blob 路徑和指示讀取或寫入的 `FileAccess` 參數，如下列範例所示：
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-如需完整範例，請參閱[輸入和輸出 - 先行編譯 C# 範例](#input--output---c-example)。
+如需完整範例，請參閱[輸入和輸出-C# 範例](#input--output---c-example)。
 
-您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes-for-precompiled-c)。
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
 ## <a name="input--output---configuration"></a>輸入和輸出 - 設定
 
@@ -486,7 +486,7 @@ public static void Run(
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blob`。 |
-|**direction** | n/a | 必須針對輸入繫結設為 `in`，或針對輸出繫結設為 out。 例外狀況在[使用方式](#input--output---usage)一節中會加以說明。 |
+|**direction** | n/a | 必須設定為`in`輸入的繫結或`out`輸出繫結。 例外狀況在[使用方式](#input--output---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
 |**路徑** |**BlobPath** | blob 的路徑。 | 
 |**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
@@ -496,7 +496,7 @@ public static void Run(
 
 ## <a name="input--output---usage"></a>輸入和輸出 - 使用方式
 
-在先行編譯 C# 和 C# 指令碼中，使用方法參數 (例如 `Stream paramName`) 存取 Blob。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+在 C# 類別庫和 C# 指令碼，請使用像是方法參數中存取 blob `Stream paramName`。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
 
 * `out string`
 * `TextWriter` 

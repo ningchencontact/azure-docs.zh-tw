@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
@@ -39,7 +39,7 @@ Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程�
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| [Windows 代理程式](log-analytics-windows-agents.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
@@ -62,7 +62,7 @@ Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
   - 平均回應時間
   - 已接收/傳送的位元組
   - CPU 時間
-  - 要求
+  - Requests
   - 記憶體工作集
   - Httpxxx
 - App Service 方案計量
@@ -92,7 +92,7 @@ Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| 資料欄 | 說明 |
+| 欄 | 說明 |
 | --- | --- |
 | Azure Web Apps |   |
 | Web Apps 要求趨勢 | 針對您已選取的日期範圍顯示 Web Apps 要求趨勢的折線圖，並顯示前十名 Web 要求清單。 按一下折線圖可執行記錄搜尋，以搜尋 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>按一下 Web 要求項目可執行記錄搜尋，以搜尋所要求的 Web 要求計量趨勢。 |

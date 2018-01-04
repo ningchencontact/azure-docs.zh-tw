@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>使用 Ansible 在 Azure 中建立完整的 Linux 虛擬機器環境
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器 (VM)，就像是任何其他資源一樣。 本文說明如何使用 Ansible 建立完整的 Linux 環境與支援的資源。 您也可以了解如何[使用 Ansible 建立基本 VM](ansible-create-vm.md)。
@@ -105,7 +105,7 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
 
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-最後一個步驟是建立 VM，然後使用建立的所有資源。 Ansible 腳本中的以下區段會建立名為 *myVM* 的 VM，並附加名為 *myNIC* 的虛擬 NIC。 在 *key_data* 配對中輸入您自己的公開金鑰資料，如下所示：
+最後一個步驟是建立 VM，然後使用建立的所有資源。 Ansible 腳本中的以下區段會建立名為 *myVM* 的 VM，並附加名為 *myNIC* 的虛擬 NIC。 輸入您自己完整公開金鑰資料中的*key_data*配對，如下所示：
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
 ```
 
 ## <a name="complete-ansible-playbook"></a>完整 Ansible 腳本
-若要這些區段全部整合在一起，請建立名為 *azure_create_vm.yml* 的 Ansible 腳本，然後貼上下列內容：
+若要將所有這些章節結合在一起，建立名為 Ansible 腳本*azure_create_complete_vm.yml*並貼上下列內容。 輸入您自己完整公開金鑰資料中的*key_data*組：
 
 ```yaml
 - name: Create Azure VM

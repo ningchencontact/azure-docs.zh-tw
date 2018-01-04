@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 Azure Functions 可讓您撰寫程式碼，以透過「觸發程序」和「繫結」回應 Azure 和其他服務中的事件。 此文章是適用於所有支援之程式設計語言的觸發程序和繫結的概念性概觀。 這裡描述所有繫結的通用功能。
@@ -237,7 +237,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 * QueueTrigger - 如果是有效字串，便觸發訊息內容
 * DequeueCount
 * ExpirationTime
-* 識別碼
+* id
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
@@ -409,6 +409,10 @@ module.exports = function (context, info) {
 ## <a name="configuring-binding-data-at-runtime"></a>在執行階段設定繫結資料
 
 在 C# 和其他 .NET 語言中，您可以使用相對於 function.json 中宣告式繫結的命令式繫結模式。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 若要深入了解，請參閱 C# 開發人員參考中的[在執行階段透過命令式繫結進行繫結](functions-reference-csharp.md#imperative-bindings)。
+
+## <a name="functionjson-file-schema"></a>function.json 檔案結構描述
+
+*Function.json*檔案結構描述位於[http://json.schemastore.org/function](http://json.schemastore.org/function)。
 
 ## <a name="next-steps"></a>後續步驟
 如需特定繫結的詳細資訊，請參閱下列文章：

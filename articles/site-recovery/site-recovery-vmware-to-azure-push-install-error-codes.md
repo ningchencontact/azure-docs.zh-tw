@@ -3,8 +3,8 @@ title: "進行從 VMware 到 Azure 的 Azure Site Recovery 疑難排解 | Micros
 description: "針對複寫 Azure 虛擬機器時的錯誤進行疑難排解"
 services: site-recovery
 documentationcenter: 
-author: asgang
-manager: srinathv
+author: anoopkv
+manager: gauravd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/28/2017
-ms.author: asgang
-ms.openlocfilehash: b7b03442ba815c86e5defa1018b66f56c0b379df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/12/2017
+ms.author: anoopkv
+ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 

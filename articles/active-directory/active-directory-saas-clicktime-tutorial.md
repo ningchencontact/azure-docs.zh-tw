@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 ClickTime 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e0123a40d52dfd7a2e29c29cb2239e979089ca9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f19e1968c736cb21a2a80b9807fa86461e05ee42
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>教學課程：Azure Active Directory 與 ClickTime 整合
 
@@ -48,13 +48,13 @@ ClickTime 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 ClickTime
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-clicktime-from-the-gallery"></a>從資源庫新增 ClickTime
-若要設定 ClickTime 與 Azure AD 整合，您需要從資源庫將 ClickTime 新增至受管理的 SaaS 應用程式清單中。
+若要設定 ClickTime 與 Azure AD 整合，您需要從資源庫將 ClickTime 新增至受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 ClickTime，請執行下列步驟：**
 
@@ -131,7 +131,7 @@ ClickTime 與 Azure AD 整合提供下列優點：
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 ClickTime 公司網站。
 
-8. 在頂端工具列中，按一下 喜好設定，然後按一下安全性設定。
+8. 在頂端工具列中，按一下 [喜好設定]，然後按一下 [安全性設定]。
 
 9. 在 [單一登入喜好設定]  組態區段中，執行下列步驟：
    
@@ -143,7 +143,7 @@ ClickTime 與 Azure AD 整合提供下列優點：
    
     c.  在 [記事本] 中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [X.509 憑證] 文字方塊中。
    
-    d.  按一下 [儲存] 。
+    d.  按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -159,7 +159,7 @@ ClickTime 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-clicktime-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-clicktime-tutorial/create_aaduser_02.png) 
 
@@ -173,11 +173,11 @@ ClickTime 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-clicktime-test-user"></a>建立 ClickTime 測試使用者
 
@@ -189,15 +189,15 @@ ClickTime 需以手動方式佈建。
 
 **若要佈建使用者帳戶，請執行下列步驟：**
 1. 登入您的 **ClickTime** 租用戶。
-2. 在頂端工具列中，按一下 公司，然後按一下人員。
+2. 在頂端工具列中，按一下 [公司]，然後按一下 [人員]。
    
-    ![人員](./media/active-directory-saas-clicktime-tutorial/tic777282.png "人員")
+    ![People](./media/active-directory-saas-clicktime-tutorial/tic777282.png "People")
 3. 按一下 [新增人員] 。
    
     ![新增人員](./media/active-directory-saas-clicktime-tutorial/tic777283.png "新增人員")
 4. 在 [新人員] 區段中，執行下列步驟：
    
-    ![人員](./media/active-directory-saas-clicktime-tutorial/tic777284.png "人員")
+    ![People](./media/active-directory-saas-clicktime-tutorial/tic777284.png "People")
    
     a.  在 [全名] 文字方塊中，輸入使用者 (例如 **Britta Simon**) 的全名。 
   
@@ -206,7 +206,7 @@ ClickTime 需以手動方式佈建。
     > [!NOTE]
     > 您可以視需要設定新人員物件的其他屬性。
    
-    c.  按一下 [儲存] 。
+    c.  按一下 [檔案] 。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

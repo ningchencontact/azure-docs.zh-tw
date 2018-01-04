@@ -3,7 +3,7 @@ title: "使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 記錄 | Microsoft Docs
 description: "將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。 對記錄集和記錄執行作業的所有 CLI 2.0 命令。"
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 記錄和記錄集
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [HttpTrigger Nodejs 函數](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 本文適用於 Windows、Mac 和 Linux，將會說明如何使用跨平台 Azure 命令列介面 (CLI) 2.0 管理 DNS 區域的 DNS 記錄。 您也可以使用 [Azure PowerShell](dns-operations-recordsets.md) 或 [Azure 入口網站](dns-operations-recordsets-portal.md)來管理 DNS 記錄。
-
-## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
-
-您可以使用下列其中一個 CLI 版本來完成工作︰
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - 適用於傳統和資源管理部署模型的 CLI。
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) - 適用於資源管理部署模型的新一代 CLI。
 
 此文章中的範例假設您已[安裝 Azure CLI 2.0、登入，並建立 DNS 區域](dns-operations-dnszones-cli.md)。
 

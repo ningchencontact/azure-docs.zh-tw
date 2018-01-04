@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAP Cloud Platform I
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 1c1320d1-7ba4-4b5f-926f-4996b44d9b5e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 591fadb7a218802ec5685d3bd5886ecded1f9920
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合
 
@@ -74,7 +74,7 @@ SAP Cloud Platform Identity Authentication 目前作為 SAP 應用程式的領�
 >
 
 ## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>從資源庫新增 SAP Cloud Platform Identity Authentication
-若要設定將 SAP Cloud Platform Identity Authentication 整合到 Azure AD 中，您需要將 SAP Cloud Platform Identity Authentication 從資源庫新增到受管理的 SaaS 應用程式清單中。
+若要設定將 SAP Cloud Platform Identity Authentication 整合到 Azure AD 中，您需要將 SAP Cloud Platform Identity Authentication 從資源庫新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 SAP Cloud Platform Identity Authentication，請執行下列步驟：**
 
@@ -221,7 +221,7 @@ SAP Cloud Platform Identity Authentication 目前作為 SAP 應用程式的領�
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
  
 ### <a name="create-an-sap-cloud-platform-identity-authentication-test-user"></a>建立 SAP Cloud Platform Identity Authentication 測試使用者
 

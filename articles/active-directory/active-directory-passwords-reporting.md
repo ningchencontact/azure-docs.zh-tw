@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8599b843bb1d5692c15f9344d0c46940b7cd5a81
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: a6edc777b7b6ec3cfeacc8c548bb3c6ad306303c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -64,6 +64,12 @@ ms.lasthandoff: 11/21/2017
 
 Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告中包含的所有資訊。 您可以使用此 API 下載個別的密碼重設和密碼重設註冊事件，並將它們與您選擇的報告技術整合。
 
+> [!IMPORTANT]
+> 目前，Azure AD 報告和事件 API 會擷取 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 和 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 類型最多 *75,000 個個別事件*。 API 跨越過去 30 天。
+> 
+> 如果您需要擷取或儲存比這個期間更早的資料，建議將資料保存在外部資料庫，並利用 API 來查詢產生的差異。 我們建議您當您開始在組織中使用 SSPR 時即開始擷取這項資料。 將它保存在外部，之後從該點繼續追蹤差異。
+>
+
 ### <a name="how-to-get-started-with-the-reporting-api"></a>如何開始使用報告 API
 
 若要存取此資料，您必須撰寫小型的應用程式或指令碼，以從我們的伺服器擷取資料。 如需詳細資訊，請參閱[開始使用 Azure AD 報告 API](active-directory-reporting-api-getting-started.md)。
@@ -72,12 +78,6 @@ Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)：列出密碼重設事件可用的資料行。
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent)：列出密碼重設註冊事件可用的資料行。
-
-### <a name="reporting-api-data-retrieval-limitations"></a>報告 API 資料擷取限制
-
-目前，Azure AD 報告和事件 API 會擷取 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 和 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 類型最多 *75,000 個個別事件*。 API 範圍為*過去 30 天*。
-
-如果您需要擷取或儲存比這個期間更早的資料，建議將資料保存在外部資料庫，並利用 API 來查詢產生的差異。 我們建議您當您開始在組織中使用 SSPR 時即開始擷取這項資料。 將它保存在外部，之後從該點繼續追蹤差異。
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure 入口網站中報告資料行的說明
 
@@ -92,7 +92,7 @@ Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告
 
 下表描述您可以在 Azure 入口網站中為每個資料行設定的不同值：
 
-| 資料欄 | 允許的值及其意義 |
+| 欄 | 允許的值及其意義 |
 | --- | --- |
 | 已註冊資料 |**備用電子郵件**：使用者用來驗證的備用電子郵件或驗證電子郵件。<p><p>**辦公室電話**：使用者用來驗證的辦公室電話。<p>**行動電話**：使用者用來驗證的行動電話或驗證電話。<p>**安全性問題**：使用者使用安全性問題來驗證。<p>**前述方法的任何組合，例如替代電子郵件 + 行動電話**：當指定兩個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。 |
 

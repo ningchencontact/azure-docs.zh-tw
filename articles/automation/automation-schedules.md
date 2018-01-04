@@ -3,7 +3,7 @@ title: "Azure 自動化中的排程 | Microsoft Docs"
 description: "自動化排程是用來排程讓 Azure 自動化中的 Runbook 自動啟動。 描述如何建立和管理排程，以便以特定時間或循環排程來自動啟動 Runbook。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自動化中排程 Runbook
 若要排程在指定時間啟動 Azure 自動化中的 Runbook，您會將它連結到一個或多個排程。 在 Azure 傳統入口網站和 Azure 入口網站中，Runbook 的排程可以設定為執行一次，或以每小時或每日重複發生的排程來執行，您也可以將 Runbook 排程為每週、每月、一週或一個月當中的特定幾天，或每月的特定一天來執行。  Runbook 可以連結至多個排程，而排程可以有多個與其連結的 Runbook。
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Azure 入口網站中，從您的自動化帳戶選取左側 [共用資源] 區段底下的 [排程]。 
 2. 在分頁的頂端按一下 [加入排程]。
 4. 在 [新增排程] 窗格中，為新排程輸入 [名稱] 並選擇性地輸入 [描述]。
-5. 選取 [一次] 或 [週期]，以選取排程將會執行一次或以週期性的排程執行。  如果選取 一次，請指定 開始時間，然後按一下建立。  如果選取 [週期]，則請指定 [開始時間] 和所需的 Runbook 重複頻率：依 [小時]、[天]、[週] 還是 [月] 執行。  如果您在下拉式清單中選取 [週] 或 [月]，窗格會出現 [週期選項]，一經選取，就會顯示 [週期選項] 窗格，如果您選取了 [週]，將可以進一步選取星期幾。  如果您已選取 月，則可以在行事曆上選擇要依 工作日 或當月的特定幾天，最後則是您是否要在當月最後一天執行，然後按一下確定。   
+5. 選取 [一次] 或 [週期]，以選取排程將會執行一次或以週期性的排程執行。  如果選取 [一次]，請指定 [開始時間]，然後按一下 [建立]。  如果選取 [週期]，則請指定 [開始時間] 和所需的 Runbook 重複頻率：依 [小時]、[天]、[週] 還是 [月] 執行。  如果您在下拉式清單中選取 [週] 或 [月]，窗格會出現 [週期選項]，一經選取，就會顯示 [週期選項] 窗格，如果您選取了 [週]，將可以進一步選取星期幾。  如果您已選取 [月]，則可以在行事曆上選擇要依 [工作日] 或當月的特定幾天，最後則是您是否要在當月最後一天執行，然後按一下 [確定]。   
 
 ### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>在 Azure 傳統入口網站中建立新排程
 1. 在 Azure 傳統入口網站中，選取 [自動化]，然後選取自動化帳戶的名稱。

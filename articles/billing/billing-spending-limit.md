@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
 
@@ -48,8 +48,10 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
 1. 選取一個訂用帳戶。
-1. 如果訂用帳戶因為達到消費限制而遭到停用，請按一下此通知：[訂用帳戶已達到消費限制，為防止產生費用已被停用。] 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
+. 如果訂用帳戶因為達到消費限制而遭到停用，請按一下此通知：[訂用帳戶已達到消費限制，為防止產生費用已被停用。] 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
 1. 選取適合您的選項。
+
+![選取以移除消費限制選項](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |選項|效果|
 |-------|-----|
@@ -80,8 +82,10 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>消費限制會阻擋 Azure 中產生的所有費用嗎？
 
-即使設定消費限制，某些 [Microsoft 服務和協力廠商品牌服務](billing-understand-your-azure-marketplace-charges.md)仍可能會產生費用，需透過付款方式支付。 例如 Visual Studio 授權、Azure Active Directory Premium、支援方案，以及 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 中銷售的大部分協力廠商品牌服務。
+[某些外部的服務在 Azure Marketplace 中發佈](billing-understand-your-azure-marketplace-charges.md)不能與您的訂用帳戶信用額度，並可以產生個別的費用，即使您的消費限制設定。 範例包括 Visual Studio 授權、 Azure Active Directory premium、 支援計劃，以及大部分第三方品牌服務。 當您佈建為新的外部服務時，會顯示警告，讓您知道服務會分開計費：
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
+![Marketplace 購買警告](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/08/2017
 
 ![角色](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-資訊安全中心可讓這些人符合不同的責任。 例如：
+資訊安全中心可讓這些人符合不同的責任。 例如︰
 
 **Jeff (工作負載擁有者)**
 
@@ -178,7 +178,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Operations 
 
 資訊安全中心概觀會提供跨您已連線之所有 Azure 資源和任何非 Azure 資源的整合檢視。 下列範例顯示具有許多問題必須解決的環境：
 
-![儀表板](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![儀表板](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > 資訊安全中心不會干擾一般作業程序，它會被動地監視您的部署，並根據您啟用的安全性原則提供建議。

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -20,9 +20,18 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 
 您可以使用篩選器將特定事件路由傳送到不同的端點、多點傳送至多個端點，並確定您的事件會可靠地進行傳遞。 Event Grid 也針對自訂和第三方的事件提供了內建支援。
 
-在預覽版本中，Event Grid 支援 **westus2** 和 **westcentralus** 位置。 未來將會新增其他區域。
+目前，事件方格都支援下列區域：
 
-本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。
+* 美國中部
+*   美國東部
+*   美國東部 2
+*   美國中西部
+*   美國西部
+*   美國西部 2
+
+未來將會新增其他區域。
+
+本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 下圖顯示事件方格將如何連接 「 發行者 」 和處理常式，但它不提供支援選項的完整清單。
 
 ![Event Grid 運作模型](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 
 目前有下列 Azure 服務具有內建的 Event Grid 發行者支援：
 
-* 資源群組 (管理作業)
 * Azure 訂用帳戶 (管理作業)
-* 事件中樞
-* 儲存體 Blob
 * 自訂主題
+* 事件中樞
+* 資源群組 (管理作業)
+* 儲存體 Blob
 
 今年將會新增其他 Azure 服務。
 
@@ -42,11 +51,12 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 
 目前有下列 Azure 服務具有內建的 Event Grid 處理常式支援： 
 
-* Azure Functions
-* Logic Apps
 * Azure 自動化
-* Webhook
+* Azure Functions
+* 事件中樞
+* Logic Apps
 * Microsoft Flow
+* Webhook
 
 今年將會新增其他 Azure 服務。
 

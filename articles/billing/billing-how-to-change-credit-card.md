@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>新增、更新或移除用於支付 Azure 訂閱費的信用卡或轉帳卡
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 停用或取消訂閱後，需要 90 天系統才會將其永久刪除。 我們在保留期間會保留您的付款方式，以防您想重新啟用訂閱。 保留期過後，系統便會完全刪除訂閱。
 
-如果您在 90 天的保留期結束後需要移除信用卡或轉帳卡，請[連絡 Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+如果您需要的 90 天的保留期限結束時之前，移除您的信用卡或付款卡[重新啟動您的訂用帳戶](billing-subscription-become-disable.md)。 如果您無法重新啟動，[連絡 Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>為什麼我一直收到「您的登入工作階段已過期。 請按一下這裡重新登入」錯誤訊息？
 
@@ -96,6 +96,10 @@ ms.lasthandoff: 10/11/2017
 ### <a name="how-do-i-make-a-one-time-payment"></a>如何進行單次付款？
 
 很抱歉，Azure 目前未針對信用卡或轉帳卡提供單次付款支援。 
+
+### <a name="how-do-i-change-the-tax-id"></a>如何變更的稅務識別碼？
+
+若要加入或更新稅務識別碼，請造訪[**設定檔**Azure 帳戶中心](https://account.azure.com/Profile)，然後選取**稅記錄**。 此課稅稅豁免計算所使用，且會出現您的發票。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
@@ -37,8 +37,7 @@ Mobile Apps 輸入繫結會從行動資料表端點載入記錄，並將它傳�
 
 請參閱特定語言的範例：
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [C# 指令碼](#input---c-script-example)
+* [C# 指令碼 (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，請使用 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) 中。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps)。
 
 如需您可以設定之屬性內容的相關資訊，請參閱[下列組態區段](#input---configuration)。
 
@@ -168,13 +167,13 @@ module.exports = function (context, myQueueItem) {
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#output---c-example)
-* [C# 指令碼](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 指令碼 (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例示範的[先行編譯 C# 函式](functions-dotnet-class-library.md)是由佇列訊息觸發，並在行動應用程式資料表中建立記錄。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)所觸發的佇列訊息和行動裝置應用程式在資料表中建立一筆記錄。
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，請使用 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) 中。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps)。
 
 如需可設定的屬性內容相關資訊，請參閱[輸出 - 組態](#output---configuration)。 以下是方法簽章中的 `MobileTable` 屬性範例：
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -312,7 +311,7 @@ public static object Run(
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 指令碼函式中，使用類型 `out object` 的具名輸出參數來存取輸出記錄。 在先行編譯 C# 函式中，`MobileTable` 屬性可與下列任何類型搭配使用：
+在 C# 指令碼函式中，使用類型 `out object` 的具名輸出參數來存取輸出記錄。 在 C# 類別庫中，`MobileTable`屬性可以使用任何下列類型：
 
 * `ICollector<T>` 或 `IAsyncCollector<T>`，其中 `T` 為 `JObject` 或任何包含 `public string Id` 屬性的類型。
 * `out JObject`

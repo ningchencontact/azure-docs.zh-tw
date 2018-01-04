@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows 通用 app Engagement SDK 整合
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-應用程式的連接字串會顯示在 Azure 傳統入口網站中。
+您的應用程式的連接字串會顯示在 Azure 入口網站。
 
 ### <a name="engagement-initialization"></a>Engagement 初始化
 當您建立新專案時會產生一份 `App.xaml.cs` 檔案。 這個類別繼承自 `Application` ，且包含的許多重要的方法。 它將會用來初始化 Engagement SDK。

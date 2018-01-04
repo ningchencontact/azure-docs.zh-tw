@@ -3,7 +3,7 @@ title: "使用 Azure 自動化將伺服器設定為預期狀態並管理漂移 |
 description: "教學課程 - 使用 Azure 自動化 DSC 管理伺服器設定"
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 63a83e35ce29541de578cb264464448fb6ee3e1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>將伺服器設定為預期狀態並管理漂移
 
@@ -32,8 +32,8 @@ Azure 自動化預期狀態設定 (DSC) 可讓您指定伺服器的設定，並�
 > * 上架 VM 讓 Azure 自動化 DSC 管理
 > * 將設定上傳至 Azure 自動化
 > * 將設定編譯成節點設定
-> * 將節點設定指派給受管理的節點
-> * 檢查受管理節點的合規性狀態
+> * 將節點設定指派給受控節點
+> * 檢查受控節點的合規性狀態
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -109,7 +109,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName "MyResourceGroup" -Automati
 
 ### <a name="specify-configuration-mode-settings"></a>指定設定模式設定
 
-當您將 VM 註冊為受管理的節點時，您也可以指定設定的屬性。
+當您將 VM 註冊為受控節點時，您也可以指定設定的屬性。
 例如，您可以指定機器的狀態僅套用一次 (DSC 不會在初始檢查之後嘗試套用設定)，方法是指定 `ApplyOnly` 作為 **ConfigurationMode** 屬性的值：
 
 ```powershell
@@ -123,11 +123,11 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationModeFrequencyMins 60
 ```
 
-如需有關設定受管理節點之設定屬性的詳細資訊，請參閱 [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-4.3.1&viewFallbackFrom=azurermps-4.2.0)。
+如需有關設定受控節點之設定屬性的詳細資訊，請參閱 [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-4.3.1&viewFallbackFrom=azurermps-4.2.0)。
 
 如需有關 DSC 設定的詳細資訊，請參閱[設定本機設定管理員](https://docs.microsoft.com/powershell/dsc/metaconfig)。
 
-## <a name="assign-a-node-configuration-to-a-managed-node"></a>將節點設定指派給受管理的節點
+## <a name="assign-a-node-configuration-to-a-managed-node"></a>將節點設定指派給受控節點
 
 現在我們可以將已編譯的節點設定指派給我們想要設定的 VM。
 
@@ -143,7 +143,7 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 根據預設，DSC 節點會每隔 30 分鐘檢查節點設定的合規性。
 如需如何變更合規性檢查間隔的詳細資訊，請參閱[設定本機設定管理員](https://docs.microsoft.com/PowerShell/DSC/metaConfig)
 
-## <a name="check-the-compliance-status-of-a-managed-node"></a>檢查受管理節點的合規性狀態
+## <a name="check-the-compliance-status-of-a-managed-node"></a>檢查受控節點的合規性狀態
 
 您可以藉由呼叫 `Get-AzureRmAutomationDscNodeReport` Cmdlet，取得 DSC 合規性狀態的報告：
 
@@ -152,10 +152,10 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports Get-Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
 
 # Display the most recent report
-$report[0]
+$reports[0]
 ```
 
 ## <a name="next-steps"></a>後續步驟

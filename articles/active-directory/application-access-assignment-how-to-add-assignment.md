@@ -4,7 +4,7 @@ description: "將使用者指派至應用程式以授與存取權"
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 61536612e0dd5102b8f5e911c350826846f5ed77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4198b5fd971291e78a45af764eaaa1b9dc155893
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>如何將使用者和群組指派至應用程式
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>以系統管理員身分將群組直接指派至應用程式
 
-若要直接將一或多個群組指派至應用程式，請依照下列步驟執行︰
+若要將一或多個群組直接指派給應用程式，請依照下列步驟執行：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  從該清單選取您要啟用自助存取的應用程式。
 

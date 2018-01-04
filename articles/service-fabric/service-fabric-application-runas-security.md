@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>設定應用程式的安全性原則
 藉由使用 Azure Service Fabric，您便可以保護在叢集中以不同使用者帳戶執行的應用程式。 在以該使用者帳戶部署時，Service Fabric 也會協助保護應用程式所使用的資源，例如檔案、目錄和憑證。 如此一來，即使在共用主控環境中，執行中的應用程式就不會彼此干擾。
 
 根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 Service Fabric 也能夠以本機使用者帳戶或本機系統帳戶 (在應用程式的資訊清單內指定) 執行應用程式。 支援的本機系統帳戶類型為 **LocalUser**、**NetworkService**、**LocalService** 和 **LocalSystem**。
 
- 當您使用獨立安裝程式在資料中心的 Windows Server 上執行 Service Fabric 時，您可以使用 Active Directory 網域帳戶，包括群組受管理服務帳戶。
+ 當您使用獨立安裝程式在資料中心的 Windows Server 上執行 Service Fabric 時，您可以使用 Active Directory 網域帳戶，包括群組受控服務帳戶。
 
 您可以定義和建立使用者群組，以便將一或多個使用者新增至每個群組一起管理。 當不同的服務進入點有多個使用者，而且他們需要具備可在群組層級取得的某些常見權限時，這會很有用。
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>設定服務安裝程式進入點的原則
-如[應用程式模型](service-fabric-application-model.md)所述，安裝程式進入點 **SetupEntryPoint** 是以與 Service Fabric 相同的認證執行的特殊權限進入點 (通常為 *NetworkService* 帳戶)，優先於其他任何進入點。 **EntryPoint** 指定的可執行檔通常是長時間執行的服務主機。 因此有個別安裝程式的進入點，就不需要使用較高權限來長時間執行服務主機可執行檔。 **EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。 產生的程序會受到監視，萬一終止或當機，則會同樣從 **SetupEntryPoint** 開始來重新啟動。
+中所述[應用程式和服務資訊清單](service-fabric-application-and-service-manifests.md)，安裝程式的進入點， **SetupEntryPoint**，是以 Service Fabric 與相同的認證執行特殊權限的進入點 (通常*NetworkService*帳戶) 之前的任何其他的進入點。 **EntryPoint** 指定的可執行檔通常是長時間執行的服務主機。 因此有個別安裝程式的進入點，就不需要使用較高權限來長時間執行服務主機可執行檔。 **EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。 產生的程序會受到監視，萬一終止或當機，則會同樣從 **SetupEntryPoint** 開始來重新啟動。
 
 以下簡單的服務資訊清單範例會顯示服務的 SetupEntryPoint 和主要的 EntryPoint。
 
@@ -291,17 +291,17 @@ Echo "Test console redirection which writes to the application log folder on the
 </Policies>
 <Certificates>
 ```
-### <a name="use-a-group-managed-service-account"></a>使用群組受管理服務帳戶。
-對於使用獨立安裝程式安裝於 Windows Server 上的 Service Fabric 執行個體，您可以群組受管理服務帳戶 (gMSA) 來執行服務。 注意︰這是您的網域內部部署的 Active Directory，與 Azure Active Directory (Azure AD) 無關。 使用 gMSA，就不需將密碼或加密的密碼儲存於 `Application Manifest`。
+### <a name="use-a-group-managed-service-account"></a>使用群組受控服務帳戶。
+對於使用獨立安裝程式安裝於 Windows Server 上的 Service Fabric 執行個體，您可以群組受控服務帳戶 (gMSA) 來執行服務。 注意︰這是您的網域內部部署的 Active Directory，與 Azure Active Directory (Azure AD) 無關。 使用 gMSA，就不需將密碼或加密的密碼儲存於 `Application Manifest`。
 
-下列範例示範如何建立名為 *svc-Test$* 的 gMSA 帳戶；如何將受管理的服務帳戶部署至叢集節點；以及如何設定使用者主體。
+下列範例示範如何建立名為 *svc-Test$* 的 gMSA 帳戶；如何將受控服務帳戶部署至叢集節點；以及如何設定使用者主體。
 
 ##### <a name="prerequisites"></a>必要條件。
 - 網域需要一個 KDS 根金鑰。
 - 網域必須位於 Windows Server 2012 或更新版本的功能層級上。
 
 ##### <a name="example"></a>範例
-1. 讓 Active Directory 網域系統管理員能夠使用 `New-ADServiceAccount` 指令程式來建立群組受管理服務帳戶，並確定 `PrincipalsAllowedToRetrieveManagedPassword` 包括所有 Service Fabric 叢集節點。 請注意，`AccountName`、`DnsHostName` 和 `ServicePrincipalName` 必須是唯一的。
+1. 讓 Active Directory 網域系統管理員能夠使用 `New-ADServiceAccount` 指令程式來建立群組受控服務帳戶，並確定 `PrincipalsAllowedToRetrieveManagedPassword` 包括所有 Service Fabric 叢集節點。 請注意，`AccountName`、`DnsHostName` 和 `ServicePrincipalName` 必須是唯一的。
 ```
 New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
 ```

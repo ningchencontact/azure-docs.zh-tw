@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構︰敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Web 應用程式** | <ul><li>[確定瀏覽器上不會快取敏感性內容](#cache-browser)</li><li>[加密包含敏感性資料的 Web 應用程式組態檔區段](#encrypt-data)</li><li>[明確停用敏感性表單和輸入內的自動完成 HTML 屬性](#autocomplete-input)</li><li>[確定使用者畫面上顯示的敏感性資料已遮罩](#data-mask)</li></ul> | 
 | **資料庫** | <ul><li>[實作動態資料遮罩來限制敏感性資料暴露非特殊權限使用者](#dynamic-users)</li><li>[確定密碼是以 salted 雜湊格式儲存](#salted-hash)</li><li>[確定資料庫資料行中的敏感性資料已加密](#db-encrypted)</li><li>[確定已啟用資料庫層級加密 (TDE)](#tde-enabled)</li><li>[確定資料庫備份已加密](#backup)</li></ul> | 
 | **Web API** | <ul><li>[確定與 Web API 相關的敏感性資料未儲存在瀏覽器的儲存體中](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[將儲存在 DocumentDB 中的敏感性資料加密](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[將儲存在 Azure Cosmos DB 中的敏感性資料加密](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM 信任邊界** | <ul><li>[使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](#disk-vm)</li></ul> | 
 | **Service Fabric 信任邊界** | <ul><li>[將 Service Fabric 應用程式中的密碼加密](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[執行安全性模型化並視需要使用業務單位/團隊](#modeling-teams)</li><li>[將共用重要實體功能的存取權最小化](#entities)</li><li>[訓練使用者以讓其了解與 Dynamics CRM 共用功能相關聯的風險以及正確的安全性作法](#good-practices)</li><li>[包含開發標準規則來禁止在例外狀況管理中顯示組態詳細資料](#exception-mgmt)</li></ul> | 
@@ -37,10 +37,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="binaries-info"></a>確定包含敏感性資訊的二進位檔已經過模糊處理
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="efs-user"></a>考慮使用加密檔案系統 (EFS) 來保護機密的使用者特定資料
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
 | **SDL 階段**               | 建置 |  
@@ -59,10 +59,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="filesystem"></a>確定應用程式儲存在檔案系統上的敏感性資料已加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="cache-browser"></a>確定瀏覽器上不會快取敏感性內容
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -123,7 +123,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>加密包含敏感性資料的 Web 應用程式組態檔區段
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -134,7 +134,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="autocomplete-input"></a>明確停用敏感性表單和輸入內的自動完成 HTML 屬性
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -153,7 +153,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="data-mask"></a>確定使用者畫面上顯示的敏感性資料已遮罩
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -164,7 +164,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="dynamic-users"></a>實作動態資料遮罩來限制敏感性資料暴露非特殊權限使用者
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -175,7 +175,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="salted-hash"></a>確定密碼是以 salted 雜湊格式儲存
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -186,7 +186,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>確定資料庫資料行中的敏感性資料已加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -197,7 +197,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="tde-enabled"></a>確定已啟用資料庫層級加密 (TDE)
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -208,7 +208,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>確定資料庫備份已加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -219,7 +219,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>確定與 Web API 相關的敏感性資料未儲存在瀏覽器的儲存體中
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
 | **SDL 階段**               | 建置 |  
@@ -243,7 +243,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>將儲存在 Cosmos DB 中的敏感性資料加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure Document DB | 
 | **SDL 階段**               | 建置 |  
@@ -254,10 +254,10 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure IaaS VM 信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
@@ -265,7 +265,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>將 Service Fabric 應用程式中的密碼加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
 | **SDL 階段**               | 建置 |  
@@ -276,7 +276,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="modeling-teams"></a>執行安全性模型化並視需要使用業務單位/團隊
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
 | **SDL 階段**               | 建置 |  
@@ -287,10 +287,10 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="entities"></a>將共用重要實體功能的存取權最小化
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -298,10 +298,10 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="good-practices"></a>訓練使用者以讓其了解與 Dynamics CRM 共用功能相關聯的風險以及正確的安全性作法
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -309,10 +309,10 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>包含開發標準規則來禁止在例外狀況管理中顯示組態詳細資料
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -320,7 +320,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>針對待用資料使用 Azure 儲存體服務加密 (SSE) (預覽)
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  
@@ -331,7 +331,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="client-storage"></a>使用用戶端加密在 Azure 儲存體中儲存敏感性資料
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  
@@ -342,7 +342,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="pii-phones"></a>將寫入電話本機儲存體的敏感性資料或 PII 資料加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 行動用戶端 | 
 | **SDL 階段**               | 建置 |  
@@ -392,7 +392,7 @@ Allow screen capture
 
 ## <a id="binaries-end"></a>先對進行模糊處理再散發給使用者
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 行動用戶端 | 
 | **SDL 階段**               | 建置 |  
@@ -403,7 +403,7 @@ Allow screen capture
 
 ## <a id="cert"></a>將 clientCredentialType 設定為憑證或 Windows
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -422,7 +422,7 @@ Allow screen capture
 
 ## <a id="security"></a>未啟用 WCF 安全性模式
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  

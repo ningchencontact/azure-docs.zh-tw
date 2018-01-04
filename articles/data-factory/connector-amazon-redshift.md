@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/06/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**AmazonRedshift** | 是 |
+| type | 類型屬性必須設定為：**AmazonRedshift** | 是 |
 | 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | 連接埠 |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
 | 資料庫 |Amazon Redshift 資料庫的名稱。 |是 |
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/06/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | Amazon Redshift 中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -127,10 +127,10 @@ ms.lasthandoff: 11/06/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
 | query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 (如果已指定資料集中的 "tableName") |
 | redshiftUnloadSettings | 使用 Amazon Redshift UNLOAD 時的屬性群組。 | 否 |
-| s3LinkedServiceName | 係指要作為暫時存放區的 Amazon S3 (藉由指定 "AmazonS3" 類型的 ADF 已連結服務名稱)。 | 如果使用 UNLOAD，則為必要 |
+| s3LinkedServiceName | 藉由指定"AmazonS3 」 類型的連結的服務名稱是指要-要使用做為暫時存放區 Amazon S3。 | 如果使用 UNLOAD，則為必要 |
 | bucketName | 表示儲存暫時資料的 S3 貯體。 如果為提供，Data Factory 服務就會自動產生它。  | 如果使用 UNLOAD，則為必要 |
 
 **範例：使用 UNLOAD 之複製活動中的 Amazon Redshift 來源**
@@ -207,22 +207,22 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Amazon Redshift 的資料類型對應
 
-從 Teradata 複製資料時，會使用下列從 Teradata 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
+複製資料時從 Amazon Redshift，下列的對應用於從 Amazon Redshift 資料型別 Azure Data Factory 過渡期的資料類型。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
 
 | Amazon Redshift 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |String |
-| CHAR |String |
-| 日期 |DateTime |
+| BOOLEAN |字串 |
+| CHAR |字串 |
+| 日期 |Datetime |
 | DECIMAL |十進位 |
-| DOUBLE PRECISION |Double |
+| DOUBLE PRECISION |兩倍 |
 | INTEGER |Int32 |
 | REAL |單一 |
 | SMALLINT |Int16 |
-| TEXT |String |
-| 時間戳記 |DateTime |
-| VARCHAR |String |
+| TEXT |字串 |
+| 時間戳記 |Datetime |
+| VARCHAR |字串 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

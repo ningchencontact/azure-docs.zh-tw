@@ -43,7 +43,7 @@
   items:
     - name: 部署
       items:
-        - name: 必要條件
+        - name: 先決條件
           href: azure-stack-deploy.md
         - name: 遙測
           href: azure-stack-telemetry.md
@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: 更換元件
               href: azure-stack-replace-component.md
+        - name: 備份 Azure Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: 從管理主控台啟用 Azure Stack 備份
+              href: azure-stack-backup-enable-backup-console.md
+            - name: 使用 PowerShell 啟用 Azure Stack 備份
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: 備份 Azure Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: 從重大資料遺失的情況下復原
+              href: azure-stack-backup-recover-data.md
+            - name: 備份最佳做法
+              href: azure-stack-backup-best-practices.md
+            - name: 備份參考
+              href: azure-stack-backup-reference.md
     - name: 安全性、合規性和身分識別
       items:
         - name: 安全性概觀

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -33,9 +33,7 @@ ms.lasthandoff: 11/15/2017
 ## <a name="introduction"></a>簡介
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 的全域分散式資料庫服務。 此服務的設計目的，是要讓客戶在任意數目的地理區域彈性地 (且獨立地) 調整輸送量和儲存空間。 Azure Cosmos DB 是現今市場中第一個提供涵蓋輸送量、延遲、可用性及一致性之全方位[服務等級協定](https://azure.microsoft.com/support/legal/sla/cosmos-db/)的全域分散式資料庫服務。 
 
-Azure Cosmos DB 專案是在 2011 年以「佛羅倫斯專案」(Project Florence) 為代號發起的，為的是解決 Microsoft 內部大量網際網路級別應用程式所面對的開發人員難題。 在觀察到這些問題並非只發生在 Microsoft 應用程式之後，在 2015 年，我們決定將 Azure Cosmos DB 以 [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/) 的形式正式推出供給外部開發人員使用。 此服務不僅在 Microsoft 內部普遍使用，也是 Azure 開發人員在外部所使用成長最快速的服務之一。 
-
-Azure Cosmos DB 是一種全域分散式、多模型資料庫，廣泛用於各種應用程式和使用案例。 對於任何需要低毫秒級回應時間及需要快速且全域調整的[無伺服器](http://azure.com/serverless)應用程式來說，它是一個理想的選擇。 它以原生方式和延伸方式支援多個資料模型 (索引鍵-值、文件、圖形及單欄式) 和許多 API (包括 [MongoDB API](mongodb-introduction.md)、[DocumentDB API (SQL)](documentdb-introduction.md)、[圖形 API (Gremlin)](graph-introduction.md) 及[資料表 API](table-introduction.md)) 來進行資料存取。 
+Azure Cosmos DB 是一種全域分散式、多模型資料庫，廣泛用於各種應用程式和使用案例。 對於任何需要低毫秒級回應時間及需要快速且全域調整的[無伺服器](http://azure.com/serverless)應用程式來說，它是一個理想的選擇。 它支援多個資料模型 (索引鍵-值、 文件、 圖形和單欄式) 和資料的許多應用程式開發介面存取包括[MongoDB API](mongodb-introduction.md)， [SQL API](documentdb-introduction.md)， [Graph API (Gremlin)](graph-introduction.md)，和[資料表 API](table-introduction.md)原生的和可延伸的方式。 
 
 以下是 Azure Cosmos DB 的一些特性，可讓 Cosmos DB 非常適合用於有全域發展企圖的高效能應用程式。
 
@@ -83,7 +81,7 @@ Azure Cosmos DB 已獲得 [The Walking Dead: No Man's Land](https://azure.micros
 * Azure Cosmos DB 支援毫秒讀取和寫入，可避免在進行遊戲時發生任何延遲。
 * Azure Cosmos DB 的自動索引編製可針對多個不同的屬性進行即時篩選，例如依玩家的內部玩家識別碼、GameCenter、Facebook、Google ID 找出玩家，或根據玩家的公會成員資格進行查詢。 不用建置複雜的索引或分區化基礎結構就可做到這些事。
 * 透過彈性的結構描述更加輕易地實作社交功能，包括遊戲中的交談訊息、玩家的公會成員資格、已完成的挑戰、得分排行榜和社交關係圖。
-* 由於 Azure Cosmos DB 是作為一個受管理的平台即服務 (PaaS)，因此只需最基本的設定和管理工作，就能快速重覆作業而能縮短上市時間。
+* 由於 Azure Cosmos DB 是作為一個受控平台即服務 (PaaS)，因此只需最基本的設定和管理工作，就能快速重覆作業而能縮短上市時間。
 
 ![Azure Cosmos DB 遊戲參考架構](./media/use-cases/gaming.png)
 
@@ -107,7 +105,7 @@ JSON (Cosmos DB 所支援的格式) 是一種呈現 UI 配置資料的有效格�
 ![Azure Cosmos DB Web 應用程式參考架構](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>後續步驟
-若要開始使用 Azure Cosmos DB，請依照我們的[快速入門](create-documentdb-dotnet.md)操作，這會逐步引導您建立帳戶及開始使用 Cosmos DB。 
+若要開始使用 Azure Cosmos DB，請依照我們的[快速入門](create-sql-api-dotnet.md)操作，這會逐步引導您建立帳戶及開始使用 Cosmos DB。 
 
 或者，如果您想要了解更多有關使用 Cosmos DB 的客戶資訊，可以參考下列客戶案例：
 

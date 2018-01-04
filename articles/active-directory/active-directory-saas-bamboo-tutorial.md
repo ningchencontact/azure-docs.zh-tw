@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAML SSO for Bamboo 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: f00160c7-f4cc-43bf-af18-f04168d3767c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 3195dee2df560993e7885d138168e4514272f7eb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: c677161defb04091566ae608c3edfb9f25af801b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Bamboo by resolution GmbH 整合
 
@@ -48,13 +48,13 @@ SAML SSO for Bamboo by resolution GmbH 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SAML SSO for Bamboo by resolution GmbH
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-saml-sso-for-bamboo-by-resolution-gmbh-from-the-gallery"></a>從資源庫新增 SAML SSO for Bamboo by resolution GmbH
-若要設定 SAML SSO for Bamboo by resolution GmbH 與 Azure AD 的整合，您必須從資源庫將 SAML SSO for Bamboo by resolution GmbH 新增至受管理的 SaaS 應用程式清單。
+若要設定 SAML SSO for Bamboo by resolution GmbH 與 Azure AD 的整合，您必須從資源庫將 SAML SSO for Bamboo by resolution GmbH 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 SAML SSO for Bamboo by resolution GmbH，請執行下列步驟：**
 
@@ -139,21 +139,21 @@ SAML SSO for Bamboo by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     ![Samlsingle](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_samlsingle.png)
 
-10. 在 [SAML SIngleSignOn Plugin Configuration] \(SAML 單一登入外掛程式設定\) 頁面上，按一下 [Add idp] \(新增 idp\)。 
+10. 在 [SAML 單一登入外掛程式設定] 頁面上，按一下 [新增 idp]。 
 
     ![新增 idp](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_addidp.png)
 
-11. 在 [Choose your SAML Identity Provider] \(選擇您的 SAML 識別提供者\) 頁面上，執行下列步驟：
+11. 在 [選擇您的 SAML 識別提供者] 頁面上，執行下列步驟：
 
     ![識別提供者](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_identityprovider.png)
 
-    a. 針對 [Idp Type] \(Idp 類型\) 選取 [AZURE AD]。
+    a. 針對 [Idp 類型] 選取 [AZURE AD]。
 
-    b. 在 [Name] \(名稱\) 文字方塊中，輸入名稱。
+    b. 在 [名稱] 文字方塊中，輸入名稱。
 
-    c. 在 [Description] \(描述\) 文字方塊中，輸入描述。
+    c. 在 [描述] 文字方塊中，輸入描述。
 
-    d. 按一下 [下一步] 。
+    d. 按 [下一步] 。
 
 12. 在 [Identity provider configuration] \(識別提供者設定\) 頁面上，按一下 [Next] \(下一步\) 按鈕。
 
@@ -163,9 +163,9 @@ SAML SSO for Bamboo by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     ![Idpmetadata](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
-14. 按一下 [下一步] 。
+14. 按 [下一步] 。
 
-15. 按一下 [Save settings] \(儲存設定\)。
+15. 按一下 [儲存設定]。
 
     ![儲存](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_save.png)
     
@@ -202,7 +202,7 @@ SAML SSO for Bamboo by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-saml-sso-for-bamboo-by-resolution-gmbh-test-user"></a>建立 SAML SSO for Bamboo by resolution GmbH 測試使用者
 

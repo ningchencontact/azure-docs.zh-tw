@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -92,7 +92,7 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 ### <a name="data-types"></a>資料類型
 您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob、**分頁** Blob 或**檔案**。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。 服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 目前不支援匯出 Azure 檔案服務。
 
-### <a name="job"></a>作業
+### <a name="job"></a>工作 (Job)
 若要開始進行儲存體的匯入或匯出程序，請先建立工作。 此工作可以是「匯入工作」或「匯出工作」：
 
 * 當您要將內部部署的資料移轉至 Azure 儲存體帳戶時，請建立匯入作業。
@@ -177,6 +177,8 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 * 中國東部
 * 中國北部
 * 英國南部
+* 德國中部
+* 德國東北部
 
 ### <a name="shipping"></a>運送中
 **運送磁碟機到資料中心︰**
@@ -485,15 +487,15 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 
 **服務會在退回磁碟機前進行格式化嗎？**
 
-否。 所有磁碟機都使用 BitLocker 加密。
+編號 所有磁碟機都使用 BitLocker 加密。
 
 **我可以為了匯入/匯出工作向 Microsoft 購買磁碟機嗎？**
 
-否。 您必須針對匯入和匯出工作運送自己的磁碟機。
+編號 您必須針對匯入和匯出工作運送自己的磁碟機。
 
 ** 如何存取這個服務所匯入的資料**
 
-Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為「儲存體總管」的獨立工具進行存取。 https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為「儲存體總管」的獨立工具進行存取。 https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **匯入作業完成後，我的資料在儲存體帳戶中外觀如何？將保留我的目錄階層嗎？**
 
@@ -504,7 +506,7 @@ Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為�
 準備磁碟機時，您可以使用資料集 CSV 檔案中名為 /Disposition:<rename|no-overwrite|overwrite> 的欄位，指定是否應該覆寫目的地檔案還是予以忽略。 根據預設，服務將為新檔案重新命名，而不會覆寫現有的 Blob 或檔案。
 
 **WAImportExport 工具與 32 位元作業系統相容嗎？**
-否。 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [先決條件](#pre-requisites) 中的＜作業系統＞一節，以取得支援 OS 版本的完整清單。
+編號 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [先決條件](#pre-requisites) 中的＜作業系統＞一節，以取得支援 OS 版本的完整清單。
 
 **我的包裹中除了硬碟以外還應該包含任何東西嗎？**
 

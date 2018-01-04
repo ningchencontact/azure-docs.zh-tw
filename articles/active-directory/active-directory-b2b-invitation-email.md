@@ -4,7 +4,7 @@ description: "Azure Active Directory B2B 共同作業邀請電子郵件範本"
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B 共同作業邀請電子郵件的元素
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="explaining-the-email"></a>說明電子郵件
 讓我們看看一些電子郵件項目，以便了解如何充分利用這些功能。
 
-### <a name="subject"></a>主旨
+### <a name="subject"></a>主體
 電子郵件的主旨依循以下模式：您收到加入 &lt;tenantname&gt; 組織的邀請
 
 ### <a name="from-address"></a>寄件者地址
@@ -85,4 +85,4 @@ ms.lasthandoff: 10/11/2017
 * [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
 * [適用於 B2B 共同作業使用者的多重要素驗證](active-directory-b2b-mfa-instructions.md)
 * [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Azure Active Directory 中應用程式管理的文章索引](active-directory-apps-index.md)
+* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)

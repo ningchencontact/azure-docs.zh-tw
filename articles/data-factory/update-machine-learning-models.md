@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 本文補充主要 Azure Data Factory - Azure Machine Learning 整合文件︰[使用 Azure Machine Learning 和 Azure Data Factory 建立預測管線](transform-data-using-machine-learning.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。 
@@ -62,10 +62,10 @@ ms.lasthandoff: 11/01/2017
 
 | 屬性                      | 說明                              | 必要 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| 名稱                          | 管線中的活動名稱     | 是      |
+| name                          | 管線中的活動名稱     | 是      |
 | 說明                   | 說明活動用途的文字。  | 否       |
-| 類型                          | 對於 Azure Machine Learning 更新資源活動，活動類型為 **AzureMLUpdateResource**。 | 是      |
-| linkedServiceName             | 包含 updateResourceEndpoint 屬性的 Azure Machine Learning 連結服務。 | 是      |
+| type                          | 對於 Azure Machine Learning 更新資源活動，活動類型為 **AzureMLUpdateResource**。 | 是      |
+| 預設容器             | 包含 updateResourceEndpoint 屬性的 Azure Machine Learning 連結服務。 | 是      |
 | trainedModelName              | 要更新之 Web 服務實驗中的「定型模型」模組名稱 | 是      |
 | trainedModelLinkedServiceName | 具備由更新作業上傳之 ilearner 檔案的 Azure 儲存體連結服務名稱 | 是      |
 | trainedModelFilePath          | trainedModelLinkedService 中的相對檔案路徑，表示由更新作業上傳的 ilearner 檔案 | 是      |
@@ -86,33 +86,6 @@ ms.lasthandoff: 11/01/2017
 2. Azure Machine Learning 連結服務至預測 Web 服務的更新資源端點。 更新資源活動會使用此連結服務，以利用上述步驟傳回的 iLearner 檔案，更新預測 Web 服務。 
 
 對於第二個 Azure Machine Learning 連結服務，當您的 Azure Machine Learning Web 服務是傳統的 Web 服務或新的 Web 服務時，設定是不同的。 差異會在下列各節分別進行討論。 
-
-## <a name="web-service-is-a-classic-web-service"></a>Web 服務是傳統的 Web 服務
-如果預測 Web 服務是**傳統 Web 服務**，請使用 Azure 入口網站來建立第二個**非預設且可更新的端點**。 如需相關步驟，請參閱[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文。 建立非預設的可更新端點之後，執行下列步驟：
-
-* 按一下 [批次執行] 以取得 **mlEndpoint** JSON 屬性的 URI 值。
-* 按一下 [更新資源] 連結以取得 **updateResourceEndpoint** JSON 屬性的 URI 值。 API 金鑰本身位於端點頁面 (位於右下角)。
-
-![可更新端點](./media/update-machine-learning-models/updatable-endpoint.png)
-
-之後，使用下列連結服務範例以建立新的 Azure Machine Learning 連結服務。 連結服務使用 apiKey 進行驗證。  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Web 服務是新的 Azure Resource Manager Web 服務 
 

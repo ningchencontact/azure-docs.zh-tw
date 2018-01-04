@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>使用快取規則控制 Azure 內容傳遞網路快取行為
 
@@ -40,13 +40,19 @@ Azure 內容傳遞網路提供兩種方式來控制檔案的快取方式：
 如何設定 CDN 快取規則：
 
 1. 開啟 Azure 入口網站，選取 CDN 設定檔，然後選取端點。
-2. 在左窗格的 [設定] 下方，按一下 [快取]。
-3. 建立全域快取規則，如下所示：
+2. 在 [設定] 下的左窗格中按一下**快取規則**。
+
+   ![CDN 快取規則 按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. 建立全域快取規則，如下所示：
    1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]。
    2. 將 [快取行為] 設定為 [缺少時才設定]。
+       
    3. 針對 [快取到期期間]，在 [天數] 欄位中輸入 10。
 
        全域快取規則會影響針對端點的所有要求。 如果原始快取指示詞標頭存在 (`Cache-Control` 或 `Expires`)，此規則就會優先採用它們；否則，系統會在未指定的情況下將快取設定為 10 天。 
+
+     ![全域快取規則](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. 建立自訂快取規則，如下所示：
     1. 在 [自訂快取規則] 下方，將 [比對條件] 設定為 [路徑]，並將 [比對值] 設定為 `/images/*.jpg`。
@@ -54,7 +60,7 @@ Azure 內容傳遞網路提供兩種方式來控制檔案的快取方式：
        
        此自訂快取規則會在您端點的 `/images` 資料夾中，於任何 `.jpg` 影像檔上設定 30 天的快取持續時間。 它會覆寫由原始伺服器所傳送的任何 `Cache-Control` 或 `Expires` HTTP 標頭。
 
-  ![快取規則對話方塊](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![自訂快取規則](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > 在規則變更之前快取的檔案會維持其原始的快取持續時間設定。 若要重設它們的快取持續時間，您必須[清除檔案](cdn-purge-endpoint.md)。 針對**來自 Verizon 的 Azure CDN** 端點，快取規則可能需要 90 分鐘才會生效。

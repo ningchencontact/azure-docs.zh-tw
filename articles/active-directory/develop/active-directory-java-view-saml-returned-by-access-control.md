@@ -4,7 +4,7 @@ description: "了解如何在裝載於 Azure 上的 Java 應用程式中，檢�
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>如何檢視 Azure 存取控制服務傳回的 SAML
 本指南說明如何檢視 Azure 存取控制服務 (ACS) 傳回給應用程式的基本安全性聲明標記語言 (SAML)。 本指南是以[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者](active-directory-java-authenticate-users-access-control-eclipse.md)主題為基礎，提供可顯示 SAML 資訊的程式碼。 完成後的應用程式如下所示：
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 將含有 **javax.servlet.jsp.JspWriter** 類別的程式庫加入至組建路徑和部署組件。 如果使用的是 Tomcat，則程式庫會是位於 Apache [lib] 資料夾中的 **jsp-api.jar**。
 
 1. 在 Eclipse 的 [Project Explorer] \(專案總管) 中，於 [MyACSHelloWorld] 上按一下滑鼠右鍵，然後依序按一下 [Build Path] \(組建路徑)、[Configure Build Path] \(設定組建路徑)、[Libraries] \(程式庫) 索引標籤，以及 [Add External JARs] \(新增外部 JAR)。
-2. 在 JAR Selection \(JAR 選擇) 對話方塊中，瀏覽至所需的 JAR 並選取它，然後按一下Open \(開啟)。
+2. 在 [JAR Selection] \(JAR 選擇) 對話方塊中，瀏覽至所需的 JAR 並選取它，然後按一下 [Open] \(開啟)。
 3. 在 [Properties for MyACSHelloWorld] \(MyACSHelloWorld 的屬性) 對話方塊仍開啟的情況下，按一下 [Deployment Assembly] \(部署組件)。
 4. 在 [Web Deployment Assembly] \(Web 部署組件) 對話方塊中，按一下 [Add] \(加入)。
 5. 在 [New Assembly Directive] \(新增組件指示詞) 對話方塊中，按一下 [Java Build Path Entries] \(Java 組建路徑項目)，然後按 [Next] \(下一步)。

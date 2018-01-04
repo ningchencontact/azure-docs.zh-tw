@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 YouEarnedIt 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: c29d218dbca581f102caf8070fa40894e7006e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3edc8f6825af956cf57b8385697dcc206405baa1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>教學課程：Azure Active Directory 與 YouEarnedIt 整合
 
@@ -48,13 +48,13 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 YouEarnedIt
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-youearnedit-from-the-gallery"></a>從資源庫新增 YouEarnedIt
-若要設定 YouEarnedIt 與 Azure AD 整合，您需要從資源庫將 YouEarnedIt 加入到受管理的 SaaS 應用程式清單。
+若要設定 YouEarnedIt 與 Azure AD 整合，您需要從資源庫將 YouEarnedIt 加入到受控 SaaS 應用程式清單。
 
 **若要從資源庫加入 YouEarnedIt，請執行下列步驟：**
 
@@ -114,7 +114,7 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
     | Production | `https://<company name>.youearnedit.com/users/sign_in` |
     | 沙箱  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
     | 環境  | 模式  |
     |:--- |:--- |
     | Production | `https://<company name>.youearnedit.com` |
@@ -152,7 +152,7 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_02.png)
 
@@ -170,7 +170,7 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-youearnedit-test-user"></a>建立 YouEarnedIt 測試使用者
 

@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
-ms.translationtype: HT
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB：MongoDB API 文件
 
 這篇文章提供 MongoDB API 專屬之所有 Azure Cosmos DB 內容的連結。
 
-這些文章並不適用於 DocumentDB API、圖形 API 或資料表 API。 
+這些文件並不適用於 SQL API、 Graph API 或資料表的應用程式開發介面。 
 
 ## <a name="introduction-and-concepts"></a>簡介和概念
 
@@ -31,16 +31,18 @@ ms.lasthandoff: 10/26/2017
 
 - [MongoDB API 簡介](mongodb-introduction.md)
 - [連線至您的 MongoDB 帳戶](connect-mongodb-account.md)
+- [MongoDB 功能與語法的支援](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>快速入門
 
 快速入門主題是使用 Azure Cosmos DB 建立工作應用程式的最快方法。 在每個快速入門中，您可以了解如何使用 UI 型 Azure 入口網站和您最愛的編碼語言，來使用 Azure Cosmos DB 建立資料庫解決方案。 GitHub 區域的可複製 Web 應用程式可用於每個快速入門。 
 
 
-- [MongoDB + Express + AngularJS + Node.js + Web 應用程式](create-mongodb-nodejs.md)
+- [Node.js + Express + AngularJS + Web 應用程式](create-mongodb-nodejs.md)
 - [.NET + Azure 入口網站 + Web 應用程式](create-mongodb-dotnet.md)
 - [Java + Azure 入口網站 + Web 應用程式](create-mongodb-java.md)
 - [移至 + Azure 入口網站 + 移至](create-mongodb-golang.md)
+- [Python + 酒瓶 + Azure 入口網站](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>教學課程
 

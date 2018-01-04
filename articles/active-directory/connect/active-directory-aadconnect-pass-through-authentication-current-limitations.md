@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/06/2017
 下列案例會有完整支援︰
 
 - 使用者登入所有網頁瀏覽器型應用程式
-- 使用者登入支援[新式驗證](https://aka.ms/modernauthga)的 Office 365 用戶端應用程式
-- Office 2016 和「啟用」新式驗證的 Office 2013
+- 使用者登入 Office 應用程式支援[新式驗證](https://aka.ms/modernauthga): Office 2016 和 Office 2013_與_新式驗證
+- 使用者登入支援新式驗證，包括 Online 和混合式拓撲商務用 skype。 深入了解支援的拓撲[這裡](https://technet.microsoft.com/library/mt803262.aspx)。
 - 適用於 Windows 10 裝置的 Azure AD 網域加入
 - Exchange ActiveSync 支援
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 12/06/2017
 下列案例不受支援︰
 
 - 使用者登入舊版 Office 用戶端應用程式：Office 2010 和「未啟用」新式驗證的 Office 2013。 組織應該盡可能切換到新式驗證。 新式驗證允許傳遞驗證支援。 其還能使用[條件式存取](../active-directory-conditional-access-azure-portal.md)功能 (如 Azure Multi-Factor Authentication) 保護使用者帳戶。
-- 使用者登入商務用 Skype 用戶端應用程式，包括商務用 Skype 2016。
+- 使用者登入用 skype 商務用戶端應用程式_沒有_新式驗證。
 - 使用者登入 PowerShell 1.0 版。 我們建議您使用 PowerShell 2.0 版。
-- Azure Active Directory Domain Services。
 - 用於多重要素驗證的應用程式密碼。
 - 偵測[認證外洩](../active-directory-reporting-risk-events.md#leaked-credentials)的使用者。
+- Azure AD 網域服務必須在租用戶上啟用密碼雜湊同步處理。 因此使用傳遞驗證的租用戶_只_需要 Azure AD 網域服務的情況下無法運作。
 
 >[!IMPORTANT]
 >_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。

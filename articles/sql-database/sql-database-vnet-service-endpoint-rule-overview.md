@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>虛擬網路規則的優點
 
-除非您採取動作，否則子網路上的 VM 無法與 SQL Database 通訊。 為了選擇可允許通訊的虛擬網路規則方法，基本上需要經過一番比較與對照討論，以確實了解防火牆所提供的各種只能擇其一的安全性選項。
+除非您採取動作，否則子網路上的 VM 無法與 SQL Database 通訊。 建立通訊的一個動作，就是建立虛擬網路規則。 選擇 VNet 規則方法基本原理需要涉及競爭防火牆所提供的安全性選項的比較與對照討論。
 
 #### <a name="a-allow-access-to-azure-services"></a>A. 允許存取 Azure 服務
 
@@ -81,7 +81,7 @@ SQL Database 防火牆可讓您指定 IP 位址範圍，以接受來自此範圍
 
 #### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. 子網路上還不能有 SQL Database
 
-如果 Azure SQL Database 伺服器是虛擬網路中某個子網路的節點，則虛擬網路內的所有節點都可以與 SQL Database 通訊。 在此情況下，VM 可以與 SQL Database 通訊，而不需要任何虛擬網路規則或 IP 規則。
+如果 Azure SQL Database 伺服器是虛擬網路中某個子網路的節點，則虛擬網路內的所有節點都可以與 SQL Database 通訊。 在此情況下，您的 Vm 無法與 SQL 資料庫通訊而不需要任何虛擬網路規則] 或 [IP 規則。
 
 不過，截至 2017 年 9 月，Azure SQL Database 服務還不是可指派給子網路的服務。
 
@@ -115,16 +115,16 @@ SQL Database 防火牆可讓您指定 IP 位址範圍，以接受來自此範圍
 - **網路管理員：** &nbsp;開啟端點。
 - **資料庫管理員：** &nbsp;更新存取控制清單 (ACL)，將給定的子網路新增至 SQL Database 伺服器。
 
-RBAC 替代方案： 
+RBAC 替代方案：
 
 「網路管理員」和「資料庫管理員」角色的能力已超過管理虛擬網路規則所需。 只需要其中一部分能力。
 
 在 Azure 中，您可以選擇使用[角色型存取控制 (RBAC)][ rbac-what-is-813s] 來建立單一自訂安全性角色，而且只給予一部分必要的能力。 可使用此自訂角色來代替，不必動用到「網路管理員」或「資料庫管理員」。將使用者新增至自訂角色，而不要新增至其他兩個主要的系統管理員角色，就可縮小安全性曝露面。
 
-
-
-
-
+> [!NOTE]
+> 在某些情況下 Azure SQL Database 和 VNet 子網路是在不同的訂用帳戶。 在這些情況下，您必須確認下列組態：
+> - 這兩個訂用帳戶必須是相同的 Azure Active Directory 租用戶中。
+> - 使用者已啟動作業，例如啟用服務端點，並將 VNet 子網路加入至給定的伺服器的必要權限。
 
 ## <a name="limitations"></a>限制
 
@@ -158,8 +158,32 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>移除 「 允許所有 Azure 服務 」 的影響
+
+許多使用者想要移除**允許所有 Azure 服務**從他們的 Azure SQL 伺服器並取代為 VNet 的防火牆規則。
+不過移除這會影響下列 Azure SQLDB 功能：
+
+#### <a name="import-export-service"></a>匯入匯出服務
+Azure SQLDB 匯入匯出服務會在 Azure 中的 Vm 上執行。 這些 Vm 不在您的 VNet，因此連接到您的資料庫時，取得 Azure IP。 移除**允許所有 Azure 服務**這些 Vm 不能存取您的資料庫。
+您可以解決此問題。 執行 BACPAC 匯入或匯出直接在您的程式碼中使用 DACFx API。 請確定這已設定防火牆規則的 VNet 子網路中的 VM 中部署。
+
+#### <a name="sql-database-query-editor"></a>SQL Database 的查詢編輯器
+Azure SQL Database 的查詢編輯器會部署在 Azure 中的 Vm。 這些 Vm 不在您的 VNet 中。 連線到您的資料庫時，因此 Vm 收到 Azure IP。 移除**允許所有 Azure 服務**，這些 Vm 不能存取您的資料庫。
+
+#### <a name="table-auditing"></a>資料表的稽核
+目前有兩種方式可在您的 SQL 資料庫上啟用稽核。 您已啟用您的 Azure SQL Server 上的服務端點之後，稽核資料表就會失敗。 這裡的緩解作業是將移至 Blob 稽核。
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>VNet 服務端點使用 Azure 儲存體的影響
+
+Azure 儲存體已實作相同的功能，可讓您限制連線至儲存體帳戶。
+如果您選擇使用 Azure SQL Server 正在使用的儲存體帳戶的這項功能，則可能遇到的問題。 接下來是清單和討論，這會受到 Azure SQLDB 功能。
+
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
+PolyBase 通常用於將 Azure SQLDW 載入資料，從儲存體帳戶。 如果您正在載入資料的儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。
+
+#### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 稽核
+Blob 稽核將稽核記錄檔推送到儲存體帳戶。 如果這個儲存體帳戶使用的排氣服務端點功能將會中斷與儲存體帳戶的 Azure SQLDB 連線。
 
 
 ## <a name="errors-40914-and-40615"></a>錯誤 40914 和 40615
@@ -217,16 +241,17 @@ PowerShell 指令碼也可以建立虛擬網路規則。 重要的 Cmdlet **New-
 3. 將 [允許存取 Azure 服務] 控制項設為 [關閉]。
 
     > [!IMPORTANT]
-    > 如果將此控制項保持 [開啟]，則 Azure SQL Database 伺服器會接受來自任何子網路的通訊，就安全性觀點而言，這樣的存取權可能過多。 Microsoft Azure 虛擬網路服務端點功能，連同 SQL Database 的虛擬網路規則功能，可縮小安全性曝露面。
+    > 如果您將控制項設為 ON 時，Azure SQL Database 伺服器會接受來自任何子網路通訊。 將控制項設為 ON，可能會從安全性觀點來看過多的存取。 Microsoft Azure 虛擬網路服務端點功能，連同 SQL Database 的虛擬網路規則功能，可縮小安全性曝露面。
 
 4. 按一下 [虛擬網路] 區段中的 [+ 新增現有的] 控制項。
 
     ![按一下新增現有的 (子網路端點，作為 SQL 規則)。][image-portal-firewall-vnet-add-existing-10-png]
 
 5. 在新的 [建立/更新] 窗格中，將您的 Azure 資源名稱填入控制項中。
- 
+
     > [!TIP]
-    > 必須包含子網路的正確 [位址首碼]。 您可以在入口網站中找到值。 瀏覽 [所有資源] &gt;  **[所有類型]** &gt;  **[虛擬網路]**。 篩選條件會顯示您的虛擬網路。 按一下您的虛擬網路，然後按一下 [子網路]。 [位址範圍] 資料行具有您需要的位址首碼。
+    > 必須包含子網路的正確 [位址首碼]。 您可以在入口網站中找到值。
+    > 瀏覽 [所有資源] &gt;  **[所有類型]** &gt;  **[虛擬網路]**。 篩選條件會顯示您的虛擬網路。 按一下您的虛擬網路，然後按一下 [子網路]。 [位址範圍] 資料行具有您需要的位址首碼。
 
     ![填入新規則的欄位。][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +262,26 @@ PowerShell 指令碼也可以建立虛擬網路規則。 重要的 Cmdlet **New-
     ![在防火牆窗格上查看新的規則。][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> 下列狀態套用的規則：
+> - **已備妥：**表示您起始了此作業已成功。
+> - **失敗：**表示您起始的作業失敗。
+> - **刪除：**只適用於刪除作業，並指出此規則已刪除，並就不再適用。
+> - **InProgress:**表示作業正在進行中。 作業處於此狀態時，適用於舊規則。
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>相關文章
 
-- [使用 PowerShell 建立 Azure SQL Database 的虛擬網路服務端點和虛擬網路規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Azure 虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database 伺服器層級和資料庫層級防火牆規則][sql-db-firewall-rules-config-715d]
 
-Microsoft Azure 虛擬網路服務端點功能，以及 Azure SQL Database 的虛擬網路規則功能，都在 2017 年 9 月底推出。
+Azure SQL Database 的虛擬網路規則功能變為晚期年 9 月 2017年中可用的版本。
 
+## <a name="next-steps"></a>後續步驟
 
-
+- [使用 PowerShell 建立 Azure SQL database 的虛擬網路服務端點，然後按一下 虛擬網路規則。][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +333,3 @@ Microsoft Azure 虛擬網路服務端點功能，以及 Azure SQL Database 的�
 
 - ARM templates
 -->
-

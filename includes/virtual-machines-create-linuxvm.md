@@ -1,5 +1,5 @@
 
-1. 使用[從 Azure CLI 1.0 連接到 Azure](../articles/xplat-cli-connect.md) 中列出的步驟登入 Azure 訂用帳戶。
+1. 使用[從 Azure CLI 1.0 連接到 Azure](/cli/azure/authenticate-azure-cli) 中列出的步驟登入 Azure 訂用帳戶。
 
 2. 請確定您處於傳統部署模式，如下所示：
 

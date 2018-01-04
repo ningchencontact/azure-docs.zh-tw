@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>疑難排解：無法刪除 Azure 中的虛擬網路
 
@@ -65,13 +65,7 @@ ms.lasthandoff: 11/04/2017
 
 ![檢查連線的裝置](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-若要停用服務，請遵循下列步驟：
-
-1. 前往 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 在左窗格中，選取 [Active Directory]。
-3. 選取已啟用 Active Directory 網域服務的 Azure Active Directory (Azure AD) 目錄。
-4. 選取 [設定]  索引標籤。
-5. 在 [網域服務] 下，將 [啟用此目錄的網域服務] 選項變更為 [否]。  
+若要停用服務，請參閱[停用 Azure Active Directory 網域服務使用 Azure 入口網站](../active-directory-domain-services/active-directory-ds-disable-aadds.md)。
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>檢查虛擬網路是否已連線到其他資源
 

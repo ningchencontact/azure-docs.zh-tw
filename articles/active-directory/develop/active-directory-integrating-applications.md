@@ -4,7 +4,7 @@ description: "如何在 Azure Active Directory (Azure AD) 中新增、更新或�
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -124,7 +124,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
   - 按一下 [設定] 頁面上的 [金鑰] 區段。  
   - 為金鑰新增描述。
   - 選取一年或兩年的持續時間。
-  - 按一下 [儲存] 。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
+  - 按一下 [檔案] 。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
 
   ![更新應用程式的註冊 - 金鑰](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
 

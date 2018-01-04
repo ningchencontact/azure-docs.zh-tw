@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念
 本主題提供媒體服務概念的最重要概觀。
 
-## <a id="assets"></a>資產和儲存體
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>資產和儲存體
 ### <a name="assets"></a>Assets
 [資產](https://docs.microsoft.com/rest/api/media/operations/asset) 包含數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。 將數位檔案上傳到資產之後，可以用於媒體服務編碼和串流工作流程。
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/07/2017
 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 定義資產存取的權限 (例如讀取、寫入和清單) 和持續時間。 您通常會傳遞 AccessPolicy 物件到定位器，接著再用來存取資產中包含的檔案。
 
 >[!NOTE]
->對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱 [這個](media-services-dotnet-manage-entities.md#limit-access-policies) 主題。
+>對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[此主題](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 ### <a name="blob-container"></a>Blob 容器
 Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控制的分界點，以及資產上的共用存取簽章 (SAS) 定位器。 Azure 儲存體帳戶可以包含無限多個 blob 容器。 容器可以儲存無限制的 Blob。
@@ -71,7 +71,7 @@ Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控�
 > 
 > 
 
-### <a id="locators"></a>定位器
+### <a name="a-idlocatorslocators"></a><a id="locators"/>定位器
 [定位器](https://docs.microsoft.com/rest/api/media/operations/locator)提供一個進入點，可供存取資產中包含的檔案。 存取原則用來定義用戶端可存取特定資產的權限與持續時間。 定位器對存取原則可以有多對一關聯性，以便在所有用戶端都使用相同的權限與持續時間設定時，可以讓不同定位器對不同的用戶端提供不同的開始時間和連線類型；不過，由於 Azure 儲存體服務所設定的共用存取原則限制，特定資產一次不能有超過五個唯一定位器與之相關聯。 
 
 媒體服務支援兩種類型的定位器：一個是 OnDemandOrigin 定位器，用於串流媒體 (例如 MPEG DASH、HLS 或 Smooth Streaming)，或漸進式下載媒體；另一個則是 SAS URL 定位器，用於上傳媒體檔案至 Azure 儲存體或從 Azure 儲存體下載媒體檔案。 
@@ -83,7 +83,7 @@ Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控�
 所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。 媒體服務帳戶可以與一個或多個儲存體帳戶產生關聯。 帳戶可以包含不限數目的容器，只要它們的大小總計低於每個儲存體帳戶 500TB 即可。  媒體服務提供 SDK 層級工具，可讓您管理多個儲存體帳戶，以及在上傳至這些帳戶期間根據計量或隨機分佈，負載平衡資產的分佈。 如需詳細資訊，請參閱「使用 [Azure 儲存體](https://msdn.microsoft.com/library/azure/dn767951.aspx)」。 
 
 ## <a name="jobs-and-tasks"></a>工作 (Job) 和工作 (Task)
-[工作](https://docs.microsoft.com/en-us/rest/api/media/operations/job) 通常用來處理 (例如索引或編碼) 一個音訊/視訊簡報。 如果您要處理多個視訊，請為每個要編碼的視訊各建立一個工作。
+[工作](https://docs.microsoft.com/rest/api/media/operations/job) 通常用來處理 (例如索引或編碼) 一個音訊/視訊簡報。 如果您要處理多個視訊，請為每個要編碼的視訊各建立一個工作。
 
 工作包含要進行之處理的相關中繼資料。 每個工作 (Job) 包含一或多個 [工作 (Task)](https://docs.microsoft.com/rest/api/media/operations/task)，該工作 (Task) 指定不可部分完成的處理工作、該處理工作的輸入資產、輸出資產、媒體處理器和其相關設定。 工作 (Job) 中的工作 (Task) 可以鏈結在一起，其中一項工作 (Task) 的輸出資產指定為下一個工作 (Task) 的輸入資產。 透過這種方式，一項工作 (Job) 可以包含一個媒體簡報所需的所有處理。
 
@@ -127,7 +127,7 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 
 通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。 這可讓您視需要發行和封存事件的不同部分。 例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。 為了達成此目的，您必須建立兩個同時執行的程式。 其中一個程式設定為封存 6 小時的事件，但是未發行該程式。 另一個程式則設定為封存 10 分鐘，並發佈程式。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)
 * [使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-live-streaming-with-onprem-encoders.md)
@@ -150,13 +150,13 @@ Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理�
 
 設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 - [保護內容概觀](media-services-content-protection-overview.md)
 - [使用 AES-128 保護](media-services-protect-with-aes128.md)
 - [使用 PlayReady/Widevine 保護](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>傳遞
-### <a id="dynamic_packaging"></a>動態封裝
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>動態封裝
 使用媒體服務時，建議您將夾層檔案的編碼設為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該 MP4 集轉換為需要的格式。
 
 ### <a name="streaming-endpoint"></a>串流端點
@@ -169,7 +169,7 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 >[!NOTE]
 >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
 
-如需詳細資訊，請參閱 [這個](media-services-portal-manage-streaming-endpoints.md) 主題。
+如需詳細資訊，請參閱[此主題](media-services-portal-manage-streaming-endpoints.md)。
 
 依預設，您最多可以在媒體服務帳戶中加入 2 個串流端點。 如欲要求放寬限制，請參閱「 [配額和限制](media-services-quotas-and-limitations.md)」。
 
@@ -186,7 +186,7 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 >[!NOTE]
 >如果希望加密的資產可供漸進式下載，您必須先將其解密。
 
-若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器會提供資產的基底路徑。 接著您必須附加上 MP4 檔案的名稱。 例如：
+若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器會提供資產的基底路徑。 接著您必須附加上 MP4 檔案的名稱。 例如︰
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

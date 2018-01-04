@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>使用通知中心傳送當地語系化的即時新聞
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="overview"></a>Overview
-本主題將說明如何使用 Azure 通知中心的 **範本** 功能，廣播已由語言和裝置當地語系化的即時新聞通知。 在本教學課程中，首先您會執行在 [使用通知中樞傳送即時新聞]中建立的 Windows 市集應用程式。 完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
+## <a name="overview"></a>概觀
+本主題將說明如何使用 Azure 通知中心的 **範本** 功能，廣播已由語言和裝置當地語系化的即時新聞通知。 在本教學課程中，首先您會執行在 [使用通知中心傳送即時新聞]中建立的 Windows 市集應用程式。 完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
 
 此案例分成兩部分：
 
@@ -36,12 +36,12 @@ ms.lasthandoff: 10/11/2017
 * 後端使用 Azure 通知中樞的**標籤**和**範本**功能廣播通知。
 
 ## <a name="prerequisites"></a>必要條件
-您必須已完成 [使用通知中樞傳送即時新聞] 教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
+您必須已完成 [使用通知中心傳送即時新聞] 教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 您也需要 Visual Studio 2012 或更新版本。
 
 ## <a name="template-concepts"></a>範本概念
-在 [使用通知中樞傳送即時新聞] ，您建置了使用 **標籤** 來訂閱不同即時新聞類別之通知的應用程式。
+在 [使用通知中心傳送即時新聞] ，您建置了使用 **標籤** 來訂閱不同即時新聞類別之通知的應用程式。
 但有許多應用程式是以多個市場為目標的，因此需要當地語系化。 這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。
 在此主題中，我們將說明如何使用通知中樞的 **範本** 功能，輕鬆地傳遞已當地語系化的即時新聞通知。
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 範本的功能非常強大，您可以在 [範本](notification-hubs-templates-cross-platform-push-messages.md) 一文中了解詳情。 
 
 ## <a name="the-app-user-interface"></a>應用程式使用者介面
-現在，我們將修改您在 [使用通知中樞傳送即時新聞] 主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
+現在，我們將修改您在 [使用通知中心傳送即時新聞] 主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
 
 在您的 Windows 市集應用程式中：
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 10/11/2017
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[使用通知中樞傳送即時新聞]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[使用通知中心傳送即時新聞]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

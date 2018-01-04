@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
 ## <a name="general"></a>一般
@@ -179,14 +179,14 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 但如果裝置上有未開啟的應用程式時，會有一段期間收不到通知。
 
 ### <a name="is-there-audit-log-capability"></a>是否有稽核記錄功能？
-所有通知中樞管理作業移至作業記錄，其公開於 [Azure 傳統入口網站]中。
+通知中樞的所有管理作業都移至 作業記錄，會公開在[Azure 入口網站]。
 
 ## <a name="monitoring-and-troubleshooting"></a>監視與疑難排解
 ### <a name="what-troubleshooting-capabilities-are-available"></a>可用的疑難排解功能有哪些？
 Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨棄通知的最常見案例中。 如需詳細資訊，請參閱[通知中樞疑難排解]技術白皮書。
 
 ### <a name="what-telemetry-features-are-available"></a>可用的遙測功能有哪些？
-您可透過 Azure 通知中樞，在 [Azure 傳統入口網站]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
+Azure 通知中樞可讓檢視中的遙測資料[Azure 入口網站]。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
 
 > [!NOTE]
 > 成功通知就是表示推播通知已傳送到外部 PNS (例如 Apple 的 APNS 或 Google 的 GCM)。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
@@ -195,7 +195,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 
 我們還提供以程式設計方式匯出遙測資料的功能 (在標準層中)。 如需詳細資訊，請參閱[通知中樞計量範例]。
 
-[Azure 傳統入口網站]: https://manage.windowsazure.com
+[Azure 入口網站]: https://portal.azure.com
 [通知中樞價格]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [案例研究：Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 [通知中樞計量]: https://msdn.microsoft.com/library/dn458822.aspx
 [通知中樞計量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
-[Azure 入口網站]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [App Service 價格]: https://azure.microsoft.com/pricing/details/app-service/

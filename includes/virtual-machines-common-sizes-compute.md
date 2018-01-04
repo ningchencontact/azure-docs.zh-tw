@@ -12,7 +12,7 @@ F 系列是以 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，�
 
 Fs 系列可提供 F 系列的所有優點 (進階儲存體除外)。
 
-## <a name="fsv2-series"></a>Fsv2 系列*
+## <a name="fsv2-series-sup1sup"></a>Fsv2 數列<sup>1</sup>
 
 ACU：195 - 210
 
@@ -25,9 +25,10 @@ ACU：195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 極高                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 極高                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 極高                                 |
-*Fsv2 系列 VM 的功能 Intel® 超執行緒技術
 
-## <a name="fs-series"></a>Fs 系列*
+<sup>1</sup>Fsv2 系列 VM 的功能 Intel® 超執行緒技術中
+
+## <a name="fs-series-sup1sup"></a>Fs 數列<sup>1</sup>
 
 ACU：210 - 250
 
@@ -41,7 +42,7 @@ ACU：210 - 250
 
 MBps = 每秒 10^6 位元組，而 GiB = 1024^3 位元組。
 
-*Fs 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)。
+<sup>1</sup>數目，可能會受限於 （IOPS 或 MBps） 可能與 Fs 系列 VM 的最大磁碟輸送量大小和的附加磁碟條狀配置。  如需詳細資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)。
 
 
 <br>

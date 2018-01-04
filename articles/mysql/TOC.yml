@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: 匯入和匯出
           href: concepts-migrate-import-export.md
+        - name: 最低停機移轉
+          href: howto-migrate-online.md
     - name: 連線應用程式
       items:
         - name: 建立使用者

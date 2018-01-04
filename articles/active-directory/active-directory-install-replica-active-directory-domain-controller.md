@@ -4,7 +4,7 @@ description: "如何在 Azure 虛擬網路中的 Azure 虛擬機器 (VM) 上為�
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 60839f93954bfe38f0346b235259f68e479b8a00
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台
 本文探討如何在 Azure 虛擬網路中的 Azure 虛擬機器 (VM) 上為內部部署 Active Directory 網域安裝其他網域控制站 (DC) 以作為複本網域控制站。 您也可以[在 Azure 虛擬網路上安裝新的 Windows Server Active Directory 樹系](active-directory-new-forest-virtual-machine.md)。 如需在 Azure 虛擬網路上安裝 Active Directory Domain Services (AD DS) 的相關資訊，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) (英文)。
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/13/2017
 
 若要使用 Windows PowerShell 而非 Azure 入口網站建立虛擬機器，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-為將執行 DC 角色的 VM 保留靜態 IP 位址。 若要保留靜態 IP 位址，請下載 Microsoft Web Platform Installer， [安裝 Azure PowerShell](/powershell/azure/overview) 並執行 Set-AzureStaticVNetIP Cmdlet。 例如：
+為將執行 DC 角色的 VM 保留靜態 IP 位址。 若要保留靜態 IP 位址，請下載 Microsoft Web Platform Installer， [安裝 Azure PowerShell](/powershell/azure/overview) 並執行 Set-AzureStaticVNetIP Cmdlet。 例如︰
 
 ````
 Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM

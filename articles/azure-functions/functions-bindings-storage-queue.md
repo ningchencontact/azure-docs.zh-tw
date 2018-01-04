@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -35,13 +35,13 @@ ms.lasthandoff: 11/29/2017
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#trigger---c-example)
-* [C# 指令碼](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例所示範的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)，輪詢`myqueue-items`佇列，並在處理佇列項目每次寫入的記錄。
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 *function.json* 檔案和 [C# 指令碼](functions-reference-csharp.md)中的 Blob 觸發程序繫結。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
+下列範例示範 blob 觸發程序中的繫結*function.json*檔案和[C# 指令碼 (.csx)](functions-reference-csharp.md)使用繫結的程式碼。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
 
 以下是 *function.json* 檔案：
 
@@ -153,7 +153,7 @@ module.exports = function (context) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
  
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性以設定佇列觸發程序：
+在[C# 類別庫](functions-dotnet-class-library.md)，若要設定佇列的觸發程序使用下列屬性：
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -181,7 +181,7 @@ module.exports = function (context) {
   }
   ```
  
-  如需完整範例，請參閱[觸發程序 - 先行編譯 C# 範例](#trigger---c-example)。
+  如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -266,13 +266,13 @@ module.exports = function (context) {
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#output---c-example)
-* [C# 指令碼](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 指令碼 (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例所示範的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼會為每個收到的 HTTP 要求建立佇列訊息。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)會建立每個收到的 HTTP 要求的佇列訊息。
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 *function.json* 檔案和 [C# 指令碼](functions-reference-csharp.md)中的 Blob 觸發程序繫結。 此函式會針對每個收到的 HTTP 要求，使用 POCO 承載建立佇列項目。
+下列範例示範 blob 觸發程序中的繫結*function.json*檔案和[C# 指令碼 (.csx)](functions-reference-csharp.md)使用繫結的程式碼。 此函式會針對每個收到的 HTTP 要求，使用 POCO 承載建立佇列項目。
 
 以下是 *function.json* 檔案：
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
  
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)，定義在 NuGet 套件[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
 
 該屬性會套用至 `out` 參數或函式的傳回值。 該屬性的建構函式會採用佇列名稱，如下列範例所示：
 
@@ -418,16 +418,16 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 ```csharp
 [FunctionName("QueueOutput")]
-[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+[return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 {
     ...
 }
 ```
 
-如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
 
-您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes-for-precompiled-c)。
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attribute)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 

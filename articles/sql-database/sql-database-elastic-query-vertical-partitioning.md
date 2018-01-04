@@ -4,7 +4,7 @@ description: "如何透過垂直資料分割設定跨資料庫查詢"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: torsteng
+author: MladjoA
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
@@ -12,13 +12,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.date: 12/12/2017
+ms.author: mlandzic
+ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>對不同結構描述的雲端資料庫執行查詢 (預覽)
 ![在不同資料庫中跨資料表查詢][1]
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="create-database-scoped-master-key-and-credentials"></a>建立資料庫範圍的主要金鑰和認證
 彈性查詢使用認證連接到遠端資料庫。  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ SCHEMA_NAME 和 OBJECT_NAME 子句提供的功能可將外部資料表定義分�
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>用於遠端 T-SQL 執行的預存程序：sp\_execute_remote
-彈性查詢也會介紹可供直接存取分區的預存程序。 預存程序稱為 [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)，可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數： 
+彈性查詢也會介紹可直接存取遠端資料庫的預存程序。 預存程序稱為[sp\_執行\_遠端](https://msdn.microsoft.com/library/mt703714)而且可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數： 
 
 * 資料來源名稱 (nvarchar)：RDBMS 類型的外部資料來源名稱。 
-* 查詢 (nvarchar)：對每個分區執行的 T-SQL 查詢。 
+* 查詢 (nvarchar): 若要在遠端資料庫上執行的 T-SQL 查詢。 
 * 參數宣告 (nvarchar) - 選用：含有查詢參數 (如 sp_executesql) 中所用參數的資料類型定義的字串。 
 * 參數值清單 - 選用：以逗號分隔的參數值清單 (如 sp_executesql)。
 
-sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠端資料庫上執行指定的 T-SQL 陳述式。 它會使用外部資料來源的認證連接 shardmap 管理員資料庫和遠端資料庫。  
+Sp\_執行\_遠端使用叫用參數中提供的外部資料來源遠端資料庫上執行給定的 T-SQL 陳述式。 它會使用外部資料來源的認證連接到遠端資料庫。  
 
 範例： 
 

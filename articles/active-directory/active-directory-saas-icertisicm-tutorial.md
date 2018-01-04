@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Icertis 合約管理
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 9dd002f71b7a960338071db869f7c8cf88071342
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0d5e80e78b7c67984144e7722ce55785efaea501
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>教學課程：Azure Active Directory 與 Icertis 合約管理平台整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Icertis 合約管理平台
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-icertis-contract-management-platform-from-the-gallery"></a>從資源庫新增 Icertis 合約管理平台
-若要設定將 Icertis 合約管理平台整合到 Azure AD 中，您需要從資源庫把 Icertis 合約管理平台新增到受管理的 SaaS 應用程式清單。
+若要設定將 Icertis 合約管理平台整合到 Azure AD 中，您需要從資源庫把 Icertis 合約管理平台新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Icertis 合約管理平台，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 [Icertis 合約管理平台] 。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-icertisicm-tutorial/tutorial_icertisicm_search.png)
 
-5. 在結果窗格中，選取 Icertis 合約管理平台，然後按一下新增 按鈕來新增應用程式。
+5. 在結果窗格中，選取 [Icertis 合約管理平台]，然後按一下 [新增] 按鈕來新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-icertisicm-tutorial/tutorial_icertisicm_addfromgallery.png)
 
@@ -160,11 +160,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-icertis-contract-management-platform-test-user"></a>建立 Icertis 合約管理平台測試使用者
 

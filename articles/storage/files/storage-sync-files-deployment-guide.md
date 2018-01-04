@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>部署 Azure 檔案同步 (預覽)
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -26,14 +26,14 @@ ms.lasthandoff: 12/05/2017
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)和[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)，再完成本文章中描述的步驟。
 
 ## <a name="prerequisites"></a>必要條件
-* 位於和您要部署 Azure 檔案同步相同之區域中的 Azure 儲存體帳戶和 Azure 檔案共用。如需詳細資訊，請參閱：
+* 位於和您要部署 Azure 檔案同步相同之區域中的 Azure 儲存體帳戶和 Azure 檔案共用。如需詳細資訊，請參閱
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - 如需如何建立儲存體帳戶的逐步說明，請參閱[建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
     - [建立檔案共用](storage-how-to-create-file-share.md)以取得如何建立檔案共用的逐步說明。
 * 至少有一個 Windows Server 或 Windows Server 叢集的受支援執行個體，以與 Azure 檔案同步進行同步處理。如需 Windows Server 受支援版本的詳細資訊，請參閱[與 Windows Server 的互通性](storage-sync-files-planning.md#azure-file-sync-interoperability)。
 
 ## <a name="deploy-the-storage-sync-service"></a>部署儲存體同步服務 
-儲存體同步服務是 Azure 檔案同步的最上層 Azure 資源。若要部署儲存體同步服務，請移至 [Azure 入口網站](https://portal.azure.com/)，並搜尋 Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步 (預覽)]，然後選取 [建立] 以開啟 [部署儲存體同步] 索引標籤。
+儲存體同步服務是 Azure 檔案同步的最上層 Azure 資源。若要部署儲存體的同步處理服務，請移至[Azure 入口網站](https://portal.azure.com/)，按一下 *新增*然後搜尋 Azure 檔案同步處理。在搜尋結果中，選取 [Azure 檔案同步 (預覽)]，然後選取 [建立] 以開啟 [部署儲存體同步] 索引標籤。
 
 在開啟的窗格中，輸入下列資訊：
 

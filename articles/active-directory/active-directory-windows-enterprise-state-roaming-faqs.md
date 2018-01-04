@@ -5,7 +5,7 @@ services: active-directory
 keywords: "企業狀態漫遊設定, windows 雲端, 企業狀態漫遊常見問題集"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本主題將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>對來自多個租用戶的 Azure AD 帳戶進行設定同步處理？
 當來自不同 Azure AD 租用戶的多個 Azure AD 帳戶位於相同的裝置時，您必須更新裝置的登錄，才能與每個 Azure AD 租用戶的 Azure Rights Management (RMS) 進行通訊。  
 
-1. 尋找每個 Azure AD 租用戶的 GUID。 開啟 Azure 傳統入口網站，然後選取 Azure AD 租用戶。 租用戶的 GUID 位於瀏覽器網址列的 URL 中。 例如：`https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. 尋找每個 Azure AD 租用戶的 GUID。 開啟 Azure 入口網站並選取 Azure AD 租用戶。 租用戶的 GUID 位於瀏覽器網址列的 URL 中。 例如：`https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. 取得 GUID 之後，您必須新增登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<租用戶識別碼 GUID>**。
    從「租用戶識別碼 GUID」機碼，建立一個名為 **AllowedRMSServerUrls** 的新多字串值 (REG-MULTI-SZ)。 針對其資料，指定裝置所存取之其他 Azure 租用戶的授權發佈點 URL。
 3. 您可以藉由執行 **Get-AadrmConfiguration** Cmdlet 來尋找授權發佈點 URL。 如果 **LicensingIntranetDistributionPointUrl** 與 **LicensingExtranetDistributionPointUrl** 的值不同，則請同時指定這兩個值。 如果值相同，則只要指定值一次。
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 Microsoft 致力於保護客戶資料。 企業使用者的設定資料在離開 Windows 10 裝置前會自動由 Azure RMS 加密，因此沒有任何其他使用者可以讀取此資料。 如果貴組織擁有 Azure RMS 的付費訂用帳戶，您可以使用其他 Azure RMS 功能，例如追蹤及撤銷文件、自動保護包含機密資訊的電子郵件，以及管理您自己的金鑰 (「自備金鑰」解決方案，也稱為 BYOK)。 如需有關這些功能及 Azure RMS 運作方式的詳細資訊，請參閱 [什麼是 Azure Rights Management](https://technet.microsoft.com/jj585026.aspx)。
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>我可以管理特定應用程式或設定的同步處理嗎？
-在 Windows 10 中，沒有 MDM 或群組原則設定可以停用個別應用程式的漫遊。 租用戶系統管理員可以停用受管理裝置上所有應用程式的 AppData 同步處理，但是在每個應用程式或應用程式內的層級並沒有更細微的控制。
+在 Windows 10 中，沒有 MDM 或群組原則設定可以停用個別應用程式的漫遊。 租用戶系統管理員可以停用受控裝置上所有應用程式的 AppData 同步處理，但是在每個應用程式或應用程式內的層級並沒有更細微的控制。
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>如何啟用或停用漫遊功能？
 在 [設定] 應用程式中，移至 [帳戶] > [同步您的設定]。 您可以從這個頁面看見正在使用哪一個帳戶漫遊設定，您可以啟用或停用要漫遊得個別群組設定。

@@ -4,7 +4,7 @@ description: "了解如何在 Azure 入口網站中使用 Resource Manager 部�
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 入口網站開啟虛擬機器的連接埠
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ ms.lasthandoff: 10/11/2017
 
 ![新增輸入規則](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-從下拉式功能表中選擇常見的**服務**，例如 *HTTP*。 您也可以選取 [自訂] 以提供特定連接埠供使用者使用。 如有需要，請變更優先順序或名稱。 優先順序會影響規則的套用順序，數值越低會越早套用規則。 您也可以選取此畫面頂端的 [進階]，來輸入特定的來源 IP 區塊或連接埠範圍 (舉例來說)。 當您準備好時，選取 [確定] 以建立規則：
+若要建立規則，允許流量：
+
+- 選取**基本** 按鈕。 根據預設，**進階**視窗，提供一些其他組態選項，例如定義特定來源 IP 區塊或連接埠範圍。
+- 從下拉式功能表中選擇常見的**服務**，例如 *HTTP*。 您也可以選取 [自訂] 以提供特定連接埠供使用者使用。 
+- 如有需要，請變更優先順序或名稱。 優先順序會影響規則的套用順序，數值越低會越早套用規則。
+- 當您準備好時，選取 [確定] 以建立規則：
 
 ![建立輸入規則](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

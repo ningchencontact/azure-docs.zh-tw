@@ -4,7 +4,7 @@ description: "如何建置 Windows Phone 應用程式來與 Azure AD 整合進�
 services: active-directory
 documentationcenter: windows
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>整合 Azure AD 與 Windows Phone 應用程式
+# <a name="azure-ad-windows-phone-getting-started"></a>開始使用 azure AD Windows Phone
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* 在 DirectorySearcher 專案中，開啟 `MainPage.xaml.cs`。  取代 [ `Config Values` ] 區域中的值以反映您在 Azure 入口網站中所輸入的值。  每當使用 ADAL 時，您的程式碼便會參考這些值。
+* 在 DirectorySearcher 專案中，開啟 `MainPage.xaml.cs`。  中的值取代`Config Values`區域以反映您輸入到 Azure 入口網站的值。  每當使用 ADAL 時，您的程式碼便會參考這些值。
   * `tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com
   * `clientId` 是指您從入口網站複製的應用程式 clientId。
 * 您現在必須找出 Windows Phone 應用程式的回呼 uri。  在 `MainPage` 方法的這一行上設定中斷點：
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* 您也可以使用 `AuthenticationResult` 物件，在應用程式中顯示使用者的相關資訊。 在 `QueryGraph(...)` 方法中，使用此結果在頁面上顯示使用者的識別碼：
+* 您也可以使用 `AuthenticationResult` 物件，在應用程式中顯示使用者的相關資訊。 在`QueryGraph(...)`方法，以在頁面上顯示使用者的識別碼使用的結果：
 
 ```C#
 // Update the Page UI to represent the signed in user

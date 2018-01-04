@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Workday 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 164d5c644f120fa86e2b690649241892764b64b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5e4d46f9a3954698fbbe3c80fd8a95f4cd87465b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -47,13 +47,13 @@ Workday 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Workday
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-workday-from-the-gallery"></a>從資源庫新增 Workday
-若要設定將 Workday 整合到 Azure AD 中，您需要從資源庫將 Workday 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Workday 整合到 Azure AD 中，您需要從資源庫將 Workday 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Workday，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Workday 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Workday**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-workday-tutorial/tutorial_workday_search.png)
 
-5. 在結果窗格中，選取 Workday，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Workday]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-workday-tutorial/tutorial_workday_addfromgallery.png)
 
@@ -112,7 +112,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入下列值：`https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://impl.workday.com/<tenant>/login-saml.htmld`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「回覆 URL」來更新這些值。 您的回覆 URL 必須有子網域 (例如：www、wd2、wd3、wd3-impl、wd5、wd5-impl)。 例如，使用 " *http://www.myworkday.com* " 有效，但 " *http://myworkday.com* " 則無效。 請連絡 [Workday 客戶支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得這些值。 
@@ -150,7 +150,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     a. 按一下 [加入資料列]。
    
-    b.這是另一個 C# 主控台應用程式。 在 [登入重新導向 URL] 文字方塊和 [行動裝置重新導向 URL] 文字方塊中，輸入您在 Azure 入口網站的 [Workday 網域與 URL] 區段上輸入的 [登入 URL]。
+    b. 在 [登入重新導向 URL] 文字方塊和 [行動裝置重新導向 URL] 文字方塊中，輸入您在 Azure 入口網站的 [Workday 網域與 URL] 區段上輸入的 [登入 URL]。
    
     c. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [登出 URL]，然後將它貼至 [登出重新導向 URL] 文字方塊中。
    
@@ -175,13 +175,13 @@ Workday 與 Azure AD 整合提供下列優點：
    
     a. 在 [身分識別提供者名稱] 文字方塊中，輸入提供者名稱 (例如：SPInitiatedSSO)。
    
-    b.這是另一個 C# 主控台應用程式。 在 Azure 入口網站的 [設定登入] 視窗上，複製 [SAML 實體識別碼] 值，然後將它貼至 [簽發者] 文字方塊中。
+    b. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [SAML 實體識別碼] 值，然後將它貼至 [簽發者] 文字方塊中。
    
     c. 選取 [啟用 Workday 啟始的登出]。
    
     d. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [登出 URL] 值，然後將它貼至 [登出要求 URL] 文字方塊中。
 
-    e. 按一下 識別提供者公開金鑰憑證，然後按一下建立。 
+    e. 按一下 [識別提供者公開金鑰憑證]，然後按一下 [建立]。 
 
     ![建立](./media/active-directory-saas-workday-tutorial/IC782928.png "建立")
 
@@ -196,7 +196,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     a. 在 [名稱] 文字方塊中，輸入您的憑證名稱 (例如：PPE\_SP)。
    
-    b.這是另一個 C# 主控台應用程式。 在 [有效開始日期] 文字方塊中輸入憑證屬性值的有效開始日期。
+    b. 在 [有效開始日期] 文字方塊中輸入憑證屬性值的有效開始日期。
    
     c.  在 [有效結束日期] 文字方塊中輸入憑證屬性值的有效結束日期。
    
@@ -209,7 +209,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     e.  在 [憑證] 文字方塊中貼上剪貼簿的內容。
    
-    f.  按一下 [確定] 。
+    f.  按一下 [SERVICEPRINCIPAL] 。
 
 15. 執行下列步驟： 
    
@@ -217,7 +217,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     a.  啟用 [x509 私密金鑰組]。
    
-    b.這是另一個 C# 主控台應用程式。  在 [服務提供者識別碼] 文字方塊中，輸入 **http://www.workday.com**。
+    b.  在 [服務提供者識別碼] 文字方塊中，輸入 **http://www.workday.com**。
    
     c.  選取 [啟用 SP 啟始的 SAML 驗證]。
    
@@ -229,7 +229,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguration.png "驗證要求簽章方法") 
    
-    g. 按一下 [確定] 。 
+    g. 按一下 [SERVICEPRINCIPAL] 。 
    
     ![確定](./media/active-directory-saas-workday-tutorial/IC782933.png "確定")
 <CE>
@@ -263,11 +263,11 @@ Workday 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-workday-test-user"></a>建立 Workday 測試使用者
 

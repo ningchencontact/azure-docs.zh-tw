@@ -4,7 +4,7 @@ description: "此主題示範如何在 Azure Active Directory B2C 中為您的�
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
-manager: ajalexander
+manager: mtillman
 ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: vigunase
-ms.openlocfilehash: b152c22c96da38f8724010504cc2711ab82af00a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C：在自訂原則中設定密碼變更  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -208,7 +208,7 @@ ms.lasthandoff: 10/11/2017
 2. 開啟新檔案，將 `<TrustFrameworkPolicy>` 的 `PolicyId` 屬性更新成唯一值。 這是原則的名稱 (例如，PasswordChange)。
 3. 修改 `<DefaultUserJourney>` 中的 `ReferenceId` 屬性，以符合您建立之新使用者旅程圖的 `Id` (例如，PasswordChange)。
 4. 儲存變更然後上傳檔案。
-5. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下立即執行。
+5. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下 [立即執行]。
 
 
 

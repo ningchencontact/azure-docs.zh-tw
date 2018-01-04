@@ -4,21 +4,21 @@ description: "本主題詳述何謂風險事件。"
 services: active-directory
 keywords: "azure active directory identity protection, 安全性, 風險, 風險層級, 弱點, 安全性原則"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -31,9 +31,13 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 - [不可能進入非慣用位置](#impossible-travel-to-atypical-locations) 
 - [從受感染的裝置登入](#sign-ins-from-infected-devices) 
 - [從具有可疑活動的 IP 位址登入](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) (專用於 **Azure Active Directory Premium P2** 版本)
+- [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) 
+
 
 ![風險事件](./media/active-directory-reporting-risk-events/91.png)
+
+偵測到的風險事件可獲得深入了解繫結至 Azure AD 訂用帳戶。 如果您有 Azure AD Premium P1 版本 （隨附於 EMS E3 供應項目） 時，偵測所未涵蓋的授權以回報**使用額外的風險，偵測到登入**。 換句話說，您會看到登入的風險事件與偵測到之偵測獨佔給 Azure AD Identity Protection 訂閱者的額外風險。
+
 
 本主題提供哪些屬於風險事件，以及您如何使用它們來保護 Azure AD 身分識別的概觀。
 
@@ -137,7 +141,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 不可能的移動通常會明顯指出駭客已能夠成功登入。 不過，當使用者使用新裝置或使用組織中其他使用者通常不會使用的 VPN 進行移動時，可能會發生誤判。 另一個誤判來源是誤將伺服器 IP 當作用戶端 IP 傳遞的應用程式，其可能會導致從裝載應用程式後端的資料中心進行登入 (這些通常是 Microsoft 資料中心，其可能導致從 Microsoft 擁有的 IP 位址進行登入)。 由於這些誤判，以致此風險事件的風險層級為**中**。
 
 > [!TIP]
-> 您可以藉由設定[具名位置](active-directory-named-locations.md)，來降低針對此風險事件類型所報告的誤判數量。 
+> 您可以減少這個風險事件類型的報告 false 誤判藉由設定[名為位置](active-directory-named-locations.md)。 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>從不熟悉的位置登入
 
@@ -166,11 +170,11 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 | 風險事件類型 | 風險層級 | 偵測類型 |
 | :-- | --- | --- |
 | [認證外洩的使用者](#leaked-credentials) | 高 | 離線 |
-| [從匿名 IP 位址登入](#sign-ins-from-anonymous-ip-addresses) | 中型 | 即時 |
-| [不可能進入非慣用位置](#impossible-travel-to-atypical-locations) | 中型 | 離線 |
-| [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) | 中型 | 即時 |
+| [從匿名 IP 位址登入](#sign-ins-from-anonymous-ip-addresses) | 中 | 即時 |
+| [不可能進入非慣用位置](#impossible-travel-to-atypical-locations) | 中 | 離線 |
+| [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) | 中 | 即時 |
 | [從受感染的裝置登入](#sign-ins-from-infected-devices) | 低 | 離線 |
-| [從具有可疑活動的 IP 位址登入](#sign-ins-from-ip-addresses-with-suspicious-activity) | 中型 | 離線|
+| [從具有可疑活動的 IP 位址登入](#sign-ins-from-ip-addresses-with-suspicious-activity) | 中 | 離線|
 
 您可以在何處找到已在您的環境中偵測到的風險事件？
 您可以在兩個地方檢閱已報告的風險事件：

@@ -4,7 +4,7 @@ description: "說明如何為 Windows VM 變更磁碟機代號，讓您能夠使
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4e29ce7ebb20753c3313e1148e1c91e853f49f5
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>使用 D: 磁碟機作為 Windows VM 上的資料磁碟機
 如果您的應用程式需要使用 D 磁碟機來儲存資料，請遵循下列指示，使用不同的磁碟機代號來代表暫存磁碟。 切勿使用暫存磁碟儲存需要保留的資料。
@@ -47,9 +47,9 @@ ms.lasthandoff: 10/11/2017
 1. 重新啟動 VM 之後，再次登入 VM。
 2. 按一下 [開始] 功能表，然後輸入 **diskmgmt.msc** 並按下 Enter 鍵。 隨即會啟動「磁碟管理」。
 3. 使用滑鼠右鍵按一下 **D**、暫存磁碟機，然後選取 [變更磁碟機代號及路徑]。
-4. 在磁碟機代號下方，選取新的磁碟機 (例如 **T**)，然後按一下確定。 
+4. 在磁碟機代號下方，選取新的磁碟機 (例如 **T**)，然後按一下 [確定]。 
 5. 使用滑鼠右鍵按一下資料磁碟，然後選取 [變更磁碟機代號及路徑] 。
-6. 在 磁碟機代號 下方，選取磁碟機 **D**，然後按一下確定。 
+6. 在 [磁碟機代號] 下方，選取磁碟機 **D**，然後按一下 [確定]。 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>將 pagefile.sys 移回暫存磁碟機
 1. 使用滑鼠右鍵按一下 [開始] 功能表，然後選取 [系統]。
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 5. 在 [虛擬記憶體] 區段中，選取 [變更]。
 6. 選取作業系統磁碟機 **C**，然後依序按一下 [沒有分頁檔] 和 [設定]。
 7. 選取暫存磁碟機 **T**，然後依序按一下 [系統管理大小] 和 [設定]。
-8. 按一下 [Apply (套用)] 。 您將會收到一則警告，表示電腦必須重新啟動，才能讓變更生效。
+8. 按一下 [套用]。 您將會收到一則警告，表示電腦必須重新啟動，才能讓變更生效。
 9. 重新啟動虛擬機器。
 
 ## <a name="next-steps"></a>後續步驟

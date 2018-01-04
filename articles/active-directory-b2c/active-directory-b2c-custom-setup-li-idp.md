@@ -4,7 +4,7 @@ description: "使用 OAuth2 通訊協定和自訂原則來設定 LinkedIn 應用
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f72fac677aa7d461f174b2b06db69df235273375
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -78,13 +78,13 @@ ms.lasthandoff: 10/24/2017
 4. 在 [選項] 方塊中，選取 [上傳]。
 
 5. 在 [名稱] 方塊中，輸入 **B2cRestClientCertificate**。  
-    可能會自動新增前置詞 *B2C_1A_*。
+    可能會自動新增前置詞 B2C_1A_。
 
 6. 在 [密碼] 方塊中，輸入來自[應用程式註冊入口網站](https://apps.dev.microsoft.com)的 LinkedIn 應用程式密碼。
 
 7. 針對 [金鑰使用方法] 選取 [加密]。
 
-8. 選取 [ **建立**]。 
+8. 選取 [建立] 。 
 
 9. 確認您已建立 `B2C_1A_LinkedInSecret` 金鑰。
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 10/24/2017
 
 2. 搜尋 `<UserJourneys>` 元素，選取 `<UserJourney>` 節點的整個內容，然後選取 [剪下]，將選取的文字移至剪貼簿。
 
-3. 開啟擴充檔案 (例如，TrustFrameworkExtensions.xml)，並搜尋 `<UserJourneys>` 元素。 如果此元素不存在，請新增。
+3. 開啟擴充檔案 (例如，TrustFrameworkExtensions.xml)，並搜尋 `<UserJourneys>` 元素。 如果此元素不存在，請加以新增。
 
 4. 將 `<UserJourney>` 節點的整個內容 (您已在步驟 2 將這些內容移至剪貼簿) 貼入 `<UserJourneys>` 元素中。
 
@@ -219,4 +219,4 @@ ms.lasthandoff: 10/24/2017
 您可能也想要將 LinkedIn 帳戶識別提供者新增至您的使用者 `ProfileEdit` 使用者旅程圖。 若要讓使用者旅程圖可供使用，請重複「步驟 4」。 此時，選取包含 `Id="ProfileEdit"` 的 `<UserJourney>` 節點。 儲存、上傳，並測試您的原則。
 
 ## <a name="optional-download-the-complete-policy-files"></a>(選用) 下載完整的原則檔案
-在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的情節。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app)，供您參考。
+在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的案例。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app)，供您參考。

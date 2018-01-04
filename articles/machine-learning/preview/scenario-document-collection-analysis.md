@@ -2,18 +2,19 @@
 title: "文件集合分析 - Azure | Microsoft Docs"
 description: "如何摘要及分析大型文件集合，包括片語學習、主題模型化，以及使用 Azure ML Workbench 的主題模型分析等技術。"
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>文件集合分析
 
@@ -72,7 +73,7 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="data-description"></a>資料說明
 
-此案例中使用的資料集包含美國國會所採取之每個立法行動的文字摘要和相關中繼資料。 資料是從 [GovTrack.us](https://www.govtrack.us/) 收集而來，該網站可追蹤美國國會的活動並協助美國公民參與其國家立法程序。 使用手動指令碼可透過[此連結](https://www.govtrack.us/data/congress/)下載大量資料，但該指令碼並未包含在此案例中。 在 [GovTrack API 文件](https://www.govtrack.us/developers/api)中可找到中如何下載資料的詳細資訊。
+在此案例中使用的資料集包含文字摘要和相關聯的中繼資料，針對每個立法美國國會所採取的動作。 資料是從 [GovTrack.us](https://www.govtrack.us/) 收集而來，該網站可追蹤美國國會的活動並協助美國公民參與其國家立法程序。 使用手動指令碼可透過[此連結](https://www.govtrack.us/data/congress/)下載大量資料，但該指令碼並未包含在此案例中。 在 [GovTrack API 文件](https://www.govtrack.us/developers/api)中可找到中如何下載資料的詳細資訊。
 
 ### <a name="data-source"></a>資料來源
 
@@ -84,15 +85,15 @@ ms.lasthandoff: 10/27/2017
 
 | 欄位名稱 | 類型 | 說明 | 包含遺漏值 |
 |------------|------|-------------|---------------|
-| `ID` | String | 法案/決議案的識別碼。 此欄位的格式為 [bill_type][number]-[congress]。 例如，"hconres1-93" 表示法案類型為 "hconres" (代表 House Concurrent Resolution，請參閱[本文件](https://github.com/unitedstates/congress/wiki/bills#basic-information))，法案編號為 '1' 且國會屆次為 '93'。 | 否 |
-| `Text` | String | 法案/決議案的內容。 | 否 |
-| `Date` | String | 法案/決議案的最初提案日期。 格式為 'yyyy-mm-dd'。 | 否 |
-| `SponsorName` | String | 提議法案/決議案的主要發起人名稱。 | 是 |
-| `Type` | String | 主要發起人的頭銜類型，'rep' (議員) 或 'sen' (參議員)。 | 是 |
-| `State` | String | 主要發起人的州別。 | 是 |
-| `District` | Integer | 主要發起人的轄區編號 (如果發起人的頭銜是議員的話)。 | 是 |
-| `Party` | String | 主要發起人的黨派。 | 是 |
-| `Subjects` | String | 由國會圖書館累積新增至法案的主題字詞。 字詞會以逗號串連。 這些字詞是由國會圖書館人員所轉寫，在首度發佈法案資訊時通常不存在。 可隨時加以新增。 因此，在法案的生命週期結束前，某些主題可能不再相關。 | 是 |
+| `ID` | 字串 | 法案/決議案的識別碼。 此欄位的格式為 [bill_type][number]-[congress]。 例如，"hconres1-93" 表示法案類型為 "hconres" (代表 House Concurrent Resolution，請參閱[本文件](https://github.com/unitedstates/congress/wiki/bills#basic-information))，法案編號為 '1' 且國會屆次為 '93'。 | 否 |
+| `Text` | 字串 | 法案/決議案的內容。 | 否 |
+| `Date` | 字串 | 法案/決議案的最初提案日期。 格式為 'yyyy-mm-dd'。 | 否 |
+| `SponsorName` | 字串 | 提議法案/決議案的主要發起人名稱。 | 是 |
+| `Type` | 字串 | 主要發起人的頭銜類型，'rep' (議員) 或 'sen' (參議員)。 | 是 |
+| `State` | 字串 | 主要發起人的州別。 | 是 |
+| `District` | 整數  | 主要發起人的轄區編號 (如果發起人的頭銜是議員的話)。 | 是 |
+| `Party` | 字串 | 主要發起人的黨派。 | 是 |
+| `Subjects` | 字串 | 由國會圖書館累積新增至法案的主題字詞。 字詞會以逗號串連。 這些字詞是由國會圖書館人員所轉寫，在首度發佈法案資訊時通常不存在。 可隨時加以新增。 因此，在法案的生命週期結束前，某些主題可能不再相關。 | 是 |
 
 ## <a name="scenario-structure"></a>案例結構
 

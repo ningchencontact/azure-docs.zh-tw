@@ -9,15 +9,15 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>開發 C# IoT Edge 模組並部署到您的模擬裝置 - 預覽
 
-您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於[在 Windows 中的模擬裝置上部署 Azure IoT Edge][lnk-tutorial1-win]，以及[在 Linux 中的模擬裝置上部署 Azure IoT Edge][lnk-tutorial1-lin] 這兩個教學課程中。 在本教學課程中，您將了解如何：    
+您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於[在 Windows 中的模擬裝置上部署 Azure IoT Edge][lnk-tutorial1-win]，以及[在 Linux 中的模擬裝置上部署 Azure IoT Edge][lnk-tutorial1-lin] 這兩個教學課程中。 在本教學課程中，您了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 建立以 .NET core 2.0 為基礎的 IoT Edge 模組
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/01/2017
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [容器] > [Azure Container Registry]。
 2. 為登錄提供名稱，選擇訂用帳戶，選擇資源群組，然後將 SKU 設定為 [基本]。 
-3. 選取 [ **建立**]。
+3. 選取 [建立] 。
 4. 建立容器登錄之後，請瀏覽至它並選取 [存取金鑰]。 
 5. 將 [管理使用者] 切換為 [啟用]。
 6. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 您在本教學課程後續的內容中將會用到這些值。 
@@ -210,7 +210,7 @@ ms.lasthandoff: 12/01/2017
 
 2. 以滑鼠右鍵按一下 [Dockerfile] 檔案，然後按一下 [建置 IoT Edge 模組的 Docker 映像]。 
 3. 在 [選取資料夾] 視窗中，瀏覽至或是輸入 `./bin/Debug/netcoreapp2.0/publish`。 按一下 [選取資料夾為 EXE_DIR]。
-4. 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 例如： `<your container registry address>/filtermodule:latest`。 容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`。
+4. 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 例如：`<your container registry address>/filtermodule:latest`。 容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`。
 5. 透過在 VS Code 整合式終端機中輸入下列命令來登入 Docker： 
      
    ```csh/sh
@@ -219,7 +219,7 @@ ms.lasthandoff: 12/01/2017
         
    使用您在建立 Azure 容器登錄時從中複製的使用者名稱、密碼及登入伺服器。
 
-3. 將映像推送到您的 Docker 存放庫。 選取 [檢視] > [命令選擇區]，然後搜尋 [Edge: 推送 IoT Edge 模組 Docker 映像] 功能表命令。 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 使用您在步驟 1.d 中使用的相同映像名稱。
+3. 將映像推送到您的 Docker 存放庫。 選取 [檢視] > [命令選擇區]，然後搜尋 [Edge: 推送 IoT Edge 模組 Docker 映像] 功能表命令。 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 使用您在步驟 4 中使用的相同映像名稱。
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>將登錄認證新增至 Edge 執行階段
 在執行 Edge 裝置的電腦上，將登錄的認證新增至 Edge 執行階段。 這些認證會將提取容器的存取權提供給執行階段。 
@@ -261,8 +261,8 @@ ms.lasthandoff: 12/01/2017
         }
         ```
  
-    6. 按一下 [儲存] 。
-12. 按一下 [下一步] 。
+    6. 按一下 [檔案] 。
+12. 按 [下一步] 。
 13. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 模組會將所有訊息發佈到 Edge 執行階段。 執行階段中的宣告式規則會定義訊息的流向。 在本教學課程中，您需要兩個路由。 第一個路由會透過使用 **FilterMessages** 處理常式設定的 "input1" 端點，將訊息從溫度感應器傳輸至篩選模組。 第二個路由會將訊息從篩選模組傳輸到 IoT 中樞。 在此路由中，`upstream` 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
 
     ```json
@@ -274,7 +274,7 @@ ms.lasthandoff: 12/01/2017
     }
     ```
 
-4. 按一下 [下一步] 。
+4. 按 [下一步] 。
 5. 在 [檢閱範本] 步驟中，按一下 [提交]。 
 6. 返回 IoT Edge 裝置的詳細資料頁面，按一下 [重新整理]。 您應該會看到新的 **filtermodule** 正在與 **tempSensor** 模組和 **IoT Edge 執行階段**一起執行。 
 

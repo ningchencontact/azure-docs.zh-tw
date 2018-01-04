@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,17 +27,18 @@ ms.lasthandoff: 10/11/2017
 本文提供 Azure Data Factory (第 2 版) 支援的運算式和函式的詳細資料。 
 
 ## <a name="introduction"></a>簡介
-定義中的 JSON 值可以是常值，或是在執行階段評估的運算式。 例如：  
+定義中的 JSON 值可以是常值，或是在執行階段評估的運算式。 例如︰  
   
 ```json
 "name": "value"
 ```
 
- 或  
+ （或者）  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [Data Factory V1 中的函式與變數](v1/data-factory-functions-variables.md)。
@@ -53,20 +54,96 @@ ms.lasthandoff: 10/11/2017
 |"@@"|傳回包含 '@' 的 1 個字元字串。|  
 |" @"|傳回包含 '@' 的 2 個字元字串。|  
   
- 使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ 使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- 使用字串插補時，結果一律為字串。 假設我將 `myNumber` 定義為 `42`，`myString` 定義為 ༖༗：  
+ 使用字串插補時，結果一律為字串。 假設我有定義`myNumber`為`42`和`myString`為`foo`:  
   
 |JSON 值|結果|  
 |----------------|------------|  
-|"@parameters('myString')"|傳回 `foo` 做為字串。|  
-|"@{parameters('myString')}"|傳回 `foo` 做為字串。|  
-|"@parameters('myNumber')"|傳回 `42` 做為「編號」。|  
-|"@{parameters('myNumber')}"|傳回 `42` 做為「字串」。|  
-|"Answer is: @{parameters('myNumber')}"|傳回字串 `Answer is: 42`。|  
-|"@concat('Answer is: ', string(parameters('myNumber')))"|傳回字串 `Answer is: 42`|  
-|"Answer is: @@{parameters('myNumber')}"|傳回字串 `Answer is: @{parameters('myNumber')}`。|  
+|「@pipeline（)。 parameters.myString"| 傳回 `foo` 做為字串。|  
+|"@{管線 （).parameters.myString}"| 傳回 `foo` 做為字串。|  
+|「@pipeline（)。 parameters.myNumber"| 傳回 `42` 做為「編號」。|  
+|"@{管線 （).parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
+|「 解決辦法就是: @{管線 （).parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
+|「@concat(' 解決辦法就是: '，string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
+|「 解決辦法就是: @ @ {管線 （).parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
   
+### <a name="examples"></a>範例
+
+#### <a name="a-dataset-with-a-parameter"></a>具有參數的資料集
+在下列範例中，BlobDataset 會採用名為**路徑**。 若要設定的值，則會使用該值**folderPath**屬性，方法是使用下列運算式： `@{dataset().path}`。 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "@dataset().path"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### <a name="a-pipeline-with-a-parameter"></a>具有參數的管線
+在下列範例中，管線會**inputPath**和**outputPath**參數。 **路徑**參數化的 blob 資料集使用這些參數的值來設定。 這裡使用的語法是： `pipeline().parameters.parametername`。 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
 ## <a name="functions"></a>Functions  
  您可以在運算式內呼叫函式。 下列各節提供可在運算式中使用之函式的相關資訊。  
@@ -76,7 +153,7 @@ ms.lasthandoff: 10/11/2017
   
 |函式名稱|說明|  
 |-------------------|-----------------|  
-|concat|結合任何數目的字串。 例如，如果 parameter1 是 `foo,`，下列運算式會傳回 `somevalue-foo-somevalue`：`concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：字串 *n*<br /><br /> **描述**︰必要。 要結合至單一字串的字串。|  
+|concat|結合任何數目的字串。 例如，如果 parameter1 是 `foo,`，下列運算式會傳回 `somevalue-foo-somevalue`：`concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：字串 *n*<br /><br /> **描述**︰必要。 要結合至單一字串的字串。|  
 |substring|從字串傳回字元的子集。 例如，下列運算式：<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 傳回：<br /><br /> `foo`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 從中採用子字串的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：開始索引<br /><br /> **描述**︰必要。 子字串在參數 1 中開始的索引。<br /><br /> **參數編號**：3<br /><br /> **名稱**：長度<br /><br /> **描述**︰必要。 子字串的長度。|  
 |取代|以指定的字串取代字串。 例如，運算式：<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 傳回：<br /><br /> `the new string`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。  若參數 2 在參數 1 中找到時，針對參數 2 搜尋和使用參數 3 更新的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：舊字串<br /><br /> **描述**︰必要。 在參數 1 中找到相符項目時，以參數 3 取代的字串<br /><br /> **參數編號**：3<br /><br /> **名稱**：新字串<br /><br /> **描述**︰必要。 在參數 1 中找到相符項目時，用來取代參數 2 中字串的字串。|  
 |GUID| 產生全域唯一字串 (亦稱為 GUID)。 例如，可能會產生下列輸出 `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`：<br /><br /> `guid()`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰格式<br /><br /> **描述**︰選擇性。 單一格式規範，指出[如何格式化這個 Guid 值](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)。 格式參數可以是 "N"、"D"、"B"、"P" 或 "X"。 如果未提供格式，則會使用 "D"。|  
@@ -109,7 +186,7 @@ ms.lasthandoff: 10/11/2017
   
 |函式名稱|說明|  
 |-------------------|-----------------|  
-|equals|如果兩個值相等，則傳回 true。 例如，如果 parameter1 是 foo，下列運算式會傳回 `true`：`equals(parameters('parameter1'), 'foo')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：物件 1<br /><br /> **描述**︰必要。 要與**物件 2** 比較的物件。<br /><br /> **參數編號**：2<br /><br /> **名稱**：物件 2<br /><br /> **描述**︰必要。 要與**物件 1** 比較的物件。|  
+|equals|如果兩個值相等，則傳回 true。 例如，如果 parameter1 是 foo，下列運算式會傳回 `true`：`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：物件 1<br /><br /> **描述**︰必要。 要與**物件 2** 比較的物件。<br /><br /> **參數編號**：2<br /><br /> **名稱**：物件 2<br /><br /> **描述**︰必要。 要與**物件 1** 比較的物件。|  
 |less|如果第一個引數小於第二個引數，則傳回 true。 請注意，值類型只能是整數、浮點數或字串。 例如，下列運算式會傳回 `true`：`less(10,100)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：物件 1<br /><br /> **描述**︰必要。 物件，以檢查其是否小於**物件 2**。<br /><br /> **參數編號**：2<br /><br /> **名稱**：物件 2<br /><br /> **描述**︰必要。 物件，以檢查其是否大於**物件 1**。|  
 |lessOrEquals|如果第一個引數小於或等於第二個引數，則傳回 true。 請注意，值類型只能是整數、浮點數或字串。 例如，下列運算式會傳回 `true`：`lessOrEquals(10,10)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：物件 1<br /><br /> **描述**︰必要。 物件，以檢查其是否小於或等於**物件 2**。<br /><br /> **參數編號**：2<br /><br /> **名稱**：物件 2<br /><br /> **描述**︰必要。 物件，以檢查其是否大於或等於**物件 1**。|  
 |greater|如果第一個引數大於第二個引數，則傳回 true。 請注意，值類型只能是整數、浮點數或字串。 例如，下列運算式會傳回 `false`：`greater(10,10)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：物件 1<br /><br /> **描述**︰必要。 物件，以檢查其是否大於**物件 2**。<br /><br /> **參數編號**：2<br /><br /> **名稱**：物件 2<br /><br /> **描述**︰必要。 物件，以檢查其是否小於**物件 1**。|  
@@ -137,11 +214,11 @@ ms.lasthandoff: 10/11/2017
 |函式名稱|說明|  
 |-------------------|-----------------|  
 |int|將參數轉換成整數。 例如，下列運算式會傳回 100 做為數字，而不是字串︰`int('100')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成整數的值。|  
-|string|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(parameters('foo'))`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成字串的值。|  
+|字串|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成字串的值。|  
 |json|將參數轉換成 JSON 類型值， 並且與 string() 相反。 例如，下列運算式會傳回 `[1,2,3]` 做為數字，而不是字串︰<br /><br /> `parse('[1,2,3]')`<br /><br /> 同樣地，您可以將字串轉換成物件。 例如，`json('{"bar" : "baz"}')` 會傳回：<br /><br /> `{ "bar" : "baz" }`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 轉換成原生類型值的字串。<br /><br /> JSON 函式也支援 XML 輸入。 例如，參數值︰<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 轉換為下列 JSON：<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|將參數引數轉換成浮點數。 例如，下列運算式會傳回 `10.333`：`float('10.333')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成浮點數的值。|  
 |布林|將參數轉換成布林值。 例如，下列運算式會傳回 `false`：`bool(0)`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成布林值的值。|  
-|coalesce|傳回傳入的引數中第一個非 null 的物件。 注意︰空字串不是 null。 例如，如果未定義參數 1 和 2，此範例會傳回 `fallback`：`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：物件*n*<br /><br /> **描述**︰必要。 要檢查其是否有 `null` 的物件。|  
+|coalesce|傳回傳入的引數中第一個非 null 的物件。 注意︰空字串不是 null。 例如，如果未定義參數 1 和 2，此範例會傳回 `fallback`：`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：物件*n*<br /><br /> **描述**︰必要。 要檢查其是否有 `null` 的物件。|  
 |base64|傳回輸入字串的 base64 表示法。 例如，下列運算式會傳回 `c29tZSBzdHJpbmc=`：`base64('some string')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰字串 1<br /><br /> **描述**︰必要。 要編碼為 base64 表示法的字串。|  
 |base64ToBinary|傳回 base64 編碼字串的二進位表示法。 例如，下列運算式會傳回某字串的二進位表示法：`base64ToBinary('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 base64 編碼的字串。|  
 |base64ToString|傳回 based64 編碼字串的字串表示法。 例如，下列運算式會傳回某字串：`base64ToString('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 base64 編碼的字串。|  
@@ -157,7 +234,7 @@ ms.lasthandoff: 10/11/2017
 |uriComponentToBinary|傳回 URI 編碼字串的二進位表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome` 的二進位表示法：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br />**描述**︰必要。 URI 編碼的字串。|  
 |uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br />**名稱**：字串<br /><br />**描述**︰必要。 URI 編碼的字串。|  
 |xml|傳回值的 XML 表示法。 例如，下列運算式會傳回以 `'\<name>Alan\</name>'` 表示的 XML 內容：`xml('\<name>Alan\</name>')`。 XML 函式也支援 JSON 物件輸入。 例如，參數 `{ "abc": "xyz" }` 轉換成 XML 內容 `\<abc>xyz\</abc>`<br /><br /> **參數編號**：1<br /><br />**名稱**︰值<br /><br />**描述**︰必要。 要轉換成 XML 的值。|  
-|xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。<br /><br />  **範例 1**<br /><br /> 假設參數 ‘p1’ 的值是下列 XML 的字串表示法：<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1.此程式碼：`xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> 會傳回<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 而<br /><br /> 2.此程式碼：`xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> 會傳回<br /><br /> `13`<br /><br /> <br /><br /> **範例 2**<br /><br /> 指定下列 XML 內容：<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 或<br /><br /> 2.此程式碼：`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 傳回<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 和<br /><br /> 3.此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 傳回<br /><br /> ``bar``<br /><br /> **參數編號**：1<br /><br />**名稱**：Xml<br /><br />**描述**︰必要。 要評估 XPath 運算式的 XML。<br /><br /> **參數編號**：2<br /><br />**名稱**：XPath<br /><br />**描述**︰必要。 要評估的 XPath 運算式。|  
+|xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。<br /><br />  **範例 1**<br /><br /> 假設參數 ‘p1’ 的值是下列 XML 的字串表示法：<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1.此程式碼：`xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 會傳回<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 而<br /><br /> 2.此程式碼：`xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 會傳回<br /><br /> `13`<br /><br /> <br /><br /> **範例 2**<br /><br /> 指定下列 XML 內容：<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 或<br /><br /> 2.此程式碼：`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 傳回<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 和<br /><br /> 3.此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 傳回<br /><br /> ``bar``<br /><br /> **參數編號**：1<br /><br />**名稱**：Xml<br /><br />**描述**︰必要。 要評估 XPath 運算式的 XML。<br /><br /> **參數編號**：2<br /><br />**名稱**：XPath<br /><br />**描述**︰必要。 要評估的 XPath 運算式。|  
 |array|將參數轉換成陣列。  例如，下列運算式會傳回 `["abc"]`：`array('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成陣列的值。|
 |createArray|從參數建立陣列。  例如，下列運算式會傳回 `["a", "c"]`：`createArray('a', 'c')`<br /><br /> **參數編號**：1 ... n<br /><br /> **名稱**︰任何 n<br /><br /> **描述**︰必要。 要結合到陣列的值。|
 

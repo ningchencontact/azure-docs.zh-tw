@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>使用 PowerShell 建立和管理 SQL Database 彈性作業 (預覽)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>彈性資料庫工作內的已加密認證
 資料庫認證可以插入至工作的「控制資料庫」，而且密碼會加密。 必須儲存認證，稍後才能執行工作 (使用工作排程)。
 
-加密是透過建立為安裝指令碼一部分的憑證來運作。 安裝指令碼會建立憑證並將其上傳至 Azure 雲端服務，以解密已儲存的加密密碼。 Azure 雲端服務稍後會在工作的「控制資料庫」  內儲存公開金鑰，讓 PowerShell API 或 Azure 傳統入口網站介面加密提供的密碼，而不需要在本機安裝憑證。
+加密是透過建立為安裝指令碼一部分的憑證來運作。 安裝指令碼會建立憑證並將其上傳至 Azure 雲端服務，以解密已儲存的加密密碼。 Azure 雲端服務之後儲存作業內的公用金鑰*控制資料庫*讓 PowerShell API 或 Azure 入口網站介面，而不需要在本機上安裝憑證，加密提供的密碼.
 
 認證密碼會加密，以防範對彈性資料庫工作物件只具有唯讀存取權的使用者。 但對於彈性資料庫工作物件具有讀寫存取權的惡意使用者，有可能會擷取密碼。 認證是設計為跨工作執行重複使用。 當建立連線時，認證會傳遞至目標資料庫。 用於每個認證的目標資料庫目前沒有限制，惡意使用者可以為他掌控之下的資料庫加入資料庫目標。 該使用者接著就可以針對此資料庫啟動工作，取得認證的密碼。
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>使用 Jenkins 和 Team Services 將您的應用程式部署至 Linux VM
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="before-you-begin"></a>開始之前
 
-* 您需要 Jenkins 伺服器的存取權。 如果您尚未建立 Jenkins 伺服器，請參閱[在 Azure 虛擬機器上建立 Jenkins 主要伺服器](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template)。 
+* 您需要 Jenkins 伺服器的存取權。 如果您尚未建立 Jenkins 伺服器，請參閱[在 Azure 虛擬機器上建立 Jenkins 主要伺服器](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template)。 
 
 * 登入您的 Team Services 帳戶 (**https://{youraccount}.visualstudio.com**)。 
   您可以取得[免費的 Team Services 帳戶](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)。
@@ -48,9 +48,9 @@ ms.lasthandoff: 11/09/2017
   > [!NOTE]
   > 如需詳細資訊，請參閱＜[連線至 Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)＞。
 
-*  若是部署目標，您需要 Linux 虛擬機器。  如需詳細資訊，請參閱[使用 Azure CLI 來建立和管理 Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm)。
+*  若是部署目標，您需要 Linux 虛擬機器。  如需詳細資訊，請參閱[使用 Azure CLI 來建立和管理 Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)。
 
-*  開啟虛擬機器的輸入連接埠 80。 如需詳細資訊，請參閱[使用 Azure 入口網站建立網路安全性群組](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)。
+*  開啟虛擬機器的輸入連接埠 80。 如需詳細資訊，請參閱[使用 Azure 入口網站建立網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)。
 
 ## <a name="get-the-sample-app"></a>取得範例應用程式
 

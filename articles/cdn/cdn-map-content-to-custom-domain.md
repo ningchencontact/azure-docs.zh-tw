@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: ec53b91b8aba4e38a8f7cb4b010d6be2a62150d5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>將自訂網域新增至 CDN 端點
-建立設定檔之後，通常也會建立一或多個 CDN [端點](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (`azureedge.net` 的子網域)，用來透過 HTTP 和 HTTPS 傳遞內容。 根據預設，此端點包含在您的所有 URL 內 (例如，`https://contoso.azureedge.net/photo.png`)。 為了方便起見，Azure CDN 可讓您在自訂網域 (例如，`www.contoso.com`) 與您的端點之間建立關聯。 使用此選項，您可以使用自訂網域 (而不是端點) 來傳遞內容。 這個選項非常有用，例如，基於品牌目的，您想讓客戶看到您自己的網域名稱。
+建立設定檔之後，通常也會建立一或多個 CDN 端點 (azureedge.net 的子網域)，用來透過 HTTP 和 HTTPS 傳遞內容。 根據預設，此端點包含在您的所有 URL 內，例如 `http(s)://contoso.azureedge.net/photo.png`。 為了方便起見，Azure CDN 提供在自訂網域 (例如，`www.contoso.com`) 與您的端點之間建立關聯的選項。 使用此選項，您可以使用自訂網域 (而不是端點) 來傳遞內容。 這個選項非常有用，例如，基於品牌目的，您想讓客戶看到您自己的網域名稱。
 
 如果您還沒有自訂網域，必須先向網域提供者購買。 取得自訂網域後，請遵循下列步驟：
 1. [存取網域提供者的 DNS 記錄](#step-1-access-dns-records-by-using-your-domain-provider)
 2. [建立 CNAME DNS 記錄](#step-2-create-the-cname-dns-records)
     - 選項 1：直接將自訂網域對應到 CDN 端點
-    - 選項 2：使用 cdnverify 將自訂網域對應到 CDN 端點 
+    - 選項 2： 您 CDN 端點的自訂網域的對應使用**cdnverify**子網域 
 3. [在 Azure 中啟用 CNAME 記錄對應](#step-3-enable-the-cname-record-mapping-in-azure)
 4. [確認自訂子網域參照您的 CDN 端點](#step-4-verify-that-the-custom-subdomain-references-your-cdn-endpoint)
 5. [(相依步驟) 將永久自訂網域對應到 CDN 端點](#step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint)
 
 ## <a name="step-1-access-dns-records-by-using-your-domain-provider"></a>步驟1：使用網域提供者存取 DNS 記錄
 
-如果您使用 Azure 來裝載您的 [DNS 網域](https://docs.microsoft.com/en-us/azure/dns/dns-overview)，必須將網域提供者的 DNS 委派給 Azure DNS。 如需詳細資訊，請參閱[將網域委派給 Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)。
+如果您使用 Azure 來裝載您的 [DNS 網域](https://docs.microsoft.com/azure/dns/dns-overview)，必須將網域提供者的 DNS 委派給 Azure DNS。 如需詳細資訊，請參閱[將網域委派給 Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)。
 
 反之，如果您是交由網域提供者來處理您的 DNS 網域，請登入網域提供者的網站。 找到管理 DNS 記錄的頁面 (可查閱提供者的文件或，尋找網站上標示**網域名稱**、**DNS** 或**名稱伺服器管理**的區域)。 通常可透過檢視您的帳戶資訊，尋找 [我的網域] 之類的連結，來找到 DNS 記錄分頁。 某些提供者會使用不同的連結來新增不同類型的記錄。
 
@@ -46,25 +46,25 @@ ms.lasthandoff: 12/01/2017
 
 您必須先透過網域提供者建立正式名稱 (CNAME) 記錄，才可以在 Azure CDN 端點使用自訂網域。 CNAME 記錄是一種在網域名稱系統 (DNS) 裡的記錄，可藉由指定「正式」或真實網域名稱的網域名稱別名，將來源網域對應至目的地網域。 在 Azure CDN 中，來源網域是您的自訂網域 (和子網域)，目的地網域是您的 CDN 端點。 當您從入口網站或 API 將自訂網域新增至端點時，Azure CDN 會去確認 DNS CNAME 記錄。 
 
-CNAME 記錄會對應到特定網域和子網域 (例如 `www.contoso.com` 或 `cdn.contoso.com`)；但 CNAME 記錄無法對應至根網域 (例如 `contoso.com`)。 子網域只可以和一個 CDN 端點關聯，您所建立的 CNAME 記錄會將所有定址至子網域的流量路由傳送至指定的端點。 例如，如果您將 `www.contoso.com` 與您的 CDN 端點產生關聯，則無法將它與其他 Azure 端點 (例如儲存體帳戶端點、雲端服務端點) 產生關聯。 不過，針對不同的服務端點，您可以使用來自相同網域的不同子網域。 您也可以將不同的子網域對應至相同的 CDN 端點。
+CNAME 記錄會對應到特定網域和子網域 (例如 `www.contoso.com` 或 `cdn.contoso.com`)；但 CNAME 記錄無法對應至根網域 (例如 `contoso.com`)。 子網域可以只與一個 CDN 端點產生關聯。 CNAME 記錄會將所有定址至子網域指定的端點的流量路由傳送。 例如，如果您將 `www.contoso.com` 與您的 CDN 端點產生關聯，則無法將它與其他 Azure 端點 (例如儲存體帳戶端點、雲端服務端點) 產生關聯。 不過，針對不同的服務端點，您可以使用來自相同網域的不同子網域。 您也可以將不同的子網域對應至相同的 CDN 端點。
 
 使用下列選項之一將自訂網域對應至 CDN 端點：
 
-- 選項 1：直接對應。 如果自訂網域上沒有執行生產流量，您可以直接將自訂網域對應到 CDN 端點。 在將自訂網域對應至 CDN 端點的過程中，可能會由於您在 Azure 入口網站中註冊網域而導致網域短暫停擺。 CNAME 對應項目的檔案格式應該如下： 
+- 選項 1： 直接對應您的自訂網域到 CDN 端點。 如果自訂網域上沒有執行生產流量，您可以直接將自訂網域對應到 CDN 端點。 在將自訂網域對應至 CDN 端點的過程中，可能會由於您在 Azure 入口網站中註冊網域而導致網域短暫停擺。 CNAME 對應項目的檔案格式應該如下： 
  
   | 名稱             | 類型  | 值                  |
   |------------------|-------|------------------------|
-  | www\.contoso.com | CNAME | contoso\.azureedge.net |
+  | `www.contoso.com` | `CNAME` | `contoso.azureedge.net` |
 
 
-- 選項 2：與 **cdnverify** 子網域對應。 如果不可中斷的生產流量在自訂網域上執行，您可以建立暫時 CNAME 來對應至 CDN 端點。 使用此選項，您可以使用 Azure **cdnverify** 子網域來提供中繼註冊步驟，讓使用者可以存取您的網域，而不會在 DNS 對應進行時中斷。
+- 選項 2： 您 CDN 端點的自訂網域的對應使用**cdnverify**子網域。 如果不可中斷的生產流量在自訂網域上執行，您可以建立暫時 CNAME 來對應至 CDN 端點。 使用此選項，您可以使用 Azure **cdnverify** 子網域來提供中繼註冊步驟，讓使用者可以存取您的網域，而不會在 DNS 對應進行時中斷。
 
-   1. 建立新的 CNAME 記錄，並提供包含 **cdnverify** 子網域的子網域別名。 例如，**cdnverify.www** 或 **cdnverify.cdn**。 
+   1. 建立新的 CNAME 記錄，並提供包含 **cdnverify** 子網域的子網域別名。 例如，`cdnverify.www` 或 `cdnverify.cdn`。 
    2. 以下列格式提供主機名稱 (也就是您的 CDN 端點)：`cdnverify.<EndpointName>.azureedge.net`。 CNAME 對應項目的檔案格式應該如下： 
 
    | 名稱                       | 類型  | 值                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
+   | `cdnverify.www.contoso.com` | `CNAME` | `cdnverify.contoso.azureedge.net` | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>步驟 3：在 Azure 中啟用 CNAME 記錄對應
@@ -97,13 +97,13 @@ CNAME 記錄會對應到特定網域和子網域 (例如 `www.contoso.com` 或 `
 
 ## <a name="step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint"></a>步驟 5 (相依步驟)：將永久自訂網域對應到 CDN 端點
 
-這個步驟取決於步驟 2 的選項 2 (與 **cdnverify** 子網域對應)。 如果您使用暫時 **cdnverify** 子網域且確認它能運作，您便可以將永久自訂網域對應到 CDN 端點。
+此步驟取決於步驟 2，選項 2： 您 CDN 端點的自訂網域的對應使用**cdnverify**子網域。 如果您使用暫時 **cdnverify** 子網域且確認它能運作，您便可以將永久自訂網域對應到 CDN 端點。
 
 1. 在您的網域提供者網站上建立 CNAME DNS 記錄，來將永久自訂網域對應至 CDN 端點。 CNAME 對應項目的檔案格式應該如下： 
  
    | 名稱             | 類型  | 值                  |
    |------------------|-------|------------------------|
-   | www\.contoso.com | CNAME | contoso\.azureedge.net |
+   | `www.contoso.com` | `CNAME` | `contoso.azureedge.net` |
 2. 刪除具有您先前建立之 **cdnverify** 子網域的 CNAME 記錄。
 
 ## <a name="see-also"></a>另請參閱

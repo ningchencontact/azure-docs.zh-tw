@@ -3,7 +3,7 @@ title: "為 DevTest Labs 虛擬機器建立自訂構件 | Microsoft Docs"
 description: "了解如何撰寫自己的構件以用於 Azure DevTest Labs。"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>為 DevTest Labs 虛擬機器建立自訂構件
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 | 說明 |是 |實驗室中顯示的構件說明。 |
 | iconUri |否 |實驗室中顯示的圖示 URI。 |
 | targetOsType |是 |構件安裝所在之 VM 的作業系統。 支援的選項為 Windows 和 Linux。 |
-| 參數 |否 |在電腦上執行構件安裝命令時所提供的值。 這可協助您自訂構件。 |
+| parameters |否 |在電腦上執行構件安裝命令時所提供的值。 這可協助您自訂構件。 |
 | runCommand |是 |在 VM 上執行的構件安裝命令。 |
 
 ### <a name="artifact-parameters"></a>構件參數
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 | 元素名稱 | 必要？ | 說明 |
 | --- | --- | --- |
-| 類型 |是 |參數值類型。 請參閱下列清單以了解允許的類型。 |
+| type |是 |參數值類型。 請參閱下列清單以了解允許的類型。 |
 | displayName |是 |為實驗室中的使用者顯示的參數名稱。 | |
 | 說明 |是 |在實驗室中顯示的參數說明。 |
 

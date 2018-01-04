@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
 了解 Azure 資源健康狀態相關常見問題的答案。
@@ -80,8 +80,6 @@ ms.lasthandoff: 10/11/2017
 - 美國國防部中央
 - 德國中部
 - 德國東北部
-- 中國東部
-- 中國北部
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>資源健康狀態與服務健康狀態儀表板或 Azure 入口網站服務通知有何不同？
 資源健康狀態可提供比 Azure 服務健康情況儀表板更明確的資訊。
@@ -97,7 +95,7 @@ ms.lasthandoff: 10/11/2017
 編號  不需進行任何安裝，即可在 Azure 入口網站內存取 Azure 資源健康狀態。
 
 ## <a name="is-resource-health-available-free-of-charge"></a>是否可免費使用資源健康狀態？
-是。  Azure 資源健康狀態是免費的。
+可以。  Azure 資源健康狀態是免費的。
 
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>資源健康狀態所提供的建議有哪些？
 根據健康狀態，資源健康狀態會為您提供建議，旨在讓您減少疑難排解所花費的時間。 針對可用的資源，建議著重於如何解決客戶會發生的最常見問題。 如果資源是因為 Azure 未規劃事件而無法使用，則會著重於在復原程序期間以及之後協助您。 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企業推送架構指引
 當代的企業正逐漸朝著為使用者 (外部) 或員工 (內部) 建立行動應用程式的方向邁進。 他們擁有現成的後端系統 (大型主機或一些 LoB 應用程式)，而這些系統必須整合到行動應用程式架構中。 本指南將討論如何以最佳方式進行整合，以及推薦常見案例適用的可行方案。
@@ -212,7 +212,7 @@ ms.lasthandoff: 10/11/2017
    
     ![][3]
    
-    g. 將作業設定為 [連續執行]，如此一來，當您登入 [Azure 傳統入口網站]時，應能看見與以下範例相似的內容：
+    g. 設定工作是 「 持續執行 」，如此當您登入[Azure 入口網站]您應該會看到類似下列：
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ ms.lasthandoff: 10/11/2017
 3. 執行 **EnterprisePushBackendSystem** 主控台應用程式以模擬 LoB 後端。它會開始傳送訊息，因此您應該會看見與以下範例相似的快顯通知：
    
     ![][5]
-4. 這些訊息最初是傳送給受到 WebJob 中服務匯流排訂閱監視的服務匯流排主題。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 在 [Azure 傳統入口網站] 中，當您前往 WebJob 的 [記錄檔] 連結時，可以瀏覽 WebJob 記錄檔來確認處理狀態：
+4. 這些訊息最初是傳送給受到 WebJob 中服務匯流排訂閱監視的服務匯流排主題。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 您可以查看 WebJob 記錄檔，以確認處理程序，當您移到中的記錄檔連結[Azure 入口網站]Web 工作：
    
     ![][6]
 
@@ -264,4 +264,4 @@ ms.lasthandoff: 10/11/2017
 [服務匯流排發佈/訂用帳戶程式撰寫]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
 [通知中樞 - Windows Universal 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure 傳統入口網站]: https://manage.windowsazure.com/
+[Azure 入口網站]: https://portal.azure.com/

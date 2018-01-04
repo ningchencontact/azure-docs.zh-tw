@@ -121,6 +121,9 @@
       items:
         - name: 使用 Power Query 進行分析
           href: apache-hadoop-connect-excel-power-query.md
+        - name: 將 Power BI 與互動式查詢連線
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: 將 Power BI 連線到 Hadoop
           href: apache-hadoop-connect-hive-power-bi.md
         - name: 將 Excel 連接到 Hadoop

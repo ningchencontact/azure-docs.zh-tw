@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 WORKS MOBILE 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 760fbb21c86fa14808f9a946c2c2fd0814bfb139
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 23d57bf81e15bf23d26a1e323f7cd04ee5f35d13
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>教學課程：Azure Active Directory 與 WORKS MOBILE 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/16/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 WORKS MOBILE
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-works-mobile-from-the-gallery"></a>從資源庫新增 WORKS MOBILE
-若要設定將 WORKS MOBILE 整合到 Azure AD 中，您必須從資源庫將 WORKS MOBILE 新增到受管理的 SaaS 應用程式清單。
+若要設定將 WORKS MOBILE 整合到 Azure AD 中，您必須從資源庫將 WORKS MOBILE 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 WORKS MOBILE，請執行下列步驟：**
 
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/16/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **WORKS MOBILE**。
 
@@ -112,10 +112,10 @@ ms.lasthandoff: 10/16/2017
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，以 `worksmobile.com` 形式輸入值
+    b. 在 [識別碼] 文字方塊中，以 `worksmobile.com` 形式輸入值
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [WORKS MOBILE 用戶端支援小組](mailto:dl_ssoinfo@worksmobile.com)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [WORKS MOBILE 用戶端支援小組](mailto:dl_ssoinfo@worksmobile.com)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (原始)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -167,11 +167,11 @@ ms.lasthandoff: 10/16/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-works-mobile-test-user"></a>建立 WORKS MOBILE 測試使用者
 

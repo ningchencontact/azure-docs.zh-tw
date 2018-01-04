@@ -4,7 +4,7 @@ description: "適用於自訂設定的 Azure AD Connect 使用者登入。"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
 Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的密碼來登入雲端和內部部署資源。 本文說明每個身分識別模型的主要概念，以協助您選擇要用於登入 Azure AD 的身分識別。
@@ -28,6 +28,10 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 * 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[密碼雜湊同步處理](#password-synchronization)
 * 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
 * [同盟 SSO (搭配 Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> 請務必記得，藉由設定 Azure AD 的同盟，您建立信任 Azure AD 租用戶與您的同盟的網域之間。 與此信任的同盟網域的使用者必須在租用戶的 Azure AD 雲端資源的存取權。  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>為您的組織選擇使用者登入方法
 針對只想要讓使用者登入 Office 365、SaaS 應用程式及其他 Azure AD 型資源的大多數組織，建議使用預設的密碼雜湊同步處理選項。 不過，有些組織有無法使用此選項的特定原因。 它們可以選擇同盟登入選項 (例如 AD FS) 或傳遞驗證。 您可使用下表來協助您做正確的選擇。
@@ -60,7 +64,7 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 此外，您也可以針對公司網路中已加入網域的電腦上使用者啟用單一登入。 在使用單一登入的情況下，已啟用的使用者只需輸入使用者名稱，即可安全地存取雲端資源。
 ![傳遞驗證](./media/active-directory-aadconnect-user-signin/pta.png)
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 - [傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
 - [單一登入](active-directory-aadconnect-sso.md)
 

@@ -4,7 +4,7 @@ description: "使用 Azure AD v2.0 的 OpenID Connect 驗證通訊協定實作�
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
 OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用者安全地登入 Web 應用程式。 當您使用 v2.0 端點的 OpenID Connect 實作時，可以在您的 Web 型應用程式中新增登入和 API 存取。 在本文中，我們將示範如何在不受語言限制的情況下執行此操作。 我們將說明如何傳送及接收 HTTP 訊息，但不使用任何 Microsoft 開放原始碼程式庫。
@@ -78,7 +78,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * `response_type` 參數必須包含 `id_token`。
 * 要求必須包含 `nonce` 參數。
 
-例如：
+例如︰
 
 ```
 // Line breaks are for legibility only.

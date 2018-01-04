@@ -4,7 +4,7 @@ description: "透過 OpenID 連線 (OIDC) 通訊協定使用 Microsoft 作為識
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 8c981046ff41d3927ff60d6dc4f40366ae25ba74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Microsoft 帳戶 - 複製新密碼](media/active-directory-b2c-custom-setup-ms-account-idp/msa-new-password.png)
 
-9.  勾選 [進階選項] 區段底下顯示 [Live SDK 支援] 的方塊。 按一下 [儲存] 。
+9.  勾選 [進階選項] 區段底下顯示 [Live SDK 支援] 的方塊。 按一下 [檔案] 。
 
     ![Microsoft 帳戶 - Live SDK 支援](media/active-directory-b2c-custom-setup-ms-account-idp/msa-live-sdk-support.png)
 

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 xMatters OnDemand �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 9bfcb44ed19f167872b3cd9119e2dbdd35c82604
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ac4d4b5d810aca41620a5af2d29b86f07c1c031f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>教學課程：Azure Active Directory 與 xMatters OnDemand 整合
 
@@ -47,13 +47,13 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 xMatters OnDemand
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-xmatters-ondemand-from-the-gallery"></a>從資源庫新增 xMatters OnDemand
-若要設定將 xMatters OnDemand 整合到 Azure AD 中，您需要從資源庫將 xMatters OnDemand 新增到受管理的 SaaS 應用程式清單。
+若要設定將 xMatters OnDemand 整合到 Azure AD 中，您需要從資源庫將 xMatters OnDemand 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 xMatters OnDemand，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **xMatters OnDemand**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. 在結果窗格中，選取 xMatters OnDemand，然後按一下新增 按鈕來新增應用程式。
+5. 在結果窗格中，選取 [xMatters OnDemand]，然後按一下 [新增] 按鈕來新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
@@ -119,7 +119,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
     | `https://www.xmatters.com`|
     | `https://<companyname>.xmatters.com.au/`|
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -157,7 +157,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
    
     a. 選取 [啟用 SAML] 。
    
-    b.這是另一個 C# 主控台應用程式。 將您從 Azure 入口網站複製的「SAML 實體識別碼」貼到 [識別提供者識別碼] 文字方塊中。
+    b. 將您從 Azure 入口網站複製的「SAML 實體識別碼」貼到 [識別提供者識別碼] 文字方塊中。
    
     c. 將您從 Azure 入口網站複製的「SAML 單一登入服務 URL」貼到 [單一登入 URL] 文字方塊中。
    
@@ -196,11 +196,11 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>建立 xMatters OnDemand 測試使用者
 
@@ -209,7 +209,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
 1. 登入 **xMatters OnDemand** 租用戶。
 
-2.  按一下 使用者 索引標籤，然後按一下新增使用者。
+2.  按一下 [使用者] 索引標籤，然後按一下 [新增使用者]。
   
     ![使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "使用者")
 
@@ -219,7 +219,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 
     a. 選取 [使用中] 。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者識別碼] 文字方塊中，輸入使用者的使用者識別碼，例如 Brittasimon@contoso.com。
+    b. 在 [使用者識別碼] 文字方塊中，輸入使用者的使用者識別碼，例如 Brittasimon@contoso.com。
    
     c. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
 
@@ -227,7 +227,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
     
     e. 在 [網站] 文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的有效網站。
     
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

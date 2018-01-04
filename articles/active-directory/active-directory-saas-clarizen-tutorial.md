@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Clarizen 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>教學課程：Azure Active Directory 與 Clarizen 整合
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 測試環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="add-clarizen-from-the-gallery"></a>從資源庫新增 Clarizen
-若要設定 Clarizen 與 Azure AD 整合，從資源庫將 Clarizen 新增至受管理的 SaaS 應用程式清單中。
+若要設定 Clarizen 與 Azure AD 整合，從資源庫將 Clarizen 新增至受控 SaaS 應用程式清單中。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
     ![在搜尋方塊中，輸入「Clarizen」](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. 在結果窗格中，選取 Clarizen，然後按一下新增 以新增應用程式。
+5. 在結果窗格中，選取 [Clarizen]，然後按一下 [新增] 以新增應用程式。
 
     ![在結果窗格中選取 Clarizen](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
     > [!NOTE]
     > 這些不是真正的值。 您必須使用實際的識別碼和回覆 URL。 在此建議您使用唯一的字串值做為識別碼。 若要取得實際的值，請連絡 [Clarizen 支援小組](https://success.clarizen.com/hc/en-us/requests/new)。
 
-4. 在 [SAML 簽署憑證] 區段中，按一下 [建立新憑證]。
+4. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
 
     ![按一下 [建立新的憑證]](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 
     ![選取並儲存到期日](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
 
-6. 在 SAML 簽署憑證 區段上，選取 啟用新憑證，然後按一下儲存。
+6. 在 [SAML 簽署憑證] 區段上，選取 [啟用新憑證]，然後按一下 [儲存]。
 
     ![選取核取方塊以啟用新憑證](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 10/11/2017
 
 10. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Clarizen 公司網站。
 
-11. 按一下您的使用者名稱，然後按一下設定。
+11. 按一下您的使用者名稱，然後按一下 [設定]。
 
     ![按一下您的使用者名稱底下的 [設定]](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "設定")
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
     e. 選取 [使用 POST] 。
 
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 在 Azure 入口網站中，建立名稱為 Britta Simon 的測試使用者。
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Azure Active Directory 圖示](./media/active-directory-saas-clarizen-tutorial/create_aaduser_01.png)
 
-2. 按一下 使用者和群組，然後按一下所有使用者 以顯示使用者清單。
+2. 按一下 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
 
     ![按一下 [使用者和群組] 與 [所有使用者]](./media/active-directory-saas-clarizen-tutorial/create_aaduser_02.png)
 
@@ -182,7 +182,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
 
 ### <a name="create-a-clarizen-test-user"></a>建立 Clarizen 測試使用者
 若要讓 Azure AD 使用者登入 Clarizen，您必須佈建使用者帳戶。 Clarizen 需以手動方式佈建。
@@ -213,7 +213,7 @@ ms.lasthandoff: 10/11/2017
 
 ![已指派測試使用者][200]
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，瀏覽至目錄檢視，按一下 企業應用程式，然後按一下所有應用程式。
+1. 在 Azure 入口網站中，開啟應用程式檢視，瀏覽至目錄檢視，按一下 [企業應用程式]，然後按一下 [所有應用程式]。
 
     ![按一下 [企業應用程式] 和 [所有應用程式]][201]
 

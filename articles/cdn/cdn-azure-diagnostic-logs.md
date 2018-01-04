@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -95,7 +95,7 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
     在設定 Log Analytics 設定之後，請確定您已選取 **CoreAnalytics**。
 
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 7. 若要查看新的 OMS 工作區，請前往 Azure 入口網站的儀表板，然後按一下 Log Analytics 工作區的名稱。 按一下 [OMS 入口網站] 圖格，以檢視您在 OMS 存放庫中的工作區。 
 
@@ -261,7 +261,7 @@ Log Analytics 是 Operations Management Suite (OMS) 中的一項服務，可監�
 
 ### <a name="offers-and-pricing-tiers"></a>優惠和定價層
 
-您可以在[這裡](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)看到 OMS 管理解決方案的供應項目和定價層。
+您可以在[這裡](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)看到 OMS 管理解決方案的供應項目和定價層。
 
 ### <a name="customizing-views"></a>自訂檢視
 
@@ -410,8 +410,8 @@ Verizon 記錄資料會延遲 1 小時，端點傳播完成後需花費最多 2 
 
 * [Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [分析 Azure CDN 使用模式](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

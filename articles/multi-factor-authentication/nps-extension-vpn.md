@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure MFA, 整合 VPN, Azure Active Directory, 網路原則伺服器擴充功能"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -342,7 +342,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
  
 8. 在 [使用者] 索引標籤上選取您想要啟用 MFA 的使用者，然後選取 [啟用]。
 
-    ![屬性](./media/nps-extension-vpn/image27.png)
+    ![properties](./media/nps-extension-vpn/image27.png)
  
 9. 當系統提示您時，選取 [啟用 Multi-Factor Authentication]。
 
@@ -549,7 +549,7 @@ Azure Multi-Factor Authentication 記錄中的相關事件顯示如下：
 ## <a name="next-steps"></a>後續步驟
 [取得 Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
-[使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)
+[使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)
 
 [整合您的內部部署目錄與 Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
 

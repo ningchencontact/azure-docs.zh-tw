@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/12/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 16c17bd5635a6f61077e52196fdb8efe901f8050
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell (預覽) 中 PowerShell 的功能和工具
 
@@ -47,7 +47,7 @@ Cloud Shell (預覽) 中的 PowerShell 會安全地自動驗證 Azure PowerShell
 
 Cloud Shell (預覽) 中的 PowerShell 可讓您在 Azure 磁碟機 (`Azure:`) 中開始。
 Azure 磁碟機會啟用輕鬆探索和導覽與檔案系統導覽類似的 Azure 資源 (例如計算、網路、儲存體等等)。
-您可以繼續使用熟悉的 [Azure PowerShell Cmdlet](https://docs.microsoft.com/en-us/powershell/azure) 來管理這些資源。
+您可以繼續使用熟悉的 [Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure) 來管理這些資源。
 對 Azure 資源進行的任何變更 (在 Azure 入口網站中直接進行，或透過 Azure PowerShell Cmdlet) 都會立即反映在 Azure 磁碟機中。
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ IntelliSense 支援的實作是透過與 [PowerShell Editor Services](https://gi
 
 |**類別**    |**名稱**                                 |
 |----------------|-----------------------------------------|
-|Azure 工具     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Azure 工具     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |文字編輯器    |vim<br> nano                             |
 |套件管理員 |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |原始檔控制  |git                                      |

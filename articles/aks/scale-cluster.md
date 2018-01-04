@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 299eb74686f00dc6d5eb9a1c6127aa134dcd9b77
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>調整 Azure Container Service (AKS) 叢集
 
-將 AKS 叢集調整為不同數目的節點很簡單。  選取想要的節點數目，然後執行 `az aks scale` 命令。  相應減少時，會仔細地[隔離並清空](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) \(英文\) 節點，將執行應用程式的中斷情況降到最低。  相應增加時，`az` 命令會一直等待，直到 Kubernetes 叢集將節點標示 `Ready` 為止。
+將 AKS 叢集調整為不同數目的節點很簡單。  選取想要的節點數目，然後執行 `az aks scale` 命令。  節點就會向下擴充時仔細[cordoned 和清空][ kubernetes-drain]執行應用程式的中斷情況降到最低。  相應增加時，`az` 命令會一直等待，直到 Kubernetes 叢集將節點標示 `Ready` 為止。
 
 ## <a name="scale-the-cluster-nodes"></a>調整叢集節點
 
@@ -88,4 +88,10 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
 使用 AKS 教學課程深入了解部署和管理 AKS。
 
 > [!div class="nextstepaction"]
-> [AKS 教學課程](./tutorial-kubernetes-prepare-app.md)
+> [AKS 教學課程][aks-tutorial]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

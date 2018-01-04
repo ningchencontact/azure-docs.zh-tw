@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/11/2017
 ms.author: asgang
-ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Dynamics AX 應用程式
 
@@ -31,7 +31,6 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 為 Dynamics AX 應用程式建立災害復原解決方案。 文中也探討使用單鍵復原方案、支援的組態和必要條件進行計劃性/非計劃性的測試容錯移轉。
 
-架構在 Site Recovery 上的災害復原解決方案已經過完整測試、認證並由 Dynamics AX 建議。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -187,7 +186,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 如需執行容錯回復的詳細資訊，請參閱[將 VMware VM 從 Azure 容錯回復到內部部署](site-recovery-failback-azure-to-vmware.md)。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 使用 Site Recovery，可以為 Dynamics AX 應用程式建立一個完整的自動化災害復原方案。 當發生中斷時，可以在幾秒鐘內從任何地方起始容錯移轉，並且在數分鐘內啟動並執行應用程式。
 
 ## <a name="next-steps"></a>後續步驟

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>保留的 IP 位址 (傳統)
 
@@ -34,7 +34,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。 依預設由 Azure
 若要防止 IP 位址變更，您可以保留 IP 位址。 保留的 IP 只能用來作為 VIP，用以確保在即使資源關閉或停止 (解除配置) 的情況下，雲端服務的 IP 位址也會保持相同。 此外，您可以轉換現有的動態 IP，作為保留的 IP 位址的 VIP。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)來保留靜態公用 IP 位址。
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)來保留靜態公用 IP 位址。
 
 若要深入了解 Azure 中的 IP 位址，請閱讀 [IP 位址](virtual-network-ip-addresses-overview-classic.md)文章。
 
@@ -45,7 +45,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。 依預設由 Azure
 
 ## <a name="faq"></a>常見問題集
 1. 我是否可以針對所有 Azure 服務都使用保留的 IP？ <br>
-    否。 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
+    編號 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
 2. 我可以有多少保留的 IP？ <br>
     如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 3. 保留的 IP 是否會收取費用？ <br>
@@ -53,7 +53,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。 依預設由 Azure
 4. 我該如何保留 IP 位址？ <br>
     您可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 入口網站](https://portal.azure.com)，在 Azure 區域中保留 IP 位址。 保留的 IP 位址會與您的訂用帳戶關聯。
 5. 我是否可以將保留的 IP 位址與同質群組型 VNet 搭配使用？ <br>
-    否。 保留的 IP 僅在區域 VNet 才受支援。 與同質群組關聯的 VNet 不支援保留的 IP。 如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)一文。
+    編號 保留的 IP 僅在區域 VNet 才受支援。 與同質群組關聯的 VNet 不支援保留的 IP。 如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)一文。
 
 ## <a name="manage-reserved-vips"></a>管理保留的 VIP
 

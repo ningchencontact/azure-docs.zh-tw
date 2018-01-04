@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Symantec Web Securit
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 61576d3a915d209e7355e04432e586dcf66e7c5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 35427941a084e6750d66ccd3e135d7eef1767c6c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>教學課程：Azure Active Directory 與 Symantec Web Security Service (WSS) 整合
 
@@ -51,13 +51,13 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會將 Azure AD 設定為能夠使用 Azure AD 帳戶中所定義的使用者認證來對 WSS 進行單一登入。
-本教學課程中說明的案例由二個主要建置組塊組成：
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Symantec Web Security Service (WSS) 應用程式
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-symantec-web-security-service-wss-from-the-gallery"></a>從資源庫新增 Symantec Web Security Service (WSS)
-若要設定 Symantec Web Security Service (WSS) 與 Azure AD 整合，您需要從資源庫將 Symantec Web Security Service (WSS) 新增到受管理的 SaaS App 清單。
+若要設定 Symantec Web Security Service (WSS) 與 Azure AD 整合，您需要從資源庫將 Symantec Web Security Service (WSS) 新增到受控 SaaS App 清單。
 
 **若要從資源庫新增 Symantec Web Security Service (WSS)，請執行下列步驟：**
 
@@ -143,7 +143,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-symantec-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-symantec-tutorial/create_aaduser_02.png)
 
@@ -161,7 +161,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-symantec-web-security-service-wss-test-user"></a>建立 Symantec Web Security Service (WSS) 測試使用者
 

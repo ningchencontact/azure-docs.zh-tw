@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Benefitsolver 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: f8cf8ceabcb3fea7c22f08ec86155f60527297eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>教學課程：Azure Active Directory 與 Benefitsolver 整合
 
@@ -48,13 +48,13 @@ Benefitsolver 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Benefitsolver
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-benefitsolver-from-the-gallery"></a>從資源庫新增 Benefitsolver
-若要設定將 Benefitsolver 整合到 Azure AD 中，您需要從資源庫將 Benefitsolver 新增到受管理的 SaaS 應用程式清單中。
+若要設定將 Benefitsolver 整合到 Azure AD 中，您需要從資源庫將 Benefitsolver 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Benefitsolver，請執行下列步驟：**
 
@@ -150,7 +150,7 @@ Benefitsolver 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. 若要在 **Benefitsolver** 端設定單一登入，您必須將已下載的「中繼資料 XML」傳送給 [Benefitsolver 支援小組](https://www.businessolver.com/contact)。
+8. 若要設定單一登入上**Benefitsolver**端，您需要傳送下載**中繼資料 XML**至[Benefitsolver 支援小組](https://www.businessolver.com/contact)。
 
     > [!NOTE]
     > Benefitsolver 支援小組必須執行實際的 SSO 組態。 當您的訂用帳戶啟用 SSO 之後，您會收到通知。
@@ -171,7 +171,7 @@ Benefitsolver 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-benefitsolver-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-benefitsolver-tutorial/create_aaduser_02.png)
 
@@ -189,7 +189,7 @@ Benefitsolver 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-benefitsolver-test-user"></a>建立 Benefitsolver 測試使用者
 

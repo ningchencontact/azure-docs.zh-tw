@@ -4,7 +4,7 @@
 本文可解決以傳統部署模型建立之 Azure 虛擬機器的一些使用者常見問題。
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>我是否可以將在傳統部署模型中建立的 VM 移轉到新的 Resource Manager 模型？
-是。 如需有關如何移轉的指示，請參閱：
+可以。 如需有關如何移轉的指示，請參閱：
 
 * [使用 Azure PowerShell 從傳統移轉至 Azure Resource Manager](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md)。
 * [使用 Azure CLI 從傳統移轉至 Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)。
@@ -58,7 +58,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。 如果您想要在 Azure 中�
 
 對於 Windows VM，其他選項包括：
 
-* 在 Azure 傳統入口網站中，找出 VM，然後從命令列按一下 [重設遠端存取]  。
+* 在 Azure 入口網站中，找出 VM，然後按一下 **重設遠端存取**從命令列。
 * 檢閱[針對以 Windows 為基礎的 Azure 虛擬機器的遠端桌面連線進行疑難排解](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 使用 Windows PowerShell 遠端功能以連線到 VM，或建立其他資源的額外端點來連線至 VM。 如需詳細資訊，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
@@ -85,7 +85,7 @@ Azure 提供的映像沒有預先設定的使用者名稱和密碼。 當您使�
 
 其他詳細資料：
 
-* 針對 Linux 映像，如果您使用 Azure 傳統入口網站，則預設使用者名稱會是 ‘azureuser’，但是您可以使用 [從資源庫] 代替使用 [快速建立] 做為建立虛擬機器的方式，來變更預設使用者名稱。 使用 [從資源庫] 也可讓您決定是否要使用密碼、SSH 金鑰，或同時使用兩者來登入。 此使用者帳戶是非特殊權限使用者，但有 'sudo' 存取權限可以執行特殊權限命令。 'root' 帳戶已停用。
+* 針對 Linux 映像中，如果您使用 Azure 入口網站，'azureuser' 指定為預設的使用者名稱，但您可以變更此為建立虛擬機器的方式使用 ' 從組件庫 」 而不是 [快速建立]。 使用 [從資源庫] 也可讓您決定是否要使用密碼、SSH 金鑰，或同時使用兩者來登入。 此使用者帳戶是非特殊權限使用者，但有 'sudo' 存取權限可以執行特殊權限命令。 'root' 帳戶已停用。
 * 針對 Windows 映像，當您建立 VM 時需要提供使用者名稱和密碼。 帳戶會加入至系統管理員群組。
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure 可以在我的虛擬機器上執行防毒軟體嗎？
@@ -96,7 +96,7 @@ Azure 提供數個防毒軟體解決方案的選項，但管理則掌握在您�
 * [在 Azure 虛擬機器上部署反惡意程式碼解決方案](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>備份和復原有哪些選擇？
-Azure 備份在特定地區以預覽版提供。 如需詳細資訊，請參閱 [備份 Azure 虛擬機器](../articles/backup/backup-azure-vms.md)。 來自認證合作夥伴的其他解決方案也可供使用。 若要了解目前可用的項目，請搜尋 Azure Marketplace。
+Azure 備份在特定地區以預覽版提供。 如需詳細資訊，請參閱 [備份 Azure 虛擬機器](../articles/backup/backup-azure-arm-vms.md)。 來自認證合作夥伴的其他解決方案也可供使用。 若要了解目前可用的項目，請搜尋 Azure Marketplace。
 
 其他選項是使用 Blob 儲存體的快照集功能。 若要這樣做，您需要在任何依賴 Blob 快照集的作業前關閉 VM。 這樣會儲存擱置的資料寫入，並讓檔案系統保持一致的狀態。
 
@@ -105,7 +105,7 @@ Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。 
 
 當 VM 狀態為「執行中」或「已停止」都會向您收費，但當 VM 狀態為「已停止 (已取消配置)」則不會收費。 若要讓 VM 進入「已停止 (已取消配置)」狀態，請執行下列其中一項：
 
-* 從 Azure 傳統入口網站中關閉或刪除 VM。
+* 關閉或刪除 VM 從 Azure 入口網站。
 * 使用 Stop-AzureVM Cmdlet (在 Azure PowerShell 模組中可用)。
 * 在服務管理 REST API 中使用關機角色作業，並為 PostShutdownAction 元素指定 StoppedDeallocated。
 
@@ -118,7 +118,7 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 針對任何獨立的 VM (表示 VM 並非可用性集合的一部份)，Azure 在計劃性維護之前，至少每一個星期會使用電子郵件通知訂用帳戶的服務管理員，因為 VM 可能會在更新期間重新啟動。 在 VM上執行的應用程式可能會遭遇停機時間。
 
-當因為計畫性維護而發生重新啟動時，您也可以使用 Azure 傳統入口網站或 Azure PowerShell 來檢視重新啟動記錄。 如需詳細資訊，請參閱 [檢視 VM 重新啟動記錄檔](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)。
+您也可以使用 Azure 入口網站或 Azure PowerShell 來檢視重新開機記錄，因為計劃性維護而發生的重新開機時。 如需詳細資訊，請參閱 [檢視 VM 重新啟動記錄檔](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)。
 
 若要提供備援，請在相同的可用性集合中放入兩個以上同樣設定的 VM。 這有助於確保在計劃性或非計劃性的維護期間，至少有一個 VM 仍可使用。 Azure 保證此組態的 VM 可用性特定層級。 如需詳細資訊，請參閱[管理虛擬機器的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 

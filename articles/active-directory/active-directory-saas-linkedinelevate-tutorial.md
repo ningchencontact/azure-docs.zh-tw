@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 LinkedIn Elevate 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 5336543e06d60be555722a615568b12048c2aa2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5b46323dc487bbc714c2306ed006afffe8c1bb6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>教學課程：Azure Active Directory 與 LinkedIn Elevate 整合
 
@@ -47,13 +47,13 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 LinkedIn Elevate
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-linkedin-elevate-from-the-gallery"></a>從資源庫新增 LinkedIn Elevate
-若要設定將 LinkedIn Elevate 整合到 Azure AD 中，您需要從資源庫將 LinkedIn Elevate 新增到受管理的 SaaS 應用程式清單。
+若要設定將 LinkedIn Elevate 整合到 Azure AD 中，您需要從資源庫將 LinkedIn Elevate 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 LinkedIn Elevate，請執行下列步驟：**
 
@@ -63,11 +63,11 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **LinkedIn Elevate**。 從結果面板中，按一下 [LinkedIn Elevate] 以新增應用程式。
 
@@ -118,7 +118,7 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [實體 ID] 
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [判斷提示取用者存取 (ACS) URL]
+    b. 在 [回覆 URL] 文字方塊中，輸入從 LinkedIn 入口網站複製的 [判斷提示取用者存取 (ACS) URL]
 
 7. 如果您想要在 **SP 起始**中設定 SSO，則在組態區段中按一下 [顯示進階 URL] 設定，然後使用下列模式設定登入 URL：
 
@@ -142,7 +142,7 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 
       ![建立 Azure AD 測試使用者](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
 
-      b.這是另一個 C# 主控台應用程式。 按一下 [確定] 儲存屬性。
+      b. 按一下 [確定] 儲存屬性。
 
       c. 將 **emailaddress** 屬性的名稱變更為 **email**。
 
@@ -151,7 +151,7 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_certificate.png) 
 
-11. 按一下 [儲存] 。
+11. 按一下 [檔案] 。
 
     ![設定單一登入](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_400.png)
 
@@ -188,11 +188,11 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。 
+    d. 按一下頁面底部的 [新增] 。 
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>建立 LinkedIn Elevate 測試使用者
 

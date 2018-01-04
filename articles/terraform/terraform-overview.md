@@ -7,11 +7,11 @@ author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 61b7677b2941fe95106e43012eee458692a3cc43
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="terraform-with-azure"></a>搭配 Azure 使用 Terraform
 
@@ -44,6 +44,6 @@ Terraform 是針對多重雲端案例的常用工具，可以將類似的基礎�
 
 既然您已了解 Terraform 的概觀和其優點，以下是建議的後續步驟：
 
-- 了解如何[安裝 Terraform 並設定它以使用 Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure)。
-- [使用 Terraform 建立 Azure 虛擬機器](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm)
+- 了解如何[安裝 Terraform 並設定它以使用 Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)。
+- [使用 Terraform 建立 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - 探索[適用於 Terraform 的 Azure Resource Manager 模組](https://www.terraform.io/docs/providers/azurerm/) \(英文\) 

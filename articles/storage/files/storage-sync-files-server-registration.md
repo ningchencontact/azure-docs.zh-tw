@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>使用 Azure 檔案同步 (預覽) 管理已註冊的伺服器
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -147,7 +147,7 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 > 設定的限制過低會影響 Azure 檔案同步的同步和回收效能。
 
 ### <a name="set-azure-file-sync-network-limits"></a>設定 Azure 檔案同步網路限制
-您可以使用 'StorageSyncNetworkLimit' Cmdlet 來限制 Azure 檔案同步的網路使用率。 
+您可以將 Azure 檔案同步處理的網路使用量限制使用`StorageSyncNetworkLimit`cmdlet。 
 
 例如，您可以建立網路限制，以確保 Azure 檔案同步在工作日早上 9 點至下午 5 點 (17:00h) 之間不會使用超過 10 Mbps： 
 
@@ -171,7 +171,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>使用 Windows Server 儲存體服務品質 (QoS) 
 當 Azure 檔案同步裝載於 Windows Server 虛擬主機上執行的虛擬機器時，您可以使用儲存體 QoS (儲存體服務品質) 來規範儲存體 IO 耗用量。 儲存體 QoS 原則可以設定為最大值 (或限制，如上述強制執行 StorageSyncNetwork 限制的方式) 或最小值 (或保留)。 設定最小值而不是最大值時，可讓 Azure 檔案同步在其他工作負載不使用時，盡可能使用可用的儲存體頻寬。 如需詳細資訊，請參閱[儲存體服務品質](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 - [規劃 Azure 檔案同步 (預覽) 部署](storage-sync-files-planning.md)
 - [部署 Azure 檔案同步 (預覽)](storage-sync-files-deployment-guide.md) 
 - [針對 Azure 檔案同步 (預覽) 進行移難排解](storage-sync-files-troubleshoot.md)

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用執行歷程記錄和模型計量
 
@@ -32,7 +32,7 @@ Azure Machine Learning Workbench 透過其**執行歷程記錄**和**模型計�
 ## <a name="azure-ml-logging-api-overview"></a>Azure ML 記錄 API 概觀
 [Azure ML 記錄 API](reference-logging-api.md) 會透過 Python (隨 Azure ML Workbench 一起安裝) 中的 **azureml.logging** 模組來提供使用。匯入此模組之後，您可以使用 **get_azureml_logger** 方法，來將 **logger** 物件具現化。
 接著，您可以使用記錄器的 **log** 方法，儲存 Python 指令碼所產生的索引鍵/值組。
-目前支援記錄純量、字典、清單、資料框架類型的模型計量，如下所示。
+目前記錄模型的度量資訊的純量和清單類型支援所示。
 
 ```Python
 # create a logger instance in already set up environment 

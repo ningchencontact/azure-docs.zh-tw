@@ -3,7 +3,7 @@ title: "Runbook 輸入參數 | Microsoft Docs"
 description: "Runbook 輸入參數可讓您將資料傳遞至剛啟動的 Runbook，以增加 Runbook 的彈性。 本文說明在 Runbook 中使用輸入參數的不同案例。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-input-parameters"></a>Runbook 輸入參數
 
@@ -85,7 +85,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
 
 您可以使用 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 活動來輸出虛擬機器的名稱。 **Get-AzureRmVm** 活動會接受兩個參數：**虛擬機器名稱**和**資源群組名稱**。 由於這些參數在您每次啟動 Runbook 時可能需要不同的值，因此您可以將輸入參數新增至您的 Runbook。 以下是新增輸入參數的步驟：
 
-1. 從 [Runbook]  刀鋒視窗中選取圖形化 Runbook，然後按一下 [**編輯**](automation-graphical-authoring-intro.md)。
+1. 從 [Runbook]  刀鋒視窗中選取圖形化 Runbook，然後按一下 [編輯][](automation-graphical-authoring-intro.md)。
 2. 在 Runbook 編輯器中，按一下 [輸入和輸出] 以開啟 [輸入和輸出] 刀鋒視窗。
    
     ![自動化圖形化 Runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
@@ -114,7 +114,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
      * Mandatory - No
      * Default value - Custom
      * 自訂預設值 - \<包含虛擬機器之資源群組的名稱>
-5. 新增參數之後，請按一下 [確定] 。  現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 確定，然後按一下儲存 並 發佈 您的 Runbook。
+5. 新增參數之後，請按一下 [確定] 。  現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 [確定]，然後按一下 [儲存] 並 [發佈] 您的 Runbook。
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>在 Python Runbook 中設定輸入參數
 

@@ -1,10 +1,10 @@
 ---
 title: "Azure AD Android 入門 | Microsoft Docs"
-description: "如何建置 Android 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
+description: "如何建置 Android 應用程式，可以整合 Azure AD 進行登入並呼叫 Azure AD 與受保護的應用程式開發介面使用 OAuth2.0。"
 services: active-directory
 documentationcenter: android
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>將 Azure AD 整合至 Android 應用程式
+# <a name="azure-ad-android-getting-started"></a>開始使用 azure AD Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> 試用新的[開發人員入口網站](https://identity.microsoft.com/Docs/Android)預覽版本，這可協助您在短短幾分鐘內啟動並執行 Azure AD。 開發人員入口網站會逐步引導您完成註冊應用程式並將 Azure AD 整合至您的程式碼的程序。 當您完成時，您會有可驗證租用戶中使用者的簡單應用程式，以及可接受權杖並執行驗證的後端。
->
->
 
 如果您正在開發桌面應用程式，Azure Active Directory (Azure AD) 讓您可以更簡單直接地用使用者的內部部署 Active Directory 帳戶來驗證他們。 它也可讓您的應用程式安全地使用任何受 Azure AD 保護的 Web API，例如 Office 365 API 或 Azure API。
 
@@ -78,7 +73,7 @@ Active Directory 支援加入兩種類型的應用程式：
 3. 按一下左側窗格中的 [更多服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 輸入應用程式的易記名稱，例如 **TodoListClient-Android**，選取 [原生用戶端應用程式]，然後按 [下一步]。
-6. 在 [重新導向 URI] 中，輸入 `http://TodoListClient`。 按一下 [完成]。
+6. 在 [重新導向 URI] 中，輸入 `http://TodoListClient`。 按一下 [完成] 。
 7. 在應用程式頁面中，找到應用程式識別碼的值並複製。 您稍後在設定應用程式時需要此資訊。
 8. 在 [設定] 頁面中，選取 [必要的權限]，然後選取 [新增]。  找出並選取 [TodoListService]，然後在 [委派的權限] 底下新增 [存取 TodoListService] 權限，按一下 [完成]。
 

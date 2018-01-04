@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3dfc5809344af920540a88e097ce399cce653363
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用遠端監視解決方案執行進階監視
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 在本教學課程中，您會使用兩個模擬的 Contoso 卡車裝置，了解如何從預先設定的解決方案儀表板監視您的裝置。 作為 Contoso 操作員，您必須在現場監視您卡車的位置和行為。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 >[!div class="checklist"]
 > * 篩選儀表板中的裝置
@@ -90,9 +90,6 @@ ms.lasthandoff: 11/10/2017
 您可以使用 [系統警示] 篩選條件來調整最近警示的時間範圍。 依預設，面板會顯示過去一小時內的警示：
 
 ![依時間篩選警示](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
-
-> [!NOTE]
-> 捲動到右邊才能看到時間範圍篩選條件。
 
 ## <a name="view-the-system-kpis"></a>檢視系統 KPI
 

@@ -4,7 +4,7 @@ description: "說明如何在 Azure Active Directory 中新增使用者或刪除
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入門：將使用者新增至 Azure Active Directory
 本文說明如何在 Azure Active Directory (Azure AD) 中新增您組織中的使用者，您可以使用 Azure 入口網站一次新增一位，或藉由同步處理您內部部署 Windows Server AD 使用者帳戶資料來新增。 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/14/2017
    ![選取 [新增] 命令](./media/add-users-azure-active-directory/delete-user.png)
 
 
-### <a name="learn-more"></a>詳細資訊 
+### <a name="learn-more"></a>深入了解 
 * [從另一個目錄中新增來賓使用者](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [在 Azure AD 中將使用者指派給角色](active-directory-users-assign-role-azure-portal.md)

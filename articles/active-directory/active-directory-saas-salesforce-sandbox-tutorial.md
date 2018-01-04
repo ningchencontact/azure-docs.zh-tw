@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Salesforce Sandbox �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 16b60342106c69cb9959aad539b794cb8003acda
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 
@@ -48,13 +48,13 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Salesforce Sandbox
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-salesforce-sandbox-from-the-gallery"></a>從資源庫新增 Salesforce Sandbox
-若要設定將 Salesforce Sandbox 整合到 Azure AD 中，您需要從資源庫將 Salesforce Sandbox 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Salesforce Sandbox 整合到 Azure AD 中，您需要從資源庫將 Salesforce Sandbox 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Salesforce Sandbox，請執行下列步驟：**
 
@@ -110,7 +110,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入值：`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
     
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)以取得這些值。
@@ -173,7 +173,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     i. SFDC 不支援 SAML 登出。  因應措施是將 `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` 貼到 [識別提供者登出 URL] 文字方塊。
 
-    j. 按一下 [儲存] 。
+    j. 按一下 [檔案] 。
 
 ### <a name="enable-your-domain"></a>啟用網域
 本節假設您已經建立了一個網域。  如需詳細資訊，請參閱[定義您的網域名稱](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US)。
@@ -229,7 +229,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-salesforce-sandbox-test-user"></a>建立 Salesforce Sandbox 測試使用者
 

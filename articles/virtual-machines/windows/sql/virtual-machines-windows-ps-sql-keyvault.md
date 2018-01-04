@@ -16,14 +16,14 @@ ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
 ms.openlocfilehash: 32b9564fa5c9ca6864ade343fda309b2c3edf123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虛擬機器上設定 SQL Server 的 Azure Key Vault 整合 (Resource Manager)
 > [!div class="op_single_selector"]
-> * [資源管理員](virtual-machines-windows-ps-sql-keyvault.md)
+> * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
 > * [傳統](../classic/ps-sql-keyvault.md)
 > 
 > 

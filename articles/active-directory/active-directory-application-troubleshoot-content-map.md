@@ -4,7 +4,7 @@ description: "解決最常見的 Azure Active Directory 應用程式管理和開
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: kbrint
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5869120350ccfeacabaa79037ae57c1ee0fd8e5d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>針對 Azure Active Directory 應用程式管理和開發進行疑難排解
 本文將協助您尋找實用的相關文件，讓您了解如何針對使用 **Application Registry** 來管理**企業應用程式**和開發新應用程式時的一些最常見相關問題進行疑難排解。
 
 ## <a name="problems-with-application-development"></a>應用程式開發的問題
-下列連結會帶您前往內容對應表，此對應表可幫助您解決在 Azure Active Directory 中使用 **Application Registry** 來開發應用程式時，最常見的一些問題。
+下列連結會將您帶到可以幫助您解決最常見的問題與應用程式開發的內容對應**Application Registry** Azure Active Directory 中。
 
 * [應用程式設定和註冊的問題](active-directory-application-dev-config-content-map.md)
 * [應用程式開發的問題](active-directory-application-dev-development-content-map.md)

@@ -4,22 +4,22 @@ description: "Azure Active Directory 中報告資料的保留原則"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 10/26/2017
 
 **答：**
 
-- **立即** - 如果您已在 Azure 傳統入口網站中使用報告
-- **2 小時內** - 如果您尚未在 Azure 傳統入口網站中開啟報告功能
+- **立即**-如果您已使用 Azure 入口網站中的報表
+- **在 2 小時內**-如果您尚未開啟報告在 Azure 入口網站
 
 ---
 **問：如何才能開始收集安全性訊號？**  
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/26/2017
 | :--                    | :--           | :--                 | :--                 |
 | 目錄稽核        | 7 天        | 30 天             | 30 天             |
 | 登入活動       | N/A           | 30 天             | 30 天             |
-| Azure MFA 使用        | 90 天       | 90 天             | 90 天             |
+| Azure MFA 使用        | 30 天       | 30 天             | 30 天             |
 
 **安全性訊號**
 

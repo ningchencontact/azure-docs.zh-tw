@@ -4,7 +4,7 @@ description: "說明如何使用 Azure AD Connect 疑難排解連線問題。"
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -40,7 +40,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 
 在這些 URL 當中，下表是能夠連接到 Azure AD 的最基本項目。 這份清單並未包含任何選用的功能，例如密碼回寫或 Azure AD Connect Health。 在此記錄以便協助疑難排解初始設定。
 
-| URL | 連接埠 | 說明 |
+| URL | Port | 說明 |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |用來下載 CRL 清單。 |
 | \*.verisign.com |HTTP/80 |用來下載 CRL 清單。 |
@@ -90,7 +90,7 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 如果 Proxy 設定不正確，您將會收到錯誤：![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| 錯誤 | 錯誤文字 | 註解 |
+| Error | 錯誤文字 | 註解 |
 | --- | --- | --- |
 | 403 |禁止 |Proxy 尚未對要求的 URL 開放。 重新瀏覽 Proxy 組態，並確定 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 已經開啟。 |
 | 407 |需要 Proxy 驗證 |Proxy 伺服器要求提供登入資訊，但並未提供任何登入資訊。 如果您的 Proxy 伺服器需要驗證，請務必在 machine.config 中進行這項設定。此外，也請確定您將網域帳戶用於執行精靈的使用者，以及用於服務帳戶。 |

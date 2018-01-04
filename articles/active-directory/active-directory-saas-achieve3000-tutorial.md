@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Achieve3000 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d6f0570f7a98fc9f703c37eed4219990dac4d370
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 03a6eb581dae88e9789b73c04d5424c0ed14cf62
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>教學課程：Azure Active Directory 與 Achieve3000 整合
 
@@ -48,13 +48,13 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Achieve3000
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-achieve3000-from-the-gallery"></a>從資源庫新增 Achieve3000
-若要設定 Achieve3000 與 Azure AD 整合，您需要從資源庫將 Achieve3000 新增到受管理的 SaaS 應用程式清單中。
+若要設定 Achieve3000 與 Azure AD 整合，您需要從資源庫將 Achieve3000 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Achieve3000，請執行下列步驟：**
 
@@ -180,7 +180,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-achieve3000-test-user"></a>建立 Achieve3000 測試使用者
 

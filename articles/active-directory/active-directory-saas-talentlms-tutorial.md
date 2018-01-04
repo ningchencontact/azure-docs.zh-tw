@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 TalentLMS 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: c903d20d-18e3-42b0-b997-6349c5412dde
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: f28d6fbfad9dae578a20db7218b7e3b174ed859c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 171457617c23f2c0ff761f7ae1e78dcf152cd0b3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>教學課程：Azure Active Directory 與 TalentLMS 整合
 
@@ -47,13 +47,13 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 TalentLMS
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-talentlms-from-the-gallery"></a>從資源庫新增 TalentLMS
-若要設定將 TalentLMS 整合到 Azure AD 中，您需要從資源庫將 TalentLMS 新增到受管理的 SaaS app 清單。
+若要設定將 TalentLMS 整合到 Azure AD 中，您需要從資源庫將 TalentLMS 新增到受控 SaaS app 清單。
 
 **若要從資源庫新增 TalentLMS，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **TalentLMS**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_search.png)
 
-5. 在結果窗格中，選取 TalentLMS，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [TalentLMS]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_addfromgallery.png)
 
@@ -143,7 +143,7 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 
     a. 從 [SSO 整合類型] 清單中，選取 [SAML 2.0]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別提供者]\(IdP\) 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
+    b. 在 [識別提供者]\(IdP\) 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
  
     c. 將 Azure 入口網站的 [指紋] 值貼至 [憑證指紋] 文字方塊。    
 
@@ -161,7 +161,7 @@ TalentLMS 與 Azure AD 整合提供下列優點：
     
     * 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
     
-11. 按一下 [儲存] 。
+11. 按一下 [檔案] 。
  
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -192,11 +192,11 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-talentlms-test-user"></a>建立 TalentLMS 測試使用者
 
@@ -206,7 +206,7 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 **TalentLMS** 租用戶。
 
-2. 按一下 使用者，然後按一下加入使用者。
+2. 按一下 [使用者]，然後按一下 [加入使用者]。
 
 3. 在 [加入使用者]  對話頁面上，執行下列步驟：
    
@@ -214,11 +214,11 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 
     a. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
+    b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
  
     c. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
 
-    d. 按一下 [加入使用者] 。
+    d. 按一下 [新增使用者] 。
 
 >[!NOTE]
 >您可以使用任何其他的 TalentLMS 使用者帳戶建立工具或 TalentLMS 提供的 API 來佈建 AAD 使用者帳戶。
@@ -256,7 +256,7 @@ TalentLMS 與 Azure AD 整合提供下列優點：
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在存取面板中按一下 [TalentLMS] 圖格時，應該會自動登入您的 TalentLMS 應用程式
 

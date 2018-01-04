@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Apptio 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d7e5692945961fb2b90f86b2aa775c13939bd8c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: 2948b3df7e2258b6d842f9d9d5f632e531929676
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>教學課程：Azure Active Directory 與 Apptio 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 11/09/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Apptio
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-apptio-from-the-gallery"></a>從資源庫新增 Apptio
-若要進行 Apptio 與 Azure AD 的整合設定，您需要從資源庫將 Apptio 新增到受管理的 SaaS 應用程式清單中。
+若要進行 Apptio 與 Azure AD 的整合設定，您需要從資源庫將 Apptio 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Apptio，請執行下列步驟：**
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 11/09/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-apptio-test-user"></a>建立 Apptio 測試使用者
 

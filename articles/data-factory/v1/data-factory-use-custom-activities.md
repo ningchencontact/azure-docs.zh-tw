@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/03/2017
 > * [第 2 版 - 預覽](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱[第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱[第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
 
 您可以在 Azure Data Factory 管線中使用兩種活動。
 
@@ -36,12 +36,11 @@ ms.lasthandoff: 11/03/2017
 
 如果要移動資料至/自 Data Factory 不支援的資料存放區，利用自己的資料移動邏輯建立**自訂活動**，然後在管線中使用活動。 同樣地，若要以 Data Factory 不支援的方法轉換/處理資料，可以利用自己的資料轉換邏輯建立自訂活動，然後在管線中使用活動。 
 
-您可以將自訂活動設定為在虛擬機器的 **Azure Batch** 集區或 Windows 架構的 **Azure HDInsight** 叢集上執行。 當使用 Azure Batch 時，您只可以使用現有的 Azure Batch 集區。 然而，使用 HDInsight 時，您可以使用現有的 HDInsight 叢集或針對您在執行階段的隨選自動建立叢集。  
+您可以設定上執行的自訂活動**Azure Batch**虛擬機器集區。 當使用 Azure Batch 時，您只可以使用現有的 Azure Batch 集區。
 
-下列逐步解說提供建立自訂 .NET 活動以及在管線中使用自訂活動的逐步指示。 本逐步解說使用 **Azure Batch** 連結服務。 若要改用 Azure HDInsight 連結服務，建立型別 **HDInsight** 的連結服務 (您自己的 HDInsight 叢集) 或 **HDInsightOnDemand** (Data Factory 會隨選建立 HDInsight 叢集)。 然後，設定自訂的活動以使用 HDInsight 連結服務。 如需使用 Azure HDInsight 來執行自訂活動的詳細資料，請參閱 [使用 Azure HDInsight 連結服務](#use-hdinsight-compute-service) 一節。
+下列逐步解說提供建立自訂 .NET 活動以及在管線中使用自訂活動的逐步指示。 本逐步解說使用 **Azure Batch** 連結服務。 
 
 > [!IMPORTANT]
-> - 自訂的 .NET 活動只會在 Windows 架構的 HDInsight 叢集上執行。 這項限制的因應措施是使用 Map Reduce 活動以在 Linux 架構的 HDInsight 叢集上執行自訂的 Java 程式碼。 另一個選項是使用 VM 的 Azure Batch 集區來執行自訂活動，而非使用 HDInsight 叢集來執行。
 > - 您不能使用自訂活動中的資料管理閘道來存取內部部署資料來源。 目前在 Data Factory 中，[資料管理閘道](data-factory-data-management-gateway.md)只支援複製活動和預存程序活動。   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>逐步解說：建立自訂活動
@@ -50,13 +49,13 @@ ms.lasthandoff: 11/03/2017
 * 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 的必要條件
-在逐步解說中，您會將 Azure Batch 當作計算資源使用來執行自訂 .NET 活動。 **Azure Batch** 是一項平台服務，可用於在雲端有效地執行大規模的平行和高效能運算 (HPC) 應用程式。 Azure Batch 可排程要在**一組受管理的虛擬機器**上執行的計算密集型工作，而且可以調整計算資源以符合工作的需求。 請參閱 [Azure Batch 基本知識][batch-technical-overview]文章，以取得 Azure Batch 服務的詳細概觀。
+在逐步解說中，您會將 Azure Batch 當作計算資源使用來執行自訂 .NET 活動。 **Azure Batch** 是一項平台服務，可用於在雲端有效地執行大規模的平行和高效能運算 (HPC) 應用程式。 Azure Batch 可排程要在**一組受控虛擬機器**上執行的計算密集型工作，而且可以調整計算資源以符合工作的需求。 請參閱 [Azure Batch 基本知識][batch-technical-overview]文章，以取得 Azure Batch 服務的詳細概觀。
 
 在教學課程中，建立含 VM 集區的 Azure Batch 帳戶。 步驟如下：
 
 1. 使用 **Azure 入口網站** 建立 [Azure Batch 帳戶](http://portal.azure.com)。 請參閱[建立和管理 Azure Batch 帳戶][batch-create-account]一文以取得指示。
 2. 記下 Azure Batch 帳戶名稱、帳戶金鑰、URI，以及集區名稱。 您需要它們來建立 Azure Batch 連結服務。
-    1. 在 Azure Batch 帳戶首頁上，您會看到一串 URL 為下列格式︰`https://myaccount.westus.batch.azure.com`。 在此範例中，**myaccount** 是 Azure Batch 帳戶的名稱。 您在連結服務的定義中使用之 URI 是不含帳戶名稱的 URL。 例如： `https://<region>.batch.azure.com`。
+    1. 在 Azure Batch 帳戶首頁上，您會看到一串 URL 為下列格式︰`https://myaccount.westus.batch.azure.com`。 在此範例中，**myaccount** 是 Azure Batch 帳戶的名稱。 您在連結服務的定義中使用之 URI 是不含帳戶名稱的 URL。 例如：`https://<region>.batch.azure.com`。
     2. 在左窗格上按一下 [金鑰]，然後複製**主要存取金鑰**。
     3. 若要使用現有的集區，在功能表上按一下 [集區]，記下集區的**識別碼**。 如果您沒有現有的集區，請移至下一個步驟。     
 2. 建立 **Azure Batch 集區**。
@@ -98,7 +97,7 @@ public IDictionary<string, string> Execute(
 - **linkedServices**。 這個屬性是活動之輸入/輸出資料集所參考的資料存放區連結服務的可列舉清單。   
 - **資料集**。 這個屬性是活動之輸入/輸出資料集的可列舉清單。 您可以使用這個參數取得輸入和輸出資料集定義的位置和結構描述。
 - **活動**。 這個屬性表示目前的活動。 它可以用來存取與自訂活動相關聯的延伸屬性。 如需詳細資訊，請參閱[存取延伸屬性](#access-extended-properties)。
-- **記錄器**。 此物件可讓您撰寫會呈現為管線的使用者記錄檔的偵錯註解。
+- **logger**。 此物件可讓您撰寫會呈現為管線的使用者記錄檔的偵錯註解。
 
 此方法會傳回未來可用來將自訂活動鏈結在一起的字典。 尚未實作這項功能，因此會從方法傳回空的字典。  
 
@@ -109,7 +108,7 @@ public IDictionary<string, string> Execute(
      <li>按一下 [檔案]<b></b>，指向 [新增]<b></b>，然後按一下 [專案]<b></b>。</li>
      <li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。 在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li>
      <li>從右邊的專案類型清單中選取 [類別庫]<b></b>。 在 VS 2017 中，選擇 <b>類別庫 (.NET Framework)</b> </li>
-     <li>在 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li>
+     <li>針對 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li>
      <li>在 [位置]<b></b> 選取 <b>C:\ADFGetStarted</b>。</li>
      <li>按一下 [確定] <b></b> 以建立專案。</li>
    </ol>
@@ -458,7 +457,7 @@ test custom activity Microsoft test custom activity Microsoft
    1. 指定 **accountName** 屬性的 Azure Batch 帳戶名稱。 [Azure Batch 帳戶] 刀鋒視窗中的 **URL** 格式如下：`http://accountname.region.batch.azure.com`。 如果是 JSON 中的 **batchUri** 屬性，您需要移除 URL 中的 `accountname.`，並為 JSON 屬性使用 `accountname``accountName`。
    2. 指定 **accessKey** 屬性的 Azure Batch 帳戶金鑰 。
    3. 針對為滿足 **poolName** 屬性之必要條件而建立的集區指定名稱。 您也可以指定該集區的 ID，而非集區名稱。
-   4. 指定 **batchUri** 屬性的 Azure Batch URI。 範例：`https://westus.batch.azure.com`.  
+   4. 指定 **batchUri** 屬性的 Azure Batch URI。 範例： `https://westus.batch.azure.com`.  
    5. 指定 **AzureStorageLinkedService** for the **linkedServiceName** 屬性的 Azure Batch 帳戶名稱。
 
         ```json
@@ -479,8 +478,6 @@ test custom activity Microsoft test custom activity Microsoft
 
        針對 **poolName** 屬性，您也可以指定該集區的 ID，而非集區名稱。
 
-      > [!IMPORTANT]
-      > 與支援 HDInsight 的情況不同，Data Factory 服務不支援 Azure Batch 的隨選選項。 您只能使用 Azure Data Factory 中自己的 Azure Batch 集區。   
     
 
 ### <a name="step-3-create-datasets"></a>步驟 3：建立資料集
@@ -632,7 +629,7 @@ test custom activity Microsoft test custom activity Microsoft
 ### <a name="monitor-the-pipeline"></a>監視管線
 1. 在 Azure 入口網站的 [Data Factory] 刀鋒視窗中，按一下 [圖表] 。
 
-    ![[圖表] 磚](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
+    ![[圖表] 圖格](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
 2. 在 [圖表] 檢視中，現在按一下 [OutputDataset]。
 
     ![圖表檢視](./media/data-factory-use-custom-activities/diagram.png)
@@ -786,115 +783,6 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 如果集區使用預設的 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)，Batch 服務在執行自訂活動之前，可能需要 15-30 分鐘的時間準備 VM。  如果集區使用不同的 autoScaleEvaluationInterval，Batch 服務可能需要 autoScaleEvaluationInterval + 10 分鐘。
 
-## <a name="use-hdinsight-compute-service"></a>使用 HDInsight 計算服務
-在逐步解說中，您會使用 Azure Batch 計算來執行自訂活動。 您也可以使用自己的 Windows 架構 HDInsight 叢集，或讓 Data Factory 建立隨選 Windows 架構 HDInsight 叢集，然後讓自訂活動在 HDInsight 叢集上執行。 以下是使用 HDInsight 叢集的高階步驟。
-
-> [!IMPORTANT]
-> 自訂的 .NET 活動只會在 Windows 架構的 HDInsight 叢集上執行。 這項限制的因應措施是使用 Map Reduce 活動以在 Linux 架構的 HDInsight 叢集上執行自訂的 Java 程式碼。 另一個選項是使用 VM 的 Azure Batch 集區來執行自訂活動，而非使用 HDInsight 叢集來執行。
- 
-
-1. 建立 Azure HDInsight 連結服務。   
-2. 使用 HDInsight 連結服務來取代管線 JSON 中的 **AzureBatchLinkedService** 。
-
-如果您要使用逐步解說測試它，變更管線的**開始**和**結束**時間，以便讓您能夠使用 Azure HDInsight 服務來測試案例。
-
-#### <a name="create-azure-hdinsight-linked-service"></a>建立 Azure HDInsight 連結服務
-Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來產生輸出資料。 您也可以使用自己的叢集執行相同作業。 當您使用隨選 HDInsight 叢集時，系統會為每個配量建立叢集。 然而，如果您使用自己的 HDInsight 叢集，叢集已經準備好立即處理配量。 因此，在使用隨選叢集時，可能無法像使用自己的叢集那麼快看到輸出資料。
-
-> [!NOTE]
-> 在執行階段，.NET 活動的執行個體只在 HDInsight 叢集的一個背景工作角色節點上執行，無法擴展到多個節點上執行。 .NET 活動的多個執行個體可以在 HDInsight 叢集的不同節點上平行執行。
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>若要使用隨選 HDInsight 叢集
-1. 在 **Azure 入口網站**中，按一下 Data Factory 首頁中的 [製作和部署]。
-2. 在 [Data Factory 編輯器] 中，從命令列按一下 [新增計算]，然後從功能表選取 [隨選 HDInsight 叢集]。
-3. 對 JSON 指令碼進行下列變更：
-
-   1. 在 **clusterSize** 屬性中，指定 HDInsight 叢集的大小。
-   2. 在 **timeToLive** 屬性中，指定客戶閒置多久之後會被刪除。
-   3. 在 **version** 屬性中，指定您要使用的 HDInsight 版本。 如果您排除此屬性，則會使用最新版本。  
-   4. 針對 **LinkedServiceName**，指定 **AzureStorageLinkedService**。
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > 自訂的 .NET 活動只會在 Windows 架構的 HDInsight 叢集上執行。 這項限制的因應措施是使用 Map Reduce 活動以在 Linux 架構的 HDInsight 叢集上執行自訂的 Java 程式碼。 另一個選項是使用 VM 的 Azure Batch 集區來執行自訂活動，而非使用 HDInsight 叢集來執行。
-
-4. 按一下命令列的 [部署]  ，部署連結服務。
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>若要使用您自己的 HDInsight 叢集：
-1. 在 **Azure 入口網站**中，按一下 Data Factory 首頁中的 [製作和部署]。
-2. 在 [Data Factory 編輯器] 中，從命令列按一下 [新增計算]，然後從功能表選取 [HDInsight 叢集]。
-3. 對 JSON 指令碼進行下列變更：
-
-   1. 在 **clusterUri** 屬性中，輸入您的 HDInsight 的 URL。 例如：https://<clustername>.azurehdinsight.net/     
-   2. 在 **UserName** 屬性中，輸入具有 HDInsight 叢集存取權的使用者名稱。
-   3. 在 **Password** 屬性中，輸入使用者的密碼。
-   4. 在 **LinkedServiceName** 屬性輸入 **AzureStorageLinkedService**。
-4. 按一下命令列的 [部署]  ，部署連結服務。
-
-請參閱 [計算連結服務](data-factory-compute-linked-services.md) 以取得詳細資料。
-
-在 **管線 JSON**中，使用 HDInsight (隨選或自有) 連結服務︰
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>使用 .NET SDK 建立自訂活動
 在這篇文章的逐步解說中，您會使用 Azure 入口網站建立具有管線 (使用自訂活動) 的資料處理站。 下列程式碼會示範如何改為使用 .NET SDK 建立資料處理站。 您可以在[使用 .NET API 建立具有複製活動的管線](data-factory-copy-activity-tutorial-using-dotnet-api.md)一文中找到使用 SDK 以程式設計方式建立管線的詳細資訊。 

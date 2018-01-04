@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 12/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -73,12 +73,12 @@ ms.lasthandoff: 12/07/2017
    - 原則定義的名稱 - 需要小於 G 系列的 VM SKU
    - 原則定義目的的描述 – 此原則定義會強制讓此範圍中建立的所有 VM，具有比 G 系列小的 SKU，以降低成本。
    - 原則定義所在的訂用帳戶 – 在此情況下，我們的原則定義將會存放在 **Advisor Analytics Capacity Dev**。 您的訂用帳戶清單不同。
-   - 使用下列項目寫入 json 程式碼：
+   - 下列 json 程式碼複製並更新您的需求，使用：
       - 原則參數。
       - 原則規則/條件，在此情況下 – VM SKU 大小等於 G 系列
       - 原則效果，在此情況下 – **拒絕**。
 
-    以下是 json 應該會有的外觀
+    以下是 json 外觀應該為何。 將修改的程式碼貼到 Azure 入口網站。
 
     ```json
 {
@@ -348,7 +348,7 @@ az policy definition list
 
    從清單中選取原則定義之後，您會在 [原則和參數] 底下看到它，如上所示。
 
-5. 選取 [ **建立**]。
+5. 選取 [建立] 。
 
 ### <a name="assign-an-initiative-definition"></a>指派計畫定義
 

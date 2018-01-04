@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>準備使用 DPM 將工作負載備份到 Azure
 > [!div class="op_single_selector"]
 > * [Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure 備份伺服器 (傳統)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (傳統)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -42,7 +40,7 @@ ms.lasthandoff: 10/23/2017
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) 會備份檔案和應用程式資料。 您可以在[這裡](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix)找到所支援工作負載的詳細資訊。備份到 DPM 的資料可以儲存在磁帶、磁碟上，或使用 Microsoft Azure 備份來備份到 Azure。 DPM 與 Azure 備份的互動方式如下：
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) 會備份檔案和應用程式資料。 可以找到支援的工作負載的詳細資訊[這裡](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)。 備份到 DPM 的資料可以儲存在磁帶、磁碟上，或使用 Microsoft Azure 備份來備份到 Azure。 DPM 與 Azure 備份的互動方式如下：
 
 * **DPM 部署為實體伺服器或內部部署虛擬機器** — 如果 DPM 部署為實體伺服器或內部部署 Hyper-V 虛擬機器，除了備份到磁碟和磁帶上，您還可以將資料備份到復原服務保存庫。
 * **DPM 部署為 Azure 虛擬機器** — 從 System Center 2012 R2 Update 3 開始，DPM 可以部署為 Azure 虛擬機器。 如果 DPM 部署為 Azure 虛擬機器，您可以將資料備份到連接至 DPM Azure 虛擬機器的 Azure 磁碟，或者您也可以將資料備份到復原服務保存庫以卸載資料儲存體。
@@ -66,7 +64,7 @@ ms.lasthandoff: 10/23/2017
 
 1. **保存庫認證** — 需要有保存庫認證才能對機器進行驗證，以便將備份資料傳送至 Azure 備份服務中的已識別保存庫。 認證可從保存庫下載下來，有效時間為 48 小時。
 2. **複雜密碼** — 複雜密碼可用來加密雲端備份。 請將檔案儲存在安全的位置，在復原作業期間需要該檔案。
-3. **安全性 PIN 碼** — 如果您已啟用保存庫的[安全性設定](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature)，則需要安全性 PIN 碼才能執行重要的備份作業。 這個多重要素驗證可多一道安全性。 
+3. **安全性 PIN 碼** — 如果您已啟用保存庫的[安全性設定](https://docs.microsoft.com/azure/backup/backup-azure-security-feature)，則需要安全性 PIN 碼才能執行重要的備份作業。 這個多重要素驗證可多一道安全性。 
 4. **復原資料夾** — 它是雲端復原期間要將備份從雲端暫時下載到之位置的慣用語。 其大小約等於您想要平行復原之備份項目的大小。
 
 
@@ -90,7 +88,7 @@ ms.lasthandoff: 10/23/2017
 5. 按一下 [訂用帳戶]  以查看可用的訂用帳戶清單。 如果您不確定要使用哪個訂用帳戶，請使用預設 (或建議) 的訂用帳戶。 只有在您的組織帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。
 6. 按一下 [資源群組] 以查看可用的資源群組清單，或按一下 [新增] 以建立新的資源群組。 如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)
 7. 按一下 [位置]  以選取保存庫的地理區域。
-8. 按一下 [建立] 。 要等復原服務保存庫建立好，可能需要一些時間。 請監視入口網站右上方區域中的狀態通知。
+8. 按一下頁面底部的 [新增] 。 要等復原服務保存庫建立好，可能需要一些時間。 請監視入口網站右上方區域中的狀態通知。
    保存庫一旦建立好，就會在入口網站中開啟。
 
 ### <a name="set-storage-replication"></a>設定儲存體複寫
@@ -113,7 +111,7 @@ ms.lasthandoff: 10/23/2017
 保存庫認證檔會透過安全通道，從 Azure 入口網站下載。 Azure 備份服務不會知道憑證的私密金鑰，且私密金鑰不會保存在入口網站或服務中。 使用下列步驟將保存庫認證檔下載至本機電腦。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 開啟要註冊 DPM 電腦的復原服務保存庫。
+2. 開啟您想要註冊 DPM 電腦的復原服務保存庫。
 3. 根據預設，[設定] 刀鋒視窗隨即會開啟。 如果該刀鋒視窗未開啟，請在保存庫儀表板上按一下 [設定]  ，以開啟 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，按一下 [屬性] 。
 
     ![開啟 [保存庫] 刀鋒視窗](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -123,7 +121,7 @@ ms.lasthandoff: 10/23/2017
 
 入口網站會使用保存庫名稱和目前日期的組合來產生保存庫認證。 按一下 [ **儲存** ] 將保存庫認證下載至本機帳戶的下載資料夾，或從 [儲存] 功能表中選取 [另存新檔]，以指定保存庫認證的位置。 產生檔案需要一分鐘的時間。
 
-### <a name="note"></a>注意
+### <a name="note"></a>附註
 * 請確定保存庫認證檔儲存在可從電腦存取的位置。 如果它儲存在檔案共用/SMB，請檢查存取權限。
 * 保存庫認證檔僅在註冊工作流程期間使用。
 * 保存庫認證檔會在 48 小時後過期，並且可以從入口網站下載。
@@ -131,7 +129,7 @@ ms.lasthandoff: 10/23/2017
 ### <a name="3-install-backup-agent"></a>3.安裝備份代理程式
 建立 Azure 備份保存庫之後，您的每部 Windows 電腦 (Windows Server、Windows 用戶端、System Center Data Protection Manager 伺服器，或 Azure 備份伺服器電腦) 上應該安裝代理程式，以便讓您將資料和應用程式備份至 Azure。
 
-1. 開啟要註冊 DPM 電腦的復原服務保存庫。
+1. 開啟您想要註冊 DPM 電腦的復原服務保存庫。
 2. 根據預設，[設定] 刀鋒視窗隨即會開啟。 如果該刀鋒視窗未開啟，請按一下 [設定]  以開啟 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，按一下 [屬性] 。
 
     ![開啟 [保存庫] 刀鋒視窗](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ ms.lasthandoff: 10/23/2017
 
     ![下載](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   代理程式下載完成後，按兩下 MARSAgentInstaller.exe 來啟動 Azure 備份代理程式的安裝。 選擇安裝資料夾和代理程式所需要的暫存資料夾。 指定的快取位置必須至少包含備份資料大小 5%的可用空間。
+   一旦下載代理程式之後，執行 MARSAgentInstaller.exe 啟動 Azure 備份代理程式的安裝。 選擇安裝資料夾和代理程式所需要的暫存資料夾。 指定的快取位置必須至少包含備份資料大小 5%的可用空間。
 4. 若您使用 Proxy 伺服器連接至網際網路，請在 [ **Proxy 組態** ] 畫面上，輸入 Proxy 伺服器詳細資料。 若您使用已驗證的 Proxy，請在此畫面中輸入使用者名稱和密碼的詳細資料。
 5. Azure 備份代理程式會安裝 .NET Framework 4.5 和 Windows PowerShell (若尚未安裝) 來完成安裝。
 6. 安裝代理程式之後， 請 **關閉** 視窗。

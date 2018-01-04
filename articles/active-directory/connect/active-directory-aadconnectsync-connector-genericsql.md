@@ -3,8 +3,8 @@ title: "一般 SQL 連接器 | Microsoft Docs"
 description: "本文說明如何設定 Microsoft 的一般 SQL 連接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>一般 SQL 連接器技術參考
 本文說明一般 SQL 連接器。 本文適用於下列產品：
@@ -231,7 +231,11 @@ ms.lasthandoff: 11/01/2017
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **資料表/檢視**  
-若要匯入物件的多重值屬性，您必須在 [多重資料表/檢視名稱] 中提供以逗號分隔的資料表/檢視名稱，以及在父資料表的 [聯結條件] 中提供各自的聯結條件。
+若要匯入物件的多重值的屬性，您必須提供中的資料表/檢視表名稱**名稱的多重值的資料表/檢視**和個別的聯結條件中**聯結條件**與父資料表. 如果資料來源中有多個多重值的資料表，您可以使用聯集到單一檢視。
+
+>[!IMPORTANT]
+一般 SQL 管理代理程式僅能使用一個多重值的資料表。 請勿將放到多重值的資料表/檢視表的名稱，多個資料表的一個名稱。 一般 SQL 限制它。
+
 
 範例：您想要匯入 [員工] 物件與其所有的多重值屬性。 有兩個資料表：[員工] \(主要資料表) 和 [部門] \(多重值)。
 執行下列動作：

@@ -4,7 +4,7 @@ description: "了解如何使用 Halosys 搭配 Azure Active Directory 來啟用
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cfd932fa87ffd40ffc6ac96ad72ae7eac31e0b98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>教學課程：Azure Active Directory 與 Halosys 整合
 
@@ -52,14 +52,14 @@ Halosys 與 Azure AD 整合提供下列優點：
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
 
-本教學課程中說明的案例由二個主要建置組塊組成：
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Halosys
 2. 設定並測試 Azure AD 單一登入
 
 
 ## <a name="adding-halosys-from-the-gallery"></a>從資源庫新增 Halosys
-若要設定 Halosys 與 Azure AD 整合，您需要從資源庫將 Halosys 新增至受管理的 SaaS 應用程式清單。
+若要設定 Halosys 與 Azure AD 整合，您需要從資源庫將 Halosys 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Halosys，請執行下列步驟：**
 
@@ -70,21 +70,21 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]  。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
 
 4. 按一下頁面底部的 [新增]  。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 5. 在 [欲執行動作] 對話方塊上，按一下 [從資源庫中新增應用程式]。
 
-    ![應用程式][4]
+    ![[應用程式]][4]
 
 6. 在搜尋方塊中，輸入 **Halosys**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
     
-7. 在結果窗格中，選取 Halosys，然後按一下完成 以新增應用程式。
+7. 在結果窗格中，選取 [Halosys]，然後按一下 [完成] 以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
 
@@ -174,7 +174,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     b. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    c. 按一下 [下一步] 。
+    c. 按 [下一步] 。
 
 6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
 
@@ -186,7 +186,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     d. 在 [角色] 清單中選取 [使用者]。
 
-    e. 按一下 [下一步] 。
+    e. 按 [下一步] 。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
 

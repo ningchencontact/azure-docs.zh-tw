@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>將資料流處理資料輸入或參考資料新增至串流分析工作
 了解如何從事件中樞或 Blob 儲存體的參考資料，將資料來源連接至串流分析工作，以做為資料流處理資料輸入。
@@ -38,7 +38,7 @@ Azure 串流分析工作可以連線至一或多個資料輸入，且每個資�
 
 1. 在 Azure 入口網站中按一下 [輸入]，然後按一下串流分析工作的 [新增輸入]。
    
-    ![Azure 傳統入口網站 - 新增輸入。](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure 入口網站-將輸入。](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     在 Azure 入口網站中，按一下串流分析工作的 [輸入]  磚。  
    

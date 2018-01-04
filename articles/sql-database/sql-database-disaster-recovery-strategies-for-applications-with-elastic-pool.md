@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
+ms.author: sashan
+ms.reviewer: carlrab
 ms.workload: Inactive
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: 03bc991d5c1f644b439e9ebfa0d750cbf0c56764
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL Database 彈性集區之應用程式的災害復原策略
 多年來，我們已了解雲端服務不是萬無一失的作法，災難性事件還是會發生。 SQL Database 提供許多功能，以在這些事件發生時提供應用程式的商務持續性。 [彈性集區](sql-database-elastic-pool.md)和單一資料庫支援相同類型的災害復原功能。 本文說明利用這些 SQL Database 商務持續性功能之彈性集區的數種 DR 策略。
@@ -162,7 +163,7 @@ ms.lasthandoff: 10/31/2017
 * 需要更複雜的管理資料庫設計。 例如，每個租用戶記錄都具有必須在容錯移轉和容錯回復期間變更的位置標記。  
 * 除非完成區域 B 中的集區升級，否則付費客戶的效能可能會低於正常情況。 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 本文著重於SaaS ISV 多租用戶應用程式所使用之資料庫層的災害復原策略。 要選擇哪個策略請根據應用程式的需求 (例如商務模型、您想提供給客戶的 SLA、預算限制等等)。每個所述的策略都會概述優缺點，因此您可以做出明智的決定。 此外，特定應用程式可能包含其他 Azure 元件。 所以您必須檢閱其商務持續性指引，並安排使用元件來復原資料庫層。 若要深入了解如何管理 Azure 中資料庫應用程式的復原，請參閱[設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。  
 
 ## <a name="next-steps"></a>後續步驟

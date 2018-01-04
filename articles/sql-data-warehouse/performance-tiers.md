@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: HT
+ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL 資料倉儲效能層級 (預覽)
 SQL 資料倉儲提供兩個最佳化以用於分析工作負載的效能層級。 本文說明效能層級的概念，可協助您選擇最適合工作負載的效能層級。 
 
-
 ## <a name="what-is-a-performance-tier"></a>什麼是效能層級？
 效能層級是可決定您資料倉儲設定的選項。 這個選項是您在建立資料倉儲時最先做出的選擇之一。  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - **針對彈性最佳化的效能層級**會分隔架構中的計算和儲存體層級。 此選項的過人之處在於工作負載可以充分利用計算和儲存體之間的分離，方法是經常調整以支援短期的尖峰活動。 此計算層級具有最低的項目價格點，並可調整來支援大部分的客戶工作負載。
 
@@ -161,12 +162,12 @@ SQL 資料倉儲在單一資料倉儲上提供領先業界的並行。 為了確
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
 | DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **靜態資源類別** 下表針對每個[靜態資源類別](resource-classes-for-workload-management.md)顯示並行查詢數量和並行位置數量的最大值。  這些適用於針對彈性最佳化的效能層級。
 

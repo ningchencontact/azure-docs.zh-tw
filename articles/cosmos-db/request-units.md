@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 現在可供使用︰Azure Cosmos DB [要求單位計算機 (英文)](https://www.documentdb.com/capacityplanner)。 深入了解 [預估您的輸送量需求](request-units.md#estimating-throughput-needs)。
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/06/2017
 ![輸送量計算機][5]
 
 ## <a name="introduction"></a>簡介
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是 Microsoft 的全域分散式多模型資料庫。 有了 Azure Cosmos DB，您就不需要租用虛擬機器、部署軟體或監視資料庫。 Microsoft 頂尖工程師會負責操作並持續監視 Azure Cosmos DB，提供世界級的可用性、效能和資料保護能力。 您可以使用所選擇的 API 來存取資料，例如透過 [DocumentDB API](documentdb-introduction.md) 的 SQL、MongoDB API、[資料表 API](table-introduction.md) 及透過[圖形 API](graph-introduction.md) 的 Gremlin，這些全都是原生支援的 API。 Azure Cosmos DB 的貨幣是要求單位 (RU)。 使用 RU 時，您不需保留讀取/寫入容量，或是佈建 CPU、記憶體及 IOPS。
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是 Microsoft 的全域分散式多模型資料庫。 有了 Azure Cosmos DB，您就不需要租用虛擬機器、部署軟體或監視資料庫。 Microsoft 頂尖工程師會負責操作並持續監視 Azure Cosmos DB，提供世界級的可用性、效能和資料保護能力。 您可以存取使用您選擇的 Api，例如資料[SQL API](documentdb-introduction.md)， [MongoDB API](mongodb-introduction.md)，[表格 API](table-introduction.md)，並透過 Gremlin [Graph API](graph-introduction.md) -所有原生支援。 Azure Cosmos DB 的貨幣是要求單位 (RU)。 使用 RU 時，您不需保留讀取/寫入容量，或是佈建 CPU、記憶體及 IOPS。
 
 Azure Cosmos DB 支援數種 API 以執行各種不同的作業，從簡單地讀取及寫入，到複雜的圖表查詢等等。 因為並非所有的要求都相等，所以系統會根據處理要求所需的計算量，指派標準化的**要求單位**數量。 作業的要求單位數具決定性，您可以在 Azure Cosmos DB 中透過回應標頭追蹤任何作業所取用的要求單位數。 
 
@@ -201,7 +201,7 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 > 
 > 
 
-例如：
+例如︰
 
 1. 記錄建立 (插入) 一般項目的要求單位費用。 
 2. 記錄讀取一般項目的要求單位費用。

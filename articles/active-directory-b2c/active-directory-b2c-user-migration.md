@@ -4,7 +4,7 @@ description: "討論有關使用圖形 API (以及選擇性地使用 Azure AD B2
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,21 +14,21 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文並非是為了做出規定，而是要說明幾種方法的其中兩種。 每種方法是否適合則屬開發人員的責任。
 
 ## <a name="user-migration-flows"></a>使用者移轉流程
-使用 Azure AD B2C，您可以透過[圖形 API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) 移轉使用者。 使用者移轉程序分為兩個流程：
+使用 Azure AD B2C，您可以透過[圖形 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) 移轉使用者。 使用者移轉程序分為兩個流程：
 
 * **移轉前**：當您能夠完全存取使用者認證 (使用者名稱和密碼) 時，或是認證已加密，但您可以將認證解密時，便適用此流程。 此移轉前程序包括從舊識別提供者讀取使用者，然後在 Azure AD B2C 目錄中建立新的帳戶。
 
-* **移轉前和密碼重設**：當您無法存取使用者的密碼時，便適用此流程。 例如：
+* **移轉前和密碼重設**：當您無法存取使用者的密碼時，便適用此流程。 例如︰
     * 密碼以 HASH 格式儲存。
     * 密碼儲存在您無法存取的識別提供者中。 舊識別提供者會呼叫 Web 服務來驗證使用者認證。
 
@@ -67,7 +67,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
     * 在 [名稱] 中使用 **B2CUserMigration** 或其他任何您想要的名稱。
     * 針對 [應用程式類型] 使用 [Web 應用程式/API]。
     * 在 [登入 URL] 中使用 **https://localhost** (因為它與此應用程式無關)。
-    * 選取 [ **建立**]。
+    * 選取 [建立] 。
 
 7. 在應用程式建立後，於 [應用程式] 清單中選取新建立的 **B2CUserMigration** 應用程式。
 
@@ -100,7 +100,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
 > 您必須使用 B2C 租用戶*本機*的 B2C 租用戶系統管理員帳戶。 帳戶名稱語法是 *admin@contosob2c.onmicrosoft.com*。
 
 >[!NOTE]
-> 下列 PowerShell 指令碼需要 [Azure Active Directory PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)。
+> 下列 PowerShell 指令碼需要 [Azure Active Directory PowerShell 第 2 版](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)。
 
 在此 PowerShell 指令碼中，執行下列動作：
 1. 連線到您的線上服務。 若要這麼做，請在 Windows PowerShell 命令提示字元執行 `Connect-AzureAD` Cmdlet，並提供您的認證。 
@@ -148,11 +148,11 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 ![使用者資料檔案](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 如您所見，此檔案包含使用者實體的清單。 每個使用者實體都有下列屬性：
-* email
+* 電子郵件
 * displayName
 * firstName
 * lastName
-* password (可空白)
+* 密碼 (可空白)
 
 > [!NOTE]
 > 編譯時，Visual Studio 會將檔案複製到 `bin` 目錄。
@@ -250,7 +250,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 > 若要檢查並變更使用者移轉狀態，您必須使用自訂原則。 如需詳細資訊，請參閱[開始使用自訂原則](active-directory-b2c-get-started-custom.md)。
 >
 
-當使用者不先重設密碼就嘗試登入時，您的原則應該會傳回易懂的錯誤訊息。 例如： 
+當使用者不先重設密碼就嘗試登入時，您的原則應該會傳回易懂的錯誤訊息。 例如︰ 
 >*您的密碼已到期。若要重設，請選取 [重設密碼] 連結。* 
 
 此選用步驟需要使用 Azure AD B2C 自訂原則，如[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文所述。
@@ -278,7 +278,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>步驟 4.2：將 Web 應用程式部署至 Azure App Service
-將 API 服務發佈至 Azure App Service。 如需詳細資訊，請參閱[將您的應用程式部署至 Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy)。
+將 API 服務發佈至 Azure App Service。 如需詳細資訊，請參閱[將您的應用程式部署至 Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy)。
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>步驟 4.3：新增技術設定檔和技術設定檔驗證到您的原則中 
 1. 在您的工作目錄中，開啟 *TrustFrameworkExtensions.xml* 擴充原則檔案。 
@@ -356,7 +356,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 5. 選取 [覆寫已存在的原則] 核取方塊。
 
-6. 上傳 *TrustFrameworkExtensions.xml* 檔案，確定它通過驗證。
+6. 上傳 TrustFrameworkExtensions.xml 檔案，確定它通過驗證。
 
 ### <a name="step-45-test-the-custom-policy-by-using-run-now"></a>步驟 4.5：使用 [立即執行] 測試自訂原則
 1. 選取 [Azure AD B2C 設定]，然後移至 [識別體驗架構]。
@@ -384,7 +384,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 6. 檢查 RESTful API 的輸出。
 
-如需詳細資訊，請參閱[串流記錄和主控台](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console)。
+如需詳細資訊，請參閱[串流記錄和主控台](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console)。
 
 > [!IMPORTANT]
 > 請只在開發與測試期間使用診斷記錄。 RESTful API 輸出可能包含不應該在生產環境中公開的機密資訊。

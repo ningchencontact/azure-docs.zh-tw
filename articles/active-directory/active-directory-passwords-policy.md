@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ae1e6c34b610aff245e051454269f0b8619b54c7
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -85,7 +85,7 @@ Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個�
 
 | 屬性 | UserPrincipalName 需求 |
 | --- | --- |
-| 允許的字元 |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> 。 - \_ ! \# ^ \~</li></ul> |
+| 允許的字元 |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | 不允許的字元 |<ul> <li>任何不是用來分隔使用者名稱和網域的 "@" 字元。</li> <li>"@" 符號前面不可直接包含句點字元 "."</li></ul> |
 | 長度限制 |<ul> <li>總長度不得超過 113 個字元</li><li>"@" 符號之前最多可以有 64 個字元</li><li>"@" 符號之後最多可以有 48 個字元</li></ul> |
 

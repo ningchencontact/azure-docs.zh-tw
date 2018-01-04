@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>合併資料行實例化轉換
 此轉換可讓使用者藉由合併多個資料行的值以新增資料行。 使用者可以指定分隔符號，或提供組合值的範例以執行這項轉換。 當使用者提供合併範例時，轉換由**衍生資料行實例化**轉換中使用的相同**實例化**引擎處理。
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 在此範例中，使用逗號後加一個空格作為分隔符號，以合併 *Street*、*City*、*State*，以及 *ZIP* 資料行。
 
-|Street|City|State|ZIP|資料欄|
+|Street|City|State|ZIP|欄|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th Way|REDMOND|WA|98052|16011 N.E. 36th Way, REDMOND, WA, 98052|
 |16021 N.E. 36th Way|REDMOND|WA|98052|16021 N.E. 36th Way, REDMOND, WA, 98052|
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 已提供**粗體**值作為範例。
 
-|Date|月|Year|小時|分鐘|秒|合併資料行|
+|日期|月|Year|小時|分鐘|秒|合併資料行|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|Oct|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
 |16|Oct|2016|16|22|33|16-Oct-2016 15:01:33 PDT|

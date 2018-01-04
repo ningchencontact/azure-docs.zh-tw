@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>秘訣
+## <a name="tips"></a>祕訣
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體型編碼器時，請關閉任何不必要的程式。
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 
     頻道執行時，以滑鼠右鍵按一下頻道名稱，向下瀏覽讓滑鼠游標停留在 [複製輸入 URL 到剪貼簿]，然後選取 [主要輸入 URL]。  
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 5. 在輸出區段裡的 [ **FMS URL** ] 欄位中貼上這項資訊，並指派串流名稱。
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle7.png)

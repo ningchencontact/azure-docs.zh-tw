@@ -6,28 +6,26 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 5de818b0b47ee3345ddbc41455f5e953c5b96aa4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-a-container-group"></a>部署容器群組
 
-Azure 容器執行個體支援使用*容器群組*將多個容器部署到單一主機。 在建置應用程式 Sidecar 以便記錄、監視或進行服務需要第二個附加程序的任何其他設定時，這非常有用。
+Azure 容器執行個體支援的部署到單一主機使用的多個容器*容器群組*。 在建置應用程式 Sidecar 以便記錄、監視或進行服務需要第二個附加程序的任何其他設定時，這非常有用。
 
-本文件會逐步解說如何使用 Azure Resource Manager 範本來執行簡單的多容器 Sidecar 設定。
+這份文件會引導您執行簡單的多個容器 sidecar 組態部署 Azure Resource Manager 範本。
 
 ## <a name="configure-the-template"></a>設定範本
 
-建立名為 `azuredeploy.json` 的檔案，並將下列 json 複製到該檔案中。
+建立名為`azuredeploy.json`將下列 JSON 複製到其中。
 
-此範例會定義含有兩個容器和一個公用 IP 位址的容器群組。 群組的第一個容器會執行網際網路對向應用程式。 第二個容器 (也就是 Sidecar) 會透過群組的區域網路向主要 Web 應用程式提出 HTTP 要求。
-
-您可以擴充此 Sidecar 範例，以在其收到 200 OK 以外的 HTTP 回應碼時觸發警示。
+此範例會定義含有兩個容器和一個公用 IP 位址的容器群組。 群組中的第一個容器執行網際網路對向應用程式。 第二個容器 (也就是 Sidecar) 會透過群組的區域網路向主要 Web 應用程式提出 HTTP 要求。
 
 ```json
 {
@@ -101,7 +99,7 @@ Azure 容器執行個體支援使用*容器群組*將多個容器部署到單一
   }
 ```
 
-若要使用私用容器映像登錄，請使用下列格式將物件新增至 json 文件。
+若要使用私用容器映像登錄中，將物件加入至以下列格式的 JSON 文件。
 
 ```json
 "imageRegistryCredentials": [
@@ -115,81 +113,91 @@ Azure 容器執行個體支援使用*容器群組*將多個容器部署到單一
 
 ## <a name="deploy-the-template"></a>部署範本
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。
+使用 [az group create][az-group-create] 命令來建立資源群組。
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az group deployment create](/cli/azure/group/deployment#create) 命令部署範本。
+部署具有範本[az 群組部署建立][ az-group-deployment-create]命令。
 
 ```azurecli-interactive
-az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-在幾秒內，您就會從 Azure 收到首次的回應。
+在幾秒內，您應該從 Azure 接收初始回應。
 
 ## <a name="view-deployment-state"></a>檢視部署狀態
 
-若要檢視部署的狀態，請使用 `az container show` 命令。 這會傳回可供用來存取應用程式的已佈建公用 IP 位址。
+若要檢視部署的狀態，請使用[az 容器顯示][ az-container-show]命令。 這會傳回之可存取應用程式的佈建公用 IP 位址。
 
 ```azurecli-interactive
-az container show --name myContainerGroup --resource-group myResourceGroup -o table
-```
-
-輸出：
-
-```azurecli
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
-```
-
-## <a name="view-logs"></a>檢視記錄檔
-
-使用 `az container logs` 命令檢視容器的記錄輸出。 `--container-name` 引數會指定要從中提取記錄的容器。 此範例所指定的會是第一個容器。
-
-```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
 輸出：
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+```
+
+## <a name="view-logs"></a>檢視記錄檔
+
+檢視的容器使用的記錄檔輸出[az 容器記錄][ az-container-logs]命令。 `--container-name` 引數會指定要從中提取記錄的容器。 此範例所指定的會是第一個容器。
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
+```
+
+輸出：
+
+```bash
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 若要查看 Sidecar 容器的記錄，請執行相同命令來指定第二個容器名稱。
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 輸出：
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
-如您所見，Sidecar 會透過群組的區域網路定期地向主要 Web 應用程式提出 HTTP 要求，以確保它正在執行。
+如您所見，Sidecar 會透過群組的區域網路定期地向主要 Web 應用程式提出 HTTP 要求，以確保它正在執行。 您可以擴充此 Sidecar 範例，以在其收到 200 OK 以外的 HTTP 回應碼時觸發警示。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文件說明了要部署多容器 Azure 容器執行個體所需的步驟。 如需端對端的 Azure 容器執行個體體驗，請參閱「Azure 容器執行個體」教學課程。
+本文涵蓋部署多個容器的 Azure 容器執行個體所需的步驟。 端對端 Azure 容器執行個體的經驗，請參閱 Azure 容器執行個體教學課程。
 
 > [!div class="nextstepaction"]
-> [Azure 容器執行個體教學課程]: ./container-instances-tutorial-prepare-app.md
+> [Azure 容器執行個體教學課程][aci-tutorial]
+
+<!-- LINKS - Internal -->
+[aci-tutorial]: ./container-instances-tutorial-prepare-app.md
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create

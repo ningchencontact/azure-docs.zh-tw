@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 儀表板結構
 此文件將使用下列儀表板做為範例，逐步說明 Azure 儀表板的結構：
 
 ![範例儀表板](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-因為共用 [Azure 儀表板屬於資源](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)，所以此儀表板能夠以 JSON 的形式呈現。  以下 JSON 所呈現的便是上方視覺化的儀表板。
+因為共用 [Azure 儀表板屬於資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，所以此儀表板能夠以 JSON 的形式呈現。  以下 JSON 所呈現的便是上方視覺化的儀表板。
 
 ```json
 
@@ -294,7 +294,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="the-id-property"></a>識別碼屬性
 
-Azure 資源識別碼，受限於 [Azure 資源的命名慣例](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions)。 入口網站建立儀表板時，通常會選擇 guid 形式的識別碼，但是以程式設計方式建立儀表板時，可以隨意使用任何有效的名稱。 
+Azure 資源識別碼，受限於 [Azure 資源的命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 入口網站建立儀表板時，通常會選擇 guid 形式的識別碼，但是以程式設計方式建立儀表板時，可以隨意使用任何有效的名稱。 
 
 ### <a name="the-name-property"></a>名稱屬性
 名稱是資源識別碼的區段，不包含訂用帳戶、資源類型或資源群組資訊。 基本上，它是資源識別碼的最後一個區段。
@@ -303,7 +303,7 @@ Azure 資源識別碼，受限於 [Azure 資源的命名慣例](https://docs.mic
 所有儀表板均屬於類型 __Microsoft.Portal/dashboards__。
 
 ### <a name="the-location-property"></a>位置屬性
-不同於其他資源，儀表板沒有執行階段元件。  對於儀表板，位置代表的是儲存儀表板的 JSON 表示法所在的主要地理位置。 該值應為可使用[訂用帳戶資源上的位置 API](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions) 擷取到的其中一個位置代碼。
+不同於其他資源，儀表板沒有執行階段元件。  對於儀表板，位置代表的是儲存儀表板的 JSON 表示法所在的主要地理位置。 該值應為可使用[訂用帳戶資源上的位置 API](https://docs.microsoft.com/rest/api/resources/subscriptions) 擷取到的其中一個位置代碼。
 
 ### <a name="the-tags-property"></a>標記屬性
 標記是 Azure 資源的共通功能，可讓您按照任意名稱值組排列您的資源。 至於儀表板，有一個稱為__隱藏標題__的特殊標籤。 如果您的儀表板已填入這個屬性，則會使用該屬性做為儀表板在入口網站的顯示名稱。 Azure 資源識別碼無法重新命名，但是標記可以。 此標籤可讓您的儀表板有可重新命名的顯示名稱。

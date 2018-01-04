@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>將 NoSQL 資料庫的文件資料模型化
 雖然無結構描述的資料庫 (像是 Azure Cosmos DB)，讓您極容易運用資料模型變更，但是您仍然應該花一些時間來思考資料。 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/11/2017
 
 在我們更進一步深入探討之前，讓我們往回幾個步驟，看看我們在關聯式資料庫中如何建立某個項目的模型，這是許多人已熟悉的主題。 下列範例示範人員可能如何儲存在關聯式資料庫中。 
 
-![關聯式資料庫模型](./media/documentdb-modeling-data/relational-data-model.png)
+![關聯式資料庫模型](./media/sql-api-modeling-data/relational-data-model.png)
 
 使用關聯式資料庫時，我們已多年被告知要進行正規化、正規化、正規化。
 
@@ -290,7 +290,7 @@ ms.lasthandoff: 11/11/2017
 ### <a name="how-do-i-model-manymany-relationships"></a>如何建立多對多關聯性的模型？
 在關聯式資料庫 *多對多* 關聯性中，通常是與聯結資料表模型化，其只是將記錄從其他資料表聯結在一起。 
 
-![聯結資料表](./media/documentdb-modeling-data/join-table.png)
+![聯結資料表](./media/sql-api-modeling-data/join-table.png)
 
 您可能會想要使用文件複寫相同的項目，並產生看起來如下所示的資料模型。
 
@@ -395,4 +395,4 @@ ms.lasthandoff: 11/11/2017
 
 若要深入了解 Azure Cosmos DB，請參閱服務的[文件 (英文)](https://azure.microsoft.com/documentation/services/cosmos-db/)頁面。 
 
-若要了解如何跨多個分割將您的資料分區，請參閱[在 Azure Cosmos DB 中分割資料](documentdb-partition-data.md)。 
+若要了解如何跨多個分割將您的資料分區，請參閱[在 Azure Cosmos DB 中分割資料](sql-api-partition-data.md)。 

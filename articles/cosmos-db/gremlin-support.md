@@ -3,7 +3,7 @@ title: "Azure Cosmos DB Gremlin 支援 | Microsoft Docs"
 description: "了解 Apache TinkerPop 的 Gremlin 語言，Azure Cosmos DB 中可用使用其功能和步驟"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) \(英文\)，該圖形 API 是 [Apache Tinkerpop](http://tinkerpop.apache.org) \(英文\) 的圖形周遊語言，可用於建立圖表實體和執行圖表查詢作業。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
 
 Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 包括跨越兩個以上 Azure 區域之資料庫的全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引、SLA、讀取可用性。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個圖表資料庫撰寫的應用程式，而不必變更程式碼。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](http://spark.apache.org/graphx/)。 
 
-在本文中，我們提供 Gremlin 的快速逐步解說，並列舉圖形 API 支援預覽中所支援的 Gremlin 功能和步驟。
+在本文中，我們提供快速的 Gremlin，逐步解說，並列舉 Gremlin 功能和 Graph API 所支援的步驟。
 
 ## <a name="gremlin-by-example"></a>Gremlin 範例
 讓我們利用一個範例圖表了解如何以 Gremlin 表達查詢。 下圖顯示的商務應用程式以圖表形式管理使用者、興趣和裝置的相關資料。  
@@ -78,9 +78,9 @@ TinkerPop 是一套涵蓋各種圖表技術的標準。 因此，它採用標準
 
 下表列出 Azure Cosmos DB 所實作的 TinkerPop 功能︰ 
 
-| 類別 | Azure Cosmos DB 實作 |  注意事項 | 
+| 類別 | Azure Cosmos DB 實作 |  注意 | 
 | --- | --- | --- |
-| Graph 功能 | 在預覽中提供 Persistence 和 ConcurrentAccess。 設計為支援交易 | 可以透過 Spark 連接器實作電腦方法。 |
+| Graph 功能 | 提供持續性和 ConcurrentAccess。 設計為支援交易 | 可以透過 Spark 連接器實作電腦方法。 |
 | 變數功能 | 支援布林值、整數、位元組、Double、Float、整數、Long、字串 | 支援基本類型、透過資料模型而與複雜類型相容 |
 | 頂點功能 | 支援 RemoveVertices、MetaProperties、AddVertices、MultiProperties、StringIds、UserSuppliedIds、AddProperty、RemoveProperty  | 支援建立、修改和刪除端點 |
 | 頂點屬性功能 | StringIds、UserSuppliedIds、AddProperty、RemoveProperty、BooleanValues、ByteValues、DoubleValues、FloatValues、IntegerValues、LongValues、StringValues | 支援建立、修改和刪除頂點屬性 |
@@ -136,8 +136,8 @@ GraphSON 用於頂點的屬性如下︰
 | --- | --- |
 | id | 頂點的識別碼。 必須是唯一的 (適合的話，與 _partition 的值結合) |
 | 標籤 | 頂點的標籤。 這是選擇性，用來描述實體類型。 |
-| 類型 | 用來區別頂端和非圖表文件 |
-| 屬性 | 與頂點相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
+| type | 用來區別頂端和非圖表文件 |
+| properties | 與頂點相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
 | _partition (可設定) | 頂點的資料分割索引鍵。 可用來將圖表相應放大至多部伺服器 |
 | outE | 這包含頂點的外邊緣清單。 儲存頂點的相鄰資訊可以加速周遊。 邊緣會根據標籤而分組。 |
 
@@ -148,7 +148,7 @@ GraphSON 用於頂點的屬性如下︰
 | id | 邊緣的識別碼。 必須是唯一的 (適合的話，與 _partition 的值結合) |
 | 標籤 | 邊緣的標籤。 這是選擇性屬性，用來描述關聯性類型。 |
 | inV | 這包含特定邊緣的頂點清單。 儲存邊緣的相鄰資訊可以加速周遊的執行。 頂點會根據標籤而分組。 |
-| 屬性 | 與邊緣相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
+| properties | 與邊緣相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
 
 每個屬性可以將多個值儲存在陣列中。 
 
@@ -165,7 +165,7 @@ GraphSON 用於頂點的屬性如下︰
 ## <a name="gremlin-steps"></a>Gremlin 步驟
 現在，讓我們看看 Azure Cosmos DB 支援的 Gremlin 步驟。 如需 Gremlin 的完整參考，請參閱 [TinkerPop 參考](http://tinkerpop.apache.org/docs/current/reference)。
 
-| 步驟 | 說明 | TinkerPop 3.2 文件 | 注意事項 |
+| 步驟 | 說明 | TinkerPop 3.2 文件 | 注意 |
 | --- | --- | --- | --- |
 | `addE` | 在兩個頂點之間新增邊緣 | [addE 步驟](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | 將頂點新增至圖表 | [addV 步驟](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |

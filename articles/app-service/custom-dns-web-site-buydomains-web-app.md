@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>針對 Azure Web Apps 購買自訂網域名稱
 
@@ -34,6 +34,8 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 * [移除訂用帳戶的消費限制](../billing/billing-spending-limit.md#remove)。 您無法使用免費的訂用帳戶信用額度購買 App Service 網域。
 
 ## <a name="prepare-the-app"></a>準備應用程式
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 若要在 Azure Web Apps 中使用自訂網域，Web 應用程式的 [App Service 方案](https://azure.microsoft.com/pricing/details/app-service/)必須是付費層 (「共用」、「基本」、「標準」或「進階」)。 在此步驟中，您要確定 Web 應用程式位於支援的定價層。
 
@@ -167,7 +169,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 選取 [新增主機名稱]。
 
 ### <a name="configure-hostname"></a>設定主機名稱
-在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如：
+在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如︰
 
 - kontoso.net
 - www.kontoso.net

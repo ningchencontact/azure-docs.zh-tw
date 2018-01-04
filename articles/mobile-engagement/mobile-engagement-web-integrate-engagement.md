@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>在 Web 應用程式中整合 Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Mobile Engagement 工作階段被分成一系列活動，每一個都可透過�
 
 在傳統網站中，我們建議您在每個網站頁面上宣告不同的活動。 對於目前頁面永遠不會變更的網站或 Web 應用程式，您可能想要追蹤較小範圍中的活動，例如，在該頁面內。
 
-無論如何，若要開始或變更目前的使用者活動，請呼叫 `engagement.agent.startActivity` 函式。 例如：
+無論如何，若要開始或變更目前的使用者活動，請呼叫 `engagement.agent.startActivity` 函式。 例如︰
 
     <body onload="yourOnload()">
 

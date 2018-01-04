@@ -4,7 +4,7 @@ description: "Azure Active Directory Domain Services 概觀"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>概觀
@@ -41,22 +41,22 @@ Azure 基礎結構服務可讓您以敏捷的方式部署各種不同的運算�
 
 
 ## <a name="introducing-azure-ad-domain-services"></a>Azure AD 網域服務簡介
-Azure AD 網域服務提供受管理的網域服務，例如：加入網域、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 您可以取用這些網域服務，而不需要您在雲端中部署、管理和修補網域控制站。 Azure AD 網域服務與您現有的 Azure AD 租用戶整合，因此能讓使用者使用其公司認證登入。 此外，您可以使用現有的群組和使用者帳戶，安全地存取資源，以確保更順暢地將內部部署資源「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務。
+Azure AD 網域服務提供受控網域服務，例如：加入網域、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 您可以取用這些網域服務，而不需要您在雲端中部署、管理和修補網域控制站。 Azure AD 網域服務與您現有的 Azure AD 租用戶整合，因此能讓使用者使用其公司認證登入。 此外，您可以使用現有的群組和使用者帳戶，安全地存取資源，以確保更順暢地將內部部署資源「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務。
 
 Azure AD 網域服務的功能運作順暢，不論您的 Azure AD 租用戶是僅限雲端或與您的內部部署 Active Directory 同步。
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>僅限雲端的組織的 Azure AD 網域服務
-僅限雲端的 Azure AD 租用戶 (通常稱為「受管理的租用戶」) 沒有任何內部部署身分識別使用量。 換句話說，使用者帳戶、其密碼和群組成員資格為雲端原生 - 也就是在 Azure AD 中建立和管理。 考慮一下 Contoso 是僅限雲端的 Azure AD 租用戶。 如下圖中所示，Contoso 的系統管理員已在 Azure 基礎結構服務中設定虛擬網路。 應用程式和伺服器工作負載會部署在 Azure 虛擬機器的此虛擬網路中。 由於 Contoso 是僅限雲端的租用戶，所有的使用者身分識別、其認證和群組成員資格都是在 Azure AD 中建立和管理。
+僅限雲端的 Azure AD 租用戶 (通常稱為「受控租用戶」) 沒有任何內部部署身分識別使用量。 換句話說，使用者帳戶、其密碼和群組成員資格為雲端原生 - 也就是在 Azure AD 中建立和管理。 考慮一下 Contoso 是僅限雲端的 Azure AD 租用戶。 如下圖中所示，Contoso 的系統管理員已在 Azure 基礎結構服務中設定虛擬網路。 應用程式和伺服器工作負載會部署在 Azure 虛擬機器的此虛擬網路中。 由於 Contoso 是僅限雲端的租用戶，所有的使用者身分識別、其認證和群組成員資格都是在 Azure AD 中建立和管理。
 
 ![Azure AD 網域服務概觀](./media/active-directory-domain-services-overview/aadds-overview.png)
 
-Contoso 的 IT 系統管理員可以為其 Azure AD 租用戶啟用 Azure AD 網域服務，並選擇使網域服務可以在此虛擬網路中提供使用。 之後，Azure AD 網域服務會佈建受管理的網域，並使它可在虛擬網路中使用。 Contoso 的 Azure AD 租用戶中可使用的所有使用者帳戶、群組成員資格和使用者認證，也會在此新建立的網域中可供使用。 這項功能可讓組織中的使用者使用其公司認證登入網域，例如，透過遠端桌面從遠端連線到加入網域的電腦。 系統管理員可以使用現有群組成員資格在網域中為資源佈建存取權。 部署在虛擬網路的虛擬機器中的應用程式可以使用加入網域、LDAP 讀取、LDAP 繫結、NTLM、Kerberos 驗證、群組原則之類的功能。
+Contoso 的 IT 系統管理員可以為其 Azure AD 租用戶啟用 Azure AD 網域服務，並選擇使網域服務可以在此虛擬網路中提供使用。 之後，Azure AD 網域服務會佈建受控網域，並使它可在虛擬網路中使用。 Contoso 的 Azure AD 租用戶中可使用的所有使用者帳戶、群組成員資格和使用者認證，也會在此新建立的網域中可供使用。 這項功能可讓組織中的使用者使用其公司認證登入網域，例如，透過遠端桌面從遠端連線到加入網域的電腦。 系統管理員可以使用現有群組成員資格在網域中為資源佈建存取權。 部署在虛擬網路的虛擬機器中的應用程式可以使用加入網域、LDAP 讀取、LDAP 繫結、NTLM、Kerberos 驗證、群組原則之類的功能。
 
-Azure AD 網域服務所佈建的受管理網域的幾個顯著層面如下所示：
+Azure Active Directory Domain Services 所佈建的受控網域的幾個顯著層面如下所示：
 
-* Contoso 的 IT 系統管理員不需要管理、修補或監視此網域或此受管理網域的任何網域控制站。
-* 不需管理對這個網域的 AD 複寫。 使用者帳戶、群組成員資格和來自 Contoso 的 Azure AD 租用戶認證會自動在此受管理的網域中提供。
-* 因為網域是由 Azure AD 網域服務管理，Contoso 的 IT 系統管理員沒有這個網域的網域系統管理員或企業管理員權限。
+* Contoso 的 IT 系統管理員不需要管理、修補或監視此網域或此受控網域的任何網域控制站。
+* 不需管理對這個網域的 AD 複寫。 使用者帳戶、群組成員資格和來自 Contoso 的 Azure AD 租用戶認證會自動在此受控網域中提供。
+* 因為網域是由 Azure Active Directory Domain Services 管理，Contoso 的 IT 系統管理員沒有這個網域的網域系統管理員或企業管理員權限。
 
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>混合式組織的 Azure AD 網域服務
 具有混合式 IT 基礎結構的組織會混合取用雲端資源和內部部署資源。 這類組織會從其內部部署目錄同步身分識別資訊到其 Azure AD 租用戶。 隨著混合式組織尋求將他們的更多內部部署應用程式移轉至雲端，尤其是舊版目錄感知應用程式，Azure AD 網域服務對組織而言可說是非常有用。
@@ -64,19 +64,19 @@ Azure AD 網域服務所佈建的受管理網域的幾個顯著層面如下所�
 Litware Corporation 已部署 [Azure AD Connect](../active-directory/active-directory-aadconnect.md)，以便從其內部部署目錄同步身分識別資訊到其 Azure AD 租用戶。 同步處理的身分識別資訊包括使用者帳戶、用於驗證的認證雜湊 (密碼同步) 與群組成員資格。
 
 > [!NOTE]
-> **混合式組織必須使用密碼同步處理，才能使用 Azure AD 網域服務**。 這是因為在 Azure AD 網域服務提供的受管理網域中需要使用者的認證，才能透過 NTLM 或 Kerberos 驗證方法驗證這些使用者。
+> **混合式組織必須使用密碼同步處理，才能使用 Azure AD 網域服務**。 這是因為在 Azure AD 網域服務提供的受控網域中需要使用者的認證，才能透過 NTLM 或 Kerberos 驗證方法驗證這些使用者。
 >
 >
 
 ![Litware Corporation 的 Azure AD 網域服務](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
-上圖顯示具有混合式 IT 基礎結構的組織 (例如 Litware Corporation) 如何使用 Azure AD 網域服務。 Litware 需要網域服務的應用程式和伺服器工作負載會部署在 Azure 基礎結構服務的虛擬網路中。 Litware 的 IT 系統管理員可以為其 Azure AD 租用戶啟用 Azure AD 網域服務，並選擇使受管理網域可以在此虛擬網路中提供使用。 由於 Litware 是使用混合式 IT 基礎結構的組織，使用者帳戶、群組和認證會從其內部部署目錄同步到其 Azure AD 租用戶。 這項功能可讓使用者使用其公司認證登入網域，例如，透過遠端桌面從遠端連線到加入網域的電腦。 系統管理員可以使用現有群組成員資格在網域中為資源佈建存取權。 部署在虛擬網路的虛擬機器中的應用程式可以使用加入網域、LDAP 讀取、LDAP 繫結、NTLM、Kerberos 驗證、群組原則之類的功能。
+上圖顯示具有混合式 IT 基礎結構的組織 (例如 Litware Corporation) 如何使用 Azure AD 網域服務。 Litware 需要網域服務的應用程式和伺服器工作負載會部署在 Azure 基礎結構服務的虛擬網路中。 Litware 的 IT 系統管理員可以為其 Azure AD 租用戶啟用 Azure AD 網域服務，並選擇使受控網域可以在此虛擬網路中提供使用。 由於 Litware 是使用混合式 IT 基礎結構的組織，使用者帳戶、群組和認證會從其內部部署目錄同步到其 Azure AD 租用戶。 這項功能可讓使用者使用其公司認證登入網域，例如，透過遠端桌面從遠端連線到加入網域的電腦。 系統管理員可以使用現有群組成員資格在網域中為資源佈建存取權。 部署在虛擬網路的虛擬機器中的應用程式可以使用加入網域、LDAP 讀取、LDAP 繫結、NTLM、Kerberos 驗證、群組原則之類的功能。
 
-Azure AD 網域服務所佈建的受管理網域的幾個顯著層面如下所示：
+Azure Active Directory Domain Services 所佈建的受控網域的幾個顯著層面如下所示：
 
-* 受管理網域是獨立網域。 它不是 Litware 的內部部署網域的延伸。
-* Litware 的 IT 系統管理員不需要管理、修補或監視此受管理網域的網域控制站。
-* 不需管理對這個網域的 AD 複寫。 使用者帳戶、群組成員資格和來自 Litware 內部部署目錄的認證會透過 Azure AD Connect 同步到 Azure AD。 在受管理的網域中會自動提供這些使用者帳戶、群組成員資格和認證。
+* 受控網域是獨立網域。 它不是 Litware 的內部部署網域的延伸。
+* Litware 的 IT 系統管理員不需要管理、修補或監視此受控網域的網域控制站。
+* 不需管理對這個網域的 AD 複寫。 使用者帳戶、群組成員資格和來自 Litware 內部部署目錄的認證會透過 Azure AD Connect 同步到 Azure AD。 在受控網域中會自動提供這些使用者帳戶、群組成員資格和認證。
 * 因為網域是由 Azure AD 網域服務管理，Litware 的 IT 系統管理員沒有這個網域的網域系統管理員或企業管理員權限。
 
 ## <a name="benefits"></a>優點

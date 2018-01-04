@@ -4,7 +4,7 @@ description: "說明如何加入、修改及監視 StorSimple 磁碟區，以及
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>使用 StorSimple 裝置管理員服務來管理磁碟區 (Update 3 或更新版本)
 
@@ -49,7 +49,7 @@ StorSimple 磁碟區可以是：
 
 ### <a name="tiered-volumes"></a>分層磁碟區
 
-分層磁碟區是精簡佈建磁碟區，經常存取裝置上本機的資料，而較少使用的資料會自動分層至雲端。 精簡佈建是一種虛擬化技術，精簡佈建中的可用儲存體會顯示超過實體資源。 與其預先保留足夠的儲存空間，StorSimple 會使用精簡佈建來配置剛好符合目前需求的足夠空間。 雲端儲存體的彈性本質正好支援這種方法，因為 StorSimple 可以增加或減少雲端儲存體以符合不斷變更的需求。
+分層磁碟區是精簡佈建磁碟區，經常存取裝置上本機的資料，而較少使用的資料會自動分層至雲端。 精簡佈建是一項虛擬化技術，讓可用的儲存空間超過實體資源。 與其預先保留足夠的儲存空間，StorSimple 會使用精簡佈建來配置剛好符合目前需求的足夠空間。 雲端儲存體的彈性本質正好支援這種方法，因為 StorSimple 可以增加或減少雲端儲存體以符合不斷變更的需求。
 
 如果您針對封存資料使用分層磁碟區，請選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊，以將您磁碟區的重複資料刪除區塊大小變更為 512 KB。 如果未核取此選項，對應的分層磁碟區會使用 64 KB 的區塊大小。 較大的重複資料刪除區塊大小可讓裝置加速傳送大型封存資料到雲端。
 
@@ -119,11 +119,7 @@ StorSimple 磁碟區可以是：
       
        如果您在 8100 裝置上佈建 8.5 TB (允許的大小上限) 且固定在本機的磁碟區，則您會用盡裝置上所有可用的本機空間。 從那時起，您就無法建立任何分層磁碟區，因為裝置上已沒有任何本機空間，可用來裝載分層磁碟區的工作集。 現有的分層磁碟區也會影響可用的空間。 例如，如果您的 8100 裝置已經有大約 106 TB 的分層磁碟區，則固定在本機的磁碟區僅只有 4 TB 的可用空間。
 
-    6. 在 [已連線的主機] 欄位中，按一下箭號。 
-
-        ![已連線的主機](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR 或新的 ACR。 如果您選擇新的 ACR，請提供 ACR 的 [名稱]，並提供 Windows 主機的 [iSCSI 限定名稱]\(IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN] [](#get-the-iqn-of-a-windows-server-host)。 按一下 [建立] 。 使用指定的設定來建立磁碟區。
+    6. 在 [已連線的主機] 欄位中，按一下箭號。 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR 或新的 ACR。 如果您選擇新的 ACR，請提供 ACR 的 [名稱]，並提供 Windows 主機的 [iSCSI 限定名稱]\(IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。 按一下頁面底部的 [新增] 。 使用指定的設定來建立磁碟區。
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -142,7 +138,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-modify-a-volume"></a>若要修改磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
     ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -176,7 +172,7 @@ StorSimple 磁碟區可以是：
    
    1. 移至 [電腦管理]  ->[磁碟管理]。
    2. 以滑鼠右鍵按一下 [磁碟管理]，並選取 [重新掃描磁碟]。
-   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區] 。 [延伸磁碟區精靈] 隨即啟動。 按一下 [下一步] 。
+   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區] 。 [延伸磁碟區精靈] 隨即啟動。 按 [下一步] 。
    4. 使用預設值完成精靈。 完成精靈後，磁碟區應該會顯示增加的大小。
       
       > [!NOTE]
@@ -224,7 +220,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-change-the-volume-type"></a>變更磁碟區類型
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
     ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -258,7 +254,7 @@ StorSimple 磁碟區可以是：
 2. 先使主機上的磁碟區離線。 這樣做可以排除任何會造成磁碟區上資料損毀的潛在風險。 如需特定步驟，請參閱主機作業系統的指示。
 3. 在主機離線之後，請執行下列步驟以使裝置上的磁碟區離線：
    
-    1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+    1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
         ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -286,7 +282,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-delete-a-volume"></a>若要刪除磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
     ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -320,7 +316,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-enable-or-disable-volume-monitoring"></a>若要啟用或停用監視磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 2. 從磁碟區的表格式清單中，選取磁碟區，然後按一下滑鼠右鍵以叫用操作功能表。 選取 [修改]。
 3. 在 [修改磁碟區] 刀鋒視窗中，將 [監視] 選取 [啟用] 或 [停用]，以啟用或停用監視。
 

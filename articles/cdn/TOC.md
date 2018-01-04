@@ -5,10 +5,13 @@
 ## [啟用 Azure CDN](cdn-create-new-endpoint.md)
 
 # 作法
+
 ## 整合
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [雲端服務](cdn-cloud-service-with-cdn.md)
-### [儲存體](cdn-create-a-storage-account-with-cdn.md)
+### 儲存體
+#### [整合儲存體帳戶](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS 儲存體支援](cdn-sas-storage-support.md)
 ### [跨原始資源共用](cdn-cors.md)
 ### [將自訂網域新增至 CDN 端點](cdn-map-content-to-custom-domain.md)
 ### [在自訂網域上設定 HTTPS](cdn-custom-ssl.md)
@@ -73,7 +76,7 @@
 ## [Azure CDN POP 位置](cdn-pop-locations.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
-## [價格](https://azure.microsoft.com/pricing/details/cdn/)
+## [定價](https://azure.microsoft.com/pricing/details/cdn/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)

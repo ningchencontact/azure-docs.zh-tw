@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。 本�
 
 * 您必須具有 Azure 帳號。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 * [安裝 Azure CLI](../cli-install-nodejs.md)。
-* 使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶連接 Azure CLI 安裝，並使用 `azure login` 命令從 Azure CLI 登入。 若要了解其中的差異和選擇，請參閱 [從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](../xplat-cli-connect.md)。
+* 使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶連接 Azure CLI 安裝，並使用 `azure login` 命令從 Azure CLI 登入。 若要了解其中的差異和選擇，請參閱 [從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
 * 在執行以下任何命令之前，執行 `azure config mode arm` 命令將 Azure CLI 切換至資源管理員模式。 如需詳細資訊，請參閱[使用 Azure CLI 管理 Azure 資源和資源群組](../xplat-cli-azure-resource-manager.md)。
 
 ## <a name="redis-cache-properties"></a>Redis 快取屬性
@@ -47,7 +47,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。 本�
 
 | 屬性 | Switch | 說明 |
 | --- | --- | --- |
-| 名稱 |-n, --name |Redis 快取的名稱。 |
+| name |-n, --name |Redis 快取的名稱。 |
 | 資源群組 |-g, --resource-group |資源群組的名稱。 |
 | location |-l, --location |要建立快取的位置。 |
 | size |-z, --size |Redis 快取的大小。 有效的值：[C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
@@ -95,7 +95,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。 本�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="create-a-redis-cache"></a>建立 Redis 快取
+## <a name="create-a-redis-cache"></a>建立 Redis Cache
 若要建立 Redis 快取，請使用下列命令：
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]

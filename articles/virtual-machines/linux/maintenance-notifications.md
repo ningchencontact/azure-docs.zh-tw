@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>處理 Linux 虛擬機器預定進行的維修作業通知
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 12/16/2017
 - 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您會獲得一段時間，供您在適合的時間自行開始維修。
 
 
-預定進行的維修作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
+需要重新開機的計劃性的維護排程一波。 每一波段有不同的範圍 (區域)。
 
-- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以新增多個收件者和訊息的選項，例如電子郵件、 SMS 和 Webhook，使用 Azure 通知[活動記錄檔警示](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。  
+- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以新增多個收件者和訊息的選項，例如電子郵件、 SMS 和 webhook，使用 Azure 通知[活動記錄檔警示](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。  
 - 在該通知上方，時間*自助視窗*開放使用。 在此期間，您可以尋找此 wave 中包含哪些虛擬機器的並主動依據排程的需求來啟動維護。
 - 自助服務 視窗中之後,*排程的維護期間*開始。 在此期間某個時間點，Azure 排程，並適用於您的虛擬機器所需的維護。 
 
@@ -92,8 +92,8 @@ az vm get-instance-view  - g rgName  -n vmName
 | IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 ||
 | PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 ||
 | PreMaintenanceWindowEndTime           | 維修自助期間的結束，此時您可以在 VM 上起始維修 ||
-| MaintenanceWindowStartTime            | 排定維修期間的開始，此時您可以在 VM 上起始維修 ||
-| MaintenanceWindowEndTime              | 排定維修期間的結束，此時您可以在 VM 上起始維修 ||
+| MaintenanceWindowStartTime            | Azure 會起始您的 VM 上維護的維護排程範圍開頭 ||
+| MaintenanceWindowEndTime              | Azure 會起始您的 VM 上維護的維護排程視窗結尾 ||
 | LastOperationResultCode               | 前次嘗試在 VM 上起始維修的結果 ||
 
 
@@ -159,7 +159,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **問：重新啟動我的虛擬機器需要多久時間？**
 
-**答：**根據您的 VM 大小，重新啟動最長可能需要幾分鐘的時間。 請注意，如果您使用雲端服務 （Web/背景工作角色）、 虛擬機器設定小數位數，或可用性設定組，您將有 30 分鐘每個群組的 Vm (UD) 之間。 
+**答：**根據您的 VM 大小，重新開機最長可能需要幾分鐘的時間在自助服務維護期間。 在 Azure 期間起始重新開機在排程的維護視窗中，在重新開機通常會需要大約 25 分鐘。 請注意，如果您使用雲端服務 （Web/背景工作角色）、 虛擬機器設定小數位數，或可用性設定組，您將有 30 分鐘為單位的每個群組的 Vm (UD) 在排程的維護期間。
 
 **問： 什麼是在雲端服務 （Web/背景工作角色）、 Service Fabric 和虛擬機器擴展集的情況下經驗？**
 

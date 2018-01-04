@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能最佳做法
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 本主題提供將「Microsoft Azure 虛擬機器」中的 SQL Server 效能最佳化的最佳做法。 在 Azure 虛擬機器中執行 SQL Server 時，我們建議您繼續使用相同的資料庫效能微調選項，這些選項適用於內部部署伺服器環境中的 SQL Server。 不過，公用雲端中關聯式資料庫的效能優劣取決於許多因素，例如虛擬機器的大小和資料磁碟的組態。
 
-建立 SQL Server 映像時，[請考慮在 Azure 入口網站中佈建 VM](virtual-machines-windows-portal-sql-server-provision.md)。 使用 Resource Manager 在入口網站中佈建的 SQL Server VM 會實作所有這些最佳作法，包括儲存體設定。
+建立 SQL Server 映像時，[請考慮在 Azure 入口網站中佈建 VM](virtual-machines-windows-portal-sql-server-provision.md)。 佈建入口網站與資源管理員中的 SQL Server Vm 遵循最佳作法。
 
 本文的主題為如何讓 Azure VM 上的 SQL Server 達到最佳  效能。 如果您的工作負載需求較低，可能就不需要採用下列每一項最佳化條件。 評估以下建議時，請考慮您的效能需求和工作負載模式。
 
@@ -90,6 +90,9 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 ### <a name="data-disks"></a>資料磁碟
 
 * **將資料磁碟用於資料檔和記錄檔**：至少使用 2 個進階儲存體 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets)，一個磁碟包含記錄檔，另一個則包含資料和 TempDB 檔案。 每個進階儲存體磁碟會根據其大小提供數個 IOPS 和頻寬 (MB/s)，如下列文章所述：[針對磁碟使用進階儲存體](../premium-storage.md)。
+
+   > [!NOTE]
+   > 當您佈建入口網站中的 SQL Server VM 時，您可以選擇編輯儲存體設定。 根據您設定，Azure 會設定一個或多個磁碟。 多個磁碟條狀配置結合成單一儲存體集區。 資料和記錄檔會一起位於此組態中，而不是兩個不同的磁碟。 如需詳細資訊，請參閱[存放裝置設定的 SQL Server Vm](virtual-machines-windows-sql-server-storage-configuration.md)。
 
 * **磁碟等量分割**︰如需更多的輸送量，您可以新增其他資料磁碟，並使用「磁碟等量分割」。 為了判斷資料磁碟的數目，您需要分析記錄檔以及資料和 TempDB 檔案所需的 IOPS 和頻寬數目。 請注意，不同的 VM 大小在支援的 IOPS 和頻寬數目上有不同的限制，請參閱每個 [VM 大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的 IOPS 相關表格。 請使用下列指引：
 

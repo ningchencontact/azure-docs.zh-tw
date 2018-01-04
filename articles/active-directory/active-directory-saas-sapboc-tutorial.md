@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAP Business Object 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d517c5e302ac36e5bba2053998c75f8f4d42683
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>教學課程：Azure Active Directory 與 SAP Business Object Cloud 整合
 
@@ -50,13 +50,13 @@ ms.lasthandoff: 10/11/2017
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 
 
-本教學課程中說明的案例由二個主要建置組塊組成：
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SAP Business Object Cloud。
 2. 設定和測試 Azure AD 單一登入。
 
 ## <a name="add-sap-business-object-cloud-from-the-gallery"></a>從資源庫新增 SAP Business Object Cloud
-若要進行 SAP Business Object Cloud 與 Azure AD 整合的設定，請在資源庫中將 SAP Business Object Cloud 新增至受管理 SaaS 應用程式清單中。
+若要進行 SAP Business Object Cloud 與 Azure AD 整合的設定，請在資源庫中將 SAP Business Object Cloud 新增至受控 SaaS 應用程式清單中。
 
 若要從資源庫新增 SAP Business Object Cloud：
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 10/11/2017
 
     3. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    4. 選取 [ **建立**]。
+    4. 選取 [建立] 。
 
         ![[使用者] 對話方塊](./media/active-directory-saas-sapboc-tutorial/create_aaduser_04.png) 
 

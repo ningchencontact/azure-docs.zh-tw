@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure 成本管理的常見問題集
 
@@ -46,6 +46,29 @@ ms.lasthandoff: 12/05/2017
 
 您可能也需要提供部門管理員、帳戶擁有者，以及企業管理員等權限，才能使用帳單 API「檢視費用」。
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>為什麼無法查看最佳化工具建議？
+
+建議的資訊只適用於所啟動的帳戶。 將不會看到任何建議資訊**最佳化工具**報告的帳戶類別*未*，包括：
+
+- 最佳化管理員
+- 調整大小最佳化
+- 無效率
+
+您無法檢視最佳化工具建議的任何資料，最有可能，您會有未的帳戶。 若要啟用帳戶，您需要向您的 Azure 認證。
+
+若要啟用帳戶：
+
+1.  在 Cloudyn 入口網站中，按一下右上角的 [設定] 並選取 [雲端帳戶]。
+2.  在 Microsoft Azure 帳戶 索引標籤中，尋找具有帳戶**未**訂用帳戶。
+3.  帳戶未右邊，按一下 **編輯**相似的鉛筆的符號。
+4.  自動偵測您的租用戶識別碼和速率識別碼。 按 [下一步] 。
+5.  您要重新導向至 Azure 入口網站。 登入入口網站，並授權以存取您的 Azure 資料 Cloudyn 收集器。
+6.  接下來，您要重新導向至 [Cloudyn 帳戶管理] 頁面，而且您的訂用帳戶更新**active**帳戶狀態。 它會顯示一個綠色核取記號。
+7.  如果您沒有看到綠色勾號符號的一個或多個訂用帳戶，這表示您沒有建立訂用帳戶的讀取器應用程式 (CloudynCollector) 的權限。 具有較高的權限，訂用帳戶的使用者需要重複步驟 3 和 4。  
+
+完成上述步驟之後，您可以檢視最佳化工具建議一到兩天內。 不過，可能需要最多五天之前完全最佳化資料可供使用。
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>如何讓暫時停權或被鎖住的使用者恢復使用？
 
 如果您收到要求允許使用者存取權的警示，則需要啟用使用者帳戶。
@@ -66,10 +89,7 @@ Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸�
 
 我們建議您至少建立兩個 Cloudyn 系統管理員帳戶，以免其中一個帳戶被鎖住。
 
-如果您無法登入 Cloudyn 入口網站，請確定您使用正確的 Azure 成本管理 URL 登入 Cloudyn。 使用下列其中一個 URL：
-
-- https://azure.cloudyn.com
-- https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+如果您無法登入 Cloudyn 入口網站，請確定您使用正確的 Azure 成本管理 URL 登入 Cloudyn。 使用[https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)。
 
 請避免使用 Cloudyn 直接 URL https://app.cloudyn.com。
 
@@ -124,8 +144,8 @@ Cloudyn 有下列資料重新整理時間軸：
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>是否會使用成本管理/Cloudyn 代理程式？
 
-否。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
+編號 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>每份 Cloudyn 報告是否能顯示超過一個 AD 租用戶的資料？
 
-是。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。
+可以。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。

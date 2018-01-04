@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手動或自動調整執行個體計數
 在 [Azure 入口網站](https://portal.azure.com/)中，您可以手動設定服務的執行個體計數，或是藉由參數設定根據需求自行調整。 這通常稱為「相應放大」或「相應縮小」。
@@ -26,11 +26,6 @@ ms.lasthandoff: 10/11/2017
 在根據執行個體計數進行調整之前，您應該考慮到調整除了會受到執行個體計數的影響以外，還會受到 **定價層** 的影響。 不同的定價層可以有不同數目的核心和記憶體，因此他們可以為相同數目的執行個體帶來較高的效能 (這就是「相應增加」或「相應減少」)。 本文特別涵蓋了相應縮小和相應放大。
 
 您可以在入口網站中進行調整，並且也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) 或 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 來手動或自動調整級別。
-
-> [!NOTE]
-> 這篇文章說明如何在入口網站 ([http://portal.azure.com](http://portal.azure.com)) 中建立自動調整設定。在此入口網站中建立的自動調整設定不能在傳統入口網站 ([http://manage.windowsazure.com](http://manage.windowsazure.com)) 中編輯。
-> 
-> 
 
 ## <a name="scaling-manually"></a>手動調整
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]，然後瀏覽至您想要調整的資源，例如 [App Service 方案]。
@@ -102,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 3. 若要準備要在白天當中套用的設定檔，請將 [ **開始時間** ] 設定為您要開始的當日時間。
    
     ![預設週期](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 5. 接下來，您必須新增您要在其他時候套用的設定檔。 按一下 [ **新增設定檔** ] 資料列。
     ![下班](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 6. 為您的第二個新設定檔命名，例如，您可以把它叫做 **下班**。
@@ -113,7 +108,7 @@ ms.lasthandoff: 10/11/2017
    > 自動調整會為您所選取的任何 [ **時區** ] 使用日光節約規則。 不過，在日光節約時間期間，UTC 時差會顯示基本的時區時差，而不是日光節約的 UTC 時差。
    > 
    > 
-9. 按一下 [確定] 。
+9. 按一下 [SERVICEPRINCIPAL] 。
 10. 現在，您必須新增您要在第二個設定檔期間套用的任何規則。 按一下 [ **新增規則**]，然後您可以在預設設定檔中建構相同的規則。
     
     ![新增規則至下班](./media/insights-how-to-scale/Insights_RuleOffWork.png)

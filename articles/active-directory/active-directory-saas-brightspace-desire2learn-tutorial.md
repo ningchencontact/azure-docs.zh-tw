@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Brightspace by Desir
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 7076b476ba71c5d94ae4728e5f6032b0d7e047ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a3dd001fd8cc63f8d4c2899d035848e8fc665c22
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>教學課程：Azure Active Directory 與 Brightspace by Desire2Learn 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Brightspace by Desire2Learn
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-brightspace-by-desire2learn-from-the-gallery"></a>從資源庫新增 Brightspace by Desire2Learn
-若要設定將 Brightspace by Desire2Learn 整合到 Azure AD 中，您需要從資源庫將 Brightspace by Desire2Learn 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Brightspace by Desire2Learn 整合到 Azure AD 中，您需要從資源庫將 Brightspace by Desire2Learn 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Brightspace by Desire2Learn，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Brightspace by Desire2Learn**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_search.png)
 
-5. 在結果面板中，選取 Brightspace by Desire2Learn，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [Brightspace by Desire2Learn]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_addfromgallery.png)
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
     | `https://<companyname>.desire2learn.com/shibboleth-sp`|
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Brightspace by Desire2Learn 支援小組](https://www.d2l.com/contact/)以取得這些值。
@@ -162,11 +162,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-brightspace-by-desire2learn-test-user"></a>建立 Brightspace by Desire2Learn 測試使用者
 

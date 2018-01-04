@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.openlocfilehash: ef49a6c176017d05a4048145c62fcf8692ffc23b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>已加入網域之 HDInsight 叢集的 Hadoop 安全性簡介
 
@@ -32,10 +32,12 @@ ms.lasthandoff: 12/01/2017
 > [!IMPORTANT]
 > Oozie 未在已加入網域的 HDInsight 上啟用。
 
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+
 ## <a name="benefits"></a>優點
 企業安全性包含四大要件 – 周邊安全性、驗證、授權和加密。
 
-![已加入網域的 HDInsight 叢集優點要件](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png)。
+![已加入網域的 HDInsight 叢集優點要件](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
 ### <a name="perimeter-security"></a>周邊安全性
 使用虛擬網路和閘道服務可達成 HDInsight 中的周邊安全性。 現今，企業系統管理員可以在虛擬網路內建立 HDInsight 叢集，並使用網路安全性群組 (輸入或輸出防火牆規則) 來限制虛擬網路的存取。 只有輸入防火牆規則中所定義的 IP 位址能夠與 HDInsight 叢集通訊，因而提供周邊安全性。 使用閘道服務可以達成另一層的周邊安全性。 閘道是做為第一道防線的服務，可抵禦任何對於 HDInsight 叢集的連入要求。 它會接受要求、進行驗證，然後只允許要求傳遞至叢集中的其他節點，因而對叢集中的其他名稱和資料節點提供周邊安全性。
@@ -43,7 +45,7 @@ ms.lasthandoff: 12/01/2017
 ### <a name="authentication"></a>驗證
 企業系統管理員可以在[虛擬網路](https://azure.microsoft.com/services/virtual-network/)中建立已加入網域的 HDInsight 叢集。 HDInsight 叢集的節點將會加入企業所管理的網域。 透過使用 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) 即可達成此目的。 叢集中的所有節點便已加入企業所管理的網域。 使用這項設定，企業員工可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證向其他已核准的端點 (例如 Hue、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 進行驗證，進而與叢集互動。 系統管理員可以完全控制透過這些端點與叢集互動的使用者數量。
 
-### <a name="authorization"></a>授權
+### <a name="authorization"></a>Authorization
 大多數企業所依循的最佳作法，就是並非每一位員工都能存取所有的企業資源。 同樣地，在此版本中，系統管理員可以針對叢集資源定義角色型存取控制原則。 例如，系統管理員可以設定 [Apache Ranger](http://hortonworks.com/apache/ranger/) 以設定 Hive 的存取控制原則。 這項功能可確保員工只能存取他們要順利工作所需的資料量。 叢集的 SSH 存取也僅限於系統管理員。
 
 ### <a name="auditing"></a>稽核

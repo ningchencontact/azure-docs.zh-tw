@@ -4,7 +4,7 @@ description: "了解如何使用公司或學校帳戶，來運用您已有的現
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eab79e4c1b579697f702c41e40f6b27b2d3d0864
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>以組織方式註冊 Azure
 直至近日之前，您只能使用 Microsoft 帳戶 (Windows Live ID) 註冊新的 Microsoft Azure 訂閱。 Azure 現在支援使用下列任一種帳戶方式進行註冊：

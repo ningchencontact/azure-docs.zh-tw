@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -29,16 +29,16 @@ ms.lasthandoff: 11/08/2017
 復原服務保存庫支援兩種模式。  您可以將傳統 VM (建立於傳統入口網站中) 或 Resource Manager VM (建立於 Azure 入口網站中) 備份至復原服務保存庫。
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Azure VM 備份不支援哪些組態？
-請瀏覽[支援的作業系統](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup)和 [VM 備份的限制](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)。
+請瀏覽[支援的作業系統](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)和 [VM 備份的限制](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)。
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>在設定備份精靈中為何看不到我的 VM？
 在「設定備份精靈」中，Azure 備份只會列出這種 VM：
   * 尚未保護 - 移至 VM 刀鋒視窗，並從 [設定] 功能表檢查備份狀態，即可驗證 VM 的備份狀態。 進一步了解如何[檢查 VM 的備份狀態](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
   * 屬於與 VM 相同的區域
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup 
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會遵循與排定備份相同的保留排程？
-否。 您應該指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，會保留 30 天。 
+編號 您應該指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，會保留 30 天。 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>我在最近一些 VM 上啟用了 Azure 磁碟加密。 我的備份是否會繼續運作？
 您需要提供 Azure 備份服務存取 Key Vault 的權限。 您可以使用 [PowerShell](backup-azure-vms-automation.md) 文件的「啟用備份」一節中所述的步驟，在 PowerShell 中提供這些權限。
@@ -47,12 +47,12 @@ ms.lasthandoff: 11/08/2017
 是，備份會順暢運作，而且不需要重新設定備份。 
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>我的 VM 關閉了。 隨選或排程的備份工作會運作嗎？
-是。 即使機器已經關閉，且備份工作和復原點標示為「當機時保持一致」。 如需詳細資訊，請參閱[這篇文章](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)的＜資料一致性＞。
+可以。 即使機器已經關閉，且備份工作和復原點標示為「當機時保持一致」。 如需詳細資訊，請參閱[這篇文章](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)的＜資料一致性＞。
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
-是。 如果備份作業處於「正在建立快照」階段，您可以將它取消。 **如果正在從快照傳輸資料，則無法取消作業**。 
+可以。 如果備份作業處於「正在建立快照」階段，您可以將它取消。 **如果正在從快照傳輸資料，則無法取消作業**。 
 
-## <a name="restore"></a>還原
+## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>如何在還原磁碟與完整 VM 還原之間做決定？
 將 Azure VM 完整還原視為快速建立選項。 還原 VM 選項會變更磁碟的名稱、這些磁碟使用的容器、公用 IP 位址和網路介面名稱。 在 VM 建立期間，需要這些變更來維持建立之資源的唯一性。 但變更不會將 VM 加入可用性設定組。 
 

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.date: 12/02/2017
+ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-postgresql-servers"></a>適用於 PostgreSQL 的 Azure 資料庫伺服器
 本文提供使用適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。
@@ -36,17 +36,22 @@ ms.lasthandoff: 11/28/2017
 在適用於 PostgreSQL 的 Azure 資料庫內，您可以建立一個或多個資料庫。 您可以選擇在每個伺服器建立單一資料庫以利用所有資源，或建立多個資料庫來共用資源。 定價結構是依據每一伺服器，以定價層、計算單位及儲存體 (GB) 的設定為基礎來形成的。 如需詳細資訊，請參閱[定價層](./concepts-service-tiers.md)。
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>如何連接及驗證適用於 PostgreSQL 的 Azure 資料庫伺服器？
-下列項目有助於確保對資料庫的安全存取。
+下列項目有助於確保資料庫的安全存取：
 
-| :-- | :-- | | **驗證和授權** | 適用於 PostgreSQL 的 Azure 資料庫伺服器支援原生的 PostgreSQL 驗證。 您可以利用伺服器的系統管理員登入來連接和驗證伺服器。 | | **通訊協定** | 此服務支援 PostgreSQL 所使用的訊息架構通訊協定。 | | **TCP/IP** | TCP/IP 和 Unix 網域通訊端上支援此通訊協定。 | | **防火牆** | 為了協助保護您的資料，防火牆規則會防止對您伺服器及其資料庫的所有存取，直到您指定哪些電腦擁有權限為止。 請參閱[適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆規則](concepts-firewall-rules.md)。 |
+|||
+|:--|:--|
+| **驗證和授權** | 適用於 PostgreSQL 的 Azure 資料庫伺服器支援原生的 PostgreSQL 驗證。 您可以利用伺服器的系統管理員登入來連接和驗證伺服器。 |
+| **通訊協定** | 此服務支援 PostgreSQL 所使用的訊息架構通訊協定。 |
+| **TCP/IP** | TCP/IP 和 Unix 網域通訊端上支援此通訊協定。 |
+| **防火牆** | 為了協助保護您的資料，防火牆規則會防止對您伺服器及其資料庫的所有存取，直到您指定哪些電腦擁有權限為止。 請參閱[適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆規則](concepts-firewall-rules.md)。 |
 
 ## <a name="how-do-i-manage-a-server"></a>如何管理伺服器？
 您可以使用 [Azure 入口網站](https://portal.azure.com)或 [Azure CLI](/cli/azure/postgres)，來管理適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
 ## <a name="server-parameters"></a>伺服器參數
-PostgreSQL 伺服器參數會判斷伺服器的設定。 在適用於 PostgreSQL 的 Azure 資料庫中，可以透過 Azure 入口網站或 Azure CLI 檢視和編輯參數清單。 
+PostgreSQL 伺服器參數會判斷伺服器的設定。 Azure PostgreSQL 資料庫中的參數清單可以檢視和使用 Azure 入口網站或 Azure CLI 編輯。 
 
-適用於 PostgreSQL 的 Azure 資料庫是 Postgres 的受管理服務，其中的可設定參數是本機 Postgres 執行個體中參數的子集 (如需有關 Postgres 參數的詳細資訊，請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/9.6/static/runtime-config.html))。 適用於 PostgreSQL 的 Azure 資料庫伺服器會在建立時為每個參數啟用預設值。 需要伺服器重新啟動或是需要 superuser 存取之後變更才會生效的參數，無法由使用者設定。
+適用於 PostgreSQL 的 Azure 資料庫是 Postgres 的受控服務，其中的可設定參數是本機 Postgres 執行個體中參數的子集 (如需有關 Postgres 參數的詳細資訊，請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/9.6/static/runtime-config.html))。 適用於 PostgreSQL 的 Azure 資料庫伺服器會在建立時為每個參數啟用預設值。 需要伺服器重新啟動或是需要 superuser 存取之後變更才會生效的參數，無法由使用者設定。
 
 
 ## <a name="next-steps"></a>後續步驟

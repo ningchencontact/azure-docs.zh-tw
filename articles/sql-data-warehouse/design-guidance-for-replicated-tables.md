@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/01/2017
 
 在下列情況下，請考慮使用複寫資料表：
 
-- 磁碟上的資料表大小小於 2 GB，不論它有幾個資料列。 若要了解資料表的大小，您可以使用 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 命令：`DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`。 
+- 磁碟上的資料表大小小於 2 GB，不論它有幾個資料列。 若要了解資料表的大小，您可以使用 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 命令：`DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`。 
 - 資料表用於需要進行資料移動的聯結中。 例如，當聯結資料行不是相同的散發資料行時，雜湊分散式資料表上的聯結就需要進行資料移動。 如果其中一個雜湊分散式資料表是小型資料表，請考慮使用複寫資料表。 循環配置資源資料表上的聯結需要進行資料移動。 建議您在大多數情況下都使用複寫資料表，而不要使用循環配置資源資料表。 
 
 

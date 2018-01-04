@@ -4,7 +4,7 @@ description: "Azure AD 驗證程式庫 (ADAL) 可讓用戶端應用程式開發�
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f017e3d323b98660fdee902770652b3165e70e5e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 驗證程式庫
 Azure Active Directory 驗證程式庫 (ADAL) 可讓應用程式開發人員向雲端或內部部署 Active Directory (AD) 驗證使用者，並取得權杖來保護 API 呼叫。 ADAL 透過下列功能使開發人員更容易驗證：
@@ -29,7 +29,7 @@ Azure Active Directory 驗證程式庫 (ADAL) 可讓應用程式開發人員向�
  - 還有更多
 
 > [!NOTE]
-> 在尋找 Azure AD v2.0 程式庫 (MSAL) 嗎？ 請參閱 [MSAL 程式庫指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)。 
+> 在尋找 Azure AD v2.0 程式庫 (MSAL) 嗎？ 請參閱 [MSAL 程式庫指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)。 
 > 
 > 
 
@@ -59,7 +59,7 @@ Azure Active Directory 驗證程式庫 (ADAL) 可讓應用程式開發人員向�
 
 ### <a name="v20-client-libraries-msal"></a>v2.0 用戶端程式庫 (MSAL)
 
-[Azure AD v2.0 端點](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare)透過一個端點結合 Azure AD 和 Microsoft 帳戶。 若要存取此端點，開發人員可以使用[支援生產環境的預覽 MSAL 程式庫](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)，而不是 ADAL。
+[Azure AD v2.0 端點](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare)透過一個端點結合 Azure AD 和 Microsoft 帳戶。 若要存取此端點，開發人員可以使用[支援生產環境的預覽 MSAL 程式庫](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)，而不是 ADAL。
 
 | 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考
 | --- | --- | --- | --- | --- | --- |

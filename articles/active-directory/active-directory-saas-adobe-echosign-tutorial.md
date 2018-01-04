@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Adobe Sign 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: b413772de1af1fbb128d29b81e5831cfd6a39ab4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>教學課程：Azure Active Directory 與 Adobe Sign 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Adobe Sign
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-adobe-sign-from-the-gallery"></a>從資源庫新增 Adobe Sign
-若要設定將 Adobe Sign 整合到 Azure AD 中，您需要從資源庫將 Adobe Sign 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Adobe Sign 整合到 Azure AD 中，您需要從資源庫將 Adobe Sign 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Adobe Sign，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Adobe Sign**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_search.png)
 
-5. 在結果面板中，選取 Adobe Sign，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [Adobe Sign]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 10/11/2017
    
    a. 針對 [SAML 模式]，選取 [SAML 強制]。
    
-   b.這是另一個 C# 主控台應用程式。 選取 [允許 EchoSign 帳戶管理員使用其 EchoSign 認證登入] 。
+   b. 選取 [允許 EchoSign 帳戶管理員使用其 EchoSign 認證登入] 。
    
    c. 針對 [使用者建立]，選取 [透過 SAML 自動新增已驗證的使用者]。
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 將您從 Azure 入口網站複製的「SAML 實體識別碼」貼到 [IdP 實體識別碼] 文字方塊中。
     
-    b.這是另一個 C# 主控台應用程式。 將您從 Azure 入口網站複製的「SAML 單一登入服務 URL」貼到 [IdP 登入 URL] 文字方塊中。
+    b. 將您從 Azure 入口網站複製的「SAML 單一登入服務 URL」貼到 [IdP 登入 URL] 文字方塊中。
    
     c. 將您從 Azure 入口網站複製的「登出 URL」貼到 [IdP 登出 URL] 文字方塊中。
 
@@ -189,11 +189,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-adobe-sign-test-user"></a>建立 Adobe Sign 測試使用者
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 10/11/2017
    
    a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [電子郵件地址]、[名字] 和 [姓氏]。
    
-   b.這是另一個 C# 主控台應用程式。 按一下 [建立使用者] 。
+   b. 按一下 [建立使用者] 。
 
 >[!NOTE]
 >Azure Active Directory 帳戶持有者會收到一封電子郵件，其中包含一個用來確認帳戶以使其生效的連結。 

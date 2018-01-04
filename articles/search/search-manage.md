@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
 ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/10/2017
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python (英文)](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure 搜尋服務是完全受管理、以雲端為基礎的搜尋服務，用來在自訂應用程式內建置豐富的搜尋經驗。 本文章涵蓋服務管理  工作，可供您在 [Azure 入口網站](https://portal.azure.com)中針對已佈建的搜尋服務執行。 *Service administration* 原先的設計是輕量級的，限制為下列工作︰
+Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來在自訂應用程式內建置豐富的搜尋經驗。 本文章涵蓋服務管理  工作，可供您在 [Azure 入口網站](https://portal.azure.com)中針對已佈建的搜尋服務執行。 *Service administration* 原先的設計是輕量級的，限制為下列工作︰
 
 * 管理及保護 API 金鑰  (用於讀取或寫入您的服務存取權) 的存取權。
 * 變更資料分割和複本的配置來調整服務容量。
@@ -51,11 +51,11 @@ Azure 訂用帳戶管理員或共同管理員可以佈建或解除委任服務�
 <a id="sys-info"></a>
 
 ## <a name="set-rbac-roles-for-administrative-access"></a>設定系統管理存取權的 RBAC 角色
-Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務提供[全域角色型授權模型](../active-directory/role-based-access-control-configure.md) 。 「擁有者」、「參與者」和「讀取者」角色可針對指派給各角色的 Active Directory 使用者、群組和安全性主體，決定服務管理層級。 
+Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務提供[全域角色型授權模型](../active-directory/role-based-access-control-configure.md)。 「擁有者」、「參與者」和「讀取者」角色可針對指派給各角色的 Active Directory 使用者、群組和安全性主體，決定服務管理層級。 
 
 針對 Azure 搜尋服務，RBAC 權限會決定下列管理工作︰
 
-| 角色 | 工作 |
+| 角色 | Task |
 | --- | --- |
 | 擁有者 |建立或刪除服務或服務上的任何物件，包括 api 索引鍵、索引、索引子、索引子資料來源和索引子排程。<p>檢視服務狀態，包括計數和儲存體大小。<p>新增或刪除角色成員資格 (只有「擁有者」可以管理角色成員資格)。<p>訂用帳戶管理員和服務擁有者在擁有者角色具有自動成員資格。 |
 | 參與者 |與「擁有者」相同層級的存取權，減去 RBAC 角色管理。 例如，參與者可以檢視和重新產生 `api-key`，但不能修改角色成員資格。 |

@@ -3,8 +3,8 @@ title: "使用 Visual Studio 部署虛擬機器擴展集 | Microsoft Docs"
 description: "使用 Visual Studio 和 Resource Manager 範本部署虛擬機器調整集"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>如何使用 Visual Studio 建立虛擬機器擴展集
 本文說明如何使用 Visual Studio 資源群組部署，部署 Azure 虛擬機器調整集。
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure 資源群組部署是一種方式，可在單一部署作業中將一組相關的 Azure 資源群組在一起並加以發佈。 您可以在以下位置深入了解： [透過 Visual Studio 建立與部署 Azure 資源群組](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="pre-requisites"></a>先決條件
 若要開始在 Visual Studio 中部署虛擬機器擴展集，您需要下列項目：
 
 * Visual Studio 2013 或更新版本
@@ -53,7 +53,7 @@ Azure 資源群組部署是一種方式，可在單一部署作業中將一組�
 
 4. 建立專案之後，您會看到 PowerShell 部署指令碼、Azure Resource Manager 範本，以及虛擬機器擴展集的參數檔。
    
-    ![Solution Explorer][solution_explorer]
+    ![Controllers\HomeController.cs][solution_explorer]
 
 ## <a name="customize-your-project"></a>自訂您的專案
 現在您可以編輯範本，以針對您的應用程式需求自訂，例如新增 VM 延伸模組屬性或編輯負載平衡規則。 預設會設定虛擬機器擴展集範本來部署 AzureDiagnostics 延伸模組，以便更容易新增自動調整規模規則。 它也會部署具有公用 IP 位址的負載平衡器 (使用輸入 NAT 規則所設定)。 

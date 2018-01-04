@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>如何在 Azure 入口網站中自動調整虛擬機器擴展集
 當您建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。
@@ -28,10 +28,10 @@ ms.lasthandoff: 12/01/2017
 
 
 ## <a name="prerequisites"></a>必要條件
-若要建立自動調整規則，您會需要現有的虛擬機器擴展集。 您可以使用 [Azure 入口網站](virtual-machine-scale-sets-portal-create.md)、[Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) 或 [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli) 來建立擴展集。
+若要建立自動調整規則，您會需要現有的虛擬機器擴展集。 您可以使用 [Azure 入口網站](virtual-machine-scale-sets-create-portal.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 來建立擴展集。
 
 
-## <a name="create-a-rule-to-automatically-scale-out"></a>建立規則以便自動相應放大
+## <a name="create-a-rule-to-automatically-scale-out"></a>建立自動相應放大的規則
 如果您的應用程式需求增加，您擴展集內 VM 執行個體上的負載也會跟著增加。 如果這樣的負載增加會持續而非只是短暫的需求，您就可以設定自動調整規則來增加擴展集中的 VM 執行個體數目。 建立這些 VM 執行個體並部署應用程式後，擴展集就會開始透過負載平衡器將流量分散給它們。 您可以控制要監視哪些計量 (例如 CPU 或磁碟)、應用程式負載必須符合給定的閾值多久，以及要將多少個 VM 執行個體新增至擴展集。
 
 1. 請開啟 Azure 入口網站並從儀表板左側的功能表選取 [資源群組]。
@@ -42,15 +42,15 @@ ms.lasthandoff: 12/01/2017
 
 4. 請輸入您設定的名稱，例如 [自動調整]，然後選取 [新增規則]。
 
-5. 讓我們建立規則，以便平均 CPU 負載在 10 分鐘期間內大於 70% 時，增加擴展集內 VM 執行個體的數目。 觸發此規則時，VM 執行個體的數目會增加 20%。 若擴展集內 VM 執行個體的數目很少，您可以將 [作業] 設定為 [增加計數]，然後針對 [執行個體計數] 指定 *1* 或 *2*。 若擴展集內 VM 執行個體的數目很多，則增加 VM 執行個體數目 10% 或 20% 可能更加適當。
+5. 讓我們建立規則，以便平均 CPU 負載在 10 分鐘期間內大於 70% 時，增加擴展集內 VM 執行個體的數目。 觸發此規則時，VM 執行個體數目會增加 20%。 若擴展集內 VM 執行個體的數目很少，您可以將 [作業] 設定為 [增加計數]，然後針對 [執行個體計數] 指定 *1* 或 *2*。 若擴展集內 VM 執行個體的數目很多，則增加 VM 執行個體數目 10% 或 20% 可能更加適當。
 
     請針對您的規則指定下列設定：
     
     | 參數              | 說明                                                                                                         | 值          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *時間彙總*     | 定義應該如何彙總收集的計量以進行分析。                                                | 平均值        |
+    | *時間彙總*     | 定義應該如何彙總收集的計量以進行分析。                                                | 平均        |
     | *計量名稱*          | 要監視並套用擴展集動作的效能計量。                                                   | Percentage CPU |
-    | *時間粒紋統計資料* | 定義在每個時間粒紋中所收集的計量，應如何彙總以便進行分析。                             | 平均值        |
+    | *時間粒紋統計資料* | 定義在每個時間粒紋中所收集的計量，應如何彙總以便進行分析。                             | 平均        |
     | *運算子*             | 用以比較計量資料與閾值之間差異的運算子。                                                     | 大於   |
     | *閾值*            | 讓自動調整規則觸發動作的百分比。                                                 | 70             |
     | *Duration*             | 在比較計量與閾值之前監視的時間長短。                                   | 10 分鐘     |

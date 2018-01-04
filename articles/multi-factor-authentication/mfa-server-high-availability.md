@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: Azure MFA,
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: f22e0df75830a048e535384de8a3eec51bf91fd8
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: c2f9a2422ea5a47edd80948073c7f7a6cb0d0945
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>針對高可用性設定 Azure Multi-Factor Authentication Server
 
@@ -42,7 +42,7 @@ MFA Server 是已安裝 Azure Multi-Factor Authentication 軟體的 Windows Serv
 
 如果 MFA 主要伺服器離線，仍可處理驗證，但無法處理需要變更 MFA 資料庫的作業。 (範例包括：新增使用者、自助式 PIN 變更及變更使用者資訊)。
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 請考慮對 Azure MFA Server 及其相關元件進行負載平衡的下列重點。
 

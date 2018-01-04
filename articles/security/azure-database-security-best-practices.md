@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
 
@@ -137,7 +137,7 @@ SQL Database 支援兩種類型的驗證，SQL 驗證和 Azure Active Directory 
 
 無法保護傳輸中資料的組織比較容易遭受[攔截攻擊](https://technet.microsoft.com/library/gg195821.aspx)、[竊聽](https://technet.microsoft.com/library/gg195641.aspx)及工作階段攔截。 這些攻擊可能是取得機密資料存取權的第一步。
 
-若要深入了解 Azure VPN 選項，請閱讀[規劃與設計 VPN 閘道](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design)一文。
+若要深入了解 Azure VPN 選項，請閱讀[規劃與設計 VPN 閘道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design)一文。
 
 ## <a name="enable-database-auditing"></a>啟用資料庫稽核
 稽核 SQL Server 資料庫引擎或個別資料庫的執行個體，會牽涉到追蹤和記錄資料庫引擎中所發生之事件。 SQL Server 稽核可讓您建立伺服器稽核，其中可能包含伺服器等級事件的伺服器稽核規格，以及資料庫等級事件的資料庫稽核規格。 稽核的事件可以寫入事件記錄或稽核檔案。

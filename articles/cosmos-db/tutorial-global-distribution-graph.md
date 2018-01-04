@@ -4,7 +4,7 @@ description: "了解如何使用「圖形 API」來設定 Azure Cosmos DB 全域
 services: cosmos-db
 keywords: "全域散發, 圖形, gremlin"
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -13,40 +13,40 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb55bdee60400b4b14f47a6a0b1d0682b267d26f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>如何使用圖形 API 來設定 Azure Cosmos DB 全域散發
 
-在本文中，我們會說明如何使用 Azure 入口網站來設定 Azure Cosmos DB 全域散發，然後使用「圖形 API」(預覽) 來進行連線。
+在本文中，我們會示範如何使用 Azure 入口網站設定 Azure Cosmos DB 全域發佈，並接著使用 Graph API 來連接。
 
 本文涵蓋下列工作： 
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 使用[圖形 API](graph-introduction.md) (預覽) 來設定全域散發
+> * 設定全域發佈使用[Graph Api](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>使用 .NET SDK 搭配圖形 API 來連線到慣用的區域
 
-「圖形 API」會公開為 DocumentDB SDK 上的延伸模組程式庫。
+Graph API 會公開為之上 SQL API 擴充程式庫。
 
 為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 這可透過設定連接原則來完成。 SDK 將會根據 Azure Cosmos DB 帳戶組態、目前的區域可用性及所指定的喜好設定清單，選擇最適合的端點來執行寫入和讀取作業。
 
 這份喜好設定清單是在使用 SDK 將連線初始化時即已指定。 SDK 會接受選擇性參數 "PreferredLocations"，也就是已排序的 Azure 區域清單。
 
-* **寫入**：SDK 會自動將所有寫入傳送到目前的寫入區域。
-* **讀取**：所有讀取都會傳送到 PreferredLocations 清單中的第一個可用區域。 如果要求失敗，用戶端將無法往下到清單中的下一個區域，依此類推。 SDK 只會嘗試從 PreferredLocations 中指定的區域讀取。 因此，舉例來說，如果在三個區域中有 Cosmos DB 帳戶可供使用，但用戶端只為 PreferredLocations 指定其中兩個非寫入區域，這樣就不會從寫入區域為任何讀取提供服務，即使發生容錯移轉時也一樣。
+* **寫入**: SDK 會自動傳送所有寫入至目前的寫入區域。
+* **讀取**： 所有讀取都傳送到 PreferredLocations 清單中第一個可用的地區。 如果要求失敗，用戶端無法清單向下到下一個區域，依此類推。 Sdk 只會嘗試讀取 PreferredLocations 中指定的區域。 因此，比方說，如果 Cosmos DB 帳戶可供使用三個區域，但是用戶端只會指定兩個 PreferredLocations，然後讀取非寫入區域是由提供服務寫入區域，即使發生容錯移轉。
 
-應用程式可以藉由檢查兩個屬性 (WriteEndpoint 和 ReadEndpoint，適用於 SDK 1.8 版和以上版本) 來確認 SDK 目前所選擇的寫入端點和讀取端點。 如果未設定 PreferredLocations 屬性，將會從目前的寫入區域為所有要求提供服務。
+應用程式可以藉由檢查兩個屬性 (WriteEndpoint 和 ReadEndpoint，適用於 SDK 1.8 版和以上版本) 來確認 SDK 目前所選擇的寫入端點和讀取端點。 如果未設定 PreferredLocations 屬性，所有要求是從目前的寫入區域。
 
 ### <a name="using-the-sdk"></a>使用 SDK
 
@@ -87,7 +87,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 使用 DocumentDB API 來設定全域散發
+> * 設定使用 SQL Api 的通用散發
 
 您現在可以繼續進行到下一個教學課程，以了解如何使用 Azure Cosmos DB 本機模擬器在本機進行開發。
 

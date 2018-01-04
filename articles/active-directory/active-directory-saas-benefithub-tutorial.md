@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 BenefitHub 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 8df9c0d8443d6685253207ed1915c780275014fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1494666f63caefa53deddd7cd40567b96c5d5f40
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>教學課程：Azure Active Directory 與 BenefitHub 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 BenefitHub
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-benefithub-from-the-gallery"></a>從資源庫新增 BenefitHub
-若要設定將 BenefitHub 整合到 Azure AD 中，您需要從資源庫將 BenefitHub 新增到受管理的 SaaS 應用程式清單。
+若要設定將 BenefitHub 整合到 Azure AD 中，您需要從資源庫將 BenefitHub 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 BenefitHub，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **BenefitHub**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_search.png)
 
-5. 在結果面板中，選取 BenefitHub，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [BenefitHub]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_addfromgallery.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
   
     a. 在 [識別碼] 文字方塊中，輸入：`urn:benefithub:passport`。
     
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，輸入：`https://passport.benefithub.info/saml/post/ac`
+    b. 在 [回覆 URL] 文字方塊中，輸入：`https://passport.benefithub.info/saml/post/ac`
 
 4. BenefitHub 應用程式會預期要有特定格式的 SAML 判斷提示，這會要求您在 SAML 權杖屬性組態中新增自訂的屬性對應。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 10/11/2017
     
     c. 在 [值] 清單中，選取該列所顯示的值。
     
-    d. 按一下 [ **確定**]。
+    d. 按一下 [確定] 。
 
     > [!NOTE] 
     > 您必須先連絡 [BenefitHub 支援小組](https://www.benefithub.com/Home/ContactUs)，向其要求租用戶的唯一識別碼屬性值，才能設定 SAML 判斷提示。 您需要此值來設定應用程式的自訂宣告。
@@ -180,11 +180,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-benefithub-test-user"></a>建立 BenefitHub 測試使用者
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>事件中樞範例 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 - [MSDN 開發人員程式碼範例](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-如需不同版本的 .NET Framework 的詳細資訊，請參閱[架構與目標](/dotnet/articles/standard/frameworks)。
+如需有關不同版本的.NET Framework 的詳細資訊，請參閱[架構與目標](/dotnet/articles/standard/frameworks)。
 
 更多的範例會隨時新增，所以請經常回到這裡查看更新。
 
@@ -78,6 +78,6 @@ ms.lasthandoff: 10/11/2017
 
 您可以參閱下列文章，深入了解事件中樞：
 
-- [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+- [事件中心概觀](event-hubs-what-is-event-hubs.md)
 - [建立事件中樞](event-hubs-create.md)
 - [事件中樞常見問題集](event-hubs-faq.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>使用 IT 服務管理連接器 (預覽) 將 ITSM 工作項目集中管理
 
@@ -104,7 +104,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 來源
 - 指派對象
 - 類別
-- 課程名稱
+- 標題
 - 說明
 - 建立日期
 - 關閉日期
@@ -124,7 +124,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 關閉者
 - 來源
 - 指派對象
-- Title
+- 標題
 - 類型
 - 類別
 - State
@@ -162,7 +162,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | 指派對象  |
 | Category_s | 類別 |
 | Title_s|  簡短說明 |
-| Description_s|  注意事項 |
+| Description_s|  注意 |
 | CreatedDate_t|  已開啟 |
 | ClosedDate_t| 關閉|
 | ResolvedDate_t|已解決|
@@ -227,7 +227,7 @@ ITSM 連接器目前支援與服務對應解決方案整合。
 
     將此核取方塊取消選取，可在此警示下對任意數目的記錄項目只建立一個工作項目。
 
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 您可以在 [設定]>[警示]下方，看到所建立的 OMS 警示。 符合所指定警示的條件時，會建立對應 ITSM 連線的工作項目。
 
@@ -281,7 +281,7 @@ ITSMC 會與動作群組整合。
 
 6. 從下拉式功能表選取 [工作項目] 類型。
    選擇使用現有範本，或填滿 ITSM 產品所需的欄位。
-7. 按一下 [確定] 。
+7. 按一下 [SERVICEPRINCIPAL] 。
 
 建立/編輯 Azure 警示規則時，請使用具有 ITSM 動作的動作群組。 警示觸發時，會在 ITSM 工具中建立工作項目。
 
@@ -292,9 +292,11 @@ ITSMC 會與動作群組整合。
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>針對 OMS 中的 ITSM 連線進行疑難排解
 1.  如果從已連線的來源 UI 連線失敗，並顯示 [儲存連線時發生錯誤] 訊息，請執行下列步驟：
- - 針對 ServiceNow、Cherwell 和 Provance 連線，- 確定您已正確輸入每個連線的使用者名稱、密碼、用戶端識別碼及用戶端祕密。
-        - 檢查您在對應的 ITSM 產品中是否擁有足夠權限來進行連線。
- - 針對 Service Manager 連線，- 確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)所述。
+ - 對於 ServiceNow、 Cherwell 和 Provance 連線，  
+        為確定您正確輸入使用者名稱、 密碼、 用戶端識別碼和用戶端密碼的每個連線。  
+        - 檢查您在對應的 ITSM 產品中是否擁有足夠權限來進行連線。  
+ - 對於服務管理連線，  
+        -請確認已成功部署 Web 應用程式，然後建立混合式連接。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)所述。  
 
 2.  如果 ServiceNow 的資料未同步處理至 Log Analytics，請確定 ServiceNow 執行個體並非處在睡眠中。 ServiceNow 開發人員執行個體閒置很長的時間時，有時會進入睡眠狀態。 否則，請回報問題。
 3.  如果引發 OMS 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：

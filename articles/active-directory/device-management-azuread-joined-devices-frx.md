@@ -4,7 +4,7 @@ description: "本主題說明使用者如何在初次執行體驗期間設定加
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b07386eeb0d3e05a0b4545be39030066fbdafd3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d02994a4fba64605c79edae3f68db36dc8935b28
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>在初次執行期間向 Azure AD 加入新的 Windows 10 裝置
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
     ![[誰是這部電腦的擁有者] 畫面](./media/device-management-azuread-joined-devices-frx/02.png)
 
-5. 輸入組織提供給您的認證，然後按一下登入。
+5. 輸入組織提供給您的認證，然後按一下 [登入]。
 
     ![登入畫面](./media/device-management-azuread-joined-devices-frx/03.png)
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 10. Windows 會在 Azure AD 中註冊組織目錄中的裝置，如果適用的話就在行動裝置管理中加以註冊。
 
 11. 如果您是：
-    - 受管理的使用者，Windows 會透過自動登入程序帶您前往桌面。
+    - 受控使用者，Windows 會透過自動登入程序帶您前往桌面。
 
     - 同盟使用者，系統會將您導向至 Windows 登入畫面來輸入認證。
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,10 +107,10 @@ ms.lasthandoff: 10/18/2017
 
 | 屬性              | 說明                              | 必要 |
 | :-------------------- | :--------------------------------------- | :------- |
-| 名稱                  | 管線中的活動名稱     | 是      |
+| name                  | 管線中的活動名稱     | 是      |
 | 說明           | 說明活動用途的文字。  | 否       |
-| 類型                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
-| linkedServiceName     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 是      |
+| type                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
+| 預設容器     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 是      |
 | 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 是      |
 | resourceLinkedService | 對儲存體帳戶 (自訂應用程式儲存所在) 的 Azure 儲存體已連結的服務 | 否       |
 | folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑 | 否       |
@@ -308,14 +308,30 @@ namespace SampleApp
 
   由於 Azure Data Factory V2 自訂活動中新引進的改變，您可以使用您慣用的語言自由撰寫自訂程式碼邏輯，然後在 Azure Batch 支援的 Windows 和 Linux 作業系統上執行。 
 
+  下表描述資料處理站 V2 自訂活動和資料處理站 V1 之間的差異 （自訂） DotNet 活動： 
+
+
+|差異      |ADFv2 自訂活動      |ADFv1 （自訂） DotNet 活動      |
+| ---- | ---- | ---- |
+|如何定義自訂邏輯      |執行任何可執行檔 （現有的或實作您自己的可執行檔）      |藉由實作.Net DLL      |
+|自訂邏輯的執行 enviornment      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
+|執行指令碼      |支援執行指令碼直接 (例如"cmd /c 回應 hello world"Windows VM 上)      |需要.Net DLL 中實作      |
+|所需的資料集      |選用      |鏈結的活動，並將資訊傳遞所需      |
+|從活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects （LinkedServices 和資料集） 和 ExtendedProperties （自訂屬性） 和      |透過 ExtendedProperties （自訂內容）、 輸入和輸出資料集      |
+|在自訂邏輯中擷取資訊      |剖析 activity.json、 linkedServices.json 和可執行檔相同資料夾中儲存的 datasets.json      |透過.Net SDK （.Net 框架 4.5.2）      |
+|記錄      |直接寫入 STDOUT      |在.Net DLL Implemeting 記錄器      |
+
+
   如果您的現有 .Net 程式碼是針對 V1 (自訂) DotNet 活動撰寫，您需要依據下列的高階指導方針修改程式碼，才能將其用於 V2 自訂活動：  
 
-  > - 將專案由 .Net 類別庫變更為主控台應用程式。 
-  > - 以 Main 方法啟動應用程式，不必再使用 IDotNetActivity 介面的 Execute 方法。 
-  > - 以 JSON 序列化程式讀取和剖析已連結的服務、資料集和活動 (而不是強型別物件)，並將所需屬性的值傳遞給您的主要自訂程式碼邏輯。 請參閱之前的 SampleApp.exe 程式碼作為範例。 
-  > - 不再支援記錄器物件，可執行檔的輸出可以列印到主控台，並儲存到 stdout.txt。 
-  > - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。 
-  > - 編譯您的程式碼、將可執行檔和相依性上傳至 Azure 儲存體，並在 folderPath 屬性中定義路徑。 
+   - 將專案由 .Net 類別庫變更為主控台應用程式。 
+   - 以 Main 方法啟動應用程式，不必再使用 IDotNetActivity 介面的 Execute 方法。 
+   - 以 JSON 序列化程式讀取和剖析已連結的服務、資料集和活動 (而不是強型別物件)，並將所需屬性的值傳遞給您的主要自訂程式碼邏輯。 請參閱之前的 SampleApp.exe 程式碼作為範例。 
+   - 不再支援記錄器物件，可執行檔的輸出可以列印到主控台，並儲存到 stdout.txt。 
+   - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。 
+   - 編譯您的程式碼、將可執行檔和相依性上傳至 Azure 儲存體，並在 folderPath 屬性中定義路徑。 
+
+如需完整的範例如何端對端 DLL 和管線的範例資料處理站 V1 文件所述[Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities)可以重新撰寫成資料處理站 V2 自訂活動的樣式。 請參閱[資料 Factory V2 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)。 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。 

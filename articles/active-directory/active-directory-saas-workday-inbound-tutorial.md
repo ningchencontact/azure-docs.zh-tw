@@ -4,7 +4,7 @@ description: "了解如何使用 Workday 做為 Active Directory 和 Azure Activ
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>教學課程︰以內部部署 Active Directory 和 Azure Active Directory 設定自動化使用者佈建的 Workday
 本教學課程的目標是說明將人員從 Workday 匯入 Active Directory 和 Azure Active Directory，以及將某些屬性選擇性回寫至 Workday 需要執行的步驟。 
@@ -91,7 +91,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 不過，將 Workday 與 Active Directory 搭配使用時，需要考慮多個來源和目標系統：
 
-| 來源系統 | 目標系統 | 注意事項 |
+| 來源系統 | 目標系統 | 注意 |
 | ---------- | ---------- | ---------- |
 | Workday | Active Directory 樹系 | 系統會將每個樹系視為相異目標系統 |
 | Workday | Azure AD 租用戶 | 根據僅限雲端使用者的要求 |
@@ -125,7 +125,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **建立整合系統使用者：**
 
-1. 使用系統管理員帳戶登入 Workday 租用戶。 在 工作日工作台 中的搜尋方塊輸入 create user，然後按一下建立整合系統使用者。 
+1. 使用系統管理員帳戶登入 Workday 租用戶。 在 [工作日工作台] 中的搜尋方塊輸入 create user，然後按一下 [建立整合系統使用者]。 
    
     ![建立使用者](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "建立使用者")
 2. 為新的「整合系統使用者」 提供使用者名稱和密碼來完成「建立整合系統使用者」  工作。  
@@ -139,7 +139,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **建立安全性群組：**
 
-1. 在搜尋方塊中輸入 create security group，然後按一下建立安全性群組 連結。 
+1. 在搜尋方塊中輸入 create security group，然後按一下 [建立安全性群組] 連結。 
    
     ![建立安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "建立安全性群組")
 2. 完成**建立安全性群組**工作。  
@@ -152,7 +152,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **指派整合系統使用者：**
 
-1. 在搜尋方塊中輸入 edit security group，然後按一下編輯全性群組 連結。 
+1. 在搜尋方塊中輸入 edit security group，然後按一下 [編輯全性群組] 連結。 
    
     ![編輯安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "編輯安全性群組")
 2. 依名稱搜尋新的整合安全性群組，並選取該群組。 
@@ -173,10 +173,10 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **設定安全性群組選項：**
 
-1. 在搜尋方塊中輸入 domain security policies，然後按一下功能區域的網域安全性原則。  
+1. 在搜尋方塊中輸入 domain security policies，然後按一下 [功能區域的網域安全性原則]。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "網域安全性原則")  
-2. 搜尋 system 並選取 [系統]  功能區域。  按一下 [確定] 。  
+2. 搜尋 system 並選取 [系統]  功能區域。  按一下 [SERVICEPRINCIPAL] 。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "網域安全性原則")  
 3. 在 [系統] 功能區域的安全性原則清單中，展開 [安全性管理]，並選取 [外部帳戶佈建] 網域安全性原則。  
@@ -207,13 +207,13 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **啟用安全性原則變更：**
 
-1. 在搜尋方塊中輸入 activate，然後按一下啟用擱置的安全性原則變更 連結。 
+1. 在搜尋方塊中輸入 activate，然後按一下 [啟用擱置的安全性原則變更] 連結。 
    
     ![啟用](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "啟用") 
 2. 輸入供稽核用的註解並按一下 [確定] 按鈕，以開始「啟用擱置的安全性原則變更」工作。 
    
     ![啟用擱置的安全性](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "啟用擱置的安全性")   
-3. 在下一個畫面核取 確認 核取方塊，然後按一下確定 以完成工作。 
+3. 在下一個畫面核取 [確認] 核取方塊，然後按一下 [確定] 以完成工作。 
    
     ![啟用擱置的安全性](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "啟用擱置的安全性")  
 
@@ -445,7 +445,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 1.  在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
-2. 按一下 [儲存] 。
+2. 按一下 [檔案] 。
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
@@ -462,7 +462,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 ## <a name="configuring-user-provisioning-to-azure-active-directory"></a>設定將使用者佈建至 Azure Active Directory
 設定 Azure Active Directory 佈建的方法將取決於佈建需求，如下表所述。
 
-| 案例 | 方案 |
+| 案例 | 解決方法 |
 | -------- | -------- |
 | **需要佈建至 Active Directory 和 Azure AD 的使用者** | 使用 **[AAD Connect](connect/active-directory-aadconnect.md)** |
 | **只需要佈建至 Active Directory 的使用者** | 使用 **[AAD Connect](connect/active-directory-aadconnect.md)** |
@@ -568,7 +568,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 1.  在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
-2. 按一下 [儲存] 。
+2. 按一下 [檔案] 。
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
@@ -629,7 +629,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 1.  在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
-2. 按一下 [儲存] 。
+2. 按一下 [檔案] 。
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>使用 ANOMALYDETECTION 運算子
 
@@ -38,12 +38,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="syntax"></a>語法
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>使用方式範例
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>引數
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 - **partition_by_clause** 
 
-  `PARTITION BY \<partition key\>` 子句會將學習和訓練劃分為單獨的分割區。 換句話說，`\<partition key\>` 的每個值會使用單獨的模型，只有具備該值的事件才會用於該模型中的學習與訓練。 例如，
+  `PARTITION BY <partition key>` 子句會將學習和訓練劃分為單獨的分割區。 換句話說，`<partition key>` 的每個值會使用單獨的模型，只有具備該值的事件才會用於該模型中的學習與訓練。 例如，
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -78,9 +78,9 @@ ms.lasthandoff: 10/11/2017
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-若要從記錄中擷取個別值，請使用 **GetRecordPropertyValue** 函數。 例如：
+若要從記錄中擷取個別值，請使用 **GetRecordPropertyValue** 函數。 例如︰
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 當其中一個異常分數超過閾值時，會檢測到特定類型的異常。 閾值可以是任何浮點數 \>= 0。 閾值是敏感度與信賴之間的取捨。 例如，較低的閾值會讓偵測對於變化更加敏感並產生更多警示，而較高的閾值讓偵測較不敏感而更有信心，但會遮罩某些異常。 要使用的確切閾值視情況而定。 沒有上限，但建議的範圍是 3.25-5。
@@ -160,12 +160,12 @@ ms.lasthandoff: 10/11/2017
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>參考

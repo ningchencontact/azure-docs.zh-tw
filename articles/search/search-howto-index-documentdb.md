@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>使用索引子連接 Cosmos DB 與 Azure 搜尋服務
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 如果您選擇使用入口網站，[匯入資料精靈](search-import-data-portal.md)會引導您建立所有這些資源。
 
 > [!NOTE]
-> Cosmos DB 是新一代的 DocumentDB。 雖然產品名稱變更，但語法都相同。 請依此篇索引子文章中的指示繼續指定 `documentdb`。 
+> Azure 的 Cosmos DB 是新一代的 DocumentDB。 雖然產品名稱變更，但語法都相同。 請依此篇索引子文章中的指示繼續指定 `documentdb`。 
 
 > [!TIP]
 > 您可以從 Cosmos DB 儀表板啟動「匯入資料」精靈，以簡化該資料來源的索引建立作業。 在左側導覽中，移至 [集合] > [新增 Azure 搜尋服務] 以便開始使用。
@@ -154,7 +154,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 Cosmos DB) 和操作
 | Bool |Edm.Boolean、Edm.String |
 | 看起來像是整數的數字 |Edm.Int32、Edm.Int64、Edm.String |
 | 看起來像是浮點的數字 |Edm.Double、Edm.String |
-| String |Edm.String |
+| 字串 |Edm.String |
 | 基本類型的陣列，例如 ["a", "b", "c"] |Collection(Edm.String) |
 | 看起來像是日期的字串 |Edm.DateTimeOffset、Edm.String |
 | GeoJSON 物件，例如 { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -292,8 +292,8 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 Cosmos DB) 和操作
         }
     }
 
-## <a name="NextSteps"></a>接續步驟
+## <a name="NextSteps"></a>後續步驟
 恭喜！ 您已了解如何使用 Cosmos DB 的索引子來整合 Azure Cosmos DB 與 Azure 搜尋服務。
 
-* 若要深入了解 Azure Cosmos DB，請參閱 [Cosmos DB 服務頁面](https://azure.microsoft.com/services/documentdb/)。
+* 若要深入了解如何有關 Azure Cosmos DB 的詳細資訊，請參閱[Azure Cosmos DB 服務頁面](https://azure.microsoft.com/services/cosmos-db/)。
 * 若要深入了解 Azure 搜尋服務，請參閱 [搜尋服務頁面](https://azure.microsoft.com/services/search/)。

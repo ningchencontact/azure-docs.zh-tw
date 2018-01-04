@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: ed92255264a155fff5ad1a8d9a3cd1a7bda4e972
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: ca7489b18c53825bad7790ae4718f2c724716856
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -202,7 +202,7 @@ Site Recovery 會建立類型與可支援進階儲存體之 VM 相同或類似�
    * 透過傳統部署模型建立的 VM︰在 Azure 入口網站中將 VM 新增至可用性設定組。 如需詳細步驟，請移至[將現有虛擬機器加入至可用性設定組](../linux/classic/configure-availability.md#addmachine)。
    * 對於透過 Resource Manager 部署模型建立的 VM︰儲存 VM 的組態，然後在可用性設定組中刪除再重新建立 VM。 若要這樣做，請使用[設定 Azure Resource Manager VM 可用性設定組](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)中的指令碼。 執行此指令碼之前，請先檢查其限制並規劃您的停機時間。
 
-2. **刪除舊 VM 和磁碟**。 請確定進階磁碟與來源磁碟一致，而且新的 VM 執行的是與來源 VM 相同的函式。 在 Resource Manager 部署模型中，於 Azure 入口網站中從來源儲存體帳戶刪除 VM 和磁碟。 在傳統部署模型中，您可以於傳統入口網站或 Azure 入口網站中刪除 VM 和磁碟。 如果有即使已刪除 VM，其中的磁碟卻未刪除的問題，請參閱[針對刪除 VHD 時的錯誤進行疑難排解](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
+2. **刪除舊 VM 和磁碟**。 請確定進階磁碟與來源磁碟一致，而且新的 VM 執行的是與來源 VM 相同的函式。 刪除 VM，並從 Azure 入口網站中來源儲存體帳戶刪除磁碟。 如果有即使已刪除 VM，其中的磁碟卻未刪除的問題，請參閱[針對刪除 VHD 時的錯誤進行疑難排解](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
 
 3. **清除 Azure Site Recovery 基礎結構**。 如果不再需要 Site Recovery，您可以清除它的基礎結構。 請刪除複寫的項目、組態伺服器和復原原則，然後刪除 Azure Site Recovery 保存庫。
 

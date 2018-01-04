@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Pingboard 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 67534da42ac27989a8b08cec4d6f9f9c31774264
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 733eff519f75368fd78824deea56f63940c0b49f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>教學課程：Azure Active Directory 與 Pingboard 整合
 
@@ -48,13 +48,13 @@ Pingboard 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Pingboard
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-pingboard-from-the-gallery"></a>從資源庫新增 Pingboard
-若要設定將 Pingboard 整合到 Azure AD 中，您需要從資源庫將 Pingboard 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Pingboard 整合到 Azure AD 中，您需要從資源庫將 Pingboard 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Pingboard，請執行下列步驟：**
 
@@ -70,7 +70,7 @@ Pingboard 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Pingboard**、從結果面板中選取 Pingboard，然後按一下新增 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Pingboard**、從結果面板中選取 [Pingboard]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 Pingboard](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
@@ -175,11 +175,11 @@ Pingboard 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-pingboard-test-user"></a>建立 Pingboard 測試使用者
 

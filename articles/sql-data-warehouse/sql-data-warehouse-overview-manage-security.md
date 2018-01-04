@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保護 SQL 資料倉儲中的資料庫
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="connection-security"></a>連接安全性
 「連線安全性」是指如何使用防火牆規則和連線加密，限制和保護資料庫的連線。
 
-伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。 若要允許來自應用程式或用戶端機器的公用 IP 位址的連接，您必須先使用 Azure 入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。 最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。  若要從您的本機電腦存取 Azure SQL 資料倉儲，請確定您的網路和本機電腦上的防火牆允許 TCP 連接埠 1433 上的傳出通訊。  如需詳細資訊，請參閱 [Azure SQL Database 防火牆][Azure SQL Database firewall]、[sp_set_firewall_rule][sp_set_firewall_rule] 和 [sp_set_database_firewall_rule][sp_set_database_firewall_rule]。
+伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。 若要允許來自應用程式或用戶端機器的公用 IP 位址的連接，您必須先使用 Azure 入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。 最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。  若要從您的本機電腦存取 Azure SQL 資料倉儲，請確定您的網路和本機電腦上的防火牆允許 TCP 連接埠 1433 上的傳出通訊。  如需詳細資訊，請參閱[Azure SQL Database 防火牆][Azure SQL Database firewall]， [sp_set_firewall_rule][sp_set_firewall_rule]。
 
 預設會加密與 SQL 資料倉儲的連線。  停用加密的修改連線設定會被忽略。
 
@@ -73,13 +73,19 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 您所連線的伺服器管理員帳戶是 db_owner 的成員，有權限在資料庫中執行任何動作。 請儲存此帳戶，以便部署結構描述升級及其他管理作業。 請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。
 
-有許多方式可以進一步限制使用者透過 Azure SQL Database 可以執行的動作：
+有進一步限制使用者可以執行到 Azure SQL 資料倉儲的方式：
 
-* 細微的[權限][Permissions]可讓您控制您可以對資料庫中個別資料行、資料表、檢視、程序和其他物件執行哪些作業。 使用細微權限，以擁有最大控制權，並授與所需的最小權限。 細微權限系統有點複雜，而且需要進行一些研究才能有效地使用。
+* 細微[權限][ Permissions]可讓您控制哪些作業，您可以執行個別的資料行、 資料表、 檢視、 結構描述、 程序和其他資料庫中的物件。 使用細微權限，以擁有最大控制權，並授與所需的最小權限。 細微權限系統有點複雜，而且需要進行一些研究才能有效地使用。
 * 除了 db_datareader 和 db_datawriter 以外，[資料庫角色][Database roles]均可以用來建立權力較大的應用程式使用者帳戶，或權力較小的管理帳戶。 內建固定資料庫角色提供簡單的方式來授與權限，但可能會導致授與的權限多於所需的權限。
 * [預存程序][Stored procedures]可用來限制對資料庫可採取的動作。
 
-要從 Azure 傳統入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此主題的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制][Role-based access control in Azure Portal]。
+以下是授與使用者定義的結構描述的 「 讀取 」 權限的範例。
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
+
+從 Azure 入口網站管理資料庫和邏輯伺服器，或使用 Azure 資源管理員 API 是由您的入口網站的使用者帳戶的角色指派控制。 如需有關此主題的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制][Role-based access control in Azure Portal]。
 
 ## <a name="encryption"></a>加密
 Azure SQL 資料倉儲透明資料加密 (TDE) 可以對待用資料執行即時加密和解密，協助防止惡意活動的威脅。  當您加密資料庫時，相關聯的備份和交易記錄檔就會加密，完全不需要變更您的應用程式。 TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫的儲存體。 在 SQL Database 中，資料庫加密金鑰是由內建伺服器憑證保護。 內建伺服器憑證對每個 SQL Database 伺服器都是唯一的。 Microsoft 至少每 90 天會自動替換這些憑證。 「SQL 資料倉儲」使用的加密演算法是 AES-256。 如需 TDE 的一般描述，請參閱[透明資料加密][Transparent Data Encryption]。

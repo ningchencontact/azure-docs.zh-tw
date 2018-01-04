@@ -4,7 +4,7 @@ description: "使用用戶端憑證在您的 Azure AD B2C 中保護您的自訂 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 在相關的文章中，您可以[建立 RESTful 服務](active-directory-b2c-custom-rest-api-netfw.md)，與 Azure Active Directory B2C (Azure AD B2C) 互動。
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/21/2017
 若要設定 **Azure App Service** 以要求用戶端憑證，請將 Web 應用程式 `clientCertEnabled` 站台設定設為 *true*。 若要進行此變更，您必須使用 REST API。 您可以透過 Azure 入口網站中的管理體驗使用此設定。 若要尋找這些設定，請在 RESTful 應用程式的 [設定] 功能表上，於 [開發工具] 下，選取 [資源總管]。
 
 >[!NOTE]
->請確定您的 Azure App Service 方案至少為標準版本。 如需詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)。
+>請確定您的 Azure App Service 方案至少為標準版本。 如需詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)。
 
 
 使用 [Azure 資源總管 (預覽)](https://resources.azure.com) 將 **clientCertEnabled** 屬性設為 *true*，如下圖所示：
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/21/2017
 ![透過 Azure 資源總管設定 clientCertEnabled](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->如需設定 **clientCertEnabled** 屬性的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
+>如需設定 **clientCertEnabled** 屬性的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
 
 >[!TIP]
 >或者，若要更輕鬆地製作 REST API 呼叫，您也可以使用 [ARMClient](https://github.com/projectkudu/ARMClient) 工具。
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/21/2017
 
     ![上傳原則金鑰](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
-7. 選取 [ **建立**]。
+7. 選取 [建立] 。
 
 8. 若要檢視租用戶中可用的金鑰，並確認您已建立 `B2C_1A_B2cRestClientCertificate` 金鑰，請選取 [原則金鑰]。
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/21/2017
 
 5. 選取 [覆寫已存在的原則] 核取方塊。
 
-6. 上傳 *TrustFrameworkExtensions.xml* 檔案，然後確定它通過驗證。
+6. 上傳 TrustFrameworkExtensions.xml 檔案，然後確定它通過驗證。
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>步驟 5：使用 [立即執行] 測試自訂原則
 1. 開啟 [Azure AD B2C 設定]，然後選取 [識別體驗架構]。
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/21/2017
 
     ![測試您的身分識別 API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. 在 [名字] 方塊中，嘗試輸入名字 ("Test" 除外)。  
+4. 在 [名字] 方塊中輸入名字 ("Test" 除外)。  
     Azure AD B2C 會註冊使用者，然後將會員號碼傳送至您的應用程式。 記下此 JWT 範例中的號碼：
 
    ```
@@ -165,7 +165,7 @@ Azure Web 應用程式平台不會對 Azure AD B2C 傳送至 RESTful 服務的�
 在本節中，您會基於驗證而驗證憑證內容的範例 ASP.NET 程式碼。
 
 > [!NOTE]
->如需設定 Azure App Service 應用程式進行用戶端憑證驗證的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
+>如需設定 Azure App Service 應用程式進行用戶端憑證驗證的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 將應用程式設定新增至專案的 web.config 檔案
 在您稍早建立的 Visual Studio 專案中，將下列應用程式設定新增至 *web.config* 檔案，位在 `appSettings` 元素之後：

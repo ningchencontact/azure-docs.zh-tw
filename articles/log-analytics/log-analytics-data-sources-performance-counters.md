@@ -1,6 +1,6 @@
 ---
 title: "在 Azure Log Analytics 中收集並分析效能計數器 | Microsoft Docs"
-description: "Log Analytics 會收集效能計數器以分析 Windows 和 Linux 代理程式的效能。  本文說明如何設定 Windows 和 Linux 代理程式的效能計數器收集、儲存在 OMS 儲存機制中的相關詳細資料，以及如何在 OMS 入口網站中分析這些資料。"
+description: "Log Analytics 會收集效能計數器以分析 Windows 和 Linux 代理程式的效能。  本文說明如何設定效能計數器集合的 windows 和 Linux 代理程式，它們的詳細資料會儲存在工作區中，以及如何在 Azure 入口網站分析。"
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 和 Linux 效能資料來源
 Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Log Analytics 可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
@@ -26,9 +26,9 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 ![效能計數器](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>設定效能計數器
-在 OMS 入口網站中，從 [Log Analytics [設定] 中的 [資料] 功能表](log-analytics-data-sources.md#configuring-data-sources)設定效能計數器。
+設定效能計數器從[資料記錄分析設定 功能表](log-analytics-data-sources.md#configuring-data-sources)。
 
-當您第一次為新的 OMS 工作區設定 Windows 或 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。  這些計數器旁邊皆會列出核取方塊。  確認已核取所有想一開始就建立的計數器，然後按一下 **[Add the selected performance counters]** \ (加入選取的效能計數器) 。
+當您第一次設定新的記錄分析工作區的 Windows 或 Linux 效能計數器時，您可以快速建立數個常用計數器的選項。  這些計數器旁邊皆會列出核取方塊。  確認已核取所有想一開始就建立的計數器，然後按一下 **[Add the selected performance counters]** \ (加入選取的效能計數器) 。
 
 對於 Windows 效能計數器，您可以選擇每個效能計數器的特定執行個體。 對於 Linux 效能計數器，您選擇的每個計數器的執行個體會套用至父計數器的所有子計數器。 下表顯示可用於 Linux 和 Windows 效能計數器的常見執行個體。
 
@@ -65,7 +65,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 5. 加入所要的計數器後，請按一下畫面頂端的 [儲存]  按鈕以儲存設定。
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>在組態檔中設定 Linux 效能計數器
-除了使用 OMS 入口網站設定 Linux 效能計數器，您還可以選擇在 Linux 代理程式上編輯組態檔。  要收集的效能計量是由 **/etc/opt/microsoft/omsagent/\<工作區識別碼\>/conf/omsagent.conf** 中的組態所控制。
+您不需要設定 Linux 效能計數器，使用 Azure 入口網站，您可以編輯組態檔上的 Linux 代理程式的選擇。  要收集的效能計量是由 **/etc/opt/microsoft/omsagent/\<工作區識別碼\>/conf/omsagent.conf** 中的組態所控制。
 
 要收集之效能計量的每個物件或類別都應該當成單一 `<source>` 元素定義於組態檔中。 語法遵循下面的模式。
 
@@ -182,7 +182,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
     </source>
 
 ## <a name="data-collection"></a>資料收集
-只要代理程式有安裝相關計數器，Log Analytics 就會依照其指定的取樣間隔時間，收集全部代理程式上所有指定的效能計數器。  資料不彙總，在 OMS 訂用帳戶的指定期間，所有記錄搜尋檢視中都會提供未經處理資料。
+只要代理程式有安裝相關計數器，Log Analytics 就會依照其指定的取樣間隔時間，收集全部代理程式上所有指定的效能計數器。  不會彙總資料，和您的訂用帳戶所指定的持續時間為所有的記錄搜尋檢視中可用的未經處理資料。
 
 ## <a name="performance-record-properties"></a>效能記錄屬性
 效能記錄都具有 **Perf** 類型以及下表中的屬性。
@@ -220,12 +220,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |特定電腦每小時平均、最小、最大和 75 個百分位數的 CPU 使用量 |
 | Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | 資料庫效能物件中的所有效能資料適用於來自具名 SQL Server 執行個體 INST2 的 master 資料庫。  
 
-## <a name="viewing-performance-data"></a>檢視效能資料
-在執行效能資料的記錄搜尋時，預設會顯示 [清單] 檢視。  若要以圖形形式檢視資料，請按一下 [計量]。  如需詳細的圖形檢視，請按一下計數器旁的 **+**。  
 
-![摺疊的計量檢視](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-若要彙總記錄搜尋中的效能資料，請參閱[在 OMS 中隨需彙總和視覺化度量](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/)。
 
 
 ## <a name="next-steps"></a>後續步驟

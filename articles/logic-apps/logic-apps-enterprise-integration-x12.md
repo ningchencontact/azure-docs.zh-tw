@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 X12 訊息
 
@@ -57,11 +57,11 @@ ms.lasthandoff: 10/11/2017
 
 4. 選取 [概觀]，然後選取 [合約] 圖格。 如果您沒有 [合約] 圖格，請先新增圖格。 
 
-    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. 在開啟的 [合約] 刀鋒視窗中選擇 [新增]  按鈕。
 
-    ![選擇 [新增]](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![選擇 [新增]](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. 在 [新增] 之下，輸入合約的 [名稱]。 針對 [合約類型]，選取 **X12**。 選取合約的 [主機夥伴]、[主機身分識別]、[來賓夥伴] 和 [來賓身分識別]。 如需更多屬性詳細資訊，請參閱此步驟中的資料表。
 
@@ -302,6 +302,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="view-the-swagger"></a>檢視 Swagger
 請參閱 [Swagger 詳細資料](/connectors/x12/)。 
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 * [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
 

@@ -1,6 +1,6 @@
 ---
 title: "已備妥資料來進行資料科學嗎？ 資料評估 - Azure Machine Learning | Microsoft Docs"
-description: "了解已備妥資料來進行資料科學的 4 個準則。 適用於初學者的資料科學影片 2 提供具體範例，可協助進行基本的資料評估。"
+description: "您的資料必須符合備妥可進行資料科學的四個準則。 這段影片有幫助進行基本的資料評估的具體範例。"
 keywords: "相關的資料, 評估資料, 準備資料, 資料準則, 備妥資料"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>已備妥資料來進行資料科學嗎？
 ## <a name="video-2-data-science-for-beginners-series"></a>影片 2：適用於初學者的資料科學系列
@@ -85,11 +85,11 @@ ms.lasthandoff: 10/11/2017
 
 ![準確的資料與不準確的資料 - 資料準則](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-看看右上方的目標。 我們正確地密集射中了靶心周圍。 當然這是精確的。 奇怪的是，在資料科學的語言中，我們在右下方目標的效能也會被視為正確。
+看看右上方的目標。 我們有權限相關眼睛周圍的緊密群組。 當然這是精確的。 奇怪的是，在資料科學的語言中，我們在右下方目標的效能也會被視為正確。
 
-如果您繪製出這些箭頭的中心，會看到它們非常接近靶心。 箭頭全都分佈於目標四周，因此被視為不準確，但它們都集中在靶心周圍，因此被視為精確。
+如果您要對應這些箭號中心，您會看到非常接近相關紅眼。 箭號分布周圍目標，因此被視為不精確，但它們為主相關眼睛，所以正在被視為正確。
 
-現在看一下左上方的目標。 此處，我們的箭射中得非常接近，是一個緊密的群組。 它們是準確的，但並不精確，因為中心偏離了靶心。 當然，左下方目標中的箭號就是不準確且不精確。 這位弓箭手需要多加練習。
+現在看一下左上方的目標。 此處，我們的箭射中得非常接近，是一個緊密的群組。 它們是精確，但因為中心 是關閉相關眼睛的方式不正確。 當然，左下方目標中的箭號就是不準確且不精確。 這位弓箭手需要多加練習。
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>您是否有足夠資料可供使用？
 最後，要素 4 - 我們需要有足夠的資料。

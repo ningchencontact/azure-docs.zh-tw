@@ -1,5 +1,5 @@
 ---
-title: "使用 Socket.io 的 Node.js 應用程式 | Microsoft Docs"
+title: "使用 Socket.io-Azure 的 Node.js 應用程式"
 description: "學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。"
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
-Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學課程引導您將 socket.IO 型交談應用程式裝載於 Azure 上。 如需 Socket.IO 的詳細資訊，請參閱 <http://socket.io/>。
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 雲端服務上建置與 Socket.IO Node.js 交談應用程式
+
+Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學課程將引導您透過裝載通訊端。IO 基礎交談在 Azure 上的應用程式。 如需有關 Socket.IO 的詳細資訊，請參閱[socket.io](http://socket.io)。
 
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -122,7 +123,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 4. 測試應用程式之後，發出下列命令來停止模擬器：
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. 若要將應用程式部署至 Azure，請使用 **Publish-AzureServiceProject** Cmdlet。 例如：
+5. 若要將應用程式部署至 Azure，請使用 **Publish-AzureServiceProject** Cmdlet。 例如︰
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    

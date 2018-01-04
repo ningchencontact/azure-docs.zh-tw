@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Salesforce Sandbox �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 801088bd63f025ca7cb1f9e4fe66b9c6f7f93453
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 
@@ -47,13 +47,13 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Salesforce Sandbox
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-salesforce-sandbox-from-the-gallery"></a>從資源庫新增 Salesforce Sandbox
-若要設定將 Salesforce Sandbox 整合到 Azure AD 中，您需要從資源庫將 Salesforce Sandbox 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Salesforce Sandbox 整合到 Azure AD 中，您需要從資源庫將 Salesforce Sandbox 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Salesforce Sandbox，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Salesforce Sandbox**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_search.png)
 
-5. 在結果面板中，選取 Salesforce Sandbox，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Salesforce Sandbox]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
 
@@ -139,14 +139,14 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 9. 在頂端的功能表中，按一下 [安裝] 。
 
     ![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781024.png)
-10. 在左側的導覽窗格中，按一下 安全性控制項，然後按一下單一登入設定。
+10. 在左側的導覽窗格中，按一下 [安全性控制項]，然後按一下 [單一登入設定]。
 
     ![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
 11. 在 [單一登入設定] 區段中，執行下列步驟：![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
      
      a.  選取 [已啟用 SAML] 。 
 
-     b.這是另一個 C# 主控台應用程式。  按一下 [新增] 。
+     b.  按一下 [新增] 。
 
 12. 在 [SAML 單一登入設定] 區段中，執行下列步驟：
 
@@ -154,7 +154,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     a.在 [名稱] 文字方塊中，輸入組態的名稱 (例如：*SPSSOWAAD\_Test*)。 
 
-    b.這是另一個 C# 主控台應用程式。 將 [SMAL 實體識別碼] 值貼到 [簽發者] 文字方塊中。
+    b. 將 [SMAL 實體識別碼] 值貼到 [簽發者] 文字方塊中。
 
     c. 如果這是您要新增至目錄的第一個 Salesforce Sandbox 執行個體，請在 [實體識別碼] 文字方塊中，輸入 **https://test.salesforce.com**。 如果您已新增 Salesforce 沙箱的執行個體，請對 [實體識別碼] 輸入**登入 URL**，其格式如下：`http://company.my.salesforce.com`  
  
@@ -170,14 +170,14 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     i. 在 [服務提供者起始的要求繫結]，選取 [HTTP POST]。 
 
-    j. 按一下 [儲存] 。
+    j. 按一下 [檔案] 。
 
 ### <a name="enable-your-domain"></a>啟用網域
 本節假設您已經建立了一個網域。  如需詳細資訊，請參閱[定義您的網域名稱](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US)。
 
 **若要啟用您的網域，請執行下列步驟：**
 
-1. 在左邊的導覽窗格中按一下 網域管理，然後按一下我的網域。
+1. 在左邊的導覽窗格中按一下 [網域管理]，然後按一下 [我的網域]。
    
      ![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781029.png)
    
@@ -221,11 +221,11 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-salesforce-sandbox-test-user"></a>建立 Salesforce Sandbox 測試使用者
 

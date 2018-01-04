@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Windows Phone Silverlight Engagement SDK 整合
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-應用程式的連接字串會顯示在 Azure 傳統入口網站中。
+您的應用程式的連接字串會顯示在 Azure 入口網站。
 
 ### <a name="engagement-initialization"></a>Engagement 初始化
 當您建立新專案時會產生一份 `App.xaml.cs` 檔案。 這個類別繼承自 `Application` ，且包含的許多重要的方法。 它將會用來初始化 Engagement SDK。
@@ -96,7 +96,7 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
       }
 
 > [!WARNING]
-> 我們強烈地建議您不要在應用程式的其他地方加入 Engagement 初始化。 不過請注意， `EngagementAgent.Instance.Init` 方法執行於專用的執行緒，而非 UI 執行緒。
+> 我們強烈地建議您不要在應用程式的其他地方新增 Engagement 初始化。 不過請注意， `EngagementAgent.Instance.Init` 方法執行於專用的執行緒，而非 UI 執行緒。
 > 
 > 
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f084ea3a9fb97a334f3dec90f2c9020a842bc27c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的控制項 
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/30/2017
 ### <a name="use-app-enforced-restrictions"></a>使用應用程式強制執行限制
 
 您可以使用這個控制項，要求 Azure AD 將裝置資訊傳遞至雲端應用程式。 這有助於雲端應用程式了解使用者是否來自符合規範的裝置或加入網域的裝置。 此控制項目前僅支援使用 SharePoint 作為雲端應用程式。 視裝置狀態而定，SharePoint 會使用裝置資訊來提供使用者有限或完整的經驗。
-若要深入了解如何要求 SharePoint 的有限存取，請參閱[從未受管理的裝置控制存取](https://aka.ms/spolimitedaccessdocs)。
+若要深入了解如何要求 SharePoint 的有限存取，請參閱[從非受控裝置控制存取](https://aka.ms/spolimitedaccessdocs)。
 
 
 

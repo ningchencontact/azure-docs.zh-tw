@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>了解針對單一裝置或大規模部署 IoT Edge - 預覽
 
@@ -34,7 +34,7 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
  
 本文將逐步解說用以設定及監視部署的每個元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組][lnk-howto]。
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 部署會指派 IoT Edge 模組映像，在一組目標的 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 您可以將部署指派到單一裝置 (通常會以裝置識別碼為根據) 或裝置群組 (以標記為根據)。 一旦 IoT Edge 裝置接收到部署資訊清單之後，就會從各自的容器存放庫下載並安裝模組容器映像，並據以設定它們。 建立部署之後，操作員就能監視部署狀態，以查看是否已正確設定目標裝置。   
 
@@ -57,7 +57,23 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
 
 ### <a name="target-condition"></a>目標條件
 
-目標條件會指定 IoT Edge 裝置是否應位於部署的範圍內。 目標條件取決於裝置對應項標記。 
+之目標條件會持續評估包含符合需求的任何新裝置，或移除不再透過部署的存留時間執行的裝置。 如果此服務會偵測目標條件的任何變更，部署將會重新啟動。 比方說，您已部署的目標條件 tags.environment 其內 = '生產環境'。 當您開始進行部署時，有 10 個生產環境的裝置。 模組已成功安裝在這些 10 的裝置。 IoT 邊緣代理程式狀態會顯示為 10 的裝置總數，10 成功回應、 0 失敗回應，以及 0 暫止的回應。 現在您想要新增 5 更多的裝置與 tags.environment = '生產環境'。 服務偵測到變更，而且 IoT 邊緣代理程式狀態會變成 15 的裝置總數，10 成功回應、 0 失敗回應，以及 5 個暫止回應嘗試將部署到五個新裝置時。
+
+使用裝置雙標記或 deviceId 上的任何布林條件，來選取目標裝置。 如果您想要使用具有標記條件，您要新增"tags":{} 一節中的裝置兩個屬性相同的層級底下。 [深入了解在裝置的兩個標記](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+目標條件的範例：
+* deviceId = 'linuxprod1'
+* tags.environment = '生產環境'
+* tags.environment = AND tags.location ' 生產環境' = 'uswest'
+* tags.environment = OR tags.location ' 生產環境' = 'uswest'
+* tags.operator = 'John' AND tags.environment = 不 deviceId ' 生產環境' = 'linuxprod1'
+
+以下是 建構的目標條件時，某些限制：
+
+* 在裝置的兩個，您可以只建置使用標記或 deviceId 目標條件。
+* 目標條件的任何部分中不允許有雙引號。 請使用單引號。
+* 單引號代表目標條件的值。 因此，您必須逸出單引號以另一個單引號如果它是裝置名稱的一部分。 例如，目標條件的： operator'sDevice 必須寫成 deviceId =' 運算子 ' sDevice'。
+* 數字、 字母和下列字元可目標條件 values:-:.+%_#* 中？(),=@;$
 
 ### <a name="priority"></a>優先順序
 

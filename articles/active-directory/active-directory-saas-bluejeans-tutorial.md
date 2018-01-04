@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 BlueJeans 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 03bf65852b8d3cf14aebf155891a028db86e78d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 828149bee642cf67e34255924ace2c37bdf0e320
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>教學課程：Azure Active Directory 與 BlueJeans 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 BlueJeans
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-bluejeans-from-the-gallery"></a>從資源庫新增 BlueJeans
-若要設定將 BlueJeans 整合到 Azure AD 中，您需要從資源庫將 BlueJeans 新增到受管理的 SaaS 應用程式清單。
+若要設定將 BlueJeans 整合到 Azure AD 中，您需要從資源庫將 BlueJeans 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 BlueJeans，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **BlueJeans**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_search.png)
 
-5. 在結果面板中，選取 BlueJeans，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [BlueJeans]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_addfromgallery.png)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 10/11/2017
    
    a. 選取 [SAML 單一登入] 。
   
-   b.這是另一個 C# 主控台應用程式。 選取 [啟用自動佈建] 。
+   b. 選取 [啟用自動佈建] 。
 
 10. 繼續執行下列步驟：
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/11/2017
     
     a. 按一下 [選擇檔案] ，然後上傳下載的憑證。
    
-    b.這是另一個 C# 主控台應用程式。 將「SAML 單一登入服務 URL」貼到 [登入 URL] 文字方塊中。
+    b. 將「SAML 單一登入服務 URL」貼到 [登入 URL] 文字方塊中。
    
     c. 將「變更密碼 URL」貼到 [密碼變更 URL] 文字方塊中。
    
@@ -161,7 +161,7 @@ ms.lasthandoff: 10/11/2017
     
     a. 在 [使用者識別碼] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
    
-    b.這是另一個 C# 主控台應用程式。 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    b. 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
    
     c. 按一下 [儲存變更] 。
 
@@ -194,11 +194,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-bluejeans-test-user"></a>建立 BlueJeans 測試使用者
 
@@ -223,7 +223,7 @@ ms.lasthandoff: 10/11/2017
     
     a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [BlueJeans 使用者名稱]、[電子郵件地址]、[BlueJeans 會議識別碼]、[仲裁者密碼]、[全名]、[公司]。
     
-    b.這是另一個 C# 主控台應用程式。 按一下 [加入使用者] 。
+    b. 按一下 [新增使用者] 。
 
 >[!NOTE]
 >您可以使用任何其他的 BlueJeans 使用者帳戶建立工具或 BlueJeans 提供的 API 來佈建 AAD 使用者帳戶。 

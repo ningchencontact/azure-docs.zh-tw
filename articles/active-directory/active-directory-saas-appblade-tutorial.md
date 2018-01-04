@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 AppBlade 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 3360d7aa-6518-4f99-88bd-b7f7258183e8
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 7820a70b34b6d25ba81b17c472159d08904335d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c7f604987a42a1733b26ed11e8ce48eee7a52202
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appblade"></a>教學課程：Azure Active Directory 與 AppBlade 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 AppBlade
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-appblade-from-the-gallery"></a>從資源庫新增 AppBlade
-若要設定將 AppBlade 整合到 Azure AD 中，您需要從資源庫將 AppBlade 新增到受管理的 SaaS 應用程式清單。
+若要設定將 AppBlade 整合到 Azure AD 中，您需要從資源庫將 AppBlade 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 AppBlade，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **AppBlade**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_search.png)
 
-5. 在結果面板中，選取 AppBlade，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [AppBlade]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_addfromgallery.png)
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/11/2017
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.appblade.com/saml/<tenantid>`
 
     > [!NOTE] 
-    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [AppBlade 用戶端支援小組](mailto:support@appblade.com)以取得此值。 
+    > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [AppBlade 用戶端支援小組](mailto:support@appblade.com)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -154,11 +154,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-appblade-test-user"></a>建立 AppBlade 測試使用者
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 10/11/2017
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。  
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。  
 當您在「存取面板」中按一下 [AppBlade] 圖格時，應該會自動登入您的 AppBlade 應用程式。 
 
 ## <a name="additional-resources"></a>其他資源

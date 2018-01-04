@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Thoughtworks Mingle 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 69d859d9-b7f7-4c42-bc8c-8036138be586
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 268ae5affb88a718f68c08daa94fe7aba4a99c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4406524f7ba85c33c0e309d3cc7cd21e2f5e327b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>教學課程：Azure Active Directory 與 Thoughtworks Mingle 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Thoughtworks Mingle
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>從資源庫新增 Thoughtworks Mingle
-若要設定將 Thoughtworks Mingle 整合到 Azure AD 中，您需要從資源庫將 Thoughtworks Mingle 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Thoughtworks Mingle 整合到 Azure AD 中，您需要從資源庫將 Thoughtworks Mingle 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Thoughtworks Mingle，請執行下列步驟：**
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
     
     a. 若要上傳中繼資料檔案，請按一下 [選擇檔案] 。 
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [儲存變更] 。
+    b. 按一下 [儲存變更] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,11 +163,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-thoughtworks-mingle-test-user"></a>建立 Thoughtworks Mingle 測試使用者
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
    
     ![第一個專案](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785160.png "第一個專案")
 
-3. 按一下 管理 索引標籤，然後按一下使用者。
+3. 按一下 [管理] 索引標籤，然後按一下 [使用者]。
    
     ![使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785161.png "使用者")
 
@@ -235,7 +235,7 @@ ms.lasthandoff: 10/11/2017
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在「存取面板」中按一下 [Thoughtworks Mingle] 圖格時，應該會自動登入您的 Thoughtworks Mingle 應用程式。
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -52,7 +52,7 @@ Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自�
 | [定價層降級](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 定價層降級動作減少了可用的資源，因而影響 SQL Database 效能。 |
 
 > [!TIP]
-> 如需 SQL Database 的持續效能最佳化，請啟用 [Azure SQL Database 自動調整](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫、自動調整索引，以及套用查詢執行計畫更正。
+> 如需 SQL Database 的持續效能最佳化，請啟用 [Azure SQL Database 自動調整](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫、自動調整索引，以及套用查詢執行計畫更正。
 >
 
 下節將以更詳細的方式說明先前列出的可偵測效能模式。
@@ -63,7 +63,7 @@ Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自�
 
 這個可偵測的效能模式結合了與達到可用資源限制、背景工作角色限制及工作階段限制有關的效能問題。 偵測到此效能問題之後，診斷記錄的描述欄位就會指出效能問題是否與資源、背景工作角色，或是工作階段限制相關。
 
-SQL Database 上的資源通常稱為 [DTU 資源](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu)。 它們包含 CPU 和 I/O (資料和交易記錄 I/O) 資源的混合量值。 當偵測到導致查詢效能降低的原因是達到所測量的任何資源限制時，就會認定達到資源限制的模式。
+SQL Database 上的資源通常稱為 [DTU 資源](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu)。 它們包含 CPU 和 I/O (資料和交易記錄 I/O) 資源的混合量值。 當偵測到導致查詢效能降低的原因是達到所測量的任何資源限制時，就會認定達到資源限制的模式。
 
 工作階段限制資源代表針對 SQL 資料庫的可用並行登入數。 當連線到 SQL 資料庫的應用程式已達到針對該資料庫的可用並行登入數時，就會認定此效能模式。 當應用程式嘗試使用的工作階段數超出資料庫上可用的工作階段數時，就會影響查詢效能。
 
@@ -75,7 +75,7 @@ SQL Database 上的資源通常稱為 [DTU 資源](https://docs.microsoft.com/en
 
 如果您已達到可用工作階段限制，則可以透過減少資料庫的登入次數來對應用程式進行最佳化。 如果您無法減少應用程式針對資料庫的登入數，請考慮提高資料庫的定價層。 或者，您可以將資料庫分割並移至多個資料庫，以取得更加平衡的工作負載分佈。
 
-如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 若要了解您訂用帳戶層的可用資源限制，請參閱 [SQL Database 資源限制](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits)。
+如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 若要了解您訂用帳戶層的可用資源限制，請參閱 [SQL Database 資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits)。
 
 ## <a name="workload-increase"></a>工作負載增加
 
@@ -145,7 +145,7 @@ SQL Database 上的 MAXDOP 伺服器設定選項可用來控制能夠使用多�
 
 診斷記錄會輸出執行持續時間因平行處理程度大於應有程度而增加之查詢的相關查詢雜湊。 此記錄也會輸出 CXP 等候時間。 此時間代表單一組合管理/協調者執行緒 (執行緒 0) 在合併結果並繼續進行之前，等候所有其他執行緒完成工作的時間。 此外，診斷記錄也會輸出效能不佳之查詢整體等候執行的等候時間。 您可以使用此資訊作為疑難排解的基礎。
 
-首先，請將複雜的查詢最佳化或簡化。 理想的做法是將大批作業拆解成較小的作業。 此外，請確定您已建立支援查詢的索引。 您也可以針對已標示為效能不佳的查詢，手動強制執行平行處理原則的最大程度 (MAXDOP)。 若要使用 T-SQL 設定此作業，請參閱[設定 MAXDOP 伺服器設定選項](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)。
+首先，請將複雜的查詢最佳化或簡化。 理想的做法是將大批作業拆解成較小的作業。 此外，請確定您已建立支援查詢的索引。 您也可以針對已標示為效能不佳的查詢，手動強制執行平行處理原則的最大程度 (MAXDOP)。 若要使用 T-SQL 設定此作業，請參閱[設定 MAXDOP 伺服器設定選項](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)。
 
 將 MAXDOP 伺服器設定選項設定為零 (0) 作為預設值時，表示 SQL Database 可以使用所有可用的邏輯 CPU 核心來針對單一查詢執行平行處理執行緒。 將 MAXDOP 設定為一 (1) 表示針對單一查詢執行只能使用一個核心。 實際上，這代表平行處理已關閉。 您可以視每一案例情況、資料庫可用的核心及診斷記錄資訊而定，將 MAXDOP 選項調整成可能可以解決您案例中問題的平行查詢執行核心數。
 
@@ -231,7 +231,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 診斷記錄會輸出 tempDB 爭用的詳細資料。 您可以使用此資訊作為疑難排解的起點。 若要減輕此競爭情形，並提升整體工作負載的輸送量，您可以嘗試兩種方法：您可以停止使用暫存資料表。 您也可以使用經記憶體最佳化的資料表。 
 
-如需詳細資訊，請參閱[經記憶體最佳化的資料表簡介](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)。 
+如需詳細資訊，請參閱[經記憶體最佳化的資料表簡介](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)。 
 
 ## <a name="elastic-pool-dtu-shortage"></a>彈性集區 DTU 不足
 
@@ -328,10 +328,10 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 > [!TIP]
 > 選取流程圖以下載 PDF 版本。
 
-Intelligent Insights 通常需要一小時的時間來執行效能問題的根本原因分析。 如果無法在 Intelligent Insights 中找到您的問題，且此問題對您而言很嚴重，請使用查詢存放區以手動識別效能問題的根本原因。 (這些問題存在的時間通常不會超過一個小時)。如需詳細資訊，請參閱[使用查詢存放區監視效能](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
+Intelligent Insights 通常需要一小時的時間來執行效能問題的根本原因分析。 如果無法在 Intelligent Insights 中找到您的問題，且此問題對您而言很嚴重，請使用查詢存放區以手動識別效能問題的根本原因。 (這些問題存在的時間通常不會超過一個小時)。如需詳細資訊，請參閱[使用查詢存放區監視效能](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。
 - 使用 [Intelligent Insights Azure SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
-- [使用 Azure SQL 分析來監視 Azure SQL Database](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)。
+- [使用 Azure SQL 分析來監視 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)。
 - 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。

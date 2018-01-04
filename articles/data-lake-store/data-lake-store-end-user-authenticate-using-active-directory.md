@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: 98898675b85d62c97a215f9922f1393001013943
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 以 Data Lake Store 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 本文說明如何建立 **Azure AD 原生應用程式以進行使用者驗證**。 如需服務對服務驗證的 Azure AD 應用程式設定的指示，請參閱[使用 Azure Active Directory 以 Data Lake Store 進行服務對服務驗證](data-lake-store-authenticate-using-active-directory.md)。
 
 ## <a name="prerequisites"></a>必要條件
-* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * 您的訂用帳戶識別碼。 您可以在 Azure 入口網站擷取。 例如，可從 [Data Lake Store] 帳戶刀鋒視窗取得。
   
@@ -100,15 +100,15 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 
 1. 在 Azure 入口網站中，選取 [Azure Active Directory]，按一下 [應用程式註冊]，然後尋找並按一下您已建立的 Azure AD 原生應用程式。
 
-2. 在應用程式的 設定 刀鋒視窗中，按一下 必要的權限，然後按一下新增。
+2. 在應用程式的 [設定] 刀鋒視窗中，按一下 [必要的權限]，然後按一下 [新增]。
 
     ![用戶端識別碼](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
-3. 在 加入 API 存取權 刀鋒視窗中，依序按一下 選取 API、Azure Data Lake，然後按一下選取。
+3. 在 [加入 API 存取權] 刀鋒視窗中，依序按一下 [選取 API]、[Azure Data Lake]，然後按一下 [選取]。
 
     ![用戶端識別碼](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
  
-4.  在 加入 API 存取權 刀鋒視窗中，按一下 選取權限，選取核取方塊以提供 **Data Lake Store 完整的存取權**，然後按一下選取。
+4.  在 [加入 API 存取權] 刀鋒視窗中，按一下 [選取權限]，選取核取方塊以提供 **Data Lake Store 完整的存取權**，然後按一下 [選取]。
 
     ![用戶端識別碼](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 

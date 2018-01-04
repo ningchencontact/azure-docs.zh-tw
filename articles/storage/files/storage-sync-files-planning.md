@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -46,19 +46,21 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>伺服器端點
-伺服器端點代表已註冊的伺服器上的特定位置，例如伺服器磁碟區上的資料夾或磁碟區的根目錄。 如果伺服器端點的命名空間沒有重疊 (例如 F:\sync1 和 F:\sync2)，則相同磁碟區中可以存在多個伺服器端點。 您可以為每個伺服器端點個別設定雲端階層原則。 如果您將具有一組現有檔案的伺服器位置作為伺服器端點新增至同步群組，那些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
+伺服器端點會表示已註冊的伺服器，例如伺服器磁碟區上的資料夾上的特定位置。 如果其命名空間不會重疊，相同的磁碟區上可以有多個伺服器端點 (例如，`F:\sync1`和`F:\sync2`)。 您可以為每個伺服器端點個別設定雲端階層原則。 目前，不可能建立的磁碟區根目錄的伺服器端點 (例如`F:\`或`C:\myvolume`，如果掛接磁碟區為掛接點)。
 
 > [!Note]  
 > 伺服器端點可能會放在 Windows 系統磁碟區。 系統磁碟區上不支援雲端階層。
+
+如果您將具有一組現有檔案的伺服器位置作為伺服器端點新增至同步群組，那些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
 
 ### <a name="cloud-endpoint"></a>雲端端點
 雲端端點是屬於同步群組之一部分的 Azure 檔案共用。 整個 Azure 檔案共用都會同步，而且 Azure 檔案共用只能是單一雲端端點的成員。 因此，Azure 檔案共用只能是單一同步處理群組的成員。 如果您將內含一組現有檔案的 Azure 檔案共用作為雲端端點新增至同步群組，現有的檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
 
 > [!Important]  
-> Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時才會起始一次。 如需詳細資訊，請參閱 [Azure 檔案服務常見問題集](storage-files-faq.md#afs-change-detection)。
+> Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時才會起始一次。 此外，對 Azure 檔案共用，透過 REST 通訊協定的變更不會更新 SMB 上次修改時間，而且不會看到為變更所同步處理。如需詳細資訊，請參閱 [Azure 檔案服務常見問題集](storage-files-faq.md#afs-change-detection)。
 
 ### <a name="cloud-tiering"></a>雲端階層處理 
-雲端階層處理是 Azure 檔案同步的選擇性功能，可將不常使用或存取的檔案分層處理至 Azure 檔案服務。 當檔案被分層之後，Azure 檔案同步檔案系統篩選器 (StorageSync.sys) 會將本機檔案取代為指標或重新分析點。 重新分析點代表的是針對 Azure 檔案服務中檔案的 URL。 階層式檔案在 NTFS 中具有「離線」屬性集，使協力廠商應用程式得以識別階層式檔案。 當使用者開啟階層式檔案時，Azure 檔案同步會順暢地從 Azure 檔案服務重新叫用檔案資料，使用者並不需要知道檔案未儲存在本機系統上。 這項功能也稱為階層式存放裝置管理 (HSM)。
+雲端層是選擇性功能的 Azure 檔案同步處理中不常使用或存取大於 64 KiB 大小可以分層磁碟區與 Azure 檔案的檔案。 當檔案被分層之後，Azure 檔案同步檔案系統篩選器 (StorageSync.sys) 會將本機檔案取代為指標或重新分析點。 重新分析點代表的是針對 Azure 檔案服務中檔案的 URL。 階層式檔案在 NTFS 中具有「離線」屬性集，使協力廠商應用程式得以識別階層式檔案。 當使用者開啟階層式檔案時，Azure 檔案同步會順暢地從 Azure 檔案服務重新叫用檔案資料，使用者並不需要知道檔案未儲存在本機系統上。 這項功能也稱為階層式存放裝置管理 (HSM)。
 
 > [!Important]  
 > Windows 系統磁碟區上的伺服器端點不支援雲端接層。
@@ -80,7 +82,7 @@ Windows Server 的未來版本將會於發佈時加入支援清單。 舊版的 
 > 建議您透過 Windows Update 的最新更新，將搭配 Azure 檔案同步使用的所有伺服器保持在最新狀態。 
 
 ### <a name="file-system-features"></a>檔案系統功能
-| 功能 | 支援狀態 | 注意事項 |
+| 功能 | 支援狀態 | 注意 |
 |---------|----------------|-------|
 | 存取控制清單 (ACL) | 完全支援 | Azure 檔案同步會保留 Windows ACL，並由 Windows Server 在伺服器端點上強制執行。 如果檔案是直接在雲端中存取，則 Azure 檔案服務尚未支援 Windows ACL。 |
 | 永久連結 | Skipped | |
@@ -156,6 +158,7 @@ Azure 檔案同步僅於下列區域以預覽的形式提供：
 
 | 區域 | 資料中心位置 |
 |--------|---------------------|
+| 美國東部 | 維吉尼亞州美國 |
 | 美國西部 | 美國加利福尼亞州 |
 | 西歐 | 荷蘭 |
 | 東南亞 | 新加坡 |

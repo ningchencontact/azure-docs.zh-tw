@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Azure 串流分析工具
 適用於 Visual Studio 的 Azure 串流分析工具現已正式推出。 這些工具為「串流分析」的使用者提供更豐富的疑難排解體驗，而且能撰寫複雜查詢，甚至在本機撰寫查詢。 您也能將串流分析工作匯出到 Visual Studio 專案中。
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/20/2017
 
 * 完成[利用串流分析來建置 IoT 解決方案](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中直至「建立串流分析作業」的步驟。 
 * 安裝 Visual Studio 2017、Visual Studio 2015 或 Visual Studio 2013 Update 4。 支援 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支援 Express 版本。 
-* 依照[安裝指示](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)，安裝 Visual Studio 適用的串流分析工具。
+* 依照[安裝指示](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)，安裝 Visual Studio 適用的串流分析工具。
 
 ## <a name="create-a-stream-analytics-project"></a>建立串流分析專案
 在 Visual Studio 中，選取 [檔案] > [新增專案]。 在左側的範本清單中，選取 [串流分析]，然後選取 [Azure 串流分析應用程式]。

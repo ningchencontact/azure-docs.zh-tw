@@ -3,7 +3,7 @@ title: "Azure 自動化中的原始檔控制整合 | Microsoft Docs"
 description: "本文說明在 Azure 自動化中與 GitHub 的原始檔控制整合。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: d8f236a012648062e703fa2c4123d139c0e115ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 原始檔控制整合可讓您將自動化帳戶中的 Runbook 關聯至 GitHub 原始檔控制儲存機制。 原始檔控制可讓您輕鬆地與小組共同作業、追蹤變更，以及回復至舊版的 Runbook。 例如，原始檔控制可讓您將原始檔控制中的不同分支同步處理至您的開發、測試或生產自動化帳戶，以輕鬆地將已在開發環境中測試過的程式碼提升至生產自動化帳戶。
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
      | **參數** | **值** |
      |:--- |:--- |
      | 名稱 |Microsoft.Azure.Automation.SourceControl.Connection |
-     | 型別 |String |
+     | 類型 |字串 |
      | 值 |{"Branch":\<您的分支名稱>,"RunbookFolderPath":\<Runbook 資料夾路徑>,"ProviderType":\<GitHub 的值為 1>,"Repository":\<您的儲存機制名稱>,"Username":\<您的 GitHub 使用者名稱>} |
 
     * **Microsoft.Azure.Automation.SourceControl.OauthToken**變數包含 OAuthToken 的安全加密值。  
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
     |**參數**            |**值** |
     |:---|:---|
     | 名稱  | Microsoft.Azure.Automation.SourceControl.OauthToken |
-    | 型別 | Unknown(Encrypted) |
+    | 類型 | Unknown(Encrypted) |
     | 值 | <*已加密的 OAuthToken*> |  
 
     ![變數](media/automation-source-control-integration/automation_04_Variables.png)  

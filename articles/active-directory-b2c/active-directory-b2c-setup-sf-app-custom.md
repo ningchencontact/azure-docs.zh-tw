@@ -4,7 +4,7 @@ description: "深入了解如何建立及管理 Azure Active Directory B2C 自�
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
-ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C︰使用 Salesforce 帳戶透過 SAML 來登入
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 10/11/2017
 > 在本文中，我們假設您使用 [Salesforce Lightning 經驗](https://developer.salesforce.com/page/Lightning_Experience_FAQ)。
 
 1. [登入 Salesforce](https://login.salesforce.com/)。 
-2. 在左側功能表的 設定 下，展開 身分識別，然後按一下識別提供者。
+2. 在左側功能表的 [設定] 下，展開 [身分識別]，然後按一下 [識別提供者]。
 3. 按一下 [啟用識別提供者]。
-4. 在 [選取憑證] 下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 (您可以使用預設憑證。)按一下 [儲存] 。 
+4. 在 [選取憑證] 下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 (您可以使用預設憑證。)按一下 [檔案] 。 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>在 Salesforce 中建立連線應用程式
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
       https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. 將所有其他設定保留預設值。
-8. 捲動到清單底部，然後按一下儲存。
+8. 捲動到清單底部，然後按一下 [儲存]。
 
 ### <a name="get-the-metadata-url"></a>取得中繼資料 URL
 
@@ -117,7 +117,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
     2. 輸入**名稱** (例如，SAMLSigningCert)。 金鑰名稱前面會自動新增前置詞 B2C_1A_。
     3. 若要選取您的憑證，請選取 [上傳檔案控制項]。 
     4. 輸入您在 PowerShell 指令碼中設定的憑證密碼。
-3. 按一下 [建立] 。
+3. 按一下頁面底部的 [新增] 。
 4. 請確認您已建立金鑰 (例如，B2C_1A_SAMLSigningCert)。 記下完整名稱 (包括 B2C_1A_)。 您將在原則稍後參考這個金鑰。
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>在基底原則中建立 Salesforce SAML 宣告提供者
@@ -250,7 +250,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 ## <a name="test-and-troubleshoot"></a>測試及疑難排解
 
-若要測試您剛才上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下立即執行。 如果失敗，請參閱[針對自訂原則進行疑難排解](active-directory-b2c-troubleshoot-custom.md)。
+若要測試您剛才上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下 [立即執行]。 如果失敗，請參閱[針對自訂原則進行疑難排解](active-directory-b2c-troubleshoot-custom.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

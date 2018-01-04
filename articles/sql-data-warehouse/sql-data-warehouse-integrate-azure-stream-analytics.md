@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 14783f0464764a11d7f03a5db1c2d63728a4cb50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>搭配使用 Azure 串流分析與 SQL 資料倉儲
-Azure 串流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。 如需基本概念，請參閱 [Azure 串流分析簡介][Introduction to Azure Stream Analytics]。 您可以接著依照[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程，了解如何使用串流分析建立端對端解決方案。
+Azure 串流分析是完全受控的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。 如需基本概念，請參閱 [Azure 串流分析簡介][Introduction to Azure Stream Analytics]。 您可以接著依照[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程，了解如何使用串流分析建立端對端解決方案。
 
 在本文中，您將學習如何使用 Azure SQL 資料倉儲資料庫做為串流分析工作的輸出接收器。
 
@@ -38,7 +38,7 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>指定工作輸出：Azure SQL 資料倉儲資料庫
 ### <a name="step-1"></a>步驟 1
-在串流分析工作中，按一下頁面上方的 輸出，然後按一下新增輸出。
+在串流分析工作中，按一下頁面上方的 [輸出]，然後按一下 [新增輸出]。
 
 ### <a name="step-2"></a>步驟 2
 選取 SQL Database，然後按一下 [下一步]。
@@ -53,7 +53,7 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
   * 如果 SQL 資料倉儲資料庫是在與此資料流分析工作相同的訂用帳戶中，則請選取 [使用目前訂用帳戶的 SQL Database]。
   * 如果您的資料庫是在不同的訂用帳戶中，請選取 [使用其他訂用帳戶的 SQL Database]。
 * 資料庫：指定目的地資料庫的名稱。
-* 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。 您可以使用 Azure 傳統入口網站進行搜尋。
+* 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。 若要尋找此，您可以使用 Azure 入口網站。
 
 ![][server-name]
 

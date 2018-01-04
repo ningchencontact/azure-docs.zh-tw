@@ -1,10 +1,10 @@
 ---
 title: "在 Azure 儲存體總管中管理 Azure Cosmos DB"
 description: "學習如何在 Azure 儲存體總管中管理 Azure Cosmos DB。"
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.author: Jejiang
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>在 Azure 儲存體總管 (預覽版本) 中管理 Azure Cosmos DB
 
-在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 目前，Azure 儲存體總管支援 SQL (DocumentDB) 和 MongoDB 帳戶。
+在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 此時，Azure 儲存體總管支援 SQL<!--and MongoDB-->帳戶。 Azure 儲存體總管不適用於 Azure Cosmos DB 的本機模擬器。 
 
 在本文中，您將會了解如何使用儲存體總管來管理 Azure Cosmos DB。
 
 
 ## <a name="prerequisites"></a>必要條件
 
-SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據[Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 DocumentDB API Web 應用程式](create-documentdb-dotnet.md)中的描述，在 Azure 入口網站中建立帳戶。
+SQL API 的 Azure Cosmos DB 帳戶<!--or MongoDB API-->。 如果您沒有帳戶，您可以建立一個在 Azure 入口網站中所述[Azure Cosmos DB： 建置 SQL API web 應用程式的.NET 和 Azure 入口網站](create-sql-api-dotnet.md)。
 
 ## <a name="installation"></a>安裝
 
@@ -50,7 +50,7 @@ SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒
 
 2. 在 [Azure 登入] 對話方塊中，選取 [登入]，然後輸入您的 Azure 認證。
 
-    ![Sign in](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
+    ![登入](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
 
 3. 從清單中選取您的訂用帳戶，然後按一下 [套用]。
 
@@ -70,7 +70,7 @@ SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒
 
     ![使用連接字串連線到 Azure Cosmos DB](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 選擇適用於您帳戶類型的**預設體驗**，其可能是 **DocumentDB** 或 **MongoDB**，將您的**連接字串**貼上，然後按一下 [確定] 來連線到 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string)。
+2. 選擇適當**預設體驗**適用於您的帳戶類型， <!--either--> **DocumentDB** <!--or **MongoDB**-->，貼上您**連接字串**，然後按一下**確定**將 Azure Cosmos DB 帳戶連接。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)。
 
     ![連接字串](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -137,7 +137,7 @@ SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒
 #### <a name="delete-a-document"></a>刪除文件
 按一下 [刪除] 按鈕來刪除選取的文件。
 #### <a name="query-for-documents"></a>查詢文件
-輸入 [SQL 查詢](documentdb-sql-query.md)，然後按一下 [套用] 來編輯文件篩選。
+輸入 [SQL 查詢](sql-api-sql-query.md)，然後按一下 [套用] 來編輯文件篩選。
 
 ![Filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
@@ -152,5 +152,5 @@ SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒
 ## <a name="next-steps"></a>後續步驟
 
 * 請觀看下列影片以了解如何在 Azure 儲存體總管中使用 Azure Cosmos DB：[在 Azure 儲存體總管中使用 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
-* 在[開始使用儲存體總管 (預覽)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer) 中深入了解儲存體總管並連線更多服務。
+* 在[開始使用儲存體總管 (預覽)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 中深入了解儲存體總管並連線更多服務。
 

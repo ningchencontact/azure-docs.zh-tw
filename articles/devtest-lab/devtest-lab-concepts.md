@@ -3,7 +3,7 @@ title: "研發/測試實驗室概念 | Microsoft Docs"
 description: "了解研發/測試實驗室的基本概念，以及它如何讓您輕鬆地建立、管理和監視 Azure 虛擬機器"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
 ## <a name="overview"></a>概觀
@@ -37,7 +37,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 
 可宣告的 VM 最初並不會指派給任何特定的使用者，但它會出現在所有使用者的 [可宣告的虛擬機器] 清單上。 當使用者宣告 VM 之後，該 VM 將會移至該使用者的 [我的虛擬機器] 區域，且其他使用者將無法宣告該 VM。
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>環境
 在研發/測試實驗室中，環境是指實驗室中 Azure 資源的集合。 [此部落格文章](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/)討論如何從 Azure Resource Manager 範本建立多個 VM 環境。
 
 ## <a name="base-images"></a>基礎映像

@@ -4,7 +4,7 @@ description: "與 Azure Active Directory 整合的優點和所需資源指南。
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: bd9f984a625ae951a16eb729c0a4565eea05e46b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -37,7 +37,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>瀏覽以尋找使用者、管理使用者佈建，及控制存取應用程式
 **瀏覽以尋找目錄中的使用者。**  邀請他人或授與存取權限時，與其要求使用者輸入電子郵件位址，您可以使用 Graph API 來協助使用者搜尋及瀏覽以尋找組織中的其他人。  使用者可以使用常見的通訊錄樣式介面進行瀏覽，包括檢視組織階層的詳細資料。  深入了解[圖形 API](active-directory-graph-api.md)。
 
-**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。**  Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。  使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。  群組資訊也可以透過登入權杖傳送至您的應用程式。  深入了解[圖形 API](active-directory-graph-api.md)。
+**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。**  Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。  使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。  群組資訊也可以透過登入權杖傳送至您的應用程式。  深入了解 [Graph API](active-directory-graph-api.md)。
 
 **使用 Azure AD 來控制有權存取應用程式的人員。**  系統管理員和 Azure AD 中的應用程式擁有者可以將應用程式的存取權限指派給特定使用者和群組。  使用 Graph API，您可以讀取這份清單並用它來控制資源的佈建和取消佈建，以及應用程式內的存取。
 

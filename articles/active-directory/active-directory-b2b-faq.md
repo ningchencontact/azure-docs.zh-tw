@@ -4,7 +4,7 @@ description: "取得 Azure Active Directory B2B 共同作業常見問題集的�
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
 這些有關 Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業的常見問題集 (FAQ) 會定期更新來包含新的主題。
 
 ### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>Azure 傳統入口網站中是否可以使用 Azure AD B2B 共同作業？
-否。 只有在 [Azure 入口網站](https://portal.azure.com)和[存取面板](https://myapps.microsoft.com/)中才可以使用 Azure AD B2B 共同作業功能。 
+編號 只有在 [Azure 入口網站](https://portal.azure.com)和[存取面板](https://myapps.microsoft.com/)中才可以使用 Azure AD B2B 共同作業功能。 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>我們是否可以自訂登入頁面，讓我們的 B2B 共同作業來賓使用者感到更直覺式？
 當然！ 請參閱我們[有關這項功能的部落格文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)。 如需有關如何自訂組織登入頁面的詳細資訊，請參閱[將公司商標新增至登入和存取面板頁面](customize-branding.md)。
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B 共同作業的使用者可以存取 SharePoint Online 和 OneDrive 嗎？
-是。 不過，在 SharePoint Online 中使用人員選擇器搜尋現有來賓使用者的功能，預設為**關閉**。 若要開啟搜尋現有來賓使用者的選項，請將 **ShowPeoplePickerSuggestionsForGuestUsers** 設定為 **On**。 您可以在租用戶等級或網站集合等級開啟這項設定。 您可以使用 Set-SPOTenant 和 Set-SPOSite Cmdlet 變更此設定。 透過這些 Cmdlet，成員可以搜尋目錄中所有現有的來賓使用者。 租用戶範圍中的變更不會影響已佈建的 SharePoint Online 網站。
+可以。 不過，在 SharePoint Online 中使用人員選擇器搜尋現有來賓使用者的功能，預設為**關閉**。 若要開啟搜尋現有來賓使用者的選項，請將 **ShowPeoplePickerSuggestionsForGuestUsers** 設定為 **On**。 您可以在租用戶等級或網站集合等級開啟這項設定。 您可以使用 Set-SPOTenant 和 Set-SPOSite Cmdlet 變更此設定。 透過這些 Cmdlet，成員可以搜尋目錄中所有現有的來賓使用者。 租用戶範圍中的變更不會影響已佈建的 SharePoint Online 網站。
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>是否仍支援 CSV 上傳功能？
-是。 如需有關使用 .csv 檔案上傳功能的詳細資訊，請參閱[這個 PowerShell 範例](active-directory-b2b-code-samples.md)。
+可以。 如需有關使用 .csv 檔案上傳功能的詳細資訊，請參閱[這個 PowerShell 範例](active-directory-b2b-code-samples.md)。
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>如何自訂我的邀請電子郵件？
 您可以使用 [B2B 邀請 API](active-directory-b2b-api.md) 自訂關於邀請者程序的幾乎一切事項。
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/14/2017
 邀請組織的系統管理員，可從他們的目錄中刪除 B2B 共同作業來賓使用者，但來賓使用者不能自行離開邀請的組織目錄。 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>來賓使用者是否可以重設其多重要素驗證方法？
-是。 來賓使用者集可以重設其多重要素驗證方法，作法與一般使用者一樣。
+可以。 來賓使用者集可以重設其多重要素驗證方法，作法與一般使用者一樣。
 
 ### <a name="which-organization-is-responsible-for-multi-factor-authentication-licenses"></a>哪個組織負責多重要素驗證授權？
 邀請方組織執行多重要素驗證。 邀請方組織必須確定組織有足夠的授權給使用多重要素驗證的 B2B 使用者。
@@ -73,10 +73,10 @@ ms.lasthandoff: 11/14/2017
   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 共同作業是否支援多重要素驗證和取用者電子郵件帳戶？
-是。 Azure AD B2B 共同作業支援多重要素驗證和取用者電子郵件帳戶。
+可以。 Azure AD B2B 共同作業支援多重要素驗證和取用者電子郵件帳戶。
 
 ### <a name="do-you-plan-to-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>您是否打算支援 Azure AD B2B 共同作業使用者的密碼重設？
-是。 以下是受到夥伴組織邀請之 B2B 使用者自助式密碼重設 (SSPR) 的重要詳細資料：
+可以。 以下是受到夥伴組織邀請之 B2B 使用者自助式密碼重設 (SSPR) 的重要詳細資料：
  
 * SSPR 只會在 B2B 使用者的身分識別租用戶中發生。
 * 如果身分識別租用戶是 Microsoft 帳戶，就會使用 Microsoft 帳戶 SSPR 機制。
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/14/2017
 * 如果是其他租用戶，則會對 B2B 使用者採用標準 SSPR 程序。 就像 B2B 使用者的成員 SSPR，在資源方面也會封鎖租用。 
 
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>在 Just-In-Time (JIT) 或「病毒式」租用戶中，以工作或學校電子郵件地址接受邀請，但沒有既存 Azure AD 帳戶的來賓使用者，可以使用密碼重設嗎？
-是。 會傳送密碼重設郵件，讓使用者重設其 JIT 租用密碼。
+可以。 會傳送密碼重設郵件，讓使用者重設其 JIT 租用密碼。
 
 ### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics CRM 是否提供 Azure AD B2B 共同作業的線上支援？
 目前，Microsoft Dynamics CRM 不提供 Azure AD B2B 共同作業的線上支援。 不過，我們計劃在未來支援此功能。
@@ -115,16 +115,16 @@ Azure AD 有一組固定的字元、密碼強度，以及帳戶鎖定需求，�
 如果合作夥伴具有與內部部署驗證基礎結構同盟的 Azure AD 租用戶，就會自動達成內部部署單一登入 (SSO)。 如果合作夥伴沒有 Azure AD 租用戶，則系統會為新的使用者建立 Azure AD 帳戶。 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>我以為 Azure AD B2B 不接受 gmail.com 和 outlook.com 電子郵件地址，而 B2C 用於這些類型的帳戶？
-在支援哪些身分識別這方面，我們正在消除 B2B 和商務對公司 (B2C) 共同作業之間的差異。 使用的身分識別並不是選擇使用 B2B 或 B2C 時的一個好理由。 如需有關選擇協同作業選項的資訊，請參閱[比較 Azure Active Directory 的 B2B 共同作業和 B2C](active-directory-b2b-compare-b2c.md)。
+我們會移除 B2B 和企業對消費者 (B2C) 共同作業方面的身分識別支援的差異。 使用的身分識別並不是選擇使用 B2B 或 B2C 時的一個好理由。 如需有關選擇協同作業選項的資訊，請參閱[比較 Azure Active Directory 的 B2B 共同作業和 B2C](active-directory-b2b-compare-b2c.md)。
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>哪些應用程式和服務支援 Azure B2B 來賓使用者？
 Azure AD 整合的所有應用程式都支援 Azure B2B 來賓使用者。 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>如果我們的合作夥伴沒有多重要素驗證，我們是否可以對 B2B 來賓使用者強制使用多重要素驗證？
-是。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](active-directory-b2b-mfa-instructions.md)。
+可以。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](active-directory-b2b-mfa-instructions.md)。
 
 ### <a name="in-sharepoint-you-can-define-an-allow-or-deny-list-for-external-users-can-we-do-this-in-azure"></a>在 SharePoint 中，您可以針對外部使用者定義「允許」或「拒絕」清單。 這在 Azure 中辦得到嗎？
-是。 Azure AD B2B 共同作業支援允許清單和拒絕清單。 
+可以。 Azure AD B2B 共同作業支援允許清單和拒絕清單。 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>我們需要哪些使用權才能使用 Azure AD B2B？
 如需您的組織需要哪些授權才能使用 Azure AD B2B 的相關資訊，請參閱 [Azure Active Directory B2B 共同作業授權指引](active-directory-b2b-licensing.md)。

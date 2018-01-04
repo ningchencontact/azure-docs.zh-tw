@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -110,7 +110,20 @@ ms.lasthandoff: 11/10/2017
 您可以關聯多個節點，方法是直接從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)安裝自我裝載 Integration Runtime 軟體，並使用從 New-AzureRmDataFactoryV2IntegrationRuntimeKey Cmdlet 取得的驗證金鑰來註冊它，如[教學課程](tutorial-hybrid-copy-powershell.md)中所述。
 
 > [!NOTE]
-> 您不需要建立新的自我裝載整合執行階段來關聯每個節點。
+> 您不需要建立新的自我裝載整合執行階段來關聯每個節點。 您可以安裝在另一部電腦上的自我裝載的整合執行階段，並使用相同的驗證金鑰進行註冊。 
+
+> [!NOTE]
+> 然後再加入另一個節點**高可用性和延展性**，請確定**'遠端存取內部網路'**選項**啟用**(Microsoft 的第 1 個節點上整合執行階段組態管理員]-> [設定]-> [遠端存取內部網路)。 
+
+### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 憑證需求
+以下是用來保護整合執行階段節點間通訊之 TLS/SSL 憑證的需求：
+
+- 憑證必須是受信任的 X509 v3 公開憑證。 建議您使用公開 (第三方) 憑證授權單位 (CA) 所發出的憑證。
+- 整合執行階段的每個節點都必須信任此憑證。
+- 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 ***.domain.contoso.com** 做為憑證的主體名稱。
+- 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
+- 支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
+- 不支援使用 CNG 金鑰的憑證。 不支援使用 CNG 金鑰的憑證。
 
 ## <a name="system-tray-icons-notifications"></a>系統匣圖示/通知
 如果您將游標放在系統匣圖示/通知訊息上，您會看到自我裝載整合執行階段狀態的詳細資料。
@@ -225,14 +238,20 @@ ms.lasthandoff: 11/10/2017
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>開啟用於認證加密的連接埠 8060
-當您在 Azure 入口網站中設定了內部部署連結服務時，「設定認證」應用程式 (目前還不支援) 會使用連入連接埠 8060 將認證轉送到自我裝載整合執行階段。 在自我裝載整合執行階段安裝期間，根據預設，自我裝載整合執行階段安裝會在自我裝載整合執行階段電腦上開啟它。
+### <a name="enable-remote-access-from-intranet"></a>啟用從內部網路的遠端存取  
+如果您使用**PowerShell**或**認證管理員應用程式**加密以外自我裝載的整合執行階段安裝所在，然後從另一部電腦 （網路） 中的認證您需要**' 來自內部網路的遠端存取 」**啟用的選項。 如果您執行**PowerShell**或**認證管理員應用程式**來加密認證自我裝載的整合執行階段安裝所在，然後在相同電腦上**' 遠端存取從內部網路 '**可能未啟用。
 
-如果您使用協力廠商的防火牆，則可以手動開啟連接埠 8050。 如果您在設定自我裝載整合執行階段時遇到防火牆問題，您可以嘗試使用下列命令來安裝自我裝載整合執行階段，而不設定防火牆。
+應該從內部網路的遠端存取**啟用**然後再加入另一個節點**高可用性和延展性**。  
+
+自我裝載的整合執行階段安裝 (及更新版本 v 3.3.xxxx.x)，根據預設，在自我裝載的整合執行階段安裝停用**' 來自內部網路的遠端存取 」**自我裝載的整合執行階段電腦上。
+
+如果您使用協力廠商防火牆，您可以手動開啟連接埠 8060 （或設定使用者連接埠）。 如果您在設定自我裝載整合執行階段時遇到防火牆問題，您可以嘗試使用下列命令來安裝自我裝載整合執行階段，而不設定防火牆。
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **認證管理員應用程式**尚無法供在 ADFv2 中加密認證。 我們稍後會加入這項支援。  
 
 如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用「設定認證」****應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell Cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
 

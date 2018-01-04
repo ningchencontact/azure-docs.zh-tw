@@ -1,10 +1,10 @@
 ---
-title: "Azure AD .NET Web API 入門 | Microsoft Docs"
+title: "Azure AD.NET Web 應用程式開發介面開始使用 |Microsoft 文件"
 description: "如何建置與 Azure AD 整合來進行驗證和授權的 .NET MVC Web API。"
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>使用來自 Azure AD 的持有者權杖來保護 Web API
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD Web API 使用者入門
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 如果您要建置可存取受保護資源的應用程式，您必須知道如何防止這些資源遭受不當存取。
@@ -134,12 +134,12 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 1. 回到 [Azure 入口網站](https://portal.azure.com)。
 
 2. 在 Azure AD 租用戶中建立新的應用程式，然後在產生的提示中選取 [ **原生用戶端應用程式** ]。
-  * [名稱] 可向使用者描述您的應用程式。
+  * **名稱**向使用者描述您的應用程式。
   * 請輸入 `http://TodoListClient/` 作為 [重新導向 Uri] 的值。
 
 3. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 您會在後續小節中用到這個值，所以請從應用程式頁面中複製此值。
 
-4. 從 [設定] 頁面中，選取 [必要權限]，然後選取 [新增]。 找出並選取 待辦事項清單服務，在 委派的權限 底下新增 存取 TodoListService 權限，然後按一下完成。
+4. 從 [設定] 頁面中，選取 [必要權限]，然後選取 [新增]。 找出並選取 [待辦事項清單服務]，在 [委派的權限] 底下新增 [存取 TodoListService] 權限，然後按一下 [完成]。
 
 5. 在 Visual Studio 中，開啟 TodoListClient 專案中的 `App.config`，然後在 `<appSettings>` 區段中輸入您的組態值。
 

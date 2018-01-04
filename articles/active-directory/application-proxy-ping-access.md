@@ -4,7 +4,7 @@ description: "使用 PingAccess 與應用程式 Proxy 來發行應用程式可�
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
-ms.translationtype: HT
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -73,6 +73,10 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 4. 選取**內部部署應用程式**。
 5. 使用新應用程式的相關資訊填寫必要的欄位。 使用下列指導方針設定︰
    - **內部 URL**︰當您在公司網路上時，通常會提供此 URL 以帶您前往應用程式登入頁面。 針對此情節，連接器需要將 PingAccess Proxy 視為應用程式的首頁。 使用此格式︰`https://<host name of your PA server>:<port>`。 連接埠預設為 3000，但您可以在 PingAccess 中設定它。
+
+    > [!WARNING]
+    > 這種 SSO，內部 URL 必須使用 https，而且不能使用 http。
+
    - **預先驗證方法**︰Azure Active Directory
    - **轉譯標頭中的 URL**：否
 
@@ -135,7 +139,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>選擇性 - 更新 GraphAPI 以傳送自訂欄位
 
-如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 GraphAPI 以將應用程式欄位 [acceptMappedClaims] 設為 [True]。 您只可使用 Azure AD Graph Explorer 來進行此設定。 
+如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要傳送其他語彙基元的自訂宣告，請使用圖表總管或資訊清單應用程式在 Azure 入口網站中設定應用程式欄位*acceptMappedClaims*至**True**。    
 
 此範例使用 Graph Explorer：
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+這個範例會使用[Azure 入口網站](https://portal.azure.com)至 udpate *acceptedMappedClaims*欄位：
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取**Azure Active Directory** > **應用程式註冊**。
+3. 選取您的應用程式 >**資訊清單**。
+4. 選取**編輯**，搜尋*acceptedMappedClaims*欄位，然後將值變更為**true**。
+![應用程式資訊清單](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. 選取 [ **儲存**]。
 
 >[!NOTE]
 >若要使用自訂宣告，您必須已定義自訂原則且已指派給應用程式。  此原則應包含所有必要的自訂屬性。

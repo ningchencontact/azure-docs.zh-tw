@@ -4,7 +4,7 @@ description: "本文件說明如何使用 O365 與 Azure AD 安裝及設定多�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db4cfe91b8d27b5336763eff7c6f22f0f345caf2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
 以下文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個最上層網域和子網域的指引。
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 當網域與 Azure AD 同盟時，系統會在 Azure 中的網域上設定幾個屬性。  其中一個重要屬性是 IssuerUri。  這是 Azure AD 用來識別與權杖相關聯之網域的 URI。  該 URI 不需要解析為任何內容，不過它必須是有效的 URI。  根據預設，Azure AD 會在內部部署 AD FS 組態中將其設定為同盟服務識別碼的值。
 
 > [!NOTE]
-> 同盟服務識別碼是可唯一識別同盟服務的 URI。  同盟服務是能做為 Security Token Service 的 AD FS 執行個體。 
-> 
-> 
+> 同盟服務識別碼是可唯一識別同盟服務的 URI。  同盟服務是能做為 Security Token Service 的 AD FS 執行個體。
+>
+>
 
-您可以使用 PowerShell 命令 `Get-MsolDomainFederationSettings -DomainName <your domain>`檢視 IssuerUri。
+您可以使用 PowerShell 命令來檢視 IssuerUri `Get-MsolDomainFederationSettings -DomainName <your domain>`。
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
@@ -62,9 +62,9 @@ ms.lasthandoff: 10/11/2017
 
 請注意， `-SupportMultipleDomain` 不會變更依然設定為指向 adfs.bmcontoso.com 上之同盟服務的其他端點。
 
-`-SupportMultipleDomain` 的另一個功用是確保 AD FS 系統在簽發給 Azure AD 之權杖中包含正確的簽發者值。 它會透過取用使用者 UPN 的網域部分並將其設定為 IssuerUri 中的網域 (即 https://{upn suffix}/adfs/services/trust)，以完成此動作。 
+`-SupportMultipleDomain` 的另一個功用是確保 AD FS 系統在簽發給 Azure AD 之權杖中包含正確的簽發者值。 它會透過取用使用者 UPN 的網域部分並將其設定為 IssuerUri 中的網域 (即 https://{upn suffix}/adfs/services/trust)，以完成此動作。
 
-因此在 Azure AD 或 Office 365 驗證期間，系統會以使用者權杖的 IssuerUri 項目來尋找 Azure AD 中的網域。  如果找不到相符項目，驗證將會失敗。 
+因此在 Azure AD 或 Office 365 驗證期間，系統會以使用者權杖的 IssuerUri 項目來尋找 Azure AD 中的網域。  如果找不到相符項目，驗證將會失敗。
 
 例如，如果使用者的 UPN 是 bsimon@bmcontoso.com，AD FS 簽發之權杖中的 IssuerUri 元素將會設定為 http://bmcontoso.com/adfs/services/trust。 這會比對 Azure AD 組態，且驗證將會成功。
 
@@ -75,8 +75,8 @@ ms.lasthandoff: 10/11/2017
 
 > [!IMPORTANT]
 > 若要在嘗試加入新網域或轉換已加入的網域時使用 -SupportMultipleDomain 參數，您需要先設定同盟信任才能以原生方式支援。  
-> 
-> 
+>
+>
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>如何更新 AD FS 與 Azure AD 之間的信任
 如果您未設定 AD FS 與 Azure AD 執行個體之間的同盟信任，可能需要重新建立此信任。  這是因為當我們最初未使用 `-SupportMultipleDomain` 參數進行設定時，系統會將 IssuerUri 設定為預設值。  在以下螢幕擷取畫面中，您可以看到 IssuerUri 的設定為 https://adfs.bmcontoso.com/adfs/services/trust。
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 請使用下列步驟來移除 Microsoft Online 信任，然後更新您的原始網域。
 
-1. 在 AD FS 同盟伺服器上，開啟 [AD FS 管理]  
+1. 在 AD FS 同盟伺服器上，開啟 [AD FS 管理] 
 2. 展開左側的 [信任關係] 和 [信賴憑證者信任]
 3. 刪除右側的 **Microsoft Office 365 身分識別平台** 項目。
    ![移除 Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
@@ -137,14 +137,14 @@ ms.lasthandoff: 10/11/2017
 因此，假設我有 bmcontoso.com，後來再加入 corp.bmcontoso.com。這表示來自 corp.bmcontoso.com 使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust**。  不過，以上針對 Azure AD 實作的標準規則，會以為簽發者 **http://corp.bmcontoso.com/adfs/services/trust** 產生權杖。 的權杖，這與網域所需的值不符，因此驗證將會失敗。
 
 ### <a name="how-to-enable-support-for-sub-domains"></a>如何啟用子網域的支援
-若要解決這個問題，您需要更新 Microsoft Online 的 AD FS 信賴憑證者信任。  若要這樣做，您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。 
+若要解決這個問題，您需要更新 Microsoft Online 的 AD FS 信賴憑證者信任。  若要這樣做，您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。
 
 下列宣告將會執行這項操作︰
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-規則運算式中的最後一個數字設定了您根網域中的父網域數目。 此處我所擁有的是 bmcontoso.com，因此必須有 2 個父網域。 如果要保留 3 個父網域 (亦即 corp.bmcontoso.com)，則數字就會是 3。 最後可以指出一個範圍，系統一律會進行比對來符合網域數目上限。 "{2,3}" 會比對出 2 到 3 個網域 (亦即 bmfabrikam.com 和 corp.bmcontoso.com)。
+規則運算式中的最後一個數字設定了您根網域中的父網域數目。 此處我所擁有的是 bmcontoso.com，因此必須有 2 個父網域。 如果要保留 3 個父網域 (亦即 corp.bmcontoso.com)，則數字就會是 3。 最後一個範圍，可看出，一律會進行比對符合網域的最大值。 "{2,3}" 會比對出 2 到 3 個網域 (亦即 bmfabrikam.com 和 corp.bmcontoso.com)。
 
 請使用下列步驟來加入自訂宣告，以支援子網域。
 
@@ -152,14 +152,13 @@ ms.lasthandoff: 10/11/2017
 2. 以滑鼠右鍵按一下 Microsoft Online RP 信任，然後選擇 [編輯宣告規則]
 3. 選取第三個宣告規則並取代![編輯宣告](./media/active-directory-multiple-domains/sub1.png)
 4. 取代目前的宣告︰
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-   
+
        with
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
     ![取代宣告](./media/active-directory-multiple-domains/sub2.png)
 
 5. 按一下 [確定]。  按一下 [套用]。  按一下 [確定]。  關閉 [AD FS 管理]。
-

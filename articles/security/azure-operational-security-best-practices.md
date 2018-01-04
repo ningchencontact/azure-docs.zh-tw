@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 作業安全性最佳做法
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
@@ -115,7 +115,7 @@ Azure Active Directory (Azure AD) 是全方位[身分識別與存取管理雲端
 啟用 [Azure 監視器自動調整規模](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started)僅適用於虛擬機器擴展集 (VMSS)、雲端服務、App Service 方案及 App Service 環境。
 
 ### <a name="manage-roles-permissions-and-security"></a>管理角色權限與安全性
-許多團隊需要嚴格[規範對監視資料及設定的存取](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受管理的服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。
+許多團隊需要嚴格[規範對監視資料及設定的存取](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。
 
 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
 
@@ -156,7 +156,7 @@ Azure Active Directory (Azure AD) 是全方位[身分識別與存取管理雲端
 使用網路監看員無須登入您的虛擬機器 (VM)，就能監視及診斷網路問題。 您可以設定警示來觸發[封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture)，並能存取封包層級的即時效能資訊。 當您發現問題時，可以詳加調查，從而進行更好的診斷。
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>利用流量記錄獲取網路流量的深入解析
-使用[網路安全性群組流量記錄](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)更進一步了解您的網路流量模式。 流量記錄所提供的資訊可協助您收集合規性資料，並稽核及監視您的網路安全性設定檔。
+使用[網路安全性群組流量記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)更進一步了解您的網路流量模式。 流量記錄所提供的資訊可協助您收集合規性資料，並稽核及監視您的網路安全性設定檔。
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>診斷 VPN 連線問題
 網路監看員讓您可以[診斷一些最常見的 VPN 閘道及連線問題](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity)。 不僅可以找出問題，還能利用所建立的詳細記錄進行深入調查。
@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) 是全方位[身分識別與存取管理雲端
 
 -   **基礎結構即程式碼 (IaC)：**基礎結構即程式碼是一組技術和實作，可協助 IT 專業人員減輕與每日建置及管理模組化基礎結構相關的負擔。 它可讓 IT 專業人員建立及維護其新式伺服器環境，就像是軟體開發人員建立及維護應用程式程式碼一樣。 在 Azure 中，[Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) 可讓您使用宣告式範本佈建應用程式。 在單一的範本中，您可以部署多個服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
 -   **持續整合和持續部署：**您可以將 Visual Studio Online Team 專案設定為[自動建置和部署](https://www.visualstudio.com/docs/build/overview)至 Azure Web Apps 或雲端服務。 VSO 會在對 Azure 執行組建之後，將二進位檔自動部署至每個程式碼簽入後面。 此處所述的套件建置程序等同於 Visual Studio 中的 [封裝] 命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
--   **Release Management：**Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) 是自動化多階段部署及管理發行程序的絕佳解決方案。 建立受管理的持續部署管線以快速、輕鬆且經常發行。 使用 Release Management，我們可以將發行程序大幅自動化，而且可以具有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
+-   **Release Management：**Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) 是自動化多階段部署及管理發行程序的絕佳解決方案。 建立受控持續部署管線以快速、輕鬆且經常發行。 使用 Release Management，我們可以將發行程序大幅自動化，而且可以具有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
 -   **應用程式效能監視：**偵測問題、解決問題並持續改善您的應用程式。 快速診斷即時應用程式中的任何問題。 了解您的使用者與其有無任何關係？ 新增 JS 程式碼和 webconfig 項目是簡單的設定，幾分鐘之內就能在入口網站中看到附有所有詳細資料的結果。[App Insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) 協助企業更快偵測問題並進行修正。
 -   **負載測試和自動縮放：**我們可以在應用程式中找出效能問題，從而改善部署品質，並確保應用程式一律保持最新狀態，或使用符合商務需求。 請確定您的應用程式可以處理後續上市或行銷活動的流量。 使用 Visual Studio Online 幾乎立即開始執行雲端式[負載測試](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)。
 

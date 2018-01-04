@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中。 遍及全球的 Azure 提供給開發人員的其中一項差異化功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域散發的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供周全的全域散發、全球[彈性調整的輸送量和儲存體](../cosmos-db/partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，可支援文件、索引鍵/值、圖表和單欄式資料模型。 Azure Cosmos DB 是經過仔細工程設計的全新雲端服務，可供多租用戶使用和提供全域散發功能。
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域發佈的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供周全的全域散發、全球[彈性調整的輸送量和儲存體](../cosmos-db/partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，支援文件、索引鍵/值、圖表和單欄式資料模型。 Azure Cosmos DB 是經過仔細工程設計的全新雲端服務，可供多租用戶使用和提供全域散發功能。
 
 **分割並散發在多個 Azure 區域的單一 Azure Cosmos DB 集合**
 
@@ -88,7 +88,7 @@ Azure Cosmos DB 支援在發生一或多個區域中斷時自動容錯移轉。 
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB 中的多路連接 API
 Azure Cosmos DB 可讓您使用邏輯 (區域無從驗證) 或實體 (區域特定) 端點來和資料庫互動。 使用邏輯端點，萬一進行容錯移轉時，可確保以透明的方式多路連接應用程式。 後者實體端點可微調控制應用程式，將讀取和寫入將重新導向特定區域。
 
-在個別連結的文章中，可以找到如何設定 [DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md)、[圖形 API](../cosmos-db/tutorial-global-distribution-graph.md)、[資料表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 讀取喜好設定的資訊。
+您可以找到有關如何設定讀取喜好設定[SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md)， [Graph API](../cosmos-db/tutorial-global-distribution-graph.md)，[表格 API](../cosmos-db/tutorial-global-distribution-table.md)，和[MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md)中其個別連結的文件。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的資料庫結構描述與索引移轉 
 Azure Cosmos DB 完全[無從驗證結構描述 (英文)](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 資料庫引擎的獨特設計能自動且同步對內嵌的所有資料編製索引，不需要您提供任何結構描述或次要索引。 這可讓您快速地反覆查看分散在世界各地的應用程式，而不必擔心資料庫結構描述和索引移轉，或協調多階段應用程式推出結構描述變更。 Azure Cosmos DB 保證任何明確由您對編製索引原則所做的變更，都不會導致效能或可用性降低。  
@@ -159,7 +159,7 @@ Azure Cosmos DB 的一致性 SLA 保證 100% 的讀取要求都將符合您要�
         <td>100%</td>
     </tr>
     <tr>
-        <td>重要事項</td>
+        <td>強式</td>
         <td>線性</td>
         <td>100%</td>
     </tr>
@@ -218,8 +218,8 @@ Azure Cosmos DB 會直接公開輸送量、延遲、一致性和可用性計量�
 
 ![Azure Cosmos DB 客戶可見的 SLA 計量](./media/distribute-data-globally/customer-slas.png)
 
-## <a id="Next Steps"></a>接續步驟
-* 若要使用 Azure 入口網站對您的 Azure Cosmos DB 帳戶實作全域複寫，請參閱[如何使用 Azure 入口網站執行 Azure Cosmos DB 全域資料庫複寫](tutorial-global-distribution-documentdb.md)。
+## <a id="Next Steps"></a>後續步驟
+* 若要使用 Azure 入口網站對您的 Azure Cosmos DB 帳戶實作全域複寫，請參閱[如何使用 Azure 入口網站執行 Azure Cosmos DB 全域資料庫複寫](tutorial-global-distribution-sql-api.md)。
 * 若要了解如何使用 Azure Cosmos DB 實作多重主機架構，請參閱[使用 Azure Cosmos DB 的多重主機資料庫架構](multi-region-writers.md)。
 * 若要深入了解自動和手動容錯移轉如何在 Azure Cosmos DB 中運作，請參閱 [Azure Cosmos DB 的區域性容錯移轉](regional-failover.md)。
 

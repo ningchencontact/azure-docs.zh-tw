@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>用於從內部部署複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/22/2017
 --- | --- | ---
 **Azure 入口網站** | 內部部署 VMware VM 至 Azure 儲存體，使用 Azure Resource Manager 或傳統儲存體和網路。<br/><br/> 容錯移轉至 Resource Manager 型或傳統 VM。 | 內部部署 Hyper-V VM 至 Azure 儲存體，使用 Resource Manager 或傳統儲存體和網路。<br/><br/> 容錯移轉至 Resource Manager 型或傳統 VM。
 **傳統入口網站** | 僅限使用維護模式。 無法建立新的保存庫。 | 僅限使用維護模式。
-**PowerShell** | 目前不支援。 | 支援
+**PowerShell** | 支援 | 支援
 
 
 ## <a name="support-for-datacenter-management-servers"></a>支援資料中心管理伺服器
@@ -194,6 +194,7 @@ RA-GRS | 是 | 是
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
 用來儲存複寫資料之目標儲存體帳戶或快取儲存體帳戶上設定的虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路) | 否 | 否
+一般用途 V2 儲存體帳戶 （同時作用中且 Cool 層） | 否 | 否
 
 
 ## <a name="support-for-azure-compute-configuration"></a>支援 Azure 計算設定
@@ -226,7 +227,7 @@ RA-GRS | 是 | 是
 
 ## <a name="support-for-recovery-services-vault-actions"></a>支援復原服務保存庫動作
 
-**動作** | **VMware/實體伺服器** | **Hyper-V (無 Virtual Machine Manager)** | **Hyper-V (有 Virtual Machine Manager)**
+**Action** | **VMware/實體伺服器** | **Hyper-V (無 Virtual Machine Manager)** | **Hyper-V (有 Virtual Machine Manager)**
 --- | --- | --- | ---
 在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否 | 否

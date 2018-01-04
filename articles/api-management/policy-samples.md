@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>API 管理原則範例
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 12/04/2017
 |[將功能新增至後端服務並快取回應](./policies/cache-response.md?toc=api-management/toc.json) |示範如何將功能新增至後端服務。 例如，在天氣預報 API 中接受地點的名稱，而不是緯度和經度。|
 |[根據 JWT 宣告授權存取](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |示範如何在以 JWT 宣告為基礎的 API 上授權存取特定的 HTTP 方法。|
 |[使用 Google OAuth 權杖授權存取](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |示範如何使用 Google 作為 OAuth 權杖提供者來授權存取您的端點。|
-|[產生共用存取簽章並將要求轉送到 Azure 儲存體](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |示範如何使用運算式來產生[共用存取簽章](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1)，並使用 rewrite-uri 原則來將要求轉送到 Azure 儲存體。 |
+|[產生共用存取簽章並將要求轉送到 Azure 儲存體](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |示範如何使用運算式來產生[共用存取簽章](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)，並使用 rewrite-uri 原則來將要求轉送到 Azure 儲存體。 |
 |[從 AAD 取得 OAuth2 存取權杖並將它轉送到後端](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |提供使用 OAuth2 在閘道與後端之間進行授權的範例。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。|
 |[使用傳送要求原則從 SAP 閘道取得 X-CSRF 權杖](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |示範如何實作許多 API 所使用的 X-CSRF 模式。 這是 SAP 閘道特有的範例。 |
 |[根據要求主體的大小進行要求的路由傳送](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |示範如何根據要求主體的大小進行要求的路由傳送。|

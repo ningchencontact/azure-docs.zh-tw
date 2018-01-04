@@ -11,7 +11,7 @@
 | 屬性和度量名稱長度 | 150 | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | 屬性值字串長度 | 8,192 | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | 追蹤和例外狀況訊息長度 | 10 k | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| 每個應用程式的[可用性測試](../articles/application-insights/app-insights-monitor-web-app-availability.md)計數  | 10 |
+| 每個應用程式的[可用性測試](../articles/application-insights/app-insights-monitor-web-app-availability.md)計數  | 100 |
 | [分析工具](../articles/application-insights/app-insights-profiler.md)資料保留期 | 5 天 |
 | 每天傳送的[分析工具](../articles/application-insights/app-insights-profiler.md)資料 | 10GB |
 

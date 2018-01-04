@@ -3,7 +3,7 @@ title: "了解 Azure 身分識別 | Microsoft Docs"
 description: "取得 Microsoft Azure 身分識別解決方案條款、概念和建議的基本了解，讓您為貴組織做出最佳的身分識別控管決策。"
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 身分識別解決方案
 Microsoft Azure Active Directory (Azure AD) 是一個身分識別和存取管理的雲端解決方案，可提供目錄服務、身分識別治理及應用程式存取管理。 Azure AD 可在 [Azure AD 應用程式庫](https://azure.microsoft.com/marketplace/active-directory/all/)中，快速[啟用單一登入 (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 至 1,000 個預先整合的商業和自訂應用程式。 您可能已經使用這其中有許多應用程式，例如 Office 365、Salesforce.com、Box、ServiceNow 及 Workday。
@@ -90,7 +90,7 @@ Microsoft Azure 提供數種方式可供您管理使用者的身分識別，不�
 > 若要深入了解 CIO 如何將 Azure Active Directory 作為其 IT 策略的重心，請下載 [Azure Active Directory 的 CIO 指南](https://aka.ms/AzureADCIOGuide)。
 
 ### <a name="azure-ad-domain-services"></a>Azure AD 網域服務
-**Azure AD Domain Services** 提供一個雲端式選項，可將 AD DS 用於輕量型 Azure VM 設定控制，並提供一種方式來符合網路應用程式開發與測試的內部部署身分識別需求。 Azure AD Domain Services 並非旨在將內部部署 Azure AD 基礎結構隨即轉移至 Azure AD Domain Services 所管理的 Azure VM。 相反地，應該使用受管理網域中的 Azure VM 來支援開發、測試，以及將需要 AD DS 驗證方法的內部部署應用程式移動至雲端。
+**Azure AD Domain Services** 提供一個雲端式選項，可將 AD DS 用於輕量型 Azure VM 設定控制，並提供一種方式來符合網路應用程式開發與測試的內部部署身分識別需求。 Azure AD Domain Services 並非旨在將內部部署 Azure AD 基礎結構隨即轉移至 Azure AD Domain Services 所管理的 Azure VM。 相反地，應該使用受控網域中的 Azure VM 來支援開發、測試，以及將需要 AD DS 驗證方法的內部部署應用程式移動至雲端。
 
 ## <a name="common-scenarios-and-recommendations"></a>常見案例和建議
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>整合 Azure 儲存體帳戶與 Azure CDN
 可以啟用 CDN，以從您的 Azure 儲存體快取內容。 它透過將計算執行個體 Blob 與靜態內容快取到位於美國、歐洲、亞洲、澳洲與南美洲的實體節點中，為開發人員提供一套傳遞高頻寬內容的全球解決方案。
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 **為 Azure 訂用帳戶建立儲存體帳戶**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左下角，選取 [ **新增**]。 在 新增 對話方塊中，選取 資料 + 儲存體，然後按一下儲存體帳戶。
+2. 在左下角，選取 [ **新增**]。 在 [新增] 對話方塊中，選取 [資料 + 儲存體]，然後按一下 [儲存體帳戶]。
     
     此時會顯示 [建立儲存體帳戶]  刀鋒視窗。   
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 5. 選取將與儲存體帳戶搭配使用的 [ **訂用帳戶** ]。
 6. 選取或建立 **資源群組**。  如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 選取儲存體帳戶的位置。
-8. 按一下 [建立] 。 建立儲存體帳戶的程序可能需要幾分鐘才能完成。
+8. 按一下頁面底部的 [新增] 。 建立儲存體帳戶的程序可能需要幾分鐘才能完成。
 
 ## <a name="step-2-enable-cdn-for-the-storage-account"></a>步驟 2︰啟用儲存體帳戶的 CDN
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
     ![CDN 儲存體新端點][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> 您也可以移至 Azure CDN 延伸模組以啟用 CDN，[教學課程](#Tutorial-cdn-create-profile)。
+> 您也可以移至 Azure CDN 延伸，以啟用 CDN。 [教學課程](#Tutorial-cdn-create-profile)。
 > 
 > 
 

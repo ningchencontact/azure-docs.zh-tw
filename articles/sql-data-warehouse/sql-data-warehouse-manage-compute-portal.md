@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>管理 Azure SQL 資料倉儲中的計算能力 (Azure 入口網站)
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ ms.lasthandoff: 10/11/2017
 2. 在 [調整] 刀鋒視窗中，將滑桿向左或右移動來變更 DWU 設定。
 
     ![移動滑桿][2]
-3. 按一下 [儲存] 。 確認訊息隨即出現。 按一下 [是] 以確認或 [否] 以取消。
+3. 按一下 [檔案] 。 確認訊息隨即出現。 按一下 [是] 以確認或 [否] 以取消。
 
-    ![按一下 [Save] (儲存)。][3]
+    ![按一下 [Save] \(儲存)。][3]
 
 <a name="pause-compute-bk"></a>
 

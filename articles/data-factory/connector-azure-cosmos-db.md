@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 > * [第 1 版 - 正式推出](v1/data-factory-azure-documentdb-connector.md)
 > * [第 2 版 - 預覽](connector-azure-cosmos-db.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Cosmos DB (DocumentDB API) 複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文將概述如何使用 Azure Data Factory 中的複製活動，將資料複製 from 和 to Azure Cosmos DB (SQL API)。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Azure Cosmos DB 連接器](v1/data-factory-azure-documentdb-connector.md)。
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 
 具體而言，這個 Azure Cosmos DB 連接器支援：
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction)。
 - 依原樣匯入/匯出 JSON 文件，或是從表格式資料集 (例如 SQL 資料庫、CSV 檔案等) 複製資料或將資料複製到該處。
 
 若要將文件依原樣複製到 JSON 檔案或另一個 Cosmos DB 集合，或從這些檔案或集合依原樣複製文件，請參閱[匯入/匯出 JSON 文件](#importexport-json-documents)。
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/10/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**CosmosDb**。 | 是 |
+| type | 類型屬性必須設定為：**CosmosDb**。 | 是 |
 | connectionString |指定連接到 Azure Cosmos DB 資料庫所需的資訊。 請注意，您必須如以下範例所示，在連接字串中指定資料庫資訊。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/10/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**DocumentDbCollection** |是 |
+| type | 資料集的類型屬性必須設定為：**DocumentDbCollection** |是 |
 | collectionName |Cosmos DB 文件集合的名稱。 |是 |
 
 **範例：**
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/10/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**DocumentDbCollectionSource** |是 |
+| type | 複製活動來源的類型屬性必須設定為：**DocumentDbCollectionSource** |是 |
 | query |指定 Cosmos DB 查詢來讀取資料。<br/><br/>範例： `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |否 <br/><br/>如果未指定，執行的 SQL 陳述式：`select <columns defined in structure> from mycollection` |
 | nestingSeparator |用來指出文件為巢狀文件及如何將結果集壓平合併的特殊字元。<br/><br/>例如，如果 Cosmos DB 查詢傳回巢狀結果 `"Name": {"First": "John"}`，當 nestedSeparator 是點號時，複製活動會將資料行名稱識別為 "Name.First" 且值為 "John"。 |否 (預設為點號 `.`) |
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/10/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |是 |
+| type | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |是 |
 | nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 nestedSeparator 是點號時，輸出資料集結構中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：`"Name": {"First": "[value maps to this column from source]"}`。 |否 (預設為點號 `.`) |
 | writeBatchTimeout |在逾時前等待作業完成的時間。<br/><br/>允許的值為：時間範圍。 範例："00:30:00" (30 分鐘)。 |否 |
 

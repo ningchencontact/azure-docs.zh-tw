@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>平台層級事件和記錄產生
 
@@ -105,7 +105,7 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 
 以下是您可以設定收集叢集效能資料的兩個常用方式：
 
-* 使用代理程式：這是從電腦收集效能的慣用方法，因為代理程式通常會有一份可收集的效能計量清單，而且選擇您要收集或變更的計量是相當簡單的程序。 請閱讀[如何設定 Service Fabric 的 OMS](service-fabric-diagnostics-event-analysis-oms.md) 和[設定 OMS Windows 代理程式](../log-analytics/log-analytics-windows-agents.md)文章以深入了解 OMS 代理程式，而這類監視代理程式可以挑選叢集 VM 和已部署容器的效能資料。
+* 使用代理程式：這是從電腦收集效能的慣用方法，因為代理程式通常會有一份可收集的效能計量清單，而且選擇您要收集或變更的計量是相當簡單的程序。 請閱讀[如何設定 Service Fabric 的 OMS](service-fabric-diagnostics-event-analysis-oms.md) 和[設定 OMS Windows 代理程式](../log-analytics/log-analytics-windows-agent.md)文章以深入了解 OMS 代理程式，而這類監視代理程式可以挑選叢集 VM 和已部署容器的效能資料。
 
 * 設定診斷以將效能計數器寫入資料表中：對於 Azure 上的叢集，這表示變更 Azure 診斷設定來反映叢集中 VM 的適當效能計數器，並在您要部署任何容器時，讓它反映 Docker 統計資料。 請閱讀在 Service Fabric 中設定 [WAD 中的效能計數器](service-fabric-diagnostics-event-aggregation-wad.md)，以設定效能計數器集合。
 

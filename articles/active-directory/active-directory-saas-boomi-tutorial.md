@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Boomi 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 8e05afa9-2eda-4975-a0cc-6d408065860f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 1121d22beddf73fd2109a4b410422f76dd37478e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 77f79c4e57aa8dd90fb0a519e7217e4f4e3618e7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>教學課程：Azure Active Directory 與 Boomi 整合
 
@@ -53,7 +53,7 @@ Boomi 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-boomi-from-the-gallery"></a>從資源庫新增 Boomi
-若要設定將 Boomi 整合至 Azure AD 中，您需要從資源庫將 Boomi 新增至受管理的 SaaS 應用程式清單。
+若要設定將 Boomi 整合至 Azure AD 中，您需要從資源庫將 Boomi 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Boomi，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Boomi 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Boomi**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_search.png)
 
-5. 在結果窗格中，選取 Boomi，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Boomi]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
@@ -110,7 +110,7 @@ Boomi 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://platform.boomi.com/sso/<accountname>/saml`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://platform.boomi.com/`
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://platform.boomi.com/sso/<accountname>/saml`
 
@@ -198,11 +198,11 @@ Boomi 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-boomi-test-user"></a>建立 Boomi 測試使用者
 
@@ -224,7 +224,7 @@ Boomi 與 Azure AD 整合提供下列優點：
 
     a. 在 [使用者電子郵件地址] 文字方塊中，輸入像是 BrittaSimon@contoso.com 的使用者電子郵件。
     
-    b.這是另一個 C# 主控台應用程式。 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
+    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
 
     c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
     
@@ -232,7 +232,7 @@ Boomi 與 Azure AD 整合提供下列優點：
     
     e. 指派 [標準使用者] 角色給使用者。 請勿指派系統管理員角色，因為這樣他會取得正常 Atmosphere 存取權和單一登入存取權。
     
-    f. 按一下 [確定] 。
+    f. 按一下 [SERVICEPRINCIPAL] 。
     
     > [!NOTE]
     > 使用者的密碼是透過識別提供者來管理，他不會收到附上 AtomSphere 帳戶登入密碼的歡迎通知電子郵件。 您可以使用任何其他的 Boomi 使用者帳戶建立工具或 Boomi 提供的 API 來佈建 AAD 使用者帳戶。 

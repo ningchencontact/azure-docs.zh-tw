@@ -4,7 +4,7 @@ description: "如何提出 Azure Active Directory B2C 的支援要求"
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: ad02321c99c57d0f83f7eacb354e47d8c6d4d14f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b37575d636356304ca94a55736e7f69605cf8218
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C：提出支援要求
 您可使用下列步驟，在 Azure 入口網站上提出 Azure Active Directory (Azure AD) B2C 的支援要求：
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
    * 在 [檔案上傳] 底下，上傳所有螢幕擷取畫面以及您認為對解決問題有幫助的檔案。
      
      ![支援 - 問題](./media/active-directory-b2c-support/support-problem.png)
-7. 在 [連絡資訊]  刀鋒視窗中，加入您的連絡資訊。 按一下 [建立] 。
+7. 在 [連絡資訊]  刀鋒視窗中，加入您的連絡資訊。 按一下頁面底部的 [新增] 。
    
     ![支援 - 連絡人](./media/active-directory-b2c-support/support-contact.png)
 8. 提交支援要求之後，您可在「開始面板」上按一下 [說明 + 支援]，然後按一下 [管理支援要求]。

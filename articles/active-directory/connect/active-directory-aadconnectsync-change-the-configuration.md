@@ -4,7 +4,7 @@ description: "逐步解說如何對 Azure AD Connect 同步處理中的組態進
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e201140f5c5f2f738bcc4976ba7ca166c5bcfb75
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：如何變更預設組態
 本主題的目的在於逐步解說如何對 Azure AD Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行一些簡單的變更。
@@ -113,7 +113,7 @@ Fabrikam 中有對名字、姓氏和顯示名稱使用當地字母的樹系。 �
 * 將聯結規則留空 (也就是，讓現成可用的規則處理任何聯結)。
 * 在 [轉換] 中，建立下列流程：  
   ![屬性流程 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
-* 按一下 [新增] 以儲存規則。
+* 按一下 [新增]  以儲存規則。
 * 移至 [同步處理服務管理員] 。 在 [連接器] 上，選取我們已在其中新增規則的連接器。 依序選取 [執行] 和 [完整同步處理]。 完整同步處理會使用目前的規則重新計算所有物件。
 
 這是具有此自訂規則之相同物件的結果：  
@@ -293,7 +293,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
  
     | 流程類型 | 目標屬性 | 來源 | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
-    | 直接 | PreferredDataLocation | 挑選來源屬性 | 未核取 | 更新 |
+    |直接 | PreferredDataLocation | 挑選來源屬性 | 未核取 | 更新 |
 
 7. 按一下 [新增] 來建立輸入規則。
 
@@ -311,10 +311,10 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 4. 在 [描述] 索引標籤下，提供下列設定︰
 
     | 屬性 | 值 | 詳細資料 |
-    | --- | --- | --- |
+    | ----- | ------ | --- |
     | 名稱 | 提供名稱 | 例如，「Out to AAD – User PreferredDataLocation」 |
-    | 說明 | 提供描述 |
-    | 連線系統 | 選取 AAD 連接器 |
+    | 說明 | 提供描述 ||
+    | 連線系統 | 選取 AAD 連接器 ||
     | 連線系統物件類型 | User ||
     | Metaverse 物件類型 | **人員** ||
     | 連結類型 | **Join** ||
@@ -407,6 +407,202 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 2. 執行 Cmdlet 以重新啟用排定的同步處理︰`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
+
+## <a name="enable-synchronization-of-usertype"></a>啟用 UserType 的同步處理
+Azure AD Connect 可支援同步處理的**UserType**屬性**使用者**1.1.524.0 版本和之後的物件。 更具體地說，我們已導入下列變更︰
+
+- 物件類型的結構描述**使用者**Azure AD 連接器中已擴充為包含 UserType 屬性，這是字串類型的單一值。
+- 物件類型的結構描述**人員**Metaverse 中已擴充為包含 UserType 屬性，這是字串類型的單一值。
+
+根據預設，UserType 屬性無法進行同步處理，所以沒有對應的 UserType 屬性在內部部署 Active Directory 中。 您必須手動啟用同步處理。 啟用之前 UserType 屬性的同步處理，您必須記下列 Azure AD 所強制執行的行為： 
+
+- Azure AD 只接受兩個屬性的值 UserType –**成員**和**客體**。
+- 如果 UserType 屬性未啟用 Azure AD Connect 同步處理，透過目錄同步作業所建立的 Azure AD 使用者就必須 UserType 屬性設為**成員**。
+- Azure AD 不允許在現有的 Azure AD 使用者變更 Azure AD connect UserType 屬性。 只可以在 Azure AD 使用者的建立期間設定。
+
+在啟用之前 UserType 屬性的同步處理，您必須先決定如何將屬性衍生自 UserType 內部部署 AD。 兩個常見的方法包括：
+
+- 指定未使用在內部部署 AD 屬性 (例如 extensionAttribute1) 來作為來源屬性。 指定在內部部署 AD 屬性的類型應為**字串**、 為單一值，且包含值**成員**或**客體**。 如果您選擇這種方法，您必須確定指定的屬性會填入正確的值中的所有現有使用者物件在內部部署 Active Directory 中已同步至 Azure AD 啟用 UserType 屬性的同步處理之前.
+- 或者，您可以從其他屬性衍生 UserType 屬性的值。 例如，在您想要同步處理所有的使用者以 Guest，如果其內部 AD UserPrincipalName 屬性結尾網域 」 部分"@partners.fabrikam123.org"。 如先前所述，Azure AD Connect 不允許 UserType 屬性上現有的 Azure AD 使用者變更 Azure AD connect。 因此，您必須確定您已決定 UserType 屬性已設定您的租用戶中的所有現有 Azure AD 使用者如何與一致的邏輯。
+
+若要啟用的 UserType 屬性同步處理的步驟可以摘要如下： 
+
+>[!NOTE]
+> 此章節的其餘部分涵蓋這些步驟。 用來說明這些步驟的環境是某個 Azure AD 部署，其具有單一樹系拓撲，但沒有自訂的同步處理規則。 如果您設定了多樹系拓撲和自訂同步處理規則，或具有預備伺服器，則需要據此現況調整這些步驟。
+
+1.  停用**同步處理排程器**並確認沒有進行中的同步處理
+2.  新增**來源屬性**至內部部署 AD 連接器結構描述
+3.  新增**UserType**至 Azure AD Connector 結構描述
+4.  建立輸入同步處理規則，以從內部部署 Active Directory 傳輸屬性值
+5.  建立輸出同步處理規則，以將屬性值傳輸到 Azure AD
+6.  執行**完整同步處理**循環
+7.  啟用**同步處理排程器**
+
+
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步驟 1：停用同步排程器，並確認沒有任何同步處理在進行中
+請確定在您更新同步處理規則時系統不會進行同步處理，以免將不想要的變更匯出到 Azure AD。 若要停用內建的同步排程器︰
+
+ 1. 在 Azure AD Connect 伺服器上啟動 PowerShell 工作階段。
+ 2. 執行 Cmdlet 以停用排定的同步處理︰`Set-ADSyncScheduler -SyncCycleEnabled $false`
+ 3. 移至 [開始] → [同步處理服務] 來啟動 **Synchronization Service Manager**。
+ 4. 移至 [作業] 索引標籤，確認沒有任何作業是「進行中」狀態。
+
+![同步處理服務管理員 - 確認沒有進行中的作業](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
+
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>步驟 2：在內部部署 AD 連接器結構描述中新增來源屬性
+並非所有 AD 屬性都會匯入至內部部署 AD 連接器空間。 若要在所匯入屬性的清單中新增來源屬性︰
+
+ 1. 移至 Synchronization Service Manager 中的 [連接器] 索引標籤。
+ 2. 以滑鼠右鍵按一下 [內部部署 AD 連接器]，然後選取 [屬性]。
+ 3. 在彈出的對話方塊中，移至 [選取屬性] 索引標籤。
+ 4. 確定您已在屬性清單中勾選來源屬性。
+ 5. 按一下 [確定] 來進行儲存。
+![將來源屬性加入至內部部署 AD 連接器結構描述](./media/active-directory-aadconnectsync-change-the-configuration/usertype1.png)
+
+### <a name="step-3-add-usertype-to-the-azure-ad-connector-schema"></a>步驟 3： 將 UserType 加入 Azure AD 連接器架構
+根據預設，UserType 屬性不會匯入 Azure AD 連接空間。 若要新增的匯入的屬性清單 UserType 屬性：
+
+ 1. 移至 Synchronization Service Manager 中的 [連接器] 索引標籤。
+ 2. 以滑鼠右鍵按一下 [Azure AD 連接器]，然後選取 [屬性]。
+ 3. 在彈出的對話方塊中，移至 [選取屬性] 索引標籤。
+ 4. 確定您已在屬性清單中勾選 PreferredDataLocation 屬性。
+ 5. 按一下 [確定] 來進行儲存。
+
+![在 Azure AD 連接器結構描述中新增來源屬性](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
+
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>步驟 4：建立輸入同步處理規則，以從內部部署 Active Directory 傳輸屬性值
+輸入同步處理規則允許屬性值從內部部署 Active Directory 的來源屬性傳輸到 Metaverse︰
+
+1. 移至 [開始] → [同步處理規則編輯器] 來啟動**同步處理規則編輯器**。
+2. 將搜尋篩選條件的 [方向] 設定為 [輸入]。
+3. 按一下 [新增規則] 按鈕以建立新的輸入規則。
+4. 在 [描述] 索引標籤下，提供下列設定︰
+
+    | 屬性 | 值 | 詳細資料 |
+    | --- | --- | --- |
+    | 名稱 | 提供名稱 | 例如， *」 在 from AD – 使用者 UserType"* |
+    | 說明 | 提供描述 |  |
+    | 連線系統 | 選取內部部署 AD 連接器 |  |
+    | 連線系統物件類型 | **使用者** |  |
+    | Metaverse 物件類型 | **人員** |  |
+    | 連結類型 | **Join** |  |
+    | 優先順序 | 選擇 1 - 99 之間的數字 | 1 - 99 已保留供自訂同步處理規則使用。 請勿挑選已由其他同步處理規則使用的值。 |
+
+5. 移至 [範圍篩選器] 索引標籤，並**使用下列子句來新增單一範圍篩選器群組**：
+ 
+    | 屬性 | 運算子 | 值 |
+    | --- | --- | --- |
+    | adminDescription | NOTSTARTWITH | 使用者\_ | 
+ 
+    範圍篩選器會決定此輸入同步處理規則要套用至哪個內部部署 AD 物件。 在此範例中，我們會使用相同的範圍篩選器，以做為 「 在 from AD – 使用者一般"OOB 同步處理規則，防止在同步處理規則套用至透過 Azure AD 使用者回寫功能所建立的使用者物件。 您可能需要根據 Azure AD Connect 部署來調整範圍篩選器。
+
+6. 移至**轉換索引標籤**並實作所需的轉換規則。 例如，您指定未使用在內部部署 AD 屬性 (例如 extensionAttribute1) 為 UserType 的來源屬性，您可以實作直接屬性流程：
+ 
+    | 流程類型 | 目標屬性 | 來源 | 套用一次 | 合併類型 |
+    | --- | --- | --- | --- | --- |
+    | 直接 | UserType | extensionAttribute1 | 未核取 | 更新 |
+
+    另一個範例-您想要 UserType 屬性的值衍生自其他屬性。 例如，在您想要同步處理所有的使用者以 Guest，如果其內部 AD UserPrincipalName 屬性結尾網域 」 部分"@partners.fabrikam123.org"。 您可以實作運算式：
+
+    | 流程類型 | 目標屬性 | 來源 | 套用一次 | 合併類型 |
+    | --- | --- | --- | --- | --- |
+    | 直接 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName])"@partners.fabrikam123.org")=0)"Member"，"Guest")，錯誤 （「 UserPrincipalName 不存在，才能判斷 UserType 」）) | 未核取 | 更新 |
+
+7. 按一下 [新增] 來建立輸入規則。
+
+![建立輸入同步處理規則](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
+
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>步驟 5：建立輸出同步處理規則，以將屬性值傳輸到 Azure AD
+輸出同步處理規則允許屬性值從 Metaverse 傳輸到 Azure AD 中的 PreferredDataLocation 屬性︰
+
+1. 移至**同步處理規則**編輯器。
+2. 將搜尋篩選條件的 [方向] 設定為 [輸出]。
+3. 按一下 [新增規則] 按鈕。
+4. 在 [描述] 索引標籤下，提供下列設定︰
+
+    | 屬性 | 值 | 詳細資料 |
+    | ----- | ------ | --- |
+    | 名稱 | 提供名稱 | 例如，「 出至 AAD – 使用者 UserType" |
+    | 說明 | 提供描述 ||
+    | 連線系統 | 選取 AAD 連接器 ||
+    | 連線系統物件類型 | User ||
+    | Metaverse 物件類型 | **人員** ||
+    | 連結類型 | **Join** ||
+    | 優先順序 | 選擇 1 - 99 之間的數字 | 1 - 99 已保留供自訂同步處理規則使用。 請勿挑選已由其他同步處理規則使用的值。 |
+
+5. 移至 [範圍篩選器] 索引標籤，並**使用兩個子句來新增單一範圍篩選器群組**：
+ 
+    | 屬性 | 運算子 | 值 |
+    | --- | --- | --- |
+    | sourceObjectType | EQUAL | User |
+    | cloudMastered | NOTEQUAL | True |
+
+    範圍篩選器會決定此輸出同步處理規則要套用至哪個 Azure AD 物件。 在此範例中，我們會使用來自「Out to AD – User Identity」OOB 同步處理規則的同一個範圍篩選器。 它可避免同步處理規則套用到並非從內部部署 Active Directory 同步過來的使用者物件。 您可能需要根據 Azure AD Connect 部署來調整範圍篩選器。
+    
+6. 移至 [轉換] 索引標籤，並實作下列轉換規則︰
+
+    | 流程類型 | 目標屬性 | 來源 | 套用一次 | 合併類型 |
+    | --- | --- | --- | --- | --- |
+    | 直接 | UserType | UserType | 未核取 | 更新 |
+
+7. 關閉 [新增] 來建立輸出規則。
+
+![建立輸出同步處理規則](./media/active-directory-aadconnectsync-change-the-configuration/usertype4.png)
+
+### <a name="step-6-run-full-synchronization-cycle"></a>步驟 6：執行完整的同步處理週期
+由於我們已在 AD 和 Azure AD 連接器結構描述中同時新增屬性，並導入了自訂同步處理規則，因此一般來說，我們必須經歷完整的同步處理週期。 建議您先驗證變更，再將它們匯出至 Azure AD。 在手動執行構成完整同步處理週期的步驟時，您可以使用下列步驟來驗證變更。 
+
+1. 在**內部部署 AD 連接器**上執行**完整匯入**步驟：
+
+   1. 移至 Synchronization Service Manager 中的 [作業] 索引標籤。
+   2. 以滑鼠右鍵按一下 [內部部署 AD 連接器]，然後選取 [執行...]
+   3. 在彈出的對話方塊中選取 [完整匯入]，然後按一下 [確定]。
+   4. 等候作業完成。
+
+    > [!NOTE]
+    > 您可以略過完整匯入在內部部署 AD 連接器，如果來源屬性已包含在清單中匯入的屬性。 換句話說，在[步驟 2：在內部部署 AD 連接器結構描述中新增來源屬性](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)期間，您不必進行任何變更。
+
+2. 在 **Azure AD 連接器**上執行**完整匯入**步驟：
+
+   1. 以滑鼠右鍵按一下 [Azure AD 連接器]，然後選取 [執行...]
+   2. 在彈出的對話方塊中選取 [完整匯入]，然後按一下 [確定]。
+   3. 等候作業完成。
+
+3. 驗證現有使用者物件上的同步處理規則變更︰
+
+    來源屬性從內部部署 Active Directory 和 Azure AD 從 UserType 已匯入個別的連接器空間。 在繼續進行「完整同步處理」步驟之前，建議您先**預覽**內部部署 AD 連接器空間上的現有使用者物件。 您所挑選的物件應該要填入來源屬性。 成功**預覽**UserType 填入 Metaverse 中是很好的指標，您已設定同步處理規則正確。 如需如何進行**預覽**的相關資訊，請參閱[驗證變更](#verify-the-change)一節。
+
+4. 在**內部部署 AD 連接器**上執行**完整同步處理**步驟：
+
+   1. 以滑鼠右鍵按一下 [內部部署 AD 連接器]，然後選取 [執行...]
+   2. 在彈出的對話方塊中選取 [完整同步處理]，然後按一下 [確定]。
+   3. 等候作業完成。
+
+5. 確認要對 Azure AD 執行的**擱置匯出**：
+
+   1. 以滑鼠右鍵按一下 [Azure AD 連接器]，然後選取 [搜尋連接器空間]。
+
+   2. 在彈出的 [搜尋連接器空間] 對話方塊中：
+
+      1. 將 [範圍] 設定為 [擱置匯出]。
+      2. 將 3 個核取方塊全部勾選，包括 [新增]、[修改] 和 [刪除]。
+      3. 按一下 [搜尋] 按鈕以取得有變更要匯出的物件清單。 若要檢查給定物件的變更，請對物件按兩下。
+      4. 確認變更符合預期。
+
+6. 在 **Azure AD 連接器**上執行**完整匯出**步驟
+      
+   1. 以滑鼠右鍵按一下 [Azure AD 連接器]，然後選取 [執行...]
+   2. 在彈出的 [執行連接器] 對話方塊中選取 [匯出]，然後按一下 [確定]。
+   3. 匯出至 Azure AD，完成的等候。
+
+> [!NOTE]
+> 您可能會發現，Azure AD 連接器的步驟並未包含「完整同步處理」步驟和「匯出」步驟。 屬性值只會從內部部署 Active Directory 傳輸到 Azure AD，因此 Azure AD 不需要這些步驟。
+
+### <a name="step-7-re-enable-sync-scheduler"></a>步驟 7：重新啟用同步排程器
+重新啟用內建的同步排程器︰
+
+1. 啟動 PowerShell 工作階段。
+2. 執行 Cmdlet 以重新啟用排定的同步處理︰`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 
 ## <a name="next-steps"></a>後續步驟

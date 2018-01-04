@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: HT
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 資料倉儲容量限制
 下表包含 Azure SQL 資料倉儲各種元件的最大允許值。
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/13/2017
 | 類別 | 說明 | 最大值 |
 |:--- |:--- |:--- |
 | [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |單一 SQL 資料倉儲的最大 DWU | 針對彈性最佳化的[效能層級](performance-tiers.md)：DW6000<br></br>針對計算最佳化的[效能層級](performance-tiers.md)：DW30000c |
-| [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證][creating a support ticket]，並選取 [配額] 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW600c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
+| [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證][creating a support ticket]，並選取 [配額] 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如︰<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW600c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
 | 資料庫連接 |同時開啟的工作階段 |1024<br/><br/>每一個 1024 使用中工作階段都可以同時將要求提交至 SQL 資料倉儲資料庫。 請注意，可同時執行的查詢數目有所限制。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
 | 資料庫連接 |準備陳述式的最大記憶體 |20 MB |
 | [工作負載管理][Workload management] |並行查詢上限 |32<br/><br/> 根據預設，SQL 資料倉儲可以執行最多 32 並行查詢和佇列剩餘查詢。<br/><br/>將使用者指派給較高的資源類別，或在 SQL 資料倉儲的[服務等級](performance-tiers.md#service-levels)較低時，並行查詢的數目會減少。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行。 |
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/13/2017
 | 查詢 |系統檢視表上的並行查詢。 |100 |
 | 查詢 |系統檢視表上已排入佇列的查詢 |1000 |
 | 查詢 |參數個數上限 |2098 |
-| 批次 |大小上限 |65,536*4096 |
+| Batch |大小上限 |65,536*4096 |
 | SELECT 結果 |每個資料列的資料行 |4096<br/><br/>在 SELECT 結果中，每個資料列一律不超過 4096 個資料行。 不保證一定可以有 4096 個。 如果查詢計畫需要暫存資料表，可能會限定每個資料表最多 1024 個資料行。 |
 | SELECT |巢狀子查詢 |32<br/><br/>SELECT 陳述式中一律不超過 32 個巢狀子查詢。 不保證一定可以有 32 個。 例如，JOIN 可以將子查詢加入查詢計畫中。 子查詢的數目也受限於可用記憶體。 |
 | SELECT |每個 JOIN 的資料行 |1024 個資料行<br/><br/>JOIN 中一律不超過 1024 個資料行。 不保證一定可以有 1024 個。 如果 JOIN 計畫需要比 JOIN 結果更多資料行的暫存資料表，暫存資料表會受限於 1024 的限制。 |

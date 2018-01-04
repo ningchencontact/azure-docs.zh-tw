@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>用於從 Azure 複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/22/2017
 **資源移動類型** | **支援 / 不支援** | **備註**  
 --- | --- | ---
 **在資源群組間移動保存庫** | 不支援 |您無法跨越資源群組移動復原服務保存庫。
-**跨越資源群組移動運算、 儲存體和網路** | 不支援 |如果您在啟用複寫之後移動虛擬機器 (或其相關聯的元件，例如儲存體和網路)，則您需要對於虛擬機器停用複寫，並再次啟用複寫。
+**資源群組間移動運算、 儲存和網路** | 不支援 |如果您在啟用複寫之後移動虛擬機器 (或其相關聯的元件，例如儲存體和網路)，則您需要對於虛擬機器停用複寫，並再次啟用複寫。
 
 
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/22/2017
 **部署模型** | **支援 / 不支援** | **備註**  
 --- | --- | ---
 **傳統** | 支援 | 您只能複寫傳統的虛擬機器，並將它復原為傳統的虛擬機器。 您無法將它復原為資源管理員虛擬機器。 不使用虛擬網路部署傳統 VM，而直接部署到 Azure 地區，是不受支援的做法。
-**資源管理員** | 支援 |
+**Resource Manager** | 支援 |
 
 >[!NOTE]
 >
@@ -90,11 +90,11 @@ ms.lasthandoff: 11/22/2017
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 若已將複寫電腦從 SLES 11SP3 升級至 SLES 11 SP4，則您必須停用複寫以在升級後重新提供電腦防護。）
+(不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 如果已經從 SLES 11SP3 升級為 SLES 11 SP4 複寫的機器，您需要停用複寫，然後再次張貼升級保護機器。）
 
 >[!NOTE]
 >
-> 使用密碼型驗證和登入並使用雲端 init 封裝來設定雲端虛擬機器的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。從 Azure 入口網站上容錯移轉的虛擬機器本身的設定功能表 (在 [支援 + 疑難排解] 區段下) 重設密碼，即可重新啟用密碼型登入。
+> Ubuntu 伺服器使用密碼型驗證和登入，並使用雲端 init 封裝來設定雲端的虛擬機器，可能會發生在容錯移轉 （取決於 cloudinit 組態。） 時停用的密碼登入藉由 [設定] 功能表中的密碼重設密碼為基礎的登入可以是虛擬機器上重新啟用 （在支援 + 疑難排解區段） 的容錯移轉的 Azure 入口網站上的虛擬機器。
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Ubuntu 核心版本
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 11/22/2017
 
 * 檔案系統：ext3、ext4、ReiserFS (僅 Suse Linux Enterprise Server)、XFS
 * 磁碟區管理員：LVM2
-* 多重路徑軟體：裝置對應程式
+* 多重路徑軟體： 裝置對應程式
 
 ## <a name="region-support"></a>區域支援
 
@@ -122,10 +122,13 @@ ms.lasthandoff: 11/22/2017
 歐洲 | 英國西部、英國南部、北歐、西歐
 亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、韓國中部、韓國南部
 澳大利亞   | 澳大利亞東部、澳大利亞東南部
+Azure Government    | 美國維吉尼亞州政府、美國愛荷華州政府、美國亞歷桑那州政府、美國德州政府、美國國防部東部、美國國防部中部
+德國 | 德國中部、德國東北部
+中國 | 中國東部、 中國北部
 
 >[!NOTE]
 >
-> 對於巴西南部區域，您只能複寫及容錯移轉至美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2 和美國中北部區域的其中一個區域，並進行容錯回復。
+> 巴西南部區域，您只能複寫和美國中南部、 美國西部、 美國東部、 美國東部 2、 美國西部、 2、 美國西部和美國中北部區域的其中一個容錯移轉和容錯回復。
 
 
 ## <a name="support-for-compute-configuration"></a>計算設定的支援
@@ -165,9 +168,10 @@ RA-GRS | 支援 |
 ZRS | 不支援 |  
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
 虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路)  | 否 | 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。 
+一般用途 V2 儲存體帳戶 （同時作用中且 Cool 層） | 否 | 交易成本的增加本質上比較一般用途 V1 儲存體帳戶
 
 >[!IMPORTANT]
-> 請您務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。
+> 請務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。
 
 ## <a name="support-for-network-configuration"></a>網路組態的支援
 **組態** | **支援/不支援** | **備註**
@@ -182,7 +186,7 @@ VM 上的 NSG (傳統)| 支援 | 您需要使用復原方案中的 azure 自動�
 保留的 IP (靜態 IP) / 保留來源 IP | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 組態，而目標子網路有相同的 IP，則會將它指派給容錯移轉 VM。 如果目標子網路沒有相同的 IP，子網路中一個可用的 IP 會被保留供 VM 使用。 您可以在 [複寫項目] > [設定] > [計算與網路] > [網路介面] 中指定選擇的固定 IP。 您可以選取 NIC，並指定您選擇的子網路和 IP。
 動態 IP| 支援 | 如果來源 VM 上的 NIC 有動態 IP 組態，則容錯移轉 VM 上的 NIC 預設也是動態。 您可以在 [複寫項目] > [設定] > [計算與網路] > [網路介面] 中指定選擇的固定 IP。 您可以選取 NIC，並指定您選擇的子網路和 IP。
 流量管理員整合 | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
-Azure 受管理 DNS | 支援 |
+Azure 受控 DNS | 支援 |
 自訂 DNS  | 支援 |    
 未經驗證的 Proxy | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。    
 經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    

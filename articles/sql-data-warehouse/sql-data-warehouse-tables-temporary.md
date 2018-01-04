@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/07/2017
 本文包含使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。 使用這份文件中的資訊可協助您將程式碼模組化，以提高程式碼的重複使用性，維護起來更簡單。
 
 ## <a name="create-a-temporary-table"></a>建立暫存資料表
-建立暫存資料表時會在資料表名稱前面加上 `#`。  例如：
+建立暫存資料表時會在資料表名稱前面加上 `#`。  例如︰
 
 ```sql
 CREATE TABLE #stats_ddl

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>使用 Logic Apps 與 Azure Cosmos DB 對 HL7 FHIR 病患的醫療保健記錄變更發出通知
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="azure-services-used-in-the-solution"></a>此方案所使用的 Azure 服務
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API
+#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL 應用程式開發介面
 Azure Cosmos DB 是 FHIR 資源的存放庫，如下圖所示。
 
 ![此 HL7 FHIR 醫療保健教學課程所使用的 Azure Cosmos DB 帳戶](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -86,7 +86,7 @@ Logic Apps 會處理工作流程程序。 下列螢幕擷取畫面顯示為此�
 #### <a name="api-app"></a>API 應用程式
 API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或修改過的 FHIR 文件。 此應用程式有一個控制器 **FhirNotificationApi** 與一項作業 **GetNewOrModifiedFhirDocuments**，請參閱 [API 應用程式來源](#api-app-source)。
 
-我們會使用來自 Azure Cosmos DB .NET API 的 [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) 類別。 如需詳細資訊，請參閱[變更摘要文章](change-feed.md)。 
+我們使用[ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx)從 Azure Cosmos DB SQL.NET API 的類別。 如需詳細資訊，請參閱[變更摘要文章](change-feed.md)。 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments 作業
 
@@ -222,7 +222,7 @@ API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或
 ![顯示此 HL7 FHIR 教學課程所使用之所有服務的 Azure 入口網站](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 - 您已了解 Azure Cosmos DB 原生支援對新的或修改過的文件發出通知，以及其使用方式有多麼簡單。 
 - 利用 Logic Apps，您可以建立工作流程，而不需要撰寫任何程式碼。

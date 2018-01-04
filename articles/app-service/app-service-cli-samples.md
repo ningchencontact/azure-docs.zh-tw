@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 範例
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 10/11/2017
 | | |
 |-|-|
 |**建立應用程式**||
+| [建立 web 應用程式，並使用 FTP 部署檔](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| 建立 Azure web 應用程式，並將檔案部署到使用 FTP。 |
 | [建立 Web 應用程式並從 從 GitHub 部署程式碼](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| 建立 Azure Web 應用程式和從公用 GitHub 存放庫部署程式碼。 |
 | [建立可從 GitHub 連續部署的 Web 應用程式](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| 建立可從您擁有的 GitHub 存放庫連續發佈的 Azure Web 應用程式。 |
 | [建立 Web 應用程式並從本機 Git 存放庫部署程式碼](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 Azure Web 應用程式並設定從本機 Git 存放庫推送程式碼的作業。 |
@@ -45,6 +46,10 @@ ms.lasthandoff: 10/11/2017
 | [將 Web 應用程式連線至儲存體帳戶](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| 建立 Azure Web 應用程式和儲存體帳戶，然後將儲存體連接字串新增至應用程式設定。 |
 | [將 Web 應用程式連線至 redis 快取](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 Azure Web 應用程式和 redis 快取，然後將 redis 連線詳細資料新增至應用程式設定。) |
 | [將 Web 應用程式連線至 Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 Azure Web 應用程式和 Cosmos DB，然後將 Cosmos DB 連線詳細資料新增至應用程式設定。 |
+|**備份與還原應用程式**||
+| [備份 Web 應用程式](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 Azure Web 應用程式並為其建立一次性的備份。 |
+| [為 Web 應用程式建立排程備份](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 Azure Web 應用程式並為其建立排程備份。 |
+| [從備份中還原 web 應用程式](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | 從備份還原 Azure web 應用程式。 |
 |**監視應用程式**||
 | [使用 Web 伺服器記錄監視 Web 應用程式](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 Azure Web 應用程式、為其啟用記錄，並將記錄下載到本機電腦。 |
 | | |

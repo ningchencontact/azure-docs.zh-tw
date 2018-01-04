@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Egnyte 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 62d01333b61e73c83588d2d1701c0c300df4ab1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 94c71859aff01b60cee1b49664ad62257f9f9f2a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>教學課程：Azure Active Directory 與 Egnyte 整合
 
@@ -47,13 +47,13 @@ Egnyte 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Egnyte
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-egnyte-from-the-gallery"></a>從資源庫新增 Egnyte
-若要設定將 Egnyte 整合到 Azure AD 中，您需要從資源庫將 Egnyte 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Egnyte 整合到 Azure AD 中，您需要從資源庫將 Egnyte 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Egnyte，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Egnyte**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-egnyte-tutorial/tutorial_egnyte_search.png)
 
-5. 在結果窗格中，選取 Egnyte，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Egnyte]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-egnyte-tutorial/tutorial_egnyte_addfromgallery.png)
 
@@ -113,7 +113,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.egnyte.com`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Egnyte 用戶端支援小組](https://www.egnyte.com/corp/contact_egnyte.html)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Egnyte 用戶端支援小組](https://www.egnyte.com/corp/contact_egnyte.html)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -123,7 +123,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-egnyte-tutorial/tutorial_general_400.png)
 
-6. 在 [Egnyte 組態] 區段上，按一下 [設定 Egnyte] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+6. 在 [Egnyte 組態] 區段上，按一下 [設定 Egnyte] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-egnyte-tutorial/tutorial_egnyte_configure.png) 
 
@@ -137,7 +137,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
    ![設定](./media/active-directory-saas-egnyte-tutorial/ic787820.png "設定")
 
-10. 按一下 組態 索引標籤，然後按一下安全性。
+10. 按一下 [組態] 索引標籤，然後按一下 [安全性]。
 
     ![安全性](./media/active-directory-saas-egnyte-tutorial/ic787821.png "安全性")
 
@@ -147,7 +147,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
     
     a. 針對 [單一登入驗證]，選取 **SAML 2.0**。
    
-    b.這是另一個 C# 主控台應用程式。 針對 [識別提供者]，選取 [AzureAD]。
+    b. 針對 [識別提供者]，選取 [AzureAD]。
    
     c. 將您從 Azure 入口網站複製的「SAML 單一登入服務 URL」貼到 [識別提供者登入 URL] 文字方塊中。
    
@@ -159,7 +159,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
    
     g. 針對 [使用網域指定的簽發者值]，選取 [停用]。
    
-    h. 按一下 [儲存] 。
+    h. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,11 +190,11 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-egnyte-test-user"></a>建立 Egnyte 測試使用者
 
@@ -216,7 +216,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
    a. 輸入您要佈建之有效 Azure Active Directory 帳戶的 [電子郵件]、[使用者名稱] 以及其他詳細資料。
    
-   b.這是另一個 C# 主控台應用程式。 按一下 [儲存] 。
+   b. 按一下 [檔案] 。
     
     >[!NOTE]
     >Azure Active Directory 帳戶持有者將會收到電子郵件通知。

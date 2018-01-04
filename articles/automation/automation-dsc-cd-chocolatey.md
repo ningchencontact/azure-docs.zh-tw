@@ -3,7 +3,7 @@ title: "Azure 自動化 DSC 持續部署與 Chocolatey | Microsoft Docs"
 description: "使用 Azure 自動化 DSC 和 Chocolatey 封裝管理員執行 DevOps 持續部署。  具有完整 JSON ARM 範本與 PowerShell 原始檔的範例。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>使用範例：使用 Automation DSC 和 Chocolatey 持續部署至虛擬機器
 DevOps 領域中有許多工具可協助處理持續整合管線中的各個點。  Azure 自動化預期狀態設定 (DSC) 是 DevOps 團隊可以採用的新選項。  本文示範如何為 Windows 電腦設定持續部署 (CD)。  您可以輕鬆地擴充技術，在角色 (例如網站) 中依需要加入更多 Windows 電腦，還能從該角色再延伸至其他角色。
@@ -38,7 +38,7 @@ DevOps 領域中有許多工具可協助處理持續整合管線中的各個點�
 
 預期狀態設定 (DSC) ([概觀](https://technet.microsoft.com/library/dn249912.aspx)) 是一個 PowerShell 工具，可讓您為電腦宣告您想要的組態。  例如，您可以說「我想要安裝 Chocolatey、我想要安裝 IIS、我想要開啟連接埠 80、我想要安裝網站 1.0.0 版」。  DSC 本機組態管理員 (LCM) 會實作該組態。 DSC 提取伺服器有一個儲存機制保存您電腦的組態。 每台電腦上的 LCM 會定期檢查電腦的組態是否符合已儲存的組態。 它可能報告狀態，也可能嘗試讓電腦回復到符合已儲存的組態。 您可以編輯提取伺服器上儲存的組態，讓一台電腦或一群電腦符合已變更的組態。
 
-Azure 自動化是 Microsoft Azure 中的受管理服務，可讓您使用 Runbook、節點、認證、資源以及排程和全域變數之類的資產，將各種工作自動化。 Azure 自動化 DSC 將此自動化功能擴大包含 PowerShell DSC 工具。  以下提供清楚的 [概觀](automation-dsc-overview.md)。
+Azure 自動化是 Microsoft Azure 中的受控服務，可讓您使用 Runbook、節點、認證、資源以及排程和全域變數之類的資產，將各種工作自動化。 Azure 自動化 DSC 將此自動化功能擴大包含 PowerShell DSC 工具。  以下提供清楚的 [概觀](automation-dsc-overview.md)。
 
 DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active Directory 或 SQL Server。  Chocolatey DSC 資源知道如何存取 NuGet 伺服器 (還有其他)、下載封裝、安裝封裝...等等。  [PowerShell 資源庫](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有許多其他 DSC 資源。  這些模組安裝到您的 Azure 自動化 DSC 提取伺服器 (由您安裝)，供您的組態使用。
 
@@ -163,7 +163,7 @@ New-ConfigurationScript.ps1：
 ## <a name="step-6-tying-it-all-together"></a>步驟 6：整合一切
 每當有某個版本通過 QA 並核准可部署時，即會建立封裝，且 nuspec 及 nupkg 會更新並部署至 NuGet 伺服器。  此外也必須更新組態 (上述的步驟 4)，以符合新的版本號碼。  它必須傳送至提取伺服器並進行編譯。  從這裡開始，則須由依存於該組態的 VM 提取更新並加以安裝。  這些更新內容很簡單 - 只有一兩行 PowerShell。  以 Visual Studio Team Services 為例，有些更新會封裝在可一起鏈結在組建內的建置工作中。  [本文](https://www.visualstudio.com/en-us/docs/alm-devops-feature-index#continuous-delivery)將詳加說明。  此 [GitHub 儲存機制](https://github.com/Microsoft/vso-agent-tasks) 會詳細說明各種可用的建置工作。
 
-## <a name="notes"></a>注意事項
+## <a name="notes"></a>注意
 此使用範例開頭的 VM 來自於 Azure 資源庫的一般 Windows Server 2012 R2 映像。  您可以從任何預存的映像開始，再從那裡使用 DSC 組態進行調整。  不過，變更已併入影像的組態，要比使用 DSC 動態更新組態難得多。
 
 將這項技巧運用在 VM 時，不需要使用 ARM 範本和 VM 延伸模組。  VM 不在 Azure 上也能由 CD 管理。  只需要在 VM 上安裝 Chocolatey 並設定 LCM 以得知提取伺服器所在位置即可。  

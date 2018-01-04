@@ -4,7 +4,7 @@ description: "使用 PowerShell 啟用 Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 054d3b3347ef2ce9fdbfa8ff8103cf4aa15bae20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: a456a6265400abe1d3a3620df74e41d8b4399b97
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。
@@ -40,7 +40,7 @@ New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
 ```
 
 ## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>工作 3：建立和設定「AAD DC 系統管理員」群組
-下一個工作是建立系統管理員群組，將用來在受管理的網域上委派系統管理工作。
+下一個工作是建立系統管理員群組，將用來在受控網域上委派系統管理工作。
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -84,7 +84,7 @@ New-AzureRmResourceGroup `
   -Location $AzureLocation
 ```
 
-在此資源群組中，您可以建立虛擬網路與 Azure AD Domain Services 的受管理網域。
+在此資源群組中，您可以建立虛擬網路與 Azure AD Domain Services 的受控網域。
 
 
 ## <a name="task-6-create-and-configure-the-virtual-network"></a>工作 6：建立和設定虛擬網路
@@ -115,7 +115,7 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>工作 7：佈建 Azure AD Domain Services 的受管理網域
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>工作 7：佈建 Azure AD Domain Services 的受控網域
 輸入下列 PowerShell 命令，針對您的目錄啟用 Azure AD Domain Services：
 
 ```powershell
@@ -134,8 +134,9 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **佈建受管理的網域之後，別忘了其他設定步驟。**
-> 佈建受管理的網域之後，您仍然需要完成下列工作：
+> 
+>             **佈建受控網域之後，別忘了其他設定步驟。**
+佈建受控網域之後，您仍然需要完成下列工作：
 > * 為虛擬網路**[更新 DNS 設定](active-directory-ds-getting-started-dns.md)**，讓虛擬機器可以找到受管理的網域來進行網域聯結或驗證。
 * **[啟用 Azure AD Domain Services 的密碼同步化](active-directory-ds-getting-started-password-sync.md)**，讓使用者可使用他們的公司認證來登入受管理的網域。
 >
@@ -219,14 +220,17 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **佈建受管理的網域之後，別忘了其他設定步驟。**
-> 佈建受管理的網域之後，您仍然需要完成下列工作：
-> * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受管理的網域來進行網域聯結或驗證。
-* 啟用 Azure AD Domain Services 的密碼同步化，讓使用者可使用他們的公司認證來登入受管理的網域。
+> 
+>             **佈建受控網域之後，別忘了其他設定步驟。**
+佈建受控網域之後，您仍然需要完成下列工作：
+> * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
+* 啟用 Azure AD Domain Services 的密碼同步化，讓使用者可使用他們的公司認證來登入受控網域。
 >
 
 ## <a name="next-steps"></a>後續步驟
-建立受管理的網域之後，請執行下列設定工作，如此一來您就可以使用受管理的網域：
+建立受控網域之後，請執行下列設定工作，如此一來您就可以使用受控網域：
 
-* [更新虛擬網路的 DNS 伺服器設定，以指向受管理的網域](active-directory-ds-getting-started-dns.md)
-* [為受管理的網域啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
+* 
+            [更新虛擬網路的 DNS 伺服器設定，以指向受控網域](active-directory-ds-getting-started-dns.md)
+* 
+            [為受控網域啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)

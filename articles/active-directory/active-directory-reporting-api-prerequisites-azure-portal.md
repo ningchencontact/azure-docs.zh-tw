@@ -4,7 +4,7 @@ description: "了解存取 Azure AD 報告 API 的必要條件"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>存取 Azure AD 報告 API 的必要條件
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/17/2017
 2. 授與權限 
 3. 收集組態設定 
 
-如有相關疑問、問題或意見，請[提出支援票證](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)。
+如有相關疑問、問題或意見，請[提出支援票證](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)。
 
 ## <a name="register-an-azure-active-directory-application"></a>註冊 Azure Active Directory 應用程式
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/17/2017
 
     c. 在 [登入 URL] 文字方塊中，輸入 `https://localhost`。
 
-    d. 按一下 [建立] 。 
+    d. 按一下頁面底部的 [新增] 。 
 
 
 ## <a name="grant-permissions"></a>授與權限 
@@ -183,9 +183,9 @@ ms.lasthandoff: 11/17/2017
 
     a. 在 [描述] 文字方塊中，輸入 `Reporting API`。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [2 年後] 來作為 [到期]。
+    b. 選取 [2 年後] 來作為 [到期]。
 
-    c. 按一下 [儲存] 。
+    c. 按一下 [檔案] 。
 
     d. 複製金鑰值。
 

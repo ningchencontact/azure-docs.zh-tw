@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>更新 Azure Container Service (AKS) 中的應用程式
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 12/06/2017
 
 在先前的教學課程中，已將應用程式封裝成容器映像、將這些映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 該應用程式接著便在 Kubernetes 叢集上執行。 
 
-應用程式存放庫也會一併複製，其中包括應用程式原始程式碼，以及本教學課程使用的預先建立 Docker Compose 檔案。 請確認您已建立存放庫的複製品，而且已將目錄變更為複製的目錄。 其中有一個名為 `azure-vote` 的目錄和一個名為 `docker-compose.yml` 的檔案。
+應用程式存放庫也會一併複製，其中包括應用程式原始程式碼，以及本教學課程使用的預先建立 Docker Compose 檔案。 請確認您已建立存放庫的複製品，而且已將目錄變更為複製的目錄。 其中有一個名為 `azure-vote` 的目錄和一個名為 `docker-compose.yaml` 的檔案。
 
-如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./tutorial-kubernetes-prepare-app.md)。 
+如果您尚未完成這些步驟，而且想要跟著做，返回[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。 
 
 ## <a name="update-application"></a>更新應用程式
 
@@ -61,7 +61,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-container-image"></a>更新容器映像
 
-使用 [docker-compose](https://docs.docker.com/compose/) 重新建立前端映像，並執行已更新的應用程式。 `--build` 引數可用來指示 Docker Compose 重新建立應用程式映像。
+使用[docker 撰寫][ docker-compose]重新建立前端的映像，並執行更新的應用程式。 `--build` 引數可用來指示 Docker Compose 重新建立應用程式映像。
 
 ```console
 docker-compose up --build -d
@@ -83,13 +83,13 @@ docker-compose up --build -d
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 來標記映像。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。 另請注意，映像版本已更新為 `redis-v2`。
+使用[docker 標記][ docker-tag]來標記的影像。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。 另請注意，映像版本已更新為 `redis-v2`。
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 將映像上傳至您的登錄。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。
+使用[docker push] [ docker-push]登錄檔上傳映像。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -97,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>部署更新應用程式
 
-若要確保最大執行時間，則應用程式 pod 必須有多個執行個體正在執行中。 請使用 [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令驗證此組態。
+若要確保最大執行時間，則應用程式 pod 必須有多個執行個體正在執行中。 請確認此組態[kubectl 取得 pod] [ kubectl-get]命令。
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-若要更新應用程式，請使用 [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) 命令。 以容器登錄的登入伺服器或主機名稱來更新 `<acrLoginServer>`。
+若要更新應用程式，請使用[kubectl 組][ kubectl-set]命令。 以容器登錄的登入伺服器或主機名稱來更新 `<acrLoginServer>`。
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-若要監視部署，請使用 [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令。 部署已更新的應用程式後，您的 pod 會終止並以新的容器映像重建。
+若要監視部署，使用[kubectl 取得 pod] [ kubectl-get]命令。 部署已更新的應用程式後，您的 pod 會終止並以新的容器映像重建。
 
 ```azurecli
 kubectl get pod
@@ -167,4 +167,15 @@ kubectl get service azure-vote-front
 請前進到下一個教學課程，了解如何利用 Operations Management Suite 監視 Kubernetes。
 
 > [!div class="nextstepaction"]
-> [透過 Log Analytics 監視 Kubernetes](./tutorial-kubernetes-monitor.md)
+> [監視 Kubernetes 記錄分析][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

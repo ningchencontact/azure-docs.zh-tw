@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Humanity 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 327cc1e3d0836e79376e0a3cd5a4422a967f5943
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7b9730d7d0935e5ee31437f3024588618e12b95e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>教學課程：Azure Active Directory 與 Humanity 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Humanity
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-humanity-from-the-gallery"></a>從資源庫新增 Humanity
-若要進行 Humanity 與 Azure AD 整合的設定，您需要從資源庫將 Humanity 新增到受管理 SaaS 應用程式清單。
+若要進行 Humanity 與 Azure AD 整合的設定，您需要從資源庫將 Humanity 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Humanity，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Humanity**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_search.png)
 
-5. 在結果面板中，選取 Humanity，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Humanity]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
    
     a. 選取 [已啟用 SAML] 。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [允許密碼登入]。
+    b. 選取 [允許密碼登入]。
 
     c. 將 [SAML 單一登入服務 URL] 的值貼到 [SAML 簽發者 URL] 文字方塊中。
 
@@ -184,11 +184,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-humanity-test-user"></a>建立 Humanity 測試使用者
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 10/11/2017
    
     a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [名字]、[姓氏] 和 [電子郵件]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [儲存員工] 。
+    b. 按一下 [儲存員工] 。
 
 >[!NOTE]
 >您可以使用任何其他的 Humanity 使用者帳戶建立工具或 Humanity 提供的 API 來佈建 AAD 使用者帳戶。

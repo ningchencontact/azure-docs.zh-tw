@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 的多重主機全域複寫資料庫架構
 Azure Cosmos DB 支援周全的[全域複寫](distribute-data-globally.md)，可讓您以低延遲存取工作負載中的任何位置，將資料散發到多個區域。 此模型通常用於發行者/取用者工作負載，寫入器在單一地理區域中，而讀取器 (讀取) 分散在世界各地的其他區域。 
@@ -312,12 +312,12 @@ Azure Cosmos DB 支援周全的[全域複寫](distribute-data-globally.md)，可
 
 因此，選擇良好的分割索引鍵和靜態帳戶型的資料分割，您就可以使用 Azure Cosmos DB 達到多重區域本機寫入和讀取。
 
-## <a id="NextSteps"></a>接續步驟
+## <a id="NextSteps"></a>後續步驟
 我們會在本文說明如何使用發佈為範例案例的內容，利用 Azure Cosmos DB 使用分散在世界各地的多重區域讀取和寫入模式。
 
 * 了解 Azure Cosmos DB 如何支援[全域發佈](distribute-data-globally.md)
 * 了解 [Azure Cosmos DB 中的自動化和手動容錯移轉](regional-failover.md)
 * 了解 [Azure Cosmos DB 的全域一致性](consistency-levels.md)
-* 使用 [Azure Cosmos DB - DocumentDB API](tutorial-global-distribution-documentdb.md) 進行多區域開發
+* 開發與使用多個區域[Azure Cosmos DB SQL 應用程式開發介面](tutorial-global-distribution-sql-api.md)
 * 使用 [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md) 進行多區域開發
 * 使用 [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md) 進行多區域開發

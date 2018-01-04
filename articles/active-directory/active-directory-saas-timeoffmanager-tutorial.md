@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 TimeOffManager 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 3f944ffbf704694b293b4b1e5bdb4f2c93ae35a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5638a1b2271fe50344c29de1e3883ca67c20c9ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>教學課程：Azure Active Directory 與 TimeOffManager 整合
 
@@ -48,13 +48,13 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 TimeOffManager
 2. 設定和測試 Azure AD 單一登入
 
 ## <a name="add-timeoffmanager-from-the-gallery"></a>從資源庫新增 TimeOffManager
-若要設定將 TimeOffManager 整合到 Azure AD 中，您需要從資源庫將 TimeOffManager 新增到受管理的 SaaS 應用程式清單中。
+若要設定將 TimeOffManager 整合到 Azure AD 中，您需要從資源庫將 TimeOffManager 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 TimeOffManager，請執行下列步驟：**
 
@@ -64,13 +64,13 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **TimeOffManager**，從結果面板中選取 TimeOffManager，然後按一下新增 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **TimeOffManager**，從結果面板中選取 [TimeOffManager]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![從資源庫新增](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
 
@@ -204,11 +204,11 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-timeoffmanager-test-user"></a>建立 TimeOffManager 測試使用者
 

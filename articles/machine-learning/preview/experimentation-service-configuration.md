@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>設定 Azure Machine Learning 測試服務
 
@@ -221,7 +221,8 @@ _**Python 指令碼的遠端 VM 執行概觀：**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>在 HDInsight 叢集上執行指令碼
 HDInsight 是支援 Apache Spark 的巨量資料分析常用平台。 Workbench 可讓您使用 HDInsight Spark 叢集測試巨量資料。 
 
->![注意] HDInsight 叢集必須使用 Azure Blob 作為主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
+>[!NOTE]
+>HDInsight 叢集必須使用 Azure Blob 的主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
 
 您可以使用下列命令來建立計算目標，以及 HDInsight Spark 叢集的回合組態：
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - 將 Workbench 產生的公開金鑰附加到已附加之計算目標上的 ~/.ssh/authorized_keys 檔案。 
 
-[!IMPORTANT] 您必須使用用來建立計算目標的相同使用者名稱登入計算目標。 
+>[!IMPORTANT]
+>您必須使用用來建立計算目標的相同使用者名稱登入計算目標。 
 
 - 您現再已可以使用以 SSH 金鑰為基礎的驗證來準備及使用計算目標。
 

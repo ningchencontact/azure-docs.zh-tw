@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>如何在 Azure 搜尋服務中模型化複雜資料類型
 用來填入 Azure 搜尋服務索引的外部資料集，有時包含不會整齊細分成表格式資料列集的階層式或巢狀子結構。 這類結構的範例可能包含單一客戶的多個位置和電話號碼、單一 SKU 的多種色彩和大小、單一書籍的多位作者等等。 就模型化而論，您可能會看到這些結構稱之為「複雜資料類型」、「複合資料類型」、「合成資料類型」或「彙總資料類型」等等。
@@ -66,7 +66,7 @@ Azure 搜尋服務中原先不支援複雜資料類型，但經過實證的因�
 雖然名為 ‘id’、‘name’ 和 ‘company’ 的欄位可以輕易地逐一對應成 Azure 搜尋服務索引中的欄位，但 ‘locations’ 欄位包含位置陣列，並有一組位置識別碼以及位置描述。 假設 Azure 搜尋服務沒有支援此方法的資料類型，我們需要在 Azure 搜尋服務中進行模型化的不同方法。 
 
 > [!NOTE]
-> Kirk Evans 也會在部落格文章 [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) 中說明這個技巧，文中顯示稱為「資料扁平化」的技巧，因此您會有稱為 `locationsID` 和 `locationsDescription` 的欄位 (兩者皆為 [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (或字串陣列))。   
+> 這項技術也描述 Kirk Evans 部落格文章中[使用 Azure 搜尋索引 Azure Cosmos DB](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/)，其中顯示稱為 「 扁平化資料 」 的技術，您必須呼叫欄位`locationsID`和`locationsDescription`兩者都可[集合](https://msdn.microsoft.com/library/azure/dn798938.aspx)（或字串陣列）。   
 > 
 > 
 
@@ -102,7 +102,7 @@ var index = new Index()
 * 取得在「家庭辦公室」工作的人員計數。  
 * 在「家庭辦公室」工作的人員中，顯示他們在其他哪些辦公室工作以及每個位置的人員計數。  
 
-當您需要進行結合位置識別碼和位置描述的搜尋時，這個技巧就不管用。 例如：
+當您需要進行結合位置識別碼和位置描述的搜尋時，這個技巧就不管用。 例如︰
 
 * 尋找所有具有「家庭辦公室」且位置識別碼為 4 的人員。  
 
@@ -117,7 +117,7 @@ var index = new Index()
 
 不過，既然我們已將資料分成個別的欄位，我們便無法得知 Jen Campbell 的家庭辦公室是否與 `locationsID 3` 或 `locationsID 4` 相關。  
 
-若要處理這種情況，請在索引中定義另一個可將所有資料結合成單一集合的欄位。  此範例中，我們將此欄位稱為 `locationsCombined` 並將以 `||` 分隔內容，雖然您可以為您的內容選擇任何您認為是一組獨特字元的分隔符號。 例如： 
+若要處理這種情況，請在索引中定義另一個可將所有資料結合成單一集合的欄位。  此範例中，我們將此欄位稱為 `locationsCombined` 並將以 `||` 分隔內容，雖然您可以為您的內容選擇任何您認為是一組獨特字元的分隔符號。 例如︰ 
 
 ![範例資料，含分隔符號的 2 個資料列](./media/search-howto-complex-data-types/sample-data-2.png)
 
@@ -127,7 +127,7 @@ var index = new Index()
 * 搜尋在位置識別碼為 '4' 的「家庭辦公室」工作的人員。 
 
 ## <a name="limitations"></a>限制
-這個技巧可用於許多案例，但並不適用於每個案例。  例如：
+這個技巧可用於許多案例，但並不適用於每個案例。  例如︰
 
 1. 如果您的複雜資料類型中沒有一組靜態欄位，而且沒有辦法將所有可能的類型對應至單一欄位。 
 2. 更新巢狀物件時需要一些額外的工作，才能精確地判斷需要在 Azure 搜尋服務索引中更新的內容

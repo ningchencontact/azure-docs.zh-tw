@@ -4,7 +4,7 @@ description: "這是描述 Azure Multi-factor Authentication 後續步驟的 MFA
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: a6064e33dca09a304074efa4029c0f96fc19b2a2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 既然您已啟動並執行 Azure Multi-Factor Authentication，本文將協助您進行管理。  本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。  並非所有版本的 Azure Multi-Factor Authentication 均提供所有這些功能。
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 | [一次性略過](#one-time-bypass) |一次性略過可讓使用者「略過」Multi-Factor Authentication 來通過驗證一次。 |
 | [自訂語音訊息](#custom-voice-messages) |自訂語音訊息可讓您將自己的錄音或問候語用於 Multi-Factor Authentication。 |
 | [快取](#caching-in-azure-multi-factor-authentication) |您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。 |
-| [信任的 IP](#trusted-ips) |受管理或同盟租用戶的系統管理員可以使用「信任的 IP」，讓從公司近端內部網路登入的使用者略過雙步驟驗證。 |
+| [信任的 IP](#trusted-ips) |受控或同盟租用戶的系統管理員可以使用「信任的 IP」，讓從公司近端內部網路登入的使用者略過雙步驟驗證。 |
 | [應用程式密碼](#app-passwords) |應用程式密碼允許非 MFA 感知應用程式略過 Multi-Factor Authentication 並繼續運作。 |
 | [針對已記住的裝置和瀏覽器，記住其 Multi-Factor Authentication](#remember-multi-factor-authentication-for-devices-that-users-trust) |可讓您在使用者使用 MFA 成功登入後的設定天數內記住裝置。 |
 | [可選取的驗證方法](#selectable-verification-methods) |可讓您選擇可供使用者使用的驗證方法。 |
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/15/2017
 4. 如果此訊息僅適用於特定應用程式，請在 [應用程式] 方塊中指定。
 5. 從 [訊息類型] 下拉式清單，選取要以新的自訂訊息覆寫的訊息類型。
 6. 從 [音效檔] 下拉式清單，選取您在第一個部分上傳的音效檔。
-7. 按一下 [建立] 。 即會出現一則訊息，確認已成功建立語音訊息。
+7. 按一下頁面底部的 [新增] 。 即會出現一則訊息，確認已成功建立語音訊息。
     ![雲端](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的快取
@@ -170,16 +170,16 @@ ms.lasthandoff: 11/15/2017
 2. 依照此頁面最上方的指示，瀏覽至 MFA 管理入口網站。
 3. 在 Azure Multi-Factor Authentication 管理入口網站中，按一下 [設定] 區段底下的 [快取]。
 4. 在 [設定快取] 頁面上按一下 [新增快取]。
-5. 選取快取類型和快取秒數。 按一下 [建立] 。
+5. 選取快取類型和快取秒數。 按一下頁面底部的 [新增] 。
 
 <center>![雲端](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>信任的 IP
-「信任的 IP」是 Azure MFA 的一項功能，可供受管理租用戶或同盟租用戶的管理員用來略過雙步驟驗證。 適用於從公司近端內部網路登入的使用者。 完整版 Azure Multi-Factor Authentication 提供此功能給管理員使用，免費版不提供。 如需有關如何取得完整版 Azure Multi-Factor Authentication 的詳細資訊，請參閱[ Azure Multi-Factor Authentication](multi-factor-authentication.md)。
+「信任的 IP」是 Azure MFA 的一項功能，可供受控租用戶或同盟租用戶的管理員用來略過雙步驟驗證。 適用於從公司近端內部網路登入的使用者。 完整版 Azure Multi-Factor Authentication 提供此功能給管理員使用，免費版不提供。 如需有關如何取得完整版 Azure Multi-Factor Authentication 的詳細資訊，請參閱[ Azure Multi-Factor Authentication](multi-factor-authentication.md)。
 
 | Azure AD 租用戶類型 | 可用的信任 IP 選項 |
 |:--- |:--- |
-| 受管理 |<li>特定 IP 位址範圍 - 對於從公司內部網路登入的使用者，管理員可以指定允許略過雙步驟驗證的 IP 位址範圍。</li> |
+| 受控 |<li>特定 IP 位址範圍 - 對於從公司內部網路登入的使用者，管理員可以指定允許略過雙步驟驗證的 IP 位址範圍。</li> |
 | 同盟 |<li>所有同盟使用者 - 所有從組織內登入的同盟使用者，都使用 AD FS 所發行的宣告來略過雙步驟驗證。</li><br><li>特定 IP 位址範圍 - 對於從公司內部網路登入的使用者，管理員可以指定允許略過雙步驟驗證的 IP 位址範圍。 |
 
 此略過機制只適用於公司內部網路。 
@@ -201,7 +201,7 @@ ms.lasthandoff: 11/15/2017
    
    * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。
    * **適用於從特定公用 IP 範圍提出的要求**– 在提供的文字方塊中，使用 CIDR 表示法輸入 IP 位址。 例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。 您最多可以輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 5. 套用更新之後，按一下 [關閉]。
 
 ![信任的 IP](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -290,7 +290,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 3. 在 [服務設定] 頁面的管理使用者裝置設定下方，勾選 [允許使用者在其信任的裝置記住多重要素驗證]。
    ![記住裝置](./media/multi-factor-authentication-whats-next/remember.png)
 4. 設定您想要允許受信任的裝置略過雙步驟驗證的天數。 預設值為 14 天。
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 6. 按一下 [關閉] 。
 
 ### <a name="mark-a-device-as-trusted"></a>將裝置標示為受信任
@@ -316,5 +316,5 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 2. 依照本文開頭的指示，瀏覽至 [MFA 服務設定] 頁面。
 3. 在 [服務設定] 頁面的驗證選項下，選取/取消選取您想要使用的選項。
    ![驗證選項](./media/multi-factor-authentication-whats-next/authmethods.png)
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 5. 按一下 [關閉] 。

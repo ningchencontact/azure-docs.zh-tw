@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Mozy Enterprise 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 489b5e62-85c2-45c9-8766-326632d48114
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ac73aadcb8205f24f9d2dbce5af76f53bbcb9753
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 026cec89e5c3d26037d59b0a4ec1195d245c9643
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>教學課程：Azure Active Directory 與 Mozy Enterprise 整合
 
@@ -47,13 +47,13 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Mozy Enterprise
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-mozy-enterprise-from-the-gallery"></a>從資源庫新增 Mozy Enterprise
-若要設定將 Mozy Enterprise 整合到 Azure AD 中，您需要從資源庫將 Mozy Enterprise 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Mozy Enterprise 整合到 Azure AD 中，您需要從資源庫將 Mozy Enterprise 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Mozy Enterprise，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Mozy Enterprise**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-mozy-enterprise-tutorial/tutorial_mozyenterprise_search.png)
 
-5. 在結果窗格中，選取 Mozy Enterprise，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Mozy Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-mozy-enterprise-tutorial/tutorial_mozyenterprise_addfromgallery.png)
 
@@ -113,7 +113,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Mozy Enterprise 客戶支援小組](http://support.mozy.com/)以取得此值。
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Mozy Enterprise 客戶支援小組](http://support.mozy.com/)以取得此值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -139,7 +139,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
    
    a. 選取 [目錄服務] 做為**提供者**。
    
-   b.這是另一個 C# 主控台應用程式。 選取 [使用 LDAP 推送] 。
+   b. 選取 [使用 LDAP 推送] 。
    
    c. 按一下 [SAML 驗證]  索引標籤。
    
@@ -182,11 +182,11 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-mozy-enterprise-test-user"></a>建立 Mozy Enterprise 測試使用者
 
@@ -199,7 +199,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 **Mozy Enterprise** 租用戶。
 
-2. 按一下 使用者，然後按一下新增使用者。
+2. 按一下 [使用者]，然後按一下 [新增使用者]。
    
    ![使用者](./media/active-directory-saas-mozy-enterprise-tutorial/ic777317.png "使用者")
    
@@ -212,7 +212,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
    
    a. 從 [選擇群組]  清單中選取一個群組。
    
-   b.這是另一個 C# 主控台應用程式。 從 [使用者類型]  清單中選取一種類型。
+   b. 從 [使用者類型]  清單中選取一種類型。
    
    c. 在 [使用者名稱]  文字方塊中，輸入 Azure AD 使用者的名稱。
    

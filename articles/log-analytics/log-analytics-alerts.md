@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>了解 Log Analytics 中的警示
 
@@ -62,7 +62,7 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
 ### <a name="scenarios"></a>案例
 
-#### <a name="events"></a>事件
+#### <a name="events"></a>活動
 這種類型的警示規則適用於處理例如 Windows 事件記錄、Syslog 和自訂記錄的事件。  您可能希望在建立特定的錯誤事件時，或是在特定時間範圍內建立多個錯誤事件時建立警示。
 
 若要對單一事件發出警示，請將結果數目設為大於 0 並將頻率與時間範圍設為 5 分鐘。  如此一來，將會每隔 5 分鐘執行一次查詢，並檢查在上次執行查詢後是否發生所建立的單一事件。  較長的頻率可能會延遲收集事件和建立警示的時間。
@@ -80,13 +80,13 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
     
 
-如果您想要針對特定的時間範圍在處理器平均超過 90% 時發出警示，您會利用如下的[測量命令](log-analytics-search-reference.md#commands)來使用查詢，且警示規則的臨界值**大於 0**。
+如果您想要處理器的平均值超過特定時段的 90%時發出警示，您會使用類似以下的查詢與閾值警示規則**大於 0**。
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> 如果您的工作區尚未升級為新的 [Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下：`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> 如果您的工作區尚未升級至[新的記錄分析查詢語言](log-analytics-log-search-upgrade.md)，則上述查詢會變更為與第二個使用下列[測量命令](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -111,10 +111,10 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 假設您想要在任何電腦於過去 30 分鐘內發生三次處理器使用率超過 90% 時收到警示。  您可以建立詳細資料如下的警示規則。  
 
 **查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-**時間範圍︰**30 分鐘<br>
-**警示頻率︰**5 分鐘<br>
-**彙總值︰**大於 90<br>
-**警示觸發依據︰**違規總數大於 5<br>
+**時間間隔：** 30 分鐘<br>
+**警示頻率：** 5 分鐘<br>
+**彙總的值：**大於 90<br>
+**警示觸發程序為基礎：**總計破壞 Greater than 2<br>
 
 查詢會以 5 分鐘為間隔為每部電腦建立平均值。  此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。  三部電腦的資料範例如下所示。
 

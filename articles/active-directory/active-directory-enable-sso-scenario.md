@@ -4,7 +4,7 @@ description: "本文章說明整合 Azure Active Directory 與您的內部部署
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ff3e3284f34f8373a2cfd80438d94a7052bb7f5e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>使用 Azure Active Directory 來管理應用程式
 在實際工作流程或內容以外，企業對所有應用程式有兩個基本需求：
@@ -84,7 +84,7 @@ SSO 程序有兩個步驟：
 * **由 Microsoft 預先整合的應用程式和自訂應用程式** ：這些是依賴內部應用程式目錄並可獨立於 Azure AD 運作的獨立雲端應用程式。 對這些應用程式的存取會透過發行應用程式特定認證給對應於應用程式帳戶來啟用。 根據應用程式的功能，認證可以是同盟權杖或先前佈建在應用程式中帳戶的使用者名稱或密碼。
 * **內部應用程式** ：透過 Azure AD 應用程式 Proxy 發佈的應用程式，主要可啟用對內部部署應用程式的存取。 這些應用程式依賴於 Windows Server Active Directory 之類的內部部署目錄中心。 透過觸發 Proxy 來提供應用程式內容給一般使用者，同時接受內部部署上的登入需求，即可啟用對這些應用程式的存取。
 
-例如，如果使用者加入您的組織，您需要在主要登入作業的 Azure AD 中為使用者建立帳戶。 如果此使用者需要存取 Salesforce 之類的受管理應用程式，您也需要在 Salesforce 中為此使用者建立帳戶，並將它連結到 Azure 帳戶，SSO 才能運作。 當使用者離開組織時，建議您將 Azure AD 帳戶和使用者具有存取權的應用程式 IAM 存放區中的所有對應帳戶刪除。
+例如，如果使用者加入您的組織，您需要在主要登入作業的 Azure AD 中為使用者建立帳戶。 如果此使用者需要存取 Salesforce 之類的受控應用程式，您也需要在 Salesforce 中為此使用者建立帳戶，並將它連結到 Azure 帳戶，SSO 才能運作。 當使用者離開組織時，建議您將 Azure AD 帳戶和使用者具有存取權的應用程式 IAM 存放區中的所有對應帳戶刪除。
 
 ## <a name="access-detection"></a>存取偵測
 在現代企業中，IT 部門並通常不知道使用的所有雲端應用程式。 結合 Cloud App Discovery，Azure AD 為您提供偵測這些應用程式的解決方案。
@@ -110,6 +110,6 @@ Azure AD 為您提供預先整合的報告與監控功能，可讓您知道可�
 ## <a name="getting-started"></a>開始使用
 若要開始使用 Azure AD 來整合應用程式，請查看 [整合 Azure Active Directory 與應用程式入門指南](active-directory-integrating-applications-getting-started.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 

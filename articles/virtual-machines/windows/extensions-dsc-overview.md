@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 期望狀態組態擴充功能處理常式簡介
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ Azure VM 代理程式和相關聯的擴充功能是 Microsoft Azure 基礎結構
 ## <a name="terms-and-concepts"></a>詞彙和概念
 本指南假設您已熟悉下列概念︰
 
-組態 - DSC 組態文件。 
-
-節點 - DSC 組態的目標。 在本文件中，「節點」一律是指 Azure VM。
-
-組態資料 - 包含組態之環境資料的 .psd1 檔案
+* **組態**-A DSC 設定文件。 
+* **節點**-DSC 設定的目標。 在本文件中，「節點」一律是指 Azure VM。
+* **設定資料**-.psd1 檔案，其中包含組態的環境資料
 
 ## <a name="architectural-overview"></a>架構概觀
 Azure DSC 擴充功能會使用「Azure VM 代理程式」架構來傳遞、套用在 Azure VM 上執行的 DSC 組態，並針對這些組態提出報告。 DSC 擴充功能需具備一個 .zip 檔案 (其中至少包含一份設定文件)，以及一組透過 Azure PowerShell SDK 或 Azure 入口網站提供的參數。
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>記錄
 記錄檔位於︰
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[版本號碼]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>後續步驟
 如需有關 PowerShell DSC 的詳細資訊，請 [瀏覽 PowerShell 文件中心](https://msdn.microsoft.com/powershell/dsc/overview)。 

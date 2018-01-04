@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>徹底保護物聯網安全性
 物聯網 (IoT) 使得全球企業面臨獨特的安全性、隱私權及相容性挑戰。 不同於傳統網路技術 (這類問題是以軟體及其實作方式為中心)，IoT 在意的是當網路與實體世界交會時會發生什麼事。 保護 IoT 解決方案要求確保安全佈建裝置，保護這些裝置與雲端之間的連接，以及在處理和儲存期間保護雲端中資料保護的安全。 但是，會針對這類功能運作的是資源受限的裝置、根據地理位置分佈的部署，以及解決方案中的大量裝置。
@@ -47,7 +47,8 @@ Microsoft Azure 提供完整的雲端解決方案，其中結合了持續成長�
 
 Microsoft Azure IoT 套件會充分利用內建於 Azure 平台的安全性和隱私權，以及我們針對所有 Microsoft 軟體進行的安全開發和作業所提供的 SDL 和 OSA 程序。 這些程序提供基礎結構保護、網路保護，以及身分識別與管理功能，以做為任何解決方案安全性的基礎。 
 
-[IoT 套件](iot-suite-what-is-azure-iot.md)內的 [Azure IoT 中樞](../iot-hub/iot-hub-what-is-iot-hub.md)提供完全受管理的服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) 和 [Azure 串流分析](../stream-analytics/stream-analytics-introduction.md)。
+
+            [IoT 套件](iot-suite-what-is-azure-iot.md)內的 [Azure IoT 中樞](../iot-hub/iot-hub-what-is-iot-hub.md)提供完全受控服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) 和 [Azure 串流分析](../stream-analytics/stream-analytics-introduction.md)。
 
 為了以最佳方式傳達內建於 Azure IoT 套件的安全性和隱私權功能，我們已將套件細分成三個主要的安全性領域。 
 
@@ -84,7 +85,7 @@ Microsoft Azure IoT 套件會充分利用內建於 Azure 平台的安全性和�
 
 一旦資料位於雲端之後，它就能進行處理並儲存於任何使用者定義的工作流程中。 存取資料的每個部分是根據所用的儲存體服務，透過 Azure Active Directory 來控制。
 
-IoT 基礎結構所使用的所有金鑰會儲存於雲端的安全儲存體中，並具備變換能力，以防萬一金鑰需要重新佈建。 資料可以儲存在 [Azure Cosmos DB](../documentdb/documentdb-introduction.md) 或 [SQL Database](../sql-database/sql-database-faq.md) 中，讓您能夠定義所需的安全性層級。 此外，Azure 提供一種方式來監視和稽核資料的所有存取，以提醒您有任何入侵或未經授權的存取。
+IoT 基礎結構所使用的所有金鑰會儲存於雲端的安全儲存體中，並具備變換能力，以防萬一金鑰需要重新佈建。 資料可以儲存在 [Azure Cosmos DB](../cosmos-db/introduction.md) 或 [SQL Database](../sql-database/sql-database-faq.md) 中，讓您能夠定義所需的安全性層級。 此外，Azure 提供一種方式來監視和稽核資料的所有存取，以提醒您有任何入侵或未經授權的存取。
 
 ## <a name="conclusion"></a>結論
 物聯網是從您的事物開始 — 對企業最重要的事物。 IoT 可以藉由降低成本、提高營收，並使企業轉型，為企業提供令人讚嘆的價值。 這個轉型的成功，多半取決於選擇正確的 IoT 軟體和服務提供者。 這表示尋找提供者，其不僅可藉由了解企業需要與需求來催化這個轉型，也會提供使用安全性、隱私權、透明度及相容性建置的服務和軟體做為主要設計考量。 Microsoft 具備開發和部署安全軟體和服務的豐富經驗，並持續在這個新的物聯網紀元中保持領先的地位。 
@@ -96,7 +97,7 @@ Microsoft Azure IoT 套件根據設計會建置安全性措施，啟用安全的
 
 * [**Azure IoT 中樞**](https://azure.microsoft.com/services/iot-hub/)：將雲端連接到「事物」的閘道。 您可以調整為每個中樞有百萬個連接，並利用每一裝置驗證支援來處理大量資料，以協助保護您的解決方案。
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/)：一個適用於半結構化資料的可調整、已完全編製索引的資料庫服務，可管理您所佈建裝置的中繼資料，例如屬性、組態及安全性屬性。 Cosmos DB 提供高效能且高輸送量的處理、無從驗證結構描述的資料索引編製，以及豐富的 SQL 查詢介面。
-* [**Azure 串流分析**](https://azure.microsoft.com/services/stream-analytics/)：雲端中處理的即時串流讓您能夠快速開發並部署低成本的分析方案，以在第一時間提供裝置、感應器、基礎結構與應用程式的深入剖析資料。 來自這個完全受管理服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
+* [**Azure 串流分析**](https://azure.microsoft.com/services/stream-analytics/)：雲端中處理的即時串流讓您能夠快速開發並部署低成本的分析方案，以在第一時間提供裝置、感應器、基礎結構與應用程式的深入剖析資料。 來自這個完全受控服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
 * [**Azure App Service**](https://azure.microsoft.com/services/app-service/)：一個雲端平台，可供建置功能強大的 Web 和行動應用程式來連接各地的資料；不論是在雲端還是內部部署環境內。 建置吸引客戶參與的 iOS、Android 和 Windows 版行動應用程式。 與軟體即服務 (SaaS) 和企業應用程式整合，讓您能夠立即連線到數十種雲端服務和企業應用程式。 使用您愛用的語言 (.NET、Node.JS、PHP、Python 或 Java) 和整合式開發環境 (IDE) 撰寫程式碼，以前所未有的速度建置 Web 應用程式和 API。
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/)：Azure App Service 的 Logic Apps 功能可協助您將 IoT 解決方案整合到現有的企業營運系統並自動化工作流程處理。 Logic Apps 可讓開發人員設計從觸發程序開始，然後執行一系列步驟的工作流程 — 使用功能強大的連接器來與您的商務程序整合的規則和動作。 Logic Apps 提供與 SaaS、雲端架構及內部部署應用程式的廣大生態系統的即時連接。
 * [**Azure Blob 儲存體**](https://azure.microsoft.com/services/storage/)：可靠且符合經濟效益的雲端儲存體，適用於裝置要傳送到雲端的資料。

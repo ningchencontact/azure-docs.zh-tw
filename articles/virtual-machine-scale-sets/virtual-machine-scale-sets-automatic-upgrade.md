@@ -3,7 +3,7 @@ title: "使用 Azure 虛擬機器擴展集進行作業系統自動升級 | Micro
 description: "了解如何在擴展集中的 VM 執行個體上自動升級作業系統"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 虛擬機器擴展集的作業系統自動升級
 
@@ -39,10 +39,10 @@ ms.lasthandoff: 11/03/2017
 ## <a name="preview-notes"></a>預覽注意事項 
 在預覽時，適用下列限制和約束：
 
-- 作業系統自動升級僅支援[三個作業系統 SKU](#supported-os-images)。 沒有任何 SLA 或保證。 建議您不要在預覽期間，對實際執行的重要工作負載使用自動升級。
+- 自動的作業系統升級僅支援[四個 OS Sku](#supported-os-images)。 沒有任何 SLA 或保證。 建議您不要在預覽期間，對實際執行的重要工作負載使用自動升級。
 - 即將推出 Service Fabric 叢集中的擴展集支援。
 - 虛擬機器擴展集的作業系統自動升級目前**不**支援 Azure 磁碟加密 (目前處於預覽狀態)。
-- 入口網站體驗即將推出。
+- 即將推出入口網站的體驗。
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>註冊使用作業系統自動升級
@@ -76,11 +76,13 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 目前支援下列的 SKU (之後將會新增更多)：
     
-| 發佈者               | 提供項目         |  SKU               | 版本  |
+| 發行者               | 提供項目         |  SKU               | 版本  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04-LTS          | 最新   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | 最新   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | 最新   |
-| Canonical               | UbuntuServer  | 16.04-LTS          | 最新   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | 最新   |
+
 
 
 ## <a name="application-health"></a>應用程式健康情況
@@ -90,6 +92,15 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 如果擴展集設定為使用多個放置群組，則需要用到使用[標準負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)的探查。
 
+### <a name="important-keep-credentials-up-to-date"></a>重要事項： 保持認證
+如果規模集使用任何認證來存取外部資源，例如如果已設定的 VM 延伸模組使用 SAS 權杖的儲存體帳戶，您必須確定憑證維持最新狀態。 如果任何認證，包括憑證和權杖已過期，升級會失敗，而且第一個批次的 Vm 會處於失敗狀態。
+
+復原 Vm，並重新啟用自動作業系統升級，資源驗證失敗時的建議的步驟如下：
+
+* 重新產生語彙基元 （或任何其他認證） 傳遞至您的延伸模組。
+* 請從 VM 內用來向外部實體的任何認證為最新狀態。
+* 小數位數組模型中的擴充功能更新任何新的權杖。
+* 部署更新的小數位數組，這會更新包括失敗的所有 VM 執行個體。 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>將自訂負載平衡器探查設定為擴展集上的應用程式健康情況探查
 最佳作法是，針對擴展集健康情況明確地建立負載平衡器探查。 系統可能會針對現有的 HTTP 探查或 TCP 探查使用相同的端點，但健康情況探查可能會需要不同於傳統負載平衡器探查的行為。 例如，如果執行個體的負載太高，傳統負載平衡器探查可能會傳回狀況不良，因而可能不適用於判斷作業系統自動升級期間的執行個體健康情況。 將探查設定為具有不到兩分鐘的高探查率。

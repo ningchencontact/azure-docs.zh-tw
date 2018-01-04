@@ -4,7 +4,7 @@ description: "逐步解說如何使用擴充屬性、自訂屬性，並將其包
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中建立和使用自訂屬性
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>使用自訂屬性，以透過自訂原則來收集您的客戶在 Azure Active Directory B2C 中的相關資訊
-您的 Azure Active Directory (Azure AD) B2C 目錄隨附一組內建屬性：名字、姓氏、城市、郵遞區號、userPrincipalName 等等。您通常必須建立自有屬性。  例如：
+您的 Azure Active Directory (Azure AD) B2C 目錄隨附一組內建屬性：名字、姓氏、城市、郵遞區號、userPrincipalName 等等。您通常必須建立自有屬性。  例如︰
 * 面對客戶的應用程式需要保有「LoyaltyNumber」之類的屬性。
 * 識別提供者擁有必須儲存的唯一使用者識別碼，例如「uniqueUserGUID」。
 * 自訂使用者旅程需要保有使用者的狀態，例如「migrationStatus」。
@@ -53,7 +53,7 @@ Azure AD B2C 可讓您擴充每個使用者帳戶所儲存的屬性組合。 您
 
 1. 開啟瀏覽工作階段並瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後使用您想要設定之 B2C 目錄的系統管理認證來登入。
 1. 在左方的導覽功能表中，按一下 [Azure Active Directory]。 您可能需要選取 [更多服務 >] 才能找到它。
-1. 選取 應用程式註冊，然後按一下新增應用程式註冊
+1. 選取 [應用程式註冊]，然後按一下 [新增應用程式註冊]
 1. 提供下列建議項目︰
   * 指定 Web 應用程式的名稱：**WebApp-GraphAPI-DirectoryExtensions**
   * 應用程式類型︰Web 應用程式/API

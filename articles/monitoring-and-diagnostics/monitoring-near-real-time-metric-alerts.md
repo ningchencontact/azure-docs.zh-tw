@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>近乎即時計量警示 (預覽)
 Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量警示 (預覽)。 此功能目前為公開預覽狀態。
@@ -38,6 +38,7 @@ Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量�
 近乎即時計量警示支援的完整資源類型清單：
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,31 @@ Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量�
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>維度的標準幾近即時度量警示
+接近即時度量警示支援維度度量的警示。 維度是篩選您的權限層級度量的方式。 接近即時的度量維度度量的警示類型都支援下列資源
+
+* Microsoft.ApiManagement/service
+* Microsoft.storage / （僅支援美國地區的儲存體帳戶）
+* Microsoft.Storage/storageAccounts/services （僅支援美國地區的儲存體帳戶）
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>建立近乎即時計量警示
 目前，近乎即時計量警示只能透過 Azure 入口網站來建立。 即將支援透過 PowerShell、命令列介面 (CLI) 與 Azure 監視器 REST API 來設定近乎即時計量警示。
 
-1. 在 [入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取。 此資源應該是[上一節](#what-resources-can-i-create-near-real-time-metric-alerts-for)所列的其中一種資源類型。 您也可以從 [監視器] > [警示] 針對目前支援的所有資源類型執行相同的動作。
+接近即時度量警示建立警示功能已移至新**Alerts(Preview)**體驗。 即使目前的警示頁面上顯示**接近即時度量加入警示**，將您重新導向至新的體驗。
 
-2. 選取 [監視] 區段底下的 [警示] 或 [警示規則]。 不同資源的文字和圖示會有些許不同。
-   ![監視](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. 按一下 [加入近乎即時計量警示 (預覽)] 命令。 若該命令呈現灰色，請確定您已在篩選器中選取該資源。
-
-    ![[加入近乎即時計量警示] 按鈕](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. 為您的警示規則命名 ([名稱])，選擇將會顯示在電子郵件通知中的 [描述]。
-5. 選取您要監視的 [計量]，然後為該計量選擇 [條件]、[時間彙總], 與 [閾值] 值。 (選擇性) 選取您要監視的另一個 [計量]，然後為第二個計量選擇 [條件]、[時間彙總], 與 [閾值] 值。 
-
-    ![加入近乎即時計量警示1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![加入近乎即時計量警示2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. 選擇警示觸發之前，計量規則必須滿足的 [期間]。 例如，如果您使用「超過最後 5 分鐘」期間，且您的警示會尋找高於 80% 的 CPU (與超過 500 MB 的 NetworkIn)，當 CPU 已持續 5 分鐘高於 80%，警示就會觸發。 一旦發生第一次觸發，它會在 CPU 持續 5 分鐘低於 80 % 時再次觸發。 系統會根據 [評估頻率] 來評估警示
-
-
-6. 從下拉式清單挑選適當的 [嚴重性]。
-
-7. 指定您要使用新的或現有的 [動作群組]。
-
-8. 若選擇建立**新的** 動作群組，請為該動作群組指定一個簡短名稱，指定動作 (簡訊、電子郵件、Webhook) 並填寫個別詳細資料。
-
-
-8. 完成後選取 [確定]  建立警示。   
-
-在幾分鐘之內，警示會開始作用，且先前所述觸發。
+您可以建立使用所述的步驟幾近即時度量警示[這裡](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。
 
 ## <a name="managing-near-real-time-metric-alerts"></a>管理近乎即時計量警示
-一旦建立警示，您可以選取警示，並且︰
+一旦您建立**接近即時度量警示**，它可以使用所述的步驟來管理[這裡](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)。
 
-* 檢視圖表，其中顯示計量臨界值與前一天的實際值。
-* 編輯或刪除警示。
-* 如果您想要暫時停止或恢復接收警示的通知，可以**停用**或**啟用**警示。
+## <a name="next-steps"></a>後續步驟
 
-
-
+* [深入了解新的警示 （預覽） 體驗](monitoring-overview-unified-alerts.md)
+* [深入了解 Azure 警示 （預覽） 中的記錄檔警示](monitor-alerts-unified-log.md)
+* [深入了解 Azure 中的警示](monitoring-overview-alerts.md)

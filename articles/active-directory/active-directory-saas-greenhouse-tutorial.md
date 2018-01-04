@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Greenhouse 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d3aba4aab8ded8749db2bf8197f57a6763008c60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 37f892439d514b642c1b0cf1a14a3da6084d9ab4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>教學課程：Azure Active Directory 與 Greenhouse 整合
 
@@ -48,13 +48,13 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Greenhouse
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-greenhouse-from-the-gallery"></a>從資源庫新增 Greenhouse
-若要設定 Greenhouse 與 Azure AD 整合，您需要從資源庫將 Greenhouse 新增至受管理的 SaaS 應用程式清單。
+若要設定 Greenhouse 與 Azure AD 整合，您需要從資源庫將 Greenhouse 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Greenhouse，請執行下列步驟：**
 
@@ -143,7 +143,7 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-greenhouse-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-greenhouse-tutorial/create_aaduser_02.png)
 
@@ -161,7 +161,7 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-greenhouse-test-user"></a>建立 Greenhouse 測試使用者
 
@@ -174,7 +174,7 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 **Greenhouse** 公司網站。
 
-2. 在頂端的功能表中，按一下 設定，然後按一下使用者。
+2. 在頂端的功能表中，按一下 [設定]，然後按一下 [使用者]。
    
    ![使用者](./media/active-directory-saas-greenhouse-tutorial/ic790791.png "使用者")
 
@@ -188,7 +188,7 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 
    a. 在 [輸入使用者電子郵件]  文字方塊中，輸入您要佈建之有效 Azure Active Directory 帳戶的電子郵件地址。
 
-   b.這是另一個 C# 主控台應用程式。 按一下 [儲存] 。    
+   b. 按一下 [檔案] 。    
    
       >[!NOTE]
       >Azure Active Directory 帳戶的持有者會收到一封包含連結的電子郵件，以在啟用帳戶前進行確認。

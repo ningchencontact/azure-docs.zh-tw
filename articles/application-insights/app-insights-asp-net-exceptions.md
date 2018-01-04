@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 在 Web 應用程式中診斷例外狀況
 [Application Insights](app-insights-overview.md) 會回報您即時 Web 應用程式中的例外狀況。 您可以在用戶端和伺服器端讓失敗的要求與例外狀況及其他事件相互關聯，以便快速地診斷原因。
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/01/2017
 ![CodeLens 的例外狀況通知。](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>使用 Azure 入口網站診斷失敗
-Application Insights 隨附策劃的 APM 體驗，可協助您診斷受監視應用程式中的失敗。 若要開始，請按一下位於 [調查] 區段 Application Insights 資源功能表中的 [失敗] 選項。 您應該會看到全螢幕檢視，其中顯示要求的失敗率趨勢、有多少個失敗的要求，以及多少個使用者受到影響。 在右邊，您會看到所選失敗中作業特定的一些最實用分佈，包括前 3 個回應代碼、前 3 個例外狀況類型，以及前 3 個失敗相依性類型。 
+Application Insights 隨附策劃的 APM 體驗，可協助您診斷受監視應用程式中的失敗。 若要開始，請按一下位於 [調查] 區段 Application Insights 資源功能表中的 [失敗] 選項。 您應該會看到全螢幕檢視，其中顯示要求的失敗率趨勢、有多少個失敗的要求，以及多少個使用者受到影響。 右邊您會看到一些最有用的分佈於所選特定失敗的作業，包括前 3 名回應碼、 前 3 名例外狀況類型，以及前 3 失敗相依性類型。 
 
 ![失敗分級檢視 ([作業] 索引標籤)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -301,7 +301,7 @@ VB
 
 [範例](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-有一些無法處理的例外狀況篩選器案例。 例如：
+有一些無法處理的例外狀況篩選器案例。 例如︰
 
 * 從控制器建構函式擲回的例外狀況。
 * 從訊息處理常式擲回的例外狀況。

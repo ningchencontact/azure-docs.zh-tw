@@ -4,7 +4,7 @@ description: "在 Windows Server 2012 R2 中使用 Active Directory Federation S
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -69,7 +69,7 @@ ms.lasthandoff: 11/27/2017
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>第 1 部分：啟用 Azure Active Directory 裝置註冊
 請依照檢查清單中的步驟來啟用及設定 Azure Active Directory 裝置註冊服務。
 
-| 工作 | 參考 | 
+| Task | 參考 | 
 | --- | --- |
 | 在 Azure Active Directory 租用戶中啟用裝置註冊，以允許裝置加入工作場所。 預設不會為服務啟用 Azure Multi-Factor Authentication。 不過，建議您在註冊裝置時使用 Multi-Factor Authentication。 在 Active Directory 註冊服務中啟用 Multi-Factor Authentication 之前，請確定已為 Multi-Factor Authentication 提供者設定 AD FS。 |[啟用 Azure Active Directory 裝置註冊](active-directory-device-registration-get-started.md)| 
 |裝置透過尋找已知的 DNS 記錄來探索您的 Azure Active Directory 裝置註冊服務。 請設定您的公司 DNS，以便讓裝置探索您的 Azure Active Directory 裝置註冊服務。 |[設定 Azure Active Directory 裝置註冊探索](active-directory-device-registration-get-started.md)| 
@@ -77,13 +77,13 @@ ms.lasthandoff: 11/27/2017
 
 ## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>第 2 部分：部署和設定 Windows Server 2012 R2 Active Directory Federation Services，以及設定與 Azure AD 的同盟關係
 
-| 工作 | 參考 |
+| Task | 參考 |
 | --- | --- |
 | 使用 Windows Server 2012 R2 結構描述延伸模組來部署 Active Directory Domain Services。 您不需要將任何網域控制站升級到 Windows Server 2012 R2。 結構描述升級是唯一的要求。 |[升級您的 Active Directory Domain Services 結構描述](#upgrade-your-active-directory-domain-services-schema) |
 | 裝置透過尋找已知的 DNS 記錄來探索您的 Azure Active Directory 裝置註冊服務。 請設定您的公司 DNS，以便讓裝置探索您的 Azure Active Directory 裝置註冊服務。 |[準備您的 Active Directory 支援裝置](#prepare-your-active-directory-to-support-devices) |
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>第 3 部分：在 Azure AD 中啟用裝置回寫
-| 工作 | 參考 |
+| Task | 參考 |
 | --- | --- |
 | 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。 完成之後，請返回本指南。 |[在 Azure AD Connect 中啟用裝置回寫](#upgrade-your-active-directory-domain-services-schema) |
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/27/2017
 ## <a name="part-5-verification"></a>第 5 部分：驗證
 部署程序現已完成，您可以試試一些案例。 請使用下列連結來進行服務實驗以熟悉其功能。
 
-| 工作 | 參考 |
+| Task | 參考 |
 | --- | --- |
 | 使用 Azure Active Directory 裝置註冊服務將一些裝置加入到您的工作場所。 您可以將 iOS、Windows 及 Android 裝置加入。 |[使用 Azure Active Directory 裝置註冊服務將裝置加入到您的工作場所](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | 使用系統管理員入口網站來檢視及啟用或停用已註冊的裝置。 在這項工作中，您將使用系統管理員入口網站來檢視一些已註冊的裝置。 |[Azure Active Directory 裝置註冊服務概觀](active-directory-device-registration-get-started.md) |
@@ -101,19 +101,13 @@ ms.lasthandoff: 11/27/2017
 | 現在使用者可以註冊其裝置，您可以在 AD FS 中建立僅允許已註冊裝置的應用程式存取原則。 在這項工作中，您需建立應用程式存取規則和自訂拒絕存取訊息。 |[建立應用程式存取原則和自訂的拒絕存取訊息](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>整合 Azure Active Directory 與內部部署 Active Directory
-此步驟可協助您使用 Azure AD Connect 將 Azure AD 租用戶與內部部署 Active Directory 整合。 雖然在 Azure 傳統入口網站中都有提供這些步驟，但請記下本節中所列的一切特殊指示。
 
-1. 使用在 Azure AD 中擔任全域管理員的帳戶來登入 Azure 傳統入口網站。
-2. 在左窗格中選取 [Active Directory] 。
-3. 在 [目錄]  索引標籤中，選取您的目錄。
-4. 選取 [目錄整合]  索引標籤。
-5. 在 [部署及管理] 區段底下，依照步驟 1 到 3 將 Azure Active Directory 與您的內部部署目錄整合。
-   
-   1. 新增網域。
-   2. 使用[自訂 Azure AD Connect 安裝](connect/active-directory-aadconnect-get-started-custom.md)中的指示來安裝並執行 Azure AD Connect。
-   3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。
-   
-   此外，依照[自訂 Azure AD Connect 安裝](connect/active-directory-aadconnect-get-started-custom.md)所述，設定與 AD FS 的同盟。
+**請參閱：**
+
+- [整合內部部署目錄與 Azure Active Directory](./connect/active-directory-aadconnect.md) -若要檢閱的概念性資訊。
+
+- [自訂安裝的 Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) -如需安裝指示。
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>升級您的 Active Directory 網域服務結構描述
 > [!NOTE]

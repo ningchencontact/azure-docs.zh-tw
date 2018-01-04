@@ -4,7 +4,7 @@ description: "了解如何在 Azure VM (執行以 Resource Manager 部署範本�
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f3fe9751467a1fc34f4e9d02855c4aff307424a3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>在 Azure 中的 Windows VM 上安裝及設定 MongoDB
-[MongoDB](http://www.mongodb.org) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。 這篇文章會逐步引導您安裝和設定 Azure 中 Windows Server 2012 R2 虛擬機器 (VM) 上的 MongoDB。 您也可以[在 Azure 中的 Linux VM 上安裝 MongoDB](../linux/install-mongodb.md)。
+[MongoDB](http://www.mongodb.org) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。 這篇文章會引導您安裝和設定 Azure 中的 Windows Server 2016 虛擬機器 (VM) 上 MongoDB。 您也可以[在 Azure 中的 Linux VM 上安裝 MongoDB](../linux/install-mongodb.md)。
 
 ## <a name="prerequisites"></a>必要條件
 在安裝及設定 MongoDB 之前，您必須建立 VM，並且最好將資料磁碟新增至其中。 請參閱下列文章，以建立 VM 並且新增資料磁碟︰
@@ -36,37 +36,38 @@ ms.lasthandoff: 10/11/2017
 > MongoDB 安全性功能，例如驗證和 IP 位址繫結，均非預設為已啟用。 安全性功能應該在將 MongoDB 部署到生產環境前加以啟用。 如需詳細資訊，請參閱 [MongoDB 安全性和驗證](http://www.mongodb.org/display/DOCS/Security+and+Authentication)。
 
 
-1. 使用遠端桌面連線到 VM 之後，請從 VM 上的 [開始] 功能表開啟 Internet Explorer。
+1. 您已連接到您使用遠端桌面的 VM 之後，請從工作列開啟 Internet Explorer。
 2. Internet Explorer 第一次開啟時，選取 [使用建議的安全性、隱私權與相容性設定]，然後按一下 [確定]。
 3. 預設會啟用 Internet Explorer 增強式安全性設定。 將 MongoDB 網站新增至允許的網站清單︰
    
    * 選取右上方的 [工具] 圖示。
    * 在 [網際網路選項] 中，選取 [安全性] 索引標籤，然後選取 [受信任的網站] 圖示。
-   * 按一下 [網站] 按鈕。 將 *https://\*.mongodb.org* 新增至受信任的網站清單，然後關閉對話方塊。
+   * 按一下 [網站] 按鈕。 新增*https://\*。 mongodb.com*至信任的網站，然後關閉對話方塊中的清單。
      
      ![設定 Internet Explorer 安全性設定](./media/install-mongodb/configure-internet-explorer-security.png)
-4. 瀏覽至 [MongoDB - 下載](http://www.mongodb.org/downloads)頁面 (http://www.mongodb.org/downloads)。
-5. 如果需要，選取 **Community Server** 版本，然後選取目前最新的穩定版本 Windows Server 2008 R2 64 位元和更新版本。 若要下載安裝程式，請按一下 [下載 (msi)]。
+4. 瀏覽至[MongoDB-下載](http://www.mongodb.com/downloads)頁面 (http://www.mongodb.com/downloads)。
+5. 如有需要選取**Community 伺服器**版本，然後選取目前最新的穩定版本*Windows Server 2008 R2 64 位元和更新版本*。 若要下載安裝程式，請按一下 [下載 (msi)]。
    
     ![下載 MongoDB 安裝程式](./media/install-mongodb/download-mongodb.png)
    
     下載完成之後，請執行安裝程式。
 6. 閱讀並接受授權合約。 當系統提示時，選取 [完整] 安裝。
-7. 在最後畫面上，按一下 [安裝]。
+7. 如有需要，您可以選擇同時安裝指南針，MongoDB 的圖形介面。
+8. 在最後畫面上，按一下 [安裝]。
 
 ## <a name="configure-the-vm-and-mongodb"></a>設定 VM 和 MongoDB
 1. 路徑變數不會被 MongoDB 安裝程式更新。 在您的路徑變數中沒有 MongoDB `bin` 位置，您必須在每次使用 MongoDB 可執行檔時指定完整路徑。 若要將位置新增至路徑變數︰
    
    * 使用滑鼠右鍵按一下 [開始] 功能表，然後選取 [系統]。
-   * 按一下 進階系統設定，然後按一下環境變數。
-   * 在 系統變數 底下，選取 路徑，然後按一下編輯。
+   * 按一下 [進階系統設定]，然後按一下 [環境變數]。
+   * 在 [系統變數] 底下，選取 [路徑]，然後按一下 [編輯]。
      
      ![設定路徑變數](./media/install-mongodb/configure-path-variables.png)
      
      將路徑新增至您的 MongoDB `bin` 資料夾。 MongoDB 通常安裝在 C:\Program Files\MongoDB。 請確認您的 VM 上的安裝路徑。 下列範例會將預設 MongoDB 安裝位置新增至 `PATH` 變數︰
      
      ```
-     ;C:\Program Files\MongoDB\Server\3.2\bin
+     ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
@@ -92,8 +93,7 @@ ms.lasthandoff: 10/11/2017
 4. 為了更穩固的 MongoDB 體驗，請安裝 `mongod.exe` 做為服務。 建立服務表示您不需要在每次想要使用 MongoDB 時都保持命令提示字元執行。 如下所示建立服務，據以調整您的資料和記錄檔目錄的路徑︰
    
     ```
-    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log `
-        --logappend  --install
+    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
     ```
    
     上述命令會建立一個名為 MongoDB 的服務，其說明為 "Mongo DB"。 同時指定下列參數：

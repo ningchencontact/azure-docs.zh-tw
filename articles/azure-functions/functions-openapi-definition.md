@@ -13,21 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>為函式建立 OpenAPI 定義
 REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.io/) 檔案) 來描述。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。
 
 在本教學課程中，您會建立一個函式，來判斷風力渦輪機的緊急修復是否符合成本效益。 然後，您會為函式應用程式建立 OpenAPI 定義，以便從其他應用程式和服務呼叫函式。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立函式
@@ -48,9 +48,17 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
 本教學課程使用 HTTP 所觸發的函式，該函式接受兩個參數：修復渦輪機的估計時間 (以小時為單位)，以及渦輪機的容量 (以千瓦為單位)。 然後，此函式會計算修復的費用，以及渦輪機在 24 小時內的收入。
 
-1. 展開函式應用程式，按一下 [函式] 旁的 [+] 按鈕，然後按一下 [HTTPTrigger] 範本。 輸入 `TurbineRepair` 作為函式**名稱**，然後按一下 [建立]。
+1. 展開您的函式應用程式，然後選取 **+** 旁邊**函式**。 如果這是您函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。 
 
-    ![函式應用程式刀鋒視窗，Functions +](media/functions-openapi-definition/add-function.png)
+    ![Azure 入口網站中的 Functions 快速入門](media/functions-openapi-definition/add-first-function.png)
+
+2. 在 搜尋 欄位中，輸入`http`，然後選擇  **C#** HTTP 觸發程序範本。 
+ 
+    ![選擇 HTTP 觸發程序](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. 型別`TurbineRepair`函式**名稱**，選擇`Function`如**[驗證層級](functions-bindings-http-webhook.md#http-auth)**，然後選取**建立**.  
+
+    ![建立 HTTP 觸發函式](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. 使用下列程式碼取代 run.csx 檔案的內容，然後按一下 [儲存]：
 
@@ -90,7 +98,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
     ```
     此函式程式碼會傳回 `Yes` 或 `No` 的訊息，指出緊急修復是否符合成本效益，以及渦輪機所代表的收入機會與修復渦輪機的成本。 
 
-1. 若要測試函式，請按一下最右邊的 測試，將 測試 索引標籤展開。針對 要求本文 輸入下列值，然後按一下執行。
+1. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。針對 [要求本文] 輸入下列值，然後按一下 [執行]。
 
     ```json
     {
@@ -117,7 +125,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
     1. 在新 HTTP 觸發程序函式的 [整合] 索引標籤中，將 [允許的 HTTP 方法] 變更為 [選取的方法]
 
-    1. 在 [選取的 HTTP 方法] 中，清除 [POST] 以外的所有選項。
+    1. 在**選取 HTTP 方法**，清除每個選項除了**POST**，然後按一下 **儲存**。
 
         ![選取的 HTTP 方法](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -264,7 +272,7 @@ securityDefinitions:
 
 1. 回到 API 定義：**function-demo-energy** > [平台功能] > [API 定義]。
 
-1. 在右窗格中，按一下 [變更驗證]，輸入您所複製的 API 金鑰，然後按一下 [驗證]。
+1. 在右窗格中，按一下 **驗證**，輸入您複製，然後按一下的 API 金鑰**驗證**。
 
     ![使用 API 金鑰進行驗證](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -278,7 +286,7 @@ securityDefinitions:
 
     注意 UI 如何使用 API 定義中的描述。
 
-1. 按一下 [傳送要求]，然後按一下 [Pretty] 索引標籤以查看輸出。
+1. 按一下**傳送要求**，然後按一下 **相當**以查看 輸出 索引標籤。
 
     ![傳送要求](media/functions-openapi-definition/send-request.png)
 

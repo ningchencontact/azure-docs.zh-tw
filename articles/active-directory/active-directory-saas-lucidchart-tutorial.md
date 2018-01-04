@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Lucidchart 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 2dea669f03c893632c08d30feeb3173efc2d8243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d7c45904fafa5e92a8eb8f8a15c78280f821b1ac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>教學課程：Azure Active Directory 與 Lucidchart 整合
 
@@ -47,13 +47,13 @@ Lucidchart 與 Azure AD 整合有下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Lucidchart
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-lucidchart-from-the-gallery"></a>從資源庫新增 Lucidchart
-若要進行 Lucidchart 與 Azure AD 整合的設定，您需要從資源庫將 Lucidchart 新增至受管理 SaaS 應用程式清單中。
+若要進行 Lucidchart 與 Azure AD 整合的設定，您需要從資源庫將 Lucidchart 新增至受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Lucidchart，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Lucidchart**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_search.png)
 
-5. 在結果面板中，選取 Lucidchart，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Lucidchart]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_addfromgallery.png)
 
@@ -132,11 +132,11 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
 9. 在 [SAML 驗證設定]  對話方塊頁面上執行下列步驟：
    
-    a. 選取 啟用 SAML 驗證，然後按一下選用。
+    a. 選取 [啟用 SAML 驗證]，然後按一下 [選用]。
 
     ![SAML 驗證設定](./media/active-directory-saas-lucidchart-tutorial/ic791192.png "SAML 驗證設定")
  
-    b.這是另一個 C# 主控台應用程式。 在 網域 文字方塊中，輸入您的網域，然後按一下變更憑證。 
+    b. 在 [網域] 文字方塊中，輸入您的網域，然後按一下 [變更憑證]。 
 
     ![變更憑證](./media/active-directory-saas-lucidchart-tutorial/ic791193.png "變更憑證")
  
@@ -144,7 +144,7 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
     ![上傳中繼資料](./media/active-directory-saas-lucidchart-tutorial/ic791194.png "上傳中繼資料")
  
-    d. 選取 Automatically Add new users to the team\(自動新增使用者至小組\)，然後按一下儲存變更。
+    d. 選取 [Automatically Add new users to the team]\(自動新增使用者至小組\)，然後按一下 [儲存變更]。
 
     ![儲存變更](./media/active-directory-saas-lucidchart-tutorial/ic791195.png "儲存變更")
 
@@ -176,11 +176,11 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-lucidchart-test-user"></a>建立 Lucidchart 測試使用者
 

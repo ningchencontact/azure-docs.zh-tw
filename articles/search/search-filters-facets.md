@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>如何在 Azure 搜尋服務中建置 Facet 篩選條件 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/25/2017
 
 Facet 是動態且會在查詢中傳回。 搜尋回應會為它們提供用來瀏覽結果的 Facet 類別。 如果您不熟悉 Facet，下列範例是多面向導覽結構的說明。
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 多面向導覽的新手，想要更詳細說明嗎？ 請參閱[如何在 Azure 搜尋服務中實作多面向導覽](search-faceted-navigation.md)。
 
@@ -48,7 +48,7 @@ Facet 可透過單一值欄位以及集合來計算。 最適合在多面向導�
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (請參閱本文稍後的[如何為複雜資料類型設定 Facet](#facet-complex-fields))。
++ Edm.Collections
 + 數值欄位類型：Edm.Int32、Edm.Int64、Edm.Double
 
 您無法在多面向導覽中使用 Edm.GeographyPoint。 Facet 是從人類可讀取的文字或數字建構的。 因此，不支援針對地理座標使用 Facet。 您必須依位置來為城市或區域欄位設定 Facet。
@@ -127,7 +127,7 @@ if (categoryFacet != "")
 
 儘管這是一個常見使用案例，但並不是多面向導覽目前預設提供的功能。 需要靜態 Facet 的開發人員通常可藉由發出兩個篩選查詢來解決限制：一個將範圍設為結果，另一個則基於導覽目的用來建立靜態的 Facet 清單。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)

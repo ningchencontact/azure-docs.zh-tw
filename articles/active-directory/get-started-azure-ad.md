@@ -3,7 +3,7 @@ title: "開始使用 Azure Active Directory | Microsoft Docs"
 description: "在 Azure Active Diretory 中取得授權、新增網域名稱、建立自訂登入分頁，以及新增自助式密碼重設"
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>開始使用 Azure AD
 現代的身分識別管理需要可調整、一致的可靠性，以確保只有經過驗證的使用者才可使用應用程式和服務。 為了充分支援使用者的身分識別管理需求，IT 需要設法允許存取已核准、公開的軟體即服務 (SaaS) 應用程式、設法裝載內部的企業營運應用程式，甚至設法加強內部部署應用程式開發和使用方式。 這些需求全都指出需要有一套雲端式身分識別管理解決方案。      

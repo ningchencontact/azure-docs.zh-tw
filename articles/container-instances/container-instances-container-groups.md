@@ -6,33 +6,33 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 568a99d44a5a32339d438ed1025670d12ecce791
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
+# <a name="container-groups-in-azure-container-instances"></a>Azure 容器執行個體中的容器群組
 
-在 Azure Container Instances 中，最上層的資源就是容器群組。 本文說明容器群組為何，以及這些群組能夠實現哪些類型的案例。
+Azure 容器執行個體的最上層資源*容器群組*。 本文說明的案例，可以讓型別與容器群組為何。
 
 ## <a name="how-a-container-group-works"></a>容器群組的運作方式
 
-容器群組是容器的集合，這些容器會排程在相同的主機電腦上，並共用生命週期、區域網路和存放磁碟區。 容器群組類似於 [Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/) 和 [DC/OS](https://dcos.io/docs/1.9/deploying-services/pods/) 中的 *Pod* 概念。
+容器群組是取得排定在同一部主機機器的容器的集合。 容器群組中的容器共用的生命週期、 區域網路和存放磁碟區。 類似於的概念*pod*中[Kubernetes] [ kubernetes-pod]和[DC/OS][dcos-pod]。
 
 下圖舉例說明包含多個容器的容器群組。
 
-![容器群組範例][container-groups-example]
+![容器群組圖表][container-groups-example]
 
-請注意：
+此群組的範例容器：
 
-- 此群組排程在單一主機電腦上。
-- 此群組會公開單一的公用 IP 位址，以及一個公開的連接埠。
-- 此群組是由兩個容器所組成。 一個容器接聽連接埠 80，另一個容器接聽連接埠 5000。
-- 此群組包含兩個 Azure 檔案共用來作為磁碟區掛接，而且每個容器會在本機掛接其中一個共用。
+* 會排定在單一主機上。
+* 會公開單一公用 IP 位址，與一個公開的連接埠。
+* 包含兩個容器。 一個容器接聽連接埠 80，另一個容器接聽連接埠 5000。
+* 包含兩個 Azure 檔案共用做為磁碟區掛接和每個容器裝載其中一個在本機的共用資料夾。
 
 ### <a name="networking"></a>網路
 
@@ -44,16 +44,21 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="common-scenarios"></a>常見案例
 
-如果您想要將單一功能的工作分割成少量的容器映像，以便由不同小組來提供並讓這些映像具有不同的資源需求，則多個容器的群組會很實用。 使用範例可能包括：
+如果您想要將單一功能的工作分割成少量的容器映像，以便由不同小組來提供並讓這些映像具有不同的資源需求，則多個容器的群組會很實用。
 
-- 一個應用程式容器和一個記錄容器。 記錄容器收集主應用程式所輸出的記錄和計量，並將這些資料寫入到長期存放區。
-- 一個應用程式和一個監視容器。 監視容器會定期地向應用程式發出要求，以確保它會保持執行狀態並正確回應，如果沒有正確回應則引發警示。
-- 一個容器提供 Web 應用程式，一個容器從原始檔控制提取最新內容。
+使用範例可能包括：
+
+* 一個應用程式容器和一個記錄容器。 記錄容器收集主應用程式所輸出的記錄和計量，並將這些資料寫入到長期存放區。
+* 一個應用程式和一個監視容器。 定期監視容器會以確保它正在執行，並正確地回應，並引發警示，如果不是應用程式提出要求。
+* 一個容器提供 Web 應用程式，一個容器從原始檔控制提取最新內容。
 
 ## <a name="next-steps"></a>後續步驟
 
 了解如何使用 Azure Resource Manager 範本來[部署多個容器的群組](container-instances-multi-container-group.md)。
 
 <!-- IMAGES -->
-
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
+
+<!-- LINKS - External -->
+[dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

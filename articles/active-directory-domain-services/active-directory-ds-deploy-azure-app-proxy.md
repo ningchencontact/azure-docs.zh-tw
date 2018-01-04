@@ -1,10 +1,10 @@
 ---
 title: "Azure Active Directory 網域服務︰部署 Azure Active Directory 應用程式 Proxy | Microsoft Docs"
-description: "在 Active Directory Domain Services 受管理網域上使用 Azure AD 應用程式"
+description: "在 Active Directory Domain Services 受控網域上使用 Azure AD 應用程式"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory-ds
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure AD 網域服務受管理網域上部署 Azure AD 應用程式
+# <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
 
 如果您是 Azure AD 應用程式 Proxy 的新手，可至下列文章：[如何為內部部署應用程式提供安全的遠端存取](../active-directory/active-directory-application-proxy-get-started.md)深入了解這個功能。
@@ -58,13 +58,13 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>工作 2 - 佈建已加入網域的 Windows 伺服器來部署 Azure AD 應用程式 Proxy 連接器
 您需要可安裝 Azure AD 應用程式 Proxy 連接器的已加入網域 Windows Server 虛擬機器。 對於某些應用程式，您可以選擇佈建已安裝連接器的多部伺服器。 這個部署選項為您提供更高的可用性，並協助處理更大量的驗證負載。
 
-在相同的虛擬網路 (或連線/對等互連的虛擬網路) 上佈建連接器伺服器，其中已您啟用 Azure AD 網域服務受管理的網域。 同樣地，裝載您透過應用程式 Proxy 發佈之應用程式的伺服器需要安裝在相同的 Azure 虛擬網路上。
+在相同的虛擬網路 (或連線/對等互連的虛擬網路) 上佈建連接器伺服器，其中已您啟用 Azure AD 網域服務受控網域。 同樣地，裝載您透過應用程式 Proxy 發佈之應用程式的伺服器需要安裝在相同的 Azure 虛擬網路上。
 
-若要佈建連接器伺服器，請依照名為[將 Windows 虛擬機器加入受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的工作進行操作。
+若要佈建連接器伺服器，請依照名為[將 Windows 虛擬機器加入受控網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的工作進行操作。
 
 
 ## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>工作 3 - 安裝與註冊 Azure AD 應用程式 Proxy 連接器
-在過去，您會佈建 Windows Server 虛擬機器，並將它加入受管理的網域。 在這個工作中，您會在此虛擬機器上安裝 Azure AD 應用程式 Proxy 連接器。
+在過去，您會佈建 Windows Server 虛擬機器，並將它加入受控網域。 在這個工作中，您會在此虛擬機器上安裝 Azure AD 應用程式 Proxy 連接器。
 
 1. 將連接器安裝套件複製到安裝 Azure AD Web 應用程式 Proxy 連接器的 VM。
 
@@ -86,29 +86,30 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
     ![](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
-> 您可以選擇在多部伺服器上安裝連接器，以確保驗證透過 Azure AD 應用程式 Proxy 發佈之應用程式的高可用性。 執行上述的相同步驟，以在其他加入您受管理網域的伺服器上安裝連接器。
+> 您可以選擇在多部伺服器上安裝連接器，以確保驗證透過 Azure AD 應用程式 Proxy 發佈之應用程式的高可用性。 執行上述的相同步驟，以在其他加入您受控網域的伺服器上安裝連接器。
 >
 >
 
 ## <a name="next-steps"></a>後續步驟
-您已設定 Azure AD 應用程式 Proxy，並將其與您 Azure AD 網域服務的受管理網域進行整合。
+您已設定 Azure AD 應用程式 Proxy，並將其與您 Azure Active Directory Domain Services 的受控網域進行整合。
 
-* **將您的應用程式移轉到 Azure 虛擬機器︰**您可以從內部部署伺服器提升應用程式並隨即轉移到加入至受管理網域的 Azure 虛擬機器。 如此一來，可協助您刪掉執行伺服器內部部署的基礎結構成本。
+* 
+            **將您的應用程式移轉到 Azure 虛擬機器︰**您可以從內部部署伺服器提升應用程式並隨即轉移到加入至受控網域的 Azure 虛擬機器。 如此一來，可協助您刪掉執行伺服器內部部署的基礎結構成本。
 
 * **使用 Azure AD 應用程式 Proxy 發佈應用程式︰**使用 Azure AD 應用程式 Proxy 發佈您的 Azure 虛擬機器上所執行的應用程式。 如需詳細資訊，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](../active-directory/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>部署附註 - 使用 Azure AD 應用程式 Proxy 發佈 IWA (整合式 Windows 驗證) 應用程式
-授與應用程式 Proxy 連接器權限來模擬使用者並代表其傳送和接收權杖，以使用「整合式 Windows 驗證」(IWA) 啟用應用程式的單一登入。 設定連接器的 Kerberos 限制委派 (KCD)，以授與存取受管理網域上的資源所需的權限。 在受管理的網域上使用資源型 KCD 機制來提高安全性。
+授與應用程式 Proxy 連接器權限來模擬使用者並代表其傳送和接收權杖，以使用「整合式 Windows 驗證」(IWA) 啟用應用程式的單一登入。 設定連接器的 Kerberos 限制委派 (KCD)，以授與存取受控網域上的資源所需的權限。 在受控網域上使用資源型 KCD 機制來提高安全性。
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>針對 Azure AD 應用程式 Proxy 連接器啟用資源型 Kerberos 限制委派
-應設定 Kerberos 限制委派 (KCD) 的 Azure 應用程式 Proxy 連接器，以便它可以在受管理的網域上模擬使用者。 在 Azure AD Domain Services 受管理的網域上，您沒有網域系統管理員權限。 因此，**無法在受管理的網域上設定傳統帳戶層級 KCD**。
+應設定 Kerberos 限制委派 (KCD) 的 Azure 應用程式 Proxy 連接器，以便它可以在受控網域上模擬使用者。 在 Azure AD 網域服務受控網域上，您沒有網域系統管理員權限。 因此，**無法在受控網域上設定傳統帳戶層級 KCD**。
 
 使用本[文章](active-directory-ds-enable-kcd.md)中所述的資源型 KCD。
 
 > [!NOTE]
-> 您必須是「AAD DC 系統管理員」群組的成員，才能使用 AD PowerShell cmdlet 來管理受管理的網域。
+> 您必須是「AAD DC 系統管理員」群組的成員，才能使用 AD PowerShell cmdlet 來管理受控網域。
 >
 >
 
@@ -122,10 +123,11 @@ $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
-如果您已在受管理的網域上部署多個應用程式 Proxy 連接器，您需要設定每個此類連接器執行個體的資源型 KCD。
+如果您已在受控網域上部署多個應用程式 Proxy 連接器，您需要設定每個此類連接器執行個體的資源型 KCD。
 
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* [在受管理的網域上設定 Kerberos 限制委派](active-directory-ds-enable-kcd.md)
+* 
+            [在受控網域上設定 Kerberos 限制委派](active-directory-ds-enable-kcd.md)
 * [Kerberos 限制委派概觀](https://technet.microsoft.com/library/jj553400.aspx)

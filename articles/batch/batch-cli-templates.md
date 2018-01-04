@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 10/17/2017
+ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 範本和檔案傳輸 (預覽)
 
@@ -53,14 +53,14 @@ Batch 範本會建置在 [Azure CLI 中的現有 Batch 支援](https://docs.micr
 一旦安裝 Azure CLI 之後，可以使用下列 CLI 命令來安裝最新版本的 Batch 擴充功能：
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 如需 Batch 擴充功能的詳細資訊，請參閱[適用於 Windows、Mac 和 Linux 的 Microsoft Azure Batch CLI 擴充功能](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux)。
 
 ## <a name="templates"></a>範本
 
-Azure Batch CLI 可允許建立諸如集區、作業和工作等項目，方法是指定包含屬性名稱和值的 JSON 檔案。 例如：
+Azure Batch CLI 可允許建立諸如集區、作業和工作等項目，方法是指定包含屬性名稱和值的 JSON 檔案。 例如︰
 
 ```azurecli
 az batch pool create –-json-file AppPool.json
@@ -253,7 +253,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 集區和作業範本允許指定儲存在檔案群組中的檔案，以複製到集區節點上，或從集區節點複製回到檔案群組。 例如，在先前指定的作業範本中，會指定工作 Factory 的 “ffmpeg-input” 檔案群組，作為向下複製到節點以進行轉碼之來源視訊檔案的位置；“ffmpeg-output” 檔案群組則是用來作為從執行每項工作的節點複製轉碼輸出檔案的位置。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 目前僅已將範本和檔案傳輸支援新增至 Azure CLI。 目標旨在將可使用 Batch 的對象拓展到不需要使用 Batch API 來開發程式碼的使用者，例如研究人員、IT 使用者等等。 無需程式碼撰寫，了解 Azure、Batch 和 Batch 所要執行之應用程式的使用者可以建立集區和作業建立的範本。 利用範本參數，未深入了解 Batch 和應用程式的使用者就可以使用範本。
 

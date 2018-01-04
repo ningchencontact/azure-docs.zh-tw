@@ -4,7 +4,7 @@
 ## [虛擬網路對等互連](virtual-network-peering-overview.md)
 ## [虛擬網路服務端點](virtual-network-service-endpoints-overview.md)
 ## [Azure AD 服務的虛擬網路](virtual-network-for-azure-services.md)
-## [安全性](security-overview.md)
+## [Security](security-overview.md)
 ## [容器網路服務](container-networking.md)
 ## [商務持續性](virtual-network-disaster-recovery-guidance.md)
 ## [IP 定址](virtual-network-ip-addresses-overview-arm.md)
@@ -18,6 +18,7 @@
 ## [建立您的第一個虛擬網路](virtual-network-get-started-vnet-subnet.md)
 
 # 作法
+
 ## 規劃和設計
 ### [虛擬網路](virtual-network-vnet-plan-design-arm.md)
 ### [網路安全性群組](virtual-networks-nsg.md)
@@ -70,7 +71,7 @@
 ##### 傳統
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### 建立具有靜態私人 IP 位址的 VM
+#### 建立虛擬機器 - 靜態私人 IP 位址
 ##### [Azure 入口網站](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -79,7 +80,7 @@
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
-#### 建立具有多個網路介面的 VM
+#### 建立虛擬機器 - 多個網路介面
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [範本](virtual-network-deploy-multinic-arm-template.md)
@@ -88,13 +89,15 @@
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
-#### 建立具有多個 IP 位址的 VM
+#### 建立虛擬機器 - 多個 IP 位址
 ##### [Azure 入口網站](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [範本](virtual-network-multiple-ip-addresses-template.md)
 
-#### [建立使用加速網路的 VM](virtual-network-create-vm-accelerated-networking.md)
+#### 建立虛擬機器 - 加速網路
+##### [Azure PowerShell](create-vm-accelerated-networking-powershell.md)
+##### [Azure CLI](create-vm-accelerated-networking-cli.md)
 
 ### 連線能力案例
 #### [虛擬網路 (VNet) 至 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

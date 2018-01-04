@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 8372817b00d8a5f9e4203b072dbc143185639120
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中啟用巢狀虛擬化
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/28/2017
 
 >[!NOTE]
 >
->如需有關建立新虛擬機器的詳細指示，請參閱[使用 Azure PowerShell 模組建立和管理 Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
+>如需有關建立新虛擬機器的詳細指示，請參閱[使用 Azure PowerShell 模組建立和管理 Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
 ## <a name="connect-to-your-azure-vm"></a>連線至您的 Azure VM
 

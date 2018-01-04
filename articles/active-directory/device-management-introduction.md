@@ -4,7 +4,7 @@ description: "了解裝置管理如何協助您控制存取您環境中資源的
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory 中的裝置管理簡介
 
@@ -77,7 +77,8 @@ Azure AD 加入裝置的目標是簡化：
 
 實作 Azure AD 加入裝置提供下列優點：
 
-- **單一登入 (SSO)** Azure 受管理的 SaaS 應用程式和服務。 存取工作資源時，您的使用者看不到額外的驗證提示。 即使它們未連線到網域網路，也可使用 SSO 功能。
+- 
+            **單一登入 (SSO)** Azure 受控 SaaS 應用程式和服務。 存取工作資源時，您的使用者看不到額外的驗證提示。 即使它們未連線到網域網路，也可使用 SSO 功能。
 
 - 在跨加入裝置之間進行使用者設定的**企業符合規範漫遊**。 使用者不需要連線 Microsoft 帳戶 (例如 Hotmail) 以查看裝置之間的設定。
 
@@ -125,7 +126,7 @@ Azure AD 加入裝置的目標是簡化：
 
 您可以針對 Windows 10 及舊版裝置 (例如 Windows 8 和 Windows 7) 設定混合式 Azure AD 已加入裝置。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 使用 Azure AD 中的裝置管理，您可以： 
 

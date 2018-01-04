@@ -4,7 +4,7 @@ description: "開發人員在使用自訂原則來設定和維護 Azure AD B2C �
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C 自訂原則公開預覽版的版本資訊
 所有 Azure Active Directory B2C (Azure AD B2C) 客戶現在已可評估自訂原則功能集 (公開預覽狀態)。 此功能集的適用對象是正在建置最複雜身分識別解決方案的進階身分識別開發人員。  
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/16/2017
 ### <a name="identity-providers-tokens-protocols"></a>識別提供者、權杖、通訊協定
 具有外部元件和應用程式的介面
 
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | 例如，Google+ |
 | IDP-OAUTH2 |  | x |  | 例如，Facebook  |
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/16/2017
 ### <a name="component-support"></a>元件支援
 
 
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |-------------------------------------------|-------------|---------|----|-------|
 | Azure Multi Factor Authentication |  | x |  |  |
 | 作為本機目錄的 Azure Active Directory |  | x |  |  |
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/16/2017
 
 ### <a name="content-definition"></a>內容定義
 
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   錯誤頁面，api.error |  | x |  |  |
 |   IDP 選取項目頁面，api.idpselections |  | x |  |  |
@@ -109,7 +109,7 @@ ms.lasthandoff: 10/16/2017
 
 
 ### <a name="app-ief-integration"></a>App-IEF 整合
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | 查詢字串參數 id_token_hint | x |  |  |  |
 | 查詢字串參數 domain_hint |  | x |  | 可作為宣告，可以傳遞至 IDP |
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/16/2017
 
 ### <a name="session-management"></a>工作階段管理
 
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |---------------------------------|-------------|---------|----|-------|
 | SSO 工作階段提供者 |  | x |  |  |
 | 外部登入工作階段提供者 |  | x |  |  |
@@ -128,14 +128,14 @@ ms.lasthandoff: 10/16/2017
 
 
 ### <a name="security"></a>安全性
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |---------------------------------------------|-------------|---------|----|-------|
 | 原則機碼產生，手動上傳 |  | x |  |  |
 | 原則機碼 - RSA/憑證，密碼 |  | x |  |  |
 
 
 ### <a name="developer-interface"></a>開發人員介面
-| 功能 | 開發 | 預覽 | GA | 注意事項 |
+| 功能 | 開發 | 預覽 | GA | 注意 |
 |---------------------------------------------|-------------|---------|----|-------|
 | Azure 入口網站 IEF UX |  | x |  |  |
 | Application Insights UserJourney 記錄  |  | x |  |  |

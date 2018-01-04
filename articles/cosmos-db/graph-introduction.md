@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB 圖形 API 簡介 | Microsoft Docs"
 description: "了解如何使用 Azure Cosmos DB 並透過 Apache TinkerPop 的 Gremlin 圖形查詢語言，以低延遲的方式儲存、查詢和周遊巨大圖形。"
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.author: lbosq
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
@@ -66,7 +66,7 @@ Azure Cosmos DB 圖形 API 提供：
 您可以結合圖表資料庫所提供的快速周遊和圖表演算法，例如深度優先搜尋、廣度優先搜尋、Dijkstra 的演算法等等，解決各種領域的問題，例如社交網路、內容管理、地理空間和推薦。
 
 ## <a name="planet-scale-graphs-with-azure-cosmos-db"></a>行星級圖表與 Azure Cosmos DB
-Azure Cosmos DB 是一種完全受管理的圖表資料庫，提供全域散發、彈性調整的儲存體和輸送量、自動編製索引和查詢、可調整的一致性等級，而且支援 TinkerPop 標準。
+Azure Cosmos DB 是一種完全受控的圖表資料庫，提供全域散發、彈性調整的儲存體和輸送量、自動編製索引和查詢、可調整的一致性等級，而且支援 TinkerPop 標準。
 
 ![Azure Cosmos DB 圖表架構](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
@@ -84,9 +84,9 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
  儲存異質頂點和邊緣，並透過熟悉的 Gremlin 語法查詢這些文件。 Azure Cosmos DB 採用高度並行、無鎖定、記錄結構化索引技術，自動編製所有內容的索引。 此功能讓您不需要指定結構描述提示、次要索引或檢視，就能進行大量且即時的查詢和周遊。 深入了解[使用 Gremlin 查詢圖形](gremlin-support.md)。
 
-* 受到完整管理
+* 完全受控
 
- Azure Cosmos DB 能消除資料庫和電腦資源的管理需求。 做為受到完整管理的 Microsoft Azure 服務，您不需要管理虛擬機器、部署和設定軟體、管理調整，或處理複雜的資料層升級。 每個圖表都會自動備份，以防區域性失敗。 您可以輕鬆地新增 Azure Cosmos DB 帳戶，並在需要時佈建容量，將精力投注在應用程式，不用浪費時間來操作和管理資料庫。
+ Azure Cosmos DB 能消除資料庫和電腦資源的管理需求。 做為完全受控的 Microsoft Azure 服務，您不需要管理虛擬機器、部署和設定軟體、管理調整，或處理複雜的資料層升級。 每個圖表都會自動備份，以防區域性失敗。 您可以輕鬆地新增 Azure Cosmos DB 帳戶，並在需要時佈建容量，將精力投注在應用程式，不用浪費時間來操作和管理資料庫。
 
 * 自動編製索引
 
@@ -98,7 +98,7 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
 * 可調式一致性層級
 
- 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解 [使用一致性層級以最大化 DocumentDB 中的可用性和效能](consistency-levels.md)。
+ 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 進一步了解[可微調資料一致性層級，在 Azure Cosmos DB](consistency-levels.md)。
 
 Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如文件和圖表。 您可以使用文件集合來同時儲存圖表資料與文件。 您可以使用 JSON 的 SQL 查詢和 Gremlin 查詢，查詢與圖表相同的資料。
 
@@ -113,7 +113,7 @@ Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Github 上的 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin 主控台](https://tinkerpop.apache.org/downloads.html) |[TinkerPop 文件](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB 也透過 NuGet 提供 .NET 程式庫，其中包含以 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 為基礎的 Gremlin 擴充方法。 此程式庫提供「同處理序」Gremlin 伺服器，可用來直接連線至 DocumenDB 資料分割。
+Azure Cosmos DB 也透過 NuGet 提供 .NET 程式庫，其中包含以 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 為基礎的 Gremlin 擴充方法。 此程式庫提供可讓您直接連接到資料分割的 「 在處理序 」 Gremlin 伺服器。
 
 | 下載 | 文件 |
 | --- | --- |

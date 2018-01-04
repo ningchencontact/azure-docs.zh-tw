@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
 
@@ -74,7 +74,7 @@ HA 連接埠功能可在[和 Load Balancer Standard 相同的區域](https://aka
 
 以下是 HA 連接埠功能的支援設定或例外狀況：
 
-- 單一前端 IP 設定可以有一個與 HA 連接埠搭配的單一 DSR 負載平衡器規則，或是一個與 HA 連接埠搭配的單一非 DSR 負載平衡器規則。 但兩者不能同時存在。
+- 單一前端 IP 組態可以有單一 Direct Server Return (DSR-在 Azure 中的浮動 IP) 負載平衡器規則的高可用性連接埠，或它可以有高可用性連接埠與單一非 DSR 負載平衡器規則。 但兩者不能同時存在。
 - 單一網路介面的 IP 設定只能在 HA 連接埠建立一個非 DSR 負載平衡器規則。 您無法針對此 ipconfig 設定任何其他規則。
 - 單一網路介面的 IP 設定可以在 HA 連接埠建立一或多個 DSR 負載平衡器規則，但前提是其各自的前端 IP 設定都是唯一的。
 - 如果所有負載平衡規則都是 HA 連接埠 (只有 DSR)，兩個 (或以上) 指向相同後端集區的負載平衡器規則可以同時存在。 如果所有規則都是非 HA 連接埠 (DSR 和非 DSR) 也成立。 但是，如果有 HA 連接埠和非 HA 連接埠規則的組合，則兩個此類負載平衡規則無法同時存在。

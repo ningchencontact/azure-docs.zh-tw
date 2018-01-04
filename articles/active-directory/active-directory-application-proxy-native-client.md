@@ -4,7 +4,7 @@ description: "涵蓋如何讓原生用戶端應用程式與 Azure AD 應用程�
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: de49a8343a3db6c8b890050e7791f77105a09a3a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 Proxy 應用程式互動
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 4. 指定應用程式的名稱，選取 [原生] 作為應用程式類型，並提供應用程式的重新導向 URI。 
 
    ![建立新的應用程式註冊](./media/active-directory-application-proxy-native-client/create.png)
-5. 選取 [ **建立**]。
+5. 選取 [建立] 。
 
 如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](.//develop/active-directory-integrating-applications.md)。
 

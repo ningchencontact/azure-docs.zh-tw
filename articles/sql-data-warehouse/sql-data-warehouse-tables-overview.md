@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的資料表概觀
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ RENAME OBJECT Customer TO CustomerOrig;
 暫存資料表只存在於您的登入期間，其他使用者看不到此種資料表。  暫存資料表可以防止其他人看見暫存結果，也會減少清除的需求。  由於暫存資料表也會使用本機儲存體，所以可為某些作業提供更快的效能。  如需有關暫存資料表的詳細資料，請參閱[暫存資料表][Temporary]一文。
 
 ## <a name="external-tables"></a>外部資料表
-外部資料表 (也稱為 Polybase 資料表) 是可從 SQL 資料倉儲查詢的資料表，但會指向 SQL 資料倉儲外部的資料。  例如，您可以建立指向 Azure Blob 儲存體上檔案的外部資料表。  如需有關如何建立及查詢外部資料表的詳細資料，請參閱[使用 Polybase 載入資料][Load data with Polybase]。  
+外部資料表 (也稱為 Polybase 資料表) 是可從 SQL 資料倉儲查詢的資料表，但會指向 SQL 資料倉儲外部的資料。  例如，您可以建立外部資料表指向 Azure Blob 儲存體或 Azure Data Lake Store 上的檔案。  如需有關如何建立及查詢外部資料表的詳細資料，請參閱[使用 Polybase 載入資料][Load data with Polybase]。  
 
 ## <a name="unsupported-table-features"></a>不支援的資料表功能
 雖然 SQL 資料倉儲包含其他資料庫所提供的許多相同資料表功能，但仍有一些功能尚未提供支援。  以下是一些尚未支援的資料表功能清單。

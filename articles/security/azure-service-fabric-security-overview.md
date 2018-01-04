@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 安全性概觀
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 可解決開發與管理雲端應用程式時遭遇的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
@@ -50,7 +50,7 @@ Azure Service Fabric 是跨電腦叢集的服務協調者。 叢集必須受到�
 
 Service Fabric 會使用您建立叢集時指定的 X.509 伺服器憑證。 若要快速了解這些憑證是什麼，以及如何取得或建立這些憑證，請參閱[使用憑證](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates)。
 
-您在建立叢集時設定憑證安全性，透過 Azure 入口網站、Azure Resource Manager 範本或獨立 JSON 範本。 您可以指定用於憑證變換的主要憑證和選用次要憑證。 您指定的主要和次要憑證，應該不同於您為[用戶端對節點安全性](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security)指定的系統管理用戶端憑證和唯讀用戶端憑證。
+您在建立叢集時設定憑證安全性，透過 Azure 入口網站、Azure Resource Manager 範本或獨立 JSON 範本。 您可以指定用於憑證變換的主要憑證和選用次要憑證。 您指定的主要和次要憑證，應該不同於您為[用戶端對節點安全性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)指定的系統管理用戶端憑證和唯讀用戶端憑證。
 
 ### <a name="client-to-node-security"></a>用戶端對節點安全性
 您使用用戶端身分識別來設定用戶端對節點安全性。 若要建立用戶端與叢集之間的信任，您必須設定叢集才能知道用戶端可以信任的身分識別。 這有兩種不同的方式可以完成：

@@ -5,7 +5,7 @@
 
 若要授與邏輯應用程式連接到 Box 帳戶的權限，其步驟如下：  
 
-1. 若要建立 Box 連線，請在邏輯應用程式設計工具的下拉式清單中選取 [顯示 Microsoft Managed API]，然後在搜尋方塊中輸入「Box」。 選取您要使用的觸發程序或動作：  
+1. 若要建立 Box 連線，請在邏輯應用程式設計工具的下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「Box」。 選取您要使用的觸發程序或動作：  
    ![Box 連接的建立步驟](./media/connectors-create-api-box/box-1.png)  
 2. 如果您之前尚未建立任何 Box 連線，系統會提示您提供 Box 認證。 這些認證會用來授與邏輯應用程式連接並存取 Box 帳戶資料的權限：  
    ![Box 連接的建立步驟](./media/connectors-create-api-box/box-2.png)  

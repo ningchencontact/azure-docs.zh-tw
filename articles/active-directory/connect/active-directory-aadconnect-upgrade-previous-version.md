@@ -4,7 +4,7 @@ description: "說明將 Azure Active Directory Connect 升級至最新版本的�
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：從舊版升級到最新版本
 本主題說明各種可用於將 Azure Active Directory (Azure AD) Connect 安裝升級到最新版本的方法。 我們建議您讓自己的 Azure AD Connect 保持在最新版本。 當您進行大幅組態變更時，也會使用[變換移轉](#swing-migration)一節中的步驟。
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/08/2017
 
 在就地升級期間，可能會傳入變更而必須在升級完成之後執行特定的同步處理活動 (包括「完整匯入」步驟和「完整同步處理」步驟)。 若要延遲這類活動，請參閱[如何延遲升級之後的完整同步處理](#how-to-defer-full-synchronization-after-upgrade)一節。
 
-如果您使用 Azure AD Connect 搭配非標準連接器 (例如「一般 LDAP 連接器」和「一般 SQL 連接器」)，就必須在進行就地升級之後，在 [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) 中重新整理對應的連接器設定。 如需有關如何重新整理連接器設定的詳細資料，請參閱[連接器版本發行歷程記錄 - 疑難排解](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting)文章小節。 如果您未重新整理設定，該連接器的匯入和匯出執行步驟將無法正確運作。 您將會在應用程式事件記錄檔中收到下列訊息：*"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (AAD 連接器設定中的組件版本 ("X.X.XXX.X") 比 "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" 的實際版本舊)。
+如果您使用 Azure AD Connect 搭配非標準連接器 (例如「一般 LDAP 連接器」和「一般 SQL 連接器」)，就必須在進行就地升級之後，在 [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) 中重新整理對應的連接器設定。 如需有關如何重新整理連接器設定的詳細資料，請參閱[連接器版本發行歷程記錄 - 疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting)文章小節。 如果您未重新整理設定，該連接器的匯入和匯出執行步驟將無法正確運作。 您將會在應用程式事件記錄檔中收到下列訊息：*"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (AAD 連接器設定中的組件版本 ("X.X.XXX.X") 比 "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" 的實際版本舊)。
 
 ## <a name="swing-migration"></a>變換移轉
 如果您的伺服器部署很複雜，或是您的物件很多，在使用中的系統上進行就地升級可能並不實際。 就某些客戶而言，此程序可能需花好幾天的時間，而在這段期間並不會處理任何差異變更。 當您打算對您的組態進行大幅變更，而且想要在這些變更推送至雲端前試用看看，也可以使用這個方法。

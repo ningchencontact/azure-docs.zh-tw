@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
 Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或必須預先保留容量。 本文的重點是取用方案 ([無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式模型)。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 
 >[!NOTE]  
-> Linux 裝載目前僅適用於 App Service 方案。
+> [Linux 裝載](functions-create-first-azure-function-azure-cli-linux.md)目前僅提供在應用程式服務方案的。
 
 如果您還不熟悉 Azure Functions，請參閱 [Azure Functions 概觀](functions-overview.md)。
 
@@ -46,7 +46,7 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 當使用取用方案時，會根據傳入事件的數目，動態新增和移除 Azure Functions 主機。 這個方案會自動調整，您只需支付您的函式執行時使用的計算資源。 在取用方案中，函式最多可執行 10 分鐘。 
 
 > [!NOTE]
-> 在取用方案中，函式的預設逾時為 5 分鐘。 變更 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) 中的 `functionTimeout` 屬性，您可以將函數應用程式的該值增加為 10 分鐘。
+> 在取用方案中，函式的預設逾時為 5 分鐘。 值可以增加為 10 分鐘函式應用程式變更的屬性`functionTimeout`中[host.json](functions-host-json.md#functiontimeout)專案檔。
 
 帳單是根據執行數目、執行時間以及使用的記憶體。 帳單會跨函式應用程式內的所有函式進行彙總。 如需詳細資訊，請參閱 [Azure Functions 價格頁面]。
 
@@ -90,7 +90,7 @@ VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如�
 
 ## <a name="how-the-consumption-plan-works"></a>取用方案的運作方式
 
-在取用方案中，調整控制器會根據事件函式被觸發的事件數目，新增額外的 Functions 主機執行個體，藉此自動調整 CPU 和記憶體資源。 Functions 主機的每個執行個體僅限於 1.5 GB 記憶體。  主機執行個體是函式應用程式，表示函式應用程式內的所有函式會共用執行個體內的資源，並會同時進行規模調整。
+在取用方案中，調整控制器會根據事件函式被觸發的事件數目，新增額外的 Functions 主機執行個體，藉此自動調整 CPU 和記憶體資源。 Functions 主機的每個執行個體僅限於 1.5 GB 記憶體。  主控件執行個體是函式的應用程式，這表示函式內的所有函式內的執行個體和小數位數的應用程式共用資源，在相同的時間。
 
 使用取用主控方案時，函式程式碼檔案會儲存在函式之主要儲存體帳戶的 Azure 檔案共用上。 當您刪除函式應用程式的主要儲存體帳戶時，函式程式碼檔案會被刪除，且無法復原。
 
@@ -119,7 +119,7 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>可調整應用程式的最佳做法與模式
 
-函式應用程式中有多個面向會影響其調整規模的效果，包括主機設定、執行階段耗用量和資源效能。  如需詳細資訊，請檢視[效能考量文章中的延展性一節](functions-best-practices.md#scalability-best-practices)。
+有許多層面會影響程度它將擴充，包括主機組態、 執行階段的足跡和資源效率的函式應用程式。  如需詳細資訊，請檢視[效能考量文章中的延展性一節](functions-best-practices.md#scalability-best-practices)。
 
 ### <a name="billing-model"></a>計費模式
 

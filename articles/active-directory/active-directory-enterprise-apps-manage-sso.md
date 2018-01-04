@@ -4,7 +4,7 @@ description: "從 Azure Active Directory 應用程式庫管理公司內企業應
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>管理企業應用程式的單一登入
 
@@ -83,10 +83,10 @@ ms.lasthandoff: 10/11/2017
 
 ![密碼型登入][4]
 
-## <a name="linked-sign-on"></a>連結型單一登入
+## <a name="linked-sign-on"></a>連結型登入
 如果應用程式支援此種登入，選取連結的 SSO 模式可讓您輸入 URL，做為當使用者按一下此應用程式時您想要 Azure AD 存取面板或 Office 365 重新導向的目標。 如需連結型 SSO (以前稱為「現有 SSO」) 的詳細資訊，請參閱 [單一登入如何搭配 Azure Active Directory 運作](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)。
 
-![連結型單一登入][5]
+![連結型登入][5]
 
 ##<a name="feedback"></a>意見反應
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 如果您不熟悉 Azure 虛擬網路 (VNet)，這是一種功能，可讓您在非網際網路可路由網路中放置許多您可控制其存取的 Azure 資源。 接著，可以使用各種 VPN 技術，將這些網路連接到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀][VNETOverview]。 
@@ -39,7 +39,7 @@ VNet 整合功能：
 * 需要「標準」、「進階」或「隔離」價格方案 
 * 使用傳統 VNet 或 Resource Manager VNet 使用傳統或 Resource Manager VNet 
 * 支援 TCP 和 UDP
-* 使用 Web、行動及 API 應用程式
+* 適用於 Web、 行動裝置、 應用程式開發介面應用程式和功能的應用程式
 * 可讓應用程式一次只連接到 1 個 VNet
 * 可在 App Service 方案中與最多五個 VNet 整合 
 * 可讓 App Service 方案中的多個應用程式使用相同的 VNet
@@ -93,7 +93,7 @@ VNet 整合 UI 可讓您從 VNet 的清單中選取。 傳統 VNet 會在 VNet �
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>啟用 Resource Manager VNet 中的點對站
-若要為 Resource Manager VNet 設定閘道和「點對站」，可以如以下文件所述使用 PowerShel：[使用 PowerShell 設定虛擬網路的點對站連線][V2VNETP2S]；或使用「Azure 入口網站」，如以下文件所述：[使用 Azure 入口網站設定 VNet 的點對站連線][V2VNETPortal]。 用來執行這項功能的 UI 尚無法使用。 請注意，您需要針對「點對站」組態建立憑證。 這會在您將 WebApp 連線至 VNet 時自動設定。 
+若要為 Resource Manager VNet 設定閘道和「點對站」，可以如以下文件所述使用 PowerShel：[使用 PowerShell 設定虛擬網路的點對站連線][V2VNETP2S]；或使用「Azure 入口網站」，如以下文件所述：[使用 Azure 入口網站設定 VNet 的點對站連線][V2VNETPortal]。 用來執行這項功能的 UI 尚無法使用。 請注意，您不需要建立指向站台設定的憑證。 這會在您將 WebApp 連線至 VNet 時自動設定。 
 
 ### <a name="creating-a-pre-configured-vnet"></a>建立預先設定的 VNet
 如果您想要建立新的 VNet，以閘道和點對站進行設定，則 App Service 網路 UI 具有功能可以完成這項操作，但是僅適用於 Resource Manager VNet。 如果您想要以閘道和點對站建立 Classic VNet，您需要透過網路使用者介面手動執行。 
@@ -258,6 +258,10 @@ tcpping 公用程式會讓您知道是否可觸達特定主機和連接埠。 �
 * 內部部署防火牆已封鎖來自點對站 IP 範圍的流量
 * 您在 VNet 中有使用者定義的路由 (UDR) 阻止點對站的流量觸達您的內部部署網路
 
+## <a name="powershell-automation"></a>PowerShell 自動化
+
+您可以使用 PowerShell 的 Azure 虛擬網路整合應用程式服務。 針對已備妥的執行指令碼，請參閱[Azure App Service 中的應用程式連接到 Azure 虛擬網路](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)。
+
 ## <a name="hybrid-connections-and-app-service-environments"></a>混合式連線和 App Service 環境
 有三個可讓您存取 VNet 裝載之資源的功能。 如下：
 
@@ -269,7 +273,7 @@ tcpping 公用程式會讓您知道是否可觸達特定主機和連接埠。 �
 
 App Service 環境功能可讓您在 VNet 中執行 Azure App Service 的執行個體。 這可讓應用程式無需任何額外的步驟，即可存取 VNet 中的資源。 App Service 環境的好處還有您可以搭配最多 14 GB 的 RAM 使用 Dv2 式背景工作角色。 另一個好處是您可以調整系統以符合您的需求。 與 ASP 受限於 20 個執行個體的多租用戶環境不同，在 ASE 中，您可以相應增加到 100 個 ASP 執行個體。 VNet 整合無法辦到，但 ASE 辦得到的其中一件事是，App Service 環境可以使用 ExpressRoute VPN。 
 
-儘管有使用案例重疊的情況，但這些功能無法取代彼此。 知道使用哪個功能取決於您的需求。 例如：
+儘管有使用案例重疊的情況，但這些功能無法取代彼此。 知道使用哪個功能取決於您的需求。 例如︰
 
 * 如果您是開發人員，而且只是想要在 Azure 中執行網站，並讓它可存取辦公桌下工作站上的資料庫，則最簡單的方式就是使用混合式連線。 
 * 如果您是想要將大量 Web 內容放在公用雲端，並在自己的網路中管理它們的大型組織，則您會想要使用 App Service 環境。 

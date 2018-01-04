@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Springer Link 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: jeedes
-ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e532659be9b8aef303a20900465d16a7641d8cfe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>教學課程：Azure Active Directory 與 Springer Link 整合
 
@@ -48,13 +48,13 @@ Springer Link 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Springer Link
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-springer-link-from-the-gallery"></a>從資源庫新增 Springer Link
-若要設定 Springer Link 與 Azure AD 整合，您需要從資源庫將 Springer Link 新增至受管理的 SaaS 應用程式清單。
+若要設定 Springer Link 與 Azure AD 整合，您需要從資源庫將 Springer Link 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Springer Link，請執行下列步驟：**
 
@@ -127,7 +127,7 @@ Springer Link 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appregistrations.png)
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [端點] 以開啟 [端點] 對話方塊。  
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
     
     ![設定單一登入](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpointicon.png)
 
@@ -159,7 +159,7 @@ Springer Link 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-springerlink-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-springerlink-tutorial/create_aaduser_02.png)
 
@@ -177,7 +177,7 @@ Springer Link 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

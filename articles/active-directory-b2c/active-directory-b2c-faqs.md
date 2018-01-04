@@ -1,12 +1,11 @@
 ---
-title: "常見問題集 (FAQ) - Azure AD B2C | Microsoft Docs"
-description: "關於 Azure Active Directory B2C 的常見問題集"
+title: "常見問題集-Azure Active Directory B2C"
+description: "Azure Active Directory B2C 的相關常見問題集 (FAQ)"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
-manager: krassk
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+author: PatAltimore
+manager: mtillman
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -37,7 +36,7 @@ Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。  Azure AD �
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>你們現在支援哪些社交身分識別提供者？ 你們打算在未來支援哪些？
 我們目前支援 Facebook、Google+、LinkedIn、Amazon、Twitter (預覽)、WeChat (預覽)、Weibo (預覽) 和 QQ (預覽)。 根據客戶需求，我們將會增加支援其他熱門的社交身分識別提供者。
 
-Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)的支援。  這些[自訂原則](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)可讓開發人員使用任何識別提供者建立自己的原則，可支援 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 或 SAML。 
+Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)的支援。  這些[自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)可讓開發人員使用任何識別提供者建立自己的原則，可支援 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 或 SAML。 
 
 查看我們的[自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，開始使用自訂原則。
 
@@ -64,9 +63,9 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/en-us/azure/a
 
     ![自訂驗證電子郵件的螢幕擷取畫面](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-電子郵件簽章包含您第一次建立 B2C 租用戶時提供的 B2C 租用戶名稱。 您可以使用這些指示變更名稱：
+電子郵件簽章會包含您提供當您第一次建立 Azure AD B2C 租用戶的 Azure AD B2C 租用戶的名稱。 您可以使用這些指示變更名稱：
 
-1. 以訂用帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 登入[Azure 入口網站](https://portal.azure.com/)全域系統管理員身分。
 1. 開啟 [Azure Active Directory] 刀鋒視窗。
 1. 按一下 [屬性] 索引標籤。
 1. 變更 [名稱] 欄位。
@@ -87,7 +86,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。 Az
 否，基於安全性考量，無法在 iFrame 內開啟 Azure AD B2C 頁面。  我們的服務會與瀏覽器通訊以禁止 iFrame。  安全性社群整體和 OAUTH2 規格的建議是不要使用 iFrame 來提供身分識別體驗，因為會有點擊劫持風險。
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C 可以搭配 Microsoft Dynamics 之類的 CRM 系統一起使用嗎？
-與 Microsoft Dynamics 365 入口網站的整合已可供使用。  請參閱[設定 Dynamics 365 入口網站，以使用 Azure AD B2C 進行驗證](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c)。
+與 Microsoft Dynamics 365 入口網站的整合已可供使用。  請參閱[設定 Dynamics 365 入口網站，以使用 Azure AD B2C 進行驗證](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c)。
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C 可以搭配 SharePoint 內部部署的 2016 或更舊版本一起使用嗎？
 Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參閱 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)。
@@ -113,15 +112,15 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 
 1. 遵循下列步驟，以在 Azure 入口網站上[瀏覽至 Azure AD B2C 設定](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)。
 1. 瀏覽至 [應用程式]、[識別提供者] 和 [所有原則]，並刪除其中所有的輸入。
-1. 現在，以訂用帳戶管理員身分登入 [Azure 傳統入口網站](https://manage.windowsazure.com/) 。 (使用您註冊 Azure 時所用的相同公司或學校帳戶，或相同的 Microsoft 帳戶。)
-1. 瀏覽至左側的 Active Directory 擴充，然後按一下 B2C 租用戶。
-1. 按一下 [使用者]  索引標籤。
-1. 逐一選取每個使用者 (不包括您目前登入的「訂用帳戶管理員」使用者身分)。 按一下頁面底部的 [刪除]，然後在出現提示時按一下 [是]。
-1. 按一下 [ **應用程式** ] 索引標籤。
-1. 選取 [顯示] 下拉式欄位中的 [我公司所擁有的應用程式]，然後按一下核取記號。
-1. 名稱為 **b2c-extensions-app** 的應用程式。 按一下頁面底部的 [刪除]，然後在出現提示時按一下 [是]。
-1. 再次瀏覽至 Active Directory 擴充，然後選取 B2C 租用戶。
-1. 按一下頁面底部的 [ **刪除** ]。 若要完成程序，請依照畫面上的指示。
+1. 立即登入[Azure 入口網站](https://portal.azure.com/)訂用帳戶系統管理員身分。 (使用您註冊 Azure 時所用的相同公司或學校帳戶，或相同的 Microsoft 帳戶。)
+1. 切換至 Azure AD B2C 租用戶，您想要刪除。
+2. 瀏覽至左側的 [Active Directory] 功能表。
+3. 選取 [使用者和群組]。
+4. 逐一選取每個使用者 (不包括您目前登入的「訂用帳戶管理員」使用者身分)。 按一下頁面底部的 [刪除]，然後在出現提示時按一下 [是]。
+5. 按一下**應用程式註冊**。
+6. 選取應用程式呼叫**b2c 擴充功能-應用程式**。 按一下**刪除**按一下**是**出現提示時。
+7. 選取 [概觀]。
+8. 按一下**刪除目錄**。 若要完成程序，請依照畫面上的指示。
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>我可以從 Enterprise Mobility Suite 中取得 Azure AD B2C 嗎？
 否，Azure AD B2C 是隨用隨付的 Azure 服務，並不是 Enterprise Mobility Suite 的一部分。

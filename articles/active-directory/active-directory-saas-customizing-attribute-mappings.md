@@ -4,7 +4,7 @@ description: "了解 Azure Active Directory 中 SaaS 應用程式有哪些屬性
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6921ca86efeea9d1255bb2d1773f55daa48b9b4a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: d4618f7cd702a1cfefafe80eff35a0753e04a50c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
 Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用了協力廠商 SaaS 應用程式的使用者佈建，Azure 管理入口網站會以一種稱為「屬性對應」的組態方式控制其屬性值。
@@ -38,7 +38,7 @@ SaaS 應用程式需要有幾個屬性對應才能正確運作。 若為必要�
 
 ![Salesforce][6]  
 
-在上述範例中，您可以看到 Salesforce 中受管理的物件的 **Username** 屬性填入了連結 Azure Active Directory 物件的 **userPrincipalName** 值。
+在上述範例中，您可以看到 Salesforce 中受控物件的 **Username** 屬性填入了連結 Azure Active Directory 物件的 **userPrincipalName** 值。
 
 您可以按一下對應來自訂現有的 [屬性對應]。 這會開啟 [編輯屬性] 刀鋒視窗。
 
@@ -75,7 +75,7 @@ SaaS 應用程式需要有幾個屬性對應才能正確運作。 若為必要�
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 
-Microsoft Azure AD 提供有效率的同步處理程序實作。 在初始化環境中，同步處理期間只會處理需要更新的物件。 更新屬性對應會影響同步處理期間的效能。 更新屬性對應組態需要重新評估所有受管理的物件。 建議您最好不要經常變更屬性對應。
+Microsoft Azure AD 提供有效率的同步處理程序實作。 在初始化環境中，同步處理期間只會處理需要更新的物件。 更新屬性對應會影響同步處理期間的效能。 更新屬性對應組態需要重新評估所有受控物件。 建議您最好不要經常變更屬性對應。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,7 +4,7 @@ description: "了解 Azure AD Connect 的 Synchronization Service Manager 中的
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0fae4b1755ca95466eeffb5ce61c1c7855d7381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>使用連接器搭配 Auzre AD Connect Sync Service Manager
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 10/11/2017
 | 動作 | 註解 |
 | --- | --- |
 | 建立 |請勿使用。 若要連接到其他的 AD 樹系，請使用安裝精靈。 |
-| 屬性 |用於網域和 OU 篩選。 |
+| properties |用於網域和 OU 篩選。 |
 | [刪除](#delete) |用來刪除連接器空間中的資料或刪除與樹系的連接。 |
 | [更新執行設定檔](#configure-run-profiles) |除了網域篩選以外，不會在此處進行任何設定。 您可以使用此動作來查看已設定的執行設定檔。 |
 | 執行 |用來啟動設定檔的一次性執行。 |
-| 停止 |停止目前執行設定檔的連接器。 |
+| Stop |停止目前執行設定檔的連接器。 |
 | 匯出連接器 |請勿使用。 |
 | 匯入連接器 |請勿使用。 |
 | 更新連接器 |請勿使用。 |

@@ -4,7 +4,7 @@ description: "使用 REST API 管理角色型存取控制"
 services: active-directory
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>使用 REST API 管理角色型存取控制
 > [!div class="op_single_selector"]
@@ -153,8 +153,8 @@ Azure 入口網站及 Azure Resource Manager API 中的「角色型存取控制�
 
 | 元素名稱 | 必要 | 類型 | 說明 |
 | --- | --- | --- | --- |
-| roleDefinitionId |是 |String |角色的識別碼。 此識別碼的格式是： `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |是 |String |做為角色指派對象之 Azure AD 主體的 objectId (使用者、群組或服務主體)。 |
+| roleDefinitionId |是 |字串 |角色的識別碼。 此識別碼的格式是： `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |是 |字串 |做為角色指派對象之 Azure AD 主體的 objectId (使用者、群組或服務主體)。 |
 
 ### <a name="response"></a>Response
 狀態碼：201
@@ -436,11 +436,11 @@ Azure 入口網站及 Azure Resource Manager API 中的「角色型存取控制�
 
 | 元素名稱 | 必要 | 類型 | 說明 |
 | --- | --- | --- | --- |
-| 名稱 |是 |String |自訂角色的 GUID 識別碼。 |
-| properties.roleName |是 |String |自訂角色的顯示名稱。 大小上限為 128 個字元。 |
-| properties.description |否 |String |自訂角色的說明。 大小上限為 1024 個字元。 |
-| properties.type |是 |String |設定為 "CustomRole"。 |
-| properties.permissions.actions |yes |String[] |動作字串陣列，此陣列指定自訂角色所授權的作業。 |
+| name |是 |字串 |自訂角色的 GUID 識別碼。 |
+| properties.roleName |是 |字串 |自訂角色的顯示名稱。 大小上限為 128 個字元。 |
+| properties.description |否 |字串 |自訂角色的說明。 大小上限為 1024 個字元。 |
+| properties.type |是 |字串 |設定為 "CustomRole"。 |
+| properties.permissions.actions |是 |String[] |動作字串陣列，此陣列指定自訂角色所授權的作業。 |
 | properties.permissions.notActions |否 |String[] |動作字串陣列，此陣列指定要從自訂角色所授權的作業中排除的作業。 |
 | properties.assignableScopes |是 |String[] |範圍陣列，此陣列指定可在其中使用自訂角色的範圍。 |
 
@@ -539,11 +539,11 @@ Azure 入口網站及 Azure Resource Manager API 中的「角色型存取控制�
 
 | 元素名稱 | 必要 | 類型 | 說明 |
 | --- | --- | --- | --- |
-| 名稱 |是 |String |自訂角色的 GUID 識別碼。 |
-| properties.roleName |是 |String |已更新的自訂角色顯示名稱。 |
-| properties.description |否 |String |已更新的自訂角色說明。 |
-| properties.type |是 |String |設定為 "CustomRole"。 |
-| properties.permissions.actions |yes |String[] |動作字串的陣列會指定已更新自訂角色授與存取權的作業。 |
+| name |是 |字串 |自訂角色的 GUID 識別碼。 |
+| properties.roleName |是 |字串 |已更新的自訂角色顯示名稱。 |
+| properties.description |否 |字串 |已更新的自訂角色說明。 |
+| properties.type |是 |字串 |設定為 "CustomRole"。 |
+| properties.permissions.actions |是 |String[] |動作字串的陣列會指定已更新自訂角色授與存取權的作業。 |
 | properties.permissions.notActions |否 |String[] |動作字串陣列，此陣列指定要從已更新之自訂角色所授權的作業中排除的作業。 |
 | properties.assignableScopes |是 |String[] |範圍陣列，此陣列指定可在其中使用已更新之自訂角色的範圍。 |
 

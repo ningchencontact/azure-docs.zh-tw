@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAP 雲端平台之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6b4b0e3ab126e70e4b27b971b15127aae0486bed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>教學課程：Azure Active Directory 與 SAP 雲端平台整合
 
@@ -51,13 +51,13 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SAP 雲端平台
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>從資源庫新增 SAP 雲端平台
-若要設定將 SAP 雲端平台整合到 Azure AD 中，您需要從資源庫將 SAP 雲端平台新增至受管理的 SaaS 應用程式清單。
+若要設定將 SAP 雲端平台整合到 Azure AD 中，您需要從資源庫將 SAP 雲端平台新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 SAP 雲端平台，請執行下列步驟：**
 
@@ -165,7 +165,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
     ![信任管理](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic793931.png "信任管理")
    
-    a. 按一下 [ **編輯**]。
+    a. 按一下 [編輯]。
 
     b. 針對 [組態類型]，選取 [自訂]。
 
@@ -177,7 +177,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
     f. 針對 [強制驗證]，選取 [已停用]。
 
-    g. 按一下 [儲存] 。
+    g. 按一下 [檔案] 。
 
 9. 儲存 [本機服務提供者] 設定之後，執行下列命令以取得「回覆 URL」：
    
@@ -254,7 +254,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
 
@@ -272,7 +272,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-sap-cloud-platform-test-user"></a>建立 SAP 雲端平台測試使用者
 
@@ -288,13 +288,13 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
    
     a. 按一下 [授權]。
 
-    b. 按一下 [使用者] 索引標籤。
+    b. 按一下 [使用者]  索引標籤。
 
     c. 在 [使用者] 文字方塊中，輸入使用者的電子郵件地址。
 
     d. 按一下 [指派] 將使用者指派給角色。
 
-    e. 按一下 [儲存] 。
+    e. 按一下 [檔案] 。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -328,7 +328,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在存取面板中按一下 [SAP 雲端平台] 磚時，應該會自動登入您的 SAP 雲端平台應用程式。
 

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b609756f6fcea2a57210889d8082ffb45cbc92de
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 Ruby 應用程式
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/06/2017
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">安裝 Ruby 2.4.1 或更高版本</a>
 * <a href="https://git-scm.com/" target="_blank">安裝 Git</a>
@@ -96,13 +96,13 @@ rails server
 az group create --location westeurope --name myResourceGroup
 ```
 
-使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) 命令，建立 Web 應用程式的應用程式服務方案。
+使用 [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令，建立 Web 應用程式的應用程式服務方案。
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-接下來，發出 [az webapp create](https://docs.microsoft.com/cli/azure/webapp) 命令以建立使用新建服務方案的 Web 應用程式。 請注意，執行階段設定為 `ruby|2.3`。 別忘了以唯一的應用程式名稱取代 `<app name>`。
+接下來，發出 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令以建立使用新建服務方案的 Web 應用程式。 請注意，執行階段設定為 `ruby|2.3`。 別忘了以唯一的應用程式名稱取代 `<app name>`。
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-一旦部署完成後，使用 [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) 命令來重新啟動 Web 應用程式，部署才會生效，如下所示：
+一旦部署完成後，使用 [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) 命令來重新啟動 Web 應用程式，部署才會生效，如下所示：
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer Standard 概觀 (預覽)
 
@@ -52,7 +52,7 @@ Azure Load Balancer Standard SKU 和 Public IP Standard SKU 搭配使用，可�
 
 ### <a name = "enterprisescale"></a>企業級規模
 
- 使用 Load Balancer Standard 來設計您的高效能虛擬資料中心，以及支援任何 TCP 或 UDP 應用程式。 在後端集區中使用獨立 VM 執行個體，或最多可達 1,000 個執行個體的虛擬機器擴展集。 在完全受管理的 Azure 服務上，繼續使用低轉送延遲、高輸送量效能及彈性規模，來處理數百萬個流程。
+ 使用 Load Balancer Standard 來設計您的高效能虛擬資料中心，以及支援任何 TCP 或 UDP 應用程式。 在後端集區中使用獨立 VM 執行個體，或最多可達 1,000 個執行個體的虛擬機器擴展集。 在完全受控的 Azure 服務上，繼續使用低轉送延遲、高輸送量效能及彈性規模，來處理數百萬個流程。
  
 Load Balancer Standard 可以將流量轉送到某個區域內某個虛擬網路中的任何 VM 執行個體。 後端集區大小最大可達 1,000 個執行個體，其中可包含下列 VM 案例的任意組合：
 
@@ -335,7 +335,7 @@ Load Balancer Standard 目前已在以下地區推出：
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU 服務限制與功能
 
-Azure [網路服務的服務限制](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits)適用於每個區域和每個訂閱。 
+Azure [網路服務的服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)適用於每個區域和每個訂閱。 
 
 下表比較 Load Balancer Basic 與 Standard SKU 的限制和功能：
 

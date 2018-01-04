@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 建立 Azure Cosmos DB 帳戶
 
-下列指南說明使用 Azure Powershell 自動管理 Azure Cosmos DB 資料庫帳戶的命令。 它也包含在[多重區域資料庫帳戶][scaling-globally]中管理帳戶金鑰和容錯移轉優先順序的命令。 更新資料庫帳戶可讓您修改一致性原則和新增/移除區域。 如需跨平台管理 Azure Cosmos DB 資料庫帳戶，您可以使用 [Azure CLI](cli-samples.md)、[資源提供者 REST API][rp-rest-api] 或 [Azure 入口網站](create-documentdb-dotnet.md#create-account)。
+下列指南說明使用 Azure Powershell 自動管理 Azure Cosmos DB 資料庫帳戶的命令。 它也包含在[多重區域資料庫帳戶][scaling-globally]中管理帳戶金鑰和容錯移轉優先順序的命令。 更新資料庫帳戶可讓您修改一致性原則和新增/移除區域。 如需跨平台管理 Azure Cosmos DB 資料庫帳戶，您可以使用 [Azure CLI](cli-samples.md)、[資源提供者 REST API][rp-rest-api] 或 [Azure 入口網站](create-sql-api-dotnet.md#create-account)。
 
 ## <a name="getting-started"></a>開始使用
 
 按照[如何安裝和設定 Azure PowerShell][powershell-install-configure] 的指示進行安裝，並在 Powershell 中登入 Azure Resource Manager 帳戶。
 
-### <a name="notes"></a>注意事項
+### <a name="notes"></a>注意
 
 * 如果您想要執行下列命令但不需要使用者確認，請在命令附加 `-Force` 旗標。
 * 下列所有命令都是同步的。
@@ -62,11 +62,11 @@ ms.lasthandoff: 10/11/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
-### <a name="notes"></a>注意事項
+### <a name="notes"></a>注意
 * 上述範例會建立一個有兩個區域的資料庫帳戶。 也可以建立一個有一個區域 (指定為寫入區域，容錯移轉優先順序值為 0)，或有兩個以上區域的資料庫帳戶。 如需詳細資訊，請參閱[多重區域資料庫帳戶][scaling-globally]。
 * locations 必須是已正式推出 Azure Cosmos DB 的區域。 [Azure 區域頁面](https://azure.microsoft.com/regions/#services)會提供目前的區域清單。
 
-## <a id="update-documentdb-account-powershell"></a> 更新 DocumentDB 資料庫帳戶
+## <a id="update-documentdb-account-powershell"></a> 更新 Azure Cosmos DB 資料庫帳戶
 
 此命令可讓您更新 Azure Cosmos DB 資料庫帳戶屬性。 這包括一致性原則，以及資料庫帳戶存在的位置。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> 刪除 DocumentDB 資料庫帳戶
+## <a id="delete-documentdb-account-powershell"></a> 刪除 Azure Cosmos DB 資料庫帳戶
 
 此命令可讓您刪除現有的 Azure Cosmos DB 資料庫帳戶。
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> 取得 DocumentDB 資料庫帳戶的屬性
+## <a id="get-documentdb-properties-powershell"></a> 取得 Azure Cosmos DB 資料庫帳戶的屬性
 
 此命令可讓您取得現有 Azure Cosmos DB 資料庫帳戶的屬性。
 
@@ -194,8 +194,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要使用 .NET 進行連線，請參閱[使用 .NET 進行連線和查詢](create-documentdb-dotnet.md)。
-* 若要使用 .NET Core 進行連線，請參閱[使用 .NET Core 進行連線和查詢](create-documentdb-dotnet-core.md)。
+* 若要使用 .NET 進行連線，請參閱[使用 .NET 進行連線和查詢](create-sql-api-dotnet.md)。
 * 若要使用 Node.js 進行連線，請參閱[使用 Node.js 和 MongoDB 應用程式進行連線和查詢](create-mongodb-nodejs.md)。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

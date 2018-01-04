@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>使用路徑型路由建立應用程式閘道
 
@@ -55,7 +55,7 @@ Azure 應用程式閘道具有兩種規則類型：基本路由和路徑型路�
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-使用「Azure 傳統入口網站」和「Azure Resource Manager」的差別，在於您建立應用程式閘道和需設定項目的順序。
+使用傳統部署模型和 Azure 資源管理員之間的差別是您建立應用程式閘道，並需要設定之項目的順序。
 
 透過 Resource Manager，組成應用程式閘道的所有項目會個別進行設定，然後一併建立應用程式閘道資源。
 
@@ -90,7 +90,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>步驟 3
 
-選擇要使用哪一個 Azure 訂用帳戶。 <BR>
+選擇其中一個要使用的 Azure 訂用帳戶。 <BR>
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"

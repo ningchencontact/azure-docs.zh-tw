@@ -1,32 +1,31 @@
 ---
-title: "將登入功能新增至 Azure B2C 的 Node.js Web 應用程式 | Microsoft Docs"
-description: "如何建置使用 B2C 租用戶登入使用者的 Node.js Web 應用程式。"
+title: "將登入加入至 Node.js web 應用程式的 Azure Active Directory B2C"
+description: "如何建立登入使用者與 Azure Active Directory B2C Node.js web 應用程式。"
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C：將登入功能加入至 Node.js Web 應用程式
 
-**Passport** 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且模組化的 Passport 安裝在任何 Express 或 Resitify Web 應用程式中。 有一套完整的策略支援以使用者名稱和密碼、Facebook、Twitter 等來進行驗證。
+**Passport** 是 Node.js 的驗證中介軟體。 您可以暗中將具有彈性且模組化的 Passport 安裝在任何 Express 或 Resitify Web 應用程式中。 有一套完整的策略支援以使用者名稱和密碼、Facebook、Twitter 等來進行驗證。
 
-我們已為 Azure Active Directory (Azure AD) 開發一套策略。 您將會安裝此模組，然後加入 Azure AD `passport-azure-ad` 外掛程式。
+Azure Active directory (Azure AD)，可以安裝此模組，然後新增 Azure AD`passport-azure-ad`外掛程式。
 
-若要這樣做，您需要：
+您必須：
 
 1. 使用 Azure AD 註冊應用程式。
 2. 設定應用程式以使用 `passport-azure-ad` 外掛程式。
@@ -45,18 +44,16 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-an-application"></a>建立應用程式
 
-接著，您必須在 B2C 目錄中建立應用程式。 這會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。 因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**表示。 如果要建立應用程式，請遵循 [這些指示](active-directory-b2c-app-registration.md)。 請務必：
+接著，您必須在 B2C 目錄中建立應用程式。 這會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。 因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**表示。 若要建立應用程式，請遵循 [這些指示](active-directory-b2c-app-registration.md)。 請務必：
 
 - 在應用程式中納入 **Web 應用程式**/**Web API**。
 - 在 [回覆 URL] 中輸入 `http://localhost:3000/auth/openid/return`。 這是此程式碼範例的預設 URL。
 - 為您的應用程式建立 [應用程式密碼]  ，然後複製該密碼。 稍後您將會用到此資訊。 請注意，在您使用這個值之前，必須先讓該值經過 [XML 逸出](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) 。
 - 複製指派給您的應用程式的 **應用程式識別碼** 。 稍後您也會需要此資訊。
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## <a name="create-your-policies"></a>建立您的原則
 
-在 Azure AD B2C 中，每個使用者經驗皆由 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含三種身分識別體驗：註冊、登入，以及使用 Facebook 登入。 您必須為每個類型建立此原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)所述。 建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含三種身分識別體驗：註冊、登入，以及使用 Facebook 登入。 您必須為每個類型建立此原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)所述。 建立您的三個原則時，請務必：
 
 - 在註冊原則中，選擇 [顯示名稱]  和其他註冊屬性。
 - 在每個原則中，選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。 您也可以選擇其他宣告。
@@ -104,7 +101,7 @@ ms.lasthandoff: 12/11/2017
 開啟專案根目錄中的 `app.js` 檔案。 新增下列呼叫來叫用 `passport-azure-ad`隨附的 `OIDCStrategy` 策略。
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 使用剛剛參考的策略來處理登入要求。
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ Passport 會對其所有策略 (包括 Twitter 和 Facebook) 所有類似的模�
 
 新增方法以讓您可以按照 Passport 所要求地追蹤已登入的使用者。 這包括將使用者資訊序列化和還原序列化：
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 加入可載入 Express 引擎的程式碼。 您可以在下列命令中看到，我們使用 Express 提供的預設 `/views` 和 `/routes` 模式。
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 新增 `POST` 路由以將實際的登入要求遞交給 `passport-azure-ad` 引擎：
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ app.post('/auth/openid/return',
 
 首先，在 `app.js` 檔案中加入預設、登入、帳戶和登出方法：
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ app.get('/logout', function(req, res){
 
 `app.js` 的最後一個部分是新增 `/account` 路由中使用的 `EnsureAuthenticated` 方法。
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 最後，在 `app.js` 中建立伺服器本身。
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ app.listen(3000);
 
 在根目錄下方建立 `/routes/index.js` 路由。
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 在根目錄下方建立 `/routes/user.js` 路由。
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ exports.list = function(req, res){
 
 在根目錄底下建立 `/views/index.ejs` 檢視。 這是呼叫登入和登出原則的簡單網頁。您也可以用它來擷取帳戶資訊。 請注意，因為會在要求中傳遞使用者以提供使用者已登入的證明，因此您可以使用條件式 `if (!user)`。
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ exports.list = function(req, res){
 
 在根目錄下方建立 `/views/account.ejs` 檢視，如此即可檢視 `passport-azure-ad` 放置於使用者要求的其他資訊。
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>

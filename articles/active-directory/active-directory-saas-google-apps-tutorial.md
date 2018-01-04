@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Google Apps 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: f3b0d48534113dea152aba632e59d03ed78db301
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>教學課程：Azure Active Directory 與 Google Apps 整合
 
@@ -47,11 +47,6 @@ Google Apps 與 Azure AD 整合提供下列優點：
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-## <a name="video-tutorial"></a>影片教學課程
-如何在 2 分鐘內啟用單一登入至 Google Apps：
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enable-single-sign-on-to-Google-Apps-in-2-minutes-with-Azure-AD/player]
-
 ## <a name="frequently-asked-questions"></a>常見問題集
 1. **問：Chromebook 及其他 Chrome 裝置是否與 Azure AD 單一登入相容？**
    
@@ -70,13 +65,13 @@ Google Apps 與 Azure AD 整合提供下列優點：
     答：有兩個選項可允許這樣的情況。 第一個是，使用者可以透過 [Azure Active Directory Join](active-directory-azureadjoin-overview.md)登入 Windows 10 裝置。 另一個是，使用者可以登入已加入某個內部部署 Active Directory 網域的 Windows 裝置，其中此內部部署 Active Directory 已透過 [Active Directory 同盟服務 (AD FS)](active-directory-aadconnect-user-signin.md) 部署而能夠單一登入到 Azure AD。 這兩個選項都需要您執行下列教學課程的步驟，才能在 Azure AD 與 Google Apps 之間啟用單一登入。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Google Apps
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-google-apps-from-the-gallery"></a>從資源庫新增 Google Apps
-若要設定將 Google Apps 整合到 Azure AD 中，您需要從資源庫將 Google Apps 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Google Apps 整合到 Azure AD 中，您需要從資源庫將 Google Apps 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Google Apps，請執行下列步驟：**
 
@@ -132,7 +127,7 @@ Google Apps 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://mail.google.com/a/<yourdomain.com>`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
 
     | |
     |--|
@@ -216,7 +211,7 @@ Google Apps 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-google-apps-test-user"></a>建立 Google Apps 測試使用者
 

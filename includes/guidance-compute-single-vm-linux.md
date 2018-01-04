@@ -51,7 +51,7 @@ azure vm sizes --location <location>
 
 針對每個 VM 建立個別的 Azure 儲存體帳戶來存放虛擬硬碟 (VHD)，以避免達到儲存體帳戶的 IOPS 限制。 
 
-新增一或多個資料磁碟。 當您建立 VHD 時，它仍未格式化。 登入 VM 來格式化磁碟。 在 Linux 殼層中，資料磁碟會顯示為`/dev/sdc``/dev/sdd` 等等。 您可以執行 `lsblk` 以列出區塊裝置，包括磁碟。 若要使用資料磁碟，請建立磁碟分割和檔案系統，並掛接該磁碟。 例如：
+新增一或多個資料磁碟。 當您建立 VHD 時，它仍未格式化。 登入 VM 來格式化磁碟。 在 Linux 殼層中，資料磁碟會顯示為`/dev/sdc``/dev/sdd` 等等。 您可以執行 `lsblk` 以列出區塊裝置，包括磁碟。 若要使用資料磁碟，請建立磁碟分割和檔案系統，並掛接該磁碟。 例如︰
 
 ```bat
 # Create a partition.
@@ -155,7 +155,7 @@ d> [!NOTE]
    * **資源群組**名稱已在參數檔案中定義，因此請在文字方塊中選取 [新建] 並輸入 `ra-single-vm-rg`。
    * 從 [位置] 下拉式方塊選取區域。
    * 請勿編輯 [範本的根 URI] 或 [參數根 URI] 文字方塊。
-。   * 選取 [作業系統類型]* 下拉式方塊中的 [linux]*。
+.   * 選取**linux**中**Os 類型**下拉式方塊。
    * 檢閱條款和條件，然後按一下 [我同意上方所述的條款及條件] 核取方塊。
    * 按一下 [購買] 按鈕。
 3. 等待部署完成。
@@ -188,7 +188,7 @@ d> [!NOTE]
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

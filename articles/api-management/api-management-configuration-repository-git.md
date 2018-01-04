@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 > 
@@ -159,12 +159,12 @@ git push
 
 ![部署][api-management-configuration-deploy]
 
-如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 將 Git 變更部署至組態資料庫](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration)。
+如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 將 Git 變更部署至組態資料庫](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration)。
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>本機 Git 儲存機制的檔案和資料夾結構參考
 本機 git 儲存機制中的檔案和資料夾包含服務執行個體的相關組態資訊。
 
-| 項目 | 說明 |
+| Item | 說明 |
 | --- | --- |
 | 根 api 管理資料夾 |包含服務執行個體的最上層組態 |
 | apis 資料夾 |包含服務執行個體中 apis 的組態 |
@@ -190,7 +190,7 @@ git push
 > 
 > * 使用者
 > * 訂用帳戶
-> * 屬性
+> * properties
 > * 樣式以外的開發人員入口網站實體
 > 
 > 

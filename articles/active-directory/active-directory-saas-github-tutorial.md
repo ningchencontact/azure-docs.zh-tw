@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 GitHub 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4395bd95-05de-4deb-87a5-dc3bc8ac4d95
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2a0e1df5244ef977bdcccc5bcfea615a05efa3bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>教學課程：Azure Active Directory 與 GitHub 整合
 
@@ -51,14 +51,14 @@ GitHub 與 Azure AD 整合提供下列優點：
 
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 GitHub
 2. 設定並測試 Azure AD 單一登入
 
 
 ## <a name="adding-github-from-the-gallery"></a>從資源庫新增 GitHub
-若要設定將 GitHub 整合到 Azure AD 中，您需要從資源庫將 GitHub 新增至受管理的 SaaS 應用程式清單。
+若要設定將 GitHub 整合到 Azure AD 中，您需要從資源庫將 GitHub 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 GitHub，請執行下列步驟：**
 
@@ -68,17 +68,17 @@ GitHub 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **GitHub.com**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
-5. 在結果窗格中，選取 GitHub，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [GitHub]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
 
@@ -127,7 +127,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
     
-5. 在 [SAML 簽署憑證] 區段中，按一下 [建立新憑證]。
+5. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
 
     ![設定單一登入](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
@@ -204,11 +204,11 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。 
+    d. 按一下頁面底部的 [新增] 。 
 
 
 ### <a name="creating-a-github-test-user"></a>建立 GitHub 測試使用者
@@ -222,7 +222,7 @@ GitHub 需以手動方式佈建。
 
 2. 按一下 [人員] 。
 
-    ![人員](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_08.png "人員")
+    ![People](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_08.png "People")
 
 3. 按一下 [邀請成員]。
 

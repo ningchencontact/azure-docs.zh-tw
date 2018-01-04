@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Workstars 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 51a4a4e4-ff60-4971-b3f8-a0367b70d220
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: e17c85689fa3aebf00ebf559185032b90103b4a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1136a94e29b3890da95dcd9bcdc96c304589065f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>教學課程：Azure Active Directory 與 Workstars 整合
 
@@ -48,13 +48,13 @@ Workstars 與 Azure AD 整合有下列好處：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Workstars
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-workstars-from-the-gallery"></a>從資源庫新增 Workstars
-若要設定將 Workstars 整合到 Azure AD 中，您需要從資源庫將 Workstars 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Workstars 整合到 Azure AD 中，您需要從資源庫將 Workstars 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Workstars，請執行下列步驟：**
 
@@ -172,7 +172,7 @@ Workstars 與 Azure AD 整合有下列好處：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-workstars-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-workstars-tutorial/create_aaduser_02.png)
 
@@ -190,7 +190,7 @@ Workstars 與 Azure AD 整合有下列好處：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-workstars-test-user"></a>建立 Workstars 測試使用者
 

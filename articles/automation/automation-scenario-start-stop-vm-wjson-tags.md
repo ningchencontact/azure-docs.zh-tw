@@ -3,7 +3,7 @@ title: "使用 JSON 格式化標籤來排程 Azure VM 狀態 | Microsoft Docs"
 description: "本文示範如何在標籤上使用 JSON 字串，自動排定 VM 的啟動和關閉。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure 自動化案例：使用 JSON 格式化標籤來建立 Azure VM 啟動和關閉的排程
 客戶通常會想要排程虛擬機器的啟動與關閉，以協助減少訂用帳戶成本或支援業務和技術需求。
@@ -59,14 +59,14 @@ ms.lasthandoff: 10/11/2017
 ### <a name="add-a-schedule-to-the-test-resourceschedule-runbook"></a>將排程加入至 Test-ResourceSchedule Runbook
 請遵循以下步驟以對 Test-ResourceSchedule Runbook 啟用排程。 這個 Runbook 會確認哪些虛擬機器應該啟動、關閉或保持原狀。
 
-1. 從 Azure 入口網站中，開啟您的自動化帳戶，然後按一下Runbook  圖格。
+1. 從 Azure 入口網站中，開啟您的自動化帳戶，然後按一下 [Runbook]  圖格。
 2. 在 [Test-ResourceSchedule] 刀鋒視窗中，按一下 [排程] 圖格。
 3. 在 [排程] 刀鋒視窗上，按一下 [加入排程]。
 4. 在 [排程] 刀鋒視窗中，選取 [將排程連結至您的 Runbook]。 然後選取 [建立新的排程] 。
 5. 在 [新增排程] 刀鋒視窗中，輸入此排程的名稱，例如：HourlyExecution。
 6. 若為 [啟動] 排程，請將開始時間設為小時遞增值。
 7. 選取 [週期]，然後針對 [重複出現間隔] 選取 [1 小時]。
-8. 確認 設定到期 已設為 否，然後按一下建立 以儲存新排程。
+8. 確認 [設定到期] 已設為 [否]，然後按一下 [建立] 以儲存新排程。
 9. 在 [排程 Runbook] 選項刀鋒視窗中，選取 [參數與回合設定]。 在 Test-ResourceSchedule 的 [參數] 刀鋒視窗中，於 [SubscriptionName] 欄位 中輸入訂用帳戶的名稱。  這是 Runbook 所需的唯一參數。  完成時，請按一下 [確定] 。
 
 完成時的 Runbook 排程應如下所示︰
@@ -138,7 +138,7 @@ Runbook 會循環執行已附加排程的虛擬機器，並檢查應採取什麼
 
    ![VM 標籤選項](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 
-3. 標籤會定義於金鑰/值組之後。 在 [金鑰] 欄位中輸入**排程**，然後將 JSON 字串貼到 [值] 欄位中。 按一下 [儲存] 。 新標籤現在應出現在您的資源的標記清單中。
+3. 標籤會定義於金鑰/值組之後。 在 [金鑰] 欄位中輸入**排程**，然後將 JSON 字串貼到 [值] 欄位中。 按一下 [檔案] 。 新標籤現在應出現在您的資源的標記清單中。
 
    ![VM 排程標籤](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 

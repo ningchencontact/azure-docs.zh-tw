@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如需搭配使用 Docker VM 擴充與 Resource Manager 模型的詳細資訊，請參閱[這裡](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需搭配使用 Docker VM 擴充與 Resource Manager 模型的詳細資訊，請參閱[這裡](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 本主題說明如何透過 Azure CLI 中的服務管理 (asm) 模式，在任何平台上建立包含 Docker VM 延伸模組的 VM。 [Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。 您可以使用 Docker VM 擴充功能和 [Azure Linux 代理程式](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，在 Azure 上建立 Docker VM 來裝載任何數目的應用程式容器。 若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)(英文)。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>將 Azure CLI 連接至您的 Azure 帳戶
-在使用 Azure CLI 前，必須讓您的 Azure 帳戶認證與您平台上的 Azure CLI 產生關聯。 [如何連接到您的 Azure 訂用帳戶](../../../xplat-cli-connect.md) 一節說明如何下載及匯入您的 **.publishsettings** 檔案，或為 Azure CLI 與組織識別碼建立關聯。
+在使用 Azure CLI 前，必須讓您的 Azure 帳戶認證與您平台上的 Azure CLI 產生關聯。 [如何連接到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli) 一節說明如何下載及匯入您的 **.publishsettings** 檔案，或為 Azure CLI 與組織識別碼建立關聯。
 
 > [!NOTE]
 > 因為使用一個或其他多個驗證方法的行為會有些許差異，因此請確實閱讀上述文件以了解不同的功能。

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 HPE SaaS 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 5e6f0da531df85359aa47477248dd020a039e7e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32e3ecdd66900c6bb816a0301f0135addd834528
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>教學課程：Azure Active Directory 與 HPE SaaS 整合
 
@@ -47,13 +47,13 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 HPE SaaS
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-hpe-saas-from-the-gallery"></a>從資源庫新增 HPE SaaS
-若要設定將 HPE SaaS 整合到 Azure AD 中，您需要從資源庫將 HPE SaaS 新增到受管理的 SaaS app 清單。
+若要設定將 HPE SaaS 整合到 Azure AD 中，您需要從資源庫將 HPE SaaS 新增到受控 SaaS app 清單。
 
 **若要從資源庫新增 HPE SaaS，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **HPE SaaS**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_search.png)
 
-5. 在結果窗格中，選取 HPE SaaS，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [HPE SaaS]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_addfromgallery.png)
 
@@ -112,7 +112,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://login.saas.hpe.com/msg`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.saas.hpe.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.saas.hpe.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [HPE SaaS 用戶端支援小組](https://saas.hpe.com/en-us/contact)以取得這些值。 
@@ -155,11 +155,11 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-hpe-saas-test-user"></a>建立 HPE SaaS 測試使用者
 

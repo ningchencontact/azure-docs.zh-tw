@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>離線 FairPlay 串流
 Microsoft Azure 媒體服務提供一組設計良好的[內容保護服務](https://azure.microsoft.com/services/media-services/content-protection/)，其中涵蓋：
-- Microsoft PlayReady
+- Microsoft PlayReady (英文)
 - Google Widevine
 - Apple FairPlay
 - AES-128 加密
@@ -189,7 +189,7 @@ Azure 媒體服務中已設定三個測試範例，其中涵蓋下列三種案�
 - **在以下適用於 FPS 離線模式的 API 中，最後一個參數代表什麼？**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-您可以在[這裡](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet) \(英文\) 找到此 API 的文件。 該參數代表以小時為單位的離線租用持續時間。
+您可以在[這裡](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet) \(英文\) 找到此 API 的文件。 該參數代表以小時為單位的離線租用持續時間。
 - **在 iOS 裝置上的下載/離線檔案結構為何？** 在 iOS 裝置上下載的檔案結構看起來如下 (螢幕擷取畫面)。 `_keys` 資料夾會儲存下載的 FPS 授權，每個授權服務主機一個存放區檔案。 `.movpkg` 資料夾會儲存音訊和影片內容。 第一個資料夾名稱結尾是一個破折號後面接著一個數字，此資料夾包含影片內容。 數值為影片轉譯的 "PeakBandwidth"。 第二個資料夾名稱結尾是一個破折號後面接著 0，此資料夾包含音訊內容。 第三個名為 "Data" 的資料夾包含 FPS 內容的主要播放清單。 Boot.xml 提供 `.movpkg` 資料夾內容的完整描述 (請參閱下方範例 boot.xml 檔案)。
 
 ![離線 FairPlay iOS 範例應用程式檔案結構](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
@@ -223,7 +223,7 @@ Azure 媒體服務中已設定三個測試範例，其中涵蓋下列三種案�
 </HLSMoviePackage>
 ```
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 在本文件中，我們已提供實作 FPS 離線模式的詳細步驟和資訊，包括：
 1. 透過 AMS .NET API 設定 Azure 媒體服務內容保護。 這會在 AMS 中設定動態 FairPlay 加密和 FairPlay 授權傳遞。
 2. 以 Apple FPS Server SDK 範例為基礎的 iOS 播放程式。 這會設定 iOS 播放程式，此播放程式可在線上串流處理模式或離線模式中播放 FPS 內容。

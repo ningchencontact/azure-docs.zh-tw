@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning 資料準備支援的資料來源 
 本文概述 Azure Machine Learning 資料準備目前支援的資料來源。
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/04/2017
 - 要連線的資料庫
 - SQL 查詢
 
-#### <a name="notes"></a>注意事項
+#### <a name="notes"></a>注意
 - 不支援 Sql-variant 資料行
 - 系統會透過將來自資料庫的時間附加到日期 1970/1/1，將時間資料行轉換成日期時間
 - 在 Spark 叢集上執行時，所有資料相關資料行 (date、datetime、datetime2、datetimeoffset) 都會把 1583 年之前的日期評估為不正確的值

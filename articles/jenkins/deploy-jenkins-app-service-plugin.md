@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](/azure/jenkins/execute-cli-jenkins-pipeline)中使用 Azure CLI，或者，也可以使用 [Azure App Service Jenkins 外掛程式](https://plugins.jenkins.io/azure-app-service)。 Jenkins 外掛程式 1.0 版支援透過下列方式，使用 Azure App Service 的 Web Apps 功能來進行連續部署：
-* Git 和 FTP。
+* Git 或 FTP。
 * 適用於 Linux 上 Web Apps 的 Docker。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> * 將 Jenkins 設定為透過 Git 和 FTP 部署 Web Apps。
+> * 設定部署 Web 應用程式透過 Git 或 FTP 的 Jenkins。
 > * 設定 Jenkins 以部署適用於容器的 Web Apps。
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>建立及設定 Jenkins 執行個體
@@ -64,7 +64,7 @@ sudo apt-get install -y maven
 3. 若要新增 Microsoft Azure 服務主體，請選取 [新增認證]。 為 [訂用帳戶 ID]、[用戶端識別碼]、[用戶端密碼] 及 [OAuth 2.0 權杖端點] 欄位輸入值。 將 [識別碼] 欄位設定為 **mySp**。 我們會在本文的後續步驟中用到此識別碼。
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>將 Jenkins 設定為透過 Git 和 FTP 部署 Web Apps
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>設定部署 Web 應用程式檔案上傳的 Jenkins
 
 若要將專案部署到 Web Apps，您可以使用 Git 或 FTP 來上傳組建成品 (例如以 Java 撰寫的 WAR 檔案)。
 
@@ -104,7 +104,7 @@ sudo apt-get install -y maven
 8. 如果您想要部署到生產環境以外的位置，您也可以設定 [位置] 名稱。
 9. 儲存專案並建置該專案。 建置完成時，您的 Web 應用程式就會部署到 Azure。
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>使用 Jenkins 管線來透過 FTP 部署 Web Apps
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>使用 Jenkins 管線檔案上傳部署 Web 應用程式
 
 Azure App Service Jenkins 外掛程式是符合管線需求的外掛程式。 您可以參考以下 GitHub 儲存機制中的範例。
 
@@ -138,7 +138,7 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
 在於 Jenkins 中設定作業之前，您必須在 Linux 上擁有一個 Web 應用程式。 您還需要有一個容器登錄，以便儲存和管理您的私人 Docker 容器映像。 您可以使用 DockerHub 來建立容器登錄。 在此範例中，我們使用 Azure Container Registry。
 
 * [在 Linux 上建立 Web 應用程式](../app-service/containers/quickstart-nodejs.md)。
-* Azure Container Registry 是一個受管理的 [Docker 登錄](https://docs.docker.com/registry/)服務，此服務以開放原始碼的 Docker Registry 2.0 版為基礎。 [建立 Azure 容器登錄](/azure/container-registry/container-registry-get-started-azure-cli)。 您也可以使用 DockerHub。
+* Azure Container Registry 是一個受控 [Docker 登錄](https://docs.docker.com/registry/)服務，此服務以開放原始碼的 Docker Registry 2.0 版為基礎。 [建立 Azure 容器登錄](/azure/container-registry/container-registry-get-started-azure-cli)。 您也可以使用 DockerHub。
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>設定 Docker 的 Jenkins 作業
 

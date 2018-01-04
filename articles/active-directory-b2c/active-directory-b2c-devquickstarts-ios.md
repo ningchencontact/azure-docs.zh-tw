@@ -1,24 +1,24 @@
 ---
-title: "使用 iOS 應用程式取得權杖 - Azure AD B2C | Microsoft Docs"
-description: "本文將說明如何建立 iOS 應用程式，以使用 AppAuth 和 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者。"
+title: "使用中 iOS 應用程式的 Azure Active Directory B2C AppAuth"
+description: "這篇文章會示範如何建立 iOS 應用程式與 Azure Active Directory B2C 的 AppAuth 用來管理使用者身分識別和驗證使用者。"
 services: active-directory-b2c
 documentationcenter: ios
-author: saeedakhter-msft
-manager: krassk
+author: PatAltimore
+manager: mtillman
 editor: parakhj
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: ebec5d910b8987dcc8155cd4ead00f87d219941c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: saeeda
+ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C︰使用 iOS 應用程式登入
 
@@ -41,14 +41,12 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 您稍後需要此 GUID。
 * 使用自訂配置設定**重新導向 URI** (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)。 您稍後需要此 URI。
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## <a name="create-your-policies"></a>建立您的原則
 在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含一個身分識別體驗：合併登入和註冊。 建立此原則，如[原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)所述。 建立此原則時，請務必：
 
 * 在 [註冊屬性] 下方，選取 [顯示名稱] 屬性。  您也可以選取其他屬性。
 * 在 [應用程式宣告] 下方，選取 [顯示名稱] 和 [使用者的物件識別碼] 宣告。 您也可以選取其他宣告。
-* 在您建立每個原則之後，請複製原則的 [名稱]  。 當您儲存原則時，原則名稱前面會加上 `b2c_1_`。  您稍後需要用到此原則名稱。
+* 建立每個原則之後，請複製原則的 **名稱** 。 當您儲存原則時，原則名稱前面會加上 `b2c_1_`。  您稍後需要用到此原則名稱。
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -131,8 +129,8 @@ appDelegate.currentAuthorizationFlow =
 * 按一下 [項目 0] 左邊的箭頭以開啟樹狀結構。
 * 將 [項目 0] 下方的第一個項目重新命名為 [URL 配置]。
 * 按一下 [URL 配置] 左邊的箭頭以開啟樹狀結構。
-* 在 [值] 資料行中，[URL 配置] 下方的 [項目 0] 左邊有一個空白欄位。  將此值設為應用程式的唯一配置。  建立 OIDAuthorizationRequest 物件時，此值必須符合 redirectURL 中使用的配置。  在我們的範例中，我們使用配置 'com.onmicrosoft.fabrikamb2c.exampleapp'。
+* 在 [值] 資料行中，[URL 配置] 下方的 [項目 0] 左邊有一個空白欄位。  將此值設為應用程式的唯一配置。  建立 OIDAuthorizationRequest 物件時，此值必須符合 redirectURL 中使用的配置。  在此範例中，會使用 'com.onmicrosoft.fabrikamb2c.exampleapp' 的配置。
 
-有關如何完成此程序的其餘部分，請參閱 [AppAuth 指南](https://openid.github.io/AppAuth-iOS/)。 如果您需要快速開始使用一個可操作的應用程式，請參閱[我們的範例](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c)。 請依照 [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) 中的步驟，輸入自己的 Azure AD B2C 組態。
+有關如何完成此程序的其餘部分，請參閱 [AppAuth 指南](https://openid.github.io/AppAuth-iOS/)。 如果您需要快速地開始使用工作應用程式，請參閱[範例](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c)。 請依照 [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) 中的步驟，輸入自己的 Azure AD B2C 組態。
 
-我們歡迎意見反應和建議！ 如果您無法完成此主題，或者有改進此內容的建議，非常歡迎您在頁面底部提供意見反應。 對於功能要求，請將它們新增到 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)。
+我們歡迎意見反應和建議！ 如果您有此篇文章的任何問題，或有改善此內容的建議，我們非常感謝您在頁面底部的意見反應。 對於功能要求，請將它們新增到 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)。

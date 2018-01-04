@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立應用程式閘道
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>必要條件：安裝 Azure CLI 2.0
 
-若要執行本文的步驟，您需要[安裝適用於 macOS、Linux 和 Windows 的 Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)。
+若要執行本文的步驟，您需要[安裝適用於 macOS、Linux 和 Windows 的 Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)。
 
 > [!NOTE]
 > 您需要 Azure 帳戶以建立應用程式閘道。 如果您沒有帳戶，請註冊 [免費試用](../active-directory/sign-up-organization.md)。

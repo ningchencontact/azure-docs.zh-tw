@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的問與答比對
 開放式問題不容易回答，因此通常需要由主題專家 (SME) 親自回覆。 為了減少對於內部 SME 的需求，各家公司通常會建立常見問題集 (FAQ) 清單來協助使用者。 此範例會展示各種有效的機器學習方法，以供您比對開放式查詢與既存的常見問題集問/答組合。 此範例會示範簡單的開發程序，讓您了解如何使用 Azure Machine Learning Workbench 來建置這類解決方案。 
@@ -81,16 +82,16 @@ Posts data 中的 `PostTypeId` 欄位會指出貼文是 `Question` 還是 `Answe
 
 | Dataset | 欄位 | 類型 | 說明
 | ----------|------------|------------|--------
-| [問題](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | 識別碼 | String | 問題的唯一識別碼 (主索引鍵)
-|  | AnswerId | String | 每個問題之解答的唯一識別碼
-|  | Text0 | String | 未經處理的文字資料，包括問題的標題和內文
+| [問題](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | id | 字串 | 問題的唯一識別碼 (主索引鍵)
+|  | AnswerId | 字串 | 每個問題之解答的唯一識別碼
+|  | Text0 | 字串 | 未經處理的文字資料，包括問題的標題和內文
 |  | CreationDate | Timestamp | 提問時間戳記
-| [重複問題](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | 識別碼 | String | 重複問題的唯一識別碼 (主索引鍵)
-|  | AnswerId | String | 與重複問題相關聯的解答識別碼
-|  | Text0 | String | 未經處理的文字資料，包括重複問題的標題和內文
+| [重複問題](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | id | 字串 | 重複問題的唯一識別碼 (主索引鍵)
+|  | AnswerId | 字串 | 與重複問題相關聯的解答識別碼
+|  | Text0 | 字串 | 未經處理的文字資料，包括重複問題的標題和內文
 |  | CreationDate | Timestamp | 重複問題提問時間戳記
-| [解答](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | 識別碼 | String | 解答的唯一識別碼 (主索引鍵)
-|  | text0 | String | 解答的未經處理文字資料
+| [解答](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | id | 字串 | 解答的唯一識別碼 (主索引鍵)
+|  | text0 | 字串 | 解答的未經處理文字資料
 
 
 ## <a name="scenario-structure"></a>案例結構

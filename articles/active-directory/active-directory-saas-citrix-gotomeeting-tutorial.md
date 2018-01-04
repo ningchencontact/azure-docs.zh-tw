@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: e8871ea9c3aa9f962bf961a8b44b748392a56ba7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>教學課程：Azure Active Directory 與 GoToMeeting 整合
 
@@ -48,13 +48,13 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 GoToMeeting
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-gotomeeting-from-the-gallery"></a>從資源庫新增 GoToMeeting
-若要設定 GoToMeeting 與 Azure AD 整合，您需要從資源庫將 GoToMeeting 新增到受管理的 SaaS App 清單。
+若要設定 GoToMeeting 與 Azure AD 整合，您需要從資源庫將 GoToMeeting 新增到受控 SaaS App 清單。
 
 **若要從資源庫新增 GoToMeeting，請執行下列步驟：**
 
@@ -104,24 +104,11 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. 在 [GoToMeeting 網域和 URL] 區段中，按一下 [顯示進階 URL 設定]，並執行下列動作：
+3. 在**GoToMeeting 網域和 Url**區段中，執行下列步驟：
 
-    ![GoToMeeting 網域與 URL 單一登入資訊](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![GoToMeeting 網域與 URL 單一登入資訊](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入 URL：`https://authentication.logmeininc.com/saml/sp`
-
-    b. 在 [回覆 URL] 文字方塊中，輸入 URL：`https://authentication.logmeininc.com/saml/acs`
-
-    c. 在 [轉送狀態] 文字方塊中，輸入下列其中一個 URL：
-
-    **若為 GoToMeeting**：`https://global.gotomeeting.com`
-    
-    **若為 GoToTraining**：`https://global.gototraining.com`
-
-    **若為 GoToWebinar**：`https://global.gotowebinar.com`
-
-    **若為 GoToAssist**：`https://app.gotoassist.com`
-
+    在 [識別碼] 文字方塊中，輸入 URL：`https://login.citrixonline.com/saml/sp`
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -137,7 +124,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [端點] 以開啟 [端點] 對話方塊。  
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
     
     ![設定單一登入](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
 
@@ -155,7 +142,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     ![GoToMeeting 設定](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. 在不同的瀏覽器視窗中，登入您的 [GoToMeeting 組織中心](https://account.citrixonline.com/organization/administration/)
+8. 在不同的瀏覽器視窗中，登入您的 [GoToMeeting 組織中心](https://organization.logmeininc.com/)
 
 9. 在 [識別提供者] 索引標籤下，您可以提供所產生的**中繼資料 URL** 或下載的**中繼資料檔** 或 [手動]，來設定 Azure 設定。
 
@@ -167,7 +154,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     b. 將您在先前步驟產生的**中繼資料 URL** 貼至 [中繼資料 URL] 文字方塊。
 
-    c. 按一下 [儲存] 。
+    c. 按一下 [檔案] 。
 
 11. 若為 [中繼資料檔]，請執行下列步驟：
 
@@ -177,7 +164,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     b. 若要上傳您下載的中繼資料檔，請按一下 [上傳中繼資料檔] 。
 
-    c. 按一下 [儲存] 。
+    c. 按一下 [檔案] 。
 
 12. 若為 [手動]，請執行下列步驟：
 
@@ -191,7 +178,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     d. 從下載的中繼資料檔中擷取 X509Certificate，然後按一下 [上傳憑證]，上傳此憑證。
 
-    e. 按一下 [儲存] 。
+    e. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -227,7 +214,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-gotomeeting-test-user"></a>建立 GoToMeeting 測試使用者
 

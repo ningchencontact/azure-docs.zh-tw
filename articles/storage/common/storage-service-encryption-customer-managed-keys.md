@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理金鑰進行儲存體服務加密
 
@@ -50,7 +50,7 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 ![顯示 [加密] 選項的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*為 Blob 服務啟用 SSE*
 
-如果您想要以程式設計方式啟用或停用儲存體帳戶上的儲存體服務加密，您可以使用 [Azure 儲存體資源提供者 REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN)、[適用於 .NET 的儲存體資源提供者用戶端程式庫](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN)、[Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0) 或 [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli)。
+如果您想要以程式設計方式啟用或停用儲存體帳戶上的儲存體服務加密，您可以使用 [Azure 儲存體資源提供者 REST API](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)、[適用於 .NET 的儲存體資源提供者用戶端程式庫](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0) 或 [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli)。
 
 在這個畫面上，如果沒有看到 [使用您自己的金鑰] 核取方塊，即表示您尚未獲准預覽。 請傳送電子郵件至 [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) 並要求核准。
 
@@ -71,10 +71,10 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 您也可以移至 Azure 入口網站中的 Azure Key Vault，並將存取權授與儲存體帳戶，以透過 Azure 入口網站授與存取權。
 
 ## <a name="step-4-copy-data-to-storage-account"></a>步驟 4︰將資料複製到儲存體帳戶
-如果您想要將資料傳輸至新的儲存體帳戶，以對其進行加密，請參閱[待用資料的儲存體服務加密快速入門步驟 3](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account) \(英文\)。
+如果您想要將資料傳輸至新的儲存體帳戶，以對其進行加密，請參閱[待用資料的儲存體服務加密快速入門步驟 3](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account) \(英文\)。
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>步驟 5︰查詢加密資料的狀態
-若要查詢加密資料的狀態，請參閱[待用資料的儲存體服務加密快速入門步驟 4](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data) \(英文\)。
+若要查詢加密資料的狀態，請參閱[待用資料的儲存體服務加密快速入門步驟 4](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data) \(英文\)。
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>待用資料的儲存體服務加密的常見問題集
 **問︰我正在使用進階儲存體，是否可以使用具有客戶管理之金鑰的 SSE？**
@@ -83,7 +83,7 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 
 **問：是否可以搭配客戶管理的金鑰 \(使用 Azure PowerShell 和 Azure CLI 啟用\) 使用 SSE 建立新儲存體帳戶？**
 
-答：是。
+答： 會。
 
 **問：如果啟用使用客戶管理金鑰的 SSE，Azure 儲存體的成本會多出多少？**
 
@@ -91,7 +91,7 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 
 **問︰是否可以撤銷加密金鑰的存取權？**
 
-答：是，您可以隨時撤銷存取權。 有幾種方法可以撤銷對金鑰的存取權。 如需詳細資訊，請參閱 [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) \(英文\) 與 [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) \(英文\)。 撤銷存取權將有效封鎖對儲存體帳戶中所有 Blob 的存取權，因為 Azure 儲存體將無法存取帳戶加密金鑰。
+答：是，您可以隨時撤銷存取權。 有幾種方法可以撤銷對金鑰的存取權。 如需詳細資訊，請參閱 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) \(英文\) 與 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) \(英文\)。 撤銷存取權將有效封鎖對儲存體帳戶中所有 Blob 的存取權，因為 Azure 儲存體將無法存取帳戶加密金鑰。
 
 **問：是否可以在不同的區域建立儲存體帳戶和金鑰？**
 
@@ -123,6 +123,6 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 
 ## <a name="next-steps"></a>後續步驟
 
-*   如需協助開發人員建置安全應用程式之全方位安全功能的詳細資訊，請參閱[儲存體安全性指南](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide)。
-*   如需 Azure Key Vault 的概觀資訊，請參閱[什麼是 Azure Key Vault？](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
+*   如需協助開發人員建置安全應用程式之全方位安全功能的詳細資訊，請參閱[儲存體安全性指南](https://docs.microsoft.com/azure/storage/storage-security-guide)。
+*   如需 Azure Key Vault 的概觀資訊，請參閱[什麼是 Azure Key Vault？](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 *   若要開始使用 Azure Key Vault，請參閱[開始使用 Azure Key Vault](../../key-vault/key-vault-get-started.md)。

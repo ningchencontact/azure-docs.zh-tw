@@ -107,8 +107,8 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
 | Level |   高可用性   | 備份或 DR |
 | --- | --- | --- |
-| 應用程式 | SQL Server AlwaysOn | Azure 備份 |
-| 基礎結構    | 可用性集合  | 使用一致性快照的異地備援儲存體 |
+| Application | SQL Server AlwaysOn | Azure 備份 |
+| 基礎結構    | 可用性設定組  | 使用一致性快照的異地備援儲存體 |
 
 ### <a name="using-azure-backup"></a>使用 Azure 備份 
 
@@ -138,7 +138,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 4.  確認已在 VM 上安裝備份代理程式。 如果使用 Azure 資源庫映像建立 VM，則已安裝備份代理程式。 否則 (也就是，如果您使用自訂映像)，請使用相關指示[在虛擬機器上安裝 VM 代理程式](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)。
 
-5.  確定 VM 允許網路連線，備份服務才能運作正常。 請遵循[網路連線](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity)的指示。
+5.  確定 VM 允許網路連線，備份服務才能運作正常。 請遵循[網路連線](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)的指示。
 
 6.  完成上述步驟之後，備份就會依照備份原則中指定的間隔定期執行。 如有必要，您可以從 Azure 入口網站上的保存庫儀表板，以手動方式觸發第一個備份。
 
@@ -211,7 +211,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 ### <a name="recovery-from-snapshots"></a>從快照集復原
 
-若要擷取快照集，請加以複製以建立新的 Blob。 如果您要從主要帳戶複製快照集，您可以將快照集複製到快照集的基底 Blob。 此程序會將磁碟還原至快照集。 這個程序稱為升級快照集。 如果您要從次要帳戶 (在本例中為存取權限異地備援儲存體) 複製快照集備份，則必須將它複製到主要帳戶。 您可以[使用 PowerShell](../articles/storage/common/storage-powershell-guide-full.md) 或使用 AzCopy 公用程式來複製快照集。 如需詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)。
+若要擷取快照集，請加以複製以建立新的 Blob。 如果您要從主要帳戶複製快照集，您可以將快照集複製到快照集的基底 Blob。 此程序會將磁碟還原至快照集。 這個程序稱為升級快照集。 如果您要從次要帳戶 (在本例中為存取權限異地備援儲存體) 複製快照集備份，則必須將它複製到主要帳戶。 您可以[使用 PowerShell](../articles/storage/common/storage-powershell-guide-full.md) 或使用 AzCopy 公用程式來複製快照集。 如需詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)。
 
 如果 VM 有多個磁碟，您必須複製屬於同一個一致還原點的所有快照集。 將快照集複製到可寫入的 VHD Blob 後，您就可以使用 Blob 透過 VM 的範本重新建立 VM。
 

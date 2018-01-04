@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7a051e0f35b2dd943f3569391d7ca0f206a9ef02
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/03/2017
 
 有[許多受歡迎的架構](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，包括 [Microsoft 認知工具組](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)MXNet、Theano 等等。Caffe 是其中一個最著名的非符號 (必要) 類神經網路架構，並廣泛用在許多方面，包括電腦視覺。 此外，[CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 使用 Apache Spark 結合了 Caffe，這樣的深入學習可以輕鬆地使用在現有的 Hadoop 叢集。 您可以使用結合 Spark ETL 管線的深入學習，降低系統複雜性和延遲，以學習完整的解決方案。
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) 是雲端 Hadoop 產品，為 Spark、Hive、Hadoop、HBase、Storm、Kafka 和 R 伺服器提供最佳化開放原始碼分析叢集。 HDInsight 受 99.9% SLA 的支援。 每個巨量資料技術及 ISV 應用程式都可輕鬆部署為受管理的叢集，以提供企業所需的安全性和監視功能。
+[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) 是雲端 Hadoop 產品，為 Spark、Hive、Hadoop、HBase、Storm、Kafka 和 R 伺服器提供最佳化開放原始碼分析叢集。 HDInsight 受 99.9% SLA 的支援。 每個巨量資料技術及 ISV 應用程式都可輕鬆部署為受控叢集，以提供企業所需的安全性和監視功能。
 
 本文示範如何為 HDInsight 叢集安裝 [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark)。 本文也會使用內建 MNIST 示範，說明如何使用 HDInsight Spark 在 CPU 上使用分散式深入學習。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/03/2017
 3. 將所需的程式庫分散至所有背景工作角色節點
 4. 撰寫 Caffe 模型，並以分散方式執行它。
 
-由於 HDInsight 是 PaaS 的解決方案，它提供絕佳的平台功能 - 因此可以輕鬆執行某些工作。 我們在此部落格文章中經常使用的其中一個功能稱為[指令碼動作](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)，您可以用來執行 shell 命令以自訂叢集節點 (前端節點、背景工作角色節點或邊緣節點)。
+由於 HDInsight 是 PaaS 的解決方案，它提供絕佳的平台功能 - 因此可以輕鬆執行某些工作。 我們在此部落格文章中經常使用的其中一個功能稱為[指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)，您可以用來執行 shell 命令以自訂叢集節點 (前端節點、背景工作角色節點或邊緣節點)。
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>步驟 1︰在所有節點上安裝必要的相依性
 
@@ -71,14 +71,14 @@ ms.lasthandoff: 11/03/2017
 
 第二個步驟是在執行階段期間下載、編譯和安裝 Caffe 的 protobuf 2.5.0。 [需要](https://github.com/yahoo/CaffeOnSpark/issues/87) Protobuf 2.5.0，但這個版本不在 Ubuntu 16 以套件形式提供，因此我們需要從原始程式碼編譯它。 另外在網際網路上還有一些關於如何加以編譯的資源。 如需詳細資訊，請參閱[這裡](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)。
 
-若要開始，您可以僅對叢集執行此指令碼動作至所有背景工作角色節點和前端節點 (適用於 HDInsight 3.5)。 您可以在現有的叢集上執行指令碼動作，或在叢集建立期間使用指令碼動作。 如需有關指令碼動作的詳細資訊，請參閱文件[這裡](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)。
+若要開始，您可以僅對叢集執行此指令碼動作至所有背景工作角色節點和前端節點 (適用於 HDInsight 3.5)。 您可以在現有的叢集上執行指令碼動作，或在叢集建立期間使用指令碼動作。 如需有關指令碼動作的詳細資訊，請參閱文件[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)。
 
 ![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
 ## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>步驟 2︰在前端節點上建置適用於 HDInsight 的 Spark Caffe
 
-第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。 
+第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -294,7 +294,7 @@ SampleID 代表 MNIST 資料集的識別碼，且標籤是此模型識別的數�
 
 ## <a name="conclusion"></a>結論
 
-在本文件中，您已嘗試執行簡單的範例來安裝 CaffeOnSpark。 HDInsight 是完全受管理的雲端分散式計算平台，並且是在大型資料集上執行機器學習和進階分析工作負載的最佳位置，而針對分散式深入學習，您可以使用 Caffe on HDInsight Spark 來執行深入學習工作。
+在本文件中，您已嘗試執行簡單的範例來安裝 CaffeOnSpark。 HDInsight 是完全受控雲端分散式計算平台，並且是在大型資料集上執行機器學習和進階分析工作負載的最佳位置，而針對分散式深入學習，您可以使用 Caffe on HDInsight Spark 來執行深入學習工作。
 
 
 ## <a name="seealso"></a>另請參閱

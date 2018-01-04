@@ -4,7 +4,7 @@ description: "在使用存取面板時，取得常見工作的執行指示。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>是否需要 My Apps 入口網站的協助？
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/23/2017
 
 - 確定密碼未過期或忘記。 如需如何更新密碼的詳細資訊，請參閱[這裡](active-directory-passwords-update-your-own-password.md)。
 
-- 查看您的驗證連絡資訊是否為最新的，並且不會封鎖您的存取。 如需設定驗證資訊的詳細資訊，請參閱[這裡](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user)。
+- 查看您的驗證連絡資訊是否為最新的，並且不會封鎖您的存取。 如需設定驗證資訊的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user)。
 
 - 嘗試清除瀏覽器的 Cookie，然後嘗試再次登入。
 

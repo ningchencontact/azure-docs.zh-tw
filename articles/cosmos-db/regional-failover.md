@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中商務持續性的自動區域性容錯移轉
-Azure Cosmos DB 會簡化資料的全域散發作業，方法是提供多個可完全管理的[多重地區資料庫帳戶](distribute-data-globally.md)，在一致性、可用性和效能之間進行明確取捨，這一切全都倚靠相對應的保證來完成。 Cosmos DB 帳戶具備下列優點：高可用性、個位數的毫秒延遲、[定義完善的一致性層級](consistency-levels.md)、利用多路連接 API 透明進行的區域性容錯移轉，以及全球輸送量及儲存體的靈活調整能力。 
+Azure Cosmos DB 會簡化資料的全域散發作業，方法是提供多個完全受控的[多重地區資料庫帳戶](distribute-data-globally.md)，在一致性、可用性和效能之間進行明確取捨，這一切全都倚靠相對應的保證來完成。 Cosmos DB 帳戶具備下列優點：高可用性、個位數的毫秒延遲、[定義完善的一致性層級](consistency-levels.md)、利用多路連接 API 透明進行的區域性容錯移轉，以及全球輸送量及儲存體的靈活調整能力。 
 
 Cosmos DB 支援明確和原則導向的容錯移轉，可讓您控制在失敗發生時的端對端系統行為。 我們將在本文中說明：
 
@@ -46,7 +46,7 @@ Cosmos DB 支援明確和原則導向的容錯移轉，可讓您控制在失敗�
 * 以 `West US` 設定為低延遲讀取的第一個慣用區域
 * 以 `North Europe` 設定第二個慣用區域 (為了在區域失敗時有高可用性)
 
-在 DocumentDB API 中，此設定看起來像下列程式碼片段︰
+在 SQL API 中，此組態看起來像下列程式碼片段：
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ do
 ## <a id="NextSteps"></a>後續步驟
 * 了解 Cosmos DB 如何支援[全域散發](distribute-data-globally.md)
 * 了解 [Azure Cosmos DB 的全域一致性](consistency-levels.md)
-* 使用 Azure Cosmos DB 的 [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md) 進行多區域開發
-* 了解如何使用 Azure DocumentDB 建置[多區域寫入器架構](multi-region-writers.md)
+* 使用多個區域使用 Azure Cosmos DB 的開發[SQL 應用程式開發介面](tutorial-global-distribution-sql-api.md)
+* 了解如何建置[多區域寫入器架構](multi-region-writers.md)搭配 Azure Cosmos DB
 

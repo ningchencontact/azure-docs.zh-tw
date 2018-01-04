@@ -19,7 +19,7 @@
 * 回應從解決方案中的**裝置**頁面觸發的動作。
 * 回應從解決方案中的**裝置**頁面傳送的設定變更。
 
-若要完成此教學課程，您需要一個有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+若要完成此教學課程，您需要一個有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -54,7 +54,7 @@
 
 1. 找出資源群組，當中包含遠端監視解決方案所使用的 Azure 服務。 資源群組與您佈建的遠端監視解決方案具有相同名稱。
 
-1. 瀏覽到此資源群組中的 IoT 中樞。 然後選擇 [裝置總管]：
+1. 瀏覽到此資源群組中的 IoT 中樞。 然後選擇  **IoT 裝置**:
 
     ![裝置總管](media/iot-suite-selector-connecting/deviceexplorer.png)
 

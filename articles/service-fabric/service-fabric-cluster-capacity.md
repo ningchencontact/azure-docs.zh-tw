@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/31/2017
 
 
 > [!WARNING]
-> 不建議對未至少執行 Silver 持久性的 VM 擴展集變更 VM SKU 大小。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有至少延遲或監視此變更的某些能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 
+> VM SKU 大小的 VM 規模集不在執行至少銀級持久性不建議變更。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 沒有延遲，或是監視這項變更至少部分功能，就可能作業可能會導致資料遺失，可設定狀態的服務，或導致其他不可預見的操作問題、 甚至的無狀態工作負載。 
 > 
     
 3. 針對所有啟用 Gold 或 Silver 持久性 的虛擬機器擴展集維持至少五個節點

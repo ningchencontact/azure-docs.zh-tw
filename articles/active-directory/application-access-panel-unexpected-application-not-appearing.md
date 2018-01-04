@@ -4,7 +4,7 @@ description: "針對應用程式為什麼未出現在存取面板上進行疑難
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0abb9e992f408ab6df073891047c9afc7716054f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>指派的應用程式未出現在存取面板上
 
@@ -96,7 +96,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -167,7 +167,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 9.  若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
-   新增屬性：
+   若要新增屬性︰
 
    1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
 
@@ -233,7 +233,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 10. 在 [模式] 下拉式清單中選取 [SAML 登入]。
 
-11. 在 [網域及 URL] 中輸入必要值。 這些值應從應用程式廠商處取得。
+11. 在 [網域及 URL] 中輸入必要值 這些值應從應用程式廠商處取得。
 
    1. 若要將應用程式設定為 IdP 啟始的 SSO，請輸入回覆 URL 與識別碼。
 
@@ -245,7 +245,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
    新增屬性：
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -280,9 +280,9 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 9.  若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
-   新增屬性：
+   若要新增屬性︰
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -346,7 +346,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -400,7 +400,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -460,7 +460,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 ### <a name="how-to-assign-a-user-to-an-application-directly"></a>如何將使用者直接指派給應用程式
 
-若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行：
+若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
 1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**身分登入。
 
@@ -494,13 +494,13 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的使用者。
 
-稍後片刻，您已選取的使用者便能在存取面板中啟動這些應用程式。
+稍待片刻，您已選取的使用者便能在存取面板中啟動這些應用程式。
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>檢查使用者是否已獲應用程式相關的授權
 
 若要檢查指派給使用者的授權，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -520,7 +520,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要為使用者指派授權，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -558,7 +558,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要檢查群組的成員資格，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -616,7 +616,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 ### <a name="check-if-a-user-is-part-of-group-assigned-to-a-license"></a>檢查使用者是否屬於指派給授權的群組
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -640,7 +640,7 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 若要將授權指派給群組，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

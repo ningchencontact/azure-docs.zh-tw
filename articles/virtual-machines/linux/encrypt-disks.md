@@ -4,7 +4,7 @@ description: "如何使用 Azure CLI 2.0 將 Linux VM 上的虛擬磁碟加密�
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何將 Linux VM 上的虛擬磁碟加密
-如需強化虛擬機器 (VM) 安全性與法規遵循，可以將 Azure 中的虛擬磁碟加密。 磁碟會使用 Azure 金鑰保存庫中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文詳細說明如何使用 Azure CLI 2.0 將 Linux VM 上的虛擬磁碟加密。 您也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
+增強的虛擬機器 (VM) 的安全性和相容性，可以加密虛擬磁碟和 VM 本身。 Vm 會加密使用 Azure 金鑰保存庫中受保護的密碼編譯金鑰。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文詳細說明如何使用 Azure CLI 2.0 將 Linux VM 上的虛擬磁碟加密。 您也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
 
 ## <a name="quick-commands"></a>快速命令
 如果您需要快速完成工作，下列章節詳細說明將 VM 上的虛擬磁碟加密的基本命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，[從這裡開始](#overview-of-disk-encryption)。
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 使用 [az keyvault create](/cli/azure/keyvault#create) 建立 Azure Key Vault 並啟用 Key Vault 以便搭配磁碟加密使用。 針對 *keyvault_name* 指定一個唯一的 Key Vault 名稱，如下所示︰
 
 ```azurecli
-keyvault_name=mykeyvaultikf
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -53,7 +53,7 @@ az keyvault create \
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-使用 Azure Active Directory 搭配 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 建立服務主體。 服務主體會處理 Key Vault 中密碼編譯金鑰的驗證與交換。 下列範例會讀取服務主體識別碼和密碼的值，以便使用於後續命令︰
+使用 Azure Active Directory 搭配 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 建立服務主體。 服務主體會處理 Key Vault 中密碼編譯金鑰的驗證與交換。 下列範例會針對服務主體的識別碼和密碼，以在更新版本的命令中使用讀取的值：
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-使用 [az vm create](/cli/azure/vm#create) 建立 VM 並連結 5GB 資料磁碟。 只有某些 Marketplace 映像支援磁碟加密。 下列範例會使用 **CentOS 7.2n** 映像建立名為 `myVM` 的 VM︰
+使用 [az vm create](/cli/azure/vm#create) 建立 VM 並連結 5GB 資料磁碟。 只有某些 Marketplace 映像支援磁碟加密。 下列範例會使用 *CentOS 7.2n* 映像來建立名為 *myVM* 的 VM︰
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-請使用先前命令輸出中所顯示的 `publicIpAddress`，來透過 SSH 連線到您的 VM。 建立磁碟分割和檔案系統，然後掛接資料磁碟。 如需詳細資訊，請參閱[連線到 Linux VM 以掛接新磁碟](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)。 關閉 SSH 工作階段。
+Ssh 連線到您的 VM 使用*publicIpAddress*上一個命令的輸出中所示。 建立磁碟分割和檔案系統，然後掛接資料磁碟。 如需詳細資訊，請參閱[連線到 Linux VM 以掛接新磁碟](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)。 關閉 SSH 工作階段。
 
-使用 [az vm encryption enable](/cli/azure/vm/encryption#enable) 將您的 VM 加密。 下列範例使用先前 `ad sp create-for-rbac` 命令中的 `$sp_id` 和 `$sp_password` 變數︰
+使用 [az vm encryption enable](/cli/azure/vm/encryption#enable) 將您的 VM 加密。 下列範例會使用*$sp_id*和*$sp_password*在上述案例中的變數`ad sp create-for-rbac`命令：
 
 ```azurecli
 az vm encryption enable \
@@ -108,13 +108,14 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-磁碟加密程序會在開機過程中完成，因此請等候幾分鐘，再使用 **az vm encryption show** 檢查加密的狀態：
+磁碟加密程序會在開機過程中完成，因此請等候幾分鐘，再使用 [az vm encryption show](/cli/azure/vm/encryption#show) 檢查加密的狀態：
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
 狀態現在應會將 OS 磁碟和資料磁碟回報為 [已加密]。
+
 
 ## <a name="overview-of-disk-encryption"></a>磁碟加密概觀
 Linux VM 上的待用虛擬磁碟會使用 [dm-crypt](https://wikipedia.org/wiki/Dm-crypt) 進行加密。 將 Azure 中的虛擬磁碟加密完全免費。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure 金鑰保存庫中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 您可保留這些密碼編譯金鑰的控制權，並可稽核其使用情況。 這些密碼編譯金鑰用來加密及解密連接到 VM 的虛擬磁碟。 Azure Active Directory 服務主體會提供一個安全機制，以便在 VM 開機或關機時發出這些密碼編譯金鑰。
@@ -143,14 +144,18 @@ Linux VM 上的待用虛擬磁碟會使用 [dm-crypt](https://wikipedia.org/wiki
 
 * 下列 Linux 伺服器 SKU - Ubuntu、CentOS、SUSE、SUSE Linux Enterprise Server (SLES) 和 Red Hat Enterprise Linux。
 * 所有資源 (例如金鑰保存庫、儲存體帳戶、VM) 必須位於相同的 Azure 區域和訂用帳戶。
-* 標準 A、D、DS、G 和 GS 系列 VM。
+* 標準的、 D、 DS、 G、 GS 等，系列 Vm。
+* 在已經加密的 Linux VM 上更新密碼編譯金鑰。
 
 下列案例目前不支援磁碟加密︰
 
 * 基本層 VM。
 * 使用傳統部署模型建立的 VM。
 * 在 Linux VM 上停用作業系統磁碟加密。
-* 在已經加密的 Linux VM 上更新密碼編譯金鑰。
+* 使用自訂的 Linux 映像。
+
+如需有關支援的案例和限制的詳細資訊，請參閱[IaaS Vm 的 Azure 磁碟加密](../../security/azure-security-disk-encryption.md)
+
 
 ## <a name="create-azure-key-vault-and-keys"></a>建立 Azure Key Vault 和金鑰
 您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包括 *myResourceGroup*、*myKey* 及 *myVM*。
@@ -167,7 +172,7 @@ az group create --name myResourceGroup --location eastus
 包含密碼編譯金鑰和相關聯計算資源 (例如儲存體和 VM) 的 Azure 金鑰保存庫本身必須位於相同的區域中。 使用 [az keyvault create](/cli/azure/keyvault#create) 建立 Azure Key Vault 並啟用 Key Vault 以便搭配磁碟加密使用。 針對 *keyvault_name* 指定一個唯一的 Key Vault 名稱，如下所示︰
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -175,7 +180,7 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-您可以使用軟體或硬體安全性模型 (HSM) 保護功能來儲存密碼編譯金鑰。 使用 HSM 時需要進階金鑰保存庫。 建立進階金鑰保存庫 (而非用來儲存軟體保護金鑰的標準金鑰保存庫) 會有額外的成本。 若要建立進階金鑰保存庫，在前一個步驟中將 `--sku Premium` 新增至命令。 下列範例會使用軟體保護的金鑰，因為我們建立了標準金鑰保存庫。
+您可以使用軟體或硬體安全性模型 (HSM) 保護功能來儲存密碼編譯金鑰。 使用 HSM 時需要進階金鑰保存庫。 建立進階金鑰保存庫 (而非用來儲存軟體保護金鑰的標準金鑰保存庫) 會有額外的成本。 若要建立進階金鑰保存庫，在前一個步驟中將 `--sku Premium` 新增至命令。 下列範例會使用受軟體保護的金鑰，由於您已建立標準的金鑰保存庫。
 
 在兩種保護模型中，Azure 平台都必須獲得存取權，才能在 VM 開機時要求密碼編譯金鑰來將虛擬磁碟解密。 使用 [az keyvault key create](/cli/azure/keyvault/key#create) 在 Key Vault 中建立密碼編譯金鑰。 下列範例會建立一個名為 *myKey* 的金鑰：
 
@@ -205,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-若要實際加密某些虛擬磁碟，請建立 VM 並新增資料磁碟。 使用 [az vm create](/cli/azure/vm#create) 建立要加密的 VM 並連結 5GB 資料磁碟。 只有某些 Marketplace 映像支援磁碟加密。 下列範例會使用 **CentOS 7.2n** 映像來建立名為 *myVM* 的 VM︰
+使用 [az vm create](/cli/azure/vm#create) 建立要加密的 VM 並連結 5GB 資料磁碟。 只有某些 Marketplace 映像支援磁碟加密。 下列範例會使用 *CentOS 7.2n* 映像來建立名為 *myVM* 的 VM︰
 
 ```azurecli
 az vm create \
@@ -217,7 +222,7 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-請使用先前命令輸出中所顯示的 `publicIpAddress`，來透過 SSH 連線到您的 VM。 建立磁碟分割和檔案系統，然後掛接資料磁碟。 如需詳細資訊，請參閱[連線到 Linux VM 以掛接新磁碟](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)。 關閉 SSH 工作階段。
+Ssh 連線到您的 VM 使用*publicIpAddress*上一個命令的輸出中所示。 建立磁碟分割和檔案系統，然後掛接資料磁碟。 如需詳細資訊，請參閱[連線到 Linux VM 以掛接新磁碟](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)。 關閉 SSH 工作階段。
 
 
 ## <a name="encrypt-virtual-machine"></a>將虛擬機器加密
@@ -228,7 +233,7 @@ az vm create \
 3. 指定要用於實際加密和解密的密碼編譯金鑰。
 4. 指定是否要將作業系統磁碟、資料磁碟或所有磁碟加密。
 
-使用 [az vm encryption enable](/cli/azure/vm/encryption#enable) 將您的 VM 加密。 下列範例使用先前 `ad sp create-for-rbac` 命令中的 `$sp_id` 和 `$sp_password` 變數︰
+使用 [az vm encryption enable](/cli/azure/vm/encryption#enable) 將您的 VM 加密。 下列範例會使用*$sp_id*和*$sp_password*在上述案例中的變數[az ad 預存程序建立-如-rbac](/cli/azure/ad/sp#create-for-rbac)命令：
 
 ```azurecli
 az vm encryption enable \
@@ -278,7 +283,7 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-重新執行命令來加密虛擬磁碟，如下所示：
+重新執行命令來加密的虛擬磁碟，如下所示：
 
 ```azurecli
 az vm encryption enable \

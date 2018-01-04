@@ -1,5 +1,9 @@
 - name: Site Recovery 文件
   href: index.yml
+- name: 內部部署機器與 Azure VM 的移轉
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Azure 至 Azure 災害復原
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: 概觀
   items:
     - name: 什麼是 Site Recovery？
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: 內部部署至 Azure 支援矩陣
       href: site-recovery-support-matrix-to-azure.md
+    - name: Hyper-V 至 Azure 支援矩陣
+      href: support-matrix-hyper-v-to-azure.md
     - name: 內部部署至次要網站支援矩陣
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 工作負載的災害復原
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: 災害復原
       items:
+        - name: 準備 Hyper-V 以複寫至 Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Hyper-V VM 至 Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: VMM 雲端中的 Hyper-V VM 至 Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: 實體伺服器至 Azure
           href: tutorial-physical-to-azure.md
         - name: Hyper-V VM 至次要站台

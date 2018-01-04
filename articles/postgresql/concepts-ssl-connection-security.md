@@ -10,14 +10,14 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力
-適用於 PostgreSQL 的 Azure 資料庫偏好使用安全通訊端層 (SSL)，來將用戶端應用程式連接到 PostgreSQL 服務。 在您的資料庫伺服器和用戶端應用程式之間強制執行 SSL 連接，有助於藉由將伺服器與您應用程式之間的資料流加密，來提供保護以抵禦「中間人」攻擊。
+適用於 PostgreSQL 的 Azure 資料庫偏好使用安全通訊端層 (SSL)，來將用戶端應用程式連接到 PostgreSQL 服務。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。
 
 預設會將 PostgreSQL 資料庫服務設定為需要 SSL 連接。 (選擇性) 如果您的用戶端應用程式不支援 SSL 連線能力，您可以將需要 SSL 才能連線到資料庫服務的功能停用。 
 
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>使用 SSL 憑證驗證連接至適用於 PostgreSQL 的 Azure 資料庫
 既然您已成功將憑證解碼，您現在可以透過 SSL 安全地連接到資料庫伺服器。 若要允許伺服器憑證驗證，憑證必須放置於使用者主目錄上的 ~/.postgresql/root.crt 檔案中 (在 Microsoft Windows 上，此檔案會命名為 %APPDATA%\postgresql\root.crt)。 以下提供連接到適用於 PostgreSQL 之 Azure 資料庫的指示。
-
-> [!NOTE]
-> 目前有個已知問題，如果您在對服務的連線中使用「sslmode=verify-full」，連線會失敗，並出現下列錯誤：_"&lt;區域&gt;.control.database.windows.net" (和其他 7 個名稱) 的伺服器憑證，不符合主機名稱 "&lt;伺服器名稱&gt;.postgres.database.azure.com"。_
-> 如果必須指定 "sslmode=verify-full"，請使用伺服器名稱慣例 **&lt;servername&gt;.database.windows.net** 來作為連接字串中的主機名稱。 我們計劃在未來移除此限制。 使用其他 [SSL 模式](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS)的連線請繼續使用常用的主機命名慣例 **&lt;伺服器名稱&gt;.postgres.database.azure.com**。
 
 #### <a name="using-psql-command-line-utility"></a>使用 psql 命令列公用程式
 下列範例會示範如何使用 psql 命令列公用程式，來成功地連線到 PostgreSQL 伺服器。 使用所建立的 `root.crt` 檔案和 `sslmode=verify-ca` 或 `sslmode=verify-full` 選項。

@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>將 Azure 串流分析部署為 IoT Edge 模組 - 預覽
 
@@ -29,14 +29,14 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 * 模擬的溫度感應器模組 (tempSensor) 會產生 20 到 120 度的溫度資料 (每隔 5 秒增加 1 度)。 
 * 串流分析模組會在 30 秒的平均值達到 70 度時重設 tempSensor。 在生產環境中，您可能會使用此功能用來關閉機器，或在溫度達到危險程度時採取預防措施。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure 串流分析作業以在邊緣上處理資料。
 > * 將新的 Azure 串流分析作業與其他 IoT Edge 模組連結。
 > * 將 Azure 串流分析作業部署到 IoT Edge 裝置。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * IoT 中樞。 
 * 您在快速入門中，或是有關在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 中的模擬裝置上部署 Azure IoT Edge 的文章中建立及設定的裝置。 您必須知道裝置連線金鑰和裝置識別碼。 
@@ -67,7 +67,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 
     ![儲存體設定][10]
 
-### <a name="create-a-stream-analytics-job"></a>建立串流分析工作
+### <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
 1. 在 Azure 入口網站中，移至 [建立資源] > [物聯網]，然後選取 [串流分析工作]。
 
@@ -82,7 +82,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
     > [!NOTE]
     > 目前，在「美國西部 2」區域中並不支援 IoT Edge 上的 Azure 串流分析作業。 
 
-3. 選取 [建立]。
+3. 選取 [建立] 。
 
 4. 在已建立的作業中，於 [工作拓撲] 下選取 [輸入]，然後選取 [新增]。
 
@@ -96,7 +96,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 
    ![Azure 串流分析輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. 選取 [建立]。
+6. 選取 [建立] 。
 
 7. 在 [工作拓撲] 下選取 [輸出]，然後選取 [新增]。
 
@@ -106,7 +106,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
     
     b. 在剩餘的欄位中，使用預設值。 
     
-    c. 選取 [建立]。
+    c. 選取 [建立] 。
 
    ![Azure 串流分析輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
@@ -124,7 +124,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
     HAVING Avg(machine.temperature) > 70
     ```
 
-10. 選取 [儲存]。
+10. 選取 [ **儲存**]。
 
 ## <a name="deploy-the-job"></a>部署作業
 
@@ -143,7 +143,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 
    d. 其他設定保留不變。
    
-   e. 選取 [儲存]。
+   e. 選取 [ **儲存**]。
 
 3. 若要新增 Azure 串流分析 Edge 作業，請選取 [匯入 Azure 串流分析 IoT Edge 模組]。
 
@@ -227,9 +227,9 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/en-us/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/en-us/azure/storage/
-[azure-stream]: https://docs.microsoft.com/en-us/azure/stream-analytics/
+[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
+[azure-storage]: https://docs.microsoft.com/azure/storage/
+[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

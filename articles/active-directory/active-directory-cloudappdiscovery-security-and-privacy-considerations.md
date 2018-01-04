@@ -4,7 +4,7 @@ description: "本主題描述與 Cloud App Discovery 相關的安全性和隱私
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ebcb5b3b4a84f7a5c25caa3f6b245f97bc8049f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Cloud App Discovery 的安全性和隱私權考量
 本主題說明在 Azure Active Directory Cloud App Discovery 內如何收集、處理以及保護資料。 Microsoft 致力於保護您的隱私權和確保資料安全。 Microsoft 在運作服務時，會遵守安全軟體開發生命週期作法。 保全和保護資料在 Microsoft 是第一要務。

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -113,7 +113,7 @@ Azure 備份可保護受控磁碟 VM。 受控磁碟可讓您免於管理虛擬�
 受控磁碟上的 VM 備份與 Resource Manager VM 備份沒有任何差異。 在 Azure 入口網站中，您可以直接從 [虛擬機器] 檢視或 [復原服務保存庫] 檢視來設定備份工作。 您可以透過以受控磁碟為基礎的 RestorePoint 集合來備份受控磁碟上的 VM。 Azure 備份也支援備份使用 Azure 磁碟加密 (ADE) 加密的受控磁碟 VM。
 
 ### <a name="restore-managed-disk-vms"></a>還原受控磁碟 VM
-Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟還原到儲存體帳戶。 Azure 會在還原程序期間管理受控磁碟。 您 (客戶) 管理在還原程序期間建立的儲存體帳戶。 還原受管理的已加密 VM 時，在開始還原作業之前，VM 的金鑰和祕密應已經存在於 Key Vault 中。
+Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟還原到儲存體帳戶。 Azure 會在還原程序期間管理受控磁碟。 您 (客戶) 管理在還原程序期間建立的儲存體帳戶。 還原受控已加密 VM 時，在開始還原作業之前，VM 的金鑰和祕密應已經存在於 Key Vault 中。
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>每個備份元件的功能為何？
 下列各節提供每個 Azure 備份元件的可用性，或各種其所支援功能的彙總資料表。 請參閱下列各個資料表，以了解額外支援或詳細資料。
@@ -121,11 +121,11 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 ### <a name="storage"></a>儲存體
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
-| 復原服務保存庫 |![是][green] |![是][green] |![是][green] |![是][green] |
-| 磁碟儲存體 | |![是][green] |![是][green] | |
-| 磁帶儲存體 | |![是][green] | | |
-| 壓縮 <br/>(在復原服務保存庫中) |![是][green] |![是][green] |![是][green] | |
-| 增量備份 |![是][green] |![是][green] |![是][green] |![是][green] |
+| 復原服務保存庫 |![yes][green] |![yes][green] |![yes][green] |![yes][green] |
+| 磁碟儲存體 | |![yes][green] |![yes][green] | |
+| 磁帶儲存體 | |![yes][green] | | |
+| 壓縮 <br/>(在復原服務保存庫中) |![yes][green] |![yes][green] |![yes][green] | |
+| 增量備份 |![yes][green] |![yes][green] |![yes][green] |![yes][green] |
 | 磁碟重複資料刪除 | |![部分][yellow] |![部分][yellow] | | |
 
 ![資料表索引鍵](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -162,8 +162,8 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 ### <a name="security"></a>安全性
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
-| 網路安全性<br/> (至 Azure) |![是][green] |![是][green] |![是][green] |![部分][yellow] |
-| 資料安全性<br/> (在 Azure 中) |![是][green] |![是][green] |![是][green] |![部分][yellow] |
+| 網路安全性<br/> (至 Azure) |![yes][green] |![yes][green] |![yes][green] |![部分][yellow] |
+| 資料安全性<br/> (在 Azure 中) |![yes][green] |![yes][green] |![yes][green] |![部分][yellow] |
 
 ![資料表索引鍵](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -181,8 +181,8 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 ### <a name="network"></a>網路
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
-| 網路壓縮 <br/>(至**備份伺服器**) | |![是][green] |![是][green] | |
-| 網路壓縮 <br/>(到**復原服務保存庫**) |![是][green] |![是][green] |![是][green] | |
+| 網路壓縮 <br/>(至**備份伺服器**) | |![yes][green] |![yes][green] | |
+| 網路壓縮 <br/>(到**復原服務保存庫**) |![yes][green] |![yes][green] |![yes][green] | |
 | 網路通訊協定 <br/>(至**備份伺服器**) | |TCP |TCP | |
 | 網路通訊協定 <br/>(到**復原服務保存庫**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -211,7 +211,7 @@ Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱�
 
 ## <a name="what-is-a-protected-instance"></a>什麼是受保護的執行個體
 受保護的執行個體一般是指 Windows 電腦、(實體或虛擬) 伺服器，或已設定為備份至 Azure 的 SQL 資料庫。 一旦您設定電腦、伺服器或資料庫的備份原則，並建立資料的備份複本之後，執行個體就會受到保護。 受保護執行個體備份資料後續的複本 (稱為復原點)，會增加取用的儲存體數量。 針對一個受保護的執行個體，您可以建立最多 9999 個復原點。 如果您從儲存體將復原點刪除，就不會算入 9999 的復原點總數。
-受保護執行個體的常見範例是虛擬機器、應用程式伺服器、資料庫，以及執行 Windows 作業系統的個人電腦。 例如：
+受保護執行個體的常見範例是虛擬機器、應用程式伺服器、資料庫，以及執行 Windows 作業系統的個人電腦。 例如︰
 
 * 執行 Hyper-V 或 Azure IaaS Hypervisor 網狀架構的虛擬機器。 虛擬機器的客體作業系統可以是 Windows Server 或 Linux。
 * 應用程式伺服器︰應用程式伺服器可以是需要備份其資料，且執行 Windows Server 和工作負載的實體或虛擬機器。 一般工作負載為 Microsoft SQL Server、Microsoft Exchange Server、Microsoft SharePoint Server 及 Windows Server 的檔案伺服器角色。 若要備份這些工作負載，您需要 System Center Data Protection Manager (DPM) 或 Azure 備份伺服器。
@@ -238,7 +238,7 @@ Azure 備份會在內部部署和雲端保護資料。 Azure Site Recovery 可�
 
 下列概念可協助您做出有關備份和災害復原的重要決策。
 
-| 概念 | 詳細資料 | 備份 | 災害復原 (DR) |
+| 概念 | 詳細資料 | Backup  | 災害復原 (DR) |
 | --- | --- | --- | --- |
 | 復原點目標 (RPO) |在需要進行復原的情況下可接受的資料遺失數量。 |備份解決方案在其可接受的 RPO 有寬廣的變化性。 虛擬機器備份的 RPO 通常為 1 天，而資料庫備份的 RPO 只需 15 分鐘。 |災害復原解決方案的 RPO 很低。 DR 複本可以落後幾秒鐘或幾分鐘的時間。 |
 | 復原時間目標 (RTO) |完成復原或還原所需的時間量。 |由於 RPO 較大，備份解決方案需要處理的資料量通常更多，這會導致 RTO 較長。 例如，根據從異地傳輸磁帶所需的時間，從磁帶還原資料可能需要數天的時間。 |因為災害復原解決方案與來源比較能保持同步，所以其 RTO 比較小。 需要處理的變更也比較少。 |
@@ -254,7 +254,7 @@ Azure 備份會在內部部署和雲端保護資料。 Azure Site Recovery 可�
 
 * [備份 Windows 伺服器](backup-configure-vault.md)
 * [備份應用程式工作負載](backup-azure-microsoft-azure-backup.md)
-* [備份 Azure IaaS VM](backup-azure-vms-prepare.md)
+* [備份 Azure IaaS VM](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

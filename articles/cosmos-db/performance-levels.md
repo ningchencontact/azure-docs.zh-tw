@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB API 效能等級 | Microsoft Docs"
-description: "了解 DocumentDB API 效能等級如何可讓您根據每個容器來保留輸送量。"
+title: "已停用 Azure Cosmos DB 的效能層級 |Microsoft 文件"
+description: "深入了解 S1、 S2 和 S3 效能層級先前用於 Azure Cosmos DB。"
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
 
 > [!IMPORTANT] 
-> 本文所討論的 S1、S2 和 S3 效能層級將會淘汰，而且也無法再供新的 DocumentDB API 帳戶使用。
+> 本文所討論的 S1、 S2 和 S3 效能等級會停用，並就無法再使用新的 Azure Cosmos DB 帳戶。
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本文概述 S1、S2 和 S3 效能層級，並討論使用這些效能層級的集合如何在 2017 年底移轉至單一資料分割集合。 閱讀本文後，您將能夠回答下列問題：
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 11/30/2017
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>為何 S1、S2 和 S3 效能層級將要淘汰？
 
-S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 使用 S1、S2、S3 效能層級，輸送量和儲存容量皆會預先設定且不提供彈性。 Azure Cosmos DB 現在可讓您自訂輸送量和儲存體，提供您更大的彈性能夠隨您的需求進行變更。
+S1、 S2 和 S3 效能層級不提供標準 Azure Cosmos DB 供應項目提供的彈性。 使用 S1、S2、S3 效能層級，輸送量和儲存容量皆會預先設定且不提供彈性。 Azure Cosmos DB 現在可讓您自訂輸送量和儲存體，提供您更大的彈性能夠隨您的需求進行變更。
 
 <a name="compare"></a>
 
@@ -54,9 +56,9 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 |   |資料分割的集合|單一資料分割集合|S1|S2|S3|
 |---|---|---|---|---|---|
-|最大輸送量|無限制|10K RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
+|最大輸送量|無限|10K RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
 |輸送量下限|2.5 K RU/秒|400 RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
-|儲存體上限|無限制|10 GB|10 GB|10 GB|10 GB|
+|儲存體上限|無限|10 GB|10 GB|10 GB|10 GB|
 |價格 (每月)|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|$25 美元|$50 美元|$100 美元|
 
 您是 EA 客戶嗎？ 如果是，請參閱[如果我是 EA 客戶會受到什麼影響？](#ea-customer)
@@ -93,7 +95,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>如果我需要超過 10 GB 的儲存空間怎麼辦？
 
-無論您擁有具有 S1、S2 或 S3 效能層級的集合，或是擁有單一資料分割集合，全部都有 10 GB 的可用儲存空間，您可以利用幾乎不受限制的儲存空間使用 Cosmos DB 資料移轉工具將您的資料移轉至資料分割的集合。 如需資料分割集合優點的相關詳細資訊，請參閱 [Azure Cosmos DB 中的資料分割與規模調整](documentdb-partition-data.md)。 
+無論您擁有具有 S1、S2 或 S3 效能層級的集合，或是擁有單一資料分割集合，全部都有 10 GB 的可用儲存空間，您可以利用幾乎不受限制的儲存空間使用 Cosmos DB 資料移轉工具將您的資料移轉至資料分割的集合。 如需資料分割集合優點的相關詳細資訊，請參閱 [Azure Cosmos DB 中的資料分割與規模調整](sql-api-partition-data.md)。 
 
 <a name="change-before"></a>
 
@@ -132,7 +134,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 4. 按一下 [確定] 儲存變更。
 
-    如果您判斷您需要更多輸送量 (大於 10,000 RU/秒) 或更多儲存體 (大於 10 GB)，您可以建立資料分割的集合。 若要將單一資料分割集合移轉到資料分割的集合，請參閱[從單一資料分割移轉至資料分割集合](documentdb-partition-data.md#migrating-from-single-partition)。
+    如果您判斷您需要更多輸送量 (大於 10,000 RU/秒) 或更多儲存體 (大於 10 GB)，您可以建立資料分割的集合。 若要將單一資料分割集合移轉到資料分割的集合，請參閱[從單一資料分割移轉至資料分割集合](sql-api-partition-data.md#migrating-from-single-partition)。
 
     > [!NOTE]
     > 從 S1、S2 或 S3 變更為標準可能需要 2 分鐘。
@@ -141,7 +143,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 **若要使用 .NET SDK 移轉至單一資料分割集合**
 
-另一個變更集合的效能層級的選項是透過 Azure Cosmos DB SDK。 本節只涵蓋使用 [DocumentDB .NET API](documentdb-sdk-dotnet.md)來變更集合的效能層級，但程序類似於我們的其他 SDK。
+另一個變更集合的效能層級的選項是透過 Azure Cosmos DB SDK。 本節只涵蓋變更集合的效能層級使用[SQL.NET API](sql-api-sdk-dotnet.md)，但我們其他 Sdk 的類似程序。
 
 以下是變更集合輸送量為每秒 5,000 要求單位的程式碼片段：
     
@@ -175,6 +177,6 @@ EA 客戶將會受保護的價格，直到其目前合約結束。
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure Cosmos DB 的價格和管理資料，請探索這些資源：
 
-1.  [在 Cosmos DB 中分割資料](documentdb-partition-data.md)。 了解單一資料分割容器和資料分割容器的差異，以及實作資料分割策略以順暢地調整的秘訣。
+1.  [在 Cosmos DB 中分割資料](sql-api-partition-data.md)。 了解單一資料分割容器和資料分割容器的差異，以及實作資料分割策略以順暢地調整的秘訣。
 2.  [Cosmos DB 定價](https://azure.microsoft.com/pricing/details/cosmos-db/)。 深入了解佈建輸送量和使用儲存體的成本。
 3.  [要求單位](request-units.md)。 了解不同作業類型，例如讀取、寫入、查詢的輸送量耗用量。

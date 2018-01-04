@@ -4,7 +4,7 @@ description: "如何使用 Azure Active Directory Cmdlet 管理群組的設定"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組。 
@@ -102,9 +102,9 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 | <ul><li>CustomBlockedWordsList<li>類型：字串<li>預設值：“” | 請勿使用。 未實作。 |
 | <ul><li>EnableMSStandardBlockedWords<li>類型：布林值<li>預設值：“False” | 請勿使用
 |  <ul><li>AllowGuestsToBeGroupOwner<li>類型︰布林值<li>預設值︰False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
-|  <ul><li>AllowGuestsToAccessGroups<li>類型︰布林值<li>預設值︰True | 布林值，表示來賓使用者是否可以具有整合群組內容的存取權。  此設定不需要 Azure Active Directory Premium P1 授權。|
+|  <ul><li>AllowGuestsToAccessGroups<li>類型：布林值<li>預設值︰True | 布林值，表示來賓使用者是否可以具有整合群組內容的存取權。  此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GuestUsageGuidelinesUrl<li>類型：字串<li>預設值：“” | 來賓使用指導方針的連結 url。 |
-|  <ul><li>AllowToAddGuests<li>類型︰布林值<li>預設值︰True | 布林值表示是否允許將來賓新增至此目錄。|
+|  <ul><li>AllowToAddGuests<li>類型：布林值<li>預設值︰True | 布林值表示是否允許將來賓新增至此目錄。|
 |  <ul><li>ClassificationList<li>類型：字串<li>預設值：“” |以逗號分隔的有效分類值清單，這些值可以套用到整合的群組。 |
 
 
