@@ -52,6 +52,7 @@
 ## 管理
 ### [替換輸入與輸出認證](stream-analytics-login-credentials-inputs-outputs.md)
 ### [更新期間的作業可靠性](stream-analytics-job-reliability.md)
+### [設定相容性層級](stream-analytics-compatibility-level.md)
 
 ## 疑難排解
 ### [疑難排解指南](stream-analytics-troubleshooting-guide.md)

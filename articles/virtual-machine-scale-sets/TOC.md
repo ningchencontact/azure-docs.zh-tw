@@ -10,6 +10,7 @@
 ### [Windows 擴展集](virtual-machine-scale-sets-create-template-windows.md)
 
 # 作法
+
 ## 規劃和設計
 ### [設計考量](virtual-machine-scale-sets-design-overview.md)
 
@@ -22,6 +23,7 @@
 ## 部署
 ### [使用 Visual Studio 建立](virtual-machine-scale-sets-vs-create.md)
 ### [搭配受控磁碟的擴展集](virtual-machine-scale-sets-managed-disks.md)
+### [使用可用性區域](virtual-machine-scale-sets-use-availability-zones.md)
 ### [自動調整擴展集](virtual-machine-scale-sets-autoscale-overview.md)
 #### [使用 Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
 #### [使用 Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)

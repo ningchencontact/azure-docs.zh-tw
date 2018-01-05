@@ -9,6 +9,7 @@
 ## [VPN 連線疑難排解](network-watcher-troubleshoot-overview.md)
 ## [連線能力檢查](network-watcher-connectivity-overview.md)
 ## [服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # 開始使用
 ## [設定網路監看員](network-watcher-create.md)
 ## 管理封包擷取
@@ -56,6 +57,7 @@
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # 作法
 ## [透過 Azure 自動化監控 VPN 閘道](network-watcher-monitor-with-azure-automation.md)
 ## [透過 VPN 閘道診斷內部部署連線能力](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,6 +74,7 @@
 ### [使用彈性集區](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [使用 Grafana](network-watcher-nsg-grafana.md)
 ### [使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [判斷位置和 Azure 區域間的相對延遲](view-relative-latencies.md)
 
 # 參考
 ## [Azure CLI](/cli/azure/network/watcher)

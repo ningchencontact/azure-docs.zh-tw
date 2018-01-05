@@ -33,7 +33,7 @@
 
 ## 載入與移動資料
 ### [概觀](design-elt-data-loading.md)
-### [最佳作法](guidance-for-loading-data.md)
+### [最佳做法](guidance-for-loading-data.md)
 
 
 ## 整合
@@ -91,11 +91,11 @@
 
 ## 載入與移動資料
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso 公用資料](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [來自 Blob 儲存體的 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [從 SQL Server 載入 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -129,7 +129,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)
 ## [論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [定價](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [功能要求](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)

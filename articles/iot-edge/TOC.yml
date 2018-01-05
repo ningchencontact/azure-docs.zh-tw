@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: 使用說明指南
   items:
-    - name: 建立透明閘道
-      href: how-to-create-transparent-gateway.md
+    - name: 建立閘道
+      items:
+        - name: 建立透明閘道
+          href: how-to-create-transparent-gateway.md
+        - name: Modbus 閘道
+          href: deploy-modbus-gateway.md
     - name: 大範圍部署及監視
       href: how-to-deploy-monitor.md
     - name: 佈建 IoT Core 裝置

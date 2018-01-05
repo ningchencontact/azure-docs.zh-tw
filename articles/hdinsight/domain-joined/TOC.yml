@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: 設定 Hive 原則
       href: apache-domain-joined-run-hive.md
-    - name: 容量規劃
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: 管理「已加入網域的叢集」
       href: apache-domain-joined-manage.md
