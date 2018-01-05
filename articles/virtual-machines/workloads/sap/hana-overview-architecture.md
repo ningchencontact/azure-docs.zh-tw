@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure 上的 SAP HANA (大型執行個體) 概觀和架構
 
@@ -468,7 +468,7 @@ Azure VM (裝載 SAP 應用程式執行個體) 的 VNet 閘道會連接到該 Ex
 
 有三個重要的網路路由的考量 Azure （大型執行個體） 上的 SAP HANA:
 
-1. 在 Azure （大型執行個體） 上的 SAP HANA 只能存取，透過 Azure Vm 和專用的 ExpressRoute 連線;不是直接從內部部署。 HANA 大型執行個體單位，從內部直接存取由 Microsoft 提供，不可能會立即因為暫時性路由的限制，目前的 Azure 網路架構 SAP HANA 大型執行個體所用。 有些系統管理用戶端及所有需要直接存取權的應用程式 (例如在內部部署環境中執行的 SAP Solution Manager) 會無法連接到 SAP HANA 資料庫。
+1. 在 Azure （大型執行個體） 上的 SAP HANA 只能存取，透過 Azure Vm 和專用的 ExpressRoute 連線;不是直接從內部部署。 HANA 大型執行個體單位，從內部直接存取由 Microsoft 提供，不可能會立即因為目前的 Azure 網路架構 SAP HANA 大型執行個體所用的可轉移的路由限制。 有些系統管理用戶端及所有需要直接存取權的應用程式 (例如在內部部署環境中執行的 SAP Solution Manager) 會無法連接到 SAP HANA 資料庫。
 
 2. 如果您有 HANA 大型執行個體部署在兩個不同的 Azure 地區，為了災害復原的單位，就會套用相同的暫時性路由限制。 或者，換句話說，HANA 大型執行個體單位在一個區域 （例如 「 美國西部 」） 中的 IP 位址將不會路由至另一個區域 （例如美國東部） 中，為您部署一個 HANA 大型執行個體單位。 這是獨立的 Azure 網路對等互連，跨區域或跨連接到 Azure Vnet 連接 HANA 大型執行個體單位 ExpressRoute 電路的使用方式。 如下所示的位元進一步向下這份文件。 這項限制所隨附的已部署的架構，將不會立即使用 HANA 系統複寫為災害復原功能。
 

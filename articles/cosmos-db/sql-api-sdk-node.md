@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API 的 azure Cosmos DB Node.js SDK： 版本資訊和資源
 > [!div class="op_single_selector"]
@@ -62,6 +62,13 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="1.14.2"/>1.14.2</a>
+* 更新參考 Azure Cosmos DB，而不是 Azure DocumentDB 的文件。
+* 已新增的支援 ConnectionPolicy proxyUrl 設定。
+
+### <a name="1.14.1"/>1.14.1</a>
+* 如果是區分大小寫的檔案系統的次要修正。
 
 ### <a name="1.14.0"/>1.14.0</a>
 * 新增工作階段一致性的支援。
@@ -187,6 +194,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |2017 年 12 月 21 日 |--- |
+| [1.14.1](#1.14.1) |2017 年 11 月 10 日 |--- |
 | [1.14.0](#1.14.0) |2017 年 11 月 9 日 |--- |
 | [1.13.0](#1.13.0) |2017 年 10 月 11 日 |--- |
 | [1.12.2](#1.12.2) |2017 年 8 月 10 日 |--- |

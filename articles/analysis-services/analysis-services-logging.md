@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>安裝程式的診斷記錄
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 01/03/2018
 
 ### <a name="engine"></a>引擎
 
-選取引擎記錄所有[xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)。 您無法選取個別事件。 
+選取**引擎**記錄所有[xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)。 您無法選取個別事件。 
 
-|XEvent 類別 |活動名稱  |
+|XEvent 類別 |事件名稱  |
 |---------|---------|
 |安全性稽核    |   稽核登入      |
 |安全性稽核    |   稽核登出      |
@@ -71,19 +71,19 @@ ms.lasthandoff: 01/03/2018
 |GetServerLogFiles    |    使用者匯出透過 PowerShell 的伺服器記錄檔     |
 |ExportModel     |   使用者入口網站中的模型會使用匯出 Visual Studio 中開啟     |
 
-### <a name="all-metrics"></a>所有度量
+### <a name="all-metrics"></a>所有計量
 
-AllMetrics 類別記錄相同[伺服器度量](analysis-services-monitor.md#server-metrics)顯示的度量。
+度量類別記錄相同[伺服器度量](analysis-services-monitor.md#server-metrics)顯示的度量。
 
 ## <a name="setup-diagnostics-logging"></a>設定診斷記錄
 
-### <a name="by-using-the-azure-portal"></a>使用 Azure 入口網站
+### <a name="azure-portal"></a>Azure 入口網站
 
-1. 在[Azure 入口網站](https://portal.azure.com)，在 Azure Analysis Services 伺服器中，按一下 **診斷記錄**在左方的導覽中，然後按一下**開啟診斷**。
+1. 在[Azure 入口網站](https://portal.azure.com)> 伺服器上，按一下 **診斷記錄**在左方的導覽中，然後按一下**開啟診斷**。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. 在 [診斷設定] 頁面中，執行下列動作： 
+2. 在**診斷設定**，執行下列動作： 
 
     * **名稱**。 輸入要建立之記錄的名稱。
 
@@ -101,8 +101,9 @@ AllMetrics 類別記錄相同[伺服器度量](analysis-services-monitor.md#serv
 
     如果您想要變更您的診斷記錄檔儲存的方式在任何時間點以後，您可以回到此頁面來修改設定。
 
-### <a name="by-using-powershell"></a>使用 PowerShell
-以下是將引導您基本的命令。 如果您想要設定記錄到儲存體帳戶的逐步說明使用 PowerShell，請參閱[教學課程](#tutorial)本文稍後。
+### <a name="powershell"></a>PowerShell
+
+以下是將引導您基本的命令。 如果您想使用 PowerShell 來設定記錄到儲存體帳戶的逐步說明，請參閱本文稍後的教學課程。
 
 若要使用 Powershell 啟用計量和診斷記錄功能，請使用下列 Cmdlet：
 
@@ -156,13 +157,11 @@ AllMetrics 類別記錄相同[伺服器度量](analysis-services-monitor.md#serv
 * 刪除不想繼續保留在儲存體帳戶中的記錄。
 * 請務必設定保留期限，以便從儲存體帳戶刪除舊的記錄檔。
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
 
 度量和伺服器事件會與 xEvents 記錄分析中的並行分析整合。 記錄分析也可以設定在您的架構提供的診斷記錄資料的整體檢視其他 Azure 服務從接收事件。
 
-若要檢視診斷資料記錄分析，在下圖所示，從左的窗格或管理區域的頁面上，開啟 [記錄搜尋] 頁面：
+若要檢視記錄分析診斷資料，如下所示，從左的窗格中或管理區域中，開啟 [記錄搜尋] 頁面。
 
 ![Azure 入口網站中的記錄搜尋選項](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ AllMetrics 類別記錄相同[伺服器度量](analysis-services-monitor.md#serv
 
 請務必要簽出 Operations Management Suite 網站提供強化的查詢、 發送，且記錄分析資料警示功能。
 
-<a id="#queries"></a>
 ### <a name="queries"></a>查詢
 
 有數百個您可以使用的查詢。 以下是一些可協助您開始。
@@ -199,7 +197,6 @@ AllMetrics 類別記錄相同[伺服器度量](analysis-services-monitor.md#serv
 > 有很棒的記錄分析查詢，您想要共用嗎？ 如果您有 GitHub 帳戶時，您可以將它加入此文件。 只要按一下**編輯**在右上方的此頁面。
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>教學課程-關閉記錄功能，使用 PowerShell
 本快速教學課程中，您可以建立的相同訂用帳戶和資源群組的儲存體帳戶作為 Analysis Service 伺服器。 然後，您會使用 Set AzureRmDiagnosticSetting 開啟診斷記錄、 將輸出傳送至新的儲存體帳戶。
 
@@ -208,8 +205,7 @@ AllMetrics 類別記錄相同[伺服器度量](analysis-services-monitor.md#serv
 
 * 現有 Azure Analysis Services 伺服器。 如需建立伺服器資源的指示，請參閱[Azure 入口網站中建立伺服器](analysis-services-create-server.md)，或[使用 PowerShell 建立 Azure Analysis Services 伺服器](analysis-services-create-powershell.md)。
 
-
-### <a id="connect"></a>連線到您的訂用帳戶
+### <a name="aconnect-to-your-subscriptions"></a></a>連接到您的訂閱
 
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>建立新的儲存體帳戶來儲存記錄
+### <a name="create-a-new-storage-account-for-your-logs"></a>建立新的儲存體帳戶記錄
 
 前提是它與您的伺服器相同的訂用帳戶中，您可以為您的記錄檔中，使用現有的儲存體帳戶。 此教學課程中您建立新的儲存體帳戶專用的 Analysis Services 記錄檔。 若要可讓您輕鬆，正在將儲存體帳戶詳細資料儲存在名為的變數**sa**。
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>識別記錄的伺服器帳戶
+### <a name="identify-the-server-account-for-your-logs"></a>識別記錄的伺服器帳戶
 
 將帳戶名稱設定為變數，名為**帳戶**ResourceName 所在的帳戶名稱。
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>啟用記錄
+### <a name="enable-logging"></a>啟用記錄
 
 若要啟用記錄，使用組 AzureRmDiagnosticSetting cmdlet 變數以及新的儲存體帳戶、 伺服器帳戶，和類別目錄。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
 

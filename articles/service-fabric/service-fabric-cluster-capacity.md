@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/11/2017
 
 此權限會以下列值表示︰
 
-* Gold - 每個 UD 可持續暫停基礎結構工作兩小時。 Gold 持久性只能在完整節點 VM SKU (例如 D15_V2、G5 等) 上啟用。
+* Gold - 每個 UD 可持續暫停基礎結構工作兩小時。 只有在完整節點類似 L32s、 GS5、 G5、 DS15_v2 等 D15_v2 （一般情況下所有 VM 大小都列示於 http://aka.ms/vmspecs 標記為 '執行個體是專用於單一客戶的硬體隔離' 附註中的 VM sku 上可以啟用金級持久性完整節點 vm)
 * Silver -每個 UD 可持續暫停基礎結構工作 10 分鐘，並於所有單核心 (或更多核心) 的標準 VM 上提供。
 * Bronze - 無權限。 這是預設值。 針對_僅_執行無狀態工作負載的節點類型，只能使用這個持久性等級。 
 

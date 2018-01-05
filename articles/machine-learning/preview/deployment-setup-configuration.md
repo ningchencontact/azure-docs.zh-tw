@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -81,7 +81,7 @@ pip install azure-cli-ml
 
 完成環境設定時：
 - 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟 https://aka.ms/devicelogin 頁面並輸入對於驗證所提供的程式碼。
-- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項：選取具有有效 Azure 訂用帳戶而且有充分的權限在帳戶中建立資源的帳戶。登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要使用選取的帳戶繼續。
+- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項： 選取具有有效的 Azure 訂用帳戶和帳戶中建立資源的足夠權限的帳戶。 登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要繼續進行 選取的帳戶。
 
 ### <a name="environment-setup"></a>環境設定
 若要開始安裝程序，您必須以註冊一些環境提供者輸入下列命令：

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: cd7889be101e718e309e630a04a2e23b6b5823ac
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>建立 Linux 虛擬機器使用加速網路功能
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/03/2018
 
 如果沒有加速網路，進出 VM 的所有網路流量都必須周遊主機和虛擬交換器。 虛擬交換器對網路流量提供所有原則強制執行，例如網路安全性群組、存取控制清單、隔離性以及其他網路虛擬化服務。 若要深入了解虛擬交換器，請閱讀 [Hyper-V Network Virtualization and Virtual Switch (Hyper-V 網路虛擬化和虛擬交換器)](https://technet.microsoft.com/library/jj945275.aspx) 文章。
 
-如果使用加速網路，網路流量就會先送達 VM 的網路介面 (NIC)，然後轉送到 VM。 虛擬交換器在不使用加速網路時套用的所有網路原則會卸載並在硬體中套用。 在硬體中套用原則會讓 NIC 略過主機和虛擬交換器，同時在主機中維護套用的所有原則，直接將網路流量轉送到 VM。
+如果使用加速網路，網路流量就會先送達 VM 的網路介面 (NIC)，然後轉送到 VM。 所有適用於虛擬交換器的網路原則現在會卸載，而套用的硬體。 在硬體中套用原則會讓 NIC 略過主機和虛擬交換器，同時在主機中維護套用的所有原則，直接將網路流量轉送到 VM。
 
 加速網路的優點只適用於已啟用此功能的 VM。 為了獲得最佳結果，最好在至少兩部連線到相同 Azure 虛擬網路 (VNet) 的 VM 上啟用此功能。 當透過 VNet 通訊或連線內部部署時，此功能對整體延遲的影響可以降到最低。
 
@@ -39,16 +39,26 @@ ms.lasthandoff: 01/03/2018
 * **減少抖動︰** 虛擬交換器處理視需要套用的原則數量和正在進行處理的 CPU 工作負載而定。 將原則強制執行卸載到硬體透過將封包直接傳遞到 VM、移除主機到 VM 的通訊，以及所有軟體插斷和環境切換，而減少變化。
 * **降低 CPU 使用率︰** 略過主機中的虛擬交換器可減少處理網路流量的 CPU 使用率。
 
+## <a name="supported-operating-systems"></a>受支援的作業系統
+* **Ubuntu 16.04**: 4.11.0-1013 或更高的核心版本
+* **SLES SP3**: 4.4.92-6.18 或更高的核心版本
+* **RHEL**: 7.4.2017120423 或更高的核心版本
+* **CentOS**: 7.4.20171206 或更高的核心版本
+
+## <a name="supported-vm-instances"></a>支援的 VM 執行個體
+加速網路功能支援大多數的一般用途和 4 或更多 Vcpu 計算最佳化的執行個體大小。 執行個體上例如 D/DSv3 或 E/ESv3 支援超執行緒，加速網路都支援具有 8 個以上 Vcpu 的 VM 執行個體。  支援的數列： D/DSv2、 D/DSv3、 E/ESv3、 F/Fs/Fsv2 和 Ms/Mms。 
+
+如需有關 VM 執行個體的詳細資訊，請參閱[Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+
+## <a name="regions"></a>區域
+適用於東亞除外的所有公用 Azure 區域。   尚未支援 azure 政府雲端。
+
 ## <a name="limitations"></a>限制
 使用這項功能時，有下列限制︰
 
 * **網路介面建立︰**您只能對新的 NIC 啟用加速網路。 無法對現有 NIC 來啟用。
 * **VM 建立：**啟用加速網路的 NIC 只能在 VM 建立之後附加至 VM。 NIC 無法附加至現有的 VM。 如果將 VM 加入至現有的可用性設定，在可用性設定組的所有 Vm 必須也有都加速網路啟用。
-* **區域：**功能可在多個 Azure 區域，並繼續以展開。 如需完整清單，請參閱[Azure 虛擬網路更新](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)部落格。   
-* **支援的作業系統：** Ubuntu Server 16.04 LTS 核心 4.4.0-77 或更高版本、 SLES 12 SP2、 RHEL 7.4 和 CentOS 7.4 （已 Rogue Wave 軟體發佈）。
-* **VM 大小︰**一般用途和具有八個以上核心的計算最佳化執行個體大小。 如需詳細資訊，請參閱[Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 支援的 VM 執行個體大小的集合，會繼續展開。
 * **部署只透過 Azure 資源管理員：**無法部署虛擬機器 （傳統），以加速網路。
-
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 

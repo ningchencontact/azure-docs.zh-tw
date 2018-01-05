@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -42,6 +42,10 @@ ms.lasthandoff: 01/03/2018
 不確定客體 OS 為何或客體 OS 版次如何工作？ 請閱讀 [本節內容](#how-it-works) 。
 
 ## <a name="news-updates"></a>新聞更新
+
+###### <a name="january-4-2018"></a>**2018 年 1 月 4 日**
+年 12 月客體 OS 已發行。
+
 ###### <a name="december-14-2017"></a>**2017 年 12 月 14 日**
 11 月客體 OS 已發行。
 
@@ -69,12 +73,6 @@ ms.lasthandoff: 01/03/2018
 ###### <a name="june-16-2017"></a>**2017 年 6 月 16 日**
 6 月客體 OS 的首度發行期間從 6 月 16 日開始，預訂的正式發行日為 7 月 11 日。
 
-###### <a name="june-5-2017"></a>**2017 年 6 月 5 日**
-5 月客體 OS 已發行。
-
-###### <a name="may-17-2017"></a>**2017 年 5 月 17 日**
-由於安全性問題，我們將停用下列 2016 年 12 月和 2017 年 1 月的 OS 版本，這些版本中不包含入口網站的[修正]：WA-GUEST-OS-5.4_201612-01、WA-GUEST-OS-4.39_201612-01、WA-GUEST-OS-3.46_201612-01、WA-GUEST-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>版次
 ## <a name="family-5-releases"></a>系列 5 版次
@@ -90,8 +88,9 @@ ms.lasthandoff: 01/03/2018
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-客體-OS-5.14_201712-01 |2018 年 1 月 4 日 |Post 5.16 |TBD |
 | WA-客體-OS-5.13_201711-01 |2017 年 12 月 14 日 |Post 5.15 |TBD |
-| WA-GUEST-OS-5.12_201710-02 |2017 年 11 月 8 日 |Post 5.14 |TBD |
+|~~WA-客體-OS-5.12_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-客體-OS-5.11_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-客體-OS-5.10_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
@@ -113,8 +112,9 @@ ms.lasthandoff: 01/03/2018
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-客體-OS-4.49_201712-01 |2018 年 1 月 4 日 |Post 4.51 |TBD |
 | WA-客體-OS-4.48_201711-01 |2017 年 12 月 14 日 |Post 4.50 |TBD |
-| WA-GUEST-OS-4.47_201710-02 |2017 年 11 月 8 日 |Post 4.49 |TBD |
+|~~WA-客體-OS-4.47_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-客體-OS-4.46_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-客體-OS-4.45_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
@@ -136,8 +136,9 @@ ms.lasthandoff: 01/03/2018
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-客體-OS-3.56_201712-01 |2018 年 1 月 4 日 |Post 3.58 |TBD |
 | WA-客體-OS-3.55_201711-01 |2017 年 12 月 14 日 |Post 3.57 |TBD |
-| WA-GUEST-OS-3.54_201710-02 |2017 年 11 月 8 日 |Post 3.56 |TBD |
+|~~WA-客體-OS-3.54_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-客體-OS-3.53_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-客體-OS-3.52_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
@@ -159,8 +160,9 @@ ms.lasthandoff: 01/03/2018
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-客體-OS-2.69_201712-01 |2018 年 1 月 4 日 |Post 2.71 |TBD |
 | WA-客體-OS-2.68_201711-01 |2017 年 12 月 14 日 |Post 2.70 |TBD |
-| WA-GUEST-OS-2.67_201710-02 |2017 年 11 月 8 日 |Post 2.69 |TBD |
+|~~WA-客體-OS-2.67_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-客體-OS-2.66_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-客體-OS-2.65_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
@@ -246,4 +248,4 @@ Microsoft Azure 正持續發行更新。 客體作業系統只是這過程中的
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[修正]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 調整編碼
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>概觀
 > [!IMPORTANT]
-> 請務必檢閱 [概觀](media-services-scale-media-processing-overview.md) 主題，以取得調整媒體處理主題的詳細資訊。
+> 請務必檢閱[概觀](media-services-scale-media-processing-overview.md)以取得有關調整媒體處理的詳細資訊。
 > 
 > 
 
@@ -56,17 +56,7 @@ ms.lasthandoff: 12/21/2017
 依預設，每一個媒體服務帳戶可調整為最多 25 個編碼保留單元和 5 個隨選串流保留單元。 您可以建立支援票證來要求更高的限制。
 
 ### <a name="open-a-support-ticket"></a>開啟支援票證
-若要建立支援票證，請執行下列動作：
-
-1. 按一下 [取得支援](https://manage.windowsazure.com/?getsupport=true)。 如果您未登入，系統會提示您輸入認證。
-2. 選取您的訂用帳戶。
-3. 在支援類型下，選取 [技術]。
-4. 按一下 [建立票證]。
-5. 在下一頁顯示的產品清單中，選取 [Azure 媒體服務]。
-6. 選取適合您的問題的 [問題類型]。
-7. 按一下 [繼續]。
-8. 遵循下一頁的指示，然後輸入問題的詳細資訊。
-9. 按一下 [提交] 來建立票證。
+在 Azure 入口網站中，移至[說明 + 支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 如果您未登入 Azure，系統會提示您輸入您的認證。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

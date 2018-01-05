@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用串流分析來處理從 Application Insights 匯出的資料
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)是處理[從 Application Insights 匯出](app-insights-export-telemetry.md)之資料的理想工具。 串流分析可以從各種來源提取資料。 它可以轉換和篩選資料，然後將它路由傳送至各種接收。
@@ -76,27 +76,27 @@ ms.lasthandoff: 11/01/2017
 事件會以 JSON 格式寫入至 Blob 檔案。 每個檔案可能會包含一或多個事件。 因此我們想要讀取事件資料，並篩選出需要的欄位。 該處有用這些資料所能做到的所有事情種類，但我們現在計劃要使用串流分析將資料傳送至 Power BI。
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>建立 Azure 串流分析執行個體
-在 [傳統 Azure 入口網站](https://manage.windowsazure.com/)中，選取 Azure 串流分析服務，然後建立新的串流分析工作：
+從[Azure 入口網站](https://portal.azure.com/)、 選取 Azure Stream Analytics 服務，並建立新的資料流分析工作：
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-建立新工作後，請展開其詳細資料：
+建立新的工作時，選取**資源移**。
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>設定 Blob 位置
+### <a name="add-a-new-input"></a>加入新的輸入
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 將此設定為從您的連續匯出 Blob 接收輸入：
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 現在您需要儲存體帳戶的主要存取金鑰 (您已在稍早記下此金鑰)。 請將此金鑰設為儲存體帳戶金鑰。
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>設定路徑前置詞模式
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **請務必將 [日期格式] 設為 [YYYY-MM-DD] \(含連接號)。**
 
@@ -114,33 +114,19 @@ ms.lasthandoff: 11/01/2017
 > [!NOTE]
 > 檢查儲存區以確定您取得正確的路徑。
 > 
-> 
 
-### <a name="finish-initial-setup"></a>完成初始設定
-確認序列化格式：
+## <a name="add-new-output"></a>加入新的輸出
+現在，選取您的工作 >**輸出** > **新增**。
 
-![確認並關閉精靈](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-關閉精靈，並等候設定完成。
 
-> [!TIP]
-> 您可以使用範例命令來下載一些資料。 將其保留下來做為偵錯查詢的測試範例。
-> 
-> 
-
-## <a name="set-the-output"></a>設定輸出
-現在選取您的工作並設定輸出。
-
-![選取新的通道，依序按一下 [輸出]、[新增]、[Power BI]](./media/app-insights-export-stream-analytics/160.png)
+![選取新的通道，依序按一下 [輸出]、[新增]、[Power BI]](./media/app-insights-export-stream-analytics/SA010.png)
 
 提供您的 **工作或學校帳戶** 來授權串流分析存取您的 Power BI 資源。 接著自創一個輸出的名稱，以及目標 Power BI 資料集和資料表的名稱。
 
-![創建三個名稱](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>設定查詢
 查詢會控管從輸入到輸出的轉譯。
-
-![選取工作並按一下 [查詢]。 貼上下面的範例。](./media/app-insights-export-stream-analytics/180.png)
 
 使用測試函式來確認您取得正確的輸出。 填入您從輸入頁面所採用的範例資料。 
 
@@ -162,7 +148,7 @@ ms.lasthandoff: 11/01/2017
 
 * export-input 是我們提供給串流輸入的別名
 * pbi-output 是我們所定義的輸出別名
-* 我們會使用 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) ，因為事件名稱是在巢狀 JSON 陣列中。 然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。 [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 子句會將項目分組到 1 分鐘的時間週期內。
+* 我們使用[外部套用 GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx)因為事件名稱的巢狀的 JSON 陣列中。 然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。 [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx)子句分組到一分鐘的時間週期的項目。
 
 ### <a name="query-to-display-metric-values"></a>顯示度量值的查詢
 ```SQL
@@ -206,7 +192,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="run-the-job"></a>執行工作
 您可以選取一個啟動工作的過去日期。 
 
-![選取工作並按一下 [查詢]。 貼上下面的範例。](./media/app-insights-export-stream-analytics/190.png)
+![選取工作並按一下 [查詢]。 貼上下面的範例。](./media/app-insights-export-stream-analytics/SA008.png)
 
 請等候直到作業執行。
 

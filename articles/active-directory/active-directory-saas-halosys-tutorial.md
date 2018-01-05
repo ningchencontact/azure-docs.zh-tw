@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: cfd932fa87ffd40ffc6ac96ad72ae7eac31e0b98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: jeedes
+ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>教學課程：Azure Active Directory 與 Halosys 整合
 
@@ -27,7 +28,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Halosys 的人員
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Halosys (單一登入)
-- 您可以在 Azure 傳統入口網站中集中管理您的帳戶
+- 您可以在 Azure 入口網站中集中管理您的帳戶
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
@@ -63,22 +64,17 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Halosys，請執行下列步驟：**
 
-1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格的 [Active Directory]。
+1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
-2. 從 [目錄]  清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]  。
+2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
-
-4. 按一下頁面底部的 [新增]  。
+    
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
-
-5. 在 [欲執行動作] 對話方塊上，按一下 [從資源庫中新增應用程式]。
-
-    ![[應用程式]][4]
 
 6. 在搜尋方塊中，輸入 **Halosys**。
 
@@ -105,101 +101,74 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在傳統入口網站中啟用 Azure AD 單一登入，然後在您的 Halosys 應用程式中設定單一登入。
+在本節中，您可以啟用 Azure AD 單一登入入口網站中，並 Halosys 應用程式中設定單一登入。
 
 
 **若要設定與 Halosys 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在傳統入口網站的 **Halosys** 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
-     
-    ![設定單一登入][6] 
+1. 在 Azure 入口網站的 [SCC LifeCycle] 應用程式整合頁面上，按一下 [單一登入]。
 
-2. 在 [要如何讓使用者登入 Halosys] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。
+    ![設定單一登入][4]
 
-    ![設定單一登入](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
-
-3. 在 [設定 App 設定]  對話方塊頁面執行下列步驟：
-
-    ![設定單一登入](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
-
-    a. 在 [登入 URL] 文字方塊中，使用以下模式輸入使用者登入您的 Halosys 應用程式時所使用的 URL：`https://<company-name>.Halosys.com/client-api/api`。
-
-    在 [識別碼 URL] 文字方塊中，以下列模式輸入 URL：`https://<company-name>.Halosys.com`。   
-         
-4. 在 [設定在 Halosys 單一登入] 頁面上，按一下 [下載中繼資料]，然後將檔案儲存在您的電腦中。
-
-    ![設定單一登入](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
-   
-5. 若要為您的應用程式設定 SSO，請連絡 Halosys 支援小組，並提供下列資訊：
-
-    • 已下載的**中繼資料檔案**
-    
-    • **SAML SSO URL**
-    
-
-6. 在傳統入口網站中，選取單一登入設定確認項目，然後按 [下一步] 。
-    
-    ![Azure AD 單一登入][10]
-
-7. 在 [單一登入確認] 頁面上，按一下 [完成]。  
+2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
-    ![Azure AD 單一登入][11]
+    ![設定單一登入](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+
+3. 在**Halosys 網域和 Url**區段中，執行下列步驟：
+    1. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
+
+    2. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    | |
+    |--|--|
+    | `https://bs1.hs.com/<entity>`|
+    | `https://lifecycle.hs.com/<entity>`|
+    
+    > [!NOTE] 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SCC LifeCycle 客戶支援小組](mailto:lifecycle.support@scc.com)以取得這些值。 
+         
+4. 在**SAML 簽章憑證**區段中，選取**中繼資料 XML**下**下載**，然後儲存您的電腦上的中繼資料檔案。
+   
+5. 若要取得單一登入您的應用程式設定，請連絡 Halosys 支援團隊並提供它們以下列：
+
+  * 下載**中繼資料檔案**
+  * **SAML SSO URL**
+    
+
+  >[!NOTE]
+  >單一登入必須由 Halosys 支援小組啟用。
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
-在本節中，您會在傳統入口網站中建立名稱為 Britta Simon 的測試使用者。
+在本節中，您可以建立稱為許 Simon 入口網站中的測試使用者。
 
 
 ![建立 Azure AD 使用者][20]
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格的 [Active Directory]。
+1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
+    ![建立 Azure AD 測試使用者](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
 
-2. 從 [目錄]  清單中，選取要啟用目錄整合的目錄。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+    
+    ![建立 Azure AD 測試使用者](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. 若要顯示使用者清單，請按一下頂端功能表的 [使用者] 。
+3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+ 
+    ![建立 Azure AD 測試使用者](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
+4. 在 [使用者]  對話頁面上，執行下列步驟：
+ 
+    ![建立 Azure AD 測試使用者](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
 
-4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。
+    a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+    c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    a. 針對 [使用者類型]，選取 [您組織中的新使用者]。
-
-    b. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
-
-    c. 按 [下一步] 。
-
-6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
-
-    a. 在 [名字] 文字方塊中，輸入 **Britta**。  
-
-    b. 在 [姓氏] 文字方塊中，輸入 **Simon**。
-
-    c. 在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
-
-    d. 在 [角色] 清單中選取 [使用者]。
-
-    e. 按 [下一步] 。
-
-7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
-
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
-
-8. 在 [取得暫時密碼]  對話方塊頁面上，執行下列步驟：
-
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
-
-    a. 記下 [新密碼] 的值。
-
-    b. 按一下頁面底部的 [新增] 。   
-
+    d. 按一下頁面底部的 [新增] 。
 
 
 ### <a name="creating-a-halosys-test-user"></a>建立 Halosys 測試使用者
@@ -215,30 +184,31 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 **若要將 Britta Simon 指派給 Halosys，請執行下列步驟：**
 
-1. 在傳統入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]  。
+1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
     ![指派使用者][201] 
 
 2. 在應用程式清單中，選取 [Halosys]。
 
-    ![設定單一登入](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
+3. 在左側功能表中，按一下 [使用者和群組]。
 
-3. 在頂端的功能表中，按一下 [使用者] 。
+    ![指派使用者][202] 
+
+4. 按一下 [新增]  按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-4. 在 [使用者] 清單中，選取 [Britta Simon] 。
+5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-5. 在底部的工具列中，按一下 [指派] 。
+6. 按一下**選取**按鈕**使用者和群組**對話方塊。
 
-    ![指派使用者][205]
-
+7. 按一下**指派**按鈕**將作業加入**對話方塊。
 
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 Halosys 圖格時，應該會自動登入您的 Halosys 應用程式。
+當您在存取面板中按一下 Halosys 圖格時，應該會自動登入您的 Halosys 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 
 ## <a name="additional-resources"></a>其他資源
@@ -261,6 +231,8 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 [200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
+ 

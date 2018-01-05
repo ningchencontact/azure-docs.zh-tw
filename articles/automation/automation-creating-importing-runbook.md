@@ -14,25 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: f2e34e6a4d3d2f29fe6320d805e38e6fccbb74de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自動化中建立或匯入 Runbook
 您可以將 Runbook 新增至 Azure 自動化，方法是[建立新的](#creating-a-new-runbook)，或是從檔案或 [Runbook 資源庫](automation-runbook-gallery.md)匯入現有 Runbook。 本文提供從檔案建立和匯入 Runbook 的資訊。  您可以在 [Azure 自動化的 Runbook 和模組資源庫](automation-runbook-gallery.md)中取得有關存取社群 Runbook 和模組的所有詳細資料。
 
 ## <a name="creating-a-new-runbook"></a>建立新的 Runbook
 您可以使用其中一個 Azure 入口網站或 Windows PowerShell，在 Azure 自動化中建立新的 Runbook。 一旦建立 Runbook 之後，您就能使用[了解 PowerShell 工作流程](automation-powershell-workflow.md)和 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)中的資訊來編輯它。
-
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-classic-portal"></a>使用 Azure 傳統入口網站建立新的 Azure 自動化 Runbook
-您只能在 Azure 入口網站中使用 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 。
-
-1. 在 Azure 傳統入口網站中，按一下 [新增]、[應用程式服務]、[自動化]、[Runbook]、[快速建立]。
-2. 輸入必要資訊，然後按一下 [建立] 。 Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
-3. 如果您想要立即編輯 Runbook，則按一下 [編輯 Runbook] 。 否則，請按一下 [確定] 。
-4. 新的 Runbook 會出現在 [Runbook] 索引標籤上。
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>使用 Azure 入口網站建立新的 Azure 自動化 Runbook
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
@@ -55,16 +47,6 @@ ms.lasthandoff: 12/14/2017
 * .graphrunbook 檔案只能匯入至新的 [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)，圖形化 Runbook 只能從 .graphrunbook 檔案建立。
 * 包含 PowerShell 工作流程的 .ps1 檔案只能匯入至 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。  如果檔案包含多個 PowerShell 工作流程，則匯入將會失敗。 您必須將每個工作流程儲存到它們各自的檔案，並且個別匯入。
 * 未包含工作流程的 .ps1 檔案可以匯入至 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。  如果是匯入 PowerShell 工作流程 Runbook 中，則會轉換為工作流程，而且 Runbook 會包含註解來指明所做的變更。
-
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>使用 Azure 傳統入口網站從檔案匯入 Runbook
-您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。  請注意，您只能使用此入口網站將 .ps1 檔案匯入 PowerShell 工作流程 Runbook。  對於其他類型，您必須使用 Azure 入口網站。
-
-1. 在 Azure 傳統入口網站中，選取 [自動化]，然後選取自動化帳戶。
-2. 按一下 [匯入] 。
-3. 按一下 [瀏覽檔案]  並找出要匯入的指令碼檔案。
-4. 如果您想要立即編輯 Runbook，則按一下 [編輯 Runbook] 。 否則，請按一下 [確定]。
-5. 新的 Runbook 會出現在自動化帳戶的 [Runbook] 索引標籤上。
-6. 您必須 [發佈 Runbook](#publishing-a-runbook) ，才能執行。
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>使用 Azure 入口網站從檔案匯入 Runbook
 您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。  
@@ -105,11 +87,6 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="publishing-a-runbook"></a>發佈 Runbook
 當您建立或匯入新的 Runbook 時，您必須發佈才能執行它。  自動化中的每個 Runbook 都有草稿和已發行的版本。 只可執行已發行版本，而且只可編輯草稿版本。 已發行版本不會受到草稿版本的任何變更影響。 草稿版本應該已可供使用時，您會將它發佈，以草稿版本覆寫已發佈版本。
-
-## <a name="to-publish-a-runbook-using-the-azure-classic-portal"></a>使用 Azure 傳統入口網站發佈 Runbook
-1. 在 Azure 傳統入口網站中開啟 Runbook。
-2. 在畫面頂端按一下 [撰寫] 。
-3. 在畫面底部按一下 [發佈]，然後對驗證訊息按一下 [是]。
 
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>使用 Azure 入口網站發佈 Runbook
 1. 在 Azure 入口網站中開啟 Runbook。

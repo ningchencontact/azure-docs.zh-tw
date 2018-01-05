@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure 容器執行個體中的容器群組
 
@@ -33,6 +33,9 @@ Azure 容器執行個體的最上層資源*容器群組*。 本文說明的案�
 * 會公開單一公用 IP 位址，與一個公開的連接埠。
 * 包含兩個容器。 一個容器接聽連接埠 80，另一個容器接聽連接埠 5000。
 * 包含兩個 Azure 檔案共用做為磁碟區掛接和每個容器裝載其中一個在本機的共用資料夾。
+
+> [!NOTE]
+> 多個容器群組僅限於目前 Linux 容器。 雖然我們正在將 Windows 容器中的所有功能，您可以找到目前平台差異[配額和 Azure 容器執行個體的區域可用性](container-instances-quotas.md)。
 
 ### <a name="networking"></a>網路
 

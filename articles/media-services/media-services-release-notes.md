@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 這些版本資訊彙總了舊版的變更和已知問題。
@@ -59,13 +59,7 @@ ms.lasthandoff: 12/20/2017
 2.  如果您有使用 H.265(HEVC) 影片轉碼器編碼的來源影片，例如使用 iOS11 或 GoPro Hero 6 擷取的影片，您現在可以使用進階編碼器或標準編碼器來編碼這些影片。 請參閱[線上服務條款](https://azure.microsoft.com/support/legal/)，以取得有關專利授權的重要注意事項。
 3.  如果您有包含多重語言音軌的內容，則只要根據對應的檔案格式規格 (例如 ISO MP4) 正確地標示語言值，您就可以使用標準編碼器來編碼內容以進行串流。 結果串流定位器會列出可用的音訊語言。
 4.  標準編碼器現在支援兩個新的僅限音訊系統預設值，「AAC 音訊」和「AAC 音訊品質 (佳)」。 兩者都會產生立體聲 AAC 輸出，分別為 128 kbps 和 192 kbps 位元速率。
-5.  進階編碼器現在支援 QuickTime/MOV 檔案格式作為輸入，只要視訊轉碼器是[這裡列出的 Apple ProRes 標註](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats)的其中之一，音訊可以是 AAC 或 PCM。
-
-> [!NOTE]
-> 進階編碼器不支援，例如 QuickTime/MOV 檔案中包裝的 DVC/DVCPro 影片作為輸入。  不過，標準編碼器支援這些影片轉碼器。
->
->
-
+5.  進階編碼器現在支援 QuickTime/MOV 檔案格式作為輸入，只要視訊轉碼器是[這裡列出的 Apple ProRes 標註](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats)的其中之一，音訊可以是 AAC 或 PCM。 Premium 編碼器不支援，例如 DVC/DVCPro 視訊包裝 QuickTime/MOV 檔案中做為輸入。  不過，標準編碼器支援這些影片轉碼器。
 6.  編碼器中的錯誤修正：
     * 您現在可以使用「輸入資產」提交作業，完成之後，修改資產 (例如藉由新增/刪除/重新命名「資產」中的檔案)，然後提交其他作業。 
     * 標準編碼器產生的改善品質 JPEG 縮圖
@@ -563,7 +557,7 @@ Azure 媒體服務 .NET SDK 延伸模組是一組延伸方法和協助程式函�
 [Preview features]: http://azure.microsoft.com/services/preview/
 [媒體服務 PlayReady 授權範本概觀]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [串流儲存體加密內容]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [動態封裝]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin 的部落格]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [使用 PlayReady 保護 Smooth Stream]: http://msdn.microsoft.com/library/azure/dn189154.aspx

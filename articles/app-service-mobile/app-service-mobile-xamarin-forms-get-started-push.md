@@ -3,8 +3,8 @@ title: "將推播通知新增至 Xamarin.Forms 應用程式 | Microsoft Docs"
 description: "了解如何使用 Azure 服務將多平台推播通知傳送至 Xamarin.Forms 應用程式。"
 services: app-service\mobile
 documentationcenter: xamarin
-author: ysxu
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
-ms.openlocfilehash: 912367636f1b26b3b07fbd5fe3fe8ed053218fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: 124c36063482aa3b36844104c0b83b8a6e9598cb
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>將推播通知新增至 Xamarin.Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -355,7 +355,7 @@ ms.lasthandoff: 10/11/2017
    >
    >
 3. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
-4. 確認您已接收到通知，然後按一下確定 以關閉通知。
+4. 確認您已接收到通知，然後按一下 [確定] 以關閉通知。
 
 ## <a name="configure-and-run-windows-projects-optional"></a>設定和執行 Windows 專案 (選擇性)
 本節說明執行適用於 Windows 裝置的 Xamarin.Forms WinApp 和 WinPhone81 專案。 這些步驟也支援通用 Windows 平台 (UWP) 專案。 如果未使用 Windows 裝置，可以略過這一節。
@@ -424,7 +424,7 @@ ms.lasthandoff: 10/11/2017
 您也可以繼續進行下列其中一個教學課程：
 
 * [在您的應用程式中新增驗證](app-service-mobile-xamarin-forms-get-started-users.md)  
-  了解如何使用身分識別提供者驗證應用程式的使用者。
+  了解如何利用識別提供者來驗證應用程式的使用者。
 * [啟用應用程式的離線同步處理](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   了解如何使用 Mobile Apps 後端，為應用程式新增離線支援。 使用離線同步處理時，使用者可與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
 

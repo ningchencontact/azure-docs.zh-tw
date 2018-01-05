@@ -4,21 +4,21 @@ description: "本文說明如何設定 Azure Multi-factor Authentication 報告�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4dce84becbf7d9758bd507e258b781b903fc64d9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -37,42 +37,37 @@ ms.lasthandoff: 12/15/2017
 | [可選取的驗證方法](#selectable-verification-methods) |此功能可用來選取的使用者可以使用的驗證方法清單。 |
 
 ## <a name="block-and-unblock-users"></a>封鎖及解除封鎖使用者
+
 使用_封鎖及解除封鎖使用者_功能，以防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者會保留已封鎖它們遭到封鎖的時間的 90 天。
 
 ### <a name="block-a-user"></a>封鎖使用者
+
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 瀏覽至**Azure Active Directory** > **MFA Server** > **封鎖/解除封鎖使用者**。
-
 3. 選取**新增**封鎖使用者。
-
 4. 選取**複寫群組**。 輸入使用者名稱所封鎖的使用者**username<span></span>@domain.com**。輸入中的註解**原因**欄位。
-
 5. 選取**新增**完成封鎖使用者。
 
 ### <a name="unblock-a-user"></a>解除封鎖使用者
+
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 瀏覽至**Azure Active Directory** > **MFA Server** > **封鎖/解除封鎖使用者**。
-
 3. 選取**解除封鎖**中**動作**解除封鎖之使用者旁邊的資料行。
-
 4. 在 [解除封鎖的原因] 欄位中輸入註解。
-
 5. 選取**解除封鎖**完成解除封鎖使用者。
 
 ## <a name="fraud-alert"></a>詐騙警示
+
 設定_詐騙警示_功能，讓您的使用者可以報告詐騙，嘗試存取他們的資源。 使用者可以在使用行動裝置應用程式或透過電話報告詐騙的嘗試。
 
 ### <a name="turn-on-fraud-alerts"></a>開啟 詐騙警示
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至**Azure Active Directory** > **MFA Server** > **詐騙警示**。
 
    ![開啟 詐騙警示](./media/multi-factor-authentication-whats-next/fraudalert.png)
 
 3. 設定**允許使用者提交詐騙警示**設**上**。
-
 4. 選取 [ **儲存**]。
 
 ### <a name="configuration-options"></a>組態選項
@@ -85,61 +80,30 @@ ms.lasthandoff: 12/15/2017
   >
 
 ### <a name="view-fraud-reports"></a>檢視詐騙報告
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 
-2. 選取左邊的 [Active Directory] 。
-
-3. 選取您想要管理的目錄。 
-
-4. 選取 [設定] 。
-
-5. 在下**Multi-factor Authentication**，選取**管理服務設定**。
-
-6. 在底部**服務設定**頁面上，選取**前往入口網站**。
-
-7. 在 Azure Multi-factor Authentication 管理入口網站中下方**檢視報告**，選取**詐騙警示**。
-
-8. 輸入您想要在報表中檢視的日期範圍。 您也可以指定使用者名稱、電話號碼和使用者狀態。
-
-9. 選取**執行**若要檢視詐騙警示報告。 若要匯出報表，請選取**匯出至 CSV**。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取**Azure Active Directory** > **登入**。詐騙報告現在是標準的 Azure AD 登入報表的一部分。
 
 ## <a name="one-time-bypass"></a>一次性略過
+
 _一次性略過_功能可讓使用者驗證一次，而不需執行兩步驟驗證。 許可只是暫時性，經過指定的秒數之後就會到期。 在其中的行動裝置應用程式或電話未收到通知或電話的情況下，您可以允許一次性略過，讓使用者能夠存取所需的資源。
 
 ### <a name="create-a-one-time-bypass"></a>建立單次許可
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 瀏覽至**Azure Active Directory** > **MFA Server** > **一次性略過**。
 
    ![建立單次許可](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 
 3. 選取 [新增] 。
-
 4. 如有必要，請選取略過的複寫群組。
-
 5. 輸入使用者**username<span></span>@domain.com**。輸入許可的效力應持續的秒數。 輸入許可的原因。 
-
 6. 選取 [新增] 。 時間限制立即會生效。 使用者需要一次性略過到期之前登入。 
 
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 
-2. 選取左邊的 [Active Directory] 。
-
-3. 選取您想要管理的目錄。 
-
-4. 選取 [設定] 。
-
-5. 在下**Multi-factor Authentication**，選取**管理服務設定**。
-
-6. 在底部**服務設定**頁面上，選取**前往入口網站**。
-
-7. 在 Azure Multi-factor Authentication 管理入口網站中下方**檢視報告**，選取**單次許可**。
-
-8. 輸入您想要在報表中檢視的日期範圍。 您也可以指定使用者名稱、電話號碼和使用者狀態。
-
-9. 選取**執行**檢視略過的報表。 若要匯出報表，請選取**匯出至 CSV**。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽至**Active Directory** > **MFA Server** > **一次性略過**。
 
 ## <a name="custom-voice-messages"></a>自訂語音訊息
 您可以使用您自己的記錄或 greetings 進行兩步驟驗證與_自訂語音訊息_功能。 在加入或取代 Microsoft 錄製，則可以使用這些訊息。
@@ -153,42 +117,37 @@ _一次性略過_功能可讓使用者驗證一次，而不需執行兩步驟驗
 ### <a name="set-up-a-custom-message"></a>設定自訂訊息
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 瀏覽至**Azure Active Directory** > **MFA Server** > **通話設定**。
 
    ![記錄自訂號碼的訊息](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
 
 3. 選取 [新增問候語]。
-
 4. 選擇問候語的類型。 選擇的語言。
-
 5. 選取要上傳的 .mp3 或 .wav 音效檔。
-
 6. 選取 [新增] 。
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的快取
- 您可以設定要允許驗證嘗試次數之後使用者已驗證所使用, 的時段_快取_功能。 中指定的使用者後續驗證嘗試期間成功自動。 主要使用快取，當第一個要求仍在進行中時，在內部部署系統，例如 VPN，會傳送多個驗證要求。 這項功能可讓使用者成功進行中的第一個驗證之後，成功的後續要求。 
+
+您可以設定要允許驗證嘗試次數之後使用者已驗證所使用, 的時段_快取_功能。 中指定的使用者後續驗證嘗試期間成功自動。 主要使用快取，當第一個要求仍在進行中時，在內部部署系統，例如 VPN，會傳送多個驗證要求。 這項功能可讓使用者成功進行中的第一個驗證之後，成功的後續要求。 
 
 >[!NOTE]
 >快取功能的目的不是要用於登入至 Azure Active Directory (Azure AD)。
 
 ### <a name="set-up-caching"></a>設定快取 
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至**Azure Active Directory** > **MFA Server** > **快取規則**。
 
    ![設定快取規則](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
 3. 選取 [新增] 。
-
 4. 選取**快取類型**從下拉式清單。 輸入的最大數目**快取秒**。 
-
 5. 如有必要，請選取驗證類型，並指定應用程式。 
-
 6. 選取 [新增] 。
 
 
 ## <a name="trusted-ips"></a>信任的 IP
+
 _信任的 Ip_之受管理或同盟租用戶系統管理員使用 Azure Multi-factor Authentication Server 的功能。 此功能會略過雙步驟驗證的使用者從公司內部網路登入。 功能是適用於完整版本的 Azure Multi-factor Authentication，而非系統管理員可用版本。 如需有關如何取得完整版 Azure Multi-Factor Authentication 的詳細資訊，請參閱[ Azure Multi-Factor Authentication](multi-factor-authentication.md)。
 
 | Azure AD 租用戶類型 | 受信任的 Ip 功能選項 |
@@ -211,27 +170,18 @@ _信任的 Ip_之受管理或同盟租用戶系統管理員使用 Azure Multi-fa
 ### <a name="enable-named-locations-by-using-conditional-access"></a>使用條件式存取啟用具名的位置
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 在左側選取**Azure Active Directory** > **條件式存取** > **名為位置**。
-
 3. 選取**新位置**。
-
 4. 輸入位置的名稱。
-
 5. 選取**標記為受信任的位置**。
-
 6. 輸入的 IP 範圍，以 CIDR 標記法，例如**192.168.1.1/24**。
-
 7. 選取 [建立] 。
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>啟用信任的 Ip 功能使用條件式存取
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 在左側選取**Azure Active Directory** > **條件式存取** > **名為位置**。
-
 3. 選取**設定 MFA 可信任 Ip**。
-
 4. 在**服務設定**頁面的 **信任的 Ip**，選擇下列兩個選項：
    
    * **針對來自我的內部網路同盟使用者要求**： 選擇此選項，請選取核取方塊。 所有的同盟使用者使用 AD FS 所發出的宣告從公司網路登入略過的雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：<br/>
@@ -252,13 +202,9 @@ _信任的 Ip_之受管理或同盟租用戶系統管理員使用 Azure Multi-fa
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>啟用信任的 Ip 功能，使用服務設定
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-
 3. 選取 [多重要素驗證]。
-
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
-
 5. 在**服務設定**頁面的 **信任的 Ip**，選擇下列兩個選項：
    
    * **針對來自我的內部網路上的同盟使用者要求**： 選擇此選項，請選取核取方塊。 所有的同盟使用者使用 AD FS 所發出的宣告從公司網路登入略過的雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：<br/>
@@ -289,6 +235,7 @@ _信任的 Ip_之受管理或同盟租用戶系統管理員使用 Azure Multi-fa
 >
 
 ### <a name="considerations-about-app-passwords"></a>關於應用程式密碼考量
+
 當使用應用程式密碼，請考慮下列要點：
 
 * 每個應用程式，應用程式密碼是只能輸入一次。 使用者不需要追蹤密碼，或輸入每一次。
@@ -302,12 +249,14 @@ _信任的 Ip_之受管理或同盟租用戶系統管理員使用 Azure Multi-fa
 >
 
 ### <a name="guidance-for-app-password-names"></a>應用程式密碼名稱的指引
+
 應用程式密碼名稱應反映正在使用的裝置。 如果您的膝上型電腦有非瀏覽器應用程式，例如 Outlook、 Word 和 Excel，請建立一個名為的應用程式密碼**膝上型電腦**這些應用程式。 建立名為另一個應用程式密碼**桌面**在桌面的電腦上執行的相同應用程式。 
 
 >[!NOTE]
 >我們建議您建立每個裝置，一個應用程式密碼，而不是每個應用程式的一個應用程式密碼。
 
 ### <a name="federated-or-single-sign-on-app-passwords"></a>同盟或單一登入應用程式密碼
+
 Azure AD 支援同盟，或單一登入 (SSO)，與在內部部署 Windows Server Active Directory 網域服務 (AD DS)。 如果貴組織已與 Azure AD 同盟，而且您使用 Azure Multi-factor Authentication，請考慮下列有關應用程式密碼的重點。
 
 >[!NOTE]
@@ -334,21 +283,19 @@ Azure AD 支援同盟，或單一登入 (SSO)，與在內部部署 Windows Serve
   * 若要從連線到 Exchange online 的 Outlook 用戶端存取通訊錄，請使用應用程式密碼。
 
 ### <a name="allow-users-to-create-app-passwords"></a>允許使用者建立應用程式密碼
+
 根據預設，使用者無法建立應用程式密碼。 必須啟用應用程式密碼的功能。 若要讓使用者能夠建立應用程式密碼，使用下列程序：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-
 3. 選取 [多重要素驗證]。
-
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
-
 5. 在**服務設定**頁面上，選取**允許使用者建立應用程式密碼以登入非瀏覽器應用程式**選項。
 
    ![允許使用者建立應用程式密碼](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### <a name="create-app-passwords"></a>建立應用程式密碼
+
 使用者可以在一開始的註冊期間建立應用程式密碼。 使用者已建立應用程式密碼的註冊程序結尾的選項。
 
 使用者也可以在註冊後建立應用程式密碼。 透過 Azure 入口網站或 Office 365 入口網站中的設定，您可以變更應用程式密碼。 如需詳細資訊和詳細的步驟，為您的使用者，請參閱[什麼是 Azure Multi-factor Authentication Server 中的應用程式密碼？](./end-user/multi-factor-authentication-end-user-app-passwords.md)
@@ -378,20 +325,16 @@ _記住多重要素驗證_裝置和使用者所信任的瀏覽器的功能是所
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>啟用記住多重要素驗證
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-
 3. 選取 [多重要素驗證]。
-
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
-
 5. 在**服務設定**頁面的 **管理記住多重要素驗證**，選取**允許使用者記住多重要素驗證就會在裝置上信任**選項。
 
    ![受信任的裝置記住多重要素驗證](./media/multi-factor-authentication-whats-next/remember.png)
 
 6. 設定為允許略過兩步驟驗證的受信任的裝置的天數。 預設值為 14 天。
-
 7. 選取 [ **儲存**]。
 
 ### <a name="mark-a-device-as-trusted"></a>將裝置標示為受信任
@@ -401,6 +344,7 @@ _記住多重要素驗證_裝置和使用者所信任的瀏覽器的功能是所
 ![選取 「 不要再問 「 信任的裝置](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## <a name="selectable-verification-methods"></a>可選取的驗證方法
+
 您可以選擇使用可供您使用者的驗證方法_可選取的驗證方法_功能。 下表提供一種方法的簡短概觀。
 
 當您的使用者註冊他們的帳戶的 Azure Multi-factor Authentication 時，他們可以選擇其慣用的驗證方法從已啟用的選項。 中提供的使用者註冊程序的指導方針[設定進行兩步驟驗證我的帳戶](multi-factor-authentication-end-user-first-time.md)。
@@ -413,14 +357,11 @@ _記住多重要素驗證_裝置和使用者所信任的瀏覽器的功能是所
 | 行動應用程式傳回的驗證碼 |Microsoft Authenticator 應用程式每隔 30 秒會產生新的 OATH 驗證碼。 使用者的登入介面中輸入驗證碼。 Microsoft Authenticator 應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
 
 ### <a name="enable-and-disable-verification-methods"></a>啟用和停用驗證方法
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
 2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-
 3. 選取 [多重要素驗證]。
-
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
-
 5. 在**服務設定**頁面的 **驗證選項**，選取/取消選取要提供給使用者的方法。
 
    ![選取驗證方法](./media/multi-factor-authentication-whats-next/authmethods.png)

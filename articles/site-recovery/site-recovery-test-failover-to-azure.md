@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/18/2017
 
 本文說明如何使用 Site Recovery 測試容錯移轉，將災害復原深入執行至 Azure。  
 
-您執行測試容錯移轉來驗證您的複寫和災害復原策略沒有資料遺失或停機時間。 測試容錯移轉不會影響正在進行的複寫或生產環境。 您可以在特定虛擬機器 (VM) 上執行測試容錯移轉，或在包含多部 VM 的[復原計劃](site-recovery-create-recovery-plans.md)上執行測試容錯移轉。 
+您執行測試容錯移轉來驗證您的複寫和不含任何資料遺失或停機的嚴重損壞修復策略。 測試容錯移轉不會影響正在進行的複寫或生產環境。 您可以在特定虛擬機器 (VM) 上執行測試容錯移轉，或在包含多部 VM 的[復原計劃](site-recovery-create-recovery-plans.md)上執行測試容錯移轉。 
 
 
 ## <a name="run-a-test-failover"></a>執行測試容錯移轉
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/18/2017
 
 如果您想要在容錯移轉後使用 RDP 連線到 Azure VM，請遵循資料表中摘要說明的需求。
 
-**容錯移轉** | **位置** | **動作**
+**容錯移轉** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **動作**
 --- | --- | ---
 **執行 Windows 的 Azure VM** | 在容錯移轉前的內部部署機器 | 若要透過網際網路存取 Azure VM，請啟用 RDP，並確定已針對 [公用] 新增 TCP 和 UDP 規則，且在 [Windows 防火牆] > [允許的應用程式] 中已針對所有設定檔允許 RDP。<br/><br/> 若要透過站對站連線存取 Azure VM，請在機器上啟用 RDP，並確定在 [Windows 防火牆]  ->  [允許的應用程式和功能] 中已針對 [網域] 和 [私人] 網路允許 RDP。<br/><br/>  確定作業系統的 SAN 原則已設為 **OnlineAll**。 [深入了解](https://support.microsoft.com/kb/3031135)。<br/><br/> 觸發容錯移轉時，請確定 VM 上沒有任何暫止的 Windows 更新。 容錯移轉時，可能會啟動 Windows 更新，必須等到更新完成，才能登入 VM。 
 **執行 Windows 的 Azure VM** | 容錯移轉後的 Azure VM |  [新增 VM 的公用 IP 位址](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。<br/><br/> 已容錯移轉的 VM 上的網路安全性群組規則 (以及它所連線的 Azure 子網路) 必須允許 RDP 連接埠的連入連線。<br/><br/> 勾選 [開機診斷] 以確認 VM 的螢幕擷取畫面。<br/><br/> 如果您無法連線，請檢查 VM 是否正在執行，並檢閱這些[疑難排解祕訣](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Azure 中可用性區域的概觀 (預覽)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/03/2018
 3. 選擇支援可用性區域的地區。
 4. 您可以使用下列其中一個連結來開始搭配使用可用性區域與您的服務。 
     - [建立虛擬機器](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [建立區域性虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [建立虛擬機器規模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [使用 PowerShell 來新增受控磁碟](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [負載平衡器](../load-balancer/load-balancer-standard-overview.md)
 

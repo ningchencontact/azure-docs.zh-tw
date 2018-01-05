@@ -3,10 +3,9 @@ title: "整合應用程式與 Azure Active Directory"
 description: "如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 - 委派權限：您的用戶端應用程式需要存取 Web API 做為已登入的使用者，但其存取權受到選取權限的限制。 這種類型的權限可由使用者授與，除非權限需要系統管理員的同意。 
 
   > [!NOTE]
-  > 新增對應用程式的委派權限不會自動將同意授與給租用戶內的使用者，和過去使用 Azure 傳統入口網站一樣。 使用者仍必須在執行階段手動同意新增委派的權限，除非系統管理員按一下 Azure 入口網站中應用程式頁面上 [必要的權限] 區段中的 [授與權限] 按鈕。 
+  > 應用程式中加入委派的權限不會自動授與同意在租用戶使用者。 使用者仍必須在執行階段手動同意新增委派的權限，除非系統管理員按一下 Azure 入口網站中應用程式頁面上 [必要的權限] 區段中的 [授與權限] 按鈕。 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>新增用來存取 Web API 的應用程式認證或權限
 1. 登入 [Azure 入口網站](https://portal.azure.com)。

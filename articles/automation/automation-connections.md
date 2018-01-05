@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -71,14 +71,6 @@ ms.lasthandoff: 12/14/2017
 3. 在分頁的頂端按一下 [ **加入連接** ]。
 4. 在 [ **類型** ] 下拉式清單中，選取您想要建立的連接類型。 表單會顯示該特定類型的屬性。
 5. 完成表單，然後按一下 [ **建立** ] 以儲存新連接。
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>使用 Azure 傳統入口網站建立新連接
-
-1. 從您的自動化帳戶，在視窗的頂端按一下 [ **資產** ]。
-2. 在視窗的底端按一下 [ **加入設定**]。
-3. 按一下 [ **加入連接**]。
-4. 在 [ **連接類型** ] 下拉式清單中，選取您想要建立的連接的類型。  精靈會顯示該特定類型的屬性。
-5. 完成精靈，然後按一下核取方塊以儲存新連接。
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>使用 Windows PowerShell 建立新連接
 

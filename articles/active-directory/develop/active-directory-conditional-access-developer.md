@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 條件式存取的開發人員指引 | Microsoft Docs"
+title: "Azure Active Directory 條件式存取的開發人員指引"
 description: "Azure Active Directory 條件式存取的開發人員指引和案例"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) 提供數種方式來保護您的應用程式並保�
 * 只允許已註冊 Intune 的裝置存取特定服務
 * 限制使用者位置及 IP 範圍
 
-如需了解條件式存取完整功能的詳細資訊，請參閱 [Azure 傳統入口網站中的條件式存取](../active-directory-conditional-access-azure-portal.md)。 
+更多的完整功能，條件式存取的詳細資訊，請參閱[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。 
 
 在本文中，我們會著重在條件式存取對於建置 Azure AD 應用程式之開發人員所代表的意義。  它假設對於[單一](active-directory-integrating-applications.md)和[多租用戶](active-directory-devhowto-multi-tenant-overview.md)應用程式以及[常見驗證模式](active-directory-authentication-scenarios.md)的認知。
 
@@ -218,7 +217,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>請參閱
 
-* 若要深入了解功能，請參閱 [Azure AD 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
+* 若要深入了解的功能，請參閱[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。 
 * 如需 ADAL SDK 的詳細資訊及存取參考文件，請參閱[程式庫指南](active-directory-authentication-libraries.md)。
 * 若要深入了解多租用戶情節，請參閱[如何使用多租用戶模式將使用者登入](active-directory-devhowto-multi-tenant-overview.md)。

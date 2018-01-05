@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 與 Amazon Web Services (AWS) 整合
 
@@ -110,7 +110,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 4. Amazon Web Services (AWS) 軟體應用程式預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
 
-    ![設定單一登入屬性](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![設定單一登入屬性](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
@@ -126,7 +126,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入的新增](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![設定單一登入屬性](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![設定單一登入的新增屬性](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 
@@ -230,18 +230,18 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     ![建立新的原則](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. 建立您自己的原則，以擷取 AWS 帳戶中的所有角色。 在**建立您自己的原則**區段中，按一下**選取** 按鈕。
+25. 建立您自己的原則，以擷取 AWS 帳戶中的所有角色。 在**建立自己的原則**區段上按一下**選取** 按鈕。
     
     ![建立新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. 定義新的原則，藉由執行下列步驟：
 
-    ![定義新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![定義新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. 提供**原則名稱**為**AzureAD_SSOUserRole_Policy**。
 
     b. 您可以提供**描述**做為原則**此原則可讓從 AWS 帳戶擷取角色**。
-
+    
     c. 在該原則文件中，加入下列 JSON。
     
     ```
@@ -271,16 +271,14 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     }
     
     ```
-
-    d. 請確定您已勾選**編輯原則時，用於自動格式設定**。
-
-    e. 按一下**驗證原則**底部的按鈕。
-
-    f. 一旦原則已正確驗證，然後您可以按一下**建立原則** 按鈕。
-
-    ![建立新原則](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
-27. 在 AWS IAM 服務中建立新的使用者帳戶，藉由執行下列步驟：
+    d. 請確定您已勾選**編輯原則時，用於自動格式設定**。
+    
+    e. 按一下**驗證原則**底部的按鈕。
+    
+    f. 一旦原則已正確驗證，然後您可以按一下**建立原則** 按鈕。
+    
+27. AWS IAM 服務中建立新的使用者帳戶，執行下列步驟：
 
     a. 按一下**使用者**AWS IAM 主控台中的導覽。
 
@@ -300,9 +298,9 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     * 按一下**下一步 權限**在右下角的按鈕。
 
-28. 現在建立新的原則，此使用者藉由執行下列步驟：
+28. 現在建立新的原則，這位使用者執行下列步驟：
 
-    ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. 按一下**直接附加現有的原則** 按鈕。
 
@@ -424,13 +422,6 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 當您在存取面板中按一下 [Amazon Web Services (AWS)] 圖格時，應該會自動登入您的 Amazon Web 服務 (AWS) 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
-
-## <a name="known-issues"></a>已知問題
-
- * 在**佈建** 區段中，**對應**子區段會顯示 「 正在載入...」 訊息，並永遠不會顯示屬性對應。 目前支援的只有佈建工作流程是從 AWS 角色將匯入到 Azure AD 使用者/群組指派期間選擇。 這個屬性對應會預先決定的而且不可設定。
- 
- * **佈建**區段只支援一次輸入一個 AWS 租用戶的一組認證。 所有匯入的角色會寫入至 Azure AD 的 appRoles 屬性[servicePrincipal 物件](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal)AWS 租用戶。 （由服務主體表示） 的多個 AWS 租用戶可以從資源庫佈建，但是沒有已知的問題與不能夠自動為您撰寫的所有匯入角色從用於多個 AWS 服務主體加入至 Azure AD佈建到單一的 servicePrincipal 用於 單一登入。 因應措施， [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal)可用來擷取所有匯入每個 AWS servicePrincipal appRoles 其中設定佈建。 這些角色字串可以隨後加入 AWS servicePrincipal，其中設定單一登入。
-
 
 ## <a name="additional-resources"></a>其他資源
 

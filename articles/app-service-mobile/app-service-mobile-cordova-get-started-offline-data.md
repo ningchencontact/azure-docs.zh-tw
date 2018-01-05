@@ -2,8 +2,8 @@
 title: "啟用 Azure 行動應用程式的離線同步處理 (Cordova) | Microsoft Docs"
 description: "了解如何在 Cordova 應用程式中使用 App Service 行動應用程式快取和同步離線資料"
 documentationcenter: cordova
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: c12328a441a8cc438fa3e974863cc8adf8651b50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>啟用 Cordova 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 本教學課程是根據您完成教學課程 [Apache Cordova 快速入門]時所建立之 Mobile Apps 的 Cordova 快速入門方案。 在本教學課程中，您將會更新快速入門方案來新增 Azure Mobile Apps 的離線功能。  我們也會在應用程式中反白顯示離線特有的程式碼。
 
-若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理]主題。 API 使用方式的詳細資訊，請參閱 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
+若要深入了解離線同步處理功能，請參閱 [Azure 行動應用程式中的離線資料同步處理]主題。 API 使用方式的詳細資訊，請參閱 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
 
 ## <a name="add-offline-sync-to-the-quickstart-solution"></a>在快速入門方案中新增離線同步處理
 應用程式中必須新增離線同步處理程式碼。 離線同步處理需要 cordova-sqlite-storage 外掛程式，此外掛程式會在專案中納入 Azure Mobile Apps 外掛程式時自動新增至應用程式。 快速入門專案包含上述兩個外掛程式。
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 
 對資料表執行提取時，如果該資料表有內容所追蹤的擱置中本機更新，則提取作業會自動觸發推送。 在此範例中重新整理、新增和完成項目時，您可以省略明確的 **push** 呼叫，因為它可能是多餘的。
 
-在提供的程式碼中，遠端 todoItem 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 **push**來篩選記錄。 如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]中的*增量同步處理*一節。
+在提供的程式碼中，遠端 todoItem 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 **push**來篩選記錄。 如需詳細資訊，請參閱 [Azure 行動應用程式中的離線資料同步處理]中的*增量同步處理*一節。
 
 ## <a name="optional-disable-authentication"></a>(選擇性) 停用驗證
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 10/11/2017
     請注意，資料庫與本機存放區之間的資料已同步處理，並包含應用程式中斷連接時您所新增的項目。
 
 ## <a name="additional-resources"></a>其他資源
-* [Azure Mobile Apps 中的離線資料同步處理]
+* [Azure 行動應用程式中的離線資料同步處理]
 * [Visual Studio Tools for Apache Cordova]
 
 ## <a name="next-steps"></a>後續步驟
@@ -200,7 +200,7 @@ ms.lasthandoff: 10/11/2017
 <!-- URLs. -->
 [Apache Cordova 快速入門]: app-service-mobile-cordova-get-started.md
 [離線同步處理範例]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
-[Azure Mobile Apps 中的離線資料同步處理]: app-service-mobile-offline-data-sync.md
+[Azure 行動應用程式中的離線資料同步處理]: app-service-mobile-offline-data-sync.md
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md

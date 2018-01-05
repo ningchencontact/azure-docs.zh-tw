@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>上架由 Azure 自動化 DSC 管理的機器
 
@@ -36,7 +36,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 此外，如果您不準備從雲端管理機器組態，Azure Automation DSC 也可用來當做報告專用端點。 這可讓您透過 DSC 內部部署設定 (推送) 所需的組態，以及檢視與 Azure 自動化中的期望狀態相符節點的豐富報告詳細資料。
 
 > [!NOTE]
-> 如果安裝的虛擬機器 DSC 延伸模組大於 2.7，則使用 DSC 管理 Azure VM 是免費隨附的。  如需詳細資料，請參閱[**自動化定價頁面**](https://azure.microsoft.com/en-us/pricing/details/automation/)。
+> 安裝在虛擬機器 DSC 延伸模組是否大於 2.70，管理 Azure Vm 的 DSC 和則包含在產生任何額外的費用。 如需詳細資料，請參閱[**自動化定價頁面**](https://azure.microsoft.com/en-us/pricing/details/automation/)。
 
 
 下列各節概述如何將每個類型的機器上架到 Azure 自動化 DSC。
