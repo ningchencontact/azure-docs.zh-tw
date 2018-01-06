@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ ms.lasthandoff: 01/05/2018
 不確定客體 OS 為何或客體 OS 版次如何工作？ 請閱讀 [本節內容](#how-it-works) 。
 
 ## <a name="news-updates"></a>新聞更新
+###### <a name="january-4-2018"></a>**2018 年 1 月 4 日**
+已釋放年 1 月客體作業系統的 OS 系列 4 (WA-客體-OS-4.50_201801-01) & 5 (WA-客體-OS-5.15_201801-01) 並包含重要的安全性修補程式。  
 
 ###### <a name="january-4-2018"></a>**2018 年 1 月 4 日**
 年 12 月客體 OS 已發行。
@@ -88,6 +90,7 @@ ms.lasthandoff: 01/05/2018
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-客體-OS-5.15_201801-01 |2018 年 1 月 4 日 |Post 5.17 |TBD |
 | WA-客體-OS-5.14_201712-01 |2018 年 1 月 4 日 |Post 5.16 |TBD |
 | WA-客體-OS-5.13_201711-01 |2017 年 12 月 14 日 |Post 5.15 |TBD |
 |~~WA-客體-OS-5.12_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
@@ -112,6 +115,7 @@ ms.lasthandoff: 01/05/2018
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-客體-OS-4.50_201801-01 |2018 年 1 月 4 日 |Post 4.52 |TBD |
 | WA-客體-OS-4.49_201712-01 |2018 年 1 月 4 日 |Post 4.51 |TBD |
 | WA-客體-OS-4.48_201711-01 |2017 年 12 月 14 日 |Post 4.50 |TBD |
 |~~WA-客體-OS-4.47_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |

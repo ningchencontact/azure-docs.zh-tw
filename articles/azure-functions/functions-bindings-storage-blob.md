@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -210,10 +210,12 @@ module.exports = function(context) {
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
-在 C# 和 C# 指令碼中，使用方法參數 (例如 `Stream paramName`) 來存取 Blob 資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+在 C# 和 C# 指令碼中，使用方法參數 (例如 `T paramName`) 來存取 Blob 資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob` (需要 *function.json* 中的 "inout" 繫結方向)
 * `CloudBlockBlob` (需要 *function.json* 中的 "inout" 繫結方向)
 * `CloudPageBlob` (需要 *function.json* 中的 "inout" 繫結方向)
@@ -498,10 +500,16 @@ public static void Run(
 
 在 C# 類別庫和 C# 指令碼，請使用像是方法參數中存取 blob `Stream paramName`。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader` (僅限輸入)
+* `string` (僅限輸入)
+* `Byte[]` (僅限輸入)
+* `TextWriter` (僅限輸出)
+* `out string` (僅限輸出)
+* `out Byte[]` (僅限輸出)
+*  `CloudBlobStream` (僅限輸出)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob` (需要 *function.json* 中的 "inout" 繫結方向)
 * `CloudBlockBlob` (需要 *function.json* 中的 "inout" 繫結方向)
 * `CloudPageBlob` (需要 *function.json* 中的 "inout" 繫結方向)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>關於 Azure 檔案服務的常見問題集
 
@@ -31,16 +31,20 @@ ms.lasthandoff: 12/14/2017
 4. Microsoft 支援服務。 若要建立新的支援要求，在 Azure 入口網站的 [說明] 索引標籤上，選取 [說明 + 支援] 按鈕，然後選取 [新增支援要求]。
 
 ## <a name="general"></a>一般
-* <a id="why-files-useful"></a>**Azure 檔案服務有多實用？**  
+* <a id="why-files-useful"></a>
+**如何為 Azure Files 有用？**  
    您可以使用 Azure 檔案服務，在雲端中建立檔案共用，而不需負責管理實體伺服器、裝置或應用裝置的額外負荷。 我們會為您執行單調的工作，包括套用 OS 更新和替換損毀的磁碟。 若要深入了解 Azure 檔案服務可協助處理的案例，請參閱 [Azure 檔案服務為何很實用](storage-files-introduction.md#why-azure-files-is-useful)。
 
-* <a id="file-access-options"></a>**有哪些不同方式可以存取 Azure 檔案服務中的檔案？**  
+* <a id="file-access-options"></a>
+**存取 Azure 檔案中的檔案不同的方式有哪些？**  
     您可以使用 SMB 3.0 通訊協定，在本機電腦上掛接檔案共用，或者可以使用[儲存體總管](http://storageexplorer.com/)之類的工具來存取檔案共用中的檔案。 您可以從應用程式中，使用儲存體用戶端程式庫、REST API、PowerShell 或 Azure CLI 來存取 Azure 檔案共用中的檔案。
 
-* <a id="what-is-afs"></a>**什麼是 Azure 檔案同步？**  
+* <a id="what-is-afs"></a>
+**什麼是 Azure 檔案同步處理？**  
     您可以使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將您的 Windows Server 電腦轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、網路檔案系統 (NFS) 和檔案傳輸通訊協定服務 (FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
 
-* <a id="files-versus-blobs"></a>**為什麼我要使用 Azure 檔案共用與 Azure Blob 儲存體來儲存我的資料？**  
+* <a id="files-versus-blobs"></a>
+**為什麼要使用 Azure Blob 儲存體與 Azure 的檔案共用提供我的資料？**  
     Azure 檔案服務和 Azure Blob 儲存體都會提供在雲端中儲存大量資料的方式，但其適用用途稍有不同。 
     
     Azure Blob 儲存體適用於需要儲存非結構化資料的大規模雲端原生應用程式。 為了充分發揮效能並進行擴充，Azure Blob 儲存體是比真實檔案系統更為簡單的儲存體抽象概念。 您只能透過 REST 型用戶端程式庫 (或直接透過 REST 型通訊協定) 存取 Azure Blob 儲存體。
@@ -58,7 +62,8 @@ ms.lasthandoff: 12/14/2017
 
     如需在 Azure 中設定高效能和高可用性檔案伺服器的選項相關資訊，請參閱[在 Microsoft Azure 中部署 IaaS VM 客體叢集](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) \(英文\)。 如需 Azure 檔案服務和 Azure 磁碟之間差異的更深入說明，請參閱[決定何時使用 Azure Blob 儲存體、Azure 檔案服務或 Azure 磁碟](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要深入了解 Azure 磁碟，請參閱 [Azure 受控磁碟概觀](../../virtual-machines/windows/managed-disks-overview.md)。
 
-* <a id="get-started"></a>**如何開始使用 Azure 檔案服務？**  
+* <a id="get-started"></a>
+**如何開始使用 Azure 檔案？**  
    Azure 檔案很容易就能開始使用。 首先，[建立檔案共用](storage-how-to-create-file-share.md)，然後在您慣用的作業系統中掛接它： 
 
     * [在 Windows 中掛接](storage-how-to-use-files-windows.md)
@@ -67,26 +72,33 @@ ms.lasthandoff: 12/14/2017
 
    如需更深入了解部署 Azure 檔案共用來取代組織中生產環境檔案共用的指引，請參閱[規劃 Azure 檔案服務部署](storage-files-planning.md)。
 
-* <a id="redundancy-options"></a>**Azure 檔案服務支援何種儲存體備援選項？**  
+* <a id="redundancy-options"></a>
+**Azure 檔案支援何種儲存體備援選項？**  
     Azure 檔案服務目前只支援本機備援儲存體 (LRS) 和異地備援儲存體 (GRS)。 我們計劃在未來支援區域備援儲存體 (ZRS) 和讀取權限異地備援 (RA-GRS) 儲存體，但目前尚無確切時間表。
 
-* <a id="tier-options"></a>**Azure 檔案服務中支援哪些儲存層？**  
+* <a id="tier-options"></a>
+**哪些儲存層檔案所支援之 Azure？**  
     Azure 檔案服務目前只支援標準儲存層。 對於進階儲存體和非經常性儲存體的支援，目前尚無確切時間表。 
     
     > [!NOTE]
     > 您無法從僅限 Blob 的儲存體帳戶或進階儲存體帳戶建立 Azure 檔案共用。
 
-* <a id="give-us-feedback"></a>**我真的希望 Azure 檔案服務中能加入某個特定功能。是否有此可能？**  
+* <a id="give-us-feedback"></a>
+**我實際上要查看特定功能加入至 Azure 檔案。是否有此可能？**  
     Azure 檔案服務小組很樂意聽到您對於我們所提供之服務的所有意見反應。 請在 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\) 上投票支持您認同的功能要求！ 我們期待能透過諸多新的功能讓您感到滿意。
 
 ## <a name="azure-file-sync"></a>Azure 檔案同步
-* <a id="afs-region-availability"></a>**有哪些區域支援 Azure 檔案同步 (預覽)？**  
+
+* <a id="afs-region-availability"></a>
+**Azure 檔案同步 （預覽） 支援哪些區域？**  
     目前，Azure 檔案同步處理提供了美國東部、 美國西部、 西歐、 澳洲東部和東南亞。 未來將新增對更多區域的支援，因為我們正朝著正式運作的目標努力。 如需詳細資訊，請參閱 [區域可用性](storage-sync-files-planning.md#region-availability)。
 
-* <a id="cross-domain-sync"></a>**相同的同步群組中是否可以同時有加入網域和未加入網域的伺服器？**  
+* <a id="cross-domain-sync"></a>
+**可以在相同的同步處理群組中有加入網域的和未加入網域的伺服器嗎？**  
     可以。 同步群組可以包含具有不同 Active Directory 成員資格的伺服器端點，即使它們是未加入網域的端點也一樣。 雖然就技術上來說，這樣的設定是可行的，但我們不建議您將此作為一般設定，因為針對某部伺服器上的檔案和資料夾所定義的存取控制清單 (ACL)，可能無法由同步群組中的其他伺服器強制執行。 為獲得最佳結果，建議您在相同 Active Directory 樹系的伺服器之間、在位於不同 Active Directory 樹系但已建立信任關係的伺服器之間，或是在不在網域中的伺服器之間進行同步。 我們建議您避免混用這些設定。
 
-* <a id="afs-change-detection"></a>**我直接在 Azure 檔案共用中使用 SMB 建立了檔案，或是在入口網站中建立了檔案。將該檔案與同步群組中的伺服器進行同步，需要花費多少時間？**  
+* <a id="afs-change-detection"></a>
+**使用 SMB 或入口網站中，直接在我的 Azure 檔案共用中建立檔案。將該檔案與同步群組中的伺服器進行同步，需要花費多少時間？**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**如果同一個檔案近乎同時地在兩部伺服器上進行變更，會發生什麼事？**  
@@ -96,13 +108,16 @@ ms.lasthandoff: 12/14/2017
 
     例如，如果 CentralServer 是發生較舊寫入的位置，則 CompanyReport.docx 的第一個衝突會變成 CompanyReport CentralServer.docx。 第二個衝突會命名為 CompanyReport-CentralServer-1.docx。
 
-* <a id="afs-storage-redundancy"></a>**Azure 檔案服務同步是否支援異地備援儲存體？**  
+* <a id="afs-storage-redundancy"></a>
+**Azure 檔案同步處理支援的地理備援儲存體？**  
     是，Azure 檔案服務同時支援本機備援儲存體 (LRS) 和異地備援儲存體 (GRS)。 如果配對區域之間發生 GRS 容錯移轉，則建議您將新的區域僅視為資料的備份。 Azure 檔案同步不會自動開始同步處理新的主要區域。 
 
-* <a id="sizeondisk-versus-size"></a>**在使用 Azure 檔案同步後，為什麼檔案的「磁碟上的大小」屬性不符合「大小」屬性？**  
+* <a id="sizeondisk-versus-size"></a>
+**為什麼不*磁碟大小*檔案相符項目屬性*大小*使用 Azure 檔案同步處理後的屬性？**  
     Windows 檔案總管會顯示兩個屬性來代表檔案的大小：**大小**和**磁碟大小**。 這些屬性的意義稍有不同。 **大小**代表檔案的完整大小。 **磁碟大小**代表儲存在磁碟上的檔案資料流大小。 這些屬性的值會因為各種不同的原因而不同，例如壓縮、使用重複資料刪除，或是利用 Azure 檔案同步進行雲端分層。如果將檔案分層到 Azure 檔案共用，則磁碟大小會是零，因為檔案資料流會儲存於 Azure 檔案共用中，而不是儲存在磁碟上。 檔案也可能部分分層 (或部分回收)。 在部分分層的檔案中，部分的檔案是在磁碟上。 當應用程式 (例如，多媒體播放程式或壓縮公用程式) 讀取部分檔案時，可能會發生這種情形。 
 
-* <a id="is-my-file-tiered"></a>**如何判斷檔案是否已分層？**  
+* <a id="is-my-file-tiered"></a>
+**如何判斷檔案是否已層？**  
     有幾個方法可用來確認是否已將檔案分層到 Azure 檔案共用：
     
    *  **檢查檔案的檔案屬性。**
@@ -141,7 +156,8 @@ ms.lasthandoff: 12/14/2017
     Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
     ```
 
-* <a id="afs-force-tiering"></a>**如何強制讓檔案或目錄分層？**  
+* <a id="afs-force-tiering"></a>
+**如何強制檔案或目錄分層？**  
     啟用雲端分層功能時，雲端分層會自動根據上次存取和修改時間來將檔案分層，以達到雲端端點上指定的磁碟區可用空間百分比。 不過，有時候您可能會想要以手動方式強制將檔案分層。 如果您要儲存長時間不打算再次使用的大型檔案，並且想要讓磁碟區上的可用空間現在可供其他檔案和資料夾使用，便適合使用這種方法。 您可以使用下列 PowerShell 命令來強制分層：
 
     ```PowerShell
@@ -149,10 +165,12 @@ ms.lasthandoff: 12/14/2017
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
 
-* <a id="afs-effective-vfs"></a>**如果磁碟區上有多個伺服器端點，磁碟區可用空間會如何解譯？**  
+* <a id="afs-effective-vfs"></a>
+**如何為*磁碟區可用空間*我的磁碟區上有多個伺服器端點時，解譯嗎？**  
     當磁碟區上有一個以上的伺服器端點時，針對有效磁碟區上任何伺服器端點所指定的最大磁碟區可用空間，就是該磁碟區的可用空間臨界值。 檔案將依據其使用方式模式分層，不論其屬於哪一個伺服器端點。 例如，如果磁碟區上有兩個伺服器端點，端點 1 和端點 2，其中端點 1 有 25% 的磁碟區可用空間臨界值，端點 2 有 50% 的磁碟區可用空間臨界值，則這兩個伺服器端點的磁碟區可用空間臨界值就是 50%。
 
-* <a id="afs-files-excluded"></a>**Azure 檔案同步處理會自動排除哪些檔案或資料夾？**  
+* <a id="afs-files-excluded"></a>
+**Azure 檔案同步處理會自動排除哪些檔案或資料夾？**  
     根據預設，Azure 檔案同步會排除下列檔案：
     * desktop.ini
     * thumbs.db
@@ -168,11 +186,13 @@ ms.lasthandoff: 12/14/2017
     * \$RECYCLE.BIN
     * \SyncShareState
 
-* <a id="afs-os-support"></a>**我可以將 Azure 檔案同步與 Windows Server 2008 R2、Linux 或網路連接儲存 (NAS) 裝置搭配使用嗎？**  
+* <a id="afs-os-support"></a>
+**可以使用 Azure 檔案同步處理與 Windows Server 2008 R2、 Linux 或是網路連接存放 (NAS) 裝置嗎？**  
     Azure 檔案同步目前只支援 Windows Server 2016 和 Windows Server 2012 R2。 現階段我們沒有其他計劃，但會保持開放態度，並根據客戶需求來支援其他平台。 請前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，讓我們知道您希望我們支援哪些平台。
 
 ## <a name="security-authentication-and-access-control"></a>安全性、驗證和存取控制
-* <a id="ad-support"></a>**Azure 檔案服務是否支援以 Active Directory 為基礎的驗證和存取控制？**  
+* <a id="ad-support"></a>
+**Active Directory 為基礎的驗證及支援的 Azure 檔案的存取控制是？**  
     Azure 檔案服務提供兩種管理存取控制的方式：
 
     - 您可以使用共用存取簽章 (SAS)，來產生具有特定權限且在指定時間間隔內有效的權杖。 例如，您可以產生具有指定檔案唯讀存取權且會在 10 分鐘到期的權杖。 擁有權杖的任何人，在該權杖的 10 分鐘有效時間內，具有該檔案的唯讀存取權。 目前只能透過 REST API 或在用戶端程式庫中支援共用存取簽章金鑰。 您必須使用儲存體帳戶金鑰，透過 SMB 掛接 Azure 檔案共用。
@@ -181,121 +201,155 @@ ms.lasthandoff: 12/14/2017
 
     Azure 檔案服務目前不直接支援 Active Directory。
 
-* <a id="encryption-at-rest"></a>**如何確保我的 Azure 檔案共用會進行待用加密？**  
+* <a id="encryption-at-rest"></a>
+**如何確定我的 Azure 檔案共用已加密在靜止？**  
     Azure 儲存體服務加密預計在所有區域均預設為啟用。 針對這些區域，您不必執行任何動作來啟用加密。 針對其他區域，請參閱[伺服器端加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
-* <a id="access-via-browser"></a>**如何使用網頁瀏覽器來提供對特定檔案的存取權？**  
+* <a id="access-via-browser"></a>
+**如何使用網頁瀏覽器提供特定檔案的存取權？**  
     您可以使用共用存取簽章，來產生具有特定權限且在指定時間間隔內有效的權杖。 例如，您可以產生可在一段特定時間內提供特定檔案唯讀存取權限的權杖。 任何人只要擁有此 URL，就可以在權杖有效時間內，直接從任何網頁瀏覽器存取檔案。 您可以從類似儲存體總管的 UI，輕易產生共用存取簽章金鑰。
 
-* <a id="file-level-permissions"></a>**可以對共用內的資料夾指定唯讀或唯寫權限嗎？**  
+* <a id="file-level-permissions"></a>
+**是否可以指定唯讀或唯寫的共用中的資料夾上的權限？**  
     如果您使用 SMB 來掛接檔案共用，則您對權限沒有資料夾層級的控制。 不過，如果您使用 REST API 或用戶端程式庫建立共用存取簽章，就可以在共用中的資料夾上指定唯讀或唯寫權限。
 
-* <a id="ip-restrictions"></a>**我是否可以對 Azure 檔案共用實作 IP 限制？**  
+* <a id="ip-restrictions"></a>
+**可以實作 IP 限制的 Azure 檔案共用嗎？**  
     可以。 您可以在儲存體帳戶層級限制對 Azure 檔案共用的存取。 如需詳細資訊，請參閱[設定 Azure 儲存體防火牆和虛擬網路](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
-* <a id="data-compliance-policies"></a>**Azure 檔案服務支援哪些資料合規性原則？**  
+* <a id="data-compliance-policies"></a>
+**Azure 檔案支援哪些資料相容性原則？**  
    Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以下載並參考 [Microsoft Azure 資料保護文件](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409) \(英文\)，並前往 [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx) \(英文\)。
 
 ## <a name="on-premises-access"></a>內部部署存取
-* <a id="expressroute-not-required"></a>**必須使用 Azure ExpressRoute 來連線到 Azure 檔案服務嗎，還是必須在內部部署環境使用 Azure 檔案同步？**  
+* <a id="expressroute-not-required"></a>
+**我是否必須使用 Azure ExpressRoute 連接到 Azure 的檔案或使用 Azure 檔案同步處理內部部署？**  
     編號 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
 
-* <a id="mount-locally"></a>**如何在本機電腦上掛接 Azure 檔案共用？**  
+* <a id="mount-locally"></a>
+**如何在我的本機電腦上掛接 Azure 檔案共用？**  
     如果已開啟連接埠 445 (TCP 輸出) 且您的用戶端支援 SMB 3.0 通訊協定 (例如，若您使用的是 Windows 10 或 Windows Server 2016)，即可使用 SMB 通訊協定掛接檔案共用。 如果組織的原則或您的 ISP 會封鎖連接埠 445，您可以使用 Azure 檔案同步來存取 Azure 檔案共用。
 
 ## <a name="backup"></a>Backup 
-* <a id="backup-share"></a>**如何備份我的 Azure 檔案共用？**  
+* <a id="backup-share"></a>
+**如何備份我的 Azure 檔案共用？**  
     您可以使用定期[共用快照集 (預覽)](storage-how-to-use-files-snapshots.md) 來防範意外刪除的情況。 您也可以使用 AzCopy、RoboCopy，或是可備份已掛接檔案共用的協力廠商備份工具。 
 
 ## <a name="share-snapshots"></a>共用快照集
 ### <a name="share-snapshots-general"></a>共用快照集：一般
-* <a id="what-are-snaphots"></a>**檔案共用快照集有哪些？**  
+* <a id="what-are-snaphots"></a>
+**檔案共用快照集有哪些？**  
     您可以使用 Azure 檔案共用快照集，來建立檔案共用的唯讀版本。 您也可以使用 Azure 檔案服務，將較舊版本的內容複製回到相同的共用或是 Azure 或內部部署的替代位置，以進行更多修改。 若要深入了解共用快照集，請參閱[共用快照集概觀](storage-snapshots-files.md)。
 
-* <a id="where-are-snapshots-stored"></a>**共用快照集會儲存在哪裡？**  
+* <a id="where-are-snapshots-stored"></a>
+**我共用快照集儲存在哪裡？**  
     共用快照集會儲存在與檔案共用相同的儲存體帳戶中。
 
-* <a id="snapshot-perf-impact"></a>**使用共用快照集是否會有任何效能影響？**  
+* <a id="snapshot-perf-impact"></a>
+**是否有任何使用共用快照集的效能影響？**  
     共用快照集並沒有任何效能負擔。
 
-* <a id="snapshot-consistency"></a>**共用快照集是否具有應用程式一致性？**  
+* <a id="snapshot-consistency"></a>
+**是共用快照集應用程式一致嗎？**  
     否，共用快照集不具應用程式一致性。 使用者必須先將寫入從應用程式排清到共用，然後再擷取共用快照集。
 
-* <a id="snapshot-limits"></a>**我可以使用的共用快照集數目是否有限制？**  
+* <a id="snapshot-limits"></a>
+**有我可以使用的共用快照集數目的限制嗎？**  
     可以。 Azure 檔案服務最多可保留 200 個共用快照集。 共用快照集不會計入共用配額，因此，所有共用快照集所使用的總空間沒有每個共用的限制。 但儲存體帳戶限制依然有效。 保留 200 個共用快照集之後，必須先刪除舊的快照集，才能建立新的共用快照集。
 
 ### <a name="create-share-snapshots"></a>建立共用快照集
-* <a id="file-snaphsots"></a>**可以建立個別檔案的共用快照集嗎？**  
+* <a id="file-snaphsots"></a>
+**可以建立個別檔案的共用快照集嗎？**  
     共用快照集是在檔案共用層級建立的。 您可以從檔案共用快照集還原個別檔案，但您無法建立檔案層級的共用快照集。 不過，如果您已擷取共用層級的共用快照集，而且想要列出已變更特定檔案的共用快照集，就可以在 Windows 所掛接之共用上的 [舊版] 下方執行此動作。 
     
     如果您需要檔案快照集功能，請前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，讓我們知道。
 
-* <a id="encypted-snapshots"></a>**我可以建立已加密檔案共用的共用快照集嗎？**  
+* <a id="encypted-snapshots"></a>
+**可以建立加密的檔案共用的共用快照集嗎？**  
     您可以對已啟用待用加密的 Azure 檔案共用擷取共用快照集。 您可以將共用快照集內的檔案還原至已加密的檔案共用。 如果您的共用已加密，則共用快照集也會加密。
 
-* <a id="geo-redundant-snaphsots"></a>**我的共用快照集是否會異地備援？**  
+* <a id="geo-redundant-snaphsots"></a>
+**是地理備援我共用快照集嗎？**  
     共用快照集擁有和目標 Azure 檔案共用相同的備援。 如果您為帳戶選取了異地備援儲存體，則共用快照集也會在配對區域中進行備援儲存。
 
 ### <a name="manage-share-snapshots"></a>管理共用快照集
-* <a id="browse-snapshots-linux"></a>**可以從 Linux 瀏覽共用快照集嗎？**  
+* <a id="browse-snapshots-linux"></a>
+**可以瀏覽從 Linux 我共用快照集嗎？**  
     您可以使用 Azure CLI 2.0，在 Linux 中建立、列出、瀏覽和還原共用快照集。
 
-* <a id="copy-snapshots-to-other-storage-account"></a>**可以將共用快照集複製到不同的儲存體帳戶嗎？**  
+* <a id="copy-snapshots-to-other-storage-account"></a>
+**可以為不同的儲存體帳戶複製共用快照集嗎？**  
     您可以將共用快照集的檔案複製到其他位置，但無法複製共用快照集本身。
 
 ### <a name="restore-data-from-share-snapshots"></a>從共用快照集還原資料
-* <a id="promote-share-snapshot"></a>**可以將共用快照集升階到基底共用嗎？**  
+* <a id="promote-share-snapshot"></a>
+**可以升級共用快照集基底共用嗎？**  
     您可以將共用快照集的資料複製到任何其他目的地。 您無法將共用快照集升階到基底共用。
 
-* <a id="restore-snapshotted-file-to-other-share"></a>**可以將共用快照集內的資料還原到不同的儲存體帳戶嗎？**  
+* <a id="restore-snapshotted-file-to-other-share"></a>
+**可以還原資料來自我共用快照集不同的儲存體帳戶？**  
     可以。 您可以將共用快照集的檔案複製到原始位置或替代位置，其中包含相同區域或不同區域中的同一個儲存體帳戶或不同的儲存體帳戶。 您也可以將檔案複製到內部部署位置或任何其他雲端。    
   
 ### <a name="clean-up-share-snapshots"></a>清除共用快照集
-* <a id="delete-share-keep-snapshots"></a>**我是否可以刪除共用，而不刪除共用快照集？**  
+* <a id="delete-share-keep-snapshots"></a>
+**我是否可以刪除我共用但不是能刪除我共用快照集？**  
     如果您的共用上有使用中的共用快照集，就無法刪除共用。 您可以使用 API 來刪除共用快照集以及該共用。 您也可以在 Azure 入口網站中同時刪除共用快照集和共用。
 
-* <a id="delete-share-with-snapshots"></a>**如果我刪除儲存體帳戶，共用快照集會發生什麼情況？**  
+* <a id="delete-share-with-snapshots"></a>
+**發生什麼事我共用快照集如果刪除我的儲存體帳戶？**  
     如果您刪除儲存體帳戶，也會一併刪除共用快照集。
 
 ## <a name="billing-and-pricing"></a>計費和定價
-* <a id="vm-file-share-network-traffic"></a>**Azure VM 和 Azure 檔案共用之間的網路流量，會計算為向訂用帳戶收費的外部頻寬嗎？**  
+* <a id="vm-file-share-network-traffic"></a>
+**沒有網路之間的流量 Azure VM 和 Azure 檔案共用計數為計費訂用帳戶的外部頻寬嗎？**  
     如果檔案共用和 VM 位於相同的 Azure 區域，就不會針對檔案共用和 VM 之間的流量收取額外費用。 如果檔案共用和 VM 位於不同的區域，則兩者之間的流量會以外部頻寬收費。
 
-* <a id="share-snapshot-price"></a>**共用快照集需要多少成本？**  
+* <a id="share-snapshot-price"></a>
+**多少就會共用快照集成本？**  
      在預覽期間，共用快照集容量是免費的。 適用標準儲存體的輸出和交易成本。 正式運作之後，將會針對共用快照集上的容量和交易來向訂用帳戶收費。
      
      共用快照集具有累加性質。 基底共用快照集便是共用本身。 所有後續的共用快照集都是累加的，而且只會儲存與上一個共用快照集相異之處。 變更的內容才會計費。 如果您的共用有 100 GiB 資料，但在上一個共用快照集之後只變更了 5 GiB，則共用快照集只會再耗用 5 GiB，並以 105 GiB 來計費。 如需交易和標準輸出費用的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/storage/files/)。
 
 ## <a name="scale-and-performance"></a>規模和效能
-* <a id="files-scale-limits"></a>**Azure 檔案服務有何規模限制？**  
+* <a id="files-scale-limits"></a>
+**什麼是 Azure 檔案的小數位數限制？**  
     如需 Azure 檔案服務的延展性和效能目標相關資訊，請參閱 [Azure 檔案服務延展性和效能目標](storage-files-scale-targets.md)。
 
-* <a id="need-larger-share"></a>**我需要的檔案共用比目前 Azure 檔案服務所提供的更大。我可以提高 Azure 檔案共用的大小嗎？**  
+* <a id="need-larger-share"></a>
+**我需要較大的檔案共用比目前提供的 Azure 檔案。我可以提高 Azure 檔案共用的大小嗎？**  
     編號 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
 
-* <a id="open-handles-quota"></a>**多少個用戶端可以同時存取相同的檔案？**   
+* <a id="open-handles-quota"></a>
+**多少個用戶端可以同時存取相同的檔案？**   
     單一檔案的開啟控制代碼配額為 2,000 個。 當您擁有 2,000 個開啟控制代碼時，會顯示一則錯誤訊息以指出已達到配額。
 
-* <a id="zip-slow-performance"></a>**當我在 Azure 檔案服務中將檔案解壓縮時，效能變慢了。我該怎麼辦？**  
+* <a id="zip-slow-performance"></a>
+**當我將解壓縮 Azure 檔中的檔案時，我的效能變慢。我該怎麼辦？**  
     若要將大量檔案傳輸到 Azure 檔案服務，建議您使用 AzCopy (適用於 Windows；針對 Linux/Unix 則是在預覽版中) 或 Azure PowerShell。 這些工具已針對網路傳輸最佳化。
 
-* <a id="slow-perf-windows-81-2012r2"></a>**當我在 Windows Server 2012 R2 或 Windows 8.1 上掛接 Azure 檔案共用之後，為什麼我的效能變慢了？**  
+* <a id="slow-perf-windows-81-2012r2"></a>
+**我在 Windows Server 2012 R2 或 Windows 8.1 上掛接我的 Azure 檔案共用之後為何我的效能變慢？**  
     在 Windows Server 2012 R2 和 Windows 8.1 上掛接 Azure 檔案共用時，有一個已知的問題。 此問題已在 Windows 8.1 和 Windows Server 2012 R2 的 2014 年 4 月累計更新中加以修補。 若要取得最佳效能，請確定 Windows Server 2012 R2 和 Windows 8.1 的所有執行個體都已套用這個修補程式 (您應該一律會透過 Windows Update 接收到 Windows 修補程式)。如需詳細資訊，請參閱相關的 Microsoft 知識庫文章：[當您從 Windows 8.1 或 Server 2012 R2 存取 Azure 檔案服務時效能變慢](https://support.microsoft.com/kb/3114025) \(機器翻譯\)。
 
 ## <a name="features-and-interoperability-with-other-services"></a>功能及與其他服務的互通性
-* <a id="cluster-witness"></a>**我可以使用 Azure 檔案共用作為 Windows Server 容錯移轉叢集的「檔案共用見證」嗎？**  
+* <a id="cluster-witness"></a>
+**我可以使用我的 Azure 檔案共用做為*檔案共用見證*我的 Windows Server 容錯移轉叢集嗎？**  
     Azure 檔案共用目前不支援此設定。 如需如何為 Azure Blob 儲存體設定此項的詳細資訊，請參閱[為容錯移轉叢集部署雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) \(機器翻譯\)。
 
-* <a id="containers"></a>**我是否可以在 Azure 容器執行個體上掛接 Azure 檔案共用？**  
+* <a id="containers"></a>
+**可以掛接 Azure 檔案共用上 Azure 容器執行個體嗎？**  
     是，當您想要保存超過容器執行個體存留期的資訊時，Azure 檔案共用是一個絕佳的選項。 如需詳細資訊，請參閱[使用 Azure 容器執行個體來掛接 Azure 檔案共用](../../container-instances/container-instances-mounting-azure-files-volume.md)。
 
-* <a id="rest-rename"></a>**REST API 中是否有重新命名作業？**  
+* <a id="rest-rename"></a>
+**有 REST API 中的重新命名作業嗎？**  
     目前沒有。
 
-* <a id="nested-shares"></a>**我可以設定巢狀共用嗎？也就是說，共用下的共用？**  
+* <a id="nested-shares"></a>
+**我可以設定巢狀共用嗎？也就是說，共用下的共用？**  
     編號 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
 
-* <a id="ibm-mq"></a>**如何將 Azure 檔案服務與 IBM MQ 搭配使用？**  
+* <a id="ibm-mq"></a>
+**如何與 IBM MQ 使用 Azure 檔案？**  
     IBM 已發行文件來協助 IBM MQ 客戶，利用 IBM 服務來設定 Azure 檔案服務。 如需詳細資訊，請參閱[如何使用 Microsoft Azure 檔案服務來設定 IBM MQ 多重執行個體佇列管理員](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) \(英文\)。
 
 ## <a name="see-also"></a>請參閱

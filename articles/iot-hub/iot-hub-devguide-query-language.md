@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>裝置對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -35,6 +35,17 @@ IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對�
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ GROUP BY properties.reported.telemetryConfig.status
         "status": "Error"
     }
 ]
+```
+
+投影查詢可讓開發人員傳回只有他們很關心的內容。 例如，擷取所有的上次活動時間中斷連線的裝置使用下列查詢：
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>C# 範例

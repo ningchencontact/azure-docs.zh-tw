@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 虛擬機器擴展集的作業系統自動升級
 
@@ -76,7 +76,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 目前支援下列的 SKU (之後將會新增更多)：
     
-| 發行者               | 提供項目         |  SKU               | 版本  |
+| 發行者               | 優惠         |  SKU               | 版本  |
 |-------------------------|---------------|--------------------|----------|
 | Canonical               | UbuntuServer  | 16.04-LTS          | 最新   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | 最新   |
@@ -152,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 下列範例會使用 Azure CLI (2.0.20 或更新版本)，為名為 *myResourceGroup* 的資源群組中，稱為 *myVMSS* 的擴展集設定自動升級：
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -172,7 +172,7 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 下列範例會使用 Azure CLI (2.0.20 或更新版本)，為名為 *myResourceGroup* 的資源群組中，稱為 *myVMSS* 的擴展集檢查其狀態：
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 

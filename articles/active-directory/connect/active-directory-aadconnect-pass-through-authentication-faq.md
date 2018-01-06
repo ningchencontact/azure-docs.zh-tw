@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -81,6 +81,12 @@ ms.lasthandoff: 12/11/2017
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>是否可以在相同的伺服器上安裝兩個以上的傳遞驗證代理程式？
 
 不可以，您只能在單一伺服器上安裝一個傳遞驗證代理程式。 如果您想要為傳遞驗證設定高可用性，請遵循 [Azure Active Directory 傳遞驗證：快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)中的指示。
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>如何移除傳遞驗證代理程式？
+
+傳遞驗證代理程式 」 正在執行，因為它會保持使用中，並持續處理使用者登入要求。 如果您想要解除安裝代理程式驗證，請移至**控制台]-> [程式]-> [程式和功能**和解除安裝**Microsoft Azure AD Connect 驗證代理程式**和**Microsoft Azure AD 連接代理程式 Updater**程式。
+
+如果您檢查 [傳遞驗證] 刀鋒視窗上[Azure Active Directory 系統管理中心](https://aad.portal.azure.com)之後完成上述步驟後，您會看到驗證代理程式 」 顯示為**Inactive**。 這是_預期行為_。 在幾天後驗證代理程式自動卸除從清單中。
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>我已使用 AD FS 登入 Azure AD。 要如何改為使用傳遞驗證？
 

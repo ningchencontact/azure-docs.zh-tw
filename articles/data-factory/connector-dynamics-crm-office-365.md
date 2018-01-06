@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Dynamics 365/Dynamics CRM 複製資料
 
@@ -68,10 +68,10 @@ ms.lasthandoff: 12/22/2017
 | authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | 是 |
 | username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | 是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 無法為來源，是接收如果來源連結服務沒有 IR |
 
 >[!IMPORTANT]
->若要將資料複製到 Dynamics，使用 Dynamics 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
+>複製資料時**到**Dynamics 預設 Azure 整合執行階段無法用來執行複製。 其他在 word 中，如果您的來源連結服務沒有指定的 IR，明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)與下列範例，位置靠近您 Dynamics 和動態連結服務中的關聯。
 
 **範例：使用 Office365 驗證的 Dynamics 線上版**
 

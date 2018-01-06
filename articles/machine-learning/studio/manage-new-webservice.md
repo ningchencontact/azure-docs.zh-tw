@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>使用 Azure Machine Learning Web 服務入口網站管理 Web 服務
 您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/09/2017
 
 ## <a name="manage-classic-web-services"></a>管理傳統 Web 服務
 > [!NOTE]
-> 本節的程序是關於透過 Azure Machine Learning Web 服務入口網站來管理傳統 Web 服務。 如需透過 Machine Learning Studio 和 Azure 傳統入口網站管理傳統 Web 服務的相關資訊，請參閱[管理 Azure Machine Learning 工作區](manage-workspace.md)。
+> 本節的程序是關於透過 Azure Machine Learning Web 服務入口網站來管理傳統 Web 服務。 如需管理透過 Machine Learning Studio 和 Azure 入口網站的傳統 Web 服務的資訊，請參閱[管理 Azure Machine Learning 工作區](manage-workspace.md)。
 > 
 > 
 

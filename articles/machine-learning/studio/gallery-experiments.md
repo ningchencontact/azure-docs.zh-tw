@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Gallery 實驗 | Microsoft Docs"
-description: "探索與分享 Cortana Intelligence Gallery 中的實驗。"
+title: "Azure AI 庫實驗 |Microsoft 文件"
+description: "探索和共用 Azure AI 組件庫中的實驗。"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>探索 Cortana Intelligence Gallery 中的實驗
+# <a name="discover-experiments-in-azure-ai-gallery"></a>探索 Azure AI 組件庫中的實驗
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Machine Learning studio 的實驗
@@ -45,7 +45,7 @@ Gallery 包含各種在 [Azure Machine Learning Studio](https://studio.azureml.n
 ## <a name="download"></a>下載
 您可以將 Gallery 中任何實驗的複本下載到您的 Machine Learning Studio 工作區。 然後，您可以修改複本以建立您自己的解決方案。
 
-Cortana Intelligence Gallery 提供兩種匯入實驗複本的方式：
+Azure AI 圖庫提供兩種方式可匯入一份實驗：
 
 * **從 Gallery**。 如果您在 Gallery 中發現所需實驗，您可以下載其複本，並在 Machine Learning Studio 工作區中開啟。
 * **從 Machine Learning Studio 內**。 在 Machine Learning Studio 中，您可以將 Gallery 中的任何實驗當做範本來建立新的實驗。
@@ -134,7 +134,7 @@ Cortana Intelligence Gallery 提供兩種匯入實驗複本的方式：
 
 * 實驗名稱
 * 摘要或描述
-* 標記
+* 標籤
 * 映像
 * 可視性設定 ([公開] 或 [未公開])
 
@@ -169,7 +169,7 @@ Cortana Intelligence Gallery 提供兩種匯入實驗複本的方式：
 * 視覺效果可幫助讀者正確理解和使用您的實驗。 視覺效果包括實驗圖和資料的螢幕擷取畫面。 如需如何在實驗文件中放入影像的詳細資訊，請參閱[發佈方針與範例集合](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1)。
 * 如果您在實驗中納入資料集 (也就是您未透過 [匯入資料] 模組匯入資料集)，則資料集為您實驗的一部分，並已在 Gallery 中發佈。 請確定您發佈的資料集具有授權條款可允許任何人分享與下載。 資源庫發表內容在 Azure [使用規定](https://azure.microsoft.com/support/legal/website-terms-of-use/)涵蓋範圍內。
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="frequently-asked-questions"></a>常見問答集
 **提交或編輯實驗的影像有何需求？**
 
 您連同實驗一起提交的影像用於為您的貢獻建立實驗磚。 建議使用小於 500 KB 的影像，長寬比 3:2，解析度 960 &#215; 640。

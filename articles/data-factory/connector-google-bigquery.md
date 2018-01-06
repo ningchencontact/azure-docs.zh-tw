@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>從 Google BigQuery 使用 Azure Data Factory (Beta) 複製資料
 
@@ -48,8 +48,8 @@ Google BigQuery 連結服務支援下列屬性：
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | Type 屬性必須設定為： **GoogleBigQuery** | 是 |
-| 專案 | 要查詢的預設 BigQuery 專案。  | 是 |
-| additionalProjects | 以逗號分隔清單的公開 BigQuery 專案才能存取。  | 否 |
+| 專案 | 預設 BigQuery 專案對專案識別碼。  | 是 |
+| additionalProjects | 以逗號分隔清單的公開的專案識別碼 BigQuery 專案才能存取。  | 否 |
 | requestGoogleDriveScope | 是否要要求存取 google 雲端硬碟中。 允許 google 雲端硬碟中存取可支援結合 BigQuery 資料與 google 雲端硬碟中資料的同盟資料表。 預設值為 False。  | 否 |
 | authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只用於在自我裝載的紅外線 <br/>允許的值為： **ServiceAuthentication**， **UserAuthentication** | 是 |
 | RefreshToken | 取得 google 存取的授權 BigQuery UserAuthentication 的重新整理權杖。 您可以選擇將這個欄位標記以 securestring 的形式將它安全地儲存在 ADF，或將密碼儲存在 Azure 金鑰保存庫，而且可讓複製活動時執行資料複製，從中提取-進一步了解從[將認證儲存在金鑰保存庫](store-credentials-in-key-vault.md)。 | 否 |
@@ -66,13 +66,13 @@ Google BigQuery 連結服務支援下列屬性：
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }

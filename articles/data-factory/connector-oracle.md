@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,8 +56,8 @@ ms.lasthandoff: 11/27/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**Oracle** | 是 |
-| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 請將此欄位標示為 SecureString。 | 是 |
+| type | 類型屬性必須設定為：**Oracle** | 是 |
+| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 請將此欄位標示為 SecureString。<br><br>**支援的連接類型**： 您可以選擇使用**Oracle SID**或**Oracle 服務名稱**來識別您的資料庫：<br>-使用 SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -89,7 +89,7 @@ ms.lasthandoff: 11/27/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**OracleTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**OracleTable** | 是 |
 | tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | 是 |
 
 **範例：**
@@ -121,8 +121,8 @@ ms.lasthandoff: 11/27/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**OracleSource** | 是 |
-| oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 |
+| type | 複製活動來源的類型屬性必須設定為：**OracleSource** | 是 |
+| oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 |
 
 如果您未指定 "oracleReaderQuery"，就會使用資料集的 "structure" 區段中定義的資料行，來建構要針對 Oracle 資料庫執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 11/27/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的 type 屬性必須設定為：**OracleSink** | 是 |
+| type | 複製活動接收器的 type 屬性必須設定為：**OracleSink** | 是 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：00:30:00 (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個供「複製活動」在每次執行時將資料寫入到 Oracle 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
@@ -208,25 +208,25 @@ ms.lasthandoff: 11/27/2017
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(僅 Oracle 10g 及更高版本可支援) |
-| CHAR |String |
-| CLOB |String |
-| 日期 |DateTime |
+| CHAR |字串 |
+| CLOB |字串 |
+| 日期 |Datetime |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
-| 長 |String |
+| 長 |字串 |
 | 長 RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |字串 |
+| NCLOB |字串 |
 | 數字 |Decimal，字串 (如果精確度 > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |字串 |
 | RAW |Byte[] |
-| ROWID |String |
-| 時間戳記 |DateTime |
-| 本地時區的時間戳記 |String |
-| 時區的時間戳記 |String |
+| ROWID |字串 |
+| 時間戳記 |Datetime |
+| 本地時區的時間戳記 |字串 |
+| 時區的時間戳記 |字串 |
 | 不帶正負號的整數 |數字 |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |字串 |
+| XML |字串 |
 
 > [!NOTE]
 > 不支援 INTERVAL YEAR TO MONTH 和 INTERVAL DAY TO SECOND 資料類型。

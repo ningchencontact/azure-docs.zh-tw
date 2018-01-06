@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: fb83e957a206bff29132973d2dd3e9a7b5f9f060
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 696f4ae3cb479a208e73e53a9a9a437caeabd294
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
@@ -26,9 +26,10 @@ Azure Multi-factor Authentication 提供數個可供您和貴組織可透過 Azu
 
 | 報告 | 位置 | 說明 |
 |:--- |:--- |:--- |
-| 已封鎖的使用者歷程記錄 | Azure AD > MFA Server > 封鎖/解除封鎖使用者 | 顯示要求封鎖或解除封鎖使用者的歷程記錄。 |
+| 封鎖的使用者歷程記錄 | Azure AD > MFA Server > 封鎖/解除封鎖使用者 | 顯示要求封鎖或解除封鎖使用者的歷程記錄。 |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供有關整體使用量、 使用者摘要和使用者詳細資料。與指定的日期範圍內已提交詐騙警示的歷程記錄。 |
-| 已略過的使用者歷程記錄 | Azure AD > MFA Server > 單次許可 | 提供要針對使用者許可 Multi-factor Authentication 的要求歷程記錄。 |
+| 在內部部署元件的使用方式 | Azure AD > MFA Server > 活動報表 | 提供有關整體使用量的 MFA 透過 NPS 擴充功能的 ADFS，和 MFA 伺服器。 |
+| 許可的使用者歷程記錄 | Azure AD > MFA Server > 單次許可 | 提供要針對使用者許可 Multi-factor Authentication 的要求歷程記錄。 |
 | 伺服器狀態 | Azure AD > MFA Server > 伺服器狀態 | 顯示與您的帳戶相關聯的多重要素驗證伺服器的狀態。 |
 
 ## <a name="view-reports"></a>檢視報告 

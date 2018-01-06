@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -38,11 +38,17 @@ ms.lasthandoff: 01/04/2018
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
 
-我們正在編譯可傳送這些參數以及未傳送這些參數的應用程式清單。 如果您有感興趣的應用程式，請在 comments 區段中讓我們知道。
+我們正在編譯可傳送這些參數以及未傳送這些參數的應用程式清單。 如果您有興趣的應用程式，讓我們知道中的註解區段。
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>無縫 SSO 支援 `Alternate ID` 作為使用者名稱，而不是 `userPrincipalName`？
 
 可以。 如[這裡](active-directory-aadconnect-get-started-custom.md)所述設定於 Azure AD Connect 時，無縫 SSO 支援 `Alternate ID` 作為使用者名稱。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>什麼單一登入體驗之間的差異提供[Azure AD Join](../active-directory-azureadjoin-overview.md)和無縫式 SSO？
+
+[加入 azure AD](../active-directory-azureadjoin-overview.md)提供 SSO 給使用者，如果使用 Azure AD 註冊其裝置。 這些裝置不一定要加入網域。 SSO 系統會使用提供*主要的重新整理權杖*或*PRTs*，並不是 Kerberos。 Windows 10 裝置上最最好是在使用者經驗。 SSO 會自動進行 microsoft Edge 瀏覽器上。 它也適用於 Chrome 瀏覽器延伸模組使用。
+
+您可以使用 Azure AD Join 和無縫式 SSO 在租用戶。 這兩項功能是互補的。 如果這兩項功能已開啟，然後從 Azure AD Join SSO 會優先於無縫式 SSO。
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>我想要使用 Azure AD 註冊非 Windows 10 裝置，而不需要使用 AD FS。 我可以改為使用無縫 SSO 嗎？
 

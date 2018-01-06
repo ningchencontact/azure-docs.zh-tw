@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>重新訓練傳統 Web 服務
 您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。 
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/09/2017
 
 *Resources* 中 *Name* 參數的值，應該符合預測性實驗中已儲存之訓練模型的「資源名稱」。 取得資源名稱：
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下左側功能表中的 [Machine Learning] 。
 3. 在 [名稱] 下，按一下您的工作區，然後按一下 [Web 服務] 。
 4. 在 [名稱] 下，按一下 [普查模型 [predictive exp.]] 。

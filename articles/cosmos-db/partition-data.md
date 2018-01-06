@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ Scott Hanselman 和 Azure Cosmos DB 工程總經理 Shireesh Thota 會在這段 
 
 容器是邏輯資源，可以跨一或多個實體分割或伺服器。 資料分割數目取決於 Azure Cosmos DB 的儲存體大小與佈建的容器輸送量。 
 
-實體資料分割是固定的保留 SSD 為基礎的存放裝置，使用 10 GB 的最大數量。每個實體的資料分割會複寫為高可用性。 一或多個實體的資料分割是由容器所組成。 Azure Cosmos DB，完全管理實體資料分割管理，而且不需要撰寫複雜的程式碼，或管理您的資料分割。 Azure Cosmos DB 容器在儲存體和輸送量方面並無限制。 
+實體資料分割是固定保留 SSD 為基礎的存放裝置的數量。 每個實體的資料分割會複寫為高可用性。 一或多個實體的資料分割是由容器所組成。 Azure Cosmos DB，完全管理實體資料分割管理，而且不需要撰寫複雜的程式碼，或管理您的資料分割。 Azure Cosmos DB 容器在儲存體和輸送量方面並無限制。 
 
-邏輯磁碟分割是磁碟分割內實體的資料分割，儲存單一資料分割索引鍵值相關聯的所有資料。 下列圖表中，在單一容器會有三個邏輯磁碟分割。 每個邏輯資料分割會分別儲存一個 LAX、 AMS 和 MEL 的資料分割索引鍵的資料。 每個 LAX、 AMS 和 MEL 邏輯磁碟分割無法成長超過最大的實體資料分割的限制為 10 GB。 
+邏輯磁碟分割是將單一資料分割索引鍵值相關聯的所有資料都儲存在實體資料分割中的資料分割。 邏輯磁碟分割具有 10 GB 的最大值。下列圖表中，在單一容器會有三個邏輯磁碟分割。 每個邏輯資料分割會分別儲存一個 LAX、 AMS 和 MEL 的資料分割索引鍵的資料。 每個 LAX、 AMS 和 MEL 邏輯磁碟分割無法成長超過最大的邏輯磁碟分割的限制為 10 GB。 
 
 ![資源的資料分割](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Scott Hanselman 和 Azure Cosmos DB 工程總經理 Shireesh Thota 會在這段 
 
 ## <a name="how-does-partitioning-work"></a>資料分割的運作方式
 
-資料分割如何運作？ 每個項目必須具備可唯一識別它的資料分割索引鍵和資料列索引鍵。 您的資料分割索引鍵是存放資料的邏輯資料分割區，並為 Azure Cosmos DB 提供將資料分散到分割區的自然界限。 請注意，邏輯磁碟分割可以跨越多個實體的資料分割，但實體資料分割管理受 Azure Cosmos DB。 
+資料分割如何運作？ 每個項目必須具備可唯一識別它的資料分割索引鍵和資料列索引鍵。 您的資料分割索引鍵做為資料的邏輯磁碟分割，並提供自然界限的實體資料分割之間分散資料，Azure Cosmos DB。 請注意，單一邏輯資料分割的資料必須位在單一的實體資料分割，但實體資料分割管理受 Azure Cosmos DB。 
 
 簡單地說，Azure Cosmos DB 中的資料分割運作方式如下︰
 

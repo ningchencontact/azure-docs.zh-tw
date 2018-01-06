@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -45,6 +45,7 @@ ms.lasthandoff: 12/13/2017
 - 用於多重要素驗證的應用程式密碼。
 - 偵測[認證外洩](../active-directory-reporting-risk-events.md#leaked-credentials)的使用者。
 - Azure AD 網域服務必須在租用戶上啟用密碼雜湊同步處理。 因此使用傳遞驗證的租用戶_只_需要 Azure AD 網域服務的情況下無法運作。
+- 未通過驗證與整合[Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)。
 
 >[!IMPORTANT]
 >_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。

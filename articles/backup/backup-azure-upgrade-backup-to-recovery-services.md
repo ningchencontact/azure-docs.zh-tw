@@ -1,5 +1,5 @@
 ---
-title: "將備份保存庫升級至復原服務保存庫 (預覽) | Microsoft Docs"
+title: "升級至復原服務保存庫的備份保存庫 |Microsoft 文件"
 description: "將 Azure 備份保存庫升級至復原服務保存庫的指示和支援資訊。"
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
 
@@ -120,7 +120,7 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 編號 在升級期間和升級之後，進行中的備份持續不受干擾。
 
 **如果我不打算立即升級，那麼我的保存庫會怎麼樣？**</br>
-所有新功能只適用於復原服務保存庫，因此您最好將保存庫升級。 Microsoft 終究會淘汰掉傳統入口網站。 2017 年 9 月 1 日起，Microsoft 會開始將備份保存庫自動升級為復原服務保存庫。 2017 年 11 月 30 日之後，您就無法再使用 PowerShell 建立備份保存庫。 您的保存庫會其間的任何時間自動升級。 Microsoft 建議您盡快升級您的保存庫。
+所有新功能只適用於復原服務保存庫，因此您最好將保存庫升級。 2017 年 9 月 1 日起，Microsoft 會開始將備份保存庫自動升級為復原服務保存庫。 2017 年 11 月 30 日之後，您就無法再使用 PowerShell 建立備份保存庫。 您的保存庫會其間的任何時間自動升級。 Microsoft 建議您盡快升級您的保存庫。
 
 **對於我現有的工具來說，此升級有何意義？**</br>
 將您的工具升級至 Resource Manager 部署模型。 復原服務保存庫是打造來用於 Resource Manager 部署模型的。 因此，請務必要規劃 Resource Manager 部署模型，並考量保存庫的相異之處。 
@@ -133,9 +133,6 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 
 **我是否可以驗證訂用帳戶或資源，以查看是否能夠將它們升級？**</br>
 可以。 升級的第一個步驟是驗證這些資源是否能夠升級。 如果必要條件驗證失敗，您將會收到無法完成升級的所有原因相關訊息。
-
-**若要觸發保存庫升級，我應該具備哪些權限？**</br>
-若要執行保存庫升級，必須在 Azure 傳統入口網站中將您新增為訂用帳戶的共同管理員。 即使已經在 Azure 入口網站中將您列示為擁有者，還是必須執行此操作。 請嘗試在 Azure 傳統入口網站中新增訂用帳戶的共同管理員，以查明您是否為訂用帳戶的共同管理員。 如果您無法新增共同管理員，請連絡服務管理員或訂用帳戶的共同管理員，請他將您新增為共同管理員。
 
 **可以升級以 CSP 為基礎的備份保存庫嗎？**</br>
 編號 您目前無法升級以 CSP 為基礎的備份保存庫。 我們會在後續版本中新增以 CSP 為基礎之備份保存庫的升級支援。

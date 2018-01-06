@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>如何使用 Azure 排程器建立複雜的排程和進階週期
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Azure 排程器的核心工作是 *排程*。 排程會決定排程器何時和如何執行工作。
 
 Azure 排程器可讓您指定不同的一次和週期工作排程。 *一次*排程會在指定的時間引發一次 – 實際上，它們是僅執行一次的*週期*排程。 週期排程會根據預先決定的頻率引發。
@@ -59,7 +59,7 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
 | **JSON 名稱** | **值類型** | **必要？** | **預設值** | **有效值** | **範例** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |String |否 |None |ISO 8601 日期時間 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***recurrence*** |Object |否 |None |Recurrence 物件 |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequency*** |String |是 |None |"minute"、"hour"、"day"、"week"、"month" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |否 |1 |1 到 1000。 |<code>"interval":10</code> |
-| ***endTime*** |String |否 |None |代表未來時間的日期時間值 |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***count*** |Number |否 |None |>= 1 |<code>"count": 5</code> |
-| ***schedule*** |Object |否 |None |Schedule 物件 |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***startTime*** |String |無 |None |ISO 8601 日期時間 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***recurrence*** |物件 |無 |None |Recurrence 物件 |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequency*** |String |有 |None |"minute"、"hour"、"day"、"week"、"month" |<code>"frequency" : "hour"</code> |
+| ***interval*** |數目 |有 |None |1 到 1000。 |<code>"interval":10</code> |
+| ***endTime*** |String |無 |None |代表未來時間的日期時間值 |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***count*** |數目 |無 |None |>= 1 |<code>"count": 5</code> |
+| ***schedule*** |物件 |無 |None |Schedule 物件 |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>深入探討：*startTime*
 下表擷取 *startTime* 如何控制作業的執行方式。
@@ -125,11 +125,11 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
 | **JSON 名稱** | **說明** | **有效值** |
 |:--- |:--- |:--- |
-| **minutes** |一小時內工作將執行的分鐘數 |<ul><li>整數或</li><li>一連串整數</li></ul> |
-| **hours** |一天內工作將執行的小時數 |<ul><li>整數或</li><li>一連串整數</li></ul> |
-| **weekDays** |工作將執行的星期幾。 只能搭配 weekly 頻率指定。 |<ul><li>星期一、星期二、星期三、星期四、星期五、星期六或星期日</li><li>任何上述值的陣列 (最大陣列大小為 7)</li></ul>「不」區分大小寫 |
-| **monthlyOccurrences** |決定將在當月哪幾天執行工作。 只能搭配 monthly 頻率指定。 |<ul><li>monthlyOccurrence 物件的陣列︰</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* 是作業將執行的星期幾，例如，{Sunday} 是當月的每個星期日。 必要。</p><p>週期是月日的 *occurrence*，例如 {Sunday, -1} 是當月的最後一個星期日。 選用。</p> |
-| **monthDays** |工作將執行的月日。 只能搭配 monthly 頻率指定。 |<ul><li>任何值 <= -1 和 >= -31。</li><li>任何值 >= 1 和 <= 31。</li><li>上述值的陣列</li></ul> |
+| **minutes** |一小時內工作將執行的分鐘數 |<ul><li>一連串整數</li></ul> |
+| **hours** |一天內工作將執行的小時數 |<ul><li>一連串整數</li></ul> |
+| **weekDays** |工作將執行的星期幾。 只能搭配 weekly 頻率指定。 |<ul><li>陣列，其中任一下列值 （最大值的陣列大小 7）<ul><li>"Monday"</li><li>「 星期二 」</li><li>「 星期三 」</li><li>「 星期四 」</li><li>「 星期五 」</li><li>"Saturday"</li><li>「 星期日 」</li></ul></li></ul>「不」區分大小寫 |
+| **monthlyOccurrences** |決定將在當月哪幾天執行工作。 只能搭配 monthly 頻率指定。 |<ul><li>monthlyOccurrence 物件的陣列︰</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* 是作業將執行的星期幾，例如，{Sunday} 是當月的每個星期日。 必要項。</p><p>週期是月日的 *occurrence*，例如 {Sunday, -1} 是當月的最後一個星期日。 選用。</p> |
+| **monthDays** |工作將執行的月日。 只能搭配 monthly 頻率指定。 |<ul><li>以下值的陣列</li><ul><li>任何值 <= -1 和 >= -31。</li><li>任何值 >= 1 和 <= 31。</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>範例：週期排程
 以下是週期排程的各種範例 – 將焦點放在 schedule 物件和其子元素。

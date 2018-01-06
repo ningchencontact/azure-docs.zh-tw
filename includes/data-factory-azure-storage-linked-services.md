@@ -3,7 +3,7 @@
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設為： **AzureStorage** |是 |
+| type |類型屬性必須設為： **AzureStorage** |是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
 
 請參閱下列文章的步驟來檢視/複製 Azure 儲存體帳戶金鑰：[檢視、複製和重新產生儲存體存取金鑰](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account)。
@@ -27,13 +27,16 @@
 
 > [!IMPORTANT]
 > Azure Data Factory 現在僅支援 **服務 SAS**，但不支援帳戶 SAS。 如需這兩種類型的詳細資料及其建構方式，請參閱[共用存取簽章的類型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 請注意，可從 Azure 入口網站或儲存體總管產生的 SAS URL 是帳戶 SAS (不提供支援)。
-> 
+
+> [!TIP]
+> 您可以執行下列 PowerShell 命令來產生服務 SAS 儲存體帳戶 （取代預留位置和授與所需的權限）：`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Azure 儲存體帳戶連結到 Azure Data Factory。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源 (blob/容器)。 下表提供 Azure 儲存體 SAS 連結服務專屬 JSON 元素的描述。 
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設為： **AzureStorageSas** |是 |
+| type |類型屬性必須設為： **AzureStorageSas** |是 |
 | sasUri |指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。  |是 |
 
 **範例：**

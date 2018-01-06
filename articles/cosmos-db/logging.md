@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -239,7 +239,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 因為可以使用相同的儲存體帳戶來收集多個資源的記錄，blob 名稱中的完整資源識別碼很適合用來只存取或下載所需 blob。 但在這麼做之前，我們要先討論如何下載所有 blob。
 
-首先，建立資料夾來下載 blob。 例如︰
+首先，建立資料夾來下載 blob。 例如：
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -261,7 +261,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 在執行第二個命令時，blob 名稱中的 **/** 分隔符號會在目的地資料夾下建立完整資料夾結構。 此資料夾結構將會用來下載 blob 並儲存為檔案。
 
-若要有所選擇地下載 blob，請使用萬用字元。 例如︰
+若要有所選擇地下載 blob，請使用萬用字元。 例如：
 
 * 如果您有多個資料庫，並且只想下載其中的 CONTOSOCOSMOSDB3 資料庫的記錄：
 
@@ -383,7 +383,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 * 哪些作業費時超過 3 毫秒。
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 哪些代理程式正在執行此作業。
@@ -408,11 +408,11 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 | Azure 儲存體欄位或屬性 | Log Analytics 屬性 | 說明 |
 | --- | --- | --- |
-| 分析 | TimeGenerated | 作業發生的日期和時間 (UTC)。 |
+| 時間 | TimeGenerated | 作業發生的日期和時間 (UTC)。 |
 | ResourceId | 資源 | 啟用記錄的 Azure Cosmos DB 帳戶。|
 | category | 類別 | 針對 Azure Cosmos DB 記錄，DataPlaneRequests 是唯一可用的值。 |
 | operationName | OperationName | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
-| properties | n/a | 此欄位的內容描述於下列資料列中。 |
+| 屬性 | n/a | 此欄位的內容描述於下列資料列中。 |
 | activityId | activityId_g | 所記錄作業的唯一 GUID。 |
 | userAgent | userAgent_s | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
 | resourceType | ResourceType | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Collection、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |

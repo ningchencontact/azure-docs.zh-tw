@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
 *裝置對應項*是存放裝置狀態資訊的 JSON 文件，包括中繼資料、組態和條件。 Azure IoT 中樞會為連線到 IoT 中樞的每個裝置維持裝置對應項。 本文章說明：
+
 
 * 裝置對應項的結構：*標籤*、*所需屬性*和*報告屬性*。
 * 裝置應用程式和後端可以對裝置對應項執行的作業。
@@ -51,8 +52,7 @@ ms.lasthandoff: 10/24/2017
 * **標籤**。 解決方案後端可以讀取及寫入的 JSON 文件區段。 裝置應用程式看不到標籤。
 * **所需屬性**。 搭配報告屬性使用，以便同步處理裝置的組態或狀況。 解決方案後端可以設定所需的屬性，以及裝置應用程式可以讀取它們。 裝置應用程式也可以接收所需屬性中的變更通知。
 * **報告屬性**。 搭配所需屬性使用，以便同步處理裝置的組態或狀況。 裝置應用程式可以設定報告的屬性，以及解決方案後端可以讀取並查詢它們。
-
-此外，裝置對應項 JSON 文件的根目錄包含來自[身分識別登錄][lnk-identity]中儲存之對應身分識別的唯讀屬性。
+* **裝置識別屬性**。 裝置的兩個 JSON 文件的根包含儲存在對應的裝置身分識別的唯讀屬性[身分識別登錄][lnk-identity]。
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ ms.lasthandoff: 10/24/2017
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ ms.lasthandoff: 10/24/2017
             }
         }
 
-在根物件中，都是系統屬性，並且是 `tags` 以及 `reported` 和 `desired` 屬性的容器物件。 `properties` 容器包含一些唯讀元素 (`$metadata`、`$etag` 和 `$version`)，其說明位於[裝置對應項中繼資料][lnk-twin-metadata]和[開放式並行存取][lnk-concurrency]章節。
+在根物件是裝置身分識別屬性，並且容器物件`tags`，兩者均`reported`和`desired`屬性。 `properties` 容器包含一些唯讀元素 (`$metadata`、`$etag` 和 `$version`)，其說明位於[裝置對應項中繼資料][lnk-twin-metadata]和[開放式並行存取][lnk-concurrency]章節。
 
 ### <a name="reported-property-example"></a>報告屬性範例
 在上述範例中，裝置對應項包含由裝置應用程式所報告的 `batteryLevel` 屬性。 此屬性可讓您根據最後一次報告的電池電量對裝置進行查詢和操作。 其他範例包含裝置應用程式報告功能或連線能力選項。
@@ -103,7 +109,7 @@ ms.lasthandoff: 10/24/2017
 > 當解決方案後端想要取得屬性的最後已知值時，報告屬性如何簡化這種情況。 如果解決方案後端需要以一連串時間戳記事件 (例如時間序列) 的形式處理裝置遙測，請使用[裝置到雲端訊息][lnk-d2c]。
 
 ### <a name="desired-property-example"></a>所需屬性範例
-在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如：
+在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如︰
 
 1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
    
@@ -156,7 +162,7 @@ ms.lasthandoff: 10/24/2017
 * **取代標籤**。 此作業可讓解決方案後端完全覆寫所有現有的標籤，並以新的 JSON 文件取代 `tags`。
 * **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，不會傳送任何對應項通知，亦即預先不存在這類路由。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，則仍建議您使用 D2C 訊息。 對應項通知訊息包含屬性和內文。
 
-    - 屬性
+    - properties
 
     | 名稱 | 值 |
     | --- | --- |
@@ -240,13 +246,13 @@ ms.lasthandoff: 10/24/2017
 * 所有字串值的最大長度為 4 KB。
 
 ## <a name="device-twin-size"></a>裝置對應項大小
-IoT 中樞會對 `tags`、`properties/desired` 和 `properties/reported` 的總計值 (排除唯讀元素) 強制執行 8 KB 大小的限制。
+IoT 中樞會強制執行每個個別的總計值的 8 KB 大小限制`tags`， `properties/desired`，和`properties/reported`，排除唯讀項目。
 大小的計算方式是計算所有字元的數量，並排除在字串常數之外的 UNICODE 控制字元 (區段 C0 和 C1) 和空格。
 IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超過限制的所有作業。
 
 ## <a name="device-twin-metadata"></a>裝置對應項中繼資料
 IoT 中樞會為裝置對應項所需屬性和報告屬性的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601] 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
-例如：
+例如︰
 
         {
             ...

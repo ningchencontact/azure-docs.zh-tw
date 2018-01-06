@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d30a0a6e293bd6659c8d39f94f11b0bb448e166
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>升級 Windows Azure Active Directory Sync 和 Azure Active Directory Sync
 Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。 這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且從 2017 年 4 月 13 日起不再提供支援。
@@ -46,7 +46,7 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩
 
 如果您使用 Azure AD Sync，則建議採用就地升級。 如果您想要，您也可以並行安裝新的 Azure AD Connect 伺服器，並且執行從 Azure AD 同步伺服器到 Azure AD Connect 的變換移轉。
 
-| 解決方法 | 案例 |
+| 解決方案 | 案例 |
 | --- | --- |
 | [從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>如果您有已在執行中的現有 DirSync 伺服器。</li> |
 | [從 Azure AD Sync 升級](active-directory-aadconnect-upgrade-previous-version.md) |<li>如果您要從 Azure AD Sync 移動。</li> |
@@ -62,7 +62,7 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩
 這項通知也會傳送給使用 Azure AD Connect 組建編號 1.0.\*.0 (使用 1.1 發行前版本) 的客戶。 Microsoft 建議客戶使用最新的 Azure AD Connect 版本。 1.1 版引進的[自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)功能可讓您持續輕鬆擁有最新的 Azure AD Connect 安裝版本。
 
 **問︰DirSync/Azure AD Sync 會在 2017 年 4 月 13 日停止運作嗎？**  
-DirSync/Azure AD Sync 在 2017 年 4 月 13 日會繼續運作。  不過，Azure AD 在 2017 年 12 月 31 日之後將不再接受來自 DirSync/Azure AD Sync 的通訊。
+DirSync/Azure AD Sync 在 2017 年 4 月 13 日會繼續運作。  不過，Azure AD 可能無法再 2017 年 12 月 31 之後, 接受從 DirSync/Azure AD Sync 的通訊。
 
 **問：哪些 DirSync 版本可以進行升級？**  
 目前使用的任何 DirSync 版本皆支援升級。 請注意，在 2017 年 12 月 31 日之後，將不再支援從 DirSync 就地升級至 Azure AD Connect。 在該日期之後使用 DirSync 並需要移至 Azure AD Connect 的客戶，可能必須改為執行全新安裝 Azure AD connect。

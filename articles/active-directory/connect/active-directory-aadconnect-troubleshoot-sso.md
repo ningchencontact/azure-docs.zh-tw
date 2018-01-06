@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="known-problems"></a>已知的問題
 
 - 在某些情況下，啟用無縫 SSO 最久可能需要 30 分鐘。
+- 如果您停用並重新啟用您的租用戶中的 無縫式 SSO，使用者不會收到單一登入體驗直到其快取的 Kerberos 票證，通常適用於 10 小時，已過期。
 - 不支援 Edge 瀏覽器。
 - 啟動 Office 用戶端 (尤其是在共用的電腦情節中) 會導致使用者收到額外的登入輸入。 使用者必須經常輸入其使用者名稱，而不是密碼。
 - 如果無縫 SSO 成功，使用者就沒有機會選取 [讓我保持登入]。 由於這個行為，SharePoint 和 OneDrive 對應情節無法運作。
@@ -68,13 +69,15 @@ ms.lasthandoff: 12/11/2017
 使用下列檢查清單，為無縫 SSO 問題疑難排解︰
 
 - 請務必在 Azure AD Connect 上已啟用無縫 SSO 功能。 如果您無法啟用此功能 (例如，因為連接埠已封鎖)，請確定您已完成所有[必要條件](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites)。
+- 如果您已啟用兩者[Azure AD Join](../active-directory-azureadjoin-overview.md)和無縫式 SSO 在租用戶，請確認問題不是與 Azure AD Join。 從 Azure AD Join SSO 會優先於無縫式 SSO，如果裝置已向 Azure AD 中已註冊且已加入網域。 從 Azure AD Join 的 SSO 與使用者會看到指出 「 連線到 Windows 」 的登入磚。
 - 確認這兩個 Azure AD URL (https://autologon.microsoftazuread-sso.com 和 https://aadg.windows.net.nsatc.net) 都屬於使用者的內部網路區域設定。
 - 確定公司裝置已加入 Active Directory 網域。
 - 確定使用者已透過 Active Directory 網域帳戶登入裝置。
 - 確定使用者帳戶是來自已設定無縫 SSO 的 Active Directory 樹系。
 - 確定裝置已連線到公司網路。
 - 確定裝置的時間已經與 Active Directory 和網域控制站的時間同步，且彼此的時間差不到五分鐘。
-- 從命令提示字元使用 `klist` 命令，列出裝置上現有的 Kerberos 票證。 確認是否有核發給 `AZUREADSSOACCT` 電腦帳戶的票證。 使用者的 Kerberos 票證有效期通常為 12 個小時。 您的 Active Directory 可能有不同的設定。
+- 從命令提示字元使用 `klist` 命令，列出裝置上現有的 Kerberos 票證。 確認是否有核發給 `AZUREADSSOACCT` 電腦帳戶的票證。 使用者的 Kerberos 票證的有效值通常 10 小時。 您的 Active Directory 可能有不同的設定。
+- 如果您停用並重新啟用您的租用戶中的 無縫式 SSO，使用者不會收到單一登入體驗直到其快取的 Kerberos 票證已過期。
 - 使用 `klist purge` 命令從裝置中清除現有的 Kerberos 票證，然後再試一次。
 - 若要判斷是否有 JavaScript 相關問題，請檢閱瀏覽器的主控台記錄 (在 [開發人員工具] 底下)。
 - 檢閱[網域控制站記錄](#domain-controller-logs)。

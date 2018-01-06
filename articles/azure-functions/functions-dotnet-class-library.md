@@ -1,467 +1,323 @@
 ---
-title: "使用 .NET 類別庫搭配 Azure Functions | Microsoft Docs"
-description: "了解如何撰寫 .NET 類別庫來與 Azure Functions 搭配使用"
+title: "Azure Functions C# 開發人員參考"
+description: "了解如何使用 C# 開發 Azure Functions。"
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
-ms.assetid: 9f5db0c2-a88e-4fa8-9b59-37a7096fc828
+keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6f6f89d62f1442198f80247cc5c433aa0c54030b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 8bd46adc475af35d32b9e329a3765e064120a6e3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="using-net-class-libraries-with-azure-functions"></a>使用 .NET 類別庫搭配 Azure Functions
+# <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
-除了指令碼檔之外，Azure Functions 還支援發佈類別庫作為一個或多個函式的實作。 建議您使用 [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/)。
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-## <a name="prerequisites"></a>必要條件 
+本文是開發 Azure 函式使用 C#.NET 類別庫中的簡介。
 
-本文有下列先決條件：
+Azure 的函式支援 C# 和 C# 程式設計語言指令碼。 如果您想要尋求指引[在 Azure 入口網站中使用 C#](functions-create-function-app-portal.md)，請參閱[C# 指令碼 (.csx) 開發人員參考](functions-reference-csharp.md)。
 
-- [Visual Studio 2017 版本 15.3](https://www.visualstudio.com/vs/) 或更新版本。
-- 安裝 **Azure 開發**工作負載。
+本文章假設，您已閱讀下列文章：
+
+* [Azure 函式的開發人員指南](functions-reference.md)
+* [Azure Functions 2017 的 Visual Studio Tools](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions 類別庫專案
 
-從 Visual Studio 中建立 Azure Functions 專案。 新的專案範本會建立 host.json 和 local.settings.json 檔案。 您可以[在 host.json 中自訂 Azure Functions 執行階段設定](functions-host-json.md)。 
+在 Visual Studio **Azure 函式**專案範本建立 C# 類別庫專案，其中包含下列檔案：
 
-local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Functions Core Tools 的設定。 若要深入了解其結構，請參閱[在本機撰寫程式碼和測試 Azure Functions](functions-run-local.md#local-settings-file)。
+* [host.json](functions-host-json.md) -儲存在本機或在 Azure 中執行時，會影響在專案中的所有函式的組態設定。
+* [local.settings.json](functions-run-local.md#local-settings-file) -儲存應用程式設定和在本機執行時所使用的連接字串。
 
-### <a name="functionname-attribute"></a>FunctionName 屬性
+### <a name="functionname-and-trigger-attributes"></a>FunctionName 和觸發程序屬性
 
-屬性 [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) 會將方法標記為函式進入點。 它必須剛好僅與一個觸發程序以及 0 個以上的輸入和輸出繫結搭配使用。
-
-### <a name="conversion-to-functionjson"></a>轉換成 function.json
-
-當您建置 Azure Functions 專案時，會在函式的目錄中建立 *function.json* 檔案。 目錄名稱會與 `[FunctionName]` 屬性所指定的函式名稱相同。 *function.json* 檔案包含觸發程序和繫結，並指向專案組件檔。
-
-此轉換是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 來源可在 GitHub 存放庫 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) 提供使用。
-
-## <a name="triggers-and-bindings"></a>觸發和繫結 
-
-下表列出的觸發程序和繫結可在 Azure Functions 類別庫專案中提供使用。 所有屬性都在 `Microsoft.Azure.WebJobs` 命名空間中。
-
-| 繫結 | 屬性 | Nuget 套件 |
-|------   | ------    | ------        |
-| [Blob 儲存體觸發程序, 輸入, 輸出](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Blob 儲存體] |
-| [Cosmos DB 觸發程序](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
-| [Cosmos DB 輸入和輸出](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
-| [事件中心觸發程序和輸出](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
-| [外部檔案輸入和輸出](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
-| [HTTP 和 Webhook 觸發程序](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
-| [Mobile Apps 輸入和輸出](#mobile-apps) | [MobileTableAttribute] | [Microsoft.Azure.WebJobs.Extensions.MobileApps] | 
-| [通知中樞輸出](#nh) | [NotificationHubAttribute] | [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] | 
-| [佇列儲存體觸發程序和輸出](#queue) | [QueueAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [SendGrid 輸出](#sendgrid) | [SendGridAttribute] | [Microsoft.Azure.WebJobs.Extensions.SendGrid] | 
-| [服務匯流排觸發程序和輸出](#service-bus) | [ServiceBusAttribute], [ServiceBusAccountAttribute] | [Microsoft.Azure.WebJobs.ServiceBus]
-| [資料表儲存體輸入和輸出](#table) | [TableAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [計時器觸發程序](#timer) | [TimerTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions] | 
-| [Twilio 輸出](#twilio) | [TwilioSmsAttribute] | [Microsoft.Azure.WebJobs.Extensions.Twilio] | 
-
-<a name="blob-storage"></a>
-
-### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Blob 儲存體觸發程序、輸入繫結和輸出繫結
-
-Azure Functions 支援適用於 Azure Blob 儲存體的觸發程序、輸入和輸出繫結。 如需有關繫結運算式和中繼資料的詳細資訊，請參閱 [Azure Functions Blob 儲存體繫結](functions-bindings-storage-blob.md)。
-
-Blob 觸發程序是使用 `[BlobTrigger]` 屬性定義。 您可以使用 `[StorageAccount]` 屬性來定義應用程式設定名稱，包含整個函式或類別所使用之儲存體帳戶的連接字串。
+在類別庫中，函式是具有的靜態方法`FunctionName`和觸發程序的屬性，如下列範例所示：
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
-[FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static class SimpleExample
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
-```
-
-Blob 輸入和輸出是使用 `[Blob]` 屬性定義，以及表示讀取或寫入的 `FileAccess` 參數。 下列範例是使用 blob 觸發程序和 blob 輸出繫結。
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```        
-
-<a name="cosmos-db"></a>
-
-### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Cosmos DB 觸發程序、輸入繫結和輸出繫結
-
-Azure Functions 支援 Cosmos DB 的觸發程序、輸入繫結和輸出繫結。 若要深入了解 Cosmos DB 繫結的功能，請參閱 [Azure Functions Cosmos DB 繫結](functions-bindings-documentdb.md)。
-
-若要從 Cosmos DB 文件觸發，請使用 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] 中的 `[CosmosDBTrigger]` 屬性。 下列範例從特定的 `database` 和 `collection` 觸發。 `myCosmosDB` 設定包含 Cosmos DB 執行個體的連線。 
-
-```csharp
-[FunctionName("DocumentUpdates")]
-public static void Run(
-    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-IReadOnlyList<Document> documents, TraceWriter log)
-{
-        log.Info("Documents modified " + documents.Count);
-        log.Info("First document Id " + documents[0].Id);
-}
-```
-
-若要繫結至 Cosmos DB 文件，請使用 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] 中的 `[DocumentDB]` 屬性。 下列範例有佇列觸發程序，和 DocumentDB API 輸出繫結。
-
-```csharp
-[FunctionName("QueueToDocDB")]        
-public static void Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-{
-    document = new { Text = myQueueItem, id = Guid.NewGuid() };
-}
-
-```
-
-<a name="event-hub"></a>
-
-### <a name="event-hubs-trigger-and-output"></a>事件中心觸發程序和輸出
-
-Azure Functions 支援事件中樞的觸發程序和輸出繫結。 如需詳細資訊，請參閱 [Azure Functions 事件中樞繫結](functions-bindings-event-hubs.md)。
-
-`[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` 和 `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` 類型定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus] 中。 
-
-下列範例會使用事件中心觸發程序：
-
-```csharp
-[FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
-{
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-}
-```
-
-下列範例具有輸出事件中心，是使用方法傳回值作為輸出：
-
-```csharp
-[FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    return $"{DateTime.Now}";
-}
-```
-
-<a name="api-hub"></a>
-
-### <a name="external-file-input-and-output"></a>外部檔案輸入和輸出
-
-Azure Functions 支援適用於外部檔案 (例如 Google Drive、Dropbox 和 OneDrive) 的觸發程序、輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions 外部檔案繫結](functions-bindings-external-file.md)。 `[ExternalFileTrigger]` 和 `[ExternalFile]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.ApiHub] 中。
-
-下列 C# 範例示範外部檔案輸入和輸出繫結。 程式碼會將輸入檔案複製到輸出檔案。
-
-```csharp
-[StorageAccount("MyStorageConnection")]
-[FunctionName("ExternalFile")]
-[return: ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}-Copy", FileAccess.Write)]
-public static string Run([QueueTrigger("myqueue-items")] string myQueueItem, 
-    [ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}", FileAccess.Read)] string myInputFile, 
-    TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    return myInputFile;
-}
-```
-
-<a name="http"></a>
-
-### <a name="http-and-webhooks"></a>HTTP 和 Webhook
-
-使用 `HttpTrigger` 屬性來定義 HTTP 觸發程序或 webhook。 此屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.Http] 中。 您可以自訂授權層級、webhook 類型、路由和方法。 下列範例會使用匿名驗證和 _genericJson_ webhook 類型來定義 HTTP 觸發程序。
-
-```csharp
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a name="mobile-apps"></a>
-
-### <a name="mobile-apps-input-and-output"></a>Mobile Apps 輸入和輸出
-
-Azure Functions 支援 Mobile Apps 的輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions Mobile Apps 繫結](functions-bindings-mobile-apps.md)。 `[MobileTable]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MobileApps] 中。
-
-下列範例會示範 Mobile Apps 輸出繫結：
-
-```csharp
-[FunctionName("MobileAppsOutput")]        
-[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
-public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, TraceWriter log)
-{
-    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
-}
-```
-
-<a name="nh"></a>
-
-### <a name="notification-hubs-output"></a>通知中樞輸出
-
-Azure Functions 會支援通知中樞的輸出繫結。 若要深入了解，請參閱 [Azure Functions 通知中樞輸出繫結](functions-bindings-notification-hubs.md)。 `[NotificationHub]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] 中。
-
-<a name="queue"></a>
-
-### <a name="queue-storage-trigger-and-output"></a>佇列儲存體觸發程序和輸出
-
-Azure Functions 支援適用於 Azure 佇列的觸發程序和輸出繫結。 如需詳細資訊，請參閱 [Azure Functions 佇列儲存體繫結](functions-bindings-storage-queue.md)。
-
-下列範例示範如何使用 `[Queue]` 屬性，搭配佇列輸出繫結使用函式傳回型別。 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // HTTP trigger with queue output binding
-    [FunctionName("QueueOutput")]
-    [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
-    {
-        log.Info($"C# function processed: {input.Text}");
-        return input.Text;
-    }
-}
-
-```
-
-若要定義佇列觸發程序，請使用 `[QueueTrigger]` 屬性。
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // Queue trigger
     [FunctionName("QueueTrigger")]
-    [StorageAccount("AzureWebJobsStorage")]
-    public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
     }
-}
-
+} 
 ```
 
+`FunctionName`屬性標記的方法做為函式進入點。 名稱必須是專案中唯一的。
 
-<a name="sendgrid"></a>
+觸發程序屬性指定觸發程序類型，並將輸入的資料繫結至方法參數。 範例函式由佇列訊息時，所觸發，且佇列訊息傳遞給中的方法`myQueueItem`參數。
 
-### <a name="sendgrid-output"></a>SendGrid 輸出
+### <a name="additional-binding-attributes"></a>其他的繫結屬性
 
-Azure Functions 支援用於以程式設計方式傳送電子郵件的 SendGrid 輸出繫結。 若要深入了解，請參閱 [Azure Functions SendGrid 繫結](functions-bindings-sendgrid.md)。
-
-`[SendGrid]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.SendGrid] 中。 SendGrid 繫結需要一個稱為 `AzureWebJobsSendGridApiKey` 的應用程式設定，其中包含您的 SendGrid API 金鑰。 這是您的 SendGrid API 金鑰的預設設定名稱。 如果您需要一個以上的 SendGrid 金鑰或選擇不同的設定名稱，可以使用 `SendGrid` 繫結屬性的 `ApiKey` 屬性設定此名稱，如下列範例所示：
-
-    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
-
-以下範例使用服務匯流排佇列觸發程序，以及使用 `SendGridMessage` 的 SendGrid 輸出繫結：
+可能使用其他的輸入和輸出繫結屬性。 下列範例會修改前的一個透過加入輸出佇列繫結。 函式會在不同的佇列新的佇列訊息寫入輸入的佇列訊息。
 
 ```csharp
-[FunctionName("SendEmail")]
-public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
-    [SendGrid] out SendGridMessage message)
+public static class SimpleExampleWithOutput
 {
-    message = new SendGridMessage();
-    message.AddTo(email.To);
-    message.AddContent("text/html", email.Body);
-    message.SetFrom(new EmailAddress(email.From));
-    message.SetSubject(email.Subject);
-}
-
-public class OutgoingEmail
-{
-    public string To { get; set; }
-    public string From { get; set; }
-    public string Subject { get; set; }
-    public string Body { get; set; }
-}
-```
-請注意，此範例需要在稱為 `AzureWebJobsSendGridApiKey` 的應用程式設定中儲存 SendGrid API 金鑰。
-
-<a name="service-bus"></a>
-
-### <a name="service-bus-trigger-and-output"></a>服務匯流排觸發程序和輸出
-
-Azure Functions 支援服務匯流排佇列和主題的觸發程序和輸出繫結。 如需有關如何設定繫結的詳細資訊，請參閱 [Azure Functions 服務匯流排繫結](functions-bindings-service-bus.md)。
-
-`[ServiceBusTrigger]` 和 `[ServiceBus]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus] 中。 
-
-以下是服務匯流排佇列觸發程序的範例：
-
-```csharp
-[FunctionName("ServiceBusQueueTriggerCSharp")]                    
-public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] string myQueueItem, TraceWriter log)
-{
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-}
-```
-
-以下是服務匯流排輸出繫結的範例，使用方法傳回型別作為輸出：
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
-{
-    log.Info($"C# function processed: {input.Text}");
-    return input.Text;
-}
-```        
-
-<a name="table"></a>
-
-### <a name="table-storage-input-and-output"></a>資料表儲存體輸入和輸出
-
-Azure Functions 支援 Azure 資料表儲存體的輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions 資料表儲存體繫結](functions-bindings-storage-table.md)。
-
-下列範例是具有兩個函式的類別，示範資料表儲存體輸出和輸入繫結。 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public class TableStorage
-{
-    public class MyPoco
+    [FunctionName("CopyQueueMessage")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source")] string myQueueItem, 
+        [Queue("myqueue-items-destination")] out string myQueueItemCopy,
+        TraceWriter log)
     {
-        public string PartitionKey { get; set; }
-        public string RowKey { get; set; }
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableOutput")]
-    [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
-    {
-        log.Info($"C# http trigger function processed: {input.Text}");
-        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
-    }
-
-    // use the metadata parameter "queueTrigger" to bind the queue payload
-    [FunctionName("TableInput")]
-    public static void TableInput([QueueTrigger("table-items")] string input, [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, TraceWriter log)
-    {
-        log.Info($"C# function processed: {poco.Text}");
+        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        myQueueItemCopy = myQueueItem;
     }
 }
-
 ```
 
-<a name="timer"></a>
+### <a name="conversion-to-functionjson"></a>轉換成 function.json
 
-### <a name="timer-trigger"></a>計時器觸發程序
+建置程序建立*function.json*組建資料夾中的函式資料夾中的檔案。 此檔案並非用於直接編輯。 您無法變更繫結組態，或停用此函式，藉由編輯此檔案。 
 
-Azure Functions 具有計時器觸發程序繫結，可讓您根據所定義的排程執行函式程式碼。 若要深入了解繫結的功能，請參閱[使用 Azure Functions 排程程式碼執行](functions-bindings-timer.md)。
+這個檔案的目的是提供資訊給標尺控制器，以用於[縮放比例的耗用量計劃決策](functions-scale.md#how-the-consumption-plan-works)。 基於這個理由，該檔案只需要觸發程序資訊，無法輸入或輸出繫結。
 
-在耗用量方案中，您可以使用 [CRON 運算式](http://en.wikipedia.org/wiki/Cron#CRON_expression)來定義排程。 如果您是使用 App Service 方案，也可以使用 TimeSpan 字串。 
+產生*function.json*檔案包含`configurationSource`會告知執行階段的繫結使用的.NET 屬性的屬性而非*function.json*組態。 以下是範例：
 
-下列範例定義每五分鐘執行一次的計時器觸發程序：
+{"generatedBy":"Microsoft.NET.Sdk.Functions-1.0.0.0"，"configurationSource 」: 「 屬性 」、 「 繫結 」: [{"type":"queueTrigger"，"queueName":"%輸入佇列名稱 %"、"name":"myQueueItem"}]、 「 停用 」: 為 false，「 指令碼檔案":"...\\bin\\FunctionApp1.dll"，"entryPoint":"FunctionApp1.QueueTrigger.Run"}
 
-```csharp
-[FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-}
-```
+*Function.json* NuGet 封裝會執行檔案產生[Microsoft\.NET\.Sdk\.函式](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions)。 原始碼 GitHub 儲存機制位於[azure\-函式\-vs\-建置\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk)。
 
-<a name="twilio"></a>
+## <a name="supported-types-for-bindings"></a>支援的型別繫結
 
-### <a name="twilio-output"></a>Twilio 輸出
+每個繫結有它自己支援的類型。比方說，blob 觸發程序屬性可以套用至字串參數，POCO 參數`CloudBlockBlob`參數，或任何其他數個支援的類型。 [Blob 繫結的繫結參考文章](functions-bindings-storage-blob.md#trigger---usage)列出所有支援的參數型別。 如需詳細資訊，請參閱[觸發程序和繫結](functions-triggers-bindings.md)和[繫結每個繫結類型的參考文件](functions-triggers-bindings.md#next-steps)。
 
-Azure Functions 支援 Twilio 輸出繫結，讓函式能傳送 SMS 文字訊息。 若要深入了解，請參閱 [使用 Twilio 輸出繫結從 Azure Functions 傳送 SMS 文字訊息](functions-bindings-twilio.md)。 
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-`[TwilioSms]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.Twilio] 中。
+## <a name="binding-to-method-return-value"></a>繫結至方法的傳回值
 
-下列 C# 範例是使用佇列觸發程序和 Twilio 輸出繫結：
+您可以使用方法傳回的值輸出繫結，如下列範例所示：
 
 ```csharp
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, TraceWriter log)
+public static class ReturnValueOutputBinding
 {
-    log.Info($"C# Queue trigger function processed: {order}");
-
-    var message = new SMSMessage()
+    [FunctionName("CopyQueueMessageUsingReturnValue")]
+    [return: Queue("myqueue-items-destination")]
+    public static string Run(
+        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
+        TraceWriter log)
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
-    };
-
-    return message;
+        log.Info($"C# function processed: {myQueueItem}");
+        return myQueueItem;
+    }
 }
 ```
+
+## <a name="writing-multiple-output-values"></a>撰寫多個輸出值
+
+若要多個值寫入至輸出繫結，請使用 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 類型。 這些類型是在方法完成時，寫入至輸出繫結的唯寫集合。
+
+這個範例會使用 `ICollector` 將多個佇列訊息寫入相同佇列：
+
+```csharp
+public static class ICollectorExample
+{
+    [FunctionName("CopyQueueMessageICollector")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
+        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
+        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+    }
+}
+```
+
+## <a name="logging"></a>記錄
+
+若要使用 C# 將輸出記錄至串流記錄，請包含 `TraceWriter` 類型的引數。 建議您將它命名為 `log`。 避免在 Azure Functions 中使用 `Console.Write`。 
+
+`TraceWriter` 已定義於 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs)。 可以在 [host.json](functions-host-json.md) 中設定 `TraceWriter` 的記錄層級。
+
+```csharp
+public static class SimpleExample
+{
+    [FunctionName("QueueTrigger")]
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+    }
+} 
+```
+
+> [!NOTE]
+> 如需有關您可以使用而不是較新記錄架構資訊`TraceWriter`，請參閱[寫入記錄中 C# 函式](functions-monitoring.md#write-logs-in-c-functions)中**監視 Azure 函式**發行項。
+
+## <a name="async"></a>非同步處理
+
+若要讓函式變成非同步，請使用 `async` 關鍵字並傳回 `Task` 物件。
+
+```csharp
+public static class AsyncExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token,
+        TraceWriter log)
+    {
+        log.Info($"BlobCopy function processed.");
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+## <a name="cancellation-tokens"></a>取消語彙基元
+
+某些作業需要正常關機。 雖然它一定是最佳撰寫可以處理損毀的程式碼，在您要處理的情況下關機要求定義[CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx)型別引數。  提供 `CancellationToken` ，表示已觸發主機關機。
+
+```csharp
+public static class CancellationTokenExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token)
+    {
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+## <a name="environment-variables"></a>環境變數
+
+若要取得環境變數或應用程式設定值，請使用 `System.Environment.GetEnvironmentVariable`，如下列程式碼範例所示：
+
+```csharp
+public static class EnvironmentVariablesExample
+{
+    [FunctionName("GetEnvironmentVariables")]
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    {
+        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    }
+
+    public static string GetEnvironmentVariable(string name)
+    {
+        return name + ": " +
+            System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+    }
+}
+```
+
+## <a name="binding-at-runtime"></a>在執行階段的繫結
+
+在 C# 和其他.NET 語言，您可以使用[命令式](https://en.wikipedia.org/wiki/Imperative_programming)相繫結模式， [*宣告式*](https://en.wikipedia.org/wiki/Declarative_programming)屬性中的繫結。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 此模式中，您可以繫結至支援的輸入和輸出繫結上立即函式程式碼中。
+
+定義命令式繫結，如下所示︰
+
+- **不這麼做**函式簽章所需的命令式繫結中包含的屬性。
+- 傳入輸入參數 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 或 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)。
+- 使用下列 C# 模式來執行資料繫結。
+
+  ```cs
+  using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+  {
+      ...
+  }
+  ```
+
+  `BindingTypeAttribute`是定義您的繫結的.NET 屬性和`T`是輸入或輸出類型，該繫結型別支援。 `T`不能`out`參數型別 (例如`out JObject`)。 例如，行動應用程式資料表輸出繫結支援[六個輸出型別](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只能使用[ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)或[IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)命令式繫結。
+
+### <a name="single-attribute-example"></a>單一屬性範例
+
+下列範例程式碼會使用在執行階段定義的 blob 路徑來建立[儲存體 blob 輸出繫結](functions-bindings-storage-blob.md#input--output)，然後將字串寫入 blob。
+
+```cs
+public static class IBinderExample
+{
+    [FunctionName("CreateBlobUsingBinder")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
+        IBinder binder,
+        TraceWriter log)
+    {
+        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
+                    $"samples-output/{myQueueItem}", FileAccess.Write)))
+        {
+            writer.Write("Hello World!");
+        };
+    }
+}
+```
+
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) 會定義[儲存體 blob](functions-bindings-storage-blob.md) 輸入或輸出繫結，而 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) 是支援的輸出繫結類型。
+
+### <a name="multiple-attribute-example"></a>多個屬性範例
+
+上述範例中取得函式應用程式的主要儲存體帳戶連接字串的應用程式設定 (也就是`AzureWebJobsStorage`)。 您可以指定要用於儲存體帳戶的自訂應用程式設定，方法是新增 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) 並將屬性陣列傳遞至 `BindAsync<T>()`。 使用`Binder`參數，不`IBinder`。  例如︰
+
+```cs
+public static class IBinderExampleMultipleAttributes
+{
+    [FunctionName("CreateBlobInDifferentStorageAccount")]
+    public async static Task RunAsync(
+            [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
+            Binder binder,
+            TraceWriter log)
+    {
+        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        var attributes = new Attribute[]
+        {
+        new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),
+        new StorageAccountAttribute("MyStorageAccount")
+        };
+        using (var writer = await binder.BindAsync<TextWriter>(attributes))
+        {
+            await writer.WriteAsync("Hello World!!");
+        }
+    }
+}
+```
+
+## <a name="triggers-and-bindings"></a>觸發和繫結 
+
+下表列出可用的 Azure 函式類別庫專案中的繫結屬性與觸發程序。 所有屬性都在 `Microsoft.Azure.WebJobs` 命名空間中。
+
+| 觸發程序 | 輸入 | 輸出|
+|------   | ------    | ------  |
+| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input--output---attributes)| [Blob](functions-bindings-storage-blob.md#input--output---attributes)|
+| [CosmosDBTrigger](functions-bindings-documentdb.md#trigger---attributes)| [DocumentDB](functions-bindings-documentdb.md#input---attributes)| [DocumentDB](functions-bindings-documentdb.md#output---attributes) |
+| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [事件中樞](functions-bindings-event-hubs.md#output---attributes) |
+| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
+| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [佇列](functions-bindings-storage-queue.md#output---attributes) |
+| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
+| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
+| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
+| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
+| |[資料表](functions-bindings-storage-table.md#input---attributes)| [資料表](functions-bindings-storage-table.md#output---attributes)  | 
+| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
+| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
+| ||[Twilio](functions-bindings-twilio.md#attributes)| 
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+> [深入了解觸發程序和繫結](functions-triggers-bindings.md)
 
-<!-- NuGet packages --> 
-[Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.SendGrid]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.Http]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http/1.0.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.BotFramework]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.BotFramework/1.0.15-beta
-[Microsoft.Azure.WebJobs.Extensions.ApiHub]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApiHub/1.0.0-beta4
-[Microsoft.Azure.WebJobs.Extensions.Twilio]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/2.1.0-beta1
-
-
-<!-- Links to source --> 
-[DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
-[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
-[EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
-[EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
-[MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
-[NotificationHubAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs 
-[ServiceBusAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs
-[ServiceBusAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs
-[QueueAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs
-[StorageAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs
-[BlobAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs
-[TableAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs
-[TwilioSmsAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs
-[SendGridAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs
-[HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
-[ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
-[TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+> [!div class="nextstepaction"]
+> [深入了解最佳作法 Azure 函式](functions-best-practices.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7be60bfebee80e92c69f87432124ff9b667ab4f1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ae9955253647f3277729e7905baf7bb07645de42
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure 的中繼資料服務： 排程的事件 （預覽） 適用於 Linux Vm
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/14/2017
 
   中繼資料服務會公開執行 Vm 使用的 REST 端點可從 VM 內存取的相關資訊。 資訊是透過 nonroutable IP，使它不會公開外部 VM。
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>範圍
 排程的事件會傳送到：
 
 - 雲端服務中的所有 Vm。
@@ -131,14 +131,14 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 ```
 
 ### <a name="event-properties"></a>事件屬性
-|屬性  |  說明 |
+|內容  |  說明 |
 | - | - |
-| EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`: VM 排程暫停幾秒鐘的時間。 暫止 CPU，但是不會影響記憶體、 開啟的檔案或網路連線。 <li>`Reboot`: VM 已排定重新開機。 （非持續的記憶體是遺失）。 <li>`Redeploy`： 排定 VM 移到其他節點。 （暫時磁碟會遺失）。 |
-| ResourceType | 此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
-| 資源| 此事件會影響的資源的清單。 保證清單包含從最多一個機器[更新網域](manage-availability.md)，但它可能不會包含 UD 中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| EventId | 此事件的全域唯一識別碼。 <br><br> 範例: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | 此事件造成的影響。 <br><br> 值: <br><ul><li> `Freeze`: VM 排程暫停幾秒鐘的時間。 暫止 CPU，但是不會影響記憶體、 開啟的檔案或網路連線。 <li>`Reboot`: VM 已排定重新開機。 （非持續的記憶體是遺失）。 <li>`Redeploy`： 排定 VM 移到其他節點。 （暫時磁碟會遺失）。 |
+| ResourceType | 此事件影響的資源類型。 <br><br> 值: <ul><li>`VirtualMachine`|
+| 資源| 此事件會影響的資源的清單。 保證清單包含從最多一個機器[更新網域](manage-availability.md)，但它可能不會包含 UD 中的所有機器。 <br><br> 範例: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`︰此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`︰已啟動事件。</ul> 否`Completed`或曾經提供類似的狀態。 事件不會再傳回事件完成時。
-| NotBefore| 這個事件可以啟動之後的時間。 <br><br> 範例： <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| 這個事件可以啟動之後的時間。 <br><br> 範例: <br><ul><li> 2016-09-19T18:29:47Z  |
 
 ### <a name="event-scheduling"></a>事件排定
 每個事件已排程的時間在未來最小數量取決於事件類型。 事件的 `NotBefore` 屬性會反映這個時間。 
@@ -146,7 +146,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 |EventType  | 最小的注意事項 |
 | - | - |
 | 凍結| 15 分鐘 |
-| 重新啟動 | 15 分鐘 |
+| 重新開機 | 15 分鐘 |
 | 重新部署 | 10 分鐘 |
 
 ### <a name="start-an-event"></a>啟動事件 
@@ -184,7 +184,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 
@@ -204,13 +204,14 @@ def handle_scheduled_events(data):
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ","_")
         if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
+            print "+ Scheduled Event. This host " + this_host + " is scheduled for " + eventtype + " not before " + notbefore
             # Add logic for handling events here
+
 
 def main():
    data = get_scheduled_events()
    handle_scheduled_events(data)
-   
+
 if __name__ == '__main__':
   main()
   sys.exit(0)

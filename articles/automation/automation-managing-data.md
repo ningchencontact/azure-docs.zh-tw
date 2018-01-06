@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自動化資料
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -33,10 +33,10 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 | 資料 | 原則 |
 |:--- |:--- |
 | 帳戶 |刪除使用者帳戶 90 天後永久移除。 |
-| Assets |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
+| 資產 |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
 | 模組 |使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。 |
 | Runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
-| 工作 |在上次修改日期的 90 天後刪除並永久移除。 這可以是在工作完成、停止或暫止之後。 |
+| 作業 |在上次修改日期的 90 天後刪除並永久移除。 這可以是在工作完成、停止或暫止之後。 |
 | 節點組態/MOF 檔案 |舊的節點組態會在新的節點組態產生之後的 90 天永久移除。 |
 | DSC 節點 |使用 Azure 入口網站或在 Windows PowerShell Cmdlet 中使用 [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) 在節點從自動化帳戶取消註冊之後的 90 天永久移除。 節點也會在擁有節點的帳戶被使用者刪除之後的 90 天永久移除。 |
 | 節點報告 |該節點產生新的報告之後的 90 天永久移除 |
@@ -49,13 +49,13 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。 刪除帳戶之後，就無法復原物件。  您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。 
 
 ### <a name="runbooks"></a>Runbook
-您可以使用 Azure 管理入口網站或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) Cmdlet，將您的 Runbook 匯出為指令碼檔案。  可以將這些指令碼檔案匯入到另一個自動化帳戶，如 [建立或匯入 Runbook](https://msdn.microsoft.com/library/dn643637.aspx)中所述。
+您可以將您的 runbook 匯出到使用 Azure 入口網站的指令碼檔案或[Get-azureautomationrunbookdefinition](https://msdn.microsoft.com/library/dn690269.aspx)中 Windows PowerShell cmdlet。  可以將這些指令碼檔案匯入到另一個自動化帳戶，如 [建立或匯入 Runbook](https://msdn.microsoft.com/library/dn643637.aspx)中所述。
 
 ### <a name="integration-modules"></a>整合模組
 您無法從 Azure 自動化匯出整合模組。  您必須確定它們可供在自動化帳戶外部使用。
 
-### <a name="assets"></a>Assets
-您無法從 Azure 自動化匯出 [資產](https://msdn.microsoft.com/library/dn939988.aspx) 。  使用 Azure 管理入口網站，您必須記下變數、認證、憑證、連接和排程的詳細資料。  然後必須手動建立您匯入到另一個自動化的 Runbook 所使用的任何資產。
+### <a name="assets"></a>資產
+您無法從 Azure 自動化匯出 [資產](https://msdn.microsoft.com/library/dn939988.aspx) 。  使用 Azure 入口網站，您必須注意變數、 認證、 憑證、 連線及排程詳細的資料。  然後必須手動建立您匯入到另一個自動化的 Runbook 所使用的任何資產。
 
 您可以使用 [Azure Cmdlet](https://msdn.microsoft.com/library/dn690262.aspx) 來擷取未加密的資產的詳細資料並加以儲存供日後參考，或在另一個自動化帳戶中建立對等的資產。
 
@@ -64,7 +64,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 您無法從 Azure 自動化匯出憑證。  您必須確定 Azure 外部有任何憑證可供使用。
 
 ### <a name="dsc-configurations"></a>DSC 組態
-您可以使用 Azure 管理入口網站或 Windows PowerShell 中的 [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) Cmdlet，將您的組態匯出為指令碼檔案。 這些組態可以匯入並用於另一個自動化帳戶中。
+您可以使用 Azure 入口網站的指令碼檔案來匯出您的組態或[匯出 AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx)中 Windows PowerShell cmdlet。 這些組態可以匯入並用於另一個自動化帳戶中。
 
 ## <a name="geo-replication-in-azure-automation"></a>Azure 自動化中的異地複寫
 異地複寫是 Azure 自動化帳戶中的標準功能，可將帳戶資料備份到其他地理區域做為備援。 您可以在設定帳戶時選擇主要區域，然後就會自動指派次要區域給帳戶。 從主要區域複製到次要區域的資料會持續更新，以防止資料遺失。  

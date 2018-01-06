@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>評量計算
 
@@ -47,10 +47,11 @@ Azure Migrate 評量有三個階段。 評量是會適用性分析開始，然�
 
 機器已標示為適用於 Azure 之後，Azure Migrate 會按照下列準則，將機器對應至 Azure 中的虛擬機器大小：
 
-- **儲存體檢查**：Azure Migrate 會嘗試將附加至機器的每個磁碟對應至 Azure 中的磁碟：Azure Migrate 會將每秒 I/O (IOPS) 乘以緩和因數。 也可以將每個磁碟的輸送量 (以 MBps 為單位) 乘以緩和因數。 如此可提供有效的磁碟 IOPS 及輸送量。 Azure Migrate 會以此為基礎，將磁碟對應至 Azure 中的標準或高階磁碟。
-    - 如果該服務找不到 IOPS 及輸送量符合需求的磁碟，便會將該機器標示為不適合 Azure。
-    - 如果找到多個適合的磁碟，Azure Migrate 會挑選可支援儲存體備援方法的磁碟，以及可支援評量設定的指定位置的磁碟。
-    - 如果有多個符合資格的磁碟，則會選取成本最低的磁碟。
+- **儲存體核取**: Azure 移轉嘗試對應至電腦，以在 Azure 中的磁碟連接的每個磁碟：
+    - Azure 的移轉會乘以舒適度因素秒 I/O (IOPS)。 也可以將每個磁碟的輸送量 (以 MBps 為單位) 乘以緩和因數。 如此可提供有效的磁碟 IOPS 及輸送量。 Azure Migrate 會以此為基礎，將磁碟對應至 Azure 中的標準或高階磁碟。
+      - 如果該服務找不到 IOPS 及輸送量符合需求的磁碟，便會將該機器標示為不適合 Azure。
+      - 如果找到多個適合的磁碟，Azure Migrate 會挑選可支援儲存體備援方法的磁碟，以及可支援評量設定的指定位置的磁碟。
+      - 如果有多個符合資格的磁碟，則會選取成本最低的磁碟。
 - **存放磁碟輸送量**：[進一步了解](../azure-subscription-service-limits.md#storage-limits)關於每個磁碟和虛擬機器的 Azure 限制。
 - **磁碟類型**：Azure Migrate 僅支援受控磁碟。
 - **網路檢查**：Azure Migrate 會嘗試尋找可在內部部署機器上支援 NIC 數目的 Azure VM。

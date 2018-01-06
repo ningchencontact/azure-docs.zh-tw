@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>使用 VM，受管理服務身分識別 (MSI) 指派使用者登入。
 
@@ -51,7 +51,7 @@ MSI 會提供[服務主體](~/articles/active-directory/develop/active-directory
 2. 呼叫 Azure 資源管理員，並取得 VM 的 Azure 區域位置。 CLI 會自動為您管理權杖的擷取/使用。 務必以取代您的 VM 名稱`<VM NAME>`，並指派使用者給 MSI 的資源 id `<MSI ID>`。 此 MSI 的資源識別碼會傳入`id`屬性指派給使用者的 MSI 建立期間 (請參閱[設定 VM，使用 Azure CLI 使用者指派受管理服務身分識別 (MSI)](msi-qs-configure-cli-windows-vm.md)的範例`az identity create`命令).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

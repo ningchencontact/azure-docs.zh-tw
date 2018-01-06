@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/20/2017
+ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>建立 Windows 虛擬機器使用加速網路功能
+
+> [!IMPORTANT] 
+> 必須具有啟用加速網路建立虛擬機器。 無法在現有的虛擬機器上啟用此功能。 您可以依照下列步驟來啟用加速的網路
+>   1. 刪除虛擬機器
+>   2. 加速網路啟用與重新建立虛擬機器
+>
 
 在本教學課程中，您會學習如何建立 Windows 虛擬機器 (VM) 具有加速網路。 加速網路可以對 VM 啟用 Single Root I/O Virtualization (SR-IOV)，大幅提升其網路效能。 這個高效能的路徑會略過主應用程式資料路徑，從減少延遲、 抖動和支援的 VM 類型的最嚴苛網路工作負載搭配使用的 CPU 使用率。 下圖顯示兩個 Vm 時或無加速網路之間的通訊：
 
