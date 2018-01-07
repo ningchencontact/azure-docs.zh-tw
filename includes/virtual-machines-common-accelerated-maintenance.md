@@ -8,11 +8,11 @@
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>如何查看哪些 Vm 已更新？ 
 
-您可以查看您 Vm 的狀態，如果在重新開機完成的時間中[Azure 入口網站中的 VM 清單](https://aka.ms/T08tdc)。 如果更新已套用，或 「 排程 」 仍需要更新時，您的 Vm 將會列出為 「 已更新 」。 如果您想要查看只將 「 已排程 」 是指您 Vm 您[Azure 服務健全狀況](https://portal.azure.com/)。
+您可以查看您 Vm 的狀態，如果在重新開機完成[Azure 入口網站中的 VM 清單](https://aka.ms/T08tdc)。 如果更新已套用，或 「 排程 」 仍需要更新您的 Vm 列示為 「 已更新 」 是。 如果您想要查看只將 「 已排程 」 是指您 Vm 您[Azure 服務健全狀況](https://portal.azure.com/)。
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>找出完全當我的 Vm 將會重新啟動嗎？
 
-若要取得相關的重新開機警示，最好是設定[排程的事件](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events)。 這提供 VM 的 15 分鐘通知因維護而停機 – 則會應用程式開發介面呼叫的 vm，此外，活動的記錄項目可用來觸發程序的 Azure 監視傳送電子郵件、 簡訊或 webhook。 不提供任何先前的通知。
+若要取得相關的重新開機警示，最好是設定[排程的事件](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events)。 這提供 VM 的 15 分鐘告知因維護而停機。
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>我手動重新部署現在是用來執行所需的維護？ 
 
@@ -24,7 +24,7 @@
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>客體作業系統需要更新嗎？ 
 
-此 Azure 基礎結構更新這項弱點揭發 hypervisor 層級，而且不需要更新您的 Windows 或 Linux VM 映像。 不過，那麼您應該繼續套用您的 VM 映像的安全性最佳作法。 請視需要參閱您的作業系統更新和指示，請廠商。 Windows Server VM 的客戶，指引現在已發行和使用。
+此 Azure 基礎結構更新這項弱點揭發 hypervisor 層級，而且不需要更新您的 Windows 或 Linux VM 映像。 不過，那麼您應該繼續套用您的 VM 映像的安全性最佳作法。 請視需要參閱您的作業系統更新和指示，請廠商。 Windows Server VM 的客戶，指引現在已發行和使用[這裡](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002)。
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>都有可解決這項更新的結果影響效能嗎？
 
