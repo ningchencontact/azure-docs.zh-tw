@@ -8,6 +8,7 @@
 ## [使用 Microsoft HPC Pack 設定混合式 HPC 叢集](cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 # 作法
+
 ## 規劃
 ### [虛擬機器大小](cloud-services-sizes-specs.md)
 ### [更新](cloud-services-update-azure-service.md)
@@ -44,6 +45,7 @@
 ### [連接到自訂網域控制站](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服務
+### [減輕風險的理論式執行](mitigate-se.md}
 ### [一般管理工作](cloud-services-how-to-manage-portal.md)
 ### [設定雲端服務](cloud-services-how-to-configure-portal.md)
 ### [使用 Azure 自動化管理雲端服務](automation-manage-cloud-services.md)
@@ -108,7 +110,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [價格](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [定價](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

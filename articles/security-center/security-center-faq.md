@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -131,7 +131,7 @@ Azure 資訊安全中心能辨識透過 Azure 擴充功能安裝的反惡意程�
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>資訊安全中心多久掃描作業系統弱點、系統更新和端點保護問題一次？
 資訊安全中心掃描弱點、更新和問題的延遲為：
 
-- 作業系統弱點 (Microsoft 造成)：在 48 小時內更新資料
+- 作業系統安全性設定 – 資料已在 48 小時內更新
 - 系統更新：在 24 小時內更新資料
 - 端點保護問題：在 8 小時內更新資料
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列
 有一個資料科學的商業機密是讓其他人為您工作。 找到的群集演算法範例 Azure AI 圖庫，使用您自己的機器學習實驗中。
 
 > [!IMPORTANT]
-> Cortana 智慧組件庫已重新命名**Azure AI 庫**。 如此一來，這個文字記錄中文字和影像會稍微不同的視訊，請使用先前的名稱。
+> **Cortana 智慧組件庫**已重新命名**Azure AI 庫**。 如此一來，這個文字記錄中文字和影像會稍微不同的視訊，請使用先前的名稱。
 >
 
 若要充分運用這系列影片，請觀賞所有影片。 [瀏覽影片清單](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/05/2018
 
 有一個資料科學的商業機密是讓其他人為您工作。
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>在 Azure AI 智慧組件庫中找到範例
+## <a name="find-examples-in-the-azure-ai-gallery"></a>在 Azure AI 組件庫中找到範例
 
 Microsoft 有雲端服務，稱為[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/)您歡迎使用免費試用。 其會提供您工作區，讓您可以試驗不同的機器學習演算法，當您制定您的解決方案時，您可以將其啟動為 Web 服務。
 

@@ -1,6 +1,6 @@
 ---
-title: "修復 Azure 資訊安全中心的 OS 弱點 | Microsoft Docs"
-description: "本文件說明如何實作 Azure 資訊安全中心建議的「修復 OS 弱點」。"
+title: "修復 Azure 資訊安全中心中的安全性設定 |Microsoft 文件"
+description: "本文件將示範如何實作 Azure 資訊安全中心建議**修復安全性設定**。"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>修復 Azure 資訊安全中心的 OS 弱點
-Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當作業系統設定不符合建議的設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
+# <a name="remediate-security-configurations-in-azure-security-center"></a>修復 Azure 資訊安全中心中的安全性設定
+Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 資訊安全中心建議您解決弱點，當作業系統設定不符合建議的安全性設定規則，並建議解決這些弱點的組態變更。
 
-> [!NOTE]
-> 如需受監視之特定設定的詳細資訊，請參閱[建議的設定規則清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。
->
->
+如需受監視之特定設定的詳細資訊，請參閱[建議的設定規則清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。 請參閱[自訂作業系統安全性組態](security-center-customize-os-security-config.md)以了解如何自訂在資訊安全中心的安全性組態評估。
 
 ## <a name="implement-the-recommendation"></a>實作建議
-修復 OS 漏洞會以建議的形式在資訊安全中心中呈現。 此建議將顯示在[建議] 和 [計算] 下方。
+請修正的安全性組態不相符會以資訊安全中心中的建議。 此建議將顯示在[建議] 和 [計算] 下方。
 
-在此範例中，我們將看見 [計算] 下的 [修復 OS 漏洞 (透過 Microsoft)] 建議。
+在此範例中，我們將探討**修復安全性設定**建議下的**計算**。
 1. 在 [資訊安全中心] 主功能表下選取 [計算]。
 
-   ![修復 OS 弱點][1]
+   ![修復安全性設定][1]
 
-2. 在 [計算] 下，選取 [修復 OS 漏洞 (透過 Microsoft)]。 [OS 弱點 (由 Microsoft) 不相符] 儀表板隨即開啟。
+2. 在下**計算**，選取**修復安全性設定**。 **安全性組態**隨即開啟。
 
-   ![修復 OS 弱點][2]
+   ![安全性組態][2]
 
   儀表板的頂端提供：
 
@@ -77,11 +74,11 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
   - 實際值 -- 對照規則分析 VM OS 設定時的傳回值
   - 規則作業 -- 資訊安全中心對照規則分析 VM OS 設定時使用的規則作業
 
-4. 選取頂端功能區中的 [搜尋] 圖示。 搜尋會列出具有所選取作業系統漏洞之虛擬機器和電腦的工作區。 只有在已選取適用於連線至不同工作區之多個虛擬機器的規則時，才會顯示 [工作區選擇] 刀鋒視窗。
+4. 選取頂端功能區中的 [搜尋] 圖示。 搜尋會開啟清單工作區的 Vm 和電腦，而選取的安全性設定不相符。 只有在已選取適用於連線至不同工作區之多個虛擬機器的規則時，才會顯示 [工作區選擇] 刀鋒視窗。
 
   ![列出的工作區][4]
 
-5. 選取工作區。 Log Analytics 搜尋查詢會開啟具有作業系統漏洞的篩選工作區。
+5. 選取工作區。 記錄分析搜尋查詢會開啟篩選至工作區的安全性設定不相符。
 
   ![具有作業系統漏洞的工作區][5]
 
@@ -90,7 +87,9 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
   ![篩選該電腦][6]
 
 ## <a name="next-steps"></a>後續步驟
-本文說明了如何實作資訊安全中心建議的「修復 OS 弱點」。 您可在[這裡](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)檢閱設定規則集。 資訊安全中心會使用 CCE (一般設定列舉) 指派設定規則的唯一識別碼。 如需詳細資訊，請造訪 [CCE](https://nvd.nist.gov/cce/index.cfm) 網站。
+這篇文章會示範如何實作資訊安全中心建議 < 補救安全性組態 >。 請參閱[自訂作業系統安全性組態](security-center-customize-os-security-config.md)以了解如何自訂在資訊安全中心的安全性組態評估。
+
+您可在[這裡](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)檢閱設定規則集。 資訊安全中心會使用 CCE (一般設定列舉) 指派設定規則的唯一識別碼。 如需詳細資訊，請造訪 [CCE](https://nvd.nist.gov/cce/index.cfm) 網站。
 
 若要深入了解資訊安全中心，請參閱下列資源：
 

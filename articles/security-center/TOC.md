@@ -15,9 +15,9 @@
 ## [常見問題集](security-center-faq.md)
 
 # 作法
-## 安全性原則[](security-center-policies-overview.md)
+## [安全性原則](security-center-policies-overview.md)
 ### [資料收集](security-center-enable-data-collection.md)
-### 安全性原則[](security-center-policies.md)
+### [安全性原則](security-center-policies.md)
 ### [使用 Azure 原則的安全性原則](security-center-azure-policy.md)
 ### [電子郵件通知](security-center-provide-security-contact-details.md)
 ### [定價層](security-center-pricing.md)
@@ -90,6 +90,7 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [資訊安全中心整備藍圖](security-center-readiness-roadmap.md)
 ## [Azure 安全性、隱私權和合規性部落格](http://blogs.msdn.com/b/azuresecurity/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務概觀](https://azure.microsoft.com/services/security-center/)

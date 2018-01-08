@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>將 Configuration Manager 連線至 Log Analytics
 您可以在 OMS 中將 System Center Configuration Manager 連線至 Log Analytics 來同步處理裝置集合資料。 這可讓 Configuration Manager 階層中的資料可在 OMS 中使用。
@@ -30,8 +30,8 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 ## <a name="configuration-overview"></a>組態概觀
 下列步驟概述記錄分析來連線 Configuration Manager 的程序。  
 
-1. 在 Azure 管理入口網站中，將 Configuration Manager 註冊為 Web 應用程式和/或 Web API 應用程式，並確保您擁有 Azure Active Directory 註冊中的用戶端識別碼和用戶端秘密金鑰。 請參閱[使用入口網站來建立 Active Directory 應用程式和服務主體可存取資源](../azure-resource-manager/resource-group-create-service-principal-portal.md)如需如何完成此步驟的詳細資訊。
-2. 在 Azure 管理入口網站中，[為 Configuration Manager (已註冊的 Web 應用程式) 提供存取 OMS 的權限](#provide-configuration-manager-with-permissions-to-oms)。
+1. 在 Azure 入口網站中，Configuration Manager 登錄為 Web 應用程式和/或 Web API 的應用程式，並確定您已用戶端識別碼和用戶端秘密金鑰，從 從 Azure Active Directory 註冊。 請參閱[使用入口網站來建立 Active Directory 應用程式和服務主體可存取資源](../azure-resource-manager/resource-group-create-service-principal-portal.md)如需如何完成此步驟的詳細資訊。
+2. 在 Azure 入口網站， [Configuration Manager （已註冊的 web 應用程式） 提供具有權限來存取 OMS](#provide-configuration-manager-with-permissions-to-oms)。
 3. 在 Configuration Manager 中，[使用新增 OMS 連線精靈新增連線](#add-an-oms-connection-to-configuration-manager)。
 4. 如果密碼或用戶端祕密金鑰過期或遺失，在 Configuration Manager 中[更新連線屬性](#update-oms-connection-properties)。
 5. 使用 OMS 入口網站的資訊，在執行 Configuration Manager 服務連線點網站系統角色的電腦上[下載並安裝 Microsoft Monitoring Agent](#download-and-install-the-agent)。 代理程式會將 Configuration Manager 資料傳送至 OMS。
@@ -41,7 +41,7 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 若要深入了解如何將 Configuration Manager 連線至 OMS，請參閱[將資料從 Configuration Manager 同步處理至 Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx)。
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>為 Configuration Manager 提供 OMS 的權限
-下列程序可為 Azure 管理入口網站提供存取 OMS 的權限。 具體來說，您必須授與參與者角色給資源群組中的使用者，以允許 Azure 管理入口網站將 Configuration Manager 連線至 OMS。
+下列程序會提供權限來存取 OMS 使用 Azure 入口網站。 具體來說，您必須授與*參與者角色*在資源群組中，若要讓 Azure 入口網站將連線到 OMS 的 Configuration Manager 的使用者。
 
 > [!NOTE]
 > 您必須為 Configuration Manager 指定 OMS 的權限。 否則，Configuration Manager 中使用 「 組態精靈 」 時收到錯誤訊息。
@@ -81,9 +81,9 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 1. 在 Configuration Manager 的 [管理] 工作區中選取 [OMS 連接器]。 這會開啟**新增 OMS 連線精靈**。 選取 [下一步] 。
 2. 在 [一般] 畫面上，確認您已完成下列動作而且您有每個項目的詳細資料，然後選取 [下一步]。
 
-   1. 在 Azure 管理入口網站中，您已將 Configuration Manager 註冊為 Web 應用程式和/或 Web API 應用程式，而且您擁有[註冊中的用戶端識別碼](../active-directory/active-directory-integrating-applications.md)。
-   2. 在 Azure 管理入口網站中，您已經為 Azure Active Directory 中已註冊的應用程式建立應用程式祕密金鑰。  
-   3. 在 Azure 管理入口網站中，您已經為已註冊的 Web 應用程式提供存取 OMS 的權限。  
+   1. 在 Azure 入口網站，您已註冊 Configuration Manager 做為 Web 應用程式和/或 Web API 的應用程式，且您具備[從註冊的用戶端識別碼](../active-directory/active-directory-integrating-applications.md)。
+   2. 在 Azure 入口網站，您已建立 Azure Active Directory 中已註冊的應用程式的應用程式祕密金鑰。  
+   3. 在 Azure 入口網站，您提供已註冊的 web 應用程式與 OMS 的存取權限。  
       ![OMS 連線精靈的一般頁面](./media/log-analytics-sccm/sccm-console-general01.png)
 3. 在**Azure Active Directory**畫面上，設定 OMS 連線設定，藉由提供您**租用戶**，**用戶端識別碼**，和**用戶端秘密金鑰**，然後選取**下一步**。  
    ![OMS 連線精靈的 Azure Active Directory 頁面](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
