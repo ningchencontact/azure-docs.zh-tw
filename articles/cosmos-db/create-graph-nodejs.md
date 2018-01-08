@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: d60a431f53b72544c0116080cc78381fb302b7be
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: faec967c1f5405cd9a5b49c16fed575f6675478c
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本快速入門文章會示範如何使用 Azure 入口網站建立適用於圖形 API (預覽) 的 Azure Cosmos DB 帳戶、資料庫和圖形。 您會接著使用開放原始碼 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 驅動程式來建置和執行主控台應用程式。
+本快速入門文章會示範如何使用 Azure 入口網站建立適用於圖形 API 的 Azure Cosmos DB 帳戶、資料庫和圖形。 您會接著使用開放原始碼 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 驅動程式來建置和執行主控台應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須具備下列必要條件，才能執行此範例：
 * [Node.js](https://nodejs.org/en/) 0.10.29 版或更新版本
@@ -59,7 +59,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-讓我們快速檢閱應用程式中所發生的事情。 請開啟 `app.js` 檔案，您會發現下列程式碼。 
+讓我們快速檢閱應用程式中發生了什麼。 請開啟 `app.js` 檔案，您會發現下列程式碼。 
 
 * 已建立 Gremlin 用戶端。
 

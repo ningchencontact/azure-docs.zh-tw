@@ -90,7 +90,6 @@
 
 
 ## 載入與移動資料
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Contoso 公用資料](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -129,7 +128,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)
 ## [論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [定價](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [功能要求](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)

@@ -111,7 +111,7 @@
 ### 參考
 #### [保留](active-directory-reporting-retention.md)
 #### [延遲](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
+#### [通知](active-directory-reporting-notifications.md)
 #### [登入活動的錯誤代碼](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### 疑難排解
@@ -121,7 +121,7 @@
 ### [程式設計存取](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [稽核參考](active-directory-reporting-api-audit-reference.md)
 #### [登入參考](active-directory-reporting-api-sign-in-activity-reference.md)
-#### [必要條件](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [先決條件](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [稽核範例](active-directory-reporting-api-audit-samples.md)
 #### [登入範例](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [使用憑證](active-directory-reporting-api-with-certificates.md)
@@ -187,7 +187,7 @@
 ##### [搭配密碼保存庫的 SSO](application-proxy-sso-azure-portal.md)
 #### 概念
 ##### [連接器](application-proxy-understand-connectors.md)
-##### [安全性](application-proxy-security-considerations.md)
+##### [Security](application-proxy-security-considerations.md)
 ##### [網路](application-proxy-network-topology-considerations.md)
 
 
@@ -248,7 +248,7 @@
 ### [管理目錄](active-directory-administer.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
 ### [自助式註冊](active-directory-self-service-signup.md)
-### [接管未受管理的目錄](domains-admin-takeover.md)
+### [接管非受控目錄](domains-admin-takeover.md)
 ### [企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [啟用](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [群組原則設定](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -283,7 +283,7 @@
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
 #### [控制項](active-directory-conditional-access-controls.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
-#### [最佳作法](active-directory-conditional-access-best-practices.md)
+#### [最佳做法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
 #### [移轉傳統原則](active-directory-conditional-access-migration.md)
 #### 工作
@@ -309,7 +309,7 @@
 #### [啟用](active-directory-identityprotection-enable.md)
 #### [偵測弱點](active-directory-identityprotection-vulnerabilities.md)
 #### [風險事件](active-directory-identity-protection-risk-events.md)
-#### [Notifications](active-directory-identityprotection-notifications.md)
+#### [通知](active-directory-identityprotection-notifications.md)
 #### [登入體驗](active-directory-identityprotection-flows.md)
 #### [模擬風險事件](active-directory-identityprotection-playbook.md)
 #### [解除封鎖使用者](active-directory-identityprotection-unblock-howto.md)

@@ -9,7 +9,7 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立 Data Factory
+    - name: 建立資料處理站
       items:
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
@@ -94,7 +94,7 @@
               href: connector-azure-file-storage.md
             - name: Azure 搜尋服務
               href: connector-azure-search.md
-            - name: Azure SQL Database
+            - name: 連接字串
               href: connector-azure-sql-database.md
             - name: Azure SQL 資料倉儲
               href: connector-azure-sql-data-warehouse.md
@@ -124,7 +124,7 @@
               href: connector-google-bigquery.md
             - name: Greenplum
               href: connector-greenplum.md
-            - name: HBase
+            - name: hbase
               href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
@@ -303,6 +303,8 @@
       items:
         - name: 建立排程觸發程序
           href: how-to-create-schedule-trigger.md
+        - name: 建立輪轉視窗觸發程序
+          href: how-to-create-tumbling-window-trigger.md
 - name: 參考
   items:
     - name: .NET

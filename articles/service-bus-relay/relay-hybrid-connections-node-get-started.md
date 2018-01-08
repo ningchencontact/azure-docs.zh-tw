@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>開始使用轉送混合式連線
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="what-will-be-accomplished"></a>將會完成的工作
 
-因為混合式連線同時需要用戶端和伺服器元件，所以我們將在本教學課程中建立兩個主控台應用程式。 步驟如下：
+因為混合式連線同時需要用戶端和伺服器元件，請在本教學課程中建立兩個主控台應用程式。 步驟如下：
 
 1. 使用 Azure 入口網站建立轉送命名空間。
 2. 使用 Azure 入口網站建立混合式連線。
 3. 撰寫伺服器主控台應用程式來接收訊息。
 4. 撰寫用戶端主控台應用程式來傳送訊息。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. [Node.js](https://nodejs.org/en/).
 2. Azure 訂用帳戶。
@@ -56,13 +56,13 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="3-create-a-server-application-listener"></a>3.建立伺服器應用程式 (接聽程式)
 
-為了接聽並接收來自轉送的訊息，我們會撰寫 Node.js 主控台應用程式。
+為了接聽並接收來自轉送的訊息，請撰寫 Node.js 主控台應用程式。
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4.建立用戶端應用程式 (傳送者)
 
-為了傳送訊息到轉送，我們會撰寫 Node.js 主控台應用程式。
+為了傳送訊息到轉送，請撰寫 Node.js 主控台應用程式。
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/21/2017
 
 恭喜您，您已經使用 Node.js 建立端對端混合式連線應用程式！
 
-## <a name="next-steps"></a>後續步驟：
+## <a name="next-steps"></a>後續步驟
 
 * [轉送常見問題集](relay-faq.md)
 * [建立命名空間](relay-create-namespace-portal.md)

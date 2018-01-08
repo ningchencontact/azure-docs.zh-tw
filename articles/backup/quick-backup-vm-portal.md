@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中備份虛擬機器
 您可以透過 Azure 入口網站建立 Azure 備份。 此方法可提供以瀏覽器為基礎的使用者介面，以便建立和設定 Azure 備份及所有相關的資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure 入口網站來備份虛擬機器 (VM)。 
@@ -36,13 +36,13 @@ ms.lasthandoff: 12/05/2017
 
 1. 在左邊的功能表上，選取 [虛擬機器]。 
 2. 從清單中選擇要備份的 VM。 如果您使用範例 VM 快速入門命令，則 VM 會在 myResourceGroup 資源群組中命名為 myVM。
-3. 在 [設定] 區段中，選擇 [備份]。 [啟用備份] 視窗隨即開啟。
+3. 在 [作業] 區段中，選擇 [備份]。 [啟用備份] 視窗隨即開啟。
 
 
 ## <a name="enable-backup-on-a-vm"></a>在 VM 上啟用備份
 復原服務保存庫是一個邏輯容器，可儲存每個受保護資源 (例如 Azure VM) 的備份資料。 執行受保護資源的備份作業時，它會在復原服務保存庫內建立復原點。 然後您可以使用其中一個復原點，將資料還原到指定的時間點。
 
-1. 選取 [新建] 並提供新存放庫的名稱，例如 **myRecoveryServicesVault**。
+1. 選取 [新建] 並提供新存放庫的名稱，例如 *myRecoveryServicesVault*。
 2. 如果尚未選取，請選擇 [使用現有]，然後從下拉式功能表中選取您 VM 的資源群組。
 
     ![在 Azure 入口網站中啟用 VM 備份](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ ms.lasthandoff: 12/05/2017
     您可以建立和使用相關原則，來定義備份作業的執行時以及復原點的儲存時間長度。 預設保護原則會每天執行備份作業並將復原點保留 30 天。 您可以使用這些預設原則值來快速保護您的 VM。 
 
 3. 若要接受預設備份原則值，請選取 [啟用備份]。
+
+需要一點時間才會建立復原服務保存庫。
 
 
 ## <a name="start-a-backup-job"></a>開始備份作業
@@ -86,7 +88,7 @@ VM 的 [備份] 視窗中會顯示備份的狀態及已完成的還原點數目�
     一旦停止 VM 備份並移除復原點，您即可刪除資源群組。 如果您使用現有的 VM，建議您將資源群組和 VM 留在原處。
 
 5. 在左側功能表上，選取 [資源群組]。 
-6. 從清單中選擇您的資源群組。 如果您使用範例 VM 快速入門命令，則資源群組會命名為 myResourceGroup。
+6. 從清單中選擇您的資源群組。 如果您使用範例 VM 快速入門命令，資源群組就會命名為 myResourceGroup。
 7. 選取 [刪除資源群組]。 若要確認，請輸入資源群組名稱，然後選取 [刪除]。
 
     ![從 Azure 入口網站刪除資源群組](./media/quick-backup-vm-portal/delete-resource-group.png)

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -38,7 +38,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 > * 跨多個節點相應放大應用程式
 > * 執行輪流應用程式升級
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本快速入門：
 1. [安裝 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
 2. [安裝 Git](https://git-scm.com/)
@@ -92,7 +92,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 若要查看對程式碼的影響，請完成下列步驟：
 1. 開啟 **/VotingWeb/Controllers/VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 47 行) 中設定中斷點 - 您可以在 Visual Studio 的方案總管中搜尋此檔案。
 
-2. 開啟 **/VotingData/ControllersVoteDataController.cs** 檔案，並在這個 Web API 的 **Put** 方法 (第 50 行) 中設定中斷點。
+2. 開啟 **/VotingData/Controllers/VoteDataController.cs** 檔案，並在這個 Web API 的 **Put** 方法 (第 50 行) 中設定中斷點。
 
 3. 返回到瀏覽器，並按一下投票選項或新增投票選項。 您到達 Web 前端之 API 控制器的第一個中斷點。
     - 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。
@@ -171,7 +171,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 若要升級應用程式，請執行下列動作：
 
 1. 在 Visual Studio 中開啟 **/VotingWeb/Views/Home/Index.cshtml** 檔案。
-2. 新增或更新文字 <h2> 以變更頁面上的標題。 例如，將標題變更為「Service Fabric 投票範例第 2 版」。
+2. 新增或更新文字以變更頁面上的標題。 例如，將標題變更為「Service Fabric 投票範例第 2 版」。
 3. 儲存檔案。
 4. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。 [發行] 對話方塊隨即出現。
 5. 按一下 [資訊清單版本] 按鈕以變更服務和應用程式的版本。

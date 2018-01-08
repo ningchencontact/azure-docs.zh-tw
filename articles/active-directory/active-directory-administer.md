@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>管理 Azure AD 目錄
 
@@ -80,7 +80,6 @@ Azure AD 提供大部分 Microsoft 雲端服務的核心目錄和身分識別管
 * 設定與 Azure AD 身分識別和驗證服務的內部部署整合
 
 Azure AD 系統管理中心、Office 365 系統管理中心、Microsoft Intune 帳戶入口網站和 Azure AD Cmdlet 都會讀取和寫入與您組織的目錄相關聯的單一 Azure AD 共用執行個體。 上述每個工具可做為提取或變更目錄資料的前端介面。
-
 如果利用其中一個服務身分登入時使用任何入口網站或 Cmdlet 來變更組織的資料，則變更也會在您下次登入時顯示在其他入口網站中。 這項資料會在您所訂閱的 Microsoft 雲端服務之間共用。
 
 例如，如果您使用 Office 365 系統管理中心封鎖使用者登入，該動作會封鎖使用者登入您組織目前所訂閱的任何其他服務。 如果您在 Microsoft Intune 帳戶入口網站檢視相同的使用者帳戶，您也會看到該使用者遭到封鎖。
@@ -117,8 +116,8 @@ Azure AD 需要符合特定條件才能刪除目錄。 這可降低刪除目錄�
 
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Azure Multi-Factor Authentication 論壇](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Azure 問題的 Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
+* [Azure AD 論壇](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Azure Multi-Factor Authentication 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow for Azure 問題](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)

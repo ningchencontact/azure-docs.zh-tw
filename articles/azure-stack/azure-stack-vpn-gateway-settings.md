@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 VPN 閘道是一種虛擬網路閘道，可在 Azure Stack 中的虛擬網路與遠端 VPN 閘道之間傳送加密流量。 遠端 VPN 閘道可位於 Azure 中、您資料中心的裝置中或另一個網站的裝置中。  如果兩個端點之間有網路連線，您可以在這兩個網路之間建立安全的站對站 (S2S) VPN 連線。
 
@@ -31,7 +31,7 @@ VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設�
 ## <a name="vpn-gateway-settings"></a>VPN 閘道設定
 
 ### <a name="gateway-types"></a>閘道類型
-每個 Azure Stack 虛擬網路都支援單一虛擬網路閘道，其類型必須是 **Vpn**。  這不同於可支援其他類型的 Azure。  
+每個 Azure Stack 虛擬網路都支援單一虛擬網路閘道，其類型必須是 **Vpn**。  這項支援不同於 Azure，後者可支援其他類型。  
 
 建立虛擬網路閘道時，您必須確定組態的閘道類型是正確的。 VPN 閘道需要 `-GatewayType Vpn`。
 
@@ -90,7 +90,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 當您為 VPN 閘道組態建立虛擬網路閘道時，必須指定 VPN 類型。 您所選擇的 VPN 類型取決於您想要建立的連線拓撲。  VPN 類型也取決於您使用的硬體。 S2S 組態需要 VPN 裝置。 有些 VPN 裝置僅支援特定 VPN 類型。
 
 > [!IMPORTANT]  
-> 此時，Azure Stack 只支援路由式 VPN 類型。  如果您的裝置僅支援原則式 VPN，則不支援從 Azure Stack 連線到這些裝置。
+> 此時，Azure Stack 只支援路由式 VPN 類型。 如果您的裝置僅支援原則式 VPN，則不支援從 Azure Stack 連線到這些裝置。
 
 - **原則式**：*(Azure 可支援，但 Azure Stack 不支援)* 原則式 VPN 會根據使用內部部署網路與 Azure Stack VNet 之間的位址首碼組合所設定的 IPsec 原則，透過 IPsec 通道加密和導向封包。 原則 (或流量選取器) 通常定義為 VPN 裝置組態中的存取清單。
 
@@ -108,13 +108,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 | |原則式基本 VPN 閘道 | 路由式基本 VPN 閘道 | 路由式標準 VPN 閘道 | 路由式高效能 VPN 閘道|
 |--|--|--|--|--|
-| **站對站連線能力 (S2S)** | 不支援 | RouteBased VPN 組態 | RouteBased VPN 組態 | RouteBased VPN 組態 |
+| **站對站連線能力 (S2S 連線能力)** | 不支援 | RouteBased VPN 組態 | RouteBased VPN 組態 | RouteBased VPN 組態 |
 | **驗證方法**  | 不支援 | S2S 連線的預先共用金鑰  | S2S 連線的預先共用金鑰  | S2S 連線的預先共用金鑰  |   
 | **S2S 連接的數目上限**  | 不支援 | 10 | 10| 30|
 |**作用中路由支援 (BGP)** | 不支援 | 不支援 | 支援 | 支援 |
 
 ### <a name="gateway-subnet"></a>閘道器子網路
-建立 VPN 閘道之前，您必須先建立閘道子網路。 閘道子網路包含虛擬網路閘道 VM 與服務所使用的 IP 位址。 建立虛擬網路閘道時，會將閘道 VM 部署到閘道子網路，並為 VM 設定必要的 VPN 閘道設定。 請勿將任何其他項目 (例如其他 VM) 部署到閘道子網路。 此閘道子網路必須命名為 'GatewaySubnet' 才能正常運作。 將閘道子網路命名為 'GatewaySubnet' 可讓 Azure Stack 知道這是要用來部署虛擬網路閘道 VM 和服務的子網路。
+建立 VPN 閘道之前，您必須先建立閘道子網路。 閘道子網路包含虛擬網路閘道 VM 與服務所使用的 IP 位址。 建立虛擬網路閘道時，會將閘道 VM 部署到閘道子網路，並為 VM 設定必要的 VPN 閘道設定。 請勿將任何其他項目 (例如其他 VM) 部署到閘道子網路。 此閘道子網路必須命名為 'GatewaySubnet' 才能正常運作。 將閘道子網路命名為 'GatewaySubnet' 可讓 Azure Stack 識別要作為虛擬網路閘道 VM 和服務之部署目的地的子網路。
 
 當您建立閘道子網路時，您可指定子網路包含的 IP 位址數目。 閘道子網路中的 IP 位址會配置給閘道 VM 和閘道服務。 有些組態需要的 IP 位址比其他組態多。 請查看您想要建立之組態的指示﹐並確認您想要建立的閘道子網路將符合這些需求。 此外，您可能會想要確定閘道子網路包含足夠的 IP 位址，以因應未來可能的額外組態需求。 雖然您可以建立像 /29 這麼小的閘道子網路，但建議您建立 /28 或更大 (/28、/27、/26 等) 的閘道子網路。 如此一來，如果您在未來新增功能，就不須卸除您的閘道，然後刪除並重新建立閘道子網路，以提供更多的 IP 位址。
 
@@ -130,7 +130,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 ### <a name="local-network-gateways"></a>區域網路閘道
 在 Azure 中建立 VPN 閘道組態時，區域網路閘道通常代表您的內部部署位置。 在 Azure Stack 中，它代表位於 Azure Stack 外部的任何遠端 VPN 裝置。  這可能是您的資料中心、遠端資料中心或 Azure 的 VPN 閘道中的 VPN 裝置。
 
-您需指定區域網路閘道的名稱 (即 VPN 裝置的公用 IP 位址)，並指定位於內部部署位置的位址首碼。 Azure 會查看網路流量的目的地位址首碼、查閱您為區域網路閘道指定的組態，然後根據這些來路由傳送封包。
+您需指定區域網路閘道的名稱 (即 VPN 裝置的公用 IP 位址)，並指定內部部署位置上的位址首碼。 Azure 會查看網路流量的目的地位址首碼、查閱您為區域網路閘道指定的組態，然後根據這些來路由傳送封包。
 
 下列 PowerShell 範例會建立新的區域網路閘道︰
 

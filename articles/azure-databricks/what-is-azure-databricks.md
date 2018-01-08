@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b96896b22d406954e80d1df268f55c1c5a02ec6f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-azure-databricks"></a>何謂 Azure Databricks？
 
@@ -46,11 +46,11 @@ Azure Databricks 包含完整的開放原始碼 Apache Spark 叢集技術和功�
 
 Azure Databricks 是以 Spark 的功能為基礎所建置，其方法是藉由提供包含下列各項的零管理雲端平台：
 
-- 受到完整管理的 Spark 叢集
+- 完全受控的 Spark 叢集
 - 適用於探索和視覺效果的互動式工作區
 - 為您最愛的 Spark 架構應用程式賦予能力的平台
 
-### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>雲端中受到完整管理的 Apache Spark 叢集
+### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>雲端中完全受控的 Apache Spark 叢集
 
 Azure Databricks 在雲端中擁有安全而可靠的生產環境，並由 Spark 專家管理和支援。 您可以：
 
@@ -73,7 +73,7 @@ Databricks 執行階段是以 Apache Spark 為基礎所建置，並且原生就�
 
 * 決定如何利用簡單的資料探索來使用資料。
 * 在 Notebook 中以 R、Python、Scala 或 SQL 記載進度。
-* 點選幾下即可將資料視覺化，並使用熟悉的工具，例如 Matplotlib、ggoplot 或 d3。
+* 點選幾下即可將資料視覺化，並使用熟悉的工具，例如 Matplotlib、ggplot 或 d3。
 * 使用互動式儀表板來建立動態報告。
 * 使用 Spark，並同時與資料互動。
 

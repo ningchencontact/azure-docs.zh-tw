@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: bda2be15cdd4347d726f835ff49bb1a989282269
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 350c7784da1abb24df4ccd292cad28f73f3f8c0c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>將 SQL Server Integration Services 套件部署至 Azure
 本教學課程提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。 在本教學課程中，您會執行下列步驟：
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/05/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。 如需 Azure-SSIS IR 的概念資訊，請參閱 [Azure-SSIS Integration Runtime 概觀](concepts-integration-runtime.md#azure-ssis-integration-runtime)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - **Azure SQL Database 伺服器**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 
     - 確認資料庫伺服器的 [允許存取 Azure 服務] 設定為 [開啟]。 如需詳細資訊，請參閱[保護 Azure SQL Database 資料庫](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。 若要使用 PowerShell 來啟用此設定，請參閱 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)。
     - 新增用戶端電腦的 IP 位址或 IP 位址範圍，其中包含資料庫伺服器之防火牆設定中用戶端電腦 IP 位址到用戶端 IP 位址清單。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](../sql-database/sql-database-firewall-configure.md) 
@@ -288,7 +288,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>將 Azure-SSIS IR 加入至 VNet
-如果您使用 Azure SQL 受管理的執行個體 (私人預覽) 在虛擬網路 (VNet) 內裝載 SQL Server Integration Services (SSIS) 目錄，則也必須將 Azure-SSIS Integration Runtime 加入至相同的虛擬網路。 Azure Data Factory 第 2 版 (預覽) 可讓您將 Azure-SSIS 整合執行階段加入傳統 VNet 中。 如需詳細資訊，請參閱[將 Azure-SSIS 執行階段加入至 VNet](join-azure-ssis-integration-runtime-virtual-network.md)。
+如果您使用 Azure SQL 受控執行個體 (私人預覽) 在虛擬網路 (VNet) 內裝載 SQL Server Integration Services (SSIS) 目錄，則也必須將 Azure-SSIS Integration Runtime 加入至相同的虛擬網路。 Azure Data Factory 第 2 版 (預覽) 可讓您將 Azure-SSIS 整合執行階段加入傳統 VNet 中。 如需詳細資訊，請參閱[將 Azure-SSIS 執行階段加入至 VNet](join-azure-ssis-integration-runtime-virtual-network.md)。
 
 如需建立可加入 VNet 之 Azure-SSIS 執行階段的完整指令碼，請參閱[建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。
 

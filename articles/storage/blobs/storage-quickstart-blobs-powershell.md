@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>使用 Azure PowerShell 在 Azure Blob 儲存體之間傳送物件
 
@@ -33,7 +33,7 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 
 ## <a name="create-a-container"></a>建立容器
 
-Blob 一律會上傳到容器中。 這可讓您組織 Blob 群組，就像在電腦的資料夾中組織檔案一樣。
+Blob 一律會上傳到容器中。 您可以組織 Blob 群組，方式如同在電腦的資料夾中組織檔案。
 
 設定容器名稱，然後使用 [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) 建立容器，並將權限設定為 'blob' 以允許檔案的公用存取。 此範例中的容器名稱是 *quickstartblobs*。
 
@@ -48,7 +48,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 Iaa
 
 若要將檔案上傳至區塊 Blob，請取得容器參考，然後取得該容器中區塊 Blob 的參考。 取得 Blob 參考之後，即可使用 [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) 將資料上傳給它。 如果沒有 Blob，此作業會建立 Blob，如已存在，則予以覆寫。
 
-下列範例會將本機磁碟上 D:\\_TestImages 資料夾中的 Image001.jpg 和 Image002.png 上傳至您剛建立的容器。
+下列範例會將本機磁碟上 D:\\_TestImages 資料夾中的 Image001.jpg 和 Image002.png 上傳至您所建立的容器。
 
 ```powershell
 # upload a file

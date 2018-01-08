@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 容器正快速成為封裝、部署及管理雲端應用程式的慣用方法。 Azure Container Instances 提供更簡單快速的方法，讓您無需佈建任何虛擬機器或採用更高層級的服務，就能在 Azure 中執行容器。
 
-對於可在隔離容器中運作的任何情節，包括簡單的應用程式、工作自動化及建置工作，Azure Container Instances 是很棒的解決方案。 對於需要完整容器協調流程的情節，包括跨多個容器的服務探索、自動縮放及協調性應用程式升級，我們建議使用 [Azure Container Service](https://docs.microsoft.com/azure/container-service/)。
+對於可在隔離容器中運作的任何情節，包括簡單的應用程式、工作自動化及建置工作，Azure Container Instances 是很棒的解決方案。 對於需要完整容器協調流程的情節，包括跨多個容器的服務探索、自動縮放及協調性應用程式升級，我們建議使用 [Azure Container Service (AKS)](../aks/index.yml)。
 
 ## <a name="fast-startup-times"></a>快速啟動時間
 
@@ -39,7 +39,7 @@ Azure Container Instances 可讓您利用公用 IP 位址，直接向網際網�
 
 ## <a name="persistent-storage"></a>永續性儲存體
 
-為了擷取和保存 Azure Container Instances 的狀態，我們支援直接裝載 Azure 檔案共用。
+為了擷取和保存 Azure Container Instances 的狀態，我們支援直接[裝載 Azure 檔案共用](container-instances-mounting-azure-files-volume.md)。
 
 ## <a name="linux-and-windows-containers"></a>Linux 和 Windows 容器
 
@@ -47,7 +47,7 @@ Azure Container Instances 可讓您使用相同的 API 來排程 Windows 和 Lin
 
 ## <a name="co-scheduled-groups"></a>共同排程的群組
 
-Azure Container Instances 支援排程多個共用主機、區域網路、儲存體和生命週期的容器群組。 這可讓您合併主要應用程式與其他扮演支援角色的應用程式，例如記錄。
+Azure Container Instances 支援排程共用主機、區域網路、儲存體和生命週期的[多個容器群組](container-instances-container-groups.md)。 這可讓您合併主要應用程式與其他扮演支援角色的應用程式，例如記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure 資訊安全中心的自適性應用程式控制 (預覽)
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
@@ -36,12 +36,11 @@ ms.lasthandoff: 12/14/2017
 ## <a name="how-to-enable-adaptive-application-controls"></a>如何啟用自適性應用程式控制？
 自適性應用程式控制可協助您定義一組可以在設定之資源群組上執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 可以使用下列步驟在資訊安全中心設定應用程式白名單：
 
-1.  開啟 [資訊安全中心] 儀表板，然後按一下 [概觀]。
-2.  在 [進階雲端防禦] 之下，[自適性應用程式控制] 圖格會顯示目前有多少 VM 已採用此控制 (相較於所有的 VM)。 它也會顯示在上一週找到的問題數目： 
+1.  開啟 [資訊安全中心] 儀表板，然後按一下左側導覽窗格中 [進階雲端防禦] 區段下的 [自適性應用程式控制]。
 
-    ![自適性應用程式控制](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![防禦](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. 按一下 [自適性應用程式控制] 圖格，以取得更多選項。
+2. [自適性應用程式控制] 頁面隨即出現。
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

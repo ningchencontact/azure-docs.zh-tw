@@ -1,24 +1,16 @@
 ---
 title: "關於 Azure Migrate | Microsoft Docs"
 description: "提供 Azure Migrate 服務的概觀。"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -41,13 +33,12 @@ Azure Migrate 可協助您：
 - 目前，您可以評估內部部署 VMware 虛擬機器 (VM) 以便移轉到 Azure VM。
 
 > [!NOTE]
-> Hyper-V 支援已在藍圖中，將在幾個月內啟用。 在過渡時期，我們建議您使用 Azure Site Recovery 部署規劃工具來規劃 Hyper-V 工作負載的移轉。 
+> Hyper-V 支援已在藍圖中，將儘速啟用。 在過渡時期，我們建議您使用 [Azure Site Recovery 部署規劃工具](http://aka.ms/asr-dp-hyperv-doc)來規劃 Hyper-V 工作負載的移轉。 
 
-- 您可以評估單一評估中多達 1000 部的 VM，以及單一 Azure Migrate 專案中多達 1500 部的機器。 如果您需要評估更多機器，您可以增加專案或評估的數目。 [深入了解](how-to-scale-assessment.md)。
+- 您可以在單一探索中探索多達 1000 個 VM，並在單一專案中探索多達 1500 個 VM。 此外，您還可以在單一評估中評估多達 400 個 VM。 如果您需要探索或評估更多數量，則可以增加探索或評估的數目。 [深入了解](how-to-scale-assessment.md)。
 - 您要評估的 VM 必須由 vCenter Server (5.5、6.0 或 6.5 版) 管理。
 - 您只能在「美國中西部」區域建立 Azure Migrate 專案。 不過，這不會影響您針對不同的目標 Azure 位置規劃移轉的能力。 移轉專案的位置只用於儲存在內部部署環境中發現的中繼資料。
-- Azure Migrate 入口網站目前僅提供英文版。 
-- Azure Migrate 目前只支援[本地備援儲存體 (LRS)](../storage/common/storage-introduction.md#replication) 複寫。
+- Azure Migrate 只支援將受控磁碟用於進行移轉評估。
 
 ## <a name="what-do-i-need-to-pay-for"></a>我需要支付多少費用？
 
@@ -91,7 +82,7 @@ Azure Migrate 可協助您：
 |-------------------|------------------------|---------------|---------|
 |收集器          |Azure Migrate 服務   |TCP 443        |收集器會透過 SSL 連接埠 443 連線至服務|
 |收集器          |vCenter Server          |預設值 9443   | 根據預設，收集器會連線到連接埠 9443 上的 vCenter Server。 如果伺服器接聽不同的連接埠，則應該設定為收集器 VM 上的傳出連接埠。 |
-|內部部署 VM     | Operations Management Suite (OMS) 工作區          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA 代理程式會使用 TCP 443 來連線到 Log Analytics。 如果您正在使用相依性視覺效果功能，且正在安裝 Microsoft Monitoring Agent (MMA) 代理程式，您只需要此連接埠。 |
+|內部部署 VM     | Operations Management Suite (OMS) 工作區          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA 代理程式會使用 TCP 443 來連線到 Log Analytics。 如果您正在使用相依性視覺效果功能，且正在安裝 Microsoft Monitoring Agent (MMA) 代理程式，您只需要此連接埠。 |
 
 
   
