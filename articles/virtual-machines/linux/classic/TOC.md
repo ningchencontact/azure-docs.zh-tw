@@ -1,59 +1,39 @@
 # [概觀](../overview.md)
-## [映像](about-images.md)
-## [VM 延伸模組](agents-and-extensions.md)
-## [可用性](configure-availability.md)
-## [常見問題集](faq.md)
+## [VM 延伸模組](agents-and-extensions-classic.md)
+## [可用性](configure-availability-classic.md)
+## [常見問題集](faq-classic.md)
 
 # 開始使用
-## [使用 Azure 入口網站建立 Linux VM](createportal.md)
-## [安裝 Azure CLI](../../../cli-install-nodejs.md)
-## [建立 SSH 金鑰](../mac-create-ssh-keys.md)
+## [使用 Azure 入口網站建立 Linux VM](createportal-classic.md)
 
 # 作法
 ## 計算
-### [建立自訂 VM](create-custom.md)
-### [擷取 VM](capture-image.md)
-### [搭配使用遠端桌面與 Linux VM](remote-desktop.md)
-### [管理 VM 擴充功能](manage-extensions.md)
-### [管理 VM 使用 Visual Studio](manage-visual-studio.md)
-### [使用診斷 VM 擴充功能監視 VM](../diagnostic-extension.md)
+### [建立自訂 VM](create-custom-classic.md)
+### [擷取 VM](capture-image-classic.md)
+### [搭配使用遠端桌面與 Linux VM](remote-desktop-classic.md)
+### [管理 VM 擴充功能](manage-extensions-classic.md)
 ### [使用診斷 VM 擴充功能 v2.x 監視 VM](diagnostic-extension-v2.md)
-### [插入自訂資料](inject-custom-data.md)
-### [重設 Linux 的密碼或金鑰、修正 SSH 並檢查磁碟](reset-access.md)
-### [維護](planned-maintenance-schedule.md)
-### [使用 CLI 建立 Docker 主機](cli-use-docker.md)
-### [使用 Azure 入口網站建立 Docker 主機](portal-use-docker.md)
-### [如何搭配swarm 使用 Docker](../../virtual-machines-linux-docker-swarm.md)
+### [重設 Linux 的密碼或金鑰、修正 SSH 並檢查磁碟](reset-access-classic.md)
+### [維護](planned-maintenance-schedule-classic.md)
 
 ## 使用儲存體
-### [連接資料磁碟](attach-disk.md)
-### [卸離與資料磁碟](detach-disk.md)
+### [連接資料磁碟](attach-disk-classic.md)
+### [卸離與資料磁碟](detach-disk-classic.md)
 
 ## 網路
 ### [開啟連接埠連接到您的 VM](setup-endpoints.md)
-### [連接 VM 與虛擬網路或雲端服務](connect-vms.md)
-
-## 部署映像
-### [建立和上傳 VHD](create-upload-vhd.md)
-### [建立並上傳 FreeBSD VHD](freebsd-create-upload-vhd.md)
-### [Oracle VM 映像清單](oracle-images.md)
 
 ## 管理工作負載
-### [SAP](sap-get-started.md)
-### MySQL 和 MariaDB
-#### [MariaDB 叢集教學課程](mariadb-mysql-cluster.md)
-#### [在 OpenSUSE VM 上安裝 MySQL](mysql-on-opensuse.md)
-#### [使用負載平衡集合將 MySQL 叢集化](mysql-cluster.md)
-#### [最佳化 MySQL 效能](optimize-mysql.md)
+### [MariaDB 叢集教學課程](mariadb-mysql-cluster.md)
+### [在 OpenSUSE VM 上安裝 MySQL](mysql-on-opensuse.md)
+### [使用負載平衡集合將 MySQL 叢集化](mysql-cluster.md)
+### [最佳化 MySQL 效能](optimize-mysql.md)
 
 ## 執行應用程式
-### [Rails Web 應用程式上的 Ruby](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Rails Web 應用程式上的 Ruby](ruby-rails-web-app.md)
 ### [Cassandra 和 Node.js 用戶端](cassandra-nodejs.md)
-### [LAMP 堆疊](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Web 應用程式與 Visual Studio](web-app-visual-studio.md)
 ### [用以執行 MPI 應用程式的 RDMA 叢集](rdma-cluster.md)
-### [如何搭配使用 Azure 從屬外掛程式與 Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [為 Linux 工作負載建立叢集](hpcpack-cluster-powershell-script.md)
 #### [管理具有 Linux 節點的叢集](hpcpack-cluster.md)

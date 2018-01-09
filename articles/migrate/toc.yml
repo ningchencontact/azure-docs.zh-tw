@@ -22,15 +22,13 @@
       href: how-to-create-a-group.md
     - name: 使用機器相依性的群組機器
       href: how-to-create-group-machine-dependencies.md
-    - name: 使用 VMware 標記的群組機器
-      href: how-to-tag-v-center.md
     - name: 使用群組相依性調整群組
       href: how-to-create-group-dependencies.md
     - name: 自訂評量
       href: how-to-modify-assessment.md
     - name: 評量之後移轉機器
       href: how-to-get-migration-tool.md
-    - name: 針對 Azure Migrate 進行疑難排解
+    - name: 為 Azure Migrate 疑難排解
       href: troubleshooting-general.md
 - name: 資源
   items:

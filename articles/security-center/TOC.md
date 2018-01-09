@@ -21,6 +21,7 @@
 ### [使用 Azure 原則的安全性原則](security-center-azure-policy.md)
 ### [電子郵件通知](security-center-provide-security-contact-details.md)
 ### [定價層](security-center-pricing.md)
+### [安全性設定](security-center-customize-os-security-config.md)
 
 ## [上架](security-center-onboarding.md)
 ## [事件](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [啟用 VM 代理程式](security-center-enable-vm-agent.md)
 #### [安裝端點保護](security-center-install-endpoint-protection.md)
 #### [在系統更新之後重新開機](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [修復 OS 弱點](security-center-remediate-os-vulnerabilities.md)
+#### [修復安全性設定](security-center-remediate-os-vulnerabilities.md)
 #### [更新作業系統版本](security-center-update-os-version.md)
 #### [未安裝弱點評估](security-center-vulnerability-assessment-recommendations.md)
 ### [監視安全性健康狀態](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [資訊安全中心整備藍圖](security-center-readiness-roadmap.md)
+## [整備藍圖](security-center-readiness-roadmap.md)
 ## [Azure 安全性、隱私權和合規性部落格](http://blogs.msdn.com/b/azuresecurity/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務概觀](https://azure.microsoft.com/services/security-center/)
