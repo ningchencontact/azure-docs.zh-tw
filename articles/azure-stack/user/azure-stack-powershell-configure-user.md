@@ -3,26 +3,26 @@ title: "設定 Azure Stack 使用者的 PowerShell 環境 | Microsoft Docs"
 description: "設定 Azure Stack 使用者的 PowerShell 環境"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>設定 Azure Stack 使用者的 PowerShell 環境
 
-作為 Azure Stack 使用者，您可以設定您 Azure Stack 開發套件的 PowerShell 環境。 設定之後，可以使用 PowerShell 管理 Azure Stack 資源，例如訂閱產品、建立虛擬機器、部署 Azure Resource Manager 範本等。本主題僅說明使用者環境的使用，若要為雲端操作員環境設定 PowerShell，請參閱[設定 Azure Stack 操作員的 PowerShell 環境](../azure-stack-powershell-configure-admin.md)主題。 
+作為 Azure Stack 使用者，您可以設定您 Azure Stack 開發套件的 PowerShell 環境。 設定之後，可以使用 PowerShell 管理 Azure Stack 資源，例如訂閱產品、建立虛擬機器、部署 Azure Resource Manager 範本等。本主題僅說明使用者環境的使用，若要為雲端操作員環境設定 PowerShell，請參閱[設定 Azure Stack 操作員的 PowerShell 環境](../azure-stack-powershell-configure-admin.md)文章。 
 
 ## <a name="prerequisites"></a>必要條件 
 

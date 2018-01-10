@@ -3,28 +3,28 @@ title: "安裝 Azure Stack 的 PowerShell | Microsoft Docs"
 description: "瞭解如何安裝 Azure Stack 的 PowerShell。"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝 Azure Stack 的 PowerShell  
 
 需要 Azure Stack 相容的 Azure PowerShell 模組來使用 Azure Stack。 在本指南中，我們引導您安裝 Azure Stack 的 PowerShell 所需要的步驟。 您可以從 Azure Stack 開發套件，或從以 Windows 為基礎的外部用戶端 (如果您透過 VPN 連線) 來使用這篇文章中所述的步驟。
 
-這篇文章有安裝 Azure Stack 的 PowerShell 的詳細指示。 不過，如果您想要快速安裝和設定 PowerShell，您可以使用「透過 PowerShell 執行」主題所提供的指令碼。 
+這篇文章有安裝 Azure Stack 的 PowerShell 的詳細指示。 不過，如果您想要快速安裝和設定 PowerShell，您可以使用「透過 PowerShell 執行」文章所提供的指令碼。 
 
 > [!NOTE]
 > 下列步驟需要 PowerShell 5.0。 若要檢查您的版本，請執行 $PSVersionTable.PSVersion 並比較「主要」版本。
@@ -78,7 +78,7 @@ Set-PSRepository `
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  如果安裝成功，輸出中會顯示 AzureRM 和 AzureStack 模組。
+  如果安裝成功，輸出中會顯示 AzureRM 和 Azure Stack 模組。
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在中斷連線或部份連線的情況 (網際網路連線能力有限) 安裝 PowerShell
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 49d26defef56e6fc174cda57b24a126cd77227e4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
 
@@ -76,6 +76,7 @@ ms.lasthandoff: 12/04/2017
 - 如果您在 [網路] 下按一下 [連線] 來設定 VPN 連線，就會列出 **VNet 對 VNet** 作為可能的連線類型。 請勿選取此選項。 目前，僅支援**站對站 (IPsec)** 選項。
 - 建立 VM 並與公用 IP 位址建立關聯之後，您就無法取消該 IP 位址與虛擬機器 (VM) 的關聯。 取消關聯看似正常運作，但先前指派的公用 IP 位址仍然會與原始 VM 建立關聯。 即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。 您目前只有在建立新的 VM 時，才能使用新的公用 IP 位址。
 - Azure Stack 操作員可能無法部署、刪除、修改 VNET 或網路安全性群組。 此問題主要會出現在相同套件的後續更新嘗試。 這是因目前正在進行調查的更新之封裝問題所致。
+- 內部負載平衡 (ILB) 對 MAC 位址的後端 VM 進行不恰當的處理，導致 Linux 執行個體損壞。
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。 

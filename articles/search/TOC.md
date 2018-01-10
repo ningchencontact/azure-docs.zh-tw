@@ -51,12 +51,12 @@
 ### [Azure Blob 儲存體索引子](search-howto-indexing-azure-blob-storage.md)
 ### [Azure 資料表儲存體索引子](search-howto-indexing-azure-tables.md)
 ### [Azure SQL 索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure Cosmos DB 索引子](search-howto-index-documentdb.md)
+### [Azure Cosmos DB 索引子](search-howto-index-cosmosdb.md)
 ### [索引 CSV blob](search-howto-index-csv-blobs.md)
 ### [索引 JSON blob](search-howto-index-json-blobs.md)
 ### [在 Azure VM 上設定連接至 SQL Server 的索引子](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [索引器中的欄位對應](search-indexer-field-mappings.md)
-##  搜尋
+##  Search
 ### [全文檢索搜尋如何運作](search-lucene-query-architecture.md)
 ### 查詢建構
 #### [簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
