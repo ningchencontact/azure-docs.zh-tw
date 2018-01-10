@@ -162,6 +162,7 @@
 
 # 相關參考
 ## [Azure IoT 套件](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure IoT 中樞裝置佈建服務](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure 事件中樞](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [串流分析](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)

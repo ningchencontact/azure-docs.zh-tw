@@ -24,6 +24,7 @@
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # 作法
+
 ## 管理
 ### 實體
 #### [.NET](media-services-dotnet-manage-entities.md)
@@ -35,7 +36,9 @@
 #### [更換儲存體存取金鑰之後更新媒體服務](media-services-roll-storage-access-keys.md)
 #### [管理跨多個儲存體帳戶的資產](meda-services-managing-multiple-storage-accounts.md)
 ### [配額和限制](media-services-quotas-and-limitations.md)
-
+## [設定 Postman](media-rest-apis-with-postman.md)
+### [環境](postman-environment.md)
+### [集合](postman-collection.md)
 ## 上傳內容
 ### 將檔案上傳至帳戶
 #### [Azure 入口網站](media-services-portal-upload-files.md)
@@ -92,7 +95,7 @@
 ### 媒體編碼器高階工作流程
 #### [媒體編碼器高階工作流程格式和轉碼器](media-services-premium-workflow-encoder-formats.md)
 #### 使用媒體編碼器高階工作流程進行編碼
-##### [媒體編碼器高階工作流程](media-services-encode-with-premium-workflow.md)
+##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
 ##### [媒體編碼器高階工作流程教學課程](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [使用工作流程設計工具建立進階編碼工作流程](media-services-workflow-designer.md)
 ##### [進階工作流程與多個輸入](media-services-media-encoder-premium-workflow-multiplefilesinput.md)

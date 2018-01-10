@@ -49,7 +49,7 @@
           href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
     - name: R 快速入門
       href: r-quickstart.md
-- name: 作法
+- name: "作法\r\n"
   items:
     - name: 設定工具和公用程式
       items:
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: 相關參考
   items:
-    - name: Cortana Intelligence Gallery
+    - name: Azure AI 資源庫
       items:
         - name: 概觀
           href: gallery-how-to-use-contribute-publish.md
