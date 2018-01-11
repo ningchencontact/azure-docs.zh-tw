@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>建立由泛型 Webhook 所觸發的函式
 
@@ -48,9 +48,13 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 
     ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. 選取**泛型 WebHook - C#** 範本。 鍵入您 C# 函式的名稱，然後選取 [建立]。
+2. 在 [搜尋] 欄位中，輸入 `generic`，然後選擇您需要的泛型 Webhook 觸發程序範本語言。 本主題是使用 C# 函式。
 
-     ![在 Azure 入口網站中建立由泛型 Webhook 所觸發的函式](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![選擇泛型 Webhook 觸發程序範本](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. 輸入您函式的 [名稱] ，然後選取 [建立]。 
+
+     ![在 Azure 入口網站中建立由泛型 Webhook 所觸發的函式](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. 在您的新函式中，按一下 [取得函式 URL]，然後複製並儲存值。 您可以使用此值來設定 Webhook。 
 

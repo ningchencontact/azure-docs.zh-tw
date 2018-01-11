@@ -1,12 +1,13 @@
 ---
-title: "減少推測執行在 Azure 中的指引 |Microsoft 文件"
-description: "減少推測執行側邊通道弱點可能會在 Azure 中的指引。"
+title: "降低推測執行在 Azure 中造成的風險指引 |Microsoft 文件"
+description: "減少推測性執行旁路攻擊漏洞在 Azure 中造成的風險指引。"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
+keywords: spectre, meltdown, specter
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 55cabb1df612474dd67a0bf7429ef10f63c6d193
-ms.sourcegitcommit: 113fe856a110b5522d2759ba1788b01697ae2b32
-ms.translationtype: MT
+ms.openlocfilehash: 6d34a4f6e165d2925594783ce198aca8a810451d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>減少推測執行側邊通道弱點的指引
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>減少推測性執行旁路攻擊漏洞在 Azure 中造成的風險指引
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]

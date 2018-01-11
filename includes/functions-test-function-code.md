@@ -1,4 +1,4 @@
-## <a name="test-the-function"></a>測試函式
+## <a name="test"></a>測試函式
 
 在 Mac 或 Linux 電腦上使用 cURL 來測試已部署的函式，在 Windows 上則請使用 Bash。 執行下列 cURL 命令時，但請將其中的 `<app_name>` 預留位置改為函式應用程式的名稱。 將查詢字串 `&name=<yourname>` 附加至 URL。
 

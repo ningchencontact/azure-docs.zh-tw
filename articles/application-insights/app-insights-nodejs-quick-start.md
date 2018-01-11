@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>開始監視 Node.js Web 應用程式
 
@@ -28,7 +28,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 - 您需要 Azure 訂用帳戶和現有的 Node.js Web 應用程式。
 
-如果您沒有 Node.js Web 應用程式，請依照[建立 Node.js Web 應用程式快速入門](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)來建立。
+如果您沒有 Node.js Web 應用程式，請依照[建立 Node.js Web 應用程式快速入門](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)來建立。
  
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -67,11 +67,11 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    npm install applicationinsights --save
    ```
 
-3. 編輯應用程式的第一個 .js 檔案，將下列兩行新增至指令碼的最頂端部分。 如果您使用 [Node.js 快速入門應用程式](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)，請修改 index.js 檔案。 
+3. 編輯應用程式的第一個 .js 檔案，將下列兩行新增至指令碼的最頂端部分。 如果您使用 [Node.js 快速入門應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)，請修改 index.js 檔案。 將 &lt;instrumentation_key&gt; 取代為您應用程式的檢測金鑰。 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. 重新啟動您的應用程式。
@@ -135,4 +135,4 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [尋找並診斷效能問題](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [尋找並診斷效能問題](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
