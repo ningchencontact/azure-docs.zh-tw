@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>將資料從 Azure 儲存體 Blob 複製到 Data Lake Store
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 ## <a name="prerequisites"></a>必要條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure 儲存體 Blob** 容器 (其中含有一些資料)。
 * **Azure Data Lake Store 帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics 帳戶 (選用)** - 如需如何建立 Data Lake Store 帳戶的指示，請參閱 [開始使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 。
@@ -68,11 +68,11 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    例如：
+    例如︰
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] 上述語法指定要複製到 Data Lake Store 帳戶內資料夾中的檔案。 如果指定的資料夾名稱不存在，AdlCopy 工具會建立一個資料夾。
+    >[AZURE.NOTE]上述語法指定的檔案複製到 Data Lake Store 帳戶中的資料夾。 如果指定的資料夾名稱不存在，AdlCopy 工具會建立一個資料夾。
 
     系統會提示您輸入您 Data Lake Store 帳戶所在 Azure 訂用帳戶的認證。 您將看到類似以下的輸出：
 
@@ -86,7 +86,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    例如：
+    例如︰
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -102,7 +102,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
         AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
 
-    例如：
+    例如︰
 
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
@@ -124,7 +124,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
 ### <a name="performance-considerations"></a>效能考量
 
-使用 AdlCopy 作為獨立工具時，複製是在共用的 Azure 受管理資源上執行。 您在此環境中的可達到的效能取決於系統負載和可用的資源。 這個模式最適合臨時的少量傳輸。 使用 AdlCopy 作為獨立工具時不需要調整參數。
+使用 AdlCopy 作為獨立工具時，複製是在共用的 Azure 受控資源上執行。 您在此環境中的可達到的效能取決於系統負載和可用的資源。 這個模式最適合臨時的少量傳輸。 使用 AdlCopy 作為獨立工具時不需要調整參數。
 
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>使用 AdlCopy (利用 Data Lake Analytics 帳戶) 複製資料
 您也可以使用 Data Lake Analytics 帳戶來執行 AdlCopy 工作，將資料從 Azure 儲存體 Blob 複製到 Data Lake Store。 若要移動的資料大小範圍在 GB 或 TB 內，而且您想要獲得更好且可預期的效能輸送量，您通常會使用此選項。
@@ -140,7 +140,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
 
-例如：
+例如︰
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -160,7 +160,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    例如：
+    例如︰
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
@@ -181,4 +181,4 @@ AdlCopy 支援複製包含數千個檔案和資料夾的資料。 不過，如�
 ## <a name="next-steps"></a>後續步驟
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)

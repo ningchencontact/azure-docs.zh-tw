@@ -6,7 +6,7 @@
 ## <a name="find-the-disk"></a>尋找磁碟
 您必須先找出 LUN 編號 (要中斷連結之磁碟的識別碼)，才能將磁碟與 VM 中斷連結。 若要這樣做，請遵循下列步驟：
 
-1. 開啟 Azure CLI 並 [連接至您的 Azure 訂用帳戶](../articles/xplat-cli-connect.md)。 確定處於 Azure 服務管理模式中 (`azure config mode asm`)。
+1. 開啟 Azure CLI 並 [連接至您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。 確定處於 Azure 服務管理模式 (`azure config mode asm`)。
 2. 找出哪些磁碟已連結至您的 VM。 下列範例會列出名為 `myVM` 的 VM 的磁碟：
 
     ```azurecli

@@ -14,24 +14,24 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/1/2017
+ms.date: 12/11/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
-
 在本主題中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。 這些工具可在 Visual Studio 2017 15.3 版或更新版本的 Azure 開發工作負載中取得。
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
+
+如果您喜歡，可以改為[觀看影片](#watch-the-video)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -98,7 +98,11 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 2. 將 HTTP 要求的新 URL 貼到瀏覽器的網址列。 下圖顯示瀏覽器中對於函式傳回之遠端 GET 要求所做出的回應︰ 
 
     ![瀏覽器中的函式回應](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
- 
+
+## <a name="watch-the-video"></a>觀賞影片
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
 ## <a name="next-steps"></a>後續步驟
 
 您已透過 Visual Studio，使用簡單的 HTTP 觸發函式建立 C# 函式應用程式。 

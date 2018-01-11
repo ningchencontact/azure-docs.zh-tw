@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -77,9 +77,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 記憶體內部 OLTP 包含記憶體最佳化資料表，以用來儲存使用者資料。 這些資料表必須可容納於記憶體。 因為您是直接在 SQL Database 服務中管理記憶體，我們有使用者資料配額的概念。 這個概念稱為「記憶體內部 OLAP 儲存體」。
 
-每個受支援的獨立資料庫定價層以及每個彈性集區定價層都包含一定數量的記憶體內部 OLTP 儲存體。 在撰寫本文時，每 125 個資料庫交易單位 (DTU) 或彈性資料庫交易單位 (eDTU)，您會取得 1 GB 的儲存體。
-
-[SQL Database 服務層](sql-database-service-tiers.md)一文提供一份官方清單，其中列出每個受支援獨立資料庫和彈性集區定價層可用的記憶體內部 OLTP 儲存體。
+每個受支援的獨立資料庫定價層以及每個彈性集區定價層都包含一定數量的記憶體內部 OLTP 儲存體。 在撰寫本文時，每 125 個資料庫交易單位 (DTU) 或彈性資料庫交易單位 (eDTU)，您會取得 1 GB 的儲存體。 如需詳細資訊，請參閱[資源限制](sql-database-resource-limits.md)。
 
 下列項目計入記憶體內部 OLTP 儲存體容量上限︰
 
@@ -166,7 +164,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 3. 將 [In-Memory OLTP Transact-SQL 指令碼](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 複製到剪貼簿。 T-SQL 指令碼會在步驟 1 建立的 AdventureWorksLT 範例資料庫中建立所需的 In-Memory 物件。
 
-4. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 陳述式很重要。 例如：
+4. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 陳述式很重要。 例如︰
 
 
 ```
@@ -294,7 +292,7 @@ end
 
 在 VM 上或你選擇的任何主機上，安裝 Replay Markup Language (RML) 公用程式。 這些公用程式包括 ostress.exe。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 - [記憶體內部 OLTP 的範例資料庫](http://msdn.microsoft.com/library/mt465764.aspx)中的 ostress.exe 討論。
 - [記憶體內部 OLTP 的範例資料庫](http://msdn.microsoft.com/library/mt465764.aspx)。
 - [安裝 ostress.exe 的部落格](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
@@ -522,7 +520,7 @@ GO
 
 #### <a name="application-design"></a>應用程式設計
 
-- [記憶體內部 OLTP (記憶體內部最佳化)](http://msdn.microsoft.com/library/dn133186.aspx)
+- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
 
 - [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 

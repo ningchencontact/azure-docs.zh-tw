@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>了解如何使用 Azure 匯入/匯出服務 REST API
 
-Microsoft Azure 匯入/匯出服務會公開 REST API，以啟用程式設計方式控制匯入/匯出作業。 您可以使用 REST API 來執行您可以使用 [Azure 入口網站](https://portal.azure.com/)執行的所有匯入/匯出作業。 此外，您可以使用 REST API 來執行某些細微作業，例如查詢作業的完成百分比，此作業目前在 Azure 傳統入口網站中無法使用。
+Microsoft Azure 匯入/匯出服務會公開 REST API，以啟用程式設計方式控制匯入/匯出作業。 您可以使用 REST API 來執行您可以使用 [Azure 入口網站](https://portal.azure.com/)執行的所有匯入/匯出作業。 此外，您可以使用 REST API 來執行某些精細的作業，例如查詢的工作，在 Azure 入口網站目前無法完成百分比。
 
-請參閱[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](../storage-import-export-service.md)以取得匯入/匯出服務概觀及示範如何使用傳統入口網站建立和管理匯入與匯出作業的教學課程。
+請參閱[使用 Microsoft Azure 匯入/匯出服務將資料傳送到 Blob 儲存體](../storage-import-export-service.md)匯入/匯出服務，並示範如何使用入口網站來建立及管理匯入和匯出工作的教學課程的概觀。
 
 ## <a name="service-endpoints"></a>服務端點
 

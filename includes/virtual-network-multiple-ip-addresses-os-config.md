@@ -22,6 +22,7 @@
     * 按一下 [確定] 關閉 TCP/IP 設定，然後再按一次 [確定] 關閉介面卡設定。 您的 RDP 連接已重建。
 
 6. 從命令提示字元輸入 *ipconfig /all*。 此時會顯示您加入的所有 IP 位址，而 DHCP 是關閉的。
+7. 設定 Windows Azure 中使用私人 IP 位址的主要 IP 設定的主要 IP 位址適用於 Windows。 請參閱[沒有網際網路存取，從具有多個 IP 位址的 Azure Windows VM](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse)如需詳細資訊。 
 
 
 ### <a name="validation-windows"></a>驗證 (Windows)

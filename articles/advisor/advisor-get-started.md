@@ -1,6 +1,6 @@
----
+﻿---
 title: "開始使用 Azure 建議程式 | Microsoft Docs"
-description: "開始使用 Azure 建議程式。"
+description: "開始使用 Azure Advisor。"
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
@@ -16,7 +16,7 @@ ms.date: 02/10/2017
 ms.author: makohli
 ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2017
 ---
@@ -134,5 +134,5 @@ Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的�
 * [Azure 建議程式簡介](advisor-overview.md)
 * [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
 * [Advisor 安全性建議](advisor-security-recommendations.md)
-- [Advisor 效能建議](advisor-performance-recommendations.md)
+-  [Advisor 效能建議](advisor-performance-recommendations.md)
 * [Advisor 成本建議](advisor-performance-recommendations.md)

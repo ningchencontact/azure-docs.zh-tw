@@ -4,7 +4,7 @@ description: "了解如何查明為什麼一組不同於您所預期的使用者
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 85b533584c8ec15a23be32e20db7de583fced6a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9e268aad5d3a7dcde9102216e9b3e8abfcca2cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>一組錯誤的使用者佈建至 Azure AD 資源庫應用程式
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>以系統管理員身分將群組直接指派至應用程式
 
-若要直接將一或多個群組指派至應用程式，請依照下列步驟執行︰
+若要將一或多個群組直接指派給應用程式，請依照下列步驟執行：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 14. **選擇性︰**按一下 [新增指派] 刀鋒視窗中的 [選取角色] 選取器，以選取要指派給您已選取群組的角色。
 
-15. 按一下 [指派] 按鈕，將應用程式指派至選取的群組。
+15. 按一下 [指派] 按鈕，將應用程式指派給選取的群組。
 
 如果已經為應用程式設定並執行佈建，群組內包含的新使用者應該大約 10 分鐘就會佈建至應用程式。 如需詳細資訊，請檢查**稽核記錄**。
 

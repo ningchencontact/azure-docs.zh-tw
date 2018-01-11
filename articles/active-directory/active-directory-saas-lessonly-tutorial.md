@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Lesson.ly 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: fc1e1b2de0a138dbe88d794f802b002321948ab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>教學課程：Azure Active Directory 與 Lesson.ly 整合
 
@@ -47,13 +47,13 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Lesson.ly
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-lessonly-from-the-gallery"></a>從資源庫加入 Lesson.ly
-若要設定 Lesson.ly 與 Azure AD 的整合作業，您需要從資源庫將 Lesson.ly 加入到受管理的 SaaS 應用程式清單。
+若要設定 Lesson.ly 與 Azure AD 的整合作業，您需要從資源庫將 Lesson.ly 加入到受控 SaaS 應用程式清單。
 
 **若要從資源庫加入 Lesson.ly，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Lesson.ly**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_search.png)
 
-5. 在結果窗格中，選取 Lesson.ly，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Lesson.ly]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_addfromgallery.png)
 
@@ -119,7 +119,7 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
     >[!NOTE]
     >參考一般名稱時，**companyname** 需要由實際名稱取代。
     
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `https://<companyname>.lesson.ly/auth/saml/metadata`|
@@ -142,7 +142,8 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
     | ---------------  | ----------------|
     | urn:oid:2.5.4.42 |user.givenname |
     | urn:oid:2.5.4.4  |user.surname |
-    | urn:oid:0.9.2342.19200300.1001.3 |user.mail |
+    | urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |user.objectid |
 
     a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
 
@@ -194,11 +195,11 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-lessonly-test-user"></a>建立 Lesson.ly 測試使用者
 
@@ -241,7 +242,7 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在存取面板中按一下 Lesson.ly 圖示時，應該會自動登入 Lesson.ly 應用程式。
 

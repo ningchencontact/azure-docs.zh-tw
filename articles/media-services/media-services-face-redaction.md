@@ -6,35 +6,34 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部
 ## <a name="overview"></a>概觀
 **Azure 媒體修訂器** 是 [Azure 媒體分析](media-services-analytics-overview.md) 媒體處理器 (MP)，可在雲端提供可調整的臉部修訂。 臉部修訂可讓您修改視訊，以模糊所選人物的臉部。 在公共安全和新聞媒體案例中，您可能會想要使用臉部修訂服務。 若要手動修訂包含多個臉部的幾分鐘影片，可能要花上數小時的時間，若使用此服務，則只需要幾個簡單的步驟就能完成臉部修訂程序。 如需詳細資訊，請參閱[此](https://azure.microsoft.com/blog/azure-media-redactor/)部落格。
 
-本主題提供有關 **Azure 媒體修訂** 的詳細資料，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
+這篇文章詳細說明有關**Azure 媒體 Redactor**並示範如何使用 Media Services SDK for.NET 使用它。
 
 ## <a name="face-redaction-modes"></a>臉部修訂模式
-臉部修訂的運作方式是，偵測視訊中每個畫面內出現的臉部，並及時向前及向後追蹤臉部物體，讓同一個人在其他角度也可以變得模糊。 自動化修訂程序非常複雜，而且不一定會 100% 產生所需的輸出，因此，媒體分析提供您幾種方式來修改最終輸出。
+臉部修訂的運作方式是，偵測視訊中每個畫面內出現的臉部，並及時向前及向後追蹤臉部物體，讓同一個人在其他角度也可以變得模糊。 自動化的 redaction 程序相當複雜，並不一律產生 100%的所需的輸出，因此媒體分析提供讓您透過數種方式來修改最終輸出。
 
-除了完全自動模式，還有一種兩段式的工作流程可讓您透過識別碼清單選取/取消選取找到的臉部。 此外，為了進行任意的每一畫面調整，MP 使用 JSON 格式的中繼資料檔案。 此工作流程分割成**分析**和**修訂**模式。 您可以將這兩種模式結合成單一階段，以在一個作業中執行這兩項工作，我們將這個模式稱為 **結合**。
+除了完全自動模式中，沒有兩段式工作流程，可選取項目/還原-selection 的找到表面透過 Id 的清單。 此外，為了進行任意的每一畫面調整，MP 使用 JSON 格式的中繼資料檔案。 此工作流程分割成**分析**和**修訂**模式。 您可以將這兩種模式結合成單一階段，以在一個作業中執行這兩項工作，我們將這個模式稱為 **結合**。
 
 ### <a name="combined-mode"></a>結合模式
-這會自動產生修訂的 mp4，而不需要手動輸入。
+這會產生 redacted 的 mp4 自動沒有任何輸入的手冊。
 
-| 階段 | 檔案名稱 | 注意事項 |
+| 階段 | 檔案名稱 | 注意 |
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MOV 或 MP4 格式的視訊 |
 | 輸入組態 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="analyze-mode"></a>分析模式
 兩段式工作流程的 **分析** 階段會接受視訊輸入，並產生臉部位置的 JSON 檔案和每個偵測到之臉部的 jpg 影像。
 
-| 階段 | 檔案名稱 | 注意事項 |
+| 階段 | 檔案名稱 | 注意 |
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MPV 或 MP4 格式的視訊 |
 | 輸入組態 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -112,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 
 分析階段的輸出不包含原始視訊。 視訊必須上傳到修訂模式工作的輸入資產並選取做為主要檔案。
 
-| 階段 | 檔案名稱 | 注意事項 |
+| 階段 | 檔案名稱 | 注意 |
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MPV 或 MP4 格式的視訊。 和步驟 1 相同的視訊。 |
 | 輸入資產 |foo_annotations.json |來自第一個階段的註解中繼資料檔案，並帶有選擇性的修改。 |
@@ -172,41 +171,50 @@ Example foo_IDList.txt
 下列程式將示範如何：
 
 1. 建立資產並將媒體檔案上傳到資產。
-2. 根據包含下列 JSON 預設值的組態檔案，建立具有臉部修訂工作的作業。 
+2. 建立與朝 redaction 工作包含下列 json 的預設組態檔為基礎的作業： 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. 下載輸出 JSON 檔案。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
 
 #### <a name="example"></a>範例
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Example foo_IDList.txt
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Example foo_IDList.txt
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Example foo_IDList.txt
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Example foo_IDList.txt
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

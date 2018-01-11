@@ -3,8 +3,8 @@ title: "使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取 | M
 description: "涵蓋如何整合內部部署 SharePoint 伺服器與 Azure AD 應用程式 Proxy 的基本概念。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
   ![設定服務帳戶的選項](./media/application-proxy-remote-sharepoint/service-web-application.png)
 
 4. 如果 [選取此元件的帳戶] 欄位是設定為 [本機服務] 或 [網路服務]，則需要建立帳戶。 若不是，則您已完成，可以進行下一節。
-5. 選取 [註冊新的受管理帳戶]。 帳戶建立之後，您必須設定 [Web 應用程式集區] 才能使用該帳戶。
+5. 選取 [註冊新的受控帳戶]。 帳戶建立之後，您必須設定 [Web 應用程式集區] 才能使用該帳戶。
 
 ### <a name="configure-sharepoint-for-kerberos"></a>設定 SharePoint 的 Kerberos
 
@@ -146,7 +146,7 @@ Klist
 
 1. 以網域系統管理員身分登入 DC，然後開啟 **Active Directory 使用者和電腦**。
 2. 尋找連接器執行所在的電腦。 在此範例中，它與 SharePoint 伺服器相同。
-3. 按兩下該電腦，然後按一下委派 索引標籤。
+3. 按兩下該電腦，然後按一下 [委派] 索引標籤。
 4. 確定委派設定已設為 [只針對指定服務的委派信任這台電腦]。 然後，選取 [使用任何驗證通訊協定]。
 
   ![委派設定](./media/application-proxy-remote-sharepoint/delegation-box.png)
@@ -156,7 +156,7 @@ Klist
   ![新增服務帳戶的 SPN](./media/application-proxy-remote-sharepoint/users-computers.png)
 
 6. 在 SPN 的清單中，選取您稍早針對服務帳戶建立的 SPN。
-7. 按一下 [確定] 。 再按一下 [確定] 以儲存變更。
+7. 按一下 [SERVICEPRINCIPAL] 。 再按一下 [確定] 以儲存變更。
 
 ## <a name="step-2-enable-remote-access-to-sharepoint"></a>步驟 2︰啟用 SharePoint 的遠端存取
 
@@ -198,7 +198,7 @@ Klist
 
   ![輸入路徑](./media/application-proxy-remote-sharepoint/alternate-access3.png)
 
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 您現在可以透過 Azure AD 應用程式 Proxy 從外部存取 SharePoint 網站。
 

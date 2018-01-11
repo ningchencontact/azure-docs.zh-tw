@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的效能和級別
 
@@ -32,11 +32,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="internal-queue-triggers"></a>內部佇列觸發程序
 
-協調器函式和活動函式都是由函式應用程式的預設儲存體帳戶中的內部佇列所觸發。 Durable Functions 中有兩種佇列：**控制佇列**和**工作項目佇列**。
+協調器函式和活動函式都是由函式應用程式的預設儲存體帳戶中的內部佇列所觸發。 有兩種持久函式中的佇列類型：**控制佇列**和**工作項目佇列**。
 
 ### <a name="the-work-item-queue"></a>工作項目佇列
 
-在 Durable Functions 中，每個工作中樞各有一個工作項目佇列。 這是基本佇列，運作方式類似於 Azure Functions 中的其他任何 `queueTrigger` 佇列。 此佇列用來觸發無狀態「活動函式」。 當 Durable Functions 應用程式向外延展至多個虛擬機器時，這些虛擬機器全部會從工作項目佇列中爭奪工作。
+沒有工作中樞持久函式中每一個工作項目佇列。 這是基本佇列，運作方式類似於 Azure Functions 中的其他任何 `queueTrigger` 佇列。 此佇列用來觸發無狀態「活動函式」。 當 Durable Functions 應用程式向外延展至多個虛擬機器時，這些虛擬機器全部會從工作項目佇列中爭奪工作。
 
 ### <a name="control-queues"></a>控制佇列
 
@@ -54,18 +54,18 @@ ms.lasthandoff: 10/11/2017
 
 ![級別圖表](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-如您所見，所有虛擬機器會爭奪工作項目佇列上的訊息。 不過，只有三個虛擬機器可以從控制佇列中取得訊息，每個虛擬機器會鎖定單一控制佇列。
+如您所見，所有 Vm 會都競爭使用工作項目佇列上的訊息。 不過，只有三個虛擬機器可以從控制佇列中取得訊息，每個虛擬機器會鎖定單一控制佇列。
 
 根據協調流程的執行個體識別碼來執行內部雜湊函式，協調流程執行個體會分散於控制佇列執行個體之間。 執行個體識別碼是自動產生，而且依預設是隨機產生，可確保執行個體均勻分散至所有可用的控制佇列。 目前支援的控制佇列資料分割預設數目是 **4** 個。
 
 > [!NOTE]
-> 目前無法在 Azure Functions 中設定資料分割數目。 [正在設法支援此設定選項](https://github.com/Azure/azure-functions-durable-extension/issues/73)。
+> 不是目前可以在 Azure 函式中設定控制佇列的資料分割數目。 [正在設法支援此設定選項](https://github.com/Azure/azure-functions-durable-extension/issues/73)。
 
 一般而言，協調器函式是輕巧的設計，並不需要大量運算能力。 因此，不需要建立大量的控制佇列分割區來獲得很高的輸送量。 相反地，大部分繁重的工作都在無狀態活動函式中進行，這還可以無限制地向外延展。
 
 ## <a name="auto-scale"></a>自動調整規模
 
-由於所有 Azure Functions 都在使用情況方案中執行，Durable Functions 支援透過 [Azure Functions 級別控制器](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling)來自動調整規模。 「級別控制器」會監視工作項目佇列的長度和每個控制佇列，然後據以新增或移除虛擬機器資源。 如果控制佇列長度隨著時間而增加，級別控制器會持續新增執行個體，直到達到控制佇列資料分割計數為止。 如果工作項目佇列長度隨著時間而增加，級別控制器會持續新增虛擬機器資源，直到符合負載為止，不會考慮控制佇列資料分割計數。
+因為耗用量計劃中執行所有 Azure 函式，持久的函式都支援自動調整規模透過[Azure 函式向控制器](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling)。 標尺控制器監視工作項目佇列長度和每個控制項的佇列中，新增或移除 VM 執行個體，據此。 如果控制項佇列長度會隨著時間逐漸增加，比例控制站會繼續加入 VM 執行個體，直到它到達控制佇列的分割區計數。 如果工作項目佇列長度會隨著時間逐漸增加，比例控制站會繼續加入 VM 執行個體，直到它可以比對的負載，不論控制佇列的分割區計數。
 
 ## <a name="thread-usage"></a>執行緒使用方式
 
@@ -76,4 +76,4 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [安裝 Durable Functions 擴充和範例](durable-functions-install.md)
+> [安裝 Durable Functions 擴充功能和範例](durable-functions-install.md)

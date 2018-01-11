@@ -15,11 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB︰使用 Spark 和 Apache TinkerPop Gremlin 執行圖表分析
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/26/2017
     </ivysettings>
     ``` 
 
-    b.這是另一個 C# 主控台應用程式。 啟動 Gremlin 主控台 `bin/gremlin.sh`。
+    b. 啟動 Gremlin 主控台 `bin/gremlin.sh`。
         
     c. 使用您在先前步驟中建立的 3.3.0-SNAPSHOT 版來安裝 Spark-Gremlin 外掛程式：
 
@@ -176,13 +176,13 @@ ms.lasthandoff: 10/26/2017
 
 ## <a name="get-the-azure-cosmos-db-spark-connector"></a>取得 Azure Cosmos DB Spark 連接器
 
-1. 從 [GitHub 上的 Azure Cosmos DB Spark 連接器](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11)，取得 Azure Cosmos DB Spark 連接器`azure-documentdb-spark-0.0.3-SNAPSHOT.jar` 和 Cosmos DB Java SDK `azure-documentdb-1.10.0.jar`。
+1. 從 [GitHub 上的 Azure Cosmos DB Spark 連接器](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11)，取得 Azure Cosmos DB Spark 連接器`azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` 和 Cosmos DB Java SDK `azure-documentdb-1.12.0.jar`。
 
 2. 或者，您可以在本機建置它。 因為最新版的 Spark-Gremlin 是使用 Spark 1.6.1 建置，且與 Azure Cosmos DB Spark 連接器中目前使用的 Spark 2.0.2 不相容，您可以建置最新的 TinkerPop3 程式碼及手動安裝 jar。 執行下列動作：
 
     a. 複製 Azure Cosmos DB Spark 連接器。
 
-    b.這是另一個 C# 主控台應用程式。 建置 TinkerPop3 (已在先前步驟中完成)。 在本機安裝所有 TinkerPop 3.3.0-SNAPSHOT jar。
+    b. 建置 TinkerPop3 (已在先前步驟中完成)。 在本機安裝所有 TinkerPop 3.3.0-SNAPSHOT jar。
 
     ```bash
     mvn install:install-file -Dfile="gremlin-core-3.3.0-SNAPSHOT.jar" -DgroupId=org.apache.tinkerpop -DartifactId=gremlin-core -Dversion=3.3.0-SNAPSHOT -Dpackaging=jar
@@ -225,7 +225,7 @@ ms.lasthandoff: 10/26/2017
     cp lib/* ~/azure-documentdb-spark
     ```
 
-    b.這是另一個 C# 主控台應用程式。 在 `Spark2` 區段的 `Spark2 Clients` 清單中，取得所有 Spark 背景工作節點的清單 (您可以在 Ambari 儀表板上找到)。
+    b. 在 `Spark2` 區段的 `Spark2 Clients` 清單中，取得所有 Spark 背景工作節點的清單 (您可以在 Ambari 儀表板上找到)。
 
     c. 將該目錄複製到每個節點。
 
@@ -243,7 +243,7 @@ ms.lasthandoff: 10/26/2017
  
     a. 在 `Custom yarn-site` 中，於主要節點上新增一個屬性 `hdp.version`，其值為 HDP 版本。 
      
-    b.這是另一個 C# 主控台應用程式。 儲存組態。 出現警告，您可以忽略。 
+    b. 儲存組態。 出現警告，您可以忽略。 
      
     c. 如通知圖示所指出，重新啟動 YARN 和 Oozie 服務。
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 10/26/2017
 
     a. 建立圖形 `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`。
 
-    b.這是另一個 C# 主控台應用程式。 使用 SparkGraphComputer 寫入 `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`。
+    b. 使用 SparkGraphComputer 寫入 `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`。
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -360,7 +360,7 @@ ms.lasthandoff: 10/26/2017
 
     a. 啟動 Gremlin 主控台 `bin/gremlin.sh`。
 
-    b.這是另一個 C# 主控台應用程式。 使用組態 `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')` 建立圖形。
+    b. 使用組態 `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')` 建立圖形。
 
     c. 使用 SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)` 建立圖形周遊。
 

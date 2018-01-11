@@ -3,7 +3,7 @@ title: "在 Azure DevTest Labs 中調整實驗室的配額和限制 | Microsoft 
 description: "了解如何在 Azure DevTest Labs 中調整實驗室"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: ae624155-9181-45fa-bd2b-1983339b7e0e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: tarcher
-ms.openlocfilehash: f11ed42b474e4f208eac92689bfa33fb188d15a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 7ea022dfb39154ec86c26856030111beee672bd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>在 DevTest Labs 中調整配額和限制
 當您在 DevTest Labs 中工作時，您可能會發現某些 Azure 資源有特定預設限制，會影響 DevTest Labs 服務。 這些限制稱為**配額**。

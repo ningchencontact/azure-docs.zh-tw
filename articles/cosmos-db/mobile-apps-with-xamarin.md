@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
-大部分的行動應用程式都需要將資料儲存在雲端，而 Azure Cosmos DB 正是適用於行動應用程式的雲端資料庫。 行動應用程式開發人員所需的一切盡在其中。 它是完全受管理的資料庫即服務，可依需求進行調整。 無論您的使用者位於全球哪個地方，它都可以透明方式將資料送至您的應用程式。 使用 [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md)，您可以讓 Xamarin 行動應用程式直接與 Azure Cosmos DB 互動，而不需要經過中介層。
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+大部分的行動應用程式都需要將資料儲存在雲端，而 Azure Cosmos DB 正是適用於行動應用程式的雲端資料庫。 行動應用程式開發人員所需的一切盡在其中。 它是完全受控的資料庫即服務，可依需求進行調整。 無論您的使用者位於全球哪個地方，它都可以透明方式將資料送至您的應用程式。 使用 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)，您可以讓 Xamarin 行動應用程式直接與 Azure Cosmos DB 互動，而不需要經過中介層。
 
 本文提供的教學課程可讓您了解如何使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式。 您可以在 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 中找到本教學課程的完整原始程式碼，包括如何管理使用者和權限。
 
@@ -30,7 +33,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 
 ![適用於行動應用程式的 Azure Cosmos DB 功能](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* 豐富的無結構描述資料查詢。 Azure Cosmos DB 會將資料以無結構描述 JSON 文件的形式儲存在異質集合中。 它提供[豐富且快速的查詢](documentdb-sql-query.md)，不需要擔心結構描述或索引。
+* 豐富的無結構描述資料查詢。 Azure Cosmos DB 會將資料以無結構描述 JSON 文件的形式儲存在異質集合中。 它提供[豐富且快速的查詢](sql-api-sql-query.md)，不需要擔心結構描述或索引。
 * 快速的輸送量。 只需要幾毫秒就能使用 Azure Cosmos DB 讀取和寫入文件。 開發人員可以指定他們需要的輸送量，Azure Cosmos DB 則以 99.99% 可用性的 SLA 加以實現，適用於一致性很寬鬆的所有單一區域帳戶和所有多重區域帳戶，而所有多重區域資料庫帳戶則有 99.999% 的讀取可用性。
 * 規模無限制。 您的 Azure Cosmos DB 集合可[隨著應用程式成長](partition-data.md)。 您可以從小型資料大小和每秒數百個要求的輸送量著手。 您的集合可以成長至數 PB 的資料以及每秒數億個要求的極大輸送量。
 * 散布世界各地。 行動應用程式使用者總是忙個不停，經常在世界各地奔波。 Azure Cosmos DB 是[分散在世界各地的資料庫](distribute-data-globally.md)。 按一下地圖，讓使用者能夠存取您的資料。
@@ -46,7 +49,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 
 ![適用於行動應用程式的 Azure Cosmos DB 快速入門](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
-或者，如果您有現有的 Xamarin 應用程式，您可以新增 [Azure Cosmos DB NuGet 套件](documentdb-sdk-dotnet-core.md)。 Azure Cosmos DB 支援 Xamarin.IOS、Xamarin.Android 和 Xamarin Forms 共用程式庫。
+或者，如果您有現有的 Xamarin 應用程式，您可以新增 [Azure Cosmos DB NuGet 套件](sql-api-sdk-dotnet-core.md)。 Azure Cosmos DB 支援 Xamarin.IOS、Xamarin.Android 和 Xamarin Forms 共用程式庫。
 
 ### <a name="work-with-data"></a>使用資料
 您的資料記錄會以無結構描述 JSON 文件的形式儲存在 Azure Cosmos DB 的異質集合中。 您可以在相同的集合中使用不同結構儲存文件：
@@ -87,7 +90,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 如果您想讓兩位使用者存取同一份待辦事項清單，您可以在資源權杖訊息代理程式的存取權杖中新增額外的權限。
 
 ### <a name="scale-on-demand"></a>依需求進行調整
-Azure Cosmos DB 是受管理的資料庫即服務。 隨著使用者人數成長，您不必為佈建 VM 或增加核心而煩惱。 您只需告訴 Azure Cosmos DB 您的應用程式每秒需要多少作業數 (輸送量)。 您可以透過入口網站的 [調整] 索引標籤，使用稱為每秒要求單位數 (RU) 的量值來指定輸送量。 例如，對 1-KB 文件進行的讀取作業需要 1 RU。 您也可以為 [輸送量] 計量新增警示來監視流量成長，並以設計程式方式在引發警示時變更輸送量。
+Azure Cosmos DB 是受控資料庫即服務。 隨著使用者人數成長，您不必為佈建 VM 或增加核心而煩惱。 您只需告訴 Azure Cosmos DB 您的應用程式每秒需要多少作業數 (輸送量)。 您可以透過入口網站的 [調整] 索引標籤，使用稱為每秒要求單位數 (RU) 的量值來指定輸送量。 例如，對 1-KB 文件進行的讀取作業需要 1 RU。 您也可以為 [輸送量] 計量新增警示來監視流量成長，並以設計程式方式在引發警示時變更輸送量。
 
 ![Azure Cosmos DB 依需求調整輸送量](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
@@ -100,9 +103,9 @@ Azure Cosmos DB 是受管理的資料庫即服務。 隨著使用者人數成長
 
 ## <a name="next-steps"></a>後續步驟
 * 檢視 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 原始程式碼。
-* 下載 [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md)。
-* 尋找更多 [.NET 應用程式](documentdb-dotnet-samples.md)的程式碼範例。
-* 了解 [Azure Cosmos DB 豐富查詢功能](documentdb-sql-query.md)。
+* 下載 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)。
+* 尋找更多 [.NET 應用程式](sql-api-dotnet-samples.md)的程式碼範例。
+* 了解 [Azure Cosmos DB 豐富查詢功能](sql-api-sql-query.md)。
 * 了解 [Azure Cosmos DB 中的地理空間支援](geospatial.md)。
 
 

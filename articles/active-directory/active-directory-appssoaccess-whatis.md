@@ -4,7 +4,7 @@ description: "您可以使用 Azure Active Directory 來單一登入到您進行
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如輸入密碼)。
@@ -49,12 +49,12 @@ Azure AD 支援三種不同的方式登入應用程式：
 * **密碼單一登入** 可以使用網頁瀏覽器延伸或行動應用程式，安全儲存應用程式的密碼以及重新執行。 這會利用應用程式提供的現有登入程序，但是讓系統管理員可以管理密碼，而且使用者不需要知道密碼。
 * **現有單一登入** 可讓 Azure AD 運用應用程式已設定的任何現有單一登入，但可讓這些應用程式連結至 Office 365 或 Azure AD 存取面板入口網站，當其中有應用程式啟動時，Azure AD 中也會有額外的報告。
 
-一旦使用者通過應用程式的驗證，他們在應用程式中也必須具有佈建的帳戶記錄，以便告訴應用程式在應用程式內部具有權限和存取層級的位置。 佈建此帳戶記錄可以自動執行，或是在提供使用者單一登入存取之前由系統管理員手動執行。
+一旦使用者已驗證的應用程式，它們也必須具有在告訴應用程式的應用程式佈建的帳戶記錄其中那里權限和存取層級是在應用程式內部。 佈建此帳戶記錄可以自動執行，或是在提供使用者單一登入存取之前由系統管理員手動執行。
 
  以下是有關這些單一登入模式和佈建的詳細資訊。
 
 ### <a name="federated-single-sign-on"></a>同盟單一登入
-同盟單一登入可讓您組織中的使用者，使用 Azure AD 的使用者帳戶資訊，由 Azure AD 自動登入協力廠商的 SaaS 應用程式。
+同盟單一登入可讓您的組織中的使用者，會自動登入協力廠商 SaaS 應用程式使用 Azure AD 的使用者帳戶資訊的 Azure ad。
 
 在此案例中，如果您已經登入 Azure AD，而且您想要存取由協力廠商 SaaS 應用程式控制的資源，同盟就可以讓使用者不需要重新驗證。
 

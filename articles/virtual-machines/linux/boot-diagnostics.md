@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 08/21/2017
 ms.author: delhan
-ms.openlocfilehash: 79e412bd7523a55fc7d081121af9434520868880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用開機診斷為 Azure 中的 Linux 虛擬機器進行疑難排解
 
@@ -33,7 +33,7 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
  
 不過，若為 Windows 和 Linux 虛擬機器，Azure 也可讓您從 Hypervisor 查看 VM 的螢幕擷取畫面︰
 
-![錯誤](./media/boot-diagnostics/screenshot2.png)
+![Error](./media/boot-diagnostics/screenshot2.png)
 
 所有區域中的 Azure 虛擬機器都支援這兩項功能。 請注意，螢幕擷取畫面和輸出最多可能需要 10 分鐘的時間才會出現在您的儲存體帳戶中。
 
@@ -46,7 +46,7 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>在新的虛擬機器上啟用診斷
 1. 從預覽入口網站建立新的虛擬機器時，從部署模型下拉式清單中選取 [Azure Resource Manager]︰
  
-    ![資源管理員](./media/boot-diagnostics/screenshot3.jpg)
+    ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
 2. 設定 [監視] 選項來選取您想要放置這些診斷檔案的儲存體帳戶。
  

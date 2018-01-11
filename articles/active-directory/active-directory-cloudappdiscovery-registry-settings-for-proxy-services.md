@@ -4,7 +4,7 @@ description: "本主題的目標是為您提供在執行 Cloud App Discovery 代
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Proxy 服務的 Cloud App Discovery 登錄設定
 本主題的目的是要告訴您如何在執行 Cloud App Discovery 代理程式的電腦上設定所需連接埠。 根據預設，Cloud App Discovery 代理程式設定為僅使用連接埠 80 或 443。 如果您計劃要在具有使用自訂連接埠 (既不是 80 也不是 443) 的 Proxy 伺服器的環境中安裝 Cloud App Discovery，您必須設定代理程式使用此連接埠。 設定是以登錄機碼為基礎。
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
    **4080** <br>
    **443** <br>
    **1110** <br><br>
-   ![編輯多字串](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
+   ![](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. 按一下 [確定]，關閉 [編輯多字串] 對話方塊。
 
 ## <a name="next-steps"></a>後續步驟

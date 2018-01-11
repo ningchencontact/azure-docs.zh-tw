@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>使用入口網站以 Web 應用程式防火牆建立應用程式閘道
 
@@ -96,11 +96,11 @@ Azure 應用程式閘道中的 WAF 可保護 Web 應用程式，免於遭受常�
    |---|---|---|
    |**名稱**|AdatumAppGateway|應用程式閘道的名稱。|
    |**層級**|WAF|可用的值為「標準」或 WAF。 若要深入了解 WAF，請參閱 [Web 應用程式防火牆](application-gateway-web-application-firewall-overview.md)。|
-   |**SKU 大小**|中型|標準層的選項為 [小型]、[中型] 和 [大型]。 WAF 層的選項只有 [中型] 和 [大型]。|
+   |**SKU 大小**|中|標準層的選項為 [小型]、[中型] 和 [大型]。 WAF 層的選項只有 [中型] 和 [大型]。|
    |**執行個體計數**|2|高可用性的應用程式閘道執行個體數目。 僅針對測試目的，使用執行個體計數 1。|
    |**訂用帳戶**|[您的訂用帳戶]|選取要用來建立應用程式閘道的訂用帳戶。|
    |**資源群組**|**建立新項目：**AdatumAppGatewayRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) 概觀。|
-   |**位置**|美國西部||
+   |<bpt id="p1">**</bpt>Location<ept id="p1">**</ept>|美國西部||
 
    ![基本設定][2-2]
 

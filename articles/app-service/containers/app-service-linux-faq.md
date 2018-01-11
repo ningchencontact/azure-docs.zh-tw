@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/30/2017
 
 **是否支援預備環境？**
 
-是。
+可以。
 
 **我可以使用 *Web 部署*來部署我的 Web 應用程式嗎？**
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/30/2017
 
 - 使用持續傳遞 (預覽) 功能：您可以將您的應用程式原始程式碼儲存在 Team Services 的 Git 存放庫或 GitHub 存放庫來使用 Azure 連續傳遞。 如需更多詳細資料，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (英文)。
 
-- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此應用程式開發介面，[SSH 到您的 Web 應用程式](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection)，然後移至您要部署程式碼的資料夾。 執行下列命令：
+- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此應用程式開發介面，[SSH 到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection)，然後移至您要部署程式碼的資料夾。 執行下列命令：
 
    ```
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -92,11 +92,11 @@ var io = require('socket.io')(server,{
 
 **是否支援未編譯的 .NET Core 應用程式？**
 
-是。
+可以。
 
 **您是否支援以 Composer 做為 PHP 應用程式的相依性管理程式？**
 
-是。 在 Git 部署期間，Kudu 應該會偵測到您要部署 PHP 應用程式 (這點受惠於 composer.lock 檔案)，然後 Kudu 會為您觸發編輯器安裝。
+可以。 在 Git 部署期間，Kudu 應該會偵測到您要部署 PHP 應用程式 (這點受惠於 composer.lock 檔案)，然後 Kudu 會為您觸發編輯器安裝。
 
 ## <a name="custom-containers"></a>自訂容器
 

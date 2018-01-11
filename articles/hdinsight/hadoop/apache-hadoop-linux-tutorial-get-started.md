@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 983c7d1f7e3b562a8b89f6afaf52a3289ab33f17
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 96be510476434168a31c78f3a5f97c12ea1eee0f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教學課程：開始在 HDInsight 中使用 Hadoop
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備：
 
 * **Azure 訂用帳戶**︰若要建立一個月的免費試用帳戶，請瀏覽至 [azure.microsoft.com/free](https://azure.microsoft.com/free)。
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/03/2017
     某些屬性已硬式編碼在範本中。  您可以從範本設定這些值。
 
     * **位置**︰叢集和相依儲存體帳戶的位置會共用相同的位置作為資源群組。
-    * **叢集版本**：3.5
+    * **叢集版本**：3.6
     * **OS 類型**：Linux
     * **背景工作節點數目**：2
 
@@ -66,11 +66,11 @@ ms.lasthandoff: 11/03/2017
      
      如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-3. 選取 [我同意上方所述的條款及條件] 和 [釘選到儀表板]，然後按一下 [購買]。 您會在入口網站儀表板上看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 而入口網站會自動在新的刀鋒視窗中開啟資源群組。 您可以看到列出的叢集和預設儲存體。
+3. 選取 [我同意上方所述的條款及條件] 和 [釘選到儀表板]，然後按一下 [購買]。 您會在入口網站儀表板上看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 而入口網站會自動開啟資源群組。 您可以看到列出的叢集和預設儲存體。
    
     ![HDInsight Linux 開始使用的資源群組](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 叢集資源群組")。
 
-4. 按一下叢集名稱，在新的刀鋒視窗中開啟叢集。
+4. 按一下叢集名稱以開啟叢集。
 
    ![HDInsight Linux 開始使用的叢集設定](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "Azure HDInsight 屬性")
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/03/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 從入口網站儀表板，按一下具有您建立叢集時所用資源群組名稱的圖格。
-3. 按一下資源刀鋒視窗上的 [刪除]，以刪除包含叢集和預設儲存體帳戶的資源群組，或按一下 [資源] 圖格上的叢集名稱，然後按一下叢集刀鋒視窗上的 [刪除]。 請注意，刪除資源群組會刪除儲存體帳戶。 如果您想要保留儲存體帳戶，請選擇只刪除叢集。
+3. 按一下 [刪除] 以刪除包含叢集和預設儲存體帳戶的資源群組，或按一下 [資源] 圖格上的叢集名稱，然後按一下 [刪除]。 請注意，刪除資源群組會刪除儲存體帳戶。 如果您想要保留儲存體帳戶，請選擇只刪除叢集。
 
 ## <a name="troubleshoot"></a>疑難排解
 
@@ -136,12 +136,12 @@ ms.lasthandoff: 11/03/2017
 * 若要了解 MapReduce (一種撰寫程式以處理 Hadoop 資料的方式)，請參閱[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)。
 * 若要了解如何使用適用於 Visual Studio 的 HDInsight 工具來分析 HDInsight 資料，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md)。
 
-如果您準備好開始使用您自己的資料，並需要進一步了解 HDInsight 儲存資料的方式或如何將資料匯入 HDInsight，請參閱下列主題：
+如果您準備好開始使用您自己的資料，並需要進一步了解 HDInsight 儲存資料的方式或如何將資料匯入 HDInsight，請參閱下列文章：
 
 * 如需有關 HDInsight 如何使用 Azure 儲存體的資訊，請參閱 [搭配 HDInsight 使用 Azure 儲存體](../hdinsight-hadoop-use-blob-storage.md)。
 * 如需關於如何上傳資料到 HDInsight 的資訊，請參閱[將資料上傳到 HDInsight](../hdinsight-upload-data.md)。
 
-如果您想要深入了解如何建立或管理 HDInsight 叢集，請參閱下列主題：
+如果您想要深入了解如何建立或管理 HDInsight 叢集，請參閱下列文章：
 
 * 若要了解如何管理以 Linux 為基礎的 HDInsight 叢集，請參閱 [使用 Ambari 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
 * 若要深入了解建立 HDInsight 叢集時可選取的選項，請參閱 [使用自訂選項在 Linux 上建立 HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)。

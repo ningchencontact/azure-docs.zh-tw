@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Asana 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeedes
-ms.openlocfilehash: a2f0cecb93cc382bcfd710c44eb70f80ae67f9b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8058dcd397e5f81f4a8c8cd1845353fd789f604b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>教學課程：Azure Active Directory 與 Asana 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Asana
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-asana-from-the-gallery"></a>從資源庫新增 Asana
-若要設定將 Asana 整合到 Azure AD 中，您需要從資源庫將 Asana 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Asana 整合到 Azure AD 中，您需要從資源庫將 Asana 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫加入 Asana，請執行下列步驟：**
 
@@ -134,9 +134,9 @@ ms.lasthandoff: 10/11/2017
 
      a. 在 [登入頁面 URL] 文字方塊中，貼上「SAML 單一登入服務 URL」。
 
-     b.這是另一個 C# 主控台應用程式。 在從 Azure 入口網站下載的憑證上按一下滑鼠右鍵，然後使用「記事本」或您慣用的文字編輯器來開啟該憑證檔案。 複製開始和結束憑證標題之間的內容，然後將它貼到 [X.509 憑證] 文字方塊中。
+     b. 在從 Azure 入口網站下載的憑證上按一下滑鼠右鍵，然後使用「記事本」或您慣用的文字編輯器來開啟該憑證檔案。 複製開始和結束憑證標題之間的內容，然後將它貼到 [X.509 憑證] 文字方塊中。
 
-9. 按一下 [儲存] 。 如需進一步協助，請移至 [用於設定 SSO 的 Asana 指南](https://asana.com/guide/help/premium/authentication#gl-saml) 。
+9. 按一下 [檔案] 。 如需進一步協助，請移至 [用於設定 SSO 的 Asana 指南](https://asana.com/guide/help/premium/authentication#gl-saml) 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,15 +167,15 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-asana-test-user"></a>建立 Asana 測試使用者
 
-在本節中，您要在 Asana 中建立名為 Britta Simon 的使用者。
+在本節中，您會在 Asana 中建立名為 Britta Simon 的使用者。
 
 1. 在 [Asana] 移至左面板上的 [小組] 區段。 按一下加號按鈕。 
    
@@ -219,7 +219,7 @@ ms.lasthandoff: 10/11/2017
 
 本節的目標是要測試您的 Azure AD 單一登入。
 
-移至 Asana 登入頁面。 在 電子郵件地址 文字方塊中，插入電子郵件地址 britta.simon@contoso.com。讓 密碼 文字方塊保持空白，然後按一下登入。 系統會將您重新導向至 Azure AD 登入頁面。 完成您的 Azure AD 認證。 現在，您已在 Asana 上登入。
+移至 Asana 登入頁面。 在 [電子郵件地址] 文字方塊中，插入電子郵件地址 britta.simon@contoso.com。讓 [密碼] 文字方塊保持空白，然後按一下 [登入]。 系統會將您重新導向至 Azure AD 登入頁面。 完成您的 Azure AD 認證。 現在，您已在 Asana 上登入。
 
 ## <a name="additional-resources"></a>其他資源
 

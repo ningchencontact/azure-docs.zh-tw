@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>什麼是 Azure IoT 套件？
 
@@ -30,6 +30,10 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 * 可以自訂以符合特定需求
 
 *IoT 套件*的預先設定解決方案皆根據相同原則和目標而設計。
+
+下列影片會提供遠端監視預先設定解決方案的概觀：
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>預先設定解決方案概觀
 
@@ -54,11 +58,11 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 
 下表顯示這些解決方案與特定的 IoT 功能如何對應：
 
-| 方案 | 資料擷取 | 裝置身分識別 | 裝置管理 | 邊緣處理 | 命令與控制 | 執行和動作 | 預測性分析 |
+| 解決方法 | 資料擷取 | 裝置身分識別 | 裝置管理 | 邊緣處理 | 命令與控制 | 執行和動作 | 預測性分析 |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [遠端監視](iot-suite-remote-monitoring-explore.md)  |是 |是 |是 |-   |是 |是 |-   |
-| [預測性維護](iot-suite-predictive-overview.md)   |是 |是 |-   |-   |是 |是 |是 |
-| [連線的處理站](iot-suite-connected-factory-overview.md) |是 |是 |是 |是 |是 |是 |-   |
+| [遠端監視](iot-suite-remote-monitoring-explore.md)  |yes |yes |yes |-   |yes |yes |-   |
+| [預測性維護](iot-suite-predictive-overview.md)   |yes |yes |-   |-   |yes |yes |yes |
+| [連線的處理站](iot-suite-connected-factory-overview.md) |yes |yes |yes |yes |yes |yes |-   |
 
 * *資料擷取*：雲端規模的資料輸入。
 * *裝置身分識別*：管理唯一裝置身分識別，以及控制裝置對解決方案的存取。
@@ -76,14 +80,14 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 
 |                      | 遠端監視  | 預測性維護 | 連線的處理站 |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT 中樞              | 是                |                        | 是               |
-| 事件中樞           |                    | 是                    |                   |
-| Time Series Insights |                    |                        | 是               |
-| 容器服務   | 是                |                        | 是               |
-| 串流分析     |                    | 是                    |                   |
-| Web Apps             | 是                | 是                    | 是               |
-| Cosmos DB            | 是                | 是                    | 是               |
-| Azure 資料表         |                    | 是                    | 是               |
+| IoT 中樞              | yes                |                        | yes               |
+| 事件中樞           |                    | yes                    |                   |
+| Time Series Insights |                    |                        | yes               |
+| 容器服務   | yes                |                        | yes               |
+| 串流分析     |                    | yes                    |                   |
+| Web Apps             | yes                | yes                    | yes               |
+| Cosmos DB            | yes                | yes                    | yes               |
+| Azure 資料表         |                    | yes                    | yes               |
 
 > [!NOTE]
 > 如需有關部署在遠端監視預先設定解決方案中資源的詳細資訊，請在 GitHub 上參閱此[文章](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments)。

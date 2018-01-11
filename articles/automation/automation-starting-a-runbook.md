@@ -3,7 +3,7 @@ title: "在 Azure 自動化中啟動 Runbook | Microsoft Docs"
 description: "摘要說明可以用來在 Azure 自動化中啟動 Runbook 的不同的方法，並提供使用 Azure 入口網站和 Windows PowerShell 的詳細資訊。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 7537a50d3d9b773f48bc498f946ea5f63f6d530b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4387f3ed56f1adb562e29b9d152d113859c88b06
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 下表將協助您判斷在 Azure 自動化中啟動 Runbook 的方法，最適合您的特定案例。 這篇文章包含有關使用 Azure 入口網站和 Windows PowerShell 啟動 Runbook 的詳細資料。 其他方法的詳細資訊在其他文件中提供，您可以從下列連結來存取。
 
 | **方法** | **特性** |
 | --- | --- |
-| [Azure 入口網站](#starting-a-runbook-with-the-azure-portal) |<li>互動式使用者介面的最簡單方法。<br> <li>提供簡單參數值的表單。<br> <li>輕鬆追蹤工作狀態。<br> <li>使用 Azure 登入資訊驗證存取。 |
+| [HttpTrigger Nodejs 函數](#starting-a-runbook-with-the-azure-portal) |<li>互動式使用者介面的最簡單方法。<br> <li>提供簡單參數值的表單。<br> <li>輕鬆追蹤工作狀態。<br> <li>使用 Azure 登入資訊驗證存取。 |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>使用 Windows PowerShell Cmdlet 從命令列呼叫。<br> <li>可以包含在具有多個步驟的自動化解決方案中。<br> <li>使用憑證或 OAuth 使用者主體/服務主體來驗證要求。<br> <li>提供簡單和複雜的參數值。<br> <li>追蹤工作狀態。<br> <li>支援 PowerShell Cmdlet 所需的用戶端。 |
 | [Azure 自動化 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>最有彈性的方法，但也最複雜。<br> <li>從任何可提出 HTTP 要求的自訂程式碼呼叫。<br> <li>使用憑證或 OAuth 使用者主體/服務主體來驗證要求。<br> <li>提供簡單和複雜的參數值。<br> <li>追蹤工作狀態。 |
 | [Webhook](automation-webhooks.md) |<li>從單一 HTTP 要求啟動 Runbook。<br> <li>在 URL 中使用安全性權杖進行驗證。<br> <li>用戶端無法覆寫建立 Webhook 時指定的參數值。 Runbook 可以定義填入了 HTTP 要求詳細資料的單一參數。<br> <li>無法透過 Webhook URL 追蹤工作狀態。 |
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="starting-a-runbook-with-the-azure-portal"></a>使用 Azure 入口網站啟動 Runbook
 1. 在 Azure 入口網站中，選取 [ **自動化** ]，然後按一下自動化帳戶的名稱。
 2. 在 [中樞] 功能表中，選取 [Runbook]。
-3. 在 Runbook 刀鋒視窗中，選取 Runbook，然後按一下啟動。
+3. 在 [Runbook] 刀鋒視窗中，選取 Runbook，然後按一下 [啟動]。
 4. 如果 Runbook 有參數，系統會提示您提供每個參數的文字方塊的值。 請參閱以下的 [Runbook 參數](#Runbook-parameters) ，以取得參數的進一步詳細資訊。
 5. 在 [作業] 刀鋒視窗中，您可以檢視 Runbook 作業的狀態。
 

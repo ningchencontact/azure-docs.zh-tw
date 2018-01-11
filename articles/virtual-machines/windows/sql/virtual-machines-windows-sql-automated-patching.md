@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的 SQL Server 自動修補 (Resource Manager)
 > [!div class="op_single_selector"]
-> * [資源管理員](virtual-machines-windows-sql-automated-patching.md)
+> * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [傳統](../classic/sql-automated-patching.md)
 > 
 > 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>設定
 下表說明可以為自動修補設定的選項。 實際的設定步驟會依據您是使用 Azure 入口網站或 Azure Windows PowerShell 命令而有所不同。
 
 | 設定 | 可能的值 | 說明 |
@@ -109,6 +109,9 @@ ms.lasthandoff: 10/11/2017
     $aps = AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+
+> [!IMPORTANT]
+> 如果尚未安裝擴充功能，安裝此擴充功能會重新啟動 SQL Server 服務。
 
 下表會根據此範例來描述對目標 Azure VM 的實際效果：
 

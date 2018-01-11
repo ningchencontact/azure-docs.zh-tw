@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Rally Software 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ba25fade-e152-42dd-8377-a30bbc48c3ed
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6481c9ef0ca71419ccfa6f7956f4702985743df3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9e3b5ad4487ff1309923a1b0ffac9589084e715b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>教學課程：Azure Active Directory 與 Rally Software 整合
 
@@ -48,13 +48,13 @@ Rally Software 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Rally Software
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-rally-software-from-the-gallery"></a>從資源庫新增 Rally Software
-若要設定將 Rally Software 整合到 Azure AD 中，您需要從資源庫將 Rally Software 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Rally Software 整合到 Azure AD 中，您需要從資源庫將 Rally Software 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Rally Software，請執行下列步驟：**
 
@@ -137,7 +137,7 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
 9. 按一下 [動作] 按鈕。 選取工具列右上方的 [編輯訂用帳戶]。
 
-10. 在 訂用帳戶 對話方塊頁面上，執行下列步驟，然後按一下儲存並關閉：
+10. 在 [訂用帳戶] 對話方塊頁面上，執行下列步驟，然後按一下 [儲存並關閉]：
    
     ![驗證](./media/active-directory-saas-rally-software-tutorial/ic769542.png "驗證")
    
@@ -163,7 +163,7 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-rally-software-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-rally-software-tutorial/create_aaduser_02.png)
 
@@ -181,7 +181,7 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-rally-software-test-user"></a>建立 Rally Software 測試使用者
 
@@ -191,11 +191,11 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 Rally Software 租用戶。
 
-2. 按一下 設定 \> 使用者，然後按一下新增使用者。
+2. 按一下 [設定] \> [使用者]，然後按一下 [新增使用者]。
    
     ![使用者](./media/active-directory-saas-rally-software-tutorial/ic781039.png "使用者")
 
-3. 在 新使用者 文字方塊中輸入名稱，然後按一下新增詳細資料 。
+3. 在 [新使用者] 文字方塊中輸入名稱，然後按一下 [新增詳細資料] 。
 
 4. 在 [建立使用者]  區段中，執行下列步驟：
    
@@ -246,7 +246,7 @@ Rally Software 與 Azure AD 整合提供下列優點：
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在 [存取面板] 中按一下 [Rally Software] 圖格時，應該會自動登入您的 Rally Software 應用程式。
 

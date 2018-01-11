@@ -18,11 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 本文將說明如何執行驗證，讓您的程式碼可以使用 [Microsoft Azure 監視器 REST API 參考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         
@@ -93,7 +93,7 @@ $authHeader = @{
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>取出計量定義 (多維度 API)
 
-使用 [Azure 監視器度量定義 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) 來存取可供服務使用的度量清單。
+使用 [Azure 監視器度量定義 REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) 來存取可供服務使用的度量清單。
 
 **方法**：GET
 

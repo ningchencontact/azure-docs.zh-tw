@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -161,51 +161,10 @@ IoT 中樞會公開多個[端點](iot-hub-devguide-endpoints.md)，讓您的應�
 ## <a name="interactive-message"></a>互動式訊息
 互動式訊息是[雲端到裝置](#cloud-to-device)訊息，可在解決方案後端觸發立即的行動。 例如，裝置可能會傳送有關失敗的警示，並應該自動記錄到 CRM 系統。
 
-## <a name="iot-edge"></a>IoT Edge
-Azure IoT Edge 能針對內部部署裝置，實現 Azure 服務的雲端驅動部署及解決方案特定程式碼。 IoT Edge 裝置可以在其他裝置的資料被傳送至雲端之前，對這些資料進行彙總來執行計算和分析。 如需詳細資訊，請參閱 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/)。
-
-## <a name="iot-edge-agent"></a>IoT Edge 代理程式
-IoT Edge 執行階段負責部署及監視模組的部分。
-
-## <a name="iot-edge-device"></a>IoT Edge 裝置
-已安裝 IoT Edge 執行階段並在裝置詳細資料中被標記為「IoT Edge 裝置」的 IoT Edge 裝置。 了解如何[在 Linux 中的模擬裝置上部署 Azure IoT Edge - 預覽](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux)。
-
-## <a name="iot-edge-deployment"></a>IoT Edge 部署
-IoT Edge 部署會設定一組目標 IoT Edge 裝置，以執行 IoT Edge 模組集合。 每個部署都會持續確保符合其目標條件的所有裝置都正在執行指定的模組集合，即使在建立新裝置或是將新裝置修改成符合目標條件的情況下也一樣。 每個 IoT Edge 裝置都只會接收符合其條件的最高優先順序部署。 深入了解 [IoT Edge 部署](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring)。
-
-## <a name="iot-edge-deployment-manifest"></a>IoT Edge 部署資訊清單
-JSON 文件，包含要在一個或多個 IoT Edge 裝置之模組對應項中複製的資訊，以部署一組模組、路由及相關模組所需屬性。
-
-## <a name="iot-edge-gateway-device"></a>IoT Edge 閘道裝置
-具有下游裝置的 IoT Edge 裝置。 下游裝置可以是 IoT Edge 裝置或不是 IoT Edge 裝置。
-
-## <a name="iot-edge-hub"></a>IoT Edge 中樞
-IoT Edge 執行階段負責模組對模組通訊、上游 (朝向 IoT 中樞)，以及下游 (遠離 IoT 中樞) 通訊的部分。 
-
-## <a name="iot-edge-leaf-device"></a>IoT Edge 分葉裝置
-不具下游裝置的 IoT Edge 裝置。 
-
-## <a name="iot-edge-module"></a>IoT Edge 模組
-IoT Edge 模組是可以部署到 IoT Edge 裝置的 Docker 容器。 它會執行特定的工作，例如從裝置擷取訊息、轉換訊息，或是將訊息傳送至 IoT 中樞。 它會與其他模組通訊，並將資料傳送給 IoT Edge 執行階段。 [了解開發 IoT Edge 模組的需求和工具](https://docs.microsoft.com/en-us/azure/iot-edge/module-development)。
-
-## <a name="iot-edge-module-identity"></a>IoT Edge 模組身分識別
-位於 IoT 中樞模組身分識別登錄中的記錄，詳述模組向 Edge 中樞或 IoT 中樞驗證時所要使用的存在及安全性認證。
-
-## <a name="iot-edge-module-image"></a>IoT Edge 模組映像
-IoT Edge 執行階段用來具現化模組執行個體的 Docker 映像。
-
-## <a name="iot-edge-module-twin"></a>IoT Edge 模組對應項
-保存在 IoT 中樞中的 JSON 文件，能夠儲存模組執行個體的狀態資訊。 
-
-## <a name="iot-edge-runtime"></a>IoT Edge 執行階段
-IoT Edge 執行階段包含 Microsoft 散發以安裝於 IoT Edge 裝置上的所有項目。 它包含 Edge 代理程式、Edge 中樞和 Edge CTL 工具。
-
-## <a name="iot-edge-set-modules-to-a-single-device"></a>IoT Edge 將模組設定至單一裝置
-複製位於單一裝置模組對應項上之 IoT Edge 資訊清單內容的作業。 基礎 API 是一般的「套用設定」，它會直接將 IoT Edge 資訊清單作為輸入。
-s
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT 中樞
-IoT 中樞是一項完全受管理的 Azure 服務，可在數百萬個裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md) 使用 [Azure 訂用帳戶](#subscription)，您可以建立 IoT 中樞來處理 IoT 傳訊工作負載。
+IoT 中樞是一項完全受控的 Azure 服務，可在數百萬個裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md) 使用 [Azure 訂用帳戶](#subscription)，您可以建立 IoT 中樞來處理 IoT 傳訊工作負載。
 
 ## <a name="iot-hub-metrics"></a>IoT 中樞計量
 [IoT 中樞計量](iot-hub-metrics.md)可提供 [Azure 訂用帳戶](#subscription)中 IoT 中樞的狀態相關資料。 IoT 中樞度量可讓您評估服務及其連接之裝置的整體健全狀況。 IoT 中樞度量可協助您了解 IoT 中樞的情況並調查根本問題，而不需要連絡 Azure 支援人員。
@@ -222,7 +181,7 @@ Azure IoT 套件會使用預先設定的解決方案將多項 Azure 服務封裝
 ## <a name="iothub-explorer"></a>iothub-explorer
 [iothub-explorer](https://github.com/azure/iothub-explorer) 是一種跨平台的命令列工具。 此工具可讓您管理[身分識別登錄](#identity-registry)中的裝置、傳送及接收裝置的訊息和檔案，以及監視 IoT 中樞作業。
 
-## <a name="job"></a>作業
+## <a name="job"></a>工作 (Job)
 解決方案後端可以使用[作業](iot-hub-devguide-jobs.md)來排程和追蹤已向 IoT 中樞註冊之一組裝置的活動。 這些活動包括更新裝置對應項[所需屬性](#desired-properties)、更新裝置對應項[標籤](#tags)，以及叫用[直接方法](#direct-method)。 [IoT 中樞](#iot-hub)也可使用作業從[身分識別登錄](#identity-registry)[匯入和匯出](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)資料。
 
 ## <a name="jobs-rest-api"></a>作業 REST API
@@ -239,9 +198,6 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 
 ## <a name="primary-and-secondary-keys"></a>主要和次要金鑰
 當您連接到 IoT 中樞上的裝置面向或服務面向端點時，[連接字串](#connection-string)包含可授與存取權的金鑰。 當您將裝置新增到[身分識別登錄](#identity-registry)或將[共用存取原則](#shared-access-policy)新增到中樞時，服務會產生主要和次要金鑰。 擁有兩個金鑰，可讓您在更新金鑰時從一個金鑰轉換至另一個金鑰，而不會中斷對 IoT 中樞的存取。
-
-## <a name="priority"></a>優先順序
-當兩個 IoT Edge 部署都將同一個裝置設為目標時，系統會套用具有較高優先順序的部署。 如果兩個部署的優先順序相同，則系統會套用建立日期較晚的部署。 深入了解[優先順序](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority)。
 
 ## <a name="protocol-gateway"></a>通訊協定閘道
 通訊協定閘道通常部署在雲端，可為連線到 [IoT 中樞](#iot-hub)的裝置提供通訊協定轉譯服務。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md)
@@ -276,7 +232,7 @@ SASL PLAIN 是 [AMQP](#advanced-message-queue-protocol) 通訊協定用來傳輸
 ## <a name="simulated-device"></a>模擬裝置
 為了方便起見，許多 IoT 中樞教學課程都使用模擬裝置，讓您在本機電腦上執行範例。 相反地，[實體裝置](#physical-device)是實際的裝置，例如連接到 IoT 中樞的 Raspberry Pi。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 _方案_可意指包含一或多個專案的 Visual Studio 方案。 _方案_也可意指包含裝置、[裝置應用程式](#device-app)、IoT 中樞、其他 Azure 服務和[後端應用程式](#back-end-app)等元素的 IoT 方案。
 
 ## <a name="subscription"></a>訂用帳戶
@@ -287,9 +243,6 @@ Azure 訂用帳戶是發生帳單的地方。 您建立的每個 Azure 資源，
 
 ## <a name="tags"></a>標記
 在[裝置對應項](iot-hub-devguide-device-twins.md)的內容中，標籤是解決方案後端以 JSON 文件形式儲存和擷取的裝置中繼資料。 裝置上的應用程式看不到標籤。
-
-## <a name="target-condition"></a>目標條件
-在 IoT Edge 部署中，「目標條件」是裝置對應項的標籤上選取部署目標裝置的任何布林值條件，例如 "tag.environment = prod"。 系統會持續評估目標條件以納入任何符合需求的新裝置，或是移除任何不再符合需求的裝置。 深入了解[目標條件](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>遙測
 裝置可收集遙測資料 (例如風速或溫度)，並使用[資料點訊息](#data-point-messages)將遙測傳送到 IoT 中樞。

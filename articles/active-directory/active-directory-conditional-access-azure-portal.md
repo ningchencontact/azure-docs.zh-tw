@@ -5,7 +5,7 @@ services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
 
@@ -200,7 +200,7 @@ ms.lasthandoff: 11/08/2017
 
 此案例類似於前一個案例，因為這會新增 Multi-Factor Authentication 的需求。
 不過，主要差異在於這項需求的條件。  
-雖然前一個案例的焦點在於有權存取敏感性資料的應用程式，而此案例的焦點則在於信任的位置。  
+當之前中的焦點已具有存取敏感性資料的應用程式時，這種情況的焦點是案例的受信任的位置。  
 換句話說，如果使用者從您不信任的網路存取應用程式，您可能需要 Multi-Factor Authentication。
 
 
@@ -209,6 +209,9 @@ ms.lasthandoff: 11/08/2017
 如果您在自己的環境中使用 Intune，您可以在 Azure 主控台中立即開始使用條件式存取原則介面。
 
 許多 Intune 客戶都使用條件式存取來確保只有受信任的裝置可以存取 Office 365 服務。 這表示行動裝置已向 Intune 進行註冊並符合合規性原則需求，而且 Windows 電腦已加入內部部署網域。 您不需要為每項 Office 365 服務設定相同的原則，是一項重大改進。  當您建立新原則時，請設定雲端應用程式包含您想要使用條件式存取保護的每個 O365 應用程式。
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>切換裝置的公司擁有來攜帶您自己的裝置 (BYOD)
+如果您想要封鎖註冊裝置，從公司的裝置擁有權變更為 個人，您可以完成這項作業使用 Azure Active Directory (AAD) 的條件式存取。 您必須先建立條件式存取原則其中**封鎖存取**選取存取控制從**Grant**刀鋒視窗。 接下來，建立**動態裝置**藉由設定群組**deviceOwnership**屬性**個人**。 然後，目標上述原則至新的群組。
 
 ## <a name="next-steps"></a>後續步驟
 

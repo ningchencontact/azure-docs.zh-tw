@@ -4,7 +4,7 @@ description: "本文說明如何使用 Azure 入口網站向 Azure Active Direct
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>向 Azure Active Directory 租用戶註冊您的應用程式
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
   * [屬性] 頁面可讓您修改應用程式的一般資訊。 這包括應用程式名稱、登入 URL 以及登出 URL。
   * [回覆 URL] 頁面可讓您新增回覆 URL，也就是 Azure AD 傳送權杖回應的位置。
   * [擁有者] 頁面可讓您新增應用程式擁有者。
-  * [權限] 頁面可讓您設定應用程式的權限。 例如，若要存取 Microsoft 圖形 API，請按一下 [新增] 並在 API 選取器中選取 [Microsoft Graph]，然後選擇所需的權限，例如 [讀取目錄資料]。
+  * **必要的權限**頁面可讓您設定應用程式的權限。 例如，若要存取 Microsoft 圖形 API，請按一下 [新增] 並在 API 選取器中選取 [Microsoft Graph]，然後選擇所需的權限，例如 [讀取目錄資料]。
   * [金鑰] 頁面可讓您新增應用程式密碼。 密碼只會在建立後立即顯示一次，請務必加以複製以便進一步使用。
 
 ## <a name="use-the-inline-manifest-editor"></a>使用內嵌資訊清單編輯器

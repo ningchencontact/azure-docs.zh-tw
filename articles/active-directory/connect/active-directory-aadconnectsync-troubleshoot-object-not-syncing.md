@@ -4,7 +4,7 @@ description: "針對物件未同步至 Azure AD 的原因進行疑難排解。"
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
@@ -78,14 +78,14 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 
 另一個實用的搜尋是選取 [Azure AD 連接器]，然後在 [範圍] 中選取 [擱置匯入]，接著選取 [新增] 核取方塊。 此搜尋會提供您 Azure AD 中無法與內部部署物件建立關聯的所有已同步處理物件。  
 ![連接器空間搜尋孤立物件](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-這些物件是由另一個同步引擎所建立，或是由具有不同篩選組態的同步引擎所建立。 此檢視是一個由不再受管理的「孤立」物件所組成的清單。 您應該檢閱此清單，然後考慮使用 [Azure AD PowerShell](http://aka.ms/aadposh) Cmdlet 來移除這些物件。
+這些物件是由另一個同步引擎所建立，或是由具有不同篩選組態的同步引擎所建立。 此檢視是一個由不再受控「孤立」物件所組成的清單。 您應該檢閱此清單，然後考慮使用 [Azure AD PowerShell](http://aka.ms/aadposh) Cmdlet 來移除這些物件。
 
 ### <a name="cs-import"></a>CS 匯入
 當您開啟 cs 物件時，頂端會出現數個索引標籤。 [匯入]  索引標籤會顯示匯入後暫存的資料。  
 ![CS 物件](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 [舊值] 顯示目前儲存在 Connect 中的值，而 [新值] 則顯示從來源系統收到但尚未套用的值。 如果物件上發生錯誤，系統便不會處理變更。
 
-**Error**  
+**錯誤**  
 ![CS 物件](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 只有當物件發生問題時，才會顯示 [同步處理錯誤] 索引標籤。 如需詳細資訊，請參閱[針對同步處理錯誤進行疑難排解 (英文)](#troubleshoot-errors-in-operations-tab)。
 

@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>使用來自.NET 的服務匯流排與 AMQP 1.0 搭配
 
-## <a name="downloading-the-service-bus-sdk"></a>下載服務匯流排 SDK
+AMQP 1.0 支援適用於服務匯流排封裝版本 2.1 或更新版本。 您可以從 [NuGet][NuGet] 下載「服務匯流排」軟體，以確保您擁有最新版本。
 
-服務匯流排 SDK 2.1 版或更新版本提供 AMQP 1.0 支援。 您可以從 [NuGet][NuGet] 下載「服務匯流排」軟體，以確保您擁有最新版本。
-
-## <a name="configuring-net-applications-to-use-amqp-10"></a>設定 .NET 應用程式以使用 AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>設定.NET 應用程式以使用 AMQP 1.0
 
 依預設，服務匯流排 .NET 用戶端程式庫能使用專屬的 SOAP 型通訊協定與服務匯流排服務通訊。 若要使用 AMQP 1.0 (而非預設的通訊協定)，您需要明確地設定服務匯流排連接字串，如下節內容所述。 除了這項變更之外，在使用 AMQP 1.0 時，應用程式程式碼會維持不變。
 
@@ -34,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="configuration-using-appconfig"></a>使用 App.config 進行設定
 
-讓應用程式使用 App.config 組態檔案來儲存設定是不錯的作法。 對於服務匯流排應用程式，您可以使用 App.config 來儲存服務匯流排連接字串。 範例 App.config 檔案如下所示：
+它是最好的作法是應用程式可以使用組態檔 App.config 來儲存設定。 對於服務匯流排應用程式，您可以使用 App.config 來儲存服務匯流排連接字串。 範例 App.config 檔案如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -77,10 +75,10 @@ ms.lasthandoff: 10/11/2017
 | double |double |AMQP 值 |
 | decimal |decimal128 |AMQP 值 |
 | char |char |AMQP 值 |
-| DateTime |timestamp |AMQP 值 |
+| Datetime |timestamp |AMQP 值 |
 | Guid |uuid |AMQP 值 |
 | byte[] |binary |AMQP 值 |
-| string |string |AMQP 值 |
+| 字串 |字串 |AMQP 值 |
 | System.Collections.IList |list |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Array |array |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Collections.IDictionary |map |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。注意︰僅支援 String 索引鍵。 |
@@ -90,11 +88,11 @@ ms.lasthandoff: 10/11/2017
 | Stream |binary |AMQP 資料 (可能有多個)。 Data 區段包含從 Stream 物件讀取的原始位元組。 |
 | 其他物件 |binary |AMQP 資料 (可能有多個)。 包含使用 DataContractSerializer 或應用程式所提供序列化程式之物件的序列化二進位資料。 |
 
-| .NET 類型 | 對應的 AMQP 描述類型 | 注意事項 |
+| .NET 類型 | 對應的 AMQP 描述類型 | 注意 |
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
-| Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
+| 時間範圍 |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
 ## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>不支援的功能、限制和行為差異
 
@@ -109,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 * `MessageReceiver.Receive(TimeSpan.Zero)` 會實作為 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`。
 * 只有最初收到訊息的訊息接收者能夠以鎖定權杖完成訊息。
 
-## <a name="controlling-amqp-protocol-settings"></a>控制 AMQP 通訊協定設定
+## <a name="control-amqp-protocol-settings"></a>控制 AMQP 通訊協定設定
 
 [.NET API](/dotnet/api/) 會公開數個可控制 AMQP 通訊協定行為的設定：
 
@@ -124,7 +122,6 @@ ms.lasthandoff: 10/11/2017
 
 * [服務匯流排 AMQP 概觀]
 * [AMQP 1.0 通訊協定指南]
-* [Windows Server 服務匯流排中的 AMQP]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -135,4 +132,4 @@ ms.lasthandoff: 10/11/2017
 [Azure portal]: https://portal.azure.com
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [AMQP 1.0 通訊協定指南]: service-bus-amqp-protocol-guide.md
-[Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
+

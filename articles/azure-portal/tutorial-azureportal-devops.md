@@ -7,18 +7,18 @@ author: mlearned
 manager: douge
 editor: mlearned
 ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教學課程︰DevOps 與 Azure 入口網站
 Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，您將會了解如何運用 Azure 入口網站的功能，來開發、測試、部署、疑難排解、監視和管理執行中的應用程式。 本教學課程著重於下列內容︰
@@ -50,7 +50,7 @@ Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，�
    在右側開啟的刀鋒視窗中，捲動到 [發佈] 區段。
    
    ![image5][image5]
-6. 接著，進行一些設定，讓應用程式能夠進行連續部署。 按一下 部署來源，然後按一下選擇來源。 請注意儲存機制來源所具有的選項變化。
+6. 接著，進行一些設定，讓應用程式能夠進行連續部署。 按一下 [部署來源]，然後按一下 [選擇來源]。 請注意儲存機制來源所具有的選項變化。
    
    ![image6][image6]
 7. 在此範例中，請選擇 [GitHub]。 選擇性地選擇您所選擇的儲存機制，並設定授權認證。
@@ -258,7 +258,7 @@ Azure 提供許多用來監視和針對執行中應用程式進行疑難排解�
     
      ![image69][image69]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 本教學課程透過快速啟用 Web 應用程式的連續部署、執行各種開發和測試活動、監視和針對 Live App 進行疑難排解，以及最終管理金鑰策略 (例如災害復原、身分識別和角色型存取控制)，示範了 Azure 平台的部分功能。 Azure 平台可讓這些 DevOps 工作流程獲得整合的體驗，而且您可以透過讓手邊的工作保持在環境中而能有效率地工作。
 
 ## <a name="next-steps"></a>後續步驟

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 ServiceNow 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 7b25e2184296182687d49b798e5e5a9a2d623c6e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 8b21c7b18c31f3111caa13d08efb5aa42ecc0e49
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>教學課程：Azure Active Directory 與 ServiceNow 整合
 
@@ -50,13 +50,13 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 ServiceNow
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-servicenow-from-the-gallery"></a>從資源庫新增 ServiceNow
-若要設定 ServiceNow 與 Azure AD 整合，您需要從資源庫將 ServiceNow 新增到受管理的 SaaS 應用程式清單。
+若要設定 ServiceNow 與 Azure AD 整合，您需要從資源庫將 ServiceNow 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 ServiceNow，請執行下列步驟：**
 
@@ -132,7 +132,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [端點] 以開啟 [端點] 對話方塊。
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。
     
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
     
@@ -186,7 +186,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
     d. 在 [使用者資料表上的欄位...] 文字方塊中，輸入 **user_name**。
 
-    e. 按一下 [儲存] 。
+    e. 按一下 [檔案] 。
 
 13. 在左側導覽窗格中，從搜尋列搜尋 [多重提供者 SSO] 區段，然後按一下 [x509 憑證]。
 
@@ -270,7 +270,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入值：`https://<instance-name>.service-now.com/navpage.do`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [ServiceNow 用戶端支援小組](https://www.servicenow.com/support/contact-support.html)以取得這些值。
@@ -377,7 +377,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 移至 Azure 入口網站的 [ServiceNow] > [屬性] > [單一登入] 區段，並將所要的欄位對應至 [nameidentifier] 屬性，即可設定 Azure AD 以發出 Azure AD 使用者識別碼 (使用者主體名稱) 或電子郵件地址做為 SAML 權杖中的唯一識別碼。 所選屬性儲存在 Azure AD 中的值 (例如使用者主體名稱) 必須符合所輸入欄位 (例如 user_name) 儲存在 ServiceNow 中的值
 
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -413,7 +413,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-servicenow-test-user"></a>建立 ServiceNow 測試使用者
 

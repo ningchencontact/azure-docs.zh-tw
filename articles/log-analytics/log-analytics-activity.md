@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>檢視 Azure 活動記錄
 
@@ -52,7 +52,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| [Windows 代理程式](log-analytics-windows-agents.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
@@ -67,7 +67,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
 2. 設定活動記錄移至您的 Log Analytics 工作區。
-    1. 在 Azure 網站中，選取您的工作區，然後按一下Azure 活動記錄。
+    1. 在 Azure 網站中，選取您的工作區，然後按一下 [Azure 活動記錄]。
     2. 對於每個訂用帳戶，按一下訂用帳戶名稱。  
         ![新增訂用帳戶](./media/log-analytics-activity/add-subscription.png)
     3. 在 [SubscriptionName] 刀鋒視窗中，按一下 [連接]。  

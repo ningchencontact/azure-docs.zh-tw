@@ -83,7 +83,7 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 ## <a name="event-hubs"></a>事件中樞
 事件中樞是可高度擴充的內嵌系統，每秒可處理數百萬事件，可讓您的應用程式處理和分析連接的裝置和應用程式所產生的大量資料。 例如，您可以使用事件中樞收集車隊的即時引擎效能資料。 收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。 如需事件中樞的詳細資訊，請參閱[事件中樞概觀][Event Hubs overview]。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 建置完整的解決方案時一律會連接應用程式，而需要應用程式和服務彼此通訊的案例範圍會設定為隨著連到網際網路的應用程式和裝置日益增加而增加。 服務匯流排提供雲端技術，透過佇列、主題、轉送和事件中樞來解決此問題，目的就是為了輕鬆實作此基本功能，並使之更加普及。
 
 [svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png
@@ -91,8 +91,3 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 [topics-subs]: ./media/hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Event Hubs overview]: https://msdn.microsoft.com/library/azure/dn836025.aspx
-
-
-<!--HONumber=Jan17_HO3-->
-
-

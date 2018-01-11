@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 AS2 訊息
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
     > [!TIP]
     > 如果沒有看到 [更多服務]，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示功能表]。
 
-    ![更多服務，依據 [整合] 篩選，選取 [整合帳戶]](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![更多服務，依據 [整合] 篩選，選取 [整合帳戶]](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. 在開啟的 [整合帳戶]  刀鋒視窗中，選取您要在其中建立合約的整合帳戶。
 如果沒有看到任何整合帳戶，請[先建立一個](../logic-apps/logic-apps-enterprise-integration-accounts.md "關於整合帳戶的一切")。  
@@ -54,15 +54,15 @@ ms.lasthandoff: 10/11/2017
 
 4. 選擇 [合約] 圖格。 如果您沒有 [合約] 圖格，請先新增圖格。
 
-    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. 在開啟的 [合約] 刀鋒視窗中選擇 [新增]  按鈕。
 
-    ![選擇 [新增]](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![選擇 [新增]](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. 在 [新增] 之下，輸入合約的 [名稱]。 針對 [合約類型]，選取 **AS2**。 選取合約的 [主機夥伴]、[主機身分識別]、[來賓夥伴] 和 [來賓身分識別]。
 
-    ![提供合約詳細資料](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![提供合約詳細資料](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | 屬性 | 說明 |
     | --- | --- |
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 1.  在 [新增] 之下，選取 [接收設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
-    ![設定 [接收設定]](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![設定 [接收設定]](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. 您也可以透過選取 [覆寫訊息屬性]，覆寫內送訊息的屬性。
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 10/11/2017
 1.  在 [新增] 之下，選取 [傳送設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
-    ![設定 [傳送設定] 屬性](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![設定 [傳送設定] 屬性](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. 若要將經過簽署的訊息傳送給夥伴，請選取 [啟用訊息簽署]。 若要簽署訊息，請在 [MIC 演算法] 清單中，選取「主機夥伴私人憑證 MIC 演算法」。 並且在 [憑證] 清單中，選取現有[主機夥伴私人憑證](../logic-apps/logic-apps-enterprise-integration-certificates.md)。
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/11/2017
 
 2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶刀鋒視窗上，選擇 [概觀]，然後選取 [合約] 圖格。 
 
-    ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>檢視 Swagger
 請參閱 [Swagger 詳細資料](/connectors/as2/)。 

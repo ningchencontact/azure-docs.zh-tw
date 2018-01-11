@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Learning at Work 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 1d607174-bea1-4f40-8233-54cabe02c66a
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 941832740689c583a8e857d706c35f3076fa754f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c09bbfbbcc9aa46901629d2e701876591a152c30
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>教學課程：Azure Active Directory 與 Learning at Work 整合
 
@@ -47,13 +47,13 @@ Learning at Work 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Learning at Work
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-learning-at-work-from-the-gallery"></a>從資源庫加入 Learning at Work
-若要設定 Learning at Work 與 Azure AD 整合，您需要從資源庫將 Learning at Work 加入到受管理的 SaaS 應用程式清單。
+若要設定 Learning at Work 與 Azure AD 整合，您需要從資源庫將 Learning at Work 加入到受控 SaaS 應用程式清單。
 
 **若要從資源庫加入 Learning at Work，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Learning at Work 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Learning at Work**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_search.png)
 
-5. 在結果窗格中，選取 Learning at Work，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Learning at Work]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_addfromgallery.png)
 
@@ -86,7 +86,7 @@ Learning at Work 與 Azure AD 整合提供下列優點：
 
 若要設定及測試與 Learning at Work 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 3. **[建立 Learning at Work 測試使用者](#creating-a-learning-at-work-test-user)** - 使 Learning at Work 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
@@ -159,11 +159,11 @@ Learning at Work 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-learning-at-work-test-user"></a>建立 Learning at Work 測試使用者
 

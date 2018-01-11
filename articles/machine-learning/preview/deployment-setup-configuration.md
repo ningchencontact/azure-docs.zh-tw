@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/6/2017
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -25,8 +25,8 @@ ms.lasthandoff: 10/11/2017
 在本文件結束時，您應該已經設定模型管理環境，並準備部署您的機器學習模型。
 
 ## <a name="what-you-need-to-get-started"></a>若要開始，您需要：
-若要善用本指南，您應該對於您可以部署模型的 Azure 訂用帳戶具備擁有者存取權。
-CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
+若要充分利用本指南，您應該具有參與者存取 Azure 訂用帳戶或資源群組，您可以部署您的模型。
+CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
 若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -> [開啟命令提示字元]。 
@@ -81,13 +81,15 @@ pip install azure-cli-ml
 
 完成環境設定時：
 - 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟 https://aka.ms/devicelogin 頁面並輸入對於驗證所提供的程式碼。
-- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項：選取具有有效 Azure 訂用帳戶而且有充分的權限在帳戶中建立資源的帳戶。登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要使用選取的帳戶繼續。
+- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項： 選取具有有效的 Azure 訂用帳戶和帳戶中建立資源的足夠權限的帳戶。 登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要繼續進行 選取的帳戶。
 
 ### <a name="environment-setup"></a>環境設定
-若要開始安裝程序，您必須輸入下列命令註冊環境提供者：
+若要開始安裝程序，您必須以註冊一些環境提供者輸入下列命令：
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>本機部署
 若要在本機電腦上部署和測試您的 Web 服務，請使用下列命令設定本機環境。 資源群組名稱為選用。
@@ -128,7 +130,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 - Application Insights 帳戶
 
 >[!IMPORTANT]
-> 若要成功建立叢集環境，您必須是 Azure 訂用帳戶的擁有者，而且有能力建立服務主體。 若要檢查您是否擁有足夠的權限，請遵循此頁面的下列指示：[在 Azure 中建立服務主體](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> 若要成功建立叢集環境中，您必須要有 Azure 訂用帳戶或資源群組上的參與者存取。
 
 很快就能夠建立資源群組、儲存體帳戶和 ACR。 ACS 部署最多需要 20 分鐘的時間。 
 

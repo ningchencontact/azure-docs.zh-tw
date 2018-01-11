@@ -5,22 +5,22 @@ services: active-directory
 keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
@@ -160,7 +160,6 @@ ms.lasthandoff: 11/28/2017
   * 任何系統管理員自助式自願變更密碼作業
   * 任何系統管理員自助式強制變更密碼作業 (例如密碼到期)
   * 任何源自[密碼重設入口網站](https://passwordreset.microsoftonline.com)的系統管理員自助式密碼重設
-  * 系統管理員從 [Azure 傳統入口網站](https://manage.windowsazure.com)起始的任何使用者密碼重設
   * 系統管理員從 [Azure 入口網站](https://portal.azure.com)起始的任何使用者密碼重設
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>密碼回寫不支援的使用者和管理員作業

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 0e3a2f511d7f573c9591d1bc68fceffccc93526c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 491dbd157255dc4fa7f77178f9486959ba4847a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 
 本文只涵蓋搭配 HDInsight 使用 Azure CLI。 如需如何使用 Azure CLI 的一般指南，請參閱[安裝及設定 Azure CLI][azure-command-line-tools]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -40,14 +40,14 @@ ms.lasthandoff: 11/03/2017
     azure login
     ```
   
-    如需使用公司或學校帳戶驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](../xplat-cli-connect.md)。
-* 使用下列命令來**切換至 Azure 資源管理員模式**：
+    如需使用公司或學校帳戶驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
+* 使用下列命令，**切換至 Azure 資源管理員模式**：
   
     ```cli
     azure config mode arm
     ```
 
-若要取得說明，請使用 **-h** 參數。  例如：
+若要取得說明，請使用 **-h** 參數。  例如︰
 
 ```cli
 azure hdinsight cluster create -h

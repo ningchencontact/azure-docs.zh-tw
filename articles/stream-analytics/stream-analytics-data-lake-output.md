@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>串流分析 Data Lake Store 輸出
-串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
+串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure Data Lake Store 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
 
 ## <a name="authorize-a-data-lake-store-account"></a>授權 Data Lake Store 帳戶
-1. 在 Azure 入口網站中選取 Data Lake Store 作為輸出時，系統會提示您授權使用現有的 Data Lake Store，或要求透過 Azure 傳統入口網站存取 Data Lake Store。
+1. 資料湖存放區做為輸出，在 Azure 入口網站選取時，您將會提示您授權您現有的資料湖存放區的使用或以要求存取資料湖存放區。
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    

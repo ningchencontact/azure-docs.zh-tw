@@ -9,21 +9,25 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 
 
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>從 Azure 入口網站取得連接字串
-使用 [Azure 入口網站](https://portal.azure.com/) 來取得用戶端程式與 Azure SQL Database 進行互動所需的連接字串： 
+使用[Azure 入口網站](https://portal.azure.com/)取得連接字串所需的用戶端程式與 Azure SQL Database 互動。 
 
-1. 按一下 [瀏覽] >  [SQL Database]。
-2. 在 [SQL 資料庫]  刀鋒視窗左上角附近的篩選文字方塊中輸入您的資料庫名稱。
-3. 按一下資料庫的資料列。
-4. 在刀鋒視窗顯示您的資料庫之後，為了閱讀方便您可以按一下標準最小化控制項來摺疊用於瀏覽和資料庫篩選的刀鋒視窗。 
+1. 選取**瀏覽所有** > **SQL 資料庫**。
+
+2. 在左上角附近的 [篩選] 文字方塊中輸入您的資料庫名稱**SQL 資料庫**刀鋒視窗。
+
+3. 選取您的資料庫的資料列。
+
+4. 刀鋒視窗中出現為您的資料庫，以便進行 select 視覺上的方便性之後**最小化**摺疊您用來瀏覽和篩選資料庫刀鋒視窗的按鈕。 
    
     ![篩選以隔離您的資料庫][10-FilterDatabase]
-5. 在您資料庫的刀鋒視窗上，按一下 [顯示資料庫連接字串] 。
+5. 在您的資料庫刀鋒視窗中，選取**顯示資料庫的連接字串**。
+
 6. 如果您想要使用 ADO.NET 連線庫，請複製標示為 **ADO**的字串。 
    
     ![複製資料庫的 ADO 連接字串][20-CopyAdoConnectionString]
 7. 以其中一種格式，將連接字串資訊貼入您的用戶端程式碼中。
 
-如需詳細資訊，請參閱<br/>[連接字串與組態檔](http://msdn.microsoft.com/library/ms254494.aspx)。
+如需詳細資訊，請參閱[連接字串和組態檔](http://msdn.microsoft.com/library/ms254494.aspx)。
 
 <!-- Image references. -->
 

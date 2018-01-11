@@ -4,7 +4,7 @@ description: "取得關於 Azure AD B2C 租用戶使用者、驗證及多重要�
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
-manager: mbaldwin
+manager: mtillman
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 52180b760046d273c5a75720df0a73532d0343ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>透過報告 API 存取 Azure AD B2C 中的使用報告
 
@@ -29,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) 會根據使用者登入和 Azure Mult
 本文章著重於與計費活動有關的報告，而計費活動是以使用者數目、可計費的登入式驗證及多重要素驗證為根據。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始之前，您必須先完成[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)中的步驟。 建立應用程式、取得密碼，並授與對您的 Azure AD B2C 租用戶報告的存取權限。 這裡也提供了 Bash 指令碼和 Python 指令碼的範例。 
 
 ## <a name="powershell-script"></a>PowerShell 指令碼

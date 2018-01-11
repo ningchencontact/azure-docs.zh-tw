@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/05/2017
 
     ![將中樞名稱連結到入口網站刀鋒視窗中的 DPS 執行個體](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
-3. 您現在應會在 [連結的 IoT 中樞] 刀鋒視窗之下看到所選的中樞。 
+3. 您現在應會在 [連結的 IoT 中樞] 刀鋒視窗之下看到所選的中樞。 您可能需要按一下 [重新整理] 以顯示 [連結的 IoT 中樞]。
 
 
 

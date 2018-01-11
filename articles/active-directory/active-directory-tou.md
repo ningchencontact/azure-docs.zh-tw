@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory 使用規定特性 (預覽)
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。  這確保使用者看到合法或合規性需求的相關免責聲明。
@@ -52,14 +52,16 @@ Azure AD 使用規定可以用於下列案例：
 ### <a name="to-add-terms-of-use"></a>新增使用規定
 1. 瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 中的儀表板
 2. 按一下 [新增]。</br>
-![新增 TOU](media/active-directory-tou/tou2.png)
+![新增 TOU](media/active-directory-tou/tou12.png)
 3. 輸入使用規定的**名稱**
 4. 輸入**顯示名稱**。  使用者在登入時會看到此標頭。
 5. **瀏覽**至您已完成的使用規定 pdf 並加以選取。  建議使用的字型大小是 24。
-6. 您可以使用範本或自訂的條件式存取原則，**強制執行**上傳的使用規定。  自訂的條件式存取原則可讓細微使用條款下降到特定雲端應用程式或使用者群組。  如需詳細資訊，請參閱[設定條件式存取原則](active-directory-conditional-access-best-practices.md)
-7. 按一下 [建立] 。
-8. 如果您已選取自訂的條件式存取範本，則新的畫面會出現，可讓您自訂 CA 原則。
-7. 您現在應該看到新的使用規定。</br>
+6. **選取**使用規定的語言。  語言選項可讓您上傳多個使用規定，各有不同的語言。  終端使用者會看到的使用規定版本將以其瀏覽器喜好設定為基礎。
+7. 選擇開啟或關閉 [要求使用者展開使用規定]。  如果設定為開啟，終端使用者必須先閱讀使用規定，再接受這些規定。
+8. 在 [條件式存取] 區段之下，您可以使用範本或自訂的條件式存取原則，**強制執行**上傳的使用規定。  自訂的條件式存取原則可讓細微使用條款下降到特定雲端應用程式或使用者群組。  如需詳細資訊，請參閱[設定條件式存取原則](active-directory-conditional-access-best-practices.md)
+9. 按一下 [建立] 。
+10. 如果您已選取自訂的條件式存取範本，則新的畫面會出現，可讓您自訂 CA 原則。
+11. 您現在應該看到新的使用規定。</br>
 
 ![新增 TOU](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Azure AD 使用規定提供了易於使用的稽核，讓您能夠查看誰已�
 ![稽核事件](media/active-directory-tou/tou10.png)
 -   此畫面是它在行動裝置上的顯示方式</br></br>
 ![稽核事件](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>檢閱使用規定
+使用者可以檢閱並查看他們已接受的使用規定。  這可使用下列程序來完成：
+
+1. 瀏覽並登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
+2. 在右上角，按一下您的名稱並從下拉式功能表選取 [設定檔]。
+![設定檔](media/active-directory-tou/tou14.png)
+
+3. 在您的設定檔上，按一下 [檢閱使用規定]。
+![稽核事件](media/active-directory-tou/tou13a.png)
+
+4.  您可以在此檢閱您已接受的使用規定。 
+
 
 ## <a name="additional-information"></a>其他資訊
 下列是需要留意並可協助使用此使用條款的資訊。

@@ -1,24 +1,16 @@
 ---
-title: "檢閱將 VMware 複寫至 Azure 的架構 | Microsoft Docs"
+title: "在 Azure Site Recovery 的 Azure 複寫架構 VMware |Microsoft 文件"
 description: "本文概述使用 Azure Site Recovery 服務將內部部署 VMware VM 複寫至 Azure 時，所使用的元件和架構"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 至 Azure 複寫架構
 
@@ -85,5 +77,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-請檢閱「遵循教學課程」支援對照表，以啟用 VMware 到 Azure 複寫。
-執行容錯移轉和容錯回復。
+請遵循[本教學課程](tutorial-vmware-to-azure.md)以啟用 VMware 到 Azure 的複寫。

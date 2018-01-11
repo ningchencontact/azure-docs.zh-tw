@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure Advisor成本建議 | Microsoft Docs"
 description: "使用 Azure Advisor 程式將 Azure 部署的成本最佳化。"
 services: advisor
@@ -16,7 +16,7 @@ ms.date: 11/16/2016
 ms.author: kumud
 ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2017
 ---

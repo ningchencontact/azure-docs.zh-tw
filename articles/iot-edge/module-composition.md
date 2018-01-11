@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>了解如何使用、設定以及重複使用 IoT Edge 模組 - 預覽
 
@@ -99,7 +99,7 @@ Edge 中樞提供方法以宣告方式在模組之間及模組與 IoT 中樞之�
 | 接收 | 說明 |
 | ---- | ----------- |
 | `$upstream` | 將訊息傳送到 IoT 中樞 |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | 將訊息傳送到模組 `{moduleId}` 的輸入 `{input}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | 將訊息傳送到模組 `{moduleId}` 的輸入 `{input}` |
 
 務必記住，Edge 中樞提供至少一次保證，這表示訊息會儲存在本機，以免路由無法將訊息傳遞到其接收，例如，Edge 中樞無法連線到 IoT 中樞，或目標模組未連線。
 

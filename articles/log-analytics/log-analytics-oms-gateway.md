@@ -1,6 +1,6 @@
 ---
 title: "使用 OMS 閘道將電腦連線到 OMS | Microsoft Docs"
-description: "將您受 OMS 管理的裝置與受 Operations Manager 監視的電腦與 OMS 閘道連線，以在它們沒有網際網路存取時傳送資料給 OMS 服務。"
+description: "將您 OMS 受控裝置與受 Operations Manager 監視的電腦與 OMS 閘道連線，以在它們沒有網際網路存取時傳送資料給 OMS 服務。"
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>在無網際網路存取下使用 OMS 閘道將電腦連線到 OMS
 
@@ -109,8 +109,8 @@ OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安�
 4. 在 [連接埠和 Proxy 位址] 頁面上：
    1. 輸入要用於閘道的 TCP 連接埠號碼。 安裝程式會使用此連接埠號碼在 Windows 防火牆上設定輸入規則。  預設值為 8080。
       連接埠號碼的有效範圍是 1 到 65535。 如果輸入的值不在此範圍內，就會顯示錯誤訊息。
-   2. 如果閘道安裝所在的伺服器需要透過 Proxy 進行通訊，您也可以選擇輸入閘道需要連線的 Proxy 位址。 例如， `http://myorgname.corp.contoso.com:80`。  如果空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。<br><br> ![閘道精靈 Proxy 組態](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
-   3. 按一下 [下一步] 。
+   2. 如果閘道安裝所在的伺服器需要透過 Proxy 進行通訊，您也可以選擇輸入閘道需要連線的 Proxy 位址。 例如： `http://myorgname.corp.contoso.com:80`。  如果空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。<br><br> ![閘道精靈 Proxy 組態](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   3. 按 [下一步] 。
 5. 如果您沒有啟用 Microsoft Update，系統會顯示 Microsoft Update 頁面，您可以在其中選擇啟用 Microsoft Update。 選擇想要的選項，然後按一下 [下一步]。 否則，請繼續下一個步驟。
 6. 在 [目的地資料夾] 頁面上，保留預設資料夾 C:\Program Files\OMS Gateway 或輸入您想要安裝閘道的位置，然後按 [下一步]。
 7. 在 [準備安裝] 頁面上，按一下 [安裝]。 系統可能會顯示 [使用者帳戶控制] 來要求安裝權限。 如果有顯示，請按一下 [是]。
@@ -129,7 +129,7 @@ OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安�
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>設定 OMS 代理程式和 Operations Manager 管理群組
 下一節包含的步驟會說明如何為直接連線的 OMS 代理程式、Operations Manager 管理群組或 Azure 自動化混合式 Runbook 背景工作設定 OMS 閘道以與 OMS 通訊。  
 
-若要了解如何在直接連線到 OMS 的 Windows 電腦上安裝 OMS 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 OMS](log-analytics-windows-agents.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 OMS](log-analytics-linux-agents.md)。 
+若要了解如何在直接連線到 OMS 的 Windows 電腦上安裝 OMS 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 OMS](log-analytics-windows-agent.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 OMS](log-analytics-linux-agents.md)。 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>設定 OMS 代理程式和 Operations Manager 以將 OMS 閘道作為 Proxy 伺服器
 
@@ -160,7 +160,7 @@ OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安�
 
 1. 開啟 Operations Manager 主控台，然後選取 [撰寫] 工作區。  
 2. 在 [撰寫] 工作區中選取 [規則]，然後按一下 Operations Manager 工具列上的 [範圍] 按鈕。 如果此按鈕無法使用，請進行檢查以確定您在 [監視] 窗格中選取的是物件，而非資料夾。 [範圍管理組件物件] 對話方塊會顯示一般會作為目標之類別、群組或物件的清單。 
-3. 在 [尋找] 欄位中輸入**健康狀態服務**，然後從清單中加以選取。  按一下 [確定] 。  
+3. 在 [尋找] 欄位中輸入**健康狀態服務**，然後從清單中加以選取。  按一下 [SERVICEPRINCIPAL] 。  
 4. 搜尋規則 [Advisor Proxy 設定規則]，在 Operations 主控台工具列中按一下 [覆寫]，然後指向 [覆寫規則\針對下列類別的特定物件︰健康狀態服務]，並從清單中選取特定物件。  (選擇性) 您可以建立自訂群組，在其中包含您想要套用此覆寫之伺服器的健康狀態服務物件，然後對該群組套用覆寫。
 5. 在 [覆寫屬性] 對話方塊中，按一下以勾選 [WebProxyAddress] 參數旁的 [覆寫] 資料行。  在 [覆寫值] 欄位中，輸入 OMS 閘道伺服器的 URL，並確保其開頭有 `http://` 前置詞。
    >[!NOTE]
@@ -236,7 +236,7 @@ Cmdlet 可以協助您完成更新 OMS 閘道的組態設定時需執行的作�
 
 | **Cmdlet** | **參數** | **說明** | **範例** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |金鑰 |取得服務的組態 |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Key |取得服務的組態 |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |索引鍵 (必要) <br> 值 |變更服務的組態 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |取得轉送 (上游) Proxy 的位址 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |位址<br> 使用者名稱<br> 密碼 |設定轉送 (上游) Proxy 的位址 (與認證) |1.設定回覆 Proxy 和認證：<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2.設定不需要驗證的回覆 Proxy：`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3.清除轉送 Proxy 設定︰<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
@@ -254,7 +254,7 @@ Cmdlet 可以協助您完成更新 OMS 閘道的組態設定時需執行的作�
 
 以下表格顯示 OMS 閘道記錄事件的事件識別碼與描述。
 
-| **識別碼** | **描述** |
+| **識別碼** | **說明** |
 | --- | --- |
 | 400 |沒有特定識別碼的任何應用程式錯誤 |
 | 401 |錯誤組態。 例如：listenPort = "text"，而不是整數 |

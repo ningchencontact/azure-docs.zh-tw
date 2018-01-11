@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 30c3df4ebc4417993170b994fc01bc82636dec3f
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>建置 Node.js RESTful API 並將它部署至 Azure 中的 API 應用程式
 
@@ -209,7 +209,7 @@ yo swaggerize --apiPath api.json --framework express
 
 在本節中，您會使用 Azure CLI 2.0 建立資源，以在 Azure App Service 上裝載 API。 
 
-1.  使用 [az login](/cli/azure/#login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+1.  使用 [az login](/cli/azure/?view=azure-cli-latest#az_login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
     ```azurecli-interactive
     az login

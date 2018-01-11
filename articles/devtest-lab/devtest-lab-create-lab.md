@@ -3,7 +3,7 @@ title: "在 Azure DevTest Labs 中建立實驗室 | Microsoft Docs"
 description: "在 Azure DevTest Labs 中為虛擬機器建立實驗室"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 8b6d3e70-6528-42a4-a2ef-449575d0f928
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: tarcher
-ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>在 Azure 研測實驗室中建立實驗室
 Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)) 的基礎結構，可讓您藉由指定限制和配額更好地管理這些資源。 本文將逐步引導您完成使用 Azure 入口網站來建立實驗室的程序。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要建立實驗室，您需要：
 
 * Azure 訂用帳戶。 若要深入了解 Azure 購買選項，請參閱[如何購買 Azure](https://azure.microsoft.com/pricing/purchase-options/) 或[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。 您必須是訂用帳戶的擁有者才能建立實驗室。
@@ -50,7 +50,7 @@ Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)
     1. 如果您想要建立的自訂標記會新增至您將在實驗室中建立的每個資源，請輸入 [標籤] 的 [名稱] 和 [值] 資訊。 標籤很實用，可協助您依照類別管理及組織實驗室資源。 如需標籤的詳細資訊，包括如何在建立實驗室後新增標籤，請參閱[將標籤新增至實驗室](devtest-lab-add-tag.md)。
     5. 如果您希望在入口網站儀表板上顯示實驗室的捷徑，請選取 [釘選到儀表板]。
     6. 選取 [自動化選項] 來取得可自動進行設定的 Azure Resource Manager 範本。 
-    7. 選取 [ **建立**]。 您可以監看 [通知] 區域，以監控實驗室建立程序的狀態。 程序完成之後，請重新整理頁面，以在實驗室清單中查看新建立的實驗室。  
+    7. 選取 [建立] 。 您可以監看 [通知] 區域，以監控實驗室建立程序的狀態。 程序完成之後，請重新整理頁面，以在實驗室清單中查看新建立的實驗室。  
     
     ![建立 DevTest Labs 的實驗室區段](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

@@ -4,7 +4,7 @@ description: "本文件詳述使用 Azure AD Connect 更新 AD FS 伺服器陣�
 services: active-directory
 keywords: "azure ad connect, adfs ssl 更新, adfs 憑證更新, 變更 adfs 憑證, 新增 adfs 憑證, adfs 憑證, 更新 adfs ssl 憑證, 更新 ssl 憑證 adfs, 設定 adfs ssl 憑證, adfs, ssl, 憑證, adfs 服務通訊憑證, 更新同盟, 設定同盟, aad connect"
 authors: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證
 
@@ -96,7 +96,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
 * **可以使用新的 SSL 憑證更新我的伺服器陣列伺服器子集嗎？**
 
-    是。 您永遠可以再次執行工作「更新 SSL 憑證」來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器] 頁面上，您可以依「SSL 到期日」來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
+    可以。 您永遠可以再次執行工作「更新 SSL 憑證」來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器] 頁面上，您可以依「SSL 到期日」來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
 
 * **我在上一次執行中移除了伺服器，但它仍然顯示為離線，並且列在 [AD FS 伺服器] 頁面。為何即使在移除後，離線的伺服器還在？**
 

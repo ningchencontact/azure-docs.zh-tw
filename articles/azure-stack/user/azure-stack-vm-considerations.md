@@ -3,28 +3,28 @@ title: "Azure Stack 中虛擬機器的差異與考量 | Microsoft Docs"
 description: "了解使用 Azure Stack 中虛擬機器時的差異與考量。"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
+author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: sngun
-ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mabrigg
+ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-虛擬機器是 Azure Stack 所提供的隨選、可調整計算資源。 當您使用虛擬機器時，必須了解 Azure 與 Azure Stack 中所提供功能之間的差異。 此文章提供 Azure Stack 中虛擬機器及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
+虛擬機器是 Azure Stack 所提供的隨選、可調整計算資源。 當您使用虛擬機器時，必須了解 Azure 與 Azure Stack 中所提供功能之間的差異。 此文章提供 Azure Stack 中虛擬機器及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>速查表：虛擬機器差異
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/15/2017
 | 虛擬機器映像 | Azure Marketplace 包含您可用來建立虛擬機器的映像。 若要檢視 Azure Marketplace 中可用的映像清單，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) 頁面。 | Azure Stack 市集中預設沒有提供任何映像。 Azure Stack 雲端系統管理員應該先將映像發行或下載到 Azure Stack 市集，使用者才能使用這些映像。 |
 | 虛擬機器大小 | Azure 支援各種不同的虛擬機器大小。 若要了解可用的大小和選項，請參考 [Windows 虛擬機器大小](../../virtual-machines/virtual-machines-windows-sizes.md)和 [Linux 虛擬機器大小](../../virtual-machines/linux/sizes.md)主題。 | Azure Stack 支援 Azure 中一部分可用的虛擬機器大小。 若要檢視支援的大小清單，請參考此文章的[虛擬機器大小](#virtual-machine-sizes)一節。 |
 | 虛擬機器配額 | [配額限制](../../azure-subscription-service-limits.md#service-specific-limits)由 Microsoft 設定 | Azure Stack 雲端系統管理員在提供虛擬機器給其使用者之前，必須先指派配額。 |
-| 虛擬機器擴充功能 |Azure 支援各種不同的虛擬機器擴充功能。 若要了解可用的擴充功能，請參考[虛擬機器擴充功能和功能](../../virtual-machines/windows/extensions-features.md)主題。| Azure Stack 支援 Azure 中一部分可用的擴充功能，且每個擴充功能都有特定的版本。 Azure Stack 雲端系統管理員可以選擇要將哪些擴充功能提供給其使用者使用。 若要檢視支援的擴充功能清單，請參考此文章的[虛擬機器擴充功能](#virtual-machine-extensions)一節。 |
+| 虛擬機器擴充功能 |Azure 支援各種不同的虛擬機器擴充功能。 若要了解可用的擴充功能，請參考[虛擬機器擴充功能和功能](../../virtual-machines/windows/extensions-features.md)文章。| Azure Stack 支援 Azure 中一部分可用的擴充功能，且每個擴充功能都有特定的版本。 Azure Stack 雲端系統管理員可以選擇要將哪些擴充功能提供給其使用者使用。 若要檢視支援的擴充功能清單，請參考此文章的[虛擬機器擴充功能](#virtual-machine-extensions)一節。 |
 | 虛擬機器網路 | 指派給租用戶虛擬機器的公用 IP 位址可透過網際網路存取。<br><br><br>Azure 虛擬機器有固定的 DNS 名稱 | 指派給租用戶虛擬機器的公用 IP 位址時，只能在「Azure Stack 開發套件」環境內存取。 使用者必須能夠透過 [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 或 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 存取「Azure Stack 開發套件」，才能連線到在 Azure Stack 中建立的虛擬機器。<br><br>在特定 Azure Stack 執行個體內建立之虛擬機器的 DNS 名稱會以雲端系統管理員所設定的值為基礎。 |
 | 虛擬機器儲存體 | 支援[受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)。 | Azure Stack 尚未支援受控磁碟。 |
 | API 版本 | Azure 一律會有所有虛擬機器功能的最新 API 版本。 | Azure Stack 支援特定的 Azure 服務及這些服務的特定 API 版本。 若要檢視支援的 API 版本清單，請參考此文章的 [API 版本](#api-versions)一節。 |

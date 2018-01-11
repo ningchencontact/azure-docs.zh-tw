@@ -5,7 +5,7 @@ services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b9a95cea57f4d0a4a927679cd4802bb56420887a
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>開始使用 Azure Active Directory 中的條件式存取
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/23/2017
 
 - 將 Azure AD Premium 授權指派給測試使用者
 
-- 設定受管理的應用程式，並將您的測試使用者指派給它
+- 設定受控應用程式，並將您的測試使用者指派給它
 
 - 設定信任的 IP
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/23/2017
 
     a. 按一下 [選取使用者和群組]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
+    b. 按一下 [選取] 。
 
     c. 在 [選取] 刀鋒視窗上，選取您的測試使用者，然後按一下 [選取]。
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 10/23/2017
 
     a. 按一下 [選取應用程式]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
+    b. 按一下 [選取] 。
 
     c. 在 [選取] 刀鋒視窗上，選取您的雲端應用程式，然後按一下 [選取]。
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/23/2017
 
     a. 在 [設定] 之下，按一下 [是]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [包含] 之下，按一下 [所有位置]。
+    b. 在 [包含] 之下，按一下 [所有位置]。
 
     c. 按一下 [排除]，然後按一下 [所有信任的 IP]。
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 10/23/2017
 
     a. 選取 [需要 Multi-Factor Authentication]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
+    b. 按一下 [選取] 。
 
 15. 在 [新增] 刀鋒視窗的 [啟用原則] 之下，按一下 [開啟]。
 

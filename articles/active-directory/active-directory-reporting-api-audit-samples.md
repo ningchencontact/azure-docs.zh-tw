@@ -4,7 +4,7 @@ description: "如何開始使用 Azure Active Directory 報告 API"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 98e1d09cbf638032fe1b5b9dcf19332f9158d7a7
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: b9e0fb21986b82f19d90f999f5d905fbf95d2cc9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory 報告稽核 API 範例
 本主題是 Azure Active Directory 報告 API 相關主題集合的一部分。  
@@ -60,7 +60,7 @@ Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取稽
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{

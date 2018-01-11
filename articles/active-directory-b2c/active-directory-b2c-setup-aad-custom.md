@@ -4,7 +4,7 @@ description: "深入了解 Azure Active Directory B2C 自訂原則"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 2b91c75ec73a8b47a67241e3b69c2ed68d5f9b2a
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C︰使用 Azure AD 帳戶登入
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/13/2017
    * 針對 [名稱]，選擇與您的 Azure AD 租用戶名稱相符的名稱 (例如，`ContosoAppSecret`)。  金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
    * 在 [祕密] 方塊中貼上您的應用程式金鑰。
    * 選取 [簽章]。
-1. 選取 [ **建立**]。
+1. 選取 [建立] 。
 1. 確認您已建立金鑰 `B2C_1A_ContosoAppSecret`。
 
 

@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒體視訊縮圖建立視訊摘要
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 **Azure 媒體視訊縮圖** 媒體處理器 (MP) 可讓您建立視訊的摘要；當視訊較長而客戶只想預覽摘要時，就非常實用。 例如，客戶可能會想在將滑鼠移至縮圖上時，查看簡短的「視訊摘要」。 透過設定預設值，調整 **Azure 媒體視訊縮圖** 的參數，您即可使用 MP 強大的拍攝偵測和串連技術，以演算法來產生描述性的子剪輯。  
 
 **Azure 媒體視訊縮圖** MP 目前為預覽功能。
 
-本主題提供有關 **Azure 媒體視訊縮圖**的詳細資訊，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
+這篇文章詳細說明有關**Azure Media 視訊縮圖**並示範如何使用 Media Services SDK for.NET 使用它。
 
 ## <a name="limitations"></a>限制
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="video-thumbnail-result"></a>視訊縮圖的結果
 [視訊縮圖的結果](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-preset"></a>工作設定 (預設)
+## <a name="task-configuration-preset"></a>工作組態 (預設)
 以 **Azure 媒體視訊縮圖**建立視訊縮圖工作時，您必須指定設定預設值。 上述縮圖是使用下列基本 JSON 組態建立的範例︰
 
     {"version":"1.0"}
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 下列程式將示範如何：
 
 1. 建立資產並將媒體檔案上傳到資產。
-2. 根據包含下列 JSON 預設值的組態檔案，建立執行視訊縮圖工作的工作。 
+2. 建立視訊縮圖工作包含下列 json 的預設組態檔為基礎的作業： 
    
         {                
             "version": "1.0",
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
 
 #### <a name="example"></a>範例
 
@@ -109,16 +109,24 @@ ms.lasthandoff: 10/11/2017
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

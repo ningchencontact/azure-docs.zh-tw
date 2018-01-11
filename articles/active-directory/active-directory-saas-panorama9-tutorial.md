@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Panorama9 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 5e28d7fa-03be-49f3-96c8-b567f1257d44
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 934c0743464fd32398071aa3d07f7af76fdf7e3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7cbb6e45f730b8eaef4cb25307cfeaf9f1c853a1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>教學課程：Azure Active Directory 與 Panorama9 整合
 
@@ -47,13 +47,13 @@ Panorama9 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Panorama9
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-panorama9-from-the-gallery"></a>從資源庫新增 Panorama9
-若要設定將 Panorama9 整合到 Azure AD 中，您需要從資源庫將 Panorama9 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Panorama9 整合到 Azure AD 中，您需要從資源庫將 Panorama9 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Panorama9，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Panorama9**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_search.png)
 
-5. 在結果面板中，選取 Panorama9，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Panorama9]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_addfromgallery.png)
 
@@ -113,7 +113,7 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://dashboard.panorama9.com/saml/access/3262`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`http://www.panorama9.com/saml20/<tenant-name>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`http://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Panorama9 客戶支援小組](https://support.panorama9.com)以取得這些值。 
@@ -132,7 +132,7 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
 5. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Panorama9 公司網站。
 
-6. 在最上面的工具列中，按一下 管理，然後按一下擴充功能。
+6. 在最上面的工具列中，按一下 [管理]，然後按一下 [擴充功能]。
    
    ![擴充功能](./media/active-directory-saas-panorama9-tutorial/ic790023.png "擴充功能")
 7. 在 [擴充功能] 對話方塊中，按一下 [單一登入]。
@@ -144,9 +144,9 @@ Panorama9 與 Azure AD 整合提供下列優點：
    
     a. 在 [識別提供者 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] 值。
    
-    b.這是另一個 C# 主控台應用程式。 在 [憑證指紋] 文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋] 值。    
+    b. 在 [憑證指紋] 文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋] 值。    
          
-9. 按一下 [儲存] 。
+9. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,11 +177,11 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-panorama9-test-user"></a>建立 Panorama9 測試使用者
 
@@ -193,7 +193,7 @@ Panorama9 需以手動的方式佈建。
 
 1. 以系統管理員身分登入您的 **Panorama9** 公司網站。
 
-2. 在頂端的功能表中，按一下 管理，然後按一下使用者。
+2. 在頂端的功能表中，按一下 [管理]，然後按一下 [使用者]。
    
   ![使用者](./media/active-directory-saas-panorama9-tutorial/ic790027.png "使用者")
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 * 加密 (可能需要數小時或甚至數天，取決於 VM 特性和附加的任何資料磁碟的大小)
 * 自訂軟體，並且視需要將軟體新增至映像。
 
-如果此工作流程不可行，靠著平台儲存體帳戶層[的儲存體服務加密](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE)，可能可以替代使用 dm crypt 的完整磁碟加密。
+如果此工作流程不可行，靠著平台儲存體帳戶層[的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE)，可能可以替代使用 dm crypt 的完整磁碟加密。
 
 **問：**什麼是磁碟 "Bek Volume" 或 "/mnt/azure_bek_disk"？
 

@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 8eb4420978c0a66012f3f46d4a5f7ed0da56a3b7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 199f8c62b7aa3310bebd33c88edf57ea3bce804b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>針對 Azure 中 Windows VM 的特定 RDP 錯誤訊息進行疑難排解
 您在 Azure 中針對 Windows 虛擬機器 (VM) 使用遠端桌面連線時，可能會接收到特定錯誤訊息。 本文將詳述一些較常發生的錯誤訊息，並提供解決它們的疑難排解步驟。 如果您無法使用 RDP 連線到 VM，但沒有遇到特定錯誤訊息，請參閱[遠端桌面的疑難排解指南](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。

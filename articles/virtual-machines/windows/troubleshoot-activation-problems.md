@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: e3a45768450c15c3046e5bb3cbace503ef8f7652
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 4f3a388e95d3689cafcd2462e821cb361c46989a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/04/2017
 ## <a name="cause"></a>原因
 一般而言，如果不是使用正確的 KMS 用戶端安裝識別碼來設定 Windows VM，或 Windows VM 無法連線到 Azure KMS 服務 (kms.core.windows.net，連接埠 1668)，就會發生 Azure VM 啟用問題。 
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 >[!NOTE]
 >如果您使用站對站 VPN 和強制通道，請參閱[使用 Azure 自訂路由來啟用搭配強制通道的 KMS 啟用](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (英文)。 
@@ -110,11 +110,11 @@ ms.lasthandoff: 11/04/2017
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>我從 Azure Marketplace 建立了 Windows Server 2016。 我是否需要設定 KMS 金鑰來啟用 Windows Server 2016？ 
  
-否。 Azure Marketplace 中的映像已設定適當的 KMS 用戶端安裝識別碼。 
+編號 Azure Marketplace 中的映像已設定適當的 KMS 用戶端安裝識別碼。 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>是否不論 VM 是否使用 Azure Hybrid Use Benefit (HUB)，Windows 啟用的運作方式都相同？ 
  
-是。 
+可以。 
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 啟用期間已到期，會發生什麼情況？ 
  

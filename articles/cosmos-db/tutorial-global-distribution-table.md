@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/13/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: a1682ef88760da39d33fac2cc9f34e0e66ea19fb
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 40c0bfe913e1396194de00cf6fa1d1ff823b1d0e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>如何使用資料表 API 來設定 Azure Cosmos DB 全域散發
 
@@ -35,23 +35,17 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>使用資料表 API 來連線到慣用的區域
 
-為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 透過在 Azure Cosmos DB 資料表 API SDK 的 app.config 中設定 `TablePreferredLocations` 組態值，即可達到此目的。 Azure Cosmos DB 資料表 API SDK 將會根據帳戶組態、目前的區域可用性及所指定的喜好設定清單，挑選最適合通訊的端點。
+為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 這可藉由設定[TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations)屬性。 Azure Cosmos DB 資料表 API SDK 會挑選最佳的端點來與通訊的帳戶設定、 目前區域的可用性和喜好設定提供的清單。
 
-`TablePreferredLocations` 應該包含一個供讀取使用的慣用 (多路連接) 位置逗號分隔清單。 每個用戶端執行個體可以依慣用順序指定這些區域的子集，供低延遲讀取使用。 指定這些區域時，必須使用其[顯示名稱](https://msdn.microsoft.com/library/azure/gg441293.aspx)，例如 `West US`。
+PreferredLocations 應包含以逗號分隔清單的慣用 （多路連接） 的位置，供讀取。 每個用戶端執行個體可以依慣用順序指定這些區域的子集，供低延遲讀取使用。 指定這些區域時，必須使用其[顯示名稱](https://msdn.microsoft.com/library/azure/gg441293.aspx)，例如 `West US`。
 
-所有讀取都會傳送到 `TablePreferredLocations` 清單中的第一個可用區域。 如果要求失敗，用戶端將無法往下到清單中的下一個區域，依此類推。
+所有的讀取會傳送至 PreferredLocations 清單中第一個可用的地區。 如果要求失敗，用戶端將無法往下到清單中的下一個區域，依此類推。
 
-SDK 會嘗試從 `TablePreferredLocations` 中指定的區域讀取。 因此，舉例來說，如果在三個區域中有「資料庫帳戶」可供使用，但用戶端只為 `TablePreferredLocations` 指定其中兩個非寫入區域，這樣就不會從寫入區域為任何讀取提供服務，即使發生容錯移轉時也一樣。
+讀取區域 中所指定的 PreferredLocations 嘗試 SDK。 因此，比方說，如果資料庫帳戶可供三個區域使用，但用戶端只針對 PreferredLocations 指定其中兩個非寫入區域，則將不會在該寫入區域以外的地方提供讀取服務，即使發生容錯移轉也一樣。
 
-SDK 會自動將所有寫入傳送至目前的寫入區域。
+SDK 會自動傳送所有寫入至目前的寫入區域。
 
-如果未設定 `TablePreferredLocations` 屬性，將會從目前的寫入區域為所有要求提供服務。
-
-```xml
-    <appSettings>
-      <add key="TablePreferredLocations" value="East US, West US, North Europe"/>           
-    </appSettings>
-```
+如果未設定 PreferredLocations 屬性，將會從目前的寫入區域為所有要求提供服務。
 
 就這麼簡單，這樣便已完成本教學課程。 您可以透過閱讀 [Azure Cosmos DB 中的一致性層級](consistency-levels.md)，來了解如何管理全域複寫帳戶的一致性。 如需有關 Azure Cosmos DB 中全域資料庫複寫運作方式的詳細資訊，請參閱[使用 Azure Cosmos DB 來全域散發資料](distribute-data-globally.md)。
 

@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試 
 
@@ -62,7 +62,31 @@ Event Grid 會將小型隨機加入所有重試間隔。
 
 ## <a name="retry-duration"></a>重試持續時間
 
-在預覽期間，Azure Event Grid 會讓兩個小時內未傳遞的所有事件到期。 正式運作前，時間會增加至 24 小時。 
+在預覽期間，Azure Event Grid 會讓兩個小時內未傳遞的所有事件到期。
+
+## <a name="monitoring"></a>監視
+
+您可以使用入口網站來查看事件傳遞的狀態。
+
+若要查看事件訂用帳戶的度量資訊，請搜尋**事件訂閱**中可用的服務，並加以選取。
+
+![搜尋事件訂閱](./media/delivery-and-retry/select-event-subscriptions.png)
+
+篩選的事件、 訂閱與位置類型。 選取**度量**檢視訂用帳戶。
+
+![篩選事件訂閱](./media/delivery-and-retry/filter-events.png)
+
+檢視事件主題和訂用帳戶的度量資訊。
+
+![檢視事件度量](./media/delivery-and-retry/subscription-metrics.png)
+
+如果您已經發行自訂主題，您可以檢視它的度量。 選取資源群組中包含的主題，並選取該主題。
+
+![選取自訂主題](./media/delivery-and-retry/select-custom-topic.png)
+
+檢視相關的自訂事件主題度量。
+
+![檢視事件度量](./media/delivery-and-retry/custom-topic-metrics.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 若要使用 Split/Merge 服務，您必須正確地設定安全性。 此服務是 Microsoft Azure SQL Database 的 Elastic Scale 功能的一部分。 如需詳細資訊，請參閱 [Elastic Scale 分割及合併服務教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -391,7 +391,7 @@ ms.lasthandoff: 10/31/2017
 4. 按一下 [新增] 。
 5. 選擇憑證存放區位置。
 6. 按一下 [完成] 。
-7. 按一下 [確定] 。
+7. 按一下 [SERVICEPRINCIPAL] 。
 8. 展開 [ **憑證**]。
 9. 展開憑證存放區節點。
 10. 展開 [憑證] 子節點。
@@ -400,18 +400,18 @@ ms.lasthandoff: 10/31/2017
 ## <a name="export-certificate"></a>匯出憑證
 在 [ **憑證匯出精靈**] 中：
 
-1. 按一下 [下一步] 。
+1. 按 [下一步] 。
 2. 選取 [是]，再選取 [匯出私密金鑰]。
-3. 按一下 [下一步] 。
+3. 按 [下一步] 。
 4. 選取想要的輸出檔案格式。
 5. 核取所需的選項。
 6. 核取 [ **密碼**]。
 7. 輸入強式密碼並加以確認。
-8. 按一下 [下一步] 。
+8. 按 [下一步] 。
 9. 輸入或瀏覽至用來儲存憑證的檔案名稱 (使用 .PFX 副檔名)。
 10. 按一下 [下一步] 。
 11. 按一下 [完成] 。
-12. 按一下 [確定] 。
+12. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a name="import-certificate"></a>匯入憑證
 在 [憑證匯入精靈] 中：
@@ -420,7 +420,7 @@ ms.lasthandoff: 10/31/2017
    
    * 如果只有在目前使用者下執行的處理程序會存取服務，請選取 [ **目前使用者** ]
    * 如果這台電腦中的其他處理程序會存取服務，請選取 [ **本機電腦** ]
-2. 按一下 [下一步] 。
+2. 按 [下一步] 。
 3. 如果從檔案匯入，請確認檔案路徑。
 4. 如果匯入 .PFX 檔案：
    1. 輸入密碼以保護私密金鑰
@@ -434,7 +434,7 @@ ms.lasthandoff: 10/31/2017
 9. 在所有對話方塊視窗上，按一下 [ **確定** ]。
 
 ## <a name="upload-certificate"></a>Upload certificate
-在 [Azure 入口網站](https://portal.azure.com/)
+在[Azure 入口網站](https://portal.azure.com/)
 
 1. 選取 [雲端服務] 。
 2. 選取雲端服務。

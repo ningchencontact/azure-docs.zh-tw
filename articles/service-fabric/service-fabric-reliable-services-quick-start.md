@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
 > [!div class="op_single_selector"]
@@ -128,7 +128,7 @@ Service Fabric 導入了一種可設定狀態的新服務。 具狀態服務能�
 
 ![將服務加入 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-選取 [具狀態服務]  並將它命名為 *HelloWorldStateful*。 按一下 [確定] 。
+選取 [具狀態服務]  並將它命名為 *HelloWorldStateful*。 按一下 [SERVICEPRINCIPAL] 。
 
 ![使用新增專案對話方塊來建立新的 Service Fabric 具狀態服務](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

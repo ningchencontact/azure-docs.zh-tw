@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 RealtimeBoard 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a37fc1c0-4bae-4173-989b-00de53a0076f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: d3ba8cb1f7e1d4332f7912848e8b6902d9acf909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>教學課程：Azure Active Directory 與 RealtimeBoard 整合
 
@@ -48,13 +48,13 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 RealtimeBoard
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-realtimeboard-from-the-gallery"></a>從資源庫新增 RealtimeBoard
-若要設定將 RealtimeBoard 整合到 Azure AD 中，您需要從資源庫將 RealtimeBoard 新增到受管理的 SaaS 應用程式清單。
+若要設定將 RealtimeBoard 整合到 Azure AD 中，您需要從資源庫將 RealtimeBoard 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 RealtimeBoard，請執行下列步驟：**
 
@@ -142,7 +142,7 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_02.png)
 
@@ -160,7 +160,7 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-realtimeboard-test-user"></a>建立 RealtimeBoard 測試使用者
 

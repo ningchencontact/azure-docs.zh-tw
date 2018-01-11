@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Skills Manager 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: a6c7bc08c7258ae463902999cc6c73198d54ac66
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 7cfa44ca070996d7ae85a23f3297b07b406881e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>教學課程：Azure Active Directory 與 Skills Manager 整合
 
@@ -48,13 +48,13 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Skills Manager
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-skills-manager-from-the-gallery"></a>從資源庫新增 Skills Manager
-若要設定 Skills Manager 與 Azure AD 整合，您需要從資源庫將 Skills Manager 新增到受管理的 SaaS 應用程式清單中。
+若要設定 Skills Manager 與 Azure AD 整合，您需要從資源庫將 Skills Manager 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Skills Manager，請執行下列步驟：**
 
@@ -162,7 +162,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-skills-manager-test-user"></a>建立 Skills Manager 測試使用者
 

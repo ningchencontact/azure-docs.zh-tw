@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="install-the-azure-cli-10"></a>安裝 Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/01/2017
 
 如需詳細的選項和背景，請參閱 [GitHub](https://github.com/azure/azure-xplat-cli)上的專案儲存機制。
 
-安裝好 Azure CLI 1.0 之後，[使用 Azure 訂用帳戶將其連接](xplat-cli-connect.md)，並從命令列介面 (Bash、終端機及命令提示字元等) 中執行 **azure** 命令以使用 Azure 資源。
+安裝好 Azure CLI 1.0 之後，[使用 Azure 訂用帳戶將其連接](/cli/azure/authenticate-azure-cli)，並從命令列介面 (Bash、終端機及命令提示字元等) 中執行 **azure** 命令以使用 Azure 資源。
 
 ## <a name="option-1-install-an-npm-package"></a>選項 1：安裝 npm 套件
 若要從 npm 套件安裝 CLI，請確定已下載並安裝[最新的 Node.js 和 npm](https://nodejs.org/en/download/package-manager/)。 然後，執行 **npm 安裝**，以安裝 azure-cli 套件：
@@ -99,7 +99,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 azure --version
 ```
 
-您現在已經準備就緒！ 若要存取所有 CLI 命令以與您自己的資源搭配使用，請 [從 Azure CLI 連接到您的 Azure 訂用帳戶](xplat-cli-connect.md)。
+您現在已經準備就緒！ 若要存取所有 CLI 命令以與您自己的資源搭配使用，請 [從 Azure CLI 連接到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
 
 > [!NOTE]
 > 當您第一次使用 Azure CLI 時會看到一則訊息，詢問您是否要允許 Microsoft 收集使用情況資訊。 參與為自願性質。 如果您選擇參與，只要執行 `azure telemetry --disable`即可隨時停止參與。 只要執行 `azure telemetry --enable`即可隨時啟用參與。
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>後續步驟
-* [從 CLI 連接到您的 Azure 訂用帳戶](xplat-cli-connect.md) 來建立和管理 Azure 資源。
+* [從 CLI 連接到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli) 來建立和管理 Azure 資源。
 * 若要深入了解 Azure CLI、下載來源程式碼、回報問題，或是參與專案，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
 * 如果您有關於使用 Azure CLI 或 Azure 方面的問題，請造訪 [Azure 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)。
 

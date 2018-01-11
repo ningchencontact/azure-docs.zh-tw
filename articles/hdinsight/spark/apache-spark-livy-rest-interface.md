@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 11/10/2017
 
 您可以使用 Livy 執行互動式 Spark 殼層，或提交要在 Spark 上執行的批次作業。 本文將討論如何使用 Livy 提交批次作業。 本文中的程式碼片段會使用 cURL 向 Livy Spark 端點發出 REST API 呼叫。
 
-**先決條件：**
+**必要條件：**
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 * [cURL](http://curl.haxx.se/)。 本文使用 cURL 示範如何對 HDInsight Spark 叢集進行 REST API 呼叫。
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 本教學課程是一個系列的第四部分。 其中會逐步設定使用 Application Insights 來監視和診斷 Service Fabric 叢集上執行的 ASP.NET Core 應用程式。 我們將從教學課程第一部分[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)中所開發的應用程式收集遙測資料。 
@@ -235,4 +235,4 @@ public async Task<IActionResult> Delete(string name)
 現在您已完成設定 ASP.NET 應用程式的監視和診斷，接著請嘗試：
 - [在 Service Fabric 中探索監視和診斷](service-fabric-diagnostics-overview.md)
 - [使用 Application Insights 分析 Service Fabric 事件](service-fabric-diagnostics-event-analysis-appinsights.md)
-- 若要深入了解 Application Insights，請參閱 [Application Insights 文件](https://docs.microsoft.com/en-us/azure/application-insights/)
+- 若要深入了解 Application Insights，請參閱 [Application Insights 文件](https://docs.microsoft.com/azure/application-insights/)

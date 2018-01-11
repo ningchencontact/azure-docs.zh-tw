@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: 45f4de7e9ec880775f9ccf77b7d945766d465aa7
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>將 Raspberry Pi 裝置連線至遠端監視預先設定方案 (C)
 
@@ -47,9 +47,11 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="required-raspberry-pi-software"></a>必要的 Raspberry Pi 軟體
 
+本文假設您已安裝最新版[覆盆子 pi Raspbian OS](https://www.raspberrypi.org/learning/software-guide/quickstart/)。
+
 下列步驟說明如何準備 Raspberry Pi 以建置連線到預先設定方案的 C 應用程式：
 
-1. 使用 `ssh` 連線至您的 Raspberry Pi。 如需詳細資訊，請參閱 [Raspberry Pi 網站](https://www.raspberrypi.org/)上的 [SSH (安全殼層)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)。
+1. 連接到您的覆盆子 Pi 使用**ssh**。 如需詳細資訊，請參閱 [Raspberry Pi 網站](https://www.raspberrypi.org/)上的 [SSH (安全殼層)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)。
 
 1. 若要更新 Raspberry Pi，請使用下列命令︰
 
@@ -60,31 +62,27 @@ ms.lasthandoff: 11/10/2017
 1. 使用下列命令，將必要的開發工具和程式庫新增至 Raspberry Pi：
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. 使用下列命令來安裝 IoT 中樞用戶端程式庫：
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. 使用下列命令，將 Parson JSON 剖析器複製到您的 Raspberry Pi：
+1. 使用下列命令來下載、 建置和安裝覆盆子 pi 的 IoT 中樞的用戶端程式庫：
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>建立專案
 
-使用 `ssh` 與 Raspberry Pi 的連線完成下列步驟：
+完成下列步驟使用**ssh**覆盆子 Pi 的連線：
 
-1. 在 Raspberry Pi 的主資料夾中，建立名為 `remote_monitoring` 的資料夾。 在命令列中瀏覽至此資料夾：
+1. 在 Raspberry Pi 的主資料夾中，建立名為 `remote_monitoring` 的資料夾。 瀏覽至您的 shell 中的此資料夾：
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ ms.lasthandoff: 11/10/2017
     cd remote_monitoring
     ```
 
-1. 在 `remote_monitoring` 資料夾中，建立 `main.c`、`remote_monitoring.c`、`remote_monitoring.h` 和 `CMakeLists.txt` 四個檔案。
+1. 建立四個檔案**main.c**， **remote_monitoring.c**， **remote_monitoring.h**，和**CMakeLists.txt**中`remote_monitoring`資料夾。
 
-1. 在 `remote_monitoring` 資料夾中，建立一個名為 `parson` 的資料夾。
-
-1. 將 `parson.c` 和 `parson.h` 檔案從 Parson 存放庫的本機複本複製到 `remote_monitoring/parson` 資料夾。
-
-1. 在文字編輯器中，開啟 `remote_monitoring.c` 檔案。 在 Raspberry Pi 上，您可以使用 `nano` 或 `vi` 文字編輯器。 新增下列 `#include` 陳述式：
+1. 在文字編輯器中，開啟**remote_monitoring.c**檔案。 在覆盆子 Pi 中，您可以使用**nano**或**vi**文字編輯器。 新增下列 `#include` 陳述式：
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ ms.lasthandoff: 11/10/2017
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+儲存**remote_monitoring.c**檔案並結束編輯器。
+
 ## <a name="add-code-to-run-the-app"></a>新增程式碼以執行應用程式
 
-在文字編輯器中開啟 `remote_monitoring.h` 檔案。 新增下列程式碼：
+在文字編輯器中，開啟 **remote_monitoring.h** 檔案。 新增下列程式碼：
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-在文字編輯器中開啟 `main.c` 檔案。 新增下列程式碼：
+儲存**remote_monitoring.h**檔案並結束編輯器。
+
+在文字編輯器中，開啟 **main.c** 檔案。 新增下列程式碼：
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+儲存**main.c**檔案並結束編輯器。
 
 ## <a name="build-and-run-the-application"></a>建置並執行應用程式
 
@@ -158,18 +158,16 @@ int main(void)
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ int main(void)
         m
     )
     ```
+
+1. 儲存**CMakeLists.txt**檔案並結束編輯器。
 
 1. 在 `remote_monitoring` 資料夾中，建立資料夾來儲存 CMake 產生的 make 檔案。 然後執行 **cmake** 和 **make** 命令，如下所示：
 

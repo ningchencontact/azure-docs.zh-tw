@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: a934643be02abeadecf9e8384e29bd3e0e1a36f5
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>如何使用 MongoDB API 來設定 Azure Cosmos DB 全域散發
 
@@ -101,7 +101,7 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 使用 DocumentDB API 來設定全域散發
+> * 設定使用 SQL Api 的通用散發
 
 您現在可以繼續進行到下一個教學課程，以了解如何使用 Azure Cosmos DB 本機模擬器在本機進行開發。
 

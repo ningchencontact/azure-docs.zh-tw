@@ -12,28 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1d857f3d062d8d1b15c64fa4b8c3e27ad6c2247e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 設定 Azure 媒體服務遙測
 
-本主題說明您使用 .NET SDK 設定 Azure 媒體服務 (AMS) 遙測時可能採取的一般步驟。 
+本文說明您可能需要設定使用.NET SDK 的 Azure 媒體服務 (AMS) 遙測時的一般步驟。 
 
 >[!NOTE]
->如需什麼是 AMS 遙測及如何取用的詳細說明，請參閱[概觀](media-services-telemetry-overview.md)主題。
+>功能的詳細的說明為 AMS 遙測，以及如何使用它，請參閱[概觀](media-services-telemetry-overview.md)發行項。
 
 您可以使用下列其中一個方法取用遙測資料︰
 
-- 直接從 Azure 表格儲存體 (例如使用儲存體 SDK) 中讀取資料。 如需遙測儲存體資料表的說明，請參閱[這個](https://msdn.microsoft.com/library/mt742089.aspx)主題中的**取用遙測資訊**。
+- 直接從 Azure 資料表儲存體 （例如，使用儲存體 SDK） 中讀取資料。 遙測的儲存體資料表的描述，請參閱**取用遙測資訊**中[這](https://msdn.microsoft.com/library/mt742089.aspx)發行項。
 
 或
 
-- 使用媒體服務 .NET SDK 中的支援讀取儲存體資料。 本主題示範如何為指定的 AMS 帳戶啟用遙測，以及如何使用 Azure 媒體服務 .NET SDK 查詢度量。  
+- 使用媒體服務 .NET SDK 中的支援讀取儲存體資料。 本文將說明如何啟用遙測 AMS 所指定帳戶，以及如何查詢使用 Azure Media Services.NET SDK 的度量。  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>設定媒體服務帳戶的遙測
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
-- 針對要監視的服務建立監視組態設定。 系統最多只允許一個監視組態設定。 
+- 建立您想要監視的服務設定監視設定。 允許有一個以上的監視組態設定。 
   
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -58,11 +58,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="consuming-telemetry-information"></a>取用遙測資訊
 
-如需取用遙測資訊的相關資訊，請參閱[這個](media-services-telemetry-overview.md)主題。
+如需有關取用遙測資訊，請參閱[這](media-services-telemetry-overview.md)發行項。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-1. 設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+1. 設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
 
 2. 將下列項目新增至 app.config 檔案中定義的 **appSettings**：
 
@@ -72,20 +72,25 @@ ms.lasthandoff: 10/11/2017
     
 下列範例示範如何為指定的 AMS 帳戶啟用遙測，以及如何使用 Azure 媒體服務 .NET SDK 查詢度量。  
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
 
-    namespace AMSMetrics
+namespace AMSMetrics
+{
+    class Program
     {
-        class Program
-        {
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly string _mediaServicesStorageAccountName =
             ConfigurationManager.AppSettings["StorageAccountName"];
@@ -98,7 +103,11 @@ ms.lasthandoff: 10/11/2017
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -112,21 +121,21 @@ ms.lasthandoff: 10/11/2017
             // No more than one monitoring configuration settings is allowed.
             if (monitoringConfigurations.ToArray().Length != 0)
             {
-            monitoringConfiguration = _context.MonitoringConfigurations.FirstOrDefault();
+                monitoringConfiguration = _context.MonitoringConfigurations.FirstOrDefault();
             }
             else
             {
-            INotificationEndPoint notificationEndPoint =
-                      _context.NotificationEndPoints.Create("monitoring",
-                      NotificationEndPointType.AzureTable, GetTableEndPoint());
+                INotificationEndPoint notificationEndPoint =
+                          _context.NotificationEndPoints.Create("monitoring",
+                          NotificationEndPointType.AzureTable, GetTableEndPoint());
 
-            monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
-                new List<ComponentMonitoringSetting>()
-                {
+                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
+                    new List<ComponentMonitoringSetting>()
+                    {
                     new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                     new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
 
-                });
+                    });
             }
 
             //Print metrics for a Streaming Endpoint.
@@ -156,19 +165,19 @@ ms.lasthandoff: 10/11/2017
 
             foreach (var log in res)
             {
-            Console.WriteLine("AccountId: {0}", log.AccountId);
-            Console.WriteLine("BytesSent: {0}", log.BytesSent);
-            Console.WriteLine("EndToEndLatency: {0}", log.EndToEndLatency);
-            Console.WriteLine("HostName: {0}", log.HostName);
-            Console.WriteLine("ObservedTime: {0}", log.ObservedTime);
-            Console.WriteLine("PartitionKey: {0}", log.PartitionKey);
-            Console.WriteLine("RequestCount: {0}", log.RequestCount);
-            Console.WriteLine("ResultCode: {0}", log.ResultCode);
-            Console.WriteLine("RowKey: {0}", log.RowKey);
-            Console.WriteLine("ServerLatency: {0}", log.ServerLatency);
-            Console.WriteLine("StatusCode: {0}", log.StatusCode);
-            Console.WriteLine("StreamingEndpointId: {0}", log.StreamingEndpointId);
-            Console.WriteLine();
+                Console.WriteLine("AccountId: {0}", log.AccountId);
+                Console.WriteLine("BytesSent: {0}", log.BytesSent);
+                Console.WriteLine("EndToEndLatency: {0}", log.EndToEndLatency);
+                Console.WriteLine("HostName: {0}", log.HostName);
+                Console.WriteLine("ObservedTime: {0}", log.ObservedTime);
+                Console.WriteLine("PartitionKey: {0}", log.PartitionKey);
+                Console.WriteLine("RequestCount: {0}", log.RequestCount);
+                Console.WriteLine("ResultCode: {0}", log.ResultCode);
+                Console.WriteLine("RowKey: {0}", log.RowKey);
+                Console.WriteLine("ServerLatency: {0}", log.ServerLatency);
+                Console.WriteLine("StatusCode: {0}", log.StatusCode);
+                Console.WriteLine("StreamingEndpointId: {0}", log.StreamingEndpointId);
+                Console.WriteLine();
             }
 
             Console.WriteLine();
@@ -178,13 +187,13 @@ ms.lasthandoff: 10/11/2017
         {
             if (_channel == null)
             {
-            Console.WriteLine("There are no channels in this AMS account");
-            return;
+                Console.WriteLine("There are no channels in this AMS account");
+                return;
             }
 
             Console.WriteLine(string.Format("Telemetry for channel '{0}'", _channel.Name));
 
-            DateTime timerangeEnd = DateTime.UtcNow; 
+            DateTime timerangeEnd = DateTime.UtcNow;
             DateTime timerangeStart = DateTime.UtcNow.AddHours(-5);
 
             // Get some channel metrics.
@@ -197,18 +206,18 @@ ms.lasthandoff: 10/11/2017
 
             foreach (var channelHeartbeat in channelMetrics.OrderBy(x => x.ObservedTime))
             {
-            Console.WriteLine(
-                "    Observed time: {0}, Last timestamp: {1}, Incoming bitrate: {2}",
-                channelHeartbeat.ObservedTime,
-                channelHeartbeat.LastTimestamp,
-                channelHeartbeat.IncomingBitrate);
+                Console.WriteLine(
+                    "    Observed time: {0}, Last timestamp: {1}, Incoming bitrate: {2}",
+                    channelHeartbeat.ObservedTime,
+                    channelHeartbeat.LastTimestamp,
+                    channelHeartbeat.IncomingBitrate);
             }
 
             Console.WriteLine();
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

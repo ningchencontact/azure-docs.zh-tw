@@ -4,7 +4,7 @@ description: "Log Analytics 中的警示會識別您的 OMS 儲存機制中的�
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
@@ -12,23 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>了解 Log Analytics 中的警示
 
-Log Analytics 中的警示會識別您的 Log Analytics 儲存機制中的重要資訊。  本文詳述警示規則在 Log Analytics 中的運作方式，並說明不同類型的警示規則之間的差異。
+Log Analytics 中的警示會識別您的 Log Analytics 儲存機制中的重要資訊。  本文將討論某些設計決策，必須變更為基礎的查詢、 隨機延遲，可能是因為網路延遲或處理容量，並認可資料至記錄檔擷取的資料與資料收集頻率分析儲存機制。  它也提供中記錄分析工作如何警示規則的詳細資料，並說明不同類型的警示規則之間的差異。
 
 如需建立警示規則的程序，請參閱下列文章：
 
 - 使用 [Azure 入口網站](log-analytics-alerts-creating.md)建立警示規則
 - 使用 [Resource Manager 範本](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)建立叢集規則
 - 使用 [REST API](log-analytics-api-alerts.md) 建立警示規則
+
+## <a name="considerations"></a>注意事項
+
+使用在不同的方案和資料類型的詳細資料收集頻率[資料收集的詳細資料](log-analytics-add-solutions.md#data-collection-details)解決方案概觀文件。 這篇文章所述，收集頻率可以是頻率為一次每七天*通知*。 請務必了解及考慮設定警示前的資料收集頻率。 
+
+- 收集頻率會決定頻率機器上的 OMS 代理程式將資料傳送至記錄分析。 比方說，如果收集頻率為 10 分鐘，且系統中有其他的延遲，然後傳輸資料的時間戳記可能是任何位置介於 0 到 10 分鐘加入至儲存機制之前舊，就可以在記錄分析搜尋。
+
+- 可以觸發警示之前，資料必須寫入至儲存機制，使其可接受查詢時。 由於上述的延遲，收集頻率不相同的資料可供查詢的時間。 比方說，精確地每隔 10 分鐘，可能會收集資料，資料將可使用資料儲存機制中的不規則的間隔。 假設情況下，在零，10，而且 20 分鐘的時間間隔收集的資料可能可供搜尋，25、 28，和 35 分鐘，或在其他異常的間隔擷取延遲的影響。 這些延遲最壞的情況下會記載在[記錄分析的 SLA](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1)，其中不包含記錄分析服務與電腦之間的收集頻率或網路延遲所導入的延遲。
 
 
 ## <a name="alert-rules"></a>警示規則
@@ -37,11 +45,27 @@ Log Analytics 中的警示會識別您的 Log Analytics 儲存機制中的重要
 
 ![Log Analytics 警示](media/log-analytics-alerts/overview.png)
 
+因為沒有預期的延遲，以記錄資料的擷取，之間編製索引的資料和何時可供搜尋的絕對時間可能會無法預期。  所收集的資料接近即時可用性應該列入定義警示規則時的考量。    
+
+沒有可靠性的警示和警示的回應之間的取捨。 您可以選擇設定 降到最低，則為 false 的警示和遺失的警示，警示參數，或者您可以選擇警示的參數，以快速回應會受到監視，但偶爾產生 false 或遺失警示的情況。
+
 警示規則會由下列詳細資料定義：
 
 - **記錄搜尋**。  每次引發警示規則都會執行的查詢。  此查詢所傳回的記錄將是用來判斷是否要建立警示。
-- **時間範圍**。  指定查詢的時間範圍。  查詢只會傳回在此目前時間範圍內建立的記錄。  可以是介於 5 分鐘與 24 小時之間的任何值。 例如，如果時間範圍設定為 60 分鐘，則查詢會在下午 1:15 執行，只會傳回在下午 12:15 與下午 1:15 之間建立的記錄。
-- **頻率**。  指定應執行查詢的頻率。 可以是介於 5 分鐘與 24 小時之間的任何值。 應等於或小於此時間範圍。  如果值大於時間範圍，則您可能有遺漏記錄的風險。<br>例如，請考慮 30 分鐘的時間範圍，以及 60 分鐘的頻率。  如果在 1:00 執行查詢，它會傳回 12:30 到下午 1:00 之間的記錄。  下一次執行查詢就是 2:00 時，它會傳回 1:30 至 2:00 之間的記錄。  1:00 和 1:30 之間建立的任何記錄一律不會評估。
+- **時間範圍**。  指定查詢的時間範圍。  查詢只會傳回在此目前時間範圍內建立的記錄。  這可以是 5 分鐘到 24 小時之間的任何值。 範圍必須是寬度不足以容納擷取合理的延遲。 時間間隔必須是您想要能夠處理的最長延遲的長度兩倍。<br> 比方說，如果您想是可靠的 30 分鐘延遲的警示，然後範圍必須是一小時。  
+
+    有兩個時間範圍為太小，可能獲得的徵兆。
+
+    - **遺失警示**。 假設擷取延遲為 60 分鐘某些情況下，但大部分的時間是 15 分鐘。  如果設定為 30 分鐘的時間間隔就會遺失警示時的延遲是 60 分鐘的時間，因為資料警示的查詢執行時，將無法供搜尋。 
+   
+        >[!NOTE]
+        >嘗試診斷警示，則會遺漏的原因是不可能。 比方說，在上述情況中，資料會寫入至儲存機制警示查詢執行後的 60 分鐘。 如果錯過警示，，和明天正確的時間間隔內執行查詢，它會注意到隔天，記錄檔搜尋條件相符的結果。 它會出現，應該有已觸發警示。 事實上，因為資料無法尚未使用警示的查詢執行時，已不觸發警示。 
+        >
+ 
+    - **False 警示**。 有時警示查詢被設計來識別事件不存在。 這其中一個範例偵測時虛擬機器離線藉由搜尋遺失的活動訊號。 做為上方，如果無法使用警示的時間間隔內，搜尋的活動訊號然後警示將會產生活動訊號資料尚未可搜尋，因為，因此不存在。 如同 VM 已合法離線，而且它產生沒有活動訊號資料，這會是相同的結果。 沒有提供的活動訊號，而且警示失敗，則會顯示在正確的時間視窗之上執行查詢隔天。 事實上，活動訊號未還可用於搜尋的警示的時間間隔已設定太小。  
+
+- **頻率**。  指定查詢應執行的頻率，並可用來使警示的一般情況下更能有效回應。 值可介於 5 分鐘到 24 小時，而且應該等於或小於警示的時間間隔。  如果值大於時間範圍，則您可能有遺漏記錄的風險。<br>如果目標是可靠的延遲最多 30 分鐘的時間和標準的延遲為 10 分鐘、 時間間隔應該是一小時和頻率值應為 10 分鐘。 這會觸發警示的 10 分鐘擷取延遲介於 10 到 20 分鐘，產生警示的資料時的資料。<br>若要避免建立多個警示，為相同的資料，由於時間間隔太寬，[抑制警示](log-analytics-tutorial-response.md#create-alerts)選項可用於歸併警示至少只要時間間隔。
+  
 - **閾值**。  系統會評估記錄搜尋的結果，以判斷是否應該建立警示。  不同類型的警示規則會有不同的閾值。
 
 Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各節會詳細說明這兩個類型。
@@ -62,7 +86,7 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
 ### <a name="scenarios"></a>案例
 
-#### <a name="events"></a>事件
+#### <a name="events"></a>活動
 這種類型的警示規則適用於處理例如 Windows 事件記錄、Syslog 和自訂記錄的事件。  您可能希望在建立特定的錯誤事件時，或是在特定時間範圍內建立多個錯誤事件時建立警示。
 
 若要對單一事件發出警示，請將結果數目設為大於 0 並將頻率與時間範圍設為 5 分鐘。  如此一來，將會每隔 5 分鐘執行一次查詢，並檢查在上次執行查詢後是否發生所建立的單一事件。  較長的頻率可能會延遲收集事件和建立警示的時間。
@@ -76,18 +100,15 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
 例如，如果您想要在處理器執行超過 90% 時發出警示，您會使用如下的查詢，且警示規則的臨界值**大於 0**。
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
-
-    
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
 如果您想要針對特定的時間範圍在處理器平均超過 90% 時發出警示，您會利用如下的[測量命令](log-analytics-search-reference.md#commands)來使用查詢，且警示規則的臨界值**大於 0**。
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
-    
 >[!NOTE]
-> 如果您的工作區尚未升級為新的 [Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下：`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
-> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下：`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>公制度量單位的警示規則
@@ -102,7 +123,7 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
 - **彙總函式**。  決定要執行的計算，並可能決定要彙總的數值欄位。  例如，**count()** 會在查詢中傳回記錄數目，**avg(CounterValue)** 則會傳回 CounterValue 欄位在一段間隔內的平均值。
 - **群組欄位**。  系統會為這個欄位中的每個執行個體建立帶有彙總值的記錄，而且每個執行個體都可產生警示。  例如，如果您想要為每部電腦產生警示，您可以使用**依電腦**。   
-- **間隔**。  定義用來彙總資料的時間間隔。  例如，如果您指定 **5 分鐘**，則系統會為群組欄位的每個執行個體建立記錄，而這些執行個體是在針對警示所指定的時間範圍內以每 5 分鐘為間隔進行彙總的。
+- **間隔**。  定義用來彙總資料的時間間隔。  例如，如果您指定**5 分鐘**，會建立一則記錄，每隔 5 分鐘時段彙總指定警示的 [群組] 欄位的每個執行個體。
 
 #### <a name="threshold"></a>閾值
 計量測量警示規則的閾值是由彙總值與若干違規所定義。  如果記錄搜尋中的任何資料點超過此值，系統就會將其視為違規。  如果結果中任何物件的違規數目超過指定值，系統舊會為該物件建立警示。
@@ -110,11 +131,11 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 #### <a name="example"></a>範例
 假設您想要在任何電腦於過去 30 分鐘內發生三次處理器使用率超過 90% 時收到警示。  您可以建立詳細資料如下的警示規則。  
 
-**查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-**時間範圍︰**30 分鐘<br>
-**警示頻率︰**5 分鐘<br>
-**彙總值︰**大於 90<br>
-**警示觸發依據︰**違規總數大於 5<br>
+**查詢：**Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
+**時間間隔：** 30 分鐘<br>
+**警示頻率：** 5 分鐘<br>
+**彙總的值：**大於 90<br>
+**警示觸發程序為基礎：**總計破壞大於 5<br>
 
 查詢會以 5 分鐘為間隔為每部電腦建立平均值。  此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。  三部電腦的資料範例如下所示。
 
@@ -146,5 +167,5 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 ## <a name="next-steps"></a>後續步驟
 * 安裝[警示管理解決方案](log-analytics-solution-alert-management.md)，以分析在 Log Analytics 中建立的警示以及從 System Center Operations Manager 收集的警示。
 * 深入了解可產生警示的 [記錄檔搜尋](log-analytics-log-searches.md) 。
-* 完成[設定 Webhook](log-analytics-alerts-webhooks.md) 搭配警示規則的逐步解說。  
+* 完成 [設定 Webook](log-analytics-alerts-webhooks.md) 和警示規則的逐步解說。  
 * 了解如何在 [Azure 自動化中撰寫 Runbook](https://azure.microsoft.com/documentation/services/automation) 以補救警示所識別的問題。

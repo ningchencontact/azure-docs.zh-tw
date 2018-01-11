@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/07/2017
 
 「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 如需了解如何註冊訂用帳戶，請參閱 https://aka.ms/rps-not-found。 (錯誤碼：MissingSubscriptionRegistration)」
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/07/2017
 
 「您的帳戶 {email} 在 Azure 入口網站的 Databricks 工作區資源中沒有「擁有者」或「參與者」角色。 如果您是租用戶中的來賓使用者，也會發生此錯誤。 請向系統管理員申請授予存取權，或將您直接新增為 Databricks 工作區中的使用者。」 
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 
 以下是此問題的幾種解決方案：
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/07/2017
 
 ### <a name="your-account-email-has-not-been-registered-in-databricks"></a>您的帳戶 {email} 並未在 Databricks 中註冊 
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 
 如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]。
 
@@ -92,9 +92,9 @@ ms.lasthandoff: 12/07/2017
 
 「雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 請參閱 Databricks 指南以取得詳細資訊。 Azure 錯誤碼：PublicIPCountLimitReached。 Azure 錯誤訊息：無法為此區域的此訂用帳戶建立超過 60 個以上的公用 IP 位址。」
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 
-Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇 [配額] 作為 [問題類型]，並選擇 [網路：ARM] 作為 [配額類型]。 在 [詳細資料] 中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
+Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇 [配額] 作為 [問題類型]，並選擇 [網路：ARM] 作為 [配額類型]。 在 [詳細資料] 中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>設定叢集時的第二種類型雲端提供者啟動失敗
 
@@ -103,7 +103,7 @@ Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您�
 「雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 請參閱 Databricks 指南以取得詳細資訊。
 Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳戶未註冊為使用命名空間 'Microsoft.Compute'。 如需了解如何註冊訂用帳戶，請參閱 https://aka.ms/rps-not-found。」
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 

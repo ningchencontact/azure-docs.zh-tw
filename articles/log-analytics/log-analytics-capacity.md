@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>使用容量和效能解決方案來規劃 Hyper-V 虛擬機器容量 (預覽)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 | 連接的來源 | 支援 | 說明 |
 |---|---|---|
-| [Windows 代理程式](log-analytics-windows-agents.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
 | [SCOM 管理群組](log-analytics-om-agents.md) | 是 |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連線到 OMS。 資料會從管理群組轉送至 OMS 儲存機制。|
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Azure 儲存體不包含容量和效能資料。|
@@ -116,7 +116,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 總結來說，解決方案會從各種來源 (包括效能計數器) 收集容量和效能資料。 請使用解決方案中的各種介面所呈現的容量和效能資料，並將您的結果與[測量 Hyper-V 上的效能](https://msdn.microsoft.com/library/cc768535.aspx)文章中的結果做比較。 雖然該文章已發佈一段時間，但其計量、考量和指導方針仍然有效。 該文章包含其他有用資源的連結。
 
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 
 下表提供此解決方案所收集和計算之容量和效能資料的記錄搜尋範例。
 

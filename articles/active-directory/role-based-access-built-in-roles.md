@@ -4,7 +4,7 @@ description: "本主題說明角色型存取控制 (RBAC) 的內建角色。 角
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 角色型存取控制的內建角色
 Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派給使用者、群組與服務。 您無法修改內建角色定義。 不過，您可以建立 [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md) 以符合您組織的特定需求。
@@ -28,7 +28,7 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 ## <a name="roles-in-azure"></a>Azure 中的角色
 下表提供內建角色的簡短描述。 按一下角色名稱，即可查看該角色的詳細 **actions** 和 **notactions** 清單。 **actions** 屬性指定了 Azure 資源上允許的動作。 動作字串可以使用萬用字元。 **notactions** 屬性指定了從允許的動作中排除的動作。
 
-動作會定義您可以對給定資源類型執行的作業類型。 例如：
+動作會定義您可以對給定資源類型執行的作業類型。 例如︰
 - **寫入**可讓您執行 PUT、POST、PATCH 和 DELETE 作業。
 - **讀取**可讓您執行 GET 作業。
 
@@ -55,7 +55,7 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | [Data Factory 參與者](#data-factory-contributor) |可以建立和管理 Data Factory 以及其中的子資源。 |
 | [DevTest Labs 使用者](#devtest-labs-user) |可以檢視所有項目，並連接、啟動、重新啟動和關閉虛擬機器 |
 | [DNS 區域參與者](#dns-zone-contributor) |可以管理 DNS 區域和記錄 |
-| [Azure Cosmos DB 帳戶參與者](#documentdb-account-contributor) |可以管理 Azure Cosmos DB 帳戶 |
+| [DocumentDB 帳戶參與者](#documentdb-account-contributor) |可以管理 Azure Cosmos DB 帳戶 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) |可以管理 Intelligent Systems 帳戶 |
 | 邏輯應用程式參與者 | 可以管理邏輯應用程式的所有層面，但是無法建立新的層面。 |
 | 邏輯應用程式操作員 |可以啟動及停止在邏輯應用程式內定義的工作流程。 |
@@ -371,13 +371,13 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | Microsoft.Resources/subscriptions/resourceGroups/read |讀取資源群組 |
 | Microsoft.Support/\* |建立和管理支援票證 |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Azure Cosmos DB 帳戶參與者
-可以管理 Azure Cosmos DB 帳戶
+### <a name="documentdb-account-contributor"></a>DocumentDB 帳戶參與者
+可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。
 
 | **動作** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |讀取角色和角色指派 |
-| Microsoft.DocumentDb/databaseAccounts/* |建立及管理 DocumentDB 帳戶 |
+| Microsoft.DocumentDb/databaseAccounts/* |建立及管理 Azure Cosmos DB 帳戶 |
 | Microsoft.Insights/alertRules/* |建立及管理警示規則 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |讀取資源的健康狀態 |
 | Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
@@ -703,7 +703,7 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 
 | **動作** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |讀取授權 |
+| Microsoft.Authorization/*/read |讀取角色和角色指派 |
 | Microsoft.Insights/alertRules/* |建立和管理 Insights 警示規則 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |讀取資源的健康狀態 |
 | Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
@@ -867,7 +867,7 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | Microsoft.Web/serverFarms/read |讀取伺服器陣列 |
 | Microsoft.Web/sites/* |建立和管理網站 (建立網站也需要相關聯應用程式服務方案的寫入權限) |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [角色型存取控制](role-based-access-control-configure.md)：開始在 Azure 入口網站中使用 RBAC。
 * [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md)︰了解如何建立自訂角色，以符合您的存取需求。
 * [建立存取權變更歷程記錄報告](role-based-access-control-access-change-history-report.md)︰記錄 RBAC 中的角色指派變更。

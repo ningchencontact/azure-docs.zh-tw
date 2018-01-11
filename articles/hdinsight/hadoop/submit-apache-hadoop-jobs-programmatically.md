@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: c22874facd43b784f02d2df553f74697e4c87c4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: f6173fed78345a2339e9bf40f414202c0ce62c0b
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 上提交 Hadoop 工作
 
@@ -50,6 +50,6 @@ ms.lasthandoff: 11/03/2017
   - [搭配使用 Sqoop 與 HDInsight 中的 Hadoop](apache-hadoop-use-sqoop-powershell.md)
   - [使用 PowerShell 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [Azure HDInsight 文件](https://docs.microsoft.com/azure/hdinsight/)

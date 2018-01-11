@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#create) 命令建立一般用途的標準儲存體帳戶。 一般用途的標準儲存體帳戶可以用於所有四個服務：Blob、檔案、資料表和佇列。 
+使用 [az storage account create](/cli/azure/storage/account#create) 命令建立一般用途的儲存體帳戶。 一般用途的儲存體帳戶可以用於所有四個服務：Blob、檔案、資料表和佇列。 
 
 ```azurecli-interactive
 az storage account create \

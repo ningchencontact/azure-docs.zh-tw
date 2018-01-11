@@ -3,21 +3,21 @@ title: "選擇 Azure 混合式身分識別解決方案 | Microsoft Docs"
 description: "取得可用身分識別解決方案和建議的基本了解，可讓您為貴組織做出最佳的身分識別控管決策。"
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 混合式身分識別解決方案
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 混合式身分識別解決方案可讓您同步處理內部部署目錄物件與 Azure AD，仍同時在內部部署環境管理使用者。 在規劃同步處理內部部署 Windows Server Active Directory 與 Azure AD 時，首先要決定您要使用已同步處理的身分識別或同盟身分識別。 已同步處理的身分識別和密碼雜湊 (選擇性)，讓使用者能使用相同的密碼來存取內部部署和雲端式組織資源。 如需更進階的案例需求，例如單一登入 (SSO) 或內部部署 MFA，您必須將 Active Directory Federation Services (AD FS) 部署至同盟身分識別。 
@@ -50,9 +50,6 @@ ms.lasthandoff: 10/11/2017
 
 - Windows Server 2012 R2 或更新版本
 - 加入樹系中將透過它驗證使用者的網域
-
-> [!NOTE]
-> Azure AD 傳遞驗證目前為預覽狀態，可為支援新式驗證的網頁瀏覽器型用戶端和 Office 用戶端提供支援。 對於像是舊版 Office 用戶端和 Exchange Active Sync ( 包括行動裝置上的原生電子郵件用戶端) 這種不支援的用戶端，建議使用和新式驗證對等的方法。 新式驗證不只允許使用傳遞驗證，也允許套用條件式存取原則，例如 Multi-Factor Authentication。 
 
 使用已加入 Azure AD 的 Windows 10 裝置時，目前不支援傳遞驗證。 不過，您可以使用密碼雜湊同步處理作為自動後援，以支援先前所述的 Windows 10 和舊版用戶端。 已在 Azure AD Connect 中選取傳遞驗證作為登入選項時，預覽期間預設會啟用密碼雜湊同步處理。
 

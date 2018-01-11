@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 您可以使用入口網站中內建的「匯出」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 來啟用記錄設定檔中服務匯流排規則識別碼的方式，迅速將 [**Azure 活動記錄檔**](monitoring-overview-activity-logs.md)串流至任何應用程式。
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 * **建置自訂遙測及記錄平台** – 如果您已有自建遙測平台或正在考慮建置一個，事件中樞所具備的高度可調整發佈訂閱特質可讓您靈活擷取活動記錄檔。 [請參閱此處的 Dan Rosanova 指南，以在全球級別的遙測平台中使用事件中樞。](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>啟用活動記錄檔的串流功能
-您可以以程式控制的方式，或透過入口網站來啟用活動記錄檔的串流功能。 無論您使用何種方式，您都會選擇服務匯流排命名空間及該命名空間的共用存取原則，而且在第一個新的活動記錄檔事件發生時，該命名空間中將會建立事件中樞。 如果您沒有服務匯流排命名空間，您必須先建立一個。 如果您先前已將活動記錄檔事件串流處理到此服務匯流排命名空間，則會重複使用先前建立的事件中樞。 共用存取原則會定義串流機制具有的權限。 目前，串流到事件中樞需要**管理**、**傳送**和**接聽**權限。 您可以在傳統入口網站 [設定] 索引標籤下，為您的服務匯流排命名空間建立或修改服務匯流排命名空間共用存取原則。 若要更新活動記錄檔設定檔以加入串流，進行變更的使用者必須擁有該服務匯流排授權規則的 ListKey 權限。
+您可以以程式控制的方式，或透過入口網站來啟用活動記錄檔的串流功能。 無論您使用何種方式，您都會選擇服務匯流排命名空間及該命名空間的共用存取原則，而且在第一個新的活動記錄檔事件發生時，該命名空間中將會建立事件中樞。 如果您沒有服務匯流排命名空間，您必須先建立一個。 如果您先前已將活動記錄檔事件串流處理到此服務匯流排命名空間，則會重複使用先前建立的事件中樞。 共用存取原則會定義串流機制具有的權限。 目前，串流到事件中樞需要**管理**、**傳送**和**接聽**權限。 您可以建立或修改服務匯流排命名空間共用存取原則，在 Azure 入口網站中 「 設定 」 索引標籤下，您的服務匯流排命名空間。 若要更新活動記錄檔設定檔以加入串流，進行變更的使用者必須擁有該服務匯流排授權規則的 ListKey 權限。
 
 服務匯流排或事件中樞命名空間不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 

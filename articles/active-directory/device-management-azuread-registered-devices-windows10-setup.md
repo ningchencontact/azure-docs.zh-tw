@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 已註冊裝置。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 427bf9a0487c771e57ac53a9bb0b7d7e2f6bdca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1ff50a63aca93c4b9ba79eb113064a41a5e05cd7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>設定註冊 Azure Active Directory 的 Windows 10 裝置
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 - Azure AD 會檢查這個裝置是否需要註冊行動裝置管理，如果適用的話就加以註冊。
 
-- 如果您是受管理的使用者，Windows 會透過自動登入將您導向桌面。
+- 如果您是受控使用者，Windows 會透過自動登入將您導向桌面。
 
 - 如果您是同盟使用者，便會將您導向 Windows 登入畫面，以輸入您的認證。
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。
@@ -48,7 +48,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 | 觸發方式 | [手動觸發]、[排程觸發] |
 | 狀態 | [失敗]、[成功]、[進行中] |
 | 參數 | 管線回合參數 (名稱、值組) |
-| 錯誤 | 管線回合錯誤 (若有) |
+| Error | 管線回合錯誤 (若有) |
 | 回合識別碼 | 管線回合的識別碼 |
 
 ![監視管線回合](media/monitor-visually/pipeline-runs.png)
@@ -65,7 +65,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 | 狀態 | [失敗]、[成功]、[進行中] |
 | 輸入 | 描述活動輸入的 JSON 陣列 |
 | 輸出 | 描述活動輸出的 JSON 陣列 |
-| 錯誤 | 活動回合錯誤 (若有) |
+| Error | 活動回合錯誤 (若有) |
 
 ![監視活動回合](media/monitor-visually/activity-runs.png)
 
@@ -114,4 +114,4 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱[以程式設計方式監視和管理管線](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically)文章，以了解如何監視和管理管線
+請參閱[以程式設計方式監視和管理管線](https://docs.microsoft.com/azure/data-factory/monitor-programmatically)文章，以了解如何監視和管理管線

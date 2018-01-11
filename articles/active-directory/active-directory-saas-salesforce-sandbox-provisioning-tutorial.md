@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Salesforce Sandbox �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bab73fda-6754-411d-9288-f73ecdaa486d
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c6c5d01a831a76c497f42fe4af3d90f8c5dc5903
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Salesforce 沙箱
 
@@ -57,7 +57,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 本節的目的是要說明如何對 Salesforce 沙箱啟用 Active Directory 使用者帳戶的使用者佈建。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式] 區段。
 
 2. 如果您已經設定單一登入的 Salesforce 沙箱，請使用 [搜尋] 欄位搜尋您的 Salesforce 沙箱執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Salesforce 沙箱]。 從搜尋結果中選取 Salesforce 沙箱，並將它新增至您的應用程式清單。
 
@@ -77,7 +77,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
      ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "啟用自動使用者佈建")
 
-7. 在左方導覽窗格上，按一下 [我的個人資訊] 展開相關的區段，然後按一下 [重設我的安全性權杖]。
+7. 在左方導覽窗格上，按一下 [我的個人資訊] 以展開相關的區段，然後按一下 [重設我的安全性權杖]。
   
     ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "啟用自動使用者佈建")
 
@@ -87,7 +87,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 9. 檢查與此系統管理員帳戶相關聯的電子郵件收件匣。 尋找來自 Salesforce Sandbox.com，包含新安全性權杖的電子郵件。
 
-10. 複製權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
+10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
 11. 在 Azure 入口網站中，按一下 [測試連接]，以確保 Azure AD 可以連接到您的 Salesforce 沙箱應用程式。
 

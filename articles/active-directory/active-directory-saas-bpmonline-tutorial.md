@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Bpm’online 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 52518cd76738f93162b3c1c8b76abff95f34fc2f
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>教學課程：Azure Active Directory 與 Bpm’online 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/17/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Bpm’online
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-bpmonline-from-the-gallery"></a>從資源庫新增 Bpm’online
-若要設定將 Bpm’online 整合到 Azure AD 中，您需要從資源庫將 Bpm’online 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Bpm’online 整合到 Azure AD 中，您需要從資源庫將 Bpm’online 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Bpm’online，請執行下列步驟：**
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/17/2017
     
     ![設定單一登入](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [端點] 以開啟 [端點] 對話方塊。  
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
     
     ![設定單一登入](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 10/17/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-bpmonline-test-user"></a>建立 Bpm’online 測試使用者
 

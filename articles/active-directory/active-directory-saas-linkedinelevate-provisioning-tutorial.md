@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 526666301aad1e5284c621024649d9cd52c92d18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6c2f26e6df435b522346f22ce697468d094de23e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 LinkedIn Elevate
 
@@ -106,7 +106,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 12) 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-13) 按一下 [儲存] 。 
+13) 按一下 [檔案] 。 
 
 14) 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步至 LinkedIn Elevate 的使用者和群組屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 LinkedIn Elevate 中的使用者帳戶和群組以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
@@ -114,7 +114,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 15) 若要啟用 LinkedIn Elevate 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]
 
-16) 按一下 [儲存] 。 
+16) 按一下 [檔案] 。 
 
 這會啟動在 [使用者和群組] 區段中指派給 LinkedIn Elevate 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 20 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，報告中會描述您的 LinkedIn Elevate 應用程式上的佈建服務所執行之所有動作。
 

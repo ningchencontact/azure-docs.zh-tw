@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 中的**變更摘要支援**允許您針對每一個模式建置
 ![使用 Azure Cosmos DB 變更摘要來提供即時分析和事件導向的計算案例](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Azure Cosmos DB 中的所有資料模型和容器均可使用變更摘要支援。 不過，讀取變更摘要使用 DocumentDB 用戶端，並將項目序列化為 JSON 格式。 因為是 JSON 格式，MongoDB 用戶端會遇到 BSON 格式文件與 JSON 格式變更摘要互不相符的情況。 
+> Azure Cosmos DB 中的所有資料模型和容器均可使用變更摘要支援。 不過，變更摘要讀取時使用的 SQL 用戶端，以及將項目序列化為 JSON 格式。 因為是 JSON 格式，MongoDB 用戶端會遇到 BSON 格式文件與 JSON 格式變更摘要互不相符的情況。 
 
 ## <a name="how-does-change-feed-work"></a>變更摘要如何運作？
 
@@ -90,11 +90,11 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>使用 SDK
 
-Azure Cosmos DB 使用的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 提供讀取和管理變更摘要的所有功能。 但是，能力愈強責任愈多。 如果您想要管理檢查點、處理文件序號，並能夠更精確地控制分割區索引鍵，那麼，使用 SDK 可能是正確的方法。
+[SQL SDK](sql-api-sdk-dotnet.md)針對 Azure Cosmos DB 可讓您讀取和管理變更摘要的所有功能。 但是，能力愈強責任愈多。 如果您想要管理檢查點、處理文件序號，並能夠更精確地控制分割區索引鍵，那麼，使用 SDK 可能是正確的方法。
 
-本節逐步解說如何使用 DocumentDB SDK 運用摘要變更。
+本節逐步解說如何使用 SQL SDK，才能使用摘要的變更。
 
-1. 首先，讀取 appconfig 中的下列資源。 擷取端點和授權金鑰的指示，可於[更新連接字串](create-documentdb-dotnet.md#update-your-connection-string)中找到。
+1. 首先，讀取 appconfig 中的下列資源。 擷取端點和授權金鑰的指示，可於[更新連接字串](create-sql-api-dotnet.md#update-your-connection-string)中找到。
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Azure Cosmos DB 使用的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 提供讀�
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>使用變更摘要處理器程式庫 
 
-[Azure Cosmos DB 變更摘要處理器程式庫](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) 可幫助您輕鬆地將事件處理分散給多個取用者。 此程式庫會簡化跨分割區和多個平行運作執行緒上的變更讀取。
+[Azure Cosmos DB 變更摘要處理器程式庫](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) 可幫助您輕鬆地將事件處理分散給多個取用者。 此程式庫會簡化跨分割區和多個平行運作執行緒上的變更讀取。
 
 變更摘要處理器程式庫的主要優點是您不需要管理每個分割區和接續權杖，也不需要手動輪詢每個集合。
 
@@ -276,11 +276,11 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 如需有關使用變更摘要處理器程式庫的詳細資訊，請看下列資源：
 
-* [資訊頁面](documentdb-sdk-dotnet-changefeed.md) 
+* [資訊頁面](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [展示上述步驟 1-6 的範例程式碼](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [GitHub 上的其他範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 如需有關透過 SDK 使用變更摘要的詳細資訊，請看下列資源：
 
-* [SDK 資訊頁面](documentdb-sdk-dotnet.md)
+* [SDK 資訊頁面](sql-api-sdk-dotnet.md)

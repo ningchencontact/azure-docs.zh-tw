@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit，從任何 Azure 支援的平台 Windows Server 映像或 Windows 自訂映像來部署新的虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -58,10 +58,10 @@ Azure Marketplace 所提供的所有 Windows Server 映像都可以搭配適用�
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-您可以遵循步驟來[使用 PowerShell 建立 Windows 虛擬機器](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)，並傳遞 LicenseType = "Windows_Server"。 此選項可讓您在 Azure 上使用現有的 Windows Server 授權。
+您可以遵循步驟來[使用 PowerShell 建立 Windows 虛擬機器](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)，並傳遞 LicenseType = "Windows_Server"。 此選項可讓您在 Azure 上使用現有的 Windows Server 授權。
 
 ### <a name="portal"></a>入口網站
-您可以遵循步驟來[使用 Azure 入口網站建立 Windows 虛擬機器](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal)，然後選取要使用現有 Windows Server 授權的選項。
+您可以遵循步驟來[使用 Azure 入口網站建立 Windows 虛擬機器](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)，然後選取要使用現有 Windows Server 授權的選項。
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>轉換使用適用於 Windows Server 的 Azure Hybrid Benefit 的現有 VM
 如果您有想要將其轉換為利用適用於 Windows Server 的 Azure Hybrid Benefit 的現有 VM，您可以更新 VM 的授權類型，如下所示：
@@ -181,17 +181,17 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-您也可以[建立和部署虛擬機器擴展集](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create)，並設定 LicenseType 屬性
+您也可以[建立和部署虛擬機器擴展集](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create)，並設定 LicenseType 屬性
 
 ## <a name="next-steps"></a>後續步驟
 深入了解[如何使用 Azure Hybrid Benefit 來節省成本](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權詳細指導方針](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
+深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權詳細指導方針](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
 深入了解[如何使用 Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)
 
 深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 和 Azure Site Recovery 能使將應用程式移轉至 Azure 更符合成本效益](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) \(英文\)
 
-深入了解[在 Azure上使用多租用戶裝載權限的 Windows 10](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) \(英文\)
+深入了解[在 Azure上使用多租用戶裝載權限的 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) \(英文\)
 
 深入了解[常見問題集](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

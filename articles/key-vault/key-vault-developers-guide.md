@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 30b6bd694eba43a9c46f02404e7fdc0e936e9755
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -52,9 +52,9 @@ Key Vault 可讓您從應用程式內安全地存取機密資訊︰
 
 ## <a name="creating-and-managing-key-vaults"></a>建立及管理金鑰保存庫
 
-Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受管理的服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受管理的身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。 
+Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受控身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。 
 
-如需 MSI 的相關資訊，請參閱[適用於 Azure 資源的受管理服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。
+如需 MSI 的相關資訊，請參閱[適用於 Azure 資源的受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。
 
 如需有關使用 AAD 的詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/active-directory/develop/active-directory-integrating-applications)。
 
@@ -104,7 +104,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Key Vault 的 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Key Vault 的 Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### <a name="quick-start-guides"></a>快速入門指南
 

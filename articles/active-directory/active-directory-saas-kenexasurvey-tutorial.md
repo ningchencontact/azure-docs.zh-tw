@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 IBM Kenexa Survey En
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 5c276c23288292a1c54dd9d57177d5072b90c9e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>教學課程：Azure Active Directory 與 IBM Kenexa Survey Enterprise 整合
 
@@ -53,7 +53,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 * 設定並測試 Azure AD SSO
 
 ## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>從資源庫新增 IBM Kenexa Survey Enterprise
-若要設定將 IBM Kenexa Survey Enterprise 整合到 Azure AD 中，您需要從資源庫將 IBM Kenexa Survey Enterprise 新增到受管理的 SaaS 應用程式清單。
+若要設定將 IBM Kenexa Survey Enterprise 整合到 Azure AD 中，您需要從資源庫將 IBM Kenexa Survey Enterprise 新增到受控 SaaS 應用程式清單。
 
 若要從資源庫新增 IBM Kenexa Survey Enterprise，請執行下列步驟：
 
@@ -73,7 +73,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
 
-5. 在結果清單中，選取 IBM Kenexa Survey Enterprise，然後按一下新增 按鈕以新增應用程式。
+5. 在結果清單中，選取 [IBM Kenexa Survey Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 IBM Kenexa Survey Enterprise](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
@@ -104,7 +104,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://surveys.kenexa.com/<companycode>`
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL：`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL：`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
     > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 若要取得實際的值，請連絡 [IBM Kenexa Survey Enterprise 支援小組](https://www.ibm.com/support/home/?lnk=fcw)。
@@ -119,7 +119,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
     
     ![[使用者屬性] 對話方塊](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)   
 
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 
@@ -146,7 +146,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
 
@@ -164,7 +164,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>建立 IBM Kenexa Survey Enterprise 測試使用者
 
@@ -180,7 +180,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
 若要將使用者 Britta Simon 指派給 IBM Kenexa Survey Enterprise，請執行下列步驟：
 
-1. 在 Azure 入口網站中，開啟 應用程式 檢視，移至 目錄 檢視，選取 企業應用程式，然後按一下所有應用程式。
+1. 在 Azure 入口網站中，開啟 [應用程式] 檢視，移至 [目錄] 檢視，選取 [企業應用程式]，然後按一下 [所有應用程式]。
 
     ![[企業應用程式] 和 [所有應用程式] 連結][201] 
 

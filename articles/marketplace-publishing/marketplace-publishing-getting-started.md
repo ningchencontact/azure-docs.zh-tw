@@ -14,12 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
+> [!NOTE]
+> 這份文件不再是目前並不精確。 請改為移至 Azure Marketplace[賣方指南](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)在發行至 Azure Marketplace 提供項目上的指引。
+
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>在 Azure Marketplace 中發佈和管理供應項目
 此文章可協助開發人員建立解決方案、部署並管理他們在 Azure Marketplace 中列出的解決方案，讓其他 Azure 客戶與合作夥伴可進行購買及使用。
 
@@ -58,7 +61,7 @@ ms.lasthandoff: 11/07/2017
 
     a. 滿足[非技術性必要條件](marketplace-publishing-pre-requisites.md)。
 
-    b.這是另一個 C# 主控台應用程式。 滿足 [VM 技術性必要條件](marketplace-publishing-vm-image-creation-prerequisites.md)。
+    b. 滿足 [VM 技術性必要條件](marketplace-publishing-vm-image-creation-prerequisites.md)。
 
     c. 滿足[解決方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md)。
 
@@ -66,7 +69,7 @@ ms.lasthandoff: 11/07/2017
 
     a. 建立[虛擬機器](marketplace-publishing-vm-image-creation.md)供應項目。
 
-    b.這是另一個 C# 主控台應用程式。 建立[解決方案範本](marketplace-publishing-solution-template-creation.md)供應項目。
+    b. 建立[解決方案範本](marketplace-publishing-solution-template-creation.md)供應項目。
 
 3. 建立您的供應項目[行銷內容](marketplace-publishing-push-to-staging.md)。
 
@@ -74,7 +77,7 @@ ms.lasthandoff: 11/07/2017
 
     a. 在[預備環境](marketplace-publishing-vm-image-test-in-staging.md)中測試您的 VM 供應項目。
 
-    b.這是另一個 C# 主控台應用程式。 在[預備環境](marketplace-publishing-solution-template-test-in-staging.md)中測試您的解決方案範本供應項目。
+    b. 在[預備環境](marketplace-publishing-solution-template-test-in-staging.md)中測試您的解決方案範本供應項目。
 
 5. 將您的供應項目部署至 [Marketplace](marketplace-publishing-push-to-production.md)。
 
@@ -93,9 +96,9 @@ ms.lasthandoff: 11/07/2017
 * [更新供應項目或 SKU 的技術性詳細資料](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
 * [在已列出的供應項目下新增 SKU](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [變更已列出 SKU 的資料磁碟計數](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* [從 Marketplace 刪除已列出的供應項目](marketplace-publishing-vm-image-post-publishing.md)
-* [從 Marketplace 刪除已列出的 SKU](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [從 Marketplace 刪除已列出 SKU 的目前版本](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [從 Marketplace 刪除列出的優惠](marketplace-publishing-vm-image-post-publishing.md)
+* [從 Marketplace 刪除列出的 SKU](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [從 Marketplace 刪除列出的 SKU 的目前版本](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [將列出價格還原成生產環境值](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [將計費模式還原成生產環境值](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [將已列出的 SKU 的可見性設定還原成生產環境值](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)

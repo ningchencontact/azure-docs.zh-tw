@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 如果 [憑證 - 目前的使用者\個人\憑證] 中遺失了用戶端憑證，就會發生此問題。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 若要解決此問題，請遵循下列步驟：
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
 如果未將根憑證公開金鑰上傳到 Azure VPN 閘道，就會發生此問題。 如果金鑰已損毀或過期，也會發生此問題。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 若要解決此問題，請在 Azure 入口網站中檢查根憑證的狀態，以查看它是否已遭撤銷。 如果它未遭撤銷，請嘗試將根憑證刪除，然後重新上傳。 如需詳細資訊，請參閱 [建立憑證](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts)。
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 **憑證鏈結已處理，但它終止於信任提供者所未信任的根憑證。**
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 1. 請確定下列憑證位於正確的位置：
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 
 此問題的發生原因是閘道類型不正確。 
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
@@ -119,7 +119,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 如果您嘗試使用捷徑來開啟站對點 VPN 連線，就可能發生此問題。
 
-### <a name="solution"></a>方案 
+### <a name="solution"></a>解決方法 
 
 直接開啟 VPN 套件，而不要從捷徑開啟開啟它。
 
@@ -129,7 +129,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 必須有額外的憑證，才能信任您虛擬網路的 VPN 閘道。 此憑證包含在從 Azure 入口網站產生的 VPN 用戶端組態套件中。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 擷取 VPN 用戶端組態套件，並尋找 .cer 檔案。 若要安裝憑證，請遵循下列步驟：
 
@@ -152,7 +152,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 如果您上傳的根憑證公開金鑰包含無效的字元 (例如空格)，就可能發生此問題。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 請確定憑證中的資料不包含分行符號 (歸位字元) 之類的無效字元。 整個值應該是一個長行。 以下文字是憑證的範例：
 
@@ -195,7 +195,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 **無法下載檔案。錯誤詳細資料：錯誤 503。伺服器忙碌中。**
  
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 此錯誤可能是由暫時性的網路問題所造成。 請在幾分鐘後再重新嘗試下載 VPN 套件。
 
@@ -205,7 +205,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 如果憑證的存留期已過了 50%，就會變換該憑證。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 若要解決此問題，請建立新憑證並重新發佈到 VPN 用戶端。 
 
@@ -247,7 +247,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 系統只有在用戶端具有由其所加入之網域核發的有效憑證 (使用 SAN=UPN) 時，才會提示用戶端提供認證。 用戶端也必須實際連線到網域網路。 在此情況下，用戶端會嘗試使用該憑證並向外連線到網域控制站。 金鑰發佈中心接著會傳回 "KDC_ERR_C_PRINCIPAL_UNKNOWN" 錯誤。 系統會強制用戶端容錯移轉至 NTLM。 
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 若要解決此問題，請從下列登錄子機碼停用網域認證快取功能： 
 
@@ -260,6 +260,55 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 您移除點對站 VPN 連線，然後重新安裝 VPN 用戶端。 在此情況下，並未成功設定 VPN 連線。 您在 Windows 的 [網路連線] 設定中看不到 VPN 連線。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 若要解決此問題，請從 **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections** 中刪除舊的 VPN 用戶端組態檔，然後重新執行 VPN 用戶端安裝程式。
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>點對站 VPN 用戶端無法解析本機網域中資源的 FQDN
+
+### <a name="symptom"></a>徵狀
+
+當用戶端會使用點對站 VPN 連線來連線到 Azure 時，無法解析 FQND 本機網域中的資源。
+
+### <a name="cause"></a>原因
+
+點對站 VPN 用戶端會使用 Azure 虛擬網路中設定的 Azure DNS 伺服器。 Azure DNS 伺服器會優先於設定在用戶端，所以所有 DNS 查詢都傳送至 Azure DNS 伺服器的本機 DNS 伺服器。 如果 Azure DNS 伺服器沒有本機資源的記錄，則查詢會失敗。
+
+### <a name="solution"></a>解決方法
+
+若要解決此問題，請確定 Azure DNS 伺服器，使用 Azure 虛擬網路上可以解析本機資源的 DNS 記錄。 若要這樣做，您可以使用 DNS 轉寄站或條件式轉寄站。 如需詳細資訊，請參閱[使用您自己的 DNS 伺服器的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>建立點對站 VPN 連線，但您仍然無法連線到 Azure 資源 
+
+### <a name="cause"></a>原因
+
+如果 VPN 用戶端不會取得從 Azure VPN 閘道的路由，則可能會發生這個問題。
+
+### <a name="solution"></a>解決方法
+
+若要解決這個問題，請[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)。
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>錯誤: 「 撤銷功能無法核對撤銷狀況，因為伺服器已離線。（錯誤 0x80092013 」）
+
+### <a name="causes"></a>原因
+如果用戶端無法存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.cr，就會發生這個錯誤訊息。撤銷檢查需要存取這些兩個站台。  此問題通常是在已設定 proxy 伺服器的用戶端上。 在某些環境中，如果要求不會透過 proxy 伺服器，它將會拒絕在邊緣防火牆上。
+
+### <a name="solution"></a>解決方法
+
+檢查 proxy 伺服器設定，請確定用戶端可以存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.cr。
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 用戶端時發生錯誤： 因為 RAS 或 VPN 伺服器上設定的原則無法連接。 （錯誤 812）
+
+### <a name="cause"></a>原因
+
+如果您用來驗證 VPN 用戶端的 RADIUS 伺服器有不正確的設定，就會發生這個錯誤。 
+
+### <a name="solution"></a>解決方法
+
+請確定已正確設定 RADIUS 伺服器。 如需詳細資訊，請參閱[與 Azure Multi-factor Authentication Server 的整合 RADIUS 驗證](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md)。
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>「 錯誤 405 」 從 VPN 閘道下載根憑證時
+
+### <a name="cause"></a>原因
+
+已安裝根憑證。 根憑證安裝在用戶端**信任的憑證**儲存。

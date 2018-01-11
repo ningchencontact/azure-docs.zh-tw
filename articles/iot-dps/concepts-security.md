@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f004e4763106c25d94f585f644560cf3a72d3f1b
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT 中樞裝置佈建服務的安全性概念 
 
@@ -46,22 +46,51 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 TPM 可以參考安全地儲存驗證平台所用之金鑰的標準，以及與實作標準之模組互動的 I/O 介面。 TPM 可以是獨立硬體、整合式硬體、韌體或軟體。 深入了解 [TPM 和 TPM 證明](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)。 裝置佈建服務僅支援 TPM 2.0。
 
-## <a name="endorsement-key"></a>簽署金鑰
+### <a name="endorsement-key"></a>簽署金鑰
 
-簽署金鑰是 TPM 內建的非對稱金鑰，該金鑰在製造 TPM 時插入，且專屬於該 TPM。 您無法變更或移除簽署金鑰。 簽署金鑰的私密部分絕不會釋放到 TPM 外部，而簽署金鑰的公開部分則用於識別正版 TPM。 深入了解[簽署金鑰](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx)。
+簽署金鑰是在內部產生或插入在製造時間在 TPM 內所包含的非對稱金鑰，而且是唯一的每個 TPM。 您無法變更或移除簽署金鑰。 簽署金鑰的私密部分絕不會釋放到 TPM 外部，而簽署金鑰的公開部分則用於識別正版 TPM。 深入了解[簽署金鑰](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx)。
 
-## <a name="storage-root-key"></a>儲存根金鑰
+### <a name="storage-root-key"></a>儲存根金鑰
 
 儲存根金鑰儲存在 TPM 中，可保護應用程式建立的 TPM 金鑰，這樣一來，若沒有 TPM，就無法使用這些金鑰。 取得 TPM 擁有權後，會產生儲存根金鑰；而若您清除 TPM 以讓新的使用者取得擁有權，便又會產生新的儲存根金鑰。 深入了解[儲存根金鑰](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx)。
 
-## <a name="root-certificate"></a>根憑證
+## <a name="x509-certificates"></a>X.509 憑證
 
-根憑證是一種 X.509 憑證，代表憑證授權單位且自我簽署， 是憑證鏈結的終點。
+使用 X.509 憑證做為證明機制是生產環境調整規模並簡化裝置佈建的絕佳方式。 X.509 憑證通常會排列在信任鏈結中每個憑證由下一個較高的憑證，並依此類推，終止以自我簽署的根憑證的私密金鑰的憑證鏈結中。 這會建立委派從產生的受信任的根憑證授權單位 (CA) 向下透過每個裝置上安裝之終端實體憑證的中繼 CA 的根憑證的信任鏈結。 若要進一步了解，請參閱[使用 X.509 CA 憑證的裝置驗證](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview)。 
 
-## <a name="intermediate-certificate"></a>中繼憑證
+通常憑證鏈結代表某些與裝置相關聯的邏輯或實體階層架構。 例如，製造商可能會發行的自我簽署的根 CA 憑證，使用該憑證來產生每個處理站的唯一中繼 CA 憑證，請使用每個處理站的憑證，以產生每個實際執行的唯一中繼 CA 憑證工廠中一行和最後產生唯一的裝置 （終端實體） 憑證，每個裝置製造該行使用生產線的生產憑證。 若要進一步了解，請參閱[IoT 產業中的 X.509 CA 憑證的概念性的了解](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept)。 
 
-中繼憑證是根憑證 (或其鏈結中具有根憑證的另一個憑證) 簽署的一種 X.509 憑證，用於簽署分葉憑證。
+### <a name="root-certificate"></a>根憑證
 
-## <a name="leaf-certificate"></a>分葉憑證
+根憑證是自我簽署的 X.509 憑證，表示憑證授權單位 (CA)。 它是 terminus 或憑證鏈結的信賴起點。 根憑證可以自我組織所發出，或從受根憑證授權單位購買。 若要進一步了解，請參閱[取得 X.509 CA 憑證](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates)。 根憑證可以也稱為根 CA 憑證。
 
-分葉憑證也稱為終端實體憑證，用來識別憑證持有者，而且其憑證鏈結中有根憑證。 分葉憑證無法用來簽署其他任何憑證。
+### <a name="intermediate-certificate"></a>中繼憑證
+
+中繼憑證是 X.509 憑證的已簽署的根憑證 （或另一個中繼憑證，以在其鏈結中的根憑證）。 鏈結中的最後一個中繼憑證會用來簽署分葉憑證。 中繼憑證可以也稱為中繼 CA 憑證。
+
+### <a name="leaf-certificate"></a>分葉憑證
+
+分葉憑證或終端實體憑證，請識別憑證持有者。 它有其憑證鏈結中的根憑證，以及零或多個中繼憑證。 分葉憑證無法用來簽署其他任何憑證。 唯一識別此裝置來佈建服務，且有時稱為裝置憑證。 在驗證期間，裝置會使用與此憑證相關聯的私密金鑰，證明持有挑戰回應來自服務。 若要進一步了解，請參閱[驗證裝置 X.509 CA 憑證以簽署](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)。
+
+## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>控制使用 X.509 憑證佈建服務的裝置存取
+
+佈建的服務會公開兩種類型的註冊項目可讓您控制的使用 X.509 證明機制的裝置存取 exchange:  
+
+- [個別註冊](./concepts-service.md#individual-enrollment)項目，皆具有特定裝置相關聯的裝置憑證。 這些項目會控制特定裝置的註冊。
+- [註冊群組](./concepts-service.md#enrollment-group)項目是與特定的中繼或根 CA 憑證相關聯。 這些項目會控制所有裝置的中繼或根憑證其憑證鏈結中的註冊。 
+
+當裝置連線到佈建服務時，服務會透過較不特定註冊項目指定優先順序更特定的註冊項目。 也就是說，如果存在個別註冊裝置，佈建服務適用於該項目。 如果沒有任何個別註冊裝置，裝置的憑證鏈結中的第一個中繼憑證的註冊群組存在，服務會套用該項目，依此類推到根目錄鏈結。 服務會套用它所找到第一個適用於項目，例如：
+
+- 如果啟用第一個找到的註冊項目，則服務會佈建裝置。
+- 第一個找到的註冊項目已停用，則服務不會不佈建裝置。  
+- 如果找到任何裝置的憑證鏈結中的憑證沒有註冊的項目，則服務不會佈建裝置。 
+
+這項機制，憑證鏈結的階層式結構提供功能強大具彈性的方式，您可以控制個別裝置以及與裝置群組的存取權。 例如，假設有五個裝置，使用下列憑證鏈結： 
+
+- *裝置 1*： 根憑證]-> [A]-> [裝置 1 憑證的憑證
+- *裝置 2*： 根憑證]-> [A]-> [裝置 2 憑證的憑證
+- *裝置 3*： 根憑證]-> [A]-> [裝置 3 憑證的憑證
+- *裝置 4*： 根憑證]-> [B]-> [裝置 4 憑證的憑證
+- *裝置 5*： 根憑證]-> [B]-> [裝置 5 憑證的憑證
+
+一開始，您可以建立根憑證，啟用所有五個裝置的存取權的單一已啟用的群組註冊項目。 如果憑證稍後 B 會成為洩露，您可以建立已停用的註冊群組項目，以避免憑證 B*裝置 4*和*裝置 5*無法註冊。 如果仍然稍後*裝置 3*變成入侵，您可以建立其憑證的已停用個別註冊項目。 這會撤銷存取權*裝置 3*，但是仍然允許*裝置 1*和*裝置 2*註冊。

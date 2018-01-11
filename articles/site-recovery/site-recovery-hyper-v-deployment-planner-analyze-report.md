@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署規劃工具報告
 產生的 Microsoft Excel 報告包含下列工作表：
@@ -26,9 +26,9 @@ ms.lasthandoff: 12/05/2017
 ## <a name="on-premises-summary"></a>內部部署摘要
 內部部署摘要工作表會提供已剖析 Hyper-V 環境的摘要工作表![內部部署摘要](media/site-recovery-hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-[開始日期] 和 [結束日期]：考慮用於產生報告之剖析資料的開始和結束日期。 根據預設，開始日期是剖析開始的日期，而結束日期是剖析停止的日期。 如果使用這些參數產生報告，這可以是 'StartDate' 和 'EndDate' 值。
+[開始日期] 和 [結束日期]：考慮用於產生報告之分析資料的開始和結束日期。 根據預設，開始日期是分析開始的日期，而結束日期是分析停止的日期。 如果使用這些參數產生報告，這可以是 'StartDate' 和 'EndDate' 值。
 
-**剖析總天數**：為其產生報告之開始和結束日期之間的剖析總天數。
+**分析總天數**：為其產生報告之開始和結束日期之間的分析總天數。
 
 **相同的虛擬機器數目**：相容的 VM 總數，系統會計算其所需的網路頻寬、所需的儲存體帳戶、Microsoft Azure 核心的數目。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/05/2017
 
 **所需的頻寬 (Mbps)**：在產生報告時針對 ‘Bandwidth’ 參數所傳遞的值，用來估計可用的 RPO。
 
-**每日觀察到的典型資料變換 (GB)**：在所有剖析天數中觀察到的平均資料變換。
+**每日觀察到的典型資料變換 (GB)**：在所有分析天數中觀察到的平均資料變換。
 
 ## <a name="recommendations"></a>建議  
 根據選取的所需 RPO，Hyper-V 到 Azure 報告的建議工作表包含下列詳細資料：
@@ -52,14 +52,14 @@ ms.lasthandoff: 12/05/2017
 ### <a name="profile-data"></a>分析資料
 ![分析資料](media/site-recovery-hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 
-**剖析的資料期間**：執行剖析的期間。 根據預設，此工具會在計算中包含所有已分析的資料。 如果您已在報告產生中使用 StartDate 和 EndDate 選項，它會針對特定期間產生報告。 
+**分析的資料期間**：執行分析的期間。 根據預設，此工具會在計算中包含所有已分析的資料。 如果您已在報告產生中使用 StartDate 和 EndDate 選項，它會針對特定期間產生報告。 
 
 **已剖析的 Hyper-V 伺服器數目**：已產生其 VM 報告的 Hyper-V 伺服器數目。 按一下此數字以檢視 Hyper-V 伺服器的名稱。 這會開啟「內部部署儲存體需求」工作表，其中列出所有的伺服器及其儲存體需求。    
 
 **所需的 RPO**：您部署的復原點目標。 預設會計算 RPO 值 15、30 和 60 分鐘所需的網路頻寬。 根據選取項目，在工作表上更新受影響的值。 如果您在產生報告時使用了 DesiredRPOinMin 參數，該值會顯示於所需 RPO 結果中。
 
-### <a name="profiling-overview"></a>剖析概觀
-![剖析概觀](media/site-recovery-hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
+### <a name="profiling-overview"></a>分析概觀
+![分析概觀](media/site-recovery-hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 
 **剖析的虛擬機器總數**：可取得其剖析資料的 VM 總數。 如果 VMListFile 包含任何未剖析的 VM 名稱，則這些 VM 不會納入報告產生考量並從剖析的 VM 總計數中排除。
 
@@ -188,7 +188,7 @@ Azure Site Recovery 部署規劃工具所產生的 Microsoft Excel 報告會在�
 
 **尖峰 R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載讀/寫 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
 
-**尖峰資料變換 (MBps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在剖析期間每一分鐘之變換總和的尖峰。
+**尖峰資料變換 (MB/s) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **Azure VM 大小**：此內部部署 VM 理想的對應 Azure 雲端服務虛擬機器大小。 對應是以內部部署 VM 的記憶體、磁碟/核心/NIC 數目和讀/寫 IOPS 為基礎。 建議一律是符合所有內部部署 VM 特性的最低 Azure VM 大小。
 
@@ -235,15 +235,15 @@ Azure Site Recovery 部署規劃工具所產生的 Microsoft Excel 報告會在�
 
 * 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個 VM 80,000)。
 
-* 平均資料變換超出磁碟平均 IO 大小支援的 Azure Site Recovery 資料變換限制 10 MBps。
+* 來源 VM 平均資料變換超出平均 IO 大小支援的 Azure Site Recovery 資料變換限制 10 MB/s。
 
-* 磁碟的平均有效寫入 IOPS 超過支援的 Azure Site Recovery IOPS 限制 840。
+* 來源 VM 平均有效寫入 IOPS 超過支援的 Azure Site Recovery IOPS 限制 840。
 
 * 計算的快照集儲存體超過支援的快照集儲存體限制 10 TB。
 
-**尖峰 R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在剖析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
+**尖峰 R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
 
-**尖峰資料變換 (MBps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在剖析期間每一分鐘之變換總和的尖峰。
+**尖峰資料變換 (MB/s) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **磁碟數目**：VM 上的 VHD 總數。
 
@@ -260,14 +260,11 @@ Azure Site Recovery 部署規劃工具所產生的 Microsoft Excel 報告會在�
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 限制
 下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 為了獲得最佳結果，即使在部署規劃之後，仍一律建議發出測試容錯移轉來執行廣泛的應用程式測試，以了解應用程式真正的效能情況。
  
-**複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
+**複寫儲存體目標** | **來源 VM 平均 I/O 大小** |**來源 VM 平均資料變換** | **每日的來源 VM 資料變換總計**
 ---|---|---|---
-標準儲存體 | 8 KB | 2 MBps | 每個磁碟 168 GB
-進階 P10 或 P15 磁碟 | 8 KB  | 2 MBps | 每個磁碟 168 GB
-進階 P10 或 P15 磁碟 | 16 KB | 4 MBps |  每個磁碟 336 GB
-進階 P10 或 P15 磁碟 | 32 KB 或更大 | 8 MBps | 每個磁碟 672 GB
-進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MBps | 每個磁碟 421 GB
-進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MBps | 每個磁碟 842 GB
+標準儲存體 | 8 KB | 每一 VM 2 MB/s | 每一 VM 168 GB
+進階儲存體 | 8 KB  | 每一 VM 5 MB/s | 每一 VM 421 GB
+進階儲存體 | 16 KB 或更高| 每一 VM 10 MB/s | 每一 VM 842 GB
 
 這些限制是採用 30% I/O 重疊時的平均數字。 Azure Site Recovery 能夠處理更高的輸送量 (以重疊比為基礎)、較大的寫入大小和實際工作負載 I/O 行為。 先前數字採用大約五分鐘的典型積壓。 也就是說，資料上傳之後，便會進行處理並在五分鐘內建立復原點。
 

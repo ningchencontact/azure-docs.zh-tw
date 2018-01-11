@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 9fcfca3de6204581936a2bacfd86e84fd373190a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: edb70bd38611aad7e34bc5dbac8b1fd24c5e9b1d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -58,14 +58,18 @@ ms.lasthandoff: 10/11/2017
     - **訂用帳戶：**選取您想要對等互連之虛擬網路的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)。 視帳戶有權讀取的訂用帳戶而定，系統會列出一或多個訂用帳戶。 如果您已核取 [資源識別碼] 核取方塊，則無法使用這項設定。 若要讓不同訂用帳戶中的兩個虛擬網路對等互連，則這兩個虛擬網路都必須是透過 Resource Manager 所建立的才行。 將透過不同部署模型所建立的訂用帳戶進行跨區對等互連的功能目前還是預覽版本。 請先註冊預覽版本，再於透過不同部署模型所部署的虛擬網路 (且位於不同訂用帳戶中) 之間建立對等互連。 深入了解如何註冊預覽版本，以及如何[讓透過不同部署模型所建立的虛擬網路 (且位於不同訂用帳戶中) 對等互連](create-peering-different-deployment-models-subscriptions.md)。
     - **虛擬網路：**選取您想要對等互連的虛擬網路。 您可以選取透過任一 Azure 部署模型建立的虛擬網路。 如果要選取其他地區中的虛擬網路，[請註冊訂用帳戶以獲得預覽版。](virtual-network-create-peering.md) 您必須有權讀取虛擬網路，該虛擬網路才會顯示在清單中。 如果虛擬網路雖有列出卻呈現灰色，原因可能是該虛擬網路的位址空間與此虛擬網路的位址空間重疊。 如果虛擬網路的位址空間重疊，您就無法讓這些位址空間對等互連。 如果您已核取 [資源識別碼] 核取方塊，則無法使用這項設定。
     - **允許虛擬網路存取：**如果您想要讓兩個虛擬網路能夠彼此通訊，請選取 [啟用] \(預設值)。 讓虛擬網路能夠彼此通訊，會讓連線到任一虛擬網路的資源能夠以相同的頻寬和延遲彼此通訊，彷彿這些資源是連線到相同的虛擬網路。 兩個虛擬網路中的資源之間所進行的所有通訊都是透過 Azure 私人網路來完成。 網路安全性群組的 **VirtualNetwork** 預設標記包含虛擬網路和對等互連的虛擬網路。 若要深入了解網路安全性群組的預設標記，請閱讀[網路安全性群組概觀](virtual-networks-nsg.md#default-tags)一文。  如果您不想讓流量流到對等互連的虛擬網路，請選取 [停用]。 如果您已讓某個虛擬網路與另一個虛擬網路對等互連，但偶爾想要停用這兩個虛擬網路之間的流量流動，您可以選取 [停用]。 您可能會發現啟用/停用功能比起先刪除再重新建立對等互連更為方便。 此設定停用時，對等互連的虛擬網路之間不會有流量流動。
-    - **允許轉送的流量：**核取此方塊可允許轉送到對等互連虛擬網路的流量 (不是源自對等互連虛擬網路的流量) 流到此虛擬網路。 當您在想要對等互連的虛擬網路部署了網路虛擬設備，並建立了使用者定義的路由來透過網路虛擬設備轉送流量時，系統將會經常轉送流量。 如果您讓此方塊保持未核取狀態 (此為預設值)，從對等互連虛擬網路轉送的流量將無法流到此虛擬網路。 啟用這項功能雖能允許轉送的流量通過對等互連，卻不會建立任何使用者定義的路由或網路虛擬設備。 使用者定義的路由和網路虛擬設備是另外建立的。 了解[使用者定義的路由](virtual-networks-udr-overview.md)。
-    - **允許閘道傳輸：**如果您有連結到此虛擬網路的虛擬網路閘道，且想要讓來自對等互連虛擬網路的流量能夠流經閘道，請核取此方塊。 例如，此虛擬網路可能會透過虛擬網路閘道連結到內部部署網路。 核取此方塊可讓來自對等互連虛擬網路的流量流經連結到此虛擬網路的閘道。 如果您核取此方塊，對等互連的虛擬網路將無法設定閘道。 在設定從其他虛擬網路到這個虛擬網路的對等互連時，對等互連的虛擬網路必須核取 [使用遠端閘道] 核取方塊。 如果您讓此方塊保持未核取狀態 (此為預設值)，來自對等互連虛擬網路的流量仍會流到此虛擬網路，但無法流經連結到此虛擬網路的虛擬網路閘道。 深入了解[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti)。 
+    - **允許轉送的流量：**核取此方塊以允許流量*轉送*從虛擬網路 （也就不是來自虛擬網路） 加入到此虛擬網路透過對等的流程。 例如，請考慮三個名為 Spoke1、 Spoke2 和中樞的虛擬網路。 每個支點虛擬網路和中樞虛擬網路之間的對等互連存在但支點虛擬網路之間不存在的對等互連。 中樞虛擬網路中部署網路的虛擬應用裝置和使用者定義的路由會套用至每個支點虛擬網路之間透過網路的虛擬應用裝置的子網路路由傳送流量。 如果此核取方塊不會檢查每個支點虛擬網路與中樞虛擬網路之間對等互連，流量不會支點虛擬網路之間因為集線器是 fowarding 虛擬網路之間的流量。 啟用這項功能雖能允許轉送的流量通過對等互連，卻不會建立任何使用者定義的路由或網路虛擬設備。 使用者定義的路由和網路虛擬設備是另外建立的。 了解[使用者定義的路由](virtual-networks-udr-overview.md#user-defined)。
+    - **允許閘道傳輸：**如果您有連結到此虛擬網路的虛擬網路閘道，且想要讓來自對等互連虛擬網路的流量能夠流經閘道，請核取此方塊。 例如，此虛擬網路可能會透過虛擬網路閘道連結到內部部署網路。 閘道可以使用 ExpressRoute 或 VPN 閘道。 核取此方塊可讓 peered 虛擬網路連線，透過連接到內部部署網路到此虛擬網路閘道流動的流量。 如果您核取此方塊，對等互連的虛擬網路將無法設定閘道。 Peered 虛擬網路必須有**使用遠端閘道**設定對等互連，其他虛擬網路從這個虛擬網路時，選取核取方塊。 如果您讓此方塊保持未核取狀態 (此為預設值)，來自對等互連虛擬網路的流量仍會流到此虛擬網路，但無法流經連結到此虛擬網路的虛擬網路閘道。 
     
-        如果您要讓虛擬網路 (Resource Manager) 與虛擬網路 (傳統) 對等互連，您將無法啟用此選項。 雖然流量可在兩個虛擬網路之間流動，但虛擬網路 (傳統) 的流量無法流經連結到虛擬網路 (Resource Manager) 的網路閘道。
+    除了將流量轉送至內部部署網路，VPN 閘道可以轉送與虛擬網路閘道處於，而不需要彼此所以無法將虛擬網路，對等虛擬網路之間的網路流量。 當您想要使用的中樞中的 VPN 閘道，這是很有用 (請參閱所述的中樞和支點範例**允許轉送流量**) 支點彼此不所以的虛擬網路之間路由傳送流量的虛擬網路。 深入了解[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti)。 此案例需要實作使用者定義的路由所指定虛擬網路閘道做為下一個躍點類型。 了解[使用者定義的路由](virtual-networks-udr-overview.md#user-defined)。 您只能指定為使用者定義的路由中下一個躍點類型的 VPN 閘道，您無法指定使用者定義的路由中下一個躍點類型為 ExpressRoute 閘道。
+
+        You cannot enable this option if you're peering a virtual network (Resource Manager) with a virtual network (classic). Though the traffic flows between the two virtual networks, the virtual network (classic) traffic cannot flow through a network gateway attached to the virtual network (Resource Manager). 
 
     - **使用遠端閘道：**核取此方塊可讓來自此虛擬網路的流量能夠流經連結到所要對等互連之虛擬網路的虛擬網路閘道。 例如，您要對等互連的虛擬網路已連結 VPN 閘道，而能夠與內部部署網路通訊。  核取此方塊將可讓來自此虛擬網路的流量流經連結到對等互連虛擬網路的 VPN 閘道。 如果您核取此方塊，對等互連的虛擬網路必須有連結的虛擬網路閘道，而且必須已核取 [允許閘道傳輸] 核取方塊。 如果您讓此方塊保持未核取狀態 (此為預設值)，來自對等互連虛擬網路的流量仍可流到此虛擬網路，但無法流經連結到此虛擬網路的虛擬網路閘道。 
-    
+此虛擬網路只能有一個對等可以啟用這項設定。
+如果您已經有虛擬網路中設定閘道，您無法使用此設定。
         如果您要讓虛擬網路 (Resource Manager) 與虛擬網路 (傳統) 對等互連，您將無法啟用此選項。 雖然流量可在兩個虛擬網路之間流動，但虛擬網路 (Resource Manager) 的流量無法流經連結到虛擬網路 (傳統) 的網路閘道。
+
 7. 按一下 [確定] 按鈕以在所選虛擬網路中新增子網路。
 
 ### <a name="commands"></a>命令
@@ -100,7 +104,7 @@ ms.lasthandoff: 10/11/2017
     >建立對等互連之前，請先確定您已熟悉[需求和限制](#requirements-and-constraints)與[必要權限](#permissions)。
     >
 
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 **命令**
 
@@ -148,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 - 您可以將透過不同部署模型所部署的虛擬網路 (且位於相同或不同訂用帳戶 (預覽) 中) 對等互連。 
 - 兩個虛擬網路所在的訂用帳戶必須與相同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch)。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個存在於與不同 Active Directory 租用戶相關聯之不同訂用帳戶中的虛擬網路加以連線。
 - 虛擬網路可以既與另一個虛擬網路對等互連，又同時連線到另一個具有 Azure 虛擬網路閘道的虛擬網路。 當虛擬網路同時透過對等互連和閘道進行連線時，虛擬網路之間的流量會透過對等互連組態來流動，而不會透過閘道。
-- 我們會針對使用虛擬網路對等互連的輸入和輸出流量收取少許費用。 如需詳細資訊，請參閱 [價格頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
+- 我們會針對使用虛擬網路對等互連的輸入和輸出流量收取少許費用。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
 
 
 ## <a name="permissions"></a>權限
@@ -164,6 +168,6 @@ ms.lasthandoff: 10/11/2017
 
 深入了解[內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)以及如何對[自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)指派特定權限 (僅限 Resource Manager)。
 
-## <a name="next-steps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 
 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 

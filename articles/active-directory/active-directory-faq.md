@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory 常見問題集 | Microsoft Docs"
-description: "Azure Active Directory 常見問題集可回答如何存取 Azure 及 Azure Active Directory、密碼管理和應用程式存取權等相關問題。"
+description: "Azure Active Directory 常見問題集可回答有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取等常見問題。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -27,9 +27,9 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>存取 Azure 和 Azure Active Directory
-**問︰當我嘗試在 Azure 傳統入口網站中存取 Azure AD，為何會收到「找不到訂用帳戶」？**
+**問︰當我嘗試在 Azure 入口網站中存取 Azure AD 時，為何會收到「找不到訂用帳戶」的訊息？**
 
-**答：**若要存取 Azure 傳統入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
+**答：**若要存取 Azure 入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
 
 如需詳細資訊，請參閱：
 
@@ -44,11 +44,9 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 所有設定要使用 Web 服務的使用者都會定義為一或多個 Azure AD 執行個體中的使用者帳戶。 您可以為這些帳戶設定免費的 Azure AD 功能，如雲端應用程式存取。
 
 Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位的企業級管理和安全性解決方案來彌補其他 Web 服務 (例如 Office 365 和 Microsoft Azure) 的不足。
-- - -
-**問︰我為何可以登入 Azure 入口網站，但無法登入 Azure 傳統入口網站？**
 
-**答︰**Azure 入口網站不需要有效的訂用帳戶，而傳統入口網站則需要有效的訂用帳戶。  如果您沒有訂用帳戶，您便無法登入傳統入口網站。
 - - -
+
 **問︰訂用帳戶管理員和目錄管理員有何差異？**
 
 **問：**根據預設，當您註冊 Azure 時會指派訂用帳戶管理員角色給您。 訂用帳戶管理員可以使用 Azure 訂用帳戶相關聯目錄中的 Microsoft 帳戶或是公司或學校帳戶。  此角色經過授權，可管理 Azure 入口網站上的服務。
@@ -56,7 +54,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 如果其他人必須使用相同的訂用帳戶來登入和存取服務，您可以將他們新增為共同管理員。 此角色的存取權限與服務管理員相同，但無法變更訂用帳戶與 Azure 目錄的關聯。  如需訂用帳戶管理員的詳細資訊，請參閱[如何新增或變更 Azure 系統管理員角色](../billing-add-change-azure-subscription-administrator.md)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)。
 
 
-Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別相關功能。  這些管理員將可存取 Azure 入口網站或 Azure 傳統入口網站中的各種功能。 系統管理員的角色可決定他們可以執行的作業，例如建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權或管理網域。  如需有關 Azure AD 目錄管理員及其角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
+Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別相關功能。  這些管理員將可存取 Azure 入口網站或 Azure 入口網站中的各種功能。 系統管理員的角色可決定他們可以執行的作業，例如建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權或管理網域。  如需有關 Azure AD 目錄管理員及其角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
 
 此外﹐Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位的企業級管理和安全性解決方案來彌補其他 Web 服務 (例如 Office 365 和 Microsoft Azure) 的不足。
 
@@ -137,16 +135,20 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 - - -
 ## <a name="security"></a>安全性
-**問︰帳戶會在特定次數的嘗試失敗之後鎖定，或者是否使用更複雜的策略？**</br>
+**問︰帳戶會在特定次數的嘗試失敗之後鎖定，或者是否使用更複雜的策略？**
+
 我們使用更複雜的策略來鎖定帳戶。  此策略是以要求的 IP 和所輸入的密碼為基礎。 鎖定持續期間也會根據它是攻擊的可能性而加長。  
 
-**問︰有些 (通用) 密碼遭到拒絕並出現「此密碼已使用許多次」訊息，這是指使用於目前 Active Directory 的密碼嗎？**</br>
+**問︰有些 (通用) 密碼遭到拒絕並出現「此密碼已使用許多次」訊息，這是指使用於目前 Active Directory 的密碼嗎？**
+
 這是指全域通用的密碼，例如 “Password” 和 “123456” 的任何變體。
 
-**問︰來自可疑來源 (殭屍網路、Tor 端點) 的登入要求是否會在 B2C 租用戶中遭到封鎖，或者需要基本或進階版本租用戶？**</br>
+**問︰來自可疑來源 (殭屍網路、Tor 端點) 的登入要求是否會在 B2C 租用戶中遭到封鎖，或者需要基本或進階版本租用戶？**
+
 我們沒有適用於所有 B2C 租用戶的閘道，可篩選要求並提供殭屍網路的一些防護功能。
 
 ## <a name="application-access"></a>應用程式存取
+
 **問︰哪裡可以找到與 Azure AD 預先整合的應用程式及其功能的清單？**
 
 **答：** Azure AD 擁有來自 Microsoft、應用程式服務提供者或協力廠商超過 2600 個預先整合的應用程式。 所有預先整合的應用程式皆支援單一登入 (SSO)。 SSO 可讓您使用組織認證來存取應用程式。 有些應用程式也支援自動化佈建和取消佈建。

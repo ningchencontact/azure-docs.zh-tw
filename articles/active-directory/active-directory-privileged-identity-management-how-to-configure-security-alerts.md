@@ -4,7 +4,7 @@ description: "了解如何為 Azure Privileged Identity Management 擴充功能�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: e057120e31eeebc3da274536c09d6d9972854338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何設定安全性警示
 ## <a name="security-alerts"></a>安全性警示
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 您可以在 PIM 中自訂一些安全性警示，以便配合您的環境和安全性目標。 請依照下列步驟來前往 [設定] 刀鋒視窗︰
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後從儀表板中選取 [Azure AD Privileged Identity Management] 磚。
-2. 選取 [受管理的特殊權限角色] > [設定] > [警示設定]。
+2. 選取 [受控的特殊權限角色] > [設定] > [警示設定]。
    
     ![瀏覽至安全性警示設定][2]
 

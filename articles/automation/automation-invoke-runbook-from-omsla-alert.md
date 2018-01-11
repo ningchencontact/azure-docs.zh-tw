@@ -1,6 +1,6 @@
 ---
-title: "從 Log Analytics Alert 呼叫 Azure 自動化 Runbook | Microsoft Docs"
-description: "這篇文章提供如何從 Microsoft OMS Log Analytics Alert 呼叫自動化 Runbook 的概觀。"
+title: "從 Log Analytics 警示呼叫 Azure 自動化 Runbook | Microsoft Docs"
+description: "本文提供如何在 Operations Management Suite 中從 Log Analytics 警示呼叫自動化 Runbook 的概觀。"
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,76 +14,92 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>從 OMS Log Analytics Alert 呼叫 Azure 自動化 Runbook | Microsoft Docs
+# <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>從 Log Analytics 警示呼叫 Azure 自動化 Runbook
 
-在 Log Analytics 中設定警示，以便在結果符合準則時建立警示記錄 (例如處理器使用率長時間處於峰值，或對於商務應用程式功能的重要應用程式處理序失敗)，並將相對應的事件寫入 Windows 事件記錄檔中，該警示會自動執行自動化 Runbook，以嘗試自動修復該問題。  
+您可以在 Azure Log Analytics 中設定警示，以在結果符合您的準則時建立警示記錄。 然後，該警示可以在嘗試自動補救問題時，自動執行 Azure 自動化 Runbook。 
 
-有兩個選項可用來在警示設定中呼叫 Runbook，例如：
+例如，警示可能表示處理器使用率出現長時間的突然增加。 或者可能表示對商務應用程式功能非常重要的應用程式程序失敗。 然後，Runbook 可以在 Windows 事件記錄中寫入對應的事件。  
 
-1. 使用 Webhook。
-   * 如果您的 OMS 工作區未連結到自動化帳戶，這是唯一可用的選項。
-   * 如果您已有連結至 OMS 工作區的自動化帳戶，還是可以使用此選項。  
+有兩個選項可用來在警示設定中呼叫 Runbook：
 
-2. 直接選取 Runbook。
-   * 只有在 OMS 工作區連結至自動化帳戶時，此選項才可供使用。
+* 使用 Webhook。
+   * 如果您的 Operations Management Suite 工作區未連結到自動化帳戶，這是唯一可用的選項。
+   * 如果您已有連結至 Operations Management Suite 工作區的自動化帳戶，還是可以使用此選項。  
 
-## <a name="calling-a-runbook-using-a-webhook"></a>使用 Webhook 來呼叫 Runbook
+* 直接選取 Runbook。
+   * 如果您的 Operations Management Suite 工作區未連結到自動化帳戶，這是唯一可用的選項。
 
-Webhook 可讓您在 Azure 自動化中，透過單一 HTTP 要求啟動特定的 Runbook。 在設定 [Log Analytics Alert](../log-analytics/log-analytics-alerts.md#alert-rules) 以使用 Webhook 呼叫 Runbook 作為警示動作前，您必須先為會使用此方法呼叫的 Runbook 建立 Webhook。 執行[建立 Webhook](automation-webhooks.md#creating-a-webhook) 文章中的步驟，並記得記錄 Webhook URL，如此您就可以在設定警示規則時加以參考。   
+## <a name="calling-a-runbook-by-using-a-webhook"></a>使用 Webhook 呼叫 Runbook
+
+您可以使用 Webhook 在 Azure 自動化中，透過單一 HTTP 要求啟動特定的 Runbook。 在設定 [Log Analytics 警示](../log-analytics/log-analytics-alerts.md#alert-rules)以使用 Webhook 呼叫 Runbook 作為警示動作前，您必須為透過此方法呼叫的 Runbook [建立 Webhook](automation-webhooks.md#creating-a-webhook)。 請記得記錄 Webhook URL，如此您就可以在設定警示規則時加以參考。   
 
 ## <a name="calling-a-runbook-directly"></a>直接呼叫 Runbook
 
-如果您已在 OMS 工作區中安裝並設定自動化與控制項供應項目，在為警示設定 Runbook 動作選項時，您可以從**選取 Runbook** 下拉式清單檢視所有 Runbook，並選取您想要回應警示而執行的特定 Runbook。 選取的 Runbook 可以在 Azure 雲端或混合式 Runbook 背景工作角色上的工作區中執行。 使用 Runbook 選項來建立警示之後，會為 Runbook 建立一個 Webhook。 如果您移至自動化帳戶，並瀏覽至選取的 Runbook 的 Webhook 窗格中，就會看到 Webhook。 如果您刪除警示，將不會刪除 Webhook，但使用者可以手動刪除 Webhook。 如果 Webhook 未遭刪除也沒關係，它只是個被遺棄的項目，最終必須刪除才能維護組織的自動化帳戶。  
+您可以在 Operations Management Suite 工作區中安裝及設定自動化與控制供應項目。 當您為警示設定 Runbook 動作選項時，您可以從 [選取 Runbook] 下拉式清單檢視所有 Runbook，並選取您想要回應警示而執行的特定 Runbook。 選取的 Runbook 可以在 Azure 工作區中或在混合式 Runbook 背景工作上執行。 
 
-## <a name="characteristics-of-a-runbook-for-both-options"></a>Runbook 的特性 (適用於兩個選項)
+使用 Runbook 選項建立警示之後，系統會為 Runbook 建立一個 Webhook。 如果您移至自動化帳戶並開啟所選 Runbook 的 Webhook 窗格，您可以看到 Webhook。 
 
-您必須先了解這兩種從 Log Analytics 警示呼叫 Runbook 的方法所具有的特性，再設定警示規則。 警示資料會以 json 格式儲存在名為 **SearchResults** 的單一屬性中。 此格式適用於具有標準承載的 Runbook 和 Webhook 動作。 對於自訂承載在 **RequestBody** 中包含 **IncludeSearchResults:True** 的 Webhook 動作，此屬性為 **SearchResults**。
+如果您刪除警示，將不會刪除 Webhook。 這不成問題。 如果 Webhook 變成被遺棄的項目，您最終要手動刪除該項目，才能維護組織的自動化帳戶。  
 
-* 您必須擁有名為 **WebhookData** (也就是**物件**類型) 的 Runbook 輸入參數。 它可以是強制性或選擇性。 警示會使用此輸入參數將搜尋結果傳遞給 Runbook。
+## <a name="characteristics-of-a-runbook"></a>Runbook 的特性
 
-    ```powershell
-    param  
-        (  
-        [Parameter (Mandatory=$true)]  
-        [object] $WebhookData  
-        )
-    ```
-*  您必須有將 WebhookData 轉換成 PowerShell 物件的程式碼。
+您必須先了解這兩種從 Log Analytics 警示呼叫 Runbook 的方法所具有的特性，再設定警示規則。 
 
-    ```powershell
-    $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
-    ```
+警示資料會以 JSON 格式儲存在名為 **SearchResults** 的單一屬性中。 此格式適用於具有標準承載的 Runbook 和 Webhook 動作。 對於具有自訂承載的 Webhook 動作 (在 **RequestBody** 中包含 **IncludeSearchResults:True**)，此屬性為 **SearchResults**。
 
-    $SearchResult 是物件的陣列；每個物件都包含某個搜尋結果的值欄位
+您必須擁有名為 **WebhookData** (也就是**物件**類型) 的 Runbook 輸入參數。 它可以是強制性或選擇性。 警示會使用此輸入參數將搜尋結果傳遞給 Runbook。
+
+```powershell
+param  
+    (  
+    [Parameter (Mandatory=$true)]  
+    [object] $WebhookData  
+    )
+```
+您還必須有將 **WebhookData** 轉換成 PowerShell 物件的程式碼。
+
+```powershell
+$SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
+```
+
+**$SearchResult** 是物件的陣列。 每個物件都包含某個搜尋結果的值欄位。
 
 
 ## <a name="example-walkthrough"></a>範例逐步解說
 
-我們會透過下列範例圖形化 Runbook (其會啟動 Windows 服務) 示範此程序的運作方式。<br><br> ![啟動 Windows 服務圖形化 Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
+下列圖形化 Runbook 範例示範此程序的運作方式。 它會啟動 Windows 服務。
 
-Runbook 有一個類型為**物件**的輸入參數，其名為 **WebhookData**，其中所含的 webhook 資料是從包含 \*.SearchResult\* 的警示所傳遞。<br><br> ![Runbook 輸入參數](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
+![用於啟動 Windows 服務的圖形化 Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)
 
-例如，在 Log Analytics 中，我們建立兩個自訂欄位 \*SvcDisplayName\_CF\* 和 \*SvcState\_CF\*，以從系統事件記錄檔寫入的事件中，擷取服務顯示名稱和服務的狀態 (也就是執行中或已停止)。 接著我們會使用下列搜尋查詢建立警示規則：`Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"`，如此我們就可以偵測列印多工緩衝處理器服務在 Windows 系統上停止的時間。 它可以是任何您想使用的服務，但此範例中，我們會參考其中一個隨附於 Windows 作業系統中預先存在的服務。 警示動作會設定為執行此範例中使用的 Runbook，並在混合式 Runbook 背景工作角色上執行，而會在目標系統上啟用此兩種設定。   
+Runbook 有一個 [物件] 類型且名為 **WebhookData** 的輸入參數。 它包含從警示傳遞的 Webhook 資料 (含有 **SearchResult**)。
 
-Runbook 程式碼活動**從 LA 取得服務名稱**，會將 JSON 格式的字串轉換成項目 \*SvcDisplayName\_CF\* 上的物件類型和篩選器，以擷取 Windows 服務的顯示名稱，並將此值傳遞到下一個活動，該活動會先確認服務已停止，然後再嘗試重新啟動它。 SvcDisplayName_CF 是在 Log Analytics 中建立的[自訂欄位](../log-analytics/log-analytics-custom-fields.md)，用來示範此範例。
+![Runbook 輸入參數](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)
+
+在此範例中，我們在 Log Analytics 中建立了兩個自訂欄位：**SvcDisplayName_CF** 和 **SvcState_CF**。 這些欄位會從系統事件記錄中寫入的事件，擷取服務顯示名稱和服務狀態 (也就是，執行中或已停止)。 接著，我們使用下列搜尋查詢建立了警示規則，以便偵測列印多工緩衝處理器服務在 Windows 系統上停止的時間：
+
+`Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` 
+
+它可以是任何您想使用的服務。 在此範例中，我們會參考其中一個隨附於 Windows 作業系統中預先存在的服務。 警示動作會設定為執行此範例中使用的 Runbook，並在混合式 Runbook 背景工作上執行，而會在目標系統上啟用此兩種設定。   
+
+Runbook 程式碼活動 [從 LA 取得服務名稱] 會將 JSON 格式的字串轉換成物件型別，並依項目 **SvcDisplayName_CF** 進行篩選。 它會擷取 Windows 服務的顯示名稱，並將此值傳遞給下一個活動，該活動會先確認服務已停止，然後再嘗試重新啟動它。 **SvcDisplayName_CF** 是在 Log Analytics 中建立的[自訂欄位](../log-analytics/log-analytics-custom-fields.md)，用來示範此範例。
 
 ```powershell
 $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
 $SearchResult.SvcDisplayName_CF  
 ```
 
-服務停止時，Log Analytics 中的警示規則會偵測相符項目、觸發 Runbook 並將警示內容傳送至 Runbook。 Runbook 會採取動作來確認服務已停止，若是則嘗試重新啟動服務，並確認它是否正確啟動，並輸出結果。     
+服務停止時，Log Analytics 中的警示規則會偵測相符項目、觸發 Runbook 並將警示內容傳送至 Runbook。 Runbook 會嘗試確認服務已停止。 因此，Runbook 會嘗試重新啟動服務，確認它已正確地啟動，然後顯示結果。     
 
-或者如果您沒有連結至 OMS 工作區的自動化帳戶，您可以設定具 webhook 動作的警示規則，來觸發 runbook 並將 runbook 設定為轉換 JSON 格式的字串，並對遵循先前所述指引的 \*.SearchResult\* 進行篩選。    
+或者，如果您的自動化帳戶並未連結至 Operations Management Suite 工作區，您可以使用 Webhook 動作來設定警示規則。 Webhook 動作會觸發 Runbook。 它也會遵循先前所述的指導方針來設定 Runbook，以轉換 JSON 格式的字串並依 **SearchResult** 進行篩選。    
 
 >[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)，則 Webhook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)，則 Webhook 承載已變更。 如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)。
 
 ## <a name="next-steps"></a>後續步驟
 

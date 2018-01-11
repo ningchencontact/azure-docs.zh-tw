@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>威脅模型化工具功能概觀
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 
 若要開啟空白頁面，請選取 [建立模型]。
 
-![空白頁面](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![空白頁面](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 若要查看工具目前提供哪些功能，請使用我們的小組在[開始使用](./azure-security-threat-modeling-tool-getting-started.md)範例中建立的威脅模型。
 
-![基本威脅模型](./media/azure-security-threat-modeling-tool/basictmt.png)
+![基本威脅模型](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>導覽
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 體驗與其他 Microsoft 產品相似。 我們來看看最上層的功能表項目。
 
-![功能表項目](./media/azure-security-threat-modeling-tool/menuitems.png)
+![功能表項目](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | 標籤                               | 詳細資料      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>在畫布上置放樣板
 
-![畫布置放](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![畫布置放](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>選取樣板
 
-![元素屬性](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![元素屬性](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>樣板
 
@@ -120,15 +120,15 @@ ms.lasthandoff: 10/11/2017
 
 將游標移到 [開啟模型] 上方時會顯示 2 個選項：[從這部電腦開啟] 和 [從 OneDrive 開啟]。 第一個選項會開啟 [開啟舊檔] 畫面。 第二個選項會引導您完成 OneDrive 的登入程序。 成功通過驗證之後，您可以選取資料夾和檔案。
 
-![開啟模型](./media/azure-security-threat-modeling-tool/openmodel.png)
+![開啟模型](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![從電腦或 OneDrive 開啟](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![從電腦或 OneDrive 開啟](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>意見反應、建議和問題
 
 當您選取 [意見反應、建議和問題] 時，會前往 SDL 工具的 MSDN 論壇。 您可以閱讀其他人對工具有什麼看法 (包括因應措施和新的想法)。
 
-![意見反應](./media/azure-security-threat-modeling-tool/feedback.png)
+![意見反應](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>設計檢視
 
@@ -148,25 +148,25 @@ ms.lasthandoff: 10/11/2017
 - **拖放**：將所需的資料流程拖曳到格線中，然後將兩端連接到適當的元素。
 - **按一下 + Shift**：按一下第一個元素 (傳送資料)，按住 Shift 鍵，然後選取第二個元素 (接收資料)。 按一下滑鼠右鍵，然後選取 [連接]。 如果您使用雙向資料流程，順序並不重要。
 
-### <a name="properties"></a>屬性
+### <a name="properties"></a>properties
 
  若要查看可在樣板上修改的屬性，您只要選取樣板，系統就會據以填入資訊。 以下範例示範將**資料庫**樣板拖曳到圖表上的前後：
 
 #### <a name="before"></a>先前
 
-![先前](./media/azure-security-threat-modeling-tool/properties1.png)
+![先前](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>後續
 
-![後續](./media/azure-security-threat-modeling-tool/properties2.png)
+![後續](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>訊息
 
 如果您建立威脅模型，但是忘記將資料流程連接到元素，您會收到通知。 您可以忽略訊息，或遵循指示修正問題。 
 
-![訊息](./media/azure-security-threat-modeling-tool/messages.png)
+![訊息](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>注意事項
+### <a name="notes"></a>注意
 
 若要在圖表中加入附註，請從 [訊息] 索引標籤切換到 [附註]。
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 
 建置圖表後，請在捷徑工具列上選取**分析**符號 (放大鏡)，以切換為**分析**檢視。
 
-![分析檢視](./media/azure-security-threat-modeling-tool/analysisview.png)
+![分析檢視](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>產生的威脅選取項目
 
@@ -182,27 +182,27 @@ ms.lasthandoff: 10/11/2017
 
 | 功能                               | 資訊      |
 | --------------------------------------- | ------------ |
-| **讀取指標** | <p>將威脅標示為讀取，以協助您追蹤檢閱過的項目。</p><p>![讀取/未讀取指標](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **互動焦點** | <p>圖表中屬於威脅的互動會反白顯示。</p><p>![互動焦點](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **威脅屬性** | <p>威脅的其他資訊會顯示在 [威脅屬性] 視窗中。</p><p>![威脅屬性](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **讀取指標** | <p>將威脅標示為讀取，以協助您追蹤檢閱過的項目。</p><p>![讀取/未讀取指標](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **互動焦點** | <p>圖表中屬於威脅的互動會反白顯示。</p><p>![互動焦點](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **威脅屬性** | <p>威脅的其他資訊會顯示在 [威脅屬性] 視窗中。</p><p>![威脅屬性](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>優先順序變更
 
 您可以變更每個產生之威脅的優先順序層級。 不同的色彩讓您能輕鬆辨識高、中和低優先順序的威脅。
 
-![優先順序變更](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![優先順序變更](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>威脅屬性可編輯欄位
 
 如前述影像所示，您可以變更工具所產生的資訊。 您也可以將資訊加入特定欄位 (例如，理由)。 這些欄位由範本產生。 如果您需要每個威脅的詳細資訊，可以進行修改。
 
-![威脅屬性](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![威脅屬性](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>報告
 
 完成優先順序的變更及更新每個產生之威脅的狀態後，您可以儲存檔案和/或列印報告。 移至 [報告]  >  [建立完整報告]。 為報告命名，接著您應該會看到類似下圖的內容：
 
-![報告](./media/azure-security-threat-modeling-tool/report.png)
+![報告](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -29,7 +29,7 @@ Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。
 ![資源群組設定](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>使用 Azure 資源原則限制資源建立
-您在 Cloud Shell 中建立的儲存體帳戶都會標記 `ms-resource-usage:azure-cloud-shell`。 如果您想要禁止使用者在 Cloud Shell 中建立儲存體帳戶，請建立這個特定標籤所觸發之[標籤的 Azure 資源原則](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags)。
+您在 Cloud Shell 中建立的儲存體帳戶都會標記 `ms-resource-usage:azure-cloud-shell`。 如果您想要禁止使用者在 Cloud Shell 中建立儲存體帳戶，請建立這個特定標籤所觸發之[標籤的 Azure 資源原則](../articles/azure-policy/json-samples.md)。
 
 ## <a name="supported-storage-regions"></a>支援的儲存體區域
 相關聯的 Azure 儲存體帳戶必須位於與所掛接之目標 Cloud Shell 電腦相同的區域中。

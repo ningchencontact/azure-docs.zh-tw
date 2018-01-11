@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 競賽常見問題集
 **什麼是 Cortana Intelligence 競賽？**
@@ -53,7 +53,7 @@ Microsoft Cortana Intelligence 競賽可讓我們透過共同解決一些全世�
 
 **我需要是資料科學家才能參加嗎？**
 
-不需要。 事實上，我們鼓勵資料愛好者、對資料科學感到好奇的人，以及有抱負的資料科學家參加這場比賽。 我們設計了一些支援文件，讓每個人都能夠參加比賽。 我們的目標對象是：
+編號 事實上，我們鼓勵資料愛好者、對資料科學感到好奇的人，以及有抱負的資料科學家參加這場比賽。 我們設計了一些支援文件，讓每個人都能夠參加比賽。 我們的目標對象是：
 
 * **資料開發人員**、**資料科學家**、**BI** 和**分析專業人員**：這些人負責產生資料和分析內容供他人使用
 * **資料負責人**：這些人了解資料、其意義、用法和用途
@@ -104,7 +104,7 @@ Microsoft 將會驗證私人排行榜的結果，然後我們會與您連絡。 
 
 **我是否可以使用來賓工作區參賽？**
 
-沒有。 您必須使用免費工作區或標準工作區參賽。 您可以在來賓工作區中開啟競賽入門實驗，但您將無法在該工作區中建立可提交的有效項目。 
+編號 您必須使用免費工作區或標準工作區參賽。 您可以在來賓工作區中開啟競賽入門實驗，但您將無法在該工作區中建立可提交的有效項目。 
 
 **我是否可以使用任何 Azure 區域中的工作區參賽？**
 

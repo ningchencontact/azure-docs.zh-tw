@@ -1,24 +1,16 @@
 ---
 title: "Azure Migrate 的相依性視覺效果 | Microsoft Docs"
 description: "概括介紹 Azure Migrate 服務中的評量計算。"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 78e52157-edfd-4b09-923f-f0df0880e0e0
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -43,7 +35,7 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估的群組，藉
 
 ## <a name="do-i-need-to-pay-for-it"></a>我需要支付多少費用？
 
-是。 會預設建立 Log Analytics 工作區，但是，除非您在 Azure Migrate 中使用相依性視覺效果，否則並不會使用到。 如果您使用相依性視覺效果，或使用 Azure Migrate 外部的工作區，您就必須支付工作區使用費用。  [深入了解](https://azure.microsoft.com/pricing/details/insight-analytics/)服務對應解決方案定價。 
+可以。 會預設建立 Log Analytics 工作區，但是，除非您在 Azure Migrate 中使用相依性視覺效果，否則並不會使用到。 如果您使用相依性視覺效果，或使用 Azure Migrate 外部的工作區，您就必須支付工作區使用費用。  [深入了解](https://azure.microsoft.com/pricing/details/insight-analytics/)服務對應解決方案定價。 
 
 ## <a name="how-do-i-manage-the-workspace"></a>如何管理工作區？
 

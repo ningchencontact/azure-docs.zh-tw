@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>使用 OMS 監視 Service Fabric 上的 Windows 容器
 
 此為教學課程的第三部分，將逐步引導您設定 OMS 來監視 Service Fabric 上協調的 Windows 容器。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定適用於 Service Fabric 叢集的 OMS
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/20/2017
 
 如果您使用本教學課程第一部分中[提供的範本](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial)，它應該會包含下列已新增至一般 Service Fabric Azure Resource Manager 範本的內容。 假如您有自己的叢集，而您想要設定該叢集以使用 OMS 來監視容器：
 * 對您的 Resource Manager 範本進行下列變更。
-* 藉由[部署範本](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm)，使用 PowerShell 部署它以升級您的叢集。 Azure Resource Manager 會解析該資源存在，因此將推出它作為升級。
+* 藉由[部署範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)，使用 PowerShell 部署它以升級您的叢集。 Azure Resource Manager 會解析該資源存在，因此將推出它作為升級。
 
 ### <a name="adding-oms-to-your-cluster-template"></a>將 OMS 新增至您的叢集範本
 

@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 28/9/2017
+ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
-AzCopy on Linux 是個命令列公用程式，專為使用簡單命令高效率地將資料複製到和複製出 Microsoft Azure Blob 和檔案儲存體所設計。 您可以從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。
+
+AzCopy 是設計用來複製資料，從 Microsoft Azure Blob、 檔案和資料表儲存體的命令列公用程式，使用簡單的命令，以獲得最佳效能所設計。 您可以複製的檔案系統和儲存體帳戶，或儲存體帳戶之間的資料。  
 
 有兩個 AzCopy 版本可供您下載。 AzCopy on Linux 內建有 .NET Core Framework，其以提供 POSIX 樣式命令列選項的 Linux 平台為目標。 [AzCopy on Windows](../storage-use-azcopy.md) 內建有 .NET Framework，並且提供 Windows 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Linux。
 
@@ -30,7 +31,7 @@ AzCopy on Linux 是個命令列公用程式，專為使用簡單命令高效率�
 
 文章包含用於多種不同版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令來確認您的發行版本和 codename。 
 
-AzCopy on Linux 要求平台具有 .NET Core Framework (1.1.x 版)。 請參閱 [.NET Core](https://www.microsoft.com/net/download/linux) \(英文\) 頁面上的安裝指示。
+在 Linux 上的 AzCopy 需要平台上的.NET Core framework （2.0 版）。 請參閱 [.NET Core](https://www.microsoft.com/net/download/linux) \(英文\) 頁面上的安裝指示。
 
 作為範例，讓我們在 Ubuntu 16.04 上安裝 .NET Core。 如需最新安裝指南，請造訪 [.NET Core on Linux](https://www.microsoft.com/net/download/linux) \(英文\) 安裝頁面。
 
@@ -40,7 +41,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.1.4
+sudo apt-get install dotnet-sdk-2.0.2
 ```
 
 安裝 .NET Core 之後，下載並安裝 AzCopy。
@@ -68,22 +69,20 @@ azcopy --source <source> --destination <destination> [Options]
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
-如果資料夾 `/mnt/myfiles` 不存在，AzCopy 會加以建立並將 `abc.txt ` 下載到新資料夾。
+如果資料夾 `/mnt/myfiles` 不存在，AzCopy 會加以建立並將 `abc.txt ` 下載到新資料夾。 
 
 ### <a name="download-single-blob-from-secondary-region"></a>從次要地區下載單一 Blob
 
 ```azcopy
 azcopy \
-    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 請注意，您必須啟用讀取權限異地備援儲存體。
@@ -189,10 +188,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 如果指定的目的地容器不存在，則 AzCopy 會建立此容器並將檔案上傳至該容器中。
@@ -201,10 +199,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 如果指定的虛擬目錄不存在，則 AzCopy 會上傳檔案並在 Blob 名稱中加上此虛擬目錄 (例如，上述範例中的 `vd/abc.txt`)。
@@ -315,11 +312,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key> \
-    --dest-key <key> \
-    --include "abc.txt"
+    --dest-key <key>
 ```
 
 當您未以 --sync-copy 選項複製 Blob 時，系統會執行[伺服器端複製](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) \(英文\) 作業。
@@ -328,11 +324,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 當您未以 --sync-copy 選項複製 Blob 時，系統會執行[伺服器端複製](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) \(英文\) 作業。
@@ -341,11 +336,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 \
-    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2 \
+    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 請注意，您必須啟用讀取權限異地備援儲存體。
@@ -354,8 +348,8 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/ \
     --source-key <key1> \
     --dest-key <key2> \
     --include "abc.txt" \
@@ -392,10 +386,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/ \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 如果指定的來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (例如，`abc.txt`) 以下載單一檔案，或指定 `--recursive` 選項以遞迴方式下載共用中的所有檔案。 嘗試同時指定檔案模式和 `--recursive` 選項會造成錯誤。
@@ -417,10 +410,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.file.core.windows.net/myfileshare/ \
-    --dest-key <key> \
-    --include abc.txt
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### <a name="upload-all-files"></a>上傳所有檔案
@@ -543,11 +535,10 @@ azcopy --config-file "azcopy-config.ini"
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-sas <SAS1> \
-    --dest-sas <SAS2> \
-    --include abc.txt
+    --dest-sas <SAS2>
 ```
 
 您也可以在容器 URI 上指定 SAS：
@@ -558,8 +549,6 @@ azcopy \
     --destination /mnt/myfiles \
     --recursive
 ```
-
-請注意，AzCopy 目前僅支援[帳戶 SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) \(英文\)。
 
 ### <a name="journal-file-folder"></a>日誌檔案資料夾
 每次發佈命令至 AzCopy 時，它會檢查預設資料夾或透過此選項指定的資料夾中是否有日誌檔案存在。 如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
@@ -609,47 +598,12 @@ azcopy \
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>指定要啟動的並行作業數目
 `--parallel-level` 選項可指定並行複製作業的數目。 根據預設，AzCopy 依預設會啟動特定數量的並行作業，以提高資料傳輸的輸送量。 並行作業數目等於您所擁有處理器數目的八倍。 如果您在低頻寬的網路上執行 AzCopy，則您可以針對平行層級指定較低的數字，以避免因為資源競爭所導致的失敗。
 
-[!TIP]
+>[!TIP]
 >若要檢視 AzCopy 參數的完整清單，請參閱 [azcopy --說明] 功能表。
 
 ## <a name="known-issues-and-best-practices"></a>已知問題和最佳作法
-### <a name="error-net-core-is-not-found-in-the-system"></a>錯誤：在系統中找不到 .NET Core。
-如果您遇到錯誤，表示系統中並未安裝 .NET Core，則可能遺失 .NET Core 二進位 `dotnet` 的 PATH。
-
-若要解決此問題，請在系統中尋找 .NET Core 二進位：
-```bash
-sudo find / -name dotnet
-```
-
-這樣會傳回 dotnet 二進位的路徑。 
-
-    /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-現在將此路徑新增至 PATH 變數。 針對 sudo，請編輯 secure_path，使其包含 dotnet 二進位的路徑：
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-在此範例中，secure_path 變數會顯示為：
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-針對目前使用者，請編輯 .bash_profile/.profile，使其在 PATH 變數中包含 dotnet 二進位的路徑 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-確認 .NET Core 現在位於 PATH 中：
-```bash
-which dotnet
-sudo which dotnet
-```
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>錯誤： 系統中找不到.NET SDK 2.0。
+AzCopy 取決於.NET SDK 2.0 版本 AzCopy 7.0 中啟動。 在此版本之前 AzCopy 會使用.NET 核心 1.1。 如果您遇到錯誤，指出系統中，未安裝.NET Core 2.0，您可能需要安裝或升級使用[.NET Core 的安裝指示](https://www.microsoft.com/net/learn/get-started/linuxredhat)。
 
 ### <a name="error-installing-azcopy"></a>安裝 AzCopy 時發生錯誤
 如果您遇到 AzCopy 安裝的問題，可以嘗試使用解壓縮 `azcopy` 資料夾中的 bash 指令碼執行 AzCopy。

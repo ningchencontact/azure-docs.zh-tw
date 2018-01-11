@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 效能和規模測試是應用程式開發過程中的關鍵步驟。 對許多應用程式而言，資料庫層在整體效能和延展性上有很大的影響。 因此，它是效能測試的重要元素。 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 就是專門為彈性化規模和可預測效能而建置。 這些功能完全符合應用程式需要高效能資料庫層的要求。 
 
 本文可讓開發人員在為他們的 Azure Cosmos DB 工作負載實作效能測試套件時作為參考。 也可以用來針對高效能應用程式案例評估 Azure Cosmos DB。 主要是著重在隔離的資料庫效能測試，但也包含適用於實際執行應用程式的最佳做法。
@@ -54,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 **步驟 3：** 從命令列編譯並執行主控台應用程式。 您應該會看到如以下的輸出：
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/
@@ -100,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 讓應用程式處於執行狀態之後，您便可以嘗試不同的[索引編製原則](indexing-policies.md)和[一致性層級](consistency-levels.md)，以了解它們對輸送量和延遲的影響。 您也可以檢閱原始程式碼，然後對自己的測試套件或實際執行應用程式實作類似的組態。
 
 ## <a name="next-steps"></a>後續步驟
-在這篇文章中，我們探討了如何使用 .NET 主控台應用程式來執行 Azure Cosmos DB 的相關效能和規模測試。 如需詳細資訊，請參閱下列文章。
+在這篇文章中，我們探討了如何使用 .NET 主控台應用程式來執行 Azure Cosmos DB 的相關效能和規模測試。 如需詳細資訊，請參閱下列文章：
 
 * [Azure Cosmos DB 效能測試範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [改善 Azure Cosmos DB 效能的用戶端設定選項](performance-tips.md)

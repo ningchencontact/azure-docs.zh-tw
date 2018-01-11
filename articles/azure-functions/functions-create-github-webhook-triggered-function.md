@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>建立由 GitHub Webhook 所觸發的函式
 
@@ -51,9 +51,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. 針對所需語言選取 **GitHub WebHook** 範本。 **為您的函式命名**，然後選取 [建立]。
+2. 在 [搜尋] 欄位中，輸入 `github`，然後選擇您需要的 GitHub Webhook 觸發程序範本語言。 
 
-     ![在 Azure 入口網站中建立 GitHub Webhook 觸發的函式](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![選擇 GitHub Webhook 觸發程序範本](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. 輸入您函式的 [名稱] ，然後選取 [建立]。 
+
+     ![在 Azure 入口網站中設定 GitHub Webhook 觸發的函式](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. 在您的新函式中，按一下 [</> 取得函式 URL]，然後複製並儲存值。 對 [</> 取得 GitHub 祕密] 執行相同的動作。 您可使用這些值在 GitHub 中設定 Webhook。
 

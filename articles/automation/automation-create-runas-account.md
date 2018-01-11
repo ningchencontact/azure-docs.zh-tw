@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用執行身分帳戶更新您的自動化帳戶驗證 
 您可以從 Azure 入口網站或使用 PowerShell 來更新現有的自動化帳戶，前提是：
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsCertificate 的自動化憑證資產。 憑證資產會保存管理憑證所使用的憑證私密金鑰。
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsConnection 的自動化連線資產。 連線資產會保存訂用帳戶名稱、subscriptionId 和憑證資產名稱。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您選擇[使用 PowerShell 建立執行身分帳戶](#create-run-as-account-using-powershell)，此程序需要：
 
 * 具有 Azure Resource Manager 模組 3.4.1 和更新版本的 Windows 10 與 Windows Server 2016。 PowerShell 指令碼不支援舊版 Windows。
@@ -57,16 +57,16 @@ ms.lasthandoff: 12/14/2017
 若要更新自動化帳戶，您必須具有下列特定權限，才能完成本主題。   
  
 * 您的 AD 使用者帳戶必須新增至具備與 Microsoft.Automation 資源的參與者角色同等權限的角色 (如[Azure 自動化中的角色型存取控制](automation-role-based-access-control.md#contributor-role-permissions)一文所述)。  
-* 如果應用程式註冊設定為 [是]，Azure AD 租用戶中的非系統管理使用者可以[註冊 AD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。  如果應用程式註冊設定為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。 
+* 如果 Azure AD 租用戶在 [使用者設定] 頁面中的 [使用者可以註冊應用程式] 選項設定為 [是]，Azure AD 租用戶中的非管理使用者就可以[註冊 AD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果應用程式註冊設定為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
 
 若您在新增至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分新增至 Active Directory。 在此情況下，您會在 [新增自動化帳戶] 刀鋒視窗中看到 「您沒有權限建立...」的警告。 新增至全域管理員/共同管理員角色的使用者可以先從訂用帳戶的 Active Directory 執行個體中移除並重新新增，使其成為 Active Directory 中的完整使用者。 若要確認這種情況，請從 Azure 入口網站的 [Azure Active Directory] 窗格，選取 [使用者和群組]、選取 [所有使用者]，然後在選取特定使用者之後，選取 [設定檔]。 使用者設定檔之下 [使用者類型] 屬性的值不得等於 [來賓]。
 
 ## <a name="create-run-as-account-from-the-portal"></a>從 Azure 入口網站建立執行身分帳戶
-在本節中，執行下列步驟以在 Azure 入口網站更新 Azure 自動化帳戶。  您會個別建立執行身分和傳統執行身分帳戶，如果您不需要管理資源，您就可以只建立 Azure 執行身分帳戶。  
+在本節中，執行下列步驟以在 Azure 入口網站更新 Azure 自動化帳戶。  您可以個別建立「執行身分帳戶」和「傳統執行身分帳戶」。 如果您不需要管理傳統資源，則可以只建立 Azure 執行身分帳戶。  
 
 1. 以訂用帳戶管理員角色成員和訂用帳戶共同管理員的帳戶登入 Azure 入口網站。
 2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入**自動化**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [自動化帳戶] 。
-3. 在 [自動化帳戶] 頁面上，選取 [自動化帳戶]。  
+3. 在 [自動化帳戶] 頁面上，從自動化帳戶清單中選取您的自動化帳戶。
 4. 在左側窗格中，選取 [帳戶設定] 區段下的 [執行身分帳戶]。  
 5. 根據您所需的帳戶，選取 [Azure 執行身分帳戶] 或 [Azure 傳統執行身分帳戶]。  選取 [新增 Azure 執行身分] 之後或 [新增 Azure 傳統執行身分帳戶] 窗格出現之後，並檢閱概觀資訊之後，請按一下 [建立] 繼續建立執行身分帳戶。  
 6. 在 Azure 建立執行身分帳戶時，您可以在功能表的 [通知]  底下追蹤進度。  橫幅也會顯示說明帳戶正在建立。  此程序需要數分鐘的時間完成。  

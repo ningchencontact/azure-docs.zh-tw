@@ -4,7 +4,7 @@ description: "這個主題說明在 Azure、Azure Active Directory 和 Microsoft
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>保護 Azure AD 中的特殊權限存取
 保護特殊權限存取，是有助保護現代組織企業資產很重要的第一個步驟。 特殊權限帳戶是可管理 IT 系統的帳戶。 網路攻擊者會以這些帳戶為目標，來取得組織資料和系統的存取權。 為了保護特殊權限存取，您應該讓帳戶和系統遠離遭遇惡意使用者的風險。

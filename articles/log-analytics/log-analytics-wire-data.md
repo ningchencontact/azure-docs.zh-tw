@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics 中的 Wire Data 2.0 (預覽) 解決方案
 
@@ -58,7 +58,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| Windows 代理程式 | 是 | Wire Data 會分析並收集來自 Windows 代理程式電腦的資料。 <br><br> 除了 [OMS 代理程式](log-analytics-windows-agents.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)。 |
+| Windows 代理程式 | 是 | Wire Data 會分析並收集來自 Windows 代理程式電腦的資料。 <br><br> 除了 [OMS 代理程式](log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)。 |
 | Linux 代理程式 | 是 | Wire Data 會分析並收集來自 Linux 代理程式電腦的資料。<br><br> 除了 [OMS 代理程式](log-analytics-quick-collect-linux-computer.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)。 |
 | System Center Operations Manager 管理群組 | 是 | Wire Data 會在連線的 [System Center Operations Manager 管理群組](log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br> System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics。 |
 | Azure 儲存體帳戶 | 否 | Wire Data 會收集來自代理程式電腦的資料，因此沒有要從 Azure 儲存體收集的資料。 |
@@ -208,7 +208,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 請使用下列步驟在每部執行 Windows 的電腦上安裝相依性代理程式：
 
-1. 依照[從環境中託管的 Windows 電腦收集資料](log-analytics-windows-agents.md)中的步驟來安裝 OMS 代理程式。
+1. 依照[從環境中託管的 Windows 電腦收集資料](log-analytics-windows-agent.md)中的步驟來安裝 OMS 代理程式。
 2. 使用上一節中的連結來下載 Windows 相依性代理程式，然後使用下列命令來執行：`InstallDependencyAgent-Windows.exe`
 3. 遵循精靈來安裝代理程式。
 4. 如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 針對 Windows 代理程式，記錄檔的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 相依性代理程式的檔案位於下列目錄：
 
-| **檔案** | **位置** |
+| **檔案** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> |
 | --- | --- |
 | 核心檔案 | /opt/microsoft/dependency-agent |
 | 記錄檔 | /var/opt/microsoft/dependency-agent/log |

@@ -4,7 +4,7 @@ description: "了解如何使用 Azure Active Directory Privileged Identity Mana
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: aeaefb484b29da6e89c2c3c650a79a881b3fa5b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 39caeef2648730194827e04e020d8eaea5414f4f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>授與存取權以管理 Azure AD Privileged Identity Management
-為組織啟用 Azure AD Privileged Identity Management (PIM) 的全域系統管理員會自動取得角色指派及 PIM 的存取權。 不過，預設不會有任何其他人取得寫入存取權，包括其他全域系統管理員。 其他全域系統管理員、安全性管理員及安全性讀取者具有 Azure AD PIM 的唯讀存取權。 若要授與對 PIM 的存取權，第一位使用者可以將其他使用者指派給「特殊權限角色管理員」  角色。 這項指派必須在 PIM 內完成，而且無法透過 PowerShell 或其他入口網站變更。
+為組織啟用 Azure AD Privileged Identity Management (PIM) 的全域系統管理員會自動取得角色指派及 PIM 的存取權。 不過，預設不會有任何其他人取得寫入存取權，包括其他全域系統管理員。 其他全域管理員、 安全性系統管理員和安全性的讀取器具有唯讀存取權 Azure AD PIM。 若要授與對 PIM 的存取權，第一位使用者可以將其他使用者指派給「特殊權限角色管理員」  角色。 這項指派必須在 PIM 內完成，而且無法透過 PowerShell 或其他入口網站變更。
 
 > [!NOTE]
 > 管理 Azure AD PIM 需要 Azure MFA。 因為 Microsoft 帳戶無法註冊 Azure MFA，所以使用 Microsoft 帳戶登入的使用者無法存取 Azure AD PIM。
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 2. 選取 [管理特殊權限角色]  >  [特殊權限角色管理員]  >  [新增]。
    
     ![新增特殊權限角色管理員 - 螢幕擷取畫面][1]
-3. 在 [新增受管理的使用者] 刀鋒視窗上，步驟 1 已經完成。 請選取步驟 2 [選取使用者]  ，然後搜尋您想要新增的使用者。
+3. 在 [新增受控使用者] 刀鋒視窗上，步驟 1 已經完成。 請選取步驟 2 [選取使用者]  ，然後搜尋您想要新增的使用者。
    
     ![選取使用者 - 螢幕擷取畫面][2]
 4. 從搜尋結果中選取使用者，然後按一下 [完成] 。

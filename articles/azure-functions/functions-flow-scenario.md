@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>從 Microsoft Flow 呼叫函式
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-sharepoint-list"></a>建立 SharePoint 清單
 首先，建立一個您用來作為流程資料來源的清單。 清單具有下列資料行。
 
-| 清單資料行     | 資料類型           | 注意事項                                    |
+| 清單資料行     | 資料類型           | 注意                                    |
 |-----------------|---------------------|------------------------------------------|
 | **標題**           | 單行文字 | 渦輪機的名稱                      |
-| **LastServiceDate** | Date                |                                          |
+| **LastServiceDate** | 日期                |                                          |
 | **MaxOutput**       | 數字              | 渦輪機的輸出，以 KwH 為單位            |
 | **ServiceRequired** | 是/否              |                                          |
 | **EstimatedEffort** | 數字              | 修復的預估時間，以小時為單位 |

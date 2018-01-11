@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: sakula
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 3cb49a4abb26c34a938c963c4cf326b5ccd490de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Slack
 
@@ -81,7 +81,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 8) 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-9) 按一下 [儲存] 。 
+9) 按一下 [檔案] 。 
 
 10) 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Slack]。
 
@@ -89,7 +89,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 12) 若要啟用 Slack 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]
 
-13) 按一下 [儲存] 。 
+13) 按一下 [檔案] 。 
 
 這會啟動在 [使用者和群組] 區段中指派給 Slack 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 10 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Slack 應用程式上的佈建服務所執行之所有動作。
 
@@ -105,7 +105,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 3) 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步至 Slack 的群組屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 Slack 中的群組以進行更新作業。 
 
-4) 按一下 [儲存] 。
+4) 按一下 [檔案] 。
 
 這會造成在 [使用者和群組] 區段中指派至 Slack 的任何群組物件完全從 Azure AD 同步至 Slack。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Slack 應用程式上的佈建服務所執行之所有動作。
 

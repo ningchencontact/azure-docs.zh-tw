@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
-ms.translationtype: HT
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 健康情況檢查方案來最佳化 Active Directory 環境
 
@@ -52,9 +52,9 @@ ms.lasthandoff: 10/27/2017
 
 若要對您的網域控制站執行健康情況檢查，以讓網域成員受到評估，則這些控制站需要代理程式，並且須連線到 Log Analytics，您可以使用下列其中一個支援方法來達成要求：
 
-1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md)。
+1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md)。
 2. 如果控制站受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該網域控制站可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
-3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式管理的電腦](log-analytics-om-agents.md#connecting-operations-manager-to-oms)下的步驟，來新增網域控制站以收集資料。  
+3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](log-analytics-om-agents.md#connecting-operations-manager-to-oms)下的步驟，來新增網域控制站以收集資料。  
 
 網域控制站上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Log Analytics 服務。  資料並不會寫入 Operations Manager 資料庫。  
 

@@ -3,7 +3,7 @@ title: "管理 Azure DevTest Labs 中的公式來建立 VM | Microsoft Docs"
 description: "了解如何更新和移除 Azure DevTest Labs 公式"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>管理 Azure DevTest Labs 公式
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
     * **密碼** - 從下拉式清單中輸入或選取一個值，該值與您想用於指定使用者的密碼相關聯。 如需密碼的詳細資訊，請參閱 [Azure DevTest Labs︰個人密碼存放區](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/)。
     * **虛擬機器磁碟類型** - 指定 HDD (硬碟) 或 SSD (固態硬碟)，以表示使用此基本映像佈建的虛擬機器可使用哪種儲存磁碟類型。
     * **虛擬機器大小** - 選取其中一個預先定義的項目，以指定要建立之 VM 的處理器核心、RAM 大小和硬碟大小。 
-    * **構件** - 選取以開啟 [新增構件] 刀鋒視窗，以選取並設定您想要新增至基本映像的構件。 如需構件的詳細資訊，請參閱[在 Azure DevTest Labs 中管理 VM 構件](./devtest-lab-add-vm-with-artifacts.md)。
+    * **構件** - 選取以開啟 [新增構件] 刀鋒視窗，以選取並設定您想要新增至基本映像的構件。 如需成品的詳細資訊，請參閱[建立 Azure DevTest Labs 虛擬機器的自訂成品](devtest-lab-artifact-author.md)。
     * **進階設定** - 選取以開啟 [進階] 刀鋒視窗，以進行下列設定︰
         * **虛擬網路** - 指定所需的虛擬網路。
         * **子網路** - 指定所需的子網路。    
@@ -135,5 +135,5 @@ ms.lasthandoff: 10/11/2017
 * [自訂映像或公式？](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>後續步驟
-建立要在建立 VM 時使用的公式之後，下一個步驟就是[將 VM 新增實驗室](devtest-lab-add-vm-with-artifacts.md)。
+建立要在建立 VM 時使用的公式之後，下一個步驟就是[將 VM 新增實驗室](devtest-lab-add-vm.md)。
 

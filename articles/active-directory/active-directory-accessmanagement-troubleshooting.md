@@ -4,7 +4,7 @@ description: "Azure AD 中群組動態成員資格的疑難排解秘訣。"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 49a1dad57a6c8cd4b25e0e55e367839c760236e4
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 0bb4c294cc6a4e1c9c2f1ad405c539854b6bcf5b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>疑難排解群組的動態成員資格
 **我針對某個群組設定了一個規則，但是群組中的成員資格沒有任何更新**<br/>請針對規則確認使用者屬性的值：是否有符合規則的使用者？ 如果一切良好，請等候一段時間，以填入群組。 根據您的租用戶大小，群組可能最多需要 24 小時來完成初次填入或規則變更。

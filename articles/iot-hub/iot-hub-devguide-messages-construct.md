@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1a20b9c6981125895ecd6952135ec4f365bb8d45
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/28/2017
 * 一組 *應用程式屬性*。 應用程式可以定義的字串屬性字典，而且不需將訊息本文還原序列化即可加以存取。 IoT 中樞不會修改這些屬性。
 * 不透明的二進位主體。
 
-在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：
+在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：  
 
 * 使用 HTTPS 通訊協定來傳送裝置到雲端訊息。
 * 傳送雲端到裝置的訊息。
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/28/2017
 | --- | --- |
 | MessageId |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式：區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。 |
 | 序號 |IoT 中樞指派給每則雲端到裝置訊息的數字 (對每個裝置佇列而言都是唯一的)。 |
-| 收件人 |[雲端到裝置][lnk-c2d]訊息中指定的目的地。 |
+| 至 |[雲端到裝置][lnk-c2d]訊息中指定的目的地。 |
 | ExpiryTimeUtc |訊息到期的日期和時間。 |
 | EnqueuedTime |IoT 中樞收到[雲端到裝置][lnk-c2d]訊息的日期和時間。 |
 | CorrelationId |回應訊息中的字串屬性，通常包含採用「要求-回覆」模式之要求的 MessageId。 |

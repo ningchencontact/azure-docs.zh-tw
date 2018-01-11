@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Projectplace 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: bb9dd10c887cb0e42e544066d9b0dcfa554e10ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d05a9f3b84e6fd0c16b27c6d84fecf7b38898c53
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>教學課程：Azure Active Directory 與 Projectplace 整合
 
@@ -47,13 +47,13 @@ Projectplace 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Projectplace
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-projectplace-from-the-gallery"></a>從資源庫新增 Projectplace
-若要設定將 Projectplace 整合到 Azure AD 中，您需要從資源庫將 Projectplace 加入受管理的 SaaS 應用程式清單。
+若要設定將 Projectplace 整合到 Azure AD 中，您需要從資源庫將 Projectplace 加入受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Projectplace，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Projectplace 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Projectplace**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_search.png)
 
-5. 在結果窗格中，選取 Projectplace，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Projectplace]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
 
@@ -113,7 +113,7 @@ Projectplace 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company>.projectplace.com`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Projectplace 客戶支援小組](https://success.planview.com/Projectplace/Support)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Projectplace 客戶支援小組](https://success.planview.com/Projectplace/Support)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -156,11 +156,11 @@ Projectplace 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-projectplace-test-user"></a>建立 Projectplace 測試使用者
 
@@ -170,7 +170,7 @@ Projectplace 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 **Projectplace** 公司網站。
 
-2. 移至 人員，然後按一下成員。
+2. 移至 [人員]，然後按一下 [成員]。
    
     ![People](./media/active-directory-saas-projectplace-tutorial/ic790228.png "People")
 
@@ -184,7 +184,7 @@ Projectplace 與 Azure AD 整合提供下列優點：
    
     a. 在 [新成員]  文字方塊中，於相關文字方塊中輸入您想要佈建之有效 AAD 帳戶的電子郵件地址。
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [ **傳送**]。
+    b. 按一下 [ **傳送**]。
 
    系統會傳送一封電子郵件給 Azure Active Directory 帳戶的持有者，郵件中包含用來在啟用帳戶前確認帳戶的連結。
 

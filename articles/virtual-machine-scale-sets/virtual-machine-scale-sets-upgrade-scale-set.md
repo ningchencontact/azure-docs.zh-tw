@@ -3,8 +3,8 @@ title: "升級 Azure 虛擬機器擴展集 | Microsoft Docs"
 description: "升級 Azure 虛擬機器擴展集"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>升級虛擬機器擴展集
 本文說明如何在不需停機的情況下，對 Azure 虛擬機器擴展集推出 OS 更新。 在此背景環境下，OS 更新包括變更 OS 的版本或 SKU，或是變更自訂映像的 URI。 在不需停機的情況下進行更新意謂著一次更新一部虛擬機器，或依群組 (例如一次一個容錯網域) 更新虛擬機器，而不是全部一起更新。 透過這種方式，任何非升級中的虛擬機器都可繼續執行。
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 * 變更使用 Azure 受控磁碟所建立之擴展集的映像參考。
 * 從虛擬機器內修補 OS (範例包括安裝安全性修補程式並執行 Windows Update)。 支援此案例，但本文並未涵蓋此案例。
 
-這裡未涵蓋隨 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) 一起部署的虛擬機器擴展集。 如需修補 Service Fabric 的詳細資訊，請參閱[在 Service Fabric 叢集中修補 Windows OS](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application)。
+這裡未涵蓋隨 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) 一起部署的虛擬機器擴展集。 如需修補 Service Fabric 的詳細資訊，請參閱[修補程式的 Windows 作業系統中 Service Fabric 叢集](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 變更平台映像 OS 版本/SKU 或自訂映像 URI 的基本順序看起來如下：
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-如果您更新的是自訂映像的 URI，而不是變更平台映像版本，請以更新來源映像 URI 的命令取代 “set the new version” 行。 例如，如果擴展集不是使用 Azure 受控磁碟所建立，更新會如下所示：
+如果您要更新的自訂映像，而不是變更平台映像版本的 URI，在 「 設定新的版本 」 列取代更新的來源映像 URI 的命令。 例如，如果擴展集不是使用 Azure 受控磁碟所建立，更新會如下所示：
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-如果使用 Azure 受控磁碟建立了以自訂映像為基礎的擴展集，則會更新映像參考。 例如：
+如果建立自訂映像為基礎的小數位數組，使用 Azure 受管理的磁碟，則會更新的影像參考。 例如︰
 
 ```powershell
 # set the new version in the model data

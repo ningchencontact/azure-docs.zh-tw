@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 3493ac89775bfccc0139c5cbefc046e9fef35bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>利用 SQL Database 和 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證
 Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身分識別連接到 Microsoft Azure SQL Database 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 的機制。 您可以使用 Azure AD 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。 包括以下優點：
@@ -73,7 +73,7 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD 功能和限制
 下列 Azure AD 的成員可在 Azure SQL 伺服器或 SQL 資料倉儲中佈建：
 
-* 原生成員：在受管理網域或客戶網域的 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)。
+* 原生成員：在受控網域或客戶網域的 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)。
 * 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
 * 從其他 Azure AD 匯入，且為原生網域或同盟網域成員者。
 * 建立 Active Directory 群組作為安全性群組。
@@ -100,7 +100,7 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 * [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支援 Azure AD 驗證。 此外，請參閱 [設定連接屬性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 * PolyBase 無法使用 Azure AD 驗證進行驗證。   
 * Azure 入口網站的 [匯入資料庫] 和 [匯出資料庫] 刀鋒視窗支援 SQL Database 的 AD 驗證。 PowerShell 命令也支援使用 Azure AD 驗證的匯入和匯出。   
-* SQL Database 和 SQL 資料倉儲 (使用 CLI) 支援 Azure AD 驗證。 如需詳細資訊，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server)。
+* SQL Database 和 SQL 資料倉儲 (使用 CLI) 支援 Azure AD 驗證。 如需詳細資訊，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server)。
 
 ## <a name="next-steps"></a>後續步驟
 - 若要了解如何建立和填入 Azure AD，然後使用 Azure SQL Database 或 Azure SQL 資料倉儲來設定 Azure AD，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)。

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 12c5d4985260c734ba813ace3143433883966712
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>搭配 Kubernetes 使用 Azure 檔案
 
@@ -66,7 +66,7 @@ echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 echo -n $STORAGE_KEY | base64
 ```
 
-建立名為 `azure-secret.yml` 的檔案，然後將下列 YAML 複製進來。 將 `azurestorageaccountname` 和 `azurestorageaccountkey` 值更新成在上一個步驟中擷取的 Base64 編碼值。
+建立名為 `azure-secret.yaml` 的檔案，然後將下列 YAML 複製進來。 將 `azurestorageaccountname` 和 `azurestorageaccountkey` 值更新成在上一個步驟中擷取的 Base64 編碼值。
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 使用 [kubectl create][kubectl-create] 命令來建立祕密。
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>將檔案共用掛接成磁碟區
 
-您可以藉由在 Pod 的規格中設定磁碟區，將「Azure 檔案」共用掛接到 Pod 中。建立一個名為 `azure-files-pod.yml` 且含有下列內容的新檔案。 將 `aksshare` 更新成提供給「Azure 檔案」共用的名稱。
+您可以藉由在 Pod 的規格中設定磁碟區，將「Azure 檔案」共用掛接到 Pod 中。建立一個名為 `azure-files-pod.yaml` 且含有下列內容的新檔案。 將 `aksshare` 更新成提供給「Azure 檔案」共用的名稱。
 
 ```yaml
 apiVersion: v1
@@ -112,7 +112,7 @@ spec:
 使用 kubectl 來建立 Pod。
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 您現在有一個 Azure 檔案共用掛接在 `/mnt/azure` 目錄中的執行中容器。 您可以在透過 `kubectl describe pod azure-files-pod`檢查 Pod 時，查看磁碟區掛接。
@@ -122,13 +122,16 @@ kubectl apply -f azure-files-pod.yml
 使用「Azure 檔案」來深入了解 Kubernetes 磁碟區。
 
 > [!div class="nextstepaction"]
-> [適用於 Azure 檔案的 Kubernetes 外掛程式](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md) \(英文\)
+> [Azure 檔案的 Kubernetes 外掛程式][kubernetes-files]
 
-<!-- LINKS -->
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
+[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+
+<!-- LINKS - internal -->
+[az-group-create]: /cli/azure/group#az_group_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
-[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[az-group-create]: /cli/azure/group#az_group_create

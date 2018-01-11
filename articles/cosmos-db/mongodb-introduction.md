@@ -13,23 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: eca720f365a00070afd2a657829f5b108ab91fb9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB 簡介：適用於 MongoDB 的 API
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域散發的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[一站式全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA (英文)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，可支援文件、索引鍵/值、圖表和單欄式資料模型。 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域發佈的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[一站式全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA (英文)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，支援文件、索引鍵/值、圖表和單欄式資料模型。 
 
 ![Azure Cosmos DB：MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manual/introduction/) 所撰寫之應用程式的資料存放區。 此功能表示透過使用現有的[驅動程式](https://docs.mongodb.org/ecosystem/drivers/)，現在針對 MongoDB 所撰寫的應用程式已可與 Azure Cosmos DB 通訊，並使用 Azure Cosmos DB 資料庫而非 MongoDB 資料庫。 在許多情況下，您只要變更連接字串，就可以從使用 MongoDB 切換到 Azure Cosmos DB。 您可以使用這項功能，輕鬆地在 Azure 雲端建置及執行 MongoDB 資料庫應用程式，利用 Azure Cosmos DB 的全域發佈和[領先業界的完整 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，同時繼續使用 MongoDB 的熟悉技能和工具。
 
-**MongoDB 相容性**：您可以使用現有的 MongoDB 專業知識、應用程式程式碼和 Azure Cosmos DB 等工具來實作 MongoDB 3.4 (第 5 版) 有線通訊協定，並支援 [MongoDB 彙總管線](mongodb-feature-support.md#aggregation-pipeline)。 您可以開發使用 MongoDB 的應用程式，並使用完全受管理且全域分散式 Azure Cosmos DB 服務來部署這些應用程式。
+**MongoDB 相容性**：您可以使用現有的 MongoDB 專業知識、應用程式程式碼和 Azure Cosmos DB 等工具來實作 MongoDB 3.4 (第 5 版) 有線通訊協定，並支援 [MongoDB 彙總管線](mongodb-feature-support.md#aggregation-pipeline)。 您可以開發使用 MongoDB 的應用程式，並使用完全受控且全域分散式 Azure Cosmos DB 服務來部署這些應用程式。
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>於 MongoDB 應用程式使用 Azure Cosmos DB 有何好處？
 
@@ -37,7 +37,7 @@ Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manu
 
 **多重區域複寫**︰Azure Cosmos DB 會自動將您的資料複寫至與您 MongoDB 帳戶相關聯的所有區域，讓您開發需要全域存取資料的應用程式，也能在一致性、可用性與效能之間做出取捨，而且全都有相對應的保證。 Azure Cosmos DB 利用多重定址 API 提供自動的區域性容錯移轉，還能夠彈性調整世界各地的輸送量和儲存體。 請參閱[將資料分散到全球](distribute-data-globally.md)以深入了解。
 
-**不需要任何伺服器管理工作**︰您不需要管理和調整 MongoDB 資料庫。 Azure Cosmos DB 是完全受管理的服務，這表示您不需要自己管理任何基礎結構或虛擬機器。 Azure Cosmos DB 可在 30 個以上的 [Azure 區域](https://azure.microsoft.com/regions/services/)中使用。
+**不需要任何伺服器管理工作**︰您不需要管理和調整 MongoDB 資料庫。 Azure Cosmos DB 是完全受控的服務，這表示您不需要自己管理任何基礎結構或虛擬機器。 Azure Cosmos DB 可在 30 個以上的 [Azure 區域](https://azure.microsoft.com/regions/services/)中使用。
 
 **可調整的一致性等級：**有五個定義完善的一致性等級可選擇，讓您在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性層級可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
 
@@ -45,9 +45,9 @@ Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manu
 
 **企業級**：Azure Cosmos DB 支援多個本機複本，在面對本機和區域故障時可提供 99.99% 的可用性和資料保護。 Azure Cosmos DB 有企業級的[合規性認證 (英文)](https://www.microsoft.com/trustcenter) 和安全性功能。 
 
-在這段 Azure Friday 影片中，和 Scott Hanselman 與 Azure Cosmos DB 工程總經理 Kirill Gavrylyuk 一起深入了解。
+瞭解詳細資訊在 Azure Cosmos DB 資深程式管理員，Aleksey Savateyev 這段影片。
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
 
 ## <a name="how-to-get-started"></a>如何開始使用

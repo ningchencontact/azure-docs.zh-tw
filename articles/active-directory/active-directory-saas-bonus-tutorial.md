@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Bonusly 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 29a88b2efdb9f0f33f7933bc654a5a0fdf589c5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b69cf1c42cbc6aedb064378271e2c631b4be39f3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>教學課程：Azure Active Directory 與 Bonusly 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Bonusly
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-bonusly-from-the-gallery"></a>從資源庫新增 Bonusly
-若要設定將 Bonusly 整合到 Azure AD 中，您需要從資源庫將 Bonusly 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Bonusly 整合到 Azure AD 中，您需要從資源庫將 Bonusly 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Bonusly，請執行下列步驟：**
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 10/11/2017
 
     d. 在 [憑證指紋] 文字方塊中貼上從 Azure 入口網站複製的 [指紋] 值。
    
-11. 按一下 [儲存] 。
+11. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -174,11 +174,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-bonusly-test-user"></a>建立 Bonusly 測試使用者
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 10/11/2017
    
     ![管理使用者](./media/active-directory-saas-bonus-tutorial/ic781043.png "管理使用者")
 
-5. 按一下 [加入使用者] 。
+5. 按一下 [新增使用者] 。
    
     ![新增使用者](./media/active-directory-saas-bonus-tutorial/ic781044.png "新增使用者")
 
@@ -214,11 +214,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
+    b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
  
     c. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
 
-    d. 按一下 [儲存] 。
+    d. 按一下 [檔案] 。
    
      >[!NOTE]
      >Azure AD 帳戶持有者會收到一封包含連結的電子郵件，以在啟用帳戶前進行確認。
@@ -256,7 +256,7 @@ ms.lasthandoff: 10/11/2017
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在存取面板中按一下 Bonusly 圖格時，應該會自動登入 Bonusly 應用程式。
 

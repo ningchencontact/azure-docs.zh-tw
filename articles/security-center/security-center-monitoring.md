@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的安全性健康情況監視
 本文可協助您使用 Azure 資訊安全中心內的監視功能，監視是否符合原則。
@@ -45,13 +45,14 @@ ms.lasthandoff: 10/11/2017
 
 ![遺失的系統更新 (依虛擬機器)](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-在您可有多個區段的每個索引標籤中，以及在每個區段中，您可以選取一個個別的選項，以查看有關解決該特定問題之建議步驟的更多詳細資訊。 
+在您可有多個區段的每個索引標籤中，以及在每個區段中，您可以選取一個個別的選項，以查看有關解決該特定問題之建議步驟的更多詳細資訊。
 
 #### <a name="monitoring-recommendations"></a>監視建議
-本節顯示已初始化進行自動佈建的虛擬機器和電腦總數，以及其目前的狀態。 當您按一下此項目時，[VM 代理程式遺失或沒有回應] 隨即開啟。 
+本節顯示已初始化進行自動佈建的虛擬機器和電腦總數，以及其目前的狀態。 當您按一下此項目，[監視代理程式健康情況問題] 會隨即開啟。
 
-![遺失的系統更新 (依虛擬機器)](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![監視代理程式健康情況問題](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+其中會列出資訊安全中心無法成功監視的 VM 和電腦。 選取 VM 或電腦即可獲得詳細資訊。 [監視狀態] 會定義問題。
 
 #### <a name="recommendations"></a>建議
 本節提供 Azure 資訊安全中心所監視之[每部虛擬機器和電腦的建議](security-center-virtual-machine-recommendations.md)。 第一個資料行會列出建議。 第二個資料行則顯示受該項建議影響的虛擬機器和電腦總數。 第三個資料行顯示問題的嚴重性，如下列螢幕擷取畫面所示：
@@ -79,7 +80,7 @@ ms.lasthandoff: 10/11/2017
   * **中**：需要執行非關鍵性步驟或其他步驟才能完成程序或消除弱點。
   * **低**：應該處理但不需要立即注意的弱點。 (預設不會顯示嚴重性低的建議，但是如果您要檢視它們，則可以篩選嚴重性低的建議)。
 
-若要檢視建議的詳細資料，請按一下清單中遺漏更新的名稱。 
+若要檢視建議的詳細資料，請按一下清單中遺漏更新的名稱。
 
 ![特定虛擬機器遺失的系統更新](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ ms.lasthandoff: 10/11/2017
 
 ![雲端服務詳細資料](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-若要查看有關這項建議的更多規範說明，請按一下 [描述] 資料行之下的 [更新OS 版本]。 
+若要查看有關這項建議的更多規範說明，請按一下 [描述] 資料行之下的 [更新OS 版本]。
 
 ![雲端服務建議](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

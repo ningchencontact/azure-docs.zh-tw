@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>建立 Azure Blob 儲存體所觸發的函式
 
@@ -51,19 +51,23 @@ ms.lasthandoff: 10/11/2017
 
     ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. 為您想要的語言選取 **BlobTrigger** 範本，並使用如表格中指定的設定。
+2. 在 [搜尋] 欄位中，輸入 `blob`，然後選擇您需要的 blob 儲存體觸發程序範本語言。
 
-    ![建立由 Blob 儲存體所觸發的函式。](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![選擇 Blob 儲存體觸發程序範本。](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. 使用影像下方資料表中所指定的設定。
+
+    ![建立由 Blob 儲存體所觸發的函式。](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | 設定 | 建議的值 | 說明 |
     |---|---|---|
-    | **路徑**   | mycontainer/{name}    | 受監視 Blob 儲存體中的位置。 在繫結中，Blob 的檔案名稱會以「名稱」參數的形式來傳遞。  |
-    | **儲存體帳戶連線** | AzureWebJobStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |
-    | **函式命名** | 函式應用程式中的唯一名稱 | 這個由 blob 所觸發之函式的名稱。 |
+    | **名稱** | 函式應用程式中的唯一名稱 | 這個由 blob 所觸發之函式的名稱。 |
+    | **路徑**   | samples-workitems/{name}    | 受監視 Blob 儲存體中的位置。 在繫結中，Blob 的檔案名稱會以「名稱」參數的形式來傳遞。  |
+    | **儲存體帳戶連線** | AzureWebJobsStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |
 
 3. 按一下 [建立] 可建立函式。
 
-接下來，您要連線到 Azure 儲存體帳戶並建立 **mycontainer** 容器。
+接下來，您要連線到 Azure 儲存體帳戶並建立 **samples-workitems** 容器。
 
 ## <a name="create-the-container"></a>建立容器
 
@@ -79,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
     ![輸入儲存體認證和連線。](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. 展開連結的儲存體帳戶，以滑鼠右鍵按一下 [Blob 容器]，按一下 [建立 Blob 容器]，輸入 `mycontainer`，然後按 Enter 鍵。
+1. 展開連結的儲存體帳戶，以滑鼠右鍵按一下 [Blob 容器]，按一下 [建立 Blob 容器]，輸入 `samples-workitems`，然後按 Enter 鍵。
 
     ![建立儲存體佇列。](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 回到 Azure 入口網站，瀏覽至您的函式，展開頁面底部的 [記錄]，並確定記錄串流並未暫停。
 
-1. 在儲存體總管中，依序展開您的儲存體帳戶、[Blob 容器] 和 [mycontainer]。 依序按一下 [上傳] 和 [上傳檔案...]。
+1. 在儲存體總管中，依序展開您的儲存體帳戶、[Blob 容器] 和 [samples-workitems]。 依序按一下 [上傳] 和 [上傳檔案...]。
 
     ![將檔案上傳至 Blob 容器。](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

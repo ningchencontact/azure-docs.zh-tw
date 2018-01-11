@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>連接到 Azure SQL 資料倉儲
 本文可協助您第一次連接到 SQL 資料倉儲。
 
 ## <a name="find-your-server-name"></a>尋找您的伺服器名稱
-連接到 SQL 資料倉儲的第一個步驟是了解如何尋找您的伺服器名稱。  例如，下列範例中的伺服器名稱是 sample.database.windows.net。 若要尋找完整的伺服器名稱：
+連接到 SQL 資料倉儲的第一個步驟是了解如何尋找您的伺服器名稱。  例如，下列範例中的伺服器名稱是 samplesvr.database.windows.net。 若要尋找完整的伺服器名稱：
 
 1. 移至 [Azure 入口網站][Azure portal]。
-2. 按一下 [SQL Database]  
-3. 按一下您想連接的資料庫。
+2. 按一下 [SQL 資料倉儲]。
+3. 按一下您想連線的資料倉儲。
 4. 找出完整的伺服器名稱。
    
     ![完整伺服器名稱][1]
@@ -93,6 +93,6 @@ SQL 資料倉儲會在連線和物件建立期間將一些設定標準化。 這
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

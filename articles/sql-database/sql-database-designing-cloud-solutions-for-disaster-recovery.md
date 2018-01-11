@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL Database 設計高可用性服務
 
 在 Azure SQL Database 上建置和部署高可用性服務時，您可以使用[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md)來為區域性中斷和嚴重的故障提供恢復能力。 它也可讓次要資料庫快速復原。 在本文中，我們將著重於常見的應用程式模式，並討論每個選項的優缺點。 如需主動式異地複寫與彈性集區的相關資訊，請參閱[彈性集區災害復原策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>情節 1：使用兩個 Azure 區域以獲得最少停機時間的業務持續性
-在此情節中，應用程式具有下列特性： 
+在此案例中，應用程式具有下列特性： 
 *   應用程式在一個 Azure 區域中為作用中
 *   所有的資料庫工作階段都需要資料的讀取和寫入權限 (RW)
 *   必須共置 web 層和資料層才能減少延遲和流量成本 

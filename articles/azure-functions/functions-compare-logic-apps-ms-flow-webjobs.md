@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
 本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決整合問題並將商務程序自動化︰
@@ -41,18 +41,18 @@ ms.lasthandoff: 11/17/2017
 * 它們擁有相同的工作流程設計工具
 * [連接器](../connectors/apis-list.md) 也可在另一項服務中運作
 
-Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如取得重要電子郵件的簡訊)，而不必透過開發人員或 IT。 另一方面，Logic Apps 則可以實現需要企業級 DevOps 和安全性作法的進階或關鍵任務整合 (例如 B2B 處理程序)。 一般來說，商務工作流程會隨著時間而趨於複雜。 因此，一開始您可以先從流程著手，然後再視需要將它轉換為邏輯應用程式。
+Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如，SharePoint 文件庫中的核准程序)，而不必透過開發人員或 IT。 另一方面，Logic Apps 則可以實現需要企業級 DevOps 和安全性做法的進階整合 (例如 B2B 處理程序)。 一般來說，商務工作流程會隨著時間而趨於複雜。 因此，一開始您可以先從流程著手，然後再視需要將它轉換為邏輯應用程式。
 
 下表可協助您判斷最適合所給定整合的是 Flow 還是 Logic Apps。
 
 |  | Flow | Logic Apps |
 | --- | --- | --- |
-| 對象 |辦公室工作人員、商務使用者 |IT 專家、開發人員 |
-| 案例 |自助服務 |關鍵任務 |
+| 對象 |辦公室員工、商務使用者、SharePoint 系統管理員 |專業的整合人員和開發人員，IT 專業人員 |
+| 案例 |自助服務 |進階整合 |
 | 設計工具 |瀏覽器內及行動裝置應用程式，僅限 UI |有瀏覽器內和 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)、[程式碼檢視](../logic-apps/logic-apps-author-definitions.md)可用 |
-| DevOps |特定、在生產環境中開發 |在 [Azure 資源管理](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| 管理員體驗 |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| 安全性 |標準做法︰[資料主權](https://wikipedia.org/wiki/Technological_Sovereignty)、敏感資料的[待用加密](https://wikipedia.org/wiki/Data_at_rest#Encryption)等。 |Azure 的安全性保證︰[Azure 安全性](https://www.microsoft.com/trustcenter/Security/AzureSecurity)、[資訊安全中心](https://azure.microsoft.com/services/security-center/)、[稽核記錄檔](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)等。 |
+| 應用程式生命週期管理 (ALM) |在非生產環境中設計及測試，在就緒時升級到生產環境。 |DevOps：在 [Azure 資源管理](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)中的原始檔控制、測試支援、自動化及管理性 |
+| 管理員體驗 |管理流量環境和資料外洩防護 (DLP) 原則，追蹤授權 [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |管理資源群組、連線、存取管理和記錄 [https://portal.azure.com](https://portal.azure.com) |
+| 安全性 |Office 365 安全性與相容性稽核記錄、資料外洩防護 (DLP)、敏感性資料[靜止時加密](https://wikipedia.org/wiki/Data_at_rest#Encryption)等等。 |Azure 的安全性保證︰[Azure 安全性](https://www.microsoft.com/trustcenter/Security/AzureSecurity)、[資訊安全中心](https://azure.microsoft.com/services/security-center/)、[稽核記錄檔](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)等。 |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 如先前所述，哪一項服務最適合您取決於您的情況。 
 
 * 若為簡單進行商務最佳化，請使用 Flow。
-* 如果您的整合案例對於 Flow 來說過於先進，或是您需要 DevOps 功能和安全性與法規遵循，則請使用 Logic Apps。
+* 如果您的整合情節對於 Flow 來說過於先進，或是您需要 DevOps 功能，就請使用 Logic Apps。
 * 如果整合案例中的步驟需要高度自訂的轉換或專門的程式碼，則請撰寫函式，然後在邏輯應用程式中觸發函式作為動作。
 
 您可以在流程中呼叫邏輯應用程式。 您也可以在邏輯應用程式中呼叫函數，也可以在函數中呼叫邏輯應用程式。 Flow、Logic Apps 和 Functions 之間的整合會隨時間持續改進。 您可以在某項服務中建置某物並用於其他服務。 因此，您對這三種技術所做的投資都是值得的。

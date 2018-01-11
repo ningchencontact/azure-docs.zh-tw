@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: bradsev;
-ms.openlocfilehash: 7f99b0bc36a08f52148f032567771f21c56ce42e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 6512bf204a1fdc7a413a553b571e3b64b547855b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 專案規劃
 
@@ -28,10 +28,10 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 - 了解商務
 - 資料取得與認知
 - 模型化
-- 部署
+- Deployment
 - 客戶接受度
 
-如需每個階段的描述，請參閱 [Team Data Science Process 生命週期](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle)。
+如需每個階段的描述，請參閱 [Team Data Science Process 生命週期](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle)。
 
  
 ## <a name="microsoft-project-template"></a>Microsoft Project 範本

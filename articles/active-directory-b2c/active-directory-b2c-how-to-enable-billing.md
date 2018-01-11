@@ -4,7 +4,7 @@ description: "啟用 Azure 訂用帳戶內 Azure AD B2C 租用戶計費的逐步
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: parakhj
-manager: krassk
+manager: mtillman
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>將 Azure 訂用帳戶連結至 Azure AD B2C 租用戶
 
@@ -58,7 +58,7 @@ Azure AD B2C 的使用費用會計入 Azure 訂用帳戶。 建立 Azure AD B2C 
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>在 Azure 訂用帳戶內建立 Azure AD B2C 資源
 
-在資源建立對話方塊中，從下拉式清單中選取 Azure AD B2C 租用戶。 您會看到您身為全域管理員之下的所有租用戶，以及尚未連結至訂用帳戶的租用戶。
+在資源建立對話方塊中，請從下拉式清單中選取 Azure AD B2C 租用戶。 您會看到您身為全域管理員之下的所有租用戶，以及尚未連結至訂用帳戶的租用戶。
 
 系統將會預先選取 Azure AD B2C 資源名稱，以符合 Azure AD B2C 租用戶的網域名稱。
 
@@ -68,9 +68,9 @@ Azure AD B2C 的使用費用會計入 Azure 訂用帳戶。 建立 Azure AD B2C 
 
 ![建立 B2C 資源](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>管理 Azure AD B2C 租用戶資源
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>管理您的 Azure AD B2C 租用戶資源
 
-在 Azure 訂用帳戶內成功建立 Azure AD B2C 資源後，您應會看到「B2C 租用戶」類型的新資源隨著其他 Azure 資源一起新增。
+一旦 Azure AD B2C 資源已成功建立 Azure 訂用帳戶內，您應該會看到的類型"B2C 租用戶 「 加入其他 Azure 資源與新的資源。
 
 您可以使用此資源來：
 

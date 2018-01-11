@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: abf8f0b1005aec71812dc8ebfd12fe65250d7a0e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>SQL 資料倉儲還原
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/07/2017
 
 資料庫還原是所有商務持續性和災害復原策略中不可或缺的一部分，因為它可在您的資料發生意外損毀或刪除之後重新建立該資料。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [SQL 資料倉儲備份](sql-data-warehouse-backups.md)
 * [商務持續性概觀](../sql-database/sql-database-business-continuity.md)

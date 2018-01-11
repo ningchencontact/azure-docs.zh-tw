@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -133,13 +133,13 @@ ms.lasthandoff: 12/04/2017
 API 管理會在部署到多個地理位置時，使用[效能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。 連入流量會傳送至最接近的 API 閘道。 如果一個區域離線，則連入流量會自動路由傳送至下一個最接近的閘道。 深入了解[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)中的路由方法。
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？
-是。 請參閱 [Azure API 管理服務](http://aka.ms/apimtemplate)快速入門範本。
+可以。 請參閱 [Azure API 管理服務](http://aka.ms/apimtemplate)快速入門範本。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以對後端使用自我簽署的 SSL 憑證？
-是。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。
+可以。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。
 
 #### <a name="powershell-method"></a>Powershell 方法 ####
-使用 [`New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (適用於新的後端) 或 [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (適用於現有的後端) PowerShell Cmdlet，並將 `-SkipCertificateChainValidation` 參數設定為 `True`。 
+使用 [`New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (適用於新的後端) 或 [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (適用於現有的後端) PowerShell Cmdlet，並將 `-SkipCertificateChainValidation` 參數設定為 `True`。 
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -155,7 +155,7 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 如果您使用 Git 認證管理員，或如果您嘗試使用 Visual Studio 複製 Git 儲存機制，您可能會遇到 Windows 認證對話方塊的已知問題。 此對話方塊會將密碼長度限制為 127 個字元，並且截斷 Microsoft 所產生的密碼。 我們正在努力縮短密碼。 目前，請使用 Git Bash 來複製 Git 儲存機制。
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>API 管理是否能搭配 Azure ExpressRoute 運作？
-是。 API 管理能搭配 Azure ExpressRoute 運作。
+可以。 API 管理能搭配 Azure ExpressRoute 運作。
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>為什麼將「API 管理」部署到 Resource Manager 樣式的 VNET 中時，我們需要在這些 VNET 中有一個專用子網路？
 「API 管理」的專用子網路需求來自於一個事實，就是它是建置在「傳統」(PAAS V1 層) 部署模型的基礎上。 雖然我們可以部署到 Resource Manager VNET (V2 層) 中，但是會有後果。 Azure 中的「傳統」部署模型並未與 Resource Manager 模型緊密結合，因此，如果您在 V2 層中建立一項資源，V1 層並不會知道它，而問題就可能發生，例如「API 管理」嘗試使用已經配置給某個 NIC (建置在 V2 上) 的 IP。
@@ -165,7 +165,7 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 部署「API 管理」所需的子網路大小下限是 [/29](../virtual-network/virtual-networks-faq.md#configuration)，這是 Azure 支援的子網路大小下限。
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>可以將 API 管理服務從某一個訂用帳戶移至另一個嗎？
-是。 若要了解作法，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
+可以。 若要了解作法，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>匯入 API 有任何限制或已知的問題嗎？
 Open API(Swagger)、WSDL 及 WADL 格式的[已知問題和限制](api-management-api-import-restrictions.md)。

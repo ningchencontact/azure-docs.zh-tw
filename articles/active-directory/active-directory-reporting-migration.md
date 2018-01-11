@@ -1,37 +1,36 @@
 ---
-title: "在 Azure 入口網站中尋找活動報告 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中尋找 Azure Active Directory 活動報告。"
+title: "在 Azure 入口網站中尋找 Azure Active Directory 使用者活動報表 |Microsoft 文件"
+description: "了解 Azure Active Directory 使用者活動報表會位於 Azure 入口網站。"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
-如果您從 Azure 傳統入口網站移轉到 Azure 入口網站，您可看到新的 Azure Active Directory 活動記錄風貌。 在一篇近期的[部落格文章](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/)中，我們說明如何在 Azure 入口網站中您正在處理的資源內容中查看活動記錄。 在本文中，我們會說明如何在 Azure 入口網站中尋找您使用於 Azure 傳統入口網站的報告。
+在本文中，我們會說明如何在 Azure 入口網站中尋找 Azure Active Directory 使用者活動報表。
 
 ## <a name="whats-new"></a>新功能
 
-Azure 傳統入口網站中的報告分為下列幾類：
-
-1.  安全性報告
-2.  活動報告
-3.  整合式應用程式報告
+Azure 傳統入口網站中的報表已分成類別：
+* 安全性報告
+* 活動報告
+* 整合式應用程式報告
 
 ### <a name="activity-and-integrated-app-reports"></a>活動和整合式應用程式報告
 
@@ -39,18 +38,18 @@ Azure 傳統入口網站中的報告分為下列幾類：
 
 若要查看這個檢視，請在 [Azure Active Directory] 刀鋒視窗的 [活動] 之下，選取 [稽核記錄]。
 
-![稽核記錄](./media/active-directory-reporting-migration/482.png "稽核記錄")
+![稽核記錄檔](./media/active-directory-reporting-migration/482.png "稽核記錄檔")
 
 下列報告會整合在此檢視中：
 
--   稽核報告
--   密碼重設活動
--   密碼重設註冊活動
--   自助式群組活動
--   Office365 群組名稱變更
--   帳戶佈建活動
--   密碼變換狀態
--   帳戶佈建錯誤
+* 稽核報告
+* 密碼重設活動
+* 密碼重設註冊活動
+* 自助式群組活動
+* Office365 群組名稱變更
+* 帳戶佈建活動
+* 密碼變換狀態
+* 帳戶佈建錯誤
 
 
 [應用程式使用量] 報告已增強並包含於 [登入] 檢視中。 若要查看這個檢視，請在 [Azure Active Directory] 刀鋒視窗的 [活動] 之下，選取 [登入]。
@@ -134,7 +133,7 @@ Azure 傳統入口網站中的報告分為下列幾類：
 
 若要檢視所有稽核資料，請在 [Azure Active Directory] 刀鋒視窗的 [活動] 之下，移至 [稽核記錄]。
 
-![稽核記錄](./media/active-directory-reporting-migration/61.png "稽核記錄")
+![稽核記錄檔](./media/active-directory-reporting-migration/61.png "稽核記錄檔")
 
 | Azure 傳統入口網站                 | 在 Azure 入口網站中尋找                                                         |
 | ---                                  | ---                                                                        |

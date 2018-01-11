@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: markgal;trinadhk
+ms.date: 12/20/2017
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup Cmdlet 備份虛擬機器
-> [!div class="op_single_selector"]
-> * [資源管理員](backup-azure-vms-automation.md)
-> * [傳統](backup-azure-vms-classic-automation.md)
->
->
 
 本文說明如何使用 Azure PowerShell Cmdlet 從復原服務保存庫備份和復原 Azure 虛擬機器 (VM)。 復原服務保存庫是一項 Azure Resource Manager 資源，可用來保護 Azure 備份和 Azure Site Recovery 服務中的資料和資產。 您可以使用復原服務保存庫，來保護 Azure Service Manager 部署的 VM 以及 Azure Resource Manager 部署的 VM。
 
@@ -85,7 +80,28 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
+3. 登入您的 Azure 帳戶使用**登入 AzureRmAccount**。 這個指令程式會開啟 web 網頁會提示您輸入您的帳戶認證： 
+    - 或者，您也可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Login-AzureRmAccount** Cmdlet。
+    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如：**Login-AzureRmAccount -Tenant "fabrikam.com"**
+4. 由於一個帳戶可以有多個訂用帳戶，因此您必須將要使用的訂用帳戶與帳戶建立關聯：
 
+    ```
+    PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    ```
+
+5. 如果您是第一次使用 Azure 備份，您必須使用 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** Cmdlet，利用您的訂用帳戶來註冊 Azure 復原服務提供者。
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```
+
+6. 您可以確認提供者註冊成功時，使用下列命令：
+    ```
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ``` 
+在命令輸出中， **RegistrationState**應設為**註冊**。 如果沒有，請只重新執行**[暫存器 AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** 如上所示的 cmdlet。
 
 PowerShell 可以自動化下列工作：
 
@@ -95,25 +111,20 @@ PowerShell 可以自動化下列工作：
 * 監視備份作業
 * 還原 Azure VM
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
+## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
 下列步驟將引導您完成建立復原服務保存庫。 復原服務保存庫不同於備份保存庫。
 
-1. 如果您是第一次使用 Azure 備份，您必須使用 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** Cmdlet，利用您的訂用帳戶來註冊 Azure 復原服務提供者。
-
-    ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ```
-2. 復原服務保存庫是一項 Resource Manager 資源，因此您必須將它放在資源群組內。 您可以使用現有的資源群組，或使用 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** Cmdlet 建立資源群組。 建立資源群組時，請指定資源群組的名稱與位置。  
+1. 復原服務保存庫是一項 Resource Manager 資源，因此您必須將它放在資源群組內。 您可以使用現有的資源群組，或使用 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** Cmdlet 建立資源群組。 建立資源群組時，請指定資源群組的名稱與位置。  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-3. 使用 **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** Cmdlet 來建立復原服務保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
+2. 使用 **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** Cmdlet 來建立復原服務保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[異地備援儲存體 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 下列範例顯示 testvault 的 -BackupStorageRedundancy 選項設為 GeoRedundant。
+3. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[異地備援儲存體 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 下列範例顯示 testvault 的 -BackupStorageRedundancy 選項設為 GeoRedundant。
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -381,9 +392,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 
 4. 連接作業系統磁碟與資料磁碟。 請根據您 VM 的設定，參閱相關章節以檢視個別 Cmdlet：
 
-    #### <a name="non-managed-non-encrypted-vms"></a>未受管理、未加密的 VM
+    #### <a name="non-managed-non-encrypted-vms"></a>非受控、未加密的 VM
 
-    如果是未受管理、未加密的 VM，請使用下列範例。
+    如果是非受控、未加密的 VM，請使用下列範例。
 
     ```
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -394,9 +405,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     }
     ```
 
-    #### <a name="non-managed-encrypted-vms-bek-only"></a>未受管理的已加密 VM (僅限 BEK)
+    #### <a name="non-managed-encrypted-vms-bek-only"></a>非受控已加密 VM (僅限 BEK)
 
-    如果是未受管理的已加密 VM (只使用 BEK 加密)，您需要先將密碼還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
+    如果是非受控已加密 VM (只使用 BEK 加密)，您需要先將密碼還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -409,9 +420,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
      }
     ```
 
-    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>未受管理的已加密 VM (BEK 和 KEK)
+    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>非受控已加密 VM (BEK 和 KEK)
 
-    如果是未受管理的已加密 VM (使用 BEK 和 KEK 加密)，您需要先將金鑰和密碼還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
+    如果是非受控已加密 VM (使用 BEK 和 KEK 加密)，您需要先將金鑰和密碼還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -425,9 +436,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
      }
     ```
 
-    #### <a name="managed-non-encrypted-vms"></a>受管理、未加密的 VM
+    #### <a name="managed-non-encrypted-vms"></a>受控、未加密的 VM
 
-    對於受管理的未加密 VM，您必須從 blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受管理的未加密 VM。
+    對於受管理的未加密 VM，您必須從 blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受控未加密 VM。
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -446,9 +457,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-only"></a>受管理的已加密 VM (僅限 BEK)
+    #### <a name="managed-encrypted-vms-bek-only"></a>受控已加密 VM (僅限 BEK)
 
-    對於受管理的加密 VM (僅限使用 BEK 加密)，您必須從 Blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受管理的加密 VM。
+    對於受管理的加密 VM (僅限使用 BEK 加密)，您必須從 Blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受控加密 VM。
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -469,9 +480,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
      }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-and-kek"></a>受管理的已加密 VM (BEK 和 KEK)
+    #### <a name="managed-encrypted-vms-bek-and-kek"></a>受控已加密 VM (BEK 和 KEK)
 
-    對於受管理的加密 VM (使用 BEK 和 KEK 加密)，您必須從 Blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受管理的加密 VM。
+    對於受管理的加密 VM (使用 BEK 和 KEK 加密)，您必須從 Blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受控加密 VM。
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"

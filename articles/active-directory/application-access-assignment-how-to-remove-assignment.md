@@ -4,7 +4,7 @@ description: "了解如何移除使用者的應用程式存取"
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 497429e7bf62f7e1d67ea429d6b858725f843688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb1dc88164aa7971427984b5956e00b1d343cab7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>如何移除使用者的應用程式存取
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 若要**刪除應用程式**，請遵循下列指示：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  選取您要刪除的應用程式。
 

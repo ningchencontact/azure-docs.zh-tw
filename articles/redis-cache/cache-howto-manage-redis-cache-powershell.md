@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 快取
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ ms.lasthandoff: 11/16/2017
 
 | 參數 | 說明 | 預設值 |
 | --- | --- | --- |
-| Name |快取的名稱 | |
+| 名稱 |快取的名稱 | |
 | 位置 |快取的位置 | |
 | resourceGroupName |資源群組名稱，將在其中建立快取 | |
 | 大小 |快取的大小。 有效值為：P1、P2、P3、P4、C0、C1、C2、C3、C4、C5、C6、250MB、1GB、2.5GB、6GB、13GB、26GB、53GB |1GB |

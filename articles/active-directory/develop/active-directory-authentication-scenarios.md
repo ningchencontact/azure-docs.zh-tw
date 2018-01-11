@@ -4,7 +4,7 @@ description: "Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的驗證案例
 Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發人員的驗證工作，支援業界標準通訊協定，例如 OAuth 2.0 和 OpenID Connect，以及適用於不同平台的開放原始碼程式庫，協助您開始快速撰寫程式碼。 本文件將協助您了解 Azure AD 支援的各種案例，並示範如何開始著手。 分成下列各節：
@@ -84,7 +84,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 | 物件識別碼 |包含主體在 Azure AD 中不可變的唯一識別碼。 |
 | 角色 |包含已授與使用者的 Azure AD 應用程式角色的易記名稱。 |
 | Scope |指出授與用戶端應用程式的權限。 |
-| 主旨 |指出權杖判斷提示相關資訊的主體。 |
+| 主體 |指出權杖判斷提示相關資訊的主體。 |
 | 租用戶識別碼 |包含發出權杖的目錄租用戶的不變唯一識別碼。 |
 | 權杖存留期 |定義權杖有效的時間間隔。 |
 | 使用者主體名稱 |包含主體的使用者主體名稱。 |

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "雲端應用程式探索, 管理應用程式"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
-ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 69a633b39e68596c536700dbb2c7c8d35f3b44bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>建立 Cloud App Discovery 快照集報告
 
@@ -36,14 +36,14 @@ ms.lasthandoff: 10/11/2017
     
   ![新的快照集報告](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-form.png)
 4. 選取您要上傳記錄檔的 [資料來源]。
-5. 根據您可下載的範例來驗證您的記錄格式，並確定它的格式正確。 按一下 檢視並確認，然後按一下下載範例記錄。 然後比較您的記錄與所提供的範例，並確定它是相容的。
+5. 根據您可下載的範例來驗證您的記錄格式，並確定它的格式正確。 按一下 [檢視並確認]，然後按一下 [下載範例記錄]。 然後比較您的記錄與所提供的範例，並確定它是相容的。
   
   ![驗證記錄格式](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
   >  [!NOTE]
   > 快照集和自動上傳都支援 FTP 範例格式，然而只有自動上傳支援 syslog。 下載範例記錄時會下載範例 FTP 記錄。
 6. 選擇您要上傳的**流量記錄**。 您可以一次最多上傳 20 個檔案。 也支援壓檔案。
   
-7. 按一下 [建立] 。 上傳完成之後，可能需要一些時間，才能進行剖析和分析。 若是如此，Cloud App Discovery 會在準備就緒時傳送電子郵件通知。
+7. 按一下頁面底部的 [新增] 。 上傳完成之後，可能需要一些時間，才能進行剖析和分析。 若是如此，Cloud App Discovery 會在準備就緒時傳送電子郵件通知。
 
 8. 選取 [管理快照集報告] 並選取您的快照集報告。
   

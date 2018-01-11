@@ -1,5 +1,5 @@
 # 概觀
-## [什麼是 Power BI Embedded？](what-is-power-bi-embedded.md)
+## [關於 Power BI Embedded](what-is-power-bi-embedded.md)
 
 # 開始使用
 ## [開始使用 Power BI Embedded](get-started.md)
@@ -21,22 +21,20 @@
 # 範例
 ## [程式碼範例](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [範例逐步解說](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 # 參考
 ## API
 ### [Azure 資源管理 REST API](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [REST APIs](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## SDK
-### [.NET SDK 下載](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [JavaScript SDK 下載](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### [Power BI REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # 資源
-## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+## [Power BI 社群](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [.NET SDK 下載](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [JavaScript SDK 下載](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## GitHub 存放庫
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Power BI 社群](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [適用於 Power BI 的 .NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [適用於 Power BI 的 JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

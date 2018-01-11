@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 673cbc71202ffb3861ab1d2be6368ec7a07bb5d3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: a8a6bf83f0e76aebdfd5accd3e86cccda8f36eed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 12/04/2017
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-本快速入門假設您已有 Kubernetes 概念的基本知識。 如需有關 Kubernetes 的詳細資訊，請參閱 [Kubernetes 文件](https://kubernetes.io/docs/home/)。
+本快速入門假設您已有 Kubernetes 概念的基本知識。 如需有關 Kubernetes 的詳細資訊，請參閱 [Kubernetes 文件][kubernetes-documentation]。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -77,13 +77,13 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
-若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl](https://kubernetes.io/docs/user-guide/kubectl/)。 Kubectl 用戶端會預先安裝在 Azure Cloud Shell 中。
+若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl][kubectl]。 Kubectl 用戶端會預先安裝在 Azure Cloud Shell 中。
 
 使用 Azure 入口網站右上角上的按鈕開啟 Cloud Shell。
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
-若要設定 kubectl 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials) 命令。
+若要設定 kubectl 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。
 
 複製以下命令並貼到 Cloud Shell 中。 視需要修改資源群組與叢集名稱。
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/04/2017
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-若要驗證叢集的連線，請使用 [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令來傳回叢集節點的清單。
+若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
 
 ```azurecli-interactive
 kubectl get nodes
@@ -110,7 +110,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 以此範例來說，您會使用資訊清單來建立執行 Azure 投票應用程式所需的所有物件。
 
-建立名為 `azure-vote.yml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，您可以使用 vi 或 Nano 建立檔案，猶如使用虛擬或實體系統。
+建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，您可以使用 vi 或 Nano 建立檔案，猶如使用虛擬或實體系統。
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -173,10 +173,10 @@ spec:
     app: azure-vote-front
 ```
 
-使用 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 命令來執行應用程式。
+使用 [kubectl create][kubectl-create] 命令來執行應用程式。
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yml
+kubectl create -f azure-vote.yaml
 ```
 
 輸出：
@@ -190,9 +190,9 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>測試應用程式
 
-執行應用程式時會建立 [Kubernetes 服務](https://kubernetes.io/docs/concepts/services-networking/service/)，此服務會向網際網路公開前端應用程式。 此程序需要數分鐘的時間完成。
+執行應用程式時會建立 [Kubernetes 服務][kubernetes-service]，此服務會向網際網路公開前端應用程式。 此程序需要數分鐘的時間完成。
 
-若要監視進度，請使用 [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令搭配 `--watch` 引數。
+若要監視進度，請使用 [kubectl get service][kubectl-get] 命令搭配 `--watch` 引數。
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -217,7 +217,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ## <a name="delete-cluster"></a>刪除叢集
 
-當不再需要叢集時，您可以刪除叢集資源群組，此動作會刪除所有相關聯的資源。 在 Azure 入口網站中選取資源群組，然後按一下 [刪除] 按鈕，即可完成此動作。 或者，您可以在 Cloud Shell 中使用 [az group delete](/cli/azure/group#delete)命令。
+當不再需要叢集時，您可以刪除叢集資源群組，此動作會刪除所有相關聯的資源。 在 Azure 入口網站中選取資源群組，然後按一下 [刪除] 按鈕，即可完成此動作。 或者，您可以在 Cloud Shell 中使用 [az group delete][az-group-delete] 命令。
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
@@ -227,7 +227,7 @@ az group delete --name myAKSCluster --no-wait
 
 在本快速入門中，已使用預先建立的容器映像來建立 Kubernetes 部署。 相關的應用程式程式碼、Dockerfile 和 Kubernetes 資訊清單檔案，都可以在 GitHub 上取得。
 
-[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+[https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -236,5 +236,19 @@ az group delete --name myAKSCluster --no-wait
 若要深入了解 AKS，並逐步完成部署範例的完整程式碼，請繼續 Kubernetes 叢集教學課程。
 
 > [!div class="nextstepaction"]
-> [管理 AKS 叢集](./tutorial-kubernetes-prepare-app.md)
+> [管理 AKS 叢集][aks-tutorial]
+
+<!-- LINKS - external -->
+[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az-group-delete]: /cli/azure/group#delete
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+
 

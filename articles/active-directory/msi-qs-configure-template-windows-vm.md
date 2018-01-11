@@ -1,10 +1,10 @@
 ---
 title: "如何使用範本在 Azure VM 上設定 MSI"
-description: "提供如何使用 Azure Resource Manager 範本在 Azure VM 上設定「受管理服務識別 (MSI)」的逐步指示。"
+description: "提供如何使用 Azure Resource Manager 範本在 Azure VM 上設定「受控服務識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.openlocfilehash: 014a9c814e91e7d0677b7ea1d994c81384719548
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 047c4f69ae520c730d063246d41702207c55a0b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>使用範本設定虛擬機器受管理服務識別 (MSI)
+# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>使用範本設定虛擬機器受控服務識別 (MSI)
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-受管理服務識別 (MSI) 在 Azure Active Directory (Azure AD) 中為 Azure 服務提供自動管理的身分識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+受控服務識別 (MSI) 在 Azure Active Directory (Azure AD) 中為 Azure 服務提供自動管理的身分識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您將了解如何使用 Azure Resource Manager 部署範本啟用和移除 Azure VM 的 MSI。
 
@@ -102,5 +102,5 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="related-content"></a>相關內容
 
-- 如需 MSI 更廣泛的觀點，請參閱[受管理服務識別概觀](msi-overview.md)。
+- 如需 MSI 更廣泛的觀點，請參閱[受控服務識別概觀](msi-overview.md)。
 

@@ -12,7 +12,7 @@
 
 # 作法
 ## 載入和移動資料
-### [使用 Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [使用 Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [使用 AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [使用 DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [使用 Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

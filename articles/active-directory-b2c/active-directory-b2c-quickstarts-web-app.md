@@ -4,7 +4,7 @@ description: "使用測試 Azure AD B2C 環境，測試登入、註冊、編輯�
 services: active-directory-b2c
 documentationcenter: .net
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 2ffb780d-2c51-4c2e-b8d6-39c40a81a77e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: patricka
-ms.openlocfilehash: 07f2c21409176d30f4570e267a4472745f843f85
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>測試已啟用 Azure AD B2C 的 Web 應用程式
 
@@ -54,7 +54,7 @@ Azure Active Directory B2C 提供雲端身分識別管理，使您的應用程�
 
 1. 在 Visual Studio 功能表中，選取 [專案] > [設定啟始專案...]。 
 2. 選取 [多個啟始專案] 選項按鈕。
-3. 將兩個專案的 [動作] 變更為 [啟動]。 按一下 [確定] 。
+3. 將兩個專案的 [動作] 變更為 [啟動]。 按一下 [SERVICEPRINCIPAL] 。
 
 ![在 Visual Studio 中設定啟動頁面](media/active-directory-b2c-quickstarts-web-app/setup-startup-projects.png)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>威脅模型化工具使用者入門
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 10/11/2017
 
 若要快速摘要，方法牽涉到建立圖表、識別威脅、緩和它們及驗證每個風險降低。 以下反白顯示此程序的圖表：
 
-![SDL 程序](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![SDL 程序](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>啟動威脅模型化程序
 
 當您啟動威脅模型化工具時，您會發現一些事情，如在圖片中所見：
 
-![空白起始分頁](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![空白起始分頁](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>威脅模型區段
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 > Cristina：當然。 讓我看看。
 > Ricardo 開啟工具，並且與 Cristina 共用他的畫面。
 
-![基本威脅模型](./media/azure-security-threat-modeling-tool/basictmt.png)
+![基本威脅模型](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina：好的，看起來直接明瞭，但是可以為我逐步示範嗎？
 > Ricardo：當然！ 分解如下：
@@ -89,17 +89,17 @@ Ricardo 剛剛為 Cristina 顯示的是 DFD，**[資料流程圖表](https://en.
 
 這個方法就像在新增警報系統或追趕竊賊之前，確定每個門窗都有就地鎖定機制，籍以保護您的家園。
 
-![基本威脅](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![基本威脅](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo 從選取清單上的第一個項目開始。 排程狀況如下：
 
 首先，兩個樣板之間的互動已增強
 
-![互動](./media/azure-security-threat-modeling-tool/interaction.png)
+![互動](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 第二，威脅的其他資訊已顯示在威脅屬性視窗中
 
-![互動資訊](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![互動資訊](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 產生的潛在威脅可協助他了解可能的設計缺陷。 STRIDE 分類讓他了解潛在攻擊媒介的概念，而額外描述則確切地告訴他什麼是錯誤的，以及緩和這種情況的可能方式。 他可以使用可編輯欄位在理由詳細資料中寫入附註，或根據其組織的 錯誤列來變更優先順序評等。
 
@@ -116,7 +116,7 @@ Ricardo 進入 [資訊洩漏] 底下的威脅時，他理解到存取控制計�
 
 一旦 Ricardo 說明完整份清單且 Cristina 新增重要注意事項，風險降低/理由、優先順序和狀態會變更，他選取 [報告] -> [建立完整報告] -> [儲存報告]，這樣會列印出良好的清單供他與同事瀏覽，確保已實作適當的安全性工作。
 
-![互動資訊](./media/azure-security-threat-modeling-tool/report.png)
+![互動資訊](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 如果 Ricardo 想要改為共用檔案，他可以籍由在組織的 OneDrive 帳戶中儲存，來完成這項操作。 一旦他那樣做，就可以複製文件連結，並且與同事共用。 
 

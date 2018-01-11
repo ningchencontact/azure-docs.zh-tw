@@ -4,7 +4,7 @@ description: "在支援使用者佈建自動化的應用程式中，了解如何
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b38ccba1abb20ec88df8234ae9859caba19d43f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>含範圍篩選器的屬性型應用程式佈建
 本文的目標在於說明如何使用範圍篩選條件來定義以屬性為基礎的規則，以決定將哪些使用者佈建到應用程式。
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 * **從 Azure AD 向外佈建到 SaaS 應用程式**。 當 Azure AD 為來源系統時，[使用者和群組指派](active-directory-coreapps-assign-user-azure-portal.md)是決定哪些使用者要納入佈建範圍內的最常用方法。 這些指派也用於啟用單一登入，並提供單一方法來管理存取與佈建。 根據屬性值，除了指派或取代之外，範圍篩選器可以選擇性地用於篩選使用者。
 
     >[!TIP]
-    > 您可以根據企業應用程式的指派，將 [範圍][](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 功能表中的佈建設定底下的設定，變更為 [同步所有使用者與群組]，以停用佈建。 使用此選項再加上屬性型範圍篩選器時，可提供比使用群組型指派更快的效能。  
+    > 您可以根據企業應用程式的指派，將 [範圍](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 功能表中的佈建設定底下的設定，變更為 **同步所有使用者與群組**，以停用佈建。 使用此選項再加上屬性型範圍篩選器時，可提供比使用群組型指派更快的效能。  
 
 * **從 HCM 應用程式向內佈建到 Azure AD 和 Active Directory**。 當 [HCM 應用程式 (例如 Workday)](active-directory-saas-workday-tutorial.md) 為來源系統時，範圍篩選條件是決定應該將哪些使用者從 HCM 應用程式佈建到 Active Directory 或 Azure AD 的主要方法。
 

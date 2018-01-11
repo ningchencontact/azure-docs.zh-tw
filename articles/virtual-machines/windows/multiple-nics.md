@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>建立及管理具有多個 NIC 的 Windows 虛擬機器
 Azure 中的虛擬機器 (VM) 可以連結多個虛擬網路介面卡 (NIC)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文詳述如何建立已連結多個 NIC 的 VM。 您也了解如何新增或移除現有 VM 中的 NIC。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
@@ -232,6 +232,60 @@ Azure Resource Manager 範本提供一種方式，可在部署期間建立資源
 ```
 
 您可以閱讀[使用 Resource Manager 範本建立多個 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)的完整範例。
+
+## <a name="configure-guest-os-for-multiple-nics"></a>針對多個 NIC 設定客體作業系統
+
+Azure 將預設閘道指派給連接至虛擬機器的第一個 (主要) 網路介面。 Azure 不會將預設閘道指派給連接至虛擬機器的其他 (次要) 網路介面。 因此依預設，您無法與次要網路介面中子網路之外的資源進行通訊。 不過，次要網路介面可與其子網路進行通訊，但不同的作業系統有不同的通訊啟用步驟。
+
+1. 從 Windows 命令提示字元中，執行`route print`命令，輸出會傳回類似下列虛擬機器具有兩個連接的網路介面的輸出：
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    在此範例中，**Microsoft Hyper-V Network Adapter #4** (介面 7) 是未被指派預設閘道的次要網路介面。
+
+2. 從命令提示字元中執行 `ipconfig` 命令，查看將哪些 IP 位址指派給次要網路介面。 在此範例中，192.168.2.4 會指派給介面 7。 不會為次要網路介面傳回預設閘道位址。
+
+3. 若要將次要網路介面之子網路的外部位址之所有流量路由至子網路的閘道，請執行下列命令：
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    子網路的閘道位址是為子網路定義的位址範圍 (以.1 結尾) 的第一個 IP 位址。 如果您不想要路由子網路外部的所有流量，您可以改為將個別的路由新增至特定的目的地。 例如，如果您只想將從次要網路介面的流量路由到 192.168.3.0 網路，請輸入命令：
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. 例如，若要確認與 192.168.3.0 網路上的資源成功通訊，請使用介面 7 (192.168.2.4)，輸入下列命令來 ping 192.168.3.4：
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    您可能需要開啟 ICMP，方法是通過正在使用下列命令來 ping 之裝置的 Windows 防火牆：
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. 若要確認已在路由表中新增路由，請輸入 `route print` 命令，它會傳回類似下列文字的輸出：
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    **閘道**下使用 *192.168.1.1* 列出的路由，是根據主要網路介面預設會在該處的路由。 **閘道**下包含 *192.168.2.1* 的路由是您新增的路由。
 
 ## <a name="next-steps"></a>後續步驟
 嘗試建立具有多個 NIC 的 VM 時，請檢閱 [Windows VM 大小](sizes.md)。 請注意每個 VM 大小所支援的 NIC 數目上限。 

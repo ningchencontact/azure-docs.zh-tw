@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d0ed9a7fbb202b2008fee7f810ae0102b6f51c3d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>使用 CLI 來部署遠端監視預先設定的解決方案
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 
 若要部署遠端監視預先設定的解決方案，您需要一個作用中的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 若要執行 CLI，您必須在本機電腦上安裝 [Node.js](https://nodejs.org/)。
 

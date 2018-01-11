@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>在 Azure Container Instances 中執行容器化工作
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/05/2017
 
 使用可設定的重新啟動原則，您可以指定當容器的程序完成時，停止容器。 因為容器執行個體是由第二個開始計費，所以您只需支付當執行您的工作之容器執行時所使用的計算資源。
 
-本文所呈現的範例是使用 Azure CLI。 您必須[在本機安裝](/cli/azure/install-azure-cli) Azure CLI 版本 2.0.21 或更新版本，或者使用 [Azure Cloud Shell](../cloud-shell/overview.md) 中的 CLI。
+本文所呈現的範例是使用 Azure CLI。 您必須擁有 Azure CLI 版本 2.0.21 以上[安裝在本機][azure-cli-install]，或使用中的 CLI [Azure 雲端殼層](../cloud-shell/overview.md)。
 
 ## <a name="container-restart-policy"></a>容器重新啟動原則
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>執行至完成範例
 
-若要查看作用中的重新啟動原則，從 [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) 映像建立容器執行個體，然後指定 `OnFailure` 重新啟動原則。 此範例容器會執行 Python 指令碼，根據預設，它會分析 Shakespeare 的 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 的文字，將 10 個最常見的字詞寫入 STDOUT，然後結束。
+若要查看作用中的重新啟動原則，建立容器執行個體從[microsoft/aci-wordcount] [ aci-wordcount-image]映像，並指定`OnFailure`重新啟動原則。 此範例容器會執行 Python 指令碼，根據預設，它會分析 Shakespeare 的 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 的文字，將 10 個最常見的字詞寫入 STDOUT，然後結束。
 
 使用下列 [az container create][az-container-create] 命令執行範例容器：
 
@@ -168,7 +168,11 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 
 如需如何保存執行至完成之容器的輸入的詳細資訊，請參閱[使用 Azure Container Instances 來掛接 Azure 檔案共用](container-instances-mounting-azure-files-volume.md)。
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

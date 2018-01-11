@@ -4,7 +4,7 @@ description: "建置可使用工作或學校帳戶登入使用者的 Java Web �
 services: active-directory
 documentationcenter: java
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5358404881b65d217ab36a41ca04a73f2c462c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>搭配 Azure AD 的 Java Web 應用程式登入和登出
+# <a name="azure-ad-java-web-app-getting-started"></a>開始使用 azure AD Java web 應用程式
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory (Azure AD) 只需幾行的程式碼便可提供單一登入和登出，讓您外包 Web 應用程式的身分識別管理變得簡單。 您可以藉由使用社群導向 Azure Active Directory Authentication Library for Java (ADAL4J) 的 Microsoft 實作，將使用者登入和登出 Java Web 應用程式。
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 只需幾行的程式碼便可提供單一登�
 3. 按一下左側窗格中的 [更多服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 遵照提示建立 **Web 應用程式和/或 Web API**。
-  * [名稱] 向使用者說明該應用程式。
+  * [名稱] 可向使用者描述該應用程式。
   * [登入 URL] 是應用程式的基底 URL。 基本架構的預設 URL 是 http://localhost:8080/adal4jsample/。
 6. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 請從應用程式頁面複製該值，以在接下來的小節中使用。
 7. 從應用程式的 [設定]  ->  [屬性] 頁面，更新應用程式識別碼 URI。 [應用程式識別碼 URI] 是應用程式的唯一識別碼。 命名慣例是 `https://<tenant-domain>/<app-name>` (例如 `http://localhost:8080/adal4jsample/`)。

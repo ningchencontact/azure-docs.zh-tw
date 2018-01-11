@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 TOPdesk - Public 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0873299f-ce70-457b-addc-e57c5801275f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: f21fe0b363776974108ff460060e4c15a51a58a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f88b232df01aa73a7e06b891ef5ff635d03086a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>教學課程：Azure Active Directory 與 TOPdesk - Public 整合
 
@@ -48,13 +48,13 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 TOPdesk - Public
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-topdesk---public-from-the-gallery"></a>從資源庫新增 TOPdesk - Public
-若要設定將TOPdesk - Public 整合到 Azure AD 中，您需要從資源庫將 TOPdesk - Public 新增到受管理的 SaaS 應用程式清單。
+若要設定將TOPdesk - Public 整合到 Azure AD 中，您需要從資源庫將 TOPdesk - Public 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 TOPdesk - Public，請執行下列步驟：**
 
@@ -139,7 +139,7 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
    
     ![登入設定](./media/active-directory-saas-topdesk-public-tutorial/ic790599.png "登入設定")
 
-10. 展開 登入設定 功能表，然後按一下一般。
+10. 展開 [登入設定] 功能表，然後按一下 [一般]。
    
     ![一般](./media/active-directory-saas-topdesk-public-tutorial/ic790600.png "一般")
 
@@ -185,7 +185,7 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
 
     e. 在 [顯示名稱]  文字方塊中，輸入您的組態名稱。
 
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -202,7 +202,7 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-topdesk-public-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-topdesk-public-tutorial/create_aaduser_02.png)
 
@@ -220,7 +220,7 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-topdesk---public-test-user"></a>建立 TOPdesk-Public 測試使用者
 
@@ -244,7 +244,7 @@ TOPdesk - Public 需以手動的方式佈建。
  
     c. 選取該帳戶的 **網站** 。
  
-    d. 按一下 [儲存] 。
+    d. 按一下 [檔案] 。
 
 > [!NOTE]
 > 您可以使用任何其他的 TOPdesk - Public 使用者帳戶建立工具或 TOPdesk - Public 提供的 API 來佈建 Azure AD 使用者帳戶。

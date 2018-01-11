@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Kudos 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 39c47ce6-4944-47ba-8f53-3afa95398034
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 353798fcfd4ad7ce017fc2fddf4110715db3ace2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a073863a1e406c137364d1ad85a5c6c3db32777
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>教學課程：Azure Active Directory 與 Kudos 整合
 
@@ -47,13 +47,13 @@ Kudos 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Kudos
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-kudos-from-the-gallery"></a>從資源庫新增 Kudos
-若要設定將 Kudos 整合到 Azure AD 中，您需要從資源庫將 Kudos 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Kudos 整合到 Azure AD 中，您需要從資源庫將 Kudos 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Kudos，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Kudos 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Kudos**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_search.png)
 
-5. 在結果窗格中，選取 Kudos，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Kudos]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_addfromgallery.png)
 
@@ -113,7 +113,7 @@ Kudos 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company>.kudosnow.com`
     
     > [!NOTE] 
-    > 這不是真實的值。 使用實際的登入 URL 來更新此值。 請連絡 [Kudos 用戶端支援小組](http://success.kudosnow.com/home)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Kudos 用戶端支援小組](http://success.kudosnow.com/home)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -141,13 +141,13 @@ Kudos 與 Azure AD 整合提供下列優點：
    
     a. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。 
 
-    b.這是另一個 C# 主控台應用程式。 在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼至 [X.509 憑證]  文字方塊中。
+    b. 在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼至 [X.509 憑證]  文字方塊中。
    
     c. 在 [登出 URL] 中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
    
     d. 在 [您的 Kudos URL]  文字方塊中，輸入您的公司名稱。
    
-    e. 按一下 [儲存] 。
+    e. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -178,11 +178,11 @@ Kudos 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-kudos-test-user"></a>建立 Kudos 測試使用者
 
@@ -200,7 +200,7 @@ Kudos 需以手動的方式佈建。
 
 3. 按一下 [使用者管理] 。
 
-4. 按一下 使用者 索引標籤，然後按一下新增使用者。
+4. 按一下 [使用者] 索引標籤，然後按一下 [新增使用者]。
    
    ![使用者管理員](./media/active-directory-saas-kudos-tutorial/ic787809.png "使用者管理員")
 
@@ -210,7 +210,7 @@ Kudos 需以手動的方式佈建。
    
     a. 在相關的文字方塊中輸入您想要佈建之有效 Azure Active Directory 帳戶的 [名字]、[姓氏]、[電子郵件] 及其他詳細資料。
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [建立使用者] 。
+    b. 按一下 [建立使用者] 。
 
 >[!NOTE]
 >您可以使用任何其他的 Kudos 使用者帳戶建立工具或 Kudos 提供的 API，佈建 AAD 使用者帳戶。

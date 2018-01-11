@@ -5,7 +5,7 @@ services: active-directory
 keywords: "雲端應用程式探索, 管理應用程式"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>在 Azure AD 中設定 Cloud App Discovery
 
@@ -79,6 +79,7 @@ Cloud App Discovery 無法顯示，或分析記錄中未包含的屬性。 例�
 * Barracuda - Web 應用程式防火牆 (W3C)
 * Blue Coat Proxy SG - 存取記錄 (W3C)
 * Check Point
+* Cisco ASA 火力
 * Cisco ASA 防火牆 (針對 Cisco ASA 防火牆，將資訊層級設定為 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe

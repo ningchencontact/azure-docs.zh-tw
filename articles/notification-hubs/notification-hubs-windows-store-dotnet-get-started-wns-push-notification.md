@@ -3,22 +3,22 @@ title: "開始使用適用於通用 Windows 平台應用程式的 Azure 通知�
 description: "在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推播至 Windows 通用平台應用程式。"
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>開始使用適用於通用 Windows 平台應用程式的通知中樞
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 您可以在 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal) 上找到本教學課程的完整程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程需要下列各項：
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 或更新版本
@@ -81,8 +81,8 @@ ms.lasthandoff: 10/11/2017
 ## <a name="configure-your-notification-hub"></a>設定您的通知中樞
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p>選取 [通知服務]<b></b>[Windows (WNS)]> <b></b>，然後在 [安全性金鑰]<b></b> 方塊中輸入應用程式祕密密碼。 在 [套件 SID]<b></b> 方塊中，輸入您在上一節中從 WNS 取得的值，然後選取 [儲存]<b></b>。</p>
+<ol start="6">
+<li><p>在 [Notification Services]<b></b> 下選取 [Windows (WNS)]<b></b>，然後在 [安全性金鑰]<b></b> 方塊中輸入應用程式祕密密碼。 在 [套件 SID]<b></b> 方塊中，輸入您在上一節中從 WNS 取得的值，然後選取 [儲存]<b></b>。</p>
 </li>
 </ol>
 
@@ -162,56 +162,6 @@ ms.lasthandoff: 10/11/2017
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
-## <a name="optional-send-notifications-from-a-console-app"></a>(選擇性) 從主控台應用程式傳送通知
-若要使用 .NET 主控台應用程式來傳送通知，請執行下列作業： 
-
-1. 以滑鼠右鍵按一下方案，選取 [新增] > [新增專案]，在 [Visual C#] 底下選取 [Windows] 和 [主控台應用程式]，然後選取 [確定]。
-   
-    新的 Visual C# 主控台應用程式會新增到方案。 您也可以在個別方案中新增此專案。
-
-2. 在 Visual Studio 中，依序選取 [工具]、[NuGet 套件管理員] 和 [套件管理員主控台]。
-   
-    套件管理員主控台隨即在 Visual Studio 中開啟。
-
-3. 在 [套件管理員主控台] 視窗中，將 [預設專案]  設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)來新增對 Azure 通知中樞 SDK 的參考。
-   
-    ![「預設專案」名稱](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-
-4. 開啟 Program.cs 檔案，然後新增下列 `using` 陳述式：
-   
-        using Microsoft.Azure.NotificationHubs;
-
-5. 在 **Program** 類別中，新增下列方法：
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast);
-        }
-   
-    >[!NOTE]
-    >* 使用 Azure 入口網站中顯示的通知中樞名稱，取代 **hub name** 預留位置。 
-    >* 使用您在「設定通知中樞」一節中從通知中樞的 [存取原則] 頁面取得的 **DefaultFullSharedAccessSignature** 連接字串，取代連接字串預留位置。
-    >* 使用具有「完整」存取權，而非「接聽」存取權的連接字串。 接聽存取權的字串沒有傳送通知的權限。
-   > 
-   > 
-6. 在 [主要] 方法中新增下列程式碼行：
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-
-7. 在 Visual Studio 中，以滑鼠右鍵按一下主控台應用程式專案，然後選取 [設定為啟始專案]，將它設為啟始專案。 然後選取 **F5** 鍵執行應用程式。
-   
-    您將會在所有註冊裝置上收到快顯通知。 選取或點選快顯橫幅即會載入應用程式。
-
-您可以在 MSDN 上的[快顯目錄]、[圖格目錄]和[徽章概觀]主題中找到所有支援的承載。
-
 ## <a name="next-steps"></a>後續步驟
 在此簡單範例中，您可使用入口網站或主控台應用程式，將廣播通知傳送到您的所有 Windows 裝置。 在下一個步驟中，我們建議[使用通知中樞將通知推播給使用者]教學課程。 它會示範如何使用標記以特定使用者為目標，從 ASP.NET 後端傳送通知。
 
@@ -230,7 +180,7 @@ ms.lasthandoff: 10/11/2017
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [使用通知中心傳送即時新聞]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-[快顯目錄]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[圖格目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  

@@ -4,7 +4,7 @@ description: "Azure Active Directory 開發人員導向資源的完整指南"
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51adb13e15312130841c065f5678209508457559
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>應用程式的商標指導方針
 本主題討論使用 Azure Active Directory (Azure AD) 開發應用程式時，您應該使用的商標指導方針。 當客戶想要使用其工作或學校帳戶 (在 Azure AD 中管理) 或其個人帳戶來註冊和登入您的應用程式時，這些指導方針可協助引導客戶。
@@ -55,7 +55,7 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
 ![應用程式類型和案例](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
-不過，我們建議您撰寫說明文字，而不要依賴按鈕。 例如：
+不過，我們建議您撰寫說明文字，而不要依賴按鈕。 例如︰
 
 > 如果您已經使用 Office 365 或 Microsoft 的其他商務服務，您便可以直接授權 <your_app_name> 存取您的組織資料。這可讓使用者利用其現有的工作帳戶存取 <your_app_name>。
 > 

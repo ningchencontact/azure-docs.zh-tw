@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
@@ -55,17 +55,17 @@ ms.lasthandoff: 11/07/2017
 1. 在命令提示字元上使用下列其中一個命令，針對您為裝置選定的 HSM 類型建置 SDK：
     - 針對 TPM 裝置：
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - 針對 TPM 模擬器：
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - 針對 X.509 裝置和模擬器：
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. 針對執行了 Windows 或 Ubuntu 系統以實作 TPM 和 X.509 HSM 的裝置，SDK 會提供預設的支援。 請針對這些受支援的 HSM 繼續進行下面的[擷取安全構件](#extractsecurity)一節。 
@@ -76,27 +76,25 @@ ms.lasthandoff: 11/07/2017
 
 ### <a name="develop-your-custom-repository"></a>開發自訂存放庫
 
-1. 開發 GitHub 存放庫來存取 HSM。 此專案必須產生靜態程式庫以供裝置佈建 SDK 取用。
-1. 程式庫必須實作下列標頭檔所定義的函式：a. 若為自訂 TPM，請實作 `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h` 所定義的函式。
-    b. 若為自訂 X.509，請實作 `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h` 所定義的函式。 
-1. HSM 存放庫還必須在存放庫根目錄包含應建置的 `CMakeLists.txt` 檔案。
+1. 開發程式庫來存取您的 HSM。 此專案必須產生靜態程式庫以供裝置佈建 SDK 取用。
+1. 程式庫必須實作下列標頭檔所定義的函式：a. 實作自訂的 TPM 中定義的函式[自訂的 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api)。
+    b. 實作自訂的 X.509 中定義的函式[自訂的 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api)。 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>與裝置佈建服務用戶端整合
 
-程式庫自行建置成功後，您就可以移到 IoThub C-SDK 並於其中放入存放庫：
+一旦您的程式庫已成功建置它自己，您可以移動到 iot 中樞 C-SDK，並針對您的程式庫連結：
 
 1. 在下列 cmake 命令中提供自訂的 HSM GitHub 存放庫、程式庫路徑和其名稱：
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   將這個命令中的 `<custom_hsm>` 取代為 `tpm` 或 `x509`。 此命令會在 `cmake` 目錄內為自訂的 HSM 存放庫建立標記。 請注意，自訂的 HSM 仍應以 TPM 或 X.509 安全性機制作為基礎。
-
+   
 1. 在 Visual Studio 中開啟 SDK 並加以建置。 
 
-    - 建置程序會複製自訂存放庫，並建置程式庫。
+    - 在建置程序將會編譯 SDK 程式庫。
     - SDK 會嘗試與 cmake 命令中所定義的自訂 HSM 進行連結。
 
-1. 執行 `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` 範例，以確認 HSM 是否有正確地實作。
+1. 執行 `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` 範例，以確認 HSM 是否有正確地實作。
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>擷取安全構件
@@ -116,21 +114,30 @@ ms.lasthandoff: 11/07/2017
 裝置製造程序的最後一個步驟是撰寫應用程式，以使用裝置佈建服務用戶端 SDK 來向服務註冊裝置。 這個 SDK 會提供下列 API 供應用程式使用：
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-在使用這些 API 之前，請記得先依照[這個快速入門的＜模擬裝置的第一個開機順序＞章節](./quick-create-simulated-device.md#firstbootsequence)中的說明，將 `dps_uri` 和 `dps_scope_id` 變數初始化。 裝置佈建用戶端註冊 API `DPS_Client_LL_Create` 會連線至全域裝置佈建服務。 「識別碼範圍」會由服務產生，以保證唯一性。 識別碼範圍永遠不變，因此可用來唯一識別註冊識別碼。 `iothub_uri` 可讓 IoT 中樞用戶端註冊 API `IoTHubClient_LL_CreateFromDeviceAuth` 與正確的 IoT 中樞連線。 
+在使用這些 API 之前，請記得先依照[這個快速入門的＜模擬裝置的第一個開機順序＞章節](./quick-create-simulated-device.md#firstbootsequence)中的說明，將 `uri` 和 `id_scope` 變數初始化。 裝置佈建用戶端註冊 API `Prov_Device_LL_Create` 會連線至全域裝置佈建服務。 「識別碼範圍」會由服務產生，以保證唯一性。 識別碼範圍永遠不變，因此可用來唯一識別註冊識別碼。 `iothub_uri` 可讓 IoT 中樞用戶端註冊 API `IoTHubClient_LL_CreateFromDeviceAuth` 與正確的 IoT 中樞連線。 
 
 
-這些 API 可協助裝置在開機時與裝置佈建服務進行連線和註冊，以取得 IoT 中樞的相關資訊，然後與其連線。 `dps_client/samples/dps_client_sample/dps_client_sample.c` 檔案會說明如何使用這些 API。 一般來說，您必須建立下列架構以註冊用戶端：
+這些 API 可協助裝置在開機時與裝置佈建服務進行連線和註冊，以取得 IoT 中樞的相關資訊，然後與其連線。 `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` 檔案會說明如何使用這些 API。 一般來說，您必須建立下列架構以註冊用戶端：
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -143,18 +150,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
         do {
-            // The dps_register_callback is called when registration is complete or fails
-            DPS_Client_LL_DoWork(handle);
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
         } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...

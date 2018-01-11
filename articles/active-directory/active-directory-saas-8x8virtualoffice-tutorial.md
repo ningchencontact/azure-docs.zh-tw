@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 8x8 Virtual Office �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: d8dcf0171b93fec15347e810a1b525bd815dbf04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 71362243bf56e7a8b6e013ab7a91ecac89a32117
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>教學課程：Azure Active Directory 與 8x8 Virtual Office 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 8x8 Virtual Office
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-8x8-virtual-office-from-the-gallery"></a>從資源庫新增 8x8 Virtual Office
-若要設定將 8x8 Virtual Office 整合到 Azure AD 中，您需要從資源庫將 8x8 Virtual Office 新增到受管理的 SaaS 應用程式清單。
+若要設定將 8x8 Virtual Office 整合到 Azure AD 中，您需要從資源庫將 8x8 Virtual Office 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 8x8 Virtual Office，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **8x8 Virtual Office**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_search.png)
 
-5. 在結果面板中，選取 8x8 Virtual Office，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [8x8 Virtual Office]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_addfromgallery.png)
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 10/11/2017
 
     ![設定單一登入](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_400.png)
 
-6. 在 [8x8 Virtual Office 組態] 區段上，按一下 [設定 8x8 Virtual Office] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」。
+6. 在 [8x8 Virtual Office 組態] 區段上，按一下 [設定 8x8 Virtual Office] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_configure.png) 
 
@@ -195,11 +195,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-8x8-virtual-office-test-user"></a>建立 8x8 Virtual Office 測試使用者
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 10/11/2017
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [8x8 Virtual Office ] 圖格時，應該會自動登入您的 8x8 Virtual Office 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)
+如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)
 
 ## <a name="additional-resources"></a>其他資源
 

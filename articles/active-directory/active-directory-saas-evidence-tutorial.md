@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Evidence.com 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: f9a7cb7c-ff67-40dc-872c-1fa35f9dd03b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: a9c474cfc648fc8a306d736c89a4813d82c133ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 655a12685641964c81dd6a94ae7e7a19a9a30001
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>教學課程：Azure Active Directory 與 Evidence.com 整合
 
@@ -48,13 +48,13 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Evidence.com
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-evidencecom-from-the-gallery"></a>從資源庫新增 Evidence.com
-若要設定將 Evidence.com 整合到 Azure AD 中，您需要從資源庫將 Evidence.com 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Evidence.com 整合到 Azure AD 中，您需要從資源庫將 Evidence.com 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Evidence.com，請執行下列步驟：**
 
@@ -155,7 +155,7 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-evidence-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-evidence-tutorial/create_aaduser_02.png)
 
@@ -173,7 +173,7 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-evidencecom-test-user"></a>建立 Evidence.com 測試使用者
 

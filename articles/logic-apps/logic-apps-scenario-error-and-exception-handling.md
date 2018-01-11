@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例︰適用於邏輯應用程式的例外狀況處理與記錄錯誤
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="how-we-solved-the-problem"></a>問題解決方式
 
-我們選擇以 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") 做為記錄檔和錯誤記錄的存放庫 (Cosmos DB 會將記錄當做文件)。 由於 Azure Logic Apps 具有適用於所有回應的標準範本，因此我們不需要建立自訂結構描述。 我們可以建立 API 應用程式來**插入**及**查詢**錯誤和記錄檔記錄。 我們也可以為 API 應用程式中的每個項目定義結構描述。  
+我們選擇以 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 做為記錄檔和錯誤記錄的存放庫 (Cosmos DB 會將記錄當做文件)。 由於 Azure Logic Apps 具有適用於所有回應的標準範本，因此我們不需要建立自訂結構描述。 我們可以建立 API 應用程式來**插入**及**查詢**錯誤和記錄檔記錄。 我們也可以為 API 應用程式中的每個項目定義結構描述。  
 
 另一個需求是要在特定日期之後清除記錄。 Cosmos DB 具有稱為[存留時間 (英文)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "存留時間") (TTL) 的屬性，這可讓我們設定每一筆記錄或每一個集合的「存留時間」值。 此功能讓我們不需手動在 Cosmos DB 中刪除記錄。
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/11/2017
    來自 CRM 的觸發程序會提供我們 **CRM PatentId**、**記錄類型**、**新的或更新的記錄** (新增或更新布林值) 和 **SalesforceId**。 **SalesforceId** 可以是 null，因為它只會用於更新。
    我們使用 CRM **PatientID** 和 [記錄類型] 來取得 CRM 記錄。
 
-2. 接下來，必須新增 DocumentDB API 應用程式 **InsertLogEntry** 作業，如在這裡的邏輯應用程式設計工具所示。
+2. 接下來，我們需要加入我們 Azure Cosmos DB SQL API 的應用程式**InsertLogEntry**如下所示，在邏輯應用程式的設計工具中的作業。
 
    **插入記錄檔項目**
 
@@ -400,7 +400,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB 存放庫和入口網站
 
-我們的解決方案新增了含有 [Cosmos DB](https://azure.microsoft.com/services/documentdb) 的功能。
+我們的解決方案加入功能，而且具備[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)。
 
 ### <a name="error-management-portal"></a>錯誤管理入口網站
 
@@ -430,14 +430,14 @@ ms.lasthandoff: 10/11/2017
 
 我們的開放原始碼 Azure Logic Apps 例外狀況管理 API 應用程式提供了這裡所說的功能，其中有兩個控制器：
 
-* **ErrorController** 會在 DocumentDB 集合中插入錯誤記錄 (文件)。
-* **LogController** 會在 DocumentDB 集合中插入記錄檔記錄 (文件)。
+* **ErrorController** Azure Cosmos DB 集合中插入記錄時發生錯誤 （文件）。
+* **LogController** Azure Cosmos DB 集合中插入記錄檔記錄 （文件）。
 
 > [!TIP]
-> 這兩個控制器使用 `async Task<dynamic>` 作業，允許作業在執行階段解析，讓我們可以在作業的主體中建立 DocumentDB 結構描述。 
+> 兩個控制器使用`async Task<dynamic>`作業，讓作業在執行階段，解決，因此我們可以建立 Azure Cosmos DB 結構描述作業的主體中。 
 > 
 
-DocumentDB 中的每個文件都必須具有唯一識別碼。 我們將會使用 `PatientId` ，並加入轉換為 Unix 時間戳記值 (雙精確度) 的時間戳記。 我們會將值截斷以移除小數值。
+Azure Cosmos DB 中的每個文件必須具有唯一的識別碼。 我們將會使用 `PatientId` ，並加入轉換為 Unix 時間戳記值 (雙精確度) 的時間戳記。 我們會將值截斷以移除小數值。
 
 您可以[從 GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)檢視我們的錯誤控制器 API 的原始程式碼。
 
@@ -476,10 +476,10 @@ DocumentDB 中的每個文件都必須具有唯一識別碼。 我們將會使�
 
 上述程式碼範例的運算式會檢查 Create_NewPatientRecord 狀態是否為 **Failed**。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 * 您可以在邏輯應用程式中輕鬆地實作記錄和錯誤處理。
-* 您可以使用 DocumentDB 做為記錄檔和錯誤記錄 (文件) 的儲存機制。
+* 您可以使用做為儲存機制的 Azure Cosmos DB 記錄和錯誤記錄 （文件）。
 * 您可以使用 MVC 建立入口網站，以顯示記錄檔和錯誤記錄。
 
 ### <a name="source-code"></a>原始程式碼

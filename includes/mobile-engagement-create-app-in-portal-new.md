@@ -3,7 +3,7 @@
 2. 依序按一下 [新增]、[Web + 行動] 和 [Mobile Engagement]。
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
-3. 在出現的 [新增 Mobile Engagement 應用程式集合]  刀鋒視窗中，您將會建立應用程式集合，而不是像在 Azure 傳統入口網站中一樣建立應用程式。 輸入以下資訊：
+3. 在出現的 [新增 Mobile Engagement 應用程式集合] 刀鋒視窗中，您將會建立應用程式集合。 輸入以下資訊：
    
     ![](./media/mobile-engagement-create-app-in-portal-new/new-azme-app.png)
    

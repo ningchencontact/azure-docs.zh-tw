@@ -4,7 +4,7 @@ description: "了解如何利用 Azure Privileged Identity Management 應用程�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: a143fd78eae52fda0cbadb7e74fd8209f24629a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何啟用或停用角色
 Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理以特殊權限身分存取 Azure AD 中的資源和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 的方式。  
@@ -34,7 +34,7 @@ Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 選取 Azure 入口網站右上角的使用者名稱，然後選取您要操作的目錄。
 3. 選取 [更多服務] 並使用 [篩選器] 文字方塊來搜尋 [Azure AD Privileged Identity Management]。
-4. 選取 釘選到儀表板，然後按一下建立。 Privileged Identity Management 應用程式隨即開啟。
+4. 選取 [釘選到儀表板]，然後按一下 [建立]。 Privileged Identity Management 應用程式隨即開啟。
 
 ## <a name="activate-a-role"></a>啟用角色
 當您需要擔任某個角色時，您可以選取 Azure AD Privileged Identity Management 應用程式左側瀏覽資料行中的 [我的角色] 瀏覽選項來要求啟用。

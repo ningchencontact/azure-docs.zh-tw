@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>使用 Team Data Science Process (TDSP) 範本的生物醫學實體辨識
 
@@ -250,7 +251,7 @@ Vanilla RNN 實際上會遇到[梯度消失問題](https://en.wikipedia.org/wiki
 我們的結論是，就每個 epoch 所需的訓練時間 (CNTK 需要 75 秒，而 Tensorflow 需要 60 秒) 和偵測到的測試實體數目而言，CNTK 與 Tensorflow 的表現一樣好。 我們會使用單向圖層進行評估。
 
 
-### <a name="3-deployment"></a>3.部署
+### <a name="3-deployment"></a>3.Deployment
 
 請參閱[部署](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/03_deployment)。
 

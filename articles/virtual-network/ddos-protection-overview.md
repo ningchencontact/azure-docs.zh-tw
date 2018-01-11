@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b26108b000bac56fe7d49a3a634f2be9d7543a8
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection Standard 概觀
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/16/2017
 ![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Azure DDoS Protection Standard 目前為預覽狀態。 針對任何與 Azure 公用 IP 位址相關聯的 Azure 資源提供保護，例如虛擬機器、負載平衡器和應用程式閘道。 您必須先[註冊此服務](http://aka.ms/ddosprotection)，才能為您的訂用帳戶啟用 DDoS Protection Standard。 註冊之後，Azure DDoS 小組會連絡您並輔助您完成啟用程序。 DDoS Protection Standard 僅在下列區域中提供：美國東部、美國東部 2、美國西部、美國中西部、北歐、西歐、日本西部、日本東部、東亞和東南亞。 預覽版期間，使用該服務無須付費。
+> Azure DDoS Protection Standard 目前為預覽狀態。 針對任何與 Azure 公用 IP 位址相關聯的 Azure 資源提供保護，例如虛擬機器、負載平衡器和應用程式閘道。 您必須先[註冊此服務](http://aka.ms/ddosprotection)，才能為您的訂用帳戶啟用 DDoS Protection Standard。 在註冊之後，Azure DDoS 小組聯繫您，並引導您完成啟用程序。 DDoS Protection Standard 僅在下列區域中提供：美國東部、美國東部 2、美國西部、美國中西部、北歐、西歐、日本西部、日本東部、東亞和東南亞。 預覽版期間，使用該服務無須付費。
 
 我們鼓勵您在開發、測試或生產環境中嘗試 DDoS 保護標準。 使用下列資源提供有關您經驗的意見反應：
 - [Microsoft Azure 論壇上的 Azure DDoS Protection](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
@@ -61,7 +61,7 @@ DDoS Protection Standard 功能包括：
 - **原生平台整合：**以原生方式整合到 Azure，包含透過 Azure 入口網站和 PowerShell 進行設定。 DDoS Protection Standard 了解您的資源和資源組態。
 - **永遠可用流量監視：**您的應用程式流量模式受到全年無休的全天候監視，以尋找 DDoS 攻擊的指標。 超出保護原則時，就會執行安全防護功能。
 - **現成的保護：**經過簡化的組態會在啟用 DDoS Protection Standard 後，立即保護虛擬網路上的所有資源。 不需要任何介入或使用者定義。 一旦偵測到攻擊，DDoS Protection Standard 就會立即自動減輕攻擊。
-- **自適性調整：**智慧型流量剖析功能可了解不同時間的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。
+- **自適性調整：**智慧型流量分析功能可了解不同時間的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。
 - **第 3 層至第 7 層保護：**搭配應用程式閘道時，可提供完整的堆疊 DDoS 保護。
 - **廣泛的安全防護範圍：**可利用全域功能降低超過 60 種不同攻擊類型的風險，以抵禦最大的已知 DDoS 攻擊。 
 - **攻擊計量：**透過 Azure 監視器可以存取每個攻擊的摘要計量。

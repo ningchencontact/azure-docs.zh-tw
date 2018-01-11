@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
@@ -62,8 +62,6 @@ ms.lasthandoff: 12/04/2017
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -122,7 +120,7 @@ ms.lasthandoff: 12/04/2017
    }
    ```
 
-4. 在 appsettings.json 中新增 SnapshotCollectorConfiguration 區段以設定快照集收集器。 例如：
+4. 在 appsettings.json 中新增 SnapshotCollectorConfiguration 區段以設定快照集收集器。 例如︰
 
    ```json
    {
@@ -174,8 +172,8 @@ Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由�
 1. 按一下 [儲存] 按鈕，將使用者新增至角色。
 
 
-[!IMPORTANT]
-    快照集可能會在變數和參數值中包含個人和其他機密資訊。
+> [!IMPORTANT]
+> 快照集可能會在變數和參數值中包含個人和其他機密資訊。
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Application Insights 入口網站中的偵錯快照集
 
@@ -194,7 +192,7 @@ Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由�
 
 2. 若要開啟 `.diagsession` 檔案，您必須先[下載並安裝 Visual Studio 的快照集偵錯工具擴充功能](https://aka.ms/snapshotdebugger)。
 
-3. 開啟快照集檔案之後，Visual Studio 中的 [小型傾印偵錯] 分頁隨即出現。 按一下 [偵錯 Managed 程式碼] 以開始偵錯快照集。 快照集會開啟至擲回例外狀況的程式碼行，您可將程序的目前狀態進行偵錯。
+3. 開啟快照集檔案之後，Visual Studio 中的 [小型傾印偵錯] 分頁隨即出現。 按一下 [偵錯受控碼] 以開始偵錯快照集。 快照集會開啟至擲回例外狀況的程式碼行，您可將程序的目前狀態進行偵錯。
 
     ![檢視 Visual Studio 中的偵錯快照集](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
@@ -277,6 +275,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 若為「未」裝載於 App Service 中的應用程式，上傳程式記錄位於與小型傾印相同的資料夾中：`%TEMP%\Dumps\<ikey>` (其中 `<ikey>` 是您的檢測金鑰)。
 
+對於雲端服務中的角色，預設的暫存資料夾可能太小，無法保存小型傾印檔案。 在此情況下，您可以指定替代資料夾透過 TempFolder 屬性 ApplicationInsights.config 中。
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>使用 Application Insights 搜尋來尋找快照集例外狀況的
 
 建立快照集後，擲回中的例外狀況會以快照集識別碼標記。 向 Application Insights 回報例外狀況遙測後，快照集識別碼會納入為自訂屬性。 使用 Application Insights 中的 [搜尋] 刀鋒視窗，您可以找到具有 `ai.snapshot.id` 自訂屬性的所有遙測。
@@ -299,6 +308,6 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在您的程式碼中設定 Snappoint](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) 以取得快照集，而不需等待例外狀況。
+* [在您的程式碼中設定 Snappoint](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) 以取得快照集，而不需等待例外狀況。
 * [診斷 Web Apps 中的例外狀況](app-insights-asp-net-exceptions.md)說明如何讓 Application Insights 看見更多的例外狀況。 
 * [智慧型偵測](app-insights-proactive-diagnostics.md)會自動探索效能異常。

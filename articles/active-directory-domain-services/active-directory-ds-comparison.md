@@ -4,7 +4,7 @@ description: "比較 Azure Active Directory Domain Services 與 DIY 網域控制
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>如何判斷 Azure AD 網域服務是否適合您的使用案例
-Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負載，而不必擔心要在 Azure 中維護您的身分識別基礎結構。 此受管理的服務不同於您自行部署及管理的典型 Windows Server Active Directory 部署。 服務容易部署，並且提供自動化的健康情況監視和修復。 我們持續不斷地提升該服務，以新增常見部署案例的支援。
+Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負載，而不必擔心要在 Azure 中維護您的身分識別基礎結構。 此受控服務不同於您自行部署及管理的典型 Windows Server Active Directory 部署。 服務容易部署，並且提供自動化的健康情況監視和修復。 我們持續不斷地提升該服務，以新增常見部署案例的支援。
 
 若要決定是否使用 Azure AD Domain Services，我們建議參閱下列閱讀資料：
 
@@ -36,7 +36,8 @@ Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負
 | --- |:---:|:---:|
 | [**受管理的服務**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**安全的部署**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |系統管理員必須確保部署安全。 |
-| [**DNS 伺服器**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (受管理的服務) |**&#x2713;** |
+| [**DNS 伺服器**](active-directory-ds-comparison.md#dns-server) |
+            **&amp;#x2713;** (受控服務) |**&#x2713;** |
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**加入網域**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**使用 NTLM 和 Kerberos 的網域驗證**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
@@ -50,55 +51,55 @@ Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負
 | [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**地理位置分散部署**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
-#### <a name="managed-service"></a>受管理的服務
-Azure AD 網域服務網域是由 Microsoft 管理。 您不必擔憂修補、更新、監視、備份，以及確保網域的可用性。 這些管理工作是 Microsoft Azure 針對受管理網域提供的服務。
+#### <a name="managed-service"></a>受控服務
+Azure AD 網域服務網域是由 Microsoft 管理。 您不必擔憂修補、更新、監視、備份，以及確保網域的可用性。 這些管理工作是 Microsoft Azure 針對受控網域提供的服務。
 
 #### <a name="secure-deployments"></a>安全的部署
-根據 Microsoft 的 AD 部署安全性建議，會安全地鎖定受管理的網域。 這些建議源自於 AD 產品團隊數十年設計和支援 AD 部署的經驗。 在自己動手做部署中，您需要採取特定的部署步驟才能鎖定/保護您的部署。
+根據 Microsoft 的 AD 部署安全性建議，會安全地鎖定受控網域。 這些建議源自於 AD 產品團隊數十年設計和支援 AD 部署的經驗。 在自己動手做部署中，您需要採取特定的部署步驟才能鎖定/保護您的部署。
 
 #### <a name="dns-server"></a>DNS 伺服器
-Azure AD 網域服務管理的網域包含受管理的 DNS 服務。 「AAD DC 系統管理員」群組的成員可以在受管理的網域上管理 DNS。 此群組的成員可獲得受管理網域的完整 DNS 管理權限。 使用遠端伺服器管理工具 (RSAT) 套件中包含 [DNS 管理主控台] 可以執行 DNS 管理。
+Azure AD 網域服務管理的網域包含受控 DNS 服務。 「AAD DC 系統管理員」群組的成員可以在受控網域上管理 DNS。 此群組的成員可獲得受控網域的完整 DNS 管理權限。 使用遠端伺服器管理工具 (RSAT) 套件中包含 [DNS 管理主控台] 可以執行 DNS 管理。
 [詳細資訊](active-directory-ds-admin-guide-administer-dns.md)
 
 #### <a name="domain-or-enterprise-administrator-privileges"></a>網域或企業系統管理員權限
-AAD DS 受管理網域上不提供這些提高的權限。 無法對 AAD-DS 受管理的網域部署需要這些提高權限的應用程式。 委派系統管理群組 (名為「AAD DC 系統管理員」) 的成員可以使用較小的系統管理權限子集。 這些權限包括設定 DNS、設定群組原則、取得已加入網域的電腦系統管理員權限。
+AAD DS 受控網域上不提供這些提高的權限。 無法對 AAD-DS 受控網域部署需要這些提高權限的應用程式。 委派系統管理群組 (名為「AAD DC 系統管理員」) 的成員可以使用較小的系統管理權限子集。 這些權限包括設定 DNS、設定群組原則、取得已加入網域的電腦系統管理員權限。
 
 #### <a name="domain-join"></a>加入網域
-您可以將虛擬機器加入受管理的網域，其做法類似於您將電腦加入至 AD 網域。
+您可以將虛擬機器加入受控網域，其做法類似於您將電腦加入至 AD 網域。
 
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>使用 NTLM 和 Kerberos 的網域驗證
-透過 Azure AD 網域服務，您可以使用公司認證來向受管理的網域進行驗證。 憑證會與您的 Azure AD 租用戶保持同步。 對於已同步處理的租用戶，Azure AD Connect 會確保在內部部署進行的認證變更會同步處理至 Azure AD。 在 DIY 網域設定中，您可能需要為使用者設定與內部部署 AD 的 AD 網域信任，以便使用其公司認證進行驗證。 或者，您可能需要設定 AD 複寫，以確保使用者密碼會同步處理至 Azure 網域控制站虛擬機器。
+透過 Azure AD 網域服務，您可以使用公司認證來向受控網域進行驗證。 憑證會與您的 Azure AD 租用戶保持同步。 對於已同步處理的租用戶，Azure AD Connect 會確保在內部部署進行的認證變更會同步處理至 Azure AD。 在 DIY 網域設定中，您可能需要為使用者設定與內部部署 AD 的 AD 網域信任，以便使用其公司認證進行驗證。 或者，您可能需要設定 AD 複寫，以確保使用者密碼會同步處理至 Azure 網域控制站虛擬機器。
 
 #### <a name="kerberos-constrained-delegation"></a>Kerberos 限制委派
-在 Active Directory Domain Services 的受管理網域上，您沒有「網域系統管理員」權限。 因此，您無法設定帳戶型 (傳統) Kerberos 限制委派。 不過，您可以設定更安全的資源型限制委派。
+在 Active Directory Domain Services 的受控網域上，您沒有「網域系統管理員」權限。 因此，您無法設定帳戶型 (傳統) Kerberos 限制委派。 不過，您可以設定更安全的資源型限制委派。
 [詳細資訊](active-directory-ds-enable-kcd.md)
 
 #### <a name="custom-ou-structure"></a>自訂 OU 結構
-「AAD DC 系統管理員」群組的成員可以在受管理的網域內建立自定 OU。 建立自訂 OU 的使用者會獲得整個 OU 的完整管理權限。
+「AAD DC 系統管理員」群組的成員可以在受控網域內建立自定 OU。 建立自訂 OU 的使用者會獲得整個 OU 的完整管理權限。
 [詳細資訊](active-directory-ds-admin-guide-create-ou.md)
 
 #### <a name="schema-extensions"></a>結構描述延伸模組
-您無法擴充 Azure AD 網域服務受管理網域的基底結構描述。 因此，依賴 AD 結構描述擴充功能 (例如，使用者物件之下的新屬性) 的應用程式無法轉移至 AAD DS 網域。
+您無法擴充 Azure Active Directory Domain Services 受控網域的基底結構描述。 因此，依賴 AD 結構描述擴充功能 (例如，使用者物件之下的新屬性) 的應用程式無法轉移至 AAD DS 網域。
 
 #### <a name="ad-domain-or-forest-trusts"></a>AD 網域或樹系信任
-無法設定受管理的網域以設定與其他網域的信任關係 (輸入/輸出)。 因此，資源樹系部署案例無法使用 Azure AD Domain Services。 同樣地，在您不想將密碼同步處理至 Azure AD 的部署中，無法使用 Azure AD Domain Services。
+無法設定受控網域以設定與其他網域的信任關係 (輸入/輸出)。 因此，資源樹系部署案例無法使用 Azure AD Domain Services。 同樣地，在您不想將密碼同步處理至 Azure AD 的部署中，無法使用 Azure AD Domain Services。
 
 #### <a name="ldap-read"></a>LDAP 讀取
-受管理的網域支援 LDAP 讀取工作負載。 因此，您可以部署對受管理網域執行 LDAP 讀取作業的應用程式。
+受控網域支援 LDAP 讀取工作負載。 因此，您可以部署對受控網域執行 LDAP 讀取作業的應用程式。
 
 #### <a name="secure-ldap"></a>安全的 LDAP
-您可以設定 Azure AD 網域服務，以提供受管理網域的安全 LDAP 存取，包括透過網際網路。
+您可以設定 Azure AD 網域服務，以提供受控網域的安全 LDAP 存取，包括透過網際網路。
 [詳細資訊](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### <a name="ldap-write"></a>LDAP 寫入
-受管理網域對使用者物件而言是唯讀的。 因此，對使用者物件的屬性執行 LDAP 寫入作業的應用程式不適用於受管理的網域。 此外，不能在受管理的網域中變更使用者密碼。 另一個範例是不允許在受管理的網域中修改群組成員資格或群組屬性。 不過，在 Azure AD (透過 PowerShell/Azure 入口網站) 或內部部署 AD 中所做的使用者屬性或密碼變更會同步處理至 AAD-DS 受管理的網域。
+受控網域對使用者物件而言是唯讀的。 因此，對使用者物件的屬性執行 LDAP 寫入作業的應用程式不適用於受控網域。 此外，不能在受控網域中變更使用者密碼。 另一個範例是不允許在受控網域中修改群組成員資格或群組屬性。 不過，在 Azure AD (透過 PowerShell/Azure 入口網站) 或內部部署 AD 中所做的使用者屬性或密碼變更會同步處理至 AAD-DS 受控網域。
 
 #### <a name="group-policy"></a>群組原則
 「AADDC 電腦」和「AADDC 使用者」容器各有內建 GPO。 您可以自訂這些內建 GPO，來設定群組原則。 「AAD DC 系統管理員」群組成員也可以建立自訂 GPO (群組原則物件)，並將它們連結至現有的 OU (包括自訂 OU)。
 [詳細資訊](active-directory-ds-admin-guide-administer-group-policy.md)
 
 #### <a name="geo-dispersed-deployments"></a>分散各地的部署
-Azure AD 網域服務受管理網域可以在Azure 的單一虛擬網路中使用。 在世界各地多個 Azure 區域中都需要可用網域控制站的案例中，在 Azure IaaS VM 中設定網域控制站可能是更好的替代方法。
+Azure AD 網域服務受控網域可以在Azure 的單一虛擬網路中使用。 在世界各地多個 Azure 區域中都需要可用網域控制站的案例中，在 Azure IaaS VM 中設定網域控制站可能是更好的替代方法。
 
 
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>「自己動手做」(DIY) AD 部署選項

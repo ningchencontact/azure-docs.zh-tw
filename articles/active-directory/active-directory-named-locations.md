@@ -4,7 +4,7 @@ description: "了解具名位置是什麼及如何設定。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory 中的具名位置
 
@@ -83,9 +83,9 @@ ms.lasthandoff: 12/07/2017
 
     a. 在 [名稱] 方塊中，輸入具名位置的名稱。
 
-    b.這是另一個 C# 主控台應用程式。 在 [IP 範圍] 方塊中，輸入 IP 範圍。 IP 範圍的格式必須為「無類別網域間路由選擇」(CIDR)。  
+    b. 在 [IP 範圍] 方塊中，輸入 IP 範圍。 IP 範圍的格式必須為「無類別網域間路由選擇」(CIDR)。  
 
-    c. 按一下 [建立] 。
+    c. 按一下頁面底部的 [新增] 。
 
 
 

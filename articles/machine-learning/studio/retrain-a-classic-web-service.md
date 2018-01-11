@@ -3,7 +3,7 @@ title: "重新訓練傳統 Web 服務 | Microsoft Docs"
 description: "了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。"
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>重新訓練傳統 Web 服務
 您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/01/2017
 
 1. 將 URL 複製並貼到瀏覽器。
 2. 按一下 [更新資源] 連結。
-3. 複製 PATCH 要求的 POST URL。 例如：
+3. 複製 PATCH 要求的 POST URL。 例如︰
    
      修補程式 URL：https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/01/2017
 
 *Resources* 中 *Name* 參數的值，應該符合預測性實驗中已儲存之訓練模型的「資源名稱」。 取得資源名稱：
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下左側功能表中的 [Machine Learning] 。
 3. 在 [名稱] 下，按一下您的工作區，然後按一下 [Web 服務] 。
 4. 在 [名稱] 下，按一下 [普查模型 [predictive exp.]] 。
@@ -128,7 +128,7 @@ ms.lasthandoff: 12/01/2017
 
 程式碼執行成功後，新的端點應該會在大約 30 秒後開始使用重新定型模型。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 使用重新定型 API 可以更新預測性 Web 服務的定型模型，運用於如下案例︰
 
 * 定期以新的資料重新定型模型。

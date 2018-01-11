@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Velpic SAML 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e4f7e4c9e960450f0024cd7ca35bd3808d31ee19
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>教學課程：Azure Active Directory 與 Velpic SAML 整合
 
@@ -47,13 +47,13 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Velpic SAML
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>從資源庫新增 Velpic SAML
-若要設定 Velpic SAML 與 Azure AD 整合，您需要從資源庫將 Velpic SAML 新增到受管理的 SaaS app 清單。
+若要設定 Velpic SAML 與 Azure AD 整合，您需要從資源庫將 Velpic SAML 新增到受控 SaaS app 清單。
 
 **若要從資源庫新增 Velpic SAML，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Velpic SAML**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_search.png)
 
-5. 在結果窗格中，選取 Velpic SAML，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Velpic SAML]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
 
@@ -159,7 +159,7 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
     e. 從文字方塊複製**單一登入 URL**，並將它貼到 Azure 入口網站。
     
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節目標是在 Azure 管理入口網站中建立名為 Britta Simon 的測試使用者。
@@ -186,11 +186,11 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-velpic-saml-test-user"></a>建立 Velpic SAML 測試使用者
 
@@ -198,7 +198,7 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
 以系統管理員身分登入您的 Velpic SAML 公司網站，然後執行下列步驟：
     
-1. 按一下 管理 索引標籤並移至 使用者 區段，然後按一下新增 按鈕來新增使用者。
+1. 按一下 [管理] 索引標籤並移至 [使用者] 區段，然後按一下 [新增] 按鈕來新增使用者。
 
     ![新增使用者](./media/active-directory-saas-velpicsaml-tutorial/velpic_7.png)
 
@@ -208,7 +208,7 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
     
     a. 在 [名字] 文字方塊中，輸入 Britta Simon 的名字。
 
-    b.這是另一個 C# 主控台應用程式。 在 [姓氏] 文字方塊中，輸入 Britta Simon 的姓氏。
+    b. 在 [姓氏] 文字方塊中，輸入 Britta Simon 的姓氏。
 
     c. 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的使用者名稱。
 

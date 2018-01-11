@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>衍生資料行實例化轉換
 
@@ -140,7 +140,7 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 |名字|中間名縮寫|姓氏|輸出|
 |:-----|:-----|:-----|:-----|
 |Laquanda||Lohmann|Laquanda··Lohmann|
-|Claudio|A|Chew|**Claudio·A·Chew**|
+|Claudio|具有使用 |Chew|**Claudio·A·Chew**|
 |Sarah-Jane|S|Smith|Sarah-Jane·S·Smith|
 |Brandi||Blumenthal|Brandi··Blumenthal|
 |Jesusita|R|Journey|Jesusita·R·Journey|
@@ -286,7 +286,7 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 
 這些日期組件是使用相同資料集上不同的實例化轉換來擷取的。 粗體字串表示在各自轉換中提供的範例。
 
-|DateTime|Weekday|Date|月|Year|小時|分鐘|秒|
+|Datetime|Weekday|日期|月|Year|小時|分鐘|秒|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Wed|17|Jan|1990|13|32|01|
@@ -313,7 +313,7 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 
 這些日期格式化是使用相同資料集上不同的實例化轉換來完成的。 粗體字串表示在各自轉換中提供的範例。
 
-|DateTime|Format1|Format2|Format3|Format4|Format5|
+|Datetime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Friday, January 31, 2031**|**01312031 5:54**|**31/1/2031 5:54 AM**|**Q1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Wednesday, January 17, 1990|01171990 13:32|17/1/1990 1:32 PM|Q1 1990|
@@ -341,7 +341,7 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 
 這些日期時間對期間對應是使用相同資料集上不同的實例化轉換來完成的。 粗體字串表示在各自轉換中提供的範例。
 
-|DateTime|Period(Seconds)|Period(Minutes)|Period(Two Hours)|Period(30 Minutes)|
+|Datetime|Period(Seconds)|Period(Minutes)|Period(Two Hours)|Period(30 Minutes)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
@@ -366,7 +366,7 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 
 ## <a name="examples-of-composite-transformations-by-example"></a>複合轉換實例化範例
 
-|tripduration|starttime|start station id|start station latitude|start station longitude|usertype|資料欄|
+|tripduration|starttime|start station id|start station latitude|start station longitude|usertype|欄|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |61|2016-01-08 16:09:32|107|42.3625|-71.08822|用戶|**用戶在 2016 年 1 月 8 日下午 4 點左右，從經緯度 (42.363,-71.088) 的 107 號車站，取用自行車。路程持續時間為 61 分鐘**|
 |61|2016-01-17 09:28:10|74|42.373268|-71.118579|Customer|客戶在 2016 年 1 月 17 日上午 9 點左右，從經緯度 (42.373,-71.119) 的 74 號車站取用自行車。 路程持續時間為 61 分鐘|

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SpaceIQ 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 939cc4215ca8822cee376dfb13d5f6d1b8be1d35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e61cff696388d181f989478ea0d0defcc323f192
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>教學課程：Azure Active Directory 與 SpaceIQ 整合
 
@@ -48,13 +48,13 @@ SpaceIQ 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SpaceIQ
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-spaceiq-from-the-gallery"></a>從資源庫新增 SpaceIQ
-若要設定 SpaceIQ 與 Azure AD 整合，您需要從資源庫將 SpaceIQ 加入受管理的 SaaS 應用程式清單中。
+若要設定 SpaceIQ 與 Azure AD 整合，您需要從資源庫將 SpaceIQ 加入受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 SpaceIQ，請執行下列步驟：**
 
@@ -149,7 +149,7 @@ SpaceIQ 與 Azure AD 整合提供下列優點：
 
     d. 在記事本中開啟下載的憑證，複製其內容，然後貼到 [X.509 憑證] 方塊中。
     
-    e. 按一下 [儲存] 。
+    e. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,7 +166,7 @@ SpaceIQ 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-spaceiq-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-spaceiq-tutorial/create_aaduser_02.png)
 
@@ -184,7 +184,7 @@ SpaceIQ 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-spaceiq-test-user"></a>建立 SpaceIQ 測試使用者
 

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 12/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 727e13669ec120bfa9c9da759316ed067be9aa82
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Python 和 Azure 入口網站建立圖形資料庫
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 > [!NOTE]
 > 本快速入門需要在 2017 年 11 月 27 之後建立的圖形資料庫帳戶。 現有帳戶在移轉至正式運作之後便會支援 Python。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]或者，您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。
 
@@ -205,7 +205,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 按一下 [新增屬性]，以新增以下各項屬性。 請注意，您可以在圖形中為每個人建立獨特的屬性。 只需要識別碼索引鍵。
 
-    key|value|注意事項
+    索引鍵|value|注意
     ----|----|----
     id|ashley|頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
     gender|female| 
@@ -214,7 +214,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     > [!NOTE]
     > 在本快速入門中，建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
 
-6. 按一下 [確定] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
+6. 按一下 [SERVICEPRINCIPAL] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
 
 7. 再次按一下 [新增頂點] 並新增額外的新使用者。 
 
@@ -222,13 +222,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 9. 按一下 [新增屬性]，以新增以下各項屬性：
 
-    key|value|注意事項
+    索引鍵|value|注意
     ----|----|----
     id|rakesh|頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
     gender|male| 
     school|MIT| 
 
-10. 按一下 [確定] 。 
+10. 按一下 [SERVICEPRINCIPAL] 。 
 
 11. 按一下 [套用篩選條件] 按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果] 清單中。 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>使用查詢字串控制 Azure 內容傳遞網路快取行為
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ ms.lasthandoff: 11/16/2017
    
    ![CDN 設定檔端點](./media/cdn-query-string/cdn-endpoints.png)
    
-2. 在 [設定] 下方，按一下 [快取]。
+2. 在 [設定] 下的左窗格中按一下**快取規則**。
    
-    ![[CDN 設定檔快取] 按鈕](./media/cdn-query-string/cdn-cache-btn.png)
+    ![CDN 快取規則 按鈕](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. 在 [查詢字串快取行為] 清單中，選取查詢字串模式，然後按一下 [儲存]。
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![CDN 查詢字串快取選項](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > 因為註冊資訊需要一段時間才能傳遍 CDN，快取字串設定的變更可能無法立即看見。 若為 **來自 Akamai 的 Azure CDN** 設定檔，通常會在一分鐘之內完成傳播。 若為**來自 Verizon 的 Azure CDN** 設定檔，則通常會在 90 分鐘之內完成傳播，但在某些情況下可能會更久。

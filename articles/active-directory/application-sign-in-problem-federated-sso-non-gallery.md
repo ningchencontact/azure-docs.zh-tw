@@ -4,7 +4,7 @@ description: "當登入使用 Azure AD 針對 SAML 型同盟單一登入設定�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 681e40f3056e540c15542f22c3b30a18564dd2ed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之非資源庫應用程式的問題
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 確保 SAML 要求中的簽發者屬性符合 Azure AD 中設定的識別碼值：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -73,7 +73,7 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 確保 SAML 要求中的 AssertionConsumerServiceURL 值符合在 Azure AD 中設定的 [回覆 URL] 值。 
  
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入 
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。 
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。 
 
@@ -107,7 +107,7 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -177,7 +177,7 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 若要解決此問題，請將應用程式從目錄中移除。 然後，依照下列步驟新增並重新設定應用程式：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -209,7 +209,7 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 若要刪除與建立新的憑證，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

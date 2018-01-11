@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
@@ -41,7 +41,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 不要重新啟動 VM。
@@ -127,7 +127,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 2. 取得 VM。
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. 取得受控磁碟的識別碼。

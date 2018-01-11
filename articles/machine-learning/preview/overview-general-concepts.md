@@ -4,16 +4,17 @@ description: "Azure Machine Learning 預覽功能 (例如訂用帳戶、帳戶�
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 3d4ba2ca6f7adc8b51030c02d9e9eeb2b9995bb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - 概念
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 - **環境：**在 Azure Machine Learning 中，環境代表的是用來部署及管理模型的特定計算資源。 根據內容和設定，環境可以是本機電腦、Azure 上的 Linux VM，也可以是在 Azure Container Service 中執行的 Kubernetes 叢集。 您的模型會裝載在 (於這些環境中執行的) Docker 容器中，並顯示為 REST API 端點。
 
 
-- **模型管理：**可讓您將模型部署成 Web 服務、管理各種模型版本，以及監視其效能和計量。 受管理的模型會向「Azure Machine Learning 模型管理」帳戶註冊。
+- **模型管理：**可讓您將模型部署成 Web 服務、管理各種模型版本，以及監視其效能和計量。 受控模型會向「Azure Machine Learning 模型管理」帳戶註冊。
 
 - **資訊清單：**當模型管理系統將模型部署到生產環境時，它所包含的資訊清單中會有模型、相依性、計分指令碼、資料範例和結構描述。 此資訊清單是用來建立 Docker 容器映像的配方。 您可以使用模型管理來自動產生資訊清單、建立不同的版本，並管理這些資訊清單。 
 

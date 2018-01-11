@@ -4,7 +4,7 @@ description: "未經授權的使用報告可協助您識別使用 Azure AD 付�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92138f43-9528-4c8a-b834-66a47da476e3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>未經授權的使用報告
 未經授權的使用報告可協助您識別使用 Azure AD 付費功能的未經授權使用者。 這可讓您充分利用您已購買的授權，以及確認您知道何時可能需要額外的授權。 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/14/2017
 
 這適用於 MFA/位置原則以及使用 Intune 的裝置原則。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [搭配使用條件式存取與 Office 365 和其他 Azure Active Directory 連線應用程式](active-directory-conditional-access-azure-portal.md)
 * [開始使用 Azure AD 的條件式存取](active-directory-conditional-access-azure-portal-get-started.md) 
 

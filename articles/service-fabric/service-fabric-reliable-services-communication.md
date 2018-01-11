@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 006f32ea9dea18f8b8e454a256272ec87bfee7f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通訊 API
 「Azure Service Fabric 即平台」完全不受服務間的通訊影響。 所有通訊協定和堆疊 (從 UDP 到 HTTP) 都可接受。 它是由服務開發人員選擇服務應有的通訊方式。 Reliable Services 應用程式架構會提供內建的通訊堆疊以及 API，讓您可用來建置自訂通訊元件。
@@ -121,7 +121,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-最後，在 [服務資訊清單](service-fabric-application-model.md) 中有關端點的區段下方說明服務所需的端點。
+最後，在 [服務資訊清單](service-fabric-application-and-service-manifests.md) 中有關端點的區段下方說明服務所需的端點。
 
 ```xml
 <Resources>
@@ -212,7 +212,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-若要連線到不同叢集中的服務，可利用一組叢集閘道端點來建立 ServicePartitionResolver。 請注意，閘道端點就只是可用來連接到相同叢集的不同端點。 例如：
+若要連線到不同叢集中的服務，可利用一組叢集閘道端點來建立 ServicePartitionResolver。 請注意，閘道端點就只是可用來連接到相同叢集的不同端點。 例如︰
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虛擬機器備份
-> [!div class="op_single_selector"]
-> * [管理 Azure VM 備份](backup-azure-manage-vms.md)
-> * [管理傳統 VM 備份](backup-azure-manage-vms-classic.md)
->
->
 
 本文提供如何管理 VM 備份的指引，並說明入口網站儀表板中提供的備份警示資訊。 本文中的指引適用於 VM 與復原服務保存庫搭配使用。 本文並未涵蓋建立虛擬機器，也不說明如何保護虛擬機器。 有關在 Azure 中以復原服務保存庫來保護 Azure Resource Manager 部署的 VM 的初步解說，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。
 
@@ -224,4 +219,4 @@ ms.lasthandoff: 11/11/2017
     通知訊息可讓您知道備份資料已刪除。
 
 ## <a name="next-steps"></a>後續步驟
-如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 如需監視事件的相關資訊，請參閱 [監視 Azure 虛擬機器備份的警示](backup-azure-monitor-vms.md)。
+如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-arm-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 如需監視事件的相關資訊，請參閱 [監視 Azure 虛擬機器備份的警示](backup-azure-monitor-vms.md)。

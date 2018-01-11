@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: 79bf6892c823da282c3e763921e830f986419854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用傳統部署模型設定強制通道
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 > [!div class="op_single_selector"]
 > * [PowerShell - 傳統](vpn-gateway-about-forced-tunneling.md)
-> * [PowerShell - 資源管理員](vpn-gateway-forced-tunneling-rm.md)
+> * [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 > 
 > 
 
@@ -58,7 +58,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 ## <a name="before-you-begin"></a>開始之前
 在開始設定之前，請確認您具備下列項目。
 
-* Azure 訂閱。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 * 已設定的虛擬網路。 
 * 最新版的 Azure PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 

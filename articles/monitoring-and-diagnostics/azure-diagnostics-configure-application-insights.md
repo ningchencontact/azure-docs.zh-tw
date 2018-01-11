@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>將雲端服務、虛擬機器或 Service Fabric 診斷資料傳送至 Application Insights
 雲端服務、虛擬機器、虛擬機器擴展集和 Service Fabric 全都使用 Azure 診斷擴充功能來收集資料。  Azure 診斷會將資料傳送至 Azure 儲存體資料表。  不過，您也可以使用 Azure 診斷擴充功能 1.5 或更新版本，將所有資料或一部分資料傳送至其他位置。
@@ -75,7 +75,7 @@ Application Insights 的接收器組態範例：
         - 詳細資訊
         - 資訊
         - 警告
-        - 錯誤
+        - Error
         - 重要
 
 通道就像篩選條件，可讓您選取要傳送至目標接收器的特定記錄等級。 例如，您可以收集詳細記錄，將它們傳送至儲存體，但只將「錯誤」傳送至接收器。
@@ -220,6 +220,6 @@ Application Insights 的接收器組態範例：
 - **您無法將 Azure 診斷擴充功能收集的 blob 資料傳送至 Application Insights。** 例如，Directories 節點下指定的任何項目。 針對損毀傾印，實際損毀傾印會傳送至 blob 儲存體，並只會將損毀傾印所產生的通知傳送至 Application Insights。
 
 ## <a name="next-steps"></a>後續步驟
-* 了解如何在 Application Insights 中[檢視您的 Azure 診斷資訊](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)。
+* 了解如何在 Application Insights 中[檢視您的 Azure 診斷資訊](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)。
 * 使用 [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) 來為您的應用程式啟用 Azure 診斷擴充。
 * 使用 [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 來為您的應用程式啟用 Azure 診斷擴充

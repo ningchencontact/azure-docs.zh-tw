@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>對雲端服務部署問題進行疑難排解
 當您將雲端服務應用程式封裝部署至 Azure 時，您可以從 Azure 入口網站中的 [屬性]  窗格取得部署的相關資訊。 您可以利用此窗格中的詳細資料來排解雲端服務的問題，也可以在開啟新的支援要求時將這項資訊提供給 Azure 支援。
@@ -82,6 +82,6 @@ ms.lasthandoff: 12/07/2017
 >
 
 ## <a name="next-steps"></a>後續步驟
-檢視更多雲端服務的 [疑難排解文章](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) 。
+檢視更多雲端服務的 [疑難排解文章](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) 。
 
 若要了解如何利用 Azure PaaS 電腦診斷資料對雲端服務角色問題進行疑難排解，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。

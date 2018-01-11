@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
 本教學課程是系列中的第三部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
@@ -44,7 +44,6 @@ ms.lasthandoff: 11/20/2017
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [安裝 Visual Studio 2017](https://www.visualstudio.com/) 並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
 - [安裝 Service Fabric SDK](service-fabric-get-started.md)
-- 建立 Service Fabric 應用程式，例如[遵循本教學課程](service-fabric-tutorial-create-dotnet-app.md)。 
 - 在 Azure 上建立 Windows Service Fabric 叢集，例如[遵循本教學課程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - 建立 [Team Services 帳戶](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)。
 
@@ -83,39 +82,49 @@ Team Services 組建定義描述由一組循序執行的組建步驟所組成的
 Team Services 發行定義描述將應用程式封裝部署到叢集的工作流程。 一起使用時，組建定義和發行定義可以執行整個工作流程，從來源檔案開始，並以叢集中的執行中應用程式結束。 深入了解 Team Services [發行定義](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)。
 
 ### <a name="create-a-build-definition"></a>建立組建定義
-開啟網頁瀏覽器並瀏覽至新的 Team 專案，網址為：https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting。 
+開啟網頁瀏覽器並瀏覽至您在新的 team 專案： [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)。 
 
 依序選取 [組建與發行] 索引標籤、[組建]，以及 [+ 新增定義]。  在 [選取範本] 中，選取 [Azure Service Fabric 應用程式] 範本，然後按一下 [套用]。 
 
 ![選擇組建範本][select-build-template] 
 
-投票應用程式包含 .NET Core 專案，因此請新增還原相依性的工作。 在 [工作] 檢視中，選取左下方的 [+ 新增工作]。 搜尋「命令列」來尋找命令列工作，然後按一下 [新增]。 
+在**工作**，做為輸入 「 裝載 VS2017"**代理程式佇列**。 
 
-![新增工作][add-task] 
+![選取任務][save-and-queue]
 
-在新的工作中，在 [顯示名稱] 中輸入 "Run dotnet.exe"、在 [工具] 中輸入 "dotnet.exe"，以及在 [引數] 中輸入 "restore"。 
+在下**觸發程序**，藉此啟用連續整合**觸發狀態**。  選取**儲存並加入佇列**手動啟動組建。  
 
-![新增工作][new-task] 
+![選取觸發程序][save-and-queue2]
 
-在 [觸發程序] 檢視中，按一下 [持續整合] 底下的 [啟用此觸發程序] 開關。 
-
-選取 [儲存與佇列] 並輸入 "Hosted VS2017" 作為 [代理程式佇列]。 選取 [佇列] 以手動啟動組建。  推送或簽入時也會觸發組建。
-
-若要檢查組建進度，請切換到 [組建] 索引標籤。您確認組建執行成功，請定義將應用程式部署至叢集的發行定義。 
+依據推入或簽入建置也觸發程序。 若要檢查組建進度，請切換到 [組建] 索引標籤。您確認組建執行成功，請定義將應用程式部署至叢集的發行定義。 
 
 ### <a name="create-a-release-definition"></a>建立發行定義  
 
-依序選取 [組建與發行] 索引標籤、[版本]，以及 [+ 新增定義]。  在 [建立發行定義] 中，從清單中選取 [Azure Service Fabric 部署] 範本，然後按 [下一步]。  選取 [組建] 來源、核取 [持續部署] 方塊，然後按一下 [建立]。 
+依序選取 [組建與發行] 索引標籤、[版本]，以及 [+ 新增定義]。  在**選取範本**，選取**Azure Service Fabric 部署**從清單中的範本，然後**套用**。  
 
-在 [環境] 檢視中，按一下 [叢集連線] 右側的 [新增]。  指定 "mysftestcluster" 的叢集連線名稱、"tcp://mysftestcluster.westus.cloudapp.azure.com:19000" 的叢集端點，以及叢集的 Azure Active Directory 或憑證認證。 對於 Azure Active Directory 認證，請在 [使用者名稱] 和 [密碼] 欄位中定義連線到叢集所需的認證。 對於憑證式驗證，請在 [用戶端憑證] 欄位中定義用戶端憑證檔案的 Base64 編碼。  如需如何取得該值的資訊，請參閱該欄位的說明快顯。  如果您的憑證受密碼保護，請在 [密碼]  欄位中定義密碼。  按一下 [儲存] 可儲存發行定義。
+![選擇 發行範本][select-release-template]
 
-![新增叢集連線][add-cluster-connection] 
+選取**工作**->**環境 1**然後**+ 新增**加入新的叢集連接。
 
-按一下 [在代理程式上執行]，然後針對 [部署佇列] 選取 [Hosted VS2017]。 按一下 [儲存] 可儲存發行定義。
+![新增叢集連線][add-cluster-connection]
 
-![在代理程式上執行][run-on-agent]
+在**加入新的服務網狀架構連接**檢視選取**憑證式**或**Azure Active Directory**驗證。  指定連接名稱"mysftestcluster"和"tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000"的叢集端點 （或您要部署到叢集的端點）。 
 
-選取 [+ 發行] -> [建立發行] -> [建立] 可手動建立發行。  確認部署成功，而且應用程式在叢集中執行。  開啟網頁瀏覽器，並瀏覽至 [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是「1.0.0.20170616.3」。 
+憑證式驗證，新增**伺服器憑證的指紋**用來建立叢集的伺服器憑證。  在**用戶端憑證**，新增用戶端憑證檔案的 base-64 編碼方式。 如需如何取得憑證的 base-64 編碼表示方式的資訊欄位，請參閱說明快顯視窗。 也新增**密碼**憑證。  如果您沒有個別的用戶端憑證，您可以使用叢集或伺服器憑證。 
+
+Azure Active Directory 認證新增**伺服器憑證的指紋**您要用來連接到在叢集伺服器憑證用來建立叢集和認證的**的使用者名稱**和**密碼**欄位。 
+
+按一下**新增**儲存叢集連線。
+
+接下來，將組建成品新增至管線，讓發行定義可以找到建置的輸出。 選取**管線**和**成品**->**+ 加入**。  在**來源 （組建定義）**，選取您先前建立的組建定義。  按一下**新增**儲存組建成品。
+
+![加入成品][add-artifact]
+
+啟用連續部署觸發程序，以便在建置完成時，會自動建立發行。 按一下此成品的閃電圖示，啟用觸發程序，再按一下**儲存**儲存發行定義。
+
+![啟用觸發程序][enable-trigger]
+
+選取 [+ 發行] -> [建立發行] -> [建立] 可手動建立發行。  確認部署成功，而且應用程式在叢集中執行。  開啟網頁瀏覽器並瀏覽至[http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/總管/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是「1.0.0.20170616.3」。 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>認可並推送變更，觸發發行程序
 簽入某些程式碼變更至 Team Services，確認持續整合管線正常運作。    
@@ -134,7 +143,7 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 若要檢查組建進度，請切換到 **Team Explorer** Visual Studio 中的 [組建] 索引標籤。  您確認組建執行成功，請定義將應用程式部署至叢集的發行定義。
 
-確認部署成功，而且應用程式在叢集中執行。  開啟網頁瀏覽器，並瀏覽至 [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是 "1.0.0.20170815.3"。
+確認部署成功，而且應用程式在叢集中執行。  開啟網頁瀏覽器並瀏覽至[http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/總管/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是 "1.0.0.20170815.3"。
 
 ![Service Fabric Explorer][sfx1]
 
@@ -168,10 +177,13 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

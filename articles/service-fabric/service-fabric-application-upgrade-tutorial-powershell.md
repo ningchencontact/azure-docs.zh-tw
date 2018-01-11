@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 進行 Service Fabric 應用程式升級
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 最常使用和建議的升級方法是監視輪流升級。  Azure Service Fabric 會根據健康狀態原則集，監視正在升級之應用程式的健康狀態。 當更新網域 (UD) 中的應用程式升級之後，Service Fabric 會評估應用程式健康狀態，並根據健康狀態原則繼續進行下一個更新網域或讓升級失敗。
 
-可以使用受管理或原生 API、PowerShell 或 REST，執行監視應用程式升級。 如需有關使用 Visual Studio 來執行升級的說明，請參閱 [使用 Visual Studio 升級您的應用程式](service-fabric-application-upgrade-tutorial.md)。
+可以使用受控或原生 API、PowerShell 或 REST，執行監視應用程式升級。 如需有關使用 Visual Studio 來執行升級的說明，請參閱 [使用 Visual Studio 升級您的應用程式](service-fabric-application-upgrade-tutorial.md)。
 
 透過 Service Fabric 監視輪流升級，應用程式系統管理員即可設定 Service Fabric 用來判斷應用程式健康狀態良好的健康狀態評估原則。 此外，系統管理員也可設定當健康狀態評估失敗時採取的動作 (例如，進行自動回復)。本節會逐步解說使用 PowerShell 對其中一個 SDK 範例進行受監視的升級。 下列 Microsoft Virtual Academy 影片也會逐步引導您完成應用程式升級︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

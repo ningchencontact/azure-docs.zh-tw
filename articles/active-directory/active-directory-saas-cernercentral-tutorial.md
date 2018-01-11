@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Cerner Central 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: f01e605d2d3f68f7e95839dab78b3b10e43d28f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 391994b8df73657dc75e8c9790356f443341159d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>教學課程：Azure Active Directory 與 Cerner Central 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Cerner Central
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-cerner-central-from-the-gallery"></a>從資源庫新增 Cerner Central
-若要設定將 Cerner Central 整合到 Azure AD 中，您需要從資源庫將 Cerner Central 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Cerner Central 整合到 Azure AD 中，您需要從資源庫將 Cerner Central 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Cerner Central，執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中輸入 **Cerner Central**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_search.png)
 
-5. 在結果面板中，選取 Cerner Central，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [Cerner Central]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL： 
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL： 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
@@ -136,7 +136,7 @@ ms.lasthandoff: 10/11/2017
     
     ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appregistrations.png)
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [端點] 以開啟 [端點] 對話方塊。  
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
     
     ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
 
@@ -181,11 +181,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
+    b. 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-cerner-central-test-user"></a>建立 Cerner Central 測試使用者
 

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Grovo 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 66e5731d185399267a581e5c6b2485fb4fc7f503
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>教學課程：Azure Active Directory 與 Grovo 整合
 
@@ -48,13 +48,13 @@ Grovo 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Grovo
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-grovo-from-the-gallery"></a>從資源庫新增 Grovo
-若要設定將 Grovo 整合到 Azure AD 中，您需要從資源庫將 Grovo 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Grovo 整合到 Azure AD 中，您需要從資源庫將 Grovo 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫加入 Grovo，請執行下列步驟：**
 
@@ -185,7 +185,7 @@ Grovo 與 Azure AD 整合提供下列優點：
     
     d. 從記事本中的 Azure 入口網站開啟已下載的 [Base64 編碼憑證]，將它貼至 [公開金鑰] 文字方塊。
 
-    e. 按一下 [下一步] 。
+    e. 按 [下一步] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -220,7 +220,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-grovo-test-user"></a>建立 Grovo 測試使用者
 

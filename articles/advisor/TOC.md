@@ -1,4 +1,4 @@
-# 概觀
+﻿# 概觀
 ## [何謂 Azure Advisor？](advisor-overview.md)
 
 # 建議
@@ -8,17 +8,16 @@
 ## [安全性建議](advisor-security-recommendations.md)
 
 # 開始使用
-## [開始使用 Advisor](advisor-get-started.md)
+## [開始使用 Azure Advisor](advisor-get-started.md)
 
 # 參考
-## [REST](https://docs.microsoft.com/rest/api/advisor)
-
+## [REST API](https://docs.microsoft.com/rest/api/advisor)
 ## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 
 
 # 相關參考
 ## [資訊安全中心](https://azure.microsoft.com/services/security-center/)
-## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
+## [SQL 資料庫](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Redis 快取](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 

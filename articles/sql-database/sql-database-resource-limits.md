@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 資源限制
 
@@ -49,8 +49,7 @@ ms.lasthandoff: 10/31/2017
 整個向上調整程序的期間取決於資料庫變更前後的大小和服務層。 例如，在標準服務層內進行變更的 250 GB 資料庫應在六小時內完成。 對於進階服務層內變更效能層級的相同大小資料庫，應該在三小時內完成相應增加。
 
 > [!TIP]
-> 若要檢查進行中的 SQL 資料庫調整作業的狀態，可以使用下列查詢：```select * from sys.dm_operation_status```。
->
+> 若要監視進度中作業，請參閱：[管理使用 SQL REST API 作業](/rest/api/sql/Operations/List)，[管理作業使用 CLI](/cli/azure/sql/db/op)，[監視使用 T-SQL 作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)和這兩個PowerShell 命令： [Get AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)和[停止 AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
 
 * 如果您要升級到較高服務層或效能層級，除非您明確指定較大的大小 (大小上限)，否則資料庫大小上限不會增加。
 * 若要將資料庫降級，資料庫已用的空間必須小於目標服務層和效能層級允許的大小上限。 
@@ -147,3 +146,4 @@ ms.lasthandoff: 10/31/2017
 - 如需彈性集區的相關資訊，請參閱[彈性集區](sql-database-elastic-pool.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需 DTU 與 eDTU 的相關資訊，請參閱 [DTU 與 eDTU](sql-database-what-is-a-dtu.md)。
+- Tempdb 大小限制的相關資訊，請參閱 https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database 文件。

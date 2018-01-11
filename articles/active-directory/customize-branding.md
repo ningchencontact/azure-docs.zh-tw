@@ -4,7 +4,7 @@ description: "了解如何將公司商標新增到 Azure 登入頁面"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 41f4ceea4842303760c5b156e90bd9e0746a7825
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 0855129c35c0c3d0f1814e8d29b6f3ae7d950db7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>快速入門：在 Azure AD 中將公司商標新增至登入頁面
 為了避免混淆，許多公司都想對其管理的所有網站和服務套用一致的外觀與風格。 Azure Active Directory (Azure AD) 是透過讓您利用公司標誌和自訂色彩配置來自訂登入頁面外觀的方式，提供這項功能。 登入頁面是當您登入 Office 365 或其他使用 Azure AD 作為識別提供者的 Web 型應用程式時，所顯示的頁面。 您可以與此頁面互動來輸入您的認證。
@@ -88,7 +88,7 @@ Azure AD 登入可讓使用者選擇在關閉並重新開啟其瀏覽器時保�
 
     ![編輯自訂商標](./media/customize-branding/edit-branding.png)
 5. 修改您想要自訂的元素。 所有元素都是選用的。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 您對登入頁面商標所做的任何變更可能最多需要一個小時才會顯示。
 
@@ -103,7 +103,7 @@ Azure AD 登入可讓使用者選擇在關閉並重新開啟其瀏覽器時保�
 
     ![新增語言特定商標元素](./media/customize-branding/add-language.png)
 5. 修改您想要自訂的元素。 所有元素都是選用的。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 您對登入頁面商標所做的任何變更可能最多需要一個小時才會顯示。
 

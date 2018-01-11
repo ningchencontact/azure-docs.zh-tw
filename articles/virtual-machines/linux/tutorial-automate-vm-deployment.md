@@ -4,7 +4,7 @@ description: "了解如何使用 cloud-init 和 Key Vault，以便在 Linux VM �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>如何在初次開機時自訂 Linux 虛擬機器
 在先前的教學課程中，您學到了如何以 SSH 連線到虛擬機器 (VM) 並手動安裝 NGINX。 若要以快速且一致的方式建立 VM，您通常需要借助某種形式的自動化。 在初次開機時自訂 VM 的常見方法是使用 [cloud-init (英文)](https://cloudinit.readthedocs.io)。 在本教學課程中，您將了解如何：
@@ -46,11 +46,13 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 我們正在與合作夥伴合作，以期在他們提供給 Azure 的映像中包含和使用 cloud-init。 下表概述 cloud-init 目前在 Azure 平台映像上的可用性：
 
-| Alias | 發佈者 | 提供項目 | SKU | 版本 |
+| Alias | 發行者 | 提供項目 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
+| | OpenLogic | CentOS | 7-CI | 最新 |
+| | RedHat | RHEL | 7-RAW-CI | 最新
 
 
 ## <a name="create-cloud-init-config-file"></a>建立 Cloud-init 組態檔

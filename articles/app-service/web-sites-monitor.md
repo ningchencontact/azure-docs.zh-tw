@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>作法：監視 Azure App Service 中的應用程式
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 在 [Azure 入口網站](https://portal.azure.com)中提供內建監視功能。
@@ -29,6 +29,8 @@ Azure 入口網站包括檢閱應用程式及 App Service 方案的**配額**和
 ## <a name="understanding-quotas-and-metrics"></a>了解配額和計量
 ### <a name="quotas"></a>配額
 App Service 中裝載的應用程式都必須遵守其可用資源的某些「限制」  。 限制是由定義與應用程式相關聯的 **App Service 方案** 所定義。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 如果應用程式裝載於**免費**或**共用**方案中，則應用程式可用資源的限制是由**配額**所定義。
 
@@ -152,7 +154,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 基本、標準或進階 App Service 方案中裝載的 App Service 應用程式支援**自動調整**。 自動調整可讓您設定用以監視 App Service 方案計量的規則。 這些規則可以增加或減少執行個體計數，視需要提供其他資源。 當應用程式過度佈建時，這些規則也可協助您節省成本。 您可以在此進一步了解自動調整︰[如何調整](../monitoring-and-diagnostics/insights-how-to-scale.md)以及這裡的[Azure 監視器自動調整的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
-> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。
+> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。
 > 
 > 
 

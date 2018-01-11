@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立網路安全性群組
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 以下段落顯示案例的前端 NSG 定義。
 
 ```json
-"apiVersion": "2015-06-15",
+"apiVersion": "2017-03-01",
 "type": "Microsoft.Network/networkSecurityGroups",
 "name": "[parameters('frontEndNSGName')]",
 "location": "[resourceGroup().location]",
@@ -151,7 +151,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>使用 Azure CLI 部署 ARM 範本
 若要使用 Azure CLI 部署 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **`azure config mode`** 命令，以切換為資源管理員模式，如下所示。
 
     ```azurecli
@@ -185,7 +185,7 @@ ms.lasthandoff: 10/11/2017
         data:    
         info:    group create command OK
    
-   * **-n (或 --name)**。 要建立之資源群組的名稱。
+   * **-n (or --name)**。 要建立之資源群組的名稱。
    * **-l (或 --location)**。 將會建立將在其中建立資源群組的 Azure 區域。
    * **-f (或 --template-file)**。 ARM 範本檔案的路徑。
    * **-e (或 --parameters-file)**。 ARM 參數檔案的路徑。

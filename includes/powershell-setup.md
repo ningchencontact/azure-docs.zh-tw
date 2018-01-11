@@ -12,11 +12,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
 ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="setting-up-powershell"></a>設定 PowerShell
 請先遵循下列步驟，您才可以使用 Azure PowerShell。
@@ -82,10 +82,4 @@ ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
 如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[如何：連線至訂用帳戶](/powershell/azureps-cmdlets-docs#Connect)。
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

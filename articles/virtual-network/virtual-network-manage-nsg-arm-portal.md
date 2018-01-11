@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>使用入口網站管理 NSG
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 從 [網路安全性群組] 刀鋒視窗，或如上所示的 [資源] 刀鋒視窗中，按一下 [NSG-FrontEnd]。
 2. 在 [設定] 索引標籤中，按一下 [輸入安全性規則]。
-3. 在 [輸入安全性規則] 刀鋒視窗中，按一下 [新增]。 接著，在 新增輸入安全性規則 刀鋒視窗中，依照下圖所示填入值，然後按一下確定。
+3. 在 [輸入安全性規則] 刀鋒視窗中，按一下 [新增]。 接著，在 [新增輸入安全性規則] 刀鋒視窗中，依照下圖所示填入值，然後按一下 [確定]。
 
     ![Azure 入口網站 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 從 [網路安全性群組] 刀鋒視窗，或如上所示的 [資源] 刀鋒視窗中，按一下 [NSG-FrontEnd]。
 2. 在 [設定]  索引標籤中，按一下在前文中建立的規則。
-3. 在 allow-https 刀鋒視窗中，依照下圖所示變更 來源 屬性，然後按一下儲存。
+3. 在 [allow-https] 刀鋒視窗中，依照下圖所示變更 [來源] 屬性，然後按一下 [儲存]。
 
     ![Azure 入口網站 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
 

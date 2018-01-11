@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 應用程式
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>將秘密設定儲存在位於原始檔控制資料夾外的「使用者密碼」存放區中
-如果您要建構快速原型，或您沒有網際網路存取權，請先將您的秘密設定移至原始檔控制資料夾以外的「使用者密碼」存放區。 「使用者密碼」存放區是一個儲存在使用者分析工具資料夾下的檔案，因此密碼不會簽入原始檔控制中。 下圖說明[使用者密碼](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager)的運作方式。
+如果您要建構快速原型，或您沒有網際網路存取權，請先將您的秘密設定移至原始檔控制資料夾以外的「使用者密碼」存放區。 「使用者密碼」存放區是一個儲存在使用者分析工具資料夾下的檔案，因此密碼不會簽入原始檔控制中。 下圖說明[使用者密碼](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager)的運作方式。
 
 ![「使用者密碼」會將秘密設定保存在原始檔控制外](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/20/2017
 
     ![建立 Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限] 下拉式清單中，核取 [秘密管理作業] 下的 [取得] 和 [清單]。
+2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限] 下拉式清單中，核取 [秘密管理作業] 下的 [取得] 和 [清單]。
 
     ![新增金鑰保存庫存取原則](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

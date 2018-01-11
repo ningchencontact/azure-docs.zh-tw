@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>擷取在 Azure 上執行的 Linux 虛擬機器
 請遵循本文中的步驟，在 Resource Manager 部署模型中一般化和擷取 Azure Linux 虛擬機器 (VM)。 當您一般化 VM 時，需移除個人帳戶資訊，並準備要做為映像的 VM。 您接著擷取作業系統的一般化虛擬硬碟 (VHD) 映像、連接資料磁碟的 VHD 以及新 VM 部署的 [Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 本文詳細說明如何針對使用非受控磁碟的 VM，透過 Azure CLI 1.0 擷取 VM 映像。 您也可以[透過 Azure CLI 2.0 使用 Azure 受控磁碟擷取 VM](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 受控磁碟是由 Azure 平台處理，不需要任何準備或位置來儲存它們。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-2-capture-the-vm"></a>步驟 2：擷取 VM
 使用 Azure CLI 來一般化和擷取 VM。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 **myResourceGroup**、**myVnet** 和 **myVM**。
 
-1. 從本機電腦，開啟 Azure CLI 並[登入您的 Azure 訂用帳戶](../../xplat-cli-connect.md)。 
+1. 從本機電腦，開啟 Azure CLI 並[登入您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。 
 2. 確定您處於 Resource Manager 模式。
    
     ```azurecli

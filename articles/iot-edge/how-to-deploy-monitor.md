@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>大規模部署和監視 IoT Edge 模組 - 預覽
 
@@ -40,7 +40,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 ## <a name="create-a-deployment"></a>建立部署
 
-1. 登入 [Azure 入口網站][lnk-portal]，然後瀏覽至 IoT 中樞。 
+1. 在[Azure 入口網站][lnk-portal]，請移至您的 IoT 中樞。 
 1. 選取 [IoT Edge (預覽)]。
 1. 選取 [新增 IoT Edge 部署]。
 
@@ -49,8 +49,8 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 ### <a name="step-1-name-and-label"></a>步驟 1：名稱和標籤
 
 1. 為您的部署提供唯一名稱。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
-1. 新增標籤，以協助追蹤您的部署。 標籤是成對的「名稱, 值」，可描述您的部署。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。
-1. 選取 [下一步] 以移至步驟二。 
+1. 新增標籤，以協助追蹤您的部署。 標籤是成對的「**名稱**, **值**」，可描述您的部署。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。
+1. 選取 [下一步] 移至步驟二。 
 
 ### <a name="step-2-add-modules-optional"></a>步驟 2：新增模組 (選擇性)
 
@@ -61,26 +61,25 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 >[!NOTE]
 >Azure Machine Learning 和 Azure Functions 尚未支援自動化的 Azure 服務部署。 請使用自訂模組部署，手動將這些服務新增至您的部署。 
 
-若要新增來自 Azure 服務的模組，請遵循下列步驟：
-1. 選取 [新增 Azure 服務 IoT Edge 模組]。
+若要從 Azure Stream Analytics 中加入模組，請遵循下列步驟：
+1. 選取**匯入 Azure 資料流分析 IoT 邊緣模組**。
 1. 使用下拉式功能表來選取您想要部署的 Azure 服務執行個體。
 1. 選取 [儲存]，將您的模組新增至部署。 
 
 若要新增自訂程式碼作為模組，或手動新增 Azure 服務模組，請遵循下列步驟：
-1. 選取 [新增自訂的 IoT Edge 模組]。
+1. 選取 [新增 IoT Edge 模組]。
 1. 為模組指定**名稱**。
-1. 針對 [映像] 欄位，輸入適用於此模組的 Docker 容器映像：`microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`。
-1. 使用 [OS] 和 [架構] 下方的下拉式功能表，來識別代表這個模組的 Docker 容器屬性。 
-1. 指定任何應傳遞至容器的**建立選項**。 如需詳細資訊，請參閱 [docker create][lnk-docker-create]。
+1. 如**映像 URI**欄位中，輸入模組在 Docker 容器映像。 
+1. 指定任何**容器建立選項**，應該傳遞至容器。 如需詳細資訊，請參閱 [docker create][lnk-docker-create]。
 1. 使用下拉式功能表來選取**重新啟動原則**。 從下列選項中選擇： 
    * **永遠**：如果模組基於任何原因而關閉，永遠都會重新啟動。
    * **永不**：如果模組基於任何原因而關閉，永遠都不會重新啟動。
    * **處於失敗狀態**：如果模組損毀，就會重新啟動該模組，但如果它完全關閉，就不會重新啟動。 
    * **處於狀況不良狀態**：如果模組損毀或傳回狀況不良的狀態，就會重新啟動。 每個模組必須負責實作健康情況狀態函式。 
-1. 使用下拉功能表來選取模組的啟動**狀態**。 從下列選項中選擇：
+1. 使用下拉式選單選取**預期狀態**模組。 從下列選項中選擇：
    * **執行中**：這是預設選項。 模組將會在部署後立即開始執行。
    * **已停止**：部署之後，模組將維持閒置狀態，直到您或另一個模組呼叫來啟動為止。
-1. 如果您想要將任何標記或所需屬性新增至模組，選取 [編輯模組對應項]。 
+1. 選取**啟用**如果您想要將任何標記或想要的屬性加入至模組的兩個。 
 1. 選取 [儲存]，將您的模組新增至部署。 
 
 設定部署的所有模組之後，選取 [下一步] 移至步驟三。
@@ -97,7 +96,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 1. 為部署**優先順序**輸入一個正整數。
 1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標記為基礎，且應符合運算式格式。 例如： `tags.environment='test'`。 
-1. 選取 [下一步] 以移到最後一個步驟。
+1. 選取 [下一步] 移到最後一個步驟。
 
 ### <a name="step-5-review-template"></a>步驟 5：檢閱範本
 
@@ -172,7 +171,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 深入了解[將模組部署到 Edge 裝置][lnk-deployments]。
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

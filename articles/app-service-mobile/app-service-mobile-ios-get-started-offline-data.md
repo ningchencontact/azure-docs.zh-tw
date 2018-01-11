@@ -2,8 +2,8 @@
 title: "啟用 iOS Mobile Apps 的離線同步處理 | Microsoft Docs"
 description: "了解如何使用 Azure App Service Mobile Apps 來快取及同步處理 iOS 應用程式中的離線資料。"
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -161,9 +161,9 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | 屬性 | 類型 |
 | --- | --- |
 | id | 整數 64 |
-| itemId | String |
+| itemId | 字串 |
 | properties | 二進位資料 |
-| 資料表 | String |
+| 資料表 | 字串 |
 | tableKind | 整數 16 |
 
 
@@ -173,7 +173,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 | 屬性 | 類型 |
 | --- | --- |
-| id |String |
+| id |字串 |
 | operationId |整數 64 |
 | properties |二進位資料 |
 | tableKind |整數 16 |
@@ -184,24 +184,24 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 | 屬性 | 類型 |
 | --- | --- |
-| id |String |
-| 索引鍵 |String |
+| id |字串 |
+| 索引鍵 |字串 |
 | keyType |整數 64 |
-| 資料表 |String |
-| value |String |
+| 資料表 |字串 |
+| value |字串 |
 
 ### <a name="data-table"></a>資料表
 
 **TodoItem**
 
-| 屬性 | 類型 | 注意 |
+| 屬性 | 類型 | 附註 |
 | --- | --- | --- |
 | id | 字串 (標示為必要) |遠端存放區中的主索引鍵 |
-| 完成 | Boolean | To-do 項目欄位 |
-| 文字 |String |To-do 項目欄位 |
+| 完成 | BOOLEAN | To-do 項目欄位 |
+| text |字串 |To-do 項目欄位 |
 | 建立時間 | 日期 | (選擇性) 對應至 **createdAt** 系統屬性 |
 | 更新時間 | 日期 | (選擇性) 對應至 **updatedAt** 系統屬性 |
-| 版本 | String | (選擇性) 用來偵測衝突，對應至版本 |
+| version | 字串 | (選擇性) 用來偵測衝突，對應至版本 |
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
 在本節中，您將修改 App，使它在啟動或有使用者插入並更新項目時不會同步處理。 只有在執行重新整理動作按鈕時，它才會同步。
@@ -260,7 +260,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 7. 再次檢視 **TodoItem** 資料。 其中會顯示已變更的新 To-do 項目。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 為了支援離線同步處理功能，我們使用了 `MSSyncTable` 介面，並對本機存放區初始化 `MSClient.syncContext`。 在此案例中，本機存放區是以核心資料為基礎的資料庫。
 
 使用核心資料本機存放區時，您必須使用[正確的系統屬性](#review-core-data)定義數個資料表。

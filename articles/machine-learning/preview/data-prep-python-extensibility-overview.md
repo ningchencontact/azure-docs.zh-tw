@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>資料準備 Python 延伸模組
 資料準備可用來作為填補內建功能之間功能落差的方法，Azure Machine Learning 資料準備包含多個層級的擴充性。 在本文件中，我們將透過 Python 指令碼概述擴充性。 
@@ -68,7 +68,7 @@ math.log(row["Score"])
 ```
  
 
-錯誤  
+Error  
 
 ```python
 import math  
@@ -123,6 +123,31 @@ import scipy as sp
 或 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>使用自訂的模組
+在轉換資料流程 （指令碼），撰寫 python 程式碼如下：
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+在新增資料行 （指令碼），設定程式碼區塊的類型 = 模組，以及撰寫 python 下列的程式碼：
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+以不同的執行內容 (本機，docker spark)，指向正確的位置中的絕對路徑。 若要找出它使用"os.getcwd() + relativePath"。
+
 
 ## <a name="column-data"></a>資料行資料 
 您可以使用點標記法或使用索引鍵/值標記法，從資料列存取資料行資料。 您無法使用點標記法，來存取包含空格或特殊字元的資料行名稱。 `row` 變數應一律定義於這兩種模式的 Python 擴充功能 (模組和運算式) 中。 

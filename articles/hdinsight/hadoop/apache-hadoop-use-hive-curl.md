@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 以 HDInsight 中的 Hadoop 執行 Hive 查詢
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 12/05/2017
 
 4. 工作狀態變更為 [成功] 之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 **/example/curl**。 此位址會將輸出儲存在叢集預設儲存體的 **example/curl** 目錄中。
 
-    您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需搭配 Azure 儲存體使用 Azure CLI 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) 文件。
+    您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需搭配 Azure 儲存體使用 Azure CLI 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI 2.0](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 文件。
 
 5. 使用下列陳述式來建立名為 **errorLogs**的新「內部」資料表：
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 12/05/2017
 
 6. 使用傳回的工作識別碼檢查工作的狀態。 成功之後，如先前所述使用 Azure CLI 來下載並檢視結果。 輸出應包含三行，其中都包含 **[ERROR]**。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 Hive 與 HDInsight 搭配使用的一般資訊：
 

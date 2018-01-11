@@ -4,7 +4,7 @@ description: "在受 Azure Active Directory B2C 保護的應用程式中，針�
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 6ab73e5c79742ab548733f5712dee1e28461db9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 93589352094fdd556811ba906ee27e7b8ac1d8b5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C：針對具有 Google+ 帳戶的取用者提供註冊和登入
 ## <a name="create-a-google-application"></a>建立 Google+ 應用程式
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
     ![Google+ - 開始使用](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
    
     ![Google+ - 新增專案](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
-3. 在左側導覽中，按一下 API 管理員，然後按一下認證。
+3. 在左側導覽中，按一下 [API 管理員]，然後按一下 [認證]。
 4. 按一下位於頂端的 [OAuth 同意畫面]  索引標籤。
    
     ![Google+ - 認證](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 7. 在 [應用程式類型] 下方，選取 [Web 應用程式]。
    
     ![Google+ - OAuth 同意畫面](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
-8. 提供應用程式的**名稱**，在 [授權 JavaScript 來源] 欄位中輸入 `https://login.microsoftonline.com`，接著在 [授權重新導向 URI] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。 **{tenant}** 值會區分大小寫。 按一下 [建立] 。
+8. 提供應用程式的**名稱**，在 [授權 JavaScript 來源] 欄位中輸入 `https://login.microsoftonline.com`，接著在 [授權重新導向 URI] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。 **{tenant}** 值會區分大小寫。 按一下頁面底部的 [新增] 。
    
     ![Google+ -  建立用戶端識別碼](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 9. 複製 [用戶端識別碼] 和 [用戶端密碼] 的值。 您必須使用這兩個值，將 Google+ 設為租用戶中的身分識別提供者。 **用戶端密碼** 是重要的安全性認證。

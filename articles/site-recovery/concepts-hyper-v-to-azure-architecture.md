@@ -1,24 +1,16 @@
 ---
-title: "檢閱使用 Azure Site Recovery 將 Hyper-V 複寫至 Azure 的架構 | Microsoft Docs"
+title: "在 Azure Site Recovery 的 Azure 複寫架構 HYPER-V |Microsoft 文件"
 description: "本文提供使用 Azure Site Recovery 服務將內部部署 Hyper-V VM (不含 VMM) 複寫至 Azure 時所用元件和架構的概觀。"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aa27d75c5a1efe3971cabfe2b6a39433c772a40a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V 至 Azure 複寫架構
 
@@ -149,6 +141,7 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 
 ## <a name="next-steps"></a>後續步驟
 
-請檢閱「遵循教學課程」支援對照表，以啟用 Hyper-V 複寫到 Azure。
-執行容錯移轉和容錯回復。
+
+請遵循[本教學課程](tutorial-prepare-azure.md)若要開始使用 HYPER-V，對 Azure 的複寫。
+
 

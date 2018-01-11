@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 12/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 6ac59cb3d669e0dc197787311beedd44f888e8ab
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立圖形資料庫
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可使用 Azure Cosmos DB 快速地建立和查詢受管理的文件、資料表及圖形資料庫。 
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可使用 Azure Cosmos DB 快速地建立和查詢受控文件、資料表及圖形資料庫。 
 
 本快速入門會使用 Azure Cosmos DB 適用的 Azure 入口網站工具，建立簡易的圖形資料庫。 本快速入門也會顯示如何使用 OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) 驅動程式，快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 本快速入門可讓您熟悉如何在 UI 中或以程式設計方式建立和修改圖形 (不論您偏好哪種方式)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 此外：
@@ -64,7 +64,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     圖形識別碼|sample-graph|輸入 *sample-graph* 作為新集合的名稱。 圖形名稱與資料庫識別碼具有相同的字元需求。
     儲存體容量|固定 (10 GB)|將值變更為 [固定 (10 GB)]。 此值是資料庫的儲存體容量。
     Throughput|400 RU|將輸送量變更為每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。
-    資料分割索引鍵|保留空白|針對本快速入門的目的，將資料分割索引鍵空白。
 
 3. 填妥表單後，按一下 [確定]。
 
@@ -193,7 +192,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 按一下 [新增屬性]，以新增以下各項屬性。 請注意，您可以在圖形中為每個人建立獨特的屬性。 只需要識別碼索引鍵。
 
-    key|value|注意事項
+    索引鍵|value|注意
     ----|----|----
     id|ashley|頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
     gender|female| 
@@ -202,7 +201,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     > [!NOTE]
     > 在本快速入門中，我們會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
 
-6. 按一下 [確定] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
+6. 按一下 [SERVICEPRINCIPAL] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
 
 7. 再次按一下 [新增頂點] 並新增額外的新使用者。 
 
@@ -210,13 +209,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 9. 按一下 [新增屬性]，以新增以下各項屬性：
 
-    key|value|注意事項
+    索引鍵|value|注意
     ----|----|----
     id|rakesh|頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
     gender|male| 
     school|MIT| 
 
-10. 按一下 [確定] 。 
+10. 按一下 [SERVICEPRINCIPAL] 。 
 
 11. 按一下 [套用篩選條件] 按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果] 清單中。 
 

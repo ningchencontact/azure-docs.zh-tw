@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 InTime 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d4e2c6e1-ae5d-4d2c-8ffc-1b24534d376a
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 4bb22c92ad7f6963be6ca15073f7f01da99ba2bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5a260338354799e7076f7475a98aa648bf73a45a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>教學課程：Azure Active Directory 與 InTime 整合
 
@@ -48,13 +48,13 @@ InTime 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 InTime
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-intime-from-the-gallery"></a>從資源庫新增 InTime
-若要設定將 InTime 整合到 Azure AD 中，您需要從資源庫將 InTime 新增到受管理的 SaaS 應用程式清單。
+若要設定將 InTime 整合到 Azure AD 中，您需要從資源庫將 InTime 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 InTime，請執行下列步驟：**
 
@@ -110,7 +110,7 @@ InTime 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，輸入 URL：`https://auth.intimesoft.com/auth/realms/master`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://auth.intimesoft.com/auth/realms/master`
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -146,7 +146,7 @@ InTime 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-intime-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-intime-tutorial/create_aaduser_02.png)
 
@@ -164,7 +164,7 @@ InTime 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-intime-test-user"></a>建立 InTime 測試使用者
 

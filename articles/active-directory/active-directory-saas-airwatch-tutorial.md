@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 AirWatch 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a0e314aaf59a70107058829ea84dde362f097274
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>教學課程：Azure Active Directory 與 AirWatch 整合
 
@@ -48,13 +48,13 @@ AirWatch 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 AirWatch
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-airwatch-from-the-gallery"></a>從資源庫新增 AirWatch
-若要設定 AirWatch 與 Azure AD 整合，您需要從資源庫將 AirWatch 新增至受管理的 SaaS 應用程式清單。
+若要設定 AirWatch 與 Azure AD 整合，您需要從資源庫將 AirWatch 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 AirWatch，請執行下列步驟：**
 
@@ -64,17 +64,17 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，鍵入 **AirWatch**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
 
-5. 在結果窗格中，選取 AirWatch，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [AirWatch]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
 
@@ -113,7 +113,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，以 `AirWatch` 形式輸入值
+    b. 在 [識別碼] 文字方塊中，以 `AirWatch` 形式輸入值
 
     > [!NOTE] 
     > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [AirWatch 用戶端支援小組](http://www.air-watch.com/company/contact-us/)以取得這些值。 
@@ -132,15 +132,15 @@ AirWatch 與 Azure AD 整合提供下列優點：
 <CS>
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 AirWatch 公司網站。
 
-8. 在左側導覽窗格中按一下 帳戶，然後按一下系統管理員。
+8. 在左側導覽窗格中按一下 [帳戶]，然後按一下 [系統管理員]。
    
    ![系統管理員](./media/active-directory-saas-airwatch-tutorial/ic791920.png "系統管理員")
 
-9. 展開 設定 功能表，然後按一下目錄服務。
+9. 展開 [設定] 功能表，然後按一下 [目錄服務]。
    
    ![設定](./media/active-directory-saas-airwatch-tutorial/ic791921.png "設定")
 
-10. 按一下 使用者 索引標籤，在 基準 DN 文字方塊中輸入您的網域名稱，然後按一下儲存。
+10. 按一下 [使用者] 索引標籤，在 [基準 DN] 文字方塊中輸入您的網域名稱，然後按一下 [儲存]。
    
    ![使用者](./media/active-directory-saas-airwatch-tutorial/ic791922.png "使用者")
 
@@ -154,7 +154,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
     
     a. 針對 [目錄類型]，選取 [無]。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [使用 SAML 進行驗證] 。
+    b. 選取 [使用 SAML 進行驗證] 。
 
     c. 若要上傳已下載的憑證，請按一下 [上傳] 。
 
@@ -164,11 +164,11 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     a. 針對 [要求繫結類型]，選取 [POST]。
 
-    b.這是另一個 C# 主控台應用程式。 在 Azure 入口網站的 [設定在 Airwatch 單一登入] 對話頁面上，複製 [SAML 單一登入服務 URL] 值，然後將它貼到 [識別提供者單一登入 URL] 文字方塊中。
+    b. 在 Azure 入口網站的 [設定在 Airwatch 單一登入] 對話頁面上，複製 [SAML 單一登入服務 URL] 值，然後將它貼到 [識別提供者單一登入 URL] 文字方塊中。
 
     c. 針對 [NameID 格式]，選取 [電子郵件地址]。
 
-    d. 按一下 [儲存] 。
+    d. 按一下 [檔案] 。
 
 14. 再按一次 [使用者]  索引標籤。
     
@@ -180,7 +180,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     a. 在 [物件識別碼] 文字方塊中，輸入 **http://schemas.microsoft.com/identity/claims/objectidentifier**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 
     c. 在 [顯示名稱] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**。
 
@@ -190,7 +190,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     f. 在 [電子郵件] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 
-    g. 按一下 [儲存] 。
+    g. 按一下 [檔案] 。
 
 <CE>
 
@@ -219,11 +219,11 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
+    b. 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-airwatch-test-user"></a>建立 AirWatch 測試使用者
 
@@ -234,17 +234,17 @@ AirWatch 與 Azure AD 整合提供下列優點：
 **若要佈建使用者帳戶，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 **AirWatch** 公司網站。
-2. 在左側導覽窗格中按一下 帳戶，然後按一下使用者。
+2. 在左側導覽窗格中按一下 [帳戶]，然後按一下 [使用者]。
    
    ![使用者](./media/active-directory-saas-airwatch-tutorial/ic791929.png "使用者")
-3. 在 使用者 功能表中，按一下 清單檢視，然後按一下新增 \> 新增使用者。
+3. 在 [使用者] 功能表中，按一下 [清單檢視]，然後按一下 [新增] \> [新增使用者]。
    
    ![新增使用者](./media/active-directory-saas-airwatch-tutorial/ic791930.png "新增使用者")
 4. 在 [新增/編輯使用者]  對話方塊中，執行下列步驟：
 
    ![新增使用者](./media/active-directory-saas-airwatch-tutorial/ic791931.png "新增使用者")   
    1. 在相關的文字方塊中，輸入您想要佈建之有效 Azure Active Directory 帳戶的 [使用者名稱]、[密碼]、[確認密碼]、[名字]、[姓氏]、[電子郵件地址]。
-   2. 按一下 [儲存] 。
+   2. 按一下 [檔案] 。
 
 >[!NOTE]
 >您可以使用任何其他的 AirWatch 使用者帳戶建立工具或 AirWatch 提供的 API 來佈建 AAD 使用者帳戶。

@@ -4,7 +4,7 @@ description: "Azure Active Directory 會利用 SCIM 通訊協定規格中定義�
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
@@ -12,25 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: aaddev;it-pro
+ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
 ## <a name="overview"></a>概觀
 Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Management (SCIM) 2.0 通訊協定規格](https://tools.ietf.org/html/draft-ietf-scim-api-19)中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區。 Azure Active Directory 可以傳送要求以建立、修改或刪除指派給 Web 服務的使用者和群組。 然後 Web 服務可以將這些要求轉譯成目標身分識別存放區上的作業。 
-
-> [!IMPORTANT]
-> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 傳統入口網站。 
-
-
 
 ![][0]
 圖 1：透過 Web 服務從 Azure Active Directory 佈建到身分識別存放區
@@ -87,7 +82,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 13. 按一下 [儲存] 以啟動 Azure AD 佈建服務。 
 14. 如果僅同步處理指派的使用者和群組 (建議選項)，請務必選取 [使用者和群組] 索引標籤，並且指派您想要同步處理的使用者和/或群組。
 
-一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)。
+一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)。
 
 >[!NOTE]
 >初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，大約每 20 分鐘便會發生一次。 
@@ -106,7 +101,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 ### <a name="code-samples"></a>程式碼範例
 為了讓這個程序更簡單，我們提供了一組 [程式碼範例](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) ，該範例會建立 SCIM Web 服務端點並示範自動佈建。 其中一個範例是維護代表使用者和群組、具有逗號分隔值資料列檔案的提供者。  另一個是在 Amazon Web 服務身分識別與存取管理服務上運作的提供者。  
 
-**必要條件**
+**先決條件**
 
 * Visual Studio 2013 或更新版本
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
@@ -159,7 +154,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 13. 按一下 [儲存] 以啟動 Azure AD 佈建服務。 
 14. 如果僅同步處理指派的使用者和群組 (建議選項)，請務必選取 [使用者和群組] 索引標籤，並且指派您想要同步處理的使用者和/或群組。
 
-一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)。
+一旦啟動初始同步處理，您可以使用 [稽核記錄] 索引標籤以監視進度，進步會顯示佈建服務在您的應用程式上執行的所有動作。 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)。
 
 確認此範例的最後一個步驟是開啟 Windows 電腦上 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 資料夾中的 TargetFile.csv 檔案。 一旦執行佈建程序，此檔案會顯示所有指派和佈建的使用者和群組的詳細資料。
 

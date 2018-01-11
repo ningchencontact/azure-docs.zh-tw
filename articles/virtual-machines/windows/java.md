@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b9e739a07c5863577285fb3a221b372b385c6762
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>在 Azure 中使用 JAVA 建立並管理 Windows VM
 
@@ -471,5 +471,5 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解關於使用[適用於 JAVA 的 Azure 程式庫](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview)。
+* 深入了解關於使用[適用於 JAVA 的 Azure 程式庫](https://docs.microsoft.com/java/azure/java-sdk-azure-overview)。
 

@@ -4,7 +4,7 @@ description: "Microsoft Azure Resource Manager 資源提供者中可用作業的
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
-本文件會列出每個 Microsoft Azure Resource Manager 資源提供者可用的作業。 這些作業可用在自訂角色中，以對 Azure 中的資源提供細微的角色型存取控制 (RBAC) 權限。 請注意，這份清單並不完整，而且這些作業可能會隨著每個提供者的更新而有所新增或移除。 作業字串遵循 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 的格式。 如需完整的現行清單，請使用 `Get-AzureRmProviderOperation` (在 PowerShell 中) 或 `azure provider operations show` (在 Azure CLI 中) 來列出 Azure 資源提供者的作業。
+本文件會列出每個 Microsoft Azure Resource Manager 資源提供者可用的作業。 這些作業可用在自訂角色中，以對 Azure 中的資源提供細微的角色型存取控制 (RBAC) 權限。 請注意，這份清單並不完整，而且這些作業可能會隨著每個提供者的更新而有所新增或移除。 作業字串遵循 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 的格式。 
+
+> [!NOTE]
+> 如需完整的目前清單請使用`Get-AzureRmProviderOperation`（以 PowerShell) 或`az provider operation list`（在 Azure CLI v2) 的 Azure 資源提供者的清單作業。
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -2183,9 +2186,9 @@ ms.lasthandoff: 11/02/2017
 |/deploymentlocations/read|取得部署位置。|
 |/sourcecontrols/read|取得原始檔控制。|
 |/sourcecontrols/write|更新原始檔控制。|
-|/managedhostingenvironments/read|取得受管理的裝載環境。|
-|/managedhostingenvironments/sites/read|取得受管理裝載環境的 Web Apps。|
-|/managedhostingenvironments/serverfarms/read|取得受管理裝載環境的 App Service 方案。|
+|/managedhostingenvironments/read|取得受控裝載環境。|
+|/managedhostingenvironments/sites/read|取得受控裝載環境的 Web Apps。|
+|/managedhostingenvironments/serverfarms/read|取得受控裝載環境的 App Service 方案。|
 |/locations/managedapis/read|取得位置管理的 API。|
 |/locations/apioperations/read|取得位置 API 作業。|
 |/locations/connectiongatewayinstallations/read|取得位置連線閘道器安裝。|
@@ -2194,7 +2197,6 @@ ms.lasthandoff: 11/02/2017
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[建立自訂角色](role-based-access-control-custom-roles.md)。
-
 - 檢閱[內建的 RBAC 角色](role-based-access-built-in-roles.md)。
-
 - 了解如何[依使用者](role-based-access-control-manage-assignments.md)或[依資源](role-based-access-control-configure.md)來管理存取權指派 
+- 深入了解如何[檢視活動記錄檔，稽核對資源的動作](~/articles/azure-resource-manager/resource-group-audit.md)

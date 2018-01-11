@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Lecorpio 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 35c94e2d9d8a938971f85ea732a74a7e1655545e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15eded8b676dfea018f041aed75b4f706bc1a55b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>教學課程：Azure Active Directory 與 Lecorpio 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Lecorpio
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-lecorpio-from-the-gallery"></a>從資源庫新增 Lecorpio
-若要設定將 Lecorpio 整合到 Azure AD 中，您需要從資源庫將 Lecorpio 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Lecorpio 整合到 Azure AD 中，您需要從資源庫將 Lecorpio 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Lecorpio，執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Lecorpio**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lecorpio-tutorial/tutorial_lecorpio_search.png)
 
-5. 在結果窗格中，選取 Lecorpio，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Lecorpio]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lecorpio-tutorial/tutorial_lecorpio_addfromgallery.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入值：`https://<instance name>.lecorpio.com/<customer name>`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.lecorpio.com/<customer name>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [Lecorpio 客戶支援小組](mailto:info@lecorpio.com)以取得這些值。 
@@ -155,11 +155,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-lecorpio-test-user"></a>建立 Lecorpio 測試使用者
 

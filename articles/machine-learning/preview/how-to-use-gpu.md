@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中使用 GPU
 圖形處理器 (GPU) 廣泛用於處理需進行大量運算的工作，因此適用於針對特定深度類神經網路的定型處理工作。 透過使用 GPU，您將能大幅降低模型的定型時間。 在本文件中，您將了解如何設定 Azure ML Workbench，以使用配備 GPU 的 [DSVM (資料科學虛擬機器)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) \(英文\) 作為執行目標。 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/05/2017
 在此情況下，Azure ML Workbench 中不需要有任何特殊設定。 您只需確定已於本機安裝所有必要的驅動程式、工具組，以及已啟用 GPU 的機器學習程式庫。 您只需針對 Python 執行階段可在其中直接存取本機 GPU 硬體的「本機」環境執行。
 
 1. 開啟 AML Workbench。 移至 [檔案] 和 [開啟命令提示字元]。 
-2. 從命令列安裝已啟用 GPU 的深度學習架構，例如，Microsoft 辨識工具組、TensorFlow 等。例如：
+2. 從命令列安裝已啟用 GPU 的深度學習架構，例如，Microsoft 辨識工具組、TensorFlow 等。例如︰
 
 ```batch
 REM install latest TensorFlow with GPU support
@@ -64,10 +64,10 @@ Azure ML Workbench 也支援在 Azure Linux VM 的 Docker 中執行。 您可以
 4. 按一下 [建立] 以建立 Ubuntu DSVM。
 
 5. 在 [基本] 表單中填入必要資訊。
-選取 VM 的位置時，請留意 GPU VM 僅於特定的 Azure 區域提供，例如「美國中南部」。 請參閱[依區域提供的產品](https://azure.microsoft.com/en-us/regions/services/)。
+選取 VM 的位置時，請留意 GPU VM 僅於特定的 Azure 區域提供，例如「美國中南部」。 請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。
 按一下 [確定] 以儲存 [基本] 資訊。
 
-6. 選擇虛擬機器的大小。 選取一個具 NC 前置詞之 VM (代表其配備 NVidia GPU 晶片) 的大小。  視需要按一下 [全部檢視] 以查看完整清單。 深入了解[配備 GPU 的 Azure VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu)。
+6. 選擇虛擬機器的大小。 選取一個具 NC 前置詞之 VM (代表其配備 NVidia GPU 晶片) 的大小。  視需要按一下 [全部檢視] 以查看完整清單。 深入了解[配備 GPU 的 Azure VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu)。
 
 7. 完成其餘的設定，然後檢閱購買資訊。 按一下 [購買] 以建立 VM。 記下配置給該虛擬機器的 IP 位址。 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-您也可以使用 1 位元 SGD 版本的 Microsoft 辨識工具組，它能在多 GPU 的 VM 上提供效能改進。 請注意 [1 位元 SGD 的授權需求](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license) \(英文\)。
+您也可以使用 1 位元 SGD 版本的 Microsoft 辨識工具組，它能在多 GPU 的 VM 上提供效能改進。 請注意 [1 位元 SGD 的授權需求](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license) \(英文\)。
 
 ```yaml
 name: project_environment

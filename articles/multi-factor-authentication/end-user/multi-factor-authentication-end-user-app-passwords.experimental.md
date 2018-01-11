@@ -4,7 +4,7 @@ description: "本頁面將協助使用者了解什麼是應用程式密碼，以
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: c1c5a83fc54744dca1da0c7049f34fcf0bd5dfb4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: af755683ba2e62f01b175b8eb53a34dfd6013e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？
 有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。 Multi-Factor Authentication 會對每個使用者啟用。  這表示在下列情況下，使用者無法使用多重要素驗證：
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/15/2017
 1. 登入 Azure 傳統入口網站。
 2. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
 3. 在 proofup 頁面的頂端，選取應用程式密碼
-4. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 5. 輸入應用程式密碼的名稱，然後按 [下一步] 
 6. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
    
@@ -94,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 4. 選取 [應用程式密碼]。
    ![選取 [應用程式密碼] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. 按一下 [建立] 。
+5. 按一下頁面底部的 [新增] 。
 6. 輸入應用程式密碼的名稱，然後按 [下一步] 。
 7. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
    ![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)

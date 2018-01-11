@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中部署資源或屬性的多個執行個體
-此主題說明如何逐一查看您的 Azure Resource Manager 範本，以建立資源的多個執行個體，或資源屬性的多個執行個體。
+本文將說明如何將有條件地部署資源，以及如何逐一查看您的 Azure Resource Manager 範本建立多個資源執行個體中。
 
-如果您需要將邏輯新增至您的範本，讓您指定是否已部署資源，請參閱[有條件地部署資源](#conditionally-deploy-resource)。
+## <a name="conditionally-deploy-resource"></a>有條件地部署資源
 
-如需在陣列變數中建立多個項目的的範例，請參閱[變數](resource-group-authoring-templates.md#variables)。
+若要建立一個執行個體或資源的任何執行個體，您必須決定在部署期間，當使用`condition`項目。 此元素的值會解析為 true 或 false。 若此值為 true，便已部署資源。 若此值為 false，則未部署資源。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>資源反覆項目
-若要建立多個資源類型的執行個體，請將 `copy` 元素新增至資源類型。 在複製元素中，您可以指定反覆項目的數目以及此迴圈的名稱。 計數值必須為不超過 800 的正整數。 Resource Manager 會以平行方式建立資源。 因此，不保證資源會循序建立。 若要在序列中建立反覆執行的資源，請參閱[序列複製](#serial-copy)。 
+當您必須決定在部署期間建立的資源的一個或多個執行個體時，加入`copy`到資源類型的項目。 在複製元素中，您可以指定反覆項目的數目以及此迴圈的名稱。 計數值必須為不超過 800 的正整數。 
 
 建立多個時間的資源需使用下列格式：
 
@@ -112,151 +127,40 @@ ms.lasthandoff: 11/09/2017
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>序列副本
+根據預設，資源管理員會以平行方式來建立資源。 因此，不保證資源會循序建立。 不過，建議您指定將資源部署在序列中。 例如，在更新生產環境時，您可以錯開更新，因此任何一次就只會更新特定數目。
 
-當您使用複製元素來建立多個資源類型的執行個體時，根據預設，Resource Manager 會平行部署這些執行個體。 不過，建議您指定將資源部署在序列中。 例如，在更新生產環境時，您可以錯開更新，因此任何一次就只會更新特定數目。
+若要以序列方式部署資源的多個執行個體，設定`mode`至**序列**和`batchSize`部署一次的執行個體數目。 透過序列模式，Resource Manager 會在迴圈先前的執行個體上建立相依性，因此前一批次完成之前，它不會啟動一個批次。
 
-Resource Manager 會提供複製元素的屬性，可讓您以序列方式部署多個執行個體。 在複製元素中，將 `mode` 設定至 **序列**以及將 `batchSize` 設定為一次要部署的執行個體數目。 透過序列模式，Resource Manager 會在迴圈先前的執行個體上建立相依性，因此前一批次完成之前，它不會啟動一個批次。
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-mode 屬性也接受**平行**，這是預設值。
-
-若要測試序列副本而不建立實際的資源，請使用下列部署空白巢狀範本的範本︰
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-在部署歷程記錄中，請注意，會在序列中處理巢狀部署。
-
-![序列部署](./media/resource-group-create-multiple/serial-copy.png)
-
-在更真實的案例中，下列範例會從巢狀範本一次部署兩個 Linux VM 的執行個體︰
+例如，若要以序列方式每次部署兩個儲存體帳戶，請使用：
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+mode 屬性也接受**平行**，這是預設值。
 
 ## <a name="property-iteration"></a>屬性反覆運算
 
@@ -352,50 +256,56 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
 }
 ```
 
-在每個資源的屬性中，您只可以包含一個 copy 元素。 若要指定多個屬性的反覆運算迴圈，請在 copy 陣列中定義多個物件。 每個物件會分開反覆運算。 例如，若要在負載平衡器上建立 `frontendIPConfigurations` 屬性和 `loadBalancingRules` 屬性的多個執行個體，請在單一 copy 元素中定義這兩個物件： 
+## <a name="variable-iteration"></a>變數的反覆項目
+
+若要建立之變數的多個執行個體，請使用`copy`[變數] 區段中的項目。 您可以使用相關的值，建立多個物件執行個體，然後將這些值指派給資源的執行個體。 您可以使用 複製到陣列屬性或陣列中建立的物件。 下列範例中會展示這兩種方法：
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>為子資源建立多個執行個體
+## <a name="iteration-for-a-child-resource"></a>反覆項目子系資源
 您無法為子資源使用複製迴圈。 若要為通常定義為巢狀在另一個資源內的資源建立多個執行個體，您必須改為將該資源建立為最上層資源。 您可以透過類型和名稱屬性，定義和父資源之間的關聯性。
 
 例如，假設您通常將資料集定義為 Data Factory 中的子資源。
@@ -485,28 +395,19 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>有條件地部署資源
+## <a name="example-templates"></a>範本的範例
 
-若要指定是否已部署資源，請使用 `condition` 元素。 此元素的值會解析為 true 或 false。 若此值為 true，便已部署資源。 若此值為 false，則未部署資源。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
+下列範例顯示建立多個資源或屬性的常見案例。
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
-如需使用新的或現有資源的範例，請參閱[新的或現有條件範本](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json)。
-
-如需使用密碼或 SSH 金鑰來部署虛擬機器的範例，請參閱[使用者名稱或 SSH 條件範本](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json)。
+|範本  |說明  |
+|---------|---------|
+|[複製儲存空間](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |部署多個儲存體帳戶名稱中的索引編號。 |
+|[序列的複本儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |部署多個儲存體帳戶一次。 名稱中包含索引編號。 |
+|[複製儲存體陣列](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |部署多個儲存體帳戶。 名稱包含陣列中的值。 |
+|[新的或現有虛擬網路、 存放裝置，以及公用 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |有條件地將新的或現有的資源，與虛擬機器的部署。 |
+|[VM 部署的資料磁碟數目可變的](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |部署多個資料磁碟與虛擬機器。 |
+|[複製變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |示範反覆運算變數的不同的方式。 |
+|[多個安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |將多個安全性規則部署到網路安全性群組。 建構自參數的安全性規則。 |
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解範本區段的相關資訊，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

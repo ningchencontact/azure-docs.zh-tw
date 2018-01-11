@@ -1,9 +1,9 @@
 ---
-title: "錯誤和例外狀況處理 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps 中的錯誤和例外狀況處理模式"
+title: "錯誤和例外狀況處理在 Azure 中的 Logic apps |Microsoft 文件"
+description: "錯誤和例外狀況處理邏輯應用程式中的模式。"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: derek1ee
 manager: anneta
 editor: 
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
@@ -13,68 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.author: LADocs; deli
+ms.openlocfilehash: a74c7d18306359c9152f139299de1208b5932fe5
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
+# <a name="handle-errors-and-exceptions-in-logic-apps"></a>處理錯誤和例外狀況中的 Logic Apps
 
-Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合穩固且具有彈性，不怕故障。 任何整合架構都會帶來挑戰，讓您難以確定是否可適當地處理相依系統的停機或問題。 Logic Apps 讓處理錯誤成為一種頂級享受，賦予您所需工具來處理工作流程內的例外狀況和錯誤。
+在 Azure 中的應用程式邏輯提供豐富的工具和可協助您確保您的整合是強固且彈性地防止失敗的模式。 任何整合架構其中適當地處理停機時間的挑戰，或從相依系統問題。 邏輯應用程式可處理錯誤的第一級的體驗。 它可讓您加以處理的例外狀況和您的工作流程中的錯誤所需的工具。
 
 ## <a name="retry-policies"></a>重試原則
 
-重試原則是最基本的例外狀況和錯誤處理類型。 如果初始要求逾時或失敗 (任何造成 429 或 5xx 回應的要求)，此原則會定義是否及如何重試動作。 有三種類型的重試原則，`exponential`、`fixed` 和 `none`。 如果工作流程定義中未提供重試原則，就會使用預設原則。 您可以在特定動作或觸發程序 (如果可重試) 的**輸入**中設定重試原則。 同樣地，在邏輯應用程式設計工具中，可以設定給定區塊之 [設定] 之下的重試原則 (如果適用)。
+重試原則是最基本的例外狀況和錯誤處理類型。 如果初始的要求逾時或失敗 (429 會導致任何要求或 5xx 回應)，重試原則定義是否應該重試此動作的方式。 
 
-如需重試原則限制的詳細資訊，請參閱 [Logic Apps 限制與設定](../logic-apps/logic-apps-limits-and-config.md)，如需有關支援語法的詳細資訊，請參閱[「工作流程動作與觸發程序」中的重試原則小節][retryPolicyMSDN]。
+有四種類型的重試原則： default、 none、 固定間隔和指數的間隔。 如果工作流程定義中未提供重試原則，則會使用預設的原則所定義的服務。 
 
-### <a name="exponential-interval"></a>指數間隔
-在以指數方式成長範圍內的隨機時間間隔之後，`exponential` 原則類型會重試失敗的要求。 每次重試都保證在大於 **minimumInterval** 和小於 **maximumInterval** 的隨機間隔中傳送。 每次重試都會產生下方範圍中的統一隨機變數，最多且含**計數**：
-<table>
-<tr><th> 隨機變數範圍 </th></tr>
-<tr><td>
+您可以在特定動作或觸發程序 (如果可重試) 的*輸入*中設定重試原則。 同樣地，您可以設定的重試原則 （如果適用） 中邏輯應用程式的設計工具。 若要設定的重試原則，請在邏輯應用程式的設計工具，請移至**設定**特定的動作。
 
-| 重試數目 | 最小間隔 | 最大間隔 |
-| ------------ |  ------------ |  ------------ |
-| 1 | 最大值 (0，**minimumInterval**) | 最小值 (時間間隔，**maximumInterval**) |
-| 2 | 最大值 (時間間隔，**minimumInterval**) | 最小值 (2 * 間隔，**maximumInterval**) |
-| 3 | 最大值 (2 * 間隔，**minimumInterval**) | 最小值 (4 * 間隔，**maximumInterval**) |
-| 4 | 最大 (4 * 間隔，**minimumInterval**) | Min (8 * 間隔，**maximumInterval**) |
-| ... |
-
-</td></tr></table>
-
-針對 `exponential` 輸入原則，需要**計數**和**間隔**，而 **minimumInterval** 和 **maximumInterval** 則可以選擇性地提供，以分別覆寫 PT5S 和 PT1D 的預設值。
-
-| 元素名稱 | 必要 | 類型 | 說明 |
-| ------------ | -------- | ---- | ----------- |
-| 類型 | 是 | String | `exponential` |
-| 計數 | 是 | Integer | 重試次數必須介於 1 到 90 之間  |
-| interval | 是 | String | 重試間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須在 PT5S 與 PT1D 之間 |
-| minimumInterval | 否| String | 重試最小間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須介於 PT5S 與**間隔**之間 |
-| maximumInterval | 否| String | 重試最小間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須介於**間隔**與 PT1D 之間 |
-
-### <a name="fixed-interval"></a>固定間隔
-
-`fixed` 原則類型在傳送下一個要求之前，會等候所提供的時間間隔，以重試失敗的要求。
-
-| 元素名稱 | 必要 | 類型 | 說明 |
-| ------------ | -------- | ---- | ----------- |
-| 類型 | 是 | String | `fixed`|
-| 計數 | 是 | Integer | 重試次數必須介於 1 到 90 之間 |
-| interval | 是 | String | 重試間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須在 PT5S 與 PT1D 之間 |
-
-### <a name="none"></a>None
-`none` 原則類型將不會重試失敗的要求。
-
-| 元素名稱 | 必要 | 類型 | 說明 |
-| ------------ | -------- | ---- | ----------- |
-| 類型 | 是 | String | `none`|
+限制的重試原則的相關資訊，請參閱[Logic Apps 限制以及設定](../logic-apps/logic-apps-limits-and-config.md)。 如需有關支援語法的詳細資訊，請參閱[重試一次在工作流程動作和觸發程序中的 [原則] 區段][retryPolicyMSDN]。
 
 ### <a name="default"></a>預設值
-如果未指定任何重試原則，則會使用預設原則。 預設原則是指數的間隔原則，會傳送最多 4 次重試，以指數方式依 7.5 秒調整增加間隔，且上限為 5 到 45 秒之間。 這項預設原則 (未定義 **retryPolicy** 時使用) 就相當於此範例 HTTP 工作流程定義中的原則：
+
+如果您未定義的重試原則 (**retryPolicy**是未定義)，會使用預設原則。 預設原則是指數間隔原則傳送最多四個重試次數，以指數方式增加的縮放 7.5 秒的間隔。 間隔的上限為介於 5 到 45 秒。 這項預設原則相當於在此範例中 HTTP 工作流程定義的原則：
 
 ```json
 "HTTP":
@@ -95,9 +57,55 @@ Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合
 }
 ```
 
-## <a name="catch-failures-with-the-runafter-property"></a>使用 RunAfter 屬性來擷取失敗
+### <a name="none"></a>None
 
-每個邏輯應用程式動作都會宣告要讓此動作啟動必須先完成哪些動作，就像是將工作流程中的步驟排序。 在動作定義中，此排序稱為 `runAfter` 屬性。 此屬性是會說明哪些動作和動作狀態會執行此動作的物件。 根據預設，所有透過邏輯應用程式設計工具新增的動作都會設定為如果上一個步驟 `Succeeded`，則在上一個步驟之後執行 (`runAfter`)。 不過，您可以自訂此值，以在先前的動作是 `Failed`、`Skipped` 或這兩個值的可能組合時引發動作。 如果您想要在特定動作 `Insert_Row` 失敗之後於指定的服務匯流排主題新增項目，您可以使用下列 `runAfter` 組態︰
+如果**retryPolicy**設**無**，不會重試失敗的要求。
+
+| 元素名稱 | 必要 | 類型 | 說明 |
+| ------------ | -------- | ---- | ----------- |
+| type | 是 | 字串 | 無 |
+
+### <a name="fixed-interval"></a>固定間隔
+
+如果**retryPolicy**設**固定**，原則會重試失敗的要求正在等候指定的傳送下一個要求之前的時間間隔。
+
+| 元素名稱 | 必要 | 類型 | 說明 |
+| ------------ | -------- | ---- | ----------- |
+| type | 是 | 字串 | **修正** |
+| count | 是 | 整數  | 重試嘗試的次數。 必須是介於 1 到 90 之間。 |
+| interval | 是 | 字串 | 重試間隔中的[ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。 必須在 PT1D PT5S 之間。 |
+
+### <a name="exponential-interval"></a>指數間隔
+
+如果**retryPolicy**設**指數**，原則以指數方式成長的範圍內隨機的時間間隔之後會重試失敗的要求。 每次重試都保證在大於 **minimumInterval** 和小於 **maximumInterval** 的隨機間隔中傳送。 針對每次重試產生統一的隨機變數，指定下表中的範圍中最多並包括**計數**:
+
+**隨機變數範圍**
+
+| 重試數字 | 最小間隔 | 最大間隔 |
+| ------------ |  ------------ |  ------------ |
+| 1 | 最大值 (0，**minimumInterval**) | 最小值 (時間間隔，**maximumInterval**) |
+| 2 | 最大值 (時間間隔，**minimumInterval**) | 最小值 (2 * 間隔，**maximumInterval**) |
+| 3 | 最大值 (2 * 間隔， **minimumInterval**) | 最小值 (4 * 間隔，**maximumInterval**) |
+| 4 | 最大 (4 * 間隔，**minimumInterval**) | Min (8 * 間隔，**maximumInterval**) |
+| ... |
+
+指數類型原則**計數**和**間隔**所需。 值**minimumInterval**和**maximumInterval**是選擇性的。 您可以將它們分別覆寫 PT5S 和 PT1D 的預設值。
+
+| 元素名稱 | 必要 | 類型 | 說明 |
+| ------------ | -------- | ---- | ----------- |
+| type | 是 | 字串 | **指數** |
+| count | 是 | 整數  | 重試嘗試的次數。 必須是介於 1 到 90 之間。  |
+| interval | 是 | 字串 | 重試間隔中的[ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。 必須在 PT1D PT5S 之間。 |
+| minimumInterval | 否 | 字串 | 重試中的最小間隔[ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。 必須介於 PT5S 和**間隔**。 |
+| maximumInterval | 否 | 字串 | 重試中的最小間隔[ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。 必須介於**間隔**和 PT1D。 |
+
+## <a name="catch-failures-with-the-runafter-property"></a>攔截與 runAfter 屬性失敗
+
+邏輯應用程式的每個動作宣告的動作必須在動作啟動之前完成。 與工作流程中排序步驟相似。 在動作定義中，這種排序稱為**runAfter**屬性。 
+
+**RunAfter**屬性是描述哪些動作和動作狀態執行此動作的物件。 根據預設，使用邏輯應用程式的設計工具加入的所有動作，都設定為執行上述步驟之後，如果上述步驟的結果為**Succeeded**。 
+
+不過，您可以自訂**runAfter**值時要引發執行上述動作的結果都是**失敗**，**已略過**，或一組可能的這些值。 如果您想要特定動作之後將項目加入指定的 Azure 服務匯流排主題**Insert_Row**失敗，您可以使用下列**runAfter**組態：
 
 ```json
 "Send_message": {
@@ -125,7 +133,7 @@ Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合
 }
 ```
 
-請注意，`runAfter` 屬性會設定為在 `Insert_Row` 動作是 `Failed` 時引發。 若要在動作狀態是 `Succeeded`、`Failed` 或 `Skipped` 時執行動作，請使用此語法︰
+請注意， **runAfter**設如果引發**Insert_Row**動作結果會是**失敗**。 動作狀態時執行動作**Succeeded**，**失敗**，或**已略過**，使用下列語法：
 
 ```json
 "runAfter": {
@@ -136,21 +144,27 @@ Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合
 ```
 
 > [!TIP]
-> 前一個動作失敗之後所執行並順利完成的動作會標示為 `Succeeded`。 此行為表示如果您成功擷取到工作流程中的所有失敗，該次執行本身會標示為 `Succeeded`。
+> 動作執行並成功完成上述動作已失敗之後會標示為**Succeeded**。 這表示，如果您已成功攔截所有失敗的工作流程本身的執行中標示為**Succeeded**。
 
 ## <a name="scopes-and-results-to-evaluate-actions"></a>用以評估動作的範圍和結果
 
-和您可以在個別動作之後進行的執行方式類似，您也可以將多個動作群組到某個[範圍](../logic-apps/logic-apps-loops-and-scopes.md)內，其可做為這些動作的邏輯群組。 範圍適合用來組織邏輯應用程式動作，以及用來對某一範圍的狀態執行彙總評估。 範圍本身會在範圍中的所有動作都已完成之後收到狀態。 範圍狀態會由執行時的相同條件來決定。 如果執行分支中的最後一個動作是 `Failed` 或 `Aborted`，狀態會是 `Failed`。
+您可以在組成群組動作[範圍](../logic-apps/logic-apps-loops-and-scopes.md)，類似於您在個別的動作之後執行的方式。 範圍是動作的邏輯群組。 
 
-若要針對範圍內發生的任何失敗引發特定動作，您可以搭配標示為 `Failed` 的範圍使用 `runAfter`。 若範圍內的「任何」動作失敗，在範圍失敗之後執行可讓您建立一項動作以擷取失敗。
+領域都是很有用，組織您邏輯應用程式的動作，並執行彙總的評估狀態範圍的項目。 範圍本身會在範圍中的所有動作都已完成之後收到狀態。 範圍狀態會由執行時的相同條件來決定。 如果執行分支中的最後一個動作是**失敗**或**Aborted**，狀態是 **失敗**。
 
-### <a name="getting-the-context-of-failures-with-results"></a>透過結果取得失敗的內容
+若要引發的範圍內發生任何失敗的特定動作，您可以使用**runAfter**範圍標示為**失敗**。 如果*任何*範圍中的動作失敗，如果您使用**runAfter**範圍中，您可以建立一項動作來攔截錯誤。
 
-雖然從範圍擷取失敗很實用，但您可能也想要取得內容以協助您了解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。 `@result()` 工作流程函式會提供有關範圍內所有動作結果的內容。
+### <a name="get-the-context-of-failures-with-results"></a>取得與結果的失敗的內容
 
-`@result()` 採用單一參數、範圍名稱，並且會傳回該範圍內產生之所有動作的陣列。 這些動作物件包含和 `@actions()` 物件相同的屬性，包括動作開始時間、動作結束時間、動作狀態、動作輸入、動作相互關聯識別碼和動作輸出。 若要傳送在範圍內失敗之任何動作的內容，您可以輕易地配對 `@result()` 函式與 `runAfter`。
+雖然攔截失敗從範圍非常有用，您也可以協助您了解哪些動作完全失敗，並了解的任何錯誤或已傳回狀態碼的內容。  **@result（)**工作流程函式提供的範圍中的所有動作結果相關的內容。
 
-若要對範圍中 `Failed` 的 For each 動作執行動作，篩選失敗動作的結果陣列，您可以配對 `@result()` 與**[篩選陣列](../connectors/connectors-native-query.md)**動作和 **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)** 迴圈。 您可以取得篩選後的結果陣列，並使用 **ForEach** 迴圈對每個失敗執行動作。 以下範例 (隨後並有詳細說明) 會傳送 HTTP POST 要求，其中含有任何在範圍 `My_Scope` 內失敗之動作的回應本文。
+ **@result（)**函式會採用單一參數 （範圍名稱），並傳回陣列的所有動作結果從該範圍內。 這些動作物件包含相同的屬性 **@actions（)**輸出物件，包括動作的開始時間、 動作的結束時間、 動作狀態、 輸入動作、 動作相互關聯識別碼和動作。 
+
+若要在範圍內傳送失敗的任何動作的內容，您可以輕易地配對 **@result（)**函式與**runAfter**屬性。
+
+要執行動作*每個*動作的範圍中**失敗**結果，若要篩選的結果失敗的動作陣列，您所能配對和 **@result（)**與[Filter_array](../connectors/connectors-native-query.md)動作和[foreach](../logic-apps/logic-apps-loops-and-scopes.md)迴圈。 以篩選的結果陣列中，您可以執行的動作每個失敗使用**foreach**迴圈。 
+
+此處的範例會將傳送 HTTP POST 要求回應本文的範圍 My_Scope 中失敗的任何動作：
 
 ```json
 "Filter_array": {
@@ -191,22 +205,21 @@ Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合
 }
 ```
 
-以下是說明整個情形的詳細逐步解說︰
+以下是詳細的逐步解說來描述在上述範例中發生的事：
 
-1. 若要取得 `My_Scope` 內所有動作的結果，**篩選陣列**動作會篩選 `@result('My_Scope')`。
+1. 若要取得 My_Scope 中的所有動作結果**Filter_array**動作篩選條件 **@result('My_Scope')**。
 
-2. **篩選陣列**的條件是狀態等於 `Failed` 的任何 `@result()` 項目。 此條件會將具有 `My_Scope` 之所有動作結果的陣列，篩選為只剩失敗動作結果的陣列。
+2. 條件**Filter_array**可以是任何 **@result（)**項目有狀態等於**失敗**。 此條件來篩選從 My_Scope，所有的動作結果，使用只有失敗的動作結果陣列的陣列。
 
-3. 對**篩選後陣列**的輸出執行 **For Each** 動作。 此步驟會對之前篩選的每個失敗動作結果執行動作。
+3. 執行**foreach**動作*篩選的陣列*輸出。 此步驟會對之前篩選的每個失敗動作結果執行動作。
 
-    如果範圍中的單一動作失敗，`foreach` 中的動作只會執行一次。 
-    許多失敗動作會對每個失敗造成一個動作。
+    如果範圍中的單一動作失敗中的動作**foreach**只執行一次。 多個失敗的動作會導致失敗的每一個動作。
 
-4. 在 `foreach` 項目的回應本文上傳送 HTTP POST，或傳送 `@item()['outputs']['body']`。 `@result()` 項目圖形和 `@actions()` 圖形相同，並可透過相同方式剖析。
+4. 傳送 HTTP POST **foreach**回應主體的項目或 **@item（['輸出'] ['主體'])**。  **@result（)**項目 圖形是相同 **@actions（)**圖形。 它可以剖析相同的方式。
 
-5. 包含兩個具有失敗動作名稱 `@item()['name']` 和失敗執行用戶端追蹤識別碼 `@item()['clientTrackingId']` 的自訂標頭。
+5. 包含兩個失敗的動作名稱的自訂標頭 **@item（['name'])**失敗執行用戶端追蹤 ID  **@item（['clientTrackingId'])**。
 
-供您參考，以下範例是單一 `@result()` 項目，會顯示前一個範例中剖析的 `name`、`body` 和 `clientTrackingId` 屬性。 在 `foreach` 之外，`@result()` 會傳回這些物件的陣列。
+如需參考，以下是在單一範例 **@result（)**項目。 它會顯示**名稱**，**主體**，和**clientTrackingId**剖析的上述範例中的屬性。 外部**foreach**動作，  **@result（)**傳回這些物件的陣列。
 
 ```json
 {
@@ -238,19 +251,20 @@ Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合
 }
 ```
 
-若要執行不同的例外狀況處理模式，您可以使用上述運算式。 您可以選擇在範圍之外執行單一的例外狀況處理動作，以接受整個篩選後的失敗陣列並移除 `foreach`。 您也可以包含上述 `@result()` 回應中的其他有用屬性。
+針對不同的例外狀況處理模式，您可以使用本文稍早所述的運算式。 您可能會選擇執行單一的例外狀況處理可接受的失敗，整個篩選的陣列範圍外的動作，並移除**foreach**。 您也可以包含其他有用的屬性，從 **@result（)**回應，如先前所述。
 
 ## <a name="azure-diagnostics-and-telemetry"></a>Azure 診斷和遙測
 
-上述模式非常適合處理執行內的錯誤和例外狀況，但您也可以識別和回應與執行本身無關的錯誤。 
-[Azure 診斷](../logic-apps/logic-apps-monitor-your-logic-apps.md) 提供了簡單的方法讓您將所有工作流程事件 (包括所有執行和動作狀態) 傳送至 Azure 儲存體帳戶或 Azure 事件中樞。 若要評估執行狀態，您可以監視記錄和度量，或將它們發佈至您偏好使用的任何監視工具。 其中一個可能的選項是透過 Azure 事件中樞將所有事件串流到 [串流分析](https://azure.microsoft.com/services/stream-analytics/)。 在串流分析中，您可以將診斷記錄中任何異常、平均或失敗的即時查詢取消。 串流分析可以輕鬆地輸出至其他資料來源，例如佇列、主題、SQL、Azure Cosmos DB 和 Power BI。
+本文中所述的模式提供絕佳的方式處理錯誤和例外狀況，在執行中，但您也可以識別並獨立執行本身的錯誤回應。 [Azure 診斷](../logic-apps/logic-apps-monitor-your-logic-apps.md)提供簡單的方式，將傳送至 Azure 儲存體帳戶或 Azure 事件中心事件中樞的 （包括所有執行和動作的狀態） 的所有工作流程事件。 
+
+若要評估的執行的狀態，您可以監視記錄檔和度量，或將它們發行至任何您偏好的監視工具。 可能的選項是透過至事件中心的所有事件資料都流[Azure 都 Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)。 在 Stream Analytics 中，您可以撰寫即時查詢的任何異常、 平均值或失敗的診斷記錄檔。 您可以將資訊傳送至其他資料來源，例如佇列、 主題、 SQL、 Azure Cosmos DB，或 Power BI 中使用資料流分析。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [看看客戶如何使用 Azure Logic Apps 建置錯誤處理](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [尋找其他 Logic Apps 範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [了解如何建立邏輯應用程式的自動化部署](../logic-apps/logic-apps-create-deploy-template.md)
-* [使用 Visual Studio 建置和部署邏輯應用程式](logic-apps-deploy-from-vs.md)
+* 請參閱如何客戶[建置錯誤處理與在 Azure 中的 Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)。
+* 找到更多[Logic Apps 範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)。
+* 了解如何建立[自動化部署中的 logic apps](../logic-apps/logic-apps-create-deploy-template.md)。
+* 深入了解如何[建置和部署使用 Visual Studio 的 logic apps](logic-apps-deploy-from-vs.md)。
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

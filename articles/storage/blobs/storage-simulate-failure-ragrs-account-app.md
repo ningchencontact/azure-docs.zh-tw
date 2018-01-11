@@ -4,21 +4,21 @@ description: "模擬存取讀取權限異地備援儲存體時發生錯誤"
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 2919eb0e301000b53f4f63799e9c65aad45ca9f2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模擬存取讀取權限備援儲存體時失敗
 
@@ -88,7 +88,7 @@ Fiddler ScriptEditor 啟動，顯示 **SampleRules.js** 檔案。 此檔案是�
 
 若要繼續執行應用程式，請按下**任意鍵**。
 
-應用程式再次開始執行後，針對主要端點的要求即會開始發生失敗。 應用程式會嘗試重新連線至主要端點 5 次。 超過五次的失敗嘗試閥值後，其會從次要唯讀端點要求映像。 應用程式從次要端點成功取出 20 次映像後，即會嘗試連線至主要端點。 若仍然無法連線至主要端點，則應用程式會繼續從次要端點讀取。 此模式即是在上個教學課程中述及的[斷路器模式](/azure/architecture/patterns/circuit-breaker.md)。
+應用程式再次開始執行後，針對主要端點的要求即會開始發生失敗。 應用程式會嘗試重新連線至主要端點 5 次。 超過五次的失敗嘗試閥值後，其會從次要唯讀端點要求映像。 應用程式從次要端點成功取出 20 次映像後，即會嘗試連線至主要端點。 若仍然無法連線至主要端點，則應用程式會繼續從次要端點讀取。 此模式即是在上個教學課程中述及的[斷路器模式](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)。
 
 ![貼上自訂規則](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 

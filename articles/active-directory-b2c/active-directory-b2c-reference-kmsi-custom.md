@@ -4,7 +4,7 @@ description: "示範如何設定「讓我保持登入」的主題"
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
-manager: ajalexander
+manager: mtillman
 ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: vigunase
-ms.openlocfilehash: d09e15c6f6765eac436f573f89c6703039cd8397
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C：啟用「讓我保持登入 (KMSI)」  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -195,7 +195,7 @@ Azure AD B2C 現在可讓您的 Web 和原生應用程式啟用「讓我保持�
 
 7. 儲存變更然後上傳檔案。
 
-8. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下立即執行。
+8. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下 [立即執行]。
 
 
 ## <a name="link-to-sample-policy"></a>連結至範例原則

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 2f1793c2de2b68a8b155ada73044c6bc36882612
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集
 > [!div class="op_single_selector"]
@@ -249,7 +249,7 @@ ms.lasthandoff: 11/28/2017
 
 您也可以使用 `hdfs dfs -put` 命令，將一些檔案上傳至 Data Lake Store，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [搭配 Azure HDInsight 叢集使用 Data Lake Store](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Azure 入口網站：建立 HDInsight 叢集以使用 Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 

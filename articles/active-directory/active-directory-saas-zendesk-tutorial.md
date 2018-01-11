@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Zendesk 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 78c4f5c2f48393dfd76621847063918c10b9ff52
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 095fdd68cafbb1bf7d753dd82821bdc2fd089ef0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>教學課程：Azure Active Directory 與 Zendesk 整合
 
@@ -48,13 +48,13 @@ Zendesk 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Zendesk
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-zendesk-from-the-gallery"></a>從資源庫新增 Zendesk
-若要設定將 Zendesk 整合到 Azure AD 中，您需要從資源庫將 Zendesk 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Zendesk 整合到 Azure AD 中，您需要從資源庫將 Zendesk 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Zendesk，請執行下列步驟：**
 
@@ -110,7 +110,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.zendesk.com`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`<subdomain>.zendesk.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`<subdomain>.zendesk.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zendesk 用戶端支援小組](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)以取得這些值。 
@@ -160,7 +160,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
      a. 按一下 [系統管理員和代理程式] 索引標籤。
 
-     b.這是另一個 C# 主控台應用程式。 選取 [單一登入 (SSO) 和 SAML]，然後選取 [SAML]。
+     b. 選取 [單一登入 (SSO) 和 SAML]，然後選取 [SAML]。
 
      c. 在 [SAML SSO URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。 
 
@@ -168,7 +168,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
         
      e. 在 [憑證指紋] 文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋] 值。
      
-     f. 按一下 [儲存] 。
+     f. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -204,7 +204,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-zendesk-test-user"></a>建立 Zendesk 測試使用者
 

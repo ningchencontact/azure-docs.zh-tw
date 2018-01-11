@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>資料科學虛擬機器資料擷取工具
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 | 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 從 Azure 儲存體將多個 Blob 複製到 Azure Data Lake Store。      |
 |  如何使用/執行它？    |   開啟命令提示字元，然後輸入 `adlcopy` 取得說明。    |
-| 範例的連結      | [使用 AdlCopy]https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| 範例的連結      | [使用 AdlCopy] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | DSVM 上的相關工具      | AzCopy、Azure 命令列工具     |
 
 ## <a name="azure-command-line"></a>Azure 命令列
@@ -58,19 +58,19 @@ ms.lasthandoff: 10/11/2017
 | 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 將檔案複製到 Blob 儲存體、在帳戶之間複製 Blob。      |
 |  如何使用/執行它？    |   開啟命令提示字元，然後輸入 `azcopy` 取得說明。    |
-| 範例的連結      | [AzCopy on Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| 範例的連結      | [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | DSVM 上的相關工具      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB：DocumentDB API 資料移轉工具
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB 的資料移轉工具
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 及 Azure Cosmos DB DocumentDB API 集合) 將資料匯入至 Azure Cosmos DB 或 Azure DocumentDB 的工具。      |
+| 這是什麼？   | 從各種來源，包括 JSON 檔案中，CSV 檔案、 SQL、 MongoDB、 Azure 資料表儲存體、 Amazon DynamoDB 和 Azure Cosmos DB SQL API 集合傳給 Azure Cosmos DB 匯入資料的工具。      |
 | 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 從 VM 將檔案匯入至 CosmosDB、從 Azure 資料表儲存體將資料匯入至 CosmosDB，或從 SQL Server 資料庫將資料匯入至 CosmosDB。     |
 |  如何使用/執行它？    |   若要使用命令列版本，請開啟命令提示字元，然後輸入 `dt`。 若要使用 GUI 工具，請開啟命令提示字元，然後輸入 `dtui`。    |
-| 範例的連結      | [CosmosDB 匯入資料](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| 範例的連結      | [CosmosDB 匯入資料](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM 上的相關工具      | AzCopy、AdlCopy      |
 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 | 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 將 CSV 檔案匯入至 SQL Server 資料表、將 SQL Server 資料表匯出至檔案。      |
 |  如何使用/執行它？    |   開啟命令提示字元，然後輸入 `bcp` 取得說明。    |
-| 範例的連結      | [大量複製公用程式](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| 範例的連結      | [大量複製公用程式](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | DSVM 上的相關工具      | SQL Server、sqlcmd      |
 
 

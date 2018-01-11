@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL DB
-在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database。  您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database。
+在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database。
 
 在本文中，您將了解：
 > [!div class="checklist"]
@@ -27,24 +27,23 @@ ms.lasthandoff: 11/16/2017
 > * 在 Azure 資料庫移轉服務執行個體中建立移轉專案。
 > * 執行移轉。
 
-
 ## <a name="prerequisites"></a>必要條件
 若要完成這些步驟，您需要：
 
 - [SQL Server 2016 或更新版本](https://www.microsoft.com/sql-server/sql-server-downloads)(任何版本)
-- SQL Server Express 安裝程序會預設停用 TCP/IP 通訊協定。 請遵循[本文中的指示](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)來啟用它。
-- 設定[用於資料庫引擎存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-- Azure SQL 資料庫執行個體。 您可以依照[在 Azure 入口網站中建立 Azure SQL 資料庫](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)一文中的的詳細資料來建立 Azure SQL Database 執行個體。
-- [資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 或更新版本。
+- SQL Server Express 安裝預設已停用 TCP/IP 通訊協定。 請遵循[這篇文章中的指示](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)來啟用它。
+- 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
+- Azure SQL Database 執行個體。 您可以依照[在 Azure 入口網站中建立 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 一文中的詳細資料來建立 Azure SQL Database 執行個體。
+- [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 的 v3.3 或更新版本。
 - 使用 Azure Resource Manager 部署模型建立的 VNET 是 Azure 資料庫移轉服務的必要項目，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
 - 已使用資料移轉小幫手完成內部部署資料庫和結構描述移轉的評估，如同[執行 SQL Server 移轉評估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)一文中所述
-- 使用 [Install-Module PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1) 從 PowerShell 資源庫下載並安裝 AzureRM.DataMigration 模組
-- 用來連線至來源 SQL Server 執行個體的認證必須具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 權限。
-- 用來連線至目標 Azure SQL DB 執行個體的認證，必須在目標 Azure SQL DB 資料庫上有 CONTROL DATABASE 權限。
+- 下載並安裝 AzureRM.DataMigration 模組從 PowerShell 資源庫 bu 使用[Install-module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+- 用來連接至來源 SQL Server 執行個體的認證必須具有[CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)權限。
+- 用來連接到目標 Azure SQL 資料庫執行個體的認證必須具有 CONTROL DATABASE 權限，在目標 Azure SQL Database 資料庫。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
 根據[登入 Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1)一文中的指示，使用 PowerShell 來登入您的 Azure 訂用帳戶。
-
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 建立虛擬機器之前，先建立資源群組。
@@ -56,7 +55,6 @@ Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 建
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>建立 Azure 資料庫移轉服務執行個體 
 您可以使用 `New-AzureRmDataMigrationService` Cmdlet，來建立新的 Azure 資料庫移轉服務執行個體。 此 Cmdlet 預期有下列必要參數：
 - Azure 資源群組名稱。 您可以使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) 命令，來建立如先前所示的 Azure 資源群組，並將其名稱作為參數使用。
@@ -86,7 +84,7 @@ $vnet.Id`
 - AuthType。 連線的驗證類型，可以是 SqlAuthentication 或 WindowsAuthentication。
 - TrustServerCertificate 參數會設定一個值，指出通道是否會加密，同時繞過驗證信任的信任鏈結。 值可以是 true 或 false。
 
-下列範例會使用 SQL 驗證為名為 MySQLSourceServer 的來源 SQL Server 建立連線資訊物件 
+下列範例會建立來源呼叫 MySQLSourceServer 使用 sql 驗證的 SQL Server 的連接資訊物件 
 
 ```powershell
 $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
@@ -130,12 +128,10 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>建立並啟動移轉工作
-
 最後，建立並啟動 Azure 資料庫移轉工作。 除了專案在作為必要元件建立時提供的資訊外，Azure 資料庫移轉工作還需要來源和目標的連線認證資訊，以及要移轉的資料庫清單資料表。 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>建立來源和目標的認證參數
-
-連線安全性認證可建立為 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 物件。 
+可以連接安全性認證建立為[PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0)物件。 
 
 下列範例示範如何將密碼提供為 $sourcePassword 和 $targetPassword 字串變數，以建立來源和目標的 PSCredential 物件。 
 
@@ -200,11 +196,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 您可以透過查詢工作的狀態屬性來監視移轉工作執行，如下列範例所示：
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 在 [Microsoft 資料庫移轉指南](https://datamigration.microsoft.com/)中檢閱移轉指南
+- 檢閱移轉指引，在 microsoft[資料庫移轉指南](https://datamigration.microsoft.com/)。

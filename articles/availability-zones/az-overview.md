@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Azure 中可用性區域的概觀 (預覽)
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 11/17/2017
 
 - 美國東部 2
 - 西歐
+- 法國中部
 
 ## <a name="services-that-support-availability-zones"></a>支援可用性區域的服務
 
@@ -42,24 +43,18 @@ ms.lasthandoff: 11/17/2017
 - 區域性虛擬機器擴展集
 - 受控磁碟
 - 負載平衡器
-
-## <a name="supported-virtual-machine-size-families"></a>支援的虛擬機器大小系列
-
-- Av2
-- Dv2
-- DSv2
-
+- 公用 IP 位址
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>開始使用可用性區域預覽
 
-可用性區域預覽適用於美國東部 2 和西歐地區的特定 Azure 服務。 
+可用性區域預覽提供了美國東部 2、 西歐、 和法國中部地區特定的 Azure 服務。 
 
 1. [註冊可用性區域預覽](http://aka.ms/azenroll)。 
 2. 登入您的 Azure 訂用帳戶。
 3. 選擇支援可用性區域的地區。
 4. 您可以使用下列其中一個連結來開始搭配使用可用性區域與您的服務。 
     - [建立虛擬機器](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [建立區域性虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [建立虛擬機器規模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [使用 PowerShell 來新增受控磁碟](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [負載平衡器](../load-balancer/load-balancer-standard-overview.md)
 

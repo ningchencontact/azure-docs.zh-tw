@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 TINFOIL SECURITY 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 614e4de3335574f4b56c7d641af4fcfafdb17d12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7794564396c2ade8ba45b9f2b1238f304f6b3921
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>教學課程：Azure Active Directory 與 TINFOIL SECURITY 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 TINFOIL SECURITY
 2. 設定和測試 Azure AD 單一登入
 
 ## <a name="add-tinfoil-security-from-the-gallery"></a>從資源庫新增 TINFOIL SECURITY
-如要設定將 TINFOIL SECURITY 整合到 Azure AD 中，您需要從資源庫將 TINFOIL SECURITY 新增到受管理的 SaaS 應用程式清單。
+如要設定將 TINFOIL SECURITY 整合到 Azure AD 中，您需要從資源庫將 TINFOIL SECURITY 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 TINFOIL SECURITY，請執行下列步驟：**
 
@@ -64,11 +64,11 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **TINFOIL SECURITY**，從結果面板中選取 [TINFOIL SECURITY]，然後按一下 [新增] 按鈕以新增應用程式。
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
     
     ![新增屬性](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addatt.png "屬性")
     
-    b.這是另一個 C# 主控台應用程式。 在 [屬性名稱] 文字方塊中，輸入 **accountid**。
+    b. 在 [屬性名稱] 文字方塊中，輸入 **accountid**。
     
     c. 在 [屬性值] 文字方塊中，貼上您會在本教學課程稍後取得的帳戶識別碼值。
     
@@ -156,7 +156,7 @@ ms.lasthandoff: 10/11/2017
    
     a. 選取 [啟用 SAML] 。
    
-    b.這是另一個 C# 主控台應用程式。 按一下 [手動設定] 。
+    b. 按一下 [手動設定] 。
    
     c. 在 [SAML Post URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值
    
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/11/2017
   
     e. 複製 [您的帳戶識別碼] 值，並將該值貼到 Azure 入口網站中 [新增屬性] 區段底下的 [屬性值] 文字方塊中。
    
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -195,11 +195,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-tinfoil-security-test-user"></a>建立 TINFOIL SECURITY 測試使用者
 

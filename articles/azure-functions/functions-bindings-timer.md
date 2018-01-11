@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -33,14 +33,14 @@ ms.lasthandoff: 11/29/2017
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#trigger---c-example)
-* [C# 指令碼](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例示範每五分鐘執行一次的[先行編譯 C# 函式](functions-dotnet-class-library.md)：
+下列範例所示[C# 函式](functions-dotnet-class-library.md)執行每隔五分鐘：
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)，NuGet 封裝中已定義[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)。
 
 該屬性的建構函式會採用 CRON 運算式，如下列範例所示：
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 如果您的函式應用程式在 App Service 方案 (非取用量方案) 上執行，您可以指定 `TimeSpan` 而不是 CRON 運算式。
 
-如需完整範例，請參閱[先行編譯 C# 範例](#c-example)。
+如需完整範例，請參閱[C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 

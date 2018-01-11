@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>了解 Azure IoT Edge 執行階段和架構 - 預覽
 
@@ -99,7 +99,15 @@ IoT Edge 代理程式是另一個組成 Azure IoT Edge 執行階段的模組。 
    * onFailure：如果模組損毀，Edge 代理程式就會重新啟動它。 如果模組完全關閉，Edge 代理程式就不會重新啟動它。
    * Unhealthy：如果模組毀損或被視為狀況不良，Edge 代理程式就會重新啟動它。
    * Always：如果模組損毀、被視為狀況不良，或以任何方式關閉，Edge 代理程式就會重新啟動它。 
-   
+
+IoT 邊緣代理程式執行階段將回應傳送到 IoT 中樞。 以下是可能回應的清單：
+  * 200 - 確定
+  * 400-部署組態不正確或無效。
+  * 417-裝置沒有部署組態集內。
+  * 412-在部署組態中的結構描述版本無效。
+  * 406-邊緣裝置已離線或無法傳送狀態報表。
+  * 500-邊緣執行階段中發生錯誤。
+
 ### <a name="security"></a>安全性
 
 IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 例如，它會執行像是啟動前先驗證模組映像的動作。 這些功能都將新增至正式運作的 V2 功能。 

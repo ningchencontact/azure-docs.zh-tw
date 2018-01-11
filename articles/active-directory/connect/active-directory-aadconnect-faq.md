@@ -4,7 +4,7 @@ description: "此頁面包含有關 Azure AD Connect 的常見問題集。"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect 的常見問題集
 
@@ -32,9 +32,14 @@ ms.lasthandoff: 11/22/2017
 從 2016 年 2 月的組建開始便提供這項支援。
 
 **問︰AD DS 健康情況代理程式是否是在伺服器核心上運作？**  
-是。 安裝代理程式之後，您可以使用下列 PowerShell Cmdlet 來完成註冊程序︰ 
+可以。 安裝代理程式之後，您可以使用下列 PowerShell Cmdlet 來完成註冊程序︰ 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**問： AADConnect 支援兩個網域在 Azure AD 同步？**</br>
+是，支援此做法。 請參閱[多個網域](active-directory-aadconnect-multiple-domains.md)
+ 
+**問： 是否我們支援連線相同的 Active Directory 網域，在 Azure AD 中有多個連接器？**</br> 否，這不是支援 
 
 ## <a name="network"></a>網路
 **問：我的防火牆、網路裝置或其他軟硬體會限制在網路上開啟連線的時間上限。使用 Azure AD Connect 時，用戶端逾時閥值時間應該多長？**  
@@ -59,9 +64,9 @@ ms.lasthandoff: 11/22/2017
 **問：我已經針對 O365 信賴憑證者設定「自動更新信賴憑證者」。當我的權杖簽署憑證自動換用時，需要採取任何動作嗎？**  
 請參考 [更新憑證](active-directory-aadconnect-o365-certs.md)一文中概述的指導方針。
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>環境
 **問：安裝 Azure AD Connect 之後，是否支援重新命名伺服器？**  
-否。 變更伺服器名稱將會導致同步處理引擎無法連接到 SQL 資料庫，服務將無法啟動。
+編號 變更伺服器名稱將會導致同步處理引擎無法連接到 SQL 資料庫，服務將無法啟動。
 
 ## <a name="identity-data"></a>身分識別資料
 **問：Azure AD 中的 UPN (userPrincipalName) 屬性不符合內部部署的 UPN，為什麼？**  
@@ -78,14 +83,12 @@ ms.lasthandoff: 11/22/2017
 **問：是否支援將現有 Azure AD「群組/連絡人」物件上的 ImmutableId 屬性手動設定成與內部部署 AD「群組/連絡人」物件完全相符？**  
 否，目前不支援。
 
-
-
 ## <a name="custom-configuration"></a>自訂組態
 **問：Azure AD Connect 適用的 PowerShell Cmdlet 記載於何處？**  
 除了記載於本網站上的 Cmdlet，在 Azure AD Connect 中找到的其他 PowerShell Cmdlet 不支援客戶使用。
 
 **問：我是否可以使用在 Synchronization Service Manager 中找到的「伺服器匯出/伺服器匯入」，在伺服器之間移動組態？**  
-否。 此選項將不會擷取所有組態設定，因此不應使用。 您應該改用精靈在第二部伺服器上建立基底組態，並使用同步處理規則編輯器產生 PowerShell 指令碼，以在伺服器之間移動任何自訂規則。 請參閱[變換移轉](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)。
+編號 此選項將不會擷取所有組態設定，因此不應使用。 您應該改用精靈在第二部伺服器上建立基底組態，並使用同步處理規則編輯器產生 PowerShell 指令碼，以在伺服器之間移動任何自訂規則。 請參閱[變換移轉](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)。
 
 **問︰是否可針對 Azure 登入頁面密碼快取，而且是否可以因為它包含自動完成 ="false" 屬性的密碼輸入元素而避免此行為？**</br>
 我們目前不支援修改密碼輸入欄位的 HTML 屬性，包括自動完成標記。 我們目前正在開發適用於自訂 javascript 的功能，可讓您將任何屬性新增密碼欄位。 應可在 2017 年下半年使用這項功能。
@@ -94,9 +97,7 @@ ms.lasthandoff: 11/22/2017
 我們目前不支援修改登入頁面的 HTML 屬性。 我們目前正在開發適用於自訂 javascript 的功能，可讓您將任何屬性新增密碼欄位。 應可在 2017 年下半年使用這項功能。
 
 **問︰是否辦法避免並行的工作階段？**</br>
-否。
-
-
+編號
 
 ## <a name="troubleshooting"></a>疑難排解
 **問：如何取得 Azure AD Connect 的說明？**

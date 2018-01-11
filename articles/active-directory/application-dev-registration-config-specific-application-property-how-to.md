@@ -4,7 +4,7 @@ description: "關於當您向 Azure AD 註冊自訂開發的應用程式時如�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何針對自訂開發的應用程式填寫特定欄位
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 | 多重租用戶  | 這個參數指定應用程式是否可供多重租用戶使用。 一般而言，這表示外部組織可以在其租用戶中註冊應用程式，並授權存取其組織的資料，以使用您的應用程式。                                                                   |
 | 回覆 URL      | 回覆 URL 是 Azure AD 傳回應用程式所要求之任何權杖時的端點。                                                                                                                                                                                                          |
 | 重新導向 URI   | 針對原生應用程式，使用者在成功授權之後會前往這裡。 Azure AD 會檢查您的應用程式在 OAuth 2.0 要求中所提供的重新導向 URI，是否符合入口網站上其中一個已註冊的值。                                                            |
-| 之間的信任            | 您可以建立金鑰，以程式設計方式存取 Azure AD 所保護的 Web API，而不需與使用者互動。 從 [金鑰]\*\*\*\* 頁面，輸入金鑰描述和到期日，並儲存以產生金鑰。 務必將它儲存在安全的位置，因為您稍後將無法存取它。             |
+| 金鑰            | 您可以建立金鑰，以程式設計方式存取 Azure AD 所保護的 Web API，而不需與使用者互動。 從 [金鑰]\*\*\*\* 頁面，輸入金鑰描述和到期日，並儲存以產生金鑰。 務必將它儲存在安全的位置，因為您稍後將無法存取它。             |
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)

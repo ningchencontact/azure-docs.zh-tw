@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>OMS 中的更新管理方案
 
@@ -150,9 +150,9 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 | Azure 儲存體帳戶 |否 |Azure 儲存體未包含系統更新的相關資訊。 |
 
 ### <a name="collection-frequency"></a>收集頻率
-對於每部受管理的 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否變更，若是如此，則會起始合規性掃描。  對於每部受管理的 Linux 電腦，每 3 個小時會掃描一次。
+對於每部受控 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否變更，若是如此，則會起始合規性掃描。  對於每部受控 Linux 電腦，每 3 個小時會掃描一次。
 
-儀表板可能需要 30 分鐘以至 6 小時的時間，顯示來自受管理電腦的已更新資料。   
+儀表板可能需要 30 分鐘以至 6 小時的時間，顯示來自受控電腦的已更新資料。   
 
 ## <a name="using-the-solution"></a>使用解決方案
 當您在 OMS 工作區新增更新管理方案時，OMS 儀表板中便會新增 [更新管理] 圖格。 此圖格會顯示計數並以圖形表示環境中的電腦數目及其更新合規性。<br><br>
@@ -184,7 +184,7 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 | 名稱 |更新部署的名稱。 |
 | 排程 |排程的類型。  可用的選項為 [一次性]、[每週週期性] 或 [每月週期性]。 |
 | 開始時間 |更新部署排定要開始的日期和時間。 |
-| 持續時間 |允許執行更新部署的分鐘數。  如果未在這段持續時間內安裝完所有更新，就必須等到下一次更新部署時才能安裝剩餘的更新。 |
+| Duration |允許執行更新部署的分鐘數。  如果未在這段持續時間內安裝完所有更新，就必須等到下一次更新部署時才能安裝剩餘的更新。 |
 | 伺服器 |受更新部署影響的電腦數目。  |
 | 狀態 |更新部署的目前狀態。<br><br>可能的值包括：<br>- 未啟動<br>- 執行中<br>- 已完成 |
 
@@ -209,7 +209,7 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 | 時區 |用於開始時間的時區。 |
 | 排程類型 | 排程的類型。  可用的選項為 [一次性]、[每週週期性] 或 [每月週期性]。  
 | 開始時間 |開始更新部署的日期和時間。 **注意︰**如果您需要立即部署，則最快能執行部署的時間是從目前時間算起的 30 分鐘。 |
-| 持續時間 |允許執行更新部署的分鐘數。  如果未在這段持續時間內安裝完所有更新，就必須等到下一次更新部署時才能安裝剩餘的更新。 |
+| Duration |允許執行更新部署的分鐘數。  如果未在這段持續時間內安裝完所有更新，就必須等到下一次更新部署時才能安裝剩餘的更新。 |
 | 電腦 |更新部署所要包含及設為目標的電腦或電腦群組名稱。  請從下拉式清單選取一或多個項目。 |
 
 <br><br> ![新增更新部署頁面](./media/oms-solution-update-management/update-newupdaterun-page.png)
@@ -326,7 +326,7 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>我該如何進行上架問題的疑難排解？
 如果您在嘗試將解決方案或虛擬機器上架時遇到問題，請檢查**應用程式和服務記錄\Operations Manager** 事件記錄中具有事件識別碼 4502 和事件訊息內含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。  下表特別說明特定錯誤訊息及各自的可能解決方式。  
 
-| 訊息 | 原因 | 方案 |   
+| 訊息 | 原因 | 解決方法 |   
 |----------|----------|----------|  
 | 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.InvalidOperationException：{"Message":"電腦已經<br>註冊至不同的帳戶。 "} | 電腦已經上架到另一個工作區進行更新管理 | [刪除混合式 Runbook 群組](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)以執行舊構件的清除|  
 | 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.Net.Http.HttpRequestException：傳送要求時發生錯誤。 ---><br>System.Net.WebException：基礎連線<br>已關閉：接收時發生<br>意外的錯誤。 ---> System.ComponentModel.Win32Exception：<br>用戶端和伺服器無法通訊，<br>因為它們沒有共同的演算法 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](../automation/automation-offering-get-started.md#network-planning)|  
@@ -335,11 +335,13 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 | 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>AgentService.HybridRegistration。<br>PowerShell.Certificates.CertificateCreationException：<br>無法建立自我簽署憑證。 ---><br>System.UnauthorizedAccessException：存取遭到拒絕。 | 自我簽署的憑證產生失敗 | 確認系統帳戶具有<br>以下資料夾的讀取權限：<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>如何針對更新部署進行疑難排解？
-您可以從與支援此解決方案的 OMS 工作區連結之自動化帳戶的 [作業] 刀鋒視窗，檢視負責部署排定更新部署內含更新之 Runbook 的結果。  **Patch-MicrosoftOMSComputer** Runbook是以特定受管理電腦為目標的子 Runbook，而檢閱詳細資訊串流將呈現該部署的詳細資訊。  輸出會顯示適用的必要更新、下載狀態、安裝狀態，以及其他詳細資料。<br><br> ![更新部署作業狀態](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+您可以從與支援此解決方案的 OMS 工作區連結之自動化帳戶的 [作業] 刀鋒視窗，檢視負責部署排定更新部署內含更新之 Runbook 的結果。  
+            **Patch-MicrosoftOMSComputer** Runbook是以特定受控電腦為目標的子 Runbook，而檢閱詳細資訊串流將呈現該部署的詳細資訊。  輸出會顯示適用的必要更新、下載狀態、安裝狀態，以及其他詳細資料。<br><br> ![更新部署作業狀態](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 如需進一步資訊，請參閱[自動化 Runbook 輸出和訊息](../automation/automation-runbook-output-and-messages.md)。   
 
 ## <a name="next-steps"></a>後續步驟
 * 使用 [Log Analytics](../log-analytics/log-analytics-log-searches.md) 中的記錄搜尋，檢視詳細的更新資料。
-* [建立您自己的儀表板](../log-analytics/log-analytics-dashboards.md)，其中會顯示受管理電腦的更新相容性。
+* 
+            [建立您自己的儀表板](../log-analytics/log-analytics-dashboards.md)，其中會顯示受控電腦的更新相容性。
 * 在偵測到電腦遺漏重大更新或電腦已停用自動更新時[建立警示](../log-analytics/log-analytics-alerts.md)。  

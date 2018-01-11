@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -41,6 +41,11 @@ ms.lasthandoff: 12/07/2017
 * **問：我的使用者是否可以註冊自己的密碼重設資料？**
 
   > **答：** 是。 只要已啟用密碼重設功能且使用者已獲得授權，他們就可以前往密碼重設註冊入口網站 (http://aka.ms/ssprsetup) 來註冊其驗證資訊。 使用者也可以透過「存取面板」(http://myapps.microsoft.com) 註冊。 若要透過「存取面板」註冊，使用者必須選取其個人資料圖片，請選取 [設定檔]，然後選取 [註冊密碼重設] 選項。
+  >
+  >
+* **問： 如果啟用密碼重設的群組，以及決定將它啟用，每個人都將我的使用者需要重新註冊？**
+
+  > **答：**否。 已填入驗證資料的使用者都不需要重新註冊。
   >
   >
 * **問：我是否可以代表我的使用者定義密碼重設資料？**

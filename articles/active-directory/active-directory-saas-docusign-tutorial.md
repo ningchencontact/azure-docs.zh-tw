@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 DocuSign 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: a691288b-84c1-40fb-84bd-5b06878865f0
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 29c99fdf39d366df90abc070f7b836320935035c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9fc4666ad73a7e4850719f936873a6c5ce0716c0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>教學課程：Azure Active Directory 與 DocuSign 整合
 
@@ -47,13 +47,13 @@ DocuSign 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 DocuSign
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-docusign-from-the-gallery"></a>從資源庫新增 DocuSign
-若要設定將 DocuSign 整合到 Azure AD 中，您需要從資源庫將 DocuSign 新增到受管理的 SaaS 應用程式清單。
+若要設定將 DocuSign 整合到 Azure AD 中，您需要從資源庫將 DocuSign 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 DocuSign，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **DocuSign**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_search.png)
 
-5. 在結果窗格中，選取 DocuSign，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [DocuSign]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -124,7 +124,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
    
     ![設定單一登入][52]
 
-8. 在 宣告網域 對話方塊，於 網域名稱 文字方塊內輸入您的公司網域，然後按一下宣告。 確定您已驗證網域，而且狀態為作用中。
+8. 在 [宣告網域] 對話方塊，於 [網域名稱] 文字方塊內輸入您的公司網域，然後按一下 [宣告]。 確定您已驗證網域，而且狀態為作用中。
    
     ![設定單一登入][53]
 
@@ -141,7 +141,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入組態的唯一名稱。 請勿使用空格。
 
-    b.這是另一個 C# 主控台應用程式。 將 **SAML 實體識別碼**貼到 [識別提供者簽發者] 文字方塊。
+    b. 將 **SAML 實體識別碼**貼到 [識別提供者簽發者] 文字方塊。
 
     c. 將 [SAML 單一登入服務 URL] 貼到 [識別提供者登入 URL] 文字方塊。
 
@@ -164,9 +164,9 @@ DocuSign 與 Azure AD 整合提供下列優點：
    
     ![設定單一登入][58]
 
-14. 按一下 [儲存] 。
+14. 按一下 [檔案] 。
 
-15. 在 識別提供者 區段中，按一下 動作，然後按一下端點。   
+15. 在 [識別提供者] 區段中，按一下 [動作]，然後按一下 [端點]。   
    
     ![設定單一登入][59]
  
@@ -176,7 +176,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
    
     a. 複製**服務提供者簽發者 URL**，然後貼入 Azure 入口網站的 **DocuSign 網域與 URL** 區段上的 [識別碼] 文字方塊，請遵循下列模式：`https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`。
    
-    b.這是另一個 C# 主控台應用程式。 複製**服務提供者登入 URL**，然後貼入 Azure 入口網站的 [DocuSign 網域與 URL] 區段上的 [登入 URL] 文字方塊，遵循下列模式：`https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`。
+    b. 複製**服務提供者登入 URL**，然後貼入 Azure 入口網站的 [DocuSign 網域與 URL] 區段上的 [登入 URL] 文字方塊，遵循下列模式：`https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`。
 
     ![設定單一登入](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_url.png)
       
@@ -214,11 +214,11 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-docusign-test-user"></a>建立 DocuSign 測試使用者
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
-ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>透過 Azure CLI，在新的或現有的應用程式閘道上設定 Web 應用程式防火牆
 
@@ -47,7 +47,7 @@ Azure 應用程式閘道中的 WAF 可保護 Web 應用程式，免於遭受常�
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>必要條件：安裝 Azure CLI 2.0
 
-若要執行本文的步驟，您需要[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)。
+若要執行本文的步驟，您需要[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2)。
 
 ## <a name="waf-configuration-differences"></a>WAF 組態差異
 

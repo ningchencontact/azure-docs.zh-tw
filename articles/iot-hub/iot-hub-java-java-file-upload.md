@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: fb0dad84fc8d35a71bdc2f002d7ea570ea1371bf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: b6e1ef5a5b3f9298134a7c312ac7d1927cf41a7f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/18/2017
 - 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 - 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[開始使用 IoT 中樞](iot-hub-java-java-getstarted.md)和[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-java-java-c2d.md)教學課程，示範 IoT 中樞基本的裝置到雲端和雲端到裝置的傳訊功能。 [處理裝置到雲端訊息](iot-hub-java-java-process-d2c.md)教學課程說明能在 Azure Blob 儲存體中可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如：
+[開始使用 IoT 中樞](iot-hub-java-java-getstarted.md)和[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-java-java-c2d.md)教學課程，示範 IoT 中樞基本的裝置到雲端和雲端到裝置的傳訊功能。 [處理裝置到雲端訊息](iot-hub-java-java-process-d2c.md)教學課程說明能在 Azure Blob 儲存體中可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如︰
 
 * 包含映像的大型檔案
 * 影片
@@ -283,7 +283,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 
 
-[Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
+[Azure IoT 開發人員中心]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account

@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3f75a49c697898ee52bcec68e520f103061752a8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Node.js Web 應用程式
+
+> [!NOTE]
+> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署 App Service，請參閱[在 Azure 中建立 Node.js Web 應用程式](../app-service-web-get-started-nodejs.md)。
+>
 
 [Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門會說明如何使用內建映像，將 Node.js 應用程式部署至 Linux 上的 App Service。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 透過內建映像建立 Web 應用程式，而且使用 Git 將 Node.js 程式碼部署至 Web 應用程式。
 
@@ -29,7 +33,7 @@ ms.lasthandoff: 11/22/2017
 
 您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門：
 

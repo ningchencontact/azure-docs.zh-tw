@@ -3,7 +3,7 @@ title: "使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器 | Micro
 description: "了解如何使用 Azure CLI 2.0 在 Azure DevTest Labs 中建立和管理虛擬機器"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: lisawong19
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.service: devtest-lab
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: liwong
-ms.openlocfilehash: a3af12ba0598d60b55b3714ae1690fe3e5b54a42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: e73ddeba56c779d9fb1be77a50cbae5111de03c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器
 本快速入門會引導您完成建立、啟動、連線、更新和清理實驗室中的開發電腦。 

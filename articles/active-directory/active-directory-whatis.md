@@ -4,7 +4,7 @@ description: "使用 Azure Active Directory 將現有的內部部署身分識別
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e5eafd4d25d2638ab5d9f904a7e0c00b36501d68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端型目錄和身分識別管理服務。 Azure AD 結合核心目錄服務及進階身分識別管理和應用程式存取管理。 Azure AD 同時也提供豐富且標準型的平台，可讓開發人員根據集中式原則和規則，提供對其應用程式的存取控制。 

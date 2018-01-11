@@ -8,17 +8,17 @@ manager: cshepard
 editor: 
 tags: 
 ms.service: virtual-machines-linux
-ms.topic: troubleshooting
+ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 9b1c9a283e1439c0db5fa37b6601868a7a830ed3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 891ca1c2db431c792329b1c67c24e2e453aa00d1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>針對 Linux VM 裝置名稱變更進行疑難排解
 
@@ -37,7 +37,7 @@ Linux 中的裝置路徑不保證會在重新啟動之間保持一致。 裝置�
 
 問題發生的原因是因為 Linux 中由 SCSI 子系統所排定的裝置掃描是以非同步方式執行。 因此，裝置路徑名稱可能會在重新啟動之間有所不同。 
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 若要解決這個問題，請使用永續性命名。 有四種方式可使用永續性命名：依檔案系統標籤、依 UUID、依識別碼，或依路徑。 我們建議針對 Azure Linux VM 使用檔案系統標籤或 UUID。 
 
@@ -145,9 +145,9 @@ Azure Linux 代理程式 Udev 規則會在 /dev/disk/azure 路徑下方建構一
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
 - [Ubuntu：使用 UUID](https://help.ubuntu.com/community/UsingUUID) \(英文\)
 - [Red Hat：永續性命名](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) \(英文\)

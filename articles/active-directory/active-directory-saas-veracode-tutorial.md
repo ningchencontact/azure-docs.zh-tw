@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Veracode 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4fe78050-cb6d-4db9-96ec-58cc0779167f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: d49349c5ae08e67d91e30967f3644623211823ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 270b373943ea72f1ddbee4f9c6fa4967ff85b861
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>教學課程：Azure Active Directory 與 Veracode 整合
 
@@ -48,13 +48,13 @@ Veracode 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Veracode
 2. 設定和測試 Azure AD 單一登入
 
 ## <a name="add-veracode-from-the-gallery"></a>從資源庫新增 Veracode
-若要設定將 Veracode 整合到 Azure AD 中，您需要從資源庫將 Veracode 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Veracode 整合到 Azure AD 中，您需要從資源庫將 Veracode 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Veracode，請執行下列步驟：**
 
@@ -148,7 +148,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 
 9. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Veracode 公司網站。
 
-10. 在頂端功能表中，按一下 設定，然後按一下管理員。
+10. 在頂端功能表中，按一下 [設定]，然後按一下 [管理員]。
    
     ![管理](./media/active-directory-saas-veracode-tutorial/ic802911.png "管理")
 
@@ -164,13 +164,13 @@ Veracode 與 Azure AD 整合提供下列優點：
    
     c. 選取 [啟用自動註冊] 。
 
-13. 在 自動註冊設定 區段上，執行下列步驟，然後按一下儲存：
+13. 在 [自動註冊設定] 區段上，執行下列步驟，然後按一下 [儲存]：
    
     ![管理](./media/active-directory-saas-veracode-tutorial/ic802913.png "管理")
    
     a. 在 [啟用新的使用者] 選取 [不需要啟用]。
    
-    b.這是另一個 C# 主控台應用程式。 在 [使用者資料更新] 選取 [Veracode 使用者資料喜好設定]。
+    b. 在 [使用者資料更新] 選取 [Veracode 使用者資料喜好設定]。
    
     c. 針對 [SAML 屬性詳細資料] ，請選取下列選項：
       * **[使用者角色]**
@@ -200,7 +200,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-veracode-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-veracode-tutorial/create_aaduser_02.png)
 
@@ -218,7 +218,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-veracode-test-user"></a>建立 Veracode 測試使用者
 若要讓 Azure AD 使用者可以登入 Veracode，則必須將他們佈建到 Veracode。 若是 Veracode 的情況 來佈建是自動化的工作。 沒有您適用的動作項目。 第一次嘗試單一登入時，會視需要自動建立使用者。

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Dropbox for Business
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a71892296c82e3655a75ca3e863539cc19ea998
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 255cfcb777f88fd6c6ac62b3e7c216360ea11e54
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
 
@@ -48,13 +48,13 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Dropbox for Business
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>從資源庫新增 Dropbox for Business
-若要設定 Dropbox for Business 與 Azure AD 整合，您需要從資源庫將 SAP Dropbox for Business 新增到受管理的 SaaS 應用程式清單中。
+若要設定 Dropbox for Business 與 Azure AD 整合，您需要從資源庫將 SAP Dropbox for Business 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Dropbox for Business，請執行下列步驟：**
 
@@ -196,7 +196,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-dropbox-for-business-test-user"></a>建立商務用 Dropbox 測試使用者
 

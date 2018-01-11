@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>使用 Helm 搭配 Azure Container Service (AKS)
 
-[Helm](https://github.com/kubernetes/helm/) 是開放原始碼的封裝工具，可協助您安裝和管理 Kubernetes 應用程式的生命週期。 Helm 類似於 *APT* 和 *Yum* 等 Linux 套件管理工具，可用於管理 Kubernetes 圖表 (即預先設定的 Kubernetes 資源套件)。
+[頭盔][ helm]是開放原始碼封裝的工具，可協助您安裝和管理 Kubernetes 應用程式的生命週期。 Helm 類似於 *APT* 和 *Yum* 等 Linux 套件管理工具，可用於管理 Kubernetes 圖表 (即預先設定的 Kubernetes 資源套件)。
 
 本文將逐步引導您在 AKS 的 Kubernetes 叢集中設定及使用 Helm。
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請參閱 [AKS 快速入門](./kubernetes-walkthrough.md)。
+本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請[AKS 快速入門][aks-quickstart]。
 
 ## <a name="install-helm-cli"></a>安裝 Helm CLI
 
 Helm CLI 是在您的開發系統上執行的用戶端，可讓您啟動、停止和管理具有 Helm 圖表的應用程式。
 
-如果您是使用 Azure CloudShell，即已安裝 Helm CLI。 若要在 Mac 上安裝 Helm CLI，請使用 `brew`。 如需其他安裝選項，請參閱 [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) (安裝 Helm)。
+如果您是使用 Azure CloudShell，即已安裝 Helm CLI。 若要在 Mac 上安裝 Helm CLI，請使用 `brew`。 針對其他安裝選項，請參閱 <<c0> [ 安裝頭盔][helm-install-options]。
 
 ```console
 brew install kubernetes-helm
@@ -50,23 +50,24 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>設定 Helm
 
-[helm init](https://docs.helm.sh/helm/#helm-init) 命令是用來在 Kubernetes 叢集中安裝 Helm 元件，並進行用戶端設定。 Helm 是預先安裝在 AKS 叢集中，因此僅需要用戶端設定。 執行下列命令以設定 Helm 用戶端。
+[頭盔 init] [ helm-init]命令用來安裝頭盔元件 Kubernetes 叢集中，並進行用戶端設定。 執行下列命令以 AKS 叢集上安裝頭盔和頭盔用戶端設定。
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 輸出：
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
 ## <a name="find-helm-charts"></a>尋找 Helm 圖表
 
-使用 Helm 圖表將應用程式部署到 Kubernetes 叢集中。 若要搜尋預先建立的 Helm 圖表，請使用 [helm search](https://docs.helm.sh/helm/#helm-search) 命令。
+使用 Helm 圖表將應用程式部署到 Kubernetes 叢集中。 若要搜尋的預先建立頭盔圖表，請使用[頭盔搜尋][ helm-search]命令。
 
 ```azurecli-interactive
 helm search
@@ -94,7 +95,7 @@ stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
-若要更新圖表清單，請使用 [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) 命令。
+若要更新的圖表清單，請使用[頭盔儲存機制更新][ helm-repo-update]命令。
 
 ```azurecli-interactive
 helm repo update
@@ -111,7 +112,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>執行 Helm 圖表
 
-若要部署 NGINX 輸入控制器，請使用 [helm install](https://docs.helm.sh/helm/#helm-install) 命令。
+若要部署的 NGINX 輸入控制站，使用[頭盔安裝][ helm-install]命令。
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -142,11 +143,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-如需使用 NGINX 輸入控制器與 Kubernetes 的詳細資訊，請參閱 [NGINX Ingress Controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx) (NGINX 輸入控制器)。
+如需有關如何使用與 Kubernetes NGINX 輸入控制器的詳細資訊，請參閱[NGINX 輸入控制器][nginx-ingress]。
 
 ## <a name="list-helm-charts"></a>列出 Helm 圖表
 
-若要查看安裝於叢集上的圖表清單，請使用 [helm list](https://docs.helm.sh/helm/#helm-list) 命令。
+若要查看的圖表在叢集上安裝的清單，請使用[頭盔清單][ helm-list]命令。
 
 ```azurecli-interactive
 helm list
@@ -164,4 +165,18 @@ bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingres
 如需管理 Kubernetes 圖表的詳細資訊，請參閱 Helm 文件。
 
 > [!div class="nextstepaction"]
-> [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md) (Helm 文件)
+> [頭盔文件][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md

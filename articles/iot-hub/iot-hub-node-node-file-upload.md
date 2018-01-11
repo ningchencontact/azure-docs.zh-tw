@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: 047dfd35cfef53d323774508121e22fbf47b2acf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/31/2017
 - 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 - 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[開始使用 IoT 中樞](iot-hub-node-node-getstarted.md)和[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-node-node-c2d.md)教學課程，示範 IoT 中樞基本的裝置到雲端和雲端到裝置的傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如：
+[開始使用 IoT 中樞](iot-hub-node-node-getstarted.md)和[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-node-node-c2d.md)教學課程，示範 IoT 中樞基本的裝置到雲端和雲端到裝置的傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如︰
 
 * 包含映像的大型檔案
 * 影片
@@ -222,7 +222,7 @@ node SimulatedDevice.js
 * [Azure IoT SDK][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
+[Azure IoT 開發人員中心]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

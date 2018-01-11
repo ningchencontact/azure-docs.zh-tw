@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -43,7 +43,7 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| [Windows 代理程式](log-analytics-windows-agents.md) | 否 | 解決方案不使用直接 Windows 代理程式。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不使用直接 Windows 代理程式。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不使用從 SCOM 代理程式直接連線到 Log Analytics。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |

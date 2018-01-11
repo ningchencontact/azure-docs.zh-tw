@@ -15,15 +15,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虛擬機器上以 Java 執行大量運算工作
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Azure 可讓您利用虛擬機器處理大量運算工作。 例如，虛擬機器可以處理工作並將結果傳遞給用戶端機器或行動裝置應用程式。 閱讀此文章後，您將了解如何建立一個執行大量運算之 Java 應用程式 (此應用程式又可由另一個 Java 應用程式監視) 的虛擬機器。
@@ -51,33 +51,33 @@ Azure 可讓您利用虛擬機器處理大量運算工作。 例如，虛擬機�
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>建立虛擬機器
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[計算]、[虛擬機器] 及 [從組件庫]。
 3. 在 [虛擬機器映像選取] 對話方塊中，選取 [JDK 7 Windows Server 2012]。
    請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]  。
-4. 按一下 [下一步] 。
+4. 按 [下一步] 。
 5. 在 [虛擬機器組態]  對話方塊中：
    1. 指定虛擬機器的名稱。
    2. 指定要用於虛擬機器的大小。
    3. 在 [使用者名稱]  欄位中輸入系統管理員的名稱。 請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
    4. 在 [新增密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。 此為系統管理員帳戶的密碼。
-   5. 按一下 [下一步] 。
+   5. 按 [下一步] 。
 6. 在下一個 [虛擬機器組態]  對話方塊中：
    1. 針對 [雲端服務]，使用預設值 [建立新的雲端服務]。
    2. [Cloud service DNS name]  的值在整個 cloudapp.net 中必須是唯一的。 必要時請修改此值，使 Azure 指出該值是唯一的。
    3. 指定區域、同質群組或虛擬網路。 為因應本教學課程的目的，請指定如 [美國西部] 的區域。
    4. 針對 [儲存體帳戶]，選取 [使用自動產生的儲存體帳戶]。
    5. 針對 [可用性設定組]，選取 [(無)]。
-   6. 按一下 [下一步] 。
+   6. 按 [下一步] 。
 7. 在最終的 [虛擬機器組態]  對話方塊中：
    1. 接受預設的端點項目。
    2. 按一下 [完成] 。
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>從遠端登入虛擬機器
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [虛擬機器] 。
 3. 按一下要登入的虛擬機器名稱。
-4. 按一下 [連接] 。
+4. 按一下 [ **連接**]。
 5. 視需要回應提示以連接虛擬機器。 當要求提供系統管理員名稱和密碼的提示出現時，請使用在建立虛擬機器時提供的值。
 
 請注意，Azure 服務匯流排功能會要求安裝 Baltimore CyberTrust Root 憑證做為您 JRE 的 **cacerts** 存放區的一部分。 這個憑證會自動包含在本教學課程所使用的 Java Runtime Environment (JRE) 中。 如果您的 JRE **cacerts** 存放區中沒有這個憑證，請參閱[將憑證新增至 Java CA 憑證存放區][add_ca_cert]，以了解有關新增這個憑證的資訊 (以及有關檢視您 cacerts 存放區中憑證的資訊)。
@@ -87,15 +87,15 @@ Azure 可讓您利用虛擬機器處理大量運算工作。 例如，虛擬機�
 
 建立服務命名空間：
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 在 Azure 傳統入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
-3. 在 Azure 傳統入口網站的左上方窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。  
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在 Azure 入口網站左下方的巡覽窗格中，按一下 **服務匯流排、 存取控制和 Caching**。
+3. 在 Azure 入口網站的左上方窗格中，按一下 [ **Service Bus**節點，然後再按一下**新增**] 按鈕。  
    ![Service Bus Node screenshot][svc_bus_node]
 4. 在 [建立新的服務命名空間] 對話方塊中輸入一個**命名空間**，然後確認它是唯一的，再按一下 [檢查可用性] 按鈕。  
    ![Create a New Namespace screenshot][create_namespace]
 5. 確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間]  按鈕。  
    
-   然後，您建立的命名空間就會出現在 Azure 傳統入口網站中，稍待片刻就會生效。 等到狀態變成 [作用中]  之後，再繼續下一個步驟。
+   您所建立的命名空間即會出現在 Azure 入口網站，並需要一點時間來啟動。 等到狀態變成 [作用中]  之後，再繼續下一個步驟。
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>取得命名空間的預設管理認證
 若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。

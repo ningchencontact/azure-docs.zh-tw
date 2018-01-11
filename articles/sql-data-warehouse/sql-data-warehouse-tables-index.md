@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 > [!div class="op_single_selector"]
@@ -157,7 +157,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 一旦您執行查詢，就可以開始查看資料，並分析您的結果。 此表格會說明在您的資料列群組分析中要尋找的項目。
 
-| 資料欄 | 如何使用這項資料 |
+| 欄 | 如何使用這項資料 |
 | --- | --- |
 | [table_partition_count] |如果資料表已分割，您可能會預期看到較高的開放資料列群組計數。 散發套件中的每個分割在理論上有與其相關聯的開放資料列群組。 將這個因素納入您的分析。 已分割的小型資料表可以藉由移除分割進行最佳化，因為這樣會改善壓縮。 |
 | [row_count_total] |資料表的資料列計數。 例如，您可以使用此值來計算資料列的百分比 (壓縮的狀態)。 |

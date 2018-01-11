@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure 媒體編碼器標準自動產生位元速率階梯
 
 ## <a name="overview"></a>概觀
 
-本主題說明如何使用媒體編碼器標準 (MES) 根據解析度和位元速率自動產生輸入位元速率階梯 (位元速率解析組)。 自動產生的預設值絕對不會超過輸入解析度和位元速率。 例如，如果輸入是 720p 3Mbps，則輸出會維持在最多 720p，且速率啟動低於 3Mbps。
+本文示範如何使用自動產生的位元速率階梯 （位元速率高解析度組） 的輸入的解析度及位元速率為基礎的媒體編碼器標準 (MES)。 自動產生的預設值絕對不會超過輸入解析度和位元速率。 比方說，如果輸入是以 3 Mbps 720p，輸出仍然 720p 在最佳情況下，會開始的速率低於 3 Mbps。
 
 ### <a name="encoding-for-streaming-only"></a>只針對串流編碼
 
-如果您打算只針對串流編碼來源視訊，則您在建立編碼工作時，應該使用 "Adaptive Streaming" (彈性資料流) 預設值。 當使用 **Adaptive Streaming** (彈性資料流) 預設值時，MES 編碼器會智慧地覆蓋位元速率階梯。 不過，您將無法控制編碼成本，因為服務會決定要使用多少層以及哪種解析度。 由於本主題結尾使用 **Adaptive Streaming** (彈性資料流) 進行編碼的結果，您可以看到 MES 產生的輸出層範例。 輸出資產將包含 MP4 檔案，其中的音訊和視訊為非交錯格式。
+如果您的目的是要進行資料流的來源視訊編碼，您應該使用 「 自動調整 Streaming 」 預設建立編碼工作時。 當使用 **Adaptive Streaming** (彈性資料流) 預設值時，MES 編碼器會智慧地覆蓋位元速率階梯。 不過，您將無法控制編碼成本，因為服務會決定要使用多少層以及哪種解析度。 您可以看到 MES 所產生的結果與編碼的輸出層的範例**彈性資料流**預設在本文結尾處。 輸出資產包含 MP4 檔案，其中音訊和視訊非交錯式。
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>針對串流和漸進式下載編碼
 
-如果您打算針對串流以及漸進式下載要產生的 MP4 檔案編碼，則您在建立編碼工作時，應該使用 "Content Adaptive Multiple Bitrate MP4" (內容自適性多位元速率 MP4) 預設值。 使用 **Content Adaptive Multiple Bitrate MP4** (內容自適性多位元速率 MP4) 預設值時，MES 編碼器將會套用與先前相同的編碼邏輯，但現在輸出資產會包含 MP4 檔案，其中的音訊和視訊為交錯格式。 您可以使用這些 MP4 檔案的其中一個 (例如最高位元速率的版本) 作為漸進式下載檔案。
+如果您的意圖是進行資料流的來源視訊編碼，以及產生漸進式下載 MP4 檔案，您應該使用"內容自動調整多個位元速率 MP4 」 預設建立編碼工作時。 當使用**內容自動調整的多個位元速率 MP4**預設，MES 編碼器套用的編碼方式的相同邏輯，如前所述，但現在輸出資產包含 MP4 檔案的音訊和影音交錯技術。 您可以使用這些 MP4 檔案的其中一個 (例如最高位元速率的版本) 作為漸進式下載檔案。
 
 ## <a id="encoding_with_dotnet"></a>使用媒體服務 .NET SDK 進行編碼
 
@@ -41,38 +40,47 @@ ms.lasthandoff: 10/11/2017
 - 建立編碼工作。
 - 取得對 Media Encoder Standard 編碼器的參考
 - 將編碼工作新增至作業，並指定使用**彈性資料流**預設值。 
-- 建立將包含已編碼資產的輸出資產。
+- 建立包含已編碼資產的輸出資產。
 - 加入事件處理常式來檢查工作進度。
 - 提交作業。
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
 
 #### <a name="example"></a>範例
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ ms.lasthandoff: 10/11/2017
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ ms.lasthandoff: 10/11/2017
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>輸出
 

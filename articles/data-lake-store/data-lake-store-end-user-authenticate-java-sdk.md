@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: 93bd267adfac0d2dd5c22d2d7ac79b0643f5cded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-java"></a>使用 Java 向 Data Lake Store 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 在本文中，您會了解如何使用 Java SDK 向 Azure Data Lake Store 進行使用者驗證。 如需使用 Java SDK 向 Data Lake Store 進行服務對服務驗證，請參閱[使用 Java SDK 向 Data Lake Store 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-java.md)。
 
 ## <a name="prerequisites"></a>必要條件
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **建立 Active Directory 「原生」應用程式**。 您必須已經完成[使用 Azure Active Directory 向 Data Lake Store 進行使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)中的步驟。
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
           </dependency>
         </dependencies>
    
-    第一個相依性是使用來自 maven 儲存機制的 Data Lake Store SDK (`azure-data-lake-store-sdk`)。 第二個相依性是指定要用於此應用程式的紀錄架構 (`slf4j-nop`)。 Data Lake Store SDK 會使用 [slf4j](http://www.slf4j.org/) 記錄外觀，讓您從數個熱門的記錄架構中進行選擇，例如 log4j、Java 記錄、logback 等或不記錄。 在此範例中，我們停用記錄，因此會使用 **slf4j-nop** 繫結。 若要在應用程式中使用其他記錄選項，請參閱[這裡](http://www.slf4j.org/manual.html#projectDep)。
+    第一個相依性是使用來自 maven 儲存機制的 Data Lake Store SDK (`azure-data-lake-store-sdk`)。 第二個相依性是指定要用於此應用程式的記錄架構 (`slf4j-nop`)。 Data Lake Store SDK 會使用 [slf4j](http://www.slf4j.org/) 記錄外觀，讓您從數個熱門的記錄架構中進行選擇，例如 log4j、Java 記錄、logback 等或不記錄。 在此範例中，我們停用記錄，因此會使用 **slf4j-nop** 繫結。 若要在應用程式中使用其他記錄選項，請參閱[這裡](http://www.slf4j.org/manual.html#projectDep)。
 
 3. 在應用程式中新增下列 import 陳述式。
 

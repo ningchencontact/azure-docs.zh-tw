@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 5e6d731f0a1cecc1a191c74a45e37a9b94fd98ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>在 Azure Redis 快取中匯入與匯出資料
 匯入/匯出是 Azure Redis 快取資料管理作業，可讓您將資料匯入 Azure Redis 快取或將資料從 Azure Redis 快取匯出，方法是從進階快取將 Redis 快取資料庫 (RDB) 快照匯入和匯出至 Azure 儲存體帳戶中的 blob。 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 3. 按一下包含要匯入之資料的容器。
 
     ![選擇容器][cache-import-choose-container]
-4. 按一下 blob 名稱左側的區域以選取一或多個 blob，即可加以匯入，然後按一下選取 。
+4. 按一下 blob 名稱左側的區域以選取一或多個 blob，即可加以匯入，然後按一下 [選取] 。
 
     ![選擇 blob][cache-import-choose-blobs]
 5. 按一下 [匯入]  開始匯入程序。
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 2. 按一下 [選擇儲存體容器]  ，然後選取所需的儲存體帳戶。 儲存體帳戶必須與您的快取位於相同的訂用帳戶和區域中。
 
    > [!IMPORTANT]
-   > 匯出使用分頁 Blob，傳統和 Resource Manager 儲存體帳戶支援這些 Blob，但 [Blob 儲存體帳戶](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts)目前不支援。
+   > 匯出使用分頁 Blob，傳統和 Resource Manager 儲存體帳戶支援這些 Blob，但 [Blob 儲存體帳戶](../storage/common/storage-account-options.md#blob-storage-accounts)目前不支援。
    >
    >
 
@@ -155,7 +155,7 @@ Azure Redis 快取永續性讓您將儲存在 Redis 快取中的資料存留至 
 若要解決此問題，請在經過 15 分鐘之前起始匯入或匯出作業。
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>我將資料匯出至 Azure Blob 儲存體時收到錯誤。 發生什麼情形？
-匯出只能使用儲存為分頁 blob 的 RDB 檔案。 目前不支援其他的 Blob 類型，包括經常存取及不常存取層的 Blob 儲存體帳戶。 如需詳細資訊，請參閱 [Blob 儲存體帳戶](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts)。
+匯出只能使用儲存為分頁 blob 的 RDB 檔案。 目前不支援其他的 Blob 類型，包括經常存取及不常存取層的 Blob 儲存體帳戶。 如需詳細資訊，請參閱 [Blob 儲存體帳戶](../storage/common/storage-account-options.md#blob-storage-accounts)。
 
 ## <a name="next-steps"></a>後續步驟
 了解如何使用更多進階快取功能。

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的軟體變更
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-* 您要監視變更的每部電腦上都必須有 [Windows](log-analytics-windows-agents.md)、[Operations Manager](log-analytics-om-agents.md) 或 [Linux](log-analytics-linux-agents.md)代理程式。
+* 您要監視變更的每部電腦上都必須有 [Windows](log-analytics-windows-agent.md)、[Operations Manager](log-analytics-om-agents.md) 或 [Linux](log-analytics-linux-agents.md)代理程式。
 * 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) 新增變更追蹤解決方案至您的 OMS 工作區。 也可以運用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)一文中提供的資訊來新增解決方案。 不需要進一步設定。
 
 ### <a name="configure-linux-files-to-track"></a>設定要追蹤的 Linux 檔案
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/20/2017
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
 2. 在 [設定] 頁面上，按一下 [資料]，然後按一下 [Linux 檔案追蹤]。
 3. 在 [Linux 檔案變更追蹤] 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下 [新增] 符號。 例如："/etc/*.conf"
-4. 按一下 [儲存] 。  
+4. 按一下 [檔案] 。  
 
 > [!NOTE]
 > Linux 檔案追蹤具有其他功能，包括目錄追蹤、透過目錄遞迴以及萬用字元追蹤。
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/20/2017
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
 2. 在 **[設定]** 頁面上，按一下 **[資料]**，然後按一下 **[Windows 檔案追蹤]**。
 3. 在 [Windows 檔案變更追蹤] 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下 [新增] 符號。 例如：C:\Program Files (x86)\Internet Explorer\iexplore.exe 或 C:\Windows\System32\drivers\etc\hosts。
-4. 按一下 [儲存] 。  
+4. 按一下 [檔案] 。  
    ![Windows 檔案變更追蹤](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>設定要追蹤的 Windows 登錄機碼
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/20/2017
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
 2. 在 [設定] 頁面上，按一下 [資料]，然後按一下 [Windows 登錄追蹤]。
 3. 在 [Windows 登錄變更追蹤] 下方，輸入您要追蹤的整個金鑰，然後按一下 [新增] 符號。
-4. 按一下 [儲存] 。  
+4. 按一下 [檔案] 。  
    ![Windows 登錄變更追蹤](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Linux 檔案收集屬性的說明
@@ -115,12 +115,12 @@ ms.lasthandoff: 11/20/2017
 | **變更類型** | **頻率** | **代理程式****是否會傳送所找到的差異？** |
 | --- | --- | --- |
 | Windows 登錄 | 50 分鐘 | 否 |
-| Windows 檔案 | 30 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
-| Linux 檔案 | 15 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Windows 檔案 | 30 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Linux 檔案 | 15 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
 | Windows 服務 | 30 分鐘 | 是，找到變更時，每隔 30 分鐘傳送一次。 每隔 24 小時傳送一次快照集 (不論是否有變更)。 因此，即使沒有任何變更也會傳送快照集。 |
-| Linux 精靈 | 5 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Linux 精靈 | 5 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
 | Windows 軟體 | 30 分鐘 | 是，找到變更時，每隔 30 分鐘傳送一次。 每隔 24 小時傳送一次快照集 (不論是否有變更)。 因此，即使沒有任何變更也會傳送快照集。 |
-| Linux 軟體軟體 | 5 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Linux 軟體軟體 | 5 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
 
 ### <a name="registry-key-change-tracking"></a>登錄機碼變更追蹤
 

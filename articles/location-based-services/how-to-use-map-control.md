@@ -6,14 +6,14 @@ keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
 author: philmea
 ms.author: philmea
 ms.date: 11/22/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9ddd11806accddb41c02c0c6681aac07bba25356
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>如何使用 Azure LBS 的地圖控制項
 地圖控制項用戶端 Javascript 程式庫可讓您將地圖和內嵌的 Azure LBS 功能轉譯到 Web 或行動裝置應用程式中。 

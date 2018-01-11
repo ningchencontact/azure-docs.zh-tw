@@ -1,17 +1,20 @@
 ---
 title: "開始進行 Azure Machine Learning 的資料準備 | Microsoft Docs"
 description: "這是適用於 AML Workbench 資料準備區段的快速入門指南"
+services: machine-learning
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: faf6e557914a33454229b5830419b9ef6f200a8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f90bcb83233b1a2f1a5d342ee444e4b02d4927d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-data-preparation"></a>開始進行資料準備
 
@@ -21,11 +24,11 @@ ms.lasthandoff: 10/11/2017
 
 資料準備會安裝為 Azure Machine Learning Workbench 體驗的一部分。  在本機使用資料準備或部署至目標叢集和雲端，以作為執行階段或執行環境。
 
-設計階段執行階段會基於擴充性而使用 Python，並取決於各種 Python 程式庫，例如 Pandas。 與 Azure ML Workbench 的其他元件一樣，不需要安裝 Python，系統會為您安裝它。 不過，如果您需要安裝額外的程式庫，這些程式庫需要安裝於 Azure ML Workbench Python 目錄中，而不是您平常的 Python 目錄。 您可以在[這裡](data-prep-python-extensibility-overview.md)找到更多關於如何安裝封裝的詳細資料。
+設計階段執行階段會基於擴充性而使用 Python，並取決於各種 Python 程式庫，例如 Pandas。 與 Azure ML Workbench 的其他元件一樣，您不需要安裝 Python，系統會為您安裝。 不過，如果您需要安裝額外的程式庫，這些程式庫需要安裝於 Azure ML Workbench Python 目錄中，而不是您平常的 Python 目錄。 您可以在[這裡](data-prep-python-extensibility-overview.md)找到更多關於如何安裝封裝的詳細資料。
 
 您需要先有專案，才能使用資料準備，一旦建立該專案之後，您就能準備資料。 
 
-選取螢幕左邊的 [資料] 圖示 ![資料來源圖示](media/data-prep-getting-started/data-source-icon.png) 以瀏覽至專案的 [資料] 區段。  再按一下 [+] 以**新增資料來源**。 [資料來源精靈] 應該會啟動，並在完成精靈之後將**資料來源** (.dsource) 檔案新增至專案。 根據預設，資料的檢視就是方格。 在方格上方，也能選取 [計量] 檢視。 在 [計量] 檢視中，會顯示摘要統計資料。  檢閱摘要統計資料之後，按一下螢幕頂端的 [準備]。 [資料來源精靈的詳細資訊](data-source-wizard.md) 
+選取螢幕左邊的 [資料] 圖示 ![資料來源圖示](media/data-prep-getting-started/data-source-icon.png) 以瀏覽至專案的 [資料] 區段。  再按一下 [+] 以**新增資料來源**。 [資料來源精靈] 應該會啟動，並在完成精靈之後將**資料來源** (.dsource) 檔案新增至專案。 根據預設，資料將透過方格來檢視。 在方格上方，也能選取 [計量] 檢視。 在 [計量] 檢視中，會顯示摘要統計資料。  檢閱摘要統計資料之後，按一下螢幕頂端的 [準備]。 [資料來源精靈的詳細資訊](data-source-wizard.md) 
 
 ## <a name="building-blocks-of-data-preparation"></a>適用於準備資料的建置組塊 ##
 ### <a name="the-package"></a>封裝 ###
@@ -41,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 封裝可能會使用另一個封裝作為資料來源 (稱為「參考資料流程」)。
 
 ### <a name="the-dataflow"></a>資料流程 ###
-資料流程具有一個來源以及選擇性的轉換，這類轉換是透過一連串步驟和選擇性目的地來排列。 按一下 [步驟]，即會重新執行所選取步驟 (含) 之前的所有來源和轉換。  方格中會顯示透過該步驟轉換的資料。 步驟可在資料流程內透過 [步驟清單] 新增、移動和刪除。
+資料流程都具有來源及選擇性的轉換，這類轉換是透過一連串步驟和選擇性目的地來排列的。 按一下 [步驟]，即會重新執行所選取步驟 (含) 之前的所有來源和轉換。  方格中會顯示透過該步驟轉換的資料。 步驟可在資料流程內透過 [步驟清單] 新增、移動和刪除。
 
 您可以開啟和關閉用戶端右邊的 [步驟清單]，以提供更多螢幕空間。
 
@@ -59,7 +62,7 @@ UI 中可同時存在多個資料流程，每個資料流程均會以 UI 中的�
 
 資料行隨時可能擁有多個偵測器 (例如，資料行統計資料和長條圖)。 可能也會在多個資料行上具有偵測器的執行個體。 例如，所有數值資料行可能會同時具備長條圖。
 
-偵測器會出現螢幕底部的 [Profiling Well] \(分析來源) 中。  將偵測器最大化，讓它們在主要內容區域內看起來更大。 將資料格視為預設的偵測器。 任何偵測器都能擴展到主要內容區域。 將主要內容區域中的偵測器最小化至 [Profiling Well] \(分析來源)。 按一下偵測器內的鉛筆圖示，即可自訂偵測器。 使用拖放方式，重新排列 Well (來源) 內的偵測器。
+偵測器會出現螢幕底部的 [Profiling Well] (分析來源) 中。  將偵測器最大化，讓它們在主要內容區域內看起來更大。 將資料格視為預設的偵測器。 任何偵測器都能擴展到主要內容區域。 將主要內容區域中的偵測器最小化至 [Profiling Well] (分析來源)。 按一下偵測器內的鉛筆圖示，即可自訂偵測器。 拖放即可重新排列 Well (來源) 內的偵測器。
 
 某些偵測器支援 “Halo” 模式。 此模式會顯示在套用最後一個轉換之前的值或狀態。 舊值會以灰色顯示，且在前景中具有目前的值，並顯示轉換的影響。 [附錄 4 提供目前支援的偵測器清單](data-prep-appendix4-supported-inspectors.md)。
 
@@ -80,7 +83,7 @@ UI 中可同時存在多個資料流程，每個資料流程均會以 UI 中的�
 
 接下來，使用其他偵測器的組合加上方格，更清楚了解資料特性。  開始制訂進一步分析所需之資料準備的相關假設。 大部分的偵測器都是在單一資料行或少量資料行上運作。  
 
-很可能需要在數個資料行上有數個偵測器，才能了解資料。 您可以在 [Profiling Well] \(分析來源) 中捲動以瀏覽各種偵測器。 在 Well 內，您也可以將偵測器移到清單開頭，以便在可立即檢視的區域中看到它們。
+很可能需要在數個資料行上有數個偵測器，才能了解資料。 您可以在 [Profiling Well] (分析來源) 中捲動以瀏覽各種偵測器。 在 Well 內，您也可以將偵測器移到清單開頭，以便在可立即檢視的區域中看到它們。
 
 ![偵測器](media/data-prep-getting-started/inspectors.PNG)
 

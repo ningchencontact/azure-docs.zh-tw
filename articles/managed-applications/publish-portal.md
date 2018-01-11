@@ -1,6 +1,6 @@
 ---
-title: "透過入口網站發佈 Azure 受管理的應用程式 | Microsoft Docs"
-description: "示範如何使用 Azure 入口網站建立 Azure 受管理的應用程式，以供組織成員使用。"
+title: "透過入口網站發佈 Azure 受控應用程式 | Microsoft Docs"
+description: "示範如何使用 Azure 入口網站建立 Azure 受控應用程式，以供組織成員使用。"
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,23 +10,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>透過 Azure 入口網站發佈服務類別目錄應用程式
 
-您可以使用 Azure 入口網站來發佈[受管理的應用程式](overview.md)，以供組織成員使用。 例如，IT 部門可以發佈受管理的應用程式，以確保符合組織標準。 這些受管理的應用程式可透過服務類別目錄取得，而非 Azure Marketplace。
+您可以使用 Azure 入口網站來發佈[受控應用程式](overview.md)，以供組織成員使用。 例如，IT 部門可以發佈受控應用程式，以確保符合組織標準。 這些受控應用程式可透過服務類別目錄取得，而非 Azure Marketplace。
 
 ## <a name="prerequisites"></a>必要條件
 
-發佈受管理的應用程式時，您會指定管理資源的身分識別。 建議您指定 Azure Active Directory 使用者群組。 若要建立 Azure Active Directory 使用者群組，請參閱[在 Azure Active Directory 中建立群組和新增成員](../active-directory/active-directory-groups-create-azure-portal.md)。 
+發佈受控應用程式時，您會指定管理資源的身分識別。 建議您指定 Azure Active Directory 使用者群組。 若要建立 Azure Active Directory 使用者群組，請參閱[在 Azure Active Directory 中建立群組和新增成員](../active-directory/active-directory-groups-create-azure-portal.md)。 
 
-包含受管理應用程式定義的 .zip 檔案必須可以透過 URI 取得。 建議您將 .zip 檔案上傳至儲存體 blob。 
+包含受控應用程式定義的 .zip 檔案必須可以透過 URI 取得。 建議您將 .zip 檔案上傳至儲存體 blob。 
 
-## <a name="create-managed-application-with-portal"></a>使用入口網站建立受管理的應用程式
+## <a name="create-managed-application-with-portal"></a>使用入口網站建立受控應用程式
 
 1. 在左上角，選取 [新增]。
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 11/03/2017
 
 1. 搜尋**服務類別目錄**。
 
-1. 在結果中捲動，直到您找到**服務類別目錄受管理的應用程式定義**。 請選取它。
+1. 在結果中捲動，直到您找到**服務類別目錄受控應用程式定義**。 請選取它。
 
-   ![搜尋受管理的應用程式定義](./media/publish-portal/select-managed-apps-definition.png)
+   ![搜尋受控應用程式定義](./media/publish-portal/select-managed-apps-definition.png)
 
-1. 選取 [建立] 以開始建立受管理的應用程式定義的程序。
+1. 選取 [建立] 以開始建立受控應用程式定義的程序。
 
-   ![建立受管理的應用程式定義](./media/publish-portal/create-definition.png)
+   ![建立受控應用程式定義](./media/publish-portal/create-definition.png)
 
 1. 提供名稱、顯示名稱、描述、位置、訂用帳戶與資源群組的值。 針對套件檔案 URI，提供您建立之 zip 檔案的路徑。
 
@@ -56,11 +56,10 @@ ms.lasthandoff: 11/03/2017
 
 1. 當您已提供所有值時，選取 [建立]。
 
-   ![建立受管理的應用程式](./media/publish-portal/create-app.png)
+   ![建立受控應用程式](./media/publish-portal/create-app.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需受管理應用程式的簡介，請參閱[受管理的應用程式概觀](overview.md)。
-* 如需受管理的應用程式範例，請參閱[適用於 Azure 受管理的應用程式之範例專案](sample-projects.md)。
-* 如需將受管理的應用程式發佈到 Azure Marketplace 的資訊，請參閱 [Marketplace 中的 Azure 受管理應用程式](publish-marketplace-app.md)。
-* 若要了解如何建立受管理應用程式的 UI 定義檔案，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
+* 如需受控應用程式的簡介，請參閱[受控應用程式概觀](overview.md)。
+* 如需受控應用程式範例，請參閱[適用於 Azure 受控應用程式之範例專案](sample-projects.md)。
+* 若要了解如何建立受控應用程式的 UI 定義檔案，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。

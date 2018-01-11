@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 ThirdLight 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 168aae9a-54ee-4c2b-ab12-650a2c62b901
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ee7710cfea3a13907c0cc940a98c875bf83607a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 559350d5cff6cfc454446b64f8abd580eb42748b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>教學課程：Azure Active Directory 與 ThirdLight 整合
 
@@ -47,13 +47,13 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 ThirdLight
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-thirdlight-from-the-gallery"></a>從資源庫新增 ThirdLight
-若要設定 ThirdLight 與 Azure AD 整合，您需要從資源庫將 ThirdLight 新增至受管理的 SaaS 應用程式清單。
+若要設定 ThirdLight 與 Azure AD 整合，您需要從資源庫將 ThirdLight 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 ThirdLight，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **ThirdLight**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_search.png)
 
-5. 在結果窗格中，選取 ThirdLight，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [ThirdLight]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_addfromgallery.png)
 
@@ -127,7 +127,7 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
 6. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 ThirdLight 公司網站。
 
-7. 移至 組態 \> 系統管理，然後按一下SAML2。
+7. 移至 [組態] \> [系統管理]，然後按一下 [SAML2]。
    
     ![系統管理](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "系統管理")
 
@@ -137,7 +137,7 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
      a. 選取 [啟用 SAML2 單一登入] 。
  
-     b.這是另一個 C# 主控台應用程式。 在 [IdP 中繼資料的來源] 選取 [從 XML 載入 IdP 中繼資料]。
+     b. 在 [IdP 中繼資料的來源] 選取 [從 XML 載入 IdP 中繼資料]。
  
      c. 開啟下載的中繼資料檔案，然後複製內容並貼到 [IdP 中繼資料 XML]  文字方塊中。 
      
@@ -171,11 +171,11 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
+    b. 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-thirdlight-test-user"></a>建立 ThirdLight 測試使用者
 
@@ -194,7 +194,7 @@ ThirdLight 需以手動方式佈建。
 
 5. 輸入使用者名稱、名稱或描述、電子郵件，選擇您想要佈建之有效 AAD 帳戶新成員的 [預設] 或 [群組]  。
 
-6. 按一下 [建立] 。
+6. 按一下頁面底部的 [新增] 。
 
 >[!NOTE]
 >您可以使用任何其他的 Thirdlight 使用者帳戶建立工具或 Thirdlight 提供的 API 來佈建 AAD 使用者帳戶。 

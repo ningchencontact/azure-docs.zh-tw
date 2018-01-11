@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: sethm
-ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdbb2baea2bc6c45908369ff821c264b66053d95
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中樞擷取逐步解說︰Python
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 1. 登入 [Azure 入口網站][Azure portal]。
 2. 在入口網站的左方瀏覽窗格中，依序按一下 [新增]、[儲存體] 及 [儲存體帳戶]。
-3. 完成儲存體帳戶刀鋒視窗中的欄位，然後按一下建立。
+3. 完成儲存體帳戶刀鋒視窗中的欄位，然後按一下 [建立]。
    
    ![][1]
 4. 在看到**部署成功**訊息之後，按一下新儲存體帳戶的名稱，並在 [基本功能] 刀鋒視窗中按一下 [Blob]。 當 [Blob 服務] 刀鋒視窗開啟時，按一下頂端的 [+ 容器]。 將容器命名為**擷取**，然後關閉 [Blob 服務] 刀鋒視窗。
@@ -116,7 +116,8 @@ ms.lasthandoff: 10/11/2017
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)

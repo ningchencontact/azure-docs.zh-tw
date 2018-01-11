@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>偵錯本機 Docker 容器中的應用程式
 ## <a name="overview"></a>概觀
@@ -54,7 +54,7 @@ Visual Studio Tools for Docker 提供一致的方式，在 Linux Docker 容器�
 
 1. 將 [方案組態] 設定為 `Debug`，然後按 **&lt;CTRL + F5>** 來建置 Docker 映像，然後在本機執行此映像。
 
-    建置好容器映像並正在 Docker 容器中執行之後，Visual Studio 會在您的預設瀏覽器中啟動 Web 應用程式。
+    容器映像已建置並執行 Docker 容器中，一旦 Visual Studio 會啟動預設瀏覽器中的 Web 應用程式。
     如果您是使用 Microsoft Edge 瀏覽器或者發生錯誤，請參閱 [疑難排解](vs-azure-tools-docker-troubleshooting-docker-errors.md) 一節。
 2. 前往「關於」頁面，這是我們要在其中進行變更的頁面。
 3. 返回 Visual Studio，然後開啟 `Views\Home\About.cshtml`。
@@ -88,7 +88,7 @@ Visual Studio Tools for Docker 提供一致的方式，在 Linux Docker 容器�
 
    ![][2]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 運用 [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)，您將可獲得在本機運作的生產力，以及在 Docker 容器內開發的生產環境真實性。
 
 ## <a name="troubleshooting"></a>疑難排解

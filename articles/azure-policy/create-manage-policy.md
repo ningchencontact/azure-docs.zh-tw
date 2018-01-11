@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/07/2017
 6. 為原則指派提供顯示**名稱**。 在此情況下，讓我們使用「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派如何確保在此環境中建立的所有 SQL Server 都是 12.0 版的詳細資料。
 7. 將定價層變更為**標準**，以確保原則套用至現有的資源。
 
-   Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為還是有限預覽版本，所以尚未發行計價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)。
+   Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為還是有限預覽版本，所以尚未發行計價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)。
 
 8. 選取 [範圍]：您先前註冊的訂用帳戶 (或資源群組)。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。
 
@@ -73,12 +73,12 @@ ms.lasthandoff: 12/07/2017
    - 原則定義的名稱 - 需要小於 G 系列的 VM SKU
    - 原則定義目的的描述 – 此原則定義會強制讓此範圍中建立的所有 VM，具有比 G 系列小的 SKU，以降低成本。
    - 原則定義所在的訂用帳戶 – 在此情況下，我們的原則定義將會存放在 **Advisor Analytics Capacity Dev**。 您的訂用帳戶清單不同。
-   - 使用下列項目寫入 json 程式碼：
+   - 下列 json 程式碼複製並更新您的需求，使用：
       - 原則參數。
       - 原則規則/條件，在此情況下 – VM SKU 大小等於 G 系列
       - 原則效果，在此情況下 – **拒絕**。
 
-    以下是 json 應該會有的外觀
+    以下是 json 外觀應該為何。 將修改的程式碼貼到 Azure 入口網站。
 
     ```json
 {
@@ -348,7 +348,7 @@ az policy definition list
 
    從清單中選取原則定義之後，您會在 [原則和參數] 底下看到它，如上所示。
 
-5. 選取 [ **建立**]。
+5. 選取 [建立] 。
 
 ### <a name="assign-an-initiative-definition"></a>指派計畫定義
 

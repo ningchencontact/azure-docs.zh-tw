@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
 ms.openlocfilehash: 668a3ab46a70c0ee25fa87031d27c0f4333ec89c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Elemental Live 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-本主題會示範如何設定 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 編碼器，藉此將單一位元速率的即時串流傳送到 AMS 通道，其已針對即時編碼而啟用。  如需詳細資訊，請參閱 [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+本主題會示範如何設定 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 編碼器，藉此將單一位元速率的即時串流傳送到 AMS 通道，其已針對即時編碼而啟用。  如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>秘訣
+## <a name="tips"></a>祕訣
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體式編碼器時，請關閉任何不必要的程式。
@@ -70,12 +70,12 @@ ms.lasthandoff: 10/11/2017
 當頻道啟動時，您可以 [設定編碼器](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp)。
 
 > [!IMPORTANT]
-> 請注意，只要通道進入就緒狀態，就會開始計費。 如需詳細資訊，請參閱 [頻道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
+> 請注意，只要通道進入就緒狀態，就會開始計費。 如需詳細資訊，請參閱 [通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
 >
 >
 
 ### <a id=configure_elemental_rtp></a>設定 Elemental Live 編碼器
-在本教學課程中會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
+在本教學課程中，我們會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
 
 **視訊**：
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="configuration-steps"></a>組態步驟
 1. 瀏覽至 **Elemental Live** Web 介面，並設定用於 **UDP/TS** 串流的編碼器。
 2. 建立新事件後，請向下捲動至輸出群組並新增 **UDP/TS** 輸出群組。
-3. 選取 新增串流 然後按一下加入輸出 建立新的輸出。  
+3. 選取 [新增串流] 然後按一下 [加入輸出] 建立新的輸出。  
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 10/11/2017
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
     如需額外的備援，請對次要輸入 URL 重複這些步驟，方法是為 UDP/TS 串流建立個別的「輸出」索引標籤。
-3. 按一下 建立 \(如果已建立新事件) 或 更新 \(如果是編輯原有的事件)，然後繼續啟動編碼器。
+3. 按一下 [建立] (如果已建立新事件) 或 [更新] (如果是編輯原有的事件)，然後繼續啟動編碼器。
 
 > [!IMPORTANT]
 > 按一下 Elemental Live Web 介面上的 [開始] 之前，您**必須**確保頻道已就緒。

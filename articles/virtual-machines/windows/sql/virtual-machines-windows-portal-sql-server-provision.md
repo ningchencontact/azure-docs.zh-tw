@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中建立 Windows SQL Server 2017 VM | Microsoft Docs"
-description: "本教學課程會示範如何在 Azure 入口網站中建立 Windows SQL Server 2017 虛擬機器。"
+title: "如何在 Azure 入口網站中設定 Windows 的 SQL Server 2017 Vm |Microsoft 文件"
+description: "本如何指南描述在 Azure 入口網站中建立 Windows SQL Server 2017 虛擬機器的選項。"
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,43 +9,33 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中建立 Windows SQL Server 虛擬機器
 
-> [!div class="op_single_selector"]
-> * [入口網站](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+本指南會逐步可用的不同選項，當您在 Azure 入口網站中建立 Windows SQL Server 虛擬機器。 您可以遵循的步驟來建立您自己的 SQL Server VM 同時了解不同的選擇。 或者，您可以在入口網站中的特定步驟上移至參考的特定區段。
 
-在本快速入門教學課程中，您可以使用 Azure 入口網站來建立已安裝 SQL Server 的 Linux 虛擬機器。
+> [!TIP]
+> 若要快速開始使用入口網站的預設值，請參閱[Azure 快速入門-在入口網站中建立 SQL Server VM](quickstart-sql-vm-create-portal.md)。
 
-在本教學課程中，您將：
-
-* [從資源庫中選取 SQL VM 映像](#select)
-* [設定並建立 VM](#configure)
-* [透過遠端桌面開啟 VM](#remotedesktop)
-* [從遠端連接到 SQL Server](#connect)
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a id="select"></a>從資源庫中選取 SQL VM 映像
 
 1. 使用您的帳戶登入 [Azure 入口網站](https://portal.azure.com) 。
 
-   > [!NOTE]
-   > 如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-
 1. 在 Azure 入口網站上，按一下 [新增] 。 入口網站會開啟 [新增] 視窗。
 
-1. 在 新增 視窗中，按一下 計算，然後按一下檢視全部。
+1. 在 [新增] 視窗中，按一下 [計算]，然後按一下 [檢視全部]。
 
    ![新增計算視窗](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
@@ -71,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在 [選取部署模型] 底下，確認已選取 [Resource Manager]。 Resource Manager 是新的虛擬機器建議採用的部署模型。 
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
     ![使用 Resource Manager 建立 SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -125,7 +115,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > 如需關於虛擬機器大小的詳細資訊，請參閱 [虛擬機器大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-選擇您的機器大小，然後按一下選取 。
+選擇您的機器大小，然後按一下 [選取] 。
 
 ## <a name="3-configure-optional-features"></a>3.設定選用功能
 
@@ -247,7 +237,7 @@ ms.lasthandoff: 10/11/2017
 
 下表列出設定「Azure 金鑰保存庫整合」時所需的參數。
 
-| 參數 | 說明 | 範例 |
+| 參數 | 描述 | 範例 |
 | --- | --- | --- |
 | **金鑰保存庫 URL** |金鑰保存庫的位置。 |https://contosokeyvault.vault.azure.net/ |
 | **主體名稱** |Azure Active Directory 服務主體名稱。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -277,19 +267,11 @@ ms.lasthandoff: 10/11/2017
 
 使用下列步驟，透過遠端桌面連線到 SQL Server 虛擬機器︰
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 連線到 SQL Server 虛擬機器之後，您可以啟動 SQL Server Management Studio，然後使用您的本機系統管理員認證透過「Windows 驗證」進行連線。 如果您已啟用 SQL Server 驗證，您也可以使用您在佈建期間所設定的 SQL 登入和密碼以 SQL 驗證連線。
 
 存取電腦可讓您根據您的需求直接變更電腦和 SQL Server 設定。 例如，您可以設定防火牆設定或變更 SQL Server 組態設定。
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>針對 Developer 和 Express 版本啟用 TCP/IP
-
-佈建新的 SQL Server VM 時，Azure 不會對 SQL Server Developer 和 Express 版本自動啟用 TCP/IP 通訊協定。 以下步驟說明如何以手動方式啟用 TCP/IP，以便您經由 IP 位址從遠端連線。
-
-下列步驟使用 [SQL Server 組態管理員] 來對 SQL Server Developer 和 Express 版本啟用 TCP/IP 通訊協定。
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a>遠端連線到 SQL Server
 
@@ -300,7 +282,7 @@ ms.lasthandoff: 10/11/2017
 
 下列各節說明如何透過網際網路，從不同的電腦連接到您的 VM 上的 SQL Server 執行個體。
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

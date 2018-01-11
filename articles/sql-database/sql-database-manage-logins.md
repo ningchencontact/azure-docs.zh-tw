@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 78c26ee46ea7847cf78a7f3829c0f5b7a931f2d7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>控制和授與資料庫存取權
 
-設定防火牆規則後，使用者可以系統管理員帳戶、資料庫擁有者或資料庫中的資料庫使用者身分連接至 SQL 資料庫。  
+設定防火牆規則之後，人們可以連接到 SQL 資料庫做為其中一個系統管理員帳戶、 資料庫擁有者，或在資料庫中的資料庫使用者。  
 
 >  [!NOTE]  
 >  本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 

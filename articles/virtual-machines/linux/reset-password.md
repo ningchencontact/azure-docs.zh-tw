@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: delhan
-ms.openlocfilehash: 2591436b576580f51129b9dadbfe3814f23ac2cc
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: b9182ec2a974de06c2bd45928b9964f253653bf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重設本機 Linux 密碼
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="manual-password-reset-procedure"></a>手動密碼重設程序
 
-1.  刪除 VM，並保留已連結的磁碟。
+1.  刪除 VM，並保留已連接的磁碟。
 
-2.  將 OS 磁碟機作為資料磁碟連結到相同位置中另一部暫時的 VM。
+2.  將 OS 磁碟機作為資料磁碟連接到相同位置中另一部暫時的 VM。
 
 3.  在暫時的 VM 上，執行下列 SSH 命令以成為進階使用者。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/06/2017
     sudo su
     ~~~~
 
-4.  執行 **fdisk -l** 或查看系統記錄，以尋找最新連結的磁碟。 找出要掛接的磁碟機名稱。 然後在暫時的 VM 上，尋找相關記錄檔。
+4.  執行 **fdisk -l** 或查看系統記錄，以尋找最新連接的磁碟。 找出要掛接的磁碟機名稱。 然後在暫時的 VM 上，尋找相關記錄檔。
 
     ~~~~
     grep SCSI /var/log/kern.log (ubuntu)

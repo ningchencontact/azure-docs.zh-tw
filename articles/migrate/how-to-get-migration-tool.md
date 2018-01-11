@@ -1,24 +1,16 @@
 ---
 title: "在使用 Azure Migrate 評估之後移轉機器 | Microsoft Docs"
 description: "說明如何在使用 Azure Migrate 服務執行評估之後，取得機器的移轉建議。"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 809c6e85-0928-45e2-a7c7-6824d860e134
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>評量之後移轉機器
 
@@ -54,4 +46,4 @@ ms.lasthandoff: 11/29/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-[深入了解](concepts-assessment-calculation.md)評估的計算方式。
+[深入了解](concepts-assessment-calculation.md)評定的計算方式。

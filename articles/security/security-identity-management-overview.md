@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 85ea328bdea1aad28765712e3639f6719deab7e2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 921d7eef90a86216dc13804d3dc4dd216247fb87
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 可以提供數千個雲端 (SaaS) 應用程式的單一登入及存取您在內部部署執行的 Web 應用程式。
@@ -81,7 +81,7 @@ Azure Multi-Factor Authentication (MFA) 是需要使用多種驗證方法，並�
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全性監視、警示以及機器學習服務型報告
 安全性監視和警示以及機器學習式報告，會識別不一致的存取模式，可以協助您保護企業安全。 您可以使用 Azure Active Directory 的存取和使用情況報告來了解貴組織的目錄完整性和安全性。 利用此資訊，目錄管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。
 
-在 Azure 傳統入口網站中，報告會以下列方式分類：
+在 Azure 入口網站中，報表的分類如下：
 
 * 異常報告 – 包含我們發現異常的登入事件。 我們的目標在於使您注意這類活動，並讓您能夠判斷事件是否可疑。
 * 整合式應用程式報告 – 可供深入了解雲端應用程式在組織中的使用方式。 Azure Active Directory 提供與數千個雲端應用程式的整合。
@@ -133,7 +133,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 深入了解：
 
-* [Azure AD 特殊權限身分識別管理](../active-directory/active-directory-privileged-identity-management-configure.md)
+* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
 * [Azure AD Privileged Identity Management 中的角色](../active-directory/active-directory-privileged-identity-management-roles.md)
 * [Azure AD Privileged Identity Management：如何新增或移除使用者角色](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
 

@@ -4,7 +4,7 @@ description: "如何解決當應用程式本身發生錯誤時 Azure AD 登入�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bd86d4b13c8f61f278589e5c1d705ad91b3e3d4c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>登入後應用程式頁面的錯誤
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 若要在 Azure AD 組態中新增要以 Azure AD 回應傳送的屬性，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
    若要新增屬性：
 
-   * 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   * 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    * 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 
 若要變更的使用者識別碼值，請依照下列步驟執行︰
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -99,7 +99,7 @@ Azure AD 會根據由應用程式以 SAML AuthRequest 選取的值或要求的�
 
 若要變更 Azure Active Directory 數位簽署 SAML 權杖的部分， 請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 伺服器層級和資料庫層級防火牆規則 
 
@@ -45,6 +45,10 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 * **資料庫層級防火牆規則：** 這些規則可讓用戶端存取同部邏輯伺服器內的特定 (安全) 資料庫。 您可針對每個資料庫 (包括 **master** database) 建立這些規則，其會存放在個別的資料庫中。 master 與使用者資料庫的資料庫層級防火牆規則只能使用 Transact-SQL 陳述式建立及管理，且僅可在您已設定第一個伺服器層級防火牆之後進行設定。 如果您在資料庫層級防火牆規則中指定的 IP 位址範圍是在伺服器層級防火牆規則中指定的範圍之外，只有具有資料庫層級範圍中的 IP 位址的那些用戶端才可以存取資料庫。 對於資料庫，您最多可以有 128 個資料庫層級防火牆規則。 如需設定資料庫層級防火牆規則的詳細資訊，請參閱稍後述於 [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx) 的範例。
 
 **建議：**Microsoft 建議在可行時使用資料庫層級防火牆規則來增強安全性，並且讓您的資料庫更具有可攜性。 當您有多個資料庫具有相同存取需求，且不想花時間個別設定每個資料庫時，請對系統管理員使用伺服器層級的防火牆規則。
+
+> [!Important]
+> Windows Azure SQL Database 支援最多 128 個防火牆規則。
+>
 
 > [!Note]
 > 如需可讓業務持續運作的可攜式資料庫資訊，請參閱[災害復原的驗證需求](sql-database-geo-replication-security-config.md)。
@@ -109,7 +113,7 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 2. 按一下工具列上的 [新增用戶端 IP]，以新增您目前所用電腦的 IP 位址，然後再按一下 [儲存]。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則。
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>使用 Transact-SQL 管理防火牆規則
-| 目錄檢視或預存程序 | 等級 | 說明 |
+| 目錄檢視或預存程序 | Level | 說明 |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |伺服器 |顯示目前的伺服器層級防火牆規則 |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |伺服器 |建立或更新伺服器層級防火牆規則 |
@@ -139,7 +143,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>使用 Azure PowerShell 管理防火牆規則
-| Cmdlet | 等級 | 說明 |
+| Cmdlet | Level | 說明 |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |伺服器 |返回目前的伺服器層級防火牆規則 |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |伺服器 |建立新的伺服器層級防火牆規則 |
@@ -160,7 +164,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 >
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>使用 Azure CLI 管理防火牆規則
-| Cmdlet | 等級 | 說明 |
+| Cmdlet | Level | 說明 |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|伺服器|建立伺服器防火牆規則|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|伺服器|列出伺服器上的防火牆規則|
@@ -180,7 +184,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 >
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>使用 REST API 建立防火牆規則
-| API | 等級 | 說明 |
+| API | Level | 說明 |
 | --- | --- | --- |
 | [列出防火牆規則](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |伺服器 |顯示目前的伺服器層級防火牆規則 |
 | [建立或更新防火牆規則](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |伺服器 |建立或更新伺服器層級防火牆規則 |
@@ -203,7 +207,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
   此選項取決於您的需求和環境。 伺服器層級防火牆規則可能會比較容易設定，但是指令碼可以設定資料庫層級的規則。 即使您使用伺服器層級防火牆規則，您可能需要稽核資料庫防火牆規則，以查看具備資料庫 `CONTROL` 權限的使用者是否已建立資料庫層級防火牆規則。   
 
 問： 我是否可以混合使用伺服器層級和資料庫層級防火牆規則？   
-  是。 部分使用者 (例如系統管理員) 可能需要伺服器層級防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級防火牆規則。   
+  可以。 部分使用者 (例如系統管理員) 可能需要伺服器層級防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級防火牆規則。   
 
 ## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
 當對於 Microsoft Azure SQL Database 服務的存取未如預期運作時，請考慮下列幾點：

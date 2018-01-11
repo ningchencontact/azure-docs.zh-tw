@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
 
@@ -93,7 +93,7 @@ dotnet run
 
 ### <a name="create-a-sql-database-logical-server"></a>連線至 SQL Database 邏輯伺服器
 
-在 Cloud Shell 中，使用 [az sql server create](/cli/azure/sql/server#create) 命令建立 SQL Database 邏輯伺服器。
+在 Cloud Shell 中，使用 [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) 命令建立 SQL Database 邏輯伺服器。
 
 將 \<server_name> 預留位置取代為唯一的 SQL Database 名稱。 這個名稱會用來作為 SQL Database 端點 `<server_name>.database.windows.net` 的一部分，因此，這個名稱在 Azure 中的所有邏輯伺服器必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。 此外，將 \<db_username> 和 \<db_password> 取代為您選擇的使用者名稱和密碼。 
 
@@ -124,7 +124,7 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 
 ### <a name="configure-a-server-firewall-rule"></a>設定伺服器防火牆規則
 
-使用 [az sql server firewall create](/cli/azure/sql/server#create) 命令建立 [Azure SQL Database 伺服器層級防火牆規則](../../sql-database/sql-database-firewall-configure.md)。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 
+使用 [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) 命令建立 [Azure SQL Database 伺服器層級防火牆規則](../../sql-database/sql-database-firewall-configure.md)。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>建立資料庫
 
-使用 [az sql db create](/cli/azure/sql/db#create) 命令在伺服器中建立具有 [S0 效能等級](../../sql-database/sql-database-service-tiers.md)的資料庫。
+使用 [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) 命令在伺服器中建立具有 [S0 效能等級](../../sql-database/sql-database-service-tiers.md)的資料庫。
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
-若要設定 Azure 應用程式的連接字串，請在 Cloud Shell 中使用 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 命令。 在下列命令中，將 \<app name> 以及 \<connection_string> 參數取代為您稍早建立的連接字串。
+若要設定 Azure 應用程式的連接字串，使用[az webapp config appsettings 組](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set)雲端殼層命令。 在下列命令中，將 \<app name> 以及 \<connection_string> 參數取代為您稍早建立的連接字串。
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

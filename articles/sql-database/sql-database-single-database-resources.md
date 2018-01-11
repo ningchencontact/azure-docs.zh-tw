@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL Database 中單一資料庫的資源
 
@@ -35,6 +35,10 @@ ms.lasthandoff: 10/31/2017
 
 ![設定服務層和效能等級](./media/sql-database-single-database-resources/change-service-tier.png)
 
+按一下**概觀**監視及/或取消進行中作業。
+
+![取消作業](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > 選取 P11 或 P15 服務層時，檢閱 [P11 和 P15 資料庫目前的大小上限為 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。
 >
@@ -48,6 +52,8 @@ ms.lasthandoff: 10/31/2017
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|建立資料庫 |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|取得一或多個資料庫|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|設定資料庫的屬性，或將現有資料庫移到彈性集區中。 例如，使用 **MaxSizeBytes** 屬性來設定資料庫的大小上限。|
+|[Get AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|取得資料庫作業的狀態。 |
+|[停止 AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|取消非同步更新作業的資料庫。|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ ms.lasthandoff: 10/31/2017
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|顯示防火牆規則的詳細資料|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火牆規則|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|刪除防火牆規則|
-
+|[az sql db op 清單](/cli/azure/sql/db/op?#az_sql_db_op_list)|取得在資料庫上執行之作業的清單。|
+|[az sql db op [取消]](/cli/azure/sql/db/op#az_sql_db_op_cancel)|取消非同步作業的資料庫。|
 
 > [!TIP]
 > 如需會在查詢資料庫的大小資訊後將單一 Azure SQL Database 調整為不同效能等級的 Azure CLI 範例指令碼，請參閱[使用 CLI 來監視和調整單一 SQL 資料庫](scripts/sql-database-monitor-and-scale-database-cli.md)。
@@ -102,6 +109,7 @@ ALTER DATABASE <myDatabaseName>
 |[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
 |[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
 |[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
+|[作業-清單](/rest/api/sql/Operations/List)|列出所有可用的 SQL Rest API 作業。|
 
 
 

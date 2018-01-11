@@ -9,17 +9,17 @@ editor:
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.custom: oms-security
-ms.topic: get-started-article
+ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>開始使用 Operations Management Suite 安全性和稽核解決方案
 本文帶領您認識每個選項，協助您快速開始使用 Operations Management Suite (OMS) 安全性和稽核解決方案功能。
@@ -193,7 +193,7 @@ Microsoft 與全球產業和政府組織共同定義可代表高度安全伺服�
 * 依帳戶的登入活動
 * 從遠端登入電腦 "computer01.contoso.com" (以您自己的電腦名稱取代) 的帳戶
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，已向您介紹 OMS 安全性和稽核解決方案。 若要深入了解 OMS 安全性，請參閱下列文章：
 
 * [Operations Management Suite (OMS) 概觀](operations-management-suite-overview.md)

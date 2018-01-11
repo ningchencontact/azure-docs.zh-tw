@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -452,7 +452,7 @@ client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, Pi
 
 - sourceBlobContainer - 管道中由來源 Blob 資料集所取用的參數。
 - sinkBlobContainer – 管道中由接收 Blob 資料集所取用的參數
-- receiver – 管道中由兩個 Web 活動所取用的參數，表示哪一個電子郵件地址接收電子郵件
+- 接收者 – 管線中的兩項 Web 活動會使用此參數，將成功或失敗電子郵件傳送給其電子郵件地址由此參數指定的接收者。
 
 
 ```csharp

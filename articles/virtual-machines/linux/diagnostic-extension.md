@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -52,7 +52,7 @@ Azure 入口網站無法用於啟用或設定 LAD 3.0。 相反地，它會安�
 
 ### <a name="prerequisites"></a>必要條件
 
-* **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent)更新。
+* **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您電腦上[設定 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
 * Wget 命令，如果您沒有：請執行 `sudo apt-get install wget`。
 * 現有的 Azure 訂用帳戶與其中現有的儲存體帳戶以儲存資料。
@@ -135,6 +135,10 @@ storageAccountSasToken | Blob 與資料表服務 (`ss='bt'`) 的 [帳戶 SAS 權
 mdsdHttpProxy | (選擇性) 啟用擴充功能以連線所指定儲存體帳戶和端點時所需的 HTTP proxy 資訊。
 sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細資料。 以下各節包含擴充功能所支援每個資料接收的特定詳細資料。
 
+
+> [!NOTE]
+> 在部署 Azure 部署範本的擴充功能時，儲存體帳戶和 SAS 權杖必須是事先建立，而且再傳遞至範本。 您無法部署的 VM、 儲存體帳戶，並在單一範本中設定擴充功能。 目前不支援建立範本內的 SAS 權杖。
+
 您可以輕鬆地透過 Azure 入口網站建構所需的 SAS 權杖。
 
 1. 選取您要將擴充功能寫入的一般用途儲存體帳戶
@@ -142,7 +146,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 1. 依前述設定適當的區段
 1. 按一下 [產生 SAS] 按鈕。
 
-![image](./media/diagnostic-extension/make_sas.png)
+![映像](./media/diagnostic-extension/make_sas.png)
 
 將產生的 SAS 複製到 [storageAccountSasToken] 欄位；移除前置問號 ("?")。
 
@@ -165,8 +169,8 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 
 元素 | 值
 ------- | -----
-名稱 | 用來在擴充功能組態中的其他位置參考此接收的字串。
-類型 | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
+name | 用來在擴充功能組態中的其他位置參考此接收的字串。
+type | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
 
 3.0 版的 Linux 診斷擴充功能支援兩種接收類型：EventHub 與 JsonBlob。
 
@@ -267,7 +271,7 @@ sampleRateInSeconds | (選擇性) 原始 (未彙總) 計量集合之間的預設
 
 元素 | 值
 ------- | -----
-resourceId | VM 所屬之 VM 或虛擬機器擴展集的 Azure Resource Manager 資源 ID。 如果在組態中使用任何的 JsonBlob 接收，則亦須指定此設定。
+ResourceId | VM 所屬之 VM 或虛擬機器擴展集的 Azure Resource Manager 資源 ID。 如果在組態中使用任何的 JsonBlob 接收，則亦須指定此設定。
 scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure 計量 (以 IS 8601 時間間隔表示)。 最小傳輸期間為 60 秒，亦即 PT1M。 您必須指定至少一個 scheduledTransferPeriod。
 
 系統每隔 15 秒或以為計數器明確定義的採樣速率收集在 performanceCounters 區段中指定的計量樣本。 如果顯示多個 scheduledTransferPeriod 頻率 (如範例所述)，則會獨立計算每個彙總。
@@ -308,7 +312,7 @@ scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure
 元素 | 值
 ------- | -----
 sinks | (選擇性) 以逗號分隔的接收名稱清單，LAD 會將彙總的計量結果傳送至此清單。 系統會將所有彙總的計量發佈至每個列出的接收。 請參閱 [sinksConfig](#sinksconfig)。 範例： `"EHsink1, myjsonsink"`.
-類型 | 識別計量的實際提供者。
+type | 識別計量的實際提供者。
 class | 與 "counter" 一起使用，可識別提供者命名空間內的特定計量。
 counter | 與 "class" 一起使用，可識別提供者命名空間內的特定計量。
 counterSpecifier | 可識別 Azure 計量命名空間內的特定計量。
@@ -682,7 +686,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 使用 Azure 入口網站檢視效能資料或集合警示：
 
-![image](./media/diagnostic-extension/graph_metrics.png)
+![映像](./media/diagnostic-extension/graph_metrics.png)
 
 `performanceCounters` 資料一律儲存在 Azure 儲存體資料表中。 Azure 儲存體 API 適用於許多語言與平台。
 
@@ -695,7 +699,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 Microsoft Azure 儲存體總管工作階段的這個快照顯示從測試 VM 上正確設定的 LAD 3.0 擴充功能產生的 Azure 儲存體資料表及容器。 影像不完全符合[範例 LAD 3.0 組態](#an-example-lad-30-configuration)。
 
-![image](./media/diagnostic-extension/stg_explorer.png)
+![映像](./media/diagnostic-extension/stg_explorer.png)
 
 請參閱相關的 [EventHubs 資訊](../../event-hubs/event-hubs-what-is-event-hubs.md)，以了解如何取用發佈至 EventHubs 端點的訊息。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/18/2017
 
 安全的叢集是可以防止未經授權存取管理作業的叢集，那些作業包括部署、升級及刪除應用程式、服務和它們包含的資料。 不安全的叢集是任何人都可以隨時連線並執行管理作業的叢集。 雖然可以建立不安全的叢集，但 **強烈建議您建立安全的叢集**。 不安全的叢集 **無法在事後保護其安全** - 必須建立新的叢集。
 
-不論叢集是 Linux 叢集或 Windows 叢集，建立安全叢集的概念都一樣。 如需建立安全 Linux 叢集的詳細資訊和協助程式指令碼，請參閱[在 Linux 上建立安全叢集](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters)。 由所提供的協助程式指令碼所取得的參數可以直接輸入到入口網站，如[在 Azure 入口網站中建立叢集](#create-cluster-portal)一節所述。
+不論叢集是 Linux 叢集或 Windows 叢集，建立安全叢集的概念都一樣。 如需詳細資訊和協助程式指令碼建立安全的 Linux 叢集，請參閱[建立安全叢集](service-fabric-cluster-creation-via-arm.md)。 由所提供的協助程式指令碼所取得的參數可以直接輸入到入口網站，如[在 Azure 入口網站中建立叢集](#create-cluster-portal)一節所述。
 
 ## <a name="configure-key-vault"></a>設定金鑰保存庫 
 ### <a name="log-in-to-azure"></a>登入 Azure
@@ -114,7 +114,15 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
     Tags                             :
 ```
 
-如果您有現有金鑰保存庫，可以使用 Azure CLI 將它啟用以用於部署：
+如果您有現有的金鑰保存庫，您可以使用下列方式的其中一個部署中啟用它：
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Azure CLI：
 
 ```cli
 > azure login
@@ -197,7 +205,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 這些是設定 Service Fabric 叢集 Resource Manager 範本時的所有金鑰保存庫必要條件，該範本會安裝用於節點驗證、管理端點安全性和驗證，以及使用 X.509 憑證的任何其他應用程式安全性功能的憑證。 此時，您應該已經在 Azure 中建立以下項目：
 
 * 金鑰保存庫資源群組
-  * 金鑰保存庫
+  * Key Vault
     * 叢集伺服器驗證憑證
 
 </a "create-cluster-portal" ></a>
@@ -272,7 +280,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 * 選取 [設定進階設定] 核取方塊來輸入**系統管理用戶端**和**唯讀用戶端**的用戶端憑證。 在這些欄位中，輸入系統管理用戶端憑證的指紋和唯讀使用者用戶端憑證的指紋 (如果適用)。 當系統管理員嘗試連線叢集時，只有在他們的憑證指紋和這裡輸入的指紋值相符時，才會被授與存取權。  
 
-#### <a name="4-summary"></a>4.摘要
+#### <a name="4-summary"></a>4.總結
 
 若要完成叢集建立程序，請按一下 [摘要]  來查看您提供的組態，或是下載用來部署叢集的 Azure Resource Manager 範本。 在您提供必要的設定之後，[確定]  按鈕會變成綠色，您只要按一下該按鈕就可以啟動叢集建立程序。
 

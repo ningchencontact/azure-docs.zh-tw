@@ -4,7 +4,7 @@ description: "了解如何使用 Azure CLI 2.0 擴充 Linux VM 上的虛擬硬�
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
 在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您也可能想要擴充既有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 您也可以使用 [Azure CLI 1.0](expand-disks-nodejs.md) 來擴充非受控的 OS 磁碟。
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > [!WARNING]
 > 在執行磁碟調整大小作業前，務必備份資料。 如需詳細資訊，請參閱[在 Azure 中備份 Linux 虛擬機器](tutorial-backup-vms.md)。
 
-## <a name="expand-disk"></a>擴充磁碟
+## <a name="expand-azure-managed-disk"></a>展開 Azure 受管理的磁碟
 請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
 
 本文需要 Azure 中存有一個虛擬機器，且該虛擬機器至少掛載一個已備妥使用的資料磁碟。 如果您還沒有可使用的虛擬機器，請參閱[建立並準備掛載有資料磁碟的虛擬機器](tutorial-manage-disks.md#create-and-attach-disks)。
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
     ```
 
     > [!NOTE]
-    > `az vm stop` 不會釋放計算資源。 若要釋放計算資源，請使用 `az vm deallocate`。 必須解除配置 VM，才能擴充虛擬硬碟。
+    > 必須解除配置 VM，才能擴充虛擬硬碟。 `az vm stop` 不會釋放計算資源。 若要釋放計算資源，請使用 `az vm deallocate`。
 
 2. 使用 [az disk list](/cli/azure/disk#list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup 之資源群組中的受控磁碟清單：
 
@@ -69,13 +69,17 @@ ms.lasthandoff: 10/11/2017
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. 使用適當的認證以 SSH 登入 VM。 您可以使用 [az vm show](/cli/azure/vm#show) 取得虛擬機器的 IP 位址：
+
+## <a name="expand-disk-partition-and-filesystem"></a>展開 磁碟分割及檔案系統
+若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
+
+1. 使用適當的認證以 SSH 登入 VM。 您可以使用 [az vm show](/cli/azure/vm#show) 取得虛擬機器的 IP 位址：
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. 若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
+2. 若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
 
     a. 若磁碟已掛載，則卸載磁碟：
 
@@ -116,25 +120,25 @@ ms.lasthandoff: 10/11/2017
 
     d. 若要結束，請輸入 `quit`
 
-5. 分割區調整大小後，使用 `e2fsck` 來確認分割區的一致性：
+3. 分割區調整大小後，使用 `e2fsck` 來確認分割區的一致性：
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. 使用 `resize2fs` 來調整檔案系統大小：
+4. 使用 `resize2fs` 來調整檔案系統大小：
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. 將分割區掛載至所需位置，像是 `/datadrive`：
+5. 將分割區掛載至所需位置，像是 `/datadrive`：
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列輸出範例顯示資料磁碟 (*/dev/sdc1*) 現在是 200 GB：
+6. 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列輸出範例顯示資料磁碟 (*/dev/sdc1*) 現在是 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

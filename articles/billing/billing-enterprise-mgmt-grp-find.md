@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>尋找 Azure 訂用帳戶或管理群組
 
-如果您在 Azure 中找不到訂用帳戶或管理群組，可能是所查看的目錄錯誤。 當您的帳戶存在於多個 Azure Active Directory.中時，就可能發生這種情況。 每個 [Active Directory 都是獨立的](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence)，並不會跨目錄繼承存取權。      
+如果您在 Azure 中找不到訂用帳戶或管理群組，可能是所查看的目錄錯誤。 當您的帳戶存在於多個 Azure Active Directory.中時，就可能發生這種情況。 每個 [Active Directory 都是獨立的](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence)，並不會跨目錄繼承存取權。      
 
 ![切換目錄功能表](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 ![找不到資產](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 請連絡訂用帳戶或管理群組的系統管理員，以取得存取權。  
-* 針對訂用帳戶，請參考 [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) 文件，以取得有關所需角色的說明。
+* 針對訂用帳戶，請參考 [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 文件，以取得有關所需角色的說明。
 * 針對管理群組，目前無法使用 RBAC 存取，但即將推出。 請連絡您的企業版入口網站系統管理員，以請求指派存取權。   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>將管理群組和訂用帳戶放在相同目錄中來改善體驗 

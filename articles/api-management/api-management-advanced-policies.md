@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -242,7 +242,7 @@ ms.lasthandoff: 12/04/2017
   
 |屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|以秒為單位的逾時間隔，後端服務的呼叫在經過此間隔後便會失敗。|否|無逾時|  
+|timeout="integer"|以秒為單位的逾時間隔，後端服務的呼叫在經過此間隔後便會失敗。|否|300 秒|  
 |follow-redirects="true &#124; false"|指定來自後端服務的重新導向會由閘道遵循或傳回給呼叫者。|否|false|  
   
 ### <a name="usage"></a>使用量  
@@ -289,7 +289,7 @@ ms.lasthandoff: 12/04/2017
   
 |屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|--------------|  
-|key|字串。 允許的運算式。 指定並行範圍。 可由多個原則共用。|是|N/A|  
+|索引鍵|字串。 允許的運算式。 指定並行範圍。 可由多個原則共用。|是|N/A|  
 |max-count|整數。 指定允許輸入原則的要求數目上限。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
@@ -439,7 +439,7 @@ status code and media type. If no example or schema found, the content is empty.
 |屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |condition|布林常值或[運算式](api-management-policy-expressions.md)，指定應停止 (`false`) 還是繼續 (`true`) 重試。|是|N/A|  
-|計數|正數，指定要嘗試的重試次數上限。|是|N/A|  
+|count|正數，指定要嘗試的重試次數上限。|是|N/A|  
 |interval|以秒為單位的正數，指定重試嘗試之間的等待間隔。|是|N/A|  
 |max-interval|以秒為單位的正數，指定重試嘗試之間的最大等待間隔。 此屬性可用來實作指數重試演算法。|否|N/A|  
 |delta|以秒為單位的正數，指定等待間隔的增量。 此屬性可用來實作線性和指數的重試演算法。|否|N/A|  
@@ -564,7 +564,7 @@ status code and media type. If no example or schema found, the content is empty.
 |屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。|否|新增|  
-|名稱|指定要設定之標頭的名稱。|是|N/A|  
+|name|指定要設定之標頭的名稱。|是|N/A|  
 |exists-action|指定當已指定標頭時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有標頭的值。<br />-   skip - 不取代現有的標頭值。<br />-   append - 將值附加至現有標頭值之後。<br />-   delete - 移除要求中的標頭。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定標頭 (列出多次)；只有列出的值才會設定在結果中。|否|override|  
   
 ### <a name="usage"></a>使用量  
@@ -646,7 +646,7 @@ status code and media type. If no example or schema found, the content is empty.
 |response-variable-name="string"|如果不存在，則會使用 `context.Response`。|否|N/A|  
 |timeout="integer"|以秒為單位的逾時間隔，URL 的呼叫在經過此間隔後便會失敗。|否|60|  
 |ignore-error|如果為 true，則要求會導致錯誤︰<br /><br /> -   如果已指定 response-variable-name，它會包含 null 值。<br />-   如果未指定 response-variable-name，則不會更新 context.Request。|否|false|  
-|名稱|指定要設定之標頭的名稱。|是|N/A|  
+|name|指定要設定之標頭的名稱。|是|N/A|  
 |exists-action|指定當已指定標頭時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有標頭的值。<br />-   skip - 不取代現有的標頭值。<br />-   append - 將值附加至現有標頭值之後。<br />-   delete - 移除要求中的標頭。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定標頭 (列出多次)；只有列出的值才會設定在結果中。|否|override|  
   
 ### <a name="usage"></a>使用量  
@@ -691,7 +691,7 @@ status code and media type. If no example or schema found, the content is empty.
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入  
+-   **原則區段︰**inbound  
   
 -   **原則範圍：**所有範圍  
 
@@ -819,7 +819,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |屬性|說明|必要|  
 |---------------|-----------------|--------------|  
-|名稱|變數的名稱。|是|  
+|name|變數的名稱。|是|  
 |value|變數的值。 此值可為運算式或常值。|是|  
   
 ### <a name="usage"></a>使用量  

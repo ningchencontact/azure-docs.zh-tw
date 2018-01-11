@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>設定 Azure SQL Database 長期備份保留並從中還原
 
@@ -82,6 +82,9 @@ ms.lasthandoff: 10/31/2017
 12. 在 [設定] 頁面上，提供新保留原則的有效名稱、適當修改預設保留原則，然後按一下 [確定]。
 
    ![定義保留原則](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >保留原則的名稱不允許某些字元，包括空格。
 
 13. 在伺服器的 [長期備份保留] 頁面上，按一下 [儲存]，然後按一下 [確定]，將長期備份保留原則套用到所有選取的資料庫。
 
@@ -147,7 +150,7 @@ ms.lasthandoff: 10/31/2017
 
 下列幾節中會示範如何使用 PowerShell 來設定 Azure 復原服務保存庫、檢視保存庫中的備份，以及從保存庫中還原。
 
-### <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
+### <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
 
 使用 [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) 來建立復原服務保存庫。
 

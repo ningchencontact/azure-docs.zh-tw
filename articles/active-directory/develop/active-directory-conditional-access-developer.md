@@ -1,24 +1,23 @@
 ---
-title: "Azure Active Directory 條件式存取的開發人員指引 | Microsoft Docs"
+title: "Azure Active Directory 條件式存取的開發人員指引"
 description: "Azure Active Directory 條件式存取的開發人員指引和案例"
 services: active-directory
 keywords: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) 提供數種方式來保護您的應用程式並保�
 * 只允許已註冊 Intune 的裝置存取特定服務
 * 限制使用者位置及 IP 範圍
 
-如需了解條件式存取完整功能的詳細資訊，請參閱 [Azure 傳統入口網站中的條件式存取](../active-directory-conditional-access-azure-portal.md)。 
+更多的完整功能，條件式存取的詳細資訊，請參閱[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。 
 
 在本文中，我們會著重在條件式存取對於建置 Azure AD 應用程式之開發人員所代表的意義。  它假設對於[單一](active-directory-integrating-applications.md)和[多租用戶](active-directory-devhowto-multi-tenant-overview.md)應用程式以及[常見驗證模式](active-directory-authentication-scenarios.md)的認知。
 
@@ -110,7 +109,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 ```WWW-Authenticate``` 標頭有獨特的結構，要剖析來擷取值並非易事。  以下簡短方法有所幫助。
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -138,7 +137,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
             }
             return null; 
         }
-    ```
+```
 
 關於示範如何處理宣告挑戰的程式碼範例，請參閱適用於 ADAL .NET 的[代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。
 
@@ -216,9 +215,9 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。  此程式碼範例會使用條件式存取原則，以及您稍早向 JS SPA 註冊來示範此情節的 web API。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-* 若要深入了解功能，請參閱 [Azure AD 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
+* 若要深入了解的功能，請參閱[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。 
 * 如需 ADAL SDK 的詳細資訊及存取參考文件，請參閱[程式庫指南](active-directory-authentication-libraries.md)。
 * 若要深入了解多租用戶情節，請參閱[如何使用多租用戶模式將使用者登入](active-directory-devhowto-multi-tenant-overview.md)。

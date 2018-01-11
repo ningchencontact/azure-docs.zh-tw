@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 > * 建立 Azure Cosmos DB 帳戶 
 > * 在 app.config 檔案中啟用功能 
 > * 使用[資料表 API](table-introduction.md) 建立資料表
-> * 將實體加入至資料表 
+> * 將實體新增至資料表 
 > * 插入一批實體 
 > * 擷取單一實體 
 > * 使用自動次要索引來查詢實體 
@@ -116,13 +116,13 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. 將主要連接字串從入口網站貼到第 8 行上的 StorageConnectionString 值中。 在引號內貼上字串。
+4. 將來自入口網站的主要連接字串貼到第 8 行上的 StorageConnectionString 值中。 在引號內貼上字串。
    
     > [!IMPORTANT]
     > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新的資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。 
     >
 
-    行 8 現在看起來應該會類似：
+    第 8 行現在看起來應該類似：
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -148,8 +148,6 @@ Azure Cosmos DB 支援一些 Azure 資料表儲存體 API 中未提供的功能�
 
 | Key | 說明 |
 | --- | --- |
-| TableThroughput | 以每秒要求單位 (RU) 表示的資料表保留輸送量。 單一資料表可支援每秒數億個 RU。 請參閱[要求單位](request-units.md)。 預設值為 `400` |
-| TableIndexingPolicy | 符合索引編製原則規格的 JSON 字串。 若要了解如何變更索引編製原則以包含/排除特定資料行，請參閱[索引編製原則](indexing-policies.md)。 |
 | TableQueryMaxItemCount | 設定單一來回行程中每一資料表查詢所傳回的項目數上限。 預設值為 `-1`，這會讓 Azure Cosmos DB 在執行階段動態決定值。 |
 | TableQueryEnableScan | 如果查詢無法針對任何篩選使用索引，則無論如何還是透過掃描執行它。 預設值為 `false`。|
 | TableQueryMaxDegreeOfParallelism | 用於執行跨分割區查詢的平行處理程度。 `0` 為循序且不預先擷取，`1` 為循序並預先擷取，而值越高代表平行程度也越高。 預設值為 `-1`，這會讓 Azure Cosmos DB 在執行階段動態決定值。 |
@@ -165,10 +163,6 @@ Azure Cosmos DB 支援一些 Azure 資料表儲存體 API 中未提供的功能�
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
 
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
-
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
       <add key="TableQueryEnableScan" value="false"/>
@@ -179,7 +173,7 @@ Azure Cosmos DB 支援一些 Azure 資料表儲存體 API 中未提供的功能�
 </configuration>
 ```
 
-讓我們快速檢閱應用程式中所發生的事情。 開啟 `Program.cs` 檔案，您會發現這些程式碼建立了「資料表」資源。 
+讓我們快速檢閱應用程式中發生了什麼。 開啟 `Program.cs` 檔案，您會發現這些程式碼建立了「資料表」資源。 
 
 ## <a name="create-the-table-client"></a>建立資料表用戶端
 您需將 `CloudTableClient` 初始化以連線到資料表帳戶。
@@ -194,19 +188,19 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists();
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 在資料表的建立方式方面有重大的差異。 Azure Cosmos DB 會保留輸送量，而不像 Azure 儲存體針對交易是採用以耗用量為基礎的模型。 您的輸送量是專用/已保留的，因此當您的要求率正好在或低於所佈建的輸送量時，一律不會進行節流。
 
-您可以設定以每秒 RU (要求單位) 表示的 `TableThroughput` 設定，來設定預設輸送量。 
+您可以設定預設輸送量包括為 CreateIfNotExists 的參數。
 
 讀值為 1-KB 的實體會標準化為 1 RU，其他作業則會根據其 CPU、記憶體及 IOPS 耗用量來標準化為固定的 RU 值。 深入了解 [Azure Cosmos DB 中的要求單位](request-units.md)，尤其是[索引鍵值存放區](key-value-store-cost.md)。
 
 接著，我們將逐步解說如何使用 Azure 資料表儲存體 SDK 來進行簡單的讀寫 (CRUD) 作業。 本教學課程會示範 Azure Cosmos DB 所提供之可預測的低個位數毫秒延遲和快速查詢。
 
-## <a name="add-an-entity-to-a-table"></a>將實體新增到資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 Azure 資料表儲存體中的實體會從 `TableEntity` 類別延伸，並且必須具有 `PartitionKey` 和 `RowKey` 屬性。 以下是一個客戶實體的範例定義。
 
 ```csharp
@@ -244,7 +238,7 @@ TableOperation insertOperation = TableOperation.Insert(customer1);
 table.Execute(insertOperation);
 ```
 
-## <a name="insert-a-batch-of-entities"></a>插入實體批次
+## <a name="insert-a-batch-of-entities"></a>插入一批實體
 Azure 資料表儲存體支援批次作業 API，可讓您將更新、刪除及插入結合在相同批次作業中。
 
 ```csharp
@@ -301,7 +295,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB 支援的「資料表 API」查詢功能與 Azure 資料表儲存體相同。 Azure Cosmos DB 也支援排序、彙總、地理空間查詢、階層及各種不同的內建函式。 在未來的服務更新中，將會在資料表 API 中提供額外的功能。 如需這些功能的概觀，請參閱 [Azure Cosmos DB 查詢](documentdb-sql-query.md)。 
+Azure Cosmos DB 支援的「資料表 API」查詢功能與 Azure 資料表儲存體相同。 Azure Cosmos DB 也支援排序、彙總、地理空間查詢、階層及各種不同的內建函式。 在未來的服務更新中，將會在資料表 API 中提供額外的功能。 如需這些功能的概觀，請參閱 [Azure Cosmos DB 查詢](sql-api-sql-query.md)。 
 
 ## <a name="replace-an-entity"></a>取代實體
 若要更新實體，從資料表服務擷取實體、修改實體物件，然後將變更儲存回資料表服務。 下列程式碼會變更現有客戶的電話號碼。 

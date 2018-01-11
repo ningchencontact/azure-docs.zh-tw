@@ -1,24 +1,16 @@
 ---
 title: "為 Azure Migrate 問題進行疑難排解 | Microsoft Docs"
 description: "概括介紹 Azure Migrate 服務的已知問題以及常見錯誤的疑難排解訣竅。"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -26,6 +18,16 @@ ms.lasthandoff: 11/28/2017
 
 [Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 本文可對 Azure Migrate 部署與使用方面的問題進行疑難排解。
 
+
+**收集器不能連線到網際網路**
+
+當您使用的電腦位於 proxy 後方時，也可能會發生。 請確定您提供的授權認證，如果 proxy 需要其中一個。
+如果您使用任何以 URL 為基礎來控制輸出連線，才能確定白名單這些防火牆 proxy 所需的 Url:
+
+**URL** | **用途**  
+--- | ---
+*。 portal.azure.com | 需要若要檢查的 Azure 服務的連線，並驗證時間同步處理問題。
+*。 oneget.org | 所需下載 powershell 基礎 vCenter PowerCLI 模組。
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 

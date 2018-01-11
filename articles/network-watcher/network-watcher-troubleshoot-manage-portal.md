@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>使用 Azure 網路監看員 PowerShell 來針對虛擬網路閘道和連線進行疑難排解
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 |---------|---------|
 |資源     | 資源的連結。        |
 |儲存體路徑     |  包含記錄檔的儲存體帳戶及容器的路徑 (若在執行期間有產生的話)。 在您離開入口網站之後，此設定將不會保存。        |
-|摘要     | 資源健康狀態的摘要。        |
+|總結     | 資源健康狀態的摘要。        |
 |詳細資料     | 資源健康狀態的詳細資訊。        |
 |上次執行     | 上次執行疑難排解的時間。        |
 

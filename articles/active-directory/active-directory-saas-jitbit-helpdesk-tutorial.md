@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Jitbit Helpdesk 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 15ce27d4-0621-4103-8a34-e72c98d72ec3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 6523ee3179dafd79528093b856b0ec10fafb4f7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 31d3295fa8d75aa72c8e9967b7ca81f4e98e5608
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>教學課程：Azure Active Directory 與 Jitbit Helpdesk 整合
 
@@ -47,13 +47,13 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Jitbit Helpdesk
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>從資源庫新增 Jitbit Helpdesk
-若要設定將 Jitbit Helpdesk 整合到 Azure AD 中，您需要從資源庫將 Jitbit Helpdesk 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Jitbit Helpdesk 整合到 Azure AD 中，您需要從資源庫將 Jitbit Helpdesk 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Jitbit Helpdesk，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Jitbit Helpdesk**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_search.png)
 
-5. 在結果窗格中，選取 Jitbit Helpdesk，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Jitbit Helpdesk]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_addfromgallery.png)
 
@@ -118,9 +118,9 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
     | |
     
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Jitbit Helpdesk 用戶端支援小組](https://www.jitbit.com/support/)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Jitbit Helpdesk 用戶端支援小組](https://www.jitbit.com/support/)以取得此值。 
     
-    b.這是另一個 C# 主控台應用程式。  在 [識別碼] 文字方塊中輸入如下的 URL：`https://www.jitbit.com/web-helpdesk/`
+    b.  在 [識別碼] 文字方塊中輸入如下的 URL：`https://www.jitbit.com/web-helpdesk/`
 
     
  
@@ -154,7 +154,7 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
     
     a. 選取 [啟用 SAML 2.0 單一登入]，以搭配 **OneLogin** 使用單一登入 (SSO) 來登入。
 
-    b.這是另一個 C# 主控台應用程式。 在 [端點 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**「SAML 單一登入服務 URL」**值。
+    b. 在 [端點 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**「SAML 單一登入服務 URL」**值。
 
     c. 在記事本中開啟您的 **base-64** 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼到 [X.509 憑證] 文字方塊中
 
@@ -189,11 +189,11 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon** 作為名稱。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-jitbit-helpdesk-test-user"></a>建立 Jitbit Helpdesk 測試使用者
 
@@ -221,13 +221,13 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
    
    a. 在 [使用者名稱] 文字方塊中輸入 **BrittaSimon**，亦即 Azure 入口網站中的使用者名稱。
 
-   b.這是另一個 C# 主控台應用程式。 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon@contoso.com**。
+   b. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon@contoso.com**。
 
    c. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 
    d. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
    
-   e. 按一下 [建立] 。
+   e. 按一下頁面底部的 [新增] 。
 
 >[!NOTE]
 >您可以使用任何其他的 Jitbit Helpdesk 使用者帳戶建立工具或 Jitbit Helpdesk 提供的 API，來佈建 Azure AD 使用者帳戶。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 12250adbfaf8621b80acd5de5de06b21e05ef07c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>設定具名的驗證認證
 
@@ -42,6 +42,6 @@ ms.lasthandoff: 11/28/2017
 ## <a name="next-steps"></a>後續步驟
 
 - [Web Apps 的一般概觀](https://docs.microsoft.com/azure/app-service/)
-- [將您的應用程式部署至 Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [使用 Visual Studio 部署 WebJob](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [將您的應用程式部署至 Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [使用 Visual Studio 部署 WebJob](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [建立及部署雲端服務](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

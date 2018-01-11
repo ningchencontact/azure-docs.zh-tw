@@ -6,7 +6,7 @@
 Login-AzureRmAccount
 ```
 
-如果您不知道要使用哪一個位置，您可以列出可用的位置。 當清單顯示之後，尋找您想要使用的位置。 這個範例將使用 **eastus**。 將此位置儲存在變數中並使用該變數，如此您在一處即可進行變更。
+如果您不知道要使用哪一個位置，您可以列出可用的位置。 當清單顯示之後，尋找您想要使用的位置。 這個範例會使用**eastus**。 將此位置儲存在變數中並使用該變數，如此您在一處即可進行變更。
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -24,7 +24,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 建立可進行 LRS 複寫的一般用途儲存體帳戶，然後擷取儲存體帳戶內容，定義要使用的儲存體帳戶。 使用儲存體帳戶時，會參考內容而非重複提供認證。 這個範例會建立名為 *mystorageaccount* 的儲存體帳戶，並啟用本機備援儲存體和 blob 加密。
+使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 建立可進行 LRS 複寫的一般用途儲存體帳戶，然後擷取儲存體帳戶內容，定義要使用的儲存體帳戶。 使用儲存體帳戶時，會參考內容而非重複提供認證。 這個範例會建立名為的儲存體帳戶*mystorageaccount*使用本機備援 storage(LRS) 和 blob 加密 （預設為啟用）。
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -32,7 +32,6 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind Storage `
-  -EnableEncryptionService Blob
 
 $ctx = $storageAccount.Context
 ```

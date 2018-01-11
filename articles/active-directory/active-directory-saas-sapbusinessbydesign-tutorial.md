@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAP Business ByDesig
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 82938920-33ba-47cb-b141-511b46d19e66
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: ab76a0ac1ef954efd3c66e6f565514b889ed9444
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc090dfc2dd0833b1ff85ccb87b5a1a2c9fa4ac4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>教學課程：Azure Active Directory 與 SAP Business ByDesign 整合
 
@@ -48,13 +48,13 @@ SAP Business ByDesign 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SAP Business ByDesign
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-sap-business-bydesign-from-the-gallery"></a>從資源庫新增 SAP Business ByDesign
-若要設定 SAP Business ByDesign 與 Azure AD 整合，您需要從資源庫將 SAP Business ByDesign 加入到受管理的 SaaS 應用程式清單中。
+若要設定 SAP Business ByDesign 與 Azure AD 整合，您需要從資源庫將 SAP Business ByDesign 加入到受控 SaaS 應用程式清單中。
 
 **若要從資源庫加入 SAP Business ByDesign，請執行下列步驟：**
 
@@ -121,7 +121,7 @@ SAP Business ByDesign 與 Azure AD 整合提供下列優點：
     
     a. 在 [使用者識別碼] 清單中，選取 **ExtractMailPrefix()** 函式。
     
-    b.這是另一個 C# 主控台應用程式。 從 [郵件] 清單中，選取您想要用於實作的使用者屬性。 例如，如果您想要使用 EmployeeID 為唯一的使用者識別碼，而且已在 ExtensionAttribute2 中儲存屬性值，則選取 [user.extensionattribute2]。     
+    b. 從 [郵件] 清單中，選取您想要用於實作的使用者屬性。 例如，如果您想要使用 EmployeeID 為唯一的使用者識別碼，而且已在 ExtensionAttribute2 中儲存屬性值，則選取 [user.extensionattribute2]。     
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -139,7 +139,7 @@ SAP Business ByDesign 與 Azure AD 整合提供下列優點：
    
     a. 使用系統管理員權限登入 SAP Business ByDesign 入口網站。
    
-    b.這是另一個 C# 主控台應用程式。 瀏覽至 [應用程式和使用者管理常見工作]，然後按一下 [識別提供者] 索引標籤。
+    b. 瀏覽至 [應用程式和使用者管理常見工作]，然後按一下 [識別提供者] 索引標籤。
    
     c. 按一下 [新增識別提供者]，然後選取您從 Azure 入口網站下載的中繼資料 XML 檔案。 藉由匯入中繼資料，系統會自動上傳所需的簽章憑證和加密憑證。
    
@@ -194,7 +194,7 @@ SAP Business ByDesign 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_02.png)
 
@@ -212,7 +212,7 @@ SAP Business ByDesign 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-sap-business-bydesign-test-user"></a>建立 SAP Business ByDesign 測試使用者
 

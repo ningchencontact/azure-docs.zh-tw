@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/20/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中樞驗證和安全性模型概觀
 
@@ -110,11 +110,11 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 若要深入了解事件中樞，請造訪下列主題：
 
-* [事件中樞概觀]
+* [事件中心概觀]
 * [共用存取簽章的概觀]
-* [使用事件中樞的範例應用程式]
+* [使用事件中樞的完整範例應用程式]
 
-[事件中樞概觀]: event-hubs-what-is-event-hubs.md
-[使用事件中樞的範例應用程式]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[事件中心概觀]: event-hubs-what-is-event-hubs.md
+[使用事件中樞的完整範例應用程式]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [共用存取簽章的概觀]: ../service-bus-messaging/service-bus-sas.md
 

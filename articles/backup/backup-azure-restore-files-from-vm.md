@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -70,40 +70,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱還原點) 來還原 [A
 
    若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果元件不存在於執行指令碼的電腦上，則指令碼會要求安裝元件的權限。 同意安裝必要的元件。  
          
-   您可以在任何具有與備份 VM 相的 (或相容) 作業系統的電腦上執行指令碼。 請參閱[相容作業系統資料表](backup-azure-restore-files-from-vm.md#compatible-os)以查看相容的作業系統。 如果受保護的 Azure 虛擬機器使用 Windows 儲存空間 (對於 Microsoft Azure VM) 或 LVM/RAID 陣列 (對於 Linux VM)，則您無法在同一部虛擬機器上執行可執行檔或指令碼。 請改為在其他具有相容作業系統的電腦上執行可執行或指令碼。
-
-### <a name="compatible-os"></a>相容的作業系統
-
-#### <a name="for-windows"></a>若為 Windows
-
-下表顯示伺服器和電腦作業系統之間的相容性。 復原檔案時，無法將檔案還原至之前或之後的作業系統版本。 例如，您無法將 Windows Server 2016 VM 的檔案還原至 Windows Server 2012 或 Windows 8 電腦。 您可以將 VM 的檔案還原至相同的伺服器作業系統，或相容的用戶端作業系統。   
-
-|伺服器作業系統 | 相容的用戶端作業系統  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>若為 Linux
-
-在 Linux 中，用來還原檔案的電腦作業系統必須支援受保護虛擬機器的檔案系統。 選取要執行指令碼的電腦時，請確認該電腦具有相容的作業系統，且使用下表中列出的其中一個版本：
-
-|Linux 作業系統 | 版本  |
-| --------------- | ---- |
-| Ubuntu | 12.04 和更新版本 |
-| CentOS | 6.5 和更新版本  |
-| RHEL | 6.7 和更新版本 |
-| Debian | 7 和更新版本 |
-| Oracle Linux | 6.4 和更新版本 |
-
-指令碼也需要 Python 和 Bash 元件，才能夠執行並安全地連線至復原點。
-
-|元件 | 版本  |
-| --------------- | ---- |
-| Bash | 4 和更新版本 |
-| Python | 2.6.6 和更新版本  |
-
+   您可以在任何具有與備份 VM 相的 (或相容) 作業系統的電腦上執行指令碼。 請參閱[相容作業系統資料表](backup-azure-restore-files-from-vm.md#system-requirements)以查看相容的作業系統。 如果受保護的 Azure 虛擬機器會使用 Windows 儲存空間 （適用於 Windows Azure Vm) 或 （適用於 Linux Vm) 的 LVM/RAID 陣列，您無法在相同的虛擬機器上執行的可執行檔或指令碼。 請改為在其他具有相容作業系統的電腦上執行可執行或指令碼。
 
 ### <a name="identifying-volumes"></a>識別磁碟區
 
@@ -192,6 +159,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 如果 RAID 磁碟上有設定其他 LVM，則請使用上述適用於 LVM 磁碟分割的程序，但將 RAID 磁碟名稱改為磁碟區名稱
+
+## <a name="system-requirements"></a>系統需求
+
+### <a name="for-windows"></a>若為 Windows
+
+下表顯示伺服器和電腦作業系統之間的相容性。 復原檔案時，無法將檔案還原至之前或之後的作業系統版本。 例如，您無法從 Windows Server 2016 VM 還原的檔案到 Windows Server 2012 或 Windows 8 電腦。 您可以將 VM 的檔案還原至相同的伺服器作業系統，或相容的用戶端作業系統。   
+
+|伺服器作業系統 | 相容的用戶端作業系統  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>若為 Linux
+
+在 Linux 中，用來還原檔案的電腦作業系統必須支援受保護虛擬機器的檔案系統。 選取要執行指令碼的電腦時，請確認該電腦具有相容的作業系統，且使用下表中列出的其中一個版本：
+
+|Linux 作業系統 | 版本  |
+| --------------- | ---- |
+| Ubuntu | 12.04 和更新版本 |
+| CentOS | 6.5 和更新版本  |
+| RHEL | 6.7 和更新版本 |
+| Debian | 7 和更新版本 |
+| Oracle Linux | 6.4 和更新版本 |
+| SLES | 12 及更新版本 |
+| openSUSE | 42.2 和更新版本 |
+
+指令碼也需要 Python 和 Bash 元件，才能夠執行並安全地連線至復原點。
+
+|元件 | 版本  |
+| --------------- | ---- |
+| Bash | 4 和更新版本 |
+| Python | 2.6.6 和更新版本  |
+| TLS | 1.2，則必須支援  |
 
 ## <a name="troubleshooting"></a>疑難排解
 

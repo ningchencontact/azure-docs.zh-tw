@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -62,6 +62,9 @@ ms.lasthandoff: 11/18/2017
 
     例如，如果您的 IoT 中樞名稱是 **contoso.azure-devices.net**，而且如果您的裝置名稱是 **MyDevice01**，則完整的 **Username** 欄位應包含 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`。
 * 在 [Password] 欄位中，使用 SAS 權杖。 SAS 權杖的格式與 HTTPS 和 AMQP 通訊協定的格式相同：<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`。
+
+    >[!NOTE]
+    >如果您使用 X.509 憑證驗證，則不需要 SAS 權杖的密碼。 如需詳細資訊，請參閱[設定您的 Azure IoT 中樞中的 X.509 安全性][lnk-x509]
 
     如需如何產生 SAS 權杖的詳細資訊，請參閱[使用 IoT 中樞安全性權杖][lnk-sas-tokens]的裝置一節。
 
@@ -116,7 +119,7 @@ client.connect(subdomain+".azure-devices.net", port=8883)
 
 ### <a name="sending-device-to-cloud-messages"></a>傳送裝置到雲端訊息
 
-成功連線之後，裝置可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為**主題名稱**，將訊息傳送至 IoT 中樞。 `{property_bag}` 項目可讓裝置以 URL 編碼格式傳送具有其他屬性的訊息。 例如：
+成功連線之後，裝置可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為**主題名稱**，將訊息傳送至 IoT 中樞。 `{property_bag}` 項目可讓裝置以 URL 編碼格式傳送具有其他屬性的訊息。 例如︰
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -137,7 +140,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ### <a name="receiving-cloud-to-device-messages"></a>接收雲端到裝置訊息
 
-若要從 IoT 中樞接收訊息，裝置應該使用 `devices/{device_id}/messages/devicebound/#` 做為**主題篩選**來進行訂閱。 「主題篩選」中的多層級萬用字元 **#** 僅供用來允許裝置接收主題名稱中的額外屬性。 「IoT 中樞」並不允許使用 **#** 或 **?** 萬用字元來篩選副主題。 由於「IoT 中樞」不是一般用途的發行/訂閱傳訊訊息代理程式，因此它只支援已記載的主題名稱和主題篩選。
+若要從 IoT 中樞接收訊息，裝置應該使用 `devices/{device_id}/messages/devicebound/#` 做為**主題篩選**來進行訂閱。 多層級的萬用字元`#`主題篩選器中只會用於允許裝置接收中的主題名稱的其他屬性。 IoT 中樞不允許的使用方式`#`或`?`萬用字元進行篩選的子主題。 由於「IoT 中樞」不是一般用途的發行/訂閱傳訊訊息代理程式，因此它只支援已記載的主題名稱和主題篩選。
 
 裝置在成功訂閱 IoT 中樞的裝置特定端點 (由 `devices/{device_id}/messages/devicebound/#` 主題篩選代表) 之後，才會收到來自 IoT 中樞的訊息。 建立成功的訂閱之後，裝置將會開始接收訊息，但僅限在訂閱之後傳送給它的雲端到裝置訊息。 如果裝置是在 **CleanSession** 旗標設定為 **0** 的情況下連線，訂閱將會跨不同的工作階段持續保留。 在此情況下，下次裝置以 **CleanSession 0** 進行連線時，就會收到在其中斷連線時傳送給它的未送訊息。 如果裝置使用設定為 **1** 的 **CleanSession** 旗標，則必須等到訂閱 IoT 中樞的裝置端點之後，才會收到來自 IoT 中樞的訊息。
 
@@ -147,9 +150,9 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 ### <a name="retrieving-a-device-twins-properties"></a>擷取裝置對應項屬性
 
-首先，裝置會訂閱 `$iothub/twin/res/#`，以接收作業的回應。 然後，它會傳送空白訊息給主題 `$iothub/twin/GET/?$rid={request id}`，其中已填入**要求識別碼**的值。服務接著會使用和要求相同的**要求識別碼**，傳送內含關於 `$iothub/twin/res/{status}/?$rid={request id}` 主題之裝置對應項資料的回應訊息。
+首先，裝置會訂閱 `$iothub/twin/res/#`，以接收作業的回應。 然後，它將空訊息傳送至主題`$iothub/twin/GET/?$rid={request id}`，使用已填入的值為**要求識別碼**。 然後服務會將傳送回應訊息，其中包含主題上的裝置兩個資料`$iothub/twin/res/{status}/?$rid={request id}`，使用相同**要求識別碼**與要求。
 
-根據 [IoT 中樞傳訊開發人員指南][lnk-messaging]，要求識別碼可以是任何有效的訊息屬性值，而狀態會驗證為整數。
+要求識別碼可以是任何有效的值給訊息屬性值，依照[傳訊開發人員指南的 IoT 中樞][lnk-messaging]，而且狀態已驗證的整數。
 回應本文包含裝置對應項的屬性區段：
 
 身分識別登錄項目的本文僅限於 “properties” 成員，例如：
@@ -184,12 +187,12 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 1. 裝置必須訂閱 `$iothub/twin/res/#` 主題，才能從 IoT 中樞接收作業的回應。
 
-1. 裝置會將包含裝置對應項新的訊息傳送至 `$iothub/twin/PATCH/properties/reported/?$rid={request id}` 主題。 此訊息包含 **request id** 值。
+1. 裝置會將包含裝置對應項新的訊息傳送至 `$iothub/twin/PATCH/properties/reported/?$rid={request id}` 主題。 此訊息包含**要求識別碼**值。
 
-1. 服務接著會傳送回應訊息，其中包含`$iothub/twin/res/{status}/?$rid={request id}` 主題上報告之屬性集合的新 ETag 值。 這個回應訊息使用和要求相同的 **request id**。
+1. 服務接著會傳送回應訊息，其中包含`$iothub/twin/res/{status}/?$rid={request id}` 主題上報告之屬性集合的新 ETag 值。 此回應訊息會使用相同**要求識別碼**與要求。
 
 要求訊息本文包含一份 JSON 文件，可提供所報告屬性的新值 (其他屬性或中繼資料則不可修改)。
-JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對應的成員。 設定為 `null` 的成員會從包含的物件中刪除成員。 例如：
+JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對應的成員。 設定為 `null` 的成員會從包含的物件中刪除成員。 例如︰
 
         {
             "telemetrySendFrequency": "35m",
@@ -209,7 +212,7 @@ JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對
 
 ### <a name="receiving-desired-properties-update-notifications"></a>接收所需屬性更新通知
 
-當連接裝置時，IoT 中樞傳送通知給主題 `$iothub/twin/PATCH/properties/desired/?$version={new version}`，其中包含解決方案後端所執行的更新內容。 例如：
+當連接裝置時，IoT 中樞傳送通知給主題 `$iothub/twin/PATCH/properties/desired/?$version={new version}`，其中包含解決方案後端所執行的更新內容。 例如︰
 
         {
             "telemetrySendFrequency": "5m",
@@ -228,7 +231,7 @@ JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對
 
 首先，裝置必須訂閱 `$iothub/methods/POST/#`。 IoT 中樞會將方法要求傳送至主題 `$iothub/methods/POST/{method name}/?$rid={request id}`，其中含有有效的 JSON 或空白本文。
 
-為了回應，裝置會將具有有效 JSON 或空白本文的訊息傳送至主題 `$iothub/methods/res/{status}/?$rid={request id}`，其中**要求識別碼**必須和要求訊息中的相符，而**狀態**則必須是整數。
+若要回應，裝置會具有有效的 JSON 或空的內文的訊息傳送至主題`$iothub/methods/res/{status}/?$rid={request id}`，其中**要求識別碼**在要求訊息中，一個必須符合和**狀態**必須為整數。
 
 如需詳細資訊，請參閱[直接方法開發人員指南][lnk-methods]。
 
@@ -250,7 +253,7 @@ JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南][lnk-devguide]
-* [使用 Azure IoT Edge 將 AI 部署到邊緣裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -270,6 +273,7 @@ JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

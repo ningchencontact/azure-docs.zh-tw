@@ -1,10 +1,10 @@
 ---
-title: "開始使用 Node.js 進行 Azure AD 登入和登出 | Microsoft Docs"
+title: "開始使用 azure AD Node.js web 應用程式 |Microsoft 文件"
 description: "了解如何建立可整合 Azure AD 以進行登入的 Node.js Express MVS Web 應用程式。"
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>搭配 Azure AD 的 Node.js Web 應用程式登入和登出
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>開始使用 azure AD Node.js web 應用程式
 在此我們使用 Passport 來執行下列動作：
 
 * 使用 Azure Active Directory (Azure AD) 將使用者登入應用程式。
@@ -96,7 +96,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
     // add a logger
 
     var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
+        name: 'Microsoft OIDC Example Web Application'
     });
     ```
 
@@ -157,27 +157,27 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
             //   this is done simply by storing the user ID when serializing and finding
             //   the user by ID when deserializing.
             passport.serializeUser(function(user, done) {
-            done(null, user.email);
+                done(null, user.email);
             });
 
             passport.deserializeUser(function(id, done) {
-            findByEmail(id, function (err, user) {
-                done(err, user);
-            });
+                findByEmail(id, function (err, user) {
+                    done(err, user);
+                });
             });
 
             // array to hold signed-in users
             var users = [];
 
             var findByEmail = function(email, fn) {
-            for (var i = 0, len = users.length; i < len; i++) {
-                var user = users[i];
-            log.info('we are using user: ', user);
-                if (user.email === email) {
-                return fn(null, user);
+                for (var i = 0, len = users.length; i < len; i++) {
+                    var user = users[i];
+                    log.info('we are using user: ', user);
+                    if (user.email === email) {
+                        return fn(null, user);
+                    }
                 }
-            }
-            return fn(null, null);
+                return fn(null, null);
             };
     ```
 
@@ -208,8 +208,7 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
 
 6. 最後，新增路由以將實際的登入要求遞交給 `passport-azure-ad` 引擎：
 
-
-       ```JavaScript
+    ```JavaScript
 
         // Our Auth routes (section 3)
 
@@ -226,30 +225,30 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
             res.redirect('/');
         });
 
-            // GET /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
-            app.get('/auth/openid/return',
-              passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-              function(req, res) {
-                log.info('We received a return from AzureAD.');
-                res.redirect('/');
-              });
+        // GET /auth/openid/return
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. If authentication fails, the user is redirected back to the
+        //   sign-in page. Otherwise, the primary route function is called,
+        //   which, in this example, redirects the user to the home page.
+        app.get('/auth/openid/return',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('We received a return from AzureAD.');
+            res.redirect('/');
+          });
 
-            // POST /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
-            app.post('/auth/openid/return',
-              passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-              function(req, res) {
-                log.info('We received a return from AzureAD.');
-                res.redirect('/');
-              });
-       ```
+        // POST /auth/openid/return
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. If authentication fails, the user is redirected back to the
+        //   sign-in page. Otherwise, the primary route function is called,
+        //   which, in this example, redirects the user to the home page.
+        app.post('/auth/openid/return',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('We received a return from AzureAD.');
+            res.redirect('/');
+          });
+     ```
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>步驟 4：使用 Passport，向 Azure AD 發出登入和登出要求

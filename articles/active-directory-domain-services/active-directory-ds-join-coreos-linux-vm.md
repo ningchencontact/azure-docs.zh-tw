@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Domain Services：將 CoreOS Linux VM 加入受管理的網域 | Microsoft Docs"
+title: "Azure Active Directory Domain Services：將 CoreOS Linux VM 加入受控網域 | Microsoft Docs"
 description: "將 CoreOS Linux 虛擬機器加入 Azure AD Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory-ds
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: a75871f0395ceb7d7abd79a0b9d336b400a88542
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>將 CoreOS Linux 虛擬機器加入受管理的網域
-本文說明如何將 Azure 中的 CoreOS Linux 虛擬機器加入 Azure AD Domain Services 受管理網域。
+# <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>將 CoreOS Linux 虛擬機器加入受控網域
+本文說明如何將 Azure 中的 CoreOS Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
 
 ## <a name="before-you-begin"></a>開始之前
 若要執行本文中所列的工作，您需要︰
 1. 有效的 **Azure 訂用帳戶**。
 2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
 3. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](active-directory-ds-getting-started.md)所述的所有工作來進行。
-4. 確保您尚未將受管理網域的 IP 位址設定為虛擬網路的 DNS 伺服器。 如需詳細資訊，請參閱[如何更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
-5. 完成[將密碼同步處理至您的 Azure AD Domain Services 受管理網域](active-directory-ds-getting-started-password-sync.md)所需的步驟。
+4. 確保您尚未將受控網域的 IP 位址設定為虛擬網路的 DNS 伺服器。 如需詳細資訊，請參閱[如何更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
+5. 完成[將密碼同步處理至您的 Azure AD Domain Services 受控網域](active-directory-ds-getting-started-password-sync.md)所需的步驟。
 
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>佈建 CoreOS Linux 虛擬機器
@@ -64,7 +64,7 @@ sudo vi /etc/hosts
 ```
 127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
 ```
-在這裡，'contoso100.com' 為受管理網域的 DNS 網域名稱。 'contoso-coreos' 是您要加入至受管理網域之 CoreOS 虛擬機器的主機名稱。
+在這裡，'contoso100.com' 為受控網域的 DNS 網域名稱。 'contoso-coreos' 是您要加入至受控網域之 CoreOS 虛擬機器的主機名稱。
 
 
 ## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定 SSSD 服務
@@ -96,11 +96,11 @@ sudo vi /etc/hosts
  krb5_server = contoso100.com
  krb5_realm = CONTOSO100.COM
  ```
-將 'CONTOSO100.COM' 取代為受管理網域的 DNS 網域名稱。 確定您在 conf 檔案中指定大寫的網域名稱。
+將 'CONTOSO100.COM' 取代為受控網域的 DNS 網域名稱。 確定您在 conf 檔案中指定大寫的網域名稱。
 
 
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>將 Linux 虛擬機器加入受管理的網域
-既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受管理的網域。
+## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>將 Linux 虛擬機器加入受控網域
+既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受控網域。
 
 ```
 sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
@@ -108,10 +108,11 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 > [!NOTE]
-> **疑難排解：**如果 *adcli* 找不到受管理的網域：
+> 
+>             **疑難排解：**如果 *adcli* 找不到受控網域：
   * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
-  * 檢查虛擬機器已確實部署到有提供受管理網域的相同虛擬網路上。
-  * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受管理網域的網域控制站。
+  * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
+  * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
 >
 
 啟動 SSSD 服務。 在 SSH 終端機中輸入下列命令：
@@ -121,9 +122,9 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 ## <a name="verify-domain-join"></a>確認加入網域
-確認電腦是否已成功加入受管理網域。 使用不同的 SSH 連線來連線到加入網域的 CoreOS VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
+確認電腦是否已成功加入受控網域。 使用不同的 SSH 連線來連線到加入網域的 CoreOS VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
-1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 CoreOS 虛擬機器。 使用屬於受管理網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
+1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 CoreOS 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
     ```
     ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
     ```
@@ -144,5 +145,6 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* [將 Windows Server 虛擬機器加入 Azure AD 網域服務受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)
+* 
+            [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [如何登入執行 Linux 的虛擬機器](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

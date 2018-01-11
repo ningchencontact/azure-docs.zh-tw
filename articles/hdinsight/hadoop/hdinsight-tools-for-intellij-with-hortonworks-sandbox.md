@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 8e63499258da7cfbdd288419d262ce41d9de4559
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/03/2017
 
 - 在您的本機電腦執行的 Hortonworks 沙箱上要有 Hortonworks Data Platform (HDP) 2.4。 若要設定 HDP，請參閱[透過虛擬機器的 Hadoop 沙箱開始使用 Hadoop 生態系統](apache-hadoop-emulator-get-started.md)。 
     > [!NOTE]
-    > HDInsight Tools for IntelliJ 只經過 HDP 2.4 測試。 若要取得 HDP 2.4，請在 **Hortonworks 沙箱下載網站**展開 [Hortonworks 沙箱封存][](http://hortonworks.com/downloads/#sandbox)。
+    > HDInsight Tools for IntelliJ 只經過 HDP 2.4 測試。 若要取得 HDP 2.4，請在 **Hortonworks 沙箱下載網站**展開 [Hortonworks 沙箱封存](http://hortonworks.com/downloads/#sandbox)。
 
 - [Java Developer Kit (JDK) 1.8 版或更新版本](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。 Azure Toolkit for IntelliJ 需有 JDT。
 

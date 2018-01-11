@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Agiloft 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: caacd51319be76cde11e9b7f4fd00305ce485b38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0932bde663ea22c1e2e762dccf556253487d16e2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>教學課程：Azure Active Directory 與 Agiloft 整合
 
@@ -48,13 +48,13 @@ Agiloft 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Agiloft
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-agiloft-from-the-gallery"></a>從資源庫新增 Agiloft
-若要設定 Agiloft 與 Azure AD 整合，您需要從資源庫將 Agiloft 新增至受管理的 SaaS 應用程式清單。
+若要設定 Agiloft 與 Azure AD 整合，您需要從資源庫將 Agiloft 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Agiloft，請執行下列步驟：**
 
@@ -114,7 +114,7 @@ Agiloft 與 Azure AD 整合提供下列優點：
     | `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
     | `https://<subdomain>.agiloft.com/project/<KB_NAME>` |
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
     | |
     |-|-|
     | `https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>` |
@@ -185,7 +185,7 @@ Agiloft 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-agiloft-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-agiloft-tutorial/create_aaduser_02.png)
 
@@ -203,7 +203,7 @@ Agiloft 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-agiloft-test-user"></a>建立 Agiloft 測試使用者
 

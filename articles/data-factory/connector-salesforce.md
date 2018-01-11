@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Salesforce 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,15 +62,15 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設為： **Salesforce**。 |是 |
+| type |類型屬性必須設為： **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
-| password |指定使用者帳戶的密碼。<br/><br/>您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 |是 |
-| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將安全性權杖儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 |是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
+| password |指定使用者帳戶的密碼。<br/><br/>您可以選擇將這個欄位標記以 securestring 的形式將它安全地儲存在 ADF，或將密碼儲存在 Azure 金鑰保存庫，而且可讓複製活動時執行資料複製，從中提取-進一步了解從[將認證儲存在金鑰保存庫](store-credentials-in-key-vault.md)。 |是 |
+| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>您可以選擇將這個欄位標記以 securestring 的形式將它安全地儲存在 ADF，或儲存在 Azure 金鑰保存庫中的安全性權杖，而且可讓複製活動時執行資料複製，從中提取-進一步了解從[將認證儲存在金鑰保存庫](store-credentials-in-key-vault.md)。 |是 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 無法為來源，是接收如果來源連結服務沒有 IR |
 
 >[!IMPORTANT]
->若要將資料複製到 Salesforce，以 Salesforce 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
+>複製資料時**到**Salesforce，Azure 整合執行階段無法用來執行複製的預設值。 其他在 word 中，如果您的來源連結服務沒有指定的 IR，明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)接近您的 Salesforce 和在 Salesforce 中的建立關聯的位置與連結服務，如下列範例。
 
 **範例： 將認證儲存在 ADF**
 
@@ -140,7 +140,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | type 屬性必須設為 **SalesforceObject**。  | 是 |
+| type | type 屬性必須設為 **SalesforceObject**。  | 是 |
 | objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | Salesforce 中資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
@@ -184,8 +184,8 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**SalesforceSource** | 是 |
-| query |使用自訂查詢來讀取資料。 您可以使用 SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如： `select * from MyTable__c`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**SalesforceSource** | 是 |
+| query |使用自訂查詢來讀取資料。 您可以使用 SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如：`select * from MyTable__c`。 | 否 (如果已指定資料集中的 "tableName") |
 
 > [!IMPORTANT]
 > 任何自訂物件都需要 API 名稱的「__c」部分。
@@ -233,7 +233,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的類型屬性必須設定為：**SalesforceSink** | 是 |
+| type | 複製活動接收器的類型屬性必須設定為：**SalesforceSink** | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為：**Insert** 和 **Upsert**。 | 否 (預設為 Insert) |
 | externalIdFieldName | upsert 作業的外部識別碼欄位的名稱。 指定的欄位在 Salesforce 物件中必須定義為「外部識別碼欄位」，且在對應的輸入資料中不能有 NULL 值。 | 是 (用於 upsert) |
 | writeBatchSize | 每個批次中寫入 Salesforce 的資料列計數。 | 否 (預設值為 5000) |
@@ -278,7 +278,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="retrieving-data-from-salesforce-report"></a>從 Salesforce 報表擷取資料
 
-您可以藉由指定 `{call "<report name>"}` 格式的查詢，從 Salesforce 報表擷取資料。 範例：`"query": "{call \"TestReport\"}"`.
+您可以藉由指定 `{call "<report name>"}` 格式的查詢，從 Salesforce 報表擷取資料。 範例： `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>從 Salesforce 資源回收筒擷取已刪除的記錄
 
@@ -289,7 +289,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>在 DateTime 資料行上使用 Where 子句來擷取資料
 
-指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如：
+指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如︰
 
 * **SOQL 範例**：`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 範例**`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
@@ -300,25 +300,25 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | Salesforce 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| 自動編號 |String |
-| 核取方塊 |Boolean |
+| 自動編號 |字串 |
+| 核取方塊 |BOOLEAN |
 | 貨幣 |兩倍 |
-| 日期 |DateTime |
-| 日期/時間 |DateTime |
-| 電子郵件 |String |
-| 識別碼 |String |
-| 查閱關聯性 |String |
-| 複選挑選清單 |String |
-| Number |兩倍 |
+| 日期 |Datetime |
+| 日期/時間 |Datetime |
+| 電子郵件 |字串 |
+| id |字串 |
+| 查閱關聯性 |字串 |
+| 複選挑選清單 |字串 |
+| 數字 |兩倍 |
 | 百分比 |兩倍 |
-| 電話 |String |
-| 挑選清單 |String |
-| 文字 |String |
-| 文字區域 |String |
-| 文字區域 (完整) |String |
-| 文字區域 (豐富) |String |
-| 文字 (加密) |String |
-| URL |String |
+| 電話 |字串 |
+| 挑選清單 |字串 |
+| 文字 |字串 |
+| 文字區域 |字串 |
+| 文字區域 (完整) |字串 |
+| 文字區域 (豐富) |字串 |
+| 文字 (加密) |字串 |
+| URL |字串 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

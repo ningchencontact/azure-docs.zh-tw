@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 IMPAC Risk Manager �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d3f17b86caaf781ab8825b047853f2949828e9e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: ade4076917988c5747a0d10a99578b49c917e1db
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>教學課程：Azure Active Directory 與 IMPAC Risk Manager 整合
 
@@ -48,13 +48,13 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 IMPAC Risk Manager
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-impac-risk-manager-from-the-gallery"></a>從資源庫新增 IMPAC Risk Manager
-若要設定 IMPAC Risk Manager 與 Azure AD 整合，您需要從資源庫將 IMPAC Risk Manager 新增到受管理的 SaaS 應用程式清單中。
+若要設定 IMPAC Risk Manager 與 Azure AD 整合，您需要從資源庫將 IMPAC Risk Manager 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 IMPAC Risk Manager，請執行下列步驟：**
 
@@ -111,7 +111,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
     a. 在 [識別碼] 文字方塊中，輸入 IMPAC 提供的值
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
-    | Environment | URL 模式 |
+    | 環境 | URL 模式 |
     | ---------------|--------------- |    
     | 針對生產環境 |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | 針對暫存和定型  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -124,7 +124,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
     ![IMPAC Risk Manager 網域及 URL 單一登入資訊](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
-    | Environment | URL 模式 |
+    | 環境 | URL 模式 |
     | ---------------|--------------- |    
     | 針對生產環境 |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | 針對暫存和定型  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
@@ -182,7 +182,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-impac-risk-manager-test-user"></a>建立 IMPAC Risk Manager 測試使用者
 

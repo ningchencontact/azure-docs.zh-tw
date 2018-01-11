@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -161,6 +161,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    第三行輸出顯示 **"registrationState": "Registering"**。 請稍候片刻並重複 **show** 命令，直到輸出顯示 **"registrationState": "Registered"** 為止。
 
+   >[!NOTE] 
+   如果您要部署 ACS 叢集，您需要註冊**Microsoft.ContainerService**資源提供者也使用相同的方法。
+
 3. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
 
    請注意，下列設定命令要求您具有訂用帳戶的參與者存取權。 如果您沒有該權限，您至少需有所要部署到資源群組的參與者存取權。 若要執行後者，您需要使用 `-g` 旗標將資源群組名稱指定為設定命令的一部分。 
@@ -206,7 +209,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 1. 如需建立即時 Web 服務，請使用下列命令：
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    此命令會產生您可以在稍後使用的 Web 服務識別碼。
 
@@ -216,6 +219,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    * `--model-file`：模型檔案。 在此情況下，它是 pickle 的 model.pkl 檔案。
    * `-r`：模型的類型。 在此情況下，它是 Python 模型。
    * `--collect-model-data true`：這可進行資料收集。
+   * `-c`：conda 相依性檔案 (其中指定其他套件) 的路徑。
 
    >[!IMPORTANT]
    >服務名稱 (這也是新的 Docker 映像名稱) 必須全為小寫。 否則，您會收到錯誤。 
@@ -254,10 +258,10 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 3. 建立 Docker 映像。
 
-   若要建立 Docker 映像，請使用下列命令，並提供來自前一個步驟的資訊清單識別碼值輸出：
+   若要建立 Docker 映像，請使用下列命令，並提供來自前一個步驟的資訊清單識別碼值輸出。 您也可以使用 `-c` 參數，選擇性地包含 conda 相依性。
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    此命令會產生 Docker 映像識別碼。
    

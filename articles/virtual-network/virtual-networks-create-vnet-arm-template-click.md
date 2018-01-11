@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬網路
 
@@ -118,7 +118,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
     New-AzureRmResourceGroup -Name TestRG -Location centralus
     ```
 
-    此命令會在「美國中部」Azure 區域中，建立名為 *TestRG* 的資源群組。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
+    此命令會在「美國中部」Azure 區域中，建立名為 *TestRG* 的資源群組。 如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../azure-resource-manager/resource-group-overview.md)。
 
     預期的輸出：
 
@@ -216,7 +216,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
     ![Github 中的 READEME.md 檔案](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
 3. 按一下 [ **部署至 Azure**]。 如有必要，請輸入您的 Azure 登入認證。 
-4. 在 參數 刀鋒視窗中，輸入您要用以建立新 VNet 的值，然後按一下確定。 下圖顯示此案例的值︰
+4. 在 [參數] 刀鋒視窗中，輸入您要用以建立新 VNet 的值，然後按一下 [確定]。 下圖顯示此案例的值︰
    
     ![ARM 範本參數](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 

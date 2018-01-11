@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b970341f9511a889bfcc288756b1be6a4f4647e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
 本文協助您了解資料處理站的服務識別及其運作方式。
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (為正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 ## <a name="overview"></a>概觀
 
-建立資料處理站時，服務識別可隨著處理站建立一起建立。 服務識別是向 Azure Active Directory 註冊的受管理應用程式，代表這個特定資料處理站。
+建立資料處理站時，服務識別可隨著處理站建立一起建立。 服務識別是向 Azure Active Directory 註冊的受控應用程式，代表這個特定資料處理站。
 
 資料處理站的服務識別有助於下列兩個功能：
 
@@ -171,4 +171,7 @@ Type                  : ServicePrincipal
 請參閱下列介紹何時及如何使用資料處理站服務識別的相關主題：
 
 - [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)
-- [使用受管理的服務識別驗證，複製資料從/至 Azure Data Lake Store](connector-azure-data-lake-store.md)
+- 
+            [使用受控服務識別驗證，複製資料從/至 Azure Data Lake Store](connector-azure-data-lake-store.md)
+
+請參閱[MSI 概觀](~/articles/active-directory/msi-overview.md)多個受管理的服務身分識別的詳細背景，哪些資料 factory 服務身分識別為基礎。 

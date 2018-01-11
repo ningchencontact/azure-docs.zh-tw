@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IoT 套件連線處理站預先設定之解決方案的常見問題集
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Microsoft 為什麼選擇 OPC UA 作為連線工廠的預先設定解決方案？
 
-Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且已核准的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 看到客戶建置 Industrie 4.0 解決方案的需求。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
+Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且已核准的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 會看到建置 Industrie 4.0 方案視需要從其客戶。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>如何將公用 IP 位址新增至模擬虛擬機器？
 
@@ -82,7 +82,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 1. 若要檢查哪些容器正在作用中，請執行：`docker ps`。
 1. 若要停止所有模擬容器，請執行：`./stopsimulation`。
 1. 若要啟動所有模擬容器：
-    * 匯出具有名稱 **IOTHUB_CONNECTIONSTRING** 的殼層變數。 使用 `<name of your deployment>.config.user` 檔案中的 **IotHubOwnerConnectionString** 設定值。 例如：
+    * 匯出具有名稱 **IOTHUB_CONNECTIONSTRING** 的殼層變數。 使用 `<name of your deployment>.config.user` 檔案中的 **IotHubOwnerConnectionString** 設定值。 例如︰
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -143,6 +143,64 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 * publisher.seattle.corp.contoso
 
 如果您看不到傳送至 IoT 中樞的資料，則表示模擬有問題。 您應該採取的第一個分析步驟是分析模擬元件的記錄檔。 請參閱[如何從模擬元件取得記錄資料？](#how-can-i-get-log-data-from-the-simulation-components) 接著，嘗試停止並啟動模擬，如果仍然沒有任何傳送的資料，請徹底更新模擬。 請參閱[如何更新虛擬機器中的模擬？](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>如何啟用連線的 factory 解決方案中的互動式的對應？
+
+若要啟用連接的 factory 方案中的互動式對應，您必須擁有現有 Bing Maps API 對於企業計劃。 如果您有企業計劃的 Bing Maps API，當您部署從 www.azureiotsuite.com 連接的工廠方案，互動式地圖會自動為您啟用。
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>如何建立企業帳戶 Bing Maps API？
+
+您可以取得一套免費*內部交易層級 1 Bing 地圖服務的企業*計劃。 不過，您只能將這些計劃的兩個 Azure 訂用帳戶。 如果您沒有企業帳戶 Bing Maps API，即可建立一個在 Azure 入口網站**+ 建立資源**。 然後搜尋**企業的 Bing Maps API**並遵循提示來建立它。
+
+![Bing 金鑰](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>如何取得 Bing 地圖服務 API 的企業 QueryKey
+
+一旦您已建立您的 Bing Maps API 對於企業計劃，將 Bing 地圖服務的企業資源加入至連接的 factory 方案在 Azure 入口網站中的資源群組。
+
+1. 在 Azure 入口網站中，瀏覽至包含您的 Bing Maps API 對於企業計劃的資源群組。
+
+1. 依序按一下 [所有設定] 和 [金鑰管理]。
+
+1. 有兩個金鑰： **MasterKey**和**QueryKey**。 複製**QueryKey**值。
+
+1. 若要有索引鍵，收取`build.ps1`撰寫指令碼、 設定環境變數`$env:MapApiQueryKey`PowerShell 環境中**QueryKey**計劃。 組建指令碼會自動將值加入應用程式服務的設定。
+
+1. 執行本機或雲端部署使用`build.ps1`指令碼。
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>本機偵錯時，請勿啟用如何互動式對應嗎？
+
+若要在本機偵錯時，請啟用互動式地圖，設定的設定值`MapApiQueryKey`檔案中`local.user.config`和`<yourdeploymentname>.user.config`根目錄中的值要部署的**QueryKey**您複製先前。
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>如何在我的儀表板首頁中使用不同的映像？
+
+若要變更顯示 io 的靜態影像首頁的儀表板，取代影像`WebApp\Content\img\world.jpg`。 然後重建並重新部署 WebApp。
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>如何使用與已連線的處理站的非 OPC UA 裝置？
+
+若要傳送遙測資料從非 OPC UA 裝置連線的處理站：
+
+1. [連線的 factory 拓撲中設定新的站台](iot-suite-connected-factory-configure.md)中`ContosoTopologyDescription.json`檔案。
+
+1. 內嵌連接的工廠相容的 JSON 格式的遙測資料：
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. 格式`<timestamp>`是：`2017-12-08T19:24:51.886753Z`
+
+1. 重新啟動應用程式服務的連線的 factory。
 
 ### <a name="next-steps"></a>後續步驟
 

@@ -3,7 +3,7 @@ title: "在 Azure Machine Learning Web 服務中使用匯入/匯出資料 | Micr
 description: "了解如何使用「匯入資料」及「匯出資料」模組來傳送和接收 Web 服務的資料。"
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40e1dbf4fc1618deec5e7f85fb956f2881e08319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 54b0434cb753484bdb8300f4b9c4f7f7ca75c7c8
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>部署使用資料匯入和資料匯出模組的 Azure ML Web 服務
 

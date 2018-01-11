@@ -4,7 +4,7 @@ description: "了解 VPN 連線能力的 Azure Active Directory 條件式存取�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e9dadb3291ee760e7b05caedfa6b4128be77aa7d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 8941e631976eb11966c1f9ddd207af816df5dadf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-for-vpn-connectivity-preview"></a>VPN 連線能力的 Azure Active Directory 條件式存取 (預覽)
 
@@ -90,7 +90,7 @@ Azure AD 會使用 VPN 憑證，簽署在向 Azure AD 驗證 VPN 連線能力時
 
     b. 針對 [主要]，請選取 [是]。
 
-    c. 按一下 [建立] 。
+    c. 按一下頁面底部的 [新增] 。
 
 7. 在 [VPN 連線能力] 頁面上，按一下 [下載憑證]。
 
@@ -132,7 +132,7 @@ Azure AD 會使用 VPN 憑證，簽署在向 Azure AD 驗證 VPN 連線能力時
 
     a. 按一下 [選取使用者和群組]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
+    b. 按一下 [選取] 。
 
     c. 在 [選取] 頁面上，選取您的測試使用者，然後按一下 [選取]。
 
@@ -163,7 +163,7 @@ Azure AD 會使用 VPN 憑證，簽署在向 Azure AD 驗證 VPN 連線能力時
 
     a. 選取 [需要 Multi-Factor Authentication]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
+    b. 按一下 [選取] 。
 
 15. 在 [新增] 頁面的 [啟用原則] 之下，按一下 [開啟]。
 

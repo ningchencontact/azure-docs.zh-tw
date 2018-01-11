@@ -1,9 +1,9 @@
 ---
 title: "Runbook 設定 |Microsoft Docs"
-description: "描述 Azure 自動化中 Runbook 的組態設定，以及如何使用 Azure 管理入口網站和 Windows PowerShell 來加以變更。"
+description: "描述在 Azure 自動化，以及如何使用 Azure 入口網站和 Windows PowerShell 變更 runbook 的組態設定。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 534ea7e3f2f8e5640db4d351c2bb3245f29b6eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="runbook-settings"></a>Runbook 設定
 Azure 自動化中的每個 Runbook 具備多個有助於識別其本身及變更其記錄行為的設定。 以下會說明這些設定，後面則是如何加以修改的程序。
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>設定
 ### <a name="name-and-description"></a>名稱和描述
 建立 Runbook 之後，您即無法變更其名稱。 描述是選擇性的，而且最多可以是 512 個字元。
 
-### <a name="tags"></a>標記
+### <a name="tags"></a>標籤
 標記可讓您指派不同的單字和片語，有助於識別 Runbook。 例如，將 Runbook 提交到 [PowerShell 資源庫](https://www.powershellgallery.com/)時，您會指定特定的標記來識別應該列出此 Runbook 的分類。 您可以為 Runbook 指定多個標記，使用逗號分隔。
 
 ### <a name="logging"></a>記錄

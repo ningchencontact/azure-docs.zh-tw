@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>將備份保存庫升級為復原服務保存庫
 本文提供復原服務保存庫提供服務的概觀、將現有備份保存庫升級為復原服務保存庫的常見問題集，與升級後步驟。 復原服務保存庫是您存放備份資料之備份保存庫的 Azure Resource Manager 對等項目。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊，無論是內部部署或是在 Azure 中。
@@ -68,16 +68,16 @@ ms.lasthandoff: 10/11/2017
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **升級計畫是否會影響我進行中的備份？**</br>
-否。 在升級期間和升級之後，進行中的備份持續不受干擾。
+編號 在升級期間和升級之後，進行中的備份持續不受干擾。
 
 **對於我現有的工具來說，此升級有何意義？**</br>
-您必須將現有自動化功能或工具更新為 Resource Manager 部署模型，以確保它在移轉之後仍可繼續運作。 請參閱 PowerShell Cmdlet 參考以了解 [Service Manager 部署模型](backup-client-automation-classic.md)和 [Resource Manager 部署模型](backup-client-automation.md)。
+您必須將現有自動化功能或工具更新為 Resource Manager 部署模型，以確保它在移轉之後仍可繼續運作。 請參閱 PowerShell cmdlet 參考[Resource Manager 部署模型](backup-client-automation.md)。
 
 **升級之後可以復原嗎？**</br>
-否。 將資源成功升級之後，即不支援復原。
+編號 將資源成功升級之後，即不支援復原。
 
 **在升級後可以檢視我的傳統保存庫嗎？**</br>
-否。 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
+編號 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
 
 **為什麼我看不到升級的保存庫受到 MARS 代理程式保護的伺服器？**</br>
 您必須安裝最新的 MARS 代理程式，才能看到在您的保存庫中受到 MARS 代理程式保護的所有伺服器。 您可以從[這裡]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)下載最新版本的代理程式。

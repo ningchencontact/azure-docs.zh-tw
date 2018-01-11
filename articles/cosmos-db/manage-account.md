@@ -1,7 +1,7 @@
 ---
 title: "透過 Azure 入口網站管理 Azure Cosmos DB 帳戶 | Microsoft Docs"
 description: "了解如何透過 Azure 入口網站管理 Azure Cosmos DB 帳戶。 尋找使用 Azure 入口網站來檢視、複製、刪除和存取帳戶的指南。"
-keywords: "Azure 入口網站, documentdb, azure, Microsoft azure"
+keywords: "Azure 入口網站、 azure、 Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帳戶
 了解如何在 Azure 入口網站中設定全域一致性、使用金鑰，以及刪除 Azure Cosmos DB 帳戶。
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/29/2017
 
 ![如何在 Azure 入口網站中刪除 Azure Cosmos DB 帳戶](./media/manage-account/delete-account-confirm.png)
 
-## <a id="next"></a>接續步驟
+## <a id="next"></a>後續步驟
 了解如何[開始使用 Azure Cosmos DB 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=402364)。
 
 <!--Image references-->

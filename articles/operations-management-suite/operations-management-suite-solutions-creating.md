@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="design-your-solution"></a>設計您的解決方案
 下圖所示的是最常見的管理解決方案模式。  下面會討論此模式的不同元件。
 
-![OMS 解決方案概觀](media/operations-management-suite-solutions/solution-overview.png)
+![OMS 解決方案概觀](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>資料來源
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 您應該定義您認為會對使用者有幫助的任何查詢，即使沒有任何檢視或警示使用這些查詢也是如此。  在入口網站中，這些查詢會以「已儲存搜尋」的形式提供給使用者來使用，而您也可以將這些查詢包含在自訂檢視中的[查詢清單視覺效果部分](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)。
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>警示
 [Log Analytics 中的警示](../log-analytics/log-analytics-alerts.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
 
 如果問題有可能透過自動化程序加以修正，您通常會在 Azure 自動化中建立 Runbook 以執行此修復。  大部分 Azure 服務都可使用 [Cmdlet](/powershell/azure/overview) 來管理，Runbook 會運用這些 Cmdlet 來執行這類功能。

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a> 整合雲端服務與 Azure CDN
 雲端服務可以與 Azure CDN 整合，從雲端服務的位置提供任何內容。 此方法提供下列優點：
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
    > 
 
 ## <a name="create-a-new-cdn-profile"></a>建立新的 CDN 設定檔
-CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個 CDN 端點。  您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
+CDN 設定檔為 CDN 端點的集合。  每個設定檔皆包含一或多個 CDN 端點。  您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
 
 > [!TIP]
 > 若您已有您想要用於本教學課程的 CDN 設定檔，請繼續參閱「 [建立新的 CDN 端點](#create-a-new-cdn-endpoint)」。
@@ -111,7 +111,7 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
 ## <a name="create-a-new-cdn-endpoint"></a>建立新的 CDN 端點
 **為儲存體帳戶建立新的 CDN 端點**
 
-1. 在 [Azure 管理入口網站](https://portal.azure.com)中，巡覽至您的 CDN 設定檔。  您可能已在先前步驟中將其釘選至儀表板。  若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中新增端點的設定檔。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 CDN 設定檔。  您可能已在先前步驟中將其釘選至儀表板。  若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中新增端點的設定檔。
    
     此時會顯示 [CDN 設定檔] 刀鋒視窗。
    
@@ -150,7 +150,7 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-同樣地，您可以從 CDN 端點，以 http://&lt;serviceName>.cloudapp.net/ 存取任何可公開存取的 URL。 例如：
+同樣地，您可以從 CDN 端點，以 http://&lt;serviceName>.cloudapp.net/ 存取任何可公開存取的 URL。 例如︰
 
 * /Script 路徑中的 .js 檔案
 * /Content 路徑中的任何內容檔案
@@ -444,13 +444,13 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
    
    * 此 CDN URL 的來源是 `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`，事實上就是雲端服務中指令碼套件組合的虛擬目錄。
    * 由於是使用 CDN 建構函式，套件組合的 CDN 指令碼標籤在轉譯的 URL 中已不再包含自動產生的版本字串。 指令碼套件組合每次修改時，您都必須手動產生唯一的版本字串，以強制在 Azure CDN 上發生快取遺漏。 同時，在部署套件組合之後，此唯一的版本字串在部署的整個存在期間內必須保持不變，讓 Azure CDN 的快取命中率達到最高。
-   * 查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 Properties\AssemblyInfo.cs 中提取。 您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。 或者，您可以直接修改專案中的 Properties\AssemblyInfo.cs，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。 例如：
+   * 查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 Properties\AssemblyInfo.cs 中提取。 您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。 或者，您可以直接修改專案中的 Properties\AssemblyInfo.cs，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。 例如︰
      
         [assembly: AssemblyVersion("1.0.0.*")]
      
      在此可採取其他任何策略在部署的存在期間內產生唯一字串。
 2. 重新發行雲端服務和存取首頁。
-3. 檢視頁面的 HTML 程式碼。 您應該會看到轉譯的 CDN URL，以及每次將變更重新發行至雲端服務時的唯一版本字串。 例如：  
+3. 檢視頁面的 HTML 程式碼。 您應該會看到轉譯的 CDN URL，以及每次將變更重新發行至雲端服務時的唯一版本字串。 例如︰  
    
         ...
    

@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>使用模擬裝置來測試您的解決方案
 
-本教學課程會示範如何使用自訂裝置模擬器微服務搭配遠端監視預先設定的解決方案。 為說明裝置模擬器的功能，本教學課程會使用 Contoso IoT 應用程式中的兩個情節。
+本教學課程會示範如何自訂在遠端監視預先設定的解決方案中的裝置模擬器微服務。 為說明裝置模擬器的功能，本教學課程會使用 Contoso IoT 應用程式中的兩個情節。
 
 在第一個情節中，Contoso 需要測試新的智慧型燈泡裝置。 若要執行測試，您可以建立具有下列特性的新模擬裝置：
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/18/2017
 
 *遙測*
 
-下表會顯示燈泡向雲端報告作為資料流的資料：
+下表顯示資料 lightbulb 報告做為資料流雲端：
 
 | 名稱   | 值      |
 | ------ | ----------- |
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/18/2017
 
 本教學課程會示範如何使用裝置模擬器搭配遠端監視預先設定的解決方案：
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 >[!div class="checklist"]
 > * 建立新的裝置類型
@@ -177,7 +177,7 @@ ms.lasthandoff: 11/18/2017
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ ms.lasthandoff: 11/18/2017
 
 設定專案，以將新的 **Lightbulb** 裝置檔案複製到輸出目錄：
 
-* 如果您使用 Visual Studio，務必將您在上一節中建立的三個新 lightbulb 檔案新增到方案中的 [服務] 專案。 然後使用 [方案總管] 將它們標示為要複製到輸出目錄。
+* 如果您使用 Visual Studio，請確定您加入您在上一節中建立的四個新 lightbulb 檔案**服務**方案中的專案。 然後使用 [方案總管] 將它們標示為要複製到輸出目錄。
 
-* 如果您使用 Visual Studio Code，請開啟 **Services.csproj** 檔案，然後新增您在上一節中建立的三個新 lightbulb 檔案。 請參閱 **Services.csproj** 檔案中的現有裝置模型檔案項目作為範例。
+* 如果您使用 Visual Studio 程式碼，開啟**Services.csproj**檔案，然後加入您在上一節中建立的四個新 lightbulb 檔案。 請參閱 **Services.csproj** 檔案中的現有裝置模型檔案項目作為範例。
 
 若要在已部署的解決方案中測試新的裝置，請參閱以下其中之一：
 

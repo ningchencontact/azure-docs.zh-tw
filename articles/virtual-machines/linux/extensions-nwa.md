@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>適用於 Linux 的網路監看員代理程式虛擬機器擴充功能
 
 ## <a name="overview"></a>概觀
 
-[Azure 網路監看員](https://review.docs.microsoft.com/en-us/azure/network-watcher/)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 Azure 虛擬機器上網路監看員的某些功能必須要有網路監看員代理程式虛擬機器擴充功能。 這包括擷取隨選網路流量和其他進階功能。
+[Azure 網路監看員](https://review.docs.microsoft.com/azure/network-watcher/)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 Azure 虛擬機器上網路監看員的某些功能必須要有網路監看員代理程式虛擬機器擴充功能。 這包括擷取隨選網路流量和其他進階功能。
 
 本文件會詳述適用於 Linux 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
-網路監看員代理程式的某些功能需要目標虛擬機器連線到網際網路。 若沒有建立傳出的連線，網路監看員代理程式的某些功能可能會有問題或者無法使用。 如需詳細資訊，請參閱[網路監看員文件](https://review.docs.microsoft.com/en-us/azure/network-watcher/)。
+網路監看員代理程式的某些功能需要目標虛擬機器連線到網際網路。 若沒有建立傳出的連線，網路監看員代理程式的某些功能可能會有問題或者無法使用。 如需詳細資訊，請參閱[網路監看員文件](https://review.docs.microsoft.com/azure/network-watcher/)。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| 類型 | NetworkWatcherAgentLinux |
+| type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>範本部署

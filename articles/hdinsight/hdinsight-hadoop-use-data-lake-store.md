@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>使用 Data Lake Store 搭配 Azure HDInsight 叢集
 
@@ -44,13 +44,13 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 
 目前，只有一些 HDInsight 叢集類型/版本支援使用 Data Lake Store 來作為預設儲存體和其他儲存體帳戶：
 
-| HDInsight 叢集類型 | Data Lake Store 作為預設儲存體 | Data Lake Store 作為其他儲存體| 注意事項 |
+| HDInsight 叢集類型 | Data Lake Store 作為預設儲存體 | Data Lake Store 作為其他儲存體| 注意 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 3.6 版 | 是 | 是 | |
-| HDInsight 3.5 版 | 是 | 是 | HBase 的例外狀況|
-| HDInsight 3.4 版 | 否 | 是 | |
+| HDInsight 3.6 版 | yes | yes | |
+| HDInsight 3.5 版 | yes | yes | HBase 的例外狀況|
+| HDInsight 3.4 版 | 否 | yes | |
 | HDInsight 3.3 版 | 否 | 否 | |
-| HDInsight 3.2 版 | 否 | 是 | |
+| HDInsight 3.2 版 | 否 | yes | |
 | Storm | | |您可以使用 Data Lake Store 從 Storm 拓撲寫入資料。 您也可以使用 Data Lake Store 做為參考資料，該資料稍後可以由 Storm 拓撲讀取。|
 
 使用 Data Lake Store 作為其他儲存體帳戶，並不會影響效能或從叢集讀取或寫入至 Azure 儲存體的能力。
@@ -80,13 +80,13 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>使用 Data Lake Store 作為其他儲存體
 
-您也可以使用 Data Lake Store 做為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Store 帳戶。 如果您正在作為其他儲存體的 Data Lake Store 上針對其儲存的資料執行 HDInsight 作業，必須使用檔案的完整路徑。 例如：
+您也可以使用 Data Lake Store 做為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Store 帳戶。 如果您正在作為其他儲存體的 Data Lake Store 上針對其儲存的資料執行 HDInsight 作業，必須使用檔案的完整路徑。 例如︰
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 請注意，現在 URL 中沒有任何 **cluster_root_path**。 這是因為在此情況下 Data Lake Store 不是預設儲存體，因此您只需要提供檔案的路徑。
 
-若要能夠使用 Data Lake Store 作為其他儲存體，您只需要將您儲存檔案之位置的路徑存取權授與服務主體即可。  例如：
+若要能夠使用 Data Lake Store 作為其他儲存體，您只需要將您儲存檔案之位置的路徑存取權授與服務主體即可。  例如︰
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -138,7 +138,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何搭配 HDInsight 使用 HDFS 相容的 Azure Data Lake Store。 這可讓您建立可調整、長期封存的資料取得解決方案，並利用 HDInsight 來揭開儲存的結構化和非結構化資料內的資訊。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)

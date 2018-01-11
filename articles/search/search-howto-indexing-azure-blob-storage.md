@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -139,7 +139,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
   * **metadata\_storage\_name** (Edm.String) - blob 的檔案名稱。 例如，如果您有 blob /my-container/my-folder/subfolder/resume.pdf，這個欄位的值是 `resume.pdf`。
   * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如， `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String) - 內容類型，如同您用來上傳 blob 的程式碼所指定。 例如， `application/octet-stream`。
+  * **metadata\_storage\_content\_type** (Edm.String) - 內容類型，如同您用來上傳 blob 的程式碼所指定。 例如： `application/octet-stream`。
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - 上次修改 blob 的時間戳記。 Azure 搜尋服務會使用此時間戳記來識別已變更的 blob，以避免在初始編製索引之後重新對所有項目編制索引。
   * **metadata\_storage\_size** (Edm.Int64) - blob 大小 (位元組)。
   * **metadata\_storage\_content\_md5** (Edm.String) - blob 內容的 MD5 雜湊，如果有的話。
@@ -225,28 +225,6 @@ blob 索引子可以從下列文件格式擷取文字：
 
 如果同時有 `indexedFileNameExtensions` 和 `excludedFileNameExtensions` 參數，Azure 搜尋服務會先查看 `indexedFileNameExtensions`，再查看 `excludedFileNameExtensions`。 這表示，如果兩份清單中有相同的副檔名，就會排除在索引編製外。
 
-### <a name="dealing-with-unsupported-content-types"></a>處理不受支援的內容類型
-
-根據預設，一旦遇到不受支援內容類型 (例如影像) 的 blob 時，blob 索引子就會停止。 您當然可以使用 `excludedFileNameExtensions` 參數來略過特定內容類型。 不過，您可能需要編製 blob 的索引，而不需要事先知道所有可能的內容類型。 若要在遇到不受支援的內容類型時繼續編製索引，請將 `failOnUnsupportedContentType` 組態參數設定為 `false`：
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>忽略剖析錯誤
-
-Azure 搜尋服務文件擷取邏輯並不完美，有時會無法剖析受支援內容類型 (例如 .DOCX 或 .PDF) 的文件。 如果您不想中斷這類案例中的索引，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為一些合理的值。 例如：
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>控制要編製 blob 哪些部分的索引
 
@@ -275,6 +253,31 @@ Azure 搜尋服務文件擷取邏輯並不完美，有時會無法剖析受支�
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |指示 blob 索引子以完全略過 blob。 不會嘗試擷取中繼資料或內容。 當特定 blob 一直失敗，並且中斷編製索引程序時，這非常有用。 |
 | AzureSearch_SkipContent |"true" |這是相當於[上方](#PartsOfBlobToIndex)所描述之範圍設定為特定 blob 的 `"dataToExtract" : "allMetadata"` 設定。 |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>錯誤處理
+
+根據預設，一旦遇到不受支援內容類型 (例如影像) 的 blob 時，blob 索引子就會停止。 您當然可以使用 `excludedFileNameExtensions` 參數來略過特定內容類型。 不過，您可能需要編製 blob 的索引，而不需要事先知道所有可能的內容類型。 若要在遇到不受支援的內容類型時繼續編製索引，請將 `failOnUnsupportedContentType` 組態參數設定為 `false`：
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+對於某些 blob，Azure 搜尋無法判斷內容類型，或無法處理的文件否則支援的內容類型。 若要略過此失敗模式中，設定`failOnUnprocessableDocument`組態參數設為 false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+您也可以繼續編製索引如果錯誤會發生在處理剖析 blob 時，或加入索引的文件時的任何時間點。 若要忽略特定錯誤數目，設定`maxFailedItems`和`maxFailedItemsPerBatch`所需值的組態參數。 例如︰
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>增量編製索引和刪除偵測
 當您設定 blob 索引子排程執行時，它只會重新編制索引變更的 blob，由 blob 的 `LastModified` 時間戳記決定。

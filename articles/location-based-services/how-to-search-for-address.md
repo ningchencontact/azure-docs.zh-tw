@@ -6,13 +6,13 @@ keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>如何使用 Azure LBS (預覽) 尋找地址
 搜尋服務是一組 RESTful 的 API，針對要搜尋地址、位置、感興趣點、商務清單及其他地理資訊的開發人員所設計。 搜尋服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋服務 API 所傳回的緯度與經度值可用來作為其他 Azure LBS (例如路由和流量 API) 中的參數。
@@ -44,7 +44,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     | 要求 URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | 無授權 |
 
-    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在 [位置服務功能性 API 參考] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy) 的 **取得搜尋模糊**定義中找到可用的回應格式。
+    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以找到中可用的回應格式**取得搜尋模糊**定義的 [位置基礎服務功能的 API 參考] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy)。
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 
@@ -156,7 +156,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     |-----|------------|
     | number | true |
 
-    如果 [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數隨著要求傳送，回應可能會包含街道邊 (左/右)，以及該號碼的位移位置。
+    如果 [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數隨著要求傳送，回應可能會包含街道邊 (左/右)，以及該號碼的位移位置。
     
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -164,7 +164,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     |-----|------------|
     | spatialKeys | true |
 
-    當設定 [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會包含指定位置的專屬地理空間金鑰資訊。
+    當設定 [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會包含指定位置的專屬地理空間金鑰資訊。
 
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -172,7 +172,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     |-----|------------|
     | returnSpeedLimit | true |
     
-    當設定 [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回已張貼的速度限制。
+    當設定 [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回已張貼的速度限制。
 
 7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -180,7 +180,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     |-----|------------|
     | returnRoadUse | true |
 
-    當設定 [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回街道層級的反向地理代碼道路使用陣列。
+    當設定 [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回街道層級的反向地理代碼道路使用陣列。
 
 8. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -188,7 +188,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     |-----|------------|
     | roadUse | true |
 
-    您可以使用 [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數，將反向地理代碼限制為特定類型的道路使用。
+    您可以使用 [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數，將反向地理代碼限制為特定類型的道路使用。
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>使用反向地址交叉街道搜尋來搜尋交叉街道
 
@@ -215,4 +215,4 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
 4. 按一下 [傳送]，然後檢視回應本文。 
 
 ## <a name="next-steps"></a>後續步驟
-- 探索 [Azure LBS 搜尋服務](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) API 文件 
+- 探索 [Azure LBS 搜尋服務](https://docs.microsoft.com/rest/api/location-based-services/search) API 文件 

@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 00420e07957e7d8fe68bb8f1a1742110429d16b8
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：技術深入探討
 本文概述 Azure Active Directory (Azure AD)傳遞驗證的運作方式。 如需深層技術和安全性資訊，請參閱[安全性深入探討](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)一文。
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/28/2017
 2. 如果使用者尚未登入，則會將使用者重新導向 Azure AD [使用者登入] 頁面。
 3. 使用者將其使用者名稱和密碼輸入 Azure AD 登入頁面中，然後選取 [登入] 按鈕。
 4. 接收登入要求時，Azure AD 會將使用者名稱和密碼 (使用公開金鑰加密) 置於佇列。
-5. 內部部署驗證代理程式會從佇列中擷取使用者名稱和加密的密碼。
+5. 內部部署驗證代理程式會從佇列中擷取使用者名稱和加密的密碼。 請注意，代理程式不會經常輪詢要求佇列中擷取預先建立的持續連接要求。
 6. 代理程式會使用其私密金鑰將密碼解密。
 7. 代理程式會使用標準 Windows API 向 Active Directory 驗證使用者名稱和密碼，類似於 Active Directory 同盟服務 (AD FS) 所使用的機制。 使用者名稱可以是內部部署的預設使用者名稱 (通常是 `userPrincipalName`)，或可在 Azure AD Connect 中設定的另一個屬性 (又稱為 `Alternate ID`)。
 8. 內部部署 Active Directory 網域控制站 (DC) 會評估要求，並將適當的回應 (成功、失敗、密碼過期或鎖定使用者) 傳回給代理程式。

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 QPrism 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: jeedes
-ms.openlocfilehash: a380e9c07710e0c79a44e036f9c5bd72a731fe40
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>教學課程：Azure Active Directory 與 QPrism 整合
 
@@ -45,13 +45,13 @@ QPrism 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 QPrism
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-qprism-from-the-gallery"></a>從資源庫新增 QPrism
-若要設定將 QPrism 整合到 Azure AD 中，您需要從資源庫將 QPrism 新增到受管理的 SaaS 應用程式清單。
+若要設定將 QPrism 整合到 Azure AD 中，您需要從資源庫將 QPrism 新增到受控 SaaS 應用程式清單。
 
 **從資源庫新增 QPrism：**
 
@@ -169,7 +169,7 @@ QPrism 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
  
 ### <a name="create-a-qprism-test-user"></a>建立 QPrism 測試使用者
 

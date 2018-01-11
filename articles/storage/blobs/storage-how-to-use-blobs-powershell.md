@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure Blob 儲存體作業
 
@@ -152,7 +152,7 @@ Get-AzureStorageBlob -Container $containerName -Context $ctx | select Name
 設定第二個儲存體帳戶、擷取內容、在該儲存體帳戶中設定容器，然後執行複製。 這部分指令碼與上述指令碼幾乎完全相同，差別只在於使用第二個儲存體帳戶，而不是第一個儲存體帳戶。
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `

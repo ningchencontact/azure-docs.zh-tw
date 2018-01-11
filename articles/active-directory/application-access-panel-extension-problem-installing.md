@@ -4,21 +4,21 @@ description: "如何修正在安裝存取面板的瀏覽器延伸模組時所遇
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>安裝應用程式存取面板的瀏覽器延伸模組時出現的錯誤
 
@@ -32,14 +32,13 @@ ms.lasthandoff: 10/11/2017
 
 若是密碼 SSO，則使用者的瀏覽器可以是：
 
--   Internet Explorer 8、9、10、11 -- 在 Windows 7 或更新版本上
-
 -   Windows 10 Anniversary Edition 或更新版本上的 Edge 
 
 -   Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 
 -   Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
 
+-   Internet Explorer 8、 9、 10、 11-在 Windows 7 或更新版本 （有限的支援）
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板的瀏覽器延伸模組
 
 若要安裝存取面板的瀏覽器延伸模組，請遵循下列步驟：
@@ -64,6 +63,31 @@ ms.lasthandoff: 10/11/2017
 
 -   [Edge 存取面板延伸模組](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>如何使用 我的應用程式安全登入副檔名？
+變更我的應用程式的預設 URL，延伸模組
+
+如果您使用不同的我的應用程式 URL https://myapps.microsoft.com 比然後您必須設定您的預設 URL 透過下列步驟：
+1. 未簽署成擴充功能，而**以滑鼠右鍵按一下**擴充圖示。
+2. 按一下**選取我的應用程式 URL**從功能表。
+3. **選取**預設 URL。
+4. 按一下擴充功能圖示。
+5. 登入選取的延伸模組**登入，若要開始使用**。
+
+直接從瀏覽器應用程式將登入
+1. 安裝擴充功能，登入選取的擴充功能之後**登入，若要開始使用**。
+2. 瀏覽至**登入 URL**您想要登入的應用程式，這是通常會顯示登入表單應用程式的 URL。
+3. 該擴充功能應該變更狀態，並可讓您知道密碼，請按一下**擴充圖示**登入。
+
+啟動應用程式從延伸模組
+1. 安裝擴充功能，登入選取的擴充功能之後**登入，若要開始使用**。
+2. 按一下 擴充功能圖示以開啟其**功能表**。
+3. **搜尋**我的應用程式入口網站中提供的應用程式。
+4. 按一下應用程式，從**搜尋結果**來啟動它。
+5. 啟動的最後三個應用程式也會顯示在**最近使用過**快顯清單
+
+> [!NOTE]
+> 這些選項僅適用於 Edge、 Chrome、 Firefox。
+
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>設定適用於 Internet Explorer 的群組原則
 
 您可以設定一個群組原則，以允許您在使用者電腦上遠端安裝適用於 Internet Explorer 的存取面板延伸模組。
@@ -76,9 +100,12 @@ ms.lasthandoff: 10/11/2017
 
 如需如何設定群組原則並將它部署到使用者的逐步指示，請遵循[如何使用群組原則部署 Internet Explorer 的存取面板延伸模組](active-directory-saas-ie-group-policy.md)教學課程。
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>進行 Internet Explorer 中存取面板的疑難排解
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>存取面板延伸模組，在 Internet Explorer 中的疑難排解
 
 如需存取診斷工具和設定 IE 延伸模組的逐步指示，請遵循[疑難排解 Internet Explorer 的存取面板延伸模組](active-directory-saas-ie-troubleshooting.md)指南。
+
+> [!NOTE]
+> IE 有限的支援，不會再收到新的軟體更新。 邊緣是建議的瀏覽器。
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>如果這些疑難排解步驟無法解決問題
 

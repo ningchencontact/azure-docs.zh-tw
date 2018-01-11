@@ -4,7 +4,7 @@ description: "將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 您可以使用構成 Azure Active Directory B2C (Azure AD B2C) 基礎的識別體驗架構，與使用者旅程圖中的 RESTful API 整合。 在本逐步解說中，您將了解 Azure AD B2C 與.NET Framework RESTful 服務 (Web API) 之間的互動方式。
@@ -215,7 +215,7 @@ ms.lasthandoff: 10/21/2017
     [建立 App Service] 視窗隨即開啟。 在其中，您可以建立要在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
 
     > [!NOTE]
-    >如需如何發佈的詳細資訊，請參閱[在 Azure 中建立 ASP.NET Web 應用程式](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)。
+    >如需如何發佈的詳細資訊，請參閱[在 Azure 中建立 ASP.NET Web 應用程式](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)。
 
 3. 在 [Web 應用程式名稱] 方塊中，輸入唯一的應用程式名稱 (有效字元為 a-z、0-9 及連字號 (-))。 Web 應用程式的 URL 是 http://<app_name>.azurewebsites.NET，其中 *app_name* 是 Web 應用程式的名稱。 您可以接受自動產生的名稱 (這是唯一的)。
 

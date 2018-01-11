@@ -2,7 +2,7 @@
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>此移轉計劃是否會影響任何在 Azure 虛擬機器上執行的現有服務或應用程式？ 
 
-否。 VM (傳統) 是在全面可用性方面完全受支援的服務。 您可以繼續使用這些資源以擴展您在 Microsoft Azure 上的使用量。
+編號 VM (傳統) 是在全面可用性方面完全受支援的服務。 您可以繼續使用這些資源以擴展您在 Microsoft Azure 上的使用量。
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>如果我最近沒有移轉的打算，我的 VM 會出現什麼狀況？ 
 
@@ -26,7 +26,7 @@
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>如果我必須使用 Resource Manager 下的 IaaS，是否必須購買另一條 ExpressRoute 線路？ 
 
-否。 我們最近啟用了[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)的功能。 如果您已有 ExpressRoute 線路，就不需要購買新線路。
+編號 我們最近啟用了[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)的功能。 如果您已有 ExpressRoute 線路，就不需要購買新線路。
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>如果我已為傳統 IaaS 資源設定角色型存取控制原則，該怎麼辦？ 
 
@@ -36,14 +36,14 @@
 
 當您將 VM 從傳統模式移至 Resource Manager 模式時，備份保存庫中的<a name="vault">傳統</a> VM 復原點不會自動移轉至復原服務保存庫。 請遵循下列步驟來傳輸您的 VM 備份：
 
-1. 在備份保存庫中，移至 [受保護的項目] 索引標籤，然後選取 VM。 按一下[停止保護](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)。 讓 [刪除相關聯的備份資料] 選項保持 [未核取] 狀態。
+1. 在備份保存庫中，移至 [受保護的項目] 索引標籤，然後選取 VM。 按一下[停止保護](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines)。 讓 [刪除相關聯的備份資料] 選項保持 [未核取] 狀態。
 2. 從 VM 中刪除備份/快照集擴充功能。
 3. 將虛擬機器從傳統模式移轉至 Resource Manager 模式。 確定虛擬機器對應的儲存體和網路資訊也會移轉至 Resource Manager 模式。
 4. 建立復原服務保存庫，並使用保存庫儀表板上方的 [備份] 動作，在移轉的虛擬機器上設定備份。 如需將 VM 備份至復原服務保存庫的詳細資訊，請參閱[使用復原服務保存庫保護 Azure VM](../articles/backup/backup-azure-vms-first-look-arm.md) 文章。
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>我是否可以驗證訂用帳戶或資源，以查看是否能夠移轉它們？ 
 
-是。 在平台支援的移轉選項中，為移轉做準備的第一個步驟就是驗證資源是否能夠進行移轉。 如果驗證作業失敗，您將會收到無法完成移轉的所有原因相關訊息。
+可以。 在平台支援的移轉選項中，為移轉做準備的第一個步驟就是驗證資源是否能夠進行移轉。 如果驗證作業失敗，您將會收到無法完成移轉的所有原因相關訊息。
 
 ## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>如果我在準備要移轉的 IaaS 資源時遇到配額錯誤，會發生什麼事？ 
 

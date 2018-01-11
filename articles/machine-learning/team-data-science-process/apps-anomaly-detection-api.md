@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
@@ -44,19 +44,19 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a name="api-deployment"></a>API 部署
-若要使用 API，您必須將它部署到 Azure 訂用帳戶，以在其中裝載成 Azure Machine Learning Web 服務。  您可以從 [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 執行此作業。  這會將兩個 AzureML Web 服務 (與其相關的資源) 部署到您的 Azure 訂用帳戶 - 一個用於異常偵測 (含季節性偵測)，另一個則不含季節性偵測。  部署完成後，您就能夠從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面管理您的 API。  從這個頁面，您可以找到您的端點位置、API 金鑰，以及用於呼叫 API 的範例程式碼。  在[這裡](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice)可取得更詳細的指示。
+若要使用 API，您必須將它部署到 Azure 訂用帳戶，以在其中裝載成 Azure Machine Learning Web 服務。  您可以從[Azure AI 庫](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)。  這會將兩個 AzureML Web 服務 (與其相關的資源) 部署到您的 Azure 訂用帳戶 - 一個用於異常偵測 (含季節性偵測)，另一個則不含季節性偵測。  部署完成後，您就能夠從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面管理您的 API。  從這個頁面，您可以找到您的端點位置、API 金鑰，以及用於呼叫 API 的範例程式碼。  在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)可取得更詳細的指示。
 
 ## <a name="scaling-the-api"></a>調整 API
 根據預設，部署將有免費的開發/測試計費方案，其中包括 1,000 筆交易/月和 2 個計算時數/月。  根據您的需求，您可以升級到另一個方案。  在[這裡](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) (「生產 Web API 價格」之下) 可取得不同方案的價格詳細資料。
 
 ## <a name="managing-aml-plans"></a>管理 AML 方案 
-您可以在[這裡](https://services.azureml.net/plans/)管理您的計費方案。  方案名稱會以您在部署 API 時選擇的資源群組名稱為主，加上您的訂用帳戶中的唯一字串。  在[這裡](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) (「管理計費方案」一節之下) 可取得有關如何升級方案的指示。
+您可以在[這裡](https://services.azureml.net/plans/)管理您的計費方案。  方案名稱會以您在部署 API 時選擇的資源群組名稱為主，加上您的訂用帳戶中的唯一字串。  在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) (「管理計費方案」一節之下) 可取得有關如何升級方案的指示。
 
 ## <a name="api-definition"></a>API 定義
 Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用，包括 Web 或行動應用程式、R、Python、Excel 等等。您可以透過 REST API 呼叫將您的時間序列資料傳送到此服務，它會執行上述三個異常類型的組合。
 
 ## <a name="calling-the-api"></a>呼叫 API
-若要呼叫 API，您必須知道端點位置和 API 金鑰。  從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面可取得這兩者，以及用於呼叫 API 的範例程式碼。  瀏覽至所需的 API，然後按一下取用 索引標籤以找出它們。  請注意，您可以呼叫 API 做為 Swagger API (即包含 URL 參數 `format=swagger`) 或做為非 Swagger API (即不含 `format` URL 參數)。  範例程式碼會使用 Swagger 格式。  以下是非 Swagger 格式的範例要求和回應。  這些範例適用於季節性端點。  非季節性端點很類似。
+若要呼叫 API，您必須知道端點位置和 API 金鑰。  從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面可取得這兩者，以及用於呼叫 API 的範例程式碼。  瀏覽至所需的 API，然後按一下 [取用] 索引標籤以找出它們。  請注意，您可以呼叫 API 做為 Swagger API (即包含 URL 參數 `format=swagger`) 或做為非 Swagger API (即不含 `format` URL 參數)。  範例程式碼會使用 Swagger 格式。  以下是非 Swagger 格式的範例要求和回應。  這些範例適用於季節性端點。  非季節性端點很類似。
 
 ### <a name="sample-request-body"></a>範例要求本文
 要求包含兩個物件︰`Inputs` 和 `GlobalParameters`。  在下列範例要求中，某些參數會明確傳送，有些則不會 (向下捲動以取得每個端點的完整參數清單)。  不會在要求中明確傳送的參數會使用下面所列的預設值。
@@ -118,15 +118,15 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 ### <a name="parameters"></a>參數
 下表列出這些輸入參數的詳細資訊：
 
-| 輸入參數 | 說明 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
+| 輸入參數 | 說明 | 預設設定 | 型別 | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
+| detectors.historyWindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |整數 |10 - 2000 |取決於時間序列 |
 | detectors.spikesdips | 是否偵測只有尖峰、只有下降，或兩者 |兩者 |列舉 |兩者、尖峰、下降 |兩者 |
-| bileveldetector.sensitivity |雙向層級變更偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
-| trenddetector.sensitivity |正向趨勢偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
-| tspikedetector.sensitivity |TSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
-| zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
-| postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
+| bileveldetector.sensitivity |雙向層級變更偵測器的敏感度。 |3.25 |雙精度浮點數 |None |3.25-5 (值愈低代表敏感度越高) |
+| trenddetector.sensitivity |正向趨勢偵測器的敏感度。 |3.25 |雙精度浮點數 |None |3.25-5 (值愈低代表敏感度越高) |
+| tspikedetector.sensitivity |TSpike 偵測器的敏感度 |3 |整數 |1 - 10 |3-5 (值愈低代表敏感度越高) |
+| zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |整數 |1 - 10 |3-5 (值愈低代表敏感度越高) |
+| postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |整數 |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |無 |
 
 ### <a name="output"></a>輸出
 API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。 
@@ -154,22 +154,22 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 
 下表列出這些輸入參數的詳細資訊：
 
-| 輸入參數 | 說明 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
+| 輸入參數 | 說明 | 預設設定 | 型別 | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |用來彙總輸入時間序列的彙總間隔 (秒) |0 (不執行彙總) |integer |0︰略過彙總，否則 > 0 |5 分鐘到 1 天，取決於時間序列 |
-| preprocess.aggregationFunc |用來將資料彙總到指定 AggregationInterval 的函式 |平均值 |列舉 |平均值、總和、長度 |N/A |
-| preprocess.replaceMissing |用來插補遺漏資料的值 |lkv (上一個已知值) |列舉 |零、lkv、平均值 |N/A |
-| detectors.historyWindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
+| preprocess.aggregationInterval |用來彙總輸入時間序列的彙總間隔 (秒) |0 (不執行彙總) |整數 |0︰略過彙總，否則 > 0 |5 分鐘到 1 天，取決於時間序列 |
+| preprocess.aggregationFunc |用來將資料彙總到指定 AggregationInterval 的函式 |平均值 |列舉 |平均值、總和、長度 |無 |
+| preprocess.replaceMissing |用來插補遺漏資料的值 |lkv (上一個已知值) |列舉 |零、lkv、平均值 |無 |
+| detectors.historyWindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |整數 |10 - 2000 |取決於時間序列 |
 | detectors.spikesdips | 是否偵測只有尖峰、只有下降，或兩者 |兩者 |列舉 |兩者、尖峰、下降 |兩者 |
-| bileveldetector.sensitivity |雙向層級變更偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
-| postrenddetector.sensitivity |正向趨勢偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
-| negtrenddetector.sensitivity |負向趨勢偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
-| tspikedetector.sensitivity |TSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
-| zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
-| seasonality.enable |是否要執行季節性分析 |true |布林值 |true、false |取決於時間序列 |
-| seasonality.numSeasonality |要偵測的定期循環數目上限 |1 |integer |1、2 |1 - 2 |
-| seasonality.transform |在套用異常偵測之前，是否應該移除季節性 (和) 趨勢元件 |deseason |列舉 |無、deseason、deseasontrend |N/A |
-| postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
+| bileveldetector.sensitivity |雙向層級變更偵測器的敏感度。 |3.25 |雙精度浮點數 |None |3.25-5 (值愈低代表敏感度越高) |
+| postrenddetector.sensitivity |正向趨勢偵測器的敏感度。 |3.25 |雙精度浮點數 |None |3.25-5 (值愈低代表敏感度越高) |
+| negtrenddetector.sensitivity |負向趨勢偵測器的敏感度。 |3.25 |雙精度浮點數 |None |3.25-5 (值愈低代表敏感度越高) |
+| tspikedetector.sensitivity |TSpike 偵測器的敏感度 |3 |整數 |1 - 10 |3-5 (值愈低代表敏感度越高) |
+| zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |整數 |1 - 10 |3-5 (值愈低代表敏感度越高) |
+| seasonality.enable |是否要執行季節性分析 |是 |布林值 |true、false |取決於時間序列 |
+| seasonality.numSeasonality |要偵測的定期循環數目上限 |1 |整數 |1、2 |1 - 2 |
+| seasonality.transform |在套用異常偵測之前，是否應該移除季節性 (和) 趨勢元件 |deseason |列舉 |無、deseason、deseasontrend |無 |
+| postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |整數 |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |無 |
 
 ### <a name="output"></a>輸出
 API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。 

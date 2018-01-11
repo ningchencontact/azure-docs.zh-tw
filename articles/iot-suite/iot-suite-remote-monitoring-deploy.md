@@ -7,22 +7,22 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 61d36113e60c6bb02ea053493ae461993b18c447
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>部署遠端監視預先設定解決方案
 
 本教學課程示範如何佈建遠端監視預先設定的解決方案。 您要從 azureiotsuite.com 部署解決方案。您也可以使用 CLI 部署解決方案來了解此選項，請參閱[從命令列部署預先設定的解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line)。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定預先設定的解決方案
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 若要完成此教學課程，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="deploy-the-preconfigured-solution"></a>部署預先設定的解決方案
 

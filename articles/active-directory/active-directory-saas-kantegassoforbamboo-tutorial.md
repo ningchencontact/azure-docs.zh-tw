@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Kantega SSO for Bamb
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: e238b574-9e9b-43b7-ab98-d2a87ff89d48
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: cc259bb6f9bdb2293b6935e45e2df52b9fee6873
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 130b4a958525cfddf231fa0e9f71025f58ca51a9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>教學課程：Azure Active Directory 與 Kantega SSO for Bamboo 整合
 
@@ -47,13 +47,13 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Kantega SSO for Bamboo
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-kantega-sso-for-bamboo-from-the-gallery"></a>從資源庫新增 Kantega SSO for Bamboo
-若要設定將 Kantega SSO for Bamboo 整合到 Azure AD 中，您需要從資源庫將 Kantega SSO for Bamboo 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Kantega SSO for Bamboo 整合到 Azure AD 中，您需要從資源庫將 Kantega SSO for Bamboo 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Kantega SSO for Bamboo，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Kantega SSO for Bamboo**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_search.png)
 
-5. 在結果面板中，選取 Kantega SSO for Bamboo，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Kantega SSO for Bamboo]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_addfromgallery.png)
 
@@ -171,7 +171,7 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 複製 [應用程式識別碼 URI] 值，然後在 Azure 入口網站的 [Kantega SSO for Bamboo 網域及 URL] 區段上，使用此 URI 作為 [識別碼]、[回覆 URL] 和 [登入 URL]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [下一步] 。
+    b. 按 [下一步] 。
 
 17. 在 [中繼資料匯入] 區段中，執行下列步驟：
 
@@ -179,7 +179,7 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 選取 [我的電腦上的中繼資料檔案]，上傳您從 Azure 入口網站下載的中繼資料檔案。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [下一步] 。
+    b. 按 [下一步] 。
 
 18. 在 [名稱和 SSO 位置] 區段中，執行下列步驟：
 
@@ -187,7 +187,7 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別提供者名稱] 文字方塊中，新增識別提供者的名稱 (例如 Azure AD)。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [下一步] 。
+    b. 按 [下一步] 。
 
 19. 確認簽署憑證，然後按 [下一步]。  
 
@@ -199,7 +199,7 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 選取 [如果需要，在 Bamboo 的內部目錄中建立使用者]，然後輸入使用者群組的適當名稱 (可以是多個 群組，以逗號分隔)。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [下一步] 。
+    b. 按 [下一步] 。
 
 21. 按一下 [完成] 。
 
@@ -211,9 +211,9 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 從頁面的左面板中，選取 [已知網域]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [已知網域] 文字方塊中，輸入網域名稱。
+    b. 在 [已知網域] 文字方塊中，輸入網域名稱。
 
-    c. 按一下 [儲存] 。
+    c. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -243,11 +243,11 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-kantega-sso-for-bamboo-test-user"></a>建立 Kantega SSO for Bamboo 測試使用者
 
@@ -267,7 +267,7 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
 
     a. 在 [使用者名稱] 文字方塊中，輸入像是 Brittasimon@contoso.com 的使用者電子郵件。
     
-    b.這是另一個 C# 主控台應用程式。 在 [密碼] 文字方塊中，輸入使用者的密碼。
+    b. 在 [密碼] 文字方塊中，輸入使用者的密碼。
 
     c. 在 [確認密碼] 文字方塊中，再次輸入使用者的密碼。
     
@@ -275,7 +275,7 @@ Kantega SSO for Bamboo 與 Azure AD 整合提供下列優點：
     
     e. 在 [電子郵件] 文字方塊中，輸入像是 Brittasimon@contoso.com 的使用者電子郵件地址。
     
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

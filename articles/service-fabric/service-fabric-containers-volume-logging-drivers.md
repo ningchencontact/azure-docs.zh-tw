@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>使用容器的 Docker 磁碟區外掛程式和記錄驅動程式
 Azure Service Fabric 支援為容器服務指定 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 記錄驅動程式](https://docs.docker.com/engine/admin/logging/overview/)。 當您的容器移動了或在不同主機上重新啟動時，您可將資料保存在 [Azure 檔案](https://azure.microsoft.com/services/storage/files/)中。
@@ -28,7 +28,7 @@ Azure Service Fabric 支援為容器服務指定 [Docker 磁碟區外掛程式](
 
 ## <a name="install-the-docker-volumelogging-driver"></a>安裝 Docker 磁碟區/記錄驅動程式
 
-如果電腦上未安裝 Docker 磁碟區/記錄驅動程式，可以使用 RDP/SSH 通訊協定來手動安裝它。 您可以透過[虛擬機器擴展集啟動指令碼](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/)或 [SetupEntryPoint 指令碼](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service)，使用這些通訊協定執行安裝。
+如果電腦上未安裝 Docker 磁碟區/記錄驅動程式，可以使用 RDP/SSH 通訊協定來手動安裝它。 您可以透過[虛擬機器擴展集啟動指令碼](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/)或 [SetupEntryPoint 指令碼](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service)，使用這些通訊協定執行安裝。
 
 安裝[適用於 Azure 的 Docker 磁碟區驅動程式](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)的指令碼範例如下所示：
 

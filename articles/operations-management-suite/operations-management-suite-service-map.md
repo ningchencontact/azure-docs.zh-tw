@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>在 Operations Management Suite 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>使用案例︰讓 IT 處理序可以感知相依性
 
 ### <a name="discovery"></a>探索
-服務對應會自動建置跨伺服器、處理程序和協力廠商服務的一般相依性參考對應。 它會探索並對應所有 TCP 相依性，其中會識別非預期的連線、您倚賴的遠端協力廠商系統，以及與傳統網路暗區 (例如 Active Directory) 的相依性。 服務對應可探索到受管理系統嘗試進行的失敗網路連線，幫助您識別潛在的伺服器錯誤設定、服務中斷和網路問題。
+服務對應會自動建置跨伺服器、處理程序和協力廠商服務的一般相依性參考對應。 它會探索並對應所有 TCP 相依性，其中會識別非預期的連線、您倚賴的遠端協力廠商系統，以及與傳統網路暗區 (例如 Active Directory) 的相依性。 服務對應可探索到受控系統嘗試進行的失敗網路連線，幫助您識別潛在的伺服器錯誤設定、服務中斷和網路問題。
 
 ### <a name="incident-management"></a>事件管理
 服務對應可藉由顯示系統的連線方式及其如何互相影響，協助您免去推敲問題所在的工作。 除了識別失敗的連線，服務對應還可協助識別設定錯誤的負載平衡器、非預期或過度負載的重要服務，以及與生產系統通訊的開發人員機器等惡意用戶端。 您也可以使用整合 Operations Management Suite 變更追蹤的工作流程，以查看後端機器或服務上的變更事件是否能夠說明事件的根本原因。
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/16/2017
 
 ![服務對應概觀](media/oms-service-map/service-map-overview.png)
 
-對應內的機器可以展開，以顯示所選時間範圍內具有作用中網路連線的執行中處理程序。 展開具有服務對應代理程式的遠端機器以顯示處理序詳細資料時，只會顯示與焦點機器通訊的處理序。 連線到焦點機器的無代理程式前端機器計數，會顯示在所連線的處理序左側。 如果焦點機器連線至無代理程式的後端機器，該後端伺服器會包含在「伺服器連接埠群組」中，連同其他連線至相同連接埠號碼的連線。
+擴充機器可以在地圖中，以顯示執行中，選取的時間範圍內處理群組和處理程序與作用中的網路連線。 展開具有服務對應代理程式的遠端機器以顯示處理序詳細資料時，只會顯示與焦點機器通訊的處理序。 連線到焦點機器的無代理程式前端機器計數，會顯示在所連線的處理序左側。 如果焦點機器連線至無代理程式的後端機器，該後端伺服器會包含在「伺服器連接埠群組」中，連同其他連線至相同連接埠號碼的連線。
 
 根據預設，「服務對應」對應會顯示過去 30 分鐘的相依性資訊。 使用左上角的時間控制項，可查詢過往時間範圍的對應 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。 付費工作區的服務對應資料會儲存 30 天，免費工作區的服務對應資料則會儲存 7 天。
 
@@ -59,6 +59,9 @@ ms.lasthandoff: 11/16/2017
 根據狀態徽章的嚴重性，機器節點框線會呈現紅色 (重大)、黃色 (警告) 或藍色 (資訊)。 色彩可代表任何狀態徽章最嚴重的狀態。 灰色框線代表沒有狀態指標的節點。
 
 ![狀態徽章](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>處理程序群組
+處理程序群組組合與一般產品或服務的程序群組相關聯的處理程序。  展開 [電腦] 節點時，它會顯示處理程序群組的獨立處理序。  如果任何輸入及輸出連線，以處理程序群組內的程序無法再連接會顯示為失敗的整個程序群組。
 
 ## <a name="machine-groups"></a>機器群組
 機器群組可顯示以一組伺服器為中心的對應，而不只是單一伺服器的對應。因此，您可以在單一對應中看到多層式應用程式或伺服器叢集的所有成員。
@@ -332,7 +335,7 @@ Linux：
 ### <a name="list-all-known-machines"></a>列出所有已知的機器
 Type=ServiceMapComputer_CL | dedup ResourceId
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>列出所有受管理電腦的實體記憶體容量。
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>列出所有受控電腦的實體記憶體容量。
 Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>列出電腦名稱、DNS、IP 和 OS。

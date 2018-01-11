@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="api-management-transformation-policies"></a>API 管理轉換原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -264,6 +264,7 @@ ms.lasthandoff: 12/04/2017
 |sf-replica-type|僅適用於後端為 Service Fabric 服務並使用 'backend-id' 指定時。 控制要求應移至資料分割的主要或次要複本。 |否|N/A|    
 |sf-resolve-condition|僅適用於後端為 Service Fabric 服務時。 識別新的解析是否必須重複呼叫 Service Fabric 後端的條件。|否|N/A|    
 |sf-service-instance-name|僅適用於後端為 Service Fabric 服務時。 允許在執行階段變更服務執行個體。 |否|N/A|    
+|sf 接聽程式名稱|僅適用於 Service Fabric 服務後端，並指定使用 ' 後端 id'。 服務網狀架構可靠的服務可讓您在服務中建立多個接聽程式。 此屬性用來選取特定的接聽程式後端可靠的服務具有多個接聽程式時。 如果未指定此屬性，API 管理會嘗試使用不含名稱的接聽程式。 沒有名稱的接聽程式是典型的可靠的服務只能有一個接聽程式。 |否|N/A|  
 
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -389,7 +390,7 @@ ms.lasthandoff: 12/04/2017
 |----------|-----------------|--------------|  
 |set-body|根元素。 包含本文文字或會傳回本文的運算式。|是|  
 
-### <a name="properties"></a>屬性  
+### <a name="properties"></a>properties  
   
 |名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
@@ -485,12 +486,12 @@ OriginalUrl.
 |set-header|根元素。|是|  
 |value|指定要設定之標頭的值。 若多個標頭有相同名稱，請額外加入 `value` 元素。|是|  
   
-### <a name="properties"></a>屬性  
+### <a name="properties"></a>properties  
   
 |名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |exists-action|指定當已指定標頭時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有標頭的值。<br />-   skip - 不取代現有的標頭值。<br />-   append - 將值附加至現有標頭值之後。<br />-   delete - 移除要求中的標頭。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定標頭 (列出多次)；只有列出的值才會設定在結果中。|否|override|  
-|名稱|指定要設定之標頭的名稱。|是|N/A|  
+|name|指定要設定之標頭的名稱。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -545,12 +546,12 @@ OriginalUrl.
 |set-query-parameter|根元素。|是|  
 |value|指定要設定之查詢參數的值。 若多個查詢參數有相同名稱，請額外加入 `value` 元素。|是|  
   
-### <a name="properties"></a>屬性  
+### <a name="properties"></a>properties  
   
 |名稱|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |exists-action|指定當已指定查詢參數時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有參數的值。<br />-   skip - 不取代現有的查詢參數值。<br />-   append - 將值附加至現有查詢參數值之後。<br />-   delete - 移除要求中的查詢參數。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定查詢參數 (列出多次)；只有列出的值才會設定在結果中。|否|override|  
-|名稱|指定要設定之查詢參數的名稱。|是|N/A|  
+|name|指定要設定之查詢參數的名稱。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -633,7 +634,7 @@ OriginalUrl.
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入  
+-   **原則區段︰**inbound  
   
 -   **原則範圍︰**產品、API、作業  
   

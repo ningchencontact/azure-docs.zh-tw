@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: a96e7f4979965300a513e4d598bbd8566337a21f
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="authorize-users-for-ambari-views"></a>授權 Ambari 檢視的使用者
 
@@ -123,7 +123,7 @@ Tez 檢視執行個體可讓使用者對所有 Tez 作業 (由 Hive 查詢和 Pi
 
     ![[角色] 清單檢視 - 使用者](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立 HDInsight 叢集](./domain-joined/apache-domain-joined-configure.md#create-hdinsight-cluster)。
+* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立 HDInsight 叢集](./domain-joined/apache-domain-joined-configure.md#create-an-hdinsight-cluster-in-the-vnet)。
 
     ![[角色] 清單檢視 - 群組](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

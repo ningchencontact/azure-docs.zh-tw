@@ -4,21 +4,21 @@ description: "如何在 Azure 中重新部署 Linux 虛擬機器，以減輕 SSH
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 7bf69b2a3c006faa0dc0144313e5ebb64e941e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>將 Linux 虛擬機器重新部署至新的 Azure 節點
 如果您在 Azure 中進行對 Linux 虛擬機器 (VM) 的 SSH 或應用程式存取疑難排解時遇到問題，重新部署 VM 也許可以解決。 重新部署 VM 時會將 VM 移到 Azure 基礎結構內的新節點，然後重新開啟它的電源。 您所有組態選項和相關聯的資源都會加以保留。 本文將說明如何使用 Azure CLI 或 Azure 入口網站來重新部署 VM。
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 - [Azure 入口網站](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
-請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。
+安裝最新[Azure CLI 2.0](/cli/azure/install-az-cli2)然後登入您的 Azure 帳戶使用[az 登入](/cli/azure/#login)。
 
 使用 [az vm redeploy](/cli/azure/vm#redeploy) 來重新部署 VM。 下列範例會將名為 *myResourceGroup* 資源群組中名為 *myVM* 的 VM 重新部署：
 
@@ -42,7 +42,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-cli-10"></a>使用 Azure CLI 1.0
-安裝[最新的 Azure CLI 1.0](../../cli-install-nodejs.md)登入 Azure 帳戶，然後確定您處於 Resource Manager 模式 (`azure config mode arm`)。
+安裝[最新的 Azure CLI 1.0](../../cli-install-nodejs.md)並登入您的 Azure 帳戶。 請確定您是在 Resource Manager 模式 (`azure config mode arm`)。
 
 下列範例會將名為 *myResourceGroup* 資源群組中名為 *myVM* 的 VM 重新部署：
 

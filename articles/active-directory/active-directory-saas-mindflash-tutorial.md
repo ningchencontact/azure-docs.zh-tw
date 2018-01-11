@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Mindflash 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 90de7b6a82d88f9407a35fbfebe8a652928d76cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e7502e46f8aaa849155d5c330d6ff6089b2a7276
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>教學課程：Azure Active Directory 與 Mindflash 整合
 
@@ -47,13 +47,13 @@ Mindflash 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Mindflash
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-mindflash-from-the-gallery"></a>從資源庫新增 Mindflash
-若要設定將 Mindflash 整合到 Azure AD 中，您需要從資源庫將 Mindflash 新增到受管理的 SaaS app 清單。
+若要設定將 Mindflash 整合到 Azure AD 中，您需要從資源庫將 Mindflash 新增到受控 SaaS app 清單。
 
 **若要從資源庫新增 Mindflash，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Mindflash 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Mindflash**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_search.png)
 
-5. 在結果窗格中，選取 Mindflash，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Mindflash]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_addfromgallery.png)
 
@@ -158,11 +158,11 @@ Mindflash 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-mindflash-test-user"></a>建立 Mindflash 測試使用者
 
@@ -176,7 +176,7 @@ Mindflash 與 Azure AD 整合提供下列優點：
    
     ![管理使用者](./media/active-directory-saas-mindflash-tutorial/ic787140.png "管理使用者")
 
-3. 按一下 新增使用者，然後按一下新增。
+3. 按一下 [新增使用者]，然後按一下 [新增]。
 
 4. 在 [新增使用者] 區段中，針對您想要佈建的有效 Azure AD 帳戶執行下列步驟：
    
@@ -184,11 +184,11 @@ Mindflash 與 Azure AD 整合提供下列優點：
    
     a. 在 [名字] 文字方塊中，輸入 **Britta** 作為使用者的**名字**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [姓氏] 文字方塊中，輸入 **Simon** 作為使用者的**姓氏**。
+    b. 在 [姓氏] 文字方塊中，輸入 **Simon** 作為使用者的**姓氏**。
     
     c. 在 [電子郵件] 文字方塊中，輸入 **BrittaSimon@contoso.com** 作為使用者的**電子郵件地址**。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [新增] 。
+    b. 按一下 [新增] 。
 
 >[!NOTE]
 >您可以使用任何其他的 Mindflash 使用者帳戶建立工具或 Mindflash 提供的 API，佈建 AAD 使用者帳戶。 

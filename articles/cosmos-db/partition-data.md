@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中進行資料分割和調整
 
@@ -31,19 +31,29 @@ Scott Hanselman 和 Azure Cosmos DB 工程總經理 Shireesh Thota 會在這段 
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
-您在 Azure Cosmos DB 中可儲存及查詢無結構描述的資料，以及任何規模的毫秒順序回應時間。 Azure Cosmos DB 提供存放資料的容器，稱為「集合」(適用於文件)、「圖形」或「資料表」。 容器是邏輯資源，可以跨一或多個實體分割或伺服器。 資料分割數目取決於 Azure Cosmos DB 的儲存體大小與佈建的容器輸送量。 Azure Cosmos DB 中的每個分割都有其相關聯的固定 SSD 支援儲存體數量，並且複寫以提供高可用性。 資料分割管理完全是由 Azure Cosmos DB 所管理，您不需要撰寫複雜程式碼或管理資料分割。 Azure Cosmos DB 容器在儲存體和輸送量方面並無限制。 
+您在 Azure Cosmos DB 中可儲存及查詢無結構描述的資料，以及任何規模的毫秒順序回應時間。 Azure Cosmos DB 提供存放資料的容器，稱為「集合」(適用於文件)、「圖形」或「資料表」。 
+
+容器是邏輯資源，可以跨一或多個實體分割或伺服器。 資料分割數目取決於 Azure Cosmos DB 的儲存體大小與佈建的容器輸送量。 
+
+實體資料分割是固定保留 SSD 為基礎的存放裝置的數量。 每個實體的資料分割會複寫為高可用性。 一或多個實體的資料分割是由容器所組成。 Azure Cosmos DB，完全管理實體資料分割管理，而且不需要撰寫複雜的程式碼，或管理您的資料分割。 Azure Cosmos DB 容器在儲存體和輸送量方面並無限制。 
+
+邏輯磁碟分割是將單一資料分割索引鍵值相關聯的所有資料都儲存在實體資料分割中的資料分割。 邏輯磁碟分割具有 10 GB 的最大值。下列圖表中，在單一容器會有三個邏輯磁碟分割。 每個邏輯資料分割會分別儲存一個 LAX、 AMS 和 MEL 的資料分割索引鍵的資料。 每個 LAX、 AMS 和 MEL 邏輯磁碟分割無法成長超過最大的邏輯磁碟分割的限制為 10 GB。 
 
 ![資源的資料分割](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-資料分割對應用程式而言是透明的作業。 Azure Cosmos DB 支援快速的讀取與寫入、查詢、交易邏輯、一致性層級，以及透過方法/API 對單一容器資源進行更細微的存取控制。 此服務會處理跨資料分割所分散的資料，以及將查詢要求路由傳送至正確的資料分割。 
+當集合符合[分割必要條件](#prerequisites)，資料分割的動作是透明的您的應用程式。 Azure Cosmos DB 支援快速的讀取與寫入、查詢、交易邏輯、一致性層級，以及透過方法/API 對單一容器資源進行更細微的存取控制。 實體和邏輯資料分割之間分散資料，和路由的服務控制代碼查詢正確的資料分割的要求。 
 
-資料分割如何運作？ 每個項目必須具備可唯一識別它的資料分割索引鍵和資料列索引鍵。 您的資料分割索引鍵是存放資料的邏輯資料分割區，並為 Azure Cosmos DB 提供將資料分散到分割區的自然界限。 簡單地說，Azure Cosmos DB 中的資料分割運作方式如下︰
+## <a name="how-does-partitioning-work"></a>資料分割的運作方式
 
-* 您使用 `T` 要求/秒的輸送量佈建 Azure Cosmos DB 容器。
-* Azure Cosmos DB 會在幕後佈建服務 `T` 要求/秒所需的分割區。 如果 `T` 超過每一分割區的最大輸送量 `t`，Azure Cosmos DB 會佈建 `N` = `T/t` 分割區。
-* Azure Cosmos DB 會在 `N` 分割區平均地配置資料分割索引鍵雜湊的索引鍵空間。 因此，每個分割區 (實體分割區) 會裝載 1-N 個資料分割索引鍵值 (邏輯分割區)。
-* 當實體分割區 `p` 達到儲存體限制時，Azure Cosmos DB 會以無縫方式將 `p` 分割成兩個新的分割區 `p1` 和 `p2`。 它會分配相當於約索引鍵一半的值給每個分割區。 應用程式不會察覺此分割作業。
-* 同樣地，當您佈建超過 `t*N` 的輸送量時，Azure Cosmos DB 會分割一或多個分割區以支援更高的輸送量。
+資料分割如何運作？ 每個項目必須具備可唯一識別它的資料分割索引鍵和資料列索引鍵。 您的資料分割索引鍵做為資料的邏輯磁碟分割，並提供自然界限的實體資料分割之間分散資料，Azure Cosmos DB。 請注意，單一邏輯資料分割的資料必須位在單一的實體資料分割，但實體資料分割管理受 Azure Cosmos DB。 
+
+簡單地說，Azure Cosmos DB 中的資料分割運作方式如下︰
+
+* 您佈建的 Azure Cosmos DB 容器**T**每第二個輸送量的要求。
+* 在幕後，Azure Cosmos DB 佈建服務所需的資料分割**T**每秒要求數。 如果**T**高於每個分割區的最大輸送量**t**，然後佈建 Azure Cosmos DB **N = T/t**資料分割。
+* Azure Cosmos DB 配置的資料分割索引鍵的空間索引鍵的雜湊平均透過**N**資料分割。 因此，每個資料分割 （實體磁碟分割） 主機**1/N**資料分割索引鍵的值 （邏輯磁碟分割）。
+* 當實體資料分割**p**達到其儲存體限制，Azure Cosmos DB 順暢地分割**p**分成兩個新的資料分割， **p1**和**p2**. 它會分配相當於約索引鍵一半的值給每個分割區。 應用程式不會察覺此分割作業。 如果實體的資料分割已達到儲存體限制，而且所有實體資料分割中的資料屬於相同的邏輯資料分割索引鍵，就不會分割作業。 這是因為單一邏輯資料分割索引鍵的所有資料必須都位於相同的實體磁碟分割，因此您不能在實體資料分割分割為 p1 和 p2。 在此情況下應該採用不同的資料分割索引鍵的策略。
+* 當您佈建輸送量高於 **t*N**，Azure Cosmos DB 分割一或多個分割區以支援更高的輸送量。
 
 資料分割索引鍵的語意會稍有不同，以符合各 API 的語意，如下表所示︰
 
@@ -54,19 +64,28 @@ Scott Hanselman 和 Azure Cosmos DB 工程總經理 Shireesh Thota 會在這段 
 | 圖形 | 自訂資料分割索引鍵屬性 | 固定 `id` | 
 | 資料表 | 固定 `PartitionKey` | 固定 `RowKey` | 
 
-Azure Cosmos DB 使用雜湊型資料分割。 當您寫入項目時，Azure Cosmos DB 會將資料分割索引鍵值進行雜湊處理，然後使用雜湊的結果來判斷要在其中儲存項目的分割區。 Azure Cosmos DB 會將資料分割索引鍵相同的所有項目儲存在相同的實體分割區中。 選擇資料分割索引鍵是在設計階段必須進行的一項重要決策。 您必須選擇具有各種不同的值並且有平均存取模式的屬性名稱。
+Azure Cosmos DB 使用雜湊型資料分割。 當您寫入項目時，Azure Cosmos DB 會將資料分割索引鍵值進行雜湊處理，然後使用雜湊的結果來判斷要在其中儲存項目的分割區。 Azure Cosmos DB 會將資料分割索引鍵相同的所有項目儲存在相同的實體分割區中。 選擇資料分割索引鍵是在設計階段必須進行的一項重要決策。 您必須選擇具有各種不同的值並且有平均存取模式的屬性名稱。 如果實體的資料分割到達它的儲存體限制相同的資料分割索引鍵的資料分割中的所有資料、 Azure Cosmos DB 傳回 「 資料分割索引鍵會達到 10 GB 的大小上限 」 的錯誤，且資料未分割，因此選擇 資料分割索引鍵是很匯入ant 決策。
 
 > [!NOTE]
 > 資料分割索引鍵最好有許多相異值 (至少數百至數千個)。
 >
 
-可建立「固定」或「無限制」的 Azure Cosmos DB 容器。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 某些 API 對於固定大小的容器可允許省略資料分割索引鍵。 若要建立無限制的容器，您必須指定最小輸送量 2,500 RU/秒。
+Azure DB Cosmos 容器可建立為*固定*或*無限制*在 Azure 入口網站。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立為無限制的容器，您必須指定 1000 RU/秒的最小的輸送量，您必須指定資料分割索引鍵。
 
 建議您檢查資料在分割區中分佈的方式。 若要在入口網站中進行此一檢查，請移至 Azure Cosmos DB 帳戶並按一下 [監視] 區段中的 [計量]，然後在右側窗格中按一下 [儲存體] 索引標籤，以查看資料在不同實體分割區中分割的方式。
 
 ![資源的資料分割](./media/partition-data/partitionkey-example.png)
 
 左側影像顯示不良分割區索引鍵的結果，右側影像顯示良好分割區索引鍵的結果。 在左側影像中，您可以看到資料並未平均分佈於各個分割區中。 您應該盡量分散資料，讓圖表看起來類似於右側影像。
+
+<a name="prerequisites"></a>
+## <a name="prerequisites-for-partitioning"></a>資料分割的必要條件
+
+實體資料分割來自動分割為**p1**和**p2**中所述[如何運作分割](#how-does-partitioning-work)，容器必須建立與 1000 RU/秒的輸送量或多個而且必須提供資料分割索引鍵。 在 Azure 入口網站中建立容器，選取**Unlimited**利用資料分割和自動調整的儲存容量選項。 
+
+如果您在建立容器在 Azure 入口網站，或以程式設計方式並初始輸送量 1,000 RU/秒或以上，和您的資料包含資料分割索引鍵，您可以利用您的容器未變更資料分割-這包括**固定**大小容器，只要使用至少 1000 RU/秒 througput，在建立初始的容器和資料分割索引鍵存在於資料中。
+
+如果您建立**固定**未資料分割索引鍵，或建立大小容器**固定**小於 1,000 RU/秒的輸送量的大小容器，容器無法自動分割這篇文章中所述。 若要將從容器像這樣的資料移轉到無限制的容器 （至少 1000 RU/秒的輸送量和資料分割索引鍵中有一個） 中，您需要使用[資料移轉工具](import-data.md)或[變更摘要文件庫](change-feed.md)至移轉所做的變更。 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>資料分割與佈建的輸送量
 Azure Cosmos DB 設計用來取得可預測的效能。 當您建立容器時，需以「每秒的[要求單位](request-units.md) (RU)」保留輸送量。 每項要求都會指派有與系統資源 (例如作業所使用的 CPU、記憶體和 IO) 數量成正比的 RU 費用。 讀取 1 KB 具有工作階段一致性的文件，會使用 1 RU。 不論儲存的項目數或同時執行的並行要求數，讀取一次都是 1 個 RU。 根據大小之不同，較大的項目需要較高的 RU。 如果您知道實體大小以及支援您應用程式所需的讀取次數，則可以佈建應用程式讀取需求確實需要的輸送量。 
@@ -127,25 +146,18 @@ db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 
 ### <a name="table-api"></a>資料表 API
 
-使用資料表 API，可以在 appSettings 組態中為應用程式指定資料表的輸送量。
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-然後，您可以使用 Azure 資料表儲存體 SDK 建立資料表。 資料分割索引鍵會隱含地建立為 `PartitionKey` 值。 
+若要建立資料表，使用 Azure Cosmos DB 資料表 API，請使用 CreateIfNotExists 方法。 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+輸送量是設定為 CreateIfNotExists 的引數。
+
+資料分割索引鍵會隱含地建立為 `PartitionKey` 值。 
 
 您可以使用下列程式碼片段來擷取單一實體：
 

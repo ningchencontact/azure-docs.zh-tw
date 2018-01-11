@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/01/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為： **AzureStorage** |是 |
+| type | 類型屬性必須設為： **AzureStorage** |是 |
 | connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -81,13 +81,16 @@ ms.lasthandoff: 12/01/2017
 
 > [!IMPORTANT]
 > Azure Data Factory 現在僅支援 **服務 SAS**，但不支援帳戶 SAS。 如需這兩種類型的詳細資料及其建構方式，請參閱[共用存取簽章的類型](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 可從 Azure 入口網站或「儲存體總管」產生的 SAS URL 是「帳戶 SAS」，並不受到支援。
->
+
+> [!TIP]
+> 您可以執行下列 PowerShell 命令來產生服務 SAS 儲存體帳戶 （取代預留位置和授與所需的權限）：`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 若要使用「服務 SAS」驗證，以下是支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為： **AzureStorage** |是 |
+| type | 類型屬性必須設為： **AzureStorage** |是 |
 | sasUri | 指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -126,7 +129,7 @@ ms.lasthandoff: 12/01/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**AzureTable** |是 |
+| type | 資料集的類型屬性必須設定為：**AzureTable** |是 |
 | tableName |Azure 資料表資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
 
 **範例：**
@@ -167,7 +170,7 @@ ms.lasthandoff: 12/01/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**AzureTableSource** |是 |
+| type | 複製活動來源的類型屬性必須設定為：**AzureTableSource** |是 |
 | AzureTableSourceQuery |使用自訂的 Azure 資料表查詢來讀取資料。 請參閱下一節中的範例。 |否 |
 | azureTableSourceIgnoreTableNotFound |指出是否忍受資料表不存在的例外狀況。<br/>允許的值為：**True** 和 **False** (預設值)。 |否 |
 
@@ -193,7 +196,7 @@ ms.lasthandoff: 12/01/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收的 type 屬性必須設定為：**AzureTableSink** |是 |
+| type | 複製活動接收的 type 屬性必須設定為：**AzureTableSink** |是 |
 | azureTableDefaultPartitionKeyValue |可供接收器使用的預設資料分割索引鍵值。 |否 |
 | azureTablePartitionKeyName |指定其值用來作為分割區索引鍵的資料行名稱。 如果未指定，則會使用 "AzureTableDefaultPartitionKeyValue" 作為分割區索引鍵。 |否 |
 | azureTableRowKeyName |指定其值用來作為資料列索引鍵的資料行名稱。 如果未指定，則會針對每個資料列使用 GUID。 |否 |
@@ -266,12 +269,12 @@ ms.lasthandoff: 12/01/2017
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
 | Edm.Boolean |布林 |布林值。 |
-| Edm.DateTime |DateTime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
+| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
 | Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |Guid |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |
 | Edm.Int64 |Int64 |64 位元的整數。 |
-| Edm.String |String |UTF 16 編碼值。 字串值最大可達 64 KB。 |
+| Edm.String |字串 |UTF 16 編碼值。 字串值最大可達 64 KB。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

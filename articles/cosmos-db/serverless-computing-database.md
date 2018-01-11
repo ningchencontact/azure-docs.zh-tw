@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
 
@@ -44,7 +44,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 * Azure Cosmos DB 容器的輸入繫結可在與 Azure Cosmos DB 觸發程序的相同函式中使用，並且不一定要與輸出繫結搭配使用。 您可以使用此組合，將最新的貨幣兌換資訊 (使用兌換容器的輸入繫結提取) 套用至購物車服務中新訂單的變更摘要。 已更新的購物車總計，以及目前套用的貨幣轉換，可以使用輸出繫結寫入第三個容器。
 
 > [!NOTE]
-> 此時，Azure Cosmos DB 觸發程序、輸入繫結，以及輸出繫結只會使用 DocumentDB、資料表和圖形 API 帳戶。
+> 此時，Azure Cosmos DB 觸發程序中，輸入繫結及輸出繫結搭配 SQL API 和 Graph API 帳戶。
 
 ## <a name="use-cases"></a>使用案例
 
@@ -86,14 +86,14 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>遊戲使用案例 - Azure Cosmos DB 觸發程序和輸出繫結
 
-在遊戲中建立新的使用者時，您可以使用 [Azure Cosmos DB 圖形 API](graph-introduction.md) 搜尋可能知道的其他使用者。 然後，您可以將結果寫入 [Azure Cosmos DB 資料表資料庫](table-introduction.md)以方便擷取。
+在遊戲中建立新的使用者時，您可以使用 [Azure Cosmos DB 圖形 API](graph-introduction.md) 搜尋可能知道的其他使用者。 然後您可以將結果寫入 [Azure Cosmos DB SQL database] 以方便擷取。
 
 **實作：**使用 Azure Cosmos DB 觸發程序和輸出繫結
 
 1. 使用 Azure Cosmos DB [圖表資料庫](graph-introduction.md)來儲存所有使用者，您可以使用 Azure Cosmos DB 觸發程序來建立新的函式。 
 2. 每當插入新的使用者時，會叫用函式，然後使用**輸出繫結**來儲存結果。
 3. 函式會查詢圖表資料庫，以搜尋與新使用者直接相關的所有使用者，並將該資料集傳回函式。
-4. 接著，此資料會儲存在 Azure Cosmos DB [資料表資料庫](table-introduction.md)作為機碼值組集合，讓任何顯示新使用者其連線好友的前端應用程式輕鬆地擷取。
+4. 此資料會儲存在 Azure Cosmos DB 其中便可以輕鬆地擷取任何顯示新的使用者連接的朋友的前端應用程式。
 
 ### <a name="retail-use-case---multiple-functions"></a>零售使用案例 - 多個函式
 

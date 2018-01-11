@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAP Cloud for Custom
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 90154dab-eba2-4563-bcf0-f2acc797ea97
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e4d945525a45704f34e1d9e742220928a516f341
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b6ea3cfd8e50d82b5044708e78150fefb39b4c38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>教學課程：Azure Active Directory 與 SAP Cloud for Customer 整合
 
@@ -47,13 +47,13 @@ SAP Cloud for Customer 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SAP Cloud for Customer
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>從資源庫新增 SAP Cloud for Customer
-若要設定 SAP Cloud for Customer 與 Azure AD 整合，您需要從資源庫將 SAP Cloud for Customer 加入到受管理的 SaaS 應用程式清單中。
+若要設定 SAP Cloud for Customer 與 Azure AD 整合，您需要從資源庫將 SAP Cloud for Customer 加入到受控 SaaS 應用程式清單中。
 
 **若要從資源庫加入 SAP Cloud for Customer，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ SAP Cloud for Customer 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中輸入 **SAP Cloud for Customer**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_search.png)
 
-5. 在結果面板中，選取 SAP Cloud for Customer，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [SAP Cloud for Customer]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_addfromgallery.png)
 
@@ -86,7 +86,7 @@ SAP Cloud for Customer 與 Azure AD 整合提供下列優點：
 
 若要使用 SAP Cloud for Customer 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 3. **[建立 SAP Cloud for Customer 測試使用者](#creating-a-sap-cloud-for-customer-test-user)** - 使 SAP Cloud for Customer 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
@@ -123,7 +123,7 @@ SAP Cloud for Customer 與 Azure AD 整合提供下列優點：
 
     a. 在 [使用者識別碼] 清單中，選取 **ExtractMailPrefix()** 函式。
 
-    b.這是另一個 C# 主控台應用程式。 從 [郵件] 清單中，選取您想要用於實作的使用者屬性。
+    b. 從 [郵件] 清單中，選取您想要用於實作的使用者屬性。
     例如，如果您想要使用 EmployeeID 為唯一的使用者識別碼，而且已在 ExtensionAttribute2 中儲存屬性值，則選取 [user.extensionattribute2]。  
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
@@ -210,11 +210,11 @@ SAP Cloud for Customer 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-sap-cloud-for-customer-test-user"></a>建立 SAP Cloud for Customer 測試使用者
 

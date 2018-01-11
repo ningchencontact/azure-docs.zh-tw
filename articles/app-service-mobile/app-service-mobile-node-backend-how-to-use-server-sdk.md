@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>如何使用 Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -256,7 +256,7 @@ Azure Mobile Apps Node.js SDK 會使用 [mssql Node.js 封裝] 來建立及使�
    6. 尋找 **IPAll** 節點。  在 [TCP 連接埠] 欄位中，輸入 **1433**。
 
           ![Configure SQL Express for TCP/IP][3]
-   7. 按一下 [確定] 。  在快顯對話方塊中按一下 [確定]  。
+   7. 按一下 [SERVICEPRINCIPAL] 。  在快顯對話方塊中按一下 [確定]  。
    8. 在左側的樹狀結構功能表中，按一下 [SQL Server 服務]  。
    9. 以滑鼠右鍵按一下 [SQL Server (SQLEXPRESS)]，然後選取 [重新啟動]
    10. 關閉 SQL Server 2014 組態管理員。
@@ -320,7 +320,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 *azureMobile.js* 的 Java
 
 | 應用程式設定 | *azureMobile.js* 設定 | 說明 | 有效值 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |名稱 |應用程式的名稱 |字串 |
+| **MS_MobileAppName** |name |應用程式的名稱 |字串 |
 | **MS_MobileLoggingLevel** |logging.level |要記錄的訊息的最小記錄層級 |error、warning、info、verbose、debug、silly |
 | **MS_DebugMode** |debug |啟用或停用偵錯模式 |true、false |
 | **MS_TableSchema** |data.schema |SQL 資料表的預設結構描述名稱 |字串 (預設值：dbo) |
@@ -350,7 +350,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 *azureMobile.js* 的 Java
 2. 在視窗左上方，依序按一下 [+新增] 按鈕 > [Web + 行動] > [行動應用程式]，然後為您的行動應用程式後端命名。
 3. 在 [資源群組]  方塊中，輸入與您應用程式相同的名稱。
 4. 系統將會選取預設 App Service 方案。  如果您想要變更 App Service 方案，請按一下 [App Service 方案] > [+ 建立新方案]。  為新的應用程式服務方案命名，並選取適當位置。  按一下 [定價層]，並選取適當的服務定價層。 選取 [檢視全部] 以檢視其他價格選項，例如 [免費] 和 [共用]。  選取定價層後，請按一下 [選取]  按鈕。  回到 [App Service 方案] 刀鋒視窗，然後按一下 [確定]。
-5. 按一下 [建立] 。 佈建行動應用程式後端可能需要幾分鐘。  行動應用程式後端佈建完畢後，入口網站會開啟行動應用程式後端的 [設定] 刀鋒視窗。
+5. 按一下頁面底部的 [新增] 。 佈建行動應用程式後端可能需要幾分鐘。  行動應用程式後端佈建完畢後，入口網站會開啟行動應用程式後端的 [設定] 刀鋒視窗。
 
 行動應用程式後端建立後，您可以選擇將現有的 SQL Database 連接到您的行動應用程式後端，或建立新的 SQL Database。  在這一節中，您將建立 SQL Database。
 
@@ -361,7 +361,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 *azureMobile.js* 的 Java
 
 1. 在新「行動應用程式」後端中，依序按一下 [設定]  >  [行動應用程式]  >  [資料]  >  [+新增]。
 2. 在 [新增資料連接] 刀鋒視窗中，依序按一下 [SQL Database - 設定必要設定]  >  [建立新的資料庫]。  在 [名稱]  欄位中輸入新資料庫的名稱。
-3. 按一下 [伺服器] 。  在 [新增伺服器] 刀鋒視窗中，於 [伺服器名稱] 欄位中輸入唯一的伺服器名稱，然後提供合適的 [伺服器管理登入] 和 [密碼]。  確定已勾選 [允許 Azure 服務存取伺服器]  。  按一下 [確定] 。
+3. 按一下 [伺服器] 。  在 [新增伺服器] 刀鋒視窗中，於 [伺服器名稱] 欄位中輸入唯一的伺服器名稱，然後提供合適的 [伺服器管理登入] 和 [密碼]。  確定已勾選 [允許 Azure 服務存取伺服器]  。  按一下 [SERVICEPRINCIPAL] 。
 
     ![建立 Azure SQL Database][6]
 4. 在 [新增資料庫] 刀鋒視窗中，按一下 [確定]。
@@ -797,7 +797,7 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。  在內部，A
 * 建立時間
 * 更新時間
 * 已刪除
-* 版本
+* version
 
 您甚至可以使用 App Service 編輯器編輯資料表作業。 當您按一下後端網站設定中的 [簡單資料表]  時，可以新增、修改或刪除資料表。 您也可以查看資料表中的資料。
 

@@ -1,10 +1,10 @@
 ---
-title: "受管理的服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)"
-description: "受管理的服務識別已知問題 (Azure Active Directory)"
+title: "受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)"
+description: "受控服務識別已知問題 (Azure Active Directory)"
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -12,19 +12,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受管理的服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
+# <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>常見問題集 (FAQ)
+
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>是否有私人預覽中提供其他功能？
+
+可以。 如果您想要在私人預覽中，註冊視為[請前往我們註冊頁面](https://aka.ms/azuremsiprivatepreview)。
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI 是否使用 Azure 雲端服務？
 
@@ -32,7 +36,7 @@ ms.lasthandoff: 10/21/2017
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI 可搭配 Directory Authentication Library (ADAL) 或 Microsoft Authentication Library (MSAL) 使用嗎？
 
-不行，MSI 未尚未與 ADAL 或 MSAL 整合。
+不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需取得使用 MSI REST 端點的 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 管理服務身分識別 (MSI) 為權杖取得](msi-how-to-use-vm-msi-token.md)。
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 
@@ -62,11 +66,11 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>嘗試匯出 MSI 擴充的結構描述時，「自動化指令碼」失敗
 
-在虛擬機器上啟用受管理服務識別後，嘗試對虛擬機器或其資源群組使用「自動化指令碼」功能時，出現下列錯誤：
+在虛擬機器上啟用受控服務識別後，嘗試對虛擬機器或其資源群組使用「自動化指令碼」功能時，出現下列錯誤：
 
 ![MSI 自動化指令碼匯出錯誤](media/msi-known-issues/automation-script-export-error.png)
 
-「受管理服務識別」虛擬機器擴充目前不支援將其結構描述匯出至資源群組範本。 因此，產生的範本不會顯示可在資源上啟用受管理服務識別的設定參數。 您可以依照[使用範本來設定虛擬機器受管理服務識別](msi-qs-configure-template-windows-vm.md)中的範例，手動新增這些區段。
+「受控服務識別」虛擬機器擴充目前不支援將其結構描述匯出至資源群組範本。 因此，產生的範本不會顯示可在資源上啟用受控服務識別的設定參數。 您可以依照[使用範本來設定虛擬機器受控服務識別](msi-qs-configure-template-windows-vm.md)中的範例，手動新增這些區段。
 
 當結構描述匯出功能變成可用於 MSI 虛擬機器擴充時，就會列在[匯出包含虛擬機器擴充的資源群組](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions)中。
 
@@ -76,7 +80,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>在 [存取控制 (IAM)] 刀鋒視窗中無法將存取權指派給虛擬機器
 
-在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)]  >  [新增權限] 中顯示為**指派存取權的對象**，則表示受管理的服務識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋受管理的服務身分識別服務主體，選取 MSI 來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
+在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)] >  [新增權限] 中顯示為**指派存取權的對象**，則表示受控服務識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋受控服務身分識別服務主體，選取 MSI 來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM 從資源群組或訂用帳戶移走後會無法啟動
 

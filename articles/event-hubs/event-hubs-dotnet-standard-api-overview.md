@@ -12,25 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中樞 .NET Standard API 概觀
+
 本文將摘要列出一些主要事件中樞 .NET Standard 用戶端 API。 目前有兩個 .NET Standard 用戶端程式庫︰
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-  *  此程式庫提供所有基本的執行階段作業。
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * 此程式庫新增可讓您記錄處理過之事件的額外功能，並且是從事件中樞讀取的最簡單方式。
+
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)： 提供基本的執行階段的所有作業。
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)： 加入其他功能，可讓追蹤的處理過的事件，而且是最簡單的方式讀取自事件中心。
 
 ## <a name="event-hubs-client"></a>事件中樞用戶端
+
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 是您用來傳送事件、建立接收者，以及取得執行階段資訊的主要物件。 此用戶端會連結到特定的事件中樞，並建立新的「事件中樞」端點連線。
 
 ### <a name="create-an-event-hubs-client"></a>建立事件中樞用戶端
+
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 物件是從連接字串建立。 具現化新用戶端的最簡單方式，如下列範例所示︰
 
 ```csharp
@@ -49,6 +51,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### <a name="send-events"></a>傳送事件
+
 若要將事件傳送到事件中樞，請使用 [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) 類別。 主體必須是 `byte` 陣列，或者 `byte` 陣列區段。
 
 ```csharp
@@ -61,17 +64,19 @@ await eventHubClient.SendAsync(data);
 ```
 
 ### <a name="receive-events"></a>接收事件
-從事件中樞接收事件的建議方式是使用[事件處理器主機](#event-processor-host-apis)，它提供了自動追蹤位移的功能，以及資料分割資訊。 不過，在某些情況中，您可能會想要使用核心事件中樞程式庫的彈性來接收事件。
+
+若要從事件中心接收事件的建議的方式使用[事件處理器主機](#event-processor-host-apis)，這樣會提供自動追蹤的事件中樞的位移和資料分割資訊的功能。 不過，在某些情況中，您可能會想要使用核心事件中樞程式庫的彈性來接收事件。
 
 #### <a name="create-a-receiver"></a>建立接收者
-接收者會繫結至特定的資料分割，因此為了要接收事件中樞中的所有事件，您將必須建立多個執行個體。 一般而言，最好以程式設計的方式取得資料分割資訊，而不是以硬式編碼資料分割識別碼的方式。 若要這樣做，您可以使用 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
+
+接收者會繫結至特定的資料分割，因此若要在事件中心接收所有的事件，您必須建立多個執行個體。 它是最好的作法是以程式設計的方式，而不是硬式編碼資料分割識別碼取得磁碟分割資訊。 若要這樣做，您可以使用 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
 
 ```csharp
 // Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
 // Use the eventHubClient created above to get the runtime information
 var runTimeInformation = await eventHubClient.GetRuntimeInformationAsync();
-// Loop over the resulting partition ids
+// Loop over the resulting partition IDs
 foreach (var partitionId in runTimeInformation.PartitionIds)
 {
     // Create the receiver
@@ -81,7 +86,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-由於事件一律不會從事件中樞內移除 (只會過期)，因此您必須指定適當的起始點。 下列範例顯示可能的組合。
+因為事件會永遠不會從事件中心 （並僅到期），您必須指定適當的起始點。 下列範例示範可能的組合：
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
@@ -97,6 +102,7 @@ var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGr
 ```
 
 #### <a name="consume-an-event"></a>使用事件
+
 ```csharp
 // Receive a maximum of 100 messages in this call to ReceiveAsync
 var ehEvents = await receiver.ReceiveAsync(100);
@@ -116,6 +122,7 @@ if (ehEvents != null)
 ```
 
 ## <a name="event-processor-host-apis"></a>Event Processor Host API
+
 這些 API 會透過在可用的背景工作之間散佈資料分割，提供恢復功能給可能會變成無法使用的背景工作角色處理序。
 
 ```csharp
@@ -137,7 +144,7 @@ var eventProcessorHost = new EventProcessorHost(
 // Start/register an EventProcessorHost
 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// Disposes of the Event Processor Host
+// Disposes the Event Processor Host
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 

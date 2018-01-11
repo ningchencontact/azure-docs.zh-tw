@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 將您的雲端應用程式部署至生產環境之前，請檢閱重要和建議最佳做法，以在應用程式中實作安全叢集。
@@ -64,7 +64,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 有三個[情節](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)會使用各種技術來實作叢集安全性：
 
 -   節點對節點安全性：這個情節會保護 VM 與叢集中電腦之間的通訊。 這種形式的安全性可確保只有獲得授權加入叢集的電腦可以裝載應用程式和叢集中的服務。
-在此情節中，Azure 上執行的叢集或在 Windows 上執行的獨立叢集可以使用[憑證安全性](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)或針對 Windows Server 機器使用 [Windows 安全性](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security)。
+在此情節中，Azure 上執行的叢集或在 Windows 上執行的獨立叢集可以使用[憑證安全性](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)或針對 Windows Server 機器使用 [Windows 安全性](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security)。
 -   用戶端對節點安全性：這個情節會保護 Service Fabric 用戶端與叢集中個別節點之間的通訊。
 -   角色型存取控制 (RBAC)：這個情節會針對存取叢集的每個系統管理員和使用者用戶端角色使用不同的身分識別 (憑證、Azure AD 等等)。 當您建立叢集時，可以指定角色身分識別。
 
@@ -125,7 +125,7 @@ Service Fabric Reliable Actors 是動作項目設計模式的實作。 如同任
 複寫器組態會設定負責讓動作項目狀態提供者狀態高度可靠的複寫器。
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>設定 Azure Service Fabric 的 SSL
-伺服器驗證程序會[驗證](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)管理用戶端的叢集管理端點。 接著，管理用戶端會辨識其是與實際的叢集在交談。 此憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm)。
+伺服器驗證程序會[驗證](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)管理用戶端的叢集管理端點。 接著，管理用戶端會辨識其是與實際的叢集在交談。 此憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)。
 您必須為您的叢集取得自訂網域名稱。 當您向憑證授權單位要求憑證時，憑證的主體名稱必須與用於您叢集的自訂網域名稱相符。
 
 若要設定應用程式的 SSL，您必須先取得已由 CA 簽署的 SSL 憑證。 CA 是受信任的第三方，會就 SSL 安全性目的發出憑證。 如果您還沒有 SSL 憑證，就必須向銷售 SSL 憑證的公司取得。

@@ -9,16 +9,16 @@ tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 1a171aa07160fd68e3ee73a1606ae048e8e6e1b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 5002010e58a5d8e901770c780f07f9bd625d5eb4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>將 Windows 虛擬機器重新部署至新的 Azure 節點
 如果您在疑難排解以 Windows 為基礎的 Azure 虛擬機器 (VM) 的遠端桌面 (RDP) 連線或應用程式存取時一直遇到問題，重新部署 VM 也許可以解決。 重新部署 VM 時會將 VM 移到 Azure 基礎結構內的新節點，然後重新開啟它的電源，保留所有組態選項和相關聯的資源。 本文將說明如何使用 Azure PowerShell 或 Azure 入口網站來重新部署 VM。
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/04/2017
 
 
 ## <a name="using-azure-powershell"></a>使用 Azure PowerShell
-確定您的電腦上已安裝最新版本的 Azure PowerShell 1.x。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
+確定您的電腦上已安裝最新版本的 Azure PowerShell 1.x。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
 
 下列範例會部署名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
 

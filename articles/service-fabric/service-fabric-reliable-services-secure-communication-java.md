@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5e2f36b3de1dd04c1a3f36ae308af164d10654ea
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>協助保護 Azure Service Fabric 中服務的通訊安全
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
     確定您想要用來協助保護服務通訊安全的憑證已安裝在叢集的所有節點上。 有兩種方式可提供接聽程式設定和安全性認證：
 
-   1. 使用 [組態封裝](service-fabric-application-model.md)提供它們：
+   1. 使用 [組態封裝](service-fabric-application-and-service-manifests.md)提供它們：
 
        在 settings.xml 檔案中新增 `TransportSettings` 區段。
 

@@ -4,7 +4,7 @@ description: "與 Azure Multi-Factor Authentication 相關的常見問題與答�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 4532cbab7f727e71908d5a2da43a11351f7aeeb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 此常見問題集回答關於 Azure Multi-Factor Authentication 和使用 Multi-Factor Authentication 服務的常見問題。 並將問題細分為一般服務問題、計費模式、使用者體驗和疑難排解。
@@ -200,7 +200,7 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 - 使用者先前已註冊過 MFA，但選擇的驗證方法已由系統管理員停用。 使用者必須因此再次進行 MFA 註冊，以選取新的預設驗證方法。
 
 
-## <a name="errors"></a>錯誤數
+## <a name="errors"></a>Errors
 **問：如果使用者在使用行動應用程式通知時看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
 
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰

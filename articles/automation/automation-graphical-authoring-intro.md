@@ -3,7 +3,7 @@ title: "Azure 自動化中的圖形化編寫 | Microsoft Docs"
 description: "圖形化編寫可讓您建立 Azure 自動化的 Runbook，而不使用程式碼。 本文章提供圖形化編寫的簡介和開始建立圖形化 Runbook 所需的所有詳細資料。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 ## <a name="introduction"></a>簡介
@@ -50,7 +50,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。  �
 |:--- |:--- |
 | Cmdlet |包含可以在 Runbook 中使用的所有 Cmdlet。  Cmdlet 是依模組組織。  已在您的自動化帳戶中安裝的所有模組將可供使用。 |
 | Runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
-| 資產 |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](http://msdn.microsoft.com/library/dn939988.aspx) 。  當您將資產加入至 Runbook 時，它會加入工作流程活動，取得所選資產。  如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
+| Assets |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](http://msdn.microsoft.com/library/dn939988.aspx) 。  當您將資產加入至 Runbook 時，它會加入工作流程活動，取得所選資產。  如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
 | Runbook 控制項 |包含可在目前的 Runbook 中使用的 Runbook 控制項活動。 「接合」  會接受多個輸入，並等待所有項目完成，然後再繼續工作流程。 「程式碼」  活動會根據圖形化 Runbook 類型而定，執行一或多行 PowerShell 或 PowerShell 工作流程程式碼。  您可以對很難利用其他活動來達成的自訂程式碼或功能使用此活動。 |
 
 ### <a name="configuration-control"></a>組態控制項
@@ -72,7 +72,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。  �
 ### <a name="testing-a-graphical-runbook"></a>測試圖形化 Runbook
 您可以在 Azure 入口網站中測試 Runbook 的草稿版本，同時讓 Runbook 的已發佈版本保持不變，或是在發佈全新的 Runbook 之前，先進行測試。 這可讓您驗證取代已發行的版本之前，Runbook 正常運作。 當您測試 Runbook 時，草稿 Runbook 會執行，而且它執行的任何動作都會完成。 不會建立工作歷程記錄，但是會在 [測試輸出] 窗格中顯示輸出。 
 
-開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 **測試窗格**  按鈕。
+開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 [ **測試窗格** ] 按鈕。
 
 ![測試窗格按鈕](media/automation-graphical-authoring-intro/runbook-edit-test-pane.png)
 
@@ -83,7 +83,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。  �
 ### <a name="publishing-a-graphical-runbook"></a>發行圖形化 Runbook
 Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執行已發行版本，而且只可編輯草稿版本。 已發行版本不會受到草稿版本的任何變更影響。 草稿版本就緒可供使用時，您會將它發行，以草稿版本覆寫已發行版本。
 
-您可以開啟 Runbook 進行編輯，然後按一下 **發行**  按鈕來發行圖形化 Runbook。
+您可以開啟 Runbook 進行編輯，然後按一下 [ **發行** ] 按鈕來發行圖形化 Runbook。
 
 ![發佈按鈕](media/automation-graphical-authoring-intro/runbook-edit-publish.png)
 
@@ -198,7 +198,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執�
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 針對順序連結，因為單一陣列會傳回包含從來源活動輸出的所有物件，因此只會評估一次條件。  因此，順序連結不能用於篩選 (如管線連結)，但只能判斷下一個活動是否會執行。 例如，在我們的「啟動 VM」Runbook 中採用下列這組活動。<br> ![具有順序的條件式連結](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-有三個不同的順序連結，其會驗證提供給兩個 Runbook 輸入參數 (代表 VM 名稱和資源群組) 的值，以判斷要採取哪一個適當的動作 - 啟動單一 VM、啟動資源群組中的所有 VM，或訂用帳戶中的所有 VM。  針對「連接到 Azure」和「取得單一 VM」之間的順序連結，以下是條件邏輯：
+共有三個不同的順序連結要驗證的值提供給兩個代表 VM 名稱與資源群組名稱，以判斷 runbook 輸入參數也就是要採取的適當的動作啟動單一 VM，在資源中啟動所有的 Vm群組或訂用帳戶中的所有 Vm。  針對「連接到 Azure」和「取得單一 VM」之間的順序連結，以下是條件邏輯：
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 

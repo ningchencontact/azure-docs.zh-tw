@@ -4,7 +4,7 @@ description: "如何使用 Azure Active Directory B2C 來建置包含登入、�
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C：建置 Windows 桌面應用程式
 如果您利用 Azure Active Directory (Azure AD) B2C，只要幾個簡短的步驟，就在您的桌面應用程式中新增功能強大的自助式身分識別管理功能。 本文章說明如何建立 .NET Windows Presentation Foundation (WPF)「待辦事項清單」應用程式，其中包含使用者註冊、登入和設定檔管理的功能。 該應用程式將支援以使用者名稱或電子郵件來註冊及登入的功能。 它也會支援以社交帳戶 (例如 Facebook 和 Google) 來註冊及登入。
@@ -33,10 +33,8 @@ ms.lasthandoff: 10/11/2017
 * 複製**重新導向 URI** `urn:ietf:wg:oauth:2.0:oob`。 這是此程式碼範例的預設 URL。
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 稍後您將會用到此資訊。
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## <a name="create-your-policies"></a>建立您的原則
-在 Azure AD B2C 中，每個使用者經驗皆由 [原則](active-directory-b2c-reference-policies.md)所定義。 此程式碼範例包含三種身分識別體驗：註冊、登入和編輯設定檔。 您必須為每個類型建立一個原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)中所述。 建立這三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此程式碼範例包含三種身分識別體驗：註冊、登入和編輯設定檔。 您必須為每個類型建立一個原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)中所述。 建立這三個原則時，請務必：
 
 * 在識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 * 在註冊原則中，選擇 [顯示名稱]  和其他註冊屬性。

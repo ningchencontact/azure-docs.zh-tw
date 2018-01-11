@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Azure 入口網站](https://portal.azure.com)中的匯入資料精靈
 * Azure 搜尋服務 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure 搜尋服務 [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Azure 搜尋服務 [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 在本文中，我們將使用 REST API 來建立**索引子**與**資料來源**。
 
@@ -283,7 +283,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>SQL 與 Azure 搜尋服務資料類型之間的對應
-| SQL 資料類型 | 允許的目標索引欄位類型 | 注意事項 |
+| SQL 資料類型 | 允許的目標索引欄位類型 | 注意 |
 | --- | --- | --- |
 | bit |Edm.Boolean、Edm.String | |
 | int、smallint、tinyint |Edm.Int32、Edm.Int64、Edm.String | |
@@ -317,7 +317,7 @@ SQL 索引子公開數個組態設定︰
 
 **問：我可以在 Azure 中搭配在 IaaS VM 上執行的 SQL 資料庫，使用 Azure SQL 索引子嗎？**
 
-是。 不過，您需要允許搜尋服務連接到資料庫。 如需詳細資訊，請參閱[在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。
+可以。 不過，您需要允許搜尋服務連接到資料庫。 如需詳細資訊，請參閱[在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。
 
 **問：我可以搭配在內部部署執行的 SQL 資料庫，使用 Azure SQL 索引子嗎？**
 
@@ -325,15 +325,15 @@ SQL 索引子公開數個組態設定︰
 
 **問：在 Azure 上，除了在 IaaS 中執行的 SQL Server，能夠搭配其他資料庫使用 Azure SQL 索引子嗎？**
 
-否。 我們不支援這類案例，因為我們尚未使用 SQL Server 以外的資料庫來測試索引子。  
+編號 我們不支援這類案例，因為我們尚未使用 SQL Server 以外的資料庫來測試索引子。  
 
 **問：可以建立多個依照排程執行的索引子嗎？**
 
-是。 但是一次只能在一個節點上執行一個索引子。 如果您需要多個同時執行的索引子，請考慮將搜尋服務調整大於一個搜尋單位。
+可以。 但是一次只能在一個節點上執行一個索引子。 如果您需要多個同時執行的索引子，請考慮將搜尋服務調整大於一個搜尋單位。
 
 **問：執行索引子會影響我的查詢工作負載嗎？**
 
-是。 索引子會在您搜尋服務中的其中一個節點執行，且節點上的資源會在索引及服務查詢流量和其他 API 要求之間共用。 如果您密集執行索引及查詢工作負載，且經常遇到 503 錯誤或回應次數增加，請考慮[調整您的搜尋服務](search-capacity-planning.md)。
+可以。 索引子會在您搜尋服務中的其中一個節點執行，且節點上的資源會在索引及服務查詢流量和其他 API 要求之間共用。 如果您密集執行索引及查詢工作負載，且經常遇到 503 錯誤或回應次數增加，請考慮[調整您的搜尋服務](search-capacity-planning.md)。
 
 **問：是否可以在[容錯移轉叢集](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)中使用次要複本作為資料來源？**
 

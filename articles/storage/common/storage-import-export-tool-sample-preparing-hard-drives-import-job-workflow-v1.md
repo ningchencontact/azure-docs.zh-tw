@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
 本主題會引導您完成為匯入作業準備硬碟的完整程序。  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>複製工作階段完成
 
-當複製工作階段完成後，您可以將兩個磁碟和複製電腦中斷連線，並將它們寄送到適當的 Microsoft Azure 資料中心。 當您在 [Windows Azure 入口網站](https://manage.windowsazure.com/)建立匯入作業時，請上傳兩個日誌檔案 (`FirstDrive.jrn` 和 `SecondDrive.jrn`)。  
+當複製工作階段完成後，您可以將兩個磁碟和複製電腦中斷連線，並將它們寄送到適當的 Microsoft Azure 資料中心。 上傳兩個日誌檔中，`FirstDrive.jrn`和`SecondDrive.jrn`，當您建立的匯入作業中[Azure 入口網站](https://portal.azure.com)。  
   
 ## <a name="next-steps"></a>後續步驟
 

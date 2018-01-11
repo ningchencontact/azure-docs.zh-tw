@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>監視 Azure 虛擬機器備份的警示
 警示是來自已達到或超過事件閾值之服務的回應。 了解何時出現問題，可能對於維持低商務成本很重要。 警示通常不會依照排程發生，因此在警示發生之後盡早得知將會有所幫助。 例如，當備份或還原作業失敗時，警示會在失敗後五分鐘內發生。 在保存庫儀表板中，[備份警示] 圖格會顯示嚴重和警告層級的事件。 在 [備份警示] 設定中，您可以檢視所有事件。 但是，如果在您處理不同問題時發生警示，您該怎麼辦？ 如果您不知道何時發生警示，可能會有點不便，或可能危及資料。 若要確定正確的人員會留意警示 (當它發生時)，請設定服務以透過電子郵件傳送警示通知。 如需設定電子郵件通知的詳細資訊，請參閱 [設定通知](backup-azure-monitor-vms.md#configure-notifications)。
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 3. 在 [收件者 (電子郵件)]  對話方塊中，輸入接收通知者的電子郵件地址。 使用格式︰username@domainname.com。用分號分 (;) 分隔多個電子郵件位址。
 4. 在 [通知] 區域中，選擇 [每個警示] 以在指定的警示發生時傳送通知，或選擇 [每小時摘要] 以傳送過去一小時的摘要。
 5. 在 [嚴重性]  對話方塊中，選擇您要觸發電子郵件通知的一或多個層級。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>有哪些警示類型可供 Azure IaaS VM 備份使用？
    | 警示層級 | 傳送的警示 |
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在[保存庫儀表板](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)中，瀏覽並按一下 [稽核記錄檔]，以開啟 [事件] 刀鋒視窗。
 
-    ![稽核記錄檔](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+    ![稽核記錄](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
     開啟的 [事件]  刀鋒視窗會顯示針對目前保存庫而篩選的作業事件。
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在[保存庫儀表板](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)中，瀏覽並按一下 [稽核記錄檔]，以開啟 [事件] 刀鋒視窗。
 
-    ![稽核記錄檔](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+    ![稽核記錄](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
     開啟的 [事件]  刀鋒視窗會顯示針對目前保存庫而篩選的作業事件。
 
@@ -172,7 +172,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * Unregister  <br/>
 * ConfigureProtection  <br/>
 * Backup  <br/>
-* Restore  <br/>
+* Restore <br/>
 * StopProtection  <br/>
 * DeleteBackupData  <br/>
 * CreateProtectionPolicy  <br/>
@@ -213,4 +213,4 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 如需各項 Azure 服務的事件、作業和稽核記錄檔的廣泛說明，請參閱[檢視事件和稽核記錄檔](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文。
 
-如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 深入了解 [管理 Azure 虛擬機器備份](backup-azure-manage-vms.md)一文中 VM 備份的管理工作。
+如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-arm-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 深入了解 [管理 Azure 虛擬機器備份](backup-azure-manage-vms.md)一文中 VM 備份的管理工作。

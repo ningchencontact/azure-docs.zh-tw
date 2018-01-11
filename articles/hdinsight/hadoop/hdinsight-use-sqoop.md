@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
   
   | 欄位 | 資料類型 |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |字串 |
+  | querytime |字串 |
+  | market |字串 |
+  | deviceplatform |字串 |
+  | devicemake |字串 |
+  | devicemodel |字串 |
+  | state |字串 |
+  | country |字串 |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -164,7 +164,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 ## <a name="next-steps"></a>後續步驟
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
-* [搭配 HDInsight 使用 Hivet](../hdinsight-use-hive.md)
+* [〈搭配 HDInsight 使用 Hivet〉](../hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](../hdinsight-use-pig.md)
 * [將資料上傳至 HDInsight][hdinsight-upload-data]：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 
@@ -221,7 +221,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
    > 除了連接字串資訊以外，本節中的步驟應該可運用在 Azure SQL Database 或 SQL Server 上。 這些步驟已使用下列組態進行測試：
    > 
    > * **Azure 虛擬網路點對站組態**：在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。 如需詳細資訊，請參閱 [使用管理入口網站設定點對站 VPN](../../vpn-gateway/vpn-gateway-point-to-site-create.md) 。
-   > * **Azure HDInsight 3.1**：如需有關在虛擬網路上建立叢集的資訊，請參閱 [使用自訂選項在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md) 。
+   > * **Azure HDInsight**： 請參閱[中使用自訂選項的 HDInsight 叢集建立 Hadoop](../hdinsight-hadoop-provision-linux-clusters.md)如需有關建立虛擬網路上的叢集資訊。
    > * **SQL Server 2014**：已設定成允許驗證，以及執行 VPN 用戶端組態套件以安全地連接到虛擬網路。
    > 
    > 

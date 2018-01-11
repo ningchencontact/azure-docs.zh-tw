@@ -4,7 +4,7 @@ description: "如何建置 AngularJS 單一頁面應用程式來與 Azure AD 整
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4153910bc03f112f84c26cda6f9c78f11028b934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>使用 Azure AD 保護 AngularJS 單一頁面應用程式
+# <a name="azure-ad-angularjs-getting-started"></a>開始使用 azure AD AngularJS
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -53,7 +53,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 5. 遵照提示進行，並建立新的 Web 應用程式和/或 Web API：
   * **名稱**向使用者描述您的應用程式。
   * **重新導向 URI** 是供 Azure AD 傳回權杖的位置。 此範例中的預設位置是 `https://localhost:44326/`。
-6. 完成註冊之後，Azure AD 會指派唯一的應用程式識別碼給您的應用程式。  您會在後續小節中用到這個值，所以請從應用程式索引標籤中複製此值。
+6. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。  您會在後續小節中用到這個值，所以請從應用程式索引標籤中複製此值。
 7. Adal.js 會使用 OAuth 隱含流程來與 Azure AD 通訊。 您必須為您的應用程式啟用隱含流程：
   1. 按一下應用程式，選取 [資訊清單] 以開啟內嵌資訊清單編輯器。
   2. 找出 `oauth2AllowImplicitFlow` 屬性。 將值設為 `true`。
@@ -117,7 +117,7 @@ adal.js 與 AngularJS 路由和 HTTP 提供者整合，因此您可以保護單�
     ...
     ```
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 您現在有了一個安全的單一頁面應用程式，能夠將使用者登入，並將以持有人權杖保護的要求發給其後端 API。 當使用者按一下 **TodoList** 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。 此外，adal.js 將會自動將 access_token 附加至任何傳送至應用程式後端的 Ajax 要求。  
 
 前述步驟是使用 adal.js 建置單一頁面應用程式的最低必要程序。 但單一頁面應用程式中還有其他幾項很有用的功能︰
@@ -154,7 +154,7 @@ adal.js 與 AngularJS 路由和 HTTP 提供者整合，因此您可以保護單�
 
 adal.js 可讓您輕鬆地將常見的身分識別功能納入您的應用程式。 它會為您處理一切麻煩的事：快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI、重新整理過期權杖等等。
 
-[GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip) 中有完整的範例供您參考 (不含您的組態值)。
+如需參考資料，請參閱 [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip) 中的完整範例 (不含您的組態值)。
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以繼續探索其他案例。 您可以嘗試︰[從單一頁面應用程式呼叫 CORS Web API](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)。

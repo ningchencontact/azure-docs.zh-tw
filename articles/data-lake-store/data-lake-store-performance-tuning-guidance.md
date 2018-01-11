@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 900447ab931f15e4d27aedd525eba7881ba813b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>針對效能目的調整 Azure Data Lake Store
 
@@ -46,13 +46,13 @@ Azure Data Lake Store 可以調整以提供所有分析案例的需要輸送量�
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>設定最大平行處理的資料擷取工具
 
-一旦您解決上述的來源硬體和網路連線瓶頸，您已準備好設定擷取工具。 下表摘要說明數個熱門擷取工具的關鍵設定，並且提供它們的深入效能微調文章。  若要深入了解哪一個工具適用於您的案例，請參閱這篇[文章](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios)。
+一旦您解決上述的來源硬體和網路連線瓶頸，您已準備好設定擷取工具。 下表摘要說明數個熱門擷取工具的關鍵設定，並且提供它們的深入效能微調文章。  若要深入了解哪一個工具適用於您的案例，請參閱這篇[文章](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios)。
 
-| 工具               | Settings     | 其他詳細資訊                                                                 |
+| 工具               | 設定     | 其他詳細資訊                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount、ConcurrentFileCount |  [連結](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)   |
-| AdlCopy    | Azure Data Lake Analytics units  |   [連結](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper)   | [連結](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Powershell       | PerFileThreadCount、ConcurrentFileCount |  [連結](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| AdlCopy    | Azure Data Lake Analytics units  |   [連結](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper)   | [連結](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [連結](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size、-m (mapper)    |   [連結](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
@@ -142,6 +142,6 @@ HDInsight 叢集內有三個層級可以微調，以增加容器數目並且使�
 | [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>背景工作處理序數目</li><li>Spout 執行程式執行個體數目</li><li>Bolt 執行程式執行個體數目 </li><li>Spout 工作數目</li><li>Bolt 工作數目</li></ul>|
 
-## <a name="see-also"></a>另請參閱
-* [Azure Data Lake Store 概觀](data-lake-store-overview.md)
+## <a name="see-also"></a>請參閱
+* [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
 * [開始使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

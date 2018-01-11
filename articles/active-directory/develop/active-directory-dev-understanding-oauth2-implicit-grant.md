@@ -4,7 +4,7 @@ description: "深入了解 Azure Active Directory 的 OAuth2 隱含授與流程�
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
 OAuth2 隱含授與是 OAuth2 規格中安全性疑慮最多的授與方式，因此聲名狼藉。 然而，這卻是 ADAL JS 所實作的方法，也是我們建議用來撰寫 SPA 應用程式的方法。 為何會這樣呢？ 這全是權衡利弊之後的結果︰而且事實也證明，對於透過 JavaScript 從瀏覽器使用 Web API 的應用程式來說，隱含授與是您所能找到的最好方法。

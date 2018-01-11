@@ -4,7 +4,7 @@ description: "Azure AD v2.0 端點中的授權說明，包括範圍、權限及�
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的範圍、權限及同意
 與 Azure Active Directory (Azure AD) 整合的應用程式會遵循一種授權模型，可讓使用者控制應用程式存取他們資料的方式。 v2.0 的授權模型實作已更新，它變更了應用程式必須與 Azure AD 互動的方式。 本文涵蓋此授權模型的基本概念，包括範圍、權限及同意。
@@ -46,8 +46,8 @@ Azure AD 實作 [OAuth 2.0](active-directory-v2-protocols.md) 授權通訊協定
 
 在 Azure AD 和 OAuth 中，這些類型的權限也稱為「範圍」。 它們有時也稱為 *oAuth2Permissions*。 在 Azure AD 中範圍會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的範圍值如下：
 
-* 使用 `Calendar.Read` 來讀取使用者的行事曆
-* 使用 `Mail.ReadWrite` 來寫入使用者的行事曆
+* 使用 `Calendars.Read` 來讀取使用者的行事曆
+* 使用 `Calendars.ReadWrite` 來寫入使用者的行事曆
 * 使用 `Mail.Send` 來以使用者身分傳送郵件
 
 透過在對 v2.0 端點的要求中指定範圍，應用程式便可要求這些權限。
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

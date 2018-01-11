@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -42,7 +42,7 @@ DNS 分析可協助您︰
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| [Windows 代理程式](log-analytics-windows-agents.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
 | [System Center Operations Manager 管理群組](log-analytics-om-agents.md) | 是 | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
@@ -55,7 +55,7 @@ DNS 分析可協助您︰
 
 請使用下列資訊來設定此解決方案：
 
-- 在每部要監視的 DNS 伺服器上，都必須安裝 [Windows](log-analytics-windows-agents.md) 或 [Operations Manager](log-analytics-om-agents.md) 代理程式。
+- 在每部要監視的 DNS 伺服器上，都必須安裝 [Windows](log-analytics-windows-agent.md) 或 [Operations Manager](log-analytics-om-agents.md) 代理程式。
 - 您可以從 [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace) 將 DNS 分析解決方案新增至您的 Operations Management Suite 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](log-analytics-add-solutions.md)中所述的程序。
 
 不需要進一步設定，此解決方案就會開始收集資料。 不過，您可以使用下列組態來自訂資料收集。

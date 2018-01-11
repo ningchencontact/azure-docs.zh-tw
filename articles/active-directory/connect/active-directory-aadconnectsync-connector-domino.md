@@ -4,7 +4,7 @@ description: "本文說明如何設定 Microsoft 的 Lotus Domino 連接器。"
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 連接器技術參考
 本文說明 Lotus Domino 連接器。 本文適用於下列產品：
@@ -155,7 +155,7 @@ Domino 伺服器屬性支援兩種伺服器名稱格式：
 #### <a name="import-settings-method"></a>匯入設定、方法
 [完整匯入執行方法]  具有下列選項：
 
-* 搜尋
+* Search
 * 檢視 (建議選項)
 
 **搜尋** 會在 Domino 中使用索引，但索引一般不會即時更新，而且伺服器所傳回的資料不一定正確。 對於具有許多變更的系統，此選項通常不會運作得很好，並且會在某些情況下造成誤刪。 不過，**搜尋**的速度比**檢視**快。
@@ -285,7 +285,7 @@ Person 物件代表組織和組織單位中的使用者。 除了預設屬性，
   2. 漫遊使用者 (包含所有漫遊資料庫檔案的一般使用者)
   3. 連絡人 (沒有識別碼檔案的使用者)
 
-人員 (連絡人除外) 可以進一步分組為美國使用者和國際使用者，如 \_MMS\_IDRegType 屬性值所定義。 這些人員使用 Notes 用戶端來存取 Lotus Domino 伺服器、擁有 Notes Id 和 Person 文件。 如果這些人使用 Notes 郵件，他們也會有郵件檔案。 使用者必須經過註冊才能生效。 如需詳細資訊，請參閱：
+人員 (連絡人除外) 可以進一步分組為美國使用者和國際使用者，如 \_MMS\_IDRegType 屬性值所定義。 這些人員使用 Notes 用戶端來存取 Lotus Domino 伺服器、擁有 Notes Id 和 Person 文件。 如果這些人使用 Notes 郵件，他們也會有郵件檔案。 使用者必須經過註冊才能生效。 如需詳細資訊，請參閱
 
 * [設定 Notes 使用者](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
 * [使用者註冊](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
@@ -358,7 +358,7 @@ Lotus Domino 連接器支援下列關於網際網路密碼的作業：
 * 設定密碼：設定密碼會對 Domino 使用者設定新的 HTTP/網際網路密碼。 依預設也會解除鎖定帳戶。 同步處理引擎的 WMI 介面上會顯示解除鎖定旗標。
 * 變更密碼：在此案例中，使用者可能想要變更密碼，或收到在指定時間後變更密碼的提示。 若要讓這項作業進行，必須同時擁有兩者 (舊密碼和新密碼)。 一旦變更，就會在 Lotus Domino 中更新新的密碼。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [使用網際網路鎖定功能](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
 * [管理網際網路密碼](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
@@ -416,7 +416,7 @@ Lotus Domino 連接器主要支援以下類型的物件 (文件類型)：
 | 郵寄資料庫 |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Person |<li>姓氏</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | 連絡人 (沒有認證者的人員) |<li>\_MMS_IDRegType</li> |
-| 資源 |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>網站</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| 資源 |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>網站</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>常見問題
 ### <a name="schema-detection-does-not-work"></a>結構描述偵測沒有作用

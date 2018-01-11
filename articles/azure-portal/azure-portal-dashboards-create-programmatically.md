@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以程式設計方式建立 Azure Dashboards
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>概觀
 
-Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)，如同虛擬機器和儲存體帳戶。  因此，透過 [Azure Resource Manager REST API](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview)、[Azure PowerShell 命令](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0)，以及以這些 API 為基礎的許多 [Azure 入口網站](https://portal.azure.com)，都能夠以程式設計方式管理這些儀表板，因此更容易管理資源。  
+Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，如同虛擬機器和儲存體帳戶。  因此，透過 [Azure Resource Manager REST API](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api)、[Azure CLI](https://docs.microsoft.com/cli/azure/overview)、[Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)，以及以這些 API 為基礎的許多 [Azure 入口網站](https://portal.azure.com)，都能夠以程式設計方式管理這些儀表板，因此更容易管理資源。  
 
 這些 API 和工具都能夠建立、列出、擷取、修改和刪除資源。  由於儀表板屬於資源，因此可以挑選自己喜愛的 API/工具來使用。
 
@@ -55,7 +55,7 @@ Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/en-us/azure
 
 ![共用命令](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-按一下「共用」命令即會顯示對話方塊，要求您選擇要發佈的目的地訂用帳戶和資源群組。 請注意，對於您選擇的訂用帳戶和資源群組，[您必須擁有寫入權限](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)。
+按一下「共用」命令即會顯示對話方塊，要求您選擇要發佈的目的地訂用帳戶和資源群組。 請注意，對於您選擇的訂用帳戶和資源群組，[您必須擁有寫入權限](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
 
 ![共用和存取](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/en-us/azure
 
 未來若要對於任何虛擬機器發佈此儀表板，您需要將 JSON 中每次出現的此字串參數化。 
 
-有兩種 API 可在 Azure 中建立資源。 [命令式 API](https://docs.microsoft.com/en-us/rest/api/resources/resources) 每次會建立一個資源，[範本型部署](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)系統可透過單一 API 呼叫來協調建立多個相依的資源。 後者本身支援參數化和範本化，因此在此範例中使用後者。
+有兩種 API 可在 Azure 中建立資源。 [命令式 API](https://docs.microsoft.com/rest/api/resources/resources) 每次會建立一個資源，[範本型部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)系統可透過單一 API 呼叫來協調建立多個相依的資源。 後者本身支援參數化和範本化，因此在此範例中使用後者。
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>以程式設計方式使用範本部署從範本建立儀表板
 
-Azure 可讓您協調多個資源的部署。 您可建立部署範本表示要部署的資源集合，以及這些資源之間的關聯性。  每個資源的 JSON 格式都相同，就如同您逐一建立這些資源一般。 差異在於，[範本語言](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates)會加入一些概念，例如變數、參數、基本功能等等。 此擴充語法只在範本部署的內容中受支援，如果搭配稍早討論的命令式 API 則無法運作。
+Azure 可讓您協調多個資源的部署。 您可建立部署範本表示要部署的資源集合，以及這些資源之間的關聯性。  每個資源的 JSON 格式都相同，就如同您逐一建立這些資源一般。 差異在於，[範本語言](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)會加入一些概念，例如變數、參數、基本功能等等。 此擴充語法只在範本部署的內容中受支援，如果搭配稍早討論的命令式 API 則無法運作。
 
 如果您採用此方式，則應該使用範本的參數語法執行參數化。  您可取代我們先前找到全部出現的資源識別碼，如下所示。
 
@@ -119,7 +119,7 @@ Azure 可讓您協調多個資源的部署。 您可建立部署範本表示要�
 
 __這份文件的結尾有提供完整的可行範本。__
 
-您製作範本後，可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) 或[入口網站的範本部署頁面](https://portal.azure.com/#create/Microsoft.Template)部署範本。
+您製作範本後，可以使用 [REST API](https://docs.microsoft.com/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) 或[入口網站的範本部署頁面](https://portal.azure.com/#create/Microsoft.Template)部署範本。
 
 以下是範例儀表板 JSON 的兩個版本。 第一個是我們從已經繫結至資源的入口網站匯出的版本。 第二個是能夠以程式設計方式繫結至任何 VM 並使用 Azure Resource Manager 部署的範本版本。
 

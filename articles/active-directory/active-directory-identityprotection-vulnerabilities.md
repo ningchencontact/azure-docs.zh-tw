@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: dfb75c91d66d61a63e3f6c3e431a9a45465cbf5c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: ce3d50c4c111c2a47b2732cb3a39bf0dfc28853e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 偵測到的弱點
 弱點是您的環境中攻擊者可以利用的弱點。 我們建議您處理這些弱點，以改善組織的安全性狀態，並防止攻擊者利用這些弱點。
@@ -40,14 +40,14 @@ Azure Multi-Factor Authentication 會為使用者驗證提供第二層安全性�
 
 如需詳細資訊，請參閱 [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
 
-## <a name="unmanaged-cloud-apps"></a>未受管理的雲端應用程式
-此弱點可協助您識別組織中未受管理的雲端應用程式。
+## <a name="unmanaged-cloud-apps"></a>非受控雲端應用程式
+此弱點可協助您識別組織中非受控雲端應用程式。
 
 在現代企業中，IT 部門通常不會知道組織中的使用者用於進行工作的所有雲端應用程式。 很容易知道為什麼系統管理員必須對未經授權存取公司資料、可能的資料外洩和其他安全性風險有所顧慮。 
 
-我們建議您的組織部署 Cloud App Discovery 來探索未受管理的雲端應用程式，以及管理這些使用 Azure Active Directory 的應用程式。
+我們建議您的組織部署 Cloud App Discovery 來探索非受控雲端應用程式，以及管理這些使用 Azure Active Directory 的應用程式。
 
-如需詳細資訊，請參閱 [使用 Cloud App Discovery 尋找未受管理的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)。
+如需詳細資訊，請參閱 [使用 Cloud App Discovery 尋找非受控雲端應用程式](active-directory-cloudappdiscovery-whatis.md)。
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>來自 Privileged Identity Management 的安全性警示
 此弱點可協助您找出並解決有關您組織中特殊權限身分識別的警示。  
@@ -58,6 +58,6 @@ Azure Multi-Factor Authentication 會為使用者驗證提供第二層安全性�
 
 如需詳細資訊，請參閱 [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

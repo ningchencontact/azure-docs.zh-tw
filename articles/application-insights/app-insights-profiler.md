@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web 應用程式
 
@@ -113,7 +113,8 @@ Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分�
 時間表檢視中顯示的呼叫堆疊是取樣和檢測的結果。 由於每個範例都會擷取執行緒的完整呼叫堆疊，因此它會包含來自 Microsoft .NET Framework 和您所參考之其他架構的程式碼。
 
 ### <a id="jitnewobj"></a>物件配置 (clr!JIT\_New 或 clr!JIT\_Newarr1)
-**clr!JIT\_New** 和 **clr!JIT\_Newarr1** 是 .NET Framework 內的 Helper 函式，可從 Managed 堆積配置記憶體。 配置物件時，會叫用 **clr!JIT\_New**。 配置物件陣列時，會叫用 **clr!JIT\_Newarr1**。 這兩個函式的執行速度通常很快，花費的時間相當少。 如果您在時間表中看到 **clr!JIT\_New** 或 **clr!JIT\_Newarr1** 花費相當長的時間，即表示程式碼可能配置許多物件，而耗用大量的記憶體。
+
+            **clr!JIT\_New** 和 **clr!JIT\_Newarr1** 是 .NET Framework 內的 Helper 函式，可從受控堆積配置記憶體。 配置物件時，會叫用 **clr!JIT\_New**。 配置物件陣列時，會叫用 **clr!JIT\_Newarr1**。 這兩個函式的執行速度通常很快，花費的時間相當少。 如果您在時間表中看到 **clr!JIT\_New** 或 **clr!JIT\_Newarr1** 花費相當長的時間，即表示程式碼可能配置許多物件，而耗用大量的記憶體。
 
 ### <a id="theprestub"></a>載入程式碼 (clr!ThePreStub)
 **clr!ThePreStub**是 .NET Framework 內的 Helper 函式，可讓程式碼準備好進行第一次的執行。 這通常包括但不限於 Just-In-Time (JIT) 編譯。 針對每個 C# 方法，在程序的存留期內，應該最多只會叫用 **clr!ThePreStub**一次。
@@ -155,7 +156,7 @@ CPU 正忙於執行指令。
 
 ## <a id="troubleshooting"></a>疑難排解
 
-### <a name="too-many-active-profiling-sessions"></a>太多作用中分析工作階段
+### <a name="too-many-active-profiling-sessions"></a>太多個使用中分析工作階段
 
 目前，您最多可以在於相同服務方案中執行的 4 個 Azure Web 應用程式及部署位置上啟用分析工具。 如果分析工具 Web 工作回報太多作用中分析工作階段，請將一些 Web 應用程式移至不同的服務方案。
 
@@ -227,6 +228,82 @@ CPU 正忙於執行指令。
 7. 在 Kudu 網站上，選取 [網站延伸模組]。
 8. 從 Azure Web Apps 資源庫安裝 [Application Insights]。
 9. 重新啟動 Web 應用程式。
+
+## <a id="profileondemand"></a>手動觸發程序程式碼剖析工具
+當我們開發程式碼剖析工具我們加入命令列介面，以便我們可以測試應用程式服務上的程式碼剖析工具。 使用這個相同介面的使用者也可以自訂程式碼剖析工具啟動的方式。 在高層級分析工具會使用應用程式服務 Kudu 系統來管理在背景中進行分析。 當您安裝 Application Insights 擴充功能我們會建立連續 web 工作裝載程式碼剖析工具。 若要建立新的 web 工作您可自訂以符合您的需求，我們將使用這個相同的技術。
+
+本章節將說明如何：
+
+1.  建立 web 工作就可以開始為兩分鐘的分析工具與按下按鈕。
+2.  建立可以排程要執行的程式碼剖析工具的 web 作業。
+3.  設定程式碼剖析工具的引數。
+
+
+### <a name="set-up"></a>設定
+第一個先熟悉 web 工作的儀表板。 在 [WebJobs] 索引標籤上選擇設定。
+
+![webjobs 刀鋒視窗](./media/app-insights-profiler/webjobs-blade.png)
+
+您可以看到這個儀表板會顯示您的所有網站目前安裝的 web 工作。 您可以看到 ApplicationInsightsProfiler2 web 工作具有執行中程式碼剖析工具的作業。 這是我們將會得到我們新的 web 工作建立的手動和排程程式碼剖析。
+
+第一開始我們需要的二進位檔。
+
+1.  Kudu 站台的第一個 go。 開發工具] 索引標籤下的 [索引標籤的 [進階工具] 的 Kudu 商標。 按一下"Go"。 這會帶您前往新站台，您自動登入。
+2.  接下來，我們需要下載的程式碼剖析工具二進位檔。 瀏覽至 [檔案總管] 中透過偵錯主控台]-> [CMD 位於頁面頂端。
+3.  按一下 站台-> wwwroot-> App_Data-> 工作-> 連續。 您應該會看到 「 ApplicationInsightsProfiler2"的資料夾。 按一下 [下載] 圖示左邊的資料夾。 這會下載 「 ApplicationInsightsProfiler2.zip"檔案。
+4.  這會下載您需要的所有檔案向前移動。 我建議您建立一個用來移動到這個 zip 封存，在繼續之前清除目錄。
+
+### <a name="setting-up-the-web-job-archive"></a>設定 web 工作封存
+當您將新的 web 工作加入 azure 網站基本上是利用 run.cmd 內建立 zip 封存。 Run.cmd 告知 web 作業的系統執行 web 工作時該怎麼辦。 您可以從 web 工作文件讀取其他選項，但是對我們的用途我們不需要任何其他項目。
+
+1.  若要開始建立新的資料夾，名為採擷"RunProfiler2Minutes"。
+2.  從解壓縮的 ApplicationInsightProfiler2 資料夾的檔案複製到這個新的資料夾。
+3.  建立新的 run.cmd 檔案。 （開啟這個工作資料夾 vs 程式碼中以便啟動之前）
+4.  將命令加入`ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`，然後儲存檔案。
+a.  `start`命令說明啟動分析工具。
+b.  `--engine-mode immediate`告訴我們想要立即開始分析程式碼剖析工具。
+c.  `--single`若要執行的方式，然後停止自動 d。  `--immediate-profiling-duration 120`表示有 120 秒或 2 分鐘內執行程式碼剖析工具。
+5.  儲存這個檔案。
+6.  封存此資料夾，您可以以滑鼠右鍵按一下資料夾，並選擇 傳送至-> 壓縮的 (zipped) 資料夾。 這會建立.zip 檔案，使用您的資料夾名稱。
+
+![啟動程式碼剖析工具命令](./media/app-insights-profiler/start-profiler-command.png)
+
+我們現在有 web 工作.zip 我們可以使用我們的網站中設定 web 工作。
+
+### <a name="add-a-new-web-job"></a>加入新的 webjob
+接下來，我們將在我們的網站中加入新的 web 工作。 此範例顯示如何新增手動觸發的 web 工作。 要執行此作業的之後程序是幾乎完全相同的排程。 閱讀更多關於排程自行觸發的工作。
+
+1.  移至 web 作業儀表板。
+2.  按一下 加入命令，從工具列上。
+3.  提供您的 web 工作名稱，我選擇它以符合我封存的名稱，為了清楚起見，並最多需要不同版本的 run.cmd 開啟它。
+4.  在檔案上傳組件的表單，按一下 開啟檔案圖示，尋找您進行上述的.zip 檔案。
+5.  對於類型，選擇 Triggered。
+6.  觸發程序選擇 [手動]。
+7.  點擊 [確定] 儲存。
+
+![啟動程式碼剖析工具命令](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>執行程式碼剖析工具
+
+既然我們已經有新的 web 工作，我們可以手動觸發我們可以嘗試執行此程式碼。
+
+1.  根據設計只能有一個 ApplicationInsightsProfiler.exe 程序在任何給定時間執行的機器上。 因此，以啟動，請務必先停用此儀表板上的連續 web 工作。 按一下資料列，然後按下 [停止]。 重新整理 工具列上，確認狀態，確認已停止作業。
+2.  按一下新的 web 工作已新增具有資料列並按下執行。
+3.  使用資料列仍選取，按一下 記錄檔中的命令工具列，將讓您 web 工作的儀表板為您啟動這個 web 工作。 它會列出最新的執行，而其結果。
+4.  按一下您剛開始執行。
+5.  如果一切順利您應該會看到一些來自確認我們已經啟動程式碼剖析程式碼剖析工具的診斷記錄。
+
+### <a name="things-to-consider"></a>要考量的事項
+
+雖然這個方法是相當直接的方法有要考慮的一些事項。
+
+1.  因為這不由我們的服務管理，我們必須更新您的 web 工作的代理程式二進位檔的任何方法。 我們目前沒有穩定的下載頁面，為我們的二進位碼檔案，取得最新的唯一方法是由更新您的擴充功能和抓取從 [連續] 資料夾，像我們上方。
+2.  因為這使用命令列引數所原先設計與開發人員使用，而不是使用者使用，這些引數可能會在未來變更，因此只時應該注意的升級。 您可以加入 web 工作、 執行和測試正常運作，因此，它不應該是問題的大部分。 最後我們會建置 UI 的手動程序在不但值得考慮使用。
+3.  應用程式服務的 Web 工作功能是唯一的因為執行 web 工作時它就會確保您的處理序具有相同的環境變數和您的網站將最後會有的應用程式設定。 這表示您不需要透過命令列的檢測金鑰傳遞至分析工具，它應該只挑選的環境中的檢測金鑰。 不過如果您想要執行分析工具，開發人員方塊或外部應用程式服務的電腦上您需要提供檢測金鑰。 您可以藉由引數，傳遞`--ikey <instrumentation-key>`。 請注意，這個值必須符合您應用程式使用的檢測金鑰。 在程式碼剖析工具的記錄檔輸出中進行分析它會告訴您程式碼剖析工具入門哪些 ikey，如果我們偵測到從該檢測機碼，同時我們的活動。
+4.  透過 Web 攔截，實際上可以觸發手動觸發的 web 工作。 您可以從儀表板上的 web 工作上按一下滑鼠右鍵，檢視屬性，或之後從資料表中選取 web 工作，選擇工具列中的屬性，以取得此 url。 有很多的文章清單，您可在線上找到關於此，我將不會移到更詳細資訊，但這會開啟，可能會觸發從您的 CI/CD 管線 （例如 VSTS) 或類似 Microsoft Flow (https://flow.microsoft.com/en-us/) 程式碼剖析工具。 根據您要讓 run.cmd，可依 run.ps1，如何美觀的可能性相當廣泛。  
+
+
+
 
 ## <a id="aspnetcore"></a>ASP.NET Core 支援
 

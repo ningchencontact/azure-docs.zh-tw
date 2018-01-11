@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>匯出 Azure Cosmos DB 模擬器憑證以與 Java、Python 和 Node.js 搭配使用
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 
     ![Azure Cosmos DB 本機模擬器的匯出步驟 3](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
-4. 按一下 [下一步] 。
+4. 按 [下一步] 。
 
     ![Azure Cosmos DB 本機模擬器的匯出步驟 4](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
@@ -87,11 +87,11 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 
 ## <a name="how-to-use-the-certificate-in-python"></a>如何在 Python 中使用憑證
 
-適用於 DocumentDB API 的 [Python SDK (2.0.0 版或更新版本)](documentdb-sdk-python.md) 在連線到本機模擬器時，預設不會嘗試和使用 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Python 通訊端包裝函式](https://docs.python.org/2/library/ssl.html) (英文) 文件中的範例。
+根據預設[Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) SQL API 不會再試一次，並連接到本機模擬器時使用的 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Python 通訊端包裝函式](https://docs.python.org/2/library/ssl.html) (英文) 文件中的範例。
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>如何在 Node.js 中使用憑證
 
-適用於 DocumentDB API 的 [ (1.10.1 版或更新版本)](documentdb-sdk-node.md) 在連線到本機模擬器時，預設不會嘗試和使用 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Node.js 文件 (Node.js documentation)](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) 文件中的範例。
+根據預設[Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) SQL API 不會再試一次，並連接到本機模擬器時使用的 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Node.js 文件 (Node.js documentation)](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) 文件中的範例。
 
 ## <a name="next-steps"></a>後續步驟
 

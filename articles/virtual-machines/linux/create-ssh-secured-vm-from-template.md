@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 Linux 虛擬機器
 本文示範如何使用 Azure Resource Manager 範本和 Azure CLI 2.0，快速部署 Linux 虛擬機器 (VM)。 您也可以使用 [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) 來執行這些步驟。
@@ -30,31 +30,33 @@ ms.lasthandoff: 10/11/2017
 Azure Resource Manager 範本是 JSON 檔案，檔案中定義您的 Azure 解決方案的基礎結構和組態。 透過範本，您可以在整個生命週期中重複部署方案，並確信您的資源會以一致的狀態部署。 若要深入了解範本格式和其建構方式，請參閱[建立第一個 Azure Resource Manager 範本](../../azure-resource-manager/resource-manager-create-first-template.md)。 若要檢視資源類型的 JSON 語法，請參閱[在 Azure Resource Manager 範本中定義資源](/azure/templates/)。
 
 
-## <a name="create-resource-group"></a>建立資源群組
+## <a name="create-a-resource-group"></a>建立資源群組
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器之前建立。 以下範例會在 eastus 區域建立名為 myResourceGroupVM 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
-以下範例使用 [az group deployment create](/cli/azure/group/deployment#create)，從[這個 Azure Resource Manager 範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)建立 VM︰ 提供您自己 SSH 公開金鑰的值，例如 ~/.ssh/id_rsa.pub 的內容。 如果您需要建立 SSH 金鑰組，請參閱[如何為 Azure 中的 Linux VM 建立和使用的 SSH 金鑰組](mac-create-ssh-keys.md)。
+## <a name="create-a-virtual-machine"></a>建立虛擬機器
+以下範例使用 [az group deployment create](/cli/azure/group/deployment#create)，從[這個 Azure Resource Manager 範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)建立 VM︰ 允許只 SSH 驗證。 出現提示時，提供您自己 SSH 公開金鑰，例如內容值*~/.ssh/id_rsa.pub*。 如果您需要建立 SSH 金鑰組，請參閱[如何為 Azure 中的 Linux VM 建立和使用的 SSH 金鑰組](mac-create-ssh-keys.md)。
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
-  --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-在此範例中，會指定存放在 GitHub 中的範本。 您也可以下載或建立範本，並用相同 `--template-file` 參數指定本機路徑。
+在上述範例中，您可以指定在 GitHub 中存放的範本。 您也可以下載或建立範本及指定的本機路徑與`--template-file`參數。
 
-若要透過 SSH 連線至您的 VM，使用 [az network public-ip show](/cli/azure/network/public-ip#show) 取公用 IP 位址：
+
+## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
+Ssh 連線到您的 VM，以取得公用 IP 位址與[az vm 顯示](/cli/azure/vm#show):
 
 ```azurecli
-az network public-ip show \
+az vm show \
     --resource-group myResourceGroup \
-    --name sshPublicIP \
-    --query [ipAddress] \
+    --name sshvm \
+    --show-details \
+    --query publicIps \
     --output tsv
 ```
 

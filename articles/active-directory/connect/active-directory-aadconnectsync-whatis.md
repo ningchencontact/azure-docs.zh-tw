@@ -4,7 +4,7 @@ description: "說明 Azure AD Connect 同步處理如何運作及如何自訂。
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: b00f756fdbd059b917ac7d28f24b1a0ec22594a9
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步處理：了解及自訂同步處理
 Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理) 是 Azure AD Connect 的主要元件。 它會負責執行同步處理內部部署環境與 Azure AD 之間識別資料的所有相關作業。 Azure AD Connect 同步處理是 DirSync、Azure AD 同步，以及已設定 Azure Active Directory 連接器之 Forefront Identity Manager 的後續版本。
@@ -28,7 +28,7 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 同步服務包含兩個元件：內部部署的 **Azure AD Connect 同步**元件，以及 Azure AD 中的服務端，稱為 **Azure AD Connect 同步服務**。 
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 同步處理主題
-| 主題 | 涵蓋內容和讀取時機 |
+| 話題 | 涵蓋內容和讀取時機 |
 | --- | --- |
 | **Azure AD Connect 同步處理基本概念** | |
 | [了解架構](active-directory-aadconnectsync-understanding-architecture.md) |適合於不熟悉同步處理引擎並想要深入了解所用架構和詞彙的人員。 |

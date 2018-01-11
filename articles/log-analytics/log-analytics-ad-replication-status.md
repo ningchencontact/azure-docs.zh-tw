@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>使用 Log Analytics 監視 Active Directory 複寫狀態
 
@@ -32,7 +32,7 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-* 您必須將代理程式安裝在隸屬於要評估之網域成員的網域控制站上。 或者您必須將代理程式安裝在成員之伺服器上，並設定讓代理程式將 AD 複寫資料傳送至 OMS。 若要了解如何將 Windows 電腦連接到 OMS，請參閱 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agents.md)。 如果您的網域控制站已屬於您要連接到 OMS 的現有 System Center Operations Manager 環境，請參閱 [將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
+* 您必須將代理程式安裝在隸屬於要評估之網域成員的網域控制站上。 或者您必須將代理程式安裝在成員之伺服器上，並設定讓代理程式將 AD 複寫資料傳送至 OMS。 若要了解如何將 Windows 電腦連接到 OMS，請參閱 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agent.md)。 如果您的網域控制站已屬於您要連接到 OMS 的現有 System Center Operations Manager 環境，請參閱 [將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
 * 使用 [從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的處理序，將 Active Directory 複寫狀態方案加入您的 OMS 工作區中。  不需要進一步的組態。
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 複寫狀態資料收集詳細資料
@@ -47,7 +47,7 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>啟用非網域控制站以將 AD 資料傳送至 OMS
 1. 確認電腦是您要使用 AD 複寫狀態解決方案監視的網域成員。
-2. 如果尚未連線，請[將 Windows 電腦連線到 OMS](log-analytics-windows-agents.md)，或[使用現有的 Operations Manager 環境將它連線到 OMS](log-analytics-om-agents.md)。
+2. 如果尚未連線，請[將 Windows 電腦連線到 OMS](log-analytics-windows-agent.md)，或[使用現有的 Operations Manager 環境將它連線到 OMS](log-analytics-om-agents.md)。
 3. 該該電腦上，設定下列登錄機碼︰
 
    * 機碼：**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -148,7 +148,7 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
 ## <a name="troubleshoot-data-collection-problems"></a>疑難排解資料收集問題
 為了收集資料，AD 複寫狀態解決方案組件需要至少有一個網域控制站連接至您的 OMS 工作區。 連接網域控制站後，會彈出訊息顯示**資料仍在收集中**。
 
-如果您需要連接其中一個網域控制站的協助，您可以檢視 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agents.md)文件。 或者，如果您的網域控制站已連接到現有的 System Center Operations Manager 環境，您可以檢視 [將 System Center Operations Manage 連接到 Log Analytics](log-analytics-om-agents.md)文件。
+如果您需要連接其中一個網域控制站的協助，您可以檢視 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agent.md)文件。 或者，如果您的網域控制站已連接到現有的 System Center Operations Manager 環境，您可以檢視 [將 System Center Operations Manage 連接到 Log Analytics](log-analytics-om-agents.md)文件。
 
 如果您不想將任何網域控制站直接連接到 OMS 或 SCOM，請參閱 [啟用非網域控制站以將 AD 資料傳送至 OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
 
@@ -68,7 +68,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 ## <a name="faq"></a>常見問題集
 
 * *Microsoft 人員會看到我的資料嗎？*
-  * 否。 服務完全是自動的。 只有您會收到通知。 您的資料是 [不公開的](app-insights-data-retention-privacy.md)。
+  * 編號 服務完全是自動的。 只有您會收到通知。 您的資料是 [不公開的](app-insights-data-retention-privacy.md)。
 * *你們會分析 Application Insights 收集的所有資料嗎？*
   * 目前尚未。 我們目前會分析要求回應時間、相依性回應時間和頁面載入時間。 我們後續的未來展望中將有其他計量的分析。
 
@@ -84,7 +84,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 
   * 我們每天都會根據前一天的遙測執行分析 (UTC 時區中全天)。
 * *那麼，這可以取代[計量警示](app-insights-alerts.md)嗎？*
-  * 否。  我們不保證能偵測到您可能認為異常的每項行為。
+  * 編號  我們不保證能偵測到您可能認為異常的每項行為。
 
 
 * 如果我完全不回應通知，是否會收到提醒？
@@ -137,7 +137,7 @@ Web 上有改善您的伺服器回應和頁面載入時間的完整建議，因�
 
 ## <a name="dependency-duration-degradation"></a>相依性持續時間降低
 
-現代化應用程式採用越來越多微服務設計的方法，在許多情況下，會造成外部服務的重度可靠性。 例如，如果您的應用程式需仰賴某些資料平台，或即使您建立自己的 Bot 服務，可能還是需要一些辨識服務提供者，才能讓您的 Bot 以更人性化的方式進行互動，且 Bot 也需要一些可提取回答的資料存放服務。  
+現代化應用程式採用越來越多微服務設計的方法，在許多情況下，會造成外部服務的重度可靠性。 例如，如果您的應用程式需仰賴某些資料平台，或即使您建立自己的 Bot 服務，可能還是需要一些認知服務提供者，才能讓您的 Bot 以更人性化的方式進行互動，且 Bot 也需要一些可提取回答的資料存放服務。  
 
 範例相依性降低通知︰
 
@@ -157,7 +157,7 @@ Web 上有改善您的伺服器回應和頁面載入時間的完整建議，因�
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>效能變慢模式的智慧型偵測 
 
-Application Insights 會尋找可能只會影響某部分使用者，或只在某些情況下影響使用者的效能問題。 例如，通知關於頁面在某一類型瀏覽器上的載入速度低於其他類型瀏覽器，或特定伺服器服務要求的速度較慢。 它同時可以探索與屬性組合相關的問題，例如在某地區中使用特定作業系統的用戶端，頁面載入速度緩慢的問題。  
+Application Insights 會尋找可能只會影響某部分使用者，或只在某些情況下影響使用者的效能問題。 比方說，頁面載入通知是一種類型的其他類型的瀏覽器上的瀏覽器比速度較慢或要求會由特定的伺服器提供速度更慢。 它同時可以探索與屬性組合相關的問題，例如在某地區中使用特定作業系統的用戶端，頁面載入速度緩慢的問題。  
 
 這類異常狀況很難只藉由調查資料來偵測，但比您想像的更為常見。 通常只在您的客戶抱怨時才會浮出檯面。 但那時就太晚了：受影響的使用者已經轉而選擇您的對手！
 

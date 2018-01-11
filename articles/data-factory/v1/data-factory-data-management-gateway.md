@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
@@ -322,6 +322,9 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 * 變更端點的 **HTTPS 連接埠** 。 閘道會開啟一個連接埠，以便設定資料來源認證。
 * **狀態** 
 * 檢視 [SSL 憑證]  用於入口網站與閘道之間的 SSL 通訊，以設定資料來源的認證。  
+
+### <a name="remote-access-from-intranet"></a>從內部網路的遠端存取  
+將在未來啟用這項功能。 在即將發行的更新 (v3.4 或更新版本) 我們可讓您啟用 / 停用現今會發生在使用 PowerShell 或憑證管理員應用程式加密認證時使用連接埠 8050 （請參閱上一節） 的任何遠端連線。 
 
 ### <a name="diagnostics-page"></a>診斷頁面
 [診斷] 頁面可讓您執行下列動作︰

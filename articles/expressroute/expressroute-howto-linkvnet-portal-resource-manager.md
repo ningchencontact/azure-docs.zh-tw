@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>將虛擬網路連線到 ExpressRoute 電路
 > [!div class="op_single_selector"]
@@ -129,7 +129,7 @@ ms.lasthandoff: 10/11/2017
 
 5.  在 [設定] 刀鋒視窗中選取 [虛擬網路閘道]，並選取 [兌換授權] 核取方塊。
 
-6.  輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [確定] 。
+6.  輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [SERVICEPRINCIPAL] 。
 
     ![設定刀鋒視窗](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 

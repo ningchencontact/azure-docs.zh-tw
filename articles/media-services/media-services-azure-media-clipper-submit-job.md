@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>從 Azure Media Clipper 提交剪輯作業
 Azure Media Clipper 需要實作 **submitSubclipCallback** 方法，以處理剪輯作業提交。 此函式是用於將 Clipper 輸出的 HTTP POST 實作至 Web 服務。 此 Web 服務是您可以提交編碼作業的位置。 Clipper 的輸出是為轉譯作業的媒體編碼器標準編碼預設，或是動態資訊清單篩選條件呼叫的 REST API 裝載。 需要這個傳遞模型，因為媒體服務帳戶認證在用戶端瀏覽器中不安全。
@@ -151,7 +151,7 @@ var subclipper = new subclipper({
 }
 ```
 
-若要執行編碼作業，請使用相關聯的預設提交媒體編碼器標準編碼作業。 請參閱本文，以了解使用 [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) 或 [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset) 提交編碼作業的詳細資料。
+若要執行編碼作業，請使用相關聯的預設提交媒體編碼器標準編碼作業。 請參閱本文，以了解使用 [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) 或 [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset) 提交編碼作業的詳細資料。
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>不需編碼即可快速建立影片剪輯
 除了建立編碼作業，您還能使用 Azure Media Clipper 來建立動態資訊清單篩選。 篩選不需編碼，並且可在新資產未建立時快速建立。 篩選條件剪輯的輸出合約是具有下列屬性的 JSON 物件：
@@ -227,4 +227,4 @@ var subclipper = new subclipper({
 }
 ```
 
-若要提交 REST 呼叫以建立動態資訊清單篩選，請使用 [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest) 提交相關聯的篩選承載。
+若要提交 REST 呼叫以建立動態資訊清單篩選，請使用 [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest) 提交相關聯的篩選承載。

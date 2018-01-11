@@ -1,10 +1,10 @@
 ---
-title: "系統管理員接管 Azure Active Directory 中未受管理的目錄或影子租用戶 | Microsoft Docs"
-description: "如何接管 Azure Active Directory 之未受管理目錄 (影子租用戶) 中的 DNS 網域名稱。"
+title: "系統管理員接管 Azure Active Directory 中非受控目錄或影子租用戶 | Microsoft Docs"
+description: "如何接管 Azure Active Directory 之非受控目錄 (影子租用戶) 中的 DNS 網域名稱。"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,33 +16,33 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中未受管理的目錄
-本文說明接管 Azure Active Directory (Azure AD) 之未受管理目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至未受管理的 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？]()
+# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
+本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？]()
 
-## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>決定要如何接管未受管理的目錄
+## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>決定要如何接管非受控目錄
 在管理員接管的過程中，您可以依照[將自訂網域名稱新增到 Azure AD](add-custom-domain.md) 中所述，證明擁有權。 下一節會更詳細地說明管理員體驗，但其摘要如下：
 
-* 當您執行未受管理 Azure 目錄的[「內部」管理員接管](#internal-admin-takeover)時，系統會將您新增為未受管理目錄的全域管理員。 系統不會將任何使用者、網域或服務方案移轉至您所管理的任何其他目錄。
+* 當您執行非受控 Azure 目錄的[「內部」管理員接管](#internal-admin-takeover)時，系統會將您新增為非受控目錄的全域管理員。 系統不會將任何使用者、網域或服務方案移轉至您所管理的任何其他目錄。
 
-* 當您執行未受管理 Azure 目錄的[「外部」管理員接管](#external-admin-takeover)時，需將未受管理目錄的 DNS 網域名稱新增至受管理的 Azure 目錄。 當您新增網域名稱時，系統會在受管理的 Azure 目錄中建立使用者與資源的對應，以便讓使用者繼續存取服務而不中斷。 
+* 當您執行非受控 Azure 目錄的[「外部」管理員接管](#external-admin-takeover)時，需將非受控目錄的 DNS 網域名稱新增至受控 Azure 目錄。 當您新增網域名稱時，系統會在受控 Azure 目錄中建立使用者與資源的對應，以便讓使用者繼續存取服務而不中斷。 
 
 ## <a name="internal-admin-takeover"></a>內部管理員接管
 
-有些包含 SharePoint 和 OneDrive 的產品 (例如 Office 365) 並不支援外部接管。 如果您的情況與此相符，或如果您是管理員，而想要接管使用自助式註冊之使用者所建立的未受管理或「影子」租用戶，則您可以藉由內部管理員接管來執行此操作。
+有些包含 SharePoint 和 OneDrive 的產品 (例如 Office 365) 並不支援外部接管。 如果您的情況與此相符，或如果您是管理員，而想要接管使用自助式註冊之使用者所建立的非受控或「影子」租用戶，則您可以藉由內部管理員接管來執行此操作。
 
-1. 透過以 Power BI 之類的工具進行註冊，在未受管理的租用戶中建立使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
+1. 透過以 Power BI 之類的工具進行註冊，在非受控租用戶中建立使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
 
 2. 開啟 [Power BI 網站](https://powerbi.com)，然後選取 [免費開始]。 輸入使用組織網域名稱的使用者帳戶，例如 `admin@fourthcoffee.xyz`。 輸入驗證碼之後，請查看您的電子郵件是否有確認碼。
 
 3. 在來自 Power BI 的確認電子郵件中，選取 [是，這是我]。
 
-4. 使用 Power BI 使用者帳戶來登入 [Office 365 系統管理中心](https://portal.office.com/adminportal/Home)。 您會收到指導您**成為管理員**的訊息，這是已經在未受管理租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
+4. 使用 Power BI 使用者帳戶來登入 [Office 365 系統管理中心](https://portal.office.com/adminportal/Home)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
   
   ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -52,9 +52,9 @@ ms.lasthandoff: 11/17/2017
 
 在您的網域名稱登錄器驗證 DNS TXT 記錄之後，您便可以管理 Azure AD 租用戶。
 
-完成上述步驟之後，您現在便已成為 Office 365 中 Fourth Coffee 租用戶的全域管理員。 若要將網域名稱與您的其他 Azure 服務整合，您可以將它從 Office 365 中移除，然後新增至 Azure 中其他的受管理租用戶。
+完成上述步驟之後，您現在便已成為 Office 365 中 Fourth Coffee 租用戶的全域管理員。 若要將網域名稱與您的其他 Azure 服務整合，您可以將它從 Office 365 中移除，然後新增至 Azure 中其他的受控租用戶。
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受管理租用戶 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶 
 
 1. 開啟 [Office 365 系統管理中心](https://portal.office.com/adminportal/Home)。
 2. 選取 [使用者] 索引標籤，然後使用 *user@fourthcoffeexyz.onmicrosoft.com* 這類未使用自訂網域名稱的名稱來建立新使用者帳戶。 
@@ -76,9 +76,9 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="external-admin-takeover"></a>外部管理員接管
 
-如果您已經使用 Azure 服務或 Office 365 來管理租用戶，您將無法新增自訂網域名稱，如果該網域名稱已經在另一個 Azure AD 租用戶中驗證過。 不過，您可以從 Azure AD 中的受管理租用戶，以外部管理員接管的方式，接管未受管理的租用戶。 一般程序會按照[將自訂網域名稱新增到 Azure AD](add-custom-domain.md)一文所述。
+如果您已經使用 Azure 服務或 Office 365 來管理租用戶，您將無法新增自訂網域名稱，如果該網域名稱已經在另一個 Azure AD 租用戶中驗證過。 不過，您可以從 Azure AD 中的受控租用戶，以外部管理員接管的方式，接管非受控租用戶。 一般程序會按照[將自訂網域名稱新增到 Azure AD](add-custom-domain.md)一文所述。
 
-當您驗證網域名稱的擁有權時，Azure AD 會將網域名稱從未受管理的租用戶中移除，然後移至您現有的租用戶。 未受管理目錄之外部管理員接管所需的 DNS TXT 驗證程序與內部管理員接管相同。 差異在於下列項目也會隨著網域名稱一起移過去：
+當您驗證網域名稱的擁有權時，Azure AD 會將網域名稱從非受控租用戶中移除，然後移至您現有的租用戶。 非受控目錄之外部管理員接管所需的 DNS TXT 驗證程序與內部管理員接管相同。 差異在於下列項目也會隨著網域名稱一起移過去：
 
 - 使用者
 - 訂用帳戶
@@ -112,12 +112,12 @@ ms.lasthandoff: 11/17/2017
 
 Cmdlet | 使用量 
 ------- | -------
-`connect-msolservice` | 出現提示時，登入您的受管理租用戶。
+`connect-msolservice` | 出現提示時，登入您的受控租用戶。
 `get-msoldomain` | 顯示與目前租用戶關聯的網域名稱。
 `new-msoldomain –name <domainname>` | 將網域名稱以「未驗證」狀態 (尚未執行任何 DNS 驗證) 新增至租用戶。
-`get-msoldomain` | 網域名稱現在包含在與受管理租用戶關聯的網域名稱清單中，但其狀態會是 [未驗證]。
+`get-msoldomain` | 網域名稱現在包含在與受控租用戶關聯的網域名稱清單中，但其狀態會是 [未驗證]。
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | 提供要放到網域之新 DNS TXT 記錄中的資訊 (MS=xxxxx)。 驗證可能不會立即進行，因為 TXT 記錄需要一些時間傳播，所以請先稍候幾分鐘，再考慮使用 **-ForceTakeover** 選項。 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>如果您的網域名稱仍然未驗證，就可以著手執行 **-ForceTakeover** 選項。 它會驗證是否已建立 TXT 記錄，然後啟動接管程序。<li>您應該只有在強制執行外部管理員接管時 (例如當未受管理租用戶的 Office 365 服務封鎖接管時)，才將 **-ForceTakeover** 選項新增至 Cmdlet。
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>如果您的網域名稱仍然未驗證，就可以著手執行 **-ForceTakeover** 選項。 它會驗證是否已建立 TXT 記錄，然後啟動接管程序。<li>您應該只有在強制執行外部管理員接管時 (例如當非受控租用戶的 Office 365 服務封鎖接管時)，才將 **-ForceTakeover** 選項新增至 Cmdlet。
 `get-msoldomain` | 網域清單現在會將網域名稱顯示為 [已驗證]。
 
 ### <a name="powershell-example"></a>PowerShell 範例
@@ -143,7 +143,7 @@ Cmdlet | 使用量
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
   ````
 
-4. 複製從此命令傳回的值 (挑戰)。 例如：
+4. 複製從此命令傳回的值 (挑戰)。 例如︰
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
@@ -154,7 +154,7 @@ Cmdlet | 使用量
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
   
-  例如：
+  例如︰
   
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

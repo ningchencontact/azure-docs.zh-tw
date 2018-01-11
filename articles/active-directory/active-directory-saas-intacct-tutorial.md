@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Intacct 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c203b192b9da0d280cbd7f6c123219242ee4a3d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8d69888164cc7a87ec901cc8b4588fd146d06bc2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>教學課程：Azure Active Directory 與 Intacct 整合
 
@@ -47,13 +47,13 @@ Intacct 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Intacct
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-intacct-from-the-gallery"></a>從資源庫新增 Intacct
-若要設定將 Intacct 整合到 Azure AD 中，您需要從資源庫將 Intacct 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Intacct 整合到 Azure AD 中，您需要從資源庫將 Intacct 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Intacct，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Intacct 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Intacct**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_search.png)
 
-5. 在結果窗格中，選取 Intacct，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Intacct]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_addfromgallery.png)
 
@@ -133,11 +133,11 @@ Intacct 與 Azure AD 整合提供下列優點：
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Intacct 公司網站。
 
-8. 按一下 公司 索引標籤，然後按一下公司資訊。
+8. 按一下 [公司] 索引標籤，然後按一下 [公司資訊]。
 
     ![公司](./media/active-directory-saas-intacct-tutorial/ic790037.png "公司")
 
-9. 按一下 安全性 索引標籤，然後按一下編輯。
+9. 按一下 [安全性] 索引標籤，然後按一下 [編輯]。
 
     ![安全性](./media/active-directory-saas-intacct-tutorial/ic790038.png "安全性")
 
@@ -155,7 +155,7 @@ Intacct 與 Azure AD 整合提供下列優點：
 
     e. 在記事本中開啟您的 **base-64** 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [憑證] 方塊中。
    
-    f. 按一下 [儲存] 。
+    f. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -186,11 +186,11 @@ Intacct 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-intacct-test-user"></a>建立 Intacct 測試使用者
 
@@ -200,7 +200,7 @@ Intacct 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 **Intacct** 租用戶。
 
-2. 按一下 公司 索引標籤，然後按一下使用者。
+2. 按一下 [公司] 索引標籤，然後按一下 [使用者]。
 
     ![使用者](./media/active-directory-saas-intacct-tutorial/ic790041.png "使用者")
 3. 按一下 [新增] 索引標籤。
@@ -212,9 +212,9 @@ Intacct 與 Azure AD 整合提供下列優點：
 
     a. 在 [使用者資訊] 區段中，為您要佈建的 Azure AD 帳戶輸入 [使用者識別碼]、[姓氏]、[名字]、[電子郵件地址]、[職稱] 和 [電話]。
 
-    b.這是另一個 C# 主控台應用程式。 選取您要佈建之 Azure AD 帳戶的 [系統管理員權限]。
+    b. 選取您要佈建之 Azure AD 帳戶的 [系統管理員權限]。
    
-    c. 按一下 [儲存] 。 Azure AD 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
+    c. 按一下 [檔案] 。 Azure AD 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
 
 >[!NOTE]
 >若要佈建 Azure AD 使用者帳戶，您可以使用 Intacct 所提供的其他 Intacct 使用者帳戶建立工具或 API。

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 MOBI 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a410cabf-a47b-43fb-8c88-d45f5911e148
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 90cd72d93d935a8a548d070bdf41f5777ae2caba
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 5cee78baa3abe47b0c400f7fa9d155e7acd07cb1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobi"></a>教學課程：Azure Active Directory 與 MOBI
 
@@ -48,13 +48,13 @@ MOBI 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 MOBI
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-mobi-from-the-gallery"></a>從資源庫新增 MOBI
-若要設定將 MOBI 整合到 Azure AD 中，您需要從資源庫將 MOBI 新增到受管理的 SaaS 應用程式清單。
+若要設定將 MOBI 整合到 Azure AD 中，您需要從資源庫將 MOBI 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 MOBI，請執行下列步驟：**
 
@@ -164,7 +164,7 @@ MOBI 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-mobi-test-user"></a>建立 MOBI 測試使用者
 

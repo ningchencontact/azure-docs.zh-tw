@@ -1,24 +1,16 @@
 ---
-title: "檢閱使用 Azure Site Recovery 將 Hyper-V 複寫至次要網站的架構 | Microsoft Docs"
+title: "HYPER-V 複寫至 Azure Site Recovery 中的次要站台架構 |Microsoft 文件"
 description: "本文提供使用 Azure Site Recovery 將內部部署 Hyper-V VM 複寫至次要 System Center VMM 網站的架構概觀。"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V 複寫至次要網站
 
@@ -51,20 +43,18 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="failover-and-failback-process"></a>容錯移轉和容錯回復程序
 
-1. 您可以容錯移轉單一機器，或建立復原方案來協調多部機器的容錯移轉。
-2. 您可以在內部部署網站間執行計劃性或非計劃性的容錯移轉。 如果您執行計劃性容錯移轉，則來源 VM 會關閉以確保不會遺失資料。
+- 您可以容錯移轉單一機器，或建立復原方案來協調多部機器的容錯移轉。
+- 您可以在內部部署網站間執行計劃性或非計劃性的容錯移轉。 如果您執行計劃性容錯移轉，則來源 VM 會關閉以確保不會遺失資料。
     - 如果您執行非計劃性容錯移轉到次要網站，則在容錯移轉之後，不會保護次要位置中的容錯移轉機器。
     - 如果您執行了計劃性容錯移轉，則在容錯移轉之後，次要位置中的容錯移轉機器會受到保護。
-3. 執行初始容錯移轉之後，您要認可讓它開始從複寫 VM 存取工作負載。
-
-當主要位置恢復可用狀態時，您就可以容錯回復。
-
-1. 您可起始反向複寫，開始從次要網站複寫到主要網站。 反向複寫會讓虛擬機器進入受保護的狀態，但是次要資料中心仍是使用中位置。
-2. 若要讓主要網站再次成為使用中位置，您需要起始從次要網站到主要網站的計劃性容錯移轉，然後再進行另一個反向複寫。
+- 執行初始容錯移轉之後，您要認可讓它開始從複寫 VM 存取工作負載。
+- 當主要位置恢復可用狀態時，您就可以容錯回復。
+    - 您可起始反向複寫，開始從次要網站複寫到主要網站。 反向複寫會讓虛擬機器進入受保護的狀態，但是次要資料中心仍是使用中位置。
+    - 若要讓主要網站再次成為使用中位置，您需要起始從次要網站到主要網站的計劃性容錯移轉，然後再進行另一個反向複寫。
 
 
 
 ## <a name="next-steps"></a>後續步驟
 
-請檢閱「遵循教學課程」支援對照表，以啟用 VMM 雲端之間的 Hyper-V 複寫。
-執行容錯移轉和容錯回復。
+
+請遵循[本教學課程](tutorial-vmm-to-vmm.md)啟用 HYPER-V 複寫，VMM 雲端之間。

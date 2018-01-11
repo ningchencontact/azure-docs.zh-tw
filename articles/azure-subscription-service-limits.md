@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/17/2017
 > [!NOTE]
 > 如果您想要將限制或配額提升到**預設限制**以上，您可以[免費提出線上客戶支援要求](azure-supportability/resource-manager-core-quotas-request.md)。 您無法將限制提升到高於下表中所示的**上限**值。 如果沒有**上限**欄，資源即沒有可調整的限制。
 >
-> 免費試用訂用帳戶無法增加限制或配額。 如果您有免費試用，則可以升級到 [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/) 訂用帳戶。 如需詳細資訊，請參閱[將 Azure 免費試用版升級至隨收隨付](billing/billing-upgrade-azure-subscription.md)。
+> [免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)不適合使用限制或稱為配額增加。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，您可以升級到[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱[升級 Azure 免費試用，以隨用隨付](billing/billing-upgrade-azure-subscription.md)和[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure 資源管理員
@@ -85,6 +85,7 @@ ms.lasthandoff: 11/17/2017
 * [服務匯流排](#service-bus-limits)
 * [站台復原](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
+* [SQL 資料倉儲](#sql-data-warehouse-limits)
 * [儲存體](#storage-limits)
 * [StorSimple 系統](#storsimple-system-limits)
 * [串流分析](#stream-analytics-limits)
@@ -176,11 +177,11 @@ ms.lasthandoff: 11/17/2017
 
 如需其他詳細資訊，請參閱 [虛擬機器大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 。
 
-#### <a name="managed-virtual-machine-disks"></a>受管理的虛擬機器磁碟
+#### <a name="managed-virtual-machine-disks"></a>受控虛擬機器磁碟
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
 
-#### <a name="unmanaged-virtual-machine-disks"></a>未受管理的虛擬機器磁碟
+#### <a name="unmanaged-virtual-machine-disks"></a>非受控虛擬機器磁碟
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
@@ -309,7 +310,10 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 ### <a name="sql-database-limits"></a>SQL Database 限制
 如需 SQL Database 的限制，請參閱 [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)。
 
-## <a name="see-also"></a>另請參閱
+### <a name="sql-data-warehouse-limits"></a>SQL 資料倉儲的限制
+SQL 資料倉儲的限制，請參閱[SQL 資料倉儲資源限制](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。
+
+## <a name="see-also"></a>請參閱
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Azure 的虛擬機器和雲端服務大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

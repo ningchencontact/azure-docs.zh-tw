@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -282,11 +282,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 資料 | 說明 | 引進的版本 
 -----|-------------|-----------------------
 location | VM 執行所在的 Azure 區域 | 2017-04-02 
-名稱 | VM 的名稱 | 2017-04-02
+name | VM 的名稱 | 2017-04-02
 提供項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
 sku | VM 映像的特定 SKU | 2017-04-02
-版本 | VM 映像的版本 | 2017-04-02
+version | VM 映像的版本 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * 執行個體中繼資料服務需要在要求中傳遞標頭 `Metadata: true`。 在 REST 呼叫中傳遞此標頭可允許存取執行個體中繼資料服務。 
 2. 為什麼我沒有收到我的 VM 計算資訊？
    * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來，我們可能會新增雲端服務 VM 支援。
-3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼我看不到計算中繼資料資訊？
+3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼無法查看計算中繼資料資訊？
    * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 4. 我看不到針對 2017-08-01 這個新版本所填入的所有資料
    * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 7. 這是否適用於虛擬機器擴展集執行個體？
    * 是，中繼資料服務適用於擴展集執行個體。 
 8. 如何取得服務支援？
-   * 若要取得服務支援，請在 Azure 入口網站中針對您無法在長時間重試後取得中繼資料回應的 VM 建立支援問題。 
+   * 若要取得支援服務，建立支援要求 Azure 入口網站中，您不能在長時間重試後取得中繼資料回應的 vm 
 
    ![執行個體中繼資料支援](./media/instance-metadata-service/InstanceMetadata-support.png)
     

@@ -3,16 +3,18 @@ title: "空拍影像分類 | Microsoft Docs"
 description: "提供關於空拍影像分類實際案例的指示"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.workload: data-services
+ms.date: 12/13/2017
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>空拍影像分類
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 12/05/2017
 
 ![空拍影像分類實際案例的圖解](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[逐步指示](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/)一開始會先帶領您建立和準備 Azure 儲存體帳戶與 Spark 叢集，包括資料傳輸和相依性安裝。 接著，它們會說明如何啟動訓練作業，並比較所產生模型的效能。 最後，它們會說明如何將選擇的模型套用到 Spark 叢集上的大型影像集合，並在本機分析預測結果。
+這些逐步指示開始透過帶領您完成建立和 Azure 儲存體帳戶和 Spark 叢集，包括資料傳輸和相依性安裝的準備工作。 接著，它們會說明如何啟動訓練作業，並比較所產生模型的效能。 最後，它們會說明如何將選擇的模型套用到 Spark 叢集上的大型影像集合，並在本機分析預測結果。
 
 
 ## <a name="set-up-the-execution-environment"></a>設定執行環境
@@ -52,7 +54,7 @@ ms.lasthandoff: 12/05/2017
 下列指示會引導您完成為此範例設定執行環境的程序。
 
 ### <a name="prerequisites"></a>必要條件
-- [Azure 帳戶](https://azure.microsoft.com/en-us/free/) (提供免費試用)
+- [Azure 帳戶](https://azure.microsoft.com/free/) (提供免費試用)
     - 您會建立具有 40 個背景工作節點 (總計 168 個核心) 的 HDInsight Spark 叢集。 請在 Azure 入口網站的訂用帳戶中檢閱 [使用量 + 配額] 索引標籤，以確定您的帳戶具有足夠的可用核心。
        - 如果您的可用核心較少，則可以修改 HDInsight 叢集範本，以減少佈建的背景工作數目。 這方面的指示會出現在 [建立 HDInsight Spark 叢集] 區段下。
     - 這個範例會建立具有兩個 NC6 (1 GPU，6 vCPU) VM 的 Batch AI 定型叢集。 請在 Azure 入口網站的訂用帳戶中檢閱 [使用量 + 配額] 索引標籤，以確定您在美國東部區域的帳戶具有足夠的可用核心。
@@ -67,8 +69,8 @@ ms.lasthandoff: 12/05/2017
         - "Install Azure Python SDK"
     - 記錄指導您建立之 Azure Active Directory 應用程式的用戶端識別碼、祕密和租用戶識別碼。 您稍後將會在本教學課程中使用那些認證。
     - 撰寫本文時，Azure Machine Learning Workbench 和 Azure Batch AI 會使用 Azure CLI 2.0 的不同分支。 為了清楚起見，我們將參考 CLI 的 Workbench 版本作為「從 Azure Machine Learning Workbench 啟動的 CLI」，以及一般發行版本 (包含 Batch AI) 作為「Azure CLI 2.0」。
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)，可用來協調 Azure 儲存體帳戶之間檔案傳輸的免費公用程式
-    - 請確定包含 AzCopy 可執行檔的資料夾位於您系統的 PATH 環境變數上。 ([這裡](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)有提供如何修改環境變數的指示。)
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)，可用來協調 Azure 儲存體帳戶之間檔案傳輸的免費公用程式
+    - 請確定包含 AzCopy 可執行檔的資料夾位於您系統的 PATH 環境變數上。 ([這裡](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp)有提供如何修改環境變數的指示。)
 - 針對 SSH 用戶端；我們建議 [PuTTY](http://www.putty.org/)。
 
 此範例已在 Windows 10 電腦上進行過測試；您應該能夠從任何 Windows 機器 (包括 Azure 資料科學虛擬機器) 執行此範例。 根據[這些指示](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)從 MSI 安裝 Azure CLI 2.0。 您可能需要稍做修改 (例如，變更 filepaths) 才能在 macOS 上執行此範例。
@@ -157,14 +159,14 @@ ms.lasthandoff: 12/05/2017
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    檔案傳輸時間預期需要 20 分鐘。 在等候時，您可以繼續進行下一節：您可能需要透過 Workbench 開啟另一個命令列介面，並在那裡重新定義暫存變數。
+    預期的檔案傳輸到需要大約一小時。 雖然您等待，您可以繼續到下一節： 您可能需要開啟另一個命令列介面透過 Workbench 並重新定義那里的暫存變數。
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>建立 HDInsight Spark 叢集
 
 建議您使用此專案子資料夾 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" 中包含的 HDInsight Spark 叢集 Resource Manager 範本，來建立 HDInsight 叢集。
 
-1. HDInsight Spark 叢集範本是此專案子資料夾 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" 下的 "template.json" 檔案。 根據預設，此範本建立的 Spark 叢集包含 40 個背景工作節點。 如果您必須調整該數字，請使用慣用的文字編輯器開啟範本，並以您選取的背景工作節點數目全部取代 "40" 個執行個體。
-    - 如果您選擇的背景工作節點數目很小，可能會發生記憶體不足的錯誤。 若要解決記憶體錯誤，您可以在可用資料的子集上執行定型和運算化指令碼 (此文章稍後會說明)。
+1. HDInsight Spark 叢集範本是此專案子資料夾 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" 下的 "template.json" 檔案。 根據預設，此範本建立的 Spark 叢集包含 40 個背景工作節點。 如果您必須調整該數字，慣用的文字編輯器中開啟範本和"40"的任何執行個體取代為您選擇的背景工作節點數。
+    - 如果您選擇的背景工作節點數較小，可能稍後遇到記憶體不足錯誤。 若要解決記憶體錯誤，您可以在可用資料的子集上執行定型和運算化指令碼 (此文章稍後會說明)。
 2. 為 HDInsight 叢集選擇唯一的名稱和密碼，並寫入下列命令中指示的位置：然後發出命令以建立叢集：
 
     ```
@@ -248,12 +250,10 @@ Batch AI 叢集會存取網路檔案伺服器上的定型資料。 相較於從 
 
 #### <a name="create-a-batch-ai-cluster"></a>建立 Batch AI 帳戶
 
-1. 發佈下列命令來建立叢集：
+1. 發出下列命令，以建立叢集：
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. 您可以使用下列命令來檢查您叢集的佈建狀態：
@@ -304,7 +304,7 @@ Batch AI 叢集會存取網路檔案伺服器上的定型資料。 相較於從 
 1.  從 Azure Machine Learning 命令列介面發佈下列命令：
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     此命令會將兩個檔案 (`myhdi.runconfig` 和 `myhdi.compute`) 新增至您專案的 `aml_config` 資料夾。
@@ -378,7 +378,7 @@ az ml experiment submit -c myhdi Code\02_Modeling\run_mmlspark.py --config_filen
 
 執行兩個或更多任一類型的定型執行後，您可以按一下功能表列左側上的時鐘圖示，瀏覽至 Workbench 中的執行歷程記錄功能。 從左側的指令碼清單中選取 `run_mmlspark.py`。 窗格會隨即載入，並比較所有執行的測試組精確度。 若要查看更多詳細資料，向下捲動並按一下個別執行的名稱。
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 若要在 HDInsight 上使用遠端執行，來將其中一個定型模型套用至空拍影像拼湊的麻薩諸塞州密得塞斯郡，請將您需要的模型名稱插入下列命令並執行：
 

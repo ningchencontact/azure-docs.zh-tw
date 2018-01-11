@@ -1,5 +1,5 @@
 ---
-title: "使用 C# 來管理 Azure Time Series Insights 環境中的參考資料 | Microsoft Docs"
+title: "管理 Azure 時間數列 Insights 環境中使用 C# 中的參考資料 |Microsoft 文件"
 description: "本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。"
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/21/2017
-ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 
@@ -56,7 +56,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
         // For automated execution under application identity,
         // use application created in Active Directory.
         // To create the application in AAD, follow the steps provided here:
-        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+        // https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
         // SET the application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
@@ -156,7 +156,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(

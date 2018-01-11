@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 25dc37c10435e45bc56fd48488f9f238922ed6e3
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 建立 HDInsight 叢集
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/02/2017
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 * **Azure CLI**。 這份文件中的步驟最近一次是以 Azure CLI 版本 0.10.14 來測試。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/02/2017
 
 ## <a name="log-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶
 
-依照 [從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶](../xplat-cli-connect.md) 中記載的步驟，使用 **login** 方法連線到您的訂用帳戶。
+依照 [從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli) 中記載的步驟，使用 **login** 方法連線到您的訂用帳戶。
 
 ## <a name="create-a-cluster"></a>建立叢集
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/02/2017
     * 以當您使用 SSH 存取叢集時所要使用的使用者名稱和密碼取代 `sshuser` 和 `sshuserpassword`。
 
     > [!IMPORTANT]
-    > 此範例使用兩個背景工作角色節點建立叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
+    > 這個範例會建立兩個背景工作節點叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
     >
     > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 

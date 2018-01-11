@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>建立 Xamarin.Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 完成本教學課程是所有其他 Xamarin.Forms 應用程式的行動應用程式教學課程的必要條件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 移至 [Azure 入口網站]。
 
-2. 在行動裝置應用程式的 [設定] 刀鋒視窗上，於 [行動] 之下，選取 [開始使用] > [Xamarin.Forms]。 在**步驟 3** 之下，選取 [建立新的應用程式]，然後選取 [下載]。
+2. 在行動應用程式的設定刀鋒視窗上，按一下 [快速入門] (在 [部署] 之下) > [Xamarin.Forms]。 在步驟 3 中，按一下 建立新的應用程式 \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
 
    此動作會下載包含連線到您行動裝置應用程式之用戶端應用程式的專案。 將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -178,8 +178,9 @@ ms.lasthandoff: 10/11/2017
 * [啟用應用程式的離線同步處理](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   了解如何使用 Mobile Apps 後端，為應用程式新增離線支援。 使用離線同步，即便在沒有網路連線的情況下，您也能檢視、新增或修改行動裝置應用程式的資料。
 
-* [對 Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  了解如何在 Xamarin 應用程式中使用受管理的用戶端 SDK。
+* 
+              [對 Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)  
+了解如何在 Xamarin 應用程式中使用受控用戶端 SDK。
 
 <!-- Anchors. -->
 [Get started with Mobile Apps back ends]:#getting-started

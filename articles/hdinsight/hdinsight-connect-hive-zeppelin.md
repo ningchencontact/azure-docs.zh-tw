@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.openlocfilehash: 4b2ca9dd60187904d9d22e8308e31ed46b1213e6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 39f99bef252e93db55e0493ee284ef78b7d087a1
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢 
 
@@ -77,6 +77,7 @@ HDInsight 互動式查詢叢集納入了 Zeppelin 筆記本，以供您用來執
 在本文中，您已了解如何使用 Power BI 將 HDInsight 中的資料視覺化。  若要深入了解，請參閱下列文章：
 
 * [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](hadoop/apache-hadoop-connect-hive-power-bi.md)。
+* [互動式查詢 Hive 與 Azure HDInsight 中的 Power BI 的資料視覺化](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
 * [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。
 * [使用 Power Query 將 Excel 連線到 Hadoop](hadoop/apache-hadoop-connect-excel-power-query.md)。
 * [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](hadoop/apache-hadoop-visual-studio-tools-get-started.md)。

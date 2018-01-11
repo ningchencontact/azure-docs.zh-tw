@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -46,7 +46,8 @@ Azure Functions Tools 提供下列優點：
 
 * 有效的 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，可以使用[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-* Azure 儲存體帳戶。 若要建立儲存體帳戶，請參閱[儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。  
+* Azure 儲存體帳戶。 若要建立儲存體帳戶，請參閱[儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+
 ## <a name="create-an-azure-functions-project"></a>建立 Azure Functions 專案 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -68,7 +69,7 @@ Azure Functions Tools 提供下列優點：
 
 1. 在 Visual Studio 中，開啟 [Cloud Explorer]，展開 [儲存體帳戶] > 「您的儲存體帳戶」，然後選取 [屬性] 並複製 [主要連接字串] 值。   
 
-2. 在您的專案中，開啟 local.settings.json 專案檔案並將 **AzureWebJobsStorage** 機碼的值設定為您所複製的連接字串。
+2. 在專案中，開啟 local.settings.json 檔案和設定的值**AzureWebJobsStorage**您複製到連接字串索引鍵。
 
 3. 重複上一步，針對函數所需的其他任何連接，將唯一機碼新增至 [值] 陣列。  
 
@@ -106,7 +107,7 @@ Azure Functions Tools 提供下列優點：
     } 
     ````
  
-    會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會作為參數傳遞。  
+    會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會當做參數傳遞給**QueueTrigger**屬性。
 
 ## <a name="testing-functions"></a>測試函式
 
@@ -136,4 +137,4 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 如需 Azure Functions Tools 的詳細資訊，請參閱 [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) \(英文\) 部落格文章的＜常見問題＞一節。
 
 若要深入了解 Azure Functions Core Tools，請參閱[在本機撰寫和測試 Azure Functions 程式碼](functions-run-local.md)。  
-若要深入了解如何將函式開發為 .NET 類別庫，請參閱[搭配使用 .NET 類別庫與 Azure Functions](functions-dotnet-class-library.md)。 本主題也提供範例以示範如何使用屬性宣告 Azure Functions 所支援的各種繫結類型。    
+若要深入了解開發函式做為.NET 類別庫，請參閱[Azure 函式 C# 開發人員參考](functions-dotnet-class-library.md)。 本主題也會連結至如何使用屬性來宣告各種類型的支援的 Azure 函式繫結的範例。    

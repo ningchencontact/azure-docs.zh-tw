@@ -3,8 +3,8 @@ title: "使用 Mobile Apps 在 Android 上新增驗證 | Microsoft Docs"
 description: "了解如何使用 Azure App Service 的 Mobile Apps 功能，透過眾多識別提供者驗證 Android 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-android-app"></a>將驗證加入 Android 應用程式中
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 Android 上的 TodoList 快速入門專案。 本教學課程以[開始使用 Mobile Apps] 為基礎，您必須先完成該教學課程。
 
 ## <a name="register"></a>註冊應用程式進行驗證，並設定 Azure App Service
@@ -39,9 +39,9 @@ ms.lasthandoff: 11/20/2017
 
 3. 在 [允許的外部重新導向 URL] 中，輸入 `appname://easyauth.callback`。  此字串中的 appname 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
 
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
 ## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

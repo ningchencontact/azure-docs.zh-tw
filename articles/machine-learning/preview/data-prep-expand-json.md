@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 614f4422aa987fc32dcce62826bb2477473fdc32
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="expand-json-transformation"></a>展開 JSON 轉換
 **展開 JSON**轉換可讓使用者將包含有效 JSON 文字的現有資料行展開至多個資料行。
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 請遵循下列步驟以執行此轉換：
 1. 選取包含 JSON 文字的來源資料行。
 2. 從 [轉換] 功能表選取 [展開 JSON]。 或者，在來源資料行的標頭上按一下滑鼠右鍵，並從操作功能表選取 [展開 JSON]。 
-3. 按一下 [確定] 。 
+3. 按一下 [SERVICEPRINCIPAL] 。 
  
 隨即在來源資料行旁邊新增新的資料行。 這些資料行包含 JSON 文字中下一層的屬性。 屬性索引鍵 (若有的話) 會用來建立對應資料行的名稱。 巢狀屬性將會保留為 JSON 文字，使用者可以視需要反覆展開或捨棄。
 

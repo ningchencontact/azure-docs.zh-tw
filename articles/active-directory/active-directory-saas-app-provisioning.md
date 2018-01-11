@@ -4,7 +4,7 @@ description: "簡介如何使用 Azure AD 自動佈建、解除佈建，以及�
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cd82ef109abbc5707db4c02c2f14f9d55dfb74e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 應用程式的自動化使用者佈建是什麼？
@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://az
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>哪些應用程式和系統可以搭配使用 Azure AD 自動使用者佈建？
 
-Azure AD 提供對許多熱門 SaaS 應用程式和人力資源系統的預先整合支援，以及對於實施 [SCIM 2.0 標準](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning)特定部分的應用程式的一般支援。
+Azure AD 提供對許多熱門 SaaS 應用程式和人力資源系統的預先整合支援，以及對於實施 [SCIM 2.0 標準](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning)特定部分的應用程式的一般支援。
 
 Azure AD 應用程式資源庫中的所有「精選」應用程式都支援自動化使用者佈建。 [精選應用程式的清單可以在此檢視̂。](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

@@ -4,7 +4,7 @@ description: "在使用存取面板時，取得常見工作的執行指示。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>是否需要 My Apps 入口網站的協助？
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/23/2017
 
 - 確定密碼未過期或忘記。 如需如何更新密碼的詳細資訊，請參閱[這裡](active-directory-passwords-update-your-own-password.md)。
 
-- 查看您的驗證連絡資訊是否為最新的，並且不會封鎖您的存取。 如需設定驗證資訊的詳細資訊，請參閱[這裡](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user)。
+- 查看您的驗證連絡資訊是否為最新的，並且不會封鎖您的存取。 如需設定驗證資訊的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user)。
 
 - 嘗試清除瀏覽器的 Cookie，然後嘗試再次登入。
 
@@ -51,17 +51,17 @@ ms.lasthandoff: 10/23/2017
 身為一般使用者，您可以重設密碼或解除鎖定您的帳戶，而不需使用自助式密碼重設 (SSPR) 與人員對話。 在您可以使用這項功能之前，您必須註冊驗證方法，或確認您系統管理員已填入的預先定義驗證方法。 如需詳細資訊，請參閱[註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>我無法安裝 My Apps 入口網站瀏覽器延伸模組
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>我無法安裝 我的應用程式安全登入的擴充功能
 
 查看是否符合瀏覽器需求：
 
 - 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如果您使用密碼單一登入應用程式，就必須一併安裝隨附的延伸模組。 當您啟動已設定密碼單一登入的應用程式時，就會自動下載此延伸模組。
 
 - 延伸模組的的瀏覽器需求為：
-    - 在 Windows 7 或更新版本上的 Internet Explorer 8、9、10、11
     - Windows 10 Anniversary Edition 或更新版本上的 Edge
     - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上的 Chrome
     - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上的 Firefox 26.0 或更新版本
+    - Internet Explorer 8、 9、 10、 11，在 Windows 7 或更新版本 （有限的支援）
 
 您也可以從下列直接連結中下載適用於 Chrome 和 Edge 的延伸模組：
 
@@ -76,6 +76,32 @@ ms.lasthandoff: 10/23/2017
 - 重新啟動您的瀏覽器，然後登入 My Apps 入口網站。
 
 - 清除瀏覽器的 Cookie，然後登入 My Apps 入口網站。
+- 請遵循[疑難排解的 Internet Explorer 的 存取面板延伸模組](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting)上的指南存取診斷工具和逐步解說指示設定 ie 的延伸模組。
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>如何使用 我的應用程式安全登入副檔名？
+變更我的應用程式的預設 URL，延伸模組
+
+如果您使用不同的我的應用程式 URL https://myapps.microsoft.com 比然後您必須設定您的預設 URL 透過下列步驟：
+1. 未簽署成擴充功能，而**以滑鼠右鍵按一下**擴充圖示。
+2. 按一下**選取我的應用程式 URL**從功能表。
+3. **選取**預設 URL。
+4. 按一下擴充功能圖示。
+5. 登入選取的延伸模組**登入，若要開始使用**。
+
+直接從瀏覽器應用程式將登入
+1. 安裝擴充功能，登入選取的擴充功能之後**登入，若要開始使用**。
+2. 瀏覽至**登入 URL**您想要登入的應用程式，這是通常會顯示登入表單應用程式的 URL。
+3. 該擴充功能應該變更狀態，並可讓您知道密碼，請按一下**擴充圖示**登入
+
+啟動應用程式從延伸模組
+1. 安裝擴充功能，登入選取的擴充功能之後**登入，若要開始使用**。
+2. 按一下 擴充功能圖示以開啟其功能表。
+3. **搜尋**我的應用程式入口網站中提供的應用程式。
+4. 按一下應用程式，從**搜尋結果**來啟動它。
+5. 啟動的最後三個應用程式也會顯示在**最近使用過**快顯清單
+
+> [!NOTE]
+> 這些選項僅適用於 Edge、 Chrome、 Firefox。
 
 ## <a name="how-do-i-add-a-new-app"></a>如何新增應用程式？
 
@@ -92,9 +118,9 @@ ms.lasthandoff: 10/23/2017
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>如何管理我的群組成員資格？
 
-1. 按一下 [群組] 應用程式圖格。 
-2. 若要建立群組，請在 [我擁有的群組] 底下，按一下 [建立群組]，然後依照指示進行。
-3. 若要加入群組，請在 [我所在的群組] 底下，按一下 [加入群組]，然後依照指示進行。
+1. 按一下**群組**磚。 
+2. 若要建立群組時，我所擁有的群組 下按一下**建立群組**，然後依照指示進行。
+3. 若要加入群組，在群組中，我是按一下**加入群組**，然後依照指示進行。
 
 **備註：**
 

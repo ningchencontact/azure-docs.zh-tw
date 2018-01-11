@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>準備異地複寫的 Azure Container Registry
 
@@ -93,7 +93,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 現在，您已設定異地複寫、建置容器映像，並將它推送到您的登錄。 您必須先登入 ACR 執行個體，再將映像推送至該處。 使用[基本 SKU、標準 SKU 和進階 SKU](container-registry-skus.md)時，您可以使用 Azure 身分識別進行驗證。
 
-使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) 命令，驗證並快取登錄的認證。 將 `<acrName>` 取代為您在上述步驟中建立的登錄名稱。
+使用 [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) 命令，驗證並快取登錄的認證。 將 `<acrName>` 取代為您在上述步驟中建立的登錄名稱。
 
 ```azurecli
 az acr login --name <acrName>

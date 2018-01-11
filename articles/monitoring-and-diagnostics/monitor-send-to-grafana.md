@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
 您現在也可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 此外掛程式會蒐集 Application Insights SDK 所收集的應用程式效能資料，以及 Azure 監視器提供的基礎結構資料。 然後，您就可以在 Grafana 儀表板上顯示此資料。
@@ -62,7 +62,7 @@ Grafana 使用 Azure Active Directory 服務主體連接到 Azure 監視器 API�
 
 1. 請參閱[這些指示](../azure-resource-manager/resource-group-create-service-principal-portal.md)來建立服務主體。 複製並儲存您的租用戶識別碼、用戶端識別碼和用戶端密碼。
 
-2. 請參閱[將應用程式指派給角色](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)，將讀取器角色指派給 Azure Active Directory 應用程式。   
+2. 請參閱[將應用程式指派給角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)，將讀取器角色指派給 Azure Active Directory 應用程式。     
 
 3. 如果您使用 Application Insights，您也可以包含 Application Insights API 和應用程式識別碼，收集 Application Insights 的基礎計量。 如需詳細資訊，請參閱 [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (取得 API 金鑰和應用程式識別碼)。
 

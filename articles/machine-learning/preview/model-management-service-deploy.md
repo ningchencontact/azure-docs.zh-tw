@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>將機器學習服務模型部署為 Web 服務
 
@@ -30,7 +30,7 @@ Azure Machine Learning 模型管理會提供介面供您將模型部署為容器
 部署步驟如下：
 1. 使用已儲存且經過訓練的機器學習服務模型
 2. 為 Web 服務的輸入和輸出資料建立結構描述
-3. 建立 Docker 型容器映像
+3. 建立 Docker 基礎容器映像
 4. 建立及部署 Web 服務
 
 ### <a name="1-save-your-model"></a>1.儲存模型
@@ -43,6 +43,7 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
@@ -86,9 +87,9 @@ generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
 
 在 score.py 檔案的頂端新增下列程式碼來啟用資料收集功能，以協助收集模型的輸入和預測資料
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 如需如何使用這項功能的詳細資訊，請查看[模型資料收集](how-to-use-model-data-collection.md)一節。
 

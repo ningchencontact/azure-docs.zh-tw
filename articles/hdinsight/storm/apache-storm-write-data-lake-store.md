@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>從 Apache Storm on HDInsight 寫入 HDFS
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 
 若要編譯此專案，您需要開發環境的下列設定：
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -59,7 +59,7 @@ HdfsBolt 會使用您提供的檔案配置來了解如何寫入 HDFS。 利用 H
 
 下表提供針對不同案例使用檔案配置的範例：
 
-| 配置 | 注意事項 |
+| 配置 | 注意 |
 | ----- | ----- |
 | `wasb:///` | 預設儲存體帳戶是 Azure 儲存體帳戶中的 Blob 容器 |
 | `adl:///` | 預設儲存體帳戶是 Azure Data Lake Store 中的目錄。 叢集建立期間，您可以指定 Data Lake Store 中其為叢集 HDFS 根目錄的目錄。 例如，`/clusters/myclustername/` 目錄。 |
@@ -140,7 +140,7 @@ bolts:
 
 根據預設，Storm on HDInsight 未包含 HdfsBolt 用來與 Storm Classpath 中出現的 Azure 儲存體或 Data Lake Store 進行通訊的元件。 請使用下列指令碼動作，將這些元件新增至叢集上 Storm 的 `extlib` 目錄：
 
-* 指令碼 URI：`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* 指令碼 URI：`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * 要套用的節點：Nimbus、Supervisor
 * 參數：無
 

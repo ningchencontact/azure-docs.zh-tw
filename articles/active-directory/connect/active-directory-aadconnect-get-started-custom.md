@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 724ccfbe6849c53f7c7e4e20444ac87197763e65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 | 選用組態 | 說明 |
 | --- | --- |
 | 使用現有的 SQL Server |可讓您指定 SQL Server 名稱和執行個體名稱。 如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。 如果您的 SQL Server 未啟用瀏覽，請在 [執行個體名稱]  中輸入執行個體名稱加上逗號及連接埠號碼。 |
-| 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受管理的服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。 請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
+| 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受控服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。 請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
 | 指定自訂同步群組 |Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。 這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。 您可以在此指定自己的群組。 群組必須位於伺服器本機上，不能位於網域中。 |
 
 ### <a name="user-sign-in"></a>使用者登入
@@ -50,12 +50,10 @@ ms.lasthandoff: 12/11/2017
 | 單一登入選項 | 說明 |
 | --- | --- |
 | 密碼雜湊同步處理 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。 使用者密碼會以密碼雜湊的形式同步至 Azure AD，並在雲端中進行驗證。 如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 |
-|傳遞驗證|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  使用者密碼會傳遞至內部部署 Active Directory 控制站進行驗證。
+|傳遞驗證|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  使用者密碼會傳遞至內部部署 Active Directory 網域控制站進行驗證。
 | 與 AD FS 同盟 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  系統會將使用者重新導向至他們的內部部署 AD FS 執行個體以進行登入，並在內部部署中進行驗證。 |
-| 請勿設定 |不會安裝和設定任何功能。 如果您已經有第三方的同盟伺服器或另一個現有的適當方案，請選擇此選項。 |
-|啟用單一登入|此選項同時適用於密碼同步處理和傳遞驗證，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。  如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。</br>(如果 PTA 未同時發行)
-|登入選項|此選項適用於密碼雜湊同步處理客戶，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。  </br>如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。
-
+| 請勿設定 |不會安裝和設定任何使用者登入功能。 如果您已經有第三方的同盟伺服器或另一個現有的適當方案，請選擇此選項。 |
+|啟用單一登入|此選項同時適用於密碼同步處理和傳遞驗證，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。 如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。</br>
 
 ### <a name="connect-to-azure-ad"></a>連接至 Azure AD
 在 [連接至 Azure AD] 畫面中，輸入全域系統管理員的帳戶和密碼。 如果您在前一個頁面選取 [與 AD FS 同盟]，請勿以您打算啟用同盟的網域中的帳戶登入。 建議使用隨附於 Azure AD 目錄的預設 **onmicrosoft.com** 網域中的帳戶。
@@ -81,11 +79,10 @@ ms.lasthandoff: 12/11/2017
 
 | 選項 | 說明 |
 | --- | --- |
-| 使用現有帳戶 | 如果您想要提供現有的 AD DS 帳戶，以便 Azure AD Connect 在目錄同步處理期間用於連線至 AD 樹系，請選取此選項。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。 不過，視您的情況而定，也可能需要更多權限。 如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)。 |
 | 建立新帳戶 | 如果您想要 Azure AD Connect 精靈建立 Azure AD Connect 在目錄同步處理期間連線至 AD 樹系所需的 AD DS 帳戶，請選取此選項。 選取此選項後，輸入企業管理帳戶的使用者名稱和密碼。 Azure AD Connect 精靈將會使用提供的企業管理帳戶來建立所需的 AD DS 帳戶。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\administrator 或 fabrikam.com\administrator。 |
+| 使用現有帳戶 | 如果您想要提供現有的 AD DS 帳戶，以便 Azure AD Connect 在目錄同步處理期間用於連線至 AD 樹系，請選取此選項。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。 不過，視您的情況而定，也可能需要更多權限。 如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)。 |
 
 ![連線目錄](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
-
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 登入組態
 此頁面可讓您檢閱內部部署 AD DS 中存在的 UPN 網域，以及已在 Azure AD 中驗證的 UPN 網域。 此頁面也可讓您設定要用於 userPrincipalName 的屬性。
@@ -172,7 +169,7 @@ ms.lasthandoff: 12/11/2017
 | 密碼回寫 |透過啟用密碼回寫，在 Azure AD 中產生的密碼變更會回寫至內部部署目錄。 如需詳細資訊，請參閱[開始使用密碼管理](../active-directory-passwords-getting-started.md)。 |
 | 群組回寫 |如果您使用 [Office 365 群組]  功能，就可以在內部部署的 Active Directory 中顯示這些群組。 只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。 如需詳細資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。 |
 | 裝置回寫 |在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。 如需詳細資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)。 |
-| 目錄擴充屬性同步處理 |透過啟用目錄擴充屬性同步處理，指定的屬性將會同步處理至 Azure AD。 如需詳細資訊，請參閱[目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md)。 |
+| 目錄擴充屬性同步處理 |透過啟用目錄擴充屬性同步處理，指定的屬性將會同步處理至 Azure AD。 如需詳細資訊，請參閱 [目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md)。 |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD 應用程式和屬性篩選
 如果您想要限制要將哪些屬性同步處理至 Azure AD，請先選取您將會使用的服務。 如果您在此頁面上進行組態變更，則必須重新執行安裝精靈來明確選取新的服務。
@@ -239,7 +236,7 @@ ms.lasthandoff: 12/11/2017
 >即使您未使用 Azure AD Connect 來管理您的同盟信任，您也可以使用 Azure AD Connect 更新 AD FS 伺服器陣列的 SSL 憑證。
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS 組態必要條件
-若要使用 Azure AD Connect 設定 AD FS 伺服器陣列，請確定已在遠端伺服器啟用 WinRM。 此外，請完成[表 3 - Azure AD Connect 和同盟伺服器/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) 中列出的連接埠需求。
+若要使用 Azure AD Connect 設定 AD FS 伺服器陣列，請確定已在遠端伺服器啟用 WinRM。 確定您已完成[同盟必要條件](active-directory-aadconnect-prerequisites.md#prerequisites-for-federation-installation-and-configuration)中的其他工作。 此外，請完成[表 3 - Azure AD Connect 和同盟伺服器/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) 中列出的連接埠需求。
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>建立新的 AD FS 伺服器陣列或使用現有的 AD FS 伺服器陣列
 您可以使用現有的 AD FS 伺服器陣列，或選擇建立新的 AD FS 伺服器陣列。 如果您選擇建立新的伺服器陣列，就必須提供 SSL 憑證。 如果 SSL 憑證有密碼保護，則系統會提示您輸入密碼。
@@ -252,7 +249,7 @@ ms.lasthandoff: 12/11/2017
 >Azure AD Connect 僅可用於管理一個 AD FS 伺服器陣列。 如果您與 Azure AD 的現有同盟信任是設定在選取的 AD FS 伺服器陣列上，則 Azure AD Connect 會從頭建立一次信任。
 
 ### <a name="specify-the-ad-fs-servers"></a>指定 AD FS 伺服器
-輸入想要在其中安裝 AD FS 的伺服器。 您可以根據容量規劃需求，加入一或多部伺服器。 請先將所有伺服器加入 Active Directory，再執行這項設定。 Microsoft 建議安裝一部專門用於測試和試驗部署的 AD FS 伺服器。 然後在完成初始設定之後透過再次執行 Azure AD Connect，新增及部署更多伺服器以符合您的調整需求。
+輸入想要在其中安裝 AD FS 的伺服器。 您可以根據容量規劃需求，加入一或多部伺服器。 請先將所有 AD FS 伺服器 (WAP 伺服器則不必) 加入 Active Directory，再執行這項設定。 Microsoft 建議安裝一部專門用於測試和試驗部署的 AD FS 伺服器。 然後在完成初始設定之後透過再次執行 Azure AD Connect，新增及部署更多伺服器以符合您的調整需求。
 
 > [!NOTE]
 > 請先確認所有伺服器均已加入 AD 網域，再執行這項設定。
@@ -265,7 +262,7 @@ ms.lasthandoff: 12/11/2017
 輸入您要做為 Web 應用程式 Proxy 伺服器的伺服器。 Web 應用程式 Proxy 伺服器會部署在您的 DMZ (外部網路對應) 中，且支援來自外部網路的驗證要求。 您可以根據容量規劃需求，加入一或多部伺服器。 Microsoft 建議安裝一部專門用於測試和試驗部署的 Web 應用程式 Proxy 伺服器。 然後在完成初始設定之後透過再次執行 Azure AD Connect，新增及部署更多伺服器以符合您的調整需求。 我們建議準備同樣數目的 Proxy 伺服器，以滿足來自內部網路的驗證需求。
 
 > [!NOTE]
-> <li> 如果您使用的帳戶不是 AD FS 伺服器上的本機系統管理員，則系統會提示您提供系統管理員認證。</li>
+> <li> 如果您使用的帳戶不是 WAP 伺服器上的本機系統管理員，則系統會提示您提供系統管理員認證。</li>
 > <li> 執行此步驟之前，請確認 Azure AD Connect 伺服器和 Web 應用程式 Proxy 伺服器之間有 HTTP/HTTPS 連線。</li>
 > <li> 請確認 Web 應用程式伺服器和 AD FS 伺服器之間的 HTTP/HTTPS 連線是否允許流入驗證要求。</li>
 >
@@ -279,10 +276,11 @@ ms.lasthandoff: 12/11/2017
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>指定 AD FS 服務的服務帳戶
 AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Directory 中查閱使用者資訊。 它可支援兩種類型的服務帳戶：
 
-* **群組受管理服務帳戶** ：在 Windows Server 2012 的 Active Directory 網域服務中導入。 此類型的帳戶可為 AD FS 之類的服務提供單一帳戶，而不需要定期更新帳戶密碼。 如果您在 AD FS 伺服器所屬的網域中已經有 Windows Server 2012 網域控制站，請使用此選項。
+* 
+            **群組受控服務帳戶** ：在 Windows Server 2012 的 Active Directory 網域服務中導入。 此類型的帳戶可為 AD FS 之類的服務提供單一帳戶，而不需要定期更新帳戶密碼。 如果您在 AD FS 伺服器所屬的網域中已經有 Windows Server 2012 網域控制站，請使用此選項。
 * **網域使用者帳戶** ：此類型的帳戶會要求您提供密碼，並在密碼變更或到期時定期更新密碼。 只有當您在 AD FS 伺服器所屬的網域中沒有 Windows Server 2012 網域控制站時，才能使用此選項。
 
-如果您選取了 [群組受管理服務帳戶]，而這項功能從未在 Active Directory 中使用過，系統會提示您輸入企業系統管理員認證。 這些認證會用來啟動金鑰存放區，並在 Active Directory 中啟用這項功能。
+如果您選取了 [群組受控服務帳戶]，而這項功能從未在 Active Directory 中使用過，系統會提示您輸入企業系統管理員認證。 這些認證會用來啟動金鑰存放區，並在 Active Directory 中啟用這項功能。
 
 > [!NOTE]
 > Azure AD Connect 會執行檢查，以偵測 AD FS 服務是否已經註冊為網域中的 SPN。  AD DS 不允許同時註冊重複的 SPN。  如果找到重複的 SPN，請先移除此 SPN，才能繼續執行。

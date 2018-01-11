@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -49,21 +49,20 @@ Site Recovery 可協助您實作應用程式層級的保護和復原，如下所
 ## <a name="workload-summary"></a>工作負載摘要
 Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此外，我們已經與產品團隊合作，合力執行額外的特定應用程式測試。
 
-| **工作負載** | **將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory、DNS |Y |Y |Y |Y |
-| Web 應用程式 (IIS、SQL) |Y |Y |Y |Y |
-| System Center Operations Manager |Y |Y |Y |Y |
-| Sharepoint |Y |Y |Y |Y |
-| SAP<br/><br/>將 SAP 網站複寫至非叢集的 Azure |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |
-| Exchange (非 DAG) |Y |Y |Y |Y |
-| 遠端桌面/VDI |Y |Y |Y |N/A |
-| Linux (作業系統和應用程式) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |
-| Dynamics AX |Y |Y |Y |Y |
-| Dynamics CRM |Y |敬請期待 |Y |敬請期待 |
-| Oracle |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |
-| Windows 檔案伺服器 |Y |Y |Y |Y |
-| Citrix XenApp 和 XenDesktop |N/A |Y |N/A |Y |
+| **工作負載** |**將 Azure VM 複寫至 Azure** |**將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory、DNS |Y |Y |Y |Y |Y|
+| Web 應用程式 (IIS、SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| Sharepoint |Y |Y |Y |Y |Y|
+| SAP<br/><br/>將 SAP 網站複寫至非叢集的 Azure |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
+| Exchange (非 DAG) |Y |Y |Y |Y |Y|
+| 遠端桌面/VDI |Y |Y |Y |Y |Y|
+| Linux (作業系統和應用程式) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
+| Dynamics AX |Y |Y |Y |Y |Y|
+| Oracle |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
+| Windows 檔案伺服器 |Y |Y |Y |Y |Y|
+| Citrix XenApp 和 XenDesktop |Y|N/A |Y |N/A |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>複寫 Active Directory 和 DNS
 Active Directory 和 DNS 基礎結構是大多數企業應用程式的必要項目。 在災害復原期間，您必須在復原工作負載和應用程式之前，先保護與復原這些基礎結構元件。
@@ -106,13 +105,16 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 遠端桌面服務 (RDS) 可啟用虛擬桌面基礎結構 (VDI)、以工作階段為基礎的桌面和應用程式，讓使用者可在任何地方工作。 使用 Azure Site Recovery，您可以：
 
 * 將受管理或未受管理的集區化虛擬桌面複寫至次要網站，以及將遠端應用程式和工作階段複寫至次要網站或 Azure。
+
 * 以下是您可以複寫的項目︰
 
-| **RDS** | **將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** | **將實體伺服器複寫到次要網站** | **將實體伺服器複寫到 Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **集區化虛擬桌面 (未受管理)** |是 |否 |是 |否 |是 |否 |
-| **集區化虛擬桌面 (受管理但不含 UPD)** |是 |否 |是 |否 |是 |否 |
-| **遠端應用程式和桌面工作階段 (不含 UPD)** |是 |是 |是 |是 |是 |是 |
+| **RDS** |**將 Azure VM 複寫至 Azure** | **將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** | **將實體伺服器複寫到次要網站** | **將實體伺服器複寫到 Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **集區化虛擬桌面 (未受管理)** |否|是 |否 |是 |否 |是 |否 |
+| **集區化虛擬桌面 (受管理但不含 UPD)** |否|是 |否 |是 |否 |是 |否 |
+| **遠端應用程式和桌面工作階段 (不含 UPD)** |是|是 |是 |是 |是 |是 |是 |
+
+[使用 Azure Site Recovery 設定適用於 RDS 的災害復原](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure)。
 
 [深入了解](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) 如何保護 RDS。
 

@@ -1,6 +1,6 @@
 ---
-title: "了解如何建立 Azure 受管理應用程式的 UI 定義 | Microsoft Docs"
-description: "描述如何建立 Azure 受管理應用程式的 UI 定義"
+title: "了解如何建立 Azure 受控應用程式的 UI 定義 | Microsoft Docs"
+description: "描述如何建立 Azure 受控應用程式的 UI 定義"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>為您的受管理應用程式建立 Azure 入口網站使用者介面
-本文件介紹 createUiDefinition.json 檔案的核心概念。 Azure 入口網站會使用這個檔案，產生用來建立受管理應用程式的使用者介面。
+# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>為您的受控應用程式建立 Azure 入口網站使用者介面
+本文件介紹 createUiDefinition.json 檔案的核心概念。 Azure 入口網站會使用這個檔案，產生用來建立受控應用程式的使用者介面。
 
 ```json
 {
@@ -39,11 +39,11 @@ CreateUiDefinition 一律會包含三個屬性︰
 
 * 處理常式
 * 版本
-* 參數
+* parameters
 
-針對受管理的應用程式，處理常式應該一律為 `Microsoft.Compute.MultiVm`，而最新的支援版本是 `0.1.2-preview`。
+針對受控應用程式，處理常式應該一律為 `Microsoft.Compute.MultiVm`，而最新的支援版本是 `0.1.2-preview`。
 
-parameters 屬性的結構描述取決於指定的處理常式和版本之組合。 針對受管理的應用程式，支援的屬性為 `basics`、`steps` 和 `outputs`。 basics 和 steps屬性包含要在 Azure 入口網站中顯示的_元素_ - 如同文字方塊和下拉式清單。 outputs 屬性可用來將指定元素的輸出值對應至 Azure Resource Manager 部署範本的參數。
+parameters 屬性的結構描述取決於指定的處理常式和版本之組合。 針對受控應用程式，支援的屬性為 `basics`、`steps` 和 `outputs`。 basics 和 steps屬性包含要在 Azure 入口網站中顯示的_元素_ - 如同文字方塊和下拉式清單。 outputs 屬性可用來將指定元素的輸出值對應至 Azure Resource Manager 部署範本的參數。
 
 建議包含 `$schema`，但是為選用。 如果指定，`version` 的值必須符合 `$schema` URI 內的版本。
 
@@ -58,6 +58,18 @@ steps 屬性可以包含零個或多個要在 basics 之後顯示的額外步驟
 ## <a name="outputs"></a>輸出
 Azure 入口網站會使用 `outputs` 屬性，將 `basics` 和 `steps` 的屬性對應至 Azure Resource Manager 部署範本的參數。 這個字典的金鑰是範本參數的名稱，而值則是所參照元素的輸出物件之屬性。
 
+若要設定的受管理的應用程式資源名稱，您必須包含名為的值`applicationResourceName`中的輸出屬性。 如果您未設定此值，應用程式會指派名稱的 GUID。 您可以包含文字方塊的名稱會向使用者要求的使用者介面中。
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
+
 ## <a name="functions"></a>Functions
 類似於 Azure Resource Manager 中的範本函式 (包括語法和功能)，CreateUiDefinition 提供的函式可用於元素的輸入與輸出，以及條件等功能。
 
@@ -67,6 +79,6 @@ createUiDefinition.json 檔案本身有簡單的結構描述。 它的實際深�
 - [元素](create-uidefinition-elements.md)
 - [函式](create-uidefinition-functions.md)
 
-以下位置可取得 createUiDefinition 目前的 JSON 結構描述︰https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json。 
+以下位置可取得 createUiDefinition 目前的 JSON 結構描述︰https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json。
 
-可在相同位置取得更新的版本。 將 URL 的 `0.1.2-preview` 部分和 `version` 值取代為您想要使用的版本識別碼。 目前支援的版本識別碼為 `0.0.1-preview`、`0.1.0-preview`、`0.1.1-preview` 和 `0.1.2-preview`。
+使用者介面檔案範例，請參閱[createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json)。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>自動調整規模的最佳做法
 本文會說明在 Azure 中自動調整的最佳做法。 Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[雲端服務](https://azure.microsoft.com/services/cloud-services/)和 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)。 其他 Azure 服務使用不同的調整方法。
@@ -44,9 +44,6 @@ ms.lasthandoff: 12/05/2017
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>請一律使用相應放大和相應縮小規則的組合來執行增加與減少。
 若您只使用組合中的其中一部分，則自動調整只會相應放大或縮小該單邊，直到達到最大值或最小值為止。
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>管理自動調整時，請勿切換使用 Azure 入口網站與 Azure 傳統入口網站。
-若是雲端服務及應用程式服務 (Web Apps)，請使用 Azure 入口網站 (portal.azure.com) 建立及管理自動調整設定。 若是虛擬機器擴展集，請使用 PowerShell、CLI 或 REST API 建立及管理自動調整設定。 管理自動調整設定時，請勿切換使用 Azure 傳統入口網站 (manage.windowsazure.com) 與 Azure 入口網站 (portal.azure.com)。 Azure 傳統入口網站及其基礎後端有其限制。 請使用 Azure 入口網站的圖形化使用者介面來管理自動調整。 此外也可選擇使用自動調整 PowerShell、CLI 或 REST API (透過 Azure 資源總管)。
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>為您的診斷度量選擇適當的統計資料
 針對診斷度量，您可以選擇 [平均值]、[最小值]、[最大值] 和 [總計] 作為據以調整的度量。 最常用的統計資料是 [平均值] 。

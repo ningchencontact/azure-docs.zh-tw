@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>您可以在 Data Science Virtual Machine 上做的十件事
 
@@ -353,10 +353,10 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 ![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
-### <a name="azure-data-lake"></a>Azure 資料湖
+### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存機制，與 Hadoop 分散式檔案系統 (HDFS) 相容。 它適用於 Hadoop 生態系統以及 Azure Data Lake Analytics。 我們會示範如何將資料移至 Azure 資料湖存放區，並使用 Azure 資料湖分析執行分析。
 
-**必要條件**
+**先決條件**
 
 * 在 [Azure 入口網站](https://portal.azure.com)中建立 Azure Data Lake Analytics。
 
@@ -443,7 +443,7 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 ![檔案摘要](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 叢集
-Azure HDInsight 是在雲端上的受管理 Apache Hadoop、Spark、HBase 和 Storm 服務。 您可以輕鬆地從資料科學虛擬機器使用 Azure HDInsight 叢集。
+Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm 服務。 您可以輕鬆地從資料科學虛擬機器使用 Azure HDInsight 叢集。
 
 **先決條件**
 
@@ -803,14 +803,14 @@ Azure Cosmos DB 是雲端中的一種 NoSQL 資料庫。 它可讓您使用 JSON
 
 您必須執行下列必要步驟，才能從 DSVM 存取 Azure Cosmos DB。
 
-1. 安裝 DocumentDB Python SDK (從命令提示字元執行 ```pip install pydocumentdb``` )
+1. 安裝 Azure Cosmos DB Python SDK (執行```pip install pydocumentdb```從命令提示字元)
 2. 從 [Azure 入口網站](https://portal.azure.com)建立 Azure Cosmos DB 帳戶和資料庫
 3. 從[這裡](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)下載「Azure Cosmos DB 移轉工具」並解壓縮至您所選的目錄
 4. 對移轉工具使用下列命令參數 (Cosmos DB 移轉工具安裝目錄中的 dtui.exe)，將儲存在[公用 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json) 的 JSON 資料 (Volcano 資料) 匯入 Cosmos DB。 輸入下面的來源和目標位置參數：
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-一旦匯入資料之後，您即可移至 Jupyter 並開啟標題為 *DocumentDBSample* 且包含 python 程式碼的筆記本，以存取 DocumentDB 及進行一些基本查詢。 如需深入了解 Cosmos DB，請參閱服務[文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
+一旦您匯入資料，您可以移至 Jupyter 並開啟標題為筆記型電腦*DocumentDBSample*包含 python 程式碼，以存取 Azure Cosmos DB 並執行一些基本的查詢。 如需深入了解 Cosmos DB，請參閱服務[文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8.使用 Power BI Desktop 建立報表和儀表板
 讓我們將在 Power BI 的前述 Cosmos DB 範例中看見的 Volcano JSON 檔案視覺化，以深入了解資料。 在 [Power BI 文章](../../cosmos-db/powerbi-visualize.md)中可找到詳細的步驟。 高階步驟如下：
@@ -864,6 +864,6 @@ Azure Cosmos DB 是雲端中的一種 NoSQL 資料庫。 它可讓您使用 JSON
 
 您可以運用本文略述的其他 Azure 資料和分析資料服務，以增強您的分析環境。 我們了解，在某些情況下您的需求可能需要額外的工具，包括一些專屬的協力廠商工具。 您有完整的系統管理權限可在虛擬機器上安裝您所需的新工具。 您也可以在 Python 和 R 中安裝其他未預先安裝的封裝。 對於 Python，您可以使用 ```conda``` 或 ```pip```。 對於 R，您可以在 R 主控台中使用 ```install.packages()```，或使用整合式開發環境 (IDE) 並選擇 [套件] -> [安裝套件]。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 這些只是您可以在 Microsoft Data Science Virtual Machine 上可做的一些事情。 您還可以做更多事情，讓它成為有效的分析環境。
 

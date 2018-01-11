@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的警示管理解決方案
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 | 連接的來源 | 支援 | 說明 |
 |:--- |:--- |:--- |
-| [Windows 代理程式](log-analytics-windows-agents.md) | 否 |直接的 Windows 代理程式不會產生警示。  您可以從收集自 Windows 代理程式的事件和效能資料建立 Log Analytics 警示。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 否 |直接的 Windows 代理程式不會產生警示。  您可以從收集自 Windows 代理程式的事件和效能資料建立 Log Analytics 警示。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 |直接的 Linux 代理程式不會產生警示。  您可以從收集自 Linux 代理程式的事件和效能資料建立 Log Analytics 警示。  您可以從需要 Linux 代理程式的伺服器收集 Nagios 和 Zabbix 警示。 |
 | [System Center Operations Manager 管理群組](log-analytics-om-agents.md) |是 |Operations Manager 代理程式上產生的警示會傳遞至管理群組，然後轉送到 Log Analytics。<br><br>不需要直接從 Operations Manager 代理程式連線到 Log Analytics。 警示資料會從管理群組轉送至 Log Analytics 儲存機制。 |
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
 | TimeRaised |產生警示的日期和時間。 |
 | TimeResolved |解決警示的日期和時間。 如果尚未解決警示，則為空白。 |
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 下表提供此解決方案所收集的警示記錄的記錄搜尋範例： 
 
 | 查詢 | 說明 |

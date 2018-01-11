@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Docs"
+title: "在 Azure 中的 Linux 上執行 Cassandra 叢集中，從 Node.js"
 description: "如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,25 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>在 Linux 中使用 Node.js 的 Azure 上執行 Cassandra 叢集
+
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 請參閱 [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) 的 Resource Manager 範本和 [CentOS 上的 Spark 叢集和 Cassandra](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 請參閱 [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) 的 Resource Manager 範本和 [CentOS 上的 Spark 叢集和 Cassandra](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/)。
 
 ## <a name="overview"></a>概觀
-Microsoft Azure 是一個開放雲端平台，可執行 Microsoft 和非 Microsoft 軟體，包括作業系統、應用程式伺服器、傳訊中介軟體，以及來自商業和開放原始碼模型的 SQL 和 NoSQL 資料庫。 如果要在包括 Azure 在內的公用雲端上建立具有恢復功能的服務，應用程式伺服器和儲存層都必須要有仔細的規劃和審慎的架構。 Cassandra 的分散式儲存架構天生就有助於建置可針對叢集失敗容錯的高可用性系統。 Cassandra 是一種雲端等級的 NoSQL 資料庫，由 Apache Software Foundation 維護 (網址 cassandra.apache.org)；Cassandra 以 Java 撰寫，因此可以在 Windows 與 Linux 平台上執行。
+Microsoft Azure 是執行 Microsoft 和非 Microsoft 軟體包括作業系統、 應用程式伺服器、 傳訊中介軟體，以及來自這兩個商業和開放原始碼模型的 SQL 和 NoSQL 資料庫開啟的雲端平台。 如果要在包括 Azure 在內的公用雲端上建立具有恢復功能的服務，應用程式伺服器和儲存層都必須要有仔細的規劃和審慎的架構。 Cassandra 的分散式儲存架構天生就有助於建置可針對叢集失敗容錯的高可用性系統。 Cassandra 為雲端延展在 cassandra.apache.org Apache Software Foundation 所維護的 NoSQL 資料庫。Cassandra 是以 Java 撰寫的。 因此它會執行同時針對 Windows 和 Linux 平台上。
 
-本文的重點將說明如何利用 Microsoft Azure 虛擬機器和虛擬網路，在 Ubuntu 上部署 Cassandra 做為單一和多重資料中心叢集。 用於實際執行環境最佳化工作負載的叢集部署超出本文的範圍，因為它需要多磁碟節點設定、適當的環狀拓撲設計及資料模型來支援所需的複寫、資料一致性、輸送量和高可用性需求。
+本文章的焦點是在 Ubuntu 上顯示 Cassandra 部署，為使用 Azure 虛擬機器和虛擬網路的單一和多資料中心叢集。 用於實際執行環境最佳化工作負載的叢集部署超出本文的範圍，因為它需要多磁碟節點設定、適當的通道拓撲設計及資料模型來支援所需的複寫、資料一致性、輸送量和高可用性需求。
 
 本文採用基本的方式說明建置 Cassandra 叢集所牽涉的工作，比起 Docker、Chef 或 Puppet，前者可讓基礎結構部署輕鬆許多。  
 
 ## <a name="the-deployment-models"></a>部署模型
-Microsoft Azure 網路功能可供部署獨立的私人叢集，透過限制其存取權以達到精細的網路安全性。  由於本文是關於基本層級的 Cassandra 部署，因此我們將不會著重在一致性層級和輸送量的最佳儲存體設計。 以下是我們假設叢集的網路功能需求清單：
+Microsoft Azure 網路功能可供部署獨立的私人叢集，透過限制其存取權以達到精細的網路安全性。  這篇文章是關於顯示在基本層級 Cassandra 部署，因為它不會著重於一致性層級和輸送量的最佳的儲存體設計。 以下是假設叢集的網路需求的清單：
 
 * 外部系統無法從 Azure 內部或外部存取 Cassandra 資料庫
 * Cassandra 叢集必須位於 thrift 流量的負載平衡器後方
@@ -42,12 +43,12 @@ Microsoft Azure 網路功能可供部署獨立的私人叢集，透過限制其�
 * 除了 SSH 以外，沒有其他公用網路端點
 * 每個 Cassandra 節點需要固定的內部 IP 位址
 
-Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的分散特性而定。 多重區域部署模型透過相同的 Cassandra 基礎結構，可用來服務接近特定地理位置的使用者。 Cassandra 的內建節點複寫負責同步處理來自多個資料中心的多重主機寫入，並且對應用程式提供一致的資料檢視。 多重區域部署也可以協助降低更多 Azure 服務中斷的風險。 Cassandra 的可微調一致性和複寫拓撲有助於滿足應用程式不同的 RPO 需求。
+Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的分散特性而定。 您可以使用多區域部署模型可讓使用者更接近透過相同的 Cassandra 基礎結構的特定地理位置。 Cassandra 的內建節點複寫負責同步處理來自多個資料中心的多重主機寫入，並且對應用程式提供一致的資料檢視。 多重區域部署也可以協助降低更多 Azure 服務中斷的風險。 Cassandra 的可微調的一致性與複寫拓撲，有助於滿足不同的應用程式的 RPO 需求。
 
 ### <a name="single-region-deployment"></a>單一區域部署
-我們將從單一區域部署開始，並學習建立多重區域模型。 我們將使用 Azure 虛擬網路功能建立獨立的子網路，以滿足先前所描述的網路安全性需求。  建立單一區域部署的程序使用 Ubuntu 14.04 LTS 和 Cassandra 2.08；不過，程序要改採用其他 Linux 版本也非常容易。 下列是單一區域部署的一些系統特性。  
+讓我們開始單一區域部署，蒐集在建立多區域模型所獲得的經驗。 Azure 的虛擬網路 」 可用來建立隔離的子網路，以便可以符合先前所述的網路安全性需求。  Ubuntu 14.04 LTS 和 Cassandra 2.08，則會使用建立單一區域部署中所述的程序。 不過，處理程序可以輕鬆地採用其他 Linux 變數。 下列是單一區域部署的一些系統特性。  
 
-**高可用性：** Cassandra 節點 (如圖 1 所示) 已部署至兩個可用性設定組，因此，節點會散佈於多個容錯網域之間，以獲取高可用性。 利用每個可用性設定組進行標註的 VM 會對應至 2 個容錯網域。  Microsoft Azure 會使用容錯網域的概念來管理意外關機時間 (例如，硬體或軟體失敗)，同時使用升級網域的概念 (例如，主機或客體 OS 修補/升級、應用程式升級) 來管理排程的停機時間。 如需用來取得高可用性之容錯和升級網域的角色，請參閱 [Azure 應用程式的災害復原與高可用性](http://msdn.microsoft.com/library/dn251004.aspx) 。
+**高可用性：** Cassandra 節點 (如圖 1 所示) 已部署至兩個可用性設定組，因此，節點會散佈於多個容錯網域之間，以獲取高可用性。 利用每個可用性設定組進行標註的 VM 會對應至 2 個容錯網域。 Azure 會使用容錯網域的概念來管理未規劃停機時間 （例如硬體或軟體失敗）。 升級網域，例如主機或客體作業系統修補程式/升級 （應用程式升級） 的概念用來管理排定停機時間。 如需用來取得高可用性之容錯和升級網域的角色，請參閱 [Azure 應用程式的災害復原與高可用性](http://msdn.microsoft.com/library/dn251004.aspx) 。
 
 ![單一區域部署](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -57,13 +58,13 @@ Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的
 
 **負載平衡 Thrift 流量：** Web 伺服器內部的 Thrift 用戶端程式庫會透過內部負載平衡器連線到叢集。 這需要將內部負載平衡器新增到「資料」子網路的程序 (請參閱圖 1)，這個子網路位於裝載 Cassandra 叢集的雲端服務內容中。 一旦定義內部負載平衡器之後，每個節點所需要的負載平衡端點，必須使用具有先前定義之負載平衡器名稱的負載平衡集註解來新增。 如需詳細資訊，請參閱 [Azure內部負載平衡 ](../../../load-balancer/load-balancer-internal-overview.md)。
 
-**叢集種子：** 務必選取可用性最高的節點做為種子，因為新的節點會與種子節點進行通訊以探索叢集的拓撲。 將每個可用性設定組中的一個節點指定為種子節點，可避免單一失敗點。
+**叢集種子：**請務必選取種子的最高可用性節點為新的節點與要探索的叢集拓撲種子節點通訊。 將每個可用性設定組中的一個節點指定為種子節點，可避免單一失敗點。
 
 **複寫因數和一致性層級：** Cassandra 內建的高可用性和資料耐久性的特點在於複寫因數 (RF - 儲存在叢集上的每個資料列複本數) 和一致性層級 (將結果傳回呼叫端之前要讀取/寫入的複本數)。 複寫因數是在 KEYSPACE (類似關聯式資料庫) 建立期間所指定，而一致性層級是在發出 CRUD 查詢的同時所指定。 如需一致性詳細資料和仲裁計算的公式，請參閱 Cassandra 文件中的 [一致性設定](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 。
 
-Cassandra 支援兩種類型的資料完整性模型 – 一致性和最終一致性。「複寫因素」和「一致性層級」將一起判斷資料會在寫入作業完成時就達成一致，或者最終才達成一致。 例如，指定「一致性層級」為 QUORUM，將永遠確保在任何一致性層級時的資料一致性，低於達到 QUORUM (例如 ONE) 所需寫入的複本數目，會造成資料在最終才達成一致。
+Cassandra 支援兩種類型的資料完整性模型 – 一致性和最終一致性。複寫因數和一致性層級同時決定只要在寫入作業已完成或最終保持一致的資料是否一致。 例如，指定仲裁一致性層級一律可確保資料一致性，同時視需要來達到仲裁 （例如一個） 要寫入的複本數目底下的任何一致性層導致取得一致的最終結果的資料。
 
-以上顯示的 8 節點叢集，使用 3 的複寫因素和 QUORUM (為了一致性而讀取或寫入 2 個節點) 讀取/寫入的一致性層級，在應用程式開始注意失敗之前，每個複寫群組最多只能有 1 個節點可避免理論性遺失。 這假設所有關鍵值空間都已經順利平衡讀取/寫入要求。  我們將針對已部署的叢集使用下列參數：
+以上顯示的 8 節點叢集，使用 3 的複寫因素和 QUORUM (為了一致性而讀取或寫入 2 個節點) 讀取/寫入的一致性層級，在應用程式開始注意失敗之前，每個複寫群組最多只能有 1 個節點可避免理論性遺失。 這假設所有關鍵值空間都已經順利平衡讀取/寫入要求。  以下是部署的叢集所使用的參數：
 
 單一區域 Cassandra 叢集設定：
 
@@ -74,31 +75,31 @@ Cassandra 支援兩種類型的資料完整性模型 – 一致性和最終一�
 | 一致性層級 (寫入) |QUORUM[(RF/2) +1) = 2] 公式結果無條件捨去 |在回應傳送至呼叫者之前，最多寫入 2 個複本；第 3 個複本會以最終一致的方式寫入。 |
 | 一致性層級 (讀取) |QUORUM [(RF/2) +1= 2] 公式結果無條件捨去 |在傳送回應給呼叫者之前讀取 2 個複本。 |
 | 複寫策略 |如需 NetworkTopologyStrategy 的詳細資訊，請參閱 Cassandra 文件中的 [資料複寫](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) (英文) |了解部署拓撲並將複本放在節點上，最後所有複本就不會都位於相同的機架上 |
-| Snitch |如需 GossipingPropertyFileSnitch 的詳細資訊，請參閱 Cassandra 文件中的 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) (英文) |NetworkTopologyStrategy 使用 Snitch 的概念來了解拓撲。 GossipingPropertyFileSnitch 在將各個節點對應到資料中心與機架時提供較好的控制。 叢集再使用 Gossip 來散佈這項資訊。 相對於 PropertyFileSnitch，這在動態 IP 設定中簡單許多 |
+| Snitch |GossipingPropertyFileSnitch，請參閱[交換器](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)Cassandra 文件，如需詳細資訊 |NetworkTopologyStrategy 使用 Snitch 的概念來了解拓撲。 GossipingPropertyFileSnitch 在將各個節點對應到資料中心與機架時提供較好的控制。 叢集再使用 Gossip 來散佈這項資訊。 相對於 PropertyFileSnitch，這在動態 IP 設定中簡單許多 |
 
-**Cassandra 叢集的 Azure 考量：** Microsoft Azure 虛擬機器功能會使用 Azure Blob 儲存體來取得磁碟持續性；Azure 儲存體會基於高持久性因素來為每個磁碟儲存 3 個複本。 這表示已插入 Cassandra 資料表的每個資料列都已經儲存於 3 個複本中，因此，即使複寫因數 (RF) 為 1，也已經兼顧到資料一致性。 複寫因數是 1 的主要問題在於，即使單一 Cassandra 節點失敗，應用程式還是會經歷停機時間。 不過，如果節點因為 Azure 網狀架構控制器所辨識出的問題 (例如，硬體、系統軟體失敗) 而關閉，它將會使用相同的儲存體磁碟機，在其位置中佈建新的節點。 佈建新節點來取代舊節點，可能需要幾分鐘的時間。  類似於如客體 OS 變更、Cassandra 升級及應用程式變更等預定維護活動，Azure 網狀架構控制器會在叢集中執行節點的輪流升級。  輪流升級也可能會一次關閉數個節點，因此，叢集可能會遇到數個磁碟分割短暫停機的狀況。 不過，資料將不會因為內建的 Azure 儲存體備援而遺失。  
+**Azure Cassandra 叢集的考量：** Microsoft Azure 虛擬機器功能使用 Azure Blob 儲存體磁碟持續性;Azure 儲存體儲存三個複本的每個磁碟為了高持久性。 這表示每個插入 Cassandra 資料表的資料列已經儲存在三個複本。 因此資料的一致性是已處理即使複寫因數 (RF) 為 1。 複寫因數是 1 的主要問題是應用程式遇到的停機時間，即使單一 Cassandra 節點失敗。 不過，如果節點已關閉 Azure 網狀架構控制器所辨識的問題 （例如硬體、 系統軟體失敗），它會提供給新的節點在其使用相同的存放磁碟機的位置。 佈建新節點來取代舊節點，可能需要幾分鐘的時間。  類似於如客體 OS 變更、Cassandra 升級及應用程式變更等預定維護活動，Azure 網狀架構控制器會在叢集中執行節點的輪流升級。  輪流升級也可能會一次關閉數個節點，因此，叢集可能會遇到數個磁碟分割短暫停機的狀況。 不過，在資料不是因為內建的 Azure 儲存體備援而遺失。  
 
-對於部署到 Azure 但不需要高可用性的系統 (例如，大約 99.9，相當於每年 8.76 個小時，請參閱 [高可用性](http://en.wikipedia.org/wiki/High_availability) 以了解詳細資訊)，您可以採用 RF=1 和一致性層級=ONE 來執行。  對於具有高可用性需求的應用程式，RF=3 和一致性層級=QUORUM 將可容忍其中一個節點其中一個複本的停機時間。 不能在傳統部署 (例如內部部署) 中使用 RF=1，因為像是磁碟損壞所產生的問題可能會導致資料遺失。   
+適用於部署至 Azure，不需要高可用性的系統 (例如大約 99.9 這相當於 8.76 小時/年，請參閱 <<c0> [ 高可用性](http://en.wikipedia.org/wiki/High_availability)如需詳細資訊) 您可以執行與 RF = 1 且一致性層級 = 其中一個。  應用程式具有高可用性需求，RF = 3 和一致性層級 = 仲裁容忍的其中一個節點的複本的停機時間。 RF = 1 在傳統的部署無法使用 （例如內部部署），因為可能遺失資料造成磁碟故障時提供類似的問題。   
 
 ## <a name="multi-region-deployment"></a>多重區域部署
-Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即進行多重區域部署，而不需使用任何外部工具。 這與傳統的關聯式資料庫相當不同，後者在設定資料庫鏡像以進行多重主機寫入時相當複雜。 Cassandra 的多重區域設定有助於包括下列的使用案例：
+Cassandra 的資料中心感知複寫和一致性模型使用多區域部署，而不需要任何外部工具可協助上面所述。 這點不同於傳統的關聯式資料庫的安裝程式的多重主機寫入鏡像資料庫可能會很複雜。 Cassandra 多區域安裝中，可協助進行包括案例的使用案例：
 
-**以近接性為基礎的部署：** 清除租用戶使用者與區域對應的多租用戶應用程式，可以因為多地區叢集的低延遲而受益。 例如，適用於教育機構的學習管理系統可以在美國東部和美國西部區域部署分散式叢集，分別做為適用於交易與分析的校園。 資料可以在讀取和寫入期間維持本機一致性，而且最終可在這兩個區域間維持一致性。 其他的範例還有媒體發佈、電子商務，以及可為地理位置集中之使用者提供服務的一切 (這是此部署模型的絕佳使用案例)。
+**以近接性為基礎的部署：** 清除租用戶使用者與區域對應的多租用戶應用程式，可以因為多地區叢集的低延遲而受益。 例如，學習的教育機構管理系統可以分散式的叢集部署在美國東部和美國西部的區域，做為個別的校園以及分析交易式。 資料可以在讀取和寫入期間維持本機一致性，而且最終可在這兩個區域間維持一致性。 其他的範例還有媒體發佈、電子商務，以及可為地理位置集中之使用者提供服務的一切 (這是此部署模型的絕佳使用案例)。
 
 **高可用性：**備援是取得軟體和硬體高可用性的關鍵因數；如需詳細資訊，請參閱＜在 Microsoft Azure 上建置可靠的雲端系統＞。 在 Microsoft Azure 上，實現真正備援的唯一可靠方式就是部署多區域叢集。 應用程式可部署於主動/主動或主動/被動模式中，如果其中一個區域已關閉，Azure 流量管理員就能將流量重新導向至作用中的區域。  使用單一區域部署時，如果可用性是 99.9，則兩個區域的部署可以達到 99.9999 的可用性，計算公式如下：(1-(1-0.999) * (1-0.999))*100)。如需詳細資訊，請參閱上述文件。
 
-**災害復原：**如果設計正確，多區域的 Cassandra 叢集就能承受重大的資料中心中斷。 如果某個區域已關閉，部署到其他區域的應用程式就能開始為使用者提供服務。 和所有其他的商務持續實作一樣，應用程式必須能對非同步管線中的資料所產生的部分資料遺失進行容錯。 不過，相較於傳統資料庫復原程序所花費的時間，Cassandra 能夠更快速地進行復原。 圖 2 顯示每個區域中有八個節點的典型多區域部署模型。 這兩個區域是彼此具備相同對稱性的鏡映影像。真實世界的設計取決於工作負載類型 (例如，交易或分析)、RPO、RTO、資料一致性，以及可用性需求。
+**災害復原：**如果設計正確，多區域的 Cassandra 叢集就能承受重大的資料中心中斷。 如果某個區域已關閉，部署到其他區域的應用程式就能開始為使用者提供服務。 和所有其他的商務持續實作一樣，應用程式必須能對非同步管線中的資料所產生的部分資料遺失進行容錯。 不過，相較於傳統資料庫復原程序所花費的時間，Cassandra 能夠更快速地進行復原。 圖 2 顯示每個區域中有八個節點的典型多區域部署模型。 這兩個區域是對稱的每個具有相同; 的鏡像映像真實世界的設計，取決於工作負載類型 （例如交易式或分析）、 RPO，RTO、 資料一致性和可用性需求。
 
 ![多區域部署](./media/cassandra-nodejs/cassandra-linux2.png)
 
 圖 2：多區域 Cassandra 部署
 
 ### <a name="network-integration"></a>網路整合
-部署至私人網路、位於兩個區域的虛擬機器設定組使用 VPN 通道彼此通訊。 VPN 通道連線在網路部署程序期間佈建的兩個軟體閘道。 這兩個區域有類似的網路架構，分別稱為 "Web" 和「資料」子網路。Azure 網路功能允許建立多個子網路，以及根據網路安全性的需要套用 ACL。 設計資料中心之間的叢集拓撲時，需要考量網路流量的通訊延遲與經濟影響。
+部署至私人網路、位於兩個區域的虛擬機器設定組使用 VPN 通道彼此通訊。 VPN 通道連線在網路部署程序期間佈建的兩個軟體閘道。 這兩個區域有類似的網路架構，分別稱為 "Web" 和「資料」子網路。Azure 網路功能允許建立多個子網路，以及根據網路安全性的需要套用 ACL。 設計時叢集拓撲，間的資料中心的通訊延遲和經濟的網路流量需要考量的影響。
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>多重資料中心部署的資料一致性
 分散式部署需要留意叢集拓撲對輸送量和高可用性的影響。 選取 RF 和一致性層級時，也必須以不需根據所有資料中心可用性進行仲裁的這種方式。
-對於需要高度一致性的系統，LOCAL_QUORUM 的一致性層級 (針對讀取和寫入) 可確保來自本機節點的本機讀取和寫入達到要求，同時資料會以非同步方式複寫到遠端資料中心。  表 2 摘要多重區域叢集 (稍後詳細說明) 的設定詳細資料。
+針對需要高一致性系統 LOCAL_QUORUM 一致性層級 （適用於讀取和寫入） 可確保，本機讀取和寫入符合從本機節點時，資料會以非同步方式複寫到遠端資料中心。  表 2 摘要多重區域叢集 (稍後詳細說明) 的設定詳細資料。
 
 **兩個區域的 Cassandra 叢集組態**
 
@@ -106,7 +107,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 | --- | --- | --- |
 | 節點數目 (N) |8 + 8 |叢集中的節點總數 |
 | 複寫因素 (RF) |3 |指定資料列的複本數目 |
-| 一致性層級 (寫入) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 公式結果無條件捨去 |2 個節點會以同步方式寫入第一個資料中心；仲裁所需的其他 2 個節點會以非同步方式寫入第二個資料中心。 |
+| 一致性層級 (寫入) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 公式結果無條件捨去 |2 個節點會同步; 寫入至第一個資料中心額外的 2 個節點所需的仲裁會以非同步方式寫入至第 2 個資料中心。 |
 | 一致性層級 (讀取) |LOCAL_QUORUM ((RF/2) +1) = 2 公式結果無條件捨去 |只會達到來自一個區域的讀取要求；在回應傳送回用戶端之前，會讀取 2 個節點。 |
 | 複寫策略 |如需 NetworkTopologyStrategy 的詳細資訊，請參閱 Cassandra 文件中的 [資料複寫](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) (英文) |了解部署拓撲並將複本放在節點上，最後所有複本就不會都位於相同的機架上 |
 | Snitch |如需 GossipingPropertyFileSnitch 的詳細資訊，請參閱 Cassandra 文件中的 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) (英文) |NetworkTopologyStrategy 使用 Snitch 的概念來了解拓撲。 GossipingPropertyFileSnitch 在將各個節點對應到資料中心與機架時提供較好的控制。 叢集再使用 Gossip 來散佈這項資訊。 相對於 PropertyFileSnitch，這在動態 IP 設定中簡單許多 |
@@ -122,18 +123,18 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。
+當您下載 JRE，您必須以手動方式接受 Oracle 授權。 因此，為了簡化部署，所有必要的軟體下載到桌面。 然後將它上傳至 Ubuntu 範本映像，建立做為叢集部署的前兆。
 
-將上述軟體下載到本機電腦上已知的下載目錄 (例如，Windows 上的 %TEMP%/downloads，或者大多數 Linux 散發套件或 Mac 上的 ~/Downloads)。
+上述軟體的下載到本機電腦上的已知的下載目錄 （例如在 Windows 上的 %TEMP%/downloads 或 ~/Downloads 多數 Linux 散發套件或 Mac 上的）。
 
 ### <a name="create-ubuntu-vm"></a>建立 UBUNTU VM
-在此步驟的程序中，我們將建立包含必要軟體的 Ubuntu 映像，讓映像可以重複用於佈建多個 Cassandra 節點。  
+在這個步驟的程序，您建立 Ubuntu 映像與先決條件軟體，讓映像，可以佈建 Cassandra 的數個節點重複使用。  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>步驟 1：產生 SSH 金鑰組
-在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。 請參考如何在 Azure 上使用 SSH 搭配 Linux (英文) 上的指示來產生公用/私密金鑰組。 如果您計劃在 Windows 或 Linux 上使用 putty.exe 做為 SSH 用戶端，您必須使用 puttygen.exe，將 PEM 編碼的 RSA 私密金鑰轉換為 PPK 格式。如需此操作的指示，請參閱上述網頁。
+在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。 請參考如何在 Azure 上使用 SSH 搭配 Linux (英文) 上的指示來產生公用/私密金鑰組。 如果您打算 putty.exe 做為 Windows 或 Linux 上的 SSH 用戶端，您必須將轉換編碼 PEM RSA 私密金鑰，使用 puttygen.exe PPK 格式。 可以找到的指示，上述的網頁中。
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>步驟 2：建立 Ubuntu 範本 VM
-若要建立範本 VM，請登入 Azure 傳統入口網站，並使用下列順序：依序按一下 [新增]、[計算]、[虛擬機器]、[從資源庫]、[UBUNTU]、[Ubuntu Server 14.04 LTS]，然後按一下向右箭號。 如需說明如何建立 Linux VM 的教學課程，請參閱建立執行 Linux 的虛擬機器 (英文)。
+若要建立 VM 範本，請登入 Azure 入口網站並使用下列程序： 按一下 [新增]、 計算、 虛擬機器，從組件庫、 UBUNTU、 Ubuntu Server 14.04 LTS、，然後按一下向右箭號。 如需說明如何建立 Linux VM 的教學課程，請參閱建立執行 Linux 的虛擬機器 (英文)。
 
 在 [虛擬機器設定] 的第 1 個畫面上輸入下列資訊：
 
@@ -162,7 +163,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 <tr><td>端點    </td><td>使用預設值 </td><td>    使用預設的 SSH 設定 </td></tr>
 </table>
 
-按一下向右箭號，保留第 3 個畫面上的預設值，然後按一下 [確認] 按鈕以完成 VM 佈建程序。 請稍候幾分鐘，名稱為 “ubuntu-template” 的 VM 應該會變成「執行中」狀態。
+按一下向右箭號，保留預設值 #3 在螢幕上。 按一下完成 VM 佈建程序的 「 檢查 」 按鈕。 請稍候幾分鐘，名稱為 “ubuntu-template” 的 VM 應該會變成「執行中」狀態。
 
 ### <a name="install-the-necessary-software"></a>安裝必要軟體
 #### <a name="step-1-upload-tarballs"></a>步驟 1：上傳 tarball
@@ -265,7 +266,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>步驟 4：安裝適用於實際執行系統的 JNA
-使用下列命令序列：下列命令會將 jna-3.2.7.jar 和 jna-platform-3.2.7.jar 安裝到 /usr/share.java 目錄：sudo apt-get install libjna-java
+使用下列命令序列： 下列命令安裝 jna 3.2.7.jar 並 jna-平台-3.2.7.jar /usr/share.java 目錄 sudo apt-取得安裝 libjna java
 
 在 $CASS_HOME/lib 目錄中建立符號連結，以便 Cassandra 啟動指令碼可以找到這些 jar：
 
@@ -274,7 +275,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### <a name="step-5-configure-cassandrayaml"></a>步驟 5：設定 cassandra.yaml
-編輯每個 VM 的 cassandra.yaml 以反映所有虛擬機器所需的組態，[我們將在實際佈建期間調校此檔案]：
+編輯以反映所需的 [您調整此設定，在實際的佈建期間] 的所有虛擬機器組態的每個 VM 上 cassandra.yaml:
 
 <table>
 <tr><th>欄位名稱   </th><th> 值  </th><th>    備註 </th></tr>
@@ -293,20 +294,20 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 ##### <a name="1-deprovision"></a>1.取消佈建
 使用命令 “sudo waagent –deprovision+user” 移除虛擬機器執行個體的特定資訊。 請參閱 [如何擷取 Linux 虛擬機器作為範本使用](capture-image.md) ，以了解映像擷取程序的詳細資訊。
 
-##### <a name="2-shutdown-the-vm"></a>2：將 VM 關機
+##### <a name="2-shut-down-the-vm"></a>2： 關閉 VM
 確定已反白顯示虛擬機器，然後按一下底部命令列中的 [關機] 連結。
 
 ##### <a name="3-capture-the-image"></a>3：擷取映像
-確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。 在下一個畫面中，指定 [映像名稱] \(例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
+確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。 在 [下一步] 畫面、 提供的映像名稱 (例如 hk-cas-2-08-ub-14-04-2014071)、 適當映像描述，然後按一下 「 檢查 」 將標記以完成擷取程序。
 
-這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。 成功擷取映像之後，來源 VM 就會自動刪除。 
+這個程序需要幾秒鐘的時間和映像應出現在 我的映像的映像庫一節。 已成功擷取映像之後，會自動刪除來源 VM。 
 
 ## <a name="single-region-deployment-process"></a>單一區域部署程序
 **步驟 1：建立虛擬網路** 登入 Azure 入口網站，並使用下表中顯示的屬性，建立虛擬網路 (傳統)。 如需程序的詳細步驟，請參閱[建立使用 Azure 入口網站的虛擬網路 (傳統)](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。      
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
-<tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
+<tr><td>名稱</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>區域</td><td>美國西部</td><td></td></tr>
 <tr><td>DNS 伺服器</td><td>None</td><td>請忽略此項，因為我們不使用 DNS 伺服器</td></tr>
 <tr><td>位址空間</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -317,17 +318,17 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 新增下列子網路：
 
 <table>
-<tr><th>Name</th><th>起始 IP</th><th>CIDR</th><th>備註</th></tr>
+<tr><th>名稱</th><th>起始 IP</th><th>CIDR</th><th>備註</th></tr>
 <tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Web 伺服陣列的子網路</td></tr>
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>資料庫節點的子網路</td></tr>
 </table>
 
 透過網路安全性群組可保護「資料」與 Web 子網路，但這已超出本文的討論範圍。  
 
-**步驟 2：佈建虛擬網路** 使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
+**步驟 2： 佈建虛擬機器**使用先前建立的映像，您在雲端伺服器 」 hk-c-svc-西 」 中建立下列虛擬機器並將其繫結至個別的子網路如下所示：
 
 <table>
-<tr><th>機器名稱    </th><th>子網路    </th><th>IP 位址    </th><th>可用性集合</th><th>DC/機架</th><th>是否為種子？</th></tr>
+<tr><th>機器名稱    </th><th>子網路    </th><th>IP 位址    </th><th>可用性設定組</th><th>DC/機架</th><th>是否為種子？</th></tr>
 <tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack1 </td><td>是</td></tr>
 <tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack1    </td><td>否 </td></tr>
 <tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc=WESTUS 機架=rack2    </td><td>是</td></tr>
@@ -347,7 +348,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 3. 將內部負載平衡器加入雲端服務，並將它附加到「資料」子網路
 4. 對先前建立的每個 VM，透過連線到先前建立之內部負載平衡器的負載平衡集，新增 thrift 流量的負載平衡端點
 
-您可以使用 Azure 傳統入口網站執行上述程序；使用 Windows 電腦 (如果您沒有 Windows 電腦的存取權，則使用 Azure 上的 VM)，使用下列 PowerShell 指令碼自動佈建所有 8 個 VM。
+可以使用 Azure 入口網站，執行上述程序一部 Windows 電腦 （使用的 Azure，如果您沒有存取權的 Windows 電腦上的 VM），使用下列 PowerShell 指令碼來自動佈建所有 8 部 Vm。
 
 **清單 1：佈建虛擬機器的 PowerShell 指令碼**
 
@@ -417,7 +418,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 
 **步驟 4：啟動 VM，然後測試叢集**
 
-登入其中一個節點 (例如 hk-c1-west-us)，然後執行下列命令查看叢集的狀態：
+登入其中一個節點 （例如 hk-c1-西-我們） 並執行下列命令以查看在叢集的狀態：
 
        nodetool –h 10.1.2.4 –p 7199 status
 
@@ -438,8 +439,8 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 ## <a name="test-the-single-region-cluster"></a>測試單一區域叢集
 使用下列步驟測試叢集：
 
-1. 使用 Powershell 命令 Get-AzureInternalLoadbalancer Cmdlet 取得內部負載平衡器的 IP 位址 (例如 10.1.2.101)。 命令的語法如下所示：Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us” [顯示內部負載平衡器以及其 IP 位址的詳細資訊]
-2. 使用 Putty 或 ssh 登入 Web 伺服陣列 VM (例如 hk-w1-west-us)
+1. 使用 Powershell 命令 Get-azureinternalloadbalancer 指令程式，來取得內部負載平衡器 (例如 10.1.2.101) 的 IP 位址。 命令的語法如下所示：Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us” [顯示內部負載平衡器以及其 IP 位址的詳細資訊]
+2. 登入 web 伺服陣列 (例如 hk-w1-西-us) 的 VM 使用 Putty 或 ssh
 3. 執行 $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. 使用下列 CQL 命令來確認叢集是否正常運作：
    
@@ -447,7 +448,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
    
      SELECT * FROM Customers;
 
-您應該會看到如下顯示：
+您應該會看到類似下列的結果：
 
 <table>
   <tr><th> customer_id </th><th> firstname </th><th> lastname </th></tr>
@@ -455,13 +456,13 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-請注意，在步驟 4 中建立的關鍵值空間 (keyspace) 使用 replication_factor 為 3 的 SimpleStrategy。 如果是單一資料中心部署，建議使用 SimpleStrategy，如果是多重資料中心部署，則建議使用 NetworkTopologyStrategy。 replication_factor 為 3 將針對節點失敗提供容錯。
+在步驟 4 建立 keyspace 會使用 SimpleStrategy replication_factor 為 3。 如果是單一資料中心部署，建議使用 SimpleStrategy，如果是多重資料中心部署，則建議使用 NetworkTopologyStrategy。 為 3 replication_factor 提供容錯的節點失敗。
 
 ## <a id="tworegion"> </a>多區域部署程序
-我們將運用已經完成的單一區域部署，然後重複相同程序安裝第二個區域。 單一和多重區域部署之間的主要差異在於區域間通訊的 VPN 通道設定。我們將從網路安裝開始、佈建 VM 以及設定 Cassandra。
+您利用單一區域部署已完成，並安裝第二個區域中重複相同的程序。 單一和多重地區部署之間的主要差異是 VPN 通道設定區域間通訊。您的網路安裝啟動、 佈建 Vm，並設定 Cassandra。
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>步驟 1：在第 2 個區域建立虛擬網路
-登入 Azure 傳統入口網站，並使用表格中所示的屬性來建立虛擬網路。 如需此程序的詳細步驟，請參閱 [在 Azure 傳統入口網站中設定純雲端虛擬網路](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 。      
+登入 Azure 入口網站，並建立具有屬性顯示在資料表中的虛擬網路。 請參閱[在 Azure 入口網站中設定純雲端虛擬網路](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)的程序的詳細步驟。      
 
 <table>
 <tr><th>屬性名稱    </th><th>值    </th><th>備註</th></tr>
@@ -478,7 +479,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 新增下列子網路：
 
 <table>
-<tr><th>Name    </th><th>起始 IP    </th><th>CIDR    </th><th>備註</th></tr>
+<tr><th>名稱    </th><th>起始 IP    </th><th>CIDR    </th><th>備註</th></tr>
 <tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Web 伺服陣列的子網路</td></tr>
 <tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>資料庫節點的子網路</td></tr>
 </table>
@@ -495,7 +496,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 | hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |建立區域網路時，提供預留位置閘道位址。 建立閘道之後，就會填入真實的閘道位址。 請確定位址空間完全符合相對的遠端 VNET。在此案例中是在美國西部地區建立的 VNET。 |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>步驟 3：將「區域」網路對應至個別 VNET
-從 Azure 傳統入口網站中，選取每個 VNet、按一下 [設定]，勾選 [連線到區域網路]，並根據下列詳細資料選取區域網路：
+從 Azure 入口網站中，選取每個 vnet、 按一下 [設定]，檢查 [連線到區域網路] 並選取每個下列詳細資料區域的網路：
 
 | 虛擬網路 | 區域網路 |
 | --- | --- |
@@ -503,7 +504,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 | hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>步驟 4：在 VNET1 和 VNET2 上建立閘道
-從兩個虛擬網路的儀表板，按一下 [建立閘道] 可觸發 VPN 閘道的佈建程序。 請稍候幾分鐘，每個虛擬網路的儀表板應該會顯示實際的閘道位址。
+從虛擬網路的儀表板，按一下 建立閘道來觸發 VPN 閘道的佈建程序。 請稍候幾分鐘，每個虛擬網路的儀表板應該會顯示實際的閘道位址。
 
 ### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>步驟 5：更新「區域」網路的個別「閘道」位址
 編輯兩個區域網路，使用剛才佈建的閘道實際 IP 位址取代預留位置閘道 IP 位址。 使用下列對應：
@@ -518,12 +519,12 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]：Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>步驟 7：建立 VNET 對 VNET 連線
-從 Azure 傳統入口網站中，使用兩個虛擬網路的 [儀表板] 功能表建立閘道對閘道的連接。 使用底部工具列的 [連線] 功能表項目。 請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
+從 Azure 入口網站中，使用 「 儀表板 功能表的虛擬網路建立閘道對閘道連線。 使用底部工具列的 [連線] 功能表項目。 請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
 
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>步驟 8：在第 2 個區域中建立虛擬機器
 依照在第 1 個區域中部署所述的下列相同步驟，建立 Ubuntu 映像，或者將映像 VHD 檔案複製到位於第 2 個區域的 Azure 儲存體帳戶，然後建立映像。 使用此映像，並在新的雲端服務 hk-c-svc-east-us 建立下列虛擬機器清單：
 
-| 機器名稱 | 子網路 | IP 位址 | 可用性集合 | DC/機架 | 是否為種子？ |
+| 機器名稱 | 子網路 | IP 位址 | 可用性設定組 | DC/機架 | 是否為種子？ |
 | --- | --- | --- | --- | --- | --- |
 | hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc=EASTUS 機架=rack1 |是 |
 | hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |dc=EASTUS 機架=rack1 |否 |
@@ -553,7 +554,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
   
-    請注意顯示的 IP 位址 (例如西部 - 10.1.2.101，東部 - 10.2.2.101)。
+    請注意 IP 位址 (如範例西-10.1.2.101，東部-10.2.2.101) 顯示。
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>步驟 2：登入 hk-w1-west-us 後，在西部區域執行下列命令
 1. 執行 $CASS_HOME/bin/cqlsh 10.1.2.101 9160
@@ -584,7 +585,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 執行一些插入動作，並且查看複寫到叢集 west-us 部分的那些插入項目。
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>透過 Node.js 測試 Cassandra 叢集
-使用先前在 "Web" 層中建立的其中一個 Linux VM，我們將執行簡單的 Node.js 指令碼來讀取先前插入的資料
+使用其中一個先前建立的 「 網頁 」 階層中的 Linux Vm，您執行簡單的 Node.js 指令碼無法讀取先前插入的資料
 
 **步驟 1：安裝 Node.js 和 Cassandra 用戶端**
 
@@ -644,7 +645,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
            updateCustomer(ksConOptions,params);
         }
    
-        //update will also insert the record if none exists
+        //update also inserts the record if none exists
         function updateCustomer(ksConOptions,params)
         {
           var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';

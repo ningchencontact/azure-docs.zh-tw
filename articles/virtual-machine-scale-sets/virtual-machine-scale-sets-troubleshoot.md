@@ -3,8 +3,8 @@ title: "針對使用虛擬機器擴展集的自動調整進行疑難排解 | Mic
 description: "針對使用虛擬機器擴展集的自動調整進行疑難排解。 了解所遇到的一般問題和解決方式。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
-ms.openlocfilehash: 19871cd0433c6df88c631cf6e6e8e477dc902448
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.author: negat
+ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>針對使用虛擬機器擴展集的自動調整進行疑難排解
 **問題** – 您已使用虛擬機器擴展集在 Azure Resource Manager 中建立自動調整基礎結構，例如藉由部署範本，如下所示︰https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – 您有已定義的調整規則，並且運作良好，美中不足的是無論您在 VM 上放置多少負載，它都不會自動調整。
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/17/2017
   
     在 Azure 入口網站中檢查調整事件的稽核記錄檔。 或許遺漏相應增加和相應減少。 您可以依「調整」進行篩選。
   
-    ![稽核記錄檔][audit]
+    ![稽核記錄][audit]
 * 您的相應縮小和相應放大的臨界值是否有足夠的差異？
   
     假設您在平均 CPU 於五分鐘後大於 50% 時將規則設為相應放大，而在平均 CPU 小於 50% 時將規則設為相應縮小。 當 CPU 使用量很接近此臨界值時，且調整動作經常增加和減少集合的大小，此設定會導致「flapping」問題。 因為這個設定，自動調整服務會嘗試防止「flapping」，可以表示為未調整。 因此請確定您的相應放大和相應縮小的臨界值有足夠的差異，以便在調整之間容許一些空間。

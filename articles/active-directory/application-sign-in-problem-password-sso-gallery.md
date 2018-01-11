@@ -3,7 +3,7 @@ title: "登入針對同盟單一登入設定之 Azure AD 資源庫應用程式�
 description: "如何為針對密碼單一登入設定的 Azure AD 資源庫應用程式問題疑難排解"
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f8521d1386bba8004e84fe8862a5f59a65ea19ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ac310b020cc21d96007574433d84a6fac5878ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之 Azure AD 資源庫應用程式的問題
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

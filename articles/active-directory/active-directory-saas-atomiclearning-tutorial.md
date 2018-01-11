@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Atomic Learning 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 495f54a6-e6c4-41b0-aafa-a6283d33efc8
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 6cce8fc839e60eb6498ab48bf68e9906c98889a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b6609315eba6deaf654eee6b64f89d0cd1514dc1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>教學課程：Azure Active Directory 與 Atomic Learning 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Atomic Learning
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-atomic-learning-from-the-gallery"></a>從資源庫新增 Atomic Learning
-若要設定將 Atomic Learning 整合到 Azure AD 中，您需要從資源庫將 Atomic Learning 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Atomic Learning 整合到 Azure AD 中，您需要從資源庫將 Atomic Learning 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Atomic Learning，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Atomic Learning**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_search.png)
 
-5. 在結果面板中，選取 Atomic Learning，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [Atomic Learning]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_addfromgallery.png)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 
 如要設定及測試搭配 Atomic Learning 的 Azure AD 單一登入，您需要完成下列構成元素：
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 3. **[建立 Atomic Learning 測試使用者](#creating-an-atomic-learning-test-user)** - 在 Atomic Learning 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/11/2017
      在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://secure2.atomiclearning.com/sso/shibboleth/<companyname>`
     
     > [!NOTE] 
-    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Atomic Learning 用戶端支援小組](mailto:cs@atomiclearning.com)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Atomic Learning 用戶端支援小組](mailto:cs@atomiclearning.com)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -153,11 +153,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-an-atomic-learning-test-user"></a>建立 Atomic Learning 測試使用者
 

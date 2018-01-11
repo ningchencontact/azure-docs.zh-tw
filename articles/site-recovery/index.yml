@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: e65162e1badfb7a965f96a3207552063075c2834
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 01/10/2018
 abstract:
   description: "Azure Site Recovery 可協調和管理 Azure VM 以及內部部署 VM 和實體伺服器的災害復原。 了解如何透過我們的快速入門及教學課程來複寫、容錯移轉和容錯回復。"
 sections:
@@ -54,6 +54,17 @@ sections:
     - html: "<a href=\"tutorial-vmware-to-azure\">設定災害復原</a>"
     - html: "<a href=\"tutorial-dr-drill-azure\">執行災害復原演練</a>"
     - html: "<a href=\"tutorial-vmware-to-azure-failover-failback\">執行容錯移轉和容錯回復</a>"
+  - type: text
+    html: <h3>Hyper-V</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"tutorial-prepare-azure\">準備 Azure</a>"
+    - html: "<a href=\"tutorial-prepare-on-premises-hyper-v\">準備內部部署 Hyper-V</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure\">設定適用於 Hyper-V 虛擬機器的災害復原</a>"
+    - html: "<a href=\"tutorial-hyper-v-vmm-to-azure\">安裝 System Center VMM 所管理的適用於 Hyper-V 虛擬機器的災害復原</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">執行災害復原演練</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure-failover-failback\">執行容錯移轉和容錯回復</a>"
   - type: text
     html: "<h3>移轉至 Azure</h3>"
   - type: list

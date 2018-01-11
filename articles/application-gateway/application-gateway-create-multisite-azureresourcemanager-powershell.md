@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>建立應用程式閘道來裝載多個 Web 應用程式
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 * **後端伺服器集區：** 後端伺服器的 IP 位址清單。 列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。 您也可以使用 FQDN。
 * **後端伺服器集區設定：** 每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。 這些設定會繫結至集區，並套用至集區內所有伺服器。
-* **前端連接埠：** 此連接埠是在應用程式閘道上開啟的公用連接埠。 流量會到達此連接埠，然後重新導向至其中一個後端伺服器。
+* **前端連接埠：** 此連接埠是在應用程式閘道上開啟的公用連接埠。 流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
 * **接聽程式：** 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，這些值都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 針對啟用多站台功能的應用程式閘道，會一併新增主機名稱和 SNI 指示器。
 * **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。 會以規則列出的順序進行處理，且不論精確性，都會透過相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。
 
@@ -79,7 +79,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>步驟 3
 
-選擇要使用哪一個 Azure 訂用帳戶。
+選擇其中一個要使用的 Azure 訂用帳戶。
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -99,12 +99,12 @@ New-AzureRmResourceGroup -Name appgw-RG -location "West US"
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
 ```
 
-Azure Resource Manager 需要所有的資源群組指定一個位置。 此位置用來作為該資源群組中資源的預設位置。 請確定所有用來建立應用程式閘道的命令都使用同一個資源群組。
+Azure 資源管理員需要所有的資源群組指定一個位置。 此位置用來作為該資源群組中資源的預設位置。 請確定所有用來建立應用程式閘道的命令都使用同一個資源群組。
 
 在上述範例中，我們建立名為 **appgw-RG** 的資源群組，且位置為美國西部 (**West US**)。
 
 > [!NOTE]
-> 如果您需要設定應用程式閘道的自訂探查，請參閱 [使用 PowerShell 建立具有自訂探查的應用程式閘道](application-gateway-create-probe-ps.md)。 請造訪[自訂探查和健全狀況監視](application-gateway-probe-overview.md)以取得詳細資訊。
+> 如果您需要為應用程式閘道設定自訂探查，請參閱 [使用 PowerShell 建立具有自訂探查的應用程式閘道](application-gateway-create-probe-ps.md)。 請造訪[自訂探查和健全狀況監視](application-gateway-probe-overview.md)以取得詳細資訊。
 
 ## <a name="create-a-virtual-network-and-subnets"></a>建立虛擬網路和子網路
 

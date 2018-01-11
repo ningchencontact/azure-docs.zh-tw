@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Bambu by Sprout Soci
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d2b9ddbc-cab7-40d6-aca1-5b171cab4199
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 985966d26f6ed0dcd4db47589abf94260ce62bf0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7cc057263f2b2fc5f83201b2edcb519e682b2ffc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>教學課程：Azure Active Directory 與 Bambu by Sprout Social 整合
 
@@ -55,13 +55,13 @@ To enable single sign-on with Bambu by Sprout Social, it must be configured to u
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Bambu by Sprout Social
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-bambu-by-sprout-social-from-the-gallery"></a>從資源庫新增 Bambu by Sprout Social
-若要設定將 Bambu by Sprout Social 整合到 Azure AD 中，您需要從資源庫將 Bambu by Sprout Social 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Bambu by Sprout Social 整合到 Azure AD 中，您需要從資源庫將 Bambu by Sprout Social 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Bambu by Sprout Social，請執行下列步驟：**
 
@@ -71,17 +71,17 @@ To enable single sign-on with Bambu by Sprout Social, it must be configured to u
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新應用程式] 按鈕來新增新的應用程式。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Bambu by Sprout Social**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_search.png)
 
-5. 在結果窗格中，選取 Bambu by Sprout Social，然後按一下加入 按鈕來新增該應用程式。
+5. 在結果窗格中，選取 [Bambu by Sprout Social]，然後按一下 [加入] 按鈕來新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_addfromgallery.png)
 
@@ -174,15 +174,15 @@ To ensure users can sign-in to Bambu by Sprout Social after it has been configur
 
     a. 在 [名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
+    b. 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 的「電子郵件地址」。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-bambu-by-sprout-social-test-user"></a>建立 Bambu by Sprout Social 測試使用者
 
-應用程式支援及時 (Just In Time) 使用者佈建，而在驗證之後，則會在應用程式中自動建立使用者。
+應用程式僅在使用者佈建時支援，驗證之後，會在應用程式中自動建立使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

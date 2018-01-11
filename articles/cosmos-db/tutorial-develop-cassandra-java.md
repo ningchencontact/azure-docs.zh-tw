@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB：使用 JAVA 搭配 Cassandra API 進行開發
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本教學課程示範如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，然後使用 [Cassandra API](cassandra-introduction.md) 來建立 Cassandra 資料表 (documentdb-partition-data.md#partition-keys)。 在建立資料表時定義主索引鍵，您的應用程式就能輕鬆地隨著資料成長調整大小。 
+本教學課程示範如何建立 Azure Cosmos DB 帳戶使用 Azure 入口網站，然後再建立 Cassandra Table(sql-api-partition-data.md#partition-keys) 使用[Cassandra API](cassandra-introduction.md)。 在建立資料表時定義主索引鍵，您的應用程式就能輕鬆地隨著資料成長調整大小。 
 
 本教學課程使用 Cassandra API 來涵蓋下列工作：
 

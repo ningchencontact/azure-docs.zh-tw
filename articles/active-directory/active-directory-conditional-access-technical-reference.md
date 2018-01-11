@@ -1,30 +1,30 @@
 ---
-title: "Azure Active Directory 條件式存取的技術參考 | Microsoft Docs"
-description: "了解如何在 Azure Active Directory 中使用條件式存取控制。 指定驗證使用者並控制對應用程式存取的條件。 符合指定的條件時，使用者會通過驗證，並獲授與對應用程式的存取權。"
+title: "Azure Active Directory 條件式存取設定參考 |Microsoft 文件"
+description: "取得 Azure Active Directory 條件式存取原則中的支援設定的概觀。"
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
-您可以使用 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，微調授權使用者存取資源的方式。   
+您可以使用[Azure Active Directory (Azure AD) 的條件式存取](active-directory-conditional-access-azure-portal.md)來控制如何授權的使用者可以存取您的資源。   
 
-本文會針對條件式存取原則的下列設定選項，為您提供支援資訊： 
+本文為您提供下列設定選項中的條件式存取原則的支援資訊： 
 
 - 雲端應用程式指派
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 12/06/2017
 - 已核准的用戶端應用程式需求
 
 
+如果這不是您所需的資訊，請將在本文結尾的註解。
 
 ## <a name="cloud-apps-assignments"></a>雲端應用程式指派
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 12/06/2017
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (包括商務用 OneDrive)
+- Microsoft Office 365 SharePoint Online （包含 OneDrive 商務和 Project Online）
 
 - Microsoft Power BI 
 

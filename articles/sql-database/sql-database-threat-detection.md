@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 06b4fe19b8c468b3fc98a5bb25ba9b1f169e529c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-database-threat-detection"></a>SQL Database 威脅偵測
 
@@ -71,14 +71,14 @@ SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https:
 
 2. 按一下特定警示會提供其他詳細資料和調查此威脅的建議，並對未來的威脅採取補救措施。
 
-  ![導覽窗格][8]
+  ![瀏覽窗格][8]
 
 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要深入了解威脅偵測，請造訪 [Azure 部落格](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)
-* 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+* 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
 * 如需 PowerShell 指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 

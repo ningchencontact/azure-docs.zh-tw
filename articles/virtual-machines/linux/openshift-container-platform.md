@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 81d1e2a92a24d43c6324b4fe026680c379e656da
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>在 Azure 中部署 OpenShift 容器平台
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/11/2017
 
 使用您稍早針對 `aadClientId` 參數所建立之服務主體中的 `appId` 值。 
 
-下列範例會建立名為 azuredeploy.parameters.json 且具有所有必要輸入的參數檔案。
+下列範例會建立名為 azuredeploy.parameters.json，且具有所有必要輸入的參數檔案。
 
 ```json
 {
@@ -135,10 +135,10 @@ ms.lasthandoff: 11/11/2017
 
 請將括弧中的項目取代為您的特定資訊。
 
-### <a name="deploy-by-using-azure-cli"></a>使用 Azure CLI 部署
+### <a name="deploy-by-using-azure-cli"></a>使用 Azure CLI 進行部署
 
 > [!NOTE] 
-> 下列命令需要 Azure CLI 2.0.8 或更新版本。 您可以使用 `az --version` 命令來確認 CLI 版本。 若要更新 CLI 版本，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti)。
+> 下列命令需要 Azure CLI 2.0.8 或更新版本。 您可以使用 `az --version` 命令來確認 CLI 版本。 若要更新 CLI 版本，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti)。
 
 下列範例會使用 myOpenShiftCluster 的部署名稱，將 OpenShift 叢集和所有相關的資源部署到名稱為 myResourceGroup 的資源群組。 範本直接參考自 GitHub 儲存機制，而且會使用名為 azuredeploy.parameters.json 檔案的本機參數檔案。
 
@@ -179,7 +179,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要時，您可以使用 [az group delete](/cli/azure/group#delete) 命令，移除資源群組、OpenShift 叢集和所有相關資源。
+當不再需要資源時，您可以使用 [az group delete](/cli/azure/group#delete) 命令，移除資源群組、OpenShift 叢集和所有相關資源。
 
 ```azurecli 
 az group delete --name myResourceGroup

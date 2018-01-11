@@ -4,7 +4,7 @@ description: "如何為使用 Azure AD 從深層連結 URL 存取應用程式的
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 798015ab68afc65378cffc75afec9c7f91fc1926
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b70290a78255905a92e2bb5432369c499fca3f3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>使用深層連結登入應用程式的問題
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 若要檢查您是否擁有正確的深層連結，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 
   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+6.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 7.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 
 12. 尋找 [使用者存取 URL] 標籤。 您的深層連結應符合此 URL。
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板瀏覽器延伸模組
+## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板的瀏覽器延伸模組
 
 若要安裝存取面板的瀏覽器延伸模組，請遵循下列步驟：
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 10/11/2017
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -195,7 +195,7 @@ ms.lasthandoff: 10/11/2017
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -223,7 +223,7 @@ ms.lasthandoff: 10/11/2017
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

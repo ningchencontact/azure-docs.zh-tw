@@ -4,7 +4,7 @@ description: "Azure AD v2.0 端點的限制清單。"
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>我應該使用 v2.0 端點嗎？
 當您建立與 Azure Active Directory 整合的應用程式時，您必須判斷 v2.0 端點和驗證通訊協定是否符合您的需求。 Azure Active Directory 的原始端點仍受到完整的支援，而且在某些方面擁有比 v2.0 更豐富的功能。 不過，v2.0 端點為開發人員[帶來極大的好處](active-directory-v2-compare.md)。
@@ -110,7 +110,7 @@ v2.0 端點不支援 SAML 或 WS-同盟，只支援 Open ID Connect 和 OAuth 2.
 * v2.0 端點不支援在識別碼權杖中發出角色或群組宣告。
 * v2.0 端點不支援 [OAuth 2.0 資源擁有者密碼認證授與 (英文)](https://tools.ietf.org/html/rfc6749#section-4.3)。
 
-此外，v2.0 端點不支援任何形式的 SAML 或 WS-同盟通訊協定。
+此外，v2.0 端點不支援任何形式的 SAML 或 Ws-federation 通訊協定。
 
 若要進一步了解 v2.0 端點中支援的通訊協定功能範圍，請參閱我們的 [OpenID Connect 與 OAuth 2.0 通訊協定參考](active-directory-v2-protocols.md)。
 

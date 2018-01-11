@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -29,16 +29,16 @@ ms.lasthandoff: 10/11/2017
 動作群組的每個動作類型可以有多達 10 個。 每個動作是由下列屬性所組成：
 
 * **名稱**：動作群組內的唯一識別碼。  
-* **動作類型**：傳送簡訊、傳送電子郵件、呼叫 Webhook，或將資料傳送到 ITSM 工具。
+* **動作類型**： 傳送 SMS、 傳送電子郵件、 呼叫 webhook、 將資料傳送至 ITSM 工具、 呼叫 Azure 應用程式，或執行自動化 runbook。
 * **詳細資料**：對應的電話號碼、電子郵件地址、Webhook URI 或 ITSM 連線詳細資料。
 
 如需如何使用 Azure Resource Manager 範本設定動作群組的資訊，請參閱[動作群組 Resource Manager 範本](monitoring-create-action-group-with-resource-manager-template.md)。
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站建立動作群組 ##
-1. 在 [入口網站](https://portal.azure.com) 中，選取 [監視]。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
+1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
 
-    ![「監視」服務](./media/monitoring-action-groups/home-monitor.png)
-2. 在 [活動記錄] 區段中，選取 [動作群組]。
+    ![監視」服務](./media/monitoring-action-groups/home-monitor.png)
+2. 在 [設定] 區段上，選取 [動作群組]。
 
     ![使用 [動作群組] 索引標籤](./media/monitoring-action-groups/action-groups-blade.png)
 3. 選取 [新增動作群組]，並填寫各欄位。
@@ -56,14 +56,12 @@ ms.lasthandoff: 10/11/2017
 
     a. **名稱**：輸入此動作的唯一識別碼。
 
-    b. **作類型**選取簡訊、電子郵件、Webhook 或 ITSM。
+    b. **動作類型**： 選取 SMS、 電子郵件、 webhook、 Azure 應用程式、 ITSM 或自動化 Runbook。
 
-    c. **詳細資料**：根據動作類型，輸入電話號碼、電子郵件地址、Webhook URI 或 ITSM 連線詳細資料。 針對 ITSM 動作，請額外指定 [工作項目] 與您 ITSM 工具所需的其他欄位。 
+    c. **詳細資料**： 根據動作類型，輸入電話號碼、 電子郵件地址、 webhook URI、 Azure 應用程式、 ITSM 連線或自動化 runbook。 針對 ITSM 動作，請額外指定 [工作項目] 與您 ITSM 工具所需的其他欄位。 
 
-> [!NOTE]
-> ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../log-analytics/log-analytics-itsmc-overview.md)。 ITSM 動作目前只能搭配活動記錄警示使用。 針對其他警示類型，此動作目前無作用。
->
->
+   > [!NOTE]
+   > ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../log-analytics/log-analytics-itsmc-overview.md)。 ITSM 動作目前只能搭配活動記錄警示使用。 針對其他警示類型，此動作目前無作用。
 
 8. 選取 [確定] 來建立動作群組。
 

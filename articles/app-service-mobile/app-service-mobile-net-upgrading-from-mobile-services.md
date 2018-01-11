@@ -3,8 +3,8 @@ title: "從行動服務升級為 Azure App Service"
 description: "了解如何輕鬆地將您的行動服務應用程式升級為 App Service 行動 App"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>將您現有的 .NET Azure 行動服務升級為 App Service
 App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的新方式。 若要深入了解，請參閱 [何謂 Mobile Apps？]
@@ -139,23 +139,23 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 * 建立時間
 * 更新時間
 * 已刪除
-* 版本
+* version
 
 Mobile Apps 用戶端 SDK 會使用新的系統屬性名稱，因此不需要對用戶端程式碼進行任何變更。 不過，如果您要直接對服務進行 REST 呼叫，則您應該據以變更您的查詢。
 
 #### <a name="local-store"></a>本機存放區
 變更系統屬性的名稱，表示適用於行動服務的離線同步處理本機資料庫與 Mobile Apps 不相容。 如果可能，在將暫止的變更傳送到伺服器之前，您應該避免將用戶端應用程式從行動服務升級為 Mobile Apps。 接著，升級的應用程式應該使用新的資料庫檔案名稱。
 
-如果用戶端應用程式是從行動服務升級為 Mobile Apps，但同時在操作佇列中有暫止的離線變更，則系統資料庫必須更新，才能使用新的資料行名稱。 在 iOS 上，可以使用輕量型移轉來變更資料行名稱，以達成這一點。 在 Android 和 .NET Managed 用戶端上，您應該撰寫自訂的 SQL，為資料物件資料表的資料行重新命名。
+如果用戶端應用程式是從行動服務升級為 Mobile Apps，但同時在操作佇列中有暫止的離線變更，則系統資料庫必須更新，才能使用新的資料行名稱。 在 iOS 上，可以使用輕量型移轉來變更資料行名稱，以達成這一點。 在 Android 和 .NET 受控用戶端上，您應該撰寫自訂的 SQL，為資料物件資料表的資料行重新命名。
 
 在 iOS 上，您應該變更資料實體的核心資料結構描述，來符合下列內容。 請注意，屬性 `createdAt`、`updatedAt` 和 `version` 不再需要 `ms_` 前置詞：
 
-| 屬性 | 類型 | 注意 |
+| 屬性 | 類型 | 附註 |
 | --- | --- | --- |
 | id |字串 (標示為必要) |遠端存放區中的主索引鍵 |
 | 建立時間 |日期 |(選擇性) 對應至 createdAt 系統屬性 |
 | 更新時間 |日期 |(選擇性) 對應至 updatedAt 系統屬性 |
-| 版本 |String |(選擇性) 用來偵測衝突，對應至版本 |
+| version |字串 |(選擇性) 用來偵測衝突，對應至版本 |
 
 #### <a name="querying-system-properties"></a>查詢系統屬性
 在 Azure 行動服務中，預設不會傳送系統屬性，只有在使用查詢字串 `__systemProperties`要求它們時才會傳送。 相反地，在 Azure Mobile Apps 中，會 **一律選取** 系統屬性，因為它們是伺服器 SDK 物件模型的一部分。

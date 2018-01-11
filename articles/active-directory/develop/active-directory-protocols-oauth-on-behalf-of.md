@@ -4,7 +4,7 @@ description: "本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 代理�
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>服務對服務呼叫使用在代理者流程中委派的使用者身分識別
 OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
@@ -80,7 +80,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 | assertion |必要 | 要求中使用的權杖值。 |
 | client_id |必要 | 在向 Azure AD 註冊期間指派的用來呼叫服務的應用程式識別碼。 若要在 Azure 管理入口網站中尋找應用程式識別碼，依序按一下 [Active Directory]、目錄，然後按一下應用程式名稱。 |
 | client_secret |必要 | 在 Azure AD 中註冊之呼叫端服務的金鑰。 此值應該在註冊期間記下來。 |
-| 資源 |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式名稱、[所有設定] 及 [屬性]。 |
+| resource |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式名稱、[所有設定] 及 [屬性]。 |
 | requested_token_use |必要 | 指定應該如何處理要求。 在代理者流程中，此值必須是 **on_behalf_of**。 |
 | scope |必要 | 權杖要求範圍的清單，各項目之間以空格分隔。 若為 OpenID connect，則必須指定 **openid** 範圍。|
 
@@ -148,7 +148,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
-| 資源 |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
+| resource |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
 | access_token |所要求的存取權杖。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
 | id_token |所要求的識別碼權杖。 呼叫端服務可以使用此識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 |
 | refresh_token |所要求之存取權杖的重新整理權杖。 呼叫端服務可以使用這個權杖，在目前的存取權杖過期之後，要求其他的存取權杖。 |

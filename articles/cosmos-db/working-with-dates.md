@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
 Azure Cosmos DB 透過原生 [JSON](http://www.json.org) 資料模型，提供結構描述的彈性和豐富的索引編製功能。 所有 Azure Cosmos DB 資源 (包括資料庫、集合、文件及預存程序) 都會建立模型，並以 JSON 文件的形式儲存。 為了滿足可攜性需求，JSON (和 Azure Cosmos DB) 僅支援一小組基本類型︰字串、數字、布林值、陣列、物件及 Null。 不過，JSON 具有彈性，讓開發人員和架構可以使用這些基本類型及加以組合為物件或陣列，來表示更複雜的類型。 
@@ -26,7 +26,7 @@ Azure Cosmos DB 透過原生 [JSON](http://www.json.org) 資料模型，提供�
 除了基本類型，許多應用程式需要 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 類型來表示日期和時間戳記。 此文章說明開發人員如何使用 .NET SDK 來儲存、擷取、查詢 Azure Cosmos DB 中的日期。
 
 ## <a name="storing-datetimes"></a>儲存 DateTimes
-根據預設，[Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 會將 DateTime 值序列化為 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字串。 大部分應用程式可以使用 DateTime 的預設字串表示法，原因如下︰
+根據預設，[Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 會將 DateTime 值序列化為 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字串。 大部分應用程式可以使用 DateTime 的預設字串表示法，原因如下︰
 
 * 可以比較字串，且在將 DateTime 值轉換成字串時會保留這些字元的相對順序。 
 * 這個方法不需要任何自訂程式碼或屬性來進行 JSON 轉換。
@@ -75,7 +75,7 @@ DateTime 值常用於範圍查詢。 例如，如果您需要尋找昨天之後�
 您可以參閱 [Azure Cosmos DB 索引編製原則](indexing-policies.md)，來深入了解如何設定索引編製原則。
 
 ## <a name="querying-datetimes-in-linq"></a>用 LINQ 查詢 DateTime
-DocumentDB .NET SDK 會自動支援透過 LINQ 查詢儲存在 Azure Cosmos DB 中的資料。 例如，下列程式碼片段中的 LINQ 查詢會篩選在過去三天出貨的訂單。
+SQL.NET SDK 會自動支援查詢儲存在 Azure Cosmos DB 透過 LINQ 中的資料。 例如，下列程式碼片段中的 LINQ 查詢會篩選在過去三天出貨的訂單。
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -83,11 +83,11 @@ DocumentDB .NET SDK 會自動支援透過 LINQ 查詢儲存在 Azure Cosmos DB �
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-您可以參閱[查詢 Cosmos DB](documentdb-sql-query.md)，來深入了解 Azure Cosmos DB 的 SQL 查詢語言和 LINQ 提供者。
+您可以參閱[查詢 Cosmos DB](sql-api-sql-query.md)，來深入了解 Azure Cosmos DB 的 SQL 查詢語言和 LINQ 提供者。
 
 在此文章中，我們已經了解如何進行 Azure Cosmos DB 中 DateTime 的儲存、索引編製及查詢。
 
 ## <a name="next-steps"></a>後續步驟
 * 下載並執行 [GitHub 上的程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* 深入了解 [DocumentDB API 查詢](documentdb-sql-query.md)
+* 深入了解[SQL 查詢](sql-api-sql-query.md)
 * 深入了解 [Azure Cosmos DB 編製索引原則](indexing-policies.md)

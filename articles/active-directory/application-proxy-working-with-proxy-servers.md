@@ -3,8 +3,8 @@ title: "使用現有的內部部署 Proxy 伺服器與 Azure AD | Microsoft Docs
 description: "涵蓋如何使用現有的內部部署 Proxy 伺服器。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 47b17c0d81e8597d3125949b26906cc356a9af11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>使用現有的內部部署 Proxy 伺服器
 

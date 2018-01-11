@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 
@@ -42,7 +42,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 | --- |:---:|:---:|:---:|:---:|
 | [Azure 入口網站](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure CLI (ver 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -50,6 +50,8 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 
 ## <a name="quick-create-basic-cluster-setup"></a>快速建立：基本的叢集設定
 本文會逐步引導您完成 [Azure 入口網站](https://portal.azure.com)中的設定，您可以在此入口網站中使用 [Quick create] \(快速建立\) 或 [Custom] \(自訂\) 建立 HDInsight 叢集。 
+
+![hdinsight 建立的選項自訂快速建立](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
 
 依照畫面上指示執行基本的叢集設定。 以下是下列各項的詳細資訊：
 
@@ -78,34 +80,23 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |批次查詢和分析儲存的資料 |
 | [HBase](hbase/apache-hbase-overview.md) |處理大量無綱要的 NoSQL 資料 |
-| [Storm](storm/apache-storm-overview.md) |即時事件處理 |
-| [Spark](spark/apache-spark-overview.md) |記憶體內處理、互動式查詢、微批次串流處理 |
-| [Kafka (預覽)](kafka/apache-kafka-introduction.md) | 可用來建置即時串流資料管線和應用程式的分散式串流平台 |
-| [R 伺服器](r-server/r-server-overview.md) |各種巨量資料統計資料、預測模型和機器學習功能 |
 | [互動式查詢](./interactive-query/apache-interactive-query-get-started.md) |更快速之互動式 Hive 查詢的記憶體內快取 |
+| [Kafka](kafka/apache-kafka-introduction.md) | 可用來建置即時串流資料管線和應用程式的分散式串流平台 |
+| [R 伺服器](r-server/r-server-overview.md) |各種巨量資料統計資料、預測模型和機器學習功能 |
+| [Spark](spark/apache-spark-overview.md) |記憶體內處理、互動式查詢、微批次串流處理 |
+| [Storm](storm/apache-storm-overview.md) |即時事件處理 |
 
-### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
-每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
-
-| 類型 | 節點 | 圖表 |
-| --- | --- | --- |
-| Hadoop |前端節點 (2)、資料節點 (1+) |![HDInsight Hadoop 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |前端伺服器 (2)、區域伺服器 (1+)、主要/Zookeeper 節點 (3) |![HDInsight HBase 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus 節點 (2)、監督員伺服器 (1+)、Zookeeper 節點 (3) |![HDInsight Storm 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |前端節點 (2)、背景工作角色節點 (1+)、Zookeeper 節點 (3) (A1 Zookeeper VM 大小不限) |![HDInsight Spark 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
-
-如需詳細資訊，請參閱＜HDInsight 中的 Hadoop 元件和版本是什麼？＞中的[叢集的預設節點設定和虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
 ### <a name="hdinsight-version"></a>HDInsight 版本
 選擇此叢集的 HDInsight 版本。 如需詳細資訊，請參閱[支援的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
-### <a name="cluster-tiers"></a>叢集層：HDInsight 服務層
+### <a name="enterprise-security-package"></a>企業安全性封裝
 
-Azure HDInsight 提供兩種服務層的巨量資料雲端提供項目：Standard 和 Premium。  如需詳細資訊，請參閱 [HDInsight Standard 和 HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。
+Hadoop、 Spark，以及互動式查詢叢集類型，您可以選擇啟用**企業安全性封裝**。 此套件會提供更安全的叢集設定的使用 Apache 廣，以及與 Azure Active 目錄整合的選項。 如需詳細資訊，請參閱[企業安全性封裝，在 Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md)。
 
-以下螢幕擷取畫面顯示選擇叢集類型的 Azure 入口網站資訊。
+![hdinsight 建立選項選擇企業安全性封裝](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
-![HDInsight 進階組態](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+如需有關建立加入網域的 HDInsight 叢集，請參閱[建立加入網域的 HDInsight 沙箱環境](./domain-joined/apache-domain-joined-configure.md)。
 
 
 ## <a name="cluster-login-and-ssh-user-name"></a>叢集登入和 SSH 使用者名稱
@@ -113,6 +104,8 @@ Azure HDInsight 提供兩種服務層的巨量資料雲端提供項目：Standar
 
 * HTTP 使用者：預設使用者名稱為 *admin*。使用 Azure 入口網站上的基本組態。 有時稱之為「叢集使用者」。
 * SSH 使用者 (Linux 叢集)：用來透過 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+企業安全性套件可讓您 HDInsight 整合 Active Directory 和 Apache 廣。 可以使用企業安全性封裝來建立多個使用者。
 
 ## <a name="location"></a>叢集與儲存體的位置 (區域)
 
@@ -154,6 +147,19 @@ Azure HDInsight 提供兩種服務層的巨量資料雲端提供項目：Standar
 ## <a name="configure-cluster-size"></a>設定叢集大小
 
 只要叢集存在，就會針對您的節點使用量收費。 建立叢集後就開始計費，並在叢集刪除後停止計費。 無法取消配置或保留叢集。
+
+
+### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
+每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
+
+| 類型 | 節點 | 圖表 |
+| --- | --- | --- |
+| Hadoop |前端節點 (2)、資料節點 (1+) |![HDInsight Hadoop 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| hbase |前端伺服器 (2)、區域伺服器 (1+)、主要/Zookeeper 節點 (3) |![HDInsight HBase 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Storm |Nimbus 節點 (2)、監督員伺服器 (1+)、Zookeeper 節點 (3) |![HDInsight Storm 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Spark |前端節點 (2)、背景工作角色節點 (1+)、Zookeeper 節點 (3) (A1 Zookeeper VM 大小不限) |![HDInsight Spark 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+
+如需詳細資訊，請參閱＜HDInsight 中的 Hadoop 元件和版本是什麼？＞中的[叢集的預設節點設定和虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
 HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定。 
 

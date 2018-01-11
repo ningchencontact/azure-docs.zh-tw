@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
 ## <a name="overview"></a>**概觀**
@@ -82,7 +82,7 @@ Azure HDInsight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasupport
 
 可以透過以下方式找到 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/) 查詢：
 
-* 登入 [Azure 入口網站](https://manage.windowsazure.com/)
+* 登入 [Azure 入口網站](https://portal.azure.com/)
 * 找出部署解決方案時所產生的串流分析作業 ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png)。 一個用於將資料推送至 Blob 儲存體 (例如 mytest1streaming432822asablob)，另一種用於將資料推送至 Power BI (例如 mytest1streaming432822asapbi)。
 * 選取
 
@@ -150,7 +150,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
     其中一個串流分析作業會將原始內送資料寫入 blob 儲存體。 如果您從成功部署解決方案的畫面按一下解決方案的 [Azure Blob 儲存體]元件，然後在右窗格中按一下 [開啟]，系統會帶您前往 [Azure 入口網站](https://portal.azure.com)。 到達那裡之後，按一下 [Blob]。 在接下來的面板中，您會看到容器的清單。 按一下 [energysadata]。 在接下來的面板中，您會看到 [demandongoing] 資料夾。 在 rawdata 資料夾內，您會看到具有如 date=2016-01-28 等名稱的資料夾。如果您看到這些資料夾，則表示原始資料已經成功在您的電腦上產生並儲存在 blob 儲存體。 您應該會在這些資料夾中看到具有有限大小 (MB) 的檔案。
 2. 檢查 Azure SQL Database 中的資料。
 
-    管線的最後一個步驟是將資料 (例如從機器學習的預測) 寫入至 SQL Database。 您可能必須等候最多兩個小時，資料才會出現在 SQL Database。 監視您的 SQL Database 中有多少資料可用的其中一個方法是透過 [Azure 入口網站](https://manage.windowsazure.com/)。 在左側面板找到並按一下 SQL DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)。 然後找到您的資料庫 (亦即 demo123456db) 並且按一下它。 在下一個頁面的 [連接至您的資料庫] 區段下方，按一下 [對您的 SQL Database 執行 Transact-SQL 查詢]。
+    管線的最後一個步驟是將資料 (例如從機器學習的預測) 寫入至 SQL Database。 您可能必須等候兩個小時，才會出現在 SQL 資料庫資料的最大值。 監視您的 SQL Database 中有多少資料可用的其中一個方法是透過 [Azure 入口網站](https://portal.azure.com/)。 在左窗格中，找到 SQL 資料庫![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)，然後按一下它。 然後找到您的資料庫 (亦即 demo123456db) 並且按一下它。 在下一個頁面的 [連接至您的資料庫] 區段下方，按一下 [對您的 SQL Database 執行 Transact-SQL 查詢]。
 
     在這裡，您可以按一下 [新增查詢] 並查詢資料列數目 (例如，從 DemandRealHourly 選取 count(*)。隨著資料庫成長，資料表中的資料列數目應該會增加)。
 3. 檢查 Power BI 儀表板中的資料。
@@ -167,7 +167,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 1. 在 Azure 串流分析 (ASA) 中加入 Power BI 輸出。
 
    * 您必須依照 [Azure 串流分析及 Power BI：適用於串流資料即時可見度的即時分析儀表板](stream-analytics/stream-analytics-power-bi-dashboard.md)中的指示，將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
-   * 找出 [Azure 入口網站](https://manage.windowsazure.com)中的串流分析作業。 作業名稱應該是︰您的解決方案名稱+"streamingjob"+隨機數字+"asapbi" (也就是 demostreamingjob123456asapbi)。
+   * 找出 [Azure 入口網站](https://portal.azure.com)中的串流分析作業。 作業名稱應該是︰您的解決方案名稱+"streamingjob"+隨機數字+"asapbi" (也就是 demostreamingjob123456asapbi)。
    * 針對 ASA 工作加入 PowerBI 輸出。 將 [輸出別名] 設定為 **‘PBIoutput’**。 將 [資料集名稱] 和 [資料表名稱] 命名為 **‘EnergyStreamData’**。 新增了輸出之後，按一下頁面底部的 [啟動]  以啟動串流分析作業。 您應該會收到確認訊息 (例如，「串流分析作業 myteststreamingjob12345asablob 啟動成功」)。
 2. 登入 [Power BI 線上版](http://www.powerbi.com)
 
@@ -196,7 +196,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
    在移至後續步驟之前，您將需要**資料庫伺服器名稱、資料庫名稱、使用者名稱和密碼** 。 以下是引導您如何尋找的步驟。
 
-   * 一旦您的解決方案範本圖表上的 Azure SQL Database 變成綠色，請按一下它，然後按一下開啟。 您將會前往 Azure 入口網站，而且您的資料庫資訊頁面也會開啟。
+   * 一旦您的解決方案範本圖表上的 [Azure SQL Database] 變成綠色，請按一下它，然後按一下 [開啟]。 您將會前往 Azure 入口網站，而且您的資料庫資訊頁面也會開啟。
    * 在該頁面上，您可以找到 [資料庫] 區段。 它會列出您已建立的資料庫。 您的資料庫名稱應該是 **「您的解決方案名稱 + 隨機數字 + 'db'」** (例如 "mytest12345db")。
    * 按一下您的資料庫，在新的快顯面板上方，就可以找到您的資料庫伺服器名稱。 您的資料庫伺服器名稱應該是 `"Your Solution Name + Random Number + 'database.windows.net,1433'"` (例如，"mytest12345.database.windows.net,1433")。
    * 您的資料庫**使用者名稱**和**密碼**使用解決方案部署期間記錄的相同使用者名稱和密碼。
@@ -207,7 +207,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
      一旦開啟，請在檔案的頂端按一下 [編輯查詢] 。 在快顯視窗中，按兩下右面板上的 [來源]。
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
-   * 在快顯視窗中，將 伺服器和 資料庫 取代為您自己的伺服器和資料庫名稱，然後按一下確定。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 忽略畫面上出現的警告訊息。
+   * 在快顯視窗中，將 [伺服器]和 [資料庫] 取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 忽略畫面上出現的警告訊息。
    * 在下一個快顯視窗中，您會在左側窗格上看到兩個選項 ([Windows] 和 [資料庫])。 按一下 [資料庫]，填入您的 [使用者名稱] 和 [密碼] \(這是當您首次部署解決方案並建立 Azure SQL Database 時輸入的使用者名稱和密碼)。 在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。 然後按一下 [連接] 。
    * 一旦引導您回到上一頁，請關閉視窗。 隨即快顯訊息 - 按一下 [套用]。 最後，按一下 [儲存]  按鈕以儲存變更。 您的 Power BI 檔案現在已建立與伺服器的連線。 如果視覺效果是空的，請確定將視覺效果上的選取範圍都清除，以將所有資料視覺化，成法是按一下圖例右上角的橡皮擦圖示。 使用重新整理按鈕在視覺效果上反映新的資料。 最初，您只會在視覺效果上看到種子資料，因為 Data Factory 排定為每 3 個小時重新整理。 3 小時後，當您重新整理資料時，會看到新的預測反映在視覺效果中。
 3. (選擇性) 將冷路徑儀表板發佈至 [Power BI 線上版](http://www.powerbi.com/)。 請注意，這個步驟需要 Power BI 帳戶 (或 Office 365 帳戶)。

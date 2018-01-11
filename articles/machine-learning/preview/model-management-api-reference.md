@@ -6,16 +6,17 @@ author: chhavib
 ms.author: chhavib
 manager: neerajkh
 editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 模型管理帳戶 API 參考
 
@@ -78,9 +79,9 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | model | body | 用來註冊模型的承載。 | 是 | [模型](#model) |
@@ -104,14 +105,14 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
-| 名稱 | query | 物件名稱。 | 否 | 字串 |
+| name | query | 物件名稱。 | 否 | 字串 |
 | tag | query | 模型標籤。 | 否 | 字串 |
-| 計數 | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
+| count | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
 | $skipToken | query | 要擷取下一頁的接續權杖。 | 否 | 字串 |
 
 ### <a name="responses"></a>回應
@@ -133,10 +134,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 物件識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 物件識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -159,9 +160,9 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | manifestRequest | body | 用來註冊資訊清單的承載。 | 是 | [資訊清單](#manifest) |
@@ -185,14 +186,14 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | modelId | query | 模型識別碼。 | 否 | 字串 |
 | manifestName | query | 資訊清單名稱。 | 否 | 字串 |
-| 計數 | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
+| count | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
 | $skipToken | query | 要擷取下一頁的接續權杖。 | 否 | 字串 |
 
 ### <a name="responses"></a>回應
@@ -214,10 +215,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 物件識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 物件識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -240,9 +241,9 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | imageRequest | body | 用來建立映像的承載。 | 是 | [ImageRequest](#imagerequest) |
@@ -266,14 +267,14 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | manifestId | query | 資訊清單識別碼。 | 否 | 字串 |
 | manifestName | query | 資訊清單名稱。 | 否 | 字串 |
-| 計數 | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
+| count | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
 | $skipToken | query | 要擷取下一頁的接續權杖。 | 否 | 字串 |
 
 ### <a name="responses"></a>回應
@@ -295,10 +296,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 映像識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 映像識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -322,9 +323,9 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | serviceRequest | body | 用來建立服務的承載。 | 是 | [ServiceCreateRequest](#servicecreaterequest) |
@@ -349,9 +350,9 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | serviceName | query | 服務名稱。 | 否 | 字串 |
@@ -361,7 +362,7 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 | manifestName | query | 資訊清單名稱。 | 否 | 字串 |
 | imageId | query | 映像識別碼。 | 否 | 字串 |
 | computeResourceId | query | Machine Learning 計算資源識別碼。 | 否 | 字串 |
-| 計數 | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
+| count | query | 要在一個頁面中擷取的項目數目。 | 否 | 字串 |
 | $skipToken | query | 要擷取下一頁的接續權杖。 | 否 | 字串 |
 
 ### <a name="responses"></a>回應
@@ -383,10 +384,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 物件識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 物件識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -409,10 +410,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 物件識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 物件識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | serviceUpdateRequest | body | 用來更新現有服務的承載。 | 是 |  [ServiceUpdateRequest](#serviceupdaterequest) |
@@ -437,10 +438,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 物件識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 物件識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -464,10 +465,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 服務識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 服務識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -490,10 +491,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 服務識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 服務識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | regenerateKeyRequest | body | 用來更新現有服務的承載。 | 是 | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
@@ -517,9 +518,9 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 | serviceId | query | 服務識別碼。 | 否 | 字串 |
@@ -543,10 +544,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 部署識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 部署識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -569,10 +570,10 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="parameters"></a>參數
 | 名稱 | 位於 | 說明 | 必要 | 結構描述
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 路徑 | Azure 訂用帳戶識別碼。 | 是 | 字串 |
-| resourceGroupName | 路徑 | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
-| accountName | 路徑 | 模型管理帳戶的名稱。 | 是 | 字串 |
-| id | 路徑 | 作業識別碼。 | 是 | 字串 |
+| subscriptionId | path | Azure 訂用帳戶識別碼。 | 是 | 字串 |
+| resourceGroupName | path | 模型管理帳戶所在的資源群組名稱。 | 是 | 字串 |
+| accountName | path | 模型管理帳戶的名稱。 | 是 | 字串 |
+| id | path | 作業識別碼。 | 是 | 字串 |
 | api-version | query | 要使用的 Microsoft.Machine.Learning 資源提供者 API 版本。 | 是 | 字串 |
 | Authorization | 頁首 | 授權權杖。 它應該類似 "Bearer XXXXXX"。 | 是 | 字串 |
 
@@ -671,7 +672,7 @@ Machine Learning 計算資源。
 
 
 <a name="deployment"></a>
-### <a name="deployment"></a>部署
+### <a name="deployment"></a>Deployment
 Azure Machine Learning 部署的執行個體。
 
 

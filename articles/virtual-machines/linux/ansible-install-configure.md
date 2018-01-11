@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>安裝及設定 Ansible 來管理 Azure 中的虛擬機器
-本文詳細說明如何針對某些最常見的 Linux 發行版，安裝 Ansible 和必要的 Azure Python SDK 模組。 您可以配合特定的平台調整安裝的套件，來將 Ansible 安裝在其他發行版上。 為了以安全的方式建立 Azure 資源，您也將了解如何建立及定義 Ansible 所要使用的認證。 
+這篇文章說明如何安裝 Ansible 和所需的 Azure Python SDK 模組的某些最常見的 Linux 散發版本。 您可以配合特定的平台調整安裝的套件，來將 Ansible 安裝在其他發行版上。 為了以安全的方式建立 Azure 資源，您也將了解如何建立及定義 Ansible 所要使用的認證。 
 
 如需其他平台的更多安裝選項和步驟，請參閱 [Ansible 安裝指南](https://docs.ansible.com/ansible/intro_installation.html)。
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/18/2017
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-現在建立 VM，並針對下列其中一個發行版安裝 Ansible：
+現在，建立 VM，並安裝 Ansible 下列散發版本，您所選擇的其中一項：
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ az group create --name myResourceGroupAnsible --location eastus
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 使用 [az vm create](/cli/azure/vm#create) 建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ pip install ansible[azure]
 ### <a name="centos-73"></a>CentOS 7.3
 使用 [az vm create](/cli/azure/vm#create) 建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -104,9 +104,9 @@ sudo pip install ansible[azure]
 
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
-使用 [az vm create](/cli/azure/vm#create) 來建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
+使用 [az vm create](/cli/azure/vm#create) 建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,11 +125,14 @@ ssh azureuser@<publicIpAddress>
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 現在繼續前往[建立 Azure 認證](#create-azure-credentials)。
@@ -138,26 +141,26 @@ sudo pip install ansible[azure]
 ## <a name="create-azure-credentials"></a>建立 Azure 認證
 Ansible 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 Ansible 等自動化工具搭配使用。 您可以控制和定義對於服務主體可以在 Azure 中執行哪些作業的權限。 為了提高只提供使用者名稱和密碼的安全性，此範例會建立基本的服務主體。
 
-使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 建立服務主體，並將 Ansible 所需的認證輸出：
+建立與主機電腦上的服務主體[az ad 預存程序建立-如-rbac](/cli/azure/ad/sp#create-for-rbac)和輸出 Ansible 需要的認證：
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 上述命令的輸出範例如下所示：
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 若要向 Azure 驗證，您也需要使用 [az account show](/cli/azure/account#show) 取得 Azure 訂用帳戶識別碼：
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 您將在下一個步驟中使用這兩個命令的輸出。
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-「認證」檔案本身結合了訂用帳戶識別碼與建立服務主體的輸出。 對於 *client_id*、*secret* 和 *tenant*，先前 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 命令的輸出必須是相同順序。 下列範例*認證*檔案顯示符合上述輸出的值。 輸入您自己的值，如下所示︰
+「認證」檔案本身結合了訂用帳戶識別碼與建立服務主體的輸出。 從先前輸出[az ad 預存程序建立-如-rbac](/cli/azure/ad/sp#create-for-rbac)命令是相同的視需要針對*client_id*，*密碼*，和*租用戶*。 下列範例*認證*檔案顯示符合上述輸出的值。 輸入您自己的值，如下所示︰
 
 ```bash
 [default]

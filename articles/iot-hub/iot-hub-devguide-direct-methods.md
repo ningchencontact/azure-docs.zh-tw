@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 IoT 中樞能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 對於立即動作的進展取決於裝置是否能夠回應的案例來說，例如在裝置離線時傳送 SMS 喚醒給裝置 (SMS 的成本比方法呼叫高)，此方法會相當有用。
@@ -33,7 +33,7 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 如果不確定要使用所需屬性、直接方法或雲端對裝置訊息，請參閱[雲端對裝置通訊指引][lnk-c2d-guidance]。
 
 ## <a name="method-lifecycle"></a>方法生命週期
-直接方法是在裝置上實作，而且可能需要方法承載中的零或多個輸入以正確具現化。 您可以透過面向服務的 URI 叫用直接方法 (`{iot hub}/twins/{device id}/methods/`)。 裝置會透過裝置特定 MQTT 主題收到直接方法 (`$iothub/methods/POST/{method name}/`)。 我們未來可能會在額外的裝置端網路通訊協定上支援直接方法。
+直接方法是在裝置上實作，而且可能需要方法承載中的零或多個輸入以正確具現化。 您可以透過面向服務的 URI 叫用直接方法 (`{iot hub}/twins/{device id}/methods/`)。 裝置收到直接的方法，透過特定裝置 MQTT 主題 (`$iothub/methods/POST/{method name}/`) 或透過 AMQP 連結 (`IoThub-methodname`和`IoThub-status`應用程式屬性)。 
 
 > [!NOTE]
 > 當您在裝置上叫用直接方法時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，下列集合中的任何字元除外︰``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``。
@@ -68,15 +68,14 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 
 逾時 (秒)。 如果未設定逾時，它會預設為 30 秒。
 
-### <a name="response"></a>回應
+### <a name="response"></a>Response
 後端應用程式會收到一個由下列各項組成的回應︰
 
 * *HTTP 狀態碼*，用於來自 IoT 中樞的錯誤，包括裝置目前未連接的 404 錯誤
 * *標頭* - 包含 ETag、要求識別碼、內容類型及內容編碼
 * JSON *本文*格式如下︰
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
    `status` 和 `body` 都是由裝置提供，用來回應裝置本身的狀態碼和/或描述。
 
 ## <a name="handle-a-direct-method-on-a-device"></a>在裝置上處理直接方法
-### <a name="method-invocation"></a>方法引動過程
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>方法引動過程
 裝置會接收 MQTT 主題的直接方法要求︰`$iothub/methods/POST/{method name}/?$rid={request id}`
 
 裝置所接收的本文格式如下︰
@@ -99,13 +99,30 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 
 方法要求為 QoS 0。
 
-### <a name="response"></a>Response
+#### <a name="response"></a>Response
 裝置會傳送回應至 `$iothub/methods/res/{status}/?$rid={request id}`，其中︰
 
 * `status` 屬性是方法執行的裝置提供狀態。
 * `$rid` 屬性是從 IoT 中樞接收的方法引動過程的要求識別碼。
 
 本文是由裝置設定，而且可以是任何狀態。
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>方法引動過程
+裝置收到建立位址接收連結以直接的方法要求`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+AMQP 訊息到達接收連結表示之方法要求。 它包含下列內容：
+* 相互關聯 ID 屬性，其中包含應該傳遞回與對應的方法回應的要求識別碼
+* 名為應用程式屬性`IoThub-methodname`，其中包含要叫用之方法的名稱
+* AMQP 訊息主體包含 json 的方法內容
+
+#### <a name="response"></a>Response
+裝置建立方法回應傳回位址上傳送的連結`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+方法的回應會傳回傳送的連結，而且結構如下：
+* 相互關聯 ID 屬性，其中包含傳遞方法的要求訊息中的要求識別碼
+* 名為應用程式屬性`IoThub-status`，其中包含使用者提供的狀態
+* AMQP 訊息內文包含為 JSON 方法回應
 
 ## <a name="additional-reference-material"></a>其他參考資料
 IoT 中樞開發人員指南中的其他參考主題包括︰

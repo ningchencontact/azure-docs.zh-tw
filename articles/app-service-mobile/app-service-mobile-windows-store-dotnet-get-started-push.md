@@ -3,8 +3,8 @@ title: "將推播通知新增至您的通用 Windows 平台 (UWP) 應用程式 |
 description: "了解如何使用 Azure App Service Mobile Apps 與 Azure 通知中樞，將推播通知傳送至通用 Windows 平台 (UWP) 應用程式。"
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
-ms.openlocfilehash: a14bb0320c1f6a563f766a6a0fad5cf556fe7b70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: d51fa215ace8b33acb5d36b98e9a1a86e3296a65
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>將推播通知加入至 Windows 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 在本教學課程中，您會將推播通知新增至 [Windows 快速入門](app-service-mobile-windows-store-dotnet-get-started.md)專案，以便在每次插入一筆記錄時傳送推播通知至裝置。
 
 如果您不要使用下載的快速入門伺服器專案，將需要推播通知擴充套件。 如需詳細資訊，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立應用程式與 Windows 市集的關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
-3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 下一步，然後按一下關聯。 這會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。  
+3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。 這會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。  
 4. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/en-us/overview)、使用您的 Microsoft 帳戶登入、在 [我的應用程式] 中按一下 [新增應用程式註冊]，然後展開 [服務]  >  [推播通知]。
 5. 在 [推播通知] 頁面上，按一下 [Microsoft Azure 行動服務] 底下的 [線上服務網站]。
 6. 在註冊頁面中，記下 [應用程式祕密] 和 [套件 SID] 底下的值，以在接下來用來設定您的行動應用程式後端。
@@ -185,8 +185,9 @@ ms.lasthandoff: 10/11/2017
 ## <a id="more"></a>接續步驟
 進一步了解推播通知︰
 
-* [如何針對 Azure Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-  ：範本可讓您彈性地傳送跨平台推播和當地語系化推播。 了解如何註冊範本。
+* 
+              [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
+：範本可讓您彈性地傳送跨平台推播和當地語系化推播。 了解如何註冊範本。
 * [診斷推播通知問題](../notification-hubs/notification-hubs-push-notification-fixer.md)  
   通知遭到捨棄或未抵達裝置有各種原因。 本主題說明如何分析及找出推播通知失敗的根本原因。
 
@@ -195,7 +196,7 @@ ms.lasthandoff: 10/11/2017
 * [將驗證加入應用程式中](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   ：了解如何使用識別提供者來驗證應用程式的使用者。
 * [啟用應用程式的離線同步處理](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  了解如何使用行動應用程式後端，將離線支援新增至應用程式。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
+  ：了解如何使用行動應用程式後端，將離線支援加入至應用程式。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
 
 <!-- Anchors. -->
 

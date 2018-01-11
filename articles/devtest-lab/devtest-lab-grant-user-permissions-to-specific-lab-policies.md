@@ -3,7 +3,7 @@ title: "將特定實驗室原則的權限授與使用者 | Microsoft Docs"
 description: "了解如何根據每個使用者的需求將使用者權限授與研發/測試實驗室中的特定實驗室原則"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>將特定實驗室原則的權限授與使用者
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文說明如何使用 PowerShell 將特定實驗室原則的權限授與使用者。 這樣便可根據每個使用者的需求來套用權限。 例如，您可能想要將變更 VM 原則設定 (而非成本原則) 的能力授與特定的使用者。
 
 ## <a name="policies-as-resources"></a>原則即資源

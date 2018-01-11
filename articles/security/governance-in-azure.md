@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="governance-in-azure"></a>Azure 中的治理
 
@@ -371,7 +371,7 @@ VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的
 
 ## <a name="security-configuration-monitoring-and-alerting"></a>安全性設定，監視和警示
 
-Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 在某些情況下，管理功能是透過 Web 式主控台 (例如 Azure 入口網站) 來執行。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且不受管理，例如平板電腦或智慧型手機。
+Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 在某些情況下，管理功能是透過 Web 式主控台 (例如 Azure 入口網站) 來執行。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
 
 雖然多項存取和管理功能可提供一組豐富的選項，但選項太多也可能會讓雲端部署承受巨大風險。 因而難以管理、追蹤和稽核管理動作。 選項太多也可能會因為用來管理雲端服務之用戶端端點所進行的存取不受管制而招致安全性威脅。 使用一般工作站或私人工作站來開發和管理基礎結構將會打開無法預期的威脅媒介，例如網頁瀏覽 (例如水坑攻擊) 或電子郵件 (例如社交工程和網路釣魚)。
 
@@ -488,6 +488,6 @@ Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將�
 
 - [建立 Azure Resource Manager 範本的最佳做法](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)。
 
-- [實作 Azure 訂用帳戶治理的範例](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples)。
+- [實作 Azure 訂用帳戶治理的範例](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples)。
 
 - [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/) \(英文\)。

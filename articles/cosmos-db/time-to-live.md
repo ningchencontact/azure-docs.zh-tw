@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期
 應用程式可以產生並儲存大量資料。 其中有些資料，例如電腦產生的事件資料、記錄檔和使用者工作階段資訊只能在有限的期間內使用。 一旦資料超過應用程式的需求，即可放心清除此資料並減少應用程式的儲存體需求。
@@ -149,8 +149,11 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
-## <a name="ttl-and-index-interaction"></a>TTL 和索引互動
-TTL 新增或變更是基礎索引的變更。 當沒有任何 TTL 且您提供有效的 TTL 值時 - 這樣會導致重新建立索引作業。 針對一致的索引 - 使用者在索引狀態中不會看到任何變更。 萬一索引延遲 - 索引首先一律會在 ttl 中趕上這項變更，索引則會從頭重新建立。 在後者的情況下，影響就是在索引重建期間所執行的查詢不會傳回完整或正確的結果。 如果您因為檢索模式本身延遲而需要精確的資料計數，請勿變更延遲索引的 TTL。  在理想情況下，請一律選擇一致的索引。 
+<a id="ttl-and-index-interaction"></a> 
+## <a name="ttl-and-index-interaction"></a>TTL 和索引的互動
+新增或變更 TTL 上的設定集合變更基礎的索引。 TTL 值從 Off 變更為 On，當集合是重新建立索引。 進行變更時要編製索引原則一致檢索模式時，使用者將不會注意到索引的變更。 檢索模式時設定為延遲，索引一律趕上，並且如果 TTL 值變更時，從頭重新建立索引。 當 TTL 值會變更索引模式設定為延遲，在索引重建期間完成的查詢不會傳回完整或不正確的結果。
+
+如果您需要傳回精確的資料時，請勿變更 TTL 值，當檢索模式設定為延遲。 在理想情況下應該選擇一致的索引，以確保一致的查詢結果。 
 
 ## <a name="faq"></a>常見問題集
 **TTL 的費用為何？**
@@ -171,7 +174,7 @@ TTL 會套用到整份文件。 如果您只想要讓文件的一部分過期，
 
 **TTL 功能是否有任何特定的編製索索引需求？**
 
-是。 集合的[編製索引原則](indexing-policies.md)必須設定為 [延遲] 或 [一致]。 嘗試在編製索引設為 [無] 的集合上設定 DefaultTTL 會造成錯誤，而嘗試在已設定 DefaultTTL 的集合上關閉索引編製也會造成錯誤。
+可以。 集合的[編製索引原則](indexing-policies.md)必須設定為 [延遲] 或 [一致]。 嘗試在編製索引設為 [無] 的集合上設定 DefaultTTL 會造成錯誤，而嘗試在已設定 DefaultTTL 的集合上關閉索引編製也會造成錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure Cosmos DB，請參閱服務的[*文件 (英文)*](https://azure.microsoft.com/documentation/services/cosmos-db/) 頁面。

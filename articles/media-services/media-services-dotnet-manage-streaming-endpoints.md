@@ -1,6 +1,6 @@
 ---
 title: "使用 .NET SDK 來管理串流端點。 | Microsoft Docs"
-description: "本主題說明如何透過 Azure 入口網站管理串流端點。"
+description: "本文將說明如何管理與 Azure 入口網站的串流端點。"
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -13,20 +13,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>使用 .NET SDK 來管理串流端點
 
 >[!NOTE]
->請務必檢閱[概觀](media-services-streaming-endpoints-overview.md)主題。 此外，也請檢閱 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。
+>請務必檢閱[概觀](media-services-streaming-endpoints-overview.md)發行項。 此外，也請檢閱 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。
 
-本主題中的程式碼示範如何使用「Azure 媒體服務 .NET SDK」來執行下列工作：
+這篇文章中的程式碼顯示如何使用 Azure Media Services.NET SDK 的下列工作：
 
 - 檢查預設串流端點。
 - 建立/新增新的串流端點。
@@ -45,37 +45,47 @@ ms.lasthandoff: 10/11/2017
     >[!NOTE]
     >預設串流端點不可刪除。
 
-如需調整串流端點的相關資訊，請參閱 [這個](media-services-portal-scale-streaming-endpoints.md) 主題。
+如需如何調整串流端點資訊，請參閱[這](media-services-portal-scale-streaming-endpoints.md)發行項。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>新增可管理串流端點的程式碼
     
 以下列程式碼取代 Program.cs 中的程式碼：
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.Live;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.Live;
 
-    namespace AMSStreamingEndpoint
+namespace AMSStreamingEndpoint
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -104,10 +114,10 @@ ms.lasthandoff: 10/11/2017
             var name = "StreamingEndpoint" + DateTime.UtcNow.ToString("hhmmss");
             var option = new StreamingEndpointCreationOptions(name, 1)
             {
-            StreamingEndpointVersion = new Version("2.0"),
-            CdnEnabled = true,
-            CdnProfile = "CdnProfile",
-            CdnProvider = CdnProviderType.PremiumVerizon
+                StreamingEndpointVersion = new Version("2.0"),
+                CdnEnabled = true,
+                CdnProfile = "CdnProfile",
+                CdnProvider = CdnProviderType.PremiumVerizon
             };
 
             var streamingEndpoint = _context.StreamingEndpoints.Create(option);
@@ -118,7 +128,7 @@ ms.lasthandoff: 10/11/2017
         static public void UpdateStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
         {
             if (streamingEndpoint.StreamingEndpointVersion == "1.0")
-            streamingEndpoint.StreamingEndpointVersion = "2.0";
+                streamingEndpoint.StreamingEndpointVersion = "2.0";
 
             streamingEndpoint.CdnEnabled = false;
             streamingEndpoint.Update();
@@ -128,9 +138,9 @@ ms.lasthandoff: 10/11/2017
         {
             streamingEndpoint.Delete();
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 檢閱媒體服務學習路徑。

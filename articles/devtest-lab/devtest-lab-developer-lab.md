@@ -3,7 +3,7 @@ title: "使用適用於開發人員的 Azure DevTest Labs | Microsoft Docs"
 description: "了解如何使用適用於開發人員案例的 Azure DevTest Labs。"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 22e070e5-3d1a-49fe-9d4c-5e07cb0b7fe2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: tarcher
-ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: f99776a718c03e8af36d45d7006be8ce29208615
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>使用適用於開發人員的 Azure DevTest Labs
 Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主要案例是使用 DevTest Labs 來託管開發人員的開發電腦。 在此案例中，DevTest Labs 提供以下優點：
@@ -40,7 +40,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [在 Azure 研測實驗室中建立實驗室](devtest-lab-create-lab.md) |了解如何在 Azure 入口網站的 Azure DevTest Labs 中建立實驗室。 |
 2. **使用現成的 Marketplace 映像和自訂映像在幾分鐘內建立 VM** 
@@ -51,7 +51,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
   
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入白名單；只讓您想要提供給開發人員使用的映像可供選取。|
    | [建立自訂映像](devtest-lab-create-template.md) |預先安裝所需軟體以建立自訂映像，讓開發人員可以使用自訂映像快速建立 VM。|
@@ -63,7 +63,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [管理研發/測試實驗室公式來建立 VM](devtest-lab-manage-formulas.md) |了解如何挑選映像、VM 大小 (CPU 和 RAM 的組合) 和虛擬網路以建立公式。|
 
@@ -79,7 +79,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
 
    按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [為您的 DevTest Labs VM 建立自訂的構件](devtest-lab-artifact-author.md) |在實驗室中為虛擬機器建立自己的自訂構件。|
    | [在 Azure DevTest Labs 中新增可以存放自訂構件和 Azure Resource Manager 範本來使用的 Git 存放庫](devtest-lab-add-artifact-repo.md) |了解如何在您自己的私用 Git 儲存機制中儲存您的自訂構件。|
@@ -94,7 +94,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [定義實驗室原則](devtest-lab-set-lab-policy.md) |在實驗室中設定原則來控制成本。 |
    | [使用 PowerShell 指令碼刪除所有實驗室 VM](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |當開發完成時，在一次作業中刪除所有實驗室。|
@@ -107,7 +107,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [在 Azure DevTest Labs 中設定虛擬網路](devtest-lab-configure-vnet.md) |了解如何使用 Azure 入口網站在 Azure DevTest Labs 中設定虛擬網路。|
 
@@ -117,7 +117,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [在 Azure DevTest Labs 中將開發人員新增至實驗室](devtest-lab-add-devtest-user.md) |使用 Azure 入口網站將開發人員新增至實驗室。|
    | [使用 PowerShell 指令碼將開發人員新增至實驗室](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |使用 PowerShell 自動將開發人員新增到實驗室。 |
@@ -129,7 +129,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
     按一下下表中的連結以便深入了解︰
    
-   | 工作 | 您學到什麼 |
+   | Task | 您學到什麼 |
    | --- | --- |
    | [使用 Resource Manager 範本建立實驗室](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |在 Azure DevTest Labs 中使用 Resource Manager 範本建立實驗室。 |
 

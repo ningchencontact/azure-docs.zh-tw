@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Canvas LMS 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 2212b7a81b66d1afd1aa78d1487b07b6d7b84129
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ae007ee34f1dc997db2d7ca8267ba2522e0eb687
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>教學課程：Azure Active Directory 與 Canvas LMS 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Canvas
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-canvas-from-the-gallery"></a>從資源庫新增 Canvas
-若要設定將 Canvas 整合到 Azure AD 中，您需要從資源庫將 Canvas 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Canvas 整合到 Azure AD 中，您需要從資源庫將 Canvas 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Canvas，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Canvas**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_search.png)
 
-5. 在結果面板中，選取 Canvas，然後按一下新增 按鈕以新增該應用程式。
+5. 在結果面板中，選取 [Canvas]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<tenant-name>.instructure.com`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`https://<tenant-name>.instructure.com/saml2`
+    b. 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Canvas 用戶端支援小組](https://community.canvaslms.com/community/help)以取得這些值。 
@@ -131,11 +131,11 @@ ms.lasthandoff: 10/11/2017
  
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Canvas 公司網站。
 
-8. 移至 [課程] \> [受管理帳戶] \> [Microsoft]。
+8. 移至 [課程] \> [受控帳戶] \> [Microsoft]。
    
     ![Canvas](./media/active-directory-saas-canvas-lms-tutorial/IC775990.png "Canvas")
 
-9. 在左側瀏覽窗格中，選取 驗證，然後按一下加入新的 SAML 設定。
+9. 在左側瀏覽窗格中，選取 [驗證]，然後按一下 [加入新的 SAML 設定]。
    
     ![驗證](./media/active-directory-saas-canvas-lms-tutorial/IC775991.png "驗證")
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [IdP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
-    b.這是另一個 C# 主控台應用程式。 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
     c. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
@@ -187,11 +187,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-canvas-test-user"></a>建立 Canvas 測試使用者
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入您的 **Canvas** 租用戶。
 
-2. 移至 [課程] \> [受管理帳戶] \> [Microsoft]。
+2. 移至 [課程] \> [受控帳戶] \> [Microsoft]。
    
    ![Canvas](./media/active-directory-saas-canvas-lms-tutorial/IC775990.png "Canvas")
 
@@ -221,13 +221,13 @@ ms.lasthandoff: 10/11/2017
    
    a. 在 [全名] 文字方塊中，輸入使用者的名稱，例如 **BrittaSimon**。
 
-   b.這是另一個 C# 主控台應用程式。 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+   b. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
 
    c. 在 [登入] 文字方塊中，輸入使用者的 Azure AD 電子郵件地址，例如 **brittasimon@contoso.com**。
 
    d. 選取 [以電子郵件通知使用者有關這個帳戶的建立] 。
 
-   e. 按一下 [加入使用者] 。
+   e. 按一下 [新增使用者] 。
 
 >[!NOTE]
 >您可以使用任何其他的 Canvas 使用者帳戶建立工具或 Canvas 提供的 API 來佈建 AAD 使用者帳戶。

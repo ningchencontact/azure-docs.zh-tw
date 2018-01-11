@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: HT
+ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB Web 應用程式
+
+> [!NOTE]
+> 這篇文章會將應用程式部署至 Linux 上的應用程式服務。 若要將部署到應用程式服務在_Windows_，請參閱[建置在 Azure 中的 Node.js 及 MongoDB web 應用程式](../app-service-web-tutorial-nodejs-mongodb-app.md)。
+>
 
 [Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何建立 Node.js Web 應用程式，將其連線至 MongoDB 資料庫本機，然後使用 MongoDB API 部署至連線至 CosmosDB 資料庫的 Azure。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 Linux 上的 App Service 中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](http://meanjs.org/)。
 
@@ -126,7 +130,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 
 ### <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶
 
-在 Cloud Shell 中，使用 [az cosmosdb create](/cli/azure/cosmosdb#create) 命令來建立 Cosmos DB 帳戶。
+在 Cloud Shell 中，使用 [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令來建立 Cosmos DB 帳戶。
 
 在下列命令中，以唯一的 Cosmos DB 名稱取代 \<cosmosdb_name> 預留位置。 這個名稱會用來作為 Cosmos DB 端點 `https://<cosmosdb_name>.documents.azure.com/` 的一部分，因此，這個名稱在 Azure 中的所有 Cosmos DB 帳戶上必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。
 
@@ -160,7 +164,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 ### <a name="retrieve-the-database-key"></a>擷取資料庫索引鍵
 
-若要連線至 Cosmos DB 資料庫，您需要資料庫金鑰。 在 Cloud Shell 中，使用 [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) 命令來擷取主要金鑰。
+若要連線至 Cosmos DB 資料庫，您需要資料庫金鑰。 在 Cloud Shell 中，使用 [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 命令來擷取主要金鑰。
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +256,7 @@ MEAN.JS version: 0.5.0
 
 根據預設，MEAN.js 專案會將 _config/env/local-production.js_ 屏除在 Git 存放庫之外。 因此針對您的 Azure Web 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
 
-若要設定應用程式設定，請在 Cloud Shell 中使用 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 命令。
+若要設定應用程式，請使用[az webapp config appsettings 組](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set)雲端殼層命令。
 
 下列範例會在 Azure Web 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 預留位置。
 

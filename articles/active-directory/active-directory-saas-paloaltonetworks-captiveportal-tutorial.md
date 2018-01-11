@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Palo Alto 網路 - �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: d3126feec3081f71b89d927291c164e261129312
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 32b3a45d9baf0b53e05708abab78a462c6780daa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>教學課程：Azure Active Directory 與 Palo Alto 網路 - 網頁驗證入口整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 11/07/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Palo Alto 網路 - 網頁驗證入口
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-palo-alto-networks---captive-portal-from-the-gallery"></a>從資源庫新增 Palo Alto 網路 - 網頁驗證入口
-若要設定將 Palo Alto 網路 - 網頁驗證入口整合到 Azure AD 中，您需要從資源庫將 Palo Alto 網路 - 網頁驗證入口新增到受管理的 SaaS 應用程式清單。
+若要設定將 Palo Alto 網路 - 網頁驗證入口整合到 Azure AD 中，您需要從資源庫將 Palo Alto 網路 - 網頁驗證入口新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Palo Alto 網路 - 網頁驗證入口，請執行下列步驟：**
 
@@ -123,25 +123,25 @@ ms.lasthandoff: 11/07/2017
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_general_400.png)
 
-6. 以管理員的身分，在另一個瀏覽器視窗中開啟 Palo Alto 站台。
+6. 以系統管理員的身分，在另一個瀏覽器視窗中開啟 Palo Alto 站台。
 
-7. 按一下 [裝置]。
+7. 按一下 [Device] \(裝置\)。
 
     ![設定 Palo Alto 單一登入](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-8. 從左側導覽列選取 [SAML 識別提供者]，然後按一下 [匯入] 以匯入中繼資料檔案。
+8. 從左側導覽列選取 [SAML Identity Provider] \(SAML 識別提供者\)，然後按一下 [Import] \(匯入\) 以匯入中繼資料檔案。
 
     ![設定 Palo Alto 單一登入](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-9. 在 [匯入] 視窗執行下列動作
+9. 在 [Import] \(匯入\) 視窗執行下列動作
 
     ![設定 Palo Alto 單一登入](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. 在 [設定檔名稱] 文字方塊中提供名稱，例如 Azure AD Admin UI。
+    a. 在 [Profile Name] \(設定檔名稱\) 文字方塊中提供名稱，例如 Azure AD 系統管理 UI。
     
-    b. 在 [識別提供者中繼資料] 中，按一下 [瀏覽]，然後選取您從 Azure 入口網站下載的中繼資料 .xml 檔案
+    b. 在 [Identity Provider Metadata] \(識別提供者中繼資料\) 中，按一下 [Browse] \(瀏覽\)，然後選取您從 Azure 入口網站下載的中繼資料 .xml 檔案
     
-    c. 按一下 [檔案] &gt; [新增] &gt; [專案] 
+    c. 按一下 [確定] 
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/07/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-palo-alto-networks---captive-portal-test-user"></a>建立 Palo Alto 網路 - 網頁驗證入口測試使用者
 

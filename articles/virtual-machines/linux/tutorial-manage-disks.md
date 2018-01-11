@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁碟
 
@@ -225,7 +225,7 @@ az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-如果您已調整作業系統磁碟的大小，則會自動擴充資料分割。 如果您已調整資料磁碟的大小，則必須在 VM 作業系統中擴充所有目前的資料分割。
+如果作業系統磁碟重新調整大小的分割區會自動展開。 如果您已調整資料磁碟的大小，則必須在 VM 作業系統中擴充所有目前的資料分割。
 
 ## <a name="snapshot-azure-disks"></a>建立 Azure 磁碟快照集
 
@@ -233,7 +233,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>建立快照集
 
-建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) 命令傳回磁碟識別碼。在此範例中，磁碟會儲存在變數中，以便使用於稍後的步驟。
+建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) 命令傳回磁碟識別碼。在此範例中，磁碟會儲存在變數中，以便使用於稍後的步驟。
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

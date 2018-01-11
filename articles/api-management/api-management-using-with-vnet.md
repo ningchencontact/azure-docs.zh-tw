@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -28,7 +28,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 > Azure API 管理支援傳統和 Azure Resource Manager Vnet。
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要執行本文所述的步驟，您必須具有：
 
@@ -99,7 +99,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 * **自訂 DNS 伺服器安裝**：API 管理服務相依於數個 Azure 服務。 當「API 管理」是裝載於具有自訂 DNS 伺服器的 VNET 中時，它必須要解析這些 Azure 服務的主機名稱。 請遵循 [這份](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 有關自訂 DNS 設定的指引。 請參閱下方的連接埠資料表和參考的其他網路需求。
 
 > [!IMPORTANT]
-> 如果您針對 VNET 使用「自訂 DNS 伺服器」，建議您在將 API 管理服務部署到該伺服器**之前**，先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都需要執行[套用網路設定作業](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
+> 如果您針對 VNET 使用「自訂 DNS 伺服器」，建議您在將 API 管理服務部署到該伺服器**之前**，先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都需要執行[套用網路設定作業](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
 
 * **API 管理所需的連接埠**︰使用[網路安全性群組][Network Security Group]可以控制到 API 管理部署於其中的子網路之輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
@@ -143,12 +143,12 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ## <a name="troubleshooting"></a>疑難排解
 * **初始安裝**：若未能成功地將 API 管理服務初始部署到子網路，建議您先將虛擬機器部署到相同的子網路。 接下來，再將桌面遠端連線到虛擬機器，並驗證您可以連線到 Azure 訂用帳戶中的下列其中一個資源 
     * Azure 儲存體 Blob
-    * Azure SQL Database
+    * 連接字串
 
  > [!IMPORTANT]
  > 驗證過連線能力後，請務必先移除子網路中部署的所有資源，再將 API 管理部署至子網路。
 
-* **累加式更新**：對您的網路進行變更時，請參閱 [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus)，以確認 API 管理服務未遺失相依之任何關鍵資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
+* **累加式更新**：對您的網路進行變更時，請參閱 [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)，以確認 API 管理服務未遺失相依之任何關鍵資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
 
 * **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，API 管理會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。 
 

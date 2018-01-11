@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -36,7 +36,7 @@ Linux 作業系統 (OS) 磁碟加密必須先將 OS 磁碟機取消掛接後，�
 - OS 磁碟會使用邏輯磁碟區管理員 (LVM) 配置。 雖然可以使用有限的 LVM 資料磁碟支援，但是 LVM OS 磁碟並沒有。
 - 未符合最小記憶體需求 (OS 磁碟加密建議為 7 GB)。
 - 資料磁碟機已遞迴掛接於 /mnt/ directory 下，或彼此掛接 (例如，/mnt/data1、/mnt/data2、/data3 + /data3/data4)。
-- 未符合其他 Linux 適用的 Azure 磁碟加密[必要條件](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)。
+- 未符合其他 Linux 適用的 Azure 磁碟加密[必要條件](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)。
 
 ## <a name="unable-to-encrypt"></a>無法加密
 
@@ -44,7 +44,7 @@ Linux 作業系統 (OS) 磁碟加密必須先將 OS 磁碟機取消掛接後，�
 
 Linux OS 磁碟加密順序會暫時取消掛接 OS 磁碟機。 然後會對整個 OS 磁碟執行逐區塊加密，再於它處於已加密狀態時重新掛接。 不同於 Windows 上的 Azure 磁碟加密，Linux 磁碟加密不允許加密進行時，同時使用 VM。 VM 的效能特性在完成加密所需的時間上有顯著差異。 這些特性包括磁碟的大小以及儲存體帳戶是標準或進階 (SSD) 儲存體。
 
-若要檢查加密狀態，可輪詢 [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 命令所傳回的 **ProgressMessage** 欄位。 加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。 **EncryptionInProgress** 訊息報告加密正在進行時的大部分時間。 數個小時之後，**VMRestartPending** 訊息會提示您重新啟動 VM。 例如：
+若要檢查加密狀態，可輪詢 [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 命令所傳回的 **ProgressMessage** 欄位。 加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。 **EncryptionInProgress** 訊息報告加密正在進行時的大部分時間。 數個小時之後，**VMRestartPending** 訊息會提示您重新啟動 VM。 例如︰
 
 
 ```
@@ -105,7 +105,7 @@ VM 必須能夠存取金鑰保存庫。 請參閱由 [Azure Key Vault](https://d
 
    4. 使用 DiskPart 來檢查磁碟區，然後再繼續作業。  
 
-例如：
+例如︰
 
 ```
 DISKPART> list vol

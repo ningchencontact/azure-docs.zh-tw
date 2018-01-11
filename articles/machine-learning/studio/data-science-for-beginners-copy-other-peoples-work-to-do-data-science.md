@@ -1,6 +1,6 @@
 ---
 title: "複製其他人的資料科學範例 - Azure Machine Learning | Microsoft Docs"
-description: "資料科學的商業秘密：讓其他人為您工作。 從 Cortana Analytics 資源庫取得機器學習服務範例。"
+description: "資料科學的商業秘密：讓其他人為您工作。 取得機器學習範例從 Azure AI 組件庫。"
 keywords: "資料科學範例, 機器學習範例, 叢集演算法, 叢集演算法範例"
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列
-有一個資料科學的商業機密是讓其他人為您工作。 在 Cortana Analytics 資源庫中找一個適合您自己的機器學習實驗使用的叢集演算法範例。
+有一個資料科學的商業機密是讓其他人為您工作。 找到的群集演算法範例 Azure AI 圖庫，使用您自己的機器學習實驗中。
+
+> [!IMPORTANT]
+> **Cortana 智慧組件庫**已重新命名**Azure AI 庫**。 如此一來，這個文字記錄中文字和影像會稍微不同的視訊，請使用先前的名稱。
+>
 
 若要充分運用這系列影片，請觀賞所有影片。 [瀏覽影片清單](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ ms.lasthandoff: 10/11/2017
 
 有一個資料科學的商業機密是讓其他人為您工作。
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>在 Cortana Intelligence Gallery 中尋找範例
-Microsoft 提供一個稱為 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 的雲端服務，歡迎您免費試用。 其會提供您工作區，讓您可以試驗不同的機器學習演算法，當您制定您的解決方案時，您可以將其啟動為 Web 服務。
+## <a name="find-examples-in-the-azure-ai-gallery"></a>在 Azure AI 組件庫中找到範例
 
-此服務有一個部分稱為 **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**。 其包含各種資源，包括一系列的 Azure Machine Learning 實驗或模型 (前人建置並貢獻予他人使用)。 這些實驗是運用思考的好方法，以及是其他人的挑戰，他們會協助您開始您自己的解決方案。
+Microsoft 有雲端服務，稱為[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/)您歡迎使用免費試用。 其會提供您工作區，讓您可以試驗不同的機器學習演算法，當您制定您的解決方案時，您可以將其啟動為 Web 服務。
 
-您可以在 [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery) 找到資源庫。 歡迎每個人前往瀏覽。
+此服務的一部分是呼叫 **[Azure AI 庫](https://gallery.cortanaintelligence.com/)**。 其包含各種資源，包括一系列的 Azure Machine Learning 實驗或模型 (前人建置並貢獻予他人使用)。 這些實驗是運用思考的好方法，以及是其他人的挑戰，他們會協助您開始您自己的解決方案。 歡迎每個人前往瀏覽。
 
-![Cortana Intelligence Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Azure AI 組件庫](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 如果您按一下頂端的 [實驗]  ，會看到一些資源庫中最新且受歡迎的實驗。 您可以按一下畫面頂端的 [瀏覽全部]  ，來搜尋其餘的實驗，而且可以在此輸入搜尋詞彙，並選擇搜尋篩選器。
 
@@ -83,11 +86,11 @@ Microsoft 提供一個稱為 [Azure Machine Learning](https://azure.microsoft.co
 而我現在有一個起點。 我可以抽換為自己的資料，並且可以自己調整模型。 這給了我好的開始，可以讓我建置他人的工作，而這些人確實知道他們正在做什麼。
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>尋找示範機器學習技術的實驗
-在 [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) 中有其他實驗，是特別為了資料科學入門者所提供的使用說明範例。 比方說，資源庫中有一個示範如何處理遺漏值的實驗 ([處理遺漏值的方法](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))。 此範例將逐步引導您透過 15 個不同方法來取代空白值，並討論每一種方法的優點以及使用時機。
+有其他實驗中的[Azure AI 庫](https://gallery.cortanaintelligence.com)，所造成特別提供之人員的新資料科學的使用說明範例。 比方說，資源庫中有一個示範如何處理遺漏值的實驗 ([處理遺漏值的方法](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))。 此範例將逐步引導您透過 15 個不同方法來取代空白值，並討論每一種方法的優點以及使用時機。
 
 ![在 Machine Learning Studio 中開啟資源庫實驗 - 用於遺漏值的方法](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) 讓您可以在此找到工作實驗，來做為您自己的解決方案起點。
+[Azure AI 庫](https://gallery.cortanaintelligence.com)會用於尋找工作的實驗，您可以使用您自己的解決方案做為起點。
 
 請務必查看 Microsoft Azure Machine Learning 中「適用於初學者的資料科學」的其他影片。
 

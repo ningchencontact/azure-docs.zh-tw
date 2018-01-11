@@ -4,7 +4,7 @@ description: "本主題會說明如何使用現有的 ADSync 資料庫。"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用現有的 ADSync 資料庫安裝 Azure AD Connect
 Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整版 SQL。 在先前，當您安裝 Azure AD Connect 時，一律會建立名為 ADSync 的新資料庫。 使用 Azure AD Connect 1.1.613.0 版 (或更新版本)，您可以選擇指向現有的 ADSync 資料庫來安裝 Azure AD Connect。
@@ -60,7 +60,7 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 ![PowerShell](media/active-directory-aadconnect-existing-database/db2.png)
 4.  [歡迎使用 Azure AD Connect] 畫面隨即迎接您。 一旦您同意授權條款及隱私權注意事項後，請按一下 [繼續]。
 ![歡迎使用](media/active-directory-aadconnect-existing-database/db3.png)
-5.  在 [安裝必要元件] 畫面上，會啟用 [使用現有的 SQL Server] 選項。 指定裝載 ADSync 資料庫的 SQL Server 名稱。 如果用來主控 ADSync 資料庫的 SQL 引擎執行個體不是 SQL Server 上的預設執行個體，您就必須指定 SQL 引擎執行個體名稱。 此外，如果未啟用 SQL 瀏覽，就必須指定 SQL 引擎執行個體的連接埠號碼。 例如：         
+5.  在 [安裝必要元件] 畫面上，會啟用 [使用現有的 SQL Server] 選項。 指定裝載 ADSync 資料庫的 SQL Server 名稱。 如果用來主控 ADSync 資料庫的 SQL 引擎執行個體不是 SQL Server 上的預設執行個體，您就必須指定 SQL 引擎執行個體名稱。 此外，如果未啟用 SQL 瀏覽，就必須指定 SQL 引擎執行個體的連接埠號碼。 例如︰         
 ![歡迎使用](media/active-directory-aadconnect-existing-database/db4.png)           
 
 6.  在 [連線到 Azure AD] 畫面上，您必須提供 Azure AD 目錄的全域管理員認證。 建議使用預設 onmicrosoft.com 網域中的帳戶。 此帳戶只會用來在 Azure AD 中建立服務帳戶，而且在精靈完成後便不會使用。
@@ -74,7 +74,7 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 ![歡迎使用](media/active-directory-aadconnect-existing-database/db7.png)
  
  
-9.  一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 按一下 [下一步] 。
+9.  一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 按 [下一步] 。
 ![歡迎使用](media/active-directory-aadconnect-existing-database/db8.png)
  
  

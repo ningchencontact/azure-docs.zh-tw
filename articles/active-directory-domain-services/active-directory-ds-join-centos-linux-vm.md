@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Domain Services：將 CentOS VM 加入至受管理的網域 | Microsoft Docs"
+title: "Azure Active Directory Domain Services：將 CentOS VM 加入至受控網域 | Microsoft Docs"
 description: "將 CentOS Linux 虛擬機器加入至 Azure AD Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory-ds
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 0316d40abc6cf71d5f9218346fa6543c9167eaa4
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受管理的網域
-本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受管理網域。
+# <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受控網域
+本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受控網域。
 
 ## <a name="before-you-begin"></a>開始之前
 若要執行本文中所列的工作，您需要︰
 1. 有效的 **Azure 訂用帳戶**。
 2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
 3. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](active-directory-ds-getting-started.md)所述的所有工作來進行。
-4. 確保您尚未將受管理網域的 IP 位址設定為虛擬網路的 DNS 伺服器。 如需詳細資訊，請參閱[如何更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
-5. 完成[將密碼同步處理至您的 Azure AD Domain Services 受管理網域](active-directory-ds-getting-started-password-sync.md)所需的步驟。
+4. 確保您尚未將受控網域的 IP 位址設定為虛擬網路的 DNS 伺服器。 如需詳細資訊，請參閱[如何更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
+5. 完成[將密碼同步處理至您的 Azure AD Domain Services 受控網域](active-directory-ds-getting-started-password-sync.md)所需的步驟。
 
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>佈建 CentOS Linux 虛擬機器
@@ -62,7 +62,7 @@ sudo vi /etc/hosts
 ```
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
-在這裡，'contoso100.com' 為受管理網域的 DNS 網域名稱。 'contoso-centos' 是您要加入至受管理網域之 CentOS 虛擬機器的主機名稱。
+在這裡，'contoso100.com' 為受控網域的 DNS 網域名稱。 'contoso-centos' 是您要加入至受控網域之 CentOS 虛擬機器的主機名稱。
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上安裝必要封裝
@@ -73,17 +73,18 @@ sudo vi /etc/hosts
     ```
 
 
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>將 Linux 虛擬機器加入受管理的網域
-既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受管理的網域。
+## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>將 Linux 虛擬機器加入受控網域
+既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受控網域。
 
-1. 探索 AAD 網域服務受管理網域。 在 SSH 終端機中輸入下列命令：
+1. 探索 AAD 網域服務受控網域。 在 SSH 終端機中輸入下列命令：
 
     ```
     sudo realm discover CONTOSO100.COM
     ```
 
       > [!NOTE]
-      > **疑難排解：**如果 [領域探索] 找不到受管理網域：
+      > 
+      >             **疑難排解：**如果 [領域探索]** 找不到受控網域：
         * Ensure that the domain is reachable from the virtual machine (try ping).
         * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
         * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
@@ -110,13 +111,13 @@ sudo vi /etc/hosts
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
-當電腦成功加入受管理的網域時，您應該會收到訊息 (「已成功在領域中註冊電腦」)。
+當電腦成功加入受控網域時，您應該會收到訊息 (「已成功在領域中註冊電腦」)。
 
 
 ## <a name="verify-domain-join"></a>確認加入網域
-確認電腦是否已成功加入受管理網域。 使用不同的 SSH 連線來連線到加入網域的 CentOS VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
+確認電腦是否已成功加入受控網域。 使用不同的 SSH 連線來連線到加入網域的 CentOS VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
-1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 CentOS 虛擬機器。 使用屬於受管理網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
+1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 CentOS 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
     ```
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
@@ -137,7 +138,8 @@ sudo vi /etc/hosts
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* [將 Windows Server 虛擬機器加入 Azure AD 網域服務受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)
+* 
+            [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [如何登入執行 Linux 的虛擬機器](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * [安裝 Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows 整合指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

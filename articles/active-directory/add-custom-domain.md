@@ -3,7 +3,7 @@ title: "將自訂網域新增到 Azure AD | Microsoft Docs"
 description: "說明如何在 Azure Active Directory 中新增自訂網域。"
 services: active-directory
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 27e7449f039da8f7661d113999e1c4e5d76c3cf6
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入門：將自訂網域名稱新增到 Azure Active Directory
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/17/2017
 現在您可以[指派包含自訂網域名稱的使用者名稱](active-directory-users-create-azure-portal.md)。 您可以建立雲端式使用者帳戶，也可以使用您的自訂網域名稱，更新先前已同步處理的內部部署使用者帳戶資訊。 您也可以使用 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 或[圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)，變更同步處理的使用者帳戶網域尾碼資訊。
 
 > [!TIP]
-> 您最多可以新增 900 個受管理的網域名稱。 如果您使用內部部署 Active Directory 設定同盟的所有網域，您最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受管理的網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
+> 您最多可以新增 900 個受控網域名稱。 如果您使用內部部署 Active Directory 設定同盟的所有網域，您最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受控網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
 
 ## <a name="troubleshooting"></a>疑難排解
 如果無法確認自訂網域名稱，請嘗試下列疑難排解步驟：
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/17/2017
 
 重複本文中的步驟來新增每個網域名稱。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 [Azure AD 中自訂網域名稱的概念式概觀](active-directory-domains-manage-azure-portal.md)
 
 [管理自訂網域名稱](active-directory-domains-manage-azure-portal.md)

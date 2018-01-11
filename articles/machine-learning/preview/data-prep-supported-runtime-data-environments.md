@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>此版本支援的矩陣 
 當您的程式碼使用 Azure Machine Learning 資料來源或 Azure Machine Learning 資料準備載入資料，取得 Pandas 或 Spark 資料框架時，支援以下實驗計算環境和資料位置的組合：
@@ -37,4 +37,4 @@ Azure Data Lake Store 目前不支援任何計算目標。
 
 **使用 Maven JDBC SQL Server 驅動程式 6.2.1。 您必須確定該計算環境的 spark_dependencies.yml 檔案包含此封裝 (或相容的封裝)。
 
-***支援 Azure SQL Database、Azure SQL 資料倉儲或 SQL Server，讓資料庫可從計算環境中連線。 
+支援 Azure SQL Database 或 SQL Server 提供的資料庫可以達到從運算環境。 

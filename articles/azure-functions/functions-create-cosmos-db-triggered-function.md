@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>建立 Azure Cosmos DB 所觸發的函式
 
@@ -50,9 +50,9 @@ ms.lasthandoff: 12/06/2017
 
     ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. 針對您所需的語言找出並選擇 **Azure CosmosDBTrigger** 範本。
+2. 在 [搜尋] 欄位中，輸入 `cosmos`，然後選擇您需要的 Azure Cosmos DB 觸發程序範本語言。
 
-    ![建立 Azure Cosmos DB 觸發的函式](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![選擇 Azure Cosmos DB 觸發程序](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. 使用下圖下方之表格內指定的設定來設定新的觸發程序。
 
@@ -60,10 +60,10 @@ ms.lasthandoff: 12/06/2017
     
     | 設定      | 建議的值  | 說明                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **函式命名** | 預設值 | 使用範本所建議的預設函式名稱。 |
-    | **資料庫名稱** | 工作 | 含有要監視之集合的資料庫名稱。 |
+    | **名稱** | 預設值 | 使用範本所建議的預設函式名稱。 |
     | **集合名稱** | 項目 | 要監視的集合名稱。 |
     | **建立租用集合 (如果不存在)** | 已檢查 | 集合尚未存在，因此加以建立。 |
+    | **資料庫名稱** | 工作 | 含有要監視之集合的資料庫名稱。 |
 
 4. 選取 [Azure Cosmos DB 帳戶連線] 標籤旁的 [新增]，然後選擇現有 Cosmos DB 帳戶或 [+ 建立新的]。 
  

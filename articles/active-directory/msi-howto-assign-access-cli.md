@@ -4,7 +4,7 @@ description: "使用 Azure CLI 在一個資源上指派 MSI，並存取另一個
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: bryanla
-ms.openlocfilehash: 1535d3e94846ae8fa7c277bbdd0005f5d5313caa
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 7d817a90277a1320ccc028822032916c98cae4b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>使用 Azure CLI 將受管理的服務識別 (MSI) 存取權指派給資源
+# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>使用 Azure CLI 將受控服務識別 (MSI) 存取權指派給資源
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -70,8 +70,8 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="related-content"></a>相關內容
 
-- 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](msi-overview.md)。
-- 若要在 Azure VM 上啟用 MSI，請參閱[使用 Azure CLI 設定 Azure VM 受管理的服務身分識別 (MSI)](msi-qs-configure-cli-windows-vm.md)。
+- 如需 MSI 的概觀，請參閱[受控服務識別概觀](msi-overview.md)。
+- 若要在 Azure VM 上啟用 MSI，請參閱[使用 Azure CLI 設定 Azure VM 受控服務身分識別 (MSI)](msi-qs-configure-cli-windows-vm.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
 

@@ -1,10 +1,10 @@
 ---
 title: "使用 Linux VM MSI 存取 Azure 儲存體"
-description: "此教學課程引導您使用 Linux VM 受管理的服務識別 (MSI) 來存取 Azure 儲存體的程序。"
+description: "此教學課程引導您使用 Linux VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: 8096ef553f6e425a7e872ce33120ba2f41c6475d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 2b264f8e2227e410caba8370d58c824d469198e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Linux VM 受管理的服務識別，透過存取金鑰存取 Azure 儲存體
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Linux VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Linux 虛擬機器 (VM) 啟用受管理的服務識別 (MSI)，然後使用該識別存取儲存體帳戶存取金鑰。 在執行儲存體作業時 (例如使用儲存體 SDK)，您可以如往常般使用儲存體存取金鑰。 在此教學課程中，我們將使用 Azure CLI 上傳和下載 Blob。 您將了解如何：
+本教學課程會示範如何為 Linux 虛擬機器 (VM) 啟用受控服務識別 (MSI)，然後使用該識別存取儲存體帳戶存取金鑰。 在執行儲存體作業時 (例如使用儲存體 SDK)，您可以如往常般使用儲存體存取金鑰。 在此教學課程中，我們將使用 Azure CLI 上傳和下載 Blob。 您將了解如何：
 
 > [!div class="checklist"]
 > * 在 Linux 虛擬機器上啟用 MSI 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
 
-虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並啟用 VM 的受管理服務識別。  
+虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並啟用 VM 的受控服務識別。  
 
 1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
 2. 在左側的 VM [ 設定] 下，按一下 [設定]。
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 3. 輸入儲存體帳戶的 [名稱]，您稍後將會使用它。  
 4. [部署模型] 和 [帳戶類型] 應該分別設定為「資源管理員」和「一般用途」。 
 5. 確定 [訂用帳戶] 和 [資源群組] 符合您在上一個步驟中建立 VM 時指定的值。
-6. 按一下 [建立] 。
+6. 按一下頁面底部的 [新增] 。
 
     ![建立新的儲存體帳戶](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -229,8 +229,8 @@ az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](../active-directory/msi-overview.md)。
-- 若要了解如何使用儲存體 SAS 認證進行此相同教學課程，請參閱[使用 Linux VM 受管理的服務識別，透過 SAS 認證存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage-sas.md)
+- 如需 MSI 的概觀，請參閱[受控服務識別概觀](../active-directory/msi-overview.md)。
+- 若要了解如何使用儲存體 SAS 認證進行此相同教學課程，請參閱[使用 Linux VM 受控服務識別，透過 SAS 認證存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage-sas.md)
 - 如需有關 Azure 儲存體帳戶 SAS 功能的詳細資訊，請參閱：
   - [使用共用存取簽章 (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [建構服務 SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)

@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>資料的伺服器工作負載預測 (TB)
 
@@ -46,9 +47,11 @@ ms.lasthandoff: 12/05/2017
 要執行此範例所需符合的必要條件如下：
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-* 已安裝 [Machine Learning Workbench](./overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](./quickstart-installation.md)。
+* 已安裝的版本[Azure 機器學習 Workbench](./overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](./quickstart-installation.md)。 如果您有多個訂閱，您可以[設定想要訂用帳戶成為目前作用中訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)。
 * Windows 10 (本範例中的指示大多與 macOS 系統通用)。
-* 適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 您需要 DSVM IP 位址、使用者名稱和密碼，才能試用此範例。 儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
+* 資料科學虛擬機器 (DSVM) 適用於 Linux (Ubuntu)，最好在美東地區資料找出的位置。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 
+
+請遵循[指令](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present)AML Workbench 啟用 VM 上的無密碼 sudoer 存取。  您可以選擇使用[受 SSH 金鑰為基礎的驗證建立及使用 VM 在 AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取 VM。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
 
  欄位名稱| 值 |  
  |------------|------|
@@ -56,9 +59,10 @@ DSVM IP 位址 | xxx|
  使用者名稱  | xxx|
  密碼   | xxx|
 
+
  您可選擇使用任何已安裝 [Docker 引擎](https://docs.docker.com/engine/)的虛擬機器。
 
-* 配備 Hortonworks Data Platform 3.6 版和 Spark 2.1.x 版的 HDInsight Spark 叢集。 如需如何建立 HDInsight 叢集的詳細資訊，請前往[在 Azure HDInsight 中建立 Apache Spark 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)。 我們建議使用具有三個背景工作的叢集，而背景工作各有 16 個核心和 112 GB 的記憶體。 或者，您可只選擇 VM 類型 `D12 V2` 作為前端節點，選擇 `D14 V2` 作為背景工作節點。 叢集的部署大約需要 20 分鐘。 您需要叢集名稱、SSH 使用者名稱和密碼，才能試用此範例。 儲存含有 Azure HDInsight 叢集資訊的下列表格，以供後續步驟使用：
+* HDInsight Spark 叢集，與採用 Hortonworks Data Platform 3.6 版 Spark 版本 2.1.x 版，最好在美東地區資料找出的位置。 如需如何建立 HDInsight 叢集的詳細資訊，請前往[在 Azure HDInsight 中建立 Apache Spark 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)。 我們建議使用具有三個背景工作的叢集，而背景工作各有 16 個核心和 112 GB 的記憶體。 或者，您可只選擇 VM 類型 `D12 V2` 作為前端節點，選擇 `D14 V2` 作為背景工作節點。 叢集的部署大約需要 20 分鐘。 您需要叢集名稱、SSH 使用者名稱和密碼，才能試用此範例。 儲存含有 Azure HDInsight 叢集資訊的下列表格，以供後續步驟使用：
 
  欄位名稱| 值 |  
  |------------|------|
@@ -84,35 +88,35 @@ DSVM IP 位址 | xxx|
 2.  在 [專案] 頁面上，選取 **+** 符號，然後選取 [新增專案]。
 3.  在 [建立新專案] 窗格中，填入新專案的資訊。
 4.  在 [搜尋專案範本] 搜尋方塊中，輸入「大量資料的工作負載預測」，然後選取範本。
-5.  選取 [ **建立**]。
+5.  選取 [建立] 。
 
 您可以依照[這裡的指示](./tutorial-classifying-iris-part-1.md)，使用預先建立的 git 存放庫建立 Workbench 專案。  
 執行 `git status` 來檢查檔案的狀態，以進行版本追蹤。
 
 ## <a name="data-description"></a>資料說明
 
-此範例中使用的資料是綜合伺服器的工作負載資料， 並裝載於可公開存取的 Azure Blob 儲存體帳戶中。 您可在 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) 的 `dataFile` 欄位中找到特定儲存體帳戶資訊。 您可以直接使用 Blob 儲存體中的資料。 若有多位使用者同時使用此儲存體，您可使用 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) 將資料下載到自己的儲存體中。 
+此範例中使用的資料是綜合伺服器的工作負載資料， 它被裝載於美國東部地區處於可公開存取的 Azure Blob 儲存體帳戶。 特定的儲存體帳戶的資訊位於`dataFile`欄位[ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) ，格式為"wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>"。 您可以直接使用 Blob 儲存體中的資料。 如果存放裝置可供多位使用者同時，您可以使用[azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)下載到您自己的試驗更好的體驗的儲存體的資料。 
 
 資料大小總計約為 1 TB。 每個檔案大約 1-3 GB，採用 CSV 檔案格式，且沒有標頭。 每個資料列都代表特定伺服器上的交易負載。 資料結構描述的詳細資訊如下所示：
 
 資料行編號 | 欄位名稱| 類型 | 說明 |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datetime |    工作階段開始時間
-2  |`SessionEnd`    | Datetime | 工作階段結束時間
-3 |`ConcurrentConnectionCounts` | Integer | 並行連線數目
-4 | `MbytesTransferred` | Double | 已傳輸的標準化資料 (以 MB 為單位)
-5 | `ServiceGrade` | Integer |  工作階段的服務等級
-6 | `HTTP1` | Integer|  工作階段使用 HTTP1 或 HTTP2
-7 |`ServerType` | Integer   |伺服器類型
-8 |`SubService_1_Load` | Double |   子服務 1 負載
-9 | `SubService_1_Load` | Double |  子服務 2 負載
-10 | `SubService_1_Load` | Double |     子服務 3 負載
-11 |`SubService_1_Load` | Double |  子服務 4 負載
-12 | `SubService_1_Load`| Double |      子服務 5 負載
-13 |`SecureBytes_Load`  | Double | 安全位元組負載
-14 |`TotalLoad` | Double | 伺服器上的總負載
-15 |`ClientIP` | String|    用戶端 IP 位址
-16 |`ServerIP` | String|    伺服器 IP 位址
+1  | `SessionStart` | DateTime |    工作階段開始時間
+2  |`SessionEnd`    | DateTime | 工作階段結束時間
+3 |`ConcurrentConnectionCounts` | 整數  | 並行連線數目
+4 | `MbytesTransferred` | 兩倍 | 已傳輸的標準化資料 (以 MB 為單位)
+5 | `ServiceGrade` | 整數  |  工作階段的服務等級
+6 | `HTTP1` | 整數 |  工作階段使用 HTTP1 或 HTTP2
+7 |`ServerType` | 整數    |伺服器類型
+8 |`SubService_1_Load` | 兩倍 |   子服務 1 負載
+9 | `SubService_2_Load` | 兩倍 |  子服務 2 負載
+10 | `SubService_3_Load` | 兩倍 |     子服務 3 負載
+11 |`SubService_4_Load` | 兩倍 |  子服務 4 負載
+12 | `SubService_5_Load`| 兩倍 |      子服務 5 負載
+13 |`SecureBytes_Load`  | 兩倍 | 安全位元組負載
+14 |`TotalLoad` | 兩倍 | 伺服器上的總負載
+15 |`ClientIP` | 字串|    用戶端 IP 位址
+16 |`ServerIP` | 字串|    伺服器 IP 位址
 
 
 
@@ -182,11 +186,11 @@ DSVM IP 位址 | xxx|
 
 | 欄位 | 類型 | 說明 |
 |-----------|------|-------------|
-| storageAccount | String | Azure 儲存體帳戶名稱 |
-| storageContainer | String | Azure 儲存體帳戶中用來儲存中繼結果的容器 |
-| storageKey | String |Azure 儲存體帳戶存取金鑰 |
-| dataFile|String | 資料來源檔案  |
-| duration| String | 資料來源檔案中資料的持續時間|
+| storageAccount | 字串 | Azure 儲存體帳戶名稱 |
+| storageContainer | 字串 | Azure 儲存體帳戶中用來儲存中繼結果的容器 |
+| storageKey | 字串 |Azure 儲存體帳戶存取金鑰 |
+| dataFile|字串 | 資料來源檔案  |
+| duration| 字串 | 資料來源檔案中資料的持續時間|
 
 修改 `Config/storageconfig.json` 和 `Config/fulldata_storageconfig.json`來設定儲存體帳戶、儲存體金鑰和 blob 容器，以儲存中繼結果。 根據預設，一個月資料執行的 blob 容器為 `onemonthmodel`，而完整資料集執行的 blob 容器為 `fullmodel`。 請確定您在儲存體帳戶中建立這兩個容器。 [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) 中的 `dataFile` 欄位設定哪些資料載入 [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) 中。 `duration` 欄位設定資料包含的範圍。 如果持續時間設為 ONE_MONTH，則載入的資料應該只是 2016 年 6 月資料的七個檔案中的一個 csv 檔案。 如果持續時間為 FULL，則會載入完整資料集 (1 TB)。 您不需要變更這兩個組態檔中的 `dataFile` 和 `duration`。
 
@@ -270,7 +274,7 @@ attach_storage_container(spark, storageAccount, storageKey)
 
 在 aml_config 資料夾中會建立下列兩個檔案：
     
--  myhdo.compute：這個檔案包含遠端執行目標的連線和設定資訊。
+-  myhdi.compute： 此檔案包含針對遠端執行目標的連接和組態資訊。
 -  myhdi.runconfig：這個檔案是 Workbench 應用程式中使用的一組執行選項。
 
 
@@ -324,7 +328,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 ### <a name="operationalize-the-model"></a>模型運算化
 
-在本節中，您會讓在先前步驟中建立為 Web 服務的模型付諸實行 (稱之為「運算化」)。 您也會了解如何使用 Web 服務來預測工作負載。 使用機器語言運算化的命令列介面 (CLI) 將程式碼和相依性封裝為 Docker 映像，並將模型發佈為容器化的 Web 服務。 如需詳細資訊，請參閱[這篇概觀](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md)。
+在本節中，您會讓在先前步驟中建立為 Web 服務的模型付諸實行 (稱之為「運算化」)。 您也會了解如何使用 Web 服務來預測工作負載。 使用機器語言運算化的命令列介面 (CLI) 將程式碼和相依性封裝為 Docker 映像，並將模型發佈為容器化的 Web 服務。
 
 您可以使用 Machine Learning Workbench 中的命令列提示字元執行 CLI。  也可以遵循[安裝指南](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md)在 Ubuntu Linux 上執行 CLI。 
 

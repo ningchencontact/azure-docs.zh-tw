@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39fbdba404bda9383c9164dd1ecd9cb23bfb5cd7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>使用 Azure 入口網站啟用事件中樞擷取功能
 
@@ -55,7 +55,7 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>在現有的事件中樞上新增或設定擷取功能
 
-您可以在位於事件中樞命名空間的現有事件中樞上設定擷取功能。 若要在現有事件中樞上啟用擷取功能，或變更您的擷取設定，請按一下命名空間以載入 [基本資訊] 畫面，然後按一下您要啟用或變更擷取設定的事件中樞。 最後，按一下開啟之頁面的 [屬性] 區段，然後編輯 [擷取] 設定，如下圖所示：
+您可以在位於事件中樞命名空間的現有事件中樞上設定擷取功能。 若要在現有事件中樞上啟用擷取功能，或變更您的擷取設定，請按一下命名空間以載入概觀畫面，然後按一下您要啟用或變更擷取設定的事件中樞。 最後，按一下開啟之頁面左側的 [擷取] 選項，然後編輯設定，如下圖所示：
 
 ### <a name="azure-blob-storage"></a>Azure Blob 儲存體
 

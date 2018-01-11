@@ -3,7 +3,7 @@ title: "Azure Active Directory 應用程式和服務主體物件"
 description: "Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論"
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 services: active-directory
 editor: 
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b00acc192e868a7c1ade9fc68cf4d3ca04f1a070
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 85731afd18304e848f8577d8a6665dca3f9ee5d8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD) 中的應用程式和服務主體物件
 在 Azure AD 的內容中使用「應用程式」這個詞彙時，有時會誤解其意義。 本文的目的是要釐清 Azure AD 應用程式整合的概念和具體層面，並舉例說明如何註冊和同意[多租用戶應用程式](active-directory-dev-glossary.md#multi-tenant-application)，提供更清楚的說明。

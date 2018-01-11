@@ -2,26 +2,25 @@
 title: "Azure Stack 資料中心整合 - 身分識別"
 description: "了解如何將 Azure Stack AD FS 與您的資料中心 AD FS 整合"
 services: azure-stack
-author: troettinger
+author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/20/2017
-ms.author: victorh
+ms.date: 12/12/2017
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 
 適用於：Azure Stack 整合系統
 
-您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為身分識別提供者來部署 Azure Stack。 必須在部署之前進行這項選擇。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
+您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
 
 下表顯示這兩個身分識別選擇間的差異：
-
 
 ||實際中斷連線|實際連線|
 |---------|---------|---------|
@@ -29,7 +28,7 @@ ms.lasthandoff: 10/30/2017
 |身分識別|必須是 AD FS|Azure AD 或 AD FS|
 |Marketplace 摘要整合|目前無法使用|支援<br>BYOL 授權|
 |註冊|建議，需要卸除式媒體<br> 及個別的連接裝置。|自動化|
-|修補和更新|必要，需要卸除式媒體<br> 及個別的連接裝置。|可以直接從網際網路將更新套件下載到 Azure Stack。<br> from the Internet to Azure Stack.|
+|修補和更新|必要，需要卸除式媒體<br> 及個別的連接裝置。|可以直接從網際網路將更新套件<br> 下載到 Azure Stack。|
 
 > [!IMPORTANT]
 > 若沒有重新部署整個 Azure Stack 解決方案，則無法切換身分識別提供者。
@@ -67,7 +66,7 @@ ms.lasthandoff: 10/30/2017
 
 |參數|說明|範例|
 |---------|---------|---------|
-|CustomADGlobalCatalog|您想要整合之目標 Active Directory 樹系的 FQDN<br>that you want to integrate with|Contoso.com|
+|CustomADGlobalCatalog|您想整合的<br>目標 Active Directory 樹系的 FQDN|Contoso.com|
 |CustomADAdminCredentials|具有 LDAP 讀取權限的使用者|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>在現有 Active Directory 中建立使用者帳戶 (選擇性)
@@ -75,33 +74,36 @@ ms.lasthandoff: 10/30/2017
 您可以選擇性在現有的 Active Directory 中建立用於 Graph 服務的帳戶。 如果還沒有想要使用的帳戶，請執行此步驟。
 
 1. 在現有的 Active Directory 中，建立下列使用者帳戶 (建議)：
-   - 使用者名稱：graphservice
-   - 密碼：使用強式密碼<br>將密碼設定為永不到期。
+   - **使用者名稱**：graphservice
+   - **密碼**：使用強式密碼<br>將密碼設定為永不到期。
 
-   不需要任何特殊權限或成員資格
+   不需要任何特殊權限或成員資格。
 
-**觸發自動化來設定圖形**
+#### <a name="trigger-automation-to-configure-graph"></a>觸發自動化來設定圖形
 
 針對此程序，請使用您資料中心網路內能夠與 Azure Stack 中具特殊權限端點通訊的電腦。
 
-2. 開啟一個已提高權限的 Windows PowerShell 工作階段 (以系統管理員身分執行)，然後連線到具特殊權限端點的 IP 位址。 使用適用於 CloudAdmin 的認證進行驗證。
+2. 開啟一個已提高權限的 Windows PowerShell 工作階段 (以系統管理員身分執行)，然後連線到具特殊權限端點的 IP 位址。 使用適用於 **CloudAdmin** 的認證進行驗證。
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. 既然您已連接到特殊權限端點，請執行下列命令。 出現提示時，指定要用於 Graph 服務的使用者帳戶之認證 (例如 graphservice)。
+3. 您已連接到特殊權限端點，請執行下列命令： 
 
-   `Register-DirectoryService -CustomADGlobalCatalog contoso.com`
+   ```powershell
+   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+   ```
+
+   出現提示時，指定要用於 Graph 服務的使用者帳戶之認證 (例如 graphservice)。
 
    > [!IMPORTANT]
    > 等待認證快顯 (特殊權限端點中不支援 Get-Credential)，然後輸入 Graph 服務帳戶認證。
 
-**Graph 通訊協定和連接埠**
+#### <a name="graph-protocols-and-ports"></a>Graph 通訊協定和連接埠
 
 Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目標 Active Directory 通訊：
-
 
 |類型|Port|通訊協定|
 |---------|---------|---------|
@@ -114,7 +116,6 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 需要下列資訊，作為自動化參數的輸入：
 
-
 |參數|說明|範例|
 |---------|---------|---------|
 |CustomAdfsName|宣告提供者的名稱。<cr>在 AD FS 登陸頁面上的顯示方式。|Contoso|
@@ -123,22 +124,26 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>觸發自動化以在 Azure Stack 中設定宣告提供者信任
 
-針對此程序，請使用能夠與 Azure Stack 中具特殊權限端點通訊的電腦。 預期 Azure Stack 會信任帳戶 STS AD FS 所使用的憑證。
+針對此程序，請使用能夠與 Azure Stack 中具特殊權限端點通訊的電腦。 預期 Azure Stack 會信任帳戶 **STS AD FS** 所使用的憑證。
 
 1. 開啟已提高權限的 Windows PowerShell 工作階段，然後連線到特殊權限端點。
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 既然您已連接到特殊權限端點，請使用適用於您環境的參數執行下列命令：
 
-   `Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+   ```
 
 3. 使用適用於您環境的參數，執行下列命令來更新預設提供者訂用帳戶的擁有者：
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>藉由提供同盟中繼資料檔案設定 AD FS 整合
 
@@ -161,7 +166,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 1. 開啟提升權限的 Windows PowerShell 工作階段，並使用適用於您環境的參數執行下列命令：
 
-   ```
+   ```powershell
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,18 +181,22 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 1. 開啟已提高權限的 Windows PowerShell 工作階段，然後連線到特殊權限端點。
 
-   ```
+   ```powershell
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 既然您已連接到特殊權限端點，請使用適用於您環境的參數執行下列命令：
 
-   `Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
+   ```
 
 3. 使用適用於您環境的參數，執行下列命令來更新預設提供者訂用帳戶的擁有者：
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>在現有的 AD FS 部署上設定信賴憑證者 (帳戶 STS)
 
@@ -199,7 +208,7 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
 
 1. 將下列內容複製到您的資料中心的 AD FS 執行個體或伺服器陣列成員上的 .txt 檔案中 (例如，儲存為 c:\ClaimRules.txt)：
 
-   ```
+   ```text
    @RuleTemplate = "LdapClaims"
    @RuleName = "Name claim"
    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
@@ -232,35 +241,50 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
 
 2. 若要啟用 Windows Forms 式驗證，請以提高權限使用者的身分開啟 Windows PowerShell 工作階段，並執行下列命令：
 
-   `Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")`
+   ```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   ```
 
 3. 若要新增信賴憑證者信任，請在您的 AD FS 執行個體或伺服器陣列成員上執行下列 Windows PowerShell 命令。 請務必更新 AD FS 端點，並指向步驟 1 中建立的檔案。
 
    **針對 AD FS 2016**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   ```
 
    **針對 AD FS 2012/2012 R2**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   ```
 
    > [!IMPORTANT]
    > 使用 Windows Server 2012 或 2012 R2 AD FS 時，必須使用 AD FS MMC 嵌入式管理單元來設定發行授權規則。
 
 4. 使用 Internet Explorer 或 Edge 瀏覽器來存取 Azure Stack 時，您必須忽略權杖繫結。 否則，登入嘗試會失敗。 在您的 AD FS 執行個體或伺服器陣列成員上，執行下列命令：
 
-   `Set-AdfsProperties -IgnoreTokenBinding $true`
+   ```powershell
+   Set-AdfsProperties -IgnoreTokenBinding $true
+   ```
+
+5. 若要啟用重新整理權杖，請開啟提升權限的 Windows PowerShell 工作階段，並執行下列命令：
+
+   ```powershell
+   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
+   ```
 
 ## <a name="spn-creation"></a>建立 SPN
 
 有許多情節需要使用服務主體名稱 (SPN) 進行驗證。 以下是一些範例：
+
 - Azure Stack 的 AD FS 部署 CLI 使用方式
 - 使用 AD FS 部署時的 System Center Management Pack for Azure Stack
 - 使用 AD FS 部署時 Azure Stack 中的資源提供者
 - 各種應用程式
 - 需要非互動式登入
 
-如需有關建立 SPN 的詳細資訊，請參閱[為 AD FS 建立服務主體](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)。
+如需有關建立 SPN 的詳細資訊，請參閱[為 AD FS 建立服務主體](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)。
 
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -271,21 +295,25 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
 
 1. 開啟提升權限的 Windows PowerShell 工作階段，並執行下列命令：
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 然後執行下列 Cmdlet：
 
-   `Reset-DatacenterIntegationConfiguration`
+   ```powershell
+   Reset-DatacenterIntegationConfiguration
+   ```
 
-   執行回復動作之後，會回復所有組態變更。 只能使用內建的 “CloudAdmin” 使用者進行驗證。
+   執行回復動作之後，會回復所有組態變更。 只能使用內建的 **CloudAdmin** 使用者進行驗證。
 
    > [!IMPORTANT]
    > 您必須設定預設提供者訂用帳戶的原始擁有者
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
+   ```
 
 ### <a name="collecting-additional-logs"></a>收集其他記錄檔
 
@@ -293,14 +321,16 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
 
 1. 開啟提升權限的 Windows PowerShell 工作階段，並執行下列命令：
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 然後執行下列 Cmdlet：
 
-   `Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE`
+   ```powershell
+   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   ```
 
 
 ## <a name="next-steps"></a>後續步驟

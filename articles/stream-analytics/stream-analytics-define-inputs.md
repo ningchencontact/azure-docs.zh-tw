@@ -4,8 +4,8 @@ description: "了解如何設定通往串流分析的資料連線 (也就是「�
 keywords: "資料流, 資料連線, 事件資料流"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入
 串流分析作業的資料連線是來自資料來源的事件資料流，稱為作業的「輸入」。 串流分析與 Azure 資料流來源的整合性極佳，來源包括 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)和 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 這些輸入來源可以來自與分析作業相同的 Azure 訂用帳戶，或來自不同的訂用帳戶。
@@ -37,9 +37,9 @@ ms.lasthandoff: 10/25/2017
 
 ## <a name="compression"></a>壓縮
 
-Azure 串流分析支援跨所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 壓縮。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 支援的類型目前是 [無]、[GZip] 和 [Deflate] 壓縮。 
+Azure 串流分析支援跨所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 壓縮。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 目前支援參考類型都是為 None、 GZip、 Deflate 壓縮和。 無法使用參考資料壓縮的支援。
 
-與 Avro 序列化串聯時，不支援壓縮，而且不適用於參考資料。 
+您不需要使用 Avro 序列化指定的壓縮類型。 如果輸入的 Avro 資料壓縮完成，它會以透明的方式處理。 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>從事件中樞建立資料流輸入
 
@@ -151,7 +151,7 @@ CSV 格式的輸入「需要」標題列來定義資料集的欄位。 此外，
 | **儲存體帳戶金鑰** | 與儲存體帳戶相關聯的密碼金鑰。 |
 | **容器** | Blob 輸入的容器。 容器提供邏輯分組給儲存在 Microsoft Azure Blob 服務中的 blob。 將 blob 上傳至 Azure Blob 儲存體服務時，您必須指定該 blob 的容器。 |
 | **路徑模式** (選用) | 用來在指定的容器中找出 blob 的檔案路徑。 在該路徑內，您可以指定下列三個變數的一個或多個執行個體：`{date}`、`{time}` 或 `{partition}`<br/><br/>範例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>範例 2：`cluster1/logs/{date}`<br/><br/>`*` 字元不是路徑前置詞允許的值。 僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字元</a>。 |
-| **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例：`YYYY/MM/DD` |
+| **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例： `YYYY/MM/DD` |
 | **時間格式** (選用) |  在路徑中使用時間變數時，用來組織檔案的時間格式。 目前唯一支援的值為 `HH`。 |
 | **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
 | **編碼** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |

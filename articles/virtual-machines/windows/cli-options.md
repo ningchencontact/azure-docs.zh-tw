@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-the-azure-cli-on-windows"></a>在 Windows 上使用 Azure CLI
 
 Azure 命令列介面 (CLI) 提供可用來建立和管理 Azure 資源的命令列和指令碼環境。 Azure CLI 適用於 Mac OS X、Linux 和 Windows 作業系統。 在這些作業系統中，CLI 命令是完全相同的，但作業系統特定的指令碼語法可能會不同。
 
-此文件詳述該如何在 Windows 上安裝和執行 Azure CLI，以及其各自的語法考量。 如需深入的 Azure CLI 文件，請參閱 [Azure CLI 文件]( https://docs.microsoft.com/en-us/cli/azure/overview) (英文)。
+此文件詳述該如何在 Windows 上安裝和執行 Azure CLI，以及其各自的語法考量。 如需深入的 Azure CLI 文件，請參閱 [Azure CLI 文件]( https://docs.microsoft.com/cli/azure/overview) (英文)。
 
 ## <a name="windows-subsystem-for-linux"></a>適用於 Linux 的 Windows 子系統
 
@@ -33,16 +33,16 @@ Azure 命令列介面 (CLI) 提供可用來建立和管理 Azure 資源的命令
 
 若要在 WSL 使用 Azure CLI，請完成下列工作。
 
-|工作 | 範例的指示 |
+|Task | 範例的指示 |
 |---|---|
 | 啟用 WSL | [安裝 WSL 文件](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| 安裝 Azure CLI |[在 WSL/Ubuntu 14.04 上安裝 CLI](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu)|
+| 安裝 Azure CLI |[在 WSL/Ubuntu 14.04 上安裝 CLI](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell
 
 Azure CLI 可以原生方式在 Windows 中執行。 在此組態中，Azure CLI 套件會安裝在 Windows 作業系統上，並可從 PowerShell 執行命令。 在此組態中，Azure CLI 命令和指令碼可以執行於任何受支援的 Windows 版本，但必須使用平台特定的指令碼語法。 因此，指令碼不一定能在 Mac OS、Linux 和 Windows 之間共用而不需要修改。
 
-若要在 Windows 上使用 Azure CLI，請使用這些指示安裝套件：[在 Windows 上安裝 CLI](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows)。
+若要在 Windows 上使用 Azure CLI，請使用這些指示安裝套件：[在 Windows 上安裝 CLI](https://docs.microsoft.com/cli/azure/install-az-cli2#windows)。
 
 ## <a name="docker-image"></a>Docker 映像
 

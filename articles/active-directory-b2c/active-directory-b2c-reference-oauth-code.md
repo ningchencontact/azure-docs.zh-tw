@@ -4,7 +4,7 @@ description: "了解如何使用 Azure AD B2C 和 OpenID Connect 的驗證通訊
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 99a292c6be66016264e528525a5920667207b605
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。
@@ -136,7 +136,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | p |必要 |用來取得授權碼的原則。 您無法在此要求中使用不同的原則。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
 | client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | grant_type |必要 |授與類型。 在授權碼流程中，授與類型必須的 `authorization_code`。 |
-| scope |建議 |範圍的空格分隔清單。 單一範圍值，向 Azure AD 指出受到要求的兩個權限。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
+| scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
 | code |必要 |您在流程的第一個階段中取得的授權碼。 |
 | redirect_uri |必要 |應用程式的重新導向 URI，您已在此處收到授權碼。 |
 
@@ -200,7 +200,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | p |必要 |用來取得原始重新整理權杖的原則。 您無法在此要求中使用不同的原則。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
 | client_id |建議 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | grant_type |必要 |授與類型。 在授權碼流程的這個階段中，授與類型必須是 `refresh_token`。 |
-| scope |建議 |範圍的空格分隔清單。 單一範圍值，向 Azure AD 指出受到要求的兩個權限。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
+| scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
 | redirect_uri |選用 |應用程式的重新導向 URI，您已在此處收到授權碼。 |
 | refresh_token |必要 |您在流程的第二個階段中取得的原始重新整理權杖。 |
 

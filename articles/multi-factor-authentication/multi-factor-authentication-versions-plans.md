@@ -5,7 +5,7 @@ keywords:
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 8c07bafb588a3f3e1dba13a58f83dd6d68c9c089
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/28/2017
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 入口網站管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本隨附於 Office 365 訂用帳戶。 |
 | 適用於 Azure 系統管理員的 Multi-Factor Authentication | Azure 租用戶的全域系統管理員可以為其全域系統管理員帳戶啟用雙步驟驗證，而不需要額外收費。|
-| Azure Multi-Factor Authentication | 通常稱為「完整」版本，Azure Multi-Factor Authentication 提供最豐富的功能。 它能透過 [Azure 傳統入口網站](https://manage.windowsazure.com)、進階報告及支援一系列內部部署和雲端應用程式來提供其他組態選項。 Azure Multi-Factor Authentication 隨附於 [Azure Active Directory Premium 方案](https://www.microsoft.com/cloud-platform/azure-active-directory-features)和 [Enterprise Mobility + Security 方案](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)中，並可以在雲端中部署或進行內部部署。 |
+| Azure Multi-Factor Authentication | 通常稱為「完整」版本，Azure Multi-Factor Authentication 提供最豐富的功能。 它會提供額外的設定選項，透過[Azure 入口網站](https://portal.azure.com)、 進階報告，以及支援廣泛的內部部署和雲端應用程式。 Azure Multi-Factor Authentication 隨附於 [Azure Active Directory Premium 方案](https://www.microsoft.com/cloud-platform/azure-active-directory-features)和 [Enterprise Mobility + Security 方案](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)中，並可以在雲端中部署或進行內部部署。 |
 
 ## <a name="feature-comparison-of-versions"></a>版本的功能比較
 下表提供 Azure Multi-Factor Authentication 各版本中可用的功能清單。

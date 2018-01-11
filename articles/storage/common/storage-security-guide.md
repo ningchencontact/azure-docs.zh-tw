@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 ## <a name="overview"></a>概觀
@@ -295,7 +295,7 @@ SSE 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加
 
 在此階段中，用來加密的金鑰是由 Microsoft 所管理。 我們一開始會產生金鑰，並管理金鑰的安全儲存體，以及如同內部 Microsoft 原則所定義的定期輪換。 您未來將會獲得管理您自己加密金鑰的功能，並提供從 Microsoft 管理的金鑰到客戶管理的金鑰的移轉路徑。
 
-此功能適用於使用 Resource Manager 部署模型建立的標準和進階儲存體帳戶。 SSE 只適用於區塊 Blob、分頁 Blob 及附加 Blob。 其他類型的資料 (包括表格、佇列和檔案) 將不會加密。
+此功能適用於使用 Resource Manager 部署模型建立的標準和進階儲存體帳戶。 SSE 適用於任何種類的資料： 區塊 blob、 分頁 blob、 附加 blob、 資料表、 佇列和檔案。
 
 資料只有在啟用 SSE 並將資料寫入 Blob 儲存體時才會加密。 啟用或停用 SSE 並不會影響現有的資料。 換句話說，當您啟用此加密時，它將不會返回並加密已經存在的資料；也不會解密當您停用 SSE 時已經存在的資料。
 
@@ -380,7 +380,7 @@ SSE 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加
 #### <a name="storage-service-encryption-sse"></a>儲存體服務加密 (SSE)
 SSE 是由 Azure 儲存體所管理。 使用 SSE 不會針對傳輸中資料提供安全性，但它會在資料寫入 Azure 儲存體時進行加密。 使用此功能時不會對效能產生任何影響。
 
-您只能使用 SSE 來加密區塊 Blob、附加 Blob 及分頁 Blob。 如果您需要加密表格資料或佇列資料，就應該考慮使用用戶端加密。
+您可以加密任何種類的資料使用 SSE 的儲存體帳戶 （區塊 blob、 附加 blob、 分頁 blob、 資料表、 佇列資料和檔案）。
 
 如果您使用 VHD 檔案的封存或程式庫做為建立新虛擬機器的基礎，您可以建立新的儲存體帳戶、啟用 SSE，然後將 VHD 檔案上傳到該帳戶。 這些 VHD 檔案將會由 Azure 儲存體加密。
 

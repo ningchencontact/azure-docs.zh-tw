@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Dropbox for Business
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 0f3a42e4-6897-4234-af84-b47c148ec3e1
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 6f7616e47322242f01a13d763f71c93d4ac06a92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Dropbox for Business
 
@@ -43,7 +43,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 *   建議將單一 Azure AD 使用者指派給 Dropbox for Business，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
 
-*   將使用者指派給 Dropbox for Business 時，必須選取有效的使用者角色。 「預設存取」角色不適用於佈建..
+*   將使用者指派給 Dropbox for Business 時，必須選取有效的使用者角色。 「預設存取」角色不適用於佈建.
 
 ## <a name="enable-automated-user-provisioning"></a>啟用自動使用者佈建
 

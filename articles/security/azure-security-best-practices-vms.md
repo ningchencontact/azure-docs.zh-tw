@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 安全性的最佳作法
 
-在大部分的基礎結構即服務 (IaaS) 案例中，[Azure 虛擬機器 (VM)](https://docs.microsoft.com/en-us/azure/virtual-machines/) 對於使用雲端運算的組織來說是主要工作負載。 在組織想要慢慢地將工作負載移轉至雲端的[混合式案例](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)中，這特別顯得重要。 在這種情況下，請遵循 [IaaS 的一般安全性考量](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)，並將安全性最佳作法套用到您所有的 VM。
+在大部分的基礎結構即服務 (IaaS) 案例中，[Azure 虛擬機器 (VM)](https://docs.microsoft.com/azure/virtual-machines/) 對於使用雲端運算的組織來說是主要工作負載。 在組織想要慢慢地將工作負載移轉至雲端的[混合式案例](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)中，這特別顯得重要。 在這種情況下，請遵循 [IaaS 的一般安全性考量](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)，並將安全性最佳作法套用到您所有的 VM。
 
 這篇文章討論各種 VM 安全性最佳作法，每個都衍生自我們的客戶和我們自己使用 VM 的直接體驗。
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/22/2017
 
 屬於資源群組的 VM 自然會繼承其原則。 雖然建議這種方法來管理 VM，您也可以使用[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)來控制存取個別 VM 原則。
 
-當您啟用 Resource Manager 原則和 RBAC 來控制 VM 存取時，有助於改善 VM 的整體安全性。 我們建議將具有相同生命週期的 VM 合併到相同的資源群組。 藉由使用資源群組，您可以部署、監視和彙總資源的計費成本。 若要讓使用者能夠存取和設定 VM，請使用[最低權限的方法](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)。 而且當您指派權限給使用者時，計劃使用下列內建的 Azure 角色︰
+當您啟用 Resource Manager 原則和 RBAC 來控制 VM 存取時，有助於改善 VM 的整體安全性。 我們建議將具有相同生命週期的 VM 合併到相同的資源群組。 藉由使用資源群組，您可以部署、監視和彙總資源的計費成本。 若要讓使用者能夠存取和設定 VM，請使用[最低權限的方法](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)。 而且當您指派權限給使用者時，計劃使用下列內建的 Azure 角色︰
 
 - [虛擬機器參與者](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)：可以管理 VM，但無法管理他們連接的虛擬網路或儲存體帳戶。
 - [傳統虛擬機器參與者](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor)：可以管理使用傳統的部署模型建立的 VM，但無法管理 VM 連接的虛擬網路或儲存體帳戶。
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/22/2017
 
 您可以套用磁碟加密來協助保護資料安全，以符合您的組織安全性及合規性需求。 組織應該考慮使用加密，協助降低與未經授權存取資料相關的風險。 我們也建議您在將機密資料寫入它們之前先加密您的磁碟機。
 
-確定會將 VM 資料磁碟區加密，以保護您 Azure 儲存體帳戶中待用資料磁碟區的安全。 使用 [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/) 來保護加密金鑰和密碼。
+確定會將 VM 資料磁碟區加密，以保護您 Azure 儲存體帳戶中待用資料磁碟區的安全。 使用 [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/) 來保護加密金鑰和密碼。
 
 未強制執行資料加密的組織會更容易遭受資料完整性問題的攻擊。 例如，未經授權或惡意使用者可能會竊取遭入侵帳戶中的資料，或未經授權存取以 ClearFormat 編碼的資料。 除了承擔這些風險外，公司必須證明他們是十分用心遵守業界法規，並使用正確的安全性控制項來增強其資料安全性。
 
@@ -122,7 +122,7 @@ Azure 提供的原廠映像會定期更新，以包含最新一輪的 Windows Up
 
 當 VM 程序比所應消耗更多的資源時，可能會產生資源不當使用的問題。 VM 的效能問題可能會導致服務中斷，違反可用性的安全性原則。 因此，請務必了解，不只需要在發生問題時以反應性方式監視 VM 存取，還必須主動在正常作業期間如測量完成基準效能。
 
-藉由分析 [Azure 診斷記錄檔](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)，您可以監視 VM 資源，並找出可能影響效能和可用性的潛在問題。 Azure 診斷擴充功能會在以 Windows 為基礎的 VM 上提供監視和診斷功能。 您可以將此擴充功能納入為 Azure Resource Manager [範本](../virtual-machines/windows/extensions-diagnostics-template.md)的一部分，藉以啟用這些功能。
+藉由分析 [Azure 診斷記錄檔](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)，您可以監視 VM 資源，並找出可能影響效能和可用性的潛在問題。 Azure 診斷擴充功能會在以 Windows 為基礎的 VM 上提供監視和診斷功能。 您可以將此擴充功能納入為 Azure Resource Manager [範本](../virtual-machines/windows/extensions-diagnostics-template.md)的一部分，藉以啟用這些功能。
 
 您也可以使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-metrics.md)來查看您的資源健康狀態。
 

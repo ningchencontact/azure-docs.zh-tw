@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
 本文說明如何保護獨立 Windows 叢集的不同節點之間的通訊。 此外，也會說明如何藉由使用 X.509 憑證，驗證連線到此叢集的用戶端。 驗證可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。 憑證安全性應在叢集建立之時先在叢集上啟用。  
@@ -255,7 +255,7 @@ ms.lasthandoff: 10/30/2017
    Write-Host $cert.ToString($true)
    ```
 
-或者，如果您有 Azure 訂用帳戶，請遵循[新增憑證至金鑰保存庫](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault)一節中的步驟。
+或者，如果您有 Azure 訂用帳戶，請依照下列中的步驟[使用 Azure Resource Manager 建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
 
 ## <a name="install-the-certificates"></a>安裝憑證
 有了憑證之後，您就可以將它們安裝在叢集節點上。 節點上須已安裝最新的 Windows PowerShell 3.x。 針對叢集和伺服器憑證及任何次要憑證，在每個節點上重複這些步驟。
@@ -315,7 +315,7 @@ ms.lasthandoff: 10/30/2017
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-順利執行安全的獨立 Windows 叢集，並已設定經過驗證的用戶端以進行連接之後，請依照[使用 PowerShell 來連線到叢集](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell)一節中的步驟來進行。 例如：
+順利執行安全的獨立 Windows 叢集，並已設定經過驗證的用戶端以進行連接之後，請依照[使用 PowerShell 來連線到叢集](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell)一節中的步驟來進行。 例如︰
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

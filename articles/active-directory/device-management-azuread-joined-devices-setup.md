@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 已加入裝置。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>設定 Azure Active Directory 已加入裝置
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 - Azure AD 會檢查這個裝置是否需要註冊行動裝置管理，如果適用的話就加以註冊。
 
-- 如果您是受管理的使用者，Windows 會透過自動登入將您導向桌面。
+- 如果您是受控使用者，Windows 會透過自動登入將您導向桌面。
 
 - 如果您是同盟使用者，您必須使用自己的認證登入。
 
@@ -80,12 +80,12 @@ ms.lasthandoff: 10/11/2017
     ![連線](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
-6. 在 Let's get you signed in \(讓我們協助您登入帳戶) 對話方塊中，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下下一步。
+6. 在 [Let's get you signed in] \(讓我們協助您登入帳戶) 對話方塊中，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下 [下一步]。
 
     ![讓我們協助您登入帳戶](./media/device-management-azuread-joined-devices-setup/10.png)
 
 
-6. 在 輸入密碼 對話方塊中，輸入您的密碼，然後按一下登入。
+6. 在 [輸入密碼] 對話方塊中，輸入您的密碼，然後按一下 [登入]。
 
     ![輸入密碼](./media/device-management-azuread-joined-devices-setup/05.png)
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱： 
+如需詳細資訊，請參閱 
 
 - [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)
 - [使用 Azure 入口網站管理裝置](device-management-azure-portal.md)

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Concur 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: cd35b6e2dc3171e9cffdb820bbc5b0d45ff58e07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f39013785f000c7055aaa28f4c6f41998644cb6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-concur-for-user-provisioning"></a>教學課程：設定 Concur 的使用者佈建
 
@@ -82,7 +82,7 @@ Concur 顧問或用戶端系統管理員必須建立不同的 Web 服務系統�
    
     ![啟用合作夥伴應用程式](./media/active-directory-saas-concur-provisioning-tutorial/ic721730.png "啟用合作夥伴應用程式")
 
-4. 從 啟用應用程式 清單中選取 Azure Active Directory，然後按一下啟用。
+4. 從 [啟用應用程式] 清單中選取 [Azure Active Directory]，然後按一下 [啟用]。
    
     ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 

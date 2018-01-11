@@ -14,27 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
-> [!div class="op_single_selector"]
-> * [復原服務保存庫](backup-azure-vms-troubleshoot.md)
-> * [備份保存庫](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup 
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>錯誤：系統不支援指定的磁碟設定
 
 > [!NOTE]
-> 我們有私人預覽，可支援未受管理磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> 我們有私人預覽，可支援非受控磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -50,7 +44,7 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 | 因為虛擬機器沒有網路連線，所以快照集作業失敗 - 請確定 VM 可存取網路。 若要讓快照集成功，請將 Azure 資料中心 IP 範圍設為白名單，或設定網路存取的 Proxy 伺服器。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034。 如果您已經使用 Proxy 伺服器，請確定已正確設定 Proxy 伺服器設定 | 當您拒絕虛擬機器上的輸出網際網路連線時，就會擲回這個錯誤。 VM 快照集延伸模組需要網際網路連線，才能建立虛擬機器基礎磁碟的快照集。 [進一步了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)如何修正封鎖網路存取所造成的快照集失敗。 |
 | VM 代理程式無法與 Azure 備份服務通訊。 - 請確認 VM 具有網路連線，且 VM 代理程式是最新版且正在執行。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup)如何進行 VM 快照集問題偵錯。<br> 如果 VM 代理程式並未造成任何問題，請重新啟動 VM。 有時，不正確的 VM 狀態可能會造成問題，重新啟動 VM 就可清除此「錯誤狀態」。 |
 | VM 處於失敗佈建狀態 - 請將 VM 重新啟動，並確定 VM 為執行中，或關機狀態可進行備份 | 當其中一個延伸模組失敗而導致 VM 狀態變成失敗的佈建狀態時，就會發生這個情況。 請移至延伸模組清單，查看是否有失敗的延伸模組，將它移除並嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 | 
-| 受管理磁碟的 VMSnapshot 延伸模組作業失敗 - 請重試備份作業。 如果問題重複出現，請遵循 'http://go.microsoft.com/fwlink/?LinkId=800034' 中的指示。 如果進一步失敗，請連絡 Microsoft 支援 | Azure 備份服務無法觸發快照集時，就會發生此錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed)如何進行 VM 快照集問題偵錯。 |
+| 受控磁碟的 VMSnapshot 延伸模組作業失敗 - 請重試備份作業。 如果問題重複出現，請遵循 'http://go.microsoft.com/fwlink/?LinkId=800034' 中的指示。 如果進一步失敗，請連絡 Microsoft 支援 | Azure 備份服務無法觸發快照集時，就會發生此錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed)如何進行 VM 快照集問題偵錯。 |
 | 無法複製虛擬機器的快照集，因為儲存體帳戶中的可用空間不足 - 請確定儲存體帳戶中的可用空間等於連結至虛擬機器的進階儲存體磁碟上所呈現的資料 | 若為進階 VM，我們會將快照集複製到儲存體帳戶。 這是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 Microsoft 建議只配置 50% 的總儲存體帳戶空間，讓 Azure 備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶中複製的這個位置，將資料傳送到到保存庫。 | 
 | 無法執行操作，因為 VM 代理程式沒有回應 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 針對 Windows VM，請檢查服務中的VM 代理程式服務狀態，以及代理程式是否出現在 [控制台] 的 [程式集] 中。 請嘗試從 [控制台] 中刪除程式，然後以[下方](#vm-agent)所述的方式重新安裝代理程式。 重新安裝代理程式之後，請觸發臨機操作備份以確認。 |
 | 復原服務擴充作業失敗。 - 請確定虛擬機器上有最新的虛擬機器代理程式，且代理程式服務正在執行中。 請重試備份作業，如果失敗，請連絡 Microsoft 支援服務。 |VM 代理程式過期時會擲回這個錯誤。 請參閱下面的「更新 VM 代理程式」一節以更新 VM 代理程式。 |
@@ -69,13 +63,13 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 | 驗證失敗，因為虛擬機器單獨以 BEK 進行加密。 只會對同時使用 BEK 和 KEK 加密的虛擬機器啟用備份。 |虛擬機器應該使用「BitLocker 加密金鑰」和「金鑰加密金鑰」進行加密。 之後，應該啟用備份。 |
 | Azure 備份服務沒有足夠的 Key Vault權限可備份加密的虛擬機器。 |應使用 [PowerShell 文件](backup-azure-vms-automation.md)的**啟用備份**區段中所述的步驟，在 PowerShell 中向備份服務提供這些權限。 |
 |快照集擴充安裝失敗，錯誤為 - COM+ 無法與 Microsoft Distributed Transaction Coordinator 通話 | 請嘗試重新啟動 Windows 服務 "COM+ System Application" (從提高權限的命令提示字元 - _net start COMSysApp_)。 <br>如果在啟動時失敗，請遵循下列步驟︰<ol><li> 確認服務 "Distributed Transaction Coordinator" 的登入帳戶是 "Network Service"。 如果不是，請變更為 "Network Service"，重新啟動此服務，然後嘗試啟動服務 "COM+ System Application"。'<li>如果仍然無法啟動，請依照下列步驟解除安裝/安裝服務 "Distributed Transaction Coordinator"：<br> - 停止 MSDTC 服務<br> - 開啟命令提示字元 (cmd) <br> - 執行命令 “msdtc -uninstall” <br> - 執行命令 “msdtc -install” <br> - 啟動 MSDTC 服務<li>啟動 Windows 服務 "COM+ System Application"，啟動之後，從入口網站觸發備份。</ol> |
-|  因 COM + 錯誤而導致快照集作業失敗 | 建議的動作是重新啟動 Windows 服務「COM + 系統應用程式」(從提升權限的命令提示字元 - _net start COMSysApp_)。 如果問題持續發生，請重新啟動 VM。 如果重新啟動 VM 沒有幫助，請嘗試[移除 VMSnapshot 延伸模組](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)，並手動觸發備份。 |
+|  因 COM + 錯誤而導致快照集作業失敗 | 建議的動作是重新啟動 Windows 服務「COM + 系統應用程式」(從提升權限的命令提示字元 - _net start COMSysApp_)。 如果問題持續發生，請重新啟動 VM。 如果重新啟動 VM 沒有幫助，請嘗試[移除 VMSnapshot 延伸模組](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)，並手動觸發備份。 |
 | 無法凍結 VM 的一或多個掛接點以取得檔案系統一致快照集 | 請使用下列步驟： <ol><li>使用 _'tune2fs'_ 命令檢查所有已裝載裝置的檔案系統狀態。<br> 例如：tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>使用 _'umount'_ 命令卸載檔案系統狀態不是空白的裝置 <li> 使用 _'fsck'_ 命令對這些裝置執行 FileSystemConsistency 檢查 <li> 重新裝載裝置並嘗試備份。</ol> |
 | 因為建立安全網路通訊通道時發生失敗，所以快照集作業失敗 | <ol><Li> 在提高權限的模式中執行 regedit.exe，開啟登錄編輯程式。 <li> 識別系統中存在的所有 .NetFramework 版本。 它們位於登錄機碼 "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" 的階層下 <li> 針對登錄機碼中的每個 .NetFramework，新增下列機碼︰ <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | 因為安裝適用於 Visual Studio 2012 的 Visual C++ 可轉散發套件時發生失敗，所以快照集作業失敗 | 瀏覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion，並安裝 vcredist2012_x64。 請確定允許這項服務安裝的登錄機碼值設為正確的值，也就是登錄機碼 _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ 的值為 3，而不是 4。 如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 _MSIEXEC /UNREGISTER_，再執行 _MSIEXEC /REGISTER_，以重新啟動安裝服務。  |
 
 
-## <a name="jobs"></a>作業
+## <a name="jobs"></a>工作
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
 | 不支援取消這種工作類型：請等待工作完成。 |None |
@@ -83,7 +77,7 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 | 無法取消工作，因為它不在進行中：只支援取消進行中的工作。 請嘗試取消進行中的工作。 |這起因於暫時性狀態。 請稍候再重試取消作業。 |
 | 無法取消工作：請等待工作完成。 |None |
 
-## <a name="restore"></a>還原
+## <a name="restore"></a>Restore
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
 | 還原失敗並發生雲端內部錯誤 |<ol><li>您嘗試還原的雲端服務是使用 DNS 設定所設定。 您可以檢查 <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>如果設定了 Address，這表示已設定 DNS 設定。<br> <li>您嘗試還原到其中的雲端服務是使用 ReservedIP 所設定，而雲端服務中現有的 VM 目前處於停止狀態。<br>您可以使用下列 powershell Cmdlet，來檢查雲端服務是否具有保留的 IP：<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>您嘗試將具有下列特殊網路組態的虛擬機器還原至相同的雲端服務。 <br>- 負載平衡器組態下的虛擬機器 (內部與外部)<br>- 具有多個保留 IP 的虛擬機器<br>- 具有多個 NIC 的虛擬機器<br>請在 UI 中選取新的雲端服務，或請參閱適用於具有特殊網路組態之 VM 的[還原考量](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。</ol> |
@@ -137,7 +131,7 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體，或快照工作執行延遲可能會造成備份作業失敗。 下列可能導致快照工作失敗。
 
 1. 使用 NSG 封鎖儲存體網路存取<br>
-    深入了解如何使用 IP 允許清單或透過 Proxy 伺服器對儲存體[啟用網路存取](backup-azure-vms-prepare.md#network-connectivity)。
+    深入了解如何使用 IP 允許清單或透過 Proxy 伺服器對儲存體[啟用網路存取](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 2. 已設定 SQL Server 備份的 VM 會造成快照工作延遲  <br>
    根據預設，VM 備份會核發 Windows VM 上的 VSS 完整備份。 在執行 SQL Server 且已設定 SQL Server 備份的 VM 上，這可能造成快照執行延遲。 如果您因為快照的問題而遇到備份失敗，請設定下列登錄機碼。
 
@@ -169,7 +163,7 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體，�
    * 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖該 IP。 在提升權限的 PowerShell 視窗中 (以系統管理員身分執行)，於 Azure VM 內執行這個 Cmdlet。
    * 將規則加入 NSG (若已有規則)，以允許存取該 IP。
 2. 建立 HTTP 流量的行經路徑
-   * 如果已有一些網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。 部署 HTTP Proxy 伺服器的步驟位於[這裡](backup-azure-vms-prepare.md#network-connectivity)。
+   * 如果已有一些網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。 部署 HTTP Proxy 伺服器的步驟位於[這裡](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
    * 將規則加入 NSG (若已有規則)，以允許從 HTTP Proxy 存取網際網路。
 
 > [!NOTE]

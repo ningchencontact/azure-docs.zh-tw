@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
 
-了解 Microsoft Azure HDInsight 中的 Apache Hadoop 生態系統元件和版本，以及標準和進階服務層級。 此外，了解如何檢查 HDInsight 中的 Hadoop 元件版本。 
+深入了解的 Apache Hadoop 生態系統元件和 Microsoft Azure HDInsight，以及企業安全性封裝的版本。 此外，了解如何檢查 HDInsight 中的 Hadoop 元件版本。 
 
 每個 HDInsight 版本都是 Hortonworks Data Platform (HDP) 版本的雲端發佈。
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>可以搭配不同 HDInsight 版本使用的 Hadoop 元件
 Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 HDP 發佈，以及該發佈內包含的一組元件。 截至 2017 年 2 月 17 日為止，Azure HDInsight 預設使用的叢集版本為 3.5 版，且以 HDP 2.5 為基礎。
 
-下表列出與 HDInsight 叢集版本相關聯的元件版本。 
+下表列出與 HDInsight 叢集版本相關聯的元件版本： 
 
 > [!NOTE]
 > HDInsight 服務的預設版本可能會變更，恕不另行通知。 如果您有版本相依性，請在使用 .NET SDK 搭配 Azure PowerShell 和 Azure CLI 建立叢集時指定 HDInsight 版本。
@@ -77,7 +77,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 下表列出目前可在 Azure 入口網站上取得的 HDInsight 版本。 其中會列出對應至每個 HDInsight 版本的 HDP 版本以及產品發行日期。 如果已知支援到期日與停用日期，也會一併提供。
 
 > [!NOTE]
-> 當版本的支援到期之後，就可能無法透過 Microsoft Azure 傳統入口網站取得它。 不過，您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到版本停用日期為止。
+> 支援後的版本已到期，它可能無法透過 Microsoft Azure 入口網站。 不過，您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到版本停用日期為止。
 > 
 > 依預設，系統會為 HDInsight 2.1 和更新版本部署具有兩個前端節點的高可用性叢集。 它們不適用於 HDInsight 版本 1.6 叢集。
 
@@ -93,6 +93,48 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |是 |2014 年 2 月 11 日 |否 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |是 |2013 年 10 月 28 日 |否 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |
 | HDInsight 1.6 |HDP 1.1 | |否 |2013 年 10 月 28 日 |否 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |
+
+
+## <a name="enterprise-security-package-for-hdinsight"></a>HDInsight 的企業安全性封裝
+
+Azure HDInsight 是選擇性的封裝，您可以加入您的 HDInsight 叢集上建立叢集工作流程的一部分。 支援企業安全性封裝：
+
+- 驗證與 Active Directory 整合。
+
+    在過去，您可以只使用本機系統管理員使用者和本機的 SSH 使用者建立 HDInsight 叢集。 本機系統管理員使用者可以存取所有檔案、 資料夾、 資料表和資料行。  與企業安全性封裝，您可以啟用以角色為基礎的存取控制，藉由整合您自己的 Active Directory 中，與 HDInsight 叢集包括內部部署 Active Directory、 Azure Active Directory 網域服務或 IaaS 上的 Active Directory虛擬機器。 在叢集上的網域系統管理員可以授與使用者使用他們自己的公司 （網域） 的使用者名稱和密碼來存取叢集。 
+
+    如需詳細資訊，請參閱
+
+    - [與已加入網域的 HDInsight 叢集的 Hadoop 安全性簡介](./domain-joined/apache-domain-joined-introduction.md)
+    - [規劃 Azure 加入網域的 Hadoop 叢集 HDInsight 中](./domain-joined/apache-domain-joined-architecture.md)
+    - [設定網域的沙箱環境](./domain-joined/apache-domain-joined-configure.md)
+    - [設定使用 Azure Active Directory 網域服務網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- 資料的授權
+
+    - 整合 Apache 廣用於 Hive、 Spark SQL 和 Yarn 佇列的授權。
+    - 您可以設定檔案和資料夾的存取控制。
+
+    如需詳細資訊，請參閱
+
+    - [在已加入網域的 HDInsight 中設定 Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
+
+- 檢視稽核記錄檔，以監視的存取和設定的原則。 
+
+### <a name="supported-cluster-types"></a>支援的叢集類型
+
+目前，只有下列叢集類型支援企業安全性封裝：
+
+- Hadoop (只有 HDInsight 3.6)
+- Spark
+- 互動式查詢
+
+### <a name="support-for-azure-data-lake-store"></a>支援 Azure Data Lake Store
+
+企業安全性套件支援使用 Azure 資料湖存放區做為主要儲存體和附加元件儲存體。
+
+### <a name="pricing-and-sla"></a>價格和 SLA
+企業安全性封裝價格和 SLA 資訊，請參閱[HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 停用項目
 Microsoft Azure HDInsight 版本 3.3 是 Windows 上的最後一個 HDInsight 版本。 Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您在 Windows 上有任何 3.3 版或更早版本的 HDInsight 叢集，就必須在 2018 年 7 月 31 日之前移轉至 Linux 上的 HDInsight 叢集 (HDInsight 版本 3.5 或更新版本)。 移轉至 Linux OS，可讓您保留建立或調整 HDInsight 叢集的能力。 對於 Windows 上 HDInsight 版本 3.3 的支援已在 2016 年 6 月 27 日到期。
@@ -165,36 +207,10 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 * HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][hdp-1-3-0] 為基礎的 Hadoop 散發套件。
 * HDInsight 叢集 1.6 版採用以 [Hortonworks Data Platform 1.1][hdp-1-1-0] 為基礎的 Hadoop 散發套件。
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard 和 HDInsight Premium
 
-Azure HDInsight 提供兩種類型的巨量資料雲端提供項目：_標準_和_進階_。 下表列出「只」適用於 HDInsight Premium 的功能。 表格中未明確說明的功能均適用於 HDInsight Standard 和 Premium。
 
-> [!NOTE]
-> HDInsight Premium 提供項目目前為預覽版，僅適用於 Linux 叢集。
 
-| HDInsight Premium 功能 | 說明 |
-| --- | --- |
-| 已加入網域的 HDInsight 叢集 |將 HDInsight 叢集加入 Azure Active Directory (Azure AD) 網域，以獲得企業級安全性。 在 HDInsight Premium 中，您可以設定企業員工清單，指出可透過 Azure AD 進行驗證以登入 HDInsight 叢集的員工。 企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/) \(英文\)，針對 Hive 安全性設定角色型存取控制，並將資料存取限制為只有在需要時使用。 最後，系統管理員可以稽核員工所存取的資料，以及對存取控制原則所做的變更，因而達到高度的公司資源控管。 如需詳細資訊，請參閱[設定已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure.md)。 |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>HDInsight Premium 中支援的叢集類型
-下表列出 HDInsight Premium 中支援的叢集類型。
-
-| 叢集類型 | 標準 | 高階 (預覽) |
-| --- | --- | --- |
-| Hadoop |是 |是 (僅限 HDInsight 3.6) |
-| Spark |是 |否 |
-| HBase |是 |否 |
-| Storm |是 |否 |
-| R 伺服器 |是 |否 |
-| 互動式查詢 |是 |否 |
-| Kafka (預覽) |是 |否 | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>HDInsight Premium 中對於 Azure Data Lake Store 的支援
-
-HDInsight Premium 叢集不支援使用 Azure Data Lake Store 當做主要儲存體。 但是，您可以使用 Azure Data Lake Store 作為含有 HDInsight Premium 叢集的附加元件儲存體。
-
-### <a name="pricing-and-sla"></a>價格和 SLA
-如需 HDInsight Premium 的價格和 SLA 的詳細資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
 下表列出 HDInsight 叢集的預設虛擬機器 (VM) 大小。
@@ -206,28 +222,28 @@ HDInsight Premium 叢集不支援使用 Azure Data Lake Store 當做主要儲存
 
 * 所有支援的區域，巴西南部和日本西部除外︰
 
-  | 叢集類型 | Hadoop | HBase | Storm | Spark | R 伺服器 |
-  | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | 前端：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
-  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
-  | 背景工作：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-  | ZooKeeper：預設 VM 大小 | |A3 |A2 | | |
-  | ZooKeeper：建議的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | | |
-  | 邊緣：預設 VM 大小 | | | | |Windows：D12 v2；Linux：D4 v2 |
-  | 邊緣：建議的 VM 大小 | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark | R 伺服器 |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13、 D14 |A3 |D12 v2 |D12 v2 |
+  | 前端：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、 D14 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
+  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2  | D13、 D14 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
+  | 背景工作：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、 D14 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | ZooKeeper：預設 VM 大小 | |A3 | |A2 | | |
+  | ZooKeeper：建議的 VM 大小 | |A3、A4、A5 | | A2、A3、A4 | | |
+  | 邊緣：預設 VM 大小 | | | | | |Windows：D12 v2；Linux：D4 v2 |
+  | 邊緣：建議的 VM 大小 | | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
 * 僅限巴西南部和日本西部 (沒有 v2 大小)：
 
-  | 叢集類型 | Hadoop | HBase | Storm | Spark | R 伺服器 |
-  | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 |D3 |A3 |D12 |D12 |
-  | 前端：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12 |A3、A4、A5 |D12、D13、D14 |D12、D13、D14 |
-  | 背景工作：預設 VM 大小 |D3 |D3 |D3 |Windows：D12；Linux：D4 |Windows：D12；Linux：D4 |
-  | 背景工作：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12 |D3、D4、D12 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
-  | ZooKeeper：預設 VM 大小 | |A2 |A2 | | |
-  | ZooKeeper：建議的 VM 大小 | |A2、A3、A4 |A2、A3、A4 | | |
-  | 邊緣：預設 VM 大小 | | | | |Windows：D12；Linux：D4 |
-  | 邊緣：建議的 VM 大小 | | | | |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
+  | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | R 伺服器 |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | 前端：預設 VM 大小 |D3 |D3  | D13、 D14 |A3 |D12 |D12 |
+  | 前端：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13、 D14 |A3、A4、A5 |D12、D13、D14 |D12、D13、D14 |
+  | 背景工作：預設 VM 大小 |D3 |D3  | D13、 D14 |D3 |Windows：D12；Linux：D4 |Windows：D12；Linux：D4 |
+  | 背景工作：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13、 D14 |D3、D4、D12 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
+  | ZooKeeper：預設 VM 大小 | |A2 | | A2 | | |
+  | ZooKeeper：建議的 VM 大小 | |A2、A3、A4 | |A2、A3、A4 | | |
+  | 邊緣：預設 VM 大小 | | | | | |Windows：D12；Linux：D4 |
+  | 邊緣：建議的 VM 大小 | | | | | |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
 
 > [!NOTE]
 > - 前端稱為 Storm 叢集類型的 Nimbus。

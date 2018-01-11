@@ -4,7 +4,7 @@ description: "本文將說明如何設定用戶端應用程式，並取得存取
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
-ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C︰要求存取權杖
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Azure AD B2C [應用程式] 功能表中，開啟 Web API 應用程式 ("Contoso API")。
 1. 按一下 [已發佈範圍]。 您會在此定義可授予其他應用程式的權限 (範圍)。
 1. 視需要新增 [範圍值] \(例如「讀取」)。 根據預設，將會定義 "user_impersonation" 範圍。 想要的話，也可以忽略此步驟。 在 [範圍名稱] 資料行中輸入範圍的描述。
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
 > [!IMPORTANT]
 > [範圍名稱] 是 [範圍值] 的描述。 當使用範圍時，請務必使用 [範圍值]。
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 1. 按一下 [API 存取]。
 1. 按一下 [新增]。
 1. 選取您的 web API，以及您想要授與的範圍 (權限)。
-1. 按一下 [確定] 。
+1. 按一下 [SERVICEPRINCIPAL] 。
 
 > [!NOTE]
 > Azure AD B2C 不會要求您的用戶端應用程式使用者同意。 相反地，根據上述應用程式之間設定的權限，所有同意都係由系統管理員提供。 如果已撤銷應用程式的權限授與，所有先前能夠取得該權限的使用者將不再能夠執行這項操作。
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-要在相同的要求中取得多個權限，您可以在單一**範圍**參數中新增多個項目，以空格分隔。 例如：
+要在相同的要求中取得多個權限，您可以在單一**範圍**參數中新增多個項目，以空格分隔。 例如︰
 
 解碼的 URL：
 

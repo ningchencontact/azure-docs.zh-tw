@@ -1,6 +1,6 @@
 ---
 title: "Service Fabric 專案建立後續步驟 |Microsoft Docs"
-description: "本文包含一組用於 Service Fabric 的核心開發工作連結"
+description: "深入了解您剛才在 Visual Studio 中建立的應用程式專案。  了解如何建置使用教學課程的服務，並深入了解開發適用於 Service Fabric 服務。"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,74 +12,65 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: e04f9e57c65da42da73a5ee6a0b601dcbb318aaa
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>您的 Service Fabric 應用程式和後續步驟
-您的 Azure Service Fabric 應用程式已經建立。 本文說明您專案的建立方式和一些潛在後續步驟。
+您的 Azure Service Fabric 應用程式已經建立。 本文說明某些教學課程，試試看，您的專案、 更多的資訊，您可能會想要和潛在的下一個步驟的結構。
 
-## <a name="your-application"></a>您的應用程式
+## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>快速入門教學課程、 逐步解說，以及範例
+準備好開始了嗎？  
+
+透過.NET 應用程式教學課程的工作。 深入了解如何[建置的應用程式](service-fabric-tutorial-create-dotnet-app.md)前端的 ASP.NET Core 與可設定狀態後端，[部署應用程式](service-fabric-tutorial-deploy-app-to-party-cluster.md)至叢集，[設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)，和[設定監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)。
+
+或者，嘗試下列逐步解說的其中一個，然後建立您第一次...
+- [在 Windows 上的 C# 可靠 Services 服務](service-fabric-reliable-services-quick-start.md) 
+- [在 Windows 上的 C# Reliable Actors 服務](service-fabric-reliable-actors-get-started.md) 
+- [在 Windows 上的客體可執行服務](quickstart-guest-app.md) 
+- [Windows 容器應用程式](service-fabric-get-started-containers.md) 
+
+您可能也會想要試用我們[範例應用程式](http://aka.ms/servicefabricsamples)。
+
+## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>有任何疑問或意見嗎？  要回報問題？
+閱讀[常見問題的解答](service-fabric-common-questions.md)並尋找可以執行的 Service Fabric 和它的使用方式的答案。
+
+[支援選項](service-fabric-support.md)列出 stackoverflow 文章和 MSDN 上的論壇詢問問題，以及選項報告問題、 取得支援，以及傳送產品意見反應。
+
+## <a name="the-application-project"></a>應用程式專案
 每個新應用程式都包含一個應用程式專案。 視所選擇的服務類型而定，可能會有一個或兩個額外的專案。
 
-### <a name="the-application-project"></a>應用程式專案
 應用程式專案包含：
 
 * 一組對構成應用程式之服務的參考。
 * 三個發行設定檔 (1-Node Local、5-Node Local、Cloud)，可用來維護喜好設定，以搭配不同的環境使用，例如叢集端點的相關喜好設定，以及是否預設要執行升級部署。
-* 三個應用程式參數檔案 (同上)，可用來維護環境特定應用程式組態，例如為服務建立之分割區的數目。
-* 部署指令碼，可用來從命令列部署您的應用程式，或透過自動化連續整合和部署管線中部署您的應用程式。
-* 應用程式資訊清單，描述應用程式。 您可以在 ApplicationPackageRoot 資料夾下方找到資訊清單。
-
-### <a name="stateless-service"></a>無狀態服務
-當您加入一個新的無狀態服務時，Visual Studio 會將一個服務專案 (包含來自 `StatelessService`的類型) 加入至您的解決方案。 此服務會使計數器中的區域變數遞增。
-
-### <a name="stateful-service"></a>具狀態服務
-當您加入一個新的具狀態服務時，Visual Studio 會將一個服務專案 (包含來自 `StatefulService`的類型) 加入至您的解決方案。 此服務會將 `RunAsync` 方法中的計數器遞增，並將結果儲存在 `ReliableDictionary` 中。
-
-### <a name="actor-service"></a>動作項目服務
-當您加入一個新的 Reliable Actor 時，Visual Studio 會將兩個專案加入至您的解決方案：動作項目專案和介面專案。
-
-動作項目專案提供了一些方法，以便設定和取得動作項目的狀態中可靠地保存的計數器值。 介面專案提供了其他服務可用來叫用動作項目的介面。
-
-### <a name="stateless-web-api"></a>無狀態 Web API
-無狀態 Web API 專案會提供基本一項 Web 服務，您可用來對外部用戶端開放您的應用程式。 如需有關如何建構專案的詳細資訊，請參閱 [Service Fabric Web API 服務與 OWIN 自我裝載](service-fabric-reliable-services-communication-webapi.md)。
+* 三個應用程式參數檔案 (同上)，可用來維護環境特定應用程式組態，例如為服務建立之分割區的數目。 深入了解如何[設定您的應用程式的多個環境](service-fabric-manage-multiple-environment-app-configuration.md)。
+* 部署指令碼，可用來從命令列部署您的應用程式，或透過自動化連續整合和部署管線中部署您的應用程式。 深入了解[部署應用程式使用 PowerShell](service-fabric-deploy-remove-applications.md)。
+* 應用程式資訊清單，描述應用程式。 您可以在 ApplicationPackageRoot 資料夾下方找到資訊清單。 深入了解[應用程式和服務資訊清單](service-fabric-application-model.md)。
 
 
-### <a name="aspnet-core"></a>ASP.NET 核心
-Service Fabric SDK 提供 ASP.NET Core 範本的相同集合，適用於獨立 ASP.NET Core 專案︰空的、[Web API][aspnet-webapi] 和 [Web 應用程式][aspnet-webapp]。
 
-### <a name="guest-executables-and-guest-containers"></a>客體可執行檔和客體容器
+## <a name="learn-more-about-the-programming-models"></a>深入了解程式設計模型
+Service Fabric 提供多種撰寫和管理服務的方式。  以下是上的 概觀和概念性資訊[無狀態與可設定狀態的可靠服務](service-fabric-reliable-services-introduction.md)， [Reliable Actors](service-fabric-reliable-actors-introduction.md)，[容器](service-fabric-containers-overview.md)，[客體可執行檔](service-fabric-deploy-existing-app.md)，和[無狀態與可設定狀態的 ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md)。
 
-Service Fabric「客體」這個服務並非由平台的程式設計模型所建立。 您可以[直接在應用程式套件中](service-fabric-deploy-existing-app.md)或[透過容器映像](service-fabric-deploy-container.md)，將客體的二進位檔案進行封裝。 在這兩種情況下，Visual Studio 會在應用程式專案的 **ApplicationPackageRoot** 資料夾中建立必要的成品。 Visual Studio 不會建立新的服務專案，因為程式碼已經存在於其他地方。 如果您想要同時管理客體專案與 Service Fabric 應用程式專案，您可以將它們新增至相同的 Visual Studio 解決方案。
+## <a name="learn-about-service-communication"></a>深入了解服務通訊
+Service Fabric 應用程式是由不同的服務，其中每個服務會執行特殊的工作所組成。 這些服務可能會與對方進行通訊，且有可能會連接到並與服務通訊，叢集外的用戶端應用程式。 深入了解如何[設定與您的服務之間的通訊](service-fabric-connect-and-communicate-with-services.md)Service Fabric 中。 
+
+## <a name="learn-about-configuring-application-security"></a>瞭解如何設定應用程式安全性
+您可以保護在叢集中不同的使用者帳戶下執行的應用程式。 在以該使用者帳戶部署時，Service Fabric 也會協助保護應用程式所使用的資源，例如檔案、目錄和憑證。 如此一來，即使在共用主控環境中，執行中的應用程式就不會彼此干擾。  深入了解如何[設定您的應用程式的安全性原則](service-fabric-application-runas-security.md)。
+
+您的應用程式可能包含機密資訊，例如儲存體連接字串、 密碼或其他不會處理以純文字的值。 深入了解如何[管理您的應用程式中的機密](service-fabric-application-secret-management.md)。
+
+## <a name="learn-about-the-application-lifecycle"></a>深入了解應用程式生命週期
+因為與其他平台，Service Fabric 應用程式通常會經歷下列階段： 設計、 開發、 測試、 部署、 升級、 維護和移除。 [這篇文章](service-fabric-application-lifecycle.md)提供 Api 和由整個 Service Fabric 應用程式生命週期的階段的不同角色的使用方式的概觀。
 
 ## <a name="next-steps"></a>後續步驟
-### <a name="create-an-azure-cluster"></a>建立 Azure 叢集
-Service Fabric SDK 提供一個用於開發和測試的本機叢集。 若要在 Azure 中建立叢集，請參閱[從 Azure 入口網站設定 Service Fabric 叢集][create-cluster-in-portal]。
+- [在 Azure 中建立 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
+- 視覺化您的叢集，包括具有已部署的應用程式和實體配置， [Service Fabric 總管](service-fabric-visualizing-your-cluster.md)。
+- [版本和升級服務](service-fabric-application-upgrade-tutorial.md)
 
-### <a name="publish-your-application-to-azure"></a>將應用程式發行至 Azure
-您可以直接從 Visual Studio 將應用程式發行至 Azure 叢集。 若要瞭解做法，請參閱[將應用程式發佈至 Azure][publish-app-to-azure]。
 
-### <a name="use-service-fabric-explorer-to-visualize-your-cluster"></a>使用 Service Fabric 總管將叢集視覺化
-「Service Fabric 總管」提供一個將叢集 (包括已部署的應用程式和實體配置) 視覺化的簡單方法。 若要深入了解，請參閱[使用 Service Fabric Explorer 將叢集視覺化][visualize-with-sfx]。
-
-### <a name="version-and-upgrade-your-services"></a>進行服務版本設定和升級
-Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本設定和升級。 若要深入了解，請參閱[進行服務版本設定和升級][app-upgrade-tutorial]。
-
-### <a name="configure-continuous-integration-with-visual-studio-team-services"></a>使用 Visual Studio Team Services 設定持續整合
-若要深入了解如何為 Service Fabric 應用程式設定持續整合程序，請參閱[使用 Visual Studio Team Services 設定持續整合][ci-with-vso]。
-
-<!-- Links -->
-[add-web-frontend]: service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: service-fabric-manage-application-in-visual-studio.md
-[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
-[aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
-[aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html

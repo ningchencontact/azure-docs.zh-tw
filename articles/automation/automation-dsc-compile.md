@@ -3,7 +3,7 @@ title: "編譯 Azure 自動化 DSC 中的組態 | Microsoft Docs"
 description: "此文章說明如何針對 Azure 自動化編譯期望狀態設定 (DSC) 組態。"
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
-使用 Azure 自動化時有兩種方式可以編譯「期望狀態設定 (DSC)」組態：在 Azure 入口網站中，以及使用 Windows PowerShell。 下表將協助您根據方法的特性判斷何時應使用哪種方法：
+使用 Azure 自動化時有兩種方式可以編譯「期望狀態設定 (DSC)」組態：在 Azure 入口網站中，以及使用 Windows PowerShell。 下表可協助您判斷何時要使用哪一種方法，根據每個特性：
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/06/2017
 1. 從您的自動化帳戶中，按一下 [DSC 組態]。
 2. 按一下組態以開啟其刀鋒視窗。
 3. 按一下 [編譯] 。
-4. 如果組態沒有參數，系統會提示您確認是否要加以編譯。 如果組態有參數，即會開啟 [編譯組態] 刀鋒視窗，讓您可以提供參數值。 如需參數的進一步詳細資訊，請參閱以下的[**基本參數**](#basic-parameters)一節。
+4. 如果組態中不有任何參數，系統會提示您確認您是否想要進行編譯。 如果組態中有參數，**編譯組態**刀鋒視窗隨即開啟，因此您可以提供參數值。 如需參數的進一步詳細資訊，請參閱以下的[**基本參數**](#basic-parameters)一節。
 5. [編譯工作]  刀鋒視窗隨即開啟，供您追蹤編譯工作的狀態，以及因為此工作而放在 Azure 自動化 DSC 提取伺服器上的節點組態 (MOF 組態文件)。
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>使用 Windows PowerShell 編譯 DSC 組態
@@ -131,16 +131,16 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="composite-resources"></a>複合資源
 
-**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。  這可讓您將多個組態套用至單一資源。  如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite)
+**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。  如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)
 
 > [!NOTE]
 > 為使**複合資源**正確編譯，您必須先確定複合依賴的任何 DSC 資源都已先安裝在 Azure 自動化帳戶模組存放庫中，否則它就無法正確匯入。
 
-若要新增 DSC **複合資源**，您必須將資源模組新增至封存 (*.zip)。 前往您 Azure 自動化帳戶上的模組存放庫。  然後按一下 [新增模組] 按鈕。
+若要新增 DSC **複合資源**，您必須將資源模組新增至封存 (*.zip)。 前往您 Azure 自動化帳戶上的模組存放庫。 然後按一下 [新增模組] 按鈕。
 
 ![新增模組](./media/automation-dsc-compile/add_module.png)
 
-瀏覽至您封存所在的目錄。  選取封存檔，然後按一下 [確定]。
+瀏覽至您封存所在的目錄。 選取封存檔，然後按一下 [確定]。
 
 ![選取 [模組]](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -227,7 +227,7 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ConfigurationDataSample" -ConfigurationData $ConfigData
 ```
 
-## <a name="assets"></a>資產
+## <a name="assets"></a>Assets
 
 Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。 如需詳細資訊，請參閱下列主題：
 
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-您可以使用 PowerShell 編譯上述 DSC 組態。 PowerShell 會將以下兩個節點組態新增至 Azure Automation DSC 提取伺服器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
+您可以使用 PowerShell 編譯上述 DSC 組態。 PowerShell 底下將兩個節點組態加入至 Azure 自動化 DSC 提取伺服器： **CredentialSample.MyVM1**和**CredentialSample.MyVM2**。
 
 ```powershell
 $ConfigData = @{
@@ -286,8 +286,8 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>匯入節點組態
 
-您也可以匯入在 Azure 外部完成編譯的節點組態 (MOF)。 這樣做的優點之一，就是可以簽署節點組態。
-DSC 代理程式會在受管理的節點上本機驗證簽署的節點組態，確保套用到節點的組態來自經授權之來源。
+您也可以匯入節點組態 (Mof) 編譯的 Azure 外部。 這樣做的優點之一，就是可以簽署節點組態。
+DSC 代理程式會在受控節點上本機驗證簽署的節點組態，確保套用到節點的組態來自經授權之來源。
 
 > [!NOTE]
 > 您可以將簽署的組態匯入到您的 Azure 自動化帳戶，但 Azure 自動化目前不支援編譯簽署的組態。
@@ -307,7 +307,7 @@ DSC 代理程式會在受管理的節點上本機驗證簽署的節點組態，�
 
     ![瀏覽本機檔案](./media/automation-dsc-compile/import-browse.png)
 4. 在 [組態名稱]文字方塊中輸入名稱。 此名稱必須符合已編譯節點組態的組態名稱。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
 
 ### <a name="importing-a-node-configuration-with-powershell"></a>使用 PowerShell 匯入節點組態
 

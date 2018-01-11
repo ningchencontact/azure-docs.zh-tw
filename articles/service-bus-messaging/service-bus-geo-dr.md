@@ -11,208 +11,99 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Azure 服務匯流排地理災害復原 (預覽)
+# <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服務匯流排地理災害復原
 
-當區域資料中心遇到停機時，最重要的是資料處理作業能夠繼續在不同的區域或資料中心運作。 因此，「地理災害復原」和「異地複寫」對於任何企業而言都是重要的功能。 Azure 服務匯流排支援命名空間層級的地理災害復原和異地複寫。 
+當整個 Azure 區域或資料中心 (如果有任何[可用性區域](../availability-zones/az-overview.md)可用) 經歷的停機時間，很重要的資料處理作業能夠繼續運作的不同區域或資料中心。 因此，「地理災害復原」和「異地複寫」對於任何企業而言都是重要的功能。 Azure 服務匯流排支援地理災害復原和異地複寫，在命名空間層級。 
 
-地理災害復原預覽目前僅適用於兩個區域 (**美國中北部**和**美國中南部)**。
+全域使用服務匯流排 Premium SKU 的地理災害復原功能。 
 
 ## <a name="outages-and-disasters"></a>中斷與災害
 
-[將應用程式與服務匯流排中斷和災難隔絕的最佳做法](service-bus-outages-disasters.md)一文會區別「中斷」和「災害」，這很值得注意。 「中斷」是暫時無法使用 Azure 服務匯流排，而且會影響服務的某些元件，例如訊息存放區，或甚至整個資料中心。 不過，修正問題之後，服務匯流排就可再次使用。 中斷通常不會導致訊息或其他資料遺失。 這類中斷的範例可能是資料中心停電。
+請務必注意區別 「 中斷 」 和 「 災害 」。 「中斷」是暫時無法使用 Azure 服務匯流排，而且會影響服務的某些元件，例如訊息存放區，或甚至整個資料中心。 不過，在修正問題之後，服務匯流排再次變為無法使用。 中斷通常不會導致訊息或其他資料遺失。 這類中斷的範例可能是資料中心停電。 某些中斷會只因為暫時性或網路問題而簡短的連接中斷。 
 
-「災害」定義為永久或較長期遺失服務匯流排[縮放單位](service-bus-architecture.md#service-bus-scale-units)或資料中心。 資料中心不一定能再次使用，也可能會關閉數小時或數天。 這類災害的範例包括火災、水災或地震。 會變成永久的災害可能會導致某些訊息或其他資料遺失。 不過，在大部分情況下，應該不會遺失資料，而且在備份資料中心之後，就可以復原訊息。
+A*災害*定義為永久狀態，或長期遺失的服務匯流排的叢集、 Azure 區域或資料中心。 區域或資料中心可能會或可能不會變成可用，或可能已關閉的時數或天數。 這類災害的範例包括火災、水災或地震。 會變成永久損毀可能會導致某些訊息、 事件或其他資料遺失。 不過，在大部分情況下，應該不會遺失資料，而且在備份資料中心之後，就可以復原訊息。
 
-Azure 服務匯流排的地理災害復原功能就是一個災害復原解決方案。 本文中所述的概念和工作流程適用於災害案例，不適用暫時性或暫時中斷。  
+Azure 服務匯流排的地理災害復原功能就是一個災害復原解決方案。 本文中所述的概念和工作流程適用於災害案例，不適用暫時性或暫時中斷。 如需 Microsoft Azure 中災害復原的詳細討論，請參閱[本文](/azure/architecture/resiliency/disaster-recovery-azure-applications)。   
 
 ## <a name="basic-concepts-and-terms"></a>基本概念與術語
 
-災害復原功能會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。 請注意，地理災害復原功能僅適用於[進階命名空間](service-bus-premium-messaging.md)。 您不需要進行任何連接字串變更，因為連接是透過別名建立的。
+嚴重損壞修復功能會實作中繼資料損毀修復，並依賴主要和次要災害復原命名空間。 請注意，地理災害復原功能可供[Premium SKU](service-bus-premium-messaging.md)只。 您不需要進行任何連接字串變更，因為連接是透過別名建立的。
 
 本文中使用下列術語：
 
--  別名：您的主要連接字串。
+-  *別名*： 災害復原組態所設定的名稱。 別名提供單一穩定完整網域名稱 (FQDN) 連接字串。 應用程式會使用這個別名連接字串連接到命名空間。 
 
--  主要/次要命名空間：描述對應到別名的命名空間。 主要是「主動」且會接收訊息，次要則是「被動」且不會接收訊息。 這兩者間的中繼資料會進行同步處理，因此，這兩者均能順暢地接受訊息，而不需進行任何應用程式的程式碼變更。
+-  *主要/次要命名空間*： 別名對應的命名空間。 在主要命名空間是 「 作用中 」，及接收訊息 （這可以是現有或新的命名空間）。 次要命名空間是 「 被動 」，而且不會接收訊息。 使兩者都能夠順暢地接受訊息而不變更任何應用程式程式碼或連接字串，是同步，兩者之間的中繼資料。 若要確保只有使用中的命名空間會接收訊息，您必須使用別名。 
 
--  中繼資料：代表 Azure 服務匯流排中的物件。 我們目前只支援中繼資料。
+-  *中繼資料*： 實體，例如佇列、 主題和訂用帳戶; 和服務的命名空間相關聯的屬性。 請注意只有實體和其設定會自動複寫。 訊息不會複寫。 
 
--  容錯移轉：啟用次要命名空間的程序。 一旦先前的主要命名空間再次變成可供使用時，您就必須從其中提取訊息，然後刪除該命名空間。 為了建立另一個容錯移轉，您會將新的次要命名空間新增至配對。 如果您想要在容錯移轉之後重複使用先前的主要命名空間，則必須先移除命名空間中的所有現有實體。 請一定要先收到所有訊息，再這麼做。
+-  容錯移轉：啟用次要命名空間的程序。
 
-## <a name="failover-workflow"></a>容錯移轉工作流程
+## <a name="setup-and-failover-flow"></a>安裝和容錯移轉流程
 
-下一節是設定初始容錯移轉的完整程序概觀，並說明如何從該點取得進展。
+下一節是容錯移轉程序的概觀，並說明如何設定初始的容錯移轉。 
 
 ![1][]
 
-您會先設定主要和次要命名空間，然後建立配對。 此配對會為您提供可用來連接的別名。 由於您使用別名，因此不需變更連接字串。 只需將新的命名空間新增至您的容錯移轉配對。 最後，您必須新增某個觸發程序邏輯 (例如，某個會偵測命名空間是否無法使用，並起始容錯移轉的商務邏輯)。 您可以使用服務匯流排的[訊息瀏覽](message-browsing.md)功能來檢查命名空間可用性。
+### <a name="setup"></a>設定
 
-當您設定了監視和災害復原之後，就可以查看容錯移轉程序。 如果觸發程序會起始容錯移轉，或者您會手動起始容錯移轉，則有兩個必要步驟：
+第一次建立或使用現有的主要命名空間，並為新的次要命名空間，然後配對這兩個。 此配對會為您提供可用來連接的別名。 由於您使用別名，因此不需變更連接字串。 只需將新的命名空間新增至您的容錯移轉配對。 最後，您應該加入某些監視來偵測是否需要在容錯移轉。 在大部分情況下，服務是大型的生態系統的一部分，因此自動容錯移轉，必須執行其餘的子系統或基礎結構與同步經常容錯移轉。
 
-1. 萬一發生另一個中斷，您會希望能夠再次進行容錯移轉。 因此，請設定第二個被動命名空間，並更新配對。 
-2. 一旦新的命名空間可供使用之後，從先前的主要命名空間提取訊息。 在這之後，可重複使用或刪除舊的主要命名空間。
+### <a name="example"></a>範例
+
+在此案例的一個範例中，請考慮銷售點 (POS) 解決方案，它會發出訊息或事件。 服務匯流排會將這些事件傳遞至部分對應，或重新格式化方案，然後轉送到另一個系統，以便進一步處理的對應的資料。 此時，所有這些系統可能會裝載於相同的 Azure 區域。 關於何時與容錯移轉的哪個部分取決於基礎結構中的資料流量的決策。 
+
+您可以自動容錯移轉與監視系統，或使用自訂的監視解決方案。 不過，這類自動化會採用額外的計劃和工作，也就是不在本文的範圍。
+
+### <a name="failover-flow"></a>容錯移轉流程
+
+如果您起始容錯移轉，兩個步驟是必要的：
+
+1. 發生另一個中斷時，您想要能夠容錯移轉的一次。 因此，設定另一個被動的命名空間，並更新配對。 
+
+2. 一次使用之後，提取從先前的主要命名空間的訊息。 之後，使用該命名空間規則傳訊之外地理修復安裝或刪除舊的主要命名空間。
+
+> [!NOTE]
+> 支援失敗轉寄語意。 在此案例中，您容錯移轉，並重新配對與新的命名空間。 不支援回失敗;例如，在 SQL 叢集。 
 
 ![2][]
 
-## <a name="set-up-disaster-recovery"></a>設定災害復原
+## <a name="management"></a>管理
 
-本節描述如何建置您自己的服務匯流排地理災害復原碼。 若要這樣做，您需要在獨立的位置中有兩個命名空間，例如，美國南部和美國中北部。 下列範例會使用 Visual Studio 2017。
+如果您犯了;例如，您在初始安裝期間配對錯誤的區域，可以中斷在任何時間的兩個命名空間配對。 如果您想要做為規則的命名空間配對的命名空間，請刪除別名。
 
-1.  在 Visual Studio 中，建立新的**主控台應用程式 (.Net Framework)**專案並為它命名，例如 **SBGeoDR**。
+## <a name="use-existing-namespace-as-alias"></a>使用現有的命名空間，做為別名
 
-2.  安裝下列 NuGet 封裝：
-    1.  Microsoft.IdentityModel.Clients.ActiveDirectory
-    2.  Microsoft.Azure.Management.ServiceBus
+如果您有的案例，您無法在其中變更的產生者和消費者連接時，您可以重複命名空間名稱使用做為別名的名稱。 請參閱[範例程式碼在 GitHub 上的這裡](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name)。
 
-3. 確定您使用的 Newtonsoft.Json NuGet 封裝版本是版本 10.0.3。
+## <a name="samples"></a>範例
 
-3.  將下列 `using` 陳述式新增至您的程式碼：
+[GitHub 上的範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)示範如何設定和起始容錯移轉。 這些範例會示範下列概念：
 
-    ```csharp
-    using System.Threading;
-    using Microsoft.Azure.Management.ServiceBus;
-    using Microsoft.Azure.Management.ServiceBus.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    ```
+- 使用 Azure 資源管理員具有服務匯流排的 Azure Active Directory 中所需的設定。 
+- 若要執行範例程式碼所需的步驟。 
+- 傳送和接收來自目前的主要命名空間。 
+- 如何使用現有的命名空間，做為別名。
 
-4. 修改您的 `main()` 方法，以新增兩個進階命名空間：
+## <a name="considerations"></a>注意事項
 
-    ```csharp
-    // 1. Create primary namespace (optional).
+請注意，本版記住下列考量：
 
-    var namespaceParams = new SBNamespace()
-    {
-        Location = "South Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
+1. 在容錯移轉規劃，您也應該考慮時間因素。 例如，如果您中斷連線的時間超過 15 到 20 分鐘，您可能會決定起始容錯移轉。 
+ 
+2. 沒有資料會複寫事實表示目前作用中工作階段未複寫。 此外，重複的偵測和排程的訊息可能無法運作。 新的工作階段，排定的訊息及新的重複項目會成功。 
 
-    };
+3. 容錯移轉複雜分散式基礎結構應[演練](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)至少一次。 
 
-    var namespace1 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, namespaceParams);
-
-    // 2. Create secondary namespace (optional if you already have an empty namespace available).
-
-    var namespaceParams2 = new SBNamespace()
-    {
-        Location = "North Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
-
-    };
-
-    // If you re-run this program while namespaces are still paired this operation will fail with a bad request.
-    // This is because we block all updates on secondary namespaces once it is paired.
-
-    var namespace2 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRSecondaryNS, namespaceParams2);
-    ```
-
-5. 在這兩個命名空間之間啟用配對，並取得您稍後用來連接到實體的別名：
-
-    ```csharp
-    // 3. Pair the namespaces to enable DR.
-
-    ArmDisasterRecovery drStatus = client.DisasterRecoveryConfigs.CreateOrUpdate(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias,
-        new ArmDisasterRecovery { PartnerNamespace = geoDRSecondaryNS });
-
-    // A similar loop can be used to check if other operations (Failover, BreakPairing, Delete) 
-    // mentioned below have been successful.
-    while (drStatus.ProvisioningState != ProvisioningStateDR.Succeeded)
-    {
-        Console.WriteLine("Waiting for DR to be set up. Current state: " +
-        drStatus.ProvisioningState);
-        drStatus = client.DisasterRecoveryConfigs.Get(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias);
-
-        Thread.CurrentThread.Join(TimeSpan.FromSeconds(30));
-    }
-    ```
-
-您已成功設定兩個配對的命名空間。 現在您可以建立實體來觀察中繼資料同步處理。 如果您之後想要立即執行容錯移轉，就應該在中繼資料進行同步處理時等候一段時間。 您可以新增短暫的睡眠時間，例如：
-
-```csharp
-client.Topics.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", new SBTopic());
-client.Subscriptions.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", "myTopic-Sub1", new SBSubscription());
-
-// sleeping to allow metadata to sync across primary and secondary
-Thread.Sleep(1000 * 60);
-```
-
-此時，您可以透過入口網站或透過 Azure Resource Manager 新增實體，並查看其同步處理的方式。 除非您計劃手動進行容錯移轉，否則，應該建立應用程式來監視主要命名空間，並在其變成無法使用時起始容錯移轉。 
-
-## <a name="initiate-a-failover"></a>起始容錯移轉
-
-下列程式碼示範如何起始容錯移轉：
-
-```csharp
-// Note that this failover operation is always run against the secondary namespace 
-// (because primary might be down at time of failover).
-
-client.DisasterRecoveryConfigs.FailOver(resourceGroupName, geoDRSecondaryNS, alias);
-```
-
-當您觸發容錯移轉之後，請新增新的被動命名空間，並重新建立配對。 如需建立新配對的程式碼，請參閱上一節。 此外，一旦容錯移轉完成之後，您就必須從舊的主要命名空間移除訊息。 如需如何從佇列接收訊息的範例，請參閱[開始使用佇列](service-bus-dotnet-get-started-with-queues.md)。
-
-## <a name="how-to-disable-geo-disaster-recovery"></a>如何停用地理災害復原
-
-下列程式碼示範如何停用命名空間配對：
-
-```csharp
-client.DisasterRecoveryConfigs.BreakPairing(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-下列程式碼會刪除您建立的別名：
-
-```csharp
-// Delete the DR config (alias).
-// Note that this operation must run against the namespace to which the alias is currently pointing.
-// If you break the pairing and want to delete the namespaces afterwards, you must delete the alias first.
-
-client.DisasterRecoveryConfigs.Delete(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-## <a name="steps-after-a-failover-failback"></a>容錯移轉 (回復) 之後的步驟
-
-容錯移轉之後，執行下列兩個步驟：
-
-1.  建立新的被動次要命名空間。 如需程式碼，請參閱上一節。
-2.  從佇列中移除剩餘的訊息。
-
-## <a name="alias-connection-string-and-test-code"></a>別名連接字串和測試程式碼
-
-如果您想要測試容錯移轉程序，就可以撰寫範例應用程式，使用別名來將訊息推送至主要命名空間。 若要這樣做，請確定您會從主動命名空間取得別名連接字串。 利用目前的預覽版本，沒有任何其他介面可直接取得連接字串。 下列範例程式碼會在容錯移轉之前和之後連接：
-
-```csharp
-var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-
-if(aliasPrimaryConnectionString == null)
-{
-    accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRSecondaryNS, "RootManageSharedAccessKey");
-    aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-    aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-}
-```
+4. 同步處理實體可能需要一些時間，大約每分鐘 50-100 個實體。 訂用帳戶和規則也算是實體。 
 
 ## <a name="next-steps"></a>後續步驟
 

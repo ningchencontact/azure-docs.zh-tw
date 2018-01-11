@@ -20,7 +20,7 @@
 #### [使用 PowerShell 在可用性區域中新增受控磁碟](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### 虛擬機器擴展集
-#### [使用 Azure 入口網站建立虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [在可用性區域中建立擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### 負載平衡器
 #### [何謂負載平衡器？](../load-balancer/load-balancer-standard-overview.md)

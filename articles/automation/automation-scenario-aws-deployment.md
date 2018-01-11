@@ -3,7 +3,7 @@ title: "自動化 Amazon Web Services 中 VM 的部署 | Microsoft Docs"
 description: "本文示範如何使用 Azure 自動化來自動化 Amazon Web 服務 VM 的建立"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: tiandert; bwren
-ms.openlocfilehash: 828f9e2cc9a39e54933cd0e0db7273efa460d0c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5f81150a0ef60cbf10010374f1ec80b0c05b6c6f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure 自動化案例 - 佈建 AWS 虛擬機器
 在本文中，我們會示範如何利用 Azure 自動化在 Amazon Web Service (AWS) 訂用帳戶中佈建虛擬機器，並且提供該 VM 的特定名稱 (AWS 稱為「標記」VM)。
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 2. 從 Azure 入口網站中，開啟您的自動化帳戶，然後在左側的 [流程自動化] 區段底下選取 [Runbook]。  
 3. 從 [Runbook] 頁面中，選取 [新增 Runbook]。
 4. 在 [新增 Runbook] 窗格上，選取 [快速建立] \(建立新的 Runbook\)。
-5. 在 Runbook 屬性窗格上，於 Runbook 的 名稱 方塊中輸入名稱，並從 Runbook 類型 下拉式清單中選取 PowerShell，然後按一下建立。<br><br> ![建立 Runbook 窗格](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
+5. 在 [Runbook] 屬性窗格上，於 Runbook 的 [名稱] 方塊中輸入名稱，並從 [Runbook 類型] 下拉式清單中選取 [PowerShell]，然後按一下 [建立]。<br><br> ![建立 Runbook 窗格](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
 6. [編輯 PowerShell Runbook] 頁面出現時，將 PowerShell 指令碼複製並貼入 Runbook 撰寫畫布。<br><br> ![Runbook PowerShell 指令碼](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     > [!NOTE]
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
         Get-EC2ImageByName -ProfileName AWSProfile
 
     會傳回下列輸出：<br><br>
-   ![取得 AWS 映像](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
+   ![取得 AWS 影像](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
 8. 在自動化變數中複製並貼上其中一個映像名稱，在 Runbook 中參考為 **$InstanceType**。 因為我們在此範例中使用免費 AWS 層訂用帳戶，所以將使用 **t2.micro** 作為 Runbook 範例。  
 9. 儲存 Runbook，然後按一下 [發佈] 來發佈 Runbook，並在出現提示時按一下 [是]。
 

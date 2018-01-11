@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 HR2day by Merces 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e2fcf9c306259286b15767f3a992510d6d79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -53,21 +53,21 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入。
 
 ## <a name="add-hr2day-by-merces-from-the-gallery"></a>從資源庫新增 HR2day by Merces
-若要設定將 HR2day by Merces 整合到 Azure AD 中，請從資源庫將 HR2day by Merces 新增到受管理的 SaaS 應用程式清單。
+若要設定將 HR2day by Merces 整合到 Azure AD 中，請從資源庫將 HR2day by Merces 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 HR2day by Merces，請採取下列步驟：**
 
-1. 在 [Azure 入口網站][](https://portal.azure.com) 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。 
+1. 在 [Azure 入口網站](https://portal.azure.com) 的左方瀏覽窗格中，選取 **Azure Active Directory** 圖示。 
 
     ![Active Directory][1]
 
-2. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 移至 **企業應用程式**。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **HR2day by Merces**。
 
@@ -180,7 +180,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請採取下列步驟：**
 
-1. 在 [Azure 入口網站] 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-hr2day-tutorial/create_aaduser_01.png) 
 
@@ -202,7 +202,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼]，並記下密碼。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
  
 ### <a name="create-an-hr2day-by-merces-test-user"></a>建立 HR2day by Merces 測試使用者
 

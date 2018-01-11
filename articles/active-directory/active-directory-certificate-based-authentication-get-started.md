@@ -3,7 +3,7 @@ title: "Azure Active Directory 憑證式驗證 | Microsoft Docs"
 description: "了解如何在環境中設定憑證式驗證"
 author: MarkusVi
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 10/13/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5e423ee6818c50775aa604891951c7ded2a84eb3
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 4dfc0d2f334404e4984f677a4b2966fc958ca98d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/18/2017
 
 若要設定憑證式驗證，必須符合以下要件：  
 
-- 只有瀏覽器應用程式或使用新式驗證 (ADAL) 之原生用戶端的同盟環境才支援憑證式驗證 (CBA)。 唯一的例外狀況是適用於 EXO 的 Exchange Active Sync (EAS)，可以用於同盟和受管理兩種帳戶。
+- 只有瀏覽器應用程式或使用新式驗證 (ADAL) 之原生用戶端的同盟環境才支援憑證式驗證 (CBA)。 唯一的例外狀況是適用於 EXO 的 Exchange Active Sync (EAS)，可以用於同盟和受控兩種帳戶。
 
 - 務必要在 Azure Active Directory 中設定根憑證授權單位和任何中繼憑證授權單位。  
 

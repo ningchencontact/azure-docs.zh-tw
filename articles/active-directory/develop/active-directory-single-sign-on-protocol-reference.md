@@ -4,7 +4,7 @@ description: "本文說明 Azure Active Directory 中的單一登入 SAML 通訊
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
 本文涵蓋 Azure Active Directory (Azure AD) 針對單一登入所支援的 SAML 2.0 驗證要求和回應。
@@ -93,7 +93,7 @@ Azure AD 會忽略 `AllowCreate` 屬性。
 ### <a name="signature"></a>簽章
 請勿在 `AuthnRequest` 元素中包含 `Signature` 元素，因為 Azure AD 不支援簽署的驗證要求。
 
-### <a name="subject"></a>主旨
+### <a name="subject"></a>主體
 Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
 ## <a name="response"></a>Response
@@ -198,7 +198,7 @@ Azure AD 會簽署判斷提示以回應成功的登入。 `Signature` 元素包�
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>主旨
+#### <a name="subject"></a>主體
 這會指定判斷提示中陳述式主旨的主體。 它包含 `NameID` 元素，其代表已驗證的使用者。 `NameID` 值為目標識別碼，其只會導向身為權杖對象的服務提供者。 它是持續性的 - 可撤銷，但絕對不會重新指派。 它也是不透明的，因為它不會揭露使用者的相關資訊，也不能當做屬性查詢的識別碼。
 
 `SubjectConfirmation` 元素的 `Method` 屬性一律會設定為 `urn:oasis:names:tc:SAML:2.0:cm:bearer`。
@@ -228,7 +228,7 @@ Azure AD 會簽署判斷提示以回應成功的登入。 `Signature` 元素包�
 * `NotBefore` 屬性值等於或稍微晚於 (不到一秒) `Assertion` 元素的 `IssueInstant` 屬性值。 Azure AD 不會考慮本身與雲端服務 (服務提供者) 之間的任何時間差，而且不會對此時間加上任何緩衝。
 * `NotOnOrAfter` 屬性值比 `NotBefore` 屬性值晚 70 分鐘。
 
-#### <a name="audience"></a>觀眾
+#### <a name="audience"></a>對象
 這包含可識別適用對象的 URI。 Azure AD 會將這個元素的值設定為起始登入的 `AuthnRequest` 的 `Issuer` 元素值。 若要評估 `Audience` 值，請使用應用程式註冊期間指定的 `App ID URI` 值。
 
 ```

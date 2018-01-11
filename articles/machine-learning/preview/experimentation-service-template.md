@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>設定 Azure Machine Learning 測試服務
 
 ## <a name="overview"></a>概觀
-Azure Machine Learning 測試服務帳戶、工作區及專案都是 Azure 資源。 因此，您可以使用 Resource Manager 範本部署這些資源。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)。
+Azure Machine Learning 測試服務帳戶、工作區及專案都是 Azure 資源。 因此，您可以使用 Resource Manager 範本部署這些資源。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
 
 ## <a name="deploy-a-template"></a>部署範本
 若要部署範本，您只需要在 Azure 命令列介面或在 Azure 入口網站中進行幾個步驟。
@@ -137,7 +137,7 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 有三個值可供變更。 
 * AccountName：測試帳戶的名稱。
 * Location：其中一個支援的 Azure 區域。
-* StorageAccountSKU：Azure ML 只支援標準儲存體，不支援進階儲存體。 如需儲存體的詳細資訊，請參閱[儲存體簡介](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)。 
+* StorageAccountSKU：Azure ML 只支援標準儲存體，不支援進階儲存體。 如需儲存體的詳細資訊，請參閱[儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction)。 
 
 ```json
 {

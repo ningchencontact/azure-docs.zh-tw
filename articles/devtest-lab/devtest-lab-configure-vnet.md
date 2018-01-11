@@ -3,7 +3,7 @@ title: "設定 Azure DevTest Labs 中的虛擬網路 | Microsoft Docs"
 description: "了解如何設定現有的虛擬網路和子網路，並在具備 Azure DevTest Labs 的 VM 中使用它們"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: tarcher
-ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>設定 Azure DevTest Labs 中的虛擬網路
 如[將 VM 加入實驗室](devtest-lab-add-vm.md)一文中所述，當您在實驗室中建立 VM 時，可以指定已設定的虛擬網路。 例如，您可能需要使用以 ExpressRoute 或站台對站台 VPN 設定的虛擬網路從您的 VM 存取公司資源。
@@ -58,12 +58,12 @@ ms.lasthandoff: 11/22/2017
 1. 選取 [確定] 以關閉 [實驗室的子網路] 窗格。
 1. 選取 [儲存] 以關閉 [虛擬網路] 窗格。
 
-現在已設定虛擬網路，在建立 VM 時就能選取它。 若要查看如何建立 VM 並指定虛擬網路，請參閱 [將具有構件的 VM 加入實驗室](devtest-lab-add-vm-with-artifacts.md)一文。 
+現在已設定虛擬網路，在建立 VM 時就能選取它。 若要查看如何建立 VM 並指定虛擬網路，請參閱文件，[將 VM 加入至實驗室](devtest-lab-add-vm.md)。 
 
 Azure 的[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network)會提供更多有關 VNet 使用方法的資訊，包括如何設定及管理 VNet，以及如何將它連線到您的內部部署網路。
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>後續步驟
-一旦您在實驗室中加入所需的虛擬網路之後，下一個步驟就是 [將 VM 加入至實驗室](devtest-lab-add-vm-with-artifacts.md)。
+一旦您在實驗室中加入所需的虛擬網路之後，下一個步驟就是 [將 VM 加入至實驗室](devtest-lab-add-vm.md)。
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>如何在 Android 上整合 Engagement
 > [!div class="op_single_selector"]
@@ -216,7 +216,7 @@ ms.lasthandoff: 10/11/2017
 
 或者如果您已經在應用程式中使用 ``ACCESS_FINE_LOCATION`` ，則可以繼續使用。
 
-#### <a name="gps-based-reporting"></a>GPS 式報告
+#### <a name="gps-based-reporting"></a>GPS 的報告
 根據預設，即時位置報告只會使用網路位置。 若要啟用 GPS 位置 (精準度大為提高)，請使用組態物件：
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();

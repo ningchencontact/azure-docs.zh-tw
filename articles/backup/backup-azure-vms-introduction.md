@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
-本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
+本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure 如何備份虛擬機器？
 Azure 備份服務在排定的時間開始備份工作時，會觸發備份擴充功能以建立時間點快照集。 Azure 備份服務在 Windows 中使用 _VMSnapshot_ 延伸模組，在 Linux 中使用 _VMSnapshotLinux_ 延伸模組。 延伸模組會在進行第一個 VM 備份期間安裝。 若要安裝延伸模組，VM 必須正在執行中。 如果 VM 未在執行中，則備份服務會擷取基礎儲存體的快照集 (因為 VM 停止時不會發生任何應用程式寫入)。
@@ -97,7 +97,7 @@ Azure 備份提供指令碼架構。 為確保備份 Linux VM 時應用程式的
 ## <a name="total-vm-backup-time"></a>VM 備份時間總計
 雖然大部分的備份時間都花費在讀取和複製資料，但備份 VM 所需的全部時間還包含其他作業：
 
-* [安裝或更新備份擴充功能](backup-azure-vms.md)所需要的時間。
+* [安裝或更新備份擴充功能](backup-azure-arm-vms.md)所需要的時間。
 * 快照時間，即觸發快照所需的時間。 快照會在接近排定的備份時間觸發。
 * 佇列等候時間。 因為備份服務正在處理多個客戶的備份，所以從快照集複製備份資料到備份或復原服務保存庫可能不會立即啟動。 在尖峰負載時，等候時間會因為正在處理的備份數目而長達八小時。 不過，針對每日備份原則，VM 備份時間總計會小於 24 小時。
 * 資料傳輸時間，備份服務計算上次備份的增量變更，並將這些變更傳輸到保存庫儲存體所需的時間。
@@ -148,7 +148,7 @@ Azure 備份不會在備份過程中加密資料。 不過，您可以在 VM 中
 如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>後續步驟
-* [備份虛擬機器](backup-azure-vms.md)
+* [備份虛擬機器](backup-azure-arm-vms.md)
 * [管理虛擬機器備份](backup-azure-manage-vms.md)
-* [還原虛擬機器](backup-azure-restore-vms.md)
+* [還原虛擬機器](backup-azure-arm-restore-vms.md)
 * [疑難排解 VM 備份問題](backup-azure-vms-troubleshoot.md)

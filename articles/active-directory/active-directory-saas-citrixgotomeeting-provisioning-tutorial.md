@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 GoToMeeting 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 0f59fedb-2cf8-48d2-a5fb-222ed943ff78
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 72f887b18daef27ff7e6ccea5bb30b55c86c7b98
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
-ms.translationtype: HT
+ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 GoToMeeting
 
@@ -90,6 +90,6 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-* [設定單一登入](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [設定單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

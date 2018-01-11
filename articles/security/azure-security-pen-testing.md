@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>滲透測試
 使用 Azure 進行應用程式測試和部署的其中一個優點是您可以快速建立環境。  您無需購置、取得和組裝自己的內部部署硬體。
@@ -29,11 +29,12 @@ ms.lasthandoff: 11/23/2017
 
 我們不會為您對應用程式進行滲透測試，但我們了解，您會想要並需要對自己的應用程式執行滲透測試。 那是件好事，因為當您增強應用程式的安全性時，便有助於讓整個 Azure 生態系統更加安全。
 
-當您對您的應用程式進行滲透測試時，它對我們來說可能像是攻擊。 我們會 [持續監視](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) 攻擊模式，並且在需要時會起始事件回應程序。 如果我們由於您自己的審慎滲透測試而觸發事件回應，對您和我們都沒有幫助。
-
 怎麼辦？
 
-準備要對您的 Azure 代管應用程式進行滲透測試時，您可以選擇[讓我們知道](https://portal.msrc.microsoft.com/en-us/engage/pentest)。 一旦收到通知，Microsoft 不會意外將您關閉 (例如封鎖您正在測試的 IP 位址)。 您的測試必須符合 [Microsoft Cloud 整合滲透測試規則](https://technet.microsoft.com/en-us/mt784683) \(英文\) 中所述的 Azure 畫筆測試條款及條件。
+自 2017 年 6 月 15，Microsoft 已不再需要預先核准，才可進行徹底測試與 Azure 資源。 要正式文件即將滲透測試對 Microsoft Azure 合作的客戶是鼓勵填寫[Azure 服務滲透測試通知表單](https://portal.msrc.microsoft.com/engage/pentest)。 此程序只被有關 Microsoft Azure，並不適用於任何其他 Microsoft 雲端服務。 
+
+>[!IMPORTANT] 
+>雖然告知 Microsoft 畫筆測試活動的已不再需要客戶必須仍然符合[Microsoft 雲端整合滲透測試往來的規則](https://technet.microsoft.com/en-us/mt784683)。 
 
 您可以執行的標準測試包括：
 

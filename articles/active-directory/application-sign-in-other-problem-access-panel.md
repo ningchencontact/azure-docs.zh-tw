@@ -4,7 +4,7 @@ description: "如何為從 Microsoft Azure AD 存取面板 (myapps.microsoft.com
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 188a00db59b0aa8d26facc678fb52d96272183b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fc387a6687c5063031c5fc1ac1994472be48f903
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>從存取面板登入應用程式的問題
 
@@ -174,7 +174,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
    新增屬性：
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -213,9 +213,9 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 9.  若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
-   新增屬性：
+   若要新增屬性︰
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -291,7 +291,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
    新增屬性：
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單選取 [值]。
+   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
@@ -392,7 +392,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -446,7 +446,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -474,7 +474,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 

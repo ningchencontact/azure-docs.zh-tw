@@ -14,18 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.custom: mvc
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>使用 Service Fabric 部署 API 管理
-本教學課程是一個系列的第四部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 中，閘道可以是為流量輸入設計的任何無狀態服務，例如 ASP.NET Core 應用程式、事件中樞、IoT 中樞或 Azure API 管理。 
+本教學課程是一個系列的第四部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 閘道可以是任何針對流量輸入，例如 ASP.NET Core 應用程式、 事件中心、 IoT 中心或 Azure API 管理所設計的無狀態服務。 
 
 本教學課程示範如何使用 Service Fabric 來設定 [Azure API 管理](../api-management/api-management-key-concepts.md)，以將流量路由傳送至 Service Fabric 中的後端服務。  當您完成時，就已將 API 管理部署至 VNET，已設定 API 作業來將流量傳送到後端無狀態服務。 若要深入了解搭配 Service Fabric 的「Azure API 管理」案例，請參閱[概觀](service-fabric-api-management-overview.md)一文。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 部署 API 管理
@@ -174,7 +175,7 @@ az account set --subscription <guid>
 
 - **displayName** 可以是 API 的任何名稱。 本教學課程使用 "Service Fabric App"。
 - **name** 提供 API 的唯一和描述性名稱，例如 "service-fabric-app"。 它會顯示在開發人員和發行者入口網站中。 
-- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用：" http://servicefabric " 。 
+- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用："  http://servicefabric "。 
 - **path** 會附加至 API 管理服務的基底 URL 後面。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。 
 - **protocols** 會決定可使用哪些通訊協定來存取 API。 針對此教學課程，列出 **http** 和 **https**。
 - **path** 是 API 的尾碼。 本教學課程使用 "myapp"。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用伺服器總管瀏覽和管理儲存體資源
 
@@ -162,7 +162,7 @@ Blob 資料會在本機快取，並在 Azure Blob 儲存體中針對 blob 的上
 如需儲存體服務佇列的詳細資訊，請參閱[以 .NET 開始使用 Azure 佇列儲存體](http://go.microsoft.com/fwlink/?LinkID=264702)。 如需儲存體服務佇列之 Web 服務的詳細資訊，請參閱 [佇列服務概念](http://go.microsoft.com/fwlink/?LinkId=264788)。 如需有關如何使用 Visual Studio 將訊息傳送至儲存體服務佇列的資訊，請參閱 [傳送訊息至儲存體服務佇列](https://msdn.microsoft.com/library/azure/jj649344.aspx)。
 
 > [!NOTE]
-> 儲存體服務佇列與 Azure 服務匯流排佇列不同。 如需服務匯流排佇列的詳細資訊，請參閱[服務匯流排佇列、主題和訂用帳戶](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)。
+> 儲存體服務佇列與 Azure 服務匯流排佇列不同。 如需服務匯流排佇列的詳細資訊，請參閱[服務匯流排佇列、主題和訂用帳戶](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)。
 
 ## <a name="work-with-table-resources"></a>使用資料表資源
 
@@ -266,7 +266,7 @@ Azure 資料表儲存體可儲存大量的結構化資料。 此服務是一個 
 
    ![建立 Azure 儲存體帳戶](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
 
-1. 選取 [ **建立**]。
+1. 選取 [建立] 。
 
 新的儲存體帳戶會出現在 [方案總管] 中的 [儲存體]  清單。
 

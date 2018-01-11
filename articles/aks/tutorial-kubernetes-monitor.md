@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>監視 Azure Container Service (AKS)
 
 監視 Kubernetes 叢集和容器很重要，尤其在您使用多個應用程式大規模執行生產叢集時。
 
-在本教學課程中，您會使用 [Log Analytics 的容器解決方案](../log-analytics/log-analytics-containers.md)來設定監視 AKS 叢集。
+在本教學課程中，您設定監視 AKS 叢集使用[容器記錄分析解決方案][log-analytics-containers]。
 
 本教學課程 (八個章節的第七部分) 涵蓋下列工作：
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/06/2017
 
 在上一個教學課程中，應用程式已封裝成容器映像、這些映像已上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。
 
-如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./tutorial-kubernetes-prepare-app.md)。
+如果您有未完成這些步驟，並想要跟著做，返回[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。
 
 ## <a name="configure-the-monitoring-solution"></a>設定監視解決方案
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="configure-monitoring-agents"></a>設定監視代理程式
 
-下列 Kubernetes 資訊清單檔案可用於在 Kubernetes 叢集上設定容器監視代理程式。 它會建立 Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)，以在每個叢集節點上執行單一 pod。
+下列 Kubernetes 資訊清單檔案可用於在 Kubernetes 叢集上設定容器監視代理程式。 它會建立 Kubernetes [DaemonSet][kubernetes-daemonset]，其中每個叢集節點上執行單一 pod。
 
 將下列文字儲存到名為 `oms-daemonset.yaml` 的檔案，並以 Log Analytics 工作區識別碼和索引鍵取代 `WSID` 和 `KEY` 的預留位置值。
 
@@ -98,6 +98,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -124,6 +126,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 使用下列命令建立 DaemonSet：
@@ -153,7 +158,7 @@ omsagent   3         3         3         3            3           beta.kubernete
 
 ![儀表板](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-請參閱 [Azure Log Analytics 文件](../log-analytics/index.yml)，以取得查詢及分析監視資料的詳細指引。
+請參閱[Azure Log Analytics 文件][ log-analytics-docs]如查詢及分析監視資料的詳細指引。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -167,4 +172,14 @@ omsagent   3         3         3         3            3           beta.kubernete
 請前往下一個教學課程，以了解如何將 Kubernetes 升級為新版本。
 
 > [!div class="nextstepaction"]
-> [升級 Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [升級 Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

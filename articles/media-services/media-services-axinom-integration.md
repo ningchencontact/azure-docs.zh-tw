@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資訊，請參閱 [Mingfei 的部落格](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) )。 此外，Azure 媒體播放器 (AMP) 也已新增 Widevine 支援 (如需詳細資訊，請參閱 [AMP 文件](http://amp.azure.net/libs/amp/latest/docs/) )。 談到在配備 MSE 和 EME 的現代瀏覽器上串流處理受到 CENC 與多重原生 DRM (PlayReady 和 Widevine) 保護的 DASH 內容時，這可說是一大成就。
 
 從媒體服務 .NET SDK 版本 3.5.2 開始，媒體服務讓您可設定 Widevine 授權範本並取得 Widevine 授權。 您也可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
@@ -52,7 +52,7 @@ Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資�
 
 請參閱＜ [JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation) ＞一節，了解 Azure Active Directory 為何無法做為 Axinom Widevine 授權伺服器的 STS。
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 1. 您必須使用 Axinom 指定的金鑰種子 (8888000000000000000000000000000000000000) 和您產生或選取的金鑰識別碼，產生用以設定金鑰傳遞服務的內容金鑰。 Axinom 授權伺服器會根據相同的金鑰種子 (同時適用於測試和生產環境)，發行包含內容金鑰的所有授權。
 2. 測試用的 Widevine 授權取得 URL： [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)。 HTTP 與 HTTS 皆可使用。
 
@@ -134,7 +134,7 @@ Axinom Widevine 授權伺服器
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 1. 即使 AMS PlayReady 授權傳遞服務會要求驗證權杖之前必須有 “Bearer=”，Axinom Widevine 授權伺服器並不會加以使用。
 2. Axinom 通訊金鑰會做為簽署金鑰。 請注意，此金鑰是十六進位字串，但在編碼時必須將其視為一系列的位元組，而不是字串。 這可藉由 ConvertHexStringToByteArray 方法來達成。
 
@@ -174,7 +174,7 @@ Axinom Widevine 授權伺服器
         return key_id;
     }
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 透過 Azure 媒體服務內容保護和 Azure 媒體播放器中最新版的 Widevine 支援，我們得以同時使用 AMS 中的 PlayReady 授權服務和 Axinom 的 Widevine 授權伺服器，為下列現代瀏覽器實作 DASH + 多重原生 DRM (PlayReady + Widevine) 的串流：
 
 * Chrome

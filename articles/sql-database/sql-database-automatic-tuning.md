@@ -15,17 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
 Azure SQL Database 自動調整能運用人工智慧進行持續的效能調整，來提供尖峰的效能與穩定的工作負載。
 
-自動調整是完整受管理的服務，它能使用內建的智慧機制來持續監視在資料庫上執行的查詢，並且自動改善查詢的效能。 此功能是透過讓資料庫針對變動的工作負載進行動態調適，並套用調整建議來達成。 自動調整能透過人工智慧從 Azure 上的所有資料庫進行水平學習，並能動態地改善其調整動作。 Azure SQL Database 在開啟自動調整的情況下執行得愈久，自動調整的效果便愈好。
+自動調整是完全受控的服務，它能使用內建的智慧機制來持續監視在資料庫上執行的查詢，並且自動改善查詢的效能。 此功能是透過讓資料庫針對變動的工作負載進行動態調適，並套用調整建議來達成。 自動調整能透過人工智慧從 Azure 上的所有資料庫進行水平學習，並能動態地改善其調整動作。 Azure SQL Database 在開啟自動調整的情況下執行得愈久，自動調整的效果便愈好。
 
 Azure SQL Database 自動調整是您可以啟用以提供穩定且執行良好之工作負載的其中一個最重要的功能。
 
@@ -48,7 +48,7 @@ Azure SQL Database 自動調整是您可以啟用以提供穩定且執行良好�
 
 ![自動調整的運作方式為何](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心邏輯。 如需內建智慧機制的其他技術資訊，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) \(英文\)。
+Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心邏輯。 如需內建智慧機制的其他技術資訊，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) \(英文\)。
 
 ## <a name="use-automatic-tuning"></a>使用自動調整
 
@@ -80,4 +80,4 @@ Azure SQL Database 可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST 
 - 若要在 Azure SQL Database 中啟用自動調整以管理您的工作負載，請參閱[啟用自動調整](sql-database-automatic-tuning-enable.md)。
 - 若要手動檢閱及套用自動調整建議，請參閱[尋找及套用效能建議](sql-database-advisor-portal.md)。
 - 若要了解自動調整中使用的內建智慧機制，請參閱[透過人工智慧調整 Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) \(英文\)。
-- 若要了解自動調整在 Azure SQL Database 和 SQL Server 2017 中運作的方式，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) \(英文\)。
+- 若要了解自動調整在 Azure SQL Database 和 SQL Server 2017 中運作的方式，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) \(英文\)。

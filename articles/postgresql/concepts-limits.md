@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
 適用於 PostgreSQL 的 Azure 資料庫服務目前為公開預覽狀態。 下列各節說明資料庫服務中的容量和功能限制。
@@ -27,12 +27,12 @@ ms.lasthandoff: 11/28/2017
 | | |
 | :------------------------- | :---------------- |
 | **連接數目上限**        |                   |
-| 基本的 50 個計算單位     | 50 個連接    |
-| 基本的 100 個計算單位    | 100 個連接   |
-| 標準的 100 個計算單位 | 200 個連接   |
-| 標準的 200 個計算單位 | 300 個連接   |
-| 標準的 400 個計算單位 | 400 個連接   |
-| 標準的 800 個計算單位 | 500 個連接   |
+| 基本的 50 個計算單位     | 55 連線    |
+| 基本的 100 個計算單位    | 105 連線   |
+| 標準的 100 個計算單位 | 150 連線   |
+| 標準的 200 個計算單位 | 250 連線   |
+| 標準的 400 個計算單位 | 480 連線   |
+| 標準的 800 個計算單位 | 950 連線   |
 | **計算單位數目上限**      |                   |
 | 基本服務層         | 100 個計算單位 |
 | 標準服務層      | 800 個計算單位 |
@@ -40,8 +40,9 @@ ms.lasthandoff: 11/28/2017
 | 基本服務層         | 1 TB              |
 | 標準服務層      | 1 TB              |
 
-到達太多連接時，您可能會收到下列錯誤：
+Azure 系統需要五個監視 PostgreSQL server 的 Azure 資料庫的連接。 到達太多連接時，您可能會收到下列錯誤：
 > 嚴重錯誤︰很抱歉，已經有太多用戶端
+
 
 ## <a name="preview-functional-limitations"></a>預覽功能限制
 ### <a name="scale-operations"></a>調整作業

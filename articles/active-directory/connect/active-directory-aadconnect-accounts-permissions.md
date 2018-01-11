@@ -4,7 +4,7 @@ description: "本主題描述使用和建立的帳戶以及所需的權限。"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -30,7 +30,7 @@ Azure AD Connect 安裝精靈提供兩個不同的路徑：
 ## <a name="related-documentation"></a>相關文件
 如果您尚未閱讀有關[整合內部部署身分識別與 Azure Active Directory](../active-directory-aadconnect.md) 的文件，下表提供相關主題的連結。
 
-|主題 |連結|  
+|話題 |連結|  
 | --- | --- |
 |下載 Azure AD Connect | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
@@ -116,12 +116,13 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 如果您使用自訂設定，您就必須負責在開始安裝之前建立帳戶。
 
 ### <a name="azure-ad-connect-sync-service-account"></a>Azure AD Connect 同步處理服務帳戶
-同步處理服務可以在不同帳戶下執行。 它可以在**虛擬服務帳戶** (VSA)、**群組受管理服務帳戶** (gMSA/sMSA) 或一般使用者帳戶下執行。 當您執行全新安裝時，2017 年 4 月版之 Connect 的支援選項已變更。 如果您從舊版的 Azure AD Connect 升級，將無法使用這些額外選項。
+同步處理服務可以在不同帳戶下執行。 它可以在**虛擬服務帳戶** (VSA)、**群組受控服務帳戶** (gMSA/sMSA) 或一般使用者帳戶下執行。 當您執行全新安裝時，2017 年 4 月版之 Connect 的支援選項已變更。 如果您從舊版的 Azure AD Connect 升級，將無法使用這些額外選項。
 
 | 帳戶類型 | 安裝選項 | 說明 |
 | --- | --- | --- |
 | [虛擬服務帳戶](#virtual-service-account) | 快速和自訂，2017 年 4 月和更新版本 | 這個選項適用於所有快速安裝，但網域控制站上的安裝除外。 若為自訂安裝，除非您使用其他選項，否則這是預設選項。 |
-| [群組受管理服務帳戶](#group-managed-service-account) | 自訂，2017 年 4 月和更新版本 | 如果您使用遠端 SQL Server，我們建議使用群組受管理服務帳戶。 |
+| 
+            [群組受控服務帳戶](#group-managed-service-account) | 自訂，2017 年 4 月和更新版本 | 如果您使用遠端 SQL Server，我們建議使用群組受控服務帳戶。 |
 | [使用者帳戶](#user-account) | 快速和自訂，2017 年 4 月和更新版本 | 只有在 Windows Server 2008 和網域控制站上安裝時，才會在安裝期間建立前面加上 AAD_ 的使用者帳戶。 |
 | [使用者帳戶](#user-account) | 快速和自訂，2017 年 3 月和更早版本 | 在安裝期間，系統會建立本機帳戶，並於帳戶前面加上 AAD_。 而在使用自訂安裝時，您則可以指定另一個帳戶。 |
 
@@ -140,8 +141,8 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 - 非粗體 - 支援選項
 - 本機帳戶 - 伺服器上的本機使用者帳戶
 - 網域帳戶 - 網域使用者帳戶
-- sMSA - [獨立受管理服務帳戶](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA - [群組受管理服務帳戶](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA - [獨立受控服務帳戶](https://technet.microsoft.com/library/dd548356.aspx)
+- gMSA - [群組受控服務帳戶](https://technet.microsoft.com/library/hh831782.aspx)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>自訂 | 遠端 SQL</br>自訂 |
 | --- | --- | --- | --- |
@@ -154,16 +155,16 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
 
-VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果您使用遠端 SQL，我們會建議您改用[群組受管理服務帳戶](#managed-service-account)。
+VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果您使用遠端 SQL，我們會建議您改用[群組受控服務帳戶](#managed-service-account)。
 
 這項功能需要 Windows Server 2008 R2 或更新版本。 如果您在 Windows Server 2008 上安裝 Azure AD Connect，則安裝會改回使用[使用者帳戶](#user-account)。
 
-#### <a name="group-managed-service-account"></a>群組受管理服務帳戶
-如果您使用遠端 SQL Server，我們建議使用**群組受管理服務帳戶**。 如需如何讓 Active Directory 準備好使用群組受管理服務帳戶的詳細資訊，請參閱[群組受管理服務帳戶概觀](https://technet.microsoft.com/library/hh831782.aspx)。
+#### <a name="group-managed-service-account"></a>群組受控服務帳戶
+如果您使用遠端 SQL Server，我們建議使用**群組受控服務帳戶**。 如需如何讓 Active Directory 準備好使用群組受控服務帳戶的詳細資訊，請參閱[群組受控服務帳戶概觀](https://technet.microsoft.com/library/hh831782.aspx)。
 
-若要使用此選項，請在 [安裝必要元件](active-directory-aadconnect-get-started-custom.md#install-required-components) 頁面上，依序選取 [使用現有的服務帳戶] 和 [受管理服務帳戶]。  
+若要使用此選項，請在 [安裝必要元件](active-directory-aadconnect-get-started-custom.md#install-required-components) 頁面上，依序選取 [使用現有的服務帳戶] 和 [受控服務帳戶]。  
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
-系統也支援使用[獨立受管理服務帳戶](https://technet.microsoft.com/library/dd548356.aspx)。 不過，這些帳戶只能在本機電腦上使用，所以對預設虛擬服務帳戶使用這些帳戶並沒有任何好處。
+系統也支援使用[獨立受控服務帳戶](https://technet.microsoft.com/library/dd548356.aspx)。 不過，這些帳戶只能在本機電腦上使用，所以對預設虛擬服務帳戶使用這些帳戶並沒有任何好處。
 
 這項功能需要 Windows Server 2012 或更新版本。 如果您需要使用較舊的作業系統並使用遠端 SQL，則您必須使用[使用者帳戶](#user-account)。
 
@@ -196,4 +197,4 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 若要移除未使用的 Azure AD 服務帳戶，請執行下列 Azure AD PowerShell Cmdlet：`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [整合內部部署身分識別與 Azure Active Directory](../active-directory-aadconnect.md)。
+深入了解[整合內部部署身分識別與 Azure Active Directory](../active-directory-aadconnect.md)。

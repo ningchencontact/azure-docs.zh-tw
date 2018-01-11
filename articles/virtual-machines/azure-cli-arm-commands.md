@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式中的 Azure CLI 命令
 本文提供在 Azure Resource Manager 部署模型中建立和管理 Azure 資源時，常用的 Azure 命令列介面 (CLI) 命令的語法和選項。 您可以在 Resource Manager (ARM) 模式中執行 CLI 來存取這些命令。 這不是完整的參考，您的 CLI 版本可能會顯示稍微不同的命令或參數。 如需 Azure 資源及資源群組的一般概觀，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。  
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >深入了解[舊版和新版 Azure CLI](/cli/azure/old-and-new-clis)。
 >
 
-若要開始使用，請先[安裝 Azure CLI](../cli-install-nodejs.md)，並[連線到您的 Azure 訂用帳戶](../xplat-cli-connect.md)。
+若要開始使用，請先[安裝 Azure CLI](../cli-install-nodejs.md)，並[連線到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
 
 如需在資源管理員模式中命令列目前的命令語法和選項，請輸入 `azure help`，或顯示特定命令的說明 `azure help [command]`。 也可以在文件中找到建立和管理特定 Azure 服務的 CLI 範例。
 

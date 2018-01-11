@@ -17,14 +17,14 @@ ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>使用 SQL Server 代理程式延伸模組 (傳統) 自動化 Azure 虛擬機器上的管理工作
 > [!div class="op_single_selector"]
-> * [資源管理員](../sql/virtual-machines-windows-sql-server-agent-extension.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
 > * [傳統](../classic/sql-server-agent-extension.md)
 > 
 >
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 Azure 虛擬機器會執行 SQL Server IaaS Agent 擴充功能 (SQLIaaSAgent) 以自動化系統管理工作。 本主題概述擴充功能所支援的服務，以及與安裝、狀態及移除相關的指示。
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 若要檢視這篇文章的 Resource Manager 版本，請參閱 [適用於 SQL Server VM Resource Manager 的 SQL Server Agent 擴充功能](../sql/virtual-machines-windows-sql-server-agent-extension.md)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 若要檢視這篇文章的 Resource Manager 版本，請參閱 [適用於 SQL Server VM Resource Manager 的 SQL Server Agent 擴充功能](../sql/virtual-machines-windows-sql-server-agent-extension.md)。
 
 ## <a name="supported-services"></a>支援的服務
 SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
@@ -84,7 +84,7 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 > 
 
 ## <a name="status"></a>狀態
-驗證已安裝擴充功能的其中一項方法，是在 Azure 入口網站中檢視代理程式狀態。 請選取虛擬機器刀鋒視窗中所列的一部虛擬機器，然後按一下擴充功能。 您應該會看到其中列出 **SQLIaaSAgent** 擴充功能。
+驗證已安裝擴充功能的其中一項方法，是在 Azure 入口網站中檢視代理程式狀態。 請選取虛擬機器刀鋒視窗中所列的一部虛擬機器，然後按一下 [擴充功能]。 您應該會看到其中列出 **SQLIaaSAgent** 擴充功能。
 
 ![Azure 入口網站中的 SQL Server IaaS 代理程式擴充功能](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
-在 App Service 中，應用程式會在 _App Service 方案_中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 這些計算資源類似於傳統 Web 裝載中的[_伺服器陣列_](https://wikipedia.org/wiki/Server_farm)。 一或多個應用程式可設定為在相同的計算資源上執行 (或在相同的 App Service 方案中執行)。 
+在 App Service 中，應用程式會在 _App Service 方案_中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 這些計算資源類似於傳統 Web 裝載中的[_伺服器陣列_](https://wikipedia.org/wiki/Server_farm)。 一或多個應用程式可設定為在相同的計算資源上執行 (或在相同的 App Service 方案中執行)。
 
 當您在特定區域 (例如，西歐) 建立 App Service 方案時，會為該區域的方案建立一組計算資源。 無論您將何種應用程式置入此 App Service 方案，都會在該 App Service 方案定義的計算資源上執行。 每個 App Service 方案可定義：
 
@@ -38,6 +38,8 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 - **專用計算**：**基本**、**標準**、**進階**和 **PremiumV2** 層會在專用的 Azure VM 上執行應用程式。 只有位於同個 App Service 方案中的應用程式，才會共用相同的計算資源。 層越高，可用於向外延展的 VM 執行個體就越多。
 - **隔離**：這一層會在專用的 Azure 虛擬網路上執行專用的 Azure VM，為您的應用程式提供網路隔離與計算隔離。 它提供了最大的向外延展能力。
 - **耗用**：這一層僅適用於[函數應用程式](../azure-functions/functions-overview.md)。 該層會根據工作負載動態延展函數。 如需詳細資訊，請參閱 [Azure Functions 裝載方案比較](../azure-functions/functions-scale.md)。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 每一層也提供 App Service 功能的特定子集。 這些功能包括自訂網域和 SSL 憑證、自動調整、部署位置、備份、流量管理員整合等等。 層越高，可用的功能就越多。 若要了解每個定價層支援的功能，請參閱[App Service 方案詳細資料](https://azure.microsoft.com/pricing/details/app-service/plans/)。
 

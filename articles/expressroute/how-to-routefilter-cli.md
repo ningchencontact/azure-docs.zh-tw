@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anzaman
 ms.openlocfilehash: a85a68393f3dc946db651791de9efff0694f9989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>針對 Microsoft 對等互連設定路由篩選：Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](how-to-routefilter-portal.md)
+> * [HttpTrigger Nodejs 函數](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 

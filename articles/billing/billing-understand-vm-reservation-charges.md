@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>了解保留執行個體折扣如何套用
 購買保留執行個體之後，保留折扣會自動套用至符合屬性和保留數量的虛擬機器。 保留會涵蓋您虛擬機器的基礎結構成本。 下表說明您購買保留後的虛擬機器成本。 在所有情況下，您將依標準費率支付儲存體和網路功能的費用。
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/16/2017
 |包含軟體 (例如 Red Hat) 費用的 Linux 虛擬機器 | 保留可涵蓋基礎結構成本。 您必須支付額外的軟體費用。|
 |沒有包含其他軟體的 Windows 虛擬機器 |保留可涵蓋基礎結構成本。 您必須支付 Windows 軟體的費用。|
 |包含其他軟體 (例如 SQL server) 的 Windows 虛擬機器 | 保留可涵蓋基礎結構成本。 您必須支付 Windows 軟體和其他軟體的費用。|
-|具有 [Azure Hybrid Benefit](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 的 Windows 虛擬機器 | 保留可涵蓋基礎結構成本。 Azure Hybrid Benefit 所涵蓋的 Windows 軟體成本。 任何額外的軟體都是分開收費。| 
+|具有 [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 的 Windows 虛擬機器 | 保留可涵蓋基礎結構成本。 Azure Hybrid Benefit 所涵蓋的 Windows 軟體成本。 任何額外的軟體都是分開收費。| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>非 Windows 虛擬機器的保留折扣應用
  保留折扣會套用到執行的虛擬機器執行個體 (以小時計算)。 您購買的保留會與執行中虛擬機器發出的使用量進行比對，以便套用保留折扣。 下圖說明可計費虛擬機器使用量的保留應用。 圖例是以一個購買的保留和兩個對應的虛擬機器執行個體為基礎。
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/16/2017
 若要在計費使用量報告中了解及檢視保留的應用，請參閱[了解保留執行個體使用量](https://go.microsoft.com/fwlink/?linkid=862757)。
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows 虛擬機器的保留折扣應用
-當您執行 Windows 虛擬機器執行個體時，系統會套用保留以涵蓋基礎結構成本。 對於 Windows 虛擬機器，其虛擬機器基礎結構成本的保留應用與非 Windows 虛擬機器相同。 您必須為以每個 vCPU 為單位計算的 Windows 軟體個別支付費用。 請參閱 [使用保留的 Windows 軟體成本](https://go.microsoft.com/fwlink/?linkid=862756)。 您可以使用 [Azure Hybrid Benefit for Windows Server] 來涵蓋 Windows 授權成本 (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing)。
+當您執行 Windows 虛擬機器執行個體時，系統會套用保留以涵蓋基礎結構成本。 對於 Windows 虛擬機器，其虛擬機器基礎結構成本的保留應用與非 Windows 虛擬機器相同。 您必須為以每個 vCPU 為單位計算的 Windows 軟體個別支付費用。 請參閱 [使用保留的 Windows 軟體成本](https://go.microsoft.com/fwlink/?linkid=862756)。 您可以涵蓋 Windows 授權成本與 [Azure 混合式權益 for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

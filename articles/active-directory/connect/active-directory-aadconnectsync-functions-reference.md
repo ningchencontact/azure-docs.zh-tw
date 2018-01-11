@@ -4,7 +4,7 @@ description: "Azure AD Connect 同步處理中宣告式佈建運算式的參考�
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步處理：函式參考
 在 Azure AD Connect 中，函數是用來在同步處理期間操作屬性值。  
@@ -453,7 +453,7 @@ Azure Active Directory 會使用此函式的輸出格式做為 DN 屬性格式�
 傳回 48656C6C6F20776F726C6421
 
 - - -
-### <a name="count"></a>Count
+### <a name="count"></a>計數
 **說明：**  
 Count 函式會傳回多重值屬性中的元素個數
 
@@ -1114,7 +1114,7 @@ ReplaceChars 函式會取代 ReplacePattern 字串中找到的所有出現的字
 * 此函式會取得已定義之來源的每個出現項目，並使用目標來取代它們。
 * 來源必須是一個 (unicode) 字元。
 * 來源不能是空字串或超過一個字元 (剖析錯誤)。
-* 目標可以有多個字元，例如 ö:oe、β:ss。
+* 目標可以有多個字元，例如.ö： oe、 β： ss。
 * 目標可以空白，表示應移除此字元。
 * 來源是區分大小寫且必須完全相符。
 * , (逗號) 和 : (冒號) 是保留字元，無法使用這個函式來取代。

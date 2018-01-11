@@ -4,7 +4,7 @@ description: "在規劃混合式身分識別解決方案時，請識別您企業
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>透過增強式身分識別解決方案規劃更高的資料安全性
 保護資料的第一個步驟，是識別誰可以存取該資料，而在此程序中，您必須要有可與您的系統整合以提供驗證和授權功能的身分識別解決方案。 驗證和授權常被混淆，兩者角色也常被誤解。 這兩者其實是很不一樣的，如下圖所說明：

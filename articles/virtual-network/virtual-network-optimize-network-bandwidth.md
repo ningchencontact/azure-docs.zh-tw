@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>最佳化 Azure 虛擬機器的網路輸送量
 
@@ -26,16 +26,16 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 
 ## <a name="windows-vm"></a>Windows VM
 
-如果您的 Windows VM 支援[加速的網路](virtual-network-create-vm-accelerated-networking.md)，啟用該功能會是最適合輸送量的設定。 針對所有其他的 Windows VM，相較於不使用接收端調整 (RSS) 的 VM，使用 RSS 的 VM 可達到更高的最大輸送量。 根據預設，Windows VM 中可能會停用 RSS。 完成下列步驟來判斷是否已啟用 RSS，以及在它已停用的情況下將它啟用。
+如果您的 Windows VM 支援[加速網路](create-vm-accelerated-networking-powershell.md)，啟用該功能將輸送量最適合的設定。 針對所有其他的 Windows VM，相較於不使用接收端調整 (RSS) 的 VM，使用 RSS 的 VM 可達到更高的最大輸送量。 根據預設，Windows VM 中可能會停用 RSS。 若要判斷是否已啟用，RSS，並啟用它，如果目前已停用，請完成下列步驟：
 
-1. 輸入 `Get-NetAdapterRss` PowerShell 命令來查看是否已針對網路介面卡啟用 RSS。 在從 `Get-NetAdapterRss` 傳回的下列範例輸出中，RSS 並未啟用。
+1. 與網路介面卡是否已啟用 RSS `Get-NetAdapterRss` PowerShell 命令。 在從 `Get-NetAdapterRss` 傳回的下列範例輸出中，RSS 並未啟用。
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. 輸入下列命令以啟用 RSS：
+2. 若要啟用 RSS，輸入下列命令：
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -55,13 +55,15 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 
 ### <a name="ubuntu-for-new-deployments"></a>新部署的 Ubuntu
 
-The Ubuntu Azure 核心可在 Azure 提供最佳網路效能，且自 2017 年 9 月 21 日起已成為預設核心。 若要使用此核心，請先安裝最新支援版本的 16.04-LTS，如下所示：
+The Ubuntu Azure 核心可在 Azure 提供最佳網路效能，且自 2017 年 9 月 21 日起已成為預設核心。 若要取得此核心，先安裝最新支援的版本的 16.04 LTS、，如下所示：
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 建立完成之後，請輸入下列命令以取得最新的更新。 這些步驟也適於目前執行 Ubuntu Azure 核心的 VM。
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-若您的 VM 並未使用 Azure 核心，版本號碼通常為 “4.4” 開頭。 在這種情況下，請在根目錄執行下列命令。
+如果您的 VM 沒有 Azure 核心，版本號碼通常會以"4.4。 」 如果 VM 沒有 Azure 核心，請以 root 身分執行下列命令：
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 為了要使用最新的最佳化項目，最好是指定下列參數，以最新支援的版本建立 VM：
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-安裝最新的 Lunix 整合服務 (LIS) 可為全新及現有的 VM 帶來好處。
-輸送量最佳化選項從 LIS 4.2.2-2 版開始提供，雖然較新版本包含進一步的改善。 輸入下列命令以安裝最新的 LIS：
+
+安裝最新的 Lunix 整合服務 (LIS) 可為全新及現有的 VM 帶來好處。 輸送量最佳化選項從 LIS 4.2.2-2 版開始提供，雖然較新版本包含進一步的改善。 輸入下列命令以安裝最新的 LIS：
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 為了要使用最佳化項目，最好是指定下列參數，以最新支援的版本建立 VM：
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-安裝最新的 Lunix 整合服務 (LIS) 可為全新及現有的 VM 帶來好處。
-輸送量最佳化選項從 LIS 4.2 版開始提供。 輸入下列命令以下載並安裝 LIS：
+
+安裝最新的 Lunix 整合服務 (LIS) 可為全新及現有的 VM 帶來好處。 輸送量最佳化選項從 LIS 4.2 版開始提供。 輸入下列命令以下載並安裝 LIS：
 
 ```bash
 mkdir lis4.2.3-1
@@ -148,5 +153,5 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 若要深入了解 Linux Integration Services for Hyper-V 4.2 版，請檢視[下載頁面](https://www.microsoft.com/download/details.aspx?id=55106)。
 
 ## <a name="next-steps"></a>後續步驟
-* 現在，已最佳化 VM，請針對您的案例查看[測試 Azure VM 的頻寬/輸送量](virtual-network-bandwidth-testing.md)的結果。
+* 請參閱的最佳化的結果[頻寬/輸送量測試 Azure VM](virtual-network-bandwidth-testing.md)您的案例。
 * 深入了解 [Azure 虛擬網路常見問題集 (FAQ)](virtual-networks-faq.md)

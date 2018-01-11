@@ -6,20 +6,20 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
 
 Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 這項作業是使用 Azure 入口網站來完成。 只要按幾下，您就能在瀏覽器中看到下列結果：
 
-![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-app-browser]
+![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -59,7 +59,7 @@ Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器�
 
 一旦容器轉換為 [正在執行] 狀態，請瀏覽至您在上一個步驟中記下的 IP 位址，以顯示裝載在新容器中的應用程式。
 
-![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-app-browser]
+![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -68,7 +68,7 @@ Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器�
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
 ## <a name="next-steps"></a>後續步驟

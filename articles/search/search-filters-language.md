@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 31404e9ae2dac559f6b4f9f8c0edd0a785142912
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>如何在 Azure 搜尋服務中依語言進行篩選 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/25/2017
 
 在我們的範例中 (包括如下所示的[不動產範例](search-get-started-portal.md))，您可能會看到類似下列螢幕擷取畫面的欄位定義。 請注意此範例如何在這個索引中顯示欄位的語言分析器指派。 在與制訂來處理目標語言之語言規則的分析器配對時，包含字串的欄位在全文檢索搜尋中的執行效能較佳。
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > 如需利用語言分析器顯示欄位定義的程式碼範例，請參閱[定義索引 (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) 和[定義索引 (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json)。
@@ -65,7 +65,7 @@ parameters =
 > [!Note]
 > 雖然查詢中沒有 $filter 引數，但這個使用案例與篩選概念具有強烈的關聯性，因此，我們將它作為篩選案例。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)

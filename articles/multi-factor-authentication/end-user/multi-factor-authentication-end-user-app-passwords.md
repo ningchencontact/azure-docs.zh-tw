@@ -4,7 +4,7 @@ description: "本頁面將協助使用者了解什麼是應用程式密碼，以
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: c10a636b81751074f219682fec79ffe9f648a2c8
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？
-有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。 Multi-Factor Authentication 會對每個使用者啟用。 這表示如果使用者已啟用 Multi-Factor Authentication，並嘗試使用非瀏覽器應用程式，他們將無法這麼做。 應用程式密碼允許發生此情形。
+有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。 Multi-Factor Authentication 會對每個使用者啟用。 這表示如果使用者已啟用 Multi-Factor Authentication，並嘗試使用非瀏覽器應用程式，他們將無法這麼做。 應用程式密碼允許發生此情形。 如果您強制執行多重要素驗證，透過條件式存取原則，而不是透過每個使用者的 MFA，您無法建立應用程式密碼。 使用條件式存取原則來控制存取的應用程式不需要應用程式密碼。
 
 擁有應用程式密碼後，您可使用此密碼來取代這些非瀏覽器應用程式的原始密碼。 這是因為當您註冊進行雙步驟驗證時，就是告知 Microsoft 如果有人使用您的密碼登入但未執行第二次驗證，則不允許他們登入。 您電話上的 Apple 原生電子郵件用戶端無法以您的身份登入，因為它不能要求進行雙步驟驗證。 這個的解決方法是建立一個您不會每天使用的更安全應用程式密碼，而且它也只針對不支援雙步驟驗證的應用程式。 使用應用程式密碼可讓應用程式略過 Multi-Factor Authentication 並繼續運作。
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/15/2017
 1. 登入 Azure 傳統入口網站。
 2. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
 3. 在 proofup 頁面的頂端，選取應用程式密碼
-4. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 5. 輸入應用程式密碼的名稱，然後按 [下一步] 
 6. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/15/2017
 4. 選取 [應用程式密碼]。
    ![選取 [應用程式密碼] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. 按一下 [建立] 。
+5. 按一下頁面底部的 [新增] 。
 6. 輸入應用程式密碼的名稱，然後按 [下一步] 。
 7. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
    ![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)

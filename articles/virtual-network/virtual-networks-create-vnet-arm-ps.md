@@ -17,10 +17,10 @@ ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>使用 PowerShell 建立虛擬網路
 
@@ -47,7 +47,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 
 1. 遵循 [如何安裝並設定 Azure PowerShell](/powershell/azure/overview) 中的下列步驟來安裝和設定 Azure PowerShell。
 
-2. 如有必要，建立新的資源群組，如下所示。 在此案例中，會建立名為 *TestRG*的資源群組。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
+2. 如有必要，建立新的資源群組，如下所示。 在此案例中，會建立名為 *TestRG*的資源群組。 如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../azure-resource-manager/resource-group-overview.md)。
 
     ```powershell   
     New-AzureRmResourceGroup -Name TestRG -Location centralus

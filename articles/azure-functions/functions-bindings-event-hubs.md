@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/01/2017
 1. 10 個分割區。
 1. 1000 個平均散佈於所有分割區上的事件 => 每個分割區中有 100 個訊息。
 
-當您的函式首次啟用時，只會有 1 個函式執行個體。 讓我們將這個函式執行個體稱為 Function_0。 Function_0 將具有 1 個會設法在所有 10 個分割區上取得租用的 EPH。 它將會開始讀取分割區 0-9 的事件。 從這裡開始，將發生下列其中一件事：
+當第一次啟用您的函式時，是只函式的 1 個執行個體。 讓我們將這個函式執行個體稱為 Function_0。 Function_0 將具有 1 個會設法在所有 10 個分割區上取得租用的 EPH。 它將會開始讀取分割區 0-9 的事件。 從這裡開始，將發生下列其中一件事：
 
 * **只需要 1 個函式執行個體**：Function_0 能夠在 Azure Functions 的規模調整邏輯開始生效之前完全處理 1000 個。 因此，Function_0 會完全處理 1000 個訊息。
 
@@ -57,16 +57,16 @@ Azure Functions 目前規模調整邏輯特有的事實是 N 大於分割區數�
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
-查看特定語言的範例：
+請參閱特定語言的範例：
 
-* [先行編譯 C#](#trigger---c-example)
-* [C# 指令碼](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例示範的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼可記錄事件中樞觸發程序的訊息本文。
+下列範例所示[C# 函式](functions-dotnet-class-library.md)記錄之訊息主體的事件中樞的觸發程序。
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,9 +199,9 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
+在[C# 類別庫](functions-dotnet-class-library.md)，使用[EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)。
 
-此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序設定](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
+此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序組態](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-如需完整範例，請參閱[觸發程序 - 先行編譯 C# 範例](#trigger---c-example)。
+如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
 
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
@@ -242,14 +242,14 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 請參閱特定語言的範例：
 
-* [先行編譯 C#](#output---c-example)
-* [C# 指令碼](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 指令碼 (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例示範的[先行編譯 C# 函式](functions-dotnet-class-library.md)會將訊息寫入事件中樞，並使用方法傳回值作為輸出：
+下列範例所示[C# 函式](functions-dotnet-class-library.md)，寫入訊息至事件中心，使用方法的傳回值做為輸出：
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,9 +371,9 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
+如[C# 類別庫](functions-dotnet-class-library.md)，使用[EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)。
 
-此屬性的建構函式接受事件中樞的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[輸入 - 設定](#output---configuration)一節。 以下是 `EventHub` 屬性範例：
+此屬性的建構函式接受事件中樞的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[輸入 - 組態](#output---configuration)一節。 以下是 `EventHub` 屬性範例：
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 

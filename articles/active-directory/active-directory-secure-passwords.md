@@ -4,7 +4,7 @@ description: "說明 Azure AD 如何強制執行強式密碼，及保護使用�
 services: active-directory
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 密碼安全性多層法
 
 本文討論身為使用者或系統管理員的您可以遵循的一些最佳做法，以保護您的 Azure Active Directory (Azure AD) 或 Microsoft 帳戶帳戶。
 
  > [!NOTE]
- > **您來到此處是因為有登入問題嗎？** 若是如此， [以下是如何變更和重設密碼的說明](active-directory-passwords-update-your-own-password.md)。
+ > **您有登入問題嗎？** 若是如此， [以下是如何變更和重設密碼的說明](active-directory-passwords-update-your-own-password.md)。
  >
  > Azure AD 系統管理員可以使用[重設 Azure Active Directory 中使用者密碼 (英文)](active-directory-users-reset-password-azure-portal.md) 一文中的指導方針重設使用者密碼。
  >

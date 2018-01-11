@@ -4,7 +4,7 @@ description: "本文說明如何設定 Microsoft 的 Windows PowerShell 連接�
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell 連接器技術參考
 本文說明 Windows PowerShell 連接器。 本文適用於下列產品：
@@ -271,10 +271,10 @@ Windows PowerShell 連接器可以做為密碼變更/重設的目標。
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
 | 資料分割 |[資料分割][part] |CSEntry 所在的目錄資料分割。 |
 | CSEntry |[CSEntry][cse] |接收密碼變更或重設之物件的連接器空間項目。 |
-| OperationType |String |指出作業是重設 (**SetPassword**) 還是變更 (**ChangePassword**)。 |
+| OperationType |字串 |指出作業是重設 (**SetPassword**) 還是變更 (**ChangePassword**)。 |
 | PasswordOptions |[PasswordOptions][pwdopt] |指定想要之密碼重設行為的旗標。 只有在 OperationType 是 **SetPassword**時才可以使用此參數。 |
-| OldPassword |String |填入物件的舊密碼以進行密碼變更。 只有在 OperationType 是 **ChangePassword**時才可以使用此參數。 |
-| NewPassword |String |填入指令碼應該設定的物件新密碼。 |
+| OldPassword |字串 |填入物件的舊密碼以進行密碼變更。 只有在 OperationType 是 **ChangePassword**時才可以使用此參數。 |
+| NewPassword |字串 |填入指令碼應該設定的物件新密碼。 |
 
 密碼指令碼預期不會傳回任何結果到 Windows PowerShell 管線。 如果密碼指令碼中發生錯誤，指令碼應該會擲回下列其中一個例外狀況，以告知同步處理服務此問題：
 

@@ -4,7 +4,7 @@ description: "透過 OAuth2 通訊協定使用 Google+ 作為識別提供者的�
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/01/2017
 
     ![Google+ - 選取應用程式類型](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  提供應用程式的**名稱**，在 [授權 JavaScript 來源] 欄位中輸入 `https://login.microsoftonline.com`，接著在 [授權重新導向 URI] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。 **{tenant}** 值會區分大小寫。 按一下 [建立] 。
+13.  提供應用程式的**名稱**，在 [授權 JavaScript 來源] 欄位中輸入 `https://login.microsoftonline.com`，接著在 [授權重新導向 URI] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。 **{tenant}** 值會區分大小寫。 按一下頁面底部的 [新增] 。
 
     ![Google+ - 提供授權的 JavaScript 來源及重新導向 URI](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

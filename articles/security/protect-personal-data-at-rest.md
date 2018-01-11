@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure 加密技術：使用加密保護個人待用資料
 
@@ -57,7 +57,7 @@ Azure 服務提供多種工具和技術，可協助您透過加密來保護個�
 
 ### <a name="azure-key-vault"></a>Azure 金鑰保存庫
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) 為用來加密 Azure 服務中待用資料的金鑰提供安全存放裝置，是建議的金鑰儲存和管理解決方案。 加密金鑰管理對保護儲存的資料很重要。
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) 為用來加密 Azure 服務中待用資料的金鑰提供安全存放裝置，是建議的金鑰儲存和管理解決方案。 加密金鑰管理對保護儲存的資料很重要。
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>如何使用 Azure Key Vault 來保護加密個人資料的金鑰？
 
@@ -79,13 +79,13 @@ Azure Key Vault 可為您提供受軟體保護的金鑰；或者，您也可以�
 
 您也可以在本機 HSM 中產生金鑰，且在金鑰無需離開 HSM 界限的情況下，即可將它傳輸到 Key Vault 服務中的 HSM。
 
-如需使用 Azure Key Vault 的詳細指示，請遵循[開始使用 Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started) 中的步驟進行。
+如需使用 Azure Key Vault 的詳細指示，請遵循[開始使用 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) 中的步驟進行。
 
-如需搭配 Azure Key Vault 使用的 PowerShell Cmdlet 清單，請參閱 [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0)。
+如需搭配 Azure Key Vault 使用的 PowerShell Cmdlet 清單，請參閱 [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0)。
 
 ### <a name="azure-disk-encryption-for-windows"></a>Windows 適用的 Azure 磁碟加密
 
-[Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)會保護 Azure 虛擬機器上的個人待用資料，並與 Azure Key Vault 整合。 Azure 磁碟加密使用 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) (在 Windows 中) 及 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) (在 Linux 中) 來加密 OS 和資料磁碟。 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016 以及 Windows 8 和 Windows 10 用戶端支援 Azure 磁碟加密。
+[Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)會保護 Azure 虛擬機器上的個人待用資料，並與 Azure Key Vault 整合。 Azure 磁碟加密使用 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) (在 Windows 中) 及 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) (在 Linux 中) 來加密 OS 和資料磁碟。 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016 以及 Windows 8 和 Windows 10 用戶端支援 Azure 磁碟加密。
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>如何使用 Azure 磁碟加密來保護個人資料？
 
@@ -103,11 +103,11 @@ Azure 將會更新 VM 和金鑰保存庫設定，並設定加密的 VM。
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-如需特定部署案例和使用者體驗的詳細指示，請參閱 [Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)。
+如需特定部署案例和使用者體驗的詳細指示，請參閱 [Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)。
 
 ### <a name="azure-storage-service-encryption"></a>Azure 儲存體服務加密
 
-[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) (待用資料的 Azure 儲存體服務加密 (SSE)) 會協助您保護資料安全，以符合組織安全性和合規性承諾。 Azure 儲存體會先自動使用 256 位元 AES 加密來加密資料，再保存到儲存體，以及在擷取之前將它解密。 這個服務適用於 Azure Blob 和檔案。
+[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption) (待用資料的 Azure 儲存體服務加密 (SSE)) 會協助您保護資料安全，以符合組織安全性和合規性承諾。 Azure 儲存體會先自動使用 256 位元 AES 加密來加密資料，再保存到儲存體，以及在擷取之前將它解密。 這個服務適用於 Azure Blob 和檔案。
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>如何使用儲存體服務加密來保護個人資料？
 
@@ -129,13 +129,13 @@ Azure 將會更新 VM 和金鑰保存庫設定，並設定加密的 VM。
 
 啟用加密之後，使用下列其中一個方法將資料複製到儲存體帳戶：
 
-1. 使用 [AzCopy 命令列公用程式](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy)複製 Blob 或檔案。
+1. 使用 [AzCopy 命令列公用程式](https://docs.microsoft.com/azure/storage/storage-use-azcopy)複製 Blob 或檔案。
 
-2. [使用 SMB 掛接檔案共用](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows)，因此您可以使用 Robocopy 等公用程式來複製檔案。
+2. [使用 SMB 掛接檔案共用](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows)，因此您可以使用 Robocopy 等公用程式來複製檔案。
 
-3. 使用 [.NET 等儲存體用戶端程式庫](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs)，在 Blob 儲存體或儲存體帳戶之間來回複製 Blob 或檔案資料。
+3. 使用 [.NET 等儲存體用戶端程式庫](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs)，在 Blob 儲存體或儲存體帳戶之間來回複製 Blob 或檔案資料。
 
-4.  使用[儲存體總管](https://docs.microsoft.com/en-us/azure/storage/storage-explorers)將 Blob 上傳至儲存體帳戶，並且啟用加密。
+4.  使用[儲存體總管](https://docs.microsoft.com/azure/storage/storage-explorers)將 Blob 上傳至儲存體帳戶，並且啟用加密。
 
 ### <a name="transparent-data-encryption"></a>透明資料加密
 
@@ -159,9 +159,9 @@ Azure 將會更新 VM 和金鑰保存庫設定，並設定加密的 VM。
 
 ![啟用資料加密](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-如需如何啟用 TDE 的指示，以及將受 TDE 保護的資料庫解密的資訊及其他資訊，請參閱 [Azure SQL Database 的透明資料加密](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)一文。
+如需如何啟用 TDE 的指示，以及將受 TDE 保護的資料庫解密的資訊及其他資訊，請參閱 [Azure SQL Database 的透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)一文。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 此公司可以完成加密儲存在 Azure 雲端中個人資料的目標。 他們可以透過使用 Azure 磁碟加密保護整個磁碟區來達成此目的。 這可能包含保存個人識別資訊和其他敏感性資料的作業系統檔案和資料檔案。 Azure 儲存體服務加密可用來保護儲存在 Blob 和檔案中的個人資料。 對於儲存在 Azure SQL Database 中的資料，透明資料加密會提供保護，以防止未經授權公開個人資訊。
 
@@ -169,10 +169,10 @@ Azure 將會更新 VM 和金鑰保存庫設定，並設定加密的 VM。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 磁碟加密疑難排解指南](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Azure 磁碟加密疑難排解指南](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [加密 Azure 虛擬機器](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [加密 Azure 虛擬機器](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Azure Data Lake Store 中的資料加密](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Azure Data Lake Store 中的資料加密](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Azure Cosmos DB 資料庫待用加密](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Azure Cosmos DB 資料庫待用加密](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

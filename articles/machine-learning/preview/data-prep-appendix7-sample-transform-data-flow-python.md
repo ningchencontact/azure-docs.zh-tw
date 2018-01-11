@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 4a716c1934258e687eb48ecb4077c6be7b269c1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>自訂資料流程轉換的範例 (Python) 
 功能表中的轉換名稱是**轉換資料流程 (指令碼)**。 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。
@@ -82,3 +82,8 @@ ms.lasthandoff: 10/31/2017
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
+
+### <a name="min-max-normalization"></a>最小值最大值正規化
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

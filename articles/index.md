@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags: clicktale
-ms.openlocfilehash: 69213ca5c456f13b39c68eae2839329bfd05df6d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2591fad9efd9dba2f53101a747bcf79a4d0bad4f
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,14 +102,16 @@ ms.lasthandoff: 12/16/2017
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>管理資源</h3>
+                                                <h3> 安全性和管理資源</h3>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/security-center/">Azure 資訊安全中心</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure 監視器</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure 成本管理</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure 備份</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure 原則</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -190,7 +192,7 @@ ms.lasthandoff: 12/16/2017
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob 儲存體</a></li>
                                                 </ul>
-                                                <h4>辨識服務</h4>
+                                                <h4>認知服務</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/preview">機器學習服務</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">電腦視覺 API</a></li>
@@ -296,7 +298,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <p>App Service 方案</p>
                                             </a>
                                         </li>
                                         <li>
@@ -320,7 +322,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>批次</p>
+                                                <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
@@ -422,7 +424,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>批次</p>
+                                                <p>Batch</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -590,7 +592,7 @@ ms.lasthandoff: 12/16/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>辨識服務</h3>
+                                    <h3>認知服務</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -824,7 +826,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>資料湖存放區</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -836,7 +838,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>備份</p>
+                                                <p>Backup </p>
                                             </a>
                                         </li>
                                         <li>
@@ -869,7 +871,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
+                                                <p>資料湖分析</p>
                                             </a>
                                         </li>
                                         <li>
@@ -911,7 +913,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>資料湖存放區</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1072,7 +1074,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API 應用程式</p>
+                                                <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1123,7 +1125,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>金鑰保存庫</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1192,13 +1194,13 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>備份</p>
+                                                <p>Backup </p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>站台復原</p>
+                                                <p>Site Recovery</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1240,7 +1242,7 @@ ms.lasthandoff: 12/16/2017
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>受管理的應用程式</p>
+                                                <p>受控應用程式</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1338,7 +1340,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
+                                                    <h3>App Service 方案</h3>
                                                     <p>使用容器在 Linux 上部署 Web 應用程式</p>
                                                 </div>
                                             </div>
@@ -1414,7 +1416,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>批次</h3>
+                                                    <h3>Batch</h3>
                                                     <p>雲端化作業排程和計算管理</p>
                                                 </div>
                                             </div>
@@ -1786,7 +1788,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>資料湖存放區</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>
@@ -1824,7 +1826,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>備份</h3>
+                                                    <h3>Backup </h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -1843,7 +1845,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>站台復原</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>協調 Azure VM 以及內部部署 VM 和實體伺服器的災害復原</p>
                                                 </div>
                                             </div>
@@ -1982,7 +1984,7 @@ ms.lasthandoff: 12/16/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 搜尋服務</h3>
-                                                    <p>受到完整管理的搜尋即服務</p>
+                                                    <p>完全受控的搜尋即服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2138,7 +2140,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>批次</h3>
+                                                    <h3>Batch</h3>
                                                     <p>雲端化作業排程和計算管理</p>
                                                 </div>
                                             </div>
@@ -2163,7 +2165,7 @@ ms.lasthandoff: 12/16/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>受管理的關聯式資料庫即服務</p>
+                                                    <p>受控關聯式資料庫即服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2182,7 +2184,7 @@ ms.lasthandoff: 12/16/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>適用於 MySQL 的 Azure 資料庫</h3>
-                                                    <p>適用於應用程式開發人員的受管 MySQL 資料庫服務</p>
+                                                    <p>適用於應用程式開發人員的受控 MySQL 資料庫服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2201,7 +2203,7 @@ ms.lasthandoff: 12/16/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>適用於 PostgreSQL 的 Azure 資料庫</h3>
-                                                    <p>適用於應用程式開發人員的受管 PostgreSQL 資料庫服務</p>
+                                                    <p>適用於應用程式開發人員的受控 PostgreSQL 資料庫服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2376,7 +2378,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics</h3>
+                                                    <h3>資料湖分析</h3>
                                                     <p>分散式分析服務讓巨量資料更容易上手</p>
                                                 </div>
                                             </div>
@@ -2509,7 +2511,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>資料湖存放區</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>
@@ -2539,7 +2541,7 @@ ms.lasthandoff: 12/16/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI 及辨識服務</a>
+                        <a href="#cognitive">AI 及認知服務</a>
                         <ul id="cognitive" class="cardsA">
                             <li class="fullSpan">
                                 <h2>人工智慧</h2>
@@ -2602,7 +2604,7 @@ ms.lasthandoff: 12/16/2017
                                 </a>
                             </li>
                             <li class="fullSpan">
-                                <h2 style="margin-top:24px;margin-bottom:18px;">辨識服務</h2>
+                                <h2 style="margin-top:24px;margin-bottom:18px;">認知服務</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
                                         <div class="cardSize">
@@ -2727,7 +2729,7 @@ ms.lasthandoff: 12/16/2017
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>搜尋</h3>
+                                                        <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing 新聞</a>
@@ -3259,7 +3261,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>金鑰保存庫</h3>
+                                                    <h3>Key Vault</h3>
                                                     <p>了解如何管理密碼編譯金鑰和密碼</p>
                                                 </div>
                                             </div>
@@ -3592,7 +3594,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>備份</h3>
+                                                    <h3>Backup </h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -3725,7 +3727,7 @@ ms.lasthandoff: 12/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>受管理的應用程式</h3>
+                                                    <h3>受控應用程式</h3>
                                                     <p>為您的客戶管理部署的解決方案</p>
                                                 </div>
                                             </div>
@@ -4160,6 +4162,34 @@ Azure CLI </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下載</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+SQL 工具 </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL 作業 Studio <sup>預覽</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">查看所有 SQL 工具</a>
                                                 </p>
                                             </div>
                                         </div>

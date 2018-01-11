@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>自行車共享教學課程：使用 Azure Machine Learning Workbench 的進階資料準備
 Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科學，以及進階分析解決方案，適用於專業資料科學家準備資料、開發實驗並部署雲規模模型。
@@ -97,7 +97,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    ![「檔案/目錄」項目的映像](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **檔案選擇**：新增天氣資料。 瀏覽並選取您稍早下載的 `BostonWeather.csv` 檔案。 按一下 [下一步] 。
+2. **檔案選擇**：新增天氣資料。 瀏覽並選取您稍早下載的 `BostonWeather.csv` 檔案。 按 [下一步] 。
 
    ![包含所選取 BostonWeater.csv 之檔案選取的映像](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 

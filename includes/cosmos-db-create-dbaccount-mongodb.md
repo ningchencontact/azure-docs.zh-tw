@@ -5,7 +5,7 @@
 
 3. 在 [新增帳戶] 刀鋒視窗中，指定想要的 Azure Cosmos DB 帳戶組態。 
 
-    在使用 Azure Cosmos DB 時，您可以選擇下列四種程式設計模型的其中一種︰Gremlin (圖形)、MongoDB、SQL (DocumentDB) 和資料表 (索引鍵-值)。 
+    在使用 Azure Cosmos DB 時，您可以選擇下列四種程式設計模型的其中一種︰Gremlin (圖形)、MongoDB、SQL 和資料表 (索引鍵-值)。 
        
     在本快速入門中，我們會針對 MongoDB API 進行程式設計，因此您會在填寫表單時選擇 [MongoDB]。 但是，如果您有用於社交媒體應用程式的圖形資料、來自目錄應用程式的文件資料，或索引鍵/值 (資料表) 資料，請了解 Azure Cosmos DB 可以提供高度可用、全域分散式的資料庫服務平台來供您所有的任務關鍵性應用程式使用。
 

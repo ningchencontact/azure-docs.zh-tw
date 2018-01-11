@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure 上的 SAP HANA (大型執行個體) 概觀和架構
 
@@ -36,16 +36,18 @@ SAP HANA on Azure (大型執行個體) 是 Azure 獨有的解決方案。 除了
 
 這些裸機伺服器單位只支援用來執行 SAP HANA。 SAP 應用程式層或工作負載中介軟體層會在 Microsoft Azure 虛擬機器中執行。 執行 SAP HANA on Azure (大型執行個體) 單位的基礎結構戳記會連線到 Azure 網路骨幹，因此能在 SAP HANA on Azure (大型執行個體) 單位與 Azure 虛擬機器之間提供低延遲的連線。
 
-本文件是五份文件的其中一份，將會說明 SAP HANA on Azure (大型執行個體) 的主題。 在本文件中，我們會講述基本架構、責任、所提供的服務，並概述解決方案的各項功能。 其他四份文件會詳述並深入探討大多數層面，例如網路和連線。 SAP HANA on Azure (大型執行個體) 的文件並未說明 SAP NetWeaver 安裝方面或在 Azure VM 中部署 SAP NetWeaver 方面的內容。 這方面的主題可在相同文件容器中的其他文件中找到。 
+這份文件是涵蓋 Azure （大型執行個體） 上的 SAP HANA 的多個文件。 在本文件中，我們會講述基本架構、責任、所提供的服務，並概述解決方案的各項功能。 其他四份文件會詳述並深入探討大多數層面，例如網路和連線。 SAP HANA on Azure (大型執行個體) 的文件並未說明 SAP NetWeaver 安裝方面或在 Azure VM 中部署 SAP NetWeaver 方面的內容。 在相同的 Azure 文件容器中找到的個別文件涵蓋 Azure 上的 SAP NetWeaver。 
 
 
-本指南的五個部分涵蓋下列主題：
+不同的文件 HANA 大型執行個體本指南涵蓋下列區域：
 
 - [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 上 SAP HANA (大型執行個體) 疑難排解和監視](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [在使用 STONITH SUSE 中設定的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [型別 II Sku 的 OS 備份與還原](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>定義
 
@@ -67,7 +69,7 @@ SAP HANA on Azure (大型執行個體) 是 Azure 獨有的解決方案。 除了
     - **類型 II 類別：**S384、S384m、S384xm、S576、S768 和 S960
 
 
-針對在 Microsoft Azure 公用雲端上部署 SAP 工作負載的主題，已發佈了各種不同的額外資源。 強烈建議所有在 Azure 中規劃和執行 SAP HANA 部署的人都需有經驗，並且熟悉 Azure IaaS 的主體及 Azure IaaS 上的 SAP 工作負載部署。 下列資源提供詳細資訊，應在繼續進行之前先參考：
+有各種不同的部署 Microsoft Azure 公用雲端上的 SAP 工作負載已發行的其他資源。 強烈建議所有在 Azure 中規劃和執行 SAP HANA 部署的人都需有經驗，並且熟悉 Azure IaaS 的主體及 Azure IaaS 上的 SAP 工作負載部署。 下列資源提供詳細資訊，應在繼續進行之前先參考：
 
 
 - [在 Microsoft Azure 虛擬機器上使用 SAP 解決方案](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -357,7 +359,7 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由 SAP HANA on Azur
 
 身為客戶的您可能需要更多儲存空間，而您可以選擇購買以 1 TB 為單位的額外儲存體來新增儲存空間。 這個額外的儲存體可以新增為額外的磁碟區，或者可用來擴充一或多個現有的磁碟區。 您無法將磁碟區的大小降低為原始部署的大小以及上述表格中多數記載的大小。 您也無法變更磁碟區的名稱或掛接的名稱。 上述的存放磁碟區已連接至 HANA 大型執行個體單位以作為 NFS4 磁碟區。
 
-身為客戶的您可以選擇使用儲存體快照集來進行備份/還原及災害復原。 如需有關此主題的更多詳細資料，請參閱 [Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+身為客戶的您可以選擇使用儲存體快照集來進行備份/還原及災害復原。 更多詳細資料的詳細[SAP HANA （大型執行個體） 的高可用性和災害復原，在 Azure 上](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ### <a name="encryption-of-data-at-rest"></a>待用資料加密
 用於「HANA 大型執行個體」的儲存體可允許在資料儲存於磁碟上時，對其進行透明加密。 部署 HANA 大型執行個體單位時，您可以選擇啟用這類加密。 您也可以在已部署完成之後，選擇變更成已加密的磁碟區。 從非加密到已加密磁碟區的轉移過程是透明的，並不需要停機。 
@@ -464,14 +466,18 @@ Azure VM (裝載 SAP 應用程式執行個體) 的 VNet 閘道會連接到該 Ex
 
 ### <a name="routing-in-azure"></a>Azure 中的路由
 
-SAP HANA on Azure (大型執行個體) 有兩個重要的網路路由考量：
+有三個重要的網路路由的考量 Azure （大型執行個體） 上的 SAP HANA:
 
-1. SAP HANA on Azure (大型執行個體) 僅供 Azure VM 以專用 ExpressRoute 連線存取；無法從內部部署環境直接存取。 有些系統管理用戶端及所有需要直接存取權的應用程式 (例如在內部部署環境中執行的 SAP Solution Manager) 會無法連接到 SAP HANA 資料庫。
+1. 在 Azure （大型執行個體） 上的 SAP HANA 只能存取，透過 Azure Vm 和專用的 ExpressRoute 連線;不是直接從內部部署。 HANA 大型執行個體單位，從內部直接存取由 Microsoft 提供，不可能會立即因為目前的 Azure 網路架構 SAP HANA 大型執行個體所用的可轉移的路由限制。 有些系統管理用戶端及所有需要直接存取權的應用程式 (例如在內部部署環境中執行的 SAP Solution Manager) 會無法連接到 SAP HANA 資料庫。
 
-2. SAP HANA on Azure (大型執行個體) 單位有一個指派的 IP 位址，此位址來自身為客戶的您所提交的「伺服器 IP 集區」位址範圍 (如需詳細資料，請參閱 [Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))。  透過 Azure 訂用帳戶和將 Azure VNet 連線到 HANA on Azure (大型執行個體) 的 ExpressRoute，即可存取此 IP 位址。 從該「伺服器 IP 集區」位址範圍指派的 IP 位址會直接指派給硬體單位，且「不再」經過 NAT 處理，因為這是此解決方案的第一次部署才會有的情況。 
+2. 如果您有 HANA 大型執行個體部署在兩個不同的 Azure 地區，為了災害復原的單位，就會套用相同的暫時性路由限制。 或者，換句話說，HANA 大型執行個體單位在一個區域 （例如 「 美國西部 」） 中的 IP 位址將不會路由至另一個區域 （例如美國東部） 中，為您部署一個 HANA 大型執行個體單位。 這是獨立的 Azure 網路對等互連，跨區域或跨連接到 Azure Vnet 連接 HANA 大型執行個體單位 ExpressRoute 電路的使用方式。 如下所示的位元進一步向下這份文件。 這項限制所隨附的已部署的架構，將不會立即使用 HANA 系統複寫為災害復原功能。
+
+3. SAP HANA on Azure (大型執行個體) 單位有一個指派的 IP 位址，此位址來自身為客戶的您所提交的「伺服器 IP 集區」位址範圍 (如需詳細資料，請參閱 [Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))。  透過 Azure 訂用帳戶和將 Azure VNet 連線到 HANA on Azure (大型執行個體) 的 ExpressRoute，即可存取此 IP 位址。 從該「伺服器 IP 集區」位址範圍指派的 IP 位址會直接指派給硬體單位，且「不再」經過 NAT 處理，因為這是此解決方案的第一次部署才會有的情況。 
 
 > [!NOTE] 
-> 如果在「資料倉儲」案例中您需要連接到 SAP HANA on Azure (大型執行個體)，其中應用程式和 (或) 使用者需要連接到 SAP HANA 資料庫 (直接執行)，您就必須使用另一個網路功能元件：一個可將資料正反方向路由傳送的反向 Proxy。 例如，搭配部署在 Azure 中作為虛擬防火牆/流量路由解決方案之「流量管理員」的 F5 BIG-IP、NGINX。
+> 如果您需要克服中暫時性路由的限制，上述的第一個兩個清單項目中所述，您需要使用額外的元件進行路由。 可以用來克服這項限制的元件可以是： 將資料路由，與反向 proxy。 例如，搭配部署在 Azure 中作為虛擬防火牆/流量路由解決方案之「流量管理員」的 F5 BIG-IP、NGINX。
+> 使用[IPTables 規則](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)在 Linux VM，以啟用在內部部署位置和 HANA 大型執行個體單位或不同地區 HANA 大型執行個體單位之間的路由。
+> 請注意，實作和支援與協力廠商的網路裝置或 IPTables 相關的自訂解決方案不由 Microsoft 所提供。 支援必須使用元件的廠商或積分器所提供。 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>HANA 大型執行個體的網際網路連線
 「HANA 大型執行個體」無法直接連線到網際網路。 這會限制您的一些能力，例如直接向 OS 廠商註冊 OS 映像。 因此，您可能需要與本機 SLES SMT 伺服器或 RHEL Subscription Manager 搭配運作

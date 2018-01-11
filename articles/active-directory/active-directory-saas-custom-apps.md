@@ -4,7 +4,7 @@ description: "了解如何使用 SAML 和密碼 SSO 以自助方式將應用程�
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9049f526243cb4659aaf86b3d31146abe8f5f3ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
 本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](active-directory-editions.md)中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
@@ -59,7 +59,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 它們是：
 
-* **登入 URL (僅限 SP 起始)** - 使用者在此登入此應用程式。 如果應用程式設定為執行服務提供者起始單一登入，則當使用者導覽到此 URL，服務提供者會執行必要的重新導向至 Azure AD，以進行驗證並將使用者登入。 如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果略過這個欄位，則 Azure AD 會改為執行識別提供者 - 即從 Office 365、Azure AD 存取面板或 Azure AD 單一登入 URL (可從 [儀表板] 索引標籤複製) 啟動應用程式時起始登入。
+* **登入 URL (僅限 SP 起始)** - 使用者在此登入此應用程式。 如果應用程式設定為執行服務提供者起始單一登入，則當使用者導覽到此 URL，服務提供者會執行必要的重新導向至 Azure AD，以進行驗證並將使用者登入。 如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果省略此欄位，則 Azure AD 將會改為執行身分識別提供者-初始的登入應用程式啟動時從 Office 365、 Azure AD 存取面板中，或從 Azure AD 單一登入 URL （複製從儀表板 索引標籤）。
 * **簽發者 URL** - 簽發者 URL 應專門用於識別正在設定單一登入的應用程式。  參數值，應用程式預期會驗證它。 在應用程式中提供的任何 SAML 中繼資料中，這個值也會顯示為實體識別碼  。 查看應用程式的 SAML 文件，了解實體識別碼或 Audience 值的詳細資訊。 以下是觀眾 URL 在傳回應用程式的 SAML 權杖中的外觀範例︰
 
 ```
@@ -131,7 +131,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 ## <a name="related-articles"></a>相關文章
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)
-* [SAML 型單一登入疑難排解](active-directory-saml-debugging.md)
+* [對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png

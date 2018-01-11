@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項
 
@@ -43,19 +43,25 @@ HDInsight 上的 Microsoft R 伺服器有數種儲存體選項可用來保存資
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>搭配 R 伺服器使用 Azure Blob 儲存體帳戶
 
-如有需要，您可以使用 HDI 叢集存取多個 Azure 儲存體帳戶或容器。 若要這樣做，您必須在建立叢集時於 UI 中指定其他儲存體帳戶，然後遵循下列步驟，以便搭配 R 伺服器使用它們。
+如果您指定一個以上的儲存體帳戶建立您的 R 伺服器叢集時，下列指示說明如何進行資料存取及 R 伺服器上的作業使用次要帳戶。 假設下列儲存體帳戶和容器： **storage1**與預設容器呼叫**container1**，和**storage2**。
 
 > [!WARNING]
 > 基於效能目的，系統會在與您指定的主要儲存體帳戶相同資料中心內建立 HDInsight 叢集。 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。
 
-1. 使用儲存體帳戶名稱 **storage1** 和預設容器 **container1** 建立 HDInsight 叢集。
-2. 指定其他儲存體帳戶 **storage2**。  
-3. 將 mycsv.csv 檔案複製到 /share 目錄，並對該檔案執行分析。  
+1. 使用 SSH 用戶端，連接到您叢集的邊緣節點為 remoteuser。  
+
+  + 在 Azure 入口網站中 > HDI 叢集服務] 頁面 > 概觀，按一下 [**安全殼層 (SSH)**。
+  + 在 主機名稱，選取 邊緣節點 (其中包括*ed ssh.azurehdinsight.net*名稱中)。
+  + 將複製的主機名稱。
+  + 開啟 PutTY 等 SmartTY 將 SSH 用戶端，並輸入主機名稱。
+  + 輸入使用者名稱，後面接著叢集密碼 remoteuser。
+  
+2. 將 mycsv.csv 檔案複製到 /share 目錄。 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. 在 R 程式碼中，將名稱節點設定為 **default** ，並設定要處理的目錄和檔案。  
+3. 切換至 R Studio 或其他 R 主控台，並撰寫 R 程式碼，將 [名稱] 節點設定為**預設**和您想要存取的檔案的位置。  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ HDInsight 上的 Microsoft R 伺服器有數種儲存體選項可用來保存資
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)
@@ -185,7 +191,7 @@ HDInsight 上的 Microsoft R 伺服器有數種儲存體選項可用來保存資
 
 另外還有可在邊緣節點上使用的便利資料儲存體選項，我們稱之為 [Azure 檔案]((https://azure.microsoft.com/services/storage/files/)。 它可以讓您將 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 此選項對於儲存資料檔案、R 指令碼與結果物件相當便利，該結果物件在稍後可以於邊緣節點 (而不是 HDFS) 上使用原生檔案系統時需要。 
 
-Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用檔案共用。 例如，您本人或您的小組成員所擁有的另一個 HDInsight 叢集，或是 Azure VM 甚或內部部署系統均可使用 Azure 檔案。 如需詳細資訊，請參閱：
+Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用檔案共用。 例如，您本人或您的小組成員所擁有的另一個 HDInsight 叢集，或是 Azure VM 甚或內部部署系統均可使用 Azure 檔案。 如需詳細資訊，請參閱
 
 - [如何搭配 Linux 使用 Azure 檔案儲存體](../../storage/files/storage-how-to-use-files-linux.md)
 - [如何在 Windows 上使用 Azure 檔案儲存體](../../storage/files/storage-dotnet-how-to-use-files.md)
@@ -197,5 +203,5 @@ Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Wi
 
 * [HDInsight 上的 R 伺服器概觀](r-server-overview.md)
 * [開始使用 Hadoop 上的 R 伺服器](r-server-get-started.md)
-* [適用於 HDInsight 中 R 伺服器的計算內容選項](r-server-compute-contexts.md)
+* [適用於 HDInsight 上 R 伺服器的計算內容選項](r-server-compute-contexts.md)
 

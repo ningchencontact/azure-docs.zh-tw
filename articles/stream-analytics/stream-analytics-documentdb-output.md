@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>將 Azure Cosmos DB 設定為串流分析的 JSON 輸出目標
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/28/2017
 如果您不熟悉 Cosmos DB，請參閱 [Azure Cosmos DB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)來開始著手。 
 
 > [!Note]
-> 此時串流分析僅支援使用 **DocumentDB (SQL) API** 連線至 CosmosDB。
+> 此時，Azure Stream Analytics 僅支援連接到 CosmosDB 使用**SQL API**。
 > 尚不支援其他 Azure Cosmos DB API。 如果您將 Azure Stream Analytics 指向使用其他 API 建立的 Azure Cosmos DB 帳戶，可能無法正確儲存資料。 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>將 Cosmos DB 設定為輸出目標的基本概念
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/28/2017
 以下詳細說明一些 Cosmos DB 集合選項。
 
 ## <a name="tune-consistency-availability-and-latency"></a>微調一致性、 可用性及延遲
-為了符合應用程式需求，Cosmos DB 允許您微調資料庫與集合，並在一致性、可用性及延遲之間進行取捨。 您可以視案例針對讀取與寫入延遲所需的讀取一致性層級，來選擇資料庫帳戶上的一致性層級。 此外，Cosmos DB 預設會在對您集合進行的每個 CRUD 作業進行同步索引編製。 這是另一個可在 Cosmos DB 中控制寫入/讀取效能的實用選項。 如需深入了解這個主題，請參閱 [變更資料庫及查詢的一致性層級](../documentdb/documentdb-consistency-levels.md) 。
+為了符合應用程式需求，Cosmos DB 允許您微調資料庫與集合，並在一致性、可用性及延遲之間進行取捨。 您可以視案例針對讀取與寫入延遲所需的讀取一致性層級，來選擇資料庫帳戶上的一致性層級。 此外，Cosmos DB 預設會在對您集合進行的每個 CRUD 作業進行同步索引編製。 這是另一個可在 Cosmos DB 中控制寫入/讀取效能的實用選項。 如需深入了解這個主題，請參閱 [變更資料庫及查詢的一致性層級](../cosmos-db/consistency-levels.md) 。
 
 ## <a name="upserts-from-stream-analytics"></a>來自串流分析的 Upsert
 「串流分析」與 Cosmos DB 的整合可讓您根據指定的「文件識別碼」資料行，在 Cosmos DB 集合中插入或更新記錄。 這也稱為「Upsert」 。
@@ -48,7 +48,7 @@ Cosmos DB [分割集合](../cosmos-db/partition-data.md)是建議的資料分割
 
 針對單一 Cosmos DB 集合，串流分析仍可讓您根據查詢模式和應用程式的效能需求來分割資料。 每個集合最多可包含 10GB 的資料 (上限)，且目前還無法相應增加 (或溢位) 集合。 如需相應放大，串流分析允許您使用指定的前置詞寫入多個集合 (請參閱下方的使用方式詳細資料)。 串流分析會根據使用者提供的 PartitionKey 欄，使用一致的 [雜湊分割解析程式](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 策略來分割其輸出記錄。 系統會使用在串流作業開始時具有所指定前置詞的集合數量，作為該作業會同時寫入的輸出分割區計數 (Cosmos DB 集合數 = 輸出分割區數)。 對於延遲索引只進行插入的單一集合，預期會有約每秒 0.4 MB 的寫入輸送量。 使用多個集合可允許您達成更高的輸送量及增加容量。
 
-如果您計劃在未來增加分割計數，您可能需要停止工作、將現有集合中的資料重新分割至新的集合，然後重新啟動串流分析工作。 有關使用 PartitionResolver 與重新分割的詳細資料，以及範例程式碼，都會包含在後續的文章中。 [Cosmos DB 中的分割與調整](../documentdb/documentdb-partition-data.md)一文也提供該主題的詳細說明。
+如果您計劃在未來增加分割計數，您可能需要停止工作、將現有集合中的資料重新分割至新的集合，然後重新啟動串流分析工作。 有關使用 PartitionResolver 與重新分割的詳細資料，以及範例程式碼，都會包含在後續的文章中。 [Cosmos DB 中的分割與調整](../cosmos-db/sql-api-partition-data.md)一文也提供該主題的詳細說明。
 
 ## <a name="cosmos-db-settings-for-json-output"></a>適用於 JSON 輸出的 Cosmos DB 設定
 如果在「串流分析」中建立 Cosmos DB 作為輸出，將會產生如以下所示的資訊提示。 本節說明屬性定義。

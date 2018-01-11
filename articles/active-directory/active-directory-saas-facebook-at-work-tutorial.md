@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Workplace by Faceboo
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 27e62a00832484667117d8718db9f2fc05e2f4e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4f34f6509d762cba6aba98a6eba010fd94656e67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
@@ -45,13 +45,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD SSO。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD SSO。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Workplace by Facebook。
 2. 設定和測試 Azure AD 單一登入。
 
 ## <a name="add-workplace-by-facebook-from-the-gallery"></a>從資源庫新增 Workplace by Facebook
-若要設定將 Workplace by Facebook 整合到 Azure AD 中，從資源庫將 Workplace by Facebook 新增到受管理的 SaaS 應用程式清單中。
+若要設定將 Workplace by Facebook 整合到 Azure AD 中，從資源庫將 Workplace by Facebook 新增到受控 SaaS 應用程式清單中。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [Azure Active Directory]。 
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 選取 [顯示密碼]，並將它寫下來。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
  
 ### <a name="create-a-workplace-by-facebook-test-user"></a>建立 Workplace by Facebook 測試使用者
 

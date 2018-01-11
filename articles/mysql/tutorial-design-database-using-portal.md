@@ -10,14 +10,14 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>設計您第一個適用於 MySQL 資料庫的 Azure 資料庫
-「適用於 MySQL 的 Azure 資料庫」是一個受管理的服務，可讓您在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
+「適用於 MySQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
 在本教學課程中，您將使用 Azure 入口網站來學習如何：
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/06/2017
 開啟您的慣用網頁瀏覽器，然後瀏覽至 [Microsoft Azure 入口網站](https://portal.azure.com/)。 輸入您的認證來登入此入口網站。 預設檢視是您的服務儀表板。
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>建立適用於 MySQL 的 Azure 資料庫伺服器
-建立的「適用於 MySQL 的 Azure 資料庫」伺服器會有一組已定義的[計算和儲存體](./concepts-compute-unit-and-storage.md)資源。 伺服器會建立在 [Azure 資源群組](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)內。
+建立的「適用於 MySQL 的 Azure 資料庫」伺服器會有一組已定義的[計算和儲存體](./concepts-compute-unit-and-storage.md)資源。 伺服器會建立在 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)內。
 
 1. 瀏覽至 [資料庫] > [Azure Database for MySQL]。 如果您在 [資料庫] 類別底下找不到「MySQL 伺服器」，請按一下 [查看全部] 以顯示所有可用的資料庫服務。 您也可以在搜尋方塊中輸入 [Azure Database for MySQL] 以快速找到此服務。
 ![2-1 瀏覽至 MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/06/2017
 | *版本* | 5.7 | 選擇最新版本。 |
 | *設定效能* | 基本、50 個計算單位、50 GB  | 選擇 **[定價層]** 、 **[計算單位]** 、**[儲存體]** \(GB) ，然後按一下 **[確定]**。 |
 | 釘選到儀表板 | 勾選 | 建議您核取此方塊，讓您在稍後能輕鬆地找到伺服器 |
-然後按一下 [建立] 。 在一兩分鐘內，新的「適用於 MySQL 的 Azure 資料庫」伺服器就會在雲端執行。 您可以按一下工具列上的 [通知] 按鈕來監視部署程序。
+然後按一下 [ **建立**]。 在一兩分鐘內，新的「適用於 MySQL 的 Azure 資料庫」伺服器就會在雲端執行。 您可以按一下工具列上的 [通知] 按鈕來監視部署程序。
 
 ## <a name="configure-firewall"></a>設定防火牆
 「適用於 MySQL 的 Azure 資料庫」會受到防火牆保護。 依預設，伺服器與其內部資料庫的所有連線皆會遭拒。 第一次連線到 Azure Database for MySQL 之前，請設定防火牆來新增用戶端的公用網路 IP 位址 (或 IP 位址範圍)。

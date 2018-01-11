@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Recognize 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 97d85183d0307c41a3b879d440d87a6fb0c53190
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cf0945b478d284da0519a6da49f22f0940b80944
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教學課程：Azure Active Directory 與 Recognize 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Recognize
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-recognize-from-the-gallery"></a>從資源庫新增 Recognize
-若要設定將 Recognize 整合至 Azure AD，您必須將資源庫中的 Recognize 新增至您的受管理 SaaS 應用程式清單中。
+若要設定將 Recognize 整合至 Azure AD，您必須將資源庫中的 Recognize 新增至您的受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Recognize，請執行下列步驟：**
 
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中輸入 **Recognize**。
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/11/2017
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Recognize 客戶支援小組](mailto:support@recognizeapp.com)以取得登入 URL，而且您可以從 [SSO 設定] 區段 (本教學課程稍後會說明) 中開啟 [服務提供者中繼資料 URL] 以取得識別碼值。 。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Recognize 客戶支援小組](mailto:support@recognizeapp.com)以取得登入 URL，而且您可以從 [SSO 設定] 區段 (本教學課程稍後會說明) 中開啟 [服務提供者中繼資料 URL] 以取得識別碼值。 . 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 10/11/2017
 
 7. 在不同的網頁瀏覽器視窗中，以管理員身分登入您的 Recognize 租用戶。
 
-8. 按一下右上角的 [功能表]。 移至 [Company Admin] \(公司管理員)。
+8. 按一下右上角的 [功能表]。 移至 [Company Admin] (公司管理員)。
    
     ![在應用程式端設定單一登入](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_000.png)
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
     
     a. 將 **[啟用 SSO]** 選取為 **ON**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [IDP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
+    b. 在 [IDP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
     
     c. 在 [Sso 目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
     
@@ -192,11 +192,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-recognize-test-user"></a>建立 Recognize 測試使用者
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 10/11/2017
    
    a. 對於 [已啟用同步處理] 選取 **ON**。
    
-   b. 對於 [Choose sync provider] \(選擇同步處理提供者)，選取 [Microsoft / Office 365]。
+   b. 對於 [Choose sync provider] (選擇同步處理提供者)，選取 [Microsoft / Office 365]。
    
    c. 按一下 [Run User Sync] \(執行使用者同步處理)。
 
@@ -254,7 +254,7 @@ ms.lasthandoff: 10/11/2017
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在 [存取面板] 中按一下 [Recognize] 圖格時，應該會自動登入您的 Recognize 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 

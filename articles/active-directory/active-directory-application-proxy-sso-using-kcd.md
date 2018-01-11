@@ -3,8 +3,8 @@ title: "使用應用程式 Proxy 進行單一登入 | Microsoft Docs"
 description: "涵蓋如何使用 Azure AD 應用程式 Proxy 提供單一登入。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 170498b2876947a45128377fa6cecb3931784237
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
@@ -91,7 +91,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 非 Windows 應用程式通常會使用使用者名稱或 SAM 帳戶名稱，而不是網域的電子郵件地址。 如果這種情況適用於您的應用程式，就必須設定指定的登入身分識別欄位，將您的雲端身分識別連線到您的應用程式身分識別。 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>使用不同的內部部署和雲端身分識別
-應用程式 Proxy 會假設使用者在雲端與內部部署中具有完全相同的身分識別。 如果事實並非如此，您仍然可以使用 KCD 進行單一登入。 為每個應用程式設定 [委派的身分識別登入]，以指定在執行單一登入時所應使用的身分識別。  
+應用程式 Proxy 會假設使用者在雲端與內部部署中具有完全相同的身分識別。 如果不是大小寫，您仍然可以使用 KCD 的單一登入。 為每個應用程式設定 [委派的身分識別登入]，以指定在執行單一登入時所應使用的身分識別。  
 
 此功能可讓具有不同內部部署與雲端身分識別的許多組織，可從雲端單一登入到內部部署應用程式，而不需要使用者輸入不同的使用者名稱與密碼。 這包括下列組織：
 

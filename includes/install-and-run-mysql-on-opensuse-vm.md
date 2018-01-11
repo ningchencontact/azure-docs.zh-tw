@@ -35,12 +35,12 @@
    
         mysql -u root -p
    
-    輸入 MySQL 根密碼 (您在前一個步驟中變更的密碼)，畫面上將會出現提示，以便您發出 SQL 陳述式來與資料庫互動。
-7. 若要建立新的 MySQL 使用者，請在 **mysql>** 提示字元中執行下列命令：
+    輸入 MySQL 根目錄 （您變更密碼在上一個步驟中），然後您會看到提示，您可以在其中發出 SQL 陳述式，以與資料庫互動。
+7. 若要建立新的 MySQL 使用者，執行下列命令在**mysql >**提示：
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    請注意，行尾的分號 (;) 對結束命令而言十分重要。
+    請注意，分號 （;） 在一行的結尾是重要結束命令。
 8. 若要建立資料庫並授與 `mysqluser` 使用者權限，請發出下列命令：
    
         CREATE DATABASE testdatabase;
@@ -51,24 +51,24 @@
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    `ip-address` 是您從中連線到 MySQL 的電腦 IP 位址。
+    其中`ip-address`是您連接到 MySQL 的電腦的 IP 位址。
 10. 若要結束 MySQL 資料庫管理公用程式，請輸入：
     
         quit
 
 ## <a name="add-an-endpoint"></a>新增端點。
-1. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。 登入 [Azure 傳統入口網站][AzurePortal]。 按一下 虛擬機器，再按一下新虛擬機器的名稱，然後按一下端點。
+1. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。 登入 [Azure 入口網站][AzurePortal]。 按一下 [虛擬機器]，再按一下新虛擬機器的名稱，然後按一下 [端點]。
 2. 按一下頁面底部的 [新增]  。
 3. 新增名為 "MySQL" 的端點，通訊協定為 **TCP**，且 [公開] 及 [私人] 連接埠均設為 "3306"。
 4. 若要從您的電腦遠端連線到虛擬機器，請輸入：
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    例如，使用我們在本教學課程中建立的虛擬機器，輸入以下命令：
+    例如，使用您在本教學課程中建立的虛擬機器，請輸入此命令：
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

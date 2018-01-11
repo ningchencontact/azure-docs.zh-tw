@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 SAP HANA 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 02c751b5d9e6f13c81b9c957cd6689c1fc744a07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 855525e2c1d3c33cc7134bbc1cd9b53ca59e1a70
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>教學課程：Azure Active Directory 與 SAP HANA 整合
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/11/2017
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-sap-hana-from-the-gallery"></a>從資源庫新增 SAP Hana
-若要設定將 SAP Hana 整合到 Azure AD 中，請從資源庫將 SAP Hana 新增到受管理的 SaaS 應用程式清單。
+若要設定將 SAP Hana 整合到 Azure AD 中，請從資源庫將 SAP Hana 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 SAP Hana，請執行下列步驟：**
 
@@ -202,7 +202,7 @@ ms.lasthandoff: 11/11/2017
 
     c. 選取 [顯示密碼]，並記下密碼。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
  
 ### <a name="create-a-sap-hana-test-user"></a>建立 SAP Hana 測試使用者
 

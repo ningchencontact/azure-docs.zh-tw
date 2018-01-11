@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 1a1e12dbb5e32f62266ee6a3cdca9e781569e58c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: 9bcdd539c199086e0f48c1172853ff00cc1617f8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-user-guide"></a>資料準備使用者指南 
 Azure Machine Learning 資料準備體驗提供許多豐富的功能。 本文說明體驗最深的部分。
@@ -39,7 +39,7 @@ Azure Machine Learning 資料準備體驗提供許多豐富的功能。 本文�
 
 錯誤值傳播。 發生錯誤值之後，它會在大部分情況下透過大多數作業傳播為錯誤。 有三種方式可以取代或移除它們：
 
-* 取代
+* Replace
     -  以滑鼠右鍵按一下資料行，然後選取 [取代錯誤值]。 接著，您可以針對資料行中找到的每個錯誤值選擇取代值。
 
 * 移除

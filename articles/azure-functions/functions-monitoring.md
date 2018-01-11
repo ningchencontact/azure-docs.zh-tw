@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -64,7 +64,7 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
    ![將檢測金鑰新增至應用程式設定](media/functions-monitoring/add-ai-key.png)
 
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
 ## <a name="view-telemetry-data"></a>檢視遙測資料
 
@@ -151,7 +151,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 |偵錯       | 1 |
 |資訊 | 2 |
 |警告     | 3 |
-|錯誤       | 4 |
+|Error       | 4 |
 |重要    | 5 |
 |None        | 6 |
 
@@ -452,7 +452,7 @@ module.exports = function (context, req) {
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 
 函式對其他服務的相依性不會自動顯示，但您可以撰寫自訂程式碼來顯示相依性。 [C# 自訂遙測區段](#custom-telemetry-in-c-functions)中的範例程式碼會顯示作法。 範例程式碼會在 Application Insights 中產生如下的*應用程式對應*：
 
@@ -486,7 +486,7 @@ module.exports = function (context, req) {
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 監視函式應用程式記錄檔
 
-若要開始使用，請[安裝 Azure CLI 1.0](../cli-install-nodejs.md) 並[登入 Azure](../xplat-cli-connect.md)。
+若要開始使用，請[安裝 Azure CLI 1.0](../cli-install-nodejs.md) 並[登入 Azure](/cli/azure/authenticate-azure-cli)。
 
 使用下列命令，來啟用傳統的服務管理模式、選擇您的訂用帳戶，以及串流處理記錄檔：
 

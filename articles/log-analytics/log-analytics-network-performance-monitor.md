@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics 中的網路效能監視器解決方案
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/19/2017
 此外，如果您已投資其他網路監視工具，此方案則可補足這些工具，因為大部分的傳統網路監視解決方案不會深入解析端對端網路效能計量，例如遺失和延遲。  網路效能監視器方案有助於填補該不足之處。
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>安裝和設定方案的代理程式
-使用[將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agents.md) 和[將 Operations Manager 連接到Log Analytics](log-analytics-om-agents.md) 中的基本程序來安裝代理程式。
+使用[將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agent.md) 和[將 Operations Manager 連接到Log Analytics](log-analytics-om-agents.md) 中的基本程序來安裝代理程式。
 
 > [!NOTE]
 > 您必須安裝至少 2 個代理程式，才能有足夠的資料來探索及監視網路資源。 否則，此方案會保持設定中狀態，直到您安裝及設定其他代理程式為止。
@@ -139,7 +139,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 #### <a name="to-enable-or-disable-monitoring-for-nodes"></a>若要啟用或停用節點的監視
 1. 選取或清除您要監視或停止監視的節點。
 2. 視需要按一下 [用於監視]，或加以清除。
-3. 按一下 [儲存] 。<br><br> ![啟用節點監視](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. 按一下 [檔案] 。<br><br> ![啟用節點監視](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>設定監視規則
 在違反 2 個子網路之間或 2 個網路之間網路連線的效能閾值時，網路效能監視器會產生健全狀況事件。 系統可以自動學習這些閾值，您也可以提供自訂閾值。

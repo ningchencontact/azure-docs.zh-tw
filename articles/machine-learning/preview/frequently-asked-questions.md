@@ -4,16 +4,17 @@ description: "本文包含 Azure Machine Learning 預覽版功能的常見問題
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 11/18/2017
 
 **什麼是 Azure Machine Learning 服務？**
 
-Azure Machine Learning 是一個完全受管理的 Azure 服務，可讓您建立、測試、管理及部署機器學習服務和 AI 模型。 我們的新服務和可下載應用程式提供一個程式碼優先方法，運用雲端、內部部署環境及邊緣，來提供具有強大功能、速度與彈性的訓練、部署、管理和監視模型。 或者，Azure Machine Learning Studio 也提供一個無須編寫任何程式碼的瀏覽器型視覺拖放撰寫環境。 
+Azure Machine Learning 是一個完全受控的 Azure 服務，可讓您建立、測試、管理及部署機器學習服務和 AI 模型。 我們的新服務和可下載應用程式提供一個程式碼優先方法，運用雲端、內部部署環境及邊緣，來提供具有強大功能、速度與彈性的訓練、部署、管理和監視模型。 或者，Azure Machine Learning Studio 也提供一個無須編寫任何程式碼的瀏覽器型視覺拖放撰寫環境。 
 
 **如何開始使用預覽版？**
 
@@ -61,7 +62,7 @@ Workbench 目標包含並支援 MMLSpark 0.8 版，此版本與 Apache Spark 2.1
 
 **什麼是 Azure Machine Learning 測試服務？**
 
-「測試服務」是一個將機器學習體驗提升到下一層次的受管理 Azure 服務。 您可以在本機或雲端建立測試。 在桌上型電腦上快速建立原型，然後擴充至虛擬機器或 Spark 叢集。 具有最新 GPU 技術的 Azure VM 可讓您迅速有效地進行深層學習。 我們也包含了與 Git 的深度整合，因此您可以輕鬆插入到現有的工作流程中來進行程式碼追蹤、設定及共同作業。 
+「測試服務」是一個將機器學習體驗提升到下一層次的受控 Azure 服務。 您可以在本機或雲端建立測試。 在桌上型電腦上快速建立原型，然後擴充至虛擬機器或 Spark 叢集。 具有最新 GPU 技術的 Azure VM 可讓您迅速有效地進行深層學習。 我們也包含了與 Git 的深度整合，因此您可以輕鬆插入到現有的工作流程中來進行程式碼追蹤、設定及共同作業。 
 
 **測試服務的收費方式為何？**
 
@@ -80,15 +81,16 @@ Workbench 目標包含並支援 MMLSpark 0.8 版，此版本與 Apache Spark 2.1
 
 **什麼是 Azure Machine Learning 模型管理？**
 
-「Azure Machine Learning 模型管理」是一個受管理的 Azure 服務，可讓資料科學人員和 DevOps 小組將預測模型可靠地部署到各種環境。 Git 儲存機制和 Docker 容器可提供可追蹤性和可重複性。 模型可以可靠地部署在雲端、內部部署環境或邊緣。 在生產環境中之後，您將可以管理模型效能，然後在效能降低時，主動重新訓練。 您可以將本機電腦上的模型部署到 [Azure VM](https://azure.microsoft.com/services/virtual-machines/)、Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) 或 Kubernetes 協調的 [Azure Container Service](https://azure.microsoft.com/services/container-service/) 叢集。  
+「Azure Machine Learning 模型管理」是一個受控 Azure 服務，可讓資料科學人員和 DevOps 小組將預測模型可靠地部署到各種環境。 Git 儲存機制和 Docker 容器可提供可追蹤性和可重複性。 模型可以可靠地部署在雲端、內部部署環境或邊緣。 在生產環境中之後，您將可以管理模型效能，然後在效能降低時，主動重新訓練。 您可以將本機電腦上的模型部署到 [Azure VM](https://azure.microsoft.com/services/virtual-machines/)、Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) 或 Kubernetes 協調的 [Azure Container Service](https://azure.microsoft.com/services/container-service/) 叢集。  
 
 **什麼是「模型」？**
 
 模型是已升階來進行模型管理之測試執行回合的輸出。 在裝載帳戶中註冊的模型會計入您的方案中，包括透過重新訓練或版本反覆運算更新的模型。
 
-**什麼是「受管理的模型」？**
 
-模型是訓練程序的輸出，也是機器學習演算法在訓練資料上的應用。 「模型管理」可讓您將模型部署成 Web 服務、管理各種模型版本，以及監視其效能和計量。 「受管理的」模型是已向「Azure Machine Learning 模型管理」帳戶註冊的模型。 舉例來說，想像一個您嘗試預測銷售額的情況。 在測試階段，您會使用不同的資料集或演算法來產生許多模型。 您已產生四個具有不同精確度的模型，但選擇只註冊精確度最高的模型。 這個註冊的模型會成為您的第一個受管理模型。
+            **什麼是「受控模型」？**
+
+模型是訓練程序的輸出，也是機器學習演算法在訓練資料上的應用。 「模型管理」可讓您將模型部署成 Web 服務、管理各種模型版本，以及監視其效能和計量。 「受控」模型是已向「Azure Machine Learning 模型管理」帳戶註冊的模型。 舉例來說，想像一個您嘗試預測銷售額的情況。 在測試階段，您會使用不同的資料集或演算法來產生許多模型。 您已產生四個具有不同精確度的模型，但選擇只註冊精確度最高的模型。 這個註冊的模型會成為您的第一個受控模型。
  
 **什麼是「部署」？**
 
@@ -108,11 +110,11 @@ Workbench 目標包含並支援 MMLSpark 0.8 版，此版本與 Apache Spark 2.1
 
 **是否同時支援內部部署和雲端部署案例？**
 
-是。 我們透過 Docker 容器支援內部部署和雲端部署情節。 本機執行目標包括：單一節點 Docker 部署、[搭配 ML 服務的 Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)、Hadoop 或 Spark。 我們也支援透過 Docker 進行雲端部署，包括：透過 Azure Container Service 和 Kubernetes、HDInsight 或 Spark 叢集進行叢集部署。 針對邊緣案例，則是透過 Docker 容器和 Azure IOT Edge 提供支援。 
+可以。 我們透過 Docker 容器支援內部部署和雲端部署情節。 本機執行目標包括：單一節點 Docker 部署、[搭配 ML 服務的 Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)、Hadoop 或 Spark。 我們也支援透過 Docker 進行雲端部署，包括：透過 Azure Container Service 和 Kubernetes、HDInsight 或 Spark 叢集進行叢集部署。 針對邊緣案例，則是透過 Docker 容器和 Azure IOT Edge 提供支援。 
 
 **我是否可以在另一部主機上執行使用 Azure Machine Learning CLI 建立的 Docker 映像？**
 
-是。 您可以使用該映像作為任何 Docker 主機上的 Web 服務，只要主機擁有足夠的運算資源來裝載該 Docker 映像即可。
+可以。 您可以使用該映像作為任何 Docker 主機上的 Web 服務，只要主機擁有足夠的運算資源來裝載該 Docker 映像即可。
 
 **是否支援重新訓練已部署的模型？**
 
@@ -126,11 +128,11 @@ Azure Machine Learning Workbench 是為專業資料科學人員建置的隨附�
 
 **Workbench 是否是一種 IDE？**
 
-否。 Machine Learning Workbench 已設計為常用 IDE (例如 Jupyter Notebook、Visual Studio Code 及 PyCharm) 的隨附應用程式，但它不是功能完整的 IDE。 Machine Learning Workbench 提供一些基本的文字編輯功能，但不支援偵錯、IntelliSense 及其他常用的 IDE 功能。 建議您使用慣用的 IDE 來進行程式碼開發、編輯及偵錯。 
+編號 Machine Learning Workbench 已設計為常用 IDE (例如 Jupyter Notebook、Visual Studio Code 及 PyCharm) 的隨附應用程式，但它不是功能完整的 IDE。 Machine Learning Workbench 提供一些基本的文字編輯功能，但不支援偵錯、IntelliSense 及其他常用的 IDE 功能。 建議您使用慣用的 IDE 來進行程式碼開發、編輯及偵錯。 
 
 **使用 Azure Machine Learning Workbench 是否需要付費？**
 
-否。 Azure Machine Learning Workbench 是免費的應用程式。 您可以視需要將它下載到許多部電腦，並供許多使用者使用。 若要使用 Azure Machine Learning Workbench，您必須擁有一個測試帳戶。 .  
+編號 Azure Machine Learning Workbench 是免費的應用程式。 您可以視需要將它下載到許多部電腦，並供許多使用者使用。 若要使用 Azure Machine Learning Workbench，您必須擁有一個測試帳戶。 .  
 
 **是否支援命令列功能？**
 
@@ -199,7 +201,7 @@ Workbench 中的資料準備工具目前支援從下列格式內嵌：
 
 **是否會依呼叫 Web 服務的次數向我收費？**
 
-否。 您可以視需要經常呼叫 Web 服務，而不會涉及「模型管理」計費。 您可以完全掌控要如何調整部署，以符合您應用程式的需求。
+編號 您可以視需要經常呼叫 Web 服務，而不會涉及「模型管理」計費。 您可以完全掌控要如何調整部署，以符合您應用程式的需求。
 
 **我要如何調整在 Azure Machine Learning 模型管理中所購買的單位數？**
 

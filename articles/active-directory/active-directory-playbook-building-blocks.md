@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory, 腳本, 概念證明, PoC"
 documentationcenter: 
 author: dstefanMSFT
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：PoC 使用者不到 1,000 人時少於一小時
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -69,7 +69,7 @@ ms.lasthandoff: 11/14/2017
 | 開啟 Azure AD Connect UI 並看著執行中的設定檔完成 (匯入、同步處理及匯出) | [Azure AD Connect 同步處理：排程器](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | 開啟 [Azure AD 管理入口網站](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)，移至 [所有使用者] 刀鋒視窗、新增 [授權單位來源] 資料行，並確認有顯示那些使用者後，將他們適當地標示成來自 [Windows Server AD] | [Azure AD 管理入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 1. 若要了解密碼雜湊同步處理的安全性考量，請參閱[這裡](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)。  如果試驗生產使用者的密碼雜湊同步處理確定不可行，則請考慮下列替代方案：
    * 在生產環境網域中建立測試使用者。 確定您不會同步處理任何其他帳戶
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：15 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/14/2017
 | 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](customize-branding.md) |
 | (選擇性) 在其他裝置中確認外觀及操作 |  |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 如果在自訂後舊的外觀及操作仍在，則請排清瀏覽器用戶端快取，然後重試作業。
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：10 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/14/2017
 | 移至「Azure AD 管理入口網站」中的 [授權] 刀鋒視窗 | [Azure AD 管理入口網站：授權](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
 | 將授權指派給含有 POC 使用者的安全性群組。 | [將授權指派給 Azure Active Directory 中的使用者群組](active-directory-licensing-group-assignment-azure-portal.md) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 如果有任何問題，請移至[使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題](active-directory-licensing-group-advanced.md)
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：60 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -158,9 +158,10 @@ ms.lasthandoff: 11/14/2017
 | 等候幾分鐘讓佈建完成。  此時，您可以查看佈建報告 |  |
 | 以具有存取權的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 | 按一下剛建立之應用程式的圖格。 確認存取 |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受管理應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | 
+            [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 1. 上述[教學課程](active-directory-saas-servicenow-tutorial.md)是參考舊的 Azure AD 管理體驗。 但 PoC 是根據[快速入門](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away)體驗。
 2. 如果資源庫中沒有目標應用程式，則您可以使用「自備應用程式」。 深入了解：[Azure Active Directory 中企業應用程式管理的新功能：從一個位置新增自訂應用程式](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
@@ -169,7 +170,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：15 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -190,9 +191,10 @@ ms.lasthandoff: 11/14/2017
 | 按一下剛建立之應用程式的圖格。 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 提供應用程式認證 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 關閉瀏覽器並重新執行登錄。 這次使用者應該會看到順暢的應用程式存取。 |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受管理應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | 
+            [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 如果資源庫中沒有目標應用程式，則您可以使用「自備應用程式」。 深入了解：[Azure Active Directory 中企業應用程式管理的新功能：從一個位置新增自訂應用程式](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
@@ -204,7 +206,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：30 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -222,10 +224,11 @@ ms.lasthandoff: 11/14/2017
 | 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | 為「必要條件」中所識別的群組指派認證時，將應用程式指派給他們 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
 | 以不同的使用者身分登入來以「相同共用帳戶」身分存取應用程式  |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受管理應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | 
+            [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 如果資源庫中沒有目標應用程式，則您可以使用「自備應用程式」。 深入了解：[Azure Active Directory 中企業應用程式管理的新功能：從一個位置新增自訂應用程式](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
@@ -237,7 +240,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：20 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -258,7 +261,7 @@ ms.lasthandoff: 11/14/2017
 | (選擇性) 為您的使用者設定單一登入體驗 | [使用 Azure AD 應用程式 Proxy 提供單一登入](application-proxy-sso-azure-portal.md) |
 | 以指派的使用者身分登入 MyApps 入口網站來測試應用程式 | https://myapps.microsoft.com |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 1. 雖然我們建議將連接器放在您的公司網路中，但在某些情況下，您會發現將它放在雲端會有較佳的效能。 深入了解：[使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量](application-proxy-network-topology-considerations.md)
 2. 如需進一步的安全性詳細資料，以及這如何僅透過維護輸出連線來提供特別安全的遠端存取解決方案，請參閱：[使用 Azure AD 應用程式 Proxy 從遠端存取應用程式的安全性考量](application-proxy-security-considerations.md)
@@ -270,7 +273,7 @@ ms.lasthandoff: 11/14/2017
 > [!IMPORTANT]
 > 這是一種需要對 FIM/MIM 有某種程度熟悉的進階組態。 如果在生產環境中使用，建議您瀏覽[頂級支援](https://support.microsoft.com/premier)以查看此組態的相關問題。
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -291,7 +294,7 @@ ms.lasthandoff: 11/14/2017
 | 發生問題時進行疑難排解 | [針對未同步至 Azure AD 的物件進行疑難排解](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | 確認 LDAP 使用者可以登入及存取應用程式 | https://myapps.microsoft.com |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 > [!IMPORTANT]
 > 這是一種需要對 FIM/MIM 有某種程度熟悉的進階組態。 如果在生產環境中使用，建議您瀏覽[頂級支援](https://support.microsoft.com/premier)以查看此組態的相關問題。
@@ -300,7 +303,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：10 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -319,13 +322,13 @@ ms.lasthandoff: 11/14/2017
 | 新增您想要測試的資訊工作者 |  |
 | 以資訊工作者身分登入，確認該圖格可用 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 如果應用程式已啟用佈建，您可能需要先等候幾分鐘讓佈建完成，才能以資訊工作者身分存取應用程式。
 
 ## <a name="saas-and-identity-lifecycle"></a>SaaS 和身分識別生命週期
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -343,7 +346,7 @@ ms.lasthandoff: 11/14/2017
 | 在個別的瀏覽器工作階段上，以資訊工作者身分登入「我的應用程式」入口網站，並確認該圖格已經消失 | http://myapps.microsoft.com |
 
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 推測離職者和/或准假案例的 PoC 案例。 如果使用者在內部部署 AD 中被停用或移除，就不再能夠登入 SaaS 應用程式。
 
@@ -351,7 +354,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：10 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -367,7 +370,7 @@ ms.lasthandoff: 11/14/2017
 | 以資訊工作者身分登入「我的應用程式」入口網站 | http://myapps.microsoft.com |
 | 注意頁面頂端的 [+加入應用程式] 按鈕。 請使用它來存取應用程式 |  |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 所選應用程式可能會有佈建需求，因此直接移至該應用程式可能會造成一些錯誤。 如果所選應用程式支援以 Azure AD 進行佈建並且已設定，您便可以利用這個機會來顯示整個端對端運作的流程。 如需進一步的建議，請參閱 [SaaS 同盟 SSO 組態](#saas-federated-sso-configuration)的構成要素
 
@@ -375,7 +378,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：15 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -397,7 +400,7 @@ ms.lasthandoff: 11/14/2017
 | 重設密碼 | [更新自己的密碼：重設密碼](active-directory-passwords-update-your-own-password.md) |
 | 嘗試以您的新密碼登入 Azure AD 及內部部署資源 |  |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 1. 如果升級 Azure AD Connect 將會造成不便，請考慮將它用於雲端帳戶，或以另一個環境作為其示範背景
 2. 系統管理員具有不同的原則，因此使用系統管理員帳戶來重設密碼可能會誤導 PoC 而造成混淆。 請務必使用一般使用者帳戶來測試重設作業
@@ -407,7 +410,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：10 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -424,7 +427,7 @@ ms.lasthandoff: 11/14/2017
 | 在 [使用者] 設定中，選取 PoC 使用者並啟用他們來進行 MFA | [Azure Multi-Factor Authentication 中的使用者狀態](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | 以 PoC 使用者身分登入，然後逐步執行提出證明的程序  |  |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 1. 此構成要素中的 PoC 步驟會明確地為使用者的所有登入設定 MFA。 此外，還有「條件式存取」和 Identity Protection 之類的其他工具，可在更具目標性的案例中進行 MFA。 這將是從 POC 移到生產環境時需要考量的事項。
 2. 為了方便起見，此構成要素中的 PoC 步驟會明確地使用「通話」作為 MFA 方法。 當您從 POC 轉換到生產環境時，建議您儘可能使用 [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) 之類的應用程式作為第二要素。
@@ -434,7 +437,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：10 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -455,7 +458,7 @@ ms.lasthandoff: 11/14/2017
 | 從公司網路內部存取應用程式 | [開始使用 Azure Active Directory 中的條件式存取 - 測試原則](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
 | 從公用網路存取應用程式 | [開始使用 Azure Active Directory 中的條件式存取 - 測試原則](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 如果您要使用同盟，您可以使用內部部署的「識別提供者」(IdP)，透過宣告來溝通內部/外部公司網路狀態。 您可以使用這項技術而不需管理 IP 位址清單，在大型組織中，評估和管理 IP 位址可能會相當複雜。 在該設定中，您需要解釋「網路漫遊」情況 (使用者從內部網路登入，並在已登入的情況下切換位置，例如咖啡店)，並確定您了解該意涵。 深入了解：[使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源：同盟使用者的可信任 IP](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
 
@@ -463,7 +466,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：15 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -486,7 +489,7 @@ ms.lasthandoff: 11/14/2017
 | (選擇性) 如果您的全域管理員已啟用電子郵件功能，則只要查看 GA1 和 GA2 的收件匣，就可以看到已啟用該角色的通知 |  |
 | 8 查看稽核歷程記錄並檢視報告，以確認顯示 GA2 的權限提升。 | [什麼是 Azure AD Privileged Identity Management？：檢閱角色活動](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 此功能是 Azure AD Premium P2 和/或 EMS E5 的一部分
 
@@ -494,7 +497,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：20 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -511,7 +514,7 @@ ms.lasthandoff: 11/14/2017
 | 以全域管理員身分登入 https://portal.azure.com，然後開啟 [Identity Protection] 刀鋒視窗 | https://aka.ms/aadipgetstarted |
 | 開啟 [風險事件] 刀鋒視窗。 您應該會在 [從匿名 IP 位址登入] 底下看到一個項目  | [Azure Active Directory Identity Protection 腳本：模擬風險事件](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 此功能是 Azure AD Premium P2 和/或 EMS E5 的一部分
 
@@ -519,7 +522,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：10 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -546,7 +549,7 @@ ms.lasthandoff: 11/14/2017
 
 預估完成時間：20 分鐘
 
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 
 | 必要條件 | 資源 |
 | --- | --- |
@@ -562,7 +565,7 @@ ms.lasthandoff: 11/14/2017
 | 選擇性：在 Azure AD 中為 Exchange Active Sync 用戶端啟用「憑證驗證」 | [開始在 Azure Active Directory 中使用憑證式驗證](active-directory-certificate-based-authentication-get-started.md) |
 | 瀏覽至「存取面板」並使用「使用者憑證」進行驗證 | https://myapps.microsoft.com |
 
-### <a name="considerations"></a>考量
+### <a name="considerations"></a>注意事項
 
 若要深入了解這項部署的注意事項，請瀏覽[ADFS：使用 Azure AD 和 Office 365 進行憑證驗證 (英文)](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)
 

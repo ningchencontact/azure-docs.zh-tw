@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a87f1c6ba82edc0a762d9e02542a7756383ed82
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用適用於 IntelliJ 的 Azure 工具組透過 VPN 對 HDInsight 中的 Spark 應用程式進行遠端偵錯
 
-建議透過 SSH 對 Spark 應用程式進行遠端偵錯。 如需指示，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行遠端偵錯](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
+建議透過 SSH 對 Spark 應用程式進行遠端偵錯。 如需指示，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行遠端偵錯](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
 
 本文提供逐步指引，說明如何使用適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具，來提交 HDInsight Spark 叢集上的 Spark 作業，然後從桌上型電腦遠端偵錯。 若要完成這些工作，您必須執行下列高階步驟：
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/29/2017
 
 ## <a name="prerequisites"></a>必要條件
 * **Azure 訂用帳戶**。 如需詳細資訊，請參閱[取得 Azure 的免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* **HDInsight 中的 Apache Spark 叢集**。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* **HDInsight 中的 Apache Spark 叢集**。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * **Oracle JAVA Development Kit**。 您可以從 [Oracle 網站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下載。
 * **IntelliJ IDEA**。 本文章使用 2017.1 版。 您可以從 [JetBrains 網站](https://www.jetbrains.com/idea/download/)下載。
 * **適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具**。 適用於 IntelliJ 的 HDInsight 工具是適用於 IntelliJ 的 Azure 工具組的一部分。 如需有關如何安裝 Azure 工具組的指示，請參閱[安裝適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation)。
@@ -264,7 +264,7 @@ ms.lasthandoff: 11/29/2017
 
     ![主控台輸出](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
-## <a name="seealso"></a>接續步驟
+## <a name="seealso"></a>後續步驟
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範

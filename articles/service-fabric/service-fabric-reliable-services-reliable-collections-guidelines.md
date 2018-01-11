@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collection 的指導方針與建議
 本節提供使用 Reliable State Manager 和 Reliable Collection 的指導方針。 目標是要協助使用者避開常見的陷阱。
@@ -33,6 +33,7 @@ ms.lasthandoff: 10/11/2017
 * 請不要在另一個交易的 `using` 陳述式內建立交易，因為它會造成死結。
 * 務必確保 `IComparable<TKey>` 實作是正確的。 系統會對 `IComparable<TKey>` 採取相依性以合併檢查點與資料列。
 * 請不要在讀取需更新的項目時使用更新鎖定，以避免發生特定類別的死結。
+* 請考慮可靠集合的每個磁碟分割設為少於 1000年的保留數目。 而不用可靠的集合包含多個項目的更多可靠的集合，使用較少的項目。
 * 請考慮將項目 (例如「可靠的字典」的 Tkey 和 TValue) 保持低於 80 KB (越小越好)。 這會減少大型物件堆積的使用量，並降低磁碟和網路 IO 需求。 通常這會在只更新一小部分的值時，減少重複資料的複寫次數。 在「可靠的字典」中達成此目的的常用方式，是將資料列分成多個資料列。
 * 請考慮使用備份和還原功能以擁有災害復原。
 * 避免在同一個交易中因為不同的隔離等級混用單一實體作業和多實體作業 (例如 `GetCountAsync`、`CreateEnumerableAsync`)。
@@ -54,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 * [Reliable State Manager 與 Collection 內部](service-fabric-reliable-services-reliable-collections-internals.md)
 * 管理資料
   * [備份與還原](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [通知](service-fabric-reliable-services-notifications.md)
   * [序列化與升級](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager 組態](service-fabric-reliable-services-configuration.md)
 * 其他

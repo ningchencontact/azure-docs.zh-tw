@@ -1,6 +1,7 @@
 # 概觀
 
 ## [關於 Azure SQL 資料倉儲](sql-data-warehouse-overview-what-is.md)
+## [速查表](cheat-sheet.md)
 
 # 快速入門
 
@@ -32,7 +33,7 @@
 
 ## 載入與移動資料
 ### [概觀](design-elt-data-loading.md)
-### [最佳作法](guidance-for-loading-data.md)
+### [最佳做法](guidance-for-loading-data.md)
 
 
 ## 整合
@@ -89,12 +90,11 @@
 
 
 ## 載入與移動資料
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso 公用資料](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [來自 Blob 儲存體的 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [從 SQL Server 載入 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

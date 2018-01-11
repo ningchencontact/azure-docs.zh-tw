@@ -4,8 +4,8 @@ description: "了解如何使用適用於 Azure App Service Mobile Apps 的 .NET
 keywords: "App Service, Azure App Service, 行動應用程式, 行動服務, 調整, 可調整, 應用程式部署, Azure 應用程式部署"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 3. 選取 [ASP.NET Web 應用程式] 。
 4. 填入專案名稱。 然後按一下 [確定] 。
 5. 在 [ASP.NET 4.5.2 範本] 底下，選取 [Azure 行動應用程式]。 核取 [雲端中的主機]  以在雲端 (您可以在其中發佈這個專案) 建立行動後端。
-6. 按一下 [確定] 。
+6. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a name="install-sdk"></a>如何：下載並初始化 SDK
 SDK 可於 [NuGet.org]取得。此封裝包含開始使用 SDK 所需的基本功能。 若要初始化 SDK，您需要在 **HttpConfiguration** 物件上執行動作。
@@ -151,7 +151,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 2. 在行動 DbContext 類別中設定資料表參考。
 3. 建立資料表控制器。
 
-資料傳輸物件 (DTO) 是繼承自 `EntityData`純 C# 物件。  例如：
+資料傳輸物件 (DTO) 是繼承自 `EntityData`純 C# 物件。  例如︰
 
     public class TodoItem : EntityData
     {

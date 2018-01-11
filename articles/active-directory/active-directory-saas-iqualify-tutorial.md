@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 iQualify LMS 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>教學課程：Azure Active Directory 與 iQualify LMS 整合
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 iQualify LMS
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-iqualify-lms-from-the-gallery"></a>從資源庫新增 iQualify LMS
-若要設定將 iQualify LMS 整合到 Azure AD 中，您需要從資源庫將 iQualify LMS 新增到受管理的 SaaS 應用程式清單。
+若要設定將 iQualify LMS 整合到 Azure AD 中，您需要從資源庫將 iQualify LMS 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 iQualify LMS，請執行下列步驟：**
 
@@ -219,7 +219,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-iqualify-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-iqualify-tutorial/create_aaduser_02.png)
 
@@ -237,7 +237,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-iqualify-lms-test-user"></a>建立 iQualify LMS 測試使用者
 

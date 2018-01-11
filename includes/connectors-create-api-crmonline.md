@@ -6,7 +6,7 @@
 
 使用以下步驟授權邏輯應用程式連接到 CRM Online 帳戶的權限：
 
-1. 建立邏輯應用程式。 在 Logic Apps 設計工具中，從下拉式清單中選取 [顯示 Microsoft Managed API]，然後在搜尋方塊中輸入 "dynamics"。 選取其中一個觸發程序或動作︰  
+1. 建立邏輯應用程式。 在 Logic Apps 設計工具中，從下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入 "dynamics"。 選取其中一個觸發程序或動作︰  
    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 2. 如果您之前尚未對 Dynamics 建立任何連線，系統會提示您使用 Dynamics 認證來登入：  
    ![](./media/connectors-create-api-crmonline/dynamics-signin.png)

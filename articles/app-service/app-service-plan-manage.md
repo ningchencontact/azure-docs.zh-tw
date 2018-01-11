@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
-[App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)提供 App Service 應用程式執行所需的資源。 本操作說明指南示範如何管理 App Service 方案。 
+[App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)提供 App Service 應用程式執行所需的資源。 本操作說明指南示範如何管理 App Service 方案。
 
 ## <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
@@ -68,6 +68,8 @@ ms.lasthandoff: 11/17/2017
 > 
 
 ![App Service 方案選取器。][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 每個方案都有其專屬定價層。 比方說，如果將網站從「免費」層移至「標準」層，則所有指派給它的應用程式都可以使用「標準」層的功能和資源。 不過，將應用程式從較高層的方案移至較低層的方案，表示您無法再存取特定功能。 如果您的應用程式使用目標方案未提供的功能，您會收到顯示哪些使用中功能無法使用的錯誤。 例如，如果您的其中一個應用程式使用 SSL 憑證，您可能會看到錯誤訊息：`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`在此情況下，您需要將目標方案的定價層相應增加至「基本」或更高層，或需要先移除和您應用程式的所有 SSL 連線，才能將應用程式移到目標方案。
 

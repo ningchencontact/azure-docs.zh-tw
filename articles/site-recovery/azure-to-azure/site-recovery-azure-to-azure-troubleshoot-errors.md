@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -131,6 +131,20 @@ ms.lasthandoff: 11/30/2017
 
 您可以使用[移除過時 ASR 組態指令碼](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，並移除 Azure VM 上的過時 Site Recovery 組態。 移除過時的組態後，您應該會在啟用複寫時看見 VM。
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM 的佈建狀態無效 （錯誤碼 150019）
+
+若要啟用 VM 上的複寫，佈建狀態應該是**Succeeded**。 您可以遵循下列步驟，檢查 VM 狀態。
+
+1.  選取**資源總管**從**所有服務**Azure 入口網站中。
+2.  展開**訂閱**清單並選取您的訂用帳戶。
+3.  展開**ResourceGroups**清單並選取 VM 的資源群組。
+4.  展開**資源**清單並選取您的虛擬機器
+5.  請檢查**provisioningState**欄位右邊的執行個體檢視中。
+
+### <a name="fix-the-problem"></a>修正問題
+
+- 如果**provisioningState**是**失敗**，請連絡支援人員以進行疑難排解的詳細資料。
+- 如果**provisioningState**是**更新**，另一個延伸模組無法取得部署。 檢查是否有任何進行中的作業，在 VM 上，等候它們完成再重試失敗的站台復原**啟用複寫**作業。
 
 ## <a name="next-steps"></a>後續步驟
 [複寫 Azure 虛擬機器](azure-to-azure-quickstart.md)

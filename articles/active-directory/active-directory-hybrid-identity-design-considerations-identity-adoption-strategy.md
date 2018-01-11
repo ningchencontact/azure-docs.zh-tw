@@ -1,10 +1,10 @@
 ---
 title: "Azure Active Directory 混合式身分識別設計考量 - 定義混合式身分識別採用策略 | Microsoft Docs"
-description: "透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，使用者就會通過驗證並獲允許存取應用程式。"
+description: "透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。"
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定義混合式身分識別採用策略
 在這項工作中，您將為混合式身分識別解決方案，定義混合式身分識別採用策略，以滿足下列幾節已討論的商務需求：
@@ -178,11 +178,11 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 
 | 要保護的資產 | 雲端 MFA | MFA 內部部署 |
 | --- | --- | --- |
-| Microsoft 應用程式 |yes |yes |
-| 應用程式資源庫中的 SaaS 應用程式 |yes |yes |
-| 透過 Azure AD App Proxy 發佈的 IIS 應用程式 |yes |yes |
-| 非透過 Azure AD App Proxy 發行的 IIS 應用程式 |no |yes |
-| VPN、RDG 等遠端存取 |no |yes |
+| Microsoft 應用程式 |是 |是 |
+| 應用程式資源庫中的 SaaS 應用程式 |是 |是 |
+| 透過 Azure AD App Proxy 發佈的 IIS 應用程式 |是 |是 |
+| 非透過 Azure AD App Proxy 發行的 IIS 應用程式 |no |是 |
+| VPN、RDG 等遠端存取 |no |是 |
 
 即使已選定策略的解決方案，您仍然需要使用上述評估來判斷使用者位於何處。  這可能會造成解決方案變更。  使用下表來協助判斷：
 
@@ -210,6 +210,6 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 ## <a name="next-steps"></a>後續步驟
 [判斷資料保護需求](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 

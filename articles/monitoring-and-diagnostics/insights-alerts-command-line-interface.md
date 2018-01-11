@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure 監視器中為 Azure 服務建立計量警示 - 跨平台 CLI
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 * [命令列介面 (CLI)](insights-alerts-command-line-interface.md)
 * [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-輸入命令並在結尾加上 -help，可以收到命令的說明。 例如：
+輸入命令並在結尾加上 -help，可以收到命令的說明。 例如︰
 
     ```console
     azure insights alerts -help

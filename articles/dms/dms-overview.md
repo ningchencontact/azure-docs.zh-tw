@@ -9,24 +9,24 @@ ms.reviewer:
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: cc4053ac2be7e3a7a45da9a2a55f32f68bd9e3a0
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.date: 12/13/2017
+ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>什麼是 Azure 資料庫移轉服務預覽？
-Azure 資料庫移轉服務是一個完全受管理的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 服務目前處於公開預覽，開發重點放在下列工作：
+Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 服務目前處於公開預覽，開發重點放在下列工作：
 
 - 可靠性和效能。
 - 反覆新增來源目標組。
 - 持續投資無衝突的移轉。
 
 ## <a name="use-familiar-tools"></a>使用熟悉的工具
-Azure 資料庫移轉服務整合我們現有工具和服務的某些功能。  它提供客戶全方位、高可用性的解決方案。 服務會使用[資料移轉小幫手](http://aka.ms/dma)來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 由您自行決定，是否要執行任何所需的補救。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有相關聯的步驟。 移轉程序會善用 Microsoft 決定的最佳做法，因此您可以放心地進行移轉專案。
+Azure 資料庫移轉服務整合我們現有工具和服務的某些功能。  它提供客戶全方位、高可用性的解決方案。 服務會使用[資料移轉小幫手](http://aka.ms/dma)來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 由您自行決定，是否要執行任何所需的補救。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有相關聯的步驟。 您可以引發並忘記您的移轉專案與安心注意知道處理程序會由 Microsoft 判定的最佳作法的優點。
 
-## <a name="regional-availabilty-during-public-preview"></a>公開預覽期間的區域可用性
+## <a name="regional-availability-during-public-preview"></a>地區公開預覽期間的可用性
 公開預覽版本的 Azure 資料庫移轉服務目前可在下列區域使用：
 - 美國東部
 - 美國中南部

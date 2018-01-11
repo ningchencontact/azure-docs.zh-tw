@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Cornerstone OnDemand
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 8bb32588579a0d40b9ae7e0f823c6daab21c856e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a0e956c0ad4f347e4787a50e1f0c612ea4df400e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>教學課程：Azure Active Directory 與 Cornerstone OnDemand 整合
 
@@ -47,13 +47,13 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Cornerstone OnDemand
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>從資源庫新增 Cornerstone OnDemand
-若要設定將 Cornerstone OnDemand 整合到 Azure AD 中，您需要從資源庫將 Cornerstone OnDemand 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Cornerstone OnDemand 整合到 Azure AD 中，您需要從資源庫將 Cornerstone OnDemand 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Cornerstone OnDemand，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Cornerstone OnDemand**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_search.png)
 
-5. 在結果窗格中，選取 Cornerstone OnDemand，然後按一下新增 按鈕來新增應用程式。
+5. 在結果窗格中，選取 [Cornerstone OnDemand]，然後按一下 [新增] 按鈕來新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_addfromgallery.png)
 
@@ -112,7 +112,7 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company>.csod.com`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company>.csod.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company>.csod.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Cornerstone OnDemand 用戶端支援小組](mailTo:moreinfo@csod.com)以取得這些值。 
@@ -159,11 +159,11 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-cornerstone-ondemand-test-user"></a>建立 Cornerstone OnDemand 測試使用者
 

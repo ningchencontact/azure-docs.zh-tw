@@ -4,7 +4,7 @@ description: "了解 Azure Active Directory (Azure AD) 的新功能，包括最�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
 
 
 
-> 在您偏好的 RSS 摘要讀取程式中訂閱此[摘要](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us)，以便隨時收到 Azure Active Directory 的最新訊息。
+> 保持最新的 Azure Active Directory 中新訂閱我們[ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [摘要](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)。
 
 
 
@@ -41,6 +41,163 @@ ms.lasthandoff: 11/29/2017
 
 請定期再次瀏覽這個網頁，因為我們會按月進行更新。
 
+
+## <a name="december-2017"></a>2017 年 12 月
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>適用於一般使用者在存取面板使用規定
+
+**類型：**新功能  
+**服務類別：**使用規定  
+**產品功能：**控管/合規性
+ 
+使用者現在可以前往存取面板，並檢視他們先前接受的使用規定。
+
+使用者可以檢閱並查看他們已接受的使用規定。 這可使用下列程序來完成：
+
+1. 瀏覽並登入[MyApps 入口網站](https://myapps.microsoft.com)。
+
+2. 在右上角，按一下您的名稱並從下拉式功能表選取 [設定檔]。 
+
+3. 在您的設定檔上，按一下 [檢閱使用規定]。 
+
+4. 您可以在此檢閱您已接受的使用規定。 
+
+如需詳細資訊，請參閱[Azure Active Directory 使用規定 」 功能 （預覽）](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>新增 Azure AD 登入體驗
+
+**類型：**新功能  
+**服務類別：**Azure AD  
+**產品功能：**使用者驗證
+ 
+一部分之旅聚合 Azure AD 與 Microsoft 帳戶的身分識別系統，我們已經重新設計，這兩個系統上的 UI，讓它們擁有一致的外觀及操作。 此外，我們已分頁的 Azure AD 登入頁面，讓我們收集的使用者名稱首先，在第二個畫面之後的認證。
+
+如需詳細資訊，請參閱[新的 Azure AD 登入體驗目前處於公開預覽](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>較少的登入提示： Azure AD 登入的新 「 讓我保持登入 」 體驗
+
+**類型：**新功能  
+**服務類別：**Azure AD  
+**產品功能：**使用者驗證
+ 
+我們已經取代**讓我保持登**核取方塊，在 Azure AD 登入頁面上，使用新的提示字元會出現在使用者已成功驗證。 
+
+如果使用者回應**是**對此提示，此服務可讓他們持續重新整理權杖。 這是當使用者簽入相同的行為**讓我保持登**舊體驗中的核取方塊。 同盟租用戶，聯合服務已成功驗證使用者後，會顯示此提示。
+
+如需詳細資訊，請參閱[較少的登入提示： Azure AD 的新 「 保持登入我 」 體驗處於預覽狀態](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>新增設定要求之前接受展開 TOU。
+
+**類型：**新功能  
+**服務類別：**使用規定  
+**產品功能：**控管
+ 
+我們現在加入需要使用者的系統管理員擴充使用條款之前接受條款的選項。
+
+開啟或關閉選取的使用者必須依序展開 使用條款。 如果設定為開啟，終端使用者必須先閱讀使用規定，再接受這些規定。
+
+如需詳細資訊，請參閱[Azure Active Directory 使用規定 」 功能 （預覽）](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>符合資格的角色指派的範圍的啟用
+
+**類型：**新功能  
+**服務類別目錄：** Privileged Identity Management  
+**產品功能：**Privileged Identity Management
+ 
+已設定領域的啟用可讓您啟用合格的 Azure 資源角色指派，包含較少自主性比原始指派預設值。 例如，您獲指派訂用帳戶擁有的者租用戶中。 使用已設定領域的啟用，您可以啟動擁有者的訂用帳戶內所包含的最多五個資源 (將資源群組、 虛擬機器等等.)。設定啟用的範圍可能會降低執行不必要的變更重要的 Azure 資源的可能性。
+
+如需詳細資訊，請參閱[什麼是 Azure AD Privileged Identity Management？](active-directory-privileged-identity-management-configure.md)。
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>在 Azure AD app 資源庫中的新同盟應用程式
+
+**類型：**新功能  
+**服務類別目錄：**企業應用程式  
+**產品功能：**第 3 個合作對象的整合
+ 
+在 2017 年 12 月中，我們已新增下列新的應用程式中我們具有同盟的應用程式庫支援：
+
+|名稱|整合型別|說明|
+|:-- |----------------|:----------|
+|EFI 數位 StoreFront|SAML 2.0|[Web 2 列印應用程式](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[使用 Azure AD 可管理使用者存取權以及啟用單一登入與 Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522)。  需要現有 Vodeclic 帳戶。|
+|Accredible|SAML 2.0|[建立、 管理和傳遞憑證、 徽章和 blockchain 認證](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[單一登入 FactSet 的 FDSWeb 應用程式](https://go.microsoft.com/fwlink/?linkid=863525)|
+|MobileIron Azure AD 整合|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027)是啟用新式的企業保護和管理資訊移至行動裝置和雲端，同時保留使用者的隱私權和信任時。|
+|映像的運作方式|SAML 2.0|使用 Azure AD 來管理使用者存取權、 使用者帳戶佈建並啟用單一登入與[映像運作](https://go.microsoft.com/fwlink/?linkid=863517)。 需要現有的映像運作訂用帳戶。|
+|SAML SSO 是 bitbucket 適用解析 GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519)委派驗證至 Azure AD，已登入 Azure AD 使用者可以直接存取 Bitbucket。 使用者可以建立和更新 SAML 屬性的資料上作業。|
+|解析 GmbH Bamboo 的 SAML SSO|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520)委派驗證至 Azure AD，已登入 Azure AD 使用者可以直接存取 Bamboo。|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676)是您支援您的員工及維持業務的現代化、 全功能的社交內部網路軟體。|
+|MOBI|SAML 2.0|[集中管理、 理解，及控制您的整個裝置生態系統](https://go.microsoft.com/fwlink/?linkid=863521)。|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518)進行效能管理、 即時的意見反應和目標設定為現代平台。 我們支援磁碟機他們自己的開發，以便您能夠更重要的員工。|
+|CybSafe|OpenID Connect （& s) OAuth|CybSafe 是 GCHQ 認證的網路感知平台。 它會使用進階的技術和資料分析 demonstrably 減少人力層面的網路安全性和保護資料的風險。|
+|WebHR|OpenID Connect （& s) OAuth|每個人的最愛的全部合一社交 HR 軟體。 受超過 20,000 公司 197 國家 （地區）|
+ |Zenegy Azure AD 整合|OpenID Connect （& s) OAuth|與此應用程式中，您可以使用公司的 Azure Active Directory 認證來登入 Zenegy。|
+|Adobe 經驗管理員|SAML 2.0|Adobe 經驗管理員 (AEM) 是建置網站、 行動裝置應用程式和 form-以便輕鬆地管理您的行銷內容和資產的完整內容管理平台解決方案。|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Azure AD 目錄角色的核准工作流程
+
+**類型：**已變更的功能  
+**服務類別目錄：** Privileged Identity Management  
+**產品功能：**Privileged Identity Management
+ 
+通常使用 Azure AD 目錄角色的核准工作流程。
+
+核准工作流程中，特殊權限的角色系統管理員可以要求符合資格的角色成員要求啟用角色，才能使用特殊權限的角色。
+多個使用者和群組可能是委派的核准時核准已完成且其角色為使用中，符合資格的角色成員會收到通知的責任
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>傳遞驗證-支援商務用 Skype
+
+**類型：**已變更的功能  
+**服務類別目錄：**驗證 （登入）  
+**產品功能：**使用者驗證
+
+
+傳遞驗證現在支援使用者登入用 skype 支援新式驗證，包括 Online 和混合式拓撲的商務用戶端應用程式。 
+
+如需詳細資訊，請參閱[Skype 支援使用新式驗證的商務拓撲](https://technet.microsoft.com/library/mt803262.aspx)。
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>以 Azure Active Directory 特殊權限身分識別管理 (PIM) Azure rbac 進行 （預覽） 的更新
+
+**類型：**已變更的功能  
+**服務類別：**PIM  
+**產品功能：**Privileged Identity Management
+ 
+與我們公用預覽重新整理的 Azure Active Directory 特殊權限身分識別管理 (PIM) 的 Azure rbac 進行，您現在可以：
+
+若要啟用角色資源使用只足以管理需要核准排程未來需要核准同時 AAD 的角色和 Azure RBAC 角色啟用
+
+ 
+如需詳細資訊，請參閱[PIM 的 Azure 資源 （預覽）](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>2017 年 11 月
  
 ### <a name="retiring-acs"></a>淘汰 ACS
@@ -100,7 +257,7 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [已核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
 
@@ -237,7 +394,7 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
   
 - **限制只有符合規範的 macOS 裝置可以存取 Azure AD 中的應用程式**：條件式存取原則撰寫具有 macOS 作為個別的裝置平台選項。 此選項可讓您針對在 Azure 中設定的目標應用程式，撰寫 macOS 特定的條件式存取原則。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [使用 Intune 為 macOS 裝置建立裝置合規性原則](https://aka.ms/macoscompliancepolicy)
 - [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)
@@ -307,7 +464,7 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
 - Microsoft Azure 資訊保護 
 
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [已核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
 
@@ -380,7 +537,7 @@ Azure 入口網站可讓您使用：
 
 
 
-Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。  [如何自動擷取應用程式的登入欄位](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](http://aad.portal.azure.com) 的 [企業應用程式] 頁面上新增 [非資源庫] 應用程式來尋找此功能。 此外，您可以在此新應用程式上將 [單一登入] 模式設為 [密碼型單一登入]，輸入 web URL，然後再儲存頁面。
+Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。  [如何自動擷取應用程式的登入欄位](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站][](http://aad.portal.azure.com) 的 [企業應用程式] 頁面上新增 [非資源庫] 應用程式來尋找此功能。 此外，您可以在此新應用程式上將 [單一登入] 模式設為 [密碼型單一登入]，輸入 web URL，然後再儲存頁面。
  
 因為服務問題，這項功能已暫時停用一段時間。 此問題已解決，並可重新使用自動登入欄位偵測。
 
@@ -513,6 +670,6 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 - 是取代所有 MIM 2016 SP1 更新，最多到組建 4.4.1459.0 Microsoft Identity Manager 2016 的累計更新。 
 - 必須要有 **Microsoft Identity Manager 2016 組建 4.4.1302.0。** 
 
-如需詳細資訊，請參閱 [Microsoft Identity Manager 2016 SP1 有適用的 Hotfix 彙總套件 (組建 4.4.1642.0)](https://support.microsoft.com/en-us/help/4021562)。 
+如需詳細資訊，請參閱 [Microsoft Identity Manager 2016 SP1 有適用的 Hotfix 彙總套件 (組建 4.4.1642.0)](https://support.microsoft.com/help/4021562)。 
 
 ---

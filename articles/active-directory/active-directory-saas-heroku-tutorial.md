@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Heroku 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d7d72ec6-4a60-4524-8634-26d8fbbcc833
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d30605e4757b484f327a784b73f939b62ef59373
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 66d16580337e8e9743c5514cd736bfd6cbb58856
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>教學課程：Azure Active Directory 與 Heroku 整合
 
@@ -47,13 +47,13 @@ Heroku 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Heroku
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-heroku-from-the-gallery"></a>從資源庫加入 Heroku
-若要設定 Heroku 與 Azure AD 整合，您需要從資源庫將 Heroku 加入受管理的 SaaS 應用程式清單中。
+若要設定 Heroku 與 Azure AD 整合，您需要從資源庫將 Heroku 加入受控 SaaS 應用程式清單中。
 
 **若要從資源庫加入 Heroku，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Heroku 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中輸入 **Heroku**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_search.png)
 
-5. 在結果窗格中，選取 Heroku，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Heroku]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_addfromgallery.png)
 
@@ -114,7 +114,7 @@ Heroku 與 Azure AD 整合提供下列優點：
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰    
     `https://sso.heroku.com/saml/<company-name>/init`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼 URL] 文字方塊中，使用下列模式輸入 URL：            
+    b. 在 [識別碼 URL] 文字方塊中，使用下列模式輸入 URL：            
     `https://sso.heroku.com/saml/<company-name>`
 
     > [!NOTE]
@@ -144,7 +144,7 @@ Heroku 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) 
     
-8. 按一下 [下一步] 。
+8. 按 [下一步] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory 企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -176,11 +176,11 @@ Heroku 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-heroku-test-user"></a>建立 Heroku 測試使用者
 

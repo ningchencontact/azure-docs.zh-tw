@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>動作群組中的 SMS 警示行為
 ## <a name="overview"></a>概觀 ##
@@ -37,15 +37,15 @@ ms.lasthandoff: 10/11/2017
 - 警示的標題
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>取消訂閱一個動作群組的 SMS 警示
-如果使用者要從 SMS 取消一個動作群組的警示，可使用以下關鍵字來回應簡短代碼 20873："DISABLE &lt;動作群組的簡稱&gt;"。
+使用者可以取消訂閱 SMS 一個動作群組的警示來回應以關鍵字的簡短程式碼 29873: 「 停用&lt;動作群組的簡短名稱&gt;"。
 
-例如 使用者想取消訂閱簡稱為 "Azure" 的動作群組警示，則可傳送編寫 "DISABLE Azure" 的 SMS 至簡短代碼 20873
+例如 使用者想要取消訂閱 shortname"Azure"，動作群組的警示就會傳送 SMS 的簡短程式碼 29873 說 「 停用 Azure 」
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>取消訂閱所有動作群組的 SMS 警示
-如果使用者要取消所有動作群組的所 SMS 警示，可使用以下任一關鍵字來回應簡短代碼 20873：
+使用者可以取消訂閱的所有動作群組的所有 SMS 警示所回應的簡短程式碼與任何下列關鍵字 29873:
 * STOP
 
-例如 使用者想取消訂閱所有動作群組的所有 SMS 警示，則可傳送編寫 "STOP" 的 SMS 至簡短代碼 20873
+例如 使用者想要取消訂閱所有的動作群組的所有 SMS 警示就會傳送 SMS 的簡短程式碼 29873 說 「 停止 」
 
 >[!NOTE]
 >如果使用者已取消訂閱 SMS 警示，但又加入新的動作群組；則他們會接收到新動作群組的 SMS 警示，但對於所有之前的動作群組，仍是取消訂閱狀態。
@@ -53,19 +53,19 @@ ms.lasthandoff: 10/11/2017
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>重新訂閱一個動作群組的 SMS 警示
-如果使用者要重新訂閱一個動作群組的 SMS 警示，可使用以下關鍵字來回應簡短代碼 20873："ENABLE &lt;動作群組的簡稱&gt;"。
+使用者可以重新訂閱 sms 一個動作群組的警示來回應以關鍵字的簡短程式碼 29873: 「 啟用&lt;動作群組的簡短名稱&gt;"。
 
-例如 使用者想重新訂閱簡稱為 "Azure" 的動作群組警示，則可傳送編寫 "ENABLE Azure" 的 SMS 至簡短代碼 20873
+例如 使用者想要重新訂閱 shortname"Azure"，動作群組的警示就會傳送 SMS 的簡短程式碼 29873，指出 「 啟用 Azure 」
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>重新訂閱所有動作群組的 SMS 警示
-如果使用者要重新訂閱所有動作群組的所有 SMS 警示，可使用以下任一關鍵字來回應簡短代碼 20873：
+使用者可以重新訂閱警示之所有動作群組的所有 sms，簡短的程式碼與任何下列關鍵字 29873 回應：
 
 * START
 
-例如 使用者想重新訂閱所有動作群組的所有 SMS 警示，則可傳送編寫 “START” 的 SMS 至簡短代碼 20873
+例如 使用者想要取消訂閱所有的動作群組的所有 SMS 警示就會傳送 SMS 的簡短程式碼 29873 說 「 啟動 」
 
 ### <a name="requesting-help-via-sms"></a>透過 SMS 要求說明
-如果使用者要進一步了解他們收到的 SMS 訊息，可使用以下任一關鍵字來回應簡短代碼 20873：
+使用者可以要求它們收到回應簡短的程式碼與任何下列關鍵字 29873 SMS 的相關詳細資訊：
 * HELP
 
 使用者將會收到包含本文連結的回應。

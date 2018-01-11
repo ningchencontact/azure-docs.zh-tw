@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: mimig
-ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
 [PowerBI.com](https://powerbi.microsoft.com/) 是一項線上服務，您可以在其中建立及共用具有您和組織之重要資料的儀表板和報告。  Power BI Desktop 是一項專用的報告撰寫工具，可讓您從各種資料來源擷取資料、合併和轉換資料、建立功能強大的報告和視覺效果，以及將報告發佈至 Power BI。  有了最新版的 Power BI Desktop，您現在可以透過 Power BI 的 Cosmos DB 連接器連接到 Cosmos DB 帳戶。   
@@ -86,16 +86,16 @@ ms.lasthandoff: 10/11/2017
    
     ![Power BI Desktop 報告檢視 - Power BI 連接器](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. 選取 [首頁] 功能區，然後按一下 [取得資料]。  此時應會出現 [取得資料]  視窗。
-5. 按一下 Azure、選取 Microsoft Azure DocumentDB (Beta)，然後按一下連接。 
+5. 按一下 [Azure]、選取 [Microsoft Azure DocumentDB (Beta)]，然後按一下 [連接]。 
 
     ![Power BI Desktop 取得資料 - Power BI 連接器](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
 6. 在 [預覽版連接器] 頁面上，按一下 [繼續]。 此時會出現 [Microsoft Azure DocumentDB 連接] 視窗。
-7. 依照下列方式指定您要從中擷取資料的 Cosmos DB 帳戶端點 URL，然後按一下確定。 若要使用您的帳戶，可以從 Azure 入口網站 [[金鑰](manage-account.md#keys)] 刀鋒視窗的 [URI] 方塊中擷取 URL。 若要使用示範帳戶，請輸入 `https://analytics.documents.azure.com` 作為 URL。 
+7. 依照下列方式指定您要從中擷取資料的 Cosmos DB 帳戶端點 URL，然後按一下 [確定]。 若要使用您的帳戶，可以從 Azure 入口網站 [[金鑰](manage-account.md#keys)] 刀鋒視窗的 [URI] 方塊中擷取 URL。 若要使用示範帳戶，請輸入 `https://analytics.documents.azure.com` 作為 URL。 
    
     資料庫名稱、集合名稱、SQL 陳述式皆保留空白，這些欄位是選用的。  我們將使用「瀏覽器」來選取資料庫和集合，以識別資料來自何處。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 桌面連接視窗](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. 如果是第一次連接到此端點，系統會提示您提供帳戶金鑰。 如果是您自己的帳戶，請從 Azure 入口網站 [[唯讀金鑰](manage-account.md#keys)] 刀鋒視窗的 [主要金鑰] 方塊中擷取金鑰。 如果是示範帳戶，金鑰是 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`。 輸入適當的金鑰，然後按一下連接。
+8. 如果是第一次連接到此端點，系統會提示您提供帳戶金鑰。 如果是您自己的帳戶，請從 Azure 入口網站 [[唯讀金鑰](manage-account.md#keys)] 刀鋒視窗的 [主要金鑰] 方塊中擷取金鑰。 如果是示範帳戶，金鑰是 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`。 輸入適當的金鑰，然後按一下 [連接]。
    
     建議您在建置報告時使用唯讀金鑰。  這樣可避免非必要地將主要金鑰暴露於潛在的安全性風險下。 唯讀金鑰可從 Azure 入口網站的 [[金鑰](manage-account.md#keys)] 刀鋒視窗取得，或使用上面提供的示範帳戶資訊。
    
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="flattening-and-transforming-json-documents"></a>簡維化和轉換 JSON 文件
 1. 切換至 [Power BI 查詢編輯器] 視窗，中央窗格內會顯示 [文件] 資料行。
    ![Power BI Desktop 查詢編輯器](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. 按一下位於 [文件]  資料行標頭右側的展開器。  此時會出現含有欄位清單的內容功能表。  選取您的報告所需的欄位，例如火山名稱、國家、區域、位置、高度、類型、狀態和已知的上次爆發時間，然後按一下確定。
+2. 按一下位於 [文件]  資料行標頭右側的展開器。  此時會出現含有欄位清單的內容功能表。  選取您的報告所需的欄位，例如火山名稱、國家、區域、位置、高度、類型、狀態和已知的上次爆發時間，然後按一下 [確定]。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 展開文件](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 3. 中央窗格會顯示所選欄位的結果預覽。
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. 為了將座標陣列簡維化，我們將建立名為 LatLong 的 [自訂資料行]  。  選取 [新增資料行] 功能區，然後按一下 [新增自訂資料行]。  此時應會出現 [新增自訂資料行]  視窗。
 8. 提供新資料行的名稱，例如 LatLong。
-9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [確定] 。
+9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [SERVICEPRINCIPAL] 。
    
     如需資料分析運算式 (DAX) (包括 DAX 函數) 的詳細資訊，請瀏覽 [Power BI Desktop 中的 DAX 基礎](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)。
    
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
 若要共用您的報告，您必須有 PowerBI.com 中的帳戶。
 
 1. 在 Power BI Desktop 中，按一下 [首頁]  功能區。
-2. 按一下 [發行] 。  系統會提示您輸入 PowerBI.com 帳戶的使用者名稱和密碼。
+2. 按一下 [發佈] 。  系統會提示您輸入 PowerBI.com 帳戶的使用者名稱和密碼。
 3. 認證經過驗證後，報告即會發佈至您選取的目的地。
 4. 按一下 [開啟 Power BI 中的 'PowerBITutorial.pbix']  在 PowerBI.com 上查看與共用您的報表。
    
@@ -224,5 +224,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Power BI，請參閱 [開始使用 Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)。
-* 若要深入了解 Cosmos DB，請參閱 [Azure Cosmos DB 文件登錄頁面 (英文)](https://azure.microsoft.com/documentation/services/documentdb/)。
+* 若要深入了解 Cosmos DB，請參閱 [Azure Cosmos DB 文件登錄頁面 (英文)](https://azure.microsoft.com/documentation/services/cosmos-db/)。
 

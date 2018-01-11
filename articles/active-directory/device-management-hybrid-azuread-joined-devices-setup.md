@@ -4,7 +4,7 @@ description: "了解如何設定混合式 Azure Active Directory 已加入的裝
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 12469573eb58d53a4f6a8632c23d716ef6716263
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -32,11 +32,12 @@ ms.lasthandoff: 11/14/2017
 
 開始在您的環境中設定混合式 Azure AD 已加入裝置之前，您應該先熟悉支援的案例和條件約束。  
 
+如果您依賴[系統準備工具 (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))，請確定您具有尚未尚未向 Azure AD 的 windows 安裝中建立映像。
+
 為了改善說明的可讀性，本主題使用下列詞彙︰ 
 
 - **現行 Windows 裝置** - 這個詞彙是指執行 Windows 10 或 Windows Server 2016 之已加入網域的裝置。
 - **舊版 Windows 裝置** - 這個詞彙是指並非執行 Windows 10 或 Windows Server 2016 之所有**支援的**已加入網域 Windows 裝置。  
-
 
 ### <a name="windows-current-devices"></a>現行 Windows 裝置
 
@@ -66,6 +67,15 @@ Azure AD Connect：
 - 保持內部部署 Active Directory (AD) 中的電腦帳戶和 Azure AD 中的裝置物件之間的關聯。 
 - 啟用其他裝置相關功能，例如 Windows Hello 企業版。
 
+請確定下列 Url 是可從您的組織網路的電腦登錄中的電腦存取 Azure AD:
+
+- https://enterpriseregistration.windows.net
+
+- https://login.microsoftonline.com
+
+- https://device.login.microsoftonline.com
+
+如果您的組織需要輸出 proxy 透過網際網路存取，必須實作 Web Proxy 自動探索 (WPAD) 啟用 Windows 10 電腦，以登錄至 Azure AD。
 
 
 ## <a name="configuration-steps"></a>組態步驟
@@ -548,7 +558,7 @@ Azure AD Connect：
 2. 移至您要啟用自動註冊現行 Windows 電腦的網域所對應的網域節點。
 3. 在 [群組原則物件] 上按一下滑鼠右鍵，然後選取 [新增]。
 4. 輸入群組原則物件的名稱。 例如，*混合式 Azure AD Join。 
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
 6. 以滑鼠右鍵按一下新的群組原則物件，然後選取 [編輯]。
 7. 移至 [電腦設定]  >  [原則]  >  [系統管理範本]  >  [Windows 元件]  >  [裝置註冊]。 
 8. 以滑鼠右鍵按一下 [將已加入網域的電腦註冊為裝置]，然後選取 [編輯]。
@@ -557,7 +567,7 @@ Azure AD Connect：
    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版的主控台，請移至 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`。 
 
 7. 選取 [已啟用]，然後按一下 [套用]。
-8. 按一下 [確定] 。
+8. 按一下 [SERVICEPRINCIPAL] 。
 9. 將群組原則物件連結到您選擇的位置。 例如，您可以將它連結到特定組織單位。 也可以將它連結到會自動加入 Azure AD 的特定電腦安全性群組。 若要為貴組織中所有已加入網域的 Windows 10 和 Windows Server 2016 電腦設定此原則，請將「群組原則」物件連結至網域。
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>非 Windows 10 電腦的 Windows Installer 套件

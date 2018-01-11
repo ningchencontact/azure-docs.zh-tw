@@ -4,15 +4,17 @@ description: "這個案例示範如何使用 Azure Machine Learning Workbench �
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
 
@@ -26,7 +28,7 @@ ms.lasthandoff: 12/05/2017
 ## <a name="use-case-overview"></a>使用案例概觀
 
 很多機器學習演算法都有一個或多個旋鈕 (Knob)，稱之為超參數。 這些旋鈕能夠微調演算法，使其對於未來資料的效能最佳化，而效能是根據使用者指定的計量 (例如精確度、AUC、RMSE) 來測量。 資料科學家必須在建立訓練資料的模型以及查看未來測試資料之前，提供超參數的值。 我們如何根據已知的訓練資料來設定超參數的值，讓模型對未知的測試資料有良好的效果？ 
-
+    
 微調超參數的常用技術為「結合交叉驗證的網格搜尋」。 交叉驗證技術可評估模型的效果，在訓練集上進行訓練，以及對測試集進行預測。 使用這項技術時，我們會先將資料集分成 K 個折，然後以循環配置資源的方式訓練演算法 K 次。 我們會對所有的折這樣做，但其中名為留出 (held-out) 的折除外。 我們可對對 K 個留出折計算 K 模型的計量平均值。 這個平均值 (名為「交叉驗證效能評估」) 取決於建立 K 模型時所用的超參數值。 微調超參數時，我們會搜尋候選超參數值的整個空間，尋找可最佳化交叉驗證效能估計值的值。 網格搜尋是一個常見的搜尋技術。 在網格搜尋中，多個超參數的候選值空間是個別超參數候選值集的交叉乘積。 
 
 使用交叉驗證的網格搜尋可能很費時。 如果演算法有五個超參數，每個超參數有五個候選值，我們會使用 K=5 個折。 然後我們會透過訓練 5<sup>6</sup>=15625 個模型，以完成網格搜尋。 幸運的是，使用交叉驗證的網格搜尋是窘迫平行程序，而這些模型全都可以平行訓練。
@@ -36,20 +38,22 @@ ms.lasthandoff: 12/05/2017
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 * 已安裝的 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](./quickstart-installation.md)安裝 Workbench 並建立帳戶。
 * 此案例假設您在 Windows 10 或 MacOS (已於本機安裝 Docker 引擎) 上執行 Azure ML Workbench。 
-* 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
-* 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 Azure HDInsight 叢集。 我們建議使用至少具備以下條件的叢集： 
-- 六個背景工作節點
-- 八個核心
-- 標頭和背景工作節點皆具備 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。 我們建議變更下列參數，來使叢集發揮最高效能。
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
+* 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 Azure HDInsight 叢集。   
+我們建議您至少需要的叢集：
+    - 六個背景工作節點
+    - 八個核心
+    - 標頭和背景工作節點皆具備 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。       
+    - 我們建議您變更將在叢集的效能最大化的下列參數：
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
-您可以遵循這些[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager)並編輯 [自訂 Spark 預設值] 區段中的定義。
+您可以遵循這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager)並編輯 [自訂 Spark 預設值] 區段中的定義。
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* 建立用來儲存資料集的 Azure 儲存體帳戶。 請遵循這些[指示](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)以建立儲存體帳戶。
+* 建立用來儲存資料集的 Azure 儲存體帳戶。 請遵循這些[指示](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)以建立儲存體帳戶。
 
 ## <a name="data-description"></a>資料說明
 

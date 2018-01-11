@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 etouches 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cd9e9d6aae924369065ca492b1f6380c0ddc5fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc111d6805af9e4f86ab91b6673a0d52dca78223
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>教學課程：Azure Active Directory 與 etouches 整合
 
@@ -48,13 +48,13 @@ etouches 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 etouches
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-etouches-from-the-gallery"></a>從資源庫新增 etouches
-若要設定將 etouches 整合到 Azure AD 中，您需要從資源庫將 etouches 新增到受管理的 SaaS 應用程式清單。
+若要設定將 etouches 整合到 Azure AD 中，您需要從資源庫將 etouches 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 etouches，請執行下列步驟：**
 
@@ -196,11 +196,11 @@ etouches 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-etouches-test-user"></a>建立 etouches 測試使用者
 
@@ -239,7 +239,7 @@ etouches 與 Azure AD 整合提供下列優點：
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在「存取面板」中按一下 etouches 圖格時，應該會自動登入您的 etouches 應用程式。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>逐步解說：使用串流分析從 Application Insights 匯出至 SQL
 本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Azure Application Insights][start] 移入 Azure SQL Database。 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 在此範例中，我們會使用頁面檢視的資料。 若要查看其他可用的資料，請檢查您的 JSON 輸出，並查看 [匯出資料模型](app-insights-export-data-model.md)。
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>建立 Azure 串流分析執行個體
-在 [傳統 Azure 入口網站](https://manage.windowsazure.com/)中，選取 Azure 串流分析服務，然後建立新的串流分析工作：
+從[Azure 入口網站](https://portal.azure.com/)、 選取 Azure Stream Analytics 服務，並建立新的資料流分析工作：
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-建立新工作後，請展開其詳細資料：
+建立新的工作時，選取**資源移**。
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>設定 Blob 位置
+#### <a name="add-a-new-input"></a>加入新的輸入
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 將此設定為從您的連續匯出 Blob 接收輸入：
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 現在您需要儲存體帳戶的主要存取金鑰 (您已在稍早記下此金鑰)。 請將此金鑰設為儲存體帳戶金鑰。
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>設定路徑前置詞模式
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-請務必將 [日期格式] 設定為 [YYYY-MM-DD] \(含「虛線」)。
+**請務必將 [日期格式] 設為 [YYYY-MM-DD] \(含連接號)。**
 
 [路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。 您需要將它設定為與連續匯出儲存資料的方式相對應。 請設定如下：
 
@@ -178,22 +178,12 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 若要取得 Application Insights 資源的名稱和 iKey，請在資源的概觀頁面中開啟 Essentials，或開啟 [設定]。
 
-#### <a name="finish-initial-setup"></a>完成初始設定
-確認序列化格式：
-
-![確認並關閉精靈](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-關閉精靈，並等候設定完成。
-
 > [!TIP]
 > 使用範例函數來檢查您是否已正確設定輸入路徑。 如果此方法失敗：請檢查儲存體中您所選擇的範例時間範圍的資料。 編輯輸入定義，並檢查您是否已正確設定儲存體帳戶、路徑前置詞和日期格式。
 > 
 > 
-
 ## <a name="set-query"></a>設定查詢
 開啟 [查詢] 區段：
-
-![在串流分析中選取 [查詢]](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 將預設查詢替換為以下內容：
 
@@ -238,22 +228,20 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## <a name="set-up-output-to-database"></a>設定資料庫的輸出
 選取 SQL 做為輸出。
 
-![在串流分析中選取 [輸出]](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![在串流分析中選取 [輸出]](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 指定 SQL Database。
 
-![填入資料庫的詳細資料](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![填入資料庫的詳細資料](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 關閉精靈，然後等待輸出設定完成的通知。
 
 ## <a name="start-processing"></a>開始處理
 從動作列啟動工作：
 
-![在串流分析中，按一下 [開始]](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![在串流分析中，按一下 [開始]](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 您可以選擇是否要處理從現在開始的資料，或是從較早的資料開始處理。 如果您的「連續匯出」已經執行了一段時間，則後者會是很好用的選項。
-
-![在串流分析中，按一下 [開始]](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 經過數分鐘後，即可返回 SQL Server 管理工具，觀看資料的流入。 例如，使用如下查詢：
 

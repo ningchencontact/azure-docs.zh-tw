@@ -1,86 +1,83 @@
 ---
-title: "什麼是 Azure 自動化 |Microsoft Docs"
-description: "了解 Azure 自動化提供的價值，並取得常見問題的解答，以便您可以開始建立及使用 Runbook 和 Azure Automation DSC。"
+title: "Azure 自動化概觀 | Microsoft Docs"
+description: "了解如何使用 Azure 自動化，將基礎結構和應用程式的生命週期自動化。"
 services: automation
+author: eamonoreilly
 documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "何謂自動化, azure 自動化, azure 自動化範例"
+keywords: "azure 自動化, DSC, powershell, Desired State Configuration, 更新管理, 變更追蹤, 清查, Runbook, python, 圖形"
 ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/13/2017
+ms.author: eamono
+ms.openlocfilehash: aab15392187a00aebf707f553a097961ce438194
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="azure-automation-overview"></a>Azure 自動化概觀
-Microsoft Azure 自動化可讓使用者將執行於雲端和企業環境中的手動、長時間執行、易發生錯誤且重複性高的工作自動化。 它可以節省時間並提高日常管理工作的可靠性，甚至將它們排程為定期自動執行。 您可以使用 Runbook 自動執行程序，或使用「期望狀態設定」自動進行組態管理。 本文提供 Azure 自動化的簡短概觀，並回答一些常見問題。 您可以參考此文件庫中的其他文件，以取得不同主題的詳細資訊。
+# <a name="an-introduction-to-azure-automation"></a>Azure 自動化簡介
 
-## <a name="automating-processes-with-runbooks"></a>使用 Runbook 自動執行程序
-Runbook 是可在 Azure 自動化中執行一些自動程序的一組工作。 它可能是簡單的程序 (例如啟動虛擬機器及建立記錄項目)，或您可能會有一個結合其他較小的 Runbook 的複雜 Runbook，用來對多個資源或甚至是多個雲端和內部部署環境執行複雜的程序。  
+Azure 自動化會提供以雲端為基礎的自動化和設定服務，在您的 Azure 和非 Azure 環境之間提供一致的管理。 它包含程序自動化、更新管理和設定功能。 Azure 自動化會在部署、作業和解除委任工作負載與資源期間，提供完整的控制權。
+本文提供 Azure 自動化的簡短概觀，並回答一些常見問題。 如需不同功能的詳細資訊，請瀏覽本概觀的所有連結。
 
-例如，當資料庫接近大小上限時，您可能有用來截斷 SQL Database 的現有手動程序，該程序包含多個步驟，例如連接到伺服器、連接到資料庫、取得目前的資料庫大小、檢查是否超過臨界值，然後進行截斷並通知使用者。 不需手動執行每個步驟，您可以建立會以單一程序的形式執行這所有工作的 Runbook。 您會啟動 Runbook、提供所需的資訊，例如 SQL 伺服器名稱、資料庫名稱和收件者電子郵件，然後在程序完成時在一旁休息。 
+## <a name="azure-automation-capabilities"></a>Azure 自動化功能
 
-## <a name="what-can-runbooks-automate"></a>Runbook 可以自動化什麼？
-Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell 工作流程為基礎，因此它們會執行 PowerShell 能做的一切功能。 如果應用程式或服務具有 API，則 Runbook 處理它。 如果您有應用程式適用的 PowerShell 模組，可以將該模組載入到 Azure 自動化，並且在 Runbook 中包含這些 Cmdlet。 Azure 自動化 Runbook 會在 Azure 雲端執行，而且可以存取任何雲端資源或可從雲端存取的外部資源。 使用 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)，Runbook 可以在您的本機資料中心中執行以管理本機資源。 
+![自動化概觀功能](media/automation-overview/automation-overview.png)
 
-## <a name="getting-runbooks-from-the-community"></a>從社群取得 Runbook
-[Runbook 資源庫](automation-runbook-gallery.md#runbooks-in-runbook-gallery) 包含來自 Microsoft 和社群的 Runbook，您可以在您的環境中原樣使用或根據您的用途加以自訂。 它們也可做為參考以了解如何建立您自己的 Runbook。 您甚至可以將您認為其他使用者可能覺得很有用的自己的 Runbook 貢獻到資源庫中。 
+### <a name="process-automation"></a>程序自動化
 
-## <a name="creating-runbooks-with-azure-automation"></a>利用 Azure 自動化建立 Runbook
-您可以從頭[建立您自己的 Runbook](automation-creating-importing-runbook.md) 或根據您的需求修改來自 [Runbook 資源庫](http://msdn.microsoft.com/library/azure/dn781422.aspx)的 Runbook。 有四個不同的 [Runbook 類型](automation-runbook-types.md)，您可以依據需求和 PowerShell 經驗自行選擇。 如果您想要直接使用 PowerShell 程式碼，則可以使用離線編輯的 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)，或是使用 Azure 入口網站中的[文字編輯器](http://msdn.microsoft.com/library/azure/dn879137.aspx)。 如果您想要編輯 Runbook 而不要看到基礎程式碼，則可以使用 Azure 入口網站中的[圖形化編輯器](automation-runbook-types.md#graphical-runbooks)建立[圖形化 Runbook](automation-graphical-authoring-intro.md)。 
+Azure 自動化能讓您將頻繁、費時且容易產生錯誤的雲端管理工作自動化。 這項自動化有助於您專注在可增加商務價值的工作。 減少錯誤並提高效率，也有助於降低營運成本。 您可以將 Azure 服務與部署、設定及管理您端對端程序所需的其他公用系統進行整合。 服務可讓您在 PowerShell 或 Python 中，以圖形方式[撰寫 Runbook](automation-runbook-types.md)。 您可以使用混合式 Runbook 背景工作角色，在內部部署環境之間協調，從而整合管理。 [Webhook](automation-webhooks.md) 提供的方法，能透過從 ITSM、DevOps 和監視系統觸發自動化來滿足要求，並確保持續傳遞和作業。
 
-寧可觀賞也不要閱讀？ 看看以下在 2015 年 5 月的 Microsoft Ignite 活動影片。 附註：雖然這個影片中討論的概念和功能是正確的，但自從這個影片錄製以來，Azure 自動化已經有很大的進展，現在它在 Azure 入口網站中具有更豐富的 UI，並支援其他的功能。
+### <a name="configuration-management"></a>設定管理
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
-> 
-> 
+Azure 自動化 [Desired State Configuration](automation-dsc-overview.md) 是適用於 PowerShell DSC 的以雲端為基礎架構解決方案，可提供企業環境所需的服務。 在 Azure 自動化中管理 DSC 資源，並從 Azure 雲端中的 DSC 提取伺服器將設定套用至虛擬或實體機器。 它會提供豐富的報告，可通知您重要的事件，例如當節點偏離其指派的組態時。 您可以在位於雲端或內部部署的 Windows 或 Linux 實體及虛擬機器上，監視及自動更新機器設定。
 
-## <a name="automating-configuration-management-with-desired-state-configuration"></a>使用「預期狀態設定」自動進行組態管理
-[PowerShell DSC](https://technet.microsoft.com/library/dn249912.aspx) 是一個管理平台，可讓您使用宣告式 PowerShell 語法來管理、部署及強制設定實體主機和虛擬機器。 您可以在中央 DSC 提取伺服器上定義組態，該伺服器是以可自動擷取和套用的電腦為目標。 DSC 提供一組 PowerShell Cmdlet，讓您用來管理組態和資源。  
+您可以取得有關客體資源的清查，看見已安裝的應用程式和其他設定項目。 豐富的報告和搜尋功能可用來快速找出詳細資訊，協助您了解作業系統內已設定的項目。 您可以跨服務、精靈、軟體、登錄和檔案追蹤變更，快速找出可能造成問題的項目。 此外，DSC 可在您環境中發生不必要的變更時，協助您進行診斷及發出警示。
 
-[Azure Automation DSC](automation-dsc-overview.md) 是針對 PowerShell DSC 的雲端架構解決方案，可提供企業環境所需的服務。  您可以在 Azure 自動化中管理 DSC 資源，並將組態套用至虛擬或實體機器，以便它們從 Azure 雲端中的 DSC 提取伺服器擷取組態。  它也提供報告服務，以通知您重要的事件，例如當節點偏離其指派的組態時以及已套用新的組態時。 
+### <a name="update-management"></a>更新管理
 
-## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>使用 Azure 自動化建立自己的 DSC 組態
-[DSC 組態](automation-dsc-overview.md) 可指定節點的預期狀態。  多個節點可以套用相同的組態，以確保它們全都維持相同的狀態。  您可以在本機電腦上使用任何文字編輯器來建立組態，然後將它匯入至 Azure 自動化加以編譯並套用至節點。
+使用 Azure 自動化跨混合式環境更新 Windows 和 Linux 系統。 您可以看見 Azure、內部部署和其他雲端之間的更新相容性。 您可以建立排程部署，在協調定義維護時間內的更新安裝。 如果電腦上不應該安裝更新，您可以從部署中排除這些更新。
 
-## <a name="getting-modules-and-configurations"></a>取得模組和組態
-您可以從 [PowerShell 資源庫](automation-runbook-gallery.md#modules-in-powershell-gallery)取得 [PowerShell 模組](http://www.powershellgallery.com/) (其中包含您可以在 Runbook 中使用的 Cmdlet) 和 DSC 設定。 您可以從 Azure 入口網站啟動這個資源庫，並且將模組直接匯入 Azure 自動化，或者您可以手動下載及匯入。 您無法直接從 Azure 入口網站安裝模組，但是您可以下載及安裝它們，就像任何其他模組一樣。 
+### <a name="shared-capabilities"></a>共用功能
 
-## <a name="example-practical-applications-of-azure-automation"></a>Azure 自動化的實際應用範例
-以下是一些使用 Azure 自動化之自動化案例種類的範例。 
+Azure 自動化包含一組共用資源，讓您能更輕鬆地自動化，並大量設定您的環境。
 
-* 在不同的 Azure 訂用帳戶中建立和複製虛擬機器。 
-* 本機電腦中的檔案複本排程到 Azure Blob 儲存體容器。 
-* 在偵測到阻斷服務攻擊時自動執行安全性功能，例如來自用戶端的拒絕要求。 
-* 確定機器持續依循設定的安全性原則。
-* 跨雲端和內部部署基礎結構來管理應用程式程式碼的連續部署。 
-* 在 Azure 中針對您的實驗室環境建置 Active Directory 樹系。 
-* 如果資料庫已接近大小上限，請截斷 SQL Database 中的資料表。 
-* 遠端更新 Azure 網站的環境設定。 
+* **[角色型存取控制](automation-role-based-access-control.md)** - 使用自動化操作員角色來控制帳戶的存取權，使工作在不提供撰寫功能的情況下執行。
+* **[變數](automation-variables.md)** - 提供一個方式來保存可在 Runbook 和設定之間使用的內容。 您不必修改任何參考它們的 Runbook 及設定就可以變更值。
+* **[認證](automation-credentials.md)** - 安全地儲存可供 Runbook 和設定在執行階段使用的機密資訊。
+* **[憑證](automation-certificates.md)** - 在執行階段儲存並提供使用，讓它們可以用於驗證及保護部署的資源。
+* **[連線](automation-connections.md)** - 儲存資訊的名稱 / 值組，當中包含在連線資源中連線到系統時的通用資訊。 連線是由模組建立者所定義，可在執行階段中用於 Runbook 和設定。
+* **[排程](automation-schedules.md)** - 用來在服務中於預先定義的時間觸發自動化。
+* **[與原始檔控制整合](automation-source-control-integration.md)** - 將設定升階為程式碼，Runbook 或設定可在其中簽入原始檔控制系統。
+* **[PowerShell 模組](automation-integration-modules.md)** - 模組可用來管理 Azure 和其他系統。 匯入適用於 Microsoft、第三方、社群或自訂定義 Cmdlet 和 DSC 資源的自動化帳戶中。
 
-## <a name="how-does-azure-automation-relate-to-other-automation-tools"></a>Azure 自動化與其他自動化工具如何產生關聯？
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) 旨在自動化私人雲端中的管理工作。 它會安裝在您的本機資料中心，做為 [Microsoft Azure 套件](https://www.microsoft.com/en-us/server-cloud/)的元件。 SMA 和 Azure 自動化使用以 Windows PowerShell 和 Windows PowerShell 工作流程為基礎的相同 Runbook 格式，但 SMA 不支援 [圖形化 Runbook](automation-graphical-authoring-intro.md)。  
+### <a name="windows-and-linux"></a>Windows 和 Linux
 
-[System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 旨在自動化內部部署資源。 它會使用與 Azure 自動化和服務管理自動化不同的 Runbook 格式，並具有圖形化介面，用來建立 Runbook，而不需要編寫任何指令碼。 其 Runbook 是由來自專門為 Orchestrator 編寫的整合套件的活動組成。 
+Azure 自動化旨在讓您可跨混合式雲端環境運作，並適用於 Windows 和 Linux。 它會提供一致的方式，將部署的工作負載和其所執行的作業系統進行自動化及設定。
 
-## <a name="where-can-i-get-more-information"></a>我可以在哪裡取得詳細資訊？
-您可利用各種資源，深入了解 Azure 自動化，並建立自己的 Runbook。 
+### <a name="community-gallery"></a>社群資源庫
 
-* **Azure 自動化程式庫** 是您目前的所在位置。 本文件庫中的文章提供完整的文件，說明如何設定和管理 Azure 自動化，以及撰寫自己的 Runbook。 
-* [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 提供使用 Windows PowerShell 自動執行 Azure 作業的資訊。 Runbook 會使用這些 Cmdlet 來處理 Azure 資源。 
-* [管理部落格](https://azure.microsoft.com/blog/tag/azure-automation/) 提供 Azure 自動化的最新資訊，以及 Microsoft 的其他管理技術。 您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。 
-* [自動化論壇](http://go.microsoft.com/fwlink/p/?LinkId=390561) 可讓您張貼有關要由 Microsoft 和自動化社群解決的 Azure 自動化問題。 
-* [Azure 自動化 Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx) 提供自動執行管理工作的資訊。 它包含各種 Cmdlet 來管理自動化帳戶、資產、Runbook、DSC。
+瀏覽 Runbook 和模組的[自動化資源庫](automation-runbook-gallery.md)，快速開始從 PowerShell 資源庫和 Microsoft 指令碼中心整合及撰寫您的程序。
 
-## <a name="can-i-provide-feedback"></a>可以提供意見嗎？
-**請不吝提供意見！** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。 如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)上。 感謝您！ 
+## <a name="common-scenarios-for-automation"></a>自動化的常見情節
 
+Azure 自動化可跨基礎結構和應用程式的生命週期進行管理。 將組織傳遞和維護工作負載方式的知識傳送到系統。 以常用語言 (例如 PowerShell)、Desired State Configuration、Python 和圖形化 Runbook 撰寫。 取得已部署資源的完整清查，以了解目標、報告與相容性。 識別可能造成設定不正確的變更，並且改善作業相容性。
+
+* **建置 / 部署資源** - 使用 Runbook 和 Azure Resource Manager 範本，跨混合式環境部署 VM。 整合至諸如 Jenkins 和 Visual Studio Team 服務等開發工具。
+* **設定 VM** - 使用基礎結構和應用程式的所需設定，評估及設定 Windows 和 Linux 電腦。
+* **監視** - 識別電腦上造成問題的變更，並加以修復或向管理系統呈報。
+* **保護** - 如果產生安全性警示，就隔離 VM。 設定客體需求。
+* **控管** - 設定小組的角色型存取控制。 復原未使用的資源。
+
+## <a name="pricing-for-automation"></a>自動化的定價
+
+您可以在 [[定價]](https://azure.microsoft.com/pricing/details/automation/) 頁面上檢閱 Azure 自動化的價格。
+
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [建立自動化帳戶](automation-quickstart-create-account.md)

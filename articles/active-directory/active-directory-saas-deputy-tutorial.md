@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Deputy 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 612a0d298eb1153bc8a64f0d7fbcb4dbd8752672
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>教學課程：Azure Active Directory 與 Deputy 整合
 
@@ -47,13 +47,13 @@ Deputy 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Deputy
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-deputy-from-the-gallery"></a>從資源庫新增 Deputy
-若要設定將 Deputy 整合到 Azure AD 中，您需要從資源庫將 Deputy 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Deputy 整合到 Azure AD 中，您需要從資源庫將 Deputy 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Deputy，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Deputy 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Deputy**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_search.png)
 
-5. 在結果窗格中，選取 Deputy，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Deputy]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_addfromgallery.png)
 
@@ -86,7 +86,7 @@ Deputy 與 Azure AD 整合提供下列優點：
 
 如要設定及測試搭配 Deputy 的 Azure AD 單一登入，您需要完成下列構成元素：
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 3. **[建立 Deputy 測試使用者](#creating-a-deputy-test-user)** - 在 Deputy 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
@@ -129,7 +129,7 @@ Deputy 與 Azure AD 整合提供下列優點：
     | `https://<subdomain>.<region>.ent-an.deputy.com` |
     | `https://<subdomain>.<region>.deputy.com` |
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
     | |
     |----|
     | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs.` |
@@ -182,7 +182,7 @@ Deputy 與 Azure AD 整合提供下列優點：
     
     a. 啟用**社交登入**。
    
-    b.這是另一個 C# 主控台應用程式。 在記事本中開啟您從 Azure 入口網站下載的 Base64 編碼憑證，將其內容複製到剪貼簿，然後貼到 [OpenSSL 憑證] 文字方塊。
+    b. 在記事本中開啟您從 Azure 入口網站下載的 Base64 編碼憑證，將其內容複製到剪貼簿，然後貼到 [OpenSSL 憑證] 文字方塊。
    
     c. 在 [SAML SSO URL] 文字方塊中，輸入︰`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
@@ -221,11 +221,11 @@ Deputy 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-deputy-test-user"></a>建立 Deputy 測試使用者
 
@@ -236,7 +236,7 @@ Deputy 與 Azure AD 整合提供下列優點：
 
 2. 在導覽窗格的頂端，按一下 [人員] 。
    
-   ![人員](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "人員")
+   ![People](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "People")
 
 3. 按一下 [新增人員] 按鈕，然後按一下 [新增一個人]。
    
@@ -248,7 +248,7 @@ Deputy 與 Azure AD 整合提供下列優點：
 
    a. 在 [名稱] 文字方塊中，輸入像是 **BrittaSimon** 的使用者全名。
    
-   b.這是另一個 C# 主控台應用程式。 在 [電子郵件] 文字方塊中，輸入您要佈建的 Azure AD 帳戶的電子郵件地址。
+   b. 在 [電子郵件] 文字方塊中，輸入您要佈建的 Azure AD 帳戶的電子郵件地址。
    
    c. 在 [公司] 文字方塊中，輸入企業名稱。
    

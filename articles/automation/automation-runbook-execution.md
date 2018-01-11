@@ -3,7 +3,7 @@ title: "Azure 自動化中的 Runbook 執行 | Microsoft Docs"
 description: "描述如何處理 Azure 自動化中的 Runbook 的詳細資料。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure 自動化中的 Runbook 執行
 當您在 Azure 自動化中啟動 Runbook 時即會建立一個工作。 工作是 Runbook 的單一執行個體。 會指派 Azure 自動化背景工作，以執行每項工作。 雖然背景工作是由多個 Azure 帳戶共用，來自不同自動化帳戶的工作會彼此隔離。 您無法控制哪個背景工作要為您的作業要求提供服務。 單一 Runbook 一次可以執行多個工作。  來自相同自動化帳戶的作業執行環境可重複使用。 當您在 Azure 入口網站中檢視 Runbook 清單時，它會列出已針對每個 Runbook 啟動之所有作業的狀態。 您可以檢視每一個 Runbook工作的清單，以追蹤每個 Runbook 的狀態。 如需不同作業狀態的說明，請參閱[作業狀態](#job-statuses)。
@@ -36,16 +36,16 @@ ms.lasthandoff: 11/15/2017
 ## <a name="job-statuses"></a>工作狀態
 下表描述工作可能會有不同的狀態。
 
-| Status | 說明 |
+| 狀態 | 說明 |
 |:--- |:--- |
 | Completed |工作已成功完成。 |
 | Failed |針對 [圖形化和 PowerShell 工作流程 Runbook](automation-runbook-types.md)，此 Runbook 無法編譯。  針對 [PowerShell 指令碼 Runbook](automation-runbook-types.md)，此 Runbook 無法啟動，或工作中發生例外狀況。 |
-| 處理失敗，正在等候資源 |工作失敗，因為其達到 [公平共用](#fairshare) 的三次上限，且每次從相同的檢查點或啟動 Runbook 開始。 |
+| 處理失敗，正在等候資源 |工作失敗，因為其達到 [公平共用](#fair-share) 的三次上限，且每次從相同的檢查點或啟動 Runbook 開始。 |
 | 已排入佇列 |工作正在等候取得自動化背景工作中的資源，以便可啟動。 |
 | 啟動中 |工作已指派給背景工作，並且系統正在進行啟動。 |
 | 繼續中 |工作暫停後，系統正在繼續工作。 |
 | 執行中 |工作正在執行。 |
-| 執行中，正在等候資源 |工作已卸載，因為已達到 [公平共用](#fairshare) 上限。 作業很快會從其上一個檢查點繼續。 |
+| 執行中，正在等候資源 |工作已卸載，因為已達到 [公平共用](#fair-share) 上限。 作業很快會從其上一個檢查點繼續。 |
 | 已停止 |工作完成之前已由使用者停止。 |
 | 停止中 |系統正在停止工作。 |
 | 暫止 |工作已由使用者、系統或 Runbook 中的命令暫停。 已暫停的作業可以再次啟動，並從其上一個檢查點，或從 Runbook 的開頭繼續 (若無檢查點)。 只有在發生例外狀況時，系統才會暫停 Runbook。 根據預設，ErrorActionPreference 會設定為 [繼續]，代表作業會在發生錯誤時繼續執行。 如果此喜好設定變數設定為 [停止]，作業會在發生錯誤時暫停。  只適用於 [圖形化和 PowerShell 工作流程 Runbook](automation-runbook-types.md) 。 |

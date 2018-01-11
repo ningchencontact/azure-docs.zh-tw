@@ -4,7 +4,7 @@ description: "這是可協助使用者開始使用 Azure Multi-Factor Authentica
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 498dcea10b35fb8c11f848496ca403ac3e026e93
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: fd8c92e575071b5b3647d51ba79603a2174dcd3f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication 對我有何意義？
 您從某個 IT 人員或老闆取得一封電子郵件，他們表示已對您的帳戶新增其他安全性驗證。  因此這代表什麼？
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/15/2017
 ## <a name="how-to-get-going-with-two-step-verification"></a>如何使用雙步驟驗證
 選取以下其中一個主題以便開始。
 
-| 主題 | 說明 |
+| 話題 | 說明 |
 |:--- |:--- |
 | [設定體驗](multi-factor-authentication-end-user-first-time.md) |描述第一次設定 Multi-Factor Authentication 的程序。 |
 | [登入體驗](multi-factor-authentication-end-user-signin.md) |顯示使用各種方法 (例如電話或應用程式) 登入時所能預期的情況。 |

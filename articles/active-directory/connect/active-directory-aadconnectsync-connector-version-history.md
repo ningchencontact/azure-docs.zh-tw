@@ -4,7 +4,7 @@ description: "本主題列出所有適用於 Forefront Identity Manager (FIM) �
 services: active-directory
 documentationcenter: 
 author: fimguy
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/04/2017
 
 * Lotus Notes：
   * 篩選自訂認證者選項
-  * 在 ImportOperations 類別的匯入中，修正了哪些作業可以在「檢視」模式下執行及哪些作業可以在「搜尋」模式下執行的定義。
+  * 匯入類別 ImportOperations 修正哪些作業可以在 '搜尋 5d; 模式中執行 '的檢視 」 模式和它的定義。
 * 一般 LDAP：
   * 「OpenLDAP 目錄」會使用 DN 作為錨點，而不是使用 entryUUI。 GLDAP 連接器的新選項可允許修改錨點
 * 一般 SQL：
@@ -122,8 +122,8 @@ Lotus：
 ### <a name="enhancements"></a>增強功能
 
 * 一般 SQL：</br>
-  **案例徵兆︰**SQL 連接器的已知限制，一個物件類型只允許一個參考，且成員需要交互參考。 </br>
-  **解決方案說明︰**在已選擇 "*" 選項之參考的處理步驟中，物件類型的所有組合會傳回給同步處理引擎。
+  **案例徵兆：**它是 SQL Connector 我們僅允許一個物件類型的參考，需要與成員的交叉參考的已知限制。 </br>
+  **方案的描述：**在參考的處理步驟是"*"選擇選項，則所有組合的物件類型將會都傳回回同步處理引擎。
 
 >[!Important]
 - 這會造成許多預留位置
@@ -131,7 +131,7 @@ Lotus：
 
 
 * 一般 LDAP：</br>
- **案例︰**只選取了特定資料分割中的幾個容器時，仍會對整個資料分割執行搜尋。 詳細資料會依同步處理服務來進行篩選，而不是依可能會造成效能降低的 MA。 </br>
+ **案例：**只有幾個容器會選取特定的資料分割中，然後搜尋仍會執行整個分割區中。 詳細資料會依同步處理服務來進行篩選，而不是依可能會造成效能降低的 MA。 </br>
 
  **解決方案說明︰**變更了 GLDAP 連接器的程式碼，使其可以瀏覽過所有容器，並搜尋各容器中的物件，而非在整個資料分割中搜尋。
 
@@ -139,7 +139,7 @@ Lotus：
 * Lotus Domino：
 
   **案例︰**在匯出期間移除人員時支援刪除 Domino 郵件。 </br>
-  **解決方案︰**可設定在匯出期間移除人員時刪除 Domino 郵件的支援。
+  **解決方案：**可設定的郵件刪除支援人員會從在匯出期間移除。
 
 ### <a name="fixed-issues"></a>已修正的問題：
 * 一般 Web 服務︰

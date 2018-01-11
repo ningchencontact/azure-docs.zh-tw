@@ -5,7 +5,7 @@ keywords: "虛擬機器擴展集"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>轉換擴展集範本至受控磁碟擴展集範本
 
-使用 Resource Manager 範本來建立不使用受控磁碟之擴展集的客戶可能希望修改它以使用受控磁碟。 此文章說明如何使用來自 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates) (提供範例 Resource Manager 範本的社群導向存放庫) 的提取要求範例執行此動作。 您可以在 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) 找到完整提取要求，並在下面找到主要差異部分以及說明：
+使用 Resource Manager 範本來建立不使用受控磁碟之擴展集的客戶可能希望修改它以使用受控磁碟。 本文示範如何使用受管理的磁碟，做為範例使用提取要求從[Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates)，範例資源管理員範本的社群導向的儲存機制。 您可以在 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) 找到完整提取要求，並在下面找到主要差異部分以及說明：
 
 ## <a name="making-the-os-disks-managed"></a>將 OS 磁碟設定為受控磁碟
 
-在下面的差異中，我們可以看到我們已移除數個與儲存體帳戶相關的變數和磁碟屬性。 儲存體帳戶類型已不再是必要項目 (Standard_LRS 是預設值)，但我們仍然可以視需要指定。 針對受控磁碟，只支援 Standard_LRS 與 Premium_LRS。 我們在舊範本中使用新的儲存體帳戶尾碼、唯一字串陣列與 SA 計數來產生儲存體帳戶名稱。 這些變數在新範本中已不再是必要項目，因為受控磁碟會代表客戶自動建立儲存體帳戶。 同樣地，VHD 容器名稱與 OS 磁碟名稱已不再是必要項目，因為受控磁碟會自動命名底層儲存體 Blob 容器與磁碟。
+在下列的差異，會移除儲存體帳戶和磁碟的屬性與相關的數個變數。 儲存體帳戶類型也不再需要 （Standard_LRS 是預設值），但您可以視需要指定它。 針對受控磁碟，只支援 Standard_LRS 與 Premium_LRS。 我們在舊範本中使用新的儲存體帳戶尾碼、唯一字串陣列與 SA 計數來產生儲存體帳戶名稱。 這些變數在新範本中已不再是必要項目，因為受控磁碟會代表客戶自動建立儲存體帳戶。 同樣地，vhd 容器名稱和作業系統磁碟名稱就不再需要因為受管理的磁碟會自動命名的基礎儲存體 blob 容器和磁碟。
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 
-在下面的差異中，我們可以看到我們已將計算 API 版本更新為 2016-04-30-preview，這是針對具有擴展集之受控磁碟支援的最低版本。 請注意，我們仍然可以視需要在新 API 版本中搭配舊語法使用受控磁碟。 換句話說，若我們只更新計算 API 版本但未變更任何其他項目，範本應該可繼續如往常一樣運作。
+在下列的差異，您可以計算 API 已更新為版本 2016年-04-30-預覽，這是最早的小數位數設定的受管理的磁碟支援必要的版本。 如有需要，您可以使用未受管理的磁碟在新的應用程式開發介面版本與舊語法。 如果您只更新計算應用程式開發介面版本，而且不會變更任何其他項目，範本應該繼續如常運作。
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
    },
 ```
 
-在下面的差異中，我們可以看到我們正在將儲存體帳戶資源完全從資源陣列移除。 我們已不再需要它們，因為受控磁碟會代表我們自動建立它們。
+下列差異，在儲存體帳戶資源是從資源陣列完全移除。 不再需要資源，因為受管理的磁碟會自動建立它們。
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
        "location": "[resourceGroup().location]",
 ```
 
-在下面的差異中，我們可以看到我們正在將從擴展集參考的「相依於」子句移至建立儲存體帳戶的迴圈。 在舊範本中，這可以確保會在開始建立擴展集之前先建立儲存體帳戶，但搭配受控磁碟使用時，此子句已非必要。 我們也已經移除 VHD 容器屬性與 OS 磁碟名稱屬性，因為這些屬性會自動由受控磁碟處理。 如果需要，我們可以在 "osDisk" 設定中新增 `"managedDisk": { "storageAccountType": "Premium_LRS" }`，以建立進階 OS 磁碟。 只有 VM SKU 中具有大寫或小寫 's' 的 VM 可以使用進階磁碟。
+在下列的差異，我們可以看到我們會移除 on 子句中參照小數位數設定為已建立儲存體帳戶的迴圈，而定。 在舊範本中，這可以確保會在開始建立擴展集之前先建立儲存體帳戶，但搭配受控磁碟使用時，此子句已非必要。 Vhd 容器屬性也會移除，以及 OS 磁碟名稱屬性，因為這些屬性會自動由實際上受管理的磁碟。 您可以加入`"managedDisk": { "storageAccountType": "Premium_LRS" }`"osDisk 」 組態，如果您想高階 OS 磁碟中。 只有 VM SKU 中具有大寫或小寫 's' 的 VM 可以使用進階磁碟。
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -137,7 +137,7 @@ ms.lasthandoff: 10/11/2017
 ]
 ```
 
-若在此陣列中指定 `n` 磁碟，擴展集中的每個 VM 都會取得 `n` 資料磁碟。 但是請注意，這些資料磁碟是未經處理的裝置。 它們並未格式化。 客戶可以決定是否要在使用這些磁碟之前先連結、分割或格式化它們。 或者，我們也可以在每個資料磁碟物件中指定 `"managedDisk": { "storageAccountType": "Premium_LRS" }`，以指定它應該是進階資料磁碟。 只有 VM SKU 中具有大寫或小寫 's' 的 VM 可以使用進階磁碟。
+若在此陣列中指定 `n` 磁碟，擴展集中的每個 VM 都會取得 `n` 資料磁碟。 但是請注意，這些資料磁碟是未經處理的裝置。 它們並未格式化。 這是由客戶連結、 分割並格式化磁碟，然後才使用。 （選擇性） 您也可以指定`"managedDisk": { "storageAccountType": "Premium_LRS" }`中指定它應該是高階資料磁碟的每個資料磁碟物件。 只有 VM SKU 中具有大寫或小寫 's' 的 VM 可以使用進階磁碟。
 
 若要深入了解如何搭配擴展集使用資料磁碟，請參閱[此文章](./virtual-machine-scale-sets-attached-disks.md)。
 

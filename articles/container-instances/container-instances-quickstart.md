@@ -6,25 +6,25 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bf511f60a431a110f43d26444dedb7728b040af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
 Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容器，不需要佈建虛擬機器或採用高階服務即可完成。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 只需要一個命令就能完成這項作業。 只在幾秒內，您就能在瀏覽器中看到下列結果：
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-app-browser]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [[免費帳戶]][azure-account]。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成此快速入門。 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成此快速入門。 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -40,16 +40,16 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>建立容器
 
-您可以向 [az container create][az-container-create] 命令提供名稱、Docker 映像和 Azure 資源群組來建立容器。 您可以選擇使用公用 IP 位址向網際網路公開容器。 在本快速入門中，您會部署一個裝載以 [Node.js](http://nodejs.org)撰寫之小型 Web 應用程式的容器。
+您可以向 [az container create][az-container-create] 命令提供名稱、Docker 映像和 Azure 資源群組來建立容器。 您可以選擇使用公用 IP 位址向網際網路公開容器。 在本快速入門中，您會部署一個裝載以 [Node.js][node-js] 撰寫之小型 Web 應用程式的容器。
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
 ```
 
 在幾秒內，您就能取得要求的回應。 一開始，容器會處於**建立中**狀態，但應該會在幾秒鐘內啟動。 您可以使用 [az container show][az-container-show] 命令來檢查狀態：
 
 ```azurecli-interactive
-az container show --name mycontainer --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
 在輸出的底部，您會看到容器的佈建狀態和其 IP 位址：
@@ -79,7 +79,7 @@ az container show --name mycontainer --resource-group myResourceGroup
 您可以使用 [az container logs][az-container-logs] 命令來提取您所建立之容器的記錄：
 
 ```azurecli-interactive
-az container logs --name mycontainer --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
 輸出：
@@ -95,13 +95,13 @@ listening on port 80
 當容器使用完畢後，您可以使用 [az container delete][az-container-delete] 命令來移除容器：
 
 ```azurecli-interactive
-az container delete --name mycontainer --resource-group myResourceGroup
+az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
 若要確認否已將容器刪除，請執行 [az container list](/cli/azure/container#az_container_list) 命令：
 
 ```azurecli-interactive
-az container list --resource-group myResourceGroup -o table
+az container list --resource-group myResourceGroup --output table
 ```
 
 **mycontainer** 不應該出現在命令的輸出中。 如果您的資源群組中沒有任何其他容器，則不會顯示任何輸出。
@@ -115,17 +115,21 @@ az container list --resource-group myResourceGroup -o table
 
 若要試用在 Azure 上的協調流程系統中執行容器的選項，請參閱 [Service Fabric][service-fabric] 或 [Azure Container Service (ACS)][container-service] 快速入門。
 
-<!-- LINKS -->
+<!-- IMAGES -->
+[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[node-js]: http://nodejs.org
+
+<!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
 [az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-
-
-<!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

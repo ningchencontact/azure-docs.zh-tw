@@ -4,7 +4,7 @@ description: "Azure AD v2.0 端點所發出之權杖和宣告的類型"
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 權杖參考
 Azure Active Directory (Azure AD) v2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)中發出數種安全性權杖。 本參考文件說明每種權杖的格式、安全性特性及內容。
@@ -61,12 +61,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 簽發時間 |`iat` |`1452285331` |簽發權杖的時間 (以新紀元 (Epoch) 時間表示)。 |
 | 到期時間 |`exp` |`1452289231` |權杖失效的時間 (以新紀元 (Epoch) 時間表示)。 您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
 | 生效時間 |`nbf` |`1452285331` |權杖生效的時間 (以新紀元 (Epoch) 時間表示)。 這通常與簽發時間相同。 您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
-| 版本 |`ver` |`2.0` |Azure AD 所定義的識別碼權杖版本。 就 v2.0 端點而言，值會是 `2.0`。 |
+| version |`ver` |`2.0` |Azure AD 所定義的識別碼權杖版本。 就 v2.0 端點而言，值會是 `2.0`。 |
 | 租用戶識別碼 |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |代表使用者是來自哪個 Azure AD 租用戶的 GUID。 就工作和學校帳戶而言，GUID 是使用者所屬組織的不可變租用戶識別碼。 就個人帳戶而言，此值會是 `9188040d-6c67-4c5b-b112-36a304b66dad`。 需要 `profile` 範圍才能接收此宣告。 |
 | 代碼雜湊 |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |只有當識別碼權杖是隨著 OAuth 2.0 授權碼一起簽發時，代碼雜湊才會包含在識別碼權杖中。 它可用來驗證授權碼的真實性。 如需有關執行此驗證的詳細資料，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)。 |
 | 存取權杖雜湊 |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |只有當識別碼權杖是隨著 OAuth 2.0 存取權杖一起簽發時，存取權杖雜湊才會包含在識別碼權杖中。 它可用來驗證存取權杖的真實性。 如需有關執行此驗證的詳細資料，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)。 |
 | nonce |`nonce` |`12345` |Nonce 是緩和權杖重新執行攻擊的策略。 您的應用程式可以使用 `nonce` 查詢參數，在授權要求中指定 Nonce。 您在要求中提供的值會不經修改在識別碼權杖的 `nonce` 宣告中發出。 您的應用程式可根據它在要求上指定的值來驗證此值，使應用程式的工作階段與特定的識別碼權杖產生關聯。 您的應用程式應在 ID 權杖驗證程序中執行這項驗證。 |
-| 名稱 |`name` |`Babe Ruth` |名稱宣告會提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一值，它是可變動的，並且在設計上僅用於顯示。 需要 `profile` 範圍才能接收此宣告。 |
+| name |`name` |`Babe Ruth` |名稱宣告會提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一值，它是可變動的，並且在設計上僅用於顯示。 需要 `profile` 範圍才能接收此宣告。 |
 | 電子郵件 |`email` |`thegreatbambino@nyy.onmicrosoft.com` |與使用者帳戶相關聯的主要電子郵件地址 (如果有的話)。 其值是可變動的，並且可能隨著時間改變。 需要 `email` 範圍才能接收此宣告。 |
 | 慣用的使用者名稱 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |代表 v2.0 端點中使用者的主要使用者名稱。 它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。 其值是可變動的，並且可能隨著時間改變。 因為此值會變動，請勿用在授權決策。 需要 `profile` 範圍才能接收此宣告。 |
 | 主旨 |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查 (例如當權杖用於存取資源時)，並可做為資料庫資料表中的索引鍵。 由於主體一律是存在於 Azure AD 所簽發的權杖中，因此建議您在一般用途的授權系統中使用此值。 不過，主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。  因此，如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式會收到兩個不同的主體宣告值。  視您的架構和隱私權需求而定，這不一定是您想要的。 |
@@ -99,7 +99,7 @@ Microsoft 提供示範如何輕鬆處理權杖驗證的程式庫和程式碼範�
 ### <a name="validate-the-signature"></a>驗證簽章
 JWT 包含三個區段 (以 `.` 字元分隔)。 第一個區段稱為「標頭」、第二個區段稱為「主體」，而第三個區段則稱為「簽章」。 簽章區段可用來驗證 ID 權杖的真實性，以便獲得應用程式的信任。
 
-ID 權杖是經由業界標準非對稱式加密演算法 (例如 RSA 256) 進行簽署。 識別碼權杖的標頭包含用來簽署權杖之金鑰和加密方法的相關資訊。 例如：
+ID 權杖是經由業界標準非對稱式加密演算法 (例如 RSA 256) 進行簽署。 識別碼權杖的標頭包含用來簽署權杖之金鑰和加密方法的相關資訊。 例如︰
 
 ```
 {
@@ -143,7 +143,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ## <a name="token-lifetimes"></a>權杖存留期
 以下提供的權杖存留期僅供您參考。 當您對應用程式進行開發和偵錯時，此資訊或許可協助您。 撰寫應用程式時，請勿將其撰寫成預期任何這些存留期會保持不變。 權杖存留期可以而且將會隨時變更。
 
-| 權杖 | 存留期 | 說明 |
+| token | 存留期 | 說明 |
 | --- | --- | --- |
 | 識別碼權杖 (工作或學校帳戶) |1 小時 |識別碼權杖的有效期通常為 1 小時。 您的 Web 應用程式可以使用此相同的存留期來維護自己與使用者的工作階段 (建議)，或者您也可以選擇一個完全不同的工作階段存留期。 如果您的應用程式需要取得新的識別碼權杖，它就需要對 v2.0 授權端點提出新的登入要求。 如果使用者有 v2.0 端點的有效瀏覽器工作階段，則可能不需要再次輸入其認證。 |
 | 識別碼權杖 (個人帳戶) |24 小時 |個人帳戶的識別碼權杖有效期通常為 24 小時。 您的 Web 應用程式可以使用此相同的存留期來維護自己與使用者的工作階段 (建議)，或者您也可以選擇一個完全不同的工作階段存留期。 如果您的應用程式需要取得新的識別碼權杖，它就需要對 v2.0 授權端點提出新的登入要求。 如果使用者有 v2.0 端點的有效瀏覽器工作階段，則可能不需要再次輸入其認證。 |

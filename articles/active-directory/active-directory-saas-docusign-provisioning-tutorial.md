@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 DocuSign 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>教學課程：設定 DocuSign 的使用者佈建
 
@@ -73,7 +73,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
    
     a. 在 [管理員使用者名稱] 文字方塊中，輸入在 DocuSign.com 已指派 **System Administrator** 設定檔的 DocuSign 帳戶名稱。
    
-    b.這是另一個 C# 主控台應用程式。 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
+    b. 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
 
 6. 在 Azure 入口網站中，按一下 [測試連線]以確保 Azure AD 可以連線到您的 DocuSign 應用程式。
 

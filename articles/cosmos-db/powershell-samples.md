@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 Azure PowerShell 範例
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 下表包含適用於 Azure Cosmos DB 之範例 Azure PowerShell 指令碼的連結。 目前您只能透過 PowerShell 管理 Azure Cosmos DB 帳戶層；無法透過 PowerShell 管理諸如資料庫和集合等其他資源。
 
 | |  |
 |---|---|
 |**建立 Azure Cosmos DB 帳戶**||
-|[建立 DocumentDB API 帳戶](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶以搭配 DocumentDB API 使用。 |
+|[建立 SQL API 帳戶](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶以搭配 SQL API。 |
 |**調整 Azure Cosmos DB**||
 |[複寫多個區域中的 Azure Cosmos DB 帳戶和設定容錯移轉優先順序](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|使用指定的容錯移轉優先順序，將帳戶資料複寫到全球多個區域中。|
 |**保護 Azure Cosmos DB**||

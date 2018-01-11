@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Zscaler ZSCloud 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 2b6eb113e5725260bc04f50e9218939bf28b1ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 44fa15a3057975617116a10f044ddba2298feba2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>教學課程：Azure Active Directory 與 Zscaler ZSCloud 整合
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Zscaler ZSCloud
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>從資源庫新增 Zscaler ZSCloud
-若要設定將 Zscaler ZSCloud 整合到 Azure AD 中，您需要從資源庫將 Zscaler ZSCloud 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Zscaler ZSCloud 整合到 Azure AD 中，您需要從資源庫將 Zscaler ZSCloud 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Zscaler ZSCloud，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ ms.lasthandoff: 10/11/2017
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，鍵入 **Zscaler ZSCloud**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_search.png)
 
-5. 在結果窗格中，選取 Zscaler ZSCloud，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Zscaler ZSCloud]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
 
@@ -144,15 +144,15 @@ ms.lasthandoff: 10/11/2017
    
     a. 選取 [使用 SAML 單一登入進行驗證] 。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [設定 SAML 單一登入參數] 。
+    b. 按一下 [設定 SAML 單一登入參數] 。
 
-11. 在 設定 SAML 單一登入參數 對話方塊頁面上，執行下列步驟，然後按一下完成
+11. 在 [設定 SAML 單一登入參數] 對話方塊頁面上，執行下列步驟，然後按一下 [完成]
 
     ![單一登入](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800209.png "單一登入")
     
     a. 將 [SAML Single Sign-On Service URL] \(SAML 單一登入服務 URL) 值貼到 [URL of the SAML Portal to which users are sent for authentication] \(傳送用於驗證之使用者的 SAML 入口網站 URL) 文字方塊。
     
-    b.這是另一個 C# 主控台應用程式。 在 [包含登入名稱的屬性] 文字方塊中，輸入 **NameID**。
+    b. 在 [包含登入名稱的屬性] 文字方塊中，輸入 **NameID**。
     
     c. 若要上傳您下載的憑證，請按一下 Zscaler pem 。
     
@@ -162,9 +162,9 @@ ms.lasthandoff: 10/11/2017
 
     ![管理](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800210.png "管理")
     
-    a. 按一下 [儲存] 。
+    a. 按一下 [檔案] 。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [立即啟用] 。
+    b. 按一下 [立即啟用] 。
 
 ## <a name="configuring-proxy-settings"></a>進行 Proxy 設定
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>在 Internet Explorer 中進行 Proxy 設定
@@ -187,7 +187,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 選取 [在您的區域網路使用 Proxy 伺服器]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [位址] 文字方塊中輸入 **gateway.zscalerone.net**。
+    b. 在 [位址] 文字方塊中輸入 **gateway.zscalerone.net**。
 
     c. 在 [連接埠] 文字方塊中輸入 **80**。
 
@@ -222,11 +222,11 @@ ms.lasthandoff: 10/11/2017
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
 
 ### <a name="creating-a-zscaler-zscloud-test-user"></a>建立 Zscaler ZSCloud 測試使用者
 
@@ -255,7 +255,7 @@ ZScaler ZSCloud 需以手動的方式佈建。
    
     a. 輸入 [使用者識別碼]、[使用者顯示名稱]、[密碼]、[確認密碼]，然後選取您要佈建之有效 AAD 帳戶的 [群組] 和 [部門]。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [儲存] 。
+    b. 按一下 [檔案] 。
 
 > [!NOTE]
 > 您可以使用任何其他的 ZScaler ZSCloud 使用者帳戶建立工具或 ZScaler ZSCloud 提供的 API 來佈建 AAD 使用者帳戶。

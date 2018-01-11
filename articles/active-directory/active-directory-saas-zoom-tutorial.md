@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: b8d902b9170fee47afb038df739bbca6d2d025e0
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
-ms.translationtype: HT
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>教學課程：Azure Active Directory 與 Zoom 整合
 
@@ -48,13 +48,13 @@ Zoom 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Zoom
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-zoom-from-the-gallery"></a>從資源庫新增 Zoom
-若要設定將 Zoom 整合到 Azure AD 中，您需要從資源庫將 Zoom 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Zoom 整合到 Azure AD 中，您需要從資源庫將 Zoom 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Zoom，請執行下列步驟：**
 
@@ -113,29 +113,57 @@ Zoom 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc)以取得這些值。
+
+4. 縮放應用程式預期的 SAML 判斷提示，以特定格式，會要求您新增自訂屬性對應到 SAML token 屬性組態。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 
+
+    ![設定單一登入](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+    
+    | 屬性名稱 | 屬性值 | 命名空間值 |
+    | ------------------- | -----------|--------- |    
+    | 電子郵件地址 | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | 名字 | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | 姓氏 | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | 電話號碼 | user.telephonenumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | department | user.department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
+
+    ![設定單一登入](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![設定單一登入](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+
+    c. 在 [值] 清單中，選取該列所顯示的值。
+
+    d. 在**命名空間**文字方塊中，輸入該列顯示的命名空間值。
+    
+    e. 按一下 [確定] 。 
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+6. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
-    ![憑證下載連結](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![憑證下載連結](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. 按一下 [儲存]  按鈕。
+7. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. 在 [Zoom 組態] 區段上，按一下 [設定 Zoom] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+8. 在 [Zoom 組態] 區段上，按一下 [設定 Zoom] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
-    ![Zoom 組態](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Zoom 組態](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Zoom 公司網站。
+9. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Zoom 公司網站。
 
-8. 按一下 [單一登入]  索引標籤。
+10. 按一下 [單一登入]  索引標籤。
    
     ![[單一登入] 索引標籤](./media/active-directory-saas-zoom-tutorial/IC784700.png "單一登入")
 
-9. 按一下 [安全性控制] 索引標籤，然後移至 [單一登入] 設定。
+11. 按一下 [安全性控制] 索引標籤，然後移至 [單一登入] 設定。
 
-10. 在 [單一登入] 區段中，執行下列步驟：
+12. 在 [單一登入] 區段中，執行下列步驟：
    
     ![[單一登入] 區段](./media/active-directory-saas-zoom-tutorial/IC784701.png "單一登入")
    
@@ -147,7 +175,10 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     d. 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。 
 
-    e. 按一下 [儲存] 。
+    e. 按一下 [檔案] 。
+
+    > [!NOTE] 
+    > 如需詳細資訊，請瀏覽縮放文件[https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -183,7 +214,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-zoom-test-user"></a>建立 Zoom 測試使用者
 
@@ -244,7 +275,7 @@ Zoom 與 Azure AD 整合提供下列優點：
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。
+本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在存取面板中按一下 [Zoom] 圖格時，應該會自動登入您的 Zoom 應用程式。
 

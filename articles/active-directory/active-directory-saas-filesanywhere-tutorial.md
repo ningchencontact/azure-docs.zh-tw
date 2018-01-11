@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 FilesAnywhere 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ca017dbfe35d291083c66f41868fd425e74a602
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>教學課程：Azure Active Directory 與 FilesAnywhere 整合
 
@@ -50,14 +50,14 @@ FilesAnywhere 與 Azure AD 整合提供下列優點：
 
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 FilesAnywhere
 2. 設定並測試 Azure AD 單一登入
 
 
 ## <a name="adding-filesanywhere-from-the-gallery"></a>從資源庫新增 FilesAnywhere
-若要設定 FilesAnywhere 與 Azure AD 整合，您需要從資源庫將 FilesAnywhere 新增到受管理的 SaaS 應用程式清單中。
+若要設定 FilesAnywhere 與 Azure AD 整合，您需要從資源庫將 FilesAnywhere 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 FilesAnywhere，請執行下列步驟：**
 
@@ -67,17 +67,17 @@ FilesAnywhere 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 按一下對話方塊頂端的 [新增] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **FilesAnywhere**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_search.png)
 
-5. 在結果窗格中，選取 FilesAnywhere，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [FilesAnywhere]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_addfromgallery.png)
 
@@ -198,11 +198,11 @@ FilesAnywhere 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。 
+    d. 按一下頁面底部的 [新增] 。 
 
 
 

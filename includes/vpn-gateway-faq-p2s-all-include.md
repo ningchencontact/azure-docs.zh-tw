@@ -35,11 +35,11 @@ Azure 支援兩種點對站 VPN 選項：
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>對於相同的虛擬網路，網站間和點對站台組態是否可以同時存在？
 
-是。 如果是 Resource Manager 部署模型，您的閘道必須是路由式 VPN 類型。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或原則式 VPN 閘道不支援點對站。
+可以。 如果是 Resource Manager 部署模型，您的閘道必須是路由式 VPN 類型。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或原則式 VPN 閘道不支援點對站。
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>是否可以將點對站台用戶端設定為同時連接到多個虛擬網路？
 
-否。 點對站用戶端只能連線到虛擬網路閘道所在的 VNet 中的資源。
+編號 點對站用戶端只能連線到虛擬網路閘道所在的 VNet 中的資源。
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>透過網站間或點對站台連線可以獲得多少輸送量？
 
@@ -47,7 +47,7 @@ Azure 支援兩種點對站 VPN 選項：
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>是否可以對支援 SSTP 和 (或) IKEv2 的點對站使用任何軟體 VPN 用戶端？
 
-否。 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 請參閱支援的用戶端作業系統清單。
+編號 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 請參閱支援的用戶端作業系統清單。
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
 
@@ -59,6 +59,6 @@ Azure 支援兩種點對站 VPN 選項：
 
 Azure 只支援 Windows 和 Mac 使用 P2S VPN。
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>我已經部署 Azure VPN 閘道。 可以在其上啟用 RADIUS 和 (或) IKEv2 VPN 嗎？
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>我已經部署 Azure VPN 閘道。 可以在其上啟用 RADIUS 及/或 IKEv2 VPN？
 
-是，您可以透過 Powershell 和 Azure 入口網站，在已部署的閘道上啟用這些新功能。
+是，您可以啟用這些新功能，在已部署的閘道使用 Powershell 或 Azure 入口網站上的閘道使用的 SKU 支援 RADIUS，及/或 IKEv2。 例如，VPN 閘道 Basic SKU 不支援 RADIUS 或 IKEv2。

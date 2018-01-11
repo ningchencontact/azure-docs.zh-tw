@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>如何取得 Azure Active Directory 租用戶
 在 Azure Active Directory (Azure AD) 中， [租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) 代表組織。  它是組織在註冊 Microsoft 雲端服務 (例如 Azure、Microsoft Intune 或 Office 365) 時所收到和擁有的專屬 Azure AD 服務執行個體。  每個 Azure AD 租用戶都不同，並與其他 Azure AD 租用戶分開。  
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 如果您擁有現有的 Office 365 訂用帳戶，就已擁有 Azure AD 租用戶！ 您可以使用您的 O365 帳戶登入 [Azure 入口網站](https://portal.azure.com)並開始使用 Azure AD。
 
 ## <a name="use-an-msa-azure-subscription"></a>使用 MSA Azure 訂用帳戶
-如果您先前已使用個別的 Microsoft 帳戶註冊 Azure 訂用帳戶，則您已經有一個租用戶！  當您登入 [Azure 入口網站](https://portal.azure.com)時，會自動登入您的預設租用戶。 您可以視需要任意使用此租用戶，但您可能會想要建立組織系統管理員帳戶。
+如果您先前已使用個別的 Microsoft 帳戶註冊 Azure 訂用帳戶，則您已經有一個租用戶！  當您登入 [Azure 入口網站](https://portal.azure.com)時，您會自動登入預設租用戶。 您可以視需要任意使用此租用戶，但您可能會想要建立組織系統管理員帳戶。
 
 若要這樣做，請遵循下列步驟。  或者，您可能會想要建立新的租用戶，並按照類似的程序在該租用戶中建立系統管理員。
 
@@ -61,6 +61,4 @@ ms.lasthandoff: 12/11/2017
 如果您先前已使用組織帳戶註冊 Azure 訂用帳戶，則您已經有一個租用戶！  在 [Azure 入口網站](https://portal.azure.com)中，當您瀏覽至 [更多服務] 和 [Azure Active Directory] 時應該會找到租用戶。  您可以視需要任意使用此租用戶。
 
 ## <a name="start-from-scratch"></a>從頭開始
-如果上述對您沒有太大的意義，別擔心。  您只需造訪 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) ，並以新的組織身分註冊 Azure。  完成此程序時，您將會有自己專屬的 Azure AD 租用戶，並且它會有您在註冊時選擇的網域名稱。  在 [Azure 入口網站](https://portal.azure.com)中，您可以透過瀏覽至左側導覽中的 [Azure Active Directory] 找到租用戶。
-
-註冊 Azure 的過程中，您將需要提供信用卡的詳細資料。  您可以放心繼續執行，您將不會被收取在 Azure AD 中發佈應用程式或建立新租用戶的費用。
+如果上述對您沒有太大的意義，別擔心。 只要造訪 [ Azure 入口網站](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)以建立新的 Azure AD 目錄。 完成此程序後，您會取得自己的 Azure AD 租用戶 (具有您在註冊時選擇的網域名稱)。  在 [Azure 入口網站](https://portal.azure.com)中，您可以透過瀏覽至左側導覽中的 [Azure Active Directory] 找到租用戶。

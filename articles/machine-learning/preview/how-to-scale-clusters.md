@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>調整叢集以管理 web 服務輸送量
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-這需要幾分鐘才能完成。 如需有關調整叢集中節點數目的詳細資訊，請參閱[調整 Container Service 叢集中的代理程式節點](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale)。
+這需要幾分鐘才能完成。 如需有關調整叢集中節點數目的詳細資訊，請參閱[調整 Container Service 叢集中的代理程式節點](https://docs.microsoft.com/azure/container-service/container-service-scale)。
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>調整叢集中 Kubernetes Pod 複本的數目
  
@@ -159,6 +159,6 @@ Starting to serve on 127.0.0.1:8010
 
 從儀表板的主畫面上，按一下左側導覽列上的 [部署]。 如果未顯示瀏覽窗格，請在左上方選取 ![包含三個短水平線的功能表](media/how-to-scale-clusters/icon-hamburger.png) 這個圖示。
 
-找出要修改的部署，然後按一下右邊的 ![包含三個垂直點的功能表圖示](media/how-to-scale-clusters/icon-kebab.png) 這個圖示，然後按一下檢視/edi YAML。
+找出要修改的部署，然後按一下右邊的 ![包含三個垂直點的功能表圖示](media/how-to-scale-clusters/icon-kebab.png) 這個圖示，然後按一下 [檢視/edi YAML]。
 
 在 [編輯部署] 畫面上，找出規格節點、修改複本值，並按一下 [更新]。

@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 6fff5b31e70b0782aaf87e6bb4252f0c939d4c72
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: bae62762decf530521ba10ce684d5db9afa0b86c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>註冊自助式密碼重設
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/06/2017
 
  以下提供一些常見的錯誤案例及其解決方案：
 
-| 錯誤案例| 您看到什麼錯誤訊息？| 方案 |
+| 錯誤案例| 您看到什麼錯誤訊息？| 解決方法 |
 | --- | --- | --- |
 | 在輸入我的使用者 ID 後，出現了「請連絡您的系統管理員」頁面 | 請連絡您的系統管理員。 <br> <br> 我們偵測到您的使用者帳戶密碼未受到 Microsoft 管理。 因此，我們無法自動重設您的密碼。 <br> <br> 請連絡 IT 人員以尋求進一步的協助。 | 您之所以看到此訊息，是因為 IT 人員在內部部署環境中管理您的密碼，而不允許您從 [無法存取您的帳戶] 連結重設您的密碼。 <br> <br> 若要重設密碼，請直接連絡您的 IT 人員以取得協助。 讓它們知道您需要重設密碼，以便它們可以為您啟用此功能。|
 | 在輸入我的使用者 ID 後，出現了「您的帳戶未啟用密碼重設」錯誤 | 您的帳戶未啟用密碼重設功能。 <br> <br> 很抱歉，IT 人員還沒將您的帳戶設定用於此服務。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為 IT 人員尚未針對貴組織啟用從 [無法存取您的帳戶] 連結重設密碼的功能，或尚未授權您使用該功能。 <br> <br> 若要重設您的密碼，請選取 [連絡系統管理員] 連結。 系統會傳送電子郵件至貴公司的 IT 人員。 電子郵件會讓它們知道您需要重設密碼，以便它們可以為您啟用此功能。 |

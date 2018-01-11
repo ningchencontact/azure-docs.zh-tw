@@ -10,25 +10,28 @@ ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 09/20/2017
-ms.openlocfilehash: aeca003a9b031a48804a057b627714b554298645
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.openlocfilehash: 6d27ec96f56e576d4af02c5e0e70e6364bd5a9ec
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Java 來連線及查詢資料
-本快速入門示範如何使用 Java 應用程式來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Java 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
+本快速入門示範如何使用 Java 應用程式和 JDBC 驅動程式 [MySQL 連接器/J](https://dev.mysql.com/downloads/connector/j/) 來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Java 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
-## <a name="prerequisites"></a>必要條件
-本快速入門使用在以下任一指南中建立的資源作為起點︰
-- [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
+在 [MySQL 連接器範例頁面](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html)還有許多其他範例和範例程式碼。
 
-您也需要：
-- 下載 JDBC 驅動程式 [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- 將 JDBC jar 檔案 (例如 mysql-connector-java-5.1.42-bin.jar) 包含在您的應用程式 classpath 中。 如果您在這方面有問題，請參閱環境文件以取得類別路徑的詳細資訊，例如 [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 或 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
-- 開啟防火牆並針對您的應用程式調整 SSL 設定，以確保 Azure Database for MySQL 連線安全性，進而連線成功。
+## <a name="prerequisites"></a>先決條件
+1. 本快速入門使用在以下任一指南中建立的資源作為起點︰
+   - [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-portal.md)
+   - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+2. 開啟防火牆並針對您的應用程式調整 SSL 設定，以確保 Azure Database for MySQL 連線安全性，進而連線成功。
+
+3. 使用下列方式之一取得 MySQL 連接器/J 連接器：
+   - 使用 Maven 套件 [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22)，並將 [mysql 相依性](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6)包含在您專案的 POM 檔案中。
+   - 下載 JDBC 驅動程式 [MySQL 連接器/J](https://dev.mysql.com/downloads/connector/j/)，並將 JDBC jar 檔案 (例如 mysql-connector-java-5.1.42-bin.jar) 包含在您的應用程式 classpath 中。 如果您在類別路徑方面有問題，請參閱環境文件以取得類別路徑的詳細資訊，例如 [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 或 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>取得連線資訊
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
@@ -392,5 +395,7 @@ public class DeleteTable {
 ```
 
 ## <a name="next-steps"></a>後續步驟
+在 [MySQL 連接器/J 範例頁面](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html)還有許多其他範例和範例程式碼。
+
 > [!div class="nextstepaction"]
 > [使用傾印和還原來將 MySQL 資料庫移轉至適用於 MySQL 的 Azure 資料庫](concepts-migrate-dump-restore.md)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 這些版本資訊彙總了舊版的變更和已知問題。
@@ -28,8 +28,9 @@ ms.lasthandoff: 12/07/2017
 > 
 > 
 
-## <a id="issues"></a>目前的已知問題
-### <a id="general_issues"></a>媒體服務一般問題
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前已知的問題
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
+
 | 問題 | 說明 |
 | --- | --- |
 | 有幾個常用的 HTTP 標頭未提供於 REST API 中。 |如果您使用 REST API 開發媒體服務應用程式，您會發現有些常用的 HTTP 標頭欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/07/2017
 | Azure 媒體服務 .NET SDK 物件無法序列化，因此無法與 Azure 快取搭配運作。 |如果您嘗試序列化 SDK AssetCollection 物件以將其新增至 Azure 快取，將會擲回例外狀況。 |
 
 
-## <a id="rest_version_history"></a>REST API 版本歷程記錄
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
 ## <a name="october-2017-release"></a>2017 年 10 月版本
@@ -58,13 +59,7 @@ ms.lasthandoff: 12/07/2017
 2.  如果您有使用 H.265(HEVC) 影片轉碼器編碼的來源影片，例如使用 iOS11 或 GoPro Hero 6 擷取的影片，您現在可以使用進階編碼器或標準編碼器來編碼這些影片。 請參閱[線上服務條款](https://azure.microsoft.com/support/legal/)，以取得有關專利授權的重要注意事項。
 3.  如果您有包含多重語言音軌的內容，則只要根據對應的檔案格式規格 (例如 ISO MP4) 正確地標示語言值，您就可以使用標準編碼器來編碼內容以進行串流。 結果串流定位器會列出可用的音訊語言。
 4.  標準編碼器現在支援兩個新的僅限音訊系統預設值，「AAC 音訊」和「AAC 音訊品質 (佳)」。 兩者都會產生立體聲 AAC 輸出，分別為 128 kbps 和 192 kbps 位元速率。
-5.  進階編碼器現在支援 QuickTime/MOV 檔案格式作為輸入，只要視訊轉碼器是[這裡列出的 Apple ProRes 標註](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats)的其中之一，音訊可以是 AAC 或 PCM。
-
-> [!NOTE]
-> 進階編碼器不支援，例如 QuickTime/MOV 檔案中包裝的 DVC/DVCPro 影片作為輸入。  不過，標準編碼器支援這些影片轉碼器。
->
->
-
+5.  進階編碼器現在支援 QuickTime/MOV 檔案格式作為輸入，只要視訊轉碼器是[這裡列出的 Apple ProRes 標註](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats)的其中之一，音訊可以是 AAC 或 PCM。 Premium 編碼器不支援，例如 DVC/DVCPro 視訊包裝 QuickTime/MOV 檔案中做為輸入。  不過，標準編碼器支援這些影片轉碼器。
 6.  編碼器中的錯誤修正：
     * 您現在可以使用「輸入資產」提交作業，完成之後，修改資產 (例如藉由新增/刪除/重新命名「資產」中的檔案)，然後提交其他作業。 
     * 標準編碼器產生的改善品質 JPEG 縮圖
@@ -89,7 +84,6 @@ ms.lasthandoff: 12/07/2017
 
 您現在可以使用 Azure 媒體標準或媒體編碼器高階工作流程來[建立會產生 fMP4 區塊的編碼工作](media-services-generate-fmp4-chunks.md)。 
 
-
 ## <a name="february-2017-release"></a>2017 年 2 月版本
 
 從 2017 年 4 月 1 日起，您的帳戶中任何超過 90 天的作業記錄以及其相關工作記錄都會自動刪除，即使記錄總數低於配額上限亦然。 如果您需要封存作業/工作資訊，您可以使用[這裡](media-services-dotnet-manage-entities.md)所述的程式碼。
@@ -104,7 +98,7 @@ ms.lasthandoff: 12/07/2017
 
 「Azure 媒體服務」現在可讓您存取其服務的遙測/計量資料。 目前的 AMS 版本可讓您收集直播 Channel、StreamingEndpoint 及即時 Archive 實體的遙測資料。 如需詳細資訊，請參閱[本篇文章](media-services-telemetry-overview.md)。
 
-## <a id="july_changes16"></a>2016 年 7 月版本
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>2016 年 7 月發行
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>編碼工作產生之資訊清單檔案 (*.ISM) 更新
 將編碼工作提交到 Media Encoder Standard 或 Azure 媒體編碼器時，編碼工作會在輸出資產中產生 [串流資訊清單檔案](media-services-deliver-content-overview.md) (*.ism)。 在最新的服務版本中，我們已更新此串流資訊清單檔案的語法。
 
@@ -157,7 +151,7 @@ Azure 媒體編碼器會從媒體編碼器標準發行起大約 12 個月內開�
 ### <a name="azure-sdk-for-php"></a>Azure SDK for PHP
 Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) 套件，其中包含 Microsoft Azure 媒體服務的更新與新功能。 特別是 Azure Media Services SDK for PHP 現在支援最新的 [內容保護](media-services-content-protection-overview.md) 功能：在有和沒有權杖限制的情況下使用 AES 和 DRM (PlayReady 與 Widevine) 動態加密。 它也支援調整 [編碼單位](media-services-dotnet-encoding-units.md)大小。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 部落格。
 * 以下 [程式碼範例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) 可協助您快速上手：
@@ -193,11 +187,11 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
     如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
-* 現在已有適用於 Java 0.8.0 版本的 Azure 媒體服務 SDK 以及新的範例可用。 如需詳細資訊，請參閱：
+* 現在已有適用於 Java 0.8.0 版本的 Azure 媒體服務 SDK 以及新的範例可用。 如需詳細資訊，請參閱
   
   * [部落格文章](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Java 範例存放庫](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-* 含有多重音訊串流支援的 Azure 媒體播放器更新。 如需詳細資訊，請參閱：
+* 含有多重音訊串流支援的 Azure 媒體播放器更新。 如需詳細資訊，請參閱
   * [部落格文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
 ## <a id="july_changes_15"></a>2015 年 7 月版本
@@ -323,13 +317,6 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 ### <a id="sept_14_breaking_changes"></a>重大變更
 * **原始來源** 已重新命名為 [StreamingEndpoint]。
 * 使用「Azure 入口網站」來編碼並發行 MP4 檔案時的預設行為已變更。
-
-過去，在使用 Azure 傳統入口網站發佈單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。 現在，當您使用 Azure 傳統入口網站編碼並發佈單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。  這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發佈的 MP4 視訊。
-
-現在，您有下列兩個選項可以解決問題。
-
-* 啟用串流單元，並使用動態封裝功能將 .mp4 資產串流處理為 Smooth Streaming 簡報。
-* 建立 SAS URL 以下載 (或累進播放) .mp4。 如需如何建立 SAS 定位器的詳細資訊，請參閱 [傳遞內容]。
 
 ### <a id="sept_14_GA_changes"></a>GA 版本中的新功能/案例
 * **索引器媒體處理器**。 如需詳細資訊，請參閱[使用 Azure 媒體索引器編製媒體檔案的索引]。
@@ -561,7 +548,7 @@ Azure 媒體服務 .NET SDK 延伸模組是一組延伸方法和協助程式函�
 [行動服務定價詳細資料]: http://azure.microsoft.com/pricing/details/media-services/
 [輸入中繼資料]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [輸出中繼資料]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[傳遞內容]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [使用 Azure 媒體索引器編製媒體檔案的索引]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [使用 Azure 媒體服務即時資料流]: http://msdn.microsoft.com/library/azure/dn783466.aspx
@@ -570,7 +557,7 @@ Azure 媒體服務 .NET SDK 延伸模組是一組延伸方法和協助程式函�
 [Preview features]: http://azure.microsoft.com/services/preview/
 [媒體服務 PlayReady 授權範本概觀]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [串流儲存體加密內容]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [動態封裝]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin 的部落格]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [使用 PlayReady 保護 Smooth Stream]: http://msdn.microsoft.com/library/azure/dn189154.aspx

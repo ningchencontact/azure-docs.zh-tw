@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 75ee9cc7c4b40e9a724c8ce98d770a18ae654096
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes 儀表板和 Azure Container Service (AKS)
 
-您可以使用 Azure CLI 啟動 Kubernetes 儀表板。 本文件會逐步示範以 Azure CLI 啟動 Kubernetes 儀表板，以及逐步說明某些基本的儀表板作業。 如需 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)。
+您可以使用 Azure CLI 啟動 Kubernetes 儀表板。 本文件會逐步示範以 Azure CLI 啟動 Kubernetes 儀表板，以及逐步說明某些基本的儀表板作業。 如需有關 Kubernetes 儀表板，請參閱[Kubernetes Web UI 儀表板][kubernetes-dashboard]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請參閱 [AKS 快速入門](./kubernetes-walkthrough.md)。
+本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請[AKS 快速入門][aks-quickstart]。
 
-您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 az --version 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 az --version 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="start-kubernetes-dashboard"></a>啟動 Kubernetes 儀表板
 
@@ -76,4 +76,11 @@ az aks browse --resource-group myResourceGroup --name myK8SCluster
 如需 Kubernetes 儀表板的詳細資訊，請參閱 Kubernetes 文件。
 
 > [!div class="nextstepaction"]
-> [Kubernetes Web UI 儀表板](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+> [Kubernetes Web UI 儀表板][kubernetes-dashboard]
+
+<!-- LINKS - external -->
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli

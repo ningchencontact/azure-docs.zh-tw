@@ -3,19 +3,19 @@ title: "什麼是 Azure 時間序列深入解析？ | Microsoft Docs"
 description: "Azure 時間序列深入解析簡介，這項新服務可用於時間序列資料分析和 IoT 解決方案。"
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/15/2017
 ## <a name="primary-scenarios"></a>主要案例
 
 - 以可擴充的方式儲存時間序列資料。  
-  - 基本上，時間序列深入解析具有以時間序列資料為設計考量的資料庫。  因為該資料庫可擴充且管理完善，所以時間序列深入解析可處理事件的儲存和管理工作。
+  - 基本上，時間序列深入解析具有以時間序列資料為設計考量的資料庫。  因為該資料庫可擴充且完全受控，所以時間序列深入解析可處理事件的儲存和管理工作。
 
 - 近乎即時的資料探索。  
   - 時間序列深入解析提供的總管可以視覺化方式呈現流入環境中的所有資料。  在連線事件來源之後，馬上就可以檢視、探索及查詢時間序列深入解析內的資料。  此資料適合用於驗證裝置是否如預期般發出資料，以及監視 IoT 資產的健康情況、生產力和整體效益。  

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: aa8a053e6b3b6fcf6e026f2fd65942a943e12a08
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 945b985e69c14bb513477fc740652f13236d7518
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT 套件的常見問題集
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>可以繼續利用我在 Azure IoT 套件中的現有投資嗎？
 
-是。 目前存在的任何解決方案都會繼續在您的 Azure 訂用帳戶中運作，而且原始碼在 GitHub 中仍保持可用。
+可以。 目前存在的任何解決方案都會繼續在您的 Azure 訂用帳戶中運作，而且原始碼在 GitHub 中仍保持可用。
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>在 Azure 入口網站中刪除資源群組，與在 azureiotsuite.com 中對預先設定解決方案按一下 [刪除] 之間的差異為何？
 
@@ -84,7 +84,10 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>如果我有 Microsoft Azure for DreamSpark，是否可以建立預先設定的解決方案？
 
-目前，您無法使用 [Microsoft Azure for DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99) 帳戶來建立預先設定的解決方案。 不過，您只需花幾分鐘即可建立 [Azure 免費試用帳戶](https://azure.microsoft.com/free/)，此帳戶可讓您建立預先設定的解決方案。
+> [!NOTE]
+> Microsoft Azure for DreamSpark 現在稱為 Microsoft Imagine 學生版。
+
+目前，您無法使用 [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) 帳戶來建立預先設定的解決方案。 不過，您只需花幾分鐘即可建立 [Azure 免費試用帳戶](https://azure.microsoft.com/free/)，此帳戶可讓您建立預先設定的解決方案。
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>如果我有雲端方案提供者 (CSP) 訂用帳戶，是否可以建立預先設定的解決方案？
 

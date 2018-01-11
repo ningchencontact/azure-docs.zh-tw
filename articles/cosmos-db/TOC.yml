@@ -143,7 +143,7 @@
       href: unique-keys.md
     - name: 一致性
       href: consistency-levels.md
-    - name: 輸送量
+    - name: Throughput
       href: request-units.md
     - name: 多模型 API
       items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: 效能測試
               href: performance-testing.md
-            - name: 效能秘訣
+            - name: .NET 的效能秘訣
               href: performance-tips.md
+            - name: Java 的效能秘訣
+              href: performance-tips-java.md
             - name: 多主機設定
               href: multi-region-writers.md
             - name: 日期時間
@@ -252,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: 使用 Robomongo
               href: mongodb-robomongo.md
+            - name: 使用 Mongoose
+              href: mongodb-mongoose.md
             - name: MongoDB 功能支援
               href: mongodb-feature-support.md
             - name: Angular 教學課程系列

@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Netsuite 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 277c393536615fc8bfe8af0bc6d487115f04776c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>教學課程︰設定 Netsuite 來自動佈建使用者
 
@@ -70,7 +70,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
    
     a. 在 [管理員使用者名稱] 文字方塊中，輸入已在 Netsuite.com 指派**系統管理員**設定檔的 Netsuite 帳戶名稱。
    
-    b.這是另一個 C# 主控台應用程式。 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
+    b. 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
       
 6. 在 Azure 入口網站中，按一下 [測試連線]，以確保 Azure AD 可以連線至您的 Netsuite 應用程式。
 

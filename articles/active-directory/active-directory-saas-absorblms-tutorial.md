@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Absorb LMS 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 549e353bb41f1f31bc0441294d0a8066779402e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>教學課程：Azure Active Directory 與 Absorb LMS
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Absorb LMS (透過單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 的整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+若您想深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 * 從資源庫新增 Absorb LMS
 * 設定並測試 Azure AD 單一登入
 
 ## <a name="add-absorb-lms-from-the-gallery"></a>從資源庫新增 Absorb LMS
-若要設定將 Absorb LMS 整合到 Azure AD 中，請從資源庫將 Absorb LMS 新增到受管理的 SaaS 應用程式清單。
+若要設定將 Absorb LMS 整合到 Azure AD 中，請從資源庫將 Absorb LMS 新增到受控 SaaS 應用程式清單。
 
 若要從資源庫新增 Absorb LMS，請執行下列操作：
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中的值。
 
-    d. 選取 [ **建立**]。
+    d. 選取 [建立] 。
 
 ### <a name="create-an-absorb-lms-test-user"></a>建立 Absorb LMS 測試使用者
 

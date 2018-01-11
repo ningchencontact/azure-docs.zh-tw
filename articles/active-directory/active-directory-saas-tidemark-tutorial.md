@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Tidemark 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 170dc58363b12ec671c2fab8c80c7720d3dbf352
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22f8f9eb0795447f27f30126881778940b90abbe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>教學課程：Azure Active Directory 與 Tidemark 整合
 
@@ -47,13 +47,13 @@ Tidemark 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Tidemark
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-tidemark-from-the-gallery"></a>從資源庫加入 Tidemark
-若要設定 Tidemark 與 Azure AD 整合，您需要從資源庫將 Tidemark 新增到受管理的 SaaS 應用程式清單。
+若要設定 Tidemark 與 Azure AD 整合，您需要從資源庫將 Tidemark 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Tidemark，請執行下列步驟：**
 
@@ -63,17 +63,17 @@ Tidemark 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![[應用程式]][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![[應用程式]][3]
 
 4. 在搜尋方塊中，輸入 **Tidemark**。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_search.png)
 
-5. 在結果窗格中，選取 Tidemark，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Tidemark]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_addfromgallery.png)
 
@@ -116,7 +116,7 @@ Tidemark 與 Azure AD 整合提供下列優點：
     | `https://<subdomain>.tidemark.com/login` |
     | `https://<subdomain>.tidemark.net/login` |
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： 
+    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： 
     | |
     |--|
     | `https://<subdomain>.tidemark.com/saml` |
@@ -167,11 +167,11 @@ Tidemark 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-tidemark-test-user"></a>建立 Tidemark 測試使用者
 

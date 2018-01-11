@@ -1,6 +1,6 @@
 ---
 title: "Azure 轉送例外狀況以及解決方式 | Microsoft Docs"
-description: "取得 Azure 轉送例外狀況的清單，以及您可以採取來協助解決這些問題的建議動作。"
+description: "Azure 轉送例外狀況和建議的動作可協助解決問題的清單。"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Azure 轉送例外狀況
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) 表示使用者啟始作業所用的時間長過作業逾時。 
 
-檢查 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) 屬性的值。 達到此限制也會導致 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)。
+檢查 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) 屬性的值。 達到此限制也可能會導致[TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)。
 
 若為轉送，您可能會在第一次開啟轉送傳送者連線時收到逾時例外狀況。 這個例外狀況有兩個常見的原因︰
 

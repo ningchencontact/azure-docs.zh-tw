@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>將 Azure 虛擬機器備份到復原服務保存庫
-> [!div class="op_single_selector"]
-> * [將 VM 備份到復原服務保存庫](backup-azure-arm-vms.md)
-> * [將 VM 備份到備份保存庫](backup-azure-vms.md)
->
->
 
 本文將詳細說明如何將 Azure VM (包括以 Resource Manager 部署和傳統部署的 VM) 備份至復原服務保存庫。 備份 VM 的工作多數是準備。 在備份或保護 VM 之前，您必須完成 [必要條件](backup-azure-arm-vms-prepare.md) 來備妥 VM 的保護環境。 完成必要條件後，您就能初始備份作業來製作 VM 的快照集。
 
