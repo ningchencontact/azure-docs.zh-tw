@@ -44,6 +44,7 @@
 ### [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
 ### [共用帳戶](active-directory-sharing-accounts.md)
 ### [將使用者指派為管理員角色](active-directory-users-assign-role-azure-portal.md)
+### [還原已刪除的使用者](active-directory-users-restore.md)
 ### [從另一個目錄 (B2B) 中新增來賓使用者](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [管理員新增 B2B 使用者](active-directory-b2b-admin-add-users.md)
 #### [資訊背景工作新增 B2B 使用者](active-directory-b2b-iw-add-users.md)

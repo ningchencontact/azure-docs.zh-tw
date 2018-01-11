@@ -65,6 +65,7 @@
 #### [建立實體與自動轉寄的鏈結](service-bus-auto-forwarding.md)
 #### [交易處理](service-bus-transactions.md)
 #### [配對的命名空間實作](service-bus-paired-namespaces.md)
+### [端對端追蹤和診斷](service-bus-end-to-end-tracing.md)
 ## 管理
 ### [透過 Azure 監視器監視服務匯流排](service-bus-metrics-azure-monitor.md)
 ### [服務匯流排管理程式庫](service-bus-management-libraries.md)
