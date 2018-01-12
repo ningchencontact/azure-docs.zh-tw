@@ -217,7 +217,7 @@
 #### [管理使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 #### [管理企業應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)
 #### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [隱藏使用者的第三方應用程式經驗](active-directory-coreapps-hide-third-party-app.md)
+#### [將應用程式排除在使用者體驗之外](active-directory-coreapps-hide-third-party-app.md)
 ### [使用 HRD 原則設定登入時自動加速](active-directory-auto-acceleration-using-hrd.md)
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## 保護您的身分識別
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
 #### [控制項](active-directory-conditional-access-controls.md)
+#### [位置條件](active-directory-conditional-access-locations.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳做法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
@@ -361,7 +362,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

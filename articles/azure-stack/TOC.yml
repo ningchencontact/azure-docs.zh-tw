@@ -45,7 +45,7 @@
   items:
     - name: 部署
       items:
-        - name: 先決條件
+        - name: 必要條件
           href: azure-stack-deploy.md
         - name: 遙測
           href: azure-stack-telemetry.md
@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: 啟用多租用戶
               href: azure-stack-enable-multitenancy.md
+        - name: 旋轉祕密
+          href: azure-stack-rotate-secrets.md
     - name: 優惠服務
       items:
         - name: 優惠服務概觀
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Azure Stack 中的診斷功能
           href: azure-stack-diagnostics.md
+        - name: Azure Stack 驗證
+          href: azure-stack-diagnostic-test.md
         - name: 重新部署 Azure Stack 開發套件
           href: azure-stack-redeploy.md
 - name: 參考

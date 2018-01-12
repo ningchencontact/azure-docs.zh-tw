@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags: clicktale
-ms.openlocfilehash: 2591fad9efd9dba2f53101a747bcf79a4d0bad4f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 56e50d633b29d2a5ce14fb50515407ac9d3bd821
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/11/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/10/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3> 安全性和管理資源</h3>
+                                                <h3>保護和管理資源</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/security-center/">Azure 資訊安全中心</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure 監視器</a></li>
