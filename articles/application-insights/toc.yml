@@ -113,7 +113,7 @@
               href: app-insights-asp-net-trace-logs.md
             - name: 效能計數器
               href: app-insights-performance-counters.md
-            - name: 相依項目
+            - name: 相依性
               href: app-insights-asp-net-dependencies.md
             - name: 版本註解
               href: app-insights-annotations.md
@@ -127,11 +127,11 @@
               href: app-insights-java-trace-logs.md
             - name: Unix 計量
               href: app-insights-java-collectd.md
-            - name: 相依項目
+            - name: 相依性
               href: app-insights-java-agent.md
             - name: 篩選遙測
               href: app-insights-java-filter-telemetry.md
-        - name: Alerts
+        - name: 警示
           items:
             - name: Availability
               href: app-insights-monitor-web-app-availability.md
@@ -162,7 +162,7 @@
           items:
             - name: 儀表板
               href: app-insights-dashboards.md
-            - name: 搜尋
+            - name: Search
               href: app-insights-diagnostic-search.md
             - name: 度量
               href: app-insights-metrics-explorer.md
@@ -196,7 +196,7 @@
               href: app-insights-usage-flows.md
             - name: 活頁簿
               href: app-insights-usage-workbooks.md
-        - name: Analytics
+        - name: 分析
           items:
             - name: 概觀
               href: app-insights-analytics.md
@@ -261,10 +261,14 @@
           href: app-insights-asp-net-troubleshoot-no-data.md
         - name: 快照集偵錯工具
           href: app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analytics
+        - name: 分析
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+- name: 範例
+  items:
+    - name: 程式碼範例
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
 - name: 參考
   items:
     - name: 分析查詢語言

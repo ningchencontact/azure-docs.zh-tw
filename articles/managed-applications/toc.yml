@@ -1,30 +1,32 @@
-- name: Azure 受管理的應用程式
+- name: Azure 受控應用程式
   href: index.yml
 - name: 概觀
   items:
-    - name: Azure 受管理的應用程式
+    - name: Azure 受控應用程式
       href: overview.md
 - name: 快速入門
   items:
-    - name: 建立受管理的應用程式
+    - name: 建立受控應用程式
       href: managed-apps-quickstart-cli.md
 - name: 教學課程
   items:
     - name: 建立受控應用程式檔案
       href: publish-service-catalog-app.md
+    - name: 建立 Marketplace 應用程式
+      href: publish-marketplace-app.md
 - name: 範例
   items:
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-    - name: 受管理的應用程式解決方案
+    - name: 受控應用程式解決方案
       href: sample-projects.md
 - name: 使用說明指南
   items:
     - name: 定義使用者介面
       href: create-uidefinition-overview.md
-    - name: 更新受管理的資源
+    - name: 更新受控資源
       href: update-managed-resources.md
     - name: 使用入口網站發佈
       href: publish-portal.md

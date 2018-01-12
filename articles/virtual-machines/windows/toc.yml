@@ -125,7 +125,11 @@
         - name: '使用 C#'
           href: csharp.md
         - name: 使用特製化磁碟
-          href: create-vm-specialized.md
+          items:
+            - name: 入口網站
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: '使用範本與 C#'
           href: csharp-template.md
         - name: 使用 Chef 建立 VM

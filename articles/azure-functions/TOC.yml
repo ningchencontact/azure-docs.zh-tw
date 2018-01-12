@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: 函式 Proxy
       href: functions-proxies.md
-    - name: Functions 執行階段
+    - name: 內部部署函式
       href: functions-runtime-overview.md
     - name: 長期函式
       items:
@@ -182,7 +182,7 @@
         - name: Blob 儲存體
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: 事件中樞
           href: functions-bindings-event-hubs.md
         - name: 外部檔案
