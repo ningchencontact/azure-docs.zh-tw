@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure 受管理的應用程式文件"
+title: "Azure 受控應用程式文件"
 metadata:
-  title: "Azure 受管理的應用程式文件 - 教學課程和 API 參考"
-  description: "使用 Azure 受管理的應用程式來發佈雲端解決方案，讓客戶更容易進行維護。"
+  title: "Azure 受控應用程式文件 - 教學課程和 API 參考"
+  description: "使用 Azure 受控應用程式來發佈雲端解決方案，讓客戶更容易進行維護。"
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
-  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: "Azure 受管理的應用程式可讓您向內部及外部客戶提供雲端解決方案。 您可以定義解決方案的基礎結構，以及該解決方案目前的管理條款。 解決方案的帳單則是透過 Azure 計費處理。"
+  description: "Azure 受控應用程式可讓您向內部及外部客戶提供雲端解決方案。 您可以定義解決方案的基礎結構，以及該解決方案目前的管理條款。 解決方案的帳單則是透過 Azure 計費處理。"
 sections:
 - title: "5 分鐘快速入門"
   items:
   - type: paragraph
-    text: "了解如何發佈和部署受管理的應用程式。"
+    text: "了解如何發佈和部署受控應用程式。"
   - type: list
     style: icon48
     items:
@@ -35,12 +35,12 @@ sections:
 - title: "逐步教學課程"
   items:
   - type: paragraph
-    text: "了解如何開發受管理的應用程式，並透過 Azure Marketplace 提供服務。"
+    text: "了解如何開發受控應用程式，並透過 Azure Marketplace 提供服務。"
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: ordered
     items:
-    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">發佈受管理的應用程式，以供內部使用</a>"
+    - html: "\r\n            <a href=\"/azure/managed-applications/publish-service-catalog-app\">發佈受控應用程式，以供內部使用</a>"
+    - html: "\r\n            <a href=\"/azure/managed-applications/publish-marketplace-app\">發佈受控應用程式，以供外部使用</a>"
 - title: "參考"
   items:
   - type: list
