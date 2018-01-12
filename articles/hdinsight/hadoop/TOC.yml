@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: 開發
       items:
+        - name: 執行自訂 MapReduce 程式
+          href: apache-hadoop-run-custom-programs.md
         - name: '開發 C# 串流 MapReduce 程式'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: 開發 Java MapReduce 程式
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 使用 Apache Hive 為擷取、 轉換和載入 (ETL) 工具
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 大規模擷取、 轉換和載入
+          href: apache-hadoop-etl-at-scale.md
         - name: 使用空白邊緣節點
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: 分析 Application Insights 遙測記錄
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: HDInsight 的進階分析
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: 擴充叢集
       items:
         - name: 使用啟動程序自訂叢集
@@ -378,6 +386,8 @@
         - name: 監視叢集效能
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: 分析 Hadoop 記錄
+          href: apache-hadoop-debug-jobs.md
 - name: 參考
   items:
     - name: 程式碼範例

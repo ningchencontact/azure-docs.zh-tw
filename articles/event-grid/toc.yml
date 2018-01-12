@@ -38,6 +38,8 @@
       href: event-grid-event-hubs-integration.md
     - name: 事件訂用戶範本
       href: event-subscription-template.md
+    - name: 監視事件傳遞
+      href: monitor-event-delivery.md
 - name: 參考
   items:
     - name: Azure CLI

@@ -121,6 +121,8 @@
         - name: 上傳 Hadoop 工作的資料
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: 使用 psql 將資料大量載入至 Phoenix
+          href: apache-hbase-phoenix-psql.md
         - name: 搭配 Data Lake Store 的多個 HDInsight 叢集
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

@@ -16,6 +16,7 @@
 ### [建立 VM](devtest-lab-add-vm.md)
 ### [建立及管理可認領 VM](devtest-lab-add-claimable-vm.md)
 ### [使用 Azure CLI 來建立和管理 VM](devtest-lab-vmcli.md)
+### [從資源管理員範本建立虛擬機器](devtest-lab-use-resource-manager-template.md)
 ### [重新啟動 VM](devtest-lab-restart-vm.md)
 
 ## 在實驗室環境中
@@ -46,7 +47,6 @@
 
 ## 管理可重複使用的範本
 ### [新增成品和範本的 Git 存放庫](devtest-lab-add-artifact-repo.md)
-### [使用 Resource Manager 範本](devtest-lab-use-resource-manager-template.md)
 ### [管理公式](devtest-lab-manage-formulas.md)
 
 ## 管理構件
