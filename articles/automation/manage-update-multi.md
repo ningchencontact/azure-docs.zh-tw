@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/30/2017
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -110,7 +110,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援 | 說明 |
+| 連線的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | Windows 代理程式 |是 |更新管理會從 Windows 代理程式收集系統更新的相關資訊，並起始必要更新的安裝。 |
 | Linux 代理程式 |是 |更新管理會從 Linux 代理程式收集系統更新的相關資訊，並且在支援的散發套件上起始必要更新的安裝。 |
@@ -119,9 +119,9 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ### <a name="collection-frequency"></a>收集頻率
 
-對於每部受管理的 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否變更。 若是如此，則會起始合規性掃描。 對於每部受管理的 Linux 電腦，每 3 個小時會掃描一次。
+對於每部受控 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否變更。 若是如此，則會起始合規性掃描。 對於每部受控 Linux 電腦，每 3 個小時會掃描一次。
 
-儀表板可能需要 30 分鐘到 6 小時的時間，顯示來自受管理電腦的已更新資料。
+儀表板可能需要 30 分鐘到 6 小時的時間，顯示來自受控電腦的已更新資料。
 
 ## <a name="schedule-an-update-deployment"></a>排定更新部署
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 受控應用程式概觀
 
@@ -48,6 +48,8 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 想要為其服務開立帳單的廠商，可以透過 Azure Marketplace 讓受控應用程式可供使用。 廠商發佈應用程式之後，應用程式就可供組織外部的使用者使用。 使用此方法，受控服務提供者 (MSP)、獨立軟體廠商 (ISV) 和系統整合者 (SI) 可以將其解決方案提供給所有 Azure 客戶。
 
+如需將受控應用程式發佈到 Marketplace 的詳細資訊，請參閱[建立 Marketplace 應用程式](publish-marketplace-app.md)。
+
 ## <a name="resource-groups-for-managed-applications"></a>受控應用程式的資源群組
 
 一般來說，受控應用程式的資源位於兩個資源群組中。 取用者會管理一個資源群組，發行者會管理另一個資源群組。 在定義受控應用程式時，發行者會指定存取的層級。 下圖顯示的案例是發行者要求受控資源群組的擁有者角色。 發行者會為取用者對這個資源群組進行唯讀鎖定。
@@ -70,4 +72,4 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 * 如需定義及部署受控應用程式的簡介，請參閱[使用 Azure CLI 建立及部署 Azure 受控應用程式](managed-apps-quickstart-cli.md)
 * 如需發佈內部應用程式的詳細資訊，請參閱[建立服務類別目錄應用程式](publish-service-catalog-app.md)。
-
+* 如需將受控應用程式發佈到 Marketplace 的資訊，請參閱 [建立 Marketplace 應用程式](publish-marketplace-app.md)。

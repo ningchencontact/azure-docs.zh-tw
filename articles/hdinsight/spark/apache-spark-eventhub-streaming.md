@@ -4,7 +4,7 @@ description: "建立 Apache Spark 串流範例，說明如何將資料串流傳�
 keywords: "apache spark 串流, spark 串流, spark 範例, apache spark 串流範例, 事件中樞 azure 範例, spark 範例"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: d0678388fea79797c3cb4cd84deeab827981ebff
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: jgao
+ms.openlocfilehash: 43ae956ca284485cc68f8120a31af1c493c0b254
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 串流：在 HDInsight 上使用 Spark 叢集處理來自 Azure 事件中樞的資料
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 11/09/2017
 
 3. 您可以建置串流分析管線，將資料保存至不同的儲存系統，或從即時資料中取得見解。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="spark-streaming-concepts"></a>Spark 串流處理概念
 
@@ -246,7 +246,7 @@ ssc.awaitTermination()
      2. 按一下 [新增] 圖示 (![新增圖示](./media/apache-spark-eventhub-streaming/add-icon.png))、按一下 [Java]，然後導覽至您下載 JDBC 驅動程式 jar 的位置。 依照提示，將 jar 檔案新增至專案程式庫。
 
          ![新增遺失的相依性](./media/apache-spark-eventhub-streaming/add-missing-dependency-jars.png "新增遺失的相依性 jar")
-     3. 按一下 [Apply (套用)] 。
+     3. 按一下 [套用]。
 
 7. 建立輸出 jar 檔案。 請執行下列步驟：
 
@@ -264,7 +264,7 @@ ssc.awaitTermination()
       
        ![Apache Spark 串流範例 - 將擷取的 jar 刪除](./media/apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark 串流範例 - 將擷取的 jar 刪除")
       
-       請確實選取 [在建置時建立]  方塊，以確保在每次建置或更新專案時都會建立 jar。 按一下 [Apply (套用)] 。
+       請確實選取 [在建置時建立]  方塊，以確保在每次建置或更新專案時都會建立 jar。 按一下 [套用]。
    6. 在 [輸出配置] 索引標籤中的 [可用的項目] 方塊右下方，會有您先前新增至專案程式庫的 SQL JDBC jar。 您必須將此新增至 [輸出配置]  索引標籤。以滑鼠右鍵按一下 jar 檔案，然後按一下 [解壓縮到輸出根目錄中] 。
       
        ![Apache Spark 串流範例 - 擷取相依性 jar](./media/apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Apache Spark 串流範例 - 擷取相依性 jar")  

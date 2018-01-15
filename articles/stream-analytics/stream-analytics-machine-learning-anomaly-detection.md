@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>使用 ANOMALYDETECTION 運算子
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/14/2017
 
 **ANOMALYDETECTION** 使用滑動視窗語意，這表示每個輸入函數的事件會執行計算，並產生該事件的分數。 計算是根據 Exchangeability Martingales，藉由檢查事件值分佈是否已更改來運作。 如果是的話，即是已偵測到潛在的異常。 傳回的分數表示該異常的信賴等級。 做為內部最佳化，**ANOMALYDETECTION** 會根據 *d* 至 *2d* 的事件計算異常分數，其中 *d* 是指定的偵測視窗大小。
 
-**ANOMALYDETECTION** 預期輸入時間序列是統一的。 事件資料流可藉由輪轉彙總或跳動視窗來進行統一。 在事件之間的間隙總是小於彙總視窗的情況下，輪轉視窗足以讓時間序列一致。 當間隙可以更大時，可以透過使用跳動視窗重複最後一個值來填滿間隙。 接下來的範例可處理這兩種案例。 目前無法跳過 `FillInMissingValuesStep` 步驟。 沒有這個步驟將導致編譯錯誤。
+**ANOMALYDETECTION** 預期輸入時間序列是統一的。 事件資料流可藉由輪轉彙總或跳動視窗來進行統一。 在事件之間的間隙總是小於彙總視窗的情況下，輪轉視窗足以讓時間序列一致。 當間隙可以更大時，可以透過使用跳動視窗重複最後一個值來填滿間隙。 接下來的範例可處理這兩種案例。
 
 ## <a name="performance-guidance"></a>效能指南
 
@@ -105,8 +105,6 @@ ms.lasthandoff: 12/14/2017
 
 如果偵測到異常，下列查詢可用於輸出警示。
 當輸入資料流不統一時，彙總步驟可協助將其轉換成統一的時間序列。 此範例會使用 **AVG**，但特定類型的彙總視使用者情況而定。 此外，當時間序列具有大於彙總視窗的間隙時，時間序列中不會有任何事件觸發異常偵測 (根據滑動視窗語意)。 因此，當下一個事件來臨，將打破一致性的假設。 在這種情況下，我們需要填滿時間序列間隙的方法。 其中一個方法是在每個跳動視窗中採用最後一個事件，如下所示。
-
-如先前所述，目前請勿跳過 `FillInMissingValuesStep` 步驟。 省略該步驟將導致編譯錯誤。
 
     WITH AggregationStep AS 
     (

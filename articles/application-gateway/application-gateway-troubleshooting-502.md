@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>疑難排解應用程式閘道中閘道不正確的錯誤
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 如果因為有 NSG、UDR 或自訂 DNS 而封鎖對後端的存取，應用程式閘道執行個體將無法觸達後端集區，還會導致探查失敗而造成 502 錯誤。 請注意，NSG/UDR 可能出現在應用程式閘道子網路，或部署應用程式虛擬機器的子網路中。 同樣地，如果 FQDN 用於後端集區成員，而且使用者為 VNET 設定的 DNS 伺服器未正確解析 FQDN，則 VNET 中出現自訂 DNS 可能也會造成問題。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 透過下列步驟來驗證 NSG、UDR 和 DNS 設定：
 * 檢查與應用程式閘道子網路相關聯的 NSG。 確定未封鎖對後端的通訊。
@@ -78,14 +78,14 @@ DhcpOptions            : {
 
 502 錯誤也可以是預設健全狀態探查無法連線到後端 VM 的常用指標。 佈建應用程式閘道執行個體時，它會使用 BackendHttpSetting 的屬性，自動將預設的健全狀況探查設定到每個 BackendAddressPool 。 設定此探查時不需任何使用者輸入。 具體而言，設定負載平衡規則時，會在 BackendHttpSetting 和 BackendAddressPool 之間建立關聯。 預設探查是針對這其中的每一個關聯所設定，而應用程式閘道會在 BackendHttpSetting 項目中指定的連接埠上，將定期的健全狀況檢查連線初始到 BackendAddressPool 中的每一個執行個體。 下表列出與預設健全狀況探查相關聯的值。
 
-| 探查屬性 | 值 | 說明 |
+| 探查屬性 | 值 | 描述 |
 | --- | --- | --- |
 | 探查 URL |http://127.0.0.1/ |URL 路徑 |
 | 間隔 |30 |探查間隔 (秒) |
 | 逾時 |30 |探查逾時 (秒) |
 | 狀況不良臨界值 |3 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 * 確定預設網站已設定且正於 127.0.0.1 上進行接聽。
 * 如果 BackendHttpSetting 指定了 80 以外的連接埠，則應將預設網站設定為在該連接埠上進行接聽。
@@ -100,9 +100,9 @@ DhcpOptions            : {
 
 自訂的健全狀況探查能夠對於預設探查行為提供更多彈性。 使用自訂探查時，使用者可以設定探查間隔、要測試的 URL 和路徑，以及在將後端集區執行個體標示為狀況不良前，可接受的失敗回應次數。 已新增下列其他屬性。
 
-| 探查屬性 | 說明 |
+| 探查屬性 | 描述 |
 | --- | --- |
-| Name |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
+| 名稱 |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
 | 通訊協定 |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
 | Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用。 這與 VM 主機名稱不同。 |
 | Path |探查的相對路徑。 有效路徑的開頭為 '/'。 探查會傳送到 \<通訊協定\>://\<主機\>:\<連接埠\>\<路徑\> |
@@ -110,7 +110,7 @@ DhcpOptions            : {
 | 逾時 |探查逾時 (秒)。 如果在這個逾時期間內未收到有效的回應，則會將探查標示為失敗。 |
 | 狀況不良臨界值 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 確認已按照上述資料表正確設定 [自訂健全狀態探查]。 除了上述的疑難排解步驟，也請確定下列各項：
 
@@ -118,8 +118,7 @@ DhcpOptions            : {
 * 如果已將應用程式閘道設定為單一站台，根據預設，除非已在自訂探查中加以設定，否則應將主機名稱指定為 '127.0.0.1'。
 * 確定對 http://\<主機\>:\<連接埠\>\<路徑\> 的呼叫會傳回 HTTP 結果碼 200。
 * 確定 Interval、Time-out 和 UnhealtyThreshold 皆在可接受的範圍內。
-* 若使用 HTTPS 探查，請在後端伺服器本身設定後援憑證，以確定後端伺服器不會要求您提供 SNI。 
-* 確定 Interval、Time-out 和 UnhealtyThreshold 皆在可接受的範圍內。
+* 若使用 HTTPS 探查，請在後端伺服器本身設定後援憑證，以確定後端伺服器不會要求您提供 SNI。
 
 ## <a name="request-time-out"></a>要求逾時
 
@@ -127,7 +126,7 @@ DhcpOptions            : {
 
 收到使用者要求時，應用程式閘道會將設定的規則套用到該要求，並將其路由傳送到後端集區執行個體。 其會等候一段可設定的時間間隔以接收來自後端應用程式的回應。 根據預設，這個間隔為 **30 秒**。 如果應用程式閘道沒有在此時間間隔內收到來自後端應用程式的回應，使用者要求就會看到 502 錯誤。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 應用程式閘道允許使用者透過 BackendHttpSetting 設定此組態，接著可將之套用到其他集區。 不同的後端集區可以有不同的 BackendHttpSetting，因此可設定不同的要求逾時。
 
@@ -141,7 +140,7 @@ DhcpOptions            : {
 
 如果應用程式閘道在後端位址集區中未設定虛擬機器或虛擬機器擴展集，則無法路由傳送任何客戶要求，還會擲回閘道不正確的錯誤。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 確定後端位址集區不是空白的。 這可透過 PowerShell、CLI 或入口網站來完成。
 
@@ -183,7 +182,7 @@ BackendAddressPoolsText：
 
 如果 BackendAddressPool 的所有執行個體都狀況不良，則應用程式閘道不會包含任何要將使用者要求路由傳送到其中的後端。 當後端執行個體的狀況良好，但尚未部署必要的應用程式時，也可能發生此情況。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 確定執行個體的狀況良好且已正確設定應用程式。 檢查後端執行個體是否能夠從同一個 VNet 中的其他 VM 回應 Ping。 如果是使用公用端點所設定，請確定對 Web 應用程式的瀏覽器要求能夠提供服務。
 

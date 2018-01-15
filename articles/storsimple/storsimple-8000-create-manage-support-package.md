@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>建立及管理 StorSimple 8000 系列的支援封裝
 
@@ -30,7 +30,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 
 ## <a name="create-a-support-package"></a>建立支援封裝
 
-在某些情況下，您必須透過 Windows PowerShell for StorSimple 手動建立支援封裝。 例如：
+在某些情況下，您必須透過 Windows PowerShell for StorSimple 手動建立支援封裝。 例如︰
 
 * 如果您在與 Microsoft 支援服務共用您的記錄檔之前，必須從其中移除機密資訊。
 * 如果您在上傳封裝時，因為連線能力問題而遇到困難。
@@ -71,7 +71,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 
 您可以使用下列參數搭配 Export-HcsSupportPackage cmdlet。
 
-| 參數 | 必要/選用 | 說明 |
+| 參數 | 必要/選用 | 描述 |
 | --- | --- | --- |
 | `-Path` |必要 |用來提供存放支援封裝的網路共用資料夾位置。 |
 | `-EncryptionPassphrase` |必要 |用來提供複雜密碼，以協助加密支援封裝。 |
@@ -147,6 +147,6 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解[支援封裝中收集的資訊](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* 了解如何 [使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。
+* 了解如何 [使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。
 * 了解如何[使用 StorSimple 裝置管理員服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
 

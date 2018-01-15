@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
-  ms.openlocfilehash: 13bfcbfdb180ee50efa392ad43d58839e7e52cf0
-  ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/13/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Stack 是混合式雲端平台，可讓您從您的公司或服務提供者的資料中心使用 Azure 服務。 身為開發人員，您可以在 Azure Stack 上建置應用程式。 然後，可以將這些應用程式部署至 Azure Stack、至 Azure，或可以建置利用 Azure Stack 雲端與 Azure 之間連線的真正混合式應用程式。 了解如何透過我們的快速入門和教學課程，建立資源及部署應用程式。<br/><br/>如果您是管理基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的<a href=\"/azure/azure-stack/\">操作員文件</a>。"
 sections:
@@ -38,7 +38,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
@@ -55,7 +55,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: "逐步教學課程"

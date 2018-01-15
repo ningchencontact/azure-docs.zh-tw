@@ -1,6 +1,6 @@
 ---
 title: "什麼是 Azure 搜尋服務 | Microsoft Docs"
-description: "Azure 搜尋服務是受完整管理的託管雲端搜尋服務。 深入了解此功能概觀。"
+description: "Azure 搜尋服務是完全受控的託管雲端搜尋服務。 深入了解此功能概觀。"
 services: search
 manager: jhubbard
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 2fa637b2119e55f0ad8a0aec3926df11871e7a2a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，以透過內容在 Web、行動和企業應用程式中增添豐富的搜尋體驗。
@@ -31,14 +31,14 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 | 類別 | 特性 |
 |----------|----------|
 |全文檢索搜尋和文字分析 | [全文檢索搜尋](search-lucene-query-architecture.md)是大多數以搜尋為基礎之應用程式的主要使用案例。 您可以使用 Azure 搜尋服務支援的語法制訂查詢。 <br/><br/>[**簡單查詢語法**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)可提供邏輯運算子、片語搜尋運算子、後置運算子、優先順序運算子。<br/><br/>[**Lucene 查詢語法**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)包含簡單語法中的所有作業，並具有諸如模糊搜尋、鄰近搜尋、詞彙提升和規則運算式等擴充功能。| 
-| 資料整合 | Azure 搜尋服務索引接受以 JSON 資料結構格式提交的任何來源。 <br/><br/> 對於在 Azure 中支援的資料來源，您可以選擇使用[**索引子**](search-indexer-overview.md)自動搜耙 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Azure Cosmos DB](search-howto-index-documentdb.md) 或 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)，讓搜尋索引的內容與主要資料存放區同步。 Azure Blob 索引子可執行文件破解以[檢索主要檔案格式](search-howto-indexing-azure-blob-storage.md)，包括 Microsoft Office、PDF 和 HTML 文件。 |
+| 資料整合 | Azure 搜尋服務索引接受以 JSON 資料結構格式提交的任何來源。 <br/><br/> 對於在 Azure 中支援的資料來源，您可以選擇使用[**索引子**](search-indexer-overview.md)自動搜耙 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Azure Cosmos DB](search-howto-index-cosmosdb.md) 或 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)，讓搜尋索引的內容與主要資料存放區同步。 Azure Blob 索引子可執行文件破解以[檢索主要檔案格式](search-howto-indexing-azure-blob-storage.md)，包括 Microsoft Office、PDF 和 HTML 文件。 |
 | 語言分析 | 分析器是在編製索引和搜尋作業期間用於文字處理的元件。 有兩種類型。 <br/><br/>[**自訂語彙分析器**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) (英文) 用於使用語音比對和規則運算式的複雜搜尋查詢。 <br/><br/>Lucene 或 Microsoft 的[**語言分析器**](https://docs.microsoft.com/rest/api/searchservice/language-support) (英文) 可用來以智慧方式處理特定語言的語言學，包括動詞時態、性別、不規則複數名詞 (例如 ' mouse' 與 'mice')、拆解複合字、斷字 (針對沒有空格的語言) 等。 |
 | 地區搜尋 | Azure 搜尋服務可處理、篩選和顯示地理位置。 可讓使用者根據搜尋結果與實體位置的鄰近程度來瀏覽資料。 如需詳細資訊，請[觀看此影片](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) (英文) 或[檢閱此範例](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) (英文)。 |
 | 使用者體驗功能 | 您可以在搜尋列中針對預先輸入的查詢啟用[**搜尋建議**](https://docs.microsoft.com/rest/api/searchservice/suggesters) (英文)。 使用者輸入部分搜尋關鍵字時，搜尋引擎便會列出索引中實際的文件作為可能搜尋對象。 <br/><br/>透過單一查詢參數便可啟用[**多面向導覽**](https://docs.microsoft.com/azure/search/search-faceted-navigation) (英文)。 Azure 搜尋服務會傳回多面向導覽結構，可做為類別清單背後的程式碼，用於自我引導篩選 (例如，依價格範圍或品牌來篩選類別目錄項目)。 <br/><br/> [**篩選**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (英文) 可用於將多面向導覽納入應用程式的 UI、增強查詢編寫，以及根據使用者或開發人員指定的準則進行篩選。 請使用 OData 語法建立篩選。<br/><br/> [**搜尋結果醒目提示**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)會將文字格式套用至搜尋結果中的相符關鍵字。 您可以選擇哪些欄位傳回醒目提示的文字片段。<br/><br/>我們會透過索引結構描述針對多個欄位提供[**排序**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (英文)，然後使用單一搜尋參數在查詢階段進行切換。<br/><br/> Azure 搜尋服務針對搜尋結果提供完善的控制項，讓您可輕鬆對搜尋結果進行[**分頁**](search-pagination-page-layout.md)和節流。  
 | 相關性 | [**簡單評分**](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)是 Azure 搜尋服務的主要優點。 評分設定檔用於將相關性模型化為文件本身中的值函數。 例如，您可能想要新推出的產品或折扣的產品，出現在搜尋結果中較高的位置。 您也可以根據您所追蹤並個別儲存的客戶搜尋喜好設定，使用標記進行個人化計分來建置計分設定檔。 |
 | 監視和報告 | 收集和分析[**搜尋流量分析**](search-traffic-analytics.md)可深入分析使用者在搜尋方塊中輸入的內容。 <br/><br/>自動會擷取每秒查詢次數、延遲和節流的計量，並在入口網站頁面中報告，不需要其他設定。 您也可以輕鬆地監視索引和文件計數，以便視需要調整容量。 如需詳細資訊，請參閱[服務管理](search-manage.md) |
 | 用於原型設計和檢查的工具 | 在入口網站中，您可以使用 [[匯入資料]](search-import-data-portal.md) 精靈設定索引子、使用索引設計工具建立索引，以及使用 [[搜尋總管]](search-explorer.md) 測試查詢並修改評分設定檔。 您也可以開啟任何索引，以檢視其結構描述。 |
-| 基礎結構 | **高可用性平台**可確保相當可靠的搜尋服務體驗。 經過適當的調整， [Azure 搜尋服務可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> Azure 搜尋服務是**受到完整管理和可調整的**端對端解決方案，完全不需要基礎結構管理。 以兩種方式調整您的服務，即可針對您的需求量身訂做，以處理更多的文件儲存體、更高的查詢負載，或兩者。
+| 基礎結構 | **高可用性平台**可確保相當可靠的搜尋服務體驗。 經過適當的調整， [Azure 搜尋服務可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> Azure 搜尋服務是**完全受控和可調整的**端對端解決方案，完全不需要基礎結構管理。 以兩種方式調整您的服務，即可針對您的需求量身訂做，以處理更多的文件儲存體、更高的查詢負載，或兩者。
 
 ## <a name="how-to-use-azure-search"></a>如何使用 Azure 搜尋服務
 ### <a name="step-1-provision-service"></a>步驟 1：佈建服務
@@ -91,10 +91,10 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 
 雖然在入口網站中可以執行許多工作，但 Azure 搜尋服務主要是提供給想要將搜尋功能整合到現有應用程式的開發人員使用。 有下列程式設計介面可用。
 
-|平台 |說明 |
+|平台 |描述 |
 |-----|------------|
 |[REST](/rest/api/searchservice/) | 任何程式設計平台和語言 (包括 Xamarin、Java 和 JavaScript) 支援的 HTTP 指令|
-|[.NET SDK](search-howto-dotnet-sdk.md) | REST API 的 .NET 包裝函式支援使用 C# 和以 .NET Framework 為目標的其他受管理程式碼語言，有效率地撰寫程式碼 |
+|[.NET SDK](search-howto-dotnet-sdk.md) | REST API 的 .NET 包裝函式支援使用 C# 和以 .NET Framework 為目標的其他受控程式碼語言，有效率地撰寫程式碼 |
 
 ## <a name="free-trial"></a>免費試用
 Azure 訂閱者可以[在免費層中佈建服務](search-create-service-portal.md)。
@@ -109,7 +109,8 @@ Azure 訂閱者可以[在免費層中佈建服務](search-create-service-portal.
 
 2. 逐步執行一個或多個下列教學課程。 
 
-  + [如何使用 .NET SDK](search-howto-dotnet-sdk.md) 會示範 Managed 程式碼中的主要步驟。  
+  + 
+            [如何使用 .NET SDK](search-howto-dotnet-sdk.md) 會示範受控碼中的主要步驟。  
   + [開始使用 REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文) 會示範使用 REST API 的相同步驟。  
   + 使用內建索引和原型功能，[在入口網站中建立您的第一個索引](search-get-started-portal.md)。   
 

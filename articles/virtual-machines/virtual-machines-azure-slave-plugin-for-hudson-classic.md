@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>如何搭配使用 Azure 從屬外掛程式與 Hudson 連續整合
 適用於 Hudson 的 Azure 從屬外掛程式可讓您在執行分散式組建時在 Azure 上佈建從屬節點。
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Hudson 儀表板中，按一下 [ **新增工作**]。
 2. 輸入要建立之工作的名稱。
 3. 針對工作類型選取 [ **建置自由樣式的軟體作業**]。
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 5. 在工作組態頁面中，選取 [ **限制可以執行這個專案的位置**]。
 6. 選取 [節點和標籤功能表]，然後選取 [linux]\(上一節在建立虛擬機器範本時，我們指定了這個標籤)。
 7. 在 [組件] 區段中，按一下 [新增組件步驟]，然後選取 [執行殼層]。
@@ -176,7 +176,7 @@ ms.lasthandoff: 10/11/2017
         #Execute build task
    
         ant
-9. 按一下 [儲存] 。
+9. 按一下 [ **儲存**]。
 10. 在 Hudson 儀表板中，找到您剛才建立的工作，然後按一下 [ **排程組建** ] 圖示。
 
 Hudson 就會使用上一節建立的範本建立從屬節點，並執行您針對這項工作指定於組建步驟中的指令碼。

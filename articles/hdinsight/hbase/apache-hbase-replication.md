@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
 
@@ -182,7 +182,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 必要的引數︰
 
-|名稱|說明|
+|名稱|描述|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 選擇性的引數︰
 
-|名稱|說明|
+|名稱|描述|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
@@ -283,4 +283,4 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 * [開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight HBase 概觀](./apache-hbase-overview.md)
 * [在 Azure 虛擬網路上建立 HBase 叢集](./apache-hbase-provision-vnet.md)
-* [在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料](../storm/apache-storm-sensor-data-analysis.md)
+

@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: c7ad5f539afc25c7c36712f8af25ce4e4f6d31a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 56216f16ba3730d1488e45c0e7a81e87dbad6410
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-azure-automation-account"></a>管理 Azure 自動化帳戶
 有時您必須在自動化帳戶到期前更新憑證。 如果您認為執行身分帳戶遭到盜用，您可加以刪除並重新建立。 本節會討論如何執行這些作業。
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/14/2017
 
 當您選取執行身分帳戶時，帳戶的 [屬性] 窗格會顯示下列錯誤訊息：
 
-![不完整的執行身分設定警告訊息](media/automation-manage-account/automation-account-runas-incomplete-config-msg.png)。
+![不完整的執行身分設定警告訊息](media/automation-manage-account/automation-account-runas-incomplete-config-msg.png).
 
 您可以藉由刪除並重新建立這些執行身分帳戶，來快速解決帳戶的問題。
 

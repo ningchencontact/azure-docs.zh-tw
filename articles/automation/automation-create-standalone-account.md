@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 如果您想要評估並了解 Azure 自動化，但不包含其他管理解決方案或與 OMS Log Analytics 整合，本主題說明如何從 Azure 入口網站建立自動化帳戶，以提供 Runbook 作業的進階監視。  您可以新增這些管理解決方案，或在未來的任何時間點與 Log Analytics 整合。  使用自動化帳戶，您可以驗證在 Azure Resource Manager 或 Azure 傳統部署中管理資源的 Runbook。
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/14/2017
 ### <a name="resources-included"></a>包含的資源
 順利建立自動化帳戶時，系統會自動為您建立幾項資源。  下表摘要說明執行身分帳戶的資源。<br>
 
-| 資源 | 說明 |
+| 資源 | 描述 |
 | --- | --- |
 | AzureAutomationTutorial Runbook |此為圖形化 Runbook 範例，示範如何使用執行身分帳戶進行驗證以及取得所有 Resource Manager 資源。 |
 | AzureAutomationTutorialScript Runbook |此為 PowerShell Runbook 範例，示範如何使用執行身分帳戶進行驗證以及取得 Resource Manager 資源。 |
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/14/2017
 
 下表摘要說明傳統執行身分帳戶的資源。<br>
 
-| 資源 | 說明 |
+| 資源 | 描述 |
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |此為圖形化 Runbook 範例，可使用傳統執行身分帳戶 (憑證) 取得訂用帳戶中的所有傳統 VM，然後輸出 VM 名稱和狀態。 |
 | AzureClassicAutomationTutorial 指令碼 Runbook |此為 PowerShell Runbook 範例，可使用傳統執行身分帳戶 (憑證) 取得訂用帳戶中的所有傳統 VM，然後輸出 VM 名稱和狀態。 |

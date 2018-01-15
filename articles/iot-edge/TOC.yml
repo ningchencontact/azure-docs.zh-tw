@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: 快速入門
   items:
-    - name: 部署到 Edge - Linux
+    - name: 部署到 Edge - Linux/Mac
       href: quickstart-linux.md
     - name: 部署到 Edge - Windows
       href: quickstart.md
 - name: 教學課程
   items:
-    - name: 模擬 Edge 裝置 - Linux
+    - name: 模擬 Edge 裝置 - Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: 模擬 Edge 裝置 - Windows
       href: tutorial-simulate-device-windows.md

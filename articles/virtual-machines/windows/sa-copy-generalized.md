@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 中建立一般化 VM 未受管理的映像 | Microsoft Docs"
+title: "在 Azure 中建立一般化 VM 非受控映像 | Microsoft Docs"
 description: "建立一般化的 Windows VM 未受管理的映像，在 Azure 中用以建立多個 VM 複本。"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立未受管理的 VM 映像
+# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立非受控 VM 映像
 
-本文章涵蓋使用儲存體帳戶的內容。 建議您使用受控磁碟和受管理的映像，不要使用儲存體帳戶。 如需詳細資訊，請參閱[在 Azure 中擷取一般化 VM 的受管理映像](capture-image-resource.md)。
+本文章涵蓋使用儲存體帳戶的內容。 建議您使用受控磁碟和受管理的映像，不要使用儲存體帳戶。 如需詳細資訊，請參閱[在 Azure 中擷取一般化 VM 的受控映像](capture-image-resource.md)。
 
 本文示範如何使用 Azure PowerShell 建立使用儲存體帳戶的一般化 Azure VM 的映像。 然後可以使用映像來建立另一個 VM。 此映像包含作業系統磁碟與連結到虛擬機器的資料磁碟。 映像不包含虛擬網路資源，因此您需要在建立新的 VM 時設定這些資源。 
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 
@@ -98,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-the-image"></a>建立映像
 
-使用這個命令，在目的地儲存體容器中建立未受管理的虛擬機器映像。 此映像會建立在與原始虛擬機器相同的儲存體帳戶中。 `-Path` 參數會將來源 VM 的 JSON 範本複本儲存到本機電腦。 `-DestinationContainerName` 參數是要用以保存映像的容器名稱。 如果此容器不存在，則會為您建立。
+使用這個命令，在目的地儲存體容器中建立非受控虛擬機器映像。 此映像會建立在與原始虛擬機器相同的儲存體帳戶中。 `-Path` 參數會將來源 VM 的 JSON 範本複本儲存到本機電腦。 `-DestinationContainerName` 參數是要用以保存映像的容器名稱。 如果此容器不存在，則會為您建立。
    
 ```powershell
 Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -112,7 +113,7 @@ Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
 
 ## <a name="create-a-vm-from-the-image"></a>從映像建立 VM
 
-現在您可以從未受管理的映像建立一或多部 VM。
+現在您可以從非受控映像建立一或多部 VM。
 
 ### <a name="set-the-uri-of-the-vhd"></a>設定 VHD 的 URI
 
@@ -186,7 +187,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>建立 VM
-下列 PowerShell 會完成虛擬機器設定，並使用未受管理的映像當做新安裝的來源。
+下列 PowerShell 會完成虛擬機器設定，並使用非受控映像當做新安裝的來源。
 
 </br>
 

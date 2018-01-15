@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>使用 StorSimple 診斷工具針對 8000 系列裝置問題進行疑難排解
 
@@ -32,15 +32,15 @@ StorSimple 診斷工具可診斷 StorSimple 裝置的系統、效能、網路和
 
 您可以透過 StorSimple 裝置的 Windows PowerShell 介面執行此工具。 有兩種方式可存取裝置的本機介面︰
 
-* [使用 PuTTY 連線至裝置序列主控台](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)
-* [透過適用於 StorSimple 的 Windows PowerShell 從遠端存取工具](storsimple-remote-connect.md)。
+* [使用 PuTTY 連線至裝置序列主控台](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)
+* [透過適用於 StorSimple 的 Windows PowerShell 從遠端存取工具](storsimple-8000-remote-connect.md)。
 
 在本文中，我們假設您已透過 PuTTY 連線至裝置序列主控台。
 
 #### <a name="to-run-the-diagnostics-tool"></a>執行診斷工具
 
 連線至裝置的 Windows PowerShell 介面之後，執行下列步驟來執行 Cmdlet。
-1. 遵循 [使用 PuTTY 來連接到裝置序列主控台](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)中的步驟，登入裝置序列主控台。
+1. 遵循 [使用 PuTTY 來連接到裝置序列主控台](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)中的步驟，登入裝置序列主控台。
 
 2. 輸入以下命令：
 
@@ -85,11 +85,11 @@ StorSimple 診斷工具可診斷 StorSimple 裝置的系統、效能、網路和
 * 報告的硬體元件是未通過測試或不存在系統中的元件。
 * 報告的 USM 韌體和磁碟韌體版本是指系統中的控制器 0、控制器 1 和共用元件。 如需硬體元件的完整清單，請移至︰
 
-    * [主要機箱中的元件](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [EBOD 機箱中的元件](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [主要機箱中的元件](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [EBOD 機箱中的元件](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> 如果硬體測試報告失敗的元件，請[向 Microsoft 支援服務登記服務要求](storsimple-contact-microsoft-support.md)。
+> 如果硬體測試報告失敗的元件，請[向 Microsoft 支援服務登記服務要求](storsimple-8000-contact-microsoft-support.md)。
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>在 8100 裝置上執行硬體測試的輸出範例
 
@@ -210,7 +210,7 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 * 系統資訊包括機型、裝置序號、時區、控制器狀態，以及系統上執行的詳細軟體版本。 若要了解輸出所報告的各種系統參數，請參閱[解譯系統資訊](#appendix-interpreting-system-information)。
 
 * 更新可用性報告定期和維護模式是否可用及其相關聯的套件名稱。 如果 `RegularUpdates` 和 `MaintenanceModeUpdates` 是 `false`，這表示沒有可用的更新。 您的裝置已是最新狀態。
-* 叢集資訊包含所有 HCS 叢集群組的各種邏輯元件及其個別狀態的相關資訊。 如果您在此報告區段看到離線叢集群組，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+* 叢集資訊包含所有 HCS 叢集群組的各種邏輯元件及其個別狀態的相關資訊。 如果您在此報告區段看到離線叢集群組，請[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。
 * 服務資訊包含在您的裝置上執行的所有 HCS 和 CiS 服務的名稱和狀態。 這項資訊可協助 Microsoft 支援服務針對裝置問題進行疑難排解。
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>在 8100 裝置上執行系統測試的輸出範例
@@ -413,7 +413,7 @@ Controller0>
 
 下表描述系統資訊中各種 Windows PowerShell 參數對應的意義。 
 
-| PowerShell 參數    | 說明  |
+| PowerShell 參數    | 描述  |
 |-------------------------|------------------|
 | 執行個體識別碼             | 每個控制器都有相關聯的唯一識別碼或 GUID。|
 | 名稱                    | 在裝置部署期間，透過 Azure 入口網站設定的裝置易記名稱。 預設的易記名稱是裝置序號。 |
@@ -433,7 +433,7 @@ Controller0>
 | CisAgentVersion         | StorSimple 裝置上執行的 Ci 代理程式版本。 此代理程式可協助與 Azure 中執行的 StorSimple Manager 服務進行通訊。|
 | MdsAgentVersion         | 與 StorSimple 裝置上執行的 Mds 代理程式相對應的版本。 此代理程式會將資料移至的監視與診斷服務 (MDS)。|
 | Lsisas2Version          | 與 StorSimple 裝置上的 LSI 驅動程式相對應的版本。|
-| 容量                | 裝置的總容量 (以位元組為單位)。|
+| Capacity                | 裝置的總容量 (以位元組為單位)。|
 | RemoteManagementMode    | 指出是否可以透過 Windows PowerShell 介面從遠端管理裝置。 |
 | FipsMode                | 指出您的裝置上是否啟用美國聯邦資訊處理標準 (FIPS) 模式。 FIPS 140 標準定義核准美國聯邦政府電腦系統所使用的密碼編譯演算法來保護機密資料。 如果是執行 Update 4 或更新版本的裝置，預設會啟用 FIPS 模式。 |
 

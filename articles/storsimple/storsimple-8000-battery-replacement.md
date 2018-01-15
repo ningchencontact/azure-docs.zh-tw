@@ -4,7 +4,7 @@ description: "描述如何取下、更換和維護 StorSimple 裝置上的備份
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的備份電池模組
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Microsoft Azure StorSimple 裝置上的主要機箱電源和冷卻模組 (PCM) 具有額外的電池組。 這個電池組會提供電源，以便如果主要機箱失去 AC 電源，StorSimple 裝置可以儲存資料。 這個電池組稱為 *備份電池模組*。 備份電池模組僅針對 StorSimple 裝置中的主要機箱而存在 (EBOD 機箱未包含備份電池模組) 。
 
 本教學課程說明如何：
@@ -46,7 +46,7 @@ StorSimple 裝置的備份電池模組是現場可置換裝置。 在 PCM 中安
    
     **圖 1** 顯示 PCM 和控制器模組的主要裝置背面
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -59,7 +59,7 @@ StorSimple 裝置的備份電池模組是現場可置換裝置。 在 PCM 中安
    
     **圖 2** 顯示監視指示器 LED 的 PCM 背面
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |AC 電源故障 |
    | 2 |風扇故障 |
@@ -67,7 +67,7 @@ StorSimple 裝置的備份電池模組是現場可置換裝置。 在 PCM 中安
    | 4 |PCM 正常 |
    | 5 |DC 電源故障 |
    | 6 |電池狀況良好 |
-3. 若要取下電池故障的 PCM，請遵循 [取下 PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm)中的步驟。
+3. 若要取下電池故障的 PCM，請遵循 [取下 PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm)中的步驟。
 4. 一旦取下 PCM，請提起並向上旋轉電池模組把手 (如下圖中所示)，並將它拔出以取下電池。
    
     ![從 pcm 取出電池](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ StorSimple 裝置的備份電池模組是現場可置換裝置。 在 PCM 中安
 #### <a name="to-install-the-battery-module"></a>若要安裝電池模組
 1. 以適當的方向將備份電池模組放入 PCM 中。
 2. 全力按壓電池模組把手以固定連接器。
-3. 依照 [更換 StorSimple 裝置上的電源和冷卻模組](storsimple-power-cooling-module-replacement.md)中的指導方針，更換主要機箱的 PCM。
+3. 依照 [更換 StorSimple 裝置上的電源和冷卻模組](storsimple-8000-power-cooling-module-replacement.md)中的指導方針，更換主要機箱的 PCM。
 4. 在更換完成之後，請移至您的裝置，然後在 Azure 入口網站移至 [監視器] > [硬體健康情況]。 確認電池的狀態，以確定安裝成功。 綠色狀態表示電池狀況良好。
 
 ## <a name="maintain-the-backup-battery-module"></a>維護備份電池模組

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ ms.lasthandoff: 11/10/2017
 若要從不可公開存取的 SQL Server 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 SQL Server 資料庫驅動程式，因此從 SQL Server 資料庫複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 SQL Server 資料庫連接器專屬的 Data Factory 實體。
 
@@ -53,9 +54,9 @@ ms.lasthandoff: 11/10/2017
 
 以下是針對 SQL Server 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**SqlServer** | 是 |
+| type | 類型屬性必須設定為：**SqlServer** | 是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請將此欄位標示為 SecureString。 |是 |
 | userName |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |否 |
@@ -114,9 +115,9 @@ ms.lasthandoff: 11/10/2017
 
 若要從 SQL Server 資料庫複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **SqlServerTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**SqlServerTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**SqlServerTable** | 是 |
 | tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | 是 |
 
 **範例：**
@@ -146,10 +147,10 @@ ms.lasthandoff: 11/10/2017
 
 若要從 SQL Server 複製資料，請將複製活動中的來源類型設定為 **SqlSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
-| SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例：`select * from MyTable`. |否 |
+| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
+| SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 
@@ -250,9 +251,9 @@ GO
 
 若要將資料複製到 SQL Server，請將複製活動中的接收器類型設定為 **SqlSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
+| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值：10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | sqlWriterStoredProcedureName |將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 |否 |
@@ -482,16 +483,16 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| 日期 |Datetime |
+| DateTime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |DateTimeOffset |
 | 十進位 |十進位 |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
 | Float |兩倍 |
-| image |Byte[] |
+| 映像 |Byte[] |
 | int |Int32 |
 | money |十進位 |
 | nchar |String、Char[] |
@@ -500,11 +501,11 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | nvarchar |String、Char[] |
 | real |單一 |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |十進位 |
 | sql_variant |物件 * |
-| 文字 |String、Char[] |
+| text |String、Char[] |
 | 分析 |時間範圍 |
 | timestamp |Byte[] |
 | tinyint |Int16 |
@@ -530,7 +531,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 3. 在相同的視窗中，按兩下 [TCP/IP] 來啟動 [TCP/IP 屬性] 視窗。
 4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。 記下 **TCP 通訊埠** (預設值是 **1433**)。
 5. 在電腦上建立 **Windows 防火牆規則** ，來允許透過此連接埠的連入流量。  
-6. **確認連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如： `"<machine>.<domain>.corp.<company>.com,1433"`。
+6. **確認連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如：`"<machine>.<domain>.corp.<company>.com,1433"`。
 
 
 ## <a name="next-steps"></a>後續步驟

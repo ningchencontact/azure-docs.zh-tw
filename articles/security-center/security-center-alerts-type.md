@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
@@ -144,7 +144,6 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **可疑的文件認證**：此警示表示惡意程式碼使用一般預先計算的可疑密碼雜湊來執行檔案。
 * **動態 PS 指令碼建構**：此警示表示正在動態建構 PowerShell 指令碼。 攻擊者會使用這項技術來逐漸建置指令碼，以避開 IDS 系統。
 * **Metaploit 指標**：此警示表示與 Metasploit 架構相關聯的活動，可提供各種攻擊者功能和工具。
-* **SENSE 竄改**：此警示表示嘗試停用 SENSE (Windows Defender ATP 的安全性監視服務)。
 * **可疑的帳戶活動**：此警示表示嘗試使用最近遭到入侵的帳戶連線到電腦。
 * **可能的可疑排程工作存取**：此警示表示已執行 cron 作業，攻擊者可利用此作業依排程來執行惡意程式。
 * **可能的可疑命令歷程記錄檔存取**：此警示表示異常存取命令歷程記錄檔。
@@ -189,7 +188,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 
 資訊安全中心資源分析著重於平台即服務 (PaaS) 服務，例如與 [Azure SQL Database 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)功能整合。 根據來自這些區域的分析結果，資訊安全中心會觸發資源相關警示。
 
-* **潛在 SQL 插入**：SQL 插入式攻擊會將惡意程式碼插入字串，而此字串稍後會傳遞至 SQL Server 執行個體以進行剖析和執行。 因為 SQL Server 會執行它收到的所有語法上有效的查詢，所以建構 SQL 陳述式的任何程序皆應檢閱其中是否有插入式攻擊弱點。 SQL 威脅偵測會使用機器學習、行為分析和異常偵測，判斷 Azure SQL Database 中可能會發生的可疑事件。 例如： 
+* **潛在 SQL 插入**：SQL 插入式攻擊會將惡意程式碼插入字串，而此字串稍後會傳遞至 SQL Server 執行個體以進行剖析和執行。 因為 SQL Server 會執行它收到的所有語法上有效的查詢，所以建構 SQL 陳述式的任何程序皆應檢閱其中是否有插入式攻擊弱點。 SQL 威脅偵測會使用機器學習、行為分析和異常偵測，判斷 Azure SQL Database 中可能會發生的可疑事件。 例如︰ 
     * 離職員工嘗試的資料庫存取
     * SQL 插入式攻擊
     * 從使用者家裡異常存取生產資料庫

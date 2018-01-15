@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>第 6 課：建立量值
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>建立量值
 
 在這堂課中，您將會建立要加入模型中的量值。 類似於您所建立的計算結果欄，量值是利用 DAX 公式所建立的計算結果。 不過，與計算結果欄不同，量值評估是根據使用者選取的「篩選條件」。 例如，在樞紐分析表的 [資料列標籤] 欄位中新增的特定資料行或交叉分析篩選器。 然後會以套用的量值，計算篩選條件中每個資料格的值。 量值是功能強大又靈活的計算，在幾乎所有表格式模型中都會派上用場，可以對數值資料執行動態計算。 若要深入了解，請參閱[量值](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)。
   
@@ -77,7 +75,7 @@ ms.lasthandoff: 11/02/2017
   
 2.  按一下 [SalesOrderNumber] 資料行標題。  
   
-3.  在工具列上，按一下 「自動加總」 \(**∑**) 按鈕旁的向下箭號，然後選取 **[DistinctCount]**。  
+3.  在工具列上，按一下 [自動加總] \(**∑**) 按鈕旁的向下箭號，然後選取 [DistinctCount]。  
   
     「自動加總」功能會使用 DistinctCount 標準彙總公式，自動為選取的資料行建立量值。  
     
@@ -90,9 +88,9 @@ ms.lasthandoff: 11/02/2017
   
 1.  使用「自動加總」功能建立並命名下列量值︰  
 
-    |資料欄|量值名稱|自動加總 (∑)|公式|  
+    |欄|量值名稱|自動加總 (∑)|公式|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|計數|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|總和|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|總和|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|總和|=SUM([TotalProductCost])|  

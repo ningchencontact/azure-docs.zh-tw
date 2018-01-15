@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="indexers-in-azure-search"></a>Azure 搜尋服務中的索引子
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/13/2017
 > * [概觀](search-indexer-overview.md)
 > * [入口網站](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 > * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 > * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 >
@@ -57,7 +57,7 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部資�
 索引子會從保有連接字串或認證等資訊的「資料來源」提取資料。 目前支援下列資料來源：
 
 * [Azure SQL Database 或 Azure 虛擬機器中的 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * 適用於所選內容類型的 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 
@@ -76,7 +76,7 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部資�
 既然您已瞭解基本概念，下一個步驟是檢閱需求和每個資料來源類型特有的工作。
 
 * [Azure SQL Database 或 Azure 虛擬機器中的 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 * [使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob](search-howto-index-csv-blobs.md)

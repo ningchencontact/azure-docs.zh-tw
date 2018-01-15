@@ -4,7 +4,7 @@ description: "IoT 感應器標記和具有串流分析的資料串流與即時�
 keywords: "IoT 解決方案，開始使用 IoT"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 在本教學課程中，您將學習如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。
@@ -31,11 +31,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="scenario"></a>案例
 Contoso 是一家工業自動化空間的公司，他們已完全自動化其製造程序。 這家製造廠的機械裝置具有感應器，可以發出即時資料串流。 在此案例中，生產現場經理想要取得感應器資料的即時深入資訊，來尋找模式並且對其採取動作。 我們將對感應器資料使用串流分析查詢語言 (SAQL)，以從內送資料串流中找出感興趣的模式。
 
-這裡的資料是從 Texas Instrument 的感應器標籤裝置產生。
-
-![Texas Instruments 的感應器標籤](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-資料的承載格式是 JSON，如下所示：
+這裡的資料是從 Texas Instrument 的感應器標籤裝置產生。 資料的承載格式是 JSON，如下所示：
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -48,7 +44,7 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 
 為了方便使用，本入門指南會提供擷取自實際感應器標籤裝置的範例資料檔。 您可以對範例資料執行查詢，然後查看結果。 在後續教學課程中，您將了解如何將您的作業連接至輸入和輸出，並將它們部署到 Azure 服務。
 
-## <a name="create-a-stream-analytics-job"></a>建立串流分析工作
+## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 1. 在 [Azure 入口網站](http://portal.azure.com)中，按一下加號然後在右側文字視窗中輸入 **STREAM ANALYTICS**。 然後在結果清單中選取 [串流分析作業]。
    
     ![建立新的串流分析作業](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
@@ -61,14 +57,14 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
    > 每個區域只應該建立一次此儲存體帳戶。 此儲存體會供該區域中建立的所有串流分析作業共用。
    > 
    > 
-4. 核取方塊以將作業放在您的儀表板上，然後按一下建立。
+4. 核取方塊以將作業放在您的儀表板上，然後按一下 [建立]。
    
     ![正在建立作業](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. 您應會看到「部署已開始...」顯示在瀏覽器視窗的右上方。 很快就會變更為如下所示的已完成視窗。
    
     ![正在建立作業](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>建立 Azure 串流分析查詢
+## <a name="create-an-azure-stream-analytics-query"></a>建立 Azure 串流分析查詢
 建立作業之後，便可將它開啟並建立查詢。 您可以按一下它的圖格以輕鬆存取您的作業。
 
 ![作業圖格](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
@@ -103,7 +99,7 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 ![查詢測試的第二個輸出結果](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>查詢：觸發商務工作流程的警示
-讓我們的查詢變得更為詳細。 對於每一個類型的感應器，我們想要監視每 30 秒時段的平均溫度，並且只顯示平均溫度高於 100 度的結果。 我們會撰寫下列查詢，然後按一下測試 來查看結果。 查詢位於 ThresholdAlerting.txt 檔案中。
+讓我們的查詢變得更為詳細。 對於每一個類型的感應器，我們想要監視每 30 秒時段的平均溫度，並且只顯示平均溫度高於 100 度的結果。 我們會撰寫下列查詢，然後按一下 [測試] 來查看結果。 查詢位於 ThresholdAlerting.txt 檔案中。
 
 ![30 秒篩選查詢](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 

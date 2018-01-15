@@ -10,7 +10,7 @@
       href: lifecycle-data.md
     - name: 3. 模型化
       href: lifecycle-modeling.md
-    - name: 4. 部署
+    - name: 4. Deployment
       href: lifecycle-deployment.md
     - name: 5. 客戶接受度
       href: lifecycle-acceptance.md
@@ -78,7 +78,7 @@
       href: team-data-science-process-for-data-scientists.md
     - name: 適用於 DevOps
       href: team-data-science-process-for-devops.md
-- name: 作法
+- name: "作法\r\n"
   items:
     - name: 在 Azure ML 中使用 TDSP
       href: ../preview/how-to-use-tdsp-in-azure-ml.md
@@ -223,7 +223,7 @@
 - name: 相關參考
   items:
     - name: Microsoft 辨識工具組 - CNTK
-      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      href: 'https://docs.microsoft.com/cognitive-toolkit/'
       maintainContext: true
     - name: Cortana Intelligence Partner Solutions
       items:
@@ -239,8 +239,8 @@
           items:
             - name: 異常偵測
               href: apps-anomaly-detection-api.md
-            - name: 辨識服務
-              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - name: 認知服務
+              href: 'https://docs.microsoft.com/azure/cognitive-services/'
             - name: 預測性維護
               items:
                 - name: 概觀

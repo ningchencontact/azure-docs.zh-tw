@@ -1,6 +1,6 @@
 ---
 title: "使用 OMS 更新管理中的 SCCM 集合進行目標更新 | Microsoft Docs"
-description: "本文旨在協助您設定 System Center Configuration Manager，以使用此解決方案來管理 SCCM 受管理電腦的更新。"
+description: "本文旨在協助您設定 System Center Configuration Manager，以使用此解決方案來管理 SCCM 受控電腦的更新。"
 services: operations-management-suite
 documentationcenter: 
 author: georgewallace
@@ -11,20 +11,20 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>整合 System Center Configuration Manager 與 OMS 更新管理
 
 投資了 System Center Configuration Manager 以管理電腦、伺服器和行動裝置的客戶也需仰賴其管理軟體更新的強度和成熟度，作為軟體更新管理 (SUM) 週期的一部分。  
 
-以現今 OMS 和 Configuration Manager 之間的整合為基礎建置，您可以透過在 Configuration Manager 中建置並預先暫存軟體更新部署，並使用[更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)取得所完成更新部署的詳細狀態，藉此報告和更新受管理的 Windows 伺服器。 如果您將 Configuration Manager 用於更新相容性報告，而不是用於管理 Windows 伺服器的更新部署，您可以繼續向 Configuration Manager 報告，同時安全性更新則是使用 OMS 更新管理解決方案來管理。
+以現今 OMS 和 Configuration Manager 之間的整合為基礎建置，您可以透過在 Configuration Manager 中建置並預先暫存軟體更新部署，並使用[更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)取得所完成更新部署的詳細狀態，藉此報告和更新受控 Windows 伺服器。 如果您將 Configuration Manager 用於更新相容性報告，而不是用於管理 Windows 伺服器的更新部署，您可以繼續向 Configuration Manager 報告，同時安全性更新則是使用 OMS 更新管理解決方案來管理。
 
 ## <a name="prerequisites"></a>必要條件
 

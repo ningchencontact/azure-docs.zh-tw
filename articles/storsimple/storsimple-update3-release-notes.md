@@ -4,7 +4,7 @@ description: "說明「StorSimple 8000 系列 Update 3」的新功能、問題�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 282383f0887e546c7d569494eeab42805f789fb2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c22e3859fad55a8632d62aaf5f656081d6d662bd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 系列裝置的 Update 3 版本資訊
 > [!NOTE]
-> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
 
 ## <a name="overview"></a>概觀
@@ -42,7 +42,7 @@ Update 3 可以套用至任何執行 Release (GA) 或 Update 0.1 到 Update 2.2 
 ## <a name="whats-new-in-update-3"></a>Update 3 的新功能
 Update 3 包含以下重要的改良功能和錯誤修正。
 
-* **自動化空間回收變更** – 從 Update 3 開始，空間回收演算法是在待命控制器上執行，使得執行更快速。 如需有關與空間回收搭配運作所需之連接埠的詳細資訊，請參閱 [StorSimple 的網路需求](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)。
+* **自動化空間回收變更** – 從 Update 3 開始，空間回收演算法是在待命控制器上執行，使得執行更快速。 如需有關與空間回收搭配運作所需之連接埠的詳細資訊，請參閱 [StorSimple 的網路需求](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device)。
 * **效能增強功能** – Update 3 已改善對雲端的讀寫效能。
 * **移轉相關的改良** – 在此版本中，針對從 5000/7000 系列裝置到 8000 系列裝置的移轉功能，進行了數個錯誤修正和改良。 如需有關如何使用移轉功能的詳細資訊，請移至[從 5000/7000 系列裝置的移轉到 8000 系列裝置](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)。 
 * **監視相關的修正** - 在此版本中，與監視圖表、服務儀表板及裝置儀表板相關的錯誤均已修正。
@@ -56,7 +56,7 @@ Update 3 包含以下重要的改良功能和錯誤修正。
 | 2 |固定在本機的磁碟區 |在先前版本中，固定在本機的磁碟區有與 I/O 失敗、磁碟區轉換失敗及資料路徑失敗相關的問題。 此版本已找出這些問題的根本原因並加以修正。 |是 |否 |
 | 3 |監視 |有多個與報表單位和監視以及裝置儀表板圖表相關的問題，其中針對固定在本機的磁碟區顯示了不正確的資訊。 此版本已經修正這些問題。 |是 |否 |
 | 4 |大量寫入 I/O |當使用 StorSimple 來處理涉及大量寫入的工作負載時，使用者會遇到工作集被分層到雲端的罕見錯誤。 此版本已經修正這個錯誤。 |是 |是 |
-| 5 |備份 |在某些罕見的情況下，於舊版軟體中，當使用者進行遠端複本的備份時，會遇到雲端錯誤而使得作業發生錯誤。在此版本中，已修正此問題且作業順利完成。 |是 |是 |
+| 5 |Backup  |在某些罕見的情況下，於舊版軟體中，當使用者進行遠端複本的備份時，會遇到雲端錯誤而使得作業發生錯誤。在此版本中，已修正此問題且作業順利完成。 |是 |是 |
 | 6 |備份原則 |在某些罕見的情況下，於舊版軟體中，有與刪除備份原則相關的錯誤。 此版本已經修正這個問題。 |是 |是 |
 
 ## <a name="known-issues-in-update-3"></a>Update 3 中的已知問題
@@ -69,7 +69,7 @@ Update 3 包含以下重要的改良功能和錯誤修正。
 | 3 |儲存體帳戶 |不支援使用儲存體服務刪除儲存體帳戶的案例。 這會導致無法擷取使用者資料的情況。 | |是 |是 |
 | 4 |裝置容錯移轉 |不支援從相同來源裝置將某個磁碟區容器多次容錯移轉至不同的目標裝置。 從單一失效裝置容錯移轉到多個裝置，會讓第一個容錯移轉裝置上的磁碟區容器失去資料擁有權。 進行這類容錯移轉之後，當您在 Azure 傳統入口網站中檢視這些磁碟區容器時，會發現它們的外觀或行為有所不同。 | |是 |否 |
 | 5 |安裝 |在 StorSimple Adapter for SharePoint 安裝其間，您必須提供裝置 IP，才能順利完成安裝。 | |是 |否 |
-| 6 |Web Proxy |如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。 同時會在程序中產生支援封裝，耗用裝置上的大量資源。 |請確定 Web Proxy URL 指定的通訊協定為 HTTP。 如需詳細資訊，請參閱 [設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。 |是 |否 |
+| 6 |Web Proxy |如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。 同時會在程序中產生支援封裝，耗用裝置上的大量資源。 |請確定 Web Proxy URL 指定的通訊協定為 HTTP。 如需詳細資訊，請參閱 [設定裝置的 Web Proxy](storsimple-8000-configure-web-proxy.md)。 |是 |否 |
 | 7 |Web Proxy |如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | |是 |否 |
 | 8 |雲端高延遲與高 I/O 工作負載 |當 StorSimple 裝置同時出現雲端延遲情況嚴重 (大約數秒) 和 I/O 工作負載高的情況時，裝置磁碟區會進入降級的狀態，而且 I/O 可能會失敗，發生「裝置未就緒」錯誤。 |您必須以手動方式將裝置控制器重新開機，或或執行裝置容錯移轉，才能從這種情況下復原。 |是 |否 |
 | 9 |Azure PowerShell |當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 |將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |是 |是 |

@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-ms.openlocfilehash: e6fc49855b449a7723a7f8a0c1c41516b3a44ee5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>將一般化 VHD 上傳至 Azure，以建立新的 VM。
 
-本主題涵蓋將一般化的未受控磁碟上傳至儲存體帳戶，然後建立使用上傳磁碟的新 VM。 一般化 VHD 映像已使用 Sysprep 移除您所有的個人帳戶資訊。 
+本主題涵蓋將一般化的非受控磁碟上傳至儲存體帳戶，然後建立使用上傳磁碟的新 VM。 一般化 VHD 映像已使用 Sysprep 移除您所有的個人帳戶資訊。 
 
 如果您想要從儲存體帳戶中的特殊化 VHD 建立 VM，請參閱[從特殊化 VHD 建立 VM](sa-create-vm-specialized.md)。
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 

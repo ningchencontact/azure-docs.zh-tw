@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>使用入口網站將資料匯入至 Azure 搜尋服務
 Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈來將資料載入至索引。 
@@ -40,7 +40,7 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>匯入資料精靈所支援的資料來源
 匯入資料精靈支援下列資料來源︰ 
 
-* Azure SQL Database
+* 連接字串
 * Azure VM 上的 SQL Server 關聯式資料
 * Azure Cosmos DB
 * Azure Blob 儲存體
@@ -113,7 +113,7 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 檢閱下列連結以深入了解索引子：
 
 * [為 Azure SQL Database 編製索引](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB 編製索引](search-howto-index-documentdb.md)
+* [Azure Cosmos DB 編製索引](search-howto-index-cosmosdb.md)
 * [為 Blob 儲存體編製索引](search-howto-indexing-azure-blob-storage.md)
 * [為表格儲存體編製索引](search-howto-indexing-azure-tables.md)
 

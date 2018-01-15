@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -104,17 +104,18 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 ## <a name="protect-rds"></a>保護 RDS
 遠端桌面服務 (RDS) 可啟用虛擬桌面基礎結構 (VDI)、以工作階段為基礎的桌面和應用程式，讓使用者可在任何地方工作。 使用 Azure Site Recovery，您可以：
 
-* 將受管理或未受管理的集區化虛擬桌面複寫至次要網站，以及將遠端應用程式和工作階段複寫至次要網站或 Azure。
+* 將受控或非受控集區化虛擬桌面複寫至次要網站，以及將遠端應用程式和工作階段複寫至次要網站或 Azure。
 
 * 以下是您可以複寫的項目︰
 
 | **RDS** |**將 Azure VM 複寫至 Azure** | **將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** | **將實體伺服器複寫到次要網站** | **將實體伺服器複寫到 Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **集區化虛擬桌面 (未受管理)** |否|是 |否 |是 |否 |是 |否 |
-| **集區化虛擬桌面 (受管理但不含 UPD)** |否|是 |否 |是 |否 |是 |否 |
+| **集區化虛擬桌面 (非受控)** |否|是 |否 |是 |否 |是 |否 |
+| 
+            **集區化虛擬桌面 (受控但不含 UPD)** |否|是 |否 |是 |否 |是 |否 |
 | **遠端應用程式和桌面工作階段 (不含 UPD)** |是|是 |是 |是 |是 |是 |是 |
 
-[使用 Azure Site Recovery 設定適用於 RDS 的災害復原](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure)。
+[使用 Azure Site Recovery 設定適用於 RDS 的災害復原](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure)。
 
 [深入了解](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) 如何保護 RDS。
 
