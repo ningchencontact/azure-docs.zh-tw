@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 4cb3aaa3d4e577e45f01f245d3898c033092f5a3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>開始使用適用於 Xamarin.Android 應用程式的通知中樞
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/02/2018
 
 您可以在[此處][GitHub]的 GitHub 上找到本教學課程的完整程式碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本教學課程需要下列各項：
 
 * [Visual Studio 和 Xamarin] (在 Windows 上) 或 [Visual Studio for Mac] (在 OS X 上)。
@@ -304,7 +304,7 @@ ms.lasthandoff: 01/02/2018
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio 和 Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio 和 Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [Azure 入口網站]: https://portal.azure.com/

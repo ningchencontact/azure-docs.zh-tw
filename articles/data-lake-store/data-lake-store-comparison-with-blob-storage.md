@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8881d28e1625664d0a124057821192aabfe1180b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>比較 Azure Data Lake Store 和 Azure Blob 儲存體
 本文章中的表格摘要說明 Azure Data Lake Store 與 Azure Blob 儲存體之間的差異，以及巨量資料處理的一些重要層面。 Azure Blob 儲存體是一般用途的可調整物件存放區，針對各種不同的儲存體案例所設計。 Azure Data Lake Store 是超大規模儲存機制，已針對巨量資料分析的工作負載最佳化。

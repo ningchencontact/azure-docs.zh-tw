@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 000d7d19a6bf897d5c32ec31017f96fe23461b29
-  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.openlocfilehash: ee0dc6f351823347b1d0572c0a9fb392bbc6956e
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/11/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "使用 Terraform 進行版本可靠化，並在 Azure 上建立架構。 了解如何建立資源、使用 Azure Terraform 模組，並使用我們的快速入門和教學課程，透過程式碼維護基礎結構。"
   aside:
@@ -35,11 +35,11 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
       text: "安裝及設定 Terraform"
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
       text: "建立 Linux VM"
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
 - title: "逐步教學課程"

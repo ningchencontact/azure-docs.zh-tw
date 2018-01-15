@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>概觀
@@ -37,15 +37,17 @@ Azure 基礎結構服務可讓您以敏捷的方式部署各種不同的運算�
 我們將 Azure AD 網域服務設計為可提供更簡單的替代方法。
 
 ### <a name="watch-an-introductory-video"></a>觀看簡介影片
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Azure AD 網域服務簡介
+
 Azure AD 網域服務提供受控網域服務，例如：加入網域、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 您可以取用這些網域服務，而不需要您在雲端中部署、管理和修補網域控制站。 Azure AD 網域服務與您現有的 Azure AD 租用戶整合，因此能讓使用者使用其公司認證登入。 此外，您可以使用現有的群組和使用者帳戶，安全地存取資源，以確保更順暢地將內部部署資源「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務。
 
 Azure AD 網域服務的功能運作順暢，不論您的 Azure AD 租用戶是僅限雲端或與您的內部部署 Active Directory 同步。
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>僅限雲端的組織的 Azure AD 網域服務
+
 僅限雲端的 Azure AD 租用戶 (通常稱為「受控租用戶」) 沒有任何內部部署身分識別使用量。 換句話說，使用者帳戶、其密碼和群組成員資格為雲端原生 - 也就是在 Azure AD 中建立和管理。 考慮一下 Contoso 是僅限雲端的 Azure AD 租用戶。 如下圖中所示，Contoso 的系統管理員已在 Azure 基礎結構服務中設定虛擬網路。 應用程式和伺服器工作負載會部署在 Azure 虛擬機器的此虛擬網路中。 由於 Contoso 是僅限雲端的租用戶，所有的使用者身分識別、其認證和群組成員資格都是在 Azure AD 中建立和管理。
 
 ![Azure AD 網域服務概觀](./media/active-directory-domain-services-overview/aadds-overview.png)

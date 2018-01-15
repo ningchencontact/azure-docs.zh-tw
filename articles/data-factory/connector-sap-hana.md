@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ ms.lasthandoff: 11/07/2017
 - 在 Integration Runtime 電腦上安裝 SAP HANA ODBC 驅動程式。 您可以從 [SAP 軟體下載中心](https://support.sap.com/swdc)下載 SAP Hana ODBC 驅動程式。 使用關鍵字 **SAP HANA CLIENT for Windows** 搜尋。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 SAP HANA 連接器專屬的 Data Factory 實體。
 
@@ -58,9 +59,9 @@ ms.lasthandoff: 11/07/2017
 
 以下是針對 SAP HANA 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**SapHana** | 是 |
+| type | 類型屬性必須設定為：**SapHana** | 是 |
 | 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 是 |
 | authenticationType | 用來連線到 SAP HANA 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows** | 是 |
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
@@ -121,9 +122,9 @@ ms.lasthandoff: 11/07/2017
 
 若要從 SAP HANA 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
 
 **範例：**
@@ -164,23 +165,23 @@ ms.lasthandoff: 11/07/2017
 
 | SAP HANA 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ALPHANUM | String |
+| ALPHANUM | 字串 |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| BOOLEAN | 位元組 |
+| BOOLEAN | Byte |
 | CLOB | Byte[] |
-| 日期 | DateTime |
-| DECIMAL | DECIMAL |
+| 日期 | Datetime |
+| DECIMAL | 十進位 |
 | DOUBLE | 單一 |
 | INT | Int32 |
-| NVARCHAR | String |
+| NVARCHAR | 字串 |
 | REAL | 單一 |
-| SECONDDATE | DateTime |
+| SECONDDATE | Datetime |
 | SMALLINT | Int16 |
 | TIME | 時間範圍 |
-| 時間戳記 | DateTime |
-| TINYINT | 位元組 |
-| VARCHAR | String |
+| 時間戳記 | Datetime |
+| TINYINT | Byte |
+| VARCHAR | 字串 |
 
 ## <a name="known-limitations"></a>已知限制
 

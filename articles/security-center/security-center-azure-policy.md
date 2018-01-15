@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>整合資訊安全中心安全性原則與 Azure 原則
-本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。 
+本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。
 
 ## <a name="how-security-policies-work"></a>安全性原則的運作方式
 資訊安全中心會為每個 Azure 訂用帳戶自動建立預設安全性原則。 您可以編輯資訊安全中心的原則，或使用 [Azure 原則](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)執行下列動作：
@@ -50,8 +50,8 @@ ms.lasthandoff: 12/18/2017
 
 5. 若要刪除原則定義，請在 [原則和參數] 下您要刪除的定義旁，選取 [刪除]。
 
-6. 按一下 [儲存] 。  
-    [可用定義] 視窗隨即開啟，並顯示透過 Azure 原則指派給資訊安全中心的預設原則。 
+6. 按一下 [檔案] 。  
+    [可用定義] 視窗隨即開啟，並顯示透過 Azure 原則指派給資訊安全中心的預設原則。
 
 7. (選擇性) 在 [可用定義] 視窗中，執行下列其中一個動作：
 
@@ -68,12 +68,12 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="available-security-policy-definitions"></a>可用的安全性原則定義
 
-若要了解預設安全性原則中可用的原則定義，請參考下表： 
+若要了解預設安全性原則中可用的原則定義，請參考下表：
 
 | 原則 | 原則啟用後的功能 |
 | --- | --- |
 | 系統更新 |從 Windows Update 或 Windows Server Update Services (WSUS) 擷取每天可用的安全性和重大更新清單。 擷取的清單取決於為您虛擬機器設定的服務，並建議要套用的遺漏更新。 對於 Linux 系統，此原則會使用散發套件提供的套件管理系統，來判斷哪些套件有可用的更新。 它也會檢查來自 [Azure 雲端服務](../cloud-services/cloud-services-how-to-configure-portal.md) 虛擬機器的安全性和重大更新。 |
-| 作業系統弱點 |每天分析作業系統組態，以判斷讓虛擬機器容易遭受攻擊的問題。 此原則還會建議可解決這些弱點的組態變更。 如需受監視之特定組態的詳細資訊，請參閱[建議的基準清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。 (目前，未完全支援 Windows Server 2016)。 |
+| 安全性設定 |每天分析作業系統組態，以判斷讓虛擬機器容易遭受攻擊的問題。 此原則還會建議可解決這些弱點的組態變更。 如需受監視之特定組態的詳細資訊，請參閱[建議的基準清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。 (目前，未完全支援 Windows Server 2016)。 |
 | 端點保護 |建議為所有 Windows 虛擬機器 (VM) 設定端點保護，以協助識別和移除病毒、間諜軟體及其他惡意軟體。 |
 | 磁碟加密 |建立在所有虛擬機器中啟用磁碟加密以增強待用資料保護。 |
 | 網路安全性群組 |建議設定 [網路安全性群組](../virtual-network/virtual-networks-nsg.md) 來控制具有公用端點之 VM 的輸入與輸出流量。 除非另有指定，否則所有虛擬機器網路介面都會繼承為子網路設定的網路安全性群組。 除了檢查是否已設定網路安全性群組之外，此原則還會評估輸入安全性規則來識別可允許連入流量的規則。 |

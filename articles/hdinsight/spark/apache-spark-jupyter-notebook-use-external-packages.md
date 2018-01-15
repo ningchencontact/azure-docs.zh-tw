@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 71a64f3d23b495a3b00d36b1d4557425604a772d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 7df9fc58ac06ffde81df88ffd698c2527583f18f
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 叢集中搭配 Jupyter Notebook 使用外部封裝
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 12/21/2017
 
 在這篇文章中，您將了解如何搭配 Jupyter Notebook 使用 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 套件。
 
-
-
 ## <a name="prerequisites"></a>必要條件
 您必須滿足以下條件：
 
@@ -44,6 +42,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>搭配 Jupyter Notebook 使用外部套件
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
+
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
 
     > [!NOTE]
@@ -51,8 +50,6 @@ ms.lasthandoff: 12/21/2017
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
     > 
-
-   
 
 3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [Spark]。
    
@@ -130,4 +127,3 @@ ms.lasthandoff: 12/21/2017
 ### <a name="manage-resources"></a>管理資源
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
-

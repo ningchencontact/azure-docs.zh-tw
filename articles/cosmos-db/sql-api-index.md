@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL API 文件 |Microsoft 文件"
-description: "一份特定文件資料庫建立在 Azure Cosmos DB SQL API 以所有發行項。"
+title: "Azure Cosmos DB：SQL API 文章 | Microsoft Docs"
+description: "在 Azure Cosmos DB 中使用 SQL API 建立文件資料庫專屬之所有文章的清單。"
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8de2a541f307adfed1125dbfc25825b3e28d9c48
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL API 文件
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB：SQL API 文件
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-本文章 SQL API 以提供專用的所有 Azure Cosmos DB 內容的連結。
+這篇文章提供 SQL API 專屬之所有 Azure Cosmos DB 內容的連結。
 
 這些文章並不適用於圖形 API、資料表 API 或 MongoDB API。 
 
 ## <a name="introduction-and-concepts"></a>簡介和概念
 
-這些是必須讀取主題和資源開始學習 for Azure Cosmos DB SQL API。
+這些項目是開始學習 Azure Cosmos DB 之 SQL API 的必讀主題和資源。
 
 - [SQL API 簡介](sql-api-introduction.md)
 - [資料庫資源模型](sql-api-resources.md)
@@ -107,11 +107,11 @@ Azure Cosmos DB 會提供一些 SDK，以啟用用戶端應用程式開發。
 - [REST](/rest/api/documentdb/)
 - [REST 資源提供者](/rest/api/documentdbresourceprovider/)
 - [SQL 查詢參考](sql-api-sql-query-reference.md)
-- [Azure Functions 參考](../azure-functions/functions-bindings-documentdb.md)
+- [Azure Functions 參考](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## <a name="samples"></a>範例
 
-這些範例頁面會提供範例程式碼和應用程式開發介面的連結參考 SQL API 的常見工作的內容。
+這些範例頁面為最常見的 SQL API 工作，提供範例程式碼和 API 參考內容的連結。
 
 - [.NET](sql-api-dotnet-samples.md)
 - [Node.js](sql-api-nodejs-samples.md)

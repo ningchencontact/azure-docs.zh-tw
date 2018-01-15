@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ ms.lasthandoff: 11/06/2017
 若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 MongoDB 驅動程式，因此從 MongoDB 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 MongoDB 連接器專屬的 Data Factory 實體。
 
@@ -52,16 +53,16 @@ ms.lasthandoff: 11/06/2017
 
 以下是針對 MongoDB 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設定為：**MongoDb** |是 |
+| type |類型屬性必須設定為：**MongoDb** |是 |
 | 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
 | 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 27017) |
 | databaseName |您想要存取之 MongoDB 資料庫的名稱。 |是 |
 | authenticationType | 用來連線到 MongoDB 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |是 |
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 請將此欄位標示為 SecureString。 |是 (如果使用基本驗證)。 |
-| authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |否。 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
+| authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |編號 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -95,9 +96,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 MongoDB 複製資料，請將資料集的類型屬性設定為 **MongoDbCollection**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**MongoDbCollection** | 是 |
+| type | 資料集的類型屬性必須設定為：**MongoDbCollection** | 是 |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
 **範例：**
@@ -126,9 +127,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 MongoDB 複製資料，請將複製活動中的來源類型設定為 **MongoDbSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | 是 |
 | query |使用自訂的 SQL-92 查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中 "collectionName") |
 
 **範例：**
@@ -177,13 +178,13 @@ Azure Data Factory 服務會使用 MongoDB 集合中**最新的 100 份文件**�
 | MongoDB 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | Binary |Byte[] |
-| Boolean |Boolean |
-| 日期 |DateTime |
+| BOOLEAN |BOOLEAN |
+| 日期 |Datetime |
 | NumberDouble |兩倍 |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |字串 |
+| 字串 |字串 |
 | UUID |Guid |
 | Object |以 "_" 作為巢狀分隔符號來重新標準化為壓平合併資料行 |
 

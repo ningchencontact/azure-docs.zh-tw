@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>使用 Azure Data Factory 從 Cassandra 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ ms.lasthandoff: 11/06/2017
 若要從不可公開存取的 Cassandra 資料庫複製資料，您應該設定一個「自我裝載整合執行階段」。 如需詳細資料，請參閱[自我裝載整合執行階段](create-self-hosted-integration-runtime.md)一文。 「整合執行階段」提供內建的 Cassandra 驅動程式，因此從 Cassandra 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Cassandra 連接器專屬的 Data Factory 實體。
 
@@ -52,10 +53,10 @@ ms.lasthandoff: 11/06/2017
 
 以下是針對 Cassandra 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設定為：**Cassandra** |是 |
-| 主機 |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
+| type |類型屬性必須設定為：**Cassandra** |是 |
+| host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
 | 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
 | authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
@@ -92,9 +93,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 Cassandra 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
 | keyspace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 | tableName |Cassandra 資料庫中資料表的名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 
@@ -126,9 +127,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 Cassandra 複製資料，請將複製活動中的來源類型設定為 **CassandraSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
 | query |使用自訂查詢來讀取資料。 |SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已指定資料集中的「tableName」和「keyspace」)。 |
 | consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 如需詳細資訊，請參閱 [設定資料一致性](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 。<br/><br/>允許的值為：**ONE**、**TWO**、**THREE**、**QUORUM**、**ALL**、**LOCAL_QUORUM**、**EACH_QUORUM** 和 **LOCAL_ONE**。 |否 (預設值為 `ONE`) |
 
@@ -170,20 +171,20 @@ ms.lasthandoff: 11/06/2017
 
 | Cassandra 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |字串 |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
-| DECIMAL |DECIMAL |
+| DECIMAL |十進位 |
 | DOUBLE |DOUBLE |
 | FLOAT |單一 |
-| INET |String |
+| INET |字串 |
 | INT |Int32 |
-| TEXT |String |
-| 時間戳記 |DateTime |
+| TEXT |字串 |
+| 時間戳記 |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |字串 |
 | VARINT |DECIMAL |
 
 > [!NOTE]

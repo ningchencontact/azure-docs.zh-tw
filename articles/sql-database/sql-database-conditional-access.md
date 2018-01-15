@@ -2,19 +2,19 @@
 title: "條件式存取 - Azure SQL Database 和 Data Warehouse | Microsoft Doc"
 description: "了解如何設定 Azure SQL Database 和資料倉儲的條件式存取。"
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: rickbyh
+ms.author: mireks
 ms.workload: Inactive
-ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)  
 
@@ -42,7 +42,7 @@ SQL Database 和 SQL 資料倉儲都支援 Microsoft 條件式存取。 下列�
 5.  依序選取 [存取控制]、[授與]，然後核取您想要套用的原則。 例如，我們選取 [需要多重要素驗證]。  
   ![選取授與存取權](./media/sql-database-conditional-access/grant-access.png)  
 
-## <a name="summary"></a>摘要  
+## <a name="summary"></a>總結  
 允許使用 Azure AD Premium 連線到 Azure SQL DB/DW 的選取應用程式 (Azure SQL Database)，現在會強制執行選取的條件式存取原則，**必要的多重要素驗證。**  
 若有關於多重要素驗證的 Azure SQL Database 和資料倉儲相關問題，請連絡 MFAforSQLDB@microsoft.com。  
 

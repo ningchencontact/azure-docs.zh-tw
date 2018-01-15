@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ ms.lasthandoff: 11/10/2017
 - 在複製期間作為接收器時，使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Azure SQL Database 連接器專屬的 Data Factory 實體。
 
@@ -48,9 +49,9 @@ ms.lasthandoff: 11/10/2017
 
 以下是針對 Azure SQL Database 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | type 屬性必須設為： **AzureSqlDatabase** | 是 |
+| type | type 屬性必須設為： **AzureSqlDatabase** | 是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 僅支援基本驗證。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -84,9 +85,9 @@ ms.lasthandoff: 11/10/2017
 
 若要從 Azure SQL Database 複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **AzureSqlTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**AzureSqlTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**AzureSqlTable** | 是 |
 | tableName |Azure SQL Database 執行個體中連結服務所參考的資料表或檢視的名稱。 | 是 |
 
 **範例：**
@@ -116,10 +117,10 @@ ms.lasthandoff: 11/10/2017
 
 若要從 Azure SQL Database 複製資料，請將複製活動中的來源類型設定為 **SqlSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
-| SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例：`select * from MyTable`. |否 |
+| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
+| SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 
@@ -220,9 +221,9 @@ GO
 
 若要將資料複製到 Azure SQL Database，請將複製活動中的接收器類型設定為 **SqlSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
+| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | sqlWriterStoredProcedureName |將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 |否 |
@@ -452,16 +453,16 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| 日期 |Datetime |
+| DateTime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |DateTimeOffset |
 | 十進位 |十進位 |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
 | Float |兩倍 |
-| image |Byte[] |
+| 映像 |Byte[] |
 | int |Int32 |
 | money |十進位 |
 | nchar |String、Char[] |
@@ -470,14 +471,14 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | nvarchar |String、Char[] |
 | real |單一 |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |十進位 |
 | sql_variant |物件 * |
-| 文字 |String、Char[] |
+| text |String、Char[] |
 | 分析 |時間範圍 |
 | timestamp |Byte[] |
-| tinyint |位元組 |
+| tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String、Char[] |

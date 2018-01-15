@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
-ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>辨識服務</h4>
+                                                <h4>認知服務</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">電腦視覺 API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">臉部 API</a></li>
@@ -246,7 +246,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <p>App Service 方案</p>
                                             </a>
                                         </li>
                                         <li>
@@ -349,7 +349,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <p>App Service 方案</p>
                                             </a>
                                         </li>
                                         <li>
@@ -490,7 +490,7 @@ ms.lasthandoff: 10/11/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>辨識服務</h3>
+                                    <h3>認知服務</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/cognitive-services/emotion/home">
@@ -591,7 +591,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>自訂辨識搜尋</p>
+                                                <p>自訂辨識服務</p>
                                             </a>
                                         </li>
                                         <li>
@@ -694,7 +694,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>備份</p>
+                                                <p>Backup </p>
                                             </a>
                                         </li>
                                         <li>
@@ -733,7 +733,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
+                                                <p>資料湖分析</p>
                                             </a>
                                         </li>
                                         <li>
@@ -841,7 +841,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>機器學習服務</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -894,7 +894,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>搜尋</p>
+                                                <p>Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -921,7 +921,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>金鑰保存庫</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -978,7 +978,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>備份</p>
+                                                <p>Backup </p>
                                             </a>
                                         </li>
                                         <li>
@@ -1118,7 +1118,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
+                                                    <h3>App Service 方案</h3>
                                                     <p>使用容器在 Linux 上部署 Web 應用程式</p>
                                                 </div>
                                             </div>
@@ -1469,7 +1469,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>備份</h3>
+                                                    <h3>Backup </h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -1626,8 +1626,8 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>搜尋</h3>
-                                                    <p>受到完整管理的搜尋即服務</p>
+                                                    <h3>Search</h3>
+                                                    <p>完全受控的搜尋即服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1745,7 +1745,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
+                                                    <h3>App Service 方案</h3>
                                                     <p>使用容器在 Linux 上部署 Web 應用程式</p>
                                                 </div>
                                             </div>
@@ -1789,7 +1789,7 @@ ms.lasthandoff: 10/11/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>受管理的關聯式資料庫即服務</p>
+                                                    <p>受控關聯式資料庫即服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1865,7 +1865,7 @@ ms.lasthandoff: 10/11/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>PostgreSQL</h3>
-                                                    <p>適用於應用程式開發人員的受管 PostgreSQL 資料庫服務</p>
+                                                    <p>適用於應用程式開發人員的受控 PostgreSQL 資料庫服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1884,7 +1884,7 @@ ms.lasthandoff: 10/11/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>MySQL</h3>
-                                                    <p>適用於應用程式開發人員的受管 MySQL 資料庫服務</p>
+                                                    <p>適用於應用程式開發人員的受控 MySQL 資料庫服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1932,7 +1932,7 @@ ms.lasthandoff: 10/11/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI 及辨識服務</a>
+                        <a href="#cognitive">AI 及認知服務</a>
                         <ul id="cognitive" class="cardsA">
                             <li>
                                 <a href="/azure/cognitive-services/computer-vision/">
@@ -2178,7 +2178,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics</h3>
+                                                    <h3>資料湖分析</h3>
                                                     <p>分散式分析服務讓巨量資料更容易上手</p>
                                                 </div>
                                             </div>
@@ -2611,7 +2611,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>金鑰保存庫</h3>
+                                                    <h3>Key Vault</h3>
                                                     <p>了解如何管理密碼編譯金鑰和密碼</p>
                                                 </div>
                                             </div>
@@ -2887,7 +2887,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>備份</h3>
+                                                    <h3>Backup </h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>

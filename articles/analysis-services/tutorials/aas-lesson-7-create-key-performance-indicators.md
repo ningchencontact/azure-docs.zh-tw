@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: ca386cfd23b010af25fa9afb00fdad322e3e2946
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8f25773541deba2a94d3adc0c9b61c1b90a90aa6
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-7-create-key-performance-indicators"></a>第 7 課：建立關鍵效能指標
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-key-performance-indicators"></a>建立關鍵效能指標
 
 在這堂課中，您可以建立關鍵效能指標 (KPI)。 根據由量值或絕對值所定義的「目標」值，KPI 用來測量「基準」量值所定義的值效能。 在報告用戶端應用程式中，KPI 可讓商務專業人士輕鬆、快速地概括了解商務成果或找出趨勢。 若要深入了解，請參閱 [KPI](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   

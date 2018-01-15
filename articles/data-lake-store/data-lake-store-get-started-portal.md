@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d3a5c0c49b881db69a9d5cccc65406322212a8d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Store
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="create-an-azure-data-lake-store-account"></a>建立 Azure Data Lake Store 帳戶
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/18/2017
 
         如需詳細資訊，請參閱[在 Azure Data Lake Store 中加密資料](./data-lake-store-encryption.md)。
 
-4. 按一下 [建立] 。 如果您選擇將帳戶釘選到儀表板，您會回到儀表板，並且可以看到 Data Lake Store 帳戶的佈建進度。 一旦佈建資料湖存放區帳戶，帳戶刀鋒視窗就會出現。
+4. 按一下頁面底部的 [新增] 。 如果您選擇將帳戶釘選到儀表板，您會回到儀表板，並且可以看到 Data Lake Store 帳戶的佈建進度。 一旦佈建 Data Lake Store 帳戶，帳戶刀鋒視窗就會出現。
 
 ### <a name="assign-permissions-to-azure-key-vault"></a>指派 Azure Key Vault 的權限
 如果您使用 Azure 金鑰保存庫中的金鑰對 Data Lake Store 帳戶設定加密，您必須設定 Data Lake Store 帳戶和 Azure 金鑰保存庫帳戶之間的存取權。 請執行下列步驟來進行此作業。
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/18/2017
 您可以在您的 Azure Data Lake Store 帳戶下建立資料夾，用於管理與存放資料。
 
 1. 開啟您建立的 Data Lake Store 帳戶。 從左窗格按一下 [瀏覽]，按一下 [Data Lake Store]，然後從 [Data Lake Store] 刀鋒視窗中，按一下您要在其下建立資料夾的帳戶名稱。 如果您將帳戶釘選到開始面板，請按一下該帳戶磚。
-2. 在您的 [資料湖儲存區帳戶] 刀鋒視窗中，按一下 [資料總管] 。
+2. 在您的 [Data Lake Store 帳戶] 刀鋒視窗中，按一下 [資料總管] 。
    
     ![在 Data Lake Store 帳戶中建立資料夾](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "在 Data Lake Store 帳戶中建立資料夾")
 3. 在 [資料總管] 刀鋒視窗中，按一下 [新增資料夾]，輸入新資料夾的名稱，然後按一下 [確定]。
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/18/2017
    
     ![在 Data Lake 帳戶中建立資料夾](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "在 Data Lake 帳戶中建立資料夾")
 
-## <a name="uploaddata"></a>將資料上傳至 Azure 資料湖存放區帳戶
+## <a name="uploaddata"></a>將資料上傳至 Azure Data Lake Store 帳戶
 您可以直接在根層級將資料上傳至 Azure 資料湖存放區帳戶，或上傳至您在帳戶內建立的資料夾。 
 
 1. 從 [資料總管] 刀鋒視窗中，按一下 [上傳]。 
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/18/2017
 
     ![上傳資料](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "上傳資料")
 
-如果您正在尋找一些可上傳的範例資料，您可以從 **Azure 資料湖 Git 儲存機制** 取得 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)資料夾。
+如果您正在尋找一些可上傳的範例資料，您可以從 **Azure Data Lake Git 存放庫** 取得 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)資料夾。
 
 ## <a name="properties"></a>儲存資料可用的動作
 按一下檔案的省略符號圖示，在快顯功能表中，按一下您想要對資料執行的動作。
@@ -126,5 +126,5 @@ ms.lasthandoff: 12/18/2017
 * [使用 Azure Data Lake Store 處理巨量資料需求](data-lake-store-data-scenarios.md) 
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 4f3a388e95d3689cafcd2462e821cb361c46989a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/03/2018
 >[!NOTE]
 >如果您使用站對站 VPN 和強制通道，請參閱[使用 Azure 自訂路由來啟用搭配強制通道的 KMS 啟用](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (英文)。 
 >
->如果您使用 ExpressRoute 並有已發佈的預設路由，請參閱 [Azure VM 可能無法透過 ExpressRoute 進行啟用](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (英文)。
+>如果您使用 ExpressRoute 並有已發佈的預設路由，請參閱 [Azure VM 可能無法透過 ExpressRoute 進行啟用](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/) (英文)。
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>步驟 1：設定適當的 KMS 用戶端安裝識別碼 (適用於 Windows Server 2016 和 Windows Server 2012 R2)
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 01/03/2018
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>是否不論 VM 是否使用 Azure Hybrid Use Benefit (HUB)，Windows 啟用的運作方式都相同？ 
  
-可以。 
+是。 
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 啟用期間已到期，會發生什麼情況？ 
  

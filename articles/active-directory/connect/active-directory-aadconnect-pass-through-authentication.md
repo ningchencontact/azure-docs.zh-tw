@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 傳遞驗證來進行使用者登入
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密碼登入內部部署和雲端式應用程式。 這項功能可讓您的使用者獲得更好的體驗，不僅少了一個要記住的密碼，還會因為使用者不太可能忘了如何登入而降低 IT 技術服務人員成本。 當使用者使用 Azure AD 登入時，此功能會向您的內部部署 Active Directory 直接驗證使用者的密碼。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 這是 [Azure AD 密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)的替代功能，可為組織提供相同的雲端驗證好處。 不過，某些組織的安全性與合規性原則不會允許這些組織將使用者的密碼傳送到其內部界限之外，即使密碼採用雜湊格式也是如此。 傳遞驗證便是最適合這類組織的解決方案。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: kraigb
-ms.openlocfilehash: 81f0304850a108fc688dd862ff5ab677d6ebc28e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 4693c637597346e5c72bef6ddca9369e67b740f3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>開始使用 Azure 資料表儲存體和 Visual Studio 連線的服務
 
@@ -64,7 +64,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
 
     ```cs
     // Get a reference to a table named "peopleTable"
-    CloudTable table = tableClient.GetTableReference("peopleTable");
+    CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## <a name="create-a-table-in-code"></a>在程式碼中建立資料表
@@ -73,10 +73,10 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
 
 ```cs
 // Create the CloudTable if it does not exist
-await table.CreateIfNotExistsAsync();
+await peopleTable.CreateIfNotExistsAsync();
 ```
 
-## <a name="add-an-entity-to-a-table"></a>將實體加入至資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 
 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。 下列程式碼會定義一個使用客戶名字作為資料列索引鍵、並使用姓氏作為資料分割索引鍵的實體類別 `CustomerEntity`。
 
@@ -112,7 +112,7 @@ TableOperation insertOperation = TableOperation.Insert(customer1);
 await peopleTable.ExecuteAsync(insertOperation);
 ```
 
-## <a name="insert-a-batch-of-entities"></a>插入實體批次
+## <a name="insert-a-batch-of-entities"></a>插入一批實體
 
 您可以在單一寫入操作中將多個項目插入至資料表。 下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 `Insert` 方法將這兩個物件加入 `TableBatchOperation` 物件中，然後再呼叫 `CloudTable.ExecuteBatchAsync` 啟動作業。
 

@@ -6,15 +6,15 @@ keywords: "清查、自動化、變更、追蹤"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 49eedd975e456d97f9eee44f9b00993b115ad4fa
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/22/2017
 > * 檢視已安裝的軟體
 > * 搜尋已安裝軟體的清查記錄
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 

@@ -1,24 +1,20 @@
 ---
-title: "有關 Microsoft Azure Linux VM 的未受管理 (分頁 Blob) 和受控磁碟儲存體 | Microsoft Docs"
-description: "深入了解 Azure 中 Linux 虛擬機器之未受管理 (分頁 Blob) 和受控磁碟儲存體的基本概念。"
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
-ms.service: storage
+title: "有關 Microsoft Azure Linux VM 的非受控 (分頁 Blob) 和受控磁碟儲存體 | Microsoft Docs"
+description: "深入了解 Azure 中 Linux 虛擬機器之非受控 (分頁 Blob) 和受控磁碟儲存體的基本概念。"
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>有關 Azure Linux VM 的磁碟儲存體
 就像任何其他電腦，Azure 中的虛擬機器會使用磁碟做為儲存作業系統、應用程式和資料的位置。 所有 Azure 虛擬機器都至少有兩個磁碟 – Linux 作業系統磁碟和暫存磁碟。 作業系統磁碟是由映像建立，且作業系統磁碟與該映像，實際上都是儲存在 Azure 儲存體帳戶的虛擬硬碟 (VHD)。 虛擬機器也可以有一或多個資料磁碟，而這些磁碟也會儲存成 VHD。 
@@ -45,7 +41,7 @@ ms.lasthandoff: 11/20/2017
 資料磁碟是連接至虛擬機器的 VHD，用來儲存應用程式資料或其他您需要保留的資料。 資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。 每個資料磁碟具有 4095 GB 的最大容量。 虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
 
 > [!NOTE]
-> 如需有關虛擬機器容量的詳細資訊，請參閱 [Linux 虛擬機器的大小](../windows/sizes.md)。
+> 如需有關虛擬機器容量的詳細資訊，請參閱 [Linux 虛擬機器的大小](./sizes.md)。
 > 
 
 當您從映像建立虛擬機器時，Azure 會建立作業系統磁碟。 如果您使用包含資料磁碟映像時，Azure 建立虛擬機器時也會建立資料磁碟。 若沒有，則您可以建立虛擬機器後再新增資料磁碟。

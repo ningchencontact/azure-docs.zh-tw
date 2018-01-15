@@ -3,7 +3,7 @@ title: "使用 PowerShell 和 Data Lake Store 進行效能微調之方針 | Micr
 description: "如何在使用 Azure PowerShell 搭配 Data Lake Store 時改善效能的秘訣"
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>使用 PowerShell 和 Azure Data Lake Store 進行效能微調之方針
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="performance-related-properties"></a>效能相關的屬性
 
-| 屬性            | 預設值 | 說明 |
+| 屬性            | 預設值 | 描述 |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | 這個參數可讓您選擇可用於上傳或下載每個檔案的平行執行緒數目。 此數字代表每個檔案可以配置的執行緒數目上限，但視您的案例而定，您可能會收到比較少的執行緒 (例如︰如果您要上傳 1-KB 檔案，即使您要求 20 個執行緒，但您將取得一個執行緒)。  |
 | ConcurrentFileCount | 10      | 這個參數特別用於上傳或下載資料夾。 這個參數會決定可以上傳或下載的並行檔案數目。 此數字代表可以一次上傳或下載的並行檔案數目上限，但視您的案例而定，可能會收到比較少的並行檔案 (例如︰如果您要上傳兩個檔案，即使您要求 15 個檔案，但您將取得兩個並行檔案)。 |
@@ -97,5 +97,5 @@ ms.lasthandoff: 10/11/2017
 * [使用 Azure Data Lake Store 處理巨量資料需求](data-lake-store-data-scenarios.md) 
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -71,7 +71,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 排序保證 |**否** <br/><br>如需詳細資訊，請參閱＜其他資訊＞一節的第一個注意事項。</br> |**是 - 先進先出 (FIFO)**<br/><br>(透過使用訊息工作階段) |
 | 傳遞保證 |**至少一次** |**至少一次**<br/><br/>**最多一次** |
 | 不可部分完成作業支援 |**否** |**是**<br/><br/> |
-| 接收行為 |**非封鎖**<br/><br/>(如果找不到新的訊息，便立即完成) |**含/不含逾時的封鎖**<br/><br/>(提供長期輪詢，或稱為 [Comet 技術](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**非封鎖**<br/><br/>(僅限透過使用 .NET managed API) |
+| 接收行為 |**非封鎖**<br/><br/>(如果找不到新的訊息，便立即完成) |**含/不含逾時的封鎖**<br/><br/>(提供長期輪詢，或稱為 [Comet 技術](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**非封鎖**<br/><br/>(僅限透過使用 .NET 受控 API) |
 | 推送型 API |**否** |**是**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 和 **OnMessage** 工作階段的 .NET API。 |
 | 接收模式 |**查看與租用** |**查看與鎖定**<br/><br/>**接收與刪除** |
 | 獨佔存取模式 |**以租用為基礎** |**以鎖定為基礎** |
@@ -107,7 +107,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 就地更新 |**是** |**是** |
 | 伺服器端交易記錄 |**是** |**否** |
 | 儲存體度量 |**是**<br/><br/>**分鐘度量**：提供可用性、TPS、API 呼叫計數、錯誤計數等即時度量，全都即時 (每分鐘彙總一次並在生產環境中發生狀況的短短數分鐘內回報)。 如需詳細資訊，請參閱[關於儲存體分析度量](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics)。 |**是**<br/><br/>(透過呼叫 [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues) 來進行大量查詢) |
-| 狀態管理 |**否** |**是**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active)、[Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled)、[Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled)、[Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| 狀態管理 |**否** |**是**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus)、[Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus)、[Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus)、[Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | 訊息自動轉送 |**否** |**是** |
 | 清除佇列函式 |**是** |**否** |
 | 訊息群組 |**否** |**是**<br/><br/>(透過使用訊息工作階段) |

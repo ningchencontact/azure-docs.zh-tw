@@ -4,7 +4,7 @@ description: "了解如何使用 Windows PowerShell for StorSimple 管理 StorSi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>使用 Windows PowerShell for StorSimple 管理您的裝置
 
@@ -67,13 +67,13 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
    | 啟用額外的鍵盤功能 |Control-Alt 和 AltGr 不同 |
    
     ![支援的 PuTTY 設定](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. 按一下 [Apply (套用)] 。
+3. 按一下 [套用]。
 4. 在 [類別] 窗格中，選取 [轉譯]。
 5. 在 [遠端字元集] 清單方塊中，選取 [UTF-8]。
 6. 在 [線條繪圖字元的處理] 下，選取 [使用 Unicode 線條繪圖字碼指標]。 下列螢幕擷取畫面顯示正確的 PuTTY 選取。
    
     ![UTF PuTTY 設定](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. 按一下 [Apply (套用)] 。
+7. 按一下 [套用]。
 
 現在，您可以執行下列步驟，來使用 PuTTY 連線至裝置序列主控台。
 
@@ -126,8 +126,8 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 您可以透過 Windows PowerShell 遠端使用 HTTP 或 HTTPS 進行連線。 使用下列教學課程中的指示：
 
-* [使用 HTTP 遠端連線](storsimple-remote-connect.md#connect-through-http)
-* [使用 HTTPS 遠端連線](storsimple-remote-connect.md#connect-through-https)
+* [使用 HTTP 遠端連線](storsimple-8000-remote-connect.md#connect-through-http)
+* [使用 HTTPS 遠端連線](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>連線安全性考量
 
@@ -184,5 +184,5 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱 [適用於疑難排解 StorSimple 部署的工具](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
+如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱 [適用於疑難排解 StorSimple 部署的工具](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
 

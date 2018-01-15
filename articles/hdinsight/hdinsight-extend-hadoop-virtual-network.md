@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 7640c243495df88d89f61ed613d7fb68cef9a04b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/01/2017
 
 3. 您使用網路安全性群組、使用者定義路由或虛擬網路設備來限制傳入或傳出虛擬網路的流量嗎？
 
-    HDInsight 是一個受管理服務，需要 Azure 資料中心內數個 IP 位址的無限制存取權。 若要允許與這些 IP 位址的通訊，請更新任何現有網路安全性群組或使用者定義路由。
+    HDInsight 是一個受控服務，需要 Azure 資料中心內數個 IP 位址的無限制存取權。 若要允許與這些 IP 位址的通訊，請更新任何現有網路安全性群組或使用者定義路由。
 
     HDInsight 會裝載多個使用各種連接埠的服務。 不會封鎖對這些連接埠的流量。 如需允許通過虛擬設備防火牆的連接埠清單，請參閱[安全性](#security)一節。
 
@@ -223,7 +223,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 * **網路虛擬設備**會複寫裝置的功能，例如防火牆和路由器。 如需詳細資訊，請參閱[網路設備](https://azure.microsoft.com/solutions/network-appliances)文件。
 
-HDInsight 是一個受管理服務，需要 Azure 雲端中 Azure 健康狀態和管理服務的無限制存取權。 使用 NSG 和 UDR 時，您必須確定這些服務仍然可以與 HDInsight 進行通訊。
+HDInsight 是一個受控服務，需要 Azure 雲端中 Azure 健康狀態和管理服務的無限制存取權。 使用 NSG 和 UDR 時，您必須確定這些服務仍然可以與 HDInsight 進行通訊。
 
 HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時，您必須允許用於這些服務之連接埠的流量。 如需詳細資訊，請參閱[必要連接埠]一節。
 
@@ -424,17 +424,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -478,7 +467,6 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. 若要擷取此網路安全性群組的唯一識別碼，請使用下列命令：

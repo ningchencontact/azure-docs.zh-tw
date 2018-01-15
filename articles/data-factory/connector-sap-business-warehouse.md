@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ ms.lasthandoff: 11/07/2017
 > 將從 NetWeaver RFC SDK 解壓縮的 dlls 放至 system32 資料夾。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 SAP Business Warehouse 連接器專屬的 Data Factory 實體。
 
@@ -58,9 +59,9 @@ ms.lasthandoff: 11/07/2017
 
 以下是針對 SAP Business Warehouse (BW) 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**SapBw** | 是 |
+| type | 類型屬性必須設定為：**SapBw** | 是 |
 | 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
@@ -123,9 +124,9 @@ ms.lasthandoff: 11/07/2017
 
 若要從 SAP BW 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | 是 |
 
 **範例：**
@@ -167,27 +168,27 @@ ms.lasthandoff: 11/07/2017
 | SAP BW 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | String |
-| CLNT | String |
+| CHAR | 字串 |
+| CLNT | 字串 |
 | CURR | 十進位 |
-| CUKY | String |
+| CUKY | 字串 |
 | DEC | 十進位 |
 | FLTP | 兩倍 |
-| INT1 | 位元組 |
+| INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | String |
-| LCHR | String |
+| LANG | 字串 |
+| LCHR | 字串 |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | 十進位 |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| 單位 | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| STRING | 字串 |
+| 單位 | 字串 |
+| DATS | 字串 |
+| NUMC | 字串 |
+| TIMS | 字串 |
 
 
 ## <a name="next-steps"></a>後續步驟

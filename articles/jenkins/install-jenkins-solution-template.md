@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0cf24d8db845beb63b1b895f895da761488fd8ec
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>從 Azure 入口網站在 Azure Linux VM 上建立 Jenkins 伺服器
 
@@ -68,7 +68,7 @@ ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp
 透過 SSH 連線到 Jenkins VM 時，在命令列中執行下列命令，以取得初始密碼。
 
 ```bash
-`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 第一次使用此初始密碼時，請將 Jenkins 儀表板解除鎖定。

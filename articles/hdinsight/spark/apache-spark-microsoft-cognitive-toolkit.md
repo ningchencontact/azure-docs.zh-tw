@@ -3,7 +3,7 @@ title: "Microsoft 辨識工具組搭配 Azure HDInsight Spark 以深入學習 | 
 description: "了解如何使用 Azure HDInsight Spark 叢集中的 Spark Python API，將定型的 Microsoft 辨識工具組深入學習模型套用至資料集。"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: e4bf0b176817daf3c128f26f407cde2ce1adba4c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.author: jgao
+ms.openlocfilehash: 036efd040370a821befbbd57beec24372fd0d204
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>使用 Microsoft 辨識工具組深入了解模型與 Azure HDInsight Spark 叢集
 
@@ -71,7 +71,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 * 確定您只會在前端和背景工作節點上執行指令碼，並清除所有其他核取方塊。
 
-* 按一下 [建立] 。
+* 按一下頁面底部的 [新增] 。
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>將 Jupyter Notebook 上傳至 Azure HDInsight Spark 叢集
 

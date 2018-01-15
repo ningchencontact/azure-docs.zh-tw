@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2017
 
 本文不僅介紹使用[索引子](search-indexer-overview.md)的機制，也會說明只在 Azure SQL 資料庫上出現的功能 (例如，整合變更追蹤)。 
 
-除了 Azure SQL 資料庫，Azure 搜尋服務也會針對 [Azure Cosmos DB](search-howto-index-documentdb.md)、[Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md) 及 [Azure 表格儲存體](search-howto-indexing-azure-tables.md)提供索引子。 如需其他資料來源的支援，請在 [Azure 搜尋服務意見反應論壇](https://feedback.azure.com/forums/263029-azure-search/) \(英文\) 上提供您的寶貴意見。
+除了 Azure SQL 資料庫，Azure 搜尋服務也會針對 [Azure Cosmos DB](search-howto-index-cosmosdb.md)、[Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md) 及 [Azure 表格儲存體](search-howto-indexing-azure-tables.md)提供索引子。 如需其他資料來源的支援，請在 [Azure 搜尋服務意見反應論壇](https://feedback.azure.com/forums/263029-azure-search/) \(英文\) 上提供您的寶貴意見。
 
 ## <a name="indexers-and-data-sources"></a>索引子和資料來源
 
@@ -317,7 +317,7 @@ SQL 索引子公開數個組態設定︰
 
 **問：我可以在 Azure 中搭配在 IaaS VM 上執行的 SQL 資料庫，使用 Azure SQL 索引子嗎？**
 
-可以。 不過，您需要允許搜尋服務連接到資料庫。 如需詳細資訊，請參閱[在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。
+是。 不過，您需要允許搜尋服務連接到資料庫。 如需詳細資訊，請參閱[在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。
 
 **問：我可以搭配在內部部署執行的 SQL 資料庫，使用 Azure SQL 索引子嗎？**
 
@@ -329,11 +329,11 @@ SQL 索引子公開數個組態設定︰
 
 **問：可以建立多個依照排程執行的索引子嗎？**
 
-可以。 但是一次只能在一個節點上執行一個索引子。 如果您需要多個同時執行的索引子，請考慮將搜尋服務調整大於一個搜尋單位。
+是。 但是一次只能在一個節點上執行一個索引子。 如果您需要多個同時執行的索引子，請考慮將搜尋服務調整大於一個搜尋單位。
 
 **問：執行索引子會影響我的查詢工作負載嗎？**
 
-可以。 索引子會在您搜尋服務中的其中一個節點執行，且節點上的資源會在索引及服務查詢流量和其他 API 要求之間共用。 如果您密集執行索引及查詢工作負載，且經常遇到 503 錯誤或回應次數增加，請考慮[調整您的搜尋服務](search-capacity-planning.md)。
+是。 索引子會在您搜尋服務中的其中一個節點執行，且節點上的資源會在索引及服務查詢流量和其他 API 要求之間共用。 如果您密集執行索引及查詢工作負載，且經常遇到 503 錯誤或回應次數增加，請考慮[調整您的搜尋服務](search-capacity-planning.md)。
 
 **問：是否可以在[容錯移轉叢集](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)中使用次要複本作為資料來源？**
 

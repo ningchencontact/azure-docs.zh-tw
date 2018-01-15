@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a8bb8748d4fe39d664055549564d08524cdc80f3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 190a9c998bceb97f8446265809b8d2c3bdc76abc
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-8-create-perspectives"></a>第 8 課：建立檢視方塊
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-perspectives"></a>建立檢視方塊
 
 在這堂課中，您可以建立「網際網路銷售」檢視方塊。 檢視方塊會定義可檢視的模型子集，以提供聚焦、商務特有或應用程式特有的觀點。 當使用者使用檢視方塊連線至模型時，他們只會看到如該檢視方塊中所定義欄位的那些模型物件 (資料表、資料行、量值、階層及 KPI)。 若要深入了解，請參閱[檢視方塊](https://docs.microsoft.com/sql/analysis-services/tabular-models/perspectives-ssas-tabular)。
   

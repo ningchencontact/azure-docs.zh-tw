@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 976ddf25a57dd1eff66e121c5a66bc31f664a9dc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>使用 Azure CLI 2.0 開始使用 Azure Data Lake Store
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Azure CLI 2.0 是管理 Azure 資源的 Azure 新命令列體驗。 它可以用
 ## <a name="prerequisites"></a>必要條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **Azure CLI 2.0** - 如需相關指示，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
@@ -236,4 +236,4 @@ az dls account delete --account mydatalakestore
 * [使用 Azure Data Lake Store 處理巨量資料需求](data-lake-store-data-scenarios.md) 
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)

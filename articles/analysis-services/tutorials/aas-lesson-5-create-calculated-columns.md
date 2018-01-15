@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: d7d2265aa82e54cdbd3b85e09a05e5ea55a7a2c2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b491af1e5c9da03f48335f5793ed71ddaf644fb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-5-create-calculated-columns"></a>第 5 課：建立計算結果欄
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-calculated-columns"></a>建立計算結果欄
 
 在這堂課中，您會在模型中新增計算結果欄來建立資料。 您可以在使用「取得資料」(使用查詢編輯器) 時建立計算結果欄 (作為自訂資料行)，或稍後在模型設計師中再如法泡製。 若要深入了解，請參閱[計算結果欄](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns)。
   

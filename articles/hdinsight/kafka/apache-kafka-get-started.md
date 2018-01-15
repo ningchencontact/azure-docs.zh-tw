@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 20b95f16e16c4b42289e1e25def4910fbca70db5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 24133adc6e6b16c69a8b124f13e684fce26b115f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>開始使用 Apache Kafka on HDInsight
 
@@ -183,7 +183,7 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 2. 使用 Kafka 提供的指令碼來讀取主題中的記錄︰
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
    
     此命令會擷取主題中的記錄並加以顯示。 使用 `--from-beginning` 告知取用者從串流的開頭開始，所以會擷取所有的記錄。

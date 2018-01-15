@@ -3,8 +3,8 @@ title: "開始使用適用於 Xamarin.Android 應用程式的Azure 行動應用�
 description: "遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。"
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 6b41fd8090dd771fc40769c134bad258b3d4bd36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: abc4fa4129a596c3f3304dc37af3a9b659f45473
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-xamarinandroid-app"></a>建立 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
       將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 2. 按 **F5** 鍵，以重建專案並啟動應用程式。
-3. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial)，然後按一下新增 按鈕。
+3. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial)，然後按一下 [新增] 按鈕。
 
     ![][10]
 
@@ -66,9 +66,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [將離線同步處理新增至您的應用程式](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [在您的應用程式中新增驗證 ](app-service-mobile-xamarin-android-get-started-users.md)
+* [在您的應用程式中新增驗證](app-service-mobile-xamarin-android-get-started-users.md)
 * [將推播通知新增至您的 Xamarin.Android 應用程式](app-service-mobile-xamarin-android-get-started-push.md)
-* [如何針對 Azure Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)
+* 
+            [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png

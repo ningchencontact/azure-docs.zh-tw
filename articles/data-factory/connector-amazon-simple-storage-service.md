@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 2bfc59931bbbb08ad1cd0328cf624b7350f92ec0
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,8 @@ ms.lasthandoff: 11/10/2017
 如需有關完整 Amazon S3 權限清單的詳細資料，請參閱[在原則中指定權限 (英文)](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html)。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。 
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Amazon S3 專屬的 Data Factory 實體。
 
@@ -50,9 +51,9 @@ ms.lasthandoff: 11/10/2017
 
 以下是針對 Amazon S3 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**AmazonS3**。 | 是 |
+| type | 類型屬性必須設定為：**AmazonS3**。 | 是 |
 | accessKeyId | 密碼存取金鑰的識別碼。 |是 |
 | secretAccessKey | 密碼存取金鑰本身。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -89,11 +90,11 @@ ms.lasthandoff: 11/10/2017
 
 若要從 Amazon S3 複製資料，請將資料集的類型屬性設定為 **AmazonS3Object**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
+| type | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
 | bucketName | S3 貯體名稱。 |是 |
-| key | S3 物件索引鍵。 只有在未指定前置詞時才適用。 |否 |
+| 索引鍵 | S3 物件索引鍵。 只有在未指定前置詞時才適用。 |否 |
 | prefix | S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 只有在未指定索引鍵時才適用。 |否 |
 | version | 如果已啟用 S3 版本設定功能，則為 S3 物件的版本。 |否 |
 | format | 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析或產生檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 (僅適用於二進位複製案例) |
@@ -167,9 +168,9 @@ ms.lasthandoff: 11/10/2017
 
 若要從 Amazon S3 複製資料，請將複製活動中的來源類型設定為 **FileSystemSource** (其中包含 Amazon S3)。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
+| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
 | 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**

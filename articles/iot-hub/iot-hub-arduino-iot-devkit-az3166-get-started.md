@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -104,7 +104,7 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 > [!NOTE] 
 > 自 v1.1 起，DevKit 在開機載入器中啟用了 ST-SAFE。 如果您執行的版本比 v1.1 舊，就必須升級韌體，才可能讓它運作。
 
-如果您需要升級韌體，畫面會顯示目前的和最新的韌體版本。 若要升級，請遵循[升級韌體](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/)指南。
+如果您需要升級韌體，畫面會顯示目前的和最新的韌體版本。 若要升級，請遵循[升級韌體](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)指南。
 
 ![顯示目前的和最新的韌體版本](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 

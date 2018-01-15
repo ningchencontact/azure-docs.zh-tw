@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>如何使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 11/15/2017
 
 在此步驟中，建立索引子可以搜耙的外部資料來源。 本教學課程的資料檔案為 hotels.sql (在 \DotNetHowToIndexers 解決方案資料夾中提供)。 
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>連接字串
 
 您可以使用 Azure 入口網站和範例中的 hotels.sql 檔案，在 Azure SQL Database 中建立資料集。 Azure 搜尋服務會取用扁平化資料列集，例如從檢視或查詢產生的資料列集。 範例方案中的 SQL 檔案會建立並填入單一資料表。
 
@@ -286,7 +286,7 @@ public string HotelName { get; set; }
 如需其他支援之資料來源的詳細資訊和特有工作，請參閱下列文章︰
 
 * [Azure SQL Database 或 Azure 虛擬機器中的 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob](search-howto-index-csv-blobs.md)

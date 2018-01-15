@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-10-create-partitions"></a>第 10 課：建立分割區
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-partitions"></a>建立分割區
 
 在這堂課中，您會建立分割區，將 FactInternetSales 資料表分割成較小的邏輯部分，以獨立於其他分割區來處理 (重新整理)。 根據預設，您在模型中包含的每個資料表會有一個分割區，其中包括資料表的所有資料行和資料列。 對於 FactInternetSales 資料表，我們準備依年份來分割資料，將資料表的五個年份各建立一個分割區。 然後就可以獨立處理每個分割區。 若要深入了解，請參閱[分割區](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular)。 
   

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ public class MyClass {
 | `HttpResponseMessage<T>` | HTTP 輸出繫結 | 傳回 200 以外的狀態   |
 
 > [!NOTE] 
-> 您也可以使用 `@BindingName` 註釋來取得 HTTP 標頭和查詢。 例如，`@Bind("name") String query` 會逐一查看 HTTP 要求標頭和查詢，並將該值傳遞至方法。 例如，如果要求 URL 是 `http://example.org/api/echo?name=test`，則 `query` 是 `"test"`。
+> 您也可以使用 `@BindingName` 註釋來取得 HTTP 標頭和查詢。 例如，`@BindingName("name") String query` 會逐一查看 HTTP 要求標頭和查詢，並將該值傳遞至方法。 例如，如果要求 URL 是 `http://example.org/api/echo?name=test`，則 `query` 是 `"test"`。
 
 ### <a name="metadata"></a>中繼資料
 

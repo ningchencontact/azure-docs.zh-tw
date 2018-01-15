@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>補充課程 - 不完全階層
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 在這堂補充課程中，您可解決對不同層級包含空白值 (成員) 的階層進行樞紐分析時的常見問題。 例如，組織中部門經理和非部門經理同時為高階經理的直屬主管。 或者，由國家/地區-區域-城市組成的地理階層，其中有些城市缺少上層的州或省，例如華盛頓特區、梵蒂岡。 當階層具有空白成員時，它通常會向下延伸至不同或不完全的層級。
 
@@ -50,7 +48,7 @@ ms.lasthandoff: 11/02/2017
 
 4.  建立下列[關聯性](../tutorials/aas-lesson-4-create-relationships.md)：
 
-    | 表 1           | 資料欄       | 篩選方向   | 表 2     | 資料欄      | 作用中 |
+    | 表 1           | 欄       | 篩選方向   | 表 2     | 欄      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
     | FactResellerSales | OrderDateKey | 預設值            | DimDate     | 日期        | 是    |
     | FactResellerSales | DueDate      | 預設值            | DimDate     | 日期        | 否     |

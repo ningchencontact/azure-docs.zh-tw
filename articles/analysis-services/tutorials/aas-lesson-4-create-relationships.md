@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>第 4 課：建立關聯性
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>建立關聯性
 
 在這堂課中，您可以驗證當您匯入資料時自動建立的關聯性，並新增新不同資料表之間的關聯性。 關聯性是兩個資料表之間的關係，規定這些資料表中的資料應該如何相互關聯。 例如，DimProduct 資料表和 DimProductSubcategory 資料表有關聯性，理由是每個產品都屬於某個子類別。 若要深入了解，請參閱[關聯性](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular)。
   
@@ -60,7 +58,7 @@ ms.lasthandoff: 11/02/2017
   
 3.  確認從 AdventureWorksDW 資料庫匯入每個資料表時已建立下列關聯性︰  
   
-    |作用中|資料表|相關的查閱資料表|  
+    |Active|資料表|相關的查閱資料表|  
     |----------|---------|------------------------|  
     |是|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
     |是|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  

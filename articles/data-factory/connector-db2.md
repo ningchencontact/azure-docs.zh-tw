@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,8 @@ ms.lasthandoff: 11/06/2017
 若要從不可公開存取的 DB2 資料庫複製資料，您應該設定一個「自我裝載整合執行階段」。 若要了解自我裝載整合執行階段，請參閱[自我裝載整合執行階段](create-self-hosted-integration-runtime.md)一文。 「整合執行階段」提供內建的 DB2 驅動程式，因此從 DB2 複製資料時，您不需要手動安裝任何驅動程式。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 DB2 連接器專屬的 Data Factory 實體。
 
@@ -61,9 +62,9 @@ ms.lasthandoff: 11/06/2017
 
 以下是針對 DB2 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為：**DB2** | 是 |
+| type | 類型屬性必須設為：**DB2** | 是 |
 | 伺服器 |DB2 伺服器的名稱。 |是 |
 | 資料庫 |DB2 資料庫的名稱。 |是 |
 | 結構描述 |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
@@ -103,9 +104,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 DB2 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | DB2 資料庫中的表格名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -133,10 +134,10 @@ ms.lasthandoff: 11/06/2017
 
 若要從 DB2 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 
@@ -179,28 +180,28 @@ ms.lasthandoff: 11/06/2017
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |String |
-| Clob |String |
-| Date |Datetime |
-| DB2DynArray |String |
-| DbClob |String |
+| Char |字串 |
+| Clob |字串 |
+| 日期 |DateTime |
+| DB2DynArray |字串 |
+| DbClob |字串 |
 | 十進位 |十進位 |
 | DecimalFloat |十進位 |
 | 兩倍 |兩倍 |
-| Float |Double |
-| 圖形 |String |
-| Integer |Int32 |
+| Float |兩倍 |
+| 圖形 |字串 |
+| 整數  |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
+| LongVarChar |字串 |
+| LongVarGraphic |字串 |
 | 數值 |十進位 |
 | Real |單一 |
 | SmallInt |Int16 |
-| 時間 |TimeSpan |
-| Timestamp |DateTime |
+| 時間 |時間範圍 |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |字串 |
+| VarGraphic |字串 |
 | xml |Byte[] |
 
 

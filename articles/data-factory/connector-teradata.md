@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ ms.lasthandoff: 11/07/2017
 - 在 Integration Runtime 電腦上安裝 [Teradata 的 .Net 資料提供者](http://go.microsoft.com/fwlink/?LinkId=278886) 14 版或更新版本。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Teradata 連接器專屬的 Data Factory 實體。
 
@@ -54,9 +55,9 @@ ms.lasthandoff: 11/07/2017
 
 以下是針對 Teradata 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**Teradata** | 是 |
+| type | 類型屬性必須設定為：**Teradata** | 是 |
 | 伺服器 | Teradata 伺服器的名稱。 | 是 |
 | authenticationType | 用來連接到 Teradata 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows**。 | 是 |
 | username | 指定連線到 Teradata 資料庫時所要使用的使用者名稱。 | 是 |
@@ -93,9 +94,9 @@ ms.lasthandoff: 11/07/2017
 
 若要從 Teradata 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | Teradata 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例：**
@@ -122,10 +123,10 @@ ms.lasthandoff: 11/07/2017
 
 若要從 Teradata 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 
@@ -167,43 +168,43 @@ ms.lasthandoff: 11/07/2017
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
-| 位元組 |Byte[] |
+| Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| Date |DateTime |
+| Char |字串 |
+| Clob |字串 |
+| 日期 |Datetime |
 | 十進位 |十進位 |
-| 兩倍 |Double |
-| 圖形 |String |
-| Integer |Int32 |
-| 間隔日 |TimeSpan |
-| 間隔日至小時 |TimeSpan |
-| 間隔日至分鐘 |TimeSpan |
-| 間隔日至秒鐘 |TimeSpan |
-| 間隔小時 |TimeSpan |
-| 間隔小時至分鐘 |TimeSpan |
-| 間隔小時至秒鐘 |TimeSpan |
-| 間隔分鐘 |TimeSpan |
+| 兩倍 |兩倍 |
+| 圖形 |字串 |
+| 整數  |Int32 |
+| 間隔日 |時間範圍 |
+| 間隔日至小時 |時間範圍 |
+| 間隔日至分鐘 |時間範圍 |
+| 間隔日至秒鐘 |時間範圍 |
+| 間隔小時 |時間範圍 |
+| 間隔小時至分鐘 |時間範圍 |
+| 間隔小時至秒鐘 |時間範圍 |
+| 間隔分鐘 |時間範圍 |
 | 間隔分鐘至秒鐘 |時間範圍 |
-| 間隔月 |String |
-| 間隔第二 |TimeSpan |
-| 間隔年 |String |
-| 間隔年至月 |String |
-| Number |Double |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
+| 間隔月 |字串 |
+| 間隔第二 |時間範圍 |
+| 間隔年 |字串 |
+| 間隔年至月 |字串 |
+| 數字 |兩倍 |
+| Period(Date) |字串 |
+| Period(Time) |字串 |
+| Period(Time With Time Zone) |字串 |
+| Period(Timestamp) |字串 |
+| Period(Timestamp With Time Zone) |字串 |
 | SmallInt |Int16 |
-| 時間 |TimeSpan |
-| 時區的時間 |String |
-| Timestamp |DateTime |
-| 時區的時間戳記 |Datetimeoffset |
+| 時間 |時間範圍 |
+| 時區的時間 |字串 |
+| Timestamp |Datetime |
+| 時區的時間戳記 |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
-| Xml |String |
+| VarChar |字串 |
+| VarGraphic |字串 |
+| xml |字串 |
 
 
 ## <a name="next-steps"></a>後續步驟

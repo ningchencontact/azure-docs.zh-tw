@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store 中的存取控制
 
@@ -274,7 +274,7 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>我必須啟用 ACL 的支援嗎？
 
-否。 Data Lake Store 帳戶一律會啟用透過 ACL 的存取控制。
+編號 Data Lake Store 帳戶一律會啟用透過 ACL 的存取控制。
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>若要以遞迴方式刪除資料夾與其內容，需要哪些權限？
 
@@ -308,7 +308,7 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store 是否支援 ACL 的繼承？
 
-否。
+編號
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>遮罩與 umask 之間的差異為何？
 

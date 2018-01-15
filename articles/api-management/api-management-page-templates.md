@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的頁面範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -108,16 +108,16 @@ ms.lasthandoff: 10/11/2017
 ### <a name="sample-template-data"></a>範例範本資料  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ ms.lasthandoff: 10/11/2017
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a> 註冊  
@@ -223,7 +223,7 @@ ms.lasthandoff: 10/11/2017
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|類型|說明|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
 |referenceCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
 |errorCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  

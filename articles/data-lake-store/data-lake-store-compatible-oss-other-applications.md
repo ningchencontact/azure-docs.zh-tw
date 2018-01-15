@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4877258c128d00f621eb198b0f0ec7d197e757ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c00dc99950c25dedc94c17444881a049138a7c5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>適用於 Azure 資料湖存放區的開放原始碼巨量資料應用程式
 本文列出適用於 Azure 資料湖存放區的開放原始碼巨量資料應用程式。 針對下表中的應用程式，僅支援所列出之配送映像的可用版本。 如需 HDInsight 之可用應用程式版本的相關資訊，請參閱 [HDInsight 元件版本設定](../hdinsight/hdinsight-component-versioning.md)。

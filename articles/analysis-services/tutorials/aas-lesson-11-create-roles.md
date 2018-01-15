@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-11-create-roles"></a>第 11 課：建立角色
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-roles"></a>建立角色
 
 在這堂課中，您會建立角色。 角色可以限制只有身為角色成員的使用者才能存取，提供模型資料庫物件和資料的安全性。 每個角色都定義有單一權限︰「無」、「讀取」、「讀取和處理」、「處理」或「系統管理員」。 在製作模型期間可以使用 [角色管理員] 來定義角色。 在部署模型之後，您可以使用 SQL Server Management Studio (SSMS) 來管理角色。 若要深入了解，請參閱[角色](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)。
   

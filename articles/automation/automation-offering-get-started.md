@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>開始使用 Azure 自動化
 
@@ -88,10 +88,6 @@ Azure 自動化可讓您針對 Azure、內部部署以及其他雲端提供者�
 
 每個自動化帳戶的自動化資源都會與單一 Azure 區域相關聯，但自動化帳戶可管理訂用帳戶中的所有資源。 如果您擁有需要將資料和資源區隔到特定區域的原則，請在不同的區域中建立自動化帳戶。
 
-> [!NOTE]
-> 使用 Azure 入口網站所建立的自動化帳戶以及其所包含的資源，無法在 Azure 傳統入口網站中存取。 如果您想使用 Windows PowerShell 來管理這些帳戶或它們的資源，您必須使用 「Azure 資源管理員」模組。
-> 
-
 當您在 Azure 入口網站中建立自動化帳戶時，您會自動建立兩個驗證實體：
 
 * 執行身分帳戶。 此帳戶會在 Azure Active Directory (Azure AD) 中建立服務主體，並建立一個憑證。 此外，也會指定參與者角色型存取控制 (RBAC)，此控制可使用 Runbook 來管理 Resource Manager 資源。
@@ -139,14 +135,14 @@ Azure Resource Manager 提供了角色型存取控制來對 Azure AD 使用者�
 如需 IP 位址 (而非名稱) 的清單，請從「Microsoft 下載中心」下載並檢閱 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653) xml 檔案。 
 
 > [!NOTE]
-> 這個檔案包含 Microsoft Azure 資料中心使用的 IP 位址範圍 (包括計算、SQL 和儲存體範圍)。 每週會公佈已更新的檔案，以反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍將至少有一週的時間不會在資料中心中使用。 請每週下載新的 xml 檔案，並在您的站台上執行必要的變更，以正確識別在 Azure 中執行的服務。 Express Route 使用者可能注意到，此檔案在每個月的第一週用來更新 Azure 空間的 BGP 公告。 
+> 這個檔案包含 Microsoft Azure 資料中心使用的 IP 位址範圍 (包括計算、SQL 和儲存體範圍)。 每週會公佈已更新的檔案，以反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍將至少有一週的時間不會在資料中心中使用。 請每週下載新的 xml 檔案，並在您的站台上執行必要的變更，以正確識別在 Azure 中執行的服務。 Express Route 使用者可能會注意到，在每個月的第一週會使用此檔案來更新 Azure 空間的 BGP 公告。 
 > 
 
 ## <a name="creating-an-automation-account"></a>建立自動化帳戶
 
 在 Azure 入口網站中建立自動化帳戶的方法有很多種：  下表介紹每種部署經驗和其間的差異。  
 
-|方法 | 說明 |
+|方法 | 描述 |
 |-------|-------------|
 | 從 Marketplace 選取 [自動化與控制] | 一個供應項目，可在相同的資源群組與區域中建立自動化帳戶和 OMS 工作區。  與 OMS 的整合也包括使用 Log Analytics 來監視和分析一段時間 Runbook 工作狀態和作業資料流的好處，並利用進階功能來提升或調查問題。 此供應項目也可部署「變更追蹤」和「更新管理」解決方案 (預設會啟用)。 |
 | 從 Marketplace 選取自動化 | 在新的或現有資源群組中建立自動化帳戶，該帳戶並未連結至 OMS 工作區，而且不包含來自 [自動化與控制] 供應項目的任何可用解決方案。 這是基本組態，可向您介紹自動化並協助您了解如何撰寫 Runbook、DSC 組態，以及使用此服務的各項功能。 |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 系列軟體、高可用性和網路需求
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
 您的 StorSimple 裝置是鎖定的裝置。 不過，您的防火牆中必須開啟連接埠，以允許 iSCSI、雲端和管理流量。 下表列出必須在防火牆中開啟的連接埠。 在這個資料表中，*in* 或 *inbound* 指的是輸入用戶端要求存取裝置的方向。 *Out* 或 *outbound* 指的是 StorSimple 裝置於外部傳送資料至部署之上的方向：例如，輸出到網際網路。
 
-| 連接埠號碼 <sup>1,2</sup> | 內或外 | 連接埠範圍 | 必要 | 注意事項 |
+| 連接埠號碼 <sup>1,2</sup> | 內或外 | 連接埠範圍 | 必要 | 注意 |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |外 |WAN |否 |<ul><li>輸出連接埠用於網際網路存取以擷取更新。</li><li>輸出 Web Proxy 可由使用者設定。</li><li>若要允許系統更新，此連接埠也必須為控制器固定 IP 開啟。</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |外 |WAN |是 |<ul><li>輸出連接埠用來存取雲端中的資料。</li><li>輸出 Web Proxy 可由使用者設定。</li><li>若要允許系統更新，此連接埠也必須為控制器固定 IP 開啟。</li><li>在這兩個控制器上也使用此連接埠進行記憶體回收。</li></ul> |
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 
 | URL 模式 | 元件/功能 | 裝置 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |StorSimple 裝置管理員服務<br>存取控制服務<br>Azure 服務匯流排<br>驗證服務 |啟用雲端功能的網路介面 |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |StorSimple 裝置管理員服務<br>存取控制服務<br>Azure 服務匯流排<br>驗證服務 |啟用雲端功能的網路介面 |
 | `https://*.backup.windowsazure.us` |裝置註冊 |僅限資料 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |憑證撤銷 |啟用雲端功能的網路介面 |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 儲存體帳戶和監視 |啟用雲端功能的網路介面 |
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 * 一組預先決定的值已指派給網路介面。
 * 當網路介面已啟用雲端或已停用雲端功能，但是已設定閘道器時，請考量以下所示的範例資料表，其中包含指派給各種網路介面的值。 請注意，此處指派的值僅為範例值。
 
-    | 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
+    | Linux | 已啟用雲端 | 已停用雲端且具有閘道器 |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
     | Data 1  | 2            | 20                       |

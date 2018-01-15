@@ -3,8 +3,8 @@ title: "利用 Xamarin.Forms 開始使用 Mobile Apps"
 description: "遵循此教學課程，開始使用 Mobile Apps 進行 Xamarin.Forms 開發"
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: crdun
+ms.openlocfilehash: 01a8e356649c070a5cf36ae070195abce699f85e
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>建立 Xamarin.Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/03/2018
 
 完成本教學課程是所有其他 Xamarin.Forms 應用程式的行動應用程式教學課程的必要條件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
