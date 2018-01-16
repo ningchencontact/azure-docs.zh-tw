@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>從邏輯應用程式邏輯應用程式連線至 Dynamics 365
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 本主題說明如何建立邏輯應用程式，以在每次 Dynamics 365 中建立了新的潛在客戶時，便在 Dynamics 365 建立工作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 一個 Azure 帳戶。
 * Dynamics 365 (線上) 帳戶。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
       ![LogicApp 新增](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.  要建立邏輯應用程式，請完成 名稱、訂用帳戶、資源群組 和 位置 欄位，然後按一下建立。
+4.  要建立邏輯應用程式，請完成 [名稱]、[訂用帳戶]、[資源群組] 和 [位置] 欄位，然後按一下 [建立]。
 
 5.  選取新的邏輯應用程式。 當您收到 [部署成功] 通知時，按一下 [重新整理]。
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 
       ![邏輯應用程式觸發程序的詳細資料](./media/connectors-create-api-crmonline/trigger-details.png)
 
-10. 按一下 新增步驟，然後按一下新增動作。
+10. 按一下 [新增步驟]，然後按一下 [新增動作]。
 
 11. 在搜尋方塊中，輸入 `Dynamics 365`。 從動作清單中，選取 [Dynamics 365 – 建立新記錄]。
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/11/2017
 
 當您在欄位中新增值時，無論是輸入值或從動態內容清單中選取值，都必須符合欄位類型。
 
-欄位類型  |使用方式  |所在位置  |名稱  |資料類型  
+欄位類型  |使用方式  |所在位置  |Name  |資料類型  
 ---------|---------|---------|---------|---------
 文字欄位|文字欄位需要單行文字或屬於文字類型欄位的動態內容。 範例包括 [類別] 和 [子類別] 欄位。|[設定] > [自訂] > [自訂系統] > [實體] > [工作] > [欄位] |category |單行文字        
 整數欄位 | 某些欄位需要整數或屬於整數類型欄位的動態內容。 範例包括 [完成百分比] 和 [持續時間]。 |[設定] > [自訂] > [自訂系統] > [實體] > [工作] > [欄位] |percentcomplete |整數         
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="troubleshooting"></a>疑難排解
 若要針對邏輯應用程式中的失敗步驟進行疑難排解，請檢視事件的狀態詳細資料。
 
-1. 在 Logic Apps 下，選取您的邏輯應用程式，然後按一下概觀。 
+1. 在 [Logic Apps] 下，選取您的邏輯應用程式，然後按一下 [概觀]。 
 
    隨即會顯示 [摘要] 區域，其中會提供邏輯應用程式的執行狀態。 
 
