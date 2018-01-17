@@ -16,7 +16,7 @@ ms.date: 05/25/2017
 ms.author: dobett
 ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/12/2017
 * 一組 *應用程式屬性*。 應用程式可以定義的字串屬性字典，而且不需將訊息本文還原序列化即可加以存取。 IoT 中樞不會修改這些屬性。
 * 不透明的二進位主體。
 
-在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：  
+在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` ：  
 
 * 使用 HTTPS 通訊協定來傳送裝置到雲端訊息。
 * 傳送雲端到裝置的訊息。
