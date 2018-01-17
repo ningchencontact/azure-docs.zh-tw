@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>建立 Azure Cosmos DB 所觸發的函式
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![檢視記錄中的訊息。](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/14/2017
     | **API** | SQL (DocumentDB) | 本主題使用文件資料庫 API。  |
     | **訂用帳戶** | Azure 訂閱 | Azure 訂閱  |
     | **資源群組** | myResourceGroup |  使用含有您的函式應用程式的現有資源群組。 |
-    | **位置**  | WestEurope | 選取您的函式應用程式或其他使用已儲存文件的應用程式附近的位置。  |
+    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>  | WestEurope | 選取您的函式應用程式或其他使用已儲存文件的應用程式附近的位置。  |
 
 6. 按一下 [確定]  以建立資料庫。 建立資料庫可能需要幾分鐘的時間。 建立資料庫之後，資料庫連接字串會儲存為函式應用程式設定。 此應用程式設定的名稱會插入在 **Azure Cosmos DB 帳戶連線**中。 
 
@@ -149,4 +149,4 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-如需 Azure Cosmos DB 觸發程序的詳細資訊，請參閱[適用於 Azure Functions 的 Azure Cosmos DB 繫結](functions-bindings-documentdb.md)。
+如需 Azure Cosmos DB 觸發程序的詳細資訊，請參閱[適用於 Azure Functions 的 Azure Cosmos DB 繫結](functions-bindings-cosmosdb.md)。

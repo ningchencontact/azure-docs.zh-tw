@@ -6,14 +6,14 @@ keywords: "dsc, 設定, 自動化"
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定 Linux 虛擬機器
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/22/2017
 登入 Azure，網址是 https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>將虛擬機器上架
-有許多不同的方法可將電腦上架及啟用 Desired State Configuration。 本快速入門涵蓋透過自動化帳戶進行上架。 您可以閱讀[上架](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding)文章，深入了解將您的電腦上架至 Desired State Configuration 的不同方法。
+有許多不同的方法可將電腦上架及啟用 Desired State Configuration。 本快速入門涵蓋透過自動化帳戶進行上架。 您可以閱讀[上架](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)文章，深入了解將您的電腦上架至 Desired State Configuration 的不同方法。
 
 1. 在 Azure 入口網站的左側窗格中，選取 [自動化帳戶]。 如果未顯示在左窗格中，請按一下 [所有服務]，然後在產生的檢視中加以搜尋。
 1. 在清單中，選取自動化帳戶。
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/22/2017
 1. 按一下功能表選項可 [新增 Azure VM]
 1. 尋找您需要啟用 DSC 的虛擬機器。 若要尋找特定的虛擬機器，您可以使用搜尋欄位和篩選選項。
 1. 按一下虛擬機器，然後選取 [連線]
-1. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」。 您可以設定[設定模式](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig)來控制電腦的設定行為。
+1. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
 1. 按一下 [確定] 
 
 ![將 Azure VM 上架至 DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ configuration LAMPServer {
 
 ## <a name="compile-a-configuration"></a>編譯設定
 
-DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點。 編譯程式會驗證設定，並允許輸入參數值。 若要深入了解編譯設定，請參閱：[編譯 Azure 自動化 DSC 中的設定](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile)
+DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點。 編譯程式會驗證設定，並允許輸入參數值。 若要深入了解編譯設定，請參閱：[編譯 Azure 自動化 DSC 中的設定](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 若要編譯設定：
 
@@ -141,6 +141,6 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 > [!div class="nextstepaction"]
 > [使用 DSC 和 Chocolatey 持續部署至 VM](./automation-dsc-cd-chocolatey.md)
 
-* 若要深入了解 PowerShell Desired State Configuration，請參閱 [PowerShell Desired State Configuration 概觀](https://docs.microsoft.com/en-us/powershell/dsc/overview)。
-* 若要深入了解從 PowerShell 管理 Automation DSC，請參閱 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* 若要了解如何將 DSC 報告轉寄給 Log Analytics 以進行報告及警示，請參閱[將 DSC 報告轉寄給 Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics) 
+* 若要深入了解 PowerShell Desired State Configuration，請參閱 [PowerShell Desired State Configuration 概觀](https://docs.microsoft.com/powershell/dsc/overview)。
+* 若要深入了解從 PowerShell 管理 Automation DSC，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
+* 若要了解如何將 DSC 報告轉寄給 Log Analytics 以進行報告及警示，請參閱[將 DSC 報告轉寄給 Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
