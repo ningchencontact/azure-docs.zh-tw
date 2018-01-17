@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
 本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決整合問題並將商務程序自動化︰
@@ -81,7 +81,7 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 | 調整大小 |無組態調整 |隨著 App Service 方案調整 |
 | 價格 |按使用次數付費或屬於 App Service 方案的一部分 |屬於 App Service 方案的一部分 |
 | 執行類型 |觸發、排程 (依計時器觸發程序) |觸發、連續、排程 |
-| 觸發程序事件 |[計時器](functions-bindings-timer.md)、[Azure Cosmos DB](functions-bindings-documentdb.md)、[Azure 事件中樞](functions-bindings-event-hubs.md)、[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)、[Azure App Service Mobile Apps](functions-bindings-mobile-apps.md)、[Azure 事件 中樞](functions-bindings-event-hubs.md)、[Azure 儲存體佇列和 Blob](functions-bindings-storage-blob.md)、[Azure 服務匯流排佇列和主題](functions-bindings-service-bus.md) |[Azure 儲存體佇列和 Blob](functions-bindings-storage-blob.md)、[Azure 服務匯流排佇列和主題](functions-bindings-service-bus.md) |
+| 觸發程序事件 |[計時器](functions-bindings-timer.md)、[Azure Cosmos DB](functions-bindings-cosmosdb.md)、[Azure 事件中樞](functions-bindings-event-hubs.md)、[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)、[Azure App Service Mobile Apps](functions-bindings-mobile-apps.md)、[Azure 事件 中樞](functions-bindings-event-hubs.md)、[Azure 儲存體佇列和 Blob](functions-bindings-storage-blob.md)、[Azure 服務匯流排佇列和主題](functions-bindings-service-bus.md) |[Azure 儲存體佇列和 Blob](functions-bindings-storage-blob.md)、[Azure 服務匯流排佇列和主題](functions-bindings-service-bus.md) |
 | 瀏覽器中開發 |支援 |不支援 |
 | C# |支援 |支援 |
 | F# |支援 |不支援 |

@@ -1,26 +1,26 @@
 ---
 title: "Azure 快速入門 - 使用 Azure 入口網站來備份 VM | Microsoft Docs"
 description: "了解如何使用 Azure 入口網站來備份虛擬機器"
-services: virtual-machines-windows, azure-backup
+services: backup, virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup, virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b34e812379ed25945ae32b600e0db82afaf78d77
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中備份虛擬機器
 您可以透過 Azure 入口網站建立 Azure 備份。 此方法可提供以瀏覽器為基礎的使用者介面，以便建立和設定 Azure 備份及所有相關的資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure 入口網站來備份虛擬機器 (VM)。 

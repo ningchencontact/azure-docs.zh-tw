@@ -10,20 +10,20 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/7/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 30cda1997ca93f237dafd34cfffc2a86b86d6c7c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>使用 Ruby 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何使用 Ruby 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門： 
 * 安裝 [Ruby](https://www.ruby-lang.org/en/downloads/)
-* 使用 rubygem 套件來安裝[適用於 Ruby 的 Azure 儲存體程式庫](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)。 
+* 使用 rubygem 套件來安裝[適用於 Ruby 的 Azure 儲存體程式庫](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)。 
 
 ```
 gem install azure-storage
