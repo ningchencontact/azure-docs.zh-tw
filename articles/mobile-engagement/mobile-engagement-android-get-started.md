@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>開始使用適用於 Android 應用程式的 Azure Mobile Engagement
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/20/2017
 1. 啟動 **Android Studio**，然後在快顯視窗中選取 [開始新的 Android Studio 專案]。
 
     ![][1]
-2. 提供 App 名稱與公司網域。 記下您填入的內容，因為稍後會用到。 按一下 [下一步] 。
+2. 提供 App 名稱與公司網域。 記下您填入的內容，因為稍後會用到。 按 [下一步] 。
 
     ![][2]
 3. 選取目標尺寸和 API 層級，然後按 [下一步] 。
@@ -91,7 +91,7 @@ Android Studio 現在要建立會和 Mobile Engagement 整合的示範應用程�
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. 回到 Azure 傳統入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連接字串]。
+3. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連接字串]。
 
       ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 

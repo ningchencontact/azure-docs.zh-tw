@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>執行 Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具
 
 ## <a name="modes-of-running-deployment-planner"></a>執行部署規劃工具的模式
 您可以在下列任何模式中執行命令列工具 (ASRDeploymentPlanner.exe)： 
 1.  [取得 VM 清單](#get-vm-list-for-profiling-hyper-v-vms)
-2.  [剖析](#profile-hyper-v-vms)
+2.  [分析](#profile-hyper-v-vms)
 3.  [報告產生](#generate-report)
 4.  [取得輸送量](#get-throughput)
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/05/2017
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
-| 參數名稱 | 說明 |
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | GetVMList |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
@@ -79,40 +79,49 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ### <a name="get-vm-list-to-profile"></a>取得要剖析的 VM 清單
 請參閱 [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) 作業，以建立要剖析的 VM 清單
 
-取得要剖析的 VM 清單之後，您可以在剖析模式中執行此工具。 
+取得要分析的 VM 清單之後，您可以在分析模式中執行此工具。 
 
 ### <a name="command-line-parameters"></a>命令列參數
 下表包含要在分析模式執行之工具的必要和選用參數清單。 此工具通用於 VMware 到 Azure 和 Hyper-V 到 Azure 案例。 下列參數適用於 Hyper-V。 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| 參數名稱 | 說明 |
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | StartProfiling |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
 | -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案的每一行應包含一個伺服器名稱或 IP 位址，後面接著以 \ 分隔的 VM 名稱。 檔案中指定的 VM 名稱應該與 Hyper-V 主機上的 VM 名稱相同。<ul>例如，"VMList.txt" 檔案包含下列 VM︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|要執行分析的分鐘數。 最小值為 30 分鐘。|
 |-NoOfHoursToProfile|要執行分析的時數。|
-|-NoOfDaysToProfile |要執行剖析的天數。 建議您執行分析 7 天以上，以確保觀察到指定期間內您環境中的工作負載模式，並用來提供精確的建議。|
+|-NoOfDaysToProfile |要執行分析的天數。 建議您執行分析 7 天以上，以確保觀察到指定期間內您環境中的工作負載模式，並用來提供精確的建議。|
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
-|-Directory|(選用) 用來儲存剖析期間所產生之剖析資料的通用命名慣例 (UNC) 或本機目錄路徑。 如果未指定，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
+|-Directory|(選用) 用來儲存分析期間所產生之分析資料的通用命名慣例 (UNC) 或本機目錄路徑。 如果未指定，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果現在未指定，系統稍後會在命令執行期間提示您輸入密碼。|
 |-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。|
 |-StorageAccountKey|(選用) 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <Storage account name> > 設定 > 存取金鑰 > Key1 (或傳統儲存體帳戶的主要存取金鑰)。|
 |-Environment|(選用) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。|
 
-我們建議至少剖析您的 VM 7 天以上。 如果變換模式在一個月內改變，我們建議在您看到最大變換的一週內進行剖析。 最好的方法是剖析 31 天，以取得更好的建議。 在剖析期間，ASRDeploymentPlanner.exe 會持續執行。 此工具會採用剖析階段輸入 (以天為單位)。 如需工具快速測試或概念證明，您可以剖析幾個小時或幾分鐘。 允許的最小剖析時間為 30 分鐘。 
+我們建議至少分析您的 VM 7 天以上。 如果變換模式在一個月內改變，我們建議在您看到最大變換的一週內進行分析。 最好的方法是分析 31 天，以取得更好的建議。 在分析期間，ASRDeploymentPlanner.exe 會持續執行。 此工具會採用分析階段輸入 (以天為單位)。 如需工具快速測試或概念證明，您可以分析幾個小時或幾分鐘。 允許的最小分析時間為 30 分鐘。 
 
 在分析期間，您可以選擇性地傳送儲存體帳戶名稱和金鑰，以尋找 Azure Site Recovery 可在從 Hyper-V 伺服器複寫至 Azure 時達成的輸送量。 如果未在分析期間傳送儲存體帳戶名稱和金鑰，此工具就不會計算可達成的輸送量。
 
-您可以針對不同組的 VM 執行多個工具執行個體。 確保 VM 名稱不會在任何剖析集中重複出現。 例如，若已剖析 10 部 VM (VM1 到 VM10)，而在幾天後您想要剖析另外 5 部 VM (VM11 到 VM15)，您可以針對第二組的 VM (VM11 到 VM15) 從另一個命令列主控台執行此工具。 確保第二組的 VM 沒有任何來自第一個剖析執行個體的 VM 名稱，或您使用不同的輸出目錄進行第二次執行。 如有兩個工具執行個體用於剖析相同的 VM 並使用相同的輸出目錄，所產生的報告則會不正確。 
+您可以針對不同組的 VM 執行多個工具執行個體。 確保 VM 名稱不會在任何分析集中重複出現。 例如，若已剖析 10 部 VM (VM1 到 VM10)，而在幾天後您想要剖析另外 5 部 VM (VM11 到 VM15)，您可以針對第二組的 VM (VM11 到 VM15) 從另一個命令列主控台執行此工具。 確保第二組的 VM 沒有任何來自第一個分析執行個體的 VM 名稱，或您使用不同的輸出目錄進行第二次執行。 如有兩個工具執行個體用於分析相同的 VM 並使用相同的輸出目錄，所產生的報告則會不正確。 
 
-在剖析作業開始時會擷取一次 VM 組態，並儲存在名為 VMDetailList.xml 的檔案。 產生報告時會使用此資訊。 從剖析開始到結尾，不會擷取任何 VM 組態變更 (例如，增加的核心、磁碟或 NIC 數目)。 如果已分析的 VM 組態在分析期間發生變更，以下是在產生報告時取得最新 VM 詳細資料的因應措施：
+根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+使用預設設定，來分析假設 1500 個 VM，建立兩個 VMList.txt 檔案。 其中一個包含 1000 個 VM 和另一個包含 500 個 VM 的清單。 執行兩個 ASR 部署規劃工具的執行個體，其中一個包含 VMList1.txt，另一個包含 VMList2.txt。 您可以使用相同的目錄路徑來儲存兩個 VMList VM 的已分析資料。 
+
+我們已經看到，作業會以硬體設定 (特別是執行工具從而產生報告之伺服器的 RAM 大小) 作為基礎，可能會因記憶體不足而發生失敗。 如果您的硬體良好，可以將 MaxVMsSupported 變更為任何較高的值。  
+
+在分析作業開始時會擷取一次 VM 組態，並儲存在名為 VMDetailList.xml 的檔案。 產生報告時會使用此資訊。 從分析開始到結尾，不會擷取任何 VM 組態變更 (例如，增加的核心、磁碟或 NIC 數目)。 如果已分析的 VM 組態在分析期間發生變更，以下是在產生報告時取得最新 VM 詳細資料的因應措施：
 
 * 備份 VMdetailList.xml，然後從其目前的位置刪除此檔案。
 * 在報告產生時傳遞 -User 和 -Password 引數
 
-剖析命令會在剖析目錄中產生數個檔案。 請勿刪除任何檔案，因為這麼做會影響報告產生。
+分析命令會在分析目錄中產生數個檔案。 請勿刪除任何檔案，因為這麼做會影響報告產生。
 
 ### <a name="examples"></a>範例
 #### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>範例 1︰剖析 VM 30 天，並找出從內部部署至 Azure 的輸送量
@@ -125,7 +134,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>範例 3：剖析 VM 60 分鐘以便快速測試工具
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>範例 3：分析 VM 60 分鐘以便快速測試工具
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
 ```
@@ -138,19 +147,19 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 >[注意！]
 >
 * 如果此工具執行所在的伺服器已重新啟動或已當機，或如果您使用 Ctrl + C 關閉工具，則會保留剖析的資料。 不過，過去 15 分鐘的剖析資料有可能會遺失。 在這類情況下，請在伺服器開始備份之後，於分析模式中重新執行此工具。
-* 傳遞儲存體帳戶名稱和金鑰時，此工具會在剖析的最後一個步驟測量輸送量。 如果此工具在剖析完成前關閉，則不會計算輸送量。 若要在產生報告之前找到輸送量，您可以從命令列主控台執行 GetThroughput 作業。 否則，產生的報告不會包含輸送量資訊。
+* 傳遞儲存體帳戶名稱和金鑰時，此工具會在分析的最後一個步驟測量輸送量。 如果此工具在分析完成前關閉，則不會計算輸送量。 若要在產生報告之前找到輸送量，您可以從命令列主控台執行 GetThroughput 作業。 否則，產生的報告不會包含輸送量資訊。
 * Azure Site Recovery 不支援具有 iSCSI 和傳遞磁碟的 VM。 不過，此工具無法偵測，以及剖析 VM 所連結的 iSCSI 和傳遞磁碟。
 
 ## <a name="generate-report"></a>產生報告
 此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM) 做為報告輸出，其中摘要說明所有的部署建議。 此報告的名稱為 DeploymentPlannerReport_<unique numeric identifier>.xlsm 且置於指定的目錄中。
-剖析完成後，您可以在報告產生模式中執行工具。 
+分析完成後，您可以在報告產生模式中執行工具。 
 
 ### <a name="command-line-parameters"></a>命令列參數
 下表包含要在報告產生模式中執行之必要和選用工具參數的清單。 此工具通用於 VMware 到 Azure 和 Hyper-V 到 Azure 案例。 下列參數適用於 Hyper-V。
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| 參數名稱 | 說明 |
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | 包含要產生報告之已剖析 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案的每一行應包含一個伺服器名稱或 IP 位址，後面接著以 \ 分隔的 VM 名稱。 檔案中指定的 VM 名稱應該與 Hyper-V 主機上的 VM 名稱相同。<ul>例如，"VMList.txt" 檔案包含下列 VM︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -168,6 +177,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-TargetRegion|(選用) 複寫的目標 Azure 區域。 因為 Azure 在每個區域有不同的成本，若要產生特定目標 Azure 區域的報告，請使用此參數。<br>預設值是 WestUS2 或上次使用的目標區域。<br>請參閱[支援的目標區域](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions)清單。|
 |-OfferId|(選用) 與指定訂用帳戶相關聯的優惠。 預設值為 MS-AZR-0003P (預付型方案)。|
 |-Currency|(選用) 在所產生的報告中用於顯示成本的貨幣。 預設值是美元 ($) 或上次使用的貨幣。<br>請參閱[支援的貨幣](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies)清單。|
+
+根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 ### <a name="examples"></a>範例
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>範例 1︰當剖析的資料位於本機磁碟機時，使用預設值來產生報告
@@ -207,10 +222,11 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
 
-## <a name="percentile-value-used-for-the-calculation"></a>用來計算的百分位數值
-**工具在產生報告時，會使用剖析期間所收集之效能計量的哪些預設百分位數值？**
 
-此工具預設為在所有 VM 的剖析期間收集之讀/寫 IOPS、寫入 IOPS 及資料變換的第 95 個百分位數值。 此計量可確保您的 VM 可以看到第 100 個百分位數尖峰，因為暫存事件不會用來判斷您的目標儲存體帳戶和來源頻寬需求。 例如，暫存事件可能是一天執行一次的備份作業、定期資料庫檢索或分析報告產生活動，或其他類似的短期時間點事件。
+## <a name="percentile-value-used-for-the-calculation"></a>用來計算的百分位數值
+**工具在產生報告時，會使用分析期間所收集之效能計量的哪些預設百分位數值？**
+
+此工具預設為在所有 VM 的分析期間收集之讀/寫 IOPS、寫入 IOPS 及資料變換的第 95 個百分位數值。 此計量可確保您的 VM 可以看到第 100 個百分位數尖峰，因為暫存事件不會用來判斷您的目標儲存體帳戶和來源頻寬需求。 例如，暫存事件可能是一天執行一次的備份作業、定期資料庫檢索或分析報告產生活動，或其他類似的短期時間點事件。
 
 使用第 95 個百分位數值可提供實際工作負載特性的真實情況，並且讓您在 Azure 上執行這些工作負載時獲得最佳效能。 我們不希望您會需要變更這個數字。 如果您變更此數字 (例如，變更為第 90 個百分位數)，您可以更新預設資料夾中的組態檔 ASRDeploymentPlanner.exe.config 並加以儲存，以產生現有剖析資料的新報告。
 ```
@@ -253,20 +269,20 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- 參數名稱 | 說明 |
+ 參數名稱 | 描述 |
 |---|---|
 | -Operation | GetThroughtput |
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的通用命名慣例 (UNC) 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
 | -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 |
-| -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <儲存體帳戶名稱> > 設定 > 存取金鑰 > Key1。|
+| -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > [儲存體帳戶] > [<儲存體帳戶名稱>] > [設定] > [存取金鑰] > [Key1]。|
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案的每一行應包含一個伺服器名稱或 IP 位址，後面接著以 \ 分隔的 VM 名稱。 檔案中指定的 VM 名稱應該與 Hyper-V 主機上的 VM 名稱相同。<ul>例如，"VMList.txt" 檔案包含下列 VM︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(選用) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數|
 
 
 此工具會在指定的目錄中建立數個 64MB asrvhdfile<#>.vhd 檔案 (其中 # 是檔案數目)。 此工具會將這些檔案上傳至儲存體帳戶，以找出輸送量。 測量輸送量之後，此工具會從儲存體帳戶和本機伺服器中刪除所有這類檔案。 如果此工具在計算輸送量時因為任何原因而終止，它不會從儲存體或本機伺服器中刪除檔案。 您必須手動加以刪除。
 
-輸送量會在指定的時間點進行測量，而這是 Azure Site Recovery 可以在複寫期間內達成的最大輸送量 (前提是所有其他因子維持不變)。 例如，如果任何應用程式開始在相同網路上耗用更多頻寬，則複寫期間的實際輸送量會有所不同。 如果 GetThroughput 作業在受保護的 VM 有高度資料變換時執行，則測量的輸送量結果會不同。 建議在剖析期間的各種時間點執行此工具，以了解可在不同時間達成的輸送量等級。 在報告中，此工具會顯示最後測量的輸送量。
+輸送量會在指定的時間點進行測量，而這是 Azure Site Recovery 可以在複寫期間內達成的最大輸送量 (前提是所有其他因子維持不變)。 例如，如果任何應用程式開始在相同網路上耗用更多頻寬，則複寫期間的實際輸送量會有所不同。 如果 GetThroughput 作業在受保護的 VM 有高度資料變換時執行，則測量的輸送量結果會不同。 建議在分析期間的各種時間點執行此工具，以了解可在不同時間達成的輸送量等級。 在報告中，此工具會顯示最後測量的輸送量。
     
 ### <a name="example"></a>範例
 ```

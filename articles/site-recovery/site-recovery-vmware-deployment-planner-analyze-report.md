@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署規劃工具報告
 產生的 Microsoft Excel 報告包含下列工作表：
@@ -182,7 +182,7 @@ ms.lasthandoff: 12/15/2017
 
 **VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
-**VM 相容性**：值為 [是] 和 [是\*]。 **[是\*]** 適用於 VM 適合於 [Azure 進階儲存體](https://aka.ms/premium-storage-workload)的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如：
+**VM 相容性**：值為 [是] 和 [是\*]。 **[是\*]** 適用於 VM 適合於 [Azure 進階儲存體](https://aka.ms/premium-storage-workload)的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如︰
 * <128 GB 為 P10。
 * 128 GB 至 256 GB 為 P15。
 * 256 GB 至 512 GB 為 P20。
@@ -214,9 +214,9 @@ ms.lasthandoff: 12/15/2017
 
 **NIC**：VM 上的 NIC 數目。
 
-**開機類型**︰這是 VM 的開機類型。 可以是 BIOS 或 EFI。 Azure Site Recovery 目前僅支援 BIOS 開機類型。 EFI 開機類型的所有虛擬機器會列在不相容的 VM 工作表中。
+**開機類型**︰VM 的開機類型。 可以是 BIOS 或 EFI。  Azure Site Recovery 目前支援 Windows Server EFI VM (Windows Server 2012、2012 R2 和 2016)，前提是開機磁碟中的磁碟分割數目小於 4 個，而且開機磁區大小為 512 個位元組。 若要保護 EFI VM，Azure Site Recovery 行動服務版本必須是 9.13 或更新版本。 EFI VM 僅支援容錯移轉。 不支援容錯回復。  
 
-**OS 類型**：這是 VM 的 OS 類型。 可以是 Windows 或 Linux 或其他。
+**OS 類型**：這是 VM 的 OS 類型。 根據在建立 VM 時從 VMware vSphere 所選的範本，可以是 Windows 或 Linux 或其他類型。  
 
 ## <a name="incompatible-vms"></a>不相容的 VM
 
@@ -228,20 +228,31 @@ ms.lasthandoff: 12/15/2017
 **VM 相容性**：指出為何指定的 VM 不適合與 Site Recovery 搭配使用。 相關原因會針對 VM 的每個不相容磁碟進行說明，且根據發佈的[儲存體限制](https://aka.ms/azure-storage-scalbility-performance)，原因可能是下列其中一項：
 
 * 磁碟大小 >4095 GB。 Azure 儲存體目前不支援大於 4095 GB 的資料磁碟大小。
+
 * OS 磁碟 >2048 GB。 Azure 儲存體目前不支援大於 2048 GB 的 OS 磁碟大小。
-* 啟動類型為 EFI。 Azure Site Recovery 目前僅支援 BIOS 開機類型虛擬機器。
 
 * VM 大小總計 (複寫 + TFO) 超過支援的儲存體帳戶大小限制 (35 TB)。 當 VM 中單一磁碟的效能特性超過標準儲存體支援的最大 Azure 或 Site Recovery 限制，通常會發生此不相容情況。 這類情況會將 VM 推送到進階儲存體區域中。 不過，進階儲存體帳戶支援的大小上限為 35 TB，而單一的受保護 VM 無法跨多個儲存體帳戶受到保護。 也請注意，在受保護的 VM 上執行測試容錯移轉時，它會在正在進行複寫的相同儲存體帳戶中執行。 在此例中，設定 2 倍的磁碟大小，以便進行複寫並以平行方式繼續進行測試容錯移轉。
-* 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個磁碟 5000)。
+
+* 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個磁碟 7500)。
+
 * 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個 VM 80,000)。
+
 * 平均資料變換超出磁碟平均 IO 大小支援的 Site Recovery 資料變換限制 10 MB/s。
-* VM 上所有磁碟的資料變換總計超過每個 VM 支援的 Site Recovery 資料變換限制 54 MB/s。
+
+* 平均資料變換超出 VM 平均 IO 大小支援的 Site Recovery 資料變換限制 25 MB/秒 (所有磁碟變換的總和)。
+
+* VM 上所有磁碟的尖峰資料變換超過每個 VM 支援的 Site Recovery 尖峰資料變換限制 54 MB/秒。
+
 * 磁碟的平均有效寫入 IOPS 超過支援的 Site Recovery IOPS 限制 840。
+
 * 計算的快照集儲存體超過支援的快照集儲存體限制 10 TB。
 
-**R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
+* 每日資料變換總計超出處理序伺服器支援的每日變換限制 2 TB。
 
-**資料變換 (Mbps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
+
+**尖峰 R/W IOPS (含成長因子)**：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
+
+**尖峰資料變換 (Mbps) (含成長因子)**：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **磁碟數目**：VM 上的 VMDK 總數。
 
@@ -253,14 +264,13 @@ ms.lasthandoff: 12/15/2017
 
 **NIC**：VM 上的 NIC 數目。
 
-**開機類型**︰這是 VM 的開機類型。 可以是 BIOS 或 EFI。 Azure Site Recovery 目前僅支援 BIOS 開機類型。 EFI 開機類型的所有虛擬機器會列在不相容的 VM 工作表中。
+**開機類型**︰VM 的開機類型。 可以是 BIOS 或 EFI。  Azure Site Recovery 目前支援 Windows Server EFI VM (Windows Server 2012、2012 R2 和 2016)，前提是開機磁碟中的磁碟分割數目小於 4 個，而且開機磁區大小為 512 個位元組。 若要保護 EFI VM，Azure Site Recovery 行動服務版本必須是 9.13 或更新版本。 EFI VM 僅支援容錯移轉。 不支援容錯回復。
 
-**OS 類型**：這是 VM 的 OS 類型。 可以是 Windows 或 Linux 或其他。
-
+**OS 類型**：這是 VM 的 OS 類型。 根據在建立 VM 時從 VMware vSphere 所選的範本，可以是 Windows 或 Linux 或其他類型。 
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 限制
 下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 為了獲得最佳結果，即使在部署規劃之後，仍一律建議發出測試容錯移轉來執行廣泛的應用程式測試，以了解應用程式真正的效能情況。
- 
+
 **複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
 ---|---|---|---
 標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
@@ -270,7 +280,14 @@ ms.lasthandoff: 12/15/2017
 進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
 進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MB/秒 | 每個磁碟 842 GB
 
+**來源資料變換** | **最大限制**
+---|---
+每個 VM 的平均資料變換| 25 MB/秒 
+VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
+處理序伺服器支援的每日資料變換上限 | 2 TB 
+
 以上是採用 30% I/O 重疊時的平均數字。 Site Recovery 能夠處理更高的輸送量 (以重疊比為基礎)、較大的寫入大小和實際工作負載 I/O 行為。 先前數字採用大約五分鐘的典型積壓。 也就是說，資料上傳之後，便會進行處理並在五分鐘內建立復原點。
+
 
 ## <a name="cost-estimation"></a>成本估計
 深入了解[成本估計](site-recovery-vmware-deployment-planner-cost-estimation.md)。 

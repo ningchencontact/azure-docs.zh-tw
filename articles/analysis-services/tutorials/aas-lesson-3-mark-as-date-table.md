@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 7a77efb21d38c7c5ff5ca6e17757cbfa9e845ad7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 25e4475c77a25e4dcdcb90729f8633656bb186ff
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-3-mark-as-date-table"></a>第 3 課：標記為日期資料表
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="mark-as-date-table"></a>標示為日期資料表
 
 在「第 2 課：取得資料」中，您已匯入名為 DimDate 的維度資料表。 雖然此資料表在您的模型中名為 DimDate，但可以也稱為「日期資料表」，因為它包含日期和時間資料。  
   
@@ -51,7 +49,7 @@ ms.lasthandoff: 11/02/2017
   
 2.  依序按一下 [資料表] 功能表、[日期]和 [標記為日期資料表]。  
   
-3.  在 [標記為日期資料表] 對話方塊中，在 [日期] 清單方塊中選取 [Date] 資料行當作唯一識別碼。 依預設通常會選取它。 按一下 [確定] 。 
+3.  在 [標記為日期資料表] 對話方塊中，在 [日期] 清單方塊中選取 [Date] 資料行當作唯一識別碼。 依預設通常會選取它。 按一下 [SERVICEPRINCIPAL] 。 
 
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   

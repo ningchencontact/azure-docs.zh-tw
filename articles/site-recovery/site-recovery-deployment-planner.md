@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2985ed0b4bf5d9525bc2274d71b703922524f5a8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware 到 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/13/2017
 
 您也需要建立正確的目標 Azure 儲存體帳戶類型和數目。 您可建立標準或進階儲存體帳戶，將使用量隨時間增加所造成的來源生產伺服器成長納入考量。 您可以根據工作負載特性 (例如，每秒的讀/寫 I/O 作業 [IOPS]，或資料變換) 和 Site Recovery 限制，選擇每部 VM 的儲存體類型。
 
-Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azure 與 VMware 到 Azure 之災害復原案例的命令列工具。 您可以使用此工具從遠端剖析 VMware VM (完全不影響實際運作)，以了解成功複寫與測試容錯移轉的頻寬和 Azure 儲存體需求。 您不需安裝任何 Site Recovery 內部部署元件，即可執行此工具。 然而，若要取得精確的已達成輸送量結果，建議在以下 Windows Server 上執行 Planner：符合您在生產環境部署的前幾個步驟中最終需要部署之 Site Recovery 組態伺服器的最低需求。
+Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper-V 到 Azure 與 VMware 到 Azure 的災害復原案例。 您可以使用此工具從遠端剖析 VMware VM (完全不影響實際運作)，以了解成功複寫與測試容錯移轉的頻寬和 Azure 儲存體需求。 您不需安裝任何 Site Recovery 內部部署元件，即可執行此工具。 然而，若要取得精確的已達成輸送量結果，建議在以下 Windows Server 上執行 Planner：符合您在生產環境部署的前幾個步驟中最終需要部署之 Site Recovery 組態伺服器的最低需求。
 
 此工具提供下列詳細資料︰
 
@@ -64,7 +64,7 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 
 >[!IMPORTANT]
 >
->因為使用量可能會隨時間增加，所以執行所有上述工具計算時，假設工作負載特性中的成長因子為 30%，並使用所有剖析計量 (讀/寫 IOPS、 變換等等) 的第 95 個百分位數值。 這兩個元素 (成長因子和百分位數計算) 皆可設定。 若要深入了解成長因子，請參閱「成長因子考量」一節。 若要深入了解百分位數值，請參閱「用於計算的百分位數值」一節。
+>因為使用量可能會隨時間增加，所以執行所有上述工具計算時，假設工作負載特性中的成長因子為 30%，並使用所有分析計量 (讀/寫 IOPS、 變換等等) 的第 95 個百分位數值。 這兩個元素 (成長因子和百分位數計算) 皆可設定。 若要深入了解成長因子，請參閱「成長因子考量」一節。 若要深入了解百分位數值，請參閱「用於計算的百分位數值」一節。
 >
 
 ## <a name="support-matrix"></a>支援矩陣
@@ -79,13 +79,13 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 *此工具主要用於 Hyper-V 到 Azure 的災害復原案例。 若為 Hyper-V 到次要站台的災害復原，此工具只能用來了解來源端建議，例如所需的網路頻寬、每個來源 Hyper-V 伺服器上所需的可用儲存體空間，以及初始複寫批次處理數目和批次定義。  請忽略報告中的 Azure 建議和成本。 此外，取得輸送量作業不適用於 Hyper-V 到次要站台的災害復原案例。
 
 ## <a name="prerequisites"></a>必要條件
-此工具有兩個主要階段：剖析和報告產生。 另外還有第三個選項：只計算輸送量。 下表列出起始剖析 / 輸送量測量之伺服器的需求：
+此工具有兩個主要階段：分析和報告產生。 另外還有第三個選項：只計算輸送量。 下表列出起始分析 / 輸送量測量之伺服器的需求：
 
-| 伺服器需求 | 說明|
+| 伺服器需求 | 描述|
 |---|---|
-|剖析和輸送量測量| <ul><li>作業系統：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2<br>(最好至少符合[組態伺服器的大小建議](https://aka.ms/asr-v2a-on-prem-components))</li><li>機器組態︰8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>VMware vCenter 統計資料層級設定應該設定為 2 或高層級</li><li>允許連接埠 443：ASR 部署規劃工具使用此連接埠來連線至 vCenter 伺服器/ESXi 主機</ul></ul>|
+|分析和輸送量測量| <ul><li>作業系統：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2<br>(最好至少符合[組態伺服器的大小建議](https://aka.ms/asr-v2a-on-prem-components))</li><li>機器組態︰8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>VMware vCenter 統計資料層級設定應該設定為 2 或高層級</li><li>允許連接埠 443：ASR 部署規劃工具使用此連接埠來連線至 vCenter 伺服器/ESXi 主機</ul></ul>|
 | 報告產生 | 具有 Microsoft Excel 2013 和更新版本的 Windows PC 或 Windows Server |
-| 使用者權限 | 使用者帳戶的唯讀權限，在剖析期間用來存取 VMware vCenter Server/VMware vSphere ESXi 主機 |
+| 使用者權限 | 使用者帳戶的唯讀權限，在分析期間用來存取 VMware vCenter Server/VMware vSphere ESXi 主機 |
 
 > [!NOTE]
 >
@@ -106,21 +106,26 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 
     範例：  
     將 .zip 檔案複製到 E:\ 磁碟機並將它解壓縮。
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>更新至最新版的部署規劃工具
 如果您的部署規劃工具是舊版的，請執行下列任一動作：
- * 如果最新版本不包含剖析修正程式，並已在您目前的規劃工具版本上進行剖析，則會繼續執行剖析。
- * 如果最新版本包含剖析修正程式，則建議您在目前的版本上停止剖析，並使用新版本重新開始剖析。
+ * 如果最新版本不包含分析修正程式，並已在您目前的規劃工具版本上進行分析，則會繼續執行分析。
+ * 如果最新版本包含分析修正程式，則建議您在目前的版本上停止分析，並使用新版本重新開始分析。
 
 
  >[!NOTE]
  >
- >當您開始使用新版本進行剖析時，請傳遞相同的輸出目錄路徑，以便工具在現有檔案上附加剖析資料。 將使用一組完整的剖析資料來產生報告。 如果您傳遞不同的輸出目錄，則會建立新檔案，舊的剖析資料不會用來產生報告。
+ >當您開始使用新版本進行分析時，請傳遞相同的輸出目錄路徑，以便工具在現有檔案上附加分析資料。 將使用一組完整的剖析資料來產生報告。 如果您傳遞不同的輸出目錄，則會建立新檔案，舊的剖析資料不會用來產生報告。
  >
  >每個新的 Deployment Planner 都是 .zip 檔的累積更新。 您不需要將最新的檔案複製到先前的資料夾。 您可以建立及使用新的資料夾。
+
+
+## <a name="version-history"></a>版本歷程記錄
+ASR 部署規劃工具的最新版本為 2.1。
+請參閱 [ASR 部署規劃工具版本記錄](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)頁面，了解每個更新中所新增的修正。
 
 ## <a name="next-steps"></a>後續步驟
 * [執行部署規劃工具](site-recovery-vmware-deployment-planner-run.md)。

@@ -7,4 +7,5 @@
 3. 在 Firebase 主控台中，按一下專案的齒輪圖示，再按一下 [專案設定]。
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. 按一下專案設定中的 [雲端通訊] 索引標籤，並複製 [伺服器金鑰] 和 [寄件者識別碼] 的值。 稍後會使用這些值來設定通知中樞的存取原則，以及應用程式中的通知處理常式。
+4. 按一下您專案設定中的 [一般] 索引標籤，然後下載其中包含伺服器 API 金鑰和用戶端識別碼的 **google-services.json** 檔案。
+5. 按一下專案設定中的 [雲端通訊] 索引標籤，並複製 [舊版伺服器金鑰] 的值。 這個值會用來設定通知中樞存取原則。

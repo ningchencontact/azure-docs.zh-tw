@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>第 2 課：取得資料
+# <a name="get-data"></a>取得資料
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-在這堂課中，您將使用 SSDT 中的「取得資料」來連線至 AdventureWorksDW2014 範例資料庫中、選取資料、預覽和篩選，然後匯入到您的模型工作區。  
+在這堂課中，您將使用 SSDT 中的「取得資料」來連線至 Adventure Works 範例資料庫、選取資料、預覽及篩選，然後匯入您的模型工作區中。  
   
 「取得資料」可讓您從各種來源匯入資料︰Azure SQL Database、Oracle、Sybase、OData 摘要、Teradata、檔案等等。 您也可以使用 Power Query M 公式運算式來查詢資料。
 
 > [!NOTE]
-> 本教學課程中的工作和影像顯示連接至內部部署伺服器上的 AdventureWorksDW2014 資料庫。 在某些情況下，Azure 上的 AdventureWorksDW2014 資料庫可能會不同。
+> 本教學課程中的工作和影像顯示連接至內部部署伺服器上的 AdventureWorksDW2014 資料庫。 在某些情況下，Azure 上的 Adventure Works 資料庫可能會不同。
   
 這堂課的預估完成時間：**10 分鐘**  
   
@@ -90,7 +88,7 @@ AdventureWorksDW2014 範例資料庫中的資料表有不需要加入模型中�
     
     **DimDate**
     
-      |資料欄|  
+      |欄|  
       |--------|  
       |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
@@ -100,7 +98,7 @@ AdventureWorksDW2014 範例資料庫中的資料表有不需要加入模型中�
   
     **DimGeography**
   
-      |資料欄|  
+      |欄|  
       |-------------|  
       |**SpanishCountryRegionName**|  
       |**FrenchCountryRegionName**|  
@@ -108,7 +106,7 @@ AdventureWorksDW2014 範例資料庫中的資料表有不需要加入模型中�
   
     **DimProduct**
   
-      |資料欄|  
+      |欄|  
       |-----------|  
       |**SpanishProductName**|  
       |**FrenchProductName**|  
@@ -123,14 +121,14 @@ AdventureWorksDW2014 範例資料庫中的資料表有不需要加入模型中�
   
     **DimProductCategory**
   
-      |資料欄|  
+      |欄|  
       |--------------------|  
       |**SpanishProductCategoryName**|  
       |**FrenchProductCategoryName**|  
   
     **DimProductSubcategory**
   
-      |資料欄|  
+      |欄|  
       |-----------------------|  
       |**SpanishProductSubcategoryName**|  
       |**FrenchProductSubcategoryName**|  

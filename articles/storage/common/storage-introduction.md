@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 儲存體簡介
 
@@ -35,9 +35,7 @@ Azure 儲存體包含三項資料服務：Blob 儲存體、檔案儲存體和佇
 * 將資料傳入或傳出儲存體
 * 許多可用的儲存體用戶端程式庫。
 
-若要快速啟動並執行 Azure 儲存體，請參閱下列其中一個快速入門：
-* [使用 PowerShell 建立儲存體帳戶](storage-quickstart-create-storage-account-powershell.md)
-* [使用 CLI 建立儲存體帳戶](storage-quickstart-create-storage-account-cli.md)
+若要讓 Azure 儲存體啟動並執行，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure 儲存體服務簡介
 
@@ -219,9 +217,7 @@ Azure 匯入/匯出服務可用於從儲存體帳戶匯入或匯出大量 blob �
 * [深入了解檔案儲存體](../storage-files-introduction.md)
 * [深入了解佇列儲存體](../queues/storage-queues-introduction.md)
 
-若要快速啟動並執行 Azure 儲存體，請參閱下列其中一個快速入門：
-* [使用 PowerShell 建立儲存體帳戶](storage-quickstart-create-storage-account-powershell.md)
-* [使用 CLI 建立儲存體帳戶](storage-quickstart-create-storage-account-cli.md)
+若要讓 Azure 儲存體啟動並執行，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>機器學習服務教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
 
@@ -81,7 +81,7 @@ Machine Learning Studio 可讓您輕鬆地使用以預測性模型技術預先�
 [步驟 5：預測新的汽車價格]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> 您可以在 [Cortana Intelligence 資源庫](https://gallery.cortanaintelligence.com)中找到下列實驗的工作複本。 移至**[您的第一個資料科學實驗 - 汽車價格預測](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**，按一下 [在 Studio 中開啟]，以將實驗的複本下載到您的 Machine Learning Studio 工作區。
+> 您可以在 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)中找到下列實驗的工作複本。 移至**[您的第一個資料科學實驗 - 汽車價格預測](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**，按一下 [在 Studio 中開啟]，以將實驗的複本下載到您的 Machine Learning Studio 工作區。
 
 
 ## <a name="step-1-get-data"></a>步驟 1：取得資料
@@ -327,7 +327,7 @@ Machine Learning Studio 隨附多個範例資料集供您使用，或者，您�
 現在您已經完成第一個機器學習服務教學課程並已設定實驗，您可以繼續改善模型，然後再將它部署為預測型 Web 服務。
 
 - **逐一檢測以嘗試改善模型** - 例如，您可以變更在預測中使用的功能。 或者，您可以修改[線性迴歸][linear-regression]演算法的屬性，或嘗試完全不同的演算法。 您甚至可以同時在實驗中新增多個機器學習演算法，並使用[評估模型][evaluate-model]模組進行比較 (兩兩相比)。
-如需如何在單一實驗中比較多個模型的範例，請參閱 [Cortana Intelligence 資源庫](https://gallery.cortanaintelligence.com)中的[比較迴歸輸入變數](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)。
+如需如何在單一實驗中比較多個模型的範例，請參閱 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)中的[比較迴歸輸入變數](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)。
 
     > [!TIP]
     > 若要複製實驗的任何反覆運算，請使用頁面底部的 [另存新檔] 按鈕。 您可以按一下頁面底部的 [檢視執行歷程記錄]，以檢視實驗的所有反覆運算。 如需詳細資訊，請參閱[在 Azure Machine Learning Studio 中管理實驗逐一查看][runhistory]。

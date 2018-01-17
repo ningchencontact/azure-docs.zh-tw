@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -48,7 +48,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 按一下左上方的功能表 ![功能表](./media/what-is-ml-studio/menu.png) 您會看到幾個選項。
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
-按一下 [Cortana Intelligence]，系統會帶您前往 [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite)的首頁。 Cortana Intelligence Suite 是受完整管理的巨量資料與進階分析套件，可將資料轉換成可採取的智慧行動。 請參閱 Suite 首頁查看完整的文件，包括客戶經驗談。
+按一下 [Cortana Intelligence]，系統會帶您前往 [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite)的首頁。 Cortana Intelligence Suite 是完全受控的巨量資料與進階分析套件，可將資料轉換成可採取的智慧行動。 請參閱 Suite 首頁查看完整的文件，包括客戶經驗談。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 這裡有兩個選項，**首頁** (您啟動的頁面)，和 **Studio**。
@@ -64,9 +64,9 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 * **設定** - 可用來設定帳戶和資源的一組設定。
 
 ### <a name="gallery"></a>資源庫
-按一下 [資源庫]，會帶您進入 **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**。 [資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
+按一下 [資源庫]，會帶您進入 **[Azure AI 資源庫](http://gallery.cortanaintelligence.com/)**。 [資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
 
-如需有關資源庫的詳細資訊，請參閱 [共用及探索 Cortana Intelligence Gallery 中的方案](gallery-how-to-use-contribute-publish.md)。
+如需有關資源庫的詳細資訊，請參閱[共用及探索 Azure AI 資源庫中的解決方案](gallery-how-to-use-contribute-publish.md)。
 
 ## <a name="components-of-an-experiment"></a>實驗的元件
 實驗由資料集組成，資料集提供資料給分析模組，將模組連接起就能建構預測分析模型。 明確地說，有效的實驗有三個特性：

@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教學課程
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+本教學課程示範如何使用 Visual Studio 搭配 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 來建立及部署 1400 相容性等級的表格式模型。  
 
-本教學課程示範如何使用 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 建立及部署 1400 相容性等級的表格式模型。  
-
-如果您熟悉 Analysis Services 和表格式模型化，則本教學課程可讓您以最快速度了解如何建立及部署基本表格式模型。 備齊必要條件後，完成本教學課程需要二至三小時的時間。  
+如果您熟悉 Analysis Services 和表格式模型化，則本教學課程可讓您以最快的方式，了解如何使用 Visual Studio 來建立及部署基本表格式模型。 備齊必要條件後，完成本教學課程需要二至三小時的時間。  
   
 ## <a name="what-you-learn"></a>您學到什麼   
   
--   如何在 SSDT 中建立 **1400 相容性等級**的新表格式模型專案。
+-   如何在 Visual Studio 中使用 SSDT 建立 **1400 相容性等級**的新表格式模型專案。
   
--   如何將關聯式資料庫的資料匯入表格式模型專案。  
+-   如何將關聯式資料庫的資料匯入表格式模型專案工作區資料庫中。  
   
 -   如何在模型中建立及管理資料表之間的關聯性。  
   
@@ -50,13 +48,13 @@ ms.lasthandoff: 11/02/2017
 ## <a name="prerequisites"></a>必要條件  
 若要完成本教學課程，您需要：  
   
--   Azure Analysis Services 或 SQL Server 2017 Analysis Services 執行個體，供部署您的模型。 註冊免費的 [Azure Analysis Services 試用版](https://azure.microsoft.com/services/analysis-services/)和[建立伺服器](../analysis-services-create-server.md)。 或者，註冊並下載 [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp)。 
+-   Azure Analysis Services 伺服器。 註冊免費的 [Azure Analysis Services 試用版](https://azure.microsoft.com/services/analysis-services/)和[建立伺服器](../analysis-services-create-server.md)。 
 
--   SQL Server 資料倉儲或 Azure SQL 資料倉儲，隨附 [AdventureWorksDW2014 範例資料庫](http://go.microsoft.com/fwlink/?LinkID=335807)。 這個範例資料庫包括完成本教學課程所需的資料。 下載 [SQL Server 免費版本](https://www.microsoft.com/sql-server/sql-server-downloads)。 或者，註冊免費的 [Azure SQL Database 試用版](https://azure.microsoft.com/services/sql-database/)。 
+-   隨附**範例 AdventureWorksDW 資料庫**的 [Azure SQL 資料倉儲](../../sql-data-warehouse/create-data-warehouse-portal.md)，或隨附 [Adventure Works 範例資料庫](http://go.microsoft.com/fwlink/?LinkID=335807)的 SQL Server 資料倉儲。
 
-    **重要事項︰**如果您將範例資料庫安裝在內部部署 SQL Server，且將模型部署到 Azure Analysis Services 伺服器，則需要[內部部署資料閘道](../analysis-services-gateway.md)。
+    **重要事項︰**如果您將範例資料庫安裝到內部部署 SQL Server 資料倉儲，且將模型部署到 Azure Analysis Services 伺服器，就需要[內部部署資料閘道](../analysis-services-gateway.md)。
 
--   最新版本的 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
+-   適用於 Visual Studio 的最新版本 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
 
 -   最新版本的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。    
 
@@ -81,13 +79,13 @@ ms.lasthandoff: 11/02/2017
 |[2 - 取得資料](../tutorials/aas-lesson-2-get-data.md)|10 分鐘|  
 |[3 - 標記為日期資料表](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 分鐘|  
 |[4 - 建立關聯性](../tutorials/aas-lesson-4-create-relationships.md)|10 分鐘|  
-|[5 - 建立計算結果欄](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 Minuten|
+|[5 - 建立計算結果欄](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 分鐘|
 |[6 - 建立量值](../tutorials/aas-lesson-6-create-measures.md)|30 分鐘|  
-|[7 - 建立關鍵效能指標 (KPI)](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 Minuten|  
+|[7 - 建立關鍵效能指標 (KPI)](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 分鐘|  
 |[8 - 建立檢視方塊](../tutorials/aas-lesson-8-create-perspectives.md)|5 分鐘|  
 |[9 - 建立階層](../tutorials/aas-lesson-9-create-hierarchies.md)|20 分鐘|  
-|[10 - 建立分割區](../tutorials/aas-lesson-10-create-partitions.md)|15 Minuten|  
-|[11 - 建立角色](../tutorials/aas-lesson-11-create-roles.md)|15 Minuten|  
+|[10 - 建立分割區](../tutorials/aas-lesson-10-create-partitions.md)|15 分鐘|  
+|[11 - 建立角色](../tutorials/aas-lesson-11-create-roles.md)|15 分鐘|  
 |[12 - 在 Excel 中分析](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 分鐘| 
 |[13 - 部署](../tutorials/aas-lesson-13-deploy.md)|5 分鐘|  
   

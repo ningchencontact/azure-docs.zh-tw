@@ -3,7 +3,7 @@ title: "關於 Azure App Service 中的 Mobile Apps"
 description: "了解 App Service 為您的企業行動裝置應用程式帶來的優勢。"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
-Azure App Service 是完全受管理的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 產品，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
+Azure App Service 是完全受控的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 產品，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
 
 Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人員提供一個高擴充性且全球可用的行動裝置應用程式開發平台。
 
@@ -65,7 +65,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
   深入探索 [預備環境]。
 
-* **連續部署**：App Service 可與常見供應鏈管理 (SCM) 系統整合，您便可將新版的後端發送至 SCM 系統的分支進行自動部署。
+* **持續部署**：App Service 可與常見原始檔控制管理 (SCM) 系統整合，您便可將新版的後端發送至 SCM 系統的分支進行自動部署。
 
   深入探索 [部署選項](../app-service/app-service-deploy-local-git.md)。
 

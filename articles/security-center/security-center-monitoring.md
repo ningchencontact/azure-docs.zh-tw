@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的安全性健康情況監視
 本文可協助您使用 Azure 資訊安全中心內的監視功能，監視是否符合原則。
@@ -48,11 +48,11 @@ ms.lasthandoff: 01/02/2018
 在您可有多個區段的每個索引標籤中，以及在每個區段中，您可以選取一個個別的選項，以查看有關解決該特定問題之建議步驟的更多詳細資訊。
 
 #### <a name="monitoring-recommendations"></a>監視建議
-本節顯示已初始化進行自動佈建的虛擬機器和電腦總數，以及其目前的狀態。 當您按一下此項目，[監視代理程式健康情況問題] 會隨即開啟。
+本節顯示已初始化進行自動佈建的虛擬機器和電腦總數，以及其目前的狀態。 在此範例中有一個建議：[監視代理程式健康情況問題]。  選取這個建議。
 
 ![監視代理程式健康情況問題](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-其中會列出資訊安全中心無法成功監視的 VM 和電腦。 選取 VM 或電腦即可獲得詳細資訊。 [監視狀態] 會定義問題。
+[監視代理程式健康情況問題] 隨即開啟。 其中會列出資訊安全中心無法成功監視的 VM 和電腦。 選取 VM 或電腦即可獲得詳細資訊。 [監視狀態] 會提供資訊安全中心為何無法監視的原因。 請參閱[資訊安全中心疑難排解指南](security-center-troubleshooting-guide.md#monitoring-agent-health-issues)，以取得 [監視狀態] 值、描述和解決步驟的清單。
 
 #### <a name="recommendations"></a>建議
 本節提供 Azure 資訊安全中心所監視之[每部虛擬機器和電腦的建議](security-center-virtual-machine-recommendations.md)。 第一個資料行會列出建議。 第二個資料行則顯示受該項建議影響的虛擬機器和電腦總數。 第三個資料行顯示問題的嚴重性，如下列螢幕擷取畫面所示：
