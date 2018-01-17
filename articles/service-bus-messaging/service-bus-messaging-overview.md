@@ -32,7 +32,7 @@ Microsoft Azure 服務匯流排是一項可靠的資訊傳遞服務。 此服務
 
 ## <a name="azure-relay"></a>Azure 轉送
 
-Azure 轉送的 [WCF 轉送](../service-bus-relay/relay-what-is-it.md)元件是集中式 (但高度負載平衡) 服務，可支援各種不同的傳輸通訊協定及 Web 服務標準。 這包括 SOAP、WS-*，甚至是 REST。 [轉送](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)服務提供各種不同的轉送連接選項，會在可行的狀況下，協助交涉直接的對等連接。 服務匯流排已針對使用 Windows Communication Foundation (WCF) 的 .NET 開發人員最佳化，包括效能和可用性兩方面，並且可讓您透過 SOAP 和 REST 介面完整存取其轉送服務。 這可讓所有的 SOAP 或 REST 程式設計環境與服務匯流排整合。
+Azure 轉送的 [WCF 轉送](../service-bus-relay/relay-what-is-it.md)元件是集中式 (但高度負載平衡) 服務，可支援各種不同的傳輸通訊協定及 Web 服務標準。 這包括 SOAP、WS- * ，甚至是 REST。 [轉送](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)服務提供各種不同的轉送連接選項，會在可行的狀況下，協助交涉直接的對等連接。 服務匯流排已針對使用 Windows Communication Foundation (WCF) 的 .NET 開發人員最佳化，包括效能和可用性兩方面，並且可讓您透過 SOAP 和 REST 介面完整存取其轉送服務。 這可讓所有的 SOAP 或 REST 程式設計環境與服務匯流排整合。
 
 轉送服務支援傳統的單向訊息、要求/回應訊息，以及對等式訊息。 它也支援網際網路範圍內的事件散發，以啟用發佈/訂閱案例和雙向通訊端通訊來提高點對點效率。 在轉送傳訊模式中，內部部署服務會透過輸出連接埠連接到轉送服務，並且針對繫結至特定聚合位址的通訊建立雙向通訊端。 用戶端接著可將訊息傳送至以會合位址為目標的轉送服務，藉此與內部部署服務通訊。 轉送服務接著會透過已就緒的雙向通訊端，將訊息「轉送」至內部部署服務。 用戶端無須直接連接到內部部署服務，也無須知道服務的所在位置，而且內部部署服務也不需要在防火牆上開啟任何連入連接埠。
 
