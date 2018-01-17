@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用具有特殊權限的端點來監視 Azure Stack 中的更新
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
-您可以使用具有特殊權限的端點來監視 Azure Stack 更新執行的進度，以及從最後一個成功步驟中繼續進行失敗的更新執行。 
+您可以使用具有特殊權限的端點來監視 Azure Stack 更新執行的進度，以及從 Azure Stack 入口網站應變成無法使用的最後一個成功步驟中，繼續進行失敗的更新執行。  建議使用 Azure Stack 入口網站在 Azure Stack 中管理更新。
 
 下列適用於更新管理的新 PowerShell Cmdlet 隨附於適用於 Azure Stack 整合系統的 1710 更新中。
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/11/2017
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   例如：
+   例如︰
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    

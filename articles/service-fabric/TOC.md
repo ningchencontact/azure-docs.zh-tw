@@ -56,7 +56,7 @@
 #### [Reliable Services 生命週期 - Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Reliable Collections 指導方針與建議](service-fabric-reliable-services-reliable-collections-guidelines.md)
-#### [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
+#### [使用可靠的集合](service-fabric-work-with-reliable-collections.md)
 #### [交易和鎖定](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 #### [可靠的並行佇列](service-fabric-reliable-services-reliable-concurrent-queue.md)
 #### [可靠的集合序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
@@ -96,6 +96,7 @@
 ##### [應用程式升級參數](service-fabric-application-upgrade-parameters.md)
 ##### [應用程式升級的資料序列化](service-fabric-application-upgrade-data-serialization.md)
 ##### [應用程式升級進階主題](service-fabric-application-upgrade-advanced.md)
+#### [管理多個環境的應用程式](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [以錯誤分析測試應用程式](service-fabric-testability-overview.md)
 #### [ ImageStoreConnectionString 設定](service-fabric-image-store-connection-string.md)
 
@@ -189,7 +190,7 @@
 
 ### 建置 Reliable Services 服務
 #### Reliable Collections
-##### [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
+##### [使用可靠的集合](service-fabric-work-with-reliable-collections.md)
 ##### [可靠的並行佇列](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [可靠的集合序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
 
@@ -226,7 +227,6 @@
 ## 在 Windows/VS 開發人員環境中工作
 ### [在 Visual Studio 中管理應用程式](service-fabric-manage-application-in-visual-studio.md)
 ### [在 Visual Studio 中設定安全連線](service-fabric-visualstudio-configure-secure-connections.md)
-### [針對多種環境設定您的應用程式](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [在 VS中對 .NET 服務進行偵錯](service-fabric-debugging-your-application.md)
 ### [常見錯誤及例外狀況](service-fabric-errors-and-exceptions.md)
 ### [在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## 管理應用程式生命週期
 ### [封裝應用程式](service-fabric-package-apps.md)
+### [使用組態檔中的參數](service-fabric-how-to-parameterize-configuration-files.md)
+### [使用參數指定連接埠號碼](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [指定環境變數](service-fabric-how-to-specify-environment-variables.md)
 
 ### 部署或移除應用程式
 #### [在本機叢集上部署應用程式](service-fabric-get-started-with-a-local-cluster.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [服務模型 XML 結構描述](service-fabric-service-model-schema.md)
+## [環境變數](service-fabric-environment-variables-reference.md)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
