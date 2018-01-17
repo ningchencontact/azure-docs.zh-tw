@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/16/2017
 
     ![顯示變更目錄 UI 的螢幕擷取畫面](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. 按一下 [變更]。
-6. 成功！ 使用目錄切換器來移至新的目錄。
+6. 成功！ 使用目錄切換器來移至新的目錄。 最多可能需要 10 分鐘的時間才能正確顯示所有項目。
 
     ![顯示變更目錄成功通知的螢幕擷取畫面](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

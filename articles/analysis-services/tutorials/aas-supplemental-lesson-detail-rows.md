@@ -13,31 +13,29 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>補充課程 - 詳細資料列
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 在此補充課程中，您會使用 DAX 編輯器來定義自訂詳細資料列運算式。 詳細資料列運算式是一個量值屬性，可提供使用者有關量值彙總結果的詳細資訊。 
   
 這堂課的預估完成時間：**10 分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-此補充課程主題是表格式模型教學課程的一部分。 在此補充課程中執行工作之前，您應已完成所有先前的課程或已完成 Adventure Works 網際網路銷售範例模型專案。  
+此補充課程是表格式模型教學課程的一部分。 在此補充課程中執行工作之前，您應已完成所有先前的課程或已完成 Adventure Works 網際網路銷售範例模型專案。  
   
-## <a name="what-do-we-need-to-solve"></a>我們需要解決什麼？
+## <a name="whats-the-issue"></a>有什麼問題？
 讓我們先看看 InternetTotalSales 量值的詳細資料，再新增詳細資料列運算式。
 
 1.  在 SSDT 中，按一下 [模型] 功能表 > [使用 Excel 分析] 以開啟 Excel 並建立空白的樞紐分析表。
   
-2.  在 [樞紐分析表欄位] 中，將 FactInternetSales 資料表中的 [InternetTotalSales] 量值新增至 [值]，將 DimDate 資料表中的 [CalendarYear] 新增至 [資料行]，以即將 [EnglishCountryRegionName] 新增至 [資料列]。 我們的樞紐分析表現在會依照區域和年度提供 InternetTotalSales 量值的彙總結果。 
+2.  在 [樞紐分析表欄位] 中，將 FactInternetSales 資料表中的 [InternetTotalSales] 量值新增至 [值]，將 DimDate 資料表中的 [CalendarYear] 新增至 [資料行]，以即將 [EnglishCountryRegionName] 新增至 [資料列]。 樞紐分析表現在會依照區域和年度提供 InternetTotalSales 量值的彙總結果。 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ ms.lasthandoff: 11/02/2017
 
 #### <a name="to-create-a-detail-rows-expression"></a>若要新增詳細資料列運算式 
   
-1. 在 SSDT 中，於 FactInternetSales 資料表的量值方格中，按一下 [InternetTotalSales] 量值。 
+1. 在 FactInternetSales 資料表的量值方格中，按一下 [InternetTotalSales] 量值。 
 
 2. 在 [屬性] > [詳細資料列運算式] 中，按一下編輯器按鈕以開啟 DAX 編輯器。
 
@@ -82,6 +80,6 @@ ms.lasthandoff: 11/02/2017
 
   
 ## <a name="see-also"></a>另請參閱  
-[SELECTCOLUMNS 函式 (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[SELECTCOLUMNS 函式 (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
 [補充課程 - 動態安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [補充課程 - 不完全階層](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

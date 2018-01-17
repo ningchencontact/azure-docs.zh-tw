@@ -1,6 +1,6 @@
 ---
 title: "使用 Aspera 將檔案上傳至 Azure 媒體服務帳戶 | Microsoft Docs"
-description: "本教學課程將引導您逐步進行以下步驟：使用 Azure 上的 Aspera Server On Demand 服務，將檔案上傳到與媒體服務帳戶相關聯的儲存體帳戶。"
+description: "本教學課程將引導您逐步進行以下步驟：使用 Azure 上的 **Aspera Server On Demand** 服務，將檔案上傳到與媒體服務帳戶相關聯的儲存體帳戶。"
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>使用 Azure 上的 Aspera Server On Demand 服務，將檔案上傳至媒體服務帳戶
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 您可以在[這裡](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest)找到一個範例，其顯示如何使用 Azure Functions 搭配 Aspera 與媒體服務。
 
 >[!NOTE]
->對於支援使用 Azure 媒體服務媒體處理器 (Mp) 來進行處理的檔案大小有所限制。 請參閱[此](media-services-quotas-and-limitations.md)主題，以取得有關檔案大小限制的詳細資料。
+>對於支援使用 Azure 媒體服務媒體處理器 (Mp) 來進行處理的檔案大小有所限制。 請參閱[這篇](media-services-quotas-and-limitations.md)文章，以取得有關檔案大小限制的詳細資料。
 >
 
 ## <a name="prerequisites"></a>必要條件 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 若要完成本教學課程，您需要：
 
 * Windows Live ID
-* [Azure 帳戶](https://azure.microsoft.com)。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
+* [Azure 帳戶](https://azure.microsoft.com)。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 * [Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>購買適用於 Azure 的 Aspera On Demand

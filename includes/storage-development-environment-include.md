@@ -2,15 +2,15 @@
 接下來，在 Visual Studio 中設定您的開發環境，以便您開始嘗試本指南中的程式碼範例。
 
 ### <a name="create-a-windows-console-application-project"></a>建立 Windows 主控台應用程式專案
-在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟示範如何在 Visual Studio 2017 中建立主控台應用程式，但步驟類似其他版本的 Visual Studio。
+在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟示範如何在 Visual Studio 2017 中建立主控台應用程式。 這些步驟類似其他 Visual Studio 版本中的步驟。
 
-1. 選取 [檔案] > [新增] > [專案]
-2. 選取 [安裝] > [範本] > [Visual C#] > [Windows 傳統桌面]
-3. 選取 **主控台應用程式 (.NET Framework)**
-4. 在 [名稱：] 欄位中輸入應用程式的名稱
-5. 選取 [確定]
+1. 選取 [檔案] > [新增] > [專案]。
+2. 選取 [已安裝] > [範本] > [Visual C#] > [Windows 傳統桌面]。
+3. 選取 **主控台應用程式 (.NET Framework)**。
+4. 在 [名稱] 欄位中，輸入應用程式的名稱。
+5. 選取 [確定] 。
 
-![Visual Studio 中的專案建立對話方塊](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Visual Studio 中新增專案對話方塊的螢幕擷取畫面](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 本教學課程中的所有程式碼範例均可新增至您主控台應用程式的 `Program.cs` 檔案中的 `Main()` 方法。
 
@@ -24,9 +24,9 @@
 
 您可以使用 NuGet 來取得這兩個封裝。 請遵循下列步驟：
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
-2. 在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝]  以安裝 Storage Client Library 與其相依項目。
-3. 在線上搜尋 "WindowsAzure.ConfigurationManager"，然後按一下 [安裝]  以安裝 Azure Configuration Manager。
+1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 套件]。
+2. 在線上搜尋 "WindowsAzure.Storage"，然後選取 [安裝] 以安裝 Storage Client Library 與其相依項目。
+3. 在線上搜尋 "WindowsAzure.ConfigurationManager"，然後選取 [安裝] 以安裝 Azure Configuration Manager。
 
 > [!NOTE]
 > Storage Client Library 封裝也包含在 [適用於 .NET 的 Azure SDK](https://azure.microsoft.com/downloads/)中。 不過，我們建議您也從 NuGet 安裝 Storage Client Library，以確保永遠有最新版的用戶端程式庫。
@@ -39,7 +39,7 @@
 有兩個環境選項可供您執行本指南中的範例︰
 
 * 您可以對雲端中的 Azure 儲存體帳戶執行您的程式碼。 
-* 您可以對 Azure 儲存體模擬器執行您的程式碼。 儲存體模擬器是模擬雲端中 Azure 儲存體帳戶的本機環境。 模擬器是一個免費選項，在開發您的應用程式時可用於測試和偵錯您的程式碼。 模擬器會使用已知的帳戶和金鑰。 如需詳細資訊，請參閱 [使用 Azure 儲存體模擬器進行開發和測試](../articles/storage/common/storage-use-emulator.md)
+* 您可以對 Azure 儲存體模擬器執行您的程式碼。 儲存體模擬器是模擬雲端中 Azure 儲存體帳戶的本機環境。 模擬器是一個免費選項，在開發您的應用程式時可用於測試和偵錯您的程式碼。 模擬器會使用已知的帳戶和金鑰。 如需詳細資訊，請參閱[使用 Azure 儲存體模擬器進行開發和測試](../articles/storage/common/storage-use-emulator.md)。
 
 如果您要選擇以雲端中的儲存體帳戶為目標，請從 Azure 入口網站複製您的儲存體帳戶的主要存取金鑰。 如需詳細資訊，請參閱 [檢視和複製儲存體存取金鑰](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
 
@@ -51,7 +51,7 @@
 ### <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來設定存取儲存服務時所需的端點與認證。 在組態檔中維護儲存體連接字串是最佳方式。 
 
-如需有關連接字串的詳細資訊，請參閱 [設定 Azure 儲存體的連接字串](../articles/storage/common/storage-configure-connection-string.md)。
+如需有關連接字串的詳細資訊，請參閱[設定 Azure 儲存體的連接字串](../articles/storage/common/storage-configure-connection-string.md)。
 
 > [!NOTE]
 > 儲存體帳戶金鑰很類似儲存體帳戶的根密碼。 請務必小心保護您的儲存體帳戶金鑰。 請避免轉發給其他使用者、進行硬式編碼，或將它儲存在其他人可以存取的純文字檔案。 如果您認為金鑰可能遭到破解，請使用 Azure 入口網站重新產生金鑰。

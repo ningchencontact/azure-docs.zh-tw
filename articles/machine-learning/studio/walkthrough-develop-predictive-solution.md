@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測分析解決方案
 
@@ -55,6 +55,6 @@ ms.lasthandoff: 10/11/2017
 6. [存取 Web 服務](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> 您可以在 [Cortana Intelligence 資源庫 (英文)](https://gallery.cortanaintelligence.com) 中，找到我們在這個逐步解說中所開發實驗的工作複本。 移至 **[逐步解說 - 信用風險預測 (英文)](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**，然後按一下 [Open in Studio] \(在 Studio 中開啟)，以將實驗的複本下載到您的 Machine Learning Studio 工作區。
+> 您可以在 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)中，找到我們在這個逐步解說中所開發實驗的工作複本。 移至 **[逐步解說 - 信用風險預測 (英文)](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**，然後按一下 [Open in Studio] \(在 Studio 中開啟)，以將實驗的複本下載到您的 Machine Learning Studio 工作區。
 > 
 > 此逐步解說是以簡化版的[二進位分類：信用風險預測 (英文)](http://go.microsoft.com/fwlink/?LinkID=525270) 範例實驗為基礎，[資源庫](http://gallery.cortanaintelligence.com/)中也有提供此實驗。

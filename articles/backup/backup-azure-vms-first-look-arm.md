@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>將 Azure 虛擬機器備份到復原服務保存庫
-> [!div class="op_single_selector"]
-> * [使用復原服務保存庫保護 VM](backup-azure-vms-first-look-arm.md)
-> * [使用備份保存庫保護 VM](backup-azure-vms-first-look.md)
->
->
 
 本教學課程會帶領您完成步驟以建立復原服務保存庫和備份 Azure 虛擬機器 (VM)。 復原服務保存庫可保護︰
 
@@ -48,13 +43,11 @@ ms.lasthandoff: 12/19/2017
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 根據您想要保護的虛擬機器數目，您可以從不同的起始點開始。 如果您想要以單一作業備份多個虛擬機器，請移至復原服務保存庫，然後[從保存庫儀表板起始備份工作](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault)。 如果您想要備份單一虛擬機器，您可以從 VM 管理刀鋒視窗上起始備份工作。
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>從 VM 管理刀鋒視窗設定備份工作
 
-使用下列步驟在 Azure 入口網站的虛擬機器管理刀鋒視窗中，設定備份作業。 這些步驟不適用於傳統入口網站中的虛擬機器。
+使用下列步驟在 Azure 入口網站的虛擬機器管理刀鋒視窗中，設定備份作業。 下列步驟僅適用於 Azure 入口網站中的虛擬機器。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 [中樞] 功能表上按一下 [更多服務]，然後在 [篩選] 對話方塊中輸入**虛擬機器**。 當您輸入時，會一邊篩選資源清單。 當您看到虛擬機器時，請選取它。

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ccc9694f74b655d5b9497378632f05defdbcbf0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 663a850cf46bf002808b9f791d9e8daefb6cc308
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 入口網站建立 Windows 虛擬機器
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/09/2017
 
 2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
 
-3. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼用於登入虛擬機器。 完成時，按一下 [確定]。
+3. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼用於登入虛擬機器。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。 完成時，按一下 [確定]。
 
     ![在入口網站刀鋒視窗中輸入 VM 的基本資訊](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
@@ -87,7 +87,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 3. 在左側功能表的 [設定] 之下，按一下 [輸入安全性規則]。
 4. 按一下 [新增]。
 5. 在 [名稱] 中輸入 **http**。 確定 [連接埠範圍] 已設為 80 且 [動作] 已設為 [允許]。 
-6. 按一下 [確定] 。
+6. 按一下 [SERVICEPRINCIPAL] 。
 
 
 ## <a name="view-the-iis-welcome-page"></a>檢視 IIS 歡迎使用頁面

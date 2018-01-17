@@ -11,28 +11,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 88ae5dfbf6246ecf92d6528ad3d9a8e5fb57e4b0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序 
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式運作](v1/data-factory-scheduling-and-execution.md)
 > * [第 2 版 - 預覽](concepts-pipeline-execution-triggers.md)
 
-**管道執行**是 Azure Data Factory 第 2 版中的詞彙，定義管道執行的執行個體。 例如，假設您的管道會在上午 8 點、9 點和 10 點執行。 在此情況下，管道會有三個個別的執行 (管道執行)。 每個管道執行都有唯一的管道執行識別碼，這是唯一定義該特定管道執行的 GUID。 通常是將引數傳遞給管道中定義的參數，以具現化管道執行。 有兩種方式可執行管道：**手動**或透過**觸發程序**。 本文提供兩種管道執行方式的詳細資料。 
+**管道執行**是 Azure Data Factory 第 2 版中的詞彙，定義管道執行的執行個體。 例如，假設您的管道會在上午 8 點、9 點和 10 點執行。 在此情況下，管道會有三個個別的執行 (管道執行)。 每個管道執行都有唯一的管道執行識別碼，這是唯一定義該特定管道執行的 GUID。 通常是將引數傳遞給管道中定義的參數，以具現化管道執行。 有兩種方式可執行管道：**手動**或透過**觸發程序**。 本文提供兩種管道執行方式的詳細資料。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式運作版本 (GA))，請參閱 [Data Factory V1 中的排程和執行](v1/data-factory-scheduling-and-execution.md)。
 
 ## <a name="run-pipeline-on-demand"></a>依需求執行管道
-在此方法中，您會手動執行管道。 這也視為管道的隨選執行。 
+在此方法中，您會手動執行管道。 這也視為管道的隨選執行。
 
-例如，假設您想要執行名為 **copyPipeline** 的管道。 此管道很簡單，只有一個活動會從 Azure Blob 儲存體中的來源資料夾，複製到相同儲存體中的目的資料夾。 以下是範例管道定義： 
+例如，假設您想要執行名為 **copyPipeline** 的管道。 此管道很簡單，只有一個活動會從 Azure Blob 儲存體中的來源資料夾，複製到相同儲存體中的目的資料夾。 以下是範例管道定義：
 
 ```json
 {
@@ -76,9 +76,9 @@ ms.lasthandoff: 12/07/2017
 }
 
 ```
-此管道接受兩個參數：sourceBlobContainer 和 sinkBlobContainer，如 JSON 定義中所示。 您可以在執行階段將值傳遞給這些參數。 
+此管道接受兩個參數：sourceBlobContainer 和 sinkBlobContainer，如 JSON 定義中所示。 您可以在執行階段將值傳遞給這些參數。
 
-若要手動執行管道，您可以使用下列方法之一：.NET、PowerShell、REST 和 Python。 
+若要手動執行管道，您可以使用下列方法之一：.NET、PowerShell、REST 和 Python。
 
 ### <a name="rest-api"></a>REST API
 以下是範例 REST 命令：  
@@ -90,7 +90,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 如需完整範例，請參閱[快速入門：使用 REST API 來建立資料處理站](quickstart-create-data-factory-rest-api.md)。
 
 ### <a name="powershell"></a>PowerShell
-以下是範例 PowerShell 命令： 
+以下是範例 PowerShell 命令：
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
@@ -116,8 +116,8 @@ Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickSt
 
 如需完整範例，請參閱[快速入門：使用 PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)。
 
-### <a name="net"></a>.NET 
-以下是範例 .NET 呼叫： 
+### <a name="net"></a>.NET
+以下是範例 .NET 呼叫：
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -129,11 +129,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 > .NET API 可讓您從 Azure Functions、您自己的 Web 服務等，叫用 Data Factory 管道。
 
 ## <a name="triggers"></a>觸發程序
-觸發程序提供第二種執行管道的方式。 觸發程序代表一個處理單位，用來決定何時需要啟動管道執行。 目前，Data Factory 支援一個可依時鐘排程來叫用管道的觸發程序。 稱為**排程器觸發程序**。 目前，Data Factory 不支援以事件為基礎的觸發程序，例如在檔案到達時所執行之管道的觸發程序。
+觸發程序提供第二種執行管道的方式。 觸發程序代表一個處理單位，用來決定何時需要啟動管道執行。 Data Factory 目前支援兩種類型的觸發程序：1) **排程器觸發程序**，這是可依照時鐘排程叫用管線的觸發程序 2) **輪轉視窗觸發程序**：這是定期運作，同時還能保留狀態的觸發程序。 目前，Data Factory 不支援以事件為基礎的觸發程序，例如在檔案到達時所執行之管道的觸發程序。
 
 管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管道，或單一觸發程序可以啟動多個管道。 在下列觸發程序 JSON 定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管道清單，以及管道參數的值。
 
-### <a name="basic-trigger-definition"></a>基本的觸發程序定義： 
+### <a name="basic-trigger-definition"></a>基本的觸發程序定義：
 ```json
     "properties": {
         "name": "MyTrigger",
@@ -159,8 +159,14 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
     }
 ```
 
-## <a name="scheduler-trigger"></a>排程器觸發程序
-排程器觸發程序會依時鐘排程來執行管道。 這個觸發程序支援定期和進階行事曆選項 (每週、星期一下午 5 點和星期四下午 9 點)。 很有彈性，不但與資料集模式無關，也不區別時間序列和非時間序列的資料。
+## <a name="schedule-trigger"></a>排程觸發程序
+排程觸發程序會依時鐘排程來執行管道。 這個觸發程序支援定期和進階行事曆選項 (每週、星期一下午 5 點和星期四下午 9 點)。 很有彈性，不但與資料集模式無關，也不區別時間序列和非時間序列的資料。
+
+如需有關排程觸發程序和範例的更具體資訊，請參閱[如何：建立排程觸發程序](how-to-create-schedule-trigger.md)
+
+## <a name="tumbling-window-trigger"></a>輪轉視窗觸發程序
+輪轉視窗觸發程序是可從指定的開始時間定期引發，同時還能保留狀態的一種觸發程序。 輪轉視窗是一系列大小固定、非重疊的連續時間間隔。
+如需有關輪轉視窗觸發程序和範例的更具體資訊，請參閱[如何：建立輪轉視窗觸發程序](how-to-create-tumbling-window-trigger.md)
 
 ### <a name="scheduler-trigger-json-definition"></a>排程器觸發程序 JSON 定義
 當您建立的排程器觸發程序時，您可以使用 JSON 來指定排程與週期，如本節中的範例所示。 
@@ -174,7 +180,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -218,7 +224,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ### <a name="overview-scheduler-trigger-schema"></a>概觀：排程器觸發程序結構描述
 下表提供與觸發程序中的週期和排程相關之主要元素的高階概觀：
 
-JSON 屬性 |     說明
+JSON 屬性 |     描述
 ------------- | -------------
 startTime | startTime 是日期時間。 在簡單的排程中，startTime 是第一次執行。 在複雜的排程中，觸發程序一到 startTime 就會啟動。
 EndTime | 指定觸發程序的結束日期時間。 觸發程序在此時間之後不會執行。 已過去的 endTime 無效。
@@ -228,6 +234,16 @@ frequency | 代表觸發程序一再執行的頻率單位。 支援的值為：`
 interval | interval 是正整數。 代表用來決定觸發程序執行頻率的頻率間隔。 比方說，如果 interval 為 3，而 frequency 為 "week"，則觸發程序每隔 3 週重複執行一次。
 schedule | 具有指定頻率的觸發程序會根據週期排程來改變其週期。 schedule 包含根據分鐘數、小時數、星期幾數、月日數和週數的修改。
 
+
+## <a name="tumbling-window-trigger-vs-schedule-trigger"></a>輪轉視窗觸發程序與排程觸發程序
+假設輪轉視窗觸發程序和排程觸發程序兩者皆依時間活動訊號運作，則兩者有何不同之處？
+若為輪轉視窗觸發程序：
+* **回填案例**：輪轉視窗觸發程序支援回填案例，能夠針對過去的視窗排程執行。 排程觸發程序只能對今後的時間週期執行。
+* **可靠性：**輪轉視窗觸發程序會從某個日期開始為所有視窗排程管線執行，並且達到 100% 的可靠性。
+* **重試**：輪轉視窗觸發程序具有重試功能。 失敗管線執行的預設重試原則為 0 或 1，而使用者會將此預設值指定為觸發程序定義的一部分。 當執行因為並行/伺服器/節流限制而失敗 (也就是包含狀態碼 400 (使用者錯誤)、429 (太多要求)、500 (內部伺服器錯誤)) 時，也會在執行個體上自動重試。
+* **並行**：輪轉視窗觸發程序允許使用者明確地設定觸發程序的並行限制 (1-50 個最大並行觸發的管線執行)
+* **視窗開始與視窗結束變數**：對於輪轉視窗觸發程序，使用者可以存取 triggerOutputs().windowStartTime 和 triggerOutputs().windowEndTime 作為觸發程序定義中的觸發程序系統變數 (分別是視窗開始和視窗結束時間)。 例如，如果您的輪轉視窗觸發程序每小時執行一次，則在上午 1-2 點的時段中，triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z 且 triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z。
+* **管線與觸發程序的關聯性**：排程觸發程序與管線的關聯性為 n:m。 一個排程觸發程序可以觸發多個管線。 輪轉視窗觸發程序與管線的關聯性為 1:1。 一個輪轉視窗觸發程序只可以觸發一個管線。
 
 ### <a name="schedule-trigger-example"></a>排程觸發程序範例
 
@@ -267,10 +283,10 @@ schedule | 具有指定頻率的觸發程序會根據週期排程來改變其週
 
 JSON 名稱 | 值類型 | 必要？ | 預設值 | 有效值 | 範例
 --------- | ---------- | --------- | ------------- | ------------ | -------
-startTime | String | 是 | None | ISO 8601 日期時間 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
+startTime | 字串 | 是 | None | ISO 8601 日期時間 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
 週期 | Object | 是 | None | Recurrence 物件 | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-interval | 數字 | 否 | 1 | 1 到 1000。 | ```"interval":10```
-EndTime | String | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"`
+interval | 數字 | 是 | None | 1 到 1000。 | ```"interval":10```
+EndTime | 字串 | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"`
 schedule | Object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
 ### <a name="deep-dive-starttime"></a>深入探討：startTime
@@ -299,13 +315,13 @@ startTime 值 | 週期性無排程 | 週期性有排程
 下表詳細說明 schedule 元素：
 
 
-JSON 名稱 | 說明 | 有效值
+JSON 名稱 | 描述 | 有效值
 --------- | ----------- | ------------
-minutes | 一小時內觸發程序執行的分鐘數。 | <ul><li>Integer</li><li>一連串整數</li></ul>
-hours | 一天內觸發程序執行的小時數。 | <ul><li>Integer</li><li>一連串整數</li></ul>
-weekDays | 觸發程序執行的星期幾。 只能搭配 weekly 頻率指定。 | <ul><li>Monday、Tuesday、Wednesday、Thursday、Friday、Saturday 或 Sunday</li><li>任何值的陣列 (最大陣列大小為 7)</li></p>不區分大小寫</p>
+minutes | 一小時內觸發程序執行的分鐘數。 | <ul><li>一連串整數</li></ul>
+hours | 一天內觸發程序執行的小時數。 | <ul><li>一連串整數</li></ul>
+weekDays | 觸發程序執行的星期幾。 只能搭配 weekly 頻率指定。 | <ul><li>以下任何值的陣列 (最大陣列大小為 7)<ul><li>星期一</li><li>星期二</li><li>星期三</li><li>星期四</li><li>星期五</li><li>星期六</li><li>星期日</li></ul></li></p>不區分大小寫</p>
 monthlyOccurrences | 決定在當月哪幾天執行觸發程序。 只能搭配 monthly 頻率指定。 | monthlyOccurence 物件的陣列︰`{ "day": day,  "occurrence": occurence }`。 <p> day 是觸發程序執行的星期幾，例如，`{Sunday}` 是當月的每個星期日。 必要。<p>Occurrence 是當月第幾個星期幾，例如 `{Sunday, -1}` 是當月的最後一個星期日。 選用。
-monthDays | 觸發程序執行的月日。 只能搭配 monthly 頻率指定。 | <ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li><li>值的陣列</li>
+monthDays | 觸發程序執行的月日。 只能搭配 monthly 頻率指定。 | <ul><li>下列值的陣列</li><ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li></ul></ul> |
 
 
 ## <a name="examples-recurrence-schedules"></a>範例：週期排程
@@ -313,7 +329,7 @@ monthDays | 觸發程序執行的月日。 只能搭配 monthly 頻率指定。 
 
 範例排程假設 interval 設為 1。 另外也根據排程中的設定來假設正確頻率 – 例如，您在排程中不能使用頻率 "day"，也不能有 "monthDays" 修改。 上一節的表格已提及這些限制。 
 
-範例 | 說明
+範例 | 描述
 ------- | -----------
 `{"hours":[5]}` | 在每天上午 5 點執行
 `{"minutes":[15], "hours":[5]}` | 在每天上午 5:15 執行
@@ -346,6 +362,8 @@ monthDays | 觸發程序執行的月日。 只能搭配 monthly 頻率指定。 
 
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列教學課程： 
+請參閱下列教學課程：
 
 - [快速入門：使用 .NET 來建立資料處理站](quickstart-create-data-factory-dot-net.md)
+- [如何：建立排程觸發程序](how-to-create-schedule-trigger.md)
+- [如何：建立輪轉視窗觸發程序](how-to-create-tumbling-window-trigger.md)

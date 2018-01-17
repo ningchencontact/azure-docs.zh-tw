@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Azure 雲端的機器學習服務簡介
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>什麼是 Microsoft Azure 雲端中的 Machine Learning？
 Azure Machine Learning 是雲端預測性分析服務，可讓您快速地建立預測模型，並將其部署為分析解決方案。
 
-您可以操作現成的演算法程式庫、使用它們在連接網際網路的電腦上建立模型，以及快速部署預測解決方案。 從 [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) 中的現成範例和解決方案開始。
+您可以操作現成的演算法程式庫、使用它們在連接網際網路的電腦上建立模型，以及快速部署預測解決方案。 從 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/)中的現成範例和解決方案開始。
 
 ![什麼是機器學習？ Azure Machine Learning 上操作性預測性分析的基本工作流程。](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
-Azure Machine Learning 不僅提供可建立預測性分析模型的工具，也提供完全受管理的服務，您可以透過這項服務將預測模型部署為可供取用的 Web 服務。
+Azure Machine Learning 不僅提供可建立預測性分析模型的工具，也提供完全受控的服務，您可以透過這項服務將預測模型部署為可供取用的 Web 服務。
 
 ## <a name="what-is-predictive-analytics"></a>什麼是預測性分析？
 預測性分析使用稱為演算法的數學公式，可分析過往或目前的資料以找出模式或趨勢，以便預測未來的事件。
@@ -48,9 +48,9 @@ Azure Machine Learning 具備在雲端上建立完整預測性分析解決方案
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio：建立預測模型
 在 [Machine Learning Studio](what-is-ml-studio.md)中，您可以透過拖放和連接模組快速建立預測模型。 您可以試驗不同的組合及[免費試用](https://studio.azureml.net/?selectAccess=true&o=2)。
 
-* 在 [Cortana 智慧資源庫](gallery-how-to-use-contribute-publish.md)中，您可以嘗試其他人所撰寫的分析解決方案，或提供您自己的方案。 在社群張貼關於實驗的問題或意見，或透過 LinkedIn 和 Twitter 等社交網路分享實驗的連結。
+* 在 [Azure AI 資源庫](gallery-how-to-use-contribute-publish.md)中，您可以嘗試其他人所撰寫的分析解決方案，或提供您自己的方案。 在社群張貼關於實驗的問題或意見，或透過 LinkedIn 和 Twitter 等社交網路分享實驗的連結。
 
-  ![在 Azure Cortana Intelligence Gallery 資源庫中試做預測實驗或提供您自己的實驗](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![在 Azure AI 資源庫中試做預測實驗或提供您自己的實驗](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * 使用 Machine Learning Studio 中之 [機器學習服務演算法和模組](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) 的大型程式庫，開始建立您的預測模型。 從範例實驗、R 和 Python 套件，以及 Xbox 和 Bing 等 Microsoft 公司的一流演算法中選擇。 使用您自訂的 [R](extend-your-experiment-with-r.md) 和 [Python](execute-python-scripts.md) 指令碼來擴充 Studio 模組。
 
   ![什麼是預測性分析：Azure Machine Learning Studio 中的預測性分析實驗範例](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

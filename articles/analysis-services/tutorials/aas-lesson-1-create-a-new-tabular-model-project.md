@@ -13,19 +13,17 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>第 1 課：建立表格式模型專案
+# <a name="create-a-tabular-model-project"></a>建立表格式模型專案
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-在這堂課中，您會使用 SQL Server Data Tool (SSDT) 建立 1400 相容性等級的新表格式模型專案。 建立新的專案之後，您就可以開始新增資料和製作模型。 本課程也簡介 SSDT 中的表格式模型製作環境。  
+在這堂課中，您會使用 Visual Studio 搭配 SQL Server Data Tools (SSDT) 來建立 1400 相容性等級的新表格式模型專案。 建立新的專案之後，您就可以開始新增資料和製作模型。 本課程也簡介 Visual Studio 中的表格式模型製作環境。  
   
 這堂課的預估完成時間：**10 分鐘**  
   
@@ -36,7 +34,7 @@ ms.lasthandoff: 11/02/2017
   
 #### <a name="to-create-a-new-tabular-model-project"></a>建立新的表格式模型專案  
   
-1.  在 SSDT 中，在 [檔案] 功能表上按一下 [新增] > [專案]。  
+1.  在 Visual Studio 中，於 [檔案] 功能表上按一下 [新增] > [專案]。  
   
 2.  在 [新增專案] 對話方塊中，展開 [已安裝] > [商業智慧] > [Analysis Services]，然後按一下 [Analysis Services 表格式專案]。  
   
@@ -44,11 +42,11 @@ ms.lasthandoff: 11/02/2017
   
     根據預設，[解決方案名稱] 會與專案名稱相同。不過，您可以輸入不同的解決方案名稱。  
   
-4.  按一下 [確定] 。  
+4.  按一下 [SERVICEPRINCIPAL] 。  
   
 5.  在 [表格式模型設計師] 對話方塊中，選取 [整合式工作區]。  
   
-    在製作模型期間，工作區會裝載與專案同名的表格式模型資料庫。 整合式工作區意味著 SSDT 會使用內建的執行個體，不必只為了撰寫模型而安裝個別的 Analysis Services 伺服器執行個體。
+    在製作模型期間，工作區會裝載與專案同名的表格式模型資料庫。 整合式工作區意味著 Visual Studio 會使用內建的執行個體，不必只為了撰寫模型而安裝個別的 Analysis Services 伺服器執行個體。
       
 6.  在 [相容性等級] 中，選取 [SQL Server 2017 / Azure Analysis Services (1400)]。   
  
@@ -58,9 +56,9 @@ ms.lasthandoff: 11/02/2017
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>了解 SSDT 表格式模型撰寫環境  
-現在，您已建立新的表格式模型專案，讓我們花一點時間瀏覽 SSDT 中的表格式模型製作環境。  
+現在，您已建立新的表格式模型專案，讓我們花一點時間瀏覽 Visual Studio 中的表格式模型製作環境。  
   
-專案建立之後會在 SSDT 中開啟。 在右側的 [表格式模型總管] 中，您會看到樹狀檢視呈現模型中的物件。 您還沒有匯入資料，所以資料夾是空的。 您可以在物件資料夾上按一下滑鼠右鍵來執行動作，類似於功能表列。 當您逐步執行本教學課程時，您會使用 [表格式模型總管] 來瀏覽模型專案中的不同物件。
+專案建立之後，會在 Visual Studio 中開啟。 在右側的 [表格式模型總管] 中，您會看到樹狀檢視呈現模型中的物件。 您還沒有匯入資料，所以資料夾是空的。 您可以在物件資料夾上按一下滑鼠右鍵來執行動作，類似於功能表列。 當您逐步執行本教學課程時，您會使用 [表格式模型總管] 來瀏覽模型專案中的不同物件。
 
 ![aas 第 1 課 tme](../tutorials/media/aas-lesson1-tme.png)
 

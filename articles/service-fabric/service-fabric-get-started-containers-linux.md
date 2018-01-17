@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3649cc2800e774f8dca1b88a1704744b4663a68d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -202,6 +202,30 @@ docker push myregistry.azurecr.io/samples/helloworldapp
     </Policies>
    </ServiceManifestImport>
 ``` 
+## <a name="configure-docker-healthcheck"></a>設定 Docker HEALTHCHECK 
+從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status 為「狀況良好」，則 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中的健康情況報告會顯示 **OK (正常)**，如果 health_status 為「狀況不良」，則顯示 **WARNING (警告)**。 **HEALTHCHECK** 指令會指向針對監視容器健康情況而執行的實際檢查，該指令必須存在產生容器映像時使用的 **dockerfile** 中。 
+
+![HealthCheckHealthy][1]
+
+![HealthCheckUnealthyApp][2]
+
+![HealthCheckUnhealthyDsp][3]
+
+您可以將 **HealthConfig** 選項指定為 ApplicationManifest 中 **ContainerHostPolicies** 的一部份，為每個容器設定 **HEALTHCHECK** 行為。
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+根據預設，*IncludeDockerHealthStatusInSystemHealthReport* 會設為 **true**，而 *RestartContainerOnUnhealthyDockerHealthStatus* 會設為 **false**。 如果 *RestartContainerOnUnhealthyDockerHealthStatus* 設為 **true**，則報告中重複出現狀況不良的容器就會重新啟動 (可能在其他節點上重新啟動)。
+
+如果您需要停用整個 Service Fabric 叢集的 **HEALTHCHECK** 整合，就必須將 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 設為 **false**。
 
 ## <a name="build-and-package-the-service-fabric-application"></a>建置及封裝 Service Fabric 應用程式
 Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令碼，可用來從終端機建置應用程式。 若要建置和封裝應用程式，請執行下列指令碼：
@@ -231,6 +255,7 @@ sfctl cluster select --endpoint http://localhost:19080
 連線到執行中的容器。  開啟 Web 瀏覽器並指向連接埠 4000 上傳回的 IP 位址，例如 http://localhost:4000 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ![Hello World!][hello-world]
+
 
 ## <a name="clean-up"></a>清除
 使用範本中提供的解除安裝指令碼，刪除本機開發叢集中的應用程式執行個體並取消註冊應用程式類型。
@@ -359,7 +384,6 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 預設時間間隔會設定為 10 秒。 因為此組態是動態的，所以叢集的僅限組態升級會更新逾時。 
 
-
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>將執行階段設定為移除未使用的容器映像
 
 您可以將 Service Fabric 叢集設定為從節點移除未使用的容器映像。 如果節點上存在太多容器映像，此組態允許重新擷取磁碟空間。  若要啟用此功能，請更新叢集資訊清單中的 `Hosting` 區段，如下列程式碼片段所示： 
@@ -380,6 +404,33 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 對於不應刪除的映像，您可以在 `ContainerImagesToSkip` 參數之下加以指定。 
 
+## <a name="configure-container-image-download-time"></a>設定容器映像下載時間
+
+根據預設，Service Fabric 執行階段會配置 20 分鐘的時間來下載及擷取容器映像，這適用於大部分的容器映像。 針對大型映像或緩慢的網路連線速度，您可能需要延長中止下載及擷取映像之前的等待時間。 您可以在叢集資訊清單的 **Hosting** 區段中使用 **ContainerImageDownloadTimeout** 屬性來設定此項目，如下列程式碼片段所示：
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>設定容器保留原則
+
+為了協助診斷容器啟動的失敗情形，Service Fabric (6.1 版或更新版本) 可保留啟動終止或是無法啟動的容器。 此原則可以在 **ApplicationManifest.xml** 檔案中設定，如下列程式碼片段所示：
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+**ContainersRetentionCount** 設定會指定容器失敗時要保留的容器數目。 如果指定負數值，就會保留所有失敗的容器。 如果未指定 **ContainersRetentionCount** 屬性，就不會保留任何容器。 **ContainersRetentionCount** 屬性也支援應用程式參數，因此使用者可以為測試和生產叢集指定不同的值。 使用此功能時，建議您使用位置限制將容器服務鎖定在特定節點上，以避免容器服務移到其他節點上。 使用此功能的所有容器皆需要手動移除。
+
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解如何[在 Service Fabric 上執行容器](service-fabric-containers-overview.md)。
@@ -389,3 +440,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
+
+[1]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

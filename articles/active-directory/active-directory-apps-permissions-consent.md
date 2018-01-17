@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory 中的應用程式、權限及同意
-在 Azure Active Directory 內，您可以在目錄中新增應用程式。  應用程式可能會根據應用程式類型而有所不同。  若要在傳統入口網站中檢視應用程式，請選取目錄並選擇應用程式。
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+在 Azure Active Directory 內，您可以在目錄中新增應用程式。  應用程式可能會根據應用程式類型而有所不同。  若要在入口網站中檢視應用程式，請選取目錄並選擇應用程式。
 
 > [!IMPORTANT]
-> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 傳統入口網站。
+> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 入口網站。
 
 ## <a name="types-of-apps"></a>應用程式類型
 
@@ -73,9 +71,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="controls"></a>控制
 
-以下是所有這種行為可用之不同系統管理員控制的清單。 在傳統入口網站中，可以透過在目錄下進行設定，來存取系統管理員控制。
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+以下是所有這種行為可用之不同系統管理員控制的清單。
 
 在 Azure 入口網站中，於 [管理]、[使用者設定] 下。
 
@@ -85,18 +81,14 @@ ms.lasthandoff: 12/11/2017
 
 - 您可以控制使用者是否可以同意應用程式︰
 
-在傳統入口網站中，選取 [使用者可以賦予應用程式存取其資料的權限]。
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 在 Azure 入口網站中，選取 [使用者可以允許應用程式存取其資料]。
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- 您可以控制使用者是否可以註冊自己的單一租用戶 LOB 應用程式︰在傳統入口網站中，選取 [使用者可以新增整合的應用程式]。
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- 您可以控制使用者是否可以註冊自己的單一租用戶 LOB 應用程式︰
 
-在 Azure 入口網站中，選取 [使用者可以允許應用程式存取其資料]。
+在 Azure 入口網站中，選取 [使用者可以註冊應用程式]。
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ ms.lasthandoff: 12/11/2017
 >- 在註冊單一租用戶 LOB 應用程式時，如果其他應用程式的委派權限需要系統管理員同意，使用者就無法要求這些權限。
 >- 使用者無法變更他們未擁有的應用程式。
 
-
-
-- 您可以控制使用者是否可以自行新增使用密碼 SSO 的預先整合應用程式 (也稱為「密碼儲存庫存」) ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- 您可以控制在哪些情況下可以存取應用程式 (也就是條件式存取)。 請注意，這一點同時適用於用戶端應用程式和資源應用程式。 因此，假設您設定了條件式存取原則，其指出「Office 365 Exchange Online」應用程式只能從相容的機器存取。  當使用者嘗試使用會要求 Exchange Online 權限的用戶端應用程式時，此原則也會適用。
-
-
-
-- 您可以看到已同意的應用程式以及正在使用的應用程式。
-
-1.  當使用者同意應用程式時，租用戶中會建立 ServicePrincipal 物件。 稽核報告中包含 ServicePrincipal 建立。
-2.  使用者登入活動報告會告訴您使用者所登入的應用程式。 
 
 ## <a name="example"></a>範例
 

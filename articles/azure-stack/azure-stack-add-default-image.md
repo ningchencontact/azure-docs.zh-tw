@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>將 Windows Server 2016 VM 映像新增到 Azure Stack Marketplace
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 12/11/2017
 
 2. 按一下 [更多服務] > [Marketplace 管理] > [從 Azure 新增]。 
 
-3. 尋找或搜尋 [Windows Server 2016 Datacenter – 評估版] 映像，然後選取 [下載]。
+3. 尋找或搜尋 [Windows Server 2016 Datacenter] 映像，然後選取 [下載]。
 
    ![從 Azure 下載映像](media/azure-stack-add-default-image/download-image.png)
 
-下載完成時，即可在 [Marketplace 管理] 之下使用映像。 此映像也可以在 [虛擬機器] 之下使用。
+下載完成時，即可在 [Marketplace 管理] 之下使用映像。 映像也可在 [計算] 下取得，並可用於建立新的虛擬機器。
 
 ## <a name="add-the-image-by-using-powershell"></a>使用 PowerShell 來新增映像
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/11/2017
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="parameters"></a>參數
 
-|New-AzsServer2016VMImage 參數|必要？|說明|
+|New-AzsServer2016VMImage 參數|必要|描述|
 |-----|-----|------|
 |ISOPath|是|所下載 Windows Server 2016 ISO 的完整路徑。|
 |Net35|否|在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 **true**。|
@@ -145,7 +145,7 @@ ms.lasthandoff: 12/11/2017
 |VHDSizeInMB|否|設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40,960 MB。|
 |CreateGalleryItem|否|指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 **true**。|
 |location |否 |指定應作為 Windows Server 2016 映像發行目的地的位置。|
-|IncludeLatestCU|否|將最新的 Windows Server 2016 累積更新套用到新的 VHD。|
+|IncludeLatestCU|否|將最新的 Windows Server 2016 累積更新套用至新的 VHD (請檢查指令碼，以確保它是指向最新的更新，或使用下面兩個選項其中之一)。 |
 |CUUri |否 |設定從特定的 URI 執行 Windows Server 2016 累積更新。 |
 |CUPath |否 |設定從本機路徑執行 Windows Server 2016 累積更新。 如果您是在已中斷連線的環境中部署 Azure Stack 執行個體，此選項會相當有用。|
 

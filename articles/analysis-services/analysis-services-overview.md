@@ -1,5 +1,5 @@
 ---
-title: "什麼是 Azure Analysis Services | Microsoft Docs"
+title: "Azure Analysis Services 概觀 | Microsoft Docs"
 description: "了解 Azure 中的 Analysis Services 全貌。"
 services: analysis-services
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
+# <a name="azure-analysis-services-overview"></a>Azure Analysis Services 概觀
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services 在雲端提供企業級資料模型化。 這是完全受管理的平台即服務 (PaaS)，與 Azure 資料平台服務整合。 
+Azure Analysis Services 在雲端提供企業級資料模型化。 這是完全受控的平台即服務 (PaaS)，與 Azure 資料平台服務整合。 
 
 使用 Analysis Services，您可以混搭和結合來自多個來源的資料、定義計量，以及在單一受信任的語意資料模型中保護您的資料。 資料模型提供更方便、更快速的方式，以供使用者透過用戶端應用程式 (例如 Power BI、Excel、Reporting Services、第三方和自訂應用程式) 瀏覽大量資料。
 

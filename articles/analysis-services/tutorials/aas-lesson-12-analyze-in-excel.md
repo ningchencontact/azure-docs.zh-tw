@@ -13,21 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>第 12 課：在 Excel 中進行分析
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>使用 Excel 分析
 
 在這堂課中，您會使用「在 Excel 中進行分析」功能來開啟 Microsoft Excel、自動建立模型工作區的連線，以及自動將樞紐分析表新增至工作表。 「在 Excel 中進行分析」功能是為了在部署模型之前，以快速又輕鬆的方式來測試模型設計的功效。 在這堂課中，您不會執行任何資料分析。 這堂課的目的是讓您 (模型作者) 熟悉可用來測試模型設計的工具。   
   
-若要完成本這堂課，Excel 必須安裝在 SSDT 所在的同一台電腦。
+若要完成本這堂課，就必須將 Excel 安裝在 Visual Studio 所在的同一台電腦。
   
 這堂課的預估完成時間：**5 分鐘**  
   

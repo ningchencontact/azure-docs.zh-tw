@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT 中樞的裝置管理概觀
 ## <a name="introduction"></a>簡介
@@ -57,7 +57,7 @@ IoT 本身伴隨著一組獨特的管理挑戰，因此每個企業級解決方�
     *進階閱讀*：[開始使用裝置對應項][lnk-twins-getstarted]、[了解裝置對應項][lnk-twins-devguide]、[如何使用裝置對應項屬性][lnk-twin-properties]。
 * **佈建**︰安全地向 IoT 中樞佈建新裝置，並且讓操作員能夠立即探索裝置功能。  使用 IoT 中樞身分識別登錄來建立富有彈性的裝置身分識別與認證，並利用作業 (Job) 大量執行此作業 (Operation)。 建置一些裝置，經由裝置對應項中的裝置屬性來報告其功能和狀況。
   
-    *進階閱讀*：[管理裝置身分識別][lnk-identity-registry]、[大量管理裝置身分識別][lnk-bulk-identity]、[如何使用裝置對應項屬性][lnk-twin-properties]。
+    進階閱讀：[管理裝置身分識別][lnk-identity-registry]、[大量管理裝置身分識別][lnk-bulk-identity]、[如何使用裝置對應項屬性][lnk-twin-properties]、[Azure IoT 中樞裝置佈建服務][lnk-dps]。
 * **設定**︰協助裝置進行大量組態變更和韌體更新，同時維持健康狀態與安全性。 使用所需的屬性或透過直接方法和廣播作業，大量執行這些裝置管理作業。
   
     *進階閱讀*：[使用直接方法][lnk-c2d-methods]、[在裝置上叫用直接方法][lnk-methods-devguide]、[如何使用裝置對應項屬性][lnk-twin-properties]、[排程及廣播工作][lnk-jobs]、[在多個裝置上排程工作][lnk-jobs-devguide]。
@@ -113,3 +113,4 @@ IoT 中樞針對裝置管理所提供的功能、模式和程式碼程式庫，�
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
