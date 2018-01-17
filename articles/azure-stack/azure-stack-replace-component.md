@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>取代 Azure Stack 縮放單位節點上的硬體元件
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
-本文說明更換非熱插拔硬體元件的一般程序。 實際更換步驟會因原始設備製造商 (OEM) 硬體廠商而異。 如需您 Azure Stack 整合式系統專屬的詳細步驟，請參閱廠商的現場可更換單元 (FRU) 文件。
+本文說明更換非熱插拔硬體元件的一般程序。 實際取代步驟會因原始設備製造商 (OEM) 硬體廠商而異。 如需您 Azure Stack 整合式系統專屬的詳細步驟，請參閱廠商的現場可更換單元 (FRU) 文件。
 
 非熱插拔元件包含下列各項：
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 
 下列流程圖顯示更換非熱插拔硬體元件的一般 FRU 程序。
 
-![顯示元件更換流程的流程圖](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![顯示元件更換流程的流程圖](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 *根據硬體的實體條件，可能不需要此動作。
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="review-alert-information"></a>檢閱警示資訊
 
-Azure Stack 健康狀態和監視系統會監視儲存空間直接存取所控制之網路介面卡和資料磁碟機的健康狀態。 它不會監視其他硬體元件。 針對所有其他硬體元件，在硬體生命週期主機上執行之廠商特定硬體監視解決方案中引發警示。
+Azure Stack 健康狀態和監視系統會追蹤儲存空間直接存取所控制之網路介面卡和資料磁碟機的健康情況。 它不會追蹤其他硬體元件。 針對所有其他硬體元件，在硬體生命週期主機上執行之廠商特定硬體監視解決方案中引發警示。
 
 ## <a name="component-replacement-process"></a>元件更換程序
 
-下列步驟提供元件更換程序的高階概觀。 請勿在未參考您 OEM 提供之 FRU 文件的情況下遵循這些步驟執行。
+下列步驟提供元件取代流程的高階概觀。 請勿在未參考您 OEM 提供之 FRU 文件的情況下遵循這些步驟執行。
 
 1. 使用[清空](azure-stack-node-actions.md#scale-unit-node-actions)動作，讓縮放單位節點進入維護模式。 根據硬體的實體條件，可能不需要此動作。
 2. 縮放單位節點處於維護模式之後，請使用[關閉電源](azure-stack-node-actions.md#scale-unit-node-actions)動作。 根據硬體的實體條件，可能不需要此動作。
@@ -69,4 +69,5 @@ Azure Stack 健康狀態和監視系統會監視儲存空間直接存取所控�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需更換熱插拔實體磁碟的資訊，請參閱[更換磁碟](azure-stack-replace-disk.md)。
-- 如需取代實體節點的資訊，請參閱[取代縮放單位節點](azure-stack-replace-node.md)。 
+- 如需取代實體節點的資訊，請參閱[取代縮放單位節點](azure-stack-replace-node.md)。
+- 

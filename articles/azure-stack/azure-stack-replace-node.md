@@ -14,43 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更換 Azure Stack 整合系統上的縮放單位節點
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 本文說明更換 Azure Stack 整合系統上的實體電腦 (也稱為「縮放單位節點」) 的一般程序。 實際的縮放單位節點更換步驟將因原始設備製造商 (OEM) 硬體廠商而異。 如需您系統專屬的詳細步驟，請參閱廠商的現場可更換單元 (FRU) 文件。
 
 下列流程圖顯示更換整個縮放單位節點的一般 FRU 程序。
 
-![更換節點程序的流程圖](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![更換節點程序的流程圖](media/azure-stack-replace-node/replacenodeflow.png)
 
 *根據硬體的實體條件，可能不需要此動作。
 
 ## <a name="review-alert-information"></a>檢閱警示資訊
 
-如果縮放單位節點已關閉，您將會收到下列所有重大警示：
+如果縮放單位節點已關閉，您就會收到下列重大警示：
 
 - 節點並未連接到網路控制站
 - 無法存取節點以供虛擬機器放置
 - 縮放單位節點已離線
 
-![縮放單位已關閉的警示清單](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![縮放單位已關閉的警示清單](media/azure-stack-replace-node/nodedownalerts.png)
 
-如果您開啟「縮放單位節點已離線」警示，警示描述就會包含無法存取的縮放單位節點。 您也可能會在於硬體生命週期主機上執行之 OEM 特定的監視解決方案中收到其他警示。
+如果您開啟「縮放單位節點已離線」警示，警示描述會包含無法存取的縮放單位節點。 您也可能會在於硬體生命週期主機上執行之 OEM 特定的監視解決方案中收到其他警示。
 
-![節點離線警示的詳細資料](media/azure-stack-replace-node/NodeOffline.PNG)
+![節點離線警示的詳細資料](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>縮放單位節點更換程序
 
 提供下列步驟以作為縮放單位節點更換程序的高階概觀。 如需您系統專屬的詳細步驟，請參閱 OEM 硬體廠商的 FRU 文件。 請勿在未參考您 OEM 提供之文件的情況下依照這些步驟執行。
 
 1. 使用[清空](azure-stack-node-actions.md#scale-unit-node-actions)動作來使縮放單位節點進入維護模式。 根據硬體的實體條件，可能不需要此動作。
+
+   > [!NOTE]
+   > 在任何情況下，只能同時清空一個節點並關機，而不中斷 S2D (儲存空間直接存取)。
+
 2. 如果節點的電源仍然開啟，請使用[關閉電源](azure-stack-node-actions.md#scale-unit-node-actions)動作。 根據硬體的實體條件，可能不需要此動作。
  
    > [!NOTE]
@@ -64,4 +68,4 @@ ms.lasthandoff: 12/11/2017
 ## <a name="next-steps"></a>後續步驟
 
 - 如需更換熱插拔實體磁碟的資訊，請參閱[更換磁碟](azure-stack-replace-disk.md)。 
-- 如需更換非熱插拔的硬體元件相關資訊，請參閱[更換硬體元件](azure-stack-replace-component.md)。 
+- 如需更換非熱插拔的硬體元件相關資訊，請參閱[更換硬體元件](azure-stack-replace-component.md)。

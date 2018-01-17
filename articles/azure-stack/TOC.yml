@@ -19,7 +19,7 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 部署 Azure Stack
+    - name: 評估 Azure Stack
       href: azure-stack-deploy-overview.md
 - name: 教學課程
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: 概念
   items:
-    - name: 規劃考量
-      href: azure-stack-planning-considerations.md
     - name: 服務原則
       href: azure-stack-servicing-policy.md
     - name: 重要功能與概念
@@ -43,9 +41,9 @@
       href: azure-stack-manage-basics.md
 - name: 使用說明指南
   items:
-    - name: 部署
+    - name: 部署 ASDK
       items:
-        - name: 必要條件
+        - name: 先決條件
           href: azure-stack-deploy.md
         - name: 遙測
           href: azure-stack-telemetry.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: 建立測試 VM
           href: azure-stack-provision-vm.md
+    - name: 部署 Azure Stack 整合系統
+      items:
+        - name: 部署規劃考量
+          href: azure-stack-deployment-planning.md
+        - name: 部署規劃決策
+          href: azure-stack-deployment-decisions.md
+        - name: 部署已連線至 Azure
+          href: azure-stack-connected-deployment.md
+        - name: 部署已與 Azure 中斷連線
+          href: azure-stack-disconnected-deployment.md
+        - name: Azure Stack 部署 PKI 先決條件
+          href: azure-stack-pki-certs.md
+          items:
+            - name: 取得適用於 Azure Stack 部署的 PKI 憑證
+              href: azure-stack-get-pki-certs.md
+        - name: 註冊 Azure Stack
+          href: azure-stack-registration.md
     - name: 資料中心整合
       items:
         - name: DNS

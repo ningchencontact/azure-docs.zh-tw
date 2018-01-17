@@ -136,8 +136,9 @@
 ### [AES-128 加密](media-services-protect-with-aes128.md)
 ### [適用於 Stream 的 PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 ### [適用於 Stream 的 FairPlay](media-services-protect-hls-with-fairplay.md)
-### [離線 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [離線 FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [適用於 Windows 10 的離線 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [適用於 iOS 的離線 FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [適用於 Android 的離線 Widevine](offline-widevine-for-android.md)
 ### [在 Azure 入口網站中進行設定](media-services-portal-protect-content.md)
 ### [傳遞 DRM 授權](media-services-deliver-keys-and-licenses.md)
 ### 建立 ContentKeys
