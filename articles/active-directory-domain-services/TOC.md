@@ -40,8 +40,7 @@
 ### [設定 SharePoint 伺服器設定檔同步處理的支援](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [設定 Kerberos 限制委派](active-directory-ds-enable-kcd.md)
 ### [部署 Azure AD 應用程式 Proxy](active-directory-ds-deploy-azure-app-proxy.md)
-## 
-            [刪除受控網域](active-directory-ds-disable-aadds.md)
+## [刪除受控網域](active-directory-ds-disable-aadds.md)
 ## 疑難排解
 ### [常見問題集](active-directory-ds-faqs.md)
 ### [疑難排解指南](active-directory-ds-troubleshooting.md)
