@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -84,7 +84,7 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 給定的 IoT 解決方案儲存的裝置資料取決於該解決方案的特定需求。 但是解決方案至少必須儲存裝置身分識別和驗證金鑰。 Azure IoT 中樞包含身分識別登錄，其可以儲存每個裝置的值，例如識別碼、驗證金鑰和狀態碼。 解決方案可以使用其他 Azure 服務 (例如表格儲存體、Blob 儲存體或 Cosmos DB) 來儲存任何其他裝置資料。
 
-*裝置佈建* 是將初始裝置資料加入至解決方案中存放區的程序。 若要讓新裝置能夠連接到您的中樞，必須將裝置識別碼和金鑰新增至「IoT 中樞」身分識別登錄。 做為佈建程序的一部分，您可能需要初始化其他解決方案存放區中的裝置特定資料。
+*裝置佈建* 是將初始裝置資料加入至解決方案中存放區的程序。 若要讓新裝置能夠連接到您的中樞，必須將裝置識別碼和金鑰新增至「IoT 中樞」身分識別登錄。 做為佈建程序的一部分，您可能需要初始化其他解決方案存放區中的裝置特定資料。 您也可以使用 Azure IoT 中樞裝置佈建服務，以無須人為介入的方式對一或多個 IoT 中樞進行 Just-In-Time 自動佈建。 若要深入了解，請參閱[佈建服務文件][lnk-dps]。
 
 ## <a name="device-heartbeat"></a>裝置活動訊號
 
@@ -144,7 +144,7 @@ iothub-message-schema | deviceLifecycleNotification |
 
 裝置身分識別會以具有下列屬性的 JSON 文件表示：
 
-| 屬性 | 選項 | 說明 |
+| 屬性 | 選項 | 描述 |
 | --- | --- | --- |
 | deviceId |必要，只能讀取更新 |區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和某些特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 | generationId |必要，唯讀 |IoT 中樞產生的區分大小寫字串，最長為 128 個字元。 此值可用來在刪除並重建裝置時，區分具有相同 **deviceId** 的裝置。 |
@@ -184,6 +184,11 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 
 * [開始使用 Azure IoT 中樞][lnk-getstarted-tutorial]
 
+若要探索使用 IoT 中樞裝置佈建服務進行 Just-In-Time 自動佈建，請參閱： 
+
+* [Azure IoT 中樞裝置佈建服務][lnk-dps]
+
+
 <!-- Links and images -->
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -205,3 +210,4 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

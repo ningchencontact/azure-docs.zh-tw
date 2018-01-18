@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署與移除應用程式
 > [!div class="op_single_selector"]
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 [封裝應用程式類型][10]後，即可將它部署至 Azure Service Fabric 叢集中。 部署涉及下列三個步驟：
 
-1. 將應用程式封裝上傳至映像存放區
-2. 註冊應用程式類型
-3. 建立應用程式執行個體
+1. 將應用程式封裝上傳至映像存放區。
+2. 使用映像存放區相對路徑註冊應用程式類型。
+3. 建立應用程式執行個體。
 
-在應用程式中部署且個體開始在叢集中執行之後，您就可以刪除應用程式執行個體和其應用程式類型。 從叢集完全移除應用程式需要執行下列步驟︰
+不再需要部署的應用程式時，您可以刪除應用程式執行個體及其應用程式類型。 從叢集完全移除應用程式需要執行下列步驟︰
 
-1. 移除 (或刪除) 執行中的應用程式執行個體
-2. 取消註冊不再需要的應用程式類型
-3. 移除映像存放區中的應用程式封裝
+1. 移除 (或刪除) 執行中的應用程式執行個體。
+2. 取消註冊不再需要的應用程式類型。
+3. 移除映像存放區中的應用程式封裝。
 
 如果您在本機開發叢集上使用 Visual Studio 來針對應用程式進行部署和偵錯，則先前所有步驟都會透過 PowerShell 指令碼自動處理。  在應用程式專案的 [指令碼] 資料夾中可找到這個指令碼。 本文提供該指令碼的背景資料，讓您可以在 Visual Studio 之外執行相同的作業。 
+
+部署應用程式的另一種方式是使用外部佈建。 應用程式封裝可以[封裝為 `sfpkg`](service-fabric-package-apps.md#create-an-sfpkg) 並上傳至外部存放區。 在此情況下，不需要上傳至映像存放區。 部署需要下列步驟：
+
+1. 將 `sfpkg` 上傳到外部存放區。 外部存放區可以是公開 REST http 或 https 端點的任何存放區。
+2. 使用外部的下載 URI 和應用程式類型資訊註冊應用程式類型。
+2. 建立應用程式執行個體。
+
+如需清理，請移除應用程式執行個體並取消註冊應用程式類型。 因為封裝並未複製到映像存放區，所以沒有暫存位置需要清理。 從 Service Fabric 6.1 版才開始提供從外部存放區佈建。
+
+>[!NOTE]
+> Visual Studio 目前不支援外部佈建。
+
  
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 執行本文中的任何 PowerShell 命令之前，請一律透過使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) 連接至 Service Fabric 叢集的方式啟動。 若要連線至本機開發叢集，請執行下列命令︰
@@ -123,7 +135,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-一旦壓縮封裝後，可以視需要將它上傳到一或多個 Service Fabric 叢集。 已壓縮及未壓縮套件的部署機制皆相同。 如果封裝已壓縮，它會以壓縮的形式儲存在叢集映像存放區中，並在應用程式執行之前於節點上解壓縮。
+一旦壓縮封裝後，可以視需要將它上傳到一或多個 Service Fabric 叢集。 已壓縮及未壓縮套件的部署機制皆相同。 壓縮的封裝會以這類方式儲存在叢集映像存放區中。 封裝會在應用程式執行之前在節點上解壓縮。
 
 
 下列範例會將套件上傳至映像存放區中的 "MyApplicationV1" 資料夾︰
@@ -162,17 +174,27 @@ PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -Appl
 
 執行 [Register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) Cmdlet，將應用程式類型註冊在叢集，使它可供部署使用︰
 
+### <a name="register-the-application-package-copied-to-image-store"></a>註冊複製到映像存放區的應用程式封裝
+封裝先前複製到映像存放區時，註冊作業會指定映像存放區中的相對路徑。
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 "MyApplicationV1" 是應用程式套件所在映像存放區中的資料夾。 名稱為 "MyApplicationType" 和版本為 "1.0.0" (兩者都在應用程式資訊清單中) 的應用程式類型，現在已註冊在叢集中。
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>註冊複製到外部存放區的應用程式封裝
+從 Service Fabric 6.1 版開始，佈建支援從外部存放區下載封裝。 下載 URI 表示 [`sfpkg` 應用程式封裝](service-fabric-package-apps.md#create-an-sfpkg)的路徑，使用 HTTP 或 HTTPS 通訊協定可以從這個位置下載應用程式封裝。 封裝必須先已上傳到這個外部位置。 URI 必須允許「讀取」權限，讓 Service Fabric 可以下載檔案。 `sfpkg` 檔案必須有 ".sfpkg" 副檔名。 佈建作業應該包含應用程式資訊清單中找到的應用程式類型資訊。
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 命令只有在系統成功註冊應用程式封裝之後才會返回。 註冊所需時間取決於應用程式封裝的大小和內容。 **-TimeoutSec** 參數可在必要時用來提供較長的逾時 (預設逾時為 60 秒)。
 
-如果您有大型應用程式套件或如果您遇到逾時，使用 **-Async** 參數。 當叢集接受暫存器命令時會傳回此命令，並視需要繼續處理。
-[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 命令會列出所有成功註冊的應用程式類型版本和其註冊狀態。 您可以使用此命令以判斷何時會完成註冊。
+如果您有大型應用程式套件或如果您遇到逾時，使用 **-Async** 參數。 命令會在叢集接受註冊命令時傳回。 註冊作業會視需要繼續。
+[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 命令會列出應用程式類型版本及其註冊狀態。 您可以使用此命令以判斷何時會完成註冊。
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>從映像存放區移除應用程式封裝
-建議您在成功註冊應用程式之後，移除應用程式套件。  從映像存放區刪除應用程式套件會釋放系統資源。  保留未使用的應用程式套件會耗用磁碟儲存空間，並會導致應用程式效能問題。
+如果封裝已複製到映像存放區，您應該在應用程式成功註冊之後從暫存位置移除它。 從映像存放區刪除應用程式套件會釋放系統資源。 保留未使用的應用程式套件會耗用磁碟儲存空間，並會導致應用程式效能問題。
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>取消註冊應用程式類型
-當不再需要應用程式類型的特定版本時，您應該使用 [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) Cmdlet 取消註冊該應用程式類型。 取消註冊未使用的應用程式類型會透過移除應用程式二進位檔，來釋放映像存放區所使用的儲存空間。 取消註冊應用程式類型並不會移除應用程式套件。 只要沒有對應的應用程式針對應用程式類型進行具現化，且沒有擱置中的應用程式升級進行參考該類性，便可取消註冊該應用程式類型。
+當不再需要應用程式類型的特定版本時，您應該使用 [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) Cmdlet 取消註冊該應用程式類型。 取消註冊未使用的應用程式類型會透過移除應用程式類型檔案，來釋放映像存放區所使用的儲存空間。 如果之前複製到映像存放區，取消註冊應用程式類型不會移除複製到映像存放區暫存位置的應用程式封裝。 只要沒有對應的應用程式針對應用程式類型進行具現化，且沒有擱置中的應用程式升級進行參考該類性，便可取消註冊該應用程式類型。
 
 執行 [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) Cmdlet，查看目前註冊在叢集中的應用程式類型：
 
@@ -334,6 +356,8 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>後續步驟
+[封裝應用程式](service-fabric-package-apps.md)
+
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 
 [Service Fabric 健康狀態簡介](service-fabric-health-introduction.md)

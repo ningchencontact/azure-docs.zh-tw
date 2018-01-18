@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>如何使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 提供單一登入 (SSO)，讓使用者只需要輸入一次認證，就可以讓認證自動跨應用程式運作，這是客戶目前的期待。 在小型螢幕上輸入其使用者名稱和密碼的困難，通常伴隨著其他因素 (2FA)，例如撥打電話或簡訊傳送程式碼，如果使用者必須對您的產品執行這個動作多次，會容易讓使用者不滿。
@@ -294,10 +294,7 @@ Microsoft 身分識別平台會使用 URL 叫用訊息代理程式，然後將�
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>步驟 4：iOS9︰將組態參數新增至您的應用程式
 ADAL 會使用 –canOpenURL: 檢查裝置上是否已安裝訊息代理程式。 在 iOS 9 中，Apple 會鎖定應用程式可以查詢的配置。 您必須將 “msauth” 新增至 `info.plist file`的 LSApplicationQueriesSchemes 區段。
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array> <string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>您已設定 SSO！
 現在 Microsoft Identity SDK 會自動跨應用程式共用認證，並在訊息代理程式出現在其裝置上時叫用它。

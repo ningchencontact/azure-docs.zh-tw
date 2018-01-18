@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>管理大量的 IoT 中樞裝置身分識別
 
@@ -27,6 +27,8 @@ ms.lasthandoff: 11/18/2017
 匯入和匯出操作會在「作業」的內容中進行，其可讓您對 IoT 中樞執行大量服務操作。
 
 **RegistryManager** 類別包含使用**作業**架構的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 這些方法可讓您匯出、匯入和同步處理整個 IoT 中樞身分識別登錄。
+
+本主題討論使用 **RegistryManager** 類別和**作業**的系統來執行將裝置大量匯入和匯出 IoT 中樞的身分識別登錄。 您也可以使用 Azure IoT 中樞裝置佈建服務，以無須人為介入的方式對一或多個 IoT 中樞進行 Just-In-Time 自動佈建。 若要深入了解，請參閱[佈建服務文件][lnk-dps]。
 
 ## <a name="what-are-jobs"></a>什麼是作業？
 
@@ -234,7 +236,7 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 
 在每個裝置的匯入序列化資料中使用選擇性的 **importMode** 屬性控制每個裝置的匯入程序。 **ImportMode** 屬性具有下列選項：
 
-| importMode | 說明 |
+| importMode | 描述 |
 | --- | --- |
 | **createOrUpdate** |如果不存在具有指定 **識別碼**的裝置，則表示是新註冊的裝置。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **create** |如果不存在具有指定 **識別碼**的裝置，則表示是新註冊的裝置。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
@@ -405,10 +407,16 @@ static string GetContainerSasUri(CloudBlobContainer container)
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南][lnk-devguide]
-* [使用 Azure IoT Edge 將 AI 部署到邊緣裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
+
+若要探索使用 IoT 中樞裝置佈建服務進行 Just-In-Time 自動佈建，請參閱： 
+
+* [Azure IoT 中樞裝置佈建服務][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

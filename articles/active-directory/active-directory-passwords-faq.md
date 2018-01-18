@@ -1,5 +1,5 @@
 ---
-title: "常見問題集︰Azure AD SSPR | Microsoft Docs"
+title: "自助式密碼重設常見問題集 - Azure Active Directory"
 description: "有關 Azure AD 自助式密碼重設的常見問題集。"
 services: active-directory
 keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 697b82c8197a9a7ff4c60ce6fa60e098396c2bca
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -43,9 +43,9 @@ ms.lasthandoff: 12/14/2017
   > **答：** 是。 只要已啟用密碼重設功能且使用者已獲得授權，他們就可以前往密碼重設註冊入口網站 (http://aka.ms/ssprsetup) 來註冊其驗證資訊。 使用者也可以透過「存取面板」(http://myapps.microsoft.com) 註冊。 若要透過「存取面板」註冊，使用者必須選取其個人資料圖片，請選取 [設定檔]，然後選取 [註冊密碼重設] 選項。
   >
   >
-* **問： 如果啟用密碼重設的群組，以及決定將它啟用，每個人都將我的使用者需要重新註冊？**
+* **問：如果針對群組啟用密碼重設，之後又決定針對所有人啟用，我的使用者需要重新註冊嗎？**
 
-  > **答：**否。 已填入驗證資料的使用者都不需要重新註冊。
+  > **答：**否。 已填入驗證資料的使用者不需要重新註冊。
   >
   >
 * **問：我是否可以代表我的使用者定義密碼重設資料？**

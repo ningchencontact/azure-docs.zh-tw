@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -162,7 +162,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    第三行輸出顯示 **"registrationState": "Registering"**。 請稍候片刻並重複 **show** 命令，直到輸出顯示 **"registrationState": "Registered"** 為止。
 
    >[!NOTE] 
-   如果您要部署 ACS 叢集，您需要註冊**Microsoft.ContainerService**資源提供者也使用相同的方法。
+   如果您要部署至 ACS 叢集，您也必須使用相同的方法來註冊 **Microsoft.ContainerService** 資源提供者。
 
 3. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
 
@@ -209,7 +209,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 1. 如需建立即時 Web 服務，請使用下列命令：
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    此命令會產生您可以在稍後使用的 Web 服務識別碼。
 
