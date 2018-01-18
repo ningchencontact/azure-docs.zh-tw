@@ -1,6 +1,6 @@
 ---
-title: "常見問題集-Azure Active Directory B2C"
-description: "Azure Active Directory B2C 的相關常見問題集 (FAQ)"
+title: "常見問題集 - Azure Active Directory B2C"
+description: "Azure Active Directory B2C 常見問題集 (FAQ)"
 services: active-directory-b2c
 author: PatAltimore
 manager: mtillman
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -63,9 +63,9 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/azure/active-
 
     ![自訂驗證電子郵件的螢幕擷取畫面](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-電子郵件簽章會包含您提供當您第一次建立 Azure AD B2C 租用戶的 Azure AD B2C 租用戶的名稱。 您可以使用這些指示變更名稱：
+電子郵件簽章包含您第一次建立 Azure AD B2C 租用戶時提供的 Azure AD B2C 租用戶名稱。 您可以使用這些指示變更名稱：
 
-1. 登入[Azure 入口網站](https://portal.azure.com/)全域系統管理員身分。
+1. 以全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 開啟 [Azure Active Directory] 刀鋒視窗。
 1. 按一下 [屬性] 索引標籤。
 1. 變更 [名稱] 欄位。
@@ -105,22 +105,22 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 可以！  請參閱[語言自訂](active-directory-b2c-reference-language-customization.md) (處於公開預覽狀態)。  我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的註冊與登入頁面上使用自己的 URL 嗎？ 例如，我可以將 URL 從 login.microsoftonline.com 變更為 login.contoso.com 嗎？
-目前不支援。 但這項功能已在我們的規劃中。 在 Azure 傳統入口網站的 [網域] 索引標籤中驗證您的網域並不會達成此目標。
+目前不支援。 但這項功能已在我們的規劃中。 在 Azure 入口網站的 [網域] 索引標籤中驗證您的網域，並無法達成此目標。
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>如何刪除 Azure AD B2C 租用戶？
 請遵循下列步驟來刪除 Azure AD B2C 租用戶︰
 
 1. 遵循下列步驟，以在 Azure 入口網站上[瀏覽至 Azure AD B2C 設定](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)。
 1. 瀏覽至 [應用程式]、[識別提供者] 和 [所有原則]，並刪除其中所有的輸入。
-1. 立即登入[Azure 入口網站](https://portal.azure.com/)訂用帳戶系統管理員身分。 (使用您註冊 Azure 時所用的相同公司或學校帳戶，或相同的 Microsoft 帳戶。)
-1. 切換至 Azure AD B2C 租用戶，您想要刪除。
-2. 瀏覽至左側的 [Active Directory] 功能表。
+1. 現在以訂用帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。 (使用您註冊 Azure 時所用的相同公司或學校帳戶，或相同的 Microsoft 帳戶。)
+1. 切換至您想要刪除的 Azure AD B2C 租用戶。
+2. 巡覽至左側的 [Active Directory] 功能表。
 3. 選取 [使用者和群組]。
 4. 逐一選取每個使用者 (不包括您目前登入的「訂用帳戶管理員」使用者身分)。 按一下頁面底部的 [刪除]，然後在出現提示時按一下 [是]。
-5. 按一下**應用程式註冊**。
-6. 選取應用程式呼叫**b2c 擴充功能-應用程式**。 按一下**刪除**按一下**是**出現提示時。
+5. 按一下 [應用程式註冊]。
+6. 選取稱為 **b2c-extensions-app** 的應用程式。 按一下 [刪除]，然後在系統提示時按一下 [是]。
 7. 選取 [概觀]。
-8. 按一下**刪除目錄**。 若要完成程序，請依照畫面上的指示。
+8. 按一下 [刪除目錄]。 若要完成程序，請依照畫面上的指示。
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>我可以從 Enterprise Mobility Suite 中取得 Azure AD B2C 嗎？
 否，Azure AD B2C 是隨用隨付的 Azure 服務，並不是 Enterprise Mobility Suite 的一部分。

@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure 儲存體總管 (預覽) 版本資訊 | Microsoft Docs"
+title: "Microsoft Azure 儲存體總管 (預覽) 版本資訊"
 description: "Microsoft Azure 儲存體總管 (預覽) 的版本資訊"
 services: storage
 documentationcenter: na
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
-本文章包含 Azure 儲存體總管 0.9.3 資訊 （預覽） 發行的版本，以及針對先前版本的版本資訊的版本。
+本文包含 Microsoft Azure 儲存體總管 0.9.3 (預覽) 和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-093"></a>版本 0.9.3
+## <a name="version-093"></a>0.9.3 版
 12/08/2017
 
-### <a name="download-azure-storage-explorer-093-preview"></a>下載 Azure 儲存體總管 0.9.3 （預覽）
-- [適用於 Windows azure 儲存體總管 0.9.3 （預覽）](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 azure 儲存體總管 0.9.3 （預覽）](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 azure 儲存體總管 0.9.3 （預覽）](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-093-preview"></a>下載 Azure 儲存體總管 0.9.3 (預覽)
+- [適用於 Windows 的 Azure 儲存體總管 0.9.3 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 0.9.3 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 0.9.3 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
-* 您現有的儲存體總管 視窗將會重新使用時機：
-    * 開啟產生的儲存體總管中的直接連結。
-    * 從入口網站中開啟儲存體總管。
-    * 從 Azure 儲存體 VS Code 擴充功能 （即將推出） 中開啟儲存體總管。
-* 若要開啟新存放裝置總管視窗，從儲存體總管內新增的功能。
-    * 適用於 Windows、 沒有檔案 功能表和工作列的內容功能表的 新視窗 選項。
-    * 適用於 Mac，沒有應用程式 功能表底下的 新視窗 選項。
+* 在下列情況下，將會重新使用您的現有儲存體總管視窗：
+    * 開啟儲存體總管中所產生的直接連結。
+    * 從入口網站開啟儲存體總管。
+    * 從 Azure 儲存體 VS Code 延伸模組 (即將推出) 開啟儲存體總管。
+* 已新增從儲存體總管內開啟新儲存體總管視窗的功能。
+    * 針對 Windows，在 [檔案] 功能表下方以及工作列的操作功能表中會有 [開新視窗] 選項。
+    * 針對 Mac，[應用程式功能表] 下方會有 [開新視窗] 選項。
 
 ### <a name="fixes"></a>修正
-* 舊的活動不適當的清理。 這會影響長期執行作業的效能。 它們會立即被清除正確。
-* 涉及大量的檔案和目錄的動作偶爾會導致儲存體總管凍結。 Azure 檔案共用的要求，現在則 trottled 系統資源使用限制。
+* 舊的活動不適合進行清理。 這會影響長期執行作業的效能。 現在，會將它們正確地清除。
+* 涉及大量檔案和目錄的動作偶而會導致儲存體總管凍結。 現在會對 Azure for File Shares 要求進行節流控制，以限制系統資源使用。
 
 ### <a name="known-issues"></a>已知問題
 * 儲存體總管不支援 ADFS 帳戶。
@@ -79,9 +79,9 @@ ms.lasthandoff: 01/02/2018
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>下載 Microsoft Azure 儲存體總管 0.9.2 (預覽)
-* [下載適用於 Windows Azure 儲存體總管 0.9.2 （預覽）](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [下載適用於 Mac 的 Azure 儲存體總管 0.9.2 （預覽）](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [下載適用於 Linux 的 Azure 儲存體總管 0.9.2 （預覽）](https://go.microsoft.com/fwlink/?LinkId=809308)
+* [下載適用於 Windows 的 Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [下載適用於 Mac 的 Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [下載適用於 Linux 的 Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="previous-releases"></a>舊版
 
-* [版本 0.9.1 / 0.9.0](#version-091)
+* [0.9.1/0.9.0 版](#version-091)
 * [0.8.16 版](#version-0816)
 * [版本 0.8.14](#version-0814)
 * [0.8.13 版](#version-0813)
@@ -372,9 +372,9 @@ ms.lasthandoff: 01/02/2018
 ### <a name="version-089--088"></a>0.8.9 / 0.8.8 版
 02/23/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>新增
@@ -405,7 +405,7 @@ ms.lasthandoff: 01/02/2018
 12/16/2016
 ### <a name="version-087"></a>0.8.7 版
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>新增
 
@@ -493,7 +493,7 @@ ms.lasthandoff: 01/02/2018
 09/12/2016
 ### <a name="version-084"></a>0.8.4 版
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>新增
 
@@ -514,7 +514,7 @@ ms.lasthandoff: 01/02/2018
 08/03/2016
 ### <a name="version-083"></a>0.8.3 版
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>新增
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 01/02/2018
 07/07/2016
 ### <a name="version-082"></a>0.8.2 版
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>新增
 
@@ -563,11 +563,11 @@ ms.lasthandoff: 01/02/2018
 06/15/2016
 ### <a name="version-080"></a>0.8.0 版
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>新增
 
@@ -608,10 +608,9 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="version-07201603250"></a>0.7.20160325.0 版
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>新增
 

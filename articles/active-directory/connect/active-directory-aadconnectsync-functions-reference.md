@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步處理：函式參考
 在 Azure AD Connect 中，函數是用來在同步處理期間操作屬性值。  
@@ -155,12 +155,6 @@ CDate 函式會傳回字串的 UTC DateTime。 DateTime 不是同步處理中的
 
 `CDate("2013-01-10 4:00 PM -8")`  
 傳回代表 "2013-01-11 12:00 AM" 的 DateTime
-
-
-
-
-
-
 
 
 - - -
@@ -546,7 +540,7 @@ DNComponent 函式會從左邊傳回指定 DN 元件的值。
 * ComponentNumber：DN 中要傳回的元件
 
 **範例：**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 如果 dn 為 "cn=Joe,ou=…"，就會傳回 Joe
 
 - - -
@@ -564,8 +558,8 @@ DNComponentRev 函式會從右邊 (結尾處) 傳回指定 DN 元件的值。
 
 **範例：**  
 如果 dn 是 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"，則  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 兩者都傳回 US。
 
 - - -
@@ -1114,7 +1108,7 @@ ReplaceChars 函式會取代 ReplacePattern 字串中找到的所有出現的字
 * 此函式會取得已定義之來源的每個出現項目，並使用目標來取代它們。
 * 來源必須是一個 (unicode) 字元。
 * 來源不能是空字串或超過一個字元 (剖析錯誤)。
-* 目標可以有多個字元，例如.ö： oe、 β： ss。
+* 目標可以有多個字元，例如 ö:oe、β:ss。
 * 目標可以空白，表示應移除此字元。
 * 來源是區分大小寫且必須完全相符。
 * , (逗號) 和 : (冒號) 是保留字元，無法使用這個函式來取代。

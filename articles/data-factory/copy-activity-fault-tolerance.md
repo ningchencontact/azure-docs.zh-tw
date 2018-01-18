@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/08/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory 中複製活動的容錯
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,9 @@ Azure Data Factory 中的複製活動可在來源和接收資料存放區之間�
 - **來源資料類型和接收原生類型之間的不相容**。 <br/><br/> 例如：使用包含三種 INT 類型資料行的結構描述定義，從 Blob 儲存體中的 CSV 檔案將資料複製到 SQL 資料庫。 包含數值資料的 CSV 檔案資料列 (例如 123,456,789) 會成功複製到接收存放區。 不過，包含非數值的資料列 (例如 123,456, abc) 會偵測為不相容並加以跳過。
 - **來源與接收之間的資料行數目不相符**。 <br/><br/> 例如：使用包含六個資料行的結構描述定義，從 Blob 儲存體中的 CSV 檔案將資料複製到 SQL 資料庫。 包含六個資料行的 CSV 檔案資料列會成功複製到接收存放區。 包含多於或少於六個資料行的 CSV 檔案資料列會偵測為不相容，並加以跳過。
 - **寫入關聯式資料庫時發生主索引鍵違規**。<br/><br/> 例如：從 SQL Server 將資料複製到 SQL 資料庫。 會在接收 SQL 資料庫中定義主索引鍵，但是在來源 SQL Server 中不會定義這類主索引鍵。 無法將來源中的重複資料列複製到接收。 複製活動只會將來源資料中的第一個資料列複製到接收。 包含重複主索引鍵值的後續來源資料列會偵測為不相容，並加以跳過。
+
+>[!NOTE]
+>複製活動設定成叫用外部資料載入機制 (包含 [Azure SQL 資料倉儲 PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 或 [Amazon Redshift 上傳](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)) 時，不會套用這項功能。 若要使用 PolyBase 將資料載入至 SQL 資料倉儲，請在複製活動中指定 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"，以使用 PolyBase 的原生錯誤容錯支援。
 
 ## <a name="configuration"></a>組態
 下列範例提供的 JSON 定義，可設定在複製活動中跳過不相容資料列：
@@ -62,12 +65,12 @@ Azure Data Factory 中的複製活動可在來源和接收資料存放區之間�
 }
 ```
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 指定是否要在複製期間略過不相容的資料列。 | True<br/>FALSE (預設值) | 否
 redirectIncompatibleRowSettings | 當您想要記錄不相容的資料列時，可指定的一組屬性。 | &nbsp; | 否
-linkedServiceName | [Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) 的連結服務，儲存包含跳過之資料列的記錄。 | `AzureStorage` 或 `AzureDataLakeStore` 類型連結服務的名稱，以代表您需要用來儲存記錄檔的儲存體執行個體。 | 否
-路徑 | 包含跳過之資料列的記錄檔路徑。 | 指定需要用來記錄不相容資料的路徑。 如不提供路徑，服務會為您建立容器。 | 否
+預設容器 | [Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) 的連結服務，儲存包含跳過之資料列的記錄。 | `AzureStorage` 或 `AzureDataLakeStore` 類型連結服務的名稱，以代表您需要用來儲存記錄檔的儲存體執行個體。 | 否
+path | 包含跳過之資料列的記錄檔路徑。 | 指定需要用來記錄不相容資料的路徑。 如不提供路徑，服務會為您建立容器。 | 否
 
 ## <a name="monitor-skipped-rows"></a>監視略過的資料列
 複製活動執行完成之後，您會在複製活動的輸出中看到略過的資料列數目：

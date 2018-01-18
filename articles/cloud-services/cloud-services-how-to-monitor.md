@@ -1,178 +1,98 @@
 ---
-title: "如何監視雲端服務 | Microsoft Docs"
-description: "了解如何使用 Azure 傳統入口網站來監視雲端服務。"
+title: "監視 Azure 雲端服務 | Microsoft Docs"
+description: "描述監視 Azure 雲端服務所涉及的作業以及您的一些選項。"
 services: cloud-services
 documentationcenter: 
 author: thraka
 manager: timlt
 editor: 
-ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
+ms.assetid: 
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2015
+ms.date: 12/22/2017
 ms.author: adegeo
-ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="how-to-monitor-cloud-services"></a>如何監視雲端服務
-[!INCLUDE [disclaimer](../../includes/disclaimer.md)]
+# <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
-您可以監視雲端服務在 Azure 傳統入口網站中的 `key` 效能度量。 您可以對於各個服務角色設定從最小到詳細的監視層級，並且可以自訂監視顯示。 詳細資訊監視資料儲存在儲存體帳戶中，您可以從入口網站外部存取。 
+您可以監視任何雲端服務的關鍵效能計量。 每個雲端服務角色都會收集最少資料：CPU 使用量、網路使用量和磁碟使用狀況。 如果雲端服務已將 `Microsoft.Azure.Diagnostics` 延伸模組套用至角色，則該角色可以收集其他資料點。 本文介紹 Azure Diagnostics for Cloud Services。
 
-Azure 傳統入口網站的監視顯示本身的可設定度相當高。 您可以在 [監視] 頁面上的度量清單中選擇要監視的度量，而且可以在 [監視] 頁面和儀表板上的度量圖表選擇要繪製的度量。 
+使用基本監視，角色執行個體的效能計數器資料會依 3 分鐘的間隔進行取樣和收集。 此基本監視資料不會儲存在儲存體帳戶中，而且沒有任何與其建立關聯的額外成本。
 
-## <a name="concepts"></a>概念
-依預設，對於使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器進行的新雲端服務，將提供最小監視。 最小度量僅限於 [CPU 百分比]、[資料輸入]、[資料輸出]、[磁碟讀取輸送量] 和 [磁碟寫入輸送量]。 設定詳細資訊監視之後，即可收到以虛擬機器 (角色執行個體) 內的效能資料為基礎的其他度量。 詳細度量能夠進一步分析應用程式作業期間發生的問題。
+使用進階監視，其他計量會依 5 分鐘、1 小時和 12 小時的間隔進行取樣和收集。 彙總的資料會儲存在儲存體帳戶和資料表中，並會在 10 天之後予以清除。 所使用的儲存體帳戶是依角色所設定；您可以對不同的角色使用不同的儲存體帳戶。 這是使用 [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 檔案中的連接字串所設定。
 
-依預設，角色執行個體的效能計數器資料會每隔 3 分鐘取樣一次，並且從執行個體傳輸。 您啟用詳細資訊監視時，將每隔 5 分鐘、1 小時和 12 小時對於各個角色執行個體和各個角色的角色執行個體彙總原始效能計數器資料。 經過 10 天後將清除彙總的資料。
 
-您啟用詳細資訊監視後，彙總的監視資料將儲存於您儲存體帳戶中的資料表。 若要啟用角色的詳細資訊監視，您必須設定連結到儲存體帳戶的診斷連線字串。 您可以對於不同的角色使用不同的儲存體帳戶。
+## <a name="basic-monitoring"></a>基本監視
 
-啟用詳細資訊監視會導致資料儲存體、資料傳輸和儲存體交易相關的儲存成本增加。 最小監視不需要儲存體帳戶。 即使將監視層級設定為詳細資訊，在最小監視層級顯現的度量資料也不會儲存在您的儲存體帳戶中。
+如簡介所述，雲端服務會自動從主機虛擬機器收集基本監視資料。 此資料包含 CPU 百分比、網路輸入/輸出和磁碟讀取/寫入。 在 Azure 入口網站之雲端服務的概觀和計量頁面上，會自動顯示所收集的監視資料。 
 
-## <a name="how-to-configure-monitoring-for-cloud-services"></a>做法：為雲端服務設定監視功能
-使用下列程序，在 Azure 傳統入口網站中設定詳細資訊或最小監視。 
+基本監視不需要儲存體帳戶。 
 
-### <a name="before-you-begin"></a>開始之前
-* 建立「傳統」儲存體帳戶來儲存監視資料。 您可以對於不同的角色使用不同的儲存體帳戶。 如需詳細資訊，請參閱[如何建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
-* 對於雲端服務角色啟用 Azure 診斷。 請參閱「 [為雲端服務設定診斷功能](cloud-services-dotnet-diagnostics.md)」。
+![基本雲端服務監視磚](media/cloud-services-how-to-monitor/basic-tiles.png)
 
-確認「角色」組態中出現診斷連接字串。 您必須先啟用 [Azure 診斷]，並在「角色」組態中加入診斷連接字串，才能開啟詳細資訊監視功能。   
+## <a name="advanced-monitoring"></a>進階監視
 
-> [!NOTE]
-> 目標為 Azure SDK 2.5 的專案不會將診斷連接字串自動加入專案範本。 針對這些專案，您必須手動將診斷連接字串新增至「角色」組態。
-> 
-> 
+進階監視包含對您想要監視的角色使用 Azure 診斷延伸模組 (和選擇性的 Application Insights SDK)。 診斷延伸模組會使用名為 **diagnostics.wadcfgx** 的設定檔 (每個角色)，來設定所監視的診斷計量。 Azure 診斷延伸模組所收集的資料會儲存在 Azure 儲存體帳戶中，而 Azure 儲存體帳戶設定於 **.wadcfgx**、[.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 檔案中。 這表示會有與進階監視建立關聯的額外成本。
 
-**若要手動將診斷連接字串加入至「角色」組態**
+建立每個角色時，Visual Studio 會在其中新增 Azure 診斷延伸模組。 此延伸模組可以收集下列類型的資訊：
 
-1. 在 Visual Studio 中開啟雲端服務專案
-2. 按兩下 [角色] 開啟角色設計工具，然後選取 [設定] 索引標籤
-3. 尋找名為 **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**的設定。 
-4. 如果此設定不存在，請按一下 [新增設定] 按鈕，將該設定新增至組態，並將新設定的類型變更為 [ConnectionString]
-5. 按一下 [ **...** ] 按鈕設定連接字串的值。 此動作會開啟對話方塊，讓您選取儲存體帳戶。
-   
-    ![Visual Studio 設定](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioDiagnosticsConnectionString.png)
+* 自訂效能計數器
+* 應用程式記錄檔
+* Windows 事件記錄檔
+* .NET 事件來源
+* IIS 記錄檔
+* 以資訊清單為基礎的 ETW
+* 損毀傾印
+* 客戶錯誤記錄
 
-### <a name="to-change-the-monitoring-level-to-verbose-or-minimal"></a>將監視層級變更為詳細資訊或最小
-1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，開啟雲端服務部署的 [設定] 頁面。
-2. 在 [層級] 中，按一下 [詳細資訊] 或 [最小]。 
-3. 按一下 [儲存] 。
+雖然所有這些資料都會彙總至儲存體帳戶，但是入口網站不會提供製作資料圖表的原生方法。 您可以使用另一個服務 (如 Application Insights) 來相互關聯和顯示資料。
 
-啟動詳細資訊監視之後，您應該在一小時內開始查看 Azure 傳統入口網站中的監視資料。
+### <a name="use-application-insights"></a>使用 Application Insights
 
-原始效能計數器資料和彙總的監視資料是儲存在角色的部署 ID 所保留的表格中出現的儲存體帳戶內。 
+當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights 資源，或將資料傳送至現有資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)。
 
-## <a name="how-to-receive-alerts-for-cloud-service-metrics"></a>做法：接收雲端服務計量的警示
-您可以按照雲端服務監視度量接收警示。 在 Azure 傳統入口網站的 [Management Services]  頁面上，您可以建立當您選擇的度量達到指定值時觸發警示的規則。 您也可以選擇在警示觸發時傳送電子郵件。 如需詳細資訊，請參閱 [做法：在 Azure 中接收警示通知及管理警示規則](http://go.microsoft.com/fwlink/?LinkId=309356)。
+請注意，雖然您可以使用 Application Insights 來顯示透過 Windows Azure 診斷延伸模組所指定的效能計數器 (和其他設定)，但是只有將 Application Insights SDK 整合到背景工作和 Web 角色，才能獲得較豐富的體驗。
 
-## <a name="how-to-add-metrics-to-the-metrics-table"></a>做法：將計量新增至計量表
-1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，開啟雲端服務的 [監視] 頁面。
-   
-    依預設，度量表會顯示一部份的可用度量。 該圖顯示雲端服務的預設詳細資訊度量，這僅限於在角色層集彙總資料的記憶體\可用 MB 效能計數器。 使用 [新增度量]  選取要在 Azure 傳統入口網站中監視的其他彙總和角色層級度量。
-   
-    ![詳細資訊顯示](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
-2. 若要將度量新增至度量表：
-   
-   1. 按一下 [新增度量] 開啟 [選擇度量]，如下所示。
-      
-       第一個可用的度量將展開，顯示可用的選項。 對於各個度量，頂端選項將顯示所有角色的彙總監視資料。 此外，您可以選擇要顯示資料的個別角色。
-      
-       ![Add metrics](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png)
-   2. 若要選取要顯示的度量
-      
-      * 按一下度量旁邊的向下箭頭，展開監視選項。
-      * 選取要顯示的各個監視選項的核取方塊。
-        
-        在度量表中，最多可以顯示 50 個度量。
-        
-        > [!TIP]
-        > 在詳細資訊監視中，度量清單可包含許多度量。 若要顯示捲軸，請移動游標停留在對話方塊的右邊。 若要篩選清單，請按一下搜尋圖示，並且在搜尋方塊中輸入文字，如下所示。
-        > 
-        > 
-        
-        ![加入度量搜尋](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
-3. 完成選取度量後，按一下 [確定] \(核取記號)。
-   
-    選取的度量隨即新增到度量表，如下所示。
-   
-    ![監視度量](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
-4. 若要從度量表刪除度量，請按一下度量加以選取，然後按一下Delete Metric **Delete Metric**。 (只有在您選取度量時，才會看見 [刪除度量]。)
 
-### <a name="to-add-custom-metrics-to-the-metrics-table"></a>若要將自訂量度新增至量度資料表
-**詳細資訊** 監視層級提供一份清單，其中包含您可在入口網站上監視的預設計量。 除此之外，您可以監視任何自訂計量，或透過入口網站監視應用程式定義的效能計數器。
+## <a name="add-advanced-monitoring"></a>新增進階監視
 
-下列步驟假設您已開啟**詳細資訊**監視層級，且已設定應用程式來收集和傳輸自訂效能計數器。 
+首先，如果您沒有**傳統**儲存體帳戶，則請[建立傳統儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。 請確定建立已指定**傳統部署模型**的儲存體帳戶。
 
-若要顯示在入口網站中顯示自訂效能計數器，您必須更新 WAD 控制容器的組態：
+接下來，巡覽至 [儲存體帳戶 (傳統)] 資源。 選取 [設定] > [存取金鑰]，然後複製 [主要連接字串] 值。 雲端服務需要有此值。 
 
-1. 在您的診斷儲存體帳戶中開啟 WAD 控制容器 blob。 您可以透過 Visual Studio 或任何其他的儲存體總管執行此動作。
-   
-    ![Visual Studio 伺服器總管](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioBlobExplorer.png)
-2. 使用 **DeploymentId/RoleName/RoleInstance** 模式瀏覽 blob 的路徑，尋找角色執行個體的組態。 
-   
-    ![Visual Studio 儲存體總管](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. 下載角色執行個體的組態檔，並更新該檔案以包含所有自訂效能計數器。 例如，若要監視「C 磁碟機」的「磁碟寫入位元組/秒」，請在 **PerformanceCounters\Subscriptions** 節點下新增下列程式碼
-   
-    ```xml
-    <PerformanceCounterConfiguration>
-    <CounterSpecifier>\LogicalDisk(C:)\Disk Write Bytes/sec</CounterSpecifier>
-    <SampleRateInSeconds>180</SampleRateInSeconds>
-    </PerformanceCounterConfiguration>
-    ```
-4. 儲存變更並將組態檔上傳回相同的位置，覆寫 blob 中的現有檔案。
-5. 在 Azure 傳統入口網站組態中切換至「詳細資訊」模式。 如果您已經處於「詳細資訊」模式，請切換至最小再切換回詳細資訊模式。
-6. 自訂效能計數器便會出現在 [ **新增計量** ] 對話方塊中。 
+您必須變更兩個設定檔才能啟用進階診斷：**ServiceDefinition.csdef** 和 **ServiceConfiguration.cscfg**。 您最可能有兩個 **.cscfg** 檔案，一個名為 **ServiceConfiguration.cloud.cscfg** 以用於部署至 Azure，一個名為 **ServiceConfiguration.local.cscfg** 以用於本機偵錯部署。 變更這兩者。
 
-## <a name="how-to-customize-the-metrics-chart"></a>做法：自訂計量圖
-1. 在度量表中，最多可選取 6 個度量在度量圖表上繪製。 若要選取度量，請按一下左邊的核取方塊。 若要移除度量圖表中的度量，請清除度量表中的核取方塊。
-   
-    您選取度量表中的度量時，度量將新增到度量表。 在縮小顯示上，[n more]  下拉式清單包含無法完全顯示的度量標頭。
-2. 若要切換顯示相對值 (各個度量的最終值) 和絕對值 (顯示的 Y 軸)，請選取圖表頂端的 [相對] 或 [絕對]。
-   
-    ![相對或絕對](./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png)
-3. 若要變更度量圖表顯示的時間範圍，請選取圖表頂端的 [1 hour]、[24 小時] 或 [7 days]。
-   
-    ![監視顯示期間](./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
-   
-    在儀表板度量圖表上，繪製圖表的方法並不相同。 其中有一組標準的度量可供使用，而且選取度量標頭即可新增或移除度量。
+在 **ServiceDefinition.csdef** 檔案中，針對每個使用進階診斷的角色，新增名為 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的新設定。 當您建立新專案時，Visual Studio 會將這個值新增至檔案。 若遺失，您可以立即予以新增。 
 
-### <a name="to-customize-the-metrics-chart-on-the-dashboard"></a>自訂儀表板上的度量圖表
-1. 開啟雲端服務的儀表板。
-2. 在圖表中新增或移除度量：
-   
-   * 若要繪製新的度量，請在圖表標頭中選取度量的核取方塊。 在縮小顯示上，按一下 [??metrics]***n*** 旁邊的向下箭頭，繪製圖表標頭區域無法顯示的度量。
-   * 若要刪除圖表上繪製的度量，請清除標頭旁邊的核取方塊。
-   
-3. 切換 [相對] 和 [絕對] 顯示。
-4. 選擇要顯示的 1 小時、24 小時或 7 天資料。
-
-## <a name="how-to-access-verbose-monitoring-data-outside-the-azure-classic-portal"></a>做法：從 Azure 傳統入口網站外部存取詳細資訊監視資料
-詳細資訊監視資料儲存在您對於各個角色指定的儲存體帳戶內的表格中。 對於各個雲端服務部署，將為角色建立 6 個表格。 個別 (5 分鐘、1 小時和 12 小時) 建立 2 個表格。 其中一個表格儲存角色層級彙總，另一個表格儲存角色執行個體的彙總。 
-
-表格名稱的格式如下：
-
-```
-WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
+```xml
+<ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="WorkerRoleWithSBQueue1" vmsize="Small">
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-其中：
+這會定義必須新增至每個 **ServiceConfiguration.cscfg** 檔案的新設定。 開啟並變更每個 **.cscfg** 檔案。 新增名為 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的設定。 如果您想要在開發電腦上使用本機儲存體，請將值設定為傳統儲存體帳戶的 [主要連接字串]，或設定為 `UseDevelopmentStorage=true`。
 
-* *deploymentID* 是指派給雲端服務部署的 GUID
-* aggregation_interval = 5M、1H 或 12H
-* 角色層級彙總 = R
-* 角色執行個體彙總 = RI
+```xml
+<ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WorkerRoleWithSBQueue1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
 
-例如，下表將儲存 1 小時間隔彙總的詳細資訊監視資料：
-
+<!-- or use the local development machine for storage
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+-->
 ```
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
-```
+## <a name="next-steps"></a>後續步驟
+
+- [深入了解含雲端服務的 Application Insights。](../application-insights/app-insights-cloudservices.md)
+

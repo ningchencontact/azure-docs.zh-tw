@@ -1,5 +1,5 @@
 ---
-title: "了解您的 Azure 發票 | Microsoft Docs"
+title: "了解 Azure 發票"
 description: "了解如何閱讀並了解 Azure 訂用帳戶的使用情形和帳單"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞
+
 發票會提供您費用的摘要，並提供付款的指示。 您可以從 [Azure 入口網站](https://portal.azure.com/)下載可攜式文件格式 (.pdf) 的發票，或可透過電子郵件傳送。 如需詳細資訊，請參閱[如何取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)。
 
 幾個注意事項：
@@ -31,9 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 -   針對國際客戶而列在帳單明細上的費用僅為估算用途。 銀行換匯的費用將有所不同。
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>您發票的詳細字詞和描述
 下列各節列出您在發票上看到的大部分字詞以及每個字詞的說明。
@@ -44,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 ![發票的帳戶資訊區段](./media/billing-understand-your-invoice/1.png)
 
-| 詞彙 | 說明 |
+| 詞彙 | 描述 |
 | --- | --- |
 | 客戶訂購單號碼。 |您選擇性指派以進行追蹤的訂購單號碼 |
 | 發票編號 |用於追蹤的 Microsoft 所產生之唯一發票編號 |
@@ -65,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="understand-the-previous-charges"></a>了解先前的費用
 發票的前期結餘、付款與未付餘額區段會摘要說明上次計費期間之後的交易。
 
-| 詞彙 | 說明 |
+| 詞彙 | 描述 |
 | --- | --- |
 | 前期結餘 |上次計費期間算起的應付總金額 |
 | 付款 |套用至上次計費期間的總付款金額及信用額度 |
@@ -74,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="understand-the-current-charges"></a>了解目前費用
 發票的 [目前費用] 區段會顯示有關目前帳單週期的每月費用詳細資料。
 
-| 詞彙 | 說明 |
+| 詞彙 | 描述 |
 | --- | --- |
 | 使用費用 |使用量費用是訂用帳戶目前帳單週期的每月總費用|
 | 折扣 |目前計費期間適用的服務折扣|
@@ -84,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 下表說明您發票第二頁上顯示的買方和付款指示。
 
-| 詞彙 |說明 |
+| 詞彙 |描述 |
 | --- | --- |
 | 買方 |帳戶上的設定檔地址。 <br/><br/>如果您需要變更地址，請參閱[如何變更連絡人電子郵件、地址和電話號碼等 Azure 帳戶的設定檔資訊](billing-how-to-change-azure-account-profile.md)。|
 | 付款指示 |依付款方式 (例如依信用卡或發票) 說明如何支付的指示。 |
@@ -97,7 +96,7 @@ ms.lasthandoff: 10/11/2017
 
 下表描述您發票上顯示的使用量費用資料行標頭。
 
-| 詞彙 |說明 |
+| 詞彙 |描述 |
 | --- | --- |
 | 名稱 |識別使用量的最上層服務 |
 | 類型 |定義可能會影響費率的 Azure 服務類型 |

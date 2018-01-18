@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>存取 Azure Data Lake Store 的診斷記錄
 了解如何啟用 Data Lake Store 帳戶的診斷記錄，以及如何檢視針對帳戶收集的記錄。
 
-組織可以啟用 Azure Data Lake Store 帳戶的診斷記錄，以便收集資料存取稽核記錄，取得如存取資料的使用者清單、資料存取頻率、儲存在帳戶內的資料量等資訊。
+組織可以啟用 Azure Data Lake Store 帳戶的診斷記錄，以便收集資料存取稽核記錄，取得如存取資料的使用者清單、資料存取頻率、儲存在帳戶內的資料量等資訊。啟用時，系統會以最佳方式來記錄診斷和 (或) 要求。 只有在對服務端點提出要求時，才會建立要求和診斷記錄項目。
 
 ## <a name="prerequisites"></a>必要條件
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/15/2017
         
         * 選取 [串流至事件中樞] 選項可將記錄資料串流到 Azure 事件中樞。 如果您有即時分析內送記錄的下游處理管線，很可能會使用這個選項。 如果您選取此選項，必須提供要使用的 Azure 事件中樞詳細資料。
 
-        * 選取 [傳送至 Log Analytics] 選項可使用 Azure Log Analytics 服務來分析產生的記錄資料。 如果您選取此選項，必須提供要用來執行記錄檔分析的 Operations Management Suite 工作區詳細資料。 請參閱[檢視或分析資料與記錄分析記錄檔搜尋收集](../log-analytics/log-analytics-tutorial-viewdata.md)如需使用記錄分析的詳細資訊。
+        * 選取 [傳送至 Log Analytics] 選項可使用 Azure Log Analytics 服務來分析產生的記錄資料。 如果您選取此選項，必須提供要用來執行記錄檔分析的 Operations Management Suite 工作區詳細資料。 如需使用 Log Analytics 的詳細資料，請參閱[檢視或分析以 Log Analytics 記錄搜尋所收集的資料](../log-analytics/log-analytics-tutorial-viewdata.md)。
      
    * 指定要取得稽核記錄、要求記錄或兩者。
    * 指定的資料的保留天數。 只有在您使用 Azure 儲存體帳戶來封存記錄資料時，才適用保留期。
@@ -114,7 +114,7 @@ ms.lasthandoff: 12/15/2017
     }
 
 #### <a name="request-log-schema"></a>要求記錄的結構描述
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |作業發生之資源的識別碼 |
@@ -122,12 +122,12 @@ ms.lasthandoff: 12/15/2017
 | operationName |字串 |記錄的作業名稱。 例如，getfilestatus。 |
 | resultType |字串 |作業的狀態。例如，200。 |
 | callerIpAddress |字串 |提出要求之用戶端的 IP 位址 |
-| correlationId |字串 |用來群組在一起的一組相關的記錄項目可以記錄檔的識別碼 |
+| correlationId |字串 |用來將一組相關記錄項目分組在一起的記錄識別碼 |
 | 身分識別 |Object |產生記錄的身分識別 |
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="request-log-properties-schema"></a>要求記錄屬性結構描述
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
 | Path |字串 |執行作業的所在路徑 |
@@ -160,24 +160,24 @@ ms.lasthandoff: 12/15/2017
     }
 
 #### <a name="audit-log-schema"></a>稽核記錄的結構描述
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |作業發生之資源的識別碼 |
 | category |字串 |記錄類別。 例如， **稽核**。 |
 | operationName |字串 |記錄的作業名稱。 例如，getfilestatus。 |
 | resultType |字串 |作業的狀態。例如，200。 |
-| correlationId |字串 |用來群組在一起的一組相關的記錄項目可以記錄檔的識別碼 |
+| correlationId |字串 |用來將一組相關記錄項目分組在一起的記錄識別碼 |
 | 身分識別 |Object |產生記錄的身分識別 |
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="audit-log-properties-schema"></a>稽核記錄屬性結構描述
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | StreamName |字串 |執行作業的所在路徑 |
 
 ## <a name="samples-to-process-the-log-data"></a>處理記錄資料的範例
-從 Azure Data Lake Store 的記錄檔傳送至 Azure 記錄分析時 (請參閱[檢視或分析資料與記錄分析記錄檔搜尋收集](../log-analytics/log-analytics-tutorial-viewdata.md)如需使用記錄分析詳細資料)，下列查詢會傳回資料表，其中包含的使用者清單顯示名稱、 事件的時間和事件的計數的視覺化圖表以及事件的時間。 您可以輕鬆地修改顯示使用者 GUID 或其他屬性：
+將記錄從 Azure Data Lake Store 傳送至 Azure Log Analytics 時 ( 如需使用 Log Analytics 的詳細資料，請參閱[檢視或分析以 Log Analytics 記錄搜尋所收集的資料](../log-analytics/log-analytics-tutorial-viewdata.md))，下列查詢將會傳回資料表，其中包含使用者顯示名稱清單、事件時間，以及事件時間與視覺化圖表的事件計數。 您可以輕鬆地進行修改，以顯示使用者 GUID 或其他屬性：
 
 ```
 search *
@@ -188,7 +188,7 @@ search *
 
 Azure Data Lake Store 會提供有關如何處理和分析記錄資料的範例。 您可以在 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)找到範例。 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
 * [保護資料湖存放區中的資料](data-lake-store-secure-data.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-ms.openlocfilehash: dc252903571857b5fc89d1d9a2c63cd6b44e9021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f58464ac212b84623d2287205271301dbaa0ffb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 複製 Azure App Service App
 隨著 Microsoft Azure PowerShell 版本 1.1.0 的發行，為 New-AzureRMWebApp 加入了新選項，可讓使用者將現有的 Web 應用程式複製到在不同區域或在相同區域中新建立的應用程式。 這可讓客戶輕鬆且快速地跨不同區域部署許多 app。
@@ -102,6 +102,7 @@ ms.lasthandoff: 10/11/2017
 * 不會複製 Kudu 延伸模組
 * 不會複製 TiP 規則
 * 不會複製資料庫內容
+* 如果複製至不同的縮放單位，則會變更輸出 IP 位址
 
 ### <a name="references"></a>參考
 * [Web 應用程式複製](app-service-web-app-cloning.md)

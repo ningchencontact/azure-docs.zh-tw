@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>使用網路和應用程式安全性群組 (預覽) 來篩選網路流量
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/04/2017
 本文提供透過 Resource Manager 部署模型建立網路安全性群組的步驟，而此部署模型正是建立網路安全性群組時我們建議使用的部署模型。 如果您必須建立網路安全性群組 (傳統)，請參閱[建立網路安全性群組 (傳統)](virtual-networks-create-nsg-classic-ps.md)。 如果您不熟悉 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 > [!NOTE]
-> 本教學課程會利用目前仍為預覽版本的網路安全性群組功能。 預覽版本的功能並沒有與一般版本中的功能相同的可用性和可靠性。 這些預覽版本的功能只在下列區域提供：美國中西部。 如果您只想要使用一般版本的功能來實作網路安全性群組，請參閱[建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)。 
+> 本教學課程會利用目前仍為預覽版本的網路安全性群組功能。 預覽版本的功能並沒有與一般版本中的功能相同的可用性和可靠性。 如果您只想要使用一般版本的功能來實作網路安全性群組，請參閱[建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)。 
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -42,14 +42,14 @@ ms.lasthandoff: 11/04/2017
 3. 使用 `az login` 命令登入 Azure。
 4. 輸入下列命令來註冊預覽版︰
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. 藉由輸入下列命令，確認您已註冊預覽版︰
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/04/2017
 
 6. 執行下列 bash 指令碼以建立資源群組：
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/04/2017
 
 7. 建立三個應用程式安全性群組，每種伺服器類型一個：
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/04/2017
 
 8. 建立網路安全性群組：
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/04/2017
 
 9. 建立 NSG 內的安全性規則，將應用程式安全性群組設定為目的地：
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ ms.lasthandoff: 11/04/2017
 
 10. 建立虛擬網路： 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/04/2017
 
 11. 建立網路安全性群組與虛擬網路中子網路的關聯：
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/04/2017
     
 12. 建立三個網路介面，每種伺服器類型一個： 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ ms.lasthandoff: 11/04/2017
       --application-security-groups "DatabaseServers"
     ```
 
-    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 9 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myNic1 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myNic1，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
+    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 9 中建立的對應安全性規則會套用到網路介面。 例如，只有 AppRule 規則會對 myNic2 起作用，因為該網路介面是 AppServers 應用程式安全性群組的成員，而且該規則會指定讓 AppServers 應用程式安全性群組作為其目的地。 WebRule 和 DatabaseRule 規則不會套用至 myNic2，因為該網路介面不是 WebServers 和 DatabaseServers 應用程式安全性群組的成員。 WebRule 和 AppRule 規則會對 myNic1 起作用，不過，因為 myNic1 網路介面是 WebServers 和 AppServers 應用程式安全性群組的成員，而且這些規則會指定 WebServers 和 AppServers 應用程式安全性群組作為其目的地。 
 
 13. 為每種伺服器類型建立一個虛擬機器，並對每個虛擬機器連結對應的網路介面。 這個範例會建立 Windows 虛擬機器，但您可以將 win2016datacenter 變更為 UbuntuLTS 來改為建立 Linux 虛擬機器。
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ ms.lasthandoff: 11/04/2017
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ ms.lasthandoff: 11/04/2017
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ ms.lasthandoff: 11/04/2017
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ ms.lasthandoff: 11/04/2017
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ ms.lasthandoff: 11/04/2017
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. 建立網路安全性群組：
@@ -361,7 +363,7 @@ ms.lasthandoff: 11/04/2017
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 8 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myNic1 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myNic1，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
+    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 8 中建立的對應安全性規則會套用到網路介面。 例如，只有 AppRule 規則會對 myNic2 起作用，因為該網路介面是 AppServers 應用程式安全性群組的成員，而且該規則會指定讓 AppServers 應用程式安全性群組作為其目的地。 WebRule 和 DatabaseRule 規則不會套用至 myNic2，因為該網路介面不是 WebServers 和 DatabaseServers 應用程式安全性群組的成員。 WebRule 和 AppRule 規則會對 myNic1 起作用，不過，因為 myNic1 網路介面是 WebServers 和 AppServers 應用程式安全性群組的成員，而且這些規則會指定 WebServers 和 AppServers 應用程式安全性群組作為其目的地。 
 
 13. 為每種伺服器類型建立一個虛擬機器，並對每個虛擬機器連結對應的網路介面。 此範例會建立 Windows 虛擬機器，但您可以在執行指令碼之前，將 -Windows 變更為 -Linux、將 MicrosoftWindowsServer 變更為 Canonical、將 WindowsServer 變更為 UbuntuServer，以及將 2016-Datacenter 變更為 14.04.2-LTS，來改為建立 Linux 虛擬機器。
 
@@ -429,6 +431,33 @@ ms.lasthandoff: 11/04/2017
 
 14. **選擇性︰**完成[刪除資源](#delete-cli)中的步驟，以刪除您在本教學課程中所建立的資源。
 
+## <a name="remove-a-nic-from-an-asg"></a>從 ASG 中移除 NIC
+從應用程式安全性群組中移除網路介面之後，任何指定應用程式安全性群組的規則都不會套用至您所移除的網路介面。
+
+### <a name="azure-cli"></a>Azure CLI
+
+若要從所有應用程式安全性群組中移除 myNic3，請輸入下列命令：
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+若要從所有應用程式安全性群組中移除 myNic3，請輸入下列命令：
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>刪除資源
 
 完成本教學課程之後，可考慮刪除所建立的資源，以免產生使用費。 刪除資源群組同時會刪除其內含的所有資源。
@@ -443,7 +472,7 @@ ms.lasthandoff: 11/04/2017
 
 在 CLI 工作階段中，輸入下列命令：
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

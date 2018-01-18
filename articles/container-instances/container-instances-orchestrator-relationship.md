@@ -1,25 +1,25 @@
 ---
 title: "Azure 容器執行個體和容器協調流程"
-description: "與容器 orchestrators，了解如何在 Azure 執行個體互動的容器。"
+description: "了解 Azure 容器執行個體與容器 Orchestrator 的互動方式。"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/09/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 4954dcb4cb03407b85ad35aec94920e39644844b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure 容器執行個體和容器 Orchestrator
 
 由於規模較小和應用程式方向的緣故，容器很適合用於敏捷式傳遞環境和微服務式架構。 自動執行和管理大量容器以及其互動方式的工作稱為「協調流程」。 熱門的容器 Orchestrator (包括 Kubernetes、DC/OS 和 Docker Swarm) 全都可在 [Azure Container Service](https://docs.microsoft.com/azure/container-service/) 中取得。
 
-Azure 容器執行個體提供了一些基本的排程功能的協調流程的平台，但它未涵蓋較高值有更多的服務，這些平台提供，並實際上是互補的。 本文說明 Azure 容器執行個體所能處理的項目範圍，以及完整的容器 Orchestrator 如何與其互動。
+Azure 容器執行個體提供一些基本的協調流程平台排程功能，但未涵蓋這些平台所提供的較高價值服務，因此事實上可與這些平台互補。 本文說明 Azure 容器執行個體所能處理的項目範圍，以及完整的容器 Orchestrator 如何與其互動。
 
 ## <a name="traditional-orchestration"></a>傳統協調流程
 
@@ -48,9 +48,9 @@ Azure 容器執行個體可提供分層式協調流程方法，提供執行單�
 
 因為這些執行個體啟動速度快且依秒計費，以獨佔方式立基於 Azure 容器執行個體的環境可提供最快的方法來開始使用，並處理高度變化的工作負載。
 
-### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>組合的容器執行個體和虛擬機器中的容器
+### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>結合容器執行個體與虛擬機器中的容器
 
-針對長時間執行的穩定工作負載，協調專用虛擬機器叢集中的容器所需的成本，一般會比使用容器執行個體來執行相同容器還低。 不過，容器執行個體能提供絕佳的解決方案來快速擴展和收縮整體容量，以處理未預期的使用量或短暫出現的高峰使用量。 而不是擴充您的叢集中的虛擬機器數目，然後部署到這些電腦的其他容器，orchestrator 可以只是排程使用容器的執行個體，其他容器時，它們不會再將它們刪除所需。
+針對長時間執行的穩定工作負載，協調專用虛擬機器叢集中的容器所需的成本，一般會比使用容器執行個體來執行相同容器還低。 不過，容器執行個體能提供絕佳的解決方案來快速擴展和收縮整體容量，以處理未預期的使用量或短暫出現的高峰使用量。 Orchestrator 可以直接排程使用容器執行個體的其他容器，並在不再需要時加以刪除，而不是相應放大叢集中的虛擬機器數目，然後將其他容器部署至這些電腦。
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>實作範例：Kubernetes 的 Azure 容器執行個體連接器
 
@@ -73,6 +73,6 @@ Kubernetes 的連接器會模擬 [kubelet][kubelet-doc]，方法是註冊為具�
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

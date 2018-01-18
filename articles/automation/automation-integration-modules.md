@@ -11,28 +11,28 @@ ms.service: automation
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 589043f45a87595c9356cd8143beca23a4f83517
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 4eddce9d355a4b709e266129935766376d352045
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Azure 自動化整合模組
-PowerShell 是 Azure 自動化背後的基本技術。 由於 Azure 自動化的基礎是 PowerShell，PowerShell 模組會是 Azure 自動化的擴充性關鍵。 本文會引導您了解 Azure 自動化在使用 PowerShell 模組 (稱為「整合模組」) 方面的細節以及用來建立自有 PowerShell 模組的最佳做法，以確保 PowerShell 模組可做為 Azure 自動化內的整合模組。 
+PowerShell 是 Azure 自動化背後的基本技術。 由於 Azure 自動化的基礎是 PowerShell，PowerShell 模組會是 Azure 自動化的擴充性關鍵。 本文會引導您了解 Azure 自動化在使用 PowerShell 模組 (稱為「整合模組」) 方面的細節以及用來建立自有 PowerShell 模組的最佳做法，以確保 PowerShell 模組可作為 Azure 自動化內的整合模組。 
 
 ## <a name="what-is-a-powershell-module"></a>什麼是 PowerShell 模組？
-PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Item**，可透過 PowerShell 主控台、指令碼、工作流程、Runbook 來使用) 和 PowerShell DSC 資源 (例如 WindowsFeature 或檔案，可透過 PowerShell DSC 組態來使用)。 所有 PowerShell 功能都是透過 Cmdlet 和 DSC 資源來公開，而每個 Cmdlet/DSC 資源都會受到 PowerShell 模組所支援，其中有許多模組會隨附在 PowerShell 本身之中。 例如，**Get-Date** Cmdlet 是 Microsoft.PowerShell.Utility PowerShell 模組的一部分、**Copy-Item** Cmdlet 是 Microsoft.PowerShell.Management PowerShell 模組的一部分，而「套件 DSC」資源是 PSDesiredStateConfiguration PowerShell 模組的一部分。 以上這兩個模組隨附在 PowerShell 之中。 但有許多 PowerShell 模組並未隨附為 PowerShell 的一部分，而是會隨第一方或第三方產品 (例如 System Center 2012 Configuration Manager) 或是透過廣大的 PowerShell 社群 (PowerShell 資源庫之類的地方) 來散發。  模組非常實用，因為它們能透過封裝起來的功能讓複雜的工作變得簡單。  您可以在 MSDN 上深入了解 [PowerShell 模組](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)。 
+PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Item**，可透過 PowerShell 主控台、指令碼、工作流程、Runbook 來使用) 和 PowerShell DSC 資源 (例如 WindowsFeature 或檔案，可透過 PowerShell DSC 組態來使用)。 所有 PowerShell 功能都是透過 Cmdlet 和 DSC 資源來公開，而每個 Cmdlet/DSC 資源都會受到 PowerShell 模組所支援，其中有許多模組會隨附在 PowerShell 本身之中。 例如，**Get-Date** Cmdlet 是 Microsoft.PowerShell.Utility PowerShell 模組的一部分、**Copy-Item** Cmdlet 是 Microsoft.PowerShell.Management PowerShell 模組的一部分，而「套件 DSC」資源是 PSDesiredStateConfiguration PowerShell 模組的一部分。 以上這兩個模組隨附在 PowerShell 之中。 但有許多 PowerShell 模組並未隨附為 PowerShell 的一部分，而是會隨第一方或第三方產品 (例如 System Center 2012 Configuration Manager) 或是透過廣大的 PowerShell 社群 (PowerShell 資源庫之類的地方) 來散發。 模組非常實用，因為它們能透過封裝起來的功能讓複雜的工作變得簡單。  您可以在 MSDN 上深入了解 [PowerShell 模組](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)。 
 
 ## <a name="what-is-an-azure-automation-integration-module"></a>什麼是 Azure 自動化整合模組？
-整合模組和 PowerShell 模組的差異不大。 它就是選擇性地多包含一個檔案的 PowerShell 模組，該檔案是一個中繼資料檔案，會指定要與模組在 Runbook 中的 Cmdlet 搭配使用的 Azure 自動化連線類型。 不論是否包含選擇性檔案，這些 PowerShell 模組都可以匯入到 Azure 自動化，以使其 Cmdlet 可供在 Runbook 內使用，以及使其 DSC 資源可供在 DSC 組態內使用。 Azure 自動化會在幕後儲存這些模組，並在執行 Runbook 作業和 DSC 編譯作業時將其載入 Azure 自動化沙箱，以在其中執行 Runbook 和編譯 DSC 組態。  模組中的任何 DSC 資源也會自動放在 Automation DSC 提取伺服器上，以供嘗試套用 DSC 組態的機器提取。  
+整合模組與 PowerShell 模組不同。 它就是選擇性地多包含一個檔案的 PowerShell 模組，該檔案是一個中繼資料檔案，會指定要與模組在 Runbook 中的 Cmdlet 搭配使用的 Azure 自動化連線類型。 不論是否包含選擇性檔案，這些 PowerShell 模組都可以匯入到 Azure 自動化，以使其 Cmdlet 可供在 Runbook 內使用，以及使其 DSC 資源可供在 DSC 組態內使用。 Azure 自動化會在幕後儲存這些模組，並在執行 Runbook 作業和 DSC 編譯作業時將其載入 Azure 自動化沙箱，以在其中執行 Runbook 和編譯 DSC 組態。 模組中的任何 DSC 資源也會自動放在 Automation DSC 提取伺服器上，以供嘗試套用 DSC 組態的機器提取。  
 
 我們在 Azure 自動化中隨附了許多現成可用的 Azure PowerShell 模組供您使用，因此您可以立即開始將 Azure 管理自動化，但您也可以針對任何您想要整合的系統、服務或工具匯入 PowerShell 模組。 
 
 > [!NOTE]
-> 某些模組會以自動化服務中的「全域模組 」隨附。 這些全域模組可在您建立自動化帳戶時使用，而我們有時會更新這些模組，自動將其推送到您的自動化帳戶。 如果您不想要進行自動更新，您一律可以自行匯入相同的模組，而這將會優先於隨附在服務中該模組的全域模組版本。 
+> 某些模組會以自動化服務中的「全域模組 」隨附。 這些全域模組可在您建立自動化帳戶時使用，而我們有時會更新這些模組，自動將其推送到您的自動化帳戶。 如果您不想要進行自動更新，則一律可以自行匯入相同的模組，而這會優先隨附在服務中該模組的全域模組版本。 
 
 您匯入整合模組封裝時所用的格式為，和模組同名的且副檔名為 .zip 的壓縮檔。 封裝中含有 Windows PowerShell 模組和任何支援檔案，包括資訊清單檔 (.psd1) (如果模組有此檔的話)。
 
@@ -64,7 +64,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
 }
 ```
 
-如果您已部署 Service Management Automation 並為自動化 Runbook 建立整合模組封裝，您應該會相當熟悉此範本。 
+如果您已部署 Service Management Automation 並為自動化 Runbook 建立整合模組套件，則應該熟悉此範本。 
 
 ## <a name="authoring-best-practices"></a>撰寫最佳做法
 即使整合模組本來是 PowerShell 模組，當您在撰寫 PowerShell 模組時，我們仍建議您考慮一些事項，以便讓它在 Azure 自動化中發揮最大效用。 其中有些考慮事項是 Azure 自動化特有的，有些則只適用於讓模組能在 PowerShell 工作流程中良好運作，而不論您是否使用自動化。 
@@ -109,7 +109,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
 2. 如果針對遠端系統來執行模組，
 
     a. 它應該包含整合模組中繼資料檔案，以定義用來連線到該遠端系統所需的資訊，也就是連線類型。  
-    b.這是另一個 C# 主控台應用程式。 模組中的每個 Cmdlet 應該要能夠採用連線物件 (該連線類型的執行個體) 來做為參數。  
+    b. 模組中的每個 Cmdlet 應該要能夠採用連線物件 (該連線類型的執行個體) 來做為參數。  
 
     如果您允許將具有連線類型之欄位的物件，當做參數來傳遞至 Cmdlet，則模組中的 Cmdlet 會變得更容易使用 Azure 自動化。 如此一來，使用者就不必在每次呼叫 Cmdlet 時，將連線資產的參數對應至 Cmdlet 的相對應參數。 根據上述的 Runbook 範例，它使用稱為 CorpTwilio 的 Twilio 連線資產來存取 Twilio，並傳回帳戶中的所有電話號碼。  請注意它如何將連線的欄位對應至 Cmdlet 的參數？<br>
    
@@ -135,7 +135,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
     }
     ```
    
-    您可以透過讓 Cmdlet 接受直接將連線物件當做參數，而非只是參數的連線欄位，來讓 Cmdlet 具有這樣的行為。 通常您會想讓每個 Cmdlet 均設定參數，以便未使用 Azure 自動化的使用者可以直接呼叫 Cmdlet，而不必建構雜湊表來做為連線物件。 下面的參數集 **SpecifyConnectionFields** 可用來逐一傳遞連線欄位屬性。 **UseConnectionObject** 則可讓您直接傳遞連線。 如您所見， [Twilio PowerShell 模組](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) 中的 Send-TwilioSMS Cmdlet 允許以任一方式傳遞︰ 
+    您可以透過讓 Cmdlet 接受直接將連線物件當做參數，而非只是參數的連線欄位，來讓 Cmdlet 具有這樣的行為。 通常您會想讓每個 Cmdlet 都設定參數，讓未使用 Azure 自動化的使用者可以直接呼叫 Cmdlet，而不必建構雜湊表來作為連線物件。 下面的參數集 **SpecifyConnectionFields** 可用來逐一傳遞連線欄位屬性。 **UseConnectionObject** 則可讓您直接傳遞連線。 如您所見， [Twilio PowerShell 模組](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) 中的 Send-TwilioSMS Cmdlet 允許以任一方式傳遞︰ 
    
     ```
     function Send-TwilioSMS {
@@ -162,7 +162,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
     ```
    <br>
 3. 為模組中的所有 Cmdlet 定義輸出類型。 為 Cmdlet 定義輸出類型，可讓設計階段 IntelliSense 協助您判斷 Cmdlet 的輸出屬性，以供在撰寫期間使用。 在圖形化撰寫自動化 Runbook 期間，它會特別有幫助，因為設計階段的知識是讓模組的使用者獲得容易使用體驗的關鍵。<br><br> ![圖形化 Runbook 輸出類型](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> 這類似於 Cmdlet 在 PowerShell ISE 中的輸出的「自動提示」功能，但不需要加以執行。<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-4. 模組中的 Cmdlet 不應該採用複雜物件類型來做為參數。 PowerShell 工作流程與 PowerShell 的不同之處在於，它會以還原序列化的形式儲存複雜類型。 基本類型會保持基本，但複雜類型則會轉換為已還原序列化的版本，基本上來說也就是屬性包。 例如，如果您在 Runbook 使用 **Get-Process** Cmdlet (或任何類似用途的 PowerShell 工作流程)，它會傳回類型為 [Deserialized.System.Diagnostic.Process] 的物件，而非預期的 [System.Diagnostic.Process] 類型。 這個類型擁有和非還原序列化類型相同的屬性，但沒有任何方法。 而且如果您嘗試將此值做為參數傳遞至 Cmdlet，而此 Cmdlet 預期此參數要有 [System.Diagnostic.Process] 值，則您會收到下列錯誤︰「無法處理參數 'process' 的引數轉換。*錯誤：「無法將類型為 "Deserialized.System.Diagnostics.Process" 的 "System.Diagnostics.Process (CcmExec)" 值，轉換為 "System.Diagnostics.Process" 類型。」*   這是因為預期的 [System.Diagnostic.Process] 類型和給定的 [Deserialized.System.Diagnostic.Process] 類型不相符。 此問題的解決方式是確保模組的 Cmdlet 不會採用複雜類型來做為參數。 以下是錯誤的處理方式。
+4. 模組中的 Cmdlet 不應該採用複雜物件類型來做為參數。 PowerShell 工作流程與 PowerShell 的不同之處在於，它會以還原序列化的形式儲存複雜類型。 基本類型會保持基本，但複雜類型則會轉換為已還原序列化的版本，基本上來說也就是屬性包。 例如，如果您在 Runbook 使用 **Get-Process** Cmdlet (或任何類似用途的 PowerShell 工作流程)，它會傳回類型為 [Deserialized.System.Diagnostic.Process] 的物件，而非預期的 [System.Diagnostic.Process] 類型。 這個類型擁有和非還原序列化類型相同的屬性，但沒有任何方法。 而且如果您嘗試將此值作為參數傳遞至 Cmdlet，而此 Cmdlet 預期此參數要有 [System.Diagnostic.Process] 值，則您會收到下列錯誤︰「無法處理參數 'process' 的引數轉換。錯誤：「無法將類型為 "Deserialized.System.Diagnostics.Process" 的 "System.Diagnostics.Process (CcmExec)" 值，轉換為 "System.Diagnostics.Process" 類型。」   這是因為預期的 [System.Diagnostic.Process] 類型和給定的 [Deserialized.System.Diagnostic.Process] 類型不相符。 此問題的解決方式是確保模組的 Cmdlet 不會採用複雜類型來做為參數。 以下是錯誤的處理方式。
    
     ```
     function Get-ProcessDescription {

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
@@ -98,12 +98,12 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
 * 可調式一致性層級
 
- 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 進一步了解[可微調資料一致性層級，在 Azure Cosmos DB](consistency-levels.md)。
+ 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。
 
 Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如文件和圖表。 您可以使用文件集合來同時儲存圖表資料與文件。 您可以使用 JSON 的 SQL 查詢和 Gremlin 查詢，查詢與圖表相同的資料。
 
 ## <a name="get-started"></a>開始使用
-您可以透過 Azure 命令列介面 (CLI)、Azure PowerShell 或 Azure 入口網站，搭配圖形 API 的支援，建立 Azure Cosmos DB 帳戶。 建立之後，Azure 入口網站會提供像 `https://<youraccount>.graphs.azure.com` 一樣的服務端點，提供 Gremlin 的 WebSocket 前端。 您可以設定 TinkerPop 相容性工具 (例如 [Gremlin 主控台](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)) 連線至此端點，然後在 Java、Node.js 或任何 Gremlin 用戶端驅動程式中建置應用程式。
+您可以透過 Azure 命令列介面 (CLI)、Azure PowerShell 或 Azure 入口網站，搭配圖形 API 的支援，建立 Azure Cosmos DB 帳戶。 建立之後，Azure 入口網站會提供像 `https://<youraccount>.gremlin.cosmosdb.azure.com` 一樣的服務端點，提供 Gremlin 的 WebSocket 前端。 您可以設定 TinkerPop 相容性工具 (例如 [Gremlin 主控台](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)) 連線至此端點，然後在 Java、Node.js 或任何 Gremlin 用戶端驅動程式中建置應用程式。
 
 下表顯示您可以運用在 Azure Cosmos DB 上的常用 Gremlin 驅動程式︰
 
@@ -113,7 +113,7 @@ Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Github 上的 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin 主控台](https://tinkerpop.apache.org/downloads.html) |[TinkerPop 文件](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB 也透過 NuGet 提供 .NET 程式庫，其中包含以 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 為基礎的 Gremlin 擴充方法。 此程式庫提供可讓您直接連接到資料分割的 「 在處理序 」 Gremlin 伺服器。
+Azure Cosmos DB 也透過 NuGet 提供 .NET 程式庫，其中包含以 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 為基礎的 Gremlin 擴充方法。 此程式庫提供「同處理序」Gremlin 伺服器，可用來直接連線至資料分割。
 
 | 下載 | 文件 |
 | --- | --- |

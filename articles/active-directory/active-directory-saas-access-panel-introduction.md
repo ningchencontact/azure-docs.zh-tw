@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/06/2018
 
 若要觸達存取面板，您必須透過 Azure AD 中的公司或學校帳戶進行驗證。 Azure AD 可以直接驗證您。 或者，如果組織已經使用 Active Directory 同盟服務 (ADFS) 或其他技術設定同盟，則可由 Windows Server Active Directory 驗證您。
 
-如果您具備 Azure 或 Office 365 的訂用帳戶，而且已在使用 Azure 入口網站或 Office 365 應用程式，您可以看到應用程式清單，而不需再次登入。 如果您不會驗證當系統提示您在 Azure AD 中使用使用者名稱和密碼為您的帳戶登入。 如果您的組織已設定同盟，則輸入使用者名稱已經足夠。
+如果您具備 Azure 或 Office 365 的訂用帳戶，而且已在使用 Azure 入口網站或 Office 365 應用程式，您可以看到應用程式清單，而不需再次登入。 如果您未經過驗證，系統會提示您在 Azure AD 中使用您帳戶的使用者名稱和密碼進行登入。 如果您的組織已設定同盟，則輸入使用者名稱已經足夠。
 
 經過驗證後，您就能夠與由系統管理員整合到目錄的應用程式互動。 若要了解如何整合應用程式與 Azure AD，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
@@ -70,31 +70,33 @@ ms.lasthandoff: 01/06/2018
 
 存取面板至少需要有支援 JavaScript 且啟用 CSS 的瀏覽器。 若要讓使用者透過密碼單一登入 (SSO) 登入應用程式，必須在您的瀏覽器中安裝存取面板擴充功能。 當您選取已設定密碼型 SSO 的應用程式時，系統就會自動下載此擴充功能。
 
-存取面板延伸模組是目前可供使用：
+存取面板延伸模組是目前可用於：
 -   Windows 10 Anniversary Edition 或更新版本上的 Edge 
 
 -   Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 
 -   Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
 
--   Internet Explorer 8、 9、 10、 11-在 Windows 7 或更新版本 （有限的支援）
+-   Internet Explorer 8、9、10、11 -- 在 Windows 7 或更新版本上 (支援有限)
 
 ## <a name="my-apps-secure-sign-in-extension"></a>我的應用程式安全登入延伸模組
-副檔名是必要的使用者登入密碼型單一登入。 一旦已安裝的使用者也可以登入的擴充功能，即可啟用其他功能**登入，若要開始使用**。 
+需要有此延伸模組，使用者才能登入密碼型單一登入。 安裝之後，使用者也可以按一下 [登入以開始使用]，透過登入延伸模組來啟用其他功能。 
 
-- 使用者可以登入應用程式直接瀏覽應用程式的**登入 URL**。 當使用者巡覽至應用程式的登入 URL 擴充功能會偵測到此，並提供選項，讓使用者登入它從延伸模組。
-- 使用者也可以啟動任何應用程式從存取面板使用**快速搜尋**擴充功能的功能。 
-- 擴充功能也會顯示使用者在啟動下最後三個應用程式**最近使用過**> 一節。
+- 使用者瀏覽應用程式的 [登入 URL]，即可直接登入應用程式。 使用者巡覽至應用程式的登入 URL 時，延伸模組將會偵測到此作業並提供選項，讓使用者從延伸模組登入它。
+- 使用者也可以從存取面板使用延伸模組的**快速搜尋**功能，來啟動其任何應用程式。 
+- 延伸模組也會在 [最近使用的] 區段下方，向使用者顯示他們啟動的最後三個應用程式。
+
 > [!NOTE]
-> 其他功能只適用於 Edge、 Chrome、 Firefox。
+> 其他功能僅適用於 Edge、Chrome 和 Firefox。
+>
+>
 
-
-如果您使用不同的我的應用程式 URL https://myapps.microsoft.com 比然後您必須設定您的預設 URL 透過下列步驟：
-1. 未簽署成擴充功能，而**以滑鼠右鍵按一下**擴充圖示。
-2. 按一下**選取我的應用程式 URL**從功能表。
+如果您使用的「我的應用程式 URL」與 https://myapps.microsoft.com 不同，則必須透過下列步驟設定您的預設 URL：
+1. 在尚未登入延伸模組時，**以滑鼠右鍵按一下**延伸模組圖示。
+2. 按一下功能表中的 [Select My Apps URL] (選取我的應用程式 URL)。
 3. **選取**預設 URL。
-4. 按一下擴充功能圖示。
-5. 登入選取的延伸模組**登入，若要開始使用**。
+4. 按一下延伸模組圖示。
+5. 選取 [登入以開始使用] 來登入延伸模組。
 
 ## <a name="mobile-app-support"></a>行動應用程式支援
 

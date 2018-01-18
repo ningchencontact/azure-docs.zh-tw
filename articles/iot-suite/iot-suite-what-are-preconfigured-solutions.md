@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>什麼是 Azure IoT 套件？
 
@@ -62,7 +62,7 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [遠端監視](iot-suite-remote-monitoring-explore.md)  |yes |yes |yes |-   |yes |yes |-   |
 | [預測性維護](iot-suite-predictive-overview.md)   |yes |yes |-   |-   |yes |yes |yes |
-| [連線的處理站](iot-suite-connected-factory-overview.md) |yes |yes |yes |yes |yes |yes |-   |
+| [連線的處理站](iot-suite-connected-factory-overview.md) |yes |- |- |yes |yes |yes |-   |
 
 * *資料擷取*：雲端規模的資料輸入。
 * *裝置身分識別*：管理唯一裝置身分識別，以及控制裝置對解決方案的存取。
@@ -83,11 +83,11 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 | IoT 中樞              | yes                |                        | yes               |
 | 事件中樞           |                    | yes                    |                   |
 | Time Series Insights |                    |                        | yes               |
-| 容器服務   | yes                |                        | yes               |
+| 容器服務   | yes                |                        |                   |
 | 串流分析     |                    | yes                    |                   |
 | Web Apps             | yes                | yes                    | yes               |
-| Cosmos DB            | yes                | yes                    | yes               |
-| Azure 資料表         |                    | yes                    | yes               |
+| Cosmos DB            | yes                | yes                    |                    |
+| Azure 儲存體         |                    | yes                    | yes               |
 
 > [!NOTE]
 > 如需有關部署在遠端監視預先設定解決方案中資源的詳細資訊，請在 GitHub 上參閱此[文章](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments)。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -122,7 +122,7 @@ ms.lasthandoff: 12/09/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |choose|根元素。|是|  
 |when|要用於 `choose` 原則之 `if` 或 `ifelse` 組件的條件。 如果 `choose` 原則有多個 `when` 區段，則會依序評估這些區段。 一旦 when 元素的 `condition` 評估為 `true` 後，就不會再評估後面的 `when` 條件。|是|  
@@ -130,7 +130,7 @@ ms.lasthandoff: 12/09/2017
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|  
+|屬性|描述|必要|  
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|所包含之 `when` 原則陳述式受到評估時，所要評估的布林運算式或常數。|是|  
   
@@ -234,13 +234,13 @@ ms.lasthandoff: 12/09/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |forward-request|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |timeout="integer"|以秒為單位的逾時間隔，後端服務的呼叫在經過此間隔後便會失敗。|否|300 秒|  
 |follow-redirects="true &#124; false"|指定來自後端服務的重新導向會由閘道遵循或傳回給呼叫者。|否|false|  
@@ -281,13 +281,13 @@ ms.lasthandoff: 12/09/2017
 
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|    
 |limit-concurrency|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|--------------|  
 |索引鍵|字串。 允許的運算式。 指定並行範圍。 可由多個原則共用。|是|N/A|  
 |max-count|整數。 指定允許輸入原則的要求數目上限。|是|N/A|  
@@ -331,13 +331,13 @@ ms.lasthandoff: 12/09/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|根元素。 此元素的值是要記錄至事件中樞的字串。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|  
+|屬性|描述|必要|  
 |---------------|-----------------|--------------|  
 |logger-id|向 API 管理服務註冊之記錄器的識別碼。|是|  
 |partition-id|指定訊息傳送目的地的資料分割索引。|選用。 如果使用 `partition-key`，就不能使用這個屬性。|  
@@ -374,13 +374,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |mock-response|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|指定回應狀態碼，且用來選取對應範例或結構描述。|否|200|  
 |Content-Type|指定 `Content-Type` 回應標頭值，且用來選取對應範例或結構描述。|否|None|  
@@ -412,7 +412,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>範例  
- 下列範例會使用指數重試演算法重試要求轉送達十次之多。 由於 `first-fast-retry` 設為 false，所有重試嘗試都會使用指數重試演算法。  
+ 下列範例會使用指數重試演算法來重試要求轉送最多十次。 因為 `first-fast-retry` 設定為 false，所以所有重試嘗試都會使用指數重試演算法。  
   
 ```xml  
   
@@ -430,13 +430,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |retry|根元素。 可包含其他任何原則來做為其子元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |condition|布林常值或[運算式](api-management-policy-expressions.md)，指定應停止 (`false`) 還是繼續 (`true`) 重試。|是|N/A|  
 |count|正數，指定要嘗試的重試次數上限。|是|N/A|  
@@ -485,7 +485,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |return-response|根元素。|是|  
 |set-header|[set-header](api-management-transformation-policies.md#SetHTTPheader) 原則陳述式。|否|  
@@ -494,7 +494,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|  
+|屬性|描述|必要|  
 |---------------|-----------------|--------------|  
 |response-variable-name|所參考的內容變數名稱，其參考來源為 (舉例來說) 上游 [send-request](api-management-advanced-policies.md#SendRequest) 原則，且包含 `Response` 物件|選用。|  
   
@@ -551,7 +551,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|根元素。|是|  
 |url|要求的 URL。|mode=copy 時為 [否]；否則為 [是]。|  
@@ -561,7 +561,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。|否|新增|  
 |name|指定要設定之標頭的名稱。|是|N/A|  
@@ -630,7 +630,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |send-request|根元素。|是|  
 |url|要求的 URL。|mode=copy 時為 [否]；否則為 [是]。|  
@@ -640,7 +640,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。|否|新增|  
 |response-variable-name="string"|如果不存在，則會使用 `context.Response`。|否|N/A|  
@@ -676,13 +676,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |proxy|根元素|是|  
 
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |url="string"|http://host:port 形式的 Proxy URL。|是|N/A|  
 |username="string"|用於向 Proxy 驗證的使用者名稱。|否|N/A|  
@@ -736,7 +736,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |set-method|根元素。 元素的值會指定 HTTP 方法。|是|  
   
@@ -776,13 +776,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |set-status|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |code="integer"|要傳回的 HTTP 狀態碼。|是|N/A|  
 |reason="string"|狀態碼傳回原因的描述。|是|N/A|  
@@ -811,13 +811,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |set-variable|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|  
+|屬性|描述|必要|  
 |---------------|-----------------|--------------|  
 |name|變數的名稱。|是|  
 |value|變數的值。 此值可為運算式或常值。|是|  
@@ -878,13 +878,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |trace|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |來源|對追蹤檢視器有意義，並指定了訊息來源的字串常值。|是|N/A|  
   
@@ -945,13 +945,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|說明|必要|  
+|元素|描述|必要|  
 |-------------|-----------------|--------------|  
 |wait|根元素。 只能包含做為子元素 `send-request`、`cache-lookup-value` 和 `choose` 原則。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|說明|必要|預設值|  
+|屬性|描述|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |for|決定 `wait` 原則是要等候所有直屬子原則完成或只等候一個完成。 允許的值包括：<br /><br /> -   `all` - 等候所有直屬子原則完成<br />-   any - 等候任一直屬子原則完成。 第一個直屬子原則完成後，`wait` 原則便會完成，並終止執行任何其他直屬子原則。|否|所有|  
   

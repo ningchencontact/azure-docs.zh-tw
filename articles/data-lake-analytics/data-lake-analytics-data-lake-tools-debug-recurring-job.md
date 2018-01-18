@@ -1,5 +1,5 @@
 ---
-title: "如何針對異常的週期性作業進行疑難排解 | Microsoft Docs"
+title: "針對異常的週期性作業進行疑難排解 | Microsoft Docs"
 description: "了解如何使用 Azure Data Lake Tools for Visual Studio 針對異常的週期性作業進行偵錯。"
 services: data-lake-analytics
 documentationcenter: 
@@ -14,60 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2017
 ms.author: yanacai
-ms.openlocfilehash: a358f94b117c12511028a875e56b5c9dba8d3382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b60c861810d6577b33aa0cdf14f26dc2cfc0e4d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="how-to-troubleshoot-an-abnormal-recurring-job"></a>如何針對異常的週期性作業進行疑難排解
+# <a name="troubleshoot-an-abnormal-recurring-job"></a>針對異常的週期性作業進行疑難排解
 
-本文件中，我們將介紹如何使用 [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) 針對週期性作業進行疑難排解。 從[這裡](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/)深入了解管線和週期性作業。
-週期性作業通常會共用相同的查詢邏輯和類似的輸入資料。 例如，您在每個星期一早上 8 點有一個週期性作業， 要計算上週的每週作用中使用者，這些作業的指令碼共用一個包含查詢邏輯的指令碼範本，而這些作業的輸入是上週的使用方式資料。 共用相同的查詢邏輯和類似的輸入通常表示這些作業的效能很相似而且穩定，如果其中一個週期性作業突然執行異常、失敗或速度變得很慢，您可能要：
+本文顯示如何使用 [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)，針對週期性作業進行疑難排解。 從 [Azure Data Lake and Azure HDInsight 部落格](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/) 中，深入了解管線和週期性工作。
 
-1.  查看週期性作業前幾次執行的統計資料報告，了解發生了什麼事。
-2.  比較異常作業與正常作業，找出變更之處。
+週期性作業通常會共用相同的查詢邏輯和類似的輸入資料。 例如，假設您在每個星期一早上 8 點有一個週期性作業， 計算過去一週的每週作用中使用者數目。 這些作業的指令碼會共用一個包含查詢邏輯的指令碼範本。 這些作業的輸入是過去一週的使用量資料。 共用相同的查詢邏輯和類似的輸入時，通常表示這些作業的效能類似且穩定。 如果其中一個週期性作業突然執行異常、失敗或變得十分緩慢，您可能想要：
+
+- 查看週期性作業前幾次執行的統計資料報表，了解發生了什麼事。
+- 比較異常作業與正常作業，找出變更之處。
 
 Azure Data Lake Tools for Visual Studio 中的**相關作業檢視**可協助您加快兩種案例的疑難排解進度。
 
 ## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>步驟 1：找出週期性作業，並開啟 [相關作業檢視]
 
-若要使用 [相關作業檢視] 針對週期性作業的問題進行疑難排解，您必須先在 Visual Studio 中找出週期性作業，然後開啟 [相關作業檢視]。
+若要使用 [相關作業檢視] 針對週期性作業問題進行疑難排解，您必須先在 Visual Studio 中找出週期性作業，然後開啟 [相關作業檢視]。
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>案例 1：您有週期性作業的 URL
 
-透過 [工具] > [Data Lake] > [作業檢視]，您可以貼上作業 URL 以在 Visual Studio 中開啟 [作業檢視]，並透過 [檢視相關作業] 開啟 [相關作業檢視]。
+透過 [工具] > [Data Lake] > [作業檢視]，您可以貼上作業 URL，以在 Visual Studio 中開啟 [作業檢視]。 選取 [檢視相關作業]，開啟 [相關作業檢視]。
 
-![Data Lake Analytics 工具的 [檢視相關作業]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
+![Data Lake Analytics 工具中的 [檢視相關作業] 連結](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>案例 2：您有週期性作業的管線，而不是 URL
 
-在 Visual Studio 中，您可以透過 [伺服器總管] > 您的 Data Lake Analytics 帳戶 > [管線] 開啟管線瀏覽器 (如果您在伺服器總管中找不到這個節點，請在[這裡](http://aka.ms/adltoolsvs)取得最新的工具)。 在管線瀏覽器中，ADLA 帳戶的所有管線都會列在左側，您可以展開管線以尋找所有週期性作業，按一下有問題的作業，[相關作業檢視] 就會在右側開啟。
+在 Visual Studio 中，您可以透過 [伺服器總管] > 您的 Azure Data Lake Analytics 帳戶 > [管線] 來開啟管線瀏覽器  (如果您在伺服器總管中找不到此節點，請[下載最新外掛程式。](http://aka.ms/adltoolsvs))。 
 
-![Data Lake Analytics 工具的 [檢視相關作業]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
+![選取 [管線] 節點](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 
-![Data Lake Analytics 工具的 [檢視相關作業]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
+在管線瀏覽器中，Data Lake Analytics 帳戶的所有管線都會列在左側。 您可以展開管線來尋找所有週期性作業，然後選取發生問題的週期性作業。 即會在右側開啟 [相關作業檢視]。
 
-## <a name="step-2-analyze-statistics-report"></a>步驟 2：分析統計資料報告
+![選取管線並開啟 [相關作業檢視]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-摘要和統計資料報告會顯示在 [相關作業檢視] 的頂端，您可以透過這些資料獲得異常的潛在根本原因。 
+## <a name="step-2-analyze-a-statistics-report"></a>步驟 2：分析統計資料報表
 
-1.  首先，您必須在報告中找出異常的作業。 X 軸顯示作業提交時間，您可以透過這裡找出異常的作業。
-2.  依照下列程序來檢查統計資料，並獲得異常的深入資訊和可能的解決方案。
+摘要和統計資料報表會顯示在 [相關作業檢視] 頂端。 您可以在這裡找到問題的潛在根本原因。 
 
-![Data Lake Analytics 工具的 [檢視相關作業]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
+1.  在報表中，X 軸會顯示作業提交時間。 使用它，可以找出異常作業。
+2.  使用下圖中的程序來檢查統計資料，並深入了解問題和可能的解決方案。
 
-## <a name="step-3-compare-the-abnormal-recurring-job-to-a-normal-job"></a>步驟 3：比較異常的週期性作業與正常作業
+![檢查統計資料的程序流程圖](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-您可以透過 [相關作業檢視] 底部的作業清單，找出所有已提交的週期性作業。 以滑鼠右鍵按一下，您可以比較異常的作業與前一個正常的作業，在 [作業差異] 檢視中找出更多深入資訊和可能的解決方案。
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>步驟 3：比較異常作業與正常作業
 
-![Data Lake Analytics 工具的 [檢視相關作業]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
+您可以透過 [相關作業檢視] 底部的作業清單，找出所有已提交的週期性作業。 若要尋找更多深入資訊和可能的解決方案，請以滑鼠右鍵按一下異常作業。 使用 [作業差異] 檢視，以比較異常作業與先前的正常作業。
 
-您通常需要注意這 2 個作業之間較大的差異，因為這類差異可能是造成效能問題的原因，您也可以依照下列步驟進行進一步檢查。
+![比較作業的捷徑功能表](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
 
-![Data Lake Analytics 工具的 [檢視相關作業]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
+請注意這兩個作業的大型差異。 這些差異可能會造成效能問題。 若要進一步檢查，請使用下圖中的步驟：
+
+![檢查作業之間差異的流程圖](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何偵錯並解決資料扭曲問題](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [如何針對 U-SQL 作業失敗進行偵錯找出使用者定義程式碼錯誤](data-lake-analytics-debug-u-sql-jobs.md)
+* [解決資料扭曲問題](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
+* [對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯](data-lake-analytics-debug-u-sql-jobs.md)

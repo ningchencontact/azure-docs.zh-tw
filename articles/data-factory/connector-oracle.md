@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ ms.lasthandoff: 01/05/2018
 若要從不可公開存取的 Oracle 資料庫複製資料，或將資料複製到該處，您必須設定一個「自我裝載 Integration Runtime」。 如需有關 Integration Runtime 的詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md)。 Integration Runtime 提供內建的 Oracle 驅動程式，因此從 Oracle 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Oracle 連接器專屬的 Data Factory 實體。
 
@@ -54,10 +55,10 @@ ms.lasthandoff: 01/05/2018
 
 以下是針對 Oracle 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Oracle** | 是 |
-| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 請將此欄位標示為 SecureString。<br><br>**支援的連接類型**： 您可以選擇使用**Oracle SID**或**Oracle 服務名稱**來識別您的資料庫：<br>-使用 SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | 是 |
+| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 請將此欄位標示為 SecureString。<br><br>**支援的連線類型**：您可以選擇使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -87,7 +88,7 @@ ms.lasthandoff: 01/05/2018
 
 若要從 Oracle 複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **OracleTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**OracleTable** | 是 |
 | tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | 是 |
@@ -119,7 +120,7 @@ ms.lasthandoff: 01/05/2018
 
 若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 **OracleSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**OracleSource** | 是 |
 | oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 |
@@ -162,7 +163,7 @@ ms.lasthandoff: 01/05/2018
 
 若要將資料複製到 Oracle，請將複製活動中的接收器類型設定為 **OracleSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的 type 屬性必須設定為：**OracleSink** | 是 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值為 10000) |

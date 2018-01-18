@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics 記錄檔搜尋中的電腦群組 | Microsoft Docs"
+title: "Azure Log Analytics 記錄搜尋中的電腦群組 | Microsoft Docs"
 description: "Log Analytics 中的電腦群組可讓您將記錄檔搜尋範圍限於一組特定的電腦。  這篇文章說明可用來建立電腦群組的不同方法，以及如何將它們用在記錄檔搜尋中。"
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 記錄檔搜尋中的電腦群組
 
@@ -27,7 +27,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 ## <a name="creating-a-computer-group"></a>建立電腦群組
 您可以使用下表的任何方法，在 Log Analytics 中建立電腦群組。  下列各節提供每個方法的詳細資料。 
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |:--- |:--- |
 | 記錄搜尋 |建立記錄檔搜尋來傳回電腦清單。 |
 | 記錄檔搜尋 API |使用記錄檔搜尋 API，根據記錄檔搜尋結果，以程式設計方式建立電腦群組。 |
@@ -44,7 +44,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 
 下表描述定義電腦群組的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:---|:---|
 | 顯示名稱   | 要在入口網站中顯示的搜尋名稱。 |
 | 類別       | 用來在入口網站中組織搜尋的類別。 |
@@ -83,7 +83,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 匯入群組後，此功能表會列出已偵測到群組成員資格的電腦數目，以及匯入的群組數目。  您可以按一下任一連結，以連同此資訊傳回 **ComputerGroup** 記錄。
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-當您設定匯入 Log Analytics 來匯入 WSUS 群組成員資格時，它會分析裝有 OMS 代理程式的任何電腦的目標群組成員資格。  如果您使用用戶端目標，則任何連線至 OMS 且屬於任何 WSUS 目標群組的電腦，其群組成員資格都將匯入到 Log Analytics。 如果您使用伺服器端目標，則 WSUS 伺服器上應該安裝 OMS 代理程式，群組成員資格資訊才能匯入到 OMS。  此成員資格持續地每 4 小時更新一次。 
+當您設定匯入 Log Analytics 來匯入 WSUS 群組成員資格時，它會分析裝有 OMS 代理程式的任何電腦的目標群組成員資格。  如果您使用用戶端目標，則任何連線至 Log Analytics 且屬於任何 WSUS 目標群組的電腦，其群組成員資格都會匯入至 Log Analytics。 如果您使用伺服器端目標，則 WSUS 伺服器上應該安裝 OMS 代理程式，才能將群組成員資格資訊匯入至 Log Analytics。  此成員資格持續地每 4 小時更新一次。 
 
 您可以在 Azure 入口網站中，將 Log Analytics 設定為從 Log Analytics [進階設定] 匯入 WSUS 群組。  依序選取 [電腦群組]、[WSUS] 和 [匯入 WSUS 群組成員資格]。  不需要進一步的組態。
 
@@ -145,9 +145,9 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 
 
 ## <a name="computer-group-records"></a>電腦群組記錄
-針對從 Active Directory 或 WSUS 建立每個電腦群組成員資格，OMS 存放庫中會建立一筆記錄。  這些記錄的類型為 **ComputerGroup**，且具有下表中的屬性。  如果電腦群組是根據記錄檔搜尋，則不會建立記錄。
+針對從 Active Directory 或 WSUS 建立每個電腦群組成員資格，Log Analytics 工作區中會建立一筆記錄。  這些記錄的類型為 **ComputerGroup**，且具有下表中的屬性。  如果電腦群組是根據記錄檔搜尋，則不會建立記錄。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 類型 |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |

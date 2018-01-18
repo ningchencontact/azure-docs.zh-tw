@@ -1,5 +1,5 @@
 ---
-title: "報告︰Azure AD SSPR | Microsoft Docs"
+title: "自助式密碼重設報告 - Azure Active Directory"
 description: "報告 Azure AD 自助式密碼重設事件"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a6edc777b7b6ec3cfeacc8c548bb3c6ad306303c
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/15/2017
 Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告中包含的所有資訊。 您可以使用此 API 下載個別的密碼重設和密碼重設註冊事件，並將它們與您選擇的報告技術整合。
 
 > [!IMPORTANT]
-> 目前，Azure AD 報告和事件 API 會擷取 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 和 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 類型最多 *75,000 個個別事件*。 API 跨越過去 30 天。
+> 目前，Azure AD 報告和事件 API 會擷取 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 和 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 類型最多 *75,000 個個別事件*。 API 範圍為過去 30 天。
 > 
 > 如果您需要擷取或儲存比這個期間更早的資料，建議將資料保存在外部資料庫，並利用 API 來查詢產生的差異。 我們建議您當您開始在組織中使用 SSPR 時即開始擷取這項資料。 將它保存在外部，之後從該點繼續追蹤差異。
 >

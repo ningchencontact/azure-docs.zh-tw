@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 37f6049f2fc39bfa93135ce7c0d0013d7e37217c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: dcb52e9de98d881474007410f3db599682e151ce
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者指派給系統管理員角色
 本文說明如何在 Azure Active Directory (Azure AD) 中將系統管理角色指派給使用者。 如需有關在您組織中新增新使用者的資訊，請參閱[將新的使用者新增到 Azure Active Directory](active-directory-users-create-azure-portal.md)。 新增的使用者預設不會有系統管理員權限，但是您可以隨時指派角色給他們。
@@ -30,17 +30,17 @@ ms.lasthandoff: 12/11/2017
 
    ![開啟使用者管理](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. 選取 [所有使用者]。
-
-   ![開啟所有使用者群組](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
-1. 從清單中選取使用者。
-2. 針對選取的使用者，選取 [目錄角色]，然後將使用者指派給 [目錄角色] 清單中的角色。 如需有關使用者和系統管理員角色的詳細資訊，請參閱 [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
+  
+  ![開啟所有使用者群組](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
+4. 從清單中選取使用者。
+5. 針對選取的使用者，選取 [目錄角色]，然後將使用者指派給 [目錄角色] 清單中的角色。 如需有關使用者和系統管理員角色的詳細資訊，請參閱 [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
 
       ![將使用者指派給角色](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟
-* [新增使用者](active-directory-users-create-azure-portal.md)
-* [在新 Azure 入口網站中重設使用者的密碼](active-directory-users-reset-password-azure-portal.md)
-* [變更使用者的工作資訊](active-directory-users-work-info-azure-portal.md)
+* [快速入門：在 Azure Active Directory 中新增或刪除使用者](add-users-azure-active-directory.md)
 * [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
-* [在 Azure AD 中刪除使用者](active-directory-users-delete-user-azure-portal.md)
+* [從另一個目錄中新增來賓使用者](active-directory-b2b-what-is-azure-ad-b2b.md) 
+* [在 Azure AD 中將使用者指派給角色](active-directory-users-assign-role-azure-portal.md)
+* [還原已刪除的使用者](active-directory-users-restore.md)

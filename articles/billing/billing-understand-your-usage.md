@@ -1,5 +1,5 @@
 ---
-title: "了解您的 Azure 詳細使用量 | Microsoft Docs"
+title: "了解 Azure 詳細使用量"
 description: "了解如何閱讀並了解 Azure 訂用帳戶的詳細使用量 CSV 區段"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>了解您 Microsoft Azure 詳細使用量費用的相關字詞 
+
 詳細的使用量費用 CSV 檔案會包含目前計費期間的每日及計量層級使用量費用。 
 
 若要取得詳細使用量檔案，請參閱[如何取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)。
@@ -28,18 +29,17 @@ ms.lasthandoff: 10/11/2017
 
 使用量費用是訂用帳戶的**每月**總費用。 使用量費用不會將任何信用額度或折扣列入考慮。
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>詳細使用量檔案的詳細字詞和描述
+
 下列各節說明第 2 版詳細使用量檔案中所示的重要字詞。
 
 ### <a name="statement"></a>陳述式
+
 詳細使用量 CSV 檔案的上方區段會顯示您在當月計費期間使用的服務。 下表列出本節中所顯示的詞彙和說明。
 
-| 詞彙 | 說明 |
+| 詞彙 | 描述 |
 | --- | --- |
 |計費期間 |使用計量時的計費期間 |
 |計量類別 |識別使用量的最上層服務 |
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 CSV 檔案的 [每日使用量] 區段會顯示影響收費率的使用量詳細資料。 下表列出本節中所顯示的詞彙和說明。
 
-| 詞彙 | 說明 |
+| 詞彙 | 描述 |
 | --- | --- |
 |使用日期 |使用計量時的日期 |
 |計量類別 |識別這個使用量所屬的最上層服務 |

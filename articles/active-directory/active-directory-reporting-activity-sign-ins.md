@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 36ff13f94e94df5b5be3645d3c9bd0cdca5cd6f9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ad7b1aae4ee14e46a5df6be0ebc29bfd455852d4
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -28,9 +28,11 @@ ms.lasthandoff: 12/11/2017
 Azure Active Directory 中的報告架構包含下列元件：
 
 - **活動** 
-    - **登入活動** – 受管理應用程式和使用者登入活動的使用情況相關資訊
-    - **稽核記錄** - 關於使用者和群組管理、受管理應用程式和目錄活動的系統活動資訊。
-- **安全性** 
+    - 
+            **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
+    - 
+            **稽核記錄** - 關於使用者和群組管理、受控應用程式和目錄活動的系統活動資訊。
+- **Security** 
     - **有風險的登入** - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。 如需詳細資訊，請參閱＜有風險的登入＞。
     - **標幟為有風險的使用者** - 有風險的使用者表示可能被盜用的使用者帳戶。 如需詳細資訊，請參閱＜標幟為有風險的使用者＞。
 
@@ -89,7 +91,7 @@ Azure Active Directory 中的報告架構包含下列元件：
 
 - 時間間隔
 - User
-- 應用程式
+- Application
 - 用戶端
 - 登入狀態
 
@@ -163,7 +165,7 @@ Azure Active Directory 中的報告架構包含下列元件：
 
 
 
-## <a name="usage-of-managed-applications"></a>受管理應用程式的使用情況
+## <a name="usage-of-managed-applications"></a>受控應用程式的使用情況
 
 利用登入資料以應用程式為主的檢視，您可以回答下列問題︰
 

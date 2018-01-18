@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入門：將使用者新增至 Azure Active Directory
-本文說明如何在 Azure Active Directory (Azure AD) 中新增您組織中的使用者，您可以使用 Azure 入口網站一次新增一位，或藉由同步處理您內部部署 Windows Server AD 使用者帳戶資料來新增。 
+本文說明如何在組織的 Azure Active Directory (Azure AD) 租用戶中刪除或新增您組織的使用者，而方法是使用 Azure 入口網站，或同步處理內部部署 Windows Server AD 使用者帳戶資料。 
 
 ## <a name="add-cloud-based-users"></a>新增雲端式使用者
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
@@ -48,8 +48,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="learn-more"></a>深入了解 
 * [從另一個目錄中新增來賓使用者](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [在 Azure AD 中將使用者指派給角色](active-directory-users-assign-role-azure-portal.md)
+* [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
+* [還原已刪除的使用者](active-directory-users-restore.md)
+
+
 
 ## <a name="next-steps"></a>後續步驟
 在此快速入門中，您學到如何將使用者新增至 Azure AD Premium。 

@@ -1,5 +1,5 @@
 ---
-title: "授權︰Azure AD SSPR | Microsoft Docs"
+title: "授權自助式密碼重設 - Azure Active Directory"
 description: "Azure AD 自助式密碼重設授權需求"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
 為了讓 Azure Active Directory (Azure AD) 密碼重設為函式，您必須至少在組織中被指派一個授權。 我們不會對密碼重設體驗強制執行每個使用者的授權。 若要符合您的 Microsoft 授權合約規定，您需要將授權指派給任何使用進階功能的使用者。
 
 * **僅限雲端使用者**：Office 365 任何付費的 SKU，或 Azure AD Basic
-* **雲端**或**內部部署使用者**：Azure AD Premium P1 或 P2、Enterprise Mobility + Security (EMS) 或 Secure Productive Enterprise (SPE)
+* **雲端**或**內部部署使用者**：Azure AD Premium P1 或 P2、Enterprise Mobility + Security (EMS) 或 Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>密碼回寫所需的授權
 
@@ -42,6 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 > [!WARNING]
 > 獨立的 Office 365 授權方案不支援密碼回寫，而且需要您具備上述其中一個方案，這項功能才能運作。
+>
 
 在下列分頁可以找到額外的授權資訊 (包括成本)：
 
@@ -69,4 +70,3 @@ Azure AD 現在支援以群組為基礎的授權。 系統管理員可以將大�
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
 * [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
-

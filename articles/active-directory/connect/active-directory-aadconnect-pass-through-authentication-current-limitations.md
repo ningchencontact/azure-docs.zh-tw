@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 01/05/2018
 下列案例會有完整支援︰
 
 - 使用者登入所有網頁瀏覽器型應用程式
-- 使用者登入 Office 應用程式支援[新式驗證](https://aka.ms/modernauthga): Office 2016 和 Office 2013_與_新式驗證
-- 使用者登入支援新式驗證，包括 Online 和混合式拓撲商務用 skype。 深入了解支援的拓撲[這裡](https://technet.microsoft.com/library/mt803262.aspx)。
+- 使用者登入支援[新式驗證](https://aka.ms/modernauthga)的 Office 應用程式 - 「具有」新式驗證的 Office 2016 和 Office 2013
+- 使用者登入支援新式驗證的商務用 Skype，包括線上與混合式拓撲。 如需支援拓撲的詳細資訊，請前往[這裡](https://technet.microsoft.com/library/mt803262.aspx)。
 - 適用於 Windows 10 裝置的 Azure AD 網域加入
 - Exchange ActiveSync 支援
 
@@ -40,12 +40,13 @@ ms.lasthandoff: 01/05/2018
 下列案例不受支援︰
 
 - 使用者登入舊版 Office 用戶端應用程式：Office 2010 和「未啟用」新式驗證的 Office 2013。 組織應該盡可能切換到新式驗證。 新式驗證允許傳遞驗證支援。 其還能使用[條件式存取](../active-directory-conditional-access-azure-portal.md)功能 (如 Azure Multi-Factor Authentication) 保護使用者帳戶。
-- 使用者登入用 skype 商務用戶端應用程式_沒有_新式驗證。
+- 使用者登入「不具有」新式驗證的商務用 Skype 用戶端應用程式。
 - 使用者登入 PowerShell 1.0 版。 我們建議您使用 PowerShell 2.0 版。
 - 用於多重要素驗證的應用程式密碼。
 - 偵測[認證外洩](../active-directory-reporting-risk-events.md#leaked-credentials)的使用者。
-- Azure AD 網域服務必須在租用戶上啟用密碼雜湊同步處理。 因此使用傳遞驗證的租用戶_只_需要 Azure AD 網域服務的情況下無法運作。
-- 未通過驗證與整合[Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)。
+- Azure AD 網域服務必須在租用戶上啟用 [密碼雜湊同步處理]。 因此，使用傳遞驗證的租用戶「只有」在需要 Azure AD 網域服務的情況下無法運作。
+- 傳遞驗證未與 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) 整合。
+- Apple 裝置註冊計劃 (Apple DEP) 不支援新式驗證。  Apple DEP 裝置無法在 Intune 中註冊使用傳遞驗證的網域。
 
 >[!IMPORTANT]
 >_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。

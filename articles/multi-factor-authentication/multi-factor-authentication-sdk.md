@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>在自訂應用程式中建置 Multi-Factor Authentication (SDK)
 
@@ -38,7 +38,7 @@ Multi-Factor Authentication SDK 中的 API 結構十分簡單。 使用多因素
 
 
 ## <a name="download-the-sdk"></a>下載 SDK
-下載 Azure Multi-factor SDK 需要 [Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md)。  即使您擁有 Azure MFA、Azure AD Premium 或 Enterprise Mobility Suite 授權，這還是需要完整的 Azure 訂用帳戶。 下載 SDK 的公用方法已解除委任，因為 SDK 已過時。 如果需要下載該 SDK，您應該向 Microsoft 提交支援案例。
+下載 Azure Multi-factor SDK 需要 [Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md)。  即使您擁有 Azure MFA、Azure AD Premium 或 Enterprise Mobility Suite 授權，這還是需要完整的 Azure 訂用帳戶。 下載 SDK 的公用方法已解除委任，因為 SDK 已被取代。 如果需要下載該 SDK，您應該向 Microsoft 提交支援案例。 SDK 只會提供給已使用 SDK 的客戶。 新客戶將無法使用。
 
 ## <a name="whats-in-the-sdk"></a>SDK 的內容
 SDK 包含下列各項：

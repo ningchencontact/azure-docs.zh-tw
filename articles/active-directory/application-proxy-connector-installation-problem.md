@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 
@@ -37,9 +37,9 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 **目標：**確認連接器電腦可以連線到 AAD 應用程式 Proxy 註冊端點以及 Microsoft 登入頁面。
 
-1.  開啟瀏覽器並移至下列網頁： <https://aadap-portcheck.connectorporttest.msappproxy.net> (英文)，確認透過連接埠 9090 和 9091 與美國中部 (Central US) 與美國東部 (East US) 資料中心的連線是正常的。
+1.  開啟瀏覽器並前往下列網頁：<https://aadap-portcheck.connectorporttest.msappproxy.net>，確認透過連接埠 80 和 443 與美國中部與美國東部資料中心的連線是正常的。
 
-2.  如果有任何連接埠未成功 (沒有綠色勾選記號)，請確認防火牆或後端 Proxy 是否已正確定義 \*.msappproxy.net 與連接埠 9090 和 9091。
+2.  如果有任何連接埠未成功 (沒有綠色勾選記號)，請確認防火牆或後端 Proxy 是否已正確定義 \*.msappproxy.net 與連接埠 80 和 443。
 
 3.  開啟瀏覽器 (其他索引標籤)，並移至下列網頁：<https://login.microsoftonline.com>，確定您可以登入該頁面。
 

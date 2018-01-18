@@ -1,5 +1,5 @@
 ---
-title: "疑難排解︰Azure AD SSPR | Microsoft Docs"
+title: "自助式密碼重設疑難排解 - Azure Active Directory"
 description: "針對 Azure AD 自助式密碼重設進行疑難排解"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: c489cf13574c49161b2dde22500f4ab7478a928b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/18/2017
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>如果事件來源是 ADSync
 
-| 代碼 | 名稱或訊息 | 說明 |
+| 代碼 | 名稱或訊息 | 描述 |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619：「有一項限制讓密碼無法變更為目前指定的密碼。」 | 當「密碼回寫」服務嘗試在本機目錄上設定不符合密碼有效期、歷程記錄、複雜度或網域篩選需求的密碼時，就會發生此事件。 <br> <br> 如果您有最短的密碼使用期限，且最近在該時段內變更過密碼，就必須在到達網域中指定的使用期限後，才能再次變更密碼。 若要進行測試，最短使用期限應該設定為 0。 <br> <br> 如果已啟用密碼歷程記錄需求，則必須選取最近 N 次未用過的密碼，其中 N 是密碼歷程記錄設定。 如果您選取最近 N 次用過的密碼，則會在此案例中看到失敗。 若要進行測試，密碼歷程記錄應該設定為 0。 <br> <br> 如果您有密碼複雜度需求，則會在使用者嘗試變更或重設密碼時強制執行這些需求。 <br> <br> 如果您啟用密碼篩選功能，當使用者選取的密碼不符合篩選準則時，重設或變更作業就會失敗。 |
 | 6329 | MMS(3040): admaexport.cpp(2837): 伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這麼做，DC 必須是 Windows Server 2008 (含最新的 SP) 或更新版本。 如果您的 DC 是 2008 (R2 之前) 版，則也必須套用 [Hotfix KB2386717](http://support.microsoft.com/kb/2386717)。 |
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/18/2017
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>如果事件來源為 PasswordResetService
 
-| 代碼 | 名稱或訊息 | 說明 |
+| 代碼 | 名稱或訊息 | 描述 |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | 這個事件表示內部部署服務偵測到源自雲端、針對同盟或密碼雜湊同步使用者所提出的密碼重設要求。 這個事件是每個密碼重設回寫作業的第一個事件。 |
 | 31002 | PasswordResetSuccess | 這個事件表示使用者在密碼重設作業期間選取了新的密碼。 我們認為這個密碼符合公司的密碼需求。 密碼已成功地寫回至本機的 Active Directory 環境。 |
@@ -167,12 +167,12 @@ ms.lasthandoff: 12/18/2017
 
 最常見的失敗點是防火牆和 Proxy 連接埠，以及閒置逾時的設定不正確。 
 
-Azure AD Connect 1.1.443.0 版和更新版本，您需要輸出 HTTPS 存取所示：
+對於 Azure AD Connect 1.1.443.0 版和更新版本，您需要擁有下列各項的輸出 HTTPS 存取權：
 
    - passwordreset.microsoftonline.com
    - servicebus.windows.net
 
-如需詳細的資料粒度，參考更新的清單[Microsoft Azure Datacenter IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)更新每個星期三並置入效果，因此下列星期一。
+如需詳細資訊，請參閱 [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Microsoft Azure Datacenter IP 範圍) 的更新清單，該清單會每個星期三進行更新並在下一個星期一生效。
 
 如需詳細資訊，請在 [Azure AD Connect 的必要條件](./connect/active-directory-aadconnect-prerequisites.md)一文中檢閱連線必要條件。
 

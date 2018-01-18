@@ -14,7 +14,7 @@
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>是否可以對支援 SSTP 的點對站台使用任何軟體 VPN 用戶端？
 
-否。 支援只限於上面所列的 Windows 作業系統版本。
+編號 支援只限於上面所列的 Windows 作業系統版本。
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 

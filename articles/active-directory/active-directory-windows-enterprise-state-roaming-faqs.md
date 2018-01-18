@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本主題將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>對來自多個租用戶的 Azure AD 帳戶進行設定同步處理？
 當來自不同 Azure AD 租用戶的多個 Azure AD 帳戶位於相同的裝置時，您必須更新裝置的登錄，才能與每個 Azure AD 租用戶的 Azure Rights Management (RMS) 進行通訊。  
 
-1. 尋找每個 Azure AD 租用戶的 GUID。 開啟 Azure 入口網站並選取 Azure AD 租用戶。 租用戶的 GUID 位於瀏覽器網址列的 URL 中。 例如：`https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. 尋找每個 Azure AD 租用戶的 GUID。 開啟 Azure 入口網站，然後選取 Azure AD 租用戶。 租用戶的 GUID 是在標示為**目錄識別碼**之選取租用戶的 [屬性] 頁面上 (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)。 
 2. 取得 GUID 之後，您必須新增登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<租用戶識別碼 GUID>**。
    從「租用戶識別碼 GUID」機碼，建立一個名為 **AllowedRMSServerUrls** 的新多字串值 (REG-MULTI-SZ)。 針對其資料，指定裝置所存取之其他 Azure 租用戶的授權發佈點 URL。
 3. 您可以藉由執行 **Get-AadrmConfiguration** Cmdlet 來尋找授權發佈點 URL。 如果 **LicensingIntranetDistributionPointUrl** 與 **LicensingExtranetDistributionPointUrl** 的值不同，則請同時指定這兩個值。 如果值相同，則只要指定值一次。

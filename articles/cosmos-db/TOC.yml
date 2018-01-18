@@ -235,8 +235,6 @@
               items:
                 - name: SQL 語法功能提要
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: 堆疊溢位
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: 影片
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 服務更新
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: 常見問題集
       href: faq.md
-    - name: 堆疊溢位
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: 透過棒球說明資料一致性
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

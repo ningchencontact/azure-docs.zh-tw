@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
 
@@ -34,6 +34,9 @@ Azure Cosmos DB 與 Azure Functions 可讓您以下列方式整合資料庫與�
 * 或者，使用**輸入繫結**將 Azure Function 繫結至 Azure Cosmos DB 集合。 函式執行時，輸入繫結會從容器讀取資料。
 * 使用**輸出繫結**將函式繫結至 Azure Cosmos DB 集合。 函式完成時，輸出繫結會將資料寫入容器。
 
+> [!NOTE]
+> 此時，Azure Cosmos DB 觸發程序、輸入繫結，以及輸出繫結只會使用 SQL API 和圖形 API 帳戶。
+
 下圖逐一說明這三個整合： 
 
 ![Azure Cosmos DB 和 Azure Functions 如何整合](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 * Azure Cosmos DB 觸發程序可與不同 Azure Cosmos DB 容器的輸出繫結搭配使用。 在函式對變更摘要中的項目執行操作後，您可以將其寫入另一個容器 (將其寫入與來源相同的容器將有效地建立遞迴迴圈)。 或者，您可以利用輸出繫結，使用 Azure Cosmos DB 觸發程序有效地將所有已變更的項目從一個容器移轉到不同的容器。
 * Azure Cosmos DB 的輸入繫結與輸出繫結可用於相同的 Azure Function。 這也在適用於修改後，當您想要利用輸入繫結尋找特定資料、在 Azure Function 中加以修改，然後儲存到相同的容器或不同的容器的情況下。
 * Azure Cosmos DB 容器的輸入繫結可在與 Azure Cosmos DB 觸發程序的相同函式中使用，並且不一定要與輸出繫結搭配使用。 您可以使用此組合，將最新的貨幣兌換資訊 (使用兌換容器的輸入繫結提取) 套用至購物車服務中新訂單的變更摘要。 已更新的購物車總計，以及目前套用的貨幣轉換，可以使用輸出繫結寫入第三個容器。
-
-> [!NOTE]
-> 此時，Azure Cosmos DB 觸發程序中，輸入繫結及輸出繫結搭配 SQL API 和 Graph API 帳戶。
 
 ## <a name="use-cases"></a>使用案例
 
@@ -86,14 +86,14 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>遊戲使用案例 - Azure Cosmos DB 觸發程序和輸出繫結
 
-在遊戲中建立新的使用者時，您可以使用 [Azure Cosmos DB 圖形 API](graph-introduction.md) 搜尋可能知道的其他使用者。 然後您可以將結果寫入 [Azure Cosmos DB SQL database] 以方便擷取。
+在遊戲中建立新的使用者時，您可以使用 [Azure Cosmos DB 圖形 API](graph-introduction.md) 搜尋可能知道的其他使用者。 然後，您可以將結果寫入 [Azure Cosmos DB SQL 資料庫] 以方便擷取。
 
 **實作：**使用 Azure Cosmos DB 觸發程序和輸出繫結
 
 1. 使用 Azure Cosmos DB [圖表資料庫](graph-introduction.md)來儲存所有使用者，您可以使用 Azure Cosmos DB 觸發程序來建立新的函式。 
 2. 每當插入新的使用者時，會叫用函式，然後使用**輸出繫結**來儲存結果。
 3. 函式會查詢圖表資料庫，以搜尋與新使用者直接相關的所有使用者，並將該資料集傳回函式。
-4. 此資料會儲存在 Azure Cosmos DB 其中便可以輕鬆地擷取任何顯示新的使用者連接的朋友的前端應用程式。
+4. 接著，此資料會儲存在 Azure Cosmos DB 中，讓任何顯示新使用者其連線好友的前端應用程式輕鬆地擷取。
 
 ### <a name="retail-use-case---multiple-functions"></a>零售使用案例 - 多個函式
 
@@ -153,7 +153,7 @@ Azure Functions 的優點：
 * [在 Azure 入口網站中建立 Azure Cosmos DB 觸發程序](https://aka.ms/cosmosdbtriggerportalfunc)
 * [使用 Azure Cosmos DB 輸入繫結建立 Azure Functions HTTP 觸發程序 (Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding)](https://aka.ms/cosmosdbinputbind)
 * [使用 Azure Functions 和 Cosmos DB 儲存非結構化資料](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure DB Cosmos 繫結和觸發程序](../azure-functions/functions-bindings-documentdb.md)
+* [Azure DB Cosmos 繫結和觸發程序](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  
