@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
@@ -75,8 +75,8 @@ ms.lasthandoff: 01/04/2018
 
 1. 如果您尚未這麼做，請[在 ASP.NET Core Web 應用程式中啟用 Application Insights](app-insights-asp-net-core.md)。
 
-> [!NOTE]
-> 請確定您的應用程式參考的是 2.1.1 版或更新版本的 Microsoft.ApplicationInsights.AspNetCore 封裝。
+    > [!NOTE]
+    > 請確定您的應用程式參考的是 2.1.1 版或更新版本的 Microsoft.ApplicationInsights.AspNetCore 封裝。
 
 2. 將 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件納入您的應用程式。
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 若為「未」裝載於 App Service 中的應用程式，上傳程式記錄位於與小型傾印相同的資料夾中：`%TEMP%\Dumps\<ikey>` (其中 `<ikey>` 是您的檢測金鑰)。
 
-對於雲端服務中的角色，預設的暫存資料夾可能太小，無法保存小型傾印檔案。 在此情況下，您可以指定替代資料夾透過 TempFolder 屬性 ApplicationInsights.config 中。
+### <a name="troubleshooting-cloud-services"></a>針對雲端服務進行疑難排解
+針對雲端服務中的角色，預設暫存資料夾可能太小，無法保存小型傾印檔案，進而導致遺失快照集。
+所需的空間取決於您應用程式的總工作集以及並行快照集數目。
+32 位元 ASP.NET Web 角色的工作集一般介於 200 MB 與 500 MB 之間。
+您應該允許至少兩個並行快照集。
+例如，如果您的應用程式使用 1 GB 的總工作集，則應該確定至少有 2 GB 的磁碟空間可儲存快照集。
+請遵循下列步驟，以使用快照集的專用本機資源來設定您的雲端服務角色。
 
+1. 編輯雲端服務定義 (.csdf) 檔案，以將新的本機資源新增至雲端服務。 下列範例定義稱為 `SnapshotStore` 且大小為 5 GB 的資源。
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. 修改您角色的 `OnStart` 方法，新增指向 `SnapshotStore` 本機資源的環境變數。
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. 更新您角色的 ApplicationInsights.config 檔案，以覆寫 `SnapshotCollector` 所使用的暫存資料夾位置
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>使用 Application Insights 搜尋來尋找快照集例外狀況的

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>將 Azure 資源部署至多個訂用帳戶和資源群組
 
-通常在單一範本部署的所有資源[資源群組](resource-group-overview.md)。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 例如，建議您將 Azure Site Recovery 的備份虛擬機器部署至不同的資源群組和位置。 Resource Manager 可讓您使用巢狀的範本，將目標放在與父範本所使用之訂用帳戶和資源群組不同的訂用帳戶和資源群組。
+一般而言，您要將範本中的所有資源都部署至單一[資源群組](resource-group-overview.md)。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 例如，建議您將 Azure Site Recovery 的備份虛擬機器部署至不同的資源群組和位置。 Resource Manager 可讓您使用巢狀的範本，將目標放在與父範本所使用之訂用帳戶和資源群組不同的訂用帳戶和資源群組。
 
 ## <a name="specify-a-subscription-and-resource-group"></a>指定訂用帳戶和資源群組
 
-若要以不同的資源為目標，使用巢狀或連結的範本。 `Microsoft.Resources/deployments` 資源類型提供 `subscriptionId` 和 `resourceGroup` 的參數。 這些屬性可讓您指定不同的訂用帳戶和資源群組來進行巢狀部署。 執行部署之前，所有資源群組都必須存在。 如果您未指定訂用帳戶識別碼或資源群組，則會使用父範本中的訂用帳戶及資源群組。
+若要以不同的資源為目標，請使用巢狀或連結的範本。 `Microsoft.Resources/deployments` 資源類型提供 `subscriptionId` 和 `resourceGroup` 的參數。 這些屬性可讓您指定不同的訂用帳戶和資源群組來進行巢狀部署。 執行部署之前，所有資源群組都必須存在。 如果您未指定訂用帳戶識別碼或資源群組，則會使用父範本中的訂用帳戶及資源群組。
 
 若要指定不同的資源群組和訂用帳戶，請使用：
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/19/2017
 ]
 ```
 
-如果您的資源群組位於相同的訂用帳戶，您可以移除**subscriptionId**值。
+如果您的資源群組位於相同的訂用帳戶中，則可以移除 **subscriptionId** 值。
 
 下列範例會部署兩個儲存體帳戶 - 一個是在部署期間指定的資源群組中，另一個是在 `secondResourceGroup` 參數內指定的資源群組中：
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 12/19/2017
 
 如果您將 `resourceGroup` 設定為不存在的資源群組名稱，部署就會失敗。
 
-若要部署範例範本，請使用 2017年 5 月或更新版本的 Azure PowerShell 或 Azure CLI 版本。
+若要部署範例範本，請使用 Azure PowerShell 4.0.0 或更新版本或是 Azure CLI 2.0.0 或更新版本。
 
 ## <a name="use-the-resourcegroup-function"></a>使用 resourceGroup() 函式
 
@@ -161,16 +161,16 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="example-templates"></a>範本的範例
 
-下列範本會示範多個資源群組部署。 將範本部署的指令碼會顯示在這個表格之後。
+下列範本示範多個資源群組部署。 表格後面會顯示要部署範本的指令碼。
 
-|範本  |說明  |
+|範本  |描述  |
 |---------|---------|
-|[跨訂用帳戶的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |到第二個資源群組會部署至一個資源群組的一個儲存體帳戶和一個儲存體帳戶。 不同的訂用帳戶中的第二個資源群組時，包含訂用帳戶 id 的值。 |
-|[跨越資源群組範本內容](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |示範如何`resourceGroup()`解析函式。 它不會部署任何資源。 |
+|[跨訂用帳戶範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |將一個儲存體帳戶部署至一個資源群組，並將一個儲存體帳戶部署至第二個資源群組。 第二個資源群組位於不同的訂用帳戶時，請包含訂用帳戶識別碼的值。 |
+|[跨資源群組內容範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |示範如何解析 `resourceGroup()` 函式。 它不會部署任何資源。 |
 
 ### <a name="powershell"></a>PowerShell
 
-將兩個儲存體帳戶中的兩個資源群組的 powershell**相同訂用帳戶**，使用：
+在 PowerShell 中，若要將兩個儲存體帳戶部署至**相同訂用帳戶**中的兩個資源群組，請使用：
 
 ```powershell
 $firstRG = "primarygroup"
@@ -187,7 +187,7 @@ New-AzureRmResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-部署兩個儲存體帳戶的 powershell**兩個訂閱**，使用：
+在 PowerShell 中，若要將兩個儲存體帳戶部署至**兩個訂用帳戶**，請使用：
 
 ```powershell
 $firstRG = "primarygroup"
@@ -211,7 +211,7 @@ New-AzureRmResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-若要測試的 powershell 如何**資源群組物件**父樣板、 內嵌範本和連結的範本，用於解析：
+在 PowerShell 中，若要測試如何解析父代範本、內嵌範本和連結範本的**資源群組物件**，請使用：
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -225,7 +225,7 @@ New-AzureRmResourceGroupDeployment `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-針對部署到兩個資源群組中的兩個儲存體帳戶的 Azure CLI**相同訂用帳戶**，使用：
+在 Azure CLI 中，若要將兩個儲存體帳戶部署至**相同訂用帳戶**中的兩個資源群組，請使用：
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -240,7 +240,7 @@ az group deployment create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-針對部署至兩個儲存體帳戶的 Azure CLI**兩個訂閱**，使用：
+在 Azure CLI 中，若要將兩個儲存體帳戶部署至**兩個訂用帳戶**，請使用：
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -262,7 +262,7 @@ az group deployment create \
   --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
 ```
 
-Azure CLI，若要測試的方式**資源群組物件**父樣板、 內嵌範本和連結的範本，用於解析：
+在 Azure CLI 中，若要測試如何解析父代範本、內嵌範本和連結範本的**資源群組物件**，請使用：
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus

@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用執行身分帳戶更新您的自動化帳戶驗證 
 您可以從 Azure 入口網站或使用 PowerShell 來更新現有的自動化帳戶，前提是：
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/03/2018
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsCertificate 的自動化憑證資產。 憑證資產會保存管理憑證所使用的憑證私密金鑰。
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsConnection 的自動化連線資產。 連線資產會保存訂用帳戶名稱、subscriptionId 和憑證資產名稱。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您選擇[使用 PowerShell 建立執行身分帳戶](#create-run-as-account-using-powershell)，此程序需要：
 
 * 具有 Azure Resource Manager 模組 3.4.1 和更新版本的 Windows 10 與 Windows Server 2016。 PowerShell 指令碼不支援舊版 Windows。
@@ -225,7 +225,7 @@ ms.lasthandoff: 01/03/2018
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,7 +277,7 @@ ms.lasthandoff: 01/03/2018
 
 指令碼執行成功之後，請注意下列事項︰
 * 如果您使用自我簽署的公開憑證 (.cer 檔案) 建立了傳統執行身分帳戶，指令碼會建立該帳戶並將其儲存在電腦上的暫存檔案資料夾中，用來執行 PowerShell 工作階段的使用者設定檔 %USERPROFILE%\AppData\Local\Temp 底下。
-* 如果您使用企業公開憑證 (.cer 檔案) 建立了傳統執行身分帳戶，請使用此憑證。 請遵循[將管理 API 憑證上傳至 Azure 傳統入口網站](../azure-api-management-certs.md)的指示，然後使用[用來向服務 Azure 傳統部署資源進行驗證的範例程式碼](automation-verify-runas-authentication.md#classic-run-as-authentication)來驗證傳統部署資源的認證組態。 
+* 如果您使用企業公開憑證 (.cer 檔案) 建立了傳統執行身分帳戶，請使用此憑證。 請遵循[將管理 API 憑證上傳至 Azure 入口網站](../azure-api-management-certs.md)的指示，然後使用[用來向服務 Azure 傳統部署資源進行驗證的範例程式碼](automation-verify-runas-authentication.md#classic-run-as-authentication)來驗證傳統部署資源的認證設定。 
 * 如果您「並未」建立傳統執行身分帳戶，請使用[用來向服務管理資源進行驗證的程式碼範例](automation-verify-runas-authentication.md#automation-run-as-authentication)向 Resource Manager 資源進行驗證並驗證認證組態。
 
 ## <a name="next-steps"></a>後續步驟

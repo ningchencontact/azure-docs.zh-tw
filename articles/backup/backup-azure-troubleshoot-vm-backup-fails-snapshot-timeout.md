@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式和/或擴充功能相關的問題
 
@@ -28,13 +28,20 @@ ms.lasthandoff: 01/03/2018
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM 代理程式無法與 Azure 備份通訊
+
+> [!NOTE]
+> 如果您的 Azure Linux VM 備份在 2018 年 1 月 4 日當天或之後發生這個錯誤，請在受影響的 VM 中執行下列命令，然後重試備份
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 代理程式通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照，接著導致備份失敗。 請遵循下列疑難排解步驟中指定的順序，然後重試作業。
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>原因 1：[VM 沒有網際網路存取權](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>原因 2：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3︰[VM 中安裝的代理程式已過時 (針對 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>原因 4︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>原因 6: [Azure 傳統 Vm 可能會需要額外的步驟來完成註冊](#azure-classic-vms-may-require-additional-step-to-complete-registration)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>原因 6：[Azure 傳統 VM 可能需要額外的步驟才能完成註冊](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>因為虛擬機器沒有網路連線，所以快照集作業失敗
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照，接著導致備份失敗。 請遵循下列疑難排解步驟中指定的順序，然後重試作業。
@@ -66,7 +73,7 @@ ms.lasthandoff: 01/03/2018
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3︰[VM 中安裝的代理程式已過時 (針對 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>原因 4︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>原因 6:[備份服務沒有權限可以刪除舊的還原點，因為資源群組鎖定](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>原因 6：[備份服務因資源群組鎖定而沒有刪除舊還原點的權限](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>系統不支援指定的磁碟設定
 
@@ -186,40 +193,40 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 此程序會導致在下一次備份期間重新安裝擴充功能。
 
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure 傳統 Vm 可能會需要額外的步驟來完成註冊
-在 Azure 傳統 Vm 代理程式應該向建立到備份服務的連線，然後開始備份
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure 傳統 VM 可能需要額外的步驟才能完成註冊
+應該註冊 Azure 傳統 VM 中的代理程式，以建立與備份服務的連線，然後開始備份
 
 #### <a name="solution"></a>解決方法
 
-安裝 VM 客體代理程式之後, 啟動 Azure PowerShell <br>
-1. 中的登入 Azure 帳戶使用 <br>
+安裝 VM 客體代理程式之後，請啟動 Azure PowerShell <br>
+1. 登入 Azure 帳戶方式 <br>
        `Login-AzureAsAccount`<br>
-2. 確認如果 VM 的 ProvisionGuestAgent 屬性設定為 True 時，由下列的命令 <br>
+2. 透過下列命令，驗證 VM 的 ProvisionGuestAgent 屬性是否設定為 True <br>
         `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
         `$vm.VM.ProvisionGuestAgent`<br>
-3. 如果屬性設定為 FALSE 時，請遵循下列命令將它設定為 TRUE<br>
+3. 如果屬性設定為 FALSE，請遵循下列命令，以將它設定為 TRUE<br>
         `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
         `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. 然後執行下列命令以更新 VM <br>
+4. 然後執行下列命令來更新 VM <br>
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. 再試一次備份。 <br>
+5. 請嘗試起始備份。 <br>
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>備份服務沒有權限可以刪除舊的還原點，因為資源群組鎖定
-這個問題是特定的受管理的 Vm，其中使用者鎖定的資源群組，備份服務無法刪除舊的還原點。 因此新的備份會開始失敗，因為沒有最大 18 的還原點從後端加諸的限制。
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>備份服務因資源群組鎖定而沒有刪除舊還原點的權限
+這是受控 VM 特有的問題，其中使用者會鎖定資源群組，而備份服務無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。
 
 #### <a name="solution"></a>解決方法
 
-若要解決此問題，請使用下列步驟移除還原點集合： <br>
+若要解決此問題，請使用下列步驟，移除還原點集合： <br>
  
-1. 移除鎖定中 VM 所在的資源群組 
+1. 移除 VM 所在的資源群組鎖定 
      
-2. 安裝 ARMClient 使用 Chocolatey <br>
+2. 使用 Chocolatey 安裝 ARMClient <br>
    https://github.com/projectkudu/ARMClient
      
 3. 登入 ARMClient <br>
              `.\armclient.exe login`
          
-4. 取得還原點集合對應至 VM <br>
+4. 取得對應至 VM 的還原點集合 <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
     範例： `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
@@ -227,7 +234,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 5. 刪除還原點集合 <br>
             `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
  
-6. 下一個排定的備份將會自動建立還原點集合與新的還原點 
+6. 下一個排定的備份將會自動建立還原點集合和新的還原點 
  
-7. 問題會重新出現鎖定的資源群組一次是否有 18 之後開始失敗備份的還原點的限制 
+7. 如果您重新鎖定資源群組，則問題會再次出現，因為只能有 18 個還原點，而超過此數目之後，備份就會開始失敗 
 

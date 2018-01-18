@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>裝置對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -150,10 +150,10 @@ GROUP BY properties.reported.telemetryConfig.status
 ]
 ```
 
-投影查詢可讓開發人員傳回只有他們很關心的內容。 例如，擷取所有的上次活動時間中斷連線的裝置使用下列查詢：
+投影查詢可讓開發人員只傳回他們關心的屬性。 例如，若要擷取所有已中斷連線之裝置的最後一個活動時間，請使用下列查詢：
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### <a name="c-example"></a>C# 範例
@@ -486,13 +486,13 @@ GROUP BY <group_by_element>
 ### <a name="functions"></a>Functions
 查詢對應項和作業時唯一支援的函式為：
 
-| 函式 | 說明 |
+| 函式 | 描述 |
 | -------- | ----------- |
 | IS_DEFINED(property) | 傳回布林值，表示屬性是否已經指派值 (包含 `null`)。 |
 
 在路由條件中，支援下列比對函式：
 
-| 函式 | 說明 |
+| 函式 | 描述 |
 | -------- | ----------- |
 | ABS(x) | 傳回指定之數值運算式的絕對 (正) 值。 |
 | EXP(x) | 傳回指定之數值運算式 (e^x) 的指數值。 |
@@ -505,7 +505,7 @@ GROUP BY <group_by_element>
 
 在路由條件中，支援下列類型檢查和轉換函式：
 
-| 函式 | 說明 |
+| 函式 | 描述 |
 | -------- | ----------- |
 | AS_NUMBER | 將輸入字串轉換為數字。 如果輸入是一個數字則為 `noop`；如果字串不是數字則為 `Undefined`。|
 | IS_ARRAY | 傳回布林值，表示指定之運算式的類型為陣列。 |
@@ -519,7 +519,7 @@ GROUP BY <group_by_element>
 
 在路由條件中，支援下列字串函式：
 
-| 函式 | 說明 |
+| 函式 | 描述 |
 | -------- | ----------- |
 | CONCAT(x, y, …) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
 | LENGTH(x) | 傳回指定字串運算式的字元數目。|

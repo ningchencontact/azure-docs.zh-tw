@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中監視和更新 Linux 虛擬機器
 
-為了確保您的虛擬機器 (VM) 在 Azure 中正確執行，您可以檢閱開機診斷、效能計量及管理套件更新。 在本教學課程中，您將了解如何：
+為了確保您的虛擬機器 (VM) 在 Azure 中正確執行，您可以檢閱開機診斷、效能計量及管理套件更新。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 啟用 VM 上的開機診斷
@@ -130,7 +130,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 >
 > 屆時可以啟用 3.0 版的 Linux 診斷延伸模組。 如需詳細資訊，請參閱[文件](./diagnostic-extension.md)。
 
-系統提供基本的主機計量，但若要查看更細微或 VM 特定的計量，則需要在 VM 上安裝 Azure 診斷的擴充功能。 Azure 診斷擴充功能可額外提供從 VM 擷取的監視和診斷資料。 您可以檢視這些效能計量，並依據 VM 的執行狀況建立警示。 診斷擴充功能可透過 Azure 入口網站安裝，如下所示︰
+系統提供基本的主機計量，但若要查看更細微或 VM 特定的計量，則需要在 VM 上安裝 Azure 診斷延伸模組。 Azure 診斷擴充功能可額外提供從 VM 擷取的監視和診斷資料。 您可以檢視這些效能計量，並依據 VM 的執行狀況建立警示。 診斷擴充功能可透過 Azure 入口網站安裝，如下所示︰
 
 1. 在 Azure 入口網站中，按一下 [資源群組]，選取 [myResourceGroup]，然後選取資源清單中的 [myVM]。
 1. 按一下 [診斷設定]。 清單會顯示在上一節已啟用開機診斷。 按一下 [基本計量] 的核取方塊。
@@ -200,7 +200,7 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 啟用解決方案可能需要長達 15 分鐘，在這段時間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關 VM 上的封裝管理員遺漏更新的相關資訊會流向 Log Analytics。
 可能需要 30 分鐘到 6 小時，資料才可供分析。
 
-### <a name="view-update-assessment"></a>檢視更新評量
+### <a name="view-update-assessment"></a>檢視更新評估
 
 啟用 [更新管理] 解決方案之後，[更新管理] 畫面隨即出現。 您可以在 [遺漏更新] 索引標籤上看到遺漏的更新清單。
 
@@ -233,7 +233,7 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 已排定的部署開始之後，您就可以在 [更新管理] 畫面的 [更新部署] 索引標籤上看到該部署的狀態。
 如果該部署目前正在執行，其狀態會顯示為 [進行中]。 完成時，如果成功，狀態會變更為 [成功]。
 如果部署中的一或多個更新失敗，則狀態為 [失敗]。
-按一下已完成的更新部署，以查看該更新部署的儀表板。
+按一下已完成的更新部署，即可查看該更新部署的儀表板。
 
 ![特定部署的更新部署狀態儀表板](./media/tutorial-monitoring/manage-updates-view-results.png)
 
@@ -244,7 +244,7 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 * **成功** - 更新已成功下載並安裝在 VM 上
 * **失敗** - 更新無法下載或安裝在 VM 上。
 
-按一下 [所有記錄] 以查看部署已建立的所有記錄項目。
+按一下 [所有記錄]，即可查看部署已建立的所有記錄項目。
 
 按一下 [輸出] 磚，以查看負責在目標 VM 上管理更新部署之 Runbook 的作業串流。
 

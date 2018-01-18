@@ -1,6 +1,6 @@
 ---
 title: "建立 Azure AD 使用者帳戶 | Microsoft Docs"
-description: "本文說明如何在 Azure 自動化中為 Runbook 建立 Azure AD 使用者帳戶認證，以在 Azure 和傳統 Azure 中進行驗證。"
+description: "本文說明如何在 Azure 自動化中為 Runbook 建立 Azure AD 使用者帳戶認證，以在 Azure 中進行驗證。"
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -10,61 +10,35 @@ keywords: "azure active directory 使用者, azure 服務管理, azure ad 使用
 ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f0a9664898cd27529daf73d130dd25fd296a9b48
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>使用 Azure 傳統部署和 Resource Manager 驗證 Runbook
-本文說明要為針對 Azure 傳統部署模型或 Azure Resource Manager 資源執行的 Azure 自動化 Runbook 設定 Azure AD 使用者帳戶，所必須執行的步驟。  雖然這您的 Azure Resource Manager 型 Runbook 仍然持續支援驗證身分識別，但還是建議您使用 Azure 執行身分帳戶。       
+本文說明要為針對 Azure 傳統部署模型或 Azure Resource Manager 資源執行的 Azure 自動化 Runbook 設定 Azure AD 使用者帳戶，所必須執行的步驟。  雖然這仍是您 Azure Resource Manager 型 Runbook 支援的驗證身分識別，但建議的方法是使用 Azure 執行身分帳戶。       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>建立新的 Azure Active Directory 使用者
-1. 以您想要管理的 Azure 訂用帳戶的服務系統管理員身分登入 Azure 傳統入口網站。
-2. 選取 [Active Directory] ，然後選取貴組織目錄的名稱。
-3. 選取 [使用者] 索引標籤，然後在命令區域中選取 [新增使用者]。
-4. 在 [告訴我們這位使用者] 頁面上，於 [使用者類型] 底下選取 [您組織中的新使用者]。
-5. 輸入使用者稱。  
-6. 在 [Active Directory] 頁面上選取與您的 Azure 訂用帳戶相關聯的目錄名稱。
-7. 在 [使用者設定檔] 頁面上，提供姓氏和名字、使用者易記名稱，並從 [角色] 清單中選擇使用者。  請勿 [啟用 Multi-Factor Authentication] 。
-8. 請記下使用者的完整名稱和暫時密碼。
-9. 選取 [設定] > [系統管理員] > [新增]。
-10. 輸入您所建立之使用者的完整使用者名稱。
-11. 選取您想讓使用者管理的訂用帳戶。
-12. 登出 Azure，然後使用您剛才建立的帳戶登入。 系統會提示您變更使用者的密碼。
-
-## <a name="create-an-automation-account-in-azure-classic-portal"></a>在 Azure 傳統入口網站中建立自動化帳戶
-在本節中，您會執行下列步驟以在 Azure 入口網站中建立 Azure 自動化帳戶，以便與您用來在 Azure 傳統部署中管理資源的 Runbook 搭配使用。  
-
-> [!NOTE]
-> 您可以透過 Azure 傳統入口網站和 Azure 入口網站以及任一組 Cmdlet，來管理使用 Azure 傳統入口網站建立的自動化帳戶。 帳戶一旦建立，您在帳戶中建立和管理資源的方式就沒有差別。 如果您打算繼續使用 Azure 傳統入口網站，您應該使用它代替 Azure 入口網站來建立任何的自動化帳戶。
-> 
-> 
-
-1. 以您想要管理的 Azure 訂用帳戶的服務系統管理員身分登入 Azure 傳統入口網站。
-2. 選取 [自動化] 。
-3. 在 [自動化] 頁面上，選取 [建立自動化帳戶]。
-4. 在 [建立自動化帳戶] 方塊中輸入新的自動化帳戶的名稱，然後在下拉式清單中選取 [區域]。  
-5. 按一下 [確定]  接受您的設定並建立帳戶。
-6. 帳戶建立之後就會列在 [自動化]  頁面上。
-7. 按一下該帳戶，您便會前往 [儀表板] 頁面。  
-8. 在 [自動化儀表板] 頁面上，選取 [資產] 。
-9. 在 [資產] 頁面上，選取位於頁面底部的 [新增設定]。
-10. 在 [新增設定] 頁面上選取 [新增認證]。
-11. 在 [定義認證] 頁面的 [認證類型] 下拉式清單中選取 [Windows PowerShell 認證]，並提供認證名稱。
-12. 在下列 [定義認證] 頁面中，於 [使用者名稱] 欄位中輸入稍早建立之 AD 使用者帳戶的使用者名稱，並於 [密碼] 和 [確認密碼] 欄位中輸入密碼。 按一下 [確定]  儲存變更。
+1. 以您想要管理的 Azure 訂用帳戶的服務系統管理員身分登入 Azure 入口網站。
+2. 選取 [Azure Active Directory] > [使用者和群組] > [所有使用者] > [新增使用者]。
+3. 輸入使用者的詳細資料，例如 [名稱] 和 [使用者名稱]。  
+4. 請記下使用者的完整名稱和暫時密碼。
+5. 選取 [目錄角色]。
+6. 指派全域或受限的管理員角色。
+7. 登出 Azure，然後使用您剛才建立的帳戶登入。 系統會提示您變更使用者的密碼。
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>在 Azure 入口網站中建立自動化帳戶
 在本節中，您會執行下列步驟以在 Azure 入口網站中建立 Azure 自動化帳戶，以便與您用來在 Azure Resource Manager 模式中管理資源的 Runbook 搭配使用。  
 
 1. 以您想要管理的 Azure 訂用帳戶的服務系統管理員身分登入 Azure 入口網站。
 2. 選取 [自動化帳戶] 。
-3. 在 [自動化帳戶] 刀鋒視窗中，按一下 [新增]。<br><br>![加入自動化帳戶](media/automation-create-aduser-account/add-automation-acct-properties.png)
+3. 選取 [新增] 。<br><br>![加入自動化帳戶](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. 在 [新增自動化帳戶] 刀鋒視窗的 [名稱] 方塊中，輸入新的自動化帳戶的名稱。
 5. 如果您有多個訂用帳戶，請為新的自動化帳戶指定其中一個訂用帳戶，並指定新的或現有的 [資源群組] 和 Azure 資料中心的 [位置]。
 6. 在 [建立 Azure 執行身分帳戶] 選項中選取 [是] 這個值，然後按一下 [建立] 按鈕。  

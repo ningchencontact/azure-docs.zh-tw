@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>將資料從 Azure 儲存體 Blob 複製到 Data Lake Store
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
 以下將說明語法中的參數：
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | --- | --- |
 | 來源 |指定來源資料在 Azure 儲存體 Blob 中的位置。 來源可以是 Blob 容器、Blob 或其他 Data Lake Store 帳戶。 |
 | Dest |指定要複製的 Data Lake Store 目的地。 |
@@ -72,7 +72,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE]上述語法指定的檔案複製到 Data Lake Store 帳戶中的資料夾。 如果指定的資料夾名稱不存在，AdlCopy 工具會建立一個資料夾。
+    >[AZURE.NOTE] 上述語法指定要複製至 Data Lake Store 帳戶內資料夾中的檔案。 如果指定的資料夾名稱不存在，AdlCopy 工具會建立一個資料夾。
 
     系統會提示您輸入您 Data Lake Store 帳戶所在 Azure 訂用帳戶的認證。 您將看到類似以下的輸出：
 

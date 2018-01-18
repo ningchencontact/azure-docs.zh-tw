@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/11/2017
 1.  開啟原則的基本檔案 (例如，TrustFrameworkBase.xml)。
 2.  尋找 `<UserJourneys>` 元素，並複製 `<UserJourneys>` 節點的完整內容。
 3.  開啟擴充檔案 (例如，TrustFrameworkExtensions.xml)，並尋找 `<UserJourneys>` 元素。 如果此元素不存在，請新增。
-4.  貼上您複製作為 `<UserJourneys>` 元素之子元素的 `<UserJournesy>` 節點的完整內容。
+4.  貼上您複製作為 `<UserJourneys>` 元素之子元素的 `<UserJourney>` 節點的完整內容。
 
 ### <a name="display-the-button"></a>顯示按鈕
 `<ClaimsProviderSelections>` 元素會定義宣告提供者選擇的選項清單和它們的順序。  `<ClaimsProviderSelection>` 元素類似於註冊/登入頁面上的識別提供者按鈕。 如果您新增 Google+ 帳戶的 `<ClaimsProviderSelection>` 元素，當使用者登陸頁面時，會出現新的按鈕。 若要新增此元素：
@@ -243,6 +243,14 @@ ms.lasthandoff: 12/11/2017
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>將原則上傳至您的租用戶
+1.  在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後開啟 [Azure AD B2C] 刀鋒視窗。
+2.  選取 [識別體驗架構]。
+3.  開啟 [所有原則] 刀鋒視窗。
+4.  選取 [上傳原則]。
+5.  勾選 [覆寫已存在的原則] 方塊。
+6.  **上傳** TrustFrameworkExtensions.xml，並確定它通過驗證。
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>使用 [立即執行] 來測試自訂設定檔編輯原則
 

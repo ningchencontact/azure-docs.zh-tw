@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory 傳遞驗證：智慧鎖定
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) 可防範暴力密碼破解攻擊，並防止�
 傳遞驗證會將密碼驗證要求轉送到您的內部部署 Active Directory，因此您必須防止攻擊者鎖定使用者的 Active Directory 帳戶。 Active Directory 具有其本身的帳戶鎖定原則，具體來說，即[帳戶鎖定閾值](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx)和[下列時間過後重設帳戶鎖定計數器](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)原則。 請適當設定 Azure AD 鎖定閾值和鎖定持續時間值，以在雲端中的攻擊者存取內部部署 Active Directory 之前將其篩選掉。
 
 >[!NOTE]
->智慧鎖定功能是免費的，且所有客戶均預設「開啟」此功能。 不過，若要使用圖形 API 來修改 Azure AD 的鎖定閾值和鎖定持續期間值，您的租用戶必須至少有一個 Azure AD Premium P2 授權。 不需要_每位使用者_都有 Azure AD Premium P2 授權，也能透過傳遞驗證取得智慧鎖定功能。
+>>智慧鎖定功能是免費的，且所有客戶均預設「開啟」此功能。 不過，若要使用圖形 API 來修改 Azure AD 的 [鎖定閾值] 和 [鎖定期間] 值，則您的租用戶必須已針對 Azure AD Premium P2 啟用。 
 
 若要確保使用者的內部部署 Active Directory 帳戶受到完善保護，您必須確定：
 

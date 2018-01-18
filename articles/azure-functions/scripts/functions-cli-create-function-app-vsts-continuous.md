@@ -1,32 +1,32 @@
 ---
-title: "建立函式應用程式和從 Visual Studio Team Services 部署函式程式碼 | Microsoft Docs"
+title: "在 Azure 中建立從 Visual Studio Team Services 部署的函式 | Microsoft Docs"
 description: "建立函式應用程式和從 Visual Studio Team Services 部署函式程式碼"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>建立 App Service
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>在 Azure 中建立從 Visual Studio Team Services 部署的函式
 
-在此案例中，您會學習如何建立函式的應用程式使用[耗用量計劃](../functions-scale.md#consumption-plan)和您設定從 Visual Studio Team Services (VSTS) 儲存機制的連續部署。 針對此範例，您需要：
+本主題示範如何使用 Azure Functions，以使用[使用情況方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函數應用程式。 函數應用程式 (即您函式的容器) 是從 Visual Studio Team Services (VSTS) 存放庫持續部署。 若要完成本主題，您必須具備：
 
-* 一個含有函式程式碼的 VSTS 存放庫 (您必須有此存放庫的系統管理權限)。
-* 您 GitHub 帳戶的[個人存取權杖 (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use)。
+* 包含您函數應用程式專案且您具有系統管理權限的 VSTS 存放庫。
+* 存取 VSTS 存放庫的[個人存取權杖 (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您必須執行 Azure CLI 版本 2.0 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您不是在本機使用 Azure CLI，則必須安裝和使用 2.0 版或更新版本。 若要判斷 Azure CLI 版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼使用下列命令來建立資源群組、Web 應用程式、documentdb 和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼使用下列命令來建立資源群組、儲存體帳戶、函數應用程式和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意 |
 |---|---|

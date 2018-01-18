@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。  
@@ -31,7 +31,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 [Azure 備份的 2016 年 8 月更新 (和更新版本)](http://go.microsoft.com/fwlink/?LinkID=229525) 包含名為 AzureOfflineBackupDiskPrep 的 *Azure 磁碟準備工具*︰
 
 * 可協助您使用 Azure 匯入/匯出工具為磁碟機做好執行 Azure 匯入的準備。
-* 會自動建立 Azure 匯入工作的 Azure 匯入/匯出服務[Azure 入口網站](https://ms.portal.azure.com)。
+* 在 [Azure 入口網站](https://ms.portal.azure.com)中，自動建立 Azure 匯入/匯出服務的 Azure 匯入作業。
 
 將備份資料上傳至 Azure 的作業完成之後，Azure 備份就會將備份資料複製至備份保存庫，並排程增量備份。
 
@@ -46,7 +46,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
   * 已建立 Azure 備份保存庫。
   * 已下載保存庫認證。
   * 已在 Windows Server/Windows 用戶端或 System Center Data Protection Manager 伺服器上安裝 Azure 備份代理程式，並向 Azure 備份保存庫註冊電腦。
-* [下載 Azure 發佈檔案設定](https://manage.windowsazure.com/publishsettings) 。
+* [下載 Azure 發佈檔案設定](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) 。
 * 準備可能是網路共用或電腦上其他磁碟機的預備位置。 預備位置是暫時性儲存體，因此在此工作流程期間會暫時使用。 請確定預備位置有足夠的磁碟空間來保存您的初始複本。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間  (由於壓縮的關係，實際使用量會較少)。
 * 確定您使用的是支援的磁碟機。 只有 2.5 英吋的 SSD 或 2.5 英吋或 3.5 英吋的 SATA II/III 內接式硬碟能夠用於匯入/匯出服務。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-service.md#hard-disk-drives)以取得服務所支援的最新磁碟機組合。
 * 在 SATA 磁碟機寫入器所連接的電腦上啟用 BitLocker。
@@ -67,13 +67,13 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     * **預備位置**：初始備份所寫入的暫時儲存體位置。 這可能是在網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
     * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。
-    * **Azure 發佈設定**：包含訂用帳戶設定檔相關資訊的 XML 檔案。 檔案中也包含與訂用帳戶相關聯的安全認證。 您可以 [下載檔案](https://manage.windowsazure.com/publishsettings)。 提供發佈設定檔案的本機路徑。
+    * **Azure 發佈設定**：包含訂用帳戶設定檔相關資訊的 XML 檔案。 檔案中也包含與訂用帳戶相關聯的安全認證。 您可以 [下載檔案](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade)。 提供發佈設定檔案的本機路徑。
     * **Azure 訂用帳戶識別碼**：打算起始 Azure 匯入作業之訂用帳戶的 Azure 訂用帳戶識別碼。 如果您有多個 Azure 訂用帳戶，請使用要與匯入作業相關聯之訂用帳戶的識別碼。
-    * **Azure 儲存體帳戶**: Azure 匯入工作相關聯的 Azure 訂用帳戶的儲存體帳戶。
+    * **Azure 儲存體帳戶**：與 Azure 匯入作業建立關聯之 Azure 訂用帳戶中的儲存體帳戶。
     * **Azure 儲存體容器**：Azure 儲存體帳戶中匯入此作業資料之目的地儲存體 Blob 的名稱。
 
     > [!NOTE]
-    > 如果您已註冊您的伺服器從 Azure 復原服務保存庫[Azure 入口網站](https://portal.azure.com)用於您的備份或不在雲端方案提供者 (CSP) 的訂用帳戶，您仍然可以建立儲存體帳戶從 Azure 入口網站和離線備份工作流程中使用它。
+    > 如果您已從 [Azure 入口網站](https://portal.azure.com)以在 Azure 復原服務保存庫中為您的備份註冊伺服器，而且您不是在雲端解決方案提供者 (CSP) 訂用帳戶上，則仍可從 Azure 入口網站中建立儲存體帳戶，然後將它用於離線備份工作流程。
     >
     >
 
@@ -106,7 +106,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]`
 
-    | 參數 | 說明 |
+    | 參數 | 描述 |
     | --- | --- |
     | s:&lt;*預備位置路徑*&gt; |強制性輸入內容，用來提供在 **起始離線備份** 工作流程中所輸入的預備位置路徑。 |
     | p:&lt;*PublishSettingsFile 的路徑*&gt; |選擇性輸入內容，用來提供在**起始離線備份**工作流程中所輸入的 **Azure 發佈設定**檔案路徑。 |
@@ -123,7 +123,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     工具接著便會開始以備份資料準備磁碟。 當工具顯示提示時，您可能需要連接額外的磁碟，以免所提供的磁碟沒有足夠空間來容納備份資料。 <br/>
 
-    在工具順利執行結束時，您所提供的一或多個磁碟便已準備好可以寄送到 Azure。 此外，匯入工作名稱與您在提供**起始離線備份**在 Azure 入口網站建立工作流程。 最後，此工具會顯示磁碟要出貨的 Azure 資料中心的送貨地址和 Azure 入口網站上尋找匯入工作的連結。
+    在工具順利執行結束時，您所提供的一或多個磁碟便已準備好可以寄送到 Azure。 此外，Azure 入口網站中會建立以您在**起始離線備份**工作流程期間所提供的名稱來命名的匯入作業。 最後，工具上還會顯示磁碟所要寄送到之 Azure 資料中心的寄送地址，以及用來找到 Azure 入口網站上之匯入作業的連結。
 
     ![Azure 磁碟準備完成](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -161,7 +161,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
     >
     >
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | /j:<*JournalFile*> |日誌檔案的路徑。 每個磁碟機必須只有一個日誌檔案。 日誌檔案不得位於目標磁碟機上。 日誌檔案的副檔名是 .jrn，且作為執行此命令的一部分而建立。 |
 | /id:<*SessionId*> |工作階段識別碼會識別複製工作階段。 其用來確保正確復原中斷的複製工作階段。 在複製工作階段中複製的檔案會儲存在以目標磁碟機上工作階段識別碼命名的目錄。 |
@@ -181,7 +181,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
   ![PowerShell 輸出](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>在 Azure 入口網站中建立匯入作業
-1. 移至您的儲存體帳戶中[Azure 入口網站](https://ms.portal.azure.com/)，按一下 **匯入/匯出**，然後**建立匯入工作**工作窗格中。
+1. 在 [Azure 入口網站](https://ms.portal.azure.com/)中前往您的儲存體帳戶，並按一下 [匯入/匯出]，然後按一下工作窗格中的 [建立匯入作業]。
 
     ![Azure 入口網站中的匯入/匯出索引標籤](./media/backup-azure-backup-import-export/azureportal.png)
 

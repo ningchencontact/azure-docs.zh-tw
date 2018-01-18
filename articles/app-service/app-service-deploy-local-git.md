@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 本教學課程會示範如何將應用程式從本機電腦上的 Git 儲存機制部署到 [Azure Web Apps](app-service-web-overview.md)。 App Service 支援使用這個方法和 [Azure 入口網站]的 [本機 Git] 部署選項。  
@@ -72,7 +72,7 @@ git commit -m "Hello Azure App Service"
 2. 在 App Service 應用程式的刀鋒視窗中，按一下 [設定] > [部署來源]。 依序按一下 [選擇來源]、[本機 Git 儲存機制] 以及 [確定]。  
    
     ![本機 Git 儲存機制](./media/app-service-deploy-local-git/local_git_selection.png)
-3. 如果這是您第一次在 Azure 中設定儲存機制，就需要為它建立登入認證。 您將使用這些認證來登入 Azure 儲存機制，並推播來自您本機 Git 儲存機制的變更。 從應用程式的刀鋒視窗中，按一下 [設定] > [部署認證]，然後設定您的部署使用者名稱和密碼。 完成後，按一下 [儲存] 。
+3. 如果這是您第一次在 Azure 中設定儲存機制，就需要為它建立登入認證。 您將使用這些認證來登入 Azure 儲存機制，並推播來自您本機 Git 儲存機制的變更。 從應用程式的刀鋒視窗中，按一下 [部署] > [部署認證]，然後設定您的部署使用者名稱和密碼。 完成後，按一下 [儲存] 。
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -125,7 +125,7 @@ git push azure master
 
 **原因**：執行 git 推送操作時，如果您沒有指定分支，且沒有設定 Git 所使用的 push.default 值，便有可能發生此錯誤。
 
-**解決方式**：指定主要分支，重新執行推送操作。 例如：
+**解決方式**：指定主要分支，重新執行推送操作。 例如︰
 
 ```bash  
 git push azure master
@@ -135,7 +135,7 @@ git push azure master
 
 **原因**：如果您嘗試在 'azure' 遠端上推送至除了主要以外的分支，便有可能發生此錯誤。
 
-**解決方式**：指定主要分支，重新執行推送操作。 例如：
+**解決方式**：指定主要分支，重新執行推送操作。 例如︰
 
 ```bash  
 git push azure master

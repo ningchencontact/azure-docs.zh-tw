@@ -3,7 +3,7 @@ title: "Azure AD Connect︰從 DirSync 升級 | Microsoft Docs"
 description: "了解如何從 DirSync 升級至 Azure AD Connect。 本文說明從 DirSync 升級至 Azure AD Connect 的步驟"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: c691bc2725f92578a22dff352ee39b66de08c870
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a7287a6b3fa26e69167334ec47413dfc570d031
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect︰從 DirSync 升級
 Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可從 DirSync 升級的方式。 這些步驟不適用於從另一個版本的 Azure AD Connect 或從 Azure AD Sync 升級。
@@ -157,7 +157,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。 這些密碼�
    * 用來連接到 SQL Server 的服務帳戶 (如果您的 SQL Server 資料庫位於遠端，則這個帳戶必須是網域服務帳戶)。
      您可以在這個畫面上看到下列選項：  
      ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. 按一下 [下一步] 。
+7. 按 [下一步] 。
 8. 在 [準備好設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。 伺服器現在處於[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)，讓變更不會匯出至 Azure AD。
 9. 按一下 [Install] 。
 10. 安裝完成之後，請先登出 Windows 再重新登入，才能使用 Synchronization Service Manager、同步化規則編輯器，或嘗試任何其他組態變更。

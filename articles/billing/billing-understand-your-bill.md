@@ -1,5 +1,5 @@
 ---
-title: "了解 Azure 帳單 | Microsoft Docs"
+title: "了解 Azure 帳單"
 description: "學習如何閱讀並了解 Azure 訂用帳戶的使用情形和帳單"
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帳單
 若要了解您的 Azure 帳單，請比較您包含詳細每日使用量檔案的發票，與 Azure 入口網站中的成本管理報告。
@@ -34,9 +34,8 @@ ms.lasthandoff: 12/08/2017
 如需成本管理報告的詳細資料，請參閱 [Azure 入口網站成本管理](https://docs.microsoft.com/azure/billing/billing-getting-started)。
 
 ## <a name="charges"></a>如何確定我發票中的費用是否正確？
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 如果您需要發票費用的更多詳細資料，有幾個選項供您選擇。
 

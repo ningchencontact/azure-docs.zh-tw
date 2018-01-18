@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3c676b0c9c8090fb9680bc71051a9247ed0a4574
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: cb4ef0e361cb3495a03e5a7ed49d9a84a54dbdc3
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>在 Azure 入口網站中多重要素驗證報告的參考
 
 透過 [Azure 入口網站](https://portal.azure.com)中的 [Azure Active Directory (Azure AD) 報告](active-directory-reporting-azure-portal.md)，您可以取得判斷您的環境執行狀況所需的資訊。
 
-[登入活動報告](active-directory-reporting-activity-sign-ins.md)提供您受管理應用程式使用方式和使用者登入活動的相關資訊，包括多重要素驗證 (MFA) 使用方式的相關資訊。 
+
+            [登入活動報告](active-directory-reporting-activity-sign-ins.md)提供您受控應用程式使用方式和使用者登入活動的相關資訊，包括多重要素驗證 (MFA) 使用方式的相關資訊。 
 
 MFA 資料可讓您深入了解 MFA 如何在您的組織中運作。 它可讓您回答問題，例如： 
 

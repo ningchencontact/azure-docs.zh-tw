@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-大部分協調器函式會呼叫其他函式，因此，這裡的 "Hello World" 範例會示範如何呼叫函式：
+大部分協調器函式會呼叫活動函式；因此，這裡的 "Hello World" 範例示範如何呼叫活動函式：
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ public static async Task<string> Run(
 活動觸發程序繫結支援輸入及輸出，就像協調流程觸發程序一樣。 協助了解輸入和輸出處理的一些事項如下：
 
 * **輸入** - 活動函式原生使用 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 作為參數類型。 或者，可以使用 JSON 可序列化的任何參數類型宣告活動函式。 當您使用 `DurableActivityContext` 時，可以呼叫 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) 以擷取和還原序列化活動函式輸入。
-* **輸出** - 活動觸發程序支援輸出值以及輸入。 函式的傳回值會用來指派輸出值，而且必須是 JSON 可序列化。 如果函式傳回 `Task` 或 `void`，則 `null` 值將儲存為輸出。
+* **輸出** - 活動函式支援輸出值和輸入。 函式的傳回值會用來指派輸出值，而且必須是 JSON 可序列化。 如果函式傳回 `Task` 或 `void`，則 `null` 值將儲存為輸出。
 * **中繼資料** - 活動函式可以繫結至 `string instanceId` 參數，以取得父代協調流程的執行個體識別碼。
 
 > [!NOTE]
@@ -193,7 +193,7 @@ public static string SayHello([ActivityTrigger] string name)
 ```
 
 * `taskHub` - 在多個函式應用程式共用相同儲存體帳戶，但是必須相互隔離的案例中使用。 若未指定，就會使用 `host.json` 的預設值。 此值必須符合目標協調器函式所使用的值。
-* `connectionName` - 包含儲存體連接字串的應用程式設定名稱。 這個連接字串代表的儲存體帳戶，必須是目標協調器函式使用的相同帳戶。 如果未指定，則會使用函式應用程式的預設連接字串。
+* `connectionName` - 包含儲存體帳戶連接字串的應用程式設定名稱。 這個連接字串代表的儲存體帳戶，必須是目標協調器函式使用的相同帳戶。 如果未指定，則會使用函數應用程式的預設儲存體帳戶連接字串。
 
 > [!NOTE]
 > 在大部分情況下，建議您省略這些屬性，並依賴預設行為。

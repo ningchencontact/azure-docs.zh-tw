@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 現在可供使用︰Azure Cosmos DB [要求單位計算機 (英文)](https://www.documentdb.com/capacityplanner)。 深入了解 [預估您的輸送量需求](request-units.md#estimating-throughput-needs)。
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/04/2018
 ![輸送量計算機][5]
 
 ## <a name="introduction"></a>簡介
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是 Microsoft 的全域分散式多模型資料庫。 有了 Azure Cosmos DB，您就不需要租用虛擬機器、部署軟體或監視資料庫。 Microsoft 頂尖工程師會負責操作並持續監視 Azure Cosmos DB，提供世界級的可用性、效能和資料保護能力。 您可以存取使用您選擇的 Api，例如資料[SQL API](documentdb-introduction.md)， [MongoDB API](mongodb-introduction.md)，[表格 API](table-introduction.md)，並透過 Gremlin [Graph API](graph-introduction.md) -所有原生支援。 Azure Cosmos DB 的貨幣是要求單位 (RU)。 使用 RU 時，您不需保留讀取/寫入容量，或是佈建 CPU、記憶體及 IOPS。
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是 Microsoft 的全域分散式多模型資料庫。 有了 Azure Cosmos DB，您就不需要租用虛擬機器、部署軟體或監視資料庫。 Microsoft 頂尖工程師會負責操作並持續監視 Azure Cosmos DB，提供世界級的可用性、效能和資料保護能力。 您可以使用所選擇的 API 來存取資料，例如透過[圖形 API](graph-introduction.md) 的 [SQL API](documentdb-introduction.md)、[MongoDB API](mongodb-introduction.md)、[資料表 API](table-introduction.md) 和 Gremlin，這些全都是原生支援的 API。 Azure Cosmos DB 的貨幣是要求單位 (RU)。 使用 RU 時，您不需保留讀取/寫入容量，或是佈建 CPU、記憶體及 IOPS。
 
 Azure Cosmos DB 支援數種 API 以執行各種不同的作業，從簡單地讀取及寫入，到複雜的圖表查詢等等。 因為並非所有的要求都相等，所以系統會根據處理要求所需的計算量，指派標準化的**要求單位**數量。 作業的要求單位數具決定性，您可以在 Azure Cosmos DB 中透過回應標頭追蹤任何作業所取用的要求單位數。 
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求�
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中指定要求單位容量
 開始新的集合、資料表或圖表時，您可以指定想要保留給每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據佈建的輸送量，配置實體資料分割來裝載您的集合，並隨著資料成長分割/再平衡所有資料分割的資料。
 
-您可以建立 azure DB Cosmos 容器固定或無限制。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器中，您必須指定 1000 RU/秒的最小的輸送量和[資料分割索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的集合/資料表/圖形和要求。 
+Azure Cosmos DB 容器可以建立為固定或無限制。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/秒和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的集合/資料表/圖形和要求。 
 
 > [!NOTE]
 > 資料分割索引鍵是一種邏輯界限，而不是實體界限。 因此，您不需要限制不同資料分割索引鍵值的數目。 事實上，最好能擁有較多不同的資料分割索引鍵值，Azure Cosmos DB 才有更多的負載平衡選項。
@@ -210,7 +210,7 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 5. 記錄應用程式所使用的任何自訂指令碼 (預存程序、觸發程序、使用者定義的函式) 的要求單位費用
 6. 根據您預期每秒執行的作業估計數目，來計算必要的要求單位數。
 
-### <a id="GetLastRequestStatistics"></a>使用 API for MongoDB 的 GetLastRequestStatistics 命令
+## <a id="GetLastRequestStatistics"></a>使用 API for MongoDB 的 GetLastRequestStatistics 命令
 API for Mongodb 支援自訂命令 *getLastRequestStatistics*，可擷取指定之作業的要求費用。
 
 例如，在 Mongo 殼層中，執行您想要驗證要求費用的作業。

@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>輸出中繼資料
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 編碼作業會與您要在其上執行一些編碼工作的輸入資產相關聯。 例如，將 MP4 檔案編碼為 H.264 MP4 自動調整位元速率集、建立縮圖、建立疊加層。 完成工作時，就會產生輸出資產。  輸出資產包含視訊、音訊、縮圖等等。輸出資產也包含隨附關於輸出資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰&lt;source_file_name&gt;_manifest.xml (例如：BigBuckBunny_manifest.xml)。  
 
 如果您想要檢查中繼資料檔案，可以建立 **SAS** 定位器並將檔案下載到您的本機電腦。  
 
-本主題討論輸出中繼資料 (&lt;source_file_name&gt;_manifest.xml) 所根據之 XML 結構描的元素和類型。 如需包含輸入資產相關中繼資料的檔案相關資訊，請參閱[輸入中繼資料](media-services-input-metadata-schema.md)。  
+本文討論輸出中繼資料 (&lt;來源檔案名稱&gt;_manifest.xml) 所根據之 XML 結構描述的元素和類型。 如需包含輸入資產相關中繼資料的檔案相關資訊，請參閱[輸入中繼資料](media-services-input-metadata-schema.md)。  
 
 > [!NOTE]
-> 您可以在本主題的結尾找到完整的結構描述程式碼和 XML 範例。  
+> 您可以在本文結尾找到完整的結構描述程式碼和 XML 範例。  
 >
 >
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 編碼作業的 AssetFile 項目集合。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 [AssetFile 元素](media-services-output-metadata-schema.md)。 |
 
@@ -45,17 +45,17 @@ ms.lasthandoff: 10/11/2017
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | **名稱**<br/><br/> 必要 |**xs:string** |媒體資產檔案名稱。 |
 | **大小**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:long** |資產檔案大小 (以位元組為單位)。 |
 | **Duration**<br/><br/> 必要 |**xs:duration** |內容播放持續時間。 |
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | **來源** |為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的視訊播放軌。 這是所有視訊播放軌的集合。 如需詳細資訊，請參閱 [VideoTracks 元素](media-services-output-metadata-schema.md)。 |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 如需詳細資訊，請參閱 [VideoTracks 元素](media-services-output-metadata-schema.md)。 |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的音訊播放軌。 這是所有音訊播放軌的集合。 如需詳細資訊，請參閱 [AudioTracks 元素](media-services-output-metadata-schema.md)。 |
 
 ## <a name="Sources "></a> 來源元素
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | **來源**<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
 
@@ -74,17 +74,17 @@ ms.lasthandoff: 10/11/2017
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | **名稱**<br/><br/> 必要 |**xs:string** |輸入的來源檔案名稱。 |
 
 ## <a name="VideoTracks "></a> VideoTracks 元素
-每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的視訊播放軌。 這是所有視訊播放軌的集合。  
+每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 **VideoTracks** 元素代表所有視訊播放軌集合。  
 
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定視訊播放軌。 如需詳細資訊，請參閱 [VideoTrack 元素](media-services-output-metadata-schema.md#VideoTrack)。 |
 
@@ -94,9 +94,9 @@ ms.lasthandoff: 10/11/2017
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰**此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
 | **FourCC**<br/><br/> 必要 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
 | **設定檔** |**xs:string** |H264 設定檔 (僅適用於 H264 轉碼器)。 |
 | **Level** |**xs:string** |H264 層級 (僅適用於 H264 轉碼器)。 |
@@ -111,12 +111,12 @@ ms.lasthandoff: 10/11/2017
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |此視訊播放軌的最大 GOP 平均位元速率 (千位元 / 秒)。 |
 
 ## <a name="AudioTracks "></a> AudioTracks 元素
-每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的音訊播放軌。 這是所有音訊播放軌的集合。  
+每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的音訊播放軌。 **AudioTracks** 元素代表所有這些音訊播放軌集合。  
 
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定音訊播放軌。 如需詳細資訊，請參閱 [AudioTrack 元素](media-services-output-metadata-schema.md)。 |
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。**注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
 | **Codec** |**xs:string** |音訊播放軌轉碼器字串。 |
@@ -137,7 +137,7 @@ ms.lasthandoff: 10/11/2017
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |wFormatTag 格式類型的每樣本位元數。 |
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |音量計量結果參數。 如需詳細資訊，請參閱 [LoudnessMeteringResultParameters 元素](media-services-output-metadata-schema.md)。 |
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**Dolby** 專業音量計量開發套件版本。 |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 必要 |**xs:int** |透過 DPLM 產生的 DialogNormalization，若設定了 LoudnessMetering 則為必要 |
@@ -510,7 +510,8 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="xml"></a> XML 範例
- 以下是輸出中繼資料檔案的範例。  
+
+下列 XML 是輸出中繼資料檔案的範例。  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

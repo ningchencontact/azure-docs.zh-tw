@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: owend
-ms.openlocfilehash: 5f3ad1c4df2c21a8d52a8a3c4d7d311af32720a9
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 進行連接
 
@@ -34,13 +34,11 @@ ms.lasthandoff: 11/02/2017
 
 1. 在 Power BI Desktop 中，按一下 [取得資料] > [Azure] > [Azure Analysis Services 資料庫]。
 
-2. 在 [伺服器] 中，輸入伺服器名稱。 
-    
-    請務必包含完整的 URL。 例如 asazure://westcentralus.asazure.windows.net/advworks。
+2. 在 [伺服器] 中，輸入伺服器名稱。 請務必包含完整的 URL，例如 asazure://westcentralus.asazure.windows.net/advworks。
 
 3. 在 [資料庫] 中，如果您知道所要連線表格式模型資料庫或檢視方塊的名稱，請在此貼上。 否則，您可以將此欄位保留空白，然後稍後選取資料庫或檢視方塊。
 
-4. 保留預設的 [即時連接] 選項，然後按 [連接]。 
+4. 保留預設的 [即時連接] 選項，然後按 [連接]。 目前不支援匯入連線。
 
 5. 如果出現提示，請輸入您的登入認證。 
 
@@ -51,7 +49,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="connect-in-power-bi-service"></a>在 Power BI Desktop 中連線 (服務)
 
 1. 建立與您伺服器上模型即時連線的 Power BI Desktop 檔案。
-2. 在 [Power BI](https://powerbi.microsoft.com) 中，按一下 [取得資料]  >  [檔案]。 找到並選取您的檔案。
+2. 在 [Power BI](https://powerbi.microsoft.com) 中，按一下 [取得資料] > [檔案]，然後尋找並選取您的 .pbix 檔案。
 
 
 

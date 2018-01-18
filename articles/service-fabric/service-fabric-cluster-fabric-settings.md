@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
-本文件將說明如何為 Service Fabric 叢集自訂各種網狀架構設定和升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
+本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
 
 > [!NOTE]
 > 並非所有設定都可以在入口網站中使用。 若下列設定無法透過入口網站使用，請使用 Azure Resource Manager 範本自訂它。
@@ -52,14 +52,14 @@ ms.lasthandoff: 12/01/2017
 ### <a name="section-name-diagnostics"></a>區段名稱：Diagnostics
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-| ConsumerInstances |String | 動態 |DCA 取用者執行個體的清單。 |
-| ProducerInstances |String | 動態 |DCA 產生者執行個體的清單。 |
+| ConsumerInstances |字串 | 動態 |DCA 取用者執行個體的清單。 |
+| ProducerInstances |字串 | 動態 |DCA 產生者執行個體的清單。 |
 | AppEtwTraceDeletionAgeInDays |整數，預設值為 3 | 動態 |天數，在此時間過後便會刪除含有應用程式 ETW 追蹤的舊有 ETL 檔案。 |
 | AppDiagnosticStoreAccessRequiresImpersonation |布林值，預設值為 true | 動態 |在代表應用程式存取診斷存放區時是否需要模擬。 |
 | MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
 | DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 | ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
-| ClusterId |String | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
+| ClusterId |字串 | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
 | EnableTelemetry |布林值，預設值為 true | 動態 |這會用來啟用或停用遙測。 |
 | EnableCircularTraceSession |布林值，預設值為 false | 靜態 |旗標會指出是否應使用循環追蹤工作階段。 |
 
@@ -73,16 +73,16 @@ ms.lasthandoff: 12/01/2017
 | --- | --- | --- | --- |
 | IsEnabled |布林值，預設值為 true | 動態 |旗標會指出是否啟用本機節點的效能計數器收集。 |
 | SamplingIntervalInSeconds |整數，預設值為 60 | 動態 |所要收集之效能計數器的取樣間隔。 |
-| Counters |String | 動態 |要收集之效能計數器的逗號分隔清單。 |
+| Counters |字串 | 動態 |要收集之效能計數器的逗號分隔清單。 |
 | MaxCounterBinaryFileSizeInMB |整數，預設值為 1 | 動態 |每個效能計數器之二進位檔案的大小上限 (MB)。 |
 | NewCounterBinaryFileCreationIntervalInMinutes |整數，預設值為 10 | 動態 |間隔上限 (秒)，在此時間過後便會建立新的效能計數器二進位檔案。 |
 
 ### <a name="section-name-setup"></a>區段名稱︰Setup
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-| FabricDataRoot |String | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
-| FabricLogRoot |String | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
-| ServiceRunAsAccountName |String | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
+| FabricDataRoot |字串 | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
+| FabricLogRoot |字串 | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
+| ServiceRunAsAccountName |字串 | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
 | SkipFirewallConfiguration |布林值，預設值為 false | 不允許 |指定是否需要由系統設定防火牆設定。 這只有當您使用 Windows 防火牆時才適用。 如果您使用協力廠商防火牆，則您必須開啟要供系統和應用程式使用的連接埠 |
 |NodesToBeRemoved|字串，預設值為 ""| 動態 |應在設定升級過程中移除的節點。 (僅適用於獨立部署)|
 |ContainerNetworkSetup|布林值，預設值為 FALSE| 靜態 |是否要設定容器網路。|
@@ -107,8 +107,8 @@ ms.lasthandoff: 12/01/2017
 | CheckpointThresholdInMB |整數，預設值為 50 |靜態|記錄使用量超過此值時，便會起始檢查點。 |
 | MaxAccumulatedBackupLogSizeInMB |整數，預設值為 800 |靜態|指定備份記錄鏈中備份記錄檔的最大累積大小 (MB)。 如果增量備份會產生導致累積備份記錄檔的備份記錄檔，增量備份要求將會失敗，因為相關完整備份會大於此大小。 在這個情況下，使用者需要進行完整備份。 |
 | MaxWriteQueueDepthInKB |整數，預設值為 0 |不允許| 核心記錄器可以針對與此複本相關聯之記錄使用的寫入佇列深度上限，此值為整數值，並且會以 KB 為單位來指定。 此值是核心記錄器更新期間可處於待處理狀態的位元組數上限。 此值可為 0 (讓核心記錄器計算出適當值) 或 4 的倍數。 |
-| SharedLogId |String |不允許|共用記錄識別碼。 此參數是 GUID，每個共用記錄的這個參數都應該是唯一的。 |
-| SharedLogPath |String |不允許|共用記錄的路徑。 如果此值空白，則會使用預設共用記錄。 |
+| SharedLogId |字串 |不允許|共用記錄識別碼。 此參數是 GUID，每個共用記錄的這個參數都應該是唯一的。 |
+| SharedLogPath |字串 |不允許|共用記錄的路徑。 如果此值空白，則會使用預設共用記錄。 |
 | SlowApiMonitoringDuration |時間 (秒)，預設值為 300 |靜態| 指定 API 的持續時間，在此時間過後便會引發警告健康狀態事件。|
 | MinLogSizeInMB |整數，預設值為 0 |靜態|交易記錄檔大小下限。 系統將不會允許把記錄檔截斷為低於此設定的大小。 0 表示複寫器將會根據其他設定決定記錄大小下限。 提高這個值會提高執行部分複本和增量備份的可能性，因為這會降低將相關記錄檔記錄截斷的可能性。 |
 
@@ -678,7 +678,7 @@ PropertyGroup|X509NameMap，預設值為 None|動態| |
 |GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不適用於特定服務。 |
 |IPProviderEnabled|布林值，預設值為 FALSE|靜態|能夠管理 IP 位址。 |
 |NTLMAuthenticationEnabled|布林值，預設值為 FALSE|靜態| 能夠支援執行身分為其他使用者的程式碼套件使用 NTLM，以便機器之間的處理序可以安全地通訊。 |
-|NTLMAuthenticationPasswordSecret|SecureString，預設值為 Common::SecureString(L"")|靜態|用來產生 NTLM 使用者密碼的加密雜湊。 如果 NTLMAuthenticationEnabled 為 true，則必須加以設定。 由部署人員驗證。 |
+|NTLMAuthenticationPasswordSecret|SecureString，預設值為 Common::SecureString(L"")|靜態|是加密的，用來產生 NTLM 使用者的密碼。 如果 NTLMAuthenticationEnabled 為 true，則必須加以設定。 由部署人員驗證。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|時間範圍，預設值為 Common::TimeSpan::FromMinutes(3)|動態|以秒為單位指定時間範圍。 環境特有的設定。FileStoreService NTLM 設定所要使用的新憑證定期主控掃描間隔。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|時間範圍，預設值為 Common::TimeSpan::FromMinutes(4)|動態| 以秒為單位指定時間範圍。 使用憑證通用名稱來設定 NTLM 使用者的逾時。 FileStoreService 共用需要 NTLM 使用者。 |
 |RegisterCodePackageHostTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 FabricRegisterCodePackageHost 同步呼叫的逾時值。 這僅適用於多程式碼套件應用程式主機，例如 FWP |
@@ -686,6 +686,7 @@ PropertyGroup|X509NameMap，預設值為 None|動態| |
 |RunAsPolicyEnabled| 布林值，預設值為 FALSE|靜態| 能夠以本機使用者身分 (而非用來執行網狀架構處理序的使用者身分) 執行程式碼套件。 若要啟用此原則，網狀架構必須以 SYSTEM 身分或具有 SeAssignPrimaryTokenPrivilege 之使用者的身分來執行。 |
 |ServiceFactoryRegistrationTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 同步暫存器 (無狀態/具狀態) ServiceFactory 呼叫的逾時值 |
 |ServiceTypeDisableGraceInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|動態|以秒為單位指定時間範圍。 時間間隔，之後便可以停用服務類型 |
+|EnableDockerHealthCheckIntegration|布林值，預設值為 TRUE|靜態|啟用 docker HEALTHCHECK 事件與 Service Fabric 系統健康狀態報告的整合 |
 
 ### <a name="section-name-federation"></a>區段名稱︰Federation
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -772,8 +773,8 @@ PropertyGroup|X509NameMap，預設值為 None|動態| |
 |MaxPrimaryReplicationQueueMemorySize|單位，預設值為 0|靜態|這是主要複寫佇列的最大值 (位元組)。|
 |MaxSecondaryReplicationQueueSize|單位，預設值為 2048|靜態|這是次要複寫佇列中可存在的作業數目上限。 請注意，此值必須是 2 的乘冪。|
 |MaxSecondaryReplicationQueueMemorySize|單位，預設值為 0|靜態|這是次要複寫佇列的最大值 (位元組)。|
-|QueueHealthMonitoringInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|靜態|以秒為單位指定時間範圍。 此值會決定複寫器用來監視複寫作業佇列中所發生之任何警告/錯誤健康情況事件的時間週期。 值為 '0' 會停用健康情況監視。 |
-|QueueHealthWarningAtUsagePercent|單位，預設值為 80|靜態|此值會決定複寫佇列使用量 (以百分比表示)，一旦超過此使用量，我們便會發出有關佇列使用量偏高的警告。 我們會在 QueueHealthMonitoringInterval 寬限間隔過後這麼做。 如果佇列使用量在寬限期間內低於這個百分比，系統不會發出警告。|
+|QueueHealthMonitoringInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|靜態|以秒為單位指定時間範圍。 此值會決定複寫器用來監視複寫作業佇列中所發生之任何警告/錯誤健康情況事件的時間週期。 值為 '0' 會停用健康情況監視 |
+|QueueHealthWarningAtUsagePercent|單位，預設值為 80|靜態|此值會決定複寫佇列使用量 (以百分比表示)，一旦超過此使用量，我們便會發出有關佇列使用量偏高的警告。 我們會在 QueueHealthMonitoringInterval 寬限間隔過後這麼做。 如果佇列使用量在寬限期間內低於這個百分比|
 |RetryInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(5)|靜態|以秒為單位指定時間範圍。 當作業遺失或遭到拒絕，此計時器會決定複寫器重新試著傳送作業的頻率。|
 
 ### <a name="section-name-transport"></a>區段名稱：Transport

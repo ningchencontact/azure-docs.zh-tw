@@ -15,15 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
-本文說明如何在 Azure Functions 中使用 Azure Blob 儲存體繫結。 Azure Functions 支援適用於 Blob 的觸發程序、輸入和輸出繫結。
+本文說明如何在 Azure Functions 中使用 Azure Blob 儲存體繫結。 Azure Functions 支援適用於 Blob 的觸發程序、輸入和輸出繫結。 本文包含每個繫結的區段：
+
+* [Blob 觸發程序](#trigger)
+* [Blob 輸入繫結](#input)
+* [Blob 輸出繫結](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,7 +41,7 @@ ms.lasthandoff: 01/05/2018
 > [!NOTE]
 > 當您在使用情況方案中使用 blob 觸發程序時，函數應用程式進入閒置狀態之後，處理新 blob 最多會有 10 分鐘的延遲。 在函數應用程式開始執行之後，會立即處理 blob。 為了避免發生此初始延遲，請考慮下列做法︰
 > - 使用 App Service 方案並啟用「永遠開啟」。
-> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的佇列訊息。 如需範例，請參閱[本文中稍後說明的 Blob 輸入/輸出繫結範例](#input--output---example)。
+> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的佇列訊息。 如需範例，請參閱[本文中稍後說明的 Blob 輸入繫結範例](#input---example)。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
@@ -49,7 +53,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)新增或更新中的 blob 時寫入記錄檔`samples-workitems`容器。
+下列範例示範在 `samples-workitems` 容器中新增或更新 Blob 時，寫入記錄的 [C# 函式](functions-dotnet-class-library.md)。
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -63,7 +67,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 blob 觸發程序中的繫結*function.json*檔案和[C# 指令碼 (.csx)](functions-reference-csharp.md)使用繫結的程式碼。 在 `samples-workitems` 容器中新增或更新 Blob 時，函數會寫入記錄。
+下列範例所示範的是使用繫結之 function.json 檔案和 [C# 指令碼 (.csx)](functions-reference-csharp.md) 中的 Blob 觸發程序繫結。 在 `samples-workitems` 容器中新增或更新 Blob 時，函數會寫入記錄。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -140,7 +144,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，若要設定 blob 的觸發程序使用下列屬性：
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定 Blob 觸發程序：
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -168,7 +172,7 @@ module.exports = function(context) {
   }
   ```
 
-  如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
+  如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -198,7 +202,7 @@ module.exports = function(context) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `BlobTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blobTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 例外狀況在[使用方式](#trigger---usage)一節中會加以說明。 |
@@ -273,7 +277,7 @@ module.exports = function(context) {
 Blob 觸發程序提供數個中繼資料屬性。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些值的語意與 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 類型相同。
 
 
-|屬性  |類型  |說明  |
+|屬性  |類型  |描述  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|觸發 Blob 的路徑。|
 |`Uri`|`System.Uri`|Blob 的主要位置 URI。|
@@ -310,54 +314,39 @@ Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsS
 
 如果所監看的 blob 容器包含超過 10,000 個 blob，Functions 執行階段會掃描記錄檔以監看新增或變更的 blob。 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有事件。 在某些情況下可能會遺失記錄檔。 如果您需要更快或更可靠的 Blob 處理，請考慮在建立 Blob 時建立[佇列訊息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然後，使用[佇列觸發程序](functions-bindings-storage-queue.md) (而不是 Blob 觸發程序) 處理該 Blob。 另一個選項是使用 Event Grid；請參閱教學課程[使用 Event Grid 自動調整已上傳映像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
 
-## <a name="input--output"></a>輸入和輸出
+## <a name="input"></a>輸入
 
-使用 Blob 儲存體輸入和輸出繫結來讀取和寫入 Blob。
+使用 Blob 儲存體輸入繫結來讀取 Blob。
 
-## <a name="input--output---example"></a>輸入和輸出 - 範例
+## <a name="input---example"></a>輸入 - 範例
 
 請參閱特定語言的範例：
 
-* [C#](#input--output---c-example)
-* [C# 指令碼 (.csx)](#input--output---c-script-example)
-* [JavaScript](#input--output---javascript-example)
+* [C#](#input---c-example)
+* [C# 指令碼 (.csx)](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-### <a name="input--output---c-example"></a>輸入和輸出 - C# 範例
+### <a name="input---c-example"></a>輸入 - C# 範例
 
-下列範例是[C# 函式](functions-dotnet-class-library.md)使用 blob 的觸發程序和兩個輸出 blob 繫結。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
+下列範例是使用一個佇列觸發程序和一個輸入 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 佇列 messagge 包含 Blob 的名稱，而函式會記錄 Blob 的大小。
 
 ```csharp
-[FunctionName("ResizeImage")]
+[FunctionName("BlobInput")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
 {
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
 }
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
 ```        
 
-### <a name="input--output---c-script-example"></a>輸入和輸出 - C# 指令碼範例
+### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
 
-下列範例示範 blob 輸入和輸出中的繫結*function.json*檔案和[C# 指令碼 (.csx)](functions-reference-csharp.md)使用繫結的程式碼。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+<!--Same example for input and output. -->
+
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 
@@ -390,7 +379,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 }
 ``` 
 
-[設定](#input--output---configuration)章節會說明這些屬性。
+[設定](#input---configuration)章節會說明這些屬性。
 
 以下是 C# 指令碼程式碼：
 
@@ -402,7 +391,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### <a name="input--output---javascript-example"></a>輸入和輸出 - JavaScript 範例
+### <a name="input---javascript-example"></a>輸入 - JavaScript 範例
+
+<!--Same example for input and output. -->
 
 下列範例所示範的是使用繫結之 function.json 檔案，以及 [JavaScript 程式碼] (functions-reference-node.md) 中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
@@ -437,7 +428,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ``` 
 
-[設定](#input--output---configuration)章節會說明這些屬性。
+[設定](#input---configuration)章節會說明這些屬性。
 
 以下是 JavaScript 程式碼：
 
@@ -449,9 +440,221 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes"></a>輸出和輸出 - 屬性
+## <a name="input---attributes"></a>輸入 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，定義在 NuGet 套件[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+
+屬性的建構函式會採用 Blob 路徑和指示讀取或寫入的 `FileAccess` 參數，如下列範例所示：
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+
+```
+
+您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
+
+## <a name="input---configuration"></a>輸入 - 組態
+
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Blob` 屬性。
+
+|function.json 屬性 | 屬性內容 |描述|
+|---------|---------|----------------------|
+|**type** | n/a | 必須設為 `blob`。 |
+|**direction** | n/a | 必須設為 `in`。 例外狀況在[使用方式](#input---usage)一節中會加以說明。 |
+|**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。|
+|**路徑** |**BlobPath** | blob 的路徑。 | 
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|n/a | **Access** | 指出您是否將讀取或寫入。 |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="input---usage"></a>輸入 - 使用方式
+
+在 C# 類別庫和 C# 指令碼中，使用方法參數 (例如 `Stream paramName`) 存取 Blob。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+
+* `TextReader`
+* `string`
+* `Byte[]`
+* `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+* `CloudBlockBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+* `CloudPageBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+* `CloudAppendBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+
+如上所述，其中一些類型需要 *function.json* 中的 `inout` 繫結方向。 Azure 入口網站中的標準編輯器不支援此方向，因此您必須使用進階編輯器。
+
+如果您正在讀取文字 Blob，可以繫結至 `string` 類型。 由於會將整個 blob 內容載入記憶體中，因此只有在 blob 大小很小時才建議使用此類型。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。
+
+在 JavaScript 中，使用 `context.bindings.<name>` 存取 Blob 資料。
+
+## <a name="output"></a>輸出
+
+使用 Blob 儲存體輸出繫結來寫入 Blob。
+
+## <a name="output---example"></a>輸出 - 範例
+
+請參閱特定語言的範例：
+
+* [C#](#output---c-example)
+* [C# 指令碼 (.csx)](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>輸出 - C# 範例
+
+下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```        
+
+### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
+
+<!--Same example for input and output. -->
+
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+
+在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+[設定](#output---configuration)章節會說明這些屬性。
+
+以下是 C# 指令碼程式碼：
+
+```cs
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
+```
+
+### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
+
+<!--Same example for input and output. -->
+
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [JavaScript 程式碼] (functions-reference-node.md) 中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+
+在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+[設定](#output---configuration)章節會說明這些屬性。
+
+以下是 JavaScript 程式碼：
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+## <a name="output---attributes"></a>輸出 - 屬性
+
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
 
 屬性的建構函式會採用 Blob 路徑和指示讀取或寫入的 `FileAccess` 參數，如下列範例所示：
 
@@ -477,18 +680,18 @@ public static void Run(
 }
 ```
 
-如需完整範例，請參閱[輸入和輸出-C# 範例](#input--output---c-example)。
+如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
 
 您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
-## <a name="input--output---configuration"></a>輸入和輸出 - 設定
+## <a name="output---configuration"></a>輸出 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Blob` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blob`。 |
-|**direction** | n/a | 必須設定為`in`輸入的繫結或`out`輸出繫結。 例外狀況在[使用方式](#input--output---usage)一節中會加以說明。 |
+|**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
 |**路徑** |**BlobPath** | blob 的路徑。 | 
 |**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
@@ -496,17 +699,14 @@ public static void Run(
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="input--output---usage"></a>輸入和輸出 - 使用方式
+## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 類別庫和 C# 指令碼，請使用像是方法參數中存取 blob `Stream paramName`。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+在 C# 類別庫和 C# 指令碼中，使用方法參數 (例如 `Stream paramName`) 存取 Blob。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
 
-* `TextReader` (僅限輸入)
-* `string` (僅限輸入)
-* `Byte[]` (僅限輸入)
-* `TextWriter` (僅限輸出)
-* `out string` (僅限輸出)
-* `out Byte[]` (僅限輸出)
-*  `CloudBlobStream` (僅限輸出)
+* `TextWriter`
+* `out string`
+* `out Byte[]`
+* `CloudBlobStream`
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>建置 Node.js RESTful API 並將它部署至 Azure 中的 API 應用程式
 
@@ -84,7 +84,7 @@ yo swaggerize --apiPath api.json --framework express
 1. 將 lib 資料夾複製到 `yo swaggerize` 所建立的 ContactList 資料夾，然後將目錄變更為 ContactList。
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -246,14 +246,22 @@ yo swaggerize --apiPath api.json --framework express
     node_modules/
     ```
     使用 `git status` 確認忽略 `node_modules` 資料夾。
+    
+4. 將下列各行新增至 `package.json`。 Swaggerize 所產生的程式碼未指定 Node.js 引擎的版本。 沒有版本規格，Azure 會使用預設 `0.10.18` 版本，而此版本與產生的程式碼不相容。
 
-4. 認可對存放庫所做的變更。
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. 認可對存放庫所做的變更。
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
 ## <a name="test-the-api--in-azure"></a>在 Azure 中測試 API
 

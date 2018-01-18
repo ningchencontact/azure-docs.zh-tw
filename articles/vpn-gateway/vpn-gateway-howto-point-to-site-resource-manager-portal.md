@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc3ba82003d7714ee26ffcfb32f096f0374d2800
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/02/2018
 
 您可使用下列驗證方法來與用戶端連線：
 
-* RADIUS 伺服器 - 目前為預覽狀態
+* RADIUS 伺服器
 * VPN 閘道原生 Azure 憑證驗證
 
 本文會協助您設定使用原生 Azure 憑證驗證來進行驗證的 P2S 組態。 如果您想要使用 RADIUS 來驗證要連線的使用者，請參閱[使用 RADIUS 驗證的 P2S](point-to-site-how-to-radius-ps.md)。
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/02/2018
 
 * SSTP 是僅在 Windows 用戶端平台上支援的 SSL 型 VPN 通道。 它可以穿透防火牆，這是從任何地方連線到 Azure 的理想選項。 我們在伺服器端上支援 SSTP 1.0、1.1 和 1.2 版。 用戶端會決定要使用的版本。 若為 Windows 8.1 和更新版本，SSTP 預設使用 1.2。
 
-* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。 IKEv2 目前為預覽版。
+* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。
 
 點對站原生 Azure 憑證驗證連線需要下列各項：
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 01/02/2018
 
 如果您想要從不同於用來產生用戶端憑證的用戶端電腦建立 P2S 連線，您需要安裝用戶端憑證。 安裝用戶端憑證時，您需要匯出用戶端憑證時所建立的密碼。
 
-請確定用戶端憑證已隨著整個憑證鏈結匯出為 .pfx (這是預設值)。 否則，根憑證資訊不存在於用戶端電腦上，而且用戶端將無法正確驗證。 
+請確定用戶端憑證已隨著整個憑證鏈結匯出為 .pfx (這是預設值)。 否則，根憑證資訊不存在於用戶端電腦上，而且用戶端將無法正確驗證。
 
 如需安裝步驟，請參閱[安裝用戶端憑證](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 

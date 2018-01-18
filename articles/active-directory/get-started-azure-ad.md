@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>開始使用 Azure AD
 現代的身分識別管理需要可調整、一致的可靠性，以確保只有經過驗證的使用者才可使用應用程式和服務。 為了充分支援使用者的身分識別管理需求，IT 需要設法允許存取已核准、公開的軟體即服務 (SaaS) 應用程式、設法裝載內部的企業營運應用程式，甚至設法加強內部部署應用程式開發和使用方式。 這些需求全都指出需要有一套雲端式身分識別管理解決方案。      
 
 Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端型目錄和身分識別管理服務。 Azure AD 結合核心目錄服務及進階身分識別管理和應用程式存取管理。 Azure AD 經悉心設計，不但支援多租用戶、地理分布周全，更具有高可用性，表示您可以依賴 Azure AD 來應付最重要的商務需求。
 
-Azure AD 包含一整套的身分識別管理功能，包括能夠同步處理內部部署資源資訊、可自訂的公司品牌、簡單的授權管理，甚至是自助式密碼管理。  這些輕鬆設定的功能有助於開始使用 Azure AD 來保護雲端式應用程式的安全、簡化 IT 程序、降低成本，以及協助確保達成公司合規性目標。
+Azure AD 包含一整套的身分識別管理功能，包括能夠同步處理內部部署資源資訊、可自訂的公司品牌、簡單的授權管理，甚至是自助式密碼管理。 這些輕鬆部署的功能有助於開始使用 Azure AD 來保護雲端式應用程式的安全、簡化 IT 程序、降低成本，以及協助確保達成公司合規性目標。
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -88,6 +88,6 @@ Azure AD 包含一整套的身分識別管理功能，包括能夠同步處理�
 
 
 ## <a name="next-steps"></a>後續步驟
-[Azure Active Directory 產品頁面](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory 服務頁面](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory 價格資訊頁面](https://azure.microsoft.com/pricing/details/active-directory/)

@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>使用 Azure 容器執行個體來掛接 Azure 檔案共用
 
 根據預設，Azure 容器執行個體都是無狀態的。 如果容器損毀或停止，其所有狀態都會遺失。 若要在容器超過存留期後保存其狀態，您必須從外部存放區掛接磁碟區。 本文說明如何掛接 Azure 檔案共用以便與 Azure 容器執行個體搭配使用。
 
 > [!NOTE]
-> 裝載 Azure 檔案共用僅限於目前 Linux 容器。 雖然我們正在將 Windows 容器中的所有功能，您可以找到目前平台差異[配額和 Azure 容器執行個體的區域可用性](container-instances-quotas.md)。
+> 目前只有 Linux 容器才能掛接 Azure 檔案共用。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
 
@@ -66,9 +66,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-container-and-mount-volume"></a>部署容器及掛接的磁碟區
+## <a name="deploy-container-and-mount-volume"></a>部署容器和掛接磁碟區
 
-若要裝載 Azure 檔案共用做為磁碟區容器中，指定 共用與磁碟區掛接點時建立的容器[az 容器建立][az-container-create]。 如果您已遵循上述步驟，您可以使用下列命令來掛接先前建立的共用並建立容器：
+若要掛接 Azure 檔案共用以作為容器中的磁碟區，請在您使用 [az container create][az-container-create] 建立容器時，指定共用和磁碟區掛接點。 如果您已遵循上述步驟，您可以使用下列命令來掛接先前建立的共用並建立容器：
 
 ```azurecli-interactive
 az container create \
@@ -85,13 +85,53 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>管理已掛接磁碟區中的檔案
 
-一旦啟動容器，您可以使用簡單的 web 應用程式透過部署[seanmckenna/aci-hellofiles] [ aci-hellofiles]映像需要管理您所指定的掛接路徑上的 Azure 檔案共用中的檔案。 取得與 web 應用程式的 IP 位址[az 容器顯示][ az-container-show]命令：
+容器啟動後，即可使用 [seanmckenna/aci-hellofiles][aci-hellofiles] 映像所部署的簡單 Web 應用程式，管理位於指定掛接路徑之 Azure 檔案共用中的檔案。 使用 [az container show][az-container-show] 命令，取得 Web 應用程式的 IP 位址：
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
 ```
 
-您可以使用[Azure 入口網站][ portal]或是工具，像是[Microsoft Azure 儲存體總管][ storage-explorer]擷取和檢查要寫入的檔案檔案共用。
+您可以使用 [Azure 入口網站][portal]或 [Microsoft Azure 儲存體總管][storage-explorer]之類的工具擷取和檢查寫入至檔案共用的檔案。
+
+## <a name="mount-multiple-volumes"></a>掛接多個磁碟區
+
+若要在容器執行個體中掛接多個磁碟區，您必須使用 [Azure Resource Manager 範本](/azure/templates/microsoft.containerinstance/containergroups)進行部署。
+
+首先，提供共用詳細資料，並填入範本之 `properties` 區段中的 `volumes` 陣列來定義磁碟區。 例如，如果您已在儲存體帳戶 *myStorageAccount* 中建立名為 *share1* 和 *share2* 的兩個 Azure 檔案共用，則會顯示與下列類似的 `volumes` 陣列：
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+接下來，針對您想要掛接磁碟區所在容器群組中的每個容器，填入容器定義之 `properties` 區段中的 `volumeMounts` 陣列。 例如，這會掛接兩個先前定義的磁碟區：*myvolume1* 和 *myvolume2*：
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+若要使用 Azure Resource Manager 範本來查看容器執行個體部署範例，請參閱[在 Azure 容器執行個體中部署多個容器群組](container-instances-multi-container-group.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

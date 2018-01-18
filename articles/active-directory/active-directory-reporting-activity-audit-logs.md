@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 639776ddebf59ce3ae7596240b6f17f0b490afdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33dc234d4d0ca3ec58e069a928a30bcd8ec41e6d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的稽核活動報告 
 
@@ -28,9 +28,11 @@ ms.lasthandoff: 12/11/2017
 Azure AD 中的報告架構包含下列元件：
 
 - **活動** 
-    - **登入活動** – 受管理應用程式和使用者登入活動的使用情況相關資訊
-    - **稽核記錄** - 關於使用者和群組管理、受管理應用程式和目錄活動的系統活動資訊。
-- **安全性** 
+    - 
+            **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
+    - 
+            **稽核記錄** - 關於使用者和群組管理、受控應用程式和目錄活動的系統活動資訊。
+- **Security** 
     - **有風險的登入** - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。 如需詳細資訊，請參閱＜有風險的登入＞。
     - **標幟為有風險的使用者** - 有風險的使用者表示可能被盜用的使用者帳戶。 如需詳細資訊，請參閱＜標幟為有風險的使用者＞。
 
@@ -116,7 +118,7 @@ Azure Active Directory 中的稽核記錄會提供符合規範的系統活動記
 - 群組
 - 目錄
 - User
-- 應用程式
+- Application
 - 原則
 - 裝置
 - 其他

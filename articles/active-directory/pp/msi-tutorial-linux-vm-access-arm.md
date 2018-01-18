@@ -1,6 +1,6 @@
 ---
-title: "若要存取 Azure 資源管理員使用 Linux VM 指派給使用者的 MSI"
-description: "此教學課程引導您在 Linux VM 上使用 User-Assigned 管理服務身分識別 (MSI)，來存取 Azure 資源管理員的程序。"
+title: "使用 Linux VM 使用者指派的 MSI 存取 Azure Resource Manager"
+description: "本教學課程引導您使用 Linux VM 上使用者指派的受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。"
 services: active-directory
 documentationcenter: 
 author: bryanLa
@@ -14,27 +14,27 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a51d0bdf092893288f2e1cc31a4dcc4117b041c2
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>在 Linux VM 上使用使用者指派受管理服務身分識別 (MSI)，來存取 Azure 資源管理員
+# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>使用 Linux VM 上使用者指派的受控服務身分識別 (MSI) 來存取 Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-本教學課程說明如何建立使用者指派受管理服務身分識別 (MSI)，將它指派至 Linux 虛擬機器 (VM)，然後使用該識別來存取 Azure 資源管理員 API。 
+本教學課程說明如何建立使用者指派的受控服務身分識別 (MSI)，並將它指派給 Linux 虛擬機器 (VM)，然後使用身分識別存取 Azure Resource Manager API。 
 
-由 Azure 自動管理受管理的服務身分識別。 它們可讓支援 Azure AD 驗證，而不需要您的程式碼中嵌入認證的服務驗證。
+由 Azure 自動管理受控服務身分識別。 它們會啟用對支援 Azure AD 驗證之服務的驗證，而不需要在程式碼中內嵌認證。
 
 您會了解如何：
 
 > [!div class="checklist"]
-> * 建立指派給使用者的 MSI
+> * 建立使用者指派的 MSI
 > * 將 MSI 指派給 Linux VM 
-> * MSI 存取授與資源群組中 「 Azure 資源管理員 
-> * 取得存取權杖使用 MSI，以及使用它來呼叫 Azure 資源管理員 
+> * 在 Azure Resource Manager 中將 MSI 存取權授與資源群組 
+> * 使用 MSI 來取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -42,10 +42,10 @@ ms.lasthandoff: 12/22/2017
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-若要執行本教學課程的 CLI 指令碼範例，您有兩個選項：
+若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
-- 使用[Azure 雲端殼層](~/articles/cloud-shell/overview.md)從 Azure 入口網站，或是透過 「 試試看 」 按鈕位於右上角的每個程式碼區塊。
-- [安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本) 如果您想要使用本機的 CLI 主控台。
+- 透過 Azure 入口網站或每個程式碼區塊右上角的 [試用] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
+- 如果您需要使用本機 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 
-此教學課程中，您可以先建立新的 Linux VM。 您也可以選擇使用現有的 VM。
+在本教學課程中，您會先建立新的 Linux VM。 您也可以選擇使用現有 VM。
 
 1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
@@ -65,21 +65,21 @@ ms.lasthandoff: 12/22/2017
 5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
 6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更支援的磁碟類型篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
 
-## <a name="create-a-user-assigned-msi"></a>建立指派給使用者的 MSI
+## <a name="create-a-user-assigned-msi"></a>建立使用者指派的 MSI
 
-1. 如果您使用 CLI 主控台 （而不是 Azure 雲端殼層工作階段中），啟動登入 Azure。 使用與您想要建立新的 MSI 所在的 Azure 訂用帳戶相關聯的帳戶：
+1. 如果您使用 CLI 主控台 (而不是 Azure Cloud Shell 工作階段)，則請從登入 Azure 開始。 使用與 Azure 訂用帳戶建立關聯的帳戶，而 Azure 訂用帳戶是用來建立新的 MSI：
 
     ```azurecli
     az login
     ```
 
-2. 建立 指派使用者給 MSI 使用[az 身分識別建立](/cli/azure/identity#az_identity_create)。 `-g`參數指定 MSI 建立所在的資源群組和`-n`參數會指定其名稱。 請務必取代`<RESOURCE GROUP>`和`<MSI NAME>`參數值與您自己的值：
+2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。 `-g` 參數指定 MSI 建立所在的資源群組，而 `-n` 參數指定其名稱。 請務必將 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數值取代為您自己的值：
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    回應會包含詳細資料建立，類似於下列範例將使用者指派 msi。 請注意`id`程式 MSI 的值，因為它會使用下一個步驟中：
+    回應會包含已建立的使用者指派 MSI 詳細資料，與下列範例類似。 請記下 MSI 的 `id` 值，因為後續步驟中會使用該值：
 
     ```json
     {
@@ -96,27 +96,27 @@ ms.lasthandoff: 12/22/2017
     }
     ```
 
-## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>將您指派給使用者的 MSI 指派給您的 Linux VM
+## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>將使用者指派的 MSI 指派給 Linux VM
 
-系統指派的 MSI，與指派給使用者的 MSI 可供多個 Azure 資源上的用戶端。 此教學課程中，將它指派給單一 VM。 您也可以將它指派給多部 VM。
+與系統指派的 MSI 不同，用戶端可以在多個 Azure 資源上使用使用者指派的 MSI。 在本教學課程中，您可以將它指派給單一 VM。 您也可以將它指派給多個 VM。
 
-指派給使用 Linux VM 指派給使用者的 MSI [az vm 指派識別](/cli/azure/vm#az_vm_assign_identity)。 請務必取代`<RESOURCE GROUP>`和`<VM NAME>`參數值與您自己的值。 使用`id`前一個步驟中傳回屬性`--identities`參數值：
+使用 [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)，將使用者指派的 MSI 指派給 Linux VM。 請務必將 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數值取代為您自己的值。 針對 `--identities` 參數值，使用前一個步驟中所傳回的 `id` 屬性：
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>您指派給使用者的 MSI 存取權授與資源群組中 「 Azure 資源管理員 
+## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>在 Azure Resource Manager 中將您使用者指派的 MSI 存取權授與資源群組 
 
-MSI 提供您的程式碼，以向資源 Api，可支援 Azure AD 驗證存取權杖。 在本教學課程中，您的程式碼存取 Azure 資源管理員 API。 
+MSI 使用存取權杖來提供您的程式碼，來向支援 Azure AD 驗證的資源 API 進行驗證。 在本教學課程中，您的程式碼會存取 Azure Resource Manager API。 
 
-您的程式碼可以透過存取 API 之前，您需要授與 MSI 的身分識別存取 Azure 資源管理員中的資源。 在此情況下，其中包含 VM 資源群組。 別忘了以您自己的值取代 `<CLIENT ID>`、`<SUBSCRIPTION ID>` 和 `<RESOURCE GROUP>` 參數的值。 取代`<CLIENT ID>`與`clientId`屬性所傳回`az identity create`命令[建立指派給使用者的 MSI](#create-a-user-assigned-msi): 
+您需要先將 MSI 的身分識別存取權授與 Azure Resource Manager 中的資源，您的程式碼才能存取 API。 在此情況下，是包含 VM 的資源群組。 別忘了以您自己的值取代 `<CLIENT ID>`、`<SUBSCRIPTION ID>` 和 `<RESOURCE GROUP>` 參數的值。 在[建立使用者指派的 MSI](#create-a-user-assigned-msi) 中，將 `<CLIENT ID>` 取代為 `az identity create` 命令所傳回的 `clientId` 屬性： 
 
 ```azurecli-interactive
 az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
-回應包含建立，類似於下列範例中的角色指派詳細資料：
+回應會包含已建立的角色指派詳細資料，與下列範例類似：
 
 ```json
 {
@@ -143,18 +143,18 @@ az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/s
 2. 使用您所選擇的 SSH 用戶端來**連線**到 VM。  
 3. 在終端機視窗中使用 CURL，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。  
 
-   CURL 要求取得存取權杖是以下列範例所示。 請務必取代`<CLIENT ID>`與`clientId`屬性所傳回`az identity create`命令[建立指派給使用者的 MSI](#create-a-user-assigned-msi): 
+   下列範例顯示需要存取權杖的 CURL 要求。 在[建立使用者指派的 MSI](#create-a-user-assigned-msi) 中，請務必將 `<CLIENT ID>` 取代為 `az identity create` 命令所傳回的 `clientId` 屬性： 
     
    ```bash
    curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > 值`resource`參數必須是完全符合預期的 Azure ad。 時使用的資源管理員資源識別碼，您必須包含結尾斜線的 uri。 
+    > `resource` 參數的值必須完全符合 Azure AD 的預期。 使用 Resource Manager 資源識別碼時，必須在 URI 上包含結尾斜線。 
     
     此回應包含您存取 Azure Resource Manager 所需的存取權杖。 
     
-    回應的範例：  
+    回應範例：  
 
     ```bash
     {
@@ -168,16 +168,16 @@ az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/s
     } 
     ```
 
-4. 現在使用存取權杖來存取 Azure 資源管理員，並讀取要您先前授與您指派給使用者的 MSI 存取的資源群組的屬性。 請務必取代`<SUBSCRIPTION ID>`，`<RESOURCE GROUP>`您稍早指定的值和`<ACCESS TOKEN>`與上一個步驟中傳回的權杖。
+4. 現在使用存取權杖來存取 Azure Resource Manager，以及讀取您先前授與使用者指派之 MSI 存取權的資源群組屬性。 請務必將 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 取代為您先前指定的值，並將 `<ACCESS TOKEN>` 取代為上一個步驟中所傳回的權杖。
 
     > [!NOTE]
-    > URL 會區分大小寫，因此請務必使用相同大小寫完全相符時所使用稍早所命名的資源群組和大寫"G"中的`resourceGroups`。  
+    > URL 區分大小寫，因此請務必使用稍早在命名資源群組時所使用的相同大小寫，而且 `resourceGroups` 中的 "G" 為大寫。  
 
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    回應包含特定的資源群組資訊，類似於下例： 
+    回應包含特定資源群組資訊，與下列範例類似： 
 
     ```bash
     {
