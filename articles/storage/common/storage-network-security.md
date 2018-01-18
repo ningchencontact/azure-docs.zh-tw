@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>設定 Azure 儲存體防火牆和虛擬網路 (預覽)
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -39,6 +39,10 @@ Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網�
 一旦套用網路規則，就會對所有要求執行。  授與特定 IP 位址服務存取權的 SAS 權杖，是用來**限制**權杖持有者的存取權，但不會授與所設定網路規則以外的新存取權。 
 
 虛擬機器磁碟流量 (包括掛接和取消掛接作業以及磁碟 IO) **不**受網路規則影響。  分頁 Blob 的 REST存取受網路規則保護。
+
+> [!NOTE]
+> 目前不支援在套用網路規則的儲存體帳戶中，使用未受管理的磁碟備份與還原虛擬機器。  如需詳細資訊，請參閱[備份與還原 VM 時的限制](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 傳統的儲存體帳戶**不**支援防火牆與虛擬網路。
 
@@ -298,7 +302,6 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。  [深入了解](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)。|
 |Azure HDInsight|Microsoft.HDInsight|叢集佈建及安裝。  [深入了解](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage)。|
 |Azure 網路|Microsoft.Networking|儲存及分析網路流量記錄檔。  [深入了解](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)。|
-|Azure 備份|Microsoft.RecoveryServices|非受控磁碟的備份和還原。  [深入了解](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)。|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取

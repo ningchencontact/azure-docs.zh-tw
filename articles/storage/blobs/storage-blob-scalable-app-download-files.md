@@ -1,6 +1,6 @@
 ---
-title: "從 Azure 儲存體下載大量的隨機資料 |Microsoft 文件"
-description: "了解如何使用 Azure SDK 下載大量的隨機資料從 Azure 儲存體帳戶"
+title: "從 Azure 儲存體下載大量隨機資料 | Microsoft Docs"
+description: "了解如何使用 Azure SDK 從 Azure 儲存體帳戶下載大量隨機資料"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -14,30 +14,30 @@ ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 46b0cf3666088175372b6a2e73b3dd421a4bff8b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>從 Azure 儲存體下載大量的隨機資料
+# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>從 Azure 儲存體下載大量隨機資料
 
-本教學課程是一個系列課程的第三部分。 本教學課程會示範如何從 Azure 儲存體下載大量的資料。
+本教學課程是一個系列課程的第三部分。 本教學課程說明如何從 Azure 儲存體下載大量資料。
 
 在系列的第三部分中，您將了解如何：
 
 > [!div class="checklist"]
 > * 更新應用程式
 > * 執行應用程式
-> * 驗證連接的數目
+> * 驗證連線數目
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，您必須先完成上一個儲存體教學課程：[上傳大量的隨機資料至 Azure 儲存體平行][previous-tutorial]。
+若要完成本教學課程，您必須先完成上一個儲存體教學課程：[平行上傳大量隨機資料到 Azure 儲存體][previous-tutorial]。
 
-## <a name="remote-into-your-virtual-machine"></a>遠端登入您的虛擬機器
+## <a name="remote-into-your-virtual-machine"></a>遠端連線到您的虛擬機器
 
- 若要建立遠端桌面工作階段與虛擬機器，請使用下列命令在本機電腦上。 以虛擬機器的公用 IP 位址取代 IP 位址。 出現提示時，請輸入您在建立虛擬機器時所使用的認證。
+ 若要與虛擬機器建立遠端桌面工作階段，請在您的本機電腦上使用下列命令。 以虛擬機器的公用 IP 位址取代 IP 位址。 出現提示時，請輸入您在建立虛擬機器時所使用的認證。
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,7 +45,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>更新應用程式
 
-在上一個教學課程中，您只能上傳檔案到儲存體帳戶。 在文字編輯器中開啟 `D:\git\storage-dotnet-perf-scale-app\Program.cs`。 取代`Main`利用下列範例的方法。 此範例註解上傳工作，並 uncomments 下載工作和工作，以刪除完成時的儲存體帳戶中的內容。
+在上一個教學課程中，您只將檔案上傳到儲存體帳戶。 在文字編輯器中開啟 `D:\git\storage-dotnet-perf-scale-app\Program.cs`。 使用下列範例取代 `Main` 方法。 此範例已經將上傳工作變更為註解，並將下載工作及完成後刪除儲存體帳戶中內容的工作取消註解。
 
 ```csharp
 public static void Main(string[] args)
@@ -63,7 +63,7 @@ public static void Main(string[] args)
         UploadFilesAsync().GetAwaiter().GetResult();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files.
+        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files.
         // DownloadFilesAsync().GetAwaiter().GetResult();
     }
     catch (Exception ex)
@@ -74,7 +74,7 @@ public static void Main(string[] args)
     finally
     {
         // The following function will delete the container and all files contained in them.  This is commented out initialy
-        // As the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
+        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
             // DeleteExistingContainersAsync().GetAwaiter().GetResult();
@@ -85,7 +85,7 @@ public static void Main(string[] args)
 }
 ```
 
-在更新應用程式之後，您需要建置的應用程式。 開啟`Command Prompt`並瀏覽至`D:\git\storage-dotnet-perf-scale-app`。 重建應用程式執行`dotnet build`如下列範例所示：
+應用程式更新之後，您需要再次建置該應用程式。 開啟 `Command Prompt` 並瀏覽至 `D:\git\storage-dotnet-perf-scale-app`。 執行下列範例中的 `dotnet build`，以重建應用程式：
 
 ```
 dotnet build
@@ -93,23 +93,23 @@ dotnet build
 
 ## <a name="run-the-application"></a>執行應用程式
 
-既然已經重建應用程式就可以使用更新的程式碼執行的應用程式開始。 如果尚未開啟，請開啟`Command Prompt`並瀏覽至`D:\git\storage-dotnet-perf-scale-app`。
+應用程式重建完成之後，即能以更新過的程式碼執行應用程式。 請開啟 `Command Prompt` (若未開啟) 並瀏覽至 `D:\git\storage-dotnet-perf-scale-app`。
 
-輸入 `dotnet run` 執行應用程式。
+輸入 `dotnet run` 以執行應用程式。
 
 ```
 dotnet run
 ```
 
-在應用程式會讀取位於儲存體帳戶中指定的容器**storageconnectionstring**。 它會逐一於使用的 blob 10 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)方法中的容器和下載它們將會是本機電腦使用[DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)方法。
-下表顯示[BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet)下載時所定義的每個 blob。
+應用程式會讀取 **storageconnectionstring**中指定之儲存體帳戶內的容器。 它會使用容器中的 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法逐一查看 Blob 10，並使用 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法將它們下載到本機電腦。
+下表顯示下載每個 Blob 時所定義的 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet)。
 
-|屬性|值|說明|
+|屬性|值|描述|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 這個屬性停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證將會產生更快的傳輸。 但不會確認有效性或傳輸的檔案的完整性。 |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 此屬性決定，是否計算並儲存 MD5 雜湊。   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 此屬性可停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證可獲得較快的傳輸速度。 但不會確認所傳輸檔案的有效性和完整性。 |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 此屬性可判斷是否已計算及儲存 MD5 雜湊。   |
 
-`DownloadFilesAsync`工作在下列範例所示：
+`DownloadFilesAsync` 工作如下列範例所示：
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -193,9 +193,9 @@ private static async Task DownloadFilesAsync()
 }
 ```
 
-### <a name="validate-the-connections"></a>驗證的連接
+### <a name="validate-the-connections"></a>驗證連線
 
-雖然下載檔案時，您可以確認並行連接數目至儲存體帳戶。 開啟`Command Prompt`和型別`netstat -a | find /c "blob:https"`。 這個命令會顯示目前正在使用開啟的連接數目`netstat`。 下列範例相似的輸出，以自行執行教學課程時看到的內容。 您可以看到的範例中，超過 280 連接已開啟時從儲存體帳戶下載隨機的檔案。
+當檔案正在下載時，您可以確認與您儲存體帳戶建立的並行連線的數目。 開啟 `Command Prompt` 並輸入 `netstat -a | find /c "blob:https"`。 此命令可顯示目前使用 `netstat` 開啟的連線數目。 下列範例顯示的輸出類似您自己執行教學課程時所見的輸出。 如範例中所見，從儲存體帳戶下載隨機檔案時開啟了超過 280 個連線。
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -206,15 +206,15 @@ C:\>
 
 ## <a name="next-steps"></a>後續步驟
 
-一部分的三個數列，您已了解有關從儲存體帳戶，例如如何下載大量的隨機資料：
+在此系列的第三個部分中，您已學到從儲存體帳戶下載大量隨機資料，例如如何：
 
 > [!div class="checklist"]
 > * 執行應用程式
-> * 驗證連接的數目
+> * 驗證連線數目
 
-若要確認在入口網站的輸送量和延遲計量數列的第四部分前進。
+前進到系列的第四部分，以在入口網站中驗證輸送量和延遲計量。
 
 > [!div class="nextstepaction"]
-> [請確認在入口網站的輸送量和延遲計量](storage-blob-scalable-app-verify-metrics.md)
+> [在入口網站中驗證輸送量和延遲計量](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

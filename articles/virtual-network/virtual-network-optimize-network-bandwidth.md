@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>最佳化 Azure 虛擬機器的網路輸送量
 
@@ -26,16 +26,16 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 
 ## <a name="windows-vm"></a>Windows VM
 
-如果您的 Windows VM 支援[加速網路](create-vm-accelerated-networking-powershell.md)，啟用該功能將輸送量最適合的設定。 針對所有其他的 Windows VM，相較於不使用接收端調整 (RSS) 的 VM，使用 RSS 的 VM 可達到更高的最大輸送量。 根據預設，Windows VM 中可能會停用 RSS。 若要判斷是否已啟用，RSS，並啟用它，如果目前已停用，請完成下列步驟：
+如果您的 Windows VM 支援[加速網路](create-vm-accelerated-networking-powershell.md)，啟用該功能將會是針對輸送量的最佳設定。 針對所有其他的 Windows VM，相較於不使用接收端調整 (RSS) 的 VM，使用 RSS 的 VM 可達到更高的最大輸送量。 根據預設，Windows VM 中可能會停用 RSS。 若要判斷是否已啟用 RSS，並在停用的情況下將它啟用，請完成下列步驟：
 
-1. 與網路介面卡是否已啟用 RSS `Get-NetAdapterRss` PowerShell 命令。 在從 `Get-NetAdapterRss` 傳回的下列範例輸出中，RSS 並未啟用。
+1. 使用 `Get-NetAdapterRss` PowerShell 命令來查看是否已針對網路介面卡啟用 RSS。 在從 `Get-NetAdapterRss` 傳回的下列範例輸出中，RSS 並未啟用。
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. 若要啟用 RSS，輸入下列命令：
+2. 若要啟用 RSS，請輸入下列命令：
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -46,7 +46,7 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>Linux VM
@@ -55,7 +55,7 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 
 ### <a name="ubuntu-for-new-deployments"></a>新部署的 Ubuntu
 
-The Ubuntu Azure 核心可在 Azure 提供最佳網路效能，且自 2017 年 9 月 21 日起已成為預設核心。 若要取得此核心，先安裝最新支援的版本的 16.04 LTS、，如下所示：
+The Ubuntu Azure 核心可在 Azure 提供最佳網路效能，且自 2017 年 9 月 21 日起已成為預設核心。 若要使用此核心，請先安裝最新支援版本 16.04-LTS，如下所示：
 
 ```json
 "Publisher": "Canonical",
@@ -98,7 +98,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-如果您的 VM 沒有 Azure 核心，版本號碼通常會以"4.4。 」 如果 VM 沒有 Azure 核心，請以 root 身分執行下列命令：
+若您的 VM 沒有 Azure 核心，其版本號碼通常會以 "4.4" 為開頭。 如果 VM 沒有 Azure 核心，請以根權限執行下列命令：
 
 ```bash
 #run as root or preface with sudo
@@ -153,5 +153,6 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 若要深入了解 Linux Integration Services for Hyper-V 4.2 版，請檢視[下載頁面](https://www.microsoft.com/download/details.aspx?id=55106)。
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱的最佳化的結果[頻寬/輸送量測試 Azure VM](virtual-network-bandwidth-testing.md)您的案例。
+* 針對您的案例查看[測試 Azure VM 的頻寬/輸送量](virtual-network-bandwidth-testing.md)以取得最佳化的結果。
+* 了解[頻寬配置給虛擬機器] (virtual-machine-network-throughput.md)的方式
 * 深入了解 [Azure 虛擬網路常見問題集 (FAQ)](virtual-networks-faq.md)

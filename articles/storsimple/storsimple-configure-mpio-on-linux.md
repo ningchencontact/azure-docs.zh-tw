@@ -4,7 +4,7 @@ description: "在連線到執行 CentOS 6.6 之 Linux 主機的 StorSimple 上�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。
@@ -26,9 +26,8 @@ ms.lasthandoff: 10/11/2017
 此程序適用於 StorSimple 8000 系列裝置的所有模型。
 
 > [!NOTE]
-> 此程序無法用於 StorSimple 虛擬裝置。 如需詳細資訊，請參閱〈如何設定虛擬裝置的主機伺服器〉。
-> 
-> 
+> StorSimple 雲端設備無法使用此程序。 如需詳細資訊，請參閱〈如何設定雲端設備的主機伺服器〉。
+
 
 ## <a name="about-multipathing"></a>關於多重路徑
 多重路徑功能可讓您在主機伺服器與儲存體裝置之間設定多個 I/O 路徑。 這些 I/O 路徑是可包含不同纜線、開關、網路介面及控制站的實體 SAN 連線。 多重路徑功能會彙總 I/O 路徑，以設定與所有彙總路徑相關聯的新裝置。
@@ -298,7 +297,7 @@ multipath.conf 有五個區段：
 
     如果您在此只看到一個主機介面和兩個路徑，您必須在主機上針對 iSCSI 啟用這兩個介面。 您可以遵循 [Linux 文件中的詳細指示](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)。
 
-2. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。 如需詳細資訊，請參閱 [步驟 6：建立磁碟區](storsimple-deployment-walkthrough.md#step-6-create-a-volume) (透過 StorSimple 裝置上的 Azure 傳統入口網站)。
+2. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。 如需詳細資訊，請參閱[步驟 6：建立磁碟區](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) (透過 StorSimple 裝置上的 Azure 入口網站)。
 
 3. 驗證可用的路徑。 輸入：
 
@@ -341,7 +340,7 @@ A. 如果您已對 `multipath.conf` 檔案進行任何變更，您必須重新�
 
 問： 我已在 StorSimple 裝置上啟用兩個網路介面以及在主機上啟用兩個網路介面。 當我列出可用的路徑時，我只看到兩個路徑。 我預計看見四個可用的路徑。
 
-A. 確定這兩個路徑位於相同的子網路上並可路由傳送。 如果網路介面位於不同的 vLAN 上且不可路由傳送，您只會看到兩個路徑。 確認這點的唯一方法就是確定您可以從 StorSimple 裝置上的網路介面存取這兩個主機介面。 您必須[連絡 Microsoft 支援](storsimple-contact-microsoft-support.md)，因為這項驗證只能透過支援工作階段完成。
+A. 確定這兩個路徑位於相同的子網路上並可路由傳送。 如果網路介面位於不同的 vLAN 上且不可路由傳送，您只會看到兩個路徑。 確認這點的唯一方法就是確定您可以從 StorSimple 裝置上的網路介面存取這兩個主機介面。 您必須[連絡 Microsoft 支援](storsimple-8000-contact-microsoft-support.md)，因為這項驗證只能透過支援工作階段完成。
 
 問： 當我列出可用的路徑時，我看不到任何輸出。
 
@@ -420,7 +419,7 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 如需詳細資訊，移至 [對多重路徑使用疑難排解互動式命令](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)。
 
 ## <a name="list-of-useful-commands"></a>有用的命令清單
-| 在系統提示您進行確認時，輸入  | 命令 | 說明 |
+| 在系統提示您進行確認時，輸入  | 命令 | 描述 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |啟動 iSCSI 服務 |
 | &nbsp; |`service iscsid stop` |停止 iSCSI 服務 |
