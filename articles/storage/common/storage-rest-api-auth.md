@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/28/2017
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-* 一般用途的儲存體帳戶。 如果您沒有任何儲存體帳戶，可以使用 [Azure 入口網站](https://portal.azure.com)、[PowerShell](storage-quickstart-create-storage-account-powershell.md) 或 [Azure CLI](storage-quickstart-create-storage-account-cli.md) 來建立一個。
+* 一般用途的儲存體帳戶。 如果您還沒有儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
 * 本文中的範例示範如何列出儲存體帳戶中的容器。 若要查看輸出，請在開始前，先將一些容器新增至儲存體帳戶中的 blob 儲存體。
 
@@ -562,7 +562,7 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 在本文中，您已了解如何對 blob 儲存體 REST API 提出要求，以擷取容器清單或容器中的 blob 清單。 您也了解如何建立 REST API 呼叫的授權簽章、如何在 REST 要求中使用它，以及如何檢查回應。
 

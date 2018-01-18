@@ -4,7 +4,7 @@ description: "說明如何開啟新的 StorSimple 裝置、開啟曾關閉或失
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>開啟或關閉 StorSimple 8000 系列裝置
 
@@ -147,16 +147,16 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。 這需要使用纜
 * [具有 EBOD 機箱的裝置](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>具有主要機箱的裝置 <a name="8100a">
-若要依序且以受控制的方式關閉裝置，您可以透過 Azure 傳統入口網站或透過 Windows PowerShell for StorSimple 來執行。 
+若要依序且以受控制的方式關閉裝置，您可以透過 Azure 入口網站或透過適用於 StorSimple 的 Windows PowerShell 來執行。 
 
 > [!IMPORTANT]
 > 請勿使用裝置背面的電源按鈕關閉執行中的裝置。
 > 
-> 關閉裝置之前，請確定所有的裝置元件狀態良好。 在 Azure 傳統入口網站中，瀏覽至 [裝置]  >  [維護]  >  [硬體狀態]，並確認所有的元件狀態是綠色的。 這只適用於狀態良好的系統。 如果系統正在關閉中以更換故障的元件，您會在 [硬體狀態] 中看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
+> 關閉裝置之前，請確定所有的裝置元件狀態良好。 在 Azure 入口網站中，瀏覽至 [裝置]  > [監視]  >  [硬體健康狀態]，確認所有的元件狀態都為綠色。 這只適用於狀態良好的系統。 如果系統正在關閉中以更換故障的元件，您會在 [硬體狀態] 中看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
 > 
 > 
 
-存取 Windows PowerShell for StorSimple 或 Azure 傳統入口網站之後，請依照 [關閉 StorSimple 裝置](storsimple-manage-device-controller.md#shut-down-a-storsimple-device)中的步驟進行。 
+存取適用於 StorSimple 的 Windows PowerShell 或 Azure 入口網站之後，請依照[關閉 StorSimple 裝置](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device)中的步驟進行。 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>具有 EBOD 機箱的裝置 <a name="8600a">
 > [!IMPORTANT]

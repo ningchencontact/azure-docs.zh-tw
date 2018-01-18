@@ -60,7 +60,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
     Azure 會使用儲存體帳戶作為非受控磁碟的容器。 當您建立具有非受控磁碟的 Azure DS 系列、DSv2 系列、GS 系列或 Fs 系列 VM，並選取進階儲存體帳戶時，您的作業系統和資料磁碟會儲存在該儲存體帳戶中。
 
 ## <a name="supported-vms"></a>支援的 VM
-進階儲存體支援 DS 系列、DSv2 系列、GS 系列、Ls 系列和 Fs 系列 VM。 這些 VM 類型可搭配標準和進階儲存體磁碟使用。 您不能將進階儲存體磁碟與不能和進階儲存體相容的 VM 系列搭配使用。
+進階儲存體支援 DS 系列、DSv2 系列、GS 系列、Ls 系列、Fs 系列和 B 系列 VM。 這些 VM 類型可搭配標準和進階儲存體磁碟使用。 您不能將進階儲存體磁碟與不能和進階儲存體相容的 VM 系列搭配使用。
 
 如需 Azure 中的 VM 類型和大小資訊 (適用於 Windows)，請參閱 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 如需 Azure 中的 VM 類型和大小資訊 (適用於 Linux)，請參閱 [ VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
@@ -216,7 +216,7 @@ DS4 VM 連接了兩個 P30 磁碟。 每個 P30 磁碟有 200 MB/秒的輸送量
 
 ### <a name="managed-disks"></a>受控磁碟
 
-受控磁碟的快照集是受控磁碟的唯讀複本。 快照集會儲存為標準受管理磁碟。 [增量快照](../articles/virtual-machines/windows/incremental-snapshots.md)目前不支援受控磁碟。 若要了解如何建立受控磁碟的快照集，請參閱[在 Windows 中使用受管理的快照集建立 VHD 的複本並儲存為 Azure 受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)或[在 Linux 中使用受管理的快照集建立 VHD 的複本並儲存為 Azure 受控磁碟](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)。
+受控磁碟的快照集是受控磁碟的唯讀複本。 快照集會儲存為標準受控磁碟。 [增量快照](../articles/virtual-machines/windows/incremental-snapshots.md)目前不支援受控磁碟。 若要了解如何建立受控磁碟的快照集，請參閱[在 Windows 中使用受管理的快照集建立 VHD 的複本並儲存為 Azure 受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)或[在 Linux 中使用受管理的快照集建立 VHD 的複本並儲存為 Azure 受控磁碟](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)。
 
 如果受控磁碟已連結至 VM，則磁碟上不允許某些 API 作業。 例如，當磁碟已附加至 VM 時，您無法產生共用存取簽章 (SAS) 來執行複製作業。 請先建立磁碟的快照集，再複製快照集。 或者，您可以中斷連結磁碟，然後產生 SAS 來執行複製作業。
 
