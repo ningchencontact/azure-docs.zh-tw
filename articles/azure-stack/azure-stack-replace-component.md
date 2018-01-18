@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>取代 Azure Stack 縮放單位節點上的硬體元件
 
@@ -55,6 +55,10 @@ Azure Stack 健康狀態和監視系統會追蹤儲存空間直接存取所控�
 下列步驟提供元件取代流程的高階概觀。 請勿在未參考您 OEM 提供之 FRU 文件的情況下遵循這些步驟執行。
 
 1. 使用[清空](azure-stack-node-actions.md#scale-unit-node-actions)動作，讓縮放單位節點進入維護模式。 根據硬體的實體條件，可能不需要此動作。
+
+   > [!NOTE]
+   > 在任何情況下，只能同時清空一個節點並關機，而不中斷 S2D (儲存空間直接存取)。
+
 2. 縮放單位節點處於維護模式之後，請使用[關閉電源](azure-stack-node-actions.md#scale-unit-node-actions)動作。 根據硬體的實體條件，可能不需要此動作。
  
    > [!NOTE]
