@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -40,14 +40,14 @@ Application Insights Wb SDK 會針對在 IIS 管線中執行的 ASP.NET 應用�
 
 接收佇列中項目的背景工作是另一個需要自訂追蹤的範例。 對於某些佇列，將訊息新增至此佇列的呼叫會作為相依性追蹤。 但是，不會自動收集描述處理訊息的高階作業。
 
-我們來看看要如何追蹤這類作業。
+我們來看看追蹤這類作業的方式。
 
 在較高的層級中，工作是建立 `RequestTelemetry` 並且設定已知的屬性。 作業完成之後，您會追蹤遙測。 下列範例示範此工作。
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Owin 自我裝載應用程式中的 HTTP 要求
-在此範例中，我們遵循[相互關聯的 HTTP 通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)。 您應該預期會收到該處所述的標題。
+在此範例中，追蹤內容會根據[相互關聯的 HTTP 通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)傳播。 您應該預期會收到該處所述的標題。
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -121,16 +121,18 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 相互關聯的 HTTP 通訊協定也會宣告 `Correlation-Context` 標題。 不過，為了簡單起見在這裡省略。
 
 ## <a name="queue-instrumentation"></a>佇列檢測
-對於 HTTP 通訊，我們建立了可傳遞相互關聯詳細資料的通訊協定。 有些佇列通訊協定允許您將其他中繼資料隨著訊息一起傳遞，有些則不允許。
+雖然有[相互關聯的 HTTP 通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)可隨著 HTTP 要求傳遞相互關聯詳細資訊，但每個佇列通訊協定都必須定義相同的詳細資訊如何連同佇列訊息傳遞。 有些佇列通訊協定 (例如 AMQP) 允許傳遞其他中繼資料，其他 (例如 Azure 儲存體佇列) 則需要將內容編碼為 	訊息承載。
 
 ### <a name="service-bus-queue"></a>服務匯流排佇列
-您可以使用 Azure [服務匯流排佇列](../service-bus-messaging/index.md)，將屬性包隨著訊息一起傳遞。 我們使用它來傳遞相互關聯識別碼。
+Application Insights 會使用[適用於 .NET 的 Microsoft Azure 服務匯流排用戶端](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 3.0.0 版本和更新版本來追蹤服務匯流排通訊呼叫。
+如果您使用[訊息處理常式模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)來處理訊息，便無需採取任何動作，系統會自動追蹤由您的服務所完成的所有服務匯流排呼叫，並將它們與其他遙測項目相互關聯。 如果您手動處理訊息，請參閱[使用 Microsoft Application Insights 追蹤服務匯流排用戶端](../service-bus-messaging/service-bus-end-to-end-tracing.md)。
 
-服務匯流排佇列會使用以 TCP 為基礎的通訊協定。 Application Insights 不會自動追蹤佇列作業，所以我們會以手動方式進行追蹤。 清除佇列作業是推送型 API，無法完全加以追蹤。
+如果您使用 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 套件，請進一步閱讀 - 下列範例示範如何追蹤 (和相互關聯) 服務匯流排的呼叫，因為服務匯流排佇列使用 AMQP 通訊協定，而 Application Insights 不會自動追蹤佇列作業。
+相互關聯識別碼會傳入訊息屬性。
 
 #### <a name="enqueue"></a>加入佇列
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -167,8 +169,8 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
-```C#
+#### <a name="process"></a>程序
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -208,7 +210,7 @@ public async Task Process(BrokeredMessage message)
 
 如果您手動設定 Application Insights，請務必建立並初始化 `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`，類似於：
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -224,14 +226,14 @@ module.Initialize(TelemetryConfiguration.Active);
 #### <a name="enqueue"></a>加入佇列
 因為 Azure 儲存體佇列支援 HTTP API，Application Insights 會自動追蹤所有作業與佇列。 在許多情況下，此檢測應該就足夠了。 不過，若要讓取用者端追蹤與生產者追蹤相互關聯，您必須傳遞一些相互關聯內容，類似於我們在「相互關聯的 HTTP 通訊協定」中的作業方式。 
 
-在此範例中，我們追蹤選擇性 `Enqueue` 作業。 您可以：
+這個範例顯示如何追蹤 `Enqueue` 作業。 您可以：
 
  - **相互關聯重試 (如果有的話)**：全部都有一個通用父代，也就是 `Enqueue` 作業。 否則會作為連入要求的子系追蹤。 如果佇列有多個邏輯要求，可能難以找到導致重試的呼叫。
  - **相互關聯儲存體記錄 (必要時)**：與 Application Insights 遙測相互關聯。
 
 `Enqueue` 作業是父代作業 (例如，連入 HTTP 要求) 的子系。 HTTP 相依性呼叫是 `Enqueue` 作業的子系，是連入要求的孫系：
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -285,7 +287,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 在許多情況下，將佇列的 HTTP 要求與其他追蹤相互關聯也很有用。 下列範例提供如何執行的示範：
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Process
 
-在下列範例中，我們追蹤連入訊息的方式類似於我們追蹤連入 HTTP 要求的方式：
+在下列範例中，追蹤連入訊息的方式類似於追蹤連入 HTTP 要求的方式：
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -366,7 +368,7 @@ public async Task Process(MessagePayload message)
 
 同樣地，可能會檢測其他佇列作業。 預覽 (Peek) 作業應以類似清除佇列作業的方式進行檢測。 不一定要檢測佇列管理作業。 Application Insights 會追蹤 HTTP 這類作業，這在大多數情況下已足夠。
 
-檢測訊息刪除時，請務必設定作業 (相互關聯) 識別碼。 或者，您可使用 `Activity` API。 您就不需要在遙測項目上設定作業識別碼，因為 Application Insights 會為您設定：
+檢測訊息刪除時，請務必設定作業 (相互關聯) 識別碼。 或者，您可使用 `Activity` API。 您就不需要在遙測項目上設定作業識別碼，因為 Application Insights SDK 會為您設定：
 
 - 取得佇列中的項目後，建立新的 `Activity`。
 - 使用 `Activity.SetParentId(message.ParentId)` 讓取用者和產生者記錄相互關聯。
@@ -383,7 +385,7 @@ public async Task Process(MessagePayload message)
 ## <a name="long-running-background-tasks"></a>長時間執行的背景工作
 有些應用程式可能會應使用者要求，啟動長時間執行的作業。 就追蹤/檢測觀點而言，這與要求或相依性檢測並無不同： 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -411,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-在此範例中，我們使用 `telemetryClient.StartOperation` 來建立 `RequestTelemetry` 和填滿相互關聯內容。 假設您有一項父代作業，由排程作業的連入要求所建立。 只要 `BackgroundTask` 在與連入要求相同的非同步控制流程中啟動，它就會與該父代作業相互關聯。 `BackgroundTask` 和所有巢狀遙測項目將會自動與造成它的要求相互關聯，即使在要求結束後亦然。
+在此範例中，`telemetryClient.StartOperation` 會建立 `RequestTelemetry` 並填滿相互關聯內容。 假設您有一項父代作業，由排程作業的連入要求所建立。 只要 `BackgroundTask` 在與連入要求相同的非同步控制流程中啟動，它就會與該父代作業相互關聯。 `BackgroundTask` 和所有巢狀遙測項目將會自動與造成它的要求相互關聯，即使在要求結束後亦然。
 
 從沒有任何相關聯作業 (`Activity`) 的背景執行緒啟動工作時，`BackgroundTask` 沒有任何父代。 不過，它可以有巢狀作業。 工作回報的所有遙測項目會與在 `BackgroundTask` 中建立的 `RequestTelemetry` 相互關聯。
 
@@ -428,9 +430,33 @@ async Task BackgroundTask()
 - 完成時使用 `StopOperation` 停止作業。
 - 處理例外狀況。
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+處置作業會導致作業停止，因此您可以執行而不是呼叫 `StopOperation`。
+
+*警告*：在某些情況下，未處理的例外狀況可能導致[無法](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally)呼叫 `finally`，因此可能無法追蹤作業。
+
+### <a name="parallel-operations-processing-and-tracking"></a>平行的作業處理和追蹤
+
 `StopOperation` 只會停止已啟動的作業。 如果目前執行中作業不符合您想要停止的作業，則 `StopOperation` 不會有任何動作。 如果您以平行方式在相同的執行內容中啟動多項作業，可能會發生這種情形：
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -440,31 +466,31 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-請確定一律呼叫 `StartOperation` 並在其自己的內容中執行您的工作：
-```C#
-public async Task RunMyTaskAsync()
+請務必一律以相同的**非同步**方法來呼叫 `StartOperation` 和處理作業，以隔離平行執行的作業。 如果作業是同步的 (或不是非同步的)，請包裝處理序並使用 `Task.Run` 追蹤：
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 

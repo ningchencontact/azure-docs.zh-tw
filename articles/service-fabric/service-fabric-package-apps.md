@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-an-application"></a>封裝應用程式
 本文說明如何對 Service Fabric 應用程式進行封裝，並使其準備好進行部署。
@@ -48,7 +48,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 命名資料夾以符合每個對應元素的 **名稱** 屬性。 例如，如果服務資訊清單包含名稱為 **MyCodeA** 和 **MyCodeB** 的兩個程式碼封裝，則同名的兩個資料夾會包含每個程式碼封裝所需的二進位檔。
 
 ## <a name="use-setupentrypoint"></a>使用 SetupEntryPoint
-使用 **SetupEntryPoint** 的一般案例，是當您必須在服務啟動之前執行可執行檔，或必須使用提高的權限來執行作業時。 例如：
+使用 **SetupEntryPoint** 的一般案例，是當您必須在服務啟動之前執行可執行檔，或必須使用提高的權限來執行作業時。 例如︰
 
 * 設定及初始化服務可執行檔需要的環境變數。 這不僅限於透過 Service Fabric 程式設計模型撰寫的可執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
 * 透過安裝安全性憑證設定存取控制。
@@ -115,20 +115,19 @@ PS D:\temp>
 
 如果您知道將部署應用程式的叢集，建議您傳送 `ImageStoreConnectionString` 參數。 在此情況下，該封裝也會針對已在叢集中執行的舊版應用程式進行驗證。 例如，驗證可以偵測具有相同版本但不同內容的封裝是否已經部署。  
 
-一旦應用程式已完成封裝並通過驗證，請根據檔案的大小及數目，評估是否需要壓縮。
+一旦應用程式正確封裝好並通過驗證，請考慮壓縮封裝以便能更快速地進行部署作業。
 
 ## <a name="compress-a-package"></a>壓縮封裝
 當封裝很大或有許多檔案時，您可以壓縮它以加快部署速度。 壓縮會減少檔案數目並降低封裝大小。
-就已壓縮的應用程式套件而言，[上傳應用程式套件](service-fabric-deploy-remove-applications.md#upload-the-application-package)可能比上傳未壓縮的套件需要花費更多的時間 (特別是如果將壓縮時間也計算在內的話)，但在[註冊](service-fabric-deploy-remove-applications.md#register-the-application-package)和[取消應用程式類型註冊](service-fabric-deploy-remove-applications.md#unregister-an-application-type)方面，已壓縮的應用程式套件所花費的時間則較短。
+如果是壓縮的應用程式封裝，[上傳應用程式封裝](service-fabric-deploy-remove-applications.md#upload-the-application-package)可能會比上傳未壓縮的封裝花費更長的時間，尤其當壓縮作業是在複製過程中進行時，更是如此。 使用壓縮，[註冊應用程式類型](service-fabric-deploy-remove-applications.md#register-the-application-package)和[取消註冊應用程式類型](service-fabric-deploy-remove-applications.md#unregister-an-application-type)會比較快。
 
-已壓縮和未壓縮套件的部署機制都相同。 如果封裝已壓縮，它會以壓縮的形式儲存在叢集映像存放區中，並在應用程式執行之前於節點上解壓縮。
+已壓縮及未壓縮套件的部署機制皆相同。 如果封裝已壓縮，它會以壓縮的形式儲存在叢集映像存放區中，並在應用程式執行之前於節點上解壓縮。
 壓縮會將有效的 Service Fabric 封裝以壓縮的版本取代。 該資料夾必須允許寫入權限。 在已經壓縮的封裝上執行壓縮將不會產生任何變化。
 
 您可以執行 PowerShell 命令 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，並搭配 `CompressPackage` 參數來壓縮封裝。 您可以使用相同的命令，並搭配 `UncompressPackage` 參數來將封裝解壓縮。
 
 下列命令會在不將封裝複製到映像存放區的情況下壓縮封裝。 您可以在不搭配 `SkipCopy` 旗標的情況下使用 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，視需求將壓縮的封裝複製到一或多個 Service Fabric 叢集。
-該套件現在包含 `code`、`config` 及 `data` 套件的 ZIP 壓縮檔案。 應用程式資訊清單和服務資訊清單不會壓縮，因為有許多內部作業都需要它們 (例如特定驗證的封裝共用、應用程式類型名稱及版本擷取)。
-對資訊清單進行壓縮，將會使這些作業效率不佳。
+該套件現在包含 `code`、`config` 及 `data` 套件的 ZIP 壓縮檔案。 因為許多內部作業需要，所以應用程式資訊清單和服務資訊清單不會經過壓縮。 例如，某些驗證的封裝共用作業、應用程式類型名稱和版本擷取作業都需要存取資訊清單。 對資訊清單進行壓縮，將會使這些作業效率不佳。
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -169,10 +168,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Service Fabric 會在內部針對驗證計算應用程式封裝的總和檢查碼。 使用壓縮時，會針對每個封裝的壓縮版本計算總和檢查碼。
-若您已複製應用程式套件的未壓縮版本，而想要將壓縮用於同一個套件，您就必須變更 `code`、`config` 和 `data` 套件的版本，以避免總和檢查碼不符。 若封裝未變更，則您可不變更版本而使用 [差異佈建](service-fabric-application-upgrade-advanced.md)。 使用此選項時，請勿包含未變更的套件，而是要從服務資訊清單參考它。
+Service Fabric 會在內部針對驗證計算應用程式封裝的總和檢查碼。 使用壓縮時，會針對每個封裝的壓縮版本計算總和檢查碼。 從同一個應用程式封裝產生新的 zip 會建立不同的總和檢查碼。 若要避免驗證錯誤，請使用[差異佈建](service-fabric-application-upgrade-advanced.md)。 如果使用此選項，請勿在新版本中包含沒有變更的封裝， 而是要從新的服務資訊清單直接參考這些封裝。
 
-同樣地，若您已上傳封裝的壓縮版本，且想要使用未壓縮的封裝，則您必須更新版本以避免總和檢查碼不符。
+如果無法使用差異佈建而又必須包含封裝，請產生新版本的 `code`、`config` 和 `data` 封裝，以避免總和檢查碼不符。 如果使用壓縮的封裝，不論先前的版本是否使用壓縮，也必須為沒有變更的封裝產生新的版本。
 
 封裝現已正確完成封裝、驗證及壓縮 (若有需要)，因此已準備好[部署](service-fabric-deploy-remove-applications.md)至一或多個 Service Fabric 叢集。
 
@@ -186,6 +184,26 @@ Service Fabric 會在內部針對驗證計算應用程式封裝的總和檢查�
         <CopyPackageParameters CompressPackage="true"/>
     </PublishProfile>
 ```
+
+## <a name="create-an-sfpkg"></a>建立 sfpkg
+從 6.1 版開始，Service Fabric 允許從外部存放區佈建。
+如果使用此選項，就不需要將應用程式封裝複製到映像存放區。 您可以改為建立 `sfpkg` 並將它上傳到外部存放區，然後在佈建時對 Service Fabric 提供下載 URI。 同一個封裝可以佈建到多個叢集。 從外部存放區佈建可節省將封裝複製到每個叢集所需的時間。
+
+`sfpkg` 檔案是一個包含初始應用程式封裝的 zip，副檔名為 ".sfpkg"。
+在 zip 中，應用程式封裝可能是已經過壓縮或未壓縮的。 zip 內應用程式封裝的壓縮是在 code、config 和 data 封裝層級完成，如[先前所述](service-fabric-package-apps.md#compress-a-package)。
+
+若要建立 `sfpkg`，請先建立一個包含原始已壓縮或未壓縮應用程式封裝的資料夾。 然後，使用任何公用程式，以副檔名 ".sfpkg" 壓縮資料夾。 例如，使用 [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx)。
+
+```csharp
+ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
+```
+
+`sfpkg` 必須以頻外方式上傳至 Service Fabric 以外的外部存放區。 外部存放區可以是公開 REST http 或 https 端點的任何存放區。 佈建時，Service Fabric 會執行 GET 作業下載 `sfpkg` 應用程式封裝，所以存放區必須允許封裝的「讀取」權限。
+
+若要佈建套件，請使用外部佈建，這會需要下載 URI 和應用程式類型資訊。
+
+>[!NOTE]
+> 根據映像存放區相對路徑的佈建目前不支援 `sfpkg` 檔案。 因此，不應該將 `sfpkg` 複製到映像存放區。
 
 ## <a name="next-steps"></a>後續步驟
 [部署與移除應用程式][10]說明如何使用 PowerShell 來管理應用程式執行個體。

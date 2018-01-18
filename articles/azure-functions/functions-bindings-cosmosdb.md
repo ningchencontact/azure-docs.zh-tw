@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Azure Cosmos DB 繫結
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="trigger"></a>觸發程序
 
-Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-db/change-feed.md)，跨分割區接聽變更。 變更摘要發行插入和更新、 不刪除。 
+Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-db/change-feed.md)，跨分割區接聽變更。 變更摘要會發行插入和更新，而非刪除。 
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
-請參閱特定語言的範例：
+查看特定語言的範例：
 
 * [C#](#trigger---c-example)
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
@@ -41,7 +41,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)觸發從特定的資料庫集合。
+下列範例會顯示從特定資料庫與集合觸發的 [C# 函式](functions-dotnet-class-library.md)。
 
 ```cs
     using System.Collections.Generic;
@@ -127,7 +127,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
 
 屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。 以下是方法簽章中的 `CosmosDBTrigger` 屬性範例：
 
@@ -142,13 +142,13 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
     }
 ```
 
-如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
+如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDBTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** || 必須設為 `cosmosDBTrigger`。 |
 |**direction** || 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
@@ -170,20 +170,20 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 觸發程序需要第二個集合，用來在分割區上儲存「租用」。 要監視的集合和包含租用的集合必須可供觸發程序用來運作。
 
  >[!IMPORTANT]
- > 如果多個函式會設定為使用 Cosmos DB 觸發程序的相同集合中，每個函式應該使用專用的租用集合。 否則，只有其中一個函式將會觸發。 
+ > 如果針對同一個集合設定多個函式使用 Cosmos DB 觸發程序，則每個函式都應該使用專用的租用集合。 否則，將只會觸發其中一個函式。 
 
-觸發程序並未指出它是否已更新或插入文件，只是提供文件本身。 如果您需要以不同方式處理的更新和插入，您可以藉由實作插入或更新的時間戳記欄位執行。
+觸發程序不會指示是否更新或插入文件，只是提供文件本身。 如果您需要以不同方式處理更新和插入，您可以透過實作插入或更新的時間戳記欄位執行。
 
 ## <a name="input"></a>輸入
 
-Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將其傳遞至函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。 
+Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並將它們傳遞給函式的輸入參數。 您可以叫用函式的觸發程序作為基礎來判斷文件識別碼或查詢參數。 
 
 >[!NOTE]
-> 請勿使用 Azure Cosmos DB 輸入或輸出繫結，如果您使用 MongoDB API Cosmos DB 帳戶。 可能是資料損毀。
+> 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
 
 ## <a name="input---example-1"></a>輸入 - 範例 1
 
-請參閱可讀取單一文件的特定語言範例：
+查看可讀取單一文件的特定語言範例：
 
 * [C#](#input---c-example)
 * [C# 指令碼 (.csx)](#input---c-script-example)
@@ -192,7 +192,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ### <a name="input---c-example"></a>輸入 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)會從特定的資料庫與集合中擷取單一文件。 
+下列範例示範 [C# 函式](functions-dotnet-class-library.md)，此函式會從特定資料庫與集合擷取單一文件。 
 
 首先，將 `CarReview` 執行個體的 `Id` 和 `Maker` 值傳遞至佇列。 Cosmos DB 繫結會使用來自佇列訊息的 `Id` 和 `Maker`，從資料庫中擷取文件。
 
@@ -216,7 +216,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
     }
 ```
 
-以下是`CarReview`POCO:
+`CarReview` POCO 如下：
 
  ```cs
     public class CarReview
@@ -343,7 +343,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ## <a name="input---example-2"></a>輸入 - 範例 2
 
-請參閱可讀取多個文件的特定語言範例：
+查看可讀取多個文件的特定語言範例：
 
 * [C#](#input---c-example-2)
 * [C# 指令碼 (.csx)](#input---c-script-example-2)
@@ -351,7 +351,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ### <a name="input---c-example-2"></a>輸入 - C# 範例 2
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)執行 SQL 查詢。 若要使用`SqlQuery`參數，您必須安裝最新的 beta 版的`Microsoft.Azure.WebJobs.Extensions.DocumentDB`NuGet 封裝。
+下列範例顯示執行 SQL 查詢的 [C# 函式](functions-dotnet-class-library.md)。 如果要使用 `SqlQuery` 參數，您必須安裝最新的 Beta 版 `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet 套件。
 
 ```csharp
     using System.Net;
@@ -371,7 +371,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ### <a name="input---c-script-example-2"></a>輸入 - C# 指令碼範例 2
 
-下列範例示範 Azure Cosmos DB 輸入繫結中的*function.json*檔案和[C# 指令碼函式](functions-reference-csharp.md)所使用之繫結。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
+下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
 佇列觸發程序會提供參數 `departmentId`。 `{ "departmentId" : "Finance" }` 的佇列訊息會傳回財務部門的所有記錄。 
 
@@ -410,7 +410,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ### <a name="input---javascript-example-2"></a>輸入 - JavaScript 範例 2
 
-下列範例示範 Azure Cosmos DB 輸入繫結中的*function.json*檔案和[JavaScript 函式](functions-reference-node.md)所使用之繫結。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
+下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
 佇列觸發程序會提供參數 `departmentId`。 `{ "departmentId" : "Finance" }` 的佇列訊息會傳回財務部門的所有記錄。 
 
@@ -445,7 +445,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
 
 屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[下列組態區段](#input---configuration)。 
 
@@ -453,7 +453,7 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `documentdb`。        |
 |**direction**     || 必須設為 `in`。         |
@@ -475,14 +475,14 @@ Azure Cosmos DB 輸入繫結擷取一或多個 Azure Cosmos DB 文件，並將�
 
 ## <a name="output"></a>輸出
 
-Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫。 
+Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資料庫。 
 
 >[!NOTE]
-> 請勿使用 Azure Cosmos DB 輸入或輸出繫結，如果您使用 MongoDB API Cosmos DB 帳戶。 可能是資料損毀。
+> 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
 
 ## <a name="output---example"></a>輸出 - 範例
 
-請參閱特定語言的範例：
+查看特定語言的範例：
 
 * [C#](#output---c-example)
 * [C# 指令碼 (.csx)](#output---c-script-example)
@@ -491,7 +491,7 @@ Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫�
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)，將文件加入至資料庫時，使用佇列儲存體從訊息中提供的資料。
+下列範例顯示 [C# 函式](functions-dotnet-class-library.md)，它使用佇列儲存體之訊息中提供的資料，將文件新增至資料庫。
 
 ```cs
     using System;
@@ -508,7 +508,7 @@ Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫�
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例顯示繫結中的 Azure Cosmos DB 輸出*function.json*檔案和[C# 指令碼函式](functions-reference-csharp.md)所使用之繫結。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
+下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
 
 ```json
 {
@@ -572,7 +572,7 @@ Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫�
 
 ### <a name="output---f-example"></a>輸出 - F# 範例
 
-下列範例顯示繫結中的 Azure Cosmos DB 輸出*function.json*檔案和[F # 函式](functions-reference-fsharp.md)所使用之繫結。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
+下列範例顯示 function.json 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
 
 ```json
 {
@@ -646,11 +646,11 @@ Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫�
 }
 ```
 
-若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
+若要新增 `project.json` 檔案，請參閱 [F# 套件管理](functions-reference-fsharp.md#package)。
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-下列範例顯示繫結中的 Azure Cosmos DB 輸出*function.json*檔案和[JavaScript 函式](functions-reference-node.md)所使用之繫結。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
+下列範例顯示 function.json 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
 
 ```json
 {
@@ -705,7 +705,7 @@ Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫�
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
 
 屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[輸出 - 組態](#output---configuration)。 以下是方法簽章中的 `DocumentDB` 屬性範例：
 
@@ -719,13 +719,13 @@ Azure Cosmos DB 輸出繫結可讓您寫入新文件 Azure Cosmos DB 資料庫�
     }
 ```
 
-如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `documentdb`。        |
 |**direction**     || 必須設為 `out`。         |

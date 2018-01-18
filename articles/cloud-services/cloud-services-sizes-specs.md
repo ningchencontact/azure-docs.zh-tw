@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。
 
 > [!NOTE]
-> 若要查看相關的 Azure 限制，請參閱 ＜ [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
+> 若要查看相關的 Azure 限制，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
 >
 >
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 在 Azure 上有多個標準大小可選擇。 這些大小的一些考量事項包括：
 
 * D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。 D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。 如需詳細資訊，請參閱 Azure 部落格的公告， [新 D 系列的虛擬機器大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
-* Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+* Dv3 系列、 Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 * G 系列 VM 提供最大的記憶體，並且是在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 * A 系列 VM 可以部署在各種不同的硬體類型和處理器上。 根據硬體節流大小，為執行中的執行個體提供一致的處理器效能，不論硬體部署的位置。 若要判斷此大小部署所在的實體硬體，請從虛擬機器內查詢虛擬硬體。
 * A0 大小是在實體硬體上過度訂閱。 僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。 以下概述的相對效能為預期的基準，受限於近似變化性的 15%。
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 下列考量可協助您決定大小：
 
 * A8-A11 和 H 系列大小也稱為 *計算密集型執行個體*。 執行這些大小的硬體是針對計算密集型和網路密集型應用程式 (包括高效能運算 (HPC) 叢集應用程式)、模型化及模擬而設計及最佳化的。 A8-A11 系列使用 Intel Xeon E5-2670 @ 2.6 GHZ，而 H 系列使用 Intel Xeon E5-2667 v3 @ 3.2 GHz。 如需有關使用這些大小的詳細資訊與考量，請參閱[高效能計算 VM 大小](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-* Dv2 系列、D 系列和 G 系列是要求更快速的 CPU、更好的本機磁碟效能，或有更高記憶體需求之應用程式的最佳選擇。 它們為許多企業級應用程式提供了強大的組合。
+* Dv3 系列、Dv2 系列、D 系列和 G 系列是要求更快速的 CPU、更好的本機磁碟效能，或有更高記憶體需求之應用程式的最佳選擇。 它們為許多企業級應用程式提供了強大的組合。
 * Azure 資料中心的某些實體主機可能不支援較大的虛擬機器大小，例如 A5-A11。 因此，您可能會在將現有的虛擬機器調整為新的大小、在 2013 年 4 月 16 日之前建立的虛擬網路中建立新的虛擬機器，或將新的虛擬機器新增至現有雲端服務時，看到錯誤訊息：**無法設定虛擬機器 {machine name}** 或**無法建立虛擬機器 {machine name}**。 請參閱支援論壇上 [錯誤：「無法設定虛擬機器」](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) ，以查看每個部署案例的因應措施。
 * 您的訂用帳戶也可能會限制您可以在特定大小系列中部署的核心數目。 若要增加配額，請連絡 Azure 支援服務。
 
@@ -61,12 +61,13 @@ ms.lasthandoff: 10/11/2017
 | [ExtraSmall](#a-series) |50 |
 | [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
+| [A v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 以 * 標示的 ACU 使用了「Intel® 渦輪」技術來增加 CPU 頻率及提升效能。 提升的程度會依 VM 大小、工作負載及在相同主機上執行的其他工作負載而有所不同。
@@ -84,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 特小型      | 1         | 0.768        | 20                   | 1 / 低 |
 | 小型           | 1         | 1.75         | 225                  | 1 / 中 |
-| 中型          | 2         | 3.5 GB       | 490                  | 1 / 中 |
+| 中          | 2         | 3.5 GB       | 490                  | 1 / 中 |
 | 大型           | 4         | 7            | 1000                 | 2 / 高 |
 | 特大型      | 8         | 14           | 2040                 | 4 / 高 |
 | A5              | 2         | 14           | 490                  | 1 / 中 |
@@ -142,6 +143,29 @@ ms.lasthandoff: 10/11/2017
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / 極高 |
 | Standard_D15_v2 | 20        | 140          | 1,000                | 8 / 極高 |
 
+## <a name="dv3-series"></a>Dv3 系列
+
+| 大小            | CPU 核心 | 記憶體：GiB   | 本機 SSD: GiB       | 最大 NIC / 網路頻寬 |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2 / 中 |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2 / 高 |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4 / 高 |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8 / 極高 |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8 / 極高 |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8 / 極高 |
+
+## <a name="ev3-series"></a>Ev3 系列
+
+| 大小            | CPU 核心 | 記憶體：GiB   | 本機 SSD: GiB       | 最大 NIC / 網路頻寬 |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2 / 中 |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2 / 高 |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4 / 高 |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8 / 極高 |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8 / 極高 |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8 / 極高 |
+
+
 ## <a name="g-series"></a>G 系列
 | 大小            | CPU 核心 | 記憶體：GiB  | 本機 SSD: GiB       | 最大 NIC / 網路頻寬 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Azure H 系列虛擬機器是下一代高效能運算 VM，以高端運算需求
 >
 
 ## <a name="get-a-list-of-sizes"></a>取得大小清單
-您可以使用 PowerShell 或 REST API 來取得大小清單。 如需 REST API 的相關記載，請參閱[這裡](https://msdn.microsoft.com/library/azure/dn469422.aspx)。 以下程式碼是一個 PowerShell 命令，此命令會列出您「雲端服務」目前可用的所有大小。
+您可以使用 PowerShell 或 REST API 來取得大小清單。 如需 REST API 的相關記載，請參閱[這裡](https://msdn.microsoft.com/library/azure/dn469422.aspx)。 以下程式碼是一個 PowerShell 命令，此命令會列出「雲端服務」可用的所有大小。 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>後續步驟

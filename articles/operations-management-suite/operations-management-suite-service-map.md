@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>在 Operations Management Suite 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/19/2017
 
 ![服務對應概觀](media/oms-service-map/service-map-overview.png)
 
-擴充機器可以在地圖中，以顯示執行中，選取的時間範圍內處理群組和處理程序與作用中的網路連線。 展開具有服務對應代理程式的遠端機器以顯示處理序詳細資料時，只會顯示與焦點機器通訊的處理序。 連線到焦點機器的無代理程式前端機器計數，會顯示在所連線的處理序左側。 如果焦點機器連線至無代理程式的後端機器，該後端伺服器會包含在「伺服器連接埠群組」中，連同其他連線至相同連接埠號碼的連線。
+對應內的機器可以展開，以顯示所選時間範圍內具有作用中網路連線的執行中處理序群組與處理序。 展開具有服務對應代理程式的遠端機器以顯示處理序詳細資料時，只會顯示與焦點機器通訊的處理序。 連線到焦點機器的無代理程式前端機器計數，會顯示在所連線的處理序左側。 如果焦點機器連線至無代理程式的後端機器，該後端伺服器會包含在「伺服器連接埠群組」中，連同其他連線至相同連接埠號碼的連線。
 
 根據預設，「服務對應」對應會顯示過去 30 分鐘的相依性資訊。 使用左上角的時間控制項，可查詢過往時間範圍的對應 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。 付費工作區的服務對應資料會儲存 30 天，免費工作區的服務對應資料則會儲存 7 天。
 
@@ -60,8 +60,8 @@ ms.lasthandoff: 12/19/2017
 
 ![狀態徽章](media/oms-service-map/status-badges.png)
 
-## <a name="process-groups"></a>處理程序群組
-處理程序群組組合與一般產品或服務的程序群組相關聯的處理程序。  展開 [電腦] 節點時，它會顯示處理程序群組的獨立處理序。  如果任何輸入及輸出連線，以處理程序群組內的程序無法再連接會顯示為失敗的整個程序群組。
+## <a name="process-groups"></a>處理序群組
+處理序群組會將與一般產品或服務相關聯的處理序組成處理序群組。  電腦節點展開時，會一併顯示獨立處理序和處理序群組。  如果對處理序群組內之處理序的輸入與輸出連線發生失敗，便會將整個處理序群組的連線顯示為失敗。
 
 ## <a name="machine-groups"></a>機器群組
 機器群組可顯示以一組伺服器為中心的對應，而不只是單一伺服器的對應。因此，您可以在單一對應中看到多層式應用程式或伺服器叢集的所有成員。
@@ -124,7 +124,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="role-icons"></a>角色圖示
 某些處理序在機器上扮演特殊角色︰Web 伺服器、應用程式伺服器及資料庫等。 服務對應會為程序和機器方塊加上角色圖示註解，以協助您一下就識別出程序或伺服器所扮演的角色。
 
-| 角色圖示 | 說明 |
+| 角色圖示 | 描述 |
 |:--|:--|
 | ![Web 伺服器](media/oms-service-map/role-web-server.png) | Web 伺服器 |
 | ![應用程式伺服器](media/oms-service-map/role-application-server.png) | 應用程式伺服器 |
@@ -280,7 +280,7 @@ Linux：
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有服務對應代理程式) 的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | 類型 | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -307,7 +307,7 @@ Linux：
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有服務對應代理程式) 上 TCP 連線處理程序的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | 類型 | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
@@ -333,34 +333,34 @@ Linux：
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 
 ### <a name="list-all-known-machines"></a>列出所有已知的機器
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>列出所有受控電腦的實體記憶體容量。
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>列出電腦名稱、DNS、IP 和 OS。
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>在命令列中尋找具有「sql」的所有處理程序
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>以資源名稱尋找機器 (最新的記錄)
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>以 IP 位址尋找機器 (最新的記錄)
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>列出指定機器上的所有已知處理序
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>列出所有執行 SQL 的電腦
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>列出資料中心內所有唯一 curl 產品版本
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>為所有執行 CentOS 的電腦建立電腦群組
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## <a name="rest-api"></a>REST API

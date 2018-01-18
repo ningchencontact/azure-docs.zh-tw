@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>分類鳶尾花第 2 部分：建置模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -345,7 +345,8 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>在 HDInsight 叢集中執行指令碼
 您也可以在 HDInsight Spark 叢集中執行此指令碼。 了解[如何建立要在 Azure ML Workbench 中使用的 HDInsight Spark 叢集](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)。
 
->![注意] HDInsight 叢集必須使用 Azure Blob 作為主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
+>[!NOTE] 
+>HDInsight 叢集必須使用 Azure Blob 作為主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
 
 1. 如果您有適用於 Azure HDInsight 的 Spark 叢集的存取權，請如下所示產生 HDInsight 回合組態命令。 提供 HDInsight 叢集名稱和您的 HDInsight 使用者名稱與密碼作為參數。 使用下列命令：
 

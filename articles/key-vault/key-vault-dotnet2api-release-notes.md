@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure 金鑰保存庫 .NET 2.0 - 版本資訊和移轉指南
 下列資訊和指引適用於使用 Azure Key Vault .NET/C# 程式庫的開發人員。 從 1.0 版轉換為 2.0 版時，進行的數個更新需要程式碼中的移轉工作，您才能受益於功能改進和功能新增 (例如 **Key Vault 憑證**支援)。
@@ -36,8 +36,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="net-support"></a>.NET 支援
 
-* Azure 金鑰保存庫 .NET/C# 程式庫 2.0 版不支援 **.NET 4.0**
-* Azure 金鑰保存庫 .NET/C# 程式庫 2.0 版支援 **.NET Core**
+* Azure Key Vault .NET 程式庫 2.0 版不支援 **.NET 4.0**
+* Azure Key Vault .NET 程式庫 2.0 版不支援 **.NET Framework 4.5.2**
+* Azure Key Vault .NET 程式庫 2.0 版不支援 **.NET Standard 1.4**
 
 ## <a name="namespaces"></a>命名空間
 
