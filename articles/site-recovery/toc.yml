@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Azure 至 Azure 支援矩陣
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: 內部部署至 Azure 支援矩陣
-      href: site-recovery-support-matrix-to-azure.md
+    - name: VMware 至 Azure 支援矩陣
+      href: support-matrix-vmware-to-azure.md
     - name: Hyper-V 至 Azure 支援矩陣
       href: support-matrix-hyper-v-to-azure.md
+    - name: 內部部署至 Azure 支援矩陣
+      href: site-recovery-support-matrix-to-azure.md
     - name: 內部部署至次要網站支援矩陣
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 工作負載的災害復原
@@ -181,6 +183,8 @@
           items:
             - name: 從 VMware 到 Azure 的來源環境
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: 為 VMware 和實體伺服器部署組態伺服器
+              href: how-to-deploy-configuration-server.md
             - name: 從實體到 Azure 的來源環境
               href: site-recovery-set-up-physical-to-azure.md
         - name: 設定目標環境

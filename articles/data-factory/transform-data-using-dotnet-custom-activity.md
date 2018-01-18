@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/08/2017
 
 下表描述此活動特有的屬性之名稱和描述。 
 
-| 屬性              | 說明                              | 必要 |
+| 屬性              | 描述                              | 必要 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 管線中的活動名稱     | 是      |
 | 說明           | 說明活動用途的文字。  | 否       |
@@ -308,18 +308,18 @@ namespace SampleApp
 
   由於 Azure Data Factory V2 自訂活動中新引進的改變，您可以使用您慣用的語言自由撰寫自訂程式碼邏輯，然後在 Azure Batch 支援的 Windows 和 Linux 作業系統上執行。 
 
-  下表描述資料處理站 V2 自訂活動和資料處理站 V1 之間的差異 （自訂） DotNet 活動： 
+  下表說明 Data Factory V2 自訂活動和 Data Factory V1 (自訂) DotNet 活動之間的差異： 
 
 
-|差異      |ADFv2 自訂活動      |ADFv1 （自訂） DotNet 活動      |
+|差異      |ADFv2 自訂活動      |ADFv1 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
-|如何定義自訂邏輯      |執行任何可執行檔 （現有的或實作您自己的可執行檔）      |藉由實作.Net DLL      |
-|自訂邏輯的執行 enviornment      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
-|執行指令碼      |支援執行指令碼直接 (例如"cmd /c 回應 hello world"Windows VM 上)      |需要.Net DLL 中實作      |
-|所需的資料集      |選用      |鏈結的活動，並將資訊傳遞所需      |
-|從活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects （LinkedServices 和資料集） 和 ExtendedProperties （自訂屬性） 和      |透過 ExtendedProperties （自訂內容）、 輸入和輸出資料集      |
-|在自訂邏輯中擷取資訊      |剖析 activity.json、 linkedServices.json 和可執行檔相同資料夾中儲存的 datasets.json      |透過.Net SDK （.Net 框架 4.5.2）      |
-|記錄      |直接寫入 STDOUT      |在.Net DLL Implemeting 記錄器      |
+|定義自訂邏輯的方式      |執行任何可執行檔 (現有的可執行檔或實作您自己的可執行檔)      |實作 .Net DLL      |
+|自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
+|執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |要求在 .Net DLL 中實作      |
+|需要資料集      |選用      |需要資料集來鏈結活動並傳遞資訊      |
+|將來自活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects (LinkedServices 和資料集) 和 ExtendedProperties (自訂屬性)，以及      |透過 ExtendedProperties (自訂屬性)、輸入和輸出資料集      |
+|擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過 .Net SDK (.Net Frame 4.5.2)      |
+|記錄      |直接寫入 STDOUT      |實作 .Net DLL 中的記錄器      |
 
 
   如果您的現有 .Net 程式碼是針對 V1 (自訂) DotNet 活動撰寫，您需要依據下列的高階指導方針修改程式碼，才能將其用於 V2 自訂活動：  
@@ -331,7 +331,7 @@ namespace SampleApp
    - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。 
    - 編譯您的程式碼、將可執行檔和相依性上傳至 Azure 儲存體，並在 folderPath 屬性中定義路徑。 
 
-如需完整的範例如何端對端 DLL 和管線的範例資料處理站 V1 文件所述[Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities)可以重新撰寫成資料處理站 V2 自訂活動的樣式。 請參閱[資料 Factory V2 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)。 
+如需如何將 Data Factory V1 文件[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) \(機器翻譯\) 中所述的完整 DLL 和管線範例重新以 Data Factory V2 自訂活動樣式撰寫的完整範例。 請參閱 [Data Factory V2 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。 

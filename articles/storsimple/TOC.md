@@ -202,7 +202,7 @@
 ### [Windows PowerShell for StorSimple Cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Data Manager (私人預覽)
+# StorSimple 資料管理員
 
 ## 概觀
 ### [解決方案為何？](storsimple-data-manager-overview.md)
@@ -236,7 +236,7 @@
 ## [行銷部落格](http://blogs.technet.com/b/cis/)
 ## [行銷](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [定價](https://azure.microsoft.com/pricing/details/storsimple/)
+## [價格](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=storsimple)
 ## [支援部落格](http://blogs.msdn.com/b/storsimple/)
