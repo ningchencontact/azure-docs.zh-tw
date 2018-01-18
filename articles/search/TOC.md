@@ -54,7 +54,10 @@
 ### [在 .NET 中開發](search-howto-dotnet-sdk.md)
 ### [在 .Node.js 中開發](search-get-started-nodejs.md)
 ### [以 Java 開發](search-get-started-java.md)
-### [升級 SDK](search-dotnet-sdk-migration.md)
+### 升級 SDK
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET 管理 SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [升級 REST API](search-api-migration.md)
 ### [模型的複雜資料類型](search-howto-complex-data-types.md)
 ### [處理並行更新](search-howto-concurrency.md)

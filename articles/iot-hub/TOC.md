@@ -35,6 +35,7 @@
 ### [Web Apps 的資料視覺效果](iot-hub-live-data-visualization-in-web-apps.md)
 ### [使用 Azure Machine Learning 進行天氣預測](iot-hub-weather-forecast-machine-learning.md)
 ### [透過 iothub-explorer進行裝置管理](iot-hub-device-management-iothub-explorer.md)
+### [透過適用於 Azure CLI 2.0 的 IoT 延伸模組進行裝置管理](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [搭配 Logic Apps 進行遠端監視和通知](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # 使用說明指南

@@ -95,6 +95,9 @@
         - name: 搭配 Kafka 使用結構化串流
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: 從 Kafka 進行結構化串流至 CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: 搭配 Kafka 使用 Spark 串流 (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true

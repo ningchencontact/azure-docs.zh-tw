@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - 升級叢集
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: 概念
+  items:
+    - name: 配額和區域限制
+      href: container-service-quotas.md
 - name: 使用說明指南
   items:
     - name: 調整 AKS 叢集
@@ -49,6 +53,8 @@
       href: kubernetes-service-principal.md
     - name: 設定資料磁碟區
       items:
+        - name: Azure 磁碟 - 永久性磁碟區
+          href: azure-disks-dynamic-pv.md
         - name: Azure 檔案 - 永久性磁碟區
           href: azure-files-dynamic-pv.md
         - name: Azure 檔案 - 磁碟區

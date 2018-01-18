@@ -83,7 +83,7 @@
       items:
         - name: 準備 VM
           items:
-            - name: 準備 Resource Manager 部署的虛擬機器
+            - name: 準備資源管理員部署的虛擬機器虛擬機器
               href: backup-azure-arm-vms-prepare.md
             - name: Linux VM 的應用程式一致備份
               href: backup-azure-linux-app-consistent.md
@@ -101,15 +101,15 @@
           items:
             - name: 在 Azure 入口網站中管理 Azure VM 備份
               href: backup-azure-manage-vms.md
-            - name: 在 Azure 入口網站中監視 Azure VM 備份的警示
+            - name: 監視 Azure 虛擬機器備份的警示
               href: backup-azure-monitor-vms.md
         - name: 從 VM 還原資料
           items:
             - name: 從 Azure VM 備份中復原檔案
               href: backup-azure-restore-files-from-vm.md
-            - name: 還原 Azure 入口網站中 Resource Manager 部署的 VM
+            - name: 在 Azure 入口網站中還原虛擬機器
               href: backup-azure-arm-restore-vms.md
-            - name: 還原加密的虛擬機器
+            - name: 還原已加密的虛擬機器
               href: backup-azure-vms-encryption.md
             - name: 還原已加密 VM 的 Key Vault 金鑰與祕密
               href: backup-azure-restore-key-secret.md
@@ -125,7 +125,7 @@
       items:
         - name: 在 Azure 入口網站中準備 DPM 工作負載
           href: backup-azure-dpm-introduction.md
-        - name: 使用 System Center DPM 備份 Exchange Server
+        - name: 使用 DPM 備份 Exchange Server
           href: backup-azure-backup-exchange-server.md
         - name: 將資料復原至替代的 DPM 伺服器中
           href: backup-azure-alternate-dpm-server.md
@@ -141,7 +141,7 @@
           href: backup-dpm-automation.md
         - name: Azure 入口網站中的 Windows Server
           href: backup-client-automation.md
-    - name: Azure SQL Database
+    - name: 連接字串
       items:
         - name: 設定長期備份保留期
           href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json

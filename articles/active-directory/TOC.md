@@ -288,6 +288,7 @@
 #### [最佳做法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
 #### [移轉傳統原則](active-directory-conditional-access-migration.md)
+#### [假設工具](active-directory-conditional-access-whatif.md)
 #### 工作
 ##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
 ##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
@@ -362,7 +363,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
+## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
