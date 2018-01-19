@@ -21,6 +21,8 @@
   items:
     - name: 常見問題
       href: frequently-asked-questions-genomics.md
+    - name: 版本發行歷程記錄
+      href: version-release-history-genomics.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: 價格
