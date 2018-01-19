@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>用於從 Azure 複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 **資源移動類型** | **支援 / 不支援** | **備註**  
 --- | --- | ---
 **在資源群組間移動保存庫** | 不支援 |您無法跨越資源群組移動復原服務保存庫。
-**資源群組間移動運算、 儲存和網路** | 不支援 |如果您在啟用複寫之後移動虛擬機器 (或其相關聯的元件，例如儲存體和網路)，則您需要對於虛擬機器停用複寫，並再次啟用複寫。
+**跨越資源群組移動計算、儲存體和網路** | 不支援 |如果您在啟用複寫之後移動虛擬機器 (或其相關聯的元件，例如儲存體和網路)，則您需要對於虛擬機器停用複寫，並再次啟用複寫。
 
 
 
@@ -80,8 +80,8 @@ ms.lasthandoff: 12/18/2017
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7、6.8、6.9、7.0、7.1、7.2、7.3
-- CentOS 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2、7.3
+- Red Hat Enterprise Linux 6.7、6.8、6.9、7.0、7.1、7.2、7.3、7.4
+- CentOS 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2、7.3、7.4
 - Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
@@ -90,27 +90,30 @@ ms.lasthandoff: 12/18/2017
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 如果已經從 SLES 11SP3 升級為 SLES 11 SP4 複寫的機器，您需要停用複寫，然後再次張貼升級保護機器。）
+(不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 若已將複寫電腦從 SLES 11SP3 升級至 SLES 11 SP4，則您必須停用複寫以在升級後重新提供電腦防護。)
 
 >[!NOTE]
 >
-> Ubuntu 伺服器使用密碼型驗證和登入，並使用雲端 init 封裝來設定雲端的虛擬機器，可能會發生在容錯移轉 （取決於 cloudinit 組態。） 時停用的密碼登入藉由 [設定] 功能表中的密碼重設密碼為基礎的登入可以是虛擬機器上重新啟用 （在支援 + 疑難排解區段） 的容錯移轉的 Azure 入口網站上的虛擬機器。
+> 使用密碼型驗證和登入並使用雲端 init 封裝來設定雲端虛擬機器的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。從 Azure 入口網站上容錯移轉的虛擬機器本身的設定功能表 (在 [支援 + 疑難排解] 區段下) 重設密碼，即可重新啟用密碼型登入。
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Ubuntu 核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-generic 至 3.13.0-117-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic 至 3.13.0-121-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic 至 3.13.0-125-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-83-generic |
+14.04 LTS | 9.12 | 3.13.0-24-generic 至 3.13.0-132-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-generic 至 3.13.0-137-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic 至 4.4.0-81-generic、<br/>4.8.0-34-generic 至 4.8.0-56-generic、<br/>4.10.0-14-generic 至 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic 至 4.4.0-83-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-27-generic |
+16.04 LTS | 9.12 | 4.4.0-21-generic 至 4.4.0-96-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-generic 至 4.4.0-104-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Azure 虛擬機器 (執行 Linux OS) 上的支援檔案系統與客體儲存體組態
 
 * 檔案系統：ext3、ext4、ReiserFS (僅 Suse Linux Enterprise Server)、XFS
 * 磁碟區管理員：LVM2
-* 多重路徑軟體： 裝置對應程式
+* 多重路徑軟體：裝置對應程式
 
 ## <a name="region-support"></a>區域支援
 
@@ -124,11 +127,11 @@ ms.lasthandoff: 12/18/2017
 澳大利亞   | 澳大利亞東部、澳大利亞東南部
 Azure Government    | 美國維吉尼亞州政府、美國愛荷華州政府、美國亞歷桑那州政府、美國德州政府、美國國防部東部、美國國防部中部
 德國 | 德國中部、德國東北部
-中國 | 中國東部、 中國北部
+中國 | 中國東部、中國北部
 
 >[!NOTE]
 >
-> 巴西南部區域，您只能複寫和美國中南部、 美國西部、 美國東部、 美國東部 2、 美國西部、 2、 美國西部和美國中北部區域的其中一個容錯移轉和容錯回復。
+> 對於巴西南部區域，您只能複寫及容錯移轉至美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2 和美國中北部區域的其中一個區域，並進行容錯回復。
 
 
 ## <a name="support-for-compute-configuration"></a>計算設定的支援
@@ -168,7 +171,7 @@ RA-GRS | 支援 |
 ZRS | 不支援 |  
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
 虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路)  | 否 | 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。 
-一般用途 V2 儲存體帳戶 （同時作用中且 Cool 層） | 否 | 交易成本的增加本質上比較一般用途 V1 儲存體帳戶
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
 >[!IMPORTANT]
 > 請務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。

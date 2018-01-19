@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 > [!NOTE]
-> 這份文件不再是目前並不精確。 請改為移至 Azure Marketplace[賣方指南](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)在發行至 Azure Marketplace 提供項目上的指引。
+> 本文件並非最新版本，且資訊並不準確。 如需在 Azure Marketplace 發佈供應項目的說明資訊，請改至 Azure Marketplace [賣方指南](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)。
 
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>在 Azure Marketplace 中發佈和管理供應項目
 此文章可協助開發人員建立解決方案、部署並管理他們在 Azure Marketplace 中列出的解決方案，讓其他 Azure 客戶與合作夥伴可進行購買及使用。
@@ -96,9 +96,9 @@ ms.lasthandoff: 12/15/2017
 * [更新供應項目或 SKU 的技術性詳細資料](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
 * [在已列出的供應項目下新增 SKU](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [變更已列出 SKU 的資料磁碟計數](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* [從 Marketplace 刪除列出的優惠](marketplace-publishing-vm-image-post-publishing.md)
-* [從 Marketplace 刪除列出的 SKU](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [從 Marketplace 刪除列出的 SKU 的目前版本](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [從 Marketplace 刪除已列出的供應項目](marketplace-publishing-vm-image-post-publishing.md)
+* [從 Marketplace 刪除已列出的 SKU](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [從 Marketplace 刪除已列出 SKU 的目前版本](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [將列出價格還原成生產環境值](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [將計費模式還原成生產環境值](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [將已列出的 SKU 的可見性設定還原成生產環境值](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)

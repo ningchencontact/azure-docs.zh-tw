@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>在雲端儲存體中搜尋半結構化資料
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>第 2 部分：在雲端儲存體中搜尋半結構化資料
 
-在這個兩部分的教學課程系列中，您可以了解如何使用 Azure 搜尋服務來搜尋半結構化及未結構化資料。 本教學課程將示範如何搜尋 Azure Blob 中所儲存的半結構化資料 (例如 JSON)。 半結構化資料會包含在資料內分隔內容的標籤或標記。 它與結構化的資料不同，因為它並未根據資料模型 (例如，關聯式資料庫結構描述) 正式結構化。
+在這個兩部分的教學課程系列中，您可以了解如何使用 Azure 搜尋服務來搜尋半結構化及未結構化資料。 [第 1 部分](../storage/blobs/storage-unstructured-search.md)不僅引導您完成非結構化資料的搜尋步驟，也說明了本教學課程的重要必要條件 (如建立儲存體帳戶)。 
 
-在這個部分，我們將說明如何：
+在第 2 部分，我們將焦點轉移到 JSON 這類儲存在 Azure Blob 中的半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料將不同的內容區分為必須整體編製索引的未結構化資料，以及遵循資料模型 (如關聯式資料庫結構描述)，而且可依據欄位逐一搜耙的正式結構化資料。
+
+在第 2 部分中，您將學習如何：
 
 > [!div class="checklist"]
-> * 在 Azure 搜尋服務中建立和填入索引
-> * 使用 Azure 搜尋服務來搜尋索引
+> * 設定 Azure Blob 容器的 Azure 搜尋服務資料來源
+> * 建立及填入 Azure 搜尋服務索引和索引子，以便搜耙容器和擷取可搜尋內容
+> * 搜尋剛剛建立的索引
 
 > [!NOTE]
-> 「JSON 陣列支援是 Azure 搜尋服務中的預覽功能。 入口網站中目前尚未提供此功能。 基於此因素，我們使用的是預覽 REST API (其中提供此功能) 和一個 REST 用戶端工具來呼叫 API。」
+> 本教學課程仰賴 JSON 陣列支援，該功能目前是 Azure 搜尋服務中的預覽功能， 因此入口網站並未提供。 基於此因素，我們使用提供這項功能的預覽 REST API 和 REST 用戶端工具來呼叫 API。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程：
-* 完成[上一個教學課程](../storage/blobs/storage-unstructured-search.md)
-    * 本教學課程使用在上一個教學課程中建立的儲存體帳戶和搜尋服務
-* 安裝 REST 用戶端並了解如何建構 HTTP 要求
+* 完成[上一個教學課程](../storage/blobs/storage-unstructured-search.md)，提供在該課程中建立的儲存體帳戶和搜尋服務。
 
+* 安裝 REST 用戶端並了解如何建構 HTTP 要求。 基於本教學課程的目的，我們使用的是 [Postman](https://www.getpostman.com/) \(英文\)。 如果您已經很熟悉某個特定的 REST 用戶端，即可隨意使用不同的用戶端。
 
-## <a name="set-up-the-rest-client"></a>設定 REST 用戶端
+## <a name="set-up-postman"></a>設定 Postman
 
-若要完成本教學課程，您需要 REST 用戶端。 基於本教學課程的目的，我們使用的是 [Postman](https://www.getpostman.com/) \(英文\)。 如果您已經很熟悉某個特定的 REST 用戶端，即可隨意使用不同的用戶端。
+啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Fiddler 或 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md) 來取得詳細資訊。
 
-安裝 Postman 之後，啟動它。
-
-如果這是您第一次對 Azure 進行 REST 呼叫，此處將簡短介紹適用於本教學課程的重要元件：本教學課程中適用於每個呼叫的要求方法是 "POST"。 標頭金鑰為 "Content-type" 和 "api-key"。 標頭金鑰的值分別為 "application/json" 和您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 主體是您放置呼叫實際內容的地方。 根據使用的用戶端而定，您用以建構查詢的方式可能會有一些變化，但那些都是基本的。
+本教學課程中每個呼叫的要求方法都是 "POST"。 標頭金鑰為 "Content-type" 和 "api-key"。 標頭金鑰的值分別為 "application/json" 和您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 主體是您放置呼叫實際內容的地方。 根據使用的用戶端而定，您用以建構查詢的方式可能會有一些變化，但那些都是基本的。
 
   ![半結構化搜尋](media/search-semi-structured-data/postmanoverview.png)
 

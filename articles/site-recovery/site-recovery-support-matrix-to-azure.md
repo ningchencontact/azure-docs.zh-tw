@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>用於從內部部署複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -68,30 +68,30 @@ ms.lasthandoff: 12/18/2017
 
  **VMware/實體伺服器** | **Hyper-V (含/不含 VMM)** |
 --- | --- |
-64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)\*、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)<br/><br/> Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0 至 7.3 <br/><br/>CentOS：5.2 至 5.11、6.1 至 6.9、7.0 至 7.3 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 若已將複寫電腦從 SLES 11SP3 升級至 SLES 11 SP4，則您必須停用複寫以在升級後重新提供電腦防護。） | 任何 [Hyper-V 支援的](https://technet.microsoft.com/library/cc794868.aspx)的客體 OS
+64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)\*、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)<br/><br/> Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0 至 7.4<br/><br/>CentOS：5.2 至 5.11、6.1 至 6.9、7.0 至 7.4 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 若已將複寫電腦從 SLES 11SP3 升級至 SLES 11 SP4，則您必須停用複寫以在升級後重新提供電腦防護。） | 任何 [Hyper-V 支援的](https://technet.microsoft.com/library/cc794868.aspx)的客體 OS
 
 >[!NOTE]
 >
 > 不支援 \* Windows Server 2016 Nano Server。
-
->[!IMPORTANT]
->(適用於複寫至 Azure 的 VMware/實體伺服器)
 >
-> 在 Red Hat Enterprise Linux Server 7+ 和 CentOS 7+ 伺服器上，自 Azure Site Recovery 行動服務 9.8 版本起開始支援 3.10.0-514 核心版本。<br/><br/>
-> 若客戶使用行動服務版本低於 9.8 版的 3.10.0-514 核心版本，則必須停用複寫、將行動服務版本更新至 9.8 版，然後再啟用複寫。
+> 在 Linux 散發套件上，僅支援屬於散發套件的次要版本/更新的庫存核心。
+>
+> 不支援在 Azure Site Recovery 受保護的 VMware 虛擬機器或實體伺服器上對 Linux 散發套件的主要版本進行升級。 升級主要版本 (例如 CentOS 6.* 至 CentOS 7.*) 的作業系統時，請停用對機器的複寫，並升級機器的作業系統，然後再次啟用複寫。
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/實體伺服器支援的 Ubuntu 核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-generic 至 3.13.0-117-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic 至 3.13.0-121-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic 至 3.13.0-128-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic 至 3.13.0-132-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-generic 至 3.13.0-137-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic 至 4.4.0-81-generic、<br/>4.8.0-34-generic 至 4.8.0-56-generic、<br/>4.10.0-14-generic 至 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic 至 4.4.0-91-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic 至 4.4.0-96-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-generic 至 4.4.0-104-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux 上的支援檔案系統與客體儲存體組態 (VMware/實體伺服器)
 
@@ -105,8 +105,7 @@ ms.lasthandoff: 12/18/2017
 不支援使用 HP CCISS 儲存體控制器的實體伺服器。<br/>
 
 >[!Note]
-> 在 Linux 伺服器上，下列目錄必須一律位於來源伺服器的同個磁碟 (OS 磁碟) (若設為獨立資料分割/檔案系統)：/ (root)、/boot、/usr、/usr/local、/var、/ 等等<br/><br/>
-> 從「行動服務」9.10 版開始，支援 XFS 檔案系統上的 XFSv5 功能 (例如中繼資料總和檢查碼)。 如果您使用 XFSv5 功能，請確定正在執行行動服務 9.10 版或更新版本。 您可使用 xfs_info 公用程式來檢查資料分割的 XFS 超級區塊。 若 ftype 設為 1，則會使用 XFSv5 功能。
+> 在 Linux 伺服器上，下列目錄必須一律位於來源伺服器的同個磁碟 (OS 磁碟) (若設為獨立資料分割/檔案系統)：/(root)、/boot、/usr、/usr/local、/var、/ 等等，而且 /boot 應該在磁碟分割上，而非在 LVM 磁碟區上<br/><br/>
 >
 
 
@@ -194,7 +193,7 @@ RA-GRS | 是 | 是
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
 用來儲存複寫資料之目標儲存體帳戶或快取儲存體帳戶上設定的虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路) | 否 | 否
-一般用途 V2 儲存體帳戶 （同時作用中且 Cool 層） | 否 | 否
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 否
 
 
 ## <a name="support-for-azure-compute-configuration"></a>支援 Azure 計算設定

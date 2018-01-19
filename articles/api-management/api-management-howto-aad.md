@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> 僅[「開發人員」與「進階」](https://azure.microsoft.com/en-us/pricing/details/api-management/)層提供 Azure Active Directory 整合。
+> 僅[「開發人員」、「標準」與「進階」](https://azure.microsoft.com/en-us/pricing/details/api-management/)層提供 Azure Active Directory 整合。
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶
 ## <a name="overview"></a>概觀
@@ -94,7 +94,7 @@ ms.lasthandoff: 12/04/2017
 
 切換回 Azure Active Directory 組態，並按一下 [金鑰] 區段中的 [選取持續時間] 下拉式清單，然後指定期間。 在此範例中使用 **1 年** 。
 
-![金鑰][api-management-aad-key-before-save]
+![Key][api-management-aad-key-before-save]
 
 按一下 [ **儲存** ] 以儲存組態並顯示金鑰。 複製金鑰至剪貼簿。
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/04/2017
 > 
 > 
 
-![金鑰][api-management-aad-key-after-save]
+![Key][api-management-aad-key-after-save]
 
 切換回發行者入口網站，並將金鑰貼上至 [ **用戶端密碼** ] 文字方塊。
 

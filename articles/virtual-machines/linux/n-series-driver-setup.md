@@ -4,7 +4,7 @@ description: "如何針對 Azure 中執行 Linux 的 N 系列 VM 設定 NVIDIA G
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/16/2017
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>NC、 NCv2，和 ND Vm 安裝 CUDA 驅動程式
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>安裝適用於 NC、NCv2 和 ND VM 的 CUDA 驅動程式
 
 以下是從 NVIDIA CUDA Toolkit 在 Linux NC VM 上安裝 NVIDIA 驅動程式的步驟。 
 
@@ -157,7 +157,7 @@ sudo reboot
 
 若要查詢 GPU 裝置狀態，請透過 SSH 連線至 VM 並執行與驅動程式一起安裝的 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 命令列公用程式。 
 
-如果已安裝驅動程式，您會看到類似下列的輸出。 請注意， **GPU Util**顯示 0%，除非在 VM 上目前正在 GPU 工作負載。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
+如果已安裝驅動程式，您會看到類似以下的輸出。 請注意，除非您正在 VM 上執行 GPU 工作負載，否則 [GPU-Util] 會顯示 0%。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
 
 ![NVIDIA 裝置狀態](./media/n-series-driver-setup/smi.png)
 
@@ -165,11 +165,11 @@ sudo reboot
 
 ## <a name="rdma-network-connectivity"></a>RDMA 網路連線
 
-可以具備 RDMA 功能的 N 系列 Vm 上啟用 RDMA 網路連線，例如 NC24r 部署在相同的可用性設定組。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
+可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組中的 NC24r) 上啟用 RDMA 連線能力。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
 
 ### <a name="distributions"></a>散發
 
-部署具備 RDMA 功能的 N 系列 Vm，從下列映像支援 RDMA 連線能力的 Azure Marketplace 中的其中一個：
+從 Azure Marketplace 中支援 RDMA 連線的下列其中一個映像，部署支援 RDMA 的 N 系列 VM：
   
 * **Ubuntu**：Ubuntu Server 16.04 LTS。 設定 VM 上的 RDMA 驅動程式，並向 Intel 註冊以下載 Intel MPI：
 
@@ -214,11 +214,11 @@ sudo reboot
 5. 下載並安裝 GRID 驅動程式：
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 
 6. 當系統詢問您是否要執行 nvidia-xconfig 公用程式來更新您的 X 組態檔時，選取 [是]。
@@ -279,11 +279,11 @@ sudo reboot
 5. 下載並安裝 GRID 驅動程式：
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 6. 當系統詢問您是否要執行 nvidia-xconfig 公用程式來更新您的 X 組態檔時，選取 [是]。
 
@@ -305,7 +305,7 @@ sudo reboot
 
 若要查詢 GPU 裝置狀態，請透過 SSH 連線至 VM 並執行與驅動程式一起安裝的 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 命令列公用程式。 
 
-如果已安裝驅動程式，您會看到類似下列的輸出。 請注意， **GPU Util**顯示 0%，除非在 VM 上目前正在 GPU 工作負載。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
+如果已安裝驅動程式，您會看到類似以下的輸出。 請注意，除非您正在 VM 上執行 GPU 工作負載，否則 [GPU-Util] 會顯示 0%。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
 
 ![NVIDIA 裝置狀態](./media/n-series-driver-setup/smi-nv.png)
  
@@ -346,7 +346,7 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 * 執行具有 4.4.0-75 Linux 核心之 Ubuntu 16.04 LTS 的 Azure N 系列 VM 具有和 CUDA 驅動程式相關的已知問題。 如果您要從較早的核心版本升級，請升級到最少核心版本 4.4.0-77。
 
-* 您可以使用 `nvidia-smi` 設定持續性模式，如此當您需要查詢卡片時，命令的輸出更快。 若要設定持續性模式，請執行 `nvidia-smi -pm 1`。 請注意，是否重新啟動 VM 時，[模式] 設定會隨即消失。 您一律可以編寫指令碼在啟動時執行模式設定。
+* 您可以使用 `nvidia-smi` 設定持續性模式，如此當您需要查詢卡片時，命令的輸出更快。 若要設定持續性模式，請執行 `nvidia-smi -pm 1`。 請注意，如果重新啟動 VM，模式設定就會消失。 您一律可以編寫指令碼在啟動時執行模式設定。
 
 
 ## <a name="next-steps"></a>後續步驟
