@@ -1,6 +1,6 @@
 ---
-title: "將 Azure DevTest Labs 整合到 VSTS 連續整合和傳送管線 |Microsoft 文件"
-description: "了解如何將 Azure DevTest Labs 整合到您的 VSTS 連續整合和傳送管線"
+title: "將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線 | Microsoft Docs"
+description: "瞭解如何將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到您的 VSTS 連續整合和傳送管線
-您可以使用*Azure DevTest Labs 工作*延伸模組，輕鬆地安裝在 Visual Studio Team Services (VSTS) 來整合您 CI/CD 的組建發行管線與 Azure DevTest Labs。 擴充功能會安裝三項工作： 
+# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線
+您可以使用安裝在 Visual Studio Team Services (VSTS) 中的 *Azure DevTest Labs 工作*延伸模組，輕鬆地整合您的 CI/CD 建置和發行管線與 Azure DevTest Labs。 此延伸模組會安裝三項工作： 
 * 建立 VM
 * 從 VM 建立自訂映像
 * 刪除 VM 
 
-處理程序讓您更容易，比方說，快速部署 「 黃金映像 」 特定的測試工作，然後再刪除它，在測試完成時。
+舉例來說，此程序可協助您快速地為 特定測試工作部署「黃金映像」，並在測試完成後加以刪除。
 
-這篇文章會示範如何建立和部署的 VM，建立自訂映像，然後再刪除 VM，所有做為一個完整的管線。 您通常會在您自己自訂的建置測試部署管線中個別執行每項工作。
+本文說明如何在一個完整的管線中建立並部署 VM、建立自訂映像，然後刪除 VM。 您通常會在自己的自訂「建置-測試-部署」管線中個別執行每項工作。
 
 ## <a name="before-you-begin"></a>開始之前
-整合 Azure DevTest Labs 的 CI/CD 管線之前，您必須從 Visual Studio Marketplace 安裝擴充功能。
-1. 移至[Azure 的 DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
+整合您的 CI/CD 管線與 Azure DevTest Labs 之前，您必須從 Visual Studio Marketplace 安裝延伸模組。
+1. 移至 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 1. 選取 [安裝]。
 1. 完成精靈。
 
-## <a name="create-a-resource-manager-template"></a>建立資源管理員範本
-本章節描述如何建立您用於視需要建立 Azure 虛擬機器的 Azure Resource Manager 範本。
+## <a name="create-a-resource-manager-template"></a>建立 Resource Manager 範本
+本節說明如何建立您用來隨需建立 Azure 虛擬機器的 Azure Resource Manager 範本。
 
-1. 若要建立您的訂用帳戶中的 Resource Manager 範本，完成中的程序[使用資源管理員範本](devtest-lab-use-resource-manager-template.md)。
-1. 產生的資源管理員範本之前，先將[WinRM 成品](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm)一部分建立 VM。
+1. 若要在您的定用帳戶中建立 Resource Manager 範本，請完成[使用 Resource Manager 範本](devtest-lab-use-resource-manager-template.md)中的程序。
+1. 產生 Resource Manager 範本之前，請先在建立 VM 的過程中新增 [WinRM 構件](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm)。
 
-   WinRM 存取，才能使用部署工作，例如*Azure File Copy*和*目標電腦上的 PowerShell*。
+   必須具有 WinRM 存取，才能使用 *Azure 檔案複製*和*目標電腦上的 PowerShell* 之類的部署工作。
 
    > [!NOTE]
-   > 當您使用 WinRM 與共用的 IP 位址時，您必須新增到 WinRM 連接埠對應的外部連接埠的 NAT 規則。 如果您建立 VM 使用公用 IP 位址，就不需要此步驟。
+   > 當您透過共用 IP 位址使用 WinRM 時，您必須新增將外部連接埠對應至 WinRM 連接埠的 NAT 規則。 如果您使用公用 IP 位址建立 VM，則無須執行此步驟。
    >
    >
 
-1. 儲存範本，為您的電腦上的檔案。 將檔案命名**CreateVMTemplate.json**。
-1. 簽入原始檔控制系統的範本。
-1. 開啟文字編輯器，並貼上下列指令碼。
+1. 將範本儲存為電腦上的檔案。 請將此檔案命名為 **CreateVMTemplate.json**。
+1. 將範本簽入您的來源控制系統中。
+1. 開啟文字編輯器，並在其中貼上下列程式碼。
 
    ```powershell
    Param( [string] $labVmId)
@@ -82,129 +82,129 @@ ms.lasthandoff: 01/05/2018
    Write-Host "##vso[task.setvariable variable=labVMFqdn;]$labVMFqdn"
    ```
 
-1. 簽入的指令碼，您的原始檔控制系統。 類似名稱**GetLabVMParams.ps1**。
+1. 將指令碼簽入您的來源控制系統中。 請將其命名為 **GetLabVMParams.ps1** 之類的名稱。
 
-   當代理程式上執行這個指令碼一部分的發行定義中，而且如果您使用工作步驟，例如*Azure File Copy*或*目標電腦上的 PowerShell*，指令碼會收集您需要的值將您的應用程式部署到 VM。 您通常會將應用程式部署至 Azure VM 中使用這些工作。 工作需要 VM 資源群組名稱、 IP 位址和完整的網域名稱 (FDQN)。
+   當您在建立發行定義的過程中對代理程式執行此指令碼時，如果您使用 *Azure 檔案複製*或*目標機器上的 PowerShell* 之類的工作步驟，指令碼將會收集您將應用程式部署至 VM 所需的值。 您通常會使用這些工作將應用程式部署至 Azure VM。 這些工作需要 VM 資源群組名稱、IP 位址和完整的網域名稱 (FDQN) 之類的值。
 
-## <a name="create-a-release-definition-in-release-management"></a>在 Release Management 中建立的發行定義
-若要建立發行定義，執行下列作業：
+## <a name="create-a-release-definition-in-release-management"></a>在 Release Management 中建立發行定義
+若要建立發行定義，請執行下列動作：
 
-1. 在**版本** 索引標籤**建置和發行**中樞，選取加號 （+） 按鈕。
-2. 在**建立發行定義**視窗中，選取**空**範本，，然後選取**下一步**。
-3. 選取**稍後選擇**，然後選取**建立**使用一個預設的環境和任何連結的成品中建立新的發行定義。
-4. 若要開啟捷徑功能表，在新發行定義中，選取環境名稱旁邊的省略符號 （...），然後選取**設定變數**。 
-5. 在**設定-環境**發行定義的工作，在您使用的變數 視窗，輸入下列值：
+1. 在 [建置及發行] 中樞的 [發行] 索引標籤上，選取加號 (+) 按鈕。
+2. 在 [建立發行定義] 視窗中，選取 [空白] 範本，然後選取 [下一步]。
+3. 選取 [稍後選擇]，然後選取 [建立]，以使用一個預設的環境、但不使用任何連結的構件來建立新的發行定義。
+4. 若要開啟捷徑功能表，請在新的發行定義中選取環境名稱旁邊的省略符號 (...)，然後選取 [設定變數]。 
+5. 在 [設定 - 環境] 視窗中，為您在發行定義工作中使用的變數輸入下列值：
 
-   a. 如**vmName**，輸入您在 Azure 入口網站中建立資源管理員範本時，您指派給 VM 的名稱。
+   a. 針對 [VM 名稱]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的名稱。
 
-   b. 如**userName**，輸入您在 Azure 入口網站中建立資源管理員範本時，您指派給 VM 的使用者名稱。
+   b. 針對 [使用者名稱]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的使用者名稱。
 
-   c. 如**密碼**，輸入您在 Azure 入口網站中建立資源管理員範本時，您指派給 VM 的密碼。 使用 「 鎖 」 圖示來隱藏和安全密碼。
+   c. 針對 [密碼]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的密碼。 使用「掛鎖」圖示可隱藏及保護密碼。
 
 ### <a name="create-a-vm"></a>建立 VM
 
-部署的下一個階段是建立要用於後續部署為 「 黃金映像 」 VM。 您建立的 VM，您可以在您的 Azure DevTest 實驗室執行個體中使用針對此用途特別開發工作。 
+部署的下一個階段，是建立 VM 以作為後續部署的「黃金映像」。 您可以使用特別為此目的開發的工作，在您的 Azure DevTest Lab 執行個體中建立此 VM。 
 
-1. 在發行定義中，選取**新增工作**。
-2. 在**部署**索引標籤上，新增*Azure DevTest Labs 建立 VM*工作。 設定工作，如下所示：
+1. 在發行定義中，選取 [新增工作]。
+2. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立 VM] 工作。 請依照下列方式設定工作：
 
    > [!NOTE]
-   > 若要建立要用於後續部署 VM，請參閱[Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
+   > 若要建立用於後續部署的 VM，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 
-   a. 如**Azure RM 訂用帳戶**，選取連線中的**可用的 Azure 服務連線**清單，或建立更具限制性的權限連接到您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[Azure 資源管理員服務端點](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
+   a. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
 
-   b. 如**實驗室名稱**，選取您稍早建立的執行個體的名稱。
+   b. 針對 [實驗室名稱]，選取您先前建立之執行個體的名稱。
 
-   c. 如**範本名稱**，輸入完整路徑和名稱的範本檔案儲存到您原始程式碼儲存機制。 您可以使用 Release Management 的內建屬性，以簡化路徑，例如：
+   c. 針對 [範本名稱]，輸入您儲存到原始程式碼存放庫之範本檔案的完整路徑和名稱。 您可以使用 Release Management 的內建屬性來簡化路徑，例如：
 
    ```
    $(System.DefaultWorkingDirectory)/Contoso/ARMTemplates/CreateVMTemplate.json
    ```
 
-   d. 如**範本參數**，輸入範本中所定義的變數的參數。 使用您定義在環境中，例如變數名稱：
+   d. 針對 [範本參數]，輸入在範本中定義之變數的參數。 請使用您在環境中定義的變數名稱，例如：
 
    ```
    -newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)
    ```
 
-   e. 如**輸出變數-實驗室 VM 識別碼**，您需要新建立的 VM 識別碼後續步驟。 設定環境變數，會自動填入此識別碼中的預設名稱**輸出變數**> 一節。 您可以編輯變數，如有必要，但請記得要在後續工作中使用正確的名稱。 實驗室 VM 識別碼會寫入下列形式：
+   e. 針對 [輸出變數 - 實驗室 VM 識別碼]，您必須提供新建立之 VM 的識別碼，供後續步驟使用。 您必須在 [輸出變數] 區段中設定會以此識別碼自動填入之環境變數的預設名稱。 如有必要，您可以編輯變數，但請記得在後續工作中使用正確的名稱。 實驗室 VM 識別碼會以下列形式寫入：
 
    ```
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. 執行您先前收集的詳細資料的 DevTest Labs VM 建立指令碼。 
-4. 在發行定義中，選取**新增工作**然後**部署**索引標籤上，新增*Azure PowerShell*工作。 設定工作，如下所示：
+3. 執行您先前建立的指令碼，以收集 DevTest Labs VM 的詳細資料。 
+4. 在發行定義中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure PowerShell] 工作。 請依照下列方式設定工作：
 
    > [!NOTE]
-   > 若要收集的 DevTest Labs VM 詳細資料，請參閱[部署： Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell)執行指令碼。
+   > 若要收集 DevTest Labs VM 的詳細資料，請參閱[部署：Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell)，並執行指令碼。
 
-   a. 如**Azure 連接類型**，選取**Azure Resource Manager**。
+   a. 針對 [Azure 連線類型]，選取 [Azure Resource Manager]。
 
-   b. 如**Azure RM 訂用帳戶**，下方的清單中選取連接**可用的 Azure 服務連線**，或建立更具限制性的權限連接到您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[Azure 資源管理員服務端點](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
+   b. 針對 [Azure RM 訂用帳戶]，從 [可用的 Azure 服務連線] 下方的清單中選取連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
 
-   c. 如**指令碼類型**，選取**指令碼檔案**。
+   c. 針對 [指令碼類型]，選取 [指令碼檔案]。
  
-   d. 如**指令碼路徑**，輸入完整路徑和指令碼儲存到您原始程式碼儲存機制名稱。 您可以使用 Release Management 的內建屬性，以簡化路徑，例如：
+   d. 針對 [指令碼路徑]，輸入您儲存到原始程式碼存放庫之指令碼的完整路徑和名稱。 您可以使用 Release Management 的內建屬性來簡化路徑，例如：
       ```
       $(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1
       ```
-   e. 如**指令碼引數**，輸入已自動填入識別碼為實驗室 VM 上一項工作，例如環境變數的名稱： 
+   e. 針對 [指令碼引數]，輸入由上一項工作以實驗室 VM 的識別碼自動填入的環境變數名稱，例如： 
       ```
       -labVmId '$(labVMId)'
       ```
-    指令碼會收集所需的值，並將它們儲存在發行定義環境變數，因此，您可以輕鬆地參考後續步驟中。
+    此指令碼會收集所需的值，並將其儲存在發行定義內的環境變數中，以便您在後續的步驟中加以參考。
 
-5. 將您的應用程式部署到新的 DevTest Labs VM。 您通常用來部署應用程式的工作是*Azure File Copy*和*目標電腦上的 PowerShell*。
-   VM 所需的參數，這些工作的相關資訊會儲存在名為三個組態變數**labVmRgName**， **labVMIpAddress**，和**labVMFqdn**發行定義中。 如果您只想要試驗建立 DevTest Labs VM 和自訂映像，而不將應用程式部署給它，您可以略過此步驟。
+5. 將您的應用程式部署到新的 DevTest Labs VM。 您通常會使用 *Azure 檔案複製*和*目標電腦上的 PowerShell* 工作來部署應用程式。
+   這些工作的參數所需的 VM 相關資訊，會儲存在發行定義內名為 **labVmRgName**、**labVMIpAddress** 和 **labVMFqdn** 的三個設定變數中。 如果您只想要試驗性地建立 DevTest Labs VM 和自訂映像，而不為其部署應用程式，則可以略過此步驟。
 
 ### <a name="create-an-image"></a>建立映像
 
-下一個階段是在您的 Azure DevTest Labs 執行個體中建立的新部署的 VM 映像。 您接著可以使用映像視建立 VM 的複本，每當您想要執行的開發工作或執行某些測試。 
+下一個階段是在您的 Azure DevTest Labs 執行個體中建立新部署之 VM 的映像。 後續當您想要執行開發工作或執行某些測試時，您即可使用此映像隨需建立 VM 的複本。 
 
-1. 在發行定義中，選取**新增工作**。
-2. 在**部署**索引標籤上，新增**Azure DevTest Labs 建立自訂映像**工作。 進行下列設定：
+1. 在發行定義中，選取 [新增工作]。
+2. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立自訂映像] 工作。 進行下列設定：
 
    > [!NOTE]
-   > 若要建立映像，請參閱[Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
+   > 若要建立映像，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 
-   a. 如**Azure RM 訂用帳戶**，請在**可用的 Azure 服務連線**清單中，從清單中，選取連接或建立更具限制性的權限連接到您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[Azure 資源管理員服務端點](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
+   a. 針對 [Azure RM 訂用帳戶]，在 [可用的 Azure 服務連線] 清單中選取連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
 
-   b. 如**實驗室名稱**，選取您稍早建立的執行個體的名稱。
+   b. 針對 [實驗室名稱]，選取您先前建立之執行個體的名稱。
 
-   c. 如**自訂映像名稱**，輸入自訂映像的名稱。
+   c. 針對 [自訂映像名稱]，輸入自訂映像的名稱。
 
-   d. （選擇性）如**描述**，輸入以便於稍後再選取正確的映像的描述。
+   d. (選擇性) 針對 [說明]，輸入有助於您後續選取正確映像的說明。
 
-   e. 如**來源實驗室 VM 來源實驗室 VM 識別碼**，如果您變更預設名稱自動填入的環境變數的識別碼為實驗室 VM 由稍早的工作，這裡加以編輯。 預設值是**$(labVMId)**。
+   e. 針對 [來源實驗室 VM - 來源實驗室 VM 識別碼]，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)**。
 
-   f. 如**輸出變數的自訂映像識別碼**，當您想要管理或刪除它時，您會需要新建立的映像的識別碼。 預設名稱自動填入此識別碼的環境變數中設定**輸出變數**> 一節。 如有必要，您可以編輯該變數。
+   f. 針對 [輸出變數 - 自訂映像識別碼]，您必須提供新建立之映像的識別碼，以便您在需要管理或刪除該映像時使用。 以此識別碼自動填入之環境變數的預設名稱會設定於 [輸出變數] 區段中。 如有必要，您可以編輯該變數。
 
 ### <a name="delete-the-vm"></a>刪除 VM
 
-最後一個階段是刪除您部署 Azure DevTest Labs 執行個體中的 VM。 之後您執行的開發工作，或在已部署的 VM 上執行的測試，您需要您通常會刪除 VM。 
+最後一個階段是刪除您在 Azure DevTest Labs 執行個體中部署的 VM。 在已部署的 VM 上執行您所需的開發工作或測試之後，您通常會刪除 VM。 
 
-1. 在發行定義中，選取**新增工作**然後**部署**索引標籤上，新增*Azure DevTest Labs 刪除 VM*工作。 進行下列設定：
+1. 在發行定義中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure DevTest Labs 刪除 VM] 工作。 進行下列設定：
 
       > [!NOTE]
-      > 若要刪除 VM，請參閱[Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
+      > 若要刪除 VM，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 
-   a. 如**Azure RM 訂用帳戶**，選取連線中的**可用的 Azure 服務連線**清單，或建立更具限制性的權限連接到您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[Azure 資源管理員服務端點](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
+   a. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)。
  
-   b. 如**實驗室 VM 識別碼**，如果您變更預設名稱自動填入的環境變數的識別碼為實驗室 VM 由稍早的工作，這裡加以編輯。 預設值是**$(labVMId)**。
+   b. 針對 [實驗室 VM 識別碼]，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)**。
 
-2. 為發行定義中，輸入名稱，然後將它儲存。
-3. 建立新版本，選取最新的組建，將它部署到單一的環境中定義。
+2. 輸入發行定義的名稱，並加以儲存。
+3. 建立新版本，選取最新的組建，然後將其部署到定義中的單一環境。
 
-在每個階段中，重新整理您的 DevTest Labs 執行個體，若要檢視 VM 映像，建立並再次刪除 VM 在 Azure 入口網站檢視。
+在每個階段中，重新整理您的 DevTest Labs 執行個體在 Azure 入口網站中的檢視，以檢視要建立的 VM 和映像，以及要再次刪除的 VM。
 
-您現在可以使用自訂映像建立 Vm 時所需。
+您現在已可在必要時使用自訂映像建立 VM。
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何[使用 Resource Manager 範本建立多個 VM 環境](devtest-lab-create-environment-from-arm.md)。
-* 瀏覽更多的快速入門資源管理員範本，從 DevTest Labs 自動化[公用的 DevTest Labs GitHub 儲存機制](https://github.com/Azure/azure-quickstart-templates)。
-* 如有必要，請參閱[VSTS 疑難排解](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting)頁面。
+* 從[公用 DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates)探索更多 DevTest Labs 自動化的快速入門 Resource Manager 範本。
+* 如有必要，請參閱 [VSTS 疑難排解](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting)頁面。
  

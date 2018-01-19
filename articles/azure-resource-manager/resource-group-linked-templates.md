@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結的範本
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
-若要部署解決方案，您可以使用單一範本或有多個連結範本的主要範本。 若為小型至中型的解決方案，單一範本會比較容易了解和維護。 您能夠在單一檔案中看到所有的資源和值。 若為進階案例，連結的範本可讓您將解決方案細分成目標元件，並重複使用範本。
+若要部署解決方案，您可以使用單一範本或有多個相關範本的主要範本。 相關範本可以是連結到主要範本的個別檔案，或是主要範本內巢狀的範本。
+
+若為小型至中型的解決方案，單一範本會比較容易了解和維護。 您能夠在單一檔案中看到所有的資源和值。 若為進階案例，連結的範本可讓您將解決方案細分成目標元件，並重複使用範本。
 
 在使用連結的範本時，您會建立主要範本以在部署期間接收參數值。 主要範本包含所有連結的範本，並且會視需要將值傳遞至這些範本。
 
 ![連結的範本](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>連結到範本
+## <a name="link-or-nest-a-template"></a>連結或巢狀範本
 
 若要連結到其他範本，請在主要範本中新增**部署**資源。
 
@@ -40,17 +42,17 @@ ms.lasthandoff: 12/13/2017
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-您針對部署資源所提供的屬性，會根據您是連結到外部範本還是在主要範本中嵌入內嵌範本而有所不同。
+您針對部署資源所提供的屬性，會根據您是連結到外部範本還是在主要範本中巢狀內嵌範本而有所不同。
 
-### <a name="inline-template"></a>內嵌範本
+### <a name="nested-template"></a>巢狀範本
 
-若要內嵌連結的範本，請使用 **template** 屬性並納入範本。
+若要在主要範本巢狀範本，使用 **template** 屬性，並指定範本語法。
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ ms.lasthandoff: 12/13/2017
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ ms.lasthandoff: 12/13/2017
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+對於巢狀範本，您無法使用巢狀範本中定義的參數或變數。 您可以使用來自主要範本的參數和變數。 在上述範例中，`[variables('storageName')]` 會從主要範本擷取值，而不是巢狀範本。 這項限制不適用於外部範本。
 
 ### <a name="external-template-and-external-parameters"></a>外部範本和外部參數
 
@@ -176,7 +177,7 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-上層範本會部署連結的範本，並取得傳回的值。 請注意，它會依名稱參考部署資源，並使用連結的範本所傳回之屬性的名稱。
+主要範本會部署連結的範本，並取得傳回的值。 請注意，它會依名稱參考部署資源，並使用連結的範本所傳回之屬性的名稱。
 
 ```json
 {
@@ -309,9 +310,9 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>部署歷程記錄中的連結的範本
+## <a name="linked-and-nested-templates-in-deployment-history"></a>部署歷程記錄中連結和巢狀的範本
 
-在部署歷程記錄中，Resource Manager 會以個別部署的方式處理每一個連結的範本。 因此，具有三個連結的範本的上層範本在部署歷程記錄中會顯示為：
+在部署歷程記錄中，Resource Manager 會以個別部署的方式處理每一個範本。 因此，具有三個連結或巢狀範本的主要範本在部署歷程記錄中會顯示為：
 
 ![部署歷程記錄](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -478,13 +479,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>範本的範例
 
-下列範例會顯示連結的範本的一般用途。
+下列範例顯示連結範本的一般用途。
 
-|主要的範本  |連結的範本 |說明  |
+|主要的範本  |連結的範本 |描述  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 傳回字串，從連結的範本。 |
-|[公用 IP 位址的負載平衡器](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |公用 IP 位址傳回從連結的範本和設定負載平衡器中的值。 |
-|[多個 IP 位址](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |建立連結的範本中的多個公用 IP 位址。  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 從連結的範本傳回字串。 |
+|[使用公用 IP 位址的負載平衡器](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |從連結的範本傳回公用 IP 位址，並且在負載平衡器中設定該值。 |
+|[多個 IP 位址](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |在連結的範本中建立多個公用 IP 位址。  |
 
 ## <a name="next-steps"></a>後續步驟
 

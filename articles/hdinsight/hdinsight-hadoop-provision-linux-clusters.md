@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 
@@ -42,7 +42,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 | --- |:---:|:---:|:---:|:---:|
 | [Azure 入口網站](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure CLI (ver 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure CLI (1.0 版)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -51,7 +51,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 ## <a name="quick-create-basic-cluster-setup"></a>快速建立：基本的叢集設定
 本文會逐步引導您完成 [Azure 入口網站](https://portal.azure.com)中的設定，您可以在此入口網站中使用 [Quick create] \(快速建立\) 或 [Custom] \(自訂\) 建立 HDInsight 叢集。 
 
-![hdinsight 建立的選項自訂快速建立](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
+![hdinsight 建立選項自訂快速建立](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
 
 依照畫面上指示執行基本的叢集設定。 以下是下列各項的詳細資訊：
 
@@ -90,13 +90,13 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 ### <a name="hdinsight-version"></a>HDInsight 版本
 選擇此叢集的 HDInsight 版本。 如需詳細資訊，請參閱[支援的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
-### <a name="enterprise-security-package"></a>企業安全性封裝
+### <a name="enterprise-security-package"></a>企業安全性套件
 
-Hadoop、 Spark，以及互動式查詢叢集類型，您可以選擇啟用**企業安全性封裝**。 此套件會提供更安全的叢集設定的使用 Apache 廣，以及與 Azure Active 目錄整合的選項。 如需詳細資訊，請參閱[企業安全性封裝，在 Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md)。
+對於 Hadoop、Spark 和互動式查詢叢集類型，您可以選擇啟用 [企業安全性套件]。 此套件使用 Apache Ranger 以及與 Azure Active Direcotry 整合，以供選擇更安全的叢集設定。 如需詳細資訊，請參閱 [Azure HDInsight 中的企業安全性套件](./domain-joined/apache-domain-joined-introduction.md)。
 
-![hdinsight 建立選項選擇企業安全性封裝](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+![hdinsight 建立選擇企業安全性套件的選項](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
-如需有關建立加入網域的 HDInsight 叢集，請參閱[建立加入網域的 HDInsight 沙箱環境](./domain-joined/apache-domain-joined-configure.md)。
+如需建立已加入網域之 HDInsight 叢集的詳細資訊，請參閱[建立已加入網域的 HDInsight 沙箱環境](./domain-joined/apache-domain-joined-configure.md)。
 
 
 ## <a name="cluster-login-and-ssh-user-name"></a>叢集登入和 SSH 使用者名稱
@@ -105,7 +105,7 @@ Hadoop、 Spark，以及互動式查詢叢集類型，您可以選擇啟用**企
 * HTTP 使用者：預設使用者名稱為 *admin*。使用 Azure 入口網站上的基本組態。 有時稱之為「叢集使用者」。
 * SSH 使用者 (Linux 叢集)：用來透過 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-企業安全性套件可讓您 HDInsight 整合 Active Directory 和 Apache 廣。 可以使用企業安全性封裝來建立多個使用者。
+企業安全性套件可讓您整合 HDInsight 與 Active Directory 及 Apache Ranger。 使用企業安全性套件可以建立多個使用者。
 
 ## <a name="location"></a>叢集與儲存體的位置 (區域)
 
@@ -248,7 +248,7 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 
 如需如何搭配使用 Azure 虛擬網路與 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路擴充 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
 
-如需在 Azure 虛擬網路內使用兩個叢集類型的範例，請參閱[使用 Storm 和 HBase 分析感應器資料](storm/apache-storm-sensor-data-analysis.md)。 如需搭配虛擬網路使用 HDInsight 的詳細資訊 (包含虛擬網路的特定組態需求)，請參閱 [使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+如需在 Azure 虛擬網路內使用兩個叢集類型的範例，請參閱[使用 Spark 結構化串流搭配 Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 如需搭配虛擬網路使用 HDInsight 的詳細資訊 (包含虛擬網路的特定組態需求)，請參閱 [使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 ## <a name="troubleshoot-access-control-issues"></a>針對存取控制問題進行疑難排解
 
