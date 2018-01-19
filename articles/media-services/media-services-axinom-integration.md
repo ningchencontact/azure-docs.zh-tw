@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資�
 * 產生 JWT 權杖以符合授權伺服器需求；
 * 開發可使用 JWT 權杖驗證處理授權取得作業的 Azure 媒體播放器應用程式；
 
-完整的系統和內容金鑰、金鑰識別碼、金鑰種子、JTW 權杖及其宣告，皆可透過下圖詳盡說明。
+完整的系統和內容金鑰、金鑰識別碼、金鑰種子、JTW 權杖及其宣告，皆可透過下圖詳盡說明：
 
 ![DASH 和 CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -50,7 +50,7 @@ Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資�
 1. MS Edge 和 IE11 的 PlayReady 保護，可能有權杖授權限制。 權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖，例如 Azure Active Directory；
 2. Chrome 的 Widevine 保護，它可能需要對其他 STS 所發行的權杖進行權杖驗證。 
 
-請參閱＜ [JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation) ＞一節，了解 Azure Active Directory 為何無法做為 Axinom Widevine 授權伺服器的 STS。
+請參閱 [JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation)一節，了解 Azure Active Directory 為何無法作為 Axinom Widevine 授權伺服器的 STS。
 
 ### <a name="considerations"></a>注意事項
 1. 您必須使用 Axinom 指定的金鑰種子 (8888000000000000000000000000000000000000) 和您產生或選取的金鑰識別碼，產生用以設定金鑰傳遞服務的內容金鑰。 Axinom 授權伺服器會根據相同的金鑰種子 (同時適用於測試和生產環境)，發行包含內容金鑰的所有授權。
@@ -65,14 +65,14 @@ Axinom 提供的 Widevine 授權伺服器需要 JWT 權杖驗證。 JWT 權杖�
 
 AMP 程式碼的其餘部分是標準 AMP API，如 [這裡](http://amp.azure.net/libs/amp/latest/docs/)的 AMP 文件所說明。
 
-請注意，上述用來設定自訂授權標頭的 Javascript 是在 AMP 中正式發行長期方法之前所使用的短期方法。
+上述用來設定自訂授權標頭的 Javascript 是在 AMP 中正式發行長期方法之前所使用的短期方法。
 
 ## <a name="jwt-token-generation"></a>JWT 權杖產生
 測試用的 Axinom Widevine 授權伺服器需要 JWT 權杖驗證。 此外，JWT 權杖中的其中一個宣告屬於複雜物件類型，而非基本資料類型。
 
 可惜的是，Azure AD 只能發行具有基本類型的 JWT 權杖。 同樣地，.NET Framework API (System.IdentityModel.Tokens.SecurityTokenHandler 和 JwtPayload) 也只能讓您輸入複雜物件類型做為宣告。 不過，這些宣告仍會序列化為字串。 因此，這兩者都無法用來產生 Widevine 授權要求的 JWT 權杖。
 
-John Sheehan 的 [JWT Nuget 套件](https://www.nuget.org/packages/JWT) 符合這些需求，因此我們將使用此 Nuget 套件。
+John Sheehan 的 [JWT NuGet 套件](https://www.nuget.org/packages/JWT) 符合這些需求，因此我們將使用此 NuGet 套件。
 
 下列程式碼會產生 JWT 權杖，且具有 Axinom Widevine 授權伺服器進行測試時所需的必要宣告：
 
@@ -136,7 +136,7 @@ Axinom Widevine 授權伺服器
 
 ### <a name="considerations"></a>注意事項
 1. 即使 AMS PlayReady 授權傳遞服務會要求驗證權杖之前必須有 “Bearer=”，Axinom Widevine 授權伺服器並不會加以使用。
-2. Axinom 通訊金鑰會做為簽署金鑰。 請注意，此金鑰是十六進位字串，但在編碼時必須將其視為一系列的位元組，而不是字串。 這可藉由 ConvertHexStringToByteArray 方法來達成。
+2. Axinom 通訊金鑰會做為簽署金鑰。 此金鑰是十六進位字串，但在編碼時必須將其視為一系列的位元組，而不是字串。 這可藉由 ConvertHexStringToByteArray 方法來達成。
 
 ## <a name="retrieving-key-id"></a>擷取金鑰識別碼
 您可能已注意到，在產生 JWT 權杖的程式碼中，金鑰識別碼是必要項目。 由於 JWT 權杖必須在載入 AMP 播放程式之前備妥，因此必須要擷取金鑰識別碼，才能產生 JWT 權杖。
@@ -189,7 +189,7 @@ Axinom Widevine 授權伺服器
 | 通訊金鑰識別碼 |必須包含在 JWT 權杖中作為宣告 "com_key_id" 的值 (請參閱 [本節](media-services-axinom-integration.md#jwt-token-generation))。 |
 | 通訊金鑰 |必須做為 JWT 權杖的簽署金鑰 (請參閱 [本節](media-services-axinom-integration.md#jwt-token-generation) )。 |
 | 金鑰種子 |必須用來使用任何指定的內容金鑰識別碼來產生內容金鑰 (請參閱 [本節](media-services-axinom-integration.md#content-protection))。 |
-| Widevine 授權取得 URL |必須用於設定 DASH 串流資產傳遞原則 (請參閱 [本節](media-services-axinom-integration.md#content-protection))。 |
+| Widevine 授權取得 URL |必須用於設定 DASH 串流資產傳遞原則 (請參閱[本節](media-services-axinom-integration.md#content-protection))。 |
 | 內容金鑰識別碼 |必須包含其中作為 JWT 權杖之權利訊息宣告值的一部分 (請參閱 [本節](media-services-axinom-integration.md#jwt-token-generation) )。 |
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑

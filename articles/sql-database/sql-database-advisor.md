@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-recommendations"></a>效能建議
 
@@ -36,7 +36,7 @@ Azure SQL Database 會持續監視正在執行的查詢，並找出可改善效�
 
 一旦套用索引建立建議時，Azure SQL Database 會比較基準效能和查詢效能。 如果新的索引可提升效能，建議會標示為成功並提供影響報告。 如果該索引毫無助益，即會自動還原。 如此一來，Azure SQL Database 可確保使用的建議只會改善資料庫效能。
 
-任何「建立索引」建議都有後端停止原則，過去 20 分鐘的資料庫或集區 DTU 使用量高於 80% ，或儲存體使用量高於 90% 時不允許套用建議。 在此情況下，將會延遲建議。
+任何「**建立索引**」建議都有輪詢原則，如果資料庫或集區的資源使用量很高時不允許套用建議。 輪詢原則會將 CPU、資料 IO、記錄 IO 和可用儲存體列入考慮。 如果過去 30 分鐘內的 CPU、資料 IO 或記錄 IO 超過 80%，則建立索引會受到延遲。 如果索引建立之後，可用儲存體將低於 10%，建議會進入錯誤狀態。 如果幾天後，自動調整仍認為該索引有所幫助，則程序會重新開始。 此程序會重複進行，直到有足夠的可用儲存體可用來建立索引，或索引不再是有所幫助的狀態為止。
 
 ## <a name="drop-index-recommendations"></a>卸除索引建議
 除了偵測遺漏的索引，Azure SQL Database 會持續分析現有索引的效能。 如果未使用索引，Azure SQL Database 會建議卸除它。 在兩種情況下會建議使用卸除索引：
@@ -57,10 +57,10 @@ Azure SQL Database 會持續監視正在執行的查詢，並找出可改善效�
 
 一旦套用此建議之後，它將在幾分鐘內於您的資料庫上啟用強制參數化，而它將開始監視程序，此程序大約會持續 24 小時。 經過這段期間之後，您就能看到驗證報告，其中顯示資料庫在套用建議前後 24 小時的 CPU 使用量。 SQL Database 建議程式有一項安全機制，會在偵測到效能變差時，自動還原套用的建議。
 
-## <a name="fix-schema-issues-recommendations-preview"></a>請修正結構描述問題的建議 （預覽）
+## <a name="fix-schema-issues-recommendations-preview"></a>修正結構描述問題建議 (預覽)
 
 > [!IMPORTANT]
-> Microsoft 正在淘汰 「 修正結構描述問題 」 的建議。 您應該開始使用[智慧型 Insights](sql-database-intelligent-insights.md)自動監視您的資料庫效能問題，包括 「 修正結構描述問題 」 建議涵蓋先前的結構描述問題。
+> Microsoft 即將淘汰「修正結構描述問題」的建議。 您應該開始使用 [Intelligent Insights](sql-database-intelligent-insights.md) 來自動監視您的資料庫效能問題，包括先前「修正結構描述問題」建議中涵蓋的結構描述問題。
 > 
 
 當 SQL Database 服務注意到 Azure SQL Database上發生結構描述數目異常狀況相關的 SQL 錯誤時，即會出現**修正結構描述問題**建議。 您的資料庫在一小時內遇到多個結構描述相關的錯誤時 (無效的資料行名稱、無效的物件名稱等)，通常會出現此建議。

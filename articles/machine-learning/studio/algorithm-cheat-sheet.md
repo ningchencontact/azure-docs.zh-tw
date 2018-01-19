@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>適用於 Microsoft Azure Machine Learning Studio 的機器學習演算法小祕技
 **Microsoft Azure Machine Learning 演算法小祕技** 可協助您針對預測性分析模型選擇正確的演算法。
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/19/2017
 
 * 這份演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 唯有了解每個演算法的原則，以及了解產生您的資料的系統。
 
-* 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Cortana Intelligence 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)。
+* 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)。
 
 * 機器學習有三個主要類別：**經過指導的學習**、**未經指導的學習**和**增強式學習**。
 

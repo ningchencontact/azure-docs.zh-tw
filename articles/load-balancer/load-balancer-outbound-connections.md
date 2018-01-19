@@ -3,8 +3,8 @@ title: "了解 Azure 中的輸出連線 | Microsoft Docs"
 description: "本文說明如何讓 Azure VM 與公用網際網路服務進行通訊。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>了解 Azure 中的輸出連線
 
@@ -28,7 +28,7 @@ Azure 中的虛擬機器 (VM) 可在公用 IP 位址空間中與 Azure 外部的
 
 Azure 提供三種不同的方法來達成輸出連線。 每個方法都有自己的功能和條件約束。 仔細檢閱每一種方法以選擇符合您需求的方法。
 
-| 案例 | 方法 | 注意 |
+| 案例 | 方法 | 附註 |
 | --- | --- | --- |
 | 獨立 VM (無負載平衡器，無執行個體層級公用 IP 位址) |預設 SNAT |Azure 關聯 SNAT 的公用 IP 位址 |
 | 負載平衡的 VM (無 VM 上的執行個體層級公用 IP 位址) |使用負載平衡器 的 SNAT |Azure 會使用 SNAT 的負載平衡器公用 IP 位址 |
@@ -46,7 +46,7 @@ SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方�
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>無執行個體層級公用 IP 位址的負載平衡 VM
 
-在此案例中，VM 是 Azure Load Balancer 集區的一部分。  VM 沒有指派給它的公用 IP 位址。 必須使用連結公用 IP 前端與後端集區的規則來設定 Load Balancer 資源。  如果您未完成此設定，行為就如前一節[不含執行個體層級公用 IP 的獨立 VM](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address) 中所述。
+在此案例中，VM 是 Azure Load Balancer 集區的一部分。  VM 沒有指派給它的公用 IP 位址。 必須使用負載平衡器規則來建立公用 IP 前端與後端集區之間的連結，從而設定 Load Balancer 資源。 如果您未完成此設定，行為就如前一節[不含執行個體層級公用 IP 的獨立 VM](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address) 中所述。
 
 當負載平衡的 VM 建立輸出流程時，Azure 會將輸出流量的私用來源 IP 位址轉譯為公用負載平衡器前端的公用 IP 位址。 Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 負載平衡器公用 IP 位址的暫時連接埠用來區分源自 VM 的個別流程。 建立輸出流程時，SNAT 會動態配置暫時連接埠。 在此情況下，用於 SNAT 的暫時連接埠稱為 SNAT 連接埠。
 

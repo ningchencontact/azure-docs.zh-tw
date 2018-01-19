@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
 
@@ -32,8 +32,7 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本主題說明
 支援的伺服器參數清單會不斷成長。 使用 Azure 入口網站中的 [伺服器參數] 索引標籤，即可根據您的應用程式需求取得定義及設定伺服器參數。 
 
 ## <a name="nonconfigurable-server-parameters"></a>無法設定的伺服器參數
-
-下列參數無法設定且繫結至您的[定價層](concepts-service-tiers.md)。 
+InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](concepts-service-tiers.md)有關。 
 
 | **定價層** | **InnoDB 緩衝集區 (MB)** | **連線數目上限** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本主題說明
 | 標準 400 | 10240 | 800 | 
 | 標準 800 | 20480 | 1600 |
 
- 在基本層 Innodb_file_per_table： 關閉
+這些額外的伺服器參數皆無法在系統中設定 <br>
+ innodb_file_per_table in Basic tier: OFF<br>
+ innodb_flush_log_at_trx_commit=1<br>
+ sync_binlog=1<br>
+ innodb_log_file_size=512MB<br>
  
-未列在上表中的所有其他伺服器參數會設定為其在 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) 和 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) 版中的預設值。
+未列在此的其他伺服器參數會設定為其在 MySQL [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) 和 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) 版中的現成可用預設值。
 
 ## <a name="next-steps"></a>後續步驟
 - [適用於 MySQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。

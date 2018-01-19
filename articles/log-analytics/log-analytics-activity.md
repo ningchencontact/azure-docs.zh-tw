@@ -1,5 +1,5 @@
 ---
-title: "使用 Log Analytics 檢視 Azure 活動記錄 | Microsoft Docs"
+title: "在 Log Analytics 中收集並分析 Azure 活動記錄 | Microsoft Docs"
 description: "您可以使用 Azure 活動記錄解決方案來分析和搜尋所有 Azure 訂用帳戶的 Azure 活動記錄。"
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>檢視 Azure 活動記錄
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
 ![Azure 活動記錄符號](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,7 +50,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集活動記錄的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
@@ -88,7 +88,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 您已設定您的活動記錄移至解決方案*之後*，活動記錄資料才會出現，因此您在此之前無法檢視資料。
 
-| 刀鋒視窗 | 說明 |
+| 刀鋒視窗 | 描述 |
 | --- | --- |
 | Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下長條圖即可執行 <code>Type=AzureActivity</code> 的記錄搜尋。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
 | 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表即可執行 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code> 的記錄搜尋。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |

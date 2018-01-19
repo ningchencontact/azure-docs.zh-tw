@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。
@@ -131,20 +131,20 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 
 如需了解所有其他活動記錄警示的特定結構詳細資料，請參閱 [Azure 活動記錄的概觀](monitoring-overview-activity-logs.md)。
 
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | status |用於度量警示。 針對活動記錄警示，一律設為「啟動」。 |
 | context |事件的內容。 |
 | resourceProviderName |受影響資源的資源提供者。 |
 | conditionType |一律為「事件」。 |
-| 名稱 |警示規則的名稱。 |
+| name |警示規則的名稱。 |
 | id |警示的資源識別碼。 |
 | 說明 |建立警示時，會設定警示描述。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 | timestamp |處理要求的 Azure 服務產生事件的時間。 |
-| resourceId |受影響資源的資源識別碼。 |
+| ResourceId |受影響資源的資源識別碼。 |
 | resourceGroupName |受影響資源的資源群組的名稱。 |
-| 屬性 |一組包含事件相關詳細資料的`<Key, Value>`配對 (也就是 `Dictionary<String, String>`)。 |
+| properties |一組包含事件相關詳細資料的`<Key, Value>`配對 (也就是 `Dictionary<String, String>`)。 |
 | 事件 |包含事件相關中繼資料的元素。 |
 | 授權 |事件的角色型存取控制屬性。 這些屬性通常包括動作、角色和範圍。 |
 | category |事件的類別。 支援值包括「管理」、「警示」、「安全性」、「ServiceHealth」和「建議」。 |
@@ -154,10 +154,10 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | eventDataId |事件的唯一識別碼。 |
 | eventSource |產生事件的 Azure 服務或基礎結構的名稱。 |
 | httpRequest |要求通常包括 “clientRequestId”、“clientIpAddress” 和 HTTP “method” (例如 PUT)。 |
-| 層級 |下列其中一個值：「重大」、「錯誤」、「警告」、「資訊」和「詳細資訊」。 |
+| 層級 |下列其中一個值：Critical、Error、Warning 和 Informational。 |
 | operationId |通常是對應至單一作業的事件之間共用的 GUID。 |
 | operationName |作業名稱。 |
-| 屬性 |事件的屬性。 |
+| properties |事件的屬性。 |
 | status |字串。 作業的狀態。 常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」和「已解決」。 |
 | 子狀態 |通常包含對應 REST 呼叫的 HTTP 狀態碼。 它也可以包含其他描述子狀態的字串。 常見子狀態的值包括：確定 (HTTP 狀態碼︰200)，已建立 (HTTP 狀態碼︰201)、接受 (HTTP 狀態碼︰202)、沒有內容 (HTTP 狀態碼︰204)、不正確的要求 (HTTP 狀態碼︰400)、找不到 (HTTP 狀態碼︰404)，衝突 (HTTP 狀態碼︰409)、內部伺服器錯誤 (HTTP 狀態碼︰500)、服務無法使用 (HTTP 狀態碼︰503) 和閘道逾時 (HTTP 狀態碼︰504)。 |
 

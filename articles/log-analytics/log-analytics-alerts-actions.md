@@ -1,6 +1,6 @@
 ---
-title: "OMS Log Analytics 中的警示回應 | Microsoft Docs"
-description: "Log Analytics 中的警示會識別您的 OMS 儲存機制中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文描述如何建立警示規則及詳細說明可以採取的各種動作。"
+title: "Azure Log Analytics 中的警示回應 | Microsoft Docs"
+description: "Log Analytics 中的警示會識別您 Azure 工作區中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文描述如何建立警示規則及詳細說明可以採取的各種動作。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>將動作新增至 Log Analytics 中的警示規則
 [在 Log Analytics 中建立警示](log-analytics-alerts.md)後，您可以選擇[設定警示規則](log-analytics-alerts.md)以執行一或多個動作。  本文說明各種可用的動作以及設定每種動作的詳細資訊。
 
-| 動作 | 說明 |
+| 動作 | 描述 |
 |:--|:--|
 | [電子郵件](#email-actions) | 傳送內含警示詳細資料的電子郵件給一或多位收件者。 |
 | [Webhook](#webhook-actions) | 透過單一 HTTP POST 要求叫用外部處理序。 |
@@ -36,9 +36,9 @@ ms.lasthandoff: 10/24/2017
 
 電子郵件動作需要下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
-| 主旨 |電子郵件的主旨。  您無法修改郵件的內文。 |
+| 主體 |電子郵件的主旨。  您無法修改郵件的內文。 |
 | 收件者 |所有電子郵件收件者的地址。  如果您指定多個地址，則使用分號 (;) 分隔這些地址。 |
 
 
@@ -48,7 +48,7 @@ Webhook 動作可讓您透過單一 HTTP POST 要求叫用外部處理序。  �
 
 Webhook 動作需要下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | Webhook URL |Webhook 的 URL。 |
 | 自訂 JSON 承載 |要隨著 webhook 傳送的自訂承載。  如需詳細資料，請參閱下文。 |
@@ -59,7 +59,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 >[!NOTE]
 > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則 Webhook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。  若要查看範例，請參閱下面的[範例](#sample-payload)。
 
-| 參數 | 變數 | 說明 |
+| 參數 | 變數 | 描述 |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |警示規則的名稱。 |
 | AlertThresholdOperator |#thresholdoperator |警示規則的臨界值運算子。  大於或等於。 |
@@ -71,7 +71,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |查詢的開始時間 (UTC 格式)。 |
 | SearchQuery |#searchquery |警示規則所使用的記錄檔搜尋查詢。 |
 | SearchResults |請參閱下方 |查詢所傳回的記錄 (JSON 格式)。  受限於前 5,000 筆記錄。 |
-| WorkspaceID |#workspaceid |OMS 工作區的識別碼。 |
+| WorkspaceID |#workspaceid |Log Analytics 工作區的識別碼。 |
 
 例如，您可以指定下列自訂承載，其中包含稱為 text 的單一參數。  此 Webhook 所呼叫的服務需要有這個參數。
 
@@ -97,15 +97,15 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     }
 
 
-您可以[在 OMS Log Analytics 中建立警示 webhook 動作以傳送訊息給 Slack](log-analytics-alerts-webhooks.md)時使用 Webhook 來啟動外部服務，逐步執行建立警示規則的完整範例。
+您可以[在 Log Analytics 中建立警示 webhook 動作以傳送訊息給 Slack](log-analytics-alerts-webhooks.md)時使用 Webhook 來啟動外部服務，逐步執行建立警示規則的完整範例。
 
 
 ## <a name="runbook-actions"></a>Runbook 動作
-Runbook 動作可在 Azure 自動化中啟動 Runbook。  若要使用這類型的動作，您必須在 OMS 工作區中安裝並設定 [自動化解決方案](log-analytics-add-solutions.md) 。  您可以從自動化解決方案中設定的自動化帳戶中的 Runbook 進行選取。
+Runbook 動作可在 Azure 自動化中啟動 Runbook。  若要使用這類型的動作，您必須在 Log Analytics 工作區中安裝並設定 [自動化解決方案](log-analytics-add-solutions.md)。  您可以從自動化解決方案中設定的自動化帳戶中的 Runbook 進行選取。
 
 Runbook 動作需要下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:---|
 | Runbook | 建立警示後，您想要啟動的 Runbook。 |
 | 執行位置 | 指定 [Azure] 以在雲端執行 Runbook。  指定 [Hybrid Worker]，以在已安裝 [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) 的代理程式上執行 Runbook。  |
@@ -117,7 +117,7 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
 >[!NOTE]
 > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則 Runbook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。  若要查看範例，請參閱下面的[範例](#sample-payload)。  
 
-| 節點 | 說明 |
+| 節點 | 描述 |
 |:--- |:--- |
 | id |搜尋的路徑和 GUID。 |
 | __metadata |警示的相關資訊，包括搜尋結果的記錄數和狀態。 |

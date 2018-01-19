@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>具備 XML 轉換的企業整合
 ## <a name="overview"></a>概觀
@@ -73,7 +73,29 @@ ms.lasthandoff: 11/15/2017
 * 上傳現有的對應  
 * 包括對 XML 格式的支援。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="adanced-features"></a>進階功能
+下列功能只能從程式碼檢視存取。
+
+### <a name="byte-order-mark"></a>位元組順序標記
+根據預設，轉換回應將會以位元組順序標記 (BOM) 開頭。 若要停用這項功能，請為 `transformOptions` 屬性指定 `disableByteOrderMark`：
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
+
+## <a name="learn-more"></a>深入了解
 * [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
 * [深入了解對應](../logic-apps/logic-apps-enterprise-integration-maps.md "了解企業整合對應")  
 

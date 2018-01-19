@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>將 ITSM 產品/服務與 IT 服務管理連接器進行連線 (預覽)
 本文章提供的資訊，是有關如何將 OMS 中的 ITSM 產品/服務連線至 IT 服務管理連接器 (ITSMC)，並將工作項目集中管理。 如需 ITSMC 的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
@@ -153,7 +153,7 @@ ms.lasthandoff: 11/16/2017
 
 3. 使用您的 Azure 認證登入，然後選取您在其中建立混合式連線的訂用帳戶。
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 混合式連線已成功連線。
 
@@ -171,17 +171,21 @@ ms.lasthandoff: 11/16/2017
 下列各節提供有關如何將 ServiceNow 產品連線到 OMS 中的 ITSMC 之詳細資料。
 
 ### <a name="prerequisites"></a>必要條件
-
 請確保已符合下列必要條件︰
-
 - 已安裝 ITSMC。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
-- ServiceNow 支援版本 – Fuji、Geneva、Helsinki。
+- ServiceNow 支援的版本：Jakarta、Istanbul、Helsinki、Geneva
 
-ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
-- 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的資訊，請參閱 [OAuth 設定](http://wiki.servicenow.com/index.php?title=OAuth_Setup)。
-- 安裝適用於 Microsoft OMS 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 )。
+**ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作**：
+- 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的相關資訊，請視需要參閱下列資訊：
+
+    - [針對 Jakarta 設定 OAuth](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [針對 Istanbul 設定 OAuth](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [針對 Helsinki 設定 OAuth](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [針對 Geneva 設定 OAuth](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- 安裝適用於 Microsoft OMS 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)。
 - 為安裝的使用者應用程式建立整合使用者角色。 關於如何建立整合使用者角色的資訊在[這裡](#create-integration-user-role-in-servicenow-app)。
-
 
 ### <a name="connection-procedure"></a>**連線程序**
 請使用下列程序來建立 ServiceNow 連線：

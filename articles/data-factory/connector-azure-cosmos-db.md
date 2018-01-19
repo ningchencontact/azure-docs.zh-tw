@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 > * [第 1 版 - 正式推出](v1/data-factory-azure-documentdb-connector.md)
 > * [第 2 版 - 預覽](connector-azure-cosmos-db.md)
 
-本文將概述如何使用 Azure Data Factory 中的複製活動，將資料複製 from 和 to Azure Cosmos DB (SQL API)。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Cosmos DB (SQL API) 複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Azure Cosmos DB 連接器](v1/data-factory-azure-documentdb-connector.md)。
@@ -42,7 +42,8 @@ ms.lasthandoff: 12/11/2017
 若要將文件依原樣複製到 JSON 檔案或另一個 Cosmos DB 集合，或從這些檔案或集合依原樣複製文件，請參閱[匯入/匯出 JSON 文件](#importexport-json-documents)。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Azure Cosmos DB 專屬的 Data Factory 實體。
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 12/11/2017
 
 以下是針對 Azure Cosmos DB 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**CosmosDb**。 | 是 |
 | connectionString |指定連接到 Azure Cosmos DB 資料庫所需的資訊。 請注意，您必須如以下範例所示，在連接字串中指定資料庫資訊。 請將此欄位標示為 SecureString。 |是 |
@@ -83,7 +84,7 @@ ms.lasthandoff: 12/11/2017
 
 若要從 Azure Cosmos DB 複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **DocumentDbCollection**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**DocumentDbCollection** |是 |
 | collectionName |Cosmos DB 文件集合的名稱。 |是 |
@@ -121,7 +122,7 @@ ms.lasthandoff: 12/11/2017
 
 若要從 Azure Cosmos DB 複製資料，請將複製活動中的來源類型設定為 **DocumentDbCollectionSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**DocumentDbCollectionSource** |是 |
 | query |指定 Cosmos DB 查詢來讀取資料。<br/><br/>範例： `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |否 <br/><br/>如果未指定，執行的 SQL 陳述式：`select <columns defined in structure> from mycollection` |
@@ -163,7 +164,7 @@ ms.lasthandoff: 12/11/2017
 
 若要從 Azure Cosmos DB 複製資料，請將複製活動中的接收器類型設定為 **DocumentDbCollectionSink**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |是 |
 | nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 nestedSeparator 是點號時，輸出資料集結構中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：`"Name": {"First": "[value maps to this column from source]"}`。 |否 (預設為點號 `.`) |

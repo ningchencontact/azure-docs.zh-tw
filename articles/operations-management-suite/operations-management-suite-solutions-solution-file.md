@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -39,7 +39,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 
 
 ## <a name="structure"></a>Structure
-管理解決方案與 [Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md#template-format)的基本結構相同，如下所示。  下列各節說明最上層元素及其在解決方案中的內容。  
+管理解決方案檔案與[資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md#template-format)的基本結構相同，如下所示。  下列各節說明最上層元素及其在解決方案中的內容。  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -69,9 +69,9 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 
 下表說明參數的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
-| 類型 |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
+| type |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
 | category |參數的選擇性類別。  相同類別中的參數會群組在一起。 |
 | control |string 參數的其他功能。<br><br>datetime - Datetime 控制項隨即顯示。<br>guid - 會自動產生 Guid 值，但未顯示此參數。 |
 | 說明 |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
@@ -84,9 +84,9 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 >
 >
 
-| 參數 | 類型 | 說明 |
+| 參數 | 類型 | 描述 |
 |:--- |:--- |:--- |
-| accountName |string |Azure 自動化帳戶名稱。 |
+| accountName |字串 |Azure 自動化帳戶名稱。 |
 | pricingTier |字串 |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
 | regionId |字串 |Azure 自動化帳戶的區域。 |
 | solutionName |字串 |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
@@ -165,7 +165,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 [資源](../azure-resource-manager/resource-group-authoring-templates.md#resources)會定義您的管理解決方案將會安裝並設定的不同資源。  這是範本最大且最複雜的部分。  您可以在[編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md#resources)中取得 resource 元素的架構和完整描述。  本文件中的其他文章會詳述您經常定義的其他資源。 
 
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 **dependsOn** 元素指定對另一個資源的[相依性](../azure-resource-manager/resource-group-define-dependencies.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](operations-management-suite-solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](operations-management-suite-solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
 
 ### <a name="oms-workspace-and-automation-account"></a>OMS 工作區和自動化帳戶
@@ -176,7 +176,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -205,13 +205,13 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 
 
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 解決方案資源在解決方案中的每隔一個資源上須有[相依性](../azure-resource-manager/resource-group-define-dependencies.md)，因為必須先存在相依性，才能建立解決方案。  您可以在 **dependsOn** 項目中針對每個資源新增一個項目。
 
-### <a name="properties"></a>屬性
+### <a name="properties"></a>properties
 解決方案資源具有下表中的屬性。  這包括由定義解決方案安裝後如何管理資源的解決方案所參考及包含的資源。  解決方案中的每個資源應列在 **referencedResources** 或 **containedResources** 屬性中。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | workspaceResourceId |具有以下形式的 Log Analytics 工作區識別碼：*<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<工作區名稱\>*。 |
 | referencedResources |解決方案移除時不應移除的解決方案資源清單。 |
@@ -222,9 +222,9 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 ### <a name="plan"></a>規劃
 解決方案資源的**計劃**實體具有下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
-| 名稱 |解決方案的名稱。 |
+| name |解決方案的名稱。 |
 | version |作者所決定的解決方案版本。 |
 | product |識別解決方案的唯一字串。 |
 | publisher |解決方案的發佈者。 |

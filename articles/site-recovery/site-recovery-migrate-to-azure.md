@@ -1,80 +1,47 @@
 ---
-title: "使用 Site Recovery 將內部部署 VM 和實體伺服器移轉至 Azure | Microsoft Docs"
-description: "本文說明如何使用 Azure Site Recovery 將內部部署 VM 和實體伺服器移轉至 Azure"
+title: "關於在 Azure Site Recovery 中進行移轉 | Microsoft Docs"
+description: "本文說明如何使用 Azure Site Recovery 服務來移轉內部部署和 Azure VM。"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/30/2017
+ms.topic: article
+ms.date: 01/07/2018
 ms.author: raynew
-ms.openlocfilehash: 423a1727efb0e1fd54eb0f8d5971ace3f8efc6cb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 966d532a33626a8fcc3a3b93790d203aadfd81b4
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>使用 Site Recovery 移轉至 Azure
+# <a name="about-migration"></a>關於移轉
 
-閱讀本文以了解如何使用 [Azure Site Recovery](site-recovery-overview.md) 服務來將內部部署虛擬機器 (VM) 和實體伺服器移轉至 Azure Vm。
+請閱讀本文，了解 [Azure Site Recovery](site-recovery-overview.md) 服務如何協助您移轉機器的快速概觀。 
 
-## <a name="before-you-start"></a>開始之前
+以下是您可以使用 Site Recovery 移轉的項目：
 
-觀賞此視訊以快速瀏覽移轉至 Azure 時所需步驟的概觀。
->[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
+- **從內部部署移轉至 Azure**：將內部部署 Hyper-V VM、VMware VM 和實體伺服器移轉至 Azure。 移轉之後，內部部署機器上執行的工作負載將在 Azure VM 上執行。 
+- **在 Azure 中進行移轉**：在 Azure 區域之間移轉 Azure VM。 
+- **移轉 AWS**：將 AWS Windows 執行個體移轉至 Azure IaaS VM。 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>移轉的意思為何？
 
-您可以部署 Site Recovery 來複寫內部部署 VM 和實體伺服器，並且進行移轉。
+除了使用站台復原進行內部部署與 Azure VM 的災害復原，您還可以使用 Site Recovery 服務來加以移轉。 有何不同？
 
-- 複寫時，將內部部署機器設定為定期複寫至 Azure。 之後如果發生運行中斷，您就會將該機器從內部部署網站容錯移轉至 Azure，並從該處進行存取。 當內部部署網站恢復可用狀態時，您就可以從 Azure 進行容錯回復。
-- 當您使用 Site Recovery 進行移轉時，您會將內部部署機器複寫至 Azure。 然後將這些機器從內部部署網站容錯移轉至 Azure，並完成移轉程序。 其中不包含容錯回復。  
-
-## <a name="what-can-site-recovery-migrate"></a>Site Recovery 可以移轉什麼項目？
-
-您可以：
-
-- **從內部部署移轉**：將內部部署 Hyper-V VM、VMware VM 和實體伺服器移轉至 Azure。 移轉之後，內部部署機器上執行的工作負載將在 Azure VM 上執行。 
-- **在 Azure 中進行移轉**：在 Azure 區域之間移轉 Azure VM。 
-- **移轉 AWS**：將 AWS Windows 執行個體移轉至 Azure IaaS VM。 
-
-## <a name="migrate-from-on-premises-to-azure"></a>從內部部署移轉至 Azure
-
-若要移轉內部部署 VMware VM、Hyper-V VM 和實體伺服器，您所需遵循的步驟幾乎和完整複寫時所使用的步驟相同。 
+- 對於災害復原，您需要定期將機器複寫至 Azure。 當發生運行中斷時，您就會將該機器從主要站台容錯移轉至 Azure 次要站台，並從該處進行存取。 當主要站台恢復可用狀態時，您就可以從 Azure 進行容錯回復。
+- 進行移轉時，您會將內部部署機器複寫至 Azure，或將 Azure VM 複寫至次要地區。 然後，將 VM 從主要站台容錯移轉至次要站台，並完成移轉流程。 其中不包含容錯回復。  
 
 
-## <a name="migrate-between-azure-regions"></a>在不同的 Azure 地區之間移轉
+## <a name="migration-scenarios"></a>移轉案例
 
-若要在區域之間移轉 Azure VM，您所需遵循的步驟幾乎和完整複寫時所使用的步驟相同。
-
-1. 針對您想要移轉的機器[啟用複寫](azure-to-azure-tutorial-enable-replication.md))。
-2. 您可以[執行快速的容錯移轉測試](azure-to-azure-tutorial-dr-drill.md)，以確定一切都沒問題。
-3. 然後使用**完成移轉**選項執行[非計劃性容錯移轉](azure-to-azure-tutorial-failover-failback.md)。
-4. 完成移轉之後，您可以[設定災害復原的複寫](site-recovery-azure-to-azure-after-migration.md)，從移轉的目的地 Azure 區域複寫到次要區域。
-
-
-
-## <a name="migrate-aws-to-azure"></a>將 AWS 移轉至 Azure
-
-您可以將 AWS 執行個體移轉至 Azure VM。
-- 此案例只支援移轉。 換句話說，您可以複寫 AWS 執行個體，並將它們容錯移轉至 Azure，但您無法容錯回復。
-- 在進行移轉時，AWS 執行個體的處理方式和實體伺服器相同。 您要設定復原服務保存庫、部署用來管理複寫的內部部署組態伺服器、將它新增至保存庫，以及指定複寫設定。
-- 為您想要移轉的機器啟用複寫，並執行快速的測試容錯移轉。 然後使用**完成移轉**選項執行非計劃性容錯移轉。
-
-
-
-
-
+**案例** | **詳細資料**
+--- | ---
+**從內部部署移轉至 Azure** | 您可以將內部部署 VMware VM、Hyper-V VM 和實體伺服器移轉至 Azure。 若要這樣做，就要完成與完整災害復原幾乎相同的步驟。 只是不要將機器從 Azure 容錯移轉回到內部部署站台。
+**在不同的 Azure 地區之間移轉** | 您可以將 Azure VM 從一個 Azure 區域移轉至另一個 Azure 區域。 完成移轉之後，現在您就可以在移轉前往的次要區域中，設定 Azure VM 的災害復原。
+**將 AWS 移轉至 Azure** | 您可以將 AWS 執行個體移轉至 Azure VM。 在進行移轉時，Site Recovery 會將 AWS 實體視為實體伺服器。 
 
 ## <a name="next-steps"></a>後續步驟
 
 - [將內部部署機器移轉至 Azure](tutorial-migrate-on-premises-to-azure.md)
-- [在 Azure 區域間移轉 VM](site-recovery-migrate-azure-to-azure.md)
+- [在 Azure 區域間移轉 VM](tutorial-migrate-azure-to-azure.md)
 - [將 AWS 移轉至 Azure](tutorial-migrate-aws-to-azure.md)
