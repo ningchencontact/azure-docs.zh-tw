@@ -12,7 +12,7 @@
 
 # 作法
 ## 載入和移動資料
-### [使用 Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [使用 Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [使用 AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [使用 DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [使用 Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [從 Azure VNET 內的 VM 存取](data-lake-store-connectivity-from-vnets.md)
 ### [使用 Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [搭配使用 Azure 事件中樞](data-lake-store-archive-eventhub-capture.md)
-### [搭配 Data Factory 使用](../data-factory/connector-azure-data-lake-store.md)
+### [搭配 Data Factory 使用](../data-factory/load-azure-data-lake-store.md)
 ### [搭配串流分析使用](data-lake-store-stream-analytics.md)
 ### [搭配 Power BI 使用](data-lake-store-power-bi.md)
 ### [搭配資料目錄使用](data-lake-store-with-data-catalog.md)
