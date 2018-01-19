@@ -2,72 +2,64 @@
 title: "關於 Azure Site Recovery？ | Microsoft Docs"
 description: "提供 Azure Site Recovery 服務的概觀，並摘要說明部署案例。"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: overview
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6ec4b6e468bf03b18c0f26d1c61a17309a83eb2
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-site-recovery"></a>關於 Site Recovery
 
-歡迎使用 Azure Site Recovery 服務！ 本文提供此服務的快速概觀。
+歡迎使用 Azure Site Recovery 服務！ 本文提供快速服務概觀。
 
-## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Azure 復原服務提供的業務持續性和災害復原 (BCDR)
-
-作為一個組織，您必須了解如何維持資料安全，以及發生計劃性和非計劃性中斷時，如何讓應用程式/工作負載持續執行。
+以一個組織而言，您必須採用商務持續性與災害復原 (BCDR) 策略，以便在計劃或未計劃中斷發生時，可以保護您資料的安全，並使您的應用程式和工作負載保持運作。
 
 Azure 復原服務會以下列方式參與您的 BCDR 策略：
 
-- **Site Recovery 服務**：Site Recovery 可在網站關閉時讓您的應用程式持續在 VM 上執行，並保持實體伺服器可用，協助確保業務持續性。 Site Recovery 會複寫在 VM 和實體伺服器上執行的工作負載，因此如果主要網站無法使用，仍可在次要位置中使用工作負載。 當主要網站再次開始運作及執行時，它會將工作負載復原至其中。
-- **備份服務**：此外，[Azure 備份](https://docs.microsoft.com/azure/backup/)服務會將您的資料備份至 Azure，維持資料安全且更容易復原。
+- **Site Recovery 服務**：Site Recovery 可協助確保商務持續性，方法是在中斷期間讓商務應用程式和工作負載保持執行狀態。 Site Recovery 會將實體和虛擬機器 (VM) 上執行的工作負載從主要站台複寫到次要位置。 當您的主要站台發生中斷時，您會容錯移轉到次要位置，並且從該處存取應用程式。 在主要位置再次執行之後，您就可以容錯回復。  
+- **備份服務**：[Azure 備份](https://docs.microsoft.com/azure/backup/)服務會將您的資料備份至 Azure，維持資料安全且更容易復原。
 
 Site Recovery 可以管理複寫：
 
 - 在 Azure 區域間複寫 Azure VM。
-- 將內部部署虛擬機器和實體伺服器複寫至 Azure 或次要網站。
+- 將內部部署 VM 和實體伺服器複寫至 Azure 或次要站台。
 
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery 可以提供什麼功能？
 
+
 **功能** | **詳細資料**
 --- | ---
-**部署簡單的 BCDR 解決方案** | 您可以使用 Site Recovery 從 Azure 入口網站中的單一位置設定及管理複寫、容錯移轉和容錯回復。
-**複寫 Azure VM** | 您可以設定 BCDR 策略，即可在 Azure 區域間複寫 Azure VM。
-**異地複寫內部部署 VM** | 您可以將內部部署 VM 和實體伺服器複寫至 Azure 或次要內部部署位置。 複寫至 Azure 可排除維護次要資料中心的成本和複雜度。
-**複寫任何工作負載** | 複寫在支援的 Azure VM、內部部署 Hyper-V VM、VMware VM 和 Windows/Linux 實體伺服器上執行的任何工作負載。
-**保持資料彈性及安全** | Site Recovery 會協調複寫，且無須攔截應用程式資料。 複寫的資料會儲存在 Azure 儲存體中，並具備所提供的恢復功能。 進行容錯移轉時，會根據複寫的資料來建立 Azuer VM。
-**符合 RTO 和 RPO** | 將復原時間目標 (RTO) 和復原點目標 (RPO) 保持在組織的限制範圍內。 Site Recovery 為 Azure VM 和 VMware VM 提供了連續複寫功能，並為 Hyper-V 提供最低 30 秒的複寫頻率。 您可以藉由與 [Azure 流量管理員](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)整合，進一步縮減復原時間目標 (RTO)。
-**透過容錯移轉讓應用程式保持一致** | 您可以使用與應用程式一致的快照集設定復原點。 與應用程式一致的快照集會擷取磁碟資料、記憶體中的所有資料和處理序中的所有交易。
-**測試不中斷** | 您可以輕鬆執行測試用容錯移轉，既能支援災害復原演練，又不會影響進行中的複寫。
-**執行彈性容錯移轉** | 您可以執行計劃性容錯移轉，因為是預期中的中斷，所以不會遺失任何資料；也可以執行非計劃性容錯移轉，以在發生未預期的災害時將資料損失減到最少 (取決於複寫頻率)。 您可以在主要站台再次可用時，輕鬆地容錯回復到該站台。
-**建立復原計劃** | 您可以透過復原計劃，自訂及排序多部 VM 上多層應用程式的容錯移轉和復原。 您要將計劃內的機器分組，並新增指令碼和手動動作。 復原計劃可以與 Azure 自動化 Runbook 整合。
-**與現有的 BCDR 技術整合** | Site Recovery 與其他 BCDR 技術整合。 例如，您可以使用 Site Recovery 保護公司工作負載的 SQL Server 後端，包括原生支援 SQL Server AlwaysOn 以便管理可用性群組的容錯移轉。
-**與自動化文件庫整合** | 豐富的 Azure Automation 文件庫，提供已可用於生產環境，且可下載並已經與 Site Recovery 整合的應用程式特定指令碼。
-**管理網路設定** | Site Recovery 與 Azure 整合，提供簡單的應用程式網路管理，包括保留 IP 位址、設定負載平衡器和整合 Azure 流量管理員以進行有效率的網路轉換。
+**簡單的 BCDR 解決方案** | 您可以使用 Site Recovery 從 Azure 入口網站中的單一位置設定及管理複寫、容錯移轉和容錯回復。
+**Azure VM 複寫** | 您可以設定從主要區域到次要區域的 Azure VM 災害復原。
+**內部部署 VM 複寫** | 您可以將內部部署 VM 和實體伺服器複寫至 Azure 或次要內部部署資料中心。 複寫至 Azure 可排除維護次要資料中心的成本和複雜度。
+**工作負載複寫** | 複寫在支援的 Azure VM、內部部署 Hyper-V 和VMware VM，以及 Windows/Linux 實體伺服器上執行的任何工作負載。
+**資料恢復功能** | Site Recovery 會協調複寫，且無須攔截應用程式資料。 當您複寫到 Azure 時，資料會儲存在 Azure 儲存體中，並具備所提供的恢復功能。 進行容錯移轉時，會根據複寫的資料來建立 Azuer VM。
+**RTO 和 RPO 目標** | 將復原時間目標 (RTO) 和復原點目標 (RPO) 保持在組織的限制範圍內。 Site Recovery 為 Azure VM 和 VMware VM 提供了連續複寫功能，並為 Hyper-V 提供最低 30 秒的複寫頻率。 您可以藉由與 [Azure 流量管理員](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)整合，進一步縮減 RTO。
+**透過容錯移轉讓應用程式保持一致** | 您可以使用具有與應用程式一致的快照集復原點來複寫。 這些快照集會擷取磁碟資料、記憶體中的所有資料和處理序中的所有交易。
+**測試不中斷** | 您可以輕鬆執行災害復原演練，不會影響進行中的複寫。
+**彈性容錯移轉** | 您可以執行計劃性容錯移轉，因為是預期中的中斷，所以不會遺失任何資料；也可以執行非計劃性容錯移轉，以在發生未預期的災害時將資料損失減到最少 (取決於複寫頻率)。 您可以在主要站台再次可用時，輕鬆地容錯回復到該站台。
+**自訂復原方案** | 使用復原方案，可以自訂及排序多部 VM 上執行之多層應用程式的容錯移轉和復原。 您在復原計劃中將機器群組在一起，並且選擇性地新增指令碼和手動動作。 復原計劃可以與 Azure 自動化 Runbook 整合。
+**BCDR 整合** | Site Recovery 與其他 BCDR 技術整合。 例如，您可以使用 Site Recovery 保護公司工作負載的 SQL Server 後端，具有原生支援 SQL Server AlwaysOn 以便管理可用性群組的容錯移轉。
+**Azure 自動化整合** | 豐富的 Azure Automation 文件庫，提供已可用於生產環境，且可下載並已經與 Site Recovery 整合的應用程式特定指令碼。
+**網路整合** | Site Recovery 與 Azure 整合，提供簡單的應用程式網路管理，包括保留 IP 位址、設定負載平衡器和整合 Azure 流量管理員以進行有效率的網路轉換。
 
 
 ## <a name="what-can-i-replicate"></a>我可以複寫哪些項目？
 
 **支援** | **詳細資料**
 --- | ---
-**我可以複寫哪些項目？** | Azure 區域之間的 Azure VM。<br/><br/>  內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux) 至 Azure。<br/><br/> 內部部署 VMware VM、Hyper-V VM、實體伺服器至 Virtual Machine Manager (VMM)。
-**Site Recovery 支援哪些區域？** | [支援區域](https://azure.microsoft.com/regions/services/) |
-**複寫的機器需要哪些作業系統？** | [需求](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware 虛擬機器需求](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> 如果是 Hyper-V VM，支援 Azure 和 Hyper-V 支援的所有[客體 OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)。<br/><br/> [實體伺服器需求](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**我需要哪些 VMware 伺服器/主機？** | VMware VM 可以位於[支援的 vSphere 主機/vCenter 伺服器](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)上。
-**可以複寫哪些工作負載？** | 您可以複寫在支援的複寫機器上執行的所有工作負載。 此外，Site Recovery 小組已經針對[應用程式數目](site-recovery-workload.md#workload-summary)執行應用程式專屬測試。
+**複寫案例** | 將 Azure VM 從一個 Azure 區域複寫至另一個 Azure 區域。<br/><br/>  將內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux) 複寫至 Azure。<br/><br/> 將 System Center VMM 管理的內部部署 VMware VM、Hyper-V VM 和實體伺服器複寫至次要站台。
+**區域** | 檢閱 Site Recovery 的[支援區域](https://azure.microsoft.com/regions/services/)。 |
+**複寫的機器** | 檢閱 [Azure VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)、[內部部署 VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 和[實體伺服器](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)的複寫需求。
+**VMware 伺服器/主機** | 您想要複寫的 VMware VM 可以位於[支援的 vSphere 主機/vCenter 伺服器](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)。
+**工作負載** | 您可以複寫在支援複寫之機器上執行的所有工作負載。 此外，Site Recovery 小組已經針對[應用程式數目](site-recovery-workload.md#workload-summary)執行應用程式專屬測試。
 
 
 

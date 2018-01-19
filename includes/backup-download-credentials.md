@@ -1,5 +1,5 @@
 ## <a name="using-vault-credentials-to-authenticate-with-the-azure-backup-service"></a>使用保存庫認證來驗證 Azure 備份服務
-您可以在內部部署伺服器 （Windows 用戶端或 Windows Server 或 Data Protection Manager 的伺服器） 備份至 Azure 之前，驗證伺服器與復原服務保存庫。 用於驗證伺服器與 Azure 保存庫認證檔案。 保存庫認證是使用 Azure PowerShell 中的 「 發行設定 」 檔案的概念類似。
+您必須先向復原服務保存庫驗證伺服器後，才能將內部部署伺服器 (Windows 用戶端或 Windows Server 或 Data Protection Manager 伺服器) 備份至 Azure。 使用保存庫認證檔案向 Azure 驗證伺服器。 保存庫認證類似用於 Azure PowerShell 的「發佈設定」檔案。
 
 ### <a name="what-is-the-vault-credential-file"></a>什麼是保存庫認證檔？
 保存庫認證檔是入口網站針對每個備份保存庫所產生的憑證。 入口網站接著會將公開金鑰上傳至「存取控制服務」(ACS)。 憑證的私密金鑰可供使用者作為工作流程的一部分，屬於電腦註冊工作流程中的指定輸入。 這會對電腦進行驗證，以便將備份資料傳送至 Azure 備份服務中的已識別保存庫。
@@ -9,7 +9,7 @@
 ### <a name="download-the-vault-credential-file"></a>下載保存庫認證檔
 保存庫認證檔會透過安全通道，從 Azure 入口網站下載。 Azure 備份服務不會知道憑證的私密金鑰，且私密金鑰不會保存在入口網站或服務中。 使用下列步驟將保存庫認證檔下載至本機電腦。
 
-1. 開啟[Azure 入口網站](https://ms.azure.portal.com/)
+1. 開啟 [Azure 入口網站](https://ms.azure.portal.com/)
 2. 在左側功能表中，選取 [所有服務]，然後在服務清單中鍵入**復原服務**。 按一下 [復原服務保存庫] 。
 
    ![開啟復原服務保存庫](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)

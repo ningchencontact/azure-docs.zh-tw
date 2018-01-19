@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>使用 Azure 入口網站建立 Linux 虛擬機器
 
@@ -32,11 +32,13 @@ ms.lasthandoff: 11/09/2017
 
 您需要有 SSH 金鑰組才能完成本快速入門。 如果現有的 SSH 金鑰組，則可略過此步驟。
 
-從 Bash 殼層，執行此命令並遵循畫面上的指示操作。 命令輸出包含公開金鑰檔案的檔案名稱。 將公開金鑰檔案的內容複製到剪貼簿。
+從 Bash 殼層，執行此命令並遵循畫面上的指示操作。 命令輸出包含公開金鑰檔案的檔案名稱。 將公開金鑰檔案 (`cat ~/.ssh/id_rsa.pub`) 的內容複製到剪貼簿。 如果您使用適用於 Linux 的 Windows 子系統，請確定您沒有從輸出複製分行符號字元。 請記下私密金鑰檔案的檔名以供稍後使用。
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+您可以在[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)找到此程序的詳細資訊
 
 ## <a name="log-in-to-azure"></a>登入 Azure 
 
@@ -102,8 +104,8 @@ sudo apt-get -y install nginx
 2. 選取 [網路安全性群組]。 使用 [類型] 資料行可以識別 NSG。 
 3. 在左側功能表的 [設定] 之下，按一下 [輸入安全性規則]。
 4. 按一下 [新增]。
-5. 在 [名稱] 中輸入 **http**。 確定 [連接埠範圍] 已設為 80 且 [動作] 已設為 [允許]。 
-6. 按一下 [確定] 。
+5. 在 [名稱] 中輸入 **http**。 請確定 [來源連接埠範圍] 設為 `*`，[目的地連接埠範圍] 設為 80，且 [動作] 設為 [允許]。 
+6. 按一下 [SERVICEPRINCIPAL] 。
 
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面

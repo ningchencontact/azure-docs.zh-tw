@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>使用 IT 服務管理連接器 (預覽) 將 ITSM 工作項目集中管理
 
@@ -105,7 +105,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 指派對象
 - 類別
 - 標題
-- 說明
+- 描述
 - 建立日期
 - 關閉日期
 - 解決日期
@@ -143,7 +143,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 計劃結束日期
 - 工作開始日期
 - 工作結束日期
-- 說明
+- 描述
 - 電腦
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 事件的輸出資料
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   計劃結束日期 |
 | WorkStartDate_t  | 實際開始日期 |
 | WorkEndDate_t | 實際結束日期|
-| Description_s | 說明 |
+| Description_s | 描述 |
 | 電腦  | 設定項目 |
 
 **ITSM 資料的範例 Log Analytics 畫面︰**
@@ -292,11 +292,11 @@ ITSMC 會與動作群組整合。
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>針對 OMS 中的 ITSM 連線進行疑難排解
 1.  如果從已連線的來源 UI 連線失敗，並顯示 [儲存連線時發生錯誤] 訊息，請執行下列步驟：
- - 對於 ServiceNow、 Cherwell 和 Provance 連線，  
-        為確定您正確輸入使用者名稱、 密碼、 用戶端識別碼和用戶端密碼的每個連線。  
-        - 檢查您在對應的 ITSM 產品中是否擁有足夠權限來進行連線。  
- - 對於服務管理連線，  
-        -請確認已成功部署 Web 應用程式，然後建立混合式連接。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)所述。  
+- 對於 ServiceNow、 Cherwell 和 Provance 連線，  
+       - 請確定您已正確輸入每個連線的使用者名稱、密碼、用戶端識別碼及用戶端密碼。  
+       - 檢查您在對應的 ITSM 產品中是否擁有足夠權限來進行連線。  
+- 對於服務管理連線，  
+       - 請確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)所述。  
 
 2.  如果 ServiceNow 的資料未同步處理至 Log Analytics，請確定 ServiceNow 執行個體並非處在睡眠中。 ServiceNow 開發人員執行個體閒置很長的時間時，有時會進入睡眠狀態。 否則，請回報問題。
 3.  如果引發 OMS 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：

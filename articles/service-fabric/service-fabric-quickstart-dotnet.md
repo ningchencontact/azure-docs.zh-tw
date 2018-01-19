@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -47,6 +47,10 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+
+>[!NOTE]
+> 在本快速入門中，範例應用程式使用的功能在 Windows 7 中無法使用。
+>
 
 ## <a name="download-the-sample"></a>下載範例
 在命令視窗中執行下列命令，將範例應用程式存放庫複製到本機電腦。

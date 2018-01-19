@@ -1,90 +1,149 @@
 ---
-title: "SQL 資料倉儲中的資料表概觀 | Microsoft Docs"
-description: "開始使用 Azure SQL 資料倉儲資料表。"
+title: "資料表設計簡介 - Azure SQL 資料倉儲 | Microsoft Docs"
+description: "在 Azure SQL 資料倉儲中設計資料表的簡介。"
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
-manager: jenniehubbard
+manager: jhubbard
 editor: 
-ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.custom: tables
-ms.date: 12/14/2017
+ms.custom: performance
+ms.date: 01/05/2018
 ms.author: barbkess
-ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的資料表概觀
-> [!div class="op_single_selector"]
-> * [概觀][Overview]
-> * [資料類型][Data Types]
-> * [散發][Distribute]
-> * [索引][Index]
-> * [資料分割][Partition]
-> * [統計資料][Statistics]
-> * [暫存][Temporary]
-> 
-> 
+# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計資料表的簡介
 
-開始在 SQL 資料倉儲中建立資料表很簡單。  基本 [CREATE TABLE][CREATE TABLE] 語法會遵循您處理其他資料庫時可能已經熟悉的一般語法。  若要建立資料表，只需要替您的資料表命名、替您的資料行命名，以及定義每個資料行的資料類型。  如果您已在其他資料庫中建立資料表，您應該會非常熟悉此範例。
+瞭解在 Azure SQL 資料倉儲中設計資料表的重要概念。 
 
-```sql  
-CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
- ``` 
+## <a name="determining-table-category"></a>決定資料表類別 
 
-上述範例會建立名為 Customers 的資料表，其中包含 FirstName 和 LastName 兩個資料行。  每個資料行的資料類型均定義為 VARCHAR(25)，這會將資料限制為 25 個字元。  資料表的這些基本屬性以及其他屬性，大多與其他資料庫相同。  每個資料行都會定義資料類型，以確保資料的完整性。  加入索引，即可藉由降低 I/O 來改善效能。  加入資料分割，可改善您需要修改資料時的效能。
+[星狀結構描述](https://en.wikipedia.org/wiki/Star_schema)會將資料分類為事實和維度資料表。 某些資料表用於資料移至事實或維度資料表之前的整合或暫存。 設計資料表時，請決定資料表的資料將屬於事實、維度還是整合資料表。 此決定將使資料表具有適當的結構和散發機制。 
 
-[重新命名][RENAME] SQL 資料倉儲資料表的方式如下：
+- **事實資料表**包含通常在交易式系統中產生、接著載入至資料倉儲的量化資料。 例如，零售商每天都會產生銷售交易，然後將資料載入至資料倉儲事實資料表，以進行分析。
 
-```sql  
-RENAME OBJECT Customer TO CustomerOrig; 
- ```
+- **維度資料表**包含可能會變更、但變更頻率通常不高的屬性資料。 例如，客戶的名稱和地址會儲存在維度資料表中，但只有在客戶的設定檔有所變更時，才會更新。 若要降低大型事實資料表的大小，則不需將客戶的名稱和地址放在事實資料表的每個資料列中。 此時，事實資料表與維度資料表可以共用客戶識別碼。 查詢可以聯結兩個資料表，使客戶的設定檔與交易產生關聯。 
 
-## <a name="distributed-tables"></a>分散式資料表
-**散發資料行**是 SQL 資料倉儲等分散式系統所導入的新基本屬性。  散發資料行名符其實。  此資料行可決定如何在幕後散發或分割您的資料。  當您建立資料表，但不指定散發資料行時，系統會使用 **循環配置資源**自動散發資料表。  雖然在某些情況下，循環配置資源資料表可能已足夠，但定義散發資料行可大幅減少期間查詢的資料移動，因而讓效能達到最佳化。  在資料表只有少量資料的情況下，選擇使用**複寫**分佈類型建立資料表會將資料複製到每個計算節點，並儲存查詢執行時間的資料移動。 若要深入了解如何選取散發資料行，請參閱[散發資料表][Distribute]。
+- **整合資料表**可用來整合或暫存資料。 您可以將這些資料表建立為一般資料表、外部資料表或暫存資料表。 例如，您可以將資料載入至暫存資料表、對暫存的資料執行轉換，然後將該資料插入生產資料表中。
 
-## <a name="indexing-and-partitioning-tables"></a>編製資料表的索引和分割資料表
-隨著您更加擅長使用 SQL 資料倉儲並想要讓效能達到最佳化，您會想要深入了解資料表設計。  若要深入了解，請參閱[資料表資料類型][Data Types]、[散發資料表][Distribute]、[編製資料表的索引][Index]和[分割資料表][Partition]等文章。
+## <a name="schema-and-table-names"></a>結構描述和資料表名稱
+在 SQL 資料倉儲中，資料倉儲是一種資料庫。 資料倉儲中的所有資料表都包含在相同的資料庫中。  您無法跨多個資料倉儲進行資料表聯結。 此行為不同於可支援跨資料庫聯結的 SQL Server。 
 
-## <a name="table-statistics"></a>資料表統計資料
-為了讓 SQL 資料倉儲達到最佳效能，統計資料極為重要。  由於 SQL 資料倉儲尚無法為您自動建立和更新統計資料 (如同您在 Azure SQL Database 中所預期)，我們的[統計資料][Statistics]一文可能是您所閱讀的其中一篇最重要的文章，它可以確保您在查詢上獲得最佳效能。
+在 SQL Server 資料庫中，您可能會使用 fact、dim 或 integrate 作為結構描述名稱。 如果您要將 SQL Server 資料庫傳輸至 SQL 資料倉儲，最理想的方式是將所有的事實、維度和整合資料表移轉至 SQL 資料倉儲中的一個結構描述，並加以儲存。 例如，您可以將所有資料表儲存在 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 範例資料倉儲中一個名為 WWI 的結構描述內。 下列程式碼會建立名為 WWI 的[使用者定義結構描述](/sql/t-sql/statements/create-schema-transact-sql)。
 
-## <a name="temporary-tables"></a>暫存資料表
-暫存資料表只存在於您的登入期間，其他使用者看不到此種資料表。  暫存資料表可以防止其他人看見暫存結果，也會減少清除的需求。  由於暫存資料表也會使用本機儲存體，所以可為某些作業提供更快的效能。  如需有關暫存資料表的詳細資料，請參閱[暫存資料表][Temporary]一文。
+```sql
+CREATE SCHEMA WWI;
+```
 
-## <a name="external-tables"></a>外部資料表
-外部資料表 (也稱為 Polybase 資料表) 是可從 SQL 資料倉儲查詢的資料表，但會指向 SQL 資料倉儲外部的資料。  例如，您可以建立外部資料表指向 Azure Blob 儲存體或 Azure Data Lake Store 上的檔案。  如需有關如何建立及查詢外部資料表的詳細資料，請參閱[使用 Polybase 載入資料][Load data with Polybase]。  
+若要在 SQL 資料倉儲中顯示資料表的組織，請以 fact、dim 和 int 作為資料表名稱的前置詞。 下表顯示 WideWorldImportersDW 的一些結構描述和資料表名稱。 此表格會比較 SQL Server 和 SQL 資料倉儲中的名稱。 
+
+| WWI 維度資料表  | SQL Server | SQL 資料倉儲 |
+|:-----|:-----|:------|
+| City | Dimension.City | WWI.DimCity |
+| Customer | Dimension.Customer | WWI.DimCustomer |
+| 日期 | Dimension.Date | WWI.DimDate |
+
+| WWI 事實資料表 | SQL Server | SQL 資料倉儲 |
+|:---|:---|:---|
+| 順序 | Fact.Order | WWI.FactOrder |
+| 銷售  | Fact.Sale  | WWI.FactSale  |
+| 購買 | Fact | WWI.FactPurchase |
+
+
+## <a name="table-definition"></a>資料表定義 
+
+下列概念說明定義資料表的重要層面。 
+
+### <a name="standard-table"></a>標準資料表
+
+標準資料表會儲存在 Azure 儲存體中，作為資料倉儲的一部分。 無論工作階段是否開啟，資料表和資料都會持續保存。  此範例會建立具有兩個資料行的資料表。 
+
+```sql
+CREATE TABLE MyTable (col1 int, col2 int );  
+```
+
+### <a name="temporary-table"></a>暫存資料表
+暫存資料表只存在於工作階段執行期間。 您可以使用暫存資料表來防止其他使用者檢視暫存結果，以及減少清除的需求。  由於暫存資料表也會使用本機儲存體，所以可為某些作業提供更快的效能。  如需詳細資訊，請參閱[暫存資料表](sql-data-warehouse-tables-temporary.md)。
+
+### <a name="external-table"></a>外部資料表
+外部資料表會指向位於 Azure Blob 儲存體或 Azure Data Lake Store 中的資料。 與 CREATE TABLE AS SELECT 陳述式搭配使用時，如果從外部資料表選取，資料將會匯入 SQL 資料倉儲中。 因此，外部資料表對於載入資料有所助益。 如需載入的教學課程，請參閱[使用 PolyBase 從 Azure Blob 儲存體載入資料](load-data-from-azure-blob-storage-using-polybase.md)。
+
+### <a name="data-types"></a>資料類型
+SQL 資料倉儲支援最常用的資料類型。 如需支援的資料類型清單，請參閱 CREATE TABLE 陳述式中的[資料類型](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)。 將資料類型的大小最小化，可改善查詢效能。 如需資料類型的指引，請參閱[資料類型](sql-data-warehouse-tables-data-types.md)。
+
+### <a name="distributed-tables"></a>分散式資料表
+SQL 資料倉儲的基本功能，是它能以其特有方式將資料表儲存在分散式系統中的 60 個不同位置，我們稱之為「散發」。  SQL 資料倉儲可透過下列三種方式之一來儲存資料表：
+
+- **循環配置資源**會隨機儲存資料表資料列，但會平均分配給各個「散發」。 循環配置資源資料表的載入效能較佳，但對於會聯結資料行的查詢，則需要比其他方法還要多的資料移動。 
+- **雜湊**散發會根據散發資料行中的值來散發資料列。 雜湊分散式資料表最有可能在大型資料表的查詢聯結方面達到高效能。 有數個因素會影響散發資料行的選擇。 如需詳細資訊，請參閱[分散式資料表](sql-data-warehouse-tables-distribute.md)。
+- **複寫**資料表會建立一個可在每個計算節點上使用的完整資料表複本。 複寫資料表的聯結不需要移動資料，因此對複寫資料表的查詢得以快速執行。 不過，複寫需要額外的儲存體，且對於大型資料表並不實用。 如需詳細資訊，請參閱[複寫資料表的設計指引](design-guidance-for-replicated-tables.md)。
+
+資料表類別通常會決定應選擇哪個選項來散發資料表。  
+
+| 資料表類別 | 建議的散發選項 |
+|:---------------|:--------------------|
+| 事實           | 使用具有叢集資料行存放區索引的雜湊散發。 在相同的散發資料行上聯結兩個雜湊資料表時，可以改善效能。 |
+| 維度      | 對較小的資料表使用複寫。 如果資料表太大而無法儲存在每個計算節點上，請使用雜湊散發。 |
+| 預備        | 對暫存資料表使用循環配置資源。 使用 CTAS 的載入速度較快。 資料放入暫存資料表中後，請使用 INSERT...SELECT 將資料移至生產資料表。 |
+
+### <a name="table-partitions"></a>資料表的資料分割
+分割的資料表會並根據資料範圍儲存在資料表資料列上，並執行作業。 例如，資料表可能會依日、月或年進行分割。 您可以透過資料分割消除將查詢掃描限定於某個資料分割內的資料，進而提升查詢效能。 您也可以透過資料分割切換來維護資料。 由於 SQL 資料倉儲中的資料已散發，資料分割過多可能會降低查詢效能。 如需詳細資訊，請參閱[資料分割指引](sql-data-warehouse-tables-partition.md)。
+
+### <a name="columnstore-indexes"></a>資料行存放區索引
+根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 這種形式的資料儲存對於大型資料表可達到高度的資料壓縮和查詢效能。  叢集資料行存放區索引通常是最佳選擇，但在某些情況下，叢集索引或堆積會是更適當的儲存結構。
+
+如需資料行存放區功能的清單，請參閱[資料行存放區索引的新功能](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)。 若要改善資料行存放區索引效能，請參閱[盡可能提高資料行存放區索引的資料列群組品質](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
+
+### <a name="statistics"></a>統計資料
+查詢最佳化工具在建立執行查詢的計劃時，會使用資料行層級的統計資料。 若要改善查詢效能，請務必建立個別資料行的統計資料，尤其是查詢聯結中使用的資料行。 統計資料並不會自動建立和更新。 請在建立資料表後[建立統計資料](/sql/t-sql/statements/create-statistics-transact-sql)。 在新增或變更大量的資料列之後，請更新統計資料。 例如，請在載入之後更新統計資料。 如需詳細資訊，請參閱[統計資料指引](sql-data-warehouse-tables-statistics.md)。
+
+## <a name="ways-to-create-tables"></a>建立資料表的方式
+您可以將資料表建立為新的空資料表。 您也可以在建立資料表後填入 Select 陳述式的結果。 以下是用來建立資料表的 T-SQL 命令。
+
+| T-SQL 陳述式 | 描述 |
+|:----------------|:------------|
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | 藉由定義所有的資料表資料行和選項，建立空的資料表。 |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | 建立外部資料表。 資料表的定義會儲存在 SQL 資料倉儲中。 資料表的資料會儲存在 Azure 儲存體或 Azure Data Lake Store 中。 |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | 在新的資料表中填入 Select 陳述式的結果。 資料表資料行和資料類型皆以 Select 陳述式的結果為基礎。 若要匯入資料，此陳述式可從外部資料表進行選取。 |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | 藉由將 Select 陳述式的結果匯出至外部位置，建立新的外部資料表。  其位置為 Azure Blob 儲存體或 Azure Data Lake Store。 |
+
+## <a name="aligning-source-data-with-the-data-warehouse"></a>找出資料倉儲對應的資料來源
+
+資料倉儲資料表會在您從其他資料來源載入資料時填入。 若要執行成功的載入，來源資料中的資料行在數目和資料類型方面，都必須與資料倉儲中的資料表定義相符。 取得相符的資料，可能是設計資料表時最困難的環節。 
+
+如果資料來自多個資料存放區，您可以將資料放入資料倉儲中，並將其儲存於整合資料表。 資料放入整合資料表後，您可以使用 SQL 資料倉儲的功能執行轉換作業。
 
 ## <a name="unsupported-table-features"></a>不支援的資料表功能
-雖然 SQL 資料倉儲包含其他資料庫所提供的許多相同資料表功能，但仍有一些功能尚未提供支援。  以下是一些尚未支援的資料表功能清單。
+SQL 資料倉儲支援其他資料庫所提供的多項 (但並非所有) 資料表功能。  下列清單列出 SQL 資料倉儲不支援的部分資料表功能。
 
-| 不支援的功能 |
-| --- |
-| 主索引鍵、外部索引鍵、唯一和檢查[資料表條件約束][Table Constraints] |
-| [唯一索引][Unique Indexes] |
-| [計算資料行][Computed Columns] |
-| [疏鬆資料行][Sparse Columns] |
-| [使用者定義的類型][User-Defined Types] |
-| [順序][Sequence] |
-| [觸發程序][Triggers] |
-| [索引檢視表][Indexed Views] |
-| [同義字][Synonyms] |
+- 主索引鍵、外部索引鍵、唯一、檢查[資料表條件約束](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
+
+- [計算資料行](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
+- [索引檢視表](/sql/relational-databases/views/create-indexed-views)
+- [順序](/sql/t-sql/statements/create-sequence-transact-sql)
+- [疏鬆資料行](/sql/relational-databases/tables/use-sparse-columns)
+- [Surrogate 索引鍵]()。 使用[身分識別](sql-data-warehouse-tables-identity.md)進行實作。
+- [同義字](/sql/t-sql/statements/create-synonym-transact-sql)
+- [觸發程序](/sql/t-sql/statements/create-trigger-transact-sql)
+- [唯一索引](/sql/t-sql/statements/create-index-transact-sql)
+- [使用者定義的類型](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>資料表大小查詢
-識別資料表在每個散發 (共 60 個) 中所耗用的空間和資料列數的其中一種簡單方式，就是使用 [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED]。
+要識別資料表在每個散發 (共 60 個) 中耗用的空間和資料列數，可採用一個簡單的方式，就是使用 [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED]。
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-不過，使用 DBCC 命令相當受限。  動態管理檢視 (DMV) 可讓您查看更多詳細資料，以及讓您更進一步控制查詢結果。  首先建立這個檢視，而本篇和其他文章中的許多範例將會參考此檢視。
+不過，使用 DBCC 命令相當受限。  動態管理檢視 (DMV) 會比 DBCC 命令顯示更多詳細資料。 首先請建立此檢視。
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -199,7 +258,8 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>資料表空間摘要
-此查詢會傳回資料表的資料列和空格。  這是很實用的查詢，可查看哪些資料表是最大的資料表，以及其屬於循環配置資源、複寫或雜湊散發資料表。  若為雜湊散發資料表，也會顯示散發資料行。  在大部分情況下，最大的資料表應該是具有叢集資料行存放區索引的雜湊散發資料表。
+
+此查詢會傳回資料表的資料列和空格。  它可讓您查看哪些資料表是最大的資料表，及其屬於循環配置資源、複寫還是雜湊分散式資料表。  若為雜湊分散式資料表，則查詢也會顯示散發資料行。  在大部分情況下，最大的資料表應該是具有叢集資料行存放區索引的雜湊分散式資料表。
 
 ```sql
 SELECT 
@@ -230,6 +290,7 @@ ORDER BY
 ```
 
 ### <a name="table-space-by-distribution-type"></a>依散發類型的資料表空間
+
 ```sql
 SELECT 
      distribution_policy_name
@@ -244,6 +305,7 @@ GROUP BY distribution_policy_name
 ```
 
 ### <a name="table-space-by-index-type"></a>依索引類型的資料表空間
+
 ```sql
 SELECT 
      index_type_desc
@@ -258,6 +320,7 @@ GROUP BY index_type_desc
 ```
 
 ### <a name="distribution-space-summary"></a>散發空間摘要
+
 ```sql
 SELECT 
     distribution_id
@@ -273,33 +336,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解，請參閱[資料表資料類型][Data Types]、[散發資料表][Distribute]、[編製資料表的索引][Index]、[分割資料表][Partition]、[維護資料表統計資料][Statistics]及[暫存資料表][Temporary]等文章。  若要深入了解最佳作法，請參閱 [SQL Data 資料倉儲最佳作法][SQL Data Warehouse Best Practices]。
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-
-<!--MSDN references-->
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
-
-<!--Other Web references-->
+為您的資料倉儲建立資料表之後，下一個步驟是將資料載入資料表中。  如需載入的教學課程，請參閱[使用 PolyBase 從 Azure Blob 儲存體載入資料](load-data-from-azure-blob-storage-using-polybase.md)。

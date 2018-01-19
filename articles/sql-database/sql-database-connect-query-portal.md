@@ -15,19 +15,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/02/2017
+ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 7f85d569fee4e13c28a09347159f16fc4b4ae626
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
 
-SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢，且不需要離開 Azure 入口網站。 此快速入門會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 
+SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢，且不需要離開 Azure 入口網站。 此快速入門會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本快速入門可作為在其中一個快速入門中所建立資源的起點︰
 
@@ -44,17 +44,15 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
 
 1. 從左側功能表中按一下 [SQL 資料庫]，然後按一下您要查詢的資料庫。
 
-2. 在資料庫的 [SQL 資料庫] 頁面上，按一下工具列上的 [工具]。 [工具] 頁面隨即開啟。
+2. 在您資料庫的 SQL 資料庫分頁上，尋找並按一下左側功能表中的 [資料總管 (預覽)]。
 
-    ![[工具] 功能表](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![尋找查詢編輯器](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. 依序按一下 [查詢編輯器 (預覽)]、[預覽條款] 核取方塊和 [確定]。 [查詢編輯器] 頁面隨即開啟。
+3. 按一下 [登入]，然後在出現提示時選取 [SQL Server 驗證]，接著提供建立資料庫時提供的伺服器管理員登入和密碼。
 
-4. 按一下 [登入]，然後在出現提示時選取 [SQL Server 驗證]，接著提供建立資料庫時提供的伺服器管理員登入和密碼。
+    ![登入](./media/sql-database-connect-query-portal/login-menu.png)
 
-    ![登入](./media/sql-database-connect-query-portal/login-menu.png) 
-
-5. 按一下 [確定] 以登入。
+4. 按一下 [確定] 以登入。
 
 
 ## <a name="connect-using-azure-ad"></a>使用 Azure AD 進行連線
@@ -70,11 +68,11 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
 
 3. 在 [Active Directory 管理員] 刀鋒視窗中，按一下 [設定管理員] 命令，然後選取將成為 Active Directory 管理員的使用者或群組。
 
-    ![選取 Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png) 
+    ![選取 Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
 4. 在 [Active Directory 管理員] 刀鋒視窗的頂端，按一下 [儲存] 命令，來設定您的 Active Directory 管理員。
 
-瀏覽至您想要查詢的 SQL 資料庫，按一下工具列上的 [工具命令]，然後選取 [查詢編輯器 (預覽)] 選項。 [查詢編輯器] 頁面隨即開啟，並會自動將您連線至資料庫。
+瀏覽至您要查詢的 SQL 資料庫，從左側功能表按一下 [資料總管 (預覽)]。 資料總管分頁隨即開啟，並會自動將您連線至資料庫。
 
 
 ## <a name="run-query-using-query-editor"></a>使用查詢編輯器執行查詢
@@ -154,13 +152,13 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
 
 1. 在 Azure SQL Server 防火牆設定中，確定 [允許存取 Azure 服務] 選項已設為 [開啟]。 此選項會允許 SQL 查詢編輯器存取您的 SQL 資料庫和資料倉儲。
 
-2. Azure Active Directory 管理員登入不適用於啟用雙因素驗證的帳戶。 
+2. Azure Active Directory 管理員登入不適用於啟用雙因素驗證的帳戶。
 
 3. 不支援使用電子郵件帳戶 (例如 outlook.com、hotmail.com、live.com、gmail.com 或 yahoo.com) 作為 Active Directory 管理員。 請務必選擇在 Azure Active Directory 原生建立的使用者，或是 Azure Active Directory 的同盟使用者
 
 4. 查詢編輯器中尚未支援空間資料類型的查詢。 查詢空間資料行將會導致 'System.IO.FileNotFoundException' 錯誤。
 
-5. 不支援用於資料庫表格和檢視的 IntelliSense。 不過，編輯器支援已輸入名稱的自動完成功能。 
+5. 不支援用於資料庫表格和檢視的 IntelliSense。 不過，編輯器支援已輸入名稱的自動完成功能。
 
 6. 按 F5 鍵將會重新整理 [查詢編輯器] 頁面，但會遺失正在處理的查詢。 使用工具列上的 [執行] 按鈕來執行查詢。
 

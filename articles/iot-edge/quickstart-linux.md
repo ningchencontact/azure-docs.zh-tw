@@ -6,16 +6,16 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Linux 裝置 - 預覽
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 或 Mac 裝置 - 預覽
 
 Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本主題中，了解如何使用雲端介面將預先建置的程式碼 IoT 從遠端部署到 IoT Edge 裝置。
 
@@ -23,10 +23,14 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成這項工作，請使用您的電腦或虛擬機器來模擬物聯網裝置。 需要下列服務才能成功部署 IoT Edge 裝置：
+本快速入門會以物聯網裝置的形式使用您的電腦或虛擬機器。 若要將您的機器轉換為 IoT Edge 裝置，需要下列服務：
 
-- [在 Linux 上安裝 Docker][lnk-docker-ubuntu] 並確定它正在執行。 
-- 大部分的 Linux 發行版本 (包括 Ubuntu) 都已安裝 Python 2.7。 請使用下列命令確定 pip 已安裝：`sudo apt-get install python-pip`。
+* Python pip，以安裝 IoT Edge 執行階段。
+   * Linux：`sudo apt-get install python-pip`。
+   * MacOS：`sudo easy_install pip`。
+* Docker，以執行 IoT Edge 模組
+   * [安裝適用於 Linux 的 Docker][lnk-docker-ubuntu] 並確定它正在執行。 
+   * [安裝適用於 Mac 的 Docker][lnk-docker-mac] 並確定它正在執行。 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>使用 Azure CLI 建立 IoT 中樞
 
@@ -135,6 +139,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

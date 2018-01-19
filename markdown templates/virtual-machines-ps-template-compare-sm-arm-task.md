@@ -10,21 +10,21 @@ Pay attention to spacing and indents. They affect formatting.
 
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" in under the "contributor-guide" folder in your repo. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
-# <a name="use-azure-powershell-to-task"></a>使用 Azure PowerShell 來 [task]
-本文示範如何以 [工作]，使用 Azure 模組和 Azure 資源管理員模組的命令。 這被為了協助您了解新的命令，以及將現有的指令碼移轉至新的命令。
+# <a name="use-azure-powershell-to-task"></a>使用 Azure PowerShell 進行 [工作]
+本文示範如何使用 Azure 模組和 Azure Resource Manager 模組的命令來進行 [工作]。 這旨在協助您了解新的命令，以及將現有的指令碼移轉至新的命令。
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>必要條件： 安裝新版的 Azure PowerShell
-如果您尚未這樣做，至少安裝 Azure PowerShell 版本 [版本號碼] 在本機電腦上。 如果您使用較早版本，它將不會有這篇文章中所述的 Azure 資源管理員 cmdlet。 如需詳細資訊，請參閱：
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>必要條件：安裝新版的 Azure PowerShell
+如果您尚未這樣做，請在本機電腦上安裝 [版本號碼] 版以上 (含) 的 Azure PowerShell。 如果您是使用較舊版本，將不會有本文中所述的 Azure Resource Manager Cmdlet。 如需詳細資訊，請參閱：
 
-* [如何安裝及設定 Azure PowerShell](install-configure-powershell.md)如需設定 Azure PowerShell 的指示。
-* [使用 Windows PowerShell 與資源管理員](powershell-azure-resource-manager.md)的資源管理員使用的基本概念。
+* 如需設定 Azure PowerShell 的指示，請參閱[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)。
+* [使用 Windows PowerShell 搭配 Resource Manager](powershell-azure-resource-manager.md)，以了解使用 Resource Manager 的基本概念。
 
 > [!NOTE]
-> 大部分的工作需要您使用系統管理員層級 Azure PowerShell 命令提示字元。
+> 您需要使用系統管理員層級的 Azure PowerShell 命令提示字元，才能進行大部分的工作。
 > 
 > 
 
-## <a name="command-comparison"></a>命令的比較
+## <a name="command-comparison"></a>命令比較
 此 [資料表 | 區段] 顯示命令語法。
 
 <!--[optional image - to use an image in this article, add a folder with the same name as the article file name without extension, inside the Media folder of the repo. Use only this folder to store the images. Don't attempt to use a common folder to share images you want to use in more than 1 file.]
@@ -46,20 +46,20 @@ $FriendlyName"<Describe value>"
 
 <!--if it makes more sense to present this one command block after the other instead of a table, use this. Otherwise, delete-->
 
-[簡短文句命令的相關。 如果沒有真的要說出，省略。 但是，如果它會使用這類方法管線，說明這點]:
+[Short intro sentence about the command. Omit if there's really nothing to say. But if it uses approaches such a the pipeline, explain that]:
 
     [command string]
 
 ## <a name="script-examples"></a>指令碼範例
-以下是範例使用 [cmdlet 名稱）] 的 [工作]。 它包含命令的：
+以下是使用 [cmdlet 名稱)] 進行 [工作] 的範例。 它包含的命令：
 
-* [短動詞命令，使用具有，為等等]
-* [下一步簡短動詞] 
+* [short verb, uses, has, is, etc]
+* [next short verb] 
 
 <!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
 
-* [變數 1]
-* [變數 2]
+* [variable 1]
+* [variable 2]
 
 <!--This shows you how a recent example was presented as well as how it was formatted. Preceding each line with one tab or four spaces to format in a code block-->
 

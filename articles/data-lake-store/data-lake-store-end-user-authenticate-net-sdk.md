@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>使用 .NET SDK 向 Data Lake Store 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -62,27 +62,32 @@ ms.lasthandoff: 12/21/2017
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
    4. 關閉 [NuGet 套件管理員]。
 
-6. 開啟 **Program.cs**，刪除現有的程式碼，然後納入下列陳述式以新增命名空間的參考。
+6. 開啟 **Program.cs**
+7. 使用以下幾行取代 using 陳述式：
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>使用者驗證
 在 .NET 用戶端應用程式中加入這個程式碼片段。 以從 Azure AD 原生應用程式 (列為必要元件) 中擷取的值取代預留位置值。 這個程式碼片段可讓您**以互動方式**向 Data Lake Store 驗證應用程式，這表示系統會提示您輸入您的 Azure 認證。
 
 為了方便使用，下列程式碼片段會使用對任何 Azure 訂用帳戶都有效的用戶端識別碼和重新導向 URI 的預設值。 在下列程式碼片段中，您只需要提供租用戶識別碼的值。 您可以使用[取得租用戶識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)所提供的指示，取得租用戶識別碼。
     
+- 使用下列程式碼來取代 Main() 函式：
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ ms.lasthandoff: 12/21/2017
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 上面這個程式碼片段有幾項須知：
 

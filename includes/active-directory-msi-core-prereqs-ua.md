@@ -1,1 +1,1 @@
-如果您不熟悉 MSI，請參閱[受管理的服務識別概觀](~/articles/active-directory/pp/msi-overview.md)，和**務必檢閱[差異系統指派和指派給使用者的 MSI](~/articles/active-directory/pp/msi-overview.md#how-does-it-work)** . 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
+如果您不熟悉 MSI，請參閱[受控服務識別概觀](~/articles/active-directory/pp/msi-overview.md)，且**務必檢閱[系統指派與使用者指派之 MSI 之間的差異](~/articles/active-directory/pp/msi-overview.md#how-does-it-work)**。 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。

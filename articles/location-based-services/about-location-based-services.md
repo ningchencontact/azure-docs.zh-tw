@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure LBS (預覽) 簡介
 Azure LBS 是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 符合 Azure OneAPI 規範的服務組合可讓您使用熟悉的開發人員工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure LBS 可提供各產業的開發人員強大的地理空間功能，另納入最新的地圖資料，可提供 Web 和行動裝置應用程式的地理空間內容。 Azure LBS 是符合 Azure One API 規範的 REST API 集合，附有網頁型 JavaScript 控制項可讓開發作業變得超級容易、有彈性且可在多個媒介中轉移。 
@@ -64,6 +64,20 @@ Azure LBS 包含五項主要服務，可支持需要地理內容的 Azure 應用
 Azure LBS 是為了行動性而建置，可以增強跨平台應用程式的功能，因為此程式設計模型無從驗證並透過 REST API 支援 JSON 輸出。 此外，Azure LBS 使用簡單的程式設計模型提供方便的 JavaScript 地圖控制項，以便快速輕鬆開發 Web 和行動裝置應用程式。 
 
 Azure LBS 使用以金鑰為基礎的驗證配置，所以存取服務時需瀏覽至 [Azure 入口網站](http://portal.azure.com)並建立 Azure LBS 帳戶。 您的帳戶隨附預先為您產生的兩個金鑰。 在 Azure LBS 的要求中使用任一個金鑰，開始將這些位置功能直接整合到您的應用程式中。
+
+**與 Bing 地圖的關聯性** - 請注意，本文件中描述的 Azure 位置服務與 Bing 地圖提供的服務有所不同。  雖然兩者共用許多相同的功能，但是這兩項服務不同而且也不相關。  Azure 內這項新服務的可用性不會對 Bing 地圖產品供應項目或藍圖造成影響，它們是個別管理的。
+
+Microsoft 的目標是為開發人員社群提供位置服務供應項目的選擇。  開發人員可以參考下列快速指引，針對各種使用案例和客戶情況決定要使用何種服務。  請注意，此指引目前適用於 Azure LBS，因為它處於公開預覽階段，當它在 2018 年正式運作之後即會更新。
+
+| 客戶準則 | 使用 Azure 位置服務的時機： | 使用 Bing 地圖的時機： |
+| ------------- | ------------- | ------------- |
+| 開發環境 | 建置或利用其他 Azure 服務 | 使用協力廠商雲端或其他開發人員環境 |
+| 開發階段  | 因為 Azure LBS 目前正在公開預覽，它會針對早期階段測試和概念證明開發最佳化 | 生產環境需要企業等級 SLA |
+| 定價選項 | 初步開發人員定價選項即足夠 | 需要自訂企業等級定價 |
+| 使用案例環境 | 需要車載使用 | 不需要車載使用 |
+| 地理涵蓋範圍 | 印度、中國、日本及韓國不是必要項 | 印度、中國、日本及韓國地圖涵蓋範圍是必要項 |
+| 地圖內容 | 標準表面地圖就已足夠 | 衛星、鳥瞰和街景圖是必要項 |
+| 基礎地圖來源 | 偏好 TomTom 地圖資料 | 偏好 HERE 地圖資料 |
 
 立即註冊 [Azure LBS 帳戶！](http://aka.ms/azurelbsportal)
 

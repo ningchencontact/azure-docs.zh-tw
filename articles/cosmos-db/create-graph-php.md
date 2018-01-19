@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB︰使用 PHP 和 Azure 入口網站建立圖形資料庫
 
@@ -137,7 +137,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ]);
     ```
 
-3. 以您的資料庫和圖形名稱，變更連線物件中的 `username` 參數。 如果您使用建議的 `sample-database` 和 `sample-graph` 值，它看起來應該如下：
+3. 如果您的圖形資料庫帳戶是在 2017 年 12 月 20 日當天或以後建立的，請將主機名稱中的 `graphs.azure.com` 變更為 `gremlin.cosmosdb.azure.com`。
+
+4. 以您的資料庫和圖形名稱，變更連線物件中的 `username` 參數。 如果您使用建議的 `sample-database` 和 `sample-graph` 值，它看起來應該如下：
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ]);
     ```
 
-4. 在 Azure 入口網站中，使用複製按鈕複製 [主要金鑰]，然後將其貼上至密碼參數中的 `your_primary_key`。
+5. 在 Azure 入口網站中，使用複製按鈕複製 [主要金鑰]，然後將其貼上至密碼參數中的 `your_primary_key`。
 
     連線物件初始化現在看起來應該如下：
 
@@ -171,7 +173,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ]);
     ```
 
-5. 儲存 `connect.php` 檔案。
+6. 儲存 `connect.php` 檔案。
 
 ## <a name="run-the-console-app"></a>執行主控台應用程式
 

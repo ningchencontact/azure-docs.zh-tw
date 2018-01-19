@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: ab675207094bc8ee317573192c33c20039780fe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
 > [!div class="op_single_selector"]
@@ -161,13 +161,13 @@ Service Fabric 導入了一種可設定狀態的新服務。 具狀態服務能�
 
 若要將計數器值從無狀態轉換成高度可用且持續，即使服務移動或重新啟動亦然，您需要具狀態服務。
 
-在 HelloWorld 應用程式相同的目錄，您可以加入新的服務執行`yo azuresfjava:AddService`命令。 選擇 「 可靠可設定狀態服務 」 架構，並為服務"HelloWorldStateful"名稱。 
+在與 HelloWorld 應用程式相同的目錄中，您可以執行 `yo azuresfjava:AddService` 命令以新增服務。 為您的架構選擇「可靠的具狀態服務」，並將服務命名為 "HelloWorldStateful"。 
 
-您的應用程式現在應該會有兩個服務： 無狀態服務 HelloWorld 和可設定狀態服務 HelloWorldStateful。
+您的應用程式現在應該有兩個服務：無狀態服務 HelloWorld 和具狀態服務 HelloWorldStateful。
 
-具狀態服務與無狀態服務具有相同的進入點。 主要差異在於可以可靠地儲存狀態的狀態提供者的可用性。 Service Fabric 隨附稱為可靠的集合，可讓您建立可靠的狀態管理員透過複寫的資料結構，狀態提供者實作。 具狀態可靠服務預設會使用此狀態供應器。
+具狀態服務與無狀態服務具有相同的進入點。 主要差異在於可以可靠地儲存狀態的狀態供應器可用性。 Service Fabric 隨附稱為「可靠的集合」的狀態供應器實作，它可讓您透過可靠狀態管理員建立複寫的資料結構。 具狀態可靠服務預設會使用此狀態供應器。
 
-開啟在 HelloWorldStateful.java **HelloWorldStateful]-> [src**，其中包含下列 RunAsync 方法：
+在 **HelloWorldStateful -> src** 中開啟 HelloWorldStateful.java，其中包含下列 RunAsync 方法：
 
 ```java
 @Override
@@ -200,16 +200,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map)是一個字典實作，可用來可靠地儲存在服務的狀態。 Service Fabric 和可靠 Hashmaps，您可以直接在您的服務，而不需要外部的持續性存放區中儲存資料。 可靠的 Hashmaps 可讓您的資料具有高可用性。 Service Fabric 會藉由為您建立與管理服務的多個複本  來完成此作業。 它也提供 API 讓管理這些複本和其狀態轉換的複雜性抽象化。
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) 是一個字典實作，您可以在服務中可靠地儲存狀態。 有了 Service Fabric 和可靠的 Hashmaps，您可以直接在服務中儲存資料，而不需要外部的持續性存放區。 可靠的 Hashmaps 可讓您的資料具備高可用性。 Service Fabric 會藉由為您建立與管理服務的多個複本  來完成此作業。 它也提供 API 讓管理這些複本和其狀態轉換的複雜性抽象化。
 
-可靠的集合可以將儲存任何 Java 型別，包括您的自訂類型，具有幾個警告：
+可靠的集合可以儲存任何 JAVA 型別 (包括您的自訂型別)，不過有幾個需要注意的事項：
 
-* Service Fabric 讓高可用性，您的狀態*複寫*狀態節點，以及可靠的雜湊對應您將資料儲存到本機磁碟上每個複本。 這表示所有項目會儲存在可靠 Hashmaps 必須*序列化*。 
-* 當您認可交易的可靠 Hashmaps 針對高可用性複寫物件。 儲存在可靠 Hashmaps 物件會保留在您的服務中的本機記憶體。 這表示您有物件的本機參考。
+* Service Fabric 藉由在節點之間*複寫*狀態來使您的狀態高度可用，而可靠的 Hashmap 會將您的資料儲存到每個複本上的本機磁碟。 這表示所有儲存在可靠的 Hashmaps 中的項目必須*可序列化*。 
+* 當您在可靠的 Hashmaps 上認可交易時，物件會複寫以獲得高可用性。 儲存在可靠的 Hashmaps 中的物件會保留在服務中的本機記憶體。 這表示您有物件的本機參考。
   
    很重要的一點是，您不要改變那些物件的本機執行個體而不在交易中的可靠集合上執行更新作業。 這是因為不會自動複寫對本機物件執行個體所做的變更。 您必須將物件重新插入到字典中，或在字典上使用其中一個更新  方法。
 
-可靠的狀態管理員會為您管理可靠 Hashmaps。 在您的服務中隨時隨地，您只需要以名稱向可靠狀態管理員要求可靠的集合。 可靠狀態管理員會確保您取回參考。 不建議您將可靠集合執行個體的參考儲存在類別成員變數或屬性中。 請特別小心以確保在服務生命週期中隨時將參考設定為執行個體。 可靠狀態管理員會為您處理這項工作，並且針對重複造訪最佳化。
+可靠狀態管理員會為您管理可靠的 Hashmaps。 在您的服務中隨時隨地，您只需要以名稱向可靠狀態管理員要求可靠的集合。 可靠狀態管理員會確保您取回參考。 不建議您將可靠集合執行個體的參考儲存在類別成員變數或屬性中。 請特別小心以確保在服務生命週期中隨時將參考設定為執行個體。 可靠狀態管理員會為您處理這項工作，並且針對重複造訪最佳化。
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>交易式和非同步作業
@@ -230,9 +230,9 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-可靠的 Hashmaps 上的作業是非同步。 這是因為具備可靠集合的寫入作業執行 I/O 作業以將資料複寫並保存至磁碟。
+可靠的 Hashmaps 上的作業是非同步的。 這是因為具備可靠集合的寫入作業執行 I/O 作業以將資料複寫並保存至磁碟。
 
-可靠的雜湊對應作業*異動*，如此一來，您可以保存狀態一致跨多個可靠 Hashmaps 和作業。 比方說，您可能會取得工作項目從一個可靠的字典、 上，執行作業和儲存 anoter 可靠的雜湊對應，在單一交易中的所有結果。 這會被視為不可部分完成的作業，而且它可保證整個作業都會成功，或整個作業都會回復。 如果您從佇列取消項目之後，但在您儲存結果之前發生錯誤，那麼會回復整個交易，且項目會保持在佇列中進行處理。
+可靠的 Hashmap 作業為*交易式*作業，因此您可以在多個可靠的 Hashmaps 和作業之間維持狀態的一致。 比方說，您可能會從可靠的字典取得一個工作項目、對它執行作業，然後將結果儲存在另一個可靠的 Hashmap 中，全都在單一交易中完成。 這會被視為不可部分完成的作業，而且它可保證整個作業都會成功，或整個作業都會回復。 如果您從佇列取消項目之後，但在您儲存結果之前發生錯誤，那麼會回復整個交易，且項目會保持在佇列中進行處理。
 
 
 ## <a name="run-the-application"></a>執行應用程式

@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入網域的 HDInsight 叢集
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>以企業安全性套件存取叢集。
+
+企業安全性套件 (先前稱為 HDInsight Premium) 提供對叢集的多位使用者存取，其驗證是由 Active Directory 執行，並且由 Apache Ranger 和 Storage ACL (ADLS ACL) 授權。 授權會提供多位使用者間的安全界限，只允許特殊權限的使用者根據授權原則存取資料。
+
+安全性和使用者隔離對於使用企業安全性套件的 HDInsight 叢集很重要。 為了符合這些需求，會封鎖使用企業安全性套件之叢集的 SSH 存取。 下表顯示每個叢集類型的建議存取方法：
+
+|工作負載|案例|存取方法|
+|--------|--------|-------------|
+|Hadoop|Hive – 互動式作業/查詢 |<ul><li>[Beeline](#beeline)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|互動式作業/查詢，PySpark 互動式|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|批次案例 – Spark 提交，PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|互動式查詢 (LLAP)|互動式|<ul><li>[Beeline](#beeline)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|任意|安裝自訂應用程式|<ul><li>[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+從安全性觀點來說，使用標準 API 會有所幫助。 此外，還有下列優點：
+
+1.  **管理** – 您可以使用標準 API (Livy、HS2 等等) 管理您的程式碼並自動化作業。
+2.  **稽核** – 使用 SSH 無法稽核哪些使用者 SSH 到叢集。 當作業是透過標準端點建構時，作業會在使用者內容中執行，所以這不是問題。 
+
+
+
+### <a name="beeline"></a>使用 BeeLine 
+在您的機器上安裝 Beeline，並透過公用網際網路連線，使用下列參數： 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+若您有在本機上安裝 Beeline 並透過公用網際網路連線，請使用下列參數： 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+若要找出前端節點的完整網域名稱，請利用＜使用 Ambari REST API 管理 HDInsight＞文件中的資訊。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>已加入網域的 HDInsight 叢集的使用者
 未加入網域的 HDInsight 叢集有兩個使用者帳戶，是在叢集建立期間建立的︰
 
-* **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari，網址是 https://&lt;clustername>.azurehdinsight.net。 它也可以用來在 Ambari 檢視上執行查詢、透過外部工具 (即 PowerShell、Templeton、Visual Studio)執行作業、以及使用 Hive ODBC 驅動程式和 BI 工具 (即 Excel、PowerBI、或 Tableau) 進行驗證。
+* **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari，網址是 https://&lt;clustername>.azurehdinsight.net。 它也可以用來在 Ambari 檢視上執行查詢、透過外部工具 (例如 PowerShell、Templeton、Visual Studio) 執行作業、以及使用 Hive ODBC 驅動程式和 BI 工具 (例如 Excel、PowerBI、或 Tableau) 進行驗證。
 * **SSH 使用者**︰此帳戶可以搭配 SSH 使用，執行 sudo 命令。 它具有 Linux VM 上的根權限。
 
 除了 Ambari 系統管理員和 SSH 使用者之外，已加入網域的 HDInsight 叢集有三個新的使用者。
@@ -63,8 +115,9 @@ ms.lasthandoff: 12/01/2017
     ![已加入網域的 HDInsight 角色權限](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>開啟 Ambari 管理 UI
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在刀鋒視窗中開啟您的 HDInsight 叢集。 請參閱[列出和顯示叢集](../hdinsight-administer-use-management-portal.md#list-and-show-clusters)。
+2. 開啟您的 HDInsight 叢集。 請參閱[列出和顯示叢集](../hdinsight-administer-use-management-portal.md#list-and-show-clusters)。
 3. 按一下頂端功能表中的 [儀表板]  開啟 Ambari。
 4. 使用叢集系統管理員網域使用者的名稱和密碼登入 Ambari：
 5. 按一下右上角的 [管理] 下拉式功能表，然後按一下 [管理 Ambari]。

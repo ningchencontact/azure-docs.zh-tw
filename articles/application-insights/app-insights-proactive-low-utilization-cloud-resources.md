@@ -1,6 +1,6 @@
 ---
-title: "智慧偵測-Azure Application Insights 所偵測到的雲端資源的低使用率 |Microsoft 文件"
-description: "監視 Azure Application Insights 的雲端資源的低使用率的應用程式。"
+title: "智慧偵測 - Azure Application Insights 偵測到雲端資源的低使用率 | Microsoft Docs"
+description: "使用 Azure Application Insights 監視應用程式是否有雲端資源低使用率。"
 services: application-insights
 documentationcenter: 
 author: mrbullwinkle
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="low-utilization-of-cloud-resources-preview"></a>低使用率的雲端資源 （預覽）
+# <a name="low-utilization-of-cloud-resources-preview"></a>雲端資源低使用率 (預覽)
 
-Application Insights 自動分析應用程式中的每個角色執行個體的 CPU 消耗，並偵測到低 CPU 使用率的執行個體。 這項偵測可讓您減少您的 Azure 資源，並降低成本，藉由降低會利用每個角色，角色執行個體數目，或藉由降低的角色數目。
+Application Insights 會自動分析應用程式中每個角色執行個體的 CPU 消耗，並且偵測低 CPU 使用率的執行個體。 這項偵測可讓您減少您的 Azure 資源並降低成本，方法是降低每個角色利用的角色執行個體數目，或是降低角色數目。
 
-這項功能需要任何特殊的安裝程式，除了[設定效能計數器](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters)應用程式。 當您的應用程式產生的 CPU 效能計數器遙測資料不足 （處理器時間百分比），所以使用。
+這項功能不需要任何特殊的設定，除了為您的應用程式[設定效能計數器](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters)以外。 當您的應用程式產生足夠的 CPU 效能計數器遙測 (處理器時間百分比) 時，它是有效的。
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何時得到這種類型的智慧型偵測通知？
-許多 Web/背景工作角色執行個體呈現低 CPU 使用率時發生一般通知。
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何時會取得這個類型的智慧偵測通知？
+許多 Web/背景工作角色執行個體呈現低 CPU 使用率時會發生典型通知。
 
-## <a name="does-my-app-definitely-consume-too-many-resources"></a>我的應用程式明確地耗用太多的資源嗎？
-否，通知並不表示您的應用程式一定會耗用太多資源。 雖然這類模式的低 CPU 使用率通常表示資源耗用量可能會降低，這種行為可能是一般到特定的角色，或可能會有自然業務理由，而且可以忽略。 例如，可能是多個執行個體所需的其他資源，例如記憶體或網路，並不 CPU。
+## <a name="does-my-app-definitely-consume-too-many-resources"></a>我的應用程式一定是耗用太多資源嗎？
+否，通知並不表示您的應用程式一定是耗用太多資源。 雖然這類模式的低 CPU 使用率通常表示可以降低資源耗用量，但是這種行為對於您的特定角色可能很常見，或者可能有業務上的正當理由，可以忽略。 例如，可能是其他資源需要多個執行個體，例如記憶體/網路，而不是 CPU。
 
 ## <a name="how-do-i-fix-it"></a>如何修正問題？
 通知包括要在診斷程序中支援的診斷資訊：
-1. **分級。** 通知會顯示角色中展現低 CPU 使用率的應用程式。 這可協助您將優先順序指派給此問題。
-2. **範圍。** 多少角色展現低 CPU 使用率，並在每個角色執行個體數目利用低 CPU？ 可以從通知取得這項資訊。
-3. **診斷。** 偵測包含 CPU 的使用率，顯示經過一段時間的每個執行個體的 CPU 使用率百分比。 您也可以使用的相關項目和連結到支援資訊，例如 CPU 使用率的百分位數的報表可協助您進一步診斷問題。
+1. **分級。** 通知會顯示應用程式中呈現低 CPU 使用率的角色。 這可協助您將優先順序指派給此問題。
+2. **範圍。** 多少角色呈現低 CPU 使用率，以及每個角色中有多少執行個體利用低 CPU？ 可以從通知取得這項資訊。
+3. **診斷。** 偵測包含利用的 CPU 百分比，顯示經過一段時間之每個執行個體的 CPU 使用率。 您也可以使用連結到支援資訊的相關項目和報表，例如 CPU 使用率的百分位數，協助您進一步診斷問題。

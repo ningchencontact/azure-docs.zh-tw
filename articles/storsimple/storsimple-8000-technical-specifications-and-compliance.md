@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>適用於 StorSimple 裝置的技術規格和相容性
 
@@ -80,7 +80,7 @@ StorSimple 裝置混合搭載 8100 及 8600 的硬碟與固態磁碟機。 8100 
 | 可用容量總計* |~ 15 TB |~ 38 TB |
 | 解決方案的最大容量 (含雲端) |200 TB |500 TB |
 
-<sup>*  </sup>- *可用的容量總計包括可供資料、中繼資料及緩衝區使用的容量。*
+<sup>* </sup>- *可用的容量總計包括可供資料、中繼資料及緩衝區使用的容量。您可以在 8100 裝置上佈建最多 8.5 TB 的本機固定磁碟區，或者在較大的 8600 裝置上佈建最多 22.5 TB 的磁碟區。如需詳細資訊，請移至 [StorSimple 本機固定磁碟區](storsimple-8000-local-volume-faq.md)。*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>機箱尺寸和重量規格
 

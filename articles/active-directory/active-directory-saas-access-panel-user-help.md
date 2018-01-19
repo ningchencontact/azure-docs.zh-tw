@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>是否需要 My Apps 入口網站的協助？
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/06/2018
 身為一般使用者，您可以重設密碼或解除鎖定您的帳戶，而不需使用自助式密碼重設 (SSPR) 與人員對話。 在您可以使用這項功能之前，您必須註冊驗證方法，或確認您系統管理員已填入的預先定義驗證方法。 如需詳細資訊，請參閱[註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>我無法安裝 我的應用程式安全登入的擴充功能
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>我無法安裝 My Apps 安全登入延伸模組
 
 查看是否符合瀏覽器需求：
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/06/2018
     - Windows 10 Anniversary Edition 或更新版本上的 Edge
     - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上的 Chrome
     - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上的 Firefox 26.0 或更新版本
-    - Internet Explorer 8、 9、 10、 11，在 Windows 7 或更新版本 （有限的支援）
+    - 在 Windows 7 或更新版本上的 Internet Explorer 8、9、10、11 (支援有限)
 
 您也可以從下列直接連結中下載適用於 Chrome 和 Edge 的延伸模組：
 
@@ -76,32 +76,32 @@ ms.lasthandoff: 01/06/2018
 - 重新啟動您的瀏覽器，然後登入 My Apps 入口網站。
 
 - 清除瀏覽器的 Cookie，然後登入 My Apps 入口網站。
-- 請遵循[疑難排解的 Internet Explorer 的 存取面板延伸模組](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting)上的指南存取診斷工具和逐步解說指示設定 ie 的延伸模組。
+- 如需存取診斷工具和設定 IE 延伸模組的逐步指示，請遵循[針對 Internet Explorer 的存取面板延伸模組進行疑難排解](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting)指南。
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>如何使用 我的應用程式安全登入副檔名？
-變更我的應用程式的預設 URL，延伸模組
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>如何使用 My Apps 安全登入延伸模組？
+變更 My Apps 的延伸模組預設 URL
 
-如果您使用不同的我的應用程式 URL https://myapps.microsoft.com 比然後您必須設定您的預設 URL 透過下列步驟：
-1. 未簽署成擴充功能，而**以滑鼠右鍵按一下**擴充圖示。
-2. 按一下**選取我的應用程式 URL**從功能表。
+如果您使用的 My Apps URL 與 https://myapps.microsoft.com 不同，則必須透過下列步驟設定您的預設 URL：
+1. 在尚未登入延伸模組時，**以滑鼠右鍵按一下**延伸模組圖示。
+2. 按一下功能表中的 [選取 My Apps URL]。
 3. **選取**預設 URL。
-4. 按一下擴充功能圖示。
-5. 登入選取的延伸模組**登入，若要開始使用**。
+4. 按一下延伸模組圖示。
+5. 選取 [登入以開始使用] 來登入延伸模組。
 
-直接從瀏覽器應用程式將登入
-1. 安裝擴充功能，登入選取的擴充功能之後**登入，若要開始使用**。
-2. 瀏覽至**登入 URL**您想要登入的應用程式，這是通常會顯示登入表單應用程式的 URL。
-3. 該擴充功能應該變更狀態，並可讓您知道密碼，請按一下**擴充圖示**登入
+從瀏覽器直接登入應用程式
+1. 安裝延伸模組後，選取 [登入以開始使用] 來登入延伸模組。
+2. 瀏覽至您想要登入之應用程式的**登入 URL**，這通常是會顯示登入表單的應用程式 URL。
+3. 該延伸模組會變更狀態，並讓您知道密碼為可用，接著請按一下**延伸模組圖示**來登入
 
-啟動應用程式從延伸模組
-1. 安裝擴充功能，登入選取的擴充功能之後**登入，若要開始使用**。
-2. 按一下 擴充功能圖示以開啟其功能表。
-3. **搜尋**我的應用程式入口網站中提供的應用程式。
-4. 按一下應用程式，從**搜尋結果**來啟動它。
-5. 啟動的最後三個應用程式也會顯示在**最近使用過**快顯清單
+從延伸模組啟動應用程式
+1. 安裝延伸模組後，選取 [登入以開始使用] 來登入延伸模組。
+2. 按一下延伸模組圖示以開啟功能表。
+3. 在 My Apps 入口網站中**搜尋**可用的應用程式。
+4. 按一下**搜尋結果**中的應用程式來予以啟動。
+5. 最後啟動的三個應用程式也會顯示在 [最近使用的] 捷徑清單中
 
 > [!NOTE]
-> 這些選項僅適用於 Edge、 Chrome、 Firefox。
+> 這些選項僅適用於 Edge、Chrome、Firefox。
 
 ## <a name="how-do-i-add-a-new-app"></a>如何新增應用程式？
 
@@ -118,9 +118,9 @@ ms.lasthandoff: 01/06/2018
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>如何管理我的群組成員資格？
 
-1. 按一下**群組**磚。 
-2. 若要建立群組時，我所擁有的群組 下按一下**建立群組**，然後依照指示進行。
-3. 若要加入群組，在群組中，我是按一下**加入群組**，然後依照指示進行。
+1. 按一下 [群組] 圖格。 
+2. 若要建立群組，請在 [我擁有的群組] 底下，按一下 [建立群組]，然後依照指示進行。
+3. 若要加入群組，請在 [我所在的群組] 底下，按一下 [加入群組]，然後依照指示進行。
 
 **備註：**
 
