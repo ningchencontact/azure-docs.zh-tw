@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Python 和 Azure 入口網站建立圖形資料庫
 
@@ -135,28 +135,30 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
         password="<YOUR_PASSWORD>")
     ```
 
-3. 變更 `client` 物件的第二個參數，來取代 `<YOUR_DATABASE>` 和 `<YOUR_COLLECTION_OR_GRAPH>` 字串。 如果您使用建議的值，參數看起來應該類似以下程式碼：
+3. 將用戶端名稱中的 `graphs.azure.com` 變更為 `gremlin.cosmosdb.azure.com`。 (如果您的圖形資料庫帳戶是在 2017 年 12 月 20 日之前建立的，就不需要變更，繼續下一步。)
+
+4. 變更 `client` 物件的第二個參數，來取代 `<YOUR_DATABASE>` 和 `<YOUR_COLLECTION_OR_GRAPH>` 字串。 如果您使用建議的值，參數看起來應該類似以下程式碼：
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     整個 `client` 物件現在看起來應該類似以下程式碼：
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. 在 Azure 入口網站中，使用複製按鈕複製 PRIMARY KEY，然後將其貼上至 `password=<YOUR_PASSWORD>` 參數中的 `<YOUR_PASSWORD>`。
+5. 在 Azure 入口網站中，使用複製按鈕複製 PRIMARY KEY，然後將其貼上至 `password=<YOUR_PASSWORD>` 參數中的 `<YOUR_PASSWORD>`。
 
     整個 `client` 物件定義現在看起來應該類似以下程式碼：
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. 儲存 `connect.py` 檔案。
+6. 儲存 `connect.py` 檔案。
 
 ## <a name="run-the-console-app"></a>執行主控台應用程式
 

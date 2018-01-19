@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>了解針對單一裝置或大規模部署 IoT Edge - 預覽
 
@@ -57,23 +57,23 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
 
 ### <a name="target-condition"></a>目標條件
 
-之目標條件會持續評估包含符合需求的任何新裝置，或移除不再透過部署的存留時間執行的裝置。 如果此服務會偵測目標條件的任何變更，部署將會重新啟動。 比方說，您已部署的目標條件 tags.environment 其內 = '生產環境'。 當您開始進行部署時，有 10 個生產環境的裝置。 模組已成功安裝在這些 10 的裝置。 IoT 邊緣代理程式狀態會顯示為 10 的裝置總數，10 成功回應、 0 失敗回應，以及 0 暫止的回應。 現在您想要新增 5 更多的裝置與 tags.environment = '生產環境'。 服務偵測到變更，而且 IoT 邊緣代理程式狀態會變成 15 的裝置總數，10 成功回應、 0 失敗回應，以及 5 個暫止回應嘗試將部署到五個新裝置時。
+系統會持續評估目標條件以納入任何符合需求的新裝置，或是移除任何在部署的生命週期中不再符合需求的裝置。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 開始進行部署時，有 10 個生產裝置。 模組已成功安裝在這 10 個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在您再新增 5 個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
 
-使用裝置雙標記或 deviceId 上的任何布林條件，來選取目標裝置。 如果您想要使用具有標記條件，您要新增"tags":{} 一節中的裝置兩個屬性相同的層級底下。 [深入了解在裝置的兩個標記](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+使用裝置對應項標籤上的任何布林值條件或 deviceId 來選取目標裝置。 如果想要使用具標籤的條件，您需要在與屬性相同的層級下，在裝置對應項中新增 "標籤":{} 區段。 [深入了解裝置對應項中的標籤](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
-目標條件的範例：
-* deviceId = 'linuxprod1'
-* tags.environment = '生產環境'
-* tags.environment = AND tags.location ' 生產環境' = 'uswest'
-* tags.environment = OR tags.location ' 生產環境' = 'uswest'
-* tags.operator = 'John' AND tags.environment = 不 deviceId ' 生產環境' = 'linuxprod1'
+目標條件範例：
+* deviceId ='linuxprod1'
+* tags.environment ='prod'
+* tags.environment = 'prod' AND tags.location = 'westus'
+* tags.environment = 'prod' OR tags.location = 'westus'
+* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
 
-以下是 建構的目標條件時，某些限制：
+以下是建構目標條件時的某些限制：
 
-* 在裝置的兩個，您可以只建置使用標記或 deviceId 目標條件。
-* 目標條件的任何部分中不允許有雙引號。 請使用單引號。
-* 單引號代表目標條件的值。 因此，您必須逸出單引號以另一個單引號如果它是裝置名稱的一部分。 例如，目標條件的： operator'sDevice 必須寫成 deviceId =' 運算子 ' sDevice'。
-* 數字、 字母和下列字元可目標條件 values:-:.+%_#* 中？(),=@;$
+* 在裝置對應項中，您只能使用標籤或 deviceId 來建置目標條件。
+* 目標條件的任何部分皆不允許雙引號。 請使用單引號。
+* 單引號代表目標條件的值。 因此，如果單引號是裝置名稱的一部分，您必須使用另一個單引號來避開使用單引號。 例如，operator'sDevice 的目標條件必須寫成 deviceId='operator''sDevice'。
+* 目標條件值中可允許使用數字、字母和下列字元：-:.+%_#*?!(),=@;$
 
 ### <a name="priority"></a>優先順序
 

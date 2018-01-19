@@ -4,7 +4,7 @@ description: "建立 Apache Spark 串流範例，說明如何將資料串流傳�
 keywords: "apache spark 串流, spark 串流, spark 範例, apache spark 串流範例, 事件中樞 azure 範例, spark 範例"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>使用 HDInsight 上的 Apache Spark 結構化串流處理來自事件中樞的事件
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 * Azure 事件中樞命名空間。 如需詳細資訊，請參閱[建立 Azure 事件中樞命名空間](apache-spark-eventhub-streaming.md#create-an-azure-event-hub)。
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/01/2017
 
 5. 您所建置的應用程式需要 Spark 串流事件中樞封裝。 若要執行 Spark Shell，讓它自動從 [Maven 中心](https://search.maven.org)擷取此相依性，請確定封裝，與 Maven 座標的切換供應如下所示：
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Spark Shell 完成載入時，您應該會看到：
 
@@ -92,10 +92,10 @@ ms.lasthandoff: 12/01/2017
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ ms.lasthandoff: 12/01/2017
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. 如果您在下列表單中查看 EventHub 相容端點，`iothub-xxxxxxxxxx` 的部分是您的 EventHub 相容命名空間名稱，可以用於 `eventhubs.namespace`。 欄位 `SharedAccessKeyName` 可以用於 `eventhubs.policyname`，`SharedAccessKey` 可以用於 `eventhubs.policykey`： 
 
-8. 將修改過的程式碼片段貼入等候的 scala> 提示，並按下傳回。 您應該會看到如下的輸出：
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. 將修改過的程式碼片段貼入等候的 scala> 提示，並按下傳回。 您應該會看到如下的輸出：
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ ms.lasthandoff: 12/01/2017
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. 接下來，開始撰寫指定來源的 Spark 結構化串流查詢。 將下列內容貼入 Spark 殼層並按下傳回。
+10. 接下來，開始撰寫指定來源的 Spark 結構化串流查詢。 將下列內容貼入 Spark 殼層並按下傳回。
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. 您應該會看到如下的輸出：
+11. 您應該會看到如下的輸出：
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. 接下來，撰寫查詢讓其將輸出寫入主控台。 您可以透過將下列內容貼入 Spark 殼層並按下傳回來完成此動作。
+12. 接下來，撰寫查詢讓其將輸出寫入主控台。 您可以透過將下列內容貼入 Spark 殼層並按下傳回來完成此動作。
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. 您應該會看到開頭類似下面的一些輸出批次
+13. 您應該會看到開頭類似下面的一些輸出批次
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. 這後面會接著每一微批次事件的處理輸出結果。 
+14. 這後面會接著每一微批次事件的處理輸出結果。 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ ms.lasthandoff: 12/01/2017
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. 當新的事件從事件產生器送達後，便會由此結構化串流查詢進行處理。
-15. 當您完成執行此範例後，請務必刪除您的 HDInsight 叢集。
+15. 當新的事件從事件產生器送達後，便會由此結構化串流查詢進行處理。
+16. 當您完成執行此範例後，請務必刪除您的 HDInsight 叢集。
 
 
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](log-analytics-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/29/2017
 >[!NOTE]
 >OMS agent for Linux 無法設定為回報多個 Log Analytics 工作區。 
 
-您可能會在入口網站發現 Log Analytics 資源頁面頂端的橫幅邀請您升級。  基於本快速入門的目的，不需要升級。<br>
+如果您在 Azure Government 雲端中建立工作區，您可能會在入口網站發現 Log Analytics 資源頁面頂端的橫幅邀請您升級。  基於本快速入門的目的，不需要升級。<br>
 
 ![Azure 入口網站中的 Log Analytics 升級注意事項](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
@@ -87,7 +87,13 @@ Log Analytics 可以從 Windows 事件記錄檔或 Linux Syslog 收集事件，�
 現在您已啟用資料收集，可以執行簡單的記錄搜尋範例，查看來自目標 VM 的一些資料。  
 
 1. 在 Azure 入口網站中，瀏覽至 Log Analytics 並選取稍早建立的工作區。
-2. 按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `Type=Perf`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。<br> ![Log Analytics 記錄搜尋查詢範例](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> 例如，下列影像中的查詢會傳回 78,000 筆效能記錄。  結果將會大幅減少。<br> ![Log Analytics 記錄搜尋結果](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. 按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。<br> ![Log Analytics 記錄搜尋查詢範例](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >如果您的工作區是在 Azure Government 雲端中建立的，您將會使用查詢 `Type=Perf`。  
+   >
+
+例如，下列影像中的查詢會傳回 78,000 筆效能記錄。  結果將會大幅減少。<br> ![Log Analytics 記錄搜尋結果](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 不再需要 Log Analytics 工作區時，請予以刪除。 若要這樣做，請選取您稍早建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。<br> ![刪除 Log Analytics 資源](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)

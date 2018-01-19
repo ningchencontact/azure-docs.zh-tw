@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
 
@@ -52,21 +52,25 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
    
     ![Azure 入口網站中的 Functions 快速入門。](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-系統隨即會使用由 HTTP 觸發之函式的範本，以您所選的語言來建立函式。 您可以藉由傳送 HTTP 要求來執行新的函式。
+系統隨即會使用由 HTTP 觸發之函式的範本，以您所選的語言來建立函式。 本主題會顯示入口網站中的 C# 指令碼函式，但是您可以使用任何[支援的語言](supported-languages.md)建立函式。 
+
+現在，您可以藉由傳送 HTTP 要求來執行新的函式。
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 在新的函式中，按一下 [</> 取得函式 URL]，選取 [預設 (函式索引鍵)]，然後按一下 [複製]。 
+1. 在新的函式中，按一下右上方的 [</> 取得函式 URL]，選取 [預設 (函式索引鍵)]，然後按一下 [複製]。 
 
     ![從 Azure 入口網站複製函式 URL](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. 將函式 URL 貼入瀏覽器的網址列中。 將查詢字串 `&name=<yourname>` 附加至此 URL，並按鍵盤上的 `Enter` 鍵執行要求。 下列是 Edge 瀏覽器中函式所傳回的範例回應：
+2. 將函式 URL 貼入瀏覽器的網址列中。 將查詢字串值 `&name=<yourname>` 新增至此 URL 的結尾，並按鍵盤上的 `Enter` 鍵執行要求。 您應該會看到函式傳回的回應顯示在瀏覽器中。  
+
+    以下是 Edge 瀏覽器中回應的範例 (其他瀏覽器可能會包含顯示的 XML)：
 
     ![瀏覽器中的函式回應。](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     要求 URL 預設會包含所需金鑰，以便透過 HTTP 存取您的函式。   
 
-3. 當函式執行時，系統會將追蹤資訊寫入到記錄中。 若要查看上次執行的追蹤輸出，請在入口網站中返回您的函式，然後按一下畫面底部的向上箭號來展開**記錄**。 
+3. 當函式執行時，系統會將追蹤資訊寫入到記錄中。 若要查看上次執行的追蹤輸出，請在入口網站中返回您的函式，然後按一下畫面底部的箭號來展開**記錄**。 
 
    ![Azure 入口網站中的函式記錄檢視器。](./media/functions-create-first-azure-function/function-view-logs.png)
 

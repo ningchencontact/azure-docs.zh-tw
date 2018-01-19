@@ -7,20 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>在 Linux 中的模擬裝置上部署 Azure IoT Edge - 預覽
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>在 Linux 或 MacOS 中的模擬裝置上部署 Azure IoT Edge - 預覽
 
 Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將所有的資料推送至雲端。 IoT Edge 教學課程會示範如何部署不同類型的模組，從 Azure 服務或自訂程式碼建立，但首先您需要能夠測試的裝置。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您將了解如何：
 
 1. 建立 IoT 中樞
 2. 註冊 IoT Edge 裝置
@@ -33,10 +33,14 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程假設您使用執行 Linux 的電腦或虛擬機器，來模擬物聯網裝置。 需要下列服務才能成功部署 IoT Edge 裝置：
+本教學課程會以物聯網裝置的形式使用您的電腦或虛擬機器。 若要將您的機器轉換為 IoT Edge 裝置，需要下列服務：
 
-- [安裝適用於 Linux 的 Docker][lnk-docker-ubuntu] 並確定它正在執行。 
-- 大部分的 Linux 發行版本 (包括 Ubuntu) 都已安裝 Python 2.7。 請使用下列命令確定 pip 已安裝：`sudo apt-get install python-pip`。
+* Python pip，以安裝 IoT Edge 執行階段。
+   * Linux：`sudo apt-get install python-pip`。
+   * MacOS：`sudo easy_install pip`。
+* Docker，以執行 IoT Edge 模組
+   * [安裝適用於 Linux 的 Docker][lnk-docker-ubuntu] 並確定它正在執行。 
+   * [安裝適用於 Mac 的 Docker][lnk-docker-mac] 並確定它正在執行。 
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -92,7 +96,7 @@ sudo docker ps
 
 在本教學課程中，您可以建立新的 IoT Edge 裝置，並在其中安裝 IoT Edge 執行階段。 然後，您會使用 Azure 入口網站來推送 IoT Edge 模組，讓其無須變更裝置本身就能在裝置上執行。 在此案例中，您推送的模組會建立可在教學課程中使用的環境資料。 
 
-在執行模擬裝置的電腦上再次開啟命令提示字元。 確認從雲端部署的模組是在 IoT Edge 裝置上執行：
+在執行模擬裝置的電腦上再次開啟命令提示字元。 確認從雲端部署的模組正在 IoT Edge 裝置上執行：
 
 ```cmd
 sudo docker ps
@@ -130,4 +134,5 @@ sudo docker logs -f tempSensor
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

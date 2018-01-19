@@ -2,24 +2,24 @@
 title: "在 Linux 上建立 Azure Service Fabric 容器應用程式 | Microsoft Docs"
 description: "在 Azure Service Fabric 上建立第一個 Linux 容器應用程式。  使用您的應用程式建置 Docker 映像、將映像推送到容器登錄，建置和部署 Service Fabric 容器應用程式。"
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -66,23 +66,34 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 > Web 前端服務設定為在連接埠 80 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
 >
 
-### <a name="deploy-the-application-manifests"></a>部署應用程式資訊清單 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>安裝 Service Fabric 命令列介面並且連線至您的叢集
 在 CLI 環境中安裝 [Service Fabric CLI (sfctl)](service-fabric-cli.md)
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 使用 Azure CLI 連線到 Azure 中的 Service Fabric 叢集。 此端點是叢集的管理端點，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080`。
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>部署 Service Fabric 應用程式 
+Service Fabric 容器應用程式可以使用描述的 Service Fabric 應用程式套件或 Docker Compose 進行部署。 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>使用 Service Fabric 應用程式套件進行部署
 使用所提供的安裝指令碼將投票應用程式定義複製到叢集、註冊應用程式類型，以及建立應用程式的執行個體。
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>使用 Docker Compose 部署應用程式
+在 Service Fabric 叢集上使用 Docker Compose 並且搭配下列命令，部署及安裝應用程式。
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 開啟瀏覽器並瀏覽至 Service Fabric Explorer (http://\<my-azure-service-fabric-cluster-url>:19080/Explorer)，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`。 展開 [應用程式] 節點，可看到投票應用程式類型和您建立的執行個體現在有一個項目。

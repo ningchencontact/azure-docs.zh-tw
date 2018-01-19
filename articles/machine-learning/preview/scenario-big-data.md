@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>資料的伺服器工作負載預測 (TB)
 
@@ -47,11 +47,11 @@ ms.lasthandoff: 12/18/2017
 要執行此範例所需符合的必要條件如下：
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-* 已安裝的版本[Azure 機器學習 Workbench](./overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](./quickstart-installation.md)。 如果您有多個訂閱，您可以[設定想要訂用帳戶成為目前作用中訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)。
+* 已安裝 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](./quickstart-installation.md)。 如果您有多個訂用帳戶，您可以[將所需訂用帳戶設定為目前作用中的訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)。
 * Windows 10 (本範例中的指示大多與 macOS 系統通用)。
-* 資料科學虛擬機器 (DSVM) 適用於 Linux (Ubuntu)，最好在美東地區資料找出的位置。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 
+* 適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)，最好位於資料所在的美國東部區域。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 
 
-請遵循[指令](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present)AML Workbench 啟用 VM 上的無密碼 sudoer 存取。  您可以選擇使用[受 SSH 金鑰為基礎的驗證建立及使用 VM 在 AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取 VM。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
+請依照[指示](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present)為 AML Workbench 啟用虛擬機器上的無密碼 sudoer 存取。  您可以選擇使用[以 SSH 金鑰為基礎的驗證，以在 AML Workbench 中建立及使用虛擬機器](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取虛擬機器。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
 
  欄位名稱| 值 |  
  |------------|------|
@@ -62,7 +62,7 @@ DSVM IP 位址 | xxx|
 
  您可選擇使用任何已安裝 [Docker 引擎](https://docs.docker.com/engine/)的虛擬機器。
 
-* HDInsight Spark 叢集，與採用 Hortonworks Data Platform 3.6 版 Spark 版本 2.1.x 版，最好在美東地區資料找出的位置。 如需如何建立 HDInsight 叢集的詳細資訊，請前往[在 Azure HDInsight 中建立 Apache Spark 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)。 我們建議使用具有三個背景工作的叢集，而背景工作各有 16 個核心和 112 GB 的記憶體。 或者，您可只選擇 VM 類型 `D12 V2` 作為前端節點，選擇 `D14 V2` 作為背景工作節點。 叢集的部署大約需要 20 分鐘。 您需要叢集名稱、SSH 使用者名稱和密碼，才能試用此範例。 儲存含有 Azure HDInsight 叢集資訊的下列表格，以供後續步驟使用：
+* 配備 Hortonworks Data Platform 3.6 版和 Spark 2.1.x 版的 HDInsight Spark 叢集，最好位於資料所在的美國東部區域。 如需如何建立 HDInsight 叢集的詳細資訊，請前往[在 Azure HDInsight 中建立 Apache Spark 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)。 我們建議使用具有三個背景工作的叢集，而背景工作各有 16 個核心和 112 GB 的記憶體。 或者，您可只選擇 VM 類型 `D12 V2` 作為前端節點，選擇 `D14 V2` 作為背景工作節點。 叢集的部署大約需要 20 分鐘。 您需要叢集名稱、SSH 使用者名稱和密碼，才能試用此範例。 儲存含有 Azure HDInsight 叢集資訊的下列表格，以供後續步驟使用：
 
  欄位名稱| 值 |  
  |------------|------|
@@ -95,11 +95,11 @@ DSVM IP 位址 | xxx|
 
 ## <a name="data-description"></a>資料說明
 
-此範例中使用的資料是綜合伺服器的工作負載資料， 它被裝載於美國東部地區處於可公開存取的 Azure Blob 儲存體帳戶。 特定的儲存體帳戶的資訊位於`dataFile`欄位[ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) ，格式為"wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>"。 您可以直接使用 Blob 儲存體中的資料。 如果存放裝置可供多位使用者同時，您可以使用[azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)下載到您自己的試驗更好的體驗的儲存體的資料。 
+此範例中使用的資料是綜合伺服器的工作負載資料， 並裝載於可在美國東部區域公開存取的 Azure Blob 儲存體帳戶中。 儲存體帳戶的具體資訊位於 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) 的 `dataFile` 欄位，格式為 "wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>"。 您可以直接使用 Blob 儲存體中的資料。 若有多位使用者同時使用此儲存體，您可以使用 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) 將資料下載到自己的儲存體中，以獲得更好的實驗體驗。 
 
 資料大小總計約為 1 TB。 每個檔案大約 1-3 GB，採用 CSV 檔案格式，且沒有標頭。 每個資料列都代表特定伺服器上的交易負載。 資料結構描述的詳細資訊如下所示：
 
-資料行編號 | 欄位名稱| 類型 | 說明 |  
+資料行編號 | 欄位名稱| 類型 | 描述 |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | DateTime |    工作階段開始時間
 2  |`SessionEnd`    | DateTime | 工作階段結束時間
@@ -127,7 +127,7 @@ DSVM IP 位址 | xxx|
 
 此範例中的檔案整理如下。
 
-| 檔案名稱 | 類型 | 說明 |
+| 檔案名稱 | 類型 | 描述 |
 |-----------|------|-------------|
 | `Code` | 資料夾 | 此資料夾包含範例中的所有程式碼。 |
 | `Config` | 資料夾 | 此資料夾包含組態檔。 |
@@ -158,7 +158,7 @@ DSVM IP 位址 | xxx|
 
 您應使用一個容器進行一個月資料集的實驗，然後使用另一個容器進行完整資料集的實驗。 因為資料和模型都會儲存為 Parquet 檔案，每個檔案實際上都是容器中的資料夾，其中包含多個 blob。 所產生的容器如下所示：
 
-| blob 前置詞名稱 | 類型 | 說明 |
+| blob 前置詞名稱 | 類型 | 描述 |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | 數值特徵的標準 scaler 模型。 |
 | stringIndexModel | Parquet | 非數值特徵的字串索引子模型。|
@@ -184,7 +184,7 @@ DSVM IP 位址 | xxx|
 
 第一個引數 `configFilename` 是一個本機組態檔，您在其中儲存 blob 儲存體資訊並指定載入資料的位置。 它會預設為 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json)，且即將用於一個月資料執行。 我們也加入您需要在完整資料集上使用的 [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json)。 組態中的內容如下所示： 
 
-| 欄位 | 類型 | 說明 |
+| 欄位 | 類型 | 描述 |
 |-----------|------|-------------|
 | storageAccount | 字串 | Azure 儲存體帳戶名稱 |
 | storageContainer | 字串 | Azure 儲存體帳戶中用來儲存中繼結果的容器 |
@@ -274,7 +274,7 @@ attach_storage_container(spark, storageAccount, storageKey)
 
 在 aml_config 資料夾中會建立下列兩個檔案：
     
--  myhdi.compute： 此檔案包含針對遠端執行目標的連接和組態資訊。
+-  myhdi.compute：這個檔案包含遠端執行目標的連線和設定資訊。
 -  myhdi.runconfig：這個檔案是 Workbench 應用程式中使用的一組執行選項。
 
 
