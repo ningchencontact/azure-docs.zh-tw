@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Azure Cosmos DB 繫結
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
-查看特定語言的範例：
+請參閱特定語言的範例：
 
 * [C#](#trigger---c-example)
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
@@ -148,7 +148,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDBTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** || 必須設為 `cosmosDBTrigger`。 |
 |**direction** || 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
@@ -183,7 +183,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
 
 ## <a name="input---example-1"></a>輸入 - 範例 1
 
-查看可讀取單一文件的特定語言範例：
+請參閱可讀取單一文件的特定語言範例：
 
 * [C#](#input---c-example)
 * [C# 指令碼 (.csx)](#input---c-script-example)
@@ -343,7 +343,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
 
 ## <a name="input---example-2"></a>輸入 - 範例 2
 
-查看可讀取多個文件的特定語言範例：
+請參閱可讀取多個文件的特定語言範例：
 
 * [C#](#input---c-example-2)
 * [C# 指令碼 (.csx)](#input---c-script-example-2)
@@ -384,7 +384,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -453,7 +453,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `documentdb`。        |
 |**direction**     || 必須設為 `in`。         |
@@ -482,7 +482,7 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 
 ## <a name="output---example"></a>輸出 - 範例
 
-查看特定語言的範例：
+請參閱特定語言的範例：
 
 * [C#](#output---c-example)
 * [C# 指令碼 (.csx)](#output---c-script-example)
@@ -646,7 +646,7 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 }
 ```
 
-若要新增 `project.json` 檔案，請參閱 [F# 套件管理](functions-reference-fsharp.md#package)。
+若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
@@ -725,7 +725,7 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `documentdb`。        |
 |**direction**     || 必須設為 `out`。         |

@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 Azure 虛擬機器部署
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -314,7 +314,7 @@ ms.lasthandoff: 11/02/2017
 
 在本文中，我們將討論在 Azure 中的虛擬機器 (VM) 上部署 SAP 應用程式的步驟，包括替代部署選項和疑難排解。 本文是以 [Azure 虛擬機器 (VM) 上的 SAP NetWeaver - 規劃和實作指南][planning-guide]為基礎。 本文也可補充 SAP 安裝文件和 SAP Note 的不足，而這些是安裝及部署 SAP 軟體的主要資源。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 針對 SAP 軟體部署設定 Azure 虛擬機器，牽涉到多個步驟和資源。 開始之前，請確定您符合在 Azure 中的虛擬機器上安裝 SAP 軟體的必要條件。
 
 ### <a name="local-computer"></a>本機電腦
@@ -401,7 +401,7 @@ ms.lasthandoff: 11/02/2017
 2.  選取 [計算]，然後選取您想要部署的作業系統類型。 例如，Windows Server 2012 R2、SUSE Linux Enterprise Server 12 (SLES 12)、Red Hat Enterprise Linux 7.2 (RHEL 7.2) 或 Oracle Linux 7.2。 預設清單檢視不會顯示所有支援的作業系統。 選取 [查看全部] 以取得完整清單。 如需 SAP 軟體部署支援的作業系統詳細資訊，請參閱 SAP Note [1928533]。
 3.  在下一頁上檢閱條款及條件。
 4.  在 [選取部署模型] 方塊中，選取 [Resource Manager]。
-5.  選取 [ **建立**]。
+5.  選取 [建立] 。
 
 除了所有必要的資源 (例如網路介面或儲存體帳戶) 以外，此精靈會引導您完成必要參數設定以建立虛擬機器。 其中一些參數包括︰
 
@@ -419,7 +419,8 @@ ms.lasthandoff: 11/02/2017
 3. **設定**：
   * **儲存體**
     * **磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
-    * **使用受管理的磁碟**：如果您想要使用受管理的磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的[受管理磁碟][planning-guide-managed-disks]。
+    * 
+            **使用受控磁碟**：如果您想要使用受控磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的[受管理磁碟][planning-guide-managed-disks]。
     * **儲存體帳戶**：選取現有的儲存體帳戶或建立新的儲存體帳戶。 並非所有的儲存體類型都適用於執行 SAP 應用程式。 如需儲存體類型的詳細資訊，請參閱[適用於 SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署][dbms-guide]中的 [Microsoft Azure 儲存體][dbms-guide-2.3]。
   * **網路**
     * **虛擬網路**和**子網路**：若要整合虛擬機器與內部網路，請選取連線到內部部署網路的虛擬網路。
@@ -445,13 +446,13 @@ ms.lasthandoff: 11/02/2017
   若只要使用一部虛擬機器建立一個兩層系統，請使用此範本。
 * [**兩層組態 (僅只一部虛擬機器) 範本 - 受管理磁碟** (sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
 
-  若只要使用一部虛擬機器和受管理磁碟建立一個兩層系統，請使用此範本。
+  若只要使用一部虛擬機器和受控磁碟建立一個兩層系統，請使用此範本。
 * [**三層組態 (多部虛擬機器) 範本** (sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image]
 
   若要使用多部虛擬機器建立一個三層系統，請使用此範本。
 * [**三層組態 (多部虛擬機器) 範本 - 受管理磁碟** (sap-3-tier-marketplace-image-md)][sap-templates-3-tier-marketplace-image-md]
 
-  若要使用多部虛擬機器和受管理磁碟建立一個三層系統，請使用此範本。
+  若要使用多部虛擬機器和受控磁碟建立一個三層系統，請使用此範本。
 
 在 Azure 入口網站中，輸入範本的下列參數：
 
@@ -505,7 +506,7 @@ ms.lasthandoff: 11/02/2017
 #### <a name="post-deployment-steps"></a>部署後步驟
 建立 VM 及部署 VM 之後，您需要在 VM 中安裝所需的軟體元件。 由於這類 VM 部署中的部署/軟體安裝順序，要安裝的軟體必須已可在 Azure 中或另一部 VM 上使用，或成為可以附加的磁碟。 否則，考慮使用可提供內部部署資產 (安裝共用) 連線的跨單位案例。
 
-在 Azure 中部署您的 VM 之後，請遵循相同的指導方針和工具在 VM 上安裝 SAP 軟體，就像在內部部署環境中所做的一樣。 若要在 Azure VM 上安裝 SAP 軟體，SAP 和 Microsoft 建議將 SAP 安裝媒體上傳並儲存在 Azure VHD 或受管理磁碟上，或建立作為檔案伺服器並包含所有必要 SAP 安裝媒體的 Azure VM。
+在 Azure 中部署您的 VM 之後，請遵循相同的指導方針和工具在 VM 上安裝 SAP 軟體，就像在內部部署環境中所做的一樣。 若要在 Azure VM 上安裝 SAP 軟體，SAP 和 Microsoft 建議將 SAP 安裝媒體上傳並儲存在 Azure VHD 或受控磁碟上，或建立作為檔案伺服器並包含所有必要 SAP 安裝媒體的 Azure VM。
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>案例 2：使用自訂映像為 SAP 部署 VM
 因為不同版本的作業系統或 DBMS 有不同的修補需求，所以您在 Azure Marketplace 中找到的映像可能無法滿足您的需求。 您可以改為使用自己的 OS/DBMS VM 映像來建立 VM，稍後再加以部署。
@@ -530,10 +531,10 @@ ms.lasthandoff: 11/02/2017
 ![使用私人 Marketplace 中的 VM 映像部署適用於 SAP 系統之 VM 的流程圖][deployment-guide-figure-300]
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>使用 Azure 入口網站建立虛擬機器
-要從受管理磁碟映像建立新的虛擬機器，最簡單方式就是使用 Azure 入口網站。 如需如何建立受管理磁碟映像的詳細資訊，請參閱[在 Azure 中擷取一般化 VM 的受管理映像](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)。
+要從受控磁碟映像建立新的虛擬機器，最簡單方式就是使用 Azure 入口網站。 如需如何建立受控磁碟映像的詳細資訊，請參閱[在 Azure 中擷取一般化 VM 的受控映像](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)。
 
 1.  移至 <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>。 或者，在 Azure 入口網站的功能表中選取 [映像]。
-2.  選取要部署的受管理磁碟映像，然後按一下 [建立 VM]。
+2.  選取要部署的受控磁碟映像，然後按一下 [建立 VM]。
 
 除了所有必要的資源 (例如網路介面或儲存體帳戶) 以外，此精靈會引導您完成必要參數設定以建立虛擬機器。 其中一些參數包括︰
 
@@ -551,7 +552,8 @@ ms.lasthandoff: 11/02/2017
 3. **設定**：
   * **儲存體**
     * **磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
-    * **使用受管理的磁碟**：如果您想要使用受管理的磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的[受管理磁碟][planning-guide-managed-disks]。
+    * 
+            **使用受控磁碟**：如果您想要使用受控磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的[受管理磁碟][planning-guide-managed-disks]。
   * **網路**
     * **虛擬網路**和**子網路**：若要整合虛擬機器與內部網路，請選取連線到內部部署網路的虛擬網路。
     * **公用 IP 位址**︰選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
@@ -575,13 +577,13 @@ ms.lasthandoff: 11/02/2017
   若只要使用一部虛擬機器建立一個兩層系統，請使用此範本。
 * [**兩層組態 (僅只一部虛擬機器) 範本 - 受管理磁碟映像** (sap-2-tier-user-image-md)][sap-templates-2-tier-user-image-md]
 
-  若只要使用一部虛擬機器和受管理磁碟映像建立一個兩層系統，請使用此範本。
+  若只要使用一部虛擬機器和受控磁碟映像建立一個兩層系統，請使用此範本。
 * [**三層組態 (多部虛擬機器) 範本** (sap-3-tier-user-image)][sap-templates-3-tier-user-image]
 
   若要使用多部虛擬機器或自己的 OS 映像建立一個三層系統，請使用此範本。
 * [**三層組態 (多部虛擬機器) 範本 - 受管理磁碟映像** (sap-3-tier-user-image-md)][sap-templates-3-tier-user-image-md]
 
-  若要使用多部虛擬機器或自己的 OS 映像和受管理磁碟映像建立一個三層系統，請使用此範本。
+  若要使用多部虛擬機器或自己的 OS 映像和受控磁碟映像建立一個三層系統，請使用此範本。
 
 在 Azure 入口網站中，輸入範本的下列參數：
 
@@ -605,9 +607,10 @@ ms.lasthandoff: 11/02/2017
       * [適用於 SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署][dbms-guide]中的 [Microsoft Azure 儲存體][dbms-guide-2.3]
       * [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
       * [Microsoft Azure 儲存體簡介][storage-introduction]
-  * **使用者映像 VHD URI** (僅限非受管理磁碟映像範本)：私人 OS 映像 VHD 的 URI，例如 https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd。
-  * **使用者映像儲存體帳戶** (僅限非受管理磁碟映像範本)：私人 OS 映像儲存所在的儲存體帳戶名稱，例如 &lt;accountname> in https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd。
-  * **userImageId** (僅限非受管理磁碟映像範本)：您想要使用的受管理磁碟映像的識別碼。
+  * **使用者映像 VHD URI** (僅限非受控磁碟映像範本)：私人 OS 映像 VHD 的 URI，例如 https://&lt;accountname&gt;.blob.core.windows.net/vhds/userimage.vhd。
+  * **使用者映像儲存體帳戶** (僅限非受控磁碟映像範本)：私人 OS 映像儲存所在的儲存體帳戶名稱，例如 &lt;accountname&gt; in https://&lt;accountname&gt;.blob.core.windows.net/vhds/userimage.vhd。
+  * 
+            **userImageId** (僅限非受控磁碟映像範本)：您想要使用的受控磁碟映像的識別碼。
   * **管理員使用者名稱**和**管理員密碼**：使用者名稱和密碼。
 
     建立新的使用者，以便登入虛擬機器。
@@ -671,7 +674,7 @@ ms.lasthandoff: 11/02/2017
   若只要使用一部虛擬機器建立一個兩層系統，請使用此範本。
 * [**兩層組態 (僅限一部虛擬機器) 範本 - 受管理磁碟** (sap-2-tier-user-disk-md)][sap-templates-2-tier-os-disk-md]
 
-  若只要使用一部虛擬機器和受管理磁碟建立一個兩層系統，請使用此範本。
+  若只要使用一部虛擬機器和受控磁碟建立一個兩層系統，請使用此範本。
 
 在 Azure 入口網站中，輸入範本的下列參數：
 
@@ -692,8 +695,9 @@ ms.lasthandoff: 11/02/2017
       * [適用於 SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署][dbms-guide]中的 [Microsoft Azure 儲存體][dbms-guide-2.3]
       * [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
       * [Microsoft Azure 儲存體簡介][storage-introduction]
-  * **OS 磁碟 VHD URI** (僅限非受管理磁碟範本)：私人 OS 磁碟的 URI，例如 https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd。
-  * **作業系統磁碟受管理磁碟識別碼** (僅限非受管理磁碟範本)：作業系統磁碟 /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN 的受管理磁碟識別碼
+  * **OS 磁碟 VHD URI** (僅限非受控磁碟範本)：私人 OS 磁碟的 URI，例如 https://&lt;accountname&gt;.blob.core.windows.net/vhds/osdisk.vhd。
+  * 
+            **作業系統磁碟受控磁碟識別碼** (僅限非受控磁碟範本)：作業系統磁碟 /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN 的受控磁碟識別碼
   * **新的或現有的子網路**︰決定要建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
   * **子網路識別碼**：虛擬機器將要連線的子網路識別碼。 選取用於將虛擬機器連線到內部部署網路之 VPN 或 Azure ExpressRoute 虛擬網路的子網路。 識別碼通常看起來像這樣︰
 
@@ -1009,7 +1013,7 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
    **預期的結果**：傳回效能計數器的清單。 此檔案不得是空的。
 
- b.這是另一個 C# 主控台應用程式。 執行 `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+ b. 執行 `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
    **預期的結果**：傳回**無**錯誤的一行，例如 **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
 
@@ -1035,7 +1039,7 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
     **預期的結果**：列出 Azure Enhanced Monitoring Extension 目錄的內容。
 
-  b.這是另一個 C# 主控台應用程式。 執行 `ps -ax | grep AzureEnhanced`
+  b. 執行 `ps -ax | grep AzureEnhanced`
 
      **預期的結果**：顯示類似下列一個項目：`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
@@ -1083,7 +1087,7 @@ AzureEnhancedMonitoring Windows 服務會收集 Azure 中的效能計量。 如�
 ###### <a name="issue"></a>問題
 安裝目錄 \\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;版本>\\drop 是空的。
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方法
 未安裝此擴充功能。 判斷這是否為 Proxy 問題 (如先前所述)。 您可能需要重新啟動電腦，或重新執行 `Set-AzureRmVMAEMExtension` 組態指令碼。
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Azure Enhanced Monitoring 的服務不存在
@@ -1096,7 +1100,7 @@ Azperflib.exe 輸出會擲回錯誤︰
 ![執行 azperflib.exe 即表示 Azure Enhanced Monitoring Extension for SAP 的服務未執行][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方法
 如果服務不存在，即表示尚未正確安裝 Azure Enhanced Monitoring Extension for SAP。 請使用 [Azure 中適用於 SAP 的 VM 部署案例][deployment-guide-3]中針對您的部署案例所述的步驟，重新部署此擴充功能。
 
 部署此擴充功能之後，請在一小時後再度檢查 Azure VM 中是否提供 Azure 效能計數器。
@@ -1106,7 +1110,7 @@ Azperflib.exe 輸出會擲回錯誤︰
 ###### <a name="issue"></a>問題
 AzureEnhancedMonitoring Windows 服務存在並已啟用，但無法啟動。 如需詳細資訊，請檢查應用程式事件記錄檔。
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方法
 組態不正確。 如[設定 Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5] 所述，重新啟動 VM 的監視擴充功能。
 
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] 遺失部分 Azure 效能計數器
@@ -1122,7 +1126,7 @@ Daemon 會收集在 Azure 中的效能計量。 如果未執行 Daemon，則不�
 ###### <a name="issue"></a>問題
 \\var\\lib\\waagent\\ 目錄未包含 Azure Enhanced Monitoring Extension 的子目錄。
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方法
 未安裝此擴充功能。 判斷這是否為 Proxy 問題 (如先前所述)。 您可能需要重新啟動電腦及/或重新執行 `Set-AzureRmVMAEMExtension` 組態指令碼。
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] 遺失部分 Azure 效能計數器
