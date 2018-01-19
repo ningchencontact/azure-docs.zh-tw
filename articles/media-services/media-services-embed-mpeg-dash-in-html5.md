@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>透過 DASH.js 將 MPEG-DASH 彈性資料流視訊嵌入到 HTML5 應用程式
-## <a name="overview"></a>Overview
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>透過 DASH.js 將 MPEG-DASH 彈性資料流視訊嵌入到 HTML5 應用程式
+## <a name="overview"></a>概觀
 MPEG-DASH 符合 ISO 的視訊內容彈性資料流標準，能為想要傳遞高品質彈性視訊資料流輸出的人帶來相當大的幫助。 透過 MPEG-DASH，視訊資料流在網路擁塞時會自動降至低畫質的內容。 這會減少檢視者在播放程式下載接下來數秒的播放內容 (亦即緩衝) 時，看到視訊「暫停」的可能性。 當網路不再擁塞，視訊播放程式會改為高品質的資料流。 這種調整所需頻寬的能力也會讓視訊的開始時間變快。 這表示會在快速下載但低品質區段中播放頭幾秒的內容，一旦已緩衝足夠的內容，就會升級為高品質內容。
 
 Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式。 其目標是要在需要播放視訊的應用程式中，提供一個健全、跨平台、並可自由重複使用的播放程式。 它可在任何支援 W3C Media Source Extensions (MSE) 的瀏覽器 (亦即今日的 Chrome、Microsoft Edge 與 IE11 ) 中播放 MPEG-DASH (其他瀏覽器已表示其支援 MSE 的用途)。 如需 DASH.js 的詳細資訊，請參閱 GitHub dash.js 存放庫。
@@ -51,7 +51,7 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
     </html>
 
 ## <a name="adding-the-dashjs-player"></a>新增 DASH.js 播放程式
-若要將 dash.js 參考實作新增至該應用程式，您必須從 1.0 版的 dash.js 專案捕捉 dash.all.js 檔案。 這應該儲存在您應用程式的 JavaScript 資料夾中。 此檔案可讓您很方便地將所有必要的 dash.js 程式碼提取到一個檔案中。 如果您瀏覽過 dash.js 存放庫，就能發現各個檔案、測試程式碼等等，但如果您只是要使用 dash.js，那麼 dash.all.js 就是您所需的檔案。
+若要將 dash.js 參考實作新增至該應用程式，您必須從 1.0 版的 dash.js 專案捕捉 dash.all.js 檔案。 這應該儲存在您應用程式的 JavaScript 資料夾中。 此檔案可讓您很方便地將所有必要的 dash.js 程式碼提取到一個檔案中。 如果您瀏覽過 dash.js 存放庫，就會發現各個檔案、測試程式碼等等，但如果您只是要使用 dash.js，那麼 dash.all.js 就是您所需的檔案。
 
 若要在應用程式中新增 dash.js 播放程式，請將指令碼標記新增到 basicPlayer.html 的標頭區段：
 
@@ -79,7 +79,7 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 
 這會呼叫 MediaPlayer 類別的 startup () 函式，以確保播放程式準備好播放視訊。 此外，這個函式可確保已載入所有必要的類別 (如內容所定義)。 一旦播放程式準備就緒，您可以使用 attachview () 函式將視訊元素附加到播放程式。 這可讓 MediaPlayer 將視訊資料流插入元素中，並視需要控制播放。
 
-將 MPD 檔案的 URL 傳遞到 MediaPlayer，讓它知道預期要播放的視訊。一旦頁面整個載入後，就必須執行剛剛建立的 setupVideo() 函式。 做法是使用內文元素的載入事件。 將 <body> 元素變更為：
+將 MPD 檔案的 URL 傳遞到 MediaPlayer，讓它知道預期要播放的視訊。 一旦頁面整個載入後，就必須執行剛剛建立的 setupVideo() 函式。 做法是使用內文元素的載入事件。 將 <body> 元素變更為：
 
     <body onload="setupVideo()">
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -279,14 +279,14 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>執行個體中繼資料資料類別
 可透過執行個體中繼資料服務取得下列資料類別：
 
-資料 | 說明 | 引進的版本 
+資料 | 描述 | 引進的版本 
 -----|-------------|-----------------------
 location | VM 執行所在的 Azure 區域 | 2017-04-02 
-名稱 | VM 的名稱 | 2017-04-02
+name | VM 的名稱 | 2017-04-02
 提供項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
 sku | VM 映像的特定 SKU | 2017-04-02
-版本 | VM 映像的版本 | 2017-04-02
+version | VM 映像的版本 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 語言 | 範例 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>常見問題集

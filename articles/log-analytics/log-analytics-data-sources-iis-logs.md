@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics 中的 IIS 記錄檔 | Microsoft Docs"
-description: "Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Log Analytics 進行收集。  本文說明如何設定收集 IIS 記錄檔，以及它們在 OMS 儲存機制中建立的記錄詳細資料。"
+title: "Azure Log Analytics 中的 IIS 記錄 | Microsoft Docs"
+description: "Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Log Analytics 進行收集。  本文說明如何設定收集 IIS 記錄，以及它們在 Log Analytics 工作區中建立的記錄詳細資料。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics 中的 IIS 記錄檔
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Log Analytics 進行收集。  
@@ -41,7 +41,7 @@ Log Analytics 會從每個連接的來源收集 IIS 記錄檔項目，間隔大�
 ## <a name="iis-log-record-properties"></a>IIS 記錄檔記錄屬性
 IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦名稱。 |
 | cIP |用戶端的 IP 位址。 |
@@ -68,7 +68,7 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 ## <a name="log-searches-with-iis-logs"></a>使用 IIS 記錄檔的記錄搜尋
 下表提供擷取 IIS 記錄檔記錄的不同記錄查詢範例。
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 |:--- |:--- |
 | W3CIISLog |所有 IIS 記錄檔記錄。 |
 | W3CIISLog &#124; where scStatus==500 |具有傳回狀態 500 的所有 IIS 記錄。 |

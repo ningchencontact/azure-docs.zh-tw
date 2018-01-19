@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從 HDFS 複製資料或將資料複製到 HDFS | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ ms.lasthandoff: 12/12/2017
 若要從不可公開存取的 HDFS 複製資料，或將資料複製到不可公開存取的 HDFS，您應該設定一個「自我裝載整合執行階段」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](concepts-integration-runtime.md) 一文。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 HDFS 專屬的 Data Factory 實體。
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 12/12/2017
 
 以下是針對 HDFS 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為：**Hdfs**。 | 是 |
 | url |到 HDFS 的 URL |是 |
@@ -112,7 +113,7 @@ ms.lasthandoff: 12/12/2017
 
 若要從 HDFS 複製資料，請將資料集的類型屬性設定為 **FileShare**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**FileShare** |是 |
 | folderPath | 資料夾的路徑。 例如：資料夾/子資料夾/ |是 |
@@ -156,13 +157,13 @@ ms.lasthandoff: 12/12/2017
 
 若要從 HDFS 複製資料，請將複製活動中的來源類型設定為 **HdfsSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**HdfsSource** |是 |
 | 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | distcpSettings | 使用 HDFS DistCp 時的屬性群組。 | 否 |
 | resourceManagerEndpoint | Yarn ResourceManager 端點 | 若使用 DistCp 則為「是」 |
-| tempScriptPath | 資料夾路徑，用來儲存暫存 DistCp 命令指令碼。 指令碼檔案由 Data Factory 所產生，並會在複製作業完成後移除。 | 若使用 DistCp 則為「是」 |
+| tempScriptPath | 資料夾路徑，用來儲存暫存 DistCp 命令指令碼。 指令碼檔案是由 Data Factory 產生，並會在複製作業完成後移除。 | 若使用 DistCp 則為「是」 |
 | distcpOptions | 對於 DistCp 命令提供的其他選項。 | 否 |
 
 **範例：使用 UNLOAD 的複製活動之中的 HDFS 來源**

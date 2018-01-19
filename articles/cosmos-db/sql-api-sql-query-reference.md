@@ -1,8 +1,8 @@
 ---
-title: "Azure Cosmos DB: SQL 語法查詢參考 |Microsoft 文件"
-description: "Azure Cosmos DB SQL 查詢語言參考文件。"
+title: "Azure Cosmos DB：SQL 語法查詢參考 | Microsoft Docs"
+description: "Azure Cosmos DB SQL 查詢語言的參考文件。"
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos 資料庫 SQL 語法參考
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 語法參考
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure 的 Cosmos DB 支援查詢使用熟悉的 SQL （結構化查詢語言） 的文件，例如文法透過階層式 JSON 而不需要明確的結構描述或建立次要索引。 本主題提供與 SQL API 帳戶相容的 SQL 查詢語言參考文件。
+Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本主題提供 SQL 查詢語言的參考文件，其與 SQL API 帳戶相容。
 
-SQL 查詢語言的逐步解說，請參閱[Azure Cosmos 資料庫的 SQL 查詢](sql-api-sql-query.md)。  
+如需 SQL 查詢語言的逐步解說，請參閱[適用於 Azure Cosmos DB 的 SQL 查詢](sql-api-sql-query.md)。  
   
 我們也邀請您造訪 [Query Playground](http://www.documentdb.com/sql/demo)，您可以在此試用 Azure Cosmos DB 並針對我們的資料集執行 SQL 查詢。  
   
@@ -665,7 +665,7 @@ ORDER BY <sort_specification>
   
      **語法慣例**  
   
-     下表描述用來描述下列 SQL 參考中的語法慣例。  
+     下表描述的慣例可用來說明下列 SQL 參考中的語法。  
   
     |**慣例**|**用於**|  
     |-|-|    
@@ -685,7 +685,7 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a>內建函式  
  Azure Cosmos DB 提供許多內建 SQL 函式。 內建函式的分類如下所示。  
   
-|函式|說明|  
+|函式|描述|  
 |--------------|-----------------|  
 |[數學函式](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
 |[類型檢查函式](#bk_type_checking_functions)|類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。|  

@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: c162ed156e9c7c64ee85ca86b30779e826d34bcd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: e3f15f043f6299592f4ece627f342d2ee324f467
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,8 @@ ms.lasthandoff: 12/15/2017
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析/產生檔案。
 
 ## <a name="get-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。 
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Azure Data Lake Store 專屬的 Data Factory 實體。
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 12/15/2017
 
 以下是針對 Azure Data Lake Store 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為 **AzureDataLakeStore**。 | 是 |
 | dataLakeStoreUri | Azure Data Lake Store 帳戶相關資訊。 此資訊會採用下列其中一種格式：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | 是 |
@@ -71,12 +72,12 @@ ms.lasthandoff: 12/15/2017
 
 >[!IMPORTANT]
 > 請確定您將 Azure Data Lake Store 中適當的權限授與服務主體：
->- **做為來源**，至少授與**讀取 + Execute**資料存取權限清單，然後複製內容的資料夾，或**讀取**複製單一檔案的權限。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
->- **為接收**，至少授與**寫入 + 執行**資料存取權限以建立子資料夾中的項目。 如果您使用 Azure IR 來複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯：
+>- **作為來源**，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
+>- **作為接收器**，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯：
 
 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 請將此欄位標示為 SecureString。 | 是 |
@@ -118,8 +119,8 @@ ms.lasthandoff: 12/15/2017
 
 >[!IMPORTANT]
 > 請確定您在 Azure Data Lake Store 中授與資料處理站服務識別適當的權限：
->- **做為來源**，至少授與**讀取 + Execute**資料存取權限清單，然後複製內容的資料夾，或**讀取**複製單一檔案的權限。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
->- **為接收**，至少授與**寫入 + 執行**資料存取權限以建立子資料夾中的項目。 如果您使用 Azure IR 來複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯：
+>- **作為來源**，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
+>- **作為接收**，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯：
 
 在 Azure Data Factory 中，除了 Data Lake Store 的一般資訊，您不需要在連結服務中指定任何屬性。
 
@@ -150,7 +151,7 @@ ms.lasthandoff: 12/15/2017
 
 若要將資料複製到 Azure Data Lake Store 或從該處複製資料，請將資料集的類型屬性設定為 **AzureDataLakeStoreFile**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**AzureDataLakeStoreFile** |是 |
 | folderPath | 檔案儲存體中容器和資料夾的路徑。 範例：根資料夾/子資料夾/ |是 |
@@ -194,7 +195,7 @@ ms.lasthandoff: 12/15/2017
 
 若要從 Azure Data Lake Store 複製資料，請將複製活動中的來源類型設定為 **AzureDataLakeStoreSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**AzureDataLakeStoreSource** |是 |
 | 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
@@ -233,9 +234,9 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store 作為接收器
 
-若要將資料複製到 Azure 資料湖存放區中，複製活動中設定 接收器類型**AzureDataLakeStoreSink**。 **sink** 區段支援下列屬性：
+若要將資料複製到 Azure Data Lake Store，請將複製活動中的接收類型設定為 **AzureDataLakeStoreSink**。 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為：**AzureDataLakeStoreSink** |是 |
 | copyBehavior | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 | 否 |

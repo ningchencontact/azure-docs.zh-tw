@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,8 @@ ms.lasthandoff: 01/05/2018
 具體而言，這個「Azure 資料表」連接器支援同時使用「帳戶金鑰」和「服務 SAS」 (共用存取簽章) 驗證來複製 Blob。
 
 ## <a name="get-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義「Azure 資料表儲存體」專屬的 Data Factory 實體。
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 01/05/2018
 
 您可以使用帳戶金鑰來建立「Azure 儲存體」已連結的服務，此金鑰可將「Azure 儲存體」的全域存取權提供給資料處理站。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為： **AzureStorage** |是 |
 | connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 請將此欄位標示為 SecureString。 |是 |
@@ -83,12 +84,12 @@ ms.lasthandoff: 01/05/2018
 > Azure Data Factory 現在僅支援 **服務 SAS**，但不支援帳戶 SAS。 如需這兩種類型的詳細資料及其建構方式，請參閱[共用存取簽章的類型](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 可從 Azure 入口網站或「儲存體總管」產生的 SAS URL 是「帳戶 SAS」，並不受到支援。
 
 > [!TIP]
-> 您可以執行下列 PowerShell 命令來產生服務 SAS 儲存體帳戶 （取代預留位置和授與所需的權限）：`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> 您可以執行下列 PowerShell 命令來產生儲存體帳戶的「服務 SAS」(取代預留位置和授與所需權限)：`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 若要使用「服務 SAS」驗證，以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為： **AzureStorage** |是 |
 | sasUri | 指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 請將此欄位標示為 SecureString。 |是 |
@@ -127,7 +128,7 @@ ms.lasthandoff: 01/05/2018
 
 若要將資料複製到「Azure 資料表」或從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**AzureTable** |是 |
 | tableName |Azure 資料表資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
@@ -168,7 +169,7 @@ ms.lasthandoff: 01/05/2018
 
 若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**AzureTableSource** |是 |
 | AzureTableSourceQuery |使用自訂的 Azure 資料表查詢來讀取資料。 請參閱下一節中的範例。 |否 |
@@ -194,7 +195,7 @@ ms.lasthandoff: 01/05/2018
 
 若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為：**AzureTableSink** |是 |
 | azureTableDefaultPartitionKeyValue |可供接收器使用的預設資料分割索引鍵值。 |否 |

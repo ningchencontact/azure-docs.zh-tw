@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ Azure Mobile Apps 會使用 App Service 驗證 / 授權來保護您的行動後�
 若要了解如何在您的 Mobile Apps 後端驗證用戶端，請參閱 [將驗證新增至您的應用程式](app-service-mobile-ios-get-started-users.md)。
 
 ### <a name="custom-auth"></a>做法：針對應用程式使用自訂驗證
+> [!IMPORTANT]
+> 若要啟用自訂驗證，您必須先啟用 App Service 驗證，但不需在 Azure 入口網站中選取 App Service 的提供者。 這會在裝載時啟用 WEBSITE_AUTH_SIGNING_KEY 環境變數。
+> 
+> 
 如果您不想要使用其中一個 App Service 驗證/授權提供者，您可以實作自己的登入系統。 安裝 [Microsoft.Azure.Mobile.Server.Login] 封裝，協助產生驗證權杖。  提供您自己的程式碼來驗證使用者認證。 例如，您可以針對資料庫中的 salted 和雜湊密碼進行檢查。 在下列範例中， `isValidAssertion()` 方法 (定義於其他地方) 會負責這些檢查。
 
 自訂驗證的公開方式為建立 ApiController 及公開 `register` 和 `login` 動作。 用戶端應該使用的自訂 UI，向使用者收集資訊。  此資訊會接著透過標準 HTTP POST 呼叫提交至 API。 伺服器驗證這項判斷提示之後，便使用 `AppServiceLoginHandler.CreateToken()` 方法來發行權杖。  ApiController **不得**使用 `[MobileAppController]`屬性。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 Microsoft 資料科學虛擬機器是預先安裝並設定數個常用於資料分析和機器學習之熱門工具的 Windows Azure 虛擬機器 (VM) 映像。 這些工具包括：
@@ -174,7 +174,7 @@ VM 上提供含 ML 服務的 SQL Server 2017 開發人員版本 (可使用 R 或
 [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) 可以用來探索並下載其他 Microsoft 開發工具。 另外在 Microsoft 資料科學虛擬機器桌面上也有提供工具的捷徑。  
 
 ## <a name="important-directories-on-the-vm"></a>VM 上的重要目錄
-| 項目 | 目錄 |
+| Item | 目錄 |
 | --- | --- |
 | Jupyter Notebook 伺服器組態 |C:\ProgramData\jupyter |
 | Jupyter Notebook 範例的主目錄 |c:\dsvm\notebooks |
@@ -200,5 +200,5 @@ VM 上提供含 ML 服務的 SQL Server 2017 開發人員版本 (可使用 R 或
 * 瀏覽至 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。  
 * 閱讀文章： [您可以在 Data Science Virtual Machine 上做的 10 件事](http://aka.ms/dsvmtenthings)
 * 了解如何使用 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)以系統化方式建置端對端分析方案。
-* 瀏覽 [Azure Machine Learning 資源庫](http://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure 機器學習和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 **開始** 功能表與桌面上提供此資源庫的圖示。
+* 瀏覽 [Azure AI 資源庫](http://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure 機器學習和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 **開始** 功能表與桌面上提供此資源庫的圖示。
 

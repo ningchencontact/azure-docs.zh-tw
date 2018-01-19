@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>新增、變更或移除 Azure 網路介面的 IP 位址
 
@@ -138,9 +138,9 @@ ms.lasthandoff: 12/20/2017
 > [!WARNING]
 > 如果設為虛擬機器作業系統內之網路介面主要 IP 位址的 IPv4 位址，不同於連接至 Azure 中的虛擬機器之主要網路介面主要 IP 組態的私人 IPv4 位址，可能會中斷與該虛擬機器的連線。
 
-在某些案例中，您必須手動設定虛擬機器作業系統內的網路介面 IP 位址。 例如，將多個 IP 位址新增至 Azure 虛擬機器時，您必須手動設定 Windows 作業系統的主要和次要 IP 位址。 針對 Linux 虛擬機器，您可能只需要手動設定次要 IP 位址。 如需詳細資訊，請參閱[將 IP 位址新增至 VM 作業系統](virtual-network-multiple-ip-addresses-portal.md#os-config)。 手動設定作業系統內的 IP 位址時，建議您一律使用靜態 (而非動態) 指派方法為網路介面的 IP 組態指派位址。 使用靜態方法指派位址，可確保位址在 Azure 內不會變更。 如果需要變更指派給 IP 組態的位址，建議您：
+在某些案例中，您必須手動設定虛擬機器作業系統內的網路介面 IP 位址。 例如，將多個 IP 位址新增至 Azure 虛擬機器時，您必須手動設定 Windows 作業系統的主要和次要 IP 位址。 針對 Linux 虛擬機器，您可能只需要手動設定次要 IP 位址。 如需詳細資訊，請參閱[將 IP 位址新增至 VM 作業系統](virtual-network-multiple-ip-addresses-portal.md#os-config)。 如果需要變更指派給 IP 組態的位址，建議您：
 
-1. 若要確保虛擬機器會接收來自 Azure DHCP 伺服器的位址，請將作業系統變更回透過 DHCP 指派 IP 位址並重新啟動虛擬機器。
+1. 確定虛擬機器會接收來自 Azure DHCP 伺服器的位址。 確定之後，將 IP 位址的指派變更回作業系統內的 DHCP，然後重新啟動虛擬機器。
 2. 停止 (解除配置) 虛擬機器。
 3. 變更 Azure 內之 IP 組態的 IP 位址。
 4. 啟動虛擬機器。

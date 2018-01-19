@@ -14,23 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群
-Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新資訊、檢視新的影片和播客、提出問題並提供意見反應的不同方式。   
+Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同方式。 您也可以檢視新的影片和播客、提出問題，以及提供意見反應。   
 
 ## <a name="videos-and-podcasts"></a>影片和播客
-| 劇集 | 主講人 | 日期 |
-| --- | --- | --- |
-| [使用 DRM 保護媒體內容](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) |Mingfei Yang |02/19/2016 |
-| [使用 AES 加密保護媒體內容](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) |Mingfei Yang |2/19/2016 |
-| [Azure 媒體服務開發人員深入探討](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) |Mingfei Yang |04/27/2015 |
-| [Azure 媒體索引器會自動建立您的媒體的文字記錄](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/) |Adarsh Solanki |07/09/2015 |
-| [Azure 媒體服務中的 Microsoft Hyperlapse - Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) |Adarsh Solanki |10/07/2015 |
+
+- [使用 DRM 保護媒體內容](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
+- [使用 AES 加密保護媒體內容](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
+- [Azure 媒體服務開發人員深入探討](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
+- [Azure 媒體索引器會自動建立您的媒體的文字記錄](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
+- [Azure 媒體服務中的 Microsoft Hyperlapse - Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
 
 ## <a name="provide-feedback-and-make-suggestions"></a>提供意見反應並提出建議
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
@@ -56,7 +55,7 @@ Azure 媒體服務的主要電子郵件是： **mediaservices@microsoft.com**。
 | 功能 | 電子郵件 |
 | --- | --- |
 | Azure 媒體分析 |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
+| Azure 媒體播放器 |ampinfo@microsoft.com |
 | Azure 媒體瀏覽器 |amse@microsoft.com |
 | 工作流程設計工具 |mepd@microsoft.com |
 

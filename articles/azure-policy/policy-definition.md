@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 11/29/2017
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
 * 模式
-* 參數
+* parameters
 * 顯示名稱
 * 說明
 * 原則規則
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/29/2017
 
 所有「Azure 原則」範本範例都位於[Azure 原則的範本](json-samples.md)。
 
-## <a name="mode"></a>模式
+## <a name="mode"></a>Mode
 
 建議您將 `mode` 設定為 `all`，以便讓原則指派評估所有資源群組和類型。 若要查看對資源群組強制執行標籤的原則定義範例，請參閱[允許來自某個資源群組的自訂 VM 映像](scripts/allow-custom-vm-image.md)。
 
@@ -200,7 +200,6 @@ ms.lasthandoff: 11/29/2017
 * **Append**：會在要求中加入一組已定義的欄位
 * **AuditIfNotExists**：如果資源不存在，便啟用稽核
 * **DeployIfNotExists**：如果資源不存在，便部署該資源。 目前，僅支援透過內建原則達到這個效果。
-* **DenyIfNotExists**：如果資源不存在，便拒絕建立資源
 
 對於 **append**，您必須提供下列詳細資料：
 
@@ -216,7 +215,7 @@ ms.lasthandoff: 11/29/2017
 
 值可以是字串或 JSON 格式物件。
 
-使用 **AuditIfNotExists****DeployIfNotExists**及 **DenyIfNotExists** 時，您可以評估子資源是否存在，並且在該資源不存在時套用規則及對應的效果。 例如，您可以要求針對所有虛擬網路部署網路監看員。
+使用 **AuditIfNotExists** 及 **DeployIfNotExists** 時，您可以評估子資源是否存在，並在該資源不存在時，套用規則及對應的效果。 例如，您可以要求針對所有虛擬網路部署網路監看員。
 如需在未部署虛擬機器擴充功能時進行稽核的範例，請參閱[稽核擴充功能是否不存在](scripts/audit-ext-not-exist.md)。
 
 
@@ -226,7 +225,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Cache/Redis**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | 設定是否啟用非 SSL Redis 伺服器連接埠 (6379)。 |
 | Microsoft.Cache/Redis/shardCount | 設定要在進階叢集快取上建立的分區數目。  |
@@ -236,13 +235,13 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Cdn/profiles**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | 設定定價層的名稱。 |
 
 **Microsoft.Compute/disks**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
 | Microsoft.Compute/imagePublisher | 設定用來建立虛擬機器的平台映像或 Marketplace 映像發行者。 |
@@ -252,7 +251,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -269,7 +268,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | 設定擴充功能發行者的名稱。 |
 | Microsoft.Compute/virtualMachines/extensions/type | 設定擴充功能的類型。 |
@@ -277,7 +276,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -293,26 +292,26 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | 設定閘道的大小。 |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | 設定此虛擬網路閘道的類型。 |
 | Microsoft.Network/virtualNetworkGateways/sku.name | 設定閘道 SKU 名稱。 |
 
 **Microsoft.Sql/servers**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | 設定伺服器的版本。 |
 
 **Microsoft.Sql/databases**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | 設定資料庫的版本。 |
 | Microsoft.Sql/servers/databases/elasticPoolName | 設定資料庫所在彈性集區的名稱。 |
@@ -321,14 +320,14 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | 設定資料庫彈性集區的所有共用 DTU。 |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | 設定彈性集區的版本。 |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | 設定用於計費的存取層。 |
 | Microsoft.Storage/storageAccounts/accountType | 設定 SKU 名稱。 |

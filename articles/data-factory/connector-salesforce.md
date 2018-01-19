@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7cd86922b0445fc81766ca54080e2fd3e64a6c61
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Salesforce 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,8 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 在上述兩種情況中，您也可能會收到「REQUEST_LIMIT_EXCEEDED」錯誤。 如需詳細資訊，請參閱 [Salesforce 開發人員限制](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf)文章的＜API 要求限制＞一節。
 
 ## <a name="getting-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Salesforce 連接器專屬的 Data Factory 實體。
 
@@ -60,17 +61,17 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 以下是針對 Salesforce 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type |類型屬性必須設為： **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
-| password |指定使用者帳戶的密碼。<br/><br/>您可以選擇將這個欄位標記以 securestring 的形式將它安全地儲存在 ADF，或將密碼儲存在 Azure 金鑰保存庫，而且可讓複製活動時執行資料複製，從中提取-進一步了解從[將認證儲存在金鑰保存庫](store-credentials-in-key-vault.md)。 |是 |
-| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>您可以選擇將這個欄位標記以 securestring 的形式將它安全地儲存在 ADF，或儲存在 Azure 金鑰保存庫中的安全性權杖，而且可讓複製活動時執行資料複製，從中提取-進一步了解從[將認證儲存在金鑰保存庫](store-credentials-in-key-vault.md)。 |是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 無法為來源，是接收如果來源連結服務沒有 IR |
+| password |指定使用者帳戶的密碼。<br/><br/>您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 |是 |
+| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將安全性權杖儲存在 Azure Key Vault，然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 |是 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有 IR，則對於來源而言是「否」，對於接收而言是「是」。 |
 
 >[!IMPORTANT]
->複製資料時**到**Salesforce，Azure 整合執行階段無法用來執行複製的預設值。 其他在 word 中，如果您的來源連結服務沒有指定的 IR，明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)接近您的 Salesforce 和在 Salesforce 中的建立關聯的位置與連結服務，如下列範例。
+>將資料複製**到** Salesforce 時，預設的 Azure Integration Runtime 無法用來執行複製。 也就是說，如果您的來源連結服務沒有指定的 IR，則以 Salesforce 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的 Salesforce 連結服務中產生關聯。
 
 **範例： 將認證儲存在 ADF**
 
@@ -138,7 +139,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要從 Salesforce 複製資料/複製資料至 Salesforce，將資料集的 type 屬性設定為 **SalesforceObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設為 **SalesforceObject**。  | 是 |
 | objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
@@ -169,7 +170,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 >[!NOTE]
 >基於向下相容性，從 Salesforce 複製資料時，使用先前的 RelationalTable 類型資料集仍能正常運作，但建議您改用新的 SalesforceObject 類型。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | Salesforce 中資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -182,7 +183,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**SalesforceSource** | 是 |
 | query |使用自訂查詢來讀取資料。 您可以使用 SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如：`select * from MyTable__c`。 | 否 (如果已指定資料集中的 "tableName") |
@@ -231,7 +232,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為：**SalesforceSink** | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為：**Insert** 和 **Upsert**。 | 否 (預設為 Insert) |

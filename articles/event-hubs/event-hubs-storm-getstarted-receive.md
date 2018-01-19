@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 從事件中樞接收事件
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/03/2017
     }
     ```
     
-    此 Storm Bolt 會記錄已接收事件的內容。 這可以輕鬆地擴充以將 Tuple 儲存至儲存體服務。 [HDInsight 感應器分析教學課程] 使用這種相同的方式，將資料儲存至 HBase。
+    此 Storm Bolt 會記錄已接收事件的內容。 這可以輕鬆地擴充以將 Tuple 儲存至儲存體服務。 [採用事件中樞的 HDInsight Storm 範例] 使用此相同方法將資料儲存到 Azure 儲存體和 Power BI 中。
 11. 使用下列程式碼，建立稱為 **LogTopology** 的類別：
     
     ```java
@@ -247,7 +247,7 @@ ms.lasthandoff: 11/03/2017
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight 感應器分析教學課程]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[採用事件中樞的 HDInsight Storm 範例]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>使用 Azure Machine Learning 分析客戶流失
 ## <a name="overview"></a>概觀
-本文提供使用 Azure Machine Learning 建置客戶流失分析專案的參考實作。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 我們也測量建立使用機器學習模型的精確度，並評估如何進一步開發之用。  
+本文提供使用 Azure Machine Learning 建置客戶流失分析專案的參考實作。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 對於以機器學習建立的模型，我們也衡量其正確性，同時評定進一步開發的方向。  
 
 ### <a name="acknowledgements"></a>通知
 這項實驗是由 Microsoft 的首席資料科學家 Serge Berger 和 Microsoft Azure Machine Learning 的前產品經理 Roger Barga 共同開發和測試。 Azure 文件小組高度認可其專業知識，並感謝他們分享這份白皮書。
 
 > [!NOTE]
-> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Cortana Intelligence 資源庫](http://gallery.cortanaintelligence.com/)中的[售業客戶流失模型範本](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1)
+> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的[售業客戶流失模型範本](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>客戶流失的問題
-消費者市場和所有企業產業中的公司都必須處理客戶流失的問題。 有時，客戶流失太多會影響政策決定。 傳統的解決方案是預測流失傾向較高的客戶，透過特別禮遇、行銷活動或給予特殊待遇，滿足他們的需求。 這些作法隨著產業而不同，甚至在同一產業的不同消費群之間也會不同 (例如電信業)。
+消費者市場和所有企業產業中的公司都必須處理客戶流失的問題。 有時，客戶流失太多會影響政策決定。 傳統的解決方案是預測流失傾向較高的客戶，透過特別禮遇、行銷活動或給予特殊待遇，滿足他們的需求。 這些作法隨著產業而不同， 甚至在同一產業的不同消費群之間也會有所不同 (例如電信業)。
 
-共同點就是公司必須將這些額外的客戶維繫工作量降到最低。 因此，一般的作法是以流失機率來評比每位客戶，然後解決排名前 N 位的客戶。 最上層的客戶可能最有利潤的項目。 比方說，在更複雜的情況下收益函式會採用在特殊 dispensation 候選項目選取期間。 不過，這些考量是只包含的完整變換處理策略的一部分。 公司也需要考慮風險 (和相關的風險容忍度)、介入的程度和成本，以及合理的客戶區隔。  
+共同點就是公司必須將這些額外的客戶維繫工作量降到最低。 因此，一般的作法是以流失機率來評比每位客戶，然後解決排名前 N 位的客戶。 排名前面的客戶可能是對公司最有利潤的客戶。 例如，在更複雜的情況下，選擇要給予特殊待遇的候選者時會採用利潤函數。 這些考量只不過是處理客戶流失的整體策略的一部分。 公司也需要考慮風險 (和相關的風險容忍度)、介入的程度和成本，以及合理的客戶區隔。  
 
 ## <a name="industry-outlook-and-approaches"></a>產業展望和作法
 駕輕就熟地處理客戶流失是成熟產業的一項特徵。 電信產業是典型的例子，用戶更換供應商的頻率很高。 這種志願性流失是最主要問題所在。 再者，供應商對於「流失成因」 已累積大量經驗，亦即促成客戶更換供應商的因素。
 
-例如，在行動電話業務中，手機或裝置選擇是導致客戶流失的一個明顯因素。 如此一來，受歡迎的原則是 subsidize 話筒價格為新的訂閱者並會升級現有客戶完全價格收費。 若要取得新折扣湧入到另一個提供者的客戶在過去，導致此原則。 亦有提示來精簡其策略的提供者。
+例如，在行動電話業務中，手機或裝置選擇是導致客戶流失的一個明顯因素。 因此，常用的手段是補助新用戶的手機價格，但對既有客戶收取全額的升級費用。 根據歷史經驗，這種手段反而造成使客戶跳槽到另一家供應商來尋找新的折扣。 這使得供應商不得不修正策略
 
-話筒供應項目中的高恰是變換的快速失效目前手持式模型為基礎的模型的因素。 此外，行動電話不是只有電信裝置，它們也是方式陳述式 （請考慮在 iPhone）。 這些社交預測量是一般的電信資料集的範圍外。
+手機產品日新月異，是造成以最新手機款式為主的客戶流失模型迅速失效的一項因素。 此外，行動電話不只是通訊裝置，也是流行的代表 (例外 iPhone)。 這些社會性指標並不在一般的電信資料集之內。
 
 建構模型的最後結果就是，單純地排除客戶流失的已知原因，就不可能設計出一套完美的策略。 事實上，持續性的模型建構策略是 **必要的**，包括量化類別變項的傳統模型 (例如決策樹)。
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/19/2017
  
 
 > 請注意，這項資料為私人所有，因此不能分享模型和資料。
-> 如需使用公開可用資料的類似模型，請參閱此 [Cortana Intelligence 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例：[電信公司客戶流失](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)。
+> 如需使用公開可用資料的類似模型，請參閱 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例：[電信公司客戶流失](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)。
 > 
 > 若要深入了解如何使用 Cortana Intelligence Suite 實作客戶流失分析模型，我們也推薦資深程式經理 Wee Hyong Tok 的 [這段影片](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) 。 
 > 
@@ -222,7 +222,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 
 [4] [巨量資料行銷：更有效地吸引您的客戶和促進價值](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Cortana Intelligence 資源庫](http://gallery.cortanaintelligence.com/)中的[電信公司客戶流失模型範本](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) 
+[5] [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的[電信公司客戶流失模型範本](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) 
  
 
 ## <a name="appendix"></a>附錄

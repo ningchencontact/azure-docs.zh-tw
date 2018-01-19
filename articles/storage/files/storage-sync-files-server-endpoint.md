@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>新增/移除 Azure 檔案同步 (預覽) 伺服器端點
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -32,7 +32,7 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 - 伺服器已安裝 Azure 檔案同步代理程式且已註冊。 如需安裝 Azure 檔案同步代理程式的指示，請參閱[向 Azure 檔案同步 (預覽) 註冊/取消註冊伺服器](storage-sync-files-server-registration.md)文章。 
 - 確定已部署儲存體同步服務。 如需如何部署儲存體同步服務的詳細資訊，請參閱[如何部署 Azure 檔案同步 (預覽)](storage-sync-files-deployment-guide.md)。 
 - 確定已部署同步群組。 了解如何[建立同步群組](storage-sync-files-deployment-guide.md#create-a-sync-group)。
-- 確定伺服器已連線到網際網路，而且 Azure 可供存取。
+- 確定伺服器已連線到網際網路，而且 Azure 可供存取。 針對伺服器和我們服務之間的所有通訊，我們使用連接埠 443。
 
 ## <a name="add-a-server-endpoint"></a>新增伺服器端點
 若要新增伺服器端點，請瀏覽至所需的同步群組，並選取 [新增伺服器端點]。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bfe4ab71bb7311d1bbca27f8de196b2297c2a994
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 0d293d3874b0cb43cee9f85c6c575e87c48ad291
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>使用 Azure Data Factory 從 SFTP 伺服器複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ ms.lasthandoff: 11/06/2017
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析檔案。
 
 ## <a name="get-started"></a>開始使用
-您可以使用 .NET SDK、Python SDK、Azure PowerShell、REST API 或 Azure Resource Manager 範本來建立具有複製活動的管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](quickstart-create-data-factory-dot-net.md)。
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 SFTP 專屬的 Data Factory 實體。
 
@@ -47,10 +48,10 @@ ms.lasthandoff: 11/06/2017
 
 以下是針對 SFTP 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**Sftp**。 |是 |
-| 主機 | SFTP 伺服器的名稱或 IP 位址。 |是 |
+| type | 類型屬性必須設定為：**Sftp**。 |是 |
+| host | SFTP 伺服器的名稱或 IP 位址。 |是 |
 | 連接埠 | SFTP 伺服器所接聽的連接埠。<br/>允許的值為：整數，預設值為 **22**。 |否 |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。<br/>允許的值為：**true**、**false** (預設值)。  | 否 |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 "skipHostKeyValidation" 設定為 false，則為必要。  |
@@ -61,7 +62,7 @@ ms.lasthandoff: 11/06/2017
 
 若要使用基本驗證，請將 "authenticationType" 屬性設定為 **Basic**，然後除了上一節中介紹的 SFTP 連接器泛型屬性之外，再指定下列屬性︰
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | userName | 可存取 SFTP 伺服器的使用者。 |是 |
 | password | 使用者 (userName) 的密碼。 請將此欄位標示為 SecureString。 | 是 |
@@ -97,7 +98,7 @@ ms.lasthandoff: 11/06/2017
 
 若要使用 SSH 公開金鑰驗證，請將 "authenticationType" 屬性設定為 **SshPublicKey**，然後除了上一節中介紹的 SFTP 連接器泛型屬性之外，再指定下列屬性︰
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | userName | 可存取 SFTP 伺服器的使用者 |是 |
 | privateKeyPath | 指定 Integration Runtime 可存取的私密金鑰檔案絕對路徑。 只有當 "connectVia" 中已指定「自我裝載」類型的 Integration Runtime 時才適用。 | 指定 `privateKeyPath` 或 `privateKeyContent`。  |
@@ -170,9 +171,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 SFTP 複製資料，請將資料集的類型屬性設定為 **FileShare**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**FileShare** |是 |
+| type | 資料集的類型屬性必須設定為：**FileShare** |是 |
 | folderPath | 資料夾的路徑。 例如：資料夾/子資料夾/ |是 |
 | fileName | 如果您想要從特定的檔案複製，請在 **folderPath** 中指定該檔案的名稱。 如果沒有為此屬性指定任何值，資料集就會指向資料夾中的所有檔案作為來源。 |否 |
 | fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。 只有在未指定檔案名稱時才適用。 <br/><br/>允許的萬用字元為︰`*` (多個字元) 和 `?` (單一字元)。<br/>- 範例 1：`"fileFilter": "*.log"`<br/>- 範例 2：`"fileFilter": 2017-09-??.txt"` |否 |
@@ -215,9 +216,9 @@ ms.lasthandoff: 11/06/2017
 
 若要從 SFTP 複製資料，請將複製活動中的來源類型設定為 **FileSystemSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
+| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
 | 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**

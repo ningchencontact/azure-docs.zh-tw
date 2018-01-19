@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>如何選擇 Microsoft Azure Machine Learning 的演算法
 「我該使用何種機器學習演算法？ 」的答案永遠都是「視情況。 」 這可視資料的大小、品質和本質而定。 也可取決於您想用這個答案來做些什麼。 或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。 而這又需視您有多少時間。 即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/19/2017
 有時候則不完全適用。 這些建議通常是來自經驗法則，因此不必擔心是否準確。
 我和一些資料科學家討論過，他們都認為唯有全部試用一次，才能找出最佳的演算法。
 
-以下是 [Cortana Intelligence 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)。
+以下是 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)。
 
 > [!TIP]
 > 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。

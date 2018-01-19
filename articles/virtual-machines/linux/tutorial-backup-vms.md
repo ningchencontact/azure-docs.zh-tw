@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>備份 Azure 中的 Linux 虛擬機器
 
@@ -62,7 +62,7 @@ Azure 備份服務開始備份時，會觸發備份擴充功能以建立時間�
 
 ## <a name="restore-a-file"></a>還原檔案
 
-如果您不小心刪除或變更某個檔案，可以使用「檔案復原」從您的備份保存庫復原檔案。 檔案復原使用在 VM 上執行的指令碼，將復原點掛接為本機磁碟機。 這些磁碟機將保持掛接達 12 小時，讓您可以從復原點複製檔案，並將它們還原至 VM。  
+如果您不小心刪除或變更某個檔案，可以使用「檔案復原」從您的備份保存庫復原檔案。 檔案復原使用在虛擬機器上執行的指令碼，將復原點掛接為本機磁碟機。 這些磁碟機將保持掛接達 12 小時，讓您可以從復原點複製檔案，並將它們還原至 VM。  
 
 在此範例中，我們會示範如何復原預設的 nginx 網頁 /var/www/html/index.nginx-debian.html。 我們的 VM 在範例中的公用 IP 位址是 13.69.75.209。 您可以使用以下命令找到您的 VM 的 IP 位址︰
 

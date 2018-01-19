@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d3388643a3d7c38104a4c61f94a8b68a86168846
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概觀
-Microsoft Azure 媒體服務可讓您傳遞使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady 或 Widevine DRM 所動態加密的內容。 媒體服務也提供服務，可傳遞金鑰和 PlayReady/Widevine 授權給授權用戶端。
+ 您可以使用 Azure 媒體服務傳遞使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady 或 Widevine 數位版權管理 (DRM) 所動態加密的內容。 媒體服務也提供服務，可傳遞金鑰和 PlayReady/Widevine 授權給授權用戶端。
 
-如果您想要媒體服務加密資產，您需要建立加密金鑰 (**CommonEncryption** 或 **EnvelopeEncryption**) 與資產 (如[這裡](media-services-rest-create-contentkey.md)所述) 的，並且設定金鑰的授權原則 (如本文中所述)。
+如果您想要使用媒體服務加密資產，則需要建立加密金鑰 (CommonEncryption 或 EnvelopeEncryption) 與資產的關聯。 如需詳細資訊，請參閱[使用 REST 建立內容金鑰](media-services-rest-create-contentkey.md)。 您也需要為金鑰設定授權原則 (如本文所述)。
 
-播放程式要求串流時，媒體服務便會使用 AES 或 PlayReady 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+播放程式要求串流時，媒體服務便會使用 AES 或 PlayReady，以指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-媒體服務支援多種方式來驗證提出金鑰要求的使用者。 內容金鑰授權原則可能會有一個或多個授權限制：**open** 或 **token** 限制。 權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。 媒體服務支援**簡單 Web 權杖** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 **JSON Web 權杖** (JWT) 格式的權杖。
+媒體服務支援多種方式來驗證提出金鑰要求的使用者。 內容金鑰授權原則可能有一個或多個授權限制，可能是使用 Open 或 Token 限制。 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援使用簡單 Web 權杖 ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 和 JSON Web 權杖 (JWT) 格式的權杖。
 
-媒體服務不提供安全權杖服務。 您可以建立自訂的 STS，或使用 Azure Active Directory (AAD) 簽發的權杖。 STS 必須設定為建立使用指定金鑰簽署的權杖，並發行在權杖限制組態中指定的宣告 (如本文中所述)。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。
+媒體服務不提供 STS。 您可以建立自訂 STS，或使用 Azure Active Directory (Azure AD) 來發行權杖。 STS 必須設定為建立使用指定金鑰簽署的權杖，並發行在權杖限制組態中指定的宣告 (如本文中所述)。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。
 
 如需詳細資訊，請參閱下列文章：
 - [JWT 權杖驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) \(英文\)。
+- [整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
-### <a name="some-considerations-apply"></a>適用一些考量事項：
-* 為了能夠使用動態封裝和動態加密功能，請確定您想要從中串流內容的串流端點是處於 [執行中] 狀態。
+### <a name="some-considerations-apply"></a>適用一些考量事項
+* 若要使用動態封裝和動態加密功能，請確定您想要從中串流內容的串流端點是處於「執行中」狀態。
 * 您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。 如需詳細資訊，請參閱 [為資產編碼](media-services-encode-asset.md)。
-* 使用 **AssetCreationOptions.StorageEncrypted** 選項，上傳資產並為其編碼。
+* 使用 AssetCreationOptions.StorageEncrypted 選項上傳資產並為其編碼。
 * 如果您計劃有多個內容金鑰需要相同的原則設定，建議您建立單一授權原則，然後搭配多個內容金鑰重複使用它。
-* 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。  如果您建立 ContentKeyAuthorizationPolicy 並指定要使用 「 Token 」 限制，然後測試它，並再將原則更新為 「 開放 」 限制，它會大約 15 分鐘才會將原則切換為 「 開放 」 版本的原則。
-* 如果您加入或更新您的資產傳遞原則，您必須刪除現有的定位程式 (如果有的話)，並建立新的定位器。
+* 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。 您可以建立 ContentKeyAuthorizationPolicy 並指定要使用權杖限制、對其進行測試，然後將原則更新為開放的限制。 此程序需要大約 15 分鐘，然後原則才能切換為開放的原則版本。
+* 如果您新增或更新資產的傳遞原則，就必須刪除現有的定位器，並建立新的定位器。
 * 您目前無法加密漸進式下載。
-* AMS 串流端點會在預檢回應中，將 CORS 'Access-Control-Allow-Origin' 標頭的值設定為萬用字元 '\*'。 這適用於大部分的播放程式包括 Azure Media Player、 Roku 和 JW，以及其他等等。 不過，有些利用 dashjs 的播放程式則不適用，因為，如果將認證模式設定為 “include”，其 dashjs 中的 XMLHttpRequest 就不允許萬用字元 “\*” 作為 “'Access-Control-Allow-Origin” 的值。 對於 dashjs 中此一限制的因應措施是，如果您從單一網域裝載用戶端，Azure 媒體服務就能在預檢回應標頭中指定該網域。 您可以透過 Azure 入口網站建立支援票證來達成。
+* 媒體服務串流端點會在預檢回應中，將 CORS Access-Control-Allow-Origin 標頭的值設定為萬用字元 "\*"。 此值適用於大多數的播放程式，包括 Azure 媒體播放器、Roku 和 JWPlayer 等其他播放程式。 不過，有些利用 dash.js 的播放程式則不適用，因為，如果將認證模式設定為 "include"，其 dash.js 中的 XMLHttpRequest 就不允許萬用字元 "\*" 作為 Access-Control-Allow-Origin 的值。 對於 dash.js 中此一限制的因應措施是，如果您從單一網域裝載用戶端，媒體服務就能在預檢回應標頭中指定該網域。 如需協助，請透過 Azure 入口網站開啟支援票證。
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 動態加密
 > [!NOTE]
-> 使用媒體服務 REST API 時，適用下列考量事項：
+> 當您使用媒體服務 REST API 時，適用下列考量事項。
 > 
-> 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
+> 當您在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 > 
 > 
 > 
@@ -155,7 +155,7 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>將授權原則加入內容金鑰
+#### <a id="AddAuthorizationPolicyToKey"></a>將授權原則新增至內容金鑰
 要求：
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -176,10 +176,10 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 
     HTTP/1.1 204 No Content
 
-### <a name="token-restriction"></a>Token 限制
-本節描述如何建立內容金鑰授權原則，然後建立它與內容金鑰的關聯。 授權原則描述必須符合哪些授權需求，以判斷使用者是否有權接收金鑰 (例如，「驗證金鑰」清單是否包含簽署權杖用的金鑰)。
+### <a name="token-restriction"></a>權杖限制
+本節描述如何建立內容金鑰授權原則，然後建立它與內容金鑰的關聯。 授權原則描述必須符合哪些授權需求，以判斷使用者是否有權接收金鑰。 例如，驗證金鑰清單是否包含簽署權杖用的金鑰？
 
-若要設定 token 限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合下列 XML 結構描述：
+若要設定權杖限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合下列 XML 結構描述：
 
 
 #### <a id="schema"></a>Token 限制結構描述
@@ -230,12 +230,12 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-設定**權杖**限制的原則時，您必須指定主要**驗證金鑰**、**簽發者**和**對象**參數。 主要**驗證金鑰**包含用以簽署權杖的金鑰，**簽發者**是發行權杖的安全性權杖服務。 **對象** (有時稱為**範圍**) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
+設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的 STS。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
 下列範例會建立具有 token 限制的授權原則。 在此範例中，用戶端必須提出權杖，權杖中包含簽署金鑰 (VerificationKey)、權杖簽發者和必要的宣告。
 
 ### <a name="create-contentkeyauthorizationpolicies"></a>建立 ContentKeyAuthorizationPolicies
-建立「權杖限制原則」，如 [這裡](#ContentKeyAuthorizationPolicies)所示。
+如＜[建立 ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)＞一節所述，建立權杖限制原則。
 
 ### <a name="create-contentkeyauthorizationpolicyoptions"></a>建立 ContentKeyAuthorizationPolicyOptions
 要求：
@@ -274,15 +274,15 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e1ef6145-46e8-4ee6-9756-b1cf96328c23","Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>連結 ContentKeyAuthorizationPolicies 與選項
-連結 ContentKeyAuthorizationPolicies 與選項，如 [這裡](#ContentKeyAuthorizationPolicies)所示。
+如＜[建立 ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)＞一節所述，連結 ContentKeyAuthorizationPolicies 與選項。
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>將授權原則加入內容金鑰
-將 AuthorizationPolicy 加入 ContentKey，如 [這裡](#AddAuthorizationPolicyToKey)所示。
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>將授權原則新增至內容金鑰
+如＜[將授權原則新增至內容金鑰](#AddAuthorizationPolicyToKey)＞一節所述，將 AuthorizationPolicy 新增至 ContentKey。
 
-## <a name="playready-dynamic-encryption"></a>PlayReady 動態加密
-媒體服務可讓您設定您要 PlayReady DRM 執行階段在使用者嘗試播放受保護內容時強制執行的權限和限制。 
+## <a name="playready-dynamic-encryption"></a>PlayReady 動態加密。
+您可以使用媒體服務來設定您要 PlayReady DRM 執行階段在使用者嘗試播放受保護內容時強制執行的權限和限制。 
 
-使用 PlayReady 保護內容時，您需要在驗證原則中指定的其中一件事是定義 [PlayReady 授權範本](media-services-playready-license-template-overview.md)的 XML 字串。 
+當您使用 PlayReady 保護內容時，您需要在驗證原則中指定的其中一件事是定義 [PlayReady 授權範本](media-services-playready-license-template-overview.md)的 XML 字串。 
 
 ### <a name="open-restriction"></a>Open 限制
 Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 這項限制可用於測試用途。
@@ -363,16 +363,16 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:1052308c-4df7-4fdb-8d21-4d2141fc2be0","Name":"","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Open","KeyRestrictionType":0,"Requirements":null}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>連結 ContentKeyAuthorizationPolicies 與選項
-連結 ContentKeyAuthorizationPolicies 與選項，如 [這裡](#ContentKeyAuthorizationPolicies)所示。
+如＜[建立 ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)＞一節所述，連結 ContentKeyAuthorizationPolicies 與選項。
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>將授權原則加入內容金鑰
-將 AuthorizationPolicy 加入 ContentKey，如 [這裡](#AddAuthorizationPolicyToKey)所示。
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>將授權原則新增至內容金鑰
+如＜[將授權原則新增至內容金鑰](#AddAuthorizationPolicyToKey)＞一節所述，將 AuthorizationPolicy 新增至 ContentKey。
 
-### <a name="token-restriction"></a>Token 限制
-若要設定 token 限制選項，您需要使用 XML 來描述權杖的授權需求。 Token 限制組態 XML 必須符合 [此](#schema) 節。
+### <a name="token-restriction"></a>權杖限制
+若要設定權杖限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合＜[權杖限制結構描述](#schema)＞一節中所述的 XML 結構描述。
 
 #### <a name="create-contentkeyauthorizationpolicies"></a>建立 ContentKeyAuthorizationPolicies
-建立 ContentKeyAuthorizationPolicies，如[這裡](#ContentKeyAuthorizationPolicies2)所示。
+如＜[建立 ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)＞一節所述，建立 ContentKeyAuthorizationPolicies。
 
 #### <a name="create-contentkeyauthorizationpolicyoptions"></a>建立 ContentKeyAuthorizationPolicyOptions
 要求：
@@ -411,12 +411,12 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e42bbeae-de42-4077-90e9-a844f297ef70","Name":"Token option","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>w52OyHVqXT8aaupGxuJ3NGt8M6opHDOtx132p4r6q4hLI6ffnLusgEGie1kedUewVoIe1tqDkVE6xsIV7O91KA==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>dYwLKIEMBljLeY9VM7vWdlhps31Fbt0XXhqP5VyjQa33bJXleBtkzQ6dF5AtwI9gDcdM2dV2TvYNhCilBKjMCg==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>連結 ContentKeyAuthorizationPolicies 與選項
-連結 ContentKeyAuthorizationPolicies 與選項，如 [這裡](#ContentKeyAuthorizationPolicies)所示。
+如＜[建立 ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)＞一節所述，連結 ContentKeyAuthorizationPolicies 與選項。
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>將授權原則加入內容金鑰
-將 AuthorizationPolicy 加入 ContentKey，如 [這裡](#AddAuthorizationPolicyToKey)所示。
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>將授權原則新增至內容金鑰
+如＜[將授權原則新增至內容金鑰](#AddAuthorizationPolicyToKey)＞一節所述，將 AuthorizationPolicy 新增至 ContentKey。
 
-## <a id="types"></a>定義 ContentKeyAuthorizationPolicy 時使用的類型
+## <a id="types"></a>當您定義 ContentKeyAuthorizationPolicy 時使用的類型
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
@@ -447,5 +447,5 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
-既然您已設定內容金鑰授權原則，請移至[如何設定資產遞送原則](media-services-rest-configure-asset-delivery-policy.md)發行項。
+現在，您已設定內容金鑰的授權原則，接著請參閱[如何設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 

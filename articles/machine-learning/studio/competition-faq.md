@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 競賽常見問題集
 **什麼是 Cortana Intelligence 競賽？**
 
-Microsoft Cortana Intelligence 競賽可讓我們透過共同解決一些全世界最複雜的資料科學問題，使全球資料愛好者社群團結起來。 Cortana Intelligence 競賽可讓來自世界各地的資料愛好者競爭，建立高度精確的智慧型資料科學模型。 我們所舉辦的競賽是以首次公開的獨特資料集為基礎。 參與者可以贏得獎勵或透過我們的 10 大公眾排行榜得到肯定。 請到 [這裡](http://aka.ms/CIComp) 進入競賽首頁。
+Microsoft Cortana Intelligence 競賽透過共同解決一些全世界最複雜的資料科學問題，使全球資料愛好者社群團結起來。 Cortana Intelligence 競賽可讓來自世界各地的資料愛好者競爭，建立高度精確的智慧型資料科學模型。 這些舉辦的競賽是以首次公開的獨特資料集為基礎。 參與者可以贏得獎勵或透過 10 大公眾排行榜得到肯定。 您可以在 [aka.ms/CIComp](http://aka.ms/CIComp) 存取競賽首頁。
 
 **Microsoft 發表新競賽的頻率**
 
@@ -31,33 +31,33 @@ Microsoft Cortana Intelligence 競賽可讓我們透過共同解決一些全世�
 
 **我可以在哪兒詢問有關資料科學的問題？**
 
-請利用我們的 [Microsoft Azure Machine Learning 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)。
+對於一般問題，您可以使用 [Microsoft Azure Machine Learning 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)。
 
 **我要如何參加競賽？**
 
-透過 [Cortana Intelligence 資源庫](https://gallery.cortanaintelligence.com/)進入[競賽](https://gallery.cortanaintelligence.com/competitions)首頁，或前往 [http://aka.ms/CIComp](http://aka.ms/CIComp)。 首頁中會列出所有正在進行的競賽。 每個競賽在其註冊頁面上都會有詳細的指示以及參與規則、獎品和持續時間。
+透過 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/)進入[競賽](https://gallery.cortanaintelligence.com/competitions)首頁，或前往 [http://aka.ms/CIComp](http://aka.ms/CIComp)。 首頁中會列出所有正在進行的競賽。 每個競賽在其註冊頁面上都會有詳細的指示以及參與規則、獎品和持續時間。
 
-1. 尋找您想要參與的競賽、閱讀所有指示並觀看教學課程影片，然後按一下 [參加競賽] 按鈕，將入門實驗複製到您現有的 Azure Machine Learning 工作區。 如果您還沒有工作區的存取權，您必須事先建立一個工作區。 進行入門實驗、觀察效能度量，然後使用您的創意，提升模型的效能。 您可能會將大部分的時間花在這個步驟上。   
+1. 尋找您想要參與的競賽、閱讀所有指示並觀看教學課程影片。 然後按一下 [參加競賽] 按鈕，將入門實驗複製到您現有的 Azure Machine Learning 工作區。 如果您還沒有工作區的存取權，您必須事先建立一個工作區。 進行入門實驗、觀察效能度量，然後使用您的創意，提升模型的效能。 您可能會將大部分的時間花在這個步驟上。   
 
-2. 從入門實驗使用定型模型建立預測性實驗。 接著，仔細調整 Web 服務的輸入和輸出結構描述，以確保它們符合競賽文件中所指定的需求。 教學課程文件通常會有詳細指示。 您也可以觀看教學課程影片 (若有提供)。   
+2. 從入門實驗使用定型模型建立預測性實驗。 接著，仔細調整 Web 服務的輸入和輸出結構描述，以確保它們符合競賽文件中所指定的需求。 教學課程文件通常有詳細的指示。 您也可以觀看教學課程影片 (若有提供)。   
 
 3. 從預測性實驗部署 Web 服務。 使用 [測試] 按鈕或為您自動建立的 Excel 範本測試您的 Web 服務，以確保正常運作。   
 
-4. 請提交您的 Web 服務做為參賽作品，並在 Cortana Intelligence 資源庫的競賽頁面中查看您的公開分數。 如果您進入排行榜，就可以慶祝了！  
+4. 請提交您的 Web 服務作為參賽作品，並在 Azure AI 資源庫的競賽頁面中查看您的公開分數。 如果您進入排行榜，就可以慶祝了！  
 
-成功提交參賽作品之後，您可以返回您複製的入門實驗反覆查看並更新您的預測性實驗、更新 Web 服務，然後提交新的參賽作品。   
+成功提交參賽作品之後，您可以返回您複製的入門實驗。 然後反覆查看並更新您的預測性實驗、更新 Web 服務，然後提交新的參賽作品。   
 
 **我是否可以使用開放原始碼工具參與這些競賽？**
 
-參賽者必須使用 Azure Machine Learning Studio (Cortana Intelligence Suite 內的雲端式服務) 開發資料科學模型，並建立要提交的參賽作品。 Machine Learning Studio 不僅提供 GUI 介面來建構機器學習服務實驗，還可讓您帶著自己的 R 和/或 Python 指令碼，在本機上執行。 Studio 中的 R 和 Python 執行階段隨附一組豐富的開放原始碼 R/Python 套件，而且您也可以匯入自己的套件，當做實驗的一部分。 Studio 也有內建的 Jupyter Notebook 服務，讓您瀏覽任意樣式的資料。 當然，您永遠可以下載競賽中使用的資料集，並使用 Machine Learning Studio 以外您最喜愛的工具來探索它。 
+參賽者必須使用 Azure Machine Learning Studio (Cortana Intelligence Suite 內的雲端式服務) 開發資料科學模型，並建立要提交的參賽作品。 Machine Learning Studio 不僅提供 GUI 介面來建構機器學習服務實驗，還可讓您帶著自己的 R 和/或 Python 指令碼，在本機上執行。 Studio 中的 R 和 Python 執行階段隨附一組豐富的開放原始碼 R/Python 套件。 您也可以匯入自己的套件，當做實驗的一部分。 Studio 也有內建的 Jupyter Notebook 服務，讓您瀏覽任意樣式的資料。 當然，您永遠可以下載競賽中使用的資料集，並使用 Machine Learning Studio 以外您最喜愛的工具來探索它。 
 
 **我需要是資料科學家才能參加嗎？**
 
-編號 事實上，我們鼓勵資料愛好者、對資料科學感到好奇的人，以及有抱負的資料科學家參加這場比賽。 我們設計了一些支援文件，讓每個人都能夠參加比賽。 我們的目標對象是：
+編號 事實上，我們鼓勵資料愛好者、任何對資料科學感到好奇的人，以及有抱負的資料科學家參加這場比賽。 我們設計了一些支援文件，讓每個人都能夠參加比賽。 目標對象是：
 
 * **資料開發人員**、**資料科學家**、**BI** 和**分析專業人員**：這些人負責產生資料和分析內容供他人使用
 * **資料負責人**：這些人了解資料、其意義、用法和用途
-* **學生** & **研究人員**︰這些人將透過大學或大規模開放線上課堂 (MOOC) 參與者的學術計劃，學習並取得與資料相關的技能
+* **學生** & **研究人員︰**這些人將透過大學或大規模開放線上課堂 (MOOC) 參與者的學術計劃，學習並取得與資料相關的技能
 
 **我是否可以與我的同事組成團隊參賽？**
 
@@ -78,7 +78,7 @@ Microsoft Cortana Intelligence 競賽可讓我們透過共同解決一些全世�
 * 競賽中使用的整個資料集會利用分層隨機分割為訓練和測試 (剩餘部分) 資料。 隨機分割會分層，以確保訓練和測試資料兩者中的標籤分佈皆一致。
 * 訓練資料會上傳，並提供給您做為「匯入資料」模組設定中「入門實驗」的一部分。
 * 測試資料會使用相同的分層，進一步劃分為公開和私人的測試資料。
-* 公開測試資料用於第一回合的評分。 結果就是公開分數，而且這就是您在提交參賽作品時，於提交歷程記錄中看到的分數。 此分數是針對您提交的每個參賽作品計算出來的。 此公開分數是在公開排行榜將您排名時使用。
+* 公開測試資料用於第一回合的評分。 結果就是公開分數。 這就是您在提交參賽作品時，於提交歷程記錄中看到的分數。 此分數是針對您提交的每個參賽作品計算出來的。 此公開分數是在公開排行榜將您排名時使用。
 * 私人測試資料用於競賽結束後最終回合的評分。 這稱為私人分數。 
 * 每位參賽者的參賽作品中，公開分數最高的幾個參賽作品會自動獲選參加私人評分回合 (這個分數依競賽而有所不同)。 接著，私人分數最高的參賽作品會獲選參加最終排名，而這最後會決定獎品的得獎者。  
 

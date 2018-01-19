@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？
-有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。 Multi-Factor Authentication 會對每個使用者啟用。 這表示如果使用者已啟用 Multi-Factor Authentication，並嘗試使用非瀏覽器應用程式，他們將無法這麼做。 應用程式密碼允許發生此情形。 如果您強制執行多重要素驗證，透過條件式存取原則，而不是透過每個使用者的 MFA，您無法建立應用程式密碼。 使用條件式存取原則來控制存取的應用程式不需要應用程式密碼。
+有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。 Multi-Factor Authentication 會對每個使用者啟用。 這表示如果使用者已啟用 Multi-Factor Authentication，並嘗試使用非瀏覽器應用程式，他們將無法這麼做。 應用程式密碼允許發生此情形。 如果您透過條件式存取原則強制執行 Multi-Factor Authentication (而不是透過每個使用者的 MFA)，則無法建立應用程式密碼。 使用條件式存取原則來控制存取權的應用程式不需要應用程式密碼。
 
 擁有應用程式密碼後，您可使用此密碼來取代這些非瀏覽器應用程式的原始密碼。 這是因為當您註冊進行雙步驟驗證時，就是告知 Microsoft 如果有人使用您的密碼登入但未執行第二次驗證，則不允許他們登入。 您電話上的 Apple 原生電子郵件用戶端無法以您的身份登入，因為它不能要求進行雙步驟驗證。 這個的解決方法是建立一個您不會每天使用的更安全應用程式密碼，而且它也只針對不支援雙步驟驗證的應用程式。 使用應用程式密碼可讓應用程式略過 Multi-Factor Authentication 並繼續運作。
 
@@ -55,30 +55,12 @@ ms.lasthandoff: 12/13/2017
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>在 Azure 入口網站中管理應用程式密碼
 如果您搭配 Azure 使用雙步驟驗證，您會想要透過 Azure 入口網站建立應用程式密碼。
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>在 Azure 入口網站中建立應用程式密碼
-1. 登入 Azure 傳統入口網站。
-2. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
-3. 在 proofup 頁面的頂端，選取應用程式密碼
-4. 按一下頁面底部的 [新增] 。
-5. 輸入應用程式密碼的名稱，然後按 [下一步] 
-6. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
-
-   ![雲端](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>在 Azure 入口網站中刪除應用程式密碼
-1. 登入 Azure 傳統入口網站。
-2. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
-3. 在頂端的其他安全性驗證旁選取 [應用程式密碼]。
-4. 在您想要移除的應用程式密碼旁邊，選取 [刪除]。
-5. 按一下 [是] 確認刪除。
-6. 應用程式密碼刪除之後，就可以按一下 [關閉]。
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>使用 MyApps 入口網站管理應用程式密碼。
 如果您不確定您使用 Multi-Factor Authentication 的方式，一律可以透過 myapps 入口網站建立和刪除應用程式密碼。
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>使用 Myapps 入口網站建立應用程式密碼
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>使用 MyApps 入口網站建立應用程式密碼
 1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. 按一下右上方的您的名稱，然後選擇 [設定檔]。
 3. 選取 [其他安全性驗證]。
@@ -92,7 +74,7 @@ ms.lasthandoff: 12/13/2017
 7. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
    ![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>使用 Myapps 入口網站刪除應用程式密碼
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>使用 MyApps 入口網站刪除應用程式密碼
 1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. 在頂端，選取 [設定檔]。
 3. 選取 [其他安全性驗證]。

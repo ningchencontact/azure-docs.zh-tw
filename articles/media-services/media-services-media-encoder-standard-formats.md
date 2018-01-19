@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和轉碼器
 本文件包含您可以在 Media Encoder Standard 中使用的常見匯入和匯出檔案格式清單。
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="input-containerfile-formats"></a>輸入容器/檔案格式
 | 檔案格式 (副檔名) | 支援 |
 | --- | --- | --- | --- |
-| FLV (使用 H.264 和 AAC 轉碼器) (.flv) |yes |
-| MXF    (.mxf) |yes |
-| GXF    (.gxf) |yes |
+| FLV (使用 H.264 和 AAC 轉碼器) (.flv) |是 |
+| MXF    (.mxf) |是 |
+| GXF    (.gxf) |是 |
 | MPEG2-PS、MPEG2-TS、3GP (.ts、.ps、.3gp、.3gpp、.mpg) |是 |
 | Windows Media 視訊 (WMV)/ASF (.wmv、.asf) |是 |
 | AVI (未壓縮 8 位元/10 位元) (.avi) |是 |
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 | QuickTime (.mov) |是 |
 
 > [!NOTE]
-> 以上是較常見的副檔名清單。 Media Encoder Standard 支援許多其他副檔名 (例如，.m2ts、.mpeg2video 和 .qt)。 如果您嘗試將檔案編碼，但收到格式不支援的相關錯誤訊息，請在 [這裡](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)提供意見反應。
+> 以上是較常見的副檔名清單。 Media Encoder Standard 支援許多其他副檔名 (例如，.m2ts、.mpeg2video 和 .qt)。 如果您嘗試將檔案編碼，但收到格式不支援的相關錯誤訊息，請在[這裡](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)提供意見反應。
 > 
 > 
 
@@ -52,7 +52,7 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 
 * MXF、GXF 及 QuickTime 檔案，其中該音訊當做個別的 PCM 曲目攜帶，但可從檔案中繼資料推算通道對應 (立體聲或 5.1)
 
-請注意，將在不久的將來提供明確/使用者提供的通道對應支援。
+將在不久的將來提供明確/使用者提供的通道對應支援。
 
 ## <a name="input-video-codecs"></a>輸入視訊轉碼器
 | 輸入視訊轉碼器 | 支援 |

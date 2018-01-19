@@ -15,17 +15,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
 
-深入了解的 Apache Hadoop 生態系統元件和 Microsoft Azure HDInsight，以及企業安全性封裝的版本。 此外，了解如何檢查 HDInsight 中的 Hadoop 元件版本。 
+了解 Microsoft Azure HDInsight 中的 Apache Hadoop 生態系統元件和版本，以及企業安全性套件。 此外，了解如何檢查 HDInsight 中的 Hadoop 元件版本。 
 
 每個 HDInsight 版本都是 Hortonworks Data Platform (HDP) 版本的雲端發佈。
 
@@ -74,67 +74,79 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 請參閱 [HDInsight 版本資訊](hdinsight-release-notes.md) ，以取得 HDInsight 最新版本的其他版本資訊。
 
 ## <a name="supported-hdinsight-versions"></a>支援的 HDInsight 辦本
-下表列出目前可在 Azure 入口網站上取得的 HDInsight 版本。 其中會列出對應至每個 HDInsight 版本的 HDP 版本以及產品發行日期。 如果已知支援到期日與停用日期，也會一併提供。
+下表列出 HDInsight 的版本。 其中會列出對應至每個 HDInsight 版本的 HDP 版本以及產品發行日期。 如果已知支援到期日與停用日期，也會一併提供。
+
+### <a name="available-versions"></a>可用的版本
+
+下表列出 Azure 入口網站中可用的 HDInsight 版本，以及諸如 PowerShell 和 .NET SDK 等其他部署方法。
+
+| HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |是 |是 |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2017 年 9 月 5 日 |2018 年 5 月 31 日 |是 |是 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |是 |否 |
 
 > [!NOTE]
-> 支援後的版本已到期，它可能無法透過 Microsoft Azure 入口網站。 不過，您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到版本停用日期為止。
-> 
+> 當版本的支援到期之後，可能就無法透過 Microsoft Azure 入口網站取得它。 不過，您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到版本停用日期為止。
+>
+
+### <a name="retired-versions"></a>已淘汰的版本
+
+下表列出**不**可在 Azure 入口網站中取得的 HDInsight 版本。
+
+| HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016 年 3 月 29 日 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |是 |否 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |是 |否 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |2015 年 2 月 18 日 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |是 |否 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014 年 6 月 24 日 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |是 |否 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014 年 2 月 11 日 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |是 |否 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |是 |否 |
+| HDInsight 1.6 |HDP 1.1 | |2013 年 10 月 28 日 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |否 |否 |
+
+> [!NOTE]
 > 依預設，系統會為 HDInsight 2.1 和更新版本部署具有兩個前端節點的高可用性叢集。 它們不適用於 HDInsight 版本 1.6 叢集。
 
-| HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 發行日期 | Azure 入口網站上的可用性 | 支援到期日 | 停用日期 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |是 |2017 年 4 月 4 日 |是 | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |是 |2016 年 9 月 30 日 |是 |2017 年 9 月 5 日 |2018 年 5 月 31 日 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |是 |2016 年 3 月 29 日 |是 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |是 |2015 年 12 月 2 日 |是 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |是 |2015 年 12 月 2 日 |是 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |是 |2015 年 2 月 18 日 |否 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |是 |2014 年 6 月 24 日 |否 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |是 |2014 年 2 月 11 日 |否 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |是 |2013 年 10 月 28 日 |否 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |
-| HDInsight 1.6 |HDP 1.1 | |否 |2013 年 10 月 28 日 |否 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |
+## <a name="enterprise-security-package-for-hdinsight"></a>適用於 HDInsight 的企業安全性套件
 
+Azure HDInsight 是選擇性的套件，您可以在建立叢集工作流程時，新增於 HDInsight 叢集上。 企業安全性套件支援：
 
-## <a name="enterprise-security-package-for-hdinsight"></a>HDInsight 的企業安全性封裝
+- 與 Active Directory 整合以進行驗證。
 
-Azure HDInsight 是選擇性的封裝，您可以加入您的 HDInsight 叢集上建立叢集工作流程的一部分。 支援企業安全性封裝：
-
-- 驗證與 Active Directory 整合。
-
-    在過去，您可以只使用本機系統管理員使用者和本機的 SSH 使用者建立 HDInsight 叢集。 本機系統管理員使用者可以存取所有檔案、 資料夾、 資料表和資料行。  與企業安全性封裝，您可以啟用以角色為基礎的存取控制，藉由整合您自己的 Active Directory 中，與 HDInsight 叢集包括內部部署 Active Directory、 Azure Active Directory 網域服務或 IaaS 上的 Active Directory虛擬機器。 在叢集上的網域系統管理員可以授與使用者使用他們自己的公司 （網域） 的使用者名稱和密碼來存取叢集。 
+    在過去，您只能使用本機系統管理員使用者和本機 SSH 使用者來建立 HDInsight 叢集。 本機系統管理員使用者可以存取所有的檔案、資料夾、資料表和資料行。  您可以利用企業安全性套件來啟用角色型存取控制，方法是將 HDInsight 叢集與您自己的 Active Directory 整合，叢集中會包含 IaaS 虛擬機器上的內部部署 Active Directory、Azure Active Directory Domain Services 或 Active Directory。 叢集上的網域系統管理員可以授與使用者使用自己公司 (網域) 的使用者名稱和密碼來存取叢集。 
 
     如需詳細資訊，請參閱
 
-    - [與已加入網域的 HDInsight 叢集的 Hadoop 安全性簡介](./domain-joined/apache-domain-joined-introduction.md)
-    - [規劃 Azure 加入網域的 Hadoop 叢集 HDInsight 中](./domain-joined/apache-domain-joined-architecture.md)
-    - [設定網域的沙箱環境](./domain-joined/apache-domain-joined-configure.md)
-    - [設定使用 Azure Active Directory 網域服務網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+    - [已加入網域之 HDInsight 叢集的 Hadoop 安全性簡介](./domain-joined/apache-domain-joined-introduction.md)
+    - [規劃 HDInsight 中已加入網域的 Azure Hadoop 叢集](./domain-joined/apache-domain-joined-architecture.md)
+    - [設定已加入網域的沙箱環境](./domain-joined/apache-domain-joined-configure.md)
+    - [使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 - 資料的授權
 
-    - 整合 Apache 廣用於 Hive、 Spark SQL 和 Yarn 佇列的授權。
+    - 與 Apache Ranger 整合可取得 Hive、Spark SQL 和 Yarn 佇列的授權。
     - 您可以設定檔案和資料夾的存取控制。
 
     如需詳細資訊，請參閱
 
     - [在已加入網域的 HDInsight 中設定 Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
 
-- 檢視稽核記錄檔，以監視的存取和設定的原則。 
+- 檢視稽核記錄可監視存取和設定的原則。 
 
 ### <a name="supported-cluster-types"></a>支援的叢集類型
 
-目前，只有下列叢集類型支援企業安全性封裝：
+目前，只有下列叢集類型支援企業安全性套件：
 
-- Hadoop (只有 HDInsight 3.6)
+- Hadoop (僅限 HDInsight 3.6)
 - Spark
 - 互動式查詢
 
 ### <a name="support-for-azure-data-lake-store"></a>支援 Azure Data Lake Store
 
-企業安全性套件支援使用 Azure 資料湖存放區做為主要儲存體和附加元件儲存體。
+企業安全性套件支援使用 Azure Data Lake Store 同時作為主要儲存體和附加元件儲存體。
 
 ### <a name="pricing-and-sla"></a>價格和 SLA
-企業安全性封裝價格和 SLA 資訊，請參閱[HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
+如需企業安全性套件之定價和 SLA 的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 停用項目
 Microsoft Azure HDInsight 版本 3.3 是 Windows 上的最後一個 HDInsight 版本。 Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您在 Windows 上有任何 3.3 版或更早版本的 HDInsight 叢集，就必須在 2018 年 7 月 31 日之前移轉至 Linux 上的 HDInsight 叢集 (HDInsight 版本 3.5 或更新版本)。 移轉至 Linux OS，可讓您保留建立或調整 HDInsight 叢集的能力。 對於 Windows 上 HDInsight 版本 3.3 的支援已在 2016 年 6 月 27 日到期。
@@ -144,7 +156,7 @@ Microsoft Azure HDInsight 版本 3.3 是 Windows 上的最後一個 HDInsight �
 ## <a name="faqs"></a>常見問題集
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>停用 Windows 上 HDInsight 的時間表為何？
-Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您的區域與規劃的停用日期不同，將個別通知您。 
+Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您的區域與規劃的停用日期不同，就會個別通知您。 
 
 ### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>停用 Windows 上的 HDInsight 會對現有客戶產生何種影響？
 停用 Windows 上的 HDInsight 之後，您便無法建立新的 HDInsight Windows 叢集，或調整現有的 HDInsight Windows 叢集。 對於 HDInsight 版本 3.3 的支援已在 2016 年 6 月 27 日到期。 因此，不會對 HDInsight 3.3 或更早版本提供任何支援或錯誤修正。 未來的 HDInsight 版本僅適用於 Linux OS。 未來不會在 Windows 上推出任何 HDInsight 版本。
@@ -224,10 +236,10 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
   | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark | R 伺服器 |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13、 D14 |A3 |D12 v2 |D12 v2 |
-  | 前端：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、 D14 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
-  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2  | D13、 D14 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
-  | 背景工作：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、 D14 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | 前端：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13, D14 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
+  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
+  | 背景工作：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13, D14 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
   | ZooKeeper：預設 VM 大小 | |A3 | |A2 | | |
   | ZooKeeper：建議的 VM 大小 | |A3、A4、A5 | | A2、A3、A4 | | |
   | 邊緣：預設 VM 大小 | | | | | |Windows：D12 v2；Linux：D4 v2 |
@@ -236,10 +248,10 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
   | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | R 伺服器 |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 |D3  | D13、 D14 |A3 |D12 |D12 |
-  | 前端：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13、 D14 |A3、A4、A5 |D12、D13、D14 |D12、D13、D14 |
-  | 背景工作：預設 VM 大小 |D3 |D3  | D13、 D14 |D3 |Windows：D12；Linux：D4 |Windows：D12；Linux：D4 |
-  | 背景工作：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13、 D14 |D3、D4、D12 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
+  | 前端：預設 VM 大小 |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | 前端：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13, D14 |A3、A4、A5 |D12、D13、D14 |D12、D13、D14 |
+  | 背景工作：預設 VM 大小 |D3 |D3  | D13, D14 |D3 |Windows：D12；Linux：D4 |Windows：D12；Linux：D4 |
+  | 背景工作：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13, D14 |D3、D4、D12 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
   | ZooKeeper：預設 VM 大小 | |A2 | | A2 | | |
   | ZooKeeper：建議的 VM 大小 | |A2、A3、A4 | |A2、A3、A4 | | |
   | 邊緣：預設 VM 大小 | | | | | |Windows：D12；Linux：D4 |

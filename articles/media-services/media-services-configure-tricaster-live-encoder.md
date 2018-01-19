@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: eecb17b0e93e1717c5b79701c69e5263e73add9a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-本主題示範如何設定 [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) 即時編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+本文示範如何設定 [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) 即時編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/21/2017
 * 使用軟體型編碼器時，請關閉任何不必要的程式。
 
 ## <a name="create-a-channel"></a>建立通道
-1. 在 AMSE 工具中，瀏覽至 [Live]  索引標籤，然後在通道區域內按一下滑鼠右鍵。 從功能表選取 [建立通道...]  。
+1. 在 AMSE 工具中，瀏覽至 [Live] 索引標籤，然後在通道區域內按一下滑鼠右鍵。 從功能表選取 [建立通道...]  。
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -67,10 +67,10 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-當頻道啟動時，您可以 [設定編碼器](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp)。
+當頻道啟動時，您可以[設定編碼器](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp)。
 
 > [!IMPORTANT]
-> 請注意，只要通道進入就緒狀態，就會開始計費。 如需詳細資訊，請參閱 [通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
+> 只要通道進入就緒狀態，就會開始計費。 如需詳細資訊，請參閱 [通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
 >
 >
 
@@ -136,13 +136,13 @@ ms.lasthandoff: 12/21/2017
 
 如果播放器中出現串流，則編碼器已妥善設定為連接到 AMS。
 
-如果收到錯誤，則必須重設通道，且編碼器設定需要調整。 請參閱 [疑難排解](media-services-troubleshooting-live-streaming.md) 主題中的指引。  
+如果收到錯誤，則必須重設通道，且編碼器設定需要調整。 如需指引，請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)一文。  
 
 ## <a name="create-a-program"></a>建立程式
 1. 一旦確認通道播放沒問題後，請建立程式。 在 AMSE 工具的 [Live] 索引標籤下，於程式區域內按一下滑鼠右鍵，並選取 [建立新的程式]。  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. 為程式命名，並視需要調整 **封存時間長度** (預設為 4 小時)。 您也可以指定儲存體位置，或保留為預設值。  
+2. 為程式命名，並視需要調整 [封存時間長度] (預設為 4 小時)。 您也可以指定儲存體位置，或保留為預設值。  
 3. 勾選 [現在啟動程式]  方塊。
 4. 按一下 [建立程式] 。  
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/21/2017
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。  
 
 ## <a name="troubleshooting"></a>疑難排解
-請參閱 [疑難排解](media-services-troubleshooting-live-streaming.md) 主題中的指引。
+如需指引，請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)一文。
 
 ## <a name="next-step"></a>後續步驟
 檢閱媒體服務學習路徑。

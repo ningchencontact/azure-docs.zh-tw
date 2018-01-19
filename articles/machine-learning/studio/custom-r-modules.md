@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>在 Azure Machine Learning 中撰寫自訂 R 模組
 本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； 並說明如何在 Machine Learning 工作區中建構這些用來定義模組的檔案，以及如何註冊模組以進行部署。 接著，詳細說明用於自訂模組定義中的元素和屬性。 此外，也討論如何使用輔助功能和檔案以及多個輸出。 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="what-is-a-custom-r-module"></a>什麼是自訂 R 模組？
 **自訂模組** 是一種使用者定義的模組，可上傳至您的工作區，並在 Azure Machine Learning 實驗時執行。 **自訂 R 模組** 是執行使用者定義之 R 函數的自訂模組。 **R** 是一種適用於統計運算和圖形的程式設計語言，由實作演算法的統計學家和資料科學家廣泛使用。 目前，R 是自訂模組中唯一支援的語言，但未來版本將新增更多語言的支援。
 
-自訂模組在 Azure Machine Learning 中為 **第一等狀態** ，也就是說，它們的用法就像其他任何模組一樣。 它們可以與已發行實驗或視覺效果中包含的其他模組一起執行。 您可以控制模組實作的演算法、要使用的輸入與輸出連接埠、模型參數，以及其他多種執行階段行為。 包含自訂模組的實驗也可以發佈至 Cortana Intelligence Gallery 以輕鬆共用。
+自訂模組在 Azure Machine Learning 中為 **第一等狀態** ，也就是說，它們的用法就像其他任何模組一樣。 它們可以與已發行實驗或視覺效果中包含的其他模組一起執行。 您可以控制模組實作的演算法、要使用的輸入與輸出連接埠、模型參數，以及其他多種執行階段行為。 包含自訂模組的實驗也可以發佈至 Azure AI 資源庫以輕鬆共用。
 
 ## <a name="files-in-a-custom-r-module"></a>自訂 R 模組中的檔案
 自訂 R 模組是由至少包含兩個檔案的 .zip 檔案所定義：
@@ -286,9 +286,9 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
   * **allowedTypes** - 篩選您可以從中挑選的資料行類型。 有效值包含： 
     
     * 數值
-    * Boolean
+    * BOOLEAN
     * 類別
-    * string
+    * 字串
     * 標籤
     * 功能
     * 分數

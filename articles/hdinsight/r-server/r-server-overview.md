@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 R 伺服器與開放原始碼 R 功能簡介
 
@@ -98,7 +98,7 @@ HDInsight 叢集的 Linux 邊緣節點，是 R 型分析的登陸區域。 HDIns
 最後，透過 SSH 或 PuTY 連線，您就可以在 Linux 命令提示字元中輸入 **R** 來存取邊緣節點上的 R 伺服器主控台。 使用主控台介面時，在另一個視窗中針對 R 指令碼開發執行文字編輯器，並視需要剪下指令碼區段並貼上到 R 主控台中是非常方便的。
 
 ## <a name="learn-about-pricing"></a>了解價格
-與含 R 伺服器的 HDInsight 叢集相關聯的費用結構，類似於標準 HDInsight 叢集的費用。 以各種名稱、資料和邊緣節點的基礎 VM 大小為基準，再加上彈性工時加費。 如需 HDInsight 定價的詳細資訊，請參閱[HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
+與含 R 伺服器的 HDInsight 叢集相關聯的費用結構，類似於標準 HDInsight 叢集的費用。 以各種名稱、資料和邊緣節點的基礎 VM 大小為基準，再加上彈性工時加費。 如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何搭配 HDInsight 叢集使用 R 伺服器，請參閱下列主題：
