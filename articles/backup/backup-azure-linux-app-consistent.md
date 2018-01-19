@@ -1,6 +1,6 @@
 ---
 title: "Azure 備份：Linux VM 的應用程式一致備份 | Microsoft Docs"
-description: "使用指令碼針對 Linux 虛擬機器保證應用程式會一致地備份到 Azure。 指令碼僅適用於資源管理員部署中的 Linux VM，不適用於 Windows VM 或服務管理員部署。 這篇文章會帶領您完成設定指令碼的步驟，包括疑難排解。"
+description: "在 Azure 建立 Linux 虛擬機器的應用程式一致備份。 本文說明如何設定指令碼架構，備份以 Azure 部署的 Linux VM。 本文另包含疑難排解資訊。"
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,35 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Azure Linux VM 的應用程式一致備份 (預覽)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的應用程式一致備份
 
-本文討論 Linux 前置指令碼和後置指令碼架構，以及如何使用它來取得 Azure Linux VM 的應用程式一致備份。
-
-> [!Note]
-> 僅 Azure Resource Manager 部署的 Linux 虛擬機器支援前置指令碼和後置指令碼架構。 Service Manager 所部署虛擬機器或 Windows 虛擬機器不支援應用程式一致指令碼。
->
+在擷取 VM 的備份快照集時，應用程式一致性代表當 VM 還原後，應用程式隨著 VM 開機而啟動。 可想而知，應用程式一致性是多麼重要的環節。 為了確保 Linux VM 符合應用程式一致性，您可以使用 Linux 前置指令碼和後置指令碼架構來製作應用程式一致備份。 前置指令碼和後置指令碼架構支援以 Azure Resource Manager 部署的 Linux 虛擬機器。 應用程式一致性指令碼不支援以 Service Manager 部署的虛擬機器或 Windows 虛擬機器。
 
 ## <a name="how-the-framework-works"></a>架構的運作方式
 
-此架構讓您在擷取 VM 快照集時可選擇執行自訂前置指令碼和後置指令碼。 前置指令碼就在您擷取 VM 快照之前執行，而後置指令碼會緊接在您擷取 VM 快照後執行。 這讓您在擷取 VM 快照時能夠彈性地控制您的應用程式與環境。
+此架構讓您在擷取 VM 快照集時可選擇執行自訂前置指令碼和後置指令碼。 前置指令碼會在您擷取 VM 快照集的前一刻執行，而後置指令碼會緊接在您擷取 VM 快照集之後執行。 前置指令碼和後置指令碼讓您在擷取 VM 快照集時，能夠彈性地控制應用程式與環境。
 
-在此案例中，務必確保應用程式一致的 VM 備份。 前置指令碼會叫用應用程式原生 API 以停止 IO，並將記憶體中的內容排清到磁碟。 這可確保快照為應用程式一致 (亦即，應用程式會在 VM 於還原後開機時出現)。 後置指令碼可以用來解除凍結 IO。 做法是使用應用程式原生 API，讓應用程式可在 VM 快照集後繼續正常作業。
+前置指令碼會叫用原生應用程式 API 以停止 IO，並將記憶體中的內容排清到磁碟。 這些動作能確保快照集符合應用程式一致性。 後置指令碼使用原生應用程式 API 來解除凍結 IO，讓應用程式在 VM 快照集擷取完畢後恢復正常作業。
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>設定前指令碼和後置指令碼的步驟
 
 1. 以根使用者身分登入您想要備份的 Linux VM。
 
-2. 從 [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) 下載 VMSnapshotScriptPluginConfig.json，然後複製到所有您要備份的 VM 上的 /etc/azure 資料夾。 建立 **/etc/azure** 目錄 (如果不存在的話)。
+2. 從 [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) 下載 **VMSnapshotScriptPluginConfig.json**，並將它複製到所有要備份之 VM 上的 **/etc/azure** 資料夾。 如果 **/etc/azure** 資料夾不存在，請予以建立。
 
-3. 在所有您打算備份的 VM 上複製應用程式複製的前置指令碼與後置指令碼。 您可以將指令碼複製到 VM 上的任何位置。 請務必更新 **VMSnapshotScriptPluginConfig.json** 檔案中指令碼檔案的完整路徑。
+3. 在所有打算備份的 VM 上，複製應用程式的前置指令碼與後置指令碼。 您可以將指令碼複製到 VM 上的任何位置。 請務必更新 **VMSnapshotScriptPluginConfig.json** 檔案中指令碼檔案的完整路徑。
 
 4. 請確定這些檔案的下列權限︰
 
@@ -51,8 +47,8 @@ ms.lasthandoff: 10/11/2017
    - **後置指令碼**：權限 “700”。 例如，只有「根」使用者擁有此檔案的「讀取」、「寫入」及「執行」權限。
 
    > [!Important]
-   > 此架構讓使用者擁有強大的能力。 此架構必須是安全的，且只有「根」使用者能夠存取重要的 JSON 與指令碼檔案。
-   > 如果不符合前述需求，指令碼便不會執行。 這能產生檔案系統/損毀一致的備份。
+   > 此架構讓使用者擁有強大的能力。 請妥善保護架構，並確認只有「根」使用者能夠存取重要的 JSON 與指令碼檔案。
+   > 如果需求不符，指令碼將不會執行，因而導致檔案系統毀損和不一致的備份。
    >
 
 5. 如以下所述設定 VMSnapshotScriptPluginConfig.json：
@@ -62,9 +58,9 @@ ms.lasthandoff: 10/11/2017
 
     - **postScriptLocation**：在要備份的 VM 上提供後置指令碼完整路徑。
 
-    - **preScriptParams**：提供必須傳遞給前置指令碼的選擇性參數。 所有參數都應該以引號括住，如果有多個參數，則應以逗號分隔。
+    - **preScriptParams**：提供必須傳遞給前置指令碼的選擇性參數。 所有參數都應該以引號括住。 如果您使用多個參數，請以逗號分隔參數。
 
-    - **postScriptParams**：提供必須傳遞給前置指令碼的選擇性參數。 所有參數都應該以引號括住，如果有多個參數，則應以逗號分隔。
+    - **postScriptParams**：提供必須傳遞給前置指令碼的選擇性參數。 所有參數都應該以引號括住。 如果您使用多個參數，請以逗號分隔參數。
 
     - **preScriptNoOfRetries**：設定在終止前如果發生任何錯誤，應重試前置指令碼的次數。 零表示只嘗試一次，若系統故障則不重試。
 
@@ -82,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 確定您在寫入前置指令碼和後置指令碼時新增適當的記錄，並檢閱您的指令碼記錄以修正任何指令碼的問題。 如果仍有執行指令碼的問題，請參閱下列表格以取得詳細資訊。
 
-| 錯誤 | 錯誤訊息 | 建議的動作 |
+| Error | 錯誤訊息 | 建議的動作 |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |前置指令碼傳回錯誤，所以備份可能無法應用程式一致。   | 查看您指令碼的失敗記錄來修正此問題。|  
 |   Post-ScriptExecutionFailed |    後置指令碼傳回可能會影響應用程式狀態的錯誤。 |    查看您指令碼的失敗記錄並檢查應用程式狀態來修正此問題。 |

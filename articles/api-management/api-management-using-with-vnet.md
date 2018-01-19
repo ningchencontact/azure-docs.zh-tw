@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -111,8 +111,6 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 | * / 3443 |輸入 |TCP |INTERNET / VIRTUAL_NETWORK|Azure 入口網站和 PowerShell 的管理端點 |內部 |
 | * / 80, 443 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|Azure 儲存體、Azure 服務匯流排和 Azure Active Directory 上的相依性 (如果適用)。|外部和內部 | 
 | * / 1433 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL 端點** |外部和內部 |
-| * / 11000 - 11999 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL V12** |外部和內部 |
-| * / 14000 - 14999 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL V12** |外部和內部 |
 | * / 5671, 5672 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|「記錄到事件中樞」原則和監視代理程式的相依性 |外部和內部 |
 | * / 445 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|與「適用於 GIT 的 Azure 檔案共用」的相依性 |外部和內部 |
 | * / 25028 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|連線到 SMTP 轉送以便傳送電子郵件 |外部和內部 |
@@ -140,7 +138,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 >**未正確交叉通告從公用對等互連路徑至私人對等互連路徑之路由**的 ExpressRoute 組態不支援 Azure API 管理。 已設定公用對等互連的 ExpressRoute 組態，會收到來自 Microsoft 的一大組 Microsoft Azure IP 位址範圍的路由通告。 如果這些位址範圍在私人對等互連路徑上不正確地交叉通告，最後的結果會是來自 Azure API 管理執行個體子網路的所有輸出網路封包，都會不正確地使用強制通道傳送至客戶的內部部署網路基礎結構。 這個網路流量會中斷 Azure API 管理。 此問題的解決方案是停止從公用對等互連路徑至私人對等互連路徑的交叉通告路由。
 
 
-## <a name="troubleshooting"></a>疑難排解
+## <a name="troubleshooting"> </a>疑難排解
 * **初始安裝**：若未能成功地將 API 管理服務初始部署到子網路，建議您先將虛擬機器部署到相同的子網路。 接下來，再將桌面遠端連線到虛擬機器，並驗證您可以連線到 Azure 訂用帳戶中的下列其中一個資源 
     * Azure 儲存體 Blob
     * 連接字串

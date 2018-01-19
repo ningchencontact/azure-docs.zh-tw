@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -70,7 +70,7 @@ Functions 支援「取用」主控方案和 App Service 主控方案。 如需�
 
 | | |
 |-|-|
-| ![函數應用程式的應用程式設定。](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service [應用程式設定] 刀鋒視窗可供您設定和管理架構版本、遠端偵錯、應用程式設定及連接字串。 當您將函數應用程式與其他 Azure 和協力廠商服務整合時，可以在這裡修改那些設定值。 |
+| ![函數應用程式的應用程式設定。](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service [應用程式設定] 刀鋒視窗可供您設定和管理架構版本、遠端偵錯、應用程式設定及連接字串。 當您將函數應用程式與其他 Azure 和協力廠商服務整合時，可以在這裡修改那些設定值。 若要刪除設定，請捲動到右邊，並選取該行右邊的 **X** 圖示(下圖未顯示)。
 
 ![設定應用程式設定](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 

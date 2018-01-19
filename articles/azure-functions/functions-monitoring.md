@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -37,7 +37,7 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
 * [當您建立函式應用程式時建立連接的 Application Insights 執行個體](#new-function-app)。
 * [將 Application Insights 執行個體連接到現有的函式應用程式](#existing-function-app)。
- 
+
 ### <a name="new-function-app"></a>新的函式應用程式
 
 在函式應用程式的 [建立] 頁面上啟用 Application Insights：
@@ -65,6 +65,14 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
    ![將檢測金鑰新增至應用程式設定](media/functions-monitoring/add-ai-key.png)
 
 1. 按一下 [檔案] 。
+
+## <a name="disable-built-in-logging"></a>停用內建記錄
+
+如果您啟用 Application Insights，我們建議您停用[使用 Azure 儲存體的內建記錄](#logging-to-storage)。 內建記錄適合用來測試少量的工作負載，但不適用於負載繁重的生產環境。 若要監控生產環境，建議您使用 Application Insights。 如果將內建記錄用於生產環境，記錄內容可能會因為 Azure 儲存體的節流而有所佚失。
+
+若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。
+
+當您啟用 Application Insights 和停用內建記錄時，Azure 入口網站中函式的 [監視] 索引標籤會帶您前往 Application Insights。
 
 ## <a name="view-telemetry-data"></a>檢視遙測資料
 
@@ -464,58 +472,41 @@ module.exports = function (context, req) {
 
 ## <a name="monitoring-without-application-insights"></a>不使用 Application Insights 來監視
 
-我們建議使用 Application Insights 來監視函式，因為它提供更多資料和更好的方法來分析資料。 但是，您也可以在 Azure 入口網站頁面中尋找函式應用程式的遙測和記錄資料。 
+我們建議使用 Application Insights 來監視函式，因為它提供更多資料和更好的方法來分析資料。 但是，您也可以在 Azure 入口網站頁面中尋找函式應用程式的記錄和遙測資料。
 
-選取函式的 [監視] 索引標籤，然後取得函式執行清單。 選取函式執行，以檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。
+### <a name="logging-to-storage"></a>記錄到儲存體
 
-> [!IMPORTANT]
-> 使用 Azure Functions 的[取用主控方案](functions-overview.md#pricing)時，函式應用程式中的 [監視] 磚不會顯示任何資料。 這是因為平台為您動態調整和管理計算執行個體， 所以這些計量對取用方案而言沒有意義。
+內建記錄使用 `AzureWebJobsDashboard` 應用程式設定中由連接字串所指定的儲存體帳戶。 如果您配置該應用程式設定，便可以在 Azure 入口網站中查看記錄資料。 在函式應用程式頁面中，依序選取函式和 [監視] 索引標籤，函式執行清單隨即會出現。 選取函式執行，以檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。
+
+如果您使用 Application Insights 並已[停用內建記錄](#disable-built-in-logging)，[監視] 索引標籤會帶您前往 Application Insights。
 
 ### <a name="real-time-monitoring"></a>即時監視
 
-按一下函式 [監視] 索引標籤上的 [即時事件資料流]，即可進行即時監視。即時事件資料流會在新的瀏覽器索引標籤中以圖表顯示。
+您可以使用 [Azure 命令列介面 (CLI) 2.0](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，在本機工作站上將記錄檔串流處理至命令列工作階段。  
 
-> [!NOTE]
-> 有個已知問題可能會導致您的資料填入失敗。 您可能需要關閉包含即時事件資料流的瀏覽器索引標籤，然後再按一次 [即時事件資料流]，使其正確地填入您的事件資料流資料。 
-
-這些統計資料是即時的，但是執行資料的實際圖表可能會延遲大約 10 秒。
-
-### <a name="monitor-log-files-from-a-command-line"></a>從命令列監視記錄檔
-
-您可以使用 Azure 命令列介面 (CLI) 1.0 或 PowerShell，在本機工作站上將記錄檔串流處理至命令列工作階段。
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 監視函式應用程式記錄檔
-
-若要開始使用，請[安裝 Azure CLI 1.0](../cli-install-nodejs.md) 並[登入 Azure](/cli/azure/authenticate-azure-cli)。
-
-使用下列命令，來啟用傳統的服務管理模式、選擇您的訂用帳戶，以及串流處理記錄檔：
+如果您使用 Azure CLI 2.0，請使用下列命令來登入、選擇訂用帳戶及串流處理記錄檔：
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>使用 PowerShell 監視函式應用程式記錄檔
-
-首先，請[安裝和設定 Azure PowerShell](/powershell/azure/overview)。
-
-使用下列命令，來新增您的 Azure 訂用帳戶、選擇您的訂用帳戶，以及串流處理記錄檔：
+如果您使用 Azure PowerShell，請使用下列命令來新增 Azure 帳戶、選擇訂用帳戶及串流處理記錄檔：
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-如需詳細資訊，請參閱[法︰串流處理 Web 應用程式的記錄檔](../app-service/web-sites-enable-diagnostic-log.md#streamlogs)。 
+如需詳細資訊，請參閱[如何串流處理記錄檔](../app-service/web-sites-enable-diagnostic-log.md#streamlogs)。
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [深入了解 Application Insights](https://docs.microsoft.com/azure/application-insights/)
+如需詳細資訊，請參閱下列資源：
 
-> [!div class="nextstepaction"]
-> [深入了解 Functions 使用的記錄架構](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET Core 記錄](/aspnet/core/fundamentals/logging/)

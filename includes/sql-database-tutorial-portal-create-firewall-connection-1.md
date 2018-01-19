@@ -16,7 +16,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](../article
 
 3. 使用下列資訊填寫 SQL Database 表單，如上圖所示︰   
 
-   | 設定       | 建議的值 | 說明 | 
+   | 設定       | 建議的值 | 描述 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **資料庫名稱** | mySampleDatabase | 如需有效的資料庫名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -25,12 +25,12 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](../article
 
 4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-   | 設定       | 建議的值 | 說明 | 
+   | 設定       | 建議的值 | 描述 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 | 
    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
    | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
-   | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
+   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
 
    ![建立資料庫伺服器](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
@@ -47,7 +47,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](../article
    > [!IMPORTANT]
    > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
    >
-   >\* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：美國東部 2、美國西部、美國維吉尼亞州政府、西歐、德國中部、東南亞、日本東部、澳大利亞東部、加拿大中部和加拿大東部。 請參閱 [P11-P15 目前限制](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+   >\* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、法國中部、德國中部、日本東部、韓國中部、美國中南部、東南亞、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
    > 
 
 9. 在選取伺服器層、DTU 數目和儲存體數量之後，按一下 [套用]。  
@@ -68,7 +68,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 > SQL Database 會透過連接埠 1433 通訊。 如果您嘗試從公司網路進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
 >
 
-1. 部署完成之後，按一下左側功能表中的 SQL Database，然後按一下SQL Database 頁面上的 mySampleDatabase。 資料庫的 [概觀] 頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver20170824.database.windows.net**)，並提供進一步的組態選項。 
+1. 部署完成之後，按一下左側功能表中的 [SQL Database]，然後按一下 [SQL Database] 頁面上的 [mySampleDatabase]。 資料庫的 [概觀] 頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver20170824.database.windows.net**)，並提供進一步的組態選項。 
 
 2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 
 
@@ -80,7 +80,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 4. 按一下工具列上的 [新增用戶端 IP]，將目前的 IP 位址新增至新的防火牆規則。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-5. 按一下 [儲存] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+5. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
 6. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
 

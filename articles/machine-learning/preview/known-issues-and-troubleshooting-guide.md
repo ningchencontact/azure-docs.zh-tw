@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/21/2017
 ``` 
 您可以將這些目錄的內容壓縮，然後傳送給我們進行診斷。
 
-### <a name="experiment-execution-log"></a>實驗執行記錄
+### <a name="experiment-execution-log"></a>實驗執行記錄檔
 如果從傳統型應用程式提交時，特定指令碼發生失敗，請嘗試透過 CLI 使用 `az ml experiment submit` 命令來重新提交。 這應該會以 JSON 格式提供您完整的錯誤訊息，最重要的是，它會包含**作業識別碼**值。 請將包含**作業識別碼**的 JSON 檔案傳送給我們，我們將可協助進行診斷。 
 
 如果特定指令碼在提交時成功，但在執行時失敗，它應該會顯示**執行識別碼**來識別該特定執行。 您可以使用下列命令來封裝相關的記錄檔︰
@@ -85,7 +85,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 
 - 只有在 Windows 和 Linux (在 Docker 容器中) 上支援 RevoScalePy 程式庫。 在 macOS 上不提供支援。
 
-- Jupyter 筆記本具有的最大的大小限制為 5 MB 時從 Workbench 應用程式中開啟它們。 您可以從 CLI 使用 'az ml 筆記本 start' 命令中，開啟大型筆記本，並清除資料格輸出減少檔案大小。
+- 從 Workbench 應用程式開啟時，Jupyter Notebook 的大小上限為 5 MB。 您可以使用 'az ml notebook start' 命令以從 CLI 開啟大型筆記本，再清理資料格輸出以縮減檔案大小。
 
 ## <a name="cant-update-workbench"></a>無法更新 Workbench
 有新的更新可用時，Workbench 應用程式首頁會顯示一則訊息，通知您有關新的更新。 您應會看到更新徽章出現在鈴鐺圖示上應用程式的左下角。 按一下徽章並遵循安裝程式精靈來安裝更新。 
@@ -104,7 +104,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
    - 移除可啟動上述指令碼的桌面捷徑
    - 下載安裝程式 https://aka.ms/azureml-wb-msi 並重新安裝。
 
-## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>登入之後卡在 「 檢查試驗帳戶 」 畫面
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>在登入後卡在「正在檢查測試帳戶」畫面
 登入之後，Workbench 應用程式可能會卡在空白畫面，並會顯示「正在檢查測試帳戶」訊息及旋轉的滾輪。 若要解決此問題，請採取下列步驟：
 1. 關閉應用程式
 2. 刪除以下檔案：
@@ -118,7 +118,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 3. 重新啟動應用程式。
 
 ## <a name="cant-delete-experimentation-account"></a>無法刪除測試帳戶
-您可以使用 CLI 來刪除測試帳戶，但是必須先刪除子工作區和子工作區內的子專案。 否則，您會看到錯誤。
+您可以使用 CLI 來刪除測試帳戶，但是必須先刪除子工作區和子工作區內的子專案。 否則，「必須先刪除巢狀資源，才能刪除資源」錯誤將會出現。
 
 ```azure-cli
 # delete a project
@@ -140,11 +140,13 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能呈現為「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。
 
 ## <a name="interrupt-cli-execution-output"></a>插斷 CLI 執行輸出
-如果您開始使用執行試驗`az ml experiment submit`或`az ml notebook start`和您想要中斷輸出： 
-- 在 Windows 上使用 Ctrl-break 鍵盤按鍵的組合
-- 在 macOS，使用 Ctrl + c。
+如果您使用 `az ml experiment submit` 或 `az ml notebook start` 來啟動測試執行回合，但想要插斷輸出： 
+- 在 Windows 上，請使用鍵盤上的 Ctrl-Break 按鍵組合
+- 在 macOS 上，請使用 Ctrl-C。
 
-請注意，這只會中斷 CLI 視窗中的輸出資料流。 它不會實際停止正在執行的工作。 如果您想要取消執行中的工作，使用`az ml experiment cancel -r <run_id> -t <target name>`命令。
+請注意，這個做法只會插斷 CLI 視窗中的輸出串流， 並不會實際停止執行中的作業。 如果您想要取消進行中的作業，請使用 `az ml experiment cancel -r <run_id> -t <target name>` 命令。
+
+如果您使用鍵盤沒有 Break 鍵的 Windows 電腦，可能的替代按鍵組合包括 Fn-B、Ctrl-Fn-B 或 Fn+Esc。如需特定按鍵組合的相關資訊，請參閱硬體廠商的文件。
 
 ## <a name="docker-error-read-connection-refused"></a>Docker 錯誤 "read: connection refused"
 對本機 Docker 容器執行時，有時您可能會看到下列錯誤： 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 您也可以新增資料磁碟並將 Docker 引擎設定為使用資料磁碟來儲存映像。 以下說明[如何新增資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。 您可以接著[變更 Docker 儲存映像的位置](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169)。
 
-或者，您可以展開作業系統磁碟，但不必碰觸 Docker 引擎組態。 以下說明[如何展開作業系統磁碟](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)。
+或者，您可以展開作業系統磁碟，但不必碰觸 Docker 引擎組態。 以下說明[如何展開作業系統磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks)。
 
 ```azure-cli
 #Deallocate VM (stopping will not work)
@@ -223,16 +225,16 @@ $ az vm start --resource-group myResourceGroup  --name myVM
 
 您也可以在 `docker.compute` 檔案中將 `sharedVolumne` 設定為`false`，以很少的效能成本避開共用問題。
 
-## <a name="wipe-clean-workbench-installation"></a>抹除全新 Workbench 安裝
-您通常不需要執行這項操作。 但如果您必須抹除全新安裝，步驟如下：
+## <a name="wipe-clean-workbench-installation"></a>徹底抹除 Workbench 安裝
+您通常不需要執行這項操作。 但如果您必須徹底抹除安裝，步驟如下：
 
 - 在 Windows 上：
-  - 先確定您使用_新增或移除程式_applet 中的_控制台_移除_Azure 機器學習 Workbench_應用程式項目。  
-  - 然後您可以下載並執行下列指令碼的其中一個：
+  - 首先，請務必使用 [控制台] 的 [新增或移除程式] 小程式移除 Azure Machine Learning Workbench 應用程式項目。  
+  - 接下來，您可以下載及執行以下任一個指令碼：
     - [Windows 命令列指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd)。
-    - [Windows PowerShell 指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1)。 (您可能需要執行`Set-ExecutionPolicy Unrestricted`才能執行指令碼的權限提升權限 PowerShell 視窗中。)
+    - [Windows PowerShell 指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1)。 (您可能需要先在提高權限的 PowerShell 視窗中執行 `Set-ExecutionPolicy Unrestricted`，之後才能執行指令碼。)
 - 在 macOS 上：
-  - 只要下載並執行[macOS 撞殼層指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh)。
+  - 只要下載及執行 [macOS Bash 殼層指令碼](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh)即可。
 
 
 ## <a name="some-useful-docker-commands"></a>一些實用的 Docker 命令

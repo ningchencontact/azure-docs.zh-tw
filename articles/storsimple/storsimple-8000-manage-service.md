@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多個 StorSimple 裝置。 建立服務之後，可使用該服務，從單一集中位置來管理所有連接至 StorSimple 裝置管理員服務的裝置，因而將管理負擔降到最低。
 
 本教學課程說明建立、刪除、移轉服務和管理服務註冊金鑰所需的步驟。 本文所含資訊僅適用於 StorSimple 8000 系列裝置。 如需有關 StorSimple Virtual Array 的詳細資訊，請移至[為您的 StorSimple Virtual Array 部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md)。
+
+> [!NOTE]
+> 所有傳統的 StorSimple 裝置管理員將會自動移至新的 Azure 入口網站。 如果您有任何疑問，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。 移至新的 Azure 入口網站之後，就不再支援 Azure 服務管理 (ASM) PowerShell Cmdlet。 請更新指令碼以管理您的裝置，如需詳細資訊，請移至[使用 Azure Resource Manager SDK 型指令碼管理 StorSimple 裝置](storsimple-8000-automation-azurerm-scripts.md)。 新的 Azure 入口網站支援執行 Update 5.0 或更新版本的裝置。 如果您的裝置不是最新的，請立即安裝 Update 5。 如需詳細資訊，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。 如果您使用 StorSimple 雲端設備 (8010/8020)，則無法更新雲端設備。 使用最新版的軟體搭配 Update 5.0，建立新的雲端設備，然後容錯移轉至所建立的新雲端設備。 執行 Update 4.0 或更舊版本的所有裝置將會遇到[縮減的管理功能](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0)。 
 
 ## <a name="create-a-service"></a>建立服務
 若要建立 StorSimple 裝置管理員服務，必須擁有：
@@ -58,86 +61,6 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 * **位置** – 部署 StorSimple 裝置所在的地理位置。
 * **訂用帳戶** – 與您的服務相關聯的計費訂用帳戶。
 
-## <a name="move-a-service-to-azure-portal"></a>將服務移至 Azure 入口網站
-Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁有用來管理 StorSimple 裝置的服務，建議將您的服務移至 Azure 入口網站。 2017 年 9 月 30 日之後，不再支援 StorSimple Manager 服務的 Azure 傳統入口網站。 如果您想要移至新的 Azure 入口網站，請參閱[轉換考量](#considerations-for-transition)。 
-
-> [!NOTE]
-> 從 2017 年 10 月 5 日開始，傳統的 StorSimple 裝置管理員將會自動移至新的 Azure 入口網站。 這是分階段導入，我們將會透過電子郵件和入口網站通知，為您更新移轉進度。 如果您有任何疑問，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
-
-### <a name="considerations-for-transition"></a>轉換之前
-
-移轉服務之前，請先檢閱移轉至新 Azure 入口網站的影響。
-
-> [!NOTE]
-> 移至新的 Azure 入口網站之後，就不再支援現有的 Azure 服務管理 (ASM) PowerShell Cmdlet。 請更新指令碼，以透過 Azure Resource Manager SDK 管理您的裝置。 如需詳細資訊，請移至[使用 Azure Resource Manager SDK 型指令碼管理 StorSimple 裝置](storsimple-8000-automation-azurerm-scripts.md)。
-> 新的 Azure 入口網站支援執行 Update 3.0 或更新版本的裝置。 如果您的裝置不處於最新狀態，我們強烈建議您儘速套用 Update 5。
-
-#### <a name="before-you-transition"></a>轉換前的注意事項
-
-* 裝置需執行 Update 3.0 或更新版本。 如果您的裝置執行舊版，強烈建議您透過 Hotfix 方法安裝 Update 5。 如需詳細資訊，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。 如果使用 StorSimple 雲端設備 (8010/8020)，則無法更新雲端設備。 使用最新版的軟體搭配 Update 5.0，建立新的雲端設備，然後容錯移轉至所建立的新雲端設備。
-
-* 一旦轉換至新的 Azure 入口網站，則無法使用 Azure 傳統入口網站來管理您的 StorSimple 裝置。
-
-* 轉換是非干擾性的，裝置不會有停機時間。
-
-* 指定訂用帳戶下的所有 StorSimple 裝置管理員皆會轉換。
-
-#### <a name="during-the-transition"></a>轉換期間
-
-* 無法從入口網站管理您的裝置。
-* 分層和排程備份等作業會持續進行。
-* 正在進行轉換時，請勿刪除舊的 StorSimple 裝置管理員。
-
-#### <a name="after-the-transition"></a>轉換之後
-
-* 無法再從傳統入口網站管理您的裝置。
-
-* 不支援現有的 Azure 服務管理 (ASM) PowerShell Cmdlet。 請更新指令碼，以透過 Azure Resource Manager 管理您的裝置。 如需使用 Resource Manager SDK 的範例指令碼，請參閱 [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools)。
-
-* 您的服務和裝置設定會予以保留。 所有磁碟區和備份也會轉換到 Azure 入口網站。
-
-### <a name="begin-transition"></a>開始轉換
-
-執行下列步驟，將您的服務轉換至 Azure 入口網站。
-
-1. 移至新 Azure 入口網站中現有的 StorSimple Manager 服務。
-    ![更多服務](./media/storsimple-8000-manage-service/service-browse01.png) ![選取裝置管理員](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. 您會看見通知，告知您 Azure 入口網站中現正提供 StorSimple 裝置管理員服務。 在 Azure 入口網站中，該服務是指 StorSimple 裝置管理員服務。
-    ![移轉通知](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. 請確定您已檢閱完整的移轉影響。
-    2. 檢閱將從傳統入口網站移動的 StorSimple 裝置管理員清單。
-
-3. 按一下 [移轉]。 轉換程序開始，需要幾分鐘才能完成。
-
-當轉換完成之後，您可以在 Azure 入口網站透過 StorSimple 裝置管理員服務來管理您的裝置。 如果您看不到移轉至 Azure 入口網站的選項，但您想要移動，可以[提交要求](https://aka.ms/ss8000-cx-signup)。
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>執行 Update 3.0 之前版本的裝置上支援的作業
-Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝置。 對執行舊版本的裝置的支援有限。 移轉至 Azure 入口網站之後，請使用下表了解執行 Update 3.0 之前版本的裝置可支援哪些作業。
-
-| 作業                                                                                                                       | 支援      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| 註冊裝置                                                                                                               | 是            |
-| 設定裝置設定，例如一般設定、網路設定和安全性設定                                                                | 是            |
-| 掃描、下載，及安裝更新                                                                                             | 是            |
-| 停用裝置                                                                                                               | 是            |
-| 刪除裝置                                                                                                                   | 是            |
-| 建立、修改及刪除磁碟區容器                                                                                   | 否             |
-| 建立、修改及刪除磁碟區                                                                                             | 否             |
-| 建立、修改及刪除備份原則                                                                                      | 否             |
-| 進行手動備份                                                                                                            | 否             |
-| 進行排程備份                                                                                                         | 不適用 |
-| 從備份組還原                                                                                                        | 否             |
-| 複製至執行 Update 3.0 和更新版本的裝置 <br> 來源裝置執行的是 Update 3.0 之前的版本。                                | 是            |
-| 複製到執行 Update 3.0 之前版本的裝置                                                                          | 否             |
-| 作為容錯移轉的來源裝置 <br> (從執行 Update 3.0 之前版本的裝置到執行 Update 3.0 和更新版本的裝置)                                                               | 是            |
-| 作為容錯移轉的目標裝置 <br> (到執行 Update 3.0 之前軟體版本的裝置)                                                                                   | 否             |
-| 清除警示                                                                                                                  | 是            |
-| 檢視備份原則、備份類別目錄、磁碟區、磁碟區容器、監視圖表、作業，以及傳統入口網站中建立的警示 | 是            |
-| 開啟和關閉裝置控制器                                                                                              | 是            |
-
-
 ## <a name="delete-a-service"></a>刪除服務
 
 刪除服務之前，請確定沒有任何連接的裝置正在使用它。 如果服務正在使用中，請停用連接的裝置。 停用作業將會斷絕裝置與服務之間的連接，但是會保留雲端中的裝置資料。
@@ -153,11 +76,11 @@ Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝�
 
     ![搜尋要刪除的服務](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. 這會帶您前往 StorSimple 裝置管理員服務刀鋒視窗。 按一下 [刪除]。
+2. 這會帶您前往 StorSimple 裝置管理員服務刀鋒視窗。 按一下 [刪除] 。
 
     ![刪除服務](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. 在確認通知處按一下 [是]。 刪除服務可能需要數分鐘的時間。
+3. 在確認通知處按一下 [ **是** ]。 刪除服務可能需要數分鐘的時間。
 
     ![確認刪除](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
@@ -262,6 +185,31 @@ Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝�
 2. 開啟 PowerShell，並在命令提示字元中，輸入：`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 此指令碼將確保服務資料加密金鑰已在裝置管理員下的所有 8010/8020 雲端設備上設定。
+
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>執行 Update 5.0 之前版本的裝置上支援的作業
+Azure 入口網站僅支援執行 Update 5.0 和更新版本的 StorSimple 裝置。 對執行舊版本的裝置的支援有限。 移轉至 Azure 入口網站之後，請使用下表了解執行 Update 5.0 之前版本的裝置可支援哪些作業。
+
+| 作業                                                                                                                       | 支援      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| 註冊裝置                                                                                                               | 是            |
+| 設定裝置設定，例如一般設定、網路設定和安全性設定                                                                | 是            |
+| 掃描、下載，及安裝更新                                                                                             | 是            |
+| 停用裝置                                                                                                               | 是            |
+| 刪除裝置                                                                                                                   | 是            |
+| 建立、修改及刪除磁碟區容器                                                                                   | 否             |
+| 建立、修改及刪除磁碟區                                                                                             | 否             |
+| 建立、修改及刪除備份原則                                                                                      | 否             |
+| 進行手動備份                                                                                                            | 否             |
+| 進行排程備份                                                                                                         | 不適用 |
+| 從備份組還原                                                                                                        | 否             |
+| 複製至執行 Update 3.0 和更新版本的裝置 <br> 來源裝置執行的是 Update 3.0 之前的版本。                                | 是            |
+| 複製到執行 Update 3.0 之前版本的裝置                                                                          | 否             |
+| 作為容錯移轉的來源裝置 <br> (從執行 Update 3.0 之前版本的裝置到執行 Update 3.0 和更新版本的裝置)                                                               | 是            |
+| 作為容錯移轉的目標裝置 <br> (到執行 Update 3.0 之前軟體版本的裝置)                                                                                   | 否             |
+| 清除警示                                                                                                                  | 是            |
+| 檢視備份原則、備份類別目錄、磁碟區、磁碟區容器、監視圖表、作業，以及傳統入口網站中建立的警示 | 是            |
+| 開啟和關閉裝置控制器                                                                                              | 是            |
+
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [StorSimple 部署程序](storsimple-8000-deployment-walkthrough-u2.md)。
