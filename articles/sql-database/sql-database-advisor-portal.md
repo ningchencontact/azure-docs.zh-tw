@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -41,10 +41,10 @@ ms.lasthandoff: 10/31/2017
 
 依照可能帶來的效能影響排序，建議分成下列類別：
 
-| 影響 | 說明 |
+| 影響 | 描述 |
 |:--- |:--- |
 | 高 |高影響建議提供最明顯的效能影響。 |
-| 中型 |中度影響建議會改善效能，但不顯著。 |
+| 中 |中度影響建議會改善效能，但不顯著。 |
 | 低 |低影響建議比沒有建議時提供更好的效能，但改善可能不顯著。 |
 
 
@@ -91,6 +91,10 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 2. 從清單中選取捨棄的項目以檢視其詳細資料。
 3. (選擇性) 按一下 [復原捨棄]，將索引加回到**建議**的主要清單。
 
+> [!NOTE]
+> 請注意，如果啟用 SQL Database [自動微調](sql-database-automatic-tuning.md)，且您以手動方式捨棄清單中的建議，就永遠不會自動套用這類建議。 捨棄建議是一個便利的方式，可在要求不得套用特定建議時，讓使用者可以啟用自動調整。
+> 您可以選取 [復原捨棄] 選項，將捨棄的建議新增回 [建議] 清單，從而還原這個行為。
+> 
 
 ### <a name="enable-automatic-tuning"></a>啟用自動微調
 您可以將 Azure SQL Database 設為自動實作建議。 當建議可供使用時會自動套用建議。 因為所有建議都由服務管理，所以若對效能產生負面影響，就會還原該建議。
@@ -116,13 +120,13 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 ## <a name="monitoring-operations"></a>監視作業
 套用建議時可能不會立即執行。 入口網站會提供有關建議狀態的詳細資料。 索引有下列可能的狀態：
 
-| 狀態 | 說明 |
+| 狀態 | 描述 |
 |:--- |:--- |
 | Pending |已收到套用建議命令，且已排程執行。 |
 | 執行中 |正在套用建議。 |
 | 驗證中 |成功套用建議，而服務正在衡量益處。 |
 | 成功 |已成功套用建議，並證實有益處。 |
-| 錯誤 |套用建議程序期間發生錯誤。 這可能是暫時性問題，也可能是資料表的結構描述變更，造成指令碼不再有效。 |
+| Error |套用建議程序期間發生錯誤。 這可能是暫時性問題，也可能是資料表的結構描述變更，造成指令碼不再有效。 |
 | 還原 |已套用建立但被認為無助於效能，正在自動還原。 |
 | 已還原 |已還原建議。 |
 
@@ -139,11 +143,11 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 ![建議的索引](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>監視索引建議的效能影響
-成功實作建議之後 (目前僅提供索引作業和參數化查詢建議)，您可以按一下 [建議詳細資料] 頁面上的 [查詢深入解析] 來開啟 [查詢效能深入解析](sql-database-query-performance.md) ，並查看排名最前面查詢對效能的影響。
+成功實作建議之後 (目前僅提供索引作業和參數化查詢建議)，您可以按一下 [建議詳細資料] 頁面上的 **查詢深入解析** 來開啟 [查詢效能深入解析](sql-database-query-performance.md)，並查看排名最前面查詢對效能的影響。
 
 ![監視效能影響](./media/sql-database-advisor-portal/query-insights.png)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 Azure SQL Database 會提供可改善 SQL Database 效能的建議。 藉由提供 T-SQL 指令碼，您會獲得最佳化資料庫的協助，並最終改善查詢效能。
 
 ## <a name="next-steps"></a>後續步驟
