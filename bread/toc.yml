@@ -37,7 +37,7 @@
         - name: Azure PowerShell
           tocHref: /azure/api-management/scripts/
           topicHref: /azure/api-management/powershell-samples/
-    - name: App Service
+    - name: App Service 方案
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
@@ -101,10 +101,10 @@
     - name: 支援能力
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: 備份
+    - name: 'Backup '
       tocHref: /azure/backup/
       topicHref: /azure/backup/
-    - name: 批次
+    - name: Batch
       tocHref: /azure/batch/
       topicHref: /azure/batch/
     - name: Batch AI
@@ -125,7 +125,7 @@
     - name: 雲端服務
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
-    - name: 辨識服務
+    - name: 認知服務
       tocHref: /azure/cognitive-services/
       topicHref: /azure/cognitive-services/
       items:
@@ -187,10 +187,10 @@
     - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: Data Lake Analytics
+    - name: 資料湖分析
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: 資料湖存放區
+    - name: Data Lake Store
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Devtest Lab
@@ -218,7 +218,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: HBase
+        - name: hbase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: 互動式查詢
@@ -239,13 +239,16 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT 中樞
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
     - name: IoT 套件
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/
-    - name: 金鑰保存庫
+    - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
     - name: 負載平衡器
@@ -257,7 +260,7 @@
     - name: Logic Apps
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
-    - name: 機器學習服務
+    - name: Machine Learning
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
       items:
@@ -362,7 +365,7 @@
     - name: 排程器
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: 搜尋
+    - name: Search
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: 安全性
@@ -383,7 +386,7 @@
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/
-    - name: 站台復原
+    - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
     - name: SQL 資料倉儲
