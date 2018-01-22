@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6c18debd022f0f233b52d81899e8edd7cf1e0456
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供自訂虛擬機器映像
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
-在 Azure Stack 中，操作員可以自訂虛擬機器映像提供給其使用者使用。 這些映像可供 Azure Resource Manager 範本參考，或者您可以將其新增到 Azure Marketplace UI 作為 Marketplace 項目。 
+在 Azure Stack 中，操作員可以自訂虛擬機器映像提供給其使用者使用。 這些映像可供 Azure Resource Manager 範本參考，或者您可以將其新增到 Azure Marketplace UI 作為 Marketplace 項目。
 
 ## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>使用 PowerShell 將 VM 映像新增到 Marketplace
 
@@ -35,21 +35,27 @@ ms.lasthandoff: 12/11/2017
 2. 下載[處理 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
 
 3. 準備 VHD 格式 (不使用 VHDX 格式) 的 Windows 或 Linux 作業系統虛擬硬碟映像。
-   
+
    * 對於 Windows 映像，如需準備映像的指示，請參閱[將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](../virtual-machines/windows/upload-generalized-managed.md)。
-   * 對於 Linux 映像，請參閱[在 Azure Stack 上部署 Linux 虛擬機器](azure-stack-linux.md)。 完成本文所述之準備映像或使用現有 Azure Stack Linux 映像的步驟。  
+
+   * 對於 Linux 映像，請參閱[在 Azure Stack 上部署 Linux 虛擬機器](azure-stack-linux.md)。 完成本文所述之準備映像或使用現有 Azure Stack Linux 映像的步驟。    
+
+   Azure Stack 支援固定的磁碟 VHD 格式。 固定格式會線性地建構檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的小頁尾將說明 VHD 屬性。 若要確認是否為固定磁碟，請使用 [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 命令。  
+
+   > [!IMPORTANT]
+   >  Azure Stack 不支援動態磁碟 VHD。 對連結至 VM 的動態磁碟調整大小，會導致 VM 處於失敗狀態。 若要解決這個問題，請刪除 VM，但不要刪除 VM 的磁碟 (儲存體帳戶中的 VHD Blob)。 然後，將 VHD 從動態磁碟轉換為固定磁碟，並重新建立虛擬機器。
 
 若要將映像新增到 Azure Stack Marketplace，請完成下列步驟：
 
 1. 匯入 Connect 和 ComputeAdmin 模組：
-   
+
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
    # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ``` 
+   ```
 
 2. 登入您的 Azure Stack 環境。 執行下列其中一個指令碼，取決於您是使用 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 來部署您的 Azure Stack 環境。 (取代 Azure AD `tenantName`、`GraphAudience` 端點，以及 `ArmEndpoint` 值，以反映您的環境設定。)
 
@@ -61,7 +67,7 @@ ms.lasthandoff: 12/11/2017
 
       # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
       $GraphAudience = "<GraphAuidence endpoint for your environment>"
-      
+
       # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
       Add-AzureRMEnvironment `
         -Name "AzureStackAdmin" `
@@ -77,11 +83,11 @@ ms.lasthandoff: 12/11/2017
 
       Login-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
+        -TenantId $TenantID
       ```
 
    * **Active Directory 同盟服務**。 使用下列 Cmdlet：
-    
+
         ```PowerShell
         # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
         $ArmEndpoint = "<Resource Manager endpoint for your environment>"
@@ -101,15 +107,15 @@ ms.lasthandoff: 12/11/2017
 
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackAdmin 
+          -EnvironmentName AzureStackAdmin
 
         Login-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID 
+          -TenantId $TenantID
         ```
-    
+
 3. 叫用 `Add-AzsVMImage` Cmdlet 來新增 VM 映像。 在 `Add-AzsVMImage` Cmdlet 中，將 `osType` 指定為 Windows 或 Linux。 請包含 VM 映像的發行者、供應項目、SKU 及版本。 如需有關所允許參數的詳細資訊，請參閱[參數](#parameters)。 Azure Resource Manager 範本會使用參數來參考 VM 映像。 下列範例會叫用指令碼：
-     
+
   ```powershell
   Add-AzsVMImage `
     -publisher "Canonical" `
@@ -129,7 +135,7 @@ ms.lasthandoff: 12/11/2017
 
 若要確認命令執行成功，在入口網站中移至 Marketplace。 請確認 VM 映像在 [虛擬機器] 類別目錄中可供使用。
 
-![已成功新增 VM 映像](./media/azure-stack-add-vm-image/image5.PNG) 
+![已成功新增 VM 映像](./media/azure-stack-add-vm-image/image5.PNG)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>使用 PowerShell 來移除 VM 映像
 
@@ -170,8 +176,13 @@ Remove-AzsVMImage `
 
 1. [將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)，或如果是 Linux 映像，則依照[在 Azure Stack 上部署 Linux 虛擬機器](azure-stack-linux.md)所述的指示操作。 您上傳映像之前，務必考慮下列因素：
 
-   * 將映像上傳到 Azure Stack Blob 儲存體比上傳到 Azure Blob 儲存體有效率，因為將映像推送到 Azure Stack 映像存放庫所需的時間較短。 
-   
+   * Azure Stack 支援固定的磁碟 VHD 格式。 固定格式會線性地建構檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的小頁尾將說明 VHD 屬性。 若要確認是否為固定磁碟，請使用 [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 命令。  
+
+    > [!IMPORTANT]
+   >  Azure Stack 不支援動態磁碟 VHD。 對連結至 VM 的動態磁碟調整大小，會導致 VM 處於失敗狀態。 若要解決這個問題，請刪除 VM，但不要刪除 VM 的磁碟 (儲存體帳戶中的 VHD Blob)。 然後，將 VHD 從動態磁碟轉換為固定磁碟，並重新建立虛擬機器。
+
+   * 將映像上傳到 Azure Stack Blob 儲存體比上傳到 Azure Blob 儲存體有效率，因為將映像推送到 Azure Stack 映像存放庫所需的時間較短。
+
    * 上傳 [Windows VM 映像](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)時，請務必以[設定 Azure Stack 操作員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)步驟取代「登入 Azure」步驟。  
 
    * 記下您上傳映像的 Blob 儲存體 URI。 Blob 儲存體 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
@@ -185,7 +196,7 @@ Remove-AzsVMImage `
 2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [更多服務] > [資源提供者]。 然後，選取 [計算] > [VM 映像] > [新增]。
 
 3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OS 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
-   
+
    ![開始建立映像](./media/azure-stack-add-vm-image/image4.png)
 
    成功建立映像時，VM 映像狀態會變更為「成功」。

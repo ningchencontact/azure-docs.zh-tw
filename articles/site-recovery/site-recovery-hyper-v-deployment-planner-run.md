@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 34f0b641abcf4231655d74da46f1bdcadc5642f6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>執行 Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/09/2018
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
-| 參數名稱 | 描述 |
+| 參數名稱 | 說明 |
 |---|---|
 | -Operation | GetVMList |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| 參數名稱 | 描述 |
+| 參數名稱 | 說明 |
 |---|---|
 | -Operation | StartProfiling |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 用來儲存分析期間所產生之分析資料的通用命名慣例 (UNC) 或本機目錄路徑。 如果未指定，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果現在未指定，系統稍後會在命令執行期間提示您輸入密碼。|
-|-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。|
+|-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 或 storageV2 (一般用途 v2)|
 |-StorageAccountKey|(選用) 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <Storage account name> > 設定 > 存取金鑰 > Key1 (或傳統儲存體帳戶的主要存取金鑰)。|
 |-Environment|(選用) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。|
 
@@ -159,7 +159,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| 參數名稱 | 描述 |
+| 參數名稱 | 說明 |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | 包含要產生報告之已剖析 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案的每一行應包含一個伺服器名稱或 IP 位址，後面接著以 \ 分隔的 VM 名稱。 檔案中指定的 VM 名稱應該與 Hyper-V 主機上的 VM 名稱相同。<ul>例如，"VMList.txt" 檔案包含下列 VM︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -269,12 +269,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- 參數名稱 | 描述 |
+ 參數名稱 | 說明 |
 |---|---|
 | -Operation | GetThroughtput |
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的通用命名慣例 (UNC) 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
-| -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 |
+| -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 或 storageV2 (一般用途 v2) |
 | -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > [儲存體帳戶] > [<儲存體帳戶名稱>] > [設定] > [存取金鑰] > [Key1]。|
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案的每一行應包含一個伺服器名稱或 IP 位址，後面接著以 \ 分隔的 VM 名稱。 檔案中指定的 VM 名稱應該與 Hyper-V 主機上的 VM 名稱相同。<ul>例如，"VMList.txt" 檔案包含下列 VM︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(選用) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數|

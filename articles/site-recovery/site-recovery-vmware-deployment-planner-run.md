@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>針對 VMware 到 Azure 執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/09/2018
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| 參數名稱 | 描述 |
+| 參數名稱 | 說明 |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | 要剖析其 VM 之 vCenter Server/vSphere ESXi 主機的完整網域名稱或 IP 位址。|
@@ -85,7 +85,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (選用) 用來連線至 vCenter Server/vSphere ESXi 主機的密碼。 如果現在未指定密碼，系統將會在命令執行時提示您輸入密碼。|
 |-Port|(選用) 要連線到 vCenter/ESXi 主機的連接埠號碼。 預設連接埠為 443。|
 |-Protocol| (選用) 指定用來連線至 vCenter 的通訊協定 ('http' 或 'https')。 預設通訊協定為 https。|
-| -StorageAccountName | (選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。|
+| -StorageAccountName | (選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 或 storageV2 (一般用途 v2)|
 | -StorageAccountKey | (選用) 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > [儲存體帳戶] > [<儲存體帳戶名稱>] > [設定] > [存取金鑰] > [Key1]。 |
 | -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。 |
 
@@ -148,7 +148,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|參數名稱 | 描述 |
+|參數名稱 | 說明 |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  將產生報告之已分析 VM 所在的 vCenter/vSphere Server 完整網域名稱或 IP 位址 (使用您在分析時所用的相同名稱或 IP 位址)。 請注意，如果您在分析時使用 vCenter Server，則無法使用 vSphere Server 產生報告，反之亦然。|
@@ -258,12 +258,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|參數名稱 | 描述 |
+|參數名稱 | 說明 |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
 | -Directory | (選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如未指定目錄，則會使用 ‘ProfiledData’ 目錄。 |
-| -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 |
+| -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 或 storageV2 (一般用途 v2)。|
 | -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <儲存體帳戶名稱> > 設定 > 存取金鑰 > Key1 (或傳統儲存體帳戶的主要存取金鑰)。 |
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的 VM 名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 檔案包含下列 VM︰<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。 |
