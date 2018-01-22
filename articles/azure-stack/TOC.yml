@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: 管理 Windows Azure 套件 VM
           href: azure-stack-manage-windows-azure-pack.md
+        - name: 啟動及停止 Azure Stack
+          href: azure-stack-start-and-stop.md
         - name: 更換硬體
           items:
             - name: 節點動作

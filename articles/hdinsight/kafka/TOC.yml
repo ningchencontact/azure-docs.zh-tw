@@ -45,6 +45,10 @@
           maintainContext: true
     - name: 開發
       items:
+        - name: 使用 Kafka Producer 和 Consumer API
+          href: apache-kafka-producer-consumer-api.md
+        - name: 使用 Kafka Streams API
+          href: apache-kafka-streams-api.md
         - name: 使用空白邊緣節點
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

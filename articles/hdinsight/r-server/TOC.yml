@@ -44,6 +44,8 @@
         - name: VSCode 適用的工具
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: 從 Visual Studio R 工具提交作業
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: 擴充叢集
       items:
         - name: 使用啟動程序自訂叢集

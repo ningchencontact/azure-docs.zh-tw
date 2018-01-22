@@ -352,6 +352,8 @@
               href: secure-access-to-data.md
     - name: 整合
       items:
+        - name: 使用 HDInsight 實作 lambda 架構
+          href: lambda-architecture.md
         - name: 連線至 Spark
           href: spark-connector.md
         - name: 連線至 Spark GraphX

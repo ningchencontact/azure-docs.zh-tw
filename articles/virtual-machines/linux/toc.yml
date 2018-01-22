@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: 使用 Azure Site Recovery 移轉到進階儲存體
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: 尋找未連接的磁碟
+          href: find-unattached-disks.md
         - name: 使用檔案儲存體
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 透過範本部署磁碟
