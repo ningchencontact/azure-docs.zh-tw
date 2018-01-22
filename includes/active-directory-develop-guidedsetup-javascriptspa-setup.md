@@ -9,7 +9,7 @@
 >
 > 然後跳至[設定步驟](#create-an-application-express)，以在執行之前先設定程式碼範例。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要有本機網頁伺服器 (例如 [Python http.server](https://www.python.org/downloads/)、[http-server](https://www.npmjs.com/package/http-server/)、[.NET Core](https://www.microsoft.com/net/core) 或與 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 的 IIS Express 整合)，才能執行此指引設定。 
 
 本指南中的指示是以 Python 和 Visual Studio 2017 為基礎，但可以自由使用任何其他開發環境或網頁伺服器。
