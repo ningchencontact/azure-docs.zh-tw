@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線 (傳統)：Azure 入口網站
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/18/2017
 您可以使用下列值來建立測試環境，或參考這些值來進一步了解本文中的範例：
 
 * **名稱：VNet1**
-* **位址空間：192.168.0.0/16**<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
+* **位址空間：192.168.0.0/16**<br>在此範例中，我們只使用一個位址空間。 您可以為 VNet 使用多個位址空間，如圖所示。
 * **子網路名稱：FrontEnd**
 * **子網路位址範圍：192.168.1.0/24**
 * **訂用帳戶：**如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
@@ -103,7 +103,7 @@ ms.lasthandoff: 12/18/2017
 
 ### <a name="gateway"></a>第 2 部分：建立閘道子網路和動態路由閘道
 
-在此步驟中，您會建立一個閘道子網路和一個動態路由閘道。 在傳統部署模型的 Azure 入口網站中，建立閘道子網路和閘道可以透過相同的組態頁面完成。
+在此步驟中，您會建立一個閘道子網路和一個動態路由閘道。 在傳統部署模型的 Azure 入口網站中，建立閘道子網路和閘道可以透過相同的組態頁面完成。 閘道子網路僅用於閘道服務。 切勿將任何項目直接部署至閘道子網路 (例如虛擬機器或其他服務)。
 
 1. 在入口網站中，瀏覽至要建立閘道的虛擬網路。
 2. 在虛擬網路的頁面上，於 [概觀] 頁面的 [VPN 連線] 區段中，按一下 [閘道]。
@@ -112,25 +112,22 @@ ms.lasthandoff: 12/18/2017
 3. 在 [新增 VPN 連線] 頁面上，選取 [點對站]。
 
   ![點對站連線類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. 針對 [用戶端位址空間]，新增 IP 位址範圍。 這是 VPN 用戶端在連線時將從其接收 IP 位址的範圍。 使用不會重疊的私人 IP 位址範圍搭配您將從其連線的內部部署位置，或搭配您要連線至的 VNet。 您可以刪除自動填滿的區域，然後新增您要使用的私人 IP 位址範圍。
+4. 針對 [用戶端位址空間]，新增 IP 位址範圍。 這是 VPN 用戶端在連線時將從其接收 IP 位址的範圍。 使用不會重疊的私人 IP 位址範圍搭配您將從其連線的內部部署位置，或搭配您要連線至的 VNet。 您可以刪除自動填滿的區域，然後新增您要使用的私人 IP 位址範圍。 此範例說明自動填入的範圍。 您可以將其刪除，並新增您想要的值。
 
   ![用戶端位址空間](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. 選取 [立即建立閘道] 核取方塊。
-
-  ![立即建立閘道](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. 按一下 [選擇性閘道組態] 可開啟 [閘道組態] 頁面。
+5. 選取 [立即建立閘道] 核取方塊。 按一下 [選擇性閘道組態] 可開啟 [閘道組態] 頁面。
 
   ![按一下選擇性閘道組態](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. 按一下 [子網路設定所需設定] 可新增**閘道子網路**。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道如預期般停止運作。
+6. 按一下 [子網路設定所需設定] 可新增**閘道子網路**。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道如預期般停止運作。
 
   ![新增 GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. 選取閘道**大小**。 大小是虛擬網路閘道的閘道 SKU。 在入口網站中，預設的 SKU 是**基本**。 如需關於閘道 SKU 的資訊，請參閱[關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+7. 選取閘道**大小**。 大小是虛擬網路閘道的閘道 SKU。 在入口網站中，預設的 SKU 是**基本**。 如需關於閘道 SKU 的資訊，請參閱[關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
   ![閘道大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. 選取閘道的 [路由類型]。 P2S 組態需要**動態**路由類型。 完成此頁面的設定時，請按一下 [確定]。
+8. 選取閘道的 [路由類型]。 P2S 組態需要**動態**路由類型。 完成此頁面的設定時，請按一下 [確定]。
 
   ![設定路由類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. 在 [新增 VPN 連線] 頁面上，按一下頁面底部的 [確定]，開始建立虛擬網路閘道。 視您選取的閘道 sku 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。
+9. 在 [新增 VPN 連線] 頁面上，按一下頁面底部的 [確定]，開始建立虛擬網路閘道。 視您選取的閘道 sku 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。
 
 ## <a name="generatecerts"></a>2.建立憑證
 
@@ -202,7 +199,7 @@ ms.lasthandoff: 12/18/2017
 
 ### <a name="verifyvpnconnect"></a>驗證 VPN 連線
 
-1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
+1. 若要驗證您的 VPN 連線處於作用中狀態，請從用戶端電腦開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
 2. 檢視結果。 請注意，您接收到的 IP 位址是建立 VNet 時所指定之點對站連線位址範圍內的其中一個位址。 結果應該類似此範例：
 
   ```
@@ -261,7 +258,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="faq"></a>點對站常見問題集
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。

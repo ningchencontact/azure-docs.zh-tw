@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層
 
@@ -151,7 +151,7 @@ GPv1 與 GPv2 帳戶之間的價格結構不同，客戶在決定使用 GPv2 帳
 
 **是否可以將我的預設帳戶存取層設定為封存？**
 
-否。 只有經常性存取和非經常性存取儲存層可以設定為預設帳戶存取層。 封存只能設定於物件層級。
+編號 只有經常性存取和非經常性存取儲存層可以設定為預設帳戶存取層。 封存只能設定於物件層級。
 
 **哪些區域可以使用經常性存取、非經常性存取和封存儲存層？**
 
@@ -189,7 +189,7 @@ Azure 入口網站、PowerShell 和 CLI 工具，以及 .NET、Java、Python 和
 
 ## <a name="next-steps"></a>後續步驟
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>在 GPv Blob 儲存體帳戶中評估經常性存取、非經常性存取和封存
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>在 GPv2 Blob 儲存體帳戶中評估經常性存取、非經常性存取和封存
 
 [依照區域檢查經常性存取、非經常性存取和封存的可用性](https://azure.microsoft.com/regions/#services)
 

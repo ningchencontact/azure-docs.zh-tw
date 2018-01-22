@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Azure Data Factory 本身不會儲存任何資料。 它可讓您建立資料導
 如需第 1 版與第 2 版 Data Factory 服務之間的差異清單，請參閱[與第 1 版比較](compare-versions.md)。 
 
 ## <a name="next-steps"></a>後續步驟
-依照下列快速入門中的逐步指示操作，以了解如何建立資料處理站：[PowerShell](quickstart-create-data-factory-powershell.md)[.NET](quickstart-create-data-factory-dot-net.md)[Python](quickstart-create-data-factory-python.md)[REST API](quickstart-create-data-factory-rest-api.md) 及 Azure 入口網站。 
+使用下列其中一個工具/SDK，開始建立 Data Factory 管線： 
+
+- [Azure 入口網站中的 Data Factory 使用者介面](quickstart-create-data-factory-portal.md)
+- [Azure 入口網站中的複製資料工具](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager 範本](quickstart-create-data-factory-resource-manager-template.md)
+ 
