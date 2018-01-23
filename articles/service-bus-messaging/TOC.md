@@ -29,13 +29,13 @@
 ### [角色型存取控制 (預覽)](service-bus-role-based-access-control.md)
 ### [進階傳訊](service-bus-premium-messaging.md)
 ### [Azure 佇列和服務匯流排佇列的比較](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [建置多層式服務匯流排應用程式](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [效能最佳化](service-bus-performance-improvements.md)
 ### [異地災難復原和異地複寫](service-bus-geo-dr.md)
 ### [非同步傳訊模式與高可用性](service-bus-async-messaging.md)
 ### [處理中斷與災害](service-bus-outages-disasters.md)
 
 ## 開發
+### [建置多層式服務匯流排應用程式](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### 訊息處理
 #### [佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
 #### [訊息、 裝載和序列化](service-bus-messages-payloads.md)
