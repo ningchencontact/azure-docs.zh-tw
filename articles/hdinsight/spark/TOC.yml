@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: 搭配 Microsoft 辨識工具組使用
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: 建立 Spark 機器學習管線
+          href: apache-spark-creating-ml-pipelines.md
     - name: 分析巨量資料
       items:
         - name: 使用 Spark 來讀取和寫入 HBase 資料

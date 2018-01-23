@@ -311,6 +311,7 @@
 ### 效能監視
 #### [使用 WAD 進行效能監視](service-fabric-diagnostics-perf-wad.md)
 
+
 # 參考
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl 服務](service-fabric-sfctl-service.md)
 ### [sfctl 存放區](service-fabric-sfctl-store.md)
 ## [Java API](/java/api/overview/azure/servicefabric)
+### [Java REST 用戶端 API](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [服務模型 XML 結構描述](service-fabric-service-model-schema.md)
