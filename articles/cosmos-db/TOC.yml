@@ -341,7 +341,7 @@
         - name: 管理金鑰和一致性
           href: manage-account.md
         - name: Azure 儲存體總管
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: 安全性
           items:
             - name: 待用加密
