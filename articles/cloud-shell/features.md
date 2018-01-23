@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
 ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell 中 Bash 的功能和工具
 
@@ -50,7 +50,7 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 
 ## <a name="tools"></a>工具
 
-|類別   |名稱   |
+|類別   |Name   |
 |---|---|
 |Linux 工具            |Bash<br> sh<br> tmux<br> dig<br>               |
 |Azure 工具            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) \(英文\) 和 [1.0](https://github.com/Azure/azure-xplat-cli) \(英文\)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
@@ -74,4 +74,4 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 
 ## <a name="next-steps"></a>後續步驟
 [Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>
-[深入了解 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
+[了解 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
