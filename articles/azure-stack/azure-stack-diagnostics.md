@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
@@ -135,7 +135,7 @@ if($s)
    | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>使用圖形化使用者介面收集記錄
+### <a name="bkmk_gui"></a> 使用圖形化使用者介面收集記錄
 除了提供所需參數供 Get-AzureStackLog Cmdlet 擷取 Azure Stack 記錄，您也可以利用可用的開放原始碼 Azure Stack 工具 (位於主要的 Azure Stack 工具 GitHub 工具存放庫，網址為 http://aka.ms/AzureStackTools)。
 
 **ERCS_AzureStackLogs.ps1** PowerShell 指令碼儲存在 GitHub 工具存放庫，並且會定期更新。 為了確保有可用的最新版本，您應該直接從 http://aka.ms/ERCS 下載。 從系統管理 PowerShell 工作階段開始，指令碼會連線到特殊權限端點，並使用提供的參數執行 Get-AzureStackLog。 如果未提供任何參數，指令碼會預設為透過圖形化使用者介面提示您提供參數。
@@ -159,3 +159,4 @@ if($s)
 
 ## <a name="next-steps"></a>後續步驟
 [Microsoft Azure Stack 疑難排解](azure-stack-troubleshooting.md)
+

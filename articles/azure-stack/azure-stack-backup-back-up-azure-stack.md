@@ -1,6 +1,6 @@
 ---
 title: "備份 Azure Stack | Microsoft Docs"
-description: "在 Azure-Stack 上以就地備份來執行隨選備份。"
+description: "在 Azure Stack 上以就地備份來執行隨選備份。"
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,25 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>備份 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
-在 Azure-Stack 上以就地備份來執行隨選備份。 若您需要啟用基礎結構備份服務，請參閱[從系統管理入口網站啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-console.md)。
+在 Azure Stack 上以就地備份來執行隨選備份。 若您需要啟用基礎結構備份服務，請參閱[從系統管理入口網站啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-console.md)。
+
+> [!Note]  
+>  Azure Stack 工具包含**Start-AzSBackup** Cmdlet。 如需安裝工具的指示，請參閱[在 Azure Stack 中使用 PowerShell 執行](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ## <a name="start-azure-stack-backup"></a>啟動 Azure Stack 備份
 
-使用提升權限提示字元開啟 Windows PowerShell，並執行下列命令：
+在運算子管理環境中，使用提升權限提示字元開啟 Windows PowerShell，並執行下列命令：
 
-   ```powershell
-   Start-AzSBackup -Location $location
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>在系統管理入口網站中確認已完成的備份
 
