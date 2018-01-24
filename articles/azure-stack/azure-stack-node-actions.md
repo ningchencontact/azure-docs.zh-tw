@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 本文說明如何檢視縮放單位及其相關聯節點的狀態，以及如何使用可用的節點動作。 節點動作包括開啟電源、關閉電源、清空、繼續和修復。 一般而言，您可以於現場更換組件期間，或針對節點復原案例使用這些節點動作。
+
+> [!Important]  
+> 本文中說明的所有節點動作都應該一次以一個節點為目標。
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>檢視縮放單位和其節點的狀態
 
@@ -75,13 +79,17 @@ ms.lasthandoff: 12/11/2017
 
 [關閉電源] 動作會將節點關閉。 它與按下電源按鈕相同。 它**不會**傳送關機信號到作業系統。 針對計劃的關機作業，請確定您先清空縮放單位節點。
 
-當節點處於擱置狀態，而且不再回應要求，通常會使用此動作。  
+當節點處於擱置狀態，而且不再回應要求，通常會使用此動作。
+
+> [!Important] 
+> 此功能只可透過 PowerShell 取得。 之後將會在 Azure Stack 系統管理員入口網站中再度提供。
+
 
 若要透過 PowerShell 執行關閉電源動作：
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 在關閉電源動作無法運作的罕見情況下，請改用 BMC Web 介面。
 
@@ -89,11 +97,14 @@ ms.lasthandoff: 12/11/2017
 
 [開啟電源] 動作會將節點關閉。 它與按下電源按鈕相同。 
 
+> [!Important] 
+> 此功能只可透過 PowerShell 取得。 之後將會在 Azure Stack 系統管理員入口網站中再度提供。
+
 若要透過 PowerShell 執行開啟電源動作：
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 在開啟電源動作無法運作的罕見情況下，請改用 BMC Web 介面。
 

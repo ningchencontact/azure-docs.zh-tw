@@ -7,18 +7,18 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
  
 Azure Stack 是元件共同作業並與彼此互動的大型集合。 這所有元件都會產生自己唯一的記錄。 這可能使得診斷問題成為極富挑戰性的工作，尤其是針對來自多個互動的 Azure Stack 元件的錯誤。 
 
@@ -29,11 +29,11 @@ Azure Stack 是元件共同作業並與彼此互動的大型集合。 這所有�
  
 ## <a name="trace-collector"></a>追蹤收集器
  
-追蹤收集器依預設會啟用，並在背景中連續執行以從 Azure Stack 元件服務收集所有的 Windows 事件追蹤 (ETW) 記錄。 ETW 記錄會儲存在通用的本機共用內，保留天數為五天。 一旦達到此限制，建立新檔案時將會同時刪除最舊的檔案。 每個檔案預設的允許大小上限為 200 MB。 大小檢查將會定期執行 (每隔 2 分鐘)，而如果目前檔案 > = 200 MB 時，其將會儲存並產生新的檔案。 每個事件工作階段總檔案大小也有 8 GB 的限制。 
+追蹤收集器依預設會啟用，並在背景中連續執行以從 Azure Stack 元件服務收集所有的 Windows 事件追蹤 (ETW) 記錄。 ETW 記錄會儲存在通用的本機共用內，保留天數為五天。 一旦達到此限制，建立新檔案時將會同時刪除最舊的檔案。 每個檔案預設的允許大小上限為 200 MB。 大小檢查每隔 2 分鐘會執行一次，而若目前檔案 > = 200 MB，系統會儲存該檔案並產生新檔案。 每個事件工作階段所產生的總檔案大小也有 8 GB 的限制。 
 
 ## <a name="log-collection-tool"></a>記錄收集工具
  
-PowerShell Cmdlet **Get-AzureStackLog** 可用來收集 Azure Stack 環境中所有元件的記錄。 它會將它們以 ZIP 檔案儲存在使用者定義的位置。 如果我們的技術支援小組需要您的記錄，以便針對問題進行疑難排解，小組可能會要求您執行此工具。
+PowerShell Cmdlet **Get-AzureStackLog** 可用來收集 Azure Stack 環境中所有元件的記錄。 它會將它們以 ZIP 檔案儲存在使用者定義的位置。 若 Azure Stack 技術支援小組需要您的記錄，以便針對問題進行疑難排解，小組可能會要求您執行此工具。
 
 > [!CAUTION]
 > 這些記錄檔可能包含個人識別資訊 (PII)。 在您公開公佈任何記錄檔之前，請先將這點納入考量。
@@ -136,9 +136,9 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>使用圖形化使用者介面收集記錄
-與其提供所需參數供 Get-AzureStackLog Cmdlet 擷取 Azure Stack 記錄，您也可以利用可用的開放原始碼 Azure Stack 工具 (位於主要的 Azure Stack 工具 GitHub 存放庫，網址為 http://aka.ms/AzureStackTools)。
+除了提供所需參數供 Get-AzureStackLog Cmdlet 擷取 Azure Stack 記錄，您也可以利用可用的開放原始碼 Azure Stack 工具 (位於主要的 Azure Stack 工具 GitHub 工具存放庫，網址為 http://aka.ms/AzureStackTools)。
 
-**ERCS_AzureStackLogs.ps1** PowerShell 指令碼儲存在 GitHub 工具存放庫，並且會定期更新。 從系統管理 PowerShell 工作階段開始，指令碼會連線到特殊權限端點，並使用提供的參數執行 Get-AzureStackLog。 如果未提供任何參數，指令碼會預設為透過圖形化使用者介面提示您提供參數。
+**ERCS_AzureStackLogs.ps1** PowerShell 指令碼儲存在 GitHub 工具存放庫，並且會定期更新。 為了確保有可用的最新版本，您應該直接從 http://aka.ms/ERCS 下載。 從系統管理 PowerShell 工作階段開始，指令碼會連線到特殊權限端點，並使用提供的參數執行 Get-AzureStackLog。 如果未提供任何參數，指令碼會預設為透過圖形化使用者介面提示您提供參數。
 
 若要深入了解 ERCS_AzureStackLogs.ps1 PowerShell 指令碼，您可以觀看 Azure Stack 工具 GitHub 存放庫上的[短片](https://www.youtube.com/watch?v=Utt7pLsXEBc)或檢視指令碼的[讀我檔案](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md)。 
 

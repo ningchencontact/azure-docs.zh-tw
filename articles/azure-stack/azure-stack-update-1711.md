@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure Stack 1711 更新
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 本文說明這個更新程式封裝中的改良功能與修正、此版本的已知問題，以及可從何處下載更新。 已知問題分為直接與更新程序相關的已知問題，以及組建 (安裝後) 相關的已知問題。
 
@@ -35,7 +35,7 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
 
 ## <a name="before-you-begin"></a>開始之前
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 您必須先安裝 Azure Stack [1710 更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710)之後才能套用此更新。
 
@@ -51,6 +51,7 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
 - 使用者現在可以自動啟動 Windows VM
 - 已新增特殊權限的端點 PowerShell Cmdlet 來就保留目的擷取 BitLocker 修復金鑰
 - 更新基礎結構時，更新離線映像的支援
+- 以 [啟用備份服務] 來啟用基礎結構的備份
 
 #### <a name="fixes"></a>修正
 
@@ -123,12 +124,13 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
 - 當您建立網路負載平衡器時，必須建立網路位址轉譯 (NAT) 規則。 如果沒有，在建立負載平衡器之後嘗試新增 NAT 規則時會收到錯誤。
 - 建立 VM 並與公用 IP 位址建立關聯之後，您就無法取消該 IP 位址與虛擬機器 (VM) 的關聯。 取消關聯看似正常運作，但先前指派的公用 IP 位址仍然會與原始 VM 建立關聯。 即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。 您目前只有在建立新的 VM 時，才能使用新的公用 IP 位址。
 - Azure Stack 操作員可能無法部署、刪除、修改 VNET 或網路安全性群組。 此問題主要會出現在相同套件的後續更新嘗試。 這是因目前正在進行調查的更新之封裝問題所致。
+- 內部負載平衡 (ILB) 對 MAC 位址的後端 VM 進行不恰當的處理，導致 Linux 執行個體損壞。
  
 #### <a name="sqlmysql"></a>SQL/MySQL
 - 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。 
 - 不支援在不是由資源提供者執行的 SQL 和 MySQL 主控伺服器中直接建立項目，且可能導致不相符的狀態。
  
-#### <a name="app-service"></a>App Service
+#### <a name="app-service"></a>App Service 方案
 - 在訂用帳戶中建立第一個 Azure 函式之前，使用者必須先註冊儲存體資源提供者。
 
 #### <a name="identity"></a>身分識別
@@ -137,6 +139,17 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
 
 > [!IMPORTANT]
 > 即使 **azurestack\cloudadmin** 帳戶是 ADFS 部署環境中「預設提供者訂用帳戶」的擁有者，但它並沒有 RDP 到主機的權限。 視需要繼續使用 **azurestack\azurestackadmin** 帳戶或本機系統管理員帳戶登入、存取和管理主機。
+
+#### <a name="infrastructure-backup-sevice"></a>基礎結構備份服務
+<!-- 1974890-->
+
+- **1711 以前的備份不支援雲端復原。**  
+  1711 以前的備份與雲端復原不相容。 您必須先更新到 1711，並啟用備份。 若您已啟用備份，請確保在更新到 1711 後進行備份。 請刪除 1711 以前的備份。
+
+- **在 ASDK 上啟用基礎結構備份僅供測試用途。**  
+  基礎結構備份可用來還原多節點解決方案。 您可以在 ASDK 上啟用基礎結構備份，但無法測試復原。
+
+如需詳細資訊，請參閱[使用基礎結構備份服務進行 Azure Stack 的備份和資料復原](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md)。
 
 ## <a name="download-the-update"></a>下載更新
 

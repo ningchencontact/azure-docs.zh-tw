@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell  
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 您需要與 Azure Stack 相容的 Azure PowerShell 模組，才能搭配 Azure Stack 使用。 在本指南中，我們引導您安裝 Azure Stack 的 PowerShell 所需要的步驟。 您可以從 Azure Stack 開發套件，或從以 Windows 為基礎的外部用戶端 (如果您透過 VPN 連線) 來使用這篇文章中所述的步驟。
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 > [!NOTE]
 > 下列步驟需要 PowerShell 5.0。 若要檢查您的版本，請執行 $PSVersionTable.PSVersion 並比較「主要」版本。
 
-Azure Stack 的 PowerShell 命令是透過 PowerShell 程式庫進行安裝。 若要註冊 PSGallery 存放庫，請從開發套件，或從以 Windows 為基礎的外部用戶端 (如果是透過 VPN 連線) 開啟提升權限的 PowerShell 工作階段，然後執行下列命令：
+Azure Stack 的 PowerShell 命令是透過 PowerShell 資源庫進行安裝。 若要註冊 PSGallery 存放庫，請從開發套件，或從以 Windows 為基礎的外部用戶端 (如果是透過 VPN 連線) 開啟提升權限的 PowerShell 工作階段，然後執行下列命令：
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Set-PSRepository `
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* 登入至開發套件，或以 Windows 為基礎的外部用戶端 (如果您打算建立 VPN 連線)。 從 `C:\Program Files (x86)\WindowsPowerShell\Modules` 和 `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` 資料夾刪除以「Azure」開頭的所有資料夾。 刪除這些資料夾會從「AzureStackAdmin」和「global」使用者領域中移除任何現有的 PowerShell 模組。 
+* 登入至開發套件，或以 Windows 為基礎的外部用戶端 (如果您打算建立 VPN 連線)。 從 `C:\Program Files\WindowsPowerShell\Modules` 和 `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` 資料夾刪除以「Azure」開頭的所有資料夾。 刪除這些資料夾會從「AzureStackAdmin」和「global」使用者領域中移除任何現有的 PowerShell 模組。 
 
 下列各節說明安裝 Azure Stack 的 PowerShell 的必要步驟。 可在連線、部分連線或中斷連線案例中，於 Azure Stack 上安裝 PowerShell。 
 
@@ -126,7 +126,6 @@ Set-PSRepository `
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 

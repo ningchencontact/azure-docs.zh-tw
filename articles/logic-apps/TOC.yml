@@ -222,7 +222,7 @@
           href: logic-apps-enterprise-integration-xml-validation.md
     - name: 管理
       items:
-        - name: 管理邏輯應用程式 - VS
+        - name: 管理邏輯應用程式 - Visual Studio
           href: logic-apps-manage-from-vs.md
         - name: 管理整合帳戶
           href: logic-apps-enterprise-integration-accounts.md
