@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
-作為 Azure Stack 操作員，您應該在大部分的日常管理工作使用系統管理員入口網站、PowerShell 或 Azure Resource Manager API。 不過，針對較非一般的作業，您必須使用具有特殊權限的端點。 這個端點是預先設定的遠端 PowerShell 主控台，能提供恰到好處的功能來協助您執行必要的工作。 端點會利用 PowerShell JEA (恰到好處的系統管理) 只公開一組有限的 Cmdlet。 若要存取具有特殊權限的端點，並叫用一組有限的 Cmdlet，可使用低權限的帳戶。 無須系統管理員帳戶。 為了增加安全性，不允許使用指令碼。
+作為 Azure Stack 操作員，您應該在大部分的日常管理工作使用系統管理員入口網站、PowerShell 或 Azure Resource Manager API。 不過，針對較非一般的作業，您必須使用「具有特殊權限的端點」(PEP)。 這個端點是預先設定的遠端 PowerShell 主控台，能提供恰到好處的功能來協助您執行必要的工作。 端點會利用 PowerShell JEA (恰到好處的系統管理) 只公開一組有限的 Cmdlet。 若要存取具有特殊權限的端點，並叫用一組有限的 Cmdlet，可使用低權限的帳戶。 無須系統管理員帳戶。 為了增加安全性，不允許使用指令碼。
 
 您可以使用具有特殊權限的端點來執行如下所示的工作：
 
@@ -98,6 +98,7 @@ ms.lasthandoff: 12/11/2017
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test-AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 

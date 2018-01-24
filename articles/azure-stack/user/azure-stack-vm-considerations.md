@@ -3,7 +3,7 @@ title: "Azure Stack 中虛擬機器的差異與考量 | Microsoft Docs"
 description: "了解使用 Azure Stack 中虛擬機器時的差異與考量。"
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 虛擬機器是 Azure Stack 所提供的隨選、可調整計算資源。 當您使用虛擬機器時，必須了解 Azure 與 Azure Stack 中所提供功能之間的差異。 此文章提供 Azure Stack 中虛擬機器及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
 
@@ -40,9 +40,9 @@ ms.lasthandoff: 12/11/2017
 |虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域<br>受控磁碟支援|單一容錯網域<br>單一更新網域<br>無受控磁碟支援|
 |虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。
 
-## <a name="virtual-machine-sizes"></a>虛擬機器大小 
+## <a name="virtual-machine-sizes"></a>虛擬機器大小
 
-「Azure Stack 開發套件」支援下列大小： 
+Azure Stack 支援下列大小：
 
 | 類型 | 大小 | 支援的大小範圍 |
 | --- | --- | --- |
@@ -55,33 +55,33 @@ ms.lasthandoff: 12/11/2017
 |記憶體最佳化|DS 系列|DS11 - DS14|
 |記憶體最佳化 |DSv2 系列|DS11_v2 - DS14_v2|
 
-Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一致的。 例如，這包括記憶體數量、核心數目，以及可建立的資料磁碟數目/大小。 不過，Azure Stack 中相同 VM 大小的效能取決於特定 Azure Stack 環境的底層特性。
+Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一致的。 例如，此種一致性包括記憶體數量、核心數目，以及可建立的資料磁碟數目/大小。 不過，Azure Stack 中相同 VM 大小的效能取決於特定 Azure Stack 環境的底層特性。
 
-## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能 
+## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能
 
- 「Azure Stack 開發套件」支援下列虛擬機器擴充功能版本：
+ Azure Stack 支援下列虛擬機器擴充功能版本：
 
 ![VM 擴充功能](media/azure-stack-vm-considerations/vm-extensions.png)
 
 使用下列 PowerShell 指令碼，來取得您 Azure Stack 環境中所提供虛擬機器擴充功能的清單：
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>API 版本 
+## <a name="api-versions"></a>API 版本
 
-「Azure Stack 開發套件」中的虛擬機器功能支援下列 API 版本：
+Azure Stack 中的虛擬機器功能支援下列 API 版本：
 
 ![VM 資源類型](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
 您可以使用下列 PowerShell 指令碼，來取得您 Azure Stack 環境中所提供虛擬機器功能的 API 版本：
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `

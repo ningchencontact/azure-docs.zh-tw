@@ -13,13 +13,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
-  ms.openlocfilehash: 293cfbc2cc9030a8315fa48e835a1446ff10d469
-  ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+  ms.openlocfilehash: 76d18c2966b52c508ec959074c976e84ab5e9bdf
+  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/01/2017
+  ms.lasthandoff: 01/24/2018
 abstract:
   description: "了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及移動和轉換資料以供分析。 <p>目前，Data Factory V2 版處於預覽狀態。 V1 版已正式推出。 如果您使用 Data Factory 服務 V1 版，請參閱 <a href=/azure/data-factory/v1/data-factory-introduction>V1 文件</a>。</p>"
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: "以視覺化方式建置 Azure Data Factory v2 的管線 (19:31)"
+    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    width: 250
 sections:
 - title: "5 分鐘快速入門"
   items:
@@ -28,6 +37,14 @@ sections:
   - type: list
     style: icon48
     items:
+    - image:
+        src: /azure/data-factory/media/index/portal.svg
+      text: Data Factory UI
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image:
+        src: /azure/data-factory/media/index/copy-data-tool.png
+      text: "複製資料工具"
+      href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
     - image:
         src: /azure/data-factory/media/index/logo_powershell.svg
       text: Azure PowerShell
@@ -45,10 +62,6 @@ sections:
       text: REST
       href: /azure/data-factory/quickstart-create-data-factory-rest-api
     - image:
-        src: /azure/data-factory/media/index/portal.svg
-      text: "Azure 入口網站"
-      href: /azure/data-factory/quickstart-create-data-factory-portal
-    - image:
         src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
       text: "Resource Manager 範本"
       href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
@@ -59,14 +72,14 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">將 SSIS 套件部署至 Azure</a>"
-    - html: "<a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">複製雲端中的資料</a>"
-    - html: "<a href=\"../data-factory/tutorial-hybrid-copy-powershell\">將內部部署資料複製到雲端</a>"
-    - html: "<a href=\"../data-factory/tutorial-bulk-copy\">複製大量資料</a>"
-    - html: "<a href=\"../data-factory/tutorial-incremental-copy-powershell\">以累加方式複製資料</a>"
-    - html: "<a href=\"../data-factory/tutorial-transform-data-spark-powershell\">使用 Spark 轉換雲端中的資料</a>"
-    - html: "<a href=\"../data-factory/tutorial-transform-data-hive-virtual-network\">轉換虛擬網路中的資料</a>"
-    - html: "<a href=\"../data-factory/tutorial-control-flow\">控制流程</a>"
+    - html: "將 SSIS 套件部署到 Azure - <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
+    - html: "在雲端中複製資料 - <a href=\"/azure/data-factory/tutorial-copy-data-tool\">複製資料工具</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">Azure PowerShell</a>"
+    - html: "將內部部署資料複製到雲端 - <a href=\"/azure/data-factory/tutorial-hybrid-copy-data-tool\">複製資料工具 | <a href=\"/azure/data-factory/tutorial-hybrid-copy-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-hybrid-copy-powershell\">Azure PowerShell</a>"
+    - html: "大量複製資料 - <a href=\"/azure/data-factory/tutorial-bulk-copy-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-bulk-copy\">Azure PowerShell</a>"
+    - html: "以累加方式複製資料 - <a href=\"/azure/data-factory/tutorial-incremental-copy-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-incremental-copy-powershell\">Azure PowerShell</a>"
+    - html: "使用 Spark 轉換雲端中的資料 - <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
+    - html: "在虛擬網路中轉換資料 - <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
+    - html: "控制流程 - <a href=\"/azure/data-factory/tutorial-control-flow-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">Azure PowerShell</a>"
 - title: "範例"
   items:
   - type: paragraph

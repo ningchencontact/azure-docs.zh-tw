@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### 傳送雲端到裝置訊息
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### 從裝置上傳檔案
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-twin-getstarted.md)
+#### [Python 後端/Python 裝置](iot-hub-python-twin-getstarted.md)
 ### 使用直接方法
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-direct-methods.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-direct-methods.md)
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-direct-methods.md)
+#### [Python 後端/Python 裝置](iot-hub-python-python-direct-methods.md)
 ### 開始使用裝置管理
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-device-management-get-started.md)
@@ -177,7 +181,7 @@
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [價格](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [定價](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/09/2018
 ms.author: JeffGo
-ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: e2f29a1686d0f4baa88b9d37bac0261952f4caa6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -60,11 +60,10 @@ ms.lasthandoff: 01/05/2018
 
     | Azure Stack 組建 | SQL RP 安裝程式 |
     | --- | --- |
-    | 1.0.180102.3 | **請等候進一步資訊，系統目前不會安裝組建，但在 Azure Stack 升級之後，仍會繼續在多節點上執行。** |
-    | 1.0.171122.1 | [SQL RP 版本 1.1.12.0](https://aka.ms/azurestacksqlrp) |
+    |1.0.180102.3 或 1.0.180106.1 (多節點) | [SQL RP 版本 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    | 1.0.171122.1 | [SQL RP 版本 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1.0.171028.1 | [SQL RP 版本 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
-    | 1.0.170928.3 | [SQL RP 版本 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
-   
+  
 
 4. Azure Stack 根憑證是從特殊權限端點擷取。 對於 ASDK，系統會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 

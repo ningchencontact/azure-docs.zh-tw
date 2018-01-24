@@ -11,28 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>新增供 SQL 配接器使用的主控伺服器
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 SQL 執行個體，或 Azure Stack 環境外的執行個體，只要資源提供者能夠連線到該執行個體均可。 一般需求為：
 
 * SQL 執行個體必須專門用於 RP 和使用者工作負載。 您無法使用任何其他取用者 (包括 App Service) 正在使用的 SQL 執行個體。
 * RP 配接器未加入網域，並只可以使用 SQL 驗證進行連接。
 * 您必須設定具有適當權限以供 RP 使用的帳戶。
-* 從 RP 到 SQL 的網路流量會使用連接埠 1433，且無法變更。
 * RP 和使用者 (例如 Web 應用程式) 會使用使用者網路，因此需要連線到此網路上的 SQL 執行個體。 這項需求通常表示您的 SQL 執行個體 IP 必須在公用網路上。
 * SQL 執行個體和其主機的管理在您；RP 不會執行修補、備份、認證輪替等作業。
 * SKU 可以用來建立不同類別的 SQL 能力，例如效能、Always On 等等。
-
 
 
 您可以透過 Marketplace 管理功能取得一些 SQL IaaS 虛擬機器映像。 請確定在使用 Marketplace 項目部署 VM 之前，一律會下載最新版的 SQL IaaS 延伸模組。 SQL 映像與 Azure 中提供的 SQL VM 相同。 針對從這些映像建立的 SQL VM，IaaS 延伸模組和對應的入口網站增強功能，可提供自動修補和備份功能之類的功能。
@@ -73,6 +71,8 @@ ms.lasthandoff: 10/11/2017
 
   ![新的主控伺服器](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    您可以選擇是否包含執行個體名稱，且若執行個體不是指派給預設連接埠 1433，還可以提供連接埠號碼。
+
   > [!NOTE]
   > 只要使用者和管理 Azure Resource Manager 可以存取 SQL 執行個體，資源提供者就可以控制它。 SQL 執行個體__必須__配置為 RP 專屬。
 
@@ -86,10 +86,10 @@ ms.lasthandoff: 10/11/2017
 
     例如：
 
-    ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，您無法建立資料庫。
+> 最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>使用 SQL Always On 可用性群組提供容量
 設定 SQL Always On 執行個體需要額外的步驟，並包含至少三個 VM (或實體機器)。
@@ -126,7 +126,7 @@ GO
     您可以使用 [SQL 主控伺服器] 刀鋒視窗，將 SQL Server 資源提供者連線到作為資源提供者後端的 SQL Server 實際執行個體。
 
 
-3. 使用 SQL Server 執行個體的連線詳細資料填寫表單，務必使用 Always On 接聽程式的 FQDN 或 IPv4 位址。 提供您以系統管理員權限設定之帳戶的帳戶資訊。
+3. 請使用 SQL Server 執行個體的連線詳細資料填寫表單，並務必使用 Always On 接聽程式的 FQDN 或 IPv4 位址 (並可選用連接埠號碼)。 提供您以系統管理員權限設定之帳戶的帳戶資訊。
 
 4. 選取此方塊即可啟用 SQL Always On 可用性群組執行個體的支援。
 

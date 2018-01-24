@@ -3,7 +3,7 @@ title: "Azure Stack 1712 更新 | Microsoft Docs"
 description: "了解適用於 Azure Stack 整合系統之 1712 更新的新功能、已知問題，以及可下載更新的位置。"
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure Stack 1712 更新
 
@@ -55,11 +55,10 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 
 #### <a name="new-features"></a>新功能
 
-- 從 Marketplace 建立項目時的新使用者體驗
 - 可以透過特殊權限的端點取得用來驗證 Azure Stack Cloud 的 Test-AzureStack Cmdlet
 - 能夠註冊已中斷連線的 Azure Stack 部署
 - 憑證和使用者帳戶到期的監視警示
-- 在 PEP 中新增了 Update-BMCCredential Cmdlet，以進行 BMC 密碼旋轉
+- 在 PEP 中新增了 Set-BmcPassword Cmdlet，以進行 BMC 密碼輪替
 - 網路記錄更新，可支援隨選記錄
 - 支援虛擬機器擴展集 (VMSS) 的重新安裝映像作業
 - 在 ERCS VM 上啟用 CloudAdmin 登入的 kiosk 模式
@@ -76,7 +75,7 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 
 - [2018 年 1 月 3 日—KB4056890 (OS 組建 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - 此更新包含 [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) 所描述之業界安全性問題的軟體修正。
- 
+
 ### <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
 本節包含在 1712 更新安裝時可能遇到的已知問題。
@@ -103,7 +102,7 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 
    - 您可能會在清單頂端看到一個空白資料列。 您應該仍能如預期般選取項目。
    - 如果下拉式清單中的項目清單很短，您可能無法檢視任何項目名稱。
-   - 如果您有多個使用者訂用帳戶，資源群組的下拉式清單可能是空的。 
+   - 如果您有多個使用者訂用帳戶，資源群組的下拉式清單可能是空的。
 
         > [!NOTE]
         > 若要解決後兩個問題，您可以輸入訂用帳戶或資源群組的名稱 (如果您知道)，或者可以改用 PowerShell。
@@ -124,16 +123,16 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 - 您可以設定只含一個容錯網域和一個更新網域的虛擬機器可用性設定組。
 - 沒有任何可用以建立虛擬機器擴展集的市集體驗。 您可以使用範本來建立擴展集。
 - 無法在入口網站中使用虛擬機器擴展集的調整設定。 您可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) 作為因應措施。 由於 PowerShell 版本差異，您必須使用 `-Name` 參數，而不是 `-VMScaleSetName`。
- 
+
 #### <a name="networking"></a>網路
 - 您無法使用入口網站，利用公用 IP 位址來建立負載平衡器。 作為因應措施，您可以使用 PowerShell 來建立負載平衡器。
 - 當您建立網路負載平衡器時，必須建立網路位址轉譯 (NAT) 規則。 如果沒有，在建立負載平衡器之後嘗試新增 NAT 規則時會收到錯誤。
 - 建立 VM 並與公用 IP 位址建立關聯之後，您就無法取消該 IP 位址與虛擬機器 (VM) 的關聯。 取消關聯看似正常運作，但先前指派的公用 IP 位址仍然會與原始 VM 建立關聯。 即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。 您目前只有在建立新的 VM 時，才能使用新的公用 IP 位址。
 - Azure Stack 操作員可能無法部署、刪除、修改 VNET 或網路安全性群組。 此問題主要會出現在相同套件的後續更新嘗試。 這是因目前正在進行調查的更新之封裝問題所致。
 - 內部負載平衡 (ILB) 對 MAC 位址的後端 VM 進行不恰當的處理，導致 Linux 執行個體損壞。
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。 
+- 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。
 - 不支援在不是由資源提供者執行的 SQL 和 MySQL 主控伺服器中直接建立項目，且可能導致不相符的狀態。
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 Microsoft 已提供一個方式，可使用與更新 1712 搭配安裝的特殊權限結束點 (PEP) 來監視及繼續更新。
 
 - 請參閱[使用具有特殊權限的端點文件來監視 Azure Stack 中的更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update)。 
+
 ## <a name="see-also"></a>另請參閱
 
 - 如需 Azure Stack 中的更新管理概觀，請參閱[在 Azure Stack 中管理更新概觀](azure-stack-updates.md)。

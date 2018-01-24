@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>虛擬機器擴展集</h3>
-                                                    <p>管理及調整 10 個到 1000 個 Linux 和 Windows 虛擬機器</p>
+                                                    <p>管理及相應增加到上千部 Linux 及 Windows 虛擬機器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service 方案</h3>
-                                                    <p>使用容器在 Linux 上部署 Web 應用程式</p>
+                                                    <p>為網頁和行動裝置快速建立強大的雲端應用程式</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>使用 Kubernetes 大規模執行容器化應用程式</p>
+                                                    <p>簡化 Kubernetes 的部署、管理與作業</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>應用程式閘道</h3>
-                                                    <p>
-內建 HTTP 負載平衡及傳遞控制的第 7 層負載平衡器 </p>
+                                                    <p>在 Azure 中建置安全、可靈活調整及具高可用性的 Web 前端</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>內容傳遞網路</h3>
-                                                    <p>透過全球資料中心的強大網路，將內容傳送給使用者</p>
+                                                    <p>確保安全可靠的內容傳遞，觸角擴及全球</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>網路監看員</h3>
-                                                    <p>在網路案例層級進行監視與診斷</p>
+                                                    <p>網路效能監視與診斷解決方案</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob 儲存體</h3>
-                                                    <p>極具調整彈性的物件儲存空間，適合非結構化資料</p>
+                                                    <p>非結構化資料的 REST 式物件儲存體</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>磁碟儲存體</h3>
-                                                    <p>適用於 VM 的磁碟儲存體</p>
+                                                    <p>支援虛擬機器的持續性、安全磁碟選項</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>佇列儲存體</h3>
-                                                    <p>適用於大量雲端服務的耐久佇列</p>
+                                                    <p>根據流量有效地擴充應用程式</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>檔案儲存體</h3>
-                                                    <p>簡單的分散式跨平台檔案系統</p>
+                                                    <p>檔案共用，使用標準 SMB 3.0 通訊協定</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>供企業使用的混合式雲端儲存體，可增進資料安全性</p>
+                                                    <p>企業混合式雲端儲存體解決方案可降低成本</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>協調 Azure VM 以及內部部署 VM 和實體伺服器的災害復原</p>
+                                                    <p>協調對私人雲端的保護與復原</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>內容傳遞網路</h3>
-                                                    <p>透過全球資料中心的強大網路，將內容傳送給使用者 </p>
+                                                    <p>確保安全可靠的內容傳遞，觸角擴及全球</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>通知中樞</h3>
-                                                    <p>可調整的推播通知引擎，可用來快速傳送數百萬則訊息</p>
+                                                    <p>從任何後端將推播通知傳送至任何平台</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>使用 Kubernetes 大規模執行容器化應用程式</p>
+                                                    <p>簡化 Kubernetes 的部署、管理與作業</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>受控關聯式資料庫即服務</p>
+                                                    <p>受管理的關聯式 SQL Database 即服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>資料表儲存體</h3>
-                                                    <p>全域散發的多模型資料庫，適用於任何規模</p>
+                                                    <p>NoSQL 索引鍵值存放區，使用半結構化資料集</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis 快取</h3>
-                                                    <p>高輸送量、低延遲資料存取，可讓您建置快速、可擴充的應用程式</p>
+                                                    <p>讓應用程式具備高輸送量及低延遲資料存取</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2322,7 +2321,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>佈建雲端 Hadoop、Spark、R Server、Hbase 及 Storm 叢集</p>
+                                                    <p>佈建雲端 Hadoop、Spark、R Server、HBase 及 Storm 叢集</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>雲端中企業級資料模型化</p>
+                                                    <p>企業級分析引擎即服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
+                                                    <p>輕鬆建置、部署及管理預測性分析解決方案</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>資料目錄</h3>
-                                                    <p>實現全企業自助式資料來源探索</p>
+                                                    <p>讓企業資料資產發揮更大的價值</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning 服務</h3>
-                                                    <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
+                                                    <p>以包含測試和模型管理的端對端、可擴充且受信任的平台，將 AI 功能提供給所有人</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>將雲端智慧擴充到 Edge 裝置</p>
+                                                    <p>將雲端智慧擴充到邊緣裝置</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure LBS</h3>
-                                                    <p>地圖、方向、搜尋以及其他健全的地理空間服務</p>
+                                                    <p>簡單又安全的位置 API，可為資料提供地理空間內容</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning 服務</h3>
-                                                    <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
+                                                    <p>以包含測試和模型管理的端對端、可擴充且受信任的平台，將 AI 功能提供給所有人</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>通知中樞</h3>
-                                                    <p>可調整的推播通知引擎，可用來快速傳送數百萬則訊息</p>
+                                                    <p>從任何後端將推播通知傳送至任何平台</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ ms.lasthandoff: 01/18/2018
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>供企業使用的混合式雲端儲存體，可增進資料安全性</p>
+                                                    <p>企業混合式雲端儲存體解決方案可降低成本</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>資料目錄</h3>
-                                                    <p>實現全企業自助式資料來源探索</p>
+                                                    <p>讓企業資料資產發揮更大的價值</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>資訊安全中心</h3>
-                                                    <p>透過增加的可見度來預防、偵測威脅，並做出回應</p>
+                                                    <p>統一混合式雲端工作負載中的安全性管理，並提供先進的威脅保護</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>了解如何管理密碼編譯金鑰和密碼</p>
+                                                    <p>保護並維護金鑰及其他祕密的控管</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>透過額外的驗證層級以安全存取您的資料和應用程式</p>
+                                                    <p>加強資料和應用程式的安全性，而不增加使用者的負擔</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 原則</h3>
-                                                    <p>建立、指派和管理原則定義 </p>
+                                                    <p>對 Azure 資源大規模實作公司控管及標準</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 成本管理</h3>
-                                                    <p>追蹤雲端使用量和支出</p>
+                                                    <p>讓您在雲端上的投資更具效益，並將雲端潛能發揮到最大</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>了解如何將機器資料轉換為作業智慧</p>
+                                                    <p>從內部部署和雲端收集、搜尋機器資料並將其視覺化</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 建議程式</h3>
-                                                    <p>改善您 Azure 資源的成本效益、效能、高可用性和安全性</p>
+                                                    <p>您的個人化 Azure 最佳做法建議引擎</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 服務健康情況</h3>
-                                                    <p>當 Azure 服務中的問題影響您時，提供個人化指導方針和支援。</p>
+                                                    <p>當 Azure 服務中的問題對您有所影響時，取得符合個人需求的指導方針及支援</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>受控應用程式</h3>
-                                                    <p>為您的客戶管理部署的解決方案</p>
+                                                    <p>簡化雲端供應項目的管理</p>
                                                 </div>
                                             </div>
                                         </div>

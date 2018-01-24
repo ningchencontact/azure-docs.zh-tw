@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>使用您的 Azure 訂用帳戶註冊 Azure Stack
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/05/2018
 
 - Azure 訂用帳戶的訂用帳戶 ID。 若要取得 ID，請登入 Azure 並按一下 [更多服務]  >  [訂用帳戶]，然後按一下您要使用的訂用帳戶，便可以在 [基本資訊] 下找到 [訂用帳戶 ID]。 目前不支援中國、德國，和美國政府雲端訂用帳戶。
 - 訂用帳戶擁有者的帳戶使用者名稱和密碼 (支援 MSA/2FA 帳戶)。
-- 不需要從 Azure Stack 1712 更新版本 (1.0.180103.2) 開始：適用於 Azure 訂用帳戶的 Azure Active Directory。 您可以將游標暫留在 Azure 入口網站右上角的顯示圖片，即可在 Azure 中找到此目錄。
+- 從 Azure Stack 1712 更新版本 (180106.1) 開始不再是必要項目：適用於 Azure 訂用帳戶的 Azure Active Directory。 您可以將游標暫留在 Azure 入口網站右上角的顯示圖片，即可在 Azure 中找到此目錄。
 
 如果您沒有符合這些需求的 Azure 訂用帳戶，則可以[在這裡建立免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 01/05/2018
 
 
 ## <a name="disconnected-registration"></a>已中斷連線的註冊
-本節中的資訊適用於 Azure Stack 1712 起的更新版本 (1.0.180103.2)，且不支援舊的版本。
+本節中的資訊適用於 Azure Stack 1712 起的更新版本 (180106.1)，且不支援舊的版本。
 
 如果您要在中斷連線的環境中註冊 Azure Stack，就需要從 Azure Stack 環境中取得註冊權杖，然後在可以連線到 Azure 進行註冊的電腦上使用該權杖。  
 

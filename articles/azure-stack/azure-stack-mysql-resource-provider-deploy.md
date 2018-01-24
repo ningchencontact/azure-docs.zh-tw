@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 您可以在 Azure Stack 上部署 MySQL 資源提供者。 部署資源提供者後，您可以透過 Azure Resource Manager 部署範本建立 MySQL 伺服器和資料庫，並提供 MySQL 資料庫即服務。 網站上常用的 MySQL 資料庫支援許多網站平台。 例如，部署資源提供者後，您可以從 Azure Stack 的 Azure Web Apps 平台即服務 (PaaS) 附加元件中建立 WordPress 網站。
 
-若要在沒有網際網路存取權的系統上部署 MySQL 提供者，您可以將 [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) 檔複製到本機共用。 然後，出現提示時提供該共用名稱。 您也必須安裝 Azure 和 Azure Stack PowerShell 模組。
+若要在沒有網際網路存取權的系統上部署 MySQL 提供者，您可以將 [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) 檔複製到本機共用。 然後，出現提示時提供該共用名稱。 您也必須安裝 Azure 和 Azure Stack PowerShell 模組。
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>MySQL Server 資源提供者介面卡架構
@@ -71,10 +71,9 @@ ms.lasthandoff: 01/05/2018
 
     | Azure Stack 組建 | MySQL RP 安裝程式 |
     | --- | --- |
-    | 1.0.180102.3 | **請等候進一步資訊，系統目前不會安裝組建，但在 Azure Stack 升級之後，仍會繼續在多節點上執行。** |
-    | 1.0.171122.1 | [MySQL RP 版本 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 或 1.0.180106.1 (多節點) | [MySQL RP 1.1.14.0 版](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP 版本 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP 版本 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP 版本 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure Stack 根憑證是從特殊權限端點擷取。 對於 ASDK，系統會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 
@@ -165,7 +164,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **AzCredential** | 提供 Azure Stack 服務管理帳戶的認證。 使用與部署 Azure Stack 時所使用之認證相同的認證)。 | _必要_ |
 | **VMLocalCredential** | 定義 MySQL 資源提供者 VM 之本機系統管理員帳戶的認證。 | _必要_ |
 | **PrivilegedEndpoint** | 提供特殊權限端點的 IP 位址或 DNS 名稱。 |  _必要_ |
-| **DependencyFilesLocalPath** | 包含 [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi) 的本機共用路徑。 如果您有提供，也必須將憑證檔案放在這個目錄。 | _選擇性_ (多節點為_強制_) |
+| **DependencyFilesLocalPath** | 包含 [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 的本機共用路徑。 如果您有提供，也必須將憑證檔案放在這個目錄。 | _選擇性_ (多節點為_強制_) |
 | **DefaultSSLCertificatePassword** | .pfx 憑證的密碼 | _必要_ |
 | **MaxRetryCount** | 定義作業失敗時重試每個作業的次數。| 2 |
 | **RetryDuration** | 定義重試之間的逾時 (秒)。 | 120 |
