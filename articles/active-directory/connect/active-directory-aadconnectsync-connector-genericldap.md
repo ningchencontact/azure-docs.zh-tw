@@ -3,7 +3,7 @@ title: "一般 LDAP 連接器 | Microsoft Docs"
 description: "本文說明如何設定 Microsoft 的一般 LDAP 連接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6e2b7d23162673f0c66b1fd6c654336da42b8f6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>一般 LDAP 連接器技術參考
 本文說明一般 LDAP 連接器。 本文適用於下列產品：
@@ -92,7 +92,7 @@ IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差�
   * 支援所有作業進行差異匯入
   * 支援設定密碼和變更密碼
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在您使用連接器之前，請確定同步處理伺服器上有下列項目：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本

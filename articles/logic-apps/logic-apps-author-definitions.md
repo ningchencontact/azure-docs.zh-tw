@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>使用 JSON 建立邏輯應用程式的工作流程定義
 
-您可以使用簡單、宣告式的 JSON 語言建立 [Azure Logic Apps](logic-apps-what-are-logic-apps.md) 的工作流程定義。 如果您還沒有這麼做，請先檢閱[如何使用邏輯應用程式設計工具建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)。 此外，請參閱[工作流程定義語言的完整參考](http://aka.ms/logicappsdocs)。
+您可以使用簡單、宣告式的 JSON 語言建立 [Azure Logic Apps](logic-apps-overview.md) 的工作流程定義。 如果您還沒有這麼做，請先檢閱[如何使用邏輯應用程式設計工具建立第一個邏輯應用程式](quickstart-create-first-logic-app-workflow.md)。 此外，請參閱[工作流程定義語言的完整參考](http://aka.ms/logicappsdocs)。
 
 ## <a name="repeat-steps-over-a-list"></a>對清單重複執行步驟
 

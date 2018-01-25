@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 建立、刪除與管理應用程式和應用程式類型。
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/03/2017
 | manifest     | 取得可描述應用程式類型的資訊清單。|
 | provision    | 向叢集佈建或註冊 Service Fabric 應用程式類型。|
 | report-health| 傳送 Service Fabric 應用程式的健康情況報告。|
-| 類型         | 取得 Service Fabric 叢集中完全符合指定名稱的應用程式類型清單。|
+| type         | 取得 Service Fabric 叢集中完全符合指定名稱的應用程式類型清單。|
 | type-list    | 取得 Service Fabric 叢集中的應用程式類型清單。|
 | unprovision  | 從叢集移除或取消註冊 Service Fabric 應用程式類型。|
 | 升級      | 開始在 Service Fabric 叢集中升級應用程式。|

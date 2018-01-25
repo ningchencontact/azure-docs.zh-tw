@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7ffe44828735a5687008ebc5a7d8d9f017f49daa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
 本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決整合問題並將商務程序自動化︰
@@ -115,7 +115,7 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 建立您的第一個流程、邏輯應用程式、函數應用程式或 WebJob 來開始使用每一項服務。 按一下下列任何連結︰
 
 * [開始使用 Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+* [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [建立您的第一個 Azure 函式](functions-create-first-azure-function.md)
 * [使用 Visual Studio 部署 WebJob](../app-service/websites-dotnet-deploy-webjobs.md)
 

@@ -3,8 +3,8 @@ title: "如何使用 Redis 快取建立 Web 應用程式 | Microsoft Docs"
 description: "了解如何使用 Redis 快取建立 Web 應用程式"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>如何使用 Redis 快取建立 Web 應用程式
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/18/2017
 * 如何使用 Resource Manager 範本為應用程式佈建 Azure 資源。
 * 如何使用 Visual Studio 將應用程式發佈至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列必要條件。
 
 * [Azure 帳戶](#azure-account)
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/18/2017
     ![新增模型類別][cache-model-add-class-dialog]
 3. 將 `Team.cs` 檔案頂端的 `using` 陳述式替換為下列 `using` 陳述式。
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 將 `Team` 類別的定義取代為包含已更新的 `Team` 類別定義以及一些其他 Entity Framework 協助程式類別的下列程式碼片段。 如需本教學課程中使用之 Entity Framework 的 Code First 方法的詳細資訊，請參閱 [Code First 至新的資料庫](https://msdn.microsoft.com/data/jj193542)。
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ ms.lasthandoff: 12/18/2017
     ![Global.asax.cs][cache-global-asax]
 6. 在檔案頂端的其他 `using` 陳述式底下新增下列兩個 `using` 陳述式。
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 在 `Application_Start` 方法的結尾新增下列程式碼行。
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ ms.lasthandoff: 12/18/2017
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. 在 `RegisterRoutes` 方法的下列程式碼中，將 `controller = "Home"` 取代為 `controller = "Teams"`，如下列範例所示。
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -290,20 +290,20 @@ ms.lasthandoff: 12/18/2017
     Install-Package StackExchange.Redis
     ```
    
-    NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參考，以利用 StackExchange.Redis 快取用戶端來存取 Azure Redis 快取。 如果您偏好使用強式命名的 `StackExchange.Redis` 用戶端程式庫版本，請安裝 `StackExchange.Redis.StrongName` 套件。
+    NuGet 套件會為您的用戶端應用程式下載並新增必要的組件參考，以利用 StackExchange.Redis 快取用戶端來存取 Azure Redis 快取。 如果您偏好使用強式命名的 `StackExchange.Redis` 用戶端程式庫版本，請安裝 `StackExchange.Redis.StrongName` 套件。
 3. 在 [方案總管] 中展開 [控制器] 資料夾，然後按兩下 [TeamsController.cs] 來加以開啟。
    
     ![隊伍控制器][cache-teamscontroller]
 4. 在 **TeamsController.cs** 中加入下列兩個 `using` 陳述式。
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. 將下列兩個屬性加入至 `TeamsController` 類別。
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ ms.lasthandoff: 12/18/2017
 
 1. 在 `TeamsController.cs` 檔案頂端新增下列 `using` 陳述式，和其他 `using` 陳述式放在一起。
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. 將目前的 `public ActionResult Index()` 方法實作替換為下列實作。
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ ms.lasthandoff: 12/18/2017
    
     `PlayGames` 方法會藉由模擬一個賽季的遊戲來更新隊伍統計資料、將結果儲存至資料庫，並清除快取中現已過時的資料。
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ ms.lasthandoff: 12/18/2017
 
     `RebuildDB` 方法會以一組預設的隊伍重新初始化資料庫、為這些隊伍產生統計資料，並清除快取中現已過時的資料。
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ ms.lasthandoff: 12/18/2017
 
     `ClearCachedTeams` 方法會移除快取中任何已快取過的隊伍統計資料。
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ ms.lasthandoff: 12/18/2017
    
     `GetFromDB` 方法會從資料庫讀取隊伍統計資料。
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ ms.lasthandoff: 12/18/2017
 
     `GetFromList` 方法會從快取中讀取序列化 `List<Team>` 形式的隊伍統計資料。 如果發生快取遺漏情形，便會從資料庫讀取隊伍統計資料，然後儲存在快取中以供下次使用。 在此範例中，我們會使用 JSON.NET 序列化在快取中傳入和傳出序列化的 .NET 物件。 如需詳細資訊，請參閱 [如何在 Azure Redis 快取中使用 .NET 物件](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)。
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ ms.lasthandoff: 12/18/2017
 
     `GetFromSortedSet` 方法會從快取的已排序集合讀取隊伍統計資料。 如果發生快取遺漏情形，便會從資料庫讀取隊伍統計資料，然後儲存在快取中做為已排序集合。
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ ms.lasthandoff: 12/18/2017
 
     `GetFromSortedSetTop5` 方法會從快取的已排序集合讀取前 5 名的隊伍。 它會先檢查快取中是否有 `teamsSortedSet` 索引鍵。 如果這個索引鍵不存在，便會呼叫 `GetFromSortedSet` 方法來讀取隊伍統計資料，並將資料儲存在快取中。 接著便會查詢快取的已排序集合中傳回的前 5 名隊伍。
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 瀏覽至 `TeamsController` 類別中的 `Create(Team team)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示。
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 瀏覽至 `TeamsController` 類別中的 `Edit(Team team)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示。
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 瀏覽至 `TeamsController` 類別中的 `DeleteConfirmed(int id)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示。
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]

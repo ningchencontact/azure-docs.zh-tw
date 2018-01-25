@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>設定 Linux RDMA 叢集以執行 MPI 應用程式
 了解如何使用[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)在 Azure 中設定 Linux RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 本文提供準備 Linux HPC 映像以在叢集上執行 Intel MPI 的步驟。 準備之後，您會使用此映像和其中一個支援 RDMA 的 Azure VM 大小 (目前為 H16r、H16mr、A8 或 A9) 來部署 VM 的叢集。 請使用此叢集來執行透過低延遲、高輸送量網路有效率地進行通訊的 MPI 應用程式，此網路是以遠端直接記憶體存取 (RDMA) 技術為基礎。
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 >
 >
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * **用戶端電腦**：您需要一部 Mac、Linux 或 Windows 用戶端電腦來與 Azure 進行通訊。 這些步驟假設您使用 Linux 用戶端。
 * **Azure 訂用帳戶**：如果您沒有訂用帳戶，只需要幾分鐘就可以建立[免費帳戶](https://azure.microsoft.com/free/)。 針對較大的叢集，請考慮隨用隨付訂用帳戶或其他購買選項。
 * **VM 大小可用性**：下列執行個體大小有支援 RDMA︰H16r、H16mr、A8 及 A9。 如需了解 Azure 區域中的可用性，請查看 [依區域提供的產品](https://azure.microsoft.com/regions/services/) 。
@@ -151,7 +151,7 @@ VM 完成佈建之後，使用 VM 的外部 IP 位址 (或 DNS 名稱) 以及您
 sudo waagent -deprovision
 ```
 
-從用戶端電腦，執行下列 Azure CLI 命令來擷取映像。 如需詳細資訊，請參閱[如何將傳統 Linux 虛擬機器擷取成映像](capture-image.md)。  
+從用戶端電腦，執行下列 Azure CLI 命令來擷取映像。 如需詳細資訊，請參閱[如何將傳統 Linux 虛擬機器擷取成映像](capture-image-classic.md)。  
 
 ```
 azure vm shutdown <vm-name>

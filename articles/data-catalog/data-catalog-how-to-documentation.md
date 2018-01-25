@@ -13,17 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: ea17dc0914966b9c3ca611c3d359635216ecf1ca
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1901ac534c46e4de0446543de4a40de040b8d51e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="document-data-sources"></a>記載資料來源
 ## <a name="introduction"></a>簡介
- 是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。
+
+            **Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。
 
 當資料來源向 **Azure 資料目錄**註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。 **Azure 資料目錄** 也可讓使用者提供自己的完整說明文件來描述資料來源的使用方式和常見案例。
 
@@ -49,5 +50,5 @@ ms.lasthandoff: 11/03/2017
 * 只記載資料表︰內容專用於該物件，但使用者會將文件放在多個地方。
 * 記載容器和資料表︰最全面的方法，但可能需要花更多時間維護文件。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 在 **Azure 資料目錄** 中記載資料來源可依所需詳細程度建立資料資產的相關敘述。  藉由使用連結，您可以連結至現有內容儲存機制中儲存的內容，以結合您現有的文件和資料資產。 一旦使用者找到合適的資料資產，就能取得一組完整的說明文件。

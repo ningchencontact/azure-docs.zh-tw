@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: bde1629504c97cf6706b42219570ffa6243073dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e55519bd329812d2e8ad35c9d774dcbe382d68aa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>開始使用 Outlook.com 連接器
 Outlook.com 連接器可讓您管理您的郵件、行事曆和連絡人。 您可以執行各種動作，例如傳送郵件、排程會議、新增連絡人等等。
 
-您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-outlookcom"></a>建立 Outlook.com 的連線
 若要使用 Outlook.com 建立邏輯應用程式，您必須先建立**連接**，然後提供下列屬性的詳細資料︰
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| 權杖 |是 |提供 Outlook.com 認證 |
+| token |yes |提供 Outlook.com 認證 |
 
 建立連線後，您就可以用它執行動作，並接聽本文所述的觸發程序。
 

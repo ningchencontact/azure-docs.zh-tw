@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -159,7 +159,7 @@ END
    ![新增->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
 2. 在 [新增 Data Factory] 頁面中，輸入 [ADFTutorialOnPremDF] 作為 [名稱]。 
       
-     ![新增 Data Factory 網頁](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+     ![新增資料處理站頁面](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
  
    Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您看到有以下錯誤的紅色驚嘆號，請變更 Data Factory 名稱 (例如 yournameADFTutorialDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
   
@@ -178,10 +178,10 @@ END
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
 
     ![部署資料處理站圖格](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
-9. 建立完成之後，您會看到如圖所示的 [Data Factory] 頁面。
+9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
    ![Data Factory 首頁](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. 按一下 [撰寫與監視] 圖格，以在個別索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
+10. 按一下 [撰寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 
 ## <a name="create-a-pipeline"></a>建立管線
 在本教學課程中，您會建立具有兩個查閱活動、一個複製活動和一個 StoredProcedure 活動的管線，這些活動都在一個管線中鏈結。 
@@ -282,7 +282,7 @@ END
     ![接收資料集 - 新增連線](./media/tutorial-incremental-copy-portal/sink-dataset-new-connection.png)
 26. 在 [新增連結服務] 視窗中，執行下列步驟： 
 
-    1. 輸入 [AzureStorageLinkedService] 作為 [名稱]。 
+    1. 輸入 **AzureStorageLinkedService** 作為 [名稱]。 
     2. 為 [儲存體帳戶名稱] 選取 Azure 儲存體帳戶。
     3. 按一下 [檔案] 。 
 
@@ -311,7 +311,7 @@ END
 
         | Name | 類型 | 值 | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 字串 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -446,7 +446,7 @@ PersonID | Name | LastModifytime
 在本教學課程中，管線已從 SQL 資料庫中的單一資料表將資料複製到 Blob 儲存體。 請前進到下列教學課程，了解如何將資料從內部部署 SQL Server 資料庫中的多個資料表複製到 SQL 資料庫。 
 
 > [!div class="nextstepaction"]
->[以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

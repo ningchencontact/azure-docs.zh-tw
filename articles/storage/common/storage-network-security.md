@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>設定 Azure 儲存體防火牆和虛擬網路 (預覽)
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -300,7 +300,6 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure DevTest Labs|Microsoft.DevTestLab|自訂映像建立和成品安裝。  [深入了解](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview)。|
 |Azure Event Grid|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈。  [深入了解](https://docs.microsoft.com/azure/event-grid/overview)。|
 |Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。  [深入了解](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)。|
-|Azure HDInsight|Microsoft.HDInsight|叢集佈建及安裝。  [深入了解](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage)。|
 |Azure 網路|Microsoft.Networking|儲存及分析網路流量記錄檔。  [深入了解](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)。|
 ||||
 

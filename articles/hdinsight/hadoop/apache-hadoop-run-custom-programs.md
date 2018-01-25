@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-custom-mapreduce-programs"></a>執行自訂 MapReduce 程式
 
@@ -77,7 +77,7 @@ Map/Reduce 程式碼是由以 **map** 和 **reduce** 元件來實作的兩個個
 
     此命令會向 YARN 提交 MapReduce 作業。 輸入檔案為 `/example/data/sample.log`，輸出目錄則為 `/example/data/logoutput`。 輸入檔及所有輸出檔都會儲存至叢集的預設儲存體。
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 * [搭配 HDInsight 的 Hadoop 上的 MapReduce 串流使用 C#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [開發適用於 HDInsight 上 Hadoop 的 Java MapReduce 程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

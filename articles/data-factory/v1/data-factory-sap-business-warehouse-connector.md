@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
-- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
 - 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
@@ -64,13 +64,13 @@ ms.lasthandoff: 11/03/2017
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 字串 | 是
-systemNumber | SAP BW 系統的系統編號。 | 以字串表示的二位數十進位數字。 | 是
-clientId | SAP W 系統中用戶端的用戶端識別碼。 | 以字串表示的三位數十進位數字。 | 是
-username | 具有 SAP 伺服器存取權之使用者的名稱 | 字串 | 是
-password | 使用者的密碼。 | 字串 | 是
-gatewayName | 資料處理站服務應該用來連線至內部部署 SAP BW 執行個體的閘道器名稱。 | 字串 | 是
-encryptedCredential | 加密的認證字串。 | string | 否
+伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 字串 | yes
+systemNumber | SAP BW 系統的系統編號。 | 以字串表示的二位數十進位數字。 | yes
+clientId | SAP W 系統中用戶端的用戶端識別碼。 | 以字串表示的三位數十進位數字。 | yes
+username | 具有 SAP 伺服器存取權之使用者的名稱 | 字串 | yes
+password | 使用者的密碼。 | 字串 | yes
+gatewayName | 資料處理站服務應該用來連線至內部部署 SAP BW 執行個體的閘道器名稱。 | 字串 | yes
+encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -87,7 +87,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | MDX 查詢。 | 是 |
+| query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | MDX 查詢。 | yes |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON 範例：將資料從 SAP Business Warehouse 複製到 Azure Blob
@@ -292,30 +292,30 @@ encryptedCredential | 加密的認證字串。 | string | 否
 ABAP 字典中的資料類型 | .Net 資料類型
 -------------------------------- | --------------
 ACCP |  int
-CHAR | String
-CLNT | String
+CHAR | 字串
+CLNT | 字串
 CURR | 十進位
-CUKY | String
+CUKY | 字串
 DEC | 十進位
 FLTP | 兩倍
-INT1 | 位元組
+INT1 | Byte
 INT2 | Int16
 INT4 | int
-LANG | String
-LCHR | String
+LANG | 字串
+LCHR | 字串
 LRAW | Byte[]
 PREC | Int16
 QUAN | 十進位
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | String
-單位 | String
-DATS | String
-NUMC | String
-TIMS | String
+STRING | 字串
+單位 | 字串
+DATS | 字串
+NUMC | 字串
+TIMS | 字串
 
 > [!NOTE]
-> 若要將來自來源資料集的資料行與來自接收資料集的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
+> 若要將來源資料集中的資料行對應至接收資料集中的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行

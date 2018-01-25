@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37f72d829fc50a0f967f08e068c553f5026f35eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-yammer-connector"></a>開始使用 Yammer 連接器
 連線到 Yammer 來存取您企業網路中的交談。 您可以利用 Yammer 來：
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/11/2017
 * 在群組或您追蹤的摘要中有新訊息時使用觸發程序。
 * 使用動作來張貼訊息、取得所有訊息等等。 這些動作會收到回應，然後輸出能讓其他動作使用的資料。 舉例來說，當新訊息出現時，您可以利用 Office 365 來傳送電子郵件。
 
-立即開始建立邏輯應用程式，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+立即開始建立邏輯應用程式，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-yammer"></a>建立至 Yammer 的連線
 若要使用 Yammer 連接器，您必須先建立**連接**，然後提供下列屬性的詳細資料： 
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| 權杖 |是 |提供 Yammer 的認證 |
+| token |yes |提供 Yammer 的認證 |
 
 > [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 > 

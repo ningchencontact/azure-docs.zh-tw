@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: samples
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/13/2017
+ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 4ac9696028b9f24341a630d630b583ac5041cee0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure 原則的範本
 
@@ -30,7 +30,8 @@ ms.lasthandoff: 12/05/2017
 |---|---|
 |**計算**||
 | [已核准的 VM 映像](scripts/allowed-custom-images.md) | 要求只能在環境中部署已核准的自訂映像。 您需指定已核准的映像識別碼陣列。 |
-| [在 VM 不使用受管理磁碟時稽核](scripts/create-vm-managed-disk.md) | 稽核所建立的虛擬機器是否未使用受控磁碟。|
+| 
+            [在 VM 不使用受控磁碟時稽核](scripts/create-vm-managed-disk.md) | 稽核所建立的虛擬機器是否未使用受控磁碟。|
 | [稽核擴充功能是否不存在](scripts/audit-ext-not-exist.md) | 稽核是否未搭配虛擬機器部署擴充功能。 您需指定擴充功能發行者和類型，以檢查是否已部署該擴充功能。 |
 | [允許來自某個資源群組的自訂 VM 映像](scripts/allow-custom-vm-image.md) |  要求自訂映像必須來自某個已核准的資源群組。 您需指定已核准之資源群組的名稱。 |
 | [拒絕 Hybrid Use Benefit](scripts/deny-hybrid-use.md) | 禁止使用 Azure Hybrid Use Benefit (AHUB)。 當您不想要允許使用內部部署授權時，請使用此範本。 |
@@ -53,7 +54,7 @@ ms.lasthandoff: 12/05/2017
 | [允許的 Express Route 對等互連位置](scripts/allowed-peering-er.md) | 要求 Express Route 使用指定的對等互連位置。 您需指定允許的對等互連位置陣列。 |
 | [允許的 Express Route SKU](scripts/allowed-er-skus.md) | 要求 Express Route 使用已核准的 SKU。 您需指定允許的 SKU 陣列。 |
 | [允許的負載平衡器 SKU](scripts/allowed-lb-skus.md) | 要求負載平衡器使用已核准的 SKU。 您需指定允許的 SKU 陣列。 |
-| [禁止對 ER 網路進行網路對等互連](scripts/no-peering-er-net.md) | 禁止將網路對等互連與指定資源群組中的網路建立關聯。 用來防止與中央受管理網路基礎結構建立連線。 您需指定要防止建立關聯的資源群組名稱。 |
+| [禁止對 ER 網路進行網路對等互連](scripts/no-peering-er-net.md) | 禁止將網路對等互連與指定資源群組中的網路建立關聯。 用來防止與中央受控網路基礎結構建立連線。 您需指定要防止建立關聯的資源群組名稱。 |
 | [禁止使用者定義的路由表](scripts/no-user-def-route-table.md)  |禁止使用使用者定義的路由表來部署虛擬網路。 |
 | [允許的虛擬網路閘道 SKU](scripts/no-user-def-route-table.md) | 要求虛擬網路閘道使用已核准的 SKU 和閘道類型。 您需指定已核准的 SKU 陣列和已核准的閘道類型陣列。 |
 | [針對 VM 網路介面使用已核准的子網路](scripts/use-approved-subnet-vm-nics.md) | 要求網路介面使用已核准的子網路。 您需指定已核准之子網路的識別碼。 |

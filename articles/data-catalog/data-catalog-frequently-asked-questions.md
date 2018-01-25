@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1f69912e654ac243a0c4f30426d17ce4199e498f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
 
 ## <a name="what-is-azure-data-catalog"></a>什麼是 Azure 資料目錄？
-資料目錄是全面管理的雲端服務，託管在 Microsoft Azure 中，可作為企業資料來源的註冊系統和探索系統。 不論是分析師、資料科學家或資料開發人員，所有使用者都可利用資料目錄來註冊、探索、了解及取用資料來源。
+資料目錄是完全受控的雲端服務，託管在 Microsoft Azure 中，可作為企業資料來源的註冊系統和探索系統。 不論是分析師、資料科學家或資料開發人員，所有使用者都可利用資料目錄來註冊、探索、了解及取用資料來源。
 
 ## <a name="what-customer-challenges-does-it-solve"></a>它解決了哪些客戶面臨的挑戰？
 資料目錄可解決資料來源探索和「黑暗資料」的挑戰，讓使用者能夠探索並了解企業資料來源。

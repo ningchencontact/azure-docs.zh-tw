@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立即時的客戶深入解析儀表板
 
@@ -37,7 +37,7 @@ Logic Apps 是雲端中的無伺服器工作流程引擎。  它可跨無伺服�
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>建置會針對客戶資料觸發的邏輯應用程式
 
-在 Visual Studio 或 Azure 入口網站中[建立邏輯應用程式](logic-apps-create-a-logic-app.md)之後︰
+在 Visual Studio 或 Azure 入口網站中[建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)之後︰
 
 1. 針對來自 Twitter 的**新推文**新增觸發程序
 2. 設定觸發程序來接聽推文上的關鍵字或主題標籤。
@@ -52,7 +52,7 @@ Logic Apps 是雲端中的無伺服器工作流程引擎。  它可跨無伺服�
 1. 按一下 [新步驟]
 1. 選取或搜尋 [文字分析] 連接器
 1. 選取 [偵測情緒] 作業
-1. 如果出現提示，請提供適用於文字分析服務的有效辨識服務金鑰
+1. 如果出現提示，請提供適用於文字分析服務的有效認知服務金鑰
 1. 新增 [推文文字] 作為要分析的文字。
 
 現在，我們已有推文資料和有關推文的深入解析，因此可能會有其他許多相關的連接器︰

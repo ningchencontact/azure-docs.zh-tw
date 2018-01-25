@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>使用 Azure 串流分析作業執行 Azure Functions 
- 
-> [!IMPORTANT]
-> 這項功能為預覽狀態。
 
 您可以將 Functions 設定為串流分析作業的其中一個輸出接收，藉以使用 Azure 串流分析執行 Azure Functions。 Functions 是事件取向隨選計算的體驗，可讓您實作在 Azure 或協力廠商服務中發生之事件所觸發的程式碼。 Functions 回應觸發程序的功能，很適合作為串流分析作業的輸出。
 
@@ -62,7 +59,7 @@ ms.lasthandoff: 01/13/2018
 
 2. 瀏覽至 **run.csx** 函式。 將它更新為下列程式碼。 (請務必將「\<此處為您的 redis 快取連接字串\>」取代為您在上一節中擷取的 Azure Redis 快取主要連接字串。)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +110,7 @@ ms.lasthandoff: 01/13/2018
 
    串流分析從函式收到「HTTP 要求實體太大」的例外狀況時，會縮減傳送至 Functions 的批次大小。 請使用下列程式碼，在您的函式中檢查確認串流分析並未傳送過大的批次。 請確認函式中使用的最大批次計數和大小值都符合串流分析入口網站中輸入的值。
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);

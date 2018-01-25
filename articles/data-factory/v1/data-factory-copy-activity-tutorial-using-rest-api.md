@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: fbf538383a96fc1789f54994c1c4a1c1d9f96bec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 74f96d2712c28c8b49e0b92ee88e560193428836
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>教學課程︰使用 REST API 建立 Azure Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/18/2017
 >  
 > 本教學課程中的資料管線會將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 轉換資料的教學課程，請參閱[教學課程︰使用 Hadoop 叢集建置管線來轉換資料](data-factory-build-your-first-pipeline.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 請檢閱 [教學課程概觀](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 並完成 **必要** 步驟。
 * 在您的電腦上安裝 [Curl](https://curl.haxx.se/dlwiz/) 。 您可搭配使用 Curl 工具與 REST 命令來建立 Data Factory。 
 * 請依照 [本文](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 的指示： 
@@ -178,8 +178,8 @@ ms.lasthandoff: 12/18/2017
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| 類型 | type 屬性會設為 **AzureBlob**，因為資料位於 Azure Blob 儲存體中。 |
-| linkedServiceName | 表示您稍早建立的 **AzureStorageLinkedService**。 |
+| type | type 屬性會設為 **AzureBlob**，因為資料位於 Azure Blob 儲存體中。 |
+| 預設容器 | 表示您稍早建立的 **AzureStorageLinkedService**。 |
 | folderPath | 指定包含輸入 Blob 的 Blob **容器**和**資料夾**。 在本教學課程中，adftutorial 是 blob 容器，而資料夾是根資料夾。 | 
 | fileName | 這是選用屬性。 如果您省略此屬性，則會挑選 folderPath 中的所有檔案。 在本教學課程中，會針對 fileName 指定 **emp.txt**，因此只會挑選該檔案進行處理。 |
 | format -> type |輸入檔為文字格式，因此我們會使用 **TextFormat**。 |
@@ -221,8 +221,8 @@ ms.lasthandoff: 12/18/2017
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| 類型 | type 屬性會設為 **AzureSqlTable**，因為資料已複製到 Azure SQL Database 中的資料表。 |
-| linkedServiceName | 表示您稍早建立的 **AzureSqlLinkedService**。 |
+| type | type 屬性會設為 **AzureSqlTable**，因為資料已複製到 Azure SQL Database 中的資料表。 |
+| 預設容器 | 表示您稍早建立的 **AzureSqlLinkedService**。 |
 | tableName | 指定作為資料複製目的地的**資料表**。 | 
 | frequency/interval | frequency 會設為**Hour** 且 interval 為**1**，這表示會在管線開始和結束時間之間 (而非這些時間之前或之後) **每小時**產生輸出配量。  |
 
@@ -375,7 +375,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 建立管線之前，您必須先建立一些 Data Factory 項目。 您會先建立連結服務，將來源和目的地資料存放區連結至您的資料存放區。 然後，定義輸入和輸出資料集，以表示連結資料存放區中的資料。 最後，建立會使用這些資料集之活動的管線。
 
-## <a name="create-linked-services"></a>建立連結服務
+## <a name="create-linked-services"></a>建立連結的服務
 您在資料處理站中建立的連結服務會將您的資料存放區和計算服務連結到資料處理站。 在本教學課程中，您不會使用任何計算服務，例如 Azure HDInsight 或 Azure Data Lake Analytics。 您可以使用兩種類型的資料存放區：Azure 儲存體 (來源) 和 Azure SQL Database (目的地)。 因此，您可以建立名為 AzureStorageLinkedService 和 AzureSqlLinkedService 的兩個連結服務︰類型為 AzureStorage 和 AzureSqlDatabase。  
 
 AzureStorageLinkedService 會將 Azure 儲存體帳戶連結至資料處理站。 此儲存體帳戶是您在其中建立容器並將資料上傳為[必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)一部分的帳戶。   
@@ -518,7 +518,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 對於每個配量，來源檔案中有兩個資料列會複製到 Azure SQL Database 中的 emp 資料表。 因此，成功處理所有配量 (處於 [就緒] 狀態) 後，您會在 emp 資料表中看到 24 筆新記錄。 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 在本教學課程中，您已使用 REST API 建立要將資料從 Azure Blob 複製到 Azure SQL 資料庫的 Azure Data Factory。 以下是您在本教學課程中執行的高階步驟：  
 
 1. 建立 Azure **Data Factory**。

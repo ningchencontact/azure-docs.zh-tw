@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9236198338fc66697942463e350a0f9732ea217b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 Xero 複製資料
 
@@ -37,7 +37,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Xero 連接器專屬的 Data Factory 實體。
 
@@ -45,12 +45,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Xero 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為：**Xero** | 是 |
-| host | Xero 伺服器的端點。 (也就是 api.xero.com)  | 是 |
-| consumerKey | 與 Xero 應用程式相關聯的取用者金鑰。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 Data Factory，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 是 |
-| privateKey | 從您 Xero 私人應用程式產生之 .pem 檔案的私密金鑰。 包含 .pem 檔案的所有文字，包括 Unix 行尾結束符號 (\n)。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 Data Factory，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 是 |
+| type | Type 屬性必須設定為：**Xero** | yes |
+| host | Xero 伺服器的端點。 (也就是 api.xero.com)  | yes |
+| consumerKey | 與 Xero 應用程式相關聯的取用者金鑰。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 Data Factory，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | yes |
+| privateKey | 從您 Xero 私人應用程式產生之 .pem 檔案的私密金鑰。 包含 .pem 檔案的所有文字，包括 Unix 行尾結束符號 (\n)。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 Data Factory，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -106,10 +106,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Xero 複製資料，請將複製活動中的來源類型設定為 **XeroSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**XeroSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Contacts"`。 | 是 |
+| type | 複製活動來源的 type 屬性必須設定為：**XeroSource** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Contacts"`。 | yes |
 
 **範例：**
 

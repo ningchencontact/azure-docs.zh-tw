@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: dac4e926868e76d73512bc8b16856bfff2a889aa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ea2258b953925116f759655583d9601c5a55db7c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>使用 Azure Data Factory 從 HBase 複製資料 
 
@@ -34,7 +34,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 HBase 連接器專屬的 Data Factory 實體。
 
@@ -42,15 +42,15 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 HBase 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**HBase** | 是 |
-| host | HBase 伺服器的 IP 位址或主機名稱。 (亦即 192.168.222.160)  | 是 |
+| type | 類型屬性必須設為：**HBase** | yes |
+| host | HBase 伺服器的 IP 位址或主機名稱。 (亦即 192.168.222.160)  | yes |
 | 連接埠 | HBase 執行個體用來接聽用戶端連線的 TCP 連接埠。 預設值為 9090。  | 否 |
 | httpPath | 對應至 HBase 伺服器的部分 URL。 (亦即 /gateway/sandbox/hbase/version)  | 否 |
-| authenticationType | 用來連線到 HBase 伺服器的驗證機制。 <br/>允許的值為：**Anonymous**、**Basic** | 是 |
+| authenticationType | 用來連線到 HBase 伺服器的驗證機制。 <br/>允許的值為：**Anonymous**、**Basic** | yes |
 | username | 用來連線到 HBase 執行個體的使用者名稱。  | 否 |
-| password | 對應到使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 否 |
+| password | 對應到使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有在自我裝載 IR 上使用 SSL 時，才能設定這個屬性。 預設值為隨 IR 安裝的 cacerts.pem 檔案。  | 否 |
 | allowHostNameCNMismatch | 指定在透過 SSL 連線時，是否要求 CA 所核發的 SSL 憑證名稱符合伺服器的主機名稱。 預設值為 False。  | 否 |
@@ -116,10 +116,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 HBase 複製資料，請將複製活動中的來源類型設定為 **HBaseSource**.。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HBaseSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**HBaseSource** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | yes |
 
 **範例：**
 

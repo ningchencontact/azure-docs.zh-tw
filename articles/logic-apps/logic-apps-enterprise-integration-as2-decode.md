@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 AS2 訊息解碼 
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="decode-as2-messages"></a>解碼 AS2 訊息
 
-1. [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+1. [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 2. 解碼 AS2 訊息連接器沒有觸發程序，因此您必須新增觸發程序 (例如要求觸發程序) 來啟動邏輯應用程式。 在 Logic Apps 設計工具中，新增觸發程序，然後將動作新增至您的邏輯應用程式。
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
    
     ![已建立整合連線](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
-    例如：
+    例如︰
 
     ![從要求輸出選取內文和標頭](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 

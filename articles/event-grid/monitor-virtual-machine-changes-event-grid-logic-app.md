@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 
-當 Azure 資源或第三方資源發生特定事件時，您可以啟動自動化[邏輯應用程式工作流程](../logic-apps/logic-apps-what-are-logic-apps.md)。 這些資源可以將這些事件發佈至 [Azure Event Grid](../event-grid/overview.md)。 接著，Event Grid 會將這些事件發送給以佇列、Webhook 或[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)作為端點的訂閱者。 身為訂閱者，邏輯應用程式可以先等待來自 Event Grid 的這些事件，再執行自動化工作流程來執行工作 - 您無須等待任何程式碼。
+當 Azure 資源或第三方資源發生特定事件時，您可以啟動自動化[邏輯應用程式工作流程](../logic-apps/logic-apps-overview.md)。 這些資源可以將這些事件發佈至 [Azure Event Grid](../event-grid/overview.md)。 接著，Event Grid 會將這些事件發送給以佇列、Webhook 或[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)作為端點的訂閱者。 身為訂閱者，邏輯應用程式可以先等待來自 Event Grid 的這些事件，再執行自動化工作流程來執行工作 - 您無須等待任何程式碼。
 
 例如，以下是發行者可以透過 Azure Event Grid 服務傳送給訂閱者的一些事件：
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 12/01/2017
 
 ![概觀 - 使用 Event Grid 和邏輯應用程式來監視虛擬機器](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立可從 Event Grid 監視事件的邏輯應用程式。
 > * 新增可特別檢查虛擬機器變更的條件。
 > * 在虛擬機器變更時傳送電子郵件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 來自 [Azure Logic Apps 所支援的任何電子郵件提供者](../connectors/apis-list.md)的電子郵件帳戶，例如 Office 365 Outlook、Outlook.com 或 Gmail，以傳送通知。 本教學課程是使用 Office 365 Outlook。
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 12/01/2017
 
    ![選擇 [邏輯應用程式] 範本](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Logic Apps 設計工具現在會顯示[連接器](../connectors/apis-list.md)和[觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)，以便您用來啟動邏輯應用程式，以及您可以新增在觸發程序之後以執行工作的動作。 觸發程序是可建立邏輯應用程式執行個體並啟動邏輯應用程式工作流程的事件。 
+   Logic Apps 設計工具現在會顯示[連接器](../connectors/apis-list.md)和[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)，以便您用來啟動邏輯應用程式，以及您可以新增在觸發程序之後以執行工作的動作。 觸發程序是可建立邏輯應用程式執行個體並啟動邏輯應用程式工作流程的事件。 
    邏輯應用程式需要觸發程序作為第一個項目。
 
 6. 在搜尋方塊中，輸入 "event grid" 作為篩選條件。 選取此觸發程序：**Azure Event Grid - 在資源事件上**
@@ -154,13 +154,13 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>在虛擬機器變更時傳送電子郵件
 
-現在新增[動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)，以在指定的條件為 true 時收到電子郵件。
+現在新增[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)，以在指定的條件為 true 時收到電子郵件。
 
 1. 在條件的 [若為 true] 方塊中，選擇 [新增動作]。
 
    ![新增條件為 true 時的動作](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. 在搜尋方塊中，輸入 "email" 作為篩選條件。 根據您的電子郵件提供者，尋找並選取相符的連接器。 然後針對您的連接器選取 [傳送電子郵件] 動作。 例如： 
+2. 在搜尋方塊中，輸入 "email" 作為篩選條件。 根據您的電子郵件提供者，尋找並選取相符的連接器。 然後針對您的連接器選取 [傳送電子郵件] 動作。 例如︰ 
 
    * 對於 Azure 公司或學校帳戶，選取 Office 365 Outlook 連接器。 
    * 對於個人 Microsoft 帳戶，選取 Outlook.com 連接器。 
@@ -211,7 +211,7 @@ ms.lasthandoff: 12/01/2017
 
    例如，您可以在 Azure 入口網站中調整您的虛擬機器大小，或[使用 Azure PowerShell 調整您的 VM 大小](../virtual-machines/windows/resize-vm.md)。 
 
-   一會兒之後，您應可取得電子郵件。 例如：
+   一會兒之後，您應可取得電子郵件。 例如︰
 
    ![關於虛擬機器更新的電子郵件](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
 
 ## <a name="overview"></a>概觀
 
-此案例中所使用的策略是讓 Azure 活動記錄將事件傳送至[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)其中，[邏輯應用程式](../logic-apps/logic-apps-what-are-logic-apps.md)會將它們傳送至 Log Analytics 工作區。 
+此案例中所使用的策略是讓 Azure 活動記錄將事件傳送至[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)其中，[邏輯應用程式](../logic-apps/logic-apps-overview.md)會將它們傳送至 Log Analytics 工作區。 
 
 ![從活動記錄到 Log Analytics 之資料流程的影像](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -126,9 +126,9 @@ ms.lasthandoff: 01/09/2018
 
     ![建立邏輯應用程式](media/log-analytics-activity-logs-subscriptions/create-logic-app.png)
 
-   |設定 | 描述  |
+   |設定 | 說明  |
    |:---|:---|
-   | 名稱           | 邏輯應用程式的唯一名稱。 |
+   | Name           | 邏輯應用程式的唯一名稱。 |
    | 訂用帳戶   | 選取將包含邏輯應用程式的 Azure 訂用帳戶。 |
    | 資源群組 | 選取現有 Azure 資源群組，或建立邏輯應用程式的新 Azure 資源群組。 |
    | 位置       | 選取資料中心區域，用於部署邏輯應用程式。 |
@@ -141,7 +141,7 @@ ms.lasthandoff: 01/09/2018
 
 邏輯應用程式設計工具現在會顯示您可用的連接器和其觸發程序，以用於啟動邏輯應用程式工作流程。
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>新增事件中樞觸發程序
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 01/09/2018
 
     ![設定傳送資料動作](media/log-analytics-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |設定        | 值           | 描述  |
+   |設定        | 值           | 說明  |
    |---------------|---------------------------|--------------|
    |JSON 要求本文  | [撰寫] 動作的 [輸出] | 從 [撰寫] 動作的本文中擷取記錄。 |
    | 自訂記錄名稱 | AzureActivity | 要在 Log Analytics 中建立以保留所匯入資料的自訂記錄表名稱。 |

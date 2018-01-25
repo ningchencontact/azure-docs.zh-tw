@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 FTP 伺服器移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/03/2017
 > * [第 2 版 - 預覽](../connector-ftp.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 FTP 連接器](../connector-ftp.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 FTP 連接器](../connector-ftp.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 FTP 伺服器移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 
@@ -66,9 +66,9 @@ ms.lasthandoff: 11/03/2017
 
 | 屬性 | 說明 | 必要 | 預設值 |
 | --- | --- | --- | --- |
-| 類型 |設定為 FtpServer。 |是 |&nbsp; |
-| 主機 |指定 FTP 伺服器的名稱或 IP 位址。 |是 |&nbsp; |
-| authenticationType |指定驗證類型。 |是 |基本或匿名 |
+| type |設定為 FtpServer。 |yes |&nbsp; |
+| host |指定 FTP 伺服器的名稱或 IP 位址。 |yes |&nbsp; |
+| authenticationType |指定驗證類型。 |yes |基本或匿名 |
 | username |指定擁有 FTP 伺服器存取權限的使用者。 |否 |&nbsp; |
 | password |指定使用者 (使用者名稱) 的密碼。 |否 |&nbsp; |
 | encryptedCredential |指定用來存取 FTP 伺服器的加密認證。 |否 |&nbsp; |
@@ -153,7 +153,7 @@ ms.lasthandoff: 11/03/2017
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 partitionBy ，讓資料夾路徑以配量開始和結束日期時間為基礎。 |是 |
+| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 partitionBy ，讓資料夾路徑以配量開始和結束日期時間為基礎。 |yes |
 | fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data<Guid>.txt (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
 | fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1：`"fileFilter": "*.log"`<br/>範例 2：`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter 適用於輸入 FileShare 資料集。 這個屬性不支援 Hadoop 分散式檔案系統 (HDFS)。 |否 |
 | partitionedBy |用來指定時間序列資料的動態 folderPath 和 filename。 例如，您可以指定每小時資料參數化的 **folderPath**。 |否 |

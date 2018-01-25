@@ -3,7 +3,7 @@ title: "PowerShell 連接器 | Microsoft Docs"
 description: "本文說明如何設定 Microsoft 的 Windows PowerShell 連接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell 連接器技術參考
 本文說明 Windows PowerShell 連接器。 本文適用於下列產品：
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="overview-of-the-powershell-connector"></a>PowerShell 連接器概觀
 PowerShell 連接器可讓您整合同步處理服務與可提供 Windows PowerShell 型 API 的外部系統。 此連接器會在呼叫型可延伸連線管理代理程式 2 (ECMA2) 架構和 Windows PowerShell 的功能之間提供橋樑。 如需 ECMA 架構的詳細資訊，請參閱 [可延伸的連線 2.2 管理代理程式參考](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在您使用連接器之前，請確定同步處理伺服器上有下列項目：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本
@@ -88,7 +88,7 @@ Windows PowerShell 連接器是設計用來儲存同步處理服務資料庫內�
 
 驗證指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |觸發驗證要求的組態索引標籤或對話方塊。 |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
@@ -101,7 +101,7 @@ Windows PowerShell 連接器是設計用來儲存同步處理服務資料庫內�
 
 結構描述探索指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -148,7 +148,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 資料分割探索指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -160,7 +160,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 階層探索指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -176,7 +176,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 開始匯入指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -190,7 +190,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 匯入資料指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -205,7 +205,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 結束匯入指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -222,7 +222,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 開始匯出指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -236,7 +236,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 匯出資料指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -251,7 +251,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 結束匯出指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |
@@ -265,7 +265,7 @@ Windows PowerShell 連接器可以做為密碼變更/重設的目標。
 
 密碼指令碼會接收連接器中的下列參數：
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |連接器組態參數的資料表。 |
 | 認證 |[PSCredential][pscred] |包含系統管理員在 [連線] 索引標籤上輸入的任何認證。 |

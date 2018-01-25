@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Proxy 服務的 Cloud App Discovery 登錄設定
 本主題的目的是要告訴您如何在執行 Cloud App Discovery 代理程式的電腦上設定所需連接埠。 根據預設，Cloud App Discovery 代理程式設定為僅使用連接埠 80 或 443。 如果您計劃要在具有使用自訂連接埠 (既不是 80 也不是 443) 的 Proxy 伺服器的環境中安裝 Cloud App Discovery，您必須設定代理程式使用此連接埠。 設定是以登錄機碼為基礎。

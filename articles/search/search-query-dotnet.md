@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3c22b83346269cf3c0327fe3fb98510a6266733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>使用 .NET SDK 查詢 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 使用 .NET SDK 進行搜尋就和在您的 `SearchIndexClient` 呼叫 `Documents.Search` 方法一樣簡單。 此方法會採用一些參數，包括搜尋文字，以及可進一步縮小查詢範圍的 `SearchParameters` 物件。
 
 #### <a name="types-of-queries"></a>查詢類型
-您將會使用的兩個主要[查詢類型](search-query-overview.md#types-of-queries)是 `search` 和 `filter`。 `search` 查詢會搜尋索引中所有可搜尋欄位的一或多個字詞。 `filter` 查詢可跨索引的所有可篩選欄位評估布林運算式。
+您將會使用的兩個主要[查詢類型](search-query-overview.md#types-of-queries)是 `search` 和 `filter`。 `search` 查詢會搜尋索引中所有可搜尋欄位的一或多個字詞。 `filter` 查詢可跨索引的所有可篩選欄位評估布林運算式。 您可以同時或個別使用搜尋和篩選。
 
 搜尋和篩選均使用 `Documents.Search` 方法執行。 搜尋查詢可在 `searchText` 參數中傳遞，而篩選運算式可在 `SearchParameters` 類別的 `Filter` 屬性中傳遞。 若要篩選而不進行搜尋，只要為 `searchText` 參數傳遞 `"*"` 即可。 若要在不進行篩選的情況下搜尋，則只要將 `Filter` 屬性保留在未設定狀態，或完全不要傳入 `SearchParameters` 執行個體。
 

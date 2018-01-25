@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -89,7 +89,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
     > [!NOTE]
     > 將虛擬設備部署至不同子網路，則透過該虛擬設備路由的資源就會在其中部署。 如果將虛擬設備部署至相同子網路，然後將路由表套用至透過虛擬設備路由流量的子網路，就會造成路由迴圈，使得流量不會離開子網路。
 
-    - Azure [內部負載平衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的私人 IP 位址。 負載平衡器通常作為[網路虛擬設備高可用性策略](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的一部分使用。
+    - Azure [內部負載平衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的私人 IP 位址。 負載平衡器通常作為[網路虛擬設備高可用性策略](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)的一部分使用。
 
     您可以定義位址首碼為 0.0.0.0/0 的路由和虛擬設備的下一個躍點類型，讓設備檢查流量並判斷是否要轉送或捨棄流量。 如果您想要建立包含 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。
 

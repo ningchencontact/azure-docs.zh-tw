@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eebae624ea024f2ff8c1fa4764027c05220a15f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>在 Logic Apps 的整合帳戶中管理構件中繼資料
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 ## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>從邏輯應用程式的構件擷取中繼資料
 
-1. 建立[邏輯應用程式](logic-apps-create-a-logic-app.md)。
+1. 建立[邏輯應用程式](quickstart-create-first-logic-app-workflow.md)。
 
 2. 建立[從邏輯應用程式到您整合帳戶的連結](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app)。 
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: bcd2ba4f92937cf1e134b2a59d97c7bea7802145
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a80b7fd0c21851a6670431e9b8647ca5cf5f51ec
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>設定控管標記的商務詞彙
 ## <a name="introduction"></a>簡介
@@ -78,7 +78,7 @@ Azure 資料目錄啟用了資料來源探索功能，讓您能夠輕鬆地探�
 ### <a name="search-filters-for-tags"></a>標籤的搜尋篩選
 詞彙標籤和使用者標籤都可供搜尋，您可以將它們套用到搜尋中作為篩選。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 透過使用 Azure 資料目錄中的商務詞彙和它啟用的控管標記，您可以利用一致的方式識別、管理與探索資料資產。 商務詞彙可提升組織成員對商務詞彙的學習。 詞彙也支援擷取有意義的中繼資料，其可簡化資產探索及了解。
 
 ## <a name="next-steps"></a>後續步驟

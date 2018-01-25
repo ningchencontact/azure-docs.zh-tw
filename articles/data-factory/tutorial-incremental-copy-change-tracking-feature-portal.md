@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 22a3972d7b2e9cf732f5dc75dd2b53b83570ee66
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -169,7 +169,7 @@ ms.lasthandoff: 01/16/2018
          
         若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
 4. 對 [版本] 選取 [V2 (預覽)]。
-5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。      
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
@@ -178,7 +178,7 @@ ms.lasthandoff: 01/16/2018
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
    ![Data Factory 首頁](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. 按一下 [編寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
+10. 按一下 [撰寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 11. 在 [開始使用] 頁面中，切換至左面板中的 [編輯] 索引標籤，如下圖所示： 
 
     ![建立管線按鈕](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
@@ -198,7 +198,7 @@ ms.lasthandoff: 01/16/2018
 3. 在 [新增連結服務] 視窗中，執行下列步驟： 
 
     1. 輸入 **AzureStorageLinkedService** 作為 [名稱]。 
-    2. 在 [儲存體帳戶名稱] 選取您的 Azure 儲存體帳戶。 
+    2. 為 [儲存體帳戶名稱] 選取 Azure 儲存體帳戶。 
     3. 按一下 [檔案] 。 
     
    ![Azure 儲存體帳戶設定](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
@@ -467,7 +467,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 進入下列教學課程，以了解如何在 Azure 上使用 Spark 叢集來轉換資料：
 
 > [!div class="nextstepaction"]
->[在雲端中使用 Spark 叢集轉換資料](tutorial-transform-data-spark-powershell.md)
+>[在雲端中使用 Spark 叢集轉換資料](tutorial-transform-data-spark-portal.md)
 
 
 

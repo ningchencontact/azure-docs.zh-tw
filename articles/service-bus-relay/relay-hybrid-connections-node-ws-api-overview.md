@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連線 Node API 概觀
 
@@ -130,7 +130,7 @@ var wss = new server(
 - `server` (必要) - 要接聽之混合式連線名稱的完整 URI，通常是使用 WebSocket.createRelayListenUri() 協助程式方法所建構。
 - `token` (必要) - 這個引數包含先前發行的權杖字串或可以呼叫以取得權杖字串的回呼函式。 回呼是慣用選項，因為它可讓權杖更新。
 
-#### <a name="events"></a>事件
+#### <a name="events"></a>活動
 
 `RelayedServer` 執行個體會發出三個事件，可讓您處理傳入要求、建立連線，以及偵測錯誤狀況。 您必須訂閱 `connect` 事件以處理訊息。 
 

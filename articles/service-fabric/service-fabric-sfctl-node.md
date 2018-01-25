@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 管理形成叢集的節點。
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h          | 顯示此說明訊息並結束。|
 | --output -o        | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query            | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose          | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose          | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-enable"></a>sfctl node enable
 啟用目前停用的 Service Fabric 叢集節點。
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h          | 顯示此說明訊息並結束。|
 | --output -o        | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query            | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose          | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose          | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-health"></a>sfctl node health
 取得 Service Fabric 節點的健康情況。
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h                | 顯示此說明訊息並結束。|
 | --output -o              | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query                  | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose                | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose                | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
 取得 Service Fabric 叢集中的節點清單。
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h          | 顯示此說明訊息並結束。|
 | --output -o        | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query            | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose          | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose          | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-list"></a>sfctl node list
 取得 Service Fabric 叢集中的節點清單。
@@ -151,7 +151,7 @@ Nodes 端點會傳回在 Service Fabric 叢集中節點的相關資訊。 回應
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose        | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose        | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-load"></a>sfctl node load
 取得 Service Fabric 節點的負載資訊。
@@ -173,7 +173,7 @@ Nodes 端點會傳回在 Service Fabric 叢集中節點的相關資訊。 回應
 | --help -h          | 顯示此說明訊息並結束。|
 | --output -o        | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query            | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose          | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose          | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-restart"></a>sfctl node restart
 重新啟動 Service Fabric 叢集節點。
@@ -197,7 +197,7 @@ Nodes 端點會傳回在 Service Fabric 叢集中節點的相關資訊。 回應
 | --help -h          | 顯示此說明訊息並結束。|
 | --output -o        | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query            | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose          | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose          | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-node-transition"></a>sfctl node transition
 啟動或停止叢集節點。

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>開始使用 webhook 連接器
 
@@ -92,9 +92,9 @@ ms.lasthandoff: 10/11/2017
 
 | 顯示名稱 | 屬性名稱 | 說明 |
 | --- | --- | --- |
-| 訂閱方法* |方法 |用於訂閱要求的 HTTP 方法 |
+| 訂閱方法* |method |用於訂閱要求的 HTTP 方法 |
 | 訂閱 URI* |uri |用於訂閱要求的 HTTP URI |
-| 取消訂閱方法* |方法 |用於取消訂閱要求的 HTTP 方法 |
+| 取消訂閱方法* |method |用於取消訂閱要求的 HTTP 方法 |
 | 取消訂閱 URI* |uri |用於取消訂閱要求的 HTTP URI |
 | 訂閱本文 |body |訂閱的 HTTP 要求本文 |
 | 訂閱標頭 |headers |訂閱的 HTTP 要求標頭 |
@@ -128,9 +128,9 @@ Webhook 要求
 
 | 顯示名稱 | 屬性名稱 | 說明 |
 | --- | --- | --- |
-| 訂閱方法* |方法 |用於訂閱要求的 HTTP 方法 |
+| 訂閱方法* |method |用於訂閱要求的 HTTP 方法 |
 | 訂閱 URI* |uri |用於訂閱要求的 HTTP URI |
-| 取消訂閱方法* |方法 |用於取消訂閱要求的 HTTP 方法 |
+| 取消訂閱方法* |method |用於取消訂閱要求的 HTTP 方法 |
 | 取消訂閱 URI* |uri |用於取消訂閱要求的 HTTP URI |
 | 訂閱本文 |body |訂閱的 HTTP 要求本文 |
 | 訂閱標頭 |headers |訂閱的 HTTP 要求標頭 |
@@ -151,5 +151,5 @@ Webhook 要求
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+* [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [尋找其他連接器](apis-list.md)

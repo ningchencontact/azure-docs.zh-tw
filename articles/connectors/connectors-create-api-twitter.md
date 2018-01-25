@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>開始使用 Twitter 連接器
 使用 Twitter 連接器，您可以：
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 * 存取時間軸、好友和追隨者
 * 執行以下所述的任何其他動作和觸發程序  
 
-若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)來開始。  
+若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)來開始。  
 
 ## <a name="connect-to-twitter"></a>連接到 Twitter
 您必須先建立與服務的連線，才能透過邏輯應用程式存取任何服務。 [連線](connectors-overview.md)可讓邏輯應用程式與另一個服務連線。  
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-a-twitter-trigger"></a>使用 Twitter 觸發程序
-觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。
+觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
 在此範例中，我將示範如何使用 [當有新推文張貼時] 觸發程序來搜尋 #Seattle，如果找到 #Seattle，就使用推文中的文字來更新 Dropbox 中的檔案。 在企業範例中，您可以搜尋您的公司名稱，並以推文中的文字更新 SQL Database。
 
@@ -80,13 +80,13 @@ ms.lasthandoff: 10/11/2017
    ![Twitter 條件圖 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>使用 Twitter 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。  
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
 
 您現已新增觸發程序，請遵循下列步驟來新增動作，該動作將會張貼包含觸發程序所找到之推文內容的新推文。 基於本逐步解說的目的，只會張貼有 50 個以上跟隨者的使用者的推文。  
 
 在下一個步驟中，您將新增 Twitter 動作，該動作將使用有 50 個以上跟隨者的使用者所張貼的每則推文的某些屬性來張貼推文。  
 
-1. 選取 [新增動作] 。 這會開啟搜尋控制項，您可以在其中搜尋其他動作和觸發程序。  
+1. 選取 [新增動作]。 這會開啟搜尋控制項，您可以在其中搜尋其他動作和觸發程序。  
    ![Twitter 條件圖 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
 2. 在搜尋方塊中輸入 *twitter*，然後選取 [Twitter - 張貼推文] 動作。 這會開啟 [張貼推文] 控制項，您將在其中輸入所張貼推文的所有詳細資料。      
    ![Twitter 動作圖 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
@@ -104,5 +104,5 @@ ms.lasthandoff: 10/11/2017
 檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/twitterconnector/)的所有限制。 
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>安裝行動服務 (VMware 或實體至 Azure)
 Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它們轉送至處理伺服器。 將行動服務部署至您要複寫至 Azure 的每部電腦 (VMware VM 或實體伺服器)。 您可以使用下列方法，將行動服務部署至您要保護的伺服器：
@@ -34,7 +29,7 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 >[!IMPORTANT]
 > 從版本 9.7.0.0 開始，在 Windows 虛擬機器 (VM) 上，行動服務安裝程式也會安裝最新可用的 [Azure VM 代理程式](../virtual-machines/windows/extensions-features.md#azure-vm-agent)。 當電腦容錯移轉至 Azure 時，該電腦必須符合代理程式安裝必要條件，才能使用任何 VM 擴充功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在伺服器上手動安裝行動服務之前，必須先完成下列必要條件步驟：
 1. 登入組態伺服器，然後以系統管理員身分開啟 [命令提示字元] 視窗。
 2. 將目錄切換至 bin 資料夾，然後建立複雜密碼檔案：
@@ -92,7 +87,7 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 ## <a name="update-mobility-service"></a>更新行動服務
 
 > [!WARNING]
-> 在開始更新受保護伺服器上的行動服務之前，請確保設定伺服器、相應放大處理序伺服器，以及作為部署之一部分的所有主要目標伺服器皆已完成更新。 請進一步參閱[如何更新設定伺服器](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server)和[如何更新相應放大處理序伺服器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> 在開始更新受保護伺服器上的行動服務之前，請確保設定伺服器、相應放大處理序伺服器，以及作為部署之一部分的所有主要目標伺服器皆已完成更新。
 
 1. 在 Azure 入口網站上，請瀏覽至 <Your Vault> -> [複寫的項目] 檢視。
 2. 如果「設定伺服器」已經更新至最新版本，您應該會看到內容為「有新的 Site Recovery 複寫代理程式更新可用。按一下可安裝」的通知

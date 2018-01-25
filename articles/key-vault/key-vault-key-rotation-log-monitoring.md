@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫
 ## <a name="introduction"></a>簡介
@@ -416,7 +416,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 ### <a name="azure-logic-app"></a>Azure 邏輯應用程式
 接下來，您必須建立 Azure 邏輯應用程式，以挑選函式推送至服務匯流排佇列的事件、剖析內容，以及根據符合的條件傳送電子郵件。
 
-移至 [新增] -> [邏輯應用程式] 以[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+移至 [新增] -> [邏輯應用程式] 以[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 建立邏輯應用程式後，請瀏覽到該應用程式，然後選擇 [編輯] 。 在邏輯應用程式編輯器中，選擇 [服務匯流排佇列] 並輸入服務匯流排認證，以將其連接至佇列。
 

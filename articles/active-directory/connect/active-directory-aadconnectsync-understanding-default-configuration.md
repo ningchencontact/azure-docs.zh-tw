@@ -3,7 +3,7 @@ title: "Azure AD Connect 同步：了解預設組態 | Microsoft Docs"
 description: "本文說明 Azure AD Connect Sync 的預設組態。"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步處理：了解預設組態
 本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
@@ -217,7 +217,7 @@ NULL
 ### <a name="putting-it-all-together"></a>總整理
 我們現在對同步處理規則已有足夠的認識，而能夠了解組態如何在不同的同步處理規則下運作。 如果您觀察某個使用者以及提供給 Metaverse 的屬性，則會以下列順序套用規則：
 
-| 名稱 | 註解 |
+| Name | 註解 |
 |:--- |:--- |
 | In from AD - User Join |聯結連接器空間物件與 Metaverse 的規則。 |
 | In from AD – UserAccount Enabled |登入 Azure AD 和 Office 365 所需的屬性。 我們想從已啟用的帳戶取得這些屬性。 |

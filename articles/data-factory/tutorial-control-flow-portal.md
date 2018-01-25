@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 39cfd269ec7dd9e676a9d4296df1329dc3fbe0cc
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，管線會在成功電子郵件中傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，管線會在失敗電子郵件中傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/18/2018
     3. 將 **input.txt** 檔案上傳至容器。
 
 ## <a name="create-email-workflow-endpoints"></a>建立電子郵件工作流程端點
-若要從管線觸發電子郵件的傳送，您需要使用 [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) 來定義工作流程。 如需有關建立邏輯應用程式工作流程的詳細資訊，請參閱[如何建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 
+若要從管線觸發電子郵件的傳送，您需要使用 [Logic Apps](../logic-apps/logic-apps-overview.md) 來定義工作流程。 如需有關建立邏輯應用程式工作流程的詳細資訊，請參閱[如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
 
 ### <a name="success-email-workflow"></a>成功電子郵件工作流程 
 建立名為 `CopySuccessEmail` 的邏輯應用程式工作流程。 將工作流程觸發程序定義為 `When an HTTP request is received`，並新增動作 `Office 365 Outlook – Send an email`。
@@ -132,7 +132,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
-2. 在 [新增資料處理站] 頁面中，輸入 [ADFTutorialDataFactory] 作為 [名稱]。 
+2. 在 [新增資料處理站] 頁面中，輸入 **ADFTutorialDataFactory** 作為 [名稱]。 
       
      ![新增資料處理站頁面](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
@@ -153,10 +153,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
 
     ![部署資料處理站圖格](media/tutorial-control-flow-portal/deploying-data-factory.png)
-9. 建立完成之後，您會看到如圖所示的 [Data Factory] 頁面。
+9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
    ![Data Factory 首頁](./media/tutorial-control-flow-portal/data-factory-home-page.png)
-10. 按一下 [撰寫與監視] 圖格，以在個別索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
+10. 按一下 [撰寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 
 
 ## <a name="create-a-pipeline"></a>建立管線
@@ -278,7 +278,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 24. 若要驗證管線，按一下工具列上的 [驗證] 按鈕。 按一下 >> 按鈕，來關閉 [管線驗證輸出] 視窗。
 
     ![驗證管線](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，按一下 [發佈]。 請稍後，直至您看見 [發佈成功] 訊息。
+24. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，按一下 [發佈]。 請靜待 [發佈成功] 訊息顯示。
 
     ![發佈](./media/tutorial-control-flow-portal/publish-button.png)
  

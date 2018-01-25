@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 42d7fddd592b9cea8fbfa38bf39ca5def3542d66
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>在 Azure 資料目錄中註冊資料來源
 ## <a name="introduction"></a>簡介
-Azure 資料目錄是受到完整管理的雲端服務，可作為企業資料來源的註冊和探索系統。 換句話說，資料目錄可於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料獲得更多價值。 透過資料目錄讓資料來源得以被探索的第一步是註冊該資料來源。
+Azure 資料目錄是完全受控的雲端服務，可作為企業資料來源的註冊和探索系統。 換句話說，資料目錄可於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料獲得更多價值。 透過資料目錄讓資料來源得以被探索的第一步是註冊該資料來源。
 
 ## <a name="register-data-sources"></a>註冊資料來源
 註冊是指從資料來源擷取中繼資料並將該資料複製到資料目錄服務的程序。 資料會保留在它目前的位置，並且仍然在目前系統的系統管理員及原則的控制之下。
@@ -82,7 +82,7 @@ Azure 資料目錄是受到完整管理的雲端服務，可作為企業資料�
 
 重新註冊已註冊的資料來源會執行合併 “upsert” 作業：將會更新現有的物件，同時建立新的物件。 使用者透過資料目錄入口網站所提供的任何中繼資料都將保留。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 因為在資料目錄註冊資料來源會將結構化和描述性中繼資料從資料來源複製到目錄服務，所以可讓您更容易地探索及了解資料來源。 在您註冊資料來源之後，即可使用資料目錄入口網站來標註、管理及探索資料來源。
 
 ## <a name="next-steps"></a>後續步驟

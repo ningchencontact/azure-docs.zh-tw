@@ -3,8 +3,8 @@ title: "如何搭配使用 Azure Redis 快取與 Java | Microsoft Docs"
 description: "開始搭配使用 Azure Redis 快取與 Java"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/31/2017
-ms.author: sdanie
-ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: a93dbf78c9cb94f6c20c8569a69e068ceb3b98bc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>如何搭配使用 Azure Redis 快取與 Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。 �
 
 本主題說明如何搭配使用 Azure Redis 快取與 Java。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [Jedis](https://github.com/xetorthio/jedis) - Redis 的 Java 用戶端
 
 本教學課程使用 Jedis，但是您可以使用列在 [http://redis.io/clients](http://redis.io/clients)的任何 Java 用戶端。

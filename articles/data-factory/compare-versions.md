@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>比較 Azure Data Factory V1 與 V2
 本文比較 Azure Data Factory 的 V1 與 V2。 如需 V1 簡介，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 如需 V2 簡介，請參閱 [Data Factory (V2 - 預覽) 簡介](introduction.md)。
@@ -102,7 +102,7 @@ Azure-SSIS 整合執行階段是一個完全受管理的 Azure VM (節點) 叢�
 ## <a name="support-for-on-demand-spark-cluster"></a>支援隨選 Spark 叢集
 V2 支援建立隨選 Azure HDInsight Spark 叢集。 若要建立隨選 Spark 叢集，請在隨選 HDInsight 連結服務定義中將叢集類型指定為 Spark。 然後，您可以在管線中設定 Spark 活動，以使用此連結服務。 
 
-在執行階段，活動執行後，Data Factory 服務會為您自動建立 Spark 叢集。 如需詳細資訊，請參閱下列文章。
+在執行階段，活動執行後，Data Factory 服務會為您自動建立 Spark 叢集。 如需詳細資訊，請參閱下列文章：
 
 - [V2 中的 Spark 活動](transform-data-using-spark.md)
 - [Azure HDInsight 隨選連結服務](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)
@@ -128,7 +128,16 @@ V2 支援建立隨選 Azure HDInsight Spark 叢集。 若要建立隨選 Spark �
 針對 V2 更新的 SDK 不具與 V1 用戶端的回溯相容性。 
 
 ## <a name="authoring-experience"></a>撰寫體驗
-在 Data Factory V1 中，您可以在 Azure 入口網站中使用 Data Factory 編輯器來撰寫管線。 Data Factory V2 目前只支援以程式設計方式 (例如 .NET SDK、REST API、PowerShell、Python) 建立資料處理站。 尚未支援使用者介面。  Data Factory V1 也支援 SDK、REST 和 PowerShell 撰寫支援。
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure 入口網站 | [是](quickstart-create-data-factory-portal.md) | [是](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [是](quickstart-create-data-factory-powershell.md) | [是](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [是](quickstart-create-data-factory-dot-net.md) | [是](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [是](quickstart-create-data-factory-rest-api.md) | [是](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [是](quickstart-create-data-factory-python.md) | 否 |
+| Resource Manager 範本 | [是](quickstart-create-data-factory-resource-manager-template.md) | [是](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>監視體驗
 在 V2 中，您可以使用 [Azure 監視器](monitor-using-azure-monitor.md)來監視資料處理站。 新的 PowerShell Cmdlet 支援[整合執行階段](monitor-integration-runtime.md)的監視。 V1 和 V2 都支援透過可從 Azure 入口網站啟動的監視應用程式進行視覺化監視。

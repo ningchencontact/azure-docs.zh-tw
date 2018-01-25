@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 74bff33edd738642ea88ca9b3430aac0ff32bc6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: af5e19b212fdebe5220e49eeaa6ec9fc56b1da1c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以使用 Spark 活動和隨選 HDInsight 連結服務來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/06/2017
 > * 建立資料處理站。 
 > * 撰寫和部署連結服務。
 > * 撰寫和部署管道。 
-> * 啟動管道執行。
+> * 啟動管線執行。
 > * 監視管道執行。
 
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/06/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 儲存體帳戶**。 您需要建立 python 指令碼和輸入檔案，並上傳至 Azure 儲存體。 spark 程式的輸出會儲存在這個儲存體帳戶中。 隨選 Spark 叢集與其主要儲存體是使用相同的儲存體帳戶。  
 * **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
 
@@ -340,7 +340,7 @@ ms.lasthandoff: 12/06/2017
 > * 建立資料處理站。 
 > * 撰寫和部署連結服務。
 > * 撰寫和部署管道。 
-> * 啟動管道執行。
+> * 啟動管線執行。
 > * 監視管道執行。
 
 進入下一個教學課程，以了解如何在虛擬網路中的 Azure HDInsight 叢集上執行 Hive 指令碼，以轉換資料。 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
-ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: d31eae21a246be97f0b50b9b773fcc63dfcbd084
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉至 Azure 後，將 Azure VM 複寫至另一個區域
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/18/2018
 2. **完成移轉**動作會完成移轉程序、移除機器的複寫，並停止該機器的 Site Recovery 計費。
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>步驟 2：在虛擬機器中安裝 Azure VM 代理程式
-Azure [VM 代理程式](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)必須安裝在虛擬機器上，站台復原擴充功能才能運作，並協助保護 VM。
+Azure [VM 代理程式](../../virtual-machines/windows/agent-user-guide.md)必須安裝在虛擬機器上，站台復原擴充功能才能運作，並協助保護 VM。
 
 >[!IMPORTANT]
 >從版本 9.7.0.0 開始，在 Windows 虛擬機器上，行動服務安裝程式也會安裝最新可用的 Azure VM 代理程式。 在移轉時，虛擬機器符合使用任何 VM 擴充功能的代理程式安裝必要條件，包括 Site Recovery 擴充功能。 移轉後的機器上安裝的行動服務是 9.6 或更早版本時，才需要手動安裝 Azure VM 代理程式。

@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -38,10 +38,7 @@ ms.lasthandoff: 12/05/2017
 
 2. 在 [Azure Databricks (預覽)] 底下，按一下 [建立]。
 
-    > [!NOTE]
-    > Azure Databricks 目前以有限預覽形式提供。 如果您想讓您的 Azure 訂用帳戶加入到預覽版的允許清單考慮對象，您必須填寫[報名表單](https://databricks.azurewebsites.net/)。
-
-2. 在 [Azure Databricks 服務] 底下，提供下列值：
+3. 在 [Azure Databricks 服務] 底下，提供下列值：
 
     ![建立 Azure Databricks 工作區](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "建立 Azure Databricks 工作區")
 
@@ -50,7 +47,7 @@ ms.lasthandoff: 12/05/2017
     * 針對 [資源群組]，指定您是否要建立新的資源群組，或使用現有的資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../azure-resource-manager/resource-group-overview.md)。
     * 針對 [位置]，請選取 [美國東部 2]。 如需其他可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。
 
-3. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>在 Databricks 中建立 Spark 叢集
 
@@ -89,7 +86,7 @@ ms.lasthandoff: 12/05/2017
 
     ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
 
-    按一下 [建立] 。
+    按一下頁面底部的 [新增] 。
 
 3. 在下列程式碼片段中，將 `{YOUR STORAGE ACCOUNT NAME}` 取代為您建立的 Azure 儲存體帳戶名稱，並將 `{YOUR STORAGE ACCOUNT ACCESS KEY}` 取代為儲存體帳戶存取金鑰。 在 Notebook 的空白資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵以執行此程式碼資料格。 這個程式碼片段會將 Notebook 設定為從 Azure Blob 儲存體讀取資料。
 
@@ -141,7 +138,7 @@ ms.lasthandoff: 12/05/2017
     * 將 [值] 設定為 [層級]。
     * 將 [彙總] 設定為 [計數]。
 
-    按一下 [Apply (套用)] 。
+    按一下 [套用]。
 
 9. 輸出會顯示這些值的視覺呈現，如下列螢幕擷取畫面所示：
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>開始使用 Twilio 連接器
 連線到 Twilio 來傳送及接收全域 SMS、多媒體及 IP 訊息。 您可以利用 Twilio 來：
@@ -27,15 +27,15 @@ ms.lasthandoff: 10/11/2017
 * 根據您從 Twilio 所取得的資料，來建置您的商務流程。 
 * 使用會取得訊息、列出訊息等等的動作。 這些動作會收到回應，然後輸出能讓其他動作使用的資料。 舉例來說，當您收到新的 Twilio 訊息時，您可以取得此訊息，並在服務匯流排工作流程中使用。 
 
-從建立邏輯應用程式開始，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+從建立邏輯應用程式開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-twilio"></a>建立至 Twilio 的連線
 當您將這個連接器新增到邏輯應用程式時，請輸入下列的 Twilio 值：
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| 帳戶識別碼 |是 |輸入您的 Twilio 帳戶識別碼 |
-| 存取權杖 |是 |輸入您的 Twilio 存取權杖 |
+| 帳戶識別碼 |yes |輸入您的 Twilio 帳戶識別碼 |
+| 存取權杖 |yes |輸入您的 Twilio 存取權杖 |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
 > 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>使用 Visual Studio Cloud Explorer 管理邏輯應用程式
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 您必須先安裝和設定適用於 Azure Logic Apps 的 Visual Studio 工具，才能在 Visual Studio 中存取及管理 Logic Apps。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Visual Studio 2015 或 Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [最新的 Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 或更新版本)
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)
+* [建立第一個邏輯應用程式](quickstart-create-first-logic-app-workflow.md)
 * [在 Visual Studio 中設計、建置和部署 Logic Apps](logic-apps-deploy-from-vs.md)
 * [檢視常見的範例和案例](logic-apps-examples-and-scenarios.md)
 * [影片：Automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (使用 Azure Logic Apps 自動化商業程序)

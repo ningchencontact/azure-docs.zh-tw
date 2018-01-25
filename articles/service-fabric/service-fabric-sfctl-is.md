@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 查詢命令，並將其傳送至基礎結構服務。
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose        | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose        | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-is-query"></a>sfctl is query
 叫用指定基礎結構服務執行個體上的唯讀查詢。

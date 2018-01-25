@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 Oracle 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/27/2017
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源。 請參閱[資料管理閘道](data-factory-data-management-gateway.md)一文來了解資料管理閘道，以及[將資料從內部部署移動到雲端](data-factory-move-data-between-onprem-and-cloud.md)一文來取得設定資料管線的閘道以移動資料的逐步指示。
 
 即使 Oracle 裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以將閘道安裝在與資料存放區相同或相異的 IaaS VM 上，只要閘道可以連線到資料庫即可。
@@ -74,7 +74,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以將資料移進/移出內部部署的 Oracle 資料庫。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
@@ -94,10 +94,10 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OnPremisesOracle** |是 |
+| type |類型屬性必須設為： **OnPremisesOracle** |yes |
 | driverType | 指定要用來從 Oracle 複製資料/將資料複製到 Oracle 資料庫的驅動程式。 允許的值為 **Microsoft** 或 **ODP** (預設值)。 如需驅動程式詳細資料，請參閱[支援的版本和安裝](#supported-versions-and-installation)一節。 | 否 |
-| connectionString | 針對 connectionString 屬性指定連接到 Oracle 資料庫執行個體所需的資訊。 | 是 |
-| gatewayName | 用來連接到內部部署 Oracle 伺服器的閘道器名稱 |是 |
+| connectionString | 針對 connectionString 屬性指定連接到 Oracle 資料庫執行個體所需的資訊。 | yes |
+| gatewayName | 用來連接到內部部署 Oracle 伺服器的閘道器名稱 |yes |
 
 **範例︰使用 Microsoft 驅動程式：**
 ```json
@@ -398,7 +398,7 @@ User Id=<username>;Password=<password>;",
 
 **Azure Blob 輸入資料集**
 
-每小時從新的 Blob 挑選資料 (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑使用開始時間的年、月、日部分，而檔案名稱使用開始時間的小時部分。 “external”: “true” 設定會通知 Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
+每小時從新的 Blob 挑選資料 (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月及日部分，而檔案名稱則使用開始時間的小時部分。 “external”: “true” 設定會通知 Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
 
 ```json
 {
@@ -574,27 +574,27 @@ User Id=<username>;Password=<password>;",
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(僅支援在 Oracle 10g 和更高版本使用 Microsoft 驅動程式) |
-| CHAR |String |
-| CLOB |String |
-| 日期 |DateTime |
+| CHAR |字串 |
+| CLOB |字串 |
+| 日期 |Datetime |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
 | 間隔年至月 |Int32 |
 | 間隔日至秒鐘 |時間範圍 |
-| 長 |String |
+| 長 |字串 |
 | 長 RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |字串 |
+| NCLOB |字串 |
 | 數字 |Decimal，字串 (如果精確度 > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |字串 |
 | RAW |Byte[] |
-| ROWID |String |
-| 時間戳記 |DateTime |
-| 本地時區的時間戳記 |DateTime |
-| 時區的時間戳記 |DateTime |
+| ROWID |字串 |
+| 時間戳記 |Datetime |
+| 本地時區的時間戳記 |Datetime |
+| 時區的時間戳記 |Datetime |
 | 不帶正負號的整數 |數字 |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |字串 |
+| XML |字串 |
 
 > [!NOTE]
 > 使用 Microsoft 驅動程式時，不支援資料類型 **INTERVAL YEAR TO MONTH** 和 **INTERVAL DAY TO SECOND**。

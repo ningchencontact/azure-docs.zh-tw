@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>企業與一般檔案整合概觀
 
-在企業對企業 (B2B) 案例中，您可能會希望先將 XML 內容編碼，然後再傳送給企業夥伴。 在邏輯應用程式中，您可以使用一般檔案編碼連接器來執行此動作。 您所建立的邏輯應用程式可從各種來源取得其 XML 內容，包括 HTTP 要求觸發程序、另一個應用程式，或甚至是這其中任一種 [連接器](../connectors/apis-list.md)。 如需邏輯應用程式的詳細資訊，請參閱[邏輯應用程式文件](logic-apps-what-are-logic-apps.md "深入了解 Logic Apps")。  
+在企業對企業 (B2B) 案例中，您可能會希望先將 XML 內容編碼，然後再傳送給企業夥伴。 在邏輯應用程式中，您可以使用一般檔案編碼連接器來執行此動作。 您所建立的邏輯應用程式可從各種來源取得其 XML 內容，包括 HTTP 要求觸發程序、另一個應用程式，或甚至是這其中任一種 [連接器](../connectors/apis-list.md)。 如需邏輯應用程式的詳細資訊，請參閱[邏輯應用程式文件](logic-apps-overview.md "深入了解 Logic Apps")。  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>建立一般檔案編碼連接器
 請遵循下列步驟，將一般檔案編碼連接器新增到邏輯應用程式。

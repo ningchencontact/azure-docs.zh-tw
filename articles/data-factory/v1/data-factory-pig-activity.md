@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Pig 活動轉換資料
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -84,12 +84,12 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活�
 ## <a name="syntax-details"></a>語法詳細資料
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 名稱 |活動的名稱 |是 |
+| name |活動的名稱 |yes |
 | 說明 |說明活動用途的文字 |否 |
-| 類型 |HDInsightPig |是 |
+| type |HDInsightPig |yes |
 | 輸入 |Pig 活動所取用的一或多項輸入 |否 |
-| 輸出 |Pig 活動所產生的一或多項輸出 |是 |
-| linkedServiceName |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
+| 輸出 |Pig 活動所產生的一或多項輸出 |yes |
+| 預設容器 |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |yes |
 | script |指定 Pig 指令碼內嵌 |否 |
 | 指令碼路徑 |在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | 定義 |在使用 Pig 指令碼內指定參數做為參考的機碼/值組 |否 |

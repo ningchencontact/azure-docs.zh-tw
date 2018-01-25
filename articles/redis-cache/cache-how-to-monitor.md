@@ -3,8 +3,8 @@ title: "如何監視 Azure Redis 快取 | Microsoft Docs"
 description: "了解如何監視您 Azure Redis 快取執行個體的健全狀況和效能"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a68435866e6fb5bf0210144e53918c35b416449
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何監視 Azure Redis 快取
 Azure Redis Cache 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Redis 快取執行個體的健全狀況，並協助您管理快取應用程式。
@@ -69,7 +69,7 @@ Azure Redis Cache 執行個體的計量使用 Redis [INFO](http://redis.io/comma
 3. 勾選 [封存至儲存體帳戶]。
 4. 選取要儲存快取計量的儲存體帳戶。
 5. 勾選 [1 分鐘] 核取方塊，並指定 [保留天數] 原則。 如果您不想要套用任何保留期原則，也不想永久保留資料，請將 [保留天數] 設為 **0**。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 ![Redis 診斷](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
@@ -95,7 +95,7 @@ Azure Redis Cache 執行個體的計量使用 Redis [INFO](http://redis.io/comma
 > 
 > 
 
-| 度量 | 說明 |
+| 計量 | 說明 |
 | --- | --- |
 | 快取點擊 |所指定報告間隔期間的成功金鑰查閱數目。 這會對應至 Redis [INFO](http://redis.io/commands/info) 命令的 `keyspace_hits` 。 |
 | 快取遺漏 |所指定報告間隔期間的失敗金鑰查閱數目。 這會對應至 Redis INFO 命令的 `keyspace_misses` 。 快取遺漏不一定表示快取發生問題。 例如，使用另行快取程式設計模式時，應用程式會先在快取中尋找項目。 如果項目不存在 (快取遺漏)，項目會從資料庫中擷取，並在下次新增至快取中。 快取遺漏是另行快取程式設計模式的正常行為。 如果快取遺漏數目高於預期，請檢查可填入且讀取自快取的應用程式邏輯。 如果因記憶體壓力而正在收回快取中的項目，則可能會有一些快取遺漏，但監視記憶體壓力的較佳度量是 `Used Memory` 或 `Evicted Keys`。 |
@@ -114,7 +114,7 @@ Azure Redis Cache 執行個體的計量使用 Redis [INFO](http://redis.io/comma
 | 快取寫入 |所指定報告間隔期間，寫入至快取的資料量 (以 MB/s 為單位)。 這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 此值對應從用戶端傳送給快取之資料的網路頻寬。 |
 
 <a name="operations-and-alerts"></a>
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 您可以進行設定來收到以計量和活動記錄為基礎的警示。 Azure 監視器可讓您將警示設定為在觸發時執行下列動作︰
 
 * 傳送電子郵件通知

@@ -3,8 +3,8 @@ title: "Azure Redis 快取常見問題集 | Microsoft Docs"
 description: "了解 Azure Redis 快取常見問題、模式和最佳作法的答案"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis 快取常見問題集
 了解 Azure Redis 快取常見問題、模式和最佳作法的答案。
@@ -193,7 +193,7 @@ StackExchange.Redis 有許多選項。 本節談論一些常見設定。 如需 
 用戶端的預設值通常就已足夠。 您可以根據工作負載來微調選項。
 
 * **重試**
-  * 對於 ConnectRetry 和 ConnectTimeout，一般指引是快速失敗，然後再試一次。 此指引是根據您的工作負載，以及用戶端發出 Redis 命令到接收回應所需的平均時間。
+  * 對於 ConnectRetry 和 ConnectTimeout，一般指引是快速檢錯，然後再試一次。 此指引是根據您的工作負載，以及用戶端發出 Redis 命令到接收回應所需的平均時間。
   * 讓 StackExchange.Redis 自動重新連線，而不檢查連線狀態，並自行重新連線。 **避免使用 ConnectionMultiplexer.IsConnected 屬性**。
   * 滾雪球 - 有時，您可能會遇到問題，但越是重試，問題卻如雪球般越滾越大，不可能解決。 如果出現滾雪球的情況，您應該考慮使用指數輪詢重試演算法 (如 Microsoft Patterns & Practices 群組所發佈的[重試一般指引](../best-practices-retry-general.md)所述)。
 * **逾時值**
@@ -202,7 +202,7 @@ StackExchange.Redis 有許多選項。 本節談論一些常見設定。 如需 
   * 使用應用程式的單一 ConnectionMultiplexer 執行個體。 您可以使用 LazyConnection 建立 Connection 屬性所傳回的單一執行個體 (如 [使用 ConnectionMultiplexer 類別連線至快取](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)所示)。
   * 將 `ConnectionMultiplexer.ClientName` 屬性設定為應用程式執行個體唯一名稱，以進行診斷。
   * 針對自訂工作負載，使用多個 `ConnectionMultiplexer` 執行個體。
-      * 如果您的應用程式中有不同的負載，則可以遵循此模型。 例如：
+      * 如果您的應用程式中有不同的負載，則可以遵循此模型。 例如︰
       * 您可以有一個多工器來處理大型索引鍵。
       * 您可以有一個多工器來處理小型索引鍵。
       * 您可以設定連線逾時的不同值，以及每個所使用 ConnectionMultiplexer 的重試邏輯。
@@ -450,7 +450,7 @@ Redis 快取**資源功能表**也包含數個工具，可監控快取並進行�
 
 ### <a name="which-azure-cache-offering-is-right-for-me"></a>我適合使用哪個 Azure 快取服務？
 > [!IMPORTANT]
-> 根據去年的[公告](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)，Azure 受管理的快取服務和 Azure In-Role Cache 服務已在 2016 年 11 月 30 日**淘汰**。 我們建議使用 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)。 如需移轉的相關資訊，請參閱 [從受管理的快取服務移轉至 Azure Redis 快取](cache-migrate-to-redis.md)。
+> 根據去年的[公告](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)，Azure 受控快取服務和 Azure In-Role Cache 服務已在 2016 年 11 月 30 日**淘汰**。 我們建議使用 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)。 如需移轉的相關資訊，請參閱 [從受控快取服務移轉至 Azure Redis 快取](cache-migrate-to-redis.md)。
 >
 >
 
@@ -465,10 +465,10 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 
 如需有關如何開始使用 Azure Redis 快取的詳細資訊，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)和 [Azure Redis 快取文件](index.md)。
 
-### <a name="managed-cache-service"></a>受管理的快取服務
-[受管理的快取服務已在 2016 年 11 月 30 日淘汰 (英文)。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+### <a name="managed-cache-service"></a>受控快取服務
+[受控快取服務已在 2016 年 11 月 30 日淘汰 (英文)。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-若要檢視封存文件，請參閱[封存受管理的快取服務文件](https://msdn.microsoft.com/library/azure/dn386094.aspx)。
+若要檢視封存文件，請參閱[封存受控快取服務文件](https://msdn.microsoft.com/library/azure/dn386094.aspx)。
 
 ### <a name="in-role-cache"></a>角色中快取
 [In-Role Cache 已在 2016 年 11 月 30 日淘汰 (英文)。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>從 BizTalk 服務移至 Logic Apps
 
@@ -126,6 +126,6 @@ Logic Apps 在[Azure 入口網站](../logic-apps/logic-apps-monitor-your-logic-a
 若要在 BizTalk 服務中達到高可用性 (HA)，您可以在指定區域中使用多個執行個體來分攤處理負載。 使用 Logic Apps，區域中會內建 HA，無需額外費用。 若要在區域之外對 BizTalk 服務中的 B2B 處理進行災害復原，則需要備份和還原程序。 在 Logic Apps 中，提供跨區域主動/被動 [DR 功能](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)，可在不同區域的整合帳戶之間同步處理 B2B 資料，以確保商務持續性。
 
 ## <a name="next"></a>下一頁
-* [什麼是 Logic Apps](logic-apps-what-are-logic-apps.md)
-* [建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)，或使用[預先建置的範本](logic-apps-create-logic-apps-from-templates.md)來快速上手  
+* [什麼是 Logic Apps](logic-apps-overview.md)
+* [建立第一個邏輯應用程式](quickstart-create-first-logic-app-workflow.md)，或使用[預先建置的範本](logic-apps-create-logic-apps-from-templates.md)來快速上手  
 * [檢視可在邏輯應用程式中使用的所有可用連接器](../connectors/apis-list.md)

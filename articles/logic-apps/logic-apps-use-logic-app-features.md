@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-logic-apps-features"></a>使用 Logic Apps 功能
 
-在[前面的主題](../logic-apps/logic-apps-create-a-logic-app.md)中，您已建立第一個邏輯應用程式。 若要控制邏輯應用程式的工作流程，您可以指定不同的路徑以供邏輯應用程式執行，以及指定如何處理陣列、集合和批次中的資料。 您可以將下列元素包含在邏輯應用程式的工作流程中：
+在[前面的主題](../logic-apps/quickstart-create-first-logic-app-workflow.md)中，您已建立第一個邏輯應用程式。 若要控制邏輯應用程式的工作流程，您可以指定不同的路徑以供邏輯應用程式執行，以及指定如何處理陣列、集合和批次中的資料。 您可以將下列元素包含在邏輯應用程式的工作流程中：
 
 * 條件和 [Switch 陳述式](../logic-apps/logic-apps-switch-case.md)可讓邏輯應用程式根據符合的特定條件來執行不同動作。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 2. 將條件新增至您想要的工作流程位置。 
 
    若要在邏輯應用程式工作流程中的現有步驟之間新增條件，將指標移動至您要新增條件的箭頭處。 
-   選擇 **加號** \(**+**)， 然後選擇 **新增條件**。 例如：
+   選擇 **加號** \(**+**)， 然後選擇 **新增條件**。 例如︰
 
    ![將條件新增至邏輯應用程式](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 3. 現在定義條件。 指定您想要評估的來源欄位、要執行的作業，以及目標值或欄位。 若要將現有欄位新增至條件，請從**新增動態內容清單**中選擇。
 
-   例如：
+   例如︰
 
    ![在基本模式中編輯條件](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ ms.lasthandoff: 10/11/2017
    ![完整條件](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > 若要在程式碼中定義條件，請選擇**在進階模式中編輯**。 例如：
+   > 若要在程式碼中定義條件，請選擇**在進階模式中編輯**。 例如︰
    > 
    > ![在程式碼中編輯條件](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. 在 **IF YES** 和 **IF NO** 之下，以是否符合條件為基礎，新增要執行的步驟。
 
-   例如：
+   例如︰
 
    ![具 YES 和 NO 路徑的條件](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 

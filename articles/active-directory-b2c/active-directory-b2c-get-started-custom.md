@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C：開始使用自訂原則
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 完成本文中的步驟之後，您的自訂原則將支援透過電子郵件地址和密碼執行「本機帳戶」註冊或登入。 您也會準備環境以新增識別提供者 (例如 Facebook 或 Azure Active Directory)。 我們建議您先完成這些步驟，然後再了解 Azure Active Directory (Azure AD) B2C 識別體驗架構的其他用途。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 繼續之前，請確定具有 Azure AD B2C 租用戶。此租用戶是存放您的所有使用者、應用程式、原則等的容器。 如果您還沒有租用戶，則必須[建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)。 我們強烈建議所有開發人員完成 Azure AD B2C 內建原則的逐步解說，並使用內建原則來設定他們的應用程式，然後再繼續。 當您對原則名稱進行些微變更以叫用自訂原則之後，應用程式將會使用這兩種類型的原則。
 
@@ -157,7 +157,7 @@ Azure AD B2C 會要求您註冊兩個額外的應用程式，由引擎用來註�
 2. 以您稍早建立之身分識別體驗架構應用程式的應用程式識別碼，取代 `IdentityExperienceFrameworkAppId` 的兩個執行個體。 下列是一個範例：
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. 以您稍早建立之 Proxy 識別體驗架構應用程式的應用程式識別碼，取代 `ProxyIdentityExperienceFrameworkAppId` 的兩個執行個體。
 4. 儲存擴充檔案。

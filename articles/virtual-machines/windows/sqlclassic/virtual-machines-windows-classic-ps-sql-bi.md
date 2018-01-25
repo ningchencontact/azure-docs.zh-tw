@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 Microsoft Azure 虛擬機器資源庫含有包含 SQL Server 安裝的映像。 資源庫映像中支援的 SQL Server 版本與您可以在內部部署電腦與虛擬機器中安裝的安裝檔案相同。 本主題摘要說明映像上安裝的 SQL Server 商業智慧 (BI) 功能，以及佈建虛擬機器後所需的組態步驟。 本主題也描述 BI 功能支援的部署拓撲和最佳做法。
 
@@ -75,11 +75,11 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 * SQL Server 2012 SP3 Enterprise
 * SQL Server 2012 SP3 Standard
 
-| SQL Server BI 功能 | 在資源庫映像上安裝 | 注意事項 |
+| SQL Server BI 功能 | 在資源庫映像上安裝 | 注意 |
 | --- | --- | --- |
-| **Reporting Services 原生模式** |是 |已安裝但需要組態，包括報表管理員 URL。 請參閱 [設定 Reporting Services](#configure-reporting-services)一節。 |
+| **Reporting Services 原生模式** |yes |已安裝但需要組態，包括報表管理員 URL。 請參閱 [設定 Reporting Services](#configure-reporting-services)一節。 |
 | **Reporting Services SharePoint 模式** |否 |Microsoft Azure 虛擬機器資源庫映像庫不包含 SharePoint 或 SharePoint 安裝檔案。 <sup>1</sup> |
-| **Analysis Services 多維度和資料採礦 (OLAP)** |是 |已安裝並設定為預設的 Analysis Services 執行個體 |
+| **Analysis Services 多維度和資料採礦 (OLAP)** |yes |已安裝並設定為預設的 Analysis Services 執行個體 |
 | **Analysis Services 表格式** |否 |SQL Server 2012、2014 和 2016 映像中支援，但預設不會安裝。 安裝另一個執行個體的 Analysis Services。 請參閱本主題中的＜安裝其他 SQL Server 服務和功能＞一節。 |
 | **適用於 SharePoint 的 Analysis Services Power Pivot** |否 |Microsoft Azure 虛擬機器資源庫映像庫不包含 SharePoint 或 SharePoint 安裝檔案。 <sup>1</sup> |
 
@@ -98,7 +98,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
   * 預設磁碟機 **C**: 的磁碟機的快取原則不是使用資料的最佳選項。
   * **D**: 磁碟機是主要用於分頁檔的暫存磁碟機。 **D**: 磁碟機不會永久保存，並且不會儲存在 blob 儲存體中。 管理工作 (例如變更虛擬機器大小) 會重設 **D**: 磁碟機。 建議您**不要**將 **D**: 磁碟機用於資料庫檔案，包括 tempdb。
     
-    如需建立及連接磁碟的詳細資訊，請參閱 [如何將資料磁碟連接至虛擬機器](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+    如需建立及連接磁碟的詳細資訊，請參閱 [如何將資料磁碟連接至虛擬機器](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 * 停止或解除安裝您不打算使用的服務。 例如，如果虛擬機器僅用於 Reporting Services，請停止或解除安裝 Analysis Services 和 SQL Server Integration Services。 下圖是預設會啟動的服務的範例。
   
     ![SQL Server 服務](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -144,7 +144,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>連接到虛擬機器並啟動 Reporting Services 組態管理員
 連接到 Azure 虛擬機器有兩個常見的工作流程：
 
-* 若要連接，請按一下虛擬機器的名稱，然後按一下連接 。 遠端桌面連線會開啟，並自動填入電腦名稱。
+* 若要連接，請按一下虛擬機器的名稱，然後按一下 [連接] 。 遠端桌面連線會開啟，並自動填入電腦名稱。
   
     ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-bi/IC650112.gif)
 * 透過 Windows 遠端桌面連線連接到虛擬機器。 在遠端桌面的使用者介面中：
@@ -166,7 +166,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 在 **Windows Server 2008 R2**中：
 
-1. 按一下 開始，然後按一下所有程式。
+1. 按一下 [開始]，然後按一下 [所有程式]。
 2. 按一下 [Microsoft SQL Server 2016] 。
 3. 按一下 [組態工具] 。
 4. 以滑鼠右鍵按一下 [Reporting Services 組態管理員]，然後按一下 [以系統管理員身分執行]。
@@ -206,7 +206,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 **入口網站 URL 或 2012 和 2014 版的報表管理員 URL：**
 
 1. 在左窗格中，按一下 [Web Portal URL] \(入口網站 URL) 或 2012 和 2014 版的 [報表管理員 URL]。
-2. 按一下 [Apply (套用)] 。
+2. 按一下 [套用]。
 3. 在 [結果]  窗格中，確認動作已順利完成。
 4. 按一下 [結束] 。
 
@@ -223,7 +223,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 1. 為虛擬機器的 TCP 連接埠 80 建立端點。 如需詳細資訊，請參閱這份文件中的 [虛擬機器端點和防火牆連接埠](#virtual-machine-endpoints-and-firewall-ports) 一節。
 2. 在虛擬機器防火牆中開啟連接埠 80。
-3. 使用 Azure 虛擬機器 **DNS 名稱** 做為 URL 中的伺服器名稱，瀏覽至入口網站或報表管理員。 例如：
+3. 使用 Azure 虛擬機器 **DNS 名稱** 做為 URL 中的伺服器名稱，瀏覽至入口網站或報表管理員。 例如︰
    
     **報表伺服器**：http://uebi.cloudapp.net/reportserver **Web 入口網站**：http://uebi.cloudapp.net/reports
    
@@ -253,8 +253,8 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 ## <a name="install-other-sql-server-services-and-features"></a>安裝其他 SQL Server 服務和功能
 若要在表格式模式中安裝其他 SQL Server 服務 (例如 Analysis Services)，請執行 SQL Server 安裝精靈。 安裝程式檔案是在虛擬機器的本機磁碟上。
 
-1. 按一下 開始，然後按一下所有程式。
-2. 按一下 Microsoft SQL Server 2016、Microsoft SQL Server 2014 或 Microsoft SQL Server 2012，然後按一下組態工具。
+1. 按一下 [開始]，然後按一下 [所有程式]。
+2. 按一下 [Microsoft SQL Server 2016]、[Microsoft SQL Server 2014] 或 [Microsoft SQL Server 2012]，然後按一下 [組態工具]。
 3. 按一下 [SQL Server 安裝中心] 。
 
 或執行 C:\SQLServer_13.0_full\setup.exe、C:\SQLServer_12.0_full\setup.exe 或 C:\SQLServer_11.0_full\setup.exe
@@ -274,9 +274,9 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 **若要安裝 Analysis Services 表格式模式：**
 
-1. 在 SQL Server 安裝精靈中，按一下左窗格中的 安裝，然後按一下新的 SQL 伺服器安裝或將功能加入到現有安裝。
+1. 在 SQL Server 安裝精靈中，按一下左窗格中的 [安裝]，然後按一下 [新的 SQL 伺服器安裝或將功能加入到現有安裝]。
    
-   * 如果您看到 瀏覽資料夾，請瀏覽至 c:\SQLServer_13.0_full、c:\SQLServer_12.0_full 或 c:\SQLServer_11.0_full，然後按一下確定。
+   * 如果您看到 [瀏覽資料夾]，請瀏覽至 c:\SQLServer_13.0_full、c:\SQLServer_12.0_full 或 c:\SQLServer_11.0_full，然後按一下 [確定]。
 2. 在產品更新頁面上，按 [下一步]  。
 3. 在 [安裝類型] 頁面上，選取 [執行 SQL Server 的新安裝]，然後按 [下一步]。
 4. 在 [安裝程式角色] 頁面上，按一下 [SQL Server 功能安裝]。
@@ -316,7 +316,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。 �
   * 為標示的連接埠 (*) 建立虛擬機器端點。
 * 如果虛擬機器是使用 VPN 通道 (例如 Azure 虛擬網路) 加入網域，那麼並不需要端點。 不過，請在 VM 上的防火牆中開啟連接埠。
   
-  | 連接埠 | 類型 | 說明 |
+  | Port | 類型 | 說明 |
   | --- | --- | --- |
   | **80** |TCP |報表伺服器遠端存取 (\*)。 |
   | **1433** |TCP |SQL Server Management Studio (\*)。 |
@@ -339,7 +339,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。 �
 * [Azure 虛擬機器上的 SQL Server 概觀](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [在 Azure 上佈建 SQL Server 虛擬機器](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [如何將資料磁碟連接至虛擬機器](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [如何將資料磁碟連接至虛擬機器](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [將資料庫移轉至 Azure VM 上的 SQL Server](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [判斷 Analysis Services 執行個體的伺服器模式](https://msdn.microsoft.com/library/gg471594.aspx)
 * [多維度模型化 (Adventure Works 教學課程)](https://technet.microsoft.com/library/ms170208.aspx)

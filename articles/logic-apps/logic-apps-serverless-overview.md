@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Azure 無伺服器搭配 Functions 和 Logic Apps 的概觀
 
@@ -41,7 +41,7 @@ Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解�
 
 Azure Logic Apps 能夠在雲端中簡化和實作可調整的整合和工作流程。 它提供視覺化設計工具，以一系列的步驟 (稱為工作流程) 為您的程序建立模型並加以自動化。  雲端和內部部署服務中有[許多連接器](../connectors/apis-list.md)，可快速將無伺服器應用程式連線至其他 API。  邏輯應用程式是以觸發程序為開端 (如「當帳戶加入至 Dynamics CRM 時」)，而在觸發後可以開始處理各種組合的動作、轉換和條件邏輯。  在一個程序中協調不同的 Azure Functions 時，Logic Apps 是絕佳選擇 - 尤其是當程序需要與外部系統或 API 互動時。
 
-若要開始使用 Logic Apps，請從[建立您的第一個邏輯應用程式](logic-apps-create-a-logic-app.md)開始。  如果您要尋找更多有關 Logic Apps 的技術資訊，請參閱[開發人員參考](logic-apps-workflow-actions-triggers.md)。
+若要開始使用 Logic Apps，請從[建立您的第一個邏輯應用程式](quickstart-create-first-logic-app-workflow.md)開始。  如果您要尋找更多有關 Logic Apps 的技術資訊，請參閱[開發人員參考](logic-apps-workflow-actions-triggers.md)。
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>如何在 Azure 中建置和部署無伺服器應用程式？
 

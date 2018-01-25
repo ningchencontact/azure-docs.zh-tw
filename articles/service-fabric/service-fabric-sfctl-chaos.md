@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbea84511c37cf52c3d98f0247e5ce3c0b2a05c3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose        | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose        | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 如果 Chaos 尚未在叢集中執行，請使用指定的 Chaos 參數開始執行 Chaos。
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h                  | 顯示此說明訊息並結束。|
 | --output -o                | 輸出格式。  允許的值：json、jsonc、table、tsv。           預設值：json。|
 | --query                    | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose                  | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose                  | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
 停止叢集中的 Chaos (如果正在執行)，否則不會執行任何動作。

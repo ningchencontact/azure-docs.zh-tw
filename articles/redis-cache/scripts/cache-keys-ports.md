@@ -3,8 +3,8 @@ title: "Azure CLI 指令碼範例 - 取得 Azure Redis Cache 的主機名稱、�
 description: "Azure CLI 指令碼範例 - 取得 Azure Redis Cache 執行個體的主機名稱、連接埠和金鑰"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: aee24e5c478c4453655952cc626d7d6c857e7962
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 6cfff74ed037835abb6d3e3975fe33d71b9730a3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>取得 Azure Redis Cache 的主機名稱、 連接埠和金鑰
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 此指令碼會使用下列命令擷取 Azure Redis Cache 執行個體的主機名稱、金鑰和連接埠。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | 取得 Azure Redis Cache 執行個體的詳細資料。 |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | 取得 Azure Redis Cache 執行個體的存取金鑰。 |

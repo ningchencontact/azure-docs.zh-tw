@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>使用 ASP.NET Core 建置應用程式的 Web 服務前端
 根據預設，Azure Service Fabric 服務不提供 Web 的公用介面。 若要對 HTTP 用戶端公開應用程式的功能，您必須建立 Web 專案來作為進入點，然後從該處與個別服務通訊。
@@ -91,7 +91,7 @@ ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建�
 
 4. 在類別庫中，透過單一方法 `GetCountAsync` 建立介面，並從 `Microsoft.ServiceFabric.Services.Remoting.IService` 擴充介面。 遠端介面必須衍生自這個介面，以指出它是服務遠端的介面。
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建�
     ![新增具狀態服務中的類別庫專案的參考][vs-add-class-library-reference]
 2. 找出繼承自 `StatefulService` 的類別 (例如 `MyStatefulService`)，然後加以擴充以實作 `ICounter` 介面。
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建�
     ```
 3. 現在實作 `ICounter` 介面中所定義的單一方法，即 `GetCountAsync`。
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建�
 
 `IService` 介面上的 `CreateServiceRemotingListener` 擴充方法可讓您輕鬆地使用所有預設設定建立 `ServiceRemotingListener`。 若要使用這個擴充方法，請確定您已匯入 `Microsoft.ServiceFabric.Services.Remoting.Runtime` 命名空間。 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 4. 在 **Controllers** 資料夾中，開啟 `ValuesController` 類別。 請注意， `Get` 方法目前只會傳回 "value1" 和 "value2" 的硬式編碼字串陣列，這符合我們稍早在瀏覽器中所見的內容。 使用下列程式碼來取代此實作：
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

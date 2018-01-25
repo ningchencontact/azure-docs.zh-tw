@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps 的常見情節、範例、教學課程和逐步解說
 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) 可協助您協調及整合不同的服務，方法為提供 [100 + 個已備妥可使用的連接器](../connectors/apis-list.md)，範圍從內部部署 SQL Server 或 SAP 到 Microsoft 辨識服務。 Logic Apps 服務為「無伺服器」，因此您不必擔心縮放比例或執行個體。 您只需要使用觸發程序和工作流程執行的動作，即可定義觸發程序。 基礎平台可處理調整、可用性和效能。 Logic Apps 特別適用於需要協調跨多個系統之多個動作的使用案例和情節。
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 可協助您協調及整合不同的服務，方法為提供 [100 + 個已備妥可使用的連接器](../connectors/apis-list.md)，範圍從內部部署 SQL Server 或 SAP 到 Microsoft 認知服務。 Logic Apps 服務為「無伺服器」，因此您不必擔心縮放比例或執行個體。 您只需要使用觸發程序和工作流程執行的動作，即可定義觸發程序。 基礎平台可處理調整、可用性和效能。 Logic Apps 特別適用於需要協調跨多個系統之多個動作的使用案例和情節。
 
-為了協助您深入了解 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) 支援中的眾多模式和功能，以下提供了常見的範例與情節。
+為了協助您深入了解 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 支援中的眾多模式和功能，以下提供了常見的範例與情節。
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>邏輯應用程式工作流程的常用起點
 
-每個邏輯應用程式都是以[觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
+每個邏輯應用程式都是以[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
 
 * 輪詢觸發程序：會定期檢查新資料的服務端點。 當新的資料存在時，觸發程序會使用資料建立並執行新的工作流程執行個體作為輸入。
 

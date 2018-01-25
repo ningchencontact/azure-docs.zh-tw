@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -74,15 +74,15 @@ ms.lasthandoff: 12/11/2017
 * 在 NSG 中允許存取此連接埠是必要的。 若無法存取此連接埠，您的受控網域將無法與 Azure AD 目錄同步。 使用者可能會因為他們變更的密碼未與受控網域同步，而無法登入。
 * 您可以限制僅屬於 Azure IP 位址範圍的 IP 位址有此連接埠的對內存取權。
 
-**連接埠 5986 (PowerShell 遠端處理)** 
+**連接埠 5986 (PowerShell 遠端處理)**
 * 用來在受控網域上使用 PowerShell 遠端執行管理工作。
 * 在 NSG 中允許透過此連接埠進行存取是必要的。 若無法存取此連接埠，您的受控網域會無法進行更新、設定、備份或監視。
-* 您可以限制僅下列來源 IP 位址有此連接埠的對內存取權：52.180.183.8、23.101.0.70、52.225.184.198、52.179.126.223、13.74.249.156、52.187.117.83、52.161.13.95、104.40.156.18、104.40.87.209、52.180.179.108、52.175.18.134、52.138.68.41、104.41.159.212、52.169.218.0、52.187.120.237、52.161.110.169、52.174.189.149、13.64.151.161 
+* 您可以限制僅下列來源 IP 位址有此連接埠的對內存取權：52.180.183.8、23.101.0.70、52.225.184.198、52.179.126.223、13.74.249.156、52.187.117.83、52.161.13.95、104.40.156.18、104.40.87.209、52.180.179.108、52.175.18.134、52.138.68.41、104.41.159.212、52.169.218.0、52.187.120.237、52.161.110.169、52.174.189.149、13.64.151.161
 * 受控網域的網域控制站不通常會接聽此連接埠。 只有在需要對受控網域執行管理或維護作業時，服務才會於受控網域控制站上開啟此連接埠。 只要作業完成，服務就會在受控網域控制站上關閉此連接埠。
 
-**連接埠 3389 (遠端桌面)** 
-* 用於對受控網域的網域控制站進行遠端桌面連線。 
-* 透過您的 NSG 開啟此連接埠是選擇性選項。 
+**連接埠 3389 (遠端桌面)**
+* 用於對受控網域的網域控制站進行遠端桌面連線。
+* 透過您的 NSG 開啟此連接埠是選擇性選項。
 * 此連接埠在您的受控網域上也會維持為大致關閉。 因為使用 PowerShell 遠端執行管理和監視工作，因此不會持續使用此機制。 只有在罕見的情況下，Microsoft 需要從遠端連線到您的受控網域進行進階疑難排解，才會使用此連接埠。 一旦疑難排解作業完成，隨即會關閉連接埠。
 
 **連接埠 636 (安全 LDAP)**
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/11/2017
 
 此外，NSG 也會說明如何透過網際網路來鎖定安全 LDAP 存取。 如果您尚未透過網際網路啟用安全 LDAP 存取至受控網域，請跳過此規則。 NSG 包含一組規則，允許僅從一組指定 IP 位址透過 TCP 連接埠 636 的輸入 LDAPS 存取。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
 
-![透過網際網路之安全 LDAP 存取的範例 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![透過網際網路之安全 LDAP 存取的範例 NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **更多資訊** - [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)。
 
@@ -126,7 +126,7 @@ Azure AD Domain Services 受控網域只可在 Azure 的單一虛擬網路中啟
     ![使用對等互連的虛擬網路連線](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [詳細資訊 - 虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **使用站對站 VPN 連線的 VNet 對 VNet 連線**：將一個虛擬網路連接到另一個虛擬網路 (VNet 對 VNet) 類似於將虛擬網路連接到內部部署網站位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。
 
     ![使用 VPN 閘道的虛擬網路連線](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>使用 Switch 陳述式在邏輯應用程式中執行不同動作
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 > 如同所有的程式設計語言，Switch 陳述式僅支援等號比較運算子。 如果您需要其他關係運算子 (例如，「大於」)，請使用條件陳述式。
 > 若要確認確定性執行行為，案例必須包含唯一且靜態的值，而不是動態的權杖或運算式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 有效的 Azure 訂用帳戶。 如果您沒有作用中 Azure 訂用帳戶，[請建立免費帳戶](https://azure.microsoft.com/free/)，或免費嘗試 [Logic Apps](https://tryappservice.azure.com/)。
-- [邏輯應用程式基本知識](logic-apps-what-are-logic-apps.md)
+- [邏輯應用程式基本知識](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>將 Switch 陳述式新增到工作流程
 

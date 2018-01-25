@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/14/2017
 | --help -h                  | 顯示此說明訊息並結束。|
 | --output -o                | 輸出格式。  允許的值：json、jsonc、table、tsv。                預設值：json。|
 | --query                    | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。 |
-| --verbose                  | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose                  | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-partition-info"></a>sfctl partition info
 取得 Service Fabric 分割區的相關資訊。
@@ -90,7 +90,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose             | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose             | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 取得 Service Fabric 服務的分割區清單。
@@ -113,7 +113,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 | --help -h           | 顯示此說明訊息並結束。|
 | --output -o         | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query             | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose           | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose           | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 取得指定 Service Fabric 分割區的負載。
@@ -135,7 +135,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose             | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose             | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的特定分割區。
@@ -157,7 +157,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose             | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose             | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 此 API 會重新啟動指定分割區的部分或所有複本或執行個體。

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>將 Azure Log Analytics 管理解決方案新增至您的工作區
 
@@ -52,9 +52,9 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 4. 在 [管理解決方案] 的右邊，按一下 [更多資訊]。
 5. 在 [管理解決方案] 刀鋒視窗中，選取要新增至工作區的管理解決方案。  
     ![監視 + 管理刀鋒視窗](./media/log-analytics-add-solutions/management-solutions.png)  
-6. 在 管理解決方案 刀鋒視窗中，檢閱管理解決方案的相關資訊，然後按一下建立。
+6. 在 [管理解決方案] 刀鋒視窗中，檢閱管理解決方案的相關資訊，然後按一下 [建立]。
 7. 在 [管理解決方案名稱] 刀鋒視窗中，選取要與管理解決方案相關聯的工作區。
-8. (選擇性) 變更 Azure 訂用帳戶、資源群組和位置的工作區設定。 您也可以選擇 [自動化選項]。 按一下 [建立] 。  
+8. (選擇性) 變更 Azure 訂用帳戶、資源群組和位置的工作區設定。 您也可以選擇 [自動化選項]。 按一下頁面底部的 [新增] 。  
     ![解決方案工作區](./media/log-analytics-add-solutions/solution-workspace.png)  
 9. 若要開始使用您已新增至工作區的管理解決方案，請瀏覽至 [Log Analytics] > [訂用帳戶] > [工作區名稱] > [概觀]。 隨即會顯示管理解決方案的新圖格。 按一下圖格來加以開啟，並在解決方案的資料收集好後開始使用解決方案。
 
@@ -72,7 +72,7 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 此表格也會列出適用於每個管理解決方案的定價層。
 下表中的所有解決方案都可從 Azure 入口網站以及 Log Analytics 入口網站的解決方案庫中取得。
 
-| 管理解決方案                                                                       | 提供項目                                                                     | 定價層<sup>1</sup>                                                 | 注意事項 |
+| 管理解決方案                                                                       | 提供項目                                                                     | 定價層<sup>1</sup>                                                 | 注意 |
 | ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
 | [活動 Log Analytics](log-analytics-activity.md)                                                                   | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | 可免費使用資料 90 天<br>資料不受免費層限制 |
 | [AD 評估](log-analytics-ad-assessment.md)                                           | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | |
@@ -89,7 +89,7 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 | [容量與效能 (預覽)](log-analytics-capacity.md)                                                   | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | |
 | [變更追蹤](log-analytics-change-tracking.md)                                       | <ul><li>自動化和控制</li></ul>                                  | 免費<br> 每個&nbsp;節點&nbsp;(OMS)                                                                         | 要求您將 Log Analytics 工作區連結到自動化帳戶 |
 | [容器](log-analytics-containers.md)                                                 | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | |
-| [IT 服務管理連接器 (預覽)](log-analytics-itsmc-overview.md)                                              | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 每個&nbsp;節點&nbsp;(OMS)     | |
+| [IT 服務管理連接器](log-analytics-itsmc-overview.md)                                                | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 每個&nbsp;節點&nbsp;(OMS)     | |
 | HDInsight HBase 監視 <br>(預覽)                                                  | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | |
 | [金鑰保存庫分析](log-analytics-azure-key-vault.md)                   | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | 不適用於從 Azure 入口網站/Marketplace 新增。 |
@@ -116,7 +116,7 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 
 社群提供的解決方案都是來自 [Azure 範本庫](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS))或直接由作者提供。
 
-| 管理解決方案               | 提供項目                                                                     | 定價層                         | 注意事項 |
+| 管理解決方案               | 提供項目                                                                     | 定價層                         | 注意 |
 | ---                               | ---                                                                       | ---                                   | ---   |
 | 所有社群提供的解決方案  | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 每個&nbsp;節點&nbsp;(OMS)     |   要求您將 Log Analytics 工作區連結到自動化帳戶 |
 
@@ -194,7 +194,7 @@ Log Analytics Windows 代理程式和 System Center Operations Manager 代理程
 
 | 管理解決方案 | 平台 | Microsoft Monitoring Agent | Operations Manager 代理程式 | Azure 儲存體 | 是否需要 Operations Manager？ | 透過管理群組傳送的 Operations Manager 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 備份 | Azure |   |   |   |   |   | n/a |
+| Backup  | Azure |   |   |   |   |   | n/a |
 | Azure Site Recovery | Azure |   |   |   |   |   | n/a |
 
 

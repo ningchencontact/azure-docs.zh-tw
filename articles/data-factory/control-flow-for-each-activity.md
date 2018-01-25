@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory 中的 ForEach 活動
 ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆查詢集合，並在迴圈中執行指定的活動。 此活動的迴圈實作與程式設計語言中的 Foreach 迴圈結構相似。
@@ -74,11 +74,11 @@ ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆�
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-名稱 | for-each 活動的名稱。 | String | 是
-類型 | 必須設定為 **ForEach** | String | 是
-isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方式可一次執行最多 20 個迴圈反覆項目。 例如，如果您的 ForEach 活動會反覆查詢 10 個不同來源和接收資料集的複製活動，且 **isSequential** 設為 False，則所有複本會都執行一次。 預設值為 False。 <br/><br/> 如果 isSequential 設定為 False，請確認有正確的設定可執行多個可執行檔。 否則，應謹慎使用這個屬性，以避免引發寫入衝突。 如需詳細資訊，請參閱[平行執行](#parallel-execution)一節。 | Boolean | 否。 預設值為 False。
-項目 | 傳回要反覆查詢之 JSON 陣列的運算式。 | 運算式 (傳回 JSON 陣列) | 是
-活動 | 要執行的活動。 | 活動清單 | 是
+name | for-each 活動的名稱。 | 字串 | yes
+type | 必須設定為 **ForEach** | 字串 | yes
+isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方式可一次執行最多 20 個迴圈反覆項目。 例如，如果您的 ForEach 活動會反覆查詢 10 個不同來源和接收資料集的複製活動，且 **isSequential** 設為 False，則所有複本會都執行一次。 預設值為 False。 <br/><br/> 如果 isSequential 設定為 False，請確認有正確的設定可執行多個可執行檔。 否則，應謹慎使用這個屬性，以避免引發寫入衝突。 如需詳細資訊，請參閱[平行執行](#parallel-execution)一節。 | BOOLEAN | 編號 預設值為 False。
+項目 | 傳回要反覆查詢之 JSON 陣列的運算式。 | 運算式 (傳回 JSON 陣列) | yes
+活動 | 要執行的活動。 | 活動清單 | yes
 
 ## <a name="parallel-execution"></a>平行執行
 如果 **isSequential** 設為 false，活動會以平行方式逐一查看，並行的反覆項目數最多為 20。 此設定應謹慎使用。 如果並行的反覆項目會寫入相同資料夾的不同檔案，這種方法是正常的。 如果並行的反覆項目會同時寫入相同的檔案，這種方法很可能會導致錯誤。 
@@ -576,7 +576,7 @@ isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [執行管線活動](control-flow-execute-pipeline-activity.md)
+- [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [Web 活動](control-flow-web-activity.md)

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 以 HDInsight 中的 Hadoop 執行 Hive 查詢
 
@@ -50,7 +50,9 @@ ms.lasthandoff: 12/08/2017
 
     您應該會收到類似以下文字的回應：
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     此命令中使用的參數如下：
 
@@ -65,7 +67,9 @@ ms.lasthandoff: 12/08/2017
 
     此要求會傳回類似以下文字的回應：
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. 使用下列命令建立名為 **log4jLogs** 的資料表：
 
@@ -105,7 +109,9 @@ ms.lasthandoff: 12/08/2017
 
    此命令會傳回可用來檢查作業狀態的作業識別碼。
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. 若要檢查作業的狀態，請使用下列命令：
 

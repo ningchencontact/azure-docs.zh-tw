@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>連接器清單
 若要尋找每個連接器的 Swagger 說明加上任何連接器限制所定義的觸發程序和動作，請參閱[連接器詳細資料](/connectors/)。
 
-連接器是建立邏輯應用程式時不可或缺的部分。 使用這些連接器，您可以擴展內部部署和雲端應用程式，對您建立的資料以及已經有的資料執行各種動作。 連接器可以以內建動作或受管理的連接器提供。
+連接器是建立邏輯應用程式時不可或缺的部分。 使用這些連接器，您可以擴展內部部署和雲端應用程式，對您建立的資料以及已經有的資料執行各種動作。 連接器可以以內建動作或受控連接器提供。
 
 **內建動作**：Logic Apps 引擎本身提供內建動作，以便與端點通訊並執行工作。 例如，您可以使用這些動作來呼叫 HTTP 端點、Azure Functions 和 Azure API 管理作業，以及使用資料作業和變數來處理訊息。
 
-**受管理的連接器**：建立 Logic Apps 服務主控和管理的 API 連線，以針對各種服務提供 API 存取。 受管理的連接器可分為下列類別：
+
+            **受控連接器**：建立 Logic Apps 服務主控和管理的 API 連線，以針對各種服務提供 API 存取。 受控連接器可分為下列類別：
 
 * **標準連接器**︰當您使用邏輯應用程式時自動取得和納入。 例如：服務匯流排、Power BI、OneDrive 等等。
 
@@ -93,7 +94,7 @@ Logic Apps 引擎提供可處理資料、透過 HTTP 通訊以及控制邏輯應
 |[![API 圖示][MQicon]<br/>**MQ**][mqdoc]|[![API 圖示][SAPicon]<br/>**SAP**][sapconnector]|
 
 > [!TIP]
-> 若要在註冊 Azure 帳戶之前先開始使用 Azure Logic Apps，請移至[試用 Logic Apps](https://tryappservice.azure.com/?appservice=logic)。 您可以立即建立短期的入門邏輯應用程式。 不需要信用卡；沒有承諾。
+> 若要在註冊 Azure 帳戶之前先開始使用 Azure Logic Apps，請移至[試用 Logic Apps](https://tryappservice.azure.com/?appservice=logic)。 您可以立即建立短期的入門邏輯應用程式。 不需要信用卡；無需承諾。
 
 ## <a name="connectors-as-triggers-and-actions"></a>連接器做為觸發程序和動作
 
@@ -143,7 +144,7 @@ Logic Apps 包含下列幾種觸發程序：
 我們是否遺漏連接器主題，或任何您認為重要的詳細資訊？ 若是如此，請將其新增到我們現有的主題，或撰寫自己的主題來協助我們。 我們的文件是開放原始碼並存放於 GitHub。 從我們的 [GitHub 存放庫](https://github.com/Microsoft/azure-docs)著手。 
 
 ## <a name="next-steps"></a>後續步驟
-* [建立第一個邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+* [建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [建立邏輯應用程式的自訂 API](../logic-apps/logic-apps-create-api-app.md)
 * [監視邏輯應用程式](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

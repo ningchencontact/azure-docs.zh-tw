@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>使用 Azure Active Directory 來管理應用程式
 在實際工作流程或內容以外，企業對所有應用程式有兩個基本需求：
@@ -110,6 +110,6 @@ Azure AD 為您提供預先整合的報告與監控功能，可讓您知道可�
 ## <a name="getting-started"></a>開始使用
 若要開始使用 Azure AD 來整合應用程式，請查看 [整合 Azure Active Directory 與應用程式入門指南](active-directory-integrating-applications-getting-started.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 

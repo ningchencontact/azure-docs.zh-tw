@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a4480750377b3762346e746867b83c3c2a50e46f
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a786f82d94a1a0039ed65a618670f872ffa3e3c2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-python"></a>如何搭配 Python 使用 Azure 資料表儲存體
 
@@ -53,7 +53,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 table_service.create_table('tasktable')
 ```
 
-## <a name="add-an-entity-to-a-table"></a>將實體加入至資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 
 若要新增實體，您先建立一個代表您實體的物件，然後將物件傳遞至 [TableService][py_TableService].[insert_entity][py_insert_entity] 方法。 實體物件可以是字典或類型為 [Entity][py_Entity] 的物件，並定義您實體的屬性名稱與值。 除了您為實體定義的任何其他屬性外。每個實體必須包含必要的 [PartitionKey and RowKey](#partitionkey-and-rowkey) 屬性。
 

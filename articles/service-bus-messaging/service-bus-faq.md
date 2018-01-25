@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般的 Azure 價格和支援資訊。
@@ -48,7 +48,6 @@ ms.lasthandoff: 11/15/2017
 ### <a name="what-should-i-know-before-creating-entities"></a>建立實體前的須知事項為何？
 佇列和主題的下列屬性是不可變的。 在佈建實體時請將這個限制納入考量，因為若要修改這些屬性，就必須建立新的替代實體。
 
-* 大小
 * 分割
 * 工作階段
 * 重複偵測

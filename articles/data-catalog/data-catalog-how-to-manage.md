@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 7e0d416c58dced89623a28038e804e8002f0341a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a4b2b5734bf8bfbbc45a65b02362d1fa37b1a87
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>管理 Azure 資料目錄中的資料資產
 ## <a name="introduction"></a>簡介
@@ -71,5 +71,5 @@ Azure 資料目錄專為資料來源探索功能而設計，讓您能夠輕鬆�
 ## <a name="catalog-administrators"></a>目錄管理員
 資料目錄管理員都是目錄中所有資產的隱含共同擁有者。 資產擁有者無法移除管理員的可見性，而且管理員可以管理目錄中所有資料資產的擁有權和可見性。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 資料目錄用於中繼資料和資料資產探索的群眾外包模型可讓所有目錄使用者參與和探索。 標準版的資料目錄專為擁有權和管理而設計，可限制特定資料資產的可見性與使用。

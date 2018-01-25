@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>建立您可以從邏輯應用程式工作流程呼叫的自訂 API
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 10/11/2017
 
 基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](http://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 因為連接器是透過 HTTP 端點進行通訊的 REST API，您可以使用諸如 .NET、Java 或 Node.js 等任何語言來建置連接器。 您也可以在 [Azure App Service](../app-service/app-service-web-overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
 
-若要讓自訂 API 與 Logic Apps 搭配使用，您的 API 可以提供[*動作*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)，能在邏輯應用程式工作流程中執行特定的工作。 您的 API 也可作為[*觸發程序*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式工作流程。 本主題描述常見的模式，以您想要 API 提供的行為作為基礎，加以遵循即可在您的 API 中建置動作和觸發程序。
+若要讓自訂 API 與 Logic Apps 搭配使用，您的 API 可以提供[*動作*](./logic-apps-overview.md#logic-app-concepts)，能在邏輯應用程式工作流程中執行特定的工作。 您的 API 也可作為[*觸發程序*](./logic-apps-overview.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式工作流程。 本主題描述常見的模式，以您想要 API 提供的行為作為基礎，加以遵循即可在您的 API 中建置動作和觸發程序。
 
-您可以將您的 API 裝載在 [Azure App Service](../app-service/app-service-web-overview.md) 上，這是一個平台即服務 (PaaS) 供應項目，提供擴充性高且簡便的 API 裝載服務。
+您可以將 API 裝載在 [Azure App Service](../app-service/app-service-web-overview.md) 上，這是一個平台即服務 (PaaS) 供應項目，提供擴充性高且簡便的 API 裝載服務。
 
 > [!TIP] 
 > 雖然您可以將 API 部署成 Web 應用程式，但請考慮將您的 API 部署成 API 應用程式，如此一來，當您在雲端和內部部署環境中建置、裝載及取用 API 時，將可讓您的作業更輕鬆。 您不需要在 API 中變更任何程式碼 -- 只需將您的程式碼部署至 API 應用程式。 例如，了解如何使用下列語言來建置 API 應用程式： 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 自訂 API 可讓您呼叫不是連接器的 API，並提供您可以使用 HTTP + Swagger、「Azure API 管理」或「應用程式服務」來呼叫的端點。 自訂連接器的運作方式與自訂 API 類似，但還具有下列屬性：
 
 * 在 Azure 中已註冊為「Logic Apps 連接器」資源。
-* 在「Logic Apps 設計工具」中會顯示在 Microsoft Managed 連接器旁邊且帶有圖示。
+* 在「Logic Apps 設計工具」中會顯示在 Microsoft 受控連接器旁邊且帶有圖示。
 * 只有連接器的作者，以及在部署邏輯應用程式的區域中具有相同 Azure Active Directory 租用戶和 Azure 訂用帳戶的使用者，才能使用。
 
 您也可以提名已註冊的連接器來進行 Microsoft 認證。 此程序會確認已註冊的連接器符合公開使用準則，然後將這些連接器提供給 Microsoft Flow 和 Microsoft PowerApps 中的使用者使用。
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="action-patterns"></a>動作模式
 
-針對執行工作的 Logic Apps，您的自訂 API 應提供[*動作*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)。 您 API 中的每項作業都會對應至動作。 基本的動作是可接受 HTTP 要求並傳回 HTTP 回應的控制器。 比方說，邏輯應用程式會將 HTTP 要求傳送至 web 應用程式或 API 應用程式。 接著，您的應用程式會傳回 HTTP 回應，以及邏輯應用程式可以處理的內容。
+針對執行工作的 Logic Apps，您的自訂 API 應提供[*動作*](./logic-apps-overview.md#logic-app-concepts)。 您 API 中的每項作業都會對應至動作。 基本的動作是可接受 HTTP 要求並傳回 HTTP 回應的控制器。 比方說，邏輯應用程式會將 HTTP 要求傳送至 web 應用程式或 API 應用程式。 接著，您的應用程式會傳回 HTTP 回應，以及邏輯應用程式可以處理的內容。
 
 針對標準動作，您可以在 API 中撰寫 HTTP 要求方法，並在 Swagger 檔案中描述該方法。 接著，您可以使用 [HTTP 動作](../connectors/connectors-native-http.md)或 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 動作直接呼叫您的 API。 根據預設，必須在[要求逾時限制](./logic-apps-limits-and-config.md)內將回應傳回。 
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="trigger-patterns"></a>觸發程序模式
 
-您的自訂 API 可作為[*觸發程序*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式。 這個觸發程序可以定期檢查，或是等候並接聽您服務端點上的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並啟動邏輯應用程式，用來接聽該觸發程序。 若要用這種方式啟動 Logic Apps，您的 API 可以遵循[*輪詢觸發程序*](#polling-triggers)或 [ *webhook 觸發程序*](#webhook-triggers)模式。 這些模式會與其[輪詢動作](#async-pattern)和 [webhook 動作](#webhook-actions)的對應類似。 此外，深入了解[觸發程序的使用量計量](logic-apps-pricing.md)。
+您的自訂 API 可作為[*觸發程序*](./logic-apps-overview.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式。 這個觸發程序可以定期檢查，或是等候並接聽您服務端點上的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並啟動邏輯應用程式，用來接聽該觸發程序。 若要用這種方式啟動 Logic Apps，您的 API 可以遵循[*輪詢觸發程序*](#polling-triggers)或 [ *webhook 觸發程序*](#webhook-triggers)模式。 這些模式會與其[輪詢動作](#async-pattern)和 [webhook 動作](#webhook-actions)的對應類似。 此外，深入了解[觸發程序的使用量計量](logic-apps-pricing.md)。
 
 <a name="polling-triggers"></a>
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 10/11/2017
 | 要求是否包含 `triggerState`？ | API 回應 | 
 | -------------------------------- | -------------| 
 | 否 | 傳回 HTTP `202 ACCEPTED` 狀態與 `location` 標頭，並將 `triggerState` 設為目前的時間，且 `retry-after` 間隔設為 15 秒。 | 
-| 是 | 請檢查您的服務是否有 `triggerState` 的 `DateTime` 之後新增的檔案。 | 
+| yes | 請檢查您的服務是否有 `triggerState` 的 `DateTime` 之後新增的檔案。 | 
 ||| 
 
 | 找到的檔案數 | API 回應 | 
