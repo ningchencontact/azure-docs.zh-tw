@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>教學課程：將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。 
@@ -126,7 +126,7 @@ ms.lasthandoff: 01/18/2018
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
-2. 在 [新增資料處理站] 頁面中，輸入 [ADFTutorialDataFactory] 作為 [名稱]。 
+2. 在 [新增資料處理站] 頁面中，輸入 **ADFTutorialDataFactory** 作為 [名稱]。 
       
      ![新增資料處理站頁面](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
@@ -147,7 +147,7 @@ ms.lasthandoff: 01/18/2018
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
 
     ![部署資料處理站圖格](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
-9. 建立完成之後，您會看到如圖所示的 [Data Factory] 頁面。
+9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
    ![Data Factory 首頁](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
 10. 按一下 [撰寫與監視] 圖格，以在個別索引標籤中啟動 Azure Data Factory 使用者介面。 
@@ -191,7 +191,7 @@ ms.lasthandoff: 01/18/2018
 11. 在 [Integration Runtime (自我裝載) 快速安裝] 視窗中，按一下 [關閉]。 
 
    ![整合執行階段安裝 - 成功](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. 在網頁瀏覽器的 [整合執行階段安裝] 視窗中，按一下 [完成]。 您應該會返回 [新增連結服務] 視窗。
+12. 在網頁瀏覽器的 [整合執行階段安裝] 視窗中，按一下 [完成]。 
 
    ![整合執行階段安裝 - 完成](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. 在 [新增連結服務] 視窗中，執行下列步驟：

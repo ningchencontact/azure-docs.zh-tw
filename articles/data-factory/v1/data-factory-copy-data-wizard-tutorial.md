@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a6cf954c57f653c031d8f3bee9a84cd57ad3ecc5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>教學課程：使用 Data Factory 複製精靈建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -42,10 +42,10 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
 
 本教學課程說明如何建立 Azure data factory、啟動 [複製精靈]、執行一系列的步驟，以提供有關資料擷取/移動案例的詳細資料。 當您完成精靈中的步驟時，精靈會自動建立具有複製活動的管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 請先完成 [教學課程概觀](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 一文中列出的必要條件，再執行本教學課程。
 
-## <a name="create-data-factory"></a>建立 Data Factory
+## <a name="create-data-factory"></a>建立資料處理站
 在此步驟中，您會使用 Azure 入口網站來建立名為 **ADFTutorialDataFactory**的 Azure Data Factory。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -67,7 +67,7 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
         本教學課程的某些步驟是假設您使用 **ADFTutorialResourceGroup** 做為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../../azure-resource-manager/resource-group-overview.md)。
    4. 選取 Data Factory 的 [位置]。
    5. 選取刀鋒視窗底部的 [釘選到儀表板] 核取方塊。  
-   6. 按一下 [建立] 。
+   6. 按一下頁面底部的 [新增] 。
       
        ![新增 Data Factory 刀鋒視窗](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
 3. 建立完成之後，您會看到 [Data Factory] 刀鋒視窗，如下圖所示：
@@ -84,7 +84,7 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
    1. 輸入 **CopyFromBlobToAzureSql** 做為 [工作名稱]
    2. 輸入 **說明** (選擇性)。
    3. 變更 [開始日期時間] 和 [結束日期時間]，讓結束日期設為今天，而開始日期設為五天前。  
-   4. 按一下 [下一步] 。  
+   4. 按 [下一步] 。  
       
       ![複製工具 - 屬性頁面](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. 在 [來源資料存放區] 頁面上，按一下 [Azure Blob 儲存體] 圖格。 您可以使用此頁面來指定複製工作的來源資料存放區。 
@@ -120,7 +120,7 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
    3. 選取您的 Azure **訂用帳戶**。  
    4. 選取 [伺服器名稱] 和 [資料庫]。
    5. 輸入 [使用者名稱] 和 [密碼]。
-   6. 按一下 [下一步] 。  
+   6. 按 [下一步] 。  
       
       ![複製工具 - 指定 Azure SQL Database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. 在 [資料表對應] 頁面上，從 [目的地] 欄位的下拉式清單中選取 **emp**，按一下**向下箭號** (選擇性) 以查看結構描述及預覽資料。

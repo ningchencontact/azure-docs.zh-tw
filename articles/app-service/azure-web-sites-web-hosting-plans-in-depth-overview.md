@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 268844eae8dc06937529e79d52515cad2f6da3f4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
@@ -54,7 +54,7 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 > - 中 (兩個 CPU 核心，7 GiB 的記憶體) 
 > - 大 (四個 CPU 核心，14 GiB 的記憶體)  
 >
-> 如需 **PremiumV2** 價格資訊，請參閱 [App Service 價格](/pricing/details/app-service/)。
+> 如需 **PremiumV2** 價格資訊，請參閱 [App Service 價格](https://azure.microsoft.com/pricing/details/app-service/)。
 >
 > 若要開始使用新的 **PremiumV2** 定價層，請參閱[設定 App Service 的 PremiumV2 層](app-service-configure-premium-tier.md)。
 

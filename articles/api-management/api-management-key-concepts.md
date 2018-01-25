@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 08490af077ad92dfa8e4ec248a1416980ac400f3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="what-is-api-management"></a>什麼是 API 管理？
 
@@ -92,7 +92,7 @@ API 是 API 管理服務執行個體的基礎。 每個 API 都代表可供開�
 * **開發人員** - 已驗證開發人員入口網站使用者屬於此群組。 開發人員是使用您的 API 建置應用程式的客戶。 開發人員獲授與開發人員入口網站的存取權，並建置呼叫 API 作業的應用程式。
 * **來賓** - 未經驗證的開發人員入口網站使用者 (例如，造訪 API 管理執行個體之開發人員入口網站的潛在客戶) 屬於此群組。 他們可獲得特定唯讀存取權限，例如他們可檢視 API 但無法進行呼叫。
 
-除了這些系統群組以外，管理員還可以建立自訂群組，或使用 [使用 Azure Active Directory 相關租用戶中的外部群組](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group)。 自訂群組和外部群組可以與系統群組一起使用，提供開發人員 API 產品的能見度及存取權。 例如，您可以為與特定夥伴組織有關的開發人員建立一個自訂群組，並只允許他們存取來自含相關 API 之產品的 API。 使用者可以是多個群組的成員。
+除了這些系統群組以外，管理員還可以建立自訂群組，或使用 [使用 Azure Active Directory 相關租用戶中的外部群組](api-management-howto-aad.md)。 自訂群組和外部群組可以與系統群組一起使用，提供開發人員 API 產品的能見度及存取權。 例如，您可以為與特定夥伴組織有關的開發人員建立一個自訂群組，並只允許他們存取來自含相關 API 之產品的 API。 使用者可以是多個群組的成員。
 
 如需詳細資訊，請參閱[如何建立和使用群組][How to create and use groups]。
 

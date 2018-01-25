@@ -8,17 +8,17 @@ manager: jahogg
 editor: tysonn
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: cb6adfda2ef17e04cedd026964cfcad7443e0bd9
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-c"></a>如何搭配 C++ 使用 Azure 資料表儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -105,7 +105,7 @@ azure::storage::cloud_table table = table_client.get_table_reference(U("people")
 table.create_if_not_exists();  
 ```
 
-## <a name="add-an-entity-to-a-table"></a>將實體加入至資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 若要將實體新增至資料表，請建立一個新的 **table_entity** 物件，然後將該物件傳遞至 **table_operation::insert_entity**。 下列程式碼會使用客戶名字做為資料列索引鍵，並使用姓氏做為資料分割索引鍵。 實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。 相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快，但使用不同的資料分割索引鍵可獲得更大的平行操作延展性。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../storage/common/storage-performance-checklist.md)。
 
 下列程式碼會建立 **table_entity** 的新執行個體，其中含有一些要儲存的客戶資料。 程式碼接著會呼叫 **table_operation::insert_entity** 來建立 **table_operation** 物件，以便將實體插入資料表中，並將新的資料表與該物件建立關聯。 最後，程式碼會針對 **cloud_table** 物件呼叫 execute 方法。 此外，新的 **table_operation** 會傳送一個要求到資料表服務，以便將新的客戶實體插入到 "people" 資料表。  
@@ -192,7 +192,7 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 
 * 您可以在單一批次中最多執行 100 個插入、刪除、合併、取代、插入或合併，以及插入或取代操作的任意組合。  
 * 當擷取操作是批次中的唯一操作時，批次操作可以包含擷取操作。  
-* 單一批次操作中的所有實體必須具有相同的資料分割索引鍵。  
+* 單一批次作業中的所有實體必須具有相同的資料分割索引鍵。  
 * 一個批次操作的資料裝載限制為 4MB。  
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>擷取資料分割中的所有實體
@@ -324,7 +324,7 @@ azure::storage::table_result replace_result = table.execute(replace_operation);
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>插入或取代實體
-如果從伺服器擷取的實體自擷取後發生變化，**table_operation::replace_entity** 操作將失敗。 此外，您必須先從伺服器擷取實體，**table_operation::replace_entity** 才會成功。 但有時候，您可能不知道實體是否存在伺服器上，而實體中目前儲存的值並不重要，此時您的更新就應該加以完全覆寫。 若要達成此目的，您要使用 **table_operation::insert_or_replace_entity** 操作。 此操作會插入實體 (如果其目前並不存在) 或取代實體 (如果其已存在)，不論上次是何時更新。 在下列程式碼範例中，仍會擷取 Jeff Smith 的客戶實體，但接著會透過 **table_operation::insert_or_replace_entity** 將它儲存回伺服器。 在擷取後到更新前的這段期間對實體所做的任何更新，都會遭到覆寫。  
+如果從伺服器擷取的實體自擷取後發生變化，**table_operation::replace_entity** 操作將失敗。 此外，您必須先從伺服器擷取實體，**table_operation::replace_entity** 才會成功。 但有時候，您可能不知道實體是否存在伺服器上，而實體中目前儲存的值並不重要，此時您的更新就應該加以完全覆寫。 若要達成此目的，您要使用 **table_operation::insert_or_replace_entity** 操作。 此作業會插入實體 (如果其目前並不存在) 或取代實體 (如果其已存在)，不論上次是何時更新。 在下列程式碼範例中，仍會擷取 Jeff Smith 的客戶實體，但接著會透過 **table_operation::insert_or_replace_entity** 將它儲存回伺服器。 在擷取後到更新前的這段期間對實體所做的任何更新，都會遭到覆寫。  
 
 ```cpp
 // Retrieve the storage account from the connection string.

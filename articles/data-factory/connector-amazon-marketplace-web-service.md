@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 949052900f341f2a933196fbd798d8b89facbd57
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 736d286bb7b97e842e73afd362ba70a42d1a9d9d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 Amazon Marketplace Web Service 複製資料
 
@@ -37,7 +37,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Amazon Marketplace Web Service 連接器專屬的 Data Factory 實體。
 
@@ -45,15 +45,15 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Amazon Marketplace Web Service 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為：**AmazonMWS** | 是 |
-| endpoint | Amazon MWS 伺服器的端點，(也就是 mws.amazonservices.com)  | 是 |
-| marketplaceID | 您想要從中擷取資料的 Amazon Marketplace 識別碼。 若要從多個 Marketplace 識別碼擷取資料，請以逗號 (`,`) 分隔它們。 (也就是 A2EUQ1WTGCTBG2)  | 是 |
-| sellerID | Amazon 賣方識別碼。  | 是 |
-| mwsAuthToken | Amazon MWS 驗證權杖。 您可以選擇將這個欄位標記為 SecureString，透過 Data Factory 服務安全地儲存它，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 是 |
-| accessKeyId | 用來存取資料的存取金鑰識別碼。  | 是 |
-| secretKey | 用來存取資料的祕密金鑰。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 是 |
+| type | Type 屬性必須設定為：**AmazonMWS** | yes |
+| endpoint | Amazon MWS 伺服器的端點，(也就是 mws.amazonservices.com)  | yes |
+| marketplaceID | 您想要從中擷取資料的 Amazon Marketplace 識別碼。 若要從多個 Marketplace 識別碼擷取資料，請以逗號 (`,`) 分隔它們。 (也就是 A2EUQ1WTGCTBG2)  | yes |
+| sellerID | Amazon 賣方識別碼。  | yes |
+| mwsAuthToken | Amazon MWS 驗證權杖。 您可以選擇將這個欄位標記為 SecureString，透過 Data Factory 服務安全地儲存它，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | yes |
+| accessKeyId | 用來存取資料的存取金鑰識別碼。  | yes |
+| secretKey | 用來存取資料的祕密金鑰。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -113,10 +113,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Amazon Marketplace Web Service 複製資料，請將複製活動中的來源類型設定為 **AmazonMWSSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**AmazonMWSSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`。 | 是 |
+| type | 複製活動來源的 type 屬性必須設定為：**AmazonMWSSource** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`。 | yes |
 
 **範例：**
 

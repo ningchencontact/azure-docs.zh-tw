@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>使用 MQ 連接器從 Logic Apps 連線到 IBM MQ Server 
 
@@ -33,7 +33,7 @@ MQ 連接器包含下列動作。 但不包含觸發程序。
 -   接收批次訊息，並從 IBM MQ Server 刪除訊息
 -   將單一訊息傳送至 IBM MQ Server 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果是使用內部部署 MQ Server，請在網路內之伺服器上[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。 如果 MQ Server 可公開使用或可在 Azure 內使用，就是沒有使用資料閘道或不需要資料閘道。
 
@@ -123,4 +123,4 @@ MQ 連接器包含下列動作。 但不包含觸發程序。
 檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/mq/)的所有限制。
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。

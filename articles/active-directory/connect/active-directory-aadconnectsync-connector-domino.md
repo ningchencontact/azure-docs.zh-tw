@@ -3,7 +3,7 @@ title: "Lotus Domino 連接器 | Microsoft Docs"
 description: "本文說明如何設定 Microsoft 的 Lotus Domino 連接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 連接器技術參考
 本文說明 Lotus Domino 連接器。 本文適用於下列產品：
@@ -43,7 +43,7 @@ Lotus Domino 連接器可讓您整合同步處理服務與 IBM 的 Lotus Domino 
 
 Lotus Domino 連接器使用 Lotus Notes 用戶端與 Lotus Domino 伺服器進行通訊。 由於此相依性，同步處理伺服器上必須安裝支援的 Lotus Notes 用戶端。 用戶端與伺服器之間的通訊是透過 Lotus Notes .NET Interop (Interop.domino.dll) 介面來實作。 此介面可協助 Microsoft.NET 平台和 Lotus Notes 用戶端之間的通訊，並支援 Lotus Domino 文件和檢視的存取。 在執行差異匯入時，也可以使用 C++ 原生介面 (取決於所選的差異匯入方法)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在您使用連接器之前，請確定同步處理伺服器上有下列先決條件：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本

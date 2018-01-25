@@ -3,8 +3,8 @@ title: "使用 Azure CLI 管理 Azure Redis Cache | Microsoft Docs"
 description: "了解如何在任何平台上安裝 Azure CLI、如何使用它來連接到您的 Azure 帳戶，以及如何從 Azure CLI 建立和管理 Redis 快取。"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。 本�
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 Azure CLI 建立並管理 Azure Redis 快取執行個體，您必須完成下列步驟：
 
 * 您必須具有 Azure 帳號。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。

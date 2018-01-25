@@ -5,15 +5,15 @@ description: "儲存體帳戶金鑰提供 Azure Key Vault 與 Azure 儲存體帳
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6ebac5fc90e259b19e0a4103a732754384232a44
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
 
@@ -30,7 +30,7 @@ Azure 儲存體帳戶 (ASA) 金鑰功能可管理密碼輪替， 也提供共用
 
 ## <a name="what-key-vault-manages"></a>Key Vault 的管理內容
 
-當您使用 Managed 儲存體帳戶金鑰時，Key Vault 會代表您執行幾個內部管理功能。
+當您使用受控儲存體帳戶金鑰時，Key Vault 會代表您執行幾個內部管理功能。
 
 - Azure Key Vault 會管理 Azure 儲存體帳戶 (ASA) 的金鑰。
     - Azure Key Vault 可在內部列出 (同步) Azure 儲存體帳戶金鑰。  
@@ -114,7 +114,7 @@ Azure Key Vault 應用程式身分識別需要「列出」及「重新產生」�
 
 ## <a name="working-example"></a>實用範例
 
-下列範例示範如何建立金鑰保存庫 Managed Azure 儲存體帳戶和相關聯的共用存取簽章 (SAS) 定義。
+下列範例示範如何建立金鑰保存庫受控 Azure 儲存體帳戶和相關聯的共用存取簽章 (SAS) 定義。
 
 ### <a name="assumptions"></a>假設
 
@@ -147,7 +147,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrinci
 
 ### <a name="allow-access"></a>允許存取
 
-您需要將金鑰保存庫服務的存取權授與儲存體帳戶，才能建立 Managed 儲存體帳戶和 SAS 定義。
+您需要將金鑰保存庫服務的存取權授與儲存體帳戶，才能建立受控儲存體帳戶和 SAS 定義。
 
 ```powershell
 New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
@@ -155,7 +155,7 @@ New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinit
 
 ### <a name="create-storage-account"></a>建立儲存體帳戶
 
-現在請建立一個 Managed 儲存體帳戶和兩個 SAS 定義。 帳戶 SAS 會以不同的權限提供 Blob 服務的存取權。
+現在請建立一個受控儲存體帳戶和兩個 SAS 定義。 帳戶 SAS 會以不同的權限提供 Blob 服務的存取權。
 
 ```powershell
 Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -DisableAutoRegenerateKey
@@ -172,7 +172,7 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 
 ### <a name="set-sas-definitions"></a>設定 SAS 定義
 
-在金鑰保存庫中為 Managed 儲存體帳戶設定 SAS 定義。
+在金鑰保存庫中為受控儲存體帳戶設定 SAS 定義。
 
 ```powershell
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
@@ -224,7 +224,7 @@ Key Vault 必須驗證身分識別具有「重新產生」權限，才能取得�
 - Key Vault 會列出儲存體帳戶資源的 RBAC 權限。
 - Key Vault 會透過比對動作和非動作的規則運算式來驗證回應。 
 
-在 [Key Vault - 受管理的儲存體帳戶金鑰範例](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167)中尋找一些支援的範例。
+在 [Key Vault - 受控儲存體帳戶金鑰範例](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167)中尋找一些支援的範例。
 
 如果身分識別沒有「重新產生」權限，或如果 Key Vault 的第一個憑證者身分識別沒有「列出」或「重新產生」權限，則登入要求會失敗，並傳回適當的錯誤碼和訊息。 
 

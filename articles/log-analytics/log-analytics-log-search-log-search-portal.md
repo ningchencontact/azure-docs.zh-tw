@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>在 Azure Log Analytics 中使用記錄搜尋入口網站來建立記錄搜尋
 
@@ -30,18 +30,18 @@ ms.lasthandoff: 12/13/2017
 
 若要在進階 Analytics 入口網站 (而非記錄搜尋入口網站) 中建立搜尋，請參閱 [Analytics 入口網站的使用者入門](https://go.microsoft.com/fwlink/?linkid=856587)。  這兩個入口網站使用相同的查詢語言在 Log Analytics 工作區中存取相同的資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程假設您已擁有 Log Analytics 工作區，且其具有至少一個連線來源以產生供查詢分析的資料。  
 
 - 如果您沒有工作區，可以使用[開始使用 Log Analytics 工作區](log-analytics-get-started.md)的程序來建立免費工作區。
 - 至少將一個 [Windows 代理程式](log-analytics-windows-agent.md)或一個 [Linux 代理程式](log-analytics-linux-agents.md)連線到工作區。  
 
 ## <a name="open-the-log-search-portal"></a>開啟記錄搜尋入口網站
-從開啟記錄搜尋入口網站開始。  您可以在 Azure 入口網站或 OMS 入口網站存取它。
+從開啟記錄搜尋入口網站開始。 
 
 1. 開啟 Azure 入口網站。
 2. 瀏覽至 Log Analytics 並選取您的工作區。
-3. 請選取 [記錄搜尋] 以停留在 Azure 入口網站，或選取 [OMS 入口網站] 來啟動 OMS 入口網站，然後按一下 [記錄搜尋] 按鈕。
+3. 選取 [記錄搜尋]。
 
 ![記錄檔搜尋按鈕](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

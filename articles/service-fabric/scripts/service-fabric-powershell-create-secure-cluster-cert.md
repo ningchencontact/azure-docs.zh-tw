@@ -12,14 +12,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 09/29/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: dc0412b7595e9a84049223561c7695a86480fe4a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b0d33b714092a826012677c95124d74bf2c72999
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-service-fabric-cluster"></a>建立 Service Fabric 叢集
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | 建立新的 Service Fabric 叢集。 |
 

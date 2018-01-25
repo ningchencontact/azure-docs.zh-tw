@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: b8cb277a7101e2627b541e2d4e8ebae854aba4ca
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d9aaef778f08500f45b6d1260f2a5d301fabeba8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>在 HDInsight 上搭配使用 DataFu 與 Pig
 
 了解如何搭配 HDInsight 使用 DataFu。 DataFu 是搭配 Hadoop 上的 Pig 使用的開放原始碼程式庫集合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。
 
@@ -69,9 +69,9 @@ ms.lasthandoff: 11/03/2017
 > [!IMPORTANT]
 > 如果您使用上一節的步驟手動安裝 DataFu，您必須先進行註冊才能使用。
 >
-> * 如果叢集使用 Azure 儲存體，請使用 `wasb://` 路徑。 例如， `register wasb:///example/jars/datafu-1.2.0.jar`。
+> * 如果叢集使用 Azure 儲存體，請使用 `wasb://` 路徑。 例如： `register wasb:///example/jars/datafu-1.2.0.jar`。
 >
-> * 如果叢集使用 Azure Data Lake Store，請使用 `adl://` 路徑。 例如， `register adl://home/example/jars/datafu-1.2.0.jar`。
+> * 如果叢集使用 Azure Data Lake Store，請使用 `adl://` 路徑。 例如： `register adl://home/example/jars/datafu-1.2.0.jar`。
 
 您通常會定義 DataFu 函式的別名。 下列範例會定義 `SHA` 的別名：
 

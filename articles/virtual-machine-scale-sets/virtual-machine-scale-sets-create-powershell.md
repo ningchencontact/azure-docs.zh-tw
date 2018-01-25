@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1a4c69427e0fa38e9206e2720c4746c97d922df1
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 建立虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據如 CPU、記憶體需求或網路流量的資源使用量來自動調整。 在本使用者入門文章中，您要使用 Azure PowerShell 來建立虛擬機器擴展集。 您還可以使用 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 或 [Azure 入口網站](virtual-machine-scale-sets-create-portal.md)來建立擴展集。
@@ -120,7 +120,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-現在使用 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm) 建立虛擬機器擴展集。 下列範例會建立使用 Windows Server 2016 資料中心平台映像，名為 myScaleSet 的擴展集。 vmssConfig 物件會使用如 adminUsername 和 securePassword 變數中所指定之認證，在美國東部建立 2 個 VM 執行個體。 提供您自己的認證並建立擴展集，如下所示：
+現在使用 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) 建立虛擬機器擴展集。 下列範例會建立使用 Windows Server 2016 資料中心平台映像，名為 myScaleSet 的擴展集。 vmssConfig 物件會使用如 adminUsername 和 securePassword 變數中所指定之認證，在美國東部建立 2 個 VM 執行個體。 提供您自己的認證並建立擴展集，如下所示：
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

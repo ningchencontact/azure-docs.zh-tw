@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8f333b96165144eb46e730a7a1dff52d064532bb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 156710ad50349e8a3632e31c7752387d4449a65d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 資料目錄常見案例
 本文介紹 Azure 資料目錄幫助您的組織從其現有的資料來源獲得更多價值的常見案例。
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 * 我應該詢問誰或應該使用什麼程序來存取資料倉儲？
 * 我不知道這些數字是否正確。 在我與小組分享此儀表板之前，我可以向誰詢問關於此資料有何用途的意見？
 
-Azure 資料目錄可提供這些問題和其他問題的解答。 整個組織內使用的集中式、高價值、由 IT 管理的資料來源，通常是填入目錄時的邏輯起點。 雖然任何使用者都可以註冊資料來源，但以最可能為最多使用者創造價值的資料來源來開創目錄，將有助於接受和採用系統。 
+Azure 資料目錄可提供這些問題和其他問題的解答。 整個組織內使用的集中式、高價值、IT 受控的資料來源，通常是填入目錄時的邏輯起點。 雖然任何使用者都可以註冊資料來源，但以最可能為最多使用者創造價值的資料來源來開創目錄，將有助於接受和採用系統。 
 
 如果您要開始使用 Azure 資料目錄，識別和註冊許多組不同的資料取用者所使用的重要資料來源，就是成功的第一步。
 

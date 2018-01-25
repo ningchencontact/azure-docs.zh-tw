@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>封存 Azure 監視資料
 
@@ -66,7 +66,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 現在，我們要設定**資源診斷設定**，以設定要路由傳送至儲存體帳戶的資源層級資料 (資源計量和診斷記錄)。
 
-1. 按一下左側瀏覽清單上的 [監視] 按鈕，然後按一下 [診斷設定]。 在這裡，您會看到訂用帳戶中所有透過 Azure 監視器而產生監視資料的資源清單。 如果您在這份清單中沒有任何資源，您可以先[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)，再繼續進行，這樣就有可進行診斷設定的資源。
+1. 按一下左側瀏覽清單上的 [監視] 按鈕，然後按一下 [診斷設定]。 在這裡，您會看到訂用帳戶中所有透過 Azure 監視器而產生監視資料的資源清單。 如果您在這份清單中沒有任何資源，您可以先[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)，再繼續進行，這樣就有可進行診斷設定的資源。
 
 2. 按一下清單中的資源，然後按一下 [開啟診斷]。
    
@@ -80,7 +80,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
    ![診斷設定區段](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
 
-4. 按一下 [封存至儲存體帳戶] 下的 [設定] 按鈕，並選取您在上一節所建立的儲存體帳戶。 按一下 [確定] 。
+4. 按一下 [封存至儲存體帳戶] 下的 [設定] 按鈕，並選取您在上一節所建立的儲存體帳戶。 按一下 [SERVICEPRINCIPAL] 。
 
    ![診斷設定儲存體帳戶](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
 
@@ -90,7 +90,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
    
 6. 將 [保留期 (天數)] 滑桿設為 30。 此滑桿可設定監視資料在儲存體帳戶中的保留天數。 Azure 監視器會自動刪除比指定天數更舊的資料。 保留天數為 0 會無限期地儲存資料。
 
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 來自資源的監視資料現在開始流入儲存體帳戶。
 
@@ -124,7 +124,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 9. 在出現的區段中，選取您在先前的**建立儲存體帳戶**步驟中建立的儲存體帳戶。
 
-10. 按一下 [儲存] 。
+10. 按一下 [檔案] 。
 
 來自虛擬機器的監視資料現在開始流入儲存體帳戶。
 

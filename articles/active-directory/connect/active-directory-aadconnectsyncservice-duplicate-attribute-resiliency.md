@@ -3,7 +3,7 @@ title: "身分識別同步處理和重複屬性恢復功能 | Microsoft Docs"
 description: "在目錄同步處理期間如何使用 Azure AD Connect 來處理具有 UPN 或 ProxyAddress 衝突之物件的新行為。"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>身分識別同步處理和重複屬性恢復功能
 「重複屬性恢復功能」是 Azure Active Directory 中的一項功能，可在執行 Microsoft 的其中一個同步處理工具時，用來消除 **UserPrincipalName** 和 **ProxyAddress** 衝突所造成的不便。
@@ -168,7 +168,7 @@ ProxyAddress 衝突的電子郵件通知範例如下所示︰
 
 它應該指向 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 * [在 Office 365 中識別目錄同步處理錯誤](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

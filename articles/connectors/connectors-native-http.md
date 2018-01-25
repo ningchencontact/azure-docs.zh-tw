@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>開始使用 HTTP 動作
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 * 建立會在您管理的網站故障時啟動 (觸發程序) 的邏輯應用程式工作流程。
 * 透過 HTTP 與任何端點通訊，將工作流程延伸至其他服務。
 
-若要使用邏輯應用程式中的 HTTP 動作來開始作業，請參閱 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+若要使用邏輯應用程式中的 HTTP 動作來開始作業，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-http-trigger"></a>使用 HTTP 觸發程序
 觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序](connectors-overview.md)。
@@ -115,8 +115,8 @@ HTTP 觸發程序會以循環間隔呼叫 HTTP 端點。 依預設，任何低�
 | --- | --- | --- |
 | 方法 * |method |要使用的 HTTP 指令動詞 |
 | URI* |uri |HTTP 要求的 URI |
-| 標頭 |標頭 |要包含的 HTTP 標頭的 JSON 物件 |
-| 內文 |內文 |HTTP 要求本文 |
+| 標頭 |headers |要包含的 HTTP 標頭的 JSON 物件 |
+| body |內文 |HTTP 要求本文 |
 | 驗證 |驗證 |詳細資料在 [驗證](#authentication) 一節中 |
 
 <br>
@@ -127,7 +127,7 @@ HTTP 觸發程序會以循環間隔呼叫 HTTP 端點。 依預設，任何低�
 | 屬性名稱 | 資料類型 | 說明 |
 | --- | --- | --- |
 | headers |物件 |回應標頭 |
-| 內文 |物件 |回應物件 |
+| body |物件 |回應物件 |
 | Status Code |整數 |HTTP 狀態碼 |
 
 ## <a name="authentication"></a>驗證
@@ -152,7 +152,7 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 > 如果您要使用無法從定義中擷取的密碼，請使用 `securestring` 參數和 `@parameters()` 
 > [工作流程定義函式](http://aka.ms/logicappdocs)。
 
-例如：
+例如︰
 
 ```javascript
 {
@@ -176,7 +176,7 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 > 若要在儲存邏輯應用程式後，使用無法在定義中讀取的參數，您可以使用 `securestring` 參數和 `@parameters()`  
 > [工作流程定義函式](http://aka.ms/logicappdocs)。
 
-例如：
+例如︰
 
 ```javascript
 {
@@ -202,7 +202,7 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 > 
 > 
 
-例如：
+例如︰
 
 ```javascript
 {
@@ -215,5 +215,5 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 ```
 
 ## <a name="next-steps"></a>後續步驟
-立即試用平台和 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索 Logic Apps 中其他可用的連接器。
+立即試用平台和 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索 Logic Apps 中其他可用的連接器。
 

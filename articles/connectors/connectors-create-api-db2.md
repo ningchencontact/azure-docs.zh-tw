@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>開始使用 DB2 連接器
 Microsoft Connector for DB2 可將 Logic Apps 連接至 IBM DB2 資料庫中儲存的資源。 此連接器包含透過 TCP/IP 網路與遠端 DB2 伺服器電腦通訊的 Microsoft 用戶端。 其中包括雲端資料庫 (例如在 Azure 虛擬化中執行的 IBM Bluemix dashDB 或 IBM DB2 for Windows)，以及使用內部部署資料閘道的內部部署資料庫。 請參閱支援的 IBM DB2 平台和版本 [清單](connectors-create-api-db2.md#supported-db2-platforms-and-versions) (本主題結尾處)。
@@ -35,7 +35,7 @@ DB2 連接器支援下列資料庫作業：
 
 本主題說明如何在邏輯應用程式中使用連接器來處理資料庫作業。
 
-若要深入了解 Logic Apps，請參閱 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+若要深入了解 Logic Apps，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="available-actions"></a>可用動作
 DB2 連接器支援下列邏輯應用程式動作：
@@ -281,5 +281,5 @@ DB2 連接器支援下列邏輯應用程式動作：
 檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/db2/)的所有限制。 
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
 

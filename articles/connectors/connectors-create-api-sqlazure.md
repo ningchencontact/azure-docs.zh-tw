@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>開始使用 Azure SQL Database 連接器
 使用 Azure SQL Database 連接器，為組織建立工作流程來管理資料表中的資料。 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 本主題說明如何在邏輯應用程式中使用 SQL Database 連接器，並且也列出動作。
 
-若要深入瞭解 Logic Apps，請參閱[什麼是邏輯應用程式](../logic-apps/logic-apps-what-are-logic-apps.md)以及[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+若要深入瞭解 Logic Apps，請參閱[什麼是邏輯應用程式](../logic-apps/logic-apps-overview.md)以及[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="connect-to-azure-sql-database"></a>連線到 Azure SQL Database
 您必須先建立與服務的「連線」，才能透過邏輯應用程式存取任何服務。 連線可讓邏輯應用程式與另一個服務連線。 例如，若要連線到 SQL Database，您必須先建立 SQL Database「連線」。 若要建立連線，您需要輸入平常用來存取所連線服務的認證。 因此，在 SQL Database 中，請輸入 SQL Database 認證來建立連線。 
@@ -42,10 +42,10 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-a-trigger"></a>使用觸發程序
-此連接器並沒有任何觸發程序。 請使用其他觸發程序來啟動邏輯應用程式，例如循環觸發程序、HTTP Webhook 觸發程序、其他連接器適用的觸發程序等等。 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md) 可提供範例。
+此連接器並沒有任何觸發程序。 請使用其他觸發程序來啟動邏輯應用程式，例如循環觸發程序、HTTP Webhook 觸發程序、其他連接器適用的觸發程序等等。 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md) 可提供範例。
 
 ## <a name="use-an-action"></a>使用動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
 1. 選取加號。 您會看到幾個選擇︰[新增動作]、[新增條件] 或其中一個 [其他] 選項。
    
@@ -71,5 +71,5 @@ ms.lasthandoff: 10/11/2017
 檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/sql/)的所有限制。 
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>使用檔案系統連接器，從邏輯應用程式連線到內部部署檔案系統
 
 若要管理資料並安全地存取內部部署資源，您的邏輯應用程式可以使用內部部署資料閘道。 本文說明如何透過以下基本範例案例來連線到內部部署檔案系統：將已上傳至 Dropbox 的檔案複製到檔案共用，然後傳送電子郵件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 下載最新的[內部部署資料閘道](https://www.microsoft.com/download/details.aspx?id=53127)。
 
 * 安裝並設定最新的內部部署資料閘道 (1.15.6150.1 版或更新版本)。 如需了解這些步驟，請參閱[連線到內部部署資料來源](http://aka.ms/logicapps-gateway)。 您必須先在內部部署電腦上安裝閘道，才能繼續執行這些步驟。
 
-* [如何建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)的基本知識
+* [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>新增用來連線到檔案系統的觸發程序和動作
 

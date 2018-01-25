@@ -2,23 +2,17 @@
 title: "教學課程︰在 Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob | Microsoft Docs"
 description: "如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure Key Vault 來加密和解密 Blob。"
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 ## <a name="introduction"></a>簡介
@@ -30,7 +24,7 @@ ms.lasthandoff: 10/21/2017
 
 如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列項目：
 
 * Azure 儲存體帳戶
@@ -167,10 +161,6 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
-
-以下是目前 [Azure 傳統入口網站](https://manage.windowsazure.com)的螢幕擷取畫面，其中使用用戶端加密與金鑰保存庫中儲存的金鑰來加密 blob。 **KeyId** 屬性是金鑰保存庫中做為 KEK 的金鑰的 URI。 **EncryptedKey** 屬性包含 CEK 的加密版本。
-
-![此螢幕擷取畫面顯示包含加密中繼資料的 Blob 中繼資料](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > 如果您查看 BlobEncryptionPolicy 建構函式，您會看到它可接受金鑰和 (或) 解析程式。 請注意，現在您無法使用解析程式進行加密，因為它目前不支援預設金鑰。

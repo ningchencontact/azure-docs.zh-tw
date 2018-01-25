@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27a9297c5d4cfb52f254ceb12e37423403e7f41b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-facebook-connector"></a>開始使用 Facebook 連接器
 連線到 Facebook 並張貼在動態時報上、取得頁面摘要等等。 您可以利用 Facebook 來：
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 * 在接收到新貼文時使用觸發程序。
 * 使用會張貼到您的動態時報、取得頁面摘要等等的動作。 這些動作會收到回應，然後輸出能讓其他動作使用的資料。 舉例來說，當您的動態時報上有新貼文時，您可以取得該貼文，然後把它推送到您的 Twitter 摘要。 
 
-您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-facebook"></a>建立至 Facebook 的連線
 當您將這個連接器新增到邏輯應用程式時，您必須授權邏輯應用程式，使其能夠連線到您的 Facebook。

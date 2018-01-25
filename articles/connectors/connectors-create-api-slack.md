@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>開始使用 Slack 連接器
 Slack 是團隊通訊工具，能把您團隊的通訊都集中在一個地方，讓您不但在何處都可使用，還能搜尋各項記錄。 
 
-立即開始建立邏輯應用程式，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+立即開始建立邏輯應用程式，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-slack"></a>建立至 Slack 的連線
 如要使用 Slack 連接器，您必須先建立 **連線** ，然後提供下列屬性的詳細資料： 
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| 權杖 |是 |提供 Slack 的認證 |
+| token |yes |提供 Slack 的認證 |
 
 請遵循下列步驟登入 Slack，並在邏輯應用程式中完成 Slack **連線** 設定：
 

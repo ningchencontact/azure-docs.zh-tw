@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: e872062eddd4ae74f6148673a8f0b27751e37ca4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>傳送使用者內容識別碼以啟用 Azure Application Insights 中的使用體驗
 
@@ -52,7 +52,7 @@ Application Insights 可讓您透過一組產品使用量工具來監控並追�
 
 此範例會將使用者識別碼設定為在工作階段之後到期的識別碼。 如果可能，請使用工作階段期間持續存在的使用者識別碼。
 
-```C#
+```csharp
 
     using System;
     using System.Web;

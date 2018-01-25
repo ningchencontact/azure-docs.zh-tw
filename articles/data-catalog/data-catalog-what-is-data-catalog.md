@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9bfa673cd9fc896aaeeeb355950177d47e6428fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: edf6e1d8b86d9773b54353bb70f000bcdf40e5ec
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="what-is-azure-data-catalog"></a>什麼是 Azure 資料目錄？
-Azure 資料目錄是完全受管理的雲端服務，能讓其使用者探索它們需要的資料來源，並了解他們所尋找的資料來源。 同時，資料目錄可協助組織從現有的投資中獲得更多價值。 
+Azure 資料目錄是完全受控的雲端服務，能讓其使用者探索它們需要的資料來源，並了解他們所尋找的資料來源。 同時，資料目錄可協助組織從現有的投資中獲得更多價值。 
 
 任何使用者 (分析師、資料科學家或開發人員) 都能利用資料目錄來探索、了解及取用資料來源。 資料目錄包括中繼資料和附註的 crowdsourcing 模型。 它是單一的中心位置，能讓組織的所有使用者貢獻其專業知識，並建置資料的社群和文化特性。
 

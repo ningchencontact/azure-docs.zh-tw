@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>開始使用 ProjectOnline 連接器
 Project Online 是專案組合管理 (PPM) 與 Microsoft 日常工作的彈性線上方案。 Project Online 透過 Office 365 傳遞，可讓組織快速開始使用功能強大的專案管理功能，來規劃、設定優先順序以及管理專案和專案組合投資，不受場地和裝置的限制。
 
-您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-projectonline"></a>建立 ProjectOnline 的連線
 若要使用 ProjectOnline 建立邏輯應用程式，您必須先建立**連接**，然後提供下列屬性的詳細資料︰ 
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| 權杖 |是 |提供 ProjectOnline 認證 |
+| token |yes |提供 ProjectOnline 認證 |
 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 

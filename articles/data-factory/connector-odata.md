@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,11 +48,11 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 OData 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為： **OData** |是 |
-| url | OData 服務的根 URL。 |是 |
-| authenticationType | 用來連線到 OData 來源的驗證類型。<br/>允許的值為：**Anonymous** (匿名)、**Basic** (基本) 及 **Windows**。 請注意，不支援 OAuth。 | 是 |
+| type | 類型屬性必須設為： **OData** |yes |
+| url | OData 服務的根 URL。 |yes |
+| authenticationType | 用來連線到 OData 來源的驗證類型。<br/>允許的值為：**Anonymous** (匿名)、**Basic** (基本) 及 **Windows**。 請注意，不支援 OAuth。 | yes |
 | userName | 如果您使用基本或 Windows 驗證，請指定使用者名稱。 | 否 |
 | password | 指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -130,9 +130,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 OData 複製資料，請將資料集的類型屬性設定為 **ODataResource**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**ODataResource** | 是 |
+| type | 資料集的類型屬性必須設定為：**ODataResource** | yes |
 | path | OData 資源的路徑。 | 否 |
 
 **範例**
@@ -163,9 +163,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 OData 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
 | query | 用來篩選資料的 OData 查詢選項。 範例："?$select=Name,Description&$top=5"。<br/><br/>最後，請注意，OData 連接器會從以下的組合 URL 複製資料：`[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 請參考 [OData URL 元件](http://www.odata.org/documentation/odata-version-3-0/url-conventions/) \(英文\)。 | 否 |
 
 **範例：**

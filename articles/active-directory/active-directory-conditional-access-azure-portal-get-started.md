@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>開始使用 Azure Active Directory 中的條件式存取
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 許多組織有一個共同需求：只需要 Multi-Factor Authentication，即可存取不是從公司內部網路執行的應用程式。 使用 Azure Active Directory 設定以位置為基礎的條件式存取原則，即可輕鬆地完成此目標。 本主題提供設定相關原則的詳細指示。 原則會利用[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) 來區別從公司內部網路與所有其他位置進行的存取嘗試。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本主題中概述的案例假設您熟悉 [Azure Active Directory 條件式存取](active-directory-conditional-access-azure-portal.md)中所述的概念。
 

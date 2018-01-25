@@ -13,17 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: ce40c90af65a8872db61ee01f99200d75fc78053
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 826676600094b956ff84cc88c61e667841043837
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>如何使用 Azure 資料目錄中的巨量資料來源
 ## <a name="introduction"></a>簡介
-**Microsoft Azure 資料目錄** 是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。 其重點在於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料來源 (包括巨量資料) 獲得更多價值。
+
+            **Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 其重點在於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料來源 (包括巨量資料) 獲得更多價值。
 
 **Azure 資料目錄** 支援註冊 Azure Blob 儲存體 blob 和目錄，以及 Hadoop HDFS 檔案和目錄。 這些資料來源的半結構化本質提供很大的彈性。 不過，若要透過向 **Azure 資料目錄**註冊資料來源來獲得最多價值，使用者必須考慮如何組織資料來源。
 
@@ -65,5 +66,5 @@ ms.lasthandoff: 11/03/2017
 ## <a name="alternate-patterns"></a>替代模式
 上節所述模式只是組織巨量資料存放區的兩種可能方式，但是每一種實作各不相同。 不論您的資料來源有何結構，向 **Azure 資料目錄**註冊巨量資料來源時，需要註冊的檔案和目錄應該代表對組織內的其他人有價值的資料集。 註冊所有檔案和目錄可能造成目錄雜亂，導致使用者難以找所需的資料。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 向 **Azure 資料目錄** 註冊資料來源可讓您更輕鬆地探索和了解它們。 您可以註冊並加註代表邏輯資料集的巨量資料檔案和目錄，以協助使用者找到並使用所需的巨量資料來源。

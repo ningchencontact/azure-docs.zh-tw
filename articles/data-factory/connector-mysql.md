@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/11/2018
 
 具體而言，這個 MySQL 連接器支援 MySQL **5.1 版和更新版本**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用這個 MySQL 連接器，您必須：
 
@@ -55,15 +55,15 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 MySQL 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**MySql** | 是 |
-| 伺服器 | MySQL 伺服器的名稱。 | 是 |
-| 資料庫 | MySQL 資料庫的名稱。 | 是 |
+| type | 類型屬性必須設定為：**MySql** | yes |
+| 伺服器 | MySQL 伺服器的名稱。 | yes |
+| 資料庫 | MySQL 資料庫的名稱。 | yes |
 | 結構描述 | 在資料庫中的結構描述名稱。 | 否 |
-| username | 指定要連線到 MySQL 資料庫的使用者名稱。 | 是 |
-| password | 指定您所指定使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
+| username | 指定要連線到 MySQL 資料庫的使用者名稱。 | yes |
+| password | 指定您所指定使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | yes |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |yes |
 
 **範例：**
 
@@ -95,9 +95,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 MySQL 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | yes |
 | tableName | MySQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -125,9 +125,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 MySQL 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

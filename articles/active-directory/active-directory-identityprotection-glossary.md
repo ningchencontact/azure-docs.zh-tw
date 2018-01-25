@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection 詞彙
 ### <a name="at-risk-user"></a>有風險 (使用者)
@@ -160,6 +160,6 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 ### <a name="vulnerability"></a>弱點
 Azure Active Directory 中的組態或狀況，此組態或狀況會使目錄容易受到入侵或威脅的影響。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

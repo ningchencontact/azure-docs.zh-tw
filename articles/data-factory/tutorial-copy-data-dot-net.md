@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 85a8a3234c052828556ce5d8ba5841a5bf012971
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 0747ba79529bc2f12f1c5d74cbfcb7b62a62baa8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 在本教學課程中，您會建立 Data Factory 管道，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -40,13 +40,13 @@ ms.lasthandoff: 12/20/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為**來源**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文，按照步驟來建立帳戶。
 * **Azure SQL Database**。 您會使用資料庫作為**接收**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
 * **Visual Studio** 2015 或 2017。 本文中的逐步解說使用 Visual Studio 2017。
 * **下載並安裝 [Azure .NET SDK](http://azure.microsoft.com/downloads/)**。
-* 依照[此指示](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 依照相同文件中的指示，將應用程式指派給「**參與者**」角色。
+* 依照[此指示](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。
 
 ### <a name="create-a-blob-and-a-sql-table"></a>建立 Blob 和 SQL 資料表
 
@@ -332,7 +332,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>建立管道執行
 
-將下列程式碼新增至 **Main** 方法，以**觸發管道執行**。
+將下列程式碼新增至 **Main** 方法，以**觸發管線執行**。
 
 ```csharp
 // Create a pipeline run

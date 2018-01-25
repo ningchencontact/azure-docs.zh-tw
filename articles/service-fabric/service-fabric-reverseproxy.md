@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
@@ -39,11 +39,13 @@ Service Fabric 中的微服務在叢集中的節點子集上執行，而且可�
 
 ![內部通訊][1]
 
+> [!NOTE]
 > **支援的平台**
 >
 > Service Fabric 中的反向 Proxy 目前支援下列平台
 > * *Windows 叢集*：Windows 8 和更新版本或 Windows Server 2012 和更新版本
 > * *Linux 叢集*：反向 Proxy 目前不適用於 Linux 叢集
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>從叢集外部連線到微服務
 微服務的預設外部通訊模型是選擇加入模型，每項服務都無法從外部用戶端直接存取。 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 是微服務與外部用戶端之間的網路界限，負責執行網路位址轉譯，並將外部要求轉送給內部的 IP:port 端點。 若要讓微服務的端點能直接從外部用戶端來存取，您必須先將 Load Balancer 設為轉送流量到服務在叢集中使用的每個連接埠。 此外，大部分的微服務 (特別是可設定狀態的微服務) 不存在於叢集的所有節點上。 微服務可以在容錯移轉時於節點之間移動。 在這種情況下，Load Balancer 無法有效地判斷它應該將流量轉送到之複本的目標節點位置。

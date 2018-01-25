@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 系列 Update 4 版本資訊
 > [!NOTE]
-> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
 
 ## <a name="overview"></a>概觀
@@ -59,7 +59,7 @@ Update 4 包含以下重要的改良功能和錯誤修正。
 
 * **更新變更** - 此版本已修正與更新失敗相關的錯誤。
 
-* **磁碟失敗的警示** - 此版本中增加新的警示，可向使用者警告磁碟即將失敗。 如果您遇到此警示，請連絡 Microsoft 支援服務以運送替換磁碟。 如需詳細資訊，請移至 [StorSimple 裝置上的硬體警示](storsimple-manage-alerts.md#hardware-alerts)。
+* **磁碟失敗的警示** - 此版本中增加新的警示，可向使用者警告磁碟即將失敗。 如果您遇到此警示，請連絡 Microsoft 支援服務以運送替換磁碟。 如需詳細資訊，請移至 [StorSimple 裝置上的硬體警示](storsimple-8000-manage-alerts.md#hardware-alerts)。
 
 * **控制器更換變更** - 此版本中增加 Cmdlet，可讓使用者查詢控制器更換程序的狀態。 如需詳細資訊，請移至[用於查詢控制器更換狀態的 Cmdlet](https://technet.microsoft.com/library/dn688168.aspx)。
 
@@ -70,12 +70,12 @@ Update 4 包含以下重要的改良功能和錯誤修正。
 
 | 否 | 功能 | 問題 | 適用於實體裝置 | 適用於虛擬裝置 |
 | --- | --- | --- | --- | --- |
-| 1 |容錯移轉 |在舊版中，容錯移轉之後，已在客戶方面發現有關清除的問題。 此版本已經修正這個問題。 |是 |是 |
-| 2 |固定在本機的磁碟區 |在舊版中，建立本機固定磁碟區方面有問題，導致建立磁碟區失敗。 此版本已找出此問題的根本原因並加以修正。 |是 |否 |
-| 3 |支援封裝 |在舊版中，支援套件方面有問題，造成 System.OutOfMemory 例外狀況或其他錯誤，導致建立支套件失敗。 此版本已經修正這些錯誤。 |是 |是 |
-| 4 |監視 |在舊版中，本機固定磁碟區的監視圖表有問題，顯示的耗用量是以 EB 為單位。 此版本已經解決這個錯誤。 |是 |是 |
-| 5 |移轉 |在舊版中，從 5000-7000 系列移轉至 8000 系列裝置的可靠性有幾個問題。 此版本已經解決這些問題。 |是 |是 |
-| 6 |更新 |在舊版中，如果發生更新失敗，控制器會進入復原模式，造成使用者無法繼續更新，並且需要連絡 Microsoft 支援服務。 <br> 這個行為在此版本中已變更。 如果使用者在兩個控制器執行相同版本 (Update 4) 之後發生更新失敗，控制器不會進入復原模式。 如果使用者遇到此失敗，我們建議他們先稍候一陣子，再重試更新。 重試應該能成功。 如果重試失敗，他們便應該連絡 Microsoft 支援服務。 |是 |是 |
+| 1 |容錯移轉 |在舊版中，容錯移轉之後，已在客戶方面發現有關清除的問題。 此版本已經修正這個問題。 |yes |yes |
+| 2 |固定在本機的磁碟區 |在舊版中，建立本機固定磁碟區方面有問題，導致建立磁碟區失敗。 此版本已找出此問題的根本原因並加以修正。 |yes |否 |
+| 3 |支援封裝 |在舊版中，支援套件方面有問題，造成 System.OutOfMemory 例外狀況或其他錯誤，導致建立支套件失敗。 此版本已經修正這些錯誤。 |yes |yes |
+| 4 |監視 |在舊版中，本機固定磁碟區的監視圖表有問題，顯示的耗用量是以 EB 為單位。 此版本已經解決這個錯誤。 |yes |yes |
+| 5 |移轉 |在舊版中，從 5000-7000 系列移轉至 8000 系列裝置的可靠性有幾個問題。 此版本已經解決這些問題。 |yes |yes |
+| 6 |更新 |在舊版中，如果發生更新失敗，控制器會進入復原模式，造成使用者無法繼續更新，並且需要連絡 Microsoft 支援服務。 <br> 這個行為在此版本中已變更。 如果使用者在兩個控制器執行相同版本 (Update 4) 之後發生更新失敗，控制器不會進入復原模式。 如果使用者遇到此失敗，我們建議他們先稍候一陣子，再重試更新。 重試應該能成功。 如果重試失敗，他們便應該連絡 Microsoft 支援服務。 |yes |yes |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Update 4 中舊版的已知問題

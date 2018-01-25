@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>開始使用 SFTP 連接器
 使用 SFTP 連接器存取 SFTP 帳戶來傳送及接收檔案。 您可以執行各種作業，例如建立、更新、取得或刪除檔案。  
 
-若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)來開始。
+若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)來開始。
 
 ## <a name="connect-to-sftp"></a>連接至 SFTP
 您必須先建立與服務的連線，才能透過邏輯應用程式存取任何服務。 [連線](connectors-overview.md)可讓邏輯應用程式與另一個服務連線。  
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-an-sftp-trigger"></a>使用 SFTP 觸發程序
-觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。  
+觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
 
 在此範例中，當在 SFTP 伺服器上新增或修改檔案時，就會使用 **SFTP - 新增或修改檔案時**觸發程序起始邏輯應用程式工作流程。 您也可以新增會檢查新的或修改之檔案內容的條件，並在使用內容之前如果檔案指出它應該要解壓縮時，決定將檔案解壓縮。 最後，新增動作以解壓縮檔案的內容，並將解壓縮的內容放在 SFTP 伺服器上的資料夾。 
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-an-sftp-action"></a>使用 SFTP 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。  
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 

@@ -4,7 +4,7 @@ description: "說明安裝精靈在第二次執行時的運作方式。"
 keywords: "Azure AD Connect 安裝精靈可讓您在第二次執行時設定維護設定"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步處理︰第二次執行安裝精靈
 第一次執行 Azure AD Connect 安裝精靈時，它會逐步引導您設定安裝。 如果您再次執行安裝精靈，它則會提供維護選項。

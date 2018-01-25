@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
 [Azure 進階儲存體](../premium-storage.md) 是新一代儲存體，可提供低延遲和高輸送量 IO。 它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
 
@@ -270,7 +270,7 @@ ms.lasthandoff: 11/02/2017
 
 
 #### <a name="step-3-use-existing-image"></a>步驟 3：使用現有的映像
-您可以使用現有的映像。 或者，您可以 [取得現有機器的映像](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 請注意，您取得映像的機器並不需要是 DS* 機器。 一旦取得映像之後，下列步驟示範如何使用 **Start-AzureStorageBlobCopy** PowerShell Commandlet，將它複製到進階儲存體帳戶。
+您可以使用現有的映像。 或者，您可以 [取得現有機器的映像](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 請注意，您取得映像的機器並不需要是 DS* 機器。 一旦取得映像之後，下列步驟示範如何使用 **Start-AzureStorageBlobCopy** PowerShell Commandlet，將它複製到進階儲存體帳戶。
 
     #Get storage account keys:
     #Standard Storage account
@@ -548,7 +548,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>附錄：將多站台 Always On 叢集移轉到進階儲存體
 本主題的其餘部分提供將多站台 Always On 叢集轉換為「進階儲存體」的詳盡範例。 它還會將接聽程式從使用外部負載平衡器 (ELB) 轉換為內部負載平衡器 (ILB)。
 
-### <a name="environment"></a>Environment
+### <a name="environment"></a>環境
 * Windows 2k12 / SQL 2k12
 * SP 上 1 個 DB 檔案
 * 每個節點 2 x 個儲存集區

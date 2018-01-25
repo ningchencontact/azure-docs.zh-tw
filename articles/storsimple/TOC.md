@@ -2,7 +2,6 @@
 
 ## 概觀
 ### [解決方案為何？](storsimple-ova-overview.md)
-### [區域可用性](storsimple-regions.md)
 
 ## 開始使用
 ### 規劃
@@ -13,6 +12,7 @@
 ### 部署
 #### [準備部署](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [部署 StorSimple Manager 服務](storsimple-virtual-array-manage-service.md)
+##### [新驗證](storsimple-virtual-array-aad-registration-key.md)
 #### [在 Hyper-V 中佈建](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [在 VMware 中佈建](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [設定為檔案伺服器](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### 部署
 #### [StorSimple 裝置管理員服務](storsimple-8000-manage-service.md)
+#### [新的服務驗證](storsimple-8000-aad-registration-key.md)
 #### [Azure 中的實體裝置](storsimple-8000-deployment-walkthrough-u2.md)
 #### [政府服務入口網站中的實體裝置](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Azure 中的雲端設備](storsimple-8000-cloud-appliance-u2.md)
@@ -236,7 +237,7 @@
 ## [行銷部落格](http://blogs.technet.com/b/cis/)
 ## [行銷](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [價格](https://azure.microsoft.com/pricing/details/storsimple/)
+## [定價](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=storsimple)
 ## [支援部落格](http://blogs.msdn.com/b/storsimple/)

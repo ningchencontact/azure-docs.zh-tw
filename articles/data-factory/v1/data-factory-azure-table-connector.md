@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 765ca21c7c38fa116e0ca95b3c8dc6a6152834ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure 資料表來回移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/02/2017
 > * [第 2 版 - 預覽](../connector-azure-table-storage.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure 表格儲存體連接器](../connector-azure-table-storage.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure 表格儲存體連接器](../connector-azure-table-storage.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，將資料移進/移出「Azure 資料表儲存體」。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。 
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/02/2017
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |使用自訂查詢來讀取資料。 |Azure 資料表查詢字串。 請參閱下一節中的範例。 |否。 指定 tableName 時若沒有指定 azureTableSourceQuery，資料表中的所有記錄都會複製到目的地。 如果同時指定了 azureTableSourceQuery，則資料表中符合查詢的記錄會複製到目的地。 |
+| AzureTableSourceQuery |使用自訂查詢來讀取資料。 |Azure 資料表查詢字串。 請參閱下一節中的範例。 |編號 指定 tableName 時若沒有指定 azureTableSourceQuery，資料表中的所有記錄都會複製到目的地。 如果同時指定了 azureTableSourceQuery，則資料表中符合查詢的記錄會複製到目的地。 |
 | azureTableSourceIgnoreTableNotFound |指出是否忍受資料表不存在的例外狀況。 |TRUE<br/>FALSE |否 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 範例
@@ -478,12 +478,12 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | --- | --- | --- |
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
 | Edm.Boolean |布林 |布林值。 |
-| Edm.DateTime |DateTime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
+| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
 | Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |Guid |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |
 | Edm.Int64 |Int64 |64 位元的整數。 |
-| Edm.String |String |UTF 16 編碼值。 字串值最大可達 64 KB。 |
+| Edm.String |字串 |UTF 16 編碼值。 字串值最大可達 64 KB。 |
 
 ### <a name="type-conversion-sample"></a>類型轉換範例
 下列範例適用於使用類型轉換從 Azure Blob 複製資料到 Azure 資料表。
@@ -537,7 +537,7 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | 資料行名稱 | 類型 |
 | --- | --- |
 | userid |Edm.Int64 |
-| 名稱 |Edm.String |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 接著，依下列方式定義「Azure 資料表」資料集。 您不需要指定含有類型資訊的「結構」區段，因為類型資訊已在基礎資料存放區中指定。
@@ -562,7 +562,7 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 在此情況下，Data Factory 會自動進行類型轉換，包括將資料從 Blob 移到「Azure 資料表」時，含有自訂日期時間格式 (使用 "fr-fr" 文化特性) 的 Datetime 欄位。
 
 > [!NOTE]
-> 若要將來自來源資料集的資料行與來自接收資料集的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
+> 若要將來源資料集中的資料行對應至接收資料集中的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
 ## <a name="performance-and-tuning"></a>效能和微調
 若要了解在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素，以及各種最佳化的方法，請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)。

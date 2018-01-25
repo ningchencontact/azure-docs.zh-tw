@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>在 Microsoft Operations Management Suite (OMS) 中追蹤 B2B 通訊
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="requirements"></a>需求
 
-* 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](logic-apps-create-a-logic-app.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
+* 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
 * 已設定監視和記錄的整合帳戶。 了解[如何建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)和[如何設定該帳戶的監視和記錄](../logic-apps/logic-apps-monitor-b2b-message.md)。
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 | 傳送者 | 針對 AS2 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 AS2 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
 | 邏輯應用程式 | 已設定 AS2 動作的邏輯應用程式 |
-| Status | AS2 訊息狀態 <br>成功 = 已接收或傳送有效的 AS2 訊息。 未設定 MDN。 <br>成功 = 已接收或傳送有效的 AS2 訊息。 已設定並接收 MDN，或傳送 MDN。 <br>失敗 = 已接收無效的 AS2 訊息。 未設定 MDN。 <br>暫止 = 已接收或傳送有效的 AS2 訊息。 已設定 MDN，並預期要有 MDN。 |
+| 狀態 | AS2 訊息狀態 <br>成功 = 已接收或傳送有效的 AS2 訊息。 未設定 MDN。 <br>成功 = 已接收或傳送有效的 AS2 訊息。 已設定並接收 MDN，或傳送 MDN。 <br>失敗 = 已接收無效的 AS2 訊息。 未設定 MDN。 <br>暫止 = 已接收或傳送有效的 AS2 訊息。 已設定 MDN，並預期要有 MDN。 |
 | Ack | MDN 訊息狀態 <br>接受 = 已接收或傳送正值的 MDN。 <br>暫止 = 等候接收或傳送 MDN。 <br>拒絕 = 已接收或傳送負值的 MDN。 <br>不需要 = 未在協議中設定 MDN。 |
 | 方向 | AS2 訊息方向 |
 | 相互關連識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
@@ -183,7 +183,7 @@ ms.lasthandoff: 10/11/2017
 | 傳送者 | 針對 X12 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 X12 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
 | 邏輯應用程式 | 已設定 X12 動作的邏輯應用程式 |
-| Status | X12 訊息狀態 <br>成功 = 已接收或傳送有效的 X12 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 X12 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 X12 訊息。 <br>暫止 = 已接收或傳送有效的 X12 訊息。 已設定功能通知，並預期要有功能通知。 |
+| 狀態 | X12 訊息狀態 <br>成功 = 已接收或傳送有效的 X12 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 X12 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 X12 訊息。 <br>暫止 = 已接收或傳送有效的 X12 訊息。 已設定功能通知，並預期要有功能通知。 |
 | Ack | 功能認可 (997) 狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |
 | 方向 | X12 訊息方向 |
 | 相互關連識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
@@ -216,7 +216,7 @@ ms.lasthandoff: 10/11/2017
 | 傳送者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
 | 邏輯應用程式 | 已設定 EDIFACT 動作的邏輯應用程式 |
-| Status | EDIFACT 訊息狀態 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 EDIFACT 訊息。 <br>暫止 = 已接收或傳送有效的 EDIFACT 訊息。 已設定功能通知，並預期要有功能通知。 |
+| 狀態 | EDIFACT 訊息狀態 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 EDIFACT 訊息。 <br>暫止 = 已接收或傳送有效的 EDIFACT 訊息。 已設定功能通知，並預期要有功能通知。 |
 | Ack | 功能認可 (997) 狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |
 | 方向 | EDIFACT 訊息方向 |
 | 相互關連識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |

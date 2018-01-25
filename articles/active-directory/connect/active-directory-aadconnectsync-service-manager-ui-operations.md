@@ -3,7 +3,7 @@ title: "Azure AD Connect Synchronization Service Manager 作業 | Microsoft Docs
 description: "了解 Azure AD Connect 的 Synchronization Service Manager 中的 [作業] 索引標籤。"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70086291e3a33f5a1f733e81d7a1d7bf76439cf0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>使用 Sync Service Manager 作業索引標籤
 

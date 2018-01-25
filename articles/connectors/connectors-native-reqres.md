@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>開始使用要求和回應元件
 透過邏輯應用程式中的要求和回應元件，您可以即時回應事件。
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 * 從外部 Webhook 事件觸發邏輯應用程式。
 * 從另一個邏輯應用程式內使用要求和回應動作呼叫邏輯應用程式。
 
-若要使用邏輯應用程式中的要求和回應動作來開始作業，請參閱 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+若要使用邏輯應用程式中的要求和回應動作來開始作業，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-http-request-trigger"></a>使用 HTTP 要求觸發程序
 觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序](connectors-overview.md)。
@@ -76,7 +76,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 
 | 動作 | 說明 |
 | --- | --- |
-| 回應 |傳回相互關聯的 HTTP 要求的回應 |
+| Response |傳回相互關聯的 HTTP 要求的回應 |
 
 ### <a name="trigger-and-action-details"></a>觸發程序和動作詳細資料
 下表描述觸發程序和動作的輸入欄位，以及對應的輸出詳細資料。
@@ -97,7 +97,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 | 屬性名稱 | 資料類型 | 說明 |
 | --- | --- | --- |
 | headers |物件 |要求標頭 |
-| 內文 |物件 |要求物件 |
+| body |物件 |要求物件 |
 
 #### <a name="response-action"></a>回應動作
 以下是 HTTP 回應動作的輸入欄位。 標示 * 代表必要欄位。
@@ -105,9 +105,9 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 | 顯示名稱 | 屬性名稱 | 說明 |
 | --- | --- | --- |
 | 狀態碼 * |StatusCode |HTTP 狀態碼 |
-| 標頭 |標頭 |要包含的任何回應標頭的 JSON 物件 |
-| 內文 |內文 |回應本文 |
+| headers |headers |要包含的任何回應標頭的 JSON 物件 |
+| body |body |回應本文 |
 
 ## <a name="next-steps"></a>後續步驟
-立即試用平台和 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。
+立即試用平台和 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。
 

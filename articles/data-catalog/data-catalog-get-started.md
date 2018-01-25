@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: a1d16cac19571c5802be081d6972e1f74f6dffe1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-azure-data-catalog"></a>開始使用 Azure 資料目錄
-Azure 資料目錄是受到完整管理的雲端服務，可作為企業資料資產的註冊系統和探索系統。 如需詳細的概觀，請參閱 [什麼是 Azure 資料目錄](data-catalog-what-is-data-catalog.md)。
+Azure 資料目錄是完全受控的雲端服務，可作為企業資料資產的註冊系統和探索系統。 如需詳細的概觀，請參閱 [什麼是 Azure 資料目錄](data-catalog-what-is-data-catalog.md)。
 
 本教學課程可協助您開始使用 Azure 資料目錄。 您會在本教學課程中執行下列程序：
 
@@ -352,7 +352,7 @@ Azure 資料目錄支援支援群眾外包 (crowd-sourcing) 的註解作法。 A
 > 
 > 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 在本教學課程中，您已瀏覽 Azure 資料目錄的基本功能，包括註冊、註解、探索和管理企業資料資產。 既然您已經完成本教學課程，現在可以開始使用。 您可以立即開始註冊您和小組所依賴的資料來源，並邀請同事使用目錄。
 
 ## <a name="references"></a>參考

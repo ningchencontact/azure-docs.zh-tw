@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 ## <a name="overview"></a>概觀
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/02/2018
 
 也許您事先對這所有問題沒有答案，但是沒關係。  本指南可協助您回答其中一些問題，並做出一些明智的決策。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 一個 Azure 訂用帳戶，以及一個 Azure Active Directory 目錄。  如果您尚沒有 Azure 訂用帳戶，可以免費試用 Azure 30 天。 [立即試用！](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>與 Azure AD 的應用程式整合
@@ -90,6 +90,6 @@ ms.lasthandoff: 01/02/2018
 
 如果您想要加入您的自訂應用程式至 Azure 應用程式資源庫，請參閱 [使用 Azure AD 自助 SAML 組態「自備應用程式」](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 

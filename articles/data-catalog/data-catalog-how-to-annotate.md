@@ -13,17 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>如何註解資料來源
 ## <a name="introduction"></a>簡介
-**Microsoft Azure 資料目錄** 是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，資料目錄的重點在於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料獲得更多價值。 當資料來源向資料目錄註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。 資料目錄可讓使用者提供自己的描述性中繼資料 (如描述和標記)，以補充擷取自資料來源的中繼資料，並且讓更多人能夠理解資料來源。
+
+            **Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，資料目錄的重點在於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料獲得更多價值。 當資料來源向資料目錄註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。 資料目錄可讓使用者提供自己的描述性中繼資料 (如描述和標記)，以補充擷取自資料來源的中繼資料，並且讓更多人能夠理解資料來源。
 
 ## <a name="annotation-and-crowdsourcing"></a>註解與群眾外包
 每個人都有意見。 而這是一件好事。
@@ -40,7 +41,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="different-types-of-annotations"></a>不同類型的註解
 資料目錄支援下列類型的註解：
 
-| 註解 | 注意事項 |
+| 註解 | 注意 |
 | --- | --- |
 | 易記名稱 |易記名稱可在資料資產層級提供，讓資料資產更易於了解。 當基礎物件的名稱難以理解、以縮寫表示或對使用者不具意義時，易記名稱會非常有幫助。 |
 | 說明 |說明可以在資料資產和屬性 / 資料行層級提供。 說明是自由格式的簡短文字註解，描述使用者對於資料資產的觀點或其用途。 |
@@ -63,7 +64,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="annotations-and-discovery"></a>註解和探索
 如同註冊期間從資料來源擷取的中繼資料會新增至資料目錄搜尋索引一樣，使用者提供的中繼資料也會建立索引。 這表示註解不只讓使用者更容易理解探索的資料來源，同時也讓使用者更容易使用對他們有意義的詞彙進行搜尋，以探索已加上註解的資料資產。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 使用資料目錄註冊資料來源，即可藉由將資料來源的結構性和描述性中繼資料複製到「目錄」服務內，使其變成可探索的資料。 註冊資料來源之後，使用者就能加上註解，讓在資料目錄入口網站中探索和理解變得更加容易。
 
 ## <a name="see-also"></a>另請參閱

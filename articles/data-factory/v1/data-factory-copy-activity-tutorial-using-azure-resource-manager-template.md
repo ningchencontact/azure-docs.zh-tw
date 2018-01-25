@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f3523f17b5b39da94177038584d983aa3592199f
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure Resource Manager 範本建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 > [!NOTE] 
 > 本教學課程中的資料管線會將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 轉換資料的教學課程，請參閱[教學課程︰使用 Hadoop 叢集建置管線來轉換資料](data-factory-build-your-first-pipeline.md)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 請檢閱[教學課程概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)並完成**必要**步驟。
 * 按照 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 一文中的指示，在您的電腦上安裝最新版的 Azure PowerShell。 在本教學課程中，您可以使用 PowerShell 來部署 Data Factory 實體。 
 * (選擇性) 若要了解 Azure Resource Manager 範本，請參閱 [撰寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 。
@@ -314,7 +314,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="create-data-factory"></a>建立 Data Factory
+## <a name="create-data-factory"></a>建立資料處理站
 1. 啟動 **Azure PowerShell** 並執行下列命令：
    * 執行下列命令並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
    

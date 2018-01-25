@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 9ad07f1760b69385a2ab9070d212e03381aa22be
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>開始使用 Box 連接器
 連線到 Box 來建立檔案、刪除檔案等等。 您可以利用 Box 來：
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/16/2018
 * 在檔案建立或更新時使用觸發程序。
 * 使用會複製檔案、刪除檔案等等的動作。 這些動作會收到回應，然後輸出能讓其他動作使用的資料。 舉例來說，當 Box 中的某個檔案變更時，您可以取得該檔案，並利用 Office 365 來傳送已附加該檔案的電子郵件。
 
-您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 

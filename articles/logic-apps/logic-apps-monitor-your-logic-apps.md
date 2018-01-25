@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
-在您[建立和執行邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)之後，即可檢查其執行歷程記錄、觸發程式歷程記錄、狀態和效能。 針對即時事件監視和更豐富的偵錯，設定邏輯應用程式的[診斷記錄](#azure-diagnostics)。 因此，您可以[尋找並檢視事件](#find-events)，例如觸發程序事件、執行事件和動作事件。 您也可以[搭配使用此診斷資料與其他服務](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。 
+在您[建立和執行邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)之後，即可檢查其執行歷程記錄、觸發程式歷程記錄、狀態和效能。 針對即時事件監視和更豐富的偵錯，設定邏輯應用程式的[診斷記錄](#azure-diagnostics)。 因此，您可以[尋找並檢視事件](#find-events)，例如觸發程序事件、執行事件和動作事件。 您也可以[搭配使用此診斷資料與其他服務](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。 
 
 若要取得失敗或其他可能問題的通知，請設定[警示](#add-azure-alerts)。 例如，您可以建立警示來偵測「一小時有五個以上的執行失敗時」。 您也可以使用 [Azure 診斷事件設定和內容](#diagnostic-event-properties)，透過程式設計方式設定監視、追蹤和記錄。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 選取邏輯應用程式，然後選擇 [概觀]。
 
-   Azure 入口網站會顯示邏輯應用程式的執行歷程記錄和觸發程序歷程記錄。 例如：
+   Azure 入口網站會顯示邏輯應用程式的執行歷程記錄和觸發程序歷程記錄。 例如︰
 
    ![邏輯應用程式執行歷程記錄和觸發程序歷程記錄](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 3. 若要檢視特定執行的步驟，請在 [執行歷程記錄] 下選取該執行。 
 
-   監視檢視會顯示該執行中的每個步驟。 例如：
+   監視檢視會顯示該執行中的每個步驟。 例如︰
 
    ![特定執行的動作](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
    例如，您可以取得執行的**相互關聯識別碼**，在您使用 [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic) 時可能需要此識別碼。
 
-5. 若要取得特定步驟的詳細資料，請選擇該步驟。 您現在可以檢閱詳細資料，例如輸入、輸出以及該步驟所發生的任何錯誤。 例如：
+5. 若要取得特定步驟的詳細資料，請選擇該步驟。 您現在可以檢閱詳細資料，例如輸入、輸出以及該步驟所發生的任何錯誤。 例如︰
 
    ![步驟詳細資料](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -168,7 +168,7 @@ ms.lasthandoff: 10/11/2017
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../log-analytics/log-analytics-powerbi.md)。 例如：
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../log-analytics/log-analytics-powerbi.md)。 例如︰
 
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)

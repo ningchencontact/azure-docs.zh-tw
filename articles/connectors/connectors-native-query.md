@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>開始使用查詢動作
 您可以使用查詢動作來處理完成以下工作流程的批次和陣列︰
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 * 從資料庫建立所有高優先順序記錄的工作。
 * 將電子郵件的所有 PDF 附件儲存到 Azure Blob。
 
-若要開始在邏輯應用程式中使用查詢動作，請參閱 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+若要開始在邏輯應用程式中使用查詢動作，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-query-action"></a>使用查詢動作
 動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](connectors-overview.md)。  
@@ -80,5 +80,5 @@ ms.lasthandoff: 10/11/2017
 | 篩選的陣列 |array |陣列，其中包含每筆篩選結果的物件 |
 
 ## <a name="next-steps"></a>後續步驟
-立即試用平台和 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。
+立即試用平台和 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。
 

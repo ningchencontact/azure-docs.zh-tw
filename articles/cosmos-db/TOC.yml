@@ -248,7 +248,7 @@
           items:
             - name: 連線至您的 MongoDB 帳戶
               href: connect-mongodb-account.md
-            - name: 使用 MongoChef
+            - name: 使用 Studio 3T
               href: mongodb-mongochef.md
             - name: 使用 Robomongo
               href: mongodb-robomongo.md

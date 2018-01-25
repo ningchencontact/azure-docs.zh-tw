@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: bcd0535c689bfda02b3c100b4ae3ab8bacb932e3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/02/2017
 > * [第 2 版 - 預覽](../introduction.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Azure Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [Data Factory 第 2 版簡介](../introduction.md)。
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [Data Factory 第 2 版簡介](../introduction.md)。
 
 
 ## <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？
@@ -64,7 +64,7 @@ Azure Data Factory 中的管線 (資料驅動工作流程) 通常會執行下列
 ### <a name="connect-and-collect"></a>連線及收集
 企業會有位於不同來源的各類型資料。 建置資訊生產系統的第一個步驟是連線到所有必要的資料來源並且進行處理。 這些來源包括 SaaS 服務、檔案共用、FTP 和 Web 服務。 然後視需要將資料移至集中式位置進行後續處理。
 
-沒有 Data Factory，企業必須建置自訂的資料移動元件或撰寫自訂服務，以整合這些資料來源和處理。 整合和維護這類系統相當耗費成本而且困難。 這些系統也經常會缺少企業等級監視、警示與完全受管理的服務可以提供的控制項。
+沒有 Data Factory，企業必須建置自訂的資料移動元件或撰寫自訂服務，以整合這些資料來源和處理。 整合和維護這類系統相當耗費成本而且困難。 這些系統也經常會缺少企業等級監視、警示與完全受控服務可以提供的控制項。
 
 有了 Data Factory，您就可以使用資料管線中的複製活動，將內部部署和雲端來源資料存放區內的資料全都移動到雲端中的集中資料存放區，以供進一步分析。 
 

@@ -3,8 +3,8 @@ title: "Azure Redis 快取進階層簡介 | Microsoft Docs"
 description: "了解如何建立和管理高階層 Azure Redis Cache 執行個體的 Redis 永續性、Redis 叢集和 VNET 支援"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 38a43756678a3628040b1b995966eff6dd9fb363
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis Cache 高階層簡介
-Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資料存取，藉此協助您建置具高度延展性且快速回應的應用程式。 
+Azure Redis Cache 是一種分散式受控快取，可提供超快速的資料存取，藉此協助您建置具高度延展性且快速回應的應用程式。 
 
 新的高階層是可供企業立即使用的層，其中包括所有標準層功能及其他優點，例如更佳的效能、更大的工作負載、災害復原、匯入/匯出和增強的安全性。 請繼續閱讀，以深入了解高階快取層的其他功能。
 

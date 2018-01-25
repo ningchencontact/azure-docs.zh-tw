@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 ServiceNow 複製資料
 
@@ -37,7 +37,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 ServiceNow 連接器專屬的 Data Factory 實體。
 
@@ -45,15 +45,15 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 ServiceNow 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為：**ServiceNow** | 是 |
-| endpoint | ServiceNow 伺服器的端點。 (也就是 http://ServiceNowData.com)  | 是 |
-| authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | 是 |
+| type | Type 屬性必須設定為：**ServiceNow** | yes |
+| endpoint | ServiceNow 伺服器的端點。 (也就是 http://ServiceNowData.com)  | yes |
+| authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | yes |
 | username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 否 |
-| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 否 |
+| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
-| clientSecret | 用於 OAuth2 驗證的用戶端祕密。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 否 |
+| clientSecret | 用於 OAuth2 驗證的用戶端祕密。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -107,10 +107,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 ServiceNow 複製資料，請將複製活動中的來源類型設定為 **ServiceNowSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM alm.asset"`。 | 是 |
+| type | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM alm.asset"`。 | yes |
 
 **範例：**
 

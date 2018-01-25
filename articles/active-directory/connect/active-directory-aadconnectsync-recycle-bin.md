@@ -4,7 +4,7 @@ description: "本主題建議對 Azure AD Connect 使用 AD 資源回收筒功�
 services: active-directory
 keywords: "AD 資源回收筒, 意外刪除, 來源錨點"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 36a9b5a50a18b73626b0c6e03ed258e387d5c20b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect 同步處理︰啟用 AD 資源回收筒
 建議您為會同步處理至 Azure AD 的內部部署 Active Directory 啟用 AD 資源回收筒功能。 

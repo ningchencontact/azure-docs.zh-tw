@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/13/2017
 
 您可以將資料從內部部署的 PostgreSQL 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 Data Factory 目前支援將資料從 PostgreSQL 資料庫移到其他資料存放區，而不支援將資料從其他資料存放區移到 PostgreSQL 資料庫。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 PostgreSQL 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。
 
@@ -49,7 +49,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 PostgreSQL 資料存放區移動資料。 
 
-- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
 - 您也可以使用下列工具來建立管線： 
     - Azure 入口網站
     - Visual Studio
@@ -75,14 +75,14 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OnPremisesPostgreSql** |是 |
-| 伺服器 |PostgreSQL 伺服器的名稱。 |是 |
-| 資料庫 |PostgreSQL 資料庫的名稱。 |是 |
+| type |類型屬性必須設為： **OnPremisesPostgreSql** |yes |
+| 伺服器 |PostgreSQL 伺服器的名稱。 |yes |
+| 資料庫 |PostgreSQL 資料庫的名稱。 |yes |
 | 結構描述 |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
-| authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |yes |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到內部部署 PostgreSQL 資料庫的閘道器名稱。 |是 |
+| gatewayName |Data Factory 服務應該用來連接到內部部署 PostgreSQL 資料庫的閘道器名稱。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型。
@@ -102,7 +102,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `"query": "select * from \"MySchema\".\"MyTable\""`。 |否 (如果已指定 **dataset** 的 **tableName**) |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：`"query": "select * from \"MySchema\".\"MyTable\""`。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢中以 `""` (雙引號) 括住它們。  
@@ -307,38 +307,38 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 | PostgreSQL 資料庫類型 | PostgresSQL 別名 | .NET Framework 類型 |
 | --- | --- | --- |
-| abstime | |Datetime | &nbsp;
+| abstime | |DateTime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[]、String | &nbsp;
 | 位元不同 [ (n) ] |varbit |Byte[]、String |
-| 布林值 |布林 |布林值 |
+| 布林值 |布林 |BOOLEAN |
 | 方塊 | |Byte[]、String |&nbsp;
 | bytea | |Byte[]、String |&nbsp;
-| character [(n)] |char [(n)] |String |
-| character varying [(n)] |varchar [(n)] |String |
-| cid | |String |&nbsp;
-| cidr | |String |&nbsp;
+| character [(n)] |char [(n)] |字串 |
+| character varying [(n)] |varchar [(n)] |字串 |
+| cid | |字串 |&nbsp;
+| cidr | |字串 |&nbsp;
 | 圓形 | |Byte[]、String |&nbsp;
-| 日期 | |Datetime |&nbsp;
-| daterange | |String |&nbsp;
+| 日期 | |DateTime |&nbsp;
+| daterange | |字串 |&nbsp;
 | 雙精度 |float8 |兩倍 |
 | inet | |Byte[]、String |&nbsp;
-| intarry | |String |&nbsp;
-| int4range | |String |&nbsp;
-| int8range | |String |&nbsp;
+| intarry | |字串 |&nbsp;
+| int4range | |字串 |&nbsp;
+| int8range | |字串 |&nbsp;
 | integer |int, int4 |Int32 |
 | interval [fields] [(p)] | |Timespan |&nbsp;
-| json | |String |&nbsp;
+| json | |字串 |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | 線條 | |Byte[]、String |&nbsp;
 | lseg | |Byte[]、String |&nbsp;
 | macaddr | |Byte[]、String |&nbsp;
 | money | |十進位 |&nbsp;
 | numeric [(p, s)] |decimal [(p, s)] |十進位 |
-| numrange | |String |&nbsp;
+| numrange | |字串 |&nbsp;
 | oid | |Int32 |&nbsp;
-| 路徑 | |Byte[]、String |&nbsp;
+| path | |Byte[]、String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | 點 | |Byte[]、String |&nbsp;
 | 多邊形 | |Byte[]、String |&nbsp;
@@ -346,7 +346,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| 文字 | |String |&nbsp;
+| text | |字串 |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

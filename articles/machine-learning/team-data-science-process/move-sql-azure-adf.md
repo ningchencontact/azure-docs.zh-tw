@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 本主題說明如何使用 Azure Data Factory (ADF)，透過 Azure Blob 儲存體，將資料從內部部署的 SQL Server 資料庫移動至 SQL Azure 資料庫。
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/09/2017
 針對將資料移至 Azure SQL Database 的各種選項，如需摘要說明的資料表，請參閱[將資料移至 Azure Machine Learning 的 Azure SQL Database](move-sql-azure.md)。
 
 ## <a name="intro"></a>簡介：什麼是 ADF ，以及其應該用來移轉資料的時機？
-Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來協調及自動化資料的移動和轉換。 ADF 模型中的重要概念是管線。 管線是活動的邏輯群組，各個群組都會定義包含在資料集中的資料上要執行的動作。 連結的服務是用來定義 Data Factory 所需的資訊，以便連接到資料資源。
+Azure Data Factory 是完全受控的雲端架構資料整合服務，用來協調及自動化資料的移動和轉換。 ADF 模型中的重要概念是管線。 管線是活動的邏輯群組，各個群組都會定義包含在資料集中的資料上要執行的動作。 連結的服務是用來定義 Data Factory 所需的資訊，以便連接到資料資源。
 
 使用 ADF，您可將現有的資料處理服務組合成具高可用性的資料管線，並在雲端中管理。 這些資料管線可排程來內嵌、準備、轉換、分析和發佈資料，而 ADF 會管理並協調複雜的資料和處理中的相依項目。 您可以快速地在雲端中建置和部署解決方案，藉此連接逐漸增加的內部部署和雲端資料來源。
 
@@ -67,7 +67,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 您可以將這裡提供的程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。 若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料至 SQL Server 資料庫](sql-walkthrough.md#dbload)中概述的程序進行。 這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 
 ## <a name="create-adf"></a> 建立 Azure Data Factory
-用於建立新 Azure Data Factory 的指示及 [Azure 入口網站](https://portal.azure.com/)中的資源群組，已在[建立 Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory) 提供。 將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
+用於建立新 Azure Data Factory 的指示及 [Azure 入口網站](https://portal.azure.com/)中的資源群組，已在[建立 Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory) 提供。 將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>安裝和設定資料管理閘道
 若要在 Azure 資料處理站中啟用管線以使用內部部署的 SQL Server，您必須將其以連結服務形式新增至資料處理站。 若要建立內部部署 SQL Server 的連結服務，您必須︰

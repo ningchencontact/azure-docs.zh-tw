@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Logic Apps B2B 跨區域災害復原
 
@@ -86,13 +86,13 @@ EDI X12 文件的商務持續性是根據控制編號：
 > [!TIP]
 > 您也可以使用 [X12 快速啟動範本](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/)來建立 Logic Apps。 建立主要和次要整合帳戶是使用範本的必要條件。 這個範本可讓您建立 2 個 Logic Apps，一個用於接收的控制編號，另一個用於產生的控制編號。 會在 Logic Apps 中建立個別的觸發程序和動作，將觸發程序連線至主要整合帳戶，並將動作連線至次要整合帳戶。
 
-**必要條件**
+**先決條件**
 
 若要啟用輸入訊息的災害復原，請選取 X12 合約之 [接收設定] 中的重複檢查設定。
 
 ![選取重複檢查設定](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. 在次要地區中建立[邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。    
+1. 在次要地區中建立[邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。    
 
 2. 搜尋 **X12**，並選取 [X12 - 當控制編號修改時]。   
 
@@ -141,13 +141,13 @@ EDI X12 文件的商務持續性是根據控制編號：
 
 EDI EDIFACT 文件的商務持續性是根據控制編號。
 
-**必要條件**
+**先決條件**
 
 若要啟用輸入訊息的災害復原，請選取 EDIFACT 合約之 [接收設定] 中的重複檢查設定。
 
 ![選取重複檢查設定](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. 在次要地區中建立[邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。    
+1. 在次要地區中建立[邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。    
 
 2. 搜尋 **EDIFACT**，並選取 [EDIFACT - 當控制編號修改時]。
 
@@ -199,7 +199,7 @@ EDI EDIFACT 文件的商務持續性是根據控制編號。
 > [!TIP]
 > 您也可以使用 [AS2 快速啟動範本](https://github.com/Azure/azure-quickstart-templates/pull/3302)建立 Logic Apps。 建立主要和次要整合帳戶是使用範本的必要條件。 該範本可協助建立有觸發程序和動作的邏輯應用程式。 邏輯應用程式會建立從觸發程序到主要整合帳戶的連線，以及動作到建立次要整合帳戶的連線。
 
-1. 在次要地區中建立[邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。  
+1. 在次要地區中建立[邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。  
 
 2. 搜尋 **AS2**，並選取 [AS2 - 建立 MIC 值時]。   
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f7abbab27a6794c934344c78ba1776c8dbb97088
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 時的登入體驗
 透過 Azure Active Directory Identity Protection，您可以：
@@ -109,6 +109,6 @@ ms.lasthandoff: 12/11/2017
 
 ![補救](./media/active-directory-identityprotection-flows/160.png "補救")
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 

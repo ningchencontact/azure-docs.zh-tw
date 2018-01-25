@@ -3,8 +3,8 @@ title: "設定進階 Azure Redis Cache 的虛擬網路 | Microsoft Docs"
 description: "了解如何建立和管理高階層 Azure Redis 快取執行個體的虛擬網路支援"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>如何設定高階 Azure Redis 快取的虛擬網路支援
 Azure Redis 快取有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集、持續性和虛擬網路支援等進階層功能。 VNet 是雲端中的私人網路。 當 Azure Redis 快取執行個體是以 VNet 設定時，它不是公開定址，只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Redis 快取執行個體的虛擬網路支援。
@@ -154,7 +154,7 @@ Azure Redis 快取裝載在 VNet 時，會使用下表中的連接埠。
 
 - [重新啟動](cache-administration.md#reboot)所有的快取節點。 如果無法觸達所有必要的快取相依性連線 (如[輸入連接埠需求](cache-how-to-premium-vnet.md#inbound-port-requirements)和[輸出連接埠需求](cache-how-to-premium-vnet.md#outbound-port-requirements)中所述)，快取將無法順利重新啟動。
 - 一旦快取節點重新啟動 (如 Azure 入口網站中的快取狀態所報告) 後，您可以執行下列測試：
-  - 使用 [tcping](https://www.elifulkerson.com/projects/tcping.php)，從與快取位於相同 VNET 中的電腦偵測快取端點 (使用連接埠 6380)。 例如：
+  - 使用 [tcping](https://www.elifulkerson.com/projects/tcping.php)，從與快取位於相同 VNET 中的電腦偵測快取端點 (使用連接埠 6380)。 例如︰
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     

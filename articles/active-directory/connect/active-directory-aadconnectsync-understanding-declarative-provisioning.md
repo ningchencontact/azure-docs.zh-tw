@@ -3,7 +3,7 @@ title: "Azure AD Connect：了解宣告式佈建 | Microsoft Docs"
 description: "說明 Azure AD Connect 中的宣告式佈建組態模型。"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步處理：了解宣告式佈建
 本主題說明 Azure AD Connect 中的組態模型。 此模型稱為宣告式佈建，它可讓您輕鬆地進行組態變更。 本主題中所述的許多項目都是進階的，而且在大部分客戶案例中並非必要。

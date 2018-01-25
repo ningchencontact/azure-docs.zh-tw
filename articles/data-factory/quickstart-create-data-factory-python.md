@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 265a9c2c2e074c9a60b69dbf48996bcb9137d435
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 33ccecee82617dc53e597165c708c2bf67cdabe1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>使用 Python 建立資料處理站和管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,9 +33,9 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文以取得建立步驟。
+* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文，按照步驟來建立帳戶。
 * 請遵循[此指示](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。
 
 ### <a name="create-and-upload-an-input-file"></a>建立及上傳輸入檔案
@@ -223,7 +223,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="create-a-pipeline-run"></a>建立管線執行
 
-將下列程式碼新增至 **Main** 方法，以**觸發管道執行**。
+將下列程式碼新增至 **Main** 方法，以**觸發管線執行**。
 
 ```python
     #Create a pipeline run.

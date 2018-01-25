@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>建立和安裝 P2S RADIUS 驗證的 VPN 用戶端組態檔 (預覽)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 驗證
 
 VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供必要的設定，以供原生 Windows 或 Mac IKEv2 VPN 用戶端透過點對站來連線至 VNet。 RADIUS 伺服器會提供多個驗證選項，因此 VPN 用戶端組態因選項而異。
 
@@ -95,7 +95,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 5. 在設定檔安裝期間，您有選項可指定用於 VPN 驗證的使用者名稱和密碼。 不一定要輸入此資訊。 若已指定，系統會儲存此資訊並在您初始連線時自動使用。 按一下 [安裝] 繼續進行。
 
   ![settings](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-6. 輸入在您的電腦上安裝設定檔時所需之必要權限的使用者名稱和密碼。 按一下 [確定] 。
+6. 輸入在您的電腦上安裝設定檔時所需之必要權限的使用者名稱和密碼。 按一下 [SERVICEPRINCIPAL] 。
 
   ![使用者名稱和密碼](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. 安裝之後，設定檔便會顯示在 [設定檔] 對話方塊中。 稍後也可以從 [系統喜好設定] 開啟此對話方塊。

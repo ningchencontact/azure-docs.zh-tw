@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7486e7c6816538fc120fd0b0a8bea0b006fb21f0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 建立資料處理站。 此資料處理站中的管線會將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -80,7 +80,7 @@ ms.lasthandoff: 01/18/2018
     3. 在 [防火牆設定] 頁面中，對 [允許存取 Azure 服務] 按一下 [開啟]。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
-在此步驟中，您會建立資料處理站並啟動 Azure Data Factory UI，以建立資料處理站中的管線。 
+在此步驟中，您可以建立資料處理站，並啟動 Azure Data Factory 使用者介面，在資料處理站中建立管線。 
 
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
@@ -89,7 +89,7 @@ ms.lasthandoff: 01/18/2018
       
      ![新增資料處理站頁面](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
-   Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您在名稱欄位看到下列錯誤，請變更資料處理站的名稱 (例如 yournameADFTutorialDataFactory)。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
+   Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您在 [名稱] 欄位看到下列錯誤，請變更資料處理站的名稱 (例如 yournameADFTutorialBulkCopyDF)。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
   
      ![新增資料處理站頁面](./media/tutorial-copy-data-portal/name-not-available-error.png)
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
@@ -100,7 +100,7 @@ ms.lasthandoff: 01/18/2018
          
         若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
 4. 對 [版本] 選取 [V2 (預覽)]。
-5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。      
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/18/2018
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
    ![Data Factory 首頁](./media/tutorial-copy-data-portal/data-factory-home-page.png)
-10. 按一下 [編寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
+10. 按一下 [撰寫與監視] 圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 
 ## <a name="create-a-pipeline"></a>建立管線
 在此步驟中，您會在資料處理站中建立具有「複製」活動的管線。 「複製」活動會將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 在[快速入門教學課程](quickstart-create-data-factory-portal.md)中，您已依照下列步驟建立管線：
@@ -147,7 +147,7 @@ ms.lasthandoff: 01/18/2018
 10. 在 [屬性] 視窗中切換至 [連線] 索引標籤。   
 
     ![連線索引標籤](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. 按一下 [連結服務] 文字方塊旁的 [+ 新增]。 連結服務會將資料存放區或計算連結至資料處理站。 在此案例中，您會建立 Azure 儲存體連結服務，將您的 Azure 儲存體帳戶連結至資料存放區。 連結服務具有連線資訊，可供 Data Factory 服務在執行階段中用來連線至 Blob 儲存體。 資料集會指定容器、資料夾和包含來源資料的檔案 (選擇性)。 
+11. 按一下 [連結服務] 文字方塊旁的 [+ 新增]。 連結服務會將資料存放區或計算連結至資料處理站。 在此案例中，您會建立 Azure 儲存體連結服務，將 Azure 儲存體帳戶連結到資料處理站。 連結的服務具有連線資訊，可供 Data Factory 服務在執行階段中用來連線到 Blob 儲存體。 資料集會指定容器、資料夾和包含來源資料的檔案 (選擇性)。 
 
     ![新增連結服務按鈕](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. 在 [新增連結服務] 視窗中，執行下列步驟： 
@@ -185,7 +185,7 @@ ms.lasthandoff: 01/18/2018
 23. 在屬性視窗的 [一般] 索引標籤中，將名稱設為 **OutputSqlDataset**。 
     
     ![輸出資料集名稱](./media/tutorial-copy-data-portal/output-dataset-name.png)
-24. 切換至 [連線] 索引標籤，然後針對 [連結服務] 按一下 [新增]。 資料集必須與連結服務相關聯。 連結服務具有連接字串，可供 Data Factory 服務在執行階段中用來連線至 Azure SQL 資料庫。 資料集會指定要將資料複製過去的容器、資料夾和檔案 (選擇性)。 
+24. 切換至 [連線] 索引標籤，然後針對 [連結服務] 按一下 [新增]。 資料集必須與連結服務相關聯。 連結的服務具有連接字串，可供 Data Factory 服務在執行階段中用來連線到 Azure SQL 資料庫。 資料集會指定要將資料複製過去的容器、資料夾和檔案 (選擇性)。 
     
     ![新增連結服務按鈕](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 25. 在 [新增連結服務] 視窗中，執行下列步驟： 
@@ -415,4 +415,4 @@ ms.lasthandoff: 01/18/2018
 進入下列教學課程，以了解如何將資料從內部部署複製到雲端： 
 
 > [!div class="nextstepaction"]
->[將資料從內部部署複製到雲端](tutorial-hybrid-copy-data-tool.md)
+>[將資料從內部部署複製到雲端](tutorial-hybrid-copy-portal.md)

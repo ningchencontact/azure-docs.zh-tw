@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>在邏輯應用程式中使用連接器
 連接器可讓您跨服務、通訊協定與平台快速存取事件、資料和動作。  Logic Apps 所支援的連接器完整清單可以 [在這裡找到](apis-list.md)。  連接器可做為邏輯應用程式的觸發程序或動作，而且可能需要設定「連線」  才能使用 (例如︰授權 Twitter 帳戶代表您存取或張貼)。
 
 ## <a name="basics"></a>基本
-連接器是邏輯應用程式中可供您存取以便整合 Dynamics、Azure、Salesforce [等等](apis-list.md)的其他服務的託管服務。  連接器是由 Microsoft 所部署和管理，因此您可以建置規模、輸送量和安全性都有人幫您處理的整合工作流程。  您可以藉由搜尋和選取 [顯示 Microsoft Managed API] 底下的連接器動作或觸發程序，在邏輯應用程式中新增連接器。
+連接器是邏輯應用程式中可供您存取以便整合 Dynamics、Azure、Salesforce [等等](apis-list.md)的其他服務的託管服務。  連接器是由 Microsoft 所部署和管理，因此您可以建置規模、輸送量和安全性都有人幫您處理的整合工作流程。  您可以藉由搜尋和選取 [顯示 Microsoft 受控 API] 底下的連接器動作或觸發程序，在邏輯應用程式中新增連接器。
 
 ![可供選取觸發程序的 [動作] 功能表][1]
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 按一下 [瀏覽]，然後選取 [API 連線]，即可在 Azure 中檢視和管理連線。  在 API 連線資源中，您可以檢視、編輯、更新或重新授權任何已建立的連線。
 
 ## <a name="next-steps"></a>後續步驟
-* [建立第一個邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+* [建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [了解邏輯應用程式的常見用法和範例](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [開始使用企業整合觸發程序和動作](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

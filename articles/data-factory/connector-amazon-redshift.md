@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 > [!TIP]
 > 在 Redshift 中複製大量資料時，若想獲得最佳效能，請考慮透過 Amazon S3 使用內建的 Redshift UNLOAD。 如需詳細資料，請參閱「[使用 UNLOAD 複製 Amazon Redshift 中的資料](#use-unload-to-copy-data-from-amazon-redshift)」章節。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您要使用[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 將資料複製到內部部署資料存放區，請將 Amazon Redshift 叢集的存取權授與 Integration Runtime (使用電腦的 IP 位址)。 如需相關指示，請參閱 [授權存取叢集](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 。
 * 如果您要將資料複製到 Azure 資料存放區，請參閱 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) 以取得 Azure 資料中心所使用的計算 IP 位址和 SQL 範圍。
@@ -54,14 +54,14 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 Amazon Redshift 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AmazonRedshift** | 是 |
-| 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
+| type | 類型屬性必須設定為：**AmazonRedshift** | yes |
+| 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |yes |
 | 連接埠 |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
-| 資料庫 |Amazon Redshift 資料庫的名稱。 |是 |
-| username |可存取資料庫之使用者的名稱。 |是 |
-| password |使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |是 |
+| 資料庫 |Amazon Redshift 資料庫的名稱。 |yes |
+| username |可存取資料庫之使用者的名稱。 |yes |
+| password |使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -96,9 +96,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Amazon Redshift 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | yes |
 | tableName | Amazon Redshift 中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -126,9 +126,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Amazon Redshift 複製資料，請將複製活動中的來源類型設定為 **AmazonRedshiftSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | yes |
 | query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 (如果已指定資料集中的 "tableName") |
 | redshiftUnloadSettings | 使用 Amazon Redshift UNLOAD 時的屬性群組。 | 否 |
 | s3LinkedServiceName | 係指要作為暫時存放區的 Amazon S3 (藉由指定 "AmazonS3" 類型的已連結服務名稱)。 | 如果使用 UNLOAD，則為必要 |

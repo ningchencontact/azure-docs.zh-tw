@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
 本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -54,7 +54,7 @@ Log Analytics 儲存機制中的所有資料都會以具有特定記錄類型的
 | API 版本 |要使用於這個要求的 API 版本。 目前是 2016-04-01。 |
 
 ### <a name="request-headers"></a>要求標頭
-| 標頭 | 說明 |
+| 頁首 | 說明 |
 |:--- |:--- |
 | Authorization |授權簽章。 本文稍後會說明如何建立 HMAC-SHA256 標頭。 |
 | Log-Type |指定正在提交的資料記錄類型。 記錄檔類型目前僅支援英文字元。 不支援數值或特殊字元。 |
@@ -134,9 +134,9 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 | 屬性資料類型 | 尾碼 |
 |:--- |:--- |
-| String |_s |
-| Boolean |_b |
-| Double |_d |
+| 字串 |_s |
+| BOOLEAN |_b |
+| 兩倍 |_d |
 | Date/time |_t |
 | GUID |_g |
 
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>C# 範例

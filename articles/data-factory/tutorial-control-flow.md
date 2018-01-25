@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/15/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為**來源**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文，按照步驟來建立帳戶。
 * **Azure SQL Database**。 您會使用資料庫作為**接收**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
@@ -129,7 +129,7 @@ ms.lasthandoff: 12/15/2017
     
     ```
 
-3. 將下列程式碼新增至 **Main** 方法，以建立 **DataPipelineManagementClient** 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管道。 您也可以使用此物件來監視管線執行的詳細資料。
+3. 將下列程式碼新增至 **Main** 方法，以建立 **DataFactoryManagementClient** 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管道。 您也可以使用此物件來監視管線執行的詳細資料。
 
     ```csharp
     // Authenticate and create a data factory management client
@@ -292,7 +292,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>建立電子郵件工作流程端點
-若要觸發傳送電子郵件，您需要使用 [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) 來定義工作流程。 如需有關建立邏輯應用程式工作流程的詳細資訊，請參閱[如何建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 
+若要觸發傳送電子郵件，您需要使用 [Logic Apps](../logic-apps/logic-apps-overview.md) 來定義工作流程。 如需有關建立邏輯應用程式工作流程的詳細資訊，請參閱[如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
 
 ### <a name="success-email-workflow"></a>成功電子郵件工作流程 
 建立名為 `CopySuccessEmail` 的邏輯應用程式工作流程。 將工作流程觸發程序定義為 `When an HTTP request is received`，並新增動作 `Office 365 Outlook – Send an email`。
@@ -492,7 +492,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
  
 此程式碼會建立新的活動相依性，取決於它接替的前一個複製活動而定。
 
-## <a name="create-a-pipeline-run"></a>建立管道執行
+## <a name="create-a-pipeline-run"></a>建立管線執行
 將下列程式碼新增至 **Main** 方法，以**觸發管道執行**。
 
 ```csharp

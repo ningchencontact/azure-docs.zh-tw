@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Dynamics 365/Dynamics CRM 複製資料
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Dynamics 專屬的 Data Factory 實體。
 
@@ -60,14 +60,14 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 和 Dynamics CRM Online
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Dynamics**。 | 是 |
-| deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | 是 |
+| type | 類型屬性必須設定為：**Dynamics**。 | yes |
+| deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | yes |
 | organizationName | Dynamics 執行個體的組織名稱。 | 否，當與使用者關聯的 Dynamics 執行個體超過一個時，應該指定。 |
-| authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | 是 |
-| username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | 是 |
-| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | 是 |
+| authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | yes |
+| username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | yes |
+| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有 IR，則對於來源而言為「否」；對於接收而言為「是」 |
 
 >[!IMPORTANT]
@@ -107,16 +107,16 @@ ms.lasthandoff: 01/11/2018
 
 相較於 Dyanmics Online，額外的屬性為 "hostName" 和 "port"。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Dynamics**。 | 是 |
-| deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| 是 |
-| **hostName** | 內部部署 Dynamics 伺服器的主機名稱。 | 是 |
+| type | 類型屬性必須設定為：**Dynamics**。 | yes |
+| deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| yes |
+| **hostName** | 內部部署 Dynamics 伺服器的主機名稱。 | yes |
 | **port** | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
-| organizationName | Dynamics 執行個體的組織名稱。 | 是 |
-| authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | 是 |
-| username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | 是 |
-| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 請注意，您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | 是 |
+| organizationName | Dynamics 執行個體的組織名稱。 | yes |
+| authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | yes |
+| username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | yes |
+| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 請注意，您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
@@ -160,9 +160,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從/至 Dynamics 複製資料，請將資料集的類型屬性設定為 **DynamicsEntity**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**DynamicsEntity** |是 |
+| type | 資料集的類型屬性必須設定為：**DynamicsEntity** |yes |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
@@ -213,9 +213,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**DynamicsSource**  | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**DynamicsSource**  | yes |
 | query  | FetchXML 是一個在 Microsoft Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱以下範例，若要深入了解，請參閱[使用 FetchXML 建立查詢](https://msdn.microsoft.com/en-us/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName")  |
 
 **範例：**
@@ -274,10 +274,10 @@ ms.lasthandoff: 01/11/2018
 
 若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的類型屬性必須設定為：**DynamicsSink**  | 是 |
-| writeBehavior | 作業的寫入行為。<br/>允許的值為：**"Upsert"**。 | 是 |
+| type | 複製活動接收器的類型屬性必須設定為：**DynamicsSink**  | yes |
+| writeBehavior | 作業的寫入行為。<br/>允許的值為：**"Upsert"**。 | yes |
 | writeBatchSize | 每個批次中寫入 Dynamics 的資料列計數。 | 否 (預設值為 10) |
 | ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 null 值 (索引鍵欄位除外)。<br/>允許的值為：**true** 和 **false**。<br>- true：進行 upsert/更新作業時，目的地物件中的資料保持不變，進行插入作業時，插入定義的預設值。<br/>- false：進行 upsert/更新作業時，將目的地物件中的資料更加為 NULL，進行插入作業時，插入 NULL 值。  | 否 (預設值為 false) |
 

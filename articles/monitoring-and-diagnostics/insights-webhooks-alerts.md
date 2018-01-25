@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>針對 Azure 度量警示設定 Webhook
 Webhook 可讓您將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。 您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天/傳訊服務通知小組，或進行任意數量之其他動作的服務。 本文說明如何針對 Azure 度量警示設定 Webhook，並說明 HTTP POST 對 Webhook 之承載的樣貌。 如需有關 Azure 活動記錄警示 (事件警示) 之設定和結構描述的資訊， [請改為參閱本頁](insights-auditlog-to-webhook-email.md)。
@@ -40,45 +40,48 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
 
-| 欄位 | 強制 | 一組固定值 | 注意事項 |
+| 欄位 | 強制 | 一組固定值 | 注意 |
 |:--- |:--- |:--- |:--- |
 | status |Y |“Activated”、“Resolved” |以您設定的條件為基礎的警示狀態。 |
 | context |Y | |警示內容。 |
 | timestamp |Y | |警示觸發的時間。 |
 | id |Y | |每個警示規則都有唯一的識別碼。 |
-| 名稱 |Y | |警示名稱。 |
+| name |Y | |警示名稱。 |
 | 說明 |Y | |警示的描述。 |
 | conditionType |Y |“Metric”、“Event” |支援兩種類型的警示。 一種根據度量條件，另一種根據活動記錄中的事件。 使用此值來檢查警示是根據度量或事件。 |
 | condition |Y | |根據 conditionType 所要檢查的特定欄位。 |
@@ -93,10 +96,10 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 | resourceGroupName |Y | |受影響資源的資源群組的名稱。 |
 | resourceName |Y | |受影響資源的資源名稱。 |
 | resourceType |Y | |受影響資源的資源類型。 |
-| resourceId |Y | |受影響資源的資源識別碼。 |
+| ResourceId |Y | |受影響資源的資源識別碼。 |
 | resourceRegion |Y | |受影響資源的區域或位置。 |
 | portalLink |Y | |入口網站資源摘要頁面的直接連結。 |
-| 屬性 |N |選用 |一組包含事件相關詳細資料的 `<Key, Value>` 配對 (也就是 `Dictionary<String, String>`)。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。 另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數) |
+| properties |N |選用 |一組包含事件相關詳細資料的 `<Key, Value>` 配對 (也就是 `Dictionary<String, String>`)。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。 另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數) |
 
 > [!NOTE]
 > 屬性欄位只能使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 設定。

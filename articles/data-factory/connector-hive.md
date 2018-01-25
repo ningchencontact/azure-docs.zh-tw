@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8842adcc00a1230f252411d64c22d497faeec5b2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>使用 Azure Data Factory 從 Hive 複製資料 
 
@@ -34,7 +34,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Hive 連接器專屬的 Data Factory 實體。
 
@@ -42,14 +42,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Hive 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**Hive** | 是 |
-| host | Hive 伺服器的 IP 位址和主機名稱，如果有多個主機請以「;」分隔 (僅限啟用 serviceDiscoveryMode 時)。  | 是 |
+| type | 類型屬性必須設為：**Hive** | yes |
+| host | Hive 伺服器的 IP 位址和主機名稱，如果有多個主機請以「;」分隔 (僅限啟用 serviceDiscoveryMode 時)。  | yes |
 | 連接埠 | Hive 伺服器用來接聽用戶端連線的 TCP 連接埠。  | 否 |
 | serverType | Hive 伺服器的類型。 <br/>允許的值為：**HiveServer1**、**HiveServer2****HiveThriftServer** | 否 |
 | thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值為：**Binary**、**SASL****HTTP ** | 否 |
-| authenticationType | 用來存取 Hive 伺服器的驗證方法。 <br/>允許的值為：**Anonymous**、**Username****UsernameAndPassword****WindowsAzureHDInsightService** | 是 |
+| authenticationType | 用來存取 Hive 伺服器的驗證方法。 <br/>允許的值為：**Anonymous**、**Username****UsernameAndPassword****WindowsAzureHDInsightService** | yes |
 | serviceDiscoveryMode | true 表示使用 ZooKeeper 服務，false 表示不使用 ZooKeeper 服務。  | 否 |
 | zooKeeperNameSpace | ZooKeeper 上的命名空間，Hive Server 2 節點會新增在 ZooKeeper 下方。  | 否 |
 | useNativeQuery | 指定驅動程式是否使用原生 HiveQL 查詢，或將查詢轉換為 HiveQL 中的對等格式。  | 否 |
@@ -114,10 +114,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Hive 複製資料，請將複製活動中的來源類型設定為 **HiveSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HiveSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**HiveSource** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | yes |
 
 **範例：**
 

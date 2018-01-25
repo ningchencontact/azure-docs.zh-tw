@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>建立 Ruby 應用程式
-如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用服務匯流排，請下載並使用 Azure Ruby 套件，其中包含一組能與儲存體 REST 服務通訊的便利程式庫。

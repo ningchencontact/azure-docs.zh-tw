@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>使用 ExpressRoute 將 Azure Stack 連線至 Azure
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 支援兩種方法將 Azure Stack 中的虛擬網路連線至 Azure 中的虛擬網路：
    * **網站間**
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 
    |欄位  |值  |
    |---------|---------|
-   |名稱     |Tenant1VNet1         |
+   |Name     |Tenant1VNet1         |
    |位址空間     |10.1.0.0/16|
    |子網路名稱     |Tenant1-Sub1|
    |子網路位址範圍     |10.1.1.0/24|
@@ -101,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 
     c. 按一下 [釘選到儀表板]。
 
-    d. 按一下 [建立] 。
+    d. 按一下頁面底部的 [新增] 。
 
 
 
@@ -128,14 +128,14 @@ ms.lasthandoff: 10/11/2017
 7. 在 [名稱] 欄位中，輸入 **GW1-PiP**﹐然後按一下 [確定]。
 8. [VPN 類型] 預設應選取 [路由式]。
     保留此設定。
-9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 想要的話，您可以將資源釘選到儀表板。 按一下 [建立] 。
+9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 想要的話，您可以將資源釘選到儀表板。 按一下頁面底部的 [新增] 。
 
 #### <a name="create-the-local-network-gateway"></a>建立區域網路閘道
 
 區域網路閘道資源的目的是指出 VPN 連線另一端的遠端閘道。 在此範例中，遠端是 ExpressRoute 路由器的 LAN 子介面。 對於此範例中的租用戶 1，遠端位址是 10.60.3.255，如圖 2 所示。
 
 1. 登入 Azure Stack 實體機器。
-2. 以您的使用者帳戶登入使用者入口網站，然後按一下新增。
+2. 以您的使用者帳戶登入使用者入口網站，然後按一下 [新增]。
 3. 從 Marketplace 功能表中選取 [網路]。
 4. 從資源清單中選取 [區域網路閘道]。
 5. 在 [名稱] 欄位中輸入 **ER-Router-GW**。
@@ -170,9 +170,9 @@ ms.lasthandoff: 10/11/2017
 3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像，然後按一下 [建立]。
 4. 在 [基本] 區段的 [名稱] 欄位中，輸入 **VM01**。
 5. 輸入有效的使用者名稱和密碼。 建立 VM 之後﹐您將使用此帳戶來登入 VM。
-6. 提供 訂用帳戶、資源群組 和 位置﹐然後按一下確定。
-7. 在 大小 區段上，按一下此執行個體的虛擬機器大小，然後按一下選取。
-8. 在 [設定] 區段上，您可以接受預設值。 但請確定選取的虛擬網路是 **Tenant1VNet1**，而子網路設定為 **10.1.1.0/24**。 按一下 [確定] 。
+6. 提供 [訂用帳戶]、[資源群組] 和 [位置]﹐然後按一下 [確定]。
+7. 在 [大小] 區段上，按一下此執行個體的虛擬機器大小，然後按一下 [選取]。
+8. 在 [設定] 區段上，您可以接受預設值。 但請確定選取的虛擬網路是 **Tenant1VNet1**，而子網路設定為 **10.1.1.0/24**。 按一下 [SERVICEPRINCIPAL] 。
 9. 檢閱 [摘要] 區段上的設定，然後按一下 [確定]。
 
 針對您想要連線的每個租用戶 VNet，重複執行從**建立虛擬網路和 VM 子網路**到**建立虛擬機器**各節的步驟。
@@ -205,19 +205,22 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
    在範例圖表中，「外部 BGPNAT 位址」是 10.10.0.62，「內部 IP 位址」是 192.168.102.1。
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```

@@ -8,23 +8,23 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 03cd5088b55e37b2ada78e0f531702705d45a4c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何使用 Node.js 的 Azure 資料表儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本主題示範如何使用 Node.js 應用程式中的 Azure 表格服務執行一般案例。
 
 本主題中的程式碼範例假設您已經有 Node.js 應用程式。 如需如何在 Azure 中建立 Node.js 應用程式的資訊，請參閱下列主題：
@@ -189,7 +189,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 依預設，更新實體並不會檢查正在更新的資料先前是否被另一個程序修改過。 若要支援並行更新：
 >
 > 1. 取得正在更新之物件的 ETag。 系統會針對實體相關的作業將 ETag 包含在 `response` 中傳回，且可透過 `response['.metadata'].etag` 擷取 ETag。
-> 2. 對實體執行更新操作時，請將先前擷取的 ETag 資訊新增至新的實體。 例如：
+> 2. 對實體執行更新操作時，請將先前擷取的 ETag 資訊新增至新的實體。 例如︰
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. 執行更新操作。 如果擷取 ETag 值之後，實體 (例如您應用程式的其他執行個體) 進行了修改，系統會傳回 `error` ，表示不符合要求中指定的更新條件。

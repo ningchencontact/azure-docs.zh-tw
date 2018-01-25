@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/12/2017
 * 一組 *應用程式屬性*。 應用程式可以定義的字串屬性字典，而且不需將訊息本文還原序列化即可加以存取。 IoT 中樞不會修改這些屬性。
 * 不透明的二進位主體。
 
-在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` ：  
+在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}```：  
 
 * 使用 HTTPS 通訊協定來傳送裝置到雲端訊息。
 * 傳送雲端到裝置的訊息。

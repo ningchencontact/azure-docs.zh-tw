@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>將應用程式和服務視為 Azure Resource Manager 進行管理
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/07/2017
 1. 準備好叢集的 Resource Manager 範本，以供部署之用。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
 2. 思考幾個您計劃部署在叢集中的應用程式。 是否有任何應用程式將隨時保持執行狀態，讓其他應用程式得以依賴？ 您是否有部署任何叢集治理或設定應用程式的計劃？ 這類應用程式最適合透過 Resource Manager 範本管理，如同前文所討論。 
 3. 一旦想好要利用這種方法部署哪些應用程式後，您必須封裝、壓縮應用程式，再將它們放在檔案共用上。 共用必須可透過 REST 端點存取，Azure Resource Manager 才能在部署期間取用。
-4. 在 Resource Manager 範本的叢集宣告下方，描述每個應用程式的屬性。 這些屬性包括複本或執行個體計數，以及資源 (其他應用程式或服務) 之間的任何相依性鏈結。 如需完整的屬性清單，請參閱 [REST API Swagger 規格](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json)。請注意，這不會取代應用程式或服務資訊清單，而是在叢集的 Resource Manager 範本中描述它們的一些功能。 以下是範例範本，其中包括部署 *Application1*無狀態服務 *Service1* 和具狀態服務 *Service2*：
+4. 在 Resource Manager 範本的叢集宣告下方，描述每個應用程式的屬性。 這些屬性包括複本或執行個體計數，以及資源 (其他應用程式或服務) 之間的任何相依性鏈結。 如需完整的屬性清單，請參閱 [REST API Swagger 規格](https://aka.ms/sfrpswaggerspec)。請注意，這不會取代應用程式或服務資訊清單，而是在叢集的 Resource Manager 範本中描述它們的一些功能。 以下是範例範本，其中包括部署 *Application1*無狀態服務 *Service1* 和具狀態服務 *Service2*：
 
   ```json
   {
@@ -77,62 +77,62 @@ ms.lasthandoff: 12/07/2017
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },

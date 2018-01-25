@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 8293da8c77725d051f295826d9a78bf81055dcb3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Hadoop 使用 Ambari Hive 檢視
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/03/2017
 > [!NOTE]
 > Ambari 有許多本文未討論到的功能。 如需詳細資訊，請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
 
@@ -190,7 +190,7 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 您可以變更各種 Hive 設定，例如將 Hive 的執行引擎從 Tez (預設) 變更為 MapReduce。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Hive 的一般資訊：
 

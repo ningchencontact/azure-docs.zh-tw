@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>在 Visual Studio 中設計、建置和部署 Azure Logic Apps
 
 雖然 [Azure 入口網站](https://portal.azure.com/)提供一種絕佳的方式讓您能夠建立和管理 Azure Logic Apps，但您可以使用 Visual Studio 來設計、建置和部署邏輯應用程式。 Visual Studio 提供豐富的工具 (例如邏輯應用程式設計工具)，讓您能夠用來建立邏輯應用程式、設定部署和自動化範本，並部署至任何環境。 
 
-若要開始使用 Azure Logic Apps，請先了解[如何在 Azure 入口網站中建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)。
+若要開始使用 Azure Logic Apps，請先了解[如何在 Azure 入口網站中建立第一個邏輯應用程式](quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="installation-steps"></a>安裝步驟
 
 若要安裝和設定適用於 Azure Logic Apps 的 Visual Studio 工具，請遵循下列步驟。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 或 Visual Studio 2015
 * [最新的 Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 或更新版本)

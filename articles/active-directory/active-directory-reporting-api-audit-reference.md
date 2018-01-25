@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 稽核 API 參考
 本主題是 Azure Active Directory 報告 API 相關主題集合的一部分。  
@@ -45,7 +45,7 @@ Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取稽
 * 全域管理員
 * 任何獲得授權存取 API 的應用程式 (只可以根據全域管理員的權限來設定應用程式授權)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要透過報告 API 來存取此報告，您必須具有︰
 
 * [Azure Active Directory Free 或更好的版本](active-directory-editions.md)

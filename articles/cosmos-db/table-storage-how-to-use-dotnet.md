@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 5ae7fb32814c8eb607d7a3aa33963deb4621a997
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>以 .NET 開始使用 Azure 表格儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,7 +31,7 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 ### <a name="about-this-tutorial"></a>關於本教學課程
 本教學課程示範如何在一些常見的 Azure 表格儲存體案例中使用 [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)。 這些案例會使用 C# 作為範例，以建立和刪除資料表，並插入、更新、刪除及查詢資料表資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要下列項目才能成功完成此教學課程︰
 
@@ -136,7 +136,7 @@ TableOperation insertOperation = TableOperation.Insert(customer1);
 table.Execute(insertOperation);
 ```
 
-## <a name="insert-a-batch-of-entities"></a>插入實體批次
+## <a name="insert-a-batch-of-entities"></a>插入一批實體
 您可以在單一寫入作業中，插入實體批次至資料表。 以下是批次作業的其他一些注意事項：
 
 * 您可以在同一批次作業中執行更新、刪除和插入。

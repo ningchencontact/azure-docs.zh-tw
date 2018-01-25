@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 將 HDInsight 叢集設定最佳化
 
@@ -184,7 +184,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 | 格式 | 工具 | 演算法 | 檔案副檔名 | 可分割？ |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | 否 |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | 是 |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | yes |
 | LZO | Lzop | LZO | .lzo | 是，如果已編製索引 |
 | Snappy | N/A | Snappy | Snappy | 否 |
 
@@ -234,7 +234,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
 對於有大量輸入的長時間執行 MapReduce 工作，不應該開啟推測性執行。
 
-1. 若要啟用推測性執行，請瀏覽至 Hive [設定] 索引標籤，然後將 `hive.mapred.reduce.tasks.speculative.execution` 參數設定為 true。 預設值為 False。
+* 若要啟用推測性執行，請瀏覽至 Hive [設定] 索引標籤，然後將 `hive.mapred.reduce.tasks.speculative.execution` 參數設定為 true。 預設值為 False。
 
     ![Hive mapred 會減少推測性執行執行](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -456,7 +456,7 @@ Memstore 本機配置緩衝區的使用方式取決於屬性 `hbase.hregion.mems
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 * [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

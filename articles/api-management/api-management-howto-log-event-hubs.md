@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 066f151aa96b3a57c86515411ba05a982c10aa5f
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ff882889aba7add77d974500ac13a474523b3b53
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何將事件記錄到 Azure API 管理中的 Azure 事件中樞
 事件中樞是可高度調整的資料輸入服務，每秒可擷取數百萬個事件，可讓您處理和分析連接的裝置和應用程式所產生的大量資料。 事件中樞能做為事件管線的「大門」，一旦收集的資料進入事件中樞，它可以使用任何即時分析提供者或批次/儲存配接器轉換及儲存資料。 事件中樞能分隔事件串流的生產與這些事件的使用，讓事件消費者依照自己的排程存取事件。
@@ -40,11 +40,11 @@ ms.lasthandoff: 11/28/2017
 
 每個共用存取原則都可讓應用程式傳送事件至事件中樞和接收來自事件中樞的事件。 若要存取這些原則的連接字串，請瀏覽至事件中樞的 [儀表板] 索引標籤，然後按一下 [連接資訊]。
 
-![Connection string][event-hub-dashboard]
+![連接字串][event-hub-dashboard]
 
 **Sending** 連接字串用於記錄事件，**Receiving** 連接字串則用於從事件中樞下載事件時。
 
-![Connection string][event-hub-connection-string]
+![連接字串][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>建立 API 管理記錄器
 現在您已經有事件中樞，下一步是在 API 管理服務中設定 [記錄器](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) ，以將事件記錄至事件中樞。
@@ -121,7 +121,7 @@ ms.lasthandoff: 11/28/2017
   * [使用 EventProcessorHost 接收訊息](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)
 * 深入了解 API 管理和事件中樞的整合
-  * [記錄器實體參考](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [記錄器實體參考](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub 原則參考](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [利用 Azure API 管理、事件中樞及 Runscope 監視您的 API](api-management-log-to-eventhub-sample.md)    
 

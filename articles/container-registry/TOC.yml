@@ -43,18 +43,20 @@
       href: container-registry-get-started-docker-cli.md
     - name: 檢視存放庫
       href: container-registry-repositories.md
-    - name: 建立服務主體
-      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.jso
     - name: 升級傳統登錄
       href: container-registry-upgrade.md
     - name: 使用 ACR Webhook
-      href: ./container-registry-webhook.md
+      href: container-registry-webhook.md
     - name: 驗證
       items:
         - name: 驗證概觀
           href: container-registry-authentication.md
+        - name: 服務主體驗證
+          href: container-registry-auth-service-principal.md
+        - name: Azure Container Instances
+          href: container-registry-auth-aci.md
         - name: Azure Container Service
-          href: ./container-registry-auth-aks.md
+          href: container-registry-auth-aks.md
 - name: 參考
   items:
     - name: Azure CLI

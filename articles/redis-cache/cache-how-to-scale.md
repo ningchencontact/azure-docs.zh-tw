@@ -3,8 +3,8 @@ title: "如何調整 Azure Redis 快取 | Microsoft Docs"
 description: "了解如何調整 Azure Redis 快取執行個體"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: sdanie
-ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何調整 Azure Redis 快取
 Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何在 Azure 入口網站中使用 Azure PowerShell 和 Azure CLI 之類的工具來調整快取。
@@ -42,7 +42,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 從 [選取定價層] 刀鋒視窗中選取想要的定價層，然後按一下 [選取]。
 
-![定價層 ][redis-cache-pricing-tier-blade]
+![定價層][redis-cache-pricing-tier-blade]
 
 
 您可以調整具有下列限制的不同定價層：

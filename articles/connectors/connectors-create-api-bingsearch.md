@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e420c837f9635b2386ca3b52bef487864d1aa2c1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>開始使用 Bing 搜尋連接器
 連線到 Bing 搜尋來搜尋新聞、搜尋影片等等。 您可以利用 Bing 搜尋來： 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 * 根據您透過搜尋所取得的資料，來建置您的商務流程。 
 * 使用動作來搜尋圖像、搜尋新聞等等。 這些動作會收到回應，然後輸出能讓其他動作使用的資料。 舉例來說，您可以搜尋某支影片，然後利用 Twitter 把該影片張貼在某個 Twitter 摘要上。
 
-您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 

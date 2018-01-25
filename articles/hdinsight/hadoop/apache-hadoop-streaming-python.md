@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 76cf2556f911948689c96deb1cbab350f2559817
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2563927684720a0be1144fa51aea7b9dae4abe7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>開發 HDInsight 的 Python 串流處理 MapReduce 程式
 
 了解如何在串流處理 MapReduce 作業中使用 Python。 Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。 本文件中的步驟會以 Python 實作對應和歸納元件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight 叢集上的 Linux 型 Hadoop
 
@@ -151,7 +151,7 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
     此命令會將檔案從本機系統複製到前端節點。
 
     > [!NOTE]
-    > 如果您使用密碼來保護 SSH 帳戶，系統就會提示您輸入密碼。 如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。 例如， `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
+    > 如果您使用密碼來保護 SSH 帳戶，系統就會提示您輸入密碼。 如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。 例如： `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
 
 2. 使用 SSH 連線到叢集：
 
@@ -205,6 +205,6 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
 現在您已學會如何搭配 HDInsight 使用串流 MapRedcue 工作，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
-* [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
+* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)

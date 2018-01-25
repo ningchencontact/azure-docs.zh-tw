@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -272,7 +272,7 @@ ms.lasthandoff: 01/16/2018
 進入下列教學課程，以了解如何在 Azure 上使用 Spark 叢集來轉換資料：
 
 > [!div class="nextstepaction"]
->[分支和鏈結 Data Factory 控制流程](tutorial-control-flow.md)
+>[分支和鏈結 Data Factory 控制流程](tutorial-control-flow-portal.md)
 
 
 

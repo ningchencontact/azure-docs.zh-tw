@@ -33,6 +33,9 @@
 #### [使用 PowerShell 在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [使用 CLI 在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### 儲存體
+#### [區域備援儲存體](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # 災害復原
 ## [使用 Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

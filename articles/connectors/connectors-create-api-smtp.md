@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>開始使用 SMTP 連接器
 連接到 SMTP 以傳送電子郵件。
 
-若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)來開始。
+若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)來開始。
 
 ## <a name="connect-to-smtp"></a>連接到 SMTP
 您必須先建立與服務的連線，才能透過邏輯應用程式存取任何服務。 [連線](connectors-overview.md)可讓邏輯應用程式與另一個服務連線。 例如，若要連接到 SMTP，您必須先有 SMTP「連線」。 若要建立連線，請輸入平常用來存取連線服務的認證。 因此，在 SMTP 範例中，請輸入連接名稱、SMTP 伺服器位址，以及使用者登入資訊等認證來建立 SMTP 連線。  
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-an-smtp-trigger"></a>使用 SMTP 觸發程序
-觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。
+觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
 在此範例中，由於 SMTP 沒有自己的觸發程序，因此我們將使用 **Salesforce - 當物件建立時**觸發程序。 當 Salesforce 中有新的物件建立時，觸發程序就會啟動。 在範例中，我們會設定使其每次在 Salesforce 中建立新的潛在客戶時，系統會透過 SMTP 連接器執行*傳送電子郵件*的動作，並附帶已建立新潛在客戶的通知。
 
@@ -49,13 +49,13 @@ ms.lasthandoff: 10/11/2017
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>使用 SMTP 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
 現在已新增觸發程序之後，請遵循下列步驟新增 Salesforce 中有新的潛在客戶建立時會發生的 SMTP 動作。
 
 1. 選取 [+ 新的步驟]，來新增您想要在建立新的潛在客戶時採取的動作。  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. 選取 [新增動作] 。 這會開啟搜尋方塊，您可以在其中搜尋任何想要採取的動作。  
+2. 選取 [新增動作]。 這會開啟搜尋方塊，您可以在其中搜尋任何想要採取的動作。  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 3. 輸入 *smtp* 以搜尋與 SMTP 相關的動作。  
 4. 選取 [SMTP - 傳送電子郵件]，做為建立新的潛在客戶時要採取的動作。 動作控制區塊便會開啟。 如果您先前未曾在設計工具區塊中建立 SMTP 連線，您必須這麼做。  

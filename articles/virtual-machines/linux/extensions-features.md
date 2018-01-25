@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 30e606154830b867382ea1ea439b97749370a1f6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>適用於 Linux 的虛擬機器擴充功能和功能
 
@@ -33,13 +33,13 @@ ms.lasthandoff: 11/08/2017
 
 - 使用適用於 Linux 的 DSC 擴充功能將 PowerShell 預期狀態設定套用至虛擬機器。 如需詳細資訊，請參閱 [Azure 期望狀態組態擴充功能簡介](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)。
 - 使用 Microsoft 監視代理程式 VM 擴充功能設定虛擬機器的監視。 如需詳細資訊，請參閱[如何監視 Linux 虛擬機器](tutorial-monitoring.md)。
-- 使用 Datadog 擴充功能設定監視您的 Azure 基礎結構。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
+- 使用 Datadog 副檔名設定 Azure 基礎結構的監視。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 - 使用 Docker VM 擴充功能設定 Azure 虛擬機器上的 Docker 主機。 如需詳細資訊，請參閱 [Docker VM 擴充功能](dockerextension.md)。
 
 除了處理序特定擴充功能，自訂指令碼延伸模組適用於 Windows 和 Linux 虛擬機器。 適用於 Linux 的自訂指令碼延伸模組可讓任何 Bash 指令碼在虛擬機器上執行。 自訂指令碼對於設計需要超過原生 Azure 工具可提供之設定的 Azure 部署很有用。 如需詳細資訊，請參閱 [Linux VM 自訂指令碼延伸模組](extensions-customscript.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 每個虛擬機器擴充功能可能有它自己的必要條件組。 比方說，Docker VM 擴充功能有受支援 Linux 散發套件的必要條件。 擴充功能特定文件中詳述的個別擴充功能的需求。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/08/2017
 
 「Azure VM 代理程式」可管理「Azure 虛擬機器」與「Azure 網狀架構控制器」之間的互動。 VM 代理程式負責部署和管理「Azure 虛擬機器」的許多功能層面，包括執行「VM 擴充功能」。 「Azure VM 代理程式」會預先安裝在「Azure Marketplace 映像」上，並可手動安裝在支援的作業系統上。
 
-如需有關支援的作業系統和安裝指示，請參閱 [Azure 虛擬機器代理程式](../windows/classic/agents-and-extensions.md)。
+如需有關支援的作業系統和安裝指示，請參閱 [Azure 虛擬機器代理程式](agent-user-guide.md)。
 
 ## <a name="discover-vm-extensions"></a>探索 VM 擴充功能
 

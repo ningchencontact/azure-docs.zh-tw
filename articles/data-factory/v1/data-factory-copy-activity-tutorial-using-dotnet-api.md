@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 29b413de12084766a43904f7291a35f2699a961b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d6ffaf132cf2407c3bd3a609b087508c94bb0e46
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>教學課程：使用 .NET API 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 本教學課程中的資料管線會將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 轉換資料的教學課程，請參閱[教學課程︰使用 Hadoop 叢集建置管線來轉換資料](data-factory-build-your-first-pipeline.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 請檢閱 [教學課程概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ，以取得本教學課程的概觀並完成 **必要** 步驟。
 * Visual Studio 2012、2013 或 2015
 * 下載並安裝 [Azure .NET SDK](http://azure.microsoft.com/downloads/)

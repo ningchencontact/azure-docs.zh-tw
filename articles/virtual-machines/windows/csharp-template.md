@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>利用 C# 和 Resource Manager 範本來部署 Azure 虛擬機器
 本文說明如何使用 C# 來部署 Azure Resource Manager 範本。 您建立的範本會在具有單一子網路的新虛擬網路中，部署執行 Windows Server 的單一虛擬機器。
@@ -32,15 +32,15 @@ ms.lasthandoff: 10/11/2017
 
 在此步驟中，您會確定是否已安裝 Visual Studio，並建立用來部署此範本的主控台應用程式。
 
-1. 如果您尚未安裝 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)，請進行安裝。 在 工作負載 分頁上選取 .NET 桌面開發，然後按一下安裝。 在摘要中，您可以看到系統自動為您選取 [NET Framework 4 – 4.6 開發工具]。 如果您已安裝 Visual Studio，您可以使用 Visual Studio Launcher 新增 .NET 工作負載。
+1. 如果您尚未安裝 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)，請進行安裝。 在 [工作負載] 分頁上選取 [.NET 桌面開發]，然後按一下 [安裝]。 在摘要中，您可以看到系統自動為您選取 [NET Framework 4 – 4.6 開發工具]。 如果您已安裝 Visual Studio，您可以使用 Visual Studio Launcher 新增 .NET 工作負載。
 2. 在 Visual Studio 中，按一下 [檔案] > [新增] > [專案]。
-3. 在 範本 > Visual C# 中，選取 主控台應用程式 (.NET Framework)，針對專案名稱輸入 myDotnetProject，選取專案的位置，然後按一下確定。
+3. 在 [範本] > [Visual C#] 中，選取 [主控台應用程式 (.NET Framework)]，針對專案名稱輸入 myDotnetProject，選取專案的位置，然後按一下 [確定]。
 
 ## <a name="install-the-packages"></a>安裝套件
 
 NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 若要取得在 Visual Studio 中所需要的程式庫，請執行下列步驟：
 
-1. 按一下 工具 > NuGet 套件管理員，然後按一下Package Manager Console。
+1. 按一下 [工具] > [NuGet 套件管理員]，然後按一下 [Package Manager Console]。
 2. 在主控台中輸入下列命令：
 
     ```
@@ -54,7 +54,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ### <a name="create-the-template-file"></a>建立範本檔案
 
-1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *CreateVMTemplate.json*，然後按一下新增。
+1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *CreateVMTemplate.json*，然後按一下 [新增]。
 2. 將此 JSON 程式碼新增到您建立的檔案中：
 
     ```json
@@ -166,7 +166,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 若要為範本中所定義的資源參數指定值，您需建立包含這些值的參數檔案。
 
-1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *Parameters.json*，然後按一下新增。
+1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *Parameters.json*，然後按一下 [新增]。
 2. 將此 JSON 程式碼新增到您建立的檔案中：
 
     ```json
@@ -186,7 +186,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 在部署範本之前，請先確定您可以存取 [Active Directory 服務主體](../../resource-group-authenticate-service-principal.md)。 從服務主體中，您會取得向 Azure Resource Manager 驗證要求的權杖。 您還應該記錄授權檔中所需的應用程式識別碼、驗證金鑰及租用戶識別碼。
 
-1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *azureauth.properties*，然後按一下新增。
+1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *azureauth.properties*，然後按一下 [新增]。
 2. 新增下列授權屬性：
 
     ```
@@ -282,11 +282,11 @@ container.SetPermissionsAsync(containerPermissions).Wait();
 
 Console.WriteLine("Uploading template file...");
 var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
-templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
+templateblob.UploadFromFileAsync("..\\..\\CreateVMTemplate.json").Result();
 
 Console.WriteLine("Uploading parameters file...");
 var paramblob = container.GetBlockBlobReference("Parameters.json");
-paramblob.UploadFromFile("..\\..\\Parameters.json");
+paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 ```
 
 ## <a name="deploy-the-template"></a>部署範本

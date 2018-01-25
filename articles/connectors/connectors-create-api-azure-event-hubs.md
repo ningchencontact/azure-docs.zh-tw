@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>使用事件中樞連接器來監視、接收及傳送事件
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 * 您在 Azure 中必須有[事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 了解[如何建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 
 
-* 若要在邏輯應用程式中使用[任何連接器](https://docs.microsoft.com/azure/connectors/apis-list)，您必須先建立邏輯應用程式。 了解[如何建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+* 若要在邏輯應用程式中使用[任何連接器](https://docs.microsoft.com/azure/connectors/apis-list)，您必須先建立邏輯應用程式。 了解[如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>檢查事件中樞命名空間權限並尋找連接字串
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>在事件中樞收到新事件時啟動工作流程
 
-[觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)是在邏輯應用程式中啟動工作流程的事件。 若要在新事件傳送至事件中樞時啟動工作流程，請遵循下列步驟來新增可偵測此事件的觸發程序。
+[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)是在邏輯應用程式中啟動工作流程的事件。 若要在新事件傳送至事件中樞時啟動工作流程，請遵循下列步驟來新增可偵測此事件的觸發程序。
 
 1.  在 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")中，移至現有的邏輯應用程式，或建立空白的邏輯應用程式。
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>將事件從邏輯應用程式傳送至事件中樞
 
-[動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)是邏輯應用程式工作流程所執行的工作。 將觸發程序新增至邏輯應用程式之後，您可以新增一個動作，以對該觸發程序所產生的資料執行作業。 若要將事件從邏輯應用程式傳送至事件中樞，請遵循下列步驟。
+[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)是邏輯應用程式工作流程所執行的工作。 將觸發程序新增至邏輯應用程式之後，您可以新增一個動作，以對該觸發程序所產生的資料執行作業。 若要將事件從邏輯應用程式傳送至事件中樞，請遵循下列步驟。
 
 1.  在邏輯應用程式設計工具中，於您的邏輯應用程式觸發程序之下，選擇 [新增步驟] > [新增動作]。
 

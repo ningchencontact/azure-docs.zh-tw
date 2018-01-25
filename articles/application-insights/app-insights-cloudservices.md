@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 您可以透過 [Application Insights][start] 來監視 [Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)，它會結合 Application Insights SDK 的資料與雲端服務的 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來讓您了解應用程式的可用性、效能、失敗和使用情形。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/03/2018
 
     在適合的啟動函式中，從 .cscfg 檔案中的組態設定設定檢測金鑰：
  
-    ```C#
+    ```csharp
    
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```

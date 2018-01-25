@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Until 活動
 Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言中提供的功能相同。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。 
@@ -57,11 +57,11 @@ Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言�
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-名稱 | `Until` 活動的名稱。 | String | 是
-類型 | 必須設為 **Until**。 | String | 是
-expression | 必須評估為 true 或 false 的運算式 | 運算式。  | 是
+name | `Until` 活動的名稱。 | 字串 | yes
+type | 必須設為 **Until**。 | 字串 | yes
+expression | 必須評估為 true 或 false 的運算式 | 運算式。  | yes
 timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | 字串。 `d.hh:mm:ss` (或) `hh:mm:ss`。 預設值為 7 天。 最大值為 90 天。 | 否
-活動 | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  是
+活動 | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  yes
 
 ## <a name="example-1"></a>範例 1
 

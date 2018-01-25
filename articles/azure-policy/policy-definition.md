@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Cache/Redis**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | 設定是否啟用非 SSL Redis 伺服器連接埠 (6379)。 |
 | Microsoft.Cache/Redis/shardCount | 設定要在進階叢集快取上建立的分區數目。  |
@@ -235,13 +235,13 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Cdn/profiles**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | 設定定價層的名稱。 |
 
 **Microsoft.Compute/disks**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
 | Microsoft.Compute/imagePublisher | 設定用來建立虛擬機器的平台映像或 Marketplace 映像發行者。 |
@@ -251,7 +251,7 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -268,7 +268,7 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | 設定擴充功能發行者的名稱。 |
 | Microsoft.Compute/virtualMachines/extensions/type | 設定擴充功能的類型。 |
@@ -276,7 +276,7 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -292,26 +292,26 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | 設定閘道的大小。 |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | 設定此虛擬網路閘道的類型。 |
 | Microsoft.Network/virtualNetworkGateways/sku.name | 設定閘道 SKU 名稱。 |
 
 **Microsoft.Sql/servers**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | 設定伺服器的版本。 |
 
 **Microsoft.Sql/databases**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | 設定資料庫的版本。 |
 | Microsoft.Sql/servers/databases/elasticPoolName | 設定資料庫所在彈性集區的名稱。 |
@@ -320,14 +320,14 @@ ms.lasthandoff: 01/09/2018
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | 設定資料庫彈性集區的所有共用 DTU。 |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | 設定彈性集區的版本。 |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | 設定用於計費的存取層。 |
 | Microsoft.Storage/storageAccounts/accountType | 設定 SKU 名稱。 |

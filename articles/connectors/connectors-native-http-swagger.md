@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>開始使用 HTTP + Swagger 動作
 
 當您在邏輯應用程式工作流程中使用 HTTP + Swagger 動作時，可以透過 [Swagger 文件](https://swagger.io)在任一 REST 端點建立第一級的連接器。 您也可以使用第一級的邏輯應用程式設計工具體驗，擴充邏輯應用程式以呼叫任何 REST 端點。
 
-若要了解如何利用連接器建立邏輯應用程式，請參閱[建立新的邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+若要了解如何利用連接器建立邏輯應用程式，請參閱[建立新的邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>使用 HTTP + Swagger 做為觸發程序或動作
 
@@ -36,7 +36,7 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 以下是如何使用 HTTP + Swagger 作業做為邏輯應用程式中工作流程動作的範例。
 
 1. 選取 [新增步驟]  按鈕。
-2. 選取 [新增動作] 。
+2. 選取 [新增動作]。
 3. 在動作搜尋方塊中，輸入 **swagger** 以列出 HTTP + Swagger 動作。
    
     ![選取 HTTP + Swagger 動作](./media/connectors-native-http-swagger/using-action-1.png)
@@ -99,8 +99,8 @@ HTTP + Swagger 連接器隨附一個可能的動作。 以下是關於每個動�
 | --- | --- | --- |
 | 方法 * |method |要使用的 HTTP 指令動詞。 |
 | URI* |uri |HTTP 要求的 URI。 |
-| 標頭 |標頭 |要包含之 HTTP 標頭的 JSON 物件。 |
-| 內文 |內文 |HTTP 要求本文。 |
+| headers |headers |要包含之 HTTP 標頭的 JSON 物件。 |
+| body |body |HTTP 要求本文。 |
 | 驗證 |驗證 |用於要求的驗證。 如需詳細資訊，請參閱 [HTTP 連接器](connectors-native-http.md#authentication)。 |
 
 **輸出詳細資料**
@@ -110,13 +110,13 @@ HTTP 回應
 | 屬性名稱 | 資料類型 | 說明 |
 | --- | --- | --- |
 | headers |物件 |回應標頭 |
-| 內文 |物件 |回應物件 |
+| body |物件 |回應物件 |
 | Status Code |整數 |HTTP 狀態碼 |
 
 ### <a name="http-responses"></a>HTTP 回應
 呼叫不同動作時，您可能會收到特定回應。 下表概述對應的回應及說明。
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | 200 |OK |
 | 202 |已接受 |
@@ -129,5 +129,5 @@ HTTP 回應
 - - -
 ## <a name="next-steps"></a>後續步驟
 
-* [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+* [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [尋找其他連接器](apis-list.md)

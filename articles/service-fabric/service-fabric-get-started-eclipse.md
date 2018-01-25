@@ -3,7 +3,7 @@ title: "適用於 Eclipse 的 Azure Service Fabric 外掛程式 | Microsoft Docs
 description: "開始使用適用於 Eclipse 的 Service Fabric 外掛程式。"
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
-ms.author: saysa
-ms.openlocfilehash: 90faa353a1f6b83ec0cd8b9ee2cd247905ef4524
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: rapatchi
+ms.openlocfilehash: 291bbd35d6e3c89eb9568130ad144831452142ad
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式
 Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) 之一。 在本文中，我們將說明如何設定 Eclipse 開發環境來使用 Azure Service Fabric。 了解如何安裝 Service Fabric 外掛程式、建立 Service Fabric 應用程式，以及將 Service Fabric 應用程式部署到 Eclipse Neon 中的本機或遠端 Service Fabric 叢集。 

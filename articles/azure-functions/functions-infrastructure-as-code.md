@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 10/17/2017
 函數應用程式有許多子資源可供您用於部署，包括應用程式設定和原始檔控制選項。 您也可以選擇移除 **sourcecontrols** 子資源並改為使用不同的[部署選項](functions-continuous-deployment.md)。
 
 > [!IMPORTANT]
-> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 **config/appSettings**「之前」完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.md) 時，您的函數為另一個資源的相依性。
+> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 **config/appSettings**「之前」完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
 
 ```json
 {

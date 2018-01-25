@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/10/2018
 > * 排定更新部署
 > * 檢視部署的結果
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 
@@ -62,9 +62,8 @@ ms.lasthandoff: 01/10/2018
 工作區提供單一位置來檢閱和分析來自多個來源的資料。
 若要在需要更新的 VM 上執行其他動作，Azure 自動化可讓您對 VM 執行 Runbook，例如下載和套用更新。
 
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和混合式背景工作角色佈建。
-此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
 驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
+此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
 
 如果不符合這些必要條件，將會出現橫幅讓您選擇啟用此解決方案。
 
