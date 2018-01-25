@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure SQL 資料倉儲來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/01/2017
 > * [第 2 版 - 預覽](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure SQL 資料倉儲連接器](../connector-azure-sql-data-warehouse.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure SQL 資料倉儲連接器](../connector-azure-sql-data-warehouse.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，將資料移進/移出「Azure SQL 資料倉儲」。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。  
 
@@ -61,7 +61,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 1. 建立 **Data Factory**。 資料處理站可包含一或多個管線。 
 2. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。 例如，如果您將資料從 Azure blob 儲存體複製到 Azure SQL 資料倉儲，您會建立兩個連結服務，將 Azure 儲存體帳戶和 Azure SQL 資料倉儲連結至資料處理站。 有關 Azure SQL 資料倉儲專屬的連結服務屬性，請參閱[連結服務屬性](#linked-service-properties)一節。 
 3. 建立**資料集**，代表複製作業的輸入和輸出資料。 在上一個步驟所述的範例中，您會建立資料集來指定 blob 容器和包含輸入資料的資料夾。 您還會建立另一個資料集來指定 Azure SQL 資料倉儲中的資料表，以保存從 Blob 儲存體複製的資料。 有關 Azure SQL 資料倉儲專屬的資料集屬性，請參閱[資料集屬性](#dataset-properties)一節。
-4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您會使用 BlobSource 作為來源，以及使用 SqlDWSink 作為複製活動的接收器。 同樣地，如果您是從 Azure SQL 資料倉儲複製到 Azure Blob 儲存體，則需要在複製活動中使用 SqlDWSource 和 BlobSink。 有關 Azure SQL 資料倉儲專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，請在上一節按一下適用於您的資料存放區的連結。
+4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您會使用 BlobSource 作為來源，以及使用 SqlDWSink 作為複製活動的接收器。 同樣地，如果您是從 Azure SQL 資料倉儲複製到 Azure Blob 儲存體，則需要在複製活動中使用 SqlDWSource 和 BlobSink。 有關 Azure SQL 資料倉儲專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，按一下上一節中資料存放區的連結。
 
 使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到「Azure SQL 資料倉儲」(或從「Azure SQL 資料倉儲」複製資料) 之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例](#json-examples-for-copying-data-to-and-from-sql-data-warehouse)一節。
 
@@ -70,10 +70,10 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 Azure SQL 資料倉儲連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **AzureSqlDW** |是 |
-| connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 |是 |
+| type |類型屬性必須設為： **AzureSqlDW** |yes |
+| connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 |yes |
 
 > [!IMPORTANT]
 > 設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)和資料庫伺服器，以[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。 此外，如果您要從 Azure 外部 (包括從具有 Data Factory 閘道器的內部部署資料來源) 將資料複製到 Azure SQL 資料倉儲，則必須為傳送資料到 Azure SQL 資料倉儲的機器設定適當的 IP 位址範圍。
@@ -83,9 +83,9 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。 **AzureSqlDWTable** 類型資料集的 **typeProperties** 區段具有下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| tableName |Azure SQL 資料倉儲資料庫中連結服務所參照的資料表名稱或檢視名稱。 |是 |
+| tableName |Azure SQL 資料倉儲資料庫中連結服務所參照的資料表名稱或檢視名稱。 |yes |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
@@ -98,7 +98,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 ### <a name="sqldwsource"></a>SqlDWSource
 如果來源類型為 **SqlDWSource**，則 **typeProperties** 區段可使用下列屬性：
 
-| 屬性 | 描述 | 允許的值 | 必要 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
@@ -108,7 +108,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 
 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 
-如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 Azure SQL 資料倉儲執行。 範例：`select column1, column2 from mytable`. 如果資料集定義沒有結構，則會從資料表中選取所有資料行。
+如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 Azure SQL 資料倉儲執行。 範例： `select column1, column2 from mytable`. 如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
 #### <a name="sqldwsource-example"></a>SqlDWSource 範例
 
@@ -144,7 +144,7 @@ GO
 ### <a name="sqldwsink"></a>管線
 **SqlDWSink** 支援下列屬性：
 
-| 屬性 | 描述 | 允許的值 | 必要 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |指定要讓「複製活動」執行的查詢，以便清除特定分割的資料。 如需詳細資訊，請參閱 [可重複性](#repeatability-during-copy)一節。 |查詢陳述式。 |否 |
 | allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。 |True <br/>FALSE (預設值) |否 |
@@ -317,10 +317,10 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | Binary | Binary |
 | Varbinary | Varbinary (最多 8000) |
 | 日期 | 日期 |
-| DateTime | DateTime |
+| Datetime | Datetime |
 | DateTime2 | DateTime2 |
 | 時間 | 時間 |
-| Datetimeoffset | Datetimeoffset |
+| DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | 文字 | Varchar (最多 8000) |
 | NText | NVarChar (最多 4000) |
@@ -348,16 +348,16 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| 日期 |Datetime |
+| DateTime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |DateTimeOffset |
 | 十進位 |十進位 |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
 | Float |兩倍 |
-| image |Byte[] |
+| 映像 |Byte[] |
 | int |Int32 |
 | money |十進位 |
 | nchar |String、Char[] |
@@ -366,14 +366,14 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | nvarchar |String、Char[] |
 | real |單一 |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |十進位 |
 | sql_variant |物件 * |
-| 文字 |String、Char[] |
+| text |String、Char[] |
 | 分析 |時間範圍 |
 | timestamp |Byte[] |
-| tinyint |位元組 |
+| tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String、Char[] |
@@ -609,7 +609,7 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 ```
 **Azure Blob 輸入資料集：**
 
-每小時從新的 Blob 挑選資料 (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑使用開始時間的年、月、日部分，而檔案名稱使用開始時間的小時部分。 “external”: “true” 設定會通知 Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
+每小時從新的 Blob 挑選資料 (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月及日部分，而檔案名稱則使用開始時間的小時部分。 “external”: “true” 設定會通知 Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
 
 ```JSON
 {

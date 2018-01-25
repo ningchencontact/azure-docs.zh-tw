@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文適用於第 2 版的 Azure Data Factory 服務。 本文提供 Data Factory 常見問題集的解答。  
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/13/2017
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版常見問題集](v1/data-factory-faq.md)。
 
 ## <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？ 
-Data Factory 是完全受管理並以雲端為基礎的資料整合服務，用來自動化資料的移動和轉換。 就像會運轉設備以將原物料轉換成成品的工廠一樣，Azure Data Factory 會協調現有的服務來收集未經處理資料，並將其轉換成隨時可用的資訊。 
+Data Factory 是完全受控並以雲端為基礎的資料整合服務，用來自動化資料的移動和轉換。 就像會運轉設備以將原物料轉換成成品的工廠一樣，Azure Data Factory 會協調現有的服務來收集未經處理資料，並將其轉換成隨時可用的資訊。 
 
 您可使用 Azure Data Factory 建立資料驅動工作流程，以在內部部署與雲端資料存放區之間移動資料。 可使用 Azure HDInsight、Azure Data Lake Analytics 以及 SQL Server Integration Services (SSIS) 整合執行階段等計算服務來處理和轉換資料。 
 
@@ -43,7 +43,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 
 隨著資料管線逐漸成為商務分析策略不可或缺的一部分，我們已發現這些活動需要彈性的排程，以支援增量資料載入和事件觸發的執行。 隨著複雜性增加，要求服務支援常見工作流程範例 (包括分支、迴圈及條件式處理) 的需求也隨之增加。
 
-在第 2 版中，您也可以將現有的 SSIS 封裝移轉到雲端。 此動作會將 SSIS 平移為在 Data Factory 內部受管理的 Azure 服務，採用了最新的整合執行階段功能。 藉由在第 2 版中運作 SSIS 整合執行階段，您可以在雲端執行、管理、監視及建置 SSIS 封裝。
+在第 2 版中，您也可以將現有的 SSIS 封裝移轉到雲端。 此動作會將 SSIS 平移為在 Data Factory 內部受控 Azure 服務，採用了最新的整合執行階段功能。 藉由在第 2 版中運作 SSIS 整合執行階段，您可以在雲端執行、管理、監視及建置 SSIS 封裝。
 
 ### <a name="control-flows-and-scale"></a>控制流程和規模 
 為了支援現代化資料倉儲中的各種整合流程和模式，Data Factory 已啟用一個不再與時間序列資料繫結的新彈性資料管線模型。 在此版本中，您可以在資料管線的控制流程中為條件式和分支建立模型，然後明確地跨越這些流程在其內部傳遞參數。
@@ -68,7 +68,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 如需詳細資訊，請參閱[教學課程：控制流程](tutorial-control-flow.md)。
 
 ### <a name="deploy-ssis-packages-to-azure"></a>將 SSIS 套件部署至 Azure 
-如果您想要移動 SSIS 工作負載，可以建立一個 Data Factory 第 2 版，然後佈建 Azure-SSIS 整合執行階段。 Azure-SSIS 整合執行階段是一個完全受管理的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 封裝。 如需逐步指示，請參閱教學課程：[將 SSIS 封裝部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 
+如果您想要移動 SSIS 工作負載，可以建立一個 Data Factory 第 2 版，然後佈建 Azure-SSIS 整合執行階段。 Azure-SSIS 整合執行階段是一個完全受控的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 封裝。 如需逐步指示，請參閱教學課程：[將 SSIS 封裝部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 
  
 
 ### <a name="sdks"></a>SDK
@@ -89,7 +89,8 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 
 - **資料移動**：在公用網路中的資料存放區與私人網路 (內部部署或虛擬私人網路) 中的資料存放區之間移動資料。 它支援內建的連接器、格式轉換、資料行對應，以及高效能和可調式資料轉送。
 - **分派活動**：分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
-- **執行 SSIS 封裝**：在受管理 Azure 計算環境中原生執行 SSIS 封裝。
+- 
+            **執行 SSIS 封裝**：在受控 Azure 計算環境中原生執行 SSIS 封裝。
 
 您可視需要部署一或多個整合執行階段執行個體，以移動和轉換資料。 整合執行階段可以在 Azure 公用網路中執行，或是在私人網路 (內部部署、Azure 虛擬網路或 Amazon Web Services 虛擬私人雲端 [VPC]) 中執行。 
 
@@ -102,7 +103,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 如果您不熟悉 Azure Data Factory，請直接從第 2 版開始。 如果您已經使用第 1 版，則請在第 2 版上重建資料處理站。
 
 > [!WARNING]
-> 第 2 版的 Data Factory 為預覽版，且非正式運作 (GA)。 因此，它不是列在與 Data Factory 第 1 版 (其為 GA) 相同的 Azure 服務等級協定 (SLA) 承諾下。 
+> 第 2 版的 Data Factory 為預覽版，且非正式運作 (GA)。 因此，它與 Data Factory 第 1 版 (其為 GA) 並未列於相同的 Azure 服務等級協定 (SLA) 承諾中。 
 
 ## <a name="what-are-the-top-level-concepts-of-version-2"></a>第 2 版的最上層概念為何？
 Azure 訂用帳戶可能會有一或多個 Azure Data Factory 執行個體 (或資料處理站)。 Azure Data Factory 是由四個重要元件所組成，這些元件會一起運作，以提供平台讓您撰寫具有資料移動和轉換步驟的資料驅動工作流程。
@@ -164,7 +165,7 @@ Data Factory 中的連結服務，有兩個用途：
 ## <a name="technical-deep-dive"></a>深入技術性討論 
 
 ### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>可否並行執行第 1 版和第 2 版管線？
-否。 第 2 版與第 1 版資料處理站不可包含其他版本的實體 (例如：連結的服務、資料集或管線)。   
+編號 第 2 版與第 1 版資料處理站不可包含其他版本的實體 (例如：連結的服務、資料集或管線)。   
 
 ### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>是否仍需在第 2 版中定義資料集？
 資料集不再是大部分活動的必要實體。 針對複製、機器學習、查閱、驗證，以及使用結構描述和資料集中其他中繼資料資訊進行轉換的自訂活動，則必須使用資料集。 其他活動不再需要使用資料集。
@@ -197,7 +198,7 @@ Data Factory 中的連結服務，有兩個用途：
 是。 您可設定活動層級的重試和逾時，以控管第 2 版中與第 1 版類似的活動執行。 
 
 ## <a name="next-steps"></a>後續步驟
-如需建立 Data Factory 第 2 版的逐步指示，請參閱下列教學課程：
+如需第 2 版資料處理站的逐步建立指示，請參閱下列教學課程：
 
 - [快速入門：建立 Data Factory](quickstart-create-data-factory-dot-net.md)
 - [教學課程：複製雲端中的資料](tutorial-copy-data-dot-net.md)

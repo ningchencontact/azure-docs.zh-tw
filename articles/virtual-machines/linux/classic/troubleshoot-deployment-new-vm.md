@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 581fbaa477bd603fea5fdc0ef77c6ef7498b7897
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>針對在 Azure 中建立新 Linux 虛擬機器的傳統部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如需本文的 Resource Manager 版本，請參閱[這裡](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需本文的 Resource Manager 版本，請參閱[這裡](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 **解決方案：**
 
-若要解決這兩個錯誤，請使用與作業系統相同的設定 (一般化/特殊化) 來上傳原始 VHD (可從內部部署環境取得)。 若要以一般化上傳，請務必先執行 -deprovision。 如需詳細資訊，請參閱 [建立及上傳包含 Linux 作業系統的虛擬硬碟](create-upload-vhd.md) 。
+若要解決這兩個錯誤，請使用與作業系統相同的設定 (一般化/特殊化) 來上傳原始 VHD (可從內部部署環境取得)。 若要以一般化上傳，請務必先執行 -deprovision。 如需詳細資訊，請參閱 [建立及上傳包含 Linux 作業系統的虛擬硬碟](create-upload-vhd-classic.md) 。
 
 **擷取錯誤：**
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
 **解決方案：**
 
-若要解決這兩個錯誤，請從入口網站中刪除目前的映像，然後使用與作業系統相同的設定 (一般化/特殊化) [從目前的 VHD 重新擷取映像](capture-image.md) 。
+若要解決這兩個錯誤，請從入口網站中刪除目前的映像，然後使用與作業系統相同的設定 (一般化/特殊化) [從目前的 VHD 重新擷取映像](capture-image-classic.md) 。
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>問題︰自訂/資源庫/Marketplace 映像；配置失敗
 當新的 VM 要求被傳送到沒有可用空間可處理要求、或不支援所要求的 VM 大小的叢集，便會發生此錯誤。 在相同的雲端服務中不可混合不同系列的 VM。 因此，如果您想要建立和您的雲端服務可支援大小不同的新 VM，計算要求將會失敗。

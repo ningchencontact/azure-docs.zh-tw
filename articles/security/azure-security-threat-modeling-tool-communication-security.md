@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構︰通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="comm-ssltls"></a>使用 SSL/TLS 保護與事件中樞的通訊
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 事件中樞 | 
 | **SDL 階段**               | 建置 |  
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="priv-aspnet"></a>檢查服務帳戶權限，並確認自訂服務或 ASP.NET 網頁採用 CRM 的安全性
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
 | **SDL 階段**               | 建置 |  
@@ -61,10 +61,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="sqlserver-factory"></a>在將內部部署 SQL Server 連線至 Azure Data Factory 時使用資料管理閘道
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure Data Factory | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 連結服務類型 - Azure 和內部部署 |
 | **參考**              |[在內部部署與 Azure Data Factory 之間移動資料](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway)、[資料管理閘道](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
@@ -72,10 +72,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="identity-https"></a>確定前往 Identity Server 的所有流量都是透過 HTTPS 連線
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [IdentityServer3 - 金鑰、簽章和密碼編譯](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html)、[IdentityServer3 - 部署](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="x509-ssltls"></a>驗證用來驗證 SSL、TLS 及 DTLS 連線的 X.509 憑證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="ssl-appservice"></a>在 Azure App Service 中設定自訂網域的 SSL 憑證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="appservice-https"></a>強制所有前往 Azure App Service 的流量透過 HTTPS 連線來進行
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="http-hsts"></a>啟用 HTTP Strict Transport Security (HSTS)
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="sqlserver-validation"></a>啟用 SQL Server 連線加密和憑證驗證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="encrypted-sqlserver"></a>強制加密與 SQL Server 的通訊
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -171,10 +171,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="comm-storage"></a>確定對 Azure 儲存體的通訊是透過 HTTPS
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Azure 儲存體傳輸層級加密 – 使用 HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
@@ -182,7 +182,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="md5-https"></a>如果無法啟用 HTTPS，則在下載 Blob 之後驗證 MD5 雜湊
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  
@@ -193,7 +193,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="smb-shares"></a>使用 SMB 3.0 相容用戶端來確保要傳輸到 Azure 檔案共用的資料會加密
 
-| 課程名稱                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 行動用戶端 | 
 | **SDL 階段**               | 建置 |  
@@ -204,7 +204,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="cert-pinning"></a>實作憑證釘選
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  
@@ -214,7 +214,7 @@ ms.lasthandoff: 10/11/2017
 | **步驟** | <p>憑證釘選可防止攔截式 (MITM) 攻擊。 釘選程序會將主機與其預期的 X509 憑證或公開金鑰相關聯。 在主機已知或已看到憑證或公開金鑰後，憑證或公開金鑰便已關聯或「釘選」到主機。 </p><p>因此，當攻擊者嘗試發動 SSL MITM 攻擊時，在 SSL 信號交換期間，來自攻擊者伺服器的金鑰會與已釘選之憑證的金鑰不同，因而會捨棄要求，因此，就能藉由實作 ServicePointManager 的 `ServerCertificateValidationCallback` 委派來防止 MITM 憑證釘選。</p>|
 
 ### <a name="example"></a>範例
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -281,7 +281,7 @@ namespace CertificatePinningExample
 
 ## <a id="https-transport"></a>啟用 HTTPS - 安全傳輸通道
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -292,7 +292,7 @@ namespace CertificatePinningExample
 
 ## <a id="message-protection"></a>WCF︰將訊息安全性保護層級設定為 EncryptAndSign
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -321,7 +321,7 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF︰使用最低權限帳戶來執行 WCF 服務
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -332,7 +332,7 @@ string GetData(int value);
 
 ## <a id="webapi-https"></a>強制所有前往 Web API 的流量透過 HTTPS 連線來進行
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
 | **SDL 階段**               | 建置 |  
@@ -343,7 +343,7 @@ string GetData(int value);
 
 ### <a name="example"></a>範例 
 下列程式碼顯示會檢查 SSL 的 Web API 驗證篩選︰ 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 將此篩選新增至任何需要 SSL 的 Web API 動作︰ 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]
@@ -373,7 +373,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>確定對 Azure Redis 快取的通訊是透過 SSL
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure Redis 快取 | 
 | **SDL 階段**               | 建置 |  
@@ -386,7 +386,7 @@ public class ValuesController : ApiController
 
 ## <a id="device-field"></a>保護裝置對現場閘道的通訊
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 現場閘道 | 
 | **SDL 階段**               | 建置 |  
@@ -397,7 +397,7 @@ public class ValuesController : ApiController
 
 ## <a id="device-cloud"></a>使用 SSL/TLS 保護裝置對雲端閘道的通訊
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 雲端閘道 | 
 | **SDL 階段**               | 建置 |  

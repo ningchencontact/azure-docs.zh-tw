@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - 範例
 > [!NOTE]
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/03/2017
     ![Data Factory 刀鋒視窗](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio 中的範例
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 您必須已在電腦上安裝下列項目：
 
 * Visual Studio 2013 或 Visual Studio 2015
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/03/2017
    2. 在右窗格中選取 [Data Factory 範本]  。
    3. 輸入專案的 [名稱]  。
    4. 選取專案的 [位置]  。
-   5. 按一下 [確定] 。
+   5. 按一下 [SERVICEPRINCIPAL] 。
 
       ![[新增專案] 對話方塊](./media/data-factory-samples/vs-new-project-adf-templates.png)
 3. 在 [Data Factory 範本] 對話方塊中，從 [使用案例範本] 區段選取範例範本，然後按 [下一步]。 以下步驟將引導您完成 [客戶分析]  範本的使用。 其他範例的步驟均相去不遠。
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/03/2017
    3. 選取您要在其中建立 Data Factory 的 [Azure 訂用帳戶]  。
    4. 選取 Data Factory 的 [資源群組]  。
    5. 針對 [區域]，選取 [美國西部]、[美國東部] 或 [北歐]。
-   6. 按一下 [下一步] 。
+   6. 按 [下一步] 。
 6. 在 [設定資料存放區] 頁面中，指定現有的 [Azure SQL Database] 和 [Azure 儲存體帳戶]，或建立資料庫/儲存體，然後按 [下一步]。
 7. 在 [設定計算] 頁面中，選取預設值，然後按 [下一步]。
 8. 在 [摘要] 頁面中，檢閱所有設定，然後按 [下一步]。

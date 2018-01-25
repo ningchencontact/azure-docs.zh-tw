@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>使用 Azure Data Factory 複製活動從 DB2 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/17/2017
 
 資料處理站目前僅支援資料從 DB2 資料庫移至[支援的接收資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 不支援資料從其他資料存放區移至 DB2 資料庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 資料處理站支援使用[資料管理閘道](data-factory-data-management-gateway.md)連接至內部部署 DB2 資料庫。 如需有關設定閘道資料管線來移動資料的逐步指示，請參閱[將資料從內部部署移到雲端](data-factory-move-data-between-onprem-and-cloud.md)一文。
 
 即使 DB2 裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以在資料存放區所在的 IaaS VM 上安裝閘道。 如果閘道可以連線到資料庫，您可以在不同的 VM 上安裝閘道。
@@ -82,14 +82,14 @@ ms.lasthandoff: 10/17/2017
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |此屬性必須設為 **OnPremisesDB2**。 |是 |
-| **server** |DB2 伺服器的名稱。 |是 |
-| **database** |DB2 資料庫的名稱。 |是 |
+| **type** |此屬性必須設為 **OnPremisesDB2**。 |yes |
+| **server** |DB2 伺服器的名稱。 |yes |
+| **database** |DB2 資料庫的名稱。 |yes |
 | **schema** |在 DB2 資料庫中的結構描述名稱。 此屬性必須區分大小寫。 |否 |
-| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |yes |
 | **username** |使用者帳戶的名稱 (如果您使用基本或 Windows 驗證)。 |否 |
 | **password** |使用者帳戶的密碼。 |否 |
-| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |是 |
+| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的**結構**、**可用性**和**原則**等區段類似於所有的資料集類型 (Azure SQL、Azure Blob 儲存體、Azure 資料表儲存體等)。
@@ -310,7 +310,7 @@ ms.lasthandoff: 10/17/2017
 | DB2 資料庫類型 | .NET Framework 類型 |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| 整數  |Int32 |
 | BigInt |Int64 |
 | Real |單一 |
 | 兩倍 |兩倍 |
@@ -318,25 +318,25 @@ ms.lasthandoff: 10/17/2017
 | 十進位 |十進位 |
 | DecimalFloat |十進位 |
 | 數值 |十進位 |
-| Date |DateTime |
-| 時間 |TimeSpan |
+| 日期 |Datetime |
+| 時間 |時間範圍 |
 | Timestamp |Datetime |
 | xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
+| Char |字串 |
+| VarChar |字串 |
+| LongVarChar |字串 |
+| DB2DynArray |字串 |
 | Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| 圖形 |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| 圖形 |字串 |
+| VarGraphic |字串 |
+| LongVarGraphic |字串 |
+| Clob |字串 |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |字串 |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| 整數  |Int32 |
 | BigInt |Int64 |
 | Real |單一 |
 | 兩倍 |兩倍 |
@@ -344,11 +344,11 @@ ms.lasthandoff: 10/17/2017
 | 十進位 |十進位 |
 | DecimalFloat |十進位 |
 | 數值 |十進位 |
-| Date |DateTime |
-| 時間 |TimeSpan |
+| 日期 |Datetime |
+| 時間 |時間範圍 |
 | Timestamp |Datetime |
 | xml |Byte[] |
-| Char |String |
+| Char |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

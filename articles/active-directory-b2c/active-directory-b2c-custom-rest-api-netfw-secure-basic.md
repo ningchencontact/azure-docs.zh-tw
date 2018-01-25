@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 在 [Azure AD B2C 相關文章](active-directory-b2c-custom-rest-api-netfw.md)中，您在未經驗證的情況下，即建立了與 Azure Active Directory B2C (Azure AD B2C) 使用者旅程圖整合的 RESTful 服務 (Web API)。 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 如需詳細資訊，請參閱[ASP.NET Web API 中的基本驗證](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 完成[將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中](active-directory-b2c-custom-rest-api-netfw.md)文章的步驟。
 
 ## <a name="step-1-add-authentication-support"></a>步驟 1：新增驗證支援
@@ -76,7 +76,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 3. 開啟 App_Start\ClientAuthMiddleware.cs 檔案，並以下列程式碼取代檔案內容：
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 2. 開啟 Startup.cs 檔案，並以下列程式碼取代檔案內容：
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

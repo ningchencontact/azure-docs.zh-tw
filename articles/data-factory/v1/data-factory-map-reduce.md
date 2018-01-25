@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>從 Data Factory 叫用 MapReduce 程式
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/02/2017
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight MapReduce 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 Windows/Linux 架構 HDInsight 叢集上執行 MapReduce 程式。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 > [!NOTE] 
-> 如果您是 Azure Data Factory 的新手，請在閱讀本文章之前閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及進行教學課程：[建置您的第一個資料管線](data-factory-build-your-first-pipeline.md)。  
+> 如果您是 Azure Data Factory 的新手，請在閱讀本文章之前閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及研習教學課程：[建置您的第一個資料管線](data-factory-build-your-first-pipeline.md)。  
 
 ## <a name="introduction"></a>簡介
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。 它包含一系列活動，其中每個活動都會執行特定的處理作業。 本文說明如何使用「HDInsight MapReduce 活動」。
@@ -183,15 +183,15 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 ### <a name="pipeline"></a>管線
 此範例中的管線只含有一個類型為 HDInsightMapReduce 的活動。 JSON 中的幾個重要屬性如下： 
 
-| 屬性 | 注意事項 |
+| 屬性 | 注意 |
 |:--- |:--- |
-| 類型 |類型必須設為 **HDInsightMapReduce**。 |
+| type |類型必須設為 **HDInsightMapReduce**。 |
 | className |類別的名稱是： **wordcount** |
 | jarFilePath |包含類別的 Jar 檔案路徑。 如果您複製/貼上下列程式碼，請記得變更叢集的名稱。 |
 | jarLinkedService |包含 Jar 檔案的 Azure 儲存體連結服務。 這個連結服務會參考與 HDInsight 叢集關聯的儲存體。 |
 | arguments |字數統計程式會採用輸入和輸出兩個引數。 輸入檔為 davinci.txt 檔案。 |
 | frequency/interval |這些屬性的值符合輸出資料集。 |
-| linkedServiceName |表示您先前建立的 HDInsight 連結服務。 |
+| 預設容器 |表示您先前建立的 HDInsight 連結服務。 |
 
 ```JSON
 {

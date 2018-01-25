@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
 下列視訊示範如何使用 OAuth 2.0 通訊協定搭配 Azure Active Directory 與 API 管理建置 Web API 後端並加以保護。  本文提供概觀以及視訊中步驟的其他資訊。 這段 24 分鐘的視訊示範如何：
@@ -81,13 +81,13 @@ ms.lasthandoff: 12/04/2017
 
 在 `CalcInput.cs` 檔案的開頭處新增下列 `using` 陳述式。
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 將產生的類別取代為下列程式碼。
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ public class CalcInput
 
 在 `CalcController.cs` 檔案的開頭處新增下列 `using` 陳述式。
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 將產生的控制器類別取代為下列程式碼。 此程式碼實作基本計算機 API 的 `Add`、`Subtract`、`Multiply` 以及 `Divide` 運算。
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -170,7 +170,7 @@ public class CalcController : ApiController
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>授與權限給 Azure AD 後端服務應用程式
 設定和發佈您的 Web API 專案時，您的 Azure AD 目錄中會建立一個新的應用程式用於後端服務。 這個步驟會授與權限給 Web API 後端，從視訊的 6:13 開始。
 
-![應用程式][api-management-aad-backend-app]
+![Application][api-management-aad-backend-app]
 
 按一下要設定必要權限的應用程式名稱。 瀏覽到 [設定] 索引標籤，向下捲動到 [其他應用程式的權限] 區段。 按一下 [Windows Azure Active Directory] 旁邊的 [應用程式權限] 下拉式清單，核取 [讀取目錄資料] 的方塊，然後按一下 [儲存]。
 
@@ -412,7 +412,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 
 這些值可以從您為開發人員入口網站建立的 AAD 應用程式的 [App 端點]  頁面擷取。 若要存取端點，請瀏覽到 AAD 應用程式的 [設定] 索引標籤，然後按一下 [檢視端點]。
 
-![應用程式][api-management-aad-devportal-application]
+![Application][api-management-aad-devportal-application]
 
 ![檢視端點][api-management-aad-view-endpoints]
 

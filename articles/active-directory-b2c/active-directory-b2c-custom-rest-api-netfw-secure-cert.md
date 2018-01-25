@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 在相關的文章中，您可以[建立 RESTful 服務](active-directory-b2c-custom-rest-api-netfw.md)，與 Azure Active Directory B2C (Azure AD B2C) 互動。
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 * 將憑證上傳至 Azure AD B2C 原則金鑰。
 * 將您的自訂原則設定為使用用戶端憑證。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 完成[整合 REST API 宣告交換](active-directory-b2c-custom-rest-api-netfw.md)文章中的步驟。
 * 取得有效的憑證 (具有私密金鑰的 .pfx 檔案)。
 
@@ -181,7 +181,7 @@ Azure Web 應用程式平台不會對 Azure AD B2C 傳送至 RESTful 服務的�
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 新增 IsValidClientCertificate 函式
 開啟 *Controllers\IdentityController.cs* 檔案，並將下列函式新增至 `Identity` 控制器類別： 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -283,7 +283,7 @@ private bool IsValidClientCertificate()
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 呼叫 IsValidClientCertificate 函式
 開啟 *Controllers\IdentityController.cs* 檔案，然後在 `SignUp()` 函式的開頭，新增下列程式碼片段： 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f6dc1b2ab8198ec2c03615aedced98a314bf66d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/18/2018
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>連接相同雲端服務中的 SQL Server
-可以在相同的雲端服務中建立多個虛擬機器。 若要了解此虛擬機器案例，請參閱 [如何連接虛擬機器與虛擬網路或雲端服務](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)。 此案例為當虛擬機器上的用戶端嘗試連接到在同一個雲端服務中執行的另一部虛擬機器上的 SQL Server。
+可以在相同的雲端服務中建立多個虛擬機器。 若要了解此虛擬機器案例，請參閱 [如何連接虛擬機器與虛擬網路或雲端服務](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)。 此案例為當虛擬機器上的用戶端嘗試連接到在同一個雲端服務中執行的另一部虛擬機器上的 SQL Server。
 
 在此案例中，您可以使用 VM **名稱** (在入口網站中也稱為**電腦名稱**或**主機名稱**) 來連接。 這是您在建立期間提供給 VM 的名稱。 例如，如果將您的 SQL VM 命名為 **mysqlvm**，則在相同雲端服務中的用戶端 VM 將可以使用下列連接字串來連接：
 

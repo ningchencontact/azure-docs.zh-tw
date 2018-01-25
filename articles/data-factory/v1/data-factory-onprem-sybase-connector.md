@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 19a51c7456df698fa682fdecf1487730e282de19
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>使用 Azure Data Factory 從 Sybase 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/03/2017
 
 您可以將資料從內部部署的 Sybase 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 Sybase 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 Sybase 資料存放區。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 Sybase 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。
 
 即使 Sybase 資料庫裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以將閘道安裝在與資料存放區相同或相異的 IaaS VM 上，只要閘道可以連線到資料庫即可。
@@ -47,7 +47,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Sybase
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
-- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
 - 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
@@ -65,14 +65,14 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Sybase
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OnPremisesSybase** |是 |
-| 伺服器 |Sybase 伺服器的名稱。 |是 |
-| 資料庫 |Sybase 資料庫的名稱。 |是 |
+| type |類型屬性必須設為： **OnPremisesSybase** |yes |
+| 伺服器 |Sybase 伺服器的名稱。 |yes |
+| 資料庫 |Sybase 資料庫的名稱。 |yes |
 | 結構描述 |在資料庫中的結構描述名稱。 |否 |
-| authenticationType |用來連接到 Sybase 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| authenticationType |用來連接到 Sybase 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |yes |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到內部部署 Sybase 資料庫的閘道器名稱。 |是 |
+| gatewayName |Data Factory 服務應該用來連接到內部部署 Sybase 資料庫的閘道器名稱。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。

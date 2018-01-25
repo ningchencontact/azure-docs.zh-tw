@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-hbase-net-sdk"></a>使用 HBase .NET SDK
 
@@ -38,7 +38,7 @@ HBase .NET SDK 以 NuGet 封裝的形式提供，能以 Visual Studio **NuGet �
 
 若要使用 SDK，請將一個新的 `HBaseClient` 物件具現化，在由通向您的叢集的 `Uri` 以及 Hadoop 使用者名稱和密碼組成的 `ClusterCredentials` 中傳遞。
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ HBase 會將資料儲存在資料表中。 資料表包含 *Rowkey*、主索引�
 
 若要建立新的資料表，請指定 `TableSchema` 和資料行。 下列程式碼會檢查資料表「RestSDKTable」是否已經存在，如果不存在，即會建立資料表。
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 
 刪除資料表：
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 若要插入資料，您可以將一個唯一的資料列索引鍵指定為資料列識別碼。 所有資料都儲存在 `byte[]` 陣列中。 下列程式碼定義了 `title`、`director`、`release_date` 資料行，並將其新增至 t1 資料行系列，因為這些是最常存取的資料行。 `description` 和 `tagline` 資料行則會新增至 t2 資料行系列。 您可以視需要將資料分割成資料行系列。
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ HBase 會實作 BigTable，因此資料格式如下所示：
 
 若要讀取 HBase 資料表的資料，請將資料表名稱和資料列索引鍵傳遞至 `GetCellsAsync` 方法，以傳回 `CellSet`。
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 在此情況下，程式碼只會傳回最初相符的資料列，因為唯一的索引鍵應該只有一個資料列。 傳回的值會從 `byte[]` 陣列變更為 `string` 格式。 您也可以將值轉換成其他類型，例如電影上映日期可以使用整數：
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 HBase 使用 `scan` 擷取一或多個資料列。 這個範例會以 10 個批次要求多個資料列，並擷取其索引鍵的值介於 25 和 35 之間的資料。 擷取所有資料列之後，請刪除掃描器以清除資源。
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

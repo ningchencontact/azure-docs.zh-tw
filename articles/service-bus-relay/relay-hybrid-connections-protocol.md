@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 轉送混合式連線通訊協定
 Azure 轉送是 Azure 服務匯流排平台的重要功能支柱。 轉送的新「混合式連線」功能是以 HTTP 和 Websocket 為基礎的安全、開放式通訊協定演化。 它會取代其前身，也就是建置在專屬通訊協定基礎上、名為「BizTalk 服務」的功能。 整合到 Azure 應用程式服務的混合式連線會繼續如往常般運作。
@@ -87,14 +87,14 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 
 | 參數 | 必要 | 說明 |
 | --- | --- | --- |
-| `sb-hc-action` |是 |接聽程式角色的參數必須是 **sb-hc-action=listen** |
-| `{path}` |是 |用來註冊此接聽程式之預先設定混合式連線的 URL 編碼命名空間路徑。 此運算式會附加至固定的 `$hc/` 路徑部分。 |
+| `sb-hc-action` |yes |接聽程式角色的參數必須是 **sb-hc-action=listen** |
+| `{path}` |yes |用來註冊此接聽程式之預先設定混合式連線的 URL 編碼命名空間路徑。 此運算式會附加至固定的 `$hc/` 路徑部分。 |
 | `sb-hc-token` |是\* |針對授予**接聽**權限的命名空間或混合式連線，接聽程式必須提供有效且以 URL 編碼的服務匯流排共用存取權杖。 |
 | `sb-hc-id` |否 |用戶端提供的這個選擇性識別碼可讓您進行端對端診斷追蹤。 |
 
 如果因為混合式連線路徑未註冊、權杖無效或遺失或是其他某些錯誤，導致 WebSocket 連線失敗，將使用一般的 HTTP 1.1 狀態回饋模型提供錯誤回饋。 狀態描述會包含錯誤追蹤識別碼，以供您告知 Azure 支援人員︰
 
-| 代碼 | 錯誤 | 說明 |
+| 代碼 | Error | 說明 |
 | --- | --- | --- |
 | 404 |找不到 |混合式連線路徑無效或基底 URL 的格式不正確。 |
 | 401 |未經授權 |安全性權杖遺失、格式不正確或無效。 |
@@ -147,8 +147,8 @@ URL 必須保持原樣以用來建立接受通訊端，但要包含下列參數�
 
 | 參數 | 必要 | 說明 |
 | --- | --- | --- |
-| `sb-hc-action` |是 |若要接受通訊端，參數必須是 `sb-hc-action=accept` |
-| `{path}` |是 |(請參閱下列段落) |
+| `sb-hc-action` |yes |若要接受通訊端，參數必須是 `sb-hc-action=accept` |
+| `{path}` |yes |(請參閱下列段落) |
 | `sb-hc-id` |否 |請參閱先前的**識別碼**描述。 |
 
 `{path}` 是用來註冊此接聽程式之預先設定混合式連線的 URL 編碼命名空間路徑。 此運算式會附加至固定的 `$hc/` 路徑部分。 
@@ -159,7 +159,7 @@ URL 必須保持原樣以用來建立接受通訊端，但要包含下列參數�
 
 如果發生錯誤，服務會有如下回覆︰
 
-| 代碼 | 錯誤 | 說明 |
+| 代碼 | Error | 說明 |
 | --- | --- | --- |
 | 403 |禁止 |URL 無效。 |
 | 500 |內部錯誤 |服務發生錯誤 |
@@ -182,14 +182,14 @@ URL 必須保持原樣以用來建立接受通訊端，但要包含下列參數�
 
 | 參數 | 必要 | 說明 |
 | --- | --- | --- |
-| StatusCode |是 |數字型 HTTP 狀態碼。 |
-| statusDescription |是 |使用者可以看懂的拒絕原因。 |
+| StatusCode |yes |數字型 HTTP 狀態碼。 |
+| statusDescription |yes |使用者可以看懂的拒絕原因。 |
 
 接著會使用產生的 URI 來建立 WebSocket 連線。
 
 當正確完成時，因為尚未建立任何 WebSocket，此交握會刻意失敗，而其 HTTP 錯誤碼為 410。 如果發生錯誤，下列程式碼會描述錯誤：
 
-| 代碼 | 錯誤 | 說明 |
+| 代碼 | Error | 說明 |
 | --- | --- | --- |
 | 403 |禁止 |URL 無效。 |
 | 500 |內部錯誤 |服務發生錯誤。 |
@@ -231,8 +231,8 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=
 
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
-| `sb-hc-action` |是 |傳送者角色的參數必須是 `action=connect`。 |
-| `{path}` |是 |(請參閱下列段落) |
+| `sb-hc-action` |yes |傳送者角色的參數必須是 `action=connect`。 |
+| `{path}` |yes |(請參閱下列段落) |
 | `sb-hc-token` |是\* |針對授予**傳送**權限的命名空間或混合式連線，接聽程式必須提供有效且以 URL 編碼的服務匯流排共用存取權杖。 |
 | `sb-hc-id` |否 |選擇性的識別碼，允許進行端對端診斷追蹤，並可供接聽程式在接受交握期間使用。 |
 
@@ -246,7 +246,7 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 如果因為混合式連線路徑未註冊、權杖無效或遺失或是其他某些錯誤，導致 WebSocket 連線失敗，將使用一般的 HTTP 1.1 狀態回饋模型提供錯誤回饋。 狀態描述會包含錯誤追蹤識別碼，以供您告知 Azure 支援人員︰
 
-| 代碼 | 錯誤 | 說明 |
+| 代碼 | Error | 說明 |
 | --- | --- | --- |
 | 404 |找不到 |混合式連線路徑無效或基底 URL 的格式不正確。 |
 | 401 |未經授權 |安全性權杖遺失、格式不正確或無效。 |

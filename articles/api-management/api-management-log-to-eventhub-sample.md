@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>利用 Azure API 管理、事件中樞及 Runscope 監視您的 API
 [API 管理服務](api-management-key-concepts.md) 提供許多功能，以增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些重要的 API 相關統計資料，以顯示在發佈者入口網站儀表板上，但除此之外，詳細資料會消失。
@@ -166,7 +166,7 @@ HTTP 標頭可以轉換成採用簡單索引鍵/值組格式的訊息格式。 �
 ### <a name="ieventprocessor"></a>IEventProcessor
 使用 `EventProcessorHost` 時的中心概念是建立 `IEventProcessor` 介面的實作，其中包含 `ProcessEventAsync` 方法。 該方法的本質如下所示：
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 ### <a name="httpmessage"></a>HttpMessage
 `HttpMessage` 執行個體包含三個資料片段：
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ public class HttpMessage
 
 `IHttpMessageProcessor` 實作如下所示：
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;
@@ -270,7 +270,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 
 ![示範將要求轉送到 Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 Azure API 管理服務提供了一個理想位置，可供擷取您的 API 的雙向 HTTP 流量。 Azure 事件中樞是一個可高度擴充、低成本的解決方案，用來擷取該流量並將它饋送到次要處理系統中，以便進行記錄、監視和其他複雜的分析。 連線到第三方監視系統 (像是 Runscope) 就像數十行程式碼一樣簡單。
 
 ## <a name="next-steps"></a>後續步驟

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：追蹤相依性
 「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
@@ -131,7 +131,7 @@ ms.lasthandoff: 11/01/2017
 
 ![按一下要求類型，按一下執行個體以取得同一個執行個體的不同檢視，按一下執行個體以取得例外狀況的詳細資料。](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>分析
 您可以在 [Log Analytics 查詢語言](https://docs.loganalytics.io/)中追蹤相依性。 以下是一些範例。
 
 * 尋找任何失敗的相依性呼叫：
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/01/2017
 
 例如，如果您建置程式碼的組件不是您自己撰寫的，您可以計算對組件的所有呼叫，以找出它佔回應時間的比例。 若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency`傳送。
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();

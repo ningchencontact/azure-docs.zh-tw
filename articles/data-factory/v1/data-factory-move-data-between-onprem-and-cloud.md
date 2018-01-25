@@ -1,6 +1,6 @@
 ---
 title: "移動資料 - 資料管理閘道 | Microsoft Docs"
-description: "設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道器移動資料。"
+description: "設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道移動資料。"
 services: data-factory
 documentationcenter: 
 author: nabhishek
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/02/2017
 * **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
 * **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
 
-## <a name="create-data-factory"></a>建立 Data Factory
+## <a name="create-data-factory"></a>建立資料處理站
 在此步驟中，您將使用 Azure 入口網站來建立名為 **ADFTutorialOnPremDF**的 Azure Data Factory 執行個體。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -352,7 +352,7 @@ ms.lasthandoff: 11/02/2017
      }
     ```   
    > [!IMPORTANT]
-   > 將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。
+   > 將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。
    >
    >
 

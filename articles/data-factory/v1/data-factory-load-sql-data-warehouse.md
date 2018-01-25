@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8398a261ca33060b7709d818cb64bb1e8e2058b1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/02/2017
 
 [Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)是一種雲端架構、相應放大的資料庫，可處理巨量關聯式與非關聯式資料。  SQL 資料倉儲是以巨量平行處理 (MPP) 架構為基礎，最適用於企業資料倉儲工作負載。  它透過單獨調整儲存體和計算的彈性，來提供雲端彈性。
 
-現在，使用 Azure SQL 資料倉儲比之前使用 **Azure Data Factory** 還要簡單。  Azure Data Factory 是一個完全受管理的雲端架構資料整合服務，可用來將現有系統的資料填入 SQL 資料倉儲，並節省評估 SQL 資料倉儲及建置分析解決方案的寶貴時間。 以下是使用 Azure Data Factory 將資料載入至 Azure SQL 資料倉儲的主要優點：
+現在，使用 Azure SQL 資料倉儲比之前使用 **Azure Data Factory** 還要簡單。  Azure Data Factory 是一個完全受控的雲端架構資料整合服務，可用來將現有系統的資料填入 SQL 資料倉儲，並節省評估 SQL 資料倉儲及建置分析解決方案的寶貴時間。 以下是使用 Azure Data Factory 將資料載入至 Azure SQL 資料倉儲的主要優點：
 
 * **容易設定**：不需要編寫指令碼的 5 步驟直覺式精靈。
 * **豐富的資料存放區支援**︰一組豐富內部部署和雲端架構資料存放區的內部支援。
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/02/2017
 >
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure Blob 儲存體︰這項實驗使用 Azure Blob 儲存體 (GRS) 來儲存 TPC-H 測試資料集。  如果您沒有 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 * [TPC-H](http://www.tpc.org/tpch/) 資料︰我們將使用 TPC-H 作為測試資料集。  若要這麼做，您必須使用 TPC-H 工具組中的 `dbgen`，以協助您產生資料集。  您可以從 [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) 下載 `dbgen` 的原始程式碼並自行進行編譯，或者從 [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools) 下載編譯過的二進位檔。  使用下列命令執行 dbgen.exe，以針對分散到 10 個檔案的 `lineitem` 資料表產生 1 TB 一般檔案：
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/02/2017
       2. 選取 [建立新的] 以輸入資源群組的名稱。
    4. 選取 Data Factory 的 [位置]。
    5. 選取刀鋒視窗底部的 [釘選到儀表板] 核取方塊。  
-   6. 按一下 [建立] 。
+   6. 按一下頁面底部的 [新增] 。
 4. 建立完成之後，您會看到 [Data Factory] 刀鋒視窗，如下圖所示：
 
    ![Data Factory 首頁](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/02/2017
 
 1. 輸入 **CopyFromBlobToAzureSqlDataWarehouse** 作為 [工作名稱]
 2. 選取 [立即執行一次] 選項。   
-3. 按一下 [下一步] 。  
+3. 按 [下一步] 。  
 
     ![複製精靈 - 屬性頁面](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="step-4-performance-settings"></a>步驟 4：效能設定
 
-預設會核取 [允許 Polybase]。  按一下 [下一步] 。
+預設會核取 [允許 Polybase]。  按 [下一步] 。
 
 ![複製精靈 - 結構描述對應頁面](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

@@ -3,7 +3,7 @@ title: "在 Azure Stack 上使用 MySQL 資料庫做為 PaaS | Microsoft Docs"
 description: "瞭解如何部署 MySQL 資源提供者，並提供 MySQL 資料庫作為 Azure Stack 上的服務"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/10/2018
 
 6. [安裝 Azure PowerShell 1.2.11 版](azure-stack-powershell-install.md)。
 
-7. 執行 DeploySqlProvider.ps1 指令碼。
+7. 執行 `DeployMySqlProvider.ps1` 指令碼。
 
 指令碼會執行這些步驟：
 
@@ -155,7 +155,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 參數
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 參數
 您可以在命令列中指定這些參數。 如果未這麼做，或任何參數驗證失敗，系統會提示您提供必要參數。
 
 | 參數名稱 | 說明 | 註解或預設值 |

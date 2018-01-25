@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="csp-js"></a>實作內容安全性原則 (CSP)，並停用內嵌 javascript
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>範例
 範例原則︰ 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 此原則只允許從 Web 應用程式的伺服器和 google 分析伺服器載入指令碼。 將會拒絕從任何其他網站載入的指令碼。 在網站上啟用 CSP 後，下列功能會自動停用以緩和 XSS 攻擊。 
@@ -67,7 +67,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>啟用瀏覽器的 XSS 篩選器
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -78,7 +78,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="trace-deploy"></a>ASP.NET 應用程式必須在部署前停用追蹤和偵錯
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -89,7 +89,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="js-trusted"></a>僅從信任的來源存取第三方 javascript
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -100,7 +100,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="ui-defenses"></a>確保已驗證的 ASP.NET 頁面納入 UI 偽裝或點擊劫持防禦功能
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>範例
 可以透過 IIS web.config 設定 X-FRAME-OPTIONS 標頭。決不能進行框架處理之網站的 Web.config 程式碼片段︰ 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -123,7 +123,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>範例
 只能由相同網域中的網頁進行框架處理之網站的 Web.config 程式碼︰ 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -135,7 +135,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="cors-aspnet"></a>確保在 ASP.NET Web 應用程式上啟用 CORS 的情況下只允許信任的原始來源
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -158,7 +158,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>範例
 如果無法存取 Web.config，則可藉由新增下列 CSharp 程式碼來設定 CORS︰ 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -166,7 +166,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 ## <a id="validate-aspnet"></a>在 ASP.NET 頁面上啟用 ValidateRequest 屬性
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -192,7 +192,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 ## <a id="local-js"></a>使用在本機裝載的最新 JavaScript 程式庫版本
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -203,7 +203,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 ## <a id="mime-sniff"></a>停用自動 MIME 探查
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -226,7 +226,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 ### <a name="example"></a>範例
 透過全域 Application\_BeginRequest 新增標頭 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -235,7 +235,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>範例
 實作自訂 HTTP 模組 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -262,13 +262,13 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### <a name="example"></a>範例
 您可以透過將必要標頭新增至個別回應，來單獨針對特定頁面啟用此標頭︰ 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
 ## <a id="standard-finger"></a>移除 Windows Azure 網站上的標準伺服器標頭以避免記錄特徵
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -279,7 +279,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>設定用於 Database Engine 存取的 Windows 防火牆
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -290,7 +290,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="cors-api"></a>確保在 ASP.NET Web API 上啟用 CORS 的情況下只允許信任的原始來源
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
 | **SDL 階段**               | 建置 |  
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>範例
 在 App_Start/WebApiConfig.cs 中，將下列程式碼新增至 WebApiConfig.Register 方法 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -325,7 +325,7 @@ namespace WebService
 ### <a name="example"></a>範例
 EnableCors 屬性可套用至控制器中的動作方法，如下所示︰ 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -365,7 +365,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>範例
 若要在類別中的特定方法上停用 CORS，可以使用 DisableCors 屬性，如下所示︰ 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -386,7 +386,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
 | **SDL 階段**               | 建置 |  
@@ -399,7 +399,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>範例
 第一種方法是使用 Lambda 呼叫 UseCors。 Lambda 會採用 CorsPolicyBuilder 物件︰ 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -411,7 +411,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>範例
 第二種方法是定義一或多個具名 CORS 原則，然後在執行階段依名稱選取原則。 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>範例
 每個動作︰若要指定特定動作的 CORS 原則，請將 [EnableCors] 屬性套用至該動作。 指定原則名稱。 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>範例
 每個控制站︰ 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>範例
 全域︰ 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="example"></a>範例
 若要停用某個控制器或動作的 CORS，請使用 [DisableCors] 屬性。 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {
@@ -478,10 +478,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="config-sensitive"></a>加密包含敏感性資料的 Web API 組態檔區段
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [作法：在 ASP.NET 2.0 中使用 DPAPI 加密組態區段](https://msdn.microsoft.com/library/ff647398.aspx)、[指定受保護的組態提供者](https://msdn.microsoft.com/library/68ze1hb2.aspx)、[使用 Azure Key Vault 來保護應用程式的機密資訊](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
@@ -489,10 +489,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="admin-strong"></a>確保使用強式認證保護所有系統管理介面
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 裝置 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -500,7 +500,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="unknown-exe"></a>確保無法在裝置上執行不明的程式碼
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 裝置 | 
 | **SDL 階段**               | 建置 |  
@@ -511,7 +511,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="partition-iot"></a>使用 Bitlocker 將 IoT 裝置的 OS 和其他磁碟分割加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 裝置 | 
 | **SDL 階段**               | 建置 |  
@@ -522,10 +522,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="min-enable"></a>確保在裝置上只啟用最少的服務/功能
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 裝置 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -533,10 +533,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="field-bit-locker"></a>使用 Bitlocker 將 IoT 現場閘道的 OS 和其他磁碟分割加密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 現場閘道 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -544,10 +544,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="default-change"></a>確保在安裝期間變更現場閘道的預設登入認證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 現場閘道 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -555,7 +555,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="cloud-firmware"></a>確保雲端閘道實作相關程序讓連接的裝置韌體保持最新狀態
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 雲端閘道 | 
 | **SDL 階段**               | 建置 |  
@@ -566,10 +566,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="controls-policies"></a>確保裝置已根據組織的原則設定端點安全性控制項
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -577,10 +577,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="secure-keys"></a>確保 Azure 儲存體存取金鑰的安全管理
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Azure 儲存體安全性指南 - 管理儲存體帳戶金鑰](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
@@ -588,7 +588,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="cors-storage"></a>確保在 Azure 儲存體上啟用 CORS 的情況下只允許信任的來源
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  
@@ -599,7 +599,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="throttling"></a>啟用 WCF 的服務節流功能
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -622,7 +622,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a id="info-metadata"></a>WCF-透過中繼資料的資訊洩漏
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  

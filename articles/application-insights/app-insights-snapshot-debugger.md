@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 01/10/2018
 
 3. 修改您應用程式的 `Startup` 類別，以新增和設定快照集收集器的遙測處理器。
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -140,7 +140,7 @@ ms.lasthandoff: 01/10/2018
 2. 在您的應用程式中新增 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件。
 
 3. 快照集只會收集向 Application Insights 回報的例外狀況。 您可能需要修改程式碼才能回報例外狀況。 例外狀況處理程式碼取決於應用程式的結構，但有一個範例如下：
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -291,7 +291,7 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 ```
 
 2. 修改您角色的 `OnStart` 方法，新增指向 `SnapshotStore` 本機資源的環境變數。
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

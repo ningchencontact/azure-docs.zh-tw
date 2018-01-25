@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 7c18c2b3b0d271f2dbe4f247c132850b49d8f1d9
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 7ebec89e1481ccc232403426c04bed0ffd6f4fe7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="container-security"></a>容器安全性
 
-Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows 或 Linux 叢集 (5.7 版或更高版本) 節點上所安裝的憑證。 此外，Service Fabric 也會為 Windows 容器支援 gMSA (群組受管理的服務帳戶)。 
+Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows 或 Linux 叢集 (5.7 版或更高版本) 節點上所安裝的憑證。 此外，Service Fabric 也會為 Windows 容器支援 gMSA (群組受控服務帳戶)。 
 
 ## <a name="certificate-management-for-containers"></a>容器的憑證管理
 
@@ -53,7 +53,7 @@ Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows
 
 容器服務或流程會負責將憑證檔案匯入容器。 若要匯入憑證，您可以使用 `setupentrypoint.sh` 指令碼，或在容器流程內執行自訂程式碼。 用來匯入 PFX 檔的 C# 程式碼範例如下：
 
-```c#
+```csharp
     string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
     string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
@@ -69,7 +69,7 @@ Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows
 
 ## <a name="set-up-gmsa-for-windows-containers"></a>為 Windows 容器設定 gMSA
 
-為了設定 gMSA (群組受管理的服務帳戶)，所有叢集節點上都會放置認證規格檔案 (`credspec`)。 您可以使用 VM 擴充功能將此檔案複製到所有節點上。  `credspec` 檔案必須包含 gMSA 帳戶資訊。 如需 `credspec` 檔案的詳細資訊，請參閱[服務帳戶](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts)。 認證規格和 `Hostname` 標記會於應用程式資訊清單中指定。 `Hostname` 標記必須符合用來執行容器的 gMSA 帳戶名稱。  `Hostname` 標記可讓容器使用 Kerberos 驗證向網域中的其他服務驗證其自身。  下列程式碼片段會顯示用來在應用程式資訊清單中指定 `Hostname` 和 `credspec` 的範例：
+為了設定 gMSA (群組受控服務帳戶)，所有叢集節點上都會放置認證規格檔案 (`credspec`)。 您可以使用 VM 擴充功能將此檔案複製到所有節點上。  `credspec` 檔案必須包含 gMSA 帳戶資訊。 如需 `credspec` 檔案的詳細資訊，請參閱[服務帳戶](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts)。 認證規格和 `Hostname` 標記會於應用程式資訊清單中指定。 `Hostname` 標記必須符合用來執行容器的 gMSA 帳戶名稱。  `Hostname` 標記可讓容器使用 Kerberos 驗證向網域中的其他服務驗證其自身。  下列程式碼片段會顯示用來在應用程式資訊清單中指定 `Hostname` 和 `credspec` 的範例：
 
 ```xml
 <Policies>

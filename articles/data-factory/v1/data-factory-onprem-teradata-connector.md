@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/03/2017
 
 您可以將資料從內部部署的 Teradata 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 Teradata 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 Teradata 資料存放區。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 資料處理站支援透過資料管理閘道器連接至內部部署 Teradata 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。
 
 即使 Teradata 裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以將閘道安裝在與資料存放區相同或相異的 IaaS VM 上，只要閘道可以連線到資料庫即可。
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
-- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
 - 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
@@ -65,12 +65,12 @@ ms.lasthandoff: 11/03/2017
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OnPremisesTeradata** |是 |
-| 伺服器 |Teradata 伺服器的名稱。 |是 |
-| authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| type |類型屬性必須設為： **OnPremisesTeradata** |yes |
+| 伺服器 |Teradata 伺服器的名稱。 |yes |
+| authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |yes |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到內部部署 Teradata 資料庫的閘道器名稱。 |是 |
+| gatewayName |Data Factory 服務應該用來連接到內部部署 Teradata 資料庫的閘道器名稱。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -86,7 +86,7 @@ ms.lasthandoff: 11/03/2017
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |是 |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |yes |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 範例：將資料從 Teradata 複製到 Azure Blob
 下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 這些範例示範如何將資料從 Teradata 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。   
@@ -286,45 +286,45 @@ ms.lasthandoff: 11/03/2017
 
 | Teradata 資料庫類型 | .NET Framework 類型 |
 | --- | --- |
-| Char |String |
-| Clob |String |
-| 圖形 |String |
-| VarChar |String |
-| VarGraphic |String |
+| Char |字串 |
+| Clob |字串 |
+| 圖形 |字串 |
+| VarChar |字串 |
+| VarGraphic |字串 |
 | Blob |Byte[] |
-| 位元組 |Byte[] |
+| Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | 十進位 |十進位 |
 | 兩倍 |兩倍 |
-| Integer |Int32 |
-| Number |兩倍 |
+| 整數  |Int32 |
+| 數字 |兩倍 |
 | SmallInt |Int16 |
-| Date |DateTime |
-| 時間 |TimeSpan |
-| 時區的時間 |String |
-| Timestamp |DateTime |
+| 日期 |Datetime |
+| 時間 |時間範圍 |
+| 時區的時間 |字串 |
+| Timestamp |Datetime |
 | 時區的時間戳記 |DateTimeOffset |
-| 間隔日 |TimeSpan |
-| 間隔日至小時 |TimeSpan |
-| 間隔日至分鐘 |TimeSpan |
-| 間隔日至秒鐘 |TimeSpan |
-| 間隔小時 |TimeSpan |
-| 間隔小時至分鐘 |TimeSpan |
-| 間隔小時至秒鐘 |TimeSpan |
-| 間隔分鐘 |TimeSpan |
-| 間隔分鐘至秒鐘 |TimeSpan |
-| 間隔第二 |TimeSpan |
-| 間隔年 |String |
-| 間隔年至月 |String |
-| 間隔月 |String |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
-| Xml |String |
+| 間隔日 |時間範圍 |
+| 間隔日至小時 |時間範圍 |
+| 間隔日至分鐘 |時間範圍 |
+| 間隔日至秒鐘 |時間範圍 |
+| 間隔小時 |時間範圍 |
+| 間隔小時至分鐘 |時間範圍 |
+| 間隔小時至秒鐘 |時間範圍 |
+| 間隔分鐘 |時間範圍 |
+| 間隔分鐘至秒鐘 |時間範圍 |
+| 間隔第二 |時間範圍 |
+| 間隔年 |字串 |
+| 間隔年至月 |字串 |
+| 間隔月 |字串 |
+| Period(Date) |字串 |
+| Period(Time) |字串 |
+| Period(Time With Time Zone) |字串 |
+| Period(Timestamp) |字串 |
+| Period(Timestamp With Time Zone) |字串 |
+| xml |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

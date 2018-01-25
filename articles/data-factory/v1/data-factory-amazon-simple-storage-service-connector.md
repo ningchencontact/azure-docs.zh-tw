@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 > * [第 2 版 - 預覽](../connector-amazon-simple-storage-service.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Amazon S3 連接器](../connector-amazon-simple-storage-service.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Amazon S3 連接器](../connector-amazon-simple-storage-service.md)。
 
 本文說明如何使用 Azure Data Factory 中的複製活動，從 Amazon Simple Storage Service (S3) 移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 
@@ -66,8 +66,8 @@ ms.lasthandoff: 10/18/2017
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| accessKeyID |密碼存取金鑰的識別碼。 |string |是 |
-| secretAccessKey |密碼存取金鑰本身。 |加密的密碼字串 |是 |
+| accessKeyID |密碼存取金鑰的識別碼。 |字串 |yes |
+| secretAccessKey |密碼存取金鑰本身。 |加密的密碼字串 |yes |
 
 >[!NOTE]
 >此連接器需要 IAM 帳戶的存取金鑰，才能從 Amazon S3 複製資料。 不支援[暫存安全性認證](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)。
@@ -95,10 +95,10 @@ ms.lasthandoff: 10/18/2017
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| bucketName |S3 貯體名稱。 |string |是 |
-| key |S3 物件索引鍵。 |string |否 |
-| prefix |S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 只有當索引鍵空白時才適用。 |string |否 |
-| version |如果已啟用 S3 版本設定功能，則為 S3 物件的版本。 |String |否 |
+| bucketName |S3 貯體名稱。 |字串 |yes |
+| 索引鍵 |S3 物件索引鍵。 |字串 |否 |
+| prefix |S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 只有當索引鍵空白時才適用。 |字串 |否 |
+| version |如果已啟用 S3 版本設定功能，則為 S3 物件的版本。 |字串 |否 |
 | format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[JSON 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)小節。 <br><br> 如果您想要在檔案型存放區之間依原樣複製檔案 (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 | |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 | |
 

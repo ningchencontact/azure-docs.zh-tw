@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/11/2018
 
 具體而言，這個 ODBC 連接器支援使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證，從**任何 ODBC 相容的資料存放區**複製資料或將資料複製到該處。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用這個 ODBC 連接器，您必須：
 
@@ -52,15 +52,15 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 ODBC 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Odbc** | 是 |
-| connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。| 是 |
-| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
+| type | 類型屬性必須設定為：**Odbc** | yes |
+| connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。| yes |
+| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | yes |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
 | password | 指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | 否 |
 | 認證 | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"RefreshToken=<secret refresh token>;"`. 請將此欄位標示為 SecureString。 | 否 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |yes |
 
 **範例 1：使用 Basic (基本) 驗證**
 
@@ -121,9 +121,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 ODBC 相容的資料存放區複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | yes |
 | tableName | ODBC 資料存放區中資料表的名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
 
 **範例**
@@ -152,9 +152,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 ODBC 相容的資料存放區複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
@@ -193,9 +193,9 @@ ms.lasthandoff: 01/11/2018
 
 若要將資料複製到 ODBC 相容的資料存放區，請將複製活動中的接收器類型設定為 **OdbcSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的類型屬性必須設定為：**OdbcSink** | 是 |
+| type | 複製活動接收器的類型屬性必須設定為：**OdbcSink** | yes |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |No (預設值為 0 - 自動偵測) |
 | preCopyScript |指定一個供「複製活動」在每次執行時將資料寫入到資料存放區前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 |否 |

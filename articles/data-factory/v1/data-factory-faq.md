@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 35b8a443f9105fd2c39445c48b6ddf02cf357022
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2806a65c55f019da5842f29c6ef99dec63ae1bd0
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 資料處理站-常見問題集
 > [!NOTE]
@@ -58,7 +58,7 @@ Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站�
 * **Azure Resource Manager 範本** 請參閱 [教學課程：使用 Azure Resource Manager 範本建置您的第一個 Azure Data Factory](data-factory-build-your-first-pipeline-using-arm.md) 以取得詳細資訊。
 
 ### <a name="can-i-rename-a-data-factory"></a>我是否可以重新命名資料處理站？
-否。 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
+編號 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>我是否可以將 Data Factory 從一個 Azure 訂用帳戶移至另一個訂用帳戶？
 是。 請使用您資料處理站刀鋒視窗上的 [移動] 按鈕，如下圖所示：
@@ -73,7 +73,7 @@ Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站�
 | [隨選 HDInsight 叢集](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)或[您自己的 HDInsight 叢集](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md)、[Hive](data-factory-hive-activity.md)、[Pig](data-factory-pig-activity.md)、[MapReduce](data-factory-map-reduce.md)、[Hadoop 串流](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 活動︰批次執行和更新資源](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
+| [Azure 資料湖分析](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service)、[Azure SQL 資料倉儲](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service)、[SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[預存程序](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory 相較於 SQL Server Integration Services (SSIS) 有何異同？ 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
@@ -110,7 +110,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 或者，也可以透過伺服器端：
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 若要這樣做，[請設定遙測初始設定式](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer)：
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 在 Web 應用程式初始設定式例如 Global.asax.cs 中：
 
-```C#
+```csharp
 
     protected void Application_Start()
     {

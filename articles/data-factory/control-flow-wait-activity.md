@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Wait 活動
 在管線中使用 Wait (等待) 活動時，管線便會等待一段指定的時間，然後再繼續執行後續的活動。 
@@ -42,9 +42,9 @@ ms.lasthandoff: 11/09/2017
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-名稱 | `Wait` 活動的名稱。 | String | 是
-類型 | 必須設為 **Wait**。 | String | 是
-waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | Integer | 是
+name | `Wait` 活動的名稱。 | 字串 | yes
+type | 必須設為 **Wait**。 | 字串 | yes
+waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | 整數  | yes
 
 ## <a name="example"></a>範例
 
@@ -105,7 +105,7 @@ waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | Intege
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [If 條件活動](control-flow-if-condition-activity.md)
+- [If Condition 活動](control-flow-if-condition-activity.md)
 - [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)

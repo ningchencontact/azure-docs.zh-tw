@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 物件序列化
 Reliable Collections 會複寫並保存其項目，以確保在電腦發生失敗和電力中斷時能持續保留這些項目。
@@ -56,7 +56,7 @@ Reliable State Manager 具有下列類型的內建序列化程式：
 
 [IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) 可用來為指定的類型 T 註冊自訂序列化程式。您應該在建構 StatefulServiceBase 時進行這項註冊，以確保在開始復原之前，所有 Reliable Collections 都能存取相關的序列化程式以讀取其保存資料。
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 以下是一個名為 OrderKey 且包含四個屬性的範例自訂類型
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 以下是 IStateSerializer<OrderKey> 的範例實作。
 請注意，接受 baseValue 的 Read 和 Write 多載會呼叫其個別的多載以滿足向後相容性。
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e72dd426f7af3d1539aad6a3499d2ce5f792c152
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>使用案例 - 產品建議
 Azure Data Factory 是許多服務之一，可用來實作解決方案加速器的 Cortana Intelligence 套件。  請參閱 [Cortana Intelligence 套件](http://www.microsoft.com/cortanaanalytics) 頁面以了解這個套件的詳細資料。 在本文中，我們描述 Azure 使用者已經使用 Azure Data Factory 和其他 Cortana Intelligence 元件服務解決與實作的常見使用案例。

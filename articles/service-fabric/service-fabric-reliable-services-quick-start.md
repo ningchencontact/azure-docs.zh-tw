@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
 > [!div class="op_single_selector"]
@@ -188,7 +188,7 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
 可靠狀態管理員會為您管理可靠的集合。 在您的服務中隨時隨地，您只需要以名稱向可靠狀態管理員要求可靠的集合。 可靠狀態管理員會確保您取回參考。 不建議您將可靠集合執行個體的參考儲存在類別成員變數或屬性中。 請特別小心以確保在服務生命週期中隨時將參考設定為執行個體。 可靠狀態管理員會為您處理這項工作，並且針對重複造訪最佳化。
 
 ### <a name="transactional-and-asynchronous-operations"></a>交易式和非同步作業
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");

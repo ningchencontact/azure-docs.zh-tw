@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,12 +45,12 @@ Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認�
 
 在本文中，我們會檢閱下列兩個資料移動案例中的安全性考量︰ 
 
-- **雲端案例** - 在此案例中，可透過網際網路公開存取您的來源和目的地。 這些包括受管理的雲端儲存體服務 (例如「Azure 儲存體」、「Azure SQL 資料倉儲」、Azure SQL Database、Azure Data Lake Store、Amazon S3、Amazon Redshift)、SaaS 服務 (例如 Salesforce)，以及 Web 通訊協定 (例如 FTP 和 OData)。 如需完整的支援資料來源清單，請參閱[這裡](copy-activity-overview.md#supported-data-stores-and-formats)。
+- **雲端案例** - 在此案例中，可透過網際網路公開存取您的來源和目的地。 這些包括受控雲端儲存體服務 (例如「Azure 儲存體」、「Azure SQL 資料倉儲」、Azure SQL Database、Azure Data Lake Store、Amazon S3、Amazon Redshift)、SaaS 服務 (例如 Salesforce)，以及 Web 通訊協定 (例如 FTP 和 OData)。 如需完整的支援資料來源清單，請參閱[這裡](copy-activity-overview.md#supported-data-stores-and-formats)。
 - **混合式案例**- 在此案例中，您的來源或目的地是在防火牆之後或在內部部署的公司網路內，或是資料存放區位於私人網路/虛擬網路中 (最常見的是來源) 而不可公開存取。 裝載在虛擬機器上的資料庫伺服器也屬於此案例的涵蓋範圍。
 
 ## <a name="cloud-scenarios"></a>雲端案例
 ###<a name="securing-data-store-credentials"></a>保護資料存放區認證
-- 在 Azure Data Factory 受管理存放區中儲存加密的認證。
+- 在 Azure Data Factory 受控存放區中儲存加密的認證。
 
    Azure Data Factory 可透過使用「受 Microsoft 管理的憑證」來「加密」資料存放區認證，為這些認證提供保護。 這些憑證每隔「兩年」會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在「受 Azure Data Factory 管理服務管理的 Azure 儲存體」中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../security/security-storage-overview.md)。
 - 在 Azure Key Vault 中儲存認證 
@@ -72,7 +72,7 @@ Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認�
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
 「Azure SQL 資料倉儲」中的「透明資料加密」(TDE) 可以對待用資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 如需詳細資訊，請參閱[保護 SQL 資料倉儲中的資料庫](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)。
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>連接字串
 Azure SQL Database 也支援透明資料加密 (TDE)，TDE 可在不需變更應用程式的情況下，對資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 若要深入了解，請參閱 [Azure SQL Database 的透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)。 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
@@ -98,13 +98,13 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 **命令通道**可允許 Data Factory 中的資料移動服務與自我裝載整合執行階段之間進行通訊。 此通訊包含活動的相關資訊。 資料通道會用來在內部部署資料存放區與雲端資料存放區之間傳輸資料。    
 
 ### <a name="on-premises-data-store-credentials"></a>內部部署資料存放區認證
-您的內部部署資料存放區的認證一律會經過加密並儲存。 它可以儲存在自我裝載整合執行階段電腦本機，或儲存於 Azure Data Factory 受管理存放裝置 (如同雲端存放區認證)。 
+您的內部部署資料存放區的認證一律會經過加密並儲存。 它可以儲存在自我裝載整合執行階段電腦本機，或儲存於 Azure Data Factory 受控存放裝置 (如同雲端存放區認證)。 
 
 1. 您可以選擇**在本機儲存認證**。 如果您想要加密，並將認證儲存在自我裝載整合執行階段本機，請依照[在自我裝載整合執行階段上加密認證](encrypt-credentials-self-hosted-integration-runtime.md)的步驟。 所有連接器皆支援此選項。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料/認證資訊。 
 
    使用 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet 來加密連結服務認證/加密連結服務中的機密詳細資料。 然後，您可以使用傳回的 JSON (與 **connectionString** 中的 **EncryptedCredential** 元素)，搭配 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 來建立連結服務。  
 
-2. 如果未使用以上步驟所述的 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet，而是改為直接搭配使用 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 與 JSON 中的連接字串/認證，則連結服務將**加密並儲存在 Azure Data Factory 受管理儲存體**。 機密資訊仍由憑證加密，這些憑證由 Microsoft 管理。
+2. 如果未使用以上步驟所述的 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet，而是改為直接搭配使用 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 與 JSON 中的連接字串/認證，則連結服務將**加密並儲存在 Azure Data Factory 受控儲存體**。 機密資訊仍由憑證加密，這些憑證由 Microsoft 管理。
 
 
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>使用 Azure Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/02/2017
 > [!NOTE]
 > 這篇文章並未涵蓋所有的 Data Factory .NET API。 如需適用於 Data Factory 之 .NET API 的完整文件，請參閱 [Data Factory .NET API 參考](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Visual Studio 2012、2013 或 2015
 * 下載並安裝 [Azure .NET SDK](http://azure.microsoft.com/downloads/)。
 * Azure PowerShell。 按照 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 一文中的指示操作，在您的電腦上安裝 Azure PowerShell。 您可以使用 Azure PowerShell 建立 Azure Active Directory 應用程式。

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 OData 來源的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從 OData 來源移動資料。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
@@ -64,9 +64,9 @@ ms.lasthandoff: 11/02/2017
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OData** |是 |
-| URL |OData 服務的 URL。 |是 |
-| authenticationType |用來連線到 OData 來源的驗證類型。 <br/><br/> 若為雲端 OData，可能的值為 Anonymous、Basic 和 OAuth (請注意，Azure Data Factory 目前僅支援 Azure Active Directory 架構的 OAuth)。 <br/><br/> 若為內部部署 OData，可能的值為 Anonymous、Basic 和 Windows。 |是 |
+| type |類型屬性必須設為： **OData** |yes |
+| url |OData 服務的 URL。 |yes |
+| authenticationType |用來連線到 OData 來源的驗證類型。 <br/><br/> 若為雲端 OData，可能的值為 Anonymous、Basic 和 OAuth (請注意，Azure Data Factory 目前僅支援 Azure Active Directory 架構的 OAuth)。 <br/><br/> 若為內部部署 OData，可能的值為 Anonymous、Basic 和 Windows。 |yes |
 | username |如果您要使用 Basic 驗證，請指定使用者名稱。 |是 (只在您使用基本驗證時) |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |是 (只在您使用基本驗證時) |
 | authorizedCredential |如果您使用 OAuth，按一下 Data Factory 複製精靈或編輯器中的 [授權] 按鈕，然後輸入您的認證，接著將會自動產生這個屬性的值。 |是 (只有在您使用 OAuth 驗證時) |
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/02/2017
 | Edm.Binary |Byte[] |
 | Edm.Boolean |Bool |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |DateTime |
+| Edm.DateTime |Datetime |
 | Edm.Decimal |十進位 |
 | Edm.Double |兩倍 |
 | Edm.Single |單一 |
@@ -184,9 +184,9 @@ ms.lasthandoff: 11/02/2017
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |String |
+| Edm.String |字串 |
 | Edm.Time |時間範圍 |
-| Edm.DateTimeOffset |Datetimeoffset |
+| Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > 不支援 OData 複雜資料類型，例如，物件。

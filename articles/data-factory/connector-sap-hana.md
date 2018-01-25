@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/11/2018
 > [!NOTE]
 > 若要將資料複製**到** SAP HANA 資料存放區，請使用一般 ODBC 連接器。 如需詳細資料，請參閱 [SAP HANA 接收器](connector-odbc.md#sap-hana-sink)。 請注意，SAP HANA 連接器和 ODBC 連接器的已連接服務具有不同的類型，因此無法重複使用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用這個 SAP HANA 接收器，您必須：
 
@@ -59,14 +59,14 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 SAP HANA 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**SapHana** | 是 |
-| 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 是 |
-| authenticationType | 用來連線到 SAP HANA 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows** | 是 |
-| userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
-| password | 使用者的密碼。 請將此欄位標示為 SecureString。 | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
+| type | 類型屬性必須設定為：**SapHana** | yes |
+| 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | yes |
+| authenticationType | 用來連線到 SAP HANA 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows** | yes |
+| userName | 能夠存取 SAP 伺服器的使用者名稱。 | yes |
+| password | 使用者的密碼。 請將此欄位標示為 SecureString。 | yes |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |yes |
 
 **範例：**
 
@@ -122,10 +122,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 SAP HANA 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
-| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
+| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | yes |
 
 **範例：**
 

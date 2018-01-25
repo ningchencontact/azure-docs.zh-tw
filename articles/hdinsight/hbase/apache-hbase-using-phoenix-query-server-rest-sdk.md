@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix Query Server REST SDK
 
@@ -39,18 +39,18 @@ ms.lasthandoff: 01/12/2018
 
 若要開始使用此程式庫，請將一個新的 `PhoenixClient` 物件具現化，將含有 `Uri` 的 `ClusterCredentials` 傳遞給叢集，並且傳遞叢集的 Hadoop 使用者名稱和密碼。
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
 
-將 CLUSTERNAME 取代為您的 HDInsight HBase 叢集名稱，並將 USERNAME 和 PASSWORD 取代為在建立叢集時指定的 Hadoop 認證。 預設 Hadoop 使用者名稱為 **admin**。
+將 CLUSTERNAME 更改為您的 HDInsight HBase 叢集名稱，並將 USERNAME 和 PASSWORD 更改為建立叢集時指定的 Hadoop 認證。 預設 Hadoop 使用者名稱為 **admin**。
 
 ## <a name="generate-unique-connection-identifier"></a>產生唯一連線識別碼
 
 若要將一或多個要求傳送給 PQS，您必須包含唯一連線識別碼以將要求與連線建立關聯。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ string connId = Guid.NewGuid().ToString();
 
 若要呼叫 `ConnectionSyncRequestAsync`，請傳遞 `ConnectionProperties` 物件。
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -77,10 +77,10 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 以下是一些相關的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | -- | -- |
 | AutoCommit | 布林值，用來表示是否為 Phoenix 交易啟用 `autoCommit`。 |
-| ReadOnly | 布林值，用來表示連線是否為唯讀連線。 |
+| 唯讀 | 布林值，用來表示連線是否為唯讀連線。 |
 | TransactionIsolation | 整數，用來表示依據 JDBC 規格的交易隔離層級 - 請參閱下表。|
 | 目錄 | 擷取連線屬性時所要使用的目錄名稱。 |
 | 結構描述 | 擷取連線屬性時所要使用的結構描述名稱。 |
@@ -88,7 +88,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 以下是 `TransactionIsolation` 值：
 
-| 隔離值 | 描述 |
+| 隔離值 | 說明 |
 | -- | -- |
 | 0 | 不支援交易。 |
 | 1 | 允許進行中途讀取、不可重複的讀取，以及虛設項目讀取。 |
@@ -102,7 +102,7 @@ HBase 與任何其他 RDBMS 一樣，會將資料儲存在資料表中。 Phoeni
 
 以下範例及後續所有範例皆如[將新的 PhoenixClient 物件具現化](#instantiate-new-phoenixclient-object)中所定義，使用已具現化的 `PhoenixClient` 物件。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ finally
 
 以下範例示範個別資料插入，其中參考了美國州別和領土縮寫的 `List<string>` 集合：
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 後續的選取作業將會使用此資料表的 `StateProvince` 資料行值。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ finally
 
 以下程式碼與個別插入資料的程式碼幾乎相同。 以下範例是在對 `ExecuteBatchRequestAsync` 的呼叫中使用 `UpdateBatch` 物件，而不是使用準備陳述式來重複地呼叫 `ExecuteRequestAsync`。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ finally
 2. 使用總資料列計數 select 陳述式來擷取單一純量結果。
 3. 執行一個會依州別或領土傳回客戶總數的 select 陳述式。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

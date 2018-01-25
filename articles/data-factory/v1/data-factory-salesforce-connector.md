@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Azure Data Factory 目前只支援將資料從 Salesforce 移動到 [支援的�
 ## <a name="supported-versions"></a>支援的版本
 此連接器使用下列其中一個 Salesforce 版本︰Developer Edition、Professional Edition、Enterprise Edition 或 Unlimited Edition。 並且支援從 Salesforce 生產、沙箱和自訂網域複製。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 必須啟用 API 權限。 請參閱 [如何在 Salesforce 中透過權限集啟用 API 存取權？](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * 若要將資料從 Salesforce 複製到內部部署資料存放區，您必須在內部部署環境中至少安裝資料管理閘道 2.0。
 
@@ -52,7 +52,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從 Salesforce 移動資料。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
@@ -71,11 +71,11 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **Salesforce**。 |是 |
+| type |類型屬性必須設為： **Salesforce**。 |yes |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設值為 " https://login.salesforce.com "。 <br> - 若要從沙箱複製資料，請指定 " https://test.salesforce.com "。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
-| username |指定使用者帳戶的使用者名稱。 |是 |
-| password |指定使用者帳戶的密碼。 |是 |
-| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |
+| username |指定使用者帳戶的使用者名稱。 |yes |
+| password |指定使用者帳戶的密碼。 |yes |
+| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱 [建立資料集](data-factory-create-datasets.md) 一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -109,7 +109,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ## <a name="query-tips"></a>查詢秘訣
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>在 DateTime 資料行上使用 Where 子句來擷取資料
-指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如：
+指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如︰
 
 * **SOQL 範例**：`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL 範例**：
@@ -287,28 +287,28 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 ### <a name="type-mapping-for-salesforce"></a>Salesforce 的類型對應
 | Salesforce 類型 | 以 .NET 為基礎的類型 |
 | --- | --- |
-| 自動編號 |String |
-| 核取方塊 |Boolean |
+| 自動編號 |字串 |
+| 核取方塊 |BOOLEAN |
 | 貨幣 |兩倍 |
-| 日期 |DateTime |
-| 日期/時間 |DateTime |
-| 電子郵件 |String |
-| 識別碼 |String |
-| 查閱關聯性 |String |
-| 複選挑選清單 |String |
-| Number |兩倍 |
+| 日期 |Datetime |
+| 日期/時間 |Datetime |
+| 電子郵件 |字串 |
+| id |字串 |
+| 查閱關聯性 |字串 |
+| 複選挑選清單 |字串 |
+| 數字 |兩倍 |
 | 百分比 |兩倍 |
-| 電話 |String |
-| 挑選清單 |String |
-| 文字 |String |
-| 文字區域 |String |
-| 文字區域 (完整) |String |
-| 文字區域 (豐富) |String |
-| 文字 (加密) |String |
-| URL |String |
+| 電話 |字串 |
+| 挑選清單 |字串 |
+| 文字 |字串 |
+| 文字區域 |字串 |
+| 文字區域 (完整) |字串 |
+| 文字區域 (豐富) |字串 |
+| 文字 (加密) |字串 |
+| URL |字串 |
 
 > [!NOTE]
-> 若要將來自來源資料集的資料行與來自接收資料集的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
+> 若要將來源資料集中的資料行對應至接收資料集中的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

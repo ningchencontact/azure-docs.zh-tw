@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 60413bd110fd4021b070f94d6338a50e1b321dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc6db8aba887b186961da9b12e7c5f32afa4355b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="available-relay-apis"></a>可用的轉送 API
 
@@ -37,9 +37,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="additional-information"></a>其他資訊
 
 #### <a name="net"></a>.NET
+
 .NET 生態系統有多個執行階段，因此有多個適用於事件中樞的 .NET 程式庫。 .NET Standard 程式庫可使用 .NET Core 或 .NET Framework 執行，然而 .NET Framework 程式庫只能在 .NET Framework 環境中執行。 如需 .NET Framework 的詳細資訊，請參閱[架構版本](/dotnet/articles/standard/frameworks#framework-versions)。
 
 ## <a name="next-steps"></a>後續步驟
+
 若要深入了解 Azure 轉送，請造訪下列連結：
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
 * [轉送常見問題集](relay-faq.md)

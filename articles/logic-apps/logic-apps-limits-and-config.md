@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 限制和設定
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="timeout"></a>逾時
 
-| Name | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 要求逾時 | 120 秒 | [非同步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 迴圈](logic-apps-loops-and-scopes.md)可以視需要抵銷 |
 |||| 
 
 #### <a name="message-size"></a>訊息大小
 
-| Name | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 訊息大小 | 100 MB | 某些連接器和 API 可能不支援 100 MB。 | 
 | 運算式評估限制 | 131,072 個字元 | `@concat()`、`@base64()``string` 的長度不能超過此限制。 | 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="retry-policy"></a>重試原則
 
-| Name | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 重試次數 | 90 | 預設值為 4。 您可以使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)來設定。 | 
 | 重試延遲上限 | 1 天 | 您可以使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)來設定。 | 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於單一邏輯應用程式執行。
 
-| 名稱 | 限制 | 
+| Name | 限制 | 
 | ---- | ----- | 
 | 執行持續時間 | 90 天 | 
 | 儲存體保留期 | 從執行開始時間算起 90 天 | 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於單一邏輯應用程式執行。
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | ForEach 項目 | 100,000 | 您可以視需要使用[查詢動作](../connectors/connectors-native-query.md)來篩選較大的陣列。 | 
 | 反覆運算之前 | 5,000 | | 
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於單一邏輯應用程式執行個體。
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 每 5 分鐘的動作執行 | 100,000 | 可以視需要將工作負載分散到多個應用程式。 | 
 | 動作並行撥出電話 | ~2,500 | 視需要減少並行要求數目或縮短持續時間。 | 
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於單一邏輯應用程式定義。
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 每個工作流程的動作數目 | 500 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 |
 | 允許的動作巢狀深度 | 8 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 | 
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於您可以從 Web API 建立的自訂連接器。
 
-| 名稱 | 限制 | 
+| Name | 限制 | 
 | ---- | ----- | 
 | 您可以建立的自訂連接器數目 | 每個 Azure 訂用帳戶 1,000 個 | 
 | 自訂連接器所建立之每個連線的每分鐘要求數目 | 連接器所建立的每個連線可以有 500 個要求 |
@@ -131,7 +131,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於您可以新增到整合帳戶中的成品。
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 結構描述 | 8 MB | 您可以使用 [Blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md) 來上傳大於 2 MB 的檔案。 | 
 | 對應 (XSLT 檔案) | 2 MB | | 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="free-pricing-tier"></a>免費定價層
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 合約 | 10 | | 
 | 其他成品類型 | 25 |成品類型包含合作夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。 | 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="standard-pricing-tier"></a>標準定價層
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 任何成品類型 | 500 | 成品類型包含協議、合作夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。 | 
 |||| 
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 
 這些限制適用於 B2B 通訊協定。
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | 適用於解碼和編碼 | 
 | X12 | 50 MB | 適用於解碼和編碼 | 
@@ -237,7 +237,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟  
 
-* [建立第一個邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [常見的範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [影片：使用 Logic Apps 將商務程序自動化](http://channel9.msdn.com/Events/Build/2016/T694) \(英文\) 
 * [影片：將您的系統與 Azure Logic Apps 整合](http://channel9.msdn.com/Events/Build/2016/P462) \(英文\)

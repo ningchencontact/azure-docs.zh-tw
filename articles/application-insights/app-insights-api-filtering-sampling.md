@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 11/20/2017
 
  ，您也可以在程式碼中初始化篩選。 在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 #### <a name="failed-authentication"></a>驗證失敗
 篩選出具有 "401" 回應的要求。
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ public void Process(ITelemetry item)
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -275,7 +275,7 @@ public void Process(ITelemetry item)
 
 *或者* ，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -359,7 +359,7 @@ public void Process(ITelemetry item)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 * [搜尋事件和記錄檔](app-insights-diagnostic-search.md)
 * [取樣](app-insights-sampling.md)
 * [疑難排解](app-insights-troubleshoot-faq.md)

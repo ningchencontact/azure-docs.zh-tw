@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 553750ce024929b285485c63156f8a8a23dff3ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程︰使用 Hadoop 叢集建置您的第一個管線來轉換資料
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 如上所示的範例行中，第一行 (標有 2016-01-01) 會寫入 month=1 資料夾中的 000000_0 檔案。 同樣地，第二行會寫入 month=2 資料夾中的檔案；而第三行會寫入 month=3 資料夾中的檔案。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列必要條件：
 
 1. **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。 請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/) 一文了解如何取得免費試用帳戶。
