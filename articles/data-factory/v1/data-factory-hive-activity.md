@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 566773e9bc787bff4e92d86ec57fb0de3121b079
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hive 活動轉換資料 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -76,12 +76,12 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 ## <a name="syntax-details"></a>語法詳細資料
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 名稱 |活動的名稱 |是 |
+| name |活動的名稱 |yes |
 | 說明 |說明活動用途的文字 |否 |
-| 類型 |HDinsightHive |是 |
+| type |HDinsightHive |yes |
 | 輸入 |Hive 活動所耗用的輸入 |否 |
-| 輸出 |Hive 活動所耗用的輸出 |是 |
-| linkedServiceName |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
+| 輸出 |Hive 活動所耗用的輸出 |yes |
+| 預設容器 |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |yes |
 | script |指定 Hive 指令碼內嵌 |否 |
 | 指令碼路徑 |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | 定義 |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |

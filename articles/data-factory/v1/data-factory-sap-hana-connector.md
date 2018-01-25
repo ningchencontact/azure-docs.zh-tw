@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Hana 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 SAP HANA 資料存放區移動資料。 
 
-- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
 - 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
@@ -60,12 +60,12 @@ ms.lasthandoff: 11/03/2017
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 字串 | 是
-authenticationType | 驗證類型。 | 字串。 "Basic" 或 "Windows" | 是 
-username | 具有 SAP 伺服器存取權之使用者的名稱 | 字串 | 是
-password | 使用者的密碼。 | 字串 | 是
-gatewayName | Data Factory 服務應該用來連接到內部部署 SAP Hana 執行個體的閘道器名稱。 | 字串 | 是
-encryptedCredential | 加密的認證字串。 | string | 否
+伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 字串 | yes
+authenticationType | 驗證類型。 | 字串。 "Basic" 或 "Windows" | yes 
+username | 具有 SAP 伺服器存取權之使用者的名稱 | 字串 | yes
+password | 使用者的密碼。 | 字串 | yes
+gatewayName | Data Factory 服務應該用來連接到內部部署 SAP Hana 執行個體的閘道器名稱。 | 字串 | yes
+encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -82,7 +82,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | SQL 查詢。 | 是 |
+| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | SQL 查詢。 | yes |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON 範例：將資料從 SAP HANA 複製到 Azure Blob
 下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 此範例示範如何將資料從內部部署 SAP Hana 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動， **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所列的任何接收器。  
@@ -284,23 +284,23 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 SAP Hana 類型 | 以 .Net 為基礎的類型
 ------------- | ---------------
-TINYINT | 位元組
+TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
 REAL | 單一
 DOUBLE | 單一
 DECIMAL | 十進位
-BOOLEAN | 位元組
-VARCHAR | String
-NVARCHAR | String
+BOOLEAN | Byte
+VARCHAR | 字串
+NVARCHAR | 字串
 CLOB | Byte[]
-ALPHANUM | String
+ALPHANUM | 字串
 BLOB | Byte[]
-日期 | DateTime
+日期 | Datetime
 TIME | 時間範圍
-時間戳記 | DateTime
-SECONDDATE | DateTime
+時間戳記 | Datetime
+SECONDDATE | Datetime
 
 ## <a name="known-limitations"></a>已知限制
 從 SAP HANA 複製資料時，有幾個已知的限制︰

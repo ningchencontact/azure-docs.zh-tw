@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構︰敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>範例
 這可透過篩選來實作。 可使用的範例如下︰ 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -144,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **步驟** | 自動完成屬性會指定表單應開啟或關閉自動完成。 當自動完成開啟時，瀏覽器會根據使用者之前輸入的值自動填妥值。 例如，在表單中輸入新名稱和密碼並提交表單後，瀏覽器會詢問是否應儲存密碼。之後在顯示表單時，就會自動填入名稱和密碼或在輸入名稱時填妥。 具有本機存取權的攻擊者可從瀏覽器快取取得純文字密碼。 預設會啟用自動完成，但您必須明確地加以停用。 |
 
 ### <a name="example"></a>範例
-```C#
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -353,7 +353,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### <a name="example"></a>範例
 Intune 可以設定下列安全性原則來保護敏感性資料︰ 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
@@ -361,7 +361,7 @@ Allow screen capture
 
 ### <a name="example"></a>範例
 如果應用程式不是企業應用程式，則使用平台提供的金鑰存放區、金鑰鏈來存放加密金鑰，使用可能會在檔案系統上執行的密碼編譯作業。 下列程式碼片段示範如何使用 xamarin 從金鑰鏈存取金鑰︰ 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get

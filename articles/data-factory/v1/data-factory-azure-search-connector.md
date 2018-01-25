@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料推送到 Azure 搜尋服務索引
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/02/2017
 > * [第 2 版 - 預覽](../connector-azure-search.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure 搜尋服務連接器](../connector-azure-search.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure 搜尋服務連接器](../connector-azure-search.md)。
 
 本文說明如何使用「複製活動」，將資料從支援的來源資料存放區推送到「Azure 搜尋」索引。 支援的來源資料存放區會列於[支援的來源與接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格的 [來源] 欄中。 本文是根據 [資料移動活動](data-factory-data-movement-activities.md) 一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以將資料從來源資料存放區推送到「Azure 搜尋」索引。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
@@ -59,9 +59,9 @@ ms.lasthandoff: 11/02/2017
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| 類型 | type 屬性必須設為：**AzureSearch**。 | yes |
-| URL | Azure 搜尋服務的 URL。 | 是 |
-| key | Azure 搜尋服務的系統管理金鑰。 | 是 |
+| type | type 屬性必須設為：**AzureSearch**。 | yes |
+| URL | Azure 搜尋服務的 URL。 | yes |
+| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 | yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
@@ -69,8 +69,8 @@ ms.lasthandoff: 11/02/2017
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| 類型 | type 屬性必須設為 **AzureSearchIndex**。| yes |
-| IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
+| type | type 屬性必須設為 **AzureSearchIndex**。| yes |
+| IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | yes |
 
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
@@ -101,11 +101,11 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 | Azure 搜尋服務資料類型 | 在 Azure 搜尋服務接收器中受到支援 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 字串 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | 兩倍 | Y |
-| Boolean | Y |
+| BOOLEAN | Y |
 | DataTimeOffset | Y |
 | 字串陣列 | N |
 | GeographyPoint | N |

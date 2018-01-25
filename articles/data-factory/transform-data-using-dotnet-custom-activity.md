@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,13 +105,13 @@ ms.lasthandoff: 01/12/2018
 
 下表描述此活動特有的屬性之名稱和描述。 
 
-| 屬性              | 描述                              | 必要 |
+| 屬性              | 說明                              | 必要 |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | 管線中的活動名稱     | 是      |
+| name                  | 管線中的活動名稱     | yes      |
 | 說明           | 說明活動用途的文字。  | 否       |
-| type                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
-| 預設容器     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 是      |
-| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 是      |
+| type                  | 針對自訂活動，活動類型是**自訂**。 | yes      |
+| 預設容器     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | yes      |
+| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | yes      |
 | resourceLinkedService | 對儲存體帳戶 (自訂應用程式儲存所在) 的 Azure 儲存體已連結的服務 | 否       |
 | folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑 | 否       |
 | referenceObjects      | 現有已連結的服務和資料集的陣列。 參考的已連結的服務和資料集會傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考 Data Factory 的資源 | 否       |
@@ -202,7 +202,7 @@ ms.lasthandoff: 01/12/2018
 
 下列範例程式碼示範 SampleApp.exe 如何從 JSON 檔案存取必要的資訊： 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/01/2017
 
 您可以將資料從內部部署的 MySQL 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 MySQL 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 MySQL 資料存放區。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。
 
 即使 MySQL 資料庫裝載於 Azure IaaS 虛擬機器 (VM) 中，也必須要有閘道。 您可以將閘道安裝在與資料存放區相同或相異的 VM 上，只要閘道可以連線到資料庫即可。
@@ -51,7 +51,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
-- 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
 - 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
@@ -69,14 +69,14 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OnPremisesMySql** |是 |
-| 伺服器 |MySQL 伺服器的名稱。 |是 |
-| 資料庫 |MySQL 資料庫的名稱。 |是 |
+| 類型 |類型屬性必須設為： **OnPremisesMySql** |yes |
+| 伺服器 |MySQL 伺服器的名稱。 |yes |
+| 資料庫 |MySQL 資料庫的名稱。 |yes |
 | 結構描述 |在資料庫中的結構描述名稱。 |否 |
-| authenticationType |用來連接到 MySQL 資料庫的驗證類型。 可能的值為：`Basic`。 |是 |
-| username |指定要連線到 MySQL 資料庫的使用者名稱。 |是 |
-| password |指定您所指定使用者帳戶的密碼。 |是 |
-| gatewayName |Data Factory 服務應該用來連接到內部部署 MySQL 資料庫的閘道器名稱。 |是 |
+| authenticationType |用來連接到 MySQL 資料庫的驗證類型。 可能的值為：`Basic`。 |yes |
+| username |指定要連線到 MySQL 資料庫的使用者名稱。 |yes |
+| password |指定您所指定使用者帳戶的密碼。 |yes |
+| gatewayName |Data Factory 服務應該用來連接到內部部署 MySQL 資料庫的閘道器名稱。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -306,40 +306,40 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | bigint |Int64 |
 | bit |十進位 |
 | blob |Byte[] |
-| 布林 |Boolean |
-| char |String |
-| 日期 |Datetime |
-| Datetime |Datetime |
-| 十進位 |十進位 |
+| 布林 |BOOLEAN |
+| char |字串 |
+| 日期 |DateTime |
+| Datetime |DateTime |
+| decimal |十進位 |
 | 雙精度 |兩倍 |
 | 兩倍 |兩倍 |
-| 列舉 |String |
+| 列舉 |字串 |
 | float |單一 |
 | 不帶正負號的 int |Int64 |
 | int |Int32 |
 | 不帶正負號的整數 |Int64 |
 | integer |Int32 |
 | 長 varbinary |Byte[] |
-| 長 varchar |String |
+| 長 varchar |字串 |
 | longblob |Byte[] |
-| longtext |String |
+| longtext |字串 |
 | mediumblob |Byte[] |
 | 不帶正負號的 mediumint |Int64 |
 | mediumint |Int32 |
-| mediumtext |String |
+| mediumtext |字串 |
 | numeric |十進位 |
 | real |兩倍 |
-| set |String |
+| set |字串 |
 | 不帶正負號的 smallint |Int32 |
 | smallint |Int16 |
-| 文字 |String |
+| text |字串 |
 | 分析 |時間範圍 |
-| timestamp |Datetime |
+| timestamp |DateTime |
 | tinyblob |Byte[] |
 | 不帶正負號的 tinyint |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
-| varchar |String |
+| tinytext |字串 |
+| varchar |字串 |
 | 年 |int |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行

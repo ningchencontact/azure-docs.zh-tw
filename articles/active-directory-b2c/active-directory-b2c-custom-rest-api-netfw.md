@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 您可以使用構成 Azure Active Directory B2C (Azure AD B2C) 基礎的識別體驗架構，與使用者旅程圖中的 RESTful API 整合。 在本逐步解說中，您將了解 Azure AD B2C 與.NET Framework RESTful 服務 (Web API) 之間的互動方式。
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 * 傳回忠誠度號碼。 
 * 將忠誠度號碼新增至 JSON Web 權杖 (JWT)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>步驟 1：建立 ASP.NET Web API
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/11/2017
 
 3. 將類別命名為 `InputClaimsModel`，然後將下列屬性新增至 `InputClaimsModel` 類別：
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/11/2017
 
 4. 建立新的模型 (`OutputClaimsModel`)，然後將下列屬性新增至 `OutputClaimsModel` 類別：
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ ms.lasthandoff: 12/11/2017
 
 5. 再建立一個模型 (`B2CResponseContent`)，用來擲回輸入驗證錯誤訊息。 將下列屬性新增至 `B2CResponseContent` 類別、提供遺漏的參考，然後儲存檔案：
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ ms.lasthandoff: 12/11/2017
 
 4. 如果 *IdentityController.cs* 檔案尚未開啟，請按兩下該檔案，然後將檔案中的程式碼取代為下列程式碼：
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;

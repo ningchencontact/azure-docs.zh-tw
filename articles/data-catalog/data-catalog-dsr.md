@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure 資料目錄中支援的資料來源
 
@@ -39,41 +39,41 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Azure Data Lake Store 目錄</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store 檔案</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Azure Blob 儲存體</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Azure 儲存體目錄</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Azure 儲存體資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2">
       </td>
@@ -83,96 +83,96 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>HDFS 目錄</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>HDFS 檔案</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Hive 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Hive 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>MySQL 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>MySQL 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Oracle 資料庫資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Oracle 資料庫檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>其他 (一般資產)</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Azure SQL 資料倉儲資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop、SQL Server 資料工具</td>
       <td></td>
     </tr>
     <tr>
       <td>SQL 資料倉儲檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop、SQL Server 資料工具</td>
       <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 維度</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
@@ -180,94 +180,94 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 量值</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services 報表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>[瀏覽器]</td>
       <td>僅限原生模式伺服器。 不支援 SharePoint 模式。</td>
     </tr>
     <tr>
       <td>SQL Server 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop、SQL Server 資料工具</td>
       <td></td>
     </tr>
     <tr>
       <td>SQL Server 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel、Power BI Desktop、SQL Server 資料工具</td>
       <td></td>
     </tr>
     <tr>
       <td>Teradata 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Teradata 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>SAP HANA 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>DB2 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>DB2 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>檔案系統檔案</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -275,23 +275,23 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>FTP 目錄</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>FTP 檔案</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>HTTP 報告</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -299,7 +299,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>HTTP 端點</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -307,7 +307,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>HTTP 檔案</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>OData 實體集</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -323,7 +323,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>OData 函式</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -331,23 +331,23 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>PostgreSQL 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>PostgreSQL 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>SAP HANA 檢視</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -355,15 +355,15 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td> Salesforce 物件</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>SharePoint 清單 </td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -371,72 +371,72 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Azure Cosmos DB 集合</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>一般 ODBC 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>一般 ODBC 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Cassandra 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>以一般 ODBC 資產形式發佈</td>
     </tr>
     <tr>
       <td>Cassandra 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>以一般 ODBC 資產形式發佈</td>
     </tr>
     <tr>
       <td>Sybase 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Sybase 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>MongoDB 資料表</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>以一般 ODBC 資產形式發佈</td>
     </tr>
     <tr>
       <td>MongoDB 檢視</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>以一般 ODBC 資產形式發佈</td>

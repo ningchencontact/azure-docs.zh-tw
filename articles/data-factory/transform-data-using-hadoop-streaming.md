@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,17 +74,17 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight 資料�
 
 | 屬性          | 說明                              | 必要 |
 | ----------------- | ---------------------------------------- | -------- |
-| 名稱              | 活動的名稱                     | 是      |
+| name              | 活動的名稱                     | yes      |
 | 說明       | 說明活動用途的文字 | 否       |
-| 類型              | 針對 Hadoop 資料流活動，活動類型是 HDInsightStreaming | 是      |
-| linkedServiceName | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
-| mapper            | 指定對應程式可執行檔的名稱 | 是      |
-| reducer           | 指定減壓器可執行檔的名稱 | 是      |
+| type              | 針對 Hadoop 資料流活動，活動類型是 HDInsightStreaming | yes      |
+| 預設容器 | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | yes      |
+| mapper            | 指定對應程式可執行檔的名稱 | yes      |
+| reducer           | 指定減壓器可執行檔的名稱 | yes      |
 | 結合子          | 指定結合子可執行檔的名稱 | 否       |
 | fileLinkedService | Azure 儲存體已連結的服務用來儲存要執行之對應程式、結合子和減壓器的參考。 如果您未指定這項連結服務，則會使用 HDInsight 已連結的服務中定義的 Azure 儲存體已連結的服務。 | 否       |
-| filePath          | 提供 fileLinkedService 引用之 Azure 儲存體中儲存的對應程式、結合子和減壓器程式的路徑陣列。 路徑區分大小寫。 | 是      |
-| input             | 指定對應程式輸入檔案的 WASB 路徑。 | 是      |
-| output            | 指定減壓器輸出檔案的 WASB 路徑。 | 是      |
+| filePath          | 提供 fileLinkedService 引用之 Azure 儲存體中儲存的對應程式、結合子和減壓器程式的路徑陣列。 路徑區分大小寫。 | yes      |
+| input             | 指定對應程式輸入檔案的 WASB 路徑。 | yes      |
+| output            | 指定減壓器輸出檔案的 WASB 路徑。 | yes      |
 | getDebugInfo      | 指定何時將記錄檔複製到 HDInsight 叢集所使用 (或) scriptLinkedService 所指定的 Azure 儲存體。 允許的值︰None、Always 或 Failure。 預設值：None。 | 否       |
 | arguments         | 指定 Hadoop 作業的引數陣列。 引數會以命令列引數的方式傳遞給每項工作。 | 否       |
 | 定義           | 指定參數作為機碼/值組，以供在 Hive 指令碼內參考。 | 否       | 

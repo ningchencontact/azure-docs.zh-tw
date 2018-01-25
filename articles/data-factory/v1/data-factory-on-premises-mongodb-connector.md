@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/02/2017
 
 您可以將資料從內部部署的 MongoDB 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 MongoDB 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 MongoDB 資料存放區。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果是能夠連接到您內部部署 MongoDB 資料庫的 Azure Data Factory 服務，您就必須安裝下列元件：
 
 - 支援的 MongoDB 版本為︰2.4、2.6、3.0 及 3.2。
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 MongoDB 資料存放區移動資料。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
@@ -67,15 +67,15 @@ ms.lasthandoff: 11/02/2017
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |類型屬性必須設為： **OnPremisesMongoDb** |是 |
-| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
+| type |類型屬性必須設為： **OnPremisesMongoDb** |yes |
+| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |yes |
 | 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |選用，預設值︰27017 |
-| authenticationType |基本或匿名。 |是 |
+| authenticationType |基本或匿名。 |yes |
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 |是 (如果使用基本驗證)。 |
 | authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |選用 (如果使用基本驗證)。 預設值︰使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
-| databaseName |您想要存取之 MongoDB 資料庫的名稱。 |是 |
-| gatewayName |存取資料存放區之閘道的名稱。 |是 |
+| databaseName |您想要存取之 MongoDB 資料庫的名稱。 |yes |
+| gatewayName |存取資料存放區之閘道的名稱。 |yes |
 | encryptedCredential |由閘道加密的認證。 |選用 |
 
 ## <a name="dataset-properties"></a>資料集屬性
@@ -297,13 +297,13 @@ Azure Data Factory 服務會使用 MongoDB 集合中最新的 100 份文件，�
 | MongoDB 類型 | .NET Framework 類型 |
 | --- | --- |
 | Binary |Byte[] |
-| Boolean |Boolean |
-| 日期 |DateTime |
+| BOOLEAN |BOOLEAN |
+| 日期 |Datetime |
 | NumberDouble |兩倍 |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |字串 |
+| 字串 |字串 |
 | UUID |Guid |
 | Object |以「_」做為巢狀分隔符號來重新標準化為壓平合併的資料行 |
 

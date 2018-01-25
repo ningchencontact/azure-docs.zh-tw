@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>將 Web 角色和背景工作角色轉換成 Service Fabric 無狀態服務的指南
 本文說明如何將雲端服務的 Web 角色和背景工作角色移轉至 Service Fabric 無狀態服務。 對於整體架構會大致保持相同的應用程式來說，這是最簡單的雲端服務至 Service Fabric 移轉路徑。
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/04/2017
 | ASP.NET Web Forms |否 |轉換為 ASP.NET Core 1 MVC |
 | ASP.NET MVC |移轉 |升級至 ASP.NET Core 1 MVC |
 | ASP.NET Web API |移轉 |使用自我裝載的伺服器或 ASP.NET Core 1 |
-| ASP.NET Core 1 |是 |N/A |
+| ASP.NET Core 1 |yes |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>進入點 API 和生命週期
 背景工作角色和 Service Fabric 服務 API 提供類似的進入點： 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/04/2017
 | 開啟接聽程式以接收用戶端要求 |N/A |<ul><li> `CreateServiceInstanceListener()` (針對無狀態)</li><li>`CreateServiceReplicaListener()` (針對具狀態)</li></ul> |
 
 ### <a name="worker-role"></a>背景工作角色
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Service Fabric 無狀態服務
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -138,7 +138,7 @@ Service Fabric 為接聽用戶端要求的服務提供選擇性的通訊設定�
 #### <a name="cloud-services"></a>雲端服務
 透過 `RoleEnvironment`即可存取 ServiceConfiguration.*.cscfg 中的組態設定。 這些設定可全域提供給相同雲端服務部署中的所有角色執行個體使用。
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 透過服務的 `CodePackageActivationContext`即可在每個服務執行個體內存取組態設定。
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>雲端服務
 當環境發生變更 (例如組態變更) 時，就會使用 `RoleEnvironment.Changed` 事件來通知所有角色執行個體。 使用此事件可取用組態更新，卻又不會回收角色執行個體或重新啟動背景工作角色處理序。
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ foreach (var settingChange in settingChanges)
 
 這些事件可供取用服務封裝中的變更而不必重新啟動服務執行個體。
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;

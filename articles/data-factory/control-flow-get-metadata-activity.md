@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory 中的取得中繼資料活動
 GetMetadata 活動可用來擷取 Azure Data Factory 中任何資料的中繼資料。 僅第 2 版的資料處理站支援此活動。 使用案例如下：
@@ -97,7 +97,7 @@ GetMetadata 活動採用資料集做為必要的輸入，並輸出可用的中�
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
 欄位清單 | 列出所需的中繼資料資訊類型。  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    否<br/>如果空白，活動會傳回全部 3 個支援的中繼資料資訊。 
-資料集 | GetMetadata 活動要擷取其中繼資料活動的參考資料集。 <br/><br/>目前支援的資料集類型是 Azure Blob。 有兩個子屬性： <ul><li><b>referenceName</b>：現有 Azure Blob 資料集的參考</li><li><b>類型</b>：由於參考的是資料集，類型為 DatasetReference</li></ul> |    <ul><li>String</li><li>DatasetReference</li></ul> | 是
+資料集 | GetMetadata 活動要擷取其中繼資料活動的參考資料集。 <br/><br/>目前支援的資料集類型是 Azure Blob。 有兩個子屬性： <ul><li><b>referenceName</b>：現有 Azure Blob 資料集的參考</li><li><b>類型</b>：由於參考的是資料集，類型為 DatasetReference</li></ul> |    <ul><li>字串</li><li>DatasetReference</li></ul> | yes
 
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 

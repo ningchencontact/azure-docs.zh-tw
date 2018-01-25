@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 - MongoDB **2.4、2.6、3.0 及 3.2 版**。
 - 使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證來複製資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 MongoDB 驅動程式，因此從 MongoDB 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
@@ -53,13 +53,13 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 MongoDB 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type |類型屬性必須設定為：**MongoDb** |是 |
-| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
+| type |類型屬性必須設定為：**MongoDb** |yes |
+| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |yes |
 | 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 27017) |
-| databaseName |您想要存取之 MongoDB 資料庫的名稱。 |是 |
-| authenticationType | 用來連線到 MongoDB 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |是 |
+| databaseName |您想要存取之 MongoDB 資料庫的名稱。 |yes |
+| authenticationType | 用來連線到 MongoDB 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |yes |
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 請將此欄位標示為 SecureString。 |是 (如果使用基本驗證)。 |
 | authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |編號 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
@@ -96,10 +96,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 MongoDB 複製資料，請將資料集的類型屬性設定為 **MongoDbCollection**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**MongoDbCollection** | 是 |
-| collectionName |MongoDB 資料庫中集合的名稱。 |是 |
+| type | 資料集的類型屬性必須設定為：**MongoDbCollection** | yes |
+| collectionName |MongoDB 資料庫中集合的名稱。 |yes |
 
 **範例：**
 
@@ -127,9 +127,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 MongoDB 複製資料，請將複製活動中的來源類型設定為 **MongoDbSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | yes |
 | query |使用自訂的 SQL-92 查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中 "collectionName") |
 
 **範例：**

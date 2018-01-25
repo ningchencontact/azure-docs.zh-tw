@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>使用「範本驗證程式」來檢查 Azure Stack 的範本
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 您可以使用範本驗證工具來檢查您的 Azure Resource Manager [範本](azure-stack-arm-templates.md)是否準備好供 Azure Stack 使用。 範本驗證工具是 Azure Stack 工具的一部分。 使用[從 GitHub 下載工具](azure-stack-powershell-download.md)文章中所述的步驟下載 Azure Stack 工具。 
 
@@ -60,9 +60,9 @@ ms.lasthandoff: 10/11/2017
 
 | 參數 | 說明 | 必要 |
 | ----- | -----| ----- |
-| TemplatePath | 指定要在其中遞迴尋找 Resource Manager 範本的路徑 | 是 | 
+| TemplatePath | 指定要在其中遞迴尋找 Resource Manager 範本的路徑 | yes | 
 | TemplatePattern | 指定要比對的範本檔案名稱。 | 否 |
-| CapabilitiesPath | 指定雲端功能 JSON 檔案的路徑 | 是 | 
+| CapabilitiesPath | 指定雲端功能 JSON 檔案的路徑 | yes | 
 | IncludeComputeCapabilities | 包括 IaaS 資源 (例如 VM 大小與 VM 擴充功能) 的評估 | 否 |
 | IncludeStorageCapabilities | 包括儲存體資源 (例如 SKU 類型) 的評估 | 否 |
 | 報告 | 指定所產生之 HTML 報告的名稱 | 否 |
@@ -93,7 +93,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 3.  使用 Get-CloudCapabilities Cmdlet 來擷取服務版本並建立雲端功能 JSON 檔案：
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 

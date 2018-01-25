@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory 中的 If Condition 活動
 If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中提供的功能相同。 它能在條件評估為 `true` 時執行一系列的活動，並在條件評估為 `false` 時執行另一系列的活動。 
@@ -70,11 +70,11 @@ If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-名稱 | If-Condition 活動的名稱。 | String | 是
-類型 | 必須設為 [IfCondition] | String | 是
-expression | 必須評估為 true 或 false 的運算式 | 是
-ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | 是
-ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | 是
+name | If-Condition 活動的名稱。 | 字串 | yes
+type | 必須設為 [IfCondition] | 字串 | yes
+expression | 必須評估為 true 或 false 的運算式 | yes
+ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | yes
+ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | yes
 
 ## <a name="example"></a>範例
 此範例中的管線會將資料從輸入資料夾複製到輸出資料夾。 輸出資料夾是由下列管線參數的值所決定：routeSelection。 如果 routeSelection 的值為 true，資料將會被複製到 outputPath1。 而如果 routeSelection 的值為 false，資料將會被複製到 outputPath2。 

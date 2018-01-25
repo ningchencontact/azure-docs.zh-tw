@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>安全性架構︰例外狀況管理 | 風險降低 
 | 產品/服務 | 文章 |
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="servicedebug"></a>WCF - 請勿在組態檔中包含 serviceDebug 節點
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="servicemetadata"></a>WCF - 請勿在組態檔中包含 serviceMetadata 節點
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="exception"></a>確定有在 ASP.NET Web API 中正確處理例外狀況
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
 | **SDL 階段**               | 建置 |  
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>範例
 若要控制 API 傳回的狀態碼，可如下所示使用 `HttpResponseException`︰ 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>範例
 若要進一步控制例外狀況回應，可如下所示使用 `HttpResponseMessage` 類別︰ 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -109,7 +109,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>範例
 以下是會將 `NotImplementedException` 例外狀況轉換成 HTTP 狀態碼 `501, Not Implemented` 的篩選： 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -137,7 +137,7 @@ namespace ProductStore.Filters
 
 ### <a name="example"></a>範例
 若要將篩選套用至特定動作，請在動作中新增篩選來做為屬性︰ 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 ### <a name="example"></a>範例
 若要將篩選套用至 `controller` 上的所有動作，請在 `controller` 類別中新增篩選來做為屬性︰ 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 
 ### <a name="example"></a>範例
 若要將篩選全域套用至所有 Web API 控制器，請在 `GlobalConfiguration.Configuration.Filters` 集合中新增篩選執行個體。 此集合中的例外狀況篩選會套用至任何 Web API 控制器動作。 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>範例
 若要驗證模型，可將模型狀態傳遞至 CreateErrorResponse 方法，如下所示︰ 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -182,18 +182,18 @@ public HttpResponseMessage PostProduct(Product item)
 
 ## <a id="messages"></a>請勿在錯誤訊息中公開安全性詳細資料
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>泛型錯誤訊息會直接提供給使用者，但不會包含敏感性應用程式資料。 敏感性資料的範例包括︰</p><ul><li>伺服器名稱</li><li>連接字串</li><li>使用者名稱</li><li>密碼</li><li>SQL 程序</li><li>動態 SQL 失敗的詳細資料</li><li>堆疊追蹤和程式碼行</li><li>儲存在記憶體中的變數</li><li>磁碟機和資料夾的位置</li><li>應用程式的安裝點</li><li>主機組態設定</li><li>其他內部應用程式詳細資料</li></ul><p>捕捉應用程式中的所有錯誤並提供泛型錯誤訊息，以及啟用 IIS 中的自訂錯誤，將有助於避免資訊外洩。 除了錯誤處理架構外，SQL Server 資料庫和 .NET 例外狀況處理尤其詳盡，非常適合用於在應用程式中剖析惡意使用者。 請勿直接顯示衍生自 .NET 例外狀況類別的類別內容，並確定您有適當的例外狀況處理手段，以便不會直接對使用者意外產生非預期的例外狀況。</p><ul><li>直接提供泛型錯誤訊息給使用者，此訊息是從直接在例外狀況/錯誤訊息中找到的特定詳細資料所抽離出來</li><li>請勿直接向使用者顯示 .NET 例外狀況類別的內容</li><li>捕捉所有錯誤訊息，並在情況允許時，透過傳送至應用程式用戶端的泛型錯誤訊息通知使用者</li><li>請勿直接對使用者顯示例外狀況類別的內容，特別是來自 `.ToString()` 的傳回值，或是 Message 或 StackTrace 屬性的值。 安全地記錄這項資訊，並向使用者顯示較無害的訊息</li></ul>|
+| **步驟** | <p>泛型錯誤訊息會直接提供給使用者，但不會包含敏感性應用程式資料。 敏感性資料的範例包括︰</p><ul><li>伺服器名稱</li><li>連接字串</li><li>使用者名稱</li><li>密碼</li><li>SQL 程序</li><li>動態 SQL 失敗的詳細資料</li><li>堆疊追蹤和程式碼行</li><li>儲存在記憶體中的變數</li><li>磁碟機和資料夾的位置</li><li>應用程式的安裝點</li><li>主機組態設定</li><li>其他內部應用程式詳細資料</li></ul><p>捕捉應用程式中的所有錯誤並提供泛型錯誤訊息，以及啟用 IIS 中的自訂錯誤，將有助於避免資訊外洩。 除了錯誤處理架構外，SQL Server 資料庫和 .NET 例外狀況處理尤其詳盡，非常適合用於在應用程式中分析惡意使用者。 請勿直接顯示衍生自 .NET 例外狀況類別的類別內容，並確定您有適當的例外狀況處理手段，以便不會直接對使用者意外產生非預期的例外狀況。</p><ul><li>直接提供泛型錯誤訊息給使用者，此訊息是從直接在例外狀況/錯誤訊息中找到的特定詳細資料所抽離出來</li><li>請勿直接向使用者顯示 .NET 例外狀況類別的內容</li><li>捕捉所有錯誤訊息，並在情況允許時，透過傳送至應用程式用戶端的泛型錯誤訊息通知使用者</li><li>請勿直接對使用者顯示例外狀況類別的內容，特別是來自 `.ToString()` 的傳回值，或是 Message 或 StackTrace 屬性的值。 安全地記錄這項資訊，並向使用者顯示較無害的訊息</li></ul>|
 
 ## <a id="default"></a>實作預設的錯誤處理頁面
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -204,10 +204,10 @@ public HttpResponseMessage PostProduct(Product item)
 
 ## <a id="deployment"></a>設定要在 IIS 中零售的部署方法
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [部署元素 (ASP.NET 設定結構描述)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
@@ -215,7 +215,7 @@ public HttpResponseMessage PostProduct(Product item)
 
 ## <a id="fail"></a>例外狀況應安全地失敗
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -225,7 +225,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **步驟** | 應用程式應安全地失敗。 任何會傳回布林值的方法 (根據所做出的特定決策) 皆應小心地建立例外狀況區塊。 若草率撰寫例外狀況區塊，會因為不知不覺潛入的安全性問題而產生許多邏輯錯誤。|
 
 ### <a name="example"></a>範例
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

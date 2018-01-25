@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,22 +51,22 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 HTTP 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**HttpServer**。 | 是 |
-| url | Web 伺服器的基本 URL | 是 |
+| type | 類型屬性必須設定為：**HttpServer**。 | yes |
+| url | Web 伺服器的基本 URL | yes |
 | enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 | 否，預設值是 True |
-| authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | 是 |
+| authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>使用基本、摘要或 Windows 驗證
 
 將「authenticationType」屬性設定為**基本**、**摘要**或 **Windows**，並連同上一個區段所述的一般屬性指定下列內容：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| userName | 存取 HTTP 端點的使用者名稱。 | 是 |
-| password | 使用者 (userName) 的密碼。 請將此欄位標示為 SecureString。 | 是 |
+| userName | 存取 HTTP 端點的使用者名稱。 | yes |
+| password | 使用者 (userName) 的密碼。 請將此欄位標示為 SecureString。 | yes |
 
 **範例**
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 01/11/2018
 
 若要使用 ClientCertificate 驗證，請將「authenticationType」屬性設定為 **ClientCertificate**，並連同上一個區段所述的一般屬性指定下列內容：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 編碼的憑證資料。 | 指定 `embeddedCertData` 或 `certThumbprint`。 |
 | certThumbprint | 憑證指紋已安裝在自我裝載整合執行階段機器的憑證存放區上。 在 connectVia 中指定整合執行階段的自我裝載類型時才適用。 | 指定 `embeddedCertData` 或 `certThumbprint`。 |
@@ -159,9 +159,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 HTTP 複製資料，請將資料集的類型屬性設定為 **HttpFile**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**HttpFile** | 是 |
+| type | 資料集的類型屬性必須設定為：**HttpFile** | yes |
 | relativeUrl | 包含資料之資源的相對 URL。 未指定此屬性時，則只會使用在連結服務定義中指定的 URL。 | 否 |
 | requestMethod | HTTP 方法。<br/>允許的值為 **Get** (預設值) 或 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
@@ -216,9 +216,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 HTTP 複製資料，請將複製活動中的來源類型設定為 **HttpSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HttpSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**HttpSource** | yes |
 | httpRequestTimeout | HTTP 的逾時 (TimeSpan) 要求取得回應。 逾時會取得回應，而非逾時讀取回應資料。<br/> 預設值為：00:01:40  | 否 |
 
 **範例：**

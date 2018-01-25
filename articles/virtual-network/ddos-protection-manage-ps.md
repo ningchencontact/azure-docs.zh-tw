@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: baac97db61b84000557e7150a64ffb64d81ce00c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 33ff6cfcacd1632dc49b448e70361e1cb2ce1176
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DDoS Protection Standard
 
@@ -51,7 +51,7 @@ New-AzureRmVirtualNetwork -Name <MyVirtualNetwork> -ResourceGroupName <ResourceG
 此範例建立的虛擬網路具有兩個子網路和兩個 DNS 伺服器。 指定虛擬網路上 DNS 伺服器的作用是部署到此虛擬網路的 NIC/VM 會繼承這些 DNS 伺服器作為預設值。 虛擬網路中所有的受保護資源都已啟用 DDoS Protection。
 
 > [!WARNING]
-> 選取區域時，請從[概觀](ddos-protection-overview.md)中的清單選擇支援區域。
+> 選取區域時，請從 [Azure DDoS Protection Standard 概觀](ddos-protection-overview.md)中的清單選擇支援區域。
 
 ## <a name="enable-ddos-protection-on-an-existing-virtual-network"></a>在現有虛擬網路上啟用 DDoS Protection
 
@@ -127,7 +127,7 @@ $vnetProps
     Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
     ```
 
-您也可以深入了解如何[設定 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[邏輯應用程式](../logic-apps/logic-apps-what-are-logic-apps.md)，以便建立警示。
+您也可以深入了解如何[設定 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[邏輯應用程式](../logic-apps/logic-apps-overview.md)，以便建立警示。
 
 ## <a name="configure-logging-on-ddos-protection-metrics"></a>設定 DDoS Protection 計量的記錄
 
@@ -137,4 +137,4 @@ $vnetProps
 
 - [深入了解 Azure 診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
