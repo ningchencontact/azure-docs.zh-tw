@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>建立與 Azure Logic Apps 整合的函式
 
@@ -40,7 +40,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 > * 將邏輯應用程式連線至函式。
 > * 以函式的回應作為基礎來傳送電子郵件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 使用中的 [Twitter](https://twitter.com/) 帳戶。 
 + [Outlook.com](https://outlook.com/) 帳戶 (用於傳送通知)。
@@ -62,7 +62,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
     | 設定      |  建議的值   | 說明                                        |
     | --- | --- | --- |
     | **名稱** | MyCognitiveServicesAccnt | 請選擇唯一的帳戶名稱。 |
-    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | 美國西部 | 使用距離您最近的位置。 |
+    | **位置** | 美國西部 | 使用距離您最近的位置。 |
     | **定價層** | F0 | 從最低層開始。 如果您用完呼叫，請調整為較高層。|
     | **資源群組** | myResourceGroup | 本教學課程中所有的服務，都是使用相同的資源群組。|
 
@@ -74,27 +74,27 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-the-function-app"></a>建立函數應用程式
+## <a name="create-the-function-app"></a>建立函式應用程式
 
 Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處理工作進行卸載。 本教學課程會使用 HTTP 觸發函式來處理認知服務的推文情感分數，並將類別值傳回。  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>建立 HTTP 觸發函式  
+## <a name="create-an-http-triggered-function"></a>建立由 HTTP 觸發的函式  
 
 1. 展開函式應用程式，然後按一下 [Functions] 旁的 [+] 按鈕。 如果這是您函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。
 
     ![Azure 入口網站中的 Functions 快速入門](media/functions-twitter-email/add-first-function.png)
 
-2. 在 搜尋 欄位中，輸入`http`，然後選擇  **C#** HTTP 觸發程序範本。 
+2. 在搜尋欄位中，輸入 `http`，然後針對 HTTP 觸發程序範本選擇 **C#**。 
 
     ![選擇 HTTP 觸發程序](./media/functions-twitter-email/select-http-trigger-portal.png)
 
-3. 輸入**名稱**針對您的函式中，選擇 `Function`如**[驗證層級](functions-bindings-http-webhook.md#http-auth)**，然後選取**建立**。 
+3. 輸入您函式的 [名稱] ，針對 [[驗證等級](functions-bindings-http-webhook.md#http-auth)] 選擇 `Function`，然後選取 [建立]。 
 
-    ![建立 HTTP 觸發函式](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+    ![建立由 HTTP 觸發的函式](./media/functions-twitter-email/select-http-trigger-portal-2.png)
 
-    這會建立 C# 指令碼函式使用 HTTP 觸發程序範本。 您的程式碼會出現在新視窗為`run.csx`。
+    這會使用 HTTP 觸發程序範本建立 C# 指令碼函式。 您的程式碼會在新視窗中顯示為 `run.csx`。
 
 4. 使用下列程式碼取代 `run.csx` 檔案的內容，然後按一下 [儲存]：
 
@@ -145,7 +145,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
     | ----------------- | ------------ | ------------- |
     | **名稱** | TweetSentiment | 為您的應用程式選擇適當名稱。 |
     | **資源群組** | myResourceGroup | 選擇與之前相同的現有資源群組。 |
-    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | 美國東部 | 選擇接近您的位置。 |    
+    | **位置** | 美國東部 | 選擇接近您的位置。 |    
 
 4. 選擇 [釘選到儀表板]，然後按一下 [建立] 以建立邏輯應用程式。 
 
@@ -288,5 +288,5 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 > [!div class="nextstepaction"] 
 > [使用 Azure Functions 建立無伺服器 API](functions-create-serverless-api.md)
 
-若要深入了解 Logic Apps，請參閱 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)。
+若要深入了解 Logic Apps，請參閱 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)。
 

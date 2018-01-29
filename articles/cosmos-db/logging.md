@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -30,12 +30,12 @@ ms.lasthandoff: 01/06/2018
 
 ## <a name="what-is-logged"></a>會記錄什麼內容？
 
-* 記錄所有已驗證的其餘 SQL API 要求，其中包括因存取權限，系統錯誤或不正確的要求失敗的要求。 目前未提供對 MongoDB、圖表和資料表 API 的支援。
+* 系統會記錄所有已驗證的 REST SQL API 要求，包括因為存取權限、系統錯誤或要求錯誤而發生的失敗要求。 目前未提供對 MongoDB、圖表和資料表 API 的支援。
 * 對資料庫本身的作業，包括對所有文件、容器和資料庫的 CRUD 作業。
 * 對帳戶金鑰的作業，包括建立、修改或刪除這些金鑰。
 * 產生 401 回應的未經驗證要求。 例如，沒有持有人權杖的要求，或格式不正確或已過期的要求，或具有無效權杖的要求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列資源：
 
 * 現有的 Azure Cosmos DB 帳戶、資料庫和容器。 如需建立這些資源的指示，請參閱[使用 Azure 入口網站建立資料庫帳戶](create-sql-api-dotnet.md#create-a-database-account)、[CLI 範例](cli-samples.md)或 [PowerShell 範例](powershell-samples.md)。
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/06/2018
     * **封存至儲存體帳戶**。 若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)，依指示建立一個 Resource Manager (一般用途帳戶)。 然後返回入口網站的此頁面選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現在下拉式功能表中。
     * **串流處理至事件中樞**。 若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後返回入口網站的此頁面選取事件中樞命名空間和原則名稱。
     * **傳送至 Log Analytics**。     若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需有關如何檢視 Log Analytics 記錄的詳細資訊，請參閱[檢視 Log Analytics 中的記錄](#view-in-loganalytics)。
-    * **記錄 DataPlaneRequests**。 選取此選項，來記錄診斷 SQL、 圖表和資料表的應用程式開發介面的帳戶。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **記錄 DataPlaneRequests**。 選取此選項可記錄 SQL、圖形、資料表 API 帳戶的診斷。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **記錄 MongoRequests**。 選取此選項可記錄 MongoDB API 帳戶的診斷。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量要求**。 選取此選項可儲存 [Azure 計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)中的詳細資料。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
@@ -239,7 +239,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 因為可以使用相同的儲存體帳戶來收集多個資源的記錄，blob 名稱中的完整資源識別碼很適合用來只存取或下載所需 blob。 但在這麼做之前，我們要先討論如何下載所有 blob。
 
-首先，建立資料夾來下載 blob。 例如：
+首先，建立資料夾來下載 blob。 例如︰
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -261,7 +261,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 在執行第二個命令時，blob 名稱中的 **/** 分隔符號會在目的地資料夾下建立完整資料夾結構。 此資料夾結構將會用來下載 blob 並儲存為檔案。
 
-若要有所選擇地下載 blob，請使用萬用字元。 例如：
+若要有所選擇地下載 blob，請使用萬用字元。 例如︰
 
 * 如果您有多個資料庫，並且只想下載其中的 CONTOSOCOSMOSDB3 資料庫的記錄：
 
@@ -408,11 +408,11 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 | Azure 儲存體欄位或屬性 | Log Analytics 屬性 | 說明 |
 | --- | --- | --- |
-| 時間 | TimeGenerated | 作業發生的日期和時間 (UTC)。 |
+| 分析 | TimeGenerated | 作業發生的日期和時間 (UTC)。 |
 | ResourceId | 資源 | 啟用記錄的 Azure Cosmos DB 帳戶。|
 | category | 類別 | 針對 Azure Cosmos DB 記錄，DataPlaneRequests 是唯一可用的值。 |
 | operationName | OperationName | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
-| 屬性 | n/a | 此欄位的內容描述於下列資料列中。 |
+| properties | n/a | 此欄位的內容描述於下列資料列中。 |
 | activityId | activityId_g | 所記錄作業的唯一 GUID。 |
 | userAgent | userAgent_s | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
 | resourceType | ResourceType | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Collection、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |

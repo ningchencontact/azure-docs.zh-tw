@@ -60,8 +60,9 @@
 - name: 概念
   items:
     - name: 服務功能
-      href: sql-database-servers-databases.md
       items:
+        - name: 伺服器和資料庫
+          href: sql-database-servers-databases.md
         - name: 服務層
           href: sql-database-service-tiers.md
         - name: 資源限制
@@ -105,8 +106,9 @@
         - name: SQL Server 常用功能
           href: sql-database-features.md
     - name: 安全性
-      href: sql-database-security-overview.md
       items:
+        - name: 概觀
+          href: sql-database-security-overview.md
         - name: 存取控制
           href: sql-database-control-access.md
         - name: Azure AD
@@ -122,8 +124,9 @@
     - name: 高可用性
       href: sql-database-high-availability.md
     - name: 業務持續性
-      href: sql-database-business-continuity.md
       items:
+        - name: 概觀
+          href: sql-database-business-continuity.md
         - name: 資料庫復原
           href: sql-database-recovery-using-backups.md
         - name: 設定安全性
@@ -139,8 +142,9 @@
         - name: 執行復原切入
           href: sql-database-disaster-recovery-drills.md
     - name: 移轉至 SQL Database
-      href: sql-database-cloud-migrate.md
       items:
+        - name: 概觀
+          href: sql-database-cloud-migrate.md
         - name: T-SQL 變更
           href: sql-database-transact-sql-information.md
         - name: 移轉後管理資料庫
@@ -156,8 +160,9 @@
         - name: 同步資料
           href: sql-database-sync-data.md
     - name: 監視與微調
-      href: sql-database-troubleshoot-performance.md
       items:
+        - name: 概觀
+          href: sql-database-troubleshoot-performance.md
         - name: 效能監視
           href: sql-database-single-database-monitor.md
         - name: 效能建議
@@ -177,8 +182,9 @@
         - name: 監視記憶體內部
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 相應放大
-      href: sql-database-elastic-scale-introduction.md
       items:
+        - name: 概觀
+          href: sql-database-elastic-scale-introduction.md
         - name: 分區對應
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 查詢路由
@@ -205,6 +211,8 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: 開發資料庫
       items:
+        - name: 概觀
+          href: sql-database-develop-overview.md
         - name: JSON 資料
           href: sql-database-json-features.md
         - name: 記憶體內
@@ -216,7 +224,6 @@
         - name: 設定記憶體內部
           href: sql-database-in-memory-oltp-migration.md
     - name: 開發應用程式
-      href: sql-database-develop-overview.md
       items:
         - name: 連線能力
           href: sql-database-libraries.md

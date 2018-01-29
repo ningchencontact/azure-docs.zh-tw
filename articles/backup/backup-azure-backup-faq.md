@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
 ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
-本文回答關於 Azure 備份元件常見問題的解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
+本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
 
 若要快速掃描本文中的各節內容，在**本文**下使用右方連結。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="recovery-services-vault"></a>復原服務保存庫
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>每個 Azure 訂用帳戶中可以建立的保存庫數目是否有任何限制？ <br/>
-可以。 年 9 月從 2016年開始，您可以建立每個訂閱的 25 個復原服務保存庫。 您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 25 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
+是。 自 2016 年 9 月起，您可以為每個訂用帳戶建立 25 個復原服務。 您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 25 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？ <br/>
 是，您可以針對每個保存庫註冊最多 50 個電腦。 對於 Azure IaaS 虛擬機器，限制為每個保存庫 200 個 VM。 如果您需要註冊更多電腦，請建立其他保存庫。
@@ -41,11 +41,11 @@ ms.lasthandoff: 12/19/2017
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>我可以在訂用帳戶之間「移轉」備份資料或保存庫嗎？ <br/>
 編號 保存庫會建立在訂用帳戶層級，並且在建立之後無法重新指派至其他訂用帳戶。
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>復原服務保存庫是以 Resource Manager 為基礎。 備份保存庫仍然支援？ <br/>
-備份保存庫已轉換成復原服務保存庫。 如果您未轉換至復原服務保存庫的備份保存庫，然後備份保存庫已為您轉換至復原服務保存庫。 
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>復原服務保存庫是以 Resource Manager 為基礎。 仍然支援備份保存庫嗎？ <br/>
+備份保存庫都已轉換為復原服務保存庫。 如果您未將備份保存庫轉換為復原服務保存庫，則系統會為您將備份保存庫轉換為復原服務保存庫。 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>是否可以將備份保存庫移轉至復原服務保存庫？ <br/>
-所有的備份保存庫已轉換成復原服務保存庫。 如果您未轉換至復原服務保存庫的備份保存庫，然後備份保存庫已為您轉換至復原服務保存庫。
+所有備份保存庫都已轉換為復原服務保存庫。 如果您未將備份保存庫轉換為復原服務保存庫，則系統會為您將備份保存庫轉換為復原服務保存庫。
 
 ## <a name="azure-backup-agent"></a>Azure 備份代理程式
 問題的詳細清單會出現在 [Azure 檔案資料夾備份的常見問題集](backup-azure-file-folder-backup-faq.md)
@@ -57,12 +57,12 @@ ms.lasthandoff: 12/19/2017
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>我可以將 VMware vCenter 伺服器備份到 Azure 嗎？
 
-可以。 您可以使用 Azure 備份伺服器，將 VMware vCenter 和 ESXi 備份至 Azure。 如需支援 VMware 版本的資訊，請參閱 [Azure 備份伺服器保護矩陣](backup-mabs-protection-matrix.md)一文。 如需逐步指示，請參閱[使用 Azure 備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)。
+是。 您可以使用 Azure 備份伺服器，將 VMware vCenter 和 ESXi 備份至 Azure。 如需支援 VMware 版本的資訊，請參閱 [Azure 備份伺服器保護矩陣](backup-mabs-protection-matrix.md)一文。 如需逐步指示，請參閱[使用 Azure 備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)。
 
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure 備份伺服器和 System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>可以使用 Azure 備份伺服器來為實體伺服器建立裸機復原 (BMR) 備份嗎？ <br/>
-可以。
+是。
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>可以將我的 DPM 伺服器註冊至多個保存庫嗎？ <br/>
 編號 DPM 或 MABS 伺服器只能註冊至一個保存庫。
@@ -81,10 +81,10 @@ ms.lasthandoff: 12/19/2017
 如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>備份作業可排程的時間和次數是否有限制？<br/>
-可以。 您一天可以在 Windows Server 或 Windows 工作站上執行備份作業最多三次。 您一天可以在 System Center DPM 上執行備份作業最多兩次。 您一天可以執行 IaaS VM 的備份作業一次。 若要指定每日或每週排程，您可以使用 Windows Server 或 Windows 工作站的排程原則。 使用 System Center DPM 時，您可以指定每日、每週、每月和每年排程。
+是。 您一天可以在 Windows Server 或 Windows 工作站上執行備份作業最多三次。 您一天可以在 System Center DPM 上執行備份作業最多兩次。 您一天可以執行 IaaS VM 的備份作業一次。 若要指定每日或每週排程，您可以使用 Windows Server 或 Windows 工作站的排程原則。 使用 System Center DPM 時，您可以指定每日、每週、每月和每年排程。
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>為何傳輸到復原服務保存庫的資料大小會小於我備份的資料？<br/>
- 從 Azure 備份代理程式、SCDPM 或 Azure 備份伺服器備份的所有資料都會在傳輸之前，經過壓縮和加密。 一旦套用壓縮和加密時，復原服務保存庫中的資料會是較小的 30-40%。
+ 從 Azure 備份代理程式、SCDPM 或 Azure 備份伺服器備份的所有資料都會在傳輸之前，經過壓縮和加密。 一旦套用壓縮和加密，復原服務保存庫中的資料會縮小 30-40%。
 
 ## <a name="what-can-i-back-up"></a>我可以備份什麼
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Azure 備份支援哪些作業系統？ <br/>
@@ -164,10 +164,10 @@ Azure 備份支援下列作業系統清單來備份：使用 Azure 備份伺服�
 
 ## <a name="azure-backup-encryption"></a>Azure 備份加密
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>傳送至 Azure 的資料會經過加密嗎？ <br/>
-可以。 資料會使用 AES256 在內部部署伺服器/用戶端/SCDPM 電腦上進行加密，且資料會透過安全的 HTTPS 連結進行傳送。
+是。 資料會使用 AES256 在內部部署伺服器/用戶端/SCDPM 電腦上進行加密，且資料會透過安全的 HTTPS 連結進行傳送。
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-wellbr"></a>位於 Azure 的備份資料也會經過加密嗎？<br/>
-可以。 傳送至 Azure 的資料仍會維持加密 (靜止) 狀態。 Microsoft 不會解密在任何時間點所備份的資料。 備份 Azure VM 時，Azure 備份會依賴虛擬機器的加密。 例如，如果使用 Azure 磁碟加密或一些其他加密技術來加密您的 VM，Azure 備份會使用該加密來保護您的資料。
+是。 傳送至 Azure 的資料仍會維持加密 (靜止) 狀態。 Microsoft 不會解密在任何時間點所備份的資料。 備份 Azure VM 時，Azure 備份會依賴虛擬機器的加密。 例如，如果使用 Azure 磁碟加密或一些其他加密技術來加密您的 VM，Azure 備份會使用該加密來保護您的資料。
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>什麼是用來加密備份資料之加密金鑰的最小長度？ <br/>
 當您使用 Azure 備份代理程式時，加密金鑰應該至少包含 16 個字元。 在 Azure VM 中，Azure KeyVault 所使用的金鑰長度沒有限制。 

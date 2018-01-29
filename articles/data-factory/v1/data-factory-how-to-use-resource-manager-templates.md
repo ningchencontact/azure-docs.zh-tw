@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>使用範本來建立 Azure Data Factory 實體
 > [!NOTE]
@@ -231,7 +231,7 @@ dataFactoryName 在 “variables” 中定義為：
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>參數化 Data Factory 範本
-如需參數化的最佳作法，請參閱[最佳作法來建立 Azure 資源管理員範本](../../azure-resource-manager/resource-manager-template-best-practices.md)。 一般而言，參數的使用應該降到最低，特別是改為使用變數時。 在下列情況中，僅提供參數：
+如需參數化的最佳做法，請參閱[建立 Azure Resource Manager 範本的最佳做法](../../azure-resource-manager/resource-manager-template-best-practices.md)。 一般而言，參數的使用應該降到最低，特別是改為使用變數時。 在下列情況中，僅提供參數：
 
 * 設定會因環境 (範例︰開發、測試和生產) 而不同
 * 機密資料 (例如密碼)

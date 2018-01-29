@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB：使用 .NET 搭配圖形 API 進行開發 | Microsoft Docs"
-description: "了解如何使用適用於.NET 的 Azure Cosmos DB 的 SQL API 以開發"
+description: "了解如何使用 .NET 搭配 Azure Cosmos DB 的 SQL API 進行開發"
 services: cosmos-db
 documentationcenter: 
 author: luisbosquez
@@ -16,15 +16,15 @@ ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
 ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配圖形 API 進行開發
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本教學課程示範如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，以及如何建立圖形資料庫和容器。 接著，應用程式與使用的四個人員建立簡單的社交網路[Graph API](graph-sdk-dotnet.md)、 然後周遊和查詢使用 Gremlin 圖形。
+本教學課程示範如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，以及如何建立圖形資料庫和容器。 應用程式會接著使用[圖形 API](graph-sdk-dotnet.md) 來建立一個含有 4 個人的簡單社交網路，然後使用 Gremlin 來周遊及查詢圖形。
 
 本教學課程涵蓋下列工作：
 
@@ -40,11 +40,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 Gremlin 是一個函式程式設計語言，可支援寫入作業 (DML) 及查詢和周遊作業。 本文中涵蓋幾個範例來協助您開始使用 Gremlin。 如需 Azure Cosmos DB 中可用之 Gremlin 功能的詳細逐步解說，請參閱 [Gremlin 查詢](gremlin-support.md)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 請確定您具有下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
-    * 或者，您可以使用[本機模擬器](local-emulator.md)本教學課程。
+    * 或者，您可以使用[本機模擬器](local-emulator.md)來進行本教學課程。
 * [Visual Studio](http://www.visualstudio.com/)。
 
 ## <a name="create-database-account"></a>建立資料庫帳戶
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>建立資料庫 
 
-現在，建立 Azure Cosmos DB[資料庫](sql-api-resources.md#databases)使用[CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx)方法或[CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx)方法**DocumentClient**類別從[SQL.NET SDK](sql-api-sdk-dotnet.md)。  
+現在，使用來自 [SQL .NET SDK](sql-api-sdk-dotnet.md) 之 **DocumentClient** 類別的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法或 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 方法，來建立 Azure Cosmos DB [資料庫](sql-api-resources.md#databases)。  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

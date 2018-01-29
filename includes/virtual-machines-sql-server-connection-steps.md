@@ -10,7 +10,7 @@
 5. 在 [通訊協定及連接埠] 對話方塊中，使用預設的 [TCP]。 接著在 [特定本機連接埠] 方塊中，輸入 Database Engine 執行個體的連接埠號碼 (預設執行個體的連接埠號碼 **1433**，或您在端點步驟中選擇的私人連接埠號碼)。
    
     ![TCP 連接埠 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
-6. 按一下 [下一步] 。
+6. 按 [下一步] 。
 7. 在 [動作] 對話方塊中選取 [允許連線]，然後按 [下一步]。
    
     **安全性注意事項：**選取 [僅允許安全連線] 可提供額外的安全性。 如果您想要在環境中設定額外的安全性選項，請選取此選項。
@@ -42,7 +42,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。 若�
 1. 連接到虛擬機器時，在 [開始] 頁面上輸入 **SQL Server Management Studio** ，然後按一下選取的圖示。
    
     當您首次開啟 Management Studio 時，它必須建立使用者 Management Studio 環境。 這可能需要花費幾分鐘的時間。
-2. Management Studio 會出現 [連接到伺服器] 對話方塊。 在 [伺服器名稱] 方塊中，輸入虛擬機器的名稱，以使用 [物件總管] 連接到 Database Engine (除了虛擬機器名稱之外，您也可以使用 **(local)** 或單一句點做為 [伺服器名稱])。 選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 **your_VM_name\your_local_administrator**。 按一下 [ **連接**]。
+2. Management Studio 會出現 [連接到伺服器] 對話方塊。 在 [伺服器名稱] 方塊中，輸入虛擬機器的名稱，以使用 [物件總管] 連接到 Database Engine (除了虛擬機器名稱之外，您也可以使用 **(local)** 或單一句點做為 [伺服器名稱])。 選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 ***your_VM_name*\your_local_administrator**。 按一下 [ **連接**]。
    
     ![連線到伺服器](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. 在 SQL Server Management Studio 物件總管中，以滑鼠右鍵按一下 SQL Server 執行個體的名稱 (虛擬機器名稱)，然後按一下 [屬性] 。
