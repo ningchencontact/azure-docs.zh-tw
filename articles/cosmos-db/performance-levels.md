@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
 
@@ -147,7 +147,7 @@ S1、S2 和 S3 效能層級不提供標準 Azure Cosmos DB 所提供的彈性。
 
 以下是變更集合輸送量為每秒 5,000 要求單位的程式碼片段：
     
-```C#
+```csharp
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
