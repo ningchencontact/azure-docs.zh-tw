@@ -17,15 +17,15 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
 
-SQL Database 是 Microsoft Azure 中一般用途的關聯式資料庫服務，可支援關聯式資料、JSON、空間和 XML 等結構。 它可提供[動態可調式效能](sql-database-service-tiers.md)，而且提供[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)等選項來進行極限分析和報告，以及[記憶體內部 OLTP](sql-database-in-memory.md) 來進行極限交易處理。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。 
+SQL Database 是 Microsoft Azure 中一般用途的關聯式資料庫服務，可支援關聯式資料、JSON、空間和 XML 等結構。 除了實現[可動態調整的效能](sql-database-service-tiers.md)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](sql-database-in-memory.md) Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。 
 
 SQL Database 與 [Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共用其程式碼基底。 依據 Microsoft 的雲端優先策略，SQL Server 的最新功能會先在 SQL Database 中發行，然後在 SQL Server 本身發行。 這種方法可為您提供最新的 SQL Server 功能，但沒有修補或升級的額外負荷，而這些新功能已在數百萬個資料庫上進行測試。 當新功能宣佈時，如需其相關資訊，請參閱：
 
@@ -74,7 +74,7 @@ SQL Database 提供四個服務層來支援各種資料庫工作負載 (輕量�
 
 ## <a name="availability-capabilities"></a>可用性功能
 
-Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.microsoft.com/support/legal/sla/)(由 Microsoft 管理之資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
+Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.microsoft.com/support/legal/sla/)(Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
 
 - **[自動備份](sql-database-automated-backups.md)**：SQL Database 會自動執行完整、差異及交易記錄備份。
 - **[時間點還原](sql-database-recovery-using-backups.md)**：SQL Database 支援復原到自動備份保留期間內的任何時間點。
@@ -156,7 +156,7 @@ SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server)：詢問資料庫管理問題
 - [堆疊溢位](http://stackoverflow.com/questions/tagged/sql-server)：詢問開發問題
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver)：詢問技術問題
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback)：回報錯誤和要求功能
+- [意見反應](http://aka.ms/sqlfeedback)：回報錯誤 (bug) 及要求加入新功能
 - [Reddit](https://www.reddit.com/r/SQLServer/)：討論 SQL Server
 
 ## <a name="next-steps"></a>後續步驟

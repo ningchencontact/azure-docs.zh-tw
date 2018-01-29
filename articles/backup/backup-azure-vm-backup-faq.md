@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -47,13 +47,13 @@ ms.lasthandoff: 01/05/2018
 是，備份會順暢運作，而且不需要重新設定備份。 
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>我的 VM 關閉了。 隨選或排程的備份工作會運作嗎？
-可以。 即使機器已經關閉，且備份工作和復原點標示為「當機時保持一致」。 如需詳細資訊，請參閱[這篇文章](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)的＜資料一致性＞。
+是。 即使機器已經關閉，且備份工作和復原點標示為「當機時保持一致」。 如需詳細資訊，請參閱[這篇文章](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)的＜資料一致性＞。
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
-可以。 如果備份作業處於「正在建立快照」階段，您可以將它取消。 **如果正在從快照傳輸資料，則無法取消作業**。 
+是。 如果備份作業處於「正在建立快照」階段，您可以將它取消。 **如果正在從快照傳輸資料，則無法取消作業**。 
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我在我備份受管理磁碟 Vm 上啟用資源群組鎖定。 我的備份是否會繼續運作？
-如果使用者鎖定資源群組，則備份服務不能刪除較舊的還原點。 因此新的備份會開始失敗，因為沒有最大 18 的還原點從後端加諸的限制。 如果您的備份之後 RG 鎖定失敗，發生內部錯誤，請遵循這些[步驟，以移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)。
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我已在已備份的受控磁碟 VM 上啟用資源群組鎖定。 我的備份是否會繼續運作？
+如果使用者鎖定資源群組，備份服務就無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。 如果您的備份在 RG 鎖定之後，因為內部錯誤而發生失敗，請遵循下列[步驟來移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)。
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>如何在還原磁碟與完整 VM 還原之間做決定？
@@ -72,3 +72,13 @@ ms.lasthandoff: 01/05/2018
 ## <a name="manage-vm-backups"></a>管理 VM 備份
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>變更 VM 的備份原則時會發生什麼狀況？
 在 VM 上套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除然後刪除。 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>如何在資源群組之間移動在 Azure 備份中註冊的 VM？
+請遵循下列步驟，將已備份的 VM 成功移到目標資源群組 
+1. 暫時停止備份並保留備份資料
+2. 將 VM 移到目標資源群組
+3. 使用相同/新的保存庫重新保護它
+
+使用者可以從移動作業前建立的可用還原點進行還原。
+
+

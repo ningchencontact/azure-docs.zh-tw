@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全框架︰驗證 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="standard-authn-web-app"></a>考慮使用標準驗證機制來驗證 Web 應用程式
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="handle-failed-authn"></a>應用程式必須安全地處理失敗的驗證案例
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="step-up-adaptive-authn"></a>啟用升級或調適性驗證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="admin-interface-lockdown"></a>確保已適當地鎖定系統管理介面
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="forgot-pword-fxn"></a>安全地實作忘記密碼功能
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="pword-account-policy"></a>確保已實作密碼和帳戶原則
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="controls-username-enum"></a>實作控制項以避免列舉使用者名稱
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="win-authn-sql"></a>可能的話，使用 Windows 驗證連線到 SQL Server
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="aad-authn-sql"></a>可能的話，使用 Azure Active Directory 驗證連線到 SQL Database
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="authn-account-pword"></a>使用 SQL 驗證模式時，確保在 SQL Server 上強制執行帳戶和密碼原則
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="autn-contained-db"></a>請勿在自主資料庫中使用 SQL 驗證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="authn-sas-tokens"></a>使用採用 SaS 權杖的每一裝置驗證認證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 事件中樞 | 
 | **SDL 階段**               | 建置 |  
@@ -171,10 +171,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="multi-factor-azure-admin"></a>啟用 Azure 系統管理員適用的 Azure Multi-Factor Authentication
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [什麼是 Azure Multi-Factor Authentication？](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
@@ -182,10 +182,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="anon-access-cluster"></a>限制 Service Fabric 叢集的匿名存取
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure  |
 | **參考**              | [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
@@ -193,10 +193,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="fabric-cn-nn"></a>確保 Service Fabric 的用戶端對節點憑證不同於節點對節點憑證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure、環境 - 獨立 |
 | **參考**              | [Service Fabric 用戶端對節點憑證安全性](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security)、[使用用戶端憑證連線到安全的叢集](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
@@ -204,10 +204,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="aad-client-fabric"></a>使用 AAD 來向 Service Fabric 叢集驗證用戶端對
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure |
 | **參考**              | [叢集安全性案例 - 安全性建議](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
@@ -215,10 +215,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="fabric-cert-ca"></a>確保從經過核准的憑證授權單位 (CA) 取得 Service Fabric 憑證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure |
 | **參考**              | [X.509 憑證和 Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
@@ -226,7 +226,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="standard-authn-id"></a>使用 Identity Server 所支援的標準驗證案例
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
 | **SDL 階段**               | 建置 |  
@@ -237,10 +237,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="override-token"></a>以可調整的替代項目覆寫預設 Identity Server 權杖快取
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Identity Server 部署 - 快取](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
@@ -248,10 +248,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="binaries-signed"></a>確保已數位簽署所部署應用程式的二進位檔
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | 部署 |  
+| **SDL 階段**               | Deployment |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -259,7 +259,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="msmq-queues"></a>在連線到 WCF 中的 MSMQ 佇列時啟用驗證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -299,7 +299,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="message-none"></a>WCF - 請勿將訊息 clientCredentialType 設定為 none
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -315,7 +315,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="transport-none"></a>WCF - 請勿將傳輸 clientCredentialType 設定為 none
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | WCF | 
 | **SDL 階段**               | 建置 |  
@@ -331,7 +331,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="authn-secure-api"></a>確保使用標準驗證技術來保護 Web API
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web API | 
 | **SDL 階段**               | 建置 |  
@@ -342,7 +342,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="authn-aad"></a>使用 Azure Active Directory 所支援的標準驗證案例
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure AD | 
 | **SDL 階段**               | 建置 |  
@@ -353,7 +353,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="adal-scalable"></a>以可調整的替代項目覆寫預設 ADAL 權杖快取
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure AD | 
 | **SDL 階段**               | 建置 |  
@@ -364,7 +364,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="tokenreplaycache-adal"></a>確保使用 TokenReplayCache 來防止重新執行 ADAL 驗證權杖
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure AD | 
 | **SDL 階段**               | 建置 |  
@@ -374,7 +374,7 @@ ms.lasthandoff: 10/11/2017
 | **步驟** | <p>TokenReplayCache 屬性可讓開發人員為了確認沒有權杖可使用一次以上，而定義權杖重新執行快取以及可用來儲存權杖的存放區。</p><p>這是對抗常見攻擊 (恰如其名的權杖重新執行攻擊) 的措施︰攔截登入時所傳送權杖的攻擊者可能會試著將權杖再次傳送至應用程式 (「重新執行」它)，以便建立新的工作階段。 例如，在 OIDC 程式碼授與流程中，使用者驗證成功後，對信賴憑證者之 "/signin-oidc" 端點的要求是由 "id_token"、"code" 和 "state" 參數所構成。</p><p>信賴憑證者會驗證此要求並建立新的工作階段。 如果敵人擷取此要求並重新執行它，敵人即可建立成功的工作階段並欺騙使用者。 OpenID Connect 中存在的 nonce 可以限制，但未完全消除可成功發動攻擊的情況。 若要保護其應用程式，開發人員可以提供 ITokenReplayCache 的實作，並將執行個體指派給 TokenReplayCache。</p>|
 
 ### <a name="example"></a>範例
-```C#
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 
 ### <a name="example"></a>範例
 以下是 ITokenReplayCache 介面的範例實作。 (請自訂並實作您的專案特定快取架構)
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 實作的快取必須透過 "TokenValidationParameters" 屬性在 OIDC 選項中參照，如下所示。
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -425,7 +425,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 ## <a id="adal-oauth2"></a>使用 ADAL 程式庫來管理從 OAuth2 用戶端至 AAD (或內部部署 AD) 的權杖要求
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure AD | 
 | **SDL 階段**               | 建置 |  
@@ -436,7 +436,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 ## <a id="authn-devices-field"></a>驗證連線到現場閘道的裝置
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 現場閘道 | 
 | **SDL 階段**               | 建置 |  
@@ -447,7 +447,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 ## <a id="authn-devices-cloud"></a>確保會驗證連線到雲端閘道的裝置
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 雲端閘道 | 
 | **SDL 階段**               | 建置 |  
@@ -457,7 +457,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **步驟** | <ul><li>**泛型︰**使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、Oauth。</li><li>**C#：**建立 DeviceClient 執行個體時，Create 方法預設會建立一個使用 AMQP 通訊協定來與 IoT 中樞通訊的 DeviceClient 執行個體。 若要使用 HTTPS 通訊協定，請使用可讓您指定通訊協定的 Create 方法的覆寫。 若您使用 HTTPS 通訊協定，您也應該將 `Microsoft.AspNet.WebApi.Client` Nuget 套件新增至您的專案，以包含 `System.Net.Http.Formatting` 命名空間。</li></ul>|
 
 ### <a name="example"></a>範例
-```C#
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";
@@ -547,7 +547,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>使用每一裝置驗證認證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 雲端閘道  | 
 | **SDL 階段**               | 建置 |  
@@ -558,7 +558,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>確保只有必要的容器和 blob 會取得匿名讀取權限
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  
@@ -569,7 +569,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="limited-access-sas"></a>使用 SAS 或 SAP 對 Azure 儲存體中的物件授與有限的存取權
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
 | **SDL 階段**               | 建置 |  

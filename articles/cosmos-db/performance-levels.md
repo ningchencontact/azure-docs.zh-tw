@@ -1,6 +1,6 @@
 ---
-title: "已停用 Azure Cosmos DB 的效能層級 |Microsoft 文件"
-description: "深入了解 S1、 S2 和 S3 效能層級先前用於 Azure Cosmos DB。"
+title: "已淘汰的 Azure Cosmos DB 效能層級 | Microsoft Docs"
+description: "了解 Azure Cosmos DB 中先前可用的 S1、S2 和 S3 效能層級。"
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -16,15 +16,15 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
 
 > [!IMPORTANT] 
-> 本文所討論的 S1、 S2 和 S3 效能等級會停用，並就無法再使用新的 Azure Cosmos DB 帳戶。
+> 本文所討論的 S1、S2 和 S3 效能層級即將淘汰，而且再也無法供新的 Azure Cosmos DB 帳戶使用。
 >
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>為何 S1、S2 和 S3 效能層級將要淘汰？
 
-S1、 S2 和 S3 效能層級不提供標準 Azure Cosmos DB 供應項目提供的彈性。 使用 S1、S2、S3 效能層級，輸送量和儲存容量皆會預先設定且不提供彈性。 Azure Cosmos DB 現在可讓您自訂輸送量和儲存體，提供您更大的彈性能夠隨您的需求進行變更。
+S1、S2 和 S3 效能層級不提供標準 Azure Cosmos DB 所提供的彈性。 使用 S1、S2、S3 效能層級，輸送量和儲存容量皆會預先設定且不提供彈性。 Azure Cosmos DB 現在可讓您自訂輸送量和儲存體，提供您更大的彈性能夠隨您的需求進行變更。
 
 <a name="compare"></a>
 
@@ -143,7 +143,7 @@ S1、 S2 和 S3 效能層級不提供標準 Azure Cosmos DB 供應項目提供�
 
 **若要使用 .NET SDK 移轉至單一資料分割集合**
 
-另一個變更集合的效能層級的選項是透過 Azure Cosmos DB SDK。 本節只涵蓋變更集合的效能層級使用[SQL.NET API](sql-api-sdk-dotnet.md)，但我們其他 Sdk 的類似程序。
+另一個變更集合的效能層級的選項是透過 Azure Cosmos DB SDK。 本節只涵蓋使用 [SQL .NET API](sql-api-sdk-dotnet.md) 來變更集合的效能層級，但程序類似於我們的其他 SDK。
 
 以下是變更集合輸送量為每秒 5,000 要求單位的程式碼片段：
     
