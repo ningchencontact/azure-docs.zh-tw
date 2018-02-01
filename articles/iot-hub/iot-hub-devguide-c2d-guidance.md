@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: c0f9d0e13cb159188bdaf2b915c1bf6de73be855
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-to-device communications guidance
 IoT 中樞提供三個選項以便裝置應用程式對後端應用程式公開功能︰

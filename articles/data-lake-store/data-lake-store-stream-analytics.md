@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>使用 Azure 串流分析將來自 Azure 儲存體 Blob 的資料串流處理至 Data Lake Store
 在這篇文章中，您將了解如何使用 Azure Data Lake Store 做為 Azure 串流分析作業的輸出。 這篇文章示範從 Azure 儲存體 Blob (輸入) 讀取資料以及將資料寫入至 Data Lake Store (輸出) 的簡單案例。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **Azure 儲存體帳戶**。 您將使用來自此帳戶的 Blob 容器來輸入串流分析作業的資料。 本教學課程中，假設您有名為 **storageforasa** 的儲存體帳戶，並在該帳戶中建立名為 **storageforasacontainer** 的容器。 一旦您已建立容器，請將範例資料檔案上傳給容器。 
   
-* **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。 假設您有名為 **asadatalakestore** 的 Data Lake Store 帳戶。 
+* **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md) 的指示。 假設您有名為 **asadatalakestore** 的 Data Lake Store 帳戶。 
 
 ## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 您可以從建立包含輸入來源和輸出目的地的串流分析作業開始。 本教學課程中，來源是 Azure Blob 容器，而目的地則是 Data Lake Store。
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/03/2017
     * 在 [分隔符號] 中，選取 [定位鍵]。
     * 在 [編碼] 中，選取 [UTF-8]。
 
-    按一下 [建立] 。 入口網站現在會新增輸入並測試其連線。
+    按一下頁面底部的 [新增] 。 入口網站現在會新增輸入並測試其連線。
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>建立作業的 Data Lake Store 輸出

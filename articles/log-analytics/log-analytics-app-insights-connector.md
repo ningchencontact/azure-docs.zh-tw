@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的 Application Insights Connector 解決方案 (預覽)
 
@@ -44,7 +44,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 若要存取 Application Insights Connector 資訊，您必須具有 Azure 訂用帳戶
 - 您必須至少有一個已設定的 Application Insights 資源。
@@ -84,7 +84,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 此儀表板包含下表所示的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 當您按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭時，您可以執行記錄搜尋來傳回所有記錄。
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **資料行** | **說明** |
 | --- | --- |

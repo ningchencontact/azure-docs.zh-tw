@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 5f325cf19afd5a5a42c09b49486c0c1d9ee15e5d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c2cf81729a0556484bb0eb6c93ea57f0a6208cb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>部署 Docker CE 叢集
 
@@ -27,7 +27,7 @@ Azure Container Service 上的 Docker CE 處於預覽狀態，**不得用於生�
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。
+使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。
 
 下列範例會在 ukwest 位置建立名為 myResourceGroup 的資源群組。
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location ukwest
 
 ## <a name="create-docker-swarm-cluster"></a>建立 Docker Swarm 叢集
 
-使用 [az acs create](/cli/azure/acs#create) 命令，在 Azure Container Service 中建立 Docker CE 叢集。 
+使用 [az acs create](/cli/azure/acs#az_acs_create) 命令，在 Azure Container Service 中建立 Docker CE 叢集。 
 
 下列範例會建立一個名為 mySwarmCluster 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroup --location ukwest
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#create) 命令來減少預設代理程式的數量。 
+在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az_acs_create) 命令來減少預設代理程式的數量。 
 
 幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
 
@@ -152,7 +152,7 @@ lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                
 ![瀏覽至 Azure 投票的影像](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>刪除叢集
-若不再需要叢集，您可以使用 [az group delete](/cli/azure/group#delete) 命令來移除資源群組、容器服務和所有相關資源。
+若不再需要叢集，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、容器服務和所有相關資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

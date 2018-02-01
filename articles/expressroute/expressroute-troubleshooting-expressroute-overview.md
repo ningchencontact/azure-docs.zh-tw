@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: e52e53255a1462522f297d8918eb1c347a460f77
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
 ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路擴充至 Microsoft 雲端，涉及三個不同的網路區域：
@@ -216,12 +216,12 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 若要取得 Azure 公用對等互連的組態詳細資料，使用下列命令︰
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 若要取得 Microsoft 對等互連的組態詳細資料，使用下列命令︰
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
+     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 如未設定對等互連，會顯示錯誤訊息。 未設定所述對等互連 (在此範例中是 Azure 公用互對等連) 的回應範例︰
 

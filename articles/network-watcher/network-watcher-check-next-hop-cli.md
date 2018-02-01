@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>使用採用 Azure CLI 2.0 之 Azure 網路監看員的「下一個躍點」功能，得知下一個躍點類型
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/21/2017
 
 若要取得下一個躍點，我們可呼叫 `az network watcher show-next-hop` Cmdlet。 我們會將網路監看員資源群組 NetworkWatcher、虛擬機器識別碼、來源 IP 位址和目的地 IP 位址傳遞給此 Cmdlet。 在此範例中，目的地 IP 位址是在另一個虛擬網路的 VM。 兩個虛擬網路之間有虛擬網路閘道。
 
-安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。 然後，執行下列命令：
+安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 然後，執行下列命令：
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警告新增到 OMS 管理解決方案 (預覽)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/17/2018
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作區
-Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [OMS 工作區和自動化帳戶](operations-management-suite-solutions.md#oms-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案安裝會失敗。
+Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [OMS 工作區和自動化帳戶](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案安裝會失敗。
 
 工作區的名稱位於每個 Log Analytics 資源的名稱中。  這可在解決方案中使用**工作區**參數來完成，如下列 savedsearch 資源範例所示。
 
@@ -49,8 +49,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 工作區版本 | API 版本 | 查詢 |
 |:---|:---|:---|
-| v1 (舊版)   | 2015-11-01-preview | 舊版的格式。<br> 範例：Type=Event EventLevelName = Error  |
-| v2 (已升級) | 2015-11-01-preview | 舊版的格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換成：Event &#124; where EventLevelName == "Error"  |
+| v1 (舊版)   | 2015-11-01-preview | 舊版格式。<br> 範例：Type=Event EventLevelName = Error  |
+| v2 (已升級) | 2015-11-01-preview | 舊版格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換成：Event &#124; where EventLevelName == "Error"  |
 | v2 (已升級) | 2017-03-03-preview | 已升級的格式。 <br>範例：Event &#124; where EventLevelName == "Error"  |
 
 

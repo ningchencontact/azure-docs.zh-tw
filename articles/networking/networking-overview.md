@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -159,6 +159,6 @@ Azure 提供下列工具來監視和管理網路功能︰
 
 ## <a name="next-steps"></a>後續步驟
 
-- 完成[建立第一個虛擬網路](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步驟，以建立第一個 VNet，並將一些 VM 連線至該 VNet。
+- 完成[建立第一個虛擬網路](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步驟，以建立第一個 VNet，並將一些 VM 連線至該 VNet。
 - 完成[設定點對站連線](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步驟，以將您的電腦連線至 VNet。
 - 完成[建立網際網路對向負載平衡器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步驟，將網際網路流量負載平衡到公用伺服器。

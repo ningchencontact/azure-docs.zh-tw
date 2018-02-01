@@ -2,19 +2,19 @@
 title: "Azure Batch 上的容器工作負載 | Microsoft Docs"
 description: "了解如何在 Azure Batch 上透過容器映像執行應用程式。"
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
@@ -25,7 +25,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 到
 本文假設您已熟悉 Docker 容器的概念，以及了解如何使用 .NET SDK 建立 Batch 集區和作業。 程式碼片段主要用於用戶端應用程式 (類似 [DotNetTutorial 範例](batch-dotnet-get-started.md))，並且是在 Batch 中支援容器應用程式所需的程式碼範例。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * SDK 版本：以下版本的 Batch SDK 可支援容器映像：
     * Batch REST API 2017-09-01.6.0 版
@@ -51,7 +51,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 到
 
 ### <a name="linux-images"></a>Linux 映像
 
-針對 Linux 容器的工作負載，Batch 目前支援的自訂映像只能從在下列 Linux 發行版本上執行 Docker 的虛擬機器建立：Ubuntu 16.04 LTS 或 CentOS 7.3。 如果您選擇提供您自己自訂的 Linux 映像，請參閱[使用受管理自訂映像來建立虛擬機器的集區](batch-custom-images.md)中的指示。
+針對 Linux 容器的工作負載，Batch 目前支援的自訂映像只能從在下列 Linux 發行版本上執行 Docker 的虛擬機器建立：Ubuntu 16.04 LTS 或 CentOS 7.3。 如果您選擇提供您自己自訂的 Linux 映像，請參閱[使用受控自訂映像來建立虛擬機器的集區](batch-custom-images.md)中的指示。
 
 您可以使用 [Docker Community Edition (CE)](https://www.docker.com/community-edition) 或 [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition)。
 
@@ -243,4 +243,4 @@ CloudTask containerTask = new CloudTask (
 
 * 如需有關在 Linux 上安裝和使用 Docker CE 的詳細資訊，請參閱 [Docker](https://docs.docker.com/engine/installation/) 文件。
 
-* 如需使用自訂映像的詳細資訊，請參閱[使用受管理的自訂映像來建立虛擬機器的集區](batch-custom-images.md)。
+* 如需使用自訂映像的詳細資訊，請參閱[使用受控自訂映像來建立虛擬機器的集區](batch-custom-images.md)。

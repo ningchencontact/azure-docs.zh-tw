@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -53,9 +53,9 @@ function.json 檔案會定義函式繫結和其他組態設定。 執行階段�
 
 | 屬性 | 值/類型 | 註解 |
 | --- | --- | --- |
-| `type` |string |繫結類型。 例如， `queueTrigger`。 |
+| `type` |字串 |繫結類型。 例如， `queueTrigger`。 |
 | `direction` |'in'、'out' |表示繫結用於將資料接收到函數，還是從函數傳送資料。 |
-| `name` |string |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
+| `name` |字串 |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
 
 ## <a name="function-app"></a>函式應用程式
 函式應用程式是由一或多個由 Azure App Service 一起管理的個別函式所組成。 函式應用程式中的所有函式會共用相同的定價方案、持續部署和執行階段版本。 以多種語言撰寫的函式全都可以共用相同的函式應用程式。 請將函式應用程式視為用來組織及集體管理函式的方式。 
@@ -102,7 +102,7 @@ Azure 入口網站內建的函式編輯器可讓您更新「function.json」  �
 
 ## <a name="functions-runtime-versioning"></a>Functions 執行階段版本設定
 
-您可以使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定來設定 Functions 執行階段的版本。 例如，值 "~1" 表示您的函數應用程式會使用 1 做為主要版本。 函數應用程式會在發行時升級為每個新的次要版本。 如需詳細資訊 (包括如何檢視函式應用程式的完全版本)，請參閱[如何設定 Azure Functions 的執行階段目標版本](functions-versions.md)。
+您可以使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定來設定 Functions 執行階段的版本。 例如，值 "~1" 表示您的函數應用程式會使用 1 做為主要版本。 函數應用程式會在發行時升級為每個新的次要版本。 如需詳細資訊 (包括如何檢視函式應用程式的完全版本)，請參閱[如何設定 Azure Functions 的執行階段目標版本](set-runtime-version.md)。
 
 ## <a name="repositories"></a>儲存機制
 Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制中︰
