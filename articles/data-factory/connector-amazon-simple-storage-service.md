@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,11 +51,11 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 Amazon S3 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AmazonS3**。 | 是 |
-| accessKeyId | 密碼存取金鑰的識別碼。 |是 |
-| secretAccessKey | 密碼存取金鑰本身。 請將此欄位標示為 SecureString。 |是 |
+| type | 類型屬性必須設定為：**AmazonS3**。 | yes |
+| accessKeyId | 密碼存取金鑰的識別碼。 |yes |
+| secretAccessKey | 密碼存取金鑰本身。 請將此欄位標示為 SecureString。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -90,10 +90,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Amazon S3 複製資料，請將資料集的類型屬性設定為 **AmazonS3Object**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
-| bucketName | S3 貯體名稱。 |是 |
+| type | 資料集的類型屬性必須設定為：**AmazonS3Object** |yes |
+| bucketName | S3 貯體名稱。 |yes |
 | 索引鍵 | S3 物件索引鍵。 只有在未指定前置詞時才適用。 |否 |
 | prefix | S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 只有在未指定索引鍵時才適用。 |否 |
 | version | 如果已啟用 S3 版本設定功能，則為 S3 物件的版本。 |否 |
@@ -168,10 +168,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Amazon S3 複製資料，請將複製活動中的來源類型設定為 **FileSystemSource** (其中包含 Amazon S3)。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |yes |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true 時，接收器會是檔案型存放區，系統將不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**
 

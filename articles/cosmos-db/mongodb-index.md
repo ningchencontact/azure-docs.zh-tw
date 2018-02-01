@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: c65013fefe6750e82c71cb3d201a3195acd64127
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB：MongoDB API 文件
 
 這篇文章提供 MongoDB API 專屬之所有 Azure Cosmos DB 內容的連結。
 
-這些文件並不適用於 SQL API、 Graph API 或資料表的應用程式開發介面。 
+這些文章並不適用於 SQL API、圖形 API 或資料表 API。 
 
 ## <a name="introduction-and-concepts"></a>簡介和概念
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/12/2017
 
 - [MongoDB API 簡介](mongodb-introduction.md)
 - [連線至您的 MongoDB 帳戶](connect-mongodb-account.md)
-- [MongoDB 功能與語法的支援](mongodb-feature-support.md)
+- [支援 MongoDB 功能和語法](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>快速入門
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/12/2017
 - [.NET + Azure 入口網站 + Web 應用程式](create-mongodb-dotnet.md)
 - [Java + Azure 入口網站 + Web 應用程式](create-mongodb-java.md)
 - [移至 + Azure 入口網站 + 移至](create-mongodb-golang.md)
-- [Python + 酒瓶 + Azure 入口網站](create-mongodb-flask.md)
+- [Python + Flask + Azure 入口網站](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>教學課程
 
@@ -69,5 +69,5 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="developers-guide"></a>開發人員指南
 
-- [使用 MongoChef](mongodb-mongochef.md)
+- [使用 Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [使用 Robomongo](mongodb-robomongo.md)

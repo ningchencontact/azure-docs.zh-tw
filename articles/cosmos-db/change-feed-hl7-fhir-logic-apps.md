@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: e5fa40dc128412e3b5b39c9fbdb751c797ca0cc7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>使用 Logic Apps 與 Azure Cosmos DB 對 HL7 FHIR 病患的醫療保健記錄變更發出通知
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="azure-services-used-in-the-solution"></a>此方案所使用的 Azure 服務
 
-#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL 應用程式開發介面
+#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 Azure Cosmos DB 是 FHIR 資源的存放庫，如下圖所示。
 
 ![此 HL7 FHIR 醫療保健教學課程所使用的 Azure Cosmos DB 帳戶](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -86,7 +86,7 @@ Logic Apps 會處理工作流程程序。 下列螢幕擷取畫面顯示為此�
 #### <a name="api-app"></a>API 應用程式
 API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或修改過的 FHIR 文件。 此應用程式有一個控制器 **FhirNotificationApi** 與一項作業 **GetNewOrModifiedFhirDocuments**，請參閱 [API 應用程式來源](#api-app-source)。
 
-我們使用[ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx)從 Azure Cosmos DB SQL.NET API 的類別。 如需詳細資訊，請參閱[變更摘要文章](change-feed.md)。 
+我們會使用來自 Azure Cosmos DB SQL .NET API 的 [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) \(英文\) 類別。 如需詳細資訊，請參閱[變更摘要文章](change-feed.md)。 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments 作業
 
@@ -105,7 +105,7 @@ API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或
 
 **API 應用程式的來源**
 
-```C#
+```csharp
 
     using System.Collections.Generic;
     using System.Linq;

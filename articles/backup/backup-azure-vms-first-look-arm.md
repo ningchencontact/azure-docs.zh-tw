@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
@@ -312,7 +312,7 @@ ms.lasthandoff: 01/05/2018
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虛擬機器中安裝 VM 代理程式
-如果需要便會提供此資訊。 Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 不過，如果 VM 是建立自 Azure 資源庫，則 VM 代理程式已存在於虛擬機器上。 從內部部署資料中心移轉的 VM 不會安裝 VM 代理程式。 在這種情況下，必須安裝 VM 代理程式。 如果您在備份 Azure VM 時遇到問題，請先確定已在虛擬機器上正確安裝 Azure VM 代理程式 (請參閱下表)。 如果您建立自訂 VM，請先[確定已選取 [安裝 VM 代理程式] 核取方塊](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，再佈建虛擬機器。
+如果需要便會提供此資訊。 Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 不過，如果 VM 是建立自 Azure 資源庫，則 VM 代理程式已存在於虛擬機器上。 從內部部署資料中心移轉的 VM 不會安裝 VM 代理程式。 在這種情況下，必須安裝 VM 代理程式。 如果您在備份 Azure VM 時遇到問題，請先確定已在虛擬機器上正確安裝 Azure VM 代理程式 (請參閱下表)。 如果您建立自訂 VM，請先安裝 VM 代理程式，再佈建虛擬機器。
 
 深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 

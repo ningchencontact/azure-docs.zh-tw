@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a0e654637bc4aca4230c56cc7c1706f5cd73622e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Azure 中可用性區域的概觀 (預覽)
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 01/08/2018
 ## <a name="regions-that-support-availability-zones"></a>支援可用性區域的地區
 
 - 美國東部 2
+- 美國中部
 - 西歐
 - 法國中部
 
@@ -40,14 +41,15 @@ ms.lasthandoff: 01/08/2018
 
 - Linux 虛擬機器
 - Windows 虛擬機器
-- 區域性虛擬機器擴展集
+- 虛擬機器擴展集
 - 受控磁碟
 - 負載平衡器
 - 公用 IP 位址
+- 區域備援儲存體
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>開始使用可用性區域預覽
 
-可用性區域預覽適用於美國東部 2、西歐和法國中部地區的特定 Azure 服務。 
+可用性區域預覽適用於美國東部 2、美國中部、西歐和法國中部地區的特定 Azure 服務。 
 
 1. [註冊可用性區域預覽](http://aka.ms/azenroll)。 
 2. 登入您的 Azure 訂用帳戶。

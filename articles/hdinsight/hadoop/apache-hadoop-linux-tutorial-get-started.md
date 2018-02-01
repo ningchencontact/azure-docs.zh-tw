@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/20/2017
+ms.date: 01/17/2018
 ms.author: jgao
-ms.openlocfilehash: 96be510476434168a31c78f3a5f97c12ea1eee0f
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: e517edecce92acdadde5497558055c59fa819976
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教學課程：開始在 HDInsight 中使用 Hadoop
 
@@ -36,13 +36,14 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="create-cluster"></a>建立叢集
 
-大部分 Hadoop 作業都是批次作業。 您會建立叢集、執行一些工作，然後刪除叢集。 在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 進行本教學課程並不需要具備 Resource Manager 範本經驗。 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 使用頁面頂端的選取器來選擇叢集建立選項。
+大部分 Hadoop 作業都是批次作業。 您會建立叢集、執行一些工作，然後刪除叢集。 在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 進行本教學課程並不需要具備 Resource Manager 範本經驗。 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 本教學課程中使用的 Resource Manager 範本位於 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) 中。 
 
 1. 按一下以下影像，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
 2. 輸入或選取下列值：
    
     ![入口網站上 HDInsight Linux 開始使用的 Resource Manager 範本](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本在 HDInsigut 中部署 Hadoop 叢集")。
@@ -56,19 +57,16 @@ ms.lasthandoff: 12/21/2017
     * **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。  您可以將它重新命名。 
      
     某些屬性已硬式編碼在範本中。  您可以從範本設定這些值。
+    
+    每個叢集都具備 [Azure 儲存體帳戶](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](../hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集與其預設儲存體帳戶必須並存於相同的 Azure 區域。 刪除叢集並不會刪除儲存體帳戶。 
+        
+    如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-    * **位置**︰叢集和相依儲存體帳戶的位置會共用相同的位置作為資源群組。
-    * **叢集版本**：3.6
-    * **OS 類型**：Linux
-    * **背景工作節點數目**：2
+3. 選取 [我同意上方所述的條款及條件] 和 [釘選到儀表板]，然後按一下 [購買]。 您會在入口網站儀表板上看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 
 
-     每個叢集都具備 [Azure 儲存體帳戶](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](../hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集與其預設儲存體帳戶必須並存於相同的 Azure 區域。 刪除叢集並不會刪除儲存體帳戶。 
-     
-     如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
-
-3. 選取 [我同意上方所述的條款及條件] 和 [釘選到儀表板]，然後按一下 [購買]。 您會在入口網站儀表板上看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 而入口網站會自動開啟資源群組。 您可以看到列出的叢集和預設儲存體。
+4. 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 按一下此圖格，可以看到叢集和所列叢集的預設儲存體。
    
-    ![HDInsight Linux 開始使用的資源群組](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 叢集資源群組")。
+    ![HDInsight Linux 開始使用的資源群組](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 叢集資源群組")
 
 4. 按一下叢集名稱以開啟叢集。
 
@@ -76,35 +74,43 @@ ms.lasthandoff: 12/21/2017
 
 
 ## <a name="run-hive-queries"></a>執行 Hive 查詢
+
 [Apache Hive](hdinsight-use-hive.md) 是 HDInsight 中使用的最受歡迎元件。 有許多方法可在 HDInsight 上執行 Hive 工作。 在本教學課程中，您將從入口網站使用 Ambari Hive 檢視。 如需提交 Hive 工作的其他方法，請參閱 [在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。
 
-1. 從先前的螢幕擷取畫面中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。  您也可以瀏覽至 **https://&lt;ClusterName>.azurehdinsight.net** 以開啟 Ambari，其中 &lt;ClusterName> 是您在上一節建立的叢集。
-2. 輸入您在上一節指定的 Hadoop 使用者名稱和密碼。 預設的使用者名稱為 **admin**。
+1. 若要開啟 Ambari，請從先前的螢幕擷取畫面中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。  您也可以瀏覽至 **https://&lt;ClusterName>.azurehdinsight.net**，其中 &lt;ClusterName> 是您在上一節建立的叢集。
+
+2. 輸入您在建立叢集時所指定的 Hadoop 使用者名稱和密碼。 預設的使用者名稱為 **admin**。
+
 3. 開啟 [Hive 檢視]  ，如下列螢幕擷取畫面所示：
    
-    ![選取 Ambari 檢視](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive 檢視器功能表")。
-4. 在頁面的 [查詢編輯器] 區段中，將下列 HiveQL 陳述式貼到工作表中：
+    ![選取 Ambari 檢視](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive 檢視器功能表")
+
+4. 在 [查詢] 索引標籤中，將下列 HiveQL 陳述式貼到工作表中：
    
         SHOW TABLES;
+
+    ![HDInsight Hive 檢視](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive 檢視查詢編輯器")
    
    > [!NOTE]
    > Hive 需要分號。       
    > 
    > 
-5. 按一下 [Execute (執行)] 。 [查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示作業相關資訊。 
+
+5. 按一下 [Execute (執行)] 。 [結果] 索引標籤會出現 [查詢] 索引標籤下方，並顯示作業相關資訊。 
    
-    查詢完成後，[查詢程序結果] 區段會顯示作業的結果。 您應該會看到一個名為 hivesampletable 的資料表。 所有 HDInsight 叢集都提供此範例 Hive 資料表。
+    查詢完成之後，[查詢] 索引標籤會顯示作業的結果。 您應該會看到一個名為 hivesampletable 的資料表。 所有 HDInsight 叢集都提供此範例 Hive 資料表。
    
-    ![HDInsight Hive 檢視](./media/apache-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive 檢視查詢編輯器")。
+    ![HDInsight Hive 檢視](./media/apache-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive 檢視查詢編輯器")
+
 6. 重複步驟 4 和 5，以執行下列查詢：
    
         SELECT * FROM hivesampletable;
    
-   > [!TIP]
-   > 請注意，[查詢程序結果] 區段右上方的 [儲存結果] 下拉式清單；您可以使用此下拉式清單來下載結果，或以 CSV 檔案形式將它們儲存到 HDInsight 儲存體。
-   > 
-   > 
-7. 按一下 [歷程記錄]  以取得作業清單。
+7. 您也可以儲存查詢的結果。 按一下右側的功能表按鈕，並指定您是否要以 CSV 檔案格式下載結果，或將其儲存至與叢集相關聯的儲存體帳戶。
+
+    ![儲存 Hive 查詢的結果](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "儲存 Hive 查詢的結果")
+
+
 
 完成 Hive 工作之後，您可以[將結果匯出至 Azure SQL 資料庫或 SQL Server 資料庫](apache-hadoop-use-sqoop-mac-linux.md)，也可以[使用 Excel 將結果視覺化](apache-hadoop-connect-excel-power-query.md)。 如需在 HDInsight 中使用 Hive 的詳細資訊，請參閱 [搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache log4j 檔案](hdinsight-use-hive.md)。
 
@@ -120,7 +126,7 @@ ms.lasthandoff: 12/21/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 從入口網站儀表板，按一下具有您建立叢集時所用資源群組名稱的圖格。
-3. 按一下 [刪除] 以刪除包含叢集和預設儲存體帳戶的資源群組，或按一下 [資源] 圖格上的叢集名稱，然後按一下 [刪除]。 請注意，刪除資源群組會刪除儲存體帳戶。 如果您想要保留儲存體帳戶，請選擇只刪除叢集。
+3. 按一下 [刪除資源群組] 以刪除包含叢集和預設儲存體帳戶的資源群組，或按一下 [資源] 圖格上的叢集名稱，然後按一下 [刪除]。 請注意，刪除資源群組會刪除儲存體帳戶。 如果您想要保留儲存體帳戶，請選擇只刪除叢集。
 
 ## <a name="troubleshoot"></a>疑難排解
 

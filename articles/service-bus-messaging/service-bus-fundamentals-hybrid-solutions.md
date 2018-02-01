@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-service-bus"></a>Azure 服務匯流排
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/13/2017
 
 若要在轉送案例中使用上述任何物件，Windows 應用程式可以使用 Windows Communication Foundation (WCF)。 此服務也稱為 [WCF 轉送](../service-bus-relay/relay-what-is-it.md)。 對於佇列和主題，Windows 應用程式可以使用服務匯流排定義的訊息 API。 為了讓您更輕鬆地從非 Windows 應用程式使用這些物件，Microsoft 提供了 Java、Node.js 和其他語言的 SDK。 您也可以透過 HTTP 使用 [REST API](/rest/api/servicebus/)，存取佇列和主題。 
 
-請務必了解，雖然服務匯流排本身是在雲端執行 (亦即，在 Microsoft 的 Azure 資料中心)，但用到服務匯流排的應用程式可在任何地方執行。 舉例來說，您可以使用服務匯流排來連接 Azure 上執行的應用程式，或您自己的資料中心內執行的應用程式。 服務匯流排也可讓您將 Azure 或其他雲端平台上執行的應用程式，與內部部署應用程式連接，或與平板電腦和電話連接。 甚至可以將家電產品、感應器和其他裝置，連接至中央應用程式或其他應用程式。 服務匯流排是雲端中的通訊機制，幾乎從任何地方都能存取。 用途視應用程式的需求而定。
+請務必了解，雖然服務匯流排本身是在雲端執行 (亦即，在 Microsoft 的 Azure 資料中心)，但用到服務匯流排的應用程式可在任何地方執行。 舉例來說，您可以使用服務匯流排來連接 Azure 上執行的應用程式，或您自己的資料中心內執行的應用程式。 服務匯流排也可讓您將 Azure 或其他雲端平台上執行的應用程式，與內部部署應用程式連接，或與平板電腦和電話連接。 甚至可以將家電產品、感應器和其他裝置連線至中央應用程式，或將這些裝置彼此連線。 服務匯流排是雲端中的通訊機制，幾乎從任何地方都能存取。 用途視應用程式的需求而定。
 
 ## <a name="queues"></a>佇列
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/13/2017
 
 當您需要應用程式進行直接通訊時，轉送就是最適合的解決方案。 舉例來說，假設有一個在內部部署資料中心執行的飛機訂票系統，且必須從自助登機亭、行動裝置和其他電腦來存取此系統。 所有這些系統上執行的應用程式，不論在何處執行，都可以依賴雲端的服務匯流排轉送來通訊。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 建置完整的解決方案時一律會連線應用程式，而需要應用程式和服務彼此通訊的案例範圍會設定為隨著連到網際網路的應用程式和裝置日益增加而增加。 服務匯流排提供雲端技術，透過佇列、主題和轉送來達成通訊，目的就是為了輕鬆實作此基本功能，並使之更加普及。
 

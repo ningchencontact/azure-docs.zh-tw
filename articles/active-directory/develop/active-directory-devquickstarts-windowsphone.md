@@ -1,5 +1,5 @@
 ---
-title: "開始使用 Azure AD Windows Phone | Microsoft Docs"
+title: "Azure AD Windows Phone 入門 | Microsoft Docs"
 description: "如何建置 Windows Phone 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: windows
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-windows-phone-getting-started"></a>開始使用 azure AD Windows Phone
+# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/20/2017
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* 在 DirectorySearcher 專案中，開啟 `MainPage.xaml.cs`。  中的值取代`Config Values`區域以反映您輸入到 Azure 入口網站的值。  每當使用 ADAL 時，您的程式碼便會參考這些值。
+* 在 DirectorySearcher 專案中，開啟 `MainPage.xaml.cs`。  取代 `Config Values` 區域中的值，以反映您在 Azure 入口網站中輸入的值。  每當使用 ADAL 時，您的程式碼便會參考這些值。
   * `tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com
   * `clientId` 是指您從入口網站複製的應用程式 clientId。
 * 您現在必須找出 Windows Phone 應用程式的回呼 uri。  在 `MainPage` 方法的這一行上設定中斷點：
@@ -93,7 +93,7 @@ ADAL 的基本原則是每當您的應用程式需要存取權杖時，它只需
 
 * 第一步是初始化應用程式的 `AuthenticationContext` - ADAL 的主要類別。  您在這裡將 ADAL 與 Azure AD 通訊所需的座標傳給 ADAL，並告訴它如何快取權杖。
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * 現在請找到 `Search(...)` 方法，這是在使用者按一下應用程式 UI 的 [搜尋] 按鈕時所叫用的方法。  這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。  但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access_token - ADAL 可以提供這方面的協助。
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * 如果需要互動式驗證，ADAL 會使用 Windows Phone 的 Web 驗證代理人 (WAB) 和 [接續模型](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) 來顯示 Azure AD 登入頁面。  當使用者登入時，您的應用程式必須將與 WAB 互動的結果傳遞給 ADAL。  這和實作 `ContinueWebAuthentication` 介面一樣簡單：
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * 現在可以開始使用 ADAL 傳回應用程式的 `AuthenticationResult` 。  在 `QueryGraph(...)` 回呼中，將您取得的 access_token 附加至 GET 要求的授權標頭中：
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -156,15 +156,15 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* 您也可以使用 `AuthenticationResult` 物件，在應用程式中顯示使用者的相關資訊。 在`QueryGraph(...)`方法，以在頁面上顯示使用者的識別碼使用的結果：
+* 您也可以使用 `AuthenticationResult` 物件，在應用程式中顯示使用者的相關資訊。 在 `QueryGraph(...)` 方法中，使用此結果在頁面上顯示使用者的識別碼：
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * 最後，您也可以使用 ADAL 來將使用者登出應用程式。  當使用者按一下 [登出] 按鈕時，我們想要確保下次呼叫 `AcquireTokenSilentAsync(...)` 時將會失敗。  有了 ADAL，這會和清除權杖快取一樣簡單：
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

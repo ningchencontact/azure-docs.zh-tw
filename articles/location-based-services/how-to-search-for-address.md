@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>如何使用 Azure LBS (預覽) 尋找地址
 搜尋服務是一組 RESTful 的 API，針對要搜尋地址、位置、感興趣點、商務清單及其他地理資訊的開發人員所設計。 搜尋服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋服務 API 所傳回的緯度與經度值可用來作為其他 Azure LBS (例如路由和流量 API) 中的參數。
 
-## <a name="prerequisites"></a>必要條件
-安裝 [Postman 應用程式](https://www.getpostman.com/apps)。
+## <a name="prerequisites"></a>先決條件
+* 安裝 [Postman 應用程式](https://www.getpostman.com/apps)。
 
-Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶金鑰的資訊，請參閱[如何管理 Azure LBS 帳戶和金鑰](how-to-manage-account-keys.md)。 
+* 具備 Azure 位置服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理您的 Azure 位置服務帳戶和金鑰](how-to-manage-account-keys.md)。 
 
 ## <a name="using-fuzzy-search"></a>使用模糊搜尋
 
@@ -44,7 +44,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     | 要求 URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | 無授權 |
 
-    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以找到中可用的回應格式**取得搜尋模糊**定義的 [位置基礎服務功能的 API 參考] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy)。
+    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在 [位置服務功能性 API 參考] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy) 的 **取得搜尋模糊**定義中找到可用的回應格式。
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 
@@ -53,7 +53,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     | Key | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *訂用帳戶金鑰* |
+    | subscription-key | \<您的 Azure 位置服務金鑰\> |
     | query | 披薩 |
 
 4. 按一下 [傳送]，然後檢視回應本文。 
@@ -103,7 +103,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     | Key | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *訂用帳戶金鑰* |
+    | subscription-key | \<您的 Azure 位置服務金鑰\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. 按一下 [傳送]，然後檢視回應本文。 
@@ -143,7 +143,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     | Key | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *訂用帳戶金鑰* |
+    | subscription-key | \<您的 Azure 位置服務金鑰\> |
     | query | 47.59093,-122.33263 |
     
 3. 按一下 [傳送]，然後檢視回應本文。 
@@ -209,7 +209,7 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     | Key | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *訂用帳戶金鑰* |
+    | subscription-key | \<您的 Azure 位置服務金鑰\> |
     | query | 47.59093,-122.33263 |
     
 4. 按一下 [傳送]，然後檢視回應本文。 

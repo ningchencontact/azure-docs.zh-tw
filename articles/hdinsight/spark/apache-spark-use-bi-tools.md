@@ -17,19 +17,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>使用資料視覺效果工具搭配 Azure HDInsight 的 Apache Spark BI
 
 了解如何使用 [Microsoft Power BI](http://powerbi.microsoft.com) 和 [Tableau](http://www.tableau.com) \(英文\) 在 Azure HDInsight 上對 Apache Spark 叢集中的資料進行視覺化。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* **完成[在 HDInsight 中的 Spark 叢集上執行互動式查詢](./apache-spark-load-data-run-query.md)**。
+* **完成[在 HDInsight 中的 Spark 叢集上執行互動式查詢](./apache-spark-load-data-run-query.md)**一文。
 * **Power BI**：[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 與 [Power BI 試用訂用帳戶](https://app.powerbi.com/signupredirect?pbi_source=web) (選擇性)。
 * **Tableau**：[Tableau Desktop](http://www.tableau.com/products/desktop) \(英文\) 與 [Microsoft Spark ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229) \(英文\)。
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/05/2017
 
     ![Spark 叢集使用者名稱和密碼](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark 叢集使用者名稱和密碼")
 
-    Power BI Desktop 擁有連線至 Spark 叢集以及從 `hvac` 資料表載入資料所需的資訊。 資料表及其資料行會顯示在 [欄位] 窗格中。  請參閱下列螢幕擷取畫面。
+    Power BI Desktop 擁有連線至 Spark 叢集以及從 `hvac` 資料表載入資料所需的資訊。 資料表及其資料行會顯示在 [欄位] 窗格中。  請參閱下列螢幕擷取畫面：
 
 6. 將每棟建築物之目標溫度和實際溫度間的差異視覺化： 
 
@@ -212,11 +212,11 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 6. 按一下左下方的 [Sheet1]  索引標籤。 針對每個日期，製作出顯示所有建築物之平均目標溫度和實際溫度的視覺效果。 請把 [日期] 和 [建築物識別碼] 拖放到 [資料行] 中，然後將 [實際溫度]/[目標溫度] 拖放到 [資料列] 中。 請選取 [標記] 下方的 [區域]，以使用 Spark 資料視覺效果的區域對應圖。
 
      ![新增 Spark 資料視覺效果的欄位](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "新增 Spark 資料視覺效果的欄位")
-7. 根據預設，溫度欄位以彙總形式顯示。 如果您想要改為顯示平均溫度，可以從下拉式清單操作，如下列螢幕擷取畫面所示。
+7. 根據預設，溫度欄位以彙總形式顯示。 如果想要改為顯示平均溫度，您可以從下拉式清單操作，如下列螢幕擷取畫面所示：
 
     ![採取 Spark 資料視覺效果的平均溫度](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "採取 Spark 資料視覺效果的平均溫度")
 
-8. 您也可以將溫度對應加諸在其他對應之上，凸顯目標溫度和實際溫度之間的差異。 將滑鼠游標移動到區域對應圖下半部的角落，直到控點出現為止 (如紅色圓圈中所示)。 把對應圖拖曳到另一個對應圖的頂端，然後在您看到紅色圓圈中所示的形狀時，放開滑鼠按鍵。
+8. 您也可以將溫度對應加諸在其他對應之上，凸顯目標溫度和實際溫度之間的差異。 將滑鼠游標移至區域圖下半部的角落，直到控點形狀出現為止 (如紅色圓圈所標示)。 把對應圖拖曳到另一個對應圖的頂端，然後在您看到紅色圓圈中所示的形狀時，放開滑鼠按鍵。
 
     ![合併 Spark 資料視覺效果的對應圖](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "合併 Spark 資料視覺效果的對應圖")
 

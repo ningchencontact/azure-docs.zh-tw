@@ -5,23 +5,23 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>使用 Azure CLI 建立容器登錄庫
 
 Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Docker 容器登錄服務。 本指南詳述如何使用 Azure CLI 建立 Azure Container Registry 執行個體。
 
-本快速入門需要執行 Azure CLI 版本 2.0.21 或更新版本。 執行 `az --version` 以尋找版本。 如果您要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli]。
+此快速入門需要您執行 Azure CLI 2.0.25 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli]。
 
-您也必須在本機上安裝 Docker。 Docker 提供套件，輕鬆地在任何設定 Docker [Mac][docker-mac]， [Windows][docker-windows]，或[Linux] [ docker-linux]系統。
+您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -35,13 +35,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-在本快速入門中，我們會建立「基本」登錄。 有數個不同的 SKU 提供 Azure Container Registry，簡略說明於下表。 如需每個延伸的詳細資訊，請參閱[容器登錄中的 Sku][container-registry-skus]。
+在本快速入門中，我們會建立「基本」登錄。 有數個不同的 SKU 提供 Azure Container Registry，簡略說明於下表。 如需個別項目更詳細的資訊，請參閱[容器登錄 SKU][container-registry-skus]。
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-建立 ACR 執行個體使用[az acr 建立][ az-acr-create]命令。
+使用 [az acr create][az-acr-create] 命令建立 ACR 執行個體。
 
-登錄的名稱**必須是唯一的**。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
+登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -74,7 +74,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
 
 ## <a name="log-in-to-acr"></a>登入 ACR
 
-發送和提取容器映像之前，您必須登入 ACR 執行個體。 若要這樣做，請使用[az acr 登入][ az-acr-login]命令。
+發送和提取容器映像之前，您必須登入 ACR 執行個體。 若要這樣做，請使用 [az acr login][az-acr-login] 命令。
 
 ```azurecli
 az acr login --name <acrName>
@@ -84,25 +84,25 @@ az acr login --name <acrName>
 
 ## <a name="push-image-to-acr"></a>推送映像到 ACR
 
-若要推送映像到 Azure Container Registry，您必須先有映像。 如果您還沒有任何本機的容器映像，執行下列命令，以從 Docker Hub 提取現有映像。
+若要推送映像到 Azure Container Registry，您必須先有映像。 如果您還沒有任何本機容器映像，請執行下列命令，從 Docker 中樞提取現有的映像。
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-您可以將映像推送到您的登錄之前，必須先將它標記 ACR 登入伺服器的完整名稱。 執行下列命令，以取得完整的登入伺服器的名稱 ACR 執行個體。
+您必須使用 ACR 登入伺服器的完整名稱來標記映像，才能將映像推送至您的登錄。 請執行下列命令，取得 ACR 執行個體的完整登入伺服器名稱。
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-標記映像使用[docker 標記][ docker-tag]命令。 取代`<acrLoginServer>`ACR 執行個體的登入伺服器名稱。
+使用 [docker tag][docker-tag] 命令來標記映像。 將 `<acrLoginServer>` 取代為 ACR 執行個體的登入伺服器名稱。
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-最後，使用[docker push] [ docker-push]推播至 ACR 執行個體的映像。 取代`<acrLoginServer>`ACR 執行個體的登入伺服器名稱。
+最後，使用 [docker push][docker-push] 將映像推送到 ACR 執行個體。 將 `<acrLoginServer>` 取代為 ACR 執行個體的登入伺服器名稱。
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -140,7 +140,7 @@ v1
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要您可以使用[az 群組刪除][ az-group-delete]命令以移除資源群組、 ACR 執行個體，而且所有的容器映像。
+若不再需要，您可以使用 [az group delete][az-group-delete] 命令移除資源群組、ACR 執行個體和所有容器映像。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

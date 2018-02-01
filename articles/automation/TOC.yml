@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: 建立和匯入 Runbook
           href: automation-creating-importing-runbook.md
+        - name: 建立圖形化 Runbook
+          href: automation-first-runbook-graphical.md
+        - name: 建立 PowerShell Runbook
+          href: automation-first-runbook-textual-powershell.md
+        - name: 建立 PowerShell 工作流程 Runbook
+          href: automation-first-runbook-textual.md
+        - name: 建立 Python Runbook
+          href: automation-first-runbook-textual-python2.md
         - name: 編輯文字 Runbook
           href: automation-edit-textual-runbook.md
         - name: 編輯圖形 Runbook

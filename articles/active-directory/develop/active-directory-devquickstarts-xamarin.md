@@ -1,5 +1,5 @@
 ---
-title: "開始使用 azure AD Xamarin |Microsoft 文件"
+title: "Azure AD Xamarin 入門 | Microsoft Docs"
 description: "建置 Xamarin 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: xamarin
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 使用者入門
+# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -98,7 +98,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 
 1. 開啟DirectorySearcher.cs，然後將新的參數新增至 `SearchByAlias(...)` 方法。 `IPlatformParameters` 是個內容參數，其中包含 ADAL 必須執行驗證的平台特定物件。
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -107,7 +107,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 這個動作會傳遞它與 Azure AD 通訊所需的 ADAL 座標。
 3. 呼叫 `AcquireTokenAsync(...)`，它可接受 `IPlatformParameters` 物件，並叫用將權杖傳回應用程式所需的驗證流程。
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -126,7 +126,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
     `AcquireTokenAsync(...)` 會先嘗試為要求的資源 (在此範例中會是圖形 API) 傳回權杖，而不提示使用者輸入其認證 (透過快取或重新整理舊的權杖)。 必要時，它才會在取得要求的權杖之前，對使用者顯示 Azure AD 登入頁面。
 4. 將存取權杖附加至**授權**標頭中的圖形 API 要求：
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -137,12 +137,12 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 ### <a name="android"></a>Android
 1. 在 MainActivity.cs 中，在按鈕點擊處理常式中新增 `SearchByAlias(...)` 的呼叫：
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. 覆寫 `OnActivityResult` 生命週期方法，將任何驗證重新導向轉送回到適當的方法。 ADAL 針對 Android 中的此項作業提供協助程式方法：
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -155,7 +155,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 ### <a name="windows-desktop"></a>Windows 桌面
 在 MainWindow.xaml.cs 中，只需進行 `SearchByAlias(...)` 呼叫，即可在桌面的 `PlatformParameters` 物件中傳遞 `WindowInteropHelper`：
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -164,7 +164,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 在 DirSearchClient_iOSViewController.cs 中，iOS `PlatformParameters` 物件會參考檢視控制器︰
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -173,7 +173,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows Universal
 在 Windows 通用中，開啟 MainPage.xaml.cs，然後實作 `Search` 方法。 此方法會使用共用專案中的協助程式方法，視需要更新 UI。
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

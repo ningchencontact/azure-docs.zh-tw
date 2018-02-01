@@ -9,15 +9,15 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>如何管理 Azure LBS 帳戶和金鑰
 
-您可以透過 Azure 入口網站管理 Azure LBS 帳戶和金鑰。 一旦擁有帳戶和訂用帳戶金鑰，您就可以在網站或行動裝置應用程式中實作 API。
+您可以透過 Azure 入口網站管理 Azure LBS 帳戶和金鑰。 一旦擁有帳戶和金鑰之後，您就可以在網站或行動裝置應用程式中實作 API。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

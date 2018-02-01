@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer Standard 概觀 (預覽)
 
@@ -72,8 +72,8 @@ Load Balancer Standard 提供公用和內部 Load Balancer 設定的新多維診
 | --- | --- |
 | VIP 可用性 | Load Balancer Standard 會持續運用從區域內到 Load Balancer 前端再一直到支援您 VM 之 SDN 堆疊的資料路徑。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。|
 | DIP 可用性 | Load Balancer Standard 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供 Load Balancer 集區中每個個別執行個體端點的彙總檢視，或各端點篩選過的檢視。  您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。
-| SYN 封包 | Load Balancer Standard 不會終止 TCP 連線，或是與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包來了解有多少個已進行的 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。 此計量可能也會反映出嘗試連線到您服務的用戶端。|
-| SNAT 連線 | Load Balancer Standard 會回報連至「公用 IP」位址前端的偽裝連出連線數目。 SNAT 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始連線。|
+| SYN 封包 | Load Balancer Standard 不會終止 TCP 連線，或是與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。|
+| SNAT 連線 | Load Balancer Standard 會回報偽裝為「公用 IP」位址前端的連出流程數目。 SNAT 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。  系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。|
 | 位元組計數器 | Load Balancer Standard 會回報每個前端處理的資料。|
 | 封包計數器 | Load Balancer Standard 會回報每個前端處理的封包。|
 
@@ -217,7 +217,7 @@ Load Balancer Standard 和 Public IP Standard 可在虛擬網路中完整上線�
 
 Load Balancer Standard 中的新演算法會為每個 VM 的 NIC 預先配置 SNAT 連接埠。 將 NIC 新增到集區時，系統會依據集區大小配置 SNAT 連接埠。 下表說明 6 層後端集區大小的連接埠預先配置：
 
-| 集區大小 (VM 執行個體) | 預先配置的 SNAT 連接埠 |
+| 集區大小 (VM 執行個體) | 預先配置的 SNAT 連接埠數目 |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |

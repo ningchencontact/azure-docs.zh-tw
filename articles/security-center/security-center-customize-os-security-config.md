@@ -1,6 +1,6 @@
 ---
-title: "自訂 Azure 資訊安全中心 [預覽] 中的 OS 安全性設定 |Microsoft 文件"
-description: "本文將教您如何自訂安全性中心評估"
+title: "在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定 | Microsoft Docs"
+description: "本文示範如何自訂資訊安全中心評估"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,119 +12,120 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 01/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 2fa63515d290e6700fbe4a90ae509f4635b19f29
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="customizing-os-security-configurations-in-azure-security-center-preview"></a>自訂 Azure 資訊安全中心 [預覽] 中的 OS 安全性組態
+# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定
 
-了解如何自訂作業系統安全性組態評估中使用本逐步解說 Azure 資訊安全中心。
+本逐步解說示範如何在 Azure 資訊安全中心自訂 OS 安全性設定評估。
 
-## <a name="what-are-os-security-configurations"></a>作業系統安全性設定有哪些？
+## <a name="what-are-os-security-configurations"></a>什麼是 OS 安全性設定？
 
-Azure 資訊安全中心來強化作業系統使用的一組超過 150 部的建議規則監視的安全性組態，包括規則與防火牆、 稽核、 密碼原則，以及更多有關。 如果電腦發現有弱點的組態，則會產生的安全性建議。
+Azure 資訊安全中心藉由套用 150 個以上的建議規則來監視安全性設定以強化 OS，其中包含防火牆、稽核及密碼原則等相關規則。 如果發現電腦設定有弱點，資訊安全中心會產生安全性建議。
 
-自訂的規則可協助組織來控制哪些設定選項是更適合其環境。 這項功能可讓使用者設定的自訂的評估原則，並將它套用在訂閱中所有適用的電腦上。
-
-> [!NOTE]
-> - 目前作業系統安全性組態自訂適用於 Windows Server 2008、 2008R2、 2012、 2012R2 僅限作業系統。
-- 設定會套用到所有的 Vm，並且電腦連線到選取的訂用帳戶底下的所有工作區。
-- 作業系統安全性組態自訂是只能在資訊安全中心標準層上使用。
->
->
-
-如何自訂作業系統安全性組態規則？
-
-您可以啟用和停用特定的規則、 變更現有的規則所需的設定以及新增新的規則，根據支援的規則類型 （登錄、 稽核原則和安全性原則），來自訂作業系統安全性組態規則。 目前，所需的設定必須是精確的值。
-
-新的規則必須是與相同類型的其他現有的規則中相同的格式和結構。
+藉由自訂規則，組織可以控制哪些設定選項更適合其環境。 您可以設定自訂的評估原則，然後將它套用到訂用帳戶中所有適用的電腦上。
 
 > [!NOTE]
-> 若要自訂作業系統的安全性設定，您必須被指派訂用帳戶擁有者、 參與者訂用帳戶或安全性系統管理員的角色。
+> - 目前，OS 安全性設定自訂僅適用於 Windows Server 2008、2008 R2、2012 及 2012 R2 作業系統。
+> - 設定會套用到選取的訂用帳戶下連線到所有工作區的所有 VM 和電腦。
+> - OS 安全性設定自訂僅適用於資訊安全中心標準層。
 >
 >
 
-## <a name="customize-security-configuration"></a>自訂安全性設定
+您可以透過啟用和停用特定規則、變更現有規則所需的設定或根據支援的規則類型 (登錄、稽核原則和安全性原則) 加入新規則，以自訂 OS 安全性設定規則。 目前，所需的設定必須是確切值。
 
-自訂預設的作業系統資訊安全中心的安全性組態：
+新規則和同類型的其他現有規則必須是相同的格式和結構。
+
+> [!NOTE]
+> 若要自訂 OS 安全性設定，您必須獲指派「訂用帳戶擁有者」、「訂用帳戶參與者」或「安全性系統管理員」角色。
+>
+>
+
+## <a name="customize-the-default-os-security-configuration"></a>自訂預設的 OS 安全性設定
+
+若要自訂資訊安全中心的預設 OS 安全性設定，請執行下列作業：
 
 1.  開啟 [資訊安全中心] 儀表板。
 
-2.  在資訊安全中心主功能表上選取**安全性原則**。  **資訊安全中心的安全性原則**隨即開啟。
+2.  在左窗格中，選取 [安全性原則]。  
+    [資訊安全中心 - 安全性原則] 視窗隨即開啟。
 
-3.  選取您想要執行的自訂，訂用帳戶。
+    ![[安全性原則] 清單](media/security-center-customize-os-security-config/open-security-policy.png)
 
-    ![](media/security-center-customize-os-security-config/open-security-policy.png)
+3.  選取您想要自訂的訂用帳戶。
 
-4. 在下**原則元件**，選取**編輯安全性組態**。
+4. 在 [原則元件] 之下，選取 [編輯安全性設定]。  
+    [編輯安全性設定] 視窗隨即開啟。 
+    
+    ![[編輯安全性設定] 視窗](media/security-center-customize-os-security-config/blade.png)
 
-6.  **編輯安全性組態**隨即開啟。 遵循的步驟來下載、 編輯和修改過的檔案上傳至畫面中反白顯示。
+5. 在右窗格中，遵循下載、編輯和上傳已修改檔案的步驟。
 
-    ![](media/security-center-customize-os-security-config/blade.png)
+   > [!NOTE]
+   > 根據預設，您下載的設定檔為 *json* 格式。 如需修改此檔案的指示，請移至[自訂設定檔](#customize-the-configuration-file)。
+   >
 
-  > [!NOTE]
-  > 根據預設，您所下載的組態檔位於*json*格式。 如需有關如何修改這個檔案的指示，請移至[自訂設定檔](#customize-the-configuration-file)。
-  >
+   成功儲存檔案後，設定就會套用到訂用帳戶下連線到所有工作區的所有 VM 和電腦。 此程序通常需要數分鐘，但可能會更久，這取決於基礎結構大小。 
 
-7. 已成功儲存檔案之後, 設定會套用至所有 Vm 和電腦連接到選取的訂用帳戶底下的所有 workspace(s)。 此程序可能需要一些時間，通常幾分鐘的時間，但可以花較長因為它相依於基礎結構大小。 選取**儲存**以認可變更，否則不儲存原則。
+6. 若要認可變更，請選取 [儲存]。 否則不會儲存原則。
 
-    ![](media/security-center-customize-os-security-config/save-successfully.png)
+    ![[儲存] 按鈕](media/security-center-customize-os-security-config/save-successfully.png)
 
-在任何時間點，您可以重設目前的原則設定的預設原則狀態選取**重設**選項**編輯作業系統安全性組態規則**。 如果您選擇此選項時，您會收到下列快顯警示。 選取**是**確認。
+在任何時間點，您都可以將目前的原則設定重設為其預設狀態。 若要這樣做，在 [編輯 OS 安全性設定規則] 視窗中，選取 [重設]。 在確認快顯視窗中，選取 [是] 以確認此選項。
 
-![](media/security-center-customize-os-security-config/edit-alert.png)
+![[重設確認] 視窗](media/security-center-customize-os-security-config/edit-alert.png)
 
 ## <a name="customize-the-configuration-file"></a>自訂設定檔
 
-自訂檔案中每個支援的作業系統版本有一組規則 （規則集）。 每一組規則有它自己的名稱和唯一識別碼，如下列範例所示：
+在自訂檔案中，每個支援的 OS 版本都有一組規則或規則集。 每個規則集都有自己的名稱和唯一識別碼，如下列範例所示：
 
-![](media/security-center-customize-os-security-config/custom-file.png)
+![規則集名稱和識別碼](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
-> 使用 Visual Studio 中，編輯此檔案，但您也可以使用 [記事本]，只要您持有 JSON 檢視器外掛程式安裝。
+> 這個範例檔案是在 Visual Studio 中編輯，但如果您有安裝 JSON 檢視器外掛程式，您也可以使用 [記事本]。
 >
 >
 
-編輯此檔案時，您可以修改一個規則，或全都。 每個規則集包含*規則*區段，其中包含的規則，分為 3 種規則： 登錄、 稽核原則和安全性原則，如下所示：
+當您編輯自訂檔案時，您可以修改一個規則或所有規則。 每個規則集均包含一個「規則」區段，它分為三個類別：登錄、稽核原則和安全性原則，如下所示：
 
-![](media/security-center-customize-os-security-config/rules-section.png)
+![三個規則集類別](media/security-center-customize-os-security-config/rules-section.png)
 
-每個類別都有它自己的屬性集。 針對現有的規則，可以在您變更下列項目：
+每個類別都有自己的屬性集。 您可以變更下列屬性：
 
-- expectedValue： 這個屬性的欄位資料型別必須符合支援的值，每個每個規則類型，例如：
+- **expectedValue**：這個屬性的欄位資料類型必須符合每個「規則類型」支援的值，例如：
 
-  - baselineRegistryRules： 的值應該符合 [regValueType] (https://msdn.microsoft.com/library/windows/desktop/ms724884 (v=vs.85) 該規則所定義的。
+  - **baselineRegistryRules**：此值應符合該規則中定義的 [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884)。
 
-  - baselineAuditPolicyRules: 值應該是字串值，下列其中之一：
+  - **baselineAuditPolicyRules**：使用下列其中一個字串值：
 
-    - 成功和失敗
+    - 「成功和失敗」
 
-    - 成功
+    - 「成功」
 
-  - baselineSecurityPolicyRules: 值應該是字串值，下列其中之一：
+  - **baselineSecurityPolicyRules**：使用下列其中一個字串值：
 
-    - 「 沒有 」
+    - 「沒有人」
 
-    - 列出允許使用者群組，例如: 「 系統管理員，備份操作員 」
+    - 允許的使用者群組清單，例如：「系統管理員」、「備份操作員」
 
--   狀態： 可能包含 「 停用 」 或"Enabled"選項的字串。 此私人預覽版本中，字串會區分大小寫。
+-   **state**：字串可包含「停用」 或「啟用」選項。 在此私人預覽版本中，字串區分大小寫。
 
-這些是唯一可設定的欄位。 如果您違反的檔案格式或大小，您將無法儲存變更。 無法處理檔案時，就會發生下列錯誤訊息：
+只有這些是可設定的欄位。 如果您違反檔案格式或大小，您將無法儲存變更。 無法處理檔案時，會出現下列錯誤訊息：
 
-![](media/security-center-customize-os-security-config/invalid-json.png)
+![安全性設定錯誤訊息](media/security-center-customize-os-security-config/invalid-json.png)
 
-請參閱[錯誤碼](#error-codes)如潛在錯誤的清單。
+如需其他可能錯誤的清單，請參閱[錯誤碼](#error-codes)。
 
-下面，您會有這些規則，可以變更的屬性 （以粗體顯示） 的範例：
+下列三個區段包含前述規則的範例。 *expectedValue* 和 *state* 屬性可以變更。
 
-**規則 區段中：** baselineRegistryRules
+**baselineRegistryRules**
 ```
-{
-
+    {
     "hive": "LocalMachine",
     "regValueType": "Int",
     "keyPath":
@@ -136,87 +137,88 @@ Azure 資訊安全中心來強化作業系統使用的一組超過 150 部的建
     "ruleName": "Network access: Restrict anonymous access to Named Pipes and
     Shares",
     "ruleType": "Registry",
-    "**expectedValue**": "1",
+    "expectedValue": "1",
     "severity": "Warning",
     "analyzeOperation": "Equals",
     "source": "Microsoft",
-    "**state**": "Disabled"
+    "state": "Disabled"
 
-}
+    }
 ```
 
-**規則 區段中：** baselineAuditPolicyRules
+**baselineAuditPolicyRules**
 ```
-{
-"auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
-"ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
-"originalId": "2ea0de1a-c71d-46c8-8350-a7dd4d447895",
-"cceId": "CCE-11001-5",
-"ruleName": "Audit Policy: Account Management: Other Account Management Events",
-"ruleType": "AuditPolicy",
-"**expectedValue**": "Success and Failure",
-"severity": "Critical",
-"analyzeOperation": "Equals",
-"source": "Microsoft",
-"**state**": "Enabled"
-},
-```
-
-**規則的章節：** baselineSecurityPolicyRules
-```
-{
-"sectionName": "Privilege Rights",
-"settingName": "SeIncreaseWorkingSetPrivilege",
-"ruleId": "b0ec9d5e-916f-4356-83aa-c23522102b33",
-"originalId": "b61bd492-74b0-40f3-909d-36b9bf54e94c",
-"cceId": "CCE-10548-6",
-"ruleName": "Increase a process working set",
-"ruleType": "SecurityPolicy",
-"**expectedValue**": "Administrators, Local Service",
-"severity": "Warning",
-"analyzeOperation": "Equals",
-"source": "Microsoft", "**state**": "Enabled"
-},
+    {
+    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
+    "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
+    "originalId": "2ea0de1a-c71d-46c8-8350-a7dd4d447895",
+    "cceId": "CCE-11001-5",
+    "ruleName": "Audit Policy: Account Management: Other Account Management Events",
+    "ruleType": "AuditPolicy",
+    "expectedValue": "Success and Failure",
+    "severity": "Critical",
+    "analyzeOperation": "Equals",
+    "source": "Microsoft",
+    "state": "Enabled"
+    }
 ```
 
-有一些不同的作業系統類型重複的規則。 重複的規則有相同的 'originalId'。
+**baselineSecurityPolicyRules**
+```
+    {
+    "sectionName": "Privilege Rights",
+    "settingName": "SeIncreaseWorkingSetPrivilege",
+    "ruleId": "b0ec9d5e-916f-4356-83aa-c23522102b33",
+    "originalId": "b61bd492-74b0-40f3-909d-36b9bf54e94c",
+    "cceId": "CCE-10548-6",
+    "ruleName": "Increase a process working set",
+    "ruleType": "SecurityPolicy",
+    "expectedValue": "Administrators, Local Service",
+    "severity": "Warning",
+    "analyzeOperation": "Equals",
+    "source": "Microsoft",
+    "state": "Enabled"
+    }
+```
 
-## <a name="adding-a-new-custom-rule"></a>加入新的自訂規則
+不同的 OS 類型可能有些規則會重複。 重複的規則有相同的 *originalId* 屬性。
 
-您也可以建立新的規則。 之前建立新的規則，請記住下列限制：
+## <a name="create-custom-rules"></a>建立自訂規則
 
--   結構描述版本*baselineId*和*baselineName*無法變更。
+您也可以建立新規則。 建立新規則之前，請記住下列限制：
+
+-   結構描述版本 *baselineId* 和 *baselineName* 無法變更。
 
 -   無法移除規則集。
 
 -   無法加入規則集。
 
--   允許 （包括預設規則） 的規則數目上限是 1000年規則。
+-   允許的規則數目上限 (包括預設規則) 為 1000。
 
-新的自訂規則以新的自訂來源標記 (！ ="Microsoft")。 *RuleId*欄位可能是 null 或空白。 如果是空的 Microsoft 會產生一個。 如果它不是空的它必須是有效的唯一 GUID 跨所有規則 （預設和自訂）。 檢閱下面有關核心欄位的條件約束：
+新的自訂規則會標示新的自訂來源 (!= "Microsoft")。 *ruleId* 欄位可以是 Null 或空白。 如果空白，Microsoft 會產生一個。 如果非空白，它必須有一個在所有規則 (預設和自訂) 中是唯一的有效 GUID。 檢閱核心欄位的下列限制：
 
--   *originalId* -可能是 null 或空白。 如果*originalId*是不是空的它應該是有效的 GUID。
+-   **originalId**：可以是 Null 或空白。 如果 *originalId* 非空白，則應為有效的 GUID。
 
--   *cceId* -可能是 null 或空白。 如果*cceId*是不是空的它必須是唯一的。
+-   **cceId**：可以是 Null 或空白。 如果 *cceId* 非空白，則必須是唯一的。
 
--   *ruleType* -一個的： 登錄、 AuditPolicy 或空格。
+-   **ruleType**：(擇一) 登錄、稽核原則和安全性原則。
 
--   *嚴重性*-一個的： Unknown、 重大、 警告還是資訊。
+-   **嚴重性**：(擇一) 不明、重大、警告或資訊。
 
--   *analyzeOperation* -必須是等號。
+-   **analyzeOperation**：必須是「等於」。
 
--   *auditPolicyId* -必須是有效的 GUID。
+-   **auditPolicyId**：必須是有效的 GUID。
 
--   *regValueType* -必須是其中一個： Int、 Long、 字串或 MultipleString。
+-   **regValueType**：(擇一) 整數、長、字串或多個字串。
 
 > [!NOTE]
-> 登錄區必須是*LocalMachine*。
+> Hive 必須是 *LocalMachine*。
 >
 >
 
-新的自訂規則的範例：
+新自訂規則的範例：
 
-**登錄**:
+**登錄**：
 ```
     {
     "hive": "LocalMachine",
@@ -231,12 +233,11 @@ Azure 資訊安全中心來強化作業系統使用的一組超過 150 部的建
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
     "state": "Enabled"
-   }
+    }
 ```
-**安全性原則**:
+**安全性原則**：
 ```
-{
-
+   {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
    "originalId": "",
@@ -249,7 +250,7 @@ Azure 資訊安全中心來強化作業系統使用的一組超過 150 部的建
    "state": "Enabled"
    }
 ```
-**稽核原則：**
+**稽核原則**：
 ```
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
@@ -265,59 +266,59 @@ Azure 資訊安全中心來強化作業系統使用的一組超過 150 部的建
 
 ## <a name="file-upload-failures"></a>檔案上傳失敗
 
-如果提交的組態檔無效，因為發生錯誤或格式化的值，會顯示失敗錯誤。 您可以下載補救並修正錯誤後再重新提交已更正的組態檔的詳細的錯誤 csv 報表。
+如果送出的設定檔因為值或格式錯誤而無效，會顯示失敗錯誤。 您可以下載詳細的錯誤 .csv 報告來修復並修正錯誤，然後重新提交已更正的設定檔。
 
-![](media/security-center-customize-os-security-config/invalid-configuration.png)
+![「儲存動作失敗」錯誤訊息](media/security-center-customize-os-security-config/invalid-configuration.png)
 
-錯誤檔的範例：
+錯誤檔案的範例：
 
-![](media/security-center-customize-os-security-config/errors-file.png)
+![錯誤檔案範例](media/security-center-customize-os-security-config/errors-file.png)
 
 ## <a name="error-codes"></a>錯誤碼
 
-下列清單具有所有可能的錯誤：
+下表列出所有可能的錯誤：
 
-| **錯誤**                                | **說明**                                                                                                                              |
+| **錯誤**                                | **描述**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | 無效或空白，找不到屬性 'schemaVersion'。 值必須設定為 '{0}' 中。                                                         |
-| BaselineInvalidStringError               | 屬性 '{0}' 不能包含 '\\n'。                                                                                                         |
-| BaselineNullRuleError                    | 基準組態規則清單包含具有值 'null' 的規則。                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE ID '{0}' 不是唯一的。                                                                                                                  |
-| BaselineRuleEmptyProperty                | 屬性: '{0}' 已遺失或無效。                                                                                                       |
-| BaselineRuleIdNotInDefault               | 此規則的來源屬性 '的 Microsoft'，但找不到在 Microsoft 預設規則集。                                                   |
-| BaselineRuleIdNotUniqueError             | 規則 Id 不是唯一的。                                                                                                                       |
-| BaselineRuleInvalidGuid                  | 屬性 '{0}' 找不到不正確。 值不是有效的 Guid。                                                                             |
-| BaselineRuleInvalidHive                  | 登錄區必須是 LocalMachine。                                                                                                                   |
+| BaselineConfiguratiohSchemaVersionError  | 屬性 *schemaVersion* 無效或空白。 此值必須設定為 *{0}*。                                                         |
+| BaselineInvalidStringError               | 屬性 *{0}* 不得包含 *\\n*。                                                                                                         |
+| BaselineNullRuleError                    | 基準設定規則清單包含具有值 *null* 的規則。                                                                         |
+| BaselineRuleCceIdNotUniqueError          | CCE 識別碼 *{0}* 不是唯一的。                                                                                                                  |
+| BaselineRuleEmptyProperty                | 屬性 *{0}* 遺失或無效。                                                                                                       |
+| BaselineRuleIdNotInDefault               | 規則具有來源屬性 *Microsoft*，但在 Microsoft 預設規則集中找不到它。                                                   |
+| BaselineRuleIdNotUniqueError             | 規則識別碼不是唯一的。                                                                                                                       |
+| BaselineRuleInvalidGuid                  | 屬性 *{0}* 無效。 值不是有效的 GUID。                                                                             |
+| BaselineRuleInvalidHive                  | Hive 必須是 LocalMachine。                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | 規則名稱不是唯一的。                                                                                                                 |
-| BaselineRuleNotExistInConfigError        | 新的組態中找不到規則。 無法刪除規則。                                                                     |
-| BaselineRuleNotFoundError                | 此規則找不到預設基準規則集。                                                                                        |
-| BaselineRuleNotInPlace                   | 此規則會比對類型為 {0} 預設規則，並列出 {1} 清單中。                                                                       |
-| BaselineRulePropertyTooLong              | 屬性: '{0}' 名稱太長。 允許的最大長度： {1}。                                                                                        |
-| BaselineRuleRegTypeInvalidError          | 預期值 '{0}' 不符合定義的登錄值類型。                                                              |
-| BaselineRulesetAdded                     | 在預設組態中找不到識別碼為 '{0}' 的規則集。 無法加入規則集。                                               |
-| BaselineRulesetIdMustBeUnique            | 指定的基準規則集 '{0}' 必須是唯一的。                                                                                           |
-| BaselineRulesetNotFound                  | 識別碼為 '{0}' 所設定的規則，並在指定的組態中找不到名稱 '{1}'。 無法刪除規則集。                                |
-| BaselineRuleSourceNotMatch               | 已有定義識別碼為 '{0}' 的規則。                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | 預設規則類型為 '{0}'。                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | 此規則的實際類型為: {0}，但 ruleType 屬性是： {1}。                                                                          |
-| BaselineRuleUnpermittedChangesError      | 若要變更允許只有 'expectedValue' 和 'state' 的內容。                                                                       |
-| BaselineTooManyRules                     | 允許自訂的規則數目上限為 {0} 規則。 指定的設定包含 {1} 規則。 （{2} 預設規則 + {3} 自訂規則。 |
-| ErrorNoConfigurationStatus               | 找不到沒有組態狀態。 請狀態所需的組態狀態為 'Default' 或 'Custom'。                                    |
-| ErrorNonEmptyRulesetOnDefault            | 設定狀態會設為預設值。 BaselineRulesets 清單必須是 null 或空白。                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | 指定的組態狀態為 'Custom'，但是 'baselineRulesets' 屬性為 null 或空白。                                             |
-| ErrorParsingBaselineConfig               | 指定的設定不正確。 一或多個定義的值有 null 值或無效的類型。                                  |
-| ErrorParsingIsDefaultProperty            | 指定 'configurationStatus' value '{0}' 無效。 值可以是只有 'Default' 或 'Custom'。                                         |
-| InCompatibleViewVersion                  | 檢視版本： {0} 不支援這個工作區類型。                                                                                   |
-| InvalidBaselineConfigurationGeneralError | 有一或多個型別驗證錯誤，找不到指定的基準組態。                                                          |
-| ViewConversionError                      | 檢視是該工作區所支援的較舊版本。 檢視轉換失敗： {0}                                                                 |
+| BaselineRuleNotExistInConfigError        | 在新的設定中找不到規則。 無法刪除規則。                                                                     |
+| BaselineRuleNotFoundError                | 在預設基準規則集中找不到規則。                                                                                        |
+| BaselineRuleNotInPlace                   | 規則會比對類型為 {0} 的預設規則，並列在 {1} 清單中。                                                                       |
+| BaselineRulePropertyTooLong              | 屬性 *{0}* 太長。 允許的最大長度：{1}。                                                                                        |
+| BaselineRuleRegTypeInvalidError          | 預期值 *{0}* 不符合定義的登錄值類型。                                                              |
+| BaselineRulesetAdded                     | 在預設設定中找不到識別碼為 *{0}* 的規則集。 無法加入規則集。                                               |
+| BaselineRulesetIdMustBeUnique            | 指定的基準規則集 *{0}* 必須是唯一的。                                                                                           |
+| BaselineRulesetNotFound                  | 在指定的設定中找不到識別碼為 *{0}* 且名稱為 *{1}* 的規則集。 無法刪除規則集。                                |
+| BaselineRuleSourceNotMatch               | 已定義識別碼為 *{0}* 的規則。                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | 預設規則類型為 *{0}*。                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | 規則的實際類型為 *{0}*，但 *ruleType* 屬性為 *{1}*。                                                                          |
+| BaselineRuleUnpermittedChangesError      | 只允許變更 *expectedValue* 和 *state* 屬性。                                                                       |
+| BaselineTooManyRules                     | 允許的自訂規則數目上限為 {0} 個規則。 指定的設定包含 {1} 個規則、{2} 個預設規則和 {3} 個自訂規則。 |
+| ErrorNoConfigurationStatus               | 找不到設定狀態。 說明所需的設定狀態：「預設」或「自訂」。                                    |
+| ErrorNonEmptyRulesetOnDefault            | 設定狀態會設為預設。 *BaselineRulesets* 清單必須是 Null 或空白。                                                          |
+| ErrorNullRulesetsPropertyOnCustom        | 指定的設定狀態為「自訂」，但 *baselineRulesets* 屬性為 Null 或空白。                                             |
+| ErrorParsingBaselineConfig               | 指定的組態無效。 一或多個定義的值含有 Null 值或無效類型。                                  |
+| ErrorParsingIsDefaultProperty            | 指定的 *configurationStatus* 值 *{0}* 無效。 值只可以是「預設」或「自訂」。                                         |
+| InCompatibleViewVersion                  | 檢視版本 *{0}* 在這個工作區類型「不」受支援。                                                                                   |
+| InvalidBaselineConfigurationGeneralError | 指定的基準設定有一或多個類型驗證錯誤。                                                          |
+| ViewConversionError                      | 檢視的版本較工作區支援的版本舊。 檢視轉換失敗：{0}。                                                                 |
 
-如果您沒有足夠的權限，您可能會收到時發生一般錯誤，錯誤：
+如果您沒有足夠權限，您可能會收到一般失敗錯誤，如下所示：
 
-![](media/security-center-customize-os-security-config/general-failure-error.png)
+![「儲存動作失敗」錯誤訊息](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## <a name="next-steps"></a>後續步驟
-這篇文章會示範如何自訂在資訊安全中心的作業系統安全性組態評估。 若要了解設定規則及補救的詳細資訊，請參閱：
+本逐步解說示範如何在資訊安全中心自訂 OS 安全性設定評估。 若要了解設定規則及修復的詳細資訊，請參閱：
 
-- [資訊安全中心常見的組態識別碼與基準規則](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。
-- 資訊安全中心會使用 CCE (一般設定列舉) 指派設定規則的唯一識別碼。 如需詳細資訊，請造訪 [CCE](https://nvd.nist.gov/config/cce/index) 網站。
-- [修復安全性設定](security-center-remediate-os-vulnerabilities.md)示範如何解決弱點，當作業系統設定不符合建議的安全性設定規則。
+- [資訊安全中心一般設定識別碼與基準規則](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。
+- 資訊安全中心會使用一般設定列舉 (CCE) 將唯一識別碼指派給設定規則。 如需詳細資訊，請參閱 [CCE](https://nvd.nist.gov/config/cce/index)。
+- 如果要解決 OS 設定不符合建議的安全性設定規則時的弱點，請參閱[修復安全性設定](security-center-remediate-os-vulnerabilities.md)。

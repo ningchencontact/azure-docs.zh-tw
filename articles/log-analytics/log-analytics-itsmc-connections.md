@@ -11,29 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>將 ITSM 產品/服務與 IT 服務管理連接器進行連線 (預覽)
-本文章提供的資訊，是有關如何將 OMS 中的 ITSM 產品/服務連線至 IT 服務管理連接器 (ITSMC)，並將工作項目集中管理。 如需 ITSMC 的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
+# <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
+本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
 
 支援下列 ITSM 產品/服務。 選取產品來檢視如何將該產品連線到 ITSMC 的詳細資訊。
 
-- [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
-- [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
-- [Provance](#connect-provance-to-it-service-management-connector-in-oms)
-- [Cherwell](#connect-cherwell-to-it-service-management-connector-in-oms)
+- [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](#connect-provance-to-it-service-management-connector-in-azure)
+- [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
-## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-oms"></a>將 System Center Service Manager 連線到 OMS 中的 IT 服務管理連接器
+> [!NOTE]
 
-下列各節提供有關如何將 System Center Service Manager 產品連線到 OMS 中的 ITSMC 之詳細資料。
+> ITSM Connector 只能連線到雲端式 ServiceNow 執行個體。 目前不支援內部部署 ServiceNow 執行個體。
 
-### <a name="prerequisites"></a>必要條件
+## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>將 System Center Service Manager 連線到 Azure 中的 IT Service Management Connector
+
+下列各節提供有關如何將 System Center Service Manager 產品連線到 Azure 中的 ITSMC 之詳細資料。
+
+### <a name="prerequisites"></a>先決條件
 
 請確保已符合下列必要條件︰
 
@@ -47,19 +51,24 @@ ms.lasthandoff: 01/08/2018
 
 您可以使用下列程序，將 System Center Service Manager 執行個體連線到 ITSMC：
 
-1. 移至 [OMS] >[設定] > [連線的來源]。
-2. 選取**ITSM 連接器**，然後按一下 [新增新的連線]。
+1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-    ![Service Manager ](./media/log-analytics-itsmc/itsmc-service-manager-connection.png)
-3. 提供下表中所述的資訊，然後按一下 [儲存] 來建立連線︰
+2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+
+    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+
+3. 在右窗格頂端按一下 [新增]。
+
+4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
 
 > [!NOTE]
+
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |
 | --- | --- |
-| **名稱**   | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
-| **選取連線類型**   | 選取 **System Center Service Manager**。 |
+| 連線名稱   | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| **夥伴類型**   | 選取 **System Center Service Manager**。 |
 | **伺服器 URL**   | 輸入 Service Manager Web 應用程式的 URL。 Service Manager Web 應用程式的相關詳細資訊在[這裡](#create-and-deploy-service-manager-web-app-service)。
 | **用戶端識別碼**   | 將您所產生 (使用自動指令碼) 用來驗證 Web 應用程式的用戶端識別碼輸入。 自動化指令碼的相關詳細資訊在[這裡](log-analytics-itsmc-service-manager-script.md)。|
 | **用戶端祕密**   | 輸入針對此識別碼產生的用戶端祕密。   |
@@ -67,17 +76,20 @@ ms.lasthandoff: 01/08/2018
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，OMS 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
+![Service Manager 連線](./media/log-analytics-itsmc/service-manager-connection.png)
+
 **順利連線並同步處理時**︰
 
-- 從 Service Manager 選取的工作項目將匯入 OMS **Log Analytics。** 您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
+- 從 Service Manager 選取的工作項目會匯入到 Azure **Log Analytics**。 您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
 
-- 您可以從 OMS 建立這個 Service Manager 執行個體中的 OMS 警示、記錄搜尋或 Azure 警示事件。
+- 您可以在這個 Service Manager 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
-詳細資訊︰[建立 OMS 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)、[建立 OMS 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+
+深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>建立及部署 Service Manager Web 應用程式服務
 
-為了將內部部署 Service Manager 與 OMS 上的 ITSMC 連線，Microsoft 已在 GitHub 上建立 Service Manager Web 應用程式。
+為了將內部部署 Service Manager 與 Azure 中的 ITSMC 連線，Microsoft 已在 GitHub 上建立 Service Manager Web 應用程式。
 
 若要為您的 Service Manager 設定 ITSM Web 應用程式，請執行下列作業︰
 
@@ -108,7 +120,7 @@ ms.lasthandoff: 01/08/2018
 
 ### <a name="configure-the-hybrid-connection"></a>設定混合式連線
 
-您可以使用下列程序，設定將 Service Manager 執行個體與 OMS 中的 ITSMC 連線之混合式連線。
+您可以使用下列程序，設定將 Service Manager 執行個體與 Azure 中的 ITSMC 連線之混合式連線。
 
 1. 在 **Azure 資源**下，尋找 Service Manager Web 應用程式。
 2. 按一下 [設定] > [網路]。
@@ -160,17 +172,17 @@ ms.lasthandoff: 01/08/2018
 ![混合式連線成功](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
-> 建立混合式連線之後，可瀏覽已部署的 Service Manager Web 應用程式來驗證及測試連線。 嘗試連線到 OMS 中的 ITSMC 之前，請確定連線成功。
+> 建立混合式連線之後，可瀏覽已部署的 Service Manager Web 應用程式來驗證及測試連線。 嘗試連線到 Azure 中的 ITSMC 之前，請確定連線成功。
 
 以下範例影像顯示連線成功的詳細資料︰
 
 ![混合式連線測試](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 
-## <a name="connect-servicenow-to-it-service-management-connector-in-oms"></a>將 ServiceNow 連線到 OMS 中的 IT 服務管理連接器
+## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>將 ServiceNow 連線到 Azure 中的 IT Service Management Connector
 
-下列各節提供有關如何將 ServiceNow 產品連線到 OMS 中的 ITSMC 之詳細資料。
+下列各節提供有關如何將 ServiceNow 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 請確保已符合下列必要條件︰
 - 已安裝 ITSMC。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - ServiceNow 支援的版本：Jakarta、Istanbul、Helsinki、Geneva
@@ -178,66 +190,71 @@ ms.lasthandoff: 01/08/2018
 **ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作**：
 - 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的相關資訊，請視需要參閱下列資訊：
 
-    - [針對 Jakarta 設定 OAuth](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
-    - [針對 Istanbul 設定 OAuth](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
-    - [針對 Helsinki 設定 OAuth](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [針對 Jakarta 設定 OAuth](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [針對 Istanbul 設定 OAuth](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [針對 Helsinki 設定 OAuth](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Geneva 設定 OAuth](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- 安裝適用於 Microsoft OMS 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)。
+- 安裝適用於 Microsoft OMS 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )。
 - 為安裝的使用者應用程式建立整合使用者角色。 關於如何建立整合使用者角色的資訊在[這裡](#create-integration-user-role-in-servicenow-app)。
 
 ### <a name="connection-procedure"></a>**連線程序**
 請使用下列程序來建立 ServiceNow 連線：
 
-1. 移至 [OMS] > [設定] > [連線的來源]。
-2. 選取**ITSM 連接器**，然後按一下 [新增新的連線]。
 
-    ![ServiceNow 連線](./media/log-analytics-itsmc/itsmc-servicenow-connection.png)
+1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-3. 提供下表中所述的資訊，然後按一下 [儲存] 來建立連線︰
+2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+
+3. 在右窗格頂端按一下 [新增]。
+
+4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
+
 
 > [!NOTE]
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |
 | --- | --- |
-| **名稱**   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 OMS 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
-| **選取連線類型**   | 選取 **ServiceNow**。 |
+| 連線名稱   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 OMS 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| **夥伴類型**   | 選取 **ServiceNow**。 |
 | **使用者名稱**   | 輸入您在 ServiceNow 應用程式中建立的整合使用者名稱，以支援 ITSMC 的連線。 詳細資訊︰[建立 ServiceNow 應用程式使用者角色](#create-integration-user-role-in-servicenow-app)。|
-| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **請注意**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 OMS 服務內。  |
+| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。  |
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 ServiceNow 執行個體的 URL。 |
 | **用戶端識別碼**   | 將您想要用於先前產生之 OAuth2 驗證的用戶端識別碼輸入。  如需產生用戶端識別碼和祕密的資訊：[OAuth 設定](http://wiki.servicenow.com/index.php?title=OAuth_Setup)。 |
 | **用戶端祕密**   | 輸入針對此識別碼產生的用戶端祕密。   |
-| **資料同步範圍**   | 選取您想要透過 ITSMC 同步到 OMS 的 ServiceNow 工作項目。  系統會將這些值匯入 Log Analytics。   **選項︰**事件和變更要求。|
+| **資料同步範圍**   | 選取您想要透過 ITSMC 同步處理到 Azure Log Analytics 的 ServiceNow 工作項目。  系統會將這些值匯入 Log Analytics。   **選項︰**事件和變更要求。|
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
-| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，OMS 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
+| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，ITSMC 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
+![ServiceNow 連線](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
 
 **順利連線並同步處理時**︰
 
-- 從 ServiceNow 連線選取的工作項目將匯入 OMS Log Analytics。  您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
-- 您可以在這個 ServiceNow 執行個體中建立 OMS 警示、記錄搜尋或 Azure 警示的事件、警示和活動。  
+- 從 ServiceNow 執行個體選取的工作項目會匯入到 Azure **Log Analytics**。 您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
 
+- 您可以在這個 ServiceNow 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
-詳細資訊︰[建立 OMS 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)、[建立 OMS 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>在 ServiceNow 應用程式中建立整合使用者角色
 
 請使用下列程序：
 
-1.  請瀏覽 [ServiceNow 存放區](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0)，並將 **ServiceNow 和 Microsoft OMS 整合的使用者應用程式**安裝到 ServiceNow 執行個體。
+1.  請瀏覽 [ServiceNow 存放區](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)，並將 **ServiceNow 和 Microsoft OMS 整合的使用者應用程式**安裝到 ServiceNow 執行個體。
 2.  安裝完成後，請瀏覽左側導覽列中的 [ServiceNow 執行個體]、[搜尋] 並選取 [Microsoft OMS 整合器]。  
 3.  按一下 [安裝檢查清單]。
 
     如果尚未建立使用者角色，則狀態會顯示為 [未完成]。
 
-4.  在 [建立整合使用者] 旁邊的文字方塊中，輸入可連線到 OMS 中的 ITSMC 之使用者的使用者名稱。
+4.  在 [建立整合使用者] 旁邊的文字方塊中，輸入可連線到 Azure 中 ITSMC 之使用者的使用者名稱。
 5.  輸入這個使用者的密碼，然後按一下 [確定]。  
 
 >[!NOTE]
 
-> 您可以使用這些認證在 OMS 中進行 ServiceNow 連線。
+> 您可以使用這些認證，在 Azure 中進行 ServiceNow 連線。
 
 會使用預設的角色指派來顯示新建立的使用者。
 
@@ -253,7 +270,7 @@ ms.lasthandoff: 01/08/2018
 
 > [!NOTE]
 
-> 若要允許使用者從 OMS 建立 ServiceNow 中的 [警示] 和 [事件]︰
+> 若要允許使用者從 Azure 建立 ServiceNow 中的**警示**和**事件**：
 
 > - 請確定您已在 ServiceNow 執行個體上安裝事件管理模組。
 
@@ -262,12 +279,12 @@ ms.lasthandoff: 01/08/2018
 >      - evt_mgmt_operator  
 
 
-## <a name="connect-provance-to-it-service-management-connector-in-oms"></a>將 Provance 連線到 OMS 中的 IT 服務管理連接器
+## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>將 Provance 連線到 Azure 中的 IT Service Management Connector
 
-下列各節提供有關如何將 Provance 產品連線到 OMS 中的 ITSMC 之詳細資料。
+下列各節提供有關如何將 Provance 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確保已符合下列必要條件︰
 
@@ -281,39 +298,46 @@ ms.lasthandoff: 01/08/2018
 
 請使用下列程序來建立 Provance 連線：
 
-1. 移至 [OMS] > [設定] > [連線的來源]。
-2. 選取**ITSM 連接器**，然後按一下 [新增新的連線]。  
+1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-    ![Provance 連線](./media/log-analytics-itsmc/itsmc-provance-connection.png)
-3. 提供下表中所述的資訊，然後按一下 [儲存] 來建立連線。
+2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+
+3. 在右窗格頂端按一下 [新增]。
+
+4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
 
 > [!NOTE]
+
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |
 | --- | --- |
-| **名稱**   | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在 OMS 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
-| **選取連線類型**   | 選取 [Provance]。 |
+| 連線名稱   | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
+| **夥伴類型**   | 選取 [Provance]。 |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的使用者名稱。    |
-| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **請注意**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 OMS 服務內。|
+| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 Provance 執行個體的 URL。 |
 | **用戶端識別碼**   | 將您在 Provance 執行個體中產生的用戶端識別碼輸入以驗證此連線。  如需用戶端識別碼的詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。 |
-| **資料同步範圍**   | 選取您想要透過 ITSMC 同步到 OMS 的 Provance 工作項目。  系統會將這些工作項目匯入 Log Analytics。   **選項︰**事件、變更要求。|
+| **資料同步範圍**   | 選取您想要透過 ITSMC 同步處理到 Azure Log Analytics 的 Provance 工作項目。  系統會將這些工作項目匯入 Log Analytics。   **選項︰**事件、變更要求。|
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
-| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，OMS 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。|
+| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，ITSMC 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。|
+
+![Provance 連線](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
 
 **順利連線並同步處理時**︰
 
-- 從 Provance 連線選取的工作項目將匯入 OMS **Log Analytics**。  您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
-- 您可以在這個 Provance 執行個體中建立 OMS 警示、記錄搜尋或 Azure 警示的事件和活動。
+- 從這個 Provance 執行個體選取的工作項目會匯入到 Azure **Log Analytics**。 您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
 
-詳細資訊︰[建立 OMS 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)、[建立 OMS 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+- 您可以在這個 Provance 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
-## <a name="connect-cherwell-to-it-service-management-connector-in-oms"></a>將 Cherwell 連線到 OMS 中的 IT 服務管理連接器
+深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
-下列各節提供有關如何將 Cherwell 產品連線到 OMS 中的 ITSMC 之詳細資料。
+## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>將 Cherwell 連線到 Azure 中的 IT Service Management Connector
 
-### <a name="prerequisites"></a>必要條件
+下列各節提供有關如何將 Cherwell 產品連線到 Azure 中的 ITSMC 之詳細資料。
+
+### <a name="prerequisites"></a>先決條件
 
 請確保已符合下列必要條件︰
 
@@ -323,36 +347,43 @@ ms.lasthandoff: 01/08/2018
 
 ### <a name="connection-procedure"></a>連線程序
 
-請使用下列程序來建立 Cherwell 連線：
+請使用下列程序來建立 Provance 連線：
 
-1. 移至 [OMS] >  [設定] > [連線的來源]。
-2. 選取 [ITSM 連接器]，然後按一下 [新增新的連線]。  
+1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-    ![Cherwell 使用者識別碼](./media/log-analytics-itsmc/itsmc-cherwell-connection.png)
+2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+    ![新增連線](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. 提供下表中所述的資訊，然後按一下 [儲存] 來建立連線。
+3. 在右窗格頂端按一下 [新增]。
+
+4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
 
 > [!NOTE]
+
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |
 | --- | --- |
-| **名稱**   | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在 OMS 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
-| **選取連線類型**   | 選取 [Cherwell]。 |
+| 連線名稱   | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
+| **夥伴類型**   | 選取 [Cherwell]。 |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的 Cherwell 使用者名稱。 |
-| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **請注意**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 OMS 服務內。|
+| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 Cherwell 執行個體的 URL。 |
 | **用戶端識別碼**   | 將您在 Cherwell 執行個體中產生的用戶端識別碼輸入以驗證此連線。   |
 | **資料同步範圍**   | 選取您想要透過 ITSMC 同步的 Cherwell 工作項目。  系統會將這些工作項目匯入 Log Analytics。   **選項︰**事件、變更要求。 |
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
-| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，OMS 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
+| **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，ITSMC 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
+
+
+![Provance 連線](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
 
 **順利連線並同步處理時**︰
 
-- 從這個 Cherwell 連線選取的工作項目將匯入 OMS Log Analytics。 您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
-- 您可以在這個 Cherwell 執行個體中建立 OMS 警示、記錄搜尋或 Azure 警示的事件和活動。
+- 從這個 Cherwell 執行個體選取的工作項目會匯入到 Azure **Log Analytics**。 您可以在 [IT 服務管理連接器] 圖格上檢視這些工作項目的摘要。
 
-詳細資訊︰[建立 OMS 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)、[建立 OMS 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+- 您可以在這個 Cherwell 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
+
+深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ### <a name="generate-client-id-for-cherwell"></a>產生 Cherwell 的用戶端識別碼
 
@@ -366,7 +397,6 @@ ms.lasthandoff: 01/08/2018
 
 
 ## <a name="next-steps"></a>後續步驟
- - [建立 OMS 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
- - [從 OMS 記錄建立 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
+ - [建立 Log Analytics 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
+ - [建立 Log Analytics 記錄檔記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
- - [檢視您連線的 Log Analytics](log-analytics-itsmc-overview.md#using-the-solution)

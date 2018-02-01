@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>如何使用多租用戶主機權限在 Azure 上部署 Windows 10 
 對於每位使用者都具有 Windows 10 企業版 E3/E5 或每位使用者都具有 Windows 虛擬桌面存取 (使用者訂用帳戶授權或附加元件使用者訂用帳戶授權) 的客戶，適用於 Windows 10 的多租用戶主機權限可讓您將 Windows 10 授權帶到雲端，並在 Azure 上執行 Windows 10 虛擬機器，而不必付費取得其他授權。 如需詳細資訊，請參閱[適用於 Windows 10 的多租用戶主機](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)。
 
 > [!NOTE]
-> 本文會說明如何實作適用於 Windows 10 桌面版映像的授權權益。 您可以參閱下列內容，以了解 [Windows Server 映像的 Azure Hybrid Use Benefit](hybrid-use-benefit-licensing.md)。
+> 本文會說明如何實作 Azure Marketplace 上適用於 Windows 10 專業版桌面版映像的授權權益。
+> - 針對 Azure Marketplace 上適用於 MSDN 訂閱的 Windows 7、8.1、10 企業版 (x64) 映像，請參閱 [Azure 中的 Windows 用戶端開發/測試案例](client-images.md)
+> - 若要了解 Windows Server 授權權益，請參閱 [Windows Server 映像的 Azure Hybrid Use Benefit](hybrid-use-benefit-licensing.md)。
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>從 Azure Marketplace 部署 Windows 10 映像 
@@ -34,6 +36,8 @@ ms.lasthandoff: 12/08/2017
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>將 Windows 10 VHD 上傳到 Azure
 如果您要上傳一般化的 Windows 10 VHD，請注意 Windows 10 未預設啟用內建的 Administrator 帳戶。 若要啟用內建的 Administrator 帳戶，請在自訂指令碼擴充功能中加入下列命令。

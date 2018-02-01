@@ -5,20 +5,20 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署機器的複寫
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
-本教學課程會示範如何準備 Azure 元件，當您想要將內部部署 Vm （HYPER-V 或 VMware） 或 Windows/Linux 實體伺服器複寫至 Azure。 在本教學課程中，您了解如何：
+本教學課程說明如何在您想要將內部部署 VM (Hyper-V 或 VMware) 或 Windows/Linux 實體伺服器複寫至 Azure 時，準備好 Azure 元件。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 確認您的帳戶具有複寫權限
@@ -33,11 +33,11 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="verify-account-permissions"></a>確認帳戶權限
 
-如果您剛建立免費的 Azure 帳戶，您是訂用帳戶的系統管理員。 如果您不是訂用帳戶系統管理員，請與系統管理員合作以指派您所需的權限。 若要啟用新虛擬機器的複寫，您必須具有：
+如果您剛建立免費的 Azure 帳戶，則您會是訂用帳戶的系統管理員。 如果您不是訂用帳戶系統管理員，請與系統管理員合作以指派您所需的權限。 若要啟用新虛擬機器的複寫，您必須具有：
 
-- 在選取的資源群組中建立 VM 的權限
-- 在選取的虛擬網路中建立 VM 的權限
-- 選取的儲存體帳戶的寫入權限
+- 在所選取資源群組中建立 VM 的權限
+- 在所選取虛擬網路中建立 VM 的權限
+- 寫入所選取儲存體帳戶的權限
 
 具有這些權限的「虛擬機器參與者」內建角色。 您也需要管理 Azure Site Recovery 作業的權限。 「Site Recovery 參與者」角色具有在復原服務保存庫中管理 Site Recovery 作業所需的所有權限。
 
@@ -46,13 +46,13 @@ ms.lasthandoff: 01/02/2018
 複寫機器的映像會保留在 Azure 儲存體中。 當您從內部部署容錯移轉至 Azure 時，會從儲存體建立 Azure VM。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)功能表中，按一下 **[新增]** -> **[儲存體]** -> **[儲存體帳戶]**。
-2. 輸入儲存體帳戶的名稱。 在這些教學課程中，我們將使用名稱 **contosovmsacct1910171607**。 名稱必須是唯一在 Azure 內，且必須介於 3 到 24 個字元，只使用小寫字母與數字。
+2. 在 [建立儲存體帳戶] 中，輸入帳戶的名稱。 在這些教學課程中，我們將使用名稱 **contosovmsacct1910171607**。 此名稱必須是 Azure 中的唯一名稱，並介於 3 到 24 個字元，而且只能包含數字和小寫字母。
 3. 使用 **Resource Manager** 部署模型。
-4. 選取 [一般目的] > [標準]。
+4. 選取 [一般目的] > [標準]。 請勿選取 Blob 儲存體。
 5. 針對儲存體備援選取預設的 **RA-GRS**。
 6. 選取您要在其中建立新儲存體帳戶的訂用帳戶。
-7. 指定新的資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 如需這些教學課程中，我們會使用名稱**ContosoRG**。
-8. 選取儲存體帳戶的地理位置。 儲存體帳戶與復原服務保存庫必須位於相同的區域。 這些教學課程中，我們使用**西歐**區域。
+7. 指定新的資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在這些教學課程中，我們使用名稱 **ContosoRG**。
+8. 選取儲存體帳戶的地理位置。 儲存體帳戶與復原服務保存庫必須位於相同的區域。 在這些教學課程中，我們使用 [西歐] 區域。
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/02/2018
    **[備份與復原]**。
 2. 在 [名稱] 中，指定保存庫的易記識別名稱。 在此教學課程中，我們使用 **ContosoVMVault**。
 3. 選取名為 **contosoRG** 的現有資源群組。
-4. 指定 Azure 區域**西歐**，我們在教學課程的這組所使用。
+4. 指定我們要在這套教學課程中使用的 Azure 區域 [西歐]。
 5. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板] > [建立]。
 
    ![新增保存庫](./media/tutorial-prepare-azure/new-vault-settings.png)

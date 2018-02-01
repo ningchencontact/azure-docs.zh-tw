@@ -3,7 +3,7 @@ title: "使用 Azure Active Directory Domain Services 設定已加入網域的 H
 description: "了解如何使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,21 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 
 已加入網域的叢集可在 HDInsight 上提供多使用者企業的安全性功能。 已加入網域的 HDInsight 叢集會與 Active Directory 網域連線，讓網域使用者可以使用其網域認證來驗證叢集並執行巨量資料作業。 
 
-有三種方式可設定網域控制站，讓已加入網域的 HDInsight 叢集可以連線到：
+有兩種方式可設定網域控制站，讓已加入網域的 HDInsight 叢集可以連線到：
 
 - Azure Active Directory Domain Services (Azure AD DS)
-- 內部部署 Active Directory
 - Azure IaaS VM 上的 Active Directory 網域控制站
 
 在此文章中，您會了解如何使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集。
@@ -37,7 +36,7 @@ ms.lasthandoff: 01/12/2018
 您必須先建立 Azure AD DS，才能建立 HDInsight 叢集。 若要建立 Azure ADDS，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started.md)。 
 
 > [!NOTE]
-> 只有租用戶的管理員具有建立網域服務的權限。 
+> 只有租用戶的管理員具有建立網域服務的權限。 如果您使用 Azure Data Lake Storage (ADLS) 作為 HDInsight 的預設儲存體，則請確定 ADLS 的預設 Azure AD 租用戶與 HDInsight 叢集的網域相同。 
 
 佈建網域服務之後，您需要在 **Azure AD DC 管理員**群組中建立服務帳戶，用於建立 HDInsight 叢集。 服務帳戶必須是 Azure AD 的全域管理員。
 

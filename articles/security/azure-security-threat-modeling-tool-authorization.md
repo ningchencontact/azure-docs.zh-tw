@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>安全框架︰授權 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -224,7 +224,7 @@ WHERE userID=:id < - session var
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | 為資源語彙基元相關聯的 Azure Cosmos DB 權限資源，並擷取關聯性之間的資料庫使用者與權限的使用者是否有特定 Azure Cosmos DB 應用程式資源 （例如集合、 文件）。 一律使用為資源語彙基元來存取 Azure Cosmos DB，如果用戶端無法處理主要或唯讀金鑰-就像一般使用者應用程式，類似行動或桌面用戶端受信任。使用主要金鑰或從後端應用程式可以安全地儲存這些金鑰的唯讀機碼。|
+| **步驟** | 資源權杖會與 Azure Cosmos DB 權限資源相關聯，並擷取資料庫使用者與該使用者所具備之特定 Azure Cosmos DB 應用程式資源 (例如集合、文件) 權限之間的關係。 如果無法放心託付用戶端 (例如行動裝置或桌上型電腦用戶端等使用者應用程式) 處理主要或唯讀金鑰，請一律使用資源權杖來存取 Azure Cosmos DB。請從可以安全地儲存主要金鑰或唯讀金鑰的後端應用程式使用這些金鑰。|
 
 ## <a id="grained-rbac"></a>使用 RBAC 啟用 Azure 訂用帳戶的精細存取管理
 
@@ -400,7 +400,7 @@ return result;
 | **步驟** | <p>如果應用程式依賴 Azure AD 或 ADFS 宣告作為識別提供者，即可從 Azure AD 或 ADFS 宣告擷取應用程式使用者的角色資訊，否則應用程式本身可能會提供此資訊。 在任何這類情況下，自訂授權實作應驗證使用者角色資訊。</p><p>如果應用程式依賴 Azure AD 或 ADFS 宣告作為識別提供者，即可從 Azure AD 或 ADFS 宣告擷取應用程式使用者的角色資訊，否則應用程式本身可能會提供此資訊。 在任何這類情況下，自訂授權實作應驗證使用者角色資訊。</p>
 
 ### <a name="example"></a>範例
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 應使用上述屬性裝飾所有需要保護的控制器和動作方法。
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

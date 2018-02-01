@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 01/23/2018
 ms.author: adegeo
-ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-進階監視包含對您想要監視的角色使用 Azure 診斷延伸模組 (和選擇性的 Application Insights SDK)。 診斷延伸模組會使用名為 **diagnostics.wadcfgx** 的設定檔 (每個角色)，來設定所監視的診斷計量。 Azure 診斷延伸模組所收集的資料會儲存在 Azure 儲存體帳戶中，而 Azure 儲存體帳戶設定於 **.wadcfgx**、[.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 檔案中。 這表示會有與進階監視建立關聯的額外成本。
+進階監視包含對您想要監視的角色使用 **Azure 診斷**延伸模組 (和選擇性的 Application Insights SDK)。 診斷延伸模組會使用名為 **diagnostics.wadcfgx** 的設定檔 (每個角色)，來設定所監視的診斷計量。 Azure 診斷延伸模組所收集的資料會儲存在 Azure 儲存體帳戶中，而 Azure 儲存體帳戶設定於 **.wadcfgx**、[.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 檔案中。 這表示會有與進階監視建立關聯的額外成本。
 
 建立每個角色時，Visual Studio 會在其中新增 Azure 診斷延伸模組。 此延伸模組可以收集下列類型的資訊：
 
@@ -52,22 +52,24 @@ ms.lasthandoff: 01/10/2018
 * 損毀傾印
 * 客戶錯誤記錄
 
-雖然所有這些資料都會彙總至儲存體帳戶，但是入口網站不會提供製作資料圖表的原生方法。 您可以使用另一個服務 (如 Application Insights) 來相互關聯和顯示資料。
+> [!IMPORTANT]
+> 雖然此資料全都會彙總至儲存體帳戶，但是入口網站**不會**提供製作資料圖表的原生方法。 強烈建議您將其他像是 Application Insights 的服務整合到您的應用程式。
 
 ### <a name="use-application-insights"></a>使用 Application Insights
 
-當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights 資源，或將資料傳送至現有資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)。
+當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights Azure 資源，或將資料傳送至現有的 Azure 資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)。
 
 請注意，雖然您可以使用 Application Insights 來顯示透過 Windows Azure 診斷延伸模組所指定的效能計數器 (和其他設定)，但是只有將 Application Insights SDK 整合到背景工作和 Web 角色，才能獲得較豐富的體驗。
 
-
-## <a name="add-advanced-monitoring"></a>新增進階監視
+## <a name="setup-diagnostics-extension"></a>設定診斷延伸模組
 
 首先，如果您沒有**傳統**儲存體帳戶，則請[建立傳統儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。 請確定建立已指定**傳統部署模型**的儲存體帳戶。
 
 接下來，巡覽至 [儲存體帳戶 (傳統)] 資源。 選取 [設定] > [存取金鑰]，然後複製 [主要連接字串] 值。 雲端服務需要有此值。 
 
-您必須變更兩個設定檔才能啟用進階診斷：**ServiceDefinition.csdef** 和 **ServiceConfiguration.cscfg**。 您最可能有兩個 **.cscfg** 檔案，一個名為 **ServiceConfiguration.cloud.cscfg** 以用於部署至 Azure，一個名為 **ServiceConfiguration.local.cscfg** 以用於本機偵錯部署。 變更這兩者。
+您必須變更兩個設定檔才能啟用進階診斷：**ServiceDefinition.csdef** 和 **ServiceConfiguration.cscfg**。
+
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 在 **ServiceDefinition.csdef** 檔案中，針對每個使用進階診斷的角色，新增名為 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的新設定。 當您建立新專案時，Visual Studio 會將這個值新增至檔案。 若遺失，您可以立即予以新增。 
 
@@ -78,7 +80,9 @@ ms.lasthandoff: 01/10/2018
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-這會定義必須新增至每個 **ServiceConfiguration.cscfg** 檔案的新設定。 開啟並變更每個 **.cscfg** 檔案。 新增名為 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的設定。 如果您想要在開發電腦上使用本機儲存體，請將值設定為傳統儲存體帳戶的 [主要連接字串]，或設定為 `UseDevelopmentStorage=true`。
+這會定義必須新增至每個 **ServiceConfiguration.cscfg** 檔案的新設定。 
+
+您很可能會有兩個 **.cscfg** 檔案，一個名為 **ServiceConfiguration.cloud.cscfg** 以用於部署至 Azure，一個名為 **ServiceConfiguration.local.cscfg** 以在模擬環境中用於本機部署。 開啟並變更每個 **.cscfg** 檔案。 新增名為 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的設定。 將值設定為傳統儲存體帳戶的**主要連接字串**。 如果您想要在開發電腦上使用本機儲存體，請使用 `UseDevelopmentStorage=true`。
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -86,10 +90,10 @@ ms.lasthandoff: 01/10/2018
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
-
-<!-- or use the local development machine for storage
+      
+      <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
--->
+      -->
 ```
 
 ## <a name="next-steps"></a>後續步驟

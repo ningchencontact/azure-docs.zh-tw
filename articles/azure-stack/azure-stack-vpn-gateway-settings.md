@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
@@ -160,7 +160,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 |IKE 版本 |IKEv2 |
 |加密與雜湊演算法 (加密)     | GCMAES256|
 |加密與雜湊演算法 (驗證) | GCMAES256|
-|SA 存留期 (時間)  | 3,600 秒 |
+|SA 存留期 (時間)  | 14,400 秒 |
 |SA 存留期 (位元組) | 819,200       |
 |完整轉寄密碼 (PFS) |PFS2048 |
 |停用的對等偵測 | 支援|  

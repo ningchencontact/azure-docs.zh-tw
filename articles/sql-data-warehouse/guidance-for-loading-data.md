@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>將資料載入 Azure SQL 資料倉儲的最佳做法
 將資料載入 Azure SQL 資料倉儲的建議和效能最佳化。 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="preparing-data-in-azure-storage"></a>在 Azure 儲存體中準備資料
 若要將延遲降至最低，請共置您的儲存層與資料倉儲。
 
-將資料匯出成 ORC 檔案格式時，由於 java 的記憶體不足錯誤，可能會限制大量文字的資料行只能有 50 個資料行。 若要解決這項限制，只能匯出部分資料行。
+將資料匯出成 ORC 檔案格式時，如有大量文字資料行，則可能發生 Java 記憶體不足錯誤。 若要解決這項限制，只能匯出部分資料行。
 
 PolyBase 無法載入具有超過 1 百萬個位元組之資料的資料列。 當您將資料放入 Azure Blob 儲存體或 Azure Data Lake Store 中的文字檔案時，這些檔案必須有少於 1 百萬個位元組的資料。 不論資料表結構描為何，此位元組限制皆成立。
 
@@ -45,14 +45,22 @@ PolyBase 無法載入具有超過 1 百萬個位元組之資料的資料列。 �
 
 若要以適當的計算資源執行載入，請建立為了執行載入而指定的載入使用者。 將每個載入使用者指派給特定的資源類別。 若要執行載入，請以其中一個載入使用者的身分登入，然後執行載入。 載入會利用使用者的資源類別來執行。  相較於嘗試變更使用者的資源類別，以符合目前的資源類別需求，這個方法比較簡單。
 
-此程式碼會為 staticrc20 資源類別建立載入使用者。 它為使用者提供資料庫的控制權限，然後將使用者新增為 staticrc20 資料庫角色的成員。 若要使用 staticRC20 資源類別的資源執行載入，只需以 LoaderRC20 身分登入並執行載入。 
+### <a name="example-of-creating-a-loading-user"></a>建立載入使用者的範例
+此範例會為 staticrc20 資源類別建立載入使用者。 第一個步驟是**連線到 主要資料庫**並建立登入。
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+連線到資料倉儲並建立使用者。 下列程式碼假設您已連線到名為 mySampleDataWarehouse 的資料庫。 它會顯示如何建立名為 LoaderRC20 的使用者，並為使用者提供資料庫的控制權限。 然後將使用者新增為 staticrc20 資料庫角色的成員。  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+若要使用 staticRC20 資源類別的資源執行載入，只需以 LoaderRC20 身分登入並執行載入。
 
 在靜態資源類別，而不是動態資源類別之下執行載入。 不論您的[服務層級](performance-tiers.md#service-levels)為何，使用靜態資源類別可保證相同的資源。 如果您使用動態資源類別，資源就會根據您的服務層級而有所不同。 對於動態類別，較低服務層級表示您可能需要對您的載入使用者使用較大的資源類別。
 
@@ -124,7 +132,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 
 ## <a name="next-steps"></a>後續步驟
-若要監視載入程序，請參閱[使用 DMV 監視工作負載](sql-data-warehouse-manage-monitor.md)。
+若要監視資料載入，請參閱[使用 DMV 監視工作負載](sql-data-warehouse-manage-monitor.md)。
 
 
 

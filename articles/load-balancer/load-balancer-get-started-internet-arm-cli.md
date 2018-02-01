@@ -1,6 +1,6 @@
 ---
-title: "建立網際網路對向負載平衡器 - Azure CLI | Microsoft Docs"
-description: "了解如何使用 Azure CLI 在資源管理員中建立網際網路面向的負載平衡器"
+title: "建立公用負載平衡器 - Azure CLI | Microsoft Docs"
+description: "了解如何使用 Azure CLI 建立公用負載平衡器"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>使用 Azure CLI 建立網際網路負載平衡器
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>使用 Azure CLI 建立公用負載平衡器
 
 > [!div class="op_single_selector"]
 > * [入口網站](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-本文涵蓋之內容包括資源管理員部署模型。 您也可以 [了解如何使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
+本文涵蓋之內容包括資源管理員部署模型。 您也可以[了解如何使用傳統部署建立公用負載平衡器](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>使用 Azure CLI 來部署方案
 
-下列步驟說明如何搭配 CLI 使用 Azure Resource Manager，來建立網際網路對向負載平衡器。 使用 Azure Resource Manager 時，會個別建立並設定每項資源，然後放在一起來建立一項資源。
+下列步驟說明如何搭配使用 Azure Resource Manager 與 CLI 建立公用負載平衡器。 使用 Azure Resource Manager 時，會個別建立並設定每項資源，然後放在一起來建立一項資源。
 
 您必須建立並設定下列物件，才能部署負載平衡器：
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>設定 CLI 以使用 Resource Manager
 
-1. 如果您從未用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
     ```azurecli

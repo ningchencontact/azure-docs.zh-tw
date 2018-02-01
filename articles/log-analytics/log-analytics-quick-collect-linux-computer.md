@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/14/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>從您的環境中裝載的 Linux 電腦收集資料
 [Azure Log Analytics](log-analytics-overview.md) 可將來自環境中實體或虛擬 Linux 電腦和其他資源的資料直接收集到單一儲存機制，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Linux 電腦的資料。  針對 Azure Linux VM，請參閱下列主題[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>設定代理程式以與 Proxy 伺服器通訊
 
-如果您的 Linux 電腦需要透過 Proxy 伺服器與 Log Analytics 進行通訊，請執行下列步驟。  Proxy 組態值的語法如下：`[protocol://][user:password@]proxyhost[:port]`。
+如果您的 Linux 電腦需要透過 Proxy 伺服器與 Log Analytics 進行通訊，請執行下列步驟。  Proxy 組態值的語法如下：`[protocol://][user:password@]proxyhost[:port]`。  *Proxyhost* 屬性接受 Proxy 伺服器的完整網域名稱或 IP 位址。    
 
 1. 藉由執行下列命令來編輯檔案 `/etc/opt/microsoft/omsagent/proxy.conf`，並將值變更為您的特定設定。
 

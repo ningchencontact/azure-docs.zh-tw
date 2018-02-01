@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: "呼叫受保護的 Web API - ASP.NET - Azure Active Directory B2C | Microsoft Docs"
 description: "如何使用 Azure Active Directory B2C 和 OAuth 2.0 存取權杖，建置 .NET Web 應用程式並呼叫 Web API。"
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 42b2b698493408f11ee23f06f99d9ba22860746a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: d81976988a26ce264dd7b9ed24f43aed21d4ee99
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C：從 .NET Web 應用程式呼叫 .NET Web API
 

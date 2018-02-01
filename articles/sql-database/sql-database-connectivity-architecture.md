@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/08/2017
 | 美國中部 | 23.99.160.139 | 13.67.215.62 |
 | 東亞 | 191.234.2.139 | 52.175.33.150 |
 | 美國東部 1 | 191.238.6.43 | 40.121.158.30 |
-| 美國東部 2 | 191.239.224.107 | 40.79.84.180 |
+| 美國東部 2 | 191.239.224.107 | 40.79.84.180 * |
 | 印度中部 | 104.211.96.159  | |
 | 印度南部 | 104.211.224.146  | |
 | 印度西部 | 104.211.160.80 | |
@@ -92,6 +92,8 @@ ms.lasthandoff: 12/08/2017
 | 美國西部 1 | 23.99.34.75 | 104.42.238.205 |
 | 美國西部 2 | 13.66.226.202  | |
 ||||
+
+\* **注意：** [美國東部 2] 也有第三 IP 位址 `52.167.104.0`。
 
 ## <a name="change-azure-sql-database-connection-policy"></a>變更 Azure SQL Database 連線原則
 

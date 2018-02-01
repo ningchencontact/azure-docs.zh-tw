@@ -7,7 +7,7 @@
 ## [安全性群組檢視](network-watcher-security-group-view-overview.md)
 ## [下一個躍點](network-watcher-next-hop-overview.md)
 ## [VPN 連線疑難排解](network-watcher-troubleshoot-overview.md)
-## [連線能力檢查](network-watcher-connectivity-overview.md)
+## [針對連線問題進行疑難排解](network-watcher-connectivity-overview.md)
 ## [服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # 開始使用
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## 測試連線能力
+## 針對連線問題進行疑難排解
 ### [Azure 入口網站](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)

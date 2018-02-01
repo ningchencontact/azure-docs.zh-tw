@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/18/2017
 5. 複製服務 URL 和系統管理金鑰， 稍後會需要將它們加到 **config.properties** 檔案中。
 
 ## <a name="download-the-sample-files"></a>下載範例檔案
-1. 前往 GitHub 的 [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)。
+1. 移至 GitHub 上的 [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo)。
 2. 按一下 [下載 ZIP] ，將 .zip 檔案儲存至磁碟，然後解壓縮其中所含的所有檔案。 可以考慮將檔案解壓縮到 Java 工作區，以便之後可以輕鬆找到專案。
 3. 範例檔案為唯讀。 請以滑鼠右鍵按一下資料夾內容，然後清除唯讀屬性。
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/18/2017
 7. 按一下 [完成] 。
 8. 選取 [視窗] > [喜好設定] > [Java] > [已安裝的 JRE] > [新增]。
 9. 在 [Add JRE (新增 JRE)] 中，選取 [Standard VM (標準 VM)]。
-10. 按一下 [下一步] 。
+10. 按 [下一步] 。
 11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)] 。
 12. 瀏覽至 [程式檔案] > [Java]，然後選取您先前安裝的 JDK。 請務必選取 JDK 做為 JRE。
 13. 在 [Installed JREs (安裝的 JRE)] 中選擇 **JDK**。 您的設定應該類似以下的螢幕擷取畫面。

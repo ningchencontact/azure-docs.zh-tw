@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>建立 Service Fabric 的容器映像
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/11/2018
 > * [建置與執行含容器的 Service Fabric 應用程式](service-fabric-tutorial-package-containers.md)
 > * [如何在 Service Fabric 中處理容錯移轉和調整](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 已針對 Service Fabric 設定的 Linux 開發環境。 請依照[這裡](service-fabric-get-started-linux.md)的指示來設定 Linux 環境。 
 - 本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-方案包含兩個資料夾和 'docker-compse.yml' 檔案。 'azure-vote' 資料夾包含 Python 前端服務，以及用來建置映像的 Dockerfile。 'Voting' 目錄包含部署至叢集的 Service Fabric 應用程式封裝。 這些目錄包含本教學課程所需的資產。  
+方案包含兩個資料夾和 'docker-compose.yml' 檔案。 'azure-vote' 資料夾包含 Python 前端服務，以及用來建置映像的 Dockerfile。 'Voting' 目錄包含部署至叢集的 Service Fabric 應用程式封裝。 這些目錄包含本教學課程所需的資產。  
 
 ## <a name="create-container-images"></a>建立容器映像
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>將 Windows Server 2016 VM 映像新增到 Azure Stack Marketplace
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="add-the-image-by-using-powershell"></a>使用 PowerShell 來新增映像
 
-### <a name="prerequisites"></a>必要條件 
+### <a name="prerequisites"></a>先決條件 
 
 從[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或從 Windows 型外部用戶端 (如果您是[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn))，執行下列先決條件：
 
@@ -135,19 +135,23 @@ ms.lasthandoff: 01/10/2018
 
 若要確保 Windows Server 2016 VM 映像具有最新的累積更新，請在執行 `New-AzsServer2016VMImage` Cmdlet 時包含 `IncludeLatestCU` 參數。 如需有關 `New-AzsServer2016VMImage` Cmdlet 所允許參數的資訊，請參閱[參數](#parameters)。 將映像發佈到 Azure Stack Marketplace 需要大約一小時的時間。 
 
-## <a name="parameters"></a>參數
+## <a name="parameters-for-new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 的參數
 
-|New-AzsServer2016VMImage 參數|必要|描述|
-|-----|-----|------|
-|ISOPath|是|所下載 Windows Server 2016 ISO 的完整路徑。|
-|Net35|否|在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 **true**。|
-|版本|否|指定 [核心]、[完整]，或 [兩者] 的 Windows Server 2016 映像。 此值預設會設定為 **Full**。|
-|VHDSizeInMB|否|設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40,960 MB。|
-|CreateGalleryItem|否|指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 **true**。|
-|location |否 |指定應作為 Windows Server 2016 映像發行目的地的位置。|
-|IncludeLatestCU|否|將最新的 Windows Server 2016 累積更新套用至新的 VHD (請檢查指令碼，以確保它是指向最新的更新，或使用下面兩個選項其中之一)。 |
-|CUUri |否 |設定從特定的 URI 執行 Windows Server 2016 累積更新。 |
-|CUPath |否 |設定從本機路徑執行 Windows Server 2016 累積更新。 如果您是在已中斷連線的環境中部署 Azure Stack 執行個體，此選項會相當有用。|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+建立並上傳新的 Server 2016 Core 和 (或) 完整映像，並為其建立市集項目。
+
+| 參數 | 必要 | 範例 | 說明 |
+|-----|-----|------|---- |
+|ISOPath|yes| N:\ISO\en_windows_16_x64_dvd | 所下載 Windows Server 2016 ISO 的完整路徑。|
+|Net35|否| True | 在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 **true**。|
+|版本|否| 完整 |  指定 [核心]、[完整]，或 [兩者] 的 Windows Server 2016 映像。 此值預設會設定為 **Full**。|
+|VHDSizeInMB|否| 40,960 | 設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40,960 MB。|
+|CreateGalleryItem|否| True | 指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 **true**。|
+|location |否 | D:\ | 指定應作為 Windows Server 2016 映像發行目的地的位置。|
+|IncludeLatestCU|否| False | 將最新的 Windows Server 2016 累積更新套用到新的 VHD。 檢查指令碼，以確定它指向最新的更新，或使用以下兩個選項之一。 |
+|CUUri |否 | https://yourupdateserver/winservupdate2016 | 設定從特定的 URI 執行 Windows Server 2016 累積更新。 |
+|CUPath |否 | C:\winservupdate2016 | 設定從本機路徑執行 Windows Server 2016 累積更新。 如果您是在已中斷連線的環境中部署 Azure Stack 執行個體，此選項會相當有用。|
 
 ## <a name="next-steps"></a>後續步驟
 

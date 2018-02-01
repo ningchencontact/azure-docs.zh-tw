@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>資料科學虛擬機器 (DSVM) 上的範本
 
@@ -34,7 +34,7 @@ DSVM 包含 Jupyter Notebook 形式的完整解決的範本，以及並非以 Ju
 | **Python** 語言  | **Python** 中的範例說明的情況包括連接 Azure 雲端資料存放區，以及使用 **Azure Machine Learning**。  <br/> [螢幕擷取畫面](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Julia** 語言  | **Julia** 中的範例詳細說明 Julia 中的繪圖、Julia 中的深入學習、從 Julia 呼叫 C 和 Python 等等。 <br/> [螢幕擷取畫面](#julia-language) |<br/> **Windows**：<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**：<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft 辨識工具組)  | Microsoft 的辨識工具組小組發佈的深入學習範例。  <br/> [螢幕擷取畫面](#cntk) | <br/>**Windows**：<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**：<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** Notebooks  | 運用 **MXnet** 型神經網路的深入學習範例。 有從初學者到進階案例的各種不同 Notebook。  <br/> [螢幕擷取畫面](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** Notebooks  | 運用 **MXNet** 型神經網路的深入學習範例。 有從初學者到進階案例的各種不同 Notebook。  <br/> [螢幕擷取畫面](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | 與 **Azure Machine Learning** Studio 互動，對於雲端型評分工作流程，從本機定型的模型建立 Web 服務端點。 <br/> [螢幕擷取畫面](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | 運用 **caffe2** 型神經網路的深入學習範例。 有一些 Notebook 的設計是讓使用者熟悉 caffe2 以及如何有效使用它，包括映像預先處理、資料集建立、迴歸和使用預先定型的模型之類的範例。 <br/> [螢幕擷取畫面](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | 使用 **H2O** 的 Python 架構範例處理許多真實案例問題。 <br/> [螢幕擷取畫面](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -83,7 +83,7 @@ DSVM 包含 Jupyter Notebook 形式的完整解決的範本，以及並非以 Ju
 <br/>![CNTK 範例](./media/cntk-samples2.png)<br/>
 <br/>![CNTK 範例](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![MXnet 範例](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 

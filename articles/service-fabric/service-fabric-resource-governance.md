@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="resource-governance"></a>資源控管 
+# <a name="resource-governance"></a>資源管理 
 
 在相同的節點或叢集上執行多個服務時，有可能發生某個服務取用較多資源而導致處理序中的其他服務無資源可用的情況。 此問題稱為「擾鄰」問題。 Azure Service Fabric 可讓開發人員指定每一個服務的保留和限制，以確保有資源可用並限制資源使用量。
 
 > 繼續本文之前，建議您先熟悉 [Service Fabric 應用程式模型](service-fabric-application-model.md)和 [Service Fabric 主控模型](service-fabric-hosting-model.md)。
 >
 
-## <a name="resource-governance-metrics"></a>資源控管計量 
+## <a name="resource-governance-metrics"></a>資源管理計量 
 
 Service Fabric 可依[服務套件](service-fabric-application-model.md)支援資源控管。 指派給服務套件的資源可以進一步在程式碼套件之間分配。 指定的資源限制也意謂著資源的保留。 Service Fabric 支援使用兩個內建的[計量](service-fabric-cluster-resource-manager-metrics.md)來指定每個服務套件的 CPU 與記憶體：
 
@@ -110,13 +110,12 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 
 ## <a name="specify-resource-governance"></a>指定資源控管 
 
-指定資源控管限制時，是在應用程式資訊清單 (ServiceManifestImport 區段) 中指定，如下列範例所示：
+指定資源管理限制時，是在應用程式資訊清單 (ServiceManifestImport 區段) 中指定，如下列範例所示：
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 因此，在此範例中，CodeA1 會獲得 2/3 的核心，CodeA2 則獲得 1/3 的核心 (並具有同樣的彈性保證保留)。 如果未針對程式碼套件指定 CpuShares，Service Fabric 就會在它們之間平均分配核心。
 
 記憶體限制是絕對的，因此這兩個程式碼套件都限制為 1024 MB 的記憶體 (並具有同樣的彈性保證保留)。 程式碼套件 (容器或處理序) 無法配置超過此限制的記憶體，如果嘗試這麼做，將會導致記憶體不足的例外狀況。 若要讓資源限制強制能夠運作，應該為服務套件內的所有程式碼套件都指定記憶體限制。
+
+### <a name="using-application-parameters"></a>使用應用程式參數
+
+指定資源管理時，可以使用[應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)管理多個應用程式組態。 下列範例會示範應用程式參數的使用方式：
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+在此範例中，會針對生產環境設定預設參數值，其中每個服務套件會得到 4 個核心和 2 GB 的記憶體。 可以使用應用程式參數檔案變更預設值。 在此範例中，可以使用一個參數檔案在本機測試應用程式，其中應用程式會得到比生產環境中還少的資源： 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> 從 Service Fabric 版本 6.1 開始，可以使用應用程式參數指定資源控管。<br> 
+>
+> 當應用程式參數用來指定資源控管時，Service Fabric 無法降級至 6.1 版之前的版本。 
+
 
 ## <a name="other-resources-for-containers"></a>容器的其他資源
 除了 CPU 和記憶體，也可以為容器指定其他資源限制。 這些限制是在程式碼套件層級指定，並會在容器啟動時套用。 不同於 CPU 和記憶體，叢集資源管理員不會知道這些資源，也不會進行任何容量檢查或負載平衡。 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 
@@ -41,14 +41,14 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 ||||  
 |-|-|-|  
 |**屬性**|**Azure Blob**|**Azure 檔案**|  
-|持久性選項|LRS、ZRS、GRS (和 RA-GRS，以便獲得更高的可用性)|LRS、GRS|  
+|持久性選項|LRS、ZRS、GRS、RA-GRS|LRS、ZRS、GRS|  
 |協助工具|REST API|REST API<br /><br /> SMB 2.1 和 SMB 3.0 (標準檔案系統 API)|  
 |連線能力|REST API -- 全球|REST API - 全球<br /><br /> SMB 2.1 -- 區域內<br /><br /> SMB 3.0 -- 全球|  
 |端點|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |目錄|一般命名空間|真實目錄物件|  
 |名稱區分大小寫|區分大小寫|不區分大小寫，但保留大小寫|  
-|容量|最大 500 TB 的容器|5 TB 檔案共用|  
-|輸送量|每個區塊 Blob 最大每秒 60 MB|每個共用最大每秒 60 MB|  
+|Capacity|最大 500 TB 的容器|5 TB 檔案共用|  
+|Throughput|每個區塊 Blob 最大每秒 60 MB|每個共用最大每秒 60 MB|  
 |物件大小|最大 200 GB/區塊 Blob|最大 1TB/檔案|  
 |計費的容量|根據寫入的位元組|根據檔案大小|  
 |用戶端程式庫|多種語言|多種語言|  
@@ -62,15 +62,15 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 ||||  
 |-|-|-|  
 |**屬性**|**Azure 磁碟**|**Azure 檔案**|  
-|範圍|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
-|快照與複製|是|否|  
+|Scope|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
+|快照與複製|yes|否|  
 |組態|在啟動虛擬機器時連線|在虛擬機器啟動之後連線|  
 |驗證|內建|使用 net use 設定|  
 |清除|自動|手動|  
 |使用 REST 存取|無法存取 VHD 內的檔案|可以存取儲存在共用中的檔案|  
 |大小上限|4 TB 磁碟|5 TB 檔案共用和 1 TB 共用內的檔案|  
 |最大 8KB IOps|500 IOps|1000 IOps|  
-|輸送量|每個磁碟最大每秒 60 MB|每個檔案共用最大每秒 60 MB|  
+|Throughput|每個磁碟最大每秒 60 MB|每個檔案共用最大每秒 60 MB|  
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -78,4 +78,4 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
   
 某些 SMB 功能並不適用於雲端。 如需詳細資訊，請參閱 [Azure 檔案服務不支援的功能](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)。
   
-如需有關磁碟的詳細資訊，請參閱[管理磁碟及映像](../../virtual-machines/windows/about-disks-and-vhds.md)和[如何將資料磁碟連結到 Windows 虛擬機器](../../virtual-machines/windows/classic/attach-disk.md)。
+如需有關磁碟的詳細資訊，請參閱[管理磁碟及映像](../../virtual-machines/windows/about-disks-and-vhds.md)和[如何將資料磁碟連結到 Windows 虛擬機器](../../virtual-machines/windows/attach-managed-disk-portal.md)。

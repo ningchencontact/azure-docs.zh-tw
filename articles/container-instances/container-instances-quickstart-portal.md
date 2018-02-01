@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
 
@@ -61,6 +61,15 @@ Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器�
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-portal-07]
 
+## <a name="delete-the-container"></a>刪除容器
+完成容器的作業後，請選取 **mycontainer-myc1** 容器群組，然後按一下 [刪除]。
+
+![刪除 Azure 入口網站中的容器執行個體][aci-portal-09]
+
+這會啟動確認對話方塊，出現提示時請選取 [是]。
+
+![Azure 入口網站中容器執行個體的刪除確認][aci-portal-10]
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
 [aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
@@ -70,6 +79,8 @@ Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器�
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
+[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## <a name="next-steps"></a>後續步驟
 

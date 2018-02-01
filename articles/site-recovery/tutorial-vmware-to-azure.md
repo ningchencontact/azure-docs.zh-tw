@@ -5,26 +5,23 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: tutorial
+ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
-此教學課程會示範如何設定災害復原至 Azure，在內部部署 VMware vm 執行 Windows。 在本教學課程中，您了解如何：
+本教學課程說明如何為執行 Windows 的內部部署 VMware VM，設定 Azure 的災害復原。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 指定複寫來源和目標。
-> * 設定來源複寫環境，包括在內部部署復原站台元件，以及目標複寫環境。
+> * 設定來源複寫環境，包括內部部署 Site Recovery 元件和目標複寫環境。
 > * 建立複寫原則
 > * 啟用 VM 複寫
 
@@ -38,123 +35,83 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="select-a-replication-goal"></a>選取複寫目標
 
-1. 在**復原服務保存庫**，按一下保存庫名稱， **ContosoVMVault**。
-2. 在**入門**，按一下 站台復原。 然後按一下 **準備基礎結構**。
-3. 在**保護目標** > **所在位置位於您機器**，選取**內部**。
-4. 在 * * 您要在其中複寫您的機器，選取**To Azure**。
-5. 在**虛擬化您機器**，選取**是的與 VMware vSphere Hypervisor**。 然後按一下 [確定] 。
+1. 在 [復原服務保存庫] 中，按一下保存庫名稱 **ContosoVMVault**。
+2. 在 [使用者入門] 中，按一下 Site Recovery。 然後按一下 [準備基礎結構]。
+3. 在 [保護目標] > [您的電腦位於何處] 中，選取 [內部部署]。
+4. 在 [您要將電腦複寫到何處] 中，選取 [複製到 Azure]。
+5. 在 [您的電腦虛擬化了嗎] 中，選取 [是，使用 VMware vSphere Hyperviso]。 然後按一下 [確定] 。
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境
 
-若要設定的來源環境，您可以下載 Site Recovery 整合安裝程式檔案。 您執行安裝程式安裝在內部部署站台復原元件、 在保存庫中註冊 VMware server 並探索內部部署 Vm。
-
-### <a name="verify-on-premises-site-recovery-requirements"></a>確認內部部署站台復原需求
-
-您需要單一的高可用性，內部部署 VMware VM 主應用程式在內部部署站台復原元件。 元件包括組態伺服器、 處理序伺服器和主要目標伺服器。
+若要設定來源環境，您需要單一、高可用性、內部部署的電腦來裝載 Site Recovery 元件。 元件包含組態伺服器、處理序伺服器和主要目標伺服器。
 
 - 組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
-- 處理序伺服器可作為複寫閘道。 接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 也您想要複寫，Vm 上安裝行動服務的處理序伺服器和執行自動探索的內部部署 VMware Vm。
+- 處理序伺服器可作為複寫閘道。 接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並且在內部部署 VMware VM 上執行自動探索。
 - 主要目標伺服器會在從 Azure 容錯回復期間，處理複寫資料。
 
-VM 應符合下列需求。
+若要將組態伺服器設定為高可用性 VMware VM，您可以下載備妥的 OVF 範本，然後將範本匯入 VMware 以建立 VM。 設定組態伺服器之後，您可在保存庫進行註冊。 註冊之後，Site Recovery 會探索內部部署 VMware VM。
 
-| **需求** | **詳細資料** |
-|-----------------|-------------|
-| CPU 核心數目| 8 |
-| RAM | 12 GB |
-| 磁碟數量 | 3 - 作業系統磁碟、處理序伺服器快取磁碟、保留磁碟機 (適用於容錯回復) |
-| - 磁碟可用空間 (處理序伺服器快取) | 600 GB |
-| 磁碟可用空間 (保留磁碟) | 600 GB |
-| 作業系統版本 | Windows Server 2012 R2 |
-| 作業系統地區設定 | 英文 (en-us) |
-| VMware vSphere PowerCLI 版本 | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") |
-| Windows Server 角色 | 請勿啟用這些角色：Active Directory Domain Services、Internet Information Services、Hyper-V |
-| NIC 類型 | VMXNET3 |
-| IP 位址類型 | 靜態 |
-| 連接埠 | 443 (控制通道協調流程)<br/>9443 (資料傳輸)|
+### <a name="download-the-vm-template"></a>下載 VM 範本
 
-此外： 
-- 請確定在 VM 上的系統時鐘與時間伺服器同步處理的。 時間必須同步處理到 15 分鐘內。 如果較大安裝程式將會失敗。
-安裝程式會失敗。
-- 請確定組態伺服器 VM 可以存取這些 Url:
+1. 在保存庫中，移至 [準備基礎結構] > [來源]。
+2. 在 [準備來源] 中，按一下 [+組態伺服器]。
+3. 在 [新增伺服器] 中，檢查 [VMware 的組態伺服器] 是否出現在 [伺服器類型] 中。
+4. 下載組態伺服器的開放式虛擬化格式 (OVF) 範本。
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-- 請確定 IP 位址為基礎的防火牆規則允許 Azure 的通訊。
-    - 允許[Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)、 連接埠 443 (HTTPS)，和連接埠 9443 （資料複寫）。
-    - 允許訂用帳戶的 Azure 區域和美國西部 (用於存取控制和身分識別管理) 使用 IP 位址範圍。
+  > [!TIP]
+  您可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版本的組態伺服器範本。
+
+## <a name="import-the-template-in-vmware"></a>在 VMware 中匯入範本
+
+1. 使用 VMWare vSphere 用戶端，登入 VMware vCenter 伺服器或 vSphere ESXi 主機。
+2. 在 [檔案] 功能表上，選取 [部署 OVF 範本]以啟動 [部署 OVF 範本] 精靈。  
+
+     ![OVF 範本](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+
+3. 在 [選取來源] 中，指定所下載 OVF 的位置。
+4. 在 [檢閱詳細資料] 中，按 [下一步]。
+5. 在 [選取名稱和資料夾] 和 [選取組態] 中，接受預設設定。
+6. 在 [選取儲存體] 中，於 [選取虛擬磁碟格式] 中選取 [Thick Provision Eager Zeroed]，以達到最佳效能。
+4. 在其餘精靈的頁面中，接受所有的預設設定。
+5. 在 [準備要完成] 中：
+  - 若要使用預設設定來設定 VM，請選取 [在部署後開啟電源] > [完成]。
+  - 如果您想要新增額外的網路介面，請清除 [在部署後開啟電源]，然後選取 [完成]。 預設會使用單一 NIC 部署組態伺服器範本，但您可以在部署後新增其他 NIC。
+
+  
+## <a name="add-an-additional-adapter"></a>新增其他介面卡
+
+如果您想要將其他 NIC 新增至組態伺服器，請在保存庫中註冊伺服器前這麼做。 註冊之後，便不支援新增其他介面卡。
+
+1. 在 vSphere 用戶端詳細目錄中，以滑鼠右鍵按一下 VM 並選取 [編輯設定]。
+2. 在 [硬體] 中，按一下 [新增] > [乙太網路介面卡]。 然後按 [下一步] 。
+3. 選取介面卡類型和網路。 
+4. 若要在 VM 開啟時連線虛擬 NIC，請選取 [在電源開啟時連線]。 按 [下一步] > [完成]，然後按一下 [確定]。
 
 
-### <a name="download-the-site-recovery-unified-setup-file"></a>下載 Site Recovery 整合安裝程式檔案
+## <a name="register-the-configuration-server"></a>註冊組態伺服器 
 
-1. 在保存庫 >**準備基礎結構**，按一下 **來源**。
-1. 在**準備來源**，按一下  **+ 設定伺服器**。
-2. 在 [新增伺服器] 中，檢查 [設定伺服器] 是否出現在 [伺服器類型] 中。
-3. 下載 Site Recovery 統一安裝的安裝檔案。
-4. 下載保存庫註冊金鑰。 您會在執行統一安裝時用到此金鑰。 該金鑰在產生後會維持 5 天有效。
+1. 從 VMWare vSphere 用戶端主控台開啟 VM。
+2. VM 會開機進入 Windows Server 2016 安裝體驗。 接受授權合約，並指定系統管理員密碼。
+3. 在安裝完成之後，以系統管理員身分登入 VM。
+4. 您第一次登入時，Azure Site Recovery 設定工具會啟動。
+5. 指定用來向 Site Recovery 註冊組態伺服器的名稱。 然後按 [下一步] 。
+6. 此工具會檢查 VM 是否可連線到 Azure。 建立連線之後，按一下 [登入] 以登入您的 Azure 訂用帳戶。 認證必須能夠存取您要在其中註冊組態伺服器的保存庫。
+7. 此工具會執行一些設定工作，而後重新開機。
+8. 再次登入電腦。 組態伺服器管理精靈將會自動啟動。
 
-   ![設定來源](./media/tutorial-vmware-to-azure/source-settings.png)
+### <a name="configure-settings-and-connect-to-vmware"></a>進行設定並連線到 VMware
 
-### <a name="set-up-the-configuration-server"></a>設定組態伺服器
+1. 在組態伺服器管理精靈的 [設定連線] 中，選取將要接收複寫流量的 NIC。 然後按一下 [儲存] 。 您之後無法變更此設定。
+2. 在 [選取復原服務保存庫] 中，選取您的 Azure 訂用帳戶及相關的資源群組和保存庫。
+3. 在 [安裝第三方軟體] 中，接受授權合約，然後按一下 [下載並安裝] 來安裝 MySQL Server。
+4. 按一下 [安裝 VMware PowerLCI]。 在您執行這項作業之前，確定所有瀏覽器視窗都已關閉。 然後按一下 [繼續]
+5. 在 [驗證設備設定] 中，系統會在您繼續之前驗證必要條件。
+6. 在 [設定 vCenter 伺服器/vSphere ESXi 伺服器] 中，指定 vCenter 伺服器或 vSphere 主機 (您要複寫的 VM 位於其上) 的 FQDN 或 IP 位址。 指定伺服器正在接聽的連接埠，以及要用於保存庫中 VMware 伺服器的易記名稱。
+7. 指定組態伺服器將用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 按一下 [新增]，然後按一下 [繼續]。
+8. 在 [設定虛擬機器認證] 中，指定將用於在電腦上自動安裝行動服務的使用者名稱和密碼 (已啟用複寫時)。 若為 Windows 電腦，此帳戶需具備您要複寫之電腦的本機系統管理員權限。 若為 Linux，請提供根帳戶的詳細資料。
+9. 按一下 [完成設定] 以完成註冊。 
+10. 註冊完成後，在 Azure 入口網站中確認組態伺服器和 VMware 伺服器都已列在保存庫中的 [來源] 頁面上。 然後按一下 [確定] 以設定目標設定。
 
-1. 執行統一安裝的安裝檔案。
-2. 在 [開始之前] 中，選取 [安裝組態伺服器和處理序伺服器]，然後按 [下一步]。
-
-3. 在 [第三方軟體授權] 中，按一下 [我接受] 來下載並安裝 MySQL，然後按 [下一步]。
-
-4. 在 [註冊] 中，選取您從保存庫下載的註冊金鑰。
-
-5. 在 [網際網路設定] 中，指定在設定伺服器上執行的 Provider 要如何透過網際網路連接到 Azure Site Recovery。
-
-   - 如果您想要使用電腦上目前設定的 Proxy 來連線，請選取 [使用 Proxy 伺服器連線至 Azure Site Recovery]。
-   - 如果您想要讓提供者直接連接，請選取 [不使用 Proxy 伺服器直接連線到 Azure Site Recovery]。
-   - 如果現有的 Proxy 需要驗證，或是您想要讓 Provider 使用自訂 Proxy 來連線，請選取 [以自訂 Proxy 設定連線]，並指定位址、連接埠和認證。
-
-   ![防火牆](./media/tutorial-vmware-to-azure/combined-wiz4.png)
-
-6. 在 [必要條件檢查] 中，安裝程式會執行檢查來確定可以執行安裝。 如果出現有關「通用時間同步處理檢查」的警告，請確認系統時鐘上的時間 ([日期和時間] 設定) 與時區相同。
-
-   ![必要條件](./media/tutorial-vmware-to-azure/combined-wiz5.png)
-
-7. 在 [MySQL 組態] 中，建立認證來登入已安裝的 MySQL 伺服器執行個體。
-
-8. 在 [環境詳細資料] 中，選取 [是] 來保護 VMware VM。 安裝程式會檢查是否已安裝 PowerCLI 6.0。
-
-9. 在 [安裝位置] 中，選取您要安裝二進位檔及儲存快取的位置。 您選取的磁碟機至少必須有 5 GB 的可用磁碟空間，但我們建議快取磁碟機至少有 600 GB 的可用空間。
-
-10. 在 [網路選取] 中，指定設定伺服器用來傳送和接收複寫資料的接聽程式 (網路介面卡和 SSL 連接埠)。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 我們也會開啟連接埠 443，該連接埠用來協調複寫作業。 請勿使用連接埠 443 來傳送或接收複寫流量。
-
-11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安裝程式會安裝組態伺服器，並且向 Azure Site Recovery 服務註冊它。
-
-    ![總結](./media/tutorial-vmware-to-azure/combined-wiz10.png)
-
-    安裝完成時，會產生複雜密碼。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。 伺服器會顯示在保存庫的 [設定]  > [伺服器] 窗格上。
-
-### <a name="configure-automatic-discovery"></a>設定自動探索
-
-若要探索 VM，組態伺服器必須連線到內部部署 VMware 伺服器。 基於本教學課程的目的，請使用具有伺服器管理員權限的帳戶，新增 vCenter 伺服器或 vSphere 主機。 您建立此帳戶中的[上一個教學課程](tutorial-prepare-on-premises-vmware.md)。 
-
-若要新增的帳戶：
-
-1. 在 VM 組態伺服器上啟動**CSPSConfigtool.exe**。 它會是桌面上可用的捷徑，位於「安裝位置」\home\svsystems\bin 資料夾中。
-
-2. 按一下 [管理帳戶]  >  [加入帳戶]。
-
-   ![新增帳戶](./media/tutorial-vmware-to-azure/credentials1.png)
-
-3. 在 [帳戶詳細資料] 中，新增將用來進行自動探索的帳戶。
-
-   ![詳細資料](./media/tutorial-vmware-to-azure/credentials2.png)
-
-若要新增 VMware server:
-
-1. 開啟 [Azure 入口網站](https://portal.azure.com)，然後按一下 [所有資源]。
-2. 按一下名為 **ContosoVMVault** 的復原服務保存庫。
-3. 按一下 [Site Recovery] > [準備基礎結構] > [來源]。
-4. 選取**+ vCenter**，可連線至 vCenter server 或 vSphere ESXi 主機。
-5. 在 [新增 vCenter] 中，為伺服器指定易記的名稱。 然後指定 IP 位址或 FQDN。
-6. 讓連接埠保持設為 443，除非您的 VMware 伺服器在不同的連接埠上接聽要求。
-7. 選取用來連線至此伺服器的帳戶。 按一下 [SERVICEPRINCIPAL] 。
 
 Site Recovery 會使用指定的設定連接至 VMware 伺服器並探索 VM。
 

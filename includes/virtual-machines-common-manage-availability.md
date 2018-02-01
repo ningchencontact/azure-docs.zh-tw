@@ -36,9 +36,7 @@
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>將受控磁碟使用於可用性設定組中的 VM
 如果您目前使用 VM 搭配非受控磁碟，強烈建議您[將可用性設定組中的 VM 轉換為受控磁碟](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)。
 
-[受控磁碟](../articles/virtual-machines/windows/managed-disks-overview.md)可確保可用性設定組中的 VM 磁碟彼此充分隔離，以避免單一失敗點，為可用性設定組提供更高的可靠性。 它的作法是自動將磁碟放在不同的儲存體叢集中。 如果因為硬體或軟體失敗造成儲存體叢集失敗，則只有磁碟在這些戳記上的 VM 執行個體才會失敗。
-
-![受控磁碟 FD](./media/virtual-machines-common-manage-availability/md-fd.png)
+[受控磁碟](../articles/virtual-machines/windows/managed-disks-overview.md)可確保可用性設定組中的 VM 磁碟彼此充分隔離，以避免單一失敗點，為可用性設定組提供更高的可靠性。 作法是自動將磁碟置於不同儲存體容錯網域 (戳記)，並將它們與 VM 容錯網域對齊。 如果因為硬體或軟體失敗而造成儲存體容錯網域失敗，則只有磁碟是在這些儲存體容錯網域上的 VM 執行個體才會失敗。
 
 > [!IMPORTANT]
 > 受控可用性設定組的容錯網域數目會依區域而異，每個區域會有兩個或三個。 下表顯示每個區域擁有的數目：
@@ -49,7 +47,7 @@
 
 1. **將與 VM 相關聯的所有磁碟 (OS 和資料) 保留於相同的儲存體帳戶中**
 2. 將更多VHD 新增至儲存體帳戶之前，**請檢閱儲存體帳戶中非受控磁碟數目的[限制](../articles/storage/common/storage-scalability-targets.md)**
-3. **針對可用性設定組中的每個 VM 使用個別的儲存體帳戶。** 請勿與相同可用性設定組中的多個 VM 共用儲存體帳戶。 如果遵循上述最佳做法，即可接受位於不同可用性設定組的 VM 共用儲存體帳戶。
+3. **針對可用性設定組中的每個 VM 使用個別的儲存體帳戶。** 請勿與相同可用性設定組中的多個 VM 共用儲存體帳戶。 如果遵循上述的最佳做法，即可接受位於不同可用性設定組的 VM 共用儲存體帳戶 ![非受控磁碟 FD](./media/virtual-machines-common-manage-availability/md-fd.png)
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>將每個應用程式層設定至不同的可用性設定組中
 若虛擬機器幾乎都一樣，且對應用程式而言具有相同用途，建議您針對每個應用程式層設定可用性設定組。  若您在相同的可用性設定組中放入兩個不同的階層，則可以一次重新啟動位於相同應用程式層的所有虛擬機器。 您可以藉由在可用性設定組中為每個層設定至少兩部虛擬機器，確保每個層中至少有一部虛擬機器可供使用。

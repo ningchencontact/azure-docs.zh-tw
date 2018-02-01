@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="requirements-constraints"></a>需求和限制
 
-* 在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 美國中西部、加拿大中部，和美國西部 2 可以使用為不同地區中虛擬網路建立對等互連的預覽版功能。 在不同的區域中將虛擬網路對等互連之前，您必須先[註冊您的訂用帳戶](virtual-network-create-peering.md#register)以進行預覽。 如果您尚未完成預覽的註冊，嘗試在不同區域中的虛擬網路之間建立對等互連就會失敗。
+* 在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 美國中西部、加拿大中部、美國西部 2、韓國南部、英國南部、英國西部、加拿大東部、印度南部、印度中部和印度西部可以使用為不同地區中虛擬網路建立對等互連的預覽版功能。 在不同的區域中將虛擬網路對等互連之前，您必須先[註冊您的訂用帳戶](virtual-network-create-peering.md#register)以進行預覽。 如果您尚未完成預覽的註冊，嘗試在不同區域中的虛擬網路之間建立對等互連就會失敗。
     > [!WARNING]
     > 與公開上市版相比，跨區域建立之虛擬網路對等互連的可用性和可靠性較低。 虛擬網路對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
 
@@ -118,9 +118,9 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="pricing"></a>價格
 
-我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需詳細資訊，請參閱 [價格頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
+我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
 
-## <a name="next-steps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 
 * 完成虛擬網路對等互連教學課程。 虛擬網路對等互連是建立於虛擬網路之間，而這兩個虛擬網路是透過存在於相同或不同訂用帳戶中的相同或不同部署模型所建立。 完成下列其中一個案例的教學課程：
 

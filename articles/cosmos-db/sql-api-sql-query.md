@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 查詢
 
@@ -926,7 +926,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
 
 下表顯示 SQL API 中支援的彙總函式清單。 `SUM` 和 `AVG` 是對數值執行，而 `COUNT`、`MIN`和 `MAX` 則可對數字、字串、布林值和 null 執行。 
 
-| 使用量 | 描述 |
+| 使用量 | 說明 |
 |-------|-------------|
 | COUNT | 以運算式傳回項目的數目。 |
 | SUM   | 以運算式傳回所有值的總和。 |
@@ -1404,7 +1404,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 每個數學函式都會執行計算，通常以提供來作為引數的輸入值為基礎，並傳回數值。 以下是支援的內建數學函數資料表。
 
 
-| 使用量 | 描述 |
+| 使用量 | 說明 |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [[ABS (num_expr)](#bk_abs) | 傳回指定之數值運算式的絕對 (正) 值。 |
 | [CEILING (num_expr)](#bk_ceiling) | 傳回大於或等於指定之數值運算式的最小整數值。 |
@@ -1498,12 +1498,12 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 ### <a name="string-functions"></a>字串函數
 下列純量函數會對字串輸入值執行作業，並傳回字串、數值或布林值。 以下是內建字串函數的資料表：
 
-| 使用量 | 描述 |
+| 使用量 | 說明 |
 | --- | --- |
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |傳回指定字串運算式的字元數目 |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |傳回字串，該字串是串連兩個或多個字串值的結果。 |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |傳回字串運算式的一部分。 |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束 |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭 |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束 |
 | [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。 |
@@ -1568,7 +1568,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 ### <a name="array-functions"></a>陣列函數
 下列純量函數會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。 以下是內建陣列函數的資料表：
 
-| 使用量 | 描述 |
+| 使用量 | 說明 |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |傳回指定陣列運算式的元素數目。 |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |傳回串連兩個或多個陣列值之結果的陣列。 |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Azure 檔案服務目前支援儲存體分析計量，但還不支援記錄。
 >
-> 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶目前未啟用度量或記錄功能。
+> 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶，可支援度量或記錄功能。 先前的 ZRS 帳戶 (已重新命名為 ZRS 傳統) 不再支援度量或記錄功能。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體](storage-redundancy.md#zone-redundant-storage)。 
 > 
 > 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱 [監視、診斷及疑難排解 Microsoft Azure 儲存體](../storage-monitoring-diagnosing-troubleshooting.md)。
 >
@@ -148,7 +148,7 @@ ms.lasthandoff: 10/11/2017
 1. 確定 [狀態] 已設為 [開啟]，然後選取要為其啟用記錄的 [服務]。
 
     ![在 Azure 入口網站中設定記錄。](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。 若要檢視記錄資料，您可以使用 [Microsoft 儲存體總管](http://storageexplorer.com)之類的儲存體總管，或使用儲存體用戶端程式庫或 PowerShell 以程式設計方式進行檢視。
 

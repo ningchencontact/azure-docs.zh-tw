@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>管理 Azure-SSIS 整合執行階段
 [建立 Azure SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)文章向您示範如何使用 Azure Data Factory 建立 Azure-SSIS 整合執行階段 (IR)。 本文提供關於重新設定現有 Azure-SSIS 整合執行階段的資訊。  
@@ -25,9 +25,28 @@ ms.lasthandoff: 01/13/2018
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
+
+## <a name="data-factory-ui"></a>Data Factory UI 
+您可以使用 Data Factory UI 來停止、編輯/重新設定或刪除 Azure-SSIS IR。 
+
+1. 在 **Data Factory UI** 中，切換至 [編輯] 索引標籤。若要啟動 Data Factory UI，請按一下您資料處理站首頁上的 [製作與監視]。
+2. 在左窗格中，按一下 [連線]。
+3. 在右窗格中，切換至 [整合執行階段]。 
+4. 您可以使用 [動作] 資料行中的按鈕來**停止**、**編輯**或**刪除**整合執行階段。 [動作] 資料行中的 [程式碼] 按鈕可讓您檢視與整合執行階段關聯的 JSON 定義。  
+    
+    ![Azure SSIS IR 的動作](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>重新設定 Azure-SSIS IR
+1. 按一下 [動作] 資料行中的 [停止] 來停止整合執行階段。 若要重新整理清單檢視，請按一下工具列上的 [重新整理]。 在 IR 停止之後，您會看到第一個動作會讓您啟動 IR。 
+
+    ![Azure SSIS IR 的動作 - 停止後](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. 按一下 [動作] 資料行中的 [編輯] 按鈕。 在 [整合執行階段設定] 視窗中，變更設定 (例如節點大小、節點數目，或每個節點的平行執行數上限)。 
+3. 若要重新啟動 IR，請按一下 [動作] 資料行中的 [啟動] 按鈕。     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 佈建並啟動 Azure SSIS 整合執行階段的執行個體之後，您可以執行一連串`Stop` - `Set` - `Start` PowerShell Cmdlet 來重新設定。 例如，下列 PowerShell 指令碼會將配置給 Azure-SSIS 整合執行階段執行個體的節點數目變更為五。
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>重新設定 Azure-SSIS IR
+### <a name="reconfigure-an-azure-ssis-ir"></a>重新設定 Azure-SSIS IR
 
 1. 首先，使用 [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) Cmdlet 停止 Azure-SSIS 整合執行階段。 此命令會釋出其所有節點並停止計費。
 
@@ -45,7 +64,7 @@ ms.lasthandoff: 01/13/2018
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>刪除 Azure-SSIS IR
+### <a name="delete-an-azure-ssis-ir"></a>刪除 Azure-SSIS IR
 1. 首先，列出資料處理站下所有現有的 Azure SSIS IR。
 
     ```powershell

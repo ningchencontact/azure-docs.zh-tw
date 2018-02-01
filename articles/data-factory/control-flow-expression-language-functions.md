@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/15/2017
 "name": "value"
 ```
 
- （或者）  
+ (或)  
   
 ```json
 "name": "@pipeline().parameters.password"
@@ -56,22 +56,22 @@ ms.lasthandoff: 12/15/2017
   
  使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- 使用字串插補時，結果一律為字串。 假設我有定義`myNumber`為`42`和`myString`為`foo`:  
+ 使用字串插補時，結果一律為字串。 假設我將 `myNumber` 定義為 `42`，將 `myString` 定義為 `foo`：  
   
 |JSON 值|結果|  
 |----------------|------------|  
-|「@pipeline（)。 parameters.myString"| 傳回 `foo` 做為字串。|  
-|"@{管線 （).parameters.myString}"| 傳回 `foo` 做為字串。|  
-|「@pipeline（)。 parameters.myNumber"| 傳回 `42` 做為「編號」。|  
-|"@{管線 （).parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
-|「 解決辦法就是: @{管線 （).parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
-|「@concat(' 解決辦法就是: '，string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
-|「 解決辦法就是: @ @ {管線 （).parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
+|"@pipeline().parameters.myString"| 傳回 `foo` 做為字串。|  
+|"@{pipeline().parameters.myString}"| 傳回 `foo` 做為字串。|  
+|"@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」。|  
+|"@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
+|"Answer is: @{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
+|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
+|"Answer is: @@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
   
 ### <a name="examples"></a>範例
 
 #### <a name="a-dataset-with-a-parameter"></a>具有參數的資料集
-在下列範例中，BlobDataset 會採用名為**路徑**。 若要設定的值，則會使用該值**folderPath**屬性，方法是使用下列運算式： `@{dataset().path}`。 
+在以下範例中，BlobDataset 會採用一個名為 **path** 的參數。 其值會藉由下列運算式，用來設定 **folderPath** 屬性的值：`@{dataset().path}`。 
 
 ```json
 {
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/15/2017
 ```
 
 #### <a name="a-pipeline-with-a-parameter"></a>具有參數的管線
-在下列範例中，管線會**inputPath**和**outputPath**參數。 **路徑**參數化的 blob 資料集使用這些參數的值來設定。 這裡使用的語法是： `pipeline().parameters.parametername`。 
+在以下範例中，管線會採用 **inputPath** 和 **outputPath** 參數。 這些參數的值會用來設定參數化 Blob 資料集的 **path**。 這裡使用的語法為：`pipeline().parameters.parametername`. 
 
 ```json
 {

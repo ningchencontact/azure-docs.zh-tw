@@ -45,12 +45,12 @@
 ### [連接到自訂網域控制站](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服務
-### [減輕風險的理論式執行](mitigate-se.md}
 ### [一般管理工作](cloud-services-how-to-manage-portal.md)
 ### [設定雲端服務](cloud-services-how-to-configure-portal.md)
 ### [使用 Azure 自動化管理雲端服務](automation-manage-cloud-services.md)
 ### [設定自動調整](cloud-services-how-to-scale-portal.md)
 ### [使用 Python 管理 Azure 資源](cloud-services-python-how-to-use-service-management.md)
+### [減輕風險的理論式執行](mitigate-se.md)
 
 ### [客體 OS 修補程式](cloud-services-guestos-msrc-releases.md)
 ### 客體 OS 淘汰
