@@ -1,6 +1,6 @@
 ---
-title: "錯誤處理最佳作法 Azure Active Directory 驗證程式庫 (ADAL) 用戶端"
-description: "提供錯誤處理指導和最佳作法，ADAL 的用戶端應用程式。"
+title: "Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法"
+description: "提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。"
 services: active-directory
 documentationcenter: 
 author: danieldobalian
@@ -13,57 +13,57 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>錯誤處理最佳作法 Azure Active Directory 驗證程式庫 (ADAL) 用戶端
+# <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
-本文提供指引的錯誤類型，開發人員，使用時可能遇到 ADAL 驗證使用者。 當使用 ADAL，有幾種情況下，開發人員可能需要步驟及處理錯誤。 適當處理錯誤能確保好的經驗，並限制使用者需要登入的次數。
+本文提供開發人員在使用 ADAL 來驗證使用者時，可能會遇到的錯誤類型指引。 使用 ADAL 時，在幾種情況下，開發人員可能需要介入並處理錯誤。 適當處理錯誤可確保良好的終端使用者體驗，並限制終端使用者需要登入的次數。
 
-在本文中，我們會探討 ADAL，以及如何您的應用程式可以處理的每個案例正確支援每個平台的特定案例。 錯誤指引會分成兩個更廣泛的類別，根據 ADAL 的應用程式開發介面所提供的 token 模式：
+在本文中，我們會針對 ADAL 所支援的每個平台來探討特定案例，以及說明您的應用程式如何才能正確地處理每個案例。 錯誤指引會根據 ADAL API 所提供的權杖取得模式，分成兩個更廣泛的類別：
 
-- **AcquireTokenSilent**： 用戶端會嘗試以無訊息模式取得的權杖 (UI)，而且如果 ADAL 失敗可能會失敗。 
-- **AcquireToken**： 用戶端可以嘗試無訊息擷取，但也可以執行互動式要求需要登入。
+- **AcquireTokenSilent**：用戶端嘗試以無訊息方式 (無 UI) 取得權杖，但可能會在 ADAL 失敗時跟著失敗。 
+- **AcquireToken**：用戶端可以嘗試無訊息擷取，但也可以執行需要登入的互動式要求。
 
 > [!TIP]
-> 您最好使用 ADAL 和 Azure AD 時，記錄所有錯誤和例外狀況。 記錄不會只有助於了解您的應用程式的整體健全狀況，但也是非常重要時偵錯更廣泛的問題。 雖然您的應用程式可能從某些錯誤中復原，它們可能會提示更廣泛的設計問題，需要變更程式碼才能解決。 
+> 使用 ADAL 和 Azure AD 時，最好能記錄所有錯誤和例外狀況。 記錄不只有助於了解應用程式的整體健康情況，在進行更廣泛的問題偵錯時也十分重要。 雖然您的應用程式可以從某些錯誤中復原，但這些錯誤可能暗示有更廣泛的設計問題，且需要變更程式碼才能解決。 
 > 
-> 當本文件涵蓋實作的錯誤狀況時，您必須登先前討論過的原因的錯誤碼和描述。 請參閱[錯誤和記錄參考](#error-and-logging-reference)記錄程式碼的範例。 
+> 實作本文件涵蓋的錯誤狀況時，您必須記錄錯誤碼和描述 (原因如先前所述)。 請參閱[錯誤和記錄參考](#error-and-logging-reference)，以取得記錄程式碼的範例。 
 >
 
 ## <a name="acquiretokensilent"></a>AcquireTokenSilent
 
-AcquireTokenSilent 嘗試保證終端使用者不會看到使用者介面 (UI) 的語彙基元。 有幾種情況下，無訊息擷取可能會失敗，並透過互動式要求或預設處理常式所處理的需求。 我們會探討何時及如何採用以下各節中的每個案例的細節。
+AcquireTokenSilent 會嘗試取得可保證終端使用者不會看到使用者介面 (UI) 的權杖。 在幾種情況下，無訊息擷取可能會失敗，且需透過互動式要求或預設處理常式來處理。 在以下幾節中，我們會探討何時及如何運用每個案例的細節。
 
-沒有一組作業系統，這可能需要處理應用程式特定的錯誤所產生的錯誤。 如需詳細資訊，請參閱中的 「 作業系統 」 錯誤 > 區段[錯誤和記錄參考](#error-and-logging-reference)。 
+有一組由作業系統產生的錯誤，其可能需要應用程式特有的錯誤處理。 如需詳細資訊，請參閱[錯誤和記錄參考](#error-and-logging-reference)中的「作業系統錯誤」一節。 
 
 ### <a name="application-scenarios"></a>應用程式案例
 
-- [原生用戶端](active-directory-dev-glossary.md#native-client)應用程式 （iOS、 Android、.NET 桌面或 Xamarin）
-- [Web 用戶端](active-directory-dev-glossary.md#web-client)呼叫的應用程式[資源](active-directory-dev-glossary.md#resource-server)(.NET)
+- [原生用戶端](active-directory-dev-glossary.md#native-client)應用程式 (iOS、Android、.NET 桌面或 Xamarin)
+- 呼叫[資源](active-directory-dev-glossary.md#resource-server) (.NET) 的 [Web 用戶端](active-directory-dev-glossary.md#web-client)應用程式
 
-### <a name="error-cases-and-actionable-steps"></a>錯誤的情況下，可採取動作的步驟
+### <a name="error-cases-and-actionable-steps"></a>錯誤案例和可採取動作的步驟
 
-基本上，有兩種情況下的 AcquireTokenSilent 錯誤：
+基本上，AcquireTokenSilent 錯誤有兩種情況：
 
 | 案例 | 說明 |
 |------|-------------|
-| **案例 1**： 錯誤會解析與互動式登入 | 有效的語彙基元不足所造成的錯誤，互動式要求是必要的。 具體而言，快取查閱及無效/過期的重新整理語彙基元要求 AcquireToken 呼叫，以解析。<br><br>在這些情況下，使用者需要提示您登入。 應用程式可以選擇以進行互動式的要求，立即之後使用者互動 （例如遇到登入 按鈕），, 或更新版本。 選擇取決於應用程式所要的行為。<br><br>請參閱下節以取得這種情況下，診斷錯誤中的程式碼。|
-| **案例 2**： 不能解析使用互動式登入錯誤 | 網路和暫時性/暫存錯誤或其他失敗，執行互動式 AcquireToken 要求無法解決問題。 不需要互動式登入提示，可以讓終端使用者也不耐煩。 ADAL 會自動嘗試中的大部分錯誤 AcquireTokenSilent 失敗的單一重試。<br><br>用戶端應用程式也可以嘗試稍後的位置，重試，而何時及如何操作取決於應用程式行為和所需的使用者體驗。 例如，應用程式可以執行執行 AcquireTokenSilent 重試。 請稍候幾分鐘，或在偵測到某些使用者動作。 立即重試將會導致應用程式進行節流處理，並不會嘗試。<br><br>後續的重試相同的錯誤並不表示用戶端應該互動式要求使用 AcquireToken，因為它無法解決錯誤。<br><br>請參閱下節以取得這種情況下，診斷錯誤中的程式碼。 |
+| **案例 1**：可透過互動式登入解決錯誤 | 若為缺少有效權杖所造成的錯誤，則必須有互動式要求。 具體而言，快取查閱及無效/過期的重新整理權杖需要 AcquireToken 呼叫才能解決。<br><br>在這些案例中，終端使用者必須在提示下登入。 應用程式可選擇在終端使用者互動之後 (例如點擊登入按鈕)，立即執行互動式要求，或是稍後再執行。 這項選擇取決於應用程式所需的行為。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。|
+| **案例 2**：無法透過互動式登入解決錯誤 | 對於網路和暫時性/暫存錯誤或其他失敗，執行互動式 AcquireToken 要求並無法解決問題。 不必要的互動式登入提示也可能讓終端使用者不耐煩。 對於大部分有關 AcquireTokenSilent 失敗的錯誤，ADAL 會自動嘗試一次重試。<br><br>用戶端應用程式也可以稍後嘗試重試，但何時及如何操作，則取決於應用程式行為和所需的使用者體驗。 例如，應用程式可以在幾分鐘後或回應某些終端使用者動作之後，執行 AcquireTokenSilent 重試。 立即重試將會導致應用程式進行節流處理，不該嘗試這麼做。<br><br>後續具有相同錯誤的重試失敗並不表示用戶端應使用 AcquireToken 執行互動式要求，因為這無法解決錯誤。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。 |
 
 ### <a name="net"></a>.NET
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- acquireTokenSilentAsync(...)
-- acquireTokenSilentSync(...) 
-- [deprecated] acquireTokenSilent(...)
-- [deprecated] acquireTokenByRefreshToken(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
+- [已淘汰] acquireTokenSilent(…)
+- [已淘汰] acquireTokenByRefreshToken(…) 
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```csharp
 try{
@@ -100,13 +100,13 @@ catch (AdalException e) {
 
 ### <a name="android"></a>Android
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- acquireTokenSilentSync(...)
+- acquireTokenSilentSync(…)
 - acquireTokenSilentAsync(...)
-- [deprecated] acquireTokenSilent(...)
+- [已淘汰] acquireTokenSilent(…)
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```java
 // *Inside callback*
@@ -136,11 +136,11 @@ public void onError(Exception e) {
 
 ### <a name="ios"></a>iOS
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```objc
 [context acquireTokenSilentWithResource:[ARGS], completionBlock:^(ADAuthenticationResult *result) {
@@ -170,50 +170,50 @@ public void onError(Exception e) {
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者識別的地方的情況下，AcquireToken 嘗試取得權杖以無訊息模式第一次，然後顯示 UI，如有必要 （除非傳遞 PromptBehavior.Never）。 需要應用程式識別的地方的情況下，AcquireToken 嘗試取得權杖，但不會顯示 UI，因為沒有任何使用者。  
+AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身分識別的情況下，AcquireToken 會嘗試先以無訊息模式取得權杖，然後視需要顯示 UI (除非通過 PromptBehavior.Never)。 在需要應用程式識別碼的情況下，AcquireToken 會嘗試取得權杖，但不會顯示 UI，因為沒有終端使用者。  
 
-錯誤處理時處理 AcquireToken 錯誤，會相依於平台和案例的應用程式嘗試達成。  
+處理 AcquireToken 錯誤時，錯誤處理會取決於平台和應用程式嘗試達到的情況。  
 
-作業系統也可以產生一組需要錯誤處理相依於特定的應用程式的錯誤。 如需詳細資訊，請參閱 「 作業系統錯誤 」 中[錯誤和記錄參考](#error-and-logging-reference)。 
+作業系統也可能產生一組錯誤，其需要的錯誤處理取決於特定應用程式。 如需詳細資訊，請參閱[錯誤和記錄參考](#error-and-logging-reference)中的「作業系統錯誤」。 
 
 ### <a name="application-scenarios"></a>應用程式案例
 
-- 原生用戶端應用程式 （iOS、 Android、.NET 桌面或 Xamarin）
-- 呼叫資源應用程式開發介面 (.NET) 的 web 應用程式
+- 原生用戶端應用程式 (iOS、Android、.NET Desktop 或 Xamarin)
+- 呼叫資源 API (.NET) 的 Web 應用程式
 - 單一頁面應用程式 (JavaScript)
-- 服務對服務應用程式 （.NET、 Java）
-  - 所有的案例，包括代表的
-  - 代表的特定案例
+- 服務對服務應用程式 (.NET、Java)
+  - 所有案例 (包括代表性案例)
+  - 代表性特有案例
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>錯誤的情況下，可採取動作的步驟執行： 原生用戶端應用程式
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>錯誤案例和可採取動作的步驟：原生用戶端應用程式
 
-如果您正在建置原生用戶端應用程式，有幾個錯誤處理情況下，將其與網路問題、 暫時性失敗和其他平台特定錯誤相關聯。 在大部分情況下，應用程式不應該執行立即重試，但而是等候提示登入的使用者互動。  
+如果您正在建置原生用戶端應用程式，則需考量幾個錯誤處理案例，而這些案例與網路問題、暫時性失敗和其他平台特有錯誤相關。 在大部分情況下，應用程式不應該執行立即重試，而是等候會產生登入提示的終端使用者互動。  
 
-有幾個特殊情況下，單一的重試可解決此問題。 例如，使用者必須啟用裝置上的資料，或完成時的 Azure AD broker 初始失敗後下載。 
+在幾個特殊案例中，一次重試即可解決此問題。 例如，使用者必須啟用裝置上的資料時，或在第一次失敗後完成 Azure AD 訊息代理程式的下載時。 
 
-在失敗的情況下，應用程式可能會允許使用者執行提示重試某些互動的 UI。 比方說，如果裝置離線時發生失敗，而不是立即重試失敗重試提示 AcquireToken 」 再重新登入一次 」 按鈕。 
+在失敗的案例中，應用程式可顯示 UI，讓使用者執行可提示重試的某些互動。 比方說，如果裝置因為離線錯誤而發生失敗，[請嘗試重新登入] 按鈕會提示進行 AcquireToken 重試，而不是立即重試失敗的作業。 
 
-原生應用程式中的錯誤處理可以來定義兩種情況下：
+原生應用程式中的錯誤處理可以依據兩種案例來定義：
 
 |  |  |
 |------|-------------|
-| **案例 1**:<br>非可重試的錯誤 （大部分的情況下） | 1.請勿嘗試立即重試。 呈現 UI 為基礎之特定錯誤會叫用重試 （「 登入再試一次 」、 「 下載 Azure AD broker 應用程式 」 等） 的使用者。 |
-| **案例 2**:<br>重試錯誤 | 1.執行單一重試，因為使用者輸入產生成功狀態。<br><br>2.如果重試失敗，呈現 UI 為基礎之特定錯誤會叫用重試 （「 登入再試一次 」、 「 下載 Azure AD broker 應用程式 」 等） 的使用者。 |
+| **案例 1**：<br>無法重試的錯誤 (大部分的案例) | 1.請勿嘗試立即重試。 根據可叫用重試的特定錯誤顯示終端使用者 UI ([請嘗試重新登入]、[請下載 Azure AD 訊息代理程式的應用程式] 等)。 |
+| **案例 2**：<br>可重試的錯誤 | 1.執行一次重試，因為終端使用者可能已進入可招致成功的狀態。<br><br>2.如果重試失敗，請根據可叫用重試的特定錯誤顯示終端使用者 UI ([請嘗試重新登入]、[請下載 Azure AD 訊息代理程式的應用程式] 等)。 |
 
 > [!IMPORTANT]
-> 如果使用者帳戶的無訊息的呼叫並中斷傳遞給 ADAL，後續的互動式要求可讓使用者使用不同的帳戶登入。 之後成功 AcquireToken，使用的使用者帳戶，應用程式必須確認登入的使用者與應用程式的本機使用者的物件相符。 不相符的狀況不會產生例外狀況 （Objective C 的除外），但應視為在使用者本機已知之前驗證要求 （例如失敗的無訊息呼叫） 的情況下。
+> 如果使用者帳戶透過無訊息呼叫傳遞給 ADAL，但失敗了，則後續的互動式要求可讓終端使用者使用不同帳戶進行登入。 透過使用者帳戶成功執行 AcquireToken 後，應用程式必須確認登入的使用者與應用程式的本機使用者物件相符。 不相符並不會產生例外狀況 (Objective C 除外)，但如果在驗證要求之前，本機已知某個使用者 (例如失敗的無訊息呼叫)，則應考量不相符的情況。
 >
 
 #### <a name="net"></a>.NET
 
-下列指導方針提供的所有非 silent AcquireToken(...) 搭配中的錯誤處理範例ADAL 方法*除了*: 
+下列指引提供搭配所有有訊息 AcquireToken(…) ADAL 方法的錯誤處理範例，但以下除外： 
 
-- AcquireTokenAsync (...，IClientAssertionCertification，...)
-- AcquireTokenAsync (...，ClientCredential，...)
-- AcquireTokenAsync (...，ClientAssertion，...)
-- AcquireTokenAsync(...,UserAssertion,...)   
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion,…)   
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```csharp
 try {
@@ -247,14 +247,14 @@ catch (AdalException e) {
 ```
 
 > [!NOTE]
-> ADAL.NET 支援 PromptBehavior.Never，其行為像 AcquireTokenSilent，它都有額外的考量。
+> ADAL.NET 有額外的考量，因為其支援行為類似 AcquireTokenSilent 的 PromptBehavior.Never。
 >
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- acquireToken(..., PromptBehavior.Never)
+- acquireToken(…, PromptBehavior.Never)
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```csharp
     try {acquireToken(…, PromptBehavior.Never);
@@ -284,9 +284,9 @@ catch(AdalServiceException e) {
 
 #### <a name="android"></a>Android
 
-下列指導方針提供的所有非 silent AcquireToken(...) 搭配中的錯誤處理範例ADAL 的方法。 
+下列指引提供搭配所有有訊息 AcquireToken(…) ADAL 方法的錯誤處理範例。 
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```java
 AcquireTokenAsync(…);
@@ -313,9 +313,9 @@ public void onError(Exception e) {
 
 #### <a name="ios"></a>iOS
 
-下列指導方針提供的所有非 silent AcquireToken(...) 搭配中的錯誤處理範例ADAL 的方法。 
+下列指引提供搭配所有有訊息 AcquireToken(…) ADAL 方法的錯誤處理範例。 
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```objc
 [context acquireTokenWithResource:[ARGS], completionBlock:^(ADAuthenticationResult *result) {
@@ -338,15 +338,15 @@ public void onError(Exception e) {
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>錯誤的情況下，可採取動作的步驟執行： Web 應用程式呼叫資源應用程式開發介面 (.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>錯誤案例和可採取動作的步驟：呼叫資源 API (.NET) 的 Web 應用程式
 
-如果您要建置.NET web 應用程式中呼叫取得資源的使用授權碼的權杖，只有所需的程式碼是普通的情況下的預設處理常式。 
+如果您要建置可使用資源授權碼取得權杖的 .NET Web 應用程式，唯一需要的程式碼就是適用於一般案例的預設處理常式。 
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```csharp
 try {
@@ -363,19 +363,19 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>錯誤的情況下，可採取動作的步驟執行： 單一頁面應用程式 (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>錯誤案例和可採取動作的步驟：單頁應用程式 (adal.js)
 
-如果您正在建置使用 AcquireToken adal.js 的單一頁面應用程式，錯誤處理程式碼是類似於一般的無訊息呼叫。  特別是在 adal.js，AcquireToken 永遠不會顯示 UI。 
+如果您要使用 adal.js 與 AcquireToken 建置單頁應用程式，錯誤處理程式碼則與一般無訊息呼叫類似。  尤其在 adal.js 中，AcquireToken 永遠不會顯示 UI。 
 
-失敗的 AcquireToken 有下列情況：
+失敗的 AcquireToken 案例如下所示：
 
 |  |  |
 |------|-------------|
-| **案例 1**:<br>解析具有互動式要求 | 1.如果 login() 失敗，就不會執行立即重試。 只有在使用者動作提示重試後重試。|
-| **案例 2**:<br>不使用互動式要求 Resolvable。 錯誤是發生可重試。 | 1.執行單一重試，因為主要的使用者輸入產生成功狀態。<br><br>2.如果重試失敗，會向使用者呈現基礎可以叫用重試的特定錯誤的動作 （「 嘗試再次登入 」）。 |
-| **案例 3**:<br>不使用互動式要求 Resolvable。 錯誤不是可重試。 | 1.請勿嘗試立即重試。 向使用者呈現根據可以叫用重試的特定錯誤的動作 （「 嘗試再次登入 」）。 |
+| **案例 1**：<br>可透過互動式要求解決 | 1.如果 login() 失敗，請勿執行立即重試。 只在使用者動作提示重試之後重試。|
+| **案例 2**：<br>無法透過互動式要求解決。 錯誤可重試。 | 1.執行一次重試，因為終端使用者可能已進入可招致成功的狀態。<br><br>2.如果重試失敗，請根據可叫用重試的特定錯誤，向終端使用者顯示動作 ([請嘗試重新登入])。 |
+| **案例 3**：<br>無法透過互動式要求解決。 錯誤不可重試。 | 1.請勿嘗試立即重試。 請根據可叫用重試的特定錯誤，向終端使用者顯示動作 ([請嘗試重新登入])。 |
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```javascript
 AuthContext.acquireToken(…, function(error, errorDesc, token) {
@@ -400,25 +400,25 @@ AuthContext.acquireToken(…, function(error, errorDesc, token) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-service-to-service-applications-net-only"></a>錯誤的情況下，可採取動作的步驟執行： 服務對服務應用程式 (僅限.NET)
+### <a name="error-cases-and-actionable-steps-service-to-service-applications-net-only"></a>錯誤案例和可採取動作的步驟：服務對服務應用程式 (僅限.NET)
 
-如果您正在建置使用 AcquireToken 的服務對服務應用程式，有幾個程式碼必須處理的索引鍵錯誤。 錯誤傳回呼叫的應用程式 （適用於代表的情況下） 或套用的重試策略是唯一的資源失敗。 
+如果您要建置使用 AcquireToken 的服務對服務應用程式，則程式碼必須處理幾個關鍵錯誤。 解決錯誤的唯一辦法是將錯誤傳回呼叫應用程式 (適用於代表性案例)，或套用重試策略。 
 
 #### <a name="all-scenarios"></a>所有案例
 
-如*所有*服務對服務應用程式案例，包括代表的：
+對於「所有」服務對服務應用程式案例 (包括代表性案例)：
 
-- 請勿嘗試立即重試。 ADAL 單一特定重試的嘗試失敗的要求。 
-- 只繼續提示使用者或應用程式的動作之後重試一次重試。 比方說，在某些設定的間隔運作的精靈應用程式必須等候，直到下一個重試間隔。
+- 請勿嘗試立即重試。 ADAL 會針對某些失敗的要求嘗試一次重試。 
+- 只有在使用者或應用程式動作提示重試之後，才繼續重試。 例如，依設定的間隔運作的精靈應用程式必須等到下一個間隔才能重試。
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- AcquireTokenAsync (...，IClientAssertionCertification，...)
-- AcquireTokenAsync (...，ClientCredential，...)
-- AcquireTokenAsync (...，ClientAssertion，...)
-- AcquireTokenAsync (...，UserAssertion，...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion, …)
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```csharp
 try {
@@ -435,15 +435,15 @@ catch (AdalException e) {
 }  
 ```
 
-#### <a name="on-behalf-of-scenarios"></a>代表的案例
+#### <a name="on-behalf-of-scenarios"></a>代表性案例
 
-如*代表的*服務對服務應用程式案例。
+對於「代表性」服務對服務應用程式案例。
 
-下列指導方針提供錯誤處理搭配使用 ADAL 方法的範例： 
+下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 
-- AcquireTokenAsync (...，UserAssertion，...)
+- AcquireTokenAsync(…, UserAssertion, …)
 
-您的程式碼實作，如下所示：
+您的程式碼實作方式如下所示：
 
 ```csharp
 try {
@@ -475,36 +475,36 @@ catch (AdalException e) {
 }
 ```
 
-我們已建置[完整的範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)示範此案例。
+我們已建置[完整範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)來示範此案例。
 
-## <a name="error-and-logging-reference"></a>錯誤和記錄的參考
+## <a name="error-and-logging-reference"></a>錯誤和記錄參考
 
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>ADAL 程式庫錯誤
 
-若要瀏覽特定 ADAL 錯誤中的原始程式碼[azure-activedirectory-程式庫-如-dotnet 儲存機制](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58)是最佳的錯誤參考。
+若要探索特定的 ADAL 錯誤，[azure-activedirectory-library-for-dotnet 存放庫](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58)中的原始程式碼最適合作為錯誤參考。
 
 #### <a name="guidance-for-error-logging-code"></a>錯誤記錄程式碼的指引
 
-根據正在有效執行的平台的 ADAL.NET 記錄變更。 請參閱[記錄文件](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics)如何啟用記錄功能的程式碼。
+ADAL.NET 記錄會因所使用的平台而有所不同。 請參閱[記錄文件](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics)，以了解如何啟用記錄功能的程式碼。
 
 ### <a name="android"></a>Android
 
 #### <a name="adal-library-errors"></a>ADAL 程式庫錯誤
 
-若要瀏覽特定 ADAL 錯誤中的原始程式碼[azure activedirectory-程式庫-如為 android 儲存機制](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33)是最佳的錯誤參考。
+若要探索特定的 ADAL 錯誤，[azure-activedirectory-library-for-android 存放庫](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33)中的原始程式碼最適合作為錯誤參考。
 
 #### <a name="operating-system-errors"></a>作業系統錯誤
 
-Android OS 錯誤公開會透過 AuthenticationException ADAL 中，會識別為 「 SERVER_INVALID_REQUEST"，而且可以進一步細微透過錯誤描述。 應用程式可能會選擇要顯示 UI 的兩個重要訊息是：
+Android OS 錯誤會透過 ADAL 中的 AuthenticationException 公開，並可識別為 "SERVER_INVALID_REQUEST"，而且可以透過錯誤描述進一步細分。 應用程式可能會選擇顯示 UI 的兩則重要訊息如下：
 
 - SSL 錯誤 
   - [終端使用者使用 Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [憑證鏈結已標示為額外的憑證，下載 （請連絡 IT 系統管理員的使用者需要）](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - 裝置不信任的根 CA。 請連絡 IT 系統管理員。 
-- 網路相關的錯誤 
-  - [網路問題可能與 SSL 憑證驗證相關](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)，可以嘗試單一重試
+  - [憑證鏈結中有標示為另外下載的憑證 (使用者需要連絡 IT 系統管理員)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
+  - 裝置不信任根 CA。 請連絡 IT 系統管理員。 
+- 網路相關錯誤 
+  - [可能與 SSL 憑證驗證相關的網路問題](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)，可嘗試一次重試
 
 #### <a name="guidance-for-error-logging-code"></a>錯誤記錄程式碼的指引
 
@@ -530,15 +530,15 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 #### <a name="adal-library-errors"></a>ADAL 程式庫錯誤
 
-若要瀏覽特定 ADAL 錯誤中的原始程式碼[azure-activedirectory-程式庫-如-objc 儲存機制](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295)是最佳的錯誤參考。
+若要探索特定的 ADAL 錯誤，[azure-activedirectory-library-for-objc 存放庫](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295)中的原始程式碼最適合作為錯誤參考。
 
 #### <a name="operating-system-errors"></a>作業系統錯誤
 
-當使用者使用網頁檢視，以及驗證的本質，登入期間可能會發生 Io 錯誤。 這可能被因狀況，例如 SSL 錯誤、 逾時或網路錯誤：
+使用者使用 Web 檢視時可能會在登入時造成 iOS 錯誤 (驗證特性)。 這可能是由 SSL 錯誤、逾時或網路錯誤等原因所造成：
 
-- 共用權限，登入不是持續性和快取顯示空白。 您可以將下列程式碼行加入至 keychain 來解決：`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
-- 針對錯誤 NsUrlDomain 組，動作會根據應用程式邏輯而變更。 請參閱[NSURLErrorDomain 參考文件](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations)可以處理的特定執行個體。
-- 請參閱[ADAL Obj C 常見問題](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror)由 ADAL OBJECTIVE-C 團隊負責維護的常見錯誤的清單。
+- 對於權利共用，登入不具持續性，且快取呈現空白。 將下列程式碼行新增至金鑰鏈可以解決問題：`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- 對於 NsUrlDomain 錯誤集，動作會因應用程式邏輯而有所不同。 請參閱 [NSURLErrorDomain 參考文件](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations)，以了解可以處理的特定執行個體。
+- 請參閱 [ADAL Obj-C 常見問題](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror)，以取得由 ADAL Objective-C 小組負責維護的常見錯誤清單。
 
 #### <a name="guidance-for-error-logging-code"></a>錯誤記錄程式碼的指引
 
@@ -556,7 +556,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 }];
 ```
 
-### <a name="guidance-for-error-logging-code---javascript"></a>錯誤記錄程式碼-JavaScript 的指引 
+### <a name="guidance-for-error-logging-code---javascript"></a>錯誤記錄程式碼的指引 - JavaScript 
 
 ```javascript
 0: Error1: Warning2: Info3: Verbose
@@ -574,8 +574,9 @@ window.Logging = {
 * [Azure AD 驗證案例][AAD-Auth-Scenarios]
 * [整合應用程式與 Azure Active Directory][AAD-Integrating-Apps]
 
-使用之後要提供意見反應，並幫助我們改善並圖形內容的註解區段。
+使用下方的註解區段來提供意見反應，並協助我們改善及設計我們的內容。
 
+[![登入按鈕][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ window.Logging = {
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[![登入按鈕][AAD-登入]][AAD-登入][AAD-登入]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

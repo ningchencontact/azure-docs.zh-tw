@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>使用 Azure 成本管理來管理成本
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 11/23/2017
 
 例如，您可能會想要取得工程成本上的補償。 您必須能根據資源成本，向工程團隊顯示您所需的特定金額。 您可以向他們顯示包含所有標記為*工程*之已使用資源的報表。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用自訂標記來配置成本。

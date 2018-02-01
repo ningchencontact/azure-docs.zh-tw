@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>從 VHD 檔案建立自訂映像
 
@@ -57,7 +57,16 @@ ms.lasthandoff: 01/12/2018
 
 1. 從下拉式功能表中選取 **VHD**。 這是將用來建立新自訂映像的 VHD。 如果需要，請選取 [使用 PowerShell 上傳 VHD]。
 
-1. 如果用來建立自訂映像的映像不是由 Microsoft 發行的，您也可以輸入計劃名稱、計劃方案及計劃發行者。
+1. 如果用來建立自訂映像的映像不是授權的映像 (由 Microsoft 發行)，您也可以輸入計劃名稱、計劃方案及計劃發行者。
+
+   - **方案名稱：**輸入建立此自訂映像的 Marketplace 映像 (SKU) 名稱 
+   - **方案提供：**輸入建立此自訂映像的 Marketplace 映像產品 (提供) 
+   - **方案發行者：**輸入建立此自訂映像的 Marketplace 映像發行者
+
+   > [!NOTE]
+   > 如果您用來建立自訂映像的映像**不**是授權的映像，則這些欄位是空的，而且您可選擇填入。 如果影像**是**授權的映像，則欄位會自動填入方案資訊。 如果您嘗試在此情況下變更這些，則會顯示警告訊息。
+   >
+   >
 
 1. 選取 [確定]  ，以建立自訂映像。
 

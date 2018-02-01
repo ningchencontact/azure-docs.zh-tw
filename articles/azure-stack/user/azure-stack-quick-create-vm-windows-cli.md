@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 36930cc38b6c1933b58651f6c63e7d5d453c447d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>使用 Azure CLI 在 Azure Stack 上建立 Windows 虛擬機器
 
 Azure CLI 可用來從命令列建立和管理 Azure Stack 資源。 本指南詳細說明如何使用 Azure CLI 在 Azure Stack 中建立 Windows Server 2016 虛擬機器。 建立虛擬機器之後，您就會與遠端桌面連線、安裝 IIS，然後檢視預設的網站。 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 * 請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增到 Azure Stack 市集。  
 
@@ -33,7 +33,7 @@ Azure CLI 可用來從命令列建立和管理 Azure Stack 資源。 本指南�
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行 [az group create](/cli/azure/group#create) 命令來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。 下列範例會在本機位置建立名為 myResourceGroup 的資源群組。
+資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。 下列範例會在本機位置建立名為 myResourceGroup 的資源群組。
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#create) 命令來建立 VM。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為密碼。 將這些值更新為適合您環境的值。 連線到虛擬機器連線時需要使用這些值。
+使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立 VM。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為密碼。 將這些值更新為適合您環境的值。 連線到虛擬機器連線時需要使用這些值。
 
 ```cli
 az vm create \
@@ -88,7 +88,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以使用 [az group delete](/cli/azure/group#delete) 命令來移除資源群組、VM 和所有相關資源。
+若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、VM 和所有相關資源。
 
 ```cli
 az group delete --name myResourceGroup

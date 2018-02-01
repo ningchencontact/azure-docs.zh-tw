@@ -3,7 +3,7 @@ title: "SQL 資料倉儲系統檢視表 | Microsoft Docs"
 description: "SQL 資料倉儲的系統檢視表內容的連結。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>系統檢視表
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 資料倉儲目錄檢視
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>適用於 SQL 資料倉儲的 SQL Server DMV
 下列 DMV 適用於「SQL 資料倉儲」，但必須透過連接到 **master** 資料庫才能執行。
@@ -137,16 +137,14 @@ ms.lasthandoff: 10/11/2017
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL 資料倉儲中可用的 SQL Server DMV
 SQL 資料倉儲公開許多 SQL Server 動態管理檢視 (DMV)。 在 SQL 資料倉儲中查詢這些檢視表時，將會報告分布區域上執行的 SQL Database 狀態。
 
-由於 SQL 資料倉儲採用 Microsoft 的 MPP 技術，SQL 資料倉儲和分析平台系統的 Parallel Data Warehouse (PDW) 都使用相同的系統檢視表。
-
-這就是為什麼每個 DMV 都有一個稱為 pdw_node_id 的特定資料行。 這是計算節點的識別碼。 在 PDW 中，計算節點是一種較強的架構概念。 在 SQL 資料倉儲中，架構更高度依賴分布區域。
+SQL 資料倉儲和分析平台系統的 Parallel Data Warehouse (PDW) 都使用相同的系統檢視。 每個 DMV 都有名為 pdw_node_id 的資料行，這是計算節點的識別碼。 
 
 > [!NOTE]
-> 若要使用這些檢視表，請將 'pdw_nodes_' 插入名稱中，如下表所示。
+> 若要使用這些檢視，將 'pdw_nodes_' 插入名稱中，如下表所示：
 > 
 > 
 
-| SQL 資料倉儲中的 DMV 名稱 | MSDN 上的 SQL Server Transact-SQL 主題連結 |
+| SQL 資料倉儲中的 DMV 名稱 | SQL Server Transact-SQL 文章|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 

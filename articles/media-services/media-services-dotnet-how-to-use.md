@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 
     2. [管理 NuGet 封裝] 對話方塊隨即出現。
 
-    3. 在線上資源庫中，搜尋「Azure MediaServices 擴充功能」，選擇 [Azure Media Services .NET SDK 擴充功能] (**windowsazure.mediaservices.extensions**)，然後按一下 [安裝] 按鈕。
+    3. 在線上資源庫中，搜尋「Azure MediaServices 擴充功能」，選擇 [Azure Media Services .NET SDK 擴充功能] \(**windowsazure.mediaservices.extensions**)，然後按一下 [安裝] 按鈕。
    
     4. 會修改專案，並新增 Media Services .NET SDK 延伸模組、Media Services .NET SDK 和其他相依組件的參考。
 4. 若要提升更乾淨的開發環境，請考慮啟用 [NuGet 封裝還原]。 如需詳細資訊，請參閱 [NuGet 封裝還原](http://docs.nuget.org/consume/package-restore)。

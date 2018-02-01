@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,8 +44,8 @@ ms.lasthandoff: 12/13/2017
 
 ![管線、活動、資料集、已連結的服務之間的關聯性](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## <a name="linked-service-json"></a>連結的服務 JSON
-Data Factory 中的連結的服務中定義的 JSON 格式，如下所示：
+## <a name="linked-service-json"></a>連結服務 JSON
+Data Factory 中的連結服務會以 JSON 格式定義如下：
 
 ```json
 {
@@ -67,13 +67,13 @@ Data Factory 中的連結的服務中定義的 JSON 格式，如下所示：
 
 屬性 | 說明 | 必要 |
 -------- | ----------- | -------- |
-name | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
-type | 連結服務的類型。 例如： AzureStorage （資料存放區） 或 AzureBatch （計算）。 請參閱 typeProperties 的描述。 | 是 |
-typeProperties | 型別屬性不同的每個資料存放區，或計算。 <br/><br/> 支援的資料存放區型別和其型別屬性，請參閱[資料集類型](#dataset-type)本文章中的資料表。 瀏覽至 資料存放區連接器文件以了解特定的資料存放區的類型屬性。 <br/><br/> 支援的計算類型和其型別屬性，請參閱[計算連結的服務](compute-linked-services.md)。 | 是 |
-connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure 整合執行階段或之自我裝載整合執行階段 （如果您的資料存放區位於私人網路）。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否
+name | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  yes |
+type | 連結服務的類型。 例如：AzureStorage (資料存放區) 或 AzureBatch (計算)。 請參閱 typeProperties 的描述。 | yes |
+typeProperties | 每個資料存放區和計算的類型屬性都不同。 <br/><br/> 如需支援的資料存放區類型及其類型屬性，請參閱本文章的[資料集類型](#dataset-type)表格。 請瀏覽資料存放區連接器的文章，以了解資料存放區特有的類型屬性。 <br/><br/> 如需支援的計算類型與其類型屬性，請參閱[計算連結服務](compute-linked-services.md)。 | yes |
+connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否
 
 ## <a name="linked-service-example"></a>已連結的服務範例
-下列連結的服務是 Azure 儲存體連結服務。 請注意，型別設定為 AzureStorage。 Azure 儲存體連結服務的型別內容包含連接字串。 Data Factory 服務會使用此連接字串連接到在執行階段資料存放區。 
+以下連結服務是 Azure 儲存體連結服務。 請注意，類型已設為 AzureStorage。 Azure 儲存體連結服務的類型屬性包含連接字串。 Data Factory 服務會在執行階段使用連接字串來連線至資料存放區。 
 
 ```json
 {
@@ -124,10 +124,10 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 
 屬性 | 說明 | 必要 |
 -------- | ----------- | -------- |
-name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
-type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-types)。 | 是 |
+name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  yes |
+type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-types)。 | yes |
 structure | 資料集的結構描述。 如需詳細資料，請參閱[資料集結構](#dataset-structure)。 | 否 |
-typeProperties | 每個類型 (例如：Azure Blob、Azure SQL 資料表) 的類型屬性都不同。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
+typeProperties | 每個類型 (例如：Azure Blob、Azure SQL 資料表) 的類型屬性都不同。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | yes |
 
 ## <a name="dataset-example"></a>資料集範例
 在下列範例中，資料集代表 SQL Database 中名為 MyTable 的資料表。
@@ -198,7 +198,7 @@ structure 中的每個資料行都包含下列屬性︰
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-name | 資料行的名稱。 | 是
+name | 資料行的名稱。 | yes
 type | 資料行的資料類型。 | 否
 culture | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設值為 `en-us`。 | 否
 format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 | 否

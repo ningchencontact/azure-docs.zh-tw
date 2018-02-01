@@ -4,7 +4,7 @@ description: "了解如何設定 Azure Active Directory 與 Grovo 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>教學課程：Azure Active Directory 與 Grovo 整合
 
@@ -32,7 +32,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Grovo 整合，您需要下列項目：
 
@@ -64,7 +64,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![企業應用程式][2]
+    ![企業應用程式刀鋒視窗][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
@@ -82,7 +82,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 在 Grovo 中，將 Azure AD 中**使用者名稱**的值，指派為 **Username** 的值，以建立連結關聯性。
 
-若要設定及測試與 Grovo 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Grovo 設定及測試 Azure AD 單一登入，您需要完成下列建構要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -112,7 +112,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  勾選 [顯示進階 URL 設定]，然後執行下列步驟：  
+4. 勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Grovo 網域與 URL 單一登入資訊](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,13 +121,13 @@ Grovo 與 Azure AD 整合提供下列優點：
     b. 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 
     ![Grovo 網域與 URL 單一登入資訊](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「識別碼」、「回覆 URL」、「登入 URL」及「轉送狀態」來更新這些值。 請連絡 [Grovo 支援小組](https://www.grovo.com/contact-us)以取得這些值。
  
-5. Grovo 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
+5. Grovo 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 請對應 [使用者識別碼] 與 **user.mail** 並設定其他屬性，如以下螢幕擷取畫面所示。
     
     ![設定單一登入屬性](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
@@ -135,20 +135,24 @@ Grovo 與 Azure AD 整合提供下列優點：
     
     | 屬性名稱 | 屬性值 |
     | ------------------- | -------------------- |    
-    | 名字              | user.givenname |
-    | 姓氏               | user.surname |
+    | 名字          | user.givenname |
+    | 姓氏           | user.surname |
+    | 電子郵件地址       | user.mail    |
+    | employeeID          | user.employeeid |
 
     a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
 
-    ![設定單一登入屬性](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![設定單一登入的新增](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![設定單一登入屬性](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![設定單一登入的新增屬性](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 
     c. 在 [值] 清單中，選取該列所顯示的值。
+
+    d. 讓 [命名空間] 保持空白。
     
-    d. 按一下 [確定] 。
+    e. 按一下 [確定] 。
 
 
 7. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。

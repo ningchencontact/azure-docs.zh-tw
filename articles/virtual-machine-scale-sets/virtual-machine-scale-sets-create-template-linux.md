@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>使用 Azure 範本建立 Linux 虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據如 CPU、記憶體需求或網路流量的資源使用量來自動調整。 在本使用者入門文章中，您要使用 Azure Resource Manager 範本來建立 Linux 虛擬機器擴展集。 您還可以使用 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure 入口網站](virtual-machine-scale-sets-create-portal.md)來建立擴展集。
@@ -135,7 +135,7 @@ fileUris 中定義的兩個指令碼  -  installserver.sh 和 workserver.py。 �
 
 [![將範本部署到 Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-您也可以使用 Azure CLI 2.0，利用 [az group deployment create](/cli/azure/group/deployment#create) 在 Linux 上安裝 Python HTTP 伺服器，如下所示：
+您也可以使用 Azure CLI 2.0，利用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 在 Linux 上安裝 Python HTTP 伺服器，如下所示：
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ az group deployment create \
 
 
 ## <a name="test-your-sample-application"></a>測試範例應用程式
-若要查看作用中的應用程式，可使用 [az network public-ip list](/cli/azure/network/public-ip#show) 取得負載平衡器的公用 IP 位址，如下所示：
+若要查看作用中的應用程式，可使用 [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) 取得負載平衡器的公用 IP 位址，如下所示：
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ az network public-ip list \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，您可以使用 [az group delete](/cli/azure/group#delete) 來移除資源群組、擴展集和所有相關資源，如下所示：
+若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 來移除資源群組、擴展集和所有相關資源，如下所示：
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

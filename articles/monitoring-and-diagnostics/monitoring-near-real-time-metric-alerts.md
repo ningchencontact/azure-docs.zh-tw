@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>近乎即時計量警示 (預覽)
 Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量警示 (預覽)。 此功能目前為公開預覽狀態。
@@ -57,26 +57,72 @@ Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量�
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>維度的標準幾近即時度量警示
-接近即時度量警示支援維度度量的警示。 維度是篩選您的權限層級度量的方式。 接近即時的度量維度度量的警示類型都支援下列資源
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>維度計量的近乎即時計量警示
+近乎即時計量警示支援維度計量的警示。 維度是篩選計量到正確層級的方式。 對於下列資源類型，支援維度計量的近乎即時計量警示
 
 * Microsoft.ApiManagement/service
-* Microsoft.storage / （僅支援美國地區的儲存體帳戶）
-* Microsoft.Storage/storageAccounts/services （僅支援美國地區的儲存體帳戶）
+* Microsoft.Storage/storageAccounts (僅支援美國地區的儲存體帳戶)
+* Microsoft.Storage/storageAccounts/services (僅支援美國地區的儲存體帳戶)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>建立近乎即時計量警示
 目前，近乎即時計量警示只能透過 Azure 入口網站來建立。 即將支援透過 PowerShell、命令列介面 (CLI) 與 Azure 監視器 REST API 來設定近乎即時計量警示。
 
-接近即時度量警示建立警示功能已移至新**Alerts(Preview)**體驗。 即使目前的警示頁面上顯示**接近即時度量加入警示**，將您重新導向至新的體驗。
+近乎即時計量警示的建立警示體驗已移至新的 **Alerts(Preview)** 功能。 即使目前的警示頁面顯示**新增近乎即時計量警示**，也會將您重新導向至新的功能。
 
-您可以建立使用所述的步驟幾近即時度量警示[這裡](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。
+您可以使用[這裡](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)所述的步驟建立近乎即時計量警示。
 
 ## <a name="managing-near-real-time-metric-alerts"></a>管理近乎即時計量警示
-一旦您建立**接近即時度量警示**，它可以使用所述的步驟來管理[這裡](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)。
+您建立**近乎即時計量警示**後，即可使用[這裡](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)所述的步驟來管理警示。
+
+## <a name="payload-schema"></a>承載結構描述
+
+POST 作業對於所有近乎即時計量警示會包含下列 JSON 承載和結構描述。
+
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解新的警示 （預覽） 體驗](monitoring-overview-unified-alerts.md)
-* [深入了解 Azure 警示 （預覽） 中的記錄檔警示](monitor-alerts-unified-log.md)
+* [深入了解新的警示 (預覽) 功能](monitoring-overview-unified-alerts.md)
+* [深入了解 Azure 警示 (預覽) 中的記錄警示](monitor-alerts-unified-log.md)
 * [深入了解 Azure 中的警示](monitoring-overview-alerts.md)

@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>如何使用 Azure 裝置佈建服務 SDK 管理裝置註冊
 「裝置註冊」會建立單一裝置或裝置群組的記錄，這些裝置可能會在某個時間點向裝置佈建服務進行註冊。 註冊記錄包含屬於該註冊一部分之裝置一開始所需的設定，包括所需的 IoT 中樞。 本文會示範如何針對您的佈建服務使用 Azure IoT 佈建服務 SDK，以程式設計方式管理裝置註冊。  這些 SDK 可從 GitHub 上取得，其位在與 Azure IoT SDK 相同的存放庫中。
@@ -25,8 +25,9 @@ ms.lasthandoff: 01/12/2018
 本文會檢閱使用 Azure IoT 佈建服務 SDK，以程式設計方式為佈建服務管理裝置註冊的高階概念。  確切的 API 呼叫可能因語言不同而有所不同。  請檢閱我們在 GitHub 上提供的範例以取得詳細資訊：
 * [JAVA 佈建服務用戶端範例](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Node.js 佈建服務用戶端範例](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [.NET 佈建服務用戶端範例](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 裝置佈建服務執行個體的連接字串
 * 裝置安全性構件：
     * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security)：

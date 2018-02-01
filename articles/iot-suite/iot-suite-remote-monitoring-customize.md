@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>自訂遠端監視預先設定解決方案
 
@@ -24,6 +24,10 @@ ms.lasthandoff: 11/10/2017
 
 * 包含原始碼和資源的 GitHub 存放庫，適用於組成預先設定解決方案的微服務。
 * 常見的自訂情節，例如新增裝置類型。
+
+下列影片提供自訂遠端監視預先設定解決方案的選項概觀：
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>專案概觀
 
@@ -52,7 +56,7 @@ ms.lasthandoff: 11/10/2017
 | 遙測代理程式   | 分析遙測串流、儲存來自 Azure IoT 中樞的訊息，並根據定義的規則產生警示。  | [可用](https://github.com/Azure/telemetry-agent-java) | [可用](https://github.com/Azure/telemetry-agent-dotnet)   |
 | UI 設定         | 從 UI 管理組態資料。 | [可用](https://github.com/azure/pcs-ui-config-java) | [可用](https://github.com/azure/pcs-ui-config-dotnet)   |
 | 儲存體介面卡   |  管理與儲存體服務之間的互動。   | [可用](https://github.com/azure/pcs-storage-adapter-java) | [可用](https://github.com/azure/pcs-storage-adapter-dotnet)   |
-| 反向 proxy     | 透過唯一端點，以受管理的方式公開私人資源。 | 尚未提供 | [可用](https://github.com/Azure/reverse-proxy-dotnet)   |
+| 反向 proxy     | 透過唯一端點，以受控方式公開私人資源。 | 尚未提供 | [可用](https://github.com/Azure/reverse-proxy-dotnet)   |
 
 Java 解決方案目前使用 .NET 驗證、模擬及反向 Proxy 微服務。 Java 版本上市時就會立即取代這些微服務。
 
@@ -78,7 +82,7 @@ Java 解決方案目前使用 .NET 驗證、模擬及反向 Proxy 微服務。 J
     CONTOSO: 'Contoso',
     ```
 
-1. 將 `Contoso` 取代為您的公司名稱。 例如：
+1. 將 `Contoso` 取代為您的公司名稱。 例如︰
 
     ```js
     CONTOSO: 'YourCo',
@@ -96,7 +100,7 @@ Java 解決方案目前使用 .NET 驗證、模擬及反向 Proxy 微服務。 J
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. 將 `Contoso.svg` 取代為您的標誌檔案名稱。 例如：
+1. 將 `Contoso.svg` 取代為您的標誌檔案名稱。 例如︰
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,7 +112,7 @@ Java 解決方案目前使用 .NET 驗證、模擬及反向 Proxy 微服務。 J
     alt="ContosoIcon"
     ```
 
-1. 將 `ContosoIcon` 取代為您的 `alt` 文字。 例如：
+1. 將 `ContosoIcon` 取代為您的 `alt` 文字。 例如︰
 
     ```js
     alt="YourCoIcon"

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -45,6 +45,7 @@ ms.lasthandoff: 12/11/2017
 * 第一個 Connect Health 代理程式至少需要一個 Azure AD Premium 授權。
 * 每多一個註冊代理程式，就需要再 25 個 Azure AD Premium 授權。
 * 代理程式計數等於所有受監視角色 (AD FS、Azure AD Connect 及/或 AD DS) 的註冊代理程式總數。
+* AAD Connect Health 授權不必對特定使用者指派授權。 您只需具有必要數量的有效授權即可。
 
 您也可以在 [Azure AD 定價頁面](https://aka.ms/aadpricing)找到授權資訊。
 
@@ -90,7 +91,7 @@ Azure AD Connect Health 具有適用於 Azure 德國的[安裝](active-directory
 
 **問：Azure AD Connect Health 是否透過傳遞 Http Proxy 運作？**
 
-可以。 若是進行中的作業，您可以將 Health 代理程式設定為使用 HTTP Proxy 來轉送輸出 HTTP 要求。
+是。 若是進行中的作業，您可以將 Health 代理程式設定為使用 HTTP Proxy 來轉送輸出 HTTP 要求。
 深入了解[設定 Health 代理程式的 HTTP Proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)。
 
 如果需要在代理程式註冊期間設定 Proxy，您可能需要預先修改 Internet Explorer 的 Proxy 設定。

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB 簡介：適用於 MongoDB 的 API
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manu
 
 **企業級**：Azure Cosmos DB 支援多個本機複本，在面對本機和區域故障時可提供 99.99% 的可用性和資料保護。 Azure Cosmos DB 有企業級的[合規性認證 (英文)](https://www.microsoft.com/trustcenter) 和安全性功能。 
 
-瞭解詳細資訊在 Azure Cosmos DB 資深程式管理員，Aleksey Savateyev 這段影片。
+透過 Azure Cosmos DB 資深專案經理 Aleksey Savateyev 的這部影片深入了解。
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
@@ -63,7 +63,7 @@ Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manu
 Azure Cosmos DB 的 MongoDB API 相關資訊已整合至整體 Azure Cosmos DB 文件，但以下有幾個線索可讓您開始使用︰
 
 * 依照下列[連線到 MongoDB 帳戶](connect-mongodb-account.md)教學課程，了解如何取得您的帳戶連接字串資訊。
-* 依照[使用 MongoChef 搭配 Azure Cosmos DB](mongodb-mongochef.md) 教學課程來了解如何在 MongoChef 中建立 Azure Cosmos DB 資料庫和 MongoDB 應用程式之間的連線。
+* 依照[使用 Studio 3T (MongoChef) 搭配 Azure Cosmos DB](mongodb-mongochef.md) 教學課程，了解如何在 Studio 3T 中建立 Azure Cosmos DB 資料庫和 MongoDB 應用程式之間的連線。
 * 依照[將資料移轉至具有 MongoDB 通訊協定支援的 Azure Cosmos DB](mongodb-migrate.md) 教學課程，將資料匯入適用於 MongoDB 的 API資料庫。
 * 使用 [Robomongo](mongodb-robomongo.md) 連線至 API for MongoDB 帳戶。
 * 使用 [GetLastRequestStatistics 命令和 Azure 入口網站計量](request-units.md#GetLastRequestStatistics)，了解您的作業使用多少 RU。

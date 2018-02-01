@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -37,7 +37,9 @@ ms.lasthandoff: 10/27/2017
 > * 將記錄從 Azure 串流到終端機
 > * 在 Azure 入口網站中管理應用程式
 
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -46,8 +48,6 @@ ms.lasthandoff: 10/27/2017
   - **Azure 開發**
 
   ![ASP.NET 和 Web 開發及 Azure 開發 (在 [Web 和雲端] 之下)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>下載範例
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 10/27/2017
 
 ![建立 App Service 方案](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| 設定  | 建議的值 | 如需 Blob 的詳細資訊， |
+| 設定  | 建議的值 | 取得詳細資訊 |
 | ----------------- | ------------ | ----|
 |**App Service 方案**| myAppServicePlan | [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
 |**位置**| 西歐 | [Azure 區域](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
@@ -146,7 +146,7 @@ ms.lasthandoff: 10/27/2017
 
 ![建立 SQL Server 執行個體](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-按一下 [確定] 。 尚不要關閉 [設定 SQL Database] 對話方塊。
+按一下 [SERVICEPRINCIPAL] 。 尚不要關閉 [設定 SQL Database] 對話方塊。
 
 ### <a name="create-a-sql-database"></a>建立 SQL Database
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/27/2017
 
 ![設定 SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-[建立 App Service] 對話方塊會顯示您已建立的資源。 按一下 [建立] 。 
+[建立 App Service] 對話方塊會顯示您已建立的資源。 按一下頁面底部的 [新增] 。 
 
 ![您已建立的資源](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -367,7 +367,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 再次以滑鼠右鍵按一下您的 Azure Web 應用程式，然後選取 [檢視設定]。
 
-在 [應用程式記錄 (檔案系統)] 下拉式清單中，選取 [詳細資訊]。 按一下 [儲存] 。
+在 [應用程式記錄 (檔案系統)] 下拉式清單中，選取 [詳細資訊]。 按一下 [檔案] 。
 
 ![將追蹤層級變更為詳細資訊](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 

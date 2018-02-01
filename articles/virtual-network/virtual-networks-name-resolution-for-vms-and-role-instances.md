@@ -3,8 +3,8 @@ title: "VM 與角色執行個體的解析"
 description: "Azure IaaS、混合式解決方案、不同雲端服務之間、Active Directory 以及使用專屬 DNS 伺服器的名稱解析案例  "
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>VM 與角色執行個體的名稱解析
 根據您使用 Azure 來裝載 IaaS、PaaS 以及混合式解決方案的方式，您可能需要允許您建立的 VM 與角色執行個體彼此通訊。 雖然可以使用 IP 位址來進行這項通訊，但是使用能輕鬆記住且不會變更的名稱會更加簡單。 
@@ -35,6 +35,7 @@ ms.lasthandoff: 10/11/2017
 | **案例** | **方案** | <bpt id="p1">**</bpt>Suffix<ept id="p1">**</ept> |
 | --- | --- | --- |
 | 位於相同雲端服務或虛擬網路中的角色執行個體或 VM 之間的名稱解析 |[Azure 提供的名稱解析](#azure-provided-name-resolution) |主機名稱或 FQDN |
+| 針對位於相同虛擬網路的角色執行個體或 VM 使用 VNET 整合的 Azure App Service (Web App、Function、Bot 等等) 名稱解析 |客戶管理的 DNS 伺服器將 vnet 之間的查詢轉送供 Azure (DNS Proxy) 解析。  請參閱 [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) |僅 FQDN |
 | 位於不同虛擬網路中的角色執行個體或 VM 之間的名稱解析 |客戶管理的 DNS 伺服器將 vnet 之間的查詢轉送供 Azure (DNS Proxy) 解析。  請參閱 [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) |僅 FQDN |
 | 解析 Azure 中角色執行個體或 VM 的內部部署電腦及伺服器名稱 |客戶管理的 DNS 伺服器 (例如內部部署的網域控制站、本機唯讀網域控制站或使用區域傳輸同步的次要 DNS)。  請參閱 [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) |僅 FQDN |
 | 從內部部署電腦解析 Azure 主機名稱 |將查詢轉送到所對應 vnet 中客戶管理的 DNS Proxy 伺服器，Proxy 伺服器將查詢轉送給 Azure 進行解析。 請參閱 [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) |僅 FQDN |
@@ -65,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 * 您無法手動註冊您自己的記錄。
 * 不支援 WINS 和 NetBIOS。 (您無法在「Windows 檔案總管」中看到您的 VM)。
 * 主機名稱必須是 DNS 相容 (只能使用 0-9、a-z 和 '-'，無法以 '-' 開始或結束。 請參閱 RFC 3696 第 2 節)。
-* 每個 VM 的 DNS 查詢流量已經過節流。 這應該不會影響大部分的應用程式。  如果觀察到要求節流，請確定用戶端快取已啟用。  如需詳細資料，請參閱 [充分利用 Azure 提供的名稱解析](#Getting-the-most-from-Azure-provided-name-resolution)。
+* 每個 VM 的 DNS 查詢流量已經過節流。 這應該不會影響大部分的應用程式。  如果觀察到要求節流，請確定用戶端快取已啟用。  如需詳細資訊，請參閱[充分利用 Azure 提供的名稱解析](#Getting-the-most-from-Azure-provided-name-resolution)。
 * 只有前 180 個雲端服務中的 VM 會在傳統部署模型中為每個虛擬網路註冊。 這並不適用於資源管理員部署模型中的虛擬網路。
 
 ### <a name="getting-the-most-from-azure-provided-name-resolution"></a>充分利用 Azure 提供的名稱解析
@@ -75,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 
 預設 Windows DNS 用戶端有內建的 DNS 快取。  某些 Linux 發行版預設不包含快取功能，因此我們建議您 (在已經確認沒有本機快取之後) 為每個 Linux VM 新增快取。
 
-有許多不同 DNS 快取封裝可用，例如 dnsmasq，以下是在最常見的散發版本上安裝 dnsmasq 的步驟：
+有許多不同的 DNS 快取套件可用。 例如，dnsmasq。 下列步驟示範如何在最常用的發行版本上安裝 dnsmasq：
 
 * Ubuntu (使用 resolvconf)：
   * 只安裝 dnsmasq 封裝 (“sudo apt-get install dnsmasq”)。
@@ -104,7 +105,7 @@ DNS 主要是 UDP 通訊協定。  因為 UDP 通訊協定並不保證訊息傳�
 * Windows 作業系統會在 1 秒後重試，然後再依序隔 2、4、4 秒後重試。 
 * 預設 Linux 安裝程式會在 5 秒之後重試。  建議您變更為以 1 秒的間隔重試 5 次。  
 
-檢查 Linux VM 上目前的設定，'cat /etc/resolv.conf' 並查看 [選項] 行，例如：
+使用 'cat /etc/resolv.conf' 命令以檢查 Linux VM 上的目前設定，然後查看 'options' 行，例如：
 
     options timeout:1 attempts:5
 
@@ -121,13 +122,13 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。  新增 [選項]
   * 執行 'service network restart' 以進行更新
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>使用專屬 DNS 伺服器的名稱解析
-在某些情況下，您的名稱解析需要可能會超過 Azure 所能提供的功能，例如使用 Active Directory 網域時，或當您需要虛擬網路 (vnet) 之間的 DNS 解析時。  為了涵蓋這些案例，Azure 提供可讓您使用專屬 DNS 伺服器的能力。  
+在某些情況下，您的名稱解析需要可能會超過 Azure 所能提供的功能，例如使用 Active Directory 網域時，或當您需要虛擬網路之間的 DNS 解析時。  為了涵蓋這些案例，Azure 提供可讓您使用專屬 DNS 伺服器的能力。  
 
 虛擬網路內的 DNS 可以將要求轉送到 Azure 內的遞迴解析程式，以解析該虛擬網路內的主機名稱。  例如，在 Azure 中執行的網域控制站 (DC) 可以回應其網域的 DNS 要求，並將所有其他要求轉送到 Azure。  這樣可讓 VM 查看您的內部部署資源 (透過 DC) 以及 Azure 提供的主機名稱 (透過轉送)。  存取 Azure 的遞迴解析程式是透過所提供的虛擬 IP 168.63.129.16。
 
-DNS 轉送也實現 vnet 之間的 DNS 解析，並使內部部署電腦能夠解析 Azure 提供的主機名稱。  為了解析 VM的主機名稱，DNS 伺服器 VM 必須位於同一個虛擬網路中，且設定為將主機名稱要求轉送到 Azure。  因為每個 vnet 的 DNS 尾碼都不同，所以您可以使用條件性轉送規則來將 DNS 要求傳送到正確的 vnet 進行解析。  下圖顯示使用此方法進行虛擬網路間 DNS 解析的兩個 vnet 及一個內部部署網路。  如需 DNS 轉寄站的範例，請參閱 [Azure 快速入門範本庫](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/)和 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder)。
+DNS 轉送也實現虛擬網路之間的 DNS 解析，並使內部部署電腦能夠解析 Azure 提供的主機名稱。  為了解析 VM的主機名稱，DNS 伺服器 VM 必須位於同一個虛擬網路中，且設定為將主機名稱要求轉送到 Azure。  因為每個 vnet 的 DNS 尾碼都不同，所以您可以使用條件性轉送規則來將 DNS 要求傳送到正確的 vnet 進行解析。  下圖顯示兩個虛擬網路及一個內部部署網路使用此方法進行虛擬網路間 DNS 解析。  如需 DNS 轉寄站的範例，請參閱 [Azure 快速入門範本庫](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/)和 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder)。
 
-![虛擬網路之間的 DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
+![虛擬網路間 DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
 使用 Azure 提供的名稱解析時，會提供一個內部 DNS 尾碼 (*.internal.cloudapp.net) 給每部使用 DHCP 的 VM。  這會啟用主機名稱解析，因為主機名稱記錄是在 internal.cloudapp.net 區域中。  使用您自己的名稱解析解決方案時，則不會提供 IDNS 尾碼給 VM，因為它會干擾其他 DNS 架構 (例如在已加入網域的案例中)。  我們會改為提供一個沒有作用的預留位置 (reddog.microsoft.com)。  
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>使用入口網站以 Azure 網路監看員管理封包擷取
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/21/2017
 - **儲存體帳戶** - 決定封包擷取是否會儲存在儲存體帳戶中。
 - **檔案** - 決定封包擷取是否會本機儲存在虛擬機器上。
 - **儲存體帳戶** - 要在其中儲存封包擷取的指定儲存體帳戶。 預設位置是 https://{儲存體帳戶名稱}.blob.core.windows.net/network-watcher-logs/subscriptions/{訂用帳戶識別碼}/resourcegroups/{資源群組名稱}/providers/microsoft.compute/virtualmachines/{虛擬機器名稱}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap。 (只在選取**儲存體**時才會啟用)
-- **本機檔案路徑** - 要儲存封包擷取的虛擬機器上之本機路徑。 (只在選取**檔案**時才會啟用)。 必須提供有效的路徑
+- **本機檔案路徑** - 要儲存封包擷取的虛擬機器上之本機路徑。 (只在選取**檔案**時才會啟用)。 必須提供有效的路徑。 針對 Linux 虛擬機器，路徑必須以 /var/captures 開頭。
 - **每個封包的最大位元組** - 來自每個封包所擷取的位元組，如果保留空白，會擷取所有位元組。
 - **每個工作階段的位元組數上限** - 已擷取的位元組總數，一旦達到此值，封包擷取便會停止。
 - **時間限制 (秒)** - 設定要停止擷取封包的時間限制。 預設值為 18000 秒。

@@ -14,18 +14,18 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 8fe080aabe3079f571f5979245adfc453dfcd459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何使用 Ruby 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本指南示範如何使用 Microsoft Azure 佇列儲存體服務執行常見案例。 這些範例是以 Ruby Azure API 撰寫的。
 所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>建立 Ruby 應用程式
-建立 Ruby 應用程式。 如需指示，請參閱 [Azure VM 上的 Ruby on Rails Web 應用程式](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+建立 Ruby 應用程式。 如需指示，請參閱[在 Linux 上的 App Service 中建立 Ruby 應用程式](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)。
 
 ## <a name="configure-your-application-to-access-storage"></a>設定您的應用程式以存取儲存體
 若要使用 Azure 儲存體，您需要下載並使用 Ruby azure 套件，這包含一組便利程式庫，能與儲存體 REST 服務通訊。

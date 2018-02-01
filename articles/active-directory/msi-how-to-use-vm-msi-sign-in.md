@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: 2e4da8cd02a1d07a3225a0c1fda4c60928dba8a4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>如何使用 Azure 虛擬機器受控服務識別 (MSI) 來登入 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
-這篇文章提供 PowerShell 和 CLI 指令碼範例使用 MSI 的服務主體和指引重要主題，例如錯誤處理登入。
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+本文提供使用 MSI 服務主體進行登入的 PowerShell 和 CLI 指令碼範例，以及錯誤處理等重要主題的指引。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

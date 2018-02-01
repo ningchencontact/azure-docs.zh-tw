@@ -1,4 +1,4 @@
-在本機終端視窗中，將 Azure 遠端新增至本機 Git 存放庫。 系統會在[建立 Web 應用程式](#create-a-web-app)為您建立此 Azure 遠端。
+在本機終端視窗中，將 Azure 遠端新增至本機 Git 存放庫。 將 _&lt;paste\_copied\_url\_here>_ 取代為您從[建立 Web 應用程式](#create)儲存之 Git 遠端的 URL。
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

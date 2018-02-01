@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 與 Amazon Web Services (AWS) 整合
 
@@ -32,7 +32,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Amazon Web Services (AWS) 整合，您需要下列項目：
 
@@ -131,6 +131,8 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 
     c. 在 [值] 清單中，選取該列所顯示的值。
+
+    d. 在 [命名空間] 文字方塊中，輸入該資料列顯示的命名空間值。
     
     d. 按一下 [確定] 。
 
@@ -230,19 +232,13 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     ![建立新的原則](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. 建立您自己的原則，以從 AWS 帳戶擷取所有角色。 在 [Create your own policy] (建立您自己的原則) 區段中，按一下 [選取] 按鈕。
-    
+25. 建立您自己的原則，以從 AWS 帳戶擷取所有角色，方法是執行下列步驟：
+
     ![建立新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. 執行下列步驟，以定義新的原則：
+    a. 在 [建立原則] 區段中按一下 [JSON] 索引標籤。
 
-    ![定義新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. 將 [原則名稱] 提供為 **AzureAD_SSOUserRole_Policy**。
-
-    b. 您可以將**描述**提供給原則，因為**此原則將允許從 AWS 帳戶擷取角色**。
-    
-    c. 在原則文件中，新增下列 JSON。
+    b. 在原則文件中，新增下列 JSON。
     
     ```
     
@@ -271,13 +267,21 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     }
     
     ```
+
+    c. 按一下 [檢閱原則] 按鈕以驗證原則。
+
+    ![定義新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. 執行下列步驟，以定義**新原則**：
+
+    ![定義新的原則](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. 將 [原則名稱] 提供為 **AzureAD_SSOUserRole_Policy**。
+
+    b. 您可以將**描述**提供給原則，因為**此原則將允許從 AWS 帳戶擷取角色**。
     
-    d. 確定您核取 [Use autoformatting for policy editing] (使用自動格式設定進行原則編輯)。
-    
-    e. 按一下底部的 [Validate Policy] (驗證原則) 按鈕。
-    
-    f. 正確驗證原則之後，即可按一下 [建立原則] 按鈕。
-    
+    c. 按一下 [建立原則] 按鈕。
+        
 27. 執行下列步驟，以在 AWS IAM 服務中建立新的使用者帳戶：
 
     a. 按一下 AWS IAM 主控台中的 [使用者] 導覽。

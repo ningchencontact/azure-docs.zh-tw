@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 682e8c9fc9e7f16d6b69cd73535c76e6c53c6b49
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb44fb1cbc279f12f970237f1498a570a63544bd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>使用 .NET SDK 在 Data Lake Store 上進行帳戶管理作業
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/10/2018
 
 如需有關如何使用 .NET SDK 在 Data Lake Store 上執行帳戶管理作業的指示，請參閱[使用.NET SDK 在 Data Lake Store 上進行檔案系統作業](data-lake-store-data-operations-net-sdk.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Visual Studio 2013、2015 或 2017**。 以下指示使用 Visual Studio 2017。
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/10/2018
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | 名稱 |CreateADLApplication |
+   | Name |CreateADLApplication |
 4. 按一下 [確定]  以建立專案。
 5. 將 NuGet 套件新增至您的專案。
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/10/2018
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; 
+                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    

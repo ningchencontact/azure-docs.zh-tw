@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/06/2017
 > * 將映像上傳至 Azure Container Registry
 > * 從 Azure Container Registry 執行容器映像
 
-您需要 ACS DC/OS 叢集，才能完成本教學課程中的步驟。 如有需要，[此指令碼範例](./../kubernetes/scripts/container-service-cli-deploy-dcos.md)可為您建立一個叢集。
+您需要有 ACS DC/OS 叢集，才能完成本教學課程中的步驟。 如有需要，[此指令碼範例](./../kubernetes/scripts/container-service-cli-deploy-dcos.md)可為您建立一個叢集。
 
 本教學課程需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure Container Registry
 
-如有需要，使用 [az acr create](/cli/azure/acr#create) 命令來建立 Azure Container Registry。 
+如有需要，使用 [az acr create](/cli/azure/acr#az_acr_create) 命令來建立 Azure Container Registry。 
 
 下列範例會以隨機產生的名稱建立登錄。 使用 `--admin-enabled` 引數也可以用管理帳戶設定登錄。
 

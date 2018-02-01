@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取 | Microsoft Docs"
+title: "在 Azure Active Directory 中設定內部部署條件式存取 | Microsoft Docs"
 description: "在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS) 來啟用對內部部署應用程式之條件式存取的逐步指南。"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -104,9 +105,9 @@ ms.lasthandoff: 12/14/2017
 
 **請參閱：**
 
-- [整合內部部署目錄與 Azure Active Directory](./connect/active-directory-aadconnect.md) -若要檢閱的概念性資訊。
+- [整合您的內部部署目錄與 Azure Active Directory](./connect/active-directory-aadconnect.md) - 可檢閱概念性資訊。
 
-- [自訂安裝的 Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) -如需安裝指示。
+- [自訂 Azure AD Connect 安裝](./connect/active-directory-aadconnect-get-started-custom.md) - 可獲得安裝指示。
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>升級您的 Active Directory 網域服務結構描述

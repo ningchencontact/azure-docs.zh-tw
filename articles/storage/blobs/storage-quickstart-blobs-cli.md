@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Blob 儲存體之間傳送物件
 
@@ -37,7 +37,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 Blob 一律會上傳到容器中。 您可以組織 Blob 群組，方式如同在電腦的資料夾中組織檔案。
 
-使用 [az storage container create](/cli/azure/storage/container#create) 命令，建立用於儲存 Blob 的容器。
+使用 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 命令，建立用於儲存 Blob 的容器。
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -50,7 +50,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 儲存在 Blob �
 首先，建立要上傳至 blob 的檔案。
 如果您是使用 Azure Cloud Shell，請使用下列命令來建立檔案：`vi helloworld` 當檔案開啟時，請按下**插入**，輸入 "Hello world"，然後按 **Esc**，並輸入 `:x`，然後按 **Enter**。
 
-在此範例中，您要將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob#upload) 命令最後一個步驟所建立的容器。
+在此範例中，您要將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 命令最後一個步驟所建立的容器。
 
 ```azurecli-interactive
 az storage blob upload \
@@ -70,11 +70,11 @@ az storage blob upload \
 
 如果 Blob 不存在，此作業會建立 Blob，若已存在，則會加以覆寫。 請上傳您所需的檔案數量，再繼續進行。
 
-若要同時上傳多個檔案，您可以使用 [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch) 命令。
+若要同時上傳多個檔案，您可以使用 [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) 命令。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](/cli/azure/storage/blob#list) 命令列出容器中的 Blob。
+使用 [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 命令列出容器中的 Blob。
 
 ```azurecli-interactive
 az storage blob list \
@@ -84,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>下載 Blob
 
-使用 [az storage blob download](/cli/azure/storage/blob#download) 命令下載稍早所上傳的 Blob。
+使用 [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 命令下載稍早所上傳的 Blob。
 
 ```azurecli-interactive
 az storage blob download \
@@ -109,7 +109,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group#delete) 命令刪除資源群組。
+如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group#az_group_delete) 命令刪除資源群組。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

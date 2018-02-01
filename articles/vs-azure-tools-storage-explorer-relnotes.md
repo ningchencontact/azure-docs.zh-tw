@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
-本文包含 Microsoft Azure 儲存體總管 0.9.3 (預覽) 和先前版本的版本資訊。
+本文包含 Microsoft Azure 儲存體總管 0.9.4 (預覽) 和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-093"></a>0.9.3 版
-12/08/2017
+## <a name="version-094--093"></a>0.9.4/0.9.3 版
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>下載 Azure 儲存體總管 0.9.3 (預覽)
-- [適用於 Windows 的 Azure 儲存體總管 0.9.3 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 0.9.3 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 0.9.3 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>下載 Azure 儲存體總管 0.9.4 (預覽)
+- [適用於 Windows 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
 * 在下列情況下，將會重新使用您的現有儲存體總管視窗：
@@ -44,6 +44,7 @@ ms.lasthandoff: 01/09/2018
     * 針對 Mac，[應用程式功能表] 下方會有 [開新視窗] 選項。
 
 ### <a name="fixes"></a>修正
+* 已修正安全性問題。 請盡早升級至 0.9.4 版。
 * 舊的活動不適合進行清理。 這會影響長期執行作業的效能。 現在，會將它們正確地清除。
 * 涉及大量檔案和目錄的動作偶而會導致儲存體總管凍結。 現在會對 Azure for File Shares 要求進行節流控制，以限制系統資源使用。
 
@@ -94,7 +95,7 @@ ms.lasthandoff: 01/09/2018
 
 ### <a name="new"></a>新增
 * Azure Cosmos DB 預覽支援：
-    * [線上文件](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [線上文件](./cosmos-db/storage-explorer.md)
     * 建立資料庫和集合
     * 操作資料
     * 查詢、建立或刪除文件
@@ -174,7 +175,7 @@ ms.lasthandoff: 01/09/2018
 10/20/2017
 ### <a name="new"></a>新增
 * Azure Cosmos DB 預覽支援：
-    * [線上文件](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [線上文件](./cosmos-db/storage-explorer.md)
     * 建立資料庫和集合
     * 操作資料
     * 查詢、建立或刪除文件

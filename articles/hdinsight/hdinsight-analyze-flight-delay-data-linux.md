@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上使用 Hive 分析航班延誤資料
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 > [!IMPORTANT]
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是 Azure HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **HDInsight 叢集**。 請參閱[開始在 HDInsight 中使用 Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)，以取得如何建立新的 Linux 型 HDInsight 叢集的步驟。
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/03/2017
 
 2. 在此頁面上選取下列值：
 
-   | 名稱 | 值 |
+   | Name | 值 |
    | --- | --- |
    | 篩選年份 |2013 |
    | 篩選期間 |一月 |
@@ -200,9 +200,7 @@ ms.lasthandoff: 11/03/2017
 > 連接至 SQL Database 並建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/) 。
 
 
-1. 使用 SSH 連線到 Linux 型 HDInsight 叢集，並從 SSH 工作階段執行下列步驟。
-
-2. 使用下列命令來安裝 FreeTDS：
+1. 若要安裝 FreeTDS，請從 SSH 連線對叢集使用下列命令：
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ ms.lasthandoff: 11/03/2017
 3. 安裝完成後，請使用下列命令來連線到 SQL Database 伺服器。 使用 SQL Database 伺服器名稱取代 **serverName** 。 使用 SQL Database 的登入取代 **adminLogin** 和 **adminPassword**。 使用資料庫名稱取代 **databaseName** 。
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    出現提示時，請輸入 SQL Database 管理員的登入密碼。
 
     您會收到如以下文字的輸出：
 
@@ -251,7 +251,7 @@ ms.lasthandoff: 11/03/2017
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. 在 `exit` at the `1>` 以結束 tsql 公用程式。
+5. Enter `exit` at the `1>` 以結束 tsql 公用程式。
 
 ## <a name="export-data-with-sqoop"></a>使用 Sqoop 匯出資料
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 60154b9f0a27b1255022f455453cbc88bec63baf
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e1d96fe8cb06be08863bbcd1885080aaca8fbd61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 4 部分：使用 Azure CLI 建立 Azure Cosmos DB 帳戶
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始本教學課程的這個部分之前，請確定您已完成本教學課程[第 3 部分](tutorial-develop-mongodb-nodejs-part3.md)中的步驟。 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="create-an-azure-cosmos-db-account"></a>建立 Azure Cosmos DB 帳戶
 
-使用 [`az cosmosdb create`](/cli/azure/cosmosdb#create) 命令建立 Azure Cosmos DB 帳戶。
+使用 [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) 命令建立 Azure Cosmos DB 帳戶。
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

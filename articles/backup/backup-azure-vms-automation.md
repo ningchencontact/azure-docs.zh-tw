@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup Cmdlet 備份虛擬機器
 
@@ -80,7 +80,7 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
-3. 登入您的 Azure 帳戶使用**登入 AzureRmAccount**。 這個指令程式會開啟 web 網頁會提示您輸入您的帳戶認證： 
+3. 使用 **Login-AzureRmAccount** 登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證： 
     - 或者，您也可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Login-AzureRmAccount** Cmdlet。
     - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如：**Login-AzureRmAccount -Tenant "fabrikam.com"**
 4. 由於一個帳戶可以有多個訂用帳戶，因此您必須將要使用的訂用帳戶與帳戶建立關聯：
@@ -96,12 +96,12 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
-6. 您可以確認提供者註冊成功時，使用下列命令：
+6. 您可以使用下列命令，確認提供者已成功註冊：
     ```
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
-在命令輸出中， **RegistrationState**應設為**註冊**。 如果沒有，請只重新執行**[暫存器 AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** 如上所示的 cmdlet。
+在命令輸出中，**RegistrationState** 應設定為 **Registered**。 如果不是，只要重新執行上述的 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** Cmdlet。
 
 PowerShell 可以自動化下列工作：
 
@@ -284,7 +284,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 >
 >
 
-若要從磁碟建立虛擬機器，請參閱[從預存的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-stored-disks)一節。 還原 Azure VM 的基本步驟如下︰
+若要從磁碟建立虛擬機器，請參閱[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)一節。 還原 Azure VM 的基本步驟如下︰
 
 * 選取 VM
 * 選擇復原點

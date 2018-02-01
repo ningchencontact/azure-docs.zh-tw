@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 混合式身分識別設計考量 - 判斷目錄同步處理需求|Microsoft Docs"
+title: "混合式身分識別設計 - 目錄同步處理需求 Azure | Microsoft Docs"
 description: "識別哪些是企業在內部部署和雲端之間同步處理所有使用者所需的需求。"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>判斷目錄同步處理需求
 同步處理的重點是根據使用者的內部部署身分識別，為他們提供雲端中的身分識別。 不論使用者是否將使用同步處理的帳戶來進行驗證或同盟驗證，他們仍然需要在雲端中具備身分識別。  這個身分識別必須定期維護和更新。  更新可以有許多形式，範圍可從標題變更到密碼變更。  
@@ -71,6 +72,6 @@ ms.lasthandoff: 12/11/2017
 ## <a name="next-steps"></a>後續步驟
 [判斷多重要素驗證需求](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 

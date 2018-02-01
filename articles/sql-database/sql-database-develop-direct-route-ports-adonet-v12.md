@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 超過 1433 以外的連接埠
 本主題針對使用 ADO.NET 4.5 或更新版本的用戶端，說明 Azure SQL Database 的連接行為。 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/31/2017
 連接埠 1433 是裝載您的 SQL Database 用戶端應用程式的桌上型電腦上唯一必須開啟的連接埠。
 
 #### <a name="inside-client-runs-on-azure"></a>*內部：* 在 Azure 上執行的用戶端
-當您的用戶端是在 Azure 雲端界限內部執行時，它會使用我們可以稱為 *直接路由* 的路由與 SQL Database 伺服器互動。 建立連線之後，用戶端和資料庫之間的進一步互動未牽涉到任何中介軟體 proxy。
+當您的用戶端是在 Azure 雲端界限內部執行時，它會使用我們可以稱為 *直接路由* 的路由與 SQL Database 伺服器互動。 建立連線之後，用戶端和資料庫之間的進一步互動未牽涉到 Azure SQL Database Gateway。
 
 順序如下：
 

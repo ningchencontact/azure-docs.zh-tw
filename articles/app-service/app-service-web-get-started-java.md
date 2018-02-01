@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de72b97051daef675ceae7c7af08fb04e21cf849
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中建立第一個 Java Web 應用程式
 
@@ -29,14 +29,14 @@ ms.lasthandoff: 11/22/2017
 
 !["Hello Azure!" 範例 web 應用程式](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門，請安裝：
 
 * 免費的 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>。 本快速入門使用 Eclipse Neon。
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">適用於 Eclipse 的 Azure 工具組</a>。
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>在 Eclipse 中建立動態 Web 專案
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/22/2017
 
 在您登入 Azure 帳戶後，[部署 Web 應用程式] 對話方塊隨即出現。
 
-選取 [ **建立**]。
+選取 [建立] 。
 
 ![部署 Web 應用程式對話方塊](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 11/22/2017
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-選取 [ **建立**]。
+選取 [建立] 。
 
 <!--
 ### The JDK tab

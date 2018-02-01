@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/13/2017
 
 ![SQL 健康情況檢查儀表板的影像](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * SQL 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4 的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。  
 * 方案支援 SQL Server 2012、2014 和 2016 版本。
@@ -165,14 +165,14 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
 1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
 2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
-3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [OMS 入口網站] 圖格。  
+3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [概觀] 圖格。  
 4. 在 [概觀] 頁面上，按一下 [SQL 健康情況檢查] 圖格。 
 5. 在 [健康情況檢查] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
 6. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![SQL 健康情況檢查建議的影像](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
 
 ## <a name="ignore-recommendations"></a>忽略建議
-如果您有想要忽略的建議，則可以建立 OMS 將用來防止建議出現在您評估結果的文字檔。
+如果您有想要忽略的建議，則可以建立 Log Analytics 將用來防止建議出現在您評估結果的文字檔。
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

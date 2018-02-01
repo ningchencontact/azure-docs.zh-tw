@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>針對 Azure 檔案同步 (預覽) 進行移難排解
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -43,8 +43,8 @@ StorageSyncAgent.msi /l*v Installer.log
 > [!Note]  
 > 如果您的機器設為使用 Microsoft Update 且 Windows Update 服務未執行，則代理程式安裝將會失敗。
 
-<a id="agent-installation-websitename-failure"></a>**代理程式安裝失敗，發生下列錯誤:"不當結束存放同步代理程式精靈 」**  
-如果 IIS 網站的預設名稱變更，就會發生此問題。 若要解決此問題，重新命名為"Default Web Site"的 IIS 預設網站，重試安裝。 代理程式的未來更新將會修正問題。 
+<a id="agent-installation-websitename-failure"></a>**代理程式安裝失敗，並出現下列錯誤：「儲存體同步代理程式精靈提前結束」**  
+如果 IIS 網站的預設名稱有所變更，就會發生此問題。 若要解決此問題，請將 IIS 預設網站重新命名為 "Default Web Site"，然後重試安裝。 代理程式的未來更新中會修正此問題。 
 
 <a id="server-registration-missing"></a>**伺服器未列在 Azure 入口網站的 [已註冊的伺服器] 下**  
 如果伺服器未列在儲存體同步服務的 [已註冊的伺服器] 下：
@@ -105,11 +105,11 @@ Reset-StorageSyncServer
     * [角色指派] 應具有 [讀取] 和 [寫入] 權限。
     * [角色定義] 應具有 [讀取] 和 [寫入] 權限。
 
-<a id="server-endpoint-createjobfailed"></a>**建立伺服器端點失敗，發生下列錯誤:"MgmtServerJobFailed 」 (錯誤碼：-2134375898)**                                                                                                                           
-如果伺服器端點路徑上的系統磁碟區與雲端，就會發生此問題已啟用階層處理。 系統磁碟區上不支援雲端階層。 若要建立的伺服器端點系統磁碟區上，停用雲端建立的伺服器端點時，階層處理。
+<a id="server-endpoint-createjobfailed"></a>**伺服器端點建立失敗，並發生下列錯誤：「MgmtServerJobFailed」(錯誤碼：-2134375898)**                                                                                                                           
+如果伺服器端點路徑位於系統磁碟區上，而且已啟用雲端階層處理，就會發生此問題。 系統磁碟區上不支援雲端階層。 若要在系統磁碟區上建立伺服器端點，請於建立伺服器端點時，停用雲端階層處理。
 
-<a id="server-endpoint-deletejobexpired"></a>**伺服器端點刪除失敗，發生下列錯誤: 「 MgmtServerJobExpired"**                
-如果伺服器已離線或不具有網路連線能力，就會發生此問題。 如果伺服器已無法再使用，取消註冊 「 入口網站也會刪除伺服器端點中的伺服器。 若要刪除的伺服器端點，請依照下列所述的步驟[取消註冊 Azure 檔案同步處理伺服器](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)。
+<a id="server-endpoint-deletejobexpired"></a>**伺服器端點刪除失敗，並發生下列錯誤：「MgmtServerJobExpired」**                
+如果伺服器離線或沒有網路連線能力，就會發生此問題。 如果伺服器已無法再使用，請在入口網站中取消註冊伺服器，從而刪除伺服器端點。 若要刪除伺服器端點，請依照[向 Azure 檔案同步取消註冊伺服器](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)中所述的步驟進行。
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**如果我直接在我的 Azure 檔案共用中透過 SMB 建立檔案，或是透過入口網站建立檔案，要等多久檔案才會同步至同步群組中的伺服器？**  
@@ -135,6 +135,8 @@ Reset-StorageSyncServer
 
     > [!NOTE]
     > Azure 檔案同步會定期建立 VSS 快照集，來同步已開啟控制代碼的檔案。
+
+我們目前不支援將資源移到另一個訂用帳戶或移到不同的 Azure AD 租用戶。  如果訂用帳戶移到不同租用戶，則會因為擁有權變更而讓我們的服務無法存取 Azure 檔案共用。 如果租用戶有所變更，您就必須刪除伺服器端點和雲端端點 (請參閱＜同步群組管理＞一節中的指示，以了解如何清除要重複使用的 Azure 檔案共用)，然後重新建立同步群組。
 
 ## <a name="cloud-tiering"></a>雲端階層處理 
 在雲端階層中有以下兩種失敗：
@@ -211,7 +213,7 @@ Reset-StorageSyncServer
 5. 重現問題。 完成時，輸入 **D**。
 6. 含有記錄和追蹤檔案的 .zip 檔案將會儲存在指定的輸出目錄中。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 - [Azure 檔案服務常見問題集](storage-files-faq.md)
 - [針對 Windows 中的 Azure 檔案服務問題進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)
 - [針對 Linux 中的 Azure 檔案服務問題進行疑難排解](storage-troubleshoot-linux-file-connection-problems.md)

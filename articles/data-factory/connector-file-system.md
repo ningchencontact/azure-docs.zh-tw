@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 23da57f6c924dcb6290cb2ee17206dc58a2d3e83
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8c8edc6e3d3c8330824c767f1bb02668a44e670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到檔案系統或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 - 使用 **Windows** 驗證來複製檔案。
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析/產生檔案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的檔案系統複製資料，或將資料複製到該處，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
@@ -53,12 +53,12 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對檔案系統已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**FileServer**。 | 是 |
-| host | 指定想要複製之資料夾的根路徑。 針對字串中的特殊字元，請使用逸出字元 "\"。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 | 是 |
-| userid | 指定具有伺服器存取權之使用者的識別碼。 | 是 |
-| password | 指定使用者 (userid) 的密碼。 請將此欄位標示為 SecureString。 | 是 |
+| type | 類型屬性必須設定為：**FileServer**。 | yes |
+| host | 指定想要複製之資料夾的根路徑。 針對字串中的特殊字元，請使用逸出字元 "\"。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 | yes |
+| userid | 指定具有伺服器存取權之使用者的識別碼。 | yes |
+| password | 指定使用者 (userid) 的密碼。 請將此欄位標示為 SecureString。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>範例連結服務和資料集定義
@@ -97,10 +97,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從檔案系統複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **FileShare**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**FileShare** |是 |
-| folderPath | 資料夾的路徑。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 |是 |
+| type | 資料集的類型屬性必須設定為：**FileShare** |yes |
+| folderPath | 資料夾的路徑。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 |yes |
 | fileName | 如果您想要複製到特定的檔案或從該處複製，請在 **folderPath** 中指定該檔案的名稱。 如果沒有為此屬性指定任何值，資料集就會指向資料夾中的所有檔案作為來源，然後自動產生檔案名稱。<br/><br/>**自動為接收器產生 fileName：**沒有為輸出資料集指定 fileName 且活動接收器中未指定 **preserveHierarchy** 時，複製活動會以下列模式產生檔案名稱： <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`。 例如：`Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- 或 `[Table name].[format].[compression if configured]` (適用於未指定查詢時的關聯式來源)。 例如：MySourceTable.orc. |否 |
 | fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。 只有在未指定檔案名稱時才適用。 <br/><br/>允許的萬用字元為︰`*` (多個字元) 和 `?` (單一字元)。<br/>- 範例 1：`"fileFilter": "*.log"`<br/>- 範例 2：`"fileFilter": 2017-09-??.txt"` |否 |
 | format | 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析或產生檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 (僅適用於二進位複製案例) |
@@ -143,10 +143,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從檔案系統複製資料，請將複製活動中的來源類型設定為 **FileSystemSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |yes |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**
 
@@ -184,9 +184,9 @@ ms.lasthandoff: 01/11/2018
 
 若要將資料複製到檔案系統，請將複製活動中的接收器類型設定為 **FileSystemSink**。 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的類型屬性必須設定為：**FileSystemSink** |是 |
+| type | 複製活動接收器的類型屬性必須設定為：**FileSystemSink** |yes |
 | copyBehavior | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 | 否 |
 
 **範例：**

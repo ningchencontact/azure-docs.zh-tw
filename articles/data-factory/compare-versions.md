@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>比較 Azure Data Factory V1 與 V2
 本文比較 Azure Data Factory 的 V1 與 V2。 如需 V1 簡介，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 如需 V2 簡介，請參閱 [Data Factory (V2 - 預覽) 簡介](introduction.md)。
@@ -86,7 +86,7 @@ ETL 模式中的重要使用案例是「差異載入」，其只會載入從管�
 
 Azure-SSIS 整合執行階段是一個完全受管理的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 套件。 佈建 Azure-SSIS 整合執行階段之後，您可以使用您用於將 SSIS 套件部署到內部部署 SSIS 環境的相同工具。 
 
-例如，您可以使用 SQL Server Data Tools 或 SQL Server Management Studio，將 SSIS 套件部署到 Azure 上的此執行階段。 如需逐步指示，請參閱[將 SQL Server Integration Services 套件部署至 Azure](tutorial-deploy-ssis-packages-azure.md)教學課程。 
+例如，您可以使用 SQL Server Data Tools 或 SQL Server Management Studio，將 SSIS 套件部署到 Azure 上的此執行階段。 如需逐步指示，請參閱[將 SQL Server Integration Services 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)教學課程。 
 
 ## <a name="flexible-scheduling"></a>彈性排程
 在 Data Factory V2 中，您不需要定義資料集可用性排程。 您可以定義觸發程序資源，以排程時鐘排程器範例中的管線。 您也可以將參數從觸發程序傳遞至管線，以取得彈性排程和執行模型。 

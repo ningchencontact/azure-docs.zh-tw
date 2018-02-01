@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器來監視 Data Factory  
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -389,14 +389,14 @@ ADFV2 會發出下列計量
 
 | **度量**           | **計量顯示名稱**         | **單位** | **彙總類型** | **說明**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | 成功的管線執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
-| PipelineFailedRuns   | 失敗的管線執行計量    | 計數    | 總計                | 為期一分鐘的時間內失敗的管線執行總計    |
-| ActiviySucceededRuns | 成功的活動執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
-| ActivityFailedRuns   | 失敗的活動執行計量    | 計數    | 總計                | 為期一分鐘的時間內失敗的活動執行總計     |
-| TriggerSucceededRuns | 成功的觸發程序執行計量  | 計數    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
-| TriggerFailedRuns    | 失敗的觸發程序執行計量     | 計數    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
+| PipelineSucceededRun | 成功的管線執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
+| PipelineFailedRuns   | 失敗的管線執行計量    | Count    | 總計                | 為期一分鐘的時間內失敗的管線執行總計    |
+| ActiviySucceededRuns | 成功的活動執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
+| ActivityFailedRuns   | 失敗的活動執行計量    | Count    | 總計                | 為期一分鐘的時間內失敗的活動執行總計     |
+| TriggerSucceededRuns | 成功的觸發程序執行計量  | Count    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
+| TriggerFailedRuns    | 失敗的觸發程序執行計量     | Count    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
 
-若要存取度量，請依照文件-https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+若要存取計量，請遵循下列文章中的指示：https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)文章，以了解如何藉由執行來監視和管理管線。 

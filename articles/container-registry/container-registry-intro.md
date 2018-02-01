@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: b92fd225e32749b87a065ab9048938059c42f265
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7d9c259e6fb48189faef2a49fdba2578c9accfe9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 
@@ -25,7 +25,7 @@ Azure 容器登錄是可管理的 [Docker Registry](https://docs.docker.com/regi
 從 Azure 容器登錄庫將映像提取到不同部署目標︰
 
 * **可調整的協調流程系統**，會管理整個主機叢集上容器化的應用程式，包括 [DC/OS](https://docs.mesosphere.com/)、[Docker Swarm](https://docs.docker.com/swarm/)、 [Kubernetes](http://kubernetes.io/docs/)。
-* **Azure 服務**，會支援依規模建置和執行的應用程式，包括 [Container Service](../container-service/index.yml)、[App Service](/app-service/index.md)、[Batch](../batch/index.md)、[Service Fabric](/azure/service-fabric/) 和其他應用程式。
+* **Azure 服務**，會支援依規模建置和執行的應用程式，包括 [Container Service](../container-service/index.yml)、[App Service](/app-service/index.md)、[Batch](../batch/index.yml)、[Service Fabric](/azure/service-fabric/) 和其他應用程式。
 
 開發人員也可以將推送到容器登錄庫，當做容器開發工作流程的一部分。 例如，以容器登錄庫為目標，並以 [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) 或 [Jenkins](https://jenkins.io/) 等持續整合與部署工具為起點。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>教學課程：Azure Active Directory 與 Adobe Creative Cloud 整合
 
@@ -32,7 +32,7 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Adobe Creative Cloud 整合，您需要下列項目：
 
@@ -157,11 +157,11 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
     ![Adobe Creative Cloud 設定](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. 在不同的網頁瀏覽器視窗中，以管理員身分登入您的 Adobe Creative Cloud 租用戶。
+10. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 [Adobe Admin Console](https://adminconsole.adobe.com)。
 
-11. 移至左側瀏覽窗格上的 [身分識別]，然後按一下您的網域。 接著執行 [需要單一登入組態] 區段中的下列步驟。
+11. 移至上方導覽列中的 [設定]，然後選擇 [身分識別]。 網域清單隨即開啟。 按一下您網域的 [設定] 連結。 接著執行 [需要單一登入組態] 區段中的下列步驟。 如需詳細資訊，請參閱[設定網域](https://helpx.adobe.com/enterprise/using/set-up-domain.html)。
 
-    ![設定](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "設定")
+    ![設定](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "設定")
     
     a. 按一下 [瀏覽]，將已從 Azure AD 下載的憑證上傳至 **IDP 憑證**。
     
@@ -176,8 +176,6 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
     f. 按一下 [儲存]  按鈕。
 
 12. 儀表板現在會顯示 XML「下載中繼資料」檔案。 它包含 Adobe 的 EntityDescriptor URL 和 AssertionConsumerService URL。 請開啟檔案，然後在 Azure AD 應用程式中加以設定。
-
-    ![在應用程式端設定單一登入](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
 
-1. 以系統管理員身分登入您的 Adobe Creative Cloud 公司網站。
+1. 以系統管理員身分登入 [Adobe Admin Console](https://adminconsole.adobe.com)。
 
-2. 將 Adobe 主控台內的使用者新增為同盟識別碼，並將它們指派給權利的群組
-
-    ![應用程式清單中的 Adobe Creative Cloud 連結](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. 在 Adobe 主控台內將使用者新增為同盟識別碼，並將它們指派給產品設定檔。 如需新增使用者的詳細資訊，請參閱[在 Adobe Admin Console 中新增使用者](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. 此時，在 Adobe 登入表單中輸入您的電子郵件地址/upn，按下 tab 鍵，隨後應備份至 Azure AD 同盟：
     * Web 存取：www.adobe.com > 登入
@@ -278,6 +274,8 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [設定網域 (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [設定 Azure 以便搭配 Adobe SSO (adobe.com) 使用](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

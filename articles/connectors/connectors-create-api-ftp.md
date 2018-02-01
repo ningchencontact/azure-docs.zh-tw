@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>開始使用 FTP 連接器
 使用 FTP 連接器在 FTP 伺服器上監視、管理和建立檔案。 
 
-若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)來開始。
+若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)來開始。
 
 ## <a name="connect-to-ftp"></a>連接至 FTP
 您必須先建立與服務的連線，才能透過邏輯應用程式存取任何服務。 [連線](connectors-overview.md)可讓邏輯應用程式與另一個服務連線。  
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-a-ftp-trigger"></a>使用 FTP 觸發程序
-觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。  
+觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
 
 > [!IMPORTANT]
 > FTP 連接器需要可從網際網路存取且設定為以「被動」模式運作的 FTP 伺服器。 此外，FTP 連接器**與隱含 FTPS (FTP over SSL) 不相容**。 FTP 連接器只支援明確 FTPS (FTP over SSL)。  
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-a-ftp-action"></a>使用 FTP 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)。  
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
 
 您現已新增觸發程序，請遵循下列步驟來新增動作，該動作將會取得觸發程序所找到之新的或修改過檔案的內容。    
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
    ![FTP 動作影像 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    [取得檔案內容] 控制項隨即開啟。 **附註：**如果您未曾授權邏輯應用程式存取您的 FTP 伺服器帳戶，系統會提示您這麼做。  
    ![FTP 動作影像 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. 選取 [檔案] 控制項 (位於 [檔案]* 下方的空白處)。 在這裡，您可以使用 FTP 伺服器上找到之新的或修改過檔案中的各種屬性。  
+5. 選取 [檔案] 控制項 (位於 **FILE*** 下方的空白處)。 在這裡，您可以使用 FTP 伺服器上找到之新的或修改過檔案中的各種屬性。  
 6. 選取 [檔案內容] 選項。  
    ![FTP 動作影像 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. 控制項已更新，這表示 [FTP - 取得檔案內容] 動作會取得 FTP 伺服器上新的或修改過檔案的*檔案內容*。      
@@ -91,5 +91,5 @@ ms.lasthandoff: 10/11/2017
 檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/ftpconnector/)的所有限制。 
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

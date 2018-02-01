@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>設定 Operations Management Suite 中的服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -37,9 +37,9 @@ ms.lasthandoff: 01/03/2018
 
 | 連線的來源 | 支援 | 說明 |
 |:--|:--|:--|
-| Windows 代理程式 | 是 | 服務對應會分析並收集來自 Windows 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| Linux 代理程式 | 是 | 服務對應會分析並收集來自 Linux 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-linux-agents.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| System Center Operations Manager 管理群組 | 是 | 服務對應會在連線的 [System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。|
+| Windows 代理程式 | yes | 服務對應會分析並收集來自 Windows 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| Linux 代理程式 | yes | 服務對應會分析並收集來自 Linux 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-linux-agents.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| System Center Operations Manager 管理群組 | yes | 服務對應會在連線的 [System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。|
 | Azure 儲存體帳戶 | 否 | 服務對應會收集來自代理程式電腦的資料，因此不會從 Azure 儲存體收集資料。 |
 
 服務對應僅支援 64 位元平台。
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Azure VM 擴充功能
-您可以使用 [Azure VM 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions)，將相依性代理程式輕鬆部署到您的 Azure VM。  利用 Azure VM 擴充功能，您可以透過 PowerShell 指令碼，或直接在 VM 的 Azure Resource Manager 範本中，將相依性代理程式部署到您的 VM。  有一個可供 Windows (DependencyAgentWindows) 和 Linux (DependencyAgentLinux) 使用的擴充功能。  如果您透過 Azure VM 擴充功能部署，您的代理程式就可自動更新為最新版本。
+您可以使用 [Azure VM 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)，將相依性代理程式輕鬆部署到您的 Azure VM。  利用 Azure VM 擴充功能，您可以透過 PowerShell 指令碼，或直接在 VM 的 Azure Resource Manager 範本中，將相依性代理程式部署到您的 VM。  有一個可供 Windows (DependencyAgentWindows) 和 Linux (DependencyAgentLinux) 使用的擴充功能。  如果您透過 Azure VM 擴充功能部署，您的代理程式就可自動更新為最新版本。
 
 若要透過 PowerShell 部署 Azure VM 擴充功能，您可以使用下列範例：
 ```PowerShell
@@ -262,8 +262,8 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 #### <a name="server-doesnt-appear-in-service-map"></a>伺服器未出現在服務對應中
 如果相依性代理程式安裝成功，但是在服務對應解決方案中沒有看到您的伺服器︰
 * 相依性代理程式是否安裝成功？ 您可以查看是否已安裝服務並且執行，以便驗證。<br><br>
-**Windows**： 尋找服務名稱為 「 Microsoft 相依性代理程式 」。<br>
-**Linux**： 尋找執行處理的 「 microsoft-相依性-代理程式。 」
+**Windows**︰尋找名稱為「Microsoft 相依性代理程式」的服務。<br>
+**Linux**：尋找執行中的處理序 "microsoft-dependency-agent"。
 
 * 您是否屬於 [Operations Management Suite/Log Analytics 的免費定價層](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)？ 免費方案允許最多五個唯一的服務對應伺服器。 任何後續伺服器則不會顯示在服務對應中，即使先前五個伺服器不會再傳送資料。
 

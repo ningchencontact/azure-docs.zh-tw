@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT 中樞作業監視
 
 IoT 中樞的作業監視可讓您即時監視其 IoT 中樞上的作業狀態。 IoT 中樞可追蹤橫跨數個作業類別的事件。 您可以選擇將一或多個類別的事件傳送至 IoT 中樞的端點進行處理。 您可以監視資料中是否有錯誤，或根據資料模式設定更複雜的處理行為。
 
 >[!NOTE]
->IoT 中樞作業監視已淘汰，並且未來會從 IoT 中樞移除。 如需監視 IoT 中樞的作業及健康情況，請參閱[監視 Azure IoT 中樞的健康情況並快速診斷問題][lnk-monitor]。 如需有關淘汰時間表的詳細資訊，請參閱[使用 Azure 監視器和 Azure 資源健康狀態來監視您的 Azure IoT 解決方案][lnk-blog-announcement]。
+>IoT 中樞作業監視已被取代，將於 2018 年 10 月 10 日自 IoT 中樞移除。 如需監視 IoT 中樞的作業及健康情況，請參閱[監視 Azure IoT 中樞的健康情況並快速診斷問題][lnk-monitor]。 如需有關淘汰時間表的詳細資訊，請參閱[使用 Azure 監視器和 Azure 資源健康狀態來監視您的 Azure IoT 解決方案][lnk-blog-announcement]。
 
 IoT 中樞會監視六個類別的事件：
 
@@ -291,7 +291,7 @@ class Program
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南][lnk-devguide]
-* [使用 Azure IoT Edge 將 AI 部署到邊緣裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

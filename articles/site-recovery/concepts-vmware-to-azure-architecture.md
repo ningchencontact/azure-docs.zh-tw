@@ -1,16 +1,16 @@
 ---
-title: "在 Azure Site Recovery 的 Azure 複寫架構 VMware |Microsoft 文件"
+title: "Azure Site Recovery 中的 VMware 至 Azure 複寫架構 | Microsoft Docs"
 description: "本文概述使用 Azure Site Recovery 服務將內部部署 VMware VM 複寫至 Azure 時，所使用的元件和架構"
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 至 Azure 複寫架構
 
@@ -24,11 +24,9 @@ ms.lasthandoff: 12/19/2017
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
 **Azure** | Azure 訂用帳戶、Azure 儲存體帳戶及 Azure 網路。 | 從內部部署 VM 複寫的資料會儲存在儲存體帳戶中。 從內部部署環境容錯移轉至 Azure 時，便會以複寫的資料建立 Azure VM。 Azure VM 在建立後會連線到 Azure 虛擬網路。
-**組態伺服器** | 系統會部署單一內部部署 VMware VM，以執行所有的內部部署 Site Recovery 元件。 此 VM 會執行組態伺服器、處理序伺服器和主要目標伺服器。 | 組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
- **處理序伺服器**：  | 預設會與組態伺服器一起安裝。 | 會做為複寫閘道器。 接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並且在內部部署 VMware 伺服器上執行 VM 的自動探索。<br/><br/> 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。
- **主要目標伺服器** | 預設會與組態伺服器一起安裝。 | 在從 Azure 容錯回復期間，處理複寫資料。<br/><br/> 針對大型部署，您可以新增額外的個別主要目標伺服器進行容錯回復。
+**組態伺服器電腦** | 單一的內部部署電腦。 建議您以可從所下載 OVF 範本部署的 VMware VM 形式執行。<br/><br/> 此電腦會執行所有的內部部署 Site Recovery 元件，包括組態伺服器、處理序伺服器和主要目標伺服器。 | **組態伺服器**：負責協調內部部署與 Azure 之間的通訊，以及管理資料複寫。<br/><br/> **處理序伺服器**：預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並自動探索內部部署電腦。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。<br/><br/>  **主要目標伺服器**：預設會安裝在組態伺服器上。 負責處理從 Azure 進行容錯回復期間的複寫資料。 針對大型部署，您可以新增額外的個別主要目標伺服器進行容錯回復。
 **VMware 伺服器** | VMware VMs 會裝載於內部部署 vSphere ESXi 伺服器。 我們建議以 vCenter 伺服器管理主機。 | 在 Site Recovery 部署期間，您可將 VMware 伺服器新增至復原服務保存庫。
-**複寫的機器** | 行動服務會安裝在您複寫的每部 VMware VM 上。 | 我們建議您允許從處理序伺服器自動安裝。 或者，您可以手動安裝服務，或使用 System Center Configuration Manager 等自動化部署方法。 
+**複寫的機器** | 行動服務會安裝在您複寫的每部 VMware VM 上。 | 我們建議您允許從處理序伺服器自動安裝。 或者，您可以手動安裝服務，或使用 System Center Configuration Manager 等自動化部署方法。
 
 **VMware 至 Azure 架構**
 
@@ -36,15 +34,17 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="replication-process"></a>複寫程序
 
-1. 您需設定部署，包括內部部署和 Azure 元件。 在 Recovery Services 保存庫中，您需指定複寫來源和目標、設定組態伺服器、建立複寫原則，以及啟用複寫。
-2. 機器會根據複寫原則進行複寫，並將 VM 資料的初始複本複寫到 Azure 儲存體。
-3. 初始複寫完成之後，就會開始將差異變更複寫到 Azure。 機器的追蹤變更會保存在 .hrl 檔案中。
+1.  準備 Azure 資源和內部部署元件。
+2.  在復原服務保存庫中，指定來源複寫設定。 在此程序進行期間，您可設定內部部署組態伺服器。 若要將此伺服器部署為 VMware VM，您可下載已備妥的 OVF 範本，並將它匯入 VMware 以建立 VM。
+3. 指定目標複寫設定、建立複寫原則，並為 VMware VM 啟用複寫。
+4.  機器會根據複寫原則進行複寫，並將 VM 資料的初始複本複寫到 Azure 儲存體。
+5.  初始複寫完成之後，就會開始將差異變更複寫到 Azure。 機器的追蹤變更會保存在 .hrl 檔案中。
     - 機器會在輸入連接埠 HTTPS 443 上與組態伺服器進行通訊，以便進行複寫管理。
     - 機器會透過輸入連接埠 HTTPS 9443 (可修改) 將複寫資料傳送到處理序伺服器。
     - 組態伺服器會透過輸出連接埠 HTTPS 443 與 Azure 協調複寫管理。
     - 處理序伺服器會透過輸出連接埠 443，接收來源機器所傳來的資料、將其最佳化並加密，再將它傳送至 Azure 儲存體。
     - 如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 如果您將多部機器群組為幾個共用當機時保持一致復原點和應用程式一致復原點的複寫群組，當這些群組在進行容錯移轉時，便會使用多部 VM。 如果機器執行的是相同的工作負載，且需要保持一致，此功能就很實用。
-4. 流量透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute [公用對等](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
+6.  流量會透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您也可以使用 Azure ExpressRoute [公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
 
 
 **VMware 到 Azure 複寫程序**
@@ -77,4 +77,4 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-請遵循[本教學課程](tutorial-vmware-to-azure.md)以啟用 VMware 到 Azure 的複寫。
+請遵循[此教學課程](tutorial-vmware-to-azure.md)，以啟用 VMware 至 Azure 的複寫。

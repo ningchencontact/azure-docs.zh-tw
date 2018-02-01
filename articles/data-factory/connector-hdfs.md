@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從 HDFS 複製資料或將資料複製到 HDFS | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/11/2018
 - 使用 **webhdfs** 通訊協定或**內建 DistCp** 支援複製檔案。
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析/產生檔案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的 HDFS 複製資料，或將資料複製到不可公開存取的 HDFS，您應該設定一個「自我裝載整合執行階段」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](concepts-integration-runtime.md) 一文。
 
@@ -54,11 +54,11 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 HDFS 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**Hdfs**。 | 是 |
-| url |到 HDFS 的 URL |是 |
-| authenticationType | 允許的值為：**匿名**或 **Windows**。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |是 |
+| type | 類型屬性必須設為：**Hdfs**。 | yes |
+| url |到 HDFS 的 URL |yes |
+| authenticationType | 允許的值為：**匿名**或 **Windows**。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |yes |
 | userName |Windows 驗證的使用者名稱。 Kerberos 驗證請指定 `<username>@<domain>.com`。 |是 (適用於 Windows 驗證) |
 | password |Windows 驗證的密碼。 請將此欄位標示為 SecureString。 |是 (適用於 Windows 驗證) |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -113,10 +113,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 HDFS 複製資料，請將資料集的類型屬性設定為 **FileShare**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**FileShare** |是 |
-| folderPath | 資料夾的路徑。 例如：資料夾/子資料夾/ |是 |
+| type | 資料集的類型屬性必須設定為：**FileShare** |yes |
+| folderPath | 資料夾的路徑。 例如：資料夾/子資料夾/ |yes |
 | fileName | 如果您想要從特定的檔案複製，請在 **folderPath** 中指定該檔案的名稱。 如果沒有為此屬性指定任何值，資料集就會指向資料夾中的所有檔案作為來源。 |否 |
 | format | 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 (僅適用於二進位複製案例) |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級為：**Optimal** 和 **Fastest**。 |否 |
@@ -157,10 +157,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 HDFS 複製資料，請將複製活動中的來源類型設定為 **HdfsSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HdfsSource** |是 |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| type | 複製活動來源的類型屬性必須設定為：**HdfsSource** |yes |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | distcpSettings | 使用 HDFS DistCp 時的屬性群組。 | 否 |
 | resourceManagerEndpoint | Yarn ResourceManager 端點 | 若使用 DistCp 則為「是」 |
 | tempScriptPath | 資料夾路徑，用來儲存暫存 DistCp 命令指令碼。 指令碼檔案是由 Data Factory 產生，並會在複製作業完成後移除。 | 若使用 DistCp 則為「是」 |

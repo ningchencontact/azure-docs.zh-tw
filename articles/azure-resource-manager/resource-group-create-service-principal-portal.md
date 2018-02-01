@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 89f2f834c84cd5ae50b2d5b9d46e792065080d8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/07/2017
 
    ![選取應用程式](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 某些[範例應用程式](#log-in-as-the-application)將此值為用戶端識別碼。
+1. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 某些[應用程式範例](#log-in-as-the-application)會將這個值視為用戶端識別碼。
 
    ![用戶端識別碼](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

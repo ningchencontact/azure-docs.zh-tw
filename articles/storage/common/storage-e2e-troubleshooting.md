@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 及 Message Analyzer 進行端對端疑難排解
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 診斷與疑難排解是透過 Microsoft Azure 儲存體建置和支援用戶端應用程式的關鍵技術。 由於 Azure 應用程式的分散式本質，診斷和疑難排解錯誤和效能問題可能會比在傳統環境中更為複雜。
@@ -37,9 +37,7 @@ ms.lasthandoff: 10/11/2017
   * **儲存體記錄** 可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄檔。 記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。 如需 Storage Analytics 寫入記錄檔的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄檔格式](/rest/api/storageservices/Storage-Analytics-Log-Format) 。
 
 > [!NOTE]
-> 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶目前未啟用度量或記錄功能。 
-> 
-> 
+> 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶，可支援計量或記錄。 傳統 ZRS 帳戶不支援計量或記錄。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體](storage-redundancy.md#zone-redundant-storage)。 
 
 * **Azure 入口網站**。 您可以在 [Azure 入口網站](https://portal.azure.com)中設定儲存體帳戶的計量和記錄。 您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
   
@@ -223,7 +221,7 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 ### <a name="import-your-log-files-into-message-analyzer"></a>將記錄檔匯入 Message Analyzer 中
 您可以將所有已儲存的記錄檔 (伺服器端、用戶端和網路) 匯入 Microsoft Message Analyzer 的單一工作階段中進行分析。
 
-1. 在 Microsoft Message Analyzer 的 檔案 功能表中，按一下 新增工作階段，然後按一下空白工作階段。 在 [新增工作階段]  對話方塊中，輸入您的分析工作階段名稱。 在 [工作階段詳細資料] 面板中，按一下 [檔案] 按鈕。
+1. 在 Microsoft Message Analyzer 的 [檔案] 功能表中，按一下 [新增工作階段]，然後按一下 [空白工作階段]。 在 [新增工作階段]  對話方塊中，輸入您的分析工作階段名稱。 在 [工作階段詳細資料] 面板中，按一下 [檔案] 按鈕。
 2. 若要載入 Message Analyzer 所產生的網路追蹤資料，請按一下 [新增檔案]，瀏覽至您從 Web 追蹤工作階段儲存的 .matp 檔案所在位置，選取 .matp 檔案，然後按一下 [開啟]。
 3. 若要載入伺服器端記錄檔資料，請按一下 [新增檔案]，瀏覽至您下載伺服器端記錄檔的位置，選取您要分析的時間範圍內的記錄檔，然後按一下 [開啟]。 然後，在 [工作階段詳細資料] 面板中，將每個伺服器端記錄檔的 [文字記錄檔設定] 下拉式清單設定為 [AzureStorageLog]，以確保 Microsoft Message Analyzer 可以正確剖析記錄檔。
 4. 若要載入用戶端記錄檔資料，請按一下 [新增檔案]，瀏覽至您儲存用戶端記錄檔的位置，選取您要分析的記錄檔，然後按一下 [開啟]。 然後，在 [工作階段詳細資料] 面板中，將每個用戶端記錄檔的 [文字記錄檔設定] 下拉式清單設定為 [AzureStorageClientDotNetV4]，以確保 Microsoft Message Analyzer 可以正確剖析記錄檔。

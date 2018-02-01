@@ -3,7 +3,7 @@
 
 若要備份執行生產工作負載的 Azure VM，請使用 Azure 備份。 Azure 備份同時針對 Windows 和 Linux VM 支援應用程式一致備份。 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或只還原特定檔案。 
 
-如需 Azure VM 適用的簡單實際操作 Azure 備份簡介，請參閱適用於 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的「備份 Windows 虛擬機器教學課程」
+如需 Azure VM 適用的簡單實際操作 Azure 備份簡介，請參閱適用於 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的「備份 Azure 虛擬機器」教學課程。
 
 如需有關 Azure 備份運作方式的詳細資訊，請參閱[在 Azure 中規劃您的 VM 備份基礎結構](../articles/backup/backup-azure-vms-introduction.md)
 

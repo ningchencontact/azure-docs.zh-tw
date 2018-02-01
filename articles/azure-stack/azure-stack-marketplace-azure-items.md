@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/18/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -30,11 +30,12 @@ ms.lasthandoff: 12/15/2017
 
 |  | 項目名稱 | 說明 | 發行者 | OS 類型 |
 | --- | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>請下載此擴充功能以部署 Windows Marketplace 項目上的任何 SQL Server - 這是必要的。</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>請將此更新下載到附隨版的 Windows 自訂指令碼擴充功能中。</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>請將此更新下載到附隨版的 PowerShell DSC 擴充功能中。</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>請下載此擴充功能以部署 Windows Marketplace 項目上的任何 SQL Server - 這是必要的。</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>請將此更新下載到附隨版的 Windows 自訂指令碼擴充功能中。</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>請將此更新下載到附隨版的 PowerShell DSC 擴充功能中。</b> | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反惡意程式碼軟體擴充功能](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | 適用於 Linux 虛擬機器的 Docker 擴充功能。 | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ VM Access for Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這一點很重要。</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Linux 的 Acronis Backup 擴充功能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Windows 的 Acronis Backup 擴充功能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | 適用於 Linux 的趨勢科技 Deep Security 擴充功能。 | 趨勢科技 | Linux |
@@ -49,7 +50,8 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | 簡單部署、符合成本效益、以應用程式為主並以使用者為中心的企業級解決方案。 我們會定期加入最新的修補程式來更新這些映像。 | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [遠端桌面服務 (RDS) 部署](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | 建立基本遠端桌面服務 (RDS) 部署。 | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 試用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Windows Server 2012 Datacenter 和 Visual Studio 2017 社群版上的 SharePoint Server 2013 試用版。 | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 試用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter 上的 SharePoint Server 2016 試用版。 | Microsoft || ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 上的 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 Service Pack 2。  **所需的下載：**SQL IaaS 延伸模組。 | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 試用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter 上的 SharePoint Server 2016 試用版。 | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 上的 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 Service Pack 2。  **所需的下載：**SQL IaaS 延伸模組。 | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2016 SP1 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2016SP1-WS2016) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 **所需的下載：**SQL IaaS 延伸模組。 | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2016 SP1 Developer 版本](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016) | SQL Server 2016 SP1 免費開發人員版本，適用於交易、資料倉儲、商業智慧和分析工作負載。  **所需的下載：**SQL IaaS 延伸模組。 | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2016 SP1 Express 版本](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016) | 免費 Express 版本的 SQL Server 2016 SP1。 **所需的下載：**SQL IaaS 延伸模組。 | Microsoft |
@@ -83,8 +85,8 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。 | credativ |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。 | credativ |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
-| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3。 | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>第三方自備授權、免費和試用版映像以及解決方案範本
@@ -161,7 +163,6 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![](media/azure-stack-marketplace-azure-items/osclass.png) | [Osclass](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.osclass) | 不需具備專業技能，即可建立和管理免費的分類廣告。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/owncloud.png) | [ownCloud](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.owncloud) | 熱門的開放原始碼檔案同步處理和分享解決方案。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/oxideshop.png) | [OXID eShop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.oxid-eshop) | 受信任的開放原始碼電子商務系統。 | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/parseserver.png) | [Parse Server](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.parseserver) | 開放原始碼應用程式開發平台。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/phpbb.png) | [phpBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.phpbb) | 可自訂的公告欄解決方案。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/phplist.png) | [phpList](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.phplist) | 單向電子郵件宣告傳送系統。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/pimcore.png) | [Pimcore](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.pimcore) | 功能強大的業務開發管理平台 (CEM/CXM)。 | Bitnami |
@@ -202,10 +203,13 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | 包含 Apache、WildFly、MySQL 和 JAVA 的應用程式伺服器。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | 最熱門且隨時可開始的 CMS。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | 小型的行銷、銷售與客戶服務應用程式。 | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | 可建立動態網站的 CMS 和 Web 入口網站程式。
+| ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | 可建立動態網站的 CMS 和 Web 入口網站程式。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 開放原始碼的 CRM 系統：具有行動性、社交性且已遊戲化。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [檢查點 vSEC 安全性管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 檢查點 vSEC 提供進階、多層式威脅防護，可保護客戶 Azure 中的資產免於惡意程式碼和複雜威脅的攻擊。 <b>下載兩個 Check Point vSEC 市集項目。</b> | Check Point |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 使用 Chef Automate (連續自動化平台) 進行建置、部署及管理。 <b>下載兩個 Chef 市集項目</b> | Chef Software, Inc |
-| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 沙箱](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 由 HDP 2.5 所提供的 100% 開放原始碼平台，適用於 Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari。 | Hortonworks || ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |
-| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa || ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 可讓您將整個 Azure Stack 基礎結構的生命週期自動化。 <b>下載兩個 Puppet Marketplace 項目。</b> | Puppet || ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 同級產品中最佳的開放原始碼基礎結構管理。 | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 沙箱](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 由 HDP 2.5 所提供的 100% 開放原始碼平台，適用於 Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari。 | Hortonworks |
+| ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 可讓您將整個 Azure Stack 基礎結構的生命週期自動化。 <b>下載兩個 Puppet Marketplace 項目。</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 同級產品中最佳的開放原始碼基礎結構管理。 | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software Tool v7.1 - Migrate + HA. | ZeroDown Software |

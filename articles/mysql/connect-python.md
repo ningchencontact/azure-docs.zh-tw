@@ -6,21 +6,21 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0daf8b48f9cc767b0e6cf5339eff2e4e371c23fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Python 連線和查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)

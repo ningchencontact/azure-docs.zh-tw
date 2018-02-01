@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 5e4de47de554f36e7797b7994faee4e90c3a8186
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -109,13 +109,13 @@ ms.lasthandoff: 11/22/2017
 
 **錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
-150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。</br></br>對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)。
+150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。</br></br>對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 ### <a name="fix-the-problem"></a>修正問題
 請確定資料磁碟都已初始化，然後再次嘗試操作：
 
-- 對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。
-- 對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)。
+- 對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。
+- 對於 Linux：[在 Linux 中新增資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 若問題持續發生，請連絡支援服務。
 

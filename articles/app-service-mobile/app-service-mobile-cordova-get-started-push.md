@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 2. 按一下安裝來源旁邊的箭頭。
 3. 在 **SENDER_ID** 中，如果您已經有 Google 開發人員主控台專案的數值專案識別碼，您可以在此將它新增。 否則，請輸入預留位置值，例如 777777。  如果您是以 Android 為目標，您可以稍後在 config.xml 中更新此值。
+     請注意，從 2.0.0 版起，SENDER_ID 已從安裝階段中移除，且 google-services.json 必須安裝在您專案的根資料夾中。  請在[此處](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)查看詳細資料。
 4. 按一下 [新增] 。
 
 推撥外掛程式現已安裝。

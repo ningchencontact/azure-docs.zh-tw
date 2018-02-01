@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure 上的 FreeBSD 簡介
 本主題提供在 Azure 中執行 FreeBSD 虛擬機器的概觀。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 適用於 Microsoft Azure 的 FreeBSD 是一套先進的電腦作業系統，可用來為新式伺服器、桌上型電腦及內嵌平台提供技術支援。
 
 Microsoft Corporation 目前在 Azure 上提供已預先設定 [Azure VM 客體代理程式](https://github.com/Azure/WALinuxAgent/)的 FreeBSD 映像。 目前，Microsoft 以映像形式提供下列 FreeBSD 版本：
@@ -134,4 +134,3 @@ $ sudo <COMMAND>
 
 ## <a name="next-steps"></a>後續步驟
 * 前往 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 以建立 FreeBSD VM。
-* 如果您想要將自己的 FreeBSD 攜至 Azure，請參閱[建立並上傳 FreeBSD VHD 到 Azure](classic/freebsd-create-upload-vhd.md)。

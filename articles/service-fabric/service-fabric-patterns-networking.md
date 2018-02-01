@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
 您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
@@ -36,7 +36,7 @@ Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口
 
 ## <a name="templates"></a>範本
 
-所有 Service Fabric 範本都位於[一個下載檔案](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip)中。 使用下列 Powershell 命令應該可以依原樣部署範本。 如果您要部署現有 Azure 虛擬網路範本或靜態公用 IP 範本，請先閱讀本文的[初始設定](#initialsetup)一節。
+所有 Service Fabric 範本都位於 [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) 中。 使用下列 Powershell 命令應該可以依原樣部署範本。 如果您要部署現有 Azure 虛擬網路範本或靜態公用 IP 範本，請先閱讀本文的[初始設定](#initialsetup)一節。
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>初始設定
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric 範本
 
-在本文的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用[範本庫 (英文)](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric) 中的其中一個範本，例如[五個節點的 Service Fabric 叢集 (英文)](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
+在本文的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用其中一個[範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)，例如[五個節點的安全 Service Fabric 叢集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>現有虛擬網路或子網路

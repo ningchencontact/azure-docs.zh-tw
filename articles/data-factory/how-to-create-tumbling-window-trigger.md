@@ -1,6 +1,6 @@
 ---
-title: "如何在 Azure Data Factory 中建立輪轉視窗觸發程序 |Microsoft 文件"
-description: "了解如何在 Azure Data Factory 管線執行輪轉視窗上建立觸發程序。"
+title: "在 Azure Data Factory 中建立輪轉視窗觸發程序 | Microsoft Docs"
+description: "了解如何在 Azure Data Factory 中建立依輪轉視窗執行管線的觸發程序。"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: a3b056ae4bb4eda26fec58ca3b6bed7f0744e36e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>如何建立執行管線輪轉視窗的觸發程序
-本文章提供建立、 啟動及監視的輪轉視窗觸發程序的步驟。 如需觸發程序以及我們所支援的類型的一般資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>建立依輪轉視窗執行管線的觸發程序
+本文章提供建立、啟動、監視輪轉視窗觸發程序的步驟。 如需觸發程序及支援類型的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+> 本文適用於第 2 版 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版 Azure Data Factory (也就是正式運作版 (GA))，請參閱[開始使用 Azure Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
-輪轉視窗觸發程序是從指定的開始時間，同時還能保留狀態以週期性時間間隔就會引發的觸發程序的類型。 輪轉視窗是一系列的大小固定、 非重疊的連續時間間隔。 輪轉視窗觸發程序有 1:1 關聯性具有管線，並只能參考單一管線。
+輪轉視窗觸發程序是可從指定的開始時間定期引發，同時還能保留狀態的一種觸發程序。 輪轉視窗是一系列大小固定、非重疊的連續時間間隔。 輪轉視窗觸發程序與管線會有一對一的關係，並只能參考單一管線。
 
 ## <a name="tumbling-window-trigger-type-properties"></a>輪轉視窗觸發程序類型屬性
+輪轉視窗有下列觸發程序類型屬性：
+
 ```  
 {
     "name": "MyTriggerName",
@@ -68,24 +70,25 @@ ms.lasthandoff: 01/05/2018
 }
 ```  
 
-下表提供與循環以及排程輪轉視窗觸發程序中的主要項目的高階概觀。
+下表提供與輪轉視窗觸發程序之週期和排程相關的主要 JSON 元素的概要概觀：
 
-| **JSON 名稱** | **說明** | **允許的值** | **必要** |
-|:--- |:--- |:--- |:--- |
-| **type** | 觸發程序的類型。 這被固定為"TumblingWindowTrigger。 」 | 字串 | 是 |
-| **runtimeState** | <readOnly>可能的值： 啟動、 停止、 已停用 | 字串 | [是]，唯讀 |
-| **frequency** |*頻率*字串，表示觸發程序還一再發生的頻率單位。 支援的值為 「 分 」 和 「 小時 」。 如果開始時間比頻率較精細的日期部分，它們將會列入考量，來計算視窗界限。 如 ex： 如果頻率為每小時和開始時間是 2016年-04-01T10:10:10Z，第一個視窗是 (2017年-09-01T10:10:10Z，2017年-09-01T11:10:10Z。)  | 字串。 支援的型別 「 分 」，「 小時 」 | 是 |
-| **interval** |*間隔*這是一個正整數，並代表的間隔*頻率*，決定將會執行觸發程序的頻率。 例如，如果*間隔*是 3 和*頻率*是 「 小時 」，觸發程序會重複每 3 個小時。 | 整數  | 是 |
-| **startTime**|*startTime* 是日期時間。 *startTime*是第一次出現且可以在過去。 第一個觸發程序間隔會 （startTime、 startTime + 間隔）。 | Datetime | 是 |
-| **endTime**|*endTime*是日期時間。 *endTime*是最後一個出現項目，而且可以是在過去。 | Datetime | 是 |
-| **延遲** | 指定資料處理的視窗啟動之前的延遲。 在預期的執行時間 + 延遲時間後啟動執行管線。 延遲會定義如何觸發程序在等待過期的時間之前觸發新的執行時間。 它不會改變時段開始時間。 | Timespan (範例： 00:10:00，表示延遲 10 分鐘) |  編號 預設值是"00: 00:00" |
-| **最大並行** | 同時觸發程序執行準備的 windows 所引發的數目。 範例： 如果我們嘗試回填每小時的昨天，所應 24 windows。 如果並行 = 10，僅為前 10 的 windows 不會引發事件的觸發程序 (00:00-01:00-00:09:00-10)。 前 10 個的引動的管線執行完成之後，會針對接下來的 10 (10:00-11:00-19:00 20:00) 而引發觸發程序執行。 繼續進行的並行範例 = 10，10 windows 好時，會有 10 個管線執行時。 如果只有 1 視窗準備，只會有 1 管線執行。 | 整數  | 可以。 可能的值 1-50 |
-| **retryPolicy： 計數** | 管線執行之前的重試次數被標示為 「 失敗 」  | 整數  |  編號 預設值為 0 的重試 |
-| **retryPolicy: intervalInSeconds** | 重試嘗試之間的延遲 (秒) | 整數  |  編號 預設為 30 秒 |
+| JSON 元素 | 說明 | 類型 | 允許的值 | 必要 |
+|:--- |:--- |:--- |:--- |:--- |
+| **type** | 觸發程序的類型。 類型是固定的值 "TumblingWindowTrigger"。 | 字串 | "TumblingWindowTrigger" | yes |
+| **runtimeState** | 觸發程序執行時間的目前狀態。<br/>**附註**：這個元素是 \<readOnly>。 | 字串 | "Started"、"Stopped"、"Disabled" | yes |
+| **frequency** | 一個字串，代表觸發程序一再執行的頻率單位 (分鐘或小時)。 如果 **startTime** 日期值比 **frequency** 值更細微，計算視窗界限時，會將 **startTime** 日期納入計算。 例如，如果 **frequency** 值是小時，**startTime** 值是 2016-04-01T10:10:10Z，則第一個視窗是 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)。 | 字串 | "minute"、"hour"  | yes |
+| **interval** | 代表 **frequency** 值之間隔的整數值，用來決定觸發程序執行的頻率。 例如，如果 **interval** 為 3，而 **frequency** 為 "hour"，則觸發程序就會每隔 3 小時重複執行一次。 | 整數  | 正整數。 | yes |
+| **startTime**| 第一次出現，可以是過去。 第一個觸發程序間隔是 (**startTime**, **startTime** + **interval**)。 | Datetime | 日期時間值。 | yes |
+| **endTime**| 最後一次出現，可以是過去。 | Datetime | 日期時間值。 | yes |
+| **delay** | 視窗延遲開始資料處理所延遲的時間長度。 管線執行會在預期執行時間加上 **delay** 後開始。 **delay** 定義觸發程序要在超過到期時間多久之後，才觸發新的執行。 **delay** 不會改變視窗的 **startTime**。 例如，**delay** 值為 00:10:00 表示延遲 10 分鐘。 | Timespan  | 時間值，預設值是 00:00:00。 | 否 |
+| **maxConcurrency** | 就緒視窗可引發的同時執行觸發程序數目。 例如，為昨天回填每小時執行，結果會有 24 個視窗。 如果 **maxConcurrency** = 10，只有前 10 個視窗 (00:00-01:00 - 00:09:00-10) 會引發觸發程序事件。 前 10 個觸發的管線執行完成之後，才會引發接下來 10 個視窗 (10:00-11:00 - 19:00 20:00) 的觸發程序執行。 繼續以本範例的 **maxConcurrency** = 10 說明，如果有 10 個就緒視窗，則總共會有 10 個管線執行。 如果只有 1 個就緒視窗，則只有 1 個管線執行。 | 整數  | 1 到 50 之間的整數。 | yes |
+| **retryPolicy: Count** | 到管線執行標示為 [失敗] 前的重試次數。  | 整數  | 整數，預設值為 0 (無重試)。 | 否 |
+| **retryPolicy: intervalInSeconds** | 重試嘗試之間的延遲 (以秒指定) | 整數  | 秒數，預設值是 30。 | 否 |
 
-### <a name="using-system-variables-windowstart-and-windowend"></a>使用系統變數： WindowStart 和 WindowEnd
+### <a name="windowstart-and-windowend-system-variables"></a>WindowStart 和 WindowEnd 系統變數
 
-如果您想要使用 WindowStart 和 WindowEnd 輪轉視窗觸發程序，在您**管線**定義 （也就是適用於查詢的一部分），您必須將變數當做參數傳遞至管線中**觸發程序**定義，就像這樣：
+您可以在您的 **pipeline** (管線) 定義中使用輪轉視窗觸發程序的 **WindowStart** 和 **WindowEnd** 系統變數 (也是查詢的一部分)。 將系統變數當作參數傳遞給 **trigger** (觸發程序) 定義中的管線。 以下範例示範如何將這些變數當作參數傳遞：
+
 ```  
 {
     "name": "MyTriggerName",
@@ -113,22 +116,24 @@ ms.lasthandoff: 01/05/2018
 }
 ```  
 
-然後，在管線定義中，若要使用的 WindowStart 和 WindowEnd 值，使用您的參數據以"MyWindowStart"和"MyWindowEnd"
+若要在管線定義中使用 **WindowStart** 和 **WindowEnd** 系統變數值，分別使用您的 "MyWindowStart" 和 "MyWindowEnd" 參數。
 
-### <a name="notes-on-backfill"></a>附註的回填
-執行 （尤其是在回填案例） 進行多個視窗時，執行 windows 的順序具決定性，而且會從最舊到最新的間隔。 沒有任何方法來變更此行為從現在開始。
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>回填案例的視窗執行順序
+當有多個視窗可執行時 (特別是在回填案例中)，視窗的執行順序是確定的，從最舊到最新的間隔。 目前無法修改此行為。
 
-### <a name="updating-an-existing-triggerresource"></a>更新現有的 TriggerResource
-* 視窗的狀態變更觸發程序的頻率 （或視窗大小），如果已經處理將*不*重設。 觸發程序會繼續執行它使用新的視窗大小的最後一個 windows 引發。
-* 如果觸發程序變更 （新增或更新），已經視窗的狀態結束時間處理將*不*重設。 觸發程序只會接受新的結束時間。 如果結束時間之前已執行的 windows 中，將會停止觸發程序。 否則，就會停止時遇到新的結束時間。
+### <a name="existing-triggerresource-elements"></a>現有 TriggerResource 元素
+下列各點適用於現有的 **TriggerResource** 元素：
 
-## <a name="sample-using-azure-powershell"></a>使用 Azure PowerShell 範例
-本節說明如何使用 Azure PowerShell 來建立、 啟動及監視觸發程序。
+* 如果觸發程序的 **frequency** 元素 (或視窗大小) 值變更了，已經處理的視窗狀態「不會」重設。 觸發程序會繼續由它執行的最新視窗引發，並使用新的視窗大小。
+* 如果觸發程序的 **endTime** 元素值變更了 (新增或更新)，已經處理的視窗狀態「不會」重設。 觸發程序會採用新的 **endTime** 值。 如果新的 **endTime** 值在已經執行的視窗之前，觸發程序會停止。 反之，觸發程序會在遇到新的 **endTime** 值時停止。
 
-1. 建立名為 MyTrigger.json C:\ADFv2QuickStartPSH\ 資料夾具有下列內容中的 JSON 檔案：
+## <a name="sample-for-azure-powershell"></a>Azure PowerShell 的範例
+本節說明如何使用 Azure PowerShell 來建立、啟動及監視觸發程序。
+
+1. 在 C:\ADFv2QuickStartPSH\ 資料夾中，使用下列內容建立名為 **MyTrigger.json** 的 JSON 檔案：
 
    > [!IMPORTANT]
-   > 設定**startTime**到目前的 UTC 時間和**endTime**為一小時超過目前的 UTC 時間儲存 JSON 檔案之前。
+   > 在您儲存 JSON 檔案之前，請先將 **startTime** 元素的值設定為目前的 UTC 時間。 將 **endTime** 元素的值設定為目前 UTC 時間的一小時之後。
 
     ```json   
     {
@@ -160,32 +165,38 @@ ms.lasthandoff: 01/05/2018
       }
     }
     ```  
-2. 建立觸發程序使用**組 AzureRmDataFactoryV2Trigger** cmdlet。
+
+2. 使用 **Set-AzureRmDataFactoryV2Trigger** Cmdlet 來建立觸發程序：
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    ```
     
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet.
+3. 使用 **Get-AzureRmDataFactoryV2Trigger** Cmdlet 來確認觸發程序的狀態為 **Stopped** \(已停止\)：
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-4. 使用啟動觸發程序**開始 AzureRmDataFactoryV2Trigger** cmdlet:
+
+4. 使用 **Start-AzureRmDataFactoryV2Trigger** Cmdlet 來啟動觸發程序：
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-5. 確認觸發程序狀態為**已啟動**使用**Get AzureRmDataFactoryV2Trigger** cmdlet。
+
+5. 使用 **Get-AzureRmDataFactoryV2Trigger** Cmdlet 來確認觸發程序的狀態為 **Started** \(已啟動\)：
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-6.  取得觸發程序執行，使用 PowerShell 來**Get AzureRmDataFactoryV2TriggerRun** cmdlet。 若要取得觸發程序執行的相關資訊，請執行下列命令會定期： 更新**TriggerRunStartedAfter**和**TriggerRunStartedBefore**值，以符合觸發程序定義中的值.
+
+6. 在 Azure PowerShell 中使用 **Get-AzureRmDataFactoryV2TriggerRun** Cmdlet 來取得觸發程序執行。 若要取得有關觸發程序執行的資訊，請定期執行以下命令。 更新 **TriggerRunStartedAfter** 和 **TriggerRunStartedBefore** 的值，以符合您的觸發程序定義中的值：
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-若要監視在 Azure 入口網站中的觸發程序執行/管線執行，請參閱[監視器管線會執行](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+    
+若要在 Azure 入口網站中監視觸發程序執行和管線執行，請參閱[監視管線執行](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)。
 
 ## <a name="next-steps"></a>後續步驟
-如需觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)。
+如需有關觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)。

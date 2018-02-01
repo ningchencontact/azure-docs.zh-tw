@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -43,7 +43,7 @@ SKU 是 VM 映像的商務名稱。 VM 映像包含一個作業系統磁碟以�
 ### <a name="11-add-an-offer"></a>1.1 加入供應項目
 1. 使用您的賣方帳戶登入[發佈入口網站][link-pubportal]。
 2. 選取發佈入口網站的 [虛擬機器]  索引標籤。 在提示的輸入欄位中輸入您的供應項目名稱。 供應項目名稱通常是您計劃在 Azure Marketplace 中銷售的產品或服務的名稱。
-3. 選取 [ **建立**]。
+3. 選取 [建立] 。
 
 ### <a name="12-define-a-sku"></a>1.2 定義 SKU
 在您加入供應項目之後，您必須定義及識別您的 SKU。 您可以有多個供應項目，每個供應項目在其下可以有多個 SKU。 當供應項目進入預備環境，它的所有 SKU 也會一起進入。
@@ -58,7 +58,7 @@ SKU 是 VM 映像的商務名稱。 VM 映像包含一個作業系統磁碟以�
 3. 如果您正在使用以 Windows 為基礎的 SKU，請遵循建議的連結，要求使用核准的 Windows Server 版本。
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2.建立與 Azure 相容的 VHD (以 Linux 為基礎)
-本節的焦點在於為 Azure Marketplace 建立以 Linux 為基礎的 VM 映像所採行的最佳作法。 若需逐步解說，請參考下列文件：[建立與上傳包含 Linux 作業系統的虛擬硬碟](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+本節的焦點在於為 Azure Marketplace 建立以 Linux 為基礎的 VM 映像所採行的最佳作法。 如需逐步解說，請參閱下列文件：[建立自訂 Linux VM 映像](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3.建立與 Azure 相容的 VHD (以 Windows 為基礎)
 本節的焦點在於為 Azure Marketplace 建立以 Windows Server 為基礎的 SKU 所採行的步驟。
@@ -93,7 +93,7 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 
     a.    如果您打算開發 VHD 內部部署，大小不會造成影響。 請考慮使用其中一個較小的 VM。
 
-    b.這是另一個 C# 主控台應用程式。    如果您打算在 Azure 中開發映像，請考慮使用其中一個建議的 VM 大小做為選取的映像。
+    b.    如果您打算在 Azure 中開發映像，請考慮使用其中一個建議的 VM 大小做為選取的映像。
 
     c.    關於價格資訊，請參閱入口網站上所顯示的**建議定價層**選取器。 (在這個案例中，發行者為 Microsoft。 )
 
@@ -102,7 +102,7 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 
     a.    若要快速部署，您可以保留 [選用設定] 與 [資源群組] 下的預設值。
 
-    b.這是另一個 C# 主控台應用程式。    在 [儲存體帳戶] 之下，您可以視情況選取要儲存作業系統 VHD 的儲存體帳戶。
+    b.    在 [儲存體帳戶] 之下，您可以視情況選取要儲存作業系統 VHD 的儲存體帳戶。
 
     c.    在 [資源群組] 之下，您可以視情況選取要放置 VM 的邏輯群組。
 6. 選取部署的 [位置]  ：
@@ -112,7 +112,7 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
     b.    如果您打算在 Azure 中開發映像，請考慮從一開始就使用其中一個位於美國的 Microsoft Azure 區域。 這樣可以在您提交映像以進行認證時，加速 Microsoft 代表您執行的 VHD 複製程序。
 
     ![繪圖][img-portal-vm-location]
-7. 按一下 [建立] 。 開始部署 VM。 在數分鐘內，您將成功完成部署，並且可以開始為您的 SKU 建立映像。
+7. 按一下頁面底部的 [新增] 。 開始部署 VM。 在數分鐘內，您將成功完成部署，並且可以開始為您的 SKU 建立映像。
 
 ### <a name="33-develop-your-vhd-in-the-cloud"></a>3.3 在雲端開發您的 VHD
 強烈建議您在使用遠端桌面通訊協定 (RDP)，在雲端開發您的 VHD。 您會利用在佈建期間指定的使用者名稱和密碼連接到 RDP。
@@ -290,7 +290,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 建立的共用存取簽章 URI 應符合下列需求：
 
-注意：以下指示只適用於未受管理的磁碟，也是唯一支援的一種。
+注意：以下指示只適用於非受控磁碟，也是唯一支援的一種。
 
 * 為 VHD 產生共用存取簽章 URI 時，必須有足夠的列出和讀取權限。 不提供寫入或刪除存取權。
 * 存取期間應為建立共用存取簽章 URI 起至少三個 (3) 星期。
@@ -346,7 +346,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     a. **允許存取開始日期**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2014 年 10 月 6 日，則選取 10/5/2014。
 
-    b.這是另一個 C# 主控台應用程式。 **允許存取結束日期**：選取至少在 [允許存取開始日期] 之後 3 個星期的日期。
+    b. **允許存取結束日期**：選取至少在 [允許存取開始日期] 之後 3 個星期的日期。
 
     c. **允許動作**：選取 [列出] 和 [讀取] 權限。
 
@@ -394,7 +394,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     a.  **開始時間：**為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2014 年 10 月 6 日，則選取 10/5/2014。
 
-    b.這是另一個 C# 主控台應用程式。  **到期時間︰**選取至少在 [開始時間] 日期之後 3 個星期的日期。
+    b.  **到期時間︰**選取至少在 [開始時間] 日期之後 3 個星期的日期。
 
     c.  **權限：**：選取 [列出] 和 [讀取] 權限
 
@@ -442,7 +442,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     a. **`<StorageAccountName>`**：提供您的儲存體帳戶名稱
 
-    b.這是另一個 C# 主控台應用程式。 **`<Storage Account Key>`**：提供您的儲存體帳戶金鑰
+    b. **`<Storage Account Key>`**：提供您的儲存體帳戶金鑰
 
     c. **`<Permission Start Date>`**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2016 年 10 月 26 日，則值應該為 10/25/2016。 如果使用 Azure CLI 2.0 (az 命令)，請在 [開始日期] 和 [結束日期] 中提供日期和時間，例如：10-25-2016T00:00:00Z。
 

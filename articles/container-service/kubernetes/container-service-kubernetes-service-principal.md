@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4114093802d7e56eaeb64c0998d3fc675d9baa87
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2017
 在 Azure Container Service 中，Kubernetes 叢集需要 [Azure Active Directory 服務主體](../../active-directory/develop/active-directory-application-objects.md)，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由](../../virtual-network/virtual-networks-udr-overview.md)及[第 4 層 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)。
 
 
-本文說明為 Kubernetes 叢集設定服務主體的各種選項。 例如，如果您已安裝並設定 [Azure CLI 2.0](/cli/azure/install-az-cli2)，您可以執行 [`az acs create`](/cli/azure/acs#create) 命令，在同一時間建立 Kubernetes 叢集與服務主體。
+本文說明為 Kubernetes 叢集設定服務主體的各種選項。 例如，如果您已安裝並設定 [Azure CLI 2.0](/cli/azure/install-az-cli2)，您可以執行 [`az acs create`](/cli/azure/acs#az_acs_create) 命令，在同一時間建立 Kubernetes 叢集與服務主體。
 
 
 ## <a name="requirements-for-the-service-principal"></a>服務主體的需求
@@ -95,7 +95,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>選項 2︰在使用 `az acs create` 建立叢集時產生服務主體
 
-如果您執行 [`az acs create`](/cli/azure/acs#create) 命令來建立 Kubernetes 叢集，您可以選擇自動產生服務主體。
+如果您執行 [`az acs create`](/cli/azure/acs#az_acs_create) 命令來建立 Kubernetes 叢集，您可以選擇自動產生服務主體。
 
 至於其他 Kubernetes 叢集建立選項，您可以在執行 `az acs create` 時指定現有服務主體的參數。 不過，當您省略這些參數時，Azure CLI 會自動建立一個參數以搭配 Container Service 使用。 這會在部署期間以透明方式發生。
 

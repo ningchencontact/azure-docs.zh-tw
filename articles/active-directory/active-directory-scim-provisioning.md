@@ -1,5 +1,5 @@
 ---
-title: "使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式 | Microsoft Docs"
+title: "在 Azure Active Directory 中使用 SCIM 自動佈建應用程式 | Microsoft Docs"
 description: "Azure Active Directory 會利用 SCIM 通訊協定規格中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 

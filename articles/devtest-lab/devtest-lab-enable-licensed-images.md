@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中啟用授權映像
 
-在 Azure DevTest Labs 中，授權映像當中包含條款及條件 (通常是來自協力廠商)，實驗室中的使用者必須先接受這些條款和條件之後才能存取映像。 下列各節說明如何使用授權映像，使其可用來建立虛擬機器。
+在 Azure DevTest Labs 中，授權映像當中包含條款及條件 (通常是來自第三方)，實驗室中的使用者必須先接受這些條款和條件之後才能存取映像。 下列各節說明如何使用授權映像，使其可用來建立虛擬機器。
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>判斷授權映像是否可供使用者使用
 讓使用者能夠從授權映像建立 VM 的第一步是確定已接受授權映像的條款和條件。 下列步驟顯示如何檢視授權映像的提供狀態，並且必要時接受當中的條款和條件。
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-1. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 
 1. 從實驗室清單中，選取所需的實驗室。  
 
@@ -53,7 +53,9 @@ ms.lasthandoff: 01/02/2018
 
 您可以依照下列步驟，啟用以程式設計方式部署授權映像：
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)的 [Marketplace 映像] 清單上，找出您想要讓使用者存取，但還未接受條款的授權映像。 例如，您可能會看到一個「資料科學虛擬機器」，顯示 [接受條款] 或 [必須檢閱條款] 其中一種狀態。
+1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)中，移至 [Marketplace 映像] 的清單。
+
+1. 找出您想要讓使用者存取，但還未接受條款的授權映像。 例如，您可能會看到一個「資料科學虛擬機器」，顯示 [接受條款] 或 [必須檢閱條款] 其中一種狀態。
 
     ![[設定以程式設計方式部署] 視窗](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
@@ -74,7 +76,15 @@ ms.lasthandoff: 01/02/2018
    >
 
 
-1. 選取 [ **儲存**]。 在 Marketplace 映像的清單中，該映像現在會顯示 [接受條款]，並且可供使用者建立虛擬機器。
+1. 選取 [ **儲存**]。 
+
+    在 Marketplace 映像的清單中，該映像現在會顯示 [接受條款]，並且可供使用者建立虛擬機器。
+
+> [!NOTE]
+> 使用者可以從授權的映像建立自訂映像。 如需詳細資訊，請參閱[從 VHD 檔案建立自訂映像](devtest-lab-create-template.md)。
+>
+>
+
 
 ## <a name="related-blog-posts"></a>相關部落格文章
 
@@ -83,4 +93,6 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="next-steps"></a>後續步驟
 
+- [從 VM 建立自訂映像](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [從 VHD 檔案建立自訂映像](devtest-lab-create-template.md)
 - [將 VM 新增到實驗室](devtest-lab-add-vm.md)

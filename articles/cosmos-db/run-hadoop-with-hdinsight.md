@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>使用 Azure Cosmos DB 和 HDInsight 執行 Apache Hive、Pig 或 Hadoop 作業
 本教學課程示範如何在 Azure HDInsight 上，使用 Cosmos DB 的 Hadoop 連接器來執行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作業。 Cosmos DB 的 Hadoop 連接器可讓 Cosmos DB 同時做為 Hive、Pig 和 MapReduce 作業的來源和接收。 本教學課程將使用 Cosmos DB 同時作為 Hadoop 作業的資料來源和目的地。
+
+> [!IMPORTANT] 
+> 建議使用 Spark 至 Azure Cosmos DB 的連接器來連接 Azure HDInsight 與 Azure Cosmos DB。 如需詳細資訊，請參閱[使用 Spark 至 Azure Cosmos DB 連接器來加速即時巨量資料分析](spark-connector.md)。
 
 完成本教學課程後，您將能夠回答下列問題：
 
@@ -118,7 +121,7 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
 
      <table border='1'>
          <tr><th>屬性</th><th>值</th></tr>
-         <tr><td>名稱</td>
+         <tr><td>Name</td>
              <td>指定指令碼動作的名稱。</td></tr>
          <tr><td>指令碼 URI</td>
              <td>對自訂叢集所叫用的指令碼指定 URI。</br></br>
@@ -161,7 +164,7 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
 
     ![Azure PowerShell 的圖表][azure-powershell-diagram]
 
-## <a name="RunHive"></a>步驟 3： 執行使用 Azure Cosmos DB 和 HDInsight Hive 工作
+## <a name="RunHive"></a>步驟 3：使用 Azure Cosmos DB 和 HDInsight 執行 Hive 作業
 > [!IMPORTANT]
 > 以 < > 表示的所有變數都必須使用組態設定進行填寫。
 >
@@ -178,7 +181,7 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
         $clusterName = "<HDInsightClusterName>"
 2. <p>首先我們要建構查詢字串。 我們將撰寫執行下列動作的 Hive 查詢：接受所有文件從 Azure Cosmos DB 集合系統產生的時間戳記 (_ts) 和唯一識別碼 (_rid) ，並計算所有文件 (以分鐘為單位)，然後將結果存回新的 Azure Cosmos DB 集合。</p>
 
-    <p>首先，我們要在 Azure Cosmos DB 集合中建立 Hive 資料表。 將下列程式碼片段加入 [PowerShell 指令碼] 窗格中 # 1 的程式碼片段<strong>後面</strong>。 請確定您包含要修剪只 _ts 文件的選擇性查詢參數和 _rid。</p>
+    <p>首先，我們要在 Azure Cosmos DB 集合中建立 Hive 資料表。 將下列程式碼片段加入 [PowerShell 指令碼] 窗格中 # 1 的程式碼片段<strong>後面</strong>。 請確定包含選擇性的查詢參數，將文件整理成只有 _ts 和 _rid。</p>
 
    > [!NOTE]
    > **命名 DocumentDB.inputCollections 是正確的選擇。** 沒錯，我們允許在一筆輸入中加入多個集合： </br>
@@ -276,7 +279,7 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>首先我們要建構查詢字串。 我們將撰寫執行下列動作的 Pig 查詢：接受所有文件從 Azure Cosmos DB 集合系統產生的時間戳記 (_ts) 和唯一識別碼 (_rid) ，並計算所有文件 (以分鐘為單位)，然後將結果存回新的 Azure Cosmos DB 集合。</p>
-    <p>首先，將文件從 Cosmos DB 載入 HDInsight。 將下列程式碼片段加入 [PowerShell 指令碼] 窗格中 # 1 的程式碼片段<strong>後面</strong>。 請務必將查詢加入至選擇性 DocumentDB 查詢參數，要修剪只 _ts 我們文件和 _rid。</p>
+    <p>首先，將文件從 Cosmos DB 載入 HDInsight。 將下列程式碼片段加入 [PowerShell 指令碼] 窗格中 # 1 的程式碼片段<strong>後面</strong>。 請務必將查詢加入選擇性的 DocumentDB 查詢參數，以將文件整理成只有 _ts 和 _rid。</p>
 
    > [!NOTE]
    > 沒錯，我們允許在一筆輸入中加入多個集合： </br>
@@ -397,7 +400,7 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
 
 若要深入了解，請參閱下列文章：
 
-* [開發與 Azure Cosmos DB 的 Java 應用程式][sql-api-java-application]
+* [使用 Azure Cosmos DB 開發 Java 應用程式][sql-api-java-application]
 * [在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式][hdinsight-develop-deploy-java-mapreduce]
 * [開始在 HDInsight 中搭配 Hive 使用 Hadoop 以分析行動電話使用][hdinsight-get-started]
 * [搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]

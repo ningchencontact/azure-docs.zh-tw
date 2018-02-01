@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
 [top]: #machine-learning-sample-datasets
 
-在 Azure Machine Learning 中建立新的工作區時，預設會包含一些範例資料集和實驗。 許多這些範例資料集所使用中的範例模型[Azure AI 庫](http://gallery.cortanaintelligence.com/)。 其他則是機器學習中經常使用的各種範例。
+在 Azure Machine Learning 中建立新的工作區時，預設會包含一些範例資料集和實驗。 其中許多範例資料集由 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的範例模型使用。 其他則是機器學習中經常使用的各種範例。
 
 其中的部分資料集可在 Azure Blob 儲存體中使用。 下表提供這些資料集的直接連結。 您也可以透過[匯入資料][import-data]模組在實驗中使用這些資料集。
 
-這些範例資料集的其餘部分都是在您的工作區下**儲存的資料集**。 您可以將它找到 Machine Learning Studio 中的實驗畫布左邊模組調色盤中。
+在**儲存的資料集**之下的工作區中可使用這些範例資料集的其餘部分。 您可以在 Machine Learning Studio 的實驗畫布左邊的模組調色盤中找到這個。
 您可以將資料集拖曳到您的實驗畫布上，在自己的實驗中使用任一資料集。
 
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/06/2018
   <td>
 依構造和型號分類的汽車相關資訊，包括價格、性能 (例如汽缸數和油耗)，以及保險風險評分。
 <p></p>
-風險分數是一開始與自動價格相關聯。 然後調整為 symboling actuaries 已知的處理序中的實際風險。 若值為 +3，表示該汽車屬於高風險，若值為 -3，表示大致而言很安全。
+風險分數一開始與自動價格相關聯。 然後它會在精算師稱為符號化的程序中根據實際風險進行調整。 若值為 +3，表示該汽車屬於高風險，若值為 -3，表示大致而言很安全。
 <p></p>
 <b>使用方式：</b>使用迴歸或多變量分類，依特性預測風險評分。 
 <p></p>
@@ -106,15 +106,6 @@ Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM m
 </tr>
 
 <tr>
-  <td>來自 Amazon 的書籍評論</td>
-  <td>
-Amazon 中的書籍評論：取自 amazon.com 網站並由賓州大學研究員提供 (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>)。 請參閱研究報告 “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification”，作者：Association of Computational Linguistics (ACL) 的 John Blitzer、Mark Dredze 和 Fernando Pereira，2007 年。
-<p></p>
-原始資料集含有給予評等 1、2、3、4 或 5 的 975K 篇評論。 這些評論是以英文撰寫，撰寫期間為 1997-2007 年。 此資料集已縮減為 10K 篇評論。
-  </td>
-</tr>
-
-<tr>
   <td>乳癌資料</td>
   <td>
 Oncology Institute 所提供的三個癌症相關資料集之一，常出現在機器學習服務文獻中。 結合診斷資訊與約 300 個生物組織樣本的實驗室分析中的特性。
@@ -133,7 +124,7 @@ Oncology Institute 所提供的三個癌症相關資料集之一，常出現在�
 <tr>
   <td>乳癌資訊</td>
   <td>
-資料集包含 X 光影像每個可疑區域的其他資訊。 每個範例提供的資訊 (例如，標籤病患識別碼，座標相對於整個映像的修補程式) 乳癌 Cancer 功能集中對應資料列數目的相關。 每個病患有一些範例。 對於有癌症的病患，一些範例是正數，而一些是負數。 對於沒有癌症的病患，所有範例都是負數。 資料集有 10 萬 2 千個範例。 資料集有偏差，0.6% 的點是正數，其餘的是負數。 資料集是由 Siemens Healthcare 提供。
+資料集包含 X 光影像每個可疑區域的其他資訊。 每個範例可提供與乳癌特徵功能集中對應資料列號碼的相關資訊 (例如：標籤、病患識別碼、與整個影像相關的修補座標)。 每個病患有一些範例。 對於有癌症的病患，一些範例是正數，而一些是負數。 對於沒有癌症的病患，所有範例都是負數。 資料集有 10 萬 2 千個範例。 資料集有偏差，0.6% 的點是正數，其餘的是負數。 資料集是由 Siemens Healthcare 提供。
   </td>
 </tr>
 
@@ -168,9 +159,9 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 </tr>
 
 <tr>
-  <td>電源效率迴歸資料</td>
+  <td>能量效益迴歸資料</td>
   <td>
-模擬能量分佈曲線的集合，以 12 種不同的建築形狀為基礎。 建築物是八個功能來區別。 這包括 glazing 區域、 glazing 區域發佈和方向。
+模擬能量分佈曲線的集合，以 12 種不同的建築形狀為基礎。 組建分為八種功能。 這包括玻璃區域、玻璃區域分佈和方向。
 <p></p>
 <b>使用方式：</b>使用迴歸或分類，根據兩個實數值回應的其中之一來預測能量效益評等。 就多類別分類而言，會將回應變數進位至最接近的整數。 
 <p></p>
@@ -206,7 +197,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <tr>
   <td>森林火災資料</td>
   <td>
-包含天氣資料，例如氣溫和溼度索引以及風速。 資料是來自東北葡萄牙，結合的樹系引發記錄的區域。
+包含天氣資料，例如氣溫和溼度索引以及風速。 資料來自葡萄牙東北部區域，結合森林火災的記錄。
 <p></p>
 <b>使用方式：</b>這是一項困難的迴歸工作，其目的是要預測森林火災的燃燒區域。 
 <p></p>
@@ -254,9 +245,9 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
   <td>
 此資料集是根據 Carnegie Mellon University 的 StatLib 圖書館所提供的資料集略做修改而成。 此資料集用於 1983 American Statistical Association Exposition。
 <p></p>
-資料會列出每加侖英里的各種汽車的油耗用量。 它也包含磁柱、 引擎的位移、 馬力、 總重量和加速數目等資訊。
+這項資料以每加侖的里程數為單位列出各種汽車的油耗。 這也包含汽缸數、引擎排氣量、馬力、總重量和加速等資訊。
 <p></p>
-<b>使用方式：</b>預測燃料經濟根據三個多重值的離散屬性和五個連續的屬性。 
+<b>使用方式：</b>根據三個多重值離散屬性和五個連續屬性，預測燃料經濟效益。 
 <p></p>
 <b>相關研究：</b>StatLib Carnegie Mellon University (1993 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
@@ -307,7 +298,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <tr>
   <td>煉鋼多類別資料集</td>
   <td>
-此資料集包含一系列的記錄從鋼鍛鍊試用。 它包含的實體屬性 （寬度、 粗細、 型別 （線圈、 工作表等） 產生鋼型別。
+此資料集包含試煉鋼鐵的一系列記錄。 其中包含產生的鋼鐵類型實際屬性 (寬度、厚度、類型 (鋼條圈、鋼片等)。
 <p></p>
 <b>使用方式：</b>預測任兩個數值類別屬性；硬度或強度。 您也可以分析各屬性之間的關聯。
 <p></p>
@@ -322,17 +313,17 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <tr>
   <td>望遠鏡資料</td>
   <td>
-以及背景噪音，同時使用 Monte Carlo 程序模擬的突發高能源 gamma 物件的記錄。
+高能伽瑪粒子爆與背景雜訊的記錄，兩者皆使用蒙地卡羅程序來模擬。
 <p></p>
-模擬的目的是要改進接地式 atmospheric Cherenkov gamma 望遠鏡首次發現的精確度。 這是使用的統計方法可以區分所需的信號 （Cherenkov 輻射淋浴） 和背景噪音 （hadronic 淋浴 cosmic 上限氣氛中的一種非由起始）。
+模擬的目的是改善地面大氣切倫科夫伽瑪望遠鏡的精確性。 這是使用統計方法區分所要的訊號 (切倫科夫射線波) 與背景雜訊 (高層大氣中的宇宙射線所引發的強子波) 所達成。
 <p></p>
 這項資料已經過前處理，而建立長軸指向攝相中心的狹長叢集。 這個橢圓的特性 (通常稱為 Hillas 參數) 屬於可用於區別的影像參數。
 <p></p>
 <b>使用方式：</b>預測某個波的影像代表的是訊號還是背景雜訊。
 <p></p>
-<b>附註：</b>簡單的分類精確性對這項資料並沒有幫助，因為將背景活動分類為訊號，比將訊號活動分類為背景還要糟。 針對不同的分類器的比較，應該使用 ROC 圖形。 接受背景事件訊號必須為下列其中一個下列臨界值的機率： 0.01、 0.02、 0.05、 0.1 或 0.2。
+<b>附註：</b>簡單的分類精確性對這項資料並沒有幫助，因為將背景活動分類為訊號，比將訊號活動分類為背景還要糟。 若要比較不同的分類器，應使用 ROC 圖形。 將背景活動認定為訊號的機率，必須低於下列其中一個臨界值：0.01、0.02、0.05、0.1 或 0.2。
 <p></p>
-另外請注意會低估背景事件 (如 hadronic 淋浴 h) 數目。 在真實的度量，h 或雜訊類別表示大部分的事件。 
+此外請注意，背景活動的數目 (h 表示強子波) 會被低估。 在實際的測量中，h 或雜訊類別會佔活動的多數。 
 <p></p>
 <b>相關研究：</b>Bock, R.K。 (1995 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information </td>
 </tr>
@@ -373,7 +364,7 @@ NOAA 提供的每小時起降天候觀測值 (<a href="http://cdo.ncdc.noaa.gov/
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td>
-資料集含有客戶資料，以及他們對直接郵寄促銷活動回應的相關指示。 每個資料列都代表一個客戶。 資料集包含 9 個功能的相關使用者人口統計和過去的行為，以及三個資料行設定標籤 （瀏覽，轉換，而且會浪費）。  請瀏覽是指示客戶瀏覽行銷活動之後將二進位資料行。 轉換表示客戶購買的項目。 花是所花費的金額。  資料集是由 Kevin Hillstrom 為 MineThatData E-Mail Analytics And Data Mining Challenge 提供。
+資料集含有客戶資料，以及他們對直接郵寄促銷活動回應的相關指示。 每個資料列都代表一個客戶。 資料集包含相關的使用者人口統計和過去行為的九項特徵，以及三個標籤資料行 (瀏覽、轉換和費用)。  瀏覽是二進位資料行，指出客戶在行銷活動之後造訪。 轉換指出客戶購買某個物品。 費用是所花費的金額。  資料集是由 Kevin Hillstrom 為 MineThatData E-Mail Analytics And Data Mining Challenge 提供。
   </td>
 </tr>
 

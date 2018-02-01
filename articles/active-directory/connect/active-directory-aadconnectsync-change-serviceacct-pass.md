@@ -4,7 +4,7 @@ description: "本主題文件說明加密金鑰，以及如何在密碼變更後
 services: active-directory
 keywords: "Azure AD 同步處理服務帳戶, 密碼"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>變更 Azure AD Connect 同步處理服務帳戶密碼
 如果您變更 Azure AD Connect 同步服務帳戶密碼，「同步處理服務」將會無法正確啟動，直到您放棄加密金鑰並將 Azure AD Connect 同步服務帳戶密碼重新初始化為止。 

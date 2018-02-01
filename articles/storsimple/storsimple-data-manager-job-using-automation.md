@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure 自動化來觸發作業 | Microsoft Docs"
-description: "了解如何使用 Azure 自動化來觸發 StorSimple 資料管理員作業 (私人預覽)"
+title: "使用 Azure 自動化在 StorSimple 資料管理員中啟動作業 | Microsoft Docs"
+description: "了解如何使用 Azure 自動化來觸發 StorSimple 資料管理員作業"
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,96 +12,116 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/16/2017
-ms.author: vidarmsft
-ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/16/2018
+ms.author: alkohli
+ms.openlocfilehash: 1e5fcbee664271058ac1c7fa80bb285e09b8579a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="use-azure-automation-to-trigger-a-job-private-preview"></a>使用 Azure 自動化來觸發作業 (私人預覽)
+# <a name="use-azure-automation-to-trigger-a-job"></a>使用 Azure 自動化來觸發作業
 
-此文章說明如何使用 Azure 自動化來觸發 StorSimple 資料管理員作業。
+本文說明如何使用 StorSimple Data Manager 服務中的資料轉換功能來轉換 StorSimple 裝置資料。 您可以使用下列兩種方式啟動資料轉換作業： 
 
-## <a name="prerequisites"></a>必要條件
+ - 使用 .NET SDK
+ - 使用 Azure 自動化 Runbook
+ 
+本文詳述如何建立 Azure 自動化 Runbook，然後使用它來起始資料轉換作業。 若要深入了解如何透過 .NET SDK 起始資料轉換，請移至[使用 .NET SDK 來觸發資料轉換作業](storsimple-data-manager-dotnet-jobs.md)。
+
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您有︰
 
-*   已安裝 Azure Powershell。 [下載 Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
-*   用於初始化資料轉換作業的組態設定 (這裡包含取得這些設定的指示)。
-*   已在資源群組內的混合式資料資源中正確設定的工作定義。
-*   從 GitHub 存放庫下載 `DataTransformationApp.zip` [zip](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 檔案。
-*   從 GitHub 存放庫下載 `Get-ConfigurationParams.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1)。
-*   從 GitHub 存放庫下載 `Trigger-DataTransformation-Job.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)。
+*   在用戶端電腦上安裝的 Azure PowerShell。 [下載 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+*   在資源群組內的 StorSimple 資料管理員服務中正確設定的作業定義。
+*   從 GitHub 存放庫下載 [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 檔案。 
+*   從 GitHub 存放庫下載 [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) 指令碼。
 
-## <a name="step-by-step"></a>逐步說明
-
-### <a name="get-azure-active-directory-permissions-for-the-automation-job-to-run-the-job-definition"></a>取得自動化作業的 Azure Active Directory 權限，以執行工作定義
-
-1. 若要擷取 Active directory 的組態參數，請執行下列步驟︰
-
-    1. 在本機電腦中開啟 Windows PowerShell。 確認 [Azure PowerShell](https://azure.microsoft.com/downloads/) 已安裝。
-    1. 執行 `Get-ConfigurationParams.ps1` 指令碼 (在上述您所下載的資料夾中)。 在 PowerShell 視窗中輸入下列命令：
-
-        ```
-        .\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
-         ```
-
-        ActiveDirectoryKey 是您稍後使用的密碼。 輸入您選擇的密碼。 AppName 可以是任何字串。
-
-2. 此指令碼會輸出下列值，這些值應該在觸發自動化 Runbook 時使用。 記下這些值。
-
-    - 用戶端識別碼
-    - 租用戶識別碼
-    - Active Directory 金鑰 (與上面輸入的金鑰相同)
-    - 訂用帳戶識別碼
+## <a name="step-by-step-procedure"></a>逐步程序
 
 ### <a name="set-up-the-automation-account"></a>設定自動化帳戶
 
-1. 登入 Azure，並開啟您的自動化帳戶。
-2. 按一下 [資產] 磚，以開啟資產清單。
-3. 按一下 [模組] 磚，以開啟模組清單。
-4. 按一下 [+ 加入模組] 按鈕，會啟動 [加入模組] 刀鋒視窗。
+1. 在 Azure 入口網站中建立 Azure 執行身分自動化帳戶。 若要這樣做，請移至 [Azure Marketplace] > [所有項目]，然後搜尋**自動化**。 選取 [自動化帳戶]。
 
-    ![自動化帳戶設定](./media/storsimple-data-manager-job-using-automation/add-module1m.png)
+    ![建立執行身分自動化帳戶](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-5. 當您從本機電腦選取 `DataTransformationApp.zip` 檔案之後，按一下 [確定] 匯入模組。
+2. 若要新增自動化帳戶，請按一下 [+ 新增]。
+
+    ![建立執行身分自動化帳戶](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+
+3. 在 [新增自動化] 中：
+
+    1. 提供自動化帳戶的 [名稱]。
+    2. 選取連結至 StorSimple 裝置管理員服務的 [訂用帳戶]。
+    3. 建立新的資源群組，或從現有的資源群組中選取。
+    4. 選取 [位置] 。
+    5. 保持選取預設值 [建立執行身分帳戶] 選項。
+    6. 若要在儀表板上取得可供快速存取的連結，請核取 [釘選到儀表板]。 按一下頁面底部的 [新增] 。
+
+    ![建立執行身分自動化帳戶](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+    
+    成功建立自動化帳戶之後會通知您。
+    
+    ![自動化帳戶部署通知](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+
+    如需詳細資訊，請移至[建立執行身分帳戶](../automation/automation-create-runas-account.md)。
+
+3. 在新建立的帳戶中，移至 [共用資源] > [模組] 並按一下 [+ 新增模組]。
+
+    ![匯入模組 1](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
+
+4. 從本機電腦瀏覽至 `DataTransformationApp.zip` 檔案的位置，然後選取並開啟模組。 按一下 [確定] 以匯入模組。
+
+    ![匯入模組 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
    當 Azure 自動化將模組匯入到您的帳戶時，會擷取有關模組的中繼資料。 此作業可能需要幾分鐘的時間。
 
-   ![自動化帳戶設定](./media/storsimple-data-manager-job-using-automation/add-module2m.png)
+   ![匯入模組 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
-   
+5. 您會在部署模組時收到一則通知，而當程序完成時會收到另一則通知。  [模組] 中的狀態會變更為 [可用]。
 
-6. 您會在部署模組時收到一則通知，而當程序完成時會收到另一則通知。  您也可以在 [模組] 磚中檢查狀態。
+    ![匯入模組 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
 
-### <a name="to-import-the-runbook-that-triggers-the-job-definition"></a>匯入觸發工作定義的 Runbook
+### <a name="import-publish-and-run-automation-runbook"></a>匯入、發佈和執行自動化 Runbook
 
-1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 按一下 [Runbook] 磚，以開啟 Runbook 清單。
-3. 按一下 [+ 加入 Runbook]，然後按一下 [匯入現有 Runbook]。
+請執行下列步驟來匯入、發佈及執行用來觸發作業定義的 Runbook。
 
-   ![匯入現有 Runbook](./media/storsimple-data-manager-job-using-automation/import-a-runbook.png)
+1. 在 Azure 入口網站中，開啟您的自動化帳戶。 移至 [程序自動化] > [Runbook]，然後按一下 [+ 新增 Runbook]。
 
-4. 按一下 [Runbook 檔案] 並選取要匯入 `Trigger-DataTransformation-Job.ps1` 的檔案。
-5. 按一下 [建立] 以匯入 Runbook。 新的 Runbook 會出現在自動化帳戶的 Runbook 清單中。
-7. 按一下 Trigger-DataTransformation-Job Runbook，然後按一下編輯。
-8. 按一下 [發行]，並在系統提示您確認時按一下 [是]。
+    ![新增 Runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
+2. 在 [新增 Runbook] 中，按一下 [匯入現有 Runbook]。
 
-### <a name="to-run-the-runbook"></a>執行 Runbook：
-1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 按一下 [Runbook]  磚以開啟 Runbook 的清單。
-3. 按一下 [Trigger-DataTransformation-Job]。
-4. 按一下 [開始]  以啟動 Runbook。
+3. 在 [Runbook 檔案] 中指向 Azure PowerShell 指令碼檔案 `Trigger-DataTransformation-Job.ps1`。 會自動選取 Runbook 類型。 提供 Runbook 的名稱和選擇性描述。 按一下頁面底部的 [新增] 。
 
-   ![啟動 Runbook](./media/storsimple-data-manager-job-using-automation/run-runbook1m.png)
+    ![新增 Runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 
-5. 在 [啟動 Runbook] 刀鋒視窗中，輸入所有參數。 按一下 [確定]，以提交資料轉換作業。
+4. 新的 Runbook 會出現在自動化帳戶的 Runbook 清單中。 選取並按一下此 Runbook。
 
-   ![啟動 Runbook](./media/storsimple-data-manager-job-using-automation/run-runbook2m.png)
+    ![新增 Runbook 3](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
 
+5. 編輯 Runbook，然後按一下 [測試] 窗格。
+
+    ![新增 Runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
+
+6. 提供各項參數，例如 StorSimple 資料管理員服務的名稱、相關聯的資源群組，以及作業定義名稱。 **開始**測試。 執行完成後即會產生報告。 如需詳細資訊，請移至如何[測試 Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)。
+
+    ![新增 Runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
+
+7. 在 [測試] 窗格中檢查 Runbook 的輸出。 如果滿意測試結果，請關閉窗格。 按一下 [發佈] 並在提示要求確認時予以確認，並發佈 Runbook。
+
+    ![新增 Runbook 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
+
+8. 返回 [Runbook]，然後選取新建立的 Runbook。
+
+    ![新增 Runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
+
+9. **啟動** Runbook。 在 [啟動 Runbook] 中，輸入所有參數。 按一下 [確定]，以提交並啟動資料轉換作業。
+
+10. 若要在 Azure 入口網站中監視作業進度，請移至 StorSimple 資料管理員服務中的 [作業]。 選取並按一下作業，以檢視作業詳細資料。
+
+    ![新增 Runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
 ## <a name="next-steps"></a>後續步驟
 

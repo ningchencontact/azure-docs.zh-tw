@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,10 +49,10 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 Azure SQL Database 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設為： **AzureSqlDatabase** | 是 |
-| connectionString |針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 僅支援基本驗證。 請將此欄位標示為 SecureString。 |是 |
+| type | type 屬性必須設為： **AzureSqlDatabase** | yes |
+| connectionString |針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 僅支援基本驗證。 請將此欄位標示為 SecureString。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
@@ -85,10 +85,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Azure SQL Database 複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **AzureSqlTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AzureSqlTable** | 是 |
-| tableName |Azure SQL Database 執行個體中連結服務所參考的資料表或檢視的名稱。 | 是 |
+| type | 資料集的類型屬性必須設定為：**AzureSqlTable** | yes |
+| tableName |Azure SQL Database 執行個體中連結服務所參考的資料表或檢視的名稱。 | yes |
 
 **範例：**
 
@@ -117,9 +117,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Azure SQL Database 複製資料，請將複製活動中的來源類型設定為 **SqlSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | yes |
 | SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
@@ -221,15 +221,15 @@ GO
 
 若要將資料複製到 Azure SQL Database，請將複製活動中的接收器類型設定為 **SqlSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
+| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | yes |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
-| sqlWriterStoredProcedureName |將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 |否 |
+| preCopyScript |指定一個 SQL 查詢，供「複製活動」在將資料寫入 Azure SQL Database 前執行。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |
+| sqlWriterStoredProcedureName |預存程序的名稱，此預存程序定義如何將來源資料套用至目標資料表，例如使用您自己的商務邏輯來執行更新插入或轉換。 <br/><br/>請注意，將會**依批次叫用**此預存程序。 如果您想要進行只執行一次且與來源資料無關的作業 (例如刪除/截斷)，請使用 `preCopyScript` 屬性。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 | sqlWriterTableType |指定要在預存程序中使用的資料表類型名稱。 複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。 然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 |否 |
-| preCopyScript |指定一個供「複製活動」在每次執行時將資料寫入到 Azure SQL Database 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 |否 |
 
 > [!TIP]
 > 將資料複製到 Azure SQL Database 時，複製活動預設會將資料附加至接收資料表。 若要執行 UPSERT 或其他商務邏輯，請在 SqlSink 中使用該預存程序。 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。

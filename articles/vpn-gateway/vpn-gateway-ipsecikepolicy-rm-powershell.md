@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
 
@@ -195,20 +195,13 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 下列範例指令碼會使用下列演算法和參數來建立 IPsec/IKE 原則：
 
 * IKEv2：AES256、SHA384、DHGroup24
-* IPsec：AES256、SHA256、PFS 無、SA 存留期 7200 秒和 102400000 KB
+* IPsec：AES256、SHA256、PFS 無、SA 存留期 14400 秒和 102400000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-如果您針對 IPsec 使用 GCMAES，就必須針對 IPsec 加密和完整性使用相同的 GCMAES 演算法和金鑰長度，例如：
-
-* IKEv2：AES256、SHA384、DHGroup24
-* IPsec：**GCMAES256、GCMAES256**、PFS 無、SA 存留期 7200 秒和 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+如果您針對 IPsec 使用 GCMAES，就必須針對 IPsec 加密和完整性使用相同的 GCMAES 演算法和金鑰長度。 就上述範例而言，當使用 GCMAES256 時，對應參數將會是"-IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256"。
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2.使用 IPsec/IKE 原則建立 S2S VPN 連線
 
@@ -288,10 +281,10 @@ New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Locatio
 
 下列範例指令碼會使用下列演算法和參數來建立不同的 IPsec/IKE 原則：
 * IKEv2：AES128、SHA1、DHGroup14
-* IPsec：GCMAES128、GCMAES128、PFS14、SA 存留期 7200 秒和 4096KB
+* IPsec：GCMAES128、GCMAES128、PFS14、SA 存留期 14400 秒和 102400000KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2.使用 IPsec/IKE 原則建立 VNet 對 VNet 連線
@@ -339,11 +332,11 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-最後一個命令會列出連線上所設定的目前 IPsec/IKE 原則 (如果有的話)。 下列範例輸出適用於連線：
+最後一個命令會列出連線上所設定的目前 IPsec/IKE 原則 (如果有的話)。 以下是連線的範例輸出：
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 您應該會在最後一行看到輸出，如下列範例所示：
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 資料庫待用加密
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Cosmos DB 是一種 PaaS 服務，使用起來非常容易。 由於儲存在 Cosmos DB 中的所有使用者資料都會在待用和傳輸過程期間進行加密，因此您不必採取任何動作。 換句話說，待用加密預設便會「開啟」。 沒有關閉或開啟的控制項。 在提供這項功能的同時，我們會繼續符合[可用性和效能 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)。
 
-## <a name="implement-encryption-at-rest"></a>實作待用加密
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Azure Cosmos DB 待用加密實作
 
 待用加密是使用數種安全性技術來實作的，這些技術包括安全金鑰儲存體系統、加密的網路，以及密碼編譯 API。 負責解密及處理資料的系統，必須和負責管理金鑰的系統進行通訊。 下圖顯示加密資料儲存體和金鑰管理的分隔方式。 
 
@@ -62,7 +62,7 @@ Cosmos DB 是一種 PaaS 服務，使用起來非常容易。 由於儲存在 Co
 答︰現在所有現有和新的帳戶都啟用待用加密，但是效能 SLA 沒有任何影響或變化。 您可以在 [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 頁面閱讀更多資訊以查看最新的保證。
 
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>問︰本機模擬器支援待用加密嗎？
-答︰模擬器是獨立的開發/測試工具，不使用受管理 Cosmos DB 服務所使用的金鑰管理服務。 我們建議您在儲存機密模擬器測試資料的磁碟機上啟用 BitLocker。 [模擬器支援變更預設資料目錄](local-emulator.md)，也支援使用已知位置。
+答︰模擬器是獨立的開發/測試工具，不使用受控 Cosmos DB 服務所使用的金鑰管理服務。 我們建議您在儲存機密模擬器測試資料的磁碟機上啟用 BitLocker。 [模擬器支援變更預設資料目錄](local-emulator.md)，也支援使用已知位置。
 
 ## <a name="next-steps"></a>後續步驟
 

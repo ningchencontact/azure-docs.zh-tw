@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.md)和[長期保留備份](sql-database-long-term-retention.md)進行資料庫復原，提供以下選項。 您可從資料庫備份還原至︰
@@ -90,7 +90,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>還原已刪除的資料庫
-您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)，將已刪除的資料庫還原到相同邏輯伺服器上已刪除資料庫的刪除時間。 
+您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)，將已刪除的資料庫還原到相同邏輯伺服器上已刪除資料庫的刪除時間。 您可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)，將已刪除的資料庫還原到保留期間內的較早時間點。
 
 > [!TIP]
 > 如需示範如何還原已刪除資料庫的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。

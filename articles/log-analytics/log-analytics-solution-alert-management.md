@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite (OMS) 中的警示管理解決方案 | Microsoft Docs"
-description: "Log Analytics 中的警示管理方案可協助您分析環境中的所有警示。  除了合併 OMS 內產生的警示，此方案還會將連線的 System Center Operations Manager 管理群組中的警示匯入到 Log Analytics。"
+title: "Azure Log Analytics 中的警示管理方案 | Microsoft Docs"
+description: "Log Analytics 中的警示管理方案可協助您分析環境中的所有警示。  除了合併 Log Analytics 內產生的警示，此方案還會將連線的 System Center Operations Manager 管理群組中的警示匯入到 Log Analytics。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的警示管理解決方案
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
 警示管理解決方案可協助您分析 Log Analytics 儲存機制中的所有警示。  這些警示可能來自各種來源，包括[由 Log Analytics 所建立](log-analytics-alerts.md)或[從 Nagios 或 Zabbix 匯入](log-analytics-linux-agents.md)的來源。  此解決方案也會從所有[連線的 System Center Operations Manager 管理群組](log-analytics-om-agents.md)匯入警示。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 此解決方案將會使用 Log Analytics 中類型為**警示**的所有記錄，因此您必須執行收集這些記錄所需的所有設定。
 
 - 針對 Log Analytics 警示，[建立警示規則](log-analytics-alerts.md)，以直接在儲存機制中建立警示記錄。
@@ -34,10 +34,10 @@ ms.lasthandoff: 12/13/2017
 - 針對 System Center Operations Manager 警示，[將 Operations Manager 管理群組連線到 Log Analytics 工作區](log-analytics-om-agents.md)。  在 System Center Operations Manager 中建立的任何警示會匯入至記錄分析。  
 
 ## <a name="configuration"></a>組態
-使用 [加入方案](log-analytics-add-solutions.md)所述的程序，將警示管理方案加入您的 OMS 工作區。  不需要進一步的組態。
+使用[新增方案](log-analytics-add-solutions.md)中所述的程序，將警示管理方案新增至您的 Log Analytics 工作區。  不需要進一步的組態。
 
 ## <a name="management-packs"></a>管理組件
-如果 System Center Operations Manager 管理群組已連線到 OMS 工作區，當您新增此解決方案時，下列管理組件會安裝在 System Center Operations Manager 中。  管理組件不需要任何設定或維護。  
+如果 System Center Operations Manager 管理群組已連線到 Log Analytics 工作區，當您新增此解決方案時，下列管理組件會安裝在 System Center Operations Manager 中。  管理組件不需要任何設定或維護。  
 
 * Microsoft System Center Advisor 警示管理 (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/13/2017
 |:--- |:--- |:--- |
 | [Windows 代理程式](log-analytics-windows-agent.md) | 否 |直接的 Windows 代理程式不會產生警示。  您可以從收集自 Windows 代理程式的事件和效能資料建立 Log Analytics 警示。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 |直接的 Linux 代理程式不會產生警示。  您可以從收集自 Linux 代理程式的事件和效能資料建立 Log Analytics 警示。  您可以從需要 Linux 代理程式的伺服器收集 Nagios 和 Zabbix 警示。 |
-| [System Center Operations Manager 管理群組](log-analytics-om-agents.md) |是 |Operations Manager 代理程式上產生的警示會傳遞至管理群組，然後轉送到 Log Analytics。<br><br>不需要直接從 Operations Manager 代理程式連線到 Log Analytics。 警示資料會從管理群組轉送至 Log Analytics 儲存機制。 |
+| [System Center Operations Manager 管理群組](log-analytics-om-agents.md) |yes |Operations Manager 代理程式上產生的警示會傳遞至管理群組，然後轉送到 Log Analytics。<br><br>不需要直接從 Operations Manager 代理程式連線到 Log Analytics。 警示資料會從管理群組轉送至 Log Analytics 儲存機制。 |
 
 
 ### <a name="collection-frequency"></a>收集頻率
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/13/2017
 - 警示資料每 3 分鐘從 Operations Manager 管理群組傳送至 Log Analytics。  
 
 ## <a name="using-the-solution"></a>使用解決方案
-當您將警示管理解決方案新增至 OMS 工作區時，[警示管理] 圖格會新增至 OMS 儀表板。  此圖格會顯示過去 24 小時內產生的目前作用中警示數目的計數和圖形表示。  您無法變更此時間範圍。
+當您將警示管理解決方案新增至 Log Analytics 工作區時，[警示管理] 圖格會新增至儀表板。  此圖格會顯示過去 24 小時內產生的目前作用中警示數目的計數和圖形表示。  您無法變更此時間範圍。
 
 ![Alert Management tile](media/log-analytics-solution-alert-management/tile.png)
 

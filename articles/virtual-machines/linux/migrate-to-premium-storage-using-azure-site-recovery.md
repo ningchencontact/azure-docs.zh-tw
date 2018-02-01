@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5912a395798f2a37ed939b771698282ae594ce8e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -68,7 +68,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 * 在容錯移轉時建立 VM 時，VM 將連接的 Azure 虛擬網路。 Azure 虛擬網路所在的區域必須與 Site Recovery 執行的區域相同。
 * 用來儲存複寫記錄的 Azure 標準儲存體帳戶。 這可以是和所要移轉之 VM 磁碟相同的儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 了解上一節的相關移轉案例元件。
 * 了解 [Site Recovery 中的容錯移轉](../../site-recovery/site-recovery-failover.md)中的容錯移轉，以規劃停機時間。
@@ -199,10 +199,10 @@ Site Recovery 會建立類型與可支援進階儲存體之 VM 相同或類似�
 ## <a name="post-migration-steps"></a>移轉後步驟
 
 1. **在情況允許時將複寫的 VM 設定至可用性設定組**。 Site Recovery 不支援移轉 VM 以及可用性設定組。 根據複寫 VM 的部署，執行下列其中一項︰
-   * 透過傳統部署模型建立的 VM︰在 Azure 入口網站中將 VM 新增至可用性設定組。 如需詳細步驟，請移至[將現有虛擬機器加入至可用性設定組](../linux/classic/configure-availability.md#addmachine)。
+   * 透過傳統部署模型建立的 VM︰在 Azure 入口網站中將 VM 新增至可用性設定組。 如需詳細步驟，請移至[將現有虛擬機器加入至可用性設定組](../linux/classic/configure-availability-classic.md)。
    * 對於透過 Resource Manager 部署模型建立的 VM︰儲存 VM 的組態，然後在可用性設定組中刪除再重新建立 VM。 若要這樣做，請使用[設定 Azure Resource Manager VM 可用性設定組](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)中的指令碼。 執行此指令碼之前，請先檢查其限制並規劃您的停機時間。
 
-2. **刪除舊 VM 和磁碟**。 請確定進階磁碟與來源磁碟一致，而且新的 VM 執行的是與來源 VM 相同的函式。 刪除 VM，並從 Azure 入口網站中來源儲存體帳戶刪除磁碟。 如果有即使已刪除 VM，其中的磁碟卻未刪除的問題，請參閱[針對刪除 VHD 時的錯誤進行疑難排解](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
+2. **刪除舊 VM 和磁碟**。 請確定進階磁碟與來源磁碟一致，而且新的 VM 執行的是與來源 VM 相同的函式。 在 Azure 入口網站中，從來源儲存體帳戶刪除 VM 和磁碟。 如果有即使已刪除 VM，其中的磁碟卻未刪除的問題，請參閱[針對刪除 VHD 時的錯誤進行疑難排解](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
 
 3. **清除 Azure Site Recovery 基礎結構**。 如果不再需要 Site Recovery，您可以清除它的基礎結構。 請刪除複寫的項目、組態伺服器和復原原則，然後刪除 Azure Site Recovery 保存庫。
 
@@ -216,8 +216,7 @@ Site Recovery 會建立類型與可支援進階儲存體之 VM 相同或類似�
 如需移轉虛擬機器的特定案例，請參閱下列資源：
 
 * [在儲存體帳戶之間移轉 Azure 虛擬機器](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [建立並上傳 Windows Server VHD 到 Azure](../windows/classic/createupload-vhd.md)
-* [建立並上傳包含 Linux 作業系統的虛擬硬碟](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [上傳 Linux 虛擬硬碟](upload-vhd.md)
 * [將虛擬機器從 Amazon AWS 移轉至 Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 若要深入了解 Azure 儲存體和 Azure 虛擬機器，也請參閱下列資源：

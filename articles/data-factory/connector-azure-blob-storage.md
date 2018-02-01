@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: f63ca861c05675edcf54a0003db11d25aa0cf5ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 512ac1d9423ed76486a131ccd8c871fe56fcf7d1
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,10 +49,10 @@ ms.lasthandoff: 01/11/2018
 
 您可以使用帳戶金鑰來建立「Azure 儲存體」已連結的服務，此金鑰可將「Azure 儲存體」的全域存取權提供給資料處理站。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為： **AzureStorage** |是 |
-| connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 請將此欄位標示為 SecureString。 |是 |
+| type | 類型屬性必須設為： **AzureStorage** |yes |
+| connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 請將此欄位標示為 SecureString。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -91,10 +91,10 @@ ms.lasthandoff: 01/11/2018
 
 若要使用「服務 SAS」驗證，以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為： **AzureStorage** |是 |
-| sasUri | 指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 請將此欄位標示為 SecureString。 |是 |
+| type | 類型屬性必須設為： **AzureStorage** |yes |
+| sasUri | 指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 請將此欄位標示為 SecureString。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -130,10 +130,10 @@ ms.lasthandoff: 01/11/2018
 
 若要將資料複製到 Azure Blob 或從該處複製資料，請將資料集的類型屬性設定為 **AzureBlob**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AzureBlob** |是 |
-| folderPath | Blob 儲存體中容器和資料夾的路徑。 範例：myblobcontainer/myblobfolder/ |是 |
+| type | 資料集的類型屬性必須設定為：**AzureBlob** |yes |
+| folderPath | Blob 儲存體中容器和資料夾的路徑。 範例：myblobcontainer/myblobfolder/ |yes |
 | fileName | 如果您想要複製到特定的 Blob 或從該處複製，請在 **folderPath** 中指定該 Blob 的名稱。 如果沒有為此屬性指定任何值，資料集就會指向資料夾中的所有 Blob。<br/><br/>沒有為輸出資料集指定 fileName 且活動接收器中未指定 **preserveHierarchy** 時，複製活動會自動以下列格式產生 Blob 名稱：`Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`。 例如：`Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`。 |否 |
 | format | 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析或產生檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 (僅適用於二進位複製案例) |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級為：**Optimal** 和 **Fastest**。 |否 |
@@ -174,10 +174,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 Azure Blob 複製資料，請將複製活動中的來源類型設定為 **BlobSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**BlobSource** |是 |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| type | 複製活動來源的類型屬性必須設定為：**BlobSource** |yes |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true 時，且接收端是檔案型存放區，則系統不會在接收端複製/建立空的資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**
 
@@ -215,9 +215,9 @@ ms.lasthandoff: 01/11/2018
 
 若要將資料複製到 Azure Blob，請將複製活動中的接收器類型設定為 **BlobSink**。 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的類型屬性必須設定為：**BlobSink** |是 |
+| type | 複製活動接收器的類型屬性必須設定為：**BlobSink** |yes |
 | copyBehavior | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 | 否 |
 
 **範例：**

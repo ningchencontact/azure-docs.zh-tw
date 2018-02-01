@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 新記錄搜尋常見問題集與已知問題
 
 本文包含[將 Log Analytics 升級為新的查詢語言](log-analytics-log-search-upgrade.md)的相關常見問題集和已知問題。  您應該先閱讀整份文件，然後再決定是否升級您的工作區。
 
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>問題：我有大量的警示規則。 需要在升級之後以新的語言再次建立嗎？  
 否，警示規則會在升級期間自動轉換成新的搜尋語言。  
@@ -148,10 +148,10 @@ Application Insights Connector 解決方案不再支援 [Application Insights Co
 ## <a name="upgrade-process"></a>升級程序
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>問題：我有數個工作區。 可以同時升級所有工作區嗎？  
-否。  一次只能將升級套用至單一工作區。 目前無法一次升級多個工作區。 請注意，升級工作區的其他使用者也會受到影響。  
+編號  一次只能將升級套用至單一工作區。 目前無法一次升級多個工作區。 請注意，升級工作區的其他使用者也會受到影響。  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>問題：如果我升級，我的工作區中收集的現有記錄資料會被修改嗎？  
-否。 您的工作區搜尋可用的記錄資料不會受到升級影響。 已儲存的搜尋、警示和檢視會自動轉換成新的搜尋語言。  
+編號 您的工作區搜尋可用的記錄資料不會受到升級影響。 已儲存的搜尋、警示和檢視會自動轉換成新的搜尋語言。  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>問題：如果不升級我的工作區會發生什麼事？  
 接下來幾個月內舊版記錄搜尋會被取代。 屆時未升級的工作區將會自動升級。
@@ -160,11 +160,10 @@ Application Insights Connector 解決方案不再支援 [Application Insights Co
 公開上市之前，您可以在升級之後還原工作區。  新的語言現在已可公開上市，在我們開始淘汰舊版平台時已移除這項功能。
 
 
-
 ## <a name="views"></a>Views
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>問題：如何使用檢視設計工具建立新的檢視？
-升級之前，您可以從主要儀表板上的圖格，使用檢視設計工具建立新的檢視。  升級您的工作區時，會移除此圖格。  您可以按一下左側功能表中綠色的 + 按鈕，以在 OMS 入口網站中使用檢視設計工具建立新的檢視。
+升級之前，您可以從 OMS 入口網站中主要儀表板上的圖格，使用檢視設計工具建立新的檢視。  升級您的工作區時，會移除此圖格。  您可以按一下左側功能表中綠色的 + 按鈕，以在 OMS 入口網站中使用檢視設計工具建立新的檢視。  按一下 [檢視設計工具] 圖格，即可使用 Azure 入口網站繼續建立新的檢視。
 
 
 ## <a name="next-steps"></a>後續步驟

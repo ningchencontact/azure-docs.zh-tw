@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虛擬機器擴展集和連結的資料磁碟
 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)現在支援具有連線資料磁碟的虛擬機器。 您可以在使用 Azure 受控磁碟建立的擴展集儲存體設定檔中定義資料磁碟。 先前擴展集中 VM 唯一可用的直接連結儲存體選項是作業系統磁碟機和暫存磁碟機。
@@ -28,14 +28,14 @@ Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)現在支援具
 >  當您建立已定義連結資料磁碟的擴展集時，仍需掛接和格式化 VM 內的磁碟才能加以使用 (就如同獨立 Azure VM)。 完成此程序的方便作法是使用自訂指令碼擴充功能，該擴充功能可呼叫標準指令碼來分割及格式化 VM 上的所有資料磁碟。
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>建立具有連結資料磁碟的擴展集
-使用 [az vmss create](/cli/azure/vmss#create) 命令是建立具有連結磁碟之擴展集的簡便方法。 下列範例會建立 Azure 資源群組，以及由 10 部 Ubuntu VM 組成的虛擬機器擴展集，而每部 VM 各有 2 個連結資料磁碟 (分別為 50 GB 和 100 GB)。
+使用 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令是建立具有連結磁碟之擴展集的簡便方法。 下列範例會建立 Azure 資源群組，以及由 10 部 Ubuntu VM 組成的虛擬機器擴展集，而每部 VM 各有 2 個連結資料磁碟 (分別為 50 GB 和 100 GB)。
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-[az vmss create](/cli/azure/vmss#create) 命令會預設某些組態值 (如果您未指定它們)。 若要查看您可覆寫的可用選項，請嘗試︰
+[az vmss create](/cli/azure/vmss#az_vmss_create) 命令會預設某些組態值 (如果您未指定它們)。 若要查看您可覆寫的可用選項，請嘗試︰
 
 ```bash
 az vmss create --help

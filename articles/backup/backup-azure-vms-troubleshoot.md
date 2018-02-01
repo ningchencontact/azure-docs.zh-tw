@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/17/2018
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>錯誤：系統不支援指定的磁碟設定
 
 > [!NOTE]
-> 我們有私人預覽，可支援非受控磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> 我們有私人預覽，可支援磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 

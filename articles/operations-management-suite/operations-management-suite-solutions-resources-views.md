@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Operations Management Suite (OMS) 管理解決方案中的檢視 (預覽)
 > [!NOTE]
@@ -33,10 +33,10 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經熟悉如何[建立管理解決方案](operations-management-suite-solutions-creating.md)和方案檔的結構。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 若要在管理解決方案中納入檢視，您可在[方案檔](operations-management-suite-solutions-creating.md)中建立其**資源**。  說明檢視詳細組態的 JSON 通常很複雜，典型方案作者無法以手動方式建立。  最常見的方法是使用[檢視設計工具](../log-analytics/log-analytics-view-designer.md)建立檢視、加以匯出，然後將其詳細組態新增至方案。
 
 將檢視新增至方案的基本步驟如下所示。  下列各節會進一步詳細說明每個步驟。
@@ -75,11 +75,10 @@ ms.lasthandoff: 10/11/2017
 
 將下列變數加入至解決方案檔的 variables 元素，並以您的解決方案值取代。
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 請注意，您無法從匯出的檢視檔複製整個檢視資源，但您必須進行下列變更，該資源才能您的方案中正常運作。  
 
@@ -89,6 +88,18 @@ ms.lasthandoff: 10/11/2017
 * **DisplayName** 屬性必須新增至檢視。  **Id**、**Name** 和 **DisplayName** 必須完全相符。
 * 參數名稱必須變更以符合必要的參數集。
 * 變數應定義於方案中並使用於適當的屬性中。
+
+### <a name="log-analytics-api-version"></a>Log Analytics API 版本
+Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **apiVersion** 屬性，以定義資源應該使用的 API 版本。  檢視所具有的查詢若使用[舊版和已升級的查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)，則此版本會不同。  
+
+ 下表指出舊版和已升級工作區中之檢視的 Log Analytics API 版本： 
+
+| 工作區版本 | API 版本 | 查詢 |
+|:---|:---|:---|
+| v1 (舊版)   | 2015-11-01-preview | 舊版格式。<br> 範例：Type=Event EventLevelName = Error  |
+| v2 (已升級) | 2015-11-01-preview | 舊版格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換成：Event &#124; where EventLevelName == "Error"  |
+| v2 (已升級) | 2017-03-03-preview | 已升級的格式。 <br>範例：Event &#124; where EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>新增檢視詳細資料
 所匯出檢視檔中的檢視資源會在 **properties** 元素中包含兩個名為 **Dashboard** 和 **OverviewTile** 的元素，而這兩個元素包含檢視的詳細組態。  將這兩個元素及其內容複製到方案檔中檢視資源的 **properties** 元素中。

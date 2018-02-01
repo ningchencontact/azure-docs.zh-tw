@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell 中 PowerShell 的快速入門 (預覽)
 
@@ -263,6 +263,63 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 
 ```
+
+## <a name="ssh"></a>SSH
+
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) 可以在 PowerShell CloudShell 中使用。
+若要使用 SSH 向伺服器或 VM 驗證，請在 CloudShell 中產生公開-私密金鑰組，然後將公開金鑰發佈至遠端電腦上的 `authorized_keys`，例如 `/home/user/.ssh/authorized_keys`。
+
+> [!NOTE]
+> 您可以使用 `ssh-keygen` 建立 SSH 私密-公開金鑰組，並且將其發佈至 CloudShell 中的 `$env:USERPROFILE\.ssh`。
+
+### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>使用自訂設定檔，以保存 GIT 和 SSH 設定
+
+因為工作階段在登出之後就不會保存，請將您的 `$env:USERPROFILE\.ssh` 資料夾儲存至 `CloudDrive`，或者在 CloudShell 啟動時建立符號連結。
+在 profile.ps1 中新增下列程式碼片段，以建立與 CloudDrive 的符號連結。
+
+``` Powershell
+# Check if the ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh){
+    mkdir $home\CloudDrive\.ssh
+}
+
+# .ssh path relative to this script
+$script:sshFolderPath = Join-Path $PSScriptRoot .ssh
+
+# Create a symlink to .ssh in user's $home
+if(Test-Path $script:sshFolderPath){
+   if(-not (Test-Path (Join-Path $HOME .ssh ))){
+        New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
+   }
+}
+
+```
+
+### <a name="using-ssh"></a>使用 SSH
+
+請依照[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)的指示，使用 AzureRM Cmdlet 來建立新的 VM 設定。
+在呼叫至 `New-AzureRMVM` 以開始部署之前，請將 SSH 公開金鑰新增至 VM 設定。
+新建立的 VM 將會在 `~\.ssh\authorized_keys` 位置包含公開金鑰，因而對 VM 啟用免認證 ssh 工作階段。
+
+``` Powershell
+
+# Create VM config object - $vmConfig using instructions on linked page above
+
+# Generate SSH Keys in CloudShell
+ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
+
+# Ensure VM config is updated with SSH Keys
+$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+
+# ssh to the VM
+ssh azureuser@MyVM.Domain.Com
+
+```
+
 
 ## <a name="list-available-commands"></a>列出可用命令
 

@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/20/2017
 > * 將現有的應用程式容器化
 > * 使用 Visual Studio 和 VSTS 設定持續整合
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. 安裝 [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)，以便在 Windows 10 上執行容器。
 2. 熟悉 [Windows 10 容器快速入門][link-container-quickstart]。
@@ -154,7 +154,7 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 ### <a name="use-a-production-sql-database"></a>使用生產環境 SQL 資料庫
 在生產環境中執行時，我們需要將資料保存在資料庫中。 目前無法保證資料能保存在容器中，因此請不要將 SQL Server 生產環境的資料儲存在容器中。
 
-建議您利用 Azure SQL Database。 若要在 Azure 中設定並執行受管理的 SQL Server，請瀏覽 [Azure SQL Database 快速入門][link-azure-sql]一文。
+建議您利用 Azure SQL Database。 若要在 Azure 中設定並執行受控 SQL Server，請瀏覽 [Azure SQL Database 快速入門][link-azure-sql]一文。
 
 >[!NOTE]
 >記得將 **FabrikamFiber.Web** 專案中 **web.release.config** 檔案的連接字串變更為 SQL Server。
@@ -168,7 +168,7 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 若要開始進行，您的程式碼必須裝載在原始檔控制中。 本節的其餘部分會假設使用 **git**。
 
 ### <a name="set-up-a-vsts-repo"></a>設定 VSTS 存放庫
-在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] (或您慣用的任何一個選項)。
+在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] \(或您慣用的任何一個選項)。
 
 ![按原始檔控制按鈕][image-source-control]
 

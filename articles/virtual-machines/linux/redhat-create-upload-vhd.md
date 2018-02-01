@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: 18b7a5ec2a04962523a70886e1aa2344eb818458
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 Red Hat 型虛擬機器
 在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。 本文涵蓋的 RHEL 版本為 6.7 和 7.1。 本文章所述之準備作業使用 Hyper-V、核心為基礎之虛擬機器 (KVM) 及 VMware 等 Hypervisor。 如需參加 Red Hat 雲端存取方案之資格需求的詳細資訊，請參閱 [Red Hat 雲端存取網站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)與[在 Azure 上執行 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)。
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>從 Hyper-V 管理員準備 Red Hat 型虛擬機器
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 本節假設您已經從 Red Hat 網站取得 ISO 檔案並將 RHEL 映像安裝至虛擬硬碟 (VHD)。 如需有關如何使用 Hyper-V 管理員來安裝作業系統映像的詳細資訊，請參閱[安裝 Hyper-V 角色和設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **RHEL 安裝注意事項**
@@ -124,7 +124,7 @@ ms.lasthandoff: 12/02/2017
 
         # sudo subscription-manager unregister
 
-15. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+15. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
         # sudo waagent -force -deprovision
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 12/02/2017
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
-2. 按一下 [連接]  ，以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
 
 3. 建立或編輯 `/etc/sysconfig/network` 檔案，然後新增下列文字：
    
@@ -165,7 +165,7 @@ ms.lasthandoff: 12/02/2017
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後編輯 `GRUB_CMDLINE_LINUX` 參數。 例如：
+7. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後編輯 `GRUB_CMDLINE_LINUX` 參數。 例如︰
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -207,7 +207,7 @@ ms.lasthandoff: 12/02/2017
 
         # sudo subscription-manager unregister
 
-14. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+14. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
         # sudo waagent -force -deprovision
 
@@ -331,7 +331,7 @@ ms.lasthandoff: 12/02/2017
 
         # subscription-manager unregister
 
-17. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+17. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
         # waagent -force -deprovision
 
@@ -417,7 +417,7 @@ ms.lasthandoff: 12/02/2017
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要進行此設定，請在文字編輯器中開啟 `/etc/default/grub`，然後編輯 `GRUB_CMDLINE_LINUX` 參數。 例如：
+8. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要進行此設定，請在文字編輯器中開啟 `/etc/default/grub`，然後編輯 `GRUB_CMDLINE_LINUX` 參數。 例如︰
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -480,7 +480,7 @@ ms.lasthandoff: 12/02/2017
 
         # subscription-manager unregister
 
-17. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+17. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
         # sudo waagent -force -deprovision
 
@@ -520,7 +520,7 @@ ms.lasthandoff: 12/02/2017
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>從 VMware 準備 Red Hat 型虛擬機器
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 本節假設您已在 VMware 中安裝 RHEL 虛擬機器。 如需有關如何在 VMware 中安裝作業系統的詳細資訊，請參閱 [VMware 客體作業系統安裝指南](http://partnerweb.vmware.com/GOSIG/home.html)。
 
 * 安裝 Linux 作業系統時，我們建議您使用標準磁碟分割而不是 LVM (這通常是許多安裝的預設設定)。 這可避免 LVM 名稱與複製的虛擬機器發生衝突，特別是為了疑難排解而需要將作業系統磁碟連結至另一部虛擬機器時。 如果願意，您可以在資料磁碟上使用 LVM 或 RAID。
@@ -565,7 +565,7 @@ ms.lasthandoff: 12/02/2017
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-8. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要這樣做，請在文字編輯器中開啟 `/etc/default/grub` 並編輯 `GRUB_CMDLINE_LINUX` 參數。 例如：
+8. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要這樣做，請在文字編輯器中開啟 `/etc/default/grub` 並編輯 `GRUB_CMDLINE_LINUX` 參數。 例如︰
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -609,7 +609,7 @@ ms.lasthandoff: 12/02/2017
 
         # sudo subscription-manager unregister
 
-14. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+14. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
         # sudo waagent -force -deprovision
 
@@ -671,7 +671,7 @@ ms.lasthandoff: 12/02/2017
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-5. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後編輯 `GRUB_CMDLINE_LINUX` 參數。 例如：
+5. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後編輯 `GRUB_CMDLINE_LINUX` 參數。 例如︰
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -723,7 +723,7 @@ ms.lasthandoff: 12/02/2017
 
         # sudo subscription-manager unregister
 
-13. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+13. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
         # sudo waagent -force -deprovision
 
@@ -892,7 +892,7 @@ ms.lasthandoff: 12/02/2017
 
     a.  將新的虛擬硬碟連結至虛擬機器。 請務必選取 [VHD 格式] 和 [固定大小]。
 
-    b.這是另一個 C# 主控台應用程式。  將安裝 ISO 連接到 DVD 光碟機。
+    b.  將安裝 ISO 連接到 DVD 光碟機。
 
     c.  將 BIOS 設定成從 CD 開機。
 
@@ -922,6 +922,6 @@ ms.lasthandoff: 12/02/2017
 如需詳細資訊，請參閱 [重建 initramfs](https://access.redhat.com/solutions/1958)的相關資訊。
 
 ## <a name="next-steps"></a>後續步驟
-您現在可以開始使用您的 Red Hat Enterprise Linux 虛擬硬碟在 Azure 建立新的虛擬機器。 若這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱 [建立及上傳包含 Linux 作業系統的虛擬硬碟](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步驟 2 和步驟 3。
+您現在可以開始使用您的 Red Hat Enterprise Linux 虛擬硬碟在 Azure 建立新的虛擬機器。 如果您是第一次將 .vhd 檔案上傳至 Azure，請參閱[從自訂磁碟建立 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
 
 如需已通過認證可執行 Red Hat Enterprise Linux 之 Hypervisor 的詳細資訊，請參閱 [Red Hat 網站](https://access.redhat.com/certified-hypervisors)。

@@ -1,6 +1,6 @@
 ---
-title: "將不固定的轉型為 Azure 邏輯應用程式的 JSON 資料轉換 |Microsoft 文件"
-description: "建立轉換或對應的進階 JSON 轉換使用邏輯應用程式並不固定的範本。"
+title: "使用 Liquid 轉換來轉換 JSON 資料 - Azure Logic Apps | Microsoft Docs"
+description: "使用 Logic Apps 和 Liquid 範本建立進階 JSON 轉換的轉換或對應。"
 services: logic-apps
 documentationcenter: 
 author: divyaswarnkar
@@ -14,34 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: cd177b1ebcb5d236ce265dc153ee6a02125a69df
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/20/2018
 ---
-# <a name="advanced-json-transformations-using-liquid-template"></a>進階的 JSON 轉換使用不固定範本
-Azure 邏輯應用程式支援透過原生資料作業動作，例如撰寫或剖析 JSON 的基本 JSON 轉換。 邏輯應用程式現在也支援不固定的範本使用的進階的 JSON 轉換。 [不固定](https://shopify.github.io/liquid/)是一種開放原始碼範本語言有彈性的 web 應用程式。
- 
-在本文中，了解如何使用不固定的地圖或範本，可支援更複雜的 JSON 轉換，例如反覆項目、 控制流程、 變數和等等。 您必須定義對 JSON 的對應，使用這個不固定的對應的 JSON，並整合帳戶中儲存該對應，才能在邏輯應用程式中執行不固定的轉換。
+# <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>使用 Liquid 範本執行進階的 JSON 轉換
 
-## <a name="prerequisites"></a>必要條件
-以下是使用不固定動作的必要條件：
+Azure Logic Apps 支援透過原生資料作業動作進行的基本 JSON 轉換，例如**撰寫**或**剖析 JSON**。 至於進階的 JSON 轉換，可以使用 Liquid 範本搭配您的邏輯應用程式。 
+[Liquid](https://shopify.github.io/liquid/) 是一種開放原始碼的範本語言，適合靈活的 Web 應用程式使用。
+ 
+透過本文，可瞭解如何使用 Liquid 對應或範本，其可支援更複雜的 JSON 轉換，例如反覆項目、控制流程、變數等等。 您在邏輯應用程式中執行 Liquid 轉換之前，必須先使用 Liquid 對應來定義從 JSON 到 JSON 的對應，並在您的企業整合帳戶中儲存該對應。
+
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[開始使用免費 Azure 帳戶](https://azure.microsoft.com/free/)。 否則，您可以[註冊隨用隨付訂用帳戶](https://azure.microsoft.com/pricing/purchase-options/)。
 
-* 相關的基本知識[如何建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
+* [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 基本[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)。
+* 基本[企業整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)
 
 
-## <a name="create-and-add-liquid-template-or-map-to-integration-account"></a>建立並新增不固定的範本或對應至整合帳戶
+## <a name="create-a-liquid-template-or-map-for-your-integration-account"></a>為您的企業整合帳戶建立 Liquid 範本或對應
 
-1. 建立此範例中的範例不固定範本。 不固定的範本會定義如何將轉換 JSON 輸入如下所示：
+1. 建立此範例的 Liquid 範本。 Liquid 範本會定義如何轉換 JSON 輸入，如下所示：
 
-   ```
+   ``` json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-    {
+      {
         "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
         "firstNameUpperCase": "{{content.firstName | Upcase}}",
         "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
@@ -54,65 +55,65 @@ Azure 邏輯應用程式支援透過原生資料作業動作，例如撰寫或�
             {%- endif -%}
         {%- endfor -%}
         ]
-    }
-    ```
-    > [!NOTE]
-    > 如果您不固定的範本使用任何[篩選](https://shopify.github.io/liquid/basics/introduction/#filters)，這些篩選條件必須以大寫字母開頭。 
+      }
+   ```
+   > [!NOTE]
+   > 如果您的 Liquid 範本有使用任何[篩選條件](https://shopify.github.io/liquid/basics/introduction/#filters)，篩選條件都必須以大寫字母開頭。 
 
 2. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-3. 在主要 Azure 功能表中，選擇**所有資源**。 
+3. 在主要 Azure 功能表上，選擇 [所有資源]。 
 
-4. 在 [搜尋] 方塊中，提供您整合的帳戶。 選取您的帳戶。
+4. 在搜尋方塊中，尋找並選取整合帳戶。
 
-   ![選取整合帳戶](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
+   ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  整合帳戶磚中，選取**對應**。
+5.  在企業整合帳戶圖格上，選取 [對應]。
 
-   ![選取的對應](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+   ![選取對應](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-6. 選擇**新增**對應提供這些詳細資料：
-  * **名稱**： 您的對應，也就是 「 JsontoJsonTemplate 「 在此範例中的名稱。
-  * **型別對應**： 您的對應類型。 For JSON，將 JSON 轉換，您必須選取**不固定**。
-  * **地圖**： 現有不固定範本或對應檔案的轉換，也就是 「 SimpleJsonToJsonTemplate.liquid 「 在此範例中使用。 您可以使用檔案選擇器來尋找此檔案。
+6. 選擇 [新增]，並提供該對應的以下詳細資料：
 
-    ![新增不固定範本](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
+   * **名稱**：對應的名稱，在此範例中是「JsontoJsonTemplate」
+   * **對應類型**：對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]。
+   * **對應**：用於轉換的現有 Liquid 範本或對應檔案，在此範例中是「SimpleJsonToJsonTemplate.liquid」。 若要尋找此檔案，您可以使用檔案選擇器。
 
+   ![新增 Liquid 範本](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
-## <a name="add-the-liquid-action-to-transform-json-in-your-logic-app"></a>加入不固定的動作，將 JSON 轉換邏輯應用程式中
+## <a name="add-the-liquid-action-for-json-transformation"></a>新增 JSON 轉換的 Liquid 動作
 
-1. [建立邏輯應用程式](logic-apps-create-a-logic-app.md)。
+1. [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-2. 新增[要求觸發程序](../connectors/connectors-native-reqres.md#use-the-http-request-trigger)邏輯應用程式。
+2. 將[要求觸發程序](../connectors/connectors-native-reqres.md#use-the-http-request-trigger)新增至邏輯應用程式。
 
-3. 選擇**+ 新增步驟 > 將動作加入**。 搜尋*不固定*[搜尋] 方塊中。 選取**液晶-轉換為 JSON 的 JSON**。
+3. 選擇 [+ 新步驟] > [新增動作]。 在搜尋方塊中，輸入 [Liquid]，然後選取 [Liquid -將 JSON 轉換為 JSON]。
 
-  ![搜尋-動作-液晶](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
+   ![尋找並選取 Liquid 動作](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. 在**內容**方塊中，選取**主體**動態內容的清單或參數清單中，兩者會出現。 
+4. 在 [內容] 方塊中，選取動態內容清單或參數清單 (以出現者為準) 中的 [內文]。
   
-  ![選取主體](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
+   ![選取內文](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-5. 從**對應**下拉式清單中，選取您不固定的範本，在此範例中是 JsonToJsonTemplate。
+5. 從 [對應] 清單中，選取您的 Liquid 範本，在此範例中是「JsonToJsonTemplate」。
 
-  ![選取地圖](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
+   ![選取對應](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   如果清單是空的邏輯應用程式最有可能不會連結到整合帳戶中。 若要整合帳戶具有不固定的範本或對應至連結邏輯應用程式，請遵循下列步驟：
+   如果清單是空的，表示邏輯應用程式可能未連結至您的企業整合帳戶。 
+   若要將邏輯應用程式連結至具有 Liquid 範本或對應的企業整合帳戶，請遵循下列步驟：
 
-   1. 在邏輯應用程式功能表中，選取**工作流程設定**。 
-   2. 從**選取整合帳戶**清單，選取您整合的帳戶，然後選擇 **儲存**。
+   1. 在企業邏輯應用程式功能表上，選取 [工作流程設定]。
+   2. 從 [選取企業整合帳戶] 清單，選取您的企業整合帳戶，並選擇 [儲存]。
 
-     ![連結邏輯應用程式整合帳戶](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
-
+   ![將邏輯應用程式連結至企業整合帳戶](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>測試應用程式邏輯
 
-   張貼至應用程式邏輯，從 JSON 輸入[郵差](https://www.getpostman.com/postman)或類似的工具。 從邏輯應用程式轉換後的 JSON 輸出看起來像本範例中：
+從 [Postman](https://www.getpostman.com/postman) 或類似的工具將 JSON 輸入張貼至邏輯應用程式。 從邏輯應用程式轉換的 JSON 輸出如下列範例所示：
   
-   ![範例輸出](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
-
+![範例輸出](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 * [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
 * [深入了解對應](../logic-apps/logic-apps-enterprise-integration-maps.md "了解企業整合對應")  
 

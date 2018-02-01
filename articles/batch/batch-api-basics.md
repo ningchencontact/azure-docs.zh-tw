@@ -3,8 +3,8 @@ title: "適用於開發人員的 Azure Batch 概觀 | Microsoft Docs"
 description: "從開發觀點了解 Batch 服務的功能及其 API。"
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -217,7 +217,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 您可以指定 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 的子網路，可在其中建立集區的計算節點。 如需詳細資訊，請參閱[集區網路組態](#pool-network-configuration)區段。
 
 
-## <a name="job"></a>作業
+## <a name="job"></a>工作 (Job)
 作業是工作的集合。 作業可管理其工作在集區中的計算節點上執行計算的方式。
 
 * 作業會指定工作執行所在的**集區**。 您可以為每個作業建立新的集區，或將集區使用於許多工作。 您可以針對與作業排程相關聯的每項作業建立集區，或針對與作業排程相關聯的所有作業建立集區。
@@ -242,7 +242,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 [作業排程][rest_job_schedules]可讓您在 Batch 服務內建立週期性作業。 作業排程會指定何時要執行作業，並且包含要執行之作業的規格。 您可以指定排程的持續時間 (排程的有效時間和生效時間)，以及在排程期間建立作業的頻率。
 
-## <a name="task"></a>工作
+## <a name="task"></a>Task
 工作是與作業相關聯的計算單位。 工作是在節點上執行。 工作會指派給節點以便執行，或排入佇列直到節點變成可用為止。 簡言之，工作會在計算節點上執行一或多個程式或指令碼，以執行您需要完成的工作。
 
 建立工作時，您可以指定︰

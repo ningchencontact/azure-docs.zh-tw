@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>使用 Azure 入口網站評估 Service Fabric 應用程式和微服務
 
@@ -37,7 +37,7 @@ Service Fabric 解決方案會從 Service Fabric VM 使用 Azure 診斷資料，
 若要開始使用解決方案，您必須將 Service Fabric 叢集連接到 Log Analytics 工作區。 以下是三個要考量的案例：
 
 1. 如果您尚未部署 Service Fabric 叢集，使用***部署連接至 Log Analytics 工作區的 Service Fabric 叢集***中的步驟，以部署新的叢集，並將它設定為 Log Analytics 的報告。
-2. 如果需要從主機收集效能計數器，以在 Service Fabric 叢集上使用其他 OMS 解決方案 (例如安全性)，請遵循***針對已安裝 VM 擴充的 Log Analytics 工作區，部署連接至工作區的 Service Fabric 叢集***中的步驟。
+2. 如果需要從主機收集效能計數器，以在 Service Fabric 叢集上使用其他管理解決方案 (例如安全性)，請遵循***針對已安裝 VM 擴充的 Log Analytics 工作區，部署連接至工作區的 Service Fabric 叢集***中的步驟。
 3. 如果您已部署您的 Service Fabric 叢集，並且想要將它連接到 Log Analytics，請依照***將現有的儲存體帳戶新增至 Log Analytics*** 中的步驟。
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>部署連接至 Log Analytics 工作區的 Service Fabric 叢集。

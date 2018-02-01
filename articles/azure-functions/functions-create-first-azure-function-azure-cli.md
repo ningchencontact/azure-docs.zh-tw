@@ -12,11 +12,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 4356d00b2694224f52a9359cd4a57d3a70a34d18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 22eb9989f24bb61638410a0c5361c0a888076e3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>在 Azure CLI 建立您的第一個函式
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/15/2017
 
 您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 在執行此範例之前，您必須具備下列項目︰
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
-您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#create) 命令來建立函式應用程式。 
+您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 命令來建立函式應用程式。 
 
 在下列命令中，使用唯一函式應用程式名稱來替代您看見 `<app_name>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 _deployment-source-url_ 參數是 GitHub 中的範例存放庫，其中包含 "Hello World" HTTP 觸發函式。
 

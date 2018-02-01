@@ -159,8 +159,6 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: 反向 Proxy 診斷
               href: service-fabric-reverse-proxy-diagnostics.md
-            - name: ASP.NET Core
-              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: 應用程式生命週期
           href: service-fabric-application-lifecycle.md
           items:
@@ -388,8 +386,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: 設定安全通訊的反向 proxy
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: 建置 ASP.NET Core 服務
-          href: service-fabric-add-a-web-frontend.md
+        - name: ASP.NET Core
+          href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: 設定安全性
           items:
             - name: 管理應用程式密碼

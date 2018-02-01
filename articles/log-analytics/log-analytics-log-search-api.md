@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics 記錄檔搜尋 REST API | Microsoft Docs"
-description: "本指南提供基本教學課程，說明如何使用 Operations Management Suite (OMS) 中的 Log Analytics 搜尋 REST API，並提供使用命令的範例。"
+title: "Azure Log Analytics 記錄檔搜尋 REST API | Microsoft Docs"
+description: "本指南提供基本教學課程，說明如何使用 Azure Log Analytics 搜尋 REST API，並提供使用命令的範例。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,27 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 記錄檔搜尋 REST API
-本指南提供基本教學課程 (包括範例)，說明如何使用 Log Analytics 搜尋 REST API。 Log Analytics 是 Operations Management Suite (OMS) 的一部分。
 
-> [!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[新版記錄搜尋 API 的文件](https://dev.loganalytics.io/)。
+> [!IMPORTANT]
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[新版記錄搜尋 API 的文件](https://dev.loganalytics.io/)。  或許目前此舊版 API 仍可與升級後的工作區相容，但也即將淘汰。  請修改任何現有的解決方案，以使用新的 API。
 
-> [!NOTE]
-> Log Analytics 在以前稱為 Operational Insights，這也是資源提供者中使用此名稱的原因。
->
->
+本指南提供基本教學課程 (包括範例)，說明如何使用 Log Analytics 搜尋 REST API。 
+
 
 ## <a name="overview-of-the-log-search-rest-api"></a>記錄檔搜尋 REST API 概觀
-Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager API 來存取。 本文件提供透過 [ARMClient](https://github.com/projectkudu/ARMClient) 存取 API 的範例，這是可簡化叫用 Azure Resource Manager API 的開放原始碼命令列工具。 使用 ARMClient 是存取 Log Analytics 搜尋 API 的許多選項之一。 另一個選項是使用 OperationalInsights 的 Azure PowerShell 模組，其中包含可存取搜尋的 Cmdlet。 這些工具可讓您利用 Azure Resource Manager API 呼叫 OMS 工作區，並在其中執行搜尋命令。 API 會以 JSON 格式來輸出搜尋結果，可讓您以程式設計方式將搜尋結果用在許多不同用途上。
+Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager API 來存取。 本文件提供透過 [ARMClient](https://github.com/projectkudu/ARMClient) 存取 API 的範例，這是可簡化叫用 Azure Resource Manager API 的開放原始碼命令列工具。 使用 ARMClient 是存取 Log Analytics 搜尋 API 的許多選項之一。 另一個選項是使用 OperationalInsights 的 Azure PowerShell 模組，其中包含可存取搜尋的 Cmdlet。 這些工具可讓您利用 Azure Resource Manager API 呼叫 Log Analytics 工作區，並在其中執行搜尋命令。 API 會以 JSON 格式來輸出搜尋結果，可讓您以程式設計方式將搜尋結果用在許多不同用途上。
 
 您可以透過 [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) 和 [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx) 來使用 Azure Resource Manager。 若要深入了解，請檢閱連結的網頁。
 
@@ -223,7 +220,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager API 來�
 
 | 屬性 | 說明 |
 | --- | --- |
-| 識別碼 |唯一識別碼。 |
+| id |唯一識別碼。 |
 | Etag |**修補程式的必要項目**。 每次寫入時由伺服器進行更新。 值必須等於目前儲存的值或 ‘*’ 才能進行更新。 舊值/無效值時會傳回 409。 |
 | properties.query |**必要**。 搜尋查詢。 |
 | properties.displayName |**必要**。 使用者定義的查詢顯示名稱。 |
@@ -304,9 +301,9 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager API 來�
 
 | **屬性** | **說明** |
 | --- | --- |
-| 名稱 |欄位名稱。 |
+| name |欄位名稱。 |
 | displayName |欄位的顯示名稱。 |
-| 類型 |欄位值的類型。 |
+| type |欄位值的類型。 |
 | 可面向化 |目前 ‘indexed’、‘stored ‘和 ‘facet’ 屬性的組合。 |
 | 顯示 |目前 ‘display’ 屬性。 如果欄位顯示在搜尋中，則為 True。 |
 | ownerType |減少至僅屬於 onboarded IP 的類型。 |

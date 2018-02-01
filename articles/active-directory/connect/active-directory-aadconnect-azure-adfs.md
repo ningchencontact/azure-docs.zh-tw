@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 同盟服務
 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 與 Azure AD 或 O365 同盟可讓使用者使用內部部署認證進行驗證，並存取雲端中的所有資源。 如此一來，就一定要有高可用性的 AD FS 基礎結構，以確保能夠存取內部部署和雲端中的資源。 在 Azure 中部署 AD FS 有助於達成執行最低限度的工作所需要的高可用性。
@@ -274,7 +274,10 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 
 ![INT 存取規則 (輸入)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
-[註解]: <> (![INT 存取規則 (輸入)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [註解]: <> (![INT 存取規則 (輸出)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+<!--
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
+[comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2.保護 DMZ 子網路**
 

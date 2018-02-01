@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 混合式身分識別設計考量 - 判斷身分識別需求 | Microsoft Docs"
+title: "混合式雲端身分識別設計的身分識別需求 Azure | Microsoft Docs"
 description: "識別公司的商務需求，以引導您定義混合式身分識別設計的需求。"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的身分識別需求
 設計混合式身分識別解決方案的第一個步驟，是判斷將運用此解決方案的企業組織有何需求。  混合式身分識別一開始是支援的角色 (它可提供驗證而支援所有其他雲端解決方案)，接著會提供新奇有趣的功能，為使用者釋出新的工作負載。  您想要為使用者採用的這些工作負載或服務，會指定混合式身分識別設計的需求。  這些服務和工作負載在內部部署和雲端中都需要運用混合式身分識別。  
@@ -106,6 +107,6 @@ ms.lasthandoff: 12/11/2017
 ## <a name="next-steps"></a>後續步驟
 [判斷目錄同步處理需求](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 

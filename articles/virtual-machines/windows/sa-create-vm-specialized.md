@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
 
@@ -217,27 +217,9 @@ Elapsed time:            00.00:13:07
     $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-
-### <a name="create-a-public-ip-address-and-nic"></a>建立公用 IP 位址和 NIC
-若要能夠與虛擬網路中的虛擬機器進行通訊，您需要 [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和網路介面。
-
-1. 建立公用 IP。 在此範例中，公用 IP 位址名稱會設定為 **myIP**。
-   
-    ```powershell
-    $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. 建立 NIC。 在此範例中，NIC 名稱會設定為 **myNicName**。
-   
-    ```powershell
-    $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
-
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>建立網路安全性群組和 RDP 規則
 若要能夠使用 RDP 登入 VM，您必須有可在連接埠 3389 上允許 RDP 存取的安全性規則。 因為新 VM 的 VHD 是從現有的特製化 VM 所建立，在建立 VM 之後，您可以從具有使用 RDP 之登入權限的來源虛擬機器使用現有帳戶。
+這需要在建立相關聯網路介面之前完成。  
 此範例會將 NSG 名稱設定為 **myNsg** 以及將 RDP 規則名稱設定為 **myRdpRule**。
 
 ```powershell
@@ -253,6 +235,24 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 如需端點和 NSG 規則的詳細資訊，請參閱[使用 PowerShell 對 Azure 中的 VM 開啟連接埠](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+
+### <a name="create-a-public-ip-address-and-nic"></a>建立公用 IP 位址和 NIC
+若要能夠與虛擬網路中的虛擬機器進行通訊，您需要 [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和網路介面。
+
+1. 建立公用 IP。 在此範例中，公用 IP 位址名稱會設定為 **myIP**。
+   
+    ```powershell
+    $ipName = "myIP"
+    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+        -AllocationMethod Dynamic
+    ```       
+2. 建立 NIC。 在此範例中，NIC 名稱會設定為 **myNicName**。 這個步驟也會讓稍早建立的網路安全性群組與此 NIC 相關聯。
+   
+    ```powershell
+    $nicName = "myNicName"
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+    ```
 
 ### <a name="set-the-vm-name-and-size"></a>設定 VM 名稱和大小
 

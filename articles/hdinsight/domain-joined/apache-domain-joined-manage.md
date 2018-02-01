@@ -3,7 +3,7 @@ title: "管理已加入網域的 HDInsight 叢集 - Azure | Microsoft Docs"
 description: "了解如何管理已加入網域的 HDInsight 叢集"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入網域的 HDInsight 叢集
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。
@@ -81,9 +81,8 @@ ms.lasthandoff: 01/12/2018
 未加入網域的 HDInsight 叢集有兩個使用者帳戶，是在叢集建立期間建立的︰
 
 * **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari，網址是 https://&lt;clustername>.azurehdinsight.net。 它也可以用來在 Ambari 檢視上執行查詢、透過外部工具 (例如 PowerShell、Templeton、Visual Studio) 執行作業、以及使用 Hive ODBC 驅動程式和 BI 工具 (例如 Excel、PowerBI、或 Tableau) 進行驗證。
-* **SSH 使用者**︰此帳戶可以搭配 SSH 使用，執行 sudo 命令。 它具有 Linux VM 上的根權限。
 
-除了 Ambari 系統管理員和 SSH 使用者之外，已加入網域的 HDInsight 叢集有三個新的使用者。
+除了 Ambari 系統管理員之外，已加入網域的 HDInsight 叢集有三個新使用者。
 
 * **Ranger 系統管理員**︰此帳戶是本機的 Apache Ranger 系統管理員帳戶。 不是 Active Directory 網域使用者。 此帳戶可以用來設定原則、將其他使用者設為系統管理員、或委派系統管理工作 (讓某些使用者可以管理原則)。 預設的使用者名稱是 admin，密碼則是與 Ambari 系統管理員的密碼相同。 可以在 Ranger 的 [設定] 頁面中更新密碼。
 * **叢集系統管理員網域使用者**︰此帳戶是被指定為 Hadoop 叢集系統管理員 (包括 Ambari 和 Ranger) 的 Active Directory 網域使用者。 您必須在叢集建立期間提供此使用者的認證。 此使用者有下列權限：
@@ -162,4 +161,3 @@ ms.lasthandoff: 01/12/2018
 ## <a name="next-steps"></a>後續步驟
 * 如需設定已加入網域的 HDInsight 叢集，請參閱[設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 如需設定 Hive 原則和執行 Hive 查詢，請參閱[針對已加入網域的 HDInisight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)。
-* 若要在已加入網域的 HDInsight 叢集上使用 SSH 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
