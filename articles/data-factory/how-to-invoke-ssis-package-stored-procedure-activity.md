@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure Data Factory 叫用 SSIS 封裝 - 預存程序活動 | Microsoft Docs"
+title: "使用 Azure Data Factory 叫用 SSIS 套件 - 預存程序活動 | Microsoft Docs"
 description: "本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 封裝。"
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 封裝
+# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
 
 > [!NOTE]
@@ -28,10 +28,10 @@ ms.lasthandoff: 01/19/2018
 ## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-sql-database"></a>連接字串 
-本文中的逐步解說使用主控 SSIS 目錄的 Azure SQL 資料庫。 您也可以使用 Azure SQL Managed 執行個體 (私人預覽)。
+這篇文章中的逐步解說會使用裝載 SSIS 目錄的 Azure SQL 資料庫。 您也可以使用 Azure SQL 受控執行個體 (私人預覽)。
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>建立 Azure-SSIS 整合執行階段
-如果您未依照[教學課程：部署 SSIS 封裝](tutorial-deploy-ssis-packages-azure.md)中的逐步指示進行，請建立 Azure SSIS 整合執行階段。
+如果您未依照[教學課程：部署 SSIS 套件](tutorial-create-azure-ssis-runtime-portal.md)中的逐步指示進行，請建立 Azure SSIS 整合執行階段。
 
 ## <a name="data-factory-ui-azure-portal"></a>資料處理站使用者介面 (Azure 入口網站)
 在本節中，您可以使用資料處理站 UI 以叫用 SSIS 封裝的預存程序活動建立資料處理站管線。
@@ -141,7 +141,7 @@ ms.lasthandoff: 01/19/2018
 依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。 
 
 ### <a name="create-a-data-factory"></a>建立 Data Factory
-您可以使用具有 Azure SSIS IR 的同一個資料處理站，也可以建立另一個資料處理站。 下列程序提供建立資料處理站的步驟。 您會在此資料處理站中建立具有預存程序的管線。 預存程序活動會執行 SSISDB 資料庫中的預存程序來執行 SSIS 封裝。 
+您可以使用具有 Azure SSIS IR 的同一個資料處理站，也可以建立另一個資料處理站。 下列程序提供建立資料處理站的步驟。 您會在此資料處理站中建立具有預存程序活動的管線。 預存程序活動會執行 SSISDB 資料庫中的預存程序來執行 SSIS 套件。 
 
 1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如：`"adfrg"`。 
    
@@ -182,7 +182,7 @@ ms.lasthandoff: 01/19/2018
 * 目前，Data Factory 第 2 版只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務
-建立連結服務，將主控 SSIS 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連接到 SSISDB 資料庫，並執行預存程序來執行 SSIS 封裝。 
+建立連結服務，將主控 SSIS 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連線到 SSISDB 資料庫，並執行預存程序來執行 SSIS 套件。 
 
 1. 使用下列內容，在 **C:\ADF\RunSSISPackage** 資料夾中建立名為 **AzureSqlDatabaseLinkedService.json** 的 JSON 檔案： 
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 01/19/2018
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>使用預存程序活動建立管線 
-在此步驟中，您會建立具有預存程序的管線。 活動會叫用 sp_executesql 預存程序執行 SSIS 封裝。 
+在此步驟中，您會建立具有預存程序活動的管線。 活動會叫用 sp_executesql 預存程序執行 SSIS 封裝。 
 
 1. 使用下列內容，在 **C:\ADF\RunSSISPackage** 資料夾中建立名為 **RunSSISPackagePipeline.json** 的 JSON 檔案：
 
@@ -342,7 +342,7 @@ while ($True) {
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列查詢，確認已執行封裝。 
+    您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列查詢，確認已執行套件。 
 
     ```sql
     select * from catalog.executions

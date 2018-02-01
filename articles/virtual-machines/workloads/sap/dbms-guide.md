@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -345,7 +345,7 @@ ms.lasthandoff: 11/02/2017
 
 下列 SAP 附註與 Azure 上的 SAP 主題相關︰
 
-| 附註編號 | 課程名稱 |
+| 附註編號 | 標題 |
 | --- | --- |
 | [1928533] |Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型 |
 | [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
@@ -480,7 +480,7 @@ Azure 會強制執行每個資料磁碟的 IOPS 配額。 這些配額與 Azure 
 由於基礎的 Azure 儲存體會將每個磁碟複寫到至少三個儲存體節點，因此可以使用簡單的 RAID 0 等量。 不需要實作 RAID5 或 RAID1。
 
 ### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure 儲存體
-Microsoft Azure 儲存體會將基底 VM (含 OS) 以及磁碟或 BLOB 儲存到至少 3 個不同的儲存體節點。 建立儲存體帳戶或受管理磁碟時，有一個保護選項，如下所示：
+Microsoft Azure 儲存體會將基底 VM (含 OS) 以及磁碟或 BLOB 儲存到至少 3 個不同的儲存體節點。 建立儲存體帳戶或受控磁碟時，有一個保護選項，如下所示：
 
 ![針對 Azure 儲存體帳戶啟用異地複寫][dbms-guide-figure-100]
 

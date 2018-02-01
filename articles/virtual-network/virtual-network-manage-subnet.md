@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 在開始本文所述的工作之前，請先完成下列必要條件：
 
-- 如果您不熟悉虛擬網路，建議您檢閱[建立您的第一個 Azure 虛擬網路](virtual-network-get-started-vnet-subnet.md)中的練習。 這個練習有助您更加熟悉虛擬網路。
+- 如果您不熟悉虛擬網路，建議您檢閱[建立您的第一個 Azure 虛擬網路](quick-create-portal.md)中的練習。 這個練習有助您更加熟悉虛擬網路。
 - 若要深入了解虛擬網路的限制，請檢閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 使用您的 Azure 帳戶，登入 Azure 入口網站、Azure 命令列工具 (Azure CLI) 或 Azure PowerShell。 如果您沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果您打算使用 Azure PowerShell 命令來完成本文所述的工作，您必須先[安裝並設定 Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 請確定您已安裝最新版的 Azure PowerShell Cmdlet。 若要取得範例中 PowerShell 命令的說明，請輸入 `get-help <command> -full`。
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 5. 按一下 [+子網路]。
 6. 在 [新增子網路] 刀鋒視窗中，輸入下列參數的值︰
     - **名稱**：此名稱必須是虛擬網路中的唯一名稱。
-    - **位址範圍**：此範圍必須是虛擬網路位址空間內的唯一範圍。 此範圍不能與虛擬網路內的其他子網路位址範圍重疊。 位址空間必須以「無類別網域間路由選擇」(CIDR) 標記法來指定。 例如，在位址空間為 10.0.0.0/16 的虛擬網路中，您可以定義 10.0.0.0/24 的子網路位址空間。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，以 /29 位址範圍所定義的子網路會在子網路中產生三個可用的 IP 位址。 如果您打算將虛擬網路連接至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路加入後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱本文的[變更子網路設定](#change-subnet)。
+    - **位址範圍**：此範圍必須是虛擬網路位址空間內的唯一範圍。 此範圍不能與虛擬網路內的其他子網路位址範圍重疊。 位址空間必須以「無類別網域間路由選擇」(CIDR) 標記法來指定。 例如，在位址空間為 10.0.0.0/16 的虛擬網路中，您可以定義 10.0.0.0/24 的子網路位址空間。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，以 /29 位址範圍所定義的子網路會在子網路中產生三個可用的 IP 位址。 如果您打算將虛擬網路連線至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路加入後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱本文的[變更子網路設定](#change-subnet)。
     - **網路安全性群組**：您可以選擇性地建立現有網路安全性群組與子網路的關聯，以控制子網路的輸入和輸出網路流量篩選。 網路安全性群組必須與虛擬網路位於相同的訂用帳戶和位置當中。 該群組也必須使用 Resource Manager 部署模型來建立。 若要深入了解如何建立網路安全性群組，請參閱[網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)。
     - **路由表**︰您可以選擇性地建立現有路由表和子網路的關聯，以控制路由傳送給其他網路的網路流量。 路由表必須與虛擬網路位於相同的訂用帳戶和位置當中。 該群組也必須使用 Resource Manager 部署模型來建立。 若要深入了解如何建立路由表，請參閱[使用者定義的路由](virtual-network-create-udr-arm-ps.md)。
     - **使用者**︰您可以使用內建角色或自有的自訂角色來控制子網路的存取。 若要深入了解如何指派角色和使用者以存取子網路，請參閱[使用角色指派來管理 Azure 資源的存取權](../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access)。
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 3. 在 [虛擬網路] 刀鋒視窗中，按一下要變更子網路位址範圍的虛擬網路。
 4. 按一下要變更位址範圍的子網路。
 5. 在 [子網路] 刀鋒視窗的 [位址範圍] 方塊中，輸入新的位址範圍。 此範圍必須是虛擬網路位址空間內的唯一範圍。 此範圍不能與虛擬網路內的其他子網路位址範圍重疊。 位址空間必須以 CIDR 標記法來指定。 例如，在位址空間為 10.0.0.0/16 的虛擬網路中，您可以定義 10.0.0.0/24 的子網路位址空間。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，使用 /29 位址範圍的子網路最終可用的 IP 位址只有三個。 如果您打算將虛擬網路連接至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路建立好之後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱本文的[變更子網路設定](#change-subnet)。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 **命令**
 
@@ -92,11 +92,11 @@ ms.lasthandoff: 10/11/2017
 
 您只能刪除未包含任何資源的子網路。 如果子網路中含有資源，您必須先刪除其中的資源才能將它刪除。 不同資源的資源刪除步驟也各異。 若要了解如何刪除子網路中的資源，請閱讀您想要刪除之各個資源類型的適用文件。 若要刪除子網路：
 
-1. 請使用已指派 (至少) 網路參與者角色權限的帳戶來登入[入口網站](https://portal.azure.com)，以取得訂用帳戶。 若要深入了解如何將角色和權限指派給帳戶，請參閱 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)。
+1. 請使用已指派訂用帳戶網路參與者角色權限 (至少) 的帳戶來登入[入口網站](https://portal.azure.com)。 若要深入了解如何將角色和權限指派給帳戶，請參閱 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)。
 2. 在入口網站的搜尋方塊中，輸入「虛擬網路」。 按一下搜尋結果中出現的「虛擬網路」。
 3. 在 [虛擬網路] 刀鋒視窗中，按一下要刪除其子網路的虛擬網路。
 4. 在 [虛擬網路] 刀鋒視窗中，按一下 [設定] 下方的 [子網路]。
-5. 在 子網路 刀鋒視窗所示的子網路清單中，以滑鼠右鍵按一下要刪除的子網路，按一下 刪除，然後按一下是，即可刪除子網路。
+5. 在 [子網路] 刀鋒視窗所示的子網路清單中，以滑鼠右鍵按一下要刪除的子網路，按一下 [刪除]，然後按一下 [是]，即可刪除子網路。
 
 **命令**
 
@@ -105,6 +105,6 @@ ms.lasthandoff: 10/11/2017
 |Azure CLI|[az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="next-steps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 
-若要在子網路中建立虛擬機器，請參閱[在子網路中建立虛擬網路和部署 VM](virtual-network-get-started-vnet-subnet.md#create-vms)。
+若要在子網路中建立虛擬機器，請參閱[在子網路中建立虛擬網路和部署 VM](quick-create-portal.md#create-virtual-machines)。

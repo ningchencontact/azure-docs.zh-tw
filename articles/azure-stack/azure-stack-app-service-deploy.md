@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 身為 Azure Stack 雲端操作員，您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要這樣做，您必須如本文所述，先將 [App Service 資源提供者](azure-stack-app-service-overview.md)新增至您的 Azure Stack 部署。 安裝 App Service 資源提供者之後，您可以將它併入至您的供應項目和方案中。 然後使用者可以訂閱以取得服務，並開始建立應用程式。
 
 > [!IMPORTANT]
 > 在執行安裝程式之前，請確定您已依照[開始之前](azure-stack-app-service-before-you-get-started.md)中的指導方針進行。
-> 
+>
 >
 
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 12/01/2017
 
 4. 檢閱並接受協力廠商授權條款，然後按 [下一步]。
 
-5. 請確定 App Service 雲端組態資訊正確。 如果您在 Azure Stack 開發組件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果部署 Azure Stack 時自訂了選項，則必須編輯此視窗中的值以反映那些選項。 例如，如果您使用網域尾碼 mycloud.com，您的端點必須變更為 management.mycloud.com。確認您的資訊之後，按 [下一步]。
+5. 請確定 App Service 雲端組態資訊正確。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果部署 Azure Stack 時自訂了選項，則必須編輯此視窗中的值以反映那些選項。 例如，如果您使用網域尾碼 mycloud.com，您的端點必須變更為 management.mycloud.com。確認您的資訊之後，按 [下一步]。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image02.png)
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 12/01/2017
     3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
     4. 針對您的 App Service 部署輸入**資源群組名稱**。 根據預設值，它是設定為 **APPSERVICE\<REGION\>**。
     5. 輸入您想要 App Service 在安裝期間建立的**儲存體帳戶名稱**。 根據預設值，它是設定為 **appsvclocalstor**。
-    6. 按一下 [下一步] 。
+    6. 按 [下一步] 。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image03.png)
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 12/01/2017
     2. 在 [身分識別應用程式憑證檔案] 方塊中，輸入 (或瀏覽至) 憑證檔案的位置。
     3. 在 [身分識別應用程式憑證密碼] 方塊中，輸入憑證的密碼。 此密碼是當您使用指令碼來建立憑證時所記下的密碼。
     4. 在 [Azure Resource Manager 根憑證檔案] 方塊中，輸入 (或瀏覽至) 憑證檔案的位置。
-    5. 按一下 [下一步] 。
+    5. 按 [下一步] 。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image05.png)
 
@@ -101,14 +102,14 @@ ms.lasthandoff: 12/01/2017
 
     > [!NOTE]
     > 對於生產環境部署，請按照 [Azure Stack 中的 Azure App Service 伺服器角色的容量規劃](azure-stack-app-service-capacity-planning.md)中的指導方針進行。
-    > 
+    >
     >
 
-    | 角色 | 最少執行個體 | 最低 SKU | 注意事項 |
+    | 角色 | 最少執行個體 | 最低 SKU | 注意 |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 管理及維護 App Service 雲端的健全狀況。 |
     | 管理 | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | 管理 App Service Azure Resource Manager 和 API 端點、入口網站擴充功能 (管理員、租用戶、Functions 入口網站)，以及資料服務。 為了支援容錯移轉，已將建議的執行個體增加為 2 個。 |
-    | 發佈者 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 透過 FTP 和 Web 部署發佈內容。 |
+    | 發行者 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 透過 FTP 和 Web 部署發佈內容。 |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 將要求傳送至 App Service 應用程式。 |
     | 共用背景工作 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 裝載 Web 或 API 應用程式和 Azure Functions 應用程式。 建議您新增更多執行個體。 身為操作員，您可以定義您的供應項目，並選擇任何 SKU 層。 各層必須具有至少一個 vCPU。 |
 
@@ -117,12 +118,12 @@ ms.lasthandoff: 12/01/2017
     > [!NOTE]
     > **Windows Server 2016 Core 不是支援的平台映像，無法搭配 Azure Stack 上的 Azure App Service 使用**。
 
-12. 在 [選取平台映像] 方塊中，從可以在適用於 App Service 雲端的運算資源提供者的可用映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按一下 [下一步] 。
+12. 在 [選取平台映像] 方塊中，從可以在適用於 App Service 雲端的運算資源提供者的可用映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按 [下一步] 。
 
 13. 在下一個頁面上：
      1. 輸入背景工作角色虛擬機器系統管理員使用者名稱和密碼。
      2. 輸入其他角色的虛擬機器系統管理員使用者名稱和密碼。
-     3. 按一下 [下一步] 。
+     3. 按 [下一步] 。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image09.png)    
 

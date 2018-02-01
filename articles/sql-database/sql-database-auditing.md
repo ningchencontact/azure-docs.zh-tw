@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -74,7 +74,7 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 
     如果已啟用伺服器 Blob 稽核，資料庫設定的稽核將會與伺服器 Blob 稽核並存。
 
-    ![導覽窗格][3]
+    ![瀏覽窗格][3]
 5. 若要開啟 [稽核記錄儲存體] 刀鋒視窗，請選取 [儲存體詳細資料]。 選取將儲存記錄的 Azure 儲存體帳戶，然後選取保留期間。 舊的記錄將被刪除。 然後按一下 [確定] 。
    >[!TIP]
    >若要充分利用稽核報告範本，請讓所有稽核的資料庫都使用相同的儲存體帳戶。
@@ -82,7 +82,7 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
     <a id="storage-screenshot"></a> ![導覽窗格][4]
 6. 如果您想要自訂稽核的事件，您可以透過 PowerShell 或 REST API 來自訂。 
 7. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
-8. 按一下 [儲存] 。
+8. 按一下 [檔案] 。
 
 
 
@@ -99,14 +99,14 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 
 * 使用 [Azure 入口網站](https://portal.azure.com)。  開啟相關的資料庫。 在資料庫的 [稽核與威脅偵測] 刀鋒視窗的頂端，按一下 [檢視稽核記錄]。
 
-    ![導覽窗格][7]
+    ![瀏覽窗格][7]
 
     隨即開啟 [稽核記錄] 刀鋒視窗，您可以在其中檢視記錄。
 
     - 您可以按一下 [稽核記錄] 刀鋒視窗頂端的 [篩選] 來檢視特定日期。
     - 您可以在由伺服器原則或資料庫原則稽核建立的稽核記錄之間切換。
 
-       ![導覽窗格][8]
+       ![瀏覽窗格][8]
 
 * 使用系統函數 **sys.fn_get_audit_file** (T-SQL) 以表格格式傳回稽核記錄資料。 如需有關如何使用此函數的詳細資訊，請參閱 [sys.fn_get_audit_file 文件](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) (英文)。
 
@@ -114,7 +114,7 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 * 使用 SQL Server Management Studio (SSMS 17 或更新版本) 中的 [合併稽核檔案]：
     1. 從 SSMS 功能表選取 [檔案] > [開啟] > [合併稽核檔案]。
 
-        ![導覽窗格][9]
+        ![瀏覽窗格][9]
     2. 隨即開啟 [新增稽核檔案] 對話方塊。 選取其中一個 [新增] 選項以選擇是否要從本機磁碟合併稽核檔案，或從 Azure 儲存體匯入稽核檔案。 您將需要提供您的 Azure 儲存體詳細資料和帳戶金鑰。
 
     3. 已新增要合併的所有檔案之後，請按一下 [確定] 以完成合併作業。
@@ -161,10 +161,10 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 
 1. 開啟 [儲存體詳細資料] 刀鋒視窗。 在 [儲存體存取金鑰] 方塊中，選取 [次要]，然後按一下 [確定]。 然後按一下稽核組態刀鋒視窗頂端的 [儲存]。
 
-    ![導覽窗格][5]
+    ![瀏覽窗格][5]
 2. 移至儲存體組態刀鋒視窗，並重新產生主要存取金鑰。
 
-    ![導覽窗格][6]
+    ![瀏覽窗格][6]
 3. 返回稽核組態刀鋒視窗，將儲存體存取金鑰從次要切換成主要，然後按一下 [確定]。 然後按一下稽核組態刀鋒視窗頂端的 [儲存]。
 4. 返回儲存體組態刀鋒視窗，並重新產生次要存取金鑰 (為下一個金鑰重新整理週期做準備)。
 
@@ -175,8 +175,6 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 

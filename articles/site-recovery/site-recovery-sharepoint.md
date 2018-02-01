@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 SharePoint 應用程式以便進行災害復原
 
@@ -40,7 +40,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您瞭解下列項目︰
 
@@ -68,9 +68,10 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | 是 | 是
-**VMware** | 是 | 是
-**實體伺服器** | 是 | 是
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**實體伺服器** | yes | yes
+**Azure** | NA | yes
 
 ### <a name="sharepoint-versions"></a>SharePoint 版本
 支援下列 SharePoint Server 版本。
@@ -182,7 +183,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
     * 此方法假設可在 DR 網站上取得「搜尋管理」資料庫的備份。
     * 由於不會複寫其他搜尋服務應用程式資料庫，因此必須加以重建。 若要這麼做，請瀏覽至管理中心並刪除搜尋服務應用程式。 在任何裝載搜尋索引的伺服器上，刪除索引檔案。
-    * 重建搜尋服務應用程式，而這會重建資料庫。 建議備妥一個指令碼來重建此服務應用程式，因為不可能透過 GUI 執行所有動作。 例如，唯有使用 SharePoint PowerShell cmdlet，才可能設定索引磁碟機位置及設定搜尋拓撲。 使用 Windows PowerShell Cmdlet Restore-SPEnterpriseSearchServiceApplication 並指定記錄隨附和複寫的搜尋管理資料庫 Search_Service__DB。 此 Cmdlet 可提供搜尋組態、結構描述、受管理的屬性、規則和來源，並建立一組預設的其他元件。
+    * 重建搜尋服務應用程式，而這會重建資料庫。 建議備妥一個指令碼來重建此服務應用程式，因為不可能透過 GUI 執行所有動作。 例如，唯有使用 SharePoint PowerShell cmdlet，才可能設定索引磁碟機位置及設定搜尋拓撲。 使用 Windows PowerShell Cmdlet Restore-SPEnterpriseSearchServiceApplication 並指定記錄隨附和複寫的搜尋管理資料庫 Search_Service__DB。 此 Cmdlet 可提供搜尋組態、結構描述、受控屬性、規則和來源，並建立一組預設的其他元件。
     * 一旦重建搜尋服務應用程式，您就必須為每個內容來源啟動完整編目，以還原搜尋服務。 您會從內部部署伺服器陣列遺失一些分析資訊，例如搜尋建議。
 
 7. 完成所有步驟後，儲存復原方案，而最終的復原方案如下所示。

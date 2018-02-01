@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-cost-management-reports"></a>使用成本管理報告
 
@@ -123,7 +123,7 @@ Cloudyn 可確保配置會套用帳戶親和性來保留每個連結帳戶的完
 3. 新增群組。
 4. 選擇您先前建立的成本模型。
 
-下列映像會以放射環狀圖格式顯示範例成本分析報告。 環形會顯示群組。 外部環形會顯示「服務」，內部圓形則會顯示「單位」。
+下列映像會以放射環狀圖格式顯示範例成本分析報告。 通道會顯示群組。 外部通道會顯示「服務」，內部圓形則會顯示「單位」。
 
 ![成本分析報告範例](./media/use-reports/cost-analysis01.png)
 

@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>使用 Jenkins 和 Azure CLI 來部署到 Azure App Service
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](https://jenkins.io/doc/book/pipeline/)中使用 Azure CLI。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -62,7 +62,7 @@ sudo apt-get install -y maven
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>建立 Azure App Service 來部署 Java Web 應用程式
 
-使用 [az appservice plan create](/cli/azure/appservice/plan#create) CLI 命令，建立搭配**免費**定價層的 Azure App Service 方案。 Appservice 方案會定義用來託管應用程式的實體資源。 所有指派給 Appservice 方案的應用程式都會共用這些資源，從而讓您節省託管多個應用程式的成本。 
+使用 [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) CLI 命令，建立搭配**免費**定價層的 Azure App Service 方案。 Appservice 方案會定義用來託管應用程式的實體資源。 所有指派給 Appservice 方案的應用程式都會共用這些資源，從而讓您節省託管多個應用程式的成本。 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ Web 應用程式定義備妥之後，Azure CLI 會顯示類似下列範例的資
 
 ### <a name="configure-java"></a>設定 Java 
 
-使用 [az appservice web config update](/cli/azure/appservice/web/config#update) 命令來設定您的應用程式需要的 Java 執行階段組態。
+使用 [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update) 命令來設定您的應用程式需要的 Java 執行階段組態。
 
 下列命令會將 Web 應用程式設定為在最新的 Java 8 JDK 和 [Apache Tomcat](http://tomcat.apache.org/) 8.0 上執行。
 

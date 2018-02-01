@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文適用於第 2 版的 Azure Data Factory 服務。 本文提供 Data Factory 常見問題集的解答。  
@@ -68,7 +68,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 如需詳細資訊，請參閱[教學課程：控制流程](tutorial-control-flow.md)。
 
 ### <a name="deploy-ssis-packages-to-azure"></a>將 SSIS 套件部署至 Azure 
-如果您想要移動 SSIS 工作負載，可以建立一個 Data Factory 第 2 版，然後佈建 Azure-SSIS 整合執行階段。 Azure-SSIS 整合執行階段是一個完全受控的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 封裝。 如需逐步指示，請參閱教學課程：[將 SSIS 封裝部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 
+如果您想要移動 SSIS 工作負載，可以建立一個 Data Factory 第 2 版，然後佈建 Azure-SSIS 整合執行階段。 Azure-SSIS 整合執行階段是一個完全受控的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 封裝。 如需逐步指示，請參閱教學課程：[將 SSIS 封裝部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 
  
 
 ### <a name="sdks"></a>SDK

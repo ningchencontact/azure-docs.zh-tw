@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何設定內部部署實體 Windows 和 Linux 伺服器至 Azure 的災害復原。 在本教學課程中，您將了解如何：
+本教學課程說明如何設定內部部署實體 Windows 和 Linux 伺服器至 Azure 的災害復原。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定 Azure 與內部部署的必要條件
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/02/2017
 > * 建立複寫原則
 > * 啟用伺服器的複寫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/02/2017
 
 ### <a name="set-up-an-azure-network"></a>設定 Azure 網路
 
-設定 [Azure 網路](../virtual-network/virtual-network-get-started-vnet-subnet.md)。
+設定 [Azure 網路](../virtual-network/quick-create-portal.md)。
 
 - 在容錯移轉之後建立的 Azure VM 會置於這個網路。
 - 此網路應位於與復原服務保存庫相同的區域

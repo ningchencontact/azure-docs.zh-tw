@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 程式設計模型概觀
 Service Fabric 提供多種撰寫和管理服務的方式。 服務可選擇使用 Service Fabric API 以善加運用平台的功能和應用程式架構。 服務也可以是以任何語言撰寫的任何已編譯可執行程式，或是在 Service Fabric 叢集所裝載之容器中執行的程式碼。
@@ -45,7 +45,7 @@ Reliable Services 也可以是具狀態且為 Service Fabric 專有，其狀態�
 ## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core 是新的開放原始碼和跨平台架構，可建置現代化雲端網際網路連線的應用程式，例如 web 應用程式、IoT 應用程式，以及行動後端。 Service Fabric 可與 ASP.NET Core 整合，因此您可以同時撰寫能夠利用可靠集合和 Service Fabric 的進階協調流程功能的無狀態與具狀態的 ASP.NET Core 應用程式。
 
-[深入了解 Service Fabric 中的 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)，或從[撰寫第一個 ASP.NET Core Service Fabric 應用程式](service-fabric-add-a-web-frontend.md)開始使用。
+[深入了解 Service Fabric 中的 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)，或從[撰寫第一個 ASP.NET Core Service Fabric 應用程式](service-fabric-reliable-services-communication-aspnetcore.md)開始使用。
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Reliable Actor 架構是建置在 Reliable Services 最上層的應用程式架構，其根據動作項目設計模式來實作 Virtual Actor 模式。 Reliable Actor 架構使用獨立的計算單位，和以單一執行緒方式執行稱為動作項目的狀態。 Reliable Actor 架構提供動作項目的內建通訊和預先設定狀態持續性和相應放大組態。
@@ -55,7 +55,7 @@ Reliable Actors 本身是建置在 Reliable Services 上的應用程式架構，
 [深入了解 Reliable Actors](service-fabric-reliable-actors-introduction.md) 或從[撰寫第一項 Reliable Actor 服務](service-fabric-reliable-actors-get-started.md)開始
 
 
-[使用 ASP.NET Core 組建前端服務](service-fabric-add-a-web-frontend.md)
+[使用 ASP.NET Core 組建前端服務](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ## <a name="next-steps"></a>後續步驟
 [Service Fabric 和容器概觀](service-fabric-containers-overview.md)
