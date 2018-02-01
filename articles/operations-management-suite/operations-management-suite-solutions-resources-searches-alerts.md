@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警告新增到 OMS 管理解決方案 (預覽)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/17/2017
 > [!NOTE]
 > 本文中的範例使用管理解決方案所必要或通用的參數和變數，如[在 Operations Management Suite (OMS) 中建立管理解決方案](operations-management-suite-solutions-creating.md)所述。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經熟悉如何[建立管理解決方案](operations-management-suite-solutions-creating.md)，以及 [Resource Manager 範本](../resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
@@ -45,17 +45,14 @@ Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-ana
 ## <a name="log-analytics-api-version"></a>Log Analytics API 版本
 Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **apiVersion** 屬性，以定義資源應該使用的 API 版本。  針對使用[舊版和已升級查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)的資源，這個版本會不同。  
 
- 下表指定舊版和已升級工作區的 Log Analytics API 版本，以及指定各不同語法的範例查詢。 
+ 下表以舊版和已升級工作區指出已儲存搜尋的 Log Analytics API 版本： 
 
-| 工作區版本 | API 版本 | 範例查詢 |
+| 工作區版本 | API 版本 | 查詢 |
 |:---|:---|:---|
-| v1 (舊版)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2 (已升級) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| v1 (舊版)   | 2015-11-01-preview | 舊版的格式。<br> 範例：Type=Event EventLevelName = Error  |
+| v2 (已升級) | 2015-11-01-preview | 舊版的格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換成：Event &#124; where EventLevelName == "Error"  |
+| v2 (已升級) | 2017-03-03-preview | 已升級的格式。 <br>範例：Event &#124; where EventLevelName == "Error"  |
 
-請注意不同版本所支援工作區的下列事項。
-
-- 使用舊版查詢語言的範本可以安裝於舊版或已升級工作區中。  如果安裝於已升級工作區中，則在使用者執行查詢時，會將查詢即時轉換為新的語言。
-- 使用已升級查詢語言的範本只能安裝於已升級工作區中。
 
 
 ## <a name="saved-searches"></a>儲存的搜尋
@@ -130,9 +127,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 已啟用       | 是 | 指定在建立警示時是否要加以啟用。 |
-| interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
-| queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
+| 已啟用       | yes | 指定在建立警示時是否要加以啟用。 |
+| interval      | yes | 查詢的執行頻率，以分鐘為單位。 |
+| queryTimeSpan | yes | 評估結果的時間長度，以分鐘為單位。 |
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 
@@ -189,10 +186,10 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 類型 | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| 類型 | yes | 動作的類型。  這是適用於警示動作的**警示**。 |
+| Name | yes | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | 說明 | 否 | 警示的選擇性描述。 |
-| 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **Critical**<br>**警告**<br>**Informational** |
+| 嚴重性 | yes | 警示記錄的嚴重性有下列值：<br><br> **Critical**<br>**警告**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>閾值
@@ -200,8 +197,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 要比較結果的值。 |
+| 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| 值 | yes | 要比較結果的值。 |
 
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
@@ -212,9 +209,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
-| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 必須符合準則以觸發警示的次數。 |
+| TriggerCondition | yes | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
+| 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| 值 | yes | 必須符合準則以觸發警示的次數。 |
 
 ##### <a name="throttling"></a>節流
 此為選擇性區段。  如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
@@ -228,8 +225,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 收件者 | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| 主旨 | 是 | 郵件的主旨列。 |
+| 收件者 | yes | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 主體 | yes | 郵件的主旨列。 |
 | 附件 | 否 | 目前不支援附件。  如果包含此元素，就應該是 **None**。 |
 
 
@@ -238,8 +235,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| RunbookName | 是 | 要啟動的 Runbook 名稱。 |
-| WebhookUri | 是 | Runbook 的 Webhook 的 Uri。 |
+| RunbookName | yes | 要啟動的 Runbook 名稱。 |
+| WebhookUri | yes | Runbook 的 Webhook 的 Uri。 |
 | Expiry | 否 | 補救到期的日期和時間。 |
 
 #### <a name="webhook-actions"></a>Webhook 動作
@@ -268,9 +265,9 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 類型 | 是 | 動作的類型。  這適用於 Webhook 動作的 **Webhook**。 |
-| 名稱 | 是 | 動作的顯示名稱。  這不會顯示在主控台中。 |
-| wehookUri | 是 | Webhook 的 Uri。 |
+| type | yes | 動作的類型。  這適用於 Webhook 動作的 **Webhook**。 |
+| name | yes | 動作的顯示名稱。  這不會顯示在主控台中。 |
+| wehookUri | yes | Webhook 的 Uri。 |
 | customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |
 
 

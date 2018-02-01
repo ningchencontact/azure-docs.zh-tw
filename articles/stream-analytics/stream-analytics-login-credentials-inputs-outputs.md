@@ -4,8 +4,8 @@ description: "了解如何更新 Azure Stream Analytics 的輸入和輸出認證
 keywords: "登入認證"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
@@ -13,187 +13,78 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a1a927fa9c34b38e54fdb22782e80fd13bf430c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/11/2018
+ms.author: sngun
+ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>在串流分析工作中替換輸入和輸出的登入認證
-## <a name="abstract"></a>摘要
-Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/輸出中的認證。
+# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>針對串流分析作業的輸入和輸出替換登入認證
 
-雖然 Azure 串流分析不支援從上次的輸出繼續工作，但我們還是要和您分享如何盡量縮短工作停止和開始之間的延遲時間，以及替換登入認證的整個程序。
+每當您針對串流分析作業的輸入或輸出重新產生認證時，您應該使用新的認證來更新該作業。 您必須先停止作業才能更新認證，而不能在作業執行的時候替換認證。 為了減少停止和重新啟動作業之間的延遲，串流分析支援作業從其最後的輸出繼續進行。 本主題說明替換登入認證並使用新認證重新啟動作業的程序。
 
-## <a name="part-1---prepare-the-new-set-of-credentials"></a>第 1 部分 - 準備一組新的認證：
-此部分適用於下列的輸入/輸出：
+## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>重新產生新認證，並使用新認證更新作業 
 
-* Blob 儲存體
-* 事件中樞
-* SQL Database
-* 資料表儲存體
-
-針對其他的輸入/輸出，請參考第 2 部分。
+在本節中，我們將引導您重新產生 Blob 儲存體、事件中樞、SQL Database 和表格儲存體的認證。 
 
 ### <a name="blob-storagetable-storage"></a>Blob 儲存體/資料表儲存體 
-1. 在 Azure 管理入口網站中，瀏覽至 [儲存體] 擴充：  
-   ![graphic1][graphic1]
-2. 找出工作使用的儲存體，然後進到裡面：  
-   ![graphic2][graphic2]
-3. 按一下 [管理存取金鑰] 命令：  
-   ![graphic3][graphic3]
-4. 在主要存取金鑰和次要存取金鑰之間， **挑選工作使用的金鑰**。
-5. 按重新產生：  
-   ![graphic4][graphic4]
-6. 複製剛剛產生的金鑰：  
-   ![graphic5][graphic5]
-7. 繼續第 2 部分。
+1. 登入 Azure 入口網站 > 瀏覽您作為串流分析作業輸入/輸出使用的儲存體帳戶。    
+2. 在設定區段中，開啟 [存取金鑰]。 從兩個預設金鑰 (key1、key2) 之中，挑選作業未使用的金鑰並重新產生它：  
+   ![重新產生儲存體帳戶金鑰](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+3. 複製新產生的金鑰。    
+4. 在 Azure 入口網站中，瀏覽至您的串流分析作業 > 選取 [停止]，並等候作業停止。    
+5. 找出您要更新認證的 Blob/表格儲存體輸出/輸入。    
+6. 尋找 [儲存體帳戶金鑰] 欄位，然後貼上新產生的金鑰 > 按一下 [儲存]。    
+7. 當您儲存所做的變更時，系統會自動測試連線，您可從通知索引標籤檢視連線測試狀態。一共會有兩個通知：一個與儲存更新對應，另一個則與測試連線對應：  
+   ![編輯金鑰之後的通知](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+8. 繼續進行[從上次停止的時間啟動您的作業] (#start-your-job-from-the-last-stopped-time)一節。
 
 ### <a name="event-hubs"></a>事件中樞
-1. 在 Azure 管理入口網站中，瀏覽至 [服務匯流排] 擴充：  
-   ![graphic6][graphic6]
-2. 找出工作使用的服務匯流排命名空間，然後進到裡面：  
-   ![graphic7][graphic7]
-3. 如果工作會在「服務匯流排命名空間」上使用共用存取原則，請跳到步驟 6  
-4. 移至 [事件中樞] 索引標籤：  
-   ![graphic8][graphic8]
-5. 找出工作使用的事件中樞，然後進到裡面：  
-   ![graphic9][graphic9]
-6. 移至 [設定] 索引標籤：  
-   ![graphic10][graphic10]
-7. 在 [原則名稱] 下拉式清單中，找出工作使用的共用存取原則：  
-   ![graphic11][graphic11]
-8. 在主要金鑰和次要金鑰之間， **挑選工作未使用的金鑰**。  
-9. 按重新產生：  
-   ![graphic12][graphic12]
-10. 複製剛剛產生的金鑰：  
-   ![graphic13][graphic13]
-11. 繼續第 2 部分。  
+
+1. 登入 Azure 入口網站 > 瀏覽您作為串流分析作業輸入/輸出使用的事件中樞。    
+2. 從設定區段，開啟 [共用存取原則] 並選取必要的存取原則。 在 [主要金鑰] 和 [次要金鑰] 之間，挑選作業未使用的金鑰並重新生它：  
+   ![重新產生事件中樞的金鑰](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+3. 複製新產生的金鑰。    
+4. 在 Azure 入口網站中，瀏覽至您的串流分析作業 > 選取 [停止]，並等候作業停止。    
+5. 找出您要更新認證的事件中樞輸出/輸入。    
+6. 尋找 [事件中樞原則金鑰] 欄位，然後貼上新產生的金鑰 > 按一下 [儲存]。    
+7. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。    
+8. 繼續進行[從上次停止的時間啟動您的作業](#start-your-job-from-the-last-stopped-time)一節。
 
 ### <a name="sql-database"></a>SQL Database
-> [!NOTE]
-> 注意：您必須連接到 SQL Database 服務。 為了示範整個過程，我們會借鑑 Azure 管理入口網站的管理經驗，不過您也可以選擇使用其他類似 SQL Server Management Studio 的用戶端工具。
->
-> 
 
-1. 在 Azure 管理入口網站中，瀏覽至 [SQL 資料庫] 擴充：  
-   ![graphic14][graphic14]
-2. 找出工作使用的 SQL Database，然後在同一行上**按一下伺服器**連結：  
-   ![graphic15][graphic15]
-3. 按一下 [管理] 命令：  
-   ![graphic16][graphic16]
-4. 輸入主要資料庫：  
-   ![graphic17][graphic17]
-5. 輸入使用者名稱和密碼，然後按一下 [登入]：  
-   ![graphic18][graphic18]
-6. 按一下 [新增查閱]：  
-   ![graphic19][graphic19]
-7. 輸入下列查詢，即可將 <login_name> 換成您的使用者名稱，以及將 <enterStrongPasswordHere> 換成您的新密碼：  
-   `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
-8. 按一下 [執行]：  
-   ![graphic20][graphic20]
-9. 回到步驟 2，這一次按一下資料庫：  
-   ![graphic21][graphic21]
-10. 按一下 [管理] 命令：  
-   ![graphic22][graphic22]
-11. 輸入使用者名稱和密碼，然後按一下 [登入]：  
-   ![graphic23][graphic23]
-12. 按一下 [新增查閱]：  
-   ![graphic24][graphic24]
-13. 輸入下列查詢，即可將 <user_name> 換成當您登入此資料庫內容時想用的識別名稱 (例如，您可以提供之前提供給 <login_name>, 的相同值)，並將 <login_name> 換成新的使用者名稱：  
-   `CREATE USER <user_name> FROM LOGIN <login_name>`
-14. 按一下 [執行]：  
-   ![graphic25][graphic25]
-15. 現在您應該為新使用者提供與原始使用者相同的角色和權限。
-16. 繼續第 2 部分。
+您必須連線到 SQL 資料庫以更新現有使用者的登入認證。 您可以使用 Azure 入口網站或用戶端工具 (例如 SQL Server Management Studio) 來更新認證。 本節將示範使用 Azure 入口網站更新認證的程序。
 
-## <a name="part-2-stopping-the-stream-analytics-job"></a>第 2 部分：停止 Azure Stream Analytics 工作
-1. 在 Azure 管理入口網站中，移至 [串流分析] 擴充：  
-   ![graphic26][graphic26]
-2. 找出您的工作，然後進到裡面：   
-   ![graphic27][graphic27]
-3. 根據您是否想替換輸入或輸出時的認證，然後移至 [輸入] 或 [輸出] 索引標籤。  
-   ![graphic28][graphic28]
-4. 按一下 [停止] 命令並確認工作已停止：  
-   ![graphic29][graphic29] 等候工作停止。
-5. 找出您要替換認證的輸入或輸出，然後進到裡面：  
-   ![graphic30][graphic30]
-6. 繼續第 3 部分。
+1. 登入 Azure 入口網站 > 瀏覽至您作為串流分析輸入/輸出使用的 SQL 資料庫。    
+2. 從 [資料總管]，登入/連線到您的資料庫 > 將 [驗證類型] 選取為 [SQL Server 驗證] > 輸入您的 [登入] 和 [密碼] 詳細資料 > 選取 [確定]。  
+   ![重新產生 SQL 資料庫的認證](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
 
-## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>第 3 部分：編輯 Stream Analytics 工作的認證
-### <a name="blob-storagetable-storage"></a>Blob 儲存體/資料表儲存體 
-1. 尋找 [儲存體帳戶金鑰] 欄位，然後貼上剛剛產生的金鑰：  
-   ![graphic31][graphic31]
-2. 按一下 [儲存] 命令，然後確認儲存所做的變更：  
-   ![graphic32][graphic32]
-3. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
-4. 繼續第 4 部分。
+3. 在查詢索引標籤中，執行下列查詢以修改其中一個使用者的密碼 (請務必將 `<user_name>` 取代為您的使用者名稱，並將 `<new_password>` 取代為您的新密碼)：  
 
-### <a name="event-hubs"></a>事件中樞
-1. 尋找 [事件中樞原則金鑰] 欄位，然後貼上剛剛產生的金鑰：  
-   ![graphic33][graphic33]
-2. 按一下 [儲存] 命令，然後確認儲存所做的變更：  
-   ![graphic34][graphic34]
-3. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
-4. 繼續第 4 部分。
+   ```SQL
+   Alter user `<user_name>` WITH PASSWORD = '<new_password>'
+   Alter role db_owner Add member `<user_name>`
+   ```
+
+4. 記下新的密碼。    
+5. 在 Azure 入口網站中，瀏覽至您的串流分析作業 > 選取 [停止]，並等候作業停止。    
+6. 找出您要替換認證的 SQL 資料庫輸出。 更新密碼並儲存變更。    
+7. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。    
+8. 繼續進行[從上次停止的時間啟動您的作業](#start-your-job-from-the-last-stopped-time)一節。
 
 ### <a name="power-bi"></a>Power BI
-1. 按一下 [更新授權]：  
+1. 登入 Azure 入口網站 > 瀏覽至您的串流分析作業 > 選取 [停止]，並等候作業停止。    
+2. 找出您要更新認證的 Power BI 輸出 > 按一下 [更新授權] (您應該會看見成功訊息) > [儲存] 變更。    
+3. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。    
+4. 繼續進行[從上次停止的時間啟動您的作業](#start-your-job-from-the-last-stopped-time)一節。
 
-   ![graphic35][graphic35]
-2. 系統會要求您進行以下確認：  
+## <a name="start-your-job-from-the-last-stopped-time"></a>從上次停止的時間啟動您的作業
 
-   ![graphic36][graphic36]
-3. 按一下 [儲存] 命令，然後確認儲存所做的變更：  
-   ![graphic37][graphic37]
-4. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
-5. 繼續第 4 部分。
-
-### <a name="sql-database"></a>SQL Database
-1. 尋找 [使用者名稱] 和 [密碼] 欄位，然後貼上剛剛建立的一組認證：  
-   ![graphic38][graphic38]
-2. 按一下 [儲存] 命令，然後確認儲存所做的變更：  
-   ![graphic39][graphic39]
-3. 當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。  
-4. 繼續第 4 部分。
-
-## <a name="part-4-starting-your-job-from-last-stopped-time"></a>第 4 部分：從上次停止的時間開始您的工作
-1. 離開輸入/輸出：  
-   ![graphic40][graphic40]
-2. 按一下 [開始] 命令：  
-   ![graphic41][graphic41]
-3. 挑選 [上次停止時間]，然後按一下 [確定]：   
-   ![graphic42][graphic42]
-4. 繼續第 5 部分。  
-
-## <a name="part-5-removing-the-old-set-of-credentials"></a>第 5 部分：移除舊的認證集
-此部分適用於下列的輸入/輸出：
-
-* Blob 儲存體
-* 事件中樞
-* SQL Database
-* 資料表儲存體
-
-### <a name="blob-storagetable-storage"></a>Blob 儲存體/資料表儲存體 
-為工作以前使用的存取金鑰，重複第 1 部分，以更新現在未使用的存取金鑰。
-
-### <a name="event-hubs"></a>事件中樞
-為工作以前使用的金鑰，重複第 1 部分，以更新現在未使用的金鑰。
-
-### <a name="sql-database"></a>SQL Database
-1. 從第 1 部分的步驟 7 回到查詢視窗，然後輸入下列查詢，即可將 <previous_login_name> 換成作業先前使用的使用者名稱：  
-   `DROP LOGIN <previous_login_name>`  
-2. 按一下 [執行]：  
-   ![graphic43][graphic43]  
-
-系統應該會要求您進行以下確認： 
-
-    Command(s) completed successfully.
-
-## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+1. 瀏覽至作業的 [概觀] 窗格 > 選取 [啟動] 以啟動作業。    
+2. 選取 [前次停止時間] > 按一下 [啟動]。 請注意，只有在您先前有執行作業並有產生輸出的情況下，系統才會顯示 [前次停止時間] 選項。 作業會根據上次輸出值的時間重新啟動。
+   ![啟動作業](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
@@ -201,48 +92,3 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-[graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
-[graphic2]: ./media/stream-analytics-login-credentials-inputs-outputs/2-stream-analytics-login-credentials-inputs-outputs.png
-[graphic3]: ./media/stream-analytics-login-credentials-inputs-outputs/3-stream-analytics-login-credentials-inputs-outputs.png
-[graphic4]: ./media/stream-analytics-login-credentials-inputs-outputs/4-stream-analytics-login-credentials-inputs-outputs.png
-[graphic5]: ./media/stream-analytics-login-credentials-inputs-outputs/5-stream-analytics-login-credentials-inputs-outputs.png
-[graphic6]: ./media/stream-analytics-login-credentials-inputs-outputs/6-stream-analytics-login-credentials-inputs-outputs.png
-[graphic7]: ./media/stream-analytics-login-credentials-inputs-outputs/7-stream-analytics-login-credentials-inputs-outputs.png
-[graphic8]: ./media/stream-analytics-login-credentials-inputs-outputs/8-stream-analytics-login-credentials-inputs-outputs.png
-[graphic9]: ./media/stream-analytics-login-credentials-inputs-outputs/9-stream-analytics-login-credentials-inputs-outputs.png
-[graphic10]: ./media/stream-analytics-login-credentials-inputs-outputs/10-stream-analytics-login-credentials-inputs-outputs.png
-[graphic11]: ./media/stream-analytics-login-credentials-inputs-outputs/11-stream-analytics-login-credentials-inputs-outputs.png
-[graphic12]: ./media/stream-analytics-login-credentials-inputs-outputs/12-stream-analytics-login-credentials-inputs-outputs.png
-[graphic13]: ./media/stream-analytics-login-credentials-inputs-outputs/13-stream-analytics-login-credentials-inputs-outputs.png
-[graphic14]: ./media/stream-analytics-login-credentials-inputs-outputs/14-stream-analytics-login-credentials-inputs-outputs.png
-[graphic15]: ./media/stream-analytics-login-credentials-inputs-outputs/15-stream-analytics-login-credentials-inputs-outputs.png
-[graphic16]: ./media/stream-analytics-login-credentials-inputs-outputs/16-stream-analytics-login-credentials-inputs-outputs.png
-[graphic17]: ./media/stream-analytics-login-credentials-inputs-outputs/17-stream-analytics-login-credentials-inputs-outputs.png
-[graphic18]: ./media/stream-analytics-login-credentials-inputs-outputs/18-stream-analytics-login-credentials-inputs-outputs.png
-[graphic19]: ./media/stream-analytics-login-credentials-inputs-outputs/19-stream-analytics-login-credentials-inputs-outputs.png
-[graphic20]: ./media/stream-analytics-login-credentials-inputs-outputs/20-stream-analytics-login-credentials-inputs-outputs.png
-[graphic21]: ./media/stream-analytics-login-credentials-inputs-outputs/21-stream-analytics-login-credentials-inputs-outputs.png
-[graphic22]: ./media/stream-analytics-login-credentials-inputs-outputs/22-stream-analytics-login-credentials-inputs-outputs.png
-[graphic23]: ./media/stream-analytics-login-credentials-inputs-outputs/23-stream-analytics-login-credentials-inputs-outputs.png
-[graphic24]: ./media/stream-analytics-login-credentials-inputs-outputs/24-stream-analytics-login-credentials-inputs-outputs.png
-[graphic25]: ./media/stream-analytics-login-credentials-inputs-outputs/25-stream-analytics-login-credentials-inputs-outputs.png
-[graphic26]: ./media/stream-analytics-login-credentials-inputs-outputs/26-stream-analytics-login-credentials-inputs-outputs.png
-[graphic27]: ./media/stream-analytics-login-credentials-inputs-outputs/27-stream-analytics-login-credentials-inputs-outputs.png
-[graphic28]: ./media/stream-analytics-login-credentials-inputs-outputs/28-stream-analytics-login-credentials-inputs-outputs.png
-[graphic29]: ./media/stream-analytics-login-credentials-inputs-outputs/29-stream-analytics-login-credentials-inputs-outputs.png
-[graphic30]: ./media/stream-analytics-login-credentials-inputs-outputs/30-stream-analytics-login-credentials-inputs-outputs.png
-[graphic31]: ./media/stream-analytics-login-credentials-inputs-outputs/31-stream-analytics-login-credentials-inputs-outputs.png
-[graphic32]: ./media/stream-analytics-login-credentials-inputs-outputs/32-stream-analytics-login-credentials-inputs-outputs.png
-[graphic33]: ./media/stream-analytics-login-credentials-inputs-outputs/33-stream-analytics-login-credentials-inputs-outputs.png
-[graphic34]: ./media/stream-analytics-login-credentials-inputs-outputs/34-stream-analytics-login-credentials-inputs-outputs.png
-[graphic35]: ./media/stream-analytics-login-credentials-inputs-outputs/35-stream-analytics-login-credentials-inputs-outputs.png
-[graphic36]: ./media/stream-analytics-login-credentials-inputs-outputs/36-stream-analytics-login-credentials-inputs-outputs.png
-[graphic37]: ./media/stream-analytics-login-credentials-inputs-outputs/37-stream-analytics-login-credentials-inputs-outputs.png
-[graphic38]: ./media/stream-analytics-login-credentials-inputs-outputs/38-stream-analytics-login-credentials-inputs-outputs.png
-[graphic39]: ./media/stream-analytics-login-credentials-inputs-outputs/39-stream-analytics-login-credentials-inputs-outputs.png
-[graphic40]: ./media/stream-analytics-login-credentials-inputs-outputs/40-stream-analytics-login-credentials-inputs-outputs.png
-[graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
-[graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
-[graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-

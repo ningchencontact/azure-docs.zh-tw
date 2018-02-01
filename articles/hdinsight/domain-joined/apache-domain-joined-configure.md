@@ -4,7 +4,7 @@ description: "了解如何安裝及設定已加入網域的 HDInsight 叢集"
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>設定已加入網域的 HDInsight 沙箱環境
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 01/12/2018
 
 -   在 Azure IaaS 上執行的獨立 Active Directory。
 -   Azure Active Directory。
--   在客戶內部部署環境上執行的 Active Directory。
 
 本文會介紹如何使用在 Azure IaaS 上執行的獨立 Active Directory。 對客戶而言，若要取得 HDInsight 的多使用者支援，這是最容易採用的架構。 本文涵蓋兩種設定方式：
 
@@ -71,9 +70,10 @@ ms.lasthandoff: 01/12/2018
     - **管理員使用者名稱**：輸入網域管理員使用者名稱。
     - **管理員密碼**：輸入網域管理員密碼。
     - **網域名稱**：預設名稱是 *contoso.com*。如果您變更網域名稱，也必須更新 [安全 LDAP 的憑證] 欄位和 [組織單位 DN] 欄位。
+    - **DNS 首碼**：輸入 Load Balancer 所使用之公用 IP 位址的 DNS 首碼。
     - **叢集名稱**︰輸入 HDInsight 叢集名稱。
     - **叢集類型**：請勿變更此值。 如果您想要變更叢集類型，請使用最後一個步驟中的特定範本。
-
+    - **安全 Ldap 憑證密碼**：除非您變更 [安全 LDAP] 憑證欄位，否則請使用預設值。
     範本中的某些值是硬式編碼，例如，背景工作角色節點執行個體計數是兩個。  若要變更硬式編碼值，請按一下 [編輯範本]。
 
     ![已加入網域的 HDInsight 叢集編輯範本](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

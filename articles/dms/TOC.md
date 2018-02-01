@@ -1,6 +1,5 @@
 # 概觀
 ## [了解資料庫移轉服務](dms-overview.md)
-## [必要條件概觀](pre-reqs.md)
 
 # 快速入門
 ## [建立服務 - 入口網站](quickstart-create-data-migration-service-portal.md)
@@ -17,4 +16,6 @@
 ## [資料庫移轉指南](https://aka.ms/datamigration)
 ## [資料移轉小幫手](https://aka.ms/dma)
 ## [定價](https://aka.ms/dms-pricing)
+## [必要條件概觀](pre-reqs.md)
 ## [常見問題集](faq.md)
+

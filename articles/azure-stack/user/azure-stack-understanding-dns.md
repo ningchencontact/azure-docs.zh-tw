@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>適用於 Azure Stack 的 iDNS 簡介
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
 
 iDNS 是 Azure Stack 中的一個功能，可讓您解析外部 DNS 名稱 (例如 http://www.bing.com )。
 它也可以讓您登錄內部虛擬網路名稱。 如此一來，您就可以依名稱 (而非 IP 位址) 解析相同虛擬網路上的 VM，而不需要提供自訂的 DNS 伺服器項目。
@@ -30,7 +30,7 @@ iDNS 是 Azure Stack 中的一個功能，可讓您解析外部 DNS 名稱 (例�
 這是 Azure 中的內建功能，但是也可以在 Windows Server 2016 和 Azure Stack 中使用。
 
 ## <a name="what-does-idns-do"></a>iDNS 的用途為何？
-您可以使用 Azure Stack 中的 iDNS 取得下列功能，而不需要指定自訂的 DNS 伺服器項目。
+您可以使用 Azure Stack 中的 iDNS 取得下列功能，而不需要指定自訂的 DNS 伺服器項目：
 
 * 適用於租用戶工作負載的共用 DNS 名稱解析服務。
 * 適用於租用戶虛擬網路內的名稱解析和 DNS 登錄的權威 DNS 服務。
@@ -47,7 +47,7 @@ iDNS 不允許您針對可以從虛擬網路外部解析的名稱，建立 DNS �
 
 在上圖中，Azure 將會在 DNS 中，為區域 **westus.cloudapp.azure.com** 底下指定的 DNS 名稱標籤，建立 “A” 記錄。首碼和尾碼可構成完整網域名稱 (FQDN)，此名稱可以從公用網際網路上的任何位置解析。
 
-Azure Stack 僅支援用於內部名稱登錄的 iDNS，因此無法執行下列作業。
+Azure Stack 僅支援用於內部名稱登錄的 iDNS，因此無法執行下列作業：
 
 * 在現有的託管 DNS 區域 (例如 local.azurestack.external) 底下建立 DNS 記錄。
 * 建立 DNS 區域 (例如 Contoso.com)。

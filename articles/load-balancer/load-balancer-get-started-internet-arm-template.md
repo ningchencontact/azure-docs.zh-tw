@@ -1,6 +1,6 @@
 ---
-title: "建立網際網路對向負載平衡器 - Azure 範本 | Microsoft Docs"
-description: "了解如何使用範本在資源管理員中建立網際網路面向的負載平衡器"
+title: "建立公用負載平衡器 - Azure 範本 | Microsoft Docs"
+description: "了解如何使用範本在資源管理員中建立公用負載平衡器"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 10d96920d3aa3cae19750d7c2437b88bac1c8cda
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 21ff5a48d29117ba1d6195f308f00180b1f1edbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>使用範本建立網際網路面向的負載平衡器
+# <a name="creating-a-public-load-balancer-using-a-template"></a>使用範本建立公用負載平衡器
 
 > [!div class="op_single_selector"]
 > * [入口網站](../load-balancer/load-balancer-get-started-internet-portal.md)

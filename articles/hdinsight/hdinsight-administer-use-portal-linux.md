@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/05/2017
 
 使用 [Azure 入口網站][azure-portal]，您可以管理 Azure HDInsight 中的 Hadoop 叢集。 使用上述的索引標籤選取器，以取得使用其他工具管理 HDInsight 中 Hadoop 叢集的詳細資訊。
 
-**必要條件**
+**先決條件**
 
 若要遵循本文中的步驟，您需要 **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -81,10 +81,10 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 4. 按一下清單中的叢集以顯示概觀頁面：
 
     ![Azure 入口網站 HDInsight 叢集基本功能](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **概觀功能表：**
-    * **儀表板**：開啟叢集儀表板，這是適用於以 Linux 為基礎之叢集的 Ambari Web。
+    * **儀表板**：開啟叢集的 Ambari Web UI。
     * **安全殼層**︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
     * **調整叢集**：可讓您變更此叢集的背景工作節點數目。
-    * **移動**：將叢集移至另一個資源群組或訂用帳戶。
+    * **移動**：將叢集移至另一個資源群組或另一個訂用帳戶。
     * **刪除**：刪除叢集。
 
     **左側功能表**：
@@ -98,7 +98,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **適用於 HDInsight 的工具**：HDInsight 相關工具的說明資訊。
     * **訂用帳戶核心使用量**︰顯示訂用帳戶的已使用和可用核心。
     * **調整叢集**：增加和減少叢集背景工作角色節點的數目。 請參閱[調整叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
-    * **SSH + 叢集登入**︰顯示使用安全殼層 (SSH) 連線來連線至叢集的指示。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) 並重設叢集登入認證。
+    * **SSH + 叢集登入**︰顯示使用安全殼層 (SSH) 連線來連線至叢集的指示。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
     * **HDInsight 合作夥伴**︰新增/移除目前的 HDInsight 合作夥伴。
     * **外部中繼存放區**：檢視 Hive 和 Oozie 中繼存放區。 中繼存放區只可以在叢集建立程序期間進行設定。 請參閱[使用 Hive/Oozie 中繼存放區](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)。
     * **指令碼動作**︰在叢集上執行 Bash 指令碼。 請參閱 [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
@@ -158,7 +158,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
 
     減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 此行為會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
-* HBase
+* hbase
 
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
@@ -225,6 +225,21 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 ## <a name="upgrade-clusters"></a>升級叢集
 
 請參閱[將 HDInsight 叢集升級為更新的版本](./hdinsight-upgrade-cluster.md)。
+
+## <a name="open-the-ambari-web-ui"></a>開啟 Ambari Web UI
+
+Ambari 提供一個以其 RESTful API 為後盾的 Hadoop 管理 Web UI，此 UI 相當直覺式且容易使用。 Ambari 可讓系統管理員管理和監視 Hadoop 叢集。
+
+1. 從 Azure 入口網站開啟 HDInsight 叢集。  請參閱[列出和顯示叢集](#list-and-show-clusters)。
+2. 按一下 [叢集儀表板]。
+
+    ![HDInsight Hadoop 叢集功能表](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. 輸入叢集使用者名稱和密碼。  預設的叢集使用者名稱為 _admin_。Ambari Web UI 看起來像這樣：
+
+    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+如需詳細資訊，請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="change-passwords"></a>變更密碼
 HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳戶 (A.K.A. HTTP 使用者帳戶) 以及 SSH 使用者帳戶都會在建立程序期間建立。 您可以使用 Ambari Web UI 來變更叢集使用者帳戶的使用者名稱、密碼，以及用於變更 SSH 使用者帳戶的指令碼動作。

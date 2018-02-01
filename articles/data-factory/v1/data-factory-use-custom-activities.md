@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/04/2018
 
 如果要移動資料至/自 Data Factory 不支援的資料存放區，利用自己的資料移動邏輯建立**自訂活動**，然後在管線中使用活動。 同樣地，若要以 Data Factory 不支援的方法轉換/處理資料，可以利用自己的資料轉換邏輯建立自訂活動，然後在管線中使用活動。 
 
-您可以設定上執行的自訂活動**Azure Batch**虛擬機器集區。 當使用 Azure Batch 時，您只可以使用現有的 Azure Batch 集區。
+您可以設定自訂活動以在虛擬機器的 **Azure Batch** 集區上執行。 當使用 Azure Batch 時，您只可以使用現有的 Azure Batch 集區。
 
 下列逐步解說提供建立自訂 .NET 活動以及在管線中使用自訂活動的逐步指示。 本逐步解說使用 **Azure Batch** 連結服務。 
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/04/2018
 > - 您不能使用自訂活動中的資料管理閘道來存取內部部署資料來源。 目前在 Data Factory 中，[資料管理閘道](data-factory-data-management-gateway.md)只支援複製活動和預存程序活動。   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>逐步解說：建立自訂活動
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * Visual Studio 2012/2013/2015
 * 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 

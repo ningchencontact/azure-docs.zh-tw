@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 若要將應用程式開發的組建和測試階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -36,12 +36,12 @@ ms.lasthandoff: 01/03/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，本教學課程需要您執行 Azure CLI 版本 2.0.22 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.22 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="create-jenkins-instance"></a>建立 Jenkins 執行個體
 在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 本教學課程使用 cloud-init 檔案在 VM 上安裝 Jenkins 和 Docker。 Jenkins 是熱門的開放原始碼 Automation 伺服程式，可順暢地與 Azure 整合，以進行持續整合 (CI) 及持續傳遞 (CD)。 如需如何使用 Jenkins 的更多教學課程，請參閱 [Azure 中樞中的 Jenkins](https://docs.microsoft.com/azure/jenkins/)。
 
-您目前的殼層中建立名為*雲端-init-jenkins.txt*並貼上下列設定。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init-jenkins.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
+在您目前的殼層中，建立名為 *cloud-init-jenkins.txt* 的檔案，並貼上下列設定。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init-jenkins.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
 ```yaml
 #cloud-config
@@ -64,6 +64,7 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
+  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -117,10 +118,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 現在開啟瀏覽器，前往 `http://<publicIps>:8080`。 完成初始 Jenkins 設定，如下所示︰
 
-- 輸入使用者名稱**admin**，然後提供*initialAdminPassword*取自先前步驟中的 VM。
-- 選取**管理 Jenkins**，然後**管理外掛程式**。
-- 選擇**可用**，然後搜尋*GitHub*頂端的文字方塊中。 核取方塊， *GitHub 外掛程式*，然後選取**立即下載並安裝之後重新啟動**。
-- 核取方塊，**重新啟動 Jenkins 時完成安裝並不執行任何工作**，然後等候外掛程式安裝程序完成。
+- 輸入使用者名稱 **admin**，然後提供在上一個步驟中從 VM 取得的 *initialAdminPassword*。
+- 選取 [管理 Jenkins]，然後選取 [管理外掛程式]。
+- 選取 [可用]，然後在頂端的文字方塊中搜尋 *GitHub*。 核取 [GitHub 外掛程式] 的方塊，然後選取 [立即下載並於重新啟動後安裝]。
+- 核取 [在安裝完成且沒有任何作業執行時重新啟動 Jenkins] 的方塊，然後等候外掛程式安裝程序完成。
 
 
 ## <a name="create-github-webhook"></a>建立 GitHub webhook
@@ -146,7 +147,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 在 [一般] 區段中，選取 [GitHub] 專案，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 .git URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
-- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取**執行殼層**，然後輸入`echo "Testing"`命令視窗中。
+- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
 - 選取作業視窗底部的 [儲存]。
 
 
@@ -161,19 +162,19 @@ response.end("Hello World!");
 
 若要認可變更，請選取位於底部的 [認可變更] 按鈕。
 
-在 Jenkins 在作業頁面左下角的 [組建歷程記錄] 區段中會啟動新的組建。 選擇組建編號 連結，並選取**主控台輸出**左側。 在從 GitHub 提取您的程式碼時，您可以檢視 Jenkins 進行的步驟，組建動作會將 `Testing` 訊息輸出到主控台。 每次認可時就在 GitHub 中 webhook 向外連到 Jenkins 和觸發程序以這種方式將新組建。
+在 Jenkins 在作業頁面左下角的 [組建歷程記錄] 區段中會啟動新的組建。 選擇組建編號的連結，然後選取左側的 [主控台輸出]。 在從 GitHub 提取您的程式碼時，您可以檢視 Jenkins 進行的步驟，組建動作會將 `Testing` 訊息輸出到主控台。 每次在 GitHub 中認可，webhook 就會連線到 Jenkins，以這種方式觸發新的組建。
 
 
 ## <a name="define-docker-build-image"></a>定義 Docker 組建映像
 為了查看因應您的 GitHub 認可而執行的 Node.js 應用程式，可以組建一個 Docker 映像來執行應用程式。 映像是從 Dockerfile 建立，此檔案定義如何設定執行應用程式的容器。 
 
-在您的虛擬機器的 SSH 連線中，切換至以上一個步驟建立之作業為名的 Jenkins 工作區目錄。 在此範例中，會命名為*HelloWorld*。
+在您的虛擬機器的 SSH 連線中，切換至以上一個步驟建立之作業為名的 Jenkins 工作區目錄。 在此範例中命名為 *HelloWorld*。
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-此工作區的目錄中建立檔案`sudo sensible-editor Dockerfile`並貼上下列內容。 請確定已正確複製整個 Docker 檔案，特別是第一行：
+使用 `sudo sensible-editor Dockerfile` 在此工作區目錄中建立檔案，並貼上下列內容。 請確定已正確複製整個 Docker 檔案，特別是第一行：
 
 ```yaml
 FROM node:alpine

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>建立第一個 C# Service Fabric 具狀態 Reliable Services 應用程式
 
-了解如何在短短幾分鐘內在 Windows 上部署適用於 .NET 的第一個 Service Fabric 應用程式。 當您完成時，將會有以可靠服務應用程式執行的本機叢集。
+了解如何在短短幾分鐘內在 Windows 上部署適用於 .NET 的第一個 Service Fabric 應用程式。 當您完成時，會有以可靠服務應用程式執行的本機叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您已 [設定開發環境](service-fabric-get-started.md)。 這包括安裝 Service Fabric SDK 及 Visual Studio 2017 或 2015。
 
@@ -82,7 +82,7 @@ Visual Studio 會建立應用程式專案和具狀態服務專案，並在 [方�
    
 ![診斷事件檢視器][5]
 
-我們使用的具狀態服務範本只會顯示在 **MyStatefulService.cs** 的 `RunAsync` 方法中遞增的計數器值。
+所使用的具狀態服務範本會顯示在 **MyStatefulService.cs** 的 `RunAsync` 方法中遞增的計數器值。
 
 展開其中一個事件以查看更多詳細資料，包括程式碼執行所在的節點。 在此情況下是 \_Node\_0，但在您的電腦上可能會是其他節點。
    

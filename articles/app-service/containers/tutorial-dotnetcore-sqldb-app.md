@@ -2,7 +2,7 @@
 title: "在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式 | Microsoft Docs"
 description: "了解如何讓 .NET Core 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 SQL Database。"
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
 editor: 
@@ -10,16 +10,16 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/14/2017
 > * 來自 Azure 的串流診斷記錄
 > * 在 Azure 入口網站中管理應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -166,13 +166,13 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
-若要設定 Azure 應用程式的連接字串，使用[az webapp config appsettings 組](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set)雲端殼層命令。 在下列命令中，將 \<app name> 以及 \<connection_string> 參數取代為您稍早建立的連接字串。
+若要設定 Azure 應用程式的連接字串，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 在下列命令中，將 \<app name> 以及 \<connection_string> 參數取代為您稍早建立的連接字串。
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLLite，針對 Azure 環境使用 SQL Database。
+接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
 
 下列範例會在 Azure Web 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 \<app_name> 預留位置。
 
@@ -192,23 +192,27 @@ services.AddDbContext<MyDatabaseContext>(options =>
 將它取代為下列程式碼，該程式碼使用您先前設定的環境變數。
 
 ```csharp
-// Use SQL Database if in Azure, otherwise, use SQLLite
+// Use SQL Database if in Azure, otherwise, use SQLite
 if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlite("Data Source=MvcMovie.db"));
 
 // Automatically perform database migration
-services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
+services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
 如果此程式碼偵測到正在生產環境 (表示 Azure 環境) 中執行，則它會使用您設定的連接字串，連線到 SQL Database。
 
 `Database.Migrate()` 呼叫可在於 Azure 中執行時協助您，因為它會根據其移轉設定，自動建立您的 .NET Core 應用程式需要的資料庫。 
 
-儲存您的變更。
+儲存變更，然後將變更認可至 Git 存放庫中。 
+
+```bash
+git commit -am "connect to SQLDB in Azure"
+```
 
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 

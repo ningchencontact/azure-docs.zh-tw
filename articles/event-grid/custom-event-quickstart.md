@@ -5,14 +5,14 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: d969b44bdfa610b18f3f934b48d987cb1735155f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 867953c0aef877b1f1c07d910a8e9350ec2f2176
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件格線建立和路由傳送自訂事件
 
@@ -29,7 +29,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.14 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.24 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -60,10 +60,11 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，從 RequestBin 傳遞 URL 作為事件通知的端點。 以您訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<URL_from_RequestBin>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<topic_name>`，使用您稍早建立的值。 
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin> \
+az eventgrid event-subscription create \
   -g gridResourceGroup \
-  --topic-name <topic_name>
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>將事件傳送至主題

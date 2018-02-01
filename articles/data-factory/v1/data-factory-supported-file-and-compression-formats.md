@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>了解 Azure Data Factory 所支援的檔案和壓縮格式
 *此主題適用於下列連接器：[Amazon S3](data-factory-amazon-simple-storage-service-connector.md)、[Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md)、[檔案系統](data-factory-onprem-file-system-connector.md)、[FTP](data-factory-ftp-connector.md)、[HDFS](data-factory-hdfs-connector.md)、[HTTP](data-factory-http-connector.md) 與 [SFTP](data-factory-sftp-connector.md)。*
@@ -46,7 +46,7 @@ Azure Data Factory 支援下列檔案格式類型：
 | nullValue |用來代表 null 值的一個或多個字元。 |一或多個字元。 **預設值**為 **"\N" 和 "NULL"** (讀取時) 及 **"\N"** (寫入時)。 |否 |
 | encodingName |指定編碼名稱。 |有效的編碼名稱。 請參閱 [Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。 例如：windows-1250 或 shift_jis。 **預設值**為 **UTF-8**。 |否 |
 | firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |True<br/><b>False (預設值)</b> |否 |
-| skipLineCount |表示從輸入檔讀取資料時要略過的資料列數目。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |Integer |否 |
+| skipLineCount |表示從輸入檔讀取資料時要略過的資料列數目。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |整數  |否 |
 | treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>False |否 |
 
 ### <a name="textformat-example"></a>TextFormat 範例
@@ -228,7 +228,7 @@ Azure Data Factory 支援下列檔案格式類型：
 **JsonFormat** 類型的輸入資料集定義如下：(僅含相關元素的局部定義)。 具體而言：
 
 - `structure` 區段定義自訂資料行名稱，以及轉換成表格式資料時對應的資料類型。 除非您需要對應資料行，否則這個區段是**選擇性**。 如需詳細資訊，請參閱[將來源資料集資料行對應至目的地資料集資料行](data-factory-map-columns.md)。
-- `jsonPathDefinition` 指定每個資料行的 JSON 路徑，以指出從哪裡擷取資料。 若要從陣列複製資料，您可以使用 **array[x].property** 從第 x 個物件擷取指定屬性的值，也可以使用 **array[*].property** 從包含這類屬性的物件中尋找此值。
+- `jsonPathDefinition` 指定每個資料行的 JSON 路徑，以指出從哪裡擷取資料。 若要從陣列複製資料，您可以使用 **array[x].property** 從第 x 個物件擷取指定屬性的值，也可以使用 **array[*].property** 從任何包含這類屬性的物件中尋找此值。
 
 ```json
 "properties": {

@@ -1,6 +1,6 @@
 ---
-title: "建立 Azure 網際網路對向負載平衡器 - PowerShell | Microsoft Docs"
-description: "了解如何使用 PowerShell 在 Resource Manager 中建立網際網路面向的負載平衡器"
+title: "建立公用負載平衡器 - PowerShell | Microsoft Docs"
+description: "了解如何使用 PowerShell 在資源管理員中建立公用負載平衡器"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>使用 PowerShell 在 Resource Manager 中建立網際網路面向的負載平衡器
+# <a name="get-started"></a>使用 PowerShell 在資源管理員中建立公用負載平衡器
 
 > [!div class="op_single_selector"]
 > * [入口網站](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>使用 Azure PowerShell 部署方案
 
-下列程序說明如何搭配 PowerShell 使用 Azure Resource Manager，建立網際網路面向的負載平衡器。 使用 Azure Resource Manager 時，會個別建立並設定每項資源，然後放在一起來建立負載平衡器。
+下列程序說明如何搭配使用 Azure Resource Manager 與 PowerShell 建立公用負載平衡器。 使用 Azure Resource Manager 時，會個別建立並設定每項資源，然後放在一起來建立負載平衡器。
 
 您必須建立並設定下列物件，才能部署負載平衡器：
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/18/2017
     Get-AzureRmSubscription
     ```
 
-3. 選擇要使用哪一個 Azure 訂用帳戶。
+3. 選擇其中一個要使用的 Azure 訂用帳戶。
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'

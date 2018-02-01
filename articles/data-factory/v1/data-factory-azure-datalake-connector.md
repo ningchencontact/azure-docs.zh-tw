@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: f4ba8288c1efd443310b4efc305c6f397c8163a0
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>了解如何使用 Data Factory 從 Data Lake Store 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,8 +73,8 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **type** | 類型屬性必須設定為 **AzureDataLakeStore**。 | 是 |
-| **dataLakeStoreUri** | Azure Data Lake Store 帳戶相關資訊。 此資訊會採用下列其中一種格式：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | 是 |
+| **type** | 類型屬性必須設定為 **AzureDataLakeStore**。 | yes |
+| **dataLakeStoreUri** | Azure Data Lake Store 帳戶相關資訊。 此資訊會採用下列其中一種格式：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | yes |
 | **subscriptionId** | Data Lake Store 帳戶所屬的 Azure 訂用帳戶識別碼。 | 接收 (Sink) 的必要項目 |
 | **resourceGroupName** | Data Lake Store 帳戶所屬的 Azure 資源群組名稱。 | 接收 (Sink) 的必要項目 |
 
@@ -86,17 +86,17 @@ Data Lake Store 連接器支援這些驗證類型：
 
 > [!IMPORTANT]
 > 請確定您將 Azure Data Lake Store 中適當的權限授與服務主體：
->- **要當做來源使用 Data Lake Store**，至少授與**讀取 + Execute**資料存取權限清單，然後複製內容的資料夾，或**讀取**複製單一檔案的權限。 在帳戶層級存取控制上沒有任何要求。
->- **資料湖存放區作為接收**，至少授與**寫入 + 執行**資料存取權限以建立子資料夾中的項目。 如果您使用 Azure IR 來授權複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您想要避免使用此 IAM 角色，請在複製活動中以您的 Data Lake Store 位置[指定 executionLocation](data-factory-data-movement-activities.md#global)。
->- 如果您**使用複製精靈 來撰寫管線**，至少授與**讀取器**帳戶的存取控制 (IAM) 中的角色。 此外，請至少授與您 Data Lake Store 根目錄 ("/") 及其子系的**讀取 + 執行**權限。 否則，您可能會看到「提供的認證無效」訊息。
+>- **若要使用 Data Lake Store 作為來源**，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制上沒有任何要求。
+>- **若要使用 Data Lake Store 作為接收器**，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來授權複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您想要避免使用此 IAM 角色，請在複製活動中以您的 Data Lake Store 位置[指定 executionLocation](data-factory-data-movement-activities.md#global)。
+>- 如果您**使用「複製精靈」來撰寫管線**，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 此外，請至少授與您 Data Lake Store 根目錄 ("/") 及其子系的**讀取 + 執行**權限。 否則，您可能會看到「提供的認證無效」訊息。
 
 指定下列屬性以使用服務主體驗證：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | 是 |
-| **servicePrincipalKey** | 指定應用程式的金鑰。 | 是 |
-| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | yes |
+| **servicePrincipalKey** | 指定應用程式的金鑰。 | yes |
+| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | yes |
 
 **範例：服務主體驗證**
 ```json
@@ -121,14 +121,14 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
-| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | yes |
+| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | yes |
 
 > [!IMPORTANT]
-> 請確定您授與 Azure 資料湖存放區中的使用者適當權限：
->- **要當做來源使用 Data Lake Store**，至少授與**讀取 + Execute**資料存取權限清單，然後複製內容的資料夾，或**讀取**複製單一檔案的權限。 在帳戶層級存取控制上沒有任何要求。
->- **資料湖存放區作為接收**，至少授與**寫入 + 執行**資料存取權限以建立子資料夾中的項目。 如果您使用 Azure IR 來授權複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您想要避免使用此 IAM 角色，請在複製活動中以您的 Data Lake Store 位置[指定 executionLocation](data-factory-data-movement-activities.md#global)。
->- 如果您**使用複製精靈 來撰寫管線**，至少授與**讀取器**帳戶的存取控制 (IAM) 中的角色。 此外，請至少授與您 Data Lake Store 根目錄 ("/") 及其子系的**讀取 + 執行**權限。 否則，您可能會看到「提供的認證無效」訊息。
+> 請確定您將 Azure Data Lake Store 中適當的權限授與使用者：
+>- **若要使用 Data Lake Store 作為來源**，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制上沒有任何要求。
+>- **若要使用 Data Lake Store 作為接收器**，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來授權複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您想要避免使用此 IAM 角色，請在複製活動中以您的 Data Lake Store 位置[指定 executionLocation](data-factory-data-movement-activities.md#global)。
+>- 如果您**使用「複製精靈」來撰寫管線**，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 此外，請至少授與您 Data Lake Store 根目錄 ("/") 及其子系的**讀取 + 執行**權限。 否則，您可能會看到「提供的認證無效」訊息。
 
 **範例：使用者認證授權**
 ```json
@@ -192,29 +192,29 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣
 
-**徵兆：**複製資料時**到**Azure 資料湖存放區，如果您複製活動失敗，發生下列錯誤：
+**徵兆：**將資料複製**到** Azure Data Lake Store 時，如果複製活動因以下錯誤而發生失敗：
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**根本原因：** 2 的可能原因有：
+**根本原因：**有 2 個可能的原因：
 
-1. `resourceGroupName`及/或`subscriptionId`Azure Data Lake Store 連結中指定服務是不正確;
+1. Azure Data Lake Store 已連結服務中指定的 `resourceGroupName` 和/或 `subscriptionId` 不正確；
 2. 使用者或服務主體沒有所需的權限。
 
 **解決方案：**
 
-1. 請確定`subscriptionId`和`resourceGroupName`您指定連結服務中`typeProperties`確實是您的資料湖帳戶所屬的項目。
+1. 確定您在已連結的服務 `typeProperties` 中指定的 `subscriptionId` 和 `resourceGroupName` 確實是您 Data Lake 帳戶所屬的項目。
 
-2. 請確定您至少授與 「**讀取器**」 角色給使用者或服務主體上的資料湖帳戶。 以下是如何讓它：
+2. 確定您至少將 Data Lake 帳戶上的 [讀取者] 角色授與使用者或服務主體。 以下是做法：
 
-    1. 請移至 Azure 入口網站]-> [Data Lake Store 帳戶
-    2. 按一下 「 存取控制 (IAM) 」 的資料湖存放區 刀鋒視窗
-    3. 按一下 [新增]，在刀鋒視窗中的 「 存取控制 (IAM) 」
-    4. 設定 「 角色 」 為 「 讀取器 」，然後選取使用者或您使用複製來授與存取權的服務主體
+    1. 移至 Azure 入口網站 -> 您的 Data Lake Store 帳戶
+    2. 按一下 Data Lake Store 刀鋒視窗上的 [存取控制 (IAM)]
+    3. 按一下 [存取控制 (IAM)] 刀鋒視窗上的 [新增]
+    4. 將 [角色] 設定為 [讀取者]，然後選取您用來執行複製的使用者或服務主體來授與存取權
 
-3. 如果您不想授與使用者或服務主體 」 讀取器 」 角色，替代是[明確指定的執行位置](data-factory-data-movement-activities.md#global)在複製 activitywith 資料湖存放區的位置。 範例：
+3. 如果您不想將 [讀取者] 角色授與使用者或服務主體，替代方案是在複製活動中使用您 Data Lake Store 的位置來[明確指定執行位置](data-factory-data-movement-activities.md#global)。 範例：
 
     ```json
     {
@@ -240,7 +240,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **folderPath** |Data Lake Store 中容器與資料夾的路徑。 |是 |
+| **folderPath** |Data Lake Store 中容器與資料夾的路徑。 |yes |
 | **fileName** |Azure Data Lake Store 中的檔案名稱。 fileName 屬性是選擇性的，而且區分大小寫。 <br/><br/>如果您指定 fileName，活動 (包括複製) 適用於特定的檔案。<br/><br/>如果您未指定 fileName，複製會在輸入資料集中包含 folderPath 中的所有檔案。<br/><br/>當未指定輸出資料集的 fileName，且在活動接收中未指定 preserveHierarchy 時，所產生檔案的名稱格式為 Data._Guid_.txt`。 例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。 |否 |
 | **partitionedBy** |partitionedBy 屬性為選擇性。 您可以用來指定時間序列資料的動態路徑與檔案名稱。 例如，folderPath 可針對每小時的資料進行參數化。 如需詳細資料和範例，請參閱 [partitionedBy 屬性](#using-partitionedby-property)一節。 |否 |
 | **format** | 支援下列格式類型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat。 將 [format] 下的 [type] 屬性設定為下列其中一個值。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md)一文中[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[JSON 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[ORC 格式](data-factory-supported-file-and-compression-formats.md#orc-format)及 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)各節。 <br><br> 如果您想要在以檔案為基礎的存放區之間「依原樣」複製檔案 (二進位複本)，請略過輸入和輸出資料集定義中的 `format` 區段。 |否 |

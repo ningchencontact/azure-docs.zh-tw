@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -63,6 +63,8 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 視您已安裝的 Docker 版本而定，您可能會看到安全性警告，其中會建議您使用 `--password-stdin` 參數。 其使用超出本文的範圍時，建議您遵循此最佳做法。 如需詳細資訊，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令參考。
 
+如需使用服務主體對 ACR 進行無周邊驗證的詳細資訊，請參閱[使用服務主體進行 Azure Container Registry 驗證](container-registry-auth-service-principal.md)。
+
 ## <a name="admin-account"></a>管理帳戶
 
 每個容器登錄都包含一個管理使用者帳戶，且預設為停用。 您可以在 [Azure 入口網站](container-registry-get-started-portal.md#create-a-container-registry)中或藉由使用 Azure CLI，啟用此管理使用者並管理其認證。
@@ -71,7 +73,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 > 管理帳戶是專為讓單一使用者存取登錄而設計，主要用於測試。 不建議將管理帳戶認證與其他使用者共用。 所有使用管理帳戶進行驗證的使用者會顯示為單一使用者，此使用者具備登錄的推送和提取存取權。 變更或停用此帳戶時，會將所有使用其認證之使用者的登錄存取權都停用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。
 >
 
-管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，您便可以將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，來向登錄進行基本驗證。 例如：
+管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，您便可以將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，來向登錄進行基本驗證。 例如︰
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1

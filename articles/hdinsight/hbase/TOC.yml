@@ -72,6 +72,21 @@
             - name: 將 HDInsight 應用程式發佈到 Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: 安裝已發行的應用程式 - Cask 資料應用程式平台 (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 安裝已發行的應用程式 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 安裝已發行的應用程式 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 安裝已發行的應用程式 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 安裝已發行的應用程式 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 安全
       items:
         - name: 搭配使用 SSH 與 HDInsight
@@ -165,6 +180,8 @@
         - name: 將 HDInsight 叢集升級為更新的版本
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: 將 HBase 叢集移轉到較新版本
+          href: apache-hbase-migrate-new-version.md
         - name: HDInsight 叢集的作業系統修補
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Azure VNet 中 HBase 叢集複寫
           href: apache-hbase-replication.md
+        - name: 設定 HBase 和 Phoenix 的備份和複寫
+          href: apache-hbase-backup-replication.md
     - name: 使用 OMS 監控
       items:
         - name: 使用 Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: 使用 OMS 監視 HBase
+          href: apache-hbase-monitor-with-oms.md
         - name: 叢集特定儀表板
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: 監視叢集效能
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Phoenix 效能最佳做法
+          href: apache-hbase-phoenix-performance.md
 - name: 參考
   items:
     - name: 程式碼範例

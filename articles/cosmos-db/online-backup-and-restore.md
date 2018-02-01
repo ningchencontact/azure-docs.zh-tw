@@ -4,7 +4,7 @@ description: "了解如何在 Azure Cosmos DB 資料庫上執行自動備份與�
 keywords: "備份與還原, 線上備份"
 services: cosmos-db
 documentationcenter: 
-author: RahulPrasad16
+author: mimig1
 manager: jhubbard
 editor: monicar
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: raprasa
-ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mimig
+ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 進行自動線上備份及還原
 Azure Cosmos DB 可以定期自動備份您的所有資料。 自動備份的進行不會影響資料庫作業的效能或可用性。 所有備份會儲存在另一個儲存體服務中，而且這些備份會全域複寫用於為區域性災害提供復原功能。 假設您不小心刪除 Cosmos DB 容器，需要資料復原或災害復原解決方案，這正是自動備份適用的案例。  

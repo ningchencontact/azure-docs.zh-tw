@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: debfa7b584e4172821801197be94e597066cdb8d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 FTP 伺服器複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,14 +48,14 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 FTP 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**FtpServer** | 是 |
-| host | 指定 FTP 伺服器的名稱或 IP 位址。 | 是 |
+| type | 類型屬性必須設定為：**FtpServer** | yes |
+| host | 指定 FTP 伺服器的名稱或 IP 位址。 | yes |
 | 連接埠 | 指定 FTP 伺服器所接聽的連接埠<br/>允許的值為：整數，預設值為 **21**。 | 否 |
 | enableSsl | 指定是否使用透過 SSL/TLS 的 FTP 通道。<br/>允許的值為：**true** (預設值)、**false**。 | 否 |
 | enableServerCertificateValidation | 指定是否在使用透過 SSL/TLS 的 FTP 通道時啟用伺服器 SSL 憑證驗證。<br/>允許的值為：**true** (預設值)、**false**。 | 否 |
-| authenticationType | 指定驗證類型。<br/>允許的值為：**基本**、**匿名** | 是 |
+| authenticationType | 指定驗證類型。<br/>允許的值為：**基本**、**匿名** | yes |
 | userName | 指定擁有 FTP 伺服器存取權限的使用者。 | 否 |
 | password | 指定使用者 (使用者名稱) 的密碼。 請將此欄位標示為 SecureString。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -115,10 +115,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 FTP 複製資料，請將資料集的類型屬性設定為 **FileShare**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**FileShare** |是 |
-| folderPath | 資料夾的路徑。 例如：資料夾/子資料夾/ |是 |
+| type | 資料集的類型屬性必須設定為：**FileShare** |yes |
+| folderPath | 資料夾的路徑。 例如：資料夾/子資料夾/ |yes |
 | fileName | 如果您想要從特定的檔案複製，請在 **folderPath** 中指定該檔案的名稱。 如果沒有為此屬性指定任何值，資料集就會指向資料夾中的所有檔案作為來源。 |否 |
 | fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。 只有在未指定檔案名稱時才適用。 <br/><br/>允許的萬用字元為︰`*` (多個字元) 和 `?` (單一字元)。<br/>- 範例 1：`"fileFilter": "*.log"`<br/>- 範例 2：`"fileFilter": 2017-09-??.txt"` |否 |
 | format | 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 (僅適用於二進位複製案例) |
@@ -161,10 +161,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 FTP 複製資料，請將複製活動中的來源類型設定為 **FileSystemSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |yes |
+| recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true 時，接收器會是檔案型存放區，系統將不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**
 

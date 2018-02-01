@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.date: 01/24/2018
+ms.openlocfilehash: 06d7023f225698400509449e59bdcb827becc644
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>將 SQL Server 移轉到 Azure SQL Database
 您可以使用 Azure 資料庫移轉服務，將內部部署 SQL Server 執行個體的資料庫移轉到 Azure SQL Database。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉到 Azure SQL Database。
@@ -29,18 +29,20 @@ ms.lasthandoff: 12/09/2017
 > * 執行移轉。
 > * 監視移轉。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您需要：
 
-- 下載並安裝[SQL Server 2016 或更新版本](https://www.microsoft.com/sql-server/sql-server-downloads)（任何版本）。
+- 下載及安裝 [SQL Server 2016 或更新版本](https://www.microsoft.com/sql-server/sql-server-downloads) (任何版本)。
 - 啟用 TCP/IP 通訊協定，在 SQL Server Express 安裝期間預設會停用，方法是遵循[啟用或停用伺服器網路通訊協定](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)一文中的指示。
-- 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 - 您可以依照[在 Azure 入口網站中建立 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 一文中的詳細資料來建立 Azure SQL Database 執行個體。
 - 下載及安裝[資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 或更新版本。
 - 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
+- 確定您的 Azure 虛擬網路 (VNET) 網路安全性群組規則不會封鎖下列通訊埠 443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg)。
+- 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
+- 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server。
+- 針對 Azure SQL Database 伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNET 的子網路範圍。
 - 確定用來連線至來源 SQL Server 執行個體的認證具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 權限。
 - 確定用來連線至目標 Azure SQL DB 執行個體的認證，在目標 Azure SQL 資料庫上具有 CONTROL DATABASE 權限。
-- 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server。
 
 ## <a name="assess-your-on-premises-database"></a>評估您的內部部署資料庫
 將資料從內部部署 SQL Server 執行個體移轉到 Azure SQL Database 之前，您必須評估 SQL Server 資料庫是否有任何可能會阻礙移轉的問題。 在資料移轉小幫手 v3.3 或更新版本中，遵循[執行 SQL Server 移轉評估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)一文中所描述的步驟，完成內部部署資料庫評估。 所需的步驟摘要如下：

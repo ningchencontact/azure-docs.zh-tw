@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>部署和使用 Azure Container Registry
 
@@ -28,7 +28,7 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 
 ## <a name="before-you-begin"></a>開始之前
 
-在[上一個教學課程][aks-tutorial-prepare-app]，容器映像建立簡單的投票 Azure 應用程式。 如果您尚未建立 Azure 投票應用程式映像，返回[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。
+在[上一個教學課程][aks-tutorial-prepare-app]中，我們已針對簡單的 Azure Voting 應用程式建立容器映像。 如果您尚未建立 Azure Voting 應用程式映像，請回到[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。
 
 本教學課程需要您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
@@ -42,7 +42,7 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 az group create --name myResourceGroup --location eastus
 ```
 
-建立 Azure 容器登錄中的以[az acr 建立][ az-acr-create]命令。 Container Registry 的名稱**必須是唯一的**。
+使用 [az acr create][az-acr-create] 命令建立 Azure Container Registry。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="container-registry-login"></a>Container Registry 登入
 
-使用[az acr 登入][ az-acr-login]命令，以登入 ACR 執行個體。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
+使用 [az acr login][az-acr-login] 命令登入 ACR 執行個體。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ az acr login --name <acrName>
 
 ## <a name="tag-container-images"></a>標記容器映像
 
-若要查看目前的映像清單，請使用[docker 映像][ docker-images]命令。
+若要查看目前的映像清單，請使用 [docker images][docker-images] 命令。
 
 ```console
 docker images
@@ -91,7 +91,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-加上標記，一旦執行[docker 映像][ docker-images]驗證作業。
+標記之後，請執行 [docker images][docker-images] 以驗證作業。
 
 ```console
 docker images
@@ -121,7 +121,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 ## <a name="list-images-in-registry"></a>列出登錄中的映像
 
-若要傳回一份映像已推入至 Azure 容器登錄中，使用者[az acr 儲存機制清單][ az-acr-repository-list]命令。 以 ACR 執行個體名稱更新命令。
+若要傳回已推送至 Azure Container Registry 的映像清單，請使用 [az acr repository list][az-acr-repository-list] 命令。 以 ACR 執行個體名稱更新命令。
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-然後以查看特定的映像的標記，使用[az acr 儲存機制顯示標籤][ az-acr-repository-show-tags]命令。
+而後若要查看特定映像的標籤，請使用 [az acr repository show-tags][az-acr-repository-show-tags] 命令。
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

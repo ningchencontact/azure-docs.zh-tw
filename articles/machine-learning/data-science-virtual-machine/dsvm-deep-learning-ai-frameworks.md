@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | Keras 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
 | 範例的連結      | https://github.com/fchollet/keras/tree/master/examples      |
-| DSVM 上的相關工具      | Microsoft 辨識工具組、TensorLlow、Theano      |
+| DSVM 上的相關工具      | Microsoft 辨識工具組、TensorFlow、Theano      |
 | 如何使用/執行它？    | 從 Github 位置下載範例，將範例複製到 ~/notebooks 底下的目錄，然後在 Jupyter 中開啟它   |
 
 
@@ -117,7 +117,7 @@ jupyter notebook
 | 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | Deep Water 是安裝在 `/dsvm/tools/deep_water` 中。   |
 | 範例的連結      | 範例可透過 Deep Water 伺服器取得。      |
-| DSVM 上的相關工具      | H2o、Sparkling Water      |
+| DSVM 上的相關工具      | H2O、Sparkling Water      |
 
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？  
 

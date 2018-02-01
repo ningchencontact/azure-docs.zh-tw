@@ -1,134 +1,70 @@
 ---
-title: " 在 Azure Site Recovery 中管理組態伺服器 | Microsoft Doc"
-description: "本文說明如何設定和管理組態伺服器。"
+title: " 使用 Azure Site Recovery 管理 VMware 災害復原的設定伺服器 | Microsoft Docs"
+description: "本文說明如何使用 Azure Site Recovery 服務管理將 VMware 災害復原到 Azure 的現有設定伺服器。"
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
-manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 01/15/2017
 ms.author: anoopkv
-ms.openlocfilehash: 4f23750ff1ba261ea3cf782f7c85858e46632cfa
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="manage-a-configuration-server"></a>管理組態伺服器
+# <a name="manage-the-configuration-server"></a>管理設定伺服器
 
-組態伺服器做為 Site Recovery 服務和您的內部部署基礎結構之間的協調者。 本文說明如何安裝、設定及管理組態伺服器。
+當您使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 VMware VM 和實體伺服器災害復原到 Azure 時，便會設定內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊，以及管理資料複寫。 本文摘要說明部署設定伺服器之後，管理設定伺服器的一般工作。
 
-> [!NOTE]
-> [容量規劃](site-recovery-capacity-planner.md)是確保以符合負載需求的設定來部署組態伺服器的重要步驟。 深入了解[組態伺服器的大小需求](#sizing-requirements-for-a-configuration-server)。
+## <a name="modify-vmware-settings"></a>修改 VMware 設定
 
+修改設定伺服器所連線 VMware 伺服器的設定。
 
-## <a name="prerequisites"></a>必要條件
-下列為安裝組態伺服器所需的最基本硬體、軟體及網路設定。
-> [!IMPORTANT]
-> 部署用於保護 VMWare 虛擬機器的組態伺服器時，我們建議您將其部署為**高可用 (HA)** 虛擬機器。
+1. 登入執行設定伺服器的電腦。
+2. 從桌面捷徑啟動 [Azure Site Recovery 設定管理員]。 或者，開啟 **https://configuration-server-name/IP:44315**。
+3. 按一下 [管理 vCenter Server/vSPhere ESXi 伺服器]：
+    - 若要為不同的 VMware 伺服器與設定伺服器建立關聯，請按一下 [新增 vCenter Server/vSPhere ESXi 伺服器]，並指定伺服器詳細資料。
+    - 若要更新用於連線到 VMware 伺服器的認證，以進行 VMware VM 自動探索，請按一下 [編輯]。 指定新的認證，然後按一下 [確定] 。
 
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+        ![修改 VMware](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-vmware-server.png)
 
-## <a name="downloading-the-configuration-server-software"></a>下載組態伺服器軟體
+## <a name="modify-credentials-for-mobility-service-installation"></a>修改行動服務安裝的認證
 
-1. 登入 Azure 入口網站並瀏覽至您的復原服務保存庫。
-2. 瀏覽至 [Site Recovery 基礎結構] > [組態伺服器] \(位於 [適用於 VMware 和實體機器] 底下)。
+針對您啟用複寫的 VMware VM，修改在其上自動安裝行動服務所用的認證。
 
-  ![新增伺服器頁面](./media/site-recovery-vmware-to-azure-manage-configuration-server/AddServers.png)
-3. 按一下 [+伺服器] 按鈕。
-4. 在 [新增伺服器] 頁面上，按一下 [下載] 按鈕，下載註冊金鑰。 在組態伺服器安裝期間，您需要使用此金鑰向 Azure Site Recovery 服務註冊它。
-5. 按一下 [下載 Microsoft Azure Site Recovery 整合安裝] 連結，以下載最新版本的組態伺服器。
+1. 登入執行設定伺服器的電腦。
+2. 從桌面捷徑啟動 [Azure Site Recovery 設定管理員]。 或者，開啟 **https://configuration-server-name/IP:44315**。
+3. 按一下 [管理虛擬機器認證]，並指定新的認證。 然後按一下 [確定] 以更新設定。
 
-  ![下載頁面](./media/site-recovery-vmware-to-azure-manage-configuration-server/downloadcs.png)
+    ![修改行動服務認證](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-mobility-credentials.png)
 
-  > [!TIP]
-  您可以直接從 [Microsoft 下載中心下載頁面](http://aka.ms/unifiedsetup)，下載最新版本的組態伺服器
+## <a name="modify-proxy-settings"></a>修改 Proxy 設定
 
-## <a name="installing-and-registering-a-configuration-server-from-gui"></a>從 GUI 安裝和註冊組態伺服器
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
+修改設定伺服器電腦用來透過網際網路存取 Azure 的 Proxy 設定。 如果您除了在設定伺服器電腦上執行的預設處理伺服器之外，還有其他處理伺服器電腦，則請修改兩部電腦上的設定。
 
-## <a name="installing-and-registering-a-configuration-server-using-command-line"></a>使用命令列安裝和註冊組態伺服器
+1. 登入執行設定伺服器的電腦。
+2. 從桌面捷徑啟動 [Azure Site Recovery 設定管理員]。 或者，開啟 **https://configuration-server-name/IP:44315**。
+3. 按一下 [管理連線]，並更新 Proxy 值。 然後按一下 [儲存] 以更新設定。
 
-  ```
-  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
-  ```
+## <a name="add-a-network-adapter"></a>新增網路介面卡
 
-### <a name="sample-usage"></a>範例用法
-  ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
-  cd C:\Temp\Extracted
-  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
-  ```
+OVF 範本會部署包含單一網路介面卡的設定伺服器 VM。 您可以[將其他介面卡新增到 VM](how-to-deploy-configuration-server.md#add-an-additional-adapter)，但是必須在保存庫中註冊設定伺服器之前新增。
+
+如果需要在保存庫中註冊設定伺服器之後新增介面卡，則必須在 VM 屬性中新增介面卡，然後在保存庫中註冊伺服器。
 
 
-### <a name="configuration-server-installer-command-line-arguments"></a>組態伺服器安裝程式命令列引數。
-[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
+## <a name="reregister-a-configuration-server-in-the-same-vault"></a>在同一個保存庫中註冊設定伺服器
 
+如果需要，您可以在同一個保存庫中註冊設定伺服器。 如果您除了在設定伺服器電腦上執行的預設處理伺服器之外，還有其他處理伺服器電腦，則請註冊這兩部電腦。
 
-### <a name="create-a-mysql-credentials-file"></a>建立 MySql 認證檔案
-MySQLCredsFilePath 參數使用檔案做為輸入。 使用下列格式建立檔案，並將它以輸入 MySQLCredsFilePath 參數傳遞。
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password>"
-MySQLUserPassword = "Password"
-```
-### <a name="create-a-proxy-settings-configuration-file"></a>建立 Proxy 設定組態檔案
-ProxySettingsFilePath 參數使用檔案做為輸入。 使用下列格式建立檔案，並將它以輸入 ProxySettingsFilePath 參數傳遞。
-
-```
-[ProxySettings]
-ProxyAuthentication = "Yes/No"
-Proxy IP = "IP Address"
-ProxyPort = "Port"
-ProxyUserName="UserName"
-ProxyPassword="Password"
-```
-## <a name="modifying-proxy-settings-for-configuration-server"></a>修改組態伺服器的 Proxy 設定
-1. 登入您的組態伺服器。
-2. 使用捷徑啟動 cspsconfigtool.exe。
-3. 按一下 [保存庫註冊] 索引標籤。
-4. 從入口網站下載新的保存庫註冊檔案，並當做輸入提供給工具。
-
-  ![註冊組態伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
-5. 提供新的 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。
-6. 開啟系統管理 PowerShell 命令視窗。
-7. 執行下列命令
-  ```
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
-
-  >[!WARNING]
-  如果您有連結至此組態伺服器的相應放大處理序伺服器，您需要在部署中[修正所有相應放大處理序伺服器上的 Proxy 設定](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server)。
-
-## <a name="modify-user-accounts-and-passwords"></a>修改使用者帳戶和密碼
-
-CSPSConfigTool.exe 是用於管理用來**自動探索 VMware 虛擬機器**的使用者帳戶，以及用來執行**受保護機器上之行動服務的推送安裝。 
-
-1. 登入您的設定伺服器。
-2. 按一下桌面上的捷徑來啟動 CSPSConfigtool.exe。
-3. 按一下 [管理帳戶] 索引標籤。
-4. 選取要修改密碼的帳戶，然後按一下 [編輯] 按鈕。
-5. 輸入新的密碼，然後按一下 [確定]
-
-
-## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>向相同的復原服務保存庫註冊組態伺服器
-  1. 登入您的組態伺服器。
-  2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
-  3. 按一下 [保存庫註冊] 索引標籤。
-  4. 從入口網站下載新的註冊檔案，並當做輸入提供給工具。
-        ![註冊組態伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
-  5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
-  6. 開啟系統管理 PowerShell 命令視窗。
-  7. 執行下列命令
+  1. 在保存庫中，開啟 [管理] > [Site Recovery 基礎結構] > [設定伺服器]。
+  2. 在 [伺服器] 中，按一下 [下載註冊金鑰]。 這會下載保存庫認證檔案。
+  3. 登入設定伺服器電腦。
+  4. 在 **%ProgramData%\ASR\home\svagent\bin** 中，開啟 [cspsconfigtool.exe]****。
+  5. 在 [保存庫註冊] 索引標籤上，按一下 [瀏覽] 並找出您下載的保存庫認證檔。
+  6. 如果需要，請提供 Proxy 伺服器詳細資料。 然後按一下 [註冊]。
+  7. 開啟系統管理 PowerShell 命令視窗並執行下列命令：
 
       ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -137,157 +73,65 @@ CSPSConfigTool.exe 是用於管理用來**自動探索 VMware 虛擬機器**的�
       net start obengine
       ```
 
-  >[!WARNING]
-  如果您有連結至此組態伺服器的相應放大處理序伺服器，您需要在部署中[重新註冊所有相應放大處理序伺服器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server)。
+## <a name="delete-or-unregister-a-configuration-server"></a>將設定伺服器刪除或取消註冊
 
-## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>向不同的復原服務保存庫註冊組態伺服器。
+1. 停用此設定伺服器下所有 VM 的[停用保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)。
+2. 將設定伺服器的所有複寫原則[解除關聯](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy)並[刪除](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)。
+3. [刪除](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery)與設定伺服器關聯的所有 VCenter 伺服器/vSphere 主機。
+4. 在保存庫中，開啟 [Site Recovery 基礎結構] > [設定伺服器]
+5. 按一下您想要移除的設定伺服器。 然後在 [詳細資料] 頁面上按一下 [刪除] 按鈕。
 
-> [!WARNING]
-> 下列步驟會解除設定伺服器和目前保存庫之間的關聯，且設定伺服器底下所有受保護虛擬機器的複寫都會遭到停止。
+    ![刪除設定伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.png)
+   
 
-1. 登入您的組態伺服器。
-2. 從系統管理命令提示字元中，執行命令
+### <a name="delete-with-powershell"></a>以 PowerShell 刪除
 
-    ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-    net stop dra
-    ```
-3. 使用捷徑啟動 cspsconfigtool.exe。
-4. 按一下 [保存庫註冊] 索引標籤。
-5. 從入口網站下載新的註冊檔案，並當做輸入提供給工具。
-
-    ![註冊組態伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
-6. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
-7. 開啟系統管理 PowerShell 命令視窗。
-8. 執行下列命令
-    ```
-    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-    net stop obengine
-    net start obengine
-    ```
-
-## <a name="upgrading-a-configuration-server"></a>升級組態伺服器
-
-> [!WARNING]
-> 更新只支援到 N 系列第 4 代的版本。 例如，若市面上的最新版本是 9.11，則您可從 9.10、9.9、9.8 或 9.7 版更新到 9.11 版。 但若您使用的是任何小於或等於 9.6 的版本，則您必須先至少更新到 9.7 版，才能將最新的更新套用到組態伺服器。 您可以在 [Azure Site Recovery 服務更新](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) \(英文\) 底下找到舊版本的下載連結
-
-1. 將更新安裝程式下載到組態伺服器上。
-2. 按兩下安裝程式將其啟動。
-3. 安裝程式會偵測機器上的 Site Recovery 元件版本，並提示您進行確認。 
-4. 按一下 [確定] 按鈕加以確認，並繼續進行升級。
-
-
-## <a name="delete-or-unregister-a-configuration-server"></a>將組態伺服器刪除或取消註冊
-
-> [!WARNING]
-> 在開始解除委任組態伺服器之前，請確認下列事項。
-> 1. [停用保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)此組態伺服器下的所有虛擬機器。
-> 2. 將組態伺服器的所有複寫原則[解除關聯](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy)並[刪除](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)。
-> 3. [刪除](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery)與組態伺服器相關聯的所有 VCenters 伺服器/vSphere 主機。
-
-
-### <a name="delete-the-configuration-server-from-azure-portal"></a>從 Azure 入口網站刪除組態伺服器
-1. 在 Azure 入口網站中，從 [保存庫] 功能表瀏覽至 [Site Recovery 基礎結構] > [組態伺服器]。
-2. 按一下您想要解除委任的組態伺服器。
-3. 在組態伺服器的詳細資料頁面上，按一下 [刪除] 按鈕。
-
-  ![刪除組態伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
-4. 按一下 [是] 以確認刪除伺服器。
-
-### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>解除安裝組態伺服器軟體和其相依性
-  > [!TIP]
-  如果您打算再次搭配 Azure Site Recovery 來重複使用組態伺服器，您可以直接跳至步驟 4
-
-1. 以系統管理員身分登入組態伺服器。
-2. 開啟 [控制台] > [程式集] > [解除安裝程式]
-3. 依下列順序將程式解除安裝：
-  * Microsoft Azure 復原服務代理程式
-  * Microsoft Azure Site Recovery Mobility Service/主要目標伺服器
-  * Microsoft Azure Site Recovery Provider
-  * Microsoft Azure Site Recovery 組態伺服器/處理序伺服器
-  * Microsoft Azure Site Recovery 組態伺服器相依性
-  * MySQL Server 5.5
-4. 從系統管理命令提示字元中，執行下列命令。
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
-
-## <a name="delete-or-unregister-a-configuration-server-powershell"></a>將組態伺服器刪除或取消註冊 (PowerShell)
+您可以選擇使用 PowerShell 來刪除設定伺服器：
 
 1. [安裝](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組
-2. 使用命令登入您的 Azure 帳戶
+2. 使用命令登入您的 Azure 帳戶：
     
     `Login-AzureRmAccount`
-3. 選取保存庫所在的訂用帳戶
+3. 選取保存庫訂用帳戶
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  現在設定保存庫內容
+3.  設定保存庫內容：
     
     ```
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```
-4. 選取組態伺服器
+4. 擷取設定伺服器：
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. 刪除組態伺服器
+6. 刪除設定伺服器：
 
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項可用來強制移除/刪除組態伺服器。
-
-## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>更新組態伺服器安全通訊端層 (SSL) 憑證
-組態伺服器有內建的 Web 伺服器，可協調連線至組態伺服器的行動服務、處理序伺服器和主要目標伺服器的活動。 組態伺服器的 Web 伺服器使用 SSL 憑證來驗證其用戶端。 此憑證三年期滿，可隨時使用下列方法更新︰
-
-> [!WARNING]
-只有在 9.4.XXXX.X 或更新版本上才會履行憑證到期日。 開始「更新憑證」工作流程之前，請升級所有 Azure Site Recovery 元件 (組態伺服器、處理序伺服器、主要目標伺服器、行動服務)。
-
-1. 在 Azure 入口網站上，瀏覽至 [保存庫] > [Site Recovery 基礎結構] > [組態伺服器]。
-2. 按一下您需要更新 SSL 憑證的組態伺服器。
-3. 在 [組態伺服器健全狀況] 下，您可以看到 SSL 憑證的到期日。
-4. 按一下 [更新憑證] 動作來更新憑證，如下圖所示︰
-
-  ![刪除組態伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/renew-cert-page.png)
-
-### <a name="secure-socket-layer-certificate-expiry-warning"></a>安全通訊端層憑證到期警告
-
-> [!NOTE]
-對於 2016 年 5 月之前完成的所有安裝，SSL 憑證的有效性設定為一年。 您已開始看到 Azure 入口網站中顯示憑證到期通知。
-
-1. 如果組態伺服器的 SSL 憑證將於接下來兩個月之內到期，服務會開始透過 Azure 入口網站和電子郵件來通知使用者 (您需要訂閱 Azure Site Recovery 通知)。 您開始在保存庫的資源頁面上看到通知橫幅。
-
-  ![憑證通知](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-renew-notification.png)
-2. 按一下橫幅，以取得憑證到期日的其他詳細資料。
-
-  ![憑證詳細資料](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
-
-  >[!TIP]
-  如果您不是看到 [立即更新] 按鈕，而是 [立即升級] 按鈕， [立即升級] 按鈕表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。
-
-## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>在安全通訊端層 (SSL) 憑證過期的情況下恢復設定伺服器
-
-1. 將設定伺服器更新至[最新版本](http://aka.ms/unifiedinstaller)
-2. 如果您有任何相應放大處理序伺服器、容錯回復主要目標伺服器，或容錯回復處理序伺服器，請將它們更新至最新版本
-3. 將所有受保護虛擬機器上的行動服務更新至最新版本。
-4. 登入設定伺服器並開啟具有系統管理員權限的命令提示字元。
-5. 瀏覽至 %ProgramData%\ASR\home\svsystems\bin 資料夾
-6. 執行 RenewCerts.exe 以更新設定伺服器上的 SSL 憑證。
-7. 如果程序成功，您應該會看見「憑證更新為成功」的訊息
+> 您可以使用 Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項來強制刪除設定伺服器。
+ 
 
 
-## <a name="sizing-requirements-for-a-configuration-server"></a>組態伺服器的大小需求
+## <a name="renew-ssl-certificates"></a>更新 SSL 憑證
 
-| **CPU** | **記憶體** | **快取磁碟大小** | **資料變更率** | **受保護的機器** |
-| --- | --- | --- | --- | --- |
-| 8 個 vCPU (2 個插槽 * 4 核心 @ 2.5GHz) |16 GB |300 GB |500 GB 或更少 |複寫少於 100 部電腦。 |
-| 12 個 vCPU (2 個插槽 * 6 核心 @ 2.5GHz) |18 GB |600 GB |500 GB 至 1 TB |複寫 100-150 部機器。 |
-| 16 個 vCPU (2 個插槽 * 8 核心 @ 2.5GHz) |32 GB |1 TB |1 TB 至 2 TB |複寫 150-200 部機器。 |
+設定伺服器有內建的 Web 伺服器，可協調它所連線的行動服務、處理伺服器和主要目標伺服器的活動。 Web 伺服器使用 SSL 憑證來驗證用戶端。 憑證會在三年後到期，且可隨時更新。
 
-  >[!TIP]
-  如果您每日資料變換量超過 2 TB，或您打算複寫 200 個以上的虛擬機器，建議部署額外的處理序伺服器，以平衡複寫流量的負載。 深入了解如何部署相應放大處理序伺服器。
+### <a name="check-expiry"></a>檢查到期日
+
+針對在 2016 年 5 月之前部署的設定伺服器，憑證到期設定為一年。 如果您有即將到期的憑證，會發生以下狀況：
+
+- 當到期日是兩個月或少於兩個月時，服務會開始在入口網站傳送通知，以及透過電子郵件傳送通知 (如果您已訂閱 Azure Site Recovery 通知)。
+- 通知橫幅會出現在保存庫資源頁面上。 按一下橫幅可取得詳細資料。
+- 如果您看到 [立即升級] 按鈕，表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。 更新憑證之前請先升級元件。 您不能在舊版上更新。
+
+### <a name="renew-the-certificate"></a>更新憑證
+
+1. 在保存庫中，開啟 [Site Recovery 基礎結構] > [設定伺服器]，然後按一下所需的設定伺服器。
+2. 到期日顯示在 [設定伺服器健康情況] 下
+3. 按一下 [更新憑證]。 
 
 
-## <a name="common-issues"></a>常見問題
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
+## <a name="next-steps"></a>後續步驟
+
+檢閱將 [VMware VM](tutorial-vmware-to-azure.md) 和實體伺服器 (tutorial-physical-to-azure.md) 設定為災害復原至 Azure 的教學課程。

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6e5b27493a786daa604124d4572f51bae4bcb20
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/11/2018
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收器時，使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的 SQL Server 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 SQL Server 資料庫驅動程式，因此從 SQL Server 資料庫複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
@@ -54,10 +54,10 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 SQL Server 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**SqlServer** | 是 |
-| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請將此欄位標示為 SecureString。 |是 |
+| type | 類型屬性必須設定為：**SqlServer** | yes |
+| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請將此欄位標示為 SecureString。 |yes |
 | userName |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -115,10 +115,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 SQL Server 資料庫複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **SqlServerTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**SqlServerTable** | 是 |
-| tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | 是 |
+| type | 資料集的類型屬性必須設定為：**SqlServerTable** | yes |
+| tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | yes |
 
 **範例：**
 
@@ -147,9 +147,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 SQL Server 複製資料，請將複製活動中的來源類型設定為 **SqlSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | yes |
 | SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
@@ -251,15 +251,15 @@ GO
 
 若要將資料複製到 SQL Server，請將複製活動中的接收器類型設定為 **SqlSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
+| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | yes |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值：10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
-| sqlWriterStoredProcedureName |將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 |否 |
+| preCopyScript |指定一個供「複製活動」在將資料寫入到 SQL Server 前執行的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |
+| sqlWriterStoredProcedureName |預存程序的名稱，此預存程序定義如何將來源資料套用至目標資料表，例如使用您自己的商務邏輯來執行更新插入或轉換。 <br/><br/>請注意，將會**依批次叫用**此預存程序。 如果您想要進行只執行一次且與來源資料無關的作業 (例如刪除/截斷)，請使用 `preCopyScript` 屬性。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 | sqlWriterTableType |指定要在預存程序中使用的資料表類型名稱。 複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。 然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 |否 |
-| preCopyScript |指定一個供「複製活動」在每次執行時將資料寫入到 SQL Server 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 |否 |
 
 > [!TIP]
 > 將資料複製到 SQL Server 時，複製活動預設會將資料附加至接收資料表。 若要執行 UPSERT 或其他商務邏輯，請在 SqlSink 中使用該預存程序。 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。

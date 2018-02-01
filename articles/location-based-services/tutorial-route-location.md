@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>使用 Azure LBS 尋找景點路線
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 > * 取得地址座標
 > * 查詢路線規劃服務，以了解如何前往景點
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在繼續之前，請務必[建立 Azure LBS 帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。 您也可以如[使用 Azure LBS 搜尋附近景點](./tutorial-search-location.md)教學課程所述，觀察該如何使用地圖控制項和搜尋服務 API。
 
@@ -77,16 +77,16 @@ ms.lasthandoff: 12/14/2017
     ```
     請注意，HTML 標頭會內嵌 CSS 的資源位置和 Azure LBS 程式庫的 JavaScript 檔案。 也請注意 HTML 檔案主體中的 script 區段，其中將會包含內嵌的 JavaScript 程式碼，以便存取 Azure LBS 的 API。
 
-3. 在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 將預留位置 <insert-key> 替換為位置服務帳戶的主索引鍵。
+3. 在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 透過指令碼使用您位置服務帳戶中的主要金鑰。
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **atlas.Map** 是 Azure 地圖控制項 API 的元件，會提供視覺效果控制項和互動式網路地圖。
+    **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
 
 4. 在 script 區塊中新增下列 JavaScript 程式碼。 這會在地圖控制項新增 linestrings 層，以顯示路線：
 
@@ -179,14 +179,14 @@ ms.lasthandoff: 12/14/2017
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    上述要求會顯示所需參數 (也就是您帳戶的訂用帳戶金鑰)，以及起點和終點的座標 (依給定順序)。 
+    上述要求顯示所需參數 (也就是您的帳戶金鑰)，以及起點和終點的座標 (依給定順序)。 
 
 3. 在本機儲存 **MapRoute.html** 檔案，然後在您選擇的網頁瀏覽器中開啟它，並觀察結果。 如果您成功連線到位置服務的 API，您應該會看到類似下面的地圖。 
 

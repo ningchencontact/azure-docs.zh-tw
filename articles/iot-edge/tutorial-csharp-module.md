@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>開發 C# IoT Edge 模組並部署到您的模擬裝置 - 預覽
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/04/2018
 
 您於此教學課程中建立的 IoT Edge 模組，能夠篩選由您的裝置所產生的溫度資料。 它只有在溫度超過指定的閾值時，才會將訊息往上游傳送。 這類於邊緣所進行的分析，對於減少針對雲端所傳輸及儲存的資料量相當有幫助。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您在快速入門或第一份教學課程中所建立的 Azure IoT Edge 裝置。
 * IoT Edge 裝置的主索引鍵連接字串。  
@@ -71,6 +71,14 @@ ms.lasthandoff: 01/04/2018
 
    ![開啟 Program.cs][1]
 
+6. 在 **FilterModule** 命名空間頂端，為稍後會用到的類型新增三個 `using` 陳述式：
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
+
 6. 將 `temperatureThreshold` 變數新增至 **Program** 類別。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
 
     ```csharp
@@ -98,7 +106,7 @@ ms.lasthandoff: 01/04/2018
     }
     ```
 
-8. 在 **Init** 方法中，該程式碼會建立並設定 **DeviceClient** 物件。 此物件可允許模組連線至本機的 Azure IoT Edge 執行階段，以便傳送和接收訊息。 用於 **Init** 方法的連接字串，將會由 IoT Edge 執行階段提供給模組。 在建立之後**DeviceClient**，程式碼 TemperatureThreshold 讀取模組兩個想要的屬性並將註冊的回呼來接收訊息，從透過邊緣 IoT 中樞**input1**端點。 將 `SetInputMessageHandlerAsync` 方法取代為新的版本，然後針對所需的屬性更新新增 `SetDesiredPropertyUpdateCallbackAsync` 方法。 若要進行這項變更，請使用下列程式碼取代 **Init** 方法的最後一行：
+8. 在 **Init** 方法中，該程式碼會建立並設定 **DeviceClient** 物件。 此物件可允許模組連線至本機的 Azure IoT Edge 執行階段，以便傳送和接收訊息。 用於 **Init** 方法的連接字串，將會由 IoT Edge 執行階段提供給模組。 建立 **DeviceClient** 之後，程式碼會從模組對應項所需的屬性中讀取 TemperatureThreshold，並註冊回呼以透過 **input1** 端點接收來自 IoT Edge 中樞的訊息。 將 `SetInputMessageHandlerAsync` 方法取代為新的版本，然後針對所需的屬性更新新增 `SetDesiredPropertyUpdateCallbackAsync` 方法。 若要進行這項變更，請使用下列程式碼取代 **Init** 方法的最後一行：
 
     ```csharp
     // Register callback to be called when a message is received by the module

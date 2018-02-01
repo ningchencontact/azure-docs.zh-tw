@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: 將 Runbook 新增至復原方案
           href: site-recovery-runbook-automation.md
+        - name: 將 VMM 指令碼加入復原方案
+          href: site-recovery-how-to-add-vmmscript.md
         - name: 容錯移轉
           items:
             - name: 有關容錯移轉

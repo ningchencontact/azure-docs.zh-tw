@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
 
-在本主題中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。 這些工具可在 Visual Studio 2017 15.3 版或更新版本的 Azure 開發工作負載中取得。
+在本文中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2017 的 Azure 開發工作負載中取得。
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-如果您喜歡，可以改為[觀看影片](#watch-the-video)。
+本主題包含一個可示範相同基本步驟的[影片](#watch-the-video)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，請安裝：
+若要完成本教學課程：
 
-* [Visual Studio 2017 15.4 版](https://www.visualstudio.com/vs/)或更新版本，包括 **Azure 開發**工作負載。
+* 安裝 [Visual Studio 2017 15.4 版](https://www.visualstudio.com/vs/)或更新版本，包括 **Azure 開發**工作負載。
 
     ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* 確定您已更新為最新版的 Azure Functions 和 WebJobs 工具。 在 [擴充功能和更新] 中的 [更新] > [Visual Studio Marketplace] 之下執行此作業。
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>在 Visual Studio 中建立 Azure Functions 專案
+## <a name="create-a-function-app-project"></a>建立函式應用程式專案
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-您現在已建立專案，即可建立第一個函式。
+Visual Studio 會建立一個專案，其中的類別包含所選函式類型的重複使用程式碼。 方法上的 **FunctionName** 屬性會設定函式名稱。 **HttpTrigger** 屬性會指定由 HTTP 要求觸發函式。 重複使用程式碼會傳送 HTTP 回應，其中包含要求內文或查詢字串中的值。 您可以將適當的屬性套用至方法，進而將輸入和輸出繫結新增至函式。 如需詳細資訊，請參閱 [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)的[觸發程序和繫結](functions-dotnet-class-library.md#triggers-and-bindings)一節。
 
-## <a name="create-the-function"></a>建立函式
+![函式程式碼檔案](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. 在 [方案總管] 中，於專案節點上按一下滑鼠右鍵，然後選取 [新增] > [新增項目]。 選取 [Azure Function]，在 [名稱] 中輸入 `HttpTriggerCSharp.cs`，然後按一下 [新增]。
-
-2. 選取 [HttpTrigger]，針對 [存取權限] 選取 [匿名]，然後按一下 [確定]。 建立的函式會由任何用戶端的 HTTP 要求存取。 
-
-    ![建立新的 Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    這會將一個程式碼檔案新增至您的專案，其中包含實作函式程式碼的類別。 此程式碼是以範本為基礎，會接收名稱值並將其回應回去。 **FunctionName** 屬性會設定您的函式名稱。 **HttpTrigger** 屬性表示觸發函式的訊息。 
-
-    ![函式程式碼檔案](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-您現在已建立 HTTP 觸發的函式，可以在本機電腦上進行測試。
+您現在已建立函式專案和 HTTP 觸發的函式，可以在本機電腦上進行測試。
 
 ## <a name="test-the-function-locally"></a>在本機測試函式
 
 Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functions 專案。 第一次從 Visual Studio 啟動函式時，系統會提示您安裝這些工具。  
 
-1. 若要測試您的函式，請按 F5。 如果出現提示，接受來自 Visual Studio 之下載及安裝 Azure Functions Core (CLI) 工具的要求。  您可能也需要啟用防火牆例外狀況，工具才能處理 HTTP 要求。
+1. 若要測試您的函式，請按 F5。 如果出現提示，接受來自 Visual Studio 之下載及安裝 Azure Functions Core (CLI) 工具的要求。 您可能也需要啟用防火牆例外狀況，工具才能處理 HTTP 要求。
 
 2. 從 Azure Functions 執行階段輸出複製函式的 URL。  
 
@@ -91,7 +83,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 1. 從發行設定檔頁面複製函式應用程式的基底 URL。 使用新的基底 URL，取代在本機測試函式時所使用之 URL 的 `localhost:port` 部分。 如同以往，務必將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。
 
-    呼叫 HTTP URL 觸發函式的 URL 如下所示：
+    呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>分類鳶尾花第 1 部分：準備資料
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -28,7 +28,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)。 螢幕擷取畫面是 Windows 專屬，但是 Mac OS 體驗幾乎完全相同。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 建立 Azure Machine Learning 測試帳戶。
 - 安裝 Azure Machine Learning Workbench。
 
@@ -64,26 +64,30 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![資料檢視](media/tutorial-classifying-iris/data_view.png)
 
-3. 保留預設值，然後選取 [下一步] 按鈕。  
+3. 選取 [文字檔] (*.csv、.json、.txt 等)，然後按 [下一步]。
+   ![資料來源](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. 瀏覽至檔案 **iris.csv**，然後按 [下一步]。  
  
    ![選取鳶尾花](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >針對此練習，請確定您從目前的專案目錄內選取 **iris.csv** 檔案。 否則，接下來的步驟可能會失敗。
    
-4. 選取檔案之後，請選取 [完成] 按鈕。
+5. 保留預設值，然後按一下 [完成]。
 
-4. 名為 **iris-1.dsource** 的新檔案隨即建立。 因為範例專案中隨附未編號的 **iris.dsource** 檔案，會將檔案唯一地命名為 dash-1。  
+6. 名為 **iris-1.dsource** 的新檔案隨即建立。 由於範例專案中隨附未編號的 **iris.dsource** 檔案，因此會以 "-1" 為檔案指定唯一的名稱。  
 
    檔案隨即開啟，並且顯示資料。 從 **Column1** 至 **Column5** 的一系列資料行標題，會自動新增到此資料集。 捲動到底部，並注意資料集的最後一個資料列是空的。 資料列是空的，因為 CSV 檔案中有額外的分行符號。
 
    ![鳶尾花資料檢視](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. 選取 [計量] 按鈕。 觀察長條圖。 每個資料行會計算出一組完整的統計資料。 您也可以選取 [資料] 按鈕再次查看資料。 
+7. 選取 [計量] 按鈕。 觀察長條圖。 每個資料行會計算出一組完整的統計資料。 您也可以選取 [資料] 按鈕再次查看資料。 
 
    ![鳶尾花資料檢視](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. 選取 [準備] 按鈕。 [準備] 對話方塊隨即開啟。 
+8. 選取 [準備] 按鈕。 [準備] 對話方塊隨即開啟。 
 
    範例專案會隨附 **iris.dprep** 檔案。 根據預設，它會要求您在已經存在的 **iris.dprep** 資料準備套件中建立新的資料流。 
 
@@ -93,27 +97,27 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    名為 **iris-1.dprep** 的新資料準備套件隨即建立，並在資料準備編輯器中開啟。
 
-7. 現在讓我們執行一些基本的資料準備動作。 將資料行名稱重新命名。 選取各個資料行標頭，讓標頭文字可進行編輯。 
+9. 現在讓我們執行一些基本的資料準備動作。 將資料行名稱重新命名。 選取各個資料行標頭，讓標頭文字可進行編輯。 
 
    分別針對五個資料行輸入 [萼片長度]、[萼片寬度]、[花瓣長度]、[花瓣寬度] 和 [物種]。
 
    ![將資料行重新命名](media/tutorial-classifying-iris/rename_column.png)
 
-8. 若要計算相異值數目，選取 [物種] 資料行，然後按一下滑鼠右鍵來加以選取。 從下拉式功能表中選取 [值計數]。 
+10. 若要計算相異值數目，選取 [物種] 資料行，然後按一下滑鼠右鍵來加以選取。 從下拉式功能表中選取 [值計數]。 
 
    ![選取值計數](media/tutorial-classifying-iris/value_count.png)
 
    這個動作會開啟 [偵測器] 窗格，並顯示具有四個長條的長條圖。 目標資料行有三個相異值：**Iris_virginica**、**Iris_versicolor**、**Iris-setosa** 和 **(null)** 值。
 
-9. 如需篩選出 null，請選取圖中代表 null 值的長條。 有一個資料列具有 **(null)** 值。 若要移除此資料列，請選取減號 (**-**)。
+11. 如需篩選出 null，請選取圖中代表 null 值的長條。 有一個資料列具有 **(null)** 值。 若要移除此資料列，請選取減號 (**-**)。
 
    ![值計數長條圖](media/tutorial-classifying-iris/filter_out.png)
 
-10. 請注意 [步驟] 窗格中詳述的個別步驟。 當您將資料行重新命名並篩選 null 值資料列時，每個動作都會記錄為資料準備步驟。 您可以編輯個別的步驟，以調整設定、重新排列步驟，並移除步驟。
+12. 請注意 [步驟] 窗格中詳述的個別步驟。 當您將資料行重新命名並篩選 null 值資料列時，每個動作都會記錄為資料準備步驟。 您可以編輯個別的步驟，以調整設定、重新排列步驟，並移除步驟。
 
    ![步驟](media/tutorial-classifying-iris/steps.png)
 
-11. 關閉資料準備編輯器。 在包含圖形圖示的 **iris-1**索引標籤上，選取 [關閉] (x)。 您的工作會自動儲存到顯示在 [資料準備] 標題之下的 **iris-1.dprep** 檔案中。
+13. 關閉資料準備編輯器。 在包含圖形圖示的 **iris-1**索引標籤上，選取 [關閉] (x)。 您的工作會自動儲存到顯示在 [資料準備] 標題之下的 **iris-1.dprep** 檔案中。
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>產生 Python/PySpark 程式碼來叫用資料準備套件
 

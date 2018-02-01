@@ -35,7 +35,7 @@ Azure 支援兩種點對站 VPN 選項：
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>對於相同的虛擬網路，網站間和點對站台組態是否可以同時存在？
 
-可以。 如果是 Resource Manager 部署模型，您的閘道必須是路由式 VPN 類型。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或原則式 VPN 閘道不支援點對站。
+是。 如果是 Resource Manager 部署模型，您的閘道必須是路由式 VPN 類型。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或原則式 VPN 閘道不支援點對站。
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>是否可以將點對站台用戶端設定為同時連接到多個虛擬網路？
 
@@ -51,14 +51,28 @@ Azure 支援兩種點對站 VPN 選項：
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
 
-使用者可以使用確實支援 IKEv2 的內建 Windows VPN 用戶端來連線到 Azure。 但是，來自 Windows 裝置的 IKEv2 連線不適用於下列案例：
+Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您必須在本機安裝更新並設定登錄機碼值。 Windows 10 之前的作業系統版本不受支援，且只能使用 SSTP。
 
-  使用者裝置包含大量受信任根憑證時，IKE 交換期間的訊息承載大小會很大，並造成 IP 層級分散。 在 Azure 結束時會拒絕這些分散，這會導致連線失敗。 很難估計發生這個問題時的確切憑證計數。 因此，來自 Windows 裝置的 IKEv2 連線不一定會運作。 當您在混合環境 (包含 Windows 和 Mac 裝置) 中設定 SSTP 和 IKEv2 時，Windows VPN 設定檔一律會先嘗試 IKEv2 通道。 如果因這裡所述的問題而失敗，則會回復為 SSTP。
+若要針對 IKEv2 準備 Windows 10 或 Server 2016：
+
+1. 安裝更新。
+
+  | 作業系統版本 | 日期 | 號碼/連結 |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. 設定登錄機碼值。 在登入中建立 “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD 機碼或將其設定為 1。
+
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>當我設定 SSTP 和 IKEv2 以便進行 P2S VPN 連線時，會發生什麼狀況？
+
+當您在混合環境 (包含 Windows 和 Mac 裝置) 中設定 SSTP 和 IKEv2 時，Windows VPN 用戶端一律會先嘗試 IKEv2 通道，但如果 IKEv2 連線失敗，則會回復為 SSTP。 MacOSX 只可透過 IKEv2 連線。
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>除了 Windows 和 Mac 以外，Azure 還支援哪些其他平台使用 P2S VPN？
 
 Azure 只支援 Windows 和 Mac 使用 P2S VPN。
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>我已經部署 Azure VPN 閘道。 可以在其上啟用 RADIUS 及/或 IKEv2 VPN？
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>我已經部署 Azure VPN 閘道。 可以在其上啟用 RADIUS 及/或 IKEv2 VPN 嗎？
 
-是，您可以啟用這些新功能，在已部署的閘道使用 Powershell 或 Azure 入口網站上的閘道使用的 SKU 支援 RADIUS，及/或 IKEv2。 例如，VPN 閘道 Basic SKU 不支援 RADIUS 或 IKEv2。
+可以，您可以使用 Powershell 或 Azure 入口網站，在已經部署的閘道上啟用這些新功能，但前提是您使用的閘道 SKU 可支援 RADIUS 及/或 IKEv2。 例如，VPN 閘道基本 SKU 不支援 RADIUS 或 IKEv2。

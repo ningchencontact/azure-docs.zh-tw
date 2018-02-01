@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Windows 通用平台 (UWP/XAML) 開始使用 |Microsoft 文件"
+title: "Azure AD Windows 通用平台 (UWP/XAML) 入門 | Microsoft Docs"
 description: "建置與 Azure AD 整合來進行登入的 Windows 市集應用程式，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: windows
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows 通用平台 (UWP/XAML) 快速入門
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows 通用平台 (UWP/XAML) 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -89,7 +89,7 @@ ADAL 背後的基本原則就是每當應用程式需要存取權杖時，只要
 
 1. 將應用程式的 `AuthenticationContext` (亦即 ADAL 的主要類別) 初始化。 此動作會將 ADAL 與 Azure AD 通訊所需的座標傳遞給 ADAL，並告訴它如何快取權杖。
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ ADAL 背後的基本原則就是每當應用程式需要存取權杖時，只要
 
 2. 找出 `Search(...)` 方法，這是在使用者按一下應用程式 UI 上的 [搜尋] 按鈕時所叫用的方法。 這個方法會對 Azure AD Graph API 發出 get 要求，以查詢是否有 UPN 開頭為指定搜尋詞彙的使用者。 若要查詢 Graph API，請將存取權杖包含在該要求的 **Authorization** 標頭中。 這就是 ADAL 的切入點。
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ ADAL 背後的基本原則就是每當應用程式需要存取權杖時，只要
     當應用程式透過呼叫 `AcquireTokenAsync(...)` 來要求權杖時，ADAL 會嘗試在不向使用者要求認證的情況下傳回權杖。 如果 ADAL 判斷使用者必須登入才能取得權杖，就會顯示登入對話方塊、收集使用者的認證，然後在驗證成功後傳回權杖。 如果 ADAL 因任何原因而無法傳回權杖，*AuthenticationResult* 狀態就會是錯誤。
 3. 現在可以開始使用您剛才取得的存取權杖。 此外，請在 `Search(...)` 方法中，將該權杖附加至 Graph API get 要求的 **Authorization** 標頭：
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. 您可以使用 `AuthenticationResult` 物件以在應用程式中顯示使用者的相關資訊，例如使用者的識別碼：
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. 您也可以使用 ADAL 將使用者登出應用程式。 當使用者按一下 [登出] 按鈕時，請確保下次呼叫 `AcquireTokenAsync(...)` 時會顯示登入檢視。 使用 ADAL 時，此動作就像清除權杖快取一樣簡單：
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

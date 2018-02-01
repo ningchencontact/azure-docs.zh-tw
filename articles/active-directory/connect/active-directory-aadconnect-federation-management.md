@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure AD Connect 管理和自訂 Active Directory Federation Services | Microsoft Docs"
+title: "Azure AD Connect - AD FS 管理和自訂 | Microsoft Docs"
 description: "使用 Azure AD Connect 進行 AD FS 管理，以及使用 Azure AD Connect 和 PowerShell 的使用者 AD FS 登入經驗的自訂。"
 keywords: "AD FS, ADFS, AD FS 管理, AAD Connect, 連線, 登入, AD FS 自訂, 修復信任, O365, 同盟, 信賴憑證者"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。

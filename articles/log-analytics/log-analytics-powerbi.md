@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>將 Azure Log Analytics 資料匯入至 Power BI
 
@@ -86,12 +86,12 @@ Power BI Desktop 是桌面應用程式，可讓您建立可發行至 Power BI �
 ![Log Analytics 到 Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Power BI 排程
-「Power BI 排程」  包含將一組資料從 OMS 儲存機制匯出至 Power BI 中對應資料集的記錄搜尋，還有定義這項搜尋執行頻率的排程，以維持資料集為最新狀態。
+「Power BI 排程」包含將一組資料從 Log Analytics 匯出至 Power BI 中對應資料集的記錄搜尋，以及定義此搜尋執行頻率，以將資料集維持為最新狀態的排程。
 
 資料集中的欄位會符合記錄搜尋所傳回記錄的屬性。  如果搜尋傳回不同類型的記錄，則資料集將包含來自每個包含之記錄類型的所有屬性。  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>將 OMS 工作區連接到 Power BI
-您必須使用下列程序將 OMS 工作區連接到 Power BI 帳戶，才能從 Log Analytics 匯出至 Power BI。  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>將 Log Analytics 工作區連線到 Power BI
+您必須使用下列程序將您的工作區連線到 Power BI 帳戶，才能從 Log Analytics 匯出至 Power BI。  
 
 1. 在 OMS 主控台中，按一下 [設定]  圖格。
 2. 選取 [帳戶] 。
@@ -108,7 +108,7 @@ Power BI Desktop 是桌面應用程式，可讓您建立可發行至 Power BI �
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| 名稱 |當您檢視 Power BI 排程清單時，用來識別排程的名稱。 |
+| Name |當您檢視 Power BI 排程清單時，用來識別排程的名稱。 |
 | 已儲存的搜尋 |要執行的記錄搜尋。  您可以選取目前的查詢，或從下拉式清單方塊中選取現有的已儲存搜尋。 |
 | 排程 |執行已儲存的搜尋，並匯出至 Power BI 資料集的頻率。  值必須介於 15 分鐘到 24 小時之間。 |
 | 資料集名稱 |Power BI 中的資料集名稱。  如果不存在便會建立，如果存在則會更新。 |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>用於從內部部署複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -116,9 +116,9 @@ ms.lasthandoff: 01/13/2018
 
 **組態** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---
-NIC Teaming | 是<br/><br/>複寫實體機器時不支援| 是
-VLAN | 是 | 是
-IPv4 | 是 | 是
+NIC Teaming | yes<br/><br/>複寫實體機器時不支援| yes
+VLAN | yes | yes
+IPv4 | yes | yes
 IPv6 | 否 | 否
 
 ### <a name="guest-vm-network-configuration"></a>客體 VM 網路組態
@@ -126,24 +126,24 @@ IPv6 | 否 | 否
 **組態** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---
 NIC Teaming | 否 | 否
-IPv4 | 是 | 是
+IPv4 | yes | yes
 IPv6 | 否 | 否
-靜態 IP (Windows) | 是 | 是
-靜態 IP (Linux) | 是 <br/><br/>虛擬機器設定為在容錯回復時使用 DHCP  | 否
-多個 NIC | 是 | 是
+靜態 IP (Windows) | yes | yes
+靜態 IP (Linux) | yes <br/><br/>虛擬機器設定為在容錯回復時使用 DHCP  | 否
+多個 NIC | yes | yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>容錯移轉的 Azure VM 網路組態
 
 **Azure 網路功能** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---
-ExpressRoute | 是 | 是
-ILB | 是 | 是
-ELB | 是 | 是
-流量管理員 | 是 | 是
-多個 NIC | 是 | 是
-保留的 IP | 是 | 是
-IPv4 | 是 | 是
-保留來源 IP | 是 | 是
+ExpressRoute | yes | yes
+ILB | yes | yes
+ELB | yes | yes
+流量管理員 | yes | yes
+多個 NIC | yes | yes
+保留的 IP | yes | yes
+IPv4 | yes | yes
+保留來源 IP | yes | yes
 虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路) | 否 | 否
 
 
@@ -155,42 +155,48 @@ IPv4 | 是 | 是
 **組態** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | --- | ---
 NFS | VMware 為是<br/><br/> 實體伺服器為否 | N/A
-SMB 3.0 | N/A | 是
-SAN (ISCSI) | 是 | 是
-多重路徑 (MPIO)<br></br>測試標的︰Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON | 是 | 是
+SMB 3.0 | N/A | yes
+SAN (ISCSI) | yes | yes
+多重路徑 (MPIO)<br></br>測試標的︰Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON | yes | yes
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>客體或實體伺服器儲存體組態
 
 **組態** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---
-VMDK | 是 | N/A
-VHD/VHDX | N/A | 是
-第 2 代 VM | N/A | 是
-EFI/UEFI| 否 | 是
+VMDK | yes | N/A
+VHD/VHDX | N/A | yes
+第 2 代 VM | N/A | yes
+EFI/UEFI| 僅適用於 Windows Server 2012 和更新版本移轉到 Azure。 </br></br> ** 請參閱表格結尾處的附註。  | yes
 共用叢集磁碟 | 否 | 否
 已加密磁碟 | 否 | 否
 NFS | 否 | N/A
 SMB 3.0 | 否 | 否
-RDM | 是<br/><br/> 實體伺服器為 N/A | N/A
-磁碟 > 1 TB | 是<br/><br/>最大 4095 GB | 是<br/><br/>最大 4095 GB
-4k 邏輯與 4k 實體磁區大小的磁碟 | 是 | 不支援第 1 代 VM<br/><br/>不支援第 2 代 VM。
-4k 邏輯與 512 位元組實體磁區大小的磁碟 | 是 |  是
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM 邏輯磁碟區管理 | 是 | 是
-儲存空間 | 否 | 是
+RDM | yes<br/><br/> 實體伺服器為 N/A | N/A
+磁碟 > 1 TB | yes<br/><br/>最大 4095 GB | yes<br/><br/>最大 4095 GB
+4k 邏輯與 4k 實體磁區大小的磁碟 | yes | 不支援第 1 代 VM<br/><br/>不支援第 2 代 VM。
+4k 邏輯與 512 位元組實體磁區大小的磁碟 | yes |  yes
+使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM 邏輯磁碟區管理 | yes | yes
+儲存空間 | 否 | yes
 熱新增/移除磁碟 | 否 | 否
-排除磁碟 | 是 | 是
-多重路徑 (MPIO) | N/A | 是
+排除磁碟 | yes | yes
+多重路徑 (MPIO) | N/A | yes
+
+> [!NOTE]
+> ** UEFI 開機 VMware 虛擬機器，或執行 Windows Server 2012 或更新版本的實體伺服器，都可以移轉到 Azure。 適用以下限制。
+> - 僅移轉到 Azure。 不支援容錯回復至內部部署 VMware 網站。
+> - 不支援在伺服器的 OS 磁碟上有超過 4 個磁碟分割。
+> - 需要 Azure Site Recovery 行動服務 9.13 版或更新版本。
 
 **Azure 儲存體** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---
-LRS | 是 | 是
-GRS | 是 | 是
-RA-GRS | 是 | 是
+LRS | yes | yes
+GRS | yes | yes
+RA-GRS | yes | yes
 非經常性儲存體 | 否 | 否
 經常性存取儲存體| 否 | 否
 區塊 Blob | 否 | 否
-待用加密 (SSE)| 是 | 是
-進階儲存體 | 是 | 是
+待用加密 (SSE)| yes | yes
+進階儲存體 | yes | yes
 匯入/匯出服務 | 否 | 否
 用來儲存複寫資料之目標儲存體帳戶或快取儲存體帳戶上設定的虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路) | 否 | 否
 一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 否
@@ -200,9 +206,9 @@ RA-GRS | 是 | 是
 
 **計算功能** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---
-可用性設定組 | 是 | 是
-中樞 | 是 | 是  
-受控磁碟 | 是 | 是<br/><br/>目前不支援從具有受控磁碟的 Azure VM 容錯回復至內部部署。
+可用性設定組 | yes | yes
+中樞 | yes | yes  
+受控磁碟 | yes | yes<br/><br/>目前不支援從具有受控磁碟的 Azure VM 容錯回復至內部部署。
 
 ## <a name="failed-over-azure-vm-requirements"></a>容錯移轉的 Azure VM 需求
 

@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 58451bae409c74c319f41c38a1cec5f051619e0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa1863a44f00ae17f63b02c7c247b2c9fd9925f6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 轉送混合式連線 .NET Standard API 概觀
 
 本文將摘要列出一些主要 Azure 轉送混合式連線 .NET Standard [用戶端 API](/dotnet/api/microsoft.azure.relay)。
   
-## <a name="relay-connection-string-builder"></a>轉送連接字串產生器
+## <a name="relay-connection-string-builder-class"></a>轉送連接字串產生器類別
 
 [RelayConnectionStringBuilder][RelayConnectionStringBuilder] 類別會格式化專用於轉送混合式連線的連接字串。 您可以使用它來驗證連接字串的格式，或從頭開始建置連接字串。 如需範例，請參閱下列程式碼：
 
 ```csharp
-var endpoint = "{Relay namespace}";
-var entityPath = "{Name of the Hybrid Connection}";
-var sharedAccessKeyName = "{SAS key name}";
-var sharedAccessKey = "{SAS key value}";
+var endpoint = "[Relay namespace]";
+var entityPath = "[Name of the Hybrid Connection]";
+var sharedAccessKeyName = "[SAS key name]";
+var sharedAccessKey = "[SAS key value]";
 
 var connectionStringBuilder = new RelayConnectionStringBuilder()
 {
@@ -46,7 +46,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 您也可以直接將連接字串傳遞到 `RelayConnectionStringBuilder` 方法。 這項作業可讓您確認連接字串格式有效。 如果有任何參數無效，建構函式會產生 `ArgumentException`。
 
 ```csharp
-var myConnectionString = "{RelayConnectionString}";
+var myConnectionString = "[RelayConnectionString]";
 // Declare the connectionStringBuilder so that it can be used outside of the loop if needed
 RelayConnectionStringBuilder connectionStringBuilder;
 try
@@ -61,12 +61,14 @@ catch (ArgumentException ae)
 ```
 
 ## <a name="hybrid-connection-stream"></a>混合式連線串流
+
 無論您使用的是 [HybridConnectionClient][HCClient] 或 [HybridConnectionListener][HCListener]，[HybridConnectionStream][HCStream] 類別都是用來傳送和接收 Azure 轉送端點之資料的主要物件。
 
 ### <a name="getting-a-hybrid-connection-stream"></a>取得混合式連線串流
 
 #### <a name="listener"></a>接聽程式
-使用 [HybridConnectionListener][HCListener]，您可以取得如下的 `HybridConnectionStream` 物件︰
+
+使用 [HybridConnectionListener][HCListener] 物件，您可以取得如下的 `HybridConnectionStream` 物件︰
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -78,7 +80,8 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### <a name="client"></a>用戶端
-使用 [HybridConnectionClient][HCClient]，您可以取得如下的 `HybridConnectionStream` 物件︰
+
+使用 [HybridConnectionClient][HCClient] 物件，您可以取得如下的 `HybridConnectionStream` 物件︰
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -88,6 +91,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### <a name="receiving-data"></a>接收資料
+
 [HybridConnectionStream][HCStream] 類別允許雙向通訊。 在大部分的案例中，您會持續接收來自串流的資料。 如果您從串流讀取文字，建議您使用 [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) 物件，這可讓您更容易剖析資料。 例如，您可以讀取文字 (而非`byte[]`) 格式的資料。
 
 下列程式碼會從串流讀取個別的文字行，直到要求取消：
@@ -114,6 +118,7 @@ while (!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="sending-data"></a>傳送資料
+
 一旦建立連線，您可以傳送訊息到轉送端點。 因為連線物件會繼承[串流](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)，請傳送 `byte[]` 格式的資料。 下列範例示範如何執行：
 
 ```csharp
@@ -130,6 +135,7 @@ await textWriter.WriteLineAsync("hello");
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 若要深入了解 Azure 轉送，請造訪下列連結：
 
 * [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)

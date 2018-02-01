@@ -4,7 +4,7 @@ description: "說明如何設定您的裝置以進行遠端管理，以及如何
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>遠端連線至 StorSimple 8000 系列裝置
 
@@ -84,7 +84,10 @@ ms.lasthandoff: 10/11/2017
 在用戶端上執行下列步驟以啟用遠端管理。
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>準備遠端連線的用戶端
-1. 以系統管理員的身分開啟 Windows PowerShell工作階段。
+1. 以系統管理員的身分開啟 Windows PowerShell工作階段。 如果使用 Windows 10 用戶端，Windows 遠端管理服務預設會設定為手動。 您可能需要輸入下列命令以啟動服務：
+
+    `Start-Service WinRM`
+    
 2. 輸入下列命令將 StorSimple 裝置的 IP 位址加入用戶端的信任的主機清單：
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -138,7 +141,7 @@ ms.lasthandoff: 10/11/2017
 2. 在 [安全性設定] 刀鋒視窗中，按一下 [遠端管理]。
 3. 將 [啟用遠端管理] 設為 [是]。
 4. 您現在可以選擇使用 HTTPS 來連線。 (預設是透過 HTTPS 來連線。)請確定已選取 HTTPS。
-5. 按一下 ...，然後按一下下載遠端管理憑證。 指定要儲存此檔案的位置。 您必須將此憑證安裝在將用來連線到裝置的用戶端或主機電腦上。
+5. 按一下 [...]，然後按一下 [下載遠端管理憑證]。 指定要儲存此檔案的位置。 您必須將此憑證安裝在將用來連線到裝置的用戶端或主機電腦上。
 6. 按一下 [儲存]，系統提示您進行確認時，按一下 [是]。
 
 ### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>使用序列主控台啟用透過 HTTPS 的遠端管理
@@ -189,8 +192,8 @@ ms.lasthandoff: 10/11/2017
 1. 以滑鼠右鍵按一下.cer 檔案，選取 [ **安裝憑證**]。 這會啟動 [憑證匯入精靈]。
    
     ![憑證匯入精靈 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. 存放區位置 請選取 本機電腦，然後按一下下一步。
-3. 選取 將所有憑證放入以下的存放區，然後按一下瀏覽。 導覽至遠端主機的根存放區，然後按一下 **下一步**。
+2. [存放區位置] 請選取 [本機電腦]，然後按一下 [下一步]。
+3. 選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽]。 導覽至遠端主機的根存放區，然後按一下 [ **下一步**]。
    
     ![憑證匯入精靈  2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. 按一下 [完成] 。 會出現訊息告訴您匯入成功。
@@ -212,7 +215,10 @@ ms.lasthandoff: 10/11/2017
 從您要建立遠端 Windows PowerShell 連線的電腦上執行下列程序。
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>使用 Windows PowerShell 和 SSL進入 SSAdmin 工作階段
-1. 以系統管理員的身分開啟 Windows PowerShell工作階段。
+1. 以系統管理員的身分開啟 Windows PowerShell工作階段。 如果使用 Windows 10 用戶端，Windows 遠端管理服務預設會設定為手動。 您可能需要輸入下列命令以啟動服務：
+
+    `Start-Service WinRM`
+
 2. 將裝置的 IP 位址新增至用戶端信任的主機，做法是輸入：
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>為函式建立 OpenAPI 定義
 REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.io/) 檔案) 來描述。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。
@@ -48,21 +48,21 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
 本教學課程使用 HTTP 所觸發的函式，該函式接受兩個參數：修復渦輪機的估計時間 (以小時為單位)，以及渦輪機的容量 (以千瓦為單位)。 然後，此函式會計算修復的費用，以及渦輪機在 24 小時內的收入。
 
-1. 展開您的函式應用程式，然後選取 **+** 旁邊**函式**。 如果這是您函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。 
+1. 展開函式應用程式，然後選取 [函式] 旁的 [+] 按鈕。 如果這是您函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。 
 
     ![Azure 入口網站中的 Functions 快速入門](media/functions-openapi-definition/add-first-function.png)
 
-2. 在 搜尋 欄位中，輸入`http`，然後選擇  **C#** HTTP 觸發程序範本。 
+2. 在搜尋欄位中，輸入 `http`，然後針對 HTTP 觸發程序範本選擇 **C#**。 
  
     ![選擇 HTTP 觸發程序](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. 型別`TurbineRepair`函式**名稱**，選擇`Function`如**[驗證層級](functions-bindings-http-webhook.md#http-auth)**，然後選取**建立**.  
+3. 輸入 `TurbineRepair` 作為函式 [名稱]，選擇 `Function` 作為 **[[驗證層級]](functions-bindings-http-webhook.md#http-auth)**，然後選取 [建立]。  
 
-    ![建立 HTTP 觸發函式](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![建立由 HTTP 觸發的函式](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. 使用下列程式碼取代 run.csx 檔案的內容，然後按一下 [儲存]：
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 
@@ -125,7 +125,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
     1. 在新 HTTP 觸發程序函式的 [整合] 索引標籤中，將 [允許的 HTTP 方法] 變更為 [選取的方法]
 
-    1. 在**選取 HTTP 方法**，清除每個選項除了**POST**，然後按一下 **儲存**。
+    1. 在 [選取的 HTTP 方法] 中，清除 [POST] 以外的所有選項，然後按一下 [儲存]。
 
         ![選取的 HTTP 方法](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -272,7 +272,7 @@ securityDefinitions:
 
 1. 回到 API 定義：**function-demo-energy** > [平台功能] > [API 定義]。
 
-1. 在右窗格中，按一下 **驗證**，輸入您複製，然後按一下的 API 金鑰**驗證**。
+1. 在右窗格中按一下 [驗證]，輸入您所複製的 API 金鑰，然後按一下 [驗證]。
 
     ![使用 API 金鑰進行驗證](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +286,7 @@ securityDefinitions:
 
     注意 UI 如何使用 API 定義中的描述。
 
-1. 按一下**傳送要求**，然後按一下 **相當**以查看 輸出 索引標籤。
+1. 按一下 [傳送要求]，然後按一下 [Pretty] 索引標籤以查看輸出。
 
     ![傳送要求](media/functions-openapi-definition/send-request.png)
 

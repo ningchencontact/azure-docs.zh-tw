@@ -5,19 +5,19 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>使用 PowerShell 建立 Azure Container Registry
 
-Azure Container Registry 是用於儲存私用 Docker 容器映像的受管理 Docker 容器登錄服務。 本指南詳述如何使用 PowerShell 建立 Azure Container Registry 執行個體。
+Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Docker 容器登錄服務。 本指南詳述如何使用 PowerShell 建立 Azure Container Registry 執行個體。
 
 本快速入門需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 使用 [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) 命令建立 ACR 執行個體。
 
-登錄的名稱**必須是唯一的**。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
+登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic

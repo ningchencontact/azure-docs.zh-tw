@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Azure App Service 上的高密度託管
 在使用 App Service 時，應用程式會經由兩種概念與其所配置的容量分離：
@@ -38,12 +38,12 @@ ms.lasthandoff: 10/11/2017
 每一應用程式調整會獨立縮放應用程式，不受裝載它的 App Service 方案所影響。 如此一來，App Service 方案可以調整為 10 個執行個體，但是應用程式可以設定為僅使用五個。
 
    >[!NOTE]
-   >只有「進階」SKU App Service 方案才能使用個別應用程式調整
+   >每一應用程式調整僅適用於**標準**、**進階**、**進階 V2** 及**獨立** SKU App Service 方案
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>使用 PowerShell 進行個別應用程式調整
 
-您可以透過將 ```-perSiteScaling $true``` 屬性傳遞給 ```New-AzureRmAppServicePlan``` Commandlet，建立一個設定為「個別應用程式調整」方案的方案
+透過將 ```-perSiteScaling $true``` 屬性傳遞給 ```New-AzureRmAppServicePlan``` Commandlet，建立一個設定為「每一應用程式調整」方案的方案
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-在應用程式層級，我們需要設定應用程式在 App Service 方案中可以使用的執行個體數目。
+在應用程式層級，設定應用程式可以在 App Service 方案中使用的執行個體數目。
 
 在以下範例中，應用程式限制為 2 個執行個體，不論其基礎 App Service 方案的規模相應放大到多少個執行個體。
 
@@ -154,7 +154,7 @@ App Service 方案會將 **PerSiteScaling** 屬性設為 true (```"perSiteScalin
 1. 建立單一 App Service 方案，並將其調整為使用背景工作角色集區上所有可用的容量。
 1. 在 App Service 方案上將 PerSiteScaling 旗標設定為 true。
 1. 新應用程式會建立並指派給該 App Service 方案，其中 **numberOfWorkers** 屬性會設定為 **1**。 使用此設定會產生此背景工作角色集區上所能允許的最高密度。
-1. 背景工作角色數目可依每個應用程式單獨設定，以視需要授與額外資源。 例如：
+1. 背景工作角色數目可依每個應用程式單獨設定，以視需要授與額外資源。 例如︰
     - 高用量應用程式可以將 **numberOfWorkers** 設定為 **3**，讓該應用程式具有更多的處理容量。 
     - 低用量應用程式會將 **numberOfWorkers** 設定為 **1**。
 

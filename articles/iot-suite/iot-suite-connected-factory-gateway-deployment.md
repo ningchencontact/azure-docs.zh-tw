@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>在 Windows 或 Linux 上部署連線處理站預先設定解決方案的 Edge 閘道
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 01/12/2018
 ![安裝 Docker for Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> 您也可以在安裝 Docker 之後從 [設定] 對話方塊執行這個步驟。 以滑鼠右鍵按一下 Windows 系統匣中的 [Docker] 圖示，然後選擇 [設定]。
+> 您也可以在安裝 Docker 之後從 [設定] 對話方塊執行這個步驟。 以滑鼠右鍵按一下 Windows 系統匣中的 [Docker] 圖示，然後選擇 [設定]。 如果已將主要的 Windows 更新部署到系統 (例如 Windows Fall Creators Update)，請將磁碟機取消共用，然後重新共用它們，以重新整理存取權限。
 
 如果您使用 Linux，不需要額外設定就可以啟用檔案系統的存取權。
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/12/2018
 
 當您在 Docker 命令中參考 `<SharedFolder>` 時，務必針對您的作業系統使用正確的語法。 以下是兩個範例，一個用於 Windows，一個用於 Linux：
 
-- 如果您在 Windows 上使用資料夾 `D:\shared` 作為 `<SharedFolder>`，Docker 命令語法是 `//d/shared`。
+- 如果您在 Windows 上使用資料夾 `D:\shared` 作為 `<SharedFolder>`，Docker 命令語法是 `d:/shared`。
 
 - 如果您在 Linux 上使用資料夾 `/shared` 作為 `<SharedFolder>`，Docker 命令語法是 `/shared`。
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - `<IoTHubOwnerConnectionString>` 是來自 Azure 入口網站的 **iothubowner** 共用存取原則連接字串。 您在上一個步驟中複製這個連接字串。 只有在第一次執行 OPC 發行者時需要此連接字串。 在後續的執行中應該省略它，因為它有安全性風險。
 
-- 您使用的 `<SharedFolder>` 及其語法會在[安裝及設定 Docker](#install-and-configure-docker) 一節中說明。 OPC 發行者會使用 `<SharedFolder>` 以讀取 OPC 發行者設定檔、寫入記錄檔，並使這兩個檔案可以在容器之外使用。
+- 您使用的 `<SharedFolder>` 及其語法會在[安裝及設定 Docker](#install-and-configure-docker) 一節中說明。 OPC 發行者會使用 `<SharedFolder>`，來讀取和寫入 OPC 發行者設定檔、寫入記錄檔，並使這兩個檔案可以在容器之外使用。
 
-- OPC 發行者會從 **publishednodes.json** 檔案讀取其設定，您應該將其放到 `<SharedFolder>/docker` 資料夾。 此設定檔會定義 OPC 發行者應該訂閱指定 OPC UA 伺服器上的哪些 OPC UA 節點資料。
-
-- 每當 OPC UA 伺服器通知 OPC 發行者有資料變更時，新值會傳送到 IoT 中樞。 根據批次設定，OPC 發行者可能會先累積資料，然後再將資料傳送到批次中的 IoT 中樞。
-
-- **publishednodes.json** 檔案的完整語法會在 GitHub 的 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher)頁面上說明。
-
-    下列程式碼片段顯示 **publishednodes.json** 檔案的簡單範例。 這個範例示範如何從具有主機名稱 **win10pc** 的 OPC UA 伺服器發佈 **CurrentTime** 值：
+- OPC 發行者會從 **publishednodes.json** 檔案讀取其設定，此檔案會從 `<SharedFolder>/docker` 資料夾讀取或寫入該資料夾。 此設定檔會定義 OPC 發行者應該訂閱指定 OPC UA 伺服器上的哪些 OPC UA 節點資料。 **publishednodes.json** 檔案的完整語法會在 GitHub 的 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher)頁面上說明。 當您新增閘道時，請在資料夾中放置空的 **publishednodes.json**：
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    在 **publishednodes.json** 檔案中，OPC UA 伺服器是由端點 URL 指定的。 如果您如同前面的範例使用主機名稱標籤指定主機名稱 (例如 **win10pc**)，而不是使用 IP 位址，容器中的網路位址解析必須能夠將此主機名稱標籤解析為 IP 位址。
+- 每當 OPC UA 伺服器通知 OPC 發行者有資料變更時，新值會傳送到 IoT 中樞。 根據批次設定，OPC 發行者可能會先累積資料，然後再將資料傳送到批次中的 IoT 中樞。
 
 - Docker 不支援 NetBIOS 名稱解析，僅支援 DNS 名稱解析。 如果您在網路上沒有 DNS 伺服器，您可以使用先前命令列範例中顯示的因應措施。 先前的命令列範例使用 `--add-host` 參數以將項目新增至容器主機檔案。 此項目針對指定 `<OpcServerHostname>` 啟用主機名稱查閱，解析至指定 IP 位址 `<IpAddressOfOpcServerHostname>`。
 
@@ -169,11 +155,16 @@ OPC Proxy 會在安裝期間儲存連接字串。 在後續的執行中應該省
 
 若要將自己的 OPC UA 伺服器新增至連線處理站預先設定解決方案：
 
-1. 瀏覽至連線處理站解決方案入口網站中的 [連線您自己的 OPC UA 伺服器] 頁面。 依照上一節中相同的步驟，在連線處理站入口網站和 OPC UA 伺服器之間建立信任關係。
+1. 瀏覽至連線處理站解決方案入口網站中的 [連線您自己的 OPC UA 伺服器] 頁面。
 
-    ![解決方案入口網站](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. 啟動您想要連線的 OPC UA 伺服器。 確保可從在容器中執行的 OPC 發行者和 OPC Proxy 連線到您的 OPC UA 伺服器 (請參閱先前有關名稱解析的註解)。
+    1. 輸入 OPC UA 伺服器的端點 URL (`opc.tcp://<host>:<port>`)，然後按一下 [連線]。
+    1. 在連線設定期間，會在 [連線的工廠] 入口網站 (OPC UA 用戶端) 和您嘗試連線的 OPC UA 伺服器之間建立信任關係。 在 [連線的工廠] 儀表板中，您會得到 [Certificate of the server you want to connect cannot be verified] \(無法驗證您想要連線之伺服器的憑證\) 警告。 當您看到憑證警告時，按一下 [繼續]。
+    1. 更難設定的是您正嘗試連線之 OPC UA 伺服器的憑證設定。 對於以電腦為基礎的 OPC UA 伺服器，可能只會在儀表板中顯示一個您可以確認的警告對話方塊。 對於內嵌的 OPC UA 伺服器系統，請參閱 OPC UA 伺服器的文件，以查閱如何完成這項工作。 您可能需要 [連線的工廠] 入口網站之 OPC UA 用戶端的憑證，才能完成這項工作。 系統管理員可以在 [連接您自己的 OPC UA 伺服器] 頁面上下載此憑證：
 
-1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下您想要傳送至連線處理站的 OPC 節點，然後選取 [發行]。
+        ![解決方案入口網站](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下您想要傳送值至「連線的工廠」的 OPC 節點，然後選取 [發行]。
 
 1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站位於 [新處理站] 之下的 [處理站位置] 中檢視遙測。
 

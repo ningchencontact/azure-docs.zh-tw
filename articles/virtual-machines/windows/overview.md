@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -62,6 +62,7 @@ Azure 中所建立的所有資源分散在世界各地的多個[地理區域](ht
 | Azure 入口網站 |當您建立 VM 時，請從清單中選取位置。 |
 | Azure PowerShell |使用 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 命令。 |
 | REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations)作業。 |
+| Azure CLI |使用 [az account list-locations](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_list_locations) 作業。 |
 
 ### <a name="vm-size"></a>VM 大小
 您使用的 VM [大小](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)是由所您要執行的工作負載所決定。 您所選的大小會決定例如處理電源、記憶體和儲存體容量等因素。 Azure 提供了各種不同的大小，以支援許多類型的用法。
@@ -83,6 +84,7 @@ Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/
 | Azure 入口網站 |當您選取要使用的影像時，會自動為您指定值。 |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像優惠](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 您可以選擇[上傳並使用您自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，當您這麼做時，不會使用發行者名稱、優惠和 SKU。
 
@@ -100,11 +102,11 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 | 資源 | 必要 | 說明 |
 | --- | --- | --- |
-| [資源群組](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必須包含在資源群組中。 |
-| [儲存體帳戶](../../storage/common/storage-create-storage-account.md) |是 |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
-| [虛擬網路](../../virtual-network/virtual-networks-overview.md) |是 |VM 必須是虛擬網路的成員。 |
+| [資源群組](../../azure-resource-manager/resource-group-overview.md) |yes |VM 必須包含在資源群組中。 |
+| [儲存體帳戶](../../storage/common/storage-create-storage-account.md) |yes |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
+| [虛擬網路](../../virtual-network/virtual-networks-overview.md) |yes |VM 必須是虛擬網路的成員。 |
 | [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以有公用 IP 位址指派給 VM，以從遠端存取它。 |
-| [網路介面](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要網路介面以在網路中進行通訊。 |
+| [網路介面](../../virtual-network/virtual-network-network-interface.md) |yes |VM 需要網路介面以在網路中進行通訊。 |
 | [資料磁碟](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含資料磁碟來擴充儲存體功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何建立第一個 VM？
@@ -119,6 +121,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | Azure PowerShell |[使用 PowerShell 建立 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 用戶端 SDK |[使用 C# 部署 Azure 資源](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST API |[建立或更新 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
+| Azure CLI |[使用 Azure CLI 建立 VM](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 您希望它絕對不會發生，但偶爾會發生錯誤。 如果您發生這種情況，請查看[疑難排解在 Azure 中建立 Windows 虛擬機器時發生的 Resource Manager 部署問題](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的資訊。
 
@@ -134,6 +137,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | Azure PowerShell |如需使用 PowerShell 來管理 VM 的相關資訊，請參閱[使用 Azure PowerShell 模組來建立和管理 Windows VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |
 | REST API |使用[取得 VM 資訊](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)作業來取得 VM 的相關資訊。 |
 | 用戶端 SDK |如需使用 C# 來管理 VM 的相關資訊，請參閱[使用 Azure Resource Manager 和 C# 來管理 Azure 虛擬機器](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |
+| Azure CLI |如需使用 Azure CLI 管理 VM 的詳細資訊，請參閱 [Azure CLI 參考](https://docs.microsoft.com/en-us/cli/azure/vm)。 |
 
 ### <a name="log-on-to-the-vm"></a>登入 VM
 您使用 Azure 入口網站中的 [連線] 按鈕[啟動遠端桌面 (RDP) 工作階段](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 嘗試使用遠端連線時，有時可能會出錯。 如果您發生這種情況，請參閱[疑難排解遠端桌面連線至執行 Windows 的 Azure 虛擬機器](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的說明資訊。

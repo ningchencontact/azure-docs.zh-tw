@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics 中的自訂欄位 | Microsoft Docs"
-description: "Log Analytics 的自訂欄位功能，可讓您從新增到所收集記錄之屬性的 OMS 資料建立自己的可搜尋欄位。  本文說明用來建立自訂欄位的程序，並透過範例事件提供詳細的逐步解說。"
+title: "Azure Log Analytics 中的自訂欄位 | Microsoft Docs"
+description: "Log Analytics 的自訂欄位功能，可讓您從新增到所收集記錄之屬性的 Log Analytics 記錄建立自己的可搜尋欄位。  本文說明用來建立自訂欄位的程序，並透過範例事件提供詳細的逐步解說。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics 中的自訂欄位
-Log Analytics 的 **自訂欄位** 功能可讓您透過新增自己的可搜尋欄位來擴充 OMS 儲存機制中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
+Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜尋欄位來擴充 Log Analytics 中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
 
 ![自訂欄位概觀](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Log Analytics 的 **自訂欄位** 功能可讓您透過新增自己的可搜尋
 下列各節提供用於建立自訂欄位的程序。  本文最後會逐步解說範例擷取作業。
 
 > [!NOTE]
-> 當 OMS 資料存放區新增符合指定準則的記錄時便會填入自訂欄位，因此自訂欄位只會出現在建立自訂欄位之後所收集的記錄上。  建立自訂欄位時便已存在於資料存放區的記錄不會新增自訂欄位。
-> 
+> 將符合指定準則的記錄新增到 Log Analytics 時便會填入自訂欄位，因此，它只會出現在建立自訂欄位之後所收集的記錄上。  建立自訂欄位時便已存在於資料存放區的記錄不會新增自訂欄位。
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>步驟 1 – 識別將會具有自訂欄位的記錄
@@ -72,7 +71,7 @@ Log Analytics 的 **自訂欄位** 功能可讓您透過新增自己的可搜尋
 7. 和任何其他記錄屬性一樣地使用自訂欄位。  您可以使用它來彙總與群組資料，甚至用它來產生新的見解。
 
 ## <a name="viewing-custom-fields"></a>檢視自訂欄位
-您可以從 OMS 儀表板的 [設定]  圖格，檢視您的管理群組中所有自訂欄位的清單。  依序選取 [資料] 和 [自訂欄位]，可取得工作區中所有自訂欄位的清單。  
+您可以在 Azure 入口網站中，從 Log Analytics 工作區的 [進階設定] 功能表檢視管理群組中的所有自訂欄位清單。  依序選取 [資料] 和 [自訂欄位]，可取得工作區中所有自訂欄位的清單。  
 
 ![自訂欄位](media/log-analytics-custom-fields/list.png)
 

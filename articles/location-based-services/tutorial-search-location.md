@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>使用 Azure LBS 來搜尋附近景點
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/14/2017
 
 > [!div class="checklist"]
 > * 使用 Azure LBS 建立帳戶
-> * 取得您帳戶的訂用帳戶金鑰
+> * 得知您 Azure 位置服務帳戶的主要金鑰
 > * 使用地圖控制項 API 建立新網頁
 > * 使用搜尋服務來尋找附近景點
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/14/2017
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>取得您帳戶的訂用帳戶金鑰
+## <a name="get-the-primary-key-for-your-account"></a>取得帳戶的主要金鑰
 
 成功建立位置服務帳戶之後，請依照下列步驟，將它連結到其地圖搜尋 API：
 
@@ -113,16 +113,16 @@ Azure 地圖控制項 API 是很方便的用戶端程式庫，可讓您輕鬆地
     ``` 
     請注意，HTML 標頭包含 Azure 地圖控制項程式庫所裝載的 CSS 和 JavaScript 資源檔案。 請注意新增至 HTML 檔案 body 的 script 區段。 此區段會包含內嵌的 JavaScript 程式碼，以便存取 Azure LBS 的 API。
  
-3.  在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 將預留位置 <insert-key> 替換為位置服務帳戶的主索引鍵。 
+3.  在 HTML 檔案的 script 區塊中新增下列 JavaScript 程式碼。 透過指令碼使用您位置服務帳戶中的主要金鑰。 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    此區段會針對您的訂用帳戶金鑰，初始化地圖控制項 API。 **Atlas** 是包含 Azure 地圖控制項 API 和相關視覺效果元件的命名空間。 **atlas.Map** 可供控制視覺化互動式網路地圖。 在瀏覽器中開啟 HTML 網頁，您可看到地圖的外觀。 
+    此區段會為您的 Azure 位置服務帳戶金鑰起始地圖控制項 API。 **Atlas** 是包含 Azure 地圖控制項 API 和相關視覺效果元件的命名空間。 **atlas.Map** 可供控制視覺化互動式網路地圖。 在瀏覽器中開啟 HTML 網頁，您可看到地圖的外觀。 
 
 4. 在 script 區塊中新增下列 JavaScript 程式碼，將搜尋圖釘圖層新增到地圖控制項：
 
@@ -193,7 +193,7 @@ Azure 地圖控制項 API 是很方便的用戶端程式庫，可讓您輕鬆地
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,7 +201,7 @@ Azure 地圖控制項 API 是很方便的用戶端程式庫，可讓您輕鬆地
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    此程式碼片段會使用搜尋服務的基本搜尋 API ，稱之為 [模糊搜尋]。 它可處理輸入的大部分模糊搜尋，並處理地址或 POI 語彙基元的任意組合。 它可在指定的範圍內，針對以經緯度給定的地址，搜尋附近的**加油站**。 它會使用稍早在範例檔案中提供之帳戶的訂用帳戶金鑰，進行位置服務的呼叫。 它會傳回以所找到位置的經緯度配對表示的結果。 在瀏覽器中開啟 HTML 網頁，您可看到搜尋圖釘。 
+    此程式碼片段會使用搜尋服務的基本搜尋 API ，稱之為 [模糊搜尋]。 它可處理輸入的大部分模糊搜尋，並處理地址或 POI 語彙基元的任意組合。 它可在指定的範圍內，針對以經緯度給定的地址，搜尋附近的**加油站**。 它會使用稍早在範例檔案中提供的帳戶主要金鑰，進行位置服務的呼叫。 它會傳回以所找到位置的經緯度配對表示的結果。 在瀏覽器中開啟 HTML 網頁，您可看到搜尋圖釘。 
 
 3. 在 script 區塊中新增下列幾行，以建立搜尋服務所傳回之景點的快顯視窗：
 
@@ -244,7 +244,7 @@ Azure 地圖控制項 API 是很方便的用戶端程式庫，可讓您輕鬆地
 
 > [!div class="checklist"]
 > * 使用 Azure LBS 建立帳戶
-> * 取得您帳戶的訂用帳戶金鑰
+> * 取得帳戶的主要金鑰
 > * 使用地圖控制項 API 建立新網頁
 > * 使用搜尋服務來尋找附近景點
 

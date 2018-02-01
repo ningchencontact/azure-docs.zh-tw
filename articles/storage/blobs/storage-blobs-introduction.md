@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 0097f1c02b88343a135b6489130a6e0d35cf6fba
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 儲存體簡介
 
@@ -38,11 +38,11 @@ Blob 服務包含下列元件：
 
 ![Blob 架構](./media/storage-blobs-introduction/blob1.png)
 
-* **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。 這個儲存體帳戶可以是**（v1 或 v2） 的一般用途儲存體帳戶**或**Blob 儲存體帳戶**。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+* **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。 這個儲存體帳戶可以是**一般用途儲存體帳戶 (v1 或 v2)** 或 **Blob 儲存體帳戶**。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 * **容器：** 容器提供一組 Blob 的群組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。 請注意，容器名稱必須是小寫。
 
-* **Blob：** 任何類型和大小的檔案。 Azure 儲存體提供三種類型的 Blob：區塊 Blob、分頁 Blob 及附加 Blob。
+* **Blob：** 任何類型和大小的檔案。 Azure 儲存體提供三種類型的 Blob：區塊 Blob、[分頁 Blob](storage-blob-pageblob-overview.md) 及附加 Blob。
   
     *區塊 Blob* 很適合儲存文字或二進位檔案，例如文件和媒體檔案。 *附加 Blob* 和區塊 Blob 相似，但已針對附加作業最佳化，因此適合用於記錄的情況。 單一區塊 blob 可包含高達 50,000 個區塊，每個區塊最大為 100 MB，大小總計稍高於 4.75 TB (100 MB X 50,000)。 單一附加 blob 可包含高達 50,000 個區塊，每個區塊最大為 4 MB，大小總計稍高於 195 GB (4 MB X 50,000)。
   

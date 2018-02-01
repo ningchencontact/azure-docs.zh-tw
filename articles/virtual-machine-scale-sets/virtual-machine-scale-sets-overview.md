@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
 虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、大量資料和容器化工作負載，建置大規模服務。
@@ -35,10 +35,7 @@ ms.lasthandoff: 12/20/2017
 ## <a name="creating-and-managing-scale-sets"></a>建立和管理擴展集
 您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。 若要管理您的擴展集，您可以使用 Azure 入口網站、[Azure PowerShell Cmdlet](virtual-machine-scale-sets-windows-manage.md) 或 Azure CLI 2.0。
 
-擴展集可以部署到[可用性區域](../availability-zones/az-overview.md)。
-
-> [!NOTE]
-> 目前虛擬機器擴展集僅支援部署到單一可用性區域。 未來將支援多區域部署。
+擴展集可以部署於[可用性區域](virtual-machine-scale-sets-use-availability-zones.md)。
 
 您可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 來定義和部署擴展集，如同個別的 Azure Resource Manager VM 一樣。 因此，您可以使用任何標準 Azure Resource Manager 部署方法。 如需範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
 
@@ -94,7 +91,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 本節列出一些典型的擴展集案例。 某些較高階的 Azure 服務 (例如 Batch、Service Fabric 和 Container Service) 會使用這些案例。
 
 * **使用 RDP 或 SSH 連線至擴展集執行個體**：擴展集會建立於虛擬網路內，且預設不會為擴展集中的個別 VM 配置公用 IP 位址。 此原則可避免因為要對計算方格中的所有節點配置個別公用 IP 位址而產生的支出與管理負擔。 如果您需要與擴展集 VM 建立直接外部連線，可以將擴展集設定為自動指派公用 IP 位址給新的 VM。 或是，您可以從虛擬網路中可配置公用 IP 位址的其他資源連線至 VM，例如負載平衡器和獨立虛擬機器。 
-* **使用 NAT 規則連線至 VM**：您可以建立一個公用 IP 位址、將它指派給負載平衡器，然後定義輸入 NAT 集區。 這些動作會將 IP 位址的連接埠對應至擴展集中某部 VM 的連接埠。 例如：
+* **使用 NAT 規則連線至 VM**：您可以建立一個公用 IP 位址、將它指派給負載平衡器，然後定義輸入 NAT 集區。 這些動作會將 IP 位址的連接埠對應至擴展集中某部 VM 的連接埠。 例如︰
   
   | 來源 | 來源連接埠 | 目的地 | 目的地連接埠 |
   | --- | --- | --- | --- |

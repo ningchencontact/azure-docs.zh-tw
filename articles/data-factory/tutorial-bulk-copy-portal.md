@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -195,7 +195,7 @@ ms.lasthandoff: 01/16/2018
 5. 切換至 [參數] 索引標籤，然後按一下 [+ 新增]。
 
     ![來源資料集連線頁面](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. 輸入 **DWTableName** 作為參數名稱。 
+6. 輸入 **DWTableName** 作為參數名稱。 如果您從頁面複製/貼上此名稱，請確定 **DWTableName** 的結尾處沒有**尾端空白字元**。 
 7. 在 [參數化屬性] 區段中，為 **tableName** 屬性輸入 `@{dataset().DWTableName}`。 為資料集的 **tableName** 屬性設定的這個值，會作為引數傳遞給 **DWTableName** 參數。 ForEach 活動會逐一查看資料表清單，並逐一傳遞給複製活動。 
    
     ![參數名稱](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

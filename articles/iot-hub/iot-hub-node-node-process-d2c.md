@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e6a22e9989bfe7064ead1c5598e9c68d4a929b07
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>使用 IoT 中樞路由傳送訊息 (節點)
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/08/2017
     };
     ```
    
-    這個方法會隨機將 `"level": "critical"` 和 `"level": "storage"` 屬性新增至裝置所傳送的訊息，這會模擬需要應用程式後端立即採取行動的訊息，或是需要永久儲存的訊息。 應用程式會在訊息屬性中傳遞此資訊，而不是在訊息主體中傳遞，因此 IoT 中樞可以將訊息路由傳送至適當的訊息目的地。
+    這個方法會隨機將 `"level": "critical"` 和 `"level": "storage"` 屬性新增至裝置所傳送的訊息，這會模擬需要應用程式後端立即採取行動的訊息，或是需要永久儲存的訊息。 應用程式支援根據訊息本文，對訊息進行路由傳送。
    
    > [!NOTE]
    > 除了此處顯示的最忙碌路徑範例以外，您可以使用訊息屬性來路由傳送各種案例的訊息，包括冷門路徑處理。

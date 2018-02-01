@@ -2,18 +2,18 @@
 title: "設定 Azure-SSIS Integration Runtime 以獲得高效能 | Microsoft Docs"
 description: "了解如何設定 Azure-SSIS Integration Runtime 的屬性，以獲得高效能"
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>設定 Azure-SSIS Integration Runtime 以獲得高效能
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/06/2017
 
 下列設定指令碼部分會顯示當您建立 Azure-SSIS Integration Runtime 時，您可以設定的屬性。 如需完整的 PowerShell 指令碼與描述，請參閱[將 SQL Server Integration Services 套件部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -39,10 +39,10 @@ $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 # In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -90,7 +90,8 @@ Azure Data Factory v2 公開預覽 (包括 Azure-SSIS IR) 支援下列選項：
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-當您已經使用功能強大的背景工作節點來執行套件時，增加 **AzureSSISMaxParallelExecutionsPerNode** 可能會增加整合執行階段的整體輸送量。 您可以根據套件的成本和背景工作角色節點的下列設定，評估適當的值。 如需詳細資訊，請參閱[一般用途的虛擬機器大小](../virtual-machines/windows/sizes-general.md)。
+當您已經使用功能強大的背景工作節點來執行套件時，增加 **AzureSSISMaxParallelExecutionsPerNode** 可能會增加整合執行階段的整體輸送量。 針對 Standard_D1_v2 節點，可支援每個節點有 1-4 個平行執行。 針對所有其他類型的節點，可支援每個節點有 1-8 個平行執行。
+您可以根據套件的成本和背景工作角色節點的下列設定，評估適當的值。 如需詳細資訊，請參閱[一般用途的虛擬機器大小](../virtual-machines/windows/sizes-general.md)。
 
 | 大小             | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟 / 輸送量︰IOPS | 最大 NIC/預期的網路效能 (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -117,7 +118,7 @@ Azure Data Factory v2 公開預覽 (包括 Azure-SSIS IR) 支援下列選項：
 
 您也可以根據 Azure 入口網站上提供的[資料庫交易單位](../sql-database/sql-database-what-is-a-dtu.md) (DTU) 使用量資訊，調整資料庫定價層。
 
-## <a name="design-for-high-performance"></a>針對高效能進行設計
+## <a name="design-for-high-performance"></a>為高效能而設計
 設計一個在 Azure 上執行的 SSIS 套件，不同於設計一個內部部署執行的套件。 相對於將多個獨立工作結合在相同的套件中，Azure-SSIS IR 中將它們分成數個套件，以求更有效率地執行。 針對每個套件建立套件執行，這樣一來就不用等待彼此完成。 這種方法受益於 Azure-SSIS Integration Runtime 的延展性，並可改善整體輸送量。
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2017
-ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.date: 01/24/2018
+ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL DB
 在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database。
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/13/2017
 > * 在 Azure 資料庫移轉服務執行個體中建立移轉專案。
 > * 執行移轉。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成這些步驟，您需要：
 
 - [SQL Server 2016 或更新版本](https://www.microsoft.com/sql-server/sql-server-downloads)(任何版本)
@@ -37,9 +37,9 @@ ms.lasthandoff: 12/13/2017
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 的 v3.3 或更新版本。
 - 使用 Azure Resource Manager 部署模型建立的 VNET 是 Azure 資料庫移轉服務的必要項目，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
 - 已使用資料移轉小幫手完成內部部署資料庫和結構描述移轉的評估，如同[執行 SQL Server 移轉評估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)一文中所述
-- 下載並安裝 AzureRM.DataMigration 模組從 PowerShell 資源庫 bu 使用[Install-module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
-- 用來連接至來源 SQL Server 執行個體的認證必須具有[CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)權限。
-- 用來連接到目標 Azure SQL 資料庫執行個體的認證必須具有 CONTROL DATABASE 權限，在目標 Azure SQL Database 資料庫。
+- 使用 [Install-Module PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1) \(英文\)，從 PowerShell 資源庫下載並安裝 AzureRM.DataMigration 模組
+- 用來連線至來源 SQL Server 執行個體的認證必須具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) \(機器翻譯\) 權限。
+- 用來連線至目標 Azure SQL DB 執行個體的認證，必須在目標 Azure SQL Database 資料庫上具有 CONTROL DATABASE 權限。
 - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
@@ -63,28 +63,31 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 - SKU。 此參數會對應至 DMS SKU 名稱。 目前支援的 SKU 名稱為 Basic_1vCore、Basic_2vCores、GeneralPurpose_4vCores
 - 虛擬子網路識別碼。 您可以使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) Cmdlet 來建立子網路。 
 
-下列範例會使用名為 MySubnet 的虛擬子網路，在 MyDMSResourceGroup 資源群組中建立名為 MyDMS 的服務 (位於美國東部地區)。
+下列範例會使用名為 *MyVNET* 的虛擬網路和名為 *MySubnet* 的子網路，在 *MyDMSResourceGroup* 資源群組中建立名為 *MyDMS* 的服務 (位於美國東部地區)。
 
 ```powershell
+ $vNet = Get-AzureRmVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+
+$vSubNet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
+
 $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
   -Sku Basic_2vCores `  
-  -VirtualSubnetId
-$vnet.Id`
+  -VirtualSubnetId $vSubNet.Id`
 ```
 
 ## <a name="create-a-migration-project"></a>建立移轉專案
 建立 Azure 資料庫移轉服務執行個體之後，建立移轉專案。 Azure 資料庫移轉服務專案需要來源和目標執行個體的連線資訊，以及您想要移轉的資料庫清單。
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>建立來源和目標連線的資料庫連接資訊物件
-您可以使用 `New-AzureRmDmsConnInfo` Cmdlet 來建立資料庫連接資訊物件。  此 Cmdlet 預期有下列參數：
+您可以使用 `New-AzureRmDmsConnInfo` Cmdlet 來建立資料庫連接資訊物件。 此 Cmdlet 預期有下列參數：
 - ServerType。 要求的資料庫連接類型，例如 SQL、Oracle 或 MySQL。 使用 SQL Server 與 SQL Azure 的 SQL。
 - DataSource。 SQL 執行個體或 SQL Azure 伺服器的名稱或 IP。
 - AuthType。 連線的驗證類型，可以是 SqlAuthentication 或 WindowsAuthentication。
 - TrustServerCertificate 參數會設定一個值，指出通道是否會加密，同時繞過驗證信任的信任鏈結。 值可以是 true 或 false。
 
-下列範例會建立來源呼叫 MySQLSourceServer 使用 sql 驗證的 SQL Server 的連接資訊物件 
+下列範例會使用 SQL 驗證，為名為 MySQLSourceServer 的來源 SQL Server 建立連線資訊物件 
 
 ```powershell
 $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
@@ -131,7 +134,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 最後，建立並啟動 Azure 資料庫移轉工作。 除了專案在作為必要元件建立時提供的資訊外，Azure 資料庫移轉工作還需要來源和目標的連線認證資訊，以及要移轉的資料庫清單資料表。 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>建立來源和目標的認證參數
-可以連接安全性認證建立為[PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0)物件。 
+連線安全性認證可建立為 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) \(英文\) 物件。 
 
 下列範例示範如何將密碼提供為 $sourcePassword 和 $targetPassword 字串變數，以建立來源和目標的 PSCredential 物件。 
 
@@ -166,9 +169,9 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### <a name="create-and-start-a-migration-task"></a>建立並啟動移轉工作
 
 使用 `New-AzureRmDataMigrationTask` Cmdlet 建立並啟動移轉工作。 此 Cmdlet 預期有下列參數：
-- TaskType。  為 SQL Server 與 SQL Azure 移轉所建立的移轉工作類型，預期為 *MigrateSqlServerSqlDb*。 
+- TaskType。 為 SQL Server 與 SQL Azure 移轉所建立的移轉工作類型，預期為 *MigrateSqlServerSqlDb*。 
 - 資源群組名稱。 要在其中建立工作的資源群組名稱。
-- ServiceName。  要在其中建立工作的 Azure 資料庫移轉服務執行個體。
+- ServiceName。 要在其中建立工作的 Azure 資料庫移轉服務執行個體。
 - ProjectName。 要在其中建立工作的 Azure 資料庫移轉專案名稱。 
 - TaskName。 要建立的工作名稱。 
 - 來源連線。 代表來源連線的 AzureRmDmsConnInfo 物件。
@@ -203,4 +206,4 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 檢閱移轉指引，在 microsoft[資料庫移轉指南](https://datamigration.microsoft.com/)。
+- 在 Microsoft [資料庫移轉指南](https://datamigration.microsoft.com/) \(英文\) 中檢閱移轉指引。

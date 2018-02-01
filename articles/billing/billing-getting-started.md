@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 - 如果您的訂用帳戶是免費試用版、[Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)、Azure in Open (AIO) 或 BizSpark，當您用完所有的信用額度時，將會自動停用您的訂用帳戶。 深入了解[消費限制](#spending-limit)，以避免您的訂用帳戶發生未預期的停用。
 
-- 如果您已登入註冊[免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/)，[您可以使用一些最常用的 Azure 服務，取得免費的 12 個月](billing-create-free-services-included-free-account.md)。 以及下面所列的建議，請參閱[避免費用免費帳戶](billing-avoid-charges-free-account.md)。
+- 如果您已註冊 [Azure 免費帳戶](https://azure.microsoft.com/en-us/free/)，[您就能免費使用一些最常用的 Azure 服務 12 個月](billing-create-free-services-included-free-account.md)。 除了下列建議之外，請參閱[避免產生免費帳戶的費用](billing-avoid-charges-free-account.md)。
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>在新增 Azure 服務之前取得估計的成本
 
@@ -157,6 +157,7 @@ ms.lasthandoff: 12/08/2017
 - 訂閱費用是以使用情形計費，不考慮預付金額、超額部分、包含的數量、調整內容和稅金。 系統會在申請時計算實際費用。 
 - 相較於企業版入口網站中的值，Azure 入口網站可能會比較慢才顯示最新金額。  
 - 如果看不到費用，可能是因為下列其中一個原因：
+    - 您在訂用帳戶層級上沒有足夠的 RBAC 權限。 若要查看企業成本檢視，您必須是訂用帳戶層級上的帳單讀者、讀者、參與者或擁有者。
     - 您是帳戶擁有者且您的申請管理員已停用「AO 檢視費用」設定。  請連絡您的申請管理員以取得費用存取權。 
     - 您是部門管理員且您的申請管理員已停用「DA 檢視費用」設定。  請連絡您的申請管理員以取得存取權。 
     - 您透過管道夥伴購買 Azure，且該夥伴未發佈價格資訊。  

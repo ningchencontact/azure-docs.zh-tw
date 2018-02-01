@@ -1,9 +1,17 @@
 
-**上次文件更新**：太平洋標準時間 1 月 6 日下午 6:30。
+
+
+**上次文件更新**：太平洋標準時間 1 月 22 日下午 3:00。
 
 最近揭露的[新 CPU 漏洞類別](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)也稱為推測性執行旁路攻擊，讓許多客戶不知所措。  
 
 執行 Azure 的基礎結構，以及將客戶的工作負載互相隔離這方面已受到保護。  這表示在 Azure 上執行的其他客戶無法使用這些漏洞來攻擊您的應用程式。
+
+> [!NOTE] 
+> Azure 在 2018 年 1 月 3 日宣佈的風險降低措施，並未受到 Intel 最近發佈的[更新指引](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) \(英文\) 所影響。 我們不會因為這些新資訊而針對客戶的VM 實施額外維護活動。
+>
+> 當我們收到硬體廠商的微碼更新時，便會繼續更新這些最佳做法。 請回來查看更新的指引。
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>讓您的作業系統維持最新狀態
 
@@ -40,11 +48,6 @@
 
 ### <a name="linux"></a>Linux
 如果您使用的是 Linux 而且裝載未受信任的程式碼，您應該將 Linux 一併更新為最新版本，以實作核心分頁表隔離 (KPTI)，從屬於使用者空間的分頁表中分隔出核心使用的分頁表。 這些防護功能需要進行 Linux 作業系統更新，並可以在可用時從散發提供者處取得這些功能。 您的作業系統提供者可以告訴您依預設，保護是否已啟用或停用。
-
-
-
-
-
 
 
 

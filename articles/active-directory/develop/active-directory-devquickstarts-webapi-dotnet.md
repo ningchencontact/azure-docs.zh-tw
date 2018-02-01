@@ -1,5 +1,5 @@
 ---
-title: "Azure AD.NET Web 應用程式開發介面開始使用 |Microsoft 文件"
+title: "Azure AD .NET Web API 入門 | Microsoft Docs"
 description: "如何建置與 Azure AD 整合來進行驗證和授權的 .NET MVC Web API。"
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD Web API 使用者入門
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API 入門
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 如果您要建置可存取受保護資源的應用程式，您必須知道如何防止這些資源遭受不當存取。
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 
 3. 將類別宣告變更為 `public partial class Startup`。 我們已在另一個檔案中為您實作此類別的一部分。 請在 `Configuration(…)` 方法中，呼叫 `ConfgureAuth(…)` 來為您的 Web 應用程式設定驗證。
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 
 4. 開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(…)` 方法。 您在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 
 5. 現在，您可以使用 `[Authorize]` 屬性以「JSON Web 權杖」(JWT) 持有者驗證協助保護您的控制器和動作。 使用授權標記裝飾 `Controllers\TodoListController.cs` 類別。 這樣會強制使用者在存取該頁面之前必須先登入。
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 
 6. Web API 的一個常見需求是驗證權杖中是否有「範圍」存在。 這可確保使用者已對存取「待辦事項清單服務」所需的權限表示同意。
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

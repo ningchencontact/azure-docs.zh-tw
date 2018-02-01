@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>快速入門：探索 Azure 時間序列深入解析
-本快速入門會示範如何在可用的示範環境中開始使用 Azure 時間序列深入解析。 您會了解如何使用網頁瀏覽器來視覺化大量的 IoT 資料，並導覽時間序列深入解析的主要功能。 
+本快速入門會示範如何在可用的示範環境中開始使用 Azure 時間序列深入解析。 您會了解如何使用網頁瀏覽器將大量的 IoT 資料視覺化，並導覽時間序列深入解析的主要功能。 
 
-Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 您能以全域方式檢視資料，這可協助您探索隱藏的趨勢、找出異常狀況及近乎即時執行根本原因分析，進而快速驗證 IoT 解決方案並避免代價高昂的任務關鍵性裝置停機。  如果您要建置的應用程式需要存放或查詢時間序列資料，您可以時間序列深入解析 REST API 進行開發。
+Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 您能以全域方式檢視資料，這可協助您探索隱藏的趨勢、找出異常狀況及近乎即時執行根本原因分析，進而快速驗證 IoT 解決方案並避免代價高昂的任務關鍵性裝置停機。  如果您要建置的應用程式需要存放或查詢時間序列資料，您可以時間序列深入解析 REST API 進行開發。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 

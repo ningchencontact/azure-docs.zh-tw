@@ -10,7 +10,7 @@
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure 搜尋服務索引](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
-| **資料庫/資料倉儲** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
+| **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill 搶鮮版 (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery 搶鮮版 (Beta)](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
@@ -32,7 +32,7 @@
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | | |✓  |
-| **NoSQLs** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
+| **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase 搶鮮版 (Beta)](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
 | **檔案** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
@@ -43,7 +43,7 @@
 | **一般通訊協定** |[一般 HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[一般 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| **服務和其他項目** |[Amazon Marketplace Web Service 搶鮮版 (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| **服務和應用程式** |[Amazon Marketplace Web Service 搶鮮版 (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Concur 搶鮮版 (Beta)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>使用 Azure LBS 尋找不同行進模式的路線
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 01/02/2018
 > * 設定路線規劃服務查詢
 > * 轉譯依行進模式設定優先順序的路線
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-在繼續之前，請務必[建立 Azure LBS 帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。 您也可以如[使用 Azure LBS 來搜尋附近景點](./tutorial-search-location.md)教學課程所述，觀察該如何使用地圖控制項和搜尋服務 API，以及如[使用 Azure LBS 來尋找景點的路線](./tutorial-route-location.md)教學課程所述，了解路線規劃服務 API 的基本使用方式。
+在繼續之前，請務必[建立 Azure LBS 帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的金鑰](./tutorial-search-location.md#getkey)。 您也可以如[使用 Azure LBS 來搜尋附近景點](./tutorial-search-location.md)教學課程所述，觀察該如何使用地圖控制項和搜尋服務 API，以及如[使用 Azure LBS 來尋找景點的路線](./tutorial-route-location.md)教學課程所述，了解路線規劃服務 API 的基本使用方式。
 
 
 <a id="queryroutes"></a>
@@ -80,9 +80,9 @@ ms.lasthandoff: 01/02/2018
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
@@ -195,7 +195,7 @@ ms.lasthandoff: 01/02/2018
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -209,7 +209,7 @@ ms.lasthandoff: 01/02/2018
     ```
     此程式碼片段會建立 [XMLHttpRequest](https://xhr.spec.whatwg.org/)，並新增事件處理常式以剖析傳入的回應。 若是成功的回應，它會建立所傳回路線的座標陣列，並將它新增至地圖的 `truckRouteLayerName` 圖層。 
     
-    此程式碼片段也會將查詢傳送至路線規劃服務，針對您帳戶的訂用帳戶金鑰，取得指定起點和終點的路線。 下列選用參數用來表示重型卡車的路線：- `travelMode=truck` 參數會將行進模式指定為「卡車」。 其他支援的行進模式為「計程車」、「巴士」、「箱形車」、「摩托車」 和預設的「汽車」。  
+    此程式碼片段也會將查詢傳送至路線規劃服務，以針對您的帳戶金鑰，取得指定起點和終點的路線。 下列選用參數用來表示重型卡車的路線：- `travelMode=truck` 參數會將行進模式指定為「卡車」。 其他支援的行進模式為「計程車」、「巴士」、「箱形車」、「摩托車」 和預設的「汽車」。  
         - `vehicleWidth`、`vehicleHeight` 和 `vehicleLength` 參數可指定車輛的尺寸 (以公尺為單位)，而且只會針對行進模式「卡車」進行考量。  
         - `vehicleLoadType` 會將貨物歸類為危險，並限制在某些道路上運送。 這目前也只會針對「卡車」模式進行考量。  
 
@@ -238,7 +238,7 @@ ms.lasthandoff: 01/02/2018
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -247,7 +247,7 @@ ms.lasthandoff: 01/02/2018
     ```
     此程式碼片段會建立另一個 [XMLHttpRequest](https://xhr.spec.whatwg.org/)，並新增事件處理常式以剖析傳入的回應。 若是成功的回應，它會建立所傳回路線的座標陣列，並將它新增至地圖的 `carRouteLayerName` 圖層。 
     
-    此程式碼片段也會將查詢傳送至路線規劃服務，針對您帳戶的訂用帳戶金鑰，取得指定起點和終點的路線。 由於未使用任何其他參數，所以會傳回預設行進模式「汽車」的路線。 
+    此程式碼片段也會將查詢傳送至路線規劃服務，以針對您的帳戶金鑰，取得指定起點和終點的路線。 由於未使用任何其他參數，所以會傳回預設行進模式「汽車」的路線。 
 
 3. 在本機儲存 **MapTruckRoute.html** 檔案，然後在您選擇的網頁瀏覽器中開啟它，並觀察結果。 如果您成功連線到位置服務的 API，您應該會看到類似下面的地圖。 
 

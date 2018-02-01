@@ -17,11 +17,11 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: fe3ea6c22fafad0d0dcf611ceb365a2ebca80011
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中
 
@@ -90,7 +90,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](performance-tiers.m
 
     ![設定效能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. 按一下 [Apply (套用)] 。
+8. 按一下 [套用]。
 9. 在 [SQL 資料倉儲] 頁面上，針對空白資料庫選取 [定序]。 本教學課程使用預設值。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations.md)。
 
 11. 您現在已完成 SQL Database 表單，請按一下 [建立] 來佈建資料庫。 佈建需要幾分鐘的時間。 
@@ -125,7 +125,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 4. 按一下工具列上的 [新增用戶端 IP]，將目前的 IP 位址新增至新的防火牆規則。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-5. 按一下 [儲存] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+5. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
 6. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
 
@@ -170,7 +170,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="create-a-user-for-loading-data"></a>建立載入資料的使用者
 
-伺服器系統管理員帳戶旨在執行管理作業，並不適合用於在使用者資料上執行查詢。 載入資料通常需要大量記憶體。 [記憶體的最大值](performance-tiers.md#memory-maximums)是根據[效能層級](performance-tiers.md)和[資源類別](resource-classes-for-workload-management.md)來定義。 
+伺服器系統管理員帳戶旨在執行管理作業，並不適合用於在使用者資料上執行查詢。 載入資料是需要大量記憶體的作業。 [記憶體的最大值](performance-tiers.md#memory-maximums)是根據[效能層級](performance-tiers.md)和[資源類別](resource-classes-for-workload-management.md)來定義。 
 
 您最好建立載入資料專用的登入和使用者。 然後將載入使用者新增至可進行適當最大記憶體配置的[資源類別](resource-classes-for-workload-management.md)。
 
@@ -211,7 +211,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
     ![與新登入連線](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. 輸入完整伺服器名稱，但這次輸入 **LoaderRC20** 作為登入。  輸入您 LoaderRC20 的密碼。
+2. 輸入完整伺服器名稱，以及輸入 **LoaderRC20** 作為登入。  輸入您 LoaderRC20 的密碼。
 
 3. 按一下 [ **連接**]。
 
@@ -452,6 +452,10 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 本節會使用您剛定義的外部資料表，將範例資料從 Azure 儲存體 Blob 載入 SQL 資料倉儲中。  
 
+> [!NOTE]
+> 本教學課程會將資料直接載入最終資料表。 在生產環境中，您通常會使用 CREATE TABLE AS SELECT 來載入暫存資料表。 當資料位於暫存資料表時，您可以執行任何必要的轉換。 若要將暫存資料表中的資料附加至生產資料表，您可以使用 INSERT...SELECT 陳述式。 如需詳細資訊，請參閱[將資料插入生產資料表中](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
+> 
+
 指令碼會使用 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 陳述式，將資料從 Azure 儲存體 Blob 載入資料倉儲中的新資料表。 CTAS 會以 select 陳述式的結果作為基礎，建立新的資料表。 新的資料表擁有和 select 陳述式結果相同的資料行和資料類型。 當 select 陳述式從外部資料表選取時，SQL 資料倉儲會將資料匯入資料倉儲中的關聯式資料表。 
 
 1. 執行下列指令碼，將資料載入資料倉儲中的新資料表。
@@ -567,7 +571,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 SQL 資料倉儲不會自動建立或自動更新統計資料。 因此，若要達到高查詢效能，請務必在第一次載入後，於每個資料表的每個資料行上建立統計資料。 另外，也請務必在大幅變更資料後更新統計資料。
 
-1. 執行這些命令可在要用於聯結的資料行上建立統計資料。
+執行這些命令可在要用於聯結的資料行上建立統計資料。
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);

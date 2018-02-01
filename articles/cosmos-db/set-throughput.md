@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: cf6eadbae328b1551da861fb5a11930ee830d415
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>設定 Azure Cosmos DB 容器的輸送量
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/03/2018
         <tr>
             <td valign="top"><p>輸送量下限</p></td>
             <td valign="top"><p>每秒 400 個要求單位</p></td>
-            <td valign="top"><p>每秒 1000年要求單位</p></td>
+            <td valign="top"><p>每秒 1000 個要求單位</p></td>
         </tr>
         <tr>
             <td valign="top"><p>輸送量上限</p></td>
@@ -51,15 +51,15 @@ ms.lasthandoff: 01/03/2018
 1. 在新的視窗中，開啟 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下左側的 [Azure Cosmos DB]，或按一下底部的 [更多服務]，捲動至 [資料庫]，然後按一下 [Azure Cosmos DB]。
 3. 選取您的 Cosmos DB 帳戶。
-4. 在新視窗中，按一下 **資料總管**瀏覽功能表中。
+4. 在新視窗中，按一下導覽功能表中的 [資料總管]。
 5. 在新視窗中，展開您的資料庫和容器，然後按一下 [規模與設定]。
 6. 在新視窗中，在 [輸送量] 方塊中輸入新的輸送量，然後按一下 [儲存]。
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>若要使用 SQL API 的.NET 設定輸送量
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>使用 SQL API for .NET 設定輸送量
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -75,9 +75,9 @@ await client.ReplaceOfferAsync(offer);
 
 <a id="set-throughput-java"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>若要使用 SQL API for Java 設定輸送量
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>使用 SQL API for Java 設定輸送量
 
-這個程式碼片段取自 OfferCrudSamples.java 檔案中[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java)儲存機制。 
+這個程式碼片段取自 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 存放庫中的 OfferCrudSamples.java 檔案。 
 
 ```Java
 // find offer associated with this collection
@@ -99,11 +99,11 @@ client.replaceOffer(offer);
 
 **我可以將輸送量設定為小於 400 RU/s 嗎？**
 
-400 RU/秒是 Cosmos DB 單一磁碟分割容器 （1000 RU/秒的最小的資料分割的容器） 上可用的最小輸送量。 要求單位是設定為 100 RU/s 時間間隔，但不能將輸送量設定為 100 RU/s 或任何小於 400 RU/s 的值。 如果您正在尋找符合成本效益的方法來開發和測試 Cosmos DB，您可以使用免費的 [Cosmos DB 模擬器](local-emulator.md)，於本機免費部署此模擬器。 
+400 RU/s 是 Cosmos DB 單一資料分割容器上可用的最小輸送量 (1000 RU/s 是資料分割容器的最小值)。 要求單位是設定為 100 RU/s 時間間隔，但不能將輸送量設定為 100 RU/s 或任何小於 400 RU/s 的值。 如果您正在尋找符合成本效益的方法來開發和測試 Cosmos DB，您可以使用免費的 [Cosmos DB 模擬器](local-emulator.md)，於本機免費部署此模擬器。 
 
 **如何使用 MongoDB API 設定輸送量？**
 
-MongoDB API 沒有可以設定輸送量的擴充功能。 建議使用 SQL API 中所示[for.NET 中使用 SQL API 設定輸送量](#set-throughput-sdk)。
+MongoDB API 沒有可以設定輸送量的擴充功能。 建議使用 SQL API，如[使用 SQL API for .NET 設定輸送量](#set-throughput-sdk)中所示。
 
 ## <a name="next-steps"></a>後續步驟
 

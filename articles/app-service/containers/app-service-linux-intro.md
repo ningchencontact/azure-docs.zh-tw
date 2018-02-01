@@ -16,15 +16,16 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 簡介
 
-[Web 應用程式](../app-service-web-overview.md)是受到完整管理的計算平台，非常適合用來裝載網站和 Web 應用程式。 針對支援的應用程式堆疊，客戶可以使用 Linux 上的 App Service，以原生方式將 Web 應用程式裝載於 Linux。 以下章節列出目前支援的應用程式堆疊。
+
+            [Web 應用程式](../app-service-web-overview.md)是完全受控的計算平台，非常適合用來裝載網站和 Web 應用程式。 針對支援的應用程式堆疊，客戶可以使用 Linux 上的 App Service，以原生方式將 Web 應用程式裝載於 Linux。 以下章節列出目前支援的應用程式堆疊。
 
 ## <a name="languages"></a>語言
 
@@ -73,7 +74,7 @@ Azure 入口網站只會顯示 Web App for Containers 目前可用的功能。 �
 Linux 上的 App Service 僅支援[基本和標準](https://azure.microsoft.com/pricing/details/app-service/plans/)應用程式服務方案，而且沒有[免費或共用](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 以下也是 Linux 上的 App Service 重要限制：
 
 * 在已裝載非 Linux Web Apps 的 App Service 方案中，您無法建立 Web App for Containers。
-* 在包含非 Linux Web Apps 的資源群組中建立 Web App for Containers 時，您必須在與現有 App Service 方案不同的區域中建立 App Service 方案。
+* 在包含非 Linux Web Apps 的資源群組中建立 Web App for Containers 時，您必須在與現有 App Service 方案不同的資源群組中建立 App Service 方案。
 
 ## <a name="troubleshooting"></a>疑難排解
 

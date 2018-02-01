@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -32,7 +32,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
  本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/iris_flower_data_set)。 螢幕擷取畫面是 Windows 專屬，但是 Mac OS 體驗幾乎完全相同。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 完成本教學課程系列的前兩個部分：
 
    * 遵循[資料準備教學課程](tutorial-classifying-iris-part-1.md)來建立 Machine Learning 資源，並安裝 Azure Machine Learning Workbench 應用程式。
@@ -134,37 +134,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    命令提示字元會在目前的專案資料夾位置 **c:\temp\myIris>** 中開啟。
 
-2. 請確定已在訂用帳戶中註冊 Azure 資源提供者 **Microsoft.ContainerRegistry**。 在步驟 3 中建立環境之前，您必須先登錄這個資源提供者。 您可以使用下列命令來查看是否已登錄：
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   您應該會看到如下的輸出： 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   如果未登錄 **Microsoft.ContainerRegistry**，您可以使用下列命令來加以登錄：
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   註冊可能需要幾分鐘的時間。 您可以使用上一個 **az provider list** 命令或下列命令來檢查其狀態：
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   第三行輸出顯示 **"registrationState": "Registering"**。 請稍候片刻並重複 **show** 命令，直到輸出顯示 **"registrationState": "Registered"** 為止。
-
-   >[!NOTE] 
-   如果您要部署至 ACS 叢集，您也必須使用相同的方法來註冊 **Microsoft.ContainerService** 資源提供者。
-
-3. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
+2. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
 
    請注意，下列設定命令要求您具有訂用帳戶的參與者存取權。 如果您沒有該權限，您至少需有所要部署到資源群組的參與者存取權。 若要執行後者，您需要使用 `-g` 旗標將資源群組名稱指定為設定命令的一部分。 
 
@@ -176,25 +146,25 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    
    叢集名稱是可讓您識別環境的一種方式。 位置應該與您從 Azure 入口網站建立之模型管理帳戶的位置相同。
 
-4. 建立模型管理帳戶。 (此設定只需要執行一次。)  
+3. 建立模型管理帳戶。 (此設定只需要執行一次。)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. 設定模型管理帳戶。  
+4. 設定模型管理帳戶。  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. 設定環境。
+5. 設定環境。
 
-   設定完成之後，使用下列命令來設定作業化環境所需的環境變數。 使用您先前在步驟 4 中使用的相同環境名稱。 使用當設定程序完成時，在命令視窗中輸出的相同資源群組名稱。
+   設定完成之後，使用下列命令來設定作業化環境所需的環境變數。 使用您先前在步驟 2 使用的相同環境名稱。 使用當設定程序完成時，在命令視窗中輸出的相同資源群組名稱。
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. 若要確認您已針對本機 Web 服務部署正確設定您的運作化環境，請輸入下列命令：
+6. 若要確認您已針對本機 Web 服務部署正確設定您的運作化環境，請輸入下列命令：
 
    ```azurecli
    az ml env show

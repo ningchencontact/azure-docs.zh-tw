@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 534d00c0938aaadf9abd9942be80eb456787fcf9
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 0e9615ca52fe981f49eb85f68cd1ab0204406bfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
 Azure PowerShell 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure PowerShell 模組備份虛擬機器 (VM)。 您也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 入口網站](quick-backup-vm-portal.md)來執行這些步驟。
@@ -44,7 +44,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
+## <a name="create-a-recovery-services-vaults"></a>建立復原服務保存庫
 復原服務保存庫是一個邏輯容器，可儲存每個受保護資源 (例如 Azure VM) 的備份資料。 執行受保護資源的備份作業時，它會在復原服務保存庫內建立復原點。 然後您可以使用其中一個復原點，將資料還原到指定的時間點。
 
 使用 [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) 來建立復原服務保存庫。 指定與您想要保護的 VM 相同的資源群組和位置。 如果您使用了[範例指令碼](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)來建立 VM，則資源群組會命名為 *myResourceGroup*、VM 會命名為 *myVM*，而資源位於 *WestEurope* 位置。

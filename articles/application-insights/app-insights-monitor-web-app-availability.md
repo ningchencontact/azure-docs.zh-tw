@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -30,6 +30,12 @@ ms.lasthandoff: 12/15/2017
 * [多步驟 Web 測試](#multi-step-web-tests)：您可以在 Visual Studio Enterprise 中建立並上傳至入口網站的測試。
 
 每個應用程式資源最多可以建立 100 項可用性測試。
+
+
+> [!NOTE] 
+> * 可用性測試位置已於近期移至 Azure 資料中心。 經此移動後，我們將可透過 Azure 資料中心持續擴大的網路來新增位置。  
+> * 您不需要更新測試。 所有測試皆會移轉，並從新位置執行。 
+>* 如需詳細資訊，請參閱[服務更新](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/)。
 
 ## <a name="create"></a>開啟可用性測試報告的資源
 
@@ -118,7 +124,8 @@ ms.lasthandoff: 12/15/2017
 若要建立多重步驟測試，您可以使用 Visual Studio Enterprise 來記錄案例，然後將記錄結果上傳至 Application Insights。 Application Insights 會不時地重新執行案例，並確認回應。
 
 > [!NOTE]
-> 您無法在測試中使用已編碼的函式或迴圈。 測試必須完全包含於 .webtest 指令碼中。 不過，您可以使用標準外掛程式。
+> * 您無法在測試中使用已編碼的函式或迴圈。 測試必須完全包含於 .webtest 指令碼中。 不過，您可以使用標準外掛程式。
+> * 多重步驟 Web 測試僅支援英文字元。 如果您在 Visual Studio 中使用其他語言，請更新 Web 測試的定義檔，以轉譯/排除非英文字元。
 >
 
 #### <a name="1-record-a-scenario"></a>1.記錄案例
@@ -269,7 +276,7 @@ Web 測試外掛程式提供將時間參數化的方法。
     如果您已針對伺服器端應用程式設定 Application Insights，這可能是因為正在進行[取樣](app-insights-sampling.md)。
 * *可以從我的 Web 測試呼叫程式碼嗎？*
 
-    否。 測試步驟必須在 .webtest 檔案中。 而且您不能呼叫其他 Web 測試或使用迴圈。 但是這裡有一些您會覺得有用的外掛程式。
+    編號 測試步驟必須在 .webtest 檔案中。 而且您不能呼叫其他 Web 測試或使用迴圈。 但是這裡有一些您會覺得有用的外掛程式。
 * *是否支援 HTTPS？*
 
     我們支援 TLS 1.1 和 TLS 1.2。
@@ -301,7 +308,7 @@ Web 測試外掛程式提供將時間參數化的方法。
     很抱歉，我們不支援此功能。
 
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 [搜尋診斷記錄][diagnostic]
 
 [疑難排解][qna]

@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-a-new-storage-account"></a>建立新的儲存體帳戶
+# <a name="create-a-storage-account"></a>建立儲存體帳戶
 
 Azure 儲存體帳戶提供雲端中的唯一命名空間，來儲存及存取 Azure 儲存體中的資料物件。 儲存體帳戶包含您在該帳戶下建立的任何 Blob、檔案、佇列、資料表和磁碟。 
 
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>建立一般用途的儲存體帳戶
+## <a name="create-a-general-purpose-storage-account"></a>建立一般用途的儲存體帳戶
 
-一般用途儲存體帳戶提供所有 Azure 儲存體服務的存取權：Blob、檔案、佇列和資料表。 一般用途儲存體帳戶可以在標準或進階層建立。 本文中的範例示範如何在標準層 (預設) 中建立一般用途儲存體帳戶。 如需有關儲存體帳戶選項的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](storage-introduction.md)。
+一般用途儲存體帳戶提供所有 Azure 儲存體服務的存取權：Blob、檔案、佇列和資料表。 一般用途儲存體帳戶可以在標準或進階層建立。 本文中的範例示範如何在標準層 (預設) 中建立一般用途儲存體帳戶。
+
+Azure 儲存體提供兩種類型的一般用途儲存體帳戶：
+
+- 一般用途 v2 帳戶 
+- 一般用途 v1 帳戶。 
+
+> [!NOTE]
+> 建議您建立 **v2 一般用途帳戶**作為新的儲存體帳戶，以充分利用這些帳戶提供的新功能。  
+
+如需儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶選項](storage-account-options.md)。
 
 為您的儲存體帳戶命名時，請記住這些規則：
 
@@ -149,43 +159,72 @@ az account list-locations \
 
 # <a name="portaltabportal"></a>[入口網站](#tab/portal)
 
-若要在 Azure 入口網站中建立一般用途儲存體帳戶，請遵循下列步驟：
+若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
 1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [更多服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 2. 輸入儲存體帳戶的名稱。
-3. 將以下欄位設為其預設值：**部署模型**、**帳戶類型**、**效能**、**複寫**、**需要安全傳輸**。
-4. 選擇您要在其中建立儲存體帳戶的訂用帳戶。
-5. 在 [資源群組] 區段中，選取 [使用現有]，然後選擇您在上一節中建立的資源群組。
-6. 選擇新儲存體帳戶的位置。
-7. 按一下 [建立]  建立儲存體帳戶。      
+3. 將 [帳戶類型] 欄位設定為 [StorageV2 (一般用途 v2)]。
+4. 將 [複寫] 欄位的設定保留為 [本地備援儲存體 (LRS)]。 或者，您可以選擇 [區域備援儲存體 (ZRS 預覽版)]、[異地備援儲存體 (GRS)] 或 [讀取權限異地備援儲存體 (RA-GRS)]。
+5. 將以下欄位的設定保留為預設值：**部署模型**、**效能**、**需要安全傳輸**。
+6. 選擇您要在其中建立儲存體帳戶的訂用帳戶。
+7. 在 [資源群組] 區段中，選取 [使用現有]，然後選擇您在上一節中建立的資源群組。
+8. 選擇新儲存體帳戶的位置。
+9. 按一下 [建立]  建立儲存體帳戶。      
 
 ![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要從 PowerShell 建立一般用途儲存體帳戶，請使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
+若要從 PowerShell 建立具有本地備援儲存體 (LRS) 的一般用途 v2 儲存體帳戶，請使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+若要建立具有區域備援儲存體 (ZRS 預覽版)、異地備援儲存體 (GRS) 或讀取權限異地備援儲存體 (RA-GRS) 的一般用途 v2 儲存體帳戶，請在下表中將 **SkuName** 參數取代為適當值。 
+
+|複寫選項  |SkuName 參數  |
+|---------|---------|
+|本地備援儲存體 (LRS)     |Standard_LRS         |
+|區域備援儲存體 (ZRS)     |Standard_ZRS         |
+|異地備援儲存體 (GRS)     |Standard_GRS         |
+|讀取權限異地備援儲存體 (GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要從 Azure CLI 建立一般用途儲存體帳戶，請使用 [az storage account create](/cli/azure/storage/account#create) 命令。
+若要從 Azure CLI 建立具有本地備援儲存體的一般用途 v2 儲存體帳戶，請使用 [az storage account create](/cli/azure/storage/account#create) 命令。
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+若要建立具有區域備援儲存體 (ZRS 預覽版)、異地備援儲存體 (GRS) 或讀取權限異地備援儲存體 (RA-GRS) 的一般用途 v2 儲存體帳戶，請在下表中將 **sku** 參數取代為適當值。 
+
+|複寫選項  |sku 參數  |
+|---------|---------|
+|本地備援儲存體 (LRS)     |Standard_LRS         |
+|區域備援儲存體 (ZRS)     |Standard_ZRS         |
+|異地備援儲存體 (GRS)     |Standard_GRS         |
+|讀取權限異地備援儲存體 (GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> [區域備援儲存體](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/)目前為預覽狀態，且僅適用於下列位置：
+>    - 美國東部 2
+>    - 美國中部
+>    - 法國中部 (此區域目前為預覽狀態。 請參閱[具有 Azure 可用性區域的 Microsoft Azure 預覽版現在已在法國開放使用](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france)，以要求使用。)
+    
+如需關於各類可用複寫的詳細資訊，請參閱[儲存體複寫選項](storage-redundancy.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

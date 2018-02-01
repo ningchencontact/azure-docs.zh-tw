@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Python 和 Azure 入口網站建立圖形資料庫
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/08/2018
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、資料表、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。  
 
 > [!NOTE]
-> 本快速入門需要在 2017 年 11 月 27 之後建立的圖形資料庫帳戶。 現有帳戶在移轉至正式運作之後便會支援 Python。
+> 此快速入門需要 2017 年 12 月 20 日之後建立的圖形資料庫帳戶。 現有帳戶在移轉至正式運作之後便會支援 Python。
 
 ## <a name="prerequisites"></a>先決條件
 

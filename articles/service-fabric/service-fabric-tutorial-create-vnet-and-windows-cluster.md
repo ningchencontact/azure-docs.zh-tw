@@ -12,17 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f043ad753560ecac83324a259341a69ffce01fa5
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
-本教學課程是一個系列的第一部分。 您將會了解如何使用 PowerShell 將執行 Windows 之 Service Fabric 叢集部署到現有的 Azure 虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。  若要使用 Azure CLI 建立 Linux 叢集，請參閱[在 Azure 上建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+本教學課程是一個系列的第一部分。 您將會了解如何使用 PowerShell 和範本將執行 Windows 的 Service Fabric 叢集部署到 [Azure 虛擬網路 (VNET)](../virtual-network/virtual-networks-overview.md) 和[網路安全性群組](../virtual-network/virtual-networks-nsg.md)中。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。  若要使用 Azure CLI 建立 Linux 叢集，請參閱[在 Azure 上建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+
+此教學課程說明的是生產環境案例。  如果您想要快速建立測試用的小型叢集，請參閱[建立三個節點的測試叢集](./scripts/service-fabric-powershell-create-test-cluster.md)。
 
 在本教學課程中，您了解如何：
 
@@ -41,7 +43,7 @@ ms.lasthandoff: 12/07/2017
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前：
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 安裝 [Service Fabric SDK 和 PowerShell 模組](service-fabric-get-started.md)
@@ -49,99 +51,151 @@ ms.lasthandoff: 12/07/2017
 
 下列程序會建立五個節點的 Service Fabric 叢集。 若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
 
-## <a name="introduction"></a>簡介
-本教學課程會將一個由五個單一節點類型的節點組成的叢集部署到 Azure 中的虛擬網路。
-
+## <a name="key-concepts"></a>重要概念
 [Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 叢集可擴充至數千部機器。 隸屬於叢集的機器或 VM 即稱為節點。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。
 
 節點類型定義叢集中一組虛擬機器的大小、數目和屬性。 每個已定義的節點類型會設定為[虛擬機器擴展集](/azure/virtual-machine-scale-sets/)，這是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合來部署及管理。 然後每個節點類型可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並可以有不同的容量度量。 節點類型是用來定義一組叢集節點的角色，例如「前端」或「後端」。  您的叢集可以有多個節點類型，但主要節點類型必須至少有五個 VM 供生產環境叢集使用 (或至少有三個 VM 供測試叢集使用)。  [Service Fabric 系統服務](service-fabric-technical-overview.md#system-services)是放置在主要節點類型的節點上。
 
-## <a name="cluster-capacity-planning"></a>叢集容量規劃
-本教學課程將部署由單一節點類型的五個節點組成的叢集。  針對任何生產環境叢集部署，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的事情。
+叢集會受到叢集憑證的保護。 叢集憑證是用來保護節點對節點通訊，並向管理用戶端驗證叢集管理端點的 X.509 憑證。  該憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。 自我簽署憑證可用於測試叢集。  對於生產叢集，請使用憑證授權單位 (CA) 提供的憑證作為叢集憑證。
 
-- 您的叢集所需的節點類型的數目 
-- 每個節點類型的屬性 (例如大小、主要、網際網路面向、VM 數目等)
-- 叢集的可靠性和持久性的特性
-
-如需詳細資訊，請參閱[叢集容量規劃考量](service-fabric-cluster-capacity.md)。
-
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 並選取您的訂用帳戶
-本指南使用 Azure PowerShell。 開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
- 
-執行下列指令碼，以登入您的 Azure 帳戶並選取您的訂用帳戶：
-
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
-
-## <a name="create-a-resource-group"></a>建立資源群組
-針對您的部署建立新的資源群組，並指定名稱和位置。
-
-```powershell
-$groupname = "sfclustertutorialgroup"
-$clusterloc="southcentralus"
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
-```
-
-## <a name="deploy-the-network-topology"></a>部署網路拓撲
-接下來，設定將作為 API 管理與 Service Fabric 叢集部署位置的網路拓撲。 [Network.json][network-arm] Resource Manager 範本已設定來建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG) 以及適用於 API 管理的子網路和 NSG。 本教學課程稍後會部署 API 管理。 在[這裡](../virtual-network/virtual-networks-overview.md)深入了解 VNET、子網路與 NSG。
-
-[Network.parameters.json][network-parameters-arm] 參數檔包含要作為 Service Fabric 與 API 管理部署位置之子網路和 NSG 的名稱。  [下一個教學課程](service-fabric-tutorial-deploy-api-management.md)會部署 API 管理。 就這份指南而言，參數值無須變更。 Service Fabric Resource Manager 範本會使用這些值。  如果在此處修改這些值，您也必須在本教學課程和[部署 API 管理教學課程](service-fabric-tutorial-deploy-api-management.md)所使用的其他 Resource Manager 範本中修改這些值。 
-
-下載下列 Resource Manager 範本和參數檔：
-- [network.json][network-arm]
-- [network.parameters.json][network-parameters-arm]
-
-使用下列 PowerShell 命令來部署用於網路設定的 Resource Manager 範本和參數檔：
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
-```
-
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="deploy-the-service-fabric-cluster"></a>部署 Service Fabric 叢集
-部署完網路資源之後，下一個步驟是將 Service Fabric 叢集部署至為 Service Fabric 叢集指定之子網路與 NSG 中的 VNET。 將叢集部署至現有的 VNET 和子網路 (先前已在本文中部署) 需要 Resource Manager 範本。  本教學課程系列已將範本預先設定為使用您在上一個步驟中設定之 VNET、子網路及 NSG 的名稱。  
-
-下載下列 Resource Manager 範本和參數檔：
-- [cluster.json][cluster-arm]
-- [cluster.parameters.json][cluster-parameters-arm]
-
-使用此範本來建立安全叢集。  叢集憑證是用來保護節點對節點通訊，並向管理用戶端驗證叢集管理端點的 X.509 憑證。  該憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。 Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。  在 Azure 中部署叢集時，負責建立 Service Fabric 叢集的 Azure 資源提供者會從金鑰保存庫提取憑證，並將它們安裝在叢集 VM 上。 
-
-您可以使用憑證授權單位 (CA) 的憑證作為叢集憑證，或對於測試目的，建立自我簽署憑證。 叢集憑證必須︰
+叢集憑證必須︰
 
 - 包含私密金鑰。
 - 是為了進行金鑰交換而建立，且可匯出成個人資訊交換 (.pfx) 檔案。
 - 有與您用來存取 Service Fabric 叢集的網域相符的主體名稱。 必須如此符合，才能為叢集的 HTTPS 管理端點和 Service Fabric Explorer 提供 SSL。 您無法從憑證授權單位 (CA) 取得 .cloudapp.azure.com 網域的 SSL 憑證。 您必須為您的叢集取得自訂網域名稱。 當您向 CA 要求憑證時，憑證的主體名稱必須與用於您叢集的自訂網域名稱相符。
 
-針對您的部署，在 *cluster.parameters.json* 檔案中填入這些空白參數：
+Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。  在 Azure 中部署叢集時，負責建立 Service Fabric 叢集的 Azure 資源提供者會從金鑰保存庫提取憑證，並將它們安裝在叢集 VM 上。
 
-|參數|值|
-|---|---|
-|adminPassword|Password#1234|
-|adminUserName|vmadmin|
-|clusterName|mysfcluster|
-|location|southcentralus|
+此教學課程將部署由單一節點類型中五個節點組成的叢集。 不過，對於任何生產環境叢集部署，[容量規劃](service-fabric-cluster-capacity.md)都是一個很重要的步驟。 以下是一些您在該程序中必須考量的事情。
 
-將 *certificateThumbprint*、*certificateUrlValue* 和 *sourceVaultValue* 參數保留空白，以建立自我簽署憑證。  如果您要使用先前上傳至金鑰保存庫的憑證，請填入那些參數值。
+- 您的叢集所需的節點數目和節點類型 
+- 每個節點類型的屬性 (例如大小、主要、網際網路面向、VM 數目等)
+- 叢集的可靠性和持久性的特性
 
-下列指令碼會使用 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) Cmdlet 和範本以在 Azure 中部署新的叢集。 Cmdlet 也會在 Azure 中建立新的金鑰保存庫、將新的自我簽署憑證新增至金鑰保存庫，並將憑證檔案下載至本機。 您可以使用 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) Cmdlet 的其他參數指定現有的憑證及/或金鑰保存庫。
+## <a name="download-and-explore-the-template"></a>下載並瀏覽範本
+下載下列 Resource Manager 範本檔案：
+- [vnet-cluster.json][template]
+- [vnet-cluster.parameters.json][parameters]
+
+[vnet-cluster.json][template] 會部署多項資源，其中包括： 
+
+### <a name="service-fabric-cluster"></a>Service Fabric 叢集
+Windows 叢集的部署具有下列特性：
+- 單一節點類型 
+- 屬於主要節點類型的五個節點 (可在範本參數中設定)
+- 作業系統：Windows Server 2016 Datacenter with Containers (可在範本參數中設定)
+- 受保護的憑證 (可在範本參數中設定)
+- 啟用[反向 Proxy](service-fabric-reverseproxy.md)
+- 啟用 [DNS 服務](service-fabric-dnsservice.md)
+- Bronze 的[耐久性層級](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (可在範本參數中設定)
+- Silver 的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (可在範本參數中設定)
+- 用戶端連線端點：19000 (可在範本參數中設定)
+- HTTP 閘道端點：19080 (可在範本參數中設定)
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+系統會為下列連接埠部署負載平衡器，並進行探查和規則的設定：
+- 用戶端連線端點：19000
+- HTTP 閘道端點：19080 
+- 應用程式連接埠：80
+- 應用程式連接埠：443
+- Service Fabric 反向 Proxy：19081
+
+如果需要其他應用程式連接埠，則您必須調整 Microsoft.Network/loadBalancers 資源和 Microsoft.Network/networkSecurityGroups 資源，以允許流量進入。
+
+### <a name="virtual-network-subnet-and-network-security-group"></a>虛擬網路、子網路和網路安全性群組
+虛擬網路、子網路和網路安全性群組的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告：
+- 虛擬網路位址空間：172.16.0.0/20
+- Service Fabric 子網路位址空間：172.16.2.0/23
+
+網路安全性群組會啟用下列輸入流量規則。 您可以藉由變更範本變數來變更連接埠值。
+- ClientConnectionEndpoint (TCP)：19000
+- HttpGatewayEndpoint (HTTP/TCP)：19080
+- SMB：445
+- Internodecommunication - 1025、1026、1027
+- 暫時連接埠範圍 – 49152 到 65534 (至少需要 256 個連接埠)
+- 應用程式使用的連接埠：80 和 443
+- 應用程式連接埠範圍 – 49152 到 65534 (用於服務之間的通訊，但不會在負載平衡器上開啟)
+- 封鎖所有其他連接埠
+
+如果需要其他應用程式連接埠，則您必須調整 Microsoft.Network/loadBalancers 資源和 Microsoft.Network/networkSecurityGroups 資源，以允許流量進入。
+
+## <a name="set-template-parameters"></a>設定範本參數
+[vnet-cluster.parameters.json][parameters] 參數檔案會宣告多個用來部署叢集和相關資源的值。 您可能需要為自己的部署修改某些參數：
+
+|參數|範例值|注意|
+|---|---||
+|adminUserName|vmadmin| 叢集 VM 的系統管理員使用者名稱。 |
+|adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。|
+|clusterName|mysfcluster123| 叢集的名稱。 |
+|location|southcentralus| 叢集的位置。 |
+|certificateThumbprint|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證指紋值。 例如 "6190390162C988701DB5676EB81083EA608DCCF3"</p>. | 
+|certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。 </p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如 "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|
+|sourceVaultValue||<p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入來源保存庫值。 例如 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"。</p>|
+
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
+## <a name="deploy-the-virtual-network-and-cluster"></a>部署虛擬網路和叢集
+接下來，請設定網路拓撲並部署 Service Fabric 叢集。 [vnet-cluster.json][template] Resource Manager 範本會建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG)。 範本也會部署啟用憑證安全性的叢集。  對於生產叢集，請使用憑證授權單位 (CA) 提供的憑證作為叢集憑證。 自我簽署憑證可用來保護測試叢集。
+
+### <a name="create-a-cluster-using-an-existing-certificate"></a>使用現有的憑證建立叢集
+下列指令碼會使用 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) Cmdlet 和範本在 Azure 中部署新的叢集。 此 Cmdlet 也會在 Azure 中建立新的金鑰保存庫，並上傳您的憑證。 
 
 ```powershell
 # Variables.
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"  # must match the location parameter in the template
+$templatepath="C:\temp\cluster"
+
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
-$certfolder="c:\mycertificates\"
-$clustername = "mysfcluster"
-$vaultname = "clusterkeyvault111"
-$vaultgroupname="clusterkeyvaultgroup111"
+$clustername = "mysfcluster123"  # must match the clusterName parameter in the template
+$vaultname = "clusterkeyvault123"
+$vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
+# sign in to your Azure account and select your subscription
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\cluster.json' `
--ParameterFile 'C:\winclustertutorial\cluster.parameters.json' -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
+-ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+-KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
+```
+
+### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>使用新的自我簽署憑證建立叢集
+下列指令碼會使用 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) Cmdlet 和範本在 Azure 中部署新的叢集。 此 Cmdlet 也會在 Azure 中建立新的金鑰保存庫、將新的自我簽署憑證新增至金鑰保存庫，並將憑證檔案下載至本機。 
+
+```powershell
+# Variables.
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"  # must match the location parameter in the template
+$templatepath="C:\temp\cluster"
+
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
+$certfolder="c:\mycertificates\"
+$clustername = "mysfcluster123"
+$vaultname = "clusterkeyvault123"
+$vaultgroupname="clusterkeyvaultgroup123"
+$subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+# sign in to your Azure account and select your subscription
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+
+# Create the Service Fabric cluster.
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
+-ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>連線到安全的叢集
@@ -159,7 +213,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 **Service Fabric** PowerShell 模組提供許多 Cmdlet 來管理 Service Fabric 叢集、應用程式和服務。  使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) Cmdlet 連接到安全的叢集。 在上一個步驟的輸出中找到憑證指紋和連線端點詳細資訊。
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
           -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
@@ -173,7 +227,7 @@ Get-ServiceFabricClusterHealth
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-本教學課程系列的其他文章會使用您剛才建立的叢集。 如果您現在不打算繼續閱讀下一篇文章，您可能要刪除該叢集和金鑰保存庫以避免產生費用。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
+此教學課程系列的其他文章會使用您建立的叢集。 如果您現在不打算繼續閱讀下一篇文章，您可能要刪除該叢集和金鑰保存庫以避免產生費用。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
 
 使用 [Remove-AzureRMResourceGroup Cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 刪除資源群組和所有叢集資源。  也會刪除包含金鑰保存庫的資源群組。
 
@@ -198,8 +252,5 @@ Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 > [調整叢集](service-fabric-tutorial-scale-cluster.md)
 
 
-[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
+[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json

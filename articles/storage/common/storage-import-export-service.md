@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/14/2017
 2.  根據資料的大小總計，採購所需的 2.5 英吋 SSD 或 2.5 英吋/3.5 英吋 SATA II/III 硬碟機數目。
 3.  直接使用 SATA 或外接式 USB 轉接器，將硬碟連結到 Windows 電腦。
 4.  在每個硬碟上建立單一 NTFS 磁碟區，並為磁碟區指派磁碟機代號。 沒有裝載點。
-5.  在 NTFS 磁碟區上啟用 BitLocker 加密。 使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx \(英文\) 的指示在 Windows 電腦上啟用加密。
+5.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 請使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx \(英文\) 上的指示。
 6.  使用複製與貼上、拖曳和置放，或是 Robocopy 或任何類似的工具，完整地將資料複製到這些已加密的單一 NTFS 磁碟區。
 7.  從 https://www.microsoft.com/en-us/download/details.aspx?id=42659 \(英文\) 下載 WAImportExport V1
 8.  將檔案解壓縮至預設資料夾 waimportexportv1。 例如，C:\WaImportExportV1  
@@ -55,12 +55,12 @@ ms.lasthandoff: 12/14/2017
 
 1. 登入 https://portal.azure.com/，在 [更多服務] -> [儲存體] -> [匯入/匯出作業] 底下，按一下 [建立匯入/匯出作業]。
 
-2. 在 [基本] 區段中，選取 [匯入至 Azure]，然後依序輸入作業名稱的字串、選取訂用帳戶、輸入或選取資源群組。 輸入匯入作業的描述性名稱。 請注意，您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。 當工作正在進行中和一旦完成後，您將使用您所選的名稱來進行追蹤。
+2. 在 [基本] 區段中，選取 [匯入至 Azure]，然後依序輸入作業名稱的字串、選取訂用帳戶、輸入或選取資源群組。 輸入匯入作業的描述性名稱。 請注意，您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。 當工作正在進行中和一旦完成後，您會使用您所選的名稱來進行追蹤。
 
-3. 在 [作業詳細資料] 區段中，上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。 如果使用的是 waimportexport.exe version1，您將需要針對已備妥的每個磁碟機上傳一個檔案。 選取將會在「匯入目的地」儲存體帳戶區段中匯入資料的儲存體帳戶。 系統將會根據所選儲存體帳戶的區域，自動填入「放置」位置。
+3. 在 [作業詳細資料] 區段中，上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。 如果使用的是 waimportexport.exe version1，您需要針對已備妥的每個磁碟機上傳一個檔案。 選取將會在「匯入目的地」儲存體帳戶區段中匯入資料的儲存體帳戶。 系統會根據所選儲存體帳戶的區域，自動填入「放置」位置。
    
    ![建立匯入工作 - 步驟 3](./media/storage-import-export-service/import-job-03.png)
-4. 在 [退貨運送資訊] 區段中，請從下拉式清單中選取貨運公司，並輸入您使用該貨運公司建立的有效貨運公司客戶編號。 當匯入作業完成時，Microsoft 會透過此廠商將磁碟機寄還給您。 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
+4. 在 [退貨運送資訊] 區段中，請從下拉式清單中選取貨運公司，並輸入您使用該貨運公司建立的有效貨運公司客戶編號。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
    
 5. 在 [摘要] 區段中，會提供將磁碟寄送至 Azure DC 所使用的 Azure DataCenter 交貨地址。 請確認出貨標籤上有提及作業名稱和完整的地址。 
 
@@ -83,7 +83,7 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 * 備份︰備份內部部署資料以便儲存在 Azure 儲存體中。
 * 資料復原︰復原儲存在儲存體中的大量資料，並將它傳遞到您的內部部署位置。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在本節中，我們列出了使用此服務所需的必要條件。 請先仔細檢閱，再運送您的磁碟機。
 
 ### <a name="storage-account"></a>儲存體帳戶
@@ -96,13 +96,16 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 若要開始進行儲存體的匯入或匯出程序，請先建立工作。 此工作可以是「匯入工作」或「匯出工作」：
 
 * 當您要將內部部署的資料移轉至 Azure 儲存體帳戶時，請建立匯入作業。
-* 當您要將目前儲存於儲存體帳戶中的資料移轉至要運送給我們的硬碟時，請建立匯出作業。 當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。
+* 當您要將目前儲存於儲存體帳戶中的資料移轉至要運送給 Microsoft 的硬碟時，請建立匯出作業。 當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。
 
 * 若為匯入工作，您將運送含有資料的硬碟。
 * 若為匯出工作，您將運送空的硬碟。
 * 您可以針對每個工作運送最多 10 個硬碟。
 
 您可以使用 Azure 入口網站或 [Azure 儲存體匯入/匯出 REST API](/rest/api/storageimportexport) 來建立匯入或匯出作業。
+
+> [!Note]
+> 2018 年 2 月 28 日之後，將不再支援 RDFE API。 若要繼續使用服務，請移轉至 [ARM 匯入/匯出 REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json)。 
 
 ### <a name="waimportexport-tool"></a>WAImportExport 工具
 建立**匯入**工作的第一個步驟就是要準備將運送以進行匯入的磁碟機。 若要準備您的磁碟機，您必須將它連接到本機伺服器，並在本機伺服器上執行 WAImportExport 工具。 此 WAImportExport 工具可協助將您的資料複製到磁碟機、使用 BitLocker 加密硬碟上的資料，以及產生磁碟機日誌檔案。
@@ -114,28 +117,28 @@ WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [�
 下載最新版的 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)。 如需使用 WAImportExport 工具的詳細資訊，請參閱[使用 WAImportExport 工具](storage-import-export-tool-how-to.md)。
 
 >[!NOTE]
->**前一版本︰**您可以[下載 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，並參考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 當資料已預先寫入磁碟時，WAImportExpot V1 版本的工具提供**準備磁碟的支援**。 此外，如果唯一可用的金鑰是 SAS 金鑰，您將需要使用 WAImportExpot V1 工具。
+>**前一版本︰**您可以[下載 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，並參考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 當資料已預先寫入磁碟時，WAImportExpot V1 版本的工具提供**準備磁碟的支援**。 如果可用的唯一金鑰是 SAS 金鑰，您需要使用 WAImportExpot V1 工具。
 
 >
 
 ### <a name="hard-disk-drives"></a>硬碟
 僅支援使用 2.5 英吋的 SSD 或是 2.5 英吋或 3.5 英吋的 SATA II 或 III 內接式 HDD 來搭配匯入/匯出服務。 單一匯入/匯出作業最多可以有 10 個 HDD/SSD，且每個個別 HDD/SSD 的大小不拘。 您可以將大量的磁碟機分散到多個作業，而且可建立的作業數目並無限制。 
 
-若為匯入工作，將只會處理磁碟機上的第一個資料磁碟區。 此資料磁碟區必須以 NTFS 格式化。
+若為匯入工作，則只會處理磁碟機上的第一個資料磁碟區。 此資料磁碟區必須以 NTFS 格式化。
 
 > [!IMPORTANT]
 > 此服務不支援隨附內建 USB 介面卡的外接式硬碟。 此外，也無法使用外接式 HDD 機殼內的磁碟；請勿傳送外接式 HDD。
 > 
 > 
 
-以下是用來將資料複製到內部 HDD 的外部 USB 介面卡清單。 Anker 68UPSATAA-02BU Anker 68UPSHHDS-BU Startech SATADOCK22UE Orico 6628SUS3-C-BK (6628 Series) Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
+下列是用來將資料複製到內部 HDD 的外部 USB 介面卡清單。 Anker 68UPSATAA-02BU Anker 68UPSHHDS-BU Startech SATADOCK22UE Orico 6628SUS3-C-BK (6628 Series) Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>加密
-必須使用「BitLocker 磁碟機加密」將磁碟機上的資料加密。 此功能可保護傳輸中的資料。
+必須使用「BitLocker 磁碟機加密」將磁碟機上的資料加密。 此加密會在資料傳輸時保護資料。
 
 對於匯入作業，有兩種方式可執行加密。 第一種方式是在磁碟機準備期間執行 WAImportExport 工具時，於使用資料集 CSV 檔案時指定選項。 第二種方式是在磁碟機上手動啟用 BitLocker 加密，並在磁碟機準備期間，於執行 WAImportExport 工具命令列時在磁碟機集 CSV 中指定加密金鑰。
 
-針對匯出作業，您的資料複製到磁碟機之後，服務會使用 BitLocker 將磁碟機加密，然後才運送回去給您。 加密金鑰將透過 Azure 入口網站提供給您。  
+針對匯出作業，您的資料複製到磁碟機之後，服務會使用 BitLocker 將磁碟機加密，然後才運送回去給您。 加密金鑰會透過 Azure 入口網站提供給您。  
 
 ### <a name="operating-system"></a>作業系統
 您可以使用下列其中一個 64 位元作業系統，使用 WAImportExport 工具準備硬碟，然後再將磁碟機運送到 Azure︰
@@ -143,7 +146,7 @@ WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [�
 Windows 7 Enterprise、Windows 7 Ultimate、Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise、Windows 10<sup>1</sup>、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 所有這些作業系統都支援 BitLocker 磁碟機加密。
 
 ### <a name="locations"></a>位置
-Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製資料。 您可以將硬碟運送至下列位置之一。 如果您的儲存體帳戶是未在這裡指定的公用 Azure 位置，當您使用 Azure 入口網站或匯入/匯出 REST API 建立工作時，將會提供替代的運送位置。
+Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製資料。 您可以將硬碟運送到列出的其中一個位置。 如果您的儲存體帳戶是未在這裡指定的公用 Azure 位置，當您使用 Azure 入口網站或匯入/匯出 REST API 建立工作時，將會提供替代的運送位置。
 
 支援的運送位置︰
 
@@ -183,32 +186,32 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 ### <a name="shipping"></a>運送中
 **運送磁碟機到資料中心︰**
 
-建立匯入或匯出工作時，會提供您其中一個支援位置的運送地址，讓您運送磁碟機。 提供的運送地址將取決於您儲存體帳戶的位置，但可能不會與您的儲存體帳戶位置相同。
+建立匯入或匯出工作時，會提供您其中一個支援位置的運送地址，讓您運送磁碟機。 提供的運送地址會取決於您儲存體帳戶的位置，但可能不會與您的儲存體帳戶位置相同。
 
 您可以利用 FedEx、UPS 或 DHL，將磁碟機運送至交貨地址。
 
 **資料中心運送磁碟機︰**
 
-建立匯入或匯出作業時，您必須提供送回磁碟機的寄件地址，以便 Microsoft 在您的作業完成後運回磁碟機。 請確定您提供有效的寄件地址，以避免處理延遲。
+建立匯入或匯出作業時，您必須提供送回磁碟機的寄件地址，以便 Microsoft 在您的作業完成後運回磁碟機。 確定您提供有效的寄件地址，以避免處理延遲。
 
-貨運公司應有適當的追蹤，才能維持監管鏈。 您必須提供有效的 FedEx、UPS 或 DHL 貨運公司客戶編號，以供 Microsoft 用於送回磁碟機。 從美國和歐洲地點送回磁碟機需要 FedEx、UPS 或 DHL 客戶編號。 從亞洲和澳洲位置送回磁碟機則需要 DHL 客戶編號。 您可以建立 [FedEx](http://www.fedex.com/us/oadr/) (適用於美國和歐洲) 或 [DHL](http://www.dhl.com/) (亞洲和澳洲) 貨運業者帳戶 (若沒有的話)。 如果您已經有貨運公司客戶編號，請確認它有效。
+貨運公司應有適當的追蹤，才能維持監管鏈。 您必須提供有效的 FedEx、UPS 或 DHL 貨運公司客戶編號，以供 Microsoft 用於送回磁碟機。 從美國和歐洲地點送回磁碟機需要 FedEx、UPS 或 DHL 客戶編號。 從亞洲和澳洲位置送回磁碟機則需要 DHL 客戶編號。 如果您沒有客戶編號，您可以建立 [FedEx](http://www.fedex.com/us/oadr/) (適用於美國和歐洲) 或 [DHL](http://www.dhl.com/) (亞洲和澳洲) 貨運業者帳戶。 如果您已經有貨運公司客戶編號，請確認它有效。
 
 在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款](https://azure.microsoft.com/support/legal/services-terms/)中的條款。
 
 > [!IMPORTANT]
-> 請注意，您寄送的實體媒體可能需要跨國界。 您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。 在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。 這有助於確保及時送達 Microsoft。 例如，任何需要跨國界且需要附上商業發票的包裹 (除了跨歐盟內的國界以外)。 您可以從承運業者網站上列印出商業發票的完整複本。 商業發票的範例為 [DHL 商業發票 (英文)](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) 和 [FedEx 商業發票 (英文)](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf)。 請確定 Microsoft 未被指定為匯出者。
+> 請注意，您寄送的實體媒體可能需要跨國界。 您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。 在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。 這有助於確保它可及時送抵 Microsoft。 例如，任何跨國界且需要附上商業發票的包裹 (除了跨歐盟內的國界以外)。 您可以從承運業者網站上列印出商業發票的完整複本。 商業發票的範例為 [DHL 商業發票 (英文)](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) 和 [FedEx 商業發票 (英文)](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf)。 請確定 Microsoft 未被指定為匯出者。
 > 
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Azure 匯入/匯出服務如何運作？
 您可以建立作業並運送硬碟機到 Azure 資料中心，在內部部署網站與 Azure 儲存體之間使用 Azure 匯入/匯出服務傳輸資料。 您運送的每個硬碟都與單一作業相關聯。 每個工作都與單一儲存體帳戶相關聯。 請仔細檢閱 [＜必要條件＞一節](#pre-requisites)，了解此服務的細節，例如支援的資料類型、磁碟類型、位置和運送。
 
-在本節中，我們將說明匯入和匯出作業中所涉及的步驟。 稍後在[快速入門](#quick-start)一節中，我們將提供如何建立匯入和匯出作業的逐步指示。
+在本節中，會說明與匯入和匯出工作有關的高階步驟。 稍後在[快速入門](#quick-start)一節中，會提供如何建立匯入和匯出作業的逐步指示。
 
 ### <a name="inside-an-import-job"></a>匯入作業之內
 概括而言，匯入工作包含下列步驟︰
 
-* 決定要匯入的資料，以及您將需要的磁碟機數目。
+* 決定要匯入的資料，以及您需要的磁碟機數目。
 * 在 Azure 儲存體中識別目的地 Blob 或檔案位置。
 * 使用 WAImportExport 工具將資料複製到一或多個硬碟，並用 BitLocker 將它們加密。
 * 使用 Azure 入口網站或匯入/匯出 REST API，在您的目標儲存體帳戶中建立匯入工作。 如果使用 Azure 入口網站，請上傳磁碟機日誌檔案。
@@ -228,7 +231,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 
 概括而言，匯出工作包含下列步驟︰
 
-* 決定要匯出的資料，以及您將需要的磁碟機數目。
+* 決定要匯出的資料，以及您需要的磁碟機數目。
 * 在 Blob 儲存體中，識別資料的來源 Blob 或容器路徑。
 * 使用 Azure 入口網站或匯入/匯出 REST API，在您的來源儲存體帳戶中建立匯出工作。
 * 在匯出工作中，指定資料的來源 Blob 或容器路徑。
@@ -242,11 +245,11 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
     ![圖 2: 匯出工作流程](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>檢視您的工作和磁碟機狀態
-您可以在 Azure 入口網站中追蹤匯入或匯出工作的狀態。 按一下 [匯入/匯出] 索引標籤。頁面上將會顯示您的工作清單。
+您可以在 Azure 入口網站中追蹤匯入或匯出工作的狀態。 按一下 [匯入/匯出] 索引標籤。您的作業清單會隨即出現在頁面上。
 
 ![檢視工作狀態](./media/storage-import-export-service/jobstate.png)
 
-視您的磁碟機在處理序中所處的位置，您會看到下列其中一個作業狀態。
+視您的磁碟機在流程中所處的位置，您會看到下列其中一個作業狀態。
 
 | 工作狀態 | 說明 |
 |:--- |:--- |

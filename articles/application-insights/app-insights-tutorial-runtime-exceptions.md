@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷執行階段例外狀況
 
@@ -29,7 +29,7 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助識�
 > * 建立新的工作項目，以更正錯誤程式碼
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -49,27 +49,32 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助識�
 Application Insights 會收集應用程式中的任何失敗，並可讓您檢視錯誤在不同作業間的發生頻率，以協助您專注於影響最大的部分。  您可以再向下鑽研這些失敗的詳細資料，以識別根本原因。   
 
 1. 選取 [Application Insights]，然後選取您的訂用帳戶。  
-1. 若要開啟 [失敗] 面板中，請選取 [調查] 功能表下方的 [失敗]，或按一下 [失敗的要求] 圖形。
+2. 若要開啟 [失敗] 面板中，請選取 [調查] 功能表下方的 [失敗]，或按一下 [失敗的要求] 圖形。
 
     ![失敗的要求](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. 針對應用程式的每個作業，[失敗的要求] 面板會顯示失敗的要求計數和受影響的使用者數目。  您可以依使用者排序這項資訊，以識別對使用者影響最大的失敗。  在此範例中，**GET Employees/Create** 和 **GET Customers/Details** 是可能的調查候選項目，因其失敗的數目和受影響的使用者為數眾多。  選取作業會在右面板顯示關於此作業的進一步資訊。
+3. 針對應用程式的每個作業，[失敗的要求] 面板會顯示失敗的要求計數和受影響的使用者數目。  您可以依使用者排序這項資訊，以識別對使用者影響最大的失敗。  在此範例中，**GET Employees/Create** 和 **GET Customers/Details** 是可能的調查候選項目，因其失敗的數目和受影響的使用者為數眾多。  選取作業會在右面板顯示關於此作業的進一步資訊。
 
     ![[失敗的要求] 面板](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. 縮小時間範圍，以將失敗率突然增加的期間放大顯示。
+4. 縮小時間範圍，以將失敗率突然增加的期間放大顯示。
 
     ![[失敗的要求] 視窗](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. 按一下 [檢視詳細資料] 以查看作業的詳細資料。  這包括顯示兩個失敗相依項目的甘特圖，兩者共花了近半秒的時間才完成。  您可以完成[使用 Azure Application Insights 尋找並診斷效能問題](app-insights-tutorial-performance.md)教學課程，進一步了解分析效能問題。
+5. 按一下 [檢視詳細資料] 以查看作業的詳細資料。  這包括顯示兩個失敗相依項目的甘特圖，兩者共花了近半秒的時間才完成。  您可以完成[使用 Azure Application Insights 尋找並診斷效能問題](app-insights-tutorial-performance.md)教學課程，進一步了解分析效能問題。
 
     ![[失敗的要求] 詳細資料](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. 作業詳細資料亦顯示 FormatException 似乎是導致失敗的原因。  按一下該例外狀況，或在「前 3 個例外狀況類型」計數上按一下，以檢視其詳細資料。  您可以看到這是因為郵遞區號不正確。
+6. 作業詳細資料亦顯示 FormatException 似乎是導致失敗的原因。  按一下該例外狀況，或在「前 3 個例外狀況類型」計數上按一下，以檢視其詳細資料。  您可以看到這是因為郵遞區號不正確。
 
     ![例外狀況詳細資料](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+啟用「整合詳細資料：E2E 交易診斷」[預覽版體驗](app-insights-previews.md)，可在單一全螢幕檢視中查看所有相關的伺服器端遙測資料，例如要求、相依性、例外狀況、追蹤、事件等。 
 
+啟用預覽版時，您將可檢視相依性呼叫所花費的時間，以及整合體驗中的任何失敗或例外狀況。 對於跨元件交易，甘特圖以及詳細資料窗格將可協助您快速診斷與根本原因有關的元件、相依性或例外狀況。 您可以展開底部區段，檢視任何針對所選元件作業收集之追蹤或事件的時間序列。 [深入了解新的體驗](app-insights-transaction-diagnostics.md)  
+
+![交易診斷](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>識別失敗的程式碼
 快照集偵錯工具會收集您應用程式中最常見之例外狀況的快照集，以協助您診斷生產環境中的根本原因。  您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 您可接著下載該快照集並在 Visual Studio 2017 中開啟，以對原始程式碼進行偵錯。

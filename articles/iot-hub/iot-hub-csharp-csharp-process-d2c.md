@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>使用 IoT 中樞路由傳送訊息 (.NET)
 
@@ -101,7 +101,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-這個方法會隨機將 `"level": "critical"` 和 `"level": "storage"` 屬性新增至裝置所傳送的訊息，這會模擬需要應用程式後端立即採取行動的訊息，或是需要永久儲存的訊息。 應用程式會在訊息屬性中傳遞此資訊，而不是在訊息主體中傳遞，因此 IoT 中樞可以將訊息路由傳送至適當的訊息目的地。
+這個方法會隨機將 `"level": "critical"` 和 `"level": "storage"` 屬性新增至裝置所傳送的訊息，這會模擬需要應用程式後端立即採取行動的訊息，或是需要永久儲存的訊息。 應用程式支援根據訊息本文，對訊息進行路由傳送。
 
 > [!NOTE]
 > 除了此處顯示的最忙碌路徑範例以外，您可以使用訊息屬性來路由傳送各種案例的訊息，包括冷門路徑處理。
@@ -201,7 +201,7 @@ private static async void SendDeviceToCloudMessagesAsync()
  > [!NOTE]
    > 如果您不受限於單一**端點**，則不需要刪除 **CriticalQueue**。
 
-4. 按一下 IoT 中樞中的 [路由]。 按一下刀鋒視窗頂端的 [新增] 來建立路由規則，以便將訊息路由傳送至您剛才新增的佇列。 選取 [裝置訊息] 作為資料來源。 輸入 `level="storage"` 作為條件，然後選擇 [StorageContainer] 作為路由規則端點。 按一下底部的 [儲存]。  
+4. 按一下 IoT 中樞中的 [路由]。 按一下刀鋒視窗頂端的 [新增] 來建立路由規則，以便將訊息路由傳送至您剛才新增的佇列。 選取**裝置訊息** 作為資料來源。 輸入 `level="storage"` 作為條件，然後選擇 [StorageContainer] 作為路由規則端點。 按一下底部的 [儲存]。  
 
     確定後援路由設定為 [開啟]。 此設定為 IoT 中樞的預設設定。
 

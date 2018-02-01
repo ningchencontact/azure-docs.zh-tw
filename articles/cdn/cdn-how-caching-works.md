@@ -1,5 +1,5 @@
 ---
-title: "快取在 Azure 內容傳遞網路中的運作方式 | Microsoft Docs"
+title: "快取的運作方式 | Microsoft Docs"
 description: "快取是在本機儲存資料的程序，以便未來可以更快速地存取對該資料的要求。"
 services: cdn
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 638b105b4848d41b2755a4b153c13a77fb9ca08b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-caching-works"></a>快取的運作方式
 
-本文提供一般快取概念以及 Azure 內容傳遞網路 (CDN) 如何使用快取來改善效能的總覽。 如果您需要了解如何在 CDN 端點上自訂快取行為，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)和[使用查詢字串控制 Azure CDN 快取行為](cdn-query-string.md)。
+本文提供一般快取概念，以及 [Azure 內容傳遞網路 (CDN)](cdn-overview.md) 如何使用快取來改善效能的總覽。 如果您需要了解如何在 CDN 端點上自訂快取行為，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)和[使用查詢字串控制 Azure CDN 快取行為](cdn-query-string.md)。
 
 ## <a name="introduction-to-caching"></a>快取簡介
 
@@ -57,35 +57,39 @@ ms.lasthandoff: 12/06/2017
 
 - 快取可以透過卸載 CDN 的工作來減少網路流量，以及在原始伺服器上的負載。 這樣做可以降低應用程式的成本和資源需求，即使是有大量使用者時也一樣。
 
-類似於網頁瀏覽器，您可以傳送快取指示詞標頭來控制 CDN 快取的執行方式。 快取指示詞標頭是 HTTP 標頭，通常是由原始伺服器所新增。 雖然這些標頭大部分都是原本就設計用於處理用戶端瀏覽器中的快取，現在有的中繼快取也會使用它們，例如 CDN。 可以使用兩個標頭來定義快取有效期限：`Cache-Control` 和 `Expires`。 `Cache-Control` 較新，且如果同時存在，會優先於 `Expires`。 另外還有兩種類型的標頭會用於驗證 (稱為驗證程式)：`ETag` 和 `Last-Modified`。 `ETag` 較新，且如果同時定義，會優先於 `Last-Modified`。  
+類似於快取在網頁瀏覽器中實作的方式，您可以傳送快取指示詞標頭來控制快取在 CDN 中執行的方式。 快取指示詞標頭是 HTTP 標頭，通常是由原始伺服器所新增。 雖然這些標頭大部分都是原本就設計用於處理用戶端瀏覽器中的快取，現在有的中繼快取也會使用它們，例如 CDN。 
+
+可以使用兩個標頭來定義快取有效期限：`Cache-Control` 和 `Expires`。 `Cache-Control` 較新，且如果同時存在，會優先於 `Expires`。 另外還有兩種類型的標頭會用於驗證 (稱為驗證程式)：`ETag` 和 `Last-Modified`。 `ETag` 較新，且如果同時定義，會優先於 `Last-Modified`。  
 
 ## <a name="cache-directive-headers"></a>快取指示詞標頭
 
+> [!IMPORTANT]
+> 根據預設，已針對 DSA 最佳化的 Azure CDN 端點會忽略快取指示詞標頭並略過快取。 您可以使用 CDN 快取規則，來調整 Azure CDN 端點處理這些標頭的方式。 如需詳細資訊，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)。
+
 Azure CDN 支援下列 HTTP 快取指示詞標頭，會定義快取持續時間和快取共用： 
 
-`Cache-Control`  
+`Cache-Control`
 - 在 HTTP 1.1 中導入，讓 web 發行者能更充分掌控其內容，並處理 `Expires` 標頭的限制。
-- 如果 it 和 `Cache-Control` 都已定義，則覆寫 `Expires` 標頭。
-- 在要求標頭中使用時：依預設，Azure CDN 會予以忽略。
-- 在回應標頭中使用時：使用一般 web 傳遞、大型檔案下載，以及一般/點播視訊媒體串流最佳化時，Azure CDN 會接受下列 `Cache-Control` 指示詞：  
-   - `max-age`：快取可以儲存所指定秒數的內容。 例如： `Cache-Control: max-age=5`。 這個指示詞會指定內容被視為是全新的最大時間量。
-   - `private`：內容僅適用於單一使用者；不會儲存共用快取的內容，例如 CDN。
-   - `no-cache`：快取內容，但每次從快取傳遞內容之前，都必須加以驗證。 相當於 `Cache-Control: max-age=0`。
-   - `no-store`：一律不會快取內容。 如果先前已儲存內容，請加以移除。
+- 如果已同時定義 `Expires` 標頭和 `Cache-Control`，則覆寫前者。
+- 在要求標頭中使用時，依預設，Azure CDN 會忽略 `Cache-Control`。
+- 在回應標頭中使用時，Azure CDN 會根據產品支援下列 `Cache-Control` 指示詞： 
+   - **來自 Verizon 的 Azure CDN**：支援所有 `Cache-Control` 指示詞。 
+   - **來自 Akamai 的 Azure CDN**：僅支援下列 `Cache-Control` 指示詞；會忽略所有其他指示詞： 
+      - `max-age`：快取可以儲存所指定秒數的內容。 例如： `Cache-Control: max-age=5`。 這個指示詞會指定內容被視為是全新的最大時間量。
+      - `no-cache`：快取內容，但每次從快取傳遞內容之前，都要加以驗證。 相當於 `Cache-Control: max-age=0`。
+      - `no-store`：一律不會快取內容。 如果先前已儲存內容，請加以移除。
 
-`Expires` 
+`Expires`
 - 在 HTTP 1.0 中導入舊版的標頭；支援回溯相容性。
 - 使用以日期作為基礎的到期時間，以秒為有效位數。 
 - 類似於 `Cache-Control: max-age`。
 - 使用時機是當 `Cache-Control` 不存在時。
 
-`Pragma` 
+`Pragma`
    - 根據預設，Azure CDN 不接受。
    - 在 HTTP 1.0 中導入舊版的標頭；支援回溯相容性。
    - 用來作為用戶端要求標頭，並具有下列指示詞：`no-cache`。 這個指示詞會指示伺服器傳送全新版本的資源。
    - `Pragma: no-cache` 相當於 `Cache-Control: no-cache`。
-
-根據預設，DSA 最佳化會忽略這些標頭。 您可以調整 Azure CDN 處理這些標頭的方式，方法為使用 CDN 快取規則。 如需詳細資訊，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)。
 
 ## <a name="validators"></a>驗證程式
 
@@ -111,15 +115,15 @@ Azure CDN 支援下列 HTTP 快取指示詞標頭，會定義快取持續時間�
 |------------------ |------------------------|----------------------------------|
 | HTTP 狀態碼 | 200                    | 200、203、300、301、302 和 401 |
 | HTTP method       | GET                    | GET                              |
-| 檔案大小         | 300 GB                 | <ul><li>一般 web 傳遞最佳化：1.8 GB</li> <li>媒體串流最佳化：1.8 GB</li> <li>大型檔案最佳化：150 GB</li> |
+| 檔案大小         | 300 GB                 | - 一般 Web 傳遞最佳化：1.8 GB<br />- 媒體串流最佳化：1.8 GB<br />- 大型檔案最佳化：150 GB |
 
 ## <a name="default-caching-behavior"></a>預設快取行為
 
 下表描述 Azure CDN 產品及其最佳化的預設快取行為。
 
-|                    | Verizon - 一般 Web 傳遞 | Verizon – 動態網站加速 | Akamai - 一般 Web 傳遞 | Akamai - 動態網站加速 | Akamai - 大型檔案下載 | Akamai - 一般或點播視訊媒體串流處理 |
+|                    | Verizon - 一般 Web 傳遞 | Verizon - DSA | Akamai - 一般 Web 傳遞 | Akamai - DSA | Akamai - 大型檔案下載 | Akamai - 一般或 VOD 媒體串流處理 |
 |--------------------|--------|------|-----|----|-----|-----|
-| **接受來源**   | 是    | 否   | 是 | 否 | 是 | 是 |
+| **接受來源**   | yes    | 否   | yes | 否 | yes | yes |
 | **CDN 快取持續時間** | 7 天 | None | 7 天 | None | 1 天 | 1 年 |
 
 **接受來源**：指定如果[支援的快取指示詞標頭](#http-cache-directive-headers)存在於原始伺服器的 HTTP 回應中，是否要加以接受。

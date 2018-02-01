@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>使用 Azure 位置服務 (預覽版) 啟動示範互動式地圖搜尋
 
@@ -38,13 +38,13 @@ ms.lasthandoff: 12/14/2017
 
     ![在入口網站中建立位置服務帳戶](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. 成功建立您的帳戶之後，請將其開啟並瀏覽到帳戶的 [設定]。 按一下 [金鑰] 可取得您帳戶的主要和次要訂用帳戶金鑰。 將 [主要金鑰] 值複製到本機剪貼簿，下一節將使用此值。 
+5. 成功建立您的帳戶之後，請將其開啟並瀏覽到帳戶的 [設定]。 按一下 [金鑰]，可取得您的 Azure 位置服務帳戶的主要和次要金鑰。 將 [主要金鑰] 值複製到本機剪貼簿，下一節將使用此值。 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>下載 Azure Map 示範應用程式
 
 1. 下載或複製 [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) 檔案的內容。
 2. 將此檔案的內容在本機另存為 **AzureMapDemo.html**，並在文字編輯器中開啟。
-3. 搜尋 **&#60;insert-key&#62;** 字串，並以上一節中取得的 [主要金鑰] 值加以取代。 
+3. 搜尋字串 `<insert-key>`，並以上一節中所取得的 [主要金鑰] 值加以取代。 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>啟動 Azure Map 示範應用程式

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>針對 Microsoft 對等互連設定路由篩選：PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 12/21/2017
 
 路由篩選是透過 Microsoft 對等互連使用支援服務子集的方式。 這篇文章中的步驟可協助您設定和管理 ExpressRoute 線路的路由篩選。
 
-透過 Microsoft 對等互連，既可以存取 Dynamics 365 服務和 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype)，也可以存取 Azure 服務 (例如儲存體和 SQL DB)。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
+透過 Microsoft 對等互連，既可存取 Dynamics 365 服務和 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype)，也可以存取 Azure 公用服務 (例如儲存體和 SQL DB)。 Azure 公用服務可針對每個區域選取，但無法針對每個公用服務加以定義。 
+
+在 ExpressRoute 線路中設定 Microsoft 對等互連且已連結路由篩選時，針對這些服務選取的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
 
 如果您需要連線到所有服務，則會透過 BGP 公告大量前置詞。 這會大幅增加網路內路由器維護的路由資料表大小。 如果您計劃僅使用透過 Microsoft 對等互連提供的服務子集，您可以用兩種方式減少路由資料表大小。 您可以：
 
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 若您只有 Microsoft 對等互連，請執行下列命令，將路由器篩選附加在 ExpressRoute 線路上：
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

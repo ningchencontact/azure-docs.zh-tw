@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -74,31 +74,7 @@ ms.lasthandoff: 01/12/2018
     * 將 *whr* 參數傳遞給密碼重設頁面，例如 "https://login.microsoftonline.com/?whr=contoso.com"
     * 將 *username* 參數傳遞給密碼重設頁面，例如 "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>圖形的詳細資料
-
-請使用下列設定來變更登入頁面的視覺特性。 移至 [Azure Active Directory] > [公司商標] > [編輯公司商標]：
-
-* 登入頁面影像應該是 .png 或 .jpg 檔案、1420 x 1200 像素，且不能大於 500 KB。 為了獲得最佳效果，建議您將它保持在 200 KB 左右。
-* 登入頁面背景色彩會在高延遲連線時使用，且必須是 RGB 十六進位格式。
-* 橫幅影像應該是 .png 或 .jpg 檔案、60 x 280 像素，且不能大於 10 KB。
-* 方形標誌 (一般和深色佈景主題) 應該是 .png 或 .jpg 檔案、240 x 240 (可調整大小) 像素，且不能大於 10 KB。
-
-### <a name="sign-in-text-options"></a>登入文字選項
-
-請使用下列設定將與您組織相關的文字新增至登入頁面。 移至 [Azure Active Directory] > [公司商標] > [編輯公司商標]：
-
-* **使用者名稱提示**：以更適合您使用者的文字取代範例文字 *someone@example.com*。 當您支援內部和外部使用者時，建議保留預設提示。
-* **登入頁面文字**：長度上限為 256 個字元。 此文字會出現在使用者於線上及 Windows 10 之 Azure AD Workplace Join 體驗中登入的任何地方。 請使用此文字作為給使用者的使用條款、指示及提示。 
-
-   >[!IMPORTANT]
-   >所有人都可以看到您的登入頁面，因此請勿在此處提供任何機密資訊。
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>[讓我保持登入] 設定
-
-使用 [讓我保持登入] 選項時，使用者可以在關閉又重新開啟瀏覽器視窗時，保持登入狀態。 這個選項不會影響工作階段存留期。 移至 [Azure Active Directory] > [公司商標] > [編輯公司商標]。
-
-使用者必須能夠選取此方塊，才能使用 SharePoint Online 和 Office 2010 的某些功能。 如果您隱藏此選項，使用者可能會收到額外且非預期的登入提示。
+如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](customize-branding.md)一文。
 
 ### <a name="directory-name"></a>目錄名稱
 

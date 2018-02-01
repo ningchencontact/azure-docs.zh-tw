@@ -9,17 +9,17 @@ ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>如何使用 Azure LBS 的地圖控制項
 地圖控制項用戶端 Javascript 程式庫可讓您將地圖和內嵌的 Azure LBS 功能轉譯到 Web 或行動裝置應用程式中。 
 
-## <a name="prerequisites"></a>必要條件
-Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶金鑰的資訊，請參閱[如何管理 Azure LBS 帳戶和金鑰](how-to-manage-account-keys.md)。 
+## <a name="prerequisites"></a>先決條件
+Azure 位置服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理您的 Azure 位置服務帳戶和金鑰](how-to-manage-account-keys.md)。 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>使用地圖控制項 API 在網頁中建立新的地圖
 您可以使用地圖控制項用戶端 Javascript 程式庫，在網頁中內嵌地圖。
@@ -42,19 +42,19 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
             }
     ``` 
     
-4. 若要初始化地圖控制項，請在 html 主體中定義新的區段並建立指令碼。 使用 Azure LBS 帳戶中的自備訂用帳戶金鑰。 
+4. 若要初始化地圖控制項，請在 html 主體中定義新的區段並建立指令碼。 在指令碼中使用您自己的 Azure 位置服務帳戶金鑰。 
 
     ```html
     <div id="map">
         <script>
-            var subscriptionKey = "<_subscriptionKey_>";
+            var LBSAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey,
+                "subscription-key": LBSAccountKey,
                 center: [47.59093,-122.33263],
                 zoom: 12
             });
-        <script>
-    <div>
+        </script>
+    </div>
     ```
     
 5. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。

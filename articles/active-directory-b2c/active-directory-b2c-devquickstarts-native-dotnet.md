@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: "驗證、註冊、編輯設定檔 - .NET - Azure Active Directory B2C | Microsoft Docs"
 description: "如何使用 Azure Active Directory B2C 來建置包含登入、註冊及設定檔管理功能的 Windows 桌面應用程式。"
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C：建置 Windows 桌面應用程式
 如果您利用 Azure Active Directory (Azure AD) B2C，只要幾個簡短的步驟，就在您的桌面應用程式中新增功能強大的自助式身分識別管理功能。 本文章說明如何建立 .NET Windows Presentation Foundation (WPF)「待辦事項清單」應用程式，其中包含使用者註冊、登入和設定檔管理的功能。 該應用程式將支援以使用者名稱或電子郵件來註冊及登入的功能。 它也會支援以社交帳戶 (例如 Facebook 和 Google) 來註冊及登入。
@@ -71,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>輸入 B2C 詳細資料
 開啟檔案 `Globals.cs` ，然後用您自己的值來取代每個屬性值。 整個 `TaskClient` 都會使用這個類別來參考常用的值。
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -92,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>建立 PublicClientApplication
 MSAL 的主要類別是 `PublicClientApplication`。 此類別代表您在 Azure AD B2C 系統中的應用程式。 當應用程式初始化時，請在 `MainWindow.xaml.cs` 中建立 `PublicClientApplication` 的執行個體。 這可用在整個視窗上。
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -110,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>起始註冊流程
 當使用者選擇要註冊時，您會想要起始利用您所建立註冊原則的註冊流程。 藉由使用 MSAL，您只要呼叫 `pca.AcquireTokenAsync(...)`即可。 您傳遞給 `AcquireTokenAsync(...)` 的參數決定您會收到哪個權杖、用於驗證要求中的原則等等。
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -161,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>起始登入流程
 您可以用您起始註冊流程的相同方式來起始登入流程。 當使用者登入時，請用同樣的方式呼叫 MSAL，但這次是利用您的登入原則：
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -176,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>起始編輯設定檔流程
 同樣地，您可以用相同的方式執行編輯設定檔原則：
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -192,7 +193,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 ### <a name="check-for-tokens-on-app-start"></a>在應用程式啟動時檢查權杖
 您也可以使用 MSAL 來追蹤使用者的登入狀態。  在此應用程式中，我們想要讓使用者在關閉應用程式再予以重新開啟後仍保持登入狀態。  回到 `OnInitialized` 覆寫，使用 MSAL 的 `AcquireTokenSilent` 方法來檢查已快取的權杖︰
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -231,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>呼叫工作 API
 您已經使用 MSAL 來執行原則並取得權杖。  當您想要使用這些權杖的其中一個來呼叫工作 API 時，您可以再次使用 MSAL 的 `AcquireTokenSilent` 方法來檢查已快取的權杖︰
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -276,7 +277,7 @@ private async void GetTodoList()
 
 當您成功呼叫 `AcquireTokenSilentAsync(...)`，且在快取中找到權杖之後，便可以將該權杖新增至 HTTP 要求的 `Authorization` 標頭中。 工作 Web API 會使用此標頭來驗證讀取使用者待辦事項清單的要求︰
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -289,7 +290,7 @@ private async void GetTodoList()
 ## <a name="sign-the-user-out"></a>登出使用者
 最後，您可以在使用者選取 [登出] 時，使用 MSAL 來結束使用者的應用程式工作階段。在使用 MSAL 時，您只要清除權杖快取中的所有權杖即可：
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.
