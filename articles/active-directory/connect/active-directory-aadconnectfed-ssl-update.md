@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect：更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證 | Microsoft Docs"
+title: "Azure AD Connect - 更新 AD FS 伺服器陣列的 SSL 憑證 | Microsoft Docs"
 description: "本文件詳述使用 Azure AD Connect 更新 AD FS 伺服器陣列 SSL 憑證的步驟。"
 services: active-directory
 keywords: "azure ad connect, adfs ssl 更新, adfs 憑證更新, 變更 adfs 憑證, 新增 adfs 憑證, adfs 憑證, 更新 adfs ssl 憑證, 更新 ssl 憑證 adfs, 設定 adfs ssl 憑證, adfs, ssl, 憑證, adfs 服務通訊憑證, 更新同盟, 設定同盟, aad connect"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 >[!NOTE]
 >若要深入了解 AD FS 所使用的憑證，請參閱[了解 AD FS 所使用的憑證](https://technet.microsoft.com/library/cc730660.aspx)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **AD FS 伺服器陣列**︰請確定您的 AD FS 伺服器陣列是 Windows Server 2012 R2 型或更新版本。
 * **Azure AD Connect**︰請確定 Azure AD Connect 版本為 1.1.553.0 或更新版本。 您會使用工作「更新 AD FS SSL 憑證」。
@@ -96,7 +97,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
 * **可以使用新的 SSL 憑證更新我的伺服器陣列伺服器子集嗎？**
 
-    可以。 您永遠可以再次執行工作「更新 SSL 憑證」來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器] 頁面上，您可以依「SSL 到期日」來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
+    是。 您永遠可以再次執行工作「更新 SSL 憑證」來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器] 頁面上，您可以依「SSL 到期日」來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
 
 * **我在上一次執行中移除了伺服器，但它仍然顯示為離線，並且列在 [AD FS 伺服器] 頁面。為何即使在移除後，離線的伺服器還在？**
 

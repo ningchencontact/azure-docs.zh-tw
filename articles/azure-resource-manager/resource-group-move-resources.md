@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -105,15 +105,15 @@ ms.lasthandoff: 10/18/2017
 * Application Insights
 * 自動化
 * Azure Cosmos DB
-* 批次
+* Batch
 * Bing 地圖
 * CDN
 * 雲端服務 - 請參閱 [傳統部署限制](#classic-deployment-limitations)
-* 辨識服務
+* 認知服務
 * 內容仲裁
 * 資料目錄
 * Data Factory
-* Data Lake Analytics
+* 資料湖分析
 * Data Lake Store
 * DNS
 * 事件中樞
@@ -122,7 +122,7 @@ ms.lasthandoff: 10/18/2017
 * Key Vault
 * 負載平衡器
 * Logic Apps
-* 機器學習服務
+* Machine Learning
 * 媒體服務
 * Mobile Engagement
 * 通知中樞
@@ -131,7 +131,7 @@ ms.lasthandoff: 10/18/2017
 * Power BI
 * Redis 快取
 * 排程器
-* 搜尋
+* Search
 * 伺服器管理
 * 服務匯流排
 * Service Fabric
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/18/2017
 * ExpressRoute
 * DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
-* 受管理的應用程式
+* 受控應用程式
 * 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 復原服務保存庫 - 也不會移動與「復原服務」保存庫關聯的「計算」、「網路」及「儲存體」資源，請參閱 [復原服務限制](#recovery-services-limitations)。
 * 安全性
@@ -208,7 +208,7 @@ App Service 方案不需要與應用程式位於相同的資源群組，應用�
 
 所有其他組合都會留下移動 App Service 方案時無法留下的資源類型 (任何類型的 App Service 資源)。
 
-如果 Web 應用程式與其 App Service 方案位於不同的資源群組，但您想要將兩者移到新的資源群組，則必須使用兩個步驟來執行移動。 例如：
+如果 Web 應用程式與其 App Service 方案位於不同的資源群組，但您想要將兩者移到新的資源群組，則必須使用兩個步驟來執行移動。 例如︰
 
 * **web-a** 位於 **web-group** 中
 * **plan-a** 位於 **plan-group** 中
@@ -314,6 +314,12 @@ App Service 方案不需要與應用程式位於相同的資源群組，應用�
 無法移動用來設定 Azure Site Recovery 相關災害復原的「儲存體」、「網路」或「計算」資源。
 
 舉例來說，假設您已設定將內部部署機器複寫到某個儲存體帳戶 (Storage1)，而想要讓受保護的機器在容錯移轉到 Azure 之後，以連接到虛擬網路 (Network1) 的虛擬機器 (VM1) 身分上線。 您無法跨相同訂用帳戶內的資源群組或跨訂用帳戶來移動任何這些 Azure 資源 - Storage1、VM1 及 Network1。
+
+若要在資源群組之間移動 **Azure 備份**中註冊的虛擬機器：
+ 1. 暫時停止備份並保留備份資料
+ 2. 將虛擬機器移到目標資源群組
+ 3. 在相同/新的保存庫下將其重新保護。使用者可以從移動作業前建立的可用還原點進行還原。
+如果使用者是在訂用帳戶之間移動備份虛擬機器，步驟 1 和步驟 2 保持不變。 在步驟 3 中，使用者需要保護在目標訂用帳戶中存在/建立之新保存庫下的虛擬機器。復原服務的保存庫不支援跨訂用帳戶的備份。
 
 ## <a name="hdinsight-limitations"></a>HDInsight 限制
 

@@ -1,6 +1,6 @@
 ---
-title: "如何使用 Azure PowerShell 建立 SQL Server Vm |Microsoft 文件"
-description: "提供步驟和 PowerShell 命令建立 Azure VM 的 SQL Server 虛擬機器圖庫映像。"
+title: "如何使用 Azure PowerShell 建立 SQL Server VM | Microsoft Docs"
+description: "提供使用 SQL Server 虛擬機器資源庫映像建立 Azure VM 的步驟和 PowerShell 命令。"
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 建立 SQL Server 虛擬機器
 
-本指南說明將選項設定為使用 Azure PowerShell 建立 Windows SQL Server Vm。 簡化 Azure PowerShell 範例中使用多個預設值，請參閱[SQL VM Azure PowerShell 快速入門](quickstart-sql-vm-create-powershell.md)。
+本指南說明使用 Azure PowerShell 建立 Windows SQL Server VM 的選項。 如需包含更多預設值的簡化版 Azure PowerShell 範例，請參閱 [SQL VM Azure PowerShell 快速入門](quickstart-sql-vm-create-powershell.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -31,19 +31,19 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="configure-your-subscription"></a>設定您的訂用帳戶
 
-1. 開啟 PowerShell 並執行建立您的 Azure 帳戶存取**新增 AzureRmAccount**命令。
+1. 開啟 PowerShell 並執行 **Add-AzureRmAccount** 來建立您的 Azure 帳戶存取權限。
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. 您應該會看到登入畫面，輸入您的認證。 請使用與登入 Azure 入口網站相同的電子郵件和密碼。
+1. 您會看到要輸入認證的登入畫面。 請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
 ## <a name="define-image-variables"></a>定義映像變數
-若要簡化重複使用及指令碼建立，請啟動藉由定義變數的數目。 視需要變更參數值，但在修改所提供的值時，請注意與名稱長度和特殊字元相關的命名限制。
+若想要簡化重複使用和建立指令碼的作業，請先定義數個變數。 視需要變更參數值，但在修改所提供的值時，請注意與名稱長度和特殊字元相關的命名限制。
 
 ### <a name="location-and-resource-group"></a>位置和資源群組
-您可以使用兩個變數來定義資料區域與資源群組到其中，您建立虛擬機器的其他資源。
+使用兩個變數來定義資料區域，以及您會在其中為虛擬機器建立其他資源的資源群組。
 
 視需要修改並執行下列 Cmdlet 來初始化這些變數。
 
@@ -91,15 +91,15 @@ $OSDiskName = $VMName + "OSDisk"
 ```
 
 ### <a name="choose-a-sql-server-image"></a>選擇 SQL Server 映像
-您可以使用下列變數來定義要用於虛擬機器的 SQL Server 映像。
+使用下列變數來定義用於虛擬機器的 SQL Server 映像。
 
-1. 首先，列出所有的 SQL Server 映像供應項目**Get AzureRmVMImageOffer**命令：
+1. 首先，請使用 **Get-AzureRmVMImageOffer** 命令，列出 SQL Server 映像提供項目的完整清單︰
 
    ```PowerShell
    Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
    ```
 
-1. 此教學課程中，使用下列變數來指定 SQL Server 2017 上 Windows Server 2016。
+1. 在本教學課程中，會使用下列變數，以在 Windows Server 2016 上指定 SQL Server 2017。
 
    ```PowerShell
    $OfferName = "SQL2017-WS2016"
@@ -107,20 +107,20 @@ $OSDiskName = $VMName + "OSDisk"
    $Version = "latest"
    ```
 
-1. 下一步 時提供的可用版本清單。
+1. 接著列出您的提供項目的可用版本。
 
    ```PowerShell
    Get-AzureRmVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. 本教學課程中，使用 SQL Server 2017 Developer edition (**SQLDEV**)。 Developer 版本免費授權用於測試及開發，而且只需要支付執行 VM 的費用。
+1. 在本教學課程中，使用的是 SQL Server 2017 Developer 版本 (**SQLDEV**)。 Developer 版本免費授權用於測試及開發，而且只需要支付執行 VM 的費用。
 
    ```PowerShell
    $Sku = "SQLDEV"
    ```
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-在 Resource Manager 部署模型中，您所建立的第一個物件是資源群組。 使用[新增 AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)指令程式來建立 Azure 資源群組和其資源的資源群組名稱和您先前初始化之變數所定義的位置。
+在 Resource Manager 部署模型中，您所建立的第一個物件是資源群組。 使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) Cmdlet，以您先前初始化的變數所定義的資源群組名稱和位置，來建立 Azure 資源群組及其資源。
 
 執行下列 Cmdlet 來建立新的資源群組。
 
@@ -129,7 +129,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
-虛擬機器需要作業系統磁碟和 SQL Server 資料和記錄檔的儲存體資源。 為了簡單起見，我們會同時建立單一磁碟。 您可以在之後使用 [Add-Azure Disk](/powershell/module/azure/add-azuredisk) Cmdlet 來連結額外的磁碟，以便將您的 SQL Server 資料和記錄檔放在專用的磁碟上。 使用[新增 AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet 來建立新的資源群組，並使用儲存體帳戶名稱、 儲存體的 Sku 名稱和位置使用先前初始化之變數定義的標準儲存體帳戶.
+虛擬機器需要作業系統磁碟和 SQL Server 資料和記錄檔的儲存體資源。 為了簡單起見，我們會針對兩者建立單一磁碟。 您可以在之後使用 [Add-Azure Disk](/powershell/module/azure/add-azuredisk) Cmdlet 來連結額外的磁碟，以便將您的 SQL Server 資料和記錄檔放在專用的磁碟上。 使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) Cmdlet 在新的資源群組中建立標準儲存體帳戶，此帳戶會使用以您先前初始化的變數定義的儲存體帳戶名稱、儲存體 Sku 名稱及位置。
 
 執行下列 Cmdlet 來建立新的儲存體帳戶。
 
@@ -150,7 +150,7 @@ $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupNam
 * 網路介面必須以公用或私人 IP 位址定義。
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>建立虛擬網路子網路組態
-開始建立虛擬網路的子網路組態。 教學課程中，我們會建立預設的子網路使用[新增 AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) cmdlet。 我們會建立虛擬網路子網路組態設定與使用您先前初始化之變數定義的子網路名稱和位址首碼。
+首先要建立虛擬網路的子網路組態。 在本教學課程中，我們會使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) Cmdlet 來建立預設子網路。 我們會使用您先前初始化的變數所定義的子網路名稱和位址首碼，建立虛擬網路子網路組態。
 
 > [!NOTE]
 > 您可以使用這個 Cmdlet 來定義虛擬網路子網路組態的其他屬性，但這已超出本教學課程的範圍。
@@ -162,7 +162,7 @@ $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -Address
 ```
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
-接下來，建立您的虛擬網路使用[新增 AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) cmdlet。 建立新的資源群組中的虛擬網路，以名稱、 位置和位址前置詞會定義使用先前初始化之變數及使用您在上一個步驟中定義的子網路組態。
+接著，使用 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) Cmdlet 來建立虛擬網路。 使用您先前初始化的變數所定義的名稱、位置和位址首碼，以及使用您在前一個步驟中定義的子網路組態，在新的資源群組中建立虛擬網路。
 
 執行下列 Cmdlet 來建立虛擬網路。
 
@@ -173,7 +173,7 @@ $VNet = New-AzureRmVirtualNetwork -Name $VNetName `
 ```
 
 ### <a name="create-the-public-ip-address"></a>建立公用 IP 位址
-我們現已定義虛擬網路，我們還必須設定 IP 位址才能連接至虛擬機器。 此教學課程中，我們會建立使用動態 IP 位址以支援網際網路連接的公用 IP 位址。 使用[新增 AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) cmdlet 來建立公用 IP 位址在先前建立的資源群組中，並以名稱、 位置、 配置方法，以及使用變數定義的 DNS 網域名稱標籤，您先前初始化。
+我們現已定義虛擬網路，我們還必須設定 IP 位址才能連接至虛擬機器。 在本教學課程中，我們會使用動態 IP 位址來建立公用 IP 位址，以支援網際網路連線。 使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) Cmdlet 在先前建立的資源群組中建立公用 IP 位址，此位址會使用以您先前初始化的變數定義的名稱、位置、配置方法及 DNS 網域名稱標籤。
 
 > [!NOTE]
 > 您可以使用這個 Cmdlet 來定義公用 IP 位址的其他屬性，但這已超出本初期教學課程的範圍。 您也可以建立私人位址或具有靜態位址的位址，但這也已超出本教學課程的範圍。
@@ -187,16 +187,16 @@ $PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName `
 ```
 
 ### <a name="create-the-network-security-group"></a>建立網路安全性群組
-若要保護的 VM 和 SQL Server 的流量，建立網路安全性群組。
+若要保護 VM 和 SQL Server 的流量，請建立網路安全性群組。
 
-1. 首先，建立網路安全性群組規則以允許遠端桌面連線的 rdp。
+1. 首先，建立 RDP 的網路安全性群組規則，以允許遠端桌面連線。
 
    ```PowerShell
    $NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
    ```
-1. 設定網路安全性群組規則，允許 TCP 通訊埠 1433年上的流量。 這在網際網路上可連接至 SQL Server。
+1. 設定網路安全性群組規則，允許 TCP 通訊埠 1433 上的流量。 如此即可透過網際網路連線至 SQL Server。
 
    ```PowerShell
    $NsgRuleSQL = New-AzureRmNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
@@ -204,7 +204,7 @@ $PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
    ```
 
-1. 然後建立網路安全性群組。
+1. 接著，建立網路安全性群組。
 
    ```PowerShell
    $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
@@ -213,7 +213,7 @@ $PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName `
    ```
 
 ### <a name="create-the-network-interface"></a>建立網路介面
-我們現在已準備好建立虛擬機器將要使用的網路介面。 我們稱之為[新增 AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)先前定義的指令程式可建立我們的網路介面，稍早建立的資源群組，並使用名稱、 位置、 子網路和公用 IP 位址。
+我們現在已準備好建立虛擬機器將要使用的網路介面。 我們會呼叫 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) Cmdlet 在稍早建立的資源群組中建立網路介面，此網路介面會使用先前定義的名稱、位置、子網路及公用 IP 位址。
 
 執行下列 Cmdlet 來建立網路介面。
 
@@ -225,10 +225,10 @@ $Interface = New-AzureRmNetworkInterface -Name $InterfaceName `
 ```
 
 ## <a name="configure-a-vm-object"></a>設定 VM 物件
-我們現已定義儲存體和網路資源，我們便準備好定義虛擬機器的計算資源。 教學課程中，我們將指定的虛擬機器大小和各種作業系統屬性，指定我們先前建立的網路介面定義 blob 儲存體，，，然後指定作業系統磁碟。
+我們現已定義儲存體和網路資源，我們便準備好定義虛擬機器的計算資源。 在本教學課程中，我們會指定虛擬機器大小和各種作業系統屬性、指定我們先前建立的網路介面、定義 Blob 儲存體，然後指定作業系統磁碟。
 
 ### <a name="create-the-vm-object"></a>建立 VM 物件
-開始指定的虛擬機器大小。 在本教學課程諸ㄥ，我們會指定 DS13。 我們稱之為[新增 AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)指令程式來建立可設定的虛擬機器物件的名稱和定義使用您先前初始化之變數的大小。
+首先要指定虛擬機器的大小。 在本教學課程諸ㄥ，我們會指定 DS13。 我們會呼叫 [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) Cmdlet 來建立可設定的虛擬機器物件，此物件會使用以您先前初始化的變數定義的名稱與大小。
 
 執行下列 Cmdlet 來建立虛擬機器物件。
 
@@ -237,16 +237,16 @@ $VirtualMachine = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
 ```
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>建立認證物件，以保留本機系統管理員認證的名稱和密碼
-我們必須先提供本機系統管理員帳戶的認證做為安全字串，才可以設定虛擬機器的作業系統屬性。 若要完成此動作，使用[Get-credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet。
+我們必須先提供本機系統管理員帳戶的認證做為安全字串，才可以設定虛擬機器的作業系統屬性。 為了達成此目的，要使用 [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) Cmdlet。
 
-執行下列 cmdlet，並在 [PowerShell 認證要求] 視窗中，輸入要用於虛擬機器中的本機系統管理員帳戶密碼與名稱。
+執行下列 Cmdlet，並在 PowerShell 認證要求視窗中，輸入要使用於虛擬機器中本機系統管理員帳戶的名稱和密碼。
 
 ```PowerShell
 $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>設定虛擬機器的作業系統屬性
-我們已經準備好設定使用的虛擬機器的作業系統內容[組 AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet 將作業系統的類型設定為 Windows，需要[虛擬機器代理程式](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)若要安裝，指定此 cmdlet 會啟用自動更新並設定虛擬機器名稱、 電腦名稱，以及使用先前初始化之變數的認證。
+現在已準備好使用 [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) Cmdlet 來設定虛擬機器的作業系統屬性，以將作業系統的類型設定為 Windows、要求安裝[虛擬機器代理程式](../agent-user-guide.md)、指定此 Cmdlet 啟用自動更新，以及使用您先前初始化的變數來設定虛擬機器名稱、電腦名稱和認證。
 
 執行下列 Cmdlet 來設定虛擬機器的作業系統屬性。
 
@@ -257,7 +257,7 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
 ```
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>將網路介面新增至虛擬機器
-接下來，我們加入我們建立的網路介面先前虛擬機器。 呼叫[新增 AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) cmdlet 來新增網路介面使用您先前定義的網路介面變數。
+接下來，我們會將先前建立的網路介面新增至虛擬機器。 使用 [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) Cmdlet 以您稍早定義的網路介面變數來新增網路介面。
 
 執行下列 Cmdlet 來設定虛擬機器的網路介面。
 
@@ -266,7 +266,7 @@ $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interfa
 ```
 
 ### <a name="set-the-blob-storage-location-for-the-disk-to-be-used-by-the-virtual-machine"></a>設定虛擬機器所要使用之磁碟的 Blob 儲存體位置
-接下來，將 blob 儲存體位置，使用您先前定義的變數之虛擬機器所使用的磁碟。
+接下來，使用您稍早定義的變數，設定虛擬機器所要使用之磁碟的 Blob 儲存體位置。
 
 執行下列 Cmdlet 來設定 Blob 儲存體位置。
 
@@ -275,7 +275,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 ```
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>設定虛擬機器的作業系統磁碟屬性
-接下來，設定作業系統磁碟的虛擬機器的內容。 使用[組 AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)指令程式來指定將來自虛擬機器的作業系統映像，來設定快取讀取，僅 （因為正在安裝 SQL 伺服器相同的磁碟上），並定義虛擬機器名稱和作業系統磁碟使用我們先前定義的變數定義。
+接著，設定虛擬機器的作業系統磁碟屬性。 使用 [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) Cmdlet 來指定虛擬機器的作業系統會來自映像、將快取設定成唯讀 (因為 SQL Server 要安裝在相同的磁碟上)，以及定義使用我們稍早定義之變數來定義的虛擬機器名稱和作業系統磁碟。
 
 執行下列 Cmdlet 來設定虛擬機器的作業系統磁碟屬性。
 
@@ -285,7 +285,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name `
 ```
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>指定虛擬機器的平台映像
-最後一個設定步驟是指定虛擬機器的平台映像。 在本教學課程中，我們會使用最新的 SQL Server 2016 CTP 映像。 使用[組 AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)指令程式可使用此映像，您先前定義的變數所定義。
+最後一個設定步驟是指定虛擬機器的平台映像。 在本教學課程中，我們會使用最新的 SQL Server 2016 CTP 映像。 使用 [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) Cmdlet 以使用如您稍早定義的變數所定義的這個映像。
 
 執行下列 Cmdlet 來設定虛擬機器的平台映像。
 
@@ -296,7 +296,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
 ```
 
 ## <a name="create-the-sql-vm"></a>建立 SQL VM
-您現在已完成設定步驟，即可開始建立虛擬機器。 使用[新增 AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet 來建立虛擬機器使用，我們已定義的變數。
+您現在已完成設定步驟，即可開始建立虛擬機器。 使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) Cmdlet 以我們已定義的變數來建立虛擬機器。
 
 執行下列 Cmdlet 來建立虛擬機器。
 
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 虛擬機器已建立。
 
 > [!NOTE]
-> 您可以忽略 bot 診斷的相關錯誤。 標準儲存體帳戶會建立開機診斷，因為指定的儲存體帳戶的虛擬機器的磁碟是進階儲存體帳戶。
+> 您可以忽略開機診斷的相關錯誤。 系統會建立標準儲存體帳戶以供開機診斷，因為虛擬機器磁碟的指定儲存體帳戶是進階儲存體帳戶。
 
-## <a name="install-the-sql-iaas-agent"></a>安裝 SQL Iaas 代理程式
-SQL Server 虛擬機器支援自動化的管理功能與[SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)。 新的 VM 上安裝代理程式，請執行下列命令會在建立之後。
+## <a name="install-the-sql-iaas-agent"></a>安裝 SQL IaaS 代理程式
+SQL Server 虛擬機器能以 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)支援自動化管理功能。 若要在新的 VM 上安裝代理程式，請在其建立之後執行下列命令。
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ SQL Server 虛擬機器支援自動化的管理功能與[SQL Server IaaS 代理�
 
 ## <a name="remove-a-test-vm"></a>移除測試 VM
 
-如果您不需要持續執行的 VM，您可以停止它在不使用時，避免不必要的費用。 下列命令會停止 VM，但會保留供未來使用。
+如果您不需要 SQL VM 持續執行，可以在不使用時將其停止，以避免不必要的費用。 下列命令會停止 VM，但會將其保留供未來使用。
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-您也可以永久刪除與虛擬機器相關聯的所有資源**移除 AzureRmResourceGroup**命令。 這也會永久刪除虛擬機器，因此請小心使用此命令。
+您也可以使用 **Remove-AzureRmResourceGroup**命令，將與虛擬機器相關聯的所有資源永久刪除。 這也會永久刪除虛擬機器，因此請小心使用此命令。
 
 ## <a name="example-script"></a>範例指令碼
 下列指令碼包含本教學課程的完整 PowerShell 指令碼。 假設您已經設定 Azure 訂用帳戶與 **Add-AzureRmAccount** 和 **Select-AzureRmSubscription** 命令搭配使用。
@@ -397,10 +397,10 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $V
 ## <a name="next-steps"></a>後續步驟
 建立虛擬機器之後，您可以：
 
-- 連接到虛擬機器使用遠端桌面 (RDP)。
-- 在入口網站中設定 SQL Server 設定，讓您的 VM，包括：
+- 使用遠端桌面 (RDP) 連線至虛擬機器。
+- 在入口網站中為您的虛擬機器設定 SQL Server，包括：
    - [儲存體設定](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [自動化的管理工作](virtual-machines-windows-sql-server-agent-extension.md)
-- [設定連線](virtual-machines-windows-sql-connect.md)。
-- 連接用戶端與新的 SQL Server 執行個體的應用程式。
+- [連線設定](virtual-machines-windows-sql-connect.md)。
+- 將用戶端與應用程式連線至新的 SQL Server 執行個體。
 

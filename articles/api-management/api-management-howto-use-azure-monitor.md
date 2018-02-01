@@ -14,17 +14,17 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
 Azure 監視器是一項 Azure 服務，可提供單一來源來讓您監視所有 Azure 資源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存及針對來自 Azure 資源 (例如 API 管理) 的計量和記錄採取行動。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 檢視活動記錄檔
@@ -38,10 +38,10 @@ Azure 監視器是一項 Azure 服務，可提供單一來源來讓您監視所�
 >
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ 以及完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
++ 同時也請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,7 +56,8 @@ Azure 監視器是一項 Azure 服務，可提供單一來源來讓您監視所�
 
 檢視活動記錄：
 
-1. 從您的 **API 管理**執行個體中，按一下 [活動記錄]。
+1. 選取您的 APIM 服務執行個體。
+2. 按一下 [活動記錄]。
 
 ## <a name="view-diagnostic-logs"></a>檢視診斷記錄
 
@@ -64,7 +65,8 @@ Azure 監視器是一項 Azure 服務，可提供單一來源來讓您監視所�
 
 存取診斷記錄：
 
-1. 從您的 **API 管理**執行個體中，按一下 [診斷記錄]。
+1. 選取您的 APIM 服務執行個體。
+2. 按一下 [診斷記錄]。
 
 ## <a name="view-metrics-of-your-apis"></a>檢視 API 的計量
 

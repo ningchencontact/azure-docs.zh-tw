@@ -13,6 +13,7 @@
 ## [關於點對站連線](point-to-site-about.md)
 
 # 作法
+
 ## 設定站對站連線
 ### [Azure 入口網站](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -76,7 +77,7 @@
 ### [概觀和 Azure 組態](vpn-gateway-3rdparty-device-config-overview.md)
 ### [範例：Cisco ASA 裝置 (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [從傳統移轉到資源管理員](vpn-gateway-classic-resource-manager-migration.md)
-## 疑難排解
+## [疑難排解](vpn-gateway-troubleshoot.md)
 ### [驗證 VNet 的 VPN 輸送量](vpn-gateway-validate-throughput-to-vnet.md)
 ### [社群建議的 VPN 或防火牆裝置設定](vpn-gateway-third-party-settings.md)
 ### [點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
@@ -103,7 +104,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [部落格](https://azure.microsoft.com/blog/topics/networking)
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [定價](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>縮放您的 Power BI Embedded 容量
 
@@ -26,7 +26,8 @@ ms.lasthandoff: 10/11/2017
 
 這會假設您已建立 Power BI Embedded 容量。 如果您尚未建立，請參閱[在 Azure 入口網站中建立 Power BI Embedded 容量](create-capacity.md)來開始使用。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+> [!NOTE]
+> 縮放作業可能需要約一分鐘。 在此期間，將無法使用容量。 內嵌內容可能無法載入。
 
 ## <a name="scale-a-capacity"></a>縮放容量
 
@@ -64,4 +65,4 @@ ms.lasthandoff: 10/11/2017
 
 若要在您的應用程式內開始內嵌 Power BI 內容，請參閱[如何內嵌 Power BI 儀表板、報表和磚](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 
-有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/) \(英文\)
+有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/)

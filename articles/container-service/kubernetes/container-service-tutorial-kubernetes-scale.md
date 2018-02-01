@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a748e15abbc01f260349fba2678c03a40c4d7713
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>調整 Kubernetes Pod 和 Kubernetes 基礎結構
 
@@ -114,7 +114,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 ## <a name="scale-the-agents"></a>調整代理程式
 
-如果您在上一個教學課程中使用預設命令來建立 Kubernetes 叢集，它就會有 3 個代理程式節點。 如果您打算在叢集上增加或減少容器工作負載，可以手動調整代理程式的數目。 請使用 [az acs scale](/cli/azure/acs#scale) 命令，並使用 `--new-agent-count` 參數來指定代理程式的數目。
+如果您在上一個教學課程中使用預設命令來建立 Kubernetes 叢集，它就會有 3 個代理程式節點。 如果您打算在叢集上增加或減少容器工作負載，可以手動調整代理程式的數目。 請使用 [az acs scale](/cli/azure/acs#az_acs_scale) 命令，並使用 `--new-agent-count` 參數來指定代理程式的數目。
 
 下列範例會在名為 *myK8sCluster* 的 Kubernetes 叢集中，將代理程式節點的數目增加到 4 個。 此命令需要幾分鐘的時間來完成。
 

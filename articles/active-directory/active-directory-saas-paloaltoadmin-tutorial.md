@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>教學課程：Azure Active Directory 與 Palo Alto 網路 - 系統管理 UI 整合
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 12/11/2017
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Palo Alto 網路 - 系統管理 UI 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 Palo Alto 網路 - 系統管理 UI 單一登入的訂用帳戶
+- Palo Alto Networks 新一代防火牆或全景 (防火牆的集中式管理系統)
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/11/2017
 
 4. 在搜尋方塊中，輸入 **Palo Alto 網路 - 系統管理 UI**，從結果面板選取 [Palo Alto 網路 - 系統管理 UI]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![結果清單中的 [Palo Alto 網路 - 系統管理 UI]](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![結果清單中的 [Palo Alto 網路 - 系統管理 UI]](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -108,9 +108,9 @@ ms.lasthandoff: 12/11/2017
 
     ![[Palo Alto 網路 - 系統管理 UI 網域和 URL] 單一登入資訊](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<Customer Firewall URL>/php/login.php`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<Customer Firewall URL>/SAML20/SP`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Palo Alto 網路 - 系統管理 UI 用戶端支援小組](https://support.paloaltonetworks.com/support) \(英文\) 以取得這些值。 
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/11/2017
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. 以系統管理員的身分，在另一個瀏覽器視窗中開啟 Palo Alto 站台。
+8. 以系統管理員的身分，在另一個瀏覽器視窗中開啟 Palo Alto Networks 防火牆管理員使用者介面。
 
 9. 按一下 [Device] \(裝置\)。
 

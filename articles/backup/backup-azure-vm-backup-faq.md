@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -68,6 +68,13 @@ ms.lasthandoff: 01/18/2018
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>我的磁碟在升級為受控磁碟後，是否可以使用非受控磁碟 VM 的備份來進行還原？
 是，您可以使用在將磁碟從非受控磁碟移轉為受控磁碟之前所擷取的備份。 根據預設，還原 VM 作業將會使用非受控磁碟來建立 VM。 您可以使用還原磁碟功能來還原磁碟，並用這些磁碟在受控磁碟上r建立 VM。 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>若要將虛擬機器的非受控磁碟轉換至受控磁碟，要如何將虛擬機器還原至還原點？其程序為何？
+在此案例中，根據預設，還原虛擬機器的作業將會使用非受控磁碟來建立虛擬機器。 若要使用受控磁碟建立虛擬機器：
+1. [還原至非受控磁碟](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [將還原的磁碟轉換至受控磁碟](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [使用受控磁碟建立虛擬機器](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+若是 Powershell Cmdlet，請參閱[此處](backup-azure-vms-automation.md#restore-an-azure-vm)。
 
 ## <a name="manage-vm-backups"></a>管理 VM 備份
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>變更 VM 的備份原則時會發生什麼狀況？

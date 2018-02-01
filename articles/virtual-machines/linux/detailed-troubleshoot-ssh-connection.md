@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>連線到 Azure 中 Linux VM 之問題的詳細 SSH 疑難排解步驟
 SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 如果您已經完成較為 [一般的 SSH 疑難排解步驟](troubleshoot-ssh-connection.md)，您必須進一步針對連線問題進行疑難排解。 這篇文章會引導您完成詳細的疑難排解步驟，以判斷 SSH 連線失敗的位置和解決方法。
@@ -39,14 +39,14 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 
 2. 選取 [設定]  以檢查端點、IP 位址、網路安全性群組及其他設定。
 
-   VM 應該有一個為 SSH 流量定義的端點，您可以在 [端點] 或**[網路安全性群組](../../virtual-network/virtual-networks-nsg.md)**中檢視該端點。 使用 Resource Manager 來建立之 VM 中的端點會儲存在網路安全性群組中。 請確認這些規則已套用至的網路安全性群組，且子網路中的參考。
+   VM 應該有一個為 SSH 流量定義的端點，您可以在 [端點] 或**[網路安全性群組](../../virtual-network/virtual-networks-nsg.md)**中檢視該端點。 使用 Resource Manager 來建立之 VM 中的端點會儲存在網路安全性群組中。 請確認是否已將規則套用至網路安全性群組，以及子網路中是否有參考這些規則。
 
-若要驗證網路連線，請檢查設定的端點，看看是否可以連線到另一個通訊協定，例如 HTTP 或其他服務的 vm。
+若要確認網路連線，請檢查設定的端點，並判斷您是否可以透過另一個通訊協定 (例如 HTTP 或另一個服務) 連線到 VM。
 
 在這些步驟之後，請再試一次 SSH 連線。
 
 ## <a name="find-the-source-of-the-issue"></a>找出問題來源
-SSH 用戶端電腦上的可能會無法連線到 Azure VM，因為發生問題或設定錯誤，在下列區域的 SSH 服務：
+如果下列方面發生問題或設定錯誤，您電腦上的 SSH 用戶端可能就無法連線到 Azure VM 上的 SSH 服務：
 
 * [SSH 用戶端電腦](#source-1-ssh-client-computer)
 * [組織邊緣裝置](#source-2-organization-edge-device)
@@ -76,11 +76,11 @@ SSH 用戶端電腦上的可能會無法連線到 Azure VM，因為發生問題�
 * Chmod 644 ~/.ssh/known_hosts (包含您已透過 SSH 連接的主機)
 
 ## <a name="source-2-organization-edge-device"></a>來源 2：組織邊緣裝置
-若要消除您組織的邊緣裝置做為失敗的來源，請確認電腦直接連線到網際網路，可以進行 SSH 連線到 Azure VM。 如果您是透過站對站 VPN 或 Azure ExpressRoute 連線來存取 VM，請跳到 [來源 4：網路安全性群組](#nsg)。
+若要排除組織邊緣裝置為失敗來源的可能性，請確認直接連線到網際網路的電腦能 SSH 連線到您的 Azure VM。 如果您是透過站對站 VPN 或 Azure ExpressRoute 連線來存取 VM，請跳到 [來源 4：網路安全性群組](#nsg)。
 
 ![強調組織邊緣裝置的圖表](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-如果您不需要是直接在電腦連線到網際網路，在它自己的資源群組中建立新的 Azure VM 或雲端服務並使用該新的 VM。 如需詳細資訊，請參閱 [在 Azure 中建立執行 Linux 的虛擬機器](quick-create-cli.md)。 當您完成測試後，請刪除此資源群組或 VM 及雲端服務。
+如果您沒有直接連線到網際網路的電腦，則請將新的 Azure VM 建立在它自己的資源群組或雲端服務中，並且使用這個新的 VM。 如需詳細資訊，請參閱 [在 Azure 中建立執行 Linux 的虛擬機器](quick-create-cli.md)。 當您完成測試後，請刪除此資源群組或 VM 及雲端服務。
 
 如果您可以對直接連線到網際網路的電腦建立 SSH 連線，請檢查組織邊緣裝置的下列項目：
 
@@ -94,7 +94,7 @@ SSH 用戶端電腦上的可能會無法連線到 Azure VM，因為發生問題�
 > [!NOTE]
 > 此來源僅適用於使用傳統部署模型所建立的 VM。 針對使用 Resource Manager 來建立的 VM，請跳到 [來源 4：網路安全性群組](#nsg)。
 
-若要排除的雲端服務端點和 ACL 失敗的來源，請確認相同虛擬網路中的另一個 Azure VM 可以使用 SSH 連線。
+若要排除雲端服務端點和 ACL 為失敗來源的可能性，請確認同一個虛擬網路中的其他 Azure VM 是否能使用 SSH 進行連線。
 
 ![強調雲端服務端點和 ACL 的圖表](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
@@ -120,7 +120,7 @@ SSH 用戶端電腦上的可能會無法連線到 Azure VM，因為發生問題�
 
 ![強調以 Linux 為基礎的 Azure 虛擬機器的圖表](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-如果您還沒這麼做，請依照 [為 Linux 型虛擬機器重設密碼或 SSH](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的指示操作。
+如果您還沒這麼做，請依照 [為以 Linux 為基礎的虛擬機器重設密碼](reset-password.md)中的指示操作。
 
 再次嘗試從您的電腦連線。 如果仍然失敗，以下是一些可能的問題：
 

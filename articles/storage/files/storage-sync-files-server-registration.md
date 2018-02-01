@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>使用 Azure 檔案同步 (預覽) 管理已註冊的伺服器
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -28,7 +28,7 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>使用儲存體同步服務來註冊/取消註冊伺服器
 使用 Azure 檔案同步來註冊伺服器可在 Windows Server 與 Azure 之間建立信任關係。 此關係可用來在伺服器上建立伺服器端點，其代表應與 Azure 檔案共用 (也稱為雲端端點) 同步的特定資料夾。 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 若要使用儲存體同步服務來註冊伺服器，您必須先準備好符合下列必要條件的伺服器：
 
 * 伺服器必須執行支援的 Windows 版本。 如需詳細資訊，請參閱[支援的 Windows Server 版本](storage-sync-files-planning.md#supported-versions-of-windows-server)。
@@ -42,6 +42,26 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 
     > [!Note]  
     > 建議使用最新版 AzureRM PowerShell 模組來註冊/取消註冊伺服器。 如果先前在此伺服器上已安裝 AzureRM 套件 (而且此伺服器上的 PowerShell 版本為 5.* 或更新版本)，您可以使用 `Update-Module` Cmdlet 更新此套件。 
+* 如果您在您的環境中使用網路 Proxy 伺服器，請在伺服器上針對要使用的同步代理程式設定 Proxy 設定。
+    1. 判斷 Proxy IP 位址和連接埠號碼
+    2. 編輯這兩個檔案：
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. 在上述兩個檔案中的 /System.ServiceModel 底下，新增圖 1 (本節下方) 中的行，將 127.0.0.1:8888 變更為正確的 IP 位址 (取代 127.0.0.1) 以及正確的連接埠號碼 (取代 8888)：
+    4. 透過命令列設定 WinHTTP Proxy 設定：
+        * 顯示 Proxy：netsh winhttp show proxy
+        * 設定 Proxy：netsh winhttp set proxy 127.0.0.1:8888
+        * 重設 Proxy：netsh winhttp reset proxy
+        * 如果是在安裝代理程式之後設定，則重新啟動我們的同步代理程式：   net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>向儲存體同步服務註冊伺服器
 您必須使用儲存體同步服務來註冊伺服器，才能在 Azure 檔案同步的同步群組中，將伺服器當作伺服器端點使用。 一次只能使用一個儲存體同步服務來註冊一部伺服器。
@@ -147,9 +167,9 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 > 設定的限制過低會影響 Azure 檔案同步的同步和回收效能。
 
 ### <a name="set-azure-file-sync-network-limits"></a>設定 Azure 檔案同步網路限制
-您可以使用節流閥 Azure 檔案同步處理的網路使用量`StorageSyncNetworkLimit`cmdlet。 
+您可以使用 `StorageSyncNetworkLimit` Cmdlet，節流 Azure 檔案同步的網路使用量。 
 
-例如，您可以建立新的節流閥限制，以確保 Azure 檔案同步處理不會使用超過 10 Mbps 之間上午 9 點到下午 5 點 （17:00 小時） 工作週： 
+例如，您可以建立新的節流限制，以確保 Azure 檔案同步在工作日早上 9 點至下午 5 點 (17:00h) 之間不會使用超過 10 Mbps： 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -171,7 +191,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>使用 Windows Server 儲存體服務品質 (QoS) 
 當 Azure 檔案同步裝載於 Windows Server 虛擬主機上執行的虛擬機器時，您可以使用儲存體 QoS (儲存體服務品質) 來規範儲存體 IO 耗用量。 儲存體 QoS 原則可以設定為最大值 (或限制，如上述強制執行 StorageSyncNetwork 限制的方式) 或最小值 (或保留)。 設定最小值而不是最大值時，可讓 Azure 檔案同步在其他工作負載不使用時，盡可能使用可用的儲存體頻寬。 如需詳細資訊，請參閱[儲存體服務品質](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 - [規劃 Azure 檔案同步 (預覽) 部署](storage-sync-files-planning.md)
 - [部署 Azure 檔案同步 (預覽)](storage-sync-files-deployment-guide.md) 
 - [針對 Azure 檔案同步 (預覽) 進行移難排解](storage-sync-files-troubleshoot.md)

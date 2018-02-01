@@ -24,7 +24,7 @@
 ### [連線內部部署 - 專用](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # 開始使用
-## [建立您的第一個虛擬網路](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [建立您的第一個虛擬網路](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # 作法
 ## 網際網路連線

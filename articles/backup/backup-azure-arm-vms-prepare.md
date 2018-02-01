@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 
@@ -54,7 +54,7 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
 * 不支援備份資料磁碟大小超過 1023 GB 的虛擬機器。
 
   > [!NOTE]
-  > 我們有私人預覽，可支援非受控磁碟大小為 1 TB (或更大) 的虛擬機器備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)。
+  > 我們有私人預覽，可支援磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)。
   >
 
 * 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
@@ -181,7 +181,7 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
 如果您無法註冊虛擬機器，請參閱下列有關安裝 VM 代理程式和有關網路連線的資訊。 如果您要保護在 Azure 中建立的虛擬機器，則不一定需要下列資訊。 但是，如果您將虛擬機器移轉至 Azure，請確定您已正確安裝 VM 代理程式，而且您的虛擬機器可以與虛擬網路通訊。
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虛擬機器上安裝 VM 代理程式
-Azure [VM 代理程式](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 如果 VM 是建立自 Azure Marketplace，則 VM 代理程式已存在於虛擬機器上。 
+Azure [VM 代理程式](../virtual-machines/windows/agent-user-guide.md)必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 如果 VM 是建立自 Azure Marketplace，則 VM 代理程式已存在於虛擬機器上。 
 
 如果您「不是」使用從 Azure Marketplace 建立的 VM，則適用下列提供的資訊。 例如，從內部部署資料中心移轉的 VM。 在這種情況下，您需要安裝 VM 代理程式才能保護虛擬機器。
 
@@ -219,7 +219,7 @@ Azure [VM 代理程式](../virtual-machines/windows/classic/agents-and-extension
 ![NSG 與區域的儲存體標籤](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> 儲存體標籤僅在特定區域中提供使用，目前仍是預覽狀態。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
+> 儲存體服務標籤僅在特定區域中提供使用，目前仍是預覽狀態。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>使用 HTTP Proxy 進行 VM 備份
 當您備份 VM 時，VM 上的備份擴充功能會使用 HTTPS API，將快照集管理命令傳送到 Azure 儲存體。 透過 HTTP Proxy 路由傳送備份擴充功能流量，因為它是唯一為了要存取公用網際網路而設定的元件。

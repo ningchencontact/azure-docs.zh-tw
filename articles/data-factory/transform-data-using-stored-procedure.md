@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 SQL Server 預存程序活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 您可以使用「預存程序活動」來叫用您企業或 Azure 虛擬機器 (VM) 中的下列其中一個資料存放區： 
 
-- Azure SQL Database
+- 連接字串
 - Azure SQL 資料倉儲
 - SQL Server Database。  如果您使用 SQL Server，請在裝載資料庫的同一部電腦上或可存取資料庫的個別電腦上安裝自我裝載整合執行階段。 自我裝載整合執行階段是一套透過安全且可管理的方式，將內部部署/Azure VM 上的資料來源連結至雲端服務的元件。 如需詳細資料，請參閱[自我裝載整合執行階段](create-self-hosted-integration-runtime.md)一文。
 
@@ -72,12 +72,12 @@ ms.lasthandoff: 10/11/2017
 
 | 屬性                  | 說明                              | 必要 |
 | ------------------------- | ---------------------------------------- | -------- |
-| 名稱                      | 活動的名稱                     | 是      |
+| name                      | 活動的名稱                     | yes      |
 | 說明               | 說明活動用途的文字 | 否       |
-| 類型                      | 對於預存程序活動，活動類型為 SqlServerStoredProcedure | 是      |
-| linkedServiceName         | 參考 Azure SQL Database 或 Azure SQL 資料倉儲或 SQL Server，註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
-| storedProcedureName       | 指定 Azure SQL Database、「Azure SQL 資料倉儲」或 SQL Server 資料庫中預存程序 (由輸出資料表所使用的已連結服務代表) 的名稱。 | 是      |
-| storedProcedureParameters | 指定預存程序參數的值。 使用 `"param1": { "value": "param1Value","type":"param1Type" }` 來傳遞參數值，及其資料來源支援的原生類型。 如果您需要為參數傳遞 Null，請使用 *"param1": { "value": null }* (全部小寫)。 | 否       |
+| type                      | 對於預存程序活動，活動類型為 **SqlServerStoredProcedure** | yes      |
+| 預設容器         | 參考 **Azure SQL Database** 或 **Azure SQL 資料倉儲**或 **SQL Server**，註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | yes      |
+| storedProcedureName       | 指定要叫用的預存程序名稱。 | yes      |
+| storedProcedureParameters | 指定預存程序參數的值。 使用 `"param1": { "value": "param1Value","type":"param1Type" }` 來傳遞資料來源所支援的參數值及其類型。 如果您需要為參數傳遞 Null，請使用 `"param1": { "value": null }` (全部小寫)。 | 否       |
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章，其說明如何以其他方式轉換資料： 

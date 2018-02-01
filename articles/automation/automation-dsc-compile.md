@@ -13,15 +13,15 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
-使用 Azure 自動化時有兩種方式可以編譯「期望狀態設定 (DSC)」組態：在 Azure 入口網站中，以及使用 Windows PowerShell。 下表可協助您判斷何時要使用哪一種方法，根據每個特性：
+使用 Azure 自動化時有兩種方式可以編譯「期望狀態設定 (DSC)」組態：在 Azure 入口網站中，以及使用 Windows PowerShell。 下表可協助您根據方法的特性判斷何時應使用哪種方法：
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/14/2017
 1. 從您的自動化帳戶中，按一下 [DSC 組態]。
 2. 按一下組態以開啟其刀鋒視窗。
 3. 按一下 [編譯] 。
-4. 如果組態中不有任何參數，系統會提示您確認您是否想要進行編譯。 如果組態中有參數，**編譯組態**刀鋒視窗隨即開啟，因此您可以提供參數值。 如需參數的進一步詳細資訊，請參閱以下的[**基本參數**](#basic-parameters)一節。
+4. 如果組態沒有參數，系統會提示您確認是否要加以編譯。 如果組態有參數，即會開啟 [編譯組態] 刀鋒視窗，讓您可以提供參數值。 如需參數的進一步詳細資訊，請參閱以下的[**基本參數**](#basic-parameters)一節。
 5. [編譯工作]  刀鋒視窗隨即開啟，供您追蹤編譯工作的狀態，以及因為此工作而放在 Azure 自動化 DSC 提取伺服器上的節點組態 (MOF 組態文件)。
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>使用 Windows PowerShell 編譯 DSC 組態
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-您可以使用 PowerShell 編譯上述 DSC 組態。 PowerShell 底下將兩個節點組態加入至 Azure 自動化 DSC 提取伺服器： **CredentialSample.MyVM1**和**CredentialSample.MyVM2**。
+您可以使用 PowerShell 編譯上述 DSC 組態。 PowerShell 會將以下兩個節點組態新增至 Azure Automation DSC 提取伺服器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
 
 ```powershell
 $ConfigData = @{
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>匯入節點組態
 
-您也可以匯入節點組態 (Mof) 編譯的 Azure 外部。 這樣做的優點之一，就是可以簽署節點組態。
+您也可以匯入在 Azure 外部完成編譯的節點組態 (MOF)。 這樣做的優點之一，就是可以簽署節點組態。
 DSC 代理程式會在受控節點上本機驗證簽署的節點組態，確保套用到節點的組態來自經授權之來源。
 
 > [!NOTE]
@@ -299,7 +299,7 @@ DSC 代理程式會在受控節點上本機驗證簽署的節點組態，確保�
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>在 Azure 入口網站中匯入節點組態
 
-1. 從您的自動化帳戶中，按一下 [DSC 節點組態]。
+1. 從您的自動化帳戶中，按一下 [組態管理] 下方的 [DSC 節點組態]。
 
     ![DSC 節點組態](./media/automation-dsc-compile/node-config.png)
 2. 在 [DSC 節點組態] 刀鋒視窗上，按一下 [新增節點組態]。

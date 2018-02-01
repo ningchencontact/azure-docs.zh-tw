@@ -3,7 +3,7 @@ title: "使用共用快照集 (預覽) | Microsoft Docs"
 description: "Azure 共用快照集是在某個時間點拍攝的 Azure 檔案共用唯讀版本，是備份共用的一個方法。"
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>使用共用快照集 (預覽)
 共用快照集 (預覽) 是在某個時間點拍攝的 Azure 檔案共用唯讀版本。 建立共用快照集之後，即可加以讀取、複製或刪除，但不能修改。 共用快照集提供在某個時間點備份共用的方法。 
@@ -246,7 +246,46 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Azure PowerShell 中的檔案共用快照集作業
+您可以使用 Azure Powershell 執行相同的作業，例如，列出共用快照集、瀏覽共用快照集內容、從共用快照集還原或下載檔案，或刪除共用快照集。
+
+#### <a name="list-share-snapshots"></a>列出共用快照集
+
+您可以使用 `Get-AzureStorageShare` 列出特定共用的共用快照集
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>瀏覽共用快照集
+您也可以使用 `Get-AzureStorageFile`，且 `-Share` 的值指向特定快照集，瀏覽至特定共用快照集以檢視其內容
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>從共用快照集還原
+
+您可以使用 `Get-AzureStorageFileContent` 命令，從共用快照集複製或下載檔案，藉此還原檔案
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>刪除 Azure 檔案共用快照集
+=======
 ## <a name="delete-a-share-snapshot"></a>刪除共用快照集
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 您可以使用 Azure 入口網站、PowerShell、CLI、REST API 或任何儲存體 SDK，將共用快照集刪除。 下列小節說明如何使用 Azure 入口網站、CLI 和 PowerShell 將共用快照集刪除。
 

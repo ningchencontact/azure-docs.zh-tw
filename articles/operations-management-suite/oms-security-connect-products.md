@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>將安全性產品連接至 Operations Management Suite (OMS) 安全性和稽核解決方案 
 本文件可協助您將安全性產品連接至 OMS 安全性和稽核解決方案。 支援的來源如下：
@@ -95,7 +95,7 @@ OMS 安全性支援收集使用 CEF over Syslogs 的記錄檔和 [Cisco ASA](htt
 
 ## <a name="reviewing-collected-security-events"></a>檢閱收集到的安全性事件
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 設定完成之後，OMS 安全性就會開始擷取安全性事件。 若要以視覺化方式檢視這些事件，請開啟記錄檔搜尋、在搜尋欄位中輸入命令 Type=CommonSecurityLog，然後按 ENTER。 下列範例顯示此命令的結果，請您注意，在此案例中 OMS 安全性已從多家廠商擷取安全性記錄檔︰
    

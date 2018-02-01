@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: f1175c76b3648e7bf9f1746c05b5d1d4898e7443
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -109,13 +109,13 @@ ms.lasthandoff: 12/22/2017
 
 **錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
-150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。</br></br>對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)。
+150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。</br></br>對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 ### <a name="fix-the-problem"></a>修正問題
 請確定資料磁碟都已初始化，然後再次嘗試操作：
 
-- 對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。
-- 對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)。
+- 對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。
+- 對於 Linux：[在 Linux 中新增新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 若問題持續發生，請連絡支援服務。
 
@@ -131,20 +131,20 @@ ms.lasthandoff: 12/22/2017
 
 您可以使用[移除過時 ASR 組態指令碼](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，並移除 Azure VM 上的過時 Site Recovery 組態。 移除過時的組態後，您應該會在啟用複寫時看見 VM。
 
-## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM 的佈建狀態無效 （錯誤碼 150019）
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM 的佈建狀態無效 (錯誤碼 150019)
 
-若要啟用 VM 上的複寫，佈建狀態應該是**Succeeded**。 您可以遵循下列步驟，檢查 VM 狀態。
+若要在 VM 上啟用複寫，佈建狀態應該是「成功」。 您可以藉由遵循下列步驟來檢查 VM 狀態。
 
-1.  選取**資源總管**從**所有服務**Azure 入口網站中。
-2.  展開**訂閱**清單並選取您的訂用帳戶。
-3.  展開**ResourceGroups**清單並選取 VM 的資源群組。
-4.  展開**資源**清單並選取您的虛擬機器
-5.  請檢查**provisioningState**欄位右邊的執行個體檢視中。
+1.  在 Azure 入口網站中從 [所有服務] 選取 [資源總管]。
+2.  展開 [訂用帳戶] 清單然後選取您的訂用帳戶。
+3.  展開 [ResourceGroups] 清單然後選取 VM 的資源群組。
+4.  展開 [資源] 清單然後選取您的虛擬機器
+5.  勾選右側 [執行個體] 檢視中的 [provisioningState] 欄位。
 
 ### <a name="fix-the-problem"></a>修正問題
 
-- 如果**provisioningState**是**失敗**，請連絡支援人員以進行疑難排解的詳細資料。
-- 如果**provisioningState**是**更新**，另一個延伸模組無法取得部署。 檢查是否有任何進行中的作業，在 VM 上，等候它們完成再重試失敗的站台復原**啟用複寫**作業。
+- 如果 [provisioningState] 是「失敗」，請連絡支援人員以取得疑難排解的詳細資訊。
+- 如果 [provisioningState] 是「正在更新」，則可能有其他擴充功能正在部署。 檢查 VM 上是否有任何進行中的作業，等候它們完成然後重試失敗的 Site Recovery **啟用複寫**作業。
 
 ## <a name="next-steps"></a>後續步驟
 [複寫 Azure 虛擬機器](azure-to-azure-quickstart.md)

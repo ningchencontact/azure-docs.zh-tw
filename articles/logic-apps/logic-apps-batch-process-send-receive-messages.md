@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>傳送、接收，並在邏輯應用程式中批次處理訊息
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/14/2017
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[開始使用免費 Azure 帳戶](https://azure.microsoft.com/free/)。 否則，您可以[註冊隨用隨付訂用帳戶](https://azure.microsoft.com/pricing/purchase-options/)。
 
-* [如何建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)的基本知識 
+* [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識 
 
 * 電子郵件帳戶與任何 [Azure Logic Apps 所支援的電子郵件提供者](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ ms.lasthandoff: 10/14/2017
       例如，如果您有公司或學校帳戶，請選取 Office 365 Outlook 連接器。 
       如果您有 Gmail 帳戶，請選取 Gmail 連接器。
 
-   3. 為您的連接器選取此動作： **{*電子郵件提供者*} - 傳送電子郵件**
+   3. 為您的連接器選取此動作： **{電子郵件提供者} - 傳送電子郵件**
 
-      例如：
+      例如︰
 
       ![為您的電子郵件提供者選取「傳送電子郵件」動作](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. 如果您先前未建立電子郵件提供者的連線，請提供您的電子郵件認證，以便當系統提示您時進行驗證。 深入了解[驗證您的電子郵件認證](../logic-apps/logic-apps-create-a-logic-app.md)。
+5. 如果您先前未建立電子郵件提供者的連線，請提供您的電子郵件認證，以便當系統提示您時進行驗證。 深入了解[驗證您的電子郵件認證](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 6. 設定您剛才新增之動作的屬性。
 

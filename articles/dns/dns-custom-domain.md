@@ -3,30 +3,30 @@ title: "整合 Azure DNS 與您的 Azure 資源 | Microsoft Docs"
 description: "了解如何使用 Azure DNS 為您的 Azure 資源提供 DNS。"
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 1/19/2018
+ms.author: kumud
+ms.openlocfilehash: cbc769cd7356b3057fd2aae295071b04d2e40d91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
 Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 例如，您有一個 Azure Web 應用程式，而且想要使用 contoso.com 或 www.contoso.com 作為 FQDN 讓使用者存取它。 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 為了在您的自訂網域 Azure DNS，您必須先將您的網域委派給 Azure DNS。 如需如何設定名稱伺服器以便進行委派的指示，請參閱[將網域委派給 Azure DNS](./dns-delegate-domain-azure-dns.md)。 一旦將您的網域委派給您的 Azure DNS 區域，您就能夠設定所需的 DNS 記錄。
 
-您可以為 [Azure 函數應用程式](#azure-function-app)、[Azure IoT](#azure-iot)、[公用 IP 位址](#public-ip-address)、[App Service (Web Apps)](#app-service-web-apps)、[Blob 儲存體](#blob-storage)、[Azure CDN](#azure-cdn) 設定虛名或自訂網域。
+您可以為 [Azure Function 應用程式](#azure-function-app)、[公用 IP 位址](#public-ip-address)、[App Service (Web Apps)](#app-service-web-apps)、[Blob 儲存體](#blob-storage)、[Azure CDN](#azure-cdn) 設定虛名或自訂網域。
 
 ## <a name="azure-function-app"></a>Azure 函數應用程式
 
@@ -42,9 +42,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |值  |描述  |
+|屬性  |值  |說明  |
 |---------|---------|---------|
-|名稱     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|Name     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -55,27 +55,6 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 在 [新增主機名稱] 刀鋒視窗的 [主機名稱] 文字欄位中輸入 CNAME 記錄，然後按一下 [驗證]。 如果能夠找到記錄，就會出現 [新增主機名稱] 按鈕。 按一下 [新增主機名稱] 以新增別名。
 
 ![函數應用程式的新增主機名稱刀鋒視窗](./media/dns-custom-domain/functionaddhostname.png)
-
-## <a name="azure-iot"></a>Azure IoT
-
-Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網域與 IoT 中樞，只需要一筆指向資源的 CNAME 記錄。
-
-瀏覽至 [物聯網]  >  [IoT 中樞]，選取您的 IoT 中樞。 在 [概觀] 刀鋒視窗中，請注意 IoT 中樞的 FQDN。
-
-![IoT 中樞刀鋒視窗](./media/dns-custom-domain/iot.png)
-
-接下來，瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
-
-
-|屬性  |值  |描述  |
-|---------|---------|---------|
-|名稱     | myiothub        | 這個值以及網域名稱標籤是 IoT 中樞的 FQDN。        |
-|類型     | CNAME        | 使用 CNAME 記錄會使用別名。
-|TTL     | 1        | 1 為使用 1 小時        |
-|TTL 單位     | 小時        | 使用小時作為時間量值單位         |
-|Alias     | adatumIOT.azure-devices.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 adatumIOT.azure-devices.net (IoT 中樞提供的主機名稱)。
-
-建立記錄之後，使用 `nslookup` 測試 CNAME 記錄的名稱解析
 
 ## <a name="public-ip-address"></a>公用 IP 位址
 
@@ -88,10 +67,10 @@ Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |描述  |
+|屬性  |值  |說明  |
 |---------|---------|---------|
-|名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|類型     | A        | 使用 A 記錄，因為該資源是 IP 位址。        |
+|Name     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|類型     | 具有使用         | 使用 A 記錄，因為該資源是 IP 位址。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |IP 位址     | <your ip address>       | 公用 IP 位址。|
@@ -115,9 +94,9 @@ Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |描述  |
+|屬性  |值  |說明  |
 |---------|---------|---------|
-|名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|Name     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -149,9 +128,9 @@ Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |描述  |
+|屬性  |值  |說明  |
 |---------|---------|---------|
-|名稱     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|Name     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -177,9 +156,9 @@ Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |值  |描述  |
+|屬性  |值  |說明  |
 |---------|---------|---------|
-|名稱     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|Name     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
 
@@ -48,7 +48,7 @@ HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)中尋找的`name`參數在查詢字串或 HTTP 要求的主體。
+下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 `name` 參數的 [C# 函式](functions-dotnet-class-library.md)。
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -242,7 +242,7 @@ module.exports = function(context, req) {
 
 ### <a name="webhook---c-example"></a>Webhook - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)一般的 JSON 要求的回應中傳送 HTTP 200。
+下列範例顯示的 [C# 函式](functions-dotnet-class-library.md)會傳送 HTTP 200 以回應一般的 JSON 要求。
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs)屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http)。
 
 您可以設定授權層級和屬性建構參數中可允許的 HTTP 方法，並有 webhook 類型和路由範本的內容。 如需這些設定的詳細資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。 以下是方法簽章中的 `HttpTrigger` 屬性：
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
+如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
@@ -528,6 +528,10 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 - **查詢字串**：提供者會在 `clientid` 查詢字串參數中傳遞金鑰名稱，例如 `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`。
 - **要求標頭**︰提供者在 `x-functions-clientid` 標頭中傳遞金鑰名稱。
 
+## <a name="trigger---limits"></a>觸發程序的 - 限制
+
+HTTP 要求的長度限制為 100K (102,400) 個位元組，而 URL 的長度限制為 4k (4,096) 個位元組。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
+
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
 [host.json](functions-host-json.md) 檔案包含控制 HTTP 觸發程序行為的設定。
@@ -540,7 +544,7 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
-C# 類別庫，沒有特定的輸出繫結組態屬性。 若要傳送 HTTP 回應，請讓函式傳回類型 `HttpResponseMessage` 或 `Task<HttpResponseMessage>`。
+針對 C# 類別庫，沒有輸出特定的繫結設定屬性。 若要傳送 HTTP 回應，請讓函式傳回類型 `HttpResponseMessage` 或 `Task<HttpResponseMessage>`。
 
 針對其他語言，HTTP 輸出繫結會在 function.json 的 `bindings` 陣列中定義為 JSON 物件，如下列範例所示：
 

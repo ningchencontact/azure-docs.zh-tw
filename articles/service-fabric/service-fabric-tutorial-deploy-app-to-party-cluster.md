@@ -15,28 +15,28 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>將應用程式部署到 Azure 中的合作對象叢集
 本教學課程是系列中的第二部分，示範如何部署 Azure Service Fabric 應用程式到 Azure 中的合作對象叢集。
 
 在教學課程系列的第二部分中，您將了解如何：
 > [!div class="checklist"]
-> * 使用 Visual Studio 將應用程式部署至遠端叢集
-> * 使用 Service Fabric Explorer 從叢集移除應用程式
-
-在本教學課程系列中，您將了解如何：
-> [!div class="checklist"]
 > * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)
 > * 將應用程式部署到遠端叢集
 > * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>必要條件
+在本教學課程系列中，您將了解如何：
+> [!div class="checklist"]
+> * 使用 Visual Studio 將應用程式部署至遠端叢集
+> * 使用 Service Fabric Explorer 從叢集移除應用程式
+
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前：
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [安裝 Visual Studio 2017](https://www.visualstudio.com/) 並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。

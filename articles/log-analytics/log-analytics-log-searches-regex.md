@@ -1,5 +1,5 @@
 ---
-title: "OMS Log Analytics 記錄搜尋中的規則運算式 | Microsoft Docs"
+title: "Azure Log Analytics 記錄搜尋中的規則運算式 | Microsoft Docs"
 description: "您可以在 Log Analytics 記錄搜尋中使用 RegEx 關鍵字，根據規則運算式篩選結果。  這篇文章會使用數個範例提供這些運算式的語法。"
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8915e0e35951871ff10fd84453d55bd5102e97df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>使用規則運算式在 Log Analytics 中篩選記錄搜尋
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/16/2017
 > 本文說明在 Log Analytics 中使用舊版查詢語言的規則運算式。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[語言中的規則運算式文件](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax)。
 
 
-[記錄搜尋](log-analytics-log-searches.md)可讓您從 Log Analytics 儲存機制中擷取資訊。  [篩選條件運算式](log-analytics-search-reference.md#filter-expressions)可讓您根據特定準則篩選搜尋的結果。  **RegEx** 關鍵字可讓您指定此篩選器的規則運算式。  
+[記錄搜尋](log-analytics-log-searches.md)可讓您從 Log Analytics 工作區中擷取資訊。  [篩選條件運算式](log-analytics-search-reference.md#filter-expressions)可讓您根據特定準則篩選搜尋的結果。  **RegEx** 關鍵字可讓您指定此篩選器的規則運算式。  
 
 這篇文章提供 Log Analytics 所使用的規則運算式語法詳細資料。
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/16/2017
 
 | Character | 說明 | 範例 | 範例相符項目 |
 |:--|:--|:--|:--|
-| &#124; | 邏輯 OR。  如果符合任一個運算式則傳回結果。 | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | 警告<br>錯誤 |
+| &#124; | 邏輯 OR。  如果符合任一個運算式則傳回結果。 | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | 警告<br>Error |
 | & | 邏輯 AND。  如果符合兩個運算式則傳回結果 | EventData=regex("(Security.\*&.\*success.\*)") | 安全性稽核成功 |
 
 
@@ -101,4 +101,4 @@ ms.lasthandoff: 10/16/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-* 熟悉[記錄搜尋](log-analytics-log-searches.md)來檢視和分析 Log Analytics 儲存機制中的資料。
+* 熟悉[記錄搜尋](log-analytics-log-searches.md)來檢視和分析 Log Analytics 工作區中的資料。

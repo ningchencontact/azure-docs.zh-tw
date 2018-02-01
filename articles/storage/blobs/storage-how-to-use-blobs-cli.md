@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>使用 Azure CLI 執行 Blob 儲存體作業
 
@@ -44,7 +44,7 @@ Azure Blob 儲存體是一項儲存大量非結構化物件資料的服務 (例�
 
 容器類似於電腦上的目錄，可讓您將 Blob 群組組織在容器中，就像您將檔案組織在目錄中一樣。 儲存體帳戶可以具有任意數目的容器。 您可以在容器中儲存最多 500 TB 的 Blob 資料，這是儲存體帳戶中的資料量上限。
 
-使用 [az storage container create](/cli/azure/storage/container#create) 命令，建立用於儲存 Blob 的容器。
+使用 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 命令，建立用於儲存 Blob 的容器。
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ az storage container create --name mystoragecontainer
 
 將公用存取設為 `blob` 或 `container` 時，您可對網際網路上的任何人啟用唯讀存取。 例如，如果您想要在網站上顯示儲存為 Blob 的影像，您需要啟用公用讀取存取。 如果想要啟用讀取/寫入存取，您必須改用[共用存取簽章 (SAS)](#create-a-shared-access-signature-sas)。
 
-使用 [az storage container set-permission](/cli/azure/storage/container#create) 命令，對您的容器啟用公用讀取存取。
+使用 [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create) 命令，對您的容器啟用公用讀取存取。
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 區塊 blob 是最常用的 Blob 類型，儲存在 Azure 儲存體中。 必須將資料新增到現有的 Blob，無需修改其現有內容 (例如，用於記錄) 時，就會使用附加 Blob。 分頁 Blob 支援 IaaS 虛擬機器的 VHD 檔案。
 
-在此範例中，我們將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob#upload) 命令最後一個步驟所建立的容器。
+在此範例中，我們將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 命令最後一個步驟所建立的容器。
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ az storage blob upload \
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](/cli/azure/storage/blob#list) 命令列出容器中的 Blob。
+使用 [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 命令列出容器中的 Blob。
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>下載 Blob
 
-使用 [az storage blob download](/cli/azure/storage/blob#download) 命令，下載您在上一個步驟上傳的 Blob。
+使用 [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 命令，下載您在上一個步驟上傳的 Blob。
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>刪除 Blob
 
-使用 [az storage blob delete](/cli/azure/storage/blob#delete) 命令，刪除容器中的 Blob。
+使用 [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete) 命令，刪除容器中的 Blob。
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>顯示和修改 Blob 屬性和中繼資料
 
-每個 Blob 都有數個服務定義的屬性，您可以使用 [az storage blob show](/cli/azure/storage/blob#show) 命令來顯示它們，包括其名稱、類型、長度和其他項目。 您也可以使用 [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) 命令，搭配您自己的屬性及其值設定 Blob。
+每個 Blob 都有數個服務定義的屬性，您可以使用 [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) 命令來顯示它們，包括其名稱、類型、長度和其他項目。 您也可以使用 [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update) 命令，搭配您自己的屬性及其值設定 Blob。
 
-在此範例中，我們首先顯示 Blob 的服務定義屬性，然後更新具有兩個我們自己的中繼資料屬性的 Blob。 最後，我們會使用 [az storage blob metadata show](/cli/azure/storage/blob/metadata#show) 命令，顯示 Blob 的中繼資料屬性及其值。
+在此範例中，我們首先顯示 Blob 的服務定義屬性，然後更新具有兩個我們自己的中繼資料屬性的 Blob。 最後，我們會使用 [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show) 命令，顯示 Blob 的中繼資料屬性及其值。
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>驗證私用存取
 
-若要驗證沒有該容器中 Blob 的公用讀取存取，請使用 [az storage blob url](/cli/azure/storage/blob#url) 命令，取得其中一個 Blob 的 URL。
+若要驗證沒有該容器中 Blob 的公用讀取存取，請使用 [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) 命令，取得其中一個 Blob 的 URL。
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ az storage blob url \
 
 ### <a name="create-a-sas-uri"></a>建立 SAS URI
 
-現在我們將建立允許存取 Blob 的 SAS URI。 在下列範例中，我們首先使用 [az storage blob url](/cli/azure/storage/blob#url)，在一個變數中填入 Blob 的 URL，然後在另一個變數中填入使用 [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas) 命令所產生的 SAS 權杖。 最後，串連這兩個 (由 `?` 查詢字串分隔符號分隔)，以輸出 Blob 的完整 SAS URI。
+現在我們將建立允許存取 Blob 的 SAS URI。 在下列範例中，我們首先使用 [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url)，在一個變數中填入 Blob 的 URL，然後在另一個變數中填入使用 [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas) 命令所產生的 SAS 權杖。 最後，串連這兩個 (由 `?` 查詢字串分隔符號分隔)，以輸出 Blob 的完整 SAS URI。
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ echo $blob_url?$sas_token
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包括您已建立的儲存體帳戶，以及已在本教學指導中上傳的任何 Blob)，請使用 [az group delete](/cli/azure/group#delete) 命令刪除資源群組。
+如果您不再需要資源群組中的任何資源 (包括您已建立的儲存體帳戶，以及已在本教學指導中上傳的任何 Blob)，請使用 [az group delete](/cli/azure/group#az_group_delete) 命令刪除資源群組。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

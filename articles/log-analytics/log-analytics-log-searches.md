@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>在 Log Analytics 中使用記錄搜尋以尋找資料
 
 >[!NOTE]
-> 本文說明在 Azure Log Analytics 中使用舊版查詢語言的記錄搜尋。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[了解 Log Analytics 中的記錄搜尋 (新)](log-analytics-log-search-new.md)。
+> 本文說明在 Log Analytics 中使用舊版查詢語言的記錄搜尋。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[了解 Log Analytics 中的記錄搜尋 (新)](log-analytics-log-search-new.md)。
 
 
 Log Analytics 的核心是記錄檔搜尋功能，可讓您結合和相互關聯您環境內多個來源的任何電腦資料。 解決方案也是由記錄搜尋發動，可讓您針對特定問題領域進行度量。
 
 在 [搜尋] 頁面上，您可以建立查詢，然後在搜尋時，您可以使用 Facet 控制篩選結果。 您也可以建立進階查詢來轉換、篩選和報告結果。
 
-常見的記錄搜尋查詢會出現在大部分解決方案頁面中。 在整個 OMS 主控台中，您可以按一下圖格或向內切入其他項目，使用 [記錄檔搜尋] 來檢視項目的詳細資料。
+常見的記錄搜尋查詢會出現在大部分解決方案頁面中。 在整個 OMS 入口網站中，您可以按一下圖格或向內切入其他項目，使用 [記錄檔搜尋] 來檢視項目的詳細資料。
 
 在本教學課程中，我們將逐步解說範例，以涵蓋您使用記錄搜尋時的所有基本項目。
 
@@ -39,7 +39,7 @@ Log Analytics 的核心是記錄檔搜尋功能，可讓您結合和相互關聯
 在熟悉搜尋技術之後，您可以檢閱 [Log Analytics 記錄檔搜尋參考資料](log-analytics-search-reference.md)。
 
 ## <a name="use-basic-filters"></a>使用基本篩選器
-首先要知道的事情是搜尋查詢的第一個部分，在任何 "|" 分隔號字元之前，一律為「篩選器」 。 您可以將它當做 TSQL 中的 WHERE 子句--它會判斷要從 OMS 資料存放區提取「哪個」  資料子集。 在資料存放區中搜尋主要是有關指定您想要擷取的資料特性，因此查詢會很自然地以 WHERE 子句開頭。
+首先要知道的事情是搜尋查詢的第一個部分，在任何 "|" 分隔號字元之前，一律為「篩選器」 。 您可以將它當做 TSQL 中的 WHERE 子句--它會判斷要從 Log Analytics 工作區提取「哪個」資料子集。 在資料存放區中搜尋主要是有關指定您想要擷取的資料特性，因此查詢會很自然地以 WHERE 子句開頭。
 
 您可以使用之最基本的篩選器為「關鍵字」 ，例如 'error' 或 'timeout' 或電腦名稱。 這些簡單的查詢類型通常會在相同的結果集內傳回各種資料圖形。 這是因為 Log Analytics 在系統中有不同「類型」  的資料。
 
@@ -80,7 +80,7 @@ CounterName="% Processor Time" InstanceName="_Total"
 
 例如，查詢 `Type=Event EventLog="Windows PowerShell"` 等同於 `Type=Event AND EventLog="Windows PowerShell"`。 它會傳回記錄於 Windows PowerShell 事件記錄檔中以及從該事件記錄檔收集到的所有事件。 如果您藉由重複選取相同的 facet 以多次加入篩選器，此問題會相當明確--它可能會干擾 [搜尋] 列，但它仍會傳回相同的結果，因為隱含 AND 運算子一律都會在其中。
 
-您可以藉由明確使用 NOT 運算子，輕鬆地反轉隱含 AND 運算子。 例如：
+您可以藉由明確使用 NOT 運算子，輕鬆地反轉隱含 AND 運算子。 例如︰
 
 `Type:Event NOT(EventLog:"Windows PowerShell")` 或其相等的 `Type=Event EventLog!="Windows PowerShell"` 會從「不是」Windows PowerShell 記錄檔的所有其他記錄檔傳回所有事件。
 
@@ -126,7 +126,7 @@ EventLog=Application OR EventLog=System AND Computer=SERVER1.contoso.com
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-就像事件記錄欄位一般，您可以藉由新增 OR，即可只擷取一組特定電腦的資料。 例如：
+就像事件記錄欄位一般，您可以藉由新增 OR，即可只擷取一組特定電腦的資料。 例如︰
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -322,7 +322,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>透過 measure 命令使用 max 和 min 函數
 有 **Measure Max()** 和 **Measure Min()** 在其中很有用的各種案例。 不過，由於每個函數彼此相反，我們將說明 Max ()，而您可以自己實驗 Min ()。
 
-如果您查詢安全性事件，它們會有不同的**層級**屬性。 例如：
+如果您查詢安全性事件，它們會有不同的**層級**屬性。 例如︰
 
 ```
 Type=SecurityEvent
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>透過 measure 命令使用avg 函數
 和 measure 搭配使用的 Avg () 統計函數可讓您計算某些欄位的平均值，並且根據相同或其他欄位將結果分組。 這適用於各種情況，例如效能資料。
 
-我們將從效能等級開始介紹。 請注意，OMS 目前會收集 Windows 和 Linux 機器的效能計數器。
+我們將從效能等級開始介紹。 請注意，Log Analytics 目前會收集 Windows 和 Linux 機器的效能計數器。
 
 若要搜尋「所有」  效能資料，最基本的查詢如下：
 
@@ -414,7 +414,7 @@ Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Process
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-因為您有非常明確的選取範圍，只要依據 CounterName 分組， **measure Avg ()** 命令可以傳回不是依電腦算出的平均，而是跨伺服器陣列算出的平均。 例如：
+因為您有非常明確的選取範圍，只要依據 CounterName 分組， **measure Avg ()** 命令可以傳回不是依電腦算出的平均，而是跨伺服器陣列算出的平均。 例如︰
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -448,7 +448,7 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ## <a name="use-the-where-command"></a>使用 where 命令
 where 命令的運作方式和篩選器類似，但它可以套用在管線中，以進一步篩選由 Measure 命令產生的彙總結果 - 而不是在查詢開頭篩選過的未經處理的結果。
 
-例如：
+例如︰
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer

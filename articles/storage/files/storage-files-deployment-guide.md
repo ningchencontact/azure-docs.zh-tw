@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 檔案服務
-[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中受到完整管理的檔案共用；您可透過業界標準 SMB 通訊協定加以存取。 本文將說明如何在組織中實際部署 Azure 檔案服務。
+
+            [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文將說明如何在組織中實際部署 Azure 檔案服務。
 
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)，再遵循這篇文章中的步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已完成下列步驟：
 
 - 在所要區域中，建立 Azure 儲存體帳戶，並設定所需的復原和加密選項。 如需如何建立儲存體帳戶的逐步指示，請參閱[建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
@@ -35,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 您可能想要將現有的檔案共用 (例如儲存在內部部署的檔案共用) 移轉至新的 Azure 檔案共用。 本節示範如何透過[規劃指南](storage-files-planning.md#data-transfer-method)詳述的幾個常用方法，將資料移至 Azure 檔案共用。
 
 ### <a name="azure-file-sync-preview"></a>Azure 檔案同步 (預覽)
-Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
+Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
 
 即使您不需要長期使用同步處理機制，也可以使用 Azure 檔案同步，將資料移轉至 Azure 檔案共用。 如需如何使用 Azure 檔案同步將資料傳送至 Azure 檔案共用的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
 
@@ -58,7 +59,7 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 
         ![磁碟管理 MMC 中 [初始化磁碟] 功能表的螢幕擷取畫面](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
 
-    - 若要將磁碟機代號指派給磁碟，請在已上線並已初始化之磁碟的「未配置」空間中，按一下滑鼠右鍵，然後按一下新增簡單磁碟區。 這可讓您指派磁碟機代號。 請注意，您不需要格式化磁碟區，因為這是稍後要進行的作業。
+    - 若要將磁碟機代號指派給磁碟，請在已上線並已初始化之磁碟的「未配置」空間中，按一下滑鼠右鍵，然後按一下 [新增簡單磁碟區]。 這可讓您指派磁碟機代號。 請注意，您不需要格式化磁碟區，因為這是稍後要進行的作業。
 
         ![磁碟管理 MMC 中 [新增簡單磁碟區精靈] 的螢幕擷取畫面](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
@@ -145,9 +146,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 在下列範例中，結合 SSH 的簡單 Bash 指令碼可能會產生相同的結果。 `$computer` 變數同樣是由使用者填入：
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

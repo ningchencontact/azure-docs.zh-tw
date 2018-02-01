@@ -1,6 +1,6 @@
 ---
-title: "OMS Log Analytics 中檢視設計工具的圖格參考 | Microsoft Docs"
-description: "Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂檢視，其中包含 OMS 存放庫中不同資料的視覺效果。 本文針對可用於自訂檢視的圖格提供其設定參考。"
+title: "Azure Log Analytics 中檢視表設計工具的圖格參考 | Microsoft Docs"
+description: "Log Analytics 中的檢視表設計工具可讓您在 Azure 入口網站中建立自訂檢視，其中包含 Log Analytics 工作區中不同資料的視覺效果。 本文針對可用於自訂檢視的圖格提供其設定參考。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Log Analytics 檢視設計工具圖格參考
-Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂檢視，其中包含 OMS 存放庫中不同資料的視覺效果。 本文針對可用於自訂檢視的圖格提供其設定參考。
+Log Analytics 中的檢視表設計工具可讓您在 Azure 入口網站中建立自訂檢視，其中包含 Log Analytics 工作區中不同資料的視覺效果。 本文針對可用於自訂檢視的圖格提供其設定參考。
 
 其他與檢視設計工具相關的文章︰
 
@@ -49,7 +49,7 @@ Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂�
 
 | 設定 | 說明 |
 |:--- |:--- |
-| 名稱 |顯示於圖格頂端的文字。 |
+| Name |顯示於圖格頂端的文字。 |
 | 說明 |顯示於圖格名稱之下的文字。 |
 | **圖格** | |
 | 圖例 |顯示於值之下的文字。 |
@@ -67,7 +67,7 @@ Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂�
 
 | 設定 | 說明 |
 |:--- |:--- |
-| 名稱 |顯示於圖格頂端的文字。 |
+| Name |顯示於圖格頂端的文字。 |
 | 說明 |顯示於圖格名稱之下的文字。 |
 | **第一個圖格** | |
 | 圖例 |顯示於值之下的文字。 |
@@ -88,7 +88,7 @@ Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂�
 
 | 設定 | 說明 |
 |:--- |:--- |
-| 名稱 |顯示於圖格頂端的文字。 |
+| Name |顯示於圖格頂端的文字。 |
 | 說明 |顯示於圖格名稱之下的文字。 |
 | **環圈** | |
 | 查詢 |針對環圈執行的查詢。  第一個屬性應該是文字值，而第二個屬性是數值。  這通常是使用 **measure** 關鍵字的查詢來彙總結果。 |
@@ -112,7 +112,7 @@ Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂�
 
 | 設定 | 說明 |
 |:--- |:--- |
-| 名稱 |顯示於圖格頂端的文字。 |
+| Name |顯示於圖格頂端的文字。 |
 | 說明 |顯示於圖格名稱之下的文字。 |
 | **折線圖** | |
 | 查詢 |針對折線圖執行的查詢。  第一個屬性應該是文字值，而第二個屬性是數值。  這通常是使用 **measure** 關鍵字的查詢來彙總結果。  如果查詢使用 **interval** 關鍵字，則圖表的 X 軸會使用此時間間隔。  如果查詢不包含 **interval** 關鍵字，則 X 軸是每小時的間隔。 |
@@ -133,7 +133,7 @@ Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂�
 
 | 設定 | 說明 |
 |:--- |:--- |
-| 名稱 |顯示於圖格頂端的文字。 |
+| Name |顯示於圖格頂端的文字。 |
 | 說明 |顯示於圖格名稱之下的文字。 |
 | **折線圖** | |
 | 查詢 |針對折線圖執行的查詢。  第一個屬性應該是文字值，而第二個屬性是數值。  這通常是使用 **measure** 關鍵字的查詢來彙總結果。  如果查詢使用 **interval** 關鍵字，則圖表的 X 軸會使用此時間間隔。  如果查詢不包含 **interval** 關鍵字，則 X 軸是每小時的間隔。 |
@@ -158,7 +158,7 @@ Log Analytics 中的檢視設計工具可讓您在 OMS 主控台中建立自訂�
 
 | 設定 | 說明 |
 |:--- |:--- |
-| 名稱 |顯示於圖格頂端的文字。 |
+| Name |顯示於圖格頂端的文字。 |
 | 說明 |顯示於圖格名稱之下的文字。 |
 | 第一個圖 | |
 | 圖例 |顯示於第一個系列圖說文字之下的文字。 |

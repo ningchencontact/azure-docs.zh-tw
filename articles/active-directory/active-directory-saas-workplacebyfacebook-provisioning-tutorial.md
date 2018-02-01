@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>教學課程：設定使用者佈建的 Workplace by Facebook
 
 本教學課程旨在說明您需要在 Workplace by Facebook 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Workplace by Facebook。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Workplace by Facebook 的整合，您需要下列項目：
 
@@ -75,7 +75,7 @@ Azure AD 支援將指派之使用者的帳戶詳細資料自動同步處理至 W
 
     ![佈建](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. 在 [管理員認證] 區段下，輸入 Workplace by Facebook 系統管理員的祕密權杖和租用戶 URL。
+5. 在 [管理員認證] 區段下，輸入 Workplace by Facebook 系統管理員的 [祕密權杖]，並且將 [租用戶 URL] 設定為 `https://www.facebook.com/scim/v1/`。
 
 6. 在 Azure 入口網站中，按一下 [測試連線]以確保 Azure AD 可以連線到您的 Workplace by Facebook 應用程式。 如果連線失敗，請確定您的 Workplace by Facebook 帳戶具有小組系統管理員權限。
 
@@ -100,4 +100,3 @@ Azure AD 支援將指派之使用者的帳戶詳細資料自動同步處理至 W
 * [管理企業應用程式的使用者帳戶佈建](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
 * [設定單一登入](active-directory-saas-workplacebyfacebook-tutorial.md)
-

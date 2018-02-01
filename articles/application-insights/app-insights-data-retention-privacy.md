@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -99,10 +99,10 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 Microsoft 只會使用這項資料，以將服務提供給您。
 
 ## <a name="where-is-the-data-held"></a>資料存放在哪裡？
-* 在美國或歐洲。 建立新的 Application Insights 時，您可以選取位置。 
+* 在美國、歐洲或東南亞。 建立新的 Application Insights 時，您可以選取位置。 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>這是否表示我的應用程式必須裝載在美國或歐洲？
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>這是否表示我的應用程式必須裝載在美國、歐洲或東南亞？
 * 編號 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
 
 ## <a name="how-secure-is-my-data"></a>我的資料有多安全？
@@ -158,7 +158,7 @@ Application Insights 不會篩選或刪除資料。 您應該適當地管理資�
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>不同情況下所傳送資料的類別
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
-| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>要求<br/>**例外狀況**<br/>工作階段<br/>users |
+| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>工作階段<br/>users |
 | [在 IIS 上安裝狀態監視器][redfield] |相依項目<br/>ServerContext<br/>推斷<br/>效能計數器 |
 | [將 Application Insights SDK 新增至 Java Web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>users |
 | [將 JavaScript SDK 新增至網頁][client] |ClientContext  <br/>推斷<br/>Page<br/>ClientPerf<br/>Ajax |
@@ -166,7 +166,7 @@ Application Insights 不會篩選或刪除資料。 您應該適當地管理資�
 | [呼叫 TrackMetric][api] |數值<br/>**屬性** |
 | [呼叫 Track*][api] |事件名稱<br/>**屬性** |
 | [呼叫 TrackException][api] |**例外狀況**<br/>堆疊傾印<br/>**屬性** |
-| SDK 無法收集資料。 例如： <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
+| SDK 無法收集資料。 例如︰ <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
 
 如需[適用於其他平台的 SDK][platforms]，請參閱其文件。
 
@@ -180,11 +180,11 @@ Application Insights 不會篩選或刪除資料。 您應該適當地管理資�
 | ServerContext |電腦名稱、地區設定、作業系統、裝置、使用者工作階段、使用者內容、作業 |
 | 推斷 |從 IP 位址的地區位置、時間戳記、作業系統、瀏覽器 |
 | 度量 |計量名稱和值 |
-| 事件 |事件名稱和值 |
+| 活動 |事件名稱和值 |
 | PageViews |URL 和頁面名稱或螢幕名稱 |
 | 用戶端效能 |URL/頁面名稱、瀏覽器載入時間 |
 | Ajax |從網頁向伺服器發出的 HTTP 呼叫 |
-| 要求 |URL、持續時間、回應碼 |
+| Requests |URL、持續時間、回應碼 |
 | 相依性 |類型 (SQL、HTTP、...)、連接字串或 URI、同步/非同步、持續時間、成功、SQL 陳述式 (含狀態監視器) |
 | **例外狀況** |類型、 **訊息**、呼叫堆疊、來源檔案和行號、執行緒識別碼 |
 | 損毀 |處理序識別碼、父處理序識別碼、損毀執行緒識別碼；應用程式修補程式、識別碼、組建；例外狀況類型、位址、原因；模糊符號和暫存器、二進位開始和結束位址、二進位檔名稱和路徑、CPU 類型 |

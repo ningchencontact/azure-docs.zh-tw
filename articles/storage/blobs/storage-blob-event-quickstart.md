@@ -5,20 +5,20 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/18/2017
+ms.date: 01/19/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure CLI 訂閱 Blob 儲存體事件，以及觸發事件來檢視結果。 
 
-一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，我們將事件傳送至只會收集訊息的 URL。 使用名為 [RequestBin](https://requestb.in/) 的開放原始碼、第三方工具來建立此 URL。
+一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，我們將事件傳送至只會收集訊息的 URL。 使用名為 [RequestBin](https://requestb.in/) 的第三方開放原始碼工具來建立此 URL。
 
 > [!NOTE]
 > **RequestBin** 是一個開放原始碼工具，不適用於高輸送量的使用方式。 在此使用工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
@@ -31,7 +31,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.14 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.24 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 如果您未使用 Cloud Shell，您必須先使用 `az login` 登入。
 
@@ -77,13 +77,12 @@ az storage account create \
 您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的 Blob 儲存體帳戶，並從 RequestBin 傳遞 URL 作為事件通知的端點。 以事件訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<URL_from_RequestBin>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<resource_group_name>` 和 `<storage_account_name>`，使用您稍早建立的值。 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create \
---endpoint <URL_from_RequestBin> \
---name <event_subscription_name> \
---provider-namespace Microsoft.Storage \
---resource-type storageAccounts \
---resource-group <resource_group_name> \
---resource-name <storage_account_name>
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>從 Blob 儲存體觸發事件
@@ -122,7 +121,9 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```

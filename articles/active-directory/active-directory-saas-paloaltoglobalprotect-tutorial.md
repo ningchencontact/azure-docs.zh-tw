@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: b7c85dd01802bd67724e405f786481ba128e559a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>教學課程：Azure Active Directory 與 Palo Alto 網路 - GlobalProtect 整合
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Palo Alto 網路 - GlobalProtect 整合，您需要下列項目：
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 12/11/2017
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. 以系統管理員的身分，在另一個瀏覽器視窗中開啟 Palo Alto 站台。
+8. 以系統管理員的身分，在另一個瀏覽器視窗中開啟 Palo Alto Networks 防火牆管理員使用者介面。
 
 9. 按一下 [Device] \(裝置\)。
 
@@ -160,7 +160,7 @@ ms.lasthandoff: 12/11/2017
 
     ![設定 Palo Alto 單一登入](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. 在 [設定檔名稱] 文字方塊中提供名稱，例如 Azure AD Global Protect。
+    a. 在 [設定檔名稱] 文字方塊中提供名稱，例如 Azure AD GlobalProtect。
     
     b. 在 [Identity Provider Metadata] \(識別提供者中繼資料\) 中，按一下 [Browse] \(瀏覽\)，然後選取您從 Azure 入口網站下載的中繼資料 .xml 檔案
     

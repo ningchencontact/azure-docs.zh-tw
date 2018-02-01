@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>範例組態：Cisco ASA 裝置 (IKEv2/無 BGP)
 本文提供將 Cisco Adaptive Security Appliance (ASA) 裝置連線到 Azure VPN 閘道的範例設定。 此範例適用於執行 IKEv2 且不含邊界閘道協定 (BGP) 的 Cisco ASA 裝置。 
@@ -98,10 +98,7 @@ Azure VPN 閘道會使用標準的 IPsec/IKE 通訊協定組合來建立站對�
 
 * 對於 DH 群組和 PFS 群組支援 (除了群組 5) 的支援需要 ASA 版本 9.x。
 
-* 對於具有 AES-GCM 的 IPsec 加密和具有 SHA-256、SHA-384 或 SHA-512 的 IPsec 完整性的支援，需要 ASA 版本 9.x。 此支援需求適用於較新的 ASA 裝置。
-
-    > [!NOTE]
-    > 不支援 5505、5510、5520、5540、5550 和 5580 的 ASA 裝置型號。 請參閱您的 VPN 裝置規格，以確認您的 VPN 裝置型號和軔體版本支援的演算法。
+* 對於具有 AES-GCM 的 IPsec 加密和具有 SHA-256、SHA-384 或 SHA-512 的 IPsec 完整性的支援，需要 ASA 版本 9.x。 此支援需求適用於較新的 ASA 裝置。 發行時，ASA 模型 5505、5510、5520、5540、5550 和 5580 不支援這些演算法。 請參閱您的 VPN 裝置規格，以確認您的 VPN 裝置型號和軔體版本支援的演算法。
 
 
 ### <a name="sample-device-configuration"></a>範例裝置設定

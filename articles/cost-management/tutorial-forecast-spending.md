@@ -5,20 +5,20 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: d8b0cd2a3e5f9829f0844783aad22d375eb9d7a8
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="forecast-future-spending"></a>預測未來的花費
 
-Cloudyn 提供的 Azure 成本管理使用歷程記錄的使用方式及花費資料，協助您預測未來的花費。 您可以使用 Cloudyn 報告來檢視所有成本預估的資料。 本教學課程中的範例會引導您使用報告來檢閱成本預估。 在本教學課程中，您將了解如何：
+Cloudyn 提供的 Azure 成本管理使用歷程記錄的使用方式及花費資料，協助您預測未來的花費。 您可以使用 Cloudyn 報告來檢視所有成本預估的資料。 本教學課程中的範例會引導您使用報告來檢閱成本預估。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 預測未來的花費

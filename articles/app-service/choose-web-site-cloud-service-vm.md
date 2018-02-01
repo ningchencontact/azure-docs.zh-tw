@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 ## <a name="overview"></a>概觀
@@ -49,7 +49,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 | 裝載多層式架構的 Web 或 Web 服務層 |X |X |X |X | |
 | 裝載多層式架構的中間層 |X |X |X |X |App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。 您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。 |
 | 整合 MySQL 即服務的支援 |X |X | | | |
-| 支援 ASP.NET、傳統 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支援使用 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) 建立 Web 前端，也可讓您以[來賓可執行檔](../service-fabric/service-fabric-deploy-existing-app.md)的形式部署任何類型的應用程式 (Node.js、Java 等)。 |
+| 支援 ASP.NET、傳統 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支援使用 [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) 建立 Web 前端，也可讓您以[來賓可執行檔](../service-fabric/service-fabric-deploy-existing-app.md)的形式部署任何類型的應用程式 (Node.js、Java 等)。 |
 | 向外延展至多個執行個體而不重新部署 |X |X |X |X |「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器來將要求路由傳送到各機器，並建立同質群組，以避免在維護或硬體故障時所有執行個體同時重新啟動。 |
 | 支援 SSL |X |X |X |X |在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。 如需 Web 應用程式使用 SSL 的相關資訊，請參閱[設定 Azure 網站的 SSL 憑證](app-service-web-tutorial-custom-ssl.md)。 |
 | 整合 Visual Studio |X |X |X |X | |

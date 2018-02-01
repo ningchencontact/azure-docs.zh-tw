@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -133,7 +133,7 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 * 指派給儲存體帳戶的**標記**。 標記通常用來分類資源以進行計費。
 
-* **SKU** 是儲存體帳戶的複寫設定，例如 LRS 代表「本地備援儲存體」。 例如，您可能會從標準\_LRS 變更為標準\_GRS 或標準\_RAGRS。 請注意，您無法將「標準 ZRS」或「進階 LRS」變更為其他 SKU，或將其他 SKU 變更為這些項目。 
+* **SKU** 是儲存體帳戶的複寫設定，例如 LRS 代表「本地備援儲存體」。 例如，您可能會從標準\_LRS 變更為標準\_GRS 或標準\_RAGRS。 請注意，您無法將「標準\_ZRS」或「進階\_LRS」變更為其他 SKU，或將其他 SKU 變更為這些項目。
 
 * Blob 儲存體帳戶的**存取層**。 存取層的值設為**經常性**或**非經常性**，並可讓您選取符合您如何使用儲存體帳戶的存取層來減少成本。 如需詳細資訊，請參閱[經常性、非經常性和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
@@ -223,7 +223,7 @@ Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如�
 * 如需詳細資訊，請參閱 [Azure Cosmos DB 資料表 API](../../cosmos-db/table-introduction.md)。 
 * 若要了解如何使用 PowerShell 來執行 Azure Cosmos DB 資料表 API 作業，請參閱[使用 PowerShell 執行 Azure Cosmos DB 資料表 API 作業](../../cosmos-db/table-powershell.md)。
 
-## <a name="azures-independently-deployed-clouds"></a>Azure 的獨立部署雲端
+## <a name="independent-cloud-deployments-of-azure"></a>Azure 的獨立雲端部署
 
 大多數人會針對其全域 Azure 部署使用 Azure 公用雲端。 也有因為主權等等原因的一些獨立部署 Microsoft Azure。 這些獨立部署稱為「環境」。 以下是可用的環境：
 

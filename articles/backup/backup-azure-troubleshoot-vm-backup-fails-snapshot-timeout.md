@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式和/或擴充功能相關的問題
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>系統不支援指定的磁碟設定
 
 > [!NOTE]
-> 我們有私人預覽，可支援非受控磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> 我們有私人預覽，可支援磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 
 ####  <a name="solution"></a>解決方法
 若要解決此問題，請嘗試下列其中一個方法。
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>允許存取 Azure 資料中心的 IP 範圍
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>允許存取對應該區域的 Azure 儲存體
 
-1. 取得允許存取的 [Azure 資料中心 IP 清單](https://www.microsoft.com/download/details.aspx?id=41653)。
-2. 在提升權限的 PowerShell 視窗中，於 Azure VM 中執行 **New-NetRoute** Cmdlet 來解除封鎖 IP。 以系統管理員身分執行 Cmdlet。
-3. 若要允許存取 IP，可將規則新增到網路安全性群組 (如果您有一個)。
+您可以使用[服務標籤](../virtual-network/security-overview.md#service-tags)，允許連線至特定區域的儲存體。 請確定允許存取儲存體帳戶的規則優先順序，高於封鎖網際網路存取的規則。 
+
+![NSG 與區域的儲存體標籤](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> 儲存體服務標籤僅在特定區域中提供使用，目前仍是預覽狀態。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>建立 HTTP 流量的行經路徑
 
@@ -166,8 +169,6 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 | --- | --- |
 | VM 已設定 SQL Server 備份。 | 根據預設，VM 備份會在 Windows VM 上執行 VSS 完整備份。 在執行以 SQL Server 為基礎的伺服器並設定了 SQL Server 備份的 VM 上，可能會發生快照延遲執行。<br><br>如果您因為快照問題而遇到備份失敗，請設定下列登錄機碼：<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | 因為 RDP 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉遠端桌面通訊協定 (RDP) 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
-| 相同的雲端服務中的許多 VM 都設定為同時備份。 | 最佳做法是向外分配相同雲端服務中 VM 的備份排程。 |
-| VM 正在以高 CPU 或記憶體使用量執行。 | 如果 VM 正在以高 CPU 使用量 (超過 90%) 或高記憶體使用量執行，即會將快照工作排入佇列並延遲，而其最終會逾時。在此情況下，請嘗試隨選備份。 |
 | VM 無法從 DHCP 取得主機/網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。  如果 VM 無法從 DHCP 回應 245 取得主機/網狀架構位址，則無法下載或執行任何擴充功能。 如果您需要靜態私人 IP 位址，您應該透過平台來進行設定。 VM 內的 DHCP 選項應保持啟用。 如需詳細資訊，請參閱[設定靜態內部私人 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)。 |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>備份擴充功能無法更新或載入
@@ -175,9 +176,9 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>解決方法
 
- **Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
+**Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
 
- **Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
+**Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
 
 
 如果還是無法更新或載入備份擴充功能，您可以透過解除安裝擴充功能來強制重新載入 VMSnapshot 擴充功能。 下一次的備份嘗試將會重新載入擴充功能。
@@ -192,24 +193,6 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 6. 按一下 [解除安裝]。
 
 此程序會導致在下一次備份期間重新安裝擴充功能。
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure 傳統 VM 可能需要額外的步驟才能完成註冊
-應該註冊 Azure 傳統 VM 中的代理程式，以建立與備份服務的連線，然後開始備份
-
-#### <a name="solution"></a>解決方法
-
-安裝 VM 客體代理程式之後，請啟動 Azure PowerShell <br>
-1. 登入 Azure 帳戶方式 <br>
-       `Login-AzureAsAccount`<br>
-2. 透過下列命令，驗證 VM 的 ProvisionGuestAgent 屬性是否設定為 True <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. 如果屬性設定為 FALSE，請遵循下列命令，以將它設定為 TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. 然後執行下列命令來更新 VM <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. 請嘗試起始備份。 <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>備份服務因資源群組鎖定而沒有刪除舊還原點的權限
 這是受控 VM 特有的問題，其中使用者會鎖定資源群組，而備份服務無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。

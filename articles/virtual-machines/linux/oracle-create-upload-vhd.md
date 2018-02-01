@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
-ms.openlocfilehash: c631ddf3acf6df7364c03eb4691b78be0493e0d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>準備用於 Azure 的 Oracle Linux 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux 安裝注意事項
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 您必須在作業系統中完成特定組態步驟，虛擬機器才能在 Azure 中執行。
 
-1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
+1. 在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 2. 按一下 **[連接]** ，以開啟虛擬機器的視窗。
 3. 執行下列命令以解除安裝 NetworkManager：
    
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-13. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+13. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 **組態步驟**
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
-2. 按一下 [連接]  ，以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
 3. 在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
    
         NETWORKING=yes
@@ -175,7 +175,7 @@ ms.lasthandoff: 10/11/2017
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-14. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+14. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
@@ -183,5 +183,5 @@ ms.lasthandoff: 10/11/2017
 15. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ## <a name="next-steps"></a>後續步驟
-您現在可以開始使用您的 Oracle Linux .vhd 在 Azure 中建立新的虛擬機器。 若這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱 [建立及上傳包含 Linux 作業系統的虛擬硬碟](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步驟 2 和步驟 3。
+您現在可以開始使用您的 Oracle Linux .vhd 在 Azure 中建立新的虛擬機器。 如果您是第一次將 .vhd 檔案上傳至 Azure，請參閱[從自訂磁碟建立 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
 

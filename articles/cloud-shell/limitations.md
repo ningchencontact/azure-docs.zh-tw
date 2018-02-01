@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 限制
 
@@ -56,7 +56,9 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 ### <a name="user-permissions"></a>使用者權限
 
 權限設定為沒有 sudo 存取權的一般使用者。 不會保存 `$Home` 目錄之外的任何安裝。
-雖然 `git clone` 目錄內的某些命令 (例如 `clouddrive`) 沒有適當的權限，但您的 `$Home` 目錄有適當的權限。
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB 有限權限
+`clouddrive` 目錄內的某些命令 (例如 `git clone`) 沒有適當的權限，因此無法讀取/寫入某些檔案。 如果您遇到此問題，請從 `$Home` 目錄再試一次，因為此目錄沒有 SMB 限制。
 
 ### <a name="editing-bashrc"></a>編輯 .bashrc
 

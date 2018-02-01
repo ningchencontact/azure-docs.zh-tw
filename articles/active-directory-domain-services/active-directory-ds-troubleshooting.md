@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -57,9 +57,9 @@ ms.lasthandoff: 12/11/2017
 
 執行下列步驟，以檢查應用程式是否存在並將它刪除 (如果應用程式存在的話)：
 
-1. 瀏覽至**應用程式**Azure AD 目錄中的區段[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)。
-2. 選取**所有應用程式**中**顯示**下拉式清單。 選取**任何**中**應用程式狀態**下拉式清單。 選取**任何**中**應用程式的可見性**下拉式清單。
-3. 型別**Azure AD 網域服務同步**[搜尋] 方塊中。 如果應用程式存在，請按一下它，然後按一下**刪除**中將它刪除工具列按鈕。
+1. 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)中瀏覽至 Azure AD 目錄的 [應用程式] 區段。
+2. 選取 [顯示] 下拉式清單中的 [所有應用程式]。 選取 [應用程式狀態] 下拉式清單中的 [任何]。 選取 [應用程式可見度] 下拉式清單中的 [任何]。
+3. 在搜尋方塊中輸入 **Azure AD Domain Services 同步**。 如果該應用程式存在，請對它按一下，然後按一下工具列中的 [刪除] 按鈕以將它刪除。
 4. 刪除此應用程式後，請嘗試再次啟用 Azure AD 網域服務。
 
 ### <a name="invalid-configuration"></a>無效的組態
@@ -122,6 +122,7 @@ if ($sp -ne $null)
 
 若要解決此錯誤，請啟用此應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Azure Active Directory Domain Services 受控的網域
 如果 Azure AD 租用戶中有一或多個使用者無法登入新建立的受控網域，請執行下列疑難排解步驟：
 
@@ -145,12 +146,17 @@ if ($sp -ne $null)
     2. net start 'Microsoft Azure AD Sync'
 * **僅限雲端帳戶**：如果受影響的使用者帳戶是僅限雲端的使用者帳戶，請確定在您啟用 Azure AD 網域服務之後，使用者已變更其密碼。 這個步驟會導致產生 Azure AD 網域服務所需的認證雜湊。
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>受控網域有一或多個警示
+
+瀏覽[疑難排解警示](active-directory-ds-troubleshoot-alerts.md)一文，了解如何解決受控網域的警示。
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>不會從受控網域中移除從 Azure AD 租用戶移除的使用者
 Azure AD 會防止您意外刪除使用者物件。 當您從您的 Azure AD 租用戶刪除使用者帳戶時，對應的使用者物件會移至資源回收筒。 此刪除作業同步處理至受控網域時，會導致對應的使用者帳戶被標記為已停用。 這項功能可協助您稍後復原或取消刪除使用者帳戶。
 
 即使您在 Azure AD 目錄中使用相同的 UPN 重新建立使用者帳戶，使用者帳戶在您的受控網域中仍會維持停用狀態。 若要從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶將它強制刪除。
 
-若要完全從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶中永久刪除使用者。 使用`Remove-MsolUser`PowerShell cmdlet 搭配`-RemoveFromRecycleBin`選項，如下所述[MSDN 文章](https://msdn.microsoft.com/library/azure/dn194132.aspx)。
+若要完全從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶中永久刪除使用者。 請使用 `Remove-MsolUser` PowerShell Cmdlet 搭配 `-RemoveFromRecycleBin` 選項，如這篇 [MSDN 文章](https://msdn.microsoft.com/library/azure/dn194132.aspx)所述。
+
 
 ## <a name="contact-us"></a>與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](active-directory-ds-contact-us.md)。

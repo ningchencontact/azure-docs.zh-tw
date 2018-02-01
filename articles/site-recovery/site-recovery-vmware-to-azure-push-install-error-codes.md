@@ -2,23 +2,18 @@
 title: "進行從 VMware 到 Azure 的 Azure Site Recovery 疑難排解 | Microsoft Docs"
 description: "針對複寫 Azure 虛擬機器時的錯誤進行疑難排解"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
@@ -74,7 +69,7 @@ ms.lasthandoff: 12/13/2017
 
 **錯誤碼** | **可能的原因** | **特定錯誤的建議**
 --- | --- | ---
-95108 </br>**訊息：**將行動服務推送安裝到來源電腦失敗，錯誤碼為 **EP0859**。 <br>| 可能是所提供用以安裝行動服務的認證不正確，或使用者帳戶的權限不足 <br>| 請確定所提供的認證為 **root** 帳戶的認證。 若要[新增/編輯使用者認證](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords)，請移至設定伺服器，然後按一下桌面上的 [Cspsconfigtool] 捷徑圖示。 按一下 [管理帳戶] 以新增/編輯認證。|
+95108 </br>**訊息：**將行動服務推送安裝到來源電腦失敗，錯誤碼為 **EP0859**。 <br>| 可能是所提供用以安裝行動服務的認證不正確，或使用者帳戶的權限不足 <br>| 請確定所提供的認證為 **root** 帳戶的認證。 若要新增/編輯使用者認證，請移至組態伺服器，然後按一下桌面上的 [Cspsconfigtool] 捷徑圖示。 按一下 [管理帳戶] 以新增/編輯認證。|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>錯誤 95265：無法啟用保護 (EP0902)
 
@@ -92,13 +87,14 @@ ms.lasthandoff: 12/13/2017
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>針對推送安裝問題進行疑難排解的資源
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>針對檔案與列印共用問題進行疑難排解
-*  [透過群組原則啟用或停用檔案共用](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx) \(英文\)
-* [如何透過 Windows 防火牆啟用檔案與列印共用](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx) \(英文\)
+*  [透過群組原則啟用或停用檔案共用](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx) \(英文\)
+* [如何透過 Windows 防火牆啟用檔案與列印共用](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx) \(英文\)
 
 #### <a name="troubleshoot-wmi-issues"></a>針對 WMI 問題進行疑難排解
 * [基本 WMI 測試](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) \(英文\)
-* [WMI 疑難排解](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx) \(英文\)
-* [WMI 指令碼和 WMI 服務問題的疑難排解](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [WMI 疑難排解](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx) \(英文\)
+* [WMI 指令碼和 WMI 服務問題的疑難排解](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>後續步驟
-- [啟用 VMware 虛擬機器的複寫](vmware-walkthrough-enable-replication.md)
+
+[了解如何](tutorial-vmware-to-azure.md)為 VMware VM 設定災害復原。

@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>如何從 Python 使用服務管理
 本指南說明如何以程式設計方式，從 Python 執行一般服務管理工作。 [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) \(英文\) 中的 **ServiceManagementService** 類別支援以程式設計方式存取 [Azure 入口網站][management-portal]所提供的大部分服務管理相關功能 (例如，**建立、更新及刪除雲端服務、部署、資料管理服務和虛擬機器**)。 建置需要透過程式設計方式存取服務管理的應用程式時，此功能十分實用。
@@ -394,9 +394,9 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
         role_size='Small',
         vm_image_name = image_name)
 
-若要深入了解如何擷取 Linux 虛擬機器，請參閱[如何擷取 Linux 虛擬機器。](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+若要深入了解如何在傳統部署模型中擷取 Linux 虛擬機器，請參閱[如何擷取 Linux 虛擬機器](../virtual-machines/linux/classic/capture-image-classic.md)。
 
-若要深入了解如何擷取 Windows 虛擬機器，請參閱[如何擷取 Windows 虛擬機器。](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+若要深入了解如何在傳統部署模型中擷取 Windows 虛擬機器，請參閱[如何擷取 Windows 虛擬機器](../virtual-machines/windows/classic/capture-image-classic.md)。
 
 ## <a name="What's Next"> </a>後續步驟
 現在，您已了解服務管理的基本概念，您可以存取 [Azure Python SDK 的完整 API 參考文件](http://azure-sdk-for-python.readthedocs.org/) 並輕鬆執行複雜工作，以管理 Python 應用程式。

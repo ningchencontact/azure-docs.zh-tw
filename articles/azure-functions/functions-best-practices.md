@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 01/03/2018
 
 ### <a name="cross-function-communication"></a>跨函式通訊
 
-[Durable Functions](durable-functions-overview.md) 和 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) 均建置用來管理多個函式之間的狀態轉換和通訊。
+[Durable Functions](durable-functions-overview.md) 和 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 均建置用來管理多個函式之間的狀態轉換和通訊。
 
 如果未使用 Durable Functions 或 Logic Apps 來與多個函式整合，使用儲存體佇列進行跨函式通訊通常是最佳做法。  主要原因是儲存體佇列更便宜和容易佈建。 
 
-儲存體佇列中個別訊息大小限制在 64 KB。 如果您需要更長的訊息傳遞函式之間，Azure 服務匯流排佇列無法用來支援訊息大小上限為 256 KB 在標準層次中，最多 1 MB Premium 層中。
+儲存體佇列中個別訊息大小限制在 64 KB。 如果您需要在函式之間傳遞更大型的訊息，Azure 服務匯流排佇列可用來支援標準層中大小上限為 256 KB 的訊息，以及進階層中上限為 1 MB 的訊息。
 
 如果您需要在處理之前篩選訊息，服務匯流排主題會很實用。
 

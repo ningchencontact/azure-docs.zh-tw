@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>開發人員適用的 Azure Active Directory
 Azure Active Directory (Azure AD) 是一項雲端識別服務，可讓開發人員使用 Microsoft 的公司或學校帳戶安全地讓使用者登入。 此文件說明如何使用業界標準通訊協定 (OAuth2.0 和 OpenID Connect)，將 Azure AD 支援新增至您的應用程式。
@@ -64,4 +64,4 @@ Azure Active Directory (Azure AD) 是一項雲端識別服務，可讓開發人�
 > 如果您需要登入 Microsoft 個人帳戶，建議您使用 [Azure AD v2.0 端點](active-directory-appmodel-v2-overview.md)。 Azure AD v2.0 端點可將 Microsoft 個人帳戶和 Microsoft 工作帳戶 (來自 Azure AD) 統一成單一驗證系統。
 
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

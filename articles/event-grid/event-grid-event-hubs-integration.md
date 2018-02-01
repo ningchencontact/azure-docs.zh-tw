@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>將巨量資料串流處理至資料倉儲
 
@@ -64,7 +64,7 @@ Event Grid 會將事件資料散發給訂閱者。 以下範例展示用來建�
 ]
 ```
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您必須具備：
 
@@ -164,16 +164,20 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![新增事件訂閱](media/event-grid-event-hubs-integration/add-event-subscription.png)
 
-3. 提供事件訂閱的值。 使用您複製的 Azure Functions URL。 選取 [ **建立**]。
+3. 提供事件訂閱的值。 使用您複製的 Azure Functions URL。 選取 [建立] 。
 
    ![提供訂閱值](media/event-grid-event-hubs-integration/provide-values.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要訂閱事件，請執行下列命令：
+若要訂閱事件，請執行下列命令 (需要 2.0.24 版本或更新版本的 Azure CLI)：
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>執行應用程式以產生資料

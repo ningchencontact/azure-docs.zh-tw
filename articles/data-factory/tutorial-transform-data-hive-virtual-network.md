@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 30456a30c12d39ceb14dec6cd60015916cb7ae27
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="prerequisites"></a>先決條件
 - **Azure 儲存體帳戶**。 您會建立 hive 指令碼，並上傳至 Azure 儲存體。 Hive 指令碼的輸出會儲存在此儲存體帳戶中。 在此範例中，HDInsight 叢集會使用此 Azure 儲存體帳戶作為主要儲存體。 
-- **Azure 虛擬網路。** 如果您沒有 Azure 虛擬網路，請依照[這些指示](../virtual-network/virtual-network-get-started-vnet-subnet.md)建立。 在此範例中，HDInsight 在 Azure 虛擬網路中。 以下是 Azure 虛擬網路的設定範例。 
+- **Azure 虛擬網路。** 如果您沒有 Azure 虛擬網路，請依照[這些指示](../virtual-network/quick-create-portal.md)建立。 在此範例中，HDInsight 在 Azure 虛擬網路中。 以下是 Azure 虛擬網路的設定範例。 
 
     ![建立虛擬網路](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **HDInsight 叢集。** 請遵循這篇文章來建立 HDInsight 叢集，並將它加入您在上一個步驟中建立的虛擬網路：[使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。 以下是虛擬網路中的 HDInsight 設定範例。 
@@ -150,7 +150,7 @@ ms.lasthandoff: 01/23/2018
    }
    ```
     請記下 **AuthKey1** 的值 (不含引號)。 
-3. 建立 Azure VM，並將它加入您的 HDInsight 叢集所在的相同虛擬網路。 如需詳細資訊，請參閱[如何建立虛擬機器](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms)。 將它們加入 Azure 虛擬網路。 
+3. 建立 Azure VM，並將它加入您的 HDInsight 叢集所在的相同虛擬網路。 如需詳細資訊，請參閱[如何建立虛擬機器](../virtual-network/quick-create-portal.md#create-virtual-machines)。 將它們加入 Azure 虛擬網路。 
 4. 在 Azure VM 上，下載[自我裝載整合執行階段](https://www.microsoft.com/download/details.aspx?id=39717)。 使用上一個步驟中取得的驗證金鑰，以手動註冊自我裝載整合執行階段。 
 
    ![監視整合執行階段](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)

@@ -3,18 +3,18 @@ title: "Marketplace 中 Azure 受控應用程式 | Microsoft Docs"
 description: "描述可透過 Marketplace 取得的 Azure 受控應用程式。"
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受控應用程式
 
@@ -36,26 +36,18 @@ ms.lasthandoff: 01/12/2018
 * 同意 Azure Marketplace 參與原則和發行者合約中的條款。
 * 同意遵守使用條款、Microsoft 隱私權聲明以及 Microsoft Azure 認證方案合約。
 
-## <a name="set-up-your-account-for-publishing-portal"></a>設定發佈入口網站的帳戶
+## <a name="become-a-publisher"></a>成為發行者
 
-發佈入口網站是用來發佈和管理您的供應項目。 若要發佈市集應用程式，您必須有針對 Azure Marketplace 核准的 Microsoft 開發人員。 如果您尚未註冊核准的帳戶，請參閱[建立 Microsoft 開發人員帳戶](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)。
+若要成為 Azure Marketplace 中的發行者，您必須：
 
-如果您有已核准的 **Microsoft 開發人員中心**帳戶，但之前未曾使用過 [Azure 發佈入口網站](https://cloudpartner.azure.com/)，則必須註冊發佈入口網站。
-
-1. 開啟新的 Chrome Incognito 或 Internet Explorer InPrivate 瀏覽工作階段，確定您尚未登入個人帳戶。
-2. 移至 [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/)。
-3. 如果您是第一次登入發佈入口網站的新使用者，您必須使用和開發人員中心帳戶相同的電子郵件識別碼登入。 如此一來，開發人員中心帳戶和發佈入口網站帳戶就會連結。
-
-您稍後可以在發佈入口網站中將您公司的其他成員新增為[共同管理員](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal)。 如果您已被新增為發佈入口網站中的共同管理員，則可使用您的共同管理員帳戶登入。
-
-> [!TIP]
-> 如需參與原則的說明，請參閱 [Azure 網站](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
->
->
+1. 建立 Microsoft ID - 使用屬於貴公司網域，但不屬於單一個人的電子郵件地址，建立您的 Microsoft 帳戶。 此電子郵件地址用於 Microsoft 開發人員中心和雲端合作夥伴入口網站。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
+1. 提交 [Azure Marketplace 提名表單](https://aka.ms/ampnomination) - 針對**您想要發行的解決方案？**，選取 [受控應用程式]。 一旦提交表單，Marketplace 上架小組會檢閱應用程式並驗證要求。 核准程序可能需要一到三天。 您的提名核准時，您會收到促銷代碼，以撤銷開發人員中心的註冊費用。 如果您**未**完成 Marketplace 提名表單，系統會要求您支付 $99 的註冊費用。
+1. 在[開發人員中心](https://developer.microsoft.com)註冊 - Microsoft 會驗證您的組織是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 核准程序可能需要 5 到 10 天。 若要避免註冊費用，使用您在提名程序電子郵件中收到的促銷代碼。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
+1. 登入[雲端合作夥伴入口網站](https://cloudpartner.azure.com) - 在發行者設定檔中，將您的開發人員中心帳戶與 Marketplace 發行者設定檔產生關聯。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 
 ## <a name="create-a-new-azure-application-offer"></a>建立新的 Azure 應用程式供應項目
 
-符合先決條件之後，您就可以建立受控應用程式供應項目。
+建立您的合作夥伴入口網站帳戶之後，您已準備好建立您的受控應用程式供應項目。
 
 ### <a name="set-up-an-offer"></a>設定供應項目
 
@@ -65,11 +57,7 @@ ms.lasthandoff: 01/12/2018
 
 1. 在左側瀏覽窗格中，選取 [+ 新增優惠] > **[Azure 應用程式]**。
 
-   ![新增供應項目](./media/publish-marketplace-app/newOffer.png)
-
 1. 在 [編輯器] 檢視中，您會看見所需的表單。 本文稍後將說明每個表單。
-
-   ![供應項目](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>供應項目設定表單
 
@@ -95,13 +83,9 @@ SKU 會顯示在 Marketplace 中的父供應項目底下。 它會在 Azure 入�
 
 1. 選取 [SKU] > [新增 SKU]。
 
-   ![選取新的 SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. 輸入 [SKU 識別碼]。 SKU 識別碼是在供應項目內 SKU 的唯一識別碼。 此識別碼會顯示在產品的 URL，Resource Manager 範本和計費報告中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且最多不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。 您可以在一個優惠內建立多個 SKU。 您預計發佈的每個映像都需要 SKU。
 
 1. 填寫下列表單上的 [SKU 詳細資料] 區段：
-
-   ![提供新的 SKU](./media/publish-marketplace-app/sku-settings.png)
 
    填寫下列欄位：
 
@@ -112,14 +96,9 @@ SKU 會顯示在 Marketplace 中的父供應項目底下。 它會在 Azure 入�
             **SKU 類型**：允許的值包括 [受控應用程式]** 和 [解決方案範本]**。 此案例中，選取 [受控應用程式]。
    * 
             **國家/地區可用性**：選取可使用受控應用程式的國家/地區。
-
-      ![選取國家](./media/publish-marketplace-app/select-country.png)
-
    * **價格**：提供應用程式的管理價格。 先選取可用的國家，再設定價格。
 
 1. 新增套件。 填寫下列表單上的 [套件詳細資料] 區段：
-
-   ![Package](./media/publish-marketplace-app/new-package.png)
 
    填寫下列欄位：
 

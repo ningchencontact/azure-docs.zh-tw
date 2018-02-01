@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 混合式身分識別設計考量 - 判斷內容管理需求|Microsoft Docs"
+title: "混合式身分識別設計 - 內容管理需求 Azure | Microsoft Docs"
 description: "深入了解如何判斷適合您企業的內容管理需求。 通常當使用者擁有自己的裝置時，可能也會有多個認證，將根據其使用的應用程式來替換。 請務必區分使用個人認證建立的內容以及使用公司認證建立的內容。 您的身分識別解決方案應該能夠與雲端服務互動，為使用者提供順暢的體驗，同時確保其隱私權並提高保護來防止資料外洩。"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的內容管理需求
 了解適合您企業的內容管理需求，可能會直接影響您決定要使用哪一個混合式身分識別解決方案。 由於裝置數目激增，而且可讓使用者攜帶自己的裝置 ([BYOD](http://aka.ms/byodcg))，所以公司必須保護它自己的資料，但它也必須完整保持使用者的隱私權。 通常當使用者擁有自己的裝置時，可能也會有多個認證，將根據其使用的應用程式來替換。 請務必區分使用個人認證建立的內容以及使用公司認證建立的內容。 您的身分識別解決方案應該能夠與雲端服務互動，為使用者提供順暢的體驗，同時確保其隱私權並提高保護來防止資料外洩。 

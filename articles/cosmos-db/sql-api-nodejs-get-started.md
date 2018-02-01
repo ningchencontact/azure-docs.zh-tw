@@ -1,6 +1,6 @@
 ---
-title: "Node.js 的 Azure Cosmos DB SQL API 的教學課程 |Microsoft 文件"
-description: "使用 SQL API 來建立 Cosmos DB Node.js 教學課程。"
+title: "適用於 Azure Cosmos DB 的 SQL API 之 Node.js 教學課程 | Microsoft Docs"
+description: "使用 SQL API 所建立的 Cosmos DB 之 Node.js 教學課程。"
 keywords: "node.js 教學課程，節點資料庫"
 services: cosmos-db
 documentationcenter: node.js
@@ -15,13 +15,13 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3b3dc3675c495d9558ccb135f3177491d2aaf527
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教學課程： Azure Cosmos DB 中使用 SQL API，來建立 Node.js 主控台應用程式
+# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教學課程：使用 Azure Cosmos DB 中的 SQL API 建立 Node.js 主控台應用程式
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -336,7 +336,7 @@ ms.lasthandoff: 12/18/2017
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {

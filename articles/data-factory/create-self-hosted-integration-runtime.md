@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/21/2017
 - 即使您使用 **ExpressRoute**，也應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)。 請使用自我裝載整合執行階段來建立服務與資料來源之間的連線。
 - 即使資料儲存在雲端中的 **Azure IaaS 虛擬機器**上，您也必須使用自我裝載整合執行階段。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 支援的**作業系統**版本包括 Windows 7 Service Pack 1、Windows 8.1、Windows 10、Windows Server 2008 R2 SP1、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016。 **不支援在網域控制站**上安裝自我裝載整合執行階段。
 - 必須有 **.NET Framework 4.6.1 或更新版本**。 如果您要在 Windows 7 電腦上安裝自我裝載整合執行階段，請安裝 .NET Framework 4.6.1 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](/dotnet/framework/get-started/system-requirements) 。
@@ -110,16 +110,16 @@ ms.lasthandoff: 12/21/2017
 您可以關聯多個節點，方法是直接從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)安裝自我裝載 Integration Runtime 軟體，並使用從 New-AzureRmDataFactoryV2IntegrationRuntimeKey Cmdlet 取得的驗證金鑰來註冊它，如[教學課程](tutorial-hybrid-copy-powershell.md)中所述。
 
 > [!NOTE]
-> 您不需要建立新的自我裝載整合執行階段來關聯每個節點。 您可以安裝在另一部電腦上的自我裝載的整合執行階段，並使用相同的驗證金鑰進行註冊。 
+> 您不需要建立新的自我裝載整合執行階段來關聯每個節點。 您可以將自我裝載整合執行階段安裝在另一部電腦上，並使用相同的驗證金鑰進行註冊。 
 
 > [!NOTE]
-> 然後再加入另一個節點**高可用性和延展性**，請確定**'遠端存取內部網路'**選項**啟用**(Microsoft 的第 1 個節點上整合執行階段組態管理員]-> [設定]-> [遠端存取內部網路)。 
+> 在新增其他節點來實現**高可用性和延展性**之前，請確認第 1 個節點上的 [遠端存取內部網路] 選項**已啟用** ([Microsoft Integration Runtime 組態管理員] -> [設定] -> [遠端存取內部網路])。 
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 憑證需求
 以下是用來保護整合執行階段節點間通訊之 TLS/SSL 憑證的需求：
 
 - 憑證必須是受信任的 X509 v3 公開憑證。 建議您使用公開 (第三方) 憑證授權單位 (CA) 所發出的憑證。
-- 整合執行階段的每個節點都必須信任此憑證。
+- 每個整合執行階段節點都必須信任此憑證。
 - 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 ***.domain.contoso.com** 做為憑證的主體名稱。
 - 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
 - 支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
@@ -238,20 +238,20 @@ ms.lasthandoff: 12/21/2017
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="enable-remote-access-from-intranet"></a>啟用從內部網路的遠端存取  
-如果您使用**PowerShell**或**認證管理員應用程式**加密以外自我裝載的整合執行階段安裝所在，然後從另一部電腦 （網路） 中的認證您需要**' 來自內部網路的遠端存取 」**啟用的選項。 如果您執行**PowerShell**或**認證管理員應用程式**來加密認證自我裝載的整合執行階段安裝所在，然後在相同電腦上**' 遠端存取從內部網路 '**可能未啟用。
+### <a name="enable-remote-access-from-intranet"></a>啟用來自內部網路的遠端存取  
+針對 (網路中) 其他非安裝自我裝載整合執行階段的電腦，如果您使用 **PowerShell** 或**認證管理員應用程式**來為該電腦發出的認證加密，必須啟用 [來自內部網路的遠端存取] 選項。 針對安裝自我裝載整合執行階段的電腦，如果您執行 **PowerShell** 或**認證管理員應用程式**來為該電腦上的認證加密，可以不必啟用 [來自內部網路的遠端存取]。
 
-應該從內部網路的遠端存取**啟用**然後再加入另一個節點**高可用性和延展性**。  
+在新增其他節點來實現**高可用性和延展性**之前，您應**啟用** [來自內部網路的遠端存取]。  
 
-自我裝載的整合執行階段安裝 (及更新版本 v 3.3.xxxx.x)，根據預設，在自我裝載的整合執行階段安裝停用**' 來自內部網路的遠端存取 」**自我裝載的整合執行階段電腦上。
+在自我裝載整合執行階段安裝期間 (3.3.xxxx.x 版之後)，根據預設，自我裝載整合執行階段安裝作業會停用自我裝載整合執行階段電腦上的 [來自內部網路的遠端存取]。
 
-如果您使用協力廠商防火牆，您可以手動開啟連接埠 8060 （或設定使用者連接埠）。 如果您在設定自我裝載整合執行階段時遇到防火牆問題，您可以嘗試使用下列命令來安裝自我裝載整合執行階段，而不設定防火牆。
+如果您使用協力廠商的防火牆，可以手動開啟連接埠 8060 (或使用者設定的連接埠)。 如果您在設定自我裝載整合執行階段時遇到防火牆問題，您可以嘗試使用下列命令來安裝自我裝載整合執行階段，而不設定防火牆。
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 > [!NOTE]
-> **認證管理員應用程式**尚無法供在 ADFv2 中加密認證。 我們稍後會加入這項支援。  
+> **認證管理員應用程式**尚無法為 ADFv2 中的認證加密。 我們會在日後新增這項支援。  
 
 如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用「設定認證」****應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell Cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
 

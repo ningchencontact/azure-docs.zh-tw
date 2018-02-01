@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: c416ae23565870223abc3f2db1ac460e8bea77f6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-input-validation--mitigations"></a>安全性架構︰輸入驗證 | 風險降低 
 | 產品/服務 | 文章 |
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>範例 
 
-```C#
+```csharp
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
@@ -50,14 +50,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ### <a name="example"></a>範例
 如果使用 MSXML 6.0，預設會停用 XSLT 指令碼；不過，您必須確認它尚未透過 XML DOM 物件屬性 AllowXsltScript 加以明確啟用。 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>範例
 如果您使用 MSXML 5 或較低版本，預設會啟用 XSLT 指令碼，因此您必須明確地加以停用。 請將 XML DOM 物件屬性 AllowXsltScript 設為 false。 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
@@ -139,12 +139,12 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [XML 實體擴充](http://capec.mitre.org/data/definitions/197.html)、[XML 阻斷服務攻擊與防禦](http://msdn.microsoft.com/magazine/ee335713.aspx)、[MSXML 安全性概觀](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx)、[保護 MSXML 程式碼的最佳作法](http://msdn.microsoft.com/library/ms759188(VS.85).aspx)、[NSXMLParserDelegate 通訊協定參考](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html)、[解析外部參考](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
-| **步驟**| <p>雖然未被廣泛使用，但有一項 XML 功能可讓 XML 剖析器使用在文件本身內或從外部來源所定義的值，來擴充巨集實體。 例如，文件可能會使用值 "Microsoft" 定義實體 "companyname"，以便在每次文件中出現文字 "&companyname;" 時，就自動以文字 Microsoft 加以取代。 或者，文件可能會定義參考外部 Web 服務的實體 "MSFTStock"，以擷取 Microsoft 股票的目前股價。</p><p>然後，每當文件中出現 "&MSFTStock;" 時，就自動以目前股價加以取代。 不過，這項功能可能會遭到濫用，來造成阻斷服務 (DoS) 狀況。 攻擊者可以巢狀多個實體以建立會在系統上所有可用的記憶體消耗指數擴充 XML 定。 </p><p>或者，他也可以建立外部參考，以往回串流無限量的資料，或讓執行緒停止回應。 因此，所有小組必須完全停用其應用程式並未使用的內部及/或外部 XML 實體解析，或以手動方式限制可供應用程式取用來解析實體的記憶體和時間量 (如果這項功能有其絕對必要)。 如果應用程式不需要解析實體，則請停用。 </p>|
+| **步驟**| <p>雖然未被廣泛使用，但有一項 XML 功能可讓 XML 剖析器使用在文件本身內或從外部來源所定義的值，來擴充巨集實體。 例如，文件可能會使用值 "Microsoft" 定義實體 "companyname"，以便在每次文件中出現文字 "&companyname;" 時，就自動以文字 Microsoft 加以取代。 或者，文件可能會定義參考外部 Web 服務的實體 "MSFTStock"，以擷取 Microsoft 股票的目前股價。</p><p>然後，每當文件中出現 "&MSFTStock;" 時，就自動以目前股價加以取代。 不過，這項功能可能會遭到濫用，來造成阻斷服務 (DoS) 狀況。 攻擊者可將多個實體進行巢狀處理來製造會以指數方式擴張的 XML 炸彈，以耗用系統上所有可用的記憶體。 </p><p>或者，他也可以建立外部參考，以往回串流無限量的資料，或讓執行緒停止回應。 因此，所有小組必須完全停用其應用程式並未使用的內部及/或外部 XML 實體解析，或以手動方式限制可供應用程式取用來解析實體的記憶體和時間量 (如果這項功能有其絕對必要)。 如果應用程式不需要解析實體，則請停用。 </p>|
 
 ### <a name="example"></a>範例
 針對 .NET Framework 程式碼，您可以使用下列方法︰
 
-```C#
+```csharp
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
 
@@ -162,7 +162,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ### <a name="example"></a>範例
 若要停用 XmlDocuments 的實體解析，請使用 Load 方法的 `XmlDocument.Load(XmlReader)` 多載，並在 XmlReader 引數中設定適當屬性以停用解析，如下列程式碼所示︰ 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
 XmlReader reader = XmlReader.Create(stream, settings);
@@ -173,7 +173,7 @@ doc.Load(reader);
 ### <a name="example"></a>範例
 如果應用程式無法停用實體解析，請根據應用程式的需求將 XmlReaderSettings.MaxCharactersFromEntities 屬性設為合理的值。 這會限制潛在指數擴張 DoS 攻擊所會造成的影響。 下列程式碼提供此方法的範例︰ 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -183,7 +183,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ### <a name="example"></a>範例
 如果您需要解析內嵌實體，但不需要解析外部實體，請將 XmlReaderSettings.XmlResolver 屬性設為 null。 例如︰ 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -217,7 +217,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ### <a name="example"></a>範例
 如需上述最後一點關於檔案格式簽章驗證的資訊，請參閱下面的類別以了解詳情︰ 
 
-```C#
+```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
                     { ".DOC", new List<byte[]> { new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 } } },
@@ -333,7 +333,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ### <a name="example"></a>範例 
 下列程式碼示範如何在呼叫預存程序時，搭配使用 type-safe 參數與 SqlParameterCollection。 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -358,7 +358,7 @@ myCommand.Fill(userDataset);
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | N/A  |
 | **參考**              | [中繼資料屬性](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute)、[公用金鑰安全性弱點和風險降低](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation)、[在 ASP.NET MVC 中大量指派的完整指南](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx)、[使用 MVC 開始使用 EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **步驟** | <ul><li>**我應該在何時尋找 over-posting 弱點？-** over-posting 弱點可能發生在您從使用者輸入繫結模型類別的任何位置。 MVC 等架構可在自訂 .NET 類別中代表使用者資料，包括純舊 CLR 物件 (POCO)。 MVC 會自動在這些模型類別中填入要求中的資料，以方便代表要處理的使用者輸入。 當這些類別包括不應該由使用者設定的屬性時，應用程式很容易遭受 over-posting 攻擊，因而允許使用者控制應用程式永遠不會需要的資料。 和 MVC 模型繫結一樣，Entity Framework 等物件/關聯式對應程式之類的資料庫存取技術，通常也支援使用 POCO 物件來代表資料庫資料。 這些資料模型類別同樣能代表要處理的資料庫資料，就和 MVC 在處理使用者輸入時一樣。 因為 MVC 和資料庫都支援類似模型，例如 POCO 物件，想要將相同的類別重複用於這兩種用途似乎是輕鬆無比的事。 這種作法無法保持關注點分離，而這一塊區域通常也會讓模型繫結能夠接觸到非預期屬性，而實現 over-posting 攻擊。</li><li>**為何不該使用未經篩選的資料庫模型類別來做為 MVC 動作的參數？-** 因為 MVC 模型繫結會在該類別繫結任何項目。 即使資料未出現在檢視中，惡意使用者也可以傳送內含此資料的 HTTP 要求，MVC 會很樂意繫結它，因為您的動作說明資料庫類別是它應該接受做為使用者輸入的資料外觀。</li><li>**為何我該關心用於模型繫結的外觀？-** 搭配過度廣泛的模型使用 ASP.NET MVC 模型繫結，會讓應用程式暴露在 over-posting 攻擊範圍內。 over-posting 可讓攻擊者將應用程式資料的使用範圍變更為開發人員預定用途之外，例如覆寫某商品的價格或帳戶的安全性權限。 應用程式應使用動作專屬的繫結模型 (或特別允許的屬性篩選清單) 來提供明確合約，規定要透過模型繫結允許哪些不受信任的輸入。</li><li>**要擁有個別的繫結模型是否只要複製程式碼即可？-** 否，此作業和關注點分離有關。 若您在動作方法中重複使用資料庫模型，就表示該類別中的屬性 (或子屬性) 可供使用者在 HTTP 要求中設定。 如果您不想讓 MVC 這麼做，就需要使用篩選清單或個別的類別外觀來告訴 MVC 哪些資料可以來自使用者輸入。</li><li>**如果我有專門用於使用者輸入的繫結模型，我是否必須複製我所有的資料註解屬性？-** 不一定。 您可以在資料庫模型類別上使用 MetadataTypeAttribute 來連結至模型繫結類別上的中繼資料。 但請注意，MetadataTypeAttribute 所參考的類型必須是參考類型的子集 (可以有較少屬性，但不得超過)。</li><li>**在使用者輸入模型和資料庫模型之間來回移動資料很麻煩。是否可以使用反映功能直接複製所有屬性？-** 是。 繫結模型中唯一會出現的屬性，是您已確定可安全做為使用者輸入的屬性。 沒有任何安全性方面的理由可阻止您使用反映功能來複製這兩個模型之間共同存在的所有屬性。</li><li>**您認為 [Bind(Exclude ="â€¦")] 如何。我能否使用此方法而不使用個別的繫結模型？-** 不建議使用這個方法。 使用 [繫結 (排除 ="â € 正確 」。 「)] 表示任何新屬性的預設可繫結。 當您新增屬性時，有一個必須記得才能讓一切保持安全的額外步驟，而非讓設計預設就保持安全。 依靠開發人員在每次新增屬性時檢查這份清單是件危險的事。</li><li>**[Bind(Include ="â€¦")] 適用於編輯作業嗎？-** 否。 [繫結 (Include ="â € 正確 」。 「)] 是僅適用於插入樣式作業 （加入新資料）。 若為更新樣式的作業 (修改現有資料)，請使用另一種方法，例如擁有個別的繫結模型，或將允許屬性的明確清單傳遞給 UpdateModel 或 TryUpdateModel。 加入 [繫結 (Include ="「 正確 」。 「)] 上的編輯作業的屬性表示 MVC 將會建立物件執行個體，並設定只列出的屬性，讓其他所有在其預設值。 當資料存留下來時，便會完全取代現有實體，將任何遭忽略屬性的值重設為預設值。 例如，若編輯作業上的 [Bind(Include ="â€¦")] 屬性中忽略 IsAdmin，透過這個動作編輯名稱的任何使用者都會重設為 IsAdmin = false (經過編輯的使用者會失去系統管理員狀態)。 如果您想要防止更新某些屬性，請使用上述其他方法的其中一個。 請注意，某些版本的 MVC 工具產生控制器類別的 [繫結 (Include ="「 正確 」。 「)] 上編輯動作，表示從該清單中移除屬性會防止過度張貼攻擊。 但如上所述，該方法不會如預期運作，反而會將所忽略屬性中的任何資料重設為預設值。</li><li>**建立作業是否有任何警告，使用 [繫結 (Include ="â € 正確 」。 「)] 而不是個別的繫結模型嗎？-** Yes. 首先，這個方法不適用於編輯案例，需要維護兩種不同方法來降低所有 over-posting 弱點。 其次，不同的繫結模型會在用於使用者輸入的外觀和用於持續性的外觀之間強制執行關注點分離，[Bind(Include ="â€¦")] 則不會這麼做。 第三，請注意 [Bind(Include ="â€¦")] 只能處理最上層屬性；您不能在屬性中只允許部分子屬性 (例如 "Details.Name")。 最後，也可能是最重要的，使用 [繫結 (Include ="â € 正確 」。 「)] 新增額外的步驟，必須在任何時候類別記住，用於模型繫結。 如果新的動作方法直接繫結至資料類別，並包含忘記 [繫結 (Include ="「 正確 」。 「)] 屬性，可能很容易受到過度張貼攻擊，因此 [繫結 (Include ="「 正確 」。 「)] 的方法是比較安全的預設值。 如果您使用 [繫結 (Include ="â € 正確 」。 「)]，永遠費心思，請記得要指定每次您的資料類別會顯示為動作方法參數。</li><li>**建立作業，如何讓 [繫結 (Include ="â € 正確 」。 「)] 模型類別本身的屬性？這種方法不能讓我不再需要記得在每個動作方法放置此屬性嗎？-** 這種方法在某些情況下有用。 使用 [繫結 (Include ="â € 正確 」。 「)] 模型型別本身 （而不是在使用這個類別的動作參數），並不需要記得納入 [繫結 (Include ="â € 正確 」。 「)] 上每個動作方法的屬性。 直接在類別上使用此屬性實際上會為此類別建立不同的介面區域，以供繫結模型。 不過，此方法只允許在每個模型類別上使用一個模型繫結外觀。 如果某個動作方法需要允許某欄位進行模型繫結 (例如，會更新使用者角色的僅限系統管理員動作)，而其他動作需要防止此欄位進行模型繫結，這個方法就無法運作。 每一個類別只能有一個模型繫結] 圖形。如果不同的動作需要不同的模型繫結圖形，它們需要代表這些不同的圖形，使用其中一個個別的模型繫結類別，或是不同的 [繫結 (Include ="â € 正確 」。 「)] 上的動作方法的屬性。</li><li>**何謂繫結模型？它們是和檢視模型相同的概念嗎？-** 這兩者是有相關性的概念。 繫結模型一詞是指動作中所使用的模型類別是參數清單 (從 MVC 模型繫結傳遞至動作方法的外觀)。 檢視模型一詞則是指從動作方法傳遞至檢視的模型類別。 要將資料從動作方法傳遞至檢視時，通常會使用檢視專屬模型這個方法。 通常，此圖形也是適用於模型繫結，而且詞彙檢視模型可以用來參考兩個地方使用的相同模型。 準確地說，此程序專門討論繫結模型，將重點放在傳遞給動作的外觀，而這對於大量指派來說很重要。</li></ul>| 
+| **步驟** | <ul><li>**我應該在何時尋找 over-posting 弱點？-** over-posting 弱點可能發生在您從使用者輸入繫結模型類別的任何位置。 MVC 等架構可在自訂 .NET 類別中代表使用者資料，包括純舊 CLR 物件 (POCO)。 MVC 會自動在這些模型類別中填入要求中的資料，以方便代表要處理的使用者輸入。 當這些類別包括不應該由使用者設定的屬性時，應用程式很容易遭受 over-posting 攻擊，因而允許使用者控制應用程式永遠不會需要的資料。 和 MVC 模型繫結一樣，Entity Framework 等物件/關聯式對應程式之類的資料庫存取技術，通常也支援使用 POCO 物件來代表資料庫資料。 這些資料模型類別同樣能代表要處理的資料庫資料，就和 MVC 在處理使用者輸入時一樣。 因為 MVC 和資料庫都支援類似模型，例如 POCO 物件，想要將相同的類別重複用於這兩種用途似乎是輕鬆無比的事。 這種作法無法保持關注點分離，而這一塊區域通常也會讓模型繫結能夠接觸到非預期屬性，而實現 over-posting 攻擊。</li><li>**為何不該使用未經篩選的資料庫模型類別來做為 MVC 動作的參數？-** 因為 MVC 模型繫結會在該類別繫結任何項目。 即使資料未出現在檢視中，惡意使用者也可以傳送內含此資料的 HTTP 要求，MVC 會很樂意繫結它，因為您的動作說明資料庫類別是它應該接受做為使用者輸入的資料外觀。</li><li>**為何我該關心用於模型繫結的外觀？-** 搭配過度廣泛的模型使用 ASP.NET MVC 模型繫結，會讓應用程式暴露在 over-posting 攻擊範圍內。 over-posting 可讓攻擊者將應用程式資料的使用範圍變更為開發人員預定用途之外，例如覆寫某商品的價格或帳戶的安全性權限。 應用程式應使用動作專屬的繫結模型 (或特別允許的屬性篩選清單) 來提供明確合約，規定要透過模型繫結允許哪些不受信任的輸入。</li><li>**要擁有個別的繫結模型是否只要複製程式碼即可？-** 否，此作業和關注點分離有關。 若您在動作方法中重複使用資料庫模型，就表示該類別中的屬性 (或子屬性) 可供使用者在 HTTP 要求中設定。 如果您不想讓 MVC 這麼做，就需要使用篩選清單或個別的類別外觀來告訴 MVC 哪些資料可以來自使用者輸入。</li><li>**如果我有專門用於使用者輸入的繫結模型，我是否必須複製我所有的資料註解屬性？-** 不一定。 您可以在資料庫模型類別上使用 MetadataTypeAttribute 來連結至模型繫結類別上的中繼資料。 但請注意，MetadataTypeAttribute 所參考的類型必須是參考類型的子集 (可以有較少屬性，但不得超過)。</li><li>**在使用者輸入模型和資料庫模型之間來回移動資料很麻煩。是否可以使用反映功能直接複製所有屬性？-** 是。 繫結模型中唯一會出現的屬性，是您已確定可安全做為使用者輸入的屬性。 沒有任何安全性方面的理由可阻止您使用反映功能來複製這兩個模型之間共同存在的所有屬性。</li><li>**您認為 [Bind(Exclude ="â€¦")] 如何。我能否使用此方法而不使用個別的繫結模型？-** 不建議使用這個方法。 使用 [Bind(Exclude ="â€¦")] 表示所有新屬性預設都可繫結。 當您新增屬性時，有一個必須記得才能讓一切保持安全的額外步驟，而非讓設計預設就保持安全。 依靠開發人員在每次新增屬性時檢查這份清單是件危險的事。</li><li>**[Bind(Include ="â€¦")] 適用於編輯作業嗎？-** 否。 [Bind(Include ="â€¦")] 僅適用於插入樣式的作業 (新增資料)。 若為更新樣式的作業 (修改現有資料)，請使用另一種方法，例如擁有個別的繫結模型，或將允許屬性的明確清單傳遞給 UpdateModel 或 TryUpdateModel。 在編輯作業上新增 [Bind(Include ="â€¦")] 屬性表示 MVC 會建立物件執行個體且只設定列出的屬性，而讓其他所有屬性保持預設值。 當資料存留下來時，便會完全取代現有實體，將任何遭忽略屬性的值重設為預設值。 例如，若編輯作業上的 [Bind(Include ="â€¦")] 屬性中忽略 IsAdmin，透過這個動作編輯名稱的任何使用者都會重設為 IsAdmin = false (經過編輯的使用者會失去系統管理員狀態)。 如果您想要防止更新某些屬性，請使用上述其他方法的其中一個。 請注意，某些版本的 MVC 工具會對編輯動作上的 [Bind(Include ="â€¦")] 產生控制器類別，並表示從該清單中移除屬性會防止「過多提交」攻擊。 但如上所述，該方法不會如預期運作，反而會將所忽略屬性中的任何資料重設為預設值。</li><li>**對建立作業使用 [Bind(Include ="â€¦")] 而非使用個別的繫結模型，是否有需要注意的事項？-** 是。 首先，這個方法不適用於編輯案例，需要維護兩種不同方法來降低所有 over-posting 弱點。 其次，不同的繫結模型會在用於使用者輸入的外觀和用於持續性的外觀之間強制執行關注點分離，[Bind(Include ="â€¦")] 則不會這麼做。 第三，請注意 [Bind(Include ="â€¦")] 只能處理最上層屬性；您不能在屬性中只允許部分子屬性 (例如 "Details.Name")。 最後 (或許是最重要的)，使用 [Bind(Include ="â€¦")] 會在類別用於模型繫結的時候新增必須記得的額外步驟。 如果新的動作方法直接繫結至資料類別，而忘記包含 [Bind(Include ="â€¦")] 屬性，則很容易遭受「過多提交」攻擊，因此 [Bind(Include ="â€¦")] 方法依預設會較不安全。 如果您使用 [Bind(Include ="â€¦")]，請注意一律要記得在每次資料類別顯示為動作方法參數時指定它。</li><li>**針對建立作業，若在模型類別本身放置 [Bind(Include ="â€¦")] 屬性，您認為如何？這種方法不能讓我不再需要記得在每個動作方法放置此屬性嗎？-** 這種方法在某些情況下有用。 在模型類型本身 (而非在使用這個類別的動作參數上) 使用 [Bind(Include ="â€¦")]，的確不需要記得於每個動作方法加上 [Bind(Include ="â€¦")] 屬性。 直接在類別上使用此屬性實際上會為此類別建立不同的介面區域，以供繫結模型。 不過，此方法只允許在每個模型類別上使用一個模型繫結外觀。 如果某個動作方法需要允許某欄位進行模型繫結 (例如，會更新使用者角色的僅限系統管理員動作)，而其他動作需要防止此欄位進行模型繫結，這個方法就無法運作。 每個類別只能有一個模型繫結外觀；如果不同的動作需要不同的模型繫結外觀，則必須在動作方法上使用不同的模型繫結類別或不同的 [Bind(Include ="â€¦")] 屬性，來表示這些不同的外觀。</li><li>**何謂繫結模型？它們是和檢視模型相同的概念嗎？-** 這兩者是有相關性的概念。 繫結模型一詞是指動作中所使用的模型類別是參數清單 (從 MVC 模型繫結傳遞至動作方法的外觀)。 檢視模型一詞則是指從動作方法傳遞至檢視的模型類別。 要將資料從動作方法傳遞至檢視時，通常會使用檢視專屬模型這個方法。 此外觀通常也適用於模型繫結，而且檢視模型一詞可用來指稱在兩個位置所使用的相同模型。 準確地說，此程序專門討論繫結模型，將重點放在傳遞給動作的外觀，而這對於大量指派來說很重要。</li></ul>| 
 
 ## <a id="rendering"></a>先將未受信任的 Web 輸出編碼再進行轉譯
 
@@ -373,7 +373,7 @@ myCommand.Fill(userDataset);
 
 ### <a name="example"></a>範例
 
-```C#
+```csharp
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
 * Encoder.JavaScriptEncode 
@@ -465,7 +465,7 @@ $('body').append(resHTML);
 ### <a name="example"></a>範例
 例如，下列組態會在處理時間超過 5 秒時擲回 RegexMatchTimeoutException︰ 
 
-```C#
+```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
@@ -483,7 +483,7 @@ $('body').append(resHTML);
 ### <a name="example"></a>範例
 以下是不安全的範例︰ 
 
-```C#
+```csharp
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
         </div>
@@ -508,7 +508,7 @@ $('body').append(resHTML);
 ### <a name="example"></a>範例
 以下是不安全的動態預存程序範例︰ 
 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
   @productName nvarchar(200) = NULL,
@@ -535,7 +535,7 @@ AS
 
 ### <a name="example"></a>範例
 以下是以安全方式實作的相同預存程序︰ 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
              @productName nvarchar(200) = NULL,
@@ -568,7 +568,7 @@ AS
 ### <a name="example"></a>範例
 下列程式碼示範相同案例︰ 
 
-```C#
+```csharp
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApi.Models
@@ -589,7 +589,7 @@ namespace MyApi.Models
 ### <a name="example"></a>範例
 在 API 控制器的動作方法中，模型的有效性必須明確檢查，如下所示： 
 
-```C#
+```csharp
 namespace MyApi.Controllers
 {
     public class ProductsController : ApiController
@@ -636,7 +636,7 @@ namespace MyApi.Controllers
 ### <a name="example"></a>範例
 下列程式碼示範如何在呼叫預存程序時，搭配使用 type-safe 參數與 SqlParameterCollection。 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -660,8 +660,8 @@ myCommand.Fill(userDataset);
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [發表 Azure Cosmos DB 中的 SQL 參數化](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **步驟** | 雖然 Azure Cosmos DB 僅支援唯讀查詢，但是 SQL 資料隱碼仍時才可以藉由串連使用者輸入所建構的查詢。 使用者只要藉由編寫惡意 SQL 查詢，即可在相同集合內存取他們不該能夠存取的資料。 如果查詢是根據使用者輸入所建構而成，請使用參數化的 SQL 查詢。 |
+| **參考**              | [在 Azure Cosmos DB 中宣佈 SQL 參數化](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **步驟** | 雖然 Azure Cosmos DB 只支援唯讀查詢，但如果查詢是藉由串連使用者輸入來建構，仍可發動 SQL 插入式攻擊。 使用者只要藉由編寫惡意 SQL 查詢，即可在相同集合內存取他們不該能夠存取的資料。 如果查詢是根據使用者輸入所建構而成，請使用參數化的 SQL 查詢。 |
 
 ## <a id="schema-binding"></a>透過結構描述繫結驗證 WCF 輸入
 

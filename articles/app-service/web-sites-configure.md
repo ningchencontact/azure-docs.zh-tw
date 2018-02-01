@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 01/03/2018
 **遠端偵錯**。 啟用遠端偵錯。 一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具，直接連接到您的 Web 應用程式。 遠端偵錯將保持啟用達 48 小時。 
 
 ### <a name="app-settings"></a>應用程式設定
-本區段包含您的 Web 應用程式將在啟動時載入的名稱/值組。 
+這一節包含 Web 應用程式將在啟動時載入的名稱/值組。 
 
 * 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings` ，並覆寫現有的設定。 
 * PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。 系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。 這兩個變數都包含相同的值。

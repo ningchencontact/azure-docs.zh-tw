@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: "驗證、註冊、密碼重設 ASP.NET Azure Active Directory B2C"
 description: "如何使用 Azure Active Directory B2C 建置支援註冊/登入、設定檔編輯及密碼重設的 Web 應用程式。"
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: e7a10ab2e523a98bd8762e209d0f4a13b12ef187
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>建立支援 Azure Active Directory B2C 註冊、登入、設定檔編輯及密碼重設的 ASP.NET Web 應用程式
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 > * 在您的 Azure AD B2C 目錄中註冊 Web 應用程式
 > * 為您的 Web 應用程式建立使用者註冊/登入、編輯設定檔和密碼重設原則
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須將 B2C 租用戶與 Azure 帳戶連接。 您可以在[這裡](https://azure.microsoft.com/en-us/)建立免費的 Azure 帳戶。
 - 您需要 [Microsoft Visual Studio](https://www.visualstudio.com/) 或類似的程式來檢視與修改範例程式碼。

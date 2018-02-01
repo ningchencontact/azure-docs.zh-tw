@@ -3,7 +3,7 @@ title: "Azure AD Connect：選取安裝類型 | Microsoft Docs"
 description: "本主題將逐步解說如何選取要用於 Azure AD Connect 的安裝類型"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>選取要用於 Azure AD Connect 的安裝類型
 Azure AD Connect 針對新安裝提供兩種安裝類型：快速和自訂。 本主題將協助您決定安裝時要使用的選項。
@@ -41,7 +41,7 @@ Azure AD Connect 針對新安裝提供兩種安裝類型：快速和自訂。 �
 
 在下列情況下，您仍然可以選擇使用 [快速]：
 
-- 如果您不想要同步處理所有 OU，您仍然可以使用 [快速]，然後在最後一頁取消選取 [開始同步處理程序]*。 接著，再次執行安裝精靈並變更[組態選項](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)中的 OU，然後啟用排定的同步處理。
+- 如果您不想要同步處理所有 OU，您仍然可以使用 [快速]，然後在最後一頁取消選取 [開始同步處理程序]。 接著，再次執行安裝精靈並變更[組態選項](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)中的 OU，然後啟用排定的同步處理。
 - 您想要啟用 Azure AD Premium 的其中一個功能，例如密碼回寫。 請先透過快速安裝來完成初始安裝。 接著，再次執行安裝精靈並變更[組態選項](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)。
 
 ## <a name="custom"></a>自訂
