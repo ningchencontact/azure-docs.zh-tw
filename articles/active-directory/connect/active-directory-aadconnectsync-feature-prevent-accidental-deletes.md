@@ -3,7 +3,7 @@ title: "Azure AD Connect 同步：防止意外刪除 |Microsoft Docs"
 description: "本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步處理：防止意外刪除
 本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 * OU 中的所有物件遭到刪除。
 * 重新命名 OU，結果使得其中的所有物件被視為不在同步處理範圍內。
 
-可以使用 PowerShell 變更 500 個物件的預設值使用`Enable-ADSyncExportDeletionThreshold`，這是與 Azure Active Directory Connect 一起安裝的 AD Sync 模組的一部分。 您應該將此值設定為符合您組織的大小。 由於同步排程器會每隔 30 分鐘執行一次，因此該值是 30 分鐘內看到的刪除數目。
+您可以使用 PowerShell 的 `Enable-ADSyncExportDeletionThreshold` (這屬於隨 Azure Active Directory Connect 一起安裝的 AD Sync 模組) 進行變更的預設值是 500 個物件。 您應該將此值設定為符合您組織的大小。 由於同步排程器會每隔 30 分鐘執行一次，因此該值是 30 分鐘內看到的刪除數目。
 
 如果有太多刪除預備要匯出到 Azure AD，則匯出會停止，且您會收到如下的電子郵件：
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IoT 套件連線處理站預先設定之解決方案的常見問題集
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/14/2017
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Microsoft 為什麼選擇 OPC UA 作為連線工廠的預先設定解決方案？
 
-Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且已核准的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 會看到建置 Industrie 4.0 方案視需要從其客戶。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
+Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且已核准的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 看到客戶有建置 Industrie 4.0 解決方案的需求。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>如何將公用 IP 位址新增至模擬虛擬機器？
 
@@ -117,7 +117,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-使用 [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 或 [iothub-explorer](https://github.com/azure/iothub-explorer) 工具可檢查哪些裝置已向解決方案正在使用的 IoT 中樞註冊。 若要使用這些工具，您需要您部署中的 IoT 中樞的連接字串。
+您可以使用 [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 或 [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)工具，檢查哪些裝置已向解決方案正在使用的 IoT 中樞註冊。 若要使用裝置總管，將需要您部署中 IoT 中樞的連接字串。 若要使用 Azure CLI 2.0 的 IoT 擴充功能，您需要 IoT 中樞名稱。
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>如何從模擬元件取得記錄資料？
 
@@ -144,45 +144,51 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 如果您看不到傳送至 IoT 中樞的資料，則表示模擬有問題。 您應該採取的第一個分析步驟是分析模擬元件的記錄檔。 請參閱[如何從模擬元件取得記錄資料？](#how-can-i-get-log-data-from-the-simulation-components) 接著，嘗試停止並啟動模擬，如果仍然沒有任何傳送的資料，請徹底更新模擬。 請參閱[如何更新虛擬機器中的模擬？](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>如何啟用連線的 factory 解決方案中的互動式的對應？
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>如何在連線處理站解決方案中啟用互動式地圖？
 
-若要啟用連接的 factory 方案中的互動式對應，您必須擁有現有 Bing Maps API 對於企業計劃。 如果您有企業計劃的 Bing Maps API，當您部署從 www.azureiotsuite.com 連接的工廠方案，互動式地圖會自動為您啟用。
+若要在連線處理站解決方案中啟用互動式地圖，您必須擁有現有的企業方案 Bing 地圖服務 API。
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>如何建立企業帳戶 Bing Maps API？
+從 [www.azureiotsuite.com](http://www.azureiotsuite.com) 部署時，部署流程會確認您的訂用帳戶具有已啟用的企業方案 Bing 地圖服務 API，並將互動式地圖自動部署到連線處理站。 如果不是如此部署，您仍可在部署中啟用互動式地圖，如下所示：
 
-您可以取得一套免費*內部交易層級 1 Bing 地圖服務的企業*計劃。 不過，您只能將這些計劃的兩個 Azure 訂用帳戶。 如果您沒有企業帳戶 Bing Maps API，即可建立一個在 Azure 入口網站**+ 建立資源**。 然後搜尋**企業的 Bing Maps API**並遵循提示來建立它。
+當您使用連線處理站 GitHub 存放庫中的 `build.ps1` 指令碼進行部，且您具有企業方案 Bing 地圖服務 API 時，請將 [建置] 視窗中的 `$env:MapApiQueryKey` 環境變數設定為方案的查詢金鑰。 系統隨後會自動啟用互動式地圖。
+
+如果您沒有企業方案 Bing 地圖服務 API，請從 [www.azureiotsuite.com](http://www.azureiotsuite.com) 或使用 `build.ps1` 指令碼來部署連線處理站解決方案。 接著，將企業方案 Bing 地圖服務 API 新增至您的訂用帳戶，如[如何建立企業用 Bing 地圖服務 API 帳戶？](#how-do-i-create-a-bing-maps-api-for-enterprise-account)中所述。 如[如何取得企業用 Bing 地圖服務 API QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) 中所述查詢此帳戶的查詢金鑰，並儲存此金鑰。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為您取得的查詢金鑰。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>如何建立企業用 Bing 地圖服務 API 帳戶
+
+您可以獲得一套免費的內部交易層級 1 企業用 Bing 地圖服務方案。 不過，您只能將這些方案的其中兩個新增至 Azure 訂用帳戶。 如果您沒有企業用 Bing 地圖服務 API 帳戶，可在 Azure 入口網站中按一下 [+ 建立資源] 來建立一個。 然後搜尋 [企業用 Bing 地圖服務 API]，並遵循提示來加以建立。
 
 ![Bing 金鑰](media/iot-suite-faq-cf/bing.png)
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>如何取得 Bing 地圖服務 API 的企業 QueryKey
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>如何取得企業用 Bing 地圖服務 API QueryKey
 
-一旦您已建立您的 Bing Maps API 對於企業計劃，將 Bing 地圖服務的企業資源加入至連接的 factory 方案在 Azure 入口網站中的資源群組。
+一旦您已建立企業用 Bing 地圖服務 API 後，請將企業用 Bing 地圖服務資源新增至 Azure 入口網站中連線處理站解決方案的資源群組。
 
-1. 在 Azure 入口網站中，瀏覽至包含您的 Bing Maps API 對於企業計劃的資源群組。
+1. 在 Azure 入口網站中，瀏覽至包含企業方案 Bing 地圖服務 API 的資源群組。
 
 1. 依序按一下 [所有設定] 和 [金鑰管理]。
 
-1. 有兩個金鑰： **MasterKey**和**QueryKey**。 複製**QueryKey**值。
+1. 金鑰有兩個︰**MasterKey** 和 **QueryKey**。 複製 **QueryKey** 值。
 
-1. 若要有索引鍵，收取`build.ps1`撰寫指令碼、 設定環境變數`$env:MapApiQueryKey`PowerShell 環境中**QueryKey**計劃。 組建指令碼會自動將值加入應用程式服務的設定。
+1. 若要讓 `build.ps1` 指令碼挑選該金鑰，請將 PowerShell 環境中的 `$env:MapApiQueryKey` 環境變數設定為您方案的 **QueryKey**。 然後，建置指令碼會將該值自動新增至 App Service 的設定。
 
-1. 執行本機或雲端部署使用`build.ps1`指令碼。
+1. 使用 `build.ps1` 指令碼執行本機或雲端部署。
 
-### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>本機偵錯時，請勿啟用如何互動式對應嗎？
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>在進行本機偵錯時，如何啟用互動式地圖？
 
-若要在本機偵錯時，請啟用互動式地圖，設定的設定值`MapApiQueryKey`檔案中`local.user.config`和`<yourdeploymentname>.user.config`根目錄中的值要部署的**QueryKey**您複製先前。
+若要在進行本機偵錯時啟用互動式地圖，請將部署根目錄中 `local.user.config` 和 `<yourdeploymentname>.user.config` 檔案的 `MapApiQueryKey` 設定值，設定為您先前複製的 **QueryKey** 值。
 
-### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>如何在我的儀表板首頁中使用不同的映像？
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>如何在儀表板首頁使用不同的影像？
 
-若要變更顯示 io 的靜態影像首頁的儀表板，取代影像`WebApp\Content\img\world.jpg`。 然後重建並重新部署 WebApp。
+若要變更儀表板首頁顯示的靜態影像，請更換 `WebApp\Content\img\world.jpg` 影像。 然後重建並重新部署 WebApp。
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>如何使用與已連線的處理站的非 OPC UA 裝置？
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>如何搭配連線處理站使用非 OPC UA 裝置？
 
-若要傳送遙測資料從非 OPC UA 裝置連線的處理站：
+若要從非 OPC UA 裝置將遙測資料傳送到連線處理站：
 
-1. [連線的 factory 拓撲中設定新的站台](iot-suite-connected-factory-configure.md)中`ContosoTopologyDescription.json`檔案。
+1. 在 `ContosoTopologyDescription.json` 檔案中，[於連線處理站拓撲內設定新的站台](iot-suite-connected-factory-configure.md)。
 
-1. 內嵌連接的工廠相容的 JSON 格式的遙測資料：
+1. 使用連線處理站相容的 JSON 格式內嵌遙測資料：
 
     ```json
     [
@@ -198,9 +204,9 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
     ]
     ```
 
-1. 格式`<timestamp>`是：`2017-12-08T19:24:51.886753Z`
+1. `<timestamp>` 的格式為：`2017-12-08T19:24:51.886753Z`
 
-1. 重新啟動應用程式服務的連線的 factory。
+1. 重新啟動連線處理站 App Service。
 
 ### <a name="next-steps"></a>後續步驟
 

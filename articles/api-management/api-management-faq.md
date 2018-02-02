@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -33,7 +33,6 @@ ms.lasthandoff: 12/08/2017
 * [我可以透過程式設計方式管理我的 API 管理執行個體嗎？](#can-i-manage-my-api-management-instance-programmatically)
 * [如何將使用者新增至 Administrators 群組？](#how-do-i-add-a-user-to-the-administrators-group)
 * [為什麼「我想要新增」的原則無法用於原則編輯器？](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [如何在 API 管理中使用 API 版本設定？](#how-do-i-use-api-versioning-in-api-management)
 * [如何在單一 API 中設定多個環境？](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [可以使用 SOAP 搭配 API 管理嗎？](#can-i-use-soap-with-api-management)
 * [API 管理閘道 IP 位址是否固定？我可以用在防火牆規則嗎？](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ ms.lasthandoff: 12/08/2017
 
 * 使用 HTTP 基本驗證。 如需詳細資訊，請參閱[匯入和發佈您的第一個 API](import-and-publish.md)。
 * 依照[如何使用 Azure API 管理中的用戶端憑證驗證保護後端服務](api-management-howto-mutual-certificates.md)所述，使用 SSL 相互驗證。
-* 在您的後端服務上使用 IP 允許清單。 如果您有標準或高階層 API 管理執行個體，閘道的 IP 位址會保持不變。 您可以設定您的允許清單來允許此 IP 位址。 您可以在 Azure 入口網站中的 [儀表板] 上取得API 管理執行個體的 IP 位址。
+* 在您的後端服務上使用 IP 允許清單。 在 API 管理的所有層級中，閘道的 IP 位址會維持不變，但有一些[注意事項](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)。 您可以設定您的允許清單來允許此 IP 位址。 您可以在 Azure 入口網站中的 [儀表板] 上取得API 管理執行個體的 IP 位址。
 * 將您的 API 管理執行個體連接至 Azure 虛擬網路。
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>如何將我的 API 管理服務執行個體複製到新的執行個體？
@@ -97,13 +96,6 @@ ms.lasthandoff: 12/08/2017
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>為什麼「我想要新增」的原則無法用於原則編輯器？
 如果您想要新增的原則在原則編輯器中呈暗灰色，請確定您是在該原則的正確範圍內。 每個原則陳述式都是為您在特定範圍和原則區段中使用所設計。 若要檢閱原則的原則區段和範圍，請參閱 [API 管理原則](https://msdn.microsoft.com/library/azure/dn894080.aspx)中原則的「使用方式」一節。
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>如何在 API 管理中使用 API 版本設定？
-您有一些選項可在 API 管理中使用 API 版本設定：
-
-* 在 API 管理中，您可以設定 API 來代表不同的版本。 例如，您可能有兩個不同的 API (MyAPIv1 和 MyAPIv2)。 開發人員可以選擇開發人員想要使用的版本。
-* 您也可以使用不包含版本區段的服務 URL (例如 https://my.api) 來設定您的 API。 接著，在每個作業的[重寫 URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 範本上設定版本區段。 
-* 如果您想要在 API 的服務 URL 中保留「預設」版本區段，請在選取的作業上設定一個原則，以使用[設定後端服務](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService)原則來變更後端要求路徑。
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在單一 API 中設定多個環境？
 若要在單一 API 中設定多個環境 (例如一個測試環境和一個生產環境)，您有兩個選項。 您可以：
 
@@ -114,7 +106,7 @@ ms.lasthandoff: 12/08/2017
 現在可以使用 [SOAP 傳遞](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支援。 系統管理員可以匯入其 SOAP 服務的 WSDL，而 Azure API 管理將會建立 SOAP 前端。 開發人員入口網站文件、測試主控台、原則和分析全都適用於 SOAP 服務。
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 管理閘道 IP 位址是否固定？ 我可以用在防火牆規則嗎？
-在標準和進階層，API 管理租用戶的公用 IP 位址 (VIP) 在租用戶的存留期內是靜態的，但有一些例外狀況。 在下列情況下，IP 位址會變更︰
+在 API 管理的所有層級中，API 管理租用戶的公用 IP 位址 (VIP) 在租用戶的存留期內是靜態的，但有一些例外狀況。 在下列情況下，IP 位址會變更︰
 
 * 服務遭到刪除，然後又重新建立。
 * 服務訂用帳戶遭到[暫止](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)或[警告](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (例如，因為未付款)，然後又恢復。
@@ -133,10 +125,10 @@ ms.lasthandoff: 12/08/2017
 API 管理會在部署到多個地理位置時，使用[效能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。 連入流量會傳送至最接近的 API 閘道。 如果一個區域離線，則連入流量會自動路由傳送至下一個最接近的閘道。 深入了解[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)中的路由方法。
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？
-可以。 請參閱 [Azure API 管理服務](http://aka.ms/apimtemplate)快速入門範本。
+是。 請參閱 [Azure API 管理服務](http://aka.ms/apimtemplate)快速入門範本。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以對後端使用自我簽署的 SSL 憑證？
-可以。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。
+是。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。
 
 #### <a name="powershell-method"></a>Powershell 方法 ####
 使用 [`New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (適用於新的後端) 或 [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (適用於現有的後端) PowerShell Cmdlet，並將 `-SkipCertificateChainValidation` 參數設定為 `True`。 
@@ -155,7 +147,7 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 如果您使用 Git 認證管理員，或如果您嘗試使用 Visual Studio 複製 Git 儲存機制，您可能會遇到 Windows 認證對話方塊的已知問題。 此對話方塊會將密碼長度限制為 127 個字元，並且截斷 Microsoft 所產生的密碼。 我們正在努力縮短密碼。 目前，請使用 Git Bash 來複製 Git 儲存機制。
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>API 管理是否能搭配 Azure ExpressRoute 運作？
-可以。 API 管理能搭配 Azure ExpressRoute 運作。
+是。 API 管理能搭配 Azure ExpressRoute 運作。
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>為什麼將「API 管理」部署到 Resource Manager 樣式的 VNET 中時，我們需要在這些 VNET 中有一個專用子網路？
 「API 管理」的專用子網路需求來自於一個事實，就是它是建置在「傳統」(PAAS V1 層) 部署模型的基礎上。 雖然我們可以部署到 Resource Manager VNET (V2 層) 中，但是會有後果。 Azure 中的「傳統」部署模型並未與 Resource Manager 模型緊密結合，因此，如果您在 V2 層中建立一項資源，V1 層並不會知道它，而問題就可能發生，例如「API 管理」嘗試使用已經配置給某個 NIC (建置在 V2 上) 的 IP。
@@ -165,7 +157,7 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 部署「API 管理」所需的子網路大小下限是 [/29](../virtual-network/virtual-networks-faq.md#configuration)，這是 Azure 支援的子網路大小下限。
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>可以將 API 管理服務從某一個訂用帳戶移至另一個嗎？
-可以。 若要了解作法，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
+是。 若要了解作法，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>匯入 API 有任何限制或已知的問題嗎？
 Open API(Swagger)、WSDL 及 WADL 格式的[已知問題和限制](api-management-api-import-restrictions.md)。

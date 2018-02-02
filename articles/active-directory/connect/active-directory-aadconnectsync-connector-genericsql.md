@@ -3,7 +3,7 @@ title: "一般 SQL 連接器 | Microsoft Docs"
 description: "本文說明如何設定 Microsoft 的一般 SQL 連接器。"
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>一般 SQL 連接器技術參考
 本文說明一般 SQL 連接器。 本文適用於下列產品：
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/20/2017
 | 作業 |<li>完整匯入和差異匯入、匯出</li><li>針對匯出：新增、刪除、更新和取代</li><li>設定密碼、變更密碼</li> |
 | 結構描述 |<li>動態探索物件和屬性</li> |
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在您使用連接器之前，請確定同步處理伺服器上有下列項目：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本
@@ -231,10 +231,10 @@ ms.lasthandoff: 12/20/2017
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **資料表/檢視**  
-若要匯入物件的多重值的屬性，您必須提供中的資料表/檢視表名稱**名稱的多重值的資料表/檢視**和個別的聯結條件中**聯結條件**與父資料表. 如果資料來源中有多個多重值的資料表，您可以使用聯集到單一檢視。
+若要將物件的多重值屬性匯入，就必須在 [多重資料表/檢視名稱] 中提供資料表/檢視名稱，並在父資料表的 [聯結條件] 中，提供各自的聯結條件。 如果資料來源中有多個多重值資料表，您可以使用 union 匯集到單一檢視。
 
 >[!IMPORTANT]
-一般 SQL 管理代理程式僅能使用一個多重值的資料表。 請勿將放到多重值的資料表/檢視表的名稱，多個資料表的一個名稱。 一般 SQL 限制它。
+一般 SQL 管理代理程式僅能使用一個多重值資料表。 請勿將多個資料表名稱放入 [多重值資料表/檢視的名稱] 中。 這是一般 SQL 的限制。
 
 
 範例：您想要匯入 [員工] 物件與其所有的多重值屬性。 有兩個資料表：[員工] \(主要資料表) 和 [部門] \(多重值)。

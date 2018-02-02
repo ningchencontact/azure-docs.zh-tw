@@ -11,14 +11,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage
+ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -251,7 +251,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 許多設計必須符合需求，才能讓您根據多個準則查閱實體。 比方說，根據電子郵件、員工識別碼或姓氏找出員工實體。 [資料表設計模式](#table-design-patterns) 一節的下列模式可因應這些類型的需求，並說明處理資料表服務不提供次要索引的方式：  
 
 * [內部資料分割次要索引模式](#intra-partition-secondary-index-pattern) - 為每個實體儲存多個複本且使用不同 **RowKey** 值 (在相同的資料分割內)，透過使用不同的 **RowKey** 值，就能快速且有效率的查閱和替代排序次序。  
-* [間的資料分割的次要索引模式](#inter-partition-secondary-index-pattern)-儲存多個複本的每一個實體使用不同**RowKey**值在不同的資料分割，或在不同的資料表，以啟用快速又有效率的查詢與替代排序使用不同的訂單**RowKey**值。  
+* [間資料分割次要索引模式](#inter-partition-secondary-index-pattern) - 在個別資料分割或個別資料表中為每個實體儲存多個複本且使用不同 **RowKey** 值，透過使用不同的 **RowKey** 值，就能快速有效率地查閱和替代排序次序。  
 * [索引實體模式](#index-entities-pattern) - 維護索引實體，啟用有效的搜尋以傳回實體清單。  
 
 ### <a name="sorting-data-in-the-table-service"></a>在表格服務中排序資料

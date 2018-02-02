@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect 同步︰處理 userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs"
+title: "Azure AD Connect - userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs"
 description: "本主題針對 userCertificate 屬性所造成的 LargeObject 錯誤提供補救步驟。"
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步︰處理 userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs
 
@@ -113,7 +114,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | 名稱 | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
+    | Name | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
     | 說明 | 提供描述 | 例如，「如果 userCertificate 屬性有 15 個以上的值，匯出 NULL」。 |
     | 連線系統 | 選取 Azure AD 連接器 |
     | 連線系統物件類型 | **user** | |

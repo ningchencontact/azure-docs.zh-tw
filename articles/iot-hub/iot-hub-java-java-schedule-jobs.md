@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>排定及廣播作業 (Java)
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-如果您更想要以程式設計方式建立裝置身分識別，請閱讀[使用 Java 將您的裝置連線至 IoT 中樞](iot-hub-java-java-getstarted.md#create-a-device-identity)一文中的對應章節。 您也可以使用 [iothub-explorer](https://github.com/Azure/iothub-explorer) 工具，將裝置新增至您的 IoT 中樞。
+如果您更想要以程式設計方式建立裝置身分識別，請閱讀[使用 Java 將您的裝置連線至 IoT 中樞](iot-hub-java-java-getstarted.md#create-a-device-identity)一文中的對應章節。 您也可以使用 [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)工具，將裝置新增至 IoT 中樞。
 
 ## <a name="create-the-service-app"></a>建立服務應用程式
 

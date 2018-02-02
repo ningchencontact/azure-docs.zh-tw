@@ -1,6 +1,6 @@
 ---
 title: "透過 iothub-explorer 進行 Azure IoT 裝置管理 | Microsoft Docs"
-description: "使用 iothub-explorer CLI 工具進行 Azure IoT 中樞裝置管理，採用直接方法和對應項所需的屬性管理選項。"
+description: "使用 iothub-explorer CLI 工具來管理 Azure IoT 中樞裝置，採用直接方法和對應項所需的屬性管理選項。"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 進行 Azure IoT 中樞裝置管理
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [iothub-explorer](https://github.com/azure/iothub-explorer) 是您在主機電腦上執行的 CLI 工具，用來管理您的 IoT 中樞登錄中的裝置身分識別。 它隨附的管理選項可供您用來執行各種工作。
 
 | 管理選項          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 直接方法             | 使裝置執行動作，例如啟動或停止傳送訊息，或是將裝置重新開機。                                        |
 | 對應項的所需屬性    | 讓裝置進入特定狀態，例如將 LED 設定為綠色，或將遙測傳送間隔設定為 30 分鐘。         |
 | 對應項的報告屬性   | 取得裝置的報告狀態。 例如，裝置會回報 LED 現在正閃爍不停。                                    |
@@ -54,9 +54,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-you-need"></a>您需要什麼
 
 - 完成涵蓋下列需求的[設定裝置](iot-hub-raspberry-pi-kit-node-get-started.md)教學課程︰
-  - 有效的 Azure 訂用帳戶。
-  - 位於您訂用帳戶中的 Azure IoT 中樞。
-  - 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
+- 有效的 Azure 訂用帳戶。
+- 位於您訂用帳戶中的 Azure IoT 中樞。
+- 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
 - 請確定在本教學課程期間，您的裝置是和用戶端應用程式一起執行。
 - iothub-explorer，在開發電腦上[安裝 iothub-explorer](https://github.com/azure/iothub-explorer)。
 
@@ -102,7 +102,7 @@ iothub-explorer get-twin <your device id>
 
 其中一個屬性是 $metadata.$lastUpdated，它會顯示此裝置上一次傳送或接收訊息的時間。
 
-## <a name="use-iothub-explorer-with-twins-tags"></a>使用 iothub-explorer 搭配對應項標記
+## <a name="use-iothub-explorer-with-twins-tags"></a>使用 iothub-explorer 搭配對應項的標記
 
 執行下列命令來顯示裝置的標記和屬性：
 
@@ -114,7 +114,6 @@ iothub-explorer get-twin <your device id>
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>對雲端到裝置的訊息使用 iothub-explorer
