@@ -16,7 +16,7 @@ ms.date: 10/03/2017
 ms.author: maheshu
 ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -121,8 +121,7 @@ sudo systemctl start ntp
     ```
 
    > [!NOTE] 
-   > 
-   >             **疑難排解：**如果 [領域探索]** 找不到受控網域：
+   > **疑難排解：**如果 *[領域探索]* 找不到受控網域：
      * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
      * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
      * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
