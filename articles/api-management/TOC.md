@@ -89,8 +89,7 @@
 ### [管理使用者帳戶](api-management-howto-create-or-invite-developers.md)
 ### [使用 Git 進行設定](api-management-configuration-repository-git.md)
 ### [使用角色型存取控制](api-management-role-based-access-control.md)
-### 
-            [使用受控服務識別](api-management-howto-use-managed-service-identity.md)
+### [使用受控服務識別](api-management-howto-use-managed-service-identity.md)
 ### 與 Service Fabric 整合
 #### [概觀](../service-fabric/service-fabric-api-management-overview.md)
 #### [教學課程](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
