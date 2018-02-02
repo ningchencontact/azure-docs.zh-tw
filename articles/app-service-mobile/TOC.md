@@ -14,6 +14,7 @@
 
 # 作法
 
+
 ## 計劃與設計
 ### [Azure Mobile Apps 中的驗證與授權](app-service-mobile-auth.md)
 ### [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md)
@@ -100,7 +101,7 @@
 
 ### [複製現有的應用程式](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [資源群組](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [資源群組](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [使用 WebJob 執行背景工作](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [設定](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -135,7 +136,7 @@
 #### [實作多層的安全性架構](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [安全地連接到後端資源](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## 備份
+## Backup 
 ### [在 Azure 中備份應用程式](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [在 Azure 中還原應用程式](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -146,7 +147,7 @@
 ## 整合
 ### [如何在 Azure 上使用 SendGrid 傳送電子郵件](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [匯出至 PowerApps 和 Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [使用受管理的服務識別](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [使用受控服務識別](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 疑難排解
 ### Mobile Apps 的一般疑難排解
@@ -170,7 +171,7 @@
 ## [App Service 最佳做法](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [價格](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [定價](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
