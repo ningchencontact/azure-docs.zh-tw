@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure Stack 中的 Azure App Service 伺服器角色容量規劃
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 若要在 Azure Stack 上佈建已可在生產環境中使用的 Azure App Service 部署，您必須規劃您希望系統支援的容量。  以下是應該在任何生產環境部署中使用之執行個體和計算 SKU 最小數目的指引。
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 10/27/2017
 | Controller | 2 | A1 |
 | 前端 | 2 | A1 |
 | 管理 | 2 | A3 |
-| 發佈者 | 2 | A1 |
+| 發行者 | 2 | A1 |
 | Web 背景工作 - 共用 | 2 | A1 |
 | Web 背景工作 - 專用 | 每層 2 個 | A1 |
 

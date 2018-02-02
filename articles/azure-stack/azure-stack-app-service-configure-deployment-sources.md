@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>設定部署來源
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+
 
 Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨選部署。 這項功能讓應用程式開發人員直接從其原始檔控制儲存機制進行部署。 如果使用者要設定 App Service 以連線至其儲存機制，雲端操作員必須先設定 Azure App Service on Azure Stack 與原始檔控制提供者之間的整合。  
 
@@ -55,7 +57,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 8.  瀏覽至 [資源提供者]，然後選取 [App Service 資源提供者管理]。
 9. 按一下 [原始檔控制組態]。
 10. 複製 [用戶端識別碼] 和 [用戶端密碼] 並貼到對應的 GitHub 輸入方塊。
-11. 按一下 [儲存] 。
+11. 按一下 [檔案] 。
 
 ## <a name="configure-bitbucket"></a>設定 BitBucket
 
@@ -72,13 +74,13 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 7. 選取需要的 [權限]：
     - **存放庫**：*讀取*
     - **Webhook**：*讀取和寫入*
-8. 按一下 [儲存] 。  您現在會看到這個新的應用程式，以及 **OAuth 取用者**底下的**金鑰**和**密碼**。
+8. 按一下 [檔案] 。  您現在會看到這個新的應用程式，以及 **OAuth 取用者**底下的**金鑰**和**密碼**。
     ![BitBucket 應用程式清單][9]
 9.  在新的瀏覽器索引標籤或視窗中，以服務管理員身分登入 Azure Stack 管理入口網站 ( https://adminportal.local.azurestack.external )。
 10.  瀏覽至 [資源提供者]，然後選取 [App Service 資源提供者管理]。
 11. 按一下 [原始檔控制組態]。
 12. 複製**金鑰**並貼到 BitBucket 的 [用戶端識別碼] 輸入方塊，以及複製**密碼**並貼到 BitBucket 的 [用戶端密碼] 輸入方塊。
-13. 按一下 [儲存] 。
+13. 按一下 [檔案] 。
 
 
 ## <a name="configure-onedrive"></a>設定 OneDrive
@@ -100,12 +102,12 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![OneDrive 應用程式 - Graph 權限][13]
-9. 按一下 [儲存] 。
+9. 按一下 [檔案] 。
 10.  在新的瀏覽器索引標籤或視窗中，以服務管理員身分登入 Azure Stack 管理入口網站 ( https://adminportal.local.azurestack.external )。
 11.  瀏覽至 [資源提供者]，然後選取 [App Service 資源提供者管理]。
 12. 按一下 [原始檔控制組態]。
 13. 複製**應用程式識別碼**並貼到 OneDrive 的 [用戶端識別碼] 輸入方塊，以及複製**密碼**並貼到 OneDrive 的 [用戶端密碼] 輸入方塊。
-14. 按一下 [儲存] 。
+14. 按一下 [檔案] 。
 
 ## <a name="configure-dropbox"></a>設定 DropBox
 
@@ -129,7 +131,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 10.  瀏覽至 [資源提供者]，然後選取 [App Service 資源提供者管理]。
 11. 按一下 [原始檔控制組態]。
 12. 複製**應用程式金鑰**並貼到 DropBox 的 [用戶端識別碼] 輸入方塊，以及複製**應用程式密碼**並貼到 DropBox 的 [用戶端密碼] 輸入方塊。
-13. 按一下 [儲存] 。
+13. 按一下 [檔案] 。
 
 
 <!--Image references-->

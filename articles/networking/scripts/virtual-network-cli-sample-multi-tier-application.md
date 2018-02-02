@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce89f3aa84b7639b0367ba91304d97ae2754aba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>為多層式應用程式建立網路
 
@@ -47,17 +47,17 @@ az group delete --name MyResourceGroup --yes
 
 此指令碼會使用下列命令來建立資源群組、虛擬網路及網路安全性群組。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az network vnet create](/cli/azure/network/vnet#create) | 建立 Azure 虛擬網路和前端子網路。 |
-| [az network subnet create](/cli/azure/network/vnet/subnet#create) | 建立後端子網路。 |
-| [az network public-ip create](/cli/azure/network/public-ip#create) | 建立公用 IP 位址以從網際網路存取 VM。 |
-| [az network nic create](/cli/azure/network/nic#create) | 建立虛擬網路介面，並將它們連結到虛擬網路的前端和後端子網路。 |
-| [az network nsg create](/cli/azure/network/nsg#create) | 建立與前端和後端子網路關聯的網路安全性群組 (NSG)。 |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#create) |建立對特定子網路允許或封鎖特定連接埠的 NSG 規則。 |
-| [az vm create](/cli/azure/vm#create) | 建立虛擬機器，並將 NIC 連結到每個 VM。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
-| [az group delete](/cli/azure/group#delete) | 刪除資源群組及其包含的所有資源。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | 建立 Azure 虛擬網路和前端子網路。 |
+| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 建立後端子網路。 |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 建立公用 IP 位址以從網際網路存取 VM。 |
+| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 建立虛擬網路介面，並將它們連結到虛擬網路的前端和後端子網路。 |
+| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | 建立與前端和後端子網路關聯的網路安全性群組 (NSG)。 |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |建立對特定子網路允許或封鎖特定連接埠的 NSG 規則。 |
+| [az vm create](/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將 NIC 連結到每個 VM。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
+| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組及其包含的所有資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

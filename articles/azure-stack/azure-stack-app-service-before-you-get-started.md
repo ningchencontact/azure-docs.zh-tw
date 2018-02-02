@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 在 Azure Stack 上部署 Azure App Service 之前，您必須完成本文章中的必要條件。
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 12/15/2017
    - Remove-AppService.ps1
    - 模組
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>準備提供高可用性
 
 Azure Stack 上的 Azure App Service 目前無法提供高可用性，因為 Azure Stack 僅會將工負載部署至一個容錯網域中。
@@ -244,7 +245,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 若要用於生產環境及高可用性，您應該使用完整版本的 SQL Server 2014 SP2 或更新版本，啟用混合模式驗證，並在[高可用性配置](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
 
-Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從所有 App Service 角色存取。 您可以在 Azure Stack 中的預設提供者訂用帳戶中部署 SQL Server。 或者，您可以使用組織中現有的基礎結構 (請確認可以連線到 Azure Stack)。 如果您使用 Azure Marketplace 映像，請記得設定適用的防火牆。 
+Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從所有 App Service 角色存取。 您可以在 Azure Stack 中的預設提供者訂用帳戶中部署 SQL Server。 或者，您可以使用組織中現有的基礎結構 (請確認可以連線到 Azure Stack)。 如果您使用 Azure Marketplace 映像，請記得設定適用的防火牆。
 
 針對任何 SQL Server 角色，您可以使用預設執行個體或具名執行個體。 如果您使用具名執行個體，請務必手動啟動 SQL Server Browser 服務並開啟連接埠 1434。
 

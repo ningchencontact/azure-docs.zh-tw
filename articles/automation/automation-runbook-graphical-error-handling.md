@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自動化之圖形化 Runbook 中的錯誤處理
 
@@ -40,7 +40,7 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 
 每當有重要活動擲回錯誤或例外狀況時，務必要避免繼續處理 Runbook 中的下一個活動，並適當地處理錯誤。 當 Runbook 支援商務或服務營運流程時，這點格外重要。
 
-對於每個可產生錯誤的活動，Runbook 作者均可新增指向任何其他活動的錯誤連結。  目的地活動可以是任何類型，包括程式碼活動、叫用 Cmdlet、叫用另一個 Runbook 等等。
+對於每個可產生錯誤的活動，Runbook 作者均可新增指向任何其他活動的錯誤連結。 目的地活動可以是任何類型，包括程式碼活動、叫用 Cmdlet、叫用另一個 Runbook 等等。
 
 此外，目的地活動也可以有連出連結。 這些連結可以是一般連結或錯誤連結。 這表示 Runbook 作者可以實作複雜的錯誤處理邏輯，而不需向程式碼活動報告。 建議作法是建立具有常用功能的專用錯誤處理 Runbook，但您不一定要照做。 將錯誤處理邏輯放在 PowerShell 程式碼活動中也並非是唯一的選項。  
 
@@ -63,7 +63,7 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 
 在下列範例中，Runbook 會擷取一個變數，其中包含虛擬機器的電腦名稱。 它會嘗試使用下一個活動啟動虛擬機器。<br><br> ![自動化 Runbook 的錯誤處理範例](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-依設定，**Get-AutomationVariable** 活動和 **Start-AzureRmVm** 會將例外狀況轉換為錯誤。  如果無法取得變數或啟動 VM，就會產生錯誤。<br><br> ![自動化 Runbook 的錯誤處理活動設定](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+依設定，**Get-AutomationVariable** 活動和 **Start-AzureRmVm** 會將例外狀況轉換為錯誤。 如果無法取得變數或啟動 VM，就會產生錯誤。<br><br> ![自動化 Runbook 的錯誤處理活動設定](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 錯誤連結會從這些活動流向單一**錯誤管理**活動 (程式碼活動)。 此活動已設定了簡單的 PowerShell 運算式，其使用 Throw 關鍵字來停止處理，以及使用 $Error.Exception.Message 來取得說明目前例外狀況的訊息。<br><br> ![自動化 Runbook 的錯誤處理程式碼範例](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

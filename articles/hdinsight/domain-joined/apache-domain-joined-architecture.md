@@ -3,7 +3,7 @@ title: "已加入網域的 Azure HDInsight 架構 | Microsoft Docs"
 description: "了解如何規劃已加入網域的 HDInsight。"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bhanupr
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,16 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5e6381e7abb18c01031e4168c64cfe9aafec7ae
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.author: bprakash
+ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>規劃 HDInsight 中已加入網域的 Azure Hadoop 叢集
 
-標準 HDInsight 叢集是一個單一使用者叢集。 它適合大部分由小型應用程式小組建置大型資料工作負載的公司。 隨著 Hadoop 日益普及，許多企業都開始朝向一種模型發展，亦即由 IT 小組管理叢集，而由多個應用程式小組共用叢集。 因此，Azure HDInsight 中呼聲最高的就是涉及多使用者叢集的功能。
+標準 HDInsight 叢集是一個單一使用者叢集。 它適合大部分以小型應用程式團隊建置大型資料工作負載的公司。 隨著 Hadoop 日益普及，許多企業都開始朝向一種模型發展，亦即由 IT 小組管理叢集，而由多個應用程式小組共用叢集。 因此，Azure HDInsight 中呼聲最高的就是涉及多使用者叢集的功能。
 
 HDInsight 不會建置自己的多使用者驗證和授權，而是依賴最受歡迎的識別提供者 – Active Directory (AD)。 AD 的強大安全性功能可用來管理 HDInsight 中的多使用者驗證。 藉由整合 HDInsight 與 AD，您可以使用 AD 認證來與叢集通訊。 HDInsight 中的 VM 已加入您的 AD 網域，而這也是 HDInsight 將 AD 使用者對應至本機 Hadoop 使用者的方式，可讓已通過驗證的使用者順暢地使用在 HDInsight 上執行的所有服務 (Ambari、Hive 伺服器、Ranger、Spark Thrift 伺服器等)。 系統管理員可以接著使用 Apache Ranger 來建立強式授權原則，為 HDInsight 中的資源提供角色型存取控制。
 

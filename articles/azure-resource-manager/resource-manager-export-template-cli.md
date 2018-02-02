@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>使用 Azure CLI 來匯出 Azure Resource Manager 範本
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>從部署歷程記錄儲存範本
 
-您可以使用 [az group deployment export](/cli/azure/group/deployment#export) 命令，從部署歷程記錄中擷取範本。 下列範例會儲存您先前部署的範本︰
+您可以使用 [az group deployment export](/cli/azure/group/deployment#az_group_deployment_export) 命令，從部署歷程記錄中擷取範本。 下列範例會儲存您先前部署的範本︰
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>匯出資源群組以作為範本
 
-您不必從部署歷程記錄擷取範本，而可以使用 [az group export](/cli/azure/group#export) 命令來擷取範本，以代表資源群組的目前狀態。 當您對資源群組做了許多變更，且現有的範本均無法完全呈現這些變更時，就可以使用這個命令。
+您不必從部署歷程記錄擷取範本，而可以使用 [az group export](/cli/azure/group#az_group_export) 命令來擷取範本，以代表資源群組的目前狀態。 當您對資源群組做了許多變更，且現有的範本均無法完全呈現這些變更時，就可以使用這個命令。
 
 ```azurecli
 az group export --name ExampleGroup

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -45,7 +45,7 @@ az acr login --name <acrName>
 
 服務主體可在如下的推送及提取案例中，對登錄啟用遠端控制連線：
 
-  * *讀取者*：從登錄到協調流程系統 (包括 Kubernetes、DC/OS 及 Docker Swarm) 的容器部署。 您也可以從容器登錄提取到相關的 Azure 服務，例如 [AKS](../aks/index.yml)、[App Service](../app-service/index.yml)、[Batch](../batch/index.md)、[Service Fabric](/azure/service-fabric/) 等。
+  * *讀取者*：從登錄到協調流程系統 (包括 Kubernetes、DC/OS 及 Docker Swarm) 的容器部署。 您也可以從容器登錄提取到相關的 Azure 服務，例如 [AKS](../aks/index.yml)、[App Service](../app-service/index.yml)、[Batch](../batch/index.yml)、[Service Fabric](/azure/service-fabric/) 等。
 
   * *參與者*：建立容器映像並將其推送到登錄的連續整合和部署解決方案 (例如 Visual Studio Team Services (VSTS) 或 Jenkins)。
 

@@ -6,19 +6,19 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid 中的概念
 
 Azure Event Grid 中的主要概念如下：
 
-## <a name="events"></a>事件
+## <a name="events"></a>活動
 
 事件是完整說明系統中發生內容的最小量資訊。  每個事件都有一般資訊，例如：事件來源、事件發生的時間，以及唯一識別碼。  每個事件也有只與特定事件類型相關的特定資訊。 例如，關於在 Azure 儲存體中建立新檔案的事件包含檔案相關詳細資料，例如 `lastTimeModified` 值。 或者，關於虛擬機器重新開機的事件包含虛擬機器的名稱，以及重新開機的原因。 每個事件會限制為 64 KB 資料。
 

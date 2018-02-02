@@ -3,8 +3,8 @@ title: "Azure Batch 的服務配額和限制 | Microsoft Docs"
 description: "了解預設的 Azure Batch 配額、限制和條件約束，以及如何要求增加配額"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -86,14 +86,14 @@ ms.lasthandoff: 12/01/2017
    
     d. **支援方案** > **配額支援 - 已包含**
    
-    按一下 [下一步] 。
+    按 [下一步] 。
 4. 在 [問題]：
    
     a. 根據[商業影響][support_sev]選取 [嚴重性]。
    
-    b.這是另一個 C# 主控台應用程式。 在 [詳細資料] 中，指定每個您想要變更的配額、Batch 帳戶名稱和新限制。
+    b. 在 [詳細資料] 中，指定每個您想要變更的配額、Batch 帳戶名稱和新限制。
    
-    按一下 [下一步] 。
+    按 [下一步] 。
 5. 在 [合約資訊] 中：
    
     a. 選取 [偏好的連絡方式]。

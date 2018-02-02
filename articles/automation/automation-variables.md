@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
 
@@ -51,20 +51,20 @@ ms.lasthandoff: 01/03/2018
 * BOOLEAN
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>撰寫指令碼來建立及管理變數
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell Cmdlet
+針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。  它們附屬於 [AzureRM.Automation 模組](/powershell/azure/overview)，而此模組可供在自動化 Runbook 和 DSC 設定中使用。
 
-下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化變數。 它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
-
-|Cmdlet|說明|
+| Cmdlet | 說明 |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|擷取現有變數的值。|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|建立新的變數並設定其值。|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|移除現有的變數。|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|設定現有的變數的值。|
 
-下表中的工作流程活動可用來在 Runbook 中存取自動化變數。 它們僅供在 Runbook 或 DSC 設定中使用，並且不會隨著 Azure PowerShell 模組的一部分推出。
+## <a name="activities"></a>活動
+下表中的活動用來存取中 Runbook 和 DSC 設定的認證。
 
-|工作流程活動|說明|
+| 活動 | 說明 |
 |:---|:---|
 |Get-AutomationVariable|擷取現有變數的值。|
 |Set-AutomationVariable|設定現有的變數的值。|
@@ -205,4 +205,3 @@ ms.lasthandoff: 01/03/2018
 
 * 若要深入了解如何在圖形化編寫中將活動連接在一起，請參閱 [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
 * 若要開始使用圖形化 Runbook，請參閱 [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md) 
-

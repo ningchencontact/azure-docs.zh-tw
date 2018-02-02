@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 診斷概觀 
 
 當您執行 Web 應用程式時，必須為使用者因 500 錯誤向您反映網站已關閉的所有可能問題作好準備。 App Service 診斷是一種智慧型和互動式的體驗，可協助您對 Web 應用程式進行疑難排解，而且不需設定。 當您的 Web 應用程式發生問題時，App Service 診斷將點出問題，並以正確的資訊引導您更輕鬆且快速地對問題進行疑難排解並解決。 
  
 這項體驗對於過去 24 小時內發生問題的 Web 應用程式最有幫助，但所有診斷圖形隨時都可供您分析。 其他的疑難排解工具及有用的文件和論壇的連結則位於右邊資料行。
+
+## <a name="open-app-service-diagnostics"></a>開啟 App Service 診斷
+
+若要存取 App Service 診斷，在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service Web 應用程式。 
+
+在左方導覽列中，按一下 [診斷並解決問題]。
 
 ![首頁](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ ms.lasthandoff: 11/15/2017
 
 ![診斷報告](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>開啟 App Service 診斷
-
-若要存取 App Service 診斷，在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service Web 應用程式。 
-
-在左方導覽列中，按一下 [診斷並解決問題]。

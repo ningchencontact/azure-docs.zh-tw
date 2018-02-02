@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/12/2018
 ms.author: nepeters
-ms.openlocfilehash: d6f6688011ddebe2b486bb6ae00f1f3e095a931d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 86a160d8f2dbfb0e385d9dbed7cf6d789f5a8df6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>使用來自 Azure Container Service 的 Azure Container Registry 進行驗證
 
@@ -74,7 +74,7 @@ echo "Service principal password: $SP_PASSWD"
 下列命令會建立 Kubernetes 秘密。 將伺服器名稱改為 ACR 登入伺服器將使用者名稱取代為服務主體識別碼，將密碼改為服務主體密碼。
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> 
+kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
 Kubernetes 秘密可用於使用 `ImagePullSecrets` 參數的 Pod 部署。 

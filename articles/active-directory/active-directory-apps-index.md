@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -137,7 +137,7 @@ Cloud App Discovery 是一項 [Azure AD Premium](https://azure.microsoft.com/pri
 | 了解其運作方式，並尋找常見問題的解答 |[自動化 SaaS 應用程式使用者佈建和解除佈建](active-directory-saas-app-provisioning.md) |
 | 設定如何在 Azure AD 與您的 SaaS 應用程式之間對應資訊 |[自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md)<br><br>[撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | 如何對任何支援 SCIM 通訊協定的應用程式啟用自動化佈建 |[對任何啟用 SCIM 的應用程式設定自動化使用者佈建](active-directory-scim-provisioning.md) |
-| 如何針對使用者佈建提出報告和進行疑難排解 |[關於使用者自動佈建的報告](active-directory-saas-provisioning-reporting.md)<br><br>[佈建通知](active-directory-saas-account-provisioning-notifications.md)<br><br>[針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md) |
+| 如何針對使用者佈建提出報告和進行疑難排解 |[關於使用者自動佈建的報告](active-directory-saas-provisioning-reporting.md)<br><br>[針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md) |
 | 根據應用程式的屬性值限制可以佈建應用程式的人員 |[範圍篩選器](active-directory-saas-scoping-filters.md) |
 
 自動化使用者佈建適用於所有版本的 Azure AD，每個使用者最多十個應用程式。 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。 如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來管理要佈建哪些使用者](#managing-access-to-applications)。

@@ -17,7 +17,7 @@
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>與範圍和委派的權限有關的詳細資訊
 
-Microsoft Graph API 需要 **user.read** 範圍才能讀取使用者的設定檔。 根據預設，在註冊入口網站上註冊的每個應用程式中，都會自動新增此範圍。 Microsoft Graph 的其他 API 與您後端伺服器的自訂 API 一樣，需要其他範圍。 Microsoft Graph API 需要 **Calendars.Read** 範圍才能列出使用者的行事曆。
+Microsoft Graph API 需要 user.read 範圍才能讀取使用者的設定檔。 根據預設，在註冊入口網站上註冊的每個應用程式中，都會自動新增此範圍。 Microsoft Graph 的其他 API 與您後端伺服器的自訂 API 一樣，需要其他範圍。 Microsoft Graph API 需要 Calendars.Read 範圍才能列出使用者的行事曆。
 
 為了在應用程式內容中存取使用者的行事曆，請將 **Calendars.Read** 委派權限新增至應用程式註冊資訊。 接著，將 **Calendars.Read** 範圍新增至 **acquireTokenSilent** 呼叫。 
 
@@ -26,4 +26,4 @@ Microsoft Graph API 需要 **user.read** 範圍才能讀取使用者的設定檔
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

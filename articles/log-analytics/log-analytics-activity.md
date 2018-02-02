@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
@@ -50,14 +50,14 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集活動記錄的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 描述 |
+| 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
 | [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 若要存取 Azure 活動記錄資訊，您必須有 Azure 訂用帳戶。
 
@@ -88,12 +88,12 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 您已設定您的活動記錄移至解決方案*之後*，活動記錄資料才會出現，因此您在此之前無法檢視資料。
 
-| 刀鋒視窗 | 描述 |
+| 刀鋒視窗 | 說明 |
 | --- | --- |
-| Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下長條圖即可執行 <code>Type=AzureActivity</code> 的記錄搜尋。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
-| 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表即可執行 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code> 的記錄搜尋。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |
-| 依資源列出的活動記錄 | 顯示活動記錄的資源總數，並對於各個資源列出記錄計數的前 10 個資源。 按一下總計區域即可執行 <code>Type=AzureActivity &#124; measure count() by Resource</code> 的記錄搜尋，這會顯示解決方案可用的所有 Azure 資源。 按一下資源來執行記錄搜尋，以傳回該資源的所有活動記錄。 |
-| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前 10 個。 按一下總計區域即可執行 <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code> 的記錄搜尋，這會顯示所有 Azure 資源提供者。 按一下資源提供者執行記錄搜尋，以傳回提供者的所有活動記錄。 |
+| Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下長條圖即可執行 <code>AzureActivity</code> 的記錄搜尋。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
+| 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表即可執行 <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code> 的記錄搜尋。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |
+| 依資源列出的活動記錄 | 顯示活動記錄的資源總數，並對於各個資源列出記錄計數的前 10 個資源。 按一下總計區域即可執行 <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code> 的記錄搜尋，這會顯示解決方案可用的所有 Azure 資源。 按一下資源來執行記錄搜尋，以傳回該資源的所有活動記錄。 |
+| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前 10 個。 按一下總計區域即可執行 <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code> 的記錄搜尋，這會顯示所有 Azure 資源提供者。 按一下資源提供者執行記錄搜尋，以傳回提供者的所有活動記錄。 |
 
 ![Azure 活動記錄儀表板](./media/log-analytics-activity/activity-log-dash.png)
 
