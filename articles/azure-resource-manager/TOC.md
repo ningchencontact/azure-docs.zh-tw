@@ -20,8 +20,6 @@
 ### [定義資源間的相依性](resource-group-define-dependencies.md)
 ### [建立多個執行個體](resource-group-create-multiple.md)
 ### [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [設計範本的模式](best-practices-resource-manager-design-templates.md)
-
 
 ## 部署
 ### Azure PowerShell
@@ -49,7 +47,8 @@
 ### [將資源移至新群組或訂用帳戶](resource-group-move-resources.md)
 ### [利用管理群組組織訂用帳戶](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [治理範例](resource-manager-subscription-examples.md)
-### [受控應用程式](../managed-applications/overview.md)
+### 
+            [受控應用程式](../managed-applications/overview.md)
 
 ## 控制存取權
 ### 建立服務主體
