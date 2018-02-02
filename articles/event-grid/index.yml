@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
-  ms.openlocfilehash: 63363a652402a20ed8972cf51bf475412f11bd4e
-  ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/02/2017
+  ms.lasthandoff: 02/01/2018
 abstract:
-  description: "Azure Event Grid 是完全受管的智慧型事件路由服務，可讓統一事件耗用量使用發佈-訂閱模型。 使用 Azure Event Grid，以近即時的方式回應跨 Azure 和非 Azure 服務的相關事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Event Grid。"
+  description: "Azure Event Grid 是完全受控的智慧型事件路由服務，可讓統一事件耗用量使用發佈-訂閱模型。 使用 Azure Event Grid，以近即時的方式回應跨 Azure 和非 Azure 服務的相關事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Event Grid。"
 sections:
 - title: "5 分鐘快速入門"
   items:
@@ -40,6 +40,19 @@ sections:
         src: /azure/event-grid/media/index/portal.svg
       text: "Azure 入口網站"
       href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: "了解如何路由 Blob 儲存體事件。"
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
 - title: "逐步教學課程"
   items:
   - type: paragraph

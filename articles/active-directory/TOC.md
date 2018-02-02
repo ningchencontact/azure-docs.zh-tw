@@ -176,6 +176,16 @@
 ##### [更新登錄設定](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [了解安全性和隱私權](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [SaaS 應用程式使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
+#### [應用程式整合教學課程](active-directory-saas-tutorial-list.md)
+#### [啟用 SCIM 應用程式的自動化佈建](active-directory-scim-provisioning.md)
+#### [自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md)
+#### [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [使用範圍篩選器](active-directory-saas-scoping-filters.md)
+#### [關於使用者自動佈建的報告](active-directory-saas-provisioning-reporting.md)
+#### [針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [透過 App Proxy 遠端存取應用程式](active-directory-application-proxy-get-started.md)
 #### 開始使用
@@ -219,7 +229,7 @@
 #### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [將應用程式排除在使用者體驗之外](active-directory-coreapps-hide-third-party-app.md)
 ### [使用 HRD 原則設定登入時自動加速](active-directory-auto-acceleration-using-hrd.md)
-
+### [將 AD FS 應用程式移轉至 Azure AD](migrate-adfs-apps-to-azure.md)
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [SSO 存取](active-directory-appssoaccess-whatis.md)
 #### [SSO 憑證](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## 委派資源存取
 ### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
-#### [指派管理員角色](active-directory-users-assign-role-azure-portal.md)
+#### [將管理員角色指派給使用者](active-directory-users-assign-role-azure-portal.md)
+#### [比較成員和來賓使用者的權限](users-default-permissions.md)
 ### [管理單位](active-directory-administrative-units-management.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 ### [管理緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [將其他服務與 Azure AD 整合]()
-### [啟用 LinkedIn 整合](linkedin-integration.md)
+## 將其他服務與 Azure AD 整合
+### [將 linkedIn 與 Azure AD 整合](linkedin-integration.md)
 
 ## [在 Azure VM 上部署 AD DS](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM 上的 Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)
@@ -363,7 +374,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

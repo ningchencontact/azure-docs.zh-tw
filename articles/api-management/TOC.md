@@ -42,7 +42,7 @@
 ## 快取
 ### [新增快取以改善效能](api-management-howto-cache.md)
 ## 保護您的後端
-### [使用 AAD 保護 Web API 後端](api-management-howto-protect-backend-with-aad.md)
+### [使用 Azure AD 保護 Web API 後端](api-management-howto-protect-backend-with-aad.md)
 ### [連接到虛擬網路](api-management-using-with-vnet.md)
 ### [連接到內部虛擬網路](api-management-using-with-internal-vnet.md)
 ### [在內部 VNET 中整合應用程式閘道](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## 自訂開發人員經驗
 ### [修改頁面內容和版面配置](api-management-modify-content-layout.md)
 ### [使用範本自訂系統頁面](api-management-developer-portal-templates.md)
-### [使用 AAD 驗證](api-management-howto-aad.md)
-### [使用 AAD B2C 進行驗證](api-management-howto-aad-b2c.md)
+### [使用 Azure AD 驗證](api-management-howto-aad.md)
+### [使用 Azure AD B2C 驗證](api-management-howto-aad-b2c.md)
 ### [委派的驗證](api-management-howto-setup-delegation.md)
 ### [電子郵件通知及範本](api-management-howto-configure-notifications.md)
 ### [啟用主控台 OAuth 支援](api-management-howto-oauth2.md)
@@ -89,7 +89,8 @@
 ### [管理使用者帳戶](api-management-howto-create-or-invite-developers.md)
 ### [使用 Git 進行設定](api-management-configuration-repository-git.md)
 ### [使用角色型存取控制](api-management-role-based-access-control.md)
-### [使用受管理的服務識別](api-management-howto-use-managed-service-identity.md)
+### 
+            [使用受控服務識別](api-management-howto-use-managed-service-identity.md)
 ### 與 Service Fabric 整合
 #### [概觀](../service-fabric/service-fabric-api-management-overview.md)
 #### [教學課程](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
