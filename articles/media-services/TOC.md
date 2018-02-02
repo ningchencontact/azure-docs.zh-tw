@@ -118,6 +118,7 @@
 ### [設定內部部署編碼器與雲端編碼器搭配運作](media-services-live-encoders-overview.md)
 #### [Elemental Live 編碼器](media-services-configure-elemental-live-encoder.md)
 #### [FMLE 編碼器](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB 編碼器](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster 編碼器](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast 編碼器](media-services-configure-wirecast-live-encoder.md)
 ### [處理長時間執行的作業](media-services-dotnet-long-operations.md)

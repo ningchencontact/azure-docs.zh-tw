@@ -62,25 +62,7 @@
         - name: 保護邏輯應用程式
           href: logic-apps-securing-a-logic-app.md
         - name: 開發自訂連接器
-          items:
-            - name: 自訂連接器概觀
-              href: custom-connector-overview.md
-            - name: 從 Web API 建立連接器
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: 使用 Azure AD 保護連接器
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: 使用 Postman 描述 API
-              href: custom-connector-api-postman-collection.md
-            - name: 擴充 OpenAPI 以便使用自訂連接器
-              href: custom-connector-openapi-extensions.md
-            - name: 建立並註冊 OpenAPI 連接器
-              href: logic-apps-custom-connector-register.md
-            - name: 建立並註冊 SOAP 連接器
-              href: logic-apps-soap-connector-create-register.md
-            - name: 認證您的連接器
-              href: custom-connector-submit-certification.md
-            - name: 自訂連接器的常見問題
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: 開發自訂 API
           items:
             - name: 建立適用於邏輯應用程式的自訂 API
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: 新增對應以進行 XML 轉換
           href: logic-apps-enterprise-integration-maps.md
+        - name: 轉換 JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: 新增安全性憑證
           href: logic-apps-enterprise-integration-certificates.md
         - name: 針對 B2B 錯誤進行疑難排解

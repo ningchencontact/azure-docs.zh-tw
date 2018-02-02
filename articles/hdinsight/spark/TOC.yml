@@ -84,10 +84,14 @@
       items:
         - name: 搭配 Data Lake Store 使用
           href: apache-spark-use-with-data-lake-store.md
+        - name: 連線到 Azure SQL 資料庫
+          href: apache-spark-connect-to-sql-database.md
     - name: Spark 串流
       items:
         - name: 概觀
           href: apache-spark-streaming-overview.md
+        - name: 在 YARN 中建立高可用性的 Spark 串流作業
+          href: apache-spark-streaming-high-availability.md
         - name: 處理串流事件
           href: apache-spark-eventhub-streaming.md
         - name: 使用事件中樞進行結構化串流
@@ -101,6 +105,8 @@
         - name: 搭配 Kafka 使用 Spark 串流 (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: 透過一次事件處理建立 Spark 串流作業
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark 和機器學習服務
       items:
         - name: 預測 HVAC 效能
@@ -198,6 +204,8 @@
           maintainContext: true
     - name: 管理
       items:
+        - name: 設定 Spark 設定
+          href: apache-spark-settings.md
         - name: 最佳化 Spark 作業
           href: apache-spark-perf.md
         - name: 叢集容量規劃

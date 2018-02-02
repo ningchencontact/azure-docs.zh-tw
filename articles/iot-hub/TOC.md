@@ -40,10 +40,11 @@
 
 # 使用說明指南
 ## 規劃
-### [比較 IoT 中樞與事件中樞](iot-hub-compare-event-hubs.md)
+### [比較 IoT 中樞和事件中樞](iot-hub-compare-event-hubs.md)
 ### [調整您的解決方案規模](iot-hub-scaling.md)
 ### [高可用性和災害復原](iot-hub-ha-dr.md)
 ### [支援其他通訊協定](iot-hub-protocol-gateway.md)
+### [比較訊息和事件路由](iot-hub-event-grid-routing-comparison.md)
 ## [開發](iot-hub-how-to.md)
 ### [開發人員指南](iot-hub-devguide.md)
 #### [裝置對雲端的功能指南](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [傳送及接收訊息](iot-hub-devguide-messaging.md)
 ##### [將裝置到雲端訊息傳送至 IoT 中樞](iot-hub-devguide-messages-d2c.md)
 ##### [從內建端點讀取裝置對雲端訊息](iot-hub-devguide-messages-read-builtin.md)
+##### [回應 IoT 中樞事件](iot-hub-event-grid.md)
 ##### [使用適用於裝置對雲端訊息的自訂端點和路由規則](iot-hub-devguide-messages-read-custom.md)
 ##### [從 IoT 中樞傳送雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)
 ##### [建立和閱讀 IoT 中樞訊息](iot-hub-devguide-messages-construct.md)
@@ -181,7 +183,7 @@
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [定價](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [價格](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)

@@ -15,7 +15,9 @@
 ### [存取控制清單](virtual-networks-acl.md)
 
 # 開始使用
-## [建立您的第一個虛擬網路](virtual-network-get-started-vnet-subnet.md)
+## [建立虛擬網路 - 入口網站](quick-create-portal.md)
+## [建立虛擬網路 - PowerShell](quick-create-powershell.md)
+## [建立虛擬網路 - Azure CLI](quick-create-cli.md)
 
 # 作法
 

@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: 概念
   items:
+    - name: 比較 1.x 和 2.x
+      href: functions-versions.md
     - name: 調整和託管
       href: functions-scale.md
     - name: 觸發和繫結
@@ -146,7 +148,7 @@
         - name: 管理函式應用程式
           href: functions-how-to-use-azure-function-app-settings.md
         - name: 設定執行階段版本
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: 監視
       href: functions-monitoring.md
     - name: 整合
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: 事件中樞
           href: functions-bindings-event-hubs.md
         - name: 外部檔案

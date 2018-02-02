@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: 使用說明指南
   items:
+    - name: 啟動 Azure 訂用帳戶與帳戶
+      href: activate-subs-accounts.md
+    - name: 新增適用於虛擬機器的已擴充計量
+      href: azure-vm-extended-metrics.md
     - name: 使用成本管理報告
       href: use-reports.md
 - name: 資源
