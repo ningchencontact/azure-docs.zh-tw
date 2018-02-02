@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/05/2018
 
 開始在您的環境中設定混合式 Azure AD 已加入裝置之前，您應該先熟悉支援的案例和條件約束。  
 
-如果您依賴[系統準備工具 (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))，請確定您具有尚未尚未向 Azure AD 的 windows 安裝中建立映像。
+如果您使用的是[系統準備工具 (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))，請確定您用來建立映像的 Windows 安裝版本尚未註冊 Azure AD。
 
 為了改善說明的可讀性，本主題使用下列詞彙︰ 
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="windows-current-devices"></a>現行 Windows 裝置
 
-- 對於執行 Windows 桌面作業系統的裝置，我們建議使用 Windows 10 年度更新版 (版本 1607) 或更新版本。 
+- 對於執行 Windows 桌面作業系統的裝置，支援的版本為 Windows 10 年度更新版 (版本 1607) 或更新版本。 
 - 非同盟的環境**支援**現行 Windows 裝置註冊，例如密碼雜湊同步處理組態。  
 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/05/2018
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始在組織中啟用混合式 Azure AD 已加入裝置之前，您必須先確定執行最新版的 Azure AD connect。
 
@@ -67,7 +67,7 @@ Azure AD Connect：
 - 保持內部部署 Active Directory (AD) 中的電腦帳戶和 Azure AD 中的裝置物件之間的關聯。 
 - 啟用其他裝置相關功能，例如 Windows Hello 企業版。
 
-請確定下列 Url 是可從您的組織網路的電腦登錄中的電腦存取 Azure AD:
+請確定下列 URL 可從組織網路內的電腦存取，以將電腦註冊至 Azure AD：
 
 - https://enterpriseregistration.windows.net
 
@@ -75,7 +75,7 @@ Azure AD Connect：
 
 - https://device.login.microsoftonline.com
 
-如果您的組織需要輸出 proxy 透過網際網路存取，必須實作 Web Proxy 自動探索 (WPAD) 啟用 Windows 10 電腦，以登錄至 Azure AD。
+如果您的組織需要透過輸出 Proxy 存取網際網路，則必須實作 Web Proxy 自動探索 (WPAD)，以便將 Windows 10 電腦註冊至 Azure AD。
 
 
 ## <a name="configuration-steps"></a>組態步驟

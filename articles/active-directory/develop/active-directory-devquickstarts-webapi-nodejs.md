@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Node.js web API 開始使用 |Microsoft 文件"
+title: "Azure AD Node.js Web API 入門 | Microsoft Docs"
 description: "如何建立可整合 Azure AD 以進行驗證的 Node.js REST Web API。"
 services: active-directory
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 2ed0874b79601976e0d5a73fe82c7c03331d9bea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js web API 使用者入門
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js Web API 入門
 
 本文會示範如何使用 [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) 模組來處理 Azure Active Directory (AAD) 之間的通訊，進而透過 [Passport](http://passportjs.org/) 保護 [Restify](http://restify.com/) API 端點。 
 
@@ -73,7 +73,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 連線到 Azure Active Directory 之前，您需要下列資訊：
 
-| 名稱  | 說明 | 組態檔中的變數名稱 |
+| Name  | 說明 | 組態檔中的變數名稱 |
 | ------------- | ------------- | ------------- |
 | 租用戶名稱  | 您想要用來進行驗證的[租用戶名稱](active-directory-howto-tenant.md) | `tenantName`  |
 | 用戶端識別碼  | 用戶端識別碼是用於 AAD _應用程式識別碼_ 的 OAuth 字詞。 |  `clientID`  |
@@ -129,13 +129,18 @@ const
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 此實作會藉由將驗證權杖新增至 `authenticatedUserTokens` 陣列 (如果驗證權杖不存在的話) 來使用自動註冊。

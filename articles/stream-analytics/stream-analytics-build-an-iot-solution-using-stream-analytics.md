@@ -4,8 +4,8 @@ description: "串流分析收費亭案例 IoT 解決方案的入門教學課程"
 keywords: "iot 解決方案, 視窗函數"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
+
 ## <a name="introduction"></a>簡介
-在本教學課程中，您將學習如何利用 Azure 串流分析來獲得您資料的即時深入解析。 開發人員可以很容易地結合資料串流，例如點選流、記錄和裝置產生的事件，並且包含歷程記錄或參考資料，以衍生商務深入解析。 Azure 串流分析是由 Microsoft Azure 代管、可完全管理的即時串流計算服務，它提供內建的備援、低延遲及延展性功能，可讓您在幾分鐘之內就立刻上手。
+在本教學課程中，您將學習如何利用 Azure 串流分析來獲得您資料的即時深入解析。 開發人員可以很容易地結合資料串流，例如點選流、記錄和裝置產生的事件，並且包含歷程記錄或參考資料，以衍生商務深入解析。 Azure 串流分析是由 Microsoft Azure 代管且完全受控的即時串流計算服務，它提供內建的備援、低延遲及延展性功能，可讓您在幾分鐘之內就立刻上手。
 
 完成本教學課程之後，您將能夠：
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 * 有自信地使用串流分析來為客戶開發串流解決方案。
 * 利用監視和記錄的經驗來排解問題。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您需要下列必要條件來完成本教學課程：
 
 * 最新版的 [Azure PowerShell](/powershell/azure/overview)
@@ -54,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="entry-data-stream"></a>入口資料流
 入口資料流包含車輛進入收費站的相關資訊。
 
-| TollID | EntryTime | LicensePlate | State | Make | 模型 | VehicleType | VehicleWeight | Toll | Tag |
+| TollID | EntryTime | LicensePlate | State | 請確定 | 模型 | VehicleType | VehicleWeight | Toll | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -65,13 +66,13 @@ ms.lasthandoff: 10/11/2017
 
 以下是每個資料欄的簡短說明：
 
-| 資料欄 | 說明 |
+| 欄 | 說明 |
 | --- | --- |
 | TollID |唯一識別收費亭的收費亭識別碼 |
 | EntryTime |車輛進入收費亭的日期及時間 (國際標準時間) |
 | LicensePlate |車輛的車牌號碼 |
 | State |美國的某個洲 |
-| Make |車輛的製造商 |
+| 請確定 |車輛的製造商 |
 | 模型 |車輛的型號 |
 | VehicleType |1 代表載客車或 2 代表商用車 |
 | WeightType |車輛的重量，單位為噸；0 代表客車 |
@@ -92,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 以下是每個資料欄的簡短說明：
 
-| 資料欄 | 說明 |
+| 欄 | 說明 |
 | --- | --- |
 | TollID |唯一識別收費亭的收費亭識別碼 |
 | ExitTime |車輛離開收費亭的日期及時間 (國際標準時間) |
@@ -112,7 +113,7 @@ ms.lasthandoff: 10/11/2017
 
 以下是每個資料欄的簡短說明：
 
-| 資料欄 | 說明 |
+| 欄 | 說明 |
 | --- | --- |
 | LicensePlate |車輛的車牌號碼 |
 | RegistrationId |車輛的登記識別碼 |
@@ -175,26 +176,13 @@ ms.lasthandoff: 10/11/2017
 現在，您應該能夠在 Azure 入口網站中看到您的資源。 請前往 <https://portal.azure.com>，並使用您的帳戶認證登入。 請注意，目前有些功能會利用傳統入口網站。 將會清楚指出這些步驟。
 
 ### <a name="azure-event-hubs"></a>Azure 事件中心
-在 Azure 入口網站中，按一下左邊管理窗格底部的 [更多服務]。 在提供的欄位中輸入**事件中樞**，然後按一下 [事件中樞]。 這會啟動新的瀏覽器視窗，以顯示**傳統入口網站**中的 [服務匯流排] 區域。 您可以在此發現 Setup.ps1 指令碼所建立的事件中樞。
 
-![服務匯流排](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-按一下開頭為 tolldata 的項目。 按一下 [事件中樞] 索引標籤。您會在這個命名空間中看到 2 個已建立的事件中樞，分別名為 *entry* 和 *exit*。
-
-![傳統入口網站中的事件中樞索引標籤](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+在 Azure 入口網站中，按一下左側管理窗格底部的 [更多服務]。 在提供的欄位中輸入**事件中樞**，您會看到開頭為 **tolldata** 的新事件中樞命名空間。 此命名空間是由 Setup.ps1 指令碼所建立。 您會在這個命名空間中看到 2 個已建立的事件中樞，分別名為 **entry** 和 **exit**。
 
 ### <a name="azure-storage-container"></a>Azure 儲存體容器
-1. 回到瀏覽器中已開啟 Azure 入口網站的索引標籤。 請按一下 Azure 入口網站左側的 [儲存體]  ，來查看在教學課程中使用的 Azure 儲存體容器。
-   
-    ![儲存體功能表項目](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. 按一下開頭為 tolldata 的項目。 請按一下 [容器] 索引標籤來查看已建立的容器。
-   
-    ![Azure 入口網站中的 [容器] 索引標籤](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. 請按一下 [tolldata]  容器來查看已上傳，且擁有車輛登記資料的 JSON 檔案。
-   
-    ![容器中 registration.json 檔案的螢幕擷取畫面](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+在 Azure 入口網站中，瀏覽至儲存體帳戶，您會看到開頭為 **tolldata** 的儲存體帳戶。 請按一下 [tolldata]  容器來查看已上傳，且擁有車輛登記資料的 JSON 檔案。
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>連接字串
 1. 回到瀏覽器中開啟的第一個索引標籤上的 Azure 入口網站。 按一下 Azure 入口網站左側的 [SQL DATABASE]，以查看將在教學課程中使用的 SQL 資料庫，然後按一下 [tolldatadb]。
    
     ![所建立 SQL Database 的螢幕擷取畫面](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
@@ -206,7 +194,7 @@ ms.lasthandoff: 10/11/2017
 
 如何從 Visual Studio 連線到 SQL Database (目的地)：
 
-1. 開啟 Visual Studio，然後按一下工具 > 連接到資料庫。
+1. 開啟 Visual Studio，然後按一下 [工具] > [連接到資料庫]。
 2. 如果畫面出現提示，請按一下 [Microsoft SQL Server]  來做為資料來源。
    
     ![[變更資料來源] 對話方塊](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
@@ -216,7 +204,7 @@ ms.lasthandoff: 10/11/2017
 6. 按一下 [選取或輸入資料庫名稱]，然後選取 [TollDataDB] 做為資料庫。
    
     ![[新增連線] 對話方塊](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-7. 按一下 [確定] 。
+7. 按一下 [SERVICEPRINCIPAL] 。
 8. 開啟 [伺服器總管]。
    
     ![Server Explorer](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
@@ -231,8 +219,8 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 ![Visual Studio 中所顯示範例程式碼的螢幕擷取畫面](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
-## <a name="create-a-stream-analytics-job"></a>建立串流分析工作
-1. 在 Azure 入口網站中，按一下頁面左上角的綠色加號，以建立新的串流分析作業。 選取 智慧 + 分析，然後按一下串流分析作業。
+## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
+1. 在 Azure 入口網站中，按一下頁面左上角的綠色加號，以建立新的串流分析作業。 選取 [智慧 + 分析]，然後按一下 [串流分析作業]。
    
     ![New button](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
 2. 提供作業名稱，驗證訂用帳戶正確，然後在與事件中樞儲存體相同的區域中，建立新的資源群組 (指令碼的預設值為美國中南部)。
@@ -291,7 +279,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 4. 在 [使用者名稱] 欄位中輸入 **tolladmin**，在 [密碼] 欄位中輸入 **123toll!** ，在 [資料表] 欄位中輸入 **TollDataRefJoin**。
    
     ![SQL Database 設定](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
-5. 按一下 [建立] 。
+5. 按一下頁面底部的 [新增] 。
 
 ## <a name="azure-stream-analytics-query"></a>Azure 串流分析查詢
 [查詢]  索引標籤包含會轉換傳入資料的 SQL 查詢。

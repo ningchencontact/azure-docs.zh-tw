@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/16/2018
 ms.author: banders
-ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
 
@@ -26,12 +26,12 @@ ms.lasthandoff: 10/11/2017
 
 Log Analytics 中的 VMware 監視解決方案是一個可協助您針對大型 VMware 記錄檔建立集中記錄和監視方法的解決方案。 本文說明如何使用此解決方案在單一位置進行疑難排解、擷取和管理 ESXi 主機。 有了這個解決方案，您可以在單一位置查看所有 ESXi 主機的詳細資料。 您可以看到 VM 和 ESXi 主機上前幾名的事件計數、狀態和趨勢，透過 ESXi 主機記錄檔提供。 您可以檢視及搜尋 ESXi 主機集中記錄檔，來進行疑難排解。 而且，您可以根據記錄檔搜尋查詢來建立警示。
 
-解決方案會使用 ESXi 主機的原生 syslog 功能來將資料推播至具有 OMS 代理程式的目標 VM。 但是，解決方案不會將檔案寫入目標 VM 內部的 syslog。 OMS 代理程式會開啟連接埠 1514 並接聽該連接埠。 OMS 代理程式在收到資料之後，就會將資料推播至 OMS 中。
+解決方案會使用 ESXi 主機的原生 syslog 功能來將資料推播至具有 OMS 代理程式的目標 VM。 但是，解決方案不會將檔案寫入目標 VM 內部的 syslog。 OMS 代理程式會開啟連接埠 1514 並接聽該連接埠。 在收到資料之後，OMS 代理程式就會將資料推送至 Log Analytics 中。
 
-## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
+## <a name="install-and-configure-the-solution"></a>安裝和設定解決方案
 請使用下列資訊來安裝和設定方案。
 
-* 使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中的程序，將 VMware 監視解決方案新增您的 OMS 工作區。
+* 使用[新增管理解決方案](log-analytics-add-solutions.md#add-a-management-solution)中所述的流程，將 VMware 監控解決方案新增至您的訂用帳戶。
 
 #### <a name="supported-vmware-esxi-hosts"></a>支援的 VMware ESXi 主機
 vSphere ESXi 主機 5.5 和 6.0
@@ -52,25 +52,25 @@ vSphere ESXi 主機 5.5 和 6.0
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 4. 檢查 vSphere 主控台，確認 syslog 設定正確。 確認 ESXI 主機上已設定連接埠 **1514**。
 5. 在 Linux 伺服器上下載並安裝 OMS Agent for Linux。 如需詳細資訊，請參閱 [OMS Agent for Linux 的文件](https://github.com/Microsoft/OMS-Agent-for-Linux)。
-6. 安裝 OMS Agent for Linux 後，移至 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 目錄，將 vmware_esxi.conf 檔複製到 /etc/opt/microsoft/omsagent/conf/omsagent.d directory 目錄，並變更檔案的擁有者/群組和權限。 例如：
+6. 安裝 OMS Agent for Linux 後，移至 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 目錄，將 vmware_esxi.conf 檔複製到 /etc/opt/microsoft/omsagent/conf/omsagent.d directory 目錄，並變更檔案的擁有者/群組和權限。 例如︰
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 7. 執行 `sudo /opt/microsoft/omsagent/bin/service_control restart` 啟動 OMS Agent for Linux。
-8. 在 ESXi 主機上使用 `nc`命令測試 Linux 伺服器和 ESXi 主機之間的連線。 例如：
+8. 在 ESXi 主機上使用 `nc`命令測試 Linux 伺服器和 ESXi 主機之間的連線。 例如︰
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. 在 OMS 入口網站中，執行 `Type=VMware_CL` 的記錄檔搜尋。 當 OMS 收集 syslog 時，會保留 syslog 的格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
+9. 在 Azure 入口網站中，執行 `VMware_CL` 的記錄搜尋。 Log Analytics 在收集 syslog 資料時，會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
 
-    ![類型](./media/log-analytics-vmware/type.png)  
+    ![type](./media/log-analytics-vmware/type.png)  
 
-    如果您的記錄檔搜尋結果類似上圖，表示您可以開始使用 OMS VMware 監視解決方案儀表板。  
+    如果您的檢視記錄搜尋結果類似上圖，表示您已設定為可使用 VMware 監控解決方案儀表板。  
 
 ## <a name="vmware-data-collection-details"></a>VMware 資料收集詳細資料
 VMware 監視解決方案會使用您已啟用的 OMS Agents for Linux，從 ESXi 主機收集各種效能度量和記錄檔資料。
@@ -105,7 +105,7 @@ VMware 監視解決方案會使用您已啟用的 OMS Agents for Linux，從 ESX
 | StorageLatency_s |儲存體延遲 (毫秒) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>VMware 監視解決方案概觀
-VMware 圖格會出現在 OMS 入口網站。 它提供任何失敗的高階檢視。 當您按一下圖格時，會進入儀表板檢視。
+[VMware] 圖格會出現在 Log Analytics 工作區中。 它提供任何失敗的高階檢視。 當您按一下圖格時，會進入儀表板檢視。
 
 ![圖格](./media/log-analytics-vmware/tile.png)
 
@@ -124,7 +124,7 @@ VMware 圖格會出現在 OMS 入口網站。 它提供任何失敗的高階檢�
 
 按一下任何刀鋒視窗以開啟 Log Analytics 搜尋窗格，窗格中會顯示該刀鋒視窗的詳細資訊。
 
-您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需 OMS 搜尋的基本概念教學，請參閱 [OMS 記錄記錄檔搜尋教學課程。](log-analytics-log-searches.md)
+您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需有關建立記錄搜尋的詳細資料，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](log-analytics-log-searches.md)。
 
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
 單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監視解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
@@ -155,30 +155,30 @@ VMware 圖格會出現在 OMS 入口網站。 它提供任何失敗的高階檢�
 
 
 #### <a name="save-queries"></a>儲存查詢
-儲存搜尋查詢是 OMS 中的標準功能，可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](log-analytics-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
+儲存搜尋查詢是 Log Analytics 中的標準功能，可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](log-analytics-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>從查詢建立警示
-建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](log-analytics-alerts.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 OMS Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
+建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](log-analytics-alerts.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>我需要在 ESXi 主機設定上做什麼設定？ 它會對我目前的環境造成什麼影響？
 解決方案會使用原生 ESXi 主機 Syslog 轉送機制。 您在 ESXi 主機上不需要任何額外的 Microsoft 軟體就可以擷取記錄檔。 它對您現有的環境影響不大。 但是，您需要設定 syslog 轉送，這是 ESXI 功能。
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>我需要重新啟動 ESXi 主機嗎？
-否。 此處理序不需要重新啟動。 有時候，vSphere 不會正確更新 syslog。 在這種情況下，請登入 ESXi 主機並重新載入 syslog。 同樣地，您不需要重新啟動主機，所以此處理序不會干擾到您的環境。
+編號 此處理序不需要重新啟動。 有時候，vSphere 不會正確更新 syslog。 在這種情況下，請登入 ESXi 主機並重新載入 syslog。 同樣地，您不需要重新啟動主機，所以此處理序不會干擾到您的環境。
 
-### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-oms"></a>我可以增加或減少傳送至 OMS 的記錄資料量嗎？
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>可以增加或減少傳送至 Log Analytics 的記錄資料量嗎？
 是，您可以這麼做。 您可以使用 vSphere 中的 ESXi 主機記錄層級設定。 記錄集合是以 *info* 層級為基礎。 所以，如果您想要稽核 VM 建立或刪除，您需要在 Hostd 上維持 *info* 層級。 如需詳細資訊，請參閱 [VMware 知識庫](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658)。
 
-### <a name="why-is-hostd-not-providing-data-to-oms-my-log-setting-is-set-to-info"></a>為什麼 Hostd 沒有提供資料給 OMS？ 我的記錄檔設定是設為 info。
+### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>為什麼 Hostd 沒有將資料提供給 Log Analytics？ 我的記錄檔設定是設為 info。
 syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱 [VMware 知識庫](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202)。 在您套用因應措施之後，Hostd 應該就能正常運作。
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>我可以使用 OMS 代理程式讓多部 ESXi 主機轉送 syslog 資料至單一 VM 嗎？
 是。 您可以使用 OMS 代理程式讓多部 ESXi 主機轉送資料至單一 VM。
 
-### <a name="why-dont-i-see-data-flowing-into-oms"></a>為什麼我沒有看到資料流入 OMS？
+### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>為什麼我沒有看到資料流入 Log Analytics？
 這有幾個原因：
 
 * ESXi 主機目前沒有推播資料至執行 OMS 代理程式的 VM。 若要測試，請執行下列步驟：
@@ -189,15 +189,16 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
   2. 如果 syslog 連接埠連線成功，但您還是沒有看到任何資料，請使用 ssh 並執行以下命令來於 ESXi 主機上重新載入 syslog：` esxcli system syslog reload`
 * 未正確設定具有 OMS 代理程式的 VM。 若要測試，請執行下列步驟：
 
-  1. OMS 會接聽連接埠 1514 並將資料推播到 OMS 中。 若要確認它是否已經開啟，請執行以下命令：`netstat -a | grep 1514`
+  1. Log Analytics 會接聽連接埠 1514。 若要確認它是否已經開啟，請執行以下命令：`netstat -a | grep 1514`
   2. 您應該會看到連接埠 `1514/tcp` 已開啟。 如果沒有，請確認是否已正確安裝 OMS 代理程式。 如果您沒有看到連接埠資訊，表示 VM 上沒有開啟 syslog 連接埠。
 
-     1. 請使用 `ps -ef | grep oms` 確認 OMS 代理程式是否在執行中。 如果它沒有執行，請執行命令 ` sudo /opt/microsoft/omsagent/bin/service_control start`
-     2. 開啟 `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 檔案。
+    a. 請使用 `ps -ef | grep oms` 確認 OMS 代理程式是否在執行中。 如果它沒有執行，請執行命令 ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-         確認適當的使用者和群組設定有效，類似於：`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    b. 開啟 `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 檔案。
 
-         如果檔案不存在或使用者和群組設定錯誤，請透過[準備 Linux 伺服器](#prepare-a-linux-server)來採取更正動作。
+    c. 確認適當的使用者和群組設定有效，類似於：`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+
+    d. 如果檔案不存在或使用者和群組設定錯誤，請透過[準備 Linux 伺服器](#prepare-a-linux-server)來採取更正動作。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用 Log Analytics 中的 [Log Analytics](log-analytics-log-searches.md) 檢視詳細的 VMware 主機資料。
