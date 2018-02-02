@@ -3,7 +3,7 @@ title: "Azure AD 應用程式 Proxy 中的自訂網域 | Microsoft Docs"
 description: "管理 Azure AD 應用程式 Proxy 中的自訂網域，讓不論使用者從何處存取都能看到相同的應用程式 URL。"
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6a5b7731cfd98a53f83a9882529a713381b4f848
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: b198c6aba4227e33eae4af49c019bc4012086a51
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="configure-a-custom-domain"></a>設定自訂網域
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 設定自訂網域之前，請確定您已備妥下列需求： 
 - [新增至 Azure Active Directory 的已驗證網域](active-directory-domains-add-azure-portal.md)。

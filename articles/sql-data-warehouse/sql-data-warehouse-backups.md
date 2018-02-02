@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>SQL 資料倉儲中的備份與還原
 本文說明 SQL 資料倉儲中備份的詳細資訊。 使用資料倉儲備份來將資料庫快照集還原到主要區域，或者將異地備份還原到您的地理配對區域。 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>異地備份
 SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availability-paired-regions.md)執行一次異地備份。 異地還原的 RPO 為 24 小時。 您可以將異地備份還原到地理配對區域中的伺服器。 萬一您無法存取主要地區中的快照集，異地備份可以確保您能夠還原資料倉儲。
 
-預設會開啟異地備份。 如果您的資料倉儲已針對彈性最佳化，則可以視需要[選擇退出](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn)。 您無法選擇退出具有針對計算最佳化之效能層級的異地備份。
+預設會開啟異地備份。 如果您的資料倉儲已針對彈性最佳化，則可以視需要[選擇退出](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)。 您無法選擇退出具有針對計算最佳化之效能層級的異地備份。
 
 ## <a name="backup-costs"></a>備份成本
 您將發現 Azure 帳單含有 Azure 進階儲存體的明細項目以及異地備援儲存體的明細項目。 進階儲存體的費用是在主要區域中儲存資料 (包含快照集) 的總成本。  異地備援的費用則涵蓋儲存異地備份的成本。  

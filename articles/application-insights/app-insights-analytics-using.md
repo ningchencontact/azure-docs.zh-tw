@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>使用 Application Insights 中的分析
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -99,7 +99,7 @@ IntelliSense 會向您提示您可使用的運算子和運算式元素。 按一
 
     不過，您可以使用下拉式功能表來變更時間範圍篩選。
 
-    或是在查詢中包含您自己的 [`where  ... timestamp ...` 子句](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)來覆寫自動範圍。 例如：
+    或是在查詢中包含您自己的 [`where  ... timestamp ...` 子句](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)來覆寫自動範圍。 例如︰
 
     `requests | where timestamp > ago('2d')`
 

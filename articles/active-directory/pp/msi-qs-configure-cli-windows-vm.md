@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>使用 Azure CLI 為虛擬機器設定使用者指派的受控服務識別 (MSI)
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 01/09/2018
 
 在本文中，您將了解如何使用 Azure CLI 為 Azure 虛擬機器啟用和移除使用者指派的 MSI。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
-- 透過 Azure 入口網站或每個程式碼區塊右上角的 [試用] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
-- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。 然後使用 [az login](/cli/azure/#login) 登入 Azure。 使用與 Azure 訂用帳戶相關聯的帳戶，而您要以此帳戶部署使用者指派的 MSI 和虛擬機器：
+- 透過 Azure 入口網站或是每個程式碼區塊右上角的 [試試看] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
+- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。 然後使用 [az login](/cli/azure/#az_login) 登入 Azure。 使用與 Azure 訂用帳戶相關聯的帳戶，而您要以此帳戶部署使用者指派的 MSI 和虛擬機器：
 
    ```azurecli
    az login
@@ -45,13 +45,13 @@ ms.lasthandoff: 01/09/2018
 
 本節會逐步引導您建立虛擬機器以及將使用者指派的 MSI 指派給虛擬機器。 如果您已經有想要使用的虛擬機器，請略過本節並繼續進行下一節。
 
-1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#create) 建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)，以便控制及部署您的 MSI。 別忘了以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數值。 ：
+1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az_group_create) 建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)，以便控制及部署您的 MSI。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 ：
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。  `-g` 參數指定 MSI 建立所在的資源群組，而 `-n` 參數指定其名稱。 別忘了以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數值：
+2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。  `-g` 參數會指定要建立 MSI 的資源群組，而 `-n` 參數則指定其名稱。 別忘了以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數值：
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/09/2018
    }
    ```
 
-3. 使用 [az vm create](/cli/azure/vm/#create) 建立 VM。 下列範例會依 `--assign-identity` 參數指定，建立與使用者指派的新 MSI 相關聯的虛擬機器。 請務必取代在前一個步驟中建立的 `<RESOURCE GROUP>`、`<VM NAME>`、`<USER NAME>`、`<PASSWORD>` 和 `<`MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id` 屬性： 
+3. 使用 [az vm create](/cli/azure/vm/#az_vm_create) 建立 VM。 下列範例會依 `--assign-identity` 參數指定，建立與使用者指派的新 MSI 相關聯的虛擬機器。 請務必取代在前一個步驟中建立的 `<RESOURCE GROUP>`、`<VM NAME>`、`<USER NAME>`、`<PASSWORD>` 和 `<`MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id` 屬性： 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/09/2018
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>在現有的 Azure VM 上啟用 MSI
 
-1. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。  `-g` 參數指定 MSI 建立所在的資源群組，而 `-n` 參數指定其名稱。 別忘了以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數值：
+1. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。  `-g` 參數會指定要建立 MSI 的資源群組，而 `-n` 參數則指定其名稱。 別忘了以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數值：
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>

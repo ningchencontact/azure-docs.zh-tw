@@ -10,10 +10,10 @@ ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="using-azure-files-with-kubernetes"></a>搭配 Kubernetes 使用 Azure 檔案
 
@@ -122,7 +122,7 @@ kubectl apply -f azure-files-pod.yaml
 使用「Azure 檔案」來深入了解 Kubernetes 磁碟區。
 
 > [!div class="nextstepaction"]
-> [Azure 檔案的 Kubernetes 外掛程式][kubernetes-files]
+> [適用於 Azure 檔案的 Kubernetes 外掛程式][kubernetes-files] \(英文\)
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

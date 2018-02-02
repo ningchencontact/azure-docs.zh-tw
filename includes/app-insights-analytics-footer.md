@@ -1,5 +1,5 @@
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>分析
 * [概觀](../articles/application-insights/app-insights-analytics.md)
 * [分析的教學課程](../articles/application-insights/app-insights-analytics-tour.md)
   * 從這裡開始。 涵蓋主要功能的教學課程。

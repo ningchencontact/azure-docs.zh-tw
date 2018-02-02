@@ -12,17 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 概觀上的 App Service
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-Azure App Service on Azure Stack 是 Microsoft Azure 的平台即服務 (PaaS) 供應項目，提供給 Azure Stack 使用。 服務可讓您的客戶 (內部或外部) 為任何平台或裝置建立 Web、API 和 Azure Functions 應用程式。 他們可以將您的應用程式與內部部署應用程式整合，並將其商務程序自動化。 Azure Stack 雲端操作員可以使用所選的共用 VM 資源或專用的 VM，在完全受管理的虛擬機器 (VM) 上執行客戶應用程式。
+Azure App Service on Azure Stack 是 Microsoft Azure 的平台即服務 (PaaS) 供應項目，提供給 Azure Stack 使用。 服務可讓您的客戶 (內部或外部) 為任何平台或裝置建立 Web、API 和 Azure Functions 應用程式。 他們可以將您的應用程式與內部部署應用程式整合，並將其商務程序自動化。 Azure Stack 雲端操作員可以使用所選的共用 VM 資源或專用的 VM，在完全受控的虛擬機器 (VM) 上執行客戶應用程式。
 
 Azure App Service 包含可用來自動執行商務程序及裝載雲端 API 的功能。 Azure App Service 是單一的整合式服務，可讓您將各種元件 (網站、RESTful API 和商務程序) 撰寫成單一解決方案。
 

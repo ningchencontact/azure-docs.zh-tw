@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護多層式 SAP NetWeaver 應用程式部署
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/16/2017
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 保護 SAP NetWeaver 應用程式部署。 本文涵蓋下列最佳做法︰使用 Azure Site Recovery 複寫到另一個 Azure 資料中心，以保護 Azure 上的三層式 SAP NetWeaver 部署，支援的案例和組態，以及如何執行容錯移轉 (包括測試容錯移轉 (災害復原演練) 和實際容錯移轉)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始之前，請確定您瞭解下列項目︰
 
 1. [將虛擬機器複寫至 Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Azure Site Recovery 是應用程式層的建議解決方案 (包括 (A)SCS)。 �
 復原計劃可讓您在多層式應用程式中排序各層的容錯移轉，因此可維護應用程式一致性。 建立多層式 web 應用程式的復原計畫時，請遵循[此處](site-recovery-create-recovery-plans.md)描述的步驟。
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>將指令碼新增至復原計畫
-您可能需要在容錯移轉/測試容錯移轉後，於 Azure 虛擬機器上執行某些作業，讓您的應用程式正常運作。 您可以自動執行容錯移轉後置作業，例如更新 DNS 項目，以及變更網站繫結和連線 (如[本文](site-recovery-create-recovery-plans.md#add-scripts)所述在復原方案中新增對應的指令碼)。
+您可能需要在容錯移轉/測試容錯移轉後，於 Azure 虛擬機器上執行某些作業，讓您的應用程式正常運作。 您可以自動執行容錯移轉後置作業，例如更新 DNS 項目，以及變更網站繫結和連線 (如[本文](site-recovery-how-to-add-vmmscript.md)所述在復原方案中新增對應的指令碼)。
 
 ### <a name="dns-update"></a>DNS 更新
 如果已設定動態 DNS 更新的 DNS，則虛擬機器通常會在啟動之後使用新的 IP 更新 DNS。 如果您想要使用虛擬機器的新 IP 新增更新 DNS 的明確步驟，則請新增此[指令碼來更新 DNS 中的 IP](https://aka.ms/asr-dns-update) 做為復原方案群組上的後置動作。  

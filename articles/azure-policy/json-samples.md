@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure 原則的範本
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/18/2018
 | [允許的負載平衡器 SKU](scripts/allowed-lb-skus.md) | 要求負載平衡器使用已核准的 SKU。 您需指定允許的 SKU 陣列。 |
 | [禁止對 ER 網路進行網路對等互連](scripts/no-peering-er-net.md) | 禁止將網路對等互連與指定資源群組中的網路建立關聯。 用來防止與中央受控網路基礎結構建立連線。 您需指定要防止建立關聯的資源群組名稱。 |
 | [禁止使用者定義的路由表](scripts/no-user-def-route-table.md)  |禁止使用使用者定義的路由表來部署虛擬網路。 |
-| [允許的虛擬網路閘道 SKU](scripts/no-user-def-route-table.md) | 要求虛擬網路閘道使用已核准的 SKU 和閘道類型。 您需指定已核准的 SKU 陣列和已核准的閘道類型陣列。 |
+| [允許的虛擬網路閘道 SKU](scripts/allowed-vn-gate-sku.md) | 要求虛擬網路閘道使用已核准的 SKU 和閘道類型。 您需指定已核准的 SKU 陣列和已核准的閘道類型陣列。 |
 | [針對 VM 網路介面使用已核准的子網路](scripts/use-approved-subnet-vm-nics.md) | 要求網路介面使用已核准的子網路。 您需指定已核准之子網路的識別碼。 |
 | [針對 VM 網路介面使用已核准的 vNet](scripts/use-approved-vnet-vm-nics.md) | 要求網路介面使用已核准的虛擬網路。 您需指定已核准之虛擬網路的識別碼。 |
 |**標記**||

@@ -3,7 +3,7 @@ title: "針對應用程式 Proxy 進行疑難排解 | Microsoft Docs"
 description: "說明如何疑難排解 Azure AD 應用程式 Proxy 中的錯誤。"
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: d9342194c41c551123a6eb307da98f7a9248a265
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 4291d765bec94ca1edd50b8df0c414524f29fba2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/05/2018
 
 如果您遇到的 Azure AD 應用程式 Proxy 錯誤或問題沒有列在這份疑難排解指南中，我們想要知道更多。 請用電子郵件將該錯誤的詳細資料傳送給我們的[意見反應小組](mailto:aadapfeedback@microsoft.com)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [啟用 Azure Active Directory 的應用程式 Proxy](active-directory-application-proxy-enable.md)
 * [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 * [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)

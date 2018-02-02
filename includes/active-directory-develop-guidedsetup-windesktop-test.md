@@ -35,4 +35,4 @@ Microsoft Graph API 需要 user.read 範圍才能讀取使用者的設定檔。 
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

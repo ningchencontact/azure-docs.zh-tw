@@ -2,21 +2,21 @@
 title: "從自訂映像佈建 Azure Batch 集區 | Microsoft Docs"
 description: "您可以從自訂映像建立 Batch 集區，以佈建含有您應用程式所需軟體與資料的計算節點。 自訂映像是設定計算節點以執行 Batch 工作負載的有效方式。"
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>使用受管理自訂映像來建立虛擬機器的集區 
+# <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>使用受控自訂映像來建立虛擬機器的集區 
 
-當您使用虛擬機器設定建立 Azure Batch 集區時，需指定 VM 映像，以提供集區中每個計算節點的作業系統。 您可以使用 Azure Marketplace 映像或自訂映像 (即您自行建立並設定的 VM 映像) 來建立虛擬機器的集區。 自訂映像必須是*受管理映像*資源，且位於和 Batch 帳戶相同的 Azure 訂用帳戶和區域中。
+當您使用虛擬機器設定建立 Azure Batch 集區時，需指定 VM 映像，以提供集區中每個計算節點的作業系統。 您可以使用 Azure Marketplace 映像或自訂映像 (即您自行建立並設定的 VM 映像) 來建立虛擬機器的集區。 自訂映像必須是*受控映像*資源，且位於和 Batch 帳戶相同的 Azure 訂用帳戶和區域中。
 
 ## <a name="why-use-a-custom-image"></a>為何要使用自訂映像？
 當您提供自訂映像，您可以控制作業系統設定以及要使用的作業系統和資料磁碟類型。 自訂映像可以包含應用程式和參考資料，它們在所有 Batch 集區節點上一經佈建便可使用。
@@ -28,38 +28,39 @@ ms.lasthandoff: 10/13/2017
 - **設定作業系統 (OS)**。 您可以在自訂映像的作業系統磁碟上執行特別的作業系統設定。 
 - **預先安裝應用程式。** 您可以建立在作業系統磁碟上預先安裝應用程式的自訂映像，這樣更有效率，而且相較於使用 StartTask 佈建計算節點後安裝應用程式，更不容易發生錯誤。
 - **節省 VM 的重新開機時間。** 應用程式安裝通常需要重新啟動 VM，這相當耗時。 預先安裝應用程式可以節省重新開機時間。 
-- **一次複製大量資料。** 您可以將靜態資料複製到受管理 映像的資料磁碟，藉此將靜態資料加入受管理的自訂映像。 這只需要執行一次，就能將資料提供給集區的每個節點。
-- **選擇磁碟類型。** 您可以從 VHD、從 Azure VM 的受管理磁碟、從這些磁碟的快照集、或從您自己的已設定 Linux 或 Windows 安裝建立受管理的自訂映像。 您可以選擇在 OS 磁碟和資料磁碟使用進階儲存體。
-- **集區成長為任何大小。** 當您使用受管理自訂映像建立集區時，集區可以成長到您要求的任何大小。 您不需要建立映像 blob VHD 的複本來容納這個數目的 VM。 
+- **一次複製大量資料。** 您可以將靜態資料複製到受控映像的資料磁碟，藉此將靜態資料加入受控自訂映像。 這只需要執行一次，就能將資料提供給集區的每個節點。
+- **選擇磁碟類型。** 您可以從 VHD、從 Azure VM 的受控磁碟、從這些磁碟的快照集、或從您自己的已設定 Linux 或 Windows 安裝建立受控自訂映像。 您可以選擇在 OS 磁碟和資料磁碟使用進階儲存體。
+- **集區成長為任何大小。** 當您使用受控自訂映像建立集區時，集區可以成長到您要求的任何大小。 您不需要建立映像 blob VHD 的複本來容納這個數目的 VM。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- **受管理的映像資源**。 若要使用自訂映像建立虛擬機器的集區，需要在和 Batch 帳戶相同的 Azure 訂用帳戶和區域中建立受管理映像資源。 如需準備受管理映像的選項，請參閱下一節。
+- 
+            **受控映像資源**。 若要使用自訂映像建立虛擬機器的集區，需要在和 Batch 帳戶相同的 Azure 訂用帳戶和區域中建立受控映像資源。 如需準備受控映像的選項，請參閱下一節。
 - **Azure Active Directory (AAD) 驗證**。 Batch 用戶端 API 必須使用 AAD 驗證。 Azure Batch 對於 AAD 的支援記載於[使用 Active Directory 驗證 Batch 服務解決方案](batch-aad-auth.md)中。
 
     
 ## <a name="prepare-a-custom-image"></a>準備自訂映像
-您可以從 VHD、從包含受管理磁碟的 Azure VM、或從 VM 快照集，準備受管理的映像。 
+您可以從 VHD、從包含受控磁碟的 Azure VM、或從 VM 快照集，準備受控映像。 
 
 準備映像時，請記住下列事項：
 
 * 請確認您用來佈建 Batch 集區的基本 OS 映像沒有任何預先安裝的 Azure 擴充，例如自訂指令碼擴充。 如果映像包含預先安裝的擴充，Azure 在部署 VM 時可能會遇到問題。
 * 確定您提供的基本 OS 映像使用預設的暫存磁碟機。 Batch 節點代理程式目前需要有預設的暫存磁碟機。
-* Batch 集區所參考的受管理映像資源，在集區的存留期內無法刪除。 如果受管理映像資源遭到刪除，集區便無法再成長。 
+* Batch 集區所參考的受控映像資源，在集區的存留期內無法刪除。 如果受控映像資源遭到刪除，集區便無法再成長。 
 
-### <a name="to-create-a-managed-image"></a>建立受管理映像
-您可以使用任何現有已備妥的 Windows 或 Linux 作業系統磁碟來建立受管理映像。 例如，如果您需要使用本機映像，請使用 AzCopy 或另一個上傳工具，將本機磁碟上傳到和 Batch 帳戶相同訂用帳戶和區域中的 Azure 儲存體帳戶。 如需上傳 VHD 和建立受管理映像的詳細步驟，請參閱 [Windows](../virtual-machines/windows/upload-generalized-managed.md) 或 [Linux](../virtual-machines/linux/upload-vhd.md) VM 的指導方針。
+### <a name="to-create-a-managed-image"></a>建立受控映像
+您可以使用任何現有已備妥的 Windows 或 Linux 作業系統磁碟來建立受控映像。 例如，如果您需要使用本機映像，請使用 AzCopy 或另一個上傳工具，將本機磁碟上傳到和 Batch 帳戶相同訂用帳戶和區域中的 Azure 儲存體帳戶。 如需上傳 VHD 和建立受控映像的詳細步驟，請參閱 [Windows](../virtual-machines/windows/upload-generalized-managed.md) 或 [Linux](../virtual-machines/linux/upload-vhd.md) VM 的指導方針。
 
-您也可以從新的或現有的 Azure VM 或 VM 快照集準備受管理映像。 
+您也可以從新的或現有的 Azure VM 或 VM 快照集準備受控映像。 
 
-* 如果您要建立新的 VM，可以使用 Azure Marketplace 映像作為受管理映像的基礎映像，然後加以自訂。 
+* 如果您要建立新的 VM，可以使用 Azure Marketplace 映像作為受控映像的基礎映像，然後加以自訂。 
 
-* 如果您打算使用入口網站擷取映像，請確定 VM 建立時包含受管理磁碟。 當您建立 VM 時，這是預設的儲存體設定。
+* 如果您打算使用入口網站擷取映像，請確定 VM 建立時包含受控磁碟。 當您建立 VM 時，這是預設的儲存體設定。
 
 * 一旦 VM 開始執行之後，請透過 RDP (適用於 Windows) 或 SSH (適用於 Linux) 向它連線。 安裝任何必要的軟體或複製所需的資料，然後將 VM 一般化。  
 
-如需 Azure VM 一般化以及建立受管理映像的步驟，請參閱 [Windows](../virtual-machines/windows/capture-image-resource.md) 或 [Linux](../virtual-machines/linux/capture-image.md) VM 的指導方針。
+如需 Azure VM 一般化以及建立受控映像的步驟，請參閱 [Windows](../virtual-machines/windows/capture-image-resource.md) 或 [Linux](../virtual-machines/linux/capture-image.md) VM 的指導方針。
 
 依據您計劃如何以映像建立 Batch 集區，您需要下列映像識別碼：
 

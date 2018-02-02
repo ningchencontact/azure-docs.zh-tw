@@ -64,4 +64,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 #### <a name="use-a-custom-method-to-validate-issuers"></a>使用自訂方法來驗證簽發者
 您可以實作自訂方法，使用 **IssuerValidator** 參數來驗證簽發者。 如需此參數使用方式的詳細資訊，請閱讀 MSDN 上的 [TokenValidationParameters 類別](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx)。
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

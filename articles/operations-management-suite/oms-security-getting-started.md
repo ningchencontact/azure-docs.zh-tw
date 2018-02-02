@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 5832d46636cce5ceeda7f42d2e87b5a3a633bfe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>開始使用 Operations Management Suite 安全性和稽核解決方案
 本文帶領您認識每個選項，協助您快速開始使用 Operations Management Suite (OMS) 安全性和稽核解決方案功能。
@@ -72,7 +72,7 @@ OMS 安全性和稽核儀表板分為四個主要類別︰
 
 當您按一下此圖格時，[搜尋] 刀鋒視窗會開啟，並根據過去七天的資料顯示 [安全性事件] \(類型=SecurityEvents) 的查詢結果，如下所示︰
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![一段時間的安全性記錄](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
@@ -193,7 +193,7 @@ Microsoft 與全球產業和政府組織共同定義可代表高度安全伺服�
 * 依帳戶的登入活動
 * 從遠端登入電腦 "computer01.contoso.com" (以您自己的電腦名稱取代) 的帳戶
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，已向您介紹 OMS 安全性和稽核解決方案。 若要深入了解 OMS 安全性，請參閱下列文章：
 
 * [Operations Management Suite (OMS) 概觀](operations-management-suite-overview.md)
