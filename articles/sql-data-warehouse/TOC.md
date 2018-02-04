@@ -9,6 +9,10 @@
 ## 暫停與繼續計算
 ### [入口網站](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## 調整計算
+### [入口網站](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # 教學課程
@@ -113,8 +117,6 @@
 ### [分析工作負載](analyze-your-workload.md)
 
 ## 相應放大
-### [管理計算 - 入口網站](sql-data-warehouse-manage-compute-portal.md)
-### [管理計算 - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [管理計算 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [自動化計算層級](manage-compute-with-azure-functions.md)
 
