@@ -1,7 +1,5 @@
 # 概觀
 ## [開發人員指南](azure-developer-guide.md) 
-## [Azure 服務概觀](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [入口網站概觀](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK 及工具](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # 快速入門
@@ -77,7 +75,7 @@
 ## 安全
 ### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-## 備份
+## Backup 
 ### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [虛擬機器](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
