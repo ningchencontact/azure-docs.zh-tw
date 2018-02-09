@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danoble
-ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
@@ -359,9 +359,16 @@ Starting interactive shell
 
 現在，在您的用戶端使用回應中的端點和主要金鑰，並將 SSL 憑證匯入您的主機。 若要匯入 SSL 憑證，請從系統管理員命令提示字元中執行下列命令︰
 
-```
+從命令列：
+```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
+```
+
+從 PowerShell：
+```powershell
+cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
+.\importcert.ps1
 ```
 
 模擬器啟動之後，關閉互動式殼層將會關閉模擬器的容器。

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>使用模擬裝置來測試您的解決方案
 
@@ -131,24 +131,24 @@ ms.lasthandoff: 02/01/2018
 1. 若要為您的虛擬機器啟用 SSH 存取，請使用上一個步驟中的網路安全性群組名稱執行下列命令：
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     若要檢視網路的輸入規則，請執行下列命令：
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. 若要將虛擬機器的密碼變更為您知道的密碼，請執行下列命令。 使用您先前記下的虛擬機器名稱和您選擇的密碼：
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. 使用下列命令找出虛擬網路的 IP 位址，然後記下公用 IP 位址：
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. 現在您可以使用 SSH 連線到您的虛擬機器。 Cloud Shell 中會預先安裝 `ssh` 命令。 使用先前步驟中的公用 IP 位址，並在出現提示時，使用您為虛擬機器設定的密碼：
