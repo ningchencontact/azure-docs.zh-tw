@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -151,7 +151,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 當您覆寫 0.0.0.0/0 位址首碼後，除了輸出流量會從子網路流經虛擬網路閘道或虛擬設備外，使用 Azure 預設路由時也會發生下列變更： 
 
-- Azure 會將所有流量傳送至路由中指定的下一個躍點類型，以包含 Azure 服務公用 IP 位址指定的流量。 當 0.0.0.0/0 位址首碼路由的下個躍點類型是**網際網路**時，從子網路送往 Azure 服務公用 IP 位址的流量永遠不會離開 Azure 的骨幹網路，不論虛擬網路或 Azure 服務資源存在哪個 Azure 地區。 但當您以**虛擬網路閘道**或**虛擬設備**建立使用者定義或 BGP 路由時，所有流量 (包括傳送至您尚未對其啟用[服務端點](virtual-network-service-endpoints-overview.md)之 Azure 服務公用 IP 位址的流量) 會傳送至路由中指定的下一個躍點類型。 如果您已啟用服務的服務端點，服務的流量則不會路由至路由位址首碼為 0.0.0.0/0 的下一個躍點類型，因為當您啟用服務端點時，服務的位址首碼會在 Azure 建立的路由中指定，而服務的位址首碼會比 0.0.0.0/0 長。
+- Azure 會將所有流量傳送至路由中指定的下一個躍點類型，包括 Azure 服務公用 IP 位址指定的流量。 當 0.0.0.0/0 位址首碼路由的下個躍點類型是**網際網路**時，從子網路送往 Azure 服務公用 IP 位址的流量永遠不會離開 Azure 的骨幹網路，不論虛擬網路或 Azure 服務資源存在哪個 Azure 地區。 但當您以**虛擬網路閘道**或**虛擬設備**建立使用者定義或 BGP 路由時，所有流量 (包括傳送至您尚未對其啟用[服務端點](virtual-network-service-endpoints-overview.md)之 Azure 服務公用 IP 位址的流量) 會傳送至路由中指定的下一個躍點類型。 如果您已啟用服務的服務端點，服務的流量則不會路由至路由位址首碼為 0.0.0.0/0 的下一個躍點類型，因為當您啟用服務端點時，服務的位址首碼會在 Azure 建立的路由中指定，而服務的位址首碼會比 0.0.0.0/0 長。
 - 您已無法從網際網路直接存取子網路中的資源。 如果輸入流量是通過路由位址首碼為 0.0.0.0/0 的下一個躍點所指定的裝置後，再抵達虛擬網路中的資源，則您可以直接從網際網路存取子網路中的資源。 如果路由包含下列的下一個躍點類型值：
     - **虛擬設備**：設備必須：
         - 能夠從網際網路存取
@@ -161,7 +161,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
         - 能夠進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy，並將流量傳回網際網路。 
     - **虛擬網路閘道**：如果閘道是 ExpressRoute 虛擬網路閘道，則透過 ExpressRoute 的[私人對等互連](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)，連線到網際網路的裝置在內部部署上可以進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy。 
 
-  請參閱 [Azure 與內部部署資料中心之間的 DMZ](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [Azure 與網際網路之間的 DMZ](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)，以取得在網際網路和 Azure 之間使用虛擬網路閘道和虛擬設備的實作詳細資料。
+  請參閱 [Azure 與內部部署資料中心之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [Azure 與網際網路之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)，以取得在網際網路和 Azure 之間使用虛擬網路閘道和虛擬設備的實作詳細資料。
 
 ## <a name="routing-example"></a>路由範例
 

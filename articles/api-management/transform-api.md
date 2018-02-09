@@ -76,7 +76,7 @@ ms.lasthandoff: 12/04/2017
     
      ![編輯原則](./media/set-edit-policies/set-edit-policies01.png)
 9. 將游標放在 **<outbound>** 元素內部。
-10. 在右側視窗的 [轉換原則] 下方，按兩次 [+ 設定 HTTP 標頭] (以插入兩個原則程式碼片段)。
+10. 在右側視窗的 [轉換原則] 下方，按兩次 [+ 設定 HTTP 標頭] \(以插入兩個原則程式碼片段)。
 
     ![原則](./media/transform-api/transform-api.png)
 11. 修改您的 **<outbound>** 程式碼，使它看起來如下：

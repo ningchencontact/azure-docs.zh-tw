@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自動化中的憑證資產
 
@@ -28,9 +28,8 @@ ms.lasthandoff: 12/14/2017
 > Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。 這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。 儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
-
-下表中的 Cmdlet 是用來透過 Windows PowerShell 建立和管理自動化憑證資產。 它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell Cmdlet
+針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。  它們附屬於 [AzureRM.Automation 模組](/powershell/azure/overview)，而此模組可供在自動化 Runbook 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -40,6 +39,15 @@ ms.lasthandoff: 12/14/2017
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|設定現有的憑證，包括上傳憑證檔案和設定 .pfx 的密碼屬性。|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|上傳指定雲端服務的服務憑證。|
 
+## <a name="activities"></a>活動
+下表中的活動是用來存取 Runbook 和 DSC 設定中的憑證。
+
+| 活動 | 說明 |
+|:---|:---|
+|Get-AutomationCertificate|取得要在 Runbook 或 DSC 組態中使用的憑證。 傳回 [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 物件。|
+
+> [!NOTE] 
+> 您應該避免在 Runbook 或 DSC 設定中 **Get-AutomationCertificate** 的 –Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與自動化變數之間的相依性變得複雜。
 
 ## <a name="python2-functions"></a>Python2 函式
 

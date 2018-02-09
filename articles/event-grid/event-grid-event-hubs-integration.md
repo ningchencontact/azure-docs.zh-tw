@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>將巨量資料串流處理至資料倉儲
 
@@ -74,7 +74,7 @@ Event Grid 會將事件資料散發給訂閱者。 以下範例展示用來建�
 
 ## <a name="deploy-the-infrastructure"></a>部署基礎結構
 
-若要簡化本文章的內容，您可以利用 Resource Manager 範本部署必要的基礎結構。 若要查看已部署的資源，請檢視[範本](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)。 針對預覽版，「事件格線」支援 **westus2** 和 **westcentralus** 區域。 請使用這其中一個區域作為資源群組位置。
+若要簡化本文章的內容，您可以利用 Resource Manager 範本部署必要的基礎結構。 若要查看已部署的資源，請檢視[範本](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)。 請使用其中一個[支援的區域](overview.md)作為資源群組位置。
 
 對於 Azure CLI，請使用：
 

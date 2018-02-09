@@ -1,5 +1,5 @@
 ---
-title: "設定 Azure 儲存體防火牆和虛擬網路 (預覽) | Microsoft Docs"
+title: "設定 Azure 儲存體防火牆和虛擬網路 | Microsoft Docs"
 description: "為儲存體帳戶設定多層式的網路安全性。"
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>設定 Azure 儲存體防火牆和虛擬網路 (預覽)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
 
-## <a name="preview-availability-and-support"></a>預覽可用性和支援
-儲存體防火牆和虛擬網路預覽版。  這項功能目前適用於所有 Azure 公用雲端區域的新或現有儲存體帳戶。
-
-> [!NOTE]
-> 預覽版不支援生產工作負載。
+> [!IMPORTANT]
+> 開啟儲存體帳戶的防火牆規則，將封鎖存取資料的傳入要求，包括來自其他 Azure 服務的要求。  這包括使用入口網站、寫入記錄等。針對參與服務，您可以透過下列[例外狀況](#Exceptions)一節來重新啟用功能。  若要存取入口網站，必須從位於您已設定之信任界限 (IP 或 VNet) 內的電腦來執行此作業。
 >
 
 ## <a name="scenarios"></a>案例
@@ -55,9 +52,6 @@ Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網�
 
 #### <a name="azure-portal"></a>Azure 入口網站
 1. 巡覽至您要保護的儲存體帳戶。  
-> [!NOTE]
-> 請確定您的儲存體帳戶位在其中一個受支援的公開預覽地區。
->
 
 2. 按一下名為 [防火牆與虛擬網路] 的設定功能表。
 3. 若要預設拒絕存取，請選擇允許「所選網路」存取權。  若要允許來自所有網路的流量，請選擇允許「所有網路」存取權。
@@ -200,7 +194,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 > 不支援使用 "/31" 或 "/32" 前置詞大小的小型位址範圍。  這些範圍應該使用個別的 IP 位址規則設定。
 >
 
-只有**公用網際網路** IP 位址允許使用 IP 網路規則。  IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。  私人網路包括以 *10.\**、*172.16.\** 和 *192.168.\** 開頭的位址。
+只有**公用網際網路** IP 位址允許使用 IP 網路規則。  IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。  私人網路包括以 *10.\**、 *172.16.\** 和 *192.168.\** 開頭的位址。
 
 目前僅支援 IPV4 位址。
 

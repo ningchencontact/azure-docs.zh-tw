@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8708f13109767c7cb9e4a1bf0d2797d7c4fb9a23
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 中斷連線部署規劃決策
 在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-deployment-decisions.md)之後，即可接著完成您的 Azure Stack 部署決策。
@@ -60,3 +60,5 @@ ms.lasthandoff: 01/17/2018
 - 如需 Azure Stack 整合系統的藍圖和地理可用性的詳細資訊，請參閱白皮書：[Azure Stack：Azure 的延伸模組](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 - 若要深入了解 Microsoft Azure Stack 套件和定價，請[下載此 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
 
+## <a name="next-steps"></a>後續步驟
+[資料中心網路整合](azure-stack-network.md)

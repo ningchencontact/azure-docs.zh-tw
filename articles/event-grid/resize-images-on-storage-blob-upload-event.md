@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/05/2017
 
 ![Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立一般的 Azure 儲存體帳戶
 > * 使用 Azure Functions 部署無伺服器程式碼
 > * 在 Event Grid 中建立 Blob 儲存體事件訂閱
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account create](/cli/azure/storage/account#create) 命令，在資源群組中建立單獨的一般儲存體帳戶。
+Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令，在資源群組中建立單獨的一般儲存體帳戶。
 
 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 
 
@@ -65,7 +65,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>建立函數應用程式  
 
-您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 使用 [az functionapp create](/cli/azure/functionapp#create) 命令來建立函式應用程式。 
+您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 使用 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 命令來建立函式應用程式。 
 
 在下列命令中，使用您自己唯一的函式應用程式名稱來替代您看見 `<function_app>` 預留位置的地方。 `<function_app>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 在此情況下，`<general_storage_account>` 是您所建立之一般儲存體帳戶的名稱。  
 
@@ -78,7 +78,7 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 ## <a name="configure-the-function-app"></a>設定函式應用程式
 
-此函式需要連接字串以連接到 Blob 儲存體帳戶。 在此情況下，`<blob_storage_account>` 是您在上一個教學課程中建立之 Blob 儲存體帳戶的名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 命令取得連接字串。 縮圖映像容器名稱也必須設定為 `thumbs`。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 命令，在函式應用程式中新增這些應用程式設定。
+此函式需要連接字串以連接到 Blob 儲存體帳戶。 在此情況下，`<blob_storage_account>` 是您在上一個教學課程中建立之 Blob 儲存體帳戶的名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) 命令取得連接字串。 縮圖映像容器名稱也必須設定為 `thumbs`。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 命令，在函式應用程式中新增這些應用程式設定。
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,7 +95,7 @@ myContainerName=thumbs
 
 ## <a name="deploy-the-function-code"></a>部署函式程式碼 
 
-此 [GitHub 存放庫](https://github.com/Azure-Samples/function-image-upload-resize)範例中提供執行映像調整大小的 C# 函式。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 命令，將此函式程式碼專案部署至函式應用程式。 
+此 [GitHub 存放庫](https://github.com/Azure-Samples/function-image-upload-resize)範例中提供執行映像調整大小的 C# 函式。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) 命令，將此函式程式碼專案部署至函式應用程式。 
 
 在下列命令中，`<function_app>` 是您在先前指令碼中建立的相同函式應用程式。
 
@@ -106,7 +106,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 映像調整大小函式是由 Blob 建立事件的事件訂閱所觸發。 傳遞給觸發程序的資料包括 Blob 的 URL，接著會傳遞至輸入繫結，以從 Blob 儲存體獲取上傳的映像。 此函式會產生縮圖映像，並將產生的串流寫入 Blob 儲存體中的個別容器。 若要深入了解此函式，請參閱[範例存放庫中的讀我檔案](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md)。
- 
+
+此專案使用 `EventGridTrigger` 作為觸發程序類型。 建議透過一般 HTTP 觸發程序使用 Event Grid 觸發程序。 Event Grid 會自動驗證 Event Grid 函式的觸發程序。 若要使用 HTTP 觸發程序，您必須實作[驗證回應](security-authentication.md#webhook-event-delivery)。
+
 函式專案程式碼會直接從公用範例存放庫部署。 若要深入了解 Azure Functions 的部署選項，請參閱[Azure Functions 的持續部署](../azure-functions/functions-continuous-deployment.md)。
 
 ## <a name="create-your-event-subscription"></a>建立您的事件訂閱
@@ -129,8 +131,8 @@ az functionapp deployment source config --name <function_app> \
     | ------------ |  ------- | -------------------------------------------------- |
     | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
     | **主題類型** |  儲存體帳戶 | 選擇儲存體帳戶事件提供者。 | 
-    | **訂用帳戶** | 您的訂用帳戶 | 根據預設，您應該選取目前的訂用帳戶。   |
-    | **資源群組** | myResourceGroup | 選取 [使用現有]，並選擇您在本主題中一直使用的資源群組。  |
+    | **訂用帳戶** | 您的 Azure 訂用帳戶 | 根據預設，您應該選取目前的 Azure 訂用帳戶。   |
+    | **資源群組** | myResourceGroup | 選取 [使用現有]，並選擇您在本教學課程中一直使用的資源群組。  |
     | **執行個體** |  `<blob_storage_account>` |  選擇您建立的 Blob 儲存體帳戶。 |
     | **事件類型** | 已建立 Blob | 取消勾選 [已建立 Blob] 以外的所有類型。 只有 `Microsoft.Storage.BlobCreated` 的事件類型會傳遞至函式。| 
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 

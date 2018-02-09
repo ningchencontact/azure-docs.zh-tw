@@ -1,6 +1,6 @@
 ---
-title: "OMS 中的設定解決方案目標 | Microsoft Docs"
-description: "「設定解決方案目標」是 Operations Management Suite (OMS) 中的功能，可讓您限制管理解決方案以針對一組特定的代理程式。  本文說明如何建立範圍設定，並將它套用至解決方案。"
+title: "在 Azure 中設定管理解決方案目標 | Microsoft Docs"
+description: "設定管理解決方案目標，可讓您將管理解決方案限制為一組特定的代理程式。  本文說明如何建立範圍設定，並將它套用至解決方案。"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>使用 Operations Management Suite (OMS) 中的「設定解決方案目標」將管理解決方案的範圍設定為特定的代理程式 (預覽)
-當您將解決方案加入 OMS 時，它預設會自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用 OMS 功能「設定解決方案目標」，此功能可讓您將範圍套用至解決方案。
+# <a name="targeting-management-solutions-in-azure-preview"></a>在 Azure 中設定管理解決方案目標 (預覽)
+當您將管理解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。
 
 ## <a name="how-to-target-a-solution"></a>如何為解決方案設定目標
-為解決方案設定目標有三個步驟，如下列各節中所述。  請注意，針對不同的步驟，您將需要 OMS 入口網站和 Azure 入口網站。
+為解決方案設定目標有三個步驟，如下列各節中所述。 
 
 
 ### <a name="1-create-a-computer-group"></a>1.建立電腦群組

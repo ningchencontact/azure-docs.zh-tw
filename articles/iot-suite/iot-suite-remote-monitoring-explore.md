@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>探索遠端監視預先設定解決方案的功能
 
@@ -32,7 +32,11 @@ ms.lasthandoff: 12/13/2017
 > * 更新您裝置中的韌體
 > * 組織資產
 
-## <a name="prerequisites"></a>必要條件
+以下影片提供遠端監視解決方案的逐步解說：
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
@@ -43,7 +47,7 @@ ms.lasthandoff: 12/13/2017
 您可以使用 Contoso 範例 IoT 部署來了解遠端監視解決方案所提供現成可用的基本情節。 這些情節會以實際 IoT 部署作為基礎。 您很有可能要選擇自訂遠端監視解決方案來符合特定需求，但是 Contoso 範例可協助您了解基本概念。
 
 > [!NOTE]
-> 如果您使用 CLI 來部署預先設定的方案檔案`deployment-{your deployment name}-output.json`包含之類的 URL 來存取已部署的範例部署的相關資訊。
+> 如果您已使用 CLI 來部署預先設定的解決方案，`deployment-{your deployment name}-output.json` 檔案就會包含部署的相關資訊，例如可存取已部署範例的 URL。
 
 Contoso 範例中會佈建一組模擬的裝置和規則以便採取行動。 一旦您了解基本情節後，就可以在[使用遠端監視解決方案執行進階裝置監視](iot-suite-remote-monitoring-monitor.md)中，繼續探索更多解決方案功能。
 
@@ -101,11 +105,11 @@ Contoso 的操作員知道判斷裝置是否正常運作的臨界值。 例如�
 
 1. 關閉**裝置詳細資料**。
 
-1. 若要瀏覽至**維護**頁面上，選擇**維護**導覽功能表上。
+1. 若要瀏覽至 [維護] 頁面，請在導覽功能表上選擇 [維護]。
 
 在 [維護] 頁面上，您可以檢視觸發 chiller 壓力警示的規則詳細資料。
 
-1. 通知的清單顯示的已觸發警示的次數、 通知，並開啟和已關閉的警示：
+1. 通知清單會顯示已觸發警示的次數、通知數，以及開啟和關閉的警示數：
 
     ![[維護] 頁面會顯示已觸發警示的清單](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +127,9 @@ Contoso 的操作員知道判斷裝置是否正常運作的臨界值。 例如�
 
     ![選取裝置及排程動作](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. 若要檢視工作狀態，請返回**維護**頁面，並檢視中的作業清單**作業**檢視。 您可以看到已執行作業來釋放 Chiller 上的閥壓力：
+1. 若要檢視作業狀態，請返回 [維護] 頁面，然後在 [作業] 檢視中檢視作業清單。 您可以看到已執行作業來釋放 Chiller 上的閥壓力：
 
-    ![在 [工作] 檢視中工作的狀態](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![[作業] 檢視中的作業狀態](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 最後，請確認 Chiller 的遙測值回到正常。
 
@@ -159,7 +163,7 @@ Contoso 會在現場測試裝置的新類型。 在測試週期內，您必須�
     ![在裝置上排程韌體更新](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > 使用模擬的裝置，您可以使用您要做為任何 URL**韌體 URI**值。 模擬的裝置不會存取 URL。
+    > 透過模擬的裝置，您可以使用所需的任何 URL 作為 [韌體 URI] 值。 模擬的裝置不會存取 URL。
 
 1. 請注意作業會影響多少裝置，然後選擇 [套用]：
 
@@ -167,13 +171,13 @@ Contoso 會在現場測試裝置的新類型。 在測試週期內，您必須�
 
 您可以使用 [維護] 頁面，在作業執行時加以追蹤。
 
-1. 若要檢視作業的清單，請導覽至**維護**頁面上，按一下 **作業**。
+1. 若要檢視作業清單，請瀏覽至 [維護] 頁面，然後按一下 [作業]。
 
 1. 找出與您所建立的作業相關的事件。 請確認已正確起始韌體更新程序。
 
-您可以建立篩選器，以確認更新正確的韌體版本。
+您可以建立篩選條件，以確認韌體版本已正確更新。
 
-1. 若要建立篩選器，瀏覽至**裝置**頁面，然後選取**管理篩選器**:
+1. 若要建立篩選條件，請瀏覽至 [裝置] 頁面，然後選取 [管理篩選]：
 
     ![管理裝置篩選條件](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +206,7 @@ Contoso 有兩個不同的小組會提供現場服務活動：
 
     ![選取原型和卡車裝置](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. 選擇**標記**，然後建立新的文字標記，稱為**FieldService**值**ConnectedVehicle**。 選擇作業名稱。 然後，按一下 [套用]：
+1. 選擇 [標記]，然後使用 **ConnectedVehicle** 值來建立名為 **FieldService** 的新文字標記。 選擇作業名稱。 然後，按一下 [套用]：
 
     ![將標記新增至原型和卡車裝置](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +214,7 @@ Contoso 有兩個不同的小組會提供現場服務活動：
 
     ![選取 chiller、引擎及電梯裝置](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. 選擇**標記**，然後建立新的文字標記，稱為**FieldService**值**SmartBuilding**。 選擇作業名稱。 然後按一下 [儲存]：
+1. 選擇 [標記]，然後使用 **SmartBuilding** 值來建立名為 **FieldService** 的新文字標記。 選擇作業名稱。 然後按一下 [儲存]：
 
     ![將標記新增至 chiller、引擎及電梯裝置](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

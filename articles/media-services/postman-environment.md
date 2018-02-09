@@ -1,11 +1,24 @@
- ---
-title: 匯入 Postman 環境以進行 Azure 媒體服務 REST 呼叫 description: 本主題提供用以進行 Azure 媒體服務 REST 呼叫之 Postman 環境的定義。
-services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
-
 ---
-
+title: "匯入 Azure 媒體服務 REST 呼叫的 Postman 環境"
+description: "此文章提供適用於 Azure 媒體服務 REST 呼叫之 Postman 集合的定義。"
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>匯入 Postman 環境 
 
 本文包含用於 [Postman 集合](postman-collection.md)的 **Postman** 環境變數定義，其中包含呼叫媒體服務 REST API 的分組 HTTP 要求。 此環境與集合檔案適用於[設定 Postman 以進行媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)教學課程。

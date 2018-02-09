@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -66,7 +66,8 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 ## <a name="best-practices"></a>最佳作法
 
 ### <a name="how-many-partitions-do-i-need"></a>我需要多少個分割區？
-請記住，事件中樞上的分割區計數在設定之後便無法修改。 因此，請務必在開始之前先想清楚您需要多少個分割區。 
+
+請注意，事件中樞上的分割區計數在設定之後便無法修改。 因此，請務必在開始之前先想清楚您需要多少個分割區。 
 
 事件中樞的設計目的是讓每個取用者群組均可擁有單一分割區讀取器。 在大多數使用案例中，四個分割區的預設設定就已足夠。 如果您想要調整事件處理，可能就要考慮加入額外的分割區。 分割區上並沒有任何特定的輸送量限制，但是，您命名空間中的彙總輸送量會受限於輸送量單位。 當您提高命名空間中的輸送量單位數目時，可能需要額外的分割區，讓並行讀取器能夠達成它們自己的最大輸送量。
 
@@ -118,6 +119,6 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞自動擴大](event-hubs-auto-inflate.md)

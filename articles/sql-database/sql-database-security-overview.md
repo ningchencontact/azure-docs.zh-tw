@@ -3,8 +3,9 @@ title: "Azure SQL Database 安全性概觀 | Microsoft Docs"
 description: "了解 Azure SQL Database 和 SQL Server 的 安全性，包含雲端和 SQL Server 內部部署之間的差異。"
 services: sql-database
 documentationcenter: 
-author: tmullaney
-manager: jhubbard
+author: giladm
+manager: shaik
+ms.reviewer: carlrab
 editor: 
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
@@ -13,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 07/05/2017
-ms.author: thmullan;jackr
-ms.openlocfilehash: 14a7fdb304e90aec10bee9167817f564870cd6c1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: giladm
+ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="securing-your-sql-database"></a>保護您的 SQL Database
 
@@ -28,21 +29,32 @@ ms.lasthandoff: 12/14/2017
 如需各種 SQL 上可用的完整安全性功能概觀，請參閱 [SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)。 同時您也可於 [安全性和 Azure SQL Database 技術白皮書](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF) 中取得其他資訊。
 
 ## <a name="protect-data"></a>保護資料
-SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135244)為移動中的資料提供加密、使用[透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)為待用資料提供加密，使用[一律加密](https://msdn.microsoft.com/library/mt163865.aspx)為使用中的資料提供加密，進而保護您的資料。 
+
+### <a name="encryption"></a>加密
+SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135244)為移動中的資料提供加密、使用[透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)為待用資料提供加密，並使用[一律加密](https://msdn.microsoft.com/library/mt163865.aspx)為使用中的資料提供加密，進而保護您的資料。 
 
 > [!IMPORTANT]
->Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。 在您的應用程式連接字串中，您必須指定要加密的連接參數和*不*信任伺服器憑證 （這基於您如果複製您從 Azure 入口網站的連接字串），否則為連接將不會驗證伺服器身分識別，且會受到"中--攔截 」 攻擊。 例如對於 ADO.NET 驅動程式，這些連接字串參數是 **Encrypt=True** 和 **TrustServerCertificate=False**。 
+>Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。 在您應用程式的連接字串中，您必須指定參數來加密連線，且「不」信任伺服器憑證 (如果您從 Azure 入口網站複製連接字串，系統便會為您完成上述設定)，否則連線將無法驗證伺服器的身分識別，也可能會遭受「攔截」攻擊。 例如對於 ADO.NET 驅動程式，這些連接字串參數是 **Encrypt=True** 和 **TrustServerCertificate=False**。 
 
 如需其他的資料加密方式，請考慮：
 
 * [儲存格層級加密](https://msdn.microsoft.com/library/ms179331.aspx) ，可利用不同的加密金鑰來加密特定的資料行或甚至是資料儲存格。
 * 如果您需要硬體安全性模組或集中管理您的加密金鑰階層，請考慮 [在 Azure VM 中使用 Azure 金鑰保存庫搭配 SQL Server](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)。
 
+### <a name="data-discovery--classification"></a>資料探索與分類
+資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於探索、分類、標記和保護您資料庫中的敏感性資料。 探索與分類您最具敏感性的資料 (商業/財務、醫療保健及 PII 等)，可在您組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
+
+- 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
+- 對包含高度敏感性資料之資料庫進行存取控制並強化安全性。
+- 協助符合資料隱私標準和法規合規性需求。
+
+如需詳細資訊，請參閱[開始使用 SQL DB 資料探索與分類](sql-database-data-discovery-and-classification.md)。 
+
 ## <a name="control-access"></a>控制存取
 SQL Database 使用防火牆規則、要求使用者證明其身分的驗證機制，以及透過角色型成員資格與權限和透過資料列層級安全性與動態資料遮罩的資料授權來限制資料庫的存取，進而保護您的資料。 如需在 SQL Database 中使用存取控制功能的討論，請參閱[控制存取](sql-database-control-access.md)。
 
 > [!IMPORTANT]
-> 在 Azure 內管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關本主題的詳細資訊，請參閱[Azure 入口網站中的角色型存取控制](../active-directory/role-based-access-control-what-is.md)。
+> 在 Azure 內管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../active-directory/role-based-access-control-what-is.md)。
 >
 
 ### <a name="firewall-and-firewall-rules"></a>防火牆與防火牆規則
@@ -61,7 +73,7 @@ SQL Database 驗證是指連線到資料庫時如何證明身分識別。 SQL Da
 ### <a name="row-level-security"></a>資料列層級安全性
 資料列層級安全性讓客戶能夠根據執行查詢之使用者的特性 (例如，群組成員資格或執行內容) 來控制資料庫資料表中的資料列存取。 如需詳細資訊，請參閱[資料列層級安全性](https://msdn.microsoft.com/library/dn765131)。
 
-### <a name="data-masking"></a>資料遮罩 
+### <a name="dynamic-data-masking"></a>動態資料遮罩 
 SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用者無法看見機密資料。 動態資料遮罩會自動探索 Azure SQL Database 中的可能敏感性資料，並提供可動作的建議來為這些欄位加上遮罩，盡量避免對應用程式層造成影響。 其運作方式為針對指定的資料庫欄位隱匿查詢結果集中的敏感性資料，而不變更資料庫中的資料。 如需詳細資訊，請參閱[開始使用 SQL Database 動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)，其可以用來限制敏感性資料的公開。
 
 ## <a name="proactive-monitoring"></a>主動監視
@@ -71,10 +83,7 @@ SQL Database 可藉由提供稽核和威脅偵測功能來保護您的資料。
 SQL Database 稽核會將資料庫事件記錄到 Azure 儲存體帳戶中的稽核記錄檔，藉此追蹤資料庫活動並協助您維護法規相符性。 稽核可讓您了解進行中的資料庫活動，以及分析和調查歷史活動，以找出潛在威脅或可疑的濫用和安全性違規。 如需其他資訊，請參閱[開始使用 SQL Database 稽核](sql-database-auditing.md)。  
 
 ### <a name="threat-detection"></a>威脅偵測
-威脅偵測會提供 Azure SQL Database 服務內建的額外安全情報層，此情報層可偵測到不尋常且有危害的資料庫存取或攻擊動作，藉此補充稽核的不足之處。 系統會警示您有關可疑活動、潛在弱點、SQL 插入式攻擊和異常資料庫存取模式。 您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，該警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。 每部伺服器的威脅偵測費用為每個月 $15 元。 前 60 天免費。 如需詳細資訊，請參閱 [開始使用 SQL Database 威脅偵測](sql-database-threat-detection.md)。
- 
-### <a name="data-masking"></a>資料遮罩 
-SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用者無法看見機密資料。 動態資料遮罩會自動探索 Azure SQL Database 中的可能敏感性資料，並提供可動作的建議來為這些欄位加上遮罩，盡量避免對應用程式層造成影響。 其運作方式為針對指定的資料庫欄位隱匿查詢結果集中的敏感性資料，而不變更資料庫中的資料。 如需詳細資訊，請參閱[開始使用 SQL Database 動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)
+威脅偵測會提供 Azure SQL Database 服務內建的額外安全情報層，此情報層可偵測到不尋常且有危害的資料庫存取或攻擊動作，藉此補充稽核的不足之處。 系統會警示您有關可疑活動、潛在弱點、SQL 插入式攻擊和異常資料庫存取模式。 您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，該警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。 每部伺服器的威脅偵測費用為每個月 $15 元。 前 60 天不收取任何費用。 如需詳細資訊，請參閱 [開始使用 SQL Database 威脅偵測](sql-database-threat-detection.md)。
  
 ## <a name="compliance"></a>法規遵循
 除了上述可協助您的應用程式符合各種安全性需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。 如需詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](https://azure.microsoft.com/support/trust-center/services/)的最新清單。

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合
 
@@ -32,7 +32,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="description"></a>描述：
+## <a name="description"></a>Description:
 
 使用您的 Microsoft Azure Active Directory 帳戶搭配 Atlassian Confluence 伺服器來啟用單一登入。 此方法可讓您的所有組織使用者使用 Azure AD 認證來登入 Confluence 應用程式。 此外掛程式使用 SAML 2.0 來進行同盟。
 
@@ -133,7 +133,6 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Confluence 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
- 
 
 4. 若要產生**中繼資料** URL，執行下列步驟︰
 
@@ -165,7 +164,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. 從 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=56503)下載外掛程式。 使用 [上傳附加元件] 功能表來手動上傳 Microsoft 所提供的外掛程式
+8. 從 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=56503)下載外掛程式。 使用 [上傳附加元件] 功能表來手動上傳 Microsoft 所提供的外掛程式。 外掛程式下載受到 [Microsoft 服務合約](https://www.microsoft.com/en-us/servicesagreement/)的規範。 
     
     ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 
@@ -235,7 +234,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="creating-a-confluence-saml-sso-by-microsoft-test-user"></a>建立 Confluence SAML SSO by Microsoft 測試使用者
 

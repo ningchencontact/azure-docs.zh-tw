@@ -3,23 +3,23 @@ title: "Azure 事件格線與 PowerShell 的自訂事件 | Microsoft Docs"
 description: "使用 Azure 事件格線和 PowerShell 來發佈主題，以及訂閱該事件。"
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 89c71194c2ef3c34b3356040c2e252fc09ba09c3
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 2d8fc892a91f0dfd4ba7a5c8561bcb222bf81965
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>使用 Azure PowerShell 和 事件格線建立和路由傳送自訂事件
 
-Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure PowerShell 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 不過，若要簡化這篇文章，您可將事件傳送至只會收集訊息的 URL。 使用名為 [RequestBin](https://requestb.in/) 的開放原始碼、第三方工具來建立此 URL。
+Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure PowerShell 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 不過，若要簡化這篇文章，您可將事件傳送至只會收集訊息的 URL。 使用 [RequestBin](https://requestb.in/) 或 [Hookbin](https://hookbin.com/) 提供的第三方工具來建立此 URL。
 
 >[!NOTE]
->**RequestBin** 是一個開放原始碼工具，不適用於高輸送量的使用方式。 在此使用工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
+>**RequestBin** 和 **Hookbin** 都不適用於高輸送量的使用方式。 這些工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
 
 當您完成時，您會看到事件資料已傳送至端點。
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>建立自訂主題
 
-主題會提供您張貼事件之使用者定義的端點。 下列範例可在您的資源群組中建立主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。 在預覽版本中，Event Grid 支援 **westus2** 和 **westcentralus** 位置。
+主題會提供您張貼事件之使用者定義的端點。 下列範例可在您的資源群組中建立主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
 
 ```powershell
 New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name <topic_name>
@@ -51,14 +51,14 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>建立訊息端點
 
-訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 是一個開放原始碼的第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/)，然後按一下 [建立 RequestBin]。  複製 bin URL，因為您在訂閱主題時需要用到它。
+訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/)，然後按一下 [建立 RequestBin]，或移至 [Hookbin](https://hookbin.com/) 並按一下 [建立新端點]。  複製 bin URL，因為您在訂閱主題時需要用到它。
 
 ## <a name="subscribe-to-a-topic"></a>訂閱主題
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，從 RequestBin 傳遞 URL 作為事件通知的端點。 以您訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<URL_from_RequestBin>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<topic_name>`，使用您稍早建立的值。
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，從 RequestBin 或 Hookbin 傳遞 URL 作為事件通知的端點。 以您訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<endpoint_URL>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<topic_name>`，使用您稍早建立的值。
 
 ```powershell
-New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name> -Endpoint <URL_from_RequestBin> -ResourceGroupName gridResourceGroup -TopicName <topic_name>
+New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name> -Endpoint <endpoint_URL> -ResourceGroupName gridResourceGroup -TopicName <topic_name>
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>將事件傳送至主題
@@ -76,7 +76,7 @@ $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name 
 $eventID = Get-Random 99999
 $eventDate = Get-Date -Format s
 
-$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"}}]"
+$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"},`"dataVersion`": `"1.0`"}]"
 ```
 
 如果您檢視 `$body`，您可以看到完整事件。 JSON 的 `data` 元素是您的事件承載。 任何語式正確的 JSON 都可以進入這個欄位。 您也可以使用主體欄位進行進階路由傳送或篩選。
@@ -87,18 +87,20 @@ $body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 瀏覽至您稍早建立的 RequestBin URL。 或者，按一下已開啟 RequestBin 瀏覽器中的重新整理。 您會看到剛傳送的事件。
+您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 瀏覽至您稍早建立的端點 URL。 或者，按一下已開啟瀏覽器中的重新整理。 您會看到剛傳送的事件。
 
 ```json
 [{
   "id": "1807",
   "eventType": "recordInserted",
   "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
+  "eventTime": "2018-01-25T15:58:13",
   "data": {
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

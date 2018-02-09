@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Windows 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -35,7 +35,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 > * 建置及封裝 Service Fabric 應用程式
 > * 將容器應用程式部署至 Azure
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶 (您可以建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))。
 * 執行下列項目的開發電腦︰
   * Visual Studio 2015 或 Visual Studio 2017。
@@ -79,24 +79,44 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 本文結尾會提供完整的 ApplicationManifest.xml 範例檔案。
 
 ## <a name="create-a-cluster"></a>建立叢集
-若要將應用程式部署到 Azure 中的叢集，您可以選擇建立自己的叢集，或使用合作對象叢集。
+若要將應用程式部署到 Azure 中的叢集，您可以加入合作對象叢集，或[在 Azure 上建立自己的叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 
-合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。  
+合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 叢集會針對節點對節點和用戶端對節點安全性，使用單一的自我簽署憑證。 
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
+登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 後續步驟中會使用該憑證和 [連線端點] 值。
 
-記下您在下面步驟中使用的連線端點。  
+![PFX 和連線端點](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+在 Windows 電腦上，將 PFX 安裝在 *CurrentUser\My* 憑證存放區中。
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+請記住指紋以在後續步驟中使用。  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>使用 Visual Studio 將應用程式部署至 Azure
 應用程式備妥後，即可直接從 Visual Studio 將其部署到叢集。
 
 以滑鼠右鍵按一下 [方案總管] 中的 **MyFirstContainer**，並選擇 [發佈]。 [發行] 對話方塊隨即出現。
 
-![[發佈] 對話方塊](./media/service-fabric-quickstart-dotnet/publish-app.png)
+將合作對象叢集頁面上的 [連線端點] 複製到 [連線端點] 欄位。 例如： `zwin7fh14scd.westus.cloudapp.azure.com:19000`。 按一下 [進階連線參數] 並填入下列資訊。  *FindValue* 和 *ServerCertThumbprint* 值必須符合前一個步驟中安裝的憑證指紋。 
 
-在 [連線端點] 欄位中輸入叢集的連線端點。 註冊合作對象叢集時，會在瀏覽器中會提供連線端點，例如 `winh1x87d1d.westus.cloudapp.azure.com:19000`。  按一下 [發行]，隨即部署應用程式。
+![[發佈] 對話方塊](./media/service-fabric-quickstart-containers/publish-app.png)
 
-開啟瀏覽器並瀏覽至 http://winh1x87d1d.westus.cloudapp.azure.com:80 。 您應會看到 IIS 預設網頁：![IIS 預設網頁][iis-default]
+按一下 [發佈] 。
+
+叢集中的每個應用程式都必須有一個唯一的名稱。  合作對象叢集是公用的共用環境，可能會與現有的應用程式發生衝突。  如果發生名稱衝突，請將 Visual Studio 專案重新命名並再次部署。
+
+開啟瀏覽器並瀏覽至 http://zwin7fh14scd.westus.cloudapp.azure.com:80。 您應會看到 IIS 預設網頁：![IIS 預設網頁][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>完整範例 Service Fabric 應用程式和服務資訊清單
 以下是本快速入門中使用的完整服務和應用程式資訊清單。
@@ -167,6 +187,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="review-usage-and-costs"></a>檢閱使用量和成本
 
@@ -29,7 +29,7 @@ Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨�
 
 ## <a name="open-the-cloudyn-portal"></a>開啟 Cloudyn 入口網站
 
-您可以在 Cloudyn 入口網站中檢閱所有使用量和成本。 從 Azure 入口網站開啟 Cloudyn 入口網站，或瀏覽至 https://azure.cloudyn.com 並登入。
+您可以在 Cloudyn 入口網站中檢閱所有使用量和成本。 從 Azure 入口網站開啟 Cloudyn 入口網站，或巡覽至 https://azure.cloudyn.com 並登入。
 
 ## <a name="track-usage-and-cost-trends"></a>追蹤使用量和成本趨勢
 

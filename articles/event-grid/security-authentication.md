@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -24,7 +24,7 @@ Azure Event Grid 有三種驗證方法：
 
 ## <a name="webhook-event-delivery"></a>WebHook 事件傳遞
 
-Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每次一有準備好傳遞的新事件，Event Grid Webhook 就會對設定的 HTTP 端點植入 HTTP 要求，在本文內夾帶事件。
+Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每次一有準備好傳遞的新事件，Event Grid Webhook 就會對設定的 HTTP 端點傳送 HTTP 要求，在本文內夾帶事件。
 
 當您使用 Event Grid 註冊自己的 WebHook 端點時，Event Grid 會將帶有簡單驗證碼的 POST 要求傳送給您，藉以證明端點的所有權。 您的應用程式需要回傳驗證碼作為回應。 Event Grid 不會將未經驗證的事件傳遞至 WebHook 端點。
 
@@ -46,7 +46,9 @@ Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每�
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2017-08-06T22:09:30.740323Z"
+  "eventTime": "2018-01-25T22:12:19.4556811Z",
+  "metadataVersion": "1",
+  "dataVersion": "1"
 }]
 ```
 

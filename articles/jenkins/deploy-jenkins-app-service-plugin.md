@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/22/2017
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> * 設定部署 Web 應用程式透過 Git 或 FTP 的 Jenkins。
+> * 設定 Jenkins 以透過 Git 或 FTP 來部署 Web 應用程式。
 > * 設定 Jenkins 以部署適用於容器的 Web Apps。
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>建立及設定 Jenkins 執行個體
@@ -64,14 +64,14 @@ sudo apt-get install -y maven
 3. 若要新增 Microsoft Azure 服務主體，請選取 [新增認證]。 為 [訂用帳戶 ID]、[用戶端識別碼]、[用戶端密碼] 及 [OAuth 2.0 權杖端點] 欄位輸入值。 將 [識別碼] 欄位設定為 **mySp**。 我們會在本文的後續步驟中用到此識別碼。
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>設定部署 Web 應用程式檔案上傳的 Jenkins
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>設定 Jenkins 以透過上傳檔案來部署應用程式
 
 若要將專案部署到 Web Apps，您可以使用 Git 或 FTP 來上傳組建成品 (例如以 Java 撰寫的 WAR 檔案)。
 
 在於 Jenkins 中設定作業之前，您必須要有 Azure App Service 方案和 Web 應用程式，才能執行 Java 應用程式。
 
 
-1. 使用 `az appservice plan create` [Azure CLI 命令](/cli/azure/appservice/plan#create)來建立搭配**免費**定價層的 Azure App Service 方案。 App Service 方案會定義用來裝載您應用程式的實體資源。 指派給 App Service 方案的所有應用程式會共用這些資源。 共用資源可協助您在裝載多個應用程式時節省成本。
+1. 使用 `az appservice plan create` [Azure CLI 命令](/cli/azure/appservice/plan#az_appservice_plan_create)來建立搭配**免費**定價層的 Azure App Service 方案。 App Service 方案會定義用來裝載您應用程式的實體資源。 指派給 App Service 方案的所有應用程式會共用這些資源。 共用資源可協助您在裝載多個應用程式時節省成本。
 2. 建立 Web 應用程式。 您可以使用 [Azure 入口網站](/azure/app-service-web/web-sites-configure) 或下列 `az` Azure CLI 命令：
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -104,7 +104,7 @@ sudo apt-get install -y maven
 8. 如果您想要部署到生產環境以外的位置，您也可以設定 [位置] 名稱。
 9. 儲存專案並建置該專案。 建置完成時，您的 Web 應用程式就會部署到 Azure。
 
-### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>使用 Jenkins 管線檔案上傳部署 Web 應用程式
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>透過使用 Jenkins 管線上傳檔案來部署 Web 應用程式
 
 Azure App Service Jenkins 外掛程式是符合管線需求的外掛程式。 您可以參考以下 GitHub 儲存機制中的範例。
 

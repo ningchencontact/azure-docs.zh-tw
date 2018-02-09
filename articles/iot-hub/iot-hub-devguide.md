@@ -12,17 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中樞開發人員指南
 
-Azure IoT 中樞是一項完全受管理的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。
+Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。
 
 Azure IoT 中樞可提供您︰
 
@@ -42,10 +42,10 @@ Azure IoT 中樞可提供您︰
   * [從 IoT 中樞傳送雲端到裝置訊息][devguide-messages-c2d]。
   * [建立及讀取 IoT 中樞訊息][devguide-format]。
 * [從裝置上傳檔案][devguide-upload]說明如何從裝置上傳檔案。 本文也包含上傳程序可傳送之通知等主題的相關資訊。
-* [在 IoT 中樞管理裝置身分識別][devguide-identities]說明各 IoT 中樞的身分識別登錄所儲存的資訊，以及您可以存取和修改資訊的方式。
+* [管理 IoT 中樞中的裝置身分識別][devguide-identities]說明每個 IoT 中樞的身分識別登錄所儲存的資訊。 本文也說明如何存取和修改該資訊。
 * [控制 IoT 中樞的存取權][devguide-security]說明用來將存取權授與裝置和雲端元件之 IoT 中樞功能的安全性模型。 本文包含使用權杖和 X.509 憑證的相關資訊，以及您可授與之權限的詳細資料。
-* [使用裝置對應項同步處理狀態和組態][devguide-device-twins]說明*裝置對應項*概念和其所公開的功能，例如同步處理裝置與其裝置對應項。 本文包含裝置對應項中儲存之資料的相關資訊。
-* [叫用裝置上的直接方法][devguide-directmethods]說明直接方法的生命週期，以及如何從後端應用程式叫用裝置上方法及處理裝置上直接方法的相關資訊。
+* [使用裝置對應項來同步狀態和設定][devguide-device-twins]說明「裝置對應項」概念。 本文也說明裝置對應項所公開的功能，例如將裝置與其裝置對應項同步。 本文包含裝置對應項中儲存之資料的相關資訊。
+* [在裝置上叫用直接方法][devguide-directmethods]說明直接方法的生命週期。 本文說明如何從後端應用程式在裝置上叫用方法，以及在裝置上處理直接方法。
 * [排程多個裝置上的作業][devguide-jobs]說明如何排程多個裝置上的作業。 本文說明如何將執行工作的作業提交為執行直接方法，使用裝置對應項更新裝置。 它也說明如何查詢作業的狀態。
 * [參考 - 選擇通訊協定][devguide-protocol]說明 IoT 中樞進行裝置通訊所支援的通訊協定，並列出應開啟的連接埠。
 * [參考 - IoT 中樞端點][devguide-endpoints]說明每個 IoT 中樞針對執行階段和管理作業所公開的各種端點。 本文也說明如何在 IoT 中樞中建立額外端點，以及如何使用現場閘道器啟用非標準案例中對 IoT 中樞端點的連線能力。

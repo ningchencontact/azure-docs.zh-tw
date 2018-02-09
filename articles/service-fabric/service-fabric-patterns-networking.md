@@ -572,7 +572,7 @@ DnsSettings              : {
             },
     ```
 
-6. 在 `Microsoft.Compute/virtualMachineScaleSets` 資源的 `networkProfile` 上，新增內部後端位址集區︰
+6. 在 `Microsoft.Compute/virtualMachineScaleSets` 資源的 `networkProfile` 上，新增內部後端位址集區:
 
     ```
     "loadBalancerBackendAddressPools": [

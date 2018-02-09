@@ -2,21 +2,22 @@
 title: "Azure Stack 資料中心整合 - 安全性"
 description: "了解如何將 Azure Stack 安全性與您的資料中心安全性整合"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure Stack 資料中心整合 - 安全性
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 Azure Stack 在設計和建置時，已將安全性考慮進去。 Azure Stack 是鎖定的系統，因此不支援安裝軟體安全性代理程式。
 
@@ -52,7 +53,7 @@ Azure Stack 會收集基礎結構角色和縮放單位節點的作業系統和�
 
    ![連接儲存體](media/azure-stack-integrate-security/connect-storage.png)
 
-8. 按一下 [下一步] 。
+8. 按 [下一步] 。
 9. 在 [連結外部儲存體] 頁面上：
 
    a. 輸入帳戶名稱 **frphealthaccount**。
@@ -93,4 +94,4 @@ Syslog 目的地位址是針對部署所收集的選擇性參數，但您也可�
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure Stack 資料中心整合 - 發佈端點](azure-stack-integrate-endpoints.md)
+[服務原則](azure-stack-servicing-policy.md)

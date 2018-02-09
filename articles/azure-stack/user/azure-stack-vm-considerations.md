@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 虛擬機器是 Azure Stack 所提供的隨選、可調整計算資源。 當您使用虛擬機器時，必須了解 Azure 與 Azure Stack 中所提供功能之間的差異。 此文章提供 Azure Stack 中虛擬機器及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
 
@@ -59,9 +59,7 @@ Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一�
 
 ## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能
 
- Azure Stack 支援下列虛擬機器擴充功能版本：
-
-![VM 擴充功能](media/azure-stack-vm-considerations/vm-extensions.png)
+ Azure Stack 包含一小組延伸模組。 您可以透過 Marketplace 摘要整合取得更新和額外的延伸模組。
 
 使用下列 PowerShell 指令碼，來取得您 Azure Stack 環境中所提供虛擬機器擴充功能的清單：
 

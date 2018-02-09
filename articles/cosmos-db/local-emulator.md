@@ -4,7 +4,7 @@ description: "您也可以免費使用 Azure Cosmos DB 模擬器在本機開發�
 services: cosmos-db
 documentationcenter: 
 keywords: "Azure Cosmos DB 模擬器"
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境做為開發之用。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。
+
+> [!NOTE]
+> 模擬器中的資料總管目前只完整支援 SQL API 集合和 MongoDB 集合。 不會完整支援資料表、Graph 和 Cassandra 容器。 
 
 本文涵蓋下列工作： 
 
@@ -62,9 +65,6 @@ Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環�
 Azure Cosmos DB 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 它支援與 Azure Cosmos DB 完全相同的功能，包括支援建立和查詢 JSON 文件、佈建和擴充集合，以及執行預存程序和觸發程序。 您可以使用 Azure Cosmos DB 模擬器來開發及測試應用程式，並且只需對 Azure Cosmos DB 的連接端點進行單一組態變更，就能將它們部署至全球規模的 Azure。
 
 雖然我們已建立實際 Azure Cosmos DB 服務的高逼真度本機模擬，但是 Azure Cosmos DB 模擬器的實作是不同的服務。 例如，Azure Cosmos DB 模擬器會使用標準的作業系統元件，例如使用本機檔案系統以獲得持續性，以及使用 HTTPS 通訊協定堆疊進行連線。 這表示，依賴 Azure 基礎結構的某些功能，例如全域複寫、讀取/寫入的單一數字毫秒延遲，以及可調式的一致性層級等，都無法透過 Azure Cosmos DB 模擬器使用。
-
-> [!NOTE]
-> 在此階段資料總管在模擬器中只支援 SQL API 集合和 MongoDB 集合建立。 模擬器中的資料總管目前不支援建立資料表和圖表。 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>模擬器和服務之間的差異 
 因為 Azure Cosmos DB 模擬器是在本機開發人員工作站上提供一個執行的模擬環境，所以模擬器和雲端 Azure Cosmos DB 帳戶之間會有一些功能上的差異：
@@ -136,7 +136,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 若是第一次啟用網路存取，使用者應該關閉模擬器，並且刪除模擬器的資料目錄 (C:\Users\user_name\AppData\Local\CosmosDBEmulator)。
 
 ## <a name="developing-with-the-emulator"></a>使用模擬器進行開發
-在桌面上執行 Azure Cosmos DB 模擬器之後，就可以使用任何支援的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](/rest/api/documentdb/) 與模擬器互動。 Azure Cosmos DB 模擬器也包含內建的資料檔案總管，可讓您建立集合，用於 SQL MongoDB 應用程式開發介面，以及檢視和編輯文件，而不需要撰寫任何程式碼。   
+在桌面上執行 Azure Cosmos DB 模擬器之後，就可以使用任何支援的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](/rest/api/documentdb/) 與模擬器互動。 Azure Cosmos DB 模擬器也包含內建的資料總管，可讓您建立 SQL 和 MongoDB API 集合、檢視及編輯文件，而不需要撰寫任何程式碼。   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -404,6 +404,14 @@ powershell .\importcert.ps1
 2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)] 結果。
 3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器] 並將其選取，按一下 [解除安裝]，然後確認並再按一下 [解除安裝]。
 4. 解除安裝應用程式時，瀏覽至 C:\Users\<user>\AppData\Local\CosmosDBEmulator，然後刪除資料夾。 
+
+## <a name="change-list"></a>變更清單
+
+以滑鼠右鍵按一下工作列上的本機模擬器圖示，然後按一下關於功能表項目，以檢查版本號碼。
+
+### <a name="120-released-on-january-26-2018"></a>已於 2018 年 1 月 26 日發行 1.20 版
+
+* 依預設已啟用 MongoDB 彙總管線。
 
 ## <a name="next-steps"></a>後續步驟
 

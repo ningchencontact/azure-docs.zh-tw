@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: wesmc
-ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98750c4f8d2449fb4fdf68b03a00d846e636a93a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>如何使用 Redis 快取建立 Web 應用程式
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-本教學課程示範如何使用 Visual Studio 2017，在 Azure App Service 的 Web 應用程式中建立和部署 ASP.NET Web 應用程式。 此範例應用程式會顯示資料庫中的隊伍統計資料清單，並示範各種使用 Azure Redis 快取在快取中儲存和擷取資料的方式。 完成本教學課程時您將會擁有執行中的 Web 應用程式，其可對資料庫進行讀取和寫入、已使用 Azure Redis 快取進行最佳化，並裝載在 Azure 中。
+本教學課程示範如何使用 Visual Studio 2017，在 Azure App Service 的 Web 應用程式中建立和部署 ASP.NET Web 應用程式。 此範例應用程式會顯示資料庫中的隊伍統計資料清單，並示範各種使用 Azure Redis 快取在快取中儲存和擷取資料的方式。 完成本教學課程時，您將擁有執行中的 Web 應用程式，其可對資料庫進行讀取和寫入、已使用 Azure Redis 快取進行最佳化，並裝載在 Azure 中。
 
-您將了解：
+您會了解：
 
 * 如何在 Visual Studio 中建立 ASP.NET MVC 5 Web 應用程式。
 * 如何使用 Entity Framework 從資料庫存取資料。
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/24/2018
 * 如何使用 Visual Studio 將應用程式發佈至 Azure。
 
 ## <a name="prerequisites"></a>先決條件
-若要完成本教學課程，您必須具備下列必要條件。
+若要完成本教學課程，您必須具備下列必要條件：
 
 * [Azure 帳戶](#azure-account)
 * [Visual Studio 2017 (含 Azure SDK for .NET)](#visual-studio-2017-with-the-azure-sdk-for-net)
@@ -69,13 +69,13 @@ ms.lasthandoff: 01/24/2018
 
     確保已針對 [驗證] 設定指定 [不需要驗證]。 視您的 Visual Studio 版本而言，預設值可能會設定為其他項目。 若要加以變更，請按一下 [變更驗證]，然後選取 [不需要驗證]。
 
-    如果您密切注意 Visual Studio 2015，請清除 [雲端中的主機] 核取方塊。 在本教學課程的後續步驟中，您將會[佈建 Azure 資源](#provision-the-azure-resources)和[發佈應用程式至 Azure](#publish-the-application-to-azure)。 如需在保持核取 [雲端中的主機]  的狀態下從 Visual Studio 佈建 App Service Web 應用程式的範例，請參閱 [使用 ASP.NET 和 Visual Studio 在 Azure App Service 中開始使用 Web Apps](../app-service/app-service-web-get-started-dotnet.md)。
+    如果您密切注意 Visual Studio 2015，請清除 [雲端中的主機] 核取方塊。 在本教學課程的後續步驟中，您會[佈建 Azure 資源](#provision-the-azure-resources)和[發佈應用程式至 Azure](#publish-the-application-to-azure)。 如需在保持核取 [雲端中的主機]  的狀態下從 Visual Studio 佈建 App Service Web 應用程式的範例，請參閱 [使用 ASP.NET 和 Visual Studio 在 Azure App Service 中開始使用 Web Apps](../app-service/app-service-web-get-started-dotnet.md)。
    
     ![選取專案範本][cache-select-template]
 4. 按一下 [確定]  以建立專案。
 
 ## <a name="create-the-aspnet-mvc-application"></a>建立 ASP.NET MVC 應用程式
-在本教學課程的這一節當中，您將會建立可從資料庫讀取並顯示隊伍統計資料的基本應用程式。
+在本教學課程的這一節當中，您會建立可從資料庫讀取並顯示隊伍統計資料的基本應用程式。
 
 * [新增 Entity Framework NuGet 套件](#add-the-entity-framework-nuget-package)
 * [新增模型](#add-the-model)
@@ -84,8 +84,8 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="add-the-entity-framework-nuget-package"></a>新增 Entity Framework NuGet 套件
 
-1. 按一下 [NuGet 套件管理員]、[工具] 功能表中的 [套件管理員主控台]。
-2. 從 [Package Manager Console] 視窗中執行下列命令。
+1. 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。
+2. 從 [套件管理員主控台] 視窗中執行下列命令：
     
     ```
     Install-Package EntityFramework
@@ -100,7 +100,7 @@ ms.lasthandoff: 01/24/2018
 2. 針對類別名稱輸入 `Team`，然後按一下 [新增]。
    
     ![新增模型類別][cache-model-add-class-dialog]
-3. 將 `Team.cs` 檔案頂端的 `using` 陳述式替換為下列 `using` 陳述式。
+3. 將 `Team.cs` 檔案頂端的 `using` 陳述式替換為下列 `using` 陳述式：
 
     ```csharp
     using System;
@@ -185,15 +185,15 @@ ms.lasthandoff: 01/24/2018
 1. 在 [方案總管] 中，連按兩下 [web.config] 來加以開啟。
    
     ![Web.config][cache-web-config]
-2. 新增下列 `connectionStrings` 區段。 連接字串的名稱必須符合 Entity Framework 資料庫內容類別的名稱，亦即 `TeamContext`。
+2. 將下列 `connectionStrings` 區段新增至 `configuration` 區段中。 連接字串的名稱必須符合 Entity Framework 資料庫內容類別的名稱，亦即 `TeamContext`。
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
-    您可以新增 `connectionStrings` 區段，以便它遵照如下列範例所示的 `configSections`。
+    在 `configuration` 區段中，新的 `connectionStrings` 區段緊接在 `configSections` 後面，如下列範例所示：
 
     ```xml
     <configuration>
@@ -224,7 +224,7 @@ ms.lasthandoff: 01/24/2018
 5. 在 [方案總管] 中展開 [Global.asax]，然後按兩下 [Global.asax.cs] 來加以開啟。
    
     ![Global.asax.cs][cache-global-asax]
-6. 在檔案頂端的其他 `using` 陳述式底下新增下列兩個 `using` 陳述式。
+6. 在檔案頂端的其他 `using` 陳述式底下新增下列兩個 `using` 陳述式：
 
     ```csharp
     using System.Data.Entity;
@@ -232,7 +232,7 @@ ms.lasthandoff: 01/24/2018
     ```
 
 
-1. 在 `Application_Start` 方法的結尾新增下列程式碼行。
+1. 在 `Application_Start` 方法的結尾新增下列程式碼行：
 
     ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
@@ -242,7 +242,7 @@ ms.lasthandoff: 01/24/2018
 1. 在 [方案總管] 中展開 `App_Start`，然後按兩下 `RouteConfig.cs`。
    
     ![RouteConfig.cs][cache-RouteConfig-cs]
-2. 在 `RegisterRoutes` 方法的下列程式碼中，將 `controller = "Home"` 取代為 `controller = "Teams"`，如下列範例所示。
+2. 在 `RegisterRoutes` 方法的下列程式碼中，將 `controller = "Home"` 替換為 `controller = "Teams"`，如下列範例所示：
 
     ```csharp
     routes.MapRoute(
@@ -257,7 +257,7 @@ ms.lasthandoff: 01/24/2018
 1. 在 [方案總管] 中依序展開 [檢視] 資料夾和 [共用] 資料夾，然後按兩下 **_Layout.cshtml**。 
    
     ![_Layout.cshtml][cache-layout-cshtml]
-2. 變更 `title` 元素的內容，並將 `My ASP.NET Application` 取代為 `Contoso Team Stats`，如下列範例所示。
+2. 變更 `title` 元素的內容，並將 `My ASP.NET Application` 替換為 `Contoso Team Stats`，如下列範例所示：
 
     ```html
     <title>@ViewBag.Title - Contoso Team Stats</title>
@@ -275,7 +275,7 @@ ms.lasthandoff: 01/24/2018
 ![起始應用程式][cache-starter-application]
 
 ## <a name="configure-the-application-to-use-redis-cache"></a>設定應用程式以使用 Redis 快取
-在教學課程的這一節當中，您將會設定範例應用程式，讓其使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 快取用戶端在 Azure Redis 快取執行個體中儲存和擷取 Contoso 的隊伍統計資料。
+在教學課程的這一節當中，您會設定範例應用程式，讓其使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 快取用戶端在 Azure Redis 快取執行個體中儲存和擷取 Contoso 的隊伍統計資料。
 
 * [設定應用程式以使用 StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 * [更新 TeamsController 類別以從快取或資料庫中傳回結果](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -283,8 +283,8 @@ ms.lasthandoff: 01/24/2018
 * [更新用來使用快取的隊伍索引檢視](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>設定應用程式以使用 StackExchange.Redis
-1. 若要在 Visual Studio 中使用 StackExchange.Redis NuGet 套件來設定用戶端應用程式，請按一下 [工具] 功能表中的 [NuGet 套件管理員]、[套件管理員主控台]。
-2. 從 `Package Manager Console` 視窗執行下列命令。
+1. 若要在 Visual Studio 中使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet 套件來設定用戶端應用程式，請按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。
+2. 從 `Package Manager Console` 視窗執行下列命令：
     
     ```
     Install-Package StackExchange.Redis
@@ -294,14 +294,14 @@ ms.lasthandoff: 01/24/2018
 3. 在 [方案總管] 中展開 [控制器] 資料夾，然後按兩下 [TeamsController.cs] 來加以開啟。
    
     ![隊伍控制器][cache-teamscontroller]
-4. 在 **TeamsController.cs** 中加入下列兩個 `using` 陳述式。
+4. 在 **TeamsController.cs** 中新增下列兩個 `using` 陳述式：
 
     ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
-5. 將下列兩個屬性加入至 `TeamsController` 類別。
+5. 將下列兩個屬性新增至 `TeamsController` 類別：
 
     ```csharp   
     // Redis Connection string info
@@ -320,16 +320,17 @@ ms.lasthandoff: 01/24/2018
     }
     ```
 
-6. 在您的電腦上建立名為 `WebAppPlusCacheAppSecrets.config` 的檔案，並將它放在範例應用程式的原始程式碼不會簽入的位置 (如果您決定在某處簽入檔案)。 在此範例中，`AppSettingsSecrets.config` 檔案會放在 `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`。
+6. 在您的電腦上建立名為 `WebAppPlusCacheAppSecrets.config` 的檔案，並將它放在範例應用程式的原始程式碼不會簽入的位置 (如果您決定在某處簽入檔案)。 在此範例中，`AppSettingsSecrets.config` 檔案位於 `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`。
    
-    編輯 `WebAppPlusCacheAppSecrets.config` 檔案，並加入下列內容。 如果您是在本機執行此應用程式，這項資訊將會用來連線到您的 Azure Redis 快取執行個體。 在本教學課程稍後，您將會佈建 Azure Redis 快取執行個體，並更新快取名稱和密碼。 如果您不打算在本機執行範例應用程式，由於當您部署至 Azure 時，此應用程式會從 Web 應用程式的應用程式設定擷取快取連接資訊，而不是從這個檔案擷取，因此您可以將建立此檔案的步驟和參照此檔案的後續步驟略過。 由於 `WebAppPlusCacheAppSecrets.config` 不會隨著您的應用程式部署至 Azure，因此除非您要在本機執行此應用程式，否則您不需要它。
+    編輯 `WebAppPlusCacheAppSecrets.config` 檔案，並新增下列內容：
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
+    如果您是在本機執行此應用程式，這項資訊將會用來連線到您的 Azure Redis 快取執行個體。 在本教學課程稍後，您將會佈建 Azure Redis 快取執行個體，並更新快取名稱和密碼。 如果您不打算在本機執行範例應用程式，由於當您部署至 Azure 時，此應用程式會從 Web 應用程式的應用程式設定擷取快取連接資訊，而不是從這個檔案擷取，因此您可以將建立此檔案的步驟和參照此檔案的後續步驟略過。 由於 `WebAppPlusCacheAppSecrets.config` 不會隨著您的應用程式部署至 Azure，因此除非您要在本機執行此應用程式，否則您不需要它。
 
 1. 在 [方案總管] 中，連按兩下 [web.config] 來加以開啟。
    
@@ -338,7 +339,7 @@ ms.lasthandoff: 01/24/2018
    
    * 取代前： `<appSettings>`
    * 取代後： ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    ASP.NET 執行階段會將外部檔案的內容與 `<appSettings>` 元素的標記合併。 如果找不到指定的檔案，則執行階段會略過檔案屬性。 您的密碼 (您的快取的連接字串) 不會包含在應用程式的原始程式碼中。 當您將 Web 應用程式部署至 Azure，將不會部署 `WebAppPlusCacheAppSecrests.config` 檔案 (這正是您要的結果)。 有許多方式可在 Azure 中指定這些密碼，在本教學課程中，當您在後續的教學課程步驟中 [佈建 Azure 資源](#provision-the-azure-resources) 時，系統會自動為您設定這些密碼。 如需在 Azure 中使用密碼的詳細資訊，請參閱 [將密碼和其他機密資料部署到 ASP.NET 和 Azure App Service 的最佳作法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>更新 TeamsController 類別以從快取或資料庫中傳回結果
@@ -349,14 +350,14 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-1. 在 `TeamsController.cs` 檔案頂端新增下列 `using` 陳述式，和其他 `using` 陳述式放在一起。
+1. 在 `TeamsController.cs` 檔案頂端新增下列 `using` 陳述式，和其他 `using` 陳述式放在一起：
 
     ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
-2. 將目前的 `public ActionResult Index()` 方法實作替換為下列實作。
+2. 將目前的 `public ActionResult Index()` 方法實作替換為下列實作：
 
     ```csharp
     // GET: Teams
@@ -576,7 +577,7 @@ ms.lasthandoff: 01/24/2018
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>更新用來使用快取的建立、編輯和刪除方法
 此範例進行過程所產生的樣板程式碼包括用來新增、編輯和刪除隊伍的方法。 每當您加入、編輯或移除隊伍時，快取中的資料就會變得過時。 在本節中，您將會修改這三種方法來清除已快取的隊伍，讓快取不會與資料庫失去同步。
 
-1. 瀏覽至 `TeamsController` 類別中的 `Create(Team team)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示。
+1. 瀏覽至 `TeamsController` 類別中的 `Create(Team team)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示：
 
     ```csharp
     // POST: Teams/Create
@@ -601,7 +602,7 @@ ms.lasthandoff: 01/24/2018
     ```
 
 
-1. 瀏覽至 `TeamsController` 類別中的 `Edit(Team team)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示。
+1. 瀏覽至 `TeamsController` 類別中的 `Edit(Team team)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示：
 
     ```csharp
     // POST: Teams/Edit/5
@@ -625,7 +626,7 @@ ms.lasthandoff: 01/24/2018
     ```
 
 
-1. 瀏覽至 `TeamsController` 類別中的 `DeleteConfirmed(int id)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示。
+1. 瀏覽至 `TeamsController` 類別中的 `DeleteConfirmed(int id)` 方法。 在 `ClearCachedTeams` 方法中新增呼叫，如下列範例所示：
 
     ```csharp
     // POST: Teams/Delete/5
@@ -648,7 +649,7 @@ ms.lasthandoff: 01/24/2018
 1. 在 [方案總管] 中依序展開 [檢視] 資料夾和 [隊伍] 資料夾，然後按兩下 [Index.cshtml]。
    
     ![Index.cshtml][cache-views-teams-index-cshtml]
-2. 在檔案頂端附近尋找下列段落元素。
+2. 在檔案頂端附近尋找下列段落元素：
    
     ![動作資料表][cache-teams-index-table]
    
@@ -686,7 +687,7 @@ ms.lasthandoff: 01/24/2018
     ```
 
 
-1. 捲動至 **Index.cshtml** 檔案底部並新增下列 `tr` 元素，使其成為檔案中最後一個資料表內的最後一個資料列。
+1. 捲動至 **Index.cshtml** 檔案底部並新增下列 `tr` 元素，使其成為檔案中最後一個資料表內的最後一個資料列：
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -698,13 +699,13 @@ ms.lasthandoff: 01/24/2018
 2. 按 **F6** 來建置專案。
 
 ## <a name="provision-the-azure-resources"></a>佈建 Azure 資源
-若要在 Azure 中裝載您的應用程式，您必須先佈建應用程式所需的 Azure 服務。 本教學課程中的範例應用程式會使用下列 Azure 服務。
+若要在 Azure 中裝載您的應用程式，您必須先佈建應用程式所需的 Azure 服務。 本教學課程中的範例應用程式會使用下列 Azure 服務：
 
 * Azure Redis 快取
 * App Service Web 應用程式
 * SQL Database
 
-若要在您選擇的新的或現有的資源群組部署這些服務，請按一下下面的 [部署至 Azure]  按鈕。
+若要在您選擇的新建或現有資源群組部署這些服務，請按一下下面的 [部署至 Azure] 按鈕：
 
 [![部署至 Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
@@ -758,7 +759,7 @@ ms.lasthandoff: 01/24/2018
    
     ![已新增快取][cache-added-to-application]
 
-下表描述範例應用程式中的每個動作連結。
+下表說明範例應用程式中的每個動作連結：
 
 | 動作 | 說明 |
 | --- | --- |
@@ -804,11 +805,11 @@ ms.lasthandoff: 01/24/2018
 一旦您選取或建立了要使用的快取，請瀏覽至 Azure 入口網站中的快取，並擷取快取的[主機名稱](cache-configure.md#properties)和[存取金鑰](cache-configure.md#access-keys)。 如需相關指示，請參閱 [設定 Redis 快取設定](cache-configure.md#configure-redis-cache-settings)。
 
 1. 使用您選擇的編輯器開啟本教學課程的[設定應用程式以使用 Redis 快取](#configure-the-application-to-use-redis-cache)步驟期間建立的 `WebAppPlusCacheAppSecrets.config` 檔案。
-2. 編輯 `value` 屬性，並將 `MyCache.redis.cache.windows.net` 取代為快取的[主機名稱](cache-configure.md#properties)，然後將快取的[主要或次要金鑰](cache-configure.md#access-keys)指定為密碼。
+2. 編輯 `value` 屬性，並將 `YourCacheName.redis.cache.windows.net` 替換為快取的[主機名稱](cache-configure.md#properties)，然後將 `YourAccessKey` 替換為快取的[主要或次要金鑰](cache-configure.md#access-keys)以作為密碼。
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 

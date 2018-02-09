@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
-Azure SQL database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料庫可靠地執行 T-SQL 指令碼，同時自動重試並提供最終完成保證。 如需有關彈性資料庫作業功能的詳細資訊，請參閱[彈性作業](sql-database-elastic-jobs-overview.md)。
+Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料庫可靠地執行 T-SQL 指令碼，同時自動重試並提供最終完成保證。 如需有關彈性資料庫作業功能的詳細資訊，請參閱[彈性作業](sql-database-elastic-jobs-overview.md)。
 
 本文會延伸[彈性資料庫工具入門](sql-database-elastic-scale-get-started.md)中可找到的範例。 完成時，您會了解如何建立和管理作業，該作業管理一組相關資料庫。 您不需要使用「彈性延展」工具，就能善用彈性工作的優點。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用範例應用程式建立分區對應管理員

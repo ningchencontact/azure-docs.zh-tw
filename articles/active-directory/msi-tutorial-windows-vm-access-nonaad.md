@@ -3,21 +3,21 @@ title: "使用 Windows VM MSI 存取 Azure Key Vault"
 description: "此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Key Vault 的程序。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 074cfd9ab478c977eb8ae0f5b97aafc2767ee4e7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Key Vault 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 > * 將您的 VM 存取權授與 Key Vault 中儲存的祕密 
 > * 使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的祕密 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-此 Node.js 教學課程會示範如何使用 Azure Cosmos DB 和 SQL API 來儲存及存取資料從 Node.js Express 應用程式裝載於 Azure 網站上。 您會建置一個可供建立、擷取及完成工作的簡單網頁型工作管理應用程式 (待辦事項應用程式)。 在 Azure Cosmos DB 中，這些工作會儲存為 JSON 文件。 本教學課程會逐步引導您建立和部署應用程式，並說明每個程式碼片段中的狀況。
+本 Node.js 教學課程說明如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Node.js 快速應用程式資料。 您會建置一個可供建立、擷取及完成工作的簡單網頁型工作管理應用程式 (待辦事項應用程式)。 在 Azure Cosmos DB 中，這些工作會儲存為 JSON 文件。 本教學課程會逐步引導您建立和部署應用程式，並說明每個程式碼片段中的狀況。
 
 ![本 Node.js 教學課程所建立的「我的待辦事項清單」應用程式螢幕擷取畫面](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/18/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] v0.10.29 版或更高版本。
+* [Node.js][Node.js] v0.10.29 版或更高版本。 我們建議 Node.js 6.10 或更高版本。
 * [Express 產生器](http://www.expressjs.com/starter/generator.html) (您可以透過 `npm install express-generator -g` 進行安裝)
 * [Git][Git]。
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/18/2017
    
     ![了解 Node.js - Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    然後，若要停止應用程式，請在終端機視窗中按 CTRL+C，然後按一下 **y** 以終止批次作業。
+    然後，若要停止應用程式，請在終端機視窗中按 CTRL+C，然後僅在 Windows 機器上按一下 **y** 以終止批次工作。
 
 ## <a name="_Toc395783179"></a>步驟 3：安裝其他模組
 **package.json** 檔案是建立在專案根目錄中的其中一個檔案。 這個檔案包含 Node.js 應用程式所需的其他模組清單。 之後，當您將此應用程式部署至 Azure 網站時，此檔案可用來決定 Azure 上需要安裝哪些模組才能支援您的應用程式。 在本教學課程中，我們還需要再安裝兩個封裝。
@@ -91,29 +91,6 @@ ms.lasthandoff: 12/18/2017
 2. 透過 npm 安裝 **documentdb** 模組。 這是 Azure Cosmos DB 發揮所有強大功能的模組。
    
         npm install documentdb --save
-3. 快速檢查應用程式的 **package.json** 檔案應該會顯示其他模組。 這個檔案會告訴 Azure 在執行您的應用程式時要下載及安裝的封裝。 它看起來應該類似下面的範例。
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    這會讓 Node (之後則是 Azure) 知道您的應用程式需要仰賴這些額外模組。
 
 ## <a name="_Toc395783180"></a>步驟 4：在節點應用程式中使用 Azure Cosmos DB 服務
 前面的內容在講述所有初始設定和組態，現在讓我們來了解本教學課程的真正目的，也就是使用 Azure Cosmos DB 撰寫一些程式碼。
@@ -384,13 +361,13 @@ ms.lasthandoff: 12/18/2017
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. 在 **config.js** 檔案中，使用 [Microsoft Azure 入口網站](https://portal.azure.com)上 Azure Cosmos DB 帳戶的 [金鑰] 刀鋒視窗中找到的值，更新 HOST 和 AUTH_KEY 的值。
+3. 在 **config.js** 檔案中，使用 [Microsoft Azure 入口網站](https://portal.azure.com)上 Azure Cosmos DB 帳戶的 [金鑰] 頁面中找到的值，更新 HOST 和 AUTH_KEY 的值。
 4. 儲存並關閉 **config.js** 檔案。
 
 ### <a name="modify-appjs"></a>修改 app.js
@@ -513,7 +490,7 @@ ms.lasthandoff: 12/18/2017
 3. 系統應該會更新此頁面，以在 [待辦事項] 清單中顯示新建立的項目。
    
     ![[待辦事項] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作] 。 這會更新您已建立的文件。
+4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作] 。 這會更新您已建立的文件，並從檢視中加以移除。
 
 5. 若要停止應用程式，請在終端機視窗中按 CTRL+C，然後按一下 **Y** 以終止批次作業。
 

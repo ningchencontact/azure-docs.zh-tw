@@ -3,7 +3,7 @@ title: "如何使用 Azure SDK 設定已啟用 MSI 的 Azure VM"
 description: "提供如何使用 Azure SDK 在 Azure VM 上設定及使用「受控服務識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: bryanla
-ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>使用 Azure SDK 設定虛擬機器受控服務識別 (MSI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 在本文中，您將了解如何使用 Azure SDK 來啟用和移除 Azure VM 的 MSI。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

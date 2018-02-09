@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>多租用戶 SaaS 資料庫租用模式
 
@@ -165,7 +165,7 @@ SQL Database 提供可搭配分區化程式庫和目錄資料庫運作的分割/
 
 您可以隨時將特定租用戶移到它自己的多租戶資料庫。  您也可以隨時改變心意，將租用戶移回包含多個租用戶的資料庫。  當您佈建新的資料庫時，您也可以將租用戶指派給新的單一租用戶資料庫。
 
-可辨識之租用戶群組的資源需求之間有很大差異時，混合式模型就會脫穎而出。  例如，假設不保證參與免費試用的租用戶能擁有與訂閱租用戶一樣高的效能等級。  此原則可能適用於免費試用階段的租用戶，而且這些租用戶即將儲存在所有免費試用租用戶共用的多租用戶資料庫中。  當免費試用租用戶訂閱基本服務等級時，可以將租用戶移到另一個可能有較少租用戶的多租用戶資料庫。  支付高階服務層級的 「 訂閱者 」 可以移至它自己的新單一租用戶資料庫。
+可辨識之租用戶群組的資源需求之間有很大差異時，混合式模型就會脫穎而出。  例如，假設不保證參與免費試用的租用戶能擁有與訂閱租用戶一樣高的效能等級。  此原則可能適用於免費試用階段的租用戶，而且這些租用戶即將儲存在所有免費試用租用戶共用的多租用戶資料庫中。  當免費試用租用戶訂閱基本服務等級時，可以將租用戶移到另一個可能有較少租用戶的多租用戶資料庫。  支付進階服務等級費用的訂閱者可以移到其擁有的全新單一租用戶資料庫。
 
 #### <a name="pools"></a>集區
 

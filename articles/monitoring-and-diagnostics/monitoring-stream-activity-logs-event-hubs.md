@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 您可以使用入口網站中內建的「匯出」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 來啟用記錄設定檔中服務匯流排規則識別碼的方式，迅速將 [**Azure 活動記錄檔**](monitoring-overview-activity-logs.md)串流至任何應用程式。
@@ -30,21 +30,22 @@ ms.lasthandoff: 12/14/2017
 * **建置自訂遙測及記錄平台** – 如果您已有自建遙測平台或正在考慮建置一個，事件中樞所具備的高度可調整發佈訂閱特質可讓您靈活擷取活動記錄檔。 [請參閱此處的 Dan Rosanova 指南，以在全球級別的遙測平台中使用事件中樞。](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>啟用活動記錄檔的串流功能
-您可以以程式控制的方式，或透過入口網站來啟用活動記錄檔的串流功能。 無論您使用何種方式，您都會選擇服務匯流排命名空間及該命名空間的共用存取原則，而且在第一個新的活動記錄檔事件發生時，該命名空間中將會建立事件中樞。 如果您沒有服務匯流排命名空間，您必須先建立一個。 如果您先前已將活動記錄檔事件串流處理到此服務匯流排命名空間，則會重複使用先前建立的事件中樞。 共用存取原則會定義串流機制具有的權限。 目前，串流到事件中樞需要**管理**、**傳送**和**接聽**權限。 您可以建立或修改服務匯流排命名空間共用存取原則，在 Azure 入口網站中 「 設定 」 索引標籤下，您的服務匯流排命名空間。 若要更新活動記錄檔設定檔以加入串流，進行變更的使用者必須擁有該服務匯流排授權規則的 ListKey 權限。
+您可以以程式控制的方式，或透過入口網站來啟用活動記錄檔的串流功能。 無論您使用何種方式，您都會選擇服務匯流排命名空間及該命名空間的共用存取原則，而且在第一個新的活動記錄檔事件發生時，該命名空間中將會建立事件中樞。 如果您沒有服務匯流排命名空間，您必須先建立一個。 如果您先前已將活動記錄檔事件串流處理到此服務匯流排命名空間，則會重複使用先前建立的事件中樞。 共用存取原則會定義串流機制具有的權限。 目前，串流到事件中樞需要**管理**、**傳送**和**接聽**權限。 您可以在 Azure 入口網站中「服務匯流排命名空間」的 [設定] 索引標籤底下，建立或修改「服務匯流排命名空間」共用存取原則。 若要更新活動記錄檔設定檔以加入串流，進行變更的使用者必須擁有該服務匯流排授權規則的 ListKey 權限。
 
 服務匯流排或事件中樞命名空間不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 ### <a name="via-azure-portal"></a>透過 Azure 入口網站
-1. 使用入口網站左側的功能表，瀏覽至 [活動記錄檔]  刀鋒視窗。
+1. 使用入口網站左側的 [所有服務] 搜尋，瀏覽至 [活動記錄檔]  刀鋒視窗。
    
-    ![在入口網站中瀏覽至活動記錄檔](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. 按一下刀鋒視窗頂端的 [匯出]  按鈕。
+    ![在入口網站中瀏覽至活動記錄檔](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. 按一下活動記錄刀鋒視窗頂端的 [匯出]  按鈕。
    
-    ![入口網站中的匯出按鈕](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. 在出現的刀鋒視窗中，您可以選取想要串流事件的區域，以及服務匯流排命名空間，以在其中建立事件中樞建立以對這些事件進行串流處理。
+    ![入口網站中的匯出按鈕](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. 在出現的刀鋒視窗中，您可以選取想要串流事件的區域，以及服務匯流排命名空間，以在其中建立事件中樞建立以對這些事件進行串流處理。 選取 [所有區域]。
    
-    ![匯出活動記錄檔刀鋒視窗](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. 按一下 [儲存]  來儲存這些設定。 您的訂用帳戶時會立即套用設定。
+    ![匯出活動記錄檔刀鋒視窗](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. 按一下 [儲存]  來儲存這些設定。 設定會立即套用至您的訂用帳戶。
+5. 如果您有數個訂用帳戶，就應該重複執行此步驟，並將所有資料傳送給相同的事件中樞。
 
 ### <a name="via-powershell-cmdlets"></a>透過 PowerShell Cmdlet
 如果記錄檔設定檔已存在，您必須先移除該設定檔。
@@ -53,8 +54,10 @@ ms.lasthandoff: 12/14/2017
 2. 如果有，使用 `Remove-AzureRmLogProfile` 來進行移除。
 3. 使用 `Set-AzureRmLogProfile` 來建立設定檔：
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 舉例來說，服務匯流排規則識別碼一組字串，格式如下：{service bus resource ID}/authorizationrules/{key name} 
@@ -66,7 +69,7 @@ Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/r
 2. 如果有，使用 `azure insights logprofile delete` 來進行移除。
 3. 使用 `azure insights logprofile add` 來建立設定檔：
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

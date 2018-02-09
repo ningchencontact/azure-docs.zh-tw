@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashish
-ms.openlocfilehash: 682b73aefff2ac20cbd38f6780b73cde859378ed
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a5db3848eda2dbb6f117562e059b909575966993
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="analyze-hadoop-logs"></a>分析 Hadoop 記錄
 
@@ -320,8 +320,5 @@ Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作�
 ## <a name="next-steps"></a>後續步驟
 
 * [在 HDInsight 上使用 Ambari 檢視來為 Tez 作業偵錯](../hdinsight-debug-ambari-tez-view.md)
-* [在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-
-<!--
-TODO  * [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
--->
+* [在 Linux 型 HDInsight 上啟用 Hadoop 服務的堆積傾印](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)

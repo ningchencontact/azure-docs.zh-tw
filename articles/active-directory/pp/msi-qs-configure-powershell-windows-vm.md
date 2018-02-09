@@ -3,8 +3,8 @@ title: "如何使用 PowerShell 設定 Azure VM 上的 MSI"
 description: "使用 PowerShell 在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bdd797db4d5ed0676a9d4f55a0be6e779fd75105
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: cb87dd88c0425383243edcf12b946cb1821aabe5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>使用 PowerShell 設定「VM 受控服務身分識別 (MSI)」
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/22/2017
 
 在本文中，您將了解如何使用 PowerShell 啟用和移除 Azure Windows VM 的 MSI。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

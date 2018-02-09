@@ -101,8 +101,8 @@ ms.lasthandoff: 01/10/2018
 1. 會針對已建立的 Runbook 作業開啟作業頁面。 確認 [作業狀態] 顯示 [已完成]。
 1. 一旦 Runbook 狀態顯示 [已完成]，請按一下 [輸出]。 隨即開啟 [輸出] 頁面，而您可以在窗格中看到 Hello World。
 1. 關閉 [輸出] 頁面。
-1. 按一下 [All Logs] (所有記錄)，以開啟 Runbook 作業的 [資料流] 頁面。 您應該只會在輸出資料流中看到 Hello World ，但可能也會顯示 Runbook 作業的其他資料流，例如 Runbook 寫入時發生的詳細資訊和錯誤。
-1. 關閉 [All Logs] (所有記錄) 頁面和 [作業] 頁面，以返回 [MyFirstRunbook] 頁面。
+1. 按一下 [All Logs] \(所有記錄)，以開啟 Runbook 作業的 [資料流] 頁面。 您應該只會在輸出資料流中看到 Hello World ，但可能也會顯示 Runbook 作業的其他資料流，例如 Runbook 寫入時發生的詳細資訊和錯誤。
+1. 關閉 [All Logs] \(所有記錄) 頁面和 [作業] 頁面，以返回 [MyFirstRunbook] 頁面。
 1. 若要檢視 Runbook 的所有作業，請關閉 [作業] 頁面，然後選取 [資源] 下方的 [作業]。 這樣會列出此 Runbook 所建立的所有作業。 由於您只執行一次作業，因此應該只會看到列出一項作業。
 1. 您可以按一下此作業，以開啟您啟動 Runbook 時所檢視的相同 [作業] 窗格。 這可讓您回到過去的時間並檢視針對特定 Runbook 所建立的任何工作的詳細資料。
 
@@ -120,25 +120,25 @@ ms.lasthandoff: 01/10/2018
 現在您已擁有用來保存訂用帳戶識別碼的變數，接下來您可以設定 Runbook，以使用 [必要條件](#prerequisites)中提到的「執行身分」認證來進行驗證。 您的做法是將 [Azure 執行身分] 連線 **Asset** 和 **Add-AzureRMAccount** Cmdlet 新增至畫布。
 
 1. 巡覽回您的 Runbook，並在 MyFirstRunbook 頁面上選取 [編輯]。
-1. 您不再需要 [Write Hello World to output] (撰寫 Hello World 到輸出)，因此請按一下省略符號 (...)，並選取 [刪除]。
+1. 您不再需要 [Write Hello World to output] \(撰寫 Hello World 到輸出)，因此請按一下省略符號 (...)，並選取 [刪除]。
 1. 在 [程式庫] 控制項中，展開 [資產]、[連線] ，並選取 [新增至畫布] 以將 [AzureRunAsConnection] 新增至畫布。
 1. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Add-AzureRmAccount** 。
 1. 將 [Set-AzureRmContext] **將 [Set-AzureRmContext]-AzureRmAccount** 加入至畫布。
 1. 將滑鼠停留在 [取得執行身分連線]，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 [指定訂用帳戶識別碼] **Add-AzureRmAccount**。 您剛才建立的箭號是「連結」。 Runbook 會開始使用 [取得執行身分連線]，然後執行 [Add-AzureRmAccount]。<br> ![建立活動之間的連結](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. 在畫布上選取 [Add-AzureRmAccount]，然後在 [組態] 控制項窗格的 [標籤] 文字方塊中輸入 [登入 Azure]。
-1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] (活動參數設定) 頁面。
+1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] \(活動參數設定) 頁面。
 1. **Add-AzureRmAccount** 有多個參數集，因此您必須先選取一個參數，才可以提供參數值。 按一下 [參數集]，然後選取 [ServicePrincipalCertificate] 參數集。
-1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] (活動參數設定) 頁面中。 按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
-1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]，並從清單中選取 [Get Run As Connection] (取得執行身分連線)，再於 [欄位路徑] 文字方塊中鍵入 **ApplicationId**，然後按一下 [確定]。 您會指定欄位路徑之屬性的名稱，因為活動會輸出具有多個屬性的物件。
+1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] \(活動參數設定) 頁面中。 按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]，並從清單中選取 [Get Run As Connection] \(取得執行身分連線)，再於 [欄位路徑] 文字方塊中鍵入 **ApplicationId**，然後按一下 [確定]。 您會指定欄位路徑之屬性的名稱，因為活動會輸出具有多個屬性的物件。
 1. 按一下 [CERTIFICATETHUMBPRINT]，然後在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]。 從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **CertificateThumbprint**，然後按一下 [確定]。
 1. 按一下 [SERVICEPRINCIPAL]，並在 [參數值] 頁面中，針對 [資料來源] 選取 [ConstantValue]，再按一下選項 [True]，然後按一下 [確定]。
 1. 按一下 [TENANTID]，然後在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]。 從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **TenantId**，然後按兩次 [確定]。
 1. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Set-AzureRmContext** 。
 1. 將 [Set-AzureRmContext]  加入至畫布。
 1. 在畫布上選取 [Set-AzureRmContext]，然後在 [組態] 控制項窗格的 [標籤] 文字方塊中輸入 [指定訂用帳戶識別碼]。
-1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] (活動參數設定) 頁面。
+1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] \(活動參數設定) 頁面。
 1. **Set-AzureRmContext** 有多個參數集，因此您必須先選取一個參數，才可以提供參數值。 按一下 [參數集]，然後選取 [SubscriptionId] 參數集。
-1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] (活動參數設定) 頁面中。 按一下 [SubscriptionID] 
+1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] \(活動參數設定) 頁面中。 按一下 [SubscriptionID] 
 1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [變數資產]，接著在清單中選取 [AzureSubscriptionId]，然後按兩次 [確定]。
 1. 將滑鼠停留在 [登入 Azure]  ，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 [指定訂用帳戶識別碼] 。
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 01/10/2018
 我們的 Runbook 目前會啟動在 **Start-AzureRmVM** Cmdlet 中指定之資源群組內的虛擬機器。 如果可以在啟動 Runbook 時指定這兩項，Runbook 會更有用。 您現在會將輸入參數新增至 Runbook，以提供該功能。
 
 1. 按一下 [MyFirstRunbook] 窗格上的 [編輯] 來開啟圖形化編輯器。
-1. 選取 [輸入和輸出]，然後選取 [新增輸入]，來開啟 [Runbook Input Parameter] (Runbook 輸入參數) 窗格。
+1. 選取 [輸入和輸出]，然後選取 [新增輸入]，來開啟 [Runbook Input Parameter] \(Runbook 輸入參數) 窗格。
 1. 對 [ *名稱* ] 指定 **VMName**。 將 [類型] 保留為 *string*，但將 [強制] 變更為 [是]。 按一下 [SERVICEPRINCIPAL] 。
 1. 建立稱為 ResourceGroupName 的第二個必要輸入參數，然後按一下 [確定] 來關閉 [輸入和輸出] 窗格。<br> ![Runbook 輸入參數](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 1. 選取 [Start-AzureRmVM] 活動，然後按一下 [參數]。

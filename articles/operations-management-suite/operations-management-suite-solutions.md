@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite (OMS) 中的解決方案 | Microsoft Docs"
-description: "解決方案會藉由提供客戶可新增至他們 OMS 工作區的套件管理案例，以擴充 Operations Management Suite (OMS) 的功能。  本文提供如何自訂客戶和合作夥伴所建立之解決方案的詳細資訊。"
+title: "Azure 管理解決方案 | Microsoft Docs"
+description: "管理解決方案包含 Azure 中客戶可新增至其 Log Analytics 工作區的已封裝管理案例。  本文提供如何自訂客戶和合作夥伴所建立之解決方案的詳細資訊。"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中使用管理解決方案 (預覽)
+# <a name="working-with-management-solutions-in-azure-preview"></a>使用 Azure 中的管理解決方案 (預覽)
 > [!NOTE]
-> 這是 OMS 中管理解決方案 (目前處於預覽狀態) 的預備文件。    
+> 這是 Azure 中管理解決方案 (目前處於預覽狀態) 的預備文件。    
 > 
 > 
 
-管理解決方案藉由提供客戶可新增至其環境的套裝管理案例，擴充 Operations Management Suite (OMS) 的功能。  除了 [Microsoft 所提供的解決方案](../log-analytics/log-analytics-add-solutions.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
+管理解決方案包含客戶可新增至其 Azure 環境的已封裝管理案例。  除了 [Microsoft 所提供的解決方案](../log-analytics/log-analytics-add-solutions.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
 
 ## <a name="finding-and-installing-management-solutions"></a>尋找及安裝管理解決方案
 有多種方法可尋找及安裝下列各節中所述的管理解決方案。
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 5. 藉由瀏覽、按一下 [篩選] 按鈕，或在 [搜尋所有項目] 方塊中輸入資料，以搜尋您感興趣的解決方案。
 6. 按一下 Marketplace 項目，以檢視其詳細資訊。
 7. 按一下 [建立] 以開啟 [新增方案] 窗格。
-8. 除了解決方案中任何參數的值以外，系統還會提示您輸入所需的資訊，例如 [OMS 工作區和自動化帳戶](#oms-workspace-and-automation-account)。
+8. 除了解決方案中任何參數的值以外，系統還會提示您輸入所需的資訊，例如 [Log Analytics 工作區和自動化帳戶](#log-analytics-workspace-and-automation-account)。
 9. 按一下 [建立] 以安裝解決方案。
 
 ### <a name="oms-portal"></a>OMS 入口網站
@@ -50,14 +50,14 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入 OMS 入口網站。
 2. 按一下 [方案庫] 圖格。
-3. 在 [OMS 方案庫] 頁面中，您可以了解每個可用的方案。 按一下要加入 OMS 之方案的名稱。
+3. 在 [OMS 方案庫] 頁面中，您可以了解每個可用的方案。 按一下要新增之解決方案的名稱。
 4. 在所選解決方案的頁面中，該解決方案的詳細資料會顯示於此。 按一下 [新增] 。
-5. 加入方案之後，新建立的圖格會出現在 OMS 的 [概觀] 頁面中；待 OMS 服務處理資料後，您便可以開始使用該方案。
+5. 新增解決方案之後，該解決方案的磚會出現在入口網站的 [概觀] 頁面上。待 Log Analytics 處理完資料後，您便可開始使用該解決方案。
 
 ### <a name="azure-quickstart-templates"></a>Azure 快速入門範本
 社群成員可以將管理解決方案提交至 Azure 快速入門範本。  您可以下載這些範本以供稍後安裝，或檢查這些範本以了解如何[建立自己的解決方案](#creating-a-solution)。
 
-1. 請依照 [OMS 工作區和自動化帳戶](#oms-workspace-and-automation-account)中所述的程序來連結工作區和帳戶。
+1. 依照 [Log Analytics 工作區和自動化帳戶](#log-analytics-workspace-and-automation-account)中所述的程序來連結工作區和帳戶。
 2. 移至 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。  
 3. 搜尋您感興趣的解決方案。
 4. 選取結果中的解決方案，以檢視其詳細資料。
@@ -66,29 +66,27 @@ ms.lasthandoff: 10/11/2017
 7. 按一下 [購買] 以安裝解決方案。
 
 ### <a name="deploy-azure-resource-manager-template"></a>部署 Azure Resource Manager 範本
-您從社群取得的解決方案或您[自己建立](#creating-a-solution)的解決方案會當作 Resource Manager 範本實作，因此您可以使用任何[部署範本](../azure-resource-manager/resource-group-template-deploy-portal.md)的標準方法。  請注意，在安裝解決方案前，您必須建立並連結 [OMS 工作區和自動化帳戶](#oms-workspace-and-automation-account)。
+您從社群取得的解決方案或您[自己建立](#creating-a-solution)的解決方案會當作 Resource Manager 範本實作，因此您可以使用任何[部署範本](../azure-resource-manager/resource-group-template-deploy-portal.md)的標準方法。  請注意，在安裝解決方案前，您必須建立並連結 [Log Analytics 工作區和自動化帳戶](#log-analytics-workspace-and-automation-account)。
 
-## <a name="oms-workspace-and-automation-account"></a>OMS 工作區和自動化帳戶
-大部分的管理解決方案都需要 [OMS 工作區](../log-analytics/log-analytics-manage-access.md)才會包含檢視，以及需要[自動化帳戶](../automation/automation-security-overview.md#automation-account-overview)才會包含 Runbook 和相關的資源。 工作區和帳戶必須符合下列需求。
+## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
+大部分的管理解決方案都需要 [Log Analytics 工作區](../log-analytics/log-analytics-manage-access.md)來包含檢視，以及[自動化帳戶](../automation/automation-security-overview.md#automation-account-overview)來包含 Runbook 和相關資源。 工作區和帳戶必須符合下列需求。
 
-* 一個解決方案只能使用一個 OMS 工作區和一個自動化帳戶。  
-* 解決方案所用的 OMS 工作區和自動化帳戶必須連結到另一個。 OMS 工作區只能連結到一個自動化帳戶，而自動化帳戶只能連結至一個 OMS 工作區。
-* 若要連結，OMS 工作區和自動化帳戶必須位於相同的資源群組與區域中。  例外狀況是美國東部區域中的 OMS 工作區和美國東部 2 中的自動化帳戶。
+* 一個解決方案只能使用一個 Log Analytics 工作區和一個自動化帳戶。  
+* 解決方案所用的 Log Analytics 工作區和自動化帳戶必須彼此連結。 Log Analytics 工作區只能連結到一個自動化帳戶，而自動化帳戶只能連結到一個 Log Analytics 工作區。
+* 若要連結，Log Analytics 工作區和自動化帳戶必須位於相同的資源群組與區域中。  例外狀況是位於美國東部區域的工作區，以及位於美國東部 2 的自動化帳戶。
 
-### <a name="creating-a-link-between-an-oms-workspace-and-automation-account"></a>建立 OMS 工作區與自動化帳戶之間的連結
-指定 OMS 工作區和自動化帳戶的方式，取決於解決方案的安裝方法。
+### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>建立 Log Analytics 工作區與自動化帳戶之間的連結
+指定 Log Analytics 工作區和自動化帳戶的方式，取決於解決方案的安裝方法。
 
-* 當您透過 OMS 入口網站安裝 Microsoft 解決方案時，它會安裝在目前的 OMS 工作區中，而不需要自動化帳戶。
-* 當您透過 Azure Marketplace 安裝解決方案時，系統會提示您輸入 OMS 工作區和自動化帳戶，並為您建立它們之間的連結。  
-* 對於 Azure Marketplace 外部的解決方案，您必須在安裝解決方案之前，先連結 OMS 工作區和自動化帳戶。  選取 Azure Marketplace 中的任何解決方案並選取 OMS 工作區和自動化帳戶，即可執行此作業。  您不必實際安裝解決方案，因為在選取 OMS 工作區和自動化帳戶時，就會馬上建立連結。  一旦建立連結，您即可將該 OMS 工作區和自動化帳戶使用於任何解決方案。 
+* 當您透過 OMS 入口網站安裝 Microsoft 解決方案時，它會安裝在目前的工作區中，因此不需要自動化帳戶。
+* 當您透過 Azure Marketplace 安裝解決方案時，系統會提示您提供工作區和自動化帳戶，並為您在它們之間建立連結。  
+* 對於 Azure Marketplace 外部的解決方案，您必須在安裝解決方案之前，先連結 Log Analytics 工作區和自動化帳戶。  若要這麼做，請選取 Azure Marketplace 中的任何解決方案，並選取 Log Analytics 工作區和自動化帳戶。  您不必實際安裝解決方案，因為在選取 Log Analytics 工作區和自動化帳戶時，就會立即建立連結。  一旦建立連結之後，您即可將該 Log Analytics 工作區和自動化帳戶用於任何解決方案。 
 
-### <a name="verifying-the-link-between-an-oms-workspace-and-automation-account"></a>驗證 OMS 工作區與自動化帳戶之間的連結
-您可以使用下列程序，驗證 OMS 工作區與自動化帳戶之間的連結。
+### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>驗證 Log Analytics 工作區與自動化帳戶之間的連結
+您可以使用下列程序，驗證 Log Analytics 工作區與自動化帳戶之間的連結。
 
 1. 在 Azure 入口網站中選取自動化帳戶。
-2. 向下捲動到 [設定] 窗格底部。
-3. 如果 [設定] 窗格中有名為 [OMS 資源] 的區段，則此帳戶會附加至 OMS 工作區。
-4. 選取 [工作區]，以檢視連結至此自動化帳戶之 OMS 工作區的詳細資料。
+2. 如果已啟用功能表 [相關資源] 區段中的 [工作區] 設定，則會將此帳戶連接到 Log Analytics 工作區。  您可以按一下 [工作區] 來檢視工作區的詳細資料。
 
 ## <a name="listing-management-solutions"></a>列出管理解決方案
 使用下列程序，檢視連結至您的 Azure 訂用帳戶的工作區中的管理解決方案。

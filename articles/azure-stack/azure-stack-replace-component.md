@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>取代 Azure Stack 縮放單位節點上的硬體元件
 
@@ -44,11 +44,11 @@ ms.lasthandoff: 01/10/2018
 
 *根據硬體的實體條件，可能不需要此動作。
 
-**不論 OEM 硬體廠商是否執行元件更換以及更新韌體，都可能會根據支援合約而不同。
+**不論 OEM 硬體廠商是否會執行元件更換和更新，韌體都可能根據支援合約而有所不同。
 
 ## <a name="review-alert-information"></a>檢閱警示資訊
 
-Azure Stack 健康狀態和監視系統會追蹤儲存空間直接存取所控制之網路介面卡和資料磁碟機的健康情況。 它不會追蹤其他硬體元件。 針對所有其他硬體元件，在硬體生命週期主機上執行之廠商特定硬體監視解決方案中引發警示。
+Azure Stack 健康狀態和監視系統會追蹤儲存空間直接存取所控制之網路介面卡和資料磁碟機的健康情況。 它不會追蹤其他硬體元件。 針對所有其他硬體元件，在硬體生命週期主機上執行之廠商特定硬體監視解決方案中引發警示。  
 
 ## <a name="component-replacement-process"></a>元件更換程序
 
@@ -60,7 +60,7 @@ Azure Stack 健康狀態和監視系統會追蹤儲存空間直接存取所控�
    > 在任何情況下，只能同時清空一個節點並關機，而不中斷 S2D (儲存空間直接存取)。
 
 2. 縮放單位節點處於維護模式之後，請使用[關閉電源](azure-stack-node-actions.md#scale-unit-node-actions)動作。 根據硬體的實體條件，可能不需要此動作。
- 
+
    > [!NOTE]
    > 在關閉電源動作無法運作的罕見情況下，請改用基礎板管理控制器 (BMC) Web 介面。
 
@@ -74,4 +74,3 @@ Azure Stack 健康狀態和監視系統會追蹤儲存空間直接存取所控�
 
 - 如需更換熱插拔實體磁碟的資訊，請參閱[更換磁碟](azure-stack-replace-disk.md)。
 - 如需取代實體節點的資訊，請參閱[取代縮放單位節點](azure-stack-replace-node.md)。
-- 

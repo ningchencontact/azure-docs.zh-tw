@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -42,14 +42,13 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="scope"></a>Scope
 
-本白皮書的焦點放在可支援 Microsoft Azure 核心元件 (也就是 [Microsoft Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-introduction)、[Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)、[Microsoft Azure 的虛擬機器模型](https://docs.microsoft.com/azure/virtual-machines/    )) 的安全性特性與功能，以及用以管理這一切的工具和基礎結構。 這份白皮書聚焦在 Microsoft Azure 的技術功能，這些功能可供身為客戶的您使用，以履行其保護其資料安全性和隱私權的角色。
+本白皮書的焦點放在可支援 Microsoft Azure 核心元件 (也就是 [Microsoft Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-introduction)、[Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)、[Microsoft Azure 的虛擬機器模型](https://docs.microsoft.com/azure/virtual-machines/)) 的安全性特性與功能，以及用以管理這一切的工具和基礎結構。 這份白皮書聚焦在 Microsoft Azure 的技術功能，這些功能可供身為客戶的您使用，以履行其保護其資料安全性和隱私權的角色。
 
 對於即將轉移到雲端的客戶來說，最重要的事就是了解此共同責任模型。 雲端提供者會對安全性和合規性方面的工作帶來相當多的優勢，但這些優勢不會就此讓客戶不必再保護他們的使用者、應用程式和服務供應項目。
 
 對於 IaaS 解決方案，客戶要負責或共用負責保護和管理作業系統、網路設定、應用程式、身分識別、用戶端以及資料。  PaaS 解決方案是以 IaaS 部署為基礎所組建，但客戶仍要負責或共用負責保護和管理應用程式、身分識別、用戶端和資料。 儘管如此，對於 SaaS 解決方案，客戶仍肩負責任。 客戶必須確保資料的分類正確，且需共同負責管理其使用者和端點裝置。
 
 這份文件不會詳細說明所有相關的 Microsoft Azure 平台元件，例如 Azure 網站、Azure Active Directory、HDInsight、媒體服務，以及其他位在核心元件層之上的服務。 雖然我們只提供最低程度的一般資訊，但我們認為讀者應該已熟悉各項 Azure 基本概念 (如 Microsoft 所提供的其他參考資料所述以及本白皮書所提供之連結中所包含的概念)。
-
 
 ## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>用以履行使用者 (客戶) 責任的可用安全性技術功能 - 概略圖
 
@@ -65,7 +64,7 @@ Azure 可讓您管理使用者的身分識別和認證並控制存取權，協�
 
 Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 可以提供數千個雲端 (SaaS) 應用程式的單一登入及存取您在內部部署執行的 Web 應用程式。
 
-Azure Active Directory (AD) 的安全性優點包括下列功能︰
+Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 - 為您的混合式企業中的每位使用者建立和管理單一身分識別，讓使用者、群組和裝置保持同步。
 
@@ -79,7 +78,7 @@ Azure Active Directory (AD) 的安全性優點包括下列功能︰
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Azure 的身分識別管理核心功能如下︰
+Azure 身分識別管理核心功能如下：
 
 - 單一登入
 
@@ -107,13 +106,13 @@ Azure 的身分識別管理核心功能如下︰
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 [MFA 有助於保護](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖) 來提供強大的驗證功能。
+[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) \(機器翻譯\) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 [MFA 有助於保護](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖) 來提供強大的驗證功能。
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全性監視、警示以及機器學習服務型報告
 
 安全性監視和警示以及機器學習式報告，會識別不一致的存取模式，可以協助您保護企業安全。 您可以使用 Azure Active Directory 的存取和使用情況報告來了解貴組織的目錄完整性和安全性。 利用此資訊，目錄管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。
 
-在 Azure 入口網站或透過 [Azure Active 目錄入口網站報告](http://aad.portal.azure.com/)，會以下列方式分類[報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)：
+在 Azure 入口網站或透過 [Azure Active Directory 入口網站](http://aad.portal.azure.com/)，以下列方式分類[報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)：
 
 - 異常報告 – 包含我們發現異常的登入事件。 我們的目標在於使您注意這類活動，並讓您能夠決定事件是否可疑。
 
@@ -133,9 +132,9 @@ Azure 的身分識別管理核心功能如下︰
 
 當您使用 Azure Active Directory B2C 時，您的取用者可以使用現有的社交帳戶 (Facebook、Google、Amazon、LinkedIn) 註冊應用程式，或是建立新的認證 (電子郵件地址與密碼，或使用者名稱與密碼)。
 
-裝置註冊
+#### <a name="device-registration"></a>裝置註冊
 
-[Azure AD 裝置註冊](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview)是裝置型[條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview)案例的基礎。 當裝置已註冊時，Azure Active Directory 裝置註冊會在使用者登入時對裝置提供用來驗證裝置的身分識別。 然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
+[Azure AD 裝置註冊](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) \(機器翻譯\) 是裝置型[條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup)案例的基礎。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
 
 與 Intune 這類的[行動裝置管理 (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。
 
@@ -183,9 +182,9 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 - 傳輸中︰當資料在元件、位置或程式之間傳送，例如透過網路、透過服務匯流排 (從內部部署至雲端，反之亦然，包括諸如 ExpressRoute 的混合式連線)，或在輸入/輸出過程中，它會被視為移動中。
 
-### <a name="encryption--rest"></a>待用加密
+### <a name="encryption-at-rest"></a>待用加密
 
-若要實現待用加密，下列每個項目：
+若要實現待用加密，請執行下列每個動作：
 
 支援至少一個下表詳述的建議加密模型來加密資料。
 
@@ -204,7 +203,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 > [!Note] 
 > 不只是「應用程式資料」或「PII」，而是所有與應用程式相關的資料，包括帳戶的中繼資料 (訂用帳戶對應、合約資訊、PII)。
 
-請細想您使用了哪些存放區來儲存資料。 例如：
+請細想您使用了哪些存放區來儲存資料。 例如︰
 
 - 外部儲存體 (例如，SQL Azure、Document DB、HDInsights、Data Lake 等)
 
@@ -224,15 +223,15 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 對於支援使用 Azure 磁碟加密的 VM 和本機磁碟儲存體：
 
-IaaS
+#### <a name="iaas"></a>IaaS
 
 具有 IaaS VM (Windows 或 Linux) 的服務應使用 [Azure 磁碟加密](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx)來加密包含客戶資料的磁碟區。
 
-PaaS v2
+#### <a name="paas-v2"></a>PaaS v2
 
 在 PaaS v2 上執行且使用 Service Fabric 的服務可以使用適用於虛擬機器擴展集 [VMSS] 的 Azure 磁碟加密來加密其 PaaS v2 VM。
 
-PaaS v1
+#### <a name="paas-v1"></a>PaaS v1
 
 PaaS v1 目前不支援 Azure 磁碟加密。 因此，您必須使用應用程式層級加密來加密保存的待用資料。  這包括 (但不限於) 應用程式資料、暫存檔案、記錄和損毀傾印。
 
@@ -319,13 +318,11 @@ Azure 也提供幾項簡單易用的功能，可協助保護您的應用程式�
 
 - [為應用程式設定 Azure Active Directory 驗證](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-
 - [啟用傳輸層安全性 (TLS/SSL) - HTTPS 來保護傳入應用程式的流量](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-    - [強制所有傳入流量透過 HTTPS 連線](http://microsoftazurewebsitescheatsheet.info/)
+  - [強制所有傳入流量透過 HTTPS 連線](http://microsoftazurewebsitescheatsheet.info/)
 
   - [啟用 Strict Transport Security (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
-
 
 - [根據用戶端 IP 位址限制對應用程式的存取](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
@@ -356,7 +353,7 @@ Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服�
 
 Azure 網路支援自訂您 Azure 虛擬網路上網路流量之路由行為的能力。 做法是在 Azure 中設定 [使用者定義的路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) 。
 
-[強制通道](https://www.petri.com/azure-forced-tunneling) 是一種機制，可用來確保不允許您的服務起始與網際網路上裝置的連線。
+[強制通道處理](https://www.petri.com/azure-forced-tunneling)這個機制可用來確保不允許您的服務起始與網際網路上裝置的連線。
 
 Azure 支援內部部署網路的專用 WAN 連結連線以及採用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)的 Azure 虛擬網路。 Azure 與網站之間的連結會使用不經由公用網際網路的專用連線。 如果 Azure 應用程式正在多個資料中心內執行，您可使用 [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)，以智慧方式將使用者的要求路由傳送到應用程式的各執行個體。 您也可以將流量路由傳送到不在 Azure 中執行的服務，只要可以從網際網路存取這些服務即可。
 
@@ -462,7 +459,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 [儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)可以儲存包含與儲存體服務要求相關之彙總的交易統計資料及容量資料的計量。 報告的交易是屬於 API 作業層級以及儲存體服務層級，而報告的容量則是屬於儲存體服務層級。 度量資料可用來分析儲存體服務使用量、診斷針對儲存體服務提出之要求的問題，以及提升使用服務的應用程式效能。
 
-### <a name="application-insights"></a>Application insights
+### <a name="application-insights"></a>Application Insights
 
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者如何運用您的應用程式。 它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署或雲端的 .NET、Node.js 和 J2EE。 它可與您的 devOps 程序整合，並有與各種開發工具的連接點。
 
@@ -487,6 +484,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 - 來自您應用程式的**診斷追蹤記錄檔** - 讓您使追蹤事件與要求相互關聯。
 
 - 您在用戶端或伺服器程式碼中自行撰寫的**自訂事件和計量**，可追蹤商業事件，例如售出的項目或獲勝的遊戲。
+
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 可讓您將方案中的資源做為群組使用。
 
 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。

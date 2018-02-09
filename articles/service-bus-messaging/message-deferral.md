@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f84b870de4b79399d5edc90284c9c56222156b5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-deferral"></a>訊息延遲
 
@@ -35,9 +35,9 @@ API 是 .NET Framework 用戶端中的 [BrokeredMessage.Defer](/dotnet/api/micro
 
 延遲的訊息會和所有其他作用中的訊息一起保留於主要佇列中 (與存留於子佇列中屬無效信件的訊息不同)，但無法再使用一般的 Receive/ReceiveAsync 函式來接收它們。 如果應用程式無法追蹤延遲的訊息，則可透過[訊息瀏覽](message-browsing.md)來探索它們。
 
-若要擷取延遲的訊息，其「擁有者」會負責記住 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)，因為它會延遲該訊息。 任何知道延遲訊息之 **SequenceNumber** 的接收者稍後都可使用 Receive(sequenceNumber) 明確地接收訊息。
+若要擷取延遲的訊息，其擁有者會負責記住 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)，因為它會延遲該訊息。 任何知道延遲訊息序號的接收者稍後都可使用 `Receive(sequenceNumber)` 明確地接收訊息。
 
-如果因為用於處理該訊息的特殊資源暫時無法使用而無法處理訊息，但訊息處理不應被立即暫止，則適合用來將該訊息放在一邊數分鐘的方法是，記住要在數分鐘內發佈之[已排程的訊息](message-sequencing.md)中的 **SequenceNumber**，並在已排程的訊息送達時，重新擷取延遲的訊息。 請注意，如果訊息處理常式取決於適用於所有作業的資料庫，而該資料庫暫時無法使用，則它不應使用延遲，而是在資料庫再次可供使用之前，完全暫停接收訊息。
+如果訊息因為用於處理該訊息的特殊資源暫時無法使用而無法處理，但不應立即暫止訊息處理，則用來將該訊息放在一邊數分鐘的方法是，記住要在數分鐘內發佈之[已排程的訊息](message-sequencing.md)中的 **SequenceNumber**，並在已排程的訊息送達時，重新擷取延遲的訊息。 請注意，如果訊息處理常式取決於適用於所有作業的資料庫，而該資料庫暫時無法使用，則它不應使用延遲，而是在資料庫再次可供使用之前，完全暫停接收訊息。
 
 延遲訊息不會影響訊息到期，這表示延遲的訊息仍然會在一開始排定的時間到期，然後移到無效信件佇列中 (如果是如此設定)。
 

@@ -6,19 +6,19 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7435d87f9aaa906c3f6758186b64f3458cb9716
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 資源群組事件結構描述
 
 本文提供資源群組事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
-Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源中的變更相關聯。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶內的資源。 
+Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源中的變更相關聯。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶上的資源。 
 
 ## <a name="available-event-types"></a>可用的事件類型
 
@@ -26,12 +26,12 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 | 事件類型 | 說明 |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | 在資源建立或更新作業成功時引發。 |
-| Microsoft.Resources.ResourceWriteFailure | 在資源建立或更新作業失敗時引發。 |
-| Microsoft.Resources.ResourceWriteCancel | 在資源建立或更新作業取消時引發。 |
+| Microsoft.Resources.ResourceWriteSuccess | 在資源建立或是更新作業成功時引發。 |
+| Microsoft.Resources.ResourceWriteFailure | 在資源建立或是更新作業失敗時引發。 |
+| Microsoft.Resources.ResourceWriteCancel | 在資源建立或是更新作業取消時引發。 |
 | Microsoft.Resources.ResourceDeleteSuccess | 在資源刪除作業成功時引發。 |
 | Microsoft.Resources.ResourceDeleteFailure | 在資源刪除作業失敗時引發。 |
-| Microsoft.Resources.ResourceDeleteCancel | 在資源刪除作業取消時引發。 此事件會在範本部署取消時發生。 |
+| Microsoft.Resources.ResourceDeleteCancel | 在資源刪除作業取消時引發。 此事件會於範本部署取消時發生。 |
 
 ## <a name="example-event"></a>事件範例
 
@@ -39,7 +39,7 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -56,12 +56,14 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
         "status":"Succeeded",
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
-        },
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
+  }
 ]
 ```
 
-資源刪除事件的結構描述如下：
+資源已刪除事件的結構描述也相當類似：
 
 ```json
 [{
@@ -81,7 +83,9 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,18 +95,20 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 |
+| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 | 主旨 | 字串 | 發行者定義事件主體的路徑。 |
 | eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
 | eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | 字串 | 事件的唯一識別碼。 |
 | data | 物件 | 資源群組事件資料。 |
+| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| 授權 | 字串 | 作業要求的授權。 |
+| 授權 | 字串 | 作業的所要求授權。 |
 | claims | 字串 | 宣告的屬性。 |
 | correlationId | 字串 | 用於疑難排解的作業識別碼。 |
 | httpRequest | 字串 | 作業的詳細資料。 |

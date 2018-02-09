@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>根據效能資料或排程建立自動調整 Azure 資源規模設定
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 01/24/2018
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>建立 Web 應用程式與 App Service 方案
-按一下左邊瀏覽窗格中的 [新增] 選項
+1. 按一下左邊瀏覽窗格中的 [新增] 選項。
 
-搜尋並選取 [Web 應用程式] 項目，然後按一下 [建立]
+2. 搜尋並選取 [Web 應用程式] 項目，然後按一下 [建立]。
 
-選取如 *MyTestScaleWebApp*的應用程式名稱。 建立新資源群組 *myResourceGroup' 並將它放到您想要的資源群組中。
+3. 選取如 *MyTestScaleWebApp*的應用程式名稱。 建立新資源群組 *myResourceGroup*，並將它放到您想要的資源群組中。
 
 在數分鐘內，系統應該就會佈建您的資源。 在此教學課程剩餘部分使用 Web 應用程式與對應的 App Service 方案。
 

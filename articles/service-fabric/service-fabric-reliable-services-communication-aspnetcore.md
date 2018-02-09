@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -26,7 +26,7 @@ ASP.NET Core 是新的開放原始碼和跨平台架構，可建置現代化雲�
 
 本文是深度指南，說明使用**Microsoft.ServiceFabric.AspNetCore.*** NuGet 套件集在Service Fabric Reliable Services 中裝載 ASP.NET Core 服務。
 
-如需 Service Fabric 中 ASP.NET Core 的簡介教學課程，以及如何安裝開發環境設定的指示，請參閱[使用 ASP.NET Core 為應用程式建置 Web 前端應用程式](service-fabric-add-a-web-frontend.md)。
+如需 Service Fabric 中 ASP.NET Core 的簡介教學課程，以及如何安裝開發環境設定的指示，請參閱[建立 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)。
 
 本文的其餘部分假設您十分熟悉 ASP.NET Core。 如果不是，我們建議您閱讀 [ASP.NET Core 基礎](https://docs.microsoft.com/aspnet/core/fundamentals/index)。
 

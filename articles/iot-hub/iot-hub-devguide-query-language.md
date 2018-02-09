@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>裝置對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-這個群組查詢會傳回類似以下範例的結果。 在這裡，三個裝置回報設定成功，兩個仍在套用組態，還有一個回報發生錯誤。 
+這個群組查詢會傳回類似以下範例的結果：
 
 ```json
 [
@@ -149,6 +149,8 @@ GROUP BY properties.reported.telemetryConfig.status
     }
 ]
 ```
+
+在此範例中，三個裝置回報設定成功，兩個仍在套用設定，還有一個回報發生錯誤。
 
 投影查詢可讓開發人員只傳回他們關心的屬性。 例如，若要擷取所有已中斷連線之裝置的最後一個活動時間，請使用下列查詢：
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-請注意是如何以頁面大小 (最多 100) 將 **query** 物件具現化，然後藉由呼叫 **GetNextAsTwinAsync** 方法多次來擷取多個頁面。
-請注意，query 物件會公開多個 **Next** (視查詢所需的還原序列化選項而定，例如裝置對應項或作業物件，或使用投影時要使用的一般 JSON)。
+**query** 物件已搭配頁面大小 (最高可達 100) 來具現化。 接著，會藉由呼叫 **GetNextAsTwinAsync** 方法多次來擷取多個頁面。
+
+query 物件會根據查詢所需的還原序列化選項，公開多個 **Next** 值。 例如，裝置對應項或作業物件，或是單純 JSON (使用投影時)。
 
 ### <a name="nodejs-example"></a>Node.js 範例
 查詢功能由[適用於 Node.js 的 Azure IoT 服務 SDK][lnk-hub-sdks] 在 **Registry** 物件中公開。
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-請注意是如何以頁面大小 (最多 100) 將 **query** 物件具現化，然後藉由呼叫 **nextAsTwin** 方法多次來擷取多個頁面。
-請注意，query 物件會公開多個 **next** (視查詢所需的還原序列化選項而定，例如裝置對應項或作業物件，或使用投影時要使用的一般 JSON)。
+**query** 物件已搭配頁面大小 (最高可達 100) 來具現化。 接著，會藉由呼叫 **nextAsTwin** 方法多次來擷取多個頁面。
+
+query 物件會根據查詢所需的還原序列化選項，公開多個 **Next** 值。 例如，裝置對應項或作業物件，或是單純 JSON (使用投影時)。
 
 ### <a name="limitations"></a>限制
+
 > [!IMPORTANT]
-> 根據裝置對應項中的最新值，查詢結果可能會有數分鐘的延遲。 若依識別碼查詢個別裝置對應項，建議您一律使用抓取裝置對應項 API，這一律包含最新的值，而且有較高的節流處理限制。
+> 根據裝置對應項中的最新值，查詢結果可能會有數分鐘的延遲。 如果要依據識別碼來查詢個別裝置對應項，請使用擷取裝置對應項 API。 此 API 一律會包含最新的值，並且具有較高的節流限制。
 
 目前僅支援在基本類型 (沒有物件) 之間進行比較，例如 `... WHERE properties.desired.config = properties.reported.config` 只會在這些屬性具有基本值時才受到支援。
 
 ## <a name="get-started-with-jobs-queries"></a>開始使用作業查詢
+
 [作業][lnk-jobs]可提供方法來對裝置組執行作業。 每個裝置對應項皆包含屬於 **jobs** 集合一部分之作業的資訊。
 在邏輯上，
 
@@ -243,7 +249,7 @@ query.nextAsTwin(onResults);
 目前，此集合可在 IoT 中樞查詢語言中以 **devices.jobs** 的形式來查詢。
 
 > [!IMPORTANT]
-> 在查詢裝置對應項 (也就是含有「FROM 裝置」的查詢) 時，目前永遠不會傳回作業屬性。 此屬性只能使用 `FROM devices.jobs` 直接透過查詢來存取。
+> 目前，在查詢裝置對應項時，一律不會傳回 jobs 屬性。 亦即包含 'FROM devices' 的查詢。 存取 jobs 屬性時，只能使用 `FROM devices.jobs` 直接透過查詢來存取。
 >
 >
 
@@ -282,9 +288,9 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>裝置到雲端訊息路由查詢運算式
 
-使用[裝置對雲端路由][lnk-devguide-messaging-routes]，您可以設定 IoT 中樞，以根據對個別訊息評估的運算式，將裝置對雲端訊息分派至不同的端點。
+使用[裝置對雲端路由][lnk-devguide-messaging-routes]時，您可以設定讓「IoT 中樞」將裝置到雲端的訊息分派至不同的端點。 分派時會根據針對個別訊息評估的運算式來進行分派。
 
-路由[條件][lnk-query-expressions]會使用相同的 IoT 中樞查詢語言做為對應項和作業查詢中的條件。 路由條件會依據訊息標頭和內文進行評估。 您的路由查詢運算式可能只涉及訊息標頭、只涉及訊息內文，或同時涉及訊息標頭和訊息內文。 為了路由傳送訊息，「IoT 中樞」會針對標頭和訊息內文採用特定的結構描述。 下列各節將說明需要哪些項目才能讓 IoT 中樞正確路由傳送。
+路由[條件][lnk-query-expressions]會使用相同的 IoT 中樞查詢語言做為對應項和作業查詢中的條件。 路由條件會依據訊息標頭和內文進行評估。 您的路由查詢運算式可以只涉及訊息標頭、只涉及訊息本文，或同時涉及上述兩者。 為了路由傳送訊息，「IoT 中樞」會針對標頭和訊息內文採用特定的結構描述。 下列各節將說明需要哪些項目才能讓 IoT 中樞正確路由傳送。
 
 ### <a name="routing-on-message-headers"></a>依據訊息標頭進行路由
 
@@ -311,7 +317,7 @@ IoT 中樞假設訊息路由的訊息標頭採用下列 JSON 表示法：
 ```
 
 訊息系統屬性前面會加上 `'$'` 符號。
-使用者屬性則一律透過其名稱來存取。 若使用者屬性名稱剛好與系統屬性 (例如 `$to`) 相同，將使用 `$to` 運算式擷取使用者屬性。
+使用者屬性則一律透過其名稱來存取。 如果使用者屬性名稱恰巧與系統屬性 (例如 `$to`) 相同，就會使用 `$to` 運算式來擷取使用者屬性。
 您一律可以使用括弧 `{}` 來存取系統屬性：例如，您可以使用運算式 `{$to}` 來存取系統屬性 `to`。 以括弧括住的屬性名稱一律會擷取對應的系統屬性。
 
 請記住，屬性名稱不區分大小寫。
@@ -342,7 +348,7 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 ### <a name="routing-on-message-bodies"></a>依據訊息內文進行路由
 
-IoT 中樞只有在訊息內文是以 UTF-8、UTF-16 或 UTF-32 編碼的正確格式 JSON 時，才能依據訊息內文的內容進行路由。 請在訊息標頭中，將訊息的內容類型設定為 `application/json`，並將內容編碼設定為其中一種支援的 UTF 編碼。 如果未指定任一標頭，IoT 中樞將不會嘗試對訊息評估任何涉及內文的查詢運算式。 如果您的訊息不是 JSON 訊息，或者如果訊息未指定內容類型和內容編碼，您仍然可以使用訊息路由來依據訊息標頭路由傳送訊息。
+只有當訊息本文是以 UTF-8、UTF-16 或 UTF-32 編碼的正確格式 JSON 時，「IoT 中樞」才能依據訊息本文內容進行路由。 請將訊息的內容類型設定為 `application/json`。 請在訊息標頭中，將內容編碼設定為其中一種支援的 UTF 編碼。 如果未指定任一標頭，「IoT 中樞」就不會嘗試針對訊息評估任何涉及本文的查詢運算式。 如果您的訊息不是 JSON 訊息，或如果訊息未指定內容類型和內容編碼，您仍然可以使用訊息路由來依據訊息標頭路由傳送訊息。
 
 您可以在查詢運算式中使用 `$body` 來路由傳送訊息。 您可以在查詢運算式中使用簡單內文參考、內文陣列參考或多個內文參考。 您的查詢運算式也可以將內文參考與訊息標頭參考合併。 例如，以下是所有有效的查詢運算式：
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT 中樞查詢的基本概念
-每個「IoT 中樞」查詢都包含 SELECT 和 FROM 子句，以及選擇性的 WHERE 和 GROUP BY 子句。 每個查詢都會在 JSON 文件的集合上執行，例如裝置對應項。 FROM 子句會指出要在其上反覆運算的文件集合 (**devices** 或 **devices.jobs**)。 然後，會套用 WHERE 子句中的篩選。 若為彙總，此步驟的結果會依照 GROUP BY 子句中所指定的方式針對每個群組進行分組，並依 SELECT 子句中所指定的方式產生一個資料列。
+每個「IoT 中樞」查詢都包含 SELECT 和 FROM 子句，以及選擇性的 WHERE 和 GROUP BY 子句。 每個查詢都會在 JSON 文件的集合上執行，例如裝置對應項。 FROM 子句會指出要在其上反覆運算的文件集合 (**devices** 或 **devices.jobs**)。 然後，會套用 WHERE 子句中的篩選。 使用彙總時，此步驟的結果會依照 GROUP BY 子句中所指定的方式進行分組。 針對每個群組，會依照 SELECT 子句中所指定的方式產生一個資料列。
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ FROM <from_specification>
 
 ## <a name="select-clause"></a>SELECT 子句
 **SELECT <select_list>** 是必要子句，可指定要從查詢擷取的值。 它會指定用來產生新 JSON 物件的 JSON 值。
-針對 FROM 集合已經過篩選 (及選擇性分組) 之子集的每個項目，投影階段會產生新的 JSON 物件 (以 SELECT 子句中指定的值所建構)。
+針對已篩選 (及視需要已分組) 之 FROM 集合子集的每個項目，投影階段會產生一個新的 JSON 物件。 此物件會以 SELECT 子句中所指定的值來建構。
 
 以下是 SELECT 子句的文法︰
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 目前，只有在裝置對應項的彙總查詢中，才支援與 **SELECT*** 不同的選取範圍子句。
 
 ## <a name="group-by-clause"></a>GROUP BY 子句
-**GROUP BY <group_specification>** 子句是選擇性步驟，可在 WHERE 子句中指定的篩選之後、SELECT 中指定的投影之前執行。 它會根據屬性值來分組文件。 這些群組可用來產生 SELECT 子句中所指定的彙總值。
+**GROUP BY <group_specification>** 子句是一個選擇性步驟，會在 WHERE 子句中指定的篩選之後、SELECT 中指定的投影之前執行。 它會根據屬性值來分組文件。 這些群組可用來產生 SELECT 子句中所指定的彙總值。
 
 使用 GROUP BY 的查詢範例如下︰
 
@@ -433,7 +439,7 @@ GROUP BY <group_by_element>
 * 會評估為 JSON 類型 (例如布林值、數字、字串、陣列或物件) 的執行個體。
 * 定義方式是使用內建運算子和函式處理來自裝置 JSON 文件和常數的資料。
 
-「條件」是評估為布林值的運算式。 任何不同於布林值 **true** 的常數會被視為 **false** (包括 **null**、**undefined**、任何物件或陣列執行個體、任何字串，以及顯然是布林值 **false**)。
+「條件」是評估為布林值的運算式。 任何與布林值 **true** 不同的常數都會被視為 **false**。 此規則包括 **null****undefined**、任何物件或陣列執行個體、任何字串，以及布林值 **false**。
 
 運算式的語法如下︰
 
@@ -486,13 +492,13 @@ GROUP BY <group_by_element>
 ### <a name="functions"></a>Functions
 查詢對應項和作業時唯一支援的函式為：
 
-| 函式 | 描述 |
+| 函式 | 說明 |
 | -------- | ----------- |
 | IS_DEFINED(property) | 傳回布林值，表示屬性是否已經指派值 (包含 `null`)。 |
 
 在路由條件中，支援下列比對函式：
 
-| 函式 | 描述 |
+| 函式 | 說明 |
 | -------- | ----------- |
 | ABS(x) | 傳回指定之數值運算式的絕對 (正) 值。 |
 | EXP(x) | 傳回指定之數值運算式 (e^x) 的指數值。 |
@@ -505,7 +511,7 @@ GROUP BY <group_by_element>
 
 在路由條件中，支援下列類型檢查和轉換函式：
 
-| 函式 | 描述 |
+| 函式 | 說明 |
 | -------- | ----------- |
 | AS_NUMBER | 將輸入字串轉換為數字。 如果輸入是一個數字則為 `noop`；如果字串不是數字則為 `Undefined`。|
 | IS_ARRAY | 傳回布林值，表示指定之運算式的類型為陣列。 |
@@ -514,12 +520,12 @@ GROUP BY <group_by_element>
 | IS_NULL | 傳回布林值，表示指定之運算式的類型為 null。 |
 | IS_NUMBER | 傳回布林值，表示指定之運算式的類型為數字。 |
 | IS_OBJECT | 傳回布林值，表示指定之運算式的類型為 JSON 物件。 |
-| IS_PRIMITIVE | 傳回布林值，表示指定之運算式的類型為基本類型 (字串、布林值、數值或 `null`)。 |
+| IS_PRIMITIVE | 傳回布林值，可指出所指定之運算式的類型是否為基本類型 (字串、布林值、數值或 `null`)。 |
 | IS_STRING | 傳回布林值，表示指定之運算式的類型為字串。 |
 
 在路由條件中，支援下列字串函式：
 
-| 函式 | 描述 |
+| 函式 | 說明 |
 | -------- | ----------- |
 | CONCAT(x, y, …) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
 | LENGTH(x) | 傳回指定字串運算式的字元數目。|

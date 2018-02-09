@@ -1,6 +1,6 @@
 ---
-title: "自動化的指令碼可建立與 OMS 中的 IT 服務管理連接器連線之 Service Manager Web 應用程式 | Microsoft Docs"
-description: "使用自動化的指令碼建立 Service Manager Web 應用程式，來與 OMS 中的 IT 服務管理連接器連線，並將 ITSM 工作項目集中監視及管理。"
+title: "自動化的指令碼可建立與 Azure 中的 IT 服務管理連接器連線之 Service Manager Web 應用程式 | Microsoft Docs"
+description: "使用自動化的指令碼建立 Service Manager Web 應用程式，來與 Azure 中的 IT 服務管理連接器連線，並將 ITSM 工作項目集中監視及管理。"
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>使用自動化的指令碼建立 Service Manager Web 應用程式 (預覽)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>使用自動化的指令碼建立 Service Manager Web 應用程式
 
 使用下列指令碼來建立您 Service Manager 執行個體的 Web 應用程式。 可在這裡找到 Service Manager 連線的相關詳細資訊：[Service Manager Web 應用程式](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 將這些值儲存，當您使用 IT 服務管理連接器建立連線時會用到這些值。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
  Windows Management Framework 5.0 或更新版本。
 Windows 10 依預設包含 5.1。 您可以從[這裡](https://www.microsoft.com/download/details.aspx?id=53347)下載架構：

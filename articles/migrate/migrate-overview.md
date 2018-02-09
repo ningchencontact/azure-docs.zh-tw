@@ -6,15 +6,15 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
-Azure Migrate 服務會評估要移轉至 Azure 的內部部署工作負載。 此服務會評估移轉適用性和以效能為基礎的大小調整，並提供在 Azure 中執行內部部署機器的成本估計。 如果您打算進行隨即移轉，或在移轉的早期評估階段中，此服務很適合您。 評估之後，您可以使用 Azure Site Recovery 和 Azure 資料庫移轉等服務，將機器移轉至 Azure。
+Azure Migrate 服務會評估要移轉至 Azure 的內部部署工作負載。 此服務會評估移轉適用性，以及如何根據效能來調整大小，並估計在 Azure 中執行內部部署機器的成本。 如果您正打算進行隨即移轉，或者正處於移轉的早期評估階段，此服務很適合您。 評估之後，您可以使用 Azure Site Recovery 和 Azure 資料庫移轉等服務，將機器移轉至 Azure。
 
 > [!NOTE]
 > Azure Migrate 目前為預覽狀態並支援生產工作負載。
@@ -30,7 +30,7 @@ Azure Migrate 可協助您：
 
 ## <a name="current-limitations"></a>目前的限制
 
-- 目前，您可以評估內部部署 VMware 虛擬機器 (VM) 以便移轉到 Azure VM。
+- 目前已能針對那些要移轉到 Azure VM 的內部部署 VMware 虛擬機器 (VM) 進行評估。
 
 > [!NOTE]
 > Hyper-V 支援已在藍圖中，將儘速啟用。 在過渡時期，我們建議您使用 [Azure Site Recovery 部署規劃工具](http://aka.ms/asr-dp-hyperv-doc)來規劃 Hyper-V 工作負載的移轉。 
@@ -42,7 +42,7 @@ Azure Migrate 可協助您：
 
 ## <a name="what-do-i-need-to-pay-for"></a>我需要支付多少費用？
 
-不須額外費用即可使用 Azure Migrate。 但在公開預覽期間，使用相依性視覺效果功能會產生額外費用。 為了支援[相依性視覺效果](concepts-dependency-visualization.md)，Azure Migrate 預設會建立 Log Analytics 工作區。 如果您使用相依性視覺效果，或使用 Azure Migrate 外部的工作區，您就必須支付工作區使用費用。 [深入了解](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/)費用。 當服務正式運作時，即可免費使用相依性視覺效果功能。
+[在此](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/)深入了解 Azure Migrate 定價。
 
 
 ## <a name="whats-in-an-assessment"></a>評估包含什麼？
@@ -53,10 +53,10 @@ Azure Migrate 可協助您：
 --- | ---
 **目標位置** | 要作為移轉目的地的 Azure 位置。 根據預設，目標位置會設定為美國西部 2。 
 **儲存體備援** | Azure VM 會在移轉之後使用的儲存體類型。 LRS 是預設值。
-**價格方案** | 評估會考慮您是否已註冊軟體保證，並且可以使用 [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。 它也會考慮應該提供的 Azure 供應項目，並允許您指定經由供應項目取得的特定訂用帳戶折扣 (%)。 
-**定價層** | 您可以指定 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 根據您是否在生產環境中，協助您移轉至合適的 Azure VM 系列。 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
+**定價方案** | 評估時，系統會考量您是否已註冊軟體保證，以及您是否可以使用 [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。 它也會考量應提供的 Azure 供應項目，並允許您額外指定該供應項目所能適用的訂用帳戶專屬折扣 (%)。 
+**定價層** | 您可以指定 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 這能根據您是否在生產環境中，來協助您移轉至合適的 Azure VM 系列。 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
 **效能歷程記錄** | 根據預設，Azure Migrate 會使用一個月的歷程記錄 (95% 百分位數值) 評估內部部署機器的效能。 您可以修改此設定。
-**緩和因數** | Azure Migrate 會在評估期間考慮緩衝區 (緩和因數)。 此緩衝區適用於 VM 的機器使用量資料 (CPU、記憶體、磁碟和網路)。 緩和因數會考量各個問題，例如季節性使用量、簡短的效能歷程記錄，以及未來可能增加的使用量。<br/><br/> 例如，10 個核心且 20% 使用率的 VM 通常會造成 2 個核心的 VM。 不過，如果緩和因數為 2.0 x，則結果為 4 個核心的 VM。 預設緩和設定為 1.3x。
+**緩和因數** | Azure Migrate 會在評估期間考量緩衝區 (緩和因數)。 此緩衝區適用於 VM 的機器使用量資料 (CPU、記憶體、磁碟和網路)。 緩和因數會考量各個問題，例如季節性使用量、簡短的效能歷程記錄，以及未來可能增加的使用量。<br/><br/> 例如，10 核心的 VM，如果使用率只達 20%，一般即相當於一個 2 核心的 VM。 但如果緩和因數為 2.0 x，則結果為 4 核心的 VM。 預設緩和設定為 1.3x。
 
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Migrate 如何運作？

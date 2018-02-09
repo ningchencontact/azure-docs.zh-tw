@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>訊息瀏覽
 
-訊息瀏覽 (「預覽」) 可讓用戶端列舉佇列或訂用帳戶中的所有訊息，通常是針對診斷及偵錯目的。
+訊息瀏覽 (「預覽」) 通常可基於診斷及偵錯目的，讓服務匯流排用戶端列舉位於佇列或訂用帳戶中的所有訊息。
 
-預覽作業會傳回佇列或訂用帳戶訊息記錄中的所有訊息，不僅僅只是可使用 *Receive()* 或 *OnMessage()* 迴圈立即取得的訊息。 每則訊息的 *State* 屬性能告訴您訊息是作用中 (可接收)、延遲 (請參閱「延遲」[TBD link]) 或已排程 (請參閱「排定的訊息」[TBD link])。
+預覽作業會傳回佇列或訂用帳戶訊息記錄中現有的所有訊息，而不只是可使用 `Receive()` 或 `OnMessage()` 迴圈立即取得的訊息。 每個訊息的 `State` 屬性能告訴您該訊息是否為作用中 (可接收)、[延遲](message-deferral.md)或[已排程](message-sequencing.md)。
 
-非同步的「記憶體回收」執行會清除已使用和已到期的訊息，但不一定會在訊息到期的當下執行。因此預覽確實會傳回已到期，而且即將在下次針對佇列或訂用帳戶叫用接收作業時移除或失效的訊息。
+非同步的「記憶體回收」執行會清除已取用和已到期的訊息，但不一定會在訊息到期的當下執行，因此 `Peek` 確實會傳回已到期，而且將在下次針對佇列或訂用帳戶叫用接收作業時移除或轉為無效信件的訊息。
 
 當您嘗試從佇列復原延遲的訊息時，請務必記住這點。 經過 [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) 時刻的訊息不再能以其他任何方式正常擷取，即便是預覽傳回時也不例外。 傳回這些訊息需要經過深思熟慮，因為預覽是反映記錄目前狀態的診斷工具。
 

@@ -1,166 +1,171 @@
 ---
-title: "使用 Web 應用程式防火牆建立或更新應用程式閘道 | Microsoft Docs"
-description: "了解如何使用入口網站以 Web 應用程式防火牆建立應用程式閘道"
+title: "建立包含 Web 應用程式防火牆的應用程式閘道 - Azure 入口網站 | Microsoft Docs"
+description: "了解如何使用 Azure 入口網站建立具有 Web 應用程式防火牆的應用程式閘道。"
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>使用入口網站以 Web 應用程式防火牆建立應用程式閘道
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+您可以使用 Azure 入口網站建立包含 [Web 應用程式防火牆](application-gateway-web-application-firewall-overview.md) (WAF) 的[應用程式閘道](application-gateway-introduction.md)。 WAF 會使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 規則來保護您的應用程式。 這些規則包括防禦諸如 SQL 插入攻擊、跨網站指令碼攻擊，以及工作階段劫持等攻擊。
 
-了解如何建立已啟用 Web 應用程式防火牆 (WAF) 的應用程式閘道。
+在本文中，您將了解：
 
-Azure 應用程式閘道中的 WAF 可保護 Web 應用程式，免於遭受常見的 Web 型攻擊，例如 SQL 插入式攻擊、跨網站指令碼攻擊和工作階段攔截。 WAF 可防止許多 OWASP 前 10 大常見 Web 弱點。
+> [!div class="checklist"]
+> * 已啟用建立包含 WAF 的應用程式閘道
+> * 建立用來作為後端伺服器的虛擬機器
+> * 建立儲存體帳戶和設定診斷
 
-## <a name="scenarios"></a>案例
+![Web 應用程式防火牆範例](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-本文提供兩個案例。 在第一個案例中，您會了解如何[使用 WAF 來建立應用程式閘道](#create-an-application-gateway-with-web-application-firewall)。 在第二個案例中，您會了解如何[對現有應用程式閘道新增 WAF](#add-web-application-firewall-to-an-existing-application-gateway)。
+## <a name="log-in-to-azure"></a>登入 Azure
 
-![案例範例][scenario]
+登入 Azure 入口網站，網址是 [http://portal.azure.com](http://portal.azure.com)
 
-> [!NOTE]
-> 您可以將自訂健康情況探查、後端集區位址，以及其他規則新增至應用程式閘道。 設定應用程式閘道之後，且並非在初始部署期間，會設定這些應用程式。
+## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-## <a name="before-you-begin"></a>開始之前
+需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個是適用於應用程式閘道，另一個則是適用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
 
- 應用程式閘道需要有自己的子網路。 建立虛擬網路時，請確定您保留足夠的位址空間，以便擁有多個子網路。 將應用程式閘道部署到子網路之後，就只能將額外的應用程式閘道新增到該子網路。
+1. 按一下 Azure 入口網站左上角的 [新增]。
+2. 在「精選」清單中選取 [網路]，然後選取 [應用程式閘道]。
+3. 針對應用程式閘道輸入這些值：
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>對現有應用程式閘道新增 Web 應用程式防火牆
+    - myAppGateway - 作為應用程式閘道的名稱。
+    - myResourceGroupAG - 作為新的資源群組。
+    - 選取 [WAF] 作為應用程式閘道層。
 
-此範例會更新現有應用程式閘道，以便在**防止**模式中支援 WAF。
+    ![建立新的應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-1. 在 Azure 入口網站的 [我的最愛] 窗格中，選取 [所有資源]。 在 [所有資源] 刀鋒視窗中，選取現有的應用程式閘道。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選] 方塊中輸入名稱，輕易地存取 DNS 區域。
+4. 接受其他設定的預設值，然後按一下 [確定]。
+5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-   ![現有應用程式閘道選取項目][1]
+    - myVNet - 作為虛擬網路的名稱。
+    - 10.0.0.0/16 - 作為虛擬網路位址空間。
+    - myAGSubnet - 作為子網路名稱。
+    - 10.0.0.0/24 - 作為子網路位址空間。
 
-2. 選取 [Web 應用程式防火牆]，然後更新應用程式閘道設定。 當更新完成時，選取 [儲存]。 
+    ![建立虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-3. 使用下列設定來更新現有應用程式閘道以支援 WAF：
+6. 按一下 [確定] 以建立虛擬網路和子網路。
+7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
+8. 接受接聽程式設定的預設值，將 Web 應用程式防火牆保持為停用，然後按一下 [確定]。
+9. 檢閱 [摘要] 頁面上的設定，然後按一下 [確定] 以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
 
-   | **設定** | **值** | **詳細資料**
-   |---|---|---|
-   |**升級至 WAF 層**| 已檢查 | 這個選項會將應用程式閘道層設為 WAF 層。|
-   |**防火牆狀態**| 已啟用 | 此設定會在 WAF 上啟用防火牆。|
-   |**防火牆模式** | 預防 | 此設定可指定 WAF 處理惡意流量的方式。 **偵測**模式只會記錄事件。 **防止**模式則會記錄事件並停止惡意流量。|
-   |**規則集**|3.0|此設定會決定用來保護後端集區成員的[核心規則集](application-gateway-web-application-firewall-overview.md#core-rule-sets)。|
-   |**設定已停用的規則**|視情況而異|若要防止可能發生誤判，您可以使用此設定來停用某些[規則與規則群組](application-gateway-crs-rulegroups-rules.md)。|
+### <a name="add-a-subnet"></a>新增子網路
 
-    >[!NOTE]
-    > 將現有的應用程式閘道升級至 WAF SKU 時，SKU 大小會變更為 [中型]。 設定完成之後，您可以重新設定此設定。
+1. 按一下左側功能表中的 [所有資源]，然後從 [資源] 清單中按一下 [myVNet]。
+2. 按一下 [子網路]，然後按一下 [子網路]。
 
-    ![基本設定][2-1]
+    ![建立子網路](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-    > [!NOTE]
-    > 若要檢視 WAF 記錄，請啟用診斷並且選取 **ApplicationGatewayFirewallLog**。 僅針對測試目的，選擇執行個體計數 **1**。 不建議 **2** 以下的執行個體計數，因為 SLA 未涵蓋。 當您使用 WAF 時，小型閘道無法使用。
+3. 輸入 myBackendSubnet 作為子網路的名稱，然後按一下 [確定]。
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>建立具有 Web 應用程式防火牆的應用程式閘道
+## <a name="create-backend-servers"></a>建立後端伺服器
 
-此案例將會：
+在此範例中，您要建立兩個虛擬機器，作為應用程式閘道的後端伺服器。 您也可以在虛擬機器上安裝 IIS，以確認成功建立應用程式閘道。
 
-* 建立含有兩個執行個體的中型 WAF 應用程式閘道。
-* 建立名為 AdatumAppGatewayVNET 且含有 10.0.0.0/16 保留 CIDR 區塊的虛擬網路。
-* 建立名為 Appgatewaysubnet 且使用 10.0.0.0/28 做為其 CIDR 區塊的子網路。
-* 為 SSL 卸載設定憑證。
+### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 如果您沒有帳戶，可以註冊[免費試用一個月](https://azure.microsoft.com/free)。
+1. 按一下 [新增] 。
+2. 按一下 [計算]，然後選取「精選」清單中的 [Windows Server 2016 Datacenter]。
+3. 針對虛擬機器，請輸入這些值：
 
-2. 在入口網站的 [我的最愛] 窗格中，選取 [新增]。
+    - myVM - 作為虛擬機器的名稱。
+    - azureuser - 作為系統管理員使用者名稱。
+    - *Azure123456!* 作為密碼。
+    - 選取 [使用現有的]，然後選取 [myResourceGroupAG]。
 
-3. 在 [新增] 刀鋒視窗中，選取 [網路]。 在 [網路] 刀鋒視窗中，選取 [應用程式閘道]，如下圖中所示：
+4. 按一下 [SERVICEPRINCIPAL] 。
+5. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
+6. 請確定您已選取 [myVNet] 作為虛擬網路，及選取 [myBackendSubnet] 作為子網路。 
+7. 按一下 [停用] 來停用開機診斷。
+8. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
 
-    ![應用程式閘道建立][1]
+### <a name="install-iis"></a>安裝 IIS
 
-4. 在顯示的 [基本] 刀鋒視窗中，輸入下列值，然後選取 [確定]：
+1. 開啟互動式殼層，並確定它是設定為 **PowerShell**。
 
-   | **設定** | **值** | **詳細資料**
-   |---|---|---|
-   |**名稱**|AdatumAppGateway|應用程式閘道的名稱。|
-   |**層級**|WAF|可用的值為「標準」或 WAF。 若要深入了解 WAF，請參閱 [Web 應用程式防火牆](application-gateway-web-application-firewall-overview.md)。|
-   |**SKU 大小**|中|標準層的選項為 [小型]、[中型] 和 [大型]。 WAF 層的選項只有 [中型] 和 [大型]。|
-   |**執行個體計數**|2|高可用性的應用程式閘道執行個體數目。 僅針對測試目的，使用執行個體計數 1。|
-   |**訂用帳戶**|[您的訂用帳戶]|選取要用來建立應用程式閘道的訂用帳戶。|
-   |**資源群組**|**建立新項目：**AdatumAppGatewayRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) 概觀。|
-   |<bpt id="p1">**</bpt>Location<ept id="p1">**</ept>|美國西部||
+    ![安裝自訂擴充功能](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-   ![基本設定][2-2]
+2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
-5. 在 [虛擬網路] 底下顯示的 [設定] 刀鋒視窗中，選取 [選擇虛擬網路]。 在 [選擇虛擬網路] 刀鋒視窗中，選取 [建立新項目]。
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-   ![虛擬網路選擇][2]
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 作為其名稱，及作為 AzureRmVMExtension 中的 VMName。
 
-6. 在 [建立虛擬網路] 刀鋒視窗中輸入下列值，然後選取 [確定]。 這會使用所選的子網路，填入 [設定] 刀鋒視窗的 [子網路] 欄位。
+### <a name="add-backend-servers"></a>新增後端伺服器
 
-   |**設定** | **值** | **詳細資料** |
-   |---|---|---|
-   |**名稱**|AdatumAppGatewayVNET|應用程式閘道的名稱。|
-   |**位址空間**|10.0.0.0/16| 此值是虛擬網路的位址空間。|
-   |**子網路名稱**|AppGatewaySubnet|應用程式閘道的子網路名稱。|
-   |**子網路位址範圍**|10.0.0.0/28 | 這個子網路允許在虛擬網路中有更多其他的子網路，以供後端集區成員使用。|
+1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
+2. 按一下 [後端集區]。 已使用應用程式閘道自動建立預設集區。 按一下 [appGateayBackendPool]。
+3. 按一下 [新增目標]，將您所建立的每個虛擬機器新增至後端集區。
 
-7. 在 [前端 IP 設定] 底下的 [設定] 刀鋒視窗中，選取 [公用] 作為 [IP 位址類型]。
+    ![新增後端伺服器](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
-8. 在 [公用 IP 位址] 底下的 [設定] 刀鋒視窗中，選取 [選擇公用 IP 位址]。 在 [選擇公用 IP 位址] 刀鋒視窗中﹐選取 [建立新項目]。
+4. 按一下 [檔案] 。
 
-   ![公用 IP 位址選擇][3]
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>建立儲存體帳戶和設定診斷
 
-9. 在 [建立公用 IP 位址] 刀鋒視窗中，接受預設值，然後選取 [確定]。 會以您所選擇的公用 IP 位址填入 [公用 IP 位址] 欄位。
+## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-10. 在 [接聽程式設定] 底下的 [設定] 刀鋒視窗中，選取 [通訊協定] 底下的 [HTTP]。 需要憑證才能使用 **HTTPS**。 需要憑證的私密金鑰 。 提供憑證的 .pfx 匯出，然後輸入檔案的密碼。
+在本教學課程中，應用程式閘道會使用儲存體帳戶來儲存資料，以達到偵測與預防的目的。 您也可以使用 Log Analytics 或事件中樞來記錄資料。
 
-11. 設定 **WAF** 的特定設定。
+1. 按一下 Azure 入口網站左上角的 [新增]。
+2. 選取 [儲存體]，然後選取 [儲存體帳戶 - blob、檔案、資料表、佇列]。
+3. 輸入儲存體帳戶的名稱，針對資源群組選取 [使用現有的]，然後選取 [myResourceGroupAG]。 在此範例中，儲存體帳戶名稱是 myagstore1。 接受其他設定的預設值，然後按一下 [建立]。
 
-   |**設定** | **值** | **詳細資料** |
-   |---|---|---|
-   |**防火牆狀態**| 已啟用| 此設定會開啟或關閉 WAF。|
-   |**防火牆模式** | 預防| 此設定會決定 WAF 對惡意流量採取的動作。 **偵測**模式只會記錄流量。 **防止**模式會記錄流量，並且停止 403 未授權回應的流量。|
+## <a name="configure-diagnostics"></a>設定診斷
 
+將記錄資料的診斷設定為 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 記錄。
 
-12. 檢閱 [摘要] 分頁，然後選取 [確定]。 現在應用程式閘道已排入佇列並建立。
+1. 在左側功能表中，按一下 [所有資源]，然後選取 [myAppGateway]。
+2. 在 [監視] 底下，按一下 [診斷記錄]。
+3. 按一下 [新增診斷設定]。
+4. 輸入 myDiagnosticsSettings 作為診斷設定的名稱。
+5. 選取 [保存到儲存體帳戶]，然後按一下 [設定] 以選取您先前建立的 myagstore1 儲存體帳戶。
+6. 選取要收集的應用程式閘道記錄並加以保留。
+7. 按一下 [檔案] 。
 
-13. 建立應用程式閘道之後，請在入口網站中移至該閘道，以繼續設定應用程式閘道。
+    ![設定診斷](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-    ![應用程式閘道資源檢視][10]
+## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-這些步驟會建立一個具有接聽程式、後端集區、後端 HTTP 設定及規則之預設設定的基本應用程式閘道。 佈建成功完成之後，您可以依據您的部署需求修改這些設定。
+1. 在 [概觀] 畫面上尋找應用程式閘道的公用 IP 位址。 按一下 [所有資源]，然後按一下 [myAGPublicIPAddress]。
 
-> [!NOTE]
-> 基於保護的目的，使用基本 WAF 設定建立的應用程式閘道，是使用 CRS 3.0 來設定。
+    ![記錄應用程式閘道公用 IP 位址](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+
+2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。
+
+    ![測試應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-若要為[公用 IP 位址](../dns/dns-custom-domain.md#public-ip-address)設定自訂網域別名，您可以使用 Azure DNS 或其他 DNS 提供者。
+在本文中，您已了解如何：
 
-若要設定診斷記錄，以記錄 WAF 偵測到或防止的事件，請參閱[應用程式閘道診斷](application-gateway-diagnostics.md)。
+> [!div class="checklist"]
+> * 已啟用建立包含 WAF 的應用程式閘道
+> * 建立用來作為後端伺服器的虛擬機器
+> * 建立儲存體帳戶和設定診斷
 
-若要建立自訂健康情況探查，請參閱[建立自訂健康情況探查](application-gateway-create-probe-portal.md)。
-
-若要設定 SSL 卸載，並且將昂貴的 SSL 訂用帳戶從您的 Web 伺服器移除，請參閱[設定 SSL 卸載](application-gateway-ssl-portal.md)。
-
-<!--Image references-->
-[1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
-[2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[2-1]: ./media/application-gateway-web-application-firewall-portal/figure2-1.png
-[2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
-[3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
-[scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
+若要深入了解應用程式閘道和其相關聯的資源，請繼續進行說明文章。

@@ -3,24 +3,23 @@ title: "Actions 和 NotActions - Azure 角色型存取控制 | Microsoft Docs"
 description: "本主題說明角色型存取控制 (RBAC) 的內建角色。 角色會持續新增，因此請查看文件更新時間。"
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 角色型存取控制的內建角色
 Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派給使用者、群組與服務。 您無法修改內建角色定義。 不過，您可以建立 [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md) 以符合您組織的特定需求。
@@ -68,7 +67,9 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | [Redis 快取參與者](#redis-cache-contributor) |可以管理 Redis 快取 |
 | [排程器工作集合參與者](#scheduler-job-collections-contributor) |可以管理排程器工作集合 |
 | [搜尋服務參與者](#search-service-contributor) |可以管理搜尋服務 |
-| [安全性管理員](#security-manager) |可以管理安全性元件、安全性原則及虛擬機器 |
+| [安全性系統管理員](#security-administrator) | 僅限資訊安全中心：可檢視安全性原則、檢視安全性狀態、編輯安全性原則、檢視警示和建議、關閉警示和建議 |
+| [安全性管理員](#security-manager) | 可以管理安全性元件、安全性原則及虛擬機器 |
+| [安全性讀取者](#security-reader) | 僅限資訊安全中心：可檢視建議和警示、檢視安全性原則、檢視安全性狀態，但無法進行變更 |
 | [Site Recovery 參與者](#site-recovery-contributor) | 可以管理復原服務保存庫中的 Site Recovery |
 | [Site Recovery 操作員](#site-recovery-operator) | 可以管理復原服務保存庫中 Site Recovery 的容錯移轉和容錯回復作業 |
 | [Site Recovery 讀取者](#site-recovery-reader) | 可以檢視所有 Site Recovery 管理作業  |
@@ -506,21 +507,50 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | Microsoft.Search/searchServices/* |建立和管理搜尋服務 |
 | Microsoft.Support/* |建立和管理支援票證 |
 
+### <a name="security-administrator"></a>安全性系統管理員
+僅限資訊安全中心：可檢視安全性原則、檢視安全性狀態、編輯安全性原則、檢視警示和建議、關閉警示和建議
+
+| **動作** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |讀取角色和角色指派 |
+| Microsoft.Authorization/policyAssignments/* | 建立及管理原則指派 |
+| Microsoft.Authorization/policySetDefinitions/* | 建立及管理原則集合 |
+| Microsoft.Authorization/policyDefinitions/* | 建立及管理原則定義 |
+| Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
+| Microsoft.operationalInsights/workspaces/*/read | 檢視 Log Analytics 資料 |
+| Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |讀取資源群組 |
+| Microsoft.Security/*/read | 讀取安全性元件和原則 |
+| Microsoft.Support/* |建立和管理支援票證 |
+
 ### <a name="security-manager"></a>安全性管理員
 可以管理安全性元件、安全性原則及虛擬機器
 
 | **動作** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |讀取角色和角色指派 |
-| Microsoft.ClassicCompute/*/read |讀取傳統運算虛擬機器的組態資訊 |
-| Microsoft.ClassicCompute/virtualMachines/*/write |撰寫虛擬機器的組態 |
+| Microsoft.ClassicCompute/*/read |讀取傳統虛擬機器的設定資訊 |
+| Microsoft.ClassicCompute/virtualMachines/*/write |撰寫傳統虛擬機器的設定 |
 | Microsoft.ClassicNetwork/*/read |讀取傳統網路的組態資訊 |
-| Microsoft.Insights/alertRules/* |建立及管理警示規則 |
+| Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |讀取資源的健康狀態 |
 | Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |讀取資源群組 |
 | Microsoft.Security/* |建立和管理安全性元件和原則 |
 | Microsoft.Support/* |建立和管理支援票證 |
+
+### <a name="security-reader"></a>安全性讀取者
+僅限資訊安全中心：可檢視建議和警示、檢視安全性原則、檢視安全性狀態，但無法進行變更
+
+| **動作** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |讀取角色和角色指派 |
+| Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
+| Microsoft.operationalInsights/workspaces/*/read | 檢視 Log Analytics 資料 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |讀取資源群組 |
+| Microsoft.Security/*/read | 讀取安全性元件和原則 |
+| Microsoft.Support/* |建立和管理支援票證 |
+| Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery 參與者
 可以管理所有 Site Recovery 管理動作，但是不能建立復原服務保存庫，也不能授予存取權給其他使用者
@@ -867,8 +897,9 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | Microsoft.Web/serverFarms/read |讀取伺服器陣列 |
 | Microsoft.Web/sites/* |建立和管理網站 (建立網站也需要相關聯應用程式服務方案的寫入權限) |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [角色型存取控制](role-based-access-control-configure.md)：開始在 Azure 入口網站中使用 RBAC。
 * [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md)︰了解如何建立自訂角色，以符合您的存取需求。
 * [建立存取權變更歷程記錄報告](role-based-access-control-access-change-history-report.md)︰記錄 RBAC 中的角色指派變更。
 * [角色型存取控制疑難排解](role-based-access-control-troubleshooting.md)︰取得修正常見問題的建議。
+* [Azure 資訊安全中心的權限](../security-center/security-center-permissions.md)

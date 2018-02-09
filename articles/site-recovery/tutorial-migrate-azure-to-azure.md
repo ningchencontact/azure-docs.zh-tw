@@ -121,7 +121,7 @@ Site Recovery 會擷取與訂用帳戶和資源群組建立關聯的 VM 清單�
 
 1. 在 [設定] > [複寫的項目] 中，按一下電腦，然後按一下 [容錯移轉]。
 2. 在 [容錯移轉] 中，選取 [最新]。 加密金鑰設定不適用於此案例。
-3. 選取 [Shut down machine before beginning failover] (先將機器關機再開始容錯移轉)。 Site Recovery 嘗試先關閉來源 VM，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
+3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 嘗試先關閉來源 VM，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 4. 確認 Azure VM 如預期般出現在 Azure 中。
 5. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會完成移轉程序，並停止複寫 VM。
 

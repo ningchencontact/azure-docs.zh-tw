@@ -35,7 +35,7 @@ Azure Stack 系統資料或遙測會透過「已連線使用者體驗」自動�
 Azure Stack 遙測是以 Windows Server 2016「已連線使用者體驗與遙測」元件為基礎，該元件使用 [Windows 事件追蹤 (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) 追蹤記錄技術來蒐集和儲存遙測事件和資料。 Azure Stack 元件會使用相同的記錄技術，發佈使用公用作業系統事件記錄和追蹤 API 蒐集的事件和資料。 Azure Stack 元件範例包括網路資源提供者、儲存體資源提供者、監視資源提供者和更新資源提供者。 「已連線使用者體驗與遙測」元件使用 SSL 加密資料，並使用憑證關聯透過 HTTPS 將遙測資料傳輸至 Microsoft 資料管理服務。
 
 > [!NOTE]
-> 若要支援遙測資料流程，必須在您的網路中開放連接埠 443 (HTTPS)。 「已連線使用者體驗與遙測」元件會連線到 Microsoft 資料管理服務 (位於 https://v10.vortex-win.data.microsoft.com)。「已連線使用者體驗與遙測」元件也會連線到 https://settings-win.data.microsoft.com 來下載組態資訊。
+> 若要支援遙測資料流程，必須在您的網路中開放連接埠 443 (HTTPS)。 「已連線使用者體驗與遙測」元件會連線到 Microsoft 資料管理服務 (位於 https://v10.vortex-win.data.microsoft.com )。「已連線使用者體驗與遙測」元件也會連線到 https://settings-win.data.microsoft.com 來下載組態資訊。
 
 ## <a name="privacy-considerations"></a>隱私權考量
 ETW 服務會將遙測資料傳送回到受保護的雲端儲存體。 最小權限原則會支配遙測資料的存取權。 只有具備有效商務需求的 Microsoft 人員，才能夠存取遙測資料。 Microsoft 不會與第三方共用客戶個人資料，但客戶自行決定或基於 [Azure Stack 隱私權聲明](http://windows.microsoft.com/windows/preview-privacy-statement)中所述的有限用途除外。 我們會與 OEM 和夥伴共用商務報告，其中包含匿名的彙總遙測資訊。 內部 Microsoft 小組 (包括隱私權、法務及資料管理利害關係人) 會進行資料共用決策。

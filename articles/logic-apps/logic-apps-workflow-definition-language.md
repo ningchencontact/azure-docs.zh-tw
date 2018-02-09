@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言結構描述
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 11/06/2017
   
 |元素名稱|必要|說明|  
 |------------------|--------------|-----------------|  
-|$schema|否|指定 JSON 結構描述檔案的位置，說明定義語言的版本。 當您從外部參考定義時，需要這個位置。 對於本文件而言，位置為︰ <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
+|$schema|否|指定 JSON 結構描述檔案的位置，說明定義語言的版本。 當您從外部參考定義時，需要這個位置。 此文件的位置為： <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|否|指定定義版本。 當您使用定義部署工作流程時，可以使用這個值以確定使用正確的定義。|  
-|參數|否|指定用來將資料輸入定義的參數。 您最多可以定義 50 個參數。|  
+|parameters|否|指定用來將資料輸入定義的參數。 您最多可以定義 50 個參數。|  
 |觸發程序|否|指定初始化工作流程之觸發程序的資訊。 您最多可以定義 10 個觸發程序。|  
 |動作|否|指定當流程執行時所採取的動作。 您最多可以定義 250 個動作。|  
 |輸出|否|指定已部署資源的相關資訊。 您最多可以定義 10 個輸出。|  
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/06/2017
 
 |元素名稱|必要|說明|  
 |------------------|--------------|-----------------|  
-|類型|是|**類型**：字串 <p> **宣告**：`"parameters": {"parameter1": {"type": "string"}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類型**：securestring <p> **宣告**：`"parameters": {"parameter1": {"type": "securestring"}}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類別**：int <p> **宣告**：`"parameters": {"parameter1": {"type": "int"}}` <p> **規格**：`"parameters": {"parameter1": {"value" : 5}}` <p> **類型**：bool <p> **宣告**：`"parameters": {"parameter1": {"type": "bool"}}` <p> **規格**：`"parameters": {"parameter1": { "value": true }}` <p> **類型**：陣列 <p> **宣告**：`"parameters": {"parameter1": {"type": "array"}}` <p> **規格**：`"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **類型**：物件 <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **類型**：secureobject <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **注意：**`GET`作業中不會傳回 `securestring` 和 `secureobject` 類型。 所有密碼、金鑰和密碼都應該使用這個類型。|  
+|type|yes|**類型**：字串 <p> **宣告**：`"parameters": {"parameter1": {"type": "string"}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類型**：securestring <p> **宣告**：`"parameters": {"parameter1": {"type": "securestring"}}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類別**：int <p> **宣告**：`"parameters": {"parameter1": {"type": "int"}}` <p> **規格**：`"parameters": {"parameter1": {"value" : 5}}` <p> **類型**：bool <p> **宣告**：`"parameters": {"parameter1": {"type": "bool"}}` <p> **規格**：`"parameters": {"parameter1": { "value": true }}` <p> **類型**：陣列 <p> **宣告**：`"parameters": {"parameter1": {"type": "array"}}` <p> **規格**：`"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **類型**：物件 <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **類型**：secureobject <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **注意：**`GET`作業中不會傳回 `securestring` 和 `secureobject` 類型。 所有密碼、金鑰和密碼都應該使用這個類型。|  
 |defaultValue|否|在建立資源期間未指定任何值時，請為參數指定預設值。|  
 |allowedValues|否|指定參數允許值的陣列。|  
 |中繼資料|否|指定參數的其他資訊，例如可讀取描述或是 Visual Studio 或其他工具所使用的設計階段資料。|  
@@ -105,13 +105,13 @@ ms.lasthandoff: 11/06/2017
 
 |元素名稱|必要|說明|  
 |------------------|--------------|-----------------|  
-|key1|是|指定輸出的金鑰識別碼。 將 **key1** 以您想要用來識別輸出的名稱取代。|  
-|value|是|指定輸出的值。|  
-|類型|是|指定已指定值的類型。 可能的值類型為︰ <ul><li>`string`</li><li>`securestring`</li><li>`int`</li><li>`bool`</li><li>`array`</li><li>`object`</li></ul>|
+|key1|yes|指定輸出的金鑰識別碼。 將 **key1** 以您想要用來識別輸出的名稱取代。|  
+|value|yes|指定輸出的值。|  
+|type|yes|指定已指定值的類型。 可能的值類型為︰ <ul><li>`string`</li><li>`securestring`</li><li>`int`</li><li>`bool`</li><li>`array`</li><li>`object`</li></ul>|
   
 ## <a name="expressions"></a>運算式  
 
-定義中的 JSON 值可以是常值，或者是使用定義時評估的運算式。 例如：  
+定義中的 JSON 值可以是常值，或者是使用定義時評估的運算式。 例如︰  
   
 ```json
 "name": "value"
@@ -135,7 +135,7 @@ ms.lasthandoff: 11/06/2017
 |"@@"|傳回包含 '@' 的 1 個字元字串。|  
 |" @"|傳回包含 '@' 的 2 個字元字串。|  
   
-使用「字串插補」，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如： <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
+使用「字串插補」，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如︰ <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 結果一律是字串，使這項功能類似於 `concat` 函式。 假設您將 `myNumber` 定義為`42` 以及將 `myString` 定義為 `sampleString`：  
   
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/06/2017
   
 |運算子|說明|  
 |--------------|-----------------|  
-|。|點運算子可讓您參考物件的屬性|  
+|.|點運算子可讓您參考物件的屬性|  
 |?|問號運算子可讓您參考沒有執行階段錯誤的物件 null 屬性。 例如，您可以使用此運算式來處理 null 觸發程序輸出︰ <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
 |'|單引號是包裝字串常值的唯一方法。 您無法在運算式中使用雙引號，因為這個標點符號與包裝整個運算式的 JSON 引號相衝突。|  
 |[]|方括號可以用來從具有特定索引的陣列取得值。 例如，如果您有一個動作會將 `range(0,10)` 傳入至 `forEach` 函式，可以使用此函式從陣列取得項目︰  <p>`myArray[item()]`|  
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/06/2017
   
 |函式名稱|說明|  
 |-------------------|-----------------|  
-|參數|傳回在定義中定義的參數值。 <p>`parameters('password')` <p> **參數編號**：1 <p> **名稱**：參數 <p> **描述**︰必要。 您想要其值之參數的名稱。|  
+|parameters|傳回在定義中定義的參數值。 <p>`parameters('password')` <p> **參數編號**：1 <p> **名稱**：參數 <p> **描述**︰必要。 您想要其值之參數的名稱。|  
 |動作|可讓運算式從其他 JSON 名稱和值組或目前執行階段動作的輸出衍生其值。 下列範例中 Propertypath 顯示的屬性是選擇性的。 如果未指定 propertyPath，參考是針對整個動作物件。 此函式僅適用於動作的內部 do-until 條件。 <p>`action().outputs.body.propertyPath`|  
 |動作|可讓運算式從其他 JSON 名稱和值組或執行階段動作的輸出衍生其值。 這些運算式會明確地宣告一個動作取決於其他動作。 下列範例中 Propertypath 顯示的屬性是選擇性的。 如果未指定 propertyPath，參考是針對整個動作物件。 您可以使用此元素或條件元素指定相依性，但是不需要針對相同的相依資源使用兩者。 <p>`actions('myAction').outputs.body.propertyPath` <p> **參數編號**：1 <p> **名稱**︰動作名稱 <p> **描述**︰必要。 您想要其值之動作的名稱。 <p> 動作物件上的可用屬性包括： <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>如需這些屬性的詳細資訊，請參閱 [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646)。|
 |觸發程序|可讓運算式從其他 JSON 名稱和值組或執行階段觸發程序的輸出衍生其值。 下列範例中 Propertypath 顯示的屬性是選擇性的。 如果未指定 propertyPath，參考是針對整個觸發程序物件。 <p>`trigger().outputs.body.propertyPath` <p>在觸發程序的輸入內使用時，函式會傳回先前執行的輸出。 但是，在觸發程序的條件內使用時，`trigger` 函式會傳回目前執行的輸出。 <p> 觸發程序物件上的可用屬性包括： <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>如需這些屬性的詳細資訊，請參閱 [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644)。|
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/06/2017
 |函式名稱|說明|  
 |-------------------|-----------------|  
 |int|將參數轉換成整數。 例如，此函式會傳回 100 做為數字，而不是字串︰ <p>`int('100')` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成整數的值。|  
-|string|將參數轉換成字串。 例如，此函式會傳回 `'10'`： <p>`string(10)` <p>您也可以將物件轉換成字串。 例如，如果 `myPar` 參數是具有屬性 `abc : xyz` 的物件，則此函式會傳回 `{"abc" : "xyz"}`： <p>`string(parameters('myPar'))` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成字串的值。|  
+|字串|將參數轉換成字串。 例如，此函式會傳回 `'10'`： <p>`string(10)` <p>您也可以將物件轉換成字串。 例如，如果 `myPar` 參數是具有屬性 `abc : xyz` 的物件，則此函式會傳回 `{"abc" : "xyz"}`： <p>`string(parameters('myPar'))` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成字串的值。|  
 |json|將參數轉換成 JSON 類型值並且與 `string()` 相反。 例如，此函式會傳回 `[1,2,3]` 做為陣列，而不是字串︰ <p>`json('[1,2,3]')` <p>同樣地，您可以將字串轉換成物件。 例如，此函式會傳回 `{ "abc" : "xyz" }`： <p>`json('{"abc" : "xyz"}')` <p> **參數編號**：1 <p> **名稱**：字串 <p> **描述**︰必要。 轉換成原生類型值的字串。 <p>`json()` 函式也支援 XML 輸入。 例如，參數值︰ <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>轉換成此 JSON： <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|將參數引數轉換成浮點數。 例如，此函式會傳回 `10.333`： <p>`float('10.333')` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成浮點數的值。|  
 |布林|將參數轉換成布林值。 例如，此函式會傳回 `false`： <p>`bool(0)` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成布林值的值。|  

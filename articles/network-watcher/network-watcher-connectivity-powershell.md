@@ -1,10 +1,10 @@
 ---
-title: "檢查與 Azure 網路監看員的連線 - PowerShell | Microsoft Docs"
-description: "此頁面說明如何使用 PowerShell 測試與網路監看員的連線。"
+title: "利用 Azure 網路監看員進行連線疑難排解 - PowerShell | Microsoft Docs"
+description: "了解如何運用 PowerShell，來使用 Azure 網路監看員的連線疑難排解功能。"
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>使用 PowerShell 檢查與 Azure 網路監看員的連線
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>使用 PowerShell 利用 Azure 網路監看員進行連線疑難排解
 
 > [!div class="op_single_selector"]
 > - [入口網站](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-了解如何使用連線，確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
+了解如何使用連線疑難排解，來確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文假設您具有下列資源：
-
-* 您想要檢查連線之區域中的網路監看員執行個體。
-
-* 要檢查與其連線的虛擬機器。
+* 您想要進行連線疑難排解之區域中的網路監看員執行個體。
+* 要用來進行連線疑難排解的虛擬機器。
 
 > [!IMPORTANT]
-> 連線檢查需要虛擬機器延伸模組 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
+> 連線疑難排解需要虛擬機器擴充功能 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>檢查與虛擬機器的連線
 
-這個範例會檢查透過連接埠 80 的目的地虛擬機器連線。 這個範例需要在包含來源 VM 的區域中啟用網路監看員。  
+這個範例會檢查透過連接埠 80 連到目的地虛擬機器的連線。 這個範例需要在包含來源 VM 的區域中啟用網路監看員。  
 
 ### <a name="example"></a>範例
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>驗證路由問題
 
-此範例會檢查虛擬機器與遠端端點之間的連線。 這個範例需要在包含來源 VM 的區域中啟用網路監看員。  
+這個範例會檢查虛擬機器與遠端端點之間的連線能力。 這個範例需要在包含來源 VM 的區域中啟用網路監看員。  
 
 ### <a name="example"></a>範例
 
@@ -254,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>檢查與儲存體端點的連線
 
-下列範例會測試從虛擬機器到部落格儲存體帳戶的連線。 這個範例需要在包含來源 VM 的區域中啟用網路監看員。  
+下列範例會檢查從虛擬機器到部落格儲存體帳戶的連線能力。 這個範例需要在包含來源 VM 的區域中啟用網路監看員。  
 
 ### <a name="example"></a>範例
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 下列 JSON 是執行前一個 Cmdlet 的範例回應。 因為可以連線目的地，所以 `ConnectionStatus` 屬性會顯示為 [可以連線]。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -307,22 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>後續步驟
 
-造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出
+造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來判斷 VM 是否允許特定流量流入或流出。
 
 如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤網路安全性群組和所定義的安全性規則。
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

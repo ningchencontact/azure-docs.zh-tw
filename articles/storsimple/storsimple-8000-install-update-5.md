@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 5
 
@@ -77,21 +77,21 @@ Hotfix 方法涉及下列三個步驟：
 
 | 順序 | KB | 說明 | 更新類型 | 安裝時間 |安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |軟體更新<br> 下載 _HcsSfotwareUpdate.exe_ 和 _CisMSDAgent.exe_ |定期  <br></br>非干擾性 |~ 25 分鐘 |FirstOrderUpdate|
+| 1. |KB4037264 |軟體更新<br> 下載 _HcsSoftwareUpdate.exe_ 和 _CisMSDAgent.exe_ |Regular <br></br>非干擾性 |~ 25 分鐘 |FirstOrderUpdate|
 
 如果從執行 Update 4 的裝置更新，您只需要將作業系統累積更新當作第二順位的更新來進行安裝。
 
 | 順序 | KB | 說明 | 更新類型 | 安裝時間 |安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |OS 累積更新套件 <br> 下載 Windows Server 2012 R2 版本 |定期  <br></br>非干擾性 |- |SecondOrderUpdate|
+| 2A. |KB4025336 |OS 累積更新套件 <br> 下載 Windows Server 2012 R2 版本 |Regular <br></br>非干擾性 |- |SecondOrderUpdate|
 
 如果從執行 Update 3 或更早版本的裝置進行安裝，除了累積更新，也請安裝下列項目。
 
 | 順序 | KB | 說明 | 更新類型 | 安裝時間 |安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI 驅動程式與韌體更新 <br> USM 韌體更新 (3.38 版) |定期  <br></br>非干擾性 |~ 3 小時 <br> (包括 2A. 2B. + 2C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 安全性更新套件 <br> 下載 Windows Server 2012 R2 版本 |定期  <br></br>非干擾性 |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS 更新套件 <br> 下載 Windows Server 2012 R2 版本 |定期  <br></br>非干擾性 |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI 驅動程式與韌體更新 <br> USM 韌體更新 (3.38 版) |Regular <br></br>非干擾性 |~ 3 小時 <br> (包括 2A. 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 安全性更新套件 <br> 下載 Windows Server 2012 R2 版本 |Regular <br></br>非干擾性 |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS 更新套件 <br> 下載 Windows Server 2012 R2 版本 |Regular <br></br>非干擾性 |- |SecondOrderUpdate|
 
 
 除了前面表格所示的所有更新之外，您可能還需要安裝磁碟韌體更新。 您可以執行 `Get-HcsFirmwareVersion` Cmdlet 來確認是否需要進行磁碟韌體更新。 如果您執行的是這些韌體版本：`XMGJ`、`XGEG`、`KZ50`、`F6C2`、`VR08`、`N003`、`0107`，您就不需要安裝這些更新。

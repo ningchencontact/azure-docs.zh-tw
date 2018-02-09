@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37602bf78f7a43fb8255ddc0aad21f24095cb43c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f115d1e7313d2c9d378129c021a37489674fe81f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---choose-a-communication-protocol"></a>參考 - 選擇通訊協定
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 * **雲端到裝置的模式**。 HTTPS 沒有可實作伺服器推送的有效方式。 因此，當您使用 HTTPS 時，裝置會輪詢「IoT 中樞」來了解是否有雲端到裝置的訊息。 這對於裝置和 IoT 中樞而言都沒有效率。 在目前的 HTTPS 指導方針中，每個裝置應該每隔 25 分鐘 (或更久) 進行一次訊息輪詢。 MQTT 和 AMQP 則支援在收到雲端到裝置訊息時進行伺服器推送。 它們能夠將訊息立即從 IoT 中樞推送到裝置。 如果傳遞延遲是一大考量，最好是使用 MQTT 或 AMQP 通訊協定。 針對很少連接的裝置，也適用 HTTPS。
 * **現場閘道器**。 使用 MQTT 和 HTTPS 時，您無法使用相同的 TLS 連線來連接到多個裝置 (每個裝置各有自己的每一裝置認證)。 對於[現場閘道案例][lnk-azure-gateway-guidance]，這些並不是最理想的通訊協定，因為對於每個連線的裝置，這些案例都需要一個與現場閘道和 IoT 中樞連線的 TLS 連線。
-* **低資源裝置**。 MQTT 和 HTTPS 程式庫的磁碟使用量比 AMQP 程式庫小。 因此，如果裝置的資源有限 (例如 RAM 小於 1 MB)，這些通訊協定可能是唯一可用的通訊協定實作。
+* **低資源裝置**。 MQTT 和 HTTPS 程式庫的磁碟使用量比 AMQP 程式庫小。 因此，如果裝置的資源有限 (例如 RAM 小於 1 MB)，這些通訊協定可能會是唯一可用的通訊協定實作。
 * **網路周遊**。 標準的 AMQP 通訊協定會使用連接埠 5671，MQTT 則會接聽連接埠 8883。 使用這些連接埠可能會導致對非 HTTPS 通訊協定關閉的網路發生問題。 在此案例中，請使用「透過 Websocket 的 MQTT」、「透過 Websocket 的 AMQP」或 HTTPS。
 * **承載大小**。 MQTT 和 AMQP 是二進位通訊協定，這使得其承載比 HTTPS 更精簡。
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 裝置可以在 Azure 中使用各種通訊協定來與 IoT 中樞通訊。 一般而言，選擇的通訊協定是根據方案的特定需求而定。 下表列出必須要為裝置開啟的輸出連接埠，以使用特定的通訊協定：
 
-| 通訊協定 | 連接埠 |
+| 通訊協定 | Port |
 | --- | --- |
 | MQTT |8883 |
 | 透過 WebSocket 的 MQTT |443 |

@@ -1,5 +1,5 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定自動使用者佈建的 Cerner Central | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 Cerner Central 來自動佈建使用者 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 以自動佈建使用者至 Cerner Central 中的名冊。"
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Cerner Central
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>教學課程︰設定 Cerner Central 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Cerner Central 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Cerner Central 中的使用者名冊。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

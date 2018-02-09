@@ -3,7 +3,7 @@ title: "整合外部監視解決方案與 Azure Stack | Microsoft Docs"
 description: "了解如何將 Azure Stack 與您的資料中心的外部監視解決方案整合。"
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 針對外部監視 Azure Stack 基礎結構，您需要監視 Azure Stack 軟體、實體電腦和實體網路交換器。 每個區域都會提供方法來擷取健康情況和警示資訊。
 
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   資源的 URI。   |
 |*alertSummary*     |   重大和警告警示、健康情況狀態的摘要。     |
 
+## <a name="learn-more"></a>深入了解
+
+如需內建的健康情況監視的相關資訊，請參閱[在 Azure Stack 中監視健康情況和警示](azure-stack-monitor-health.md)。
+
+
 ## <a name="next-steps"></a>後續步驟
 
-- 如需內建的健康情況監視的相關資訊，請參閱[在 Azure Stack 中監視健康情況和警示](azure-stack-monitor-health.md)。
-
-
+[安全性整合](azure-stack-integrate-security.md)

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>設定 Office 365 群組的到期日 (預覽)
 
@@ -30,15 +30,25 @@ ms.lasthandoff: 01/05/2018
 -   群組擁有者或系統管理員可在 30 天內還原已刪除的任何 Office 365 群組
 
 > [!NOTE]
-> 設定到期日，Office 365 群組需要有 Azure AD Premium 授權，到期日設定會套用的群組的所有成員。
+> 若要設定 Office 365 群組的到期日，套用到期日設定的群組成員都要有 Azure AD Premium 授權。
 
 如需如何下載及安裝 Azure AD PowerShell Cmdlet 的資訊，請參閱 [Azure Active Directory PowerShell for Graph - 公開預覽版本 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)。
+
+## <a name="roles-and-permissions"></a>角色和權限
+這些角色可以設定並使用 Azure AD 中 Office 365 群組的到期日。
+
+角色 | 權限
+-------- | --------
+全域管理員<br>使用者帳戶管理員 | 可以建立、讀取、更新或刪除 Office 365 群組到期日原則設定
+User | 可以更新它們所擁有的 Office 365 群組<br>可以還原它們所擁有的 Office 365 群組
+
+如需有關將已刪除群組還原之權限的詳細資訊，請參閱[將已刪除的 Office 365 群組還原](active-directory-groups-restore-azure-portal.md)。
 
 ## <a name="set-group-expiration"></a>設定群組到期日
 
 1. 開啟其帳戶在 Azure AD 租用戶中為全域系統管理員的 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 
-2. 開啟 Azure AD，選取 [使用者和群組]。
+2. 選取 [使用者和群組]。
 
 3. 選取 [群組設定]，然後選取 [到期]，以開啟到期設定。
   
@@ -48,7 +58,7 @@ ms.lasthandoff: 01/05/2018
 
   * 設定群組的存留期 (以天為單位)。 您可以選取其中一個預設值或自訂值 (應為 31 天或更多)。 
   * 指定當群組沒有擁有者時應該傳送續訂和到期通知的電子郵件地址。 
-  * 選取到期的 Office 365 群組。 您可以針對**所有** Office 365 群組啟用到期、從 Office 365 群組中選擇啟用對象，或選取 [無] 以停用所有群組的到期。
+  * 選取到期的 Office 365 群組。 您可以啟用**所有** Office 365 群組的到期日，也可以選擇僅啟用**已選取**的 Office 365 群組，或選取 [無] 以停用所有群組的到期日。
   * 當您完成時，選取 [儲存] 會儲存您的設定。
 
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 驗證
 
@@ -56,7 +56,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 執行會傳回連結的命令。 將該連結複製並貼到網頁瀏覽器，以下載「VpnClientConfiguration.zip」。 將該檔案解壓縮以檢視下列資料夾： 
  
 * **WindowsAmd64** 和 **WindowsX86** - 這些資料夾分別包含 Windows 32 位元和 64 位元的安裝程式套件。 
-* **GenericDevice** - 這個資料夾包含用來建立自有 VPN 用戶端設定的一般資訊。 使用者名稱/密碼驗證設定不需要此資料夾。
+* **Generic** - 這個資料夾包含用來建立自有 VPN 用戶端設定的一般資訊。 使用者名稱/密碼驗證設定不需要此資料夾。
 * **Mac** - 如果您在建立虛擬網路閘道時設定 IKEv2，您會看到名為 'Mac' 的資料夾，其中包含 **mobileconfig** 檔案。 這個檔案用來設定 Mac 用戶端。
 
 如果您已經產生用戶端設定檔，您可以使用 'Get-AzureRmVpnClientConfiguration' Cmdlet 來擷取它們。 不過，如果您對 P2S VPN 設定進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該設定不會自動更新。 您必須執行 'New-AzureRmVpnClientConfiguration' Cmdlet 來建立新的設定下載。
@@ -125,7 +125,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 產生 VPN 用戶端設定檔以與憑證驗證搭配使用。 您可以使用下列命令來產生 VPN 用戶端設定檔：
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 執行會傳回連結的命令。 將該連結複製並貼到網頁瀏覽器，以下載「VpnClientConfiguration.zip」。 將該檔案解壓縮以檢視下列資料夾：
@@ -138,7 +138,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 若要擷取先前產生的用戶端組態檔，請使用下列命令：
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2.設定 Windows 和 Mac VPN 用戶端

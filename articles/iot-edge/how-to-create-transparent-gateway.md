@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>建立做為透明閘道的 IoT Edge 裝置 - 預覽
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/07/2017
 >此範例僅供測試用。 如需實際案例，請參閱[保護您的 IoT 部署][lnk-iothub-secure-deployment]，以取得 Azure IoT 指導方針，了解如何保護您的 IoT 解決方案，並據以佈建您的憑證。
 
 
-1. 從 GitHub 複製 [適用於 C 的 Microsoft Azure IoT SDK 和程式庫]：
+1. 從 GitHub 複製適用於 C 的 Microsoft Azure IoT SDK 和程式庫：
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -104,12 +104,12 @@ ms.lasthandoff: 12/07/2017
 
 我們從上述的範例指令碼中假設下列檔案名稱：
 
-| 輸出 | Bash 指令碼 | PowerShell |
-| ------ | ----------- | ---------- |
-| 裝置憑證 | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| 裝置私密金鑰 | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| 裝置憑證鏈結 | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT 中樞擁有者 CA | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| 輸出 | 檔案名稱 |
+| ------ | --------- |
+| 裝置憑證 | `certs/new-edge-device.cert.pem` |
+| 裝置私密金鑰 | `private/new-edge-device.cert.pem` |
+| 裝置憑證鏈結 | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT 中樞擁有者 CA | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 將裝置和憑證資訊提供給 IoT Edge 執行階段。 
  

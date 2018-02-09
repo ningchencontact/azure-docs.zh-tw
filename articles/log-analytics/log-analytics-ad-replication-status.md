@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure Log Analytics 監視 Active Directory 複寫狀態 | Microsoft Docs"
-description: "Active Directory 複寫狀態解決方案組件會定期監控您的 Active Directory 環境是否有任何複寫失敗，並在 OMS 儀表板上報告結果。"
+description: "「Active Directory 複寫狀態」解決方案套件會定期監視您的 Active Directory 環境是否有任何複寫失敗。"
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/24/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 7ca3b87ea14589aa2c45c8fe49b01d3b10a75aa1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>使用 Log Analytics 監視 Active Directory 複寫狀態
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/13/2017
 
 Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性和高效能，每個網域控制站有它自己的 Active Directory 資料庫複本。 網域控制站會彼此複寫，以便將變更傳播到整個企業。 此複寫處理序中的失敗可導致整個企業發生各種問題。
 
-AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境是否有任何複寫失敗，並在 OMS 儀表板上報告結果。
+「AD 複寫狀態」解決方案套件會定期監視您的 Active Directory 環境是否有任何複寫失敗。
 
-## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
-請使用下列資訊來安裝和設定方案。
+## <a name="installing-and-configuring-the-solution"></a>安裝和設定解決方案
+使用下列資訊來安裝和設定方案。
 
-* 您必須將代理程式安裝在隸屬於要評估之網域成員的網域控制站上。 或者您必須將代理程式安裝在成員之伺服器上，並設定讓代理程式將 AD 複寫資料傳送至 OMS。 若要了解如何將 Windows 電腦連接到 OMS，請參閱 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agent.md)。 如果您的網域控制站已屬於您要連接到 OMS 的現有 System Center Operations Manager 環境，請參閱 [將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
-* 使用 [從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的處理序，將 Active Directory 複寫狀態方案加入您的 OMS 工作區中。  不需要進一步的組態。
+* 您必須將代理程式安裝在隸屬於要評估之網域成員的網域控制站上。 或者您必須將代理程式安裝在成員之伺服器上，並設定讓代理程式將 AD 複寫資料傳送至 Log Analytics。 若要了解如何將 Windows 電腦連線到 Log Analytics，請參閱[將 Windows 電腦連線到 Log Analytics](log-analytics-windows-agent.md)。 如果您的網域控制站已屬於您要連線到 Log Analytics 的現有 System Center Operations Manager 環境，請參閱[將 Operations Manager 連線到 Log Analytics](log-analytics-om-agents.md)。
+* 使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將「Active Directory 複寫狀態」解決方案加入您的 Log Analytics 工作區中。  不需要進一步的組態。
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 複寫狀態資料收集詳細資料
 下表顯示 AD 複寫狀態的資料收集方法和其他資料收集方式的詳細資料。
@@ -42,13 +42,13 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |每隔五天 |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>(選擇性) 啟用非網域控制站以將 AD 資料傳送至 OMS
-如果您不要將任何網域控制站直接連接到 OMS，您可以使用網域中任何其他 OMS 連線的電腦來收集 AD 複寫狀態解決方案組件的資料並讓它傳送資料。
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>(選擇性) 啟用非網域控制站以將 AD 資料傳送至 Log Analytics
+如果您不要將任何網域控制站直接連線到 Log Analytics，您可以使用網域中任何其他連線到 Log Analytics 的電腦來收集「AD 複寫狀態」解決方案套件的資料並讓它傳送資料。
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>啟用非網域控制站以將 AD 資料傳送至 OMS
+### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>讓非網域控制站可以將 AD 資料傳送至 Log Analytics
 1. 確認電腦是您要使用 AD 複寫狀態解決方案監視的網域成員。
-2. 如果尚未連線，請[將 Windows 電腦連線到 OMS](log-analytics-windows-agent.md)，或[使用現有的 Operations Manager 環境將它連線到 OMS](log-analytics-om-agents.md)。
-3. 該該電腦上，設定下列登錄機碼︰
+2. 如果尚未連線，請[將 Windows 電腦連線到 Log Analytics](log-analytics-windows-agent.md)，或[使用現有的 Operations Manager 環境將它連線到 Log Analytics](log-analytics-om-agents.md)。
+3. 在該電腦上，設定下列登錄機碼︰
 
    * 機碼：**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * 值：**IsTarget**
@@ -60,7 +60,7 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
    >
 
 ## <a name="understanding-replication-errors"></a>了解複寫錯誤
-將 AD 複寫狀態資料傳送至 OMS 後，您會在 OMS 儀表板上看到如下圖所示的圖格，指出目前有多少複寫錯誤。  
+將 AD 複寫狀態資料傳送至 Log Analytics 後，您會在 Log Analytics 中看到如下列影像所示的圖格，指出目前有多少複寫錯誤。  
 ![AD 複寫狀態圖格](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
 **重大複寫錯誤** 就是達到或超過 Active Directory 樹系 75% [標記存留期](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) 的錯誤。
@@ -124,11 +124,11 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
 **問：是否有設定此資料更新頻率的方法？**
 答：目前沒有。
 
-**問︰我需要將所有的網域控制站加入至我的 OMS 工作區，才能查看複寫狀態嗎？**
-答︰否，只需加入單一網域控制站。 如果您的 OMS 工作區中有多個網域控制站，這些網域控制站的資料都會傳送至 OMS。
+**問︰我是否必須將所有網域控制站加入至我的 Log Analytics 工作區，才能查看複寫狀態？**
+答︰否，只需加入單一網域控制站。 如果您的 Log Analytics 工作區中有多個網域控制站，這些網域控制站的資料都會傳送至 Log Analytics。
 
-**問︰我不想要將任何網域控制站新增至我的 OMS 工作區。仍可使用 AD 複寫狀態解決方案嗎？**
-答： 會。 您可以設定要啟用此解決方案的登錄機碼值。 請參閱[啟用非網域控制站以將 AD 資料傳送至 OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
+**問︰我不想要將任何網域控制站新增至我的 Log Analytics 工作區。是否仍然可以使用 AD 複寫狀態解決方案？**
+答：是。 您可以設定要啟用此解決方案的登錄機碼值。 請參閱[讓非網域控制站可以將 AD 資料傳送至 Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
 
 **問：負責收集資料之處理序的名稱為何？**
 答︰AdvisorAssessment.exe
@@ -146,11 +146,11 @@ AD 複寫狀態解決方案組件會定期監控您的 Active Directory 環境�
 答︰Active Directory 的一般使用者權限就足夠了。
 
 ## <a name="troubleshoot-data-collection-problems"></a>疑難排解資料收集問題
-為了收集資料，AD 複寫狀態解決方案組件需要至少有一個網域控制站連接至您的 OMS 工作區。 連接網域控制站後，會彈出訊息顯示**資料仍在收集中**。
+為了收集資料，「AD 複寫狀態」解決方案套件需要至少有一個網域控制站連線至您的 Log Analytics 工作區。 連線網域控制站後，會彈出訊息顯示**資料仍在收集中**。
 
-如果您需要連接其中一個網域控制站的協助，您可以檢視 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agent.md)文件。 或者，如果您的網域控制站已連接到現有的 System Center Operations Manager 環境，您可以檢視 [將 System Center Operations Manage 連接到 Log Analytics](log-analytics-om-agents.md)文件。
+如果您需要連線其中一個網域控制站的協助，您可以檢視[將 Windows 電腦連線到 Log Analytics](log-analytics-windows-agent.md)文件。 或者，如果您的網域控制站已連線到現有的 System Center Operations Manager 環境，您可以檢視[將 System Center Operations Manage 連線到 Log Analytics](log-analytics-om-agents.md)文件。
 
-如果您不想將任何網域控制站直接連接到 OMS 或 SCOM，請參閱 [啟用非網域控制站以將 AD 資料傳送至 OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
+如果您不想將任何網域控制站直接連線到 Log Analytics 或連線到 System Center Operations Manager，請參閱[讓非網域控制站可以將 AD 資料傳送至 Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用 [Log Analytics 中的記錄檔搜尋](log-analytics-log-searches.md) 可檢視詳細的 Active Directory 複寫狀態資料。

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
-' 這篇文章設計用來協助您追蹤已發行的版本，並了解是否需要更新為最新版本，或不。
+本文旨在協助您追蹤已發行的版本，以及了解您是否需要更新為最新版本。
 
 下列為相關主題的清單︰
 
@@ -33,48 +33,48 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
-下載 |[下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
 
 ## <a name="116540"></a>1.1.654.0
-2017 年 12 月 12 日狀態：
+狀態：2017 年 12 月 12 日
 
 >[!NOTE]
->這是安全性相關的 Azure AD Connect 的 hotfix
+>這是 Azure AD Connect 的安全性相關 Hotfix
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-改進已給 Azure AD Connect 版 1.1.654.0 （，） 以確保建議的權限變更底下所述的章節[AD DS 帳戶的存取權的鎖定](#lock)會自動套用當 Azure AD連接會在建立 AD DS 帳戶。 
+Azure AD Connect 1.1.654.0 版 (和更新版本) 已新增改進，以確保 Azure AD Connect 在建立 AD DS 帳戶時，會自動套用[鎖定 AD DS 帳戶的存取權](#lock)章節中所述的建議權限變更。 
 
-- 設定 Azure AD Connect，請安裝系統管理員可以提供現有的 AD DS 帳戶，或讓自動建立帳戶的 Azure AD Connect。 AD DS 帳戶所建立的 Azure AD Connect 在安裝期間，會自動套用權限變更。 不會套用到現有安裝的系統管理員提供的 AD DS 帳戶。
-- 已升級您較舊版本的 Azure AD Connect 1.1.654.0 （或之後），權限的客戶將不會回溯套用變更至現有的 AD DS 帳戶，在升級之前建立。 它們只會套用到在升級之後所建立的新 AD DS 帳戶。 會發生這種情況是當您新增新的 AD 樹系同步至 Azure AD。
+- 設定 Azure AD Connect 時，安裝系統管理員可以提供現有的 AD DS 帳戶，或讓 Azure AD Connect 自動建立帳戶。 權限變更會自動套用到 Azure AD Connect 在安裝期間所建立的 AD DS 帳戶。 但權限變更並不會套用到安裝系統管理員提供的現有 AD DS 帳戶。
+- 對於已從舊版 Azure AD Connect 升級至 1.1.654.0 版 (或更新版本) 的客戶，權限變更不會回溯套用至升級之前建立的現有 AD DS 帳戶。 它們只會套用到升級之後所建立的新 AD DS 帳戶。 僅當您將要進行同步的新 AD 樹系新增至 Azure AD 時，才會發生這種情況。
 
 >[!NOTE]
->此版本只會移除的弱點可能會針對新的安裝程序所建立的服務帳戶所在的 Azure AD Connect 的安裝。 針對現有安裝，或在其中您提供帳戶自己的情況下，您應該確定這項弱點不存在。
+>此版本所能移除的弱點，僅限於安裝流程在當中建立服務帳戶的 Azure AD Connect 新安裝中的弱點。 您應該確定現有的安裝或是您自行提供帳戶時，不會出現這項弱點。
 
-#### <a name="lock"></a>鎖定 AD DS 帳戶的存取權
-藉由在內部部署實作下列權限變更 AD DS 帳戶的存取權的鎖定 AD:  
+#### <a name="lock"></a> 鎖定 AD DS 帳戶的存取權
+透過在內部部署 AD 中實作下列權限變更，來鎖定 AD DS 帳戶的存取權：  
 
-*   停用指定的物件上的繼承
-*   移除特定物件，除了特有 SELF Ace 上所有的 Ace。 我們想要保留的預設權限時設為本身。
-*   指派這些特定的權限：
+*   停用指定物件上的繼承
+*   將特定物件上所有的 ACE 移除，除了 SELF 特有的 ACE 之外。 關於 SELF，我們需要將預設權限維持不變。
+*   指派這些特定權限：
 
-類型     | 名稱                          | Access               | 套用至
+類型     | Name                          | Access               | 套用至
 ---------|-------------------------------|----------------------|--------------|
 允許    | 系統                        | 完全控制         | 此物件  |
 允許    | 企業系統管理員             | 完全控制         | 此物件  |
-允許    | Domain Admins                 | 完全控制         | 此物件  |
+允許    | 網域管理員                 | 完全控制         | 此物件  |
 允許    | 系統管理員                | 完全控制         | 此物件  |
-允許    | 企業網域控制站 | 列出內容        | 此物件  |
-允許    | 企業網域控制站 | 讀取全部內容  | 此物件  |
+允許    | 企業網域控制站 | 清單內容        | 此物件  |
+允許    | 企業網域控制站 | 讀取所有屬性  | 此物件  |
 允許    | 企業網域控制站 | 讀取權限     | 此物件  |
-允許    | 已驗證的使用者           | 列出內容        | 此物件  |
-允許    | 已驗證的使用者           | 讀取全部內容  | 此物件  |
-允許    | 已驗證的使用者           | 讀取權限     | 此物件  |
+允許    | 驗證的使用者           | 清單內容        | 此物件  |
+允許    | 驗證的使用者           | 讀取所有屬性  | 此物件  |
+允許    | 驗證的使用者           | 讀取權限     | 此物件  |
 
-若要加強設定為 AD DS 帳戶，您可以執行[這個 PowerShell 指令碼](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)。 PowerShell 指令碼將會指派到 AD DS 帳戶上述權限。
+若要加強 AD DS 帳戶的設定，您可以執行[這個 PowerShell 指令碼](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)。 PowerShell 指令碼會將上述權限指派給 AD DS 帳戶。
 
-#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>此功能來加強預先存在的服務帳戶的 PowerShell 指令碼
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>可加強預先存在之服務帳戶的 PowerShell 指令碼
 
-要套用到預先存在的 AD DS 帳戶，這些設定，請使用 PowerShell 指令碼 （ether 貴組織所提供或由先前安裝的 Azure AD Connect，請下載指令碼從上述提供的連結。
+若要使用 PowerShell 指令碼將這些設定套用到預先存在的 AD DS 帳戶 (由貴組織提供的、或由先前安裝之 Azure AD Connect 建立的)，請從上方提供的連結下載指令碼。
 
 ##### <a name="usage"></a>Usage :
 
@@ -84,23 +84,23 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 Where 
 
-**$ObjectDN** = 需要再提高其權限的 Active Directory 帳戶。
+**$ObjectDN** = 必須加強權限的 Active Directory 帳戶。
 
-**$Credential** = 具備必要的權限來限制 $ObjectDN 帳戶的權限的系統管理員認證。 這通常是在企業或網域系統管理員。 使用系統管理員帳戶的完整的網域名稱，以避免帳戶查閱失敗。 範例： contoso.com\admin。
+**$Credential** = 具備限制 $ObjectDN 帳戶權限之必要權限的系統管理員認證。 這通常是企業或網域系統管理員。 使用系統管理員帳戶的完整網域名稱以避免帳戶對應失敗。 範例：contoso.com\admin。
 
 >[!NOTE] 
->$credential。使用者名稱應該採用 FQDN\username 格式。 範例： contoso.com\admin 
+>$credential.UserName 應該為 FQDN\username 格式。 範例：contoso.com\admin 
 
 ##### <a name="example"></a>範例：
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
 ```
-### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>用來取得未經授權的存取這項弱點嗎？
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>系統是否使用這項弱點來取得未經授權的存取？
 
-若要查看已用於此的弱點可能會危害您的 Azure AD Connect 設定，您應該確認的最後一個密碼重設服務帳戶的日期。  如果在未預期的時間戳記，進一步調查事件記錄檔中，透過該密碼重設事件，應該進行。
+若要查看系統是否使用這項弱點來入侵您的 Azure AD Connect 設定，您應該確認服務帳戶最後重設密碼的日期。  如果是非預期的時間戳記，就應該透過事件記錄，對該密碼重設事件採取進一步調查。
 
-如需詳細資訊，請參閱[Microsoft 安全性摘要報告 4056318](https://technet.microsoft.com/library/security/4056318)
+如需詳細資訊，請參閱 [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 狀態：2017 年 10 月 27 日
@@ -473,7 +473,7 @@ Azure AD Connect 同步處理
   * 已將預設同步處理規則集更新為 **userCertificate** 和 **userSMIMECertificate** 屬性有超過 15 個值時不匯出屬性。
   * AD 屬性 **employeeID** 和 **msExchBypassModerationLink** 現在已包含在預設同步處理規則集中。
   * 已經從預設同步處理規則集中移除 AD 屬性 **photo**。
-  * 已將 **preferredDataLocation** 新增至 Metaverse 結構描述和 AAD 連接器結構描述。 想要在 Azure AD 中更新任一屬性的客戶若要這樣做，可以實作自訂同步處理規則。 若要深入了解屬性，請參閱 [Azure AD Connect 同步處理︰如何變更預設組態 - 啟用 PreferredDataLocation 的同步處理](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation)文章章節。
+  * 已將 **preferredDataLocation** 新增至 Metaverse 結構描述和 AAD 連接器結構描述。 想要在 Azure AD 中更新任一屬性的客戶若要這樣做，可以實作自訂同步處理規則。 
   * 已將 **userType** 新增至 Metaverse 結構描述和 AAD 連接器結構描述。 想要在 Azure AD 中更新任一屬性的客戶若要這樣做，可以實作自訂同步處理規則。
 
 * Azure AD Connect 現在會自動啟用 ConsistencyGuid 屬性的使用，以作為內部部署 AD 物件的來源錨點屬性。 此外，如果 ConsistencyGuid 屬性為空，Azure AD Connect 就會使用 objectGuid 屬性值加以填入。 這項功能僅適用於新的部署。 若要深入了解此功能，請參閱 [Azure AD Connect︰設計概念 - 使用 msDS-ConsistencyGuid 作為 sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor) 文章章節。

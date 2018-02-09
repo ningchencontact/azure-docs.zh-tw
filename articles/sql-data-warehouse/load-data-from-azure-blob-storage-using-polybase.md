@@ -1,5 +1,5 @@
 ---
-title: "Polybase 資料載入 - Azure 儲存體 Blob 到 Azure SQL 資料倉儲 | Microsoft Docs"
+title: "教學課程：Polybase 資料載入 - 從 Azure 儲存體 Blob 到 Azure SQL 資料倉儲 | Microsoft Docs"
 description: "本教學課程使用 Azure 入口網站和 SQL Server Management Studio，將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。"
 services: sql-data-warehouse
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>教學課程：使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中
 
 PolyBase 是將資料放入 SQL 資料倉儲的標準載入技術。 本教學課程中，您可以使用 PolyBase 將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)： 
 

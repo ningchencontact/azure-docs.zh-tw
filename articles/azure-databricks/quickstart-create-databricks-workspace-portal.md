@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在建立 Spark 叢集時，如果您已選取 [在活動 ___ 分鐘後終止] 核取方塊，則當叢集已有一段指定的時間未活動時，該叢集就會自動終止。
+在建立 Spark 叢集時，如果您已選取 [在停止活動 __ 分鐘後終止] 核取方塊，則當叢集已有一段指定的時間未活動時，該叢集就會自動終止。
 
 如果您未選取該核取方塊，則必須手動終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中，按一下 [叢集]。 對於您想要終止的叢集，將游標移到 [動作] 資料行底下的省略符號上，然後按一下 [終止] 圖示。
 

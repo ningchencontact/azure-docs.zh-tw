@@ -2,17 +2,17 @@
 title: "Azure Batch 轉譯服務 - 雲端規模轉譯 | Microsoft Docs"
 description: "Azure 虛擬機器上的轉譯作業直接由 Maya 提供且按使用次數付費。"
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>開始使用 Batch 轉譯服務
 
@@ -25,14 +25,10 @@ Azure Batch 轉譯服務提供了按使用次數付費的雲端規模轉譯功�
 
 Batch 轉譯服務目前支援下列應用程式：
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold for Maya
-- Autodesk Arnold for 3ds Max
-- Chaos Group V-Ray for Maya
-- Chaos Group V-Ray for 3ds Max
+•   Autodesk Maya I/O 2017 Update 4 (17.4.5459 版) •   Autodesk 3ds Max I/O 2018 Update 1 (20.1.0.238 版) •   Autodesk Arnold for Maya (5.0.1.1 版) •   Autodesk Arnold for 3ds Max (1.0.836 版) •   Chaos Group V-Ray for Maya (3.52.03 版) •   Chaos Group V-Ray for 3ds Max (3.60.02 版)
 
-## <a name="prerequisites"></a>必要條件
+
+## <a name="prerequisites"></a>先決條件
 
 若要使用 Batch 轉譯服務，您需要：
 
@@ -56,7 +52,7 @@ Batch 是一項平台服務，用於在**計算節點**的**集區**上執行計
 
 如需 Batch 集區和計算節點的詳細資訊，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md)中的[集區](batch-api-basics.md#pool)和[計算節點](batch-api-basics.md#compute-node)章節。
 
-### <a name="jobs"></a>作業
+### <a name="jobs"></a>工作
 
 Batch **作業** 是在集區中計算節點上執行的工作集合。 當您提交轉譯作業時，Batch 會將作業分成數個工作，並將這些工作散發到集區內的計算節點進行執行。
 

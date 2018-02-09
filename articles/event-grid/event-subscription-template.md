@@ -1,37 +1,37 @@
 ---
-title: "Azure 事件方格訂用帳戶使用範本"
-description: "使用資源管理員範本建立事件方格的訂用帳戶。"
+title: "使用範本的 Azure Event Grid 訂用帳戶"
+description: "使用 Resource Manager 範本建立 Event Grid 訂用帳戶。"
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2b9f55f8e944d688b622e30a773e1a34698f22ec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee0b2c228ae4ea53c0ee9794529aa190334ceed9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-resource-manager-template-for-event-grid-subscription"></a>使用資源管理員範本事件方格訂用帳戶
+# <a name="use-resource-manager-template-for-event-grid-subscription"></a>針對 Event Grid 訂用帳戶使用 Resource Manager 範本
 
-這篇文章會示範如何使用 Azure Resource Manager 範本來建立事件方格訂用帳戶。 您所使用的格式不同根據您要訂閱資源群組事件，或針對特定資源類型的事件。 這篇文章中，會顯示這兩種格式。
+本文示範如何使用 Azure Resource Manager 範本來建立 Event Grid 訂用帳戶。 您使用的格式會根據您是要訂閱資源群組事件還是特定資源類型的事件而有所不同。 這兩個格式都會在本文中有所說明。
 
-## <a name="subscribe-to-resource-group-events"></a>資源群組的事件訂閱
+## <a name="subscribe-to-resource-group-events"></a>訂閱資源群組事件
 
-資源群組的事件訂閱，當使用`Microsoft.EventGrid/eventSubscriptions`資源類型。 事件類型，使用`WebHook`或`EventHub`。
+訂閱資源群組事件時，請針對資源類型使用 `Microsoft.EventGrid/eventSubscriptions`。 對於事件點類型，則請使用 `WebHook` 或 `EventHub`。
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "resources": [
         {
             "type": "Microsoft.EventGrid/eventSubscriptions",
             "name": "mySubscription",
-            "apiVersion": "2017-09-15-preview",
+            "apiVersion": "2018-01-01",
             "properties": {
                 "destination": {
                     "endpointType": "WebHook",
@@ -51,17 +51,17 @@ ms.lasthandoff: 01/05/2018
 }
 ```
 
-當您將此範本部署到資源群組時，您訂閱事件，該資源群組。
+當您將此範本部署到資源群組時，您就會訂閱該資源群組的事件。
 
-## <a name="subscribe-to-resource-events"></a>訂閱資源的事件
+## <a name="subscribe-to-resource-events"></a>訂閱資源事件
 
-當訂閱資源的事件，關聯，您的訂用帳戶正確的資源包括訂閱定義中的資源類型和名稱。 資源類型，使用`<provider-namespace>/<resource-type>/providers/eventSubscriptions`。 使用的名稱， `<resource-name>/Microsoft.EventGrid/<subscription-name>`。 事件類型，使用`WebHook`或`EventHub`。
+在訂閱資源事件時，您會在訂用帳戶定義中納入資源類型和名稱，從而將訂用帳戶關聯至正確的資源。 對於資源類型，使用 `<provider-namespace>/<resource-type>/providers/eventSubscriptions`。 對於名稱，使用 `<resource-name>/Microsoft.EventGrid/<subscription-name>`。 對於事件點類型，則請使用 `WebHook` 或 `EventHub`。
 
-下列範例會示範如何訂閱 Blob 儲存體的事件。
+下列範例示範如何訂閱 Blob 儲存體事件。
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageName": {
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/05/2018
         {
             "type": "Microsoft.Storage/storageAccounts/providers/eventSubscriptions",
             "name": "[concat(parameters('storageName'), '/Microsoft.EventGrid/myStorageSubscription')]",
-            "apiVersion": "2017-09-15-preview",
+            "apiVersion": "2018-01-01",
             "properties": {
                 "destination": {
                     "endpointType": "WebHook",
@@ -94,5 +94,5 @@ ms.lasthandoff: 01/05/2018
 ## <a name="next-steps"></a>後續步驟
 
 * 如需 Event Grid 的簡介，請參閱[關於 Event Grid](overview.md)。
-* 如需簡介至資源管理員，請參閱[Azure 資源管理員概觀](../azure-resource-manager/resource-group-overview.md)。
+* 如需 Resource Manager 的簡介，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
 * 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。

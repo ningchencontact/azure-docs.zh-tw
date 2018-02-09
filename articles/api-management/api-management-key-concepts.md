@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>什麼是 API 管理？
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/22/2018
 > 
 > 
 
-本主題提供涉及 APIM 之常見案例的概觀。  同時也提供 APIM 系統之主要元件的簡短概觀。 然後，本主題會提供每個元件的更詳細概觀。
+本文提供涉及 APIM 之常見案例的概觀。  同時也提供 APIM 系統之主要元件的簡短概觀。 然後，本文會提供每個元件的更詳細概觀。
 
 ## <a name="overview"></a>概觀
 
@@ -50,14 +50,14 @@ ms.lasthandoff: 01/22/2018
   * 即時轉換您的 API 且不需修改程式碼。
   * 快取設定的後端回應。
   * 記錄呼叫中繼資料以供分析使用。
-* **發行者入口網站** 是您設定 API 方案的管理介面。 使用方式：
+* **Azure 入口網站**是您用來設定 API 方案的管理介面。 使用方式：
   
   * 定義或匯入 API 結構描述。
   * 將 API 封裝至產品。
   * 設定原則，例如 API 的配額或轉換。
   * 從分析中取得見解。
   * 管理使用者。
-* **開發人員入口網站** 是供開發人員執行以下作業的主要網站空間：
+* **開發人員入口網站**是供開發人員執行以下作業的主要網站空間：
   
   * 閱讀 API 文件。
   * 透過互動式主控台試用 API。
@@ -104,7 +104,7 @@ API 是 API 管理服務執行個體的基礎。 每個 API 都代表可供開�
 如需詳細資訊，請參閱[如何建立或邀請開發人員][How to create or invite developers]和[如何將群組與開發人員建立關聯][How to associate groups with developers]。
 
 ## <a name="policies"> </a> 原則
-原則是 API 管理的強大功能，可讓發行者透過組態變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 常見陳述式包括從 XML 對 JSON 的格式轉換，以及可限制來自開發人員的傳入呼叫數量的呼叫費率限制，而且還有許多原則可供使用。
+原則是 API 管理的強大功能，可讓 Azure 入口網站透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 常見陳述式包括從 XML 對 JSON 的格式轉換，以及可限制來自開發人員的傳入呼叫數量的呼叫費率限制，而且還有許多原則可供使用。
 
 如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。 某些原則是以原則運算式為基礎，例如[控制流程](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose)和[設定變數](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable)原則。 如需詳細資訊，請參閱[進階原則](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies)和[原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。
 

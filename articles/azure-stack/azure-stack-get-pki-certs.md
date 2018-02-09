@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>產生適用於 Azure Stack 部署的 PKI 憑證
 您現在已知道 Azure Stack 部署的 [PKI 憑證需求](azure-stack-pki-certs.md)，那麼您必須從您選擇的憑證授權單位 (CA) 取得這些憑證。 
@@ -74,3 +74,5 @@ ms.lasthandoff: 01/17/2018
 4. **匯入 .CER**。 CA 會傳回 .CER 檔案。 使用您產生要求檔案的相同 Windows 電腦，將傳回的 .CER 檔案匯入電腦/個人存放區。 
 5. **匯出 .PFX 並複製到部署資料夾**。 將憑證 (包括私密金鑰) 匯出為 .PFX 檔案，然後將 .PFX 檔案複製到 [Azure Stack 部署 PKI 需求](azure-stack-pki-certs.md)中所述的部署資料夾。
 
+## <a name="next-steps"></a>後續步驟
+[身分識別整合](azure-stack-integrate-identity.md)

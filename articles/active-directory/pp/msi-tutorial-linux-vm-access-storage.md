@@ -3,7 +3,7 @@ title: "使用 Linux VM 上使用者指派的 MSI 存取 Azure 儲存體"
 description: "本教學課程引導您使用 Linux VM 上使用者所指派的受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>使用 Linux VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure 儲存體
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/12/2018
 > * 將 MSI 存取權授與 Azure 儲存體執行個體
 > * 使用使用者指派的 MSI 識別取得存取權杖，並使用它存取 Azure 儲存體
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -134,10 +134,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。 在本教學課程中，會使用 Azure 儲存體。
 
-首先，將 MSI 識別存取權授與 Azure 儲存體容器。 在此情況下，會使用稍早建立的容器。 將 `<MSI PRINCIPALID>`、`<SUBSCRIPTION ID>`、`<RESOURCE GROUP>`、`<STORAGE ACCOUNT NAME>` 和 `<CONTAINER NAME>` 的值更新為適用您的環境的值。 將 `<CLIENT ID>` 更改為[建立使用者指派的 MSI](#create-a-user-assigned-msi) 時，`az identity create` 命令所傳回的 `clientId` 屬性：
+首先，將 MSI 識別存取權授與 Azure 儲存體容器。 在此情況下，會使用稍早建立的容器。 將 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>`、`<STORAGE ACCOUNT NAME>` 和 `<CONTAINER NAME>` 的值更新為適用於環境的值。 此外，將 `<MSI PRINCIPALID>` 更改為[建立使用者指派的 MSI](#create-a-user-assigned-msi) 時，`az identity create` 命令所傳回的 `principalId` 屬性：
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 回應會包含已建立的角色指派之詳細資料：

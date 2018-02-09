@@ -3,8 +3,8 @@ title: "開始使用 Azure CLI for Batch | Microsoft Docs"
 description: "取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -40,7 +40,7 @@ Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的�
 
 ## <a name="command-help"></a>命令說明
 
-您可以將 `-h` 附加至命令，以在 Azure CLI 中顯示每個命令的說明文字。 略過任何其他選項。 例如：
+您可以將 `-h` 附加至命令，以在 Azure CLI 中顯示每個命令的說明文字。 略過任何其他選項。 例如︰
 
 * 若要取得 `az` 命令的說明，請輸入︰`az -h`
 * 若要取得 CLI 中所有 Batch 命令的清單，請使用︰`az batch -h`
@@ -69,7 +69,7 @@ Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的�
 1. [以互動方式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in)。 當您自行從命令列執行 Azure CLI 命令時以互動方式登入。
 2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
 
-基於本文的目的，我們會示範如何以互動方式登入 Azure。 在命令列上輸入 [az login](https://docs.microsoft.com/cli/azure/#login)：
+基於本文的目的，我們會示範如何以互動方式登入 Azure。 在命令列上輸入 [az login](https://docs.microsoft.com/cli/azure/#az_login)：
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,20 +120,13 @@ az login
 
 您可以使用 Azure CLI 執行端對端的 Batch 作業，而不需要撰寫程式碼。 Batch 範本檔案支援使用 Azure CLI 來建立集區、作業和工作。 您也可以使用 Azure CLI 將作業輸入檔案上傳至與 Batch 帳戶相關聯的 Azure 儲存體帳戶，以及從它下載作業輸出檔案。 如需詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸 (預覽)](batch-cli-templates.md)。
 
-## <a name="sample-shell-scripts"></a>範例 shell 指令碼
+## <a name="script-examples"></a>指令碼範例
 
-下表所列的範例指令碼會顯示如何使用 Azure CLI 命令搭配 Batch 服務和 Batch Management 服務來完成一般工作。 這些範例指令碼涵蓋 Azure CLI 中 Batch 可用的許多命令。 
-
-| 指令碼 | 注意事項 |
-|---|---|
-| [建立 Batch 帳戶](./scripts/batch-cli-sample-create-account.md) | 建立 Batch 帳戶並將它與儲存體帳戶產生關聯。 |
-| [新增應用程式](./scripts/batch-cli-sample-add-application.md) | 新增應用程式，並上傳封裝的二進位檔。|
-| [管理 Batch 集區](./scripts/batch-cli-sample-manage-pool.md) | 示範建立、調整大小和管理集區。 |
-| [使用 Batch 執行工作和作業](./scripts/batch-cli-sample-run-job.md) | 示範執行工作及新增作業。 |
+請參閱 [CLI 指令碼範例](cli-samples.md)，以使用 Batch 完成一般工作。 這些範例涵蓋許多 Azure CLI 中可供 Batch 用來建立和管理帳戶、集區、作業及工作的命令。 
 
 ## <a name="json-files-for-resource-creation"></a>用於建立資源的 JSON 檔案
 
-當您建立 Batch 資源 (如集區和工作) 時，您可以指定包含新資源組態的 JSON 檔案，而不是將它的參數當作命令列選項傳遞。 例如：
+當您建立 Batch 資源 (如集區和工作) 時，您可以指定包含新資源組態的 JSON 檔案，而不是將它的參數當作命令列選項傳遞。 例如︰
 
 ```azurecli
 az batch pool create my_batch_pool.json

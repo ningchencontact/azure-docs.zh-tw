@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>在 Azure Machine Learning 中使用深度學習來進行情感分析
 
-在自然語言處理的領域中，情感分析是眾所周知的工作。 在提供一組文字後，此工作的目的是要判斷該文字的情感。 此解決方案的目標是使用 CNTK 來作為 Keras 的後端 (Keras 是一個模型等級程式庫，會提供高階的建置組塊供您開發深度學習模型)，並透過電影評論來實作情感分析。
+在自然語言處理的領域中，情感分析是眾所周知的工作。 在提供一組文字後，此工作的目的是要判斷該文字的情感。 此解決方案的目標是使用 Deep Learning 從電影評論來預測觀點。
 
 此解決方案位於 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 
 為了從情感分析獲取價值，企業必須挖掘大量非結構化的社交資料以獲得可採取相應措施的深入剖析資訊。 在此範例中，我們會開發幾個深度學習模型，以使用 AMLWorkbench 對電影評論進行情感分析
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 

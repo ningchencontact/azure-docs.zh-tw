@@ -4,20 +4,20 @@ description: "了解如何設定 Azure Active Directory 與 Veritas Enterprise V
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>教學課程：Azure Active Directory 與 Veritas Enterprise Vault.cloud SSO 整合
 
@@ -31,7 +31,7 @@ Veritas Enterprise Vault.cloud SSO 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Veritas Enterprise Vault.cloud SSO 整合，您需要下列項目：
 
@@ -110,7 +110,23 @@ Veritas Enterprise Vault.cloud SSO 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. 在 [識別碼] 文字方塊中，根據資料中心使用 URL
+
+    | 資料中心| URL |
+    |----------|----|
+    | 北美洲| `https://auth.lax.archivecloud.net` |
+    | 歐洲 | `https://auth.ams.archivecloud.net` |
+    | 亞太地區| `https://auth.syd.archivecloud.net`|
+
+    c. 在 [回覆 URL] 文字方塊中，根據資料中心使用 URL
+
+    | 資料中心| URL |
+    |----------|----|
+    | 北美洲| `https://auth.lax.archivecloud.net` |
+    | 歐洲 | `https://auth.ams.archivecloud.net` |
+    | 亞太地區| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Veritas Enterprise Vault.cloud SSO 客戶支援小組](https://www.veritas.com/support/.html)以取得此值。 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -55,7 +55,7 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 
 ## <a name="understanding-script-actions"></a>了解指令碼動作
 
-指令碼動作是一個您會提供 URI 和參數的 Bash 指令碼。 該指令碼會在 HDInsight 叢集節點上執行。 以下是指令碼動作的特性和功能。
+指令碼動作是在 HDInsight 叢集中節點上執行的 Bash 指令碼。 以下是指令碼動作的特性和功能。
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
 
@@ -79,9 +79,7 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 
 * 可以是**持續性**或**臨時性**。
 
-    指令碼執行後，**持續性**指令碼會套用至新增至叢集的背景工作角色節點。 例如，在向上調整叢集的規模時。
-
-    持續性指令碼也可能會將變更套用至另一個節點類型，例如前端節點。
+    **持續性**指令碼可用來自訂透過調整規模作業新增至叢集的新背景工作節點。 持續性指令碼也可以在進行調整規模作業時，將變更套用至另一個節點類型，例如前端節點。
 
   > [!IMPORTANT]
   > 持續性指令碼動作必須有唯一的名稱。
@@ -94,30 +92,32 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
   > 即使您特別指出應予保存，仍然不會保存失敗的指令碼。
 
 * 可以接受指令碼在執行期間所使用的**參數**。
+
 * 在叢集節點上以**根層級權限**執行。
-* 可以透過 **Azure 入口網站**、**Azure PowerShell**、**Azure CLI** 或 **HDInsight .NET SDK** 使用。
+
+* 可以透過 **Azure 入口網站**、**Azure PowerShell**、**Azure CLI v1.0** 或 **HDInsight .NET SDK** 使用。
 
 叢集會保留所有已執行指令碼的歷程記錄。 當您需要尋找升級或降級作業之指令碼的識別碼時，歷程記錄就很有用。
 
 > [!IMPORTANT]
 > 沒有任何自動方式可復原指令碼動作所做的變更。 請手動回復變更，或提供可回復變更的指令碼。
 
-
 ### <a name="script-action-in-the-cluster-creation-process"></a>叢集建立程序中的指令碼動作
 
 在叢集建立期間使用的指令碼動作與在現有叢集上執行的指令碼動作稍微不同︰
 
 * 此指令碼會**自動保存**。
+
 * 指令碼中若發生**失敗**，可能會導致叢集建立程序失敗。
 
 下圖說明在建立程序期間執行指令碼動作的時間：
 
 ![HDInsight 叢集自訂和叢集建立期間的階段][img-hdi-cluster-states]
 
-設定 HDInsight 時會執行此指令碼。 在此階段，指令碼會以平行方式在叢集中所有指定的節點上執行，並且在節點上以根權限執行。
+設定 HDInsight 時會執行此指令碼。 指令碼會以平行方式在叢集中所有指定的節點上執行，並且在節點上以根權限執行。
 
 > [!NOTE]
-> 因為指令碼是以根層級權限在叢集節點上執行，所以您可以執行作業，例如停止和啟動服務，包括 Hadoop 相關服務。 如果您停止服務，您必須在指令碼完成執行之前，確定 Ambari 服務及其他 Hadoop 相關服務已啟動並且正在執行。 這些服務必須在叢集建立時，成功地判斷叢集的健康情況和狀態。
+> 您可以執行停止和啟動服務 (包括 Hadoop 相關服務) 等作業。 如果您停止服務，就必須確保 Ambari 服務及其他 Hadoop 相關服務在指令碼完成前處於執行狀態。 這些服務必須在叢集建立時，成功地判斷叢集的健康情況和狀態。
 
 
 在叢集建立期間，您可以同時使用多個指令碼動作。 這些指令碼會以指定的順序叫用。
@@ -130,12 +130,12 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 
 ### <a name="script-action-on-a-running-cluster"></a>執行中叢集上的指令碼動作
 
-不同於在叢集建立期間使用的指令碼動作，在執行中叢集上執行的指令碼發生失敗並不會自動導致叢集變更為失敗的狀態。 指令碼完成後，叢集應該會回到「執行中」狀態。
+在已處於執行中狀態的叢集上執行的指令碼如果發生失敗，並不會自動導致叢集變成失敗狀態。 指令碼完成後，叢集應該會回到「執行中」狀態。
 
 > [!IMPORTANT]
 > 即使叢集狀態為「執行中」，失敗的指令碼仍可能已造成問題。 例如，指令碼可能會刪除叢集所需的檔案。
 >
-> 指令碼動作會以根權限執行，因此您應該先確定您了解指令碼的作用，再將它套用到您的叢集。
+> 指令碼動作會以根權限執行。 請先確定您了解指令碼的作用，再將它套用到您的叢集。
 
 將指令碼套用到叢集時，如果指令碼執行成功，叢集狀態會從 [執行中] 變更為 [已接受]，再變更為 [HDInsight 設定]，最後回到 [執行中]。 指令碼狀態會記錄在指令碼動作歷程記錄中，您可以使用此資訊來判斷指令碼是成功或失敗。 例如， `Get-AzureRmHDInsightScriptActionHistory` PowerShell Cmdlet 可用來檢視指令碼的狀態。 它會傳回類似以下文字的資訊：
 
@@ -144,7 +144,7 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!NOTE]
+> [!IMPORTANT]
 > 如果您在叢集建立後變更叢集使用者 (管理員) 密碼，針對此叢集執行的指令碼動作可能會失敗。 如果您有任何以背景工作角色節點為目標的持續性指令碼動作，當您調整叢集的規模時，這些指令碼動作可能會失敗。
 
 ## <a name="example-script-action-scripts"></a>範例指令碼動作指令碼
@@ -153,12 +153,12 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 
 * Azure 入口網站
 * Azure PowerShell
-* Azure CLI
+* Azure CLI v1.0
 * HDInsight .NET SDK
 
 HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
-| 名稱 | 指令碼 |
+| Name | 指令碼 |
 | --- | --- |
 | **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。請參閱[在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
 | **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
@@ -193,9 +193,9 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 或是選取其中一個提供的指令碼。 |
-    | 名稱 |指定指令碼動作的名稱。 |
-    | Bash 指令碼 URI |對自訂叢集所叫用的指令碼指定 URI。 |
-    | Head/Worker/Zookeeper |指定執行自訂指令碼的節點 (**Head**、**Worker** 或 **ZooKeeper**)。 |
+    | Name |指定指令碼動作的名稱。 |
+    | Bash 指令碼 URI |指定指令碼的 URI。 |
+    | Head/Worker/Zookeeper |指定執行指令碼的節點 (**前端**、**背景工作**或 **ZooKeeper**)。 |
     | 參數 |如果指令碼要求，請指定參數。 |
 
     使用 [保存此指令碼動作] 項目，可確保在執行規模調整作業時套用此指令碼。
@@ -270,9 +270,9 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 否則，請選取提供的指令碼。 |
-    | 名稱 |指定指令碼動作的名稱。 |
-    | Bash 指令碼 URI |對自訂叢集所叫用的指令碼指定 URI。 |
-    | Head/Worker/Zookeeper |指定執行自訂指令碼的節點 (**Head**、**Worker** 或 **ZooKeeper**)。 |
+    | Name |指定指令碼動作的名稱。 |
+    | Bash 指令碼 URI |指定指令碼的 URI。 |
+    | Head/Worker/Zookeeper |指定執行指令碼的節點 (**前端**、**背景工作**或 **ZooKeeper**)。 |
     | 參數 |如果指令碼要求，請指定參數。 |
 
     使用 [保存此指令碼動作] 項目，可確保在執行規模調整作業時套用此指令碼。
@@ -298,9 +298,10 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>從 Azure CLI 將指令碼動作套用到執行中的叢集
 
-在繼續之前，請確認您已安裝和設定 Azure CLI。 如需詳細資訊，請參閱 [安裝 Azure CLI](../cli-install-nodejs.md)。
+在繼續之前，請確認您已安裝和設定 Azure CLI。 如需詳細資訊，請參閱 [安裝 Azure CLI 1.0](../cli-install-nodejs.md)。
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+> [!IMPORTANT]
+> HDInsight 需要 Azure CLI 1.0。 目前 Azure CLI 2.0 並未提供可與 HDInsight 搭配運作的命令。
 
 1. 若要切換至 Azure Resource Manager 模式，請於命令列使用下列命令：
 
@@ -458,7 +459,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使
 
     * **Zookeeper 節點** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。 每個指令碼動作分別有一個 **output-\*.txt** 和 **errors-\*.txt**。 output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。 例如
+* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。 每個指令碼動作分別有一個 **output-\*.txt** 和 **errors-\*.txt**。 output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。 以下文字是此資訊的範例：
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 

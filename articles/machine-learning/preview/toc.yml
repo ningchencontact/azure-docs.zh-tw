@@ -92,7 +92,7 @@
           href: deployment-setup-configuration.md
         - name: 調整叢集和服務
           href: how-to-scale-clusters.md
-        - name: 在 MLC 叢集上設定 SSL
+        - name: 在 MLC 叢集上啟用 SSL
           href: how-to-setup-ssl-on-mlc.md
         - name: 部署 Web 服務
           href: model-management-service-deploy.md

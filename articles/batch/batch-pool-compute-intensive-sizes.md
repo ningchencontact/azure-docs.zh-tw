@@ -4,7 +4,7 @@ description: "如何在 Azure Batch 集區中利用具備 RDMA 功能或已啟�
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: danlep
-ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體
 
@@ -50,10 +50,10 @@ ms.lasthandoff: 01/19/2018
 | 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r、H16mr、A8、A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS、<br/>SUSE Linux Enterprise Server 12 HPC 或<br/>CentOS 型 HPC<br/>(Azure Marketplace) | Intel MPI 5 | 啟用節點間通訊、停用並行工作執行 |
-| [NC 系列*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS、<br/>Red Hat Enterprise Linux 7.3，或<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 驅動程式 | N/A | 
+| [NC、NCv2、ND 系列*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (依系列而有所不同) | Ubuntu 16.04 LTS、<br/>Red Hat Enterprise Linux 7.3，或<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.1 驅動程式 | N/A | 
 | [NV 系列](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS、<br/>Red Hat Enterprise Linux 7.3，或<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 驅動程式 | N/A |
 
-*具有 Intel MPI 的 Ubuntu 16.04 LTS 或以 CentOS 作為基礎的 7.3 HPC (從 Azure Marketplace) 可支援在 NC24r VM 上進行 RDMA 連線。
+*具有 Intel MPI 的 Ubuntu 16.04 LTS 或以 CentOS 作為基礎的 7.3 HPC (從 Azure Marketplace) 可支援在 NC24r、NC24r_v2 和 ND24r VM 上進行 RDMA 連線。
 
 
 
@@ -62,10 +62,10 @@ ms.lasthandoff: 01/19/2018
 | 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r、H16mr、A8、A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 或<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 或更新版本，或<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM 擴充功能 | 啟用節點間通訊、停用並行工作執行 |
-| [NC 系列*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 或 <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla 驅動程式或 CUDA Toolkit 9.0 驅動程式| N/A | 
+| [NC、NCv2、ND 系列*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (依系列而有所不同) | Windows Server 2016 或 <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla 驅動程式或 CUDA Toolkit 9.1 驅動程式| N/A | 
 | [NV 系列](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 或<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.3 驅動程式 | N/A |
 
-*具有 HpcVMDrivers 擴充功能和 Microsoft MPI 或 Intel MPI 的 Windows Server 2012 R2 (從 Azure Marketplace) 可支援在 NC24r VM 上進行 RDMA 連線。
+*具有 HpcVMDrivers 擴充功能和 Microsoft MPI 或 Intel MPI 的 Windows Server 2012 R2 (從 Azure Marketplace) 可支援在 NC24r、NC24r_v2 和 ND24r VM 上進行 RDMA 連線。
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows 集區 - 雲端服務組態
 

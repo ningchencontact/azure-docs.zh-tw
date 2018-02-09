@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
 作為 Azure 服務，IoT 中心提供高可用性 (HA)，在 Azure 區域層級使用備援，且解決方案不需任何額外的工作。 Microsoft Azure 平台也包含各種功能，以協助您建置具有災害復原 (DR) 功能或跨區域可用性的解決方案。 若想要為裝置或使用者提供全域、跨區域的高可用性，可善用這類 Azure DR 功能。 [Azure 業務持續性技術指引](../resiliency/resiliency-technical-guidance.md) 一文描述業務持續性和 DR 的 Azure 內建功能。 [Azure 應用程式的災害復原與高可用性][Disaster recovery and high availability for Azure applications]一文針對 Azure 應用程式的策略提供架構指引以達到 HA 和 DR。
@@ -34,6 +34,8 @@ ms.lasthandoff: 10/14/2017
 | 作業監視訊息 |所有未讀取的訊息都會遺失 |
 | 雲端到裝置的訊息 |0 到 5 分鐘的資料遺失 |
 | 雲端到裝置的意見反應佇列 |所有未讀取的訊息都會遺失 |
+| 裝置對應項資料 |0 到 5 分鐘的資料遺失 |
+| 父系和裝置作業 |0 到 5 分鐘的資料遺失 |
 
 ## <a name="regional-failover-with-iot-hub"></a>使用 IoT 中心的區域容錯移轉
 IoT 解決方案中部署拓撲的完整處理方式不在本文討論範圍內。 本文討論為了實現高可用性和災害復原的目的，所建立的*區域容錯移轉*部署模型。

@@ -1,6 +1,6 @@
 ---
 title: "Azure 資訊安全中心中的 Just-In-Time 虛擬機器存取 | Microsoft Docs"
-description: "本文件將逐步引導您認識 Azure 資訊安全中心的 Just-In-Time VM 存取可如何協助您控制 Azure 虛擬機器的存取。"
+description: "本文件示範 Azure 資訊安全中心的 Just-In-Time VM 存取如何協助您控制 Azure 虛擬機器的存取。"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>使用 Just-In-Time 管理虛擬機器存取 (預覽)
 
@@ -50,11 +50,13 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 ## <a name="using-just-in-time-access"></a>使用 Just-In-Time 存取
 
-[資訊安全中心] 下方的 [Just-In-Time VM 存取] 圖格會顯示過去一週內設定 Just-In-Time 存取的 VM 數目和核准的存取要求數目。
+1. 開啟 [資訊安全中心] 儀表板。
+
+2. 在左窗格中，選取 [Just-in-Time VM 存取]。
 
 ![[Just-In-Time VM 存取] 圖格][2]
 
-選取 [Just-In-Time VM 存取] 圖格，[Just-In-Time VM 存取] 隨即開啟。
+[Just-In-Time VM 存取] 視窗隨即開啟。
 
 ![[Just-In-Time VM 存取] 圖格][10]
 

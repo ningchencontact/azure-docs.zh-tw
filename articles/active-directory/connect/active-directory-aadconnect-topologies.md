@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -110,10 +110,11 @@ Azure AD Connect 同步處理中的預設組態假設：
 有些 Office 365 工作負載對受支援的拓撲有某些限制：
 
 | 工作負載 | 限制 |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | 如需有關 Exchange Online 所支援之混合式技術的詳細資訊，請參閱[具有多個 Active Directory 樹系的混合部署](https://technet.microsoft.com/library/jj873754.aspx)。 |
 | 商務用 Skype | 使用多個內部部署樹系時，只會支援帳戶資源樹系拓撲。 如需詳細資訊，請參閱[商務用 Skype Server 2015 的環境需求](https://technet.microsoft.com/library/dn933910.aspx)。 |
 
+如果您是較大型的組織，那麼就應該考量使用 [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) 功能。 它可讓您定義使用者的資源要放置於哪個資料中心區域。
 
 ## <a name="staging-server"></a>預備伺服器
 ![在拓撲中的預備伺服器](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

@@ -2,17 +2,18 @@
 title: "Azure Stack 資料中心整合 - 發佈端點"
 description: "了解如何在您的資料中心內發佈 Azure Stack 端點"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 
@@ -45,11 +46,13 @@ Azure Stack 會為其基礎結構角色設定各種端點 (VIP - 虛擬 IP 位�
 |圖形|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |憑證撤銷清單|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
-|Key Vault (使用者)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|Key Vault (系統管理員)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Key Vault (使用者)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (系統管理員)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |儲存體佇列|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |儲存體資料表|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |儲存體 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL 資源提供者|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL 資源提供者|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>連接埠和 URL (輸出)
 
@@ -64,49 +67,6 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 |註冊|https://management.azure.com|HTTPS|443|
 |使用量|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>防火牆發佈
-
-上一節中所列的連接埠適用於透過現有防火牆發佈 Azure Stack 服務時的連入通訊。
-
-建議您使用防火牆裝置來協助保護 Azure Stack 安全。 不過，並不嚴格要求這樣做。 雖然防火牆有助於防堵分散式阻斷服務 (DDOS) 攻擊和進行內容檢查等，但也會成為 Azure 儲存體服務 (例如 Blob、資料表及佇列) 的輸送量瓶頸。
-
-根據身分識別模型 (Azure AD 或 AD FS) 而定，可能需要也可能不需要發佈 AD FS 端點。 如果使用中斷連線的部署模式，您就必須發佈 AD FS 端點。 (如需詳細資訊，請參閱「資料中心整合身分識別」主題)。
-
-Azure Resource Manager (系統管理員)、系統管理員入口網站及 Key Vault (系統管理員) 端點並不一定需要外部發佈。 需視案例而定。 例如，作為服務提供者，您可能會想要限制攻擊面，而只從您的網路內 (不從網際網路) 管理 Azure Stack。
-
-就企業組織而言，外部網路可能是現有的公司網路。 在這類案例中，您必須發佈這些端點，以從公司網路操作 Azure Stack。
-
-## <a name="edge-firewall-scenario"></a>邊緣防火牆案例
-
-在邊緣部署中，Azure Stack 會直接部署在邊緣路由器 (由 ISP 提供) 後面，其前面會有或沒有防火牆。
-
-![Azure Stack 邊緣部署架構圖](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-一般而言，在邊緣部署的開發階段，會為公用 VIP 集區指定公用的可路由傳送 IP 位址。 此案例可讓使用者體驗類似在公用雲端 (例如 Azure) 中的完整自我控制雲端體驗。
-
-### <a name="using-nat"></a>使用 NAT
-
-您可以使用「網路位址轉譯」(NAT) 來發佈端點，但因為會產生額外的負荷，所以並不建議這麼做。 針對由使用者完全控制的端點發佈，這會要求每一使用者 VIP 都有一個 NAT 規則，當中包含使用者可能使用的所有連接埠。
-
-另一個考量是 Azure 並不支援在與 Azure 搭配的混合式雲端案例中，使用 NAT 來設定端點 VPN 通道。
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>企業/內部網路/周邊網路防火牆案例
-
-在企業/內部網路/周邊部署中，Azure Stack 會部署在第二個防火牆後面，此防火牆通常是周邊網路 (也稱為 DMZ) 的一部分。
-
-![Azure Stack 防火牆案例](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-如果已經為 Azure Stack 的公用 VIP 集區指定公用的可路由傳送 IP 位址，這些位址在邏輯上會屬於周邊網路，而在主要防火牆則需要有發佈規則。
-
-### <a name="using-nat"></a>使用 NAT
-
-如果針對 Azure Stack 的公用 VIP 集區使用非公用的可路由傳送 IP 位址，則會在次要防火牆使用 NAT 來發佈 Azure Stack端點。 在此案例中，您必須在邊緣外的主要防火牆上以及在次要防火牆上設定發佈規則。 如果您想要使用 NAT，請考量下列幾點：
-
-- NAT 會增加管理防火牆規則時額外負荷，因為使用者會在軟體定義網路 (SDN) 堆疊中控制自己的端點和自己的發佈規則。 使用者必須連絡 Azure Stack 操作員，才能發佈其 VIP 及更新連接埠清單。
-- 雖然使用 NAT 會限制使用者體驗，但它可讓操作員完全控制發佈要求。
-- 針對與 Azure 搭配的混合式雲端案例，請考量 Azure 不支援使用 NAT 來設定端點 VPN 通道。
-
 
 ## <a name="next-steps"></a>後續步驟
-
-[Azure Stack 資料中心整合 - 安全性](azure-stack-integrate-security.md)
+[Azure Stack PKI 需求](azure-stack-pki-certs.md)

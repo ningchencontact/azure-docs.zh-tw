@@ -3,8 +3,8 @@ title: "如何使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake
 description: "本教學課程示範如何使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store。"
 services: active-directory
 documentationcenter: 
-author: skwan
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4593046ec4d39c874d7ac5849cc9d8e7f30cf2ef
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: dc3ebf3ba232241677dc7aace4f835cee0cf54a7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/22/2017
 > * 將您的 VM 存取權授與 Azure Data Lake Store
 > * 使用 VM 身分識別取得存取權杖，並使用它存取 Azure Data Lake Store
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 您可以存取各種已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。  您可以不加修改地使用這些案例，或者使用它們做為起點並針對您的特定需求進行編輯。
@@ -26,9 +26,9 @@ ms.lasthandoff: 01/04/2018
 您可以從 [Runbook 資源庫](#runbooks-in-runbook-gallery)取得 Runbook，從 [PowerShell 資源庫](#modules-in-powerShell-gallery)取得模組。  您也可以藉由共用您開發的案例來參與社群。
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbook 資源庫中的 Runbook
-[Runbook 資源庫](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)提供各種來自 Microsoft 和社群的 Runbook，您可以匯入至 Azure 自動化。 您可以從資源庫，裝載於下載 runbook [TechNet 指令碼中心](https://gallery.technet.microsoft.com/scriptcenter/site/upload)，或您可以從 Azure 入口網站中的組件庫直接匯入 runbook。
+[Runbook 資源庫](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)提供各種來自 Microsoft 和社群的 Runbook，您可以匯入至 Azure 自動化。 您可以從 [TechNet 指令碼中心](https://gallery.technet.microsoft.com/scriptcenter/site/upload)託管的資源庫下載 Runbook，或者，您可以直接從 Azure 入口網站的資源庫匯入 Runbook。
 
-您可以只匯入從 Runbook 庫直接使用 Azure 入口網站。 您無法使用 Windows PowerShell 執行此函式。
+若要直接從 Runbook 資源庫匯入，您只能使用 Azure 入口網站。 您無法使用 Windows PowerShell 執行此函式。
 
 > [!NOTE]
 > 您應該驗證您從 Runbook 資源庫取得的任何 Runbook 的內容，並且在生產環境中安裝和執行它們時小心謹慎。
@@ -37,11 +37,8 @@ ms.lasthandoff: 01/04/2018
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>使用 Azure 入口網站從 Runbook 資源庫匯入 Runbook
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 按一下 [Runbook]  磚以開啟 Runbook 的清單。
-3. 按一下 [瀏覽資源庫]  按鈕。
-   
-    ![瀏覽資源庫按鈕](media/automation-runbook-gallery/browse-gallery-button.png)
-4. 找出您想要的資源庫項目，並且選取以檢視其詳細資料。
+2. 在 [程序自動化] 底下，按一下 [Runbook 資源庫]
+3. 找出您想要的資源庫項目，並且選取以檢視其詳細資料。 您可以在左邊輸入發行者和類型的其他搜尋參數。
    
     ![瀏覽資源庫](media/automation-runbook-gallery/browse-gallery.png)
 5. 按一下 [檢視來源專案]  以檢視 [TechNet 指令碼中心](http://gallery.technet.microsoft.com/)中的項目。
@@ -94,14 +91,8 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
    
     ![PowerShell 模組的詳細資料](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. 若要將該模組直接安裝至 Azure 自動化，請按一下 [匯入]  按鈕。
-   
-    ![[匯入模組] 按鈕](media/automation-runbook-gallery/module-import-button.png)
 8. 按一下 [匯入] 按鈕時，在 [匯入] 窗格上，您會看到將要匯入的模組名稱。 如果已安裝所有相依性，[確定] 按鈕會啟動。 如果缺少相依性，需先加以匯入後才能匯入該模組。
-9. 按一下 [確定] 以匯入模組。 當 Azure 自動化將模組匯入至您的帳戶時，它會擷取有關模組和 Cmdlet 的中繼資料。
-   
-    ![匯入模組頁面](media/automation-runbook-gallery/module-import-blade.png)
-   
-    因為必須解壓縮每個活動，此步驟可能需要幾分鐘的時間。
+9. 在 [匯入] 分頁上按一下 [確定] 以匯入模組。 當 Azure 自動化將模組匯入至您的帳戶時，它會擷取有關模組和 Cmdlet 的中繼資料。 因為必須解壓縮每個活動，此步驟可能需要幾分鐘的時間。
 10. 您會收到初始通知，表示正在部署模組，而完成時還會收到另一個通知。
 11. 匯入模組之後，您可以看到可用的活動，還可以將其資源用於 Runbook 和「預期狀態設定」中。
 

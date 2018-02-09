@@ -3,9 +3,9 @@ title: "使用 Linux VM 使用者指派的 MSI 存取 Azure Resource Manager"
 description: "本教學課程引導您使用 Linux VM 上使用者指派的受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。"
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>使用 Linux VM 上使用者指派的受控服務身分識別 (MSI) 來存取 Azure Resource Manager
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/09/2018
 > * 在 Azure Resource Manager 中將 MSI 存取權授與資源群組 
 > * 使用 MSI 來取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/09/2018
 
 若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
-- 透過 Azure 入口網站或每個程式碼區塊右上角的 [試用] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
+- 透過 Azure 入口網站或是每個程式碼區塊右上角的 [試試看] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
 - 如果您需要使用本機 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
@@ -67,19 +67,19 @@ ms.lasthandoff: 01/09/2018
 
 ## <a name="create-a-user-assigned-msi"></a>建立使用者指派的 MSI
 
-1. 如果您使用 CLI 主控台 (而不是 Azure Cloud Shell 工作階段)，則請從登入 Azure 開始。 使用與 Azure 訂用帳戶建立關聯的帳戶，而 Azure 訂用帳戶是用來建立新的 MSI：
+1. 如果使用的是 CLI 主控台 (而不是 Azure Cloud Shell 工作階段)，則請從登入 Azure 開始。 請使用您想用來建立新 MSI，且已與 Azure 訂用帳戶建立關聯的帳戶：
 
     ```azurecli
     az login
     ```
 
-2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。 `-g` 參數指定 MSI 建立所在的資源群組，而 `-n` 參數指定其名稱。 請務必將 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數值取代為您自己的值：
+2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的 MSI。 `-g` 參數會指定要建立 MSI 的資源群組，而 `-n` 參數則指定其名稱。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數的值：
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    回應會包含已建立的使用者指派 MSI 詳細資料，與下列範例類似。 請記下 MSI 的 `id` 值，因為後續步驟中會使用該值：
+    回應會包含所建立之使用者指派 MSI 的詳細資料，與下列範例類似。 請記下 MSI 的 `id` 值，因為後續步驟中會使用該值：
 
     ```json
     {
@@ -98,9 +98,9 @@ ms.lasthandoff: 01/09/2018
 
 ## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>將使用者指派的 MSI 指派給 Linux VM
 
-與系統指派的 MSI 不同，用戶端可以在多個 Azure 資源上使用使用者指派的 MSI。 在本教學課程中，您可以將它指派給單一 VM。 您也可以將它指派給多個 VM。
+與系統指派的 MSI 不同，使用者指派的 MSI 可以由多個 Azure 資源上的用戶端使用。 在本教學課程中，您可以將它指派給單一 VM。 也可以將它指派給多個 VM。
 
-使用 [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)，將使用者指派的 MSI 指派給 Linux VM。 請務必將 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數值取代為您自己的值。 針對 `--identities` 參數值，使用前一個步驟中所傳回的 `id` 屬性：
+使用 [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)，將使用者指派的 MSI 指派給 Linux VM。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 針對 `--identities` 參數值，使用前一個步驟中所傳回的 `id` 屬性：
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI 使用存取權杖來提供您的程式碼，來向支援 Azure AD 驗證的資源 API 進行驗證。 在本教學課程中，您的程式碼會存取 Azure Resource Manager API。 
 
-您需要先將 MSI 的身分識別存取權授與 Azure Resource Manager 中的資源，您的程式碼才能存取 API。 在此情況下，是包含 VM 的資源群組。 別忘了以您自己的值取代 `<CLIENT ID>`、`<SUBSCRIPTION ID>` 和 `<RESOURCE GROUP>` 參數的值。 在[建立使用者指派的 MSI](#create-a-user-assigned-msi) 中，將 `<CLIENT ID>` 取代為 `az identity create` 命令所傳回的 `clientId` 屬性： 
+您需要先將 MSI 的身分識別存取權授與 Azure Resource Manager 中的資源，您的程式碼才能存取 API。 在此情況下，是包含 VM 的資源群組。 將 `<SUBSCRIPTION ID>` 和 `<RESOURCE GROUP>` 的值更新為適用於環境的值。 此外，將 `<MSI PRINCIPALID>` 更改為[建立使用者指派的 MSI](#create-a-user-assigned-msi) 時，`az identity create` 命令所傳回的 `principalId` 屬性：
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 回應會包含已建立的角色指派詳細資料，與下列範例類似：
@@ -143,7 +143,7 @@ az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/s
 2. 使用您所選擇的 SSH 用戶端來**連線**到 VM。  
 3. 在終端機視窗中使用 CURL，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。  
 
-   下列範例顯示需要存取權杖的 CURL 要求。 在[建立使用者指派的 MSI](#create-a-user-assigned-msi) 中，請務必將 `<CLIENT ID>` 取代為 `az identity create` 命令所傳回的 `clientId` 屬性： 
+   用來取得存取權杖的 CURL 要求，則如以下範例所示。 在[建立使用者指派的 MSI](#create-a-user-assigned-msi) 中，請務必將 `<CLIENT ID>` 取代為 `az identity create` 命令所傳回的 `clientId` 屬性： 
     
    ```bash
    curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   

@@ -3,21 +3,21 @@ title: "使用 Linux VM MSI 存取 Azure 儲存體"
 description: "此教學課程引導您使用 Linux VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 2b264f8e2227e410caba8370d58c824d469198e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 1484ecdeb26f06d54dceef0e4fb1a5c63fab732a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Linux VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 > * 在資源管理員中將您的 VM 存取權授與儲存體帳戶存取金鑰 
 > * 使用 VM 的身分識別取得存取權杖，並將其用於從資源管理員擷取儲存體存取金鑰  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

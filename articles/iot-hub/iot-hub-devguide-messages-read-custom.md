@@ -11,26 +11,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>針對裝置對雲端訊息使用訊息路由和自訂端點
 
-IoT 中樞可讓您根據訊息屬性，將[裝置對雲端訊息][lnk-device-to-cloud]路由傳送至 IoT 中樞服務面向端點。 路由規則提供您傳送訊息目的地的彈性，而不需要其他服務來處理訊息或撰寫額外程式碼。 您設定的每個路由規則都具有下列屬性：
+IoT 中樞可讓您根據訊息屬性，將[裝置對雲端訊息][lnk-device-to-cloud]路由傳送至 IoT 中樞服務面向端點。 路由規則為您提供可將訊息傳送到所需目的地的彈性，而無需額外的服務和自訂程式碼。 您設定的每個路由規則都具有下列屬性：
 
 | 屬性      | 說明 |
 | ------------- | ----------- |
 | **名稱**      | 可識別規則的唯一名稱。 |
 | **來源**    | 要據以處理的資料串流來源。 例如裝置遙測。 |
-| **Condition** | 針對訊息標頭和內文執行的路由規則查詢運算式，用來判斷它是否符合端點。 如需建構路由條件的詳細資訊，請參閱[參考 - 裝置對應項和作業的查詢語言][lnk-devguide-query-language]。 |
+| **Condition** | 路由規則的查詢運算式，會針對訊息的標頭和本文執行，並判斷它是否與端點相符。 如需建構路由條件的詳細資訊，請參閱[參考 - 裝置對應項和作業的查詢語言][lnk-devguide-query-language]。 |
 | **端點**  | IoT 中樞傳送符合條件之訊息的目的地端點名稱。 端點應該與 IoT 中樞位於相同區域，否則您可能需要支付跨區域寫入費用。 |
 
-單一訊息可能符合多個路由規則的條件，在這種情況下 IoT 中樞會將訊息傳遞至與每個符合的規則相關聯的端點。 IoT 中樞也會自動刪除重複的訊息傳遞，如此若有訊息符合多個規則並且都有相同的目的地，則訊息僅會寫入到該目的地一次。
+單一訊息可能符合多個路由規則的條件，在這種情況下 IoT 中樞會將訊息傳遞至與每個符合的規則相關聯的端點。 「IoT 中樞」也會自動刪除重複的訊息傳遞，因此，如果訊息符合多個具有相同目的地的規則，訊息就只會寫入到該目的地一次。
 
 IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶中的其他服務連結到中樞，來建立要路由傳送訊息的目標自訂端點。 IoT 中樞目前支援 Azure 儲存體容器、事件中樞、服務匯流排佇列，及服務匯流排主題作為自訂端點。
 

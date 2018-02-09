@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 68aaf0fda2e60c5736ab020c15e516144e11d68e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31254788b840ccc1f1017df3c533e84b9c99f10d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務時如何設定內部部署編碼器來建立多位元速率串流
 本主題列出的內部部署即時編碼器可用來擷取即時事件，並傳送單一位元速率即時串流到 AMS 通道 (啟用即時編碼) 以供進一步處理。 本主題也列出示範如何設定列出之編碼器的教學課程連結。
@@ -27,7 +27,10 @@ ms.lasthandoff: 10/11/2017
 如需有關如何設定 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱[設定 Elemental Live](media-services-configure-elemental-live-encoder.md)。
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
-如需有關如何設定 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱 [設定 FMLE](media-services-configure-fmle-live-encoder.md)。
+如需有關如何設定 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 編碼器以將單一位元速率即時串流傳送到 AMS 通道的詳細資訊，請參閱[設定 FMLE](media-services-configure-fmle-live-encoder.md)。
+
+## <a name="haivision-kb-encoder"></a>Haivision KB 編碼器
+如需有關如何設定 [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) 編碼器以將單一位元速率即時串流傳送到 AMS 通道的詳細資訊，請參閱[設定 Haivision KB 編碼器](media-services-configure-kb-live-encoder.md)。
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 如需有關如何設定 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱 [設定 Wirecast](media-services-configure-wirecast-live-encoder.md)。

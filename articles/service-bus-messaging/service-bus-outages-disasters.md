@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>將應用程式與服務匯流排中斷和災難隔絕的最佳做法
 
@@ -31,12 +31,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="current-architecture"></a>目前架構
 服務匯流排使用多個訊息存放區來儲存傳送至佇列或主題的訊息。 非分割的佇列或主題會指派給一個訊息存放區。 如果此訊息存放區無法使用，該佇列或主題上的所有作業都會失敗。
 
-所有服務匯流排訊息實體 (佇列、主題、轉送) 都位於附屬於資料中心的服務命名空間中。 服務匯流排不會啟用自動資料異地複寫，也不會允許跨多個資料中心的命名空間。
-
-## <a name="protecting-against-acs-outages"></a>保護 ACS 免於中斷
-如果您使用 ACS 認證，ACS 會無法使用，用戶端也無法再取得權杖。 在 ACS 停機時擁有權杖的用戶端可以繼續使用服務匯流排直到權杖到期。 預設權杖存留期為 3 小時。
-
-若要保護 ACS 免於中斷，請使用共用存取簽章 (SAS) 權杖。 在此情況下，用戶端會藉由使用秘密金鑰簽署自行決策權杖的方式，直接使用服務匯流排進行驗證。 不再需要呼叫 ACS。 如需有關 SAS 權杖的詳細資訊，請參閱[服務匯流排驗證][Service Bus authentication]。
+所有服務匯流排訊息實體 (佇列、主題、轉送) 都位於附屬於資料中心的服務命名空間中。 服務匯流排現在支援命名空間層級的[地理災害復原和異地複寫](service-bus-geo-dr.md)。
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>保護佇列和主題免於發生訊息存放區失敗
 非分割的佇列或主題會指派給一個訊息存放區。 如果此訊息存放區無法使用，該佇列或主題上的所有作業都會失敗。 另一方面，分割佇列包含多個片段。 每個片段都儲存在不同的訊息存放區。 當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。 如果對應的訊息存放區無法使用，服務匯流排會盡可能將訊息寫入至不同的片段。 如需有關已分割實體的詳細資訊，請參閱[分割的傳訊實體][Partitioned messaging entities]。
@@ -82,9 +77,14 @@ ms.lasthandoff: 10/11/2017
 
 [搭配服務匯流排代理訊息的異地複寫 (英文)][Geo-replication with Service Bus Brokered Messages] 範例示範訊息實體的被動複寫。
 
+## <a name="geo-replication"></a>異地複寫
+
+服務匯流排支援命名空間層級的地理災害復原和異地複寫。 如需詳細資訊，請參閱 [Azure 服務匯流排地理災害復原](service-bus-geo-dr.md)。 災害復原功能僅適用於[進階 SKU](service-bus-premium-messaging.md)，其會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。
+
 ## <a name="next-steps"></a>後續步驟
 若要深入了解災害復原，請參閱這些文章：
 
+* [Azure 服務匯流排地理災害復原](service-bus-geo-dr.md)
 * [Azure SQL Database 商務持續性][Azure SQL Database Business Continuity]
 * [為 Azure 設計有彈性的應用程式][Azure resiliency technical guidance]
 

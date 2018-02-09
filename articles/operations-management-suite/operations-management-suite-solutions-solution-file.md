@@ -1,6 +1,6 @@
 ---
-title: "在 Operations Management Suite (OMS) 中建立管理解決方案 | Microsoft Docs"
-description: "管理解決方案會藉由提供客戶可新增至他們 OMS 工作區的套件管理案例，以擴充 Operations Management Suite (OMS) 的功能。  這篇文章提供詳細資料，說明如何建立要用於自己的環境中或可供客戶使用的管理解決方案。"
+title: "在 Azure 中建立管理解決方案檔 | Microsoft Docs"
+description: "管理解決方案提供客戶可新增至其 Azure 環境的已封裝管理案例。  這篇文章提供詳細資料，說明如何建立要用於自己的環境中或可供客戶使用的管理解決方案。"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中建立管理解決方案檔 (預覽)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
-> 這是在 OMS 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
+> 這是在 Azure 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
 
-Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource Manager 範本](../azure-resource-manager/resource-manager-template-walkthrough.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
+Azure 中的管理解決方案會實作為 [Resource Manager 範本](../azure-resource-manager/resource-manager-template-walkthrough.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
 
 
 ## <a name="tools"></a>工具
@@ -53,7 +53,8 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 ## <a name="parameters"></a>參數
 [Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) 是您在使用者安裝解決方案時向他們要求的值。  所有解決方案都會有標準參數，而您可以視需要針對特定解決方案新增額外的參數。  使用者在安裝解決方案時提供參數值的方式，將取決於特定參數以及解決方案的安裝方式。
 
-當使用者透過 [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) 或 [Azure 快速入門範本](operations-management-suite-solutions.md#finding-and-installing-management-solutions)安裝管理解決方案時，系統會提示他們選取 [OMS 工作區和自動化帳戶](operations-management-suite-solutions.md#oms-workspace-and-automation-account)。  這些用來填入每個標準參數的值。  系統不會提示使用者直接提供標準參數的值，但會提示他們提供任何其他參數的值。
+當使用者透過 [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) 或 [Azure 快速入門範本](operations-management-suite-solutions.md#finding-and-installing-management-solutions)安裝您的管理解決方案時，系統會提示他們選取 [Log Analytics 工作區和自動化帳戶](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)。  這些用來填入每個標準參數的值。  系統不會提示使用者直接提供標準參數的值，但會提示他們提供任何其他參數的值。
+
 
 當使用者以[其他方法](operations-management-suite-solutions.md#finding-and-installing-management-solutions)安裝解決方案時，他們必須提供所有標準參數和所有其他參數的值。
 
@@ -69,7 +70,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 
 下表說明參數的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | type |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
 | category |參數的選擇性類別。  相同類別中的參數會群組在一起。 |
@@ -84,7 +85,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 >
 >
 
-| 參數 | 類型 | 描述 |
+| 參數 | 類型 | 說明 |
 |:--- |:--- |:--- |
 | accountName |字串 |Azure 自動化帳戶名稱。 |
 | pricingTier |字串 |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
@@ -168,8 +169,9 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 ### <a name="dependencies"></a>相依性
 **dependsOn** 元素指定對另一個資源的[相依性](../azure-resource-manager/resource-group-define-dependencies.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](operations-management-suite-solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](operations-management-suite-solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
 
-### <a name="oms-workspace-and-automation-account"></a>OMS 工作區和自動化帳戶
-管理解決方案需要 [OMS 工作區](../log-analytics/log-analytics-manage-access.md)才可包含檢視，以及需要[自動化帳戶](../automation/automation-security-overview.md#automation-account-overview)才可包含 Runbook 和相關資源。  這些項目必須在建立解決方案中的資源前取得，且不得定義於解決方案本身。  使用者將會在部署解決方案時[指定工作區和帳戶](operations-management-suite-solutions.md#oms-workspace-and-automation-account)，但身為作者，您應該考慮下列幾點。
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
+管理解決方案需要 [Log Analytics 工作區](../log-analytics/log-analytics-manage-access.md)來包含檢視，以及[自動化帳戶](../automation/automation-security-overview.md#automation-account-overview)來包含 Runbook 和相關資源。  這些項目必須在建立解決方案中的資源前取得，且不得定義於解決方案本身。  使用者將會在部署解決方案時[指定工作區和帳戶](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)，但身為作者，您應該考慮下列幾點。
+
 
 ## <a name="solution-resource"></a>解決方案資源
 每個解決方案需要**資源**項目中定義解決方案本身的資源項目。  這會有一種 **Microsoft.OperationsManagement/solutions** 並有下列結構。 這包括經常用來定義解決方案屬性的[標準參數](#parameters)和[變數](#variables)。
@@ -211,7 +213,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 ### <a name="properties"></a>properties
 解決方案資源具有下表中的屬性。  這包括由定義解決方案安裝後如何管理資源的解決方案所參考及包含的資源。  解決方案中的每個資源應列在 **referencedResources** 或 **containedResources** 屬性中。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | workspaceResourceId |具有以下形式的 Log Analytics 工作區識別碼：*<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<工作區名稱\>*。 |
 | referencedResources |解決方案移除時不應移除的解決方案資源清單。 |
@@ -222,7 +224,7 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 ### <a name="plan"></a>規劃
 解決方案資源的**計劃**實體具有下表中的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | name |解決方案的名稱。 |
 | version |作者所決定的解決方案版本。 |

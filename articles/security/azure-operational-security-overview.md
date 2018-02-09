@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft 安全性回應中心方案，以及對網路安全性威脅型態的深層認知。
@@ -56,7 +56,7 @@ Microsoft [Azure 自動化](https://docs.microsoft.com/azure/automation/automati
 [Azure 備份](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)是以 Azure 為基礎的服務，可用來備份 (或保護) 和還原 Microsoft Cloud 中的資料。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)。
 
 ### <a name="site-recovery"></a>站台復原
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) 藉由協調內部部署虛擬和實體機器至 Azure 或次要網站的複寫，來提供商務持續性。 如果主要網站無法使用，您會容錯移轉到次要位置，讓使用者可以繼續工作，並且在系統回到正常運作時容錯回復。 智慧型和有效的威脅偵測。
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) 藉由協調內部部署虛擬和實體機器至 Azure 或次要網站的複寫，來提供商務持續性。 如果主要網站無法使用，您會容錯移轉到次要位置，讓使用者可以繼續工作，並且在系統回到正常運作時容錯回復。 使用 Azure 資訊安全中心來執行更聰明且有效的威脅偵測。
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) 是 Microsoft 的全方位「身分識別即服務」(IDaaS) 解決方案，它能夠：

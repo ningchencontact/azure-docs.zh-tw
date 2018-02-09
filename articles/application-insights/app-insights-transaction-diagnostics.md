@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>整合跨元件交易診斷
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>在 Application Insights 的內容中，元件代表什麼？
 
-元件是分散式/微服務應用程式中可獨立部署的組件。 開發人員和作業小組能在程式碼層級檢視或存取這些應用程式元件所產生的遙測資料。 
+元件是分散式/微服務應用程式中可獨立部署的組件。 開發人員和作業小組能在程式碼層級檢視或存取這些應用程式元件所產生的遙測資料。
 
 * 元件不同於 SQL、EventHub 等小組/組織可能無法存取的「可觀察」外部相依性 (程式碼或遙測資料)。
 * 元件能在任何數量的伺服器/角色/容器執行個體上執行。
@@ -40,11 +40,11 @@ ms.lasthandoff: 01/23/2018
 
 ![啟用預覽](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-本預覽版本目前僅適用於伺服器端要求、相依性及例外狀況。 您可以從**搜尋結果**、**效能**或**失敗**的分級體驗存取該項體驗。 本預覽版本會取代對應的傳統詳細資料刀鋒視窗。 
+本預覽版本目前僅適用於伺服器端要求、相依性及例外狀況。 您可以從**搜尋結果**、**效能**或**失敗**的分級體驗存取該項體驗。 本預覽版本會取代對應的傳統詳細資料刀鋒視窗。
 
 ![效能範例](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>交易診斷體驗 
+## <a name="transaction-diagnostics-experience"></a>交易診斷體驗
 該檢視有三大重要組件：跨元件交易圖表、特定元件作業所有遙測資料的時間序列清單、左側任何選定的遙測項目的詳細資料窗格。
 
 ![重要組件](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ ms.lasthandoff: 01/23/2018
 ## <a name="profiler-and-snapshot-debugger"></a>分析工具和快照集偵錯工具
 
 [Application Insights 分析工具](app-insights-profiler.md)或[快照集偵錯工具](app-insights-snapshot-debugger.md)能協助您從程式碼層級診斷效能和失敗問題。 透過這項體驗，只要按一下按鈕，您就可以查看任何元件的分析工具追蹤或快照集。
+
+如果無法使用分析工具，請連絡 **serviceprofilerhelp@microsoft.com**
+
+如果無法使用快照偵錯工具，請連絡 **snapshothelp@microsoft.com**
 
 ![偵錯工具整合](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

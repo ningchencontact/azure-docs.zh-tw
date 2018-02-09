@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: ab42789b091898c69091ba6b3fa2a8bf91e711f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>鎖定資源以防止非預期的變更 
 
@@ -44,7 +44,7 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>範本
-下列範例示範可在網站上建立應用程式服務方案、 web 站台和鎖定的範本。 鎖定的資源類型為要鎖定之資源的資源類型和**/提供者/鎖定**。 鎖定的名稱由串連的資源名稱與**/Microsoft.Authorization/**和鎖定的名稱。
+下列範例示範建立應用程式服務方案的範本、網站和網站上的鎖定。 鎖定的資源類型為要鎖定之資源的資源類型和 **/providers/locks**。 鎖定名稱的建立方式是串連資源名稱與 **/Microsoft.Authorization/**和鎖定的名稱。
 
 ```json
 {
@@ -148,7 +148,7 @@ Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/si
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-若要刪除的鎖定，請使用：
+若要將鎖定刪除，請使用：
 
 ```powershell
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
@@ -157,7 +157,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-您可使用 [az lock create](/cli/azure/lock#create) 命令，透過 Azure CLI 來鎖定已部署的資源。
+您可使用 [az lock create](/cli/azure/lock#az_lock_create) 命令，透過 Azure CLI 來鎖定已部署的資源。
 
 若要鎖定資源，請提供資源的名稱、其資源類型，以及其資源群組名稱。
 
@@ -171,7 +171,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-若要取得鎖定的相關資訊，請使用 [az lock list](/cli/azure/lock#list)。 若要取得訂用帳戶中的所有鎖定，請使用︰
+若要取得鎖定的相關資訊，請使用 [az lock list](/cli/azure/lock#az_lock_list)。 若要取得訂用帳戶中的所有鎖定，請使用︰
 
 ```azurecli
 az lock list
@@ -189,7 +189,7 @@ az lock list --resource-group exampleresourcegroup --resource-name examplesite -
 az lock list --resource-group exampleresourcegroup
 ```
 
-若要刪除的鎖定，請使用：
+若要將鎖定刪除，請使用：
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)

@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Data Factory 從/至 Dynamics CRM 和 365 複製資料 | Microsoft Docs"
-description: "了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Dynamics CRM 和 365 複製到支援的接收資料存放區，或是從支援的接收資料存放區複製到 Dynamics CRM 和 365。"
+title: "使用 Azure Data Factory 從 Dynamics CRM 或 Dynamics 365 複製資料以及複製資料至 Dynamics CRM 或 Dynamics 365 | Microsoft Docs"
+description: "了解如何使用資料處理站管線中的複製活動，將資料從 Microsoft Dynamics CRM 或 Microsoft Dynamics 365 複製到支援的接收資料存放區，或是從支援的來源資料存放區複製到 Dynamics CRM 或 Dynamics 365。"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,26 +11,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: jingwang
-ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Dynamics 365/Dynamics CRM 複製資料
+# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 或 Dynamics CRM 複製資料以及複製資料至 Dynamics 365 或 Dynamics CRM
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Dynamics 365/Dynamics CRM 複製資料以及複製資料至 Dynamics 365/Dynamics CRM。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Microsoft Dynamics 365 或 Microsoft Dynamics CRM 複製資料以及複製資料至 Microsoft Dynamics 365 或 Microsoft Dynamics CRM。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的複製活動](v1/data-factory-data-movement-activities.md)。
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用已正式運作的第 1 版 Data Factory，請參閱[第 1 版中的複製活動](v1/data-factory-data-movement-activities.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從 Dynamics 365/Dynamics CRM 複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Dynamics 365/Dynamics CRM。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+您可以將資料從 Dynamics 365 或 Dynamics CRM 複製到任何支援的接收資料存放區。 您也可以從任何支援的來源資料存放區將資料複製到 Dynamics 365 或 Dynamics CRM。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-此 Dynamics 連接器支援下列 Dynamics 版本和驗證類型 (*IFD 為 Internet Facing Deployment (網際網路面向部署) 的縮寫*)：
+這個 Dynamics 連接器支援下列 Dynamics 版本和驗證類型。 (IFD 是網際網路對向部署的縮寫。)
 
 | Dynamics 版本 | 驗證類型 | 已連結的服務範例 |
 |:--- |:--- |:--- |
@@ -45,10 +45,9 @@ ms.lasthandoff: 01/19/2018
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-> [!NOTE]
-> 若要使用 Dynamics 連接器，請將您的密碼儲存在 Azure Key Vault 中，然後讓複製活動在執行資料複製時從該處提取密碼。 若要了解如何設定，請參閱[已連結的服務屬性](#linked-service-properties)一節。
+不支援其他應用程式類型，例如作業和金融、Talent 等。
 
-## <a name="getting-started"></a>開始使用
+## <a name="get-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
@@ -56,22 +55,22 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 
-以下是針對 Dynamics 已連結服務支援的屬性：
+以下是針對 Dynamics 連結服務所支援的屬性。
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 和 Dynamics CRM Online
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Dynamics**。 | yes |
+| type | type 屬性必須設定為 **Dynamics**。 | yes |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | yes |
-| organizationName | Dynamics 執行個體的組織名稱。 | 否，當與使用者關聯的 Dynamics 執行個體超過一個時，應該指定。 |
-| authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | yes |
-| username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | yes |
-| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | yes |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有 IR，則對於來源而言為「否」；對於接收而言為「是」 |
+| organizationName | Dynamics 執行個體的組織名稱。 | 否，當與使用者關聯的 Dynamics 執行個體超過一個時，則應該指定 |
+| authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | yes |
+| username | 指定要連線到 Dynamics 的使用者名稱。 | yes |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | yes |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有整合執行階段，則對於來源而言為「否」；對於接收而言為「是」 |
 
 >[!IMPORTANT]
->將資料複製**到** Dynamics 時，預設的 Azure Integration Runtime 無法用來執行複製。 也就是說，如果您的來源連結服務沒有指定的 IR，則以 Dynamics 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的 Dynamics 連結服務中產生關聯。
+>將資料複製到 Dynamics 時，預設的 Azure Integration Runtime 無法用來執行複製。 換句話說，如果來源連結服務沒有指定的整合執行階段，請使用 Dynamics 執行個體附近的位置明確[建立 Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)。 在 Dynamics 連結服務中建立關聯，如下列範例所示。
 
 **範例：使用 Office365 驗證的 Dynamics 線上版**
 
@@ -87,12 +86,8 @@ ms.lasthandoff: 01/19/2018
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -109,18 +104,18 @@ ms.lasthandoff: 01/19/2018
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Dynamics**。 | yes |
+| type | type 屬性必須設定為 **Dynamics**。 | yes |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| yes |
-| **hostName** | 內部部署 Dynamics 伺服器的主機名稱。 | yes |
-| **port** | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
+| hostName | 內部部署 Dynamics 伺服器的主機名稱。 | yes |
+| 連接埠 | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
 | organizationName | Dynamics 執行個體的組織名稱。 | yes |
-| authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | yes |
-| username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | yes |
-| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 請注意，您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | yes |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
+| authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | yes |
+| username | 指定要連線到 Dynamics 的使用者名稱。 | yes |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | yes |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
->若要將資料複製到 Dynamics，以 Dynamics 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
+>若要將資料複製到 Dynamics，請使用 Dynamics 執行個體附近的位置明確[建立 Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)。 在連結服務中建立關聯，如下列範例所示。
 
 **範例：使用 IFD 驗證之搭配 IFD 的 Dynamics 內部部署版**
 
@@ -138,12 +133,8 @@ ms.lasthandoff: 01/19/2018
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -158,16 +149,16 @@ ms.lasthandoff: 01/19/2018
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Dynamics 資料集所支援的屬性清單。
 
-若要從/至 Dynamics 複製資料，請將資料集的類型屬性設定為 **DynamicsEntity**。 以下是支援的屬性：
+若要從 Dynamics 複製資料以及複製資料到 Dynamics，請將資料集的類型屬性設定為 **DynamicsEntity**。 以下是支援的屬性。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**DynamicsEntity** |yes |
+| type | 資料集的 type 屬性必須設定為 **DynamicsEntity**。 |yes |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
->- **從 Dynamics 複製資料時，Dynamics 資料集內必須要有 "structure" 區段**，此區段定義您想要複製之 Dynamics 資料的資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
->- **將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段**。 要複製到哪些資料行則由來源資料的結構描述決定。 如果來源是沒有標頭的 CSV 檔案，在輸入資料集中指定 "structure"，包含對應至 CSV 檔案中欄位的資料行名稱和資料類型，依照順序一個接一個指定。
+>- 從 Dynamics 複製資料時，Dynamics 資料集中需有 "structure" 區段。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
+>- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行則由來源資料的結構描述決定。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
 
 **範例：**
 
@@ -207,16 +198,16 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Dynamics 來源和接收所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Dynamics 來源和接收類型所支援的屬性清單。
 
-### <a name="dynamics-as-source"></a>Dynamics 作為來源
+### <a name="dynamics-as-a-source-type"></a>Dynamics 作為來源類型
 
-若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**DynamicsSource**  | yes |
-| query  | FetchXML 是一個在 Microsoft Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱以下範例，若要深入了解，請參閱[使用 FetchXML 建立查詢](https://msdn.microsoft.com/en-us/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName")  |
+| type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | yes |
+| query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入了解，請參閱[使用 FetchXML 建置查詢](https://msdn.microsoft.com/en-us/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
 
 **範例：**
 
@@ -270,19 +261,19 @@ ms.lasthandoff: 01/19/2018
 </fetch>
 ```
 
-### <a name="dynamics-as-sink"></a>Dynamics 作為接收
+### <a name="dynamics-as-a-sink-type"></a>Dynamics 作為接收類型
 
-若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 **sink** 區段支援下列屬性：
+若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 [接收] 區段支援下列屬性。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的類型屬性必須設定為：**DynamicsSink**  | yes |
-| writeBehavior | 作業的寫入行為。<br/>允許的值為：**"Upsert"**。 | yes |
+| type | 複製活動接收的 type 屬性必須設定為 **DynamicsSink**。 | yes |
+| writeBehavior | 作業的寫入行為。<br/>允許的值為 **"Upsert"**。 | yes |
 | writeBatchSize | 每個批次中寫入 Dynamics 的資料列計數。 | 否 (預設值為 10) |
-| ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 null 值 (索引鍵欄位除外)。<br/>允許的值為：**true** 和 **false**。<br>- true：進行 upsert/更新作業時，目的地物件中的資料保持不變，進行插入作業時，插入定義的預設值。<br/>- false：進行 upsert/更新作業時，將目的地物件中的資料更加為 NULL，進行插入作業時，插入 NULL 值。  | 否 (預設值為 false) |
+| ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 Null 值 (索引鍵欄位除外)。<br/>允許的值為 **true** 和 **false**。<br>- **True**：執行 upsert/更新作業時，將目的地物件中的資料保持不變。 執行插入作業時，插入已定義的預設值。<br/>- **False**：執行 upsert/更新作業時，將目的地物件中的資料更新為 NULL。 執行插入作業時，插入 NULL 值。 | 否 (預設值為 false) |
 
 >[!NOTE]
->Dynamics 的接收 writeBatchSize 和複製活動 [parallelCopies](copy-activity-performance.md#parallel-copy) 的預設值都是 10 中，這表示同一時間會提交 100 筆記錄給 Dynamics。
+>接收 writeBatchSize 以及 Dynamics 接收的複製活動 [parallelCopies](copy-activity-performance.md#parallel-copy) 的預設值皆為 10。 因此，100 個記錄會同時提交到 Dynamics。
 
 **範例：**
 
@@ -320,22 +311,22 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="data-type-mapping-for-dynamics"></a>Dynamics 的資料類型對應
 
-從 Dynamics 複製資料時，會使用下列從 Dynamics 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
+從 Dynamics 複製資料時，會使用下列從 Dynamics 資料類型到 Data Factory 過渡期資料類型的對應。 若要了解複製活動如何將來源結構描述和資料類型對應至接收，請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)。
 
-請參考以下的對應表，根據您的來源 Dynamics 資料類型，在資料集結構中設定對應的 Data Factory 資料類型：
+請參考以下的對應表，根據您的來源 Dynamics 資料類型，在資料集結構中設定對應的 Data Factory 資料類型。
 
 | Dynamics 資料類型 | Data Factory 過渡期資料類型 | 支援作為來源 | 支援作為接收 |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ |  |
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | 十進位 | ✓ | ✓ |
 | AttributeType.Double | 兩倍 | ✓ | ✓ |
 | AttributeType.EntityName | 字串 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ |  |
-| AttributeType.ManagedProperty | BOOLEAN | ✓ |  |
+| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | 字串 | ✓ | ✓ |
 | AttributeType.Money | 十進位 | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
@@ -350,4 +341,4 @@ ms.lasthandoff: 01/19/2018
 > 不支援 Dynamics 資料類型 AttributeType.CalendarRules 和 AttributeType.PartyList。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
 本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/18/2018
 是。 自 2016 年 9 月起，您可以為每個訂用帳戶建立 25 個復原服務。 您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 25 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？ <br/>
-是，您可以針對每個保存庫註冊最多 50 個電腦。 對於 Azure IaaS 虛擬機器，限制為每個保存庫 200 個 VM。 如果您需要註冊更多電腦，請建立其他保存庫。
+每個保存庫可以註冊最多 200 部 Azure 虛擬機器。 如果您使用的是 MAB 代理程式，則每個保存庫可以註冊最多 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>如果我的組織有一個備份保存庫，如何在還原資料時隔離某一部伺服器與另一部伺服器的資料？<br/>
 所有向相同保存庫註冊的伺服器都可以復原由「使用相同複雜密碼」 之其他伺服器所備份的資料。 如果您想要隔離您伺服器中的備份資料與您組織中的其他伺服器，請使用這些伺服器的指定複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
@@ -161,6 +161,9 @@ Azure 備份支援下列作業系統清單來備份：使用 Azure 備份伺服�
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>還原資料時，我需要支付來自 Azure 的輸出流量嗎？ <br/>
 編號 您的復原作業完全免費，且輸出流量不計費。
+
+### <a name="what-happens-when-i-change-my-backup-policy"></a>變更我的備份原則時會發生什麼狀況？
+套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除然後刪除。
 
 ## <a name="azure-backup-encryption"></a>Azure 備份加密
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>傳送至 Azure 的資料會經過加密嗎？ <br/>

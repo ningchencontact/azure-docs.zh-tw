@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -74,11 +74,11 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 ## <a name="import-and-export-device-identities"></a>匯入和匯出裝置身分識別
 
-您可以使用 [IoT 中樞資源提供者端點][lnk-endpoints]上的非同步作業，從 IoT 中樞的身分識別登錄大量匯出裝置身分識別。 匯出是長時間執行的作業，其使用客戶提供的 Blob 容器來儲存讀取自身分識別登錄的裝置身分識別資料。
+請使用 [IoT 中樞資源提供者端點][lnk-endpoints]上的非同步作業，從 IoT 中樞的身分識別登錄大量匯出裝置身分識別。 匯出是長時間執行的作業，其使用客戶提供的 Blob 容器來儲存讀取自身分識別登錄的裝置身分識別資料。
 
-您可以使用 [IoT 中樞資源提供者端點][lnk-endpoints]上的非同步作業，將裝置身分識別大量匯入 IoT 中樞的身分識別登錄。 匯入是長時間執行的作業，其使用客戶提供的 Blob 容器中的資料，將裝置身分識別資料寫入至身分識別登錄。
+請使用 [IoT 中樞資源提供者端點][lnk-endpoints]上的非同步作業，將裝置身分識別大量匯入至 IoT 中樞的身分識別登錄。 匯入是長時間執行的作業，其使用客戶提供的 Blob 容器中的資料，將裝置身分識別資料寫入至身分識別登錄。
 
-如須匯入和匯出 API 的詳細資訊，請參閱 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis]。 若要深入了解如何執行匯入和匯出作業，請參閱[大量管理 IoT 中樞的裝置身分識別][lnk-bulk-identity]。
+如需有關匯入和匯出 API 的詳細資訊，請參閱 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis]。 若要深入了解如何執行匯入和匯出作業，請參閱[大量管理 IoT 中樞的裝置身分識別][lnk-bulk-identity]。
 
 ## <a name="device-provisioning"></a>裝置佈建
 
@@ -105,7 +105,7 @@ IoT 中樞在裝置身分識別建立或刪除時，可透過傳送裝置的生�
 
 屬性：訊息系統屬性前面會加上 `'$'` 符號。
 
-| 名稱 | 值 |
+| Name | 值 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  傳送通知的時間 |
@@ -144,9 +144,9 @@ iothub-message-schema | deviceLifecycleNotification |
 
 裝置身分識別會以具有下列屬性的 JSON 文件表示：
 
-| 屬性 | 選項 | 描述 |
+| 屬性 | 選項 | 說明 |
 | --- | --- | --- |
-| deviceId |必要，只能讀取更新 |區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和某些特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
+| deviceId |必要，只能讀取更新 |區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和某些特殊字元：`- . + % _ # * ? ! ( ) , = @ $ '`。 |
 | generationId |必要，唯讀 |IoT 中樞產生的區分大小寫字串，最長為 128 個字元。 此值可用來在刪除並重建裝置時，區分具有相同 **deviceId** 的裝置。 |
 | etag |必要，唯讀 |依據 [RFC7232][lnk-rfc7232]，此字串代表裝置身分識別的弱式 ETag。 |
 | auth |選用 |包含驗證資訊和安全性資料的複合物件。 |
@@ -180,7 +180,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 * [在裝置上叫用直接方法][lnk-devguide-directmethods]
 * [排程多個裝置上的作業][lnk-devguide-jobs]
 
-如果您想要嘗試本文章所述的概念，您可能會對下列 IoT 中樞教學課程感興趣：
+若要嘗試本文所述的一些概念，請參閱下列「IoT 中樞」教學課程：
 
 * [開始使用 Azure IoT 中樞][lnk-getstarted-tutorial]
 

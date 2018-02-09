@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>教學課程：Azure Active Directory 與 New Relic 整合
 
@@ -32,7 +32,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定與 New Relic 的 Azure AD 整合，您需要下列項目：
 
@@ -108,12 +108,9 @@ New Relic 與 Azure AD 整合提供下列優點：
 
     ![New Relic 網域與 URL 單一登入資訊](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.newrelic.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式來輸入 URL：`https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - 請務必取代您自己的 New Relic 帳戶識別碼。
 
     b. 在 [識別碼] 文字方塊中，輸入值：`rpm.newrelic.com`
-
-    > [!NOTE] 
-    > 單一登入 URL 值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [New Relic 客戶支援小組](https://support.newrelic.com/)以取得此值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

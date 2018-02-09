@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 12/16/2015
 ms.author: dwrede
 ms.openlocfilehash: 45decfdec01b7086d1f9d18b31cf01cec1adb34d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="microsoft-azure-portal-overview"></a>Microsoft Azure 入口網站概觀
 Microsoft Azure 入口網站是一個可以佈建和管理 Azure 資源的中央位置。  本教學課程將讓您熟悉此入口網站，並為您示範如何使用其中的某些重要功能︰
@@ -65,7 +65,7 @@ Azure 擁有一個包含數千個項目的 Marketplace，您可以在一個位�
 
 ![說明及支援][HelpSupport]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 讓我們回顧一下您在本教學課程中學習到的內容︰
 
 * 您已了解如何註冊、取得訂用帳戶，以及瀏覽至入口網站

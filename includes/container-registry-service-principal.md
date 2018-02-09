@@ -4,33 +4,7 @@
 
 執行指令碼之後，請記下的服務主體的**識別碼**和**密碼**。 一旦擁有其認證，便可以將您的應用程式和服務設定為以服務主體向您的容器登錄進行驗證。
 
-```bash
-#!/bin/bash
-
-# Modify for your environment. The ACR_NAME is the name of your Azure Container
-# Registry, and the SERVICE_PRINCIPAL_NAME can be any unique name within your
-# subscription (you can use the default below).
-ACR_NAME=myregistryname
-SERVICE_PRINCIPAL_NAME=acr-service-principal
-
-# Populate some values required for subsequent command args
-ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
-ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
-
-# Create the service principal with rights scoped to the registry.
-# Default permissions are for both docker push and pull access. Modify the
-# '--role' argument value as desired:
-# reader:      pull only
-# contributor: push and pull
-# owner:       push, pull, and assign roles
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role reader --query password --output tsv)
-SP_APP_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
-
-# Output the service principal's credentials; use these in your services and
-# applications to authenticate to the container registry.
-echo "Service principal ID: $SP_APP_ID"
-echo "Service principal password: $SP_PASSWD"
-```
+[!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
 ## <a name="use-an-existing-service-principal"></a>使用現有的服務主體
 
@@ -38,25 +12,16 @@ echo "Service principal password: $SP_PASSWD"
 
 以下指令碼使用 [az role assignment create][az-role-assignment-create] 命令，以授與您在 `SERVICE_PRINCIPAL_ID` 變數中所指定的服務主體「提取」權限。 如果您要授與不同層級的存取權，請調整 `--role` 值。
 
-```bash
-#!/bin/bash
+[!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
-# Modify for your environment. The ACR_NAME is the name of your Azure Container
-# Registry, and the SERVICE_PRINCIPAL_ID is the service principal's 'appId' or
-# one of its 'servicePrincipalNames' values.
-ACR_NAME=myregistryname
-SERVICE_PRINCIPAL_ID=<service-principal-ID>
+您可以在 GitHub 上找到這兩個指令碼，以及適用於 PowerShell 的版本：
 
-# Populate value required for subsequent command args
-ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
 
-# Assign the desired role to the service principal. Modify the '--role' argument
-# value as desired:
-# reader:      pull only
-# contributor: push and pull
-# owner:       push, pull, and assign roles
-az role assignment create --assignee $SERVICE_PRINCIPAL_ID --scope $ACR_REGISTRY_ID --role reader
-```
+<!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

@@ -202,7 +202,7 @@ ms.lasthandoff: 02/01/2018
 - **scriptPath** 指向您用於 MyStorageLinkedService 的 Azure 儲存體帳戶上的 Hive 指令碼路徑。 路徑區分大小寫。
 - **Output** 是 Hive 指令碼中使用的引數。 請使用 `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式，以指向您的 Azure 儲存體上現有的資料夾。 路徑區分大小寫。 
 
-1. 在 Data Factory 使用者介面中，按一下左窗格中的 [+] (加號)，然後按一下 [管線]。 
+1. 在 Data Factory 使用者介面中，按一下左窗格中的 [+] \(加號)，然後按一下 [管線]。 
 
     ![新增管線功能表](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
 2. 在 [活動] 工具箱中展開 [HDInsight]，並將 [Hive] 活動拖放至管線設計工具介面。 
@@ -234,7 +234,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="trigger-a-pipeline-run"></a>觸發管線執行
 
-1. 首先，按一下工具列上的 [驗證] 按鈕驗證管線。 按一下[>>] (右箭頭) 關閉 [管線驗證輸出] 視窗。 
+1. 首先，按一下工具列上的 [驗證] 按鈕驗證管線。 按一下[>>] \(右箭頭) 關閉 [管線驗證輸出] 視窗。 
 
     ![驗證管線](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. 若要觸發管線執行，按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 

@@ -1,5 +1,5 @@
 ---
-title: "OMSManagement 解決方案的最佳作法 | Microsoft Docs"
+title: "Azure 最佳做法中的管理解決方案 | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中建立管理解決方案的最佳作法 (預覽)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>在 Azure 中建立管理解決方案的最佳做法 (預覽)
 > [!NOTE]
-> 這是在 OMS 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
+> 這是在 Azure 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
 
-本文提供在 Operations Management Suite (OMS) 中[建立管理解決方案檔](operations-management-suite-solutions-solution-file.md)的最佳作法。  本資訊會在識別出其他最佳作法時更新。
+本文提供在 Azure 中[建立管理解決方案檔](operations-management-suite-solutions-solution-file.md)的最佳做法。  本資訊會在識別出其他最佳作法時更新。
 
 ## <a name="data-sources"></a>資料來源
 - 資料來源可以[使用 Resource Manager 範本設定](../log-analytics/log-analytics-template-workspace-configuration.md)，但不應該將資源來源包含在解決方案檔中。  原因是設定資料來源目前並非等冪，這表示您的解決方案可能會覆寫使用者工作區中現有的設定。<br><br>例如，您的解決方案可能需要來自應用程式事件記錄檔的警告和錯誤事件。  如果您在解決方案中將此指定為資料來源，在使用者已在其工作區中設定此項的情況下，會有移除資訊事件的風險。  如果您包含所有的事件，則可能會收集使用者工作區中過多的資訊事件。
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 - 將[資料流程驗證](../log-analytics/log-analytics-view-designer-tiles.md)訊息新增至解決方案中的任何檢視，以指示使用者關於需要設定以收集必要資料的資料來源資訊。
 - 將解決方案設定為[包含](operations-management-suite-solutions-solution-file.md#solution-resource)該檢視，讓檢視會隨著解決方案一起移除。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 - 將收件者清單定義為解決方案檔中的參數，讓使用者可以在安裝解決方案時定義它們。
 - 將解決方案設定為[參考](operations-management-suite-solutions-solution-file.md#solution-resource)警示規則，讓使用者可以變更其設定。  他們可能會想要做出如修改收件者清單、變更警示閾值，或停用警示規則等變更。 
 

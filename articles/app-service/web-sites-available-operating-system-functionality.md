@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
 本文說明在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
@@ -49,7 +49,7 @@ App Service 中的各種磁碟機，包含本機磁碟機和網路磁碟機。
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>本機磁碟機
-基本上，App Service 是一項在 Azure PaaS (平台即服務) 基礎結構之上執行的服務。 因此，「附加」至虛擬機器的本機磁碟機就是任何在 Azure 中執行之背景工作角色可用的相同磁碟機類型。 這包括作業系統磁碟機 (D:\ 磁碟機)、含 App Service 專用的 Azure 封裝 cspkg 檔案的應用程式磁碟機 (客戶無法存取)，以及「使用者」磁碟機 (C:\ 磁碟機，其大小因 VM 的大小而異)。
+基本上，App Service 是一項在 Azure PaaS (平台即服務) 基礎結構之上執行的服務。 因此，「附加」至虛擬機器的本機磁碟機就是任何在 Azure 中執行之背景工作角色可用的相同磁碟機類型。 這包括作業系統磁碟機 (D:\ 磁碟機)、含 App Service 專用的 Azure 封裝 cspkg 檔案的應用程式磁碟機 (客戶無法存取)，以及「使用者」磁碟機 (C:\ 磁碟機，其大小因 VM 的大小而異)。 請務必在您應用程式增加之際監視磁碟使用狀況。 如果達到磁碟配額時，可能會對您的應用程式造成不良影響。
 
 <a id="NetworkDrives"></a>
 

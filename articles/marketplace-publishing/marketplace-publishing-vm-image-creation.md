@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -118,6 +118,9 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 強烈建議您在使用遠端桌面通訊協定 (RDP)，在雲端開發您的 VHD。 您會利用在佈建期間指定的使用者名稱和密碼連接到 RDP。
 
 > [!IMPORTANT]
+> **請勿使用受控磁碟。** 因為目前不支援從受控磁碟中建立映像，所以用以針對雲端開發 VHD 的虛擬機器不應以其為基礎。
+> 以選擇性功能建立虛擬機器會變更受控磁碟的預設值。
+
 > 如果您開發 VHD 內部部署 (不建議)，請參閱 [建立虛擬機器映像內部部署](marketplace-publishing-vm-image-creation-on-premise.md)。 如果您在雲端中開發，就不必下載您的 VHD。
 >
 >

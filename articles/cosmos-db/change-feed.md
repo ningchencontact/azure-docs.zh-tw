@@ -3,7 +3,7 @@ title: "使用 Azure Cosmos DB 中的變更摘要支援 | Microsoft Docs"
 description: "使用 Azure Cosmos DB 的變更摘要支援來追蹤文件中的變更，並執行以事件為基礎的處理 (例如觸發程序)，以及讓快取和分析系統保持最新狀態。"
 keywords: "變更摘要"
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -60,6 +60,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 * 變更可以從任何時間點同步處理，也就是說，可用變更沒有固定的資料保留期限。
 * 變更會以資料分割索引鍵區塊為單位提供。 這項功能可讓大型集合的變更由多個取用者/伺服器平行處理。
 * 應用程式可以同時要求同一個集合的多個變更摘要。
+* ChangeFeedOptions.StartTime 可用來提供初始的起點，例如，用來尋找對應到指定時鐘時間的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
 
 ## <a name="use-cases-and-scenarios"></a>使用個案和案例
 
@@ -178,6 +179,7 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 請注意，如果您有兩個無伺服器的 Azure 函式使用相同的租用在監視相同的集合，則這兩個函式可能會得到不同的文件，取決於處理器程式庫決定如何處理分割區。
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>了解變更摘要處理器程式庫
 
 用來實作變更摘要處理器的主要元件有四個：受監視的集合、租用集合、處理器主機和取用者。 

@@ -1,27 +1,27 @@
 ---
-title: "將 Azure Blob 儲存體事件路由傳送至自訂 Web 端點 (預覽) | Microsoft Docs"
+title: "將 Azure Blob 儲存體事件路由至自訂 Web 端點 | Microsoft Docs"
 description: "使用 Azure Event Grid 以訂閱 Blob 儲存體事件。"
 services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>使用 Azure CLI 將 Blob 儲存體事件路由至自訂的 Web 端點
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure CLI 訂閱 Blob 儲存體事件，以及觸發事件來檢視結果。 
 
-一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，我們將事件傳送至只會收集訊息的 URL。 使用名為 [RequestBin](https://requestb.in/) 的第三方開放原始碼工具來建立此 URL。
+一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，我們將事件傳送至只會收集訊息的 URL。 您會使用 [RequestBin](https://requestb.in/) \(英文\) 或 [Hookbin](https://hookbin.com/) \(英文\) 提供的第三方工具來建立此 URL。
 
 > [!NOTE]
-> **RequestBin** 是一個開放原始碼工具，不適用於高輸送量的使用方式。 在此使用工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
+> **RequestBin** 和 **Hookbin** 都不適用於高輸送量的使用方式。 這些工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
 
 當您完成本文所述的步驟時，您會看到事件資料已傳送至端點。
 
@@ -39,7 +39,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組是在其中部署與管理 Azure 資源的邏輯集合。
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 
+使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 
 
 下列範例會在 *westcentralus* 位置建立名為 `<resource_group_name>` 的資源群組。  以資源群組的唯一名稱取代 `<resource_group_name>`。
 
@@ -47,14 +47,12 @@ Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-blob-storage-account"></a>建立 Blob 儲存體帳戶
+## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-若要使用 Azure 儲存體，您需要儲存體帳戶。  Blob 儲存體事件目前只可用於 Blob 儲存體帳戶。
-
-Blob 儲存體帳戶是特殊的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於現有的一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。
+若要使用 Blob 儲存體事件，您需要 [Blob 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)或[一般用途 v2 儲存體帳戶](../common/storage-account-options.md#general-purpose-v2)。 **一般用途 v2 (GPv2)** 儲存體帳戶支援所有儲存體服務 (包括 Blob、檔案、佇列和表格) 的所有功能。 **Blob 儲存體帳戶**是特製化的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。 
 
 > [!NOTE]
-> Event Grid 目前在預覽中，並只有 **westcentralus** 和 **westus2** 區域中的儲存體帳戶可使用。
+> 儲存體事件的可用性會繫結至事件格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件格線所做的一樣。
 
 以儲存體帳戶的唯一名稱取代 `<storage_account_name>`，並以您稍早建立的資源群組取代 `<resource_group_name>`。
 
@@ -70,11 +68,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>建立訊息端點
 
-從 Blob 儲存體帳戶訂閱事件之前，讓我們建立事件訊息的端點。 我們將建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 是一個開放原始碼的第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/)，然後按一下 [建立 RequestBin]。  複製 bin URL，因為您在訂閱主題時需要用到它。
+訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/) \(英文\)，然後按一下 [Create a RequestBin] \(建立 RequestBin\)，或移至 [Hookbin](https://hookbin.com/) \(英文\)，然後按一下 [Create New Endpoint] \(建立新端點\)。  複製 bin URL，因為您在訂閱主題時需要用到它。
 
-## <a name="subscribe-to-your-blob-storage-account"></a>訂閱您的 Blob 儲存體帳戶
+## <a name="subscribe-to-your-storage-account"></a>訂閱您的儲存體帳戶
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的 Blob 儲存體帳戶，並從 RequestBin 傳遞 URL 作為事件通知的端點。 以事件訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<URL_from_RequestBin>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<resource_group_name>` 和 `<storage_account_name>`，使用您稍早建立的值。 
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例會訂閱您所建立的儲存體帳戶，並從 RequestBin 或 Hookbin 傳遞 URL 作為事件通知的端點。 以事件訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<endpoint_URL>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<resource_group_name>` 和 `<storage_account_name>`，使用您稍早建立的值。  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -82,7 +80,7 @@ storageid=$(az storage account show --name <storage_account_name> --resource-gro
 az eventgrid event-subscription create \
   --resource-id $storageid \
   --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin>
+  --endpoint <endpoint_URL>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>從 Blob 儲存體觸發事件
@@ -99,7 +97,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 瀏覽至您稍早建立的 RequestBin URL。 或者，按一下已開啟 RequestBin 瀏覽器中的重新整理。 您會看到剛傳送的事件。 
+您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 瀏覽至您稍早建立的端點 URL。 或者，按一下已開啟瀏覽器中的重新整理。 您會看到剛傳送的事件。 
 
 ```json
 [{
