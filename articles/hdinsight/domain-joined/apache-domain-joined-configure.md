@@ -134,7 +134,7 @@ ms.lasthandoff: 01/25/2018
 
 **新增 Active Directory 憑證服務**
 
-4. 開啟 [伺服器管理員] (如果尚未開啟)。
+4. 開啟 [伺服器管理員] \(如果尚未開啟)。
 5. 按一下 [管理]，然後按一下 [新增角色及功能]。
 
     ![已加入網域的 HDInsight 會新增角色與功能](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)
