@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>連接器清單
 若要尋找每個連接器的 Swagger 說明加上任何連接器限制所定義的觸發程序和動作，請參閱[連接器詳細資料](/connectors/)。
@@ -83,7 +83,7 @@ Logic Apps 引擎提供可處理資料、透過 HTTP 通訊以及控制邏輯應
 | --- | --- | --- | --- |
 | [![API 圖示][as2icon]<br/>**AS2</br>解碼**][as2decode] | [![API 圖示][as2icon]<br/>**AS2</br>編碼**][as2encode] | [![API 圖示][x12icon]<br/>**EDIFACT</br>解碼**][EDIFACTdecode] | [![API 圖示][x12icon]<br/>**EDIFACT</br>編碼**][EDIFACTencode] |
 [![API 圖示][flatfileicon]<br/>**一般檔案</br>編碼**][flatfiledoc] | [![API 圖示][flatfiledecodeicon]<br/>**一般檔案</br>解碼**][flatfiledecodedoc] | [![API 圖示][integrationaccounticon]<br/>**整合<br/>帳戶**][integrationaccountdoc] | [![API 圖示][xmltransformicon]<br/>**轉換<br/>XML**][xmltransformdoc] |
-| [![API 圖示][x12icon]<br/>**X12</br>解碼**][x12decode] | [![API 圖示][x12icon]<br/>**X12</br>編碼**][x12encode] | [![API 圖示][xmlvalidateicon]<br/>**XML<br/>驗證**][xmlvalidatedoc] | |
+| [![API 圖示][x12icon]<br/>**X12</br>解碼**][x12decode] | [![API 圖示][x12icon]<br/>**X12</br>編碼**][x12encode] | [![API 圖示][xmlvalidateicon]<br/>**XML<br/>驗證**][xmlvalidatedoc] | [![API 圖示][liquidicon]<br/>**轉換 <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>企業連接器
 
@@ -190,6 +190,7 @@ Logic Apps 包含下列幾種觸發程序：
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "深入了解企業整合 EDIFACT 解碼"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "深入了解企業整合 EDIFACT 編碼"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "查閱整合帳戶中的結構描述、對應、合作夥伴和其他資訊"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "深入了解使用 Liquid 進行 JSON 轉換"
 
 
 [boxDoc]: ./connectors-create-api-box.md "連線至 Box。上傳、取得、刪除、列出您的檔案等等"
@@ -329,3 +330,4 @@ Logic Apps 包含下列幾種觸發程序：
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

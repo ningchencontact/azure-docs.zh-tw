@@ -9,15 +9,15 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b402ebfd6c8e1ef6b7d3969a05191467f5864f4
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>搭配使用模組登錄與 Terraform 以建立 VM 叢集
 
-本文逐步引導您使用 Terraform [Azure 計算模組](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2)建立小 VM 叢集。 在本教學課程中，您了解如何： 
+本文逐步引導您使用 Terraform [Azure 計算模組](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2)建立小 VM 叢集。 在本教學課程中，您將了解如何： 
 
 > [!div class="checklist"]
 > * 使用 Azure 設定驗證
@@ -61,6 +61,7 @@ module mycompute {
     vm_os_simple = "WindowsServer"
     remote_port = "3389"
     nb_instances = 2
+    public_ip_dns = ["unique_dns_name"]
     vnet_subnet_id = "${module.network.vnet_subnets[0]}"
 }
 
@@ -74,7 +75,7 @@ output "vm_public_name" {
     value = "${module.mycompute.public_ip_dns_name}"
 }
 
-output = "vm_public_ip" {
+output "vm_public_ip" {
     value = "${module.mycompute.public_ip_address}"
 }
 
@@ -87,7 +88,7 @@ output "vm_private_ips" {
 
 ![Terraform 初始化](media/terraformInitWithModules.png)
 
-## <a name="visualize-the-changes-with-plan"></a>視覺化計劃變更
+## <a name="visualize-the-changes-with-plan"></a>使用 plan 視覺化變更
 
 執行 `terraform plan`，預覽範本所建立的虛擬機器基礎結構。
 

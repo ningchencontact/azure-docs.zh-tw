@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
-ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: sethm
+ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-event-hubs"></a>何謂事件中樞？
 
@@ -44,7 +44,7 @@ Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠�
 
 ## <a name="event-hubs-features"></a>事件中樞功能
 
-事件中樞包含下列重要元素：
+事件中樞功能包含下列重要元素：
 
 - [**事件產生者/發行者**](event-hubs-features.md#event-publishers)：任何將資料傳送至事件中樞的實體就稱為「事件發佈者」。 透過 AMQP 1.0 或 HTTPS 發佈事件。
 - [**擷取**](event-hubs-features.md#capture)：可讓您擷取事件中樞串流資料並將它儲存在 Azure Blob 儲存體帳戶中。
@@ -64,7 +64,7 @@ Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠�
 
 * 開始使用[事件中樞教學課程](event-hubs-dotnet-standard-getstarted-send.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
-* [使用事件中樞的範例應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+* [使用事件中樞的完整範例應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
 

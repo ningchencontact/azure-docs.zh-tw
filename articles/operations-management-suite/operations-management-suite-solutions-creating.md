@@ -1,6 +1,6 @@
 ---
-title: "在 OMS 中建置管理解決方案 | Microsoft Docs"
-description: "管理解決方案會藉由提供客戶可新增至他們 OMS 工作區的套件管理案例，以擴充 Operations Management Suite (OMS) 的功能。  這篇文章提供詳細資料，說明如何建立要用於自己的環境中或可供客戶使用的管理解決方案。"
+title: "在 Azure 中建置管理解決方案 | Microsoft Docs"
+description: "管理解決方案包含 Azure 中客戶可新增至其 Log Analytics 工作區的已封裝管理案例。  這篇文章提供詳細資料，說明如何建立要用於自己的環境中或可供客戶使用的管理解決方案。"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中設計和建置管理解決方案 (預覽)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
-> 這是在 OMS 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
+> 這是在 Azure 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
 
-[管理解決方案](operations-management-suite-solutions.md)會藉由提供客戶可新增至他們 OMS 工作區的套件管理案例，以擴充 Operations Management Suite (OMS) 的功能。  本文介紹的基本程序，可用來設計和建置適用於最常見需求的管理解決方案。  如果您不了解如何建置管理解決方案，則可以先使用此程序，之後再隨著需求的發展，運用相關概念來建置更複雜的解決方案。
+[管理解決方案](operations-management-suite-solutions.md)提供客戶可新增至 Log Analytics 工作區的已封裝管理案例。  本文介紹的基本程序，可用來設計和建置適用於最常見需求的管理解決方案。  如果您不了解如何建置管理解決方案，則可以先使用此程序，之後再隨著需求的發展，運用相關概念來建置更複雜的解決方案。
 
 ## <a name="what-is-a-management-solution"></a>何謂管理解決方案？
 
-管理解決方案包含 OMS 和 Azure 資源，共同運作以實現特別的監視案例。  解決方案會實作為[資源管理範本](../azure-resource-manager/resource-manager-template-walkthrough.md)，範本中包含如何在安裝解決方案時安裝及設定其內含資源的詳細資料。
+管理解決方案包含可共同運作以達成特殊監視案例的 Azure 資源。  解決方案會實作為[資源管理範本](../azure-resource-manager/resource-manager-template-walkthrough.md)，範本中包含如何在安裝解決方案時安裝及設定其內含資源的詳細資料。
 
 基本策略是藉由在 Azure 環境中建置個別元件來開始您的管理解決方案。  當功能正常運作後，您就可以開始將這些元件封裝到[管理解決方案檔](operations-management-suite-solutions-solution-file.md)。 
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="design-your-solution"></a>設計您的解決方案
 下圖所示的是最常見的管理解決方案模式。  下面會討論此模式的不同元件。
 
-![OMS 解決方案概觀](media/operations-management-suite-solutions-creating/solution-overview.png)
+![管理解決方案概觀](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>資料來源

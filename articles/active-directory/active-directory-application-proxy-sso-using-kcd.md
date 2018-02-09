@@ -3,7 +3,7 @@ title: "使用應用程式 Proxy 進行單一登入 | Microsoft Docs"
 description: "涵蓋如何使用 Azure AD 應用程式 Proxy 提供單一登入。"
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 170498b2876947a45128377fa6cecb3931784237
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: d6f6894d495170221ad8334bc32ef141fb4e62b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/05/2018
 7. 「連接器」會使用從 AD 接收的 Kerberos 權杖，將原始要求傳送至應用程式伺服器。
 8. 應用程式會傳送回應至「連接器」，然後再傳回至「應用程式 Proxy」服務，最後再傳回給使用者。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始使用 IWA 應用程式的單一登入之前，請確定您的環境已完成下列設定和組態︰
 
 * 您的應用程式 (例如 SharePoint Web 應用程式) 已設為使用「整合式 Windows 驗證」。 如需詳細資訊，請參閱[啟用支援 Kerberos 驗證](https://technet.microsoft.com/library/dd759186.aspx)，或者若是使用 SharePoint，請參閱[為 SharePoint 2013 中的 Kerberos 驗證做規劃](https://technet.microsoft.com/library/ee806870.aspx)。
@@ -91,7 +91,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 非 Windows 應用程式通常會使用使用者名稱或 SAM 帳戶名稱，而不是網域的電子郵件地址。 如果這種情況適用於您的應用程式，就必須設定指定的登入身分識別欄位，將您的雲端身分識別連線到您的應用程式身分識別。 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>使用不同的內部部署和雲端身分識別
-應用程式 Proxy 會假設使用者在雲端與內部部署中具有完全相同的身分識別。 如果不是大小寫，您仍然可以使用 KCD 的單一登入。 為每個應用程式設定 [委派的身分識別登入]，以指定在執行單一登入時所應使用的身分識別。  
+應用程式 Proxy 會假設使用者在雲端與內部部署中具有完全相同的身分識別。 如果事實並非如此，您仍然可以使用 KCD 進行單一登入。 為每個應用程式設定 [委派的身分識別登入]，以指定在執行單一登入時所應使用的身分識別。  
 
 此功能可讓具有不同內部部署與雲端身分識別的許多組織，可從雲端單一登入到內部部署應用程式，而不需要使用者輸入不同的使用者名稱與密碼。 這包括下列組織：
 

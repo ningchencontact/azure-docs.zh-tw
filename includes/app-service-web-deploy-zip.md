@@ -1,6 +1,6 @@
 ## <a name="deploy-uploaded-zip-file"></a>部署上傳的 ZIP 檔案
 
-在 Cloud Shell 中，使用 [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) 命令將上傳的 ZIP 檔案部署至 web 應用程式。 請務必將 *\<app_name>* 取代為您的 Web 應用程式名稱。
+在 Cloud Shell 中，使用 [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) 命令將上傳的 ZIP 檔案部署至 Web 應用程式。 請務必將 *\<app_name>* 取代為您的 Web 應用程式名稱。
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip

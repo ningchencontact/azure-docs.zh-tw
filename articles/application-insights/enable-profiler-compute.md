@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>針對 Azure VM、Service Fabric 和雲端服務啟用 Application Insights Profiler
 
-本文示範如何在 Azure 計算資源所裝載的 Azure ASP.NET 應用程式上啟用 Application Insights Profiler。 
+本文示範如何在 Azure 計算資源所裝載的 Azure ASP.NET 應用程式上啟用 Application Insights Profiler。
 
 本文中的範例包括對於 Azure 虛擬機器、虛擬機器擴展集、Azure Service Fabric 和 Azure 雲端服務的支援。 範例依賴支援 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 部署模型的範本。  
 
 
 ## <a name="overview"></a>概觀
 
-下圖顯示 Application Insights Profiler 如何使用 Azure 資源。 映像使用 Azure 虛擬機器作為範例。
+下圖說明 Application Insights 分析工具如何使用 Azure 計算資源。 Azure 計算資源包括虛擬機器、虛擬機器擴展集、雲端服務與 Service Fabric 叢集。 映像使用 Azure 虛擬機器作為範例。  
 
   ![概觀](./media/enable-profiler-compute/overview.png)
 
 若要完全啟用分析工具，您必須變更三個位置的設定：
 
-* Azure 入口網站中的 Application Insights 執行個體窗格。
+* Azure 入口網站中的 [Application Insights 執行個體] 刀鋒視窗。
 * 應用程式原始程式碼 (例如，ASP.NET Web 應用程式)。
-* 環境部署定義原始程式碼 (例如，VM 部署範本 .json 檔案)。
+* 環境部署定義原始程式碼 (例如，.json 檔案中的 Azure Resource Manager 範本)。
 
 
 ## <a name="set-up-the-application-insights-instance"></a>設定 Application Insights 執行個體
 
-在 Azure 入口網站中，建立或前往您想要使用的 Application Insights 資源。 記下執行個體檢測金鑰。 您會在其他設定步驟使用檢測金鑰。
+[建立新的 Application Insights 資源](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)或選取現有資源。
+瀏覽至 Application Insights 資源，並複製檢測金鑰。
 
   ![金鑰檢測的位置](./media/enable-profiler-compute/CopyAIKey.png)
 
-這個執行個體應該與您的應用程式相同。 它被設定來將遙測資料傳送至每個要求。
-Profiler 結果也可以在此執行個體中使用。  
-
-在 Azure 入口網站中，完成[啟用分析工具](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler)中所述的步驟，以完成設定分析工具的 Application Insights 執行個體。 您不需要針對這篇文章中的範例連結 Web 應用程式。 只要確定在入口網站中啟用分析工具即可。
+然後，完成[啟用分析工具](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler)中所述的步驟，以完成分析工具之 Application Insights 執行個體的設定。 您不需要連結 Web 應用程式，因為這些是 App Service 資源專屬的步驟。 只要確保 [設定分析工具] 刀鋒視窗中已啟用分析工具即可。
 
 
 ## <a name="set-up-the-application-source-code"></a>設定應用程式原始程式碼
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>ASP.NET Web 應用程式、雲端服務 Web 角色或 Service Fabric ASP.NET Web 前端
 設定您的應用程式以將遙測資料傳送至每個 `Request` 作業上的 Application Insights 執行個體：  
 
-1. 將 [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) 新增至您的應用程式專案。 請確定 NuGet 套件版本如下：  
+將 [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) 新增至您的應用程式專案。 請確定 NuGet 套件版本如下：  
   - 針對 ASP.NET 應用程式：[Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 或更新版本。
   - 針對 ASP.NET Core 應用程式：[Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 或更新版本。
   - 針對其他 .NET 和.NET Core 應用程式 (例如，Service Fabric 無狀態服務或雲端服務背景工作角色)：[Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 或 [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 或更新版本。  
 
-2. 如果您的應用程式「不是」ASP.NET 或 ASP.NET Core 應用程式 (例如，如果是雲端服務背景工作角色或 Service Fabric 無狀態 API)，則需要下列額外的檢測設定：  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>雲端服務背景工作角色或 Service Fabric 無狀態後端
+如果您的應用程式「不是」ASP.NET 或 ASP.NET Core 應用程式 (例如，如果是雲端服務背景工作角色或 Service Fabric 無狀態 API)，則除了上述步驟外，您還需要另外進行下列檢測設定：  
 
   1. 在應用程式存留期早期新增下列程式碼：  
 
@@ -204,7 +204,7 @@ Profiler 結果也可以在此執行個體中使用。
   ```
 
 2. 如果預期的應用程式是透過 [IIS](https://www.microsoft.com/web/platform/server.aspx) 執行，則啟用 `IIS Http Tracing` Windows 功能：  
-  
+
   1. 建立環境的遠端存取，然後使用 [新增 Windows 功能]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) 視窗或在 PowerShell 中執行下列命令 (以系統管理員身分)：  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,7 +217,7 @@ Profiler 結果也可以在此執行個體中使用。
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>在內部部署伺服器上啟用 Profiler
 
-在內部部署伺服器上啟用分析工具也稱為在獨立模式中 (未繫結至 Azure 診斷擴充程式修改) 執行Application Insights Profiler。 
+在內部部署伺服器上啟用分析工具也稱為在獨立模式中 (未繫結至 Azure 診斷擴充程式修改) 執行Application Insights Profiler。
 
 我們尚未規劃正式針對內部部署伺服器支援分析工具。 如果您對於此案例中的測試有興趣，您可以[下載支援程式碼](https://github.com/ramach-msft/AIProfiler-Standalone)。 我們「不」負責維護該程式碼，或回應與該程式碼相關的問題和功能要求。
 

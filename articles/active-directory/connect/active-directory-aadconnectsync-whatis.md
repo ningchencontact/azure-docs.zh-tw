@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步處理：了解及自訂同步處理
 Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理) 是 Azure AD Connect 的主要元件。 它會負責執行同步處理內部部署環境與 Azure AD 之間識別資料的所有相關作業。 Azure AD Connect 同步處理是 DirSync、Azure AD 同步，以及已設定 Azure Active Directory 連接器之 Forefront Identity Manager 的後續版本。
 
 本主題是「Azure AD Connect 同步」(也稱為「同步引擎」) 的主網頁，並列出所有其他相關主題的連結。 如需 Azure AD Connect 的連結，請參閱 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-同步服務包含兩個元件：內部部署的 **Azure AD Connect 同步**元件，以及 Azure AD 中的服務端，稱為 **Azure AD Connect 同步服務**。 
+同步服務包含兩個元件：內部部署的 **Azure AD Connect 同步**元件，以及 Azure AD 中的服務端，稱為 **Azure AD Connect 同步服務**。
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 同步處理主題
 | 話題 | 涵蓋內容和讀取時機 |
@@ -49,6 +49,7 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 | [實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) |說明密碼同步處理的運作方式、實作方式，以及其操作方式及疑難排解方式。 |
 | [裝置回寫](active-directory-aadconnect-feature-device-writeback.md) |說明在 Azure AD Connect 中，裝置回寫的運作方式。 |
 | [目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md) |說明如何使用您自己的自訂屬性擴充 Azure AD 結構描述。 |
+| [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |描述如何將使用者的 Office 365 資源放在與使用者相同的區域中。 |
 | **同步處理服務** | |
 | [Azure AD Connect 同步處理服務功能](active-directory-aadconnectsyncservice-features.md) |描述同步處理服務端，以及如何在 Azure AD 中變更同步設定。 |
 | [重複屬性恢復功能](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |描述如何啟用及使用 **userPrincipalName** 和 **proxyAddresses** 重複屬性值恢復功能。 |
@@ -64,4 +65,3 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 ## <a name="additional-resources"></a>其他資源
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

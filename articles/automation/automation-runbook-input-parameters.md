@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 2934257e6feb6836492a4957e976abd02df12cfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook 輸入參數
 
-Runbook 輸入參數可讓您將資料傳遞至剛啟動的 Runbook，以增加 Runbook 的彈性。 這些參數可讓Runbook 動作以特定案例和環境做為目標。 在本文中，我們將逐步引導您了解在 Runbook 中使用輸入參數的不同案例。
+Runbook 輸入參數可讓您將資料傳遞至剛啟動的 Runbook，以增加 Runbook 的彈性。 這些參數可讓Runbook 動作以特定案例和環境做為目標。 在本文中，您會逐步進行在 Runbook 中使用輸入參數的不同案例。
 
 ## <a name="configure-input-parameters"></a>設定輸入參數
 
@@ -30,16 +30,16 @@ Runbook 輸入參數可讓您將資料傳遞至剛啟動的 Runbook，以增加 
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>在 PowerShell 和 PowerShell 工作流程 Runbook 中設定輸入參數
 
-Azure 自動化中的 PowerShell 和 [PowerShell 工作流程 Runbook](automation-first-runbook-textual.md) 支援透過下列屬性定義的輸入參數。  
+Azure 自動化中的 PowerShell 和 [PowerShell 工作流程 Runbook](automation-first-runbook-textual.md) 支援透過下列屬性定義的輸入參數：  
 
 | **屬性** | **說明** |
 |:--- |:--- |
 | 類型 |必要。 對參數值預期的資料類型。 任何 .NET 類型皆有效。 |
-| 名稱 |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
+| Name |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
 | 強制 |選用。 指定是否必須提供參數的值。 如果您將此項目設定為 **$true**，則在 Runbook 啟動時必須提供其值。 如果您將此項目設定為 **$false**，則可以選擇提供值。 |
-| 預設值 |選用。  指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 任何參數皆可設定為預設值，此值將會使參數自動成為選擇性，無論 [強制] 設定為何。 |
+| 預設值 |選用。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 任何參數皆可設定為預設值，此值將會使參數自動成為選擇性，無論 [強制] 設定為何。 |
 
-Windows PowerShell 所支援的輸入參數屬性比此處所列的多，例如驗證、別名和參數集。 不過，Azure 自動化目前僅支援以上所列的輸入參數。
+Windows PowerShell 所支援的輸入參數屬性比此處所列的多，例如驗證、別名和參數集。 不過，Azure 自動化目前僅支援上述的輸入參數。
 
 PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其中，多個參數會以逗號分隔。
 
@@ -65,7 +65,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
 
 在此參數定義中， **$VMName** 和 **$resourceGroupName** 參數是字串類型的簡單參數。 不過，PowerShell 和 PowerShell 工作流程 Runbook 支援所有簡單類型和複雜類型，例如輸入參數的 **object** 或 **PSCredential**。
 
-如果您的 Runbook 有 object 類型的輸入參數，則使用具有 (name,value) 配對的 PowerShell 雜湊表來傳入值。 例如，如果您在 Runbook 中有下列參數：
+如果您的 Runbook 有 object 類型的輸入參數，則使用具有 (name, value) 配對的 PowerShell 雜湊表來傳入值。 例如，如果您在 Runbook 中有下列參數：
 
      [Parameter (Mandatory = $true)]
      [object] $FullName
@@ -93,14 +93,14 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
    
    | **屬性** | **說明** |
    |:--- |:--- |
-   | 名稱 |必要。  參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
+   | Name |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
    | 說明 |選用。 關於輸入參數用途的說明。 |
    | 類型 |選用。 對參數值預期的資料類型。 支援的參數類型有：**String**、**Int32**、**Int64**、**Decimal**、**Boolean**、**DateTime**、**Object**。 若未選取資料類型，將預設為 **String**。 |
    | 強制 |選用。 指定是否必須提供參數的值。 如果您選擇 [是] ，則在 Runbook 啟動時必須提供其值。 如果您選擇 [否] ，則在 Runbook 啟動時不一定需要值，並且可設定預設值。 |
    | 預設值 |選用。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 不是強制性的參數可以設定預設值。 若要設定預設值，請選擇 [自訂] 。 除非在 Runbook 啟動時提供了其他值，否則將會使用此值。 若不想提供任何預設值，請選擇 [無]  。 |
    
     ![加入新的輸入](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
-4. 使用下列屬性，建立將由 **Get-AzureRmVm** 活動使用的兩個參數：
+4. 使用下列屬性，建立由 **Get-AzureRmVm** 活動使用的兩個參數：
    
    * **參數1：**
      
@@ -114,7 +114,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
      * Mandatory - No
      * Default value - Custom
      * 自訂預設值 - \<包含虛擬機器之資源群組的名稱>
-5. 新增參數之後，請按一下 [確定] 。  現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 [確定]，然後按一下 [儲存] 並 [發佈] 您的 Runbook。
+5. 新增參數之後，請按一下 [確定] 。 現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 [確定]，然後按一下 [儲存] 並 [發佈] 您的 Runbook。
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>在 Python Runbook 中設定輸入參數
 
@@ -127,7 +127,7 @@ Python Runbook 與 PowerShell、PowerShell 工作流程及圖形化 Runbook 不�
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>將值指派給 Runbook 中的輸入參數
 
-在下列情況下，您可以將值傳遞至 Runbook 中的輸入參數。
+在下列情況下，您可以將值傳遞至 Runbook 中的輸入參數：
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>啟動 Runbook 並指派參數
 
@@ -135,16 +135,14 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>使用 Azure 入口網站啟動已發佈的 Runbook，並指派參數
 
-當您[啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) 時，[啟動 Runbook] 刀鋒視窗隨即開啟，而您可以為剛建立的參數輸入值。
+當您[啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) 時，[啟動 Runbook] 刀鋒視窗隨即開啟，而您可以為所建立的參數輸入值。
 
 ![使用入口網站啟動](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
 在輸入方塊下的標籤中，您可以查看為參數設定的屬性。 這些屬性包括強制或選擇性、類型和預設值。 在參數名稱旁的球形文字說明中，您可以檢視您在進行參數輸入值相關決策時所需的所有金鑰資訊。 此資訊包括參數為強制或選擇性。 也包括類型和預設值 (如果有的話) 和其他有用的注意事項。
 
-![說明提示氣球](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
-
 > [!NOTE]
-> 字串類型參數支援 **空** 字串值。  在輸入參數文字方塊中輸入 **[EmptyString]** ，將會傳遞空字串給參數。 此外，字串類型參數不支援傳遞 **Null** 值。 若未傳遞任何值給字串參數，PowerShell 會將其解譯為 Null。
+> 字串類型參數支援 **空** 字串值。  在輸入參數文字方塊中輸入 **[EmptyString]** ，會傳遞空字串給參數。 此外，字串類型參數不支援傳遞 **Null** 值。 若未傳遞任何值給字串參數，PowerShell 會將其解譯為 Null。
 > 
 > 
 
@@ -159,7 +157,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 服務管理 Cmdlet：** 您可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)啟動在預設資源群組中建立的自動化 Runbook。
+* **Azure 傳統部署模型 Cmdlet：**您可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx) 啟動在預設資源群組中建立的自動化 Runbook。
   
   **範例：**
   
@@ -195,7 +193,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
       return response.Job;
       }
   ```
-* **Azure 服務管理方法：** 您可以使用程式設計語言的 SDK 來啟動 Runbook。 以下 C# 程式碼片段用於在您的自動化帳戶中啟動 Runbook。 您可以在我們的 [GitHub 儲存機制](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中檢視完整的程式碼。
+* **Azure 傳統部署模型方法：**您可以使用程式設計語言的 SDK 來啟動 Runbook。 以下 C# 程式碼片段用於在您的自動化帳戶中啟動 Runbook。 您可以在我們的 [GitHub 儲存機制](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中檢視完整的程式碼。
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +227,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>使用 REST API 啟動 Runbook，並指派參數
-Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下列要求 URI 來建立及啟動。
+Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下列要求 URI 來建立及啟動：
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -259,15 +257,15 @@ Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下�
     }
    ```
 
-如果成功建立作業，則會傳回 HTTP 狀態碼 201。 如需關於回應標頭和回應本文的詳細資訊，請參閱有關如何 [使用 REST API 建立 Runbook 作業](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+如果成功建立作業，則會傳回 HTTP 狀態碼 201。 如需關於回應標頭和回應本文的詳細資訊，請參閱有關如何[使用 REST API 建立 Runbook 作業](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>測試 Runbook 並指派參數
-當您使用測試選項[測試 Runbook 的草稿版本](automation-testing-runbook.md)時，將會開啟 [測試] 刀鋒視窗，您可以在其中為剛建立的參數設定值。
+當您使用測試選項[測試 Runbook 的草稿版本](automation-testing-runbook.md)時，將會開啟 [測試] 分頁，您可以在其中為所建立的參數設定值。
 
 ![測試並指派參數](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>將排程連結至 Runbook，並指派參數
-您可以[將排程連結](automation-schedules.md)至您的 Runbook，以在特定時間啟動 Runbook。 您會在建立排程時指派輸入參數，且 Runbook 經由排程啟動時，將會使用這些值。 必須提供所有必要參數值，才能儲存排程。
+您可以[將排程連結](automation-schedules.md)至您的 Runbook，以在特定時間啟動 Runbook。 您會在建立排程時指派輸入參數，且 Runbook 經由排程啟動時，會使用這些值。 必須提供所有必要參數值，才能儲存排程。
 
 ![排程並指派參數](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 

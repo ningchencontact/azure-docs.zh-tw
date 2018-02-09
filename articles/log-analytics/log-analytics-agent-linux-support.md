@@ -1,6 +1,6 @@
 ---
-title: "疑難排解 Azure 記錄分析 Linux 代理程式 |Microsoft 文件"
-description: "記錄分析 Linux 代理程式，說明徵狀、 原因和解決最常見的問題。"
+title: "針對 Azure Log Analytics Linux 代理程式 進行疑難排解 | Microsoft Docs"
+description: "說明 Log Analytics Linux 代理程式最常見問題的徵兆、原因和解決方法。"
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>如何疑難排解 Linux 代理程式，以供記錄分析的問題
+# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>如何針對適用於 Log Analytics 之 Linux 代理程式的問題進行疑難排解
 
-本文章提供疑難排解的錯誤，您可能會遇到 Linux 代理程式，以供記錄分析，並建議解決問題的可能方案的說明。
+此文章提供的說明可協助您針對適用於 Log Analytics 之 Linux 代理程式的錯誤進行疑難排解，並建議可解決問題的解決方法。
 
-## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>問題︰ 無法透過 Proxy 連線至 Log Analytics
+## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>問題︰無法透過 Proxy 連線至 Log Analytics
 
 ### <a name="probable-causes"></a>可能的原因
 * 上架期間指定的 Proxy 不正確
 * Log Analytics 和 Azure 自動化服務端點未列在資料中心的白名單中 
 
 ### <a name="resolutions"></a>解決方式
-1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 OMS Agent for Linux 重新上架至 Log Analytics 服務。 這可讓透過 Proxy 連接到 OMS 服務的代理程式產生詳細資訊輸出。 
+1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 OMS Agent for Linux 重新上架至 Log Analytics 服務。 這可讓透過 Proxy 連線到 OMS 服務的代理程式產生詳細資訊輸出。 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. 檢閱[設定代理程式以搭配 Proxy 伺服器或 OMS 閘道使用](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway)一節，以確認您已適當地設定代理程式透過 Proxy 伺服器通訊。    
+2. 檢閱[更新 Proxy 設定](log-analytics-agent-manage.md#update-proxy-settings)一節以驗證您是否已正確設定代理程式透過 Proxy 伺服器通訊。    
 * 再次檢查以確認下列 Log Analytics 服務端點已列在白名單中：
 
     |代理程式資源| 連接埠 |  

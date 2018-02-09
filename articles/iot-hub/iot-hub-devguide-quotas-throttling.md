@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
 ## <a name="quotas-and-throttling"></a>配額和節流
 每個 Azure 訂用帳戶最多可以有 10 個 IoT 中樞，以及最多 1 個可用中樞。
 
-每個 IoT 中樞都會以特定 SKU 佈建特定數目的單位 (如需詳細資訊，請參閱 [Azure IoT 中樞定價][lnk-pricing])。 SKU 和單位數目會決定可以傳送之訊息的每日配額上限。
+佈建每個 IoT 中樞時，都會以特定 SKU 的特定單位數來進行佈建。 如需詳細資訊，請參閱 [Azure IoT 中樞價格][lnk-pricing]。 SKU 和單位數目會決定可以傳送之訊息的每日配額上限。
 
 SKU 也會決定 IoT 中樞在所有作業上強制執行的節流限制。
 
 ## <a name="operation-throttles"></a>作業節流
-作業節流是在分鐘範圍內套用的速率限制，主要是為了避免不當使用。 IoT 中樞會試著儘可能避免傳回錯誤，但如果違反節流太久，就會開始傳回例外狀況。
+作業節流是在分鐘範圍內套用的速率限制，用來防止不當使用。 「IoT 中樞」會試著儘可能避免傳回錯誤，但如果違反節流太久，就會開始傳回例外狀況。
 
 下表顯示強制執行的節流。 個別中心的值如下。
 
@@ -50,15 +50,16 @@ SKU 也會決定 IoT 中樞在所有作業上強制執行的節流限制。
 
 <sup>1</sup>節流計量大小為 8 KB
 
-鄭重說明，「裝置連線」節流是控制 IoT 中樞建立新裝置連線的速率。 「裝置連線」節流不會控制同時連線裝置的數目上限。 節流受制於為 IoT 中樞佈建的單位數。
+> [!IMPORTANT]
+> 「裝置連線」節流會控制新裝置可與 IoT 中樞建立連線的速率。 「裝置連線」節流不會控制同時連線裝置的數目上限。 節流受制於為 IoT 中樞佈建的單位數。
 
 例如，若您購買單一 S1 單位，則得到每秒 100 個連線的節流。 因此，要連線到 100,000 個裝置，至少需要 1000 秒 (約 16 分鐘)。 不過，若您已將裝置登錄在您的身分識別登錄中，則可以有任意數量的同時連線裝置。
 
 如需有關 IoT 中樞節流行為的深入討論，請參閱 [IoT Hub throttling and you (IoT 中樞節流和您)][lnk-throttle-blog] 部落格文章。
 
 > [!NOTE]
-> 不論何時，都可以藉由增加 IoT 中樞佈建的單位來提高配額或節流限制。
-> 
+> 您可以隨時增加 IoT 中樞中佈建的單位數來提高配額或節流限制。
+
 > [!IMPORTANT]
 > 身分識別登錄作業是用於裝置管理與佈建案例中的執行階段用途。 透過[匯入和匯出作業][lnk-importexport]，即可支援讀取或更新大量的裝置身分識別。
 > 

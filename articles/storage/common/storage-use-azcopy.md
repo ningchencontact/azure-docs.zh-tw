@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 AzCopy on Windows 傳送資料
-AzCopy 是設計用來複製資料，從 Microsoft Azure Blob、 檔案和資料表儲存體的命令列公用程式，使用簡單的命令，以獲得最佳效能所設計。 您可以複製的檔案系統和儲存體帳戶，或儲存體帳戶之間的資料。  
+AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
 
 有兩個 AzCopy 版本可供您下載。 AzCopy on Windows 內建有 .NET Framework，並且提供 Windows 樣式的命令列選項。 [AzCopy on Linux](storage-use-azcopy-linux.md) 內建有 .NET Core Framework，其以提供 POSIX 樣式命令列選項的 Linux 平台為目標。 本文涵蓋之內容包括 AzCopy on Windows。
 
@@ -750,7 +750,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 ### <a name="y"></a>/Y
 
-隱藏所有 AzCopy 確認提示。
+隱藏所有 AzCopy 確認提示。 當 /XO 和 /XN 皆未指定時，此選項也允許針對資料上傳案例使用唯寫的 SAS 權杖。
 
 **適用於：** Blob、檔案、資料表
 

@@ -11,21 +11,21 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 9ba5f45034561f8d897676e8cc4b1a59945403b8
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
 
-Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 這項功能目前為預覽版本。 您也可以[在預設的 Azure App Service 容器上裝載](functions-create-first-azure-function-azure-cli-linux.md)。  
+Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可以[在預設的 Azure App Service 容器上裝載](functions-create-first-azure-function-azure-cli-linux.md)。 這項功能目前為預覽狀態並且需要 [Functions 2.0 執行階段](functions-versions.md) (這也是預覽狀態)。
 
 在本教學課程中，您將了解如何部署函式應用程式作為自訂 Docker 映像。 當您需要自訂內建的 App Service 容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。
 
 本教學課程會引導您如何使用 Azure Functions 來建立和推送自訂映像至 Docker Hub。 然後使用此映像作為 Linux 上執行之函式應用程式的部署來源。 使用 Docker 建置和推送映像。 使用 Azure CLI 來建立函式應用程式，並從 Docker Hub 部署映像。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 Docker 建置自訂映像。
@@ -37,7 +37,7 @@ Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 這項功�
 
 下列步驟適用於 Mac、Windows 或 Linux 電腦。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 
@@ -160,7 +160,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 
 ## <a name="create-and-deploy-the-custom-image"></a>建立和部署自訂映像
 
-函式應用程式可裝載函式的執行。 使用 [az functionapp create](/cli/azure/functionapp#create) 命令從 Docker Hub 映像建立函式應用程式。 
+函式應用程式可裝載函式的執行。 使用 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 命令從 Docker Hub 映像建立函式應用程式。 
 
 在下列命令中，使用唯一函式應用程式名稱來替代您看見 `<app_name>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 如先前所述，`<docker-id>` 是您的 Docker 帳戶名稱。
 
@@ -195,7 +195,7 @@ _deployment-container-image-name_ 參數表示裝載於 Docker Hub 上用於建�
 
 此函式需要連接字串以連接到預設儲存體帳戶。 當您將自訂映像發佈至私人容器帳戶時，應使用 [ENV 指令](https://docs.docker.com/engine/reference/builder/#env) \(英文\) 或對等指令將 Dockerfile 中的這些應用程式設定改設為環境變數。 
 
-在本例中，`<storage_account>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 命令，在函式應用程式中新增這些應用程式設定。
+在本例中，`<storage_account>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 命令，在函式應用程式中新增這些應用程式設定。
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

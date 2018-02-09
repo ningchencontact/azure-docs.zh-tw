@@ -1,13 +1,13 @@
 
-GPU 最佳化 VM 大小是以單一或多個 NVIDIA Gpu 特製化的虛擬機器。 這些大小專為需要大量計算、 大量圖形和視覺效果的工作負載。 本文提供的數目和類型的 Gpu、 Vcpu、 資料磁碟和 Nic，以及此分組中的每種大小的儲存體輸送量和網路頻寬的相關資訊。 
+GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文提供 GPU、vCPU、資料磁碟和 NIC 的數量與類型，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
-* **NC、 NCv2 和 ND**大小適合需要大量計算和網路密集應用程式和演算法，包括基礎 CUDA 和 OpenCL 應用程式並模擬、 AI，深入學習。 
-* **NV**大小最佳化，而且針對遠端的視覺效果、 資料流、 遊戲、 編碼和利用架構，例如 OpenGL 和 DirectX 的 VDI 案例所設計。  
+* **NC、NCv2 及 ND** 大小會對計算密集型和網路密集型應用程式和演算法 (包括以 CUDA 和 OpenCL 為基礎的應用程式及模擬、AI 及深度學習) 進行最佳化。 
+* **NV** 大小則會針對遠端視覺效果、串流、遊戲、編碼及利用 OpenGL 和 DirectX 這類架構的 VDI 案例進行最佳化和設計。  
 
 
 ## <a name="nc-instances"></a>NC 執行個體
 
-由 NC 執行個體[NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf)卡。 使用者可以借助電腦透過更快速的資料，利用 CUDA 能源瀏覽應用程式、 損毀模擬、 光線追蹤的轉譯、 深入學習等等。 NC24r 組態可提供低延遲、 高輸送量網路介面針對緊密結合的平行運算工作負載最佳化。
+NC 執行個體是由 [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) \(英文\) 卡提供技術支援。 使用者可以藉由將 CUDA 用於能源探勘應用程式、當機模擬、光線追蹤轉譯、深度學習等等，更快速地處理資料。 NC24r 設定提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
 
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 資料磁碟數目上限 |
@@ -23,39 +23,39 @@ GPU 最佳化 VM 大小是以單一或多個 NVIDIA Gpu 特製化的虛擬機器
 
 ## <a name="ncv2-instances"></a>NCv2 執行個體
 
-NCv2 執行個體是新一代的 NC 數列機器，由[NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) Gpu。 這些 Gpu 可以提供多個 2 x 目前 NC 數列計算效能。 客戶可以利用這些更新的 Gpu 傳統 HPC 工作負載，例如貯存槽模型、 DNA 排序、 蛋白質分析、 Monte Carlo 模擬，以及其他等等。 像是 NC 系列，NCv2 系列提供低延遲、 高輸送量網路介面針對緊密結合的平行運算工作負載最佳化，還設定。
+NCv2 執行個體是由 [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) \(英文\) GPU 提供技術支援的新一代 NC 系列機器。 這些 GPU 可提供目前 NC 系列 2 倍以上的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 如同 NC 系列，NCv2 系列提供低延遲且高輸送量網路介面的設定，最適合用於緊密結合的平行計算工作負載。
 
 > [!IMPORTANT]
-> 對於此大小，您的訂用帳戶 vCPU （核心） 配額一開始設定為 0 在每個區域。 [要求增加配額 vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md)這個系列中[可用地區](https://azure.microsoft.com/regions/services/)。
+> 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。
 >
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 資料磁碟數目上限 |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6 |112 | 336 | 1 | 12 |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24r_v2 * |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
 
-1 GPU = P100 卡。
+1 GPU = 一張 P100 卡。
 
 *支援 RDMA
 
 ## <a name="nd-instances"></a>ND 執行個體
 
-ND 系列虛擬機器就會針對 AI 和深入學習工作負載所設計的 GPU 系列的新增。 它們提供了絕佳的效能訓練和推斷。 ND 執行個體由[NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) Gpu。 這些執行個體提供了絕佳的單精確度浮點運算，利用 Microsoft 認知工具組、 TensorFlow、 Caffe 及其他架構 AI 工作負載的效能。 ND 系列並提供更大的 GPU 記憶體大小 (24 GB)，而能夠用在更大的類神經網路模型。 像是 NC 系列，ND 系列提供次要的低延遲、 高輸送量網路 RDMA，透過組態，因此您可以執行大規模的訓練工作跨越許多 Gpu InfiniBand 連接。
+ND 系列的虛擬機器是 GPU 系列的新成員，專為 AI 和深度學習工作負載所設計。 它們能為訓練和推斷提供絕佳效能。 ND 執行個體是由 [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) \(英文\) GPU 提供技術支援。 這些執行個體為單精確度浮點數作業、使用 Microsoft Cognitive Toolkit 的 AI 工作負載、TensorFlow、Caffe 及其他架構，提供絕佳的效能。 ND 系列還能提供更大的 GPU 記憶體大小 (24 GB)，能夠用於更大的類神經網路模型。 如同 NC 系列，ND 系列透過 RDMA 提供具有次要低延遲且高輸送量網路的設定，以及 InfiniBand 連線能力，讓您能夠執行使用橫跨數個 GPU 的大規模訓練作業。
 
 > [!IMPORTANT]
-> 對於此大小，每個區域，您的訂用帳戶中的 vCPU （核心） 配額一開始是設為 0。 [要求增加配額 vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md)這個系列中[可用地區](https://azure.microsoft.com/regions/services/)。
+> 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。
 >
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 資料磁碟數目上限 |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6 |112 | 336 | 1 | 12 |
-| Standard_ND12 |12 |224 | 672 | 2 | 24 |
-| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24r * |24 |1448 | 1344 | 4 | 32 |
+| Standard_ND6s |6 |112 | 336 | 1 | 12 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 |
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 |
 
-1 GPU = P40 卡。
+1 GPU = 一張 P40 卡。
 
 *支援 RDMA
 
@@ -63,7 +63,7 @@ ND 系列虛擬機器就會針對 AI 和深入學習工作負載所設計的 GPU
 
 
 
-NV 執行個體由[NVIDIA Tesla M60 ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) Gpu 和 NVIDIA 格線桌面技術加速應用程式和虛擬桌面能夠以視覺化方式檢視其資料或模擬客戶所在地。 使用者能夠在 NV 執行個體上，將其圖形密集型工作流程視覺化以獲得較佳的圖形功能，此外還能夠執行單精確度工作負載，例如編碼和轉譯。 
+NV 執行個體是由 [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) \(英文\) GPU 和 NVIDIA GRID 技術提供技術支援，適用於桌面加速應用程式和虛擬桌面，可供客戶將其資料或模擬視覺化。 使用者能夠在 NV 執行個體上，將其圖形密集型工作流程視覺化以獲得較佳的圖形功能，此外還能夠執行單精確度工作負載，例如編碼和轉譯。 
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 資料磁碟數目上限 |
 | --- | --- | --- | --- | --- | --- |

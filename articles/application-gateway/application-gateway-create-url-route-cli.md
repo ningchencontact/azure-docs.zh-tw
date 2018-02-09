@@ -1,125 +1,251 @@
 ---
-title: "使用 URL 路由規則建立應用程式閘道 - Azure CLI 2.0 | Microsoft Docs"
-description: "本頁面提供如何使用 URL 路由規則建立和設定應用程式閘道的指示。"
-documentationcenter: na
+title: "建立包含 URL 路徑型路由規則的應用程式閘道 - Azure CLI | Microsoft Docs"
+description: "了解如何使用 Azure CLI 來建立應用程式閘道和虛擬機器擴展集的 URL 路徑型路由規則。"
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>將 Azure CLI 2.0 與路徑型路由搭配使用以建立應用程式閘道
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>使用 Azure CLI 建立包含 URL 路徑型路由規則的應用程式閘道
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+您可以使用 Azure CLI，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [URL 路徑型路由規則](application-gateway-url-route-overview.md)。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)建立後端集區。 然後，您可以建立路由規則，確保 Web 流量會抵達集區中的適當伺服器。
 
-使用 URL 路徑型路由，您可以根據 HTTP 要求的 URL 路徑來關聯路由。 它會檢查是否有路由連至針對「應用程式閘道」中的 URL 清單設定的後端伺服器集區，並將網路流量傳送至定義的集區。 URL 路徑型路由的常見用法是將不同內容類型的要求負載平衡至不同的後端伺服器集區。
+在本文中，您將了解：
 
-Azure 應用程式閘道使用兩種規則類型：基本和 URL 路徑型規則。 基本規則類型會為後端集區提供循環配置資源服務。 路徑型規則，除了循環配置資源發佈以外，還可以使用要求 URL 的路徑模式來選擇適當的後端集區。
+> [!div class="checklist"]
+> * 設定網路
+> * 建立包含 URL 對應的應用程式閘道
+> * 建立包含後端集區的虛擬機器擴展集
 
-## <a name="scenario"></a>案例
+![URL 路由範例](./media/application-gateway-create-url-route-cli/scenario.png)
 
-在下列範例中，應用程式閘道會利用兩個後端伺服器集區來為 contoso.com 提供流量：預設伺服器集區和映像伺服器集區。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-http://contoso.com/image* 的要求會路由至映像伺服器集區 (**imagesBackendPool**)。 如果路徑模式不符合，應用程式閘道會選取預設的伺服器集區 (**appGatewayBackendPool**)。
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![URL 路由](./media/application-gateway-create-url-route-cli/scenario.png)
+如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
-## <a name="sign-in-to-azure"></a>登入 Azure
+## <a name="create-a-resource-group"></a>建立資源群組
 
-開啟 [Microsoft Azure 命令提示字元] 並登入：
+資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#create) 建立資源群組。
 
-```azurecli
-az login -u "username"
+下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> 您也可以使用 `az login` 而不搭配會要求在 aka.ms/devicelogin 輸入代碼的裝置登入參數。
+## <a name="create-network-resources"></a>建立網路資源 
 
-輸入上述命令後，您會收到代碼。 在瀏覽器中移至 https://aka.ms/devicelogin 以繼續登入程序。
+使用 [az network vnet create](/cli/azure/network/vnet#az_net) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) 新增名為 myBackendSubnet 的子網路，後端伺服器需要該子網路。 使用 [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
 
-![顯示裝置登入的 Cmd][1]
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
-在瀏覽器中，輸入收到的程式碼。 這會重新導向登入頁面。
+## <a name="create-the-application-gateway-with-url-map"></a>建立包含 URL 對應的應用程式閘道
 
-![要輸入代碼的瀏覽器][2]
+您可以使用 [az network application-gateway create](/cli/azure/application-gateway#create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myAGPublicIPAddress。 
 
-輸入代碼進行登入，然後關閉瀏覽器以繼續。
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+```
 
-![已順利登入][3]
+ 可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到它的這些新功能：
 
-## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>將路徑型規則新增至現有應用程式閘道
+- appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
+- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
+- appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
+- rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
 
-下列步驟示範如何將路徑型規則新增至現有的應用程式閘道。
-### <a name="create-a-new-back-end-pool"></a>建立新的後端集區
 
-為後端集區中負載平衡的網路流量，設定應用程式閘道設定 **imagesBackendPool**。 在此範例中，您會針對新的後端集區設定不同的後端集區設定。 每個後端集區都可以有它自己的設定。 路徑型規則會使用後端 HTTP 設定，將流量路由傳送至正確的後端集區成員。 這會決定將流量傳送至後端集區成員時使用的通訊協定和連接埠。 後端 HTTP 設定也可決定以 Cookie 為基礎的工作階段。  啟用時，Cookie 型工作階段親和性會如每個封包的先前要求將流量至相同的後端。
+### <a name="add-image-and-video-backend-pools-and-port"></a>新增映像和視訊後端集區及連接埠
+
+您可以使用 [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create)，將名為 imagesBackendPool 和 videoBackendPool 的後端集區新增至應用程式閘道。 使用 [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create) 新增集區的前端連接埠。 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
---gateway-name AdatumAppGateway \
---name imagesBackendPool  \
---resource-group myresourcegroup \
---servers 10.0.0.6 10.0.0.7
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name imagesBackendPool
+az network application-gateway address-pool create \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name videoBackendPool
+az network application-gateway frontend-port create \
+  --port 8080 \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name port8080
 ```
 
-### <a name="create-a-new-front-end-port-for-an-application-gateway"></a>建立應用程式閘道的新前端連接埠
+### <a name="add-backend-listener"></a>新增後端接聽程式
 
-接聽程式會使用前端連接埠組態物件來定義應用程式閘道會接聽哪個連接埠以取得接聽程式上的流量。
+使用 [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create) 新增名為 backendListener、要路由流量所需的後端接聽程式。
+
 
 ```azurecli-interactive
-az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
+az network application-gateway http-listener create \
+  --name backendListener \
+  --frontend-ip appGatewayFrontendIP \
+  --frontend-port port8080 \
+  --resource-group myResourceGroupAG \
+  --gateway-name myAppGateway
 ```
 
-### <a name="create-a-new-listener"></a>建立新的接聽程式
+### <a name="add-url-path-map"></a>新增 URL 路徑對應
 
-這個步驟會針對用來接收連入網路流量的公用 IP 位址和連接埠設定接聽程式。 下列範例會採用先前設定的前端 IP 設定、前端連接埠設定，以及通訊協定 (http 或 https，有區分大小寫)，並設定接聽程式。 在此範例中，接聽程式會接聽稍早在此案例中建立之公用 IP 位址上連接埠 82 的 HTTP 流量。
-
-```azurecli-interactive
-az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
-```
-
-### <a name="create-the-url-path-map"></a>建立 URL 路徑對應
-
-這個步驟會設定應用程式閘道用來定義路徑間對應的相對 URL 路徑，而且會指派後端集區來處理傳入流量。
-
-> [!IMPORTANT]
-> 每個路徑都必須以 "/" 開頭，而且只有結尾允許使用星號。 有效範例包括 /xyz、/xyz* 或 /xyz/*。 傳送給路徑比對器的字串未在第一個 "?" 或 "#" 之後包含任何文字，而這些字元是不允許的。 
-
-下列範例會為將流量路由傳送至後端 **imagesBackendPool** 的 /images/* 路徑建立簡單的規則。 此規則確保每一組 URL 的流量都路由傳送至後端。 例如，http://adatum.com/images/figure1.jpg 會傳送至 **imagesBackendPool**。 如果路徑不符合任何預先定義的路徑規則，規則路徑對應組態也會設定預設的後端位址集區。 例如，http://adatum.com/shoppingcart/test.html 會傳送至 **pool1**，因為它定義為不相符流量的預設集區。
+URL 路徑對應可確保特定 URL 會路由傳送到特定的後端集區。 您可以使用 [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) 和 [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)，建立名為 imagePathRule 和 videoPathRule 的 URL 路徑對應
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
---gateway-name AdatumAppGateway \
---name imagespathmap \
---paths /images/* \
---resource-group myresourcegroup2 \
---address-pool imagesBackendPool \
---default-address-pool appGatewayBackendPool \
---default-http-settings appGatewayBackendHttpSettings \
---http-settings appGatewayBackendHttpSettings \
---rule-name images
+  --gateway-name myAppGateway \
+  --name myPathMap \
+  --paths /images/* \
+  --resource-group myResourceGroupAG \
+  --address-pool imagesBackendPool \
+  --default-address-pool appGatewayBackendPool \
+  --default-http-settings appGatewayBackendHttpSettings \
+  --http-settings appGatewayBackendHttpSettings \
+  --rule-name imagePathRule
+az network application-gateway url-path-map rule create \
+  --gateway-name myAppGateway \
+  --name videoPathRule \
+  --resource-group myResourceGroupAG \
+  --path-map-name myPathMap \
+  --paths /video/* \
+  --address-pool videoBackendPool
 ```
+
+### <a name="add-routing-rule"></a>新增路由規則
+
+路由規則會將 URL 對應與您所建立的接聽程式產生關聯。 您可以使用 [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create) 新增名為 rule2 的規則。
+
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name rule2 \
+  --resource-group myResourceGroupAG \
+  --http-listener backendListener \
+  --rule-type PathBasedRouting \
+  --url-path-map myPathMap \
+  --address-pool appGatewayBackendPool
+```
+
+## <a name="create-virtual-machine-scale-sets"></a>建立虛擬機器擴展集
+
+在此範例中，您要建立三個虛擬機器擴展集，以支援您所建立的三個後端集區。 您所建立的擴展集名為 myvmss1、myvmss2 和 myvmss3。 每個擴展集都會包含兩個您安裝 NGINX 的虛擬機器執行個體。
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  if [ $i -eq 1 ]
+  then
+    poolName="appGatewayBackendPool" 
+  fi
+  if [ $i -eq 2 ]
+  then
+    poolName="imagesBackendPool"
+  fi
+  if [ $i -eq 3 ]
+  then
+    poolName="videoBackendPool"
+  fi
+  az vmss create \
+    --name myvmss$i \
+    --resource-group myResourceGroupAG \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password Azure123456! \
+    --instance-count 2 \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --vm-sku Standard_DS2 \
+    --upgrade-policy-mode Automatic \
+    --app-gateway myAppGateway \
+    --backend-pool-name $poolName
+done
+```
+
+### <a name="install-nginx"></a>安裝 NGINX
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroupAG \
+    --vmss-name myvmss$i \
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+done
+```
+
+## <a name="test-the-application-gateway"></a>測試應用程式閘道
+
+若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，http://40.121.222.19、http://40.121.222.19:8080/images/test.htm 或 http://40.121.222.19:8080/video/test.htm。
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
+
+將基底 URL 結尾的 URL 變更為 http://<ip-address>:8080/video/test.html，您應該會看到類似下列的範例：
+
+![在應用程式閘道中測試影像 URL](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
+
+將 URL 變更為 http://<ip-address>:8080/video/test.html，您應該會看到類似下列的範例。
+
+![在應用程式閘道中測試影片 URL](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要了解「安全通訊端層」(SSL) 卸載，請參閱[設定適用於 SSL 卸載的應用程式閘道](application-gateway-ssl-cli.md)。
+在本教學課程中，您已了解如何：
 
+> [!div class="checklist"]
+> * 設定網路
+> * 建立包含 URL 對應的應用程式閘道
+> * 建立包含後端集區的虛擬機器擴展集
 
-[scenario]: ./media/application-gateway-create-url-route-cli/scenario.png
-[1]: ./media/application-gateway-create-url-route-cli/figure1.png
-[2]: ./media/application-gateway-create-url-route-cli/figure2.png
-[3]: ./media/application-gateway-create-url-route-cli/figure3.png
+若要深入了解應用程式閘道和其相關聯的資源，請繼續進行操作說明文章。

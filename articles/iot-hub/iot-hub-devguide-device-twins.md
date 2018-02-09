@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
@@ -52,55 +52,57 @@ ms.lasthandoff: 01/05/2018
 * **標籤**。 解決方案後端可以讀取及寫入的 JSON 文件區段。 裝置應用程式看不到標籤。
 * **所需屬性**。 搭配報告屬性使用，以便同步處理裝置的組態或狀況。 解決方案後端可以設定所需的屬性，以及裝置應用程式可以讀取它們。 裝置應用程式也可以接收所需屬性中的變更通知。
 * **報告屬性**。 搭配所需屬性使用，以便同步處理裝置的組態或狀況。 裝置應用程式可以設定報告的屬性，以及解決方案後端可以讀取並查詢它們。
-* **裝置識別屬性**。 裝置的兩個 JSON 文件的根包含儲存在對應的裝置身分識別的唯讀屬性[身分識別登錄][lnk-identity]。
+* **裝置身分識別屬性**。 裝置對應項 JSON 文件的根目錄包含來自對應之裝置身分識別的唯讀屬性，此身分識別儲存在[身分識別登錄][lnk-identity]中。
 
 ![][img-twin]
 
 以下範例顯示裝置對應項 JSON 文件︰
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
-在根物件是裝置身分識別屬性，並且容器物件`tags`，兩者均`reported`和`desired`屬性。 `properties` 容器包含一些唯讀元素 (`$metadata`、`$etag` 和 `$version`)，其說明位於[裝置對應項中繼資料][lnk-twin-metadata]和[開放式並行存取][lnk-concurrency]章節。
+根物件中包含的是裝置身分識別屬性，以及 `tags` 和 `reported` 與 `desired` 兩屬性的容器物件。 `properties` 容器包含一些唯讀元素 (`$metadata`、`$etag` 和 `$version`)，其說明位於[裝置對應項中繼資料][lnk-twin-metadata]和[開放式並行存取][lnk-concurrency]章節。
 
 ### <a name="reported-property-example"></a>報告屬性範例
 在上述範例中，裝置對應項包含由裝置應用程式所報告的 `batteryLevel` 屬性。 此屬性可讓您根據最後一次報告的電池電量對裝置進行查詢和操作。 其他範例包含裝置應用程式報告功能或連線能力選項。
@@ -112,26 +114,32 @@ ms.lasthandoff: 01/05/2018
 在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如︰
 
 1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. 裝置應用程式會在已連線或第一次重新連線時，立即收到變更通知。 裝置應用程式接著會報告更新的組態 (或使用 `status` 屬性的錯誤狀況)。 以下是報告屬性的部分︰
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. 解決方案後端可以[查詢][lnk-query]裝置對應項，以追蹤組態作業在許多裝置上的結果。
 
 > [!NOTE]
@@ -144,27 +152,30 @@ ms.lasthandoff: 01/05/2018
 ## <a name="back-end-operations"></a>後端作業
 解決方案後端會使用下列不可部分完成的作業 (透過 HTTPS 公開) 來對裝置對應項進行操作︰
 
-* **依識別碼擷取裝置對應項**。此作業會傳回裝置對應項文件，包括標籤以及所需屬性、報告屬性和系統屬性。
+* **依識別碼擷取裝置對應項**。 此作業會傳回裝置對應項文件，包括標籤以及所需屬性、報告屬性和系統屬性。
 * **部份更新裝置對應項**。 此作業可讓解決方案後端局部地更新裝置對應項中的標籤或所需屬性。 部分更新會以 JSON 文件的形式來表示，以新增或更新任何屬性。 設定為 `null` 的屬性會遭到移除。 下列範例會以 `{"newProperty": "newValue"}` 值建立新的所需屬性、以 `"otherNewValue"` 覆寫 `existingProperty` 的現有值，並移除 `otherOldProperty`。 不會對現有的所需屬性或標籤進行任何變更︰
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **取代所需屬性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
 * **取代標籤**。 此作業可讓解決方案後端完全覆寫所有現有的標籤，並以新的 JSON 文件取代 `tags`。
-* **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，不會傳送任何對應項通知，亦即預先不存在這類路由。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，則仍建議您使用 D2C 訊息。 對應項通知訊息包含屬性和內文。
+* **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，不會傳送任何對應項通知，亦即預先不存在這類路由。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，您應該使用裝置到雲端的訊息。 對應項通知訊息包含屬性和內文。
 
     - properties
 
-    | 名稱 | 值 |
+    | Name | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -181,7 +192,8 @@ ms.lasthandoff: 01/05/2018
     - body
         
     本節包含所有對應項變更 (JSON 格式)。 它使用的格式與修補程式的格式相同，差別在於它可以包含所有對應項區段︰tags、properties.reported、properties.desired，而且包含 “$metadata” 項目。 例如，
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ ms.lasthandoff: 01/05/2018
             }
         }
     }
-    ``` 
+    ```
 
 上述所有作業皆支援[開放式並行存取][lnk-concurrency]，而且需要 **ServiceConnect** 權限，如[安全性][lnk-security]一文所定義。
- 
+
 除了這些作業，解決方案後端還可以︰
 
 * 使用類似 SQL 的 [IoT 中樞查詢語言][lnk-query]來查詢裝置對應項。
@@ -225,28 +237,30 @@ ms.lasthandoff: 01/05/2018
 * JSON 物件中的所有值可以屬於下列 JSON 類型︰布林值、數字、字串、物件。 不允許使用陣列。 整數的最大值是 4503599627370495 和整數的最小值是 -4503599627370496。
 * 標籤、所需屬性和報告屬性中所有 JSON 物件的深度上限為 5。 例如，下列物件有效：
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * 所有字串值的最大長度為 4 KB。
 
 ## <a name="device-twin-size"></a>裝置對應項大小
-IoT 中樞會強制執行每個個別的總計值的 8 KB 大小限制`tags`， `properties/desired`，和`properties/reported`，排除唯讀項目。
+「IoT 中樞」會對 `tags`、`properties/desired` 和 `properties/reported` 的個別總計值 (排除唯讀元素) 分別強制執行 8 KB 大小的限制。
 大小的計算方式是計算所有字元的數量，並排除在字串常數之外的 UNICODE 控制字元 (區段 C0 和 C1) 和空格。
 IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超過限制的所有作業。
 
@@ -254,48 +268,50 @@ IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超
 IoT 中樞會為裝置對應項所需屬性和報告屬性的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601] 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
 例如︰
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 此資訊會保留在每個層級 (而不只是 JSON 結構的分葉)，以保留可移除物件索引鍵的更新。
 
@@ -336,7 +352,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 * [在裝置上叫用直接方法][lnk-methods]
 * [排程多個裝置上的作業][lnk-jobs]
 
-如果您想要嘗試本文章所述的概念，您可能會對下列 IoT 中樞教學課程感興趣：
+若要嘗試本文所述的一些概念，請參閱下列「IoT 中樞」教學課程：
 
 * [如何使用裝置對應項][lnk-twin-tutorial]
 * [如何使用裝置對應項屬性][lnk-twin-properties]

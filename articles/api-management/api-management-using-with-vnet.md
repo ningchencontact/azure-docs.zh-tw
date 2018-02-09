@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -79,7 +79,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 >
 
 > [!IMPORTANT]
-> 如果您將「API 管理」從 VNET 中移除或變更其部署所在的 VNET，則先前使用的 VNET 將保持鎖定狀態最長達 4 小時。 在這段期間，將無法刪除該 VNET 或在其中部署新的資源。
+> 如果您將「API 管理」從 VNET 中移除或變更其部署所在的 VNET，則先前使用的 VNET 將保持鎖定狀態最長達兩個小時。 在這段期間，將無法刪除該 VNET 或在其中部署新的資源。
 
 ## <a name="enable-vnet-powershell"> </a>使用 PowerShell cmdlet 來啟用 VNET 連線
 您也可以使用 PowerShell cmdlet 啟用 VNET 連線能力
@@ -99,7 +99,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 * **自訂 DNS 伺服器安裝**：API 管理服務相依於數個 Azure 服務。 當「API 管理」是裝載於具有自訂 DNS 伺服器的 VNET 中時，它必須要解析這些 Azure 服務的主機名稱。 請遵循 [這份](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 有關自訂 DNS 設定的指引。 請參閱下方的連接埠資料表和參考的其他網路需求。
 
 > [!IMPORTANT]
-> 如果您針對 VNET 使用「自訂 DNS 伺服器」，建議您在將 API 管理服務部署到該伺服器**之前**，先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都需要執行[套用網路設定作業](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
+> 如果您打算針對 VNET 使用「自訂 DNS 伺服器」，在將 API 管理服務部署到該伺服器**之前**，應該先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都必須執行[套用網路設定作業](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
 
 * **API 管理所需的連接埠**︰使用[網路安全性群組][Network Security Group]可以控制到 API 管理部署於其中的子網路之輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
@@ -124,7 +124,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 * **DNS 存取**：需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從裝載 API 管理的子網路連接該 DNS 伺服器。
 
-* **計量和健康情況監視**︰對於解析為屬於下列網域之 Azure 監視端點的輸出網路連線能力︰global.metrics.nsatc.net、shoebox2.metrics.nsatc.net、prod3.metrics.nsatc.net。
+* **計量和健康情況監視**︰對於解析為屬於下列網域之 Azure 監視器端點的輸出網路連線能力︰global.metrics.nsatc.net、shoebox2.metrics.nsatc.net、prod3.metrics.nsatc.net、prod.warmpath.msftcloudes.com。
 
 * **快速路由安裝**：常見的客戶組態是定義其專屬預設路由 (0.0.0.0/0)，以強制輸出網際網路流量來替代透過內部部署方式流動。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方法是在子網路上定義包含 Azure API 管理的一 (或多個) 使用者定義路由 ([UDR][UDRs])。 UDR 會定義將使用的子網路特有路由，而非預設路由。
   如果可能，建議使用下列設定：
@@ -150,6 +150,13 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 * **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，API 管理會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。 
 
+## <a name="subnet-size"> </a> 子網路大小需求
+Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 如需詳細資訊，請參閱 [在這些子網路內使用 IP 位址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+除了 Azure VNET 基礎結構使用的 IP 位址之外，子網路中的每個 API 管理執行個體都會為進階 SKU 的每個單位使用兩個 IP 位址，或為開發人員 SKU 使用一個 IP 位址。 每個執行個體都會保留 1 個 IP 位址作為外部負載平衡器。 當您部署到內部 vnet 時，內部負載平衡器需要其他的 IP 位址。
+
+假設計算大於子網路大小的下限，其中可部署的 API 管理為 /29，能提供 3 個 IP 位址。
+
 ## <a name="routing"> </a> 路由
 + 負載平衡的公用 IP 位址 (VIP) 會保留下來，以供存取所有服務端點。
 + 子網路 IP 範圍的 IP (DIP) 位址會用來存取 VNET 中的資源，而公用 IP 位址 (VIP) 會用來存取 VNET 之外的資源。
@@ -166,13 +173,14 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 * [使用 VPN 閘道將虛擬網路連線到後端](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [從不同的部署模型連接虛擬網路](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫](api-management-howto-api-inspector.md)
+* [虛擬網路常見問題集](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
-[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
-[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
+[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
+[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-external.png
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn

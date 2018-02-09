@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 儲存體簡介
 
@@ -131,21 +131,21 @@ Blob 服務可讓您提供容器與其 Blob 或特定 Blob 的公開存取權。
 
 ## <a name="encryption"></a>加密
 
-有一些基本加密類型可用於儲存體服務。
+有兩個基本加密類型可用於儲存體服務。 如需安全性和加密的詳細資訊，請參閱 [Azure 儲存體安全性指南](storage-security-guide.md)。
 
 ### <a name="encryption-at-rest"></a>待用加密
 
-您可以在 Azure 儲存體帳戶的檔案服務 (預覽) 或 Blob 服務上啟用儲存體服務加密 (SSE)。 若已啟用，寫入特定服務的所有資料會在寫入之前加密。 當您讀取資料時，資料會在傳回之前解密。
+待用的 Azure 儲存體服務加密 (SSE) 會協助您保護資料安全，以符合組織安全性和合規性承諾。 利用此功能，Azure 儲存體會自動加密資料，再保存到儲存體，以及在擷取之前解密。 以完全無感的方式處理所有加密、解密和金鑰管理。
+
+您可以為 Blob 儲存體或 Azure 檔案服務 (預覽) 啟用儲存體服務加密 (SSE)。 若已啟用，寫入特定服務的所有資料會在寫入之前加密。 當您讀取資料時，資料會在傳回之前解密。
+
+如需待用 SSE 加密的詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](storage-service-encryption.md)。
 
 ### <a name="client-side-encryption"></a>用戶端加密
 
 儲存體用戶端程式庫具有您可以呼叫的方法，在透過網路將資料從用戶端傳送到 Azure 之前，可以程式設計方式將資料加密。 它會以加密方式儲存，這表示待用時也會加密。 讀回資料時，您會在接收資訊之後加以解密。
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>透過 Azure 檔案共用進行傳輸時加密
-
-如需共用存取簽章的詳細資訊，請參閱 [使用共用存取簽章 (SAS)](../storage-dotnet-shared-access-signature-part-1.md) 。 如需安全存取儲存體帳戶的詳細資訊，請參閱[管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)和 [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)。
-
-如需保護儲存體帳戶和加密的詳細資訊，請參閱 [Azure 儲存體安全性指南](storage-security-guide.md)。
+如需用戶端加密的詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端 .NET 加密](storage-client-side-encryption.md)。
 
 ## <a name="replication"></a>複寫
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>使用 IoT 中樞路由傳送訊息 (節點)
 
@@ -104,6 +104,9 @@ ms.lasthandoff: 01/23/2018
 本節中，您會建立服務匯流排佇列、將它連接到您的 IoT 中樞，以及設定您的 IoT 中樞，進而根據訊息的屬性目前狀態，將訊息傳送至佇列。 如需有關如何處理來自服務匯流排佇列之訊息的詳細資訊，請參閱[開始使用佇列][lnk-sb-queues-node]。
 
 1. 如[開始使用佇列][lnk-sb-queues-node]所述，建立服務匯流排佇列。 記下命名空間和佇列名稱。
+
+    > [!NOTE]
+    > 作為 IoT 中樞端點的服務匯流排佇列和主題不能啟用 [工作階段] 或 [重複偵測]。 如果已啟用其中一個選項，端點會在 Azure 入口網站中顯示為 [無法連線]。
 
 2. 在 Azure 入口網站中，開啟 IoT 中樞然後按一下 [端點]。
 

@@ -3,22 +3,22 @@ title: "使用 Linux VM MSI 存取 Azure Key Vault"
 description: "此教學課程引導您使用 Linux VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。"
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3531d6e406e7cf44daaaf03c73c93ec3662f108c
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: a6f9ade9fca76045799edb8efa070acdfd40b7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Key Vault 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/22/2017
 > * 授與 VM 存取權以取得 Key Vault 中的密碼 
 > * 使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的密碼 
  
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

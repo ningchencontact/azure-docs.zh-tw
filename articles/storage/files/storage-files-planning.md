@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
-[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中受到完整管理的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
+
+            [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
 
 ## <a name="management-concepts"></a>管理概念
  下圖說明 Azure 檔案服務管理建構：
@@ -63,8 +64,8 @@ Azure 檔案服務具有數個內建的選項，可用於確保資料安全性�
     * 支援 SMB 3.0 加密的用戶端可透過加密通道來傳送及接收資料。
     * 不支援 SMB 3.0 的用戶端可以透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心內部通訊。 請注意，不允許用戶端透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心之間通訊。
     * 用戶端可以藉由 HTTP 或 HTTPS 透過檔案 REST 進行通訊。
-* 靜止加密 ([Azure 儲存體服務加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json))：我們正在基礎 Azure 儲存體平台上啟用儲存體服務加密 (SSE)。 這表示預設會對所有儲存體帳戶啟用加密。 如果您要在預設使用靜止加密的區域中建立新的儲存體帳戶，您不必執行任何動作即可啟用。 靜止資料是使用完全受管理的金鑰加密。 待用加密不會增加儲存成本或降低效能。 
-* 加密傳輸資料的選擇性需求：選取時，Azure 檔案服務將不允許透過未加密的通道來存取資料。 具體來說，只允許具有加密連線的 HTTPS 和 SMB 3.0。 
+* 靜止加密 ([Azure 儲存體服務加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json))：我們正在基礎 Azure 儲存體平台上啟用儲存體服務加密 (SSE)。 這表示預設會對所有儲存體帳戶啟用加密。 如果您要在預設使用靜止加密的區域中建立新的儲存體帳戶，您不必執行任何動作即可啟用。 靜止資料是使用完全受控金鑰加密。 待用加密不會增加儲存成本或降低效能。 
+* 加密傳輸資料的選擇性需求：選取時，Azure 檔案服務拒絕透過未加密的通道存取資料。 具體來說，只允許具有加密連線的 HTTPS 和 SMB 3.0。 
 
     > [!Important]  
     > 要求資料安全傳輸將導致舊版 SMB 用戶端通訊失敗，因為它無法與加密的 SMB 3.0 通訊。 如需詳細資訊，請參閱[掛接在 Windows 上](storage-how-to-use-files-windows.md)、[掛接在 Linux 上](storage-how-to-use-files-linux.md)、[掛接在 macOS 上](storage-how-to-use-files-mac.md)。
@@ -74,10 +75,13 @@ Azure 檔案服務具有數個內建的選項，可用於確保資料安全性�
 如果您使用 Azure 檔案同步來存取 Azure 檔案共用，則無論是否需要對待用資料進行加密，我們一律會使用加密的 HTTPS 和 SMB 3.0 將資料同步處理至 Windows Server。
 
 ## <a name="data-redundancy"></a>資料備援
-Azure 檔案服務支援兩個資料備援選項：本地備援儲存體 (LRS) 和異地備援儲存體 (GRS)。 以下數節說明本地備援儲存體和異地備援儲存體之間的差異：
+Azure 檔案服務支援三個資料備援選項：本地備援儲存體 (LRS)、區域備援儲存體 (ZRS) 和異地備援儲存體 (GRS)。 下列各節說明不同備援選項之間的差異：
 
 ### <a name="locally-redundant-storage"></a>本地備援儲存體
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>區域備援儲存體
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>異地備援儲存體
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

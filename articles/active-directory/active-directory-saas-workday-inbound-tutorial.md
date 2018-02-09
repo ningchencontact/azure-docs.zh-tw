@@ -1,5 +1,5 @@
 ---
-title: "教學課程︰以內部部署 Active Directory 和 Azure Active Directory 設定自動化使用者佈建的 Workday | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 Workday 來自動佈建使用者 | Microsoft Docs"
 description: "了解如何使用 Workday 做為 Active Directory 和 Azure Active Directory 身分識別資料的來源。"
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>教學課程︰以內部部署 Active Directory 和 Azure Active Directory 設定自動化使用者佈建的 Workday
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
+
 本教學課程的目標是說明將人員從 Workday 匯入 Active Directory 和 Azure Active Directory，以及將某些屬性選擇性回寫至 Workday 需要執行的步驟。 
 
 
@@ -51,7 +52,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 開始進行 Workday 整合之前，請檢查下列必要條件，並閱讀下列有關如何讓目前的 Active Directory 結構和使用者佈建需求與 Azure Active Directory 提供解決方案相符的指導。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

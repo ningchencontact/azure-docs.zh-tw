@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -63,14 +63,16 @@ ms.lasthandoff: 12/21/2017
 
 `timeSeriesDefinitions=<collection of term objects>` 參數可指定時間序列深入解析檢視的字詞，其中：
 
-- `name=<string>`
+- "name":"<string>"
   - term 的名稱。
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - split by 的資料行名稱。
-- `measureName=<string>`
+- "measureName":"<string>"
   - measure 的資料行名稱。
-- `predicate=<string>`
+- "predicate":"<string>"
   - 用於伺服器端篩選的 where 子句。
+-  "useSum":"true"
+  - 這是選擇性參數，指定使用總和作為您的量值。  請注意，如果 [事件] 是選取的量值，則預設會選取 [計數]。  如果未選取 [事件]，則預設會選取 [平均值]。  
 
 'multiChartStack=<true/false>' 參數可在圖表中啟用堆疊，而 'multiChartSameScale=<true/false>' 參數可在選用參數內的不同時段啟用相同的 Y 軸刻度。  
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>預先擷取 Azure 服務匯流排訊息
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="enable-prefetch"></a>啟用預先擷取
 
-在 .NET 中，您可以藉由將 **MessageReceiver**、**QueueClient** 或 **SubscriptionClient** 的 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 屬性設為大於零的數字，來啟用預先擷取功能。 將值設定為零會關閉預先擷取。
+透過 .NET，您可以藉由將 **MessageReceiver**、**QueueClient** 或 **SubscriptionClient** 的 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 屬性設為大於零的數字，來啟用預先擷取功能。 將值設定為零會關閉預先擷取。
 
 您可以輕鬆地將此設定新增至 [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) \(英文\) 或 [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) \(英文\) 範例設定的接收端，即可在那些內容中看見效果。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>如果預先擷取速度更快，為什麼它不是預設選項？
 
-預先擷取加速訊息流程的方式是，在應用程式要求某個訊息時和之前，先將訊息備妥以供本機擷取。 這個輸送量提升是應用程式作者必須明確進行取捨決策的結果：
+預先擷取加速訊息流程的方式是，在應用程式要求某個訊息時和之前，先將訊息備妥以供本機擷取。 這個輸送量提升是應用程式作者必須明確進行取捨的結果：
 
 利用 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) 接收模式，所有擷取到預先擷取緩衝區的訊息便無法再於佇列中使用，而且只會位於記憶體中的預先擷取緩衝區，直到應用程式透過 **Receive**/**ReceiveAsync** 或 **OnMessage**/**OnMessageAsync** API 接收到它們為止。 如果應用程式在接收到訊息之前終止，則那些訊息將會永久遺失。
 

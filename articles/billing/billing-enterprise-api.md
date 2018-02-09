@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>適用於企業客戶的報告 API 概觀
 報告 API 可讓企業 Azure 客戶以程式設計方式提取使用情況和帳單資料，以使用慣用的資料分析工具進行分析。 
@@ -43,12 +43,15 @@ ms.lasthandoff: 10/11/2017
 
 * **價位表** - [價位表 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 可針對指定註冊和計費週期的每個計量提供適用的費率。 
 
+## <a name="data-freshness"></a>資料有效期限
+系統會傳回 Etag 以回應上述所有 API。 Etag 的變更表示資料已重新整理。  在使用相同參數對相同 API 進行的後續呼叫中，傳遞所擷取的 Etag，在其中的 http 要求標頭中包含索引鍵 “If-None-Match”。 如果資料未進一步重新整理且未傳回任何資料，則回應狀態碼會是 "NotModified"。 每當 etag 有變更時，API 就會針對所需期間傳回完整的資料集。
+
 ## <a name="helper-apis"></a>協助程式 API
  **列出計費週期** - [計費週期 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) 會傳回計費週期清單，其中包含所指定註冊的使用情況資料 (以反向時間順序排列)。 每個週期包含指向四組資料 (BalanceSummary、UsageDetails、Marketplace 費用和價位表) 之 API 路由的屬性。
 
 
 ## <a name="api-response-codes"></a>API 回應碼  
-|回應狀態碼|訊息|描述|
+|回應狀態碼|訊息|說明|
 |-|-|-|
 |200| OK|沒有錯誤|
 |401| 未經授權| API 金鑰找不到、無效或過期等。|

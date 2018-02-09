@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: 診斷
       href: app-service-diagnostics.md
+    - name: 作業系統和執行階段修補
+      href: app-service-patch-os-runtime.md
 - name: 使用說明指南
   items:
     - name: 設定應用程式

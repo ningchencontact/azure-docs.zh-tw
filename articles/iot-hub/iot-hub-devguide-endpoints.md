@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -81,7 +81,12 @@ IoT 中樞需要這些服務端點的寫入權限，才能將訊息路由傳送�
 
 ### <a name="when-using-azure-storage-containers"></a>使用 Azure 儲存體容器時
 
-「IoT 中樞」僅支援以 [Apache Avro](http://avro.apache.org/) 格式將資料寫入「Azure 儲存體」容器作為 Blob。 「IoT 中樞」會批次處理訊息，然後在資料達到特定大小或經過一段特定時間之後 (不論何者先發生)，就將資料寫入至 Blob。 如果沒有資料可供寫入，「IoT 中樞」並不會寫入空的 Blob。
+「IoT 中樞」僅支援以 [Apache Avro](http://avro.apache.org/) 格式將資料寫入「Azure 儲存體」容器作為 Blob。 「IoT 中樞」會批次處理訊息，並在下列情況下將資料寫入至 Blob：
+
+* 批次達到特定大小。
+* 或已經過特定的一段時間。
+
+如果沒有資料可供寫入，「IoT 中樞」就會撰寫空的 Blob。
 
 「IoT 中樞」預設會採用下列檔案命名慣例：
 

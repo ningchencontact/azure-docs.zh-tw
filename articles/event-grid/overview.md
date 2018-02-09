@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -20,20 +20,22 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 
 您可以使用篩選器將特定事件路由傳送到不同的端點、多點傳送至多個端點，並確定您的事件會可靠地進行傳遞。 Event Grid 也針對自訂和第三方的事件提供了內建支援。
 
-目前，事件方格都支援下列區域：
+Event Grid 目前支援下列區域：
 
+* 東南亞
+* 東亞
 * 美國中部
 *   美國東部
 *   美國東部 2
+* 西歐
+* 北歐
 *   美國中西部
 *   美國西部
 *   美國西部 2
 
-未來將會新增其他區域。
+本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 下圖顯示 Event Grid 如何連接發行者和處理常式，但是它不提供完整的支援選項清單。
 
-本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 下圖顯示事件方格將如何連接 「 發行者 」 和處理常式，但它不提供支援選項的完整清單。
-
-![Event Grid 運作模型](./media/overview/event-grid-functional-model.png)
+![Event Grid 運作模型](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>事件發佈者
 
@@ -42,10 +44,10 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 * Azure 訂用帳戶 (管理作業)
 * 自訂主題
 * 事件中樞
+* IoT 中樞
 * 資源群組 (管理作業)
 * 儲存體 Blob
-
-今年將會新增其他 Azure 服務。
+* 儲存體一般用途 v2 (GPv2)
 
 ## <a name="event-handlers"></a>事件處理常式
 
@@ -58,7 +60,7 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 * Microsoft Flow
 * Webhook
 
-今年將會新增其他 Azure 服務。
+使用 Azure Functions 作為處理常式時，請使用 Event Grid 觸發程序而不是泛型 HTTP 觸發程序。 Event Grid 會自動驗證 Event Grid 函式的觸發程序。 若要使用 HTTP 觸發程序，您必須實作[驗證回應](security-authentication.md#webhook-event-delivery)。
 
 ## <a name="concepts"></a>概念
 
@@ -111,9 +113,7 @@ Event Grid 可連線您的應用程式與其他服務。 例如，建立自訂�
 
 ## <a name="how-much-does-event-grid-cost"></a>Event Grid 的費用有多少？
 
-Azure Event Grid 使用依事件支付計價模式，因此您只需就使用量來付費。
-
-Event Grid 每百萬個作業的費用是 0.60 美元 (預覽期間為 0.30 美元)，而且每個月的前 100,000 個作業是免費的。 作業的定義是事件輸入、進階比對、傳遞嘗試及管理呼叫。  您可以在[定價頁面](https://azure.microsoft.com/pricing/details/event-grid/)找到更多詳細資料。
+Azure Event Grid 使用依事件支付計價模式，因此您只需就使用量來付費。 每個月的前 100000 個作業是免費的。 作業的定義是事件輸入、進階比對、傳遞嘗試及管理呼叫。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/event-grid/)。
 
 ## <a name="next-steps"></a>後續步驟
 

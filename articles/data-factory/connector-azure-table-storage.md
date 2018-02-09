@@ -13,45 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表或從該處複製資料
+# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-azure-table-connector.md)
+> * [第 1 版 - 正式運作](v1/data-factory-azure-table-connector.md)
 > * [第 2 版 - 預覽](connector-azure-table-storage.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到「Azure 資料表」及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到「Azure 資料表」儲存體及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Azure 資料表儲存體連接器](v1/data-factory-azure-table-connector.md)。
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用已正式運作的第 1 版 Data Factory，請參閱[第 1 版中的資料表儲存體連接器](v1/data-factory-azure-table-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從任何支援的來源資料存放區複製到「Azure 資料表」，或將資料從「Azure 資料表」複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+您可以將資料從支援的來源資料存放區複製到資料表儲存體。 您也可以將資料從資料表儲存體複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個「Azure 資料表」連接器支援同時使用「帳戶金鑰」和「服務 SAS」 (共用存取簽章) 驗證來複製 Blob。
+具體而言，這個「Azure 資料表」連接器支援使用帳戶金鑰和服務共用存取簽章驗證來複製資料。
 
 ## <a name="get-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-下列各節提供屬性的相關詳細資料，這些屬性是用來定義「Azure 資料表儲存體」專屬的 Data Factory 實體。
+下列各節提供屬性的相關詳細資料，這些屬性是用來定義資料表儲存體專屬的 Data Factory 實體。
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 
-### <a name="using-account-key"></a>使用帳戶金鑰
+### <a name="use-an-account-key"></a>使用帳戶金鑰
 
-您可以使用帳戶金鑰來建立「Azure 儲存體」已連結的服務，此金鑰可將「Azure 儲存體」的全域存取權提供給資料處理站。 以下是支援的屬性：
+您可以使用帳戶金鑰來建立 Azure 儲存體連結服務。 它可將儲存體的全域存取權提供給資料處理站。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為： **AzureStorage** |是 |
-| connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 請將此欄位標示為 SecureString。 |是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+| type | type 屬性必須設定為 **AzureStorage**。 |yes |
+| connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 請將此欄位標示為 SecureString。 |yes |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
 
@@ -74,26 +74,27 @@ ms.lasthandoff: 01/11/2018
 }
 ```
 
-### <a name="using-service-sas-authentication"></a>使用服務 SAS 驗證
+### <a name="use-service-shared-access-signature-authentication"></a>使用服務共用存取簽章驗證
 
-您也可以使用「共用存取簽章」(SAS) 來建立「Azure 儲存體」已連結的服務，此簽章可將受限制/有時間限制的存取權提供給資料處理站，來存取儲存體中的所有/特定資源。
+您也可以使用共用存取簽章來建立儲存體連結服務。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源。
 
-「共用存取簽章」(SAS) 可提供您儲存體帳戶中資源的委派存取權。 它可讓您在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入 SAS 即可。 如需 SAS 的詳細資訊，請參閱 [共用存取簽章：了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+共用存取簽章可提供您儲存體帳戶中資源的委派存取。 您可以使用它來將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定時間內使用一組指定的權限進行存取。 您不需要共用您的帳戶存取金鑰。 共用存取簽章是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用共用存取簽章存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入共用存取簽章即可。 如需共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解共用存取簽章模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 > [!IMPORTANT]
-> Azure Data Factory 現在僅支援 **服務 SAS**，但不支援帳戶 SAS。 如需這兩種類型的詳細資料及其建構方式，請參閱[共用存取簽章的類型](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 可從 Azure 入口網站或「儲存體總管」產生的 SAS URL 是「帳戶 SAS」，並不受到支援。
+> Data Factory 現在僅支援服務共用存取簽章，而不支援帳戶共用存取簽章。 如需這兩種類型及其建構方式的詳細資訊，請參閱[共用存取簽章的類型](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 從 Azure 入口網站或 Azure 儲存體總管產生的共用存取簽章 URL 是帳戶共用存取簽章，因此不受支援。
 
 > [!TIP]
-> 您可以執行下列 PowerShell 命令來產生儲存體帳戶的「服務 SAS」(取代預留位置和授與所需權限)：`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> 您可以執行下列 PowerShell 命令，為儲存體帳戶產生服務共用存取簽章。 取代預留位置，並授與所需的權限。
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-若要使用「服務 SAS」驗證，以下是支援的屬性：
+若要使用服務共用存取簽章驗證，以下是支援的屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為： **AzureStorage** |是 |
-| sasUri | 指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 請將此欄位標示為 SecureString。 |是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+| type | type 屬性必須設定為 **AzureStorage**。 |yes |
+| sasUri | 指定儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 請將此欄位標示為 SecureString。 |yes |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
 
@@ -116,22 +117,22 @@ ms.lasthandoff: 01/11/2018
 }
 ```
 
-建立 **SAS URI** 時，請考量下列幾點：
+當您建立共用存取簽章 URI 時，請考慮下列各點：
 
-- 根據連結的服務 (讀取、寫入、讀取/寫入) 在資料處理站中的使用方式，在物件上設定適當的讀取/寫入**權限**。
-- 設定適當的 [過期時間]。 請確定 Azure 儲存體物件的存取權不會在管線的作用中期間內過期。
+- 根據連結的服務 (讀取、寫入、讀取/寫入) 在資料處理站中的使用方式，在物件上設定適當的讀取/寫入權限。
+- 設定適當的 [過期時間]。 請確定儲存體物件的存取權不會在管線的作用中期間內過期。
 - 應視需要在正確的資料表層級建立 URI。
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供「Azure 資料表」資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供「Azure 資料表」資料集所支援的屬性清單。
 
-若要將資料複製到「Azure 資料表」或從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 以下是支援的屬性：
+若要將資料複製到「Azure 資料表」以及從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AzureTable** |是 |
-| tableName |Azure 資料表資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
+| type | 資料集的 type 屬性必須設定為 **AzureTable**。 |yes |
+| tableName |資料表儲存體資料庫執行個體中連結服務所參照的資料表名稱。 |yes |
 
 **範例：**
 
@@ -154,26 +155,26 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="schema-by-data-factory"></a>Data factory 的結構描述
 
-針對無結構描述的資料存放區 (如 Azure 資料表)，Data Factory 服務會以下列一種方式推斷結構描述：
+針對無結構描述的資料存放區 (如 Azure 資料表)，Data Factory 會以下列一種方式推斷結構描述：
 
-1. 如果您是使用資料集定義中的 **structure** 屬性來定義結構，Data Factory 服務會將此結構接受為結構描述。 在此情況下，如果資料列的資料行沒有值，系統就會為它提供 null 值。
-2. 如果您沒有使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務將會使用資料的第一列來推斷結構描述。 在此情況下，如果第一個資料列未包含完整的結構描述，複製作業的結果中就會遺失一些資料行。
+* 如果您是使用資料集定義中的 **structure** 屬性來定義結構，Data Factory 會將此結構接受為結構描述。 在此情況下，如果資料列的資料行沒有值，系統就會為它提供 null 值。
+* 如果您沒有使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務將會使用資料的第一列來推斷結構描述。 在此情況下，如果第一個資料列未包含完整的結構描述，複製作業的結果中就會遺失一些資料行。
 
-因此，對於無結構描述的資料來源來說，最佳作法是使用 **structure** 屬性來指定資料結構。
+對於無結構描述的資料來源來說，最佳做法是使用 **structure** 屬性來指定資料結構。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供「Azure 資料表」來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供「Azure 資料表」來源和接收所支援的屬性清單。
 
-### <a name="azure-table-as-source"></a>Azure 資料表作為來源
+### <a name="azure-table-as-a-source-type"></a>Azure 資料表作為來源類型
 
-若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**AzureTableSource** |是 |
-| AzureTableSourceQuery |使用自訂的 Azure 資料表查詢來讀取資料。 請參閱下一節中的範例。 |否 |
-| azureTableSourceIgnoreTableNotFound |指出是否忍受資料表不存在的例外狀況。<br/>允許的值為：**True** 和 **False** (預設值)。 |否 |
+| type | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |yes |
+| AzureTableSourceQuery |使用自訂的資料表儲存體查詢來讀取資料。 請參閱下一節中的範例。 |否 |
+| azureTableSourceIgnoreTableNotFound |指出是否讓資料表例外狀況不存在。<br/>允許的值為 **True** 和 **False** (預設值)。 |否 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 範例
 
@@ -191,19 +192,19 @@ ms.lasthandoff: 01/11/2018
 
 如果您使用管線參數，請根據上述範例將日期時間值轉換成適當的格式。
 
-### <a name="azure-table-as-sink"></a>Azure 資料表作為接收器
+### <a name="azure-table-as-a-sink-type"></a>Azure 資料表作為接收類型
 
-若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 **sink** 區段支援下列屬性：
+若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為：**AzureTableSink** |是 |
-| azureTableDefaultPartitionKeyValue |可供接收器使用的預設資料分割索引鍵值。 |否 |
+| type | 複製活動接收的 type 屬性必須設定為 **AzureTableSink**。 |yes |
+| azureTableDefaultPartitionKeyValue |可供接收使用的預設資料分割索引鍵值。 |否 |
 | azureTablePartitionKeyName |指定其值用來作為分割區索引鍵的資料行名稱。 如果未指定，則會使用 "AzureTableDefaultPartitionKeyValue" 作為分割區索引鍵。 |否 |
 | azureTableRowKeyName |指定其值用來作為資料列索引鍵的資料行名稱。 如果未指定，則會針對每個資料列使用 GUID。 |否 |
-| azureTableInsertType |將資料插入 Azure 資料表的模式。 此屬性可控制針對輸出資料表中具有相符分割區和資料列索引鍵的現有資料列，是要取代還是合併其值。 <br/><br/>允許的值為：**merge** (預設值) 和 **replace**。 <br/><br> 此設定是在資料列層級套用，而不是在資料表層級套用，而且兩個選項都不會刪除存在於輸出資料表中但不存在於輸入中的資料列。 若要了解這些設定 (合併和取代) 的運作方式，請參閱[插入或合併實體](https://msdn.microsoft.com/library/azure/hh452241.aspx)和[插入或取代實體](https://msdn.microsoft.com/library/azure/hh452242.aspx)主題。 |否 |
-| writeBatchSize |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為：整數 (資料列數目) |否 (預設值為 10000) |
-| writeBatchTimeout |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為：時間範圍。 範例："00:20:00" (20 分鐘) |否 (預設為 90 秒 - 儲存體用戶端的預設逾時) |
+| azureTableInsertType |將資料插入 Azure 資料表的模式。 此屬性可控制針對輸出資料表中具有相符分割區和資料列索引鍵的現有資料列，是要取代還是合併其值。 <br/><br/>允許的值為 **merge** (預設值) 和 **replace**。 <br/><br> 這個設定會在資料列層級套用，而不是在資料表層級套用。 這兩個選項都不會刪除輸出資料表中不存在於輸入的資料列。 若要了解合併和取代設定的運作方式，請參閱[插入或合併實體](https://msdn.microsoft.com/library/azure/hh452241.aspx)和[插入或取代實體](https://msdn.microsoft.com/library/azure/hh452242.aspx)。 |否 |
+| writeBatchSize |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
+| writeBatchTimeout |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為時間範圍。 範例是 "00:20:00" (20 分鐘)。 |否 (預設值為 90 秒，儲存體用戶端的預設逾時) |
 
 **範例：**
 
@@ -240,9 +241,9 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 
-您必須先使用 "translator" 屬性將來源資料行對應至目的地資料行，才能使用目的地資料行作為 azureTablePartitionKeyName。
+您必須先使用 **"translator"** 屬性將來源資料行對應至目的地資料行，才能使用目的地資料行作為 azureTablePartitionKeyName。
 
-在下列範例中，來源資料行 DivisionID 會對應至目的地資料行 DivisionID。
+在下列範例中，來源資料行 DivisionID 會對應至目的地資料行 DivisionID：
 
 ```json
 "translator": {
@@ -251,7 +252,7 @@ ms.lasthandoff: 01/11/2018
 }
 ```
 
-"DivisionID" 被指定為分割區索引鍵。
+"DivisionID" 會指定為分割區索引鍵。
 
 ```json
 "sink": {
@@ -262,15 +263,15 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="data-type-mapping-for-azure-table"></a>Azure 資料表的資料類型對應
 
-從「Azure 資料表」複製資料或將資料複製到該處時，會使用下列從「Azure 資料表」資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
+從「Azure 資料表」複製資料或將資料複製到該處時，會使用下列從「Azure 資料表」資料類型對應到 Data Factory 過渡期資料類型的對應。 若要了解複製活動如何將來源結構描述和資料類型對應至接收，請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)。
 
-將資料移入及移出 Azure 資料表時，從 Azure 資料表 OData 類型到 .NET 類型的對應會使用下列 [Azure 資料表服務定義的對應](https://msdn.microsoft.com/library/azure/dd179338.aspx)，反向對應亦適用。
+將資料移入及移出 Azure 資料表時，從 Azure 資料表 OData 類型到 .NET 類型的對應會使用下列 [Azure 資料表定義的對應](https://msdn.microsoft.com/library/azure/dd179338.aspx)，反向對應亦適用。
 
 | Azure 資料表資料類型 | Data Factory 過渡期資料類型 | 詳細資料 |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
 | Edm.Boolean |布林 |布林值。 |
-| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
+| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜開始。 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
 | Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |Guid |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |
@@ -278,4 +279,4 @@ ms.lasthandoff: 01/11/2018
 | Edm.String |字串 |UTF 16 編碼值。 字串值最大可達 64 KB。 |
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

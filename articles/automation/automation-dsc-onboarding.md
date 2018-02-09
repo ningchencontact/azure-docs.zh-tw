@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: ffe08f0f85f07accdce9e3b8fa9524ef3c99c878
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>上架由 Azure 自動化 DSC 管理的機器
 
@@ -36,14 +36,14 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 此外，如果您不準備從雲端管理機器組態，Azure Automation DSC 也可用來當做報告專用端點。 這可讓您透過 DSC 內部部署設定 (推送) 所需的組態，以及檢視與 Azure 自動化中的期望狀態相符節點的豐富報告詳細資料。
 
 > [!NOTE]
-> 安裝在虛擬機器 DSC 延伸模組是否大於 2.70，管理 Azure Vm 的 DSC 和則包含在產生任何額外的費用。 如需詳細資料，請參閱[**自動化定價頁面**](https://azure.microsoft.com/en-us/pricing/details/automation/)。
+> 如果安裝的虛擬機器 DSC 延伸模組大於 2.70，則使用 DSC 管理 Azure VM 是免費隨附的。 如需詳細資料，請參閱[**自動化定價分頁**](https://azure.microsoft.com/en-us/pricing/details/automation/)。
 
 
 下列各節概述如何將每個類型的機器上架到 Azure 自動化 DSC。
 
 ## <a name="azure-virtual-machines-classic"></a>Azure 虛擬機器 (傳統)
 
-利用 Azure 自動化 DSC，您可以輕鬆上架 Azure 虛擬機器 (傳統)，以使用 Azure 入口網站或 PowerShell 進行組態管理。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM 期望的狀態組態延伸模組會向 Azure 自動化 DSC 註冊 VM。 因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的 [**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding) 一節會提供追蹤其進度或疑難排解的步驟。
+利用 Azure 自動化 DSC，您可以輕鬆上架 Azure 虛擬機器 (傳統)，以使用 Azure 入口網站或 PowerShell 進行組態管理。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM 期望的狀態組態延伸模組會向 Azure 自動化 DSC 註冊 VM。 因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的[**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding)一節會提供追蹤其進度或疑難排解的步驟。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -51,7 +51,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
-若要找出自動化帳戶所要上架機器的註冊 URL 與金鑰，請查看以下的 [**安全註冊**](#secure-registration) 一節會提供追蹤其進度或疑難排解的步驟。
+若要找出自動化帳戶所要上架機器的註冊 URL 與金鑰，請查看以下的[**安全註冊**](#secure-registration)一節會提供追蹤其進度或疑難排解的步驟：
 
 ### <a name="powershell"></a>PowerShell
 
@@ -119,11 +119,11 @@ $VM | Update-AzureVM
 
 ## <a name="azure-virtual-machines"></a>Azure 虛擬機器
 
-Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管理，請使用 Azure 入口網站、Azure 資源管理員範本或 PowerShell。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM 期望的狀態組態延伸模組會向 Azure 自動化 DSC 註冊 VM。 因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的 [**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding) 一節會提供追蹤其進度或疑難排解的步驟。
+Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管理，請使用 Azure 入口網站、Azure 資源管理員範本或 PowerShell。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM 期望的狀態組態延伸模組會向 Azure 自動化 DSC 註冊 VM。 因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的[**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding)一節會提供追蹤其進度或疑難排解的步驟。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 [自動化帳戶] 儀表板上，按一下 [DSC 節點] -> [新增 Azure VM]。
+在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 [自動化帳戶] 儀表板上，按一下 [DSC 節點]  ->  [+ 新增 Azure VM]。
 
 選取要上架的 Azure 虛擬機器。
 
@@ -135,7 +135,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 ### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 
-您可以透過 Azure 資源管理員範本部署 Azure 虛擬機器和上架到 Azure 自動化 DSC。 如需將現有的 VM 上架到 Azure Automation DSC 的範例範本，請參閱 [透過 DSC 延伸模組和 Azure Automation DSC 設定 VM](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) 。 若要尋找註冊金鑰和註冊 URL 做為此範本中的輸入，請參閱以下的 [**安全註冊**](#secure-registration) 一節會提供追蹤其進度或疑難排解的步驟。
+您可以透過 Azure 資源管理員範本部署 Azure 虛擬機器和上架到 Azure 自動化 DSC。 如需將現有的 VM 上架到 Azure Automation DSC 的範例範本，請參閱 [透過 DSC 延伸模組和 Azure Automation DSC 設定 VM](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) 。 若要尋找註冊金鑰和註冊 URL 作為此範本中的輸入，請參閱以下的[**安全註冊**](#secure-registration)一節會提供追蹤其進度或疑難排解的步驟。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 內部部署 Windows 電腦和非 Azure 雲端中的 Windows 電腦 (例如 Amazon Web Services) 也可以上架到 Azure 自動化 DSC，只要它們對外可存取網際網路，透過一些簡單的步驟：
 
 1. 確定在您想要上架到 Azure Automation DSC 的電腦上已安裝最新版的 [WMF 5](http://aka.ms/wmf5latest) 。
-2. 請依照下列 [**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations) 一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
+2. 請依照下列[**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations)一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
 3. 從遠端將 PowerShell DSC 中繼設定套用至您想要上架的電腦。 **執行此命令的電腦必須安裝最新版的 [WMF 5](http://aka.ms/wmf5latest)** ：
 
     ```powershell
@@ -171,11 +171,11 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   + 若要尋找您的自動化帳戶的註冊金鑰和註冊 URL，請參閱以下的 [**安全註冊**](#secure-registration) 一節會提供追蹤其進度或疑難排解的步驟。
+   + 若要尋找您的自動化帳戶的註冊金鑰和註冊 URL，請參閱以下的[**安全註冊**](#secure-registration)一節會提供追蹤其進度或疑難排解的步驟。
 
      如果 PowerShell DSC 本機設定管理員的預設值**不**符合您的使用案例，或者您希望將電腦上架，使其只向 Azure Automation DSC 報告，但不從中提取設定或 PowerShell 模組，請依照步驟 3 - 6 執行。 否則，請直接跳到步驟 6。
 
-3. 請依照下列 [**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations) 一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
+3. 請依照下列[**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations)一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
 4. 從遠端將 PowerShell DSC metaconfiguration 套用至您想要上架的電腦：
 
     ```powershell
@@ -321,7 +321,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
     DscMetaConfigs @Params
     ```
 
-3. 填寫您自動化帳戶的註冊金鑰和 URL，以及要上架的電腦名稱。 所有其他參數都是選擇性的。 若要尋找您的自動化帳戶的註冊金鑰和註冊 URL，請參閱以下的 [**安全註冊**](#secure-registration) 一節會提供追蹤其進度或疑難排解的步驟。
+3. 填寫您自動化帳戶的註冊金鑰和 URL，以及要上架的電腦名稱。 所有其他參數都是選擇性的。 若要尋找您的自動化帳戶的註冊金鑰和註冊 URL，請參閱以下的[**安全註冊**](#secure-registration)一節會提供追蹤其進度或疑難排解的步驟。
 4. 如果您希望電腦向 Azure 自動化 DSC 報告 DSC 狀態資訊，但不提取設定或 PowerShell 模組，請將 **ReportOnly** 參數設定為 true。
 5. 執行指令碼。 您現在工作目錄中應該有一個名為 **DscMetaConfigs** 的資料夾，其中包含要上架之電腦的 PowerShell DSC 中繼設定 (以系統管理員身分)：
 
@@ -359,9 +359,9 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 ## <a name="secure-registration"></a>安全註冊
 
-機器可以透過 WMF 5 DSC 註冊通訊協定安全地上架到 Azure 自動化帳戶，如此可讓 DSC 節點向 PowerShell DSC V2 提取或報表伺服器 (包括 Azure 自動化 DSC) 進行驗證。 節點會在**註冊 URL** 時向伺服器註冊，並使用**註冊金鑰**進行驗證。 在註冊期間，DSC 節點和 DSC 提取/報告伺服器會交涉獨特的憑證，讓此節點在註冊伺服器用於進行驗證。 此程序可避免上架的節點彼此模擬，例如當節點遭到入侵並且具有惡意行為。 註冊之後，註冊金鑰不會再次用於驗證，並且會從節點中刪除。
+機器可以透過 WMF 5 DSC 註冊通訊協定安全地上架到 Azure 自動化帳戶，如此可讓 DSC 節點向 PowerShell DSC 提取或報表伺服器 (包括 Azure 自動化 DSC) 進行驗證。 節點會在**註冊 URL** 時向伺服器註冊，並使用**註冊金鑰**進行驗證。 在註冊期間，DSC 節點和 DSC 提取/報告伺服器會交涉獨特的憑證，讓此節點在註冊伺服器用於進行驗證。 此程序可避免上架的節點彼此模擬，例如當節點遭到入侵並且具有惡意行為。 註冊之後，註冊金鑰不會再次用於驗證，並且會從節點中刪除。
 
-您可以從 Azure Preview 入口網站的 [管理金鑰]  刀鋒視窗取得 DSC 註冊通訊協定所需的資訊。 在自動化帳戶的 [基本功能]  面板按一下金鑰圖示，可開啟此刀鋒視窗。
+您可以從 Azure 入口網站之 [帳戶設定] 底下的 [金鑰] 取得 DSC 註冊通訊協定所需的資訊。 在自動化帳戶的 [基本功能]  面板按一下金鑰圖示，可開啟此刀鋒視窗。
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -377,15 +377,13 @@ Azure Automation DSC 可讓您輕鬆地將 Azure Windows VM 上架以進行組�
 > [!NOTE]
 > 將 Azure Windows VM 上架到使用 Azure VM 期望的狀態組態延伸模組的 Azure 自動化 DSC 的任何方法，最多可能需要一小時的時間，節點才會顯示為已在 Azure 自動化中註冊。 這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
 
-若要對「Azure VM 預期狀態設定」擴充功能的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 -> [所有設定] -> [擴充功能] -> [DSC]。 如需詳細資訊，您可以按一下 [檢視詳細狀態] 。
-
-[![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
+若要對「Azure VM 預期狀態設定」延伸模組的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 [設定] 底下的 [延伸模組]。 然後視作業系統而定，按一下 [DSC] 或 [DSCForLinux]。 如需詳細資訊，您可以按一下 [檢視詳細狀態] 。
 
 ## <a name="certificate-expiration-and-reregistration"></a>憑證到期日和重新註冊
 
 在將機器註冊為 Azure Automation DSC 中的 DSC 節點之後，有數種原因讓您可能需要在未來重新註冊該節點：
 
-* 在註冊之後，每個節點會自動交涉唯一的驗證憑證，該憑證於一年之後到期。 目前，當憑證即將過期時，PowerShell DSC 註冊通訊協定便無法自動更新憑證，因此您必須在一年之後重新註冊這些節點。 在重新登錄之前，請確定每個節點都正在執行 Windows Management Framework 5.0 RTM。 如果節點的驗證憑證過期，而且該節點尚未註冊，則該節點將無法與 Azure 自動化通訊，並將標示為「未回應」。 與憑證到期時間相距 90 天或更短時間內執行的註冊，或是憑證到期時間之後任何時間點執行的註冊，將會產生新的憑證並予以使用。
+* 在註冊之後，每個節點會自動交涉唯一的驗證憑證，該憑證於一年之後到期。 目前，當憑證即將過期時，PowerShell DSC 註冊通訊協定便無法自動更新憑證，因此您必須在一年之後重新註冊這些節點。 在重新登錄之前，請確定每個節點都正在執行 Windows Management Framework 5.0 RTM。 如果節點的驗證憑證過期，而且該節點尚未註冊，則該節點將無法與 Azure 自動化通訊，而且會被標示為「未回應」。 與憑證到期時間相距 90 天或更短時間內執行的註冊，或是憑證到期時間之後任何時間點執行的註冊，將會產生新的憑證並予以使用。
 * 變更在節點初始註冊期間設定的任何 [PowerShell DSC 本機組態管理員值](https://msdn.microsoft.com/powershell/dsc/metaconfig4) ，例如 ConfigurationMode。 目前，這些 DSC 代理程式值只可以透過重新註冊變更。 其中一個例外是指派給節點的節點組態 - 它可以在 Azure Automation DSC 中直接變更。
 
 重新註冊可以用您初始註冊節點的相同方法執行，使用這份文件中所述的任何上架方法。 重新註冊節點之前，您不需要從 Azure Automation DSC 取消註冊節點。

@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f57b5304b8dc575d157f970312e71463496bf10d
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8b871c28c2d666bebcc192403cf0c8ef238fef4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-tpm-java.md)
+> * [C#](quick-enroll-device-tpm-csharp.md)
 > * [Node.js](quick-enroll-device-tpm-node.md)
 
 這些步驟顯示如何使用 [Java 服務 SDK](https://azure.github.io/azure-iot-sdk-java/service/) 與範例 Java 應用程式的協助，以程式設計方式向 Azure IoT 中樞裝置佈建服務註冊 TPM 模擬裝置。 雖然 Java 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦來逐步引導進行註冊程序。

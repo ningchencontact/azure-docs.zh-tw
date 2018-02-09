@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>授權 Ambari 檢視的使用者
 
-[已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以同步處理新使用者
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以將已新增至已獲得存取權之 Azure AD 群組的新使用者同步至叢集 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) -->，讓這些特定使用者能夠執行特定動作。 已加入網域的 HDInsight 叢集和標準 HDInsight 叢集都支援在 Ambari 中使用使用者、群組及權限。
 
 Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 Hue、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
 

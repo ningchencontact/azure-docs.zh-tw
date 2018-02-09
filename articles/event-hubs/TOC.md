@@ -7,12 +7,10 @@
 ## [建立事件中樞](event-hubs-create.md)
 ## 傳送事件
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## 接收事件
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## 擷取事件
@@ -30,6 +28,8 @@
 ### [可用性和一致性](event-hubs-availability-and-consistency.md)
 ### [自動調整輸送量單位](event-hubs-auto-inflate.md)
 ## 開發
+### [使用 .NET Framework 傳送事件](event-hubs-dotnet-framework-getstarted-send.md)
+### [使用 .NET Framework 接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [可用的 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

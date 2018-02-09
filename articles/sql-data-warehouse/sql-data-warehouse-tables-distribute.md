@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 
@@ -121,7 +121,7 @@ WITH
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>沒有資料行是理想的散發資料行時該怎麼辦
 
-若沒有理想的候選資料行存在，則考慮使用循環配置資源作為散發方法。
+若您的資料行都沒有散發資料行所需的足夠相異值，您可以建立新資料行以作為一或多個值的複合。 為避免查詢執行期間的資料移動，請在查詢中使用複合散發資料行作為聯結資料行。
 
 設計雜湊分散式資料表後，下一個步驟是將資料載入資料表中。  如需載入指引，請參閱[載入概觀](sql-data-warehouse-overview-load.md)。 
 

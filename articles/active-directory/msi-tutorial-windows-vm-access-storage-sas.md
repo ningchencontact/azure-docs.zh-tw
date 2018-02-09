@@ -3,21 +3,21 @@ title: "使用 Windows VM MSI 透過 SAS 認證存取 Azure 儲存體"
 description: "該教學課程說明如何使用 Windows VM 受控服務識別 (MSI) 存取 Azure 儲存體，所用的是 SAS 認證而非儲存體帳戶存取金鑰。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: fbe46b952b72d3379ba3eb0ff8c84b9d036752e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 0986c4470c233a21a88624f0affedb5986d86589
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>使用 Windows VM 受控服務識別透過 SAS 認證存取 Azure 儲存體
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 > * 在資源管理員中將 VM 存取權限授與儲存體帳戶 SAS 
 > * 使用 VM 身分識別取得存取權杖，並將其用於從資源管理員取出 SAS 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

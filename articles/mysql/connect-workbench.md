@@ -6,15 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 01/24/2018
+ms.openlocfilehash: 89ccd30abfb6f25563ceb4493514c3d102ea37fe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 MySQL Workbench 來連線及查詢資料
 本快速入門示範如何使用 MySQL Workbench 應用程式來連線到 Azure Database for MySQL。 
@@ -69,7 +69,8 @@ ms.lasthandoff: 01/03/2018
         新的 SQL 索引標籤隨即開啟並出現空白的編輯器，可供您輸入查詢。
     
         > [!NOTE]
-        > 根據預設，需要 SSL 連線安全性，而且會在適用於 MySQL 伺服器的 Azure 資料庫上強制執行。 一般而言，您雖然不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器，但還是建議您將 SSL CA 憑證繫結到 MySQL Workbench。 如需如何下載和繫結憑證的詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。  如果您需要停用 SSL，請前往 Azure 入口網站，然後按一下 [連線安全性] 頁面，以停用 [強制執行 SSL 連線] 切換按鈕。
+        > 根據預設，需要 SSL 連線安全性，而且會在適用於 MySQL 伺服器的 Azure 資料庫上強制執行。 一般而言，您雖然不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器，但還是建議您將 SSL CA 憑證繫結到 MySQL Workbench。 如需如何下載和繫結憑證的詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。  
+        > 如果您需要停用 SSL，請前往 Azure 入口網站，然後按一下 [連線安全性] 頁面，以停用 [強制執行 SSL 連線] 切換按鈕。 若要停用 MySQL 工作台中的 SSL 選項，請在主要儀表板頁面上編輯連線 (扳手圖示)，並在連線的 [SSL] 索引標籤上將 [使用 SSL] 選取為 [否]。 如果未正確地設定此 SSL 設定，您可能會收到錯誤訊息：「讀取最終連線資訊」時失去與 MySQL 伺服器的連線，系統錯誤：0。
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>建立資料表、將資料插入、讀取資料、更新資料、刪除資料
 1. 將範例 SQL 程式碼複製並貼到空白的 SQL 索引標籤，來說明某些範例資料。

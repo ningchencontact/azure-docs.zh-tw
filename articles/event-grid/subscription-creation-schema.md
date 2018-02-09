@@ -6,26 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a915473c67a7577582837b56d1a9ccec4d21c461
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-subscription-schema"></a>事件格線訂用帳戶的結構描述
 
 若要建立事件格線訂用帳戶，請將要求傳送至建立事件訂用帳戶作業。 請使用下列格式：
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 例如，若要在名為 `examplegroup` 的資源群組中建立命名為 `examplestorage` 的儲存體帳戶之事件訂用帳戶，請使用下列格式：
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 本文描述要求主體的屬性和結構描述。
@@ -42,7 +42,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
 | endpointType | 字串 | 訂用帳戶的端點類型 (webhook/HTTP、事件中樞或佇列)。 | 
-| endpointUrl | 字串 |  | 
+| endpointUrl | 字串 | 此事件訂用帳戶中事件的目的地 URL。 | 
 
 ### <a name="filter-object"></a>篩選物件
 

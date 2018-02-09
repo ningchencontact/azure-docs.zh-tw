@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure Data Factory 將資料複製到 Oracle 或從該處複製資料 | Microsoft Docs"
+title: "使用 Azure Data Factory 將資料複製到 Oracle 及從該處複製資料 | Microsoft Docs"
 description: "了解如何使用 Data Factory 將資料從支援的來源存放區複製到 Oracle 資料庫，或從 Oracle 複製到支援的接收存放區。"
 services: data-factory
 documentationcenter: 
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6b96bc40325d398c91e293ec6ca8f8cc2993e58
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-onprem-oracle-connector.md)
+> * [第 1 版 - 正式運作](v1/data-factory-onprem-oracle-connector.md)
 > * [第 2 版 - 預覽](connector-oracle.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Oracle 資料庫複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Oracle 連接器](v1/data-factory-onprem-oracle-connector.md)。
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用已正式運作的第 1 版 Data Factory，請參閱[第 1 版中的 Oracle 連接器](v1/data-factory-onprem-oracle-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從 Oracle 資料庫複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Oracle 資料庫。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+您可以將資料從 Oracle 資料庫複製到任何支援的接收資料存放區。 您也可以從任何支援的來源資料存放區將資料複製到 Oracle 資料庫。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 Oracle 連接器支援下列版本的 Oracle 資料庫，並且支援「基本」或 OID 驗證。
+具體而言，這個 Oracle 連接器支援下列版本的 Oracle 資料庫。 它也支援基本或 OID 驗證：
 
 - Oracle 12c R1 (12.1)
 - Oracle 11g R1、R2 (11.1、11.2)
@@ -41,11 +41,11 @@ ms.lasthandoff: 01/11/2018
 - Oracle 9i R1、R2 (9.0.1、9.2)
 - Oracle 8i R3 (8.1.7)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要從不可公開存取的 Oracle 資料庫複製資料，或將資料複製到該處，您必須設定一個「自我裝載 Integration Runtime」。 如需有關 Integration Runtime 的詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md)。 Integration Runtime 提供內建的 Oracle 驅動程式，因此從 Oracle 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
+若要從不可公開存取的 Oracle 資料庫複製資料，以及將資料複製到該處，您必須設定一個「自我裝載 Integration Runtime」。 如需整合執行階段的詳細資訊，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md)。 整合執行階段提供內建的 Oracle 驅動程式。 因此，當您從 Oracle 複製資料或將資料複製到該處時，不需要手動安裝驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="get-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,13 +53,13 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 
-以下是針對 Oracle 已連結服務支援的屬性：
+以下是針對 Oracle 連結服務所支援的屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Oracle** | 是 |
-| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 請將此欄位標示為 SecureString。<br><br>**支援的連線類型**：您可以選擇使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+| type | type 屬性必須設定為 **Oracle**。 | yes |
+| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 請將此欄位標示為 SecureString。<br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | yes |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
 
@@ -84,14 +84,14 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Oracle 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Oracle 資料集所支援的屬性清單。
 
-若要從 Oracle 複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **OracleTable**。 以下是支援的屬性：
+若要從 Oracle 複製資料及將資料複製到該處，請將資料集的類型屬性設定為 **OracleTable**。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**OracleTable** | 是 |
-| tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | 是 |
+| type | 資料集的 type 屬性必須設定為 **OracleTable**。 | yes |
+| tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | yes |
 
 **範例：**
 
@@ -114,16 +114,16 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Oracle 來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Oracle 來源和接收所支援的屬性清單。
 
-### <a name="oracle-as-source"></a>Oracle 作為來源
+### <a name="oracle-as-a-source-type"></a>Oracle 作為來源類型
 
-若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 **OracleSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 **OracleSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**OracleSource** | 是 |
-| oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 |
+| type | 複製活動來源的 type 屬性必須設定為 **OracleSource**。 | yes |
+| oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 |
 
 如果您未指定 "oracleReaderQuery"，就會使用資料集的 "structure" 區段中定義的資料行，來建構要針對 Oracle 資料庫執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
 
@@ -159,16 +159,16 @@ ms.lasthandoff: 01/11/2018
 ]
 ```
 
-### <a name="oracle-as-sink"></a>Oracle 作為接收器
+### <a name="oracle-as-a-sink-type"></a>Oracle 作為接收類型
 
-若要將資料複製到 Oracle，請將複製活動中的接收器類型設定為 **OracleSink**。 複製活動的 **sink** 區段支援下列屬性：
+若要將資料複製到 Oracle，請將複製活動中的接收器類型設定為 **OracleSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的 type 屬性必須設定為：**OracleSink** | 是 |
-| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值為 10000) |
-| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：00:30:00 (30 分鐘)。 | 否 |
-| preCopyScript | 指定一個供「複製活動」在每次執行時將資料寫入到 Oracle 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
+| type | 複製活動接收的 type 屬性必須設定為 **OracleSink**。 | yes |
+| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
+| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/>允許的值為時間範圍。 範例是 00:30:00 (30 分鐘)。 | 否 |
+| preCopyScript | 指定一個供複製活動在每次執行時將資料寫入到 Oracle 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
 
 **範例：**
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="data-type-mapping-for-oracle"></a>Oracle 的資料類型對應
 
-從 Oracle 複製資料或將資料複製到該處時，會使用下列從 Oracle 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
+從 Oracle 複製資料及將資料複製到該處時，會使用下列從 Oracle 資料類型對應到 Data Factory 過渡期資料類型的對應。 若要了解複製活動如何將來源結構描述和資料類型對應至接收，請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)。
 
 | Oracle 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
@@ -234,4 +234,4 @@ ms.lasthandoff: 01/11/2018
 
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

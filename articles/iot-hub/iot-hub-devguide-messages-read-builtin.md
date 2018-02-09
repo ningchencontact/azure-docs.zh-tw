@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>從內建端點讀取裝置對雲端訊息
 
@@ -32,7 +32,7 @@ IoT 中樞也可讓您管理內建裝置對雲端接收端點上的取用者群�
 
 根據預設，所有未明確符合訊息路由規則的訊息，均會寫入至內建端點。 如果您停用此後援路由，則會捨棄未明確符合任何訊息路由規則的訊息。
 
-您可以透過 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis] 以程式設計方式來修改保留時間，或使用 [Azure 入口網站][lnk-management-portal]來修改。
+您可以使用 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis] 以程式設計方式修改保留時間，或使用 [Azure 入口網站][lnk-management-portal]來修改。
 
 IoT 中樞會公開您後端服務的 **messages/events** 內建端點，以讀取您的中樞收到的裝置到雲端訊息。 此端點與事件中樞相容，可讓您使用事件中樞服務支援的任何機制讀取訊息。
 
@@ -40,7 +40,7 @@ IoT 中樞會公開您後端服務的 **messages/events** 內建端點，以讀�
 
 使用[適用於 .NET 的 Azure 服務匯流排 SDK][lnk-servicebus-sdk] 或[事件中樞 - 事件處理器主機][lnk-eventprocessorhost]時，您可以使用任何 IoT 中樞連接字串搭配正確的權限。 然後使用 **messages/events** 做為事件中樞名稱
 
-當您使用未能察覺 IoT 中樞的 SDK (或產品整合) 時，必須從 IoT 中樞設定中，擷取事件中樞相容端點和事件中樞相容名稱︰
+當您使用無法感知「IoT 中樞」的 SDK (或產品整合) 時，必須擷取「事件中樞」相容端點和「事件中樞」相容名稱︰
 
 1. 登入 [Azure 入口網站][lnk-management-portal]，然後瀏覽至 IoT 中樞。
 1. 按一下 [端點] 。

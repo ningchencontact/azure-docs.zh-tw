@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>建立 Azure Marketplace 解決方案範本的技術必要條件
 開始之前，請先徹底閱讀程序，並且了解每個步驟執行的位置及原因。 在供應項目建立程序之前，您應該盡可能準備您的公司資訊和其他資料、下載必要的工具，和/或建立技術元件。  
@@ -26,9 +26,8 @@ ms.lasthandoff: 10/11/2017
 ## <a name="developing-building-blocks"></a>開發建置組塊
 您必須決定解決方案的建置組塊，才能在發佈入口網站上繼續使用解決方案範本。 以下是一些可協助您進行的文件連結：
 
-1. [設計 Azure 資源管理員範本的最佳做法](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-2. [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
-3. Azure 快速入門範本：
+1. [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
+2. Azure 快速入門範本：
    * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 

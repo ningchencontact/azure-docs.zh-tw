@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>合併資料行實例化轉換
 此轉換可讓使用者藉由合併多個資料行的值以新增資料行。 使用者可以指定分隔符號，或提供組合值的範例以執行這項轉換。 當使用者提供合併範例時，轉換由**衍生資料行實例化**轉換中使用的相同**實例化**引擎處理。
@@ -37,6 +37,10 @@ ms.lasthandoff: 12/18/2017
 在 [合併資料行依據] 下選取 [範例]，可讓使用者提供組合值的範例。 若要升級資料列作為範例，請按兩下格線中的資料列。 在文字方塊中，對應升級的資料列輸入預期的輸出。 從 [分隔符號] 文字方塊中選出，以預覽資料方格中的結果。 按 [確定] 以認可轉換。 
 
 使用者可按一下「轉換編輯器」中的連結，以在**基本模式**和**進階模式**之間切換。
+
+### <a name="transform-editor-send-feedback"></a>轉換編輯器：傳送意見反應
+
+按一下 [傳送意見反應] 連結會開啟 [意見反應] 對話方塊，其中會顯示具有使用者所提供範例的意見方塊。 使用者應該檢閱意見方塊的內容並提供更多詳細資料以協助我們了解問題。 若使用者不想要與 Microsoft 分享資料，使用者在按下 [傳送意見反應] 按鈕之前應該先刪除預先填寫的範例資料。 
 
 ### <a name="editing-existing-transformation"></a>編輯現有的轉換
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 01/24/2018
 * 傳遞 ConfigurationData
 * 編譯使用認證的組態
 
-在您決定編譯方法後，您可以依照下列個別的程序開始編譯。
+在您決定編譯方法後，請使用下列程序開始編譯。
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>使用 Azure 入口網站編譯 DSC 組態
 
 1. 從您的自動化帳戶中，按一下 [DSC 組態]。
 2. 按一下組態以開啟其刀鋒視窗。
 3. 按一下 [編譯] 。
-4. 如果組態沒有參數，系統會提示您確認是否要加以編譯。 如果組態有參數，即會開啟 [編譯組態] 刀鋒視窗，讓您可以提供參數值。 如需參數的進一步詳細資訊，請參閱以下的[**基本參數**](#basic-parameters)一節。
+4. 如果組態沒有參數，系統會提示您確認是否要加以編譯。 如果組態有參數，即會開啟 [編譯組態] 刀鋒視窗，讓您可以提供參數值。 如需參數的進一步詳細資訊，請參閱下列[**基本參數**](#basic-parameters)一節。
 5. [編譯工作]  刀鋒視窗隨即開啟，供您追蹤編譯工作的狀態，以及因為此工作而放在 Azure 自動化 DSC 提取伺服器上的節點組態 (MOF 組態文件)。
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>使用 Windows PowerShell 編譯 DSC 組態
@@ -131,7 +131,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="composite-resources"></a>複合資源
 
-**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。  如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)
+**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)
 
 > [!NOTE]
 > 為使**複合資源**正確編譯，您必須先確定複合依賴的任何 DSC 資源都已先安裝在 Azure 自動化帳戶模組存放庫中，否則它就無法正確匯入。
@@ -144,7 +144,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ![選取 [模組]](./media/automation-dsc-compile/select_dscresource.png)
 
-然後，會將您重新導向回模組目錄，您可以在**複合資源**解壓縮並向 Azure 自動化註冊時，在此監視它的狀態。
+系統會將您導向回模組目錄，您可以在**複合資源**解壓縮並向 Azure 自動化註冊時，在此監視它的狀態。
 
 ![匯入複合資源](./media/automation-dsc-compile/register_composite_resource.png)
 
@@ -174,7 +174,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 ## <a name="configurationdata"></a>ConfigurationData
-**ConfigurationData** 可讓您在使用 PowerShell DSC 時區隔結構化組態與任何環境特定組態。 請參閱 [區隔 PowerShell DSC 中的 "What" 與 "Where"](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) ，以深入了解 **ConfigurationData**。
+**ConfigurationData** 可讓您在使用 PowerShell DSC 時，將結構化設定與任何環境特定設定進行區隔。 請參閱 [區隔 PowerShell DSC 中的 "What" 與 "Where"](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) ，以深入了解 **ConfigurationData**。
 
 > [!NOTE]
 > 使用 Azure PowerShell 在 Azure 自動化 DSC 中進行編譯時可以使用 **ConfigurationData** ，但使用 Azure 入口網站時則否。
@@ -200,7 +200,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-您可以使用 PowerShell 編譯上述 DSC 組態。 PowerShell 會將以下兩個節點組態新增至 Azure Automation DSC 提取伺服器：**ConfigurationDataSample.MyVM1** 和 **ConfigurationDataSample.MyVM3**：
+您可以使用 PowerShell 來編譯上述 DSC 設定。 下列 PowerShell 會將兩個節點設定新增至 Azure 自動化 DSC 提取伺服器：**ConfigurationDataSample.MyVM1** 和 **ConfigurationDataSample.MyVM3**：
 
 ```powershell
 $ConfigData = @{
@@ -238,7 +238,7 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。 如需�
 
 ### <a name="credential-assets"></a>認證資產
 
-雖然 Azure 自動化中的 DSC 組態可以使用 **Get-AzureRmAutomationCredential**參考認證資產，但如有需要，也可以透過參數傳入認證資產。 如果組態採用屬於 **PSCredential** 類型的參數，您必須將 Azure 自動化認證資產的字串名稱傳遞為該參數的值，而不是 PSCredential 物件。 具有該名稱的 Azure 自動化認證資產會在背景中被擷取，並傳遞至組態。
+雖然 Azure 自動化中的 DSC 組態可以使用 **Get-AzureRmAutomationCredential**參考認證資產，但如有需要，也可以透過參數傳入認證資產。 如果組態採用屬於 **PSCredential** 類型的參數，您必須將 Azure 自動化認證資產的字串名稱傳遞為該參數的值，而不是 PSCredential 物件。 會在背景中取出具有該名稱的 Azure 自動化認證資產，並傳遞至設定。
 
 要在節點組態 (MOF 組態文件) 中保持認證的安全性，需要在節點組態 MOF 檔案中為認證加密。 Azure 自動化會進一步執行此步驟，而加密整個 MOF 檔案。 不過，目前您必須告知 PowerShell DSC 在節點組態 MOF 產生期間以純文字形式輸出認證是可行的，因為 PowerShell DSC 並不知道在透過編譯工作產生 MOF 檔案之後 Azure 自動化會加密整個檔案。
 
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-您可以使用 PowerShell 編譯上述 DSC 組態。 PowerShell 會將以下兩個節點組態新增至 Azure Automation DSC 提取伺服器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
+您可以使用 PowerShell 來編譯上述 DSC 設定。 下列 PowerShell 會將兩個節點設定新增至 Azure 自動化 DSC 提取伺服器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
 
 ```powershell
 $ConfigData = @{

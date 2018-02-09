@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 89ecd5ac2b8816e4efc5f8bf37dd7390bbf39ae8
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0686e3fe129abcdcecc5870f7384dd68271e7b3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/06/2017
 6. 在顯示的 [myVnetA - 存取控制 (IAM)] 刀鋒視窗中，按一下 [+ 新增]。
 7. 在顯示的 [新增權限] 刀鋒視窗中，選取 [角色] 方塊中的 [網路參與者]。
 8. 在 [選取] 方塊中，選取 [UserB]，或輸入 UserB 的電子郵件地址來搜尋它。 顯示的使用者清單來自與您設定對等互連之虛擬網路相同的 Azure Active Directory 租用戶。
-9. 按一下 [儲存] 。
+9. 按一下 [檔案] 。
 10. 在 [myVnetA - 存取控制 (IAM)] 刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [屬性]。 複製 [資源識別碼]，在稍後的步驟中將會用到此識別碼。 資源識別碼與以下範例類似：/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA。
 11. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
 12. 完成步驟 2 到 3，其中在步驟 3 中輸入或選取下列值：
@@ -334,9 +334,7 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="register"></a>註冊可獲得虛擬網路對等互連全球預覽版
 
-將不同區域中的虛擬網路視為對等的功能目前為預覽狀態。 僅有限的區域 (初期為美國中西部、加拿大中部和美國西部 2) 可使用此功能。 在不同區域中的虛擬網路之間建立的虛擬網路對等互連，可能無法達到與同一個區域中的虛擬網路之間的對等互連相同程度的可用性和可靠性。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
-
-若要使各區域的虛擬網路對等互連，您必須使用 Azure PowerShell 或 Azure CLI 完成下列步驟 (在您想要對等互連的虛擬網路適用的訂用帳戶內)，先註冊預覽：
+在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 讓不同區域中的虛擬網路進行對等互連的功能目前為預覽版。 如需了解有哪些可用的區域，請參閱[虛擬網路更新](https://azure.microsoft.com/en-us/updates/?product=virtual-network)。 若要使各區域的虛擬網路對等互連，您必須使用 Azure PowerShell 或 Azure CLI 完成下列步驟 (在您想要對等互連的虛擬網路適用的訂用帳戶內)，先註冊預覽：
 
 ### <a name="powershell"></a>PowerShell
 

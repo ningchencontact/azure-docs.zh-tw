@@ -1,10 +1,10 @@
 ---
-title: "檢查與 Azure 網路監看員的連線 - Azure 入口網站 | Microsoft Docs"
-description: "此頁面說明如何在 Azure 入口網站中使用網路監看員來檢查連線能力"
+title: "利用 Azure 網路監看員進行連線疑難排解 - Azure REST API | Microsoft Docs"
+description: "了解如何運用 Azure REST API，來使用 Azure 網路監看員的連線疑難排解功能。"
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 入口網站檢查與 Azure 網路監看員的連線
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>使用 Azure REST API 利用 Azure 網路監看員進行連線疑難排解
 
 > [!div class="op_single_selector"]
 > - [入口網站](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-了解如何使用連線，確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
+了解如何使用連線疑難排解，來確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
 
 ## <a name="before-you-begin"></a>開始之前
 
 本文假設您具有下列資源：
 
-* 您想要檢查連線之區域中的網路監看員執行個體。
-
-* 要檢查與其連線的虛擬機器。
-
-使用 ARMclient 透過 PowerShell 呼叫 REST API。 您可以在 chocolatey 的 [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient) 上找到 ARMClient。
-
-此案例假設您已依照[建立網路監看員](network-watcher-create.md)中的步驟建立網路監看員。
+* 您想要進行連線疑難排解之區域中的網路監看員執行個體。
+* 要用來進行連線疑難排解的虛擬機器。
 
 > [!IMPORTANT]
-> 連線檢查需要虛擬機器延伸模組 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
+> 連線疑難排解需要虛擬機器擴充功能 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登入
 
@@ -471,11 +466,9 @@ null
 
 ## <a name="next-steps"></a>後續步驟
 
-檢視[建立由警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)來了解如何透過虛擬機器警示自動化封包擷取
+檢視[建立由警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)來了解如何透過虛擬機器警示將封包擷取自動化。
 
-造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出
-
-<!-- Image references -->
+造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出。
 
 
 

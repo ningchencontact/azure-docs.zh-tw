@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 03a6ce77eed16cbc5d2fe46094b0b6ac7fbc022e
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 您可以向 Azure 註冊 Azure Stack，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。
@@ -212,3 +212,6 @@ $registrationToken = "*Your copied registration token*"
 UnRegister-AzsEnvironment -RegistrationToken $registrationToken
 ```
 
+## <a name="next-steps"></a>後續步驟
+
+[外部監視整合](azure-stack-integrate-monitor.md)

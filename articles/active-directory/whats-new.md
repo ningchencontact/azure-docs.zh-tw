@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -75,7 +75,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 使用 Azure AD Premium P1 版本時，您授權未涵蓋的偵測會顯示為「偵測到有額外風險的登入」風險事件。
 
-如需詳細資訊，請參閱 [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
+如需詳細資訊，請參閱 [Azure Active Directory 風險事件](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)。
  
 
 ---
@@ -90,7 +90,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 您現在可以透過新的使用者設定，以更好的方式管理 Office 365 應用程式在使用者存取面板上的顯示方式。 如果您偏好只在 Office 入口網站中顯示 Office 應用程式，此選項將有助於減少使用者存取面板中的應用程式數量。 此設定位於 [使用者設定] 中，並且標示為 [使用者只能在 Office 365 入口網站中看見 Office 365 應用程式]。
  
 
-如需詳細資訊，請參閱[從 Azure Active Directory 的使用者體驗中隱藏應用程式](active-directory-coreapps-hide-third-party-app.md)。
+如需詳細資訊，請參閱[從 Azure Active Directory 的使用者體驗中隱藏應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)。
 
 ---
  
@@ -110,7 +110,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 - 擴充功能所提供的最近使用過的應用程式捷徑
 - 此擴充功能適用於 Edge、Chrome 及 Firefox。
  
-如需詳細資訊，請參閱[我的應用程式安全登入擴充功能](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension)。
+如需詳細資訊，請參閱[我的應用程式安全登入擴充功能](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension)。
 
 ---
 
@@ -155,9 +155,9 @@ MFA 設定位於：**Azure Active Directory \> MFA Server**
 
 如需詳細資訊，請參閱
 
-- [開始使用 Azure Active Directory 報告 API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [開始使用 Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -227,7 +227,7 @@ Azure AD 登入頁面上的 [讓我保持登入] 核取方塊已被新的提示�
 
 請選取 [開啟] 或 [關閉] 來要求使用者展開使用規定。 [開啟] 設定會要求使用者必須先檢視使用規定，才能接受該規定。
 
-如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](active-directory-tou.md)。
+如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
  
 ---
  
@@ -240,7 +240,7 @@ Azure AD 登入頁面上的 [讓我保持登入] 核取方塊已被新的提示�
  
 您可以使用限域啟用，以比原始指派預設值更少的自主性來啟用合格的 Azure 資源角色指派。 例如，假設您獲指派為租用戶中訂用帳戶的擁有者。 在使用限域啟用的情況下，您最多可以針對該訂用帳戶內包含的 5 個資源 (例如資源群組與虛擬機器) 啟用擁有者角色。 限制啟用範圍可降低對重要 Azure 資源執行不需要之變更的可能性。
 
-如需詳細資訊，請參閱[什麼是 Azure AD Privileged Identity Management？](active-directory-privileged-identity-management-configure.md)。
+如需詳細資訊，請參閱[什麼是 Azure AD Privileged Identity Management？](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)。
  
 ---
  
@@ -343,7 +343,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 
 請在即將推出的部落格和版本資訊中，查看此功能及更多資訊。 
 
-如需詳細資訊，請參閱 [Azure AD 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
+如需詳細資訊，請參閱 [Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。
 
  
 ---
@@ -358,7 +358,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 
 
 
-已計畫將下列應用程式新增至[已核准的用戶端應用程式](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)清單：
+已計畫將下列應用程式新增至[已核准的用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)清單：
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/) \(英文\)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -366,8 +366,8 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 
 如需詳細資訊，請參閱
 
-- [已核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD 應用程式型條件式存取](active-directory-conditional-access-mam.md)
+- [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -409,7 +409,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 - 可協助您解決該問題之文件的連結。 
 
 
-如需詳細資訊，請參閱[內部部署整合](active-directory-passwords-how-it-works.md#on-premises-integration)。
+如需詳細資訊，請參閱[內部部署整合](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration)。
 
  
 ---
@@ -428,9 +428,9 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 
 
 
-您現在可以藉由使用 [Azure AD 應用程式型條件式存取](active-directory-conditional-access-mam.md)，限制只有支援 Intune 應用程式防護原則的[已核准用戶端應用程式](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)，才能存取 Office 365 和其他已連線至 Azure AD 的雲端應用程式。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
+您現在可以藉由使用 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)，限制只有支援 Intune 應用程式防護原則的[已核准用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)，才能存取 Office 365 和其他已連線至 Azure AD 的雲端應用程式。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
 
-透過結合[應用程式型](active-directory-conditional-access-mam.md)和[裝置型](active-directory-conditional-access-policy-connected-applications.md)的條件式存取原則，您將能彈性地保護個人及公司裝置上的資料。
+透過結合[應用程式型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)和[裝置型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)的條件式存取原則，您將能彈性地保護個人及公司裝置上的資料。
 
 下列條件及控制項現已能搭配應用程式型條件式存取使用：
 
@@ -448,7 +448,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 - 需要已核准的用戶端應用程式
 
 
-如需詳細資訊，請參閱 [Azure AD 應用程式型條件式存取](active-directory-conditional-access-mam.md)。
+如需詳細資訊，請參閱 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)。
 
  
 ---
@@ -472,7 +472,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 - 尋找已加入 Azure AD 之裝置的 BitLocker 金鑰、透過 Intune 管理裝置等等。
 - 管理 Azure AD 裝置相關的設定。
 
-如需詳細資訊，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)。
+如需詳細資訊，請參閱[使用 Azure 入口網站來管理裝置](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
 
 
 
@@ -497,7 +497,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 如需詳細資訊，請參閱
 
 - [使用 Intune 為 macOS 裝置建立裝置合規性原則](https://aka.ms/macoscompliancepolicy)
-- [Azure AD 中的條件式存取](active-directory-conditional-access-azure-portal.md)
+- [Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -518,7 +518,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 這個擴充功能是針對想要保護虛擬私人網路連線但又不想部署 Azure Multi-Factor Authentication Server 的組織所建立。 「網路原則伺服器」擴充功能會作為 RADIUS 與雲端式 Azure Multi-Factor Authentication 之間的配接器，可為同盟或同步的使用者提供第二驗證要素。
 
 
-如需詳細資訊，請參閱[將現有的網路原則伺服器基礎結構與 Azure Multi-Factor Authentication 整合](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)。
+如需詳細資訊，請參閱[將現有的網路原則伺服器基礎結構與 Azure Multi-Factor Authentication 整合](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension)。
 
  
 ---
@@ -557,7 +557,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 **產品功能：**身分識別安全性與保護
 
 
-下列應用程式已新增至[已核准的用戶端應用程式](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)清單：
+下列應用程式已新增至[已核准的用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)清單：
 
 - Microsoft Planner
 - Azure 資訊保護 
@@ -565,8 +565,8 @@ Azure AD 目錄角色的核准工作流程已正式運作。
 
 如需詳細資訊，請參閱
 
-- [已核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD 應用程式型條件式存取](active-directory-conditional-access-mam.md)
+- [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -581,7 +581,7 @@ Azure AD 目錄角色的核准工作流程已正式運作。
  
 您現在可以針對條件式存取控制項使用 "OR" (需要其中一個選取的控制項)。 您可以使用此功能建立在存取控制項之間具有 "OR" 的原則。 例如，您可以使用此功能來建立原則，以要求使用者使用多重要素驗證來進行登入，「或」使用符合規範的裝置來進行登入。
 
-如需詳細資訊，請參閱 [Azure AD 條件式存取中的控制項](active-directory-conditional-access-controls.md)。
+如需詳細資訊，請參閱 [Azure AD 條件式存取中的控制項](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)。
 
  
 ---
@@ -635,7 +635,7 @@ Azure 入口網站可讓您使用：
 
 
 
-Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。 [如何自動擷取應用程式的登入欄位](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](http://aad.portal.azure.com) 的 [企業應用程式] 頁面上新增 [非資源庫] 應用程式來尋找此功能。 此外，您也可以在此新應用程式上將 [單一登入] 模式設定為 [密碼單一登入]，輸入 Web URL，然後再儲存頁面。
+Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。 [如何自動擷取應用程式的登入欄位](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](http://aad.portal.azure.com) 的 [企業應用程式] 頁面上新增 [非資源庫] 應用程式來尋找此功能。 此外，您也可以在此新應用程式上將 [單一登入] 模式設定為 [密碼單一登入]，輸入 Web URL，然後再儲存頁面。
  
 之前因為服務問題，而將此功能暫時停用。 此問題已解決，因此已恢復自動登入欄位偵測功能。
 
@@ -657,7 +657,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 在此公開預覽中，MFA 管理和報告功能是核心 Azure AD 設定體驗相當重要的一部分。 現在您可以在 Azure AD 體驗內管理 MFA 管理入口網站功能。
 
-如需詳細資訊，請參閱[在 Azure 入口網站中 MFA 報告的參考](active-directory-reporting-activity-sign-ins-mfa.md)。 
+如需詳細資訊，請參閱[在 Azure 入口網站中 MFA 報告的參考](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa)。 
 
 
 ---
@@ -674,13 +674,13 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 您可以使用 Azure AD 使用規定向使用者顯示資訊，例如法務或合規性需求的相關免責聲明。
 
-您可以在下列情況中使用 Azure AD 使用規定：
+在下列案例中，您可以使用 Azure AD 使用規定：
 
 - 適用於貴組織中所有使用者的一般使用規定
 - 依使用者屬性 (例如，醫生與護士或國內員工與國際員工 (藉由動態群組的方式完成)) 區分的特定使用規定
 - 適用於存取高影響力商務應用程式 (例如 Salesforce) 的特定使用規定
 
-如需詳細資訊，請參閱 [Azure AD 使用規定](active-directory-tou.md)。
+如需詳細資訊，請參閱 [Azure AD 使用規定](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
 
 
 ---
@@ -701,7 +701,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 所有在 Azure 入口網站內利用 Azure RBAC 功能的資源，都可以運用 Azure AD Privileged Identity Management 所提供的安全性和生命週期管理功能。
 
-如需詳細資訊，請參閱[適用於 Azure 資源的 Privileged Identity Management](privileged-identity-management/azure-pim-resource-rbac.md)。
+如需詳細資訊，請參閱[適用於 Azure 資源的 Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)。
 
 
 ---
@@ -722,7 +722,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 您可以將存取權檢閱控制項收集到與組織相關的程式，以追蹤合規性或與風險相關之應用程式的檢閱。
 
-如需詳細資訊，請參閱 [Azure AD 存取權檢閱](active-directory-azure-ad-controls-access-reviews-overview.md)。
+如需詳細資訊，請參閱 [Azure AD 存取權檢閱](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview)。
 
 
 ---
@@ -739,7 +739,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 您現在可以透過新的**隱藏應用程式**屬性，以更好的方式管理在使用者入口網站上顯示的應用程式。 當出現後端服務的應用程式圖格或重複的圖格，而造成使用者的應用程式啟動器凌亂時，您可以隱藏應用程式來協助改善此情況。 該切換參數位於協力廠商應用程式的 [屬性] 區段，標示為 [是否要向使用者顯示?] 您也可以透過 PowerShell 以程式設計方式隱藏應用程式。 
 
-如需詳細資訊，請參閱[從 Azure AD 的使用者體驗中隱藏協力廠商應用程式](active-directory-coreapps-hide-third-party-app.md)。 
+如需詳細資訊，請參閱[從 Azure AD 的使用者體驗中隱藏協力廠商應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)。 
 
 
 **可用的內容？**

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>以程式設計方式重新定型機器學習服務模型
 在此逐步解說中，您將學習如何以程式設計方式使用 C# 和 Machine Learning 批次執行服務來重新訓練 Azure Machine Learning Web 服務。

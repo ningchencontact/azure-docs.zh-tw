@@ -3,11 +3,10 @@
 > * [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-getstarted.md)
-> 
-> 
 
 ## <a name="introduction"></a>簡介
-Azure IoT 中樞是一項完全受管理的服務，可在數百萬個物聯網 (IoT) 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 IoT 專案所面臨的其中一個最大挑戰，就是如何可靠且安全地將裝置連線至解決方案後端。 若要解決這個問題，IoT 中樞：
+
+Azure IoT 中樞是完全受控的 Azure 服務。 此服務可在數百萬個物聯網 (IoT) 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 IoT 專案所面臨的其中一個最大挑戰，就是如何可靠且安全地將裝置連線至解決方案後端。 若要解決這個問題，IoT 中樞：
 
 * 提供可靠的裝置到雲端和雲端到裝置的超大規模傳訊。
 * 使用每一裝置的安全性認證和存取控制來啟用安全通訊。

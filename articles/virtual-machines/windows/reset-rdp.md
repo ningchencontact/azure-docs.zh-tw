@@ -3,7 +3,7 @@ title: "重設 Windows VM 上的密碼或遠端桌面組態 | Microsoft Docs"
 description: "了解如何使用 Azure 入口網站或 Azure PowerShell 來重設 Windows VM 上的帳戶密碼或「遠端桌面」服務。"
 services: virtual-machines-windows
 documentationcenter: 
-author: genlin
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: 555a9e44d1386e27dcb71b3826d162f2ea99f200
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: d9ca3d393bd4544fb4efdbc779f139ca13d98bcd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重設遠端桌面服務或其登入密碼
-如果您無法連線至 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼或重設遠端桌面服務組態 （Windows 網域控制站上不支援）。 您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組來重設密碼。 如果您使用的是 PowerShell，請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並已登入您的 Azure 訂用帳戶。 您也可以[針對使用傳統部署模型建立的 VM 執行這些步驟](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp)。
+如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼或重設「遠端桌面」服務設定 (「Windows 網域控制站」上不支援)。 您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組來重設密碼。 如果您使用的是 PowerShell，請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並已登入您的 Azure 訂用帳戶。 您也可以[針對使用傳統部署模型建立的 VM 執行這些步驟](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp)。
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>重設組態或認證的方式
 根據您的需求而定，您可以透過數種不同方式來重設遠端桌面服務和認證：
@@ -63,7 +63,7 @@ $cred=Get-Credential
 ```
 
 > [!NOTE] 
-> 如果您在 VM 上輸入名稱與目前的本機系統管理員帳戶的名稱不同，VMAccess 擴充功能會新增本機系統管理員帳戶具有該名稱，並將指定的密碼指派給該帳戶。 如果您的 VM 上的本機系統管理員帳戶存在，它會重設密碼和帳戶已停用，VMAccess 擴充功能可讓它。
+> 如果您輸入的名稱與 VM 上目前本機系統管理員帳戶不同，VMAccess 延伸模組將會以該名稱新增一個本機系統管理員帳戶，然後將您指定的密碼指派給該帳戶。 如果 VM 上有本機系統管理員帳戶存在，它將會重設密碼，而如果該帳戶已停用，VMAccess 延伸模組就會啟用它。
 
 
 下列範例會將資源群組 `myResourceGroup` 中的 VM `myVM` 更新為指定的認證。
@@ -82,8 +82,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" 
 > [!TIP]
 > 不論如何，一部 VM 只能有一個 VM 存取代理程式。 若要成功設定 VM 存取代理程式屬性，可以使用 `-ForceRerun` 選項。 使用 `-ForceRerun` 時，請務必使用與任何前述命令中所使用之 VM 存取代理程式相同的名稱。
 
-如果您仍然無法從遠端連接虛擬機器，請參閱 [針對以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線進行疑難排解](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，以取得其他值得一試的步驟。
-
+如果您仍然無法從遠端連接虛擬機器，請參閱 [針對以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線進行疑難排解](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，以取得其他值得一試的步驟。 如果您與 Windows 網域控制站的連線中斷，您將必須從網域控制站備份復原連線。
 
 ## <a name="next-steps"></a>後續步驟
 如果 Azure VM 存取延伸項目沒有回應，而且您無法重設密碼，可以[離線重設本機 Windows 密碼](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此方法是更進階的程序，會要求您將有問題的 VM 之中的虛擬硬碟連接至另一個 VM。 請先依照這篇文章中說明的步驟進行，並且只在最後無計可施時才嘗試離線密碼重設方法。

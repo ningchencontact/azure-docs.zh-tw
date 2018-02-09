@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>使用 IoT 中樞對訊息進行路由傳送 (Python)
 
@@ -117,6 +117,9 @@ ms.lasthandoff: 01/23/2018
 在本節中，您會建立服務匯流排佇列和儲存體帳戶、將它們連線到您的 IoT 中樞，並設定您的 IoT 中樞，進而根據訊息上屬性的目前狀態，將訊息傳送至佇列，並將所有訊息傳送至儲存體帳戶。 如需如何處理來自服務匯流排佇列之訊息的詳細資訊，請參閱[開始使用佇列][lnk-sb-queues-node]，如需如何管理儲存體的詳細資訊，請參閱[開始使用 Azure 儲存體][Azure 儲存體]。
 
 1. 如[開始使用佇列][lnk-sb-queues-node]所述，建立服務匯流排佇列。 記下命名空間和佇列名稱。
+
+    > [!NOTE]
+    > 作為 IoT 中樞端點的服務匯流排佇列和主題不能啟用 [工作階段] 或 [重複偵測]。 如果已啟用其中一個選項，端點會在 Azure 入口網站中顯示為 [無法連線]。
 
 1. 在 Azure 入口網站中，開啟 IoT 中樞然後按一下 [端點]。
 

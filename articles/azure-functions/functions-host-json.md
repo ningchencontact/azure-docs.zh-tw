@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 參考
 
@@ -49,6 +49,13 @@ ms.lasthandoff: 11/30/2017
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -160,6 +167,30 @@ ms.lasthandoff: 11/30/2017
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+[主機健康情況監視器](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor)的組態設定。
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|屬性  |預設值 | 說明 |
+|---------|---------|---------| 
+|已啟用|true|是否啟用此功能。 | 
+|healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
+|healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
+|healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
+|counterThreshold|0.80|系統會將效能計數器視為狀況不良的閾值。| 
 
 ## <a name="http"></a>http
 

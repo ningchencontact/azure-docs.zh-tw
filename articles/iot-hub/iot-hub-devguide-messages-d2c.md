@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>將裝置到雲端訊息傳送至 IoT 中樞
 
 若要從您的裝置傳送時間序列遙測和警示到您的解決方案後端，請從您的裝置傳送裝置到雲端訊息到您的 IoT 中樞。 如需 IoT 中樞所支援之其他裝置到雲端選項的討論，請參閱[裝置對雲端通訊指引][lnk-d2c-guidance]。
 
-您透過裝置面向端點傳送裝置到雲端訊息 (**/devices/{deviceId}/messages/events**)。 路由規則接著會將訊息路由至您 IoT 中樞上的其中一個服務面向端點。 路由規則會使用流經您中樞的裝置到雲端訊息標頭和內文，決定訊息的路由目標。 根據預設，訊息會路由至內建的服務面向端點 (**messages/events**)，此端點與[事件中樞][lnk-event-hubs]相容。 因此，您可以使用標準[事件中樞整合和 SDK][lnk-compatible-endpoint] 在解決方案後端接收裝置到雲端訊息。
+您透過裝置面向端點傳送裝置到雲端訊息 (**/devices/{deviceId}/messages/events**)。 路由規則接著會將訊息路由至您 IoT 中樞上的其中一個服務面向端點。 路由規則會使用裝置到雲端訊息的標頭和本文，來判斷要將訊息路由傳送到何處。 根據預設，系統會將訊息路由至內建的服務面向端點 (**messages/events**)，此端點與[事件中樞][lnk-event-hubs]相容。 因此，您可以使用標準[事件中樞整合和 SDK][lnk-compatible-endpoint] 在解決方案後端接收裝置到雲端訊息。
 
 IoT 中樞使用串流訊息模式實作裝置到雲端傳訊。 IoT 中樞的裝置到雲端訊息與[事件中樞][lnk-event-hubs]*事件*較為相似 (而不像[服務匯流排][lnk-servicebus]*訊息*) 因為會有大量的事件傳遞給該服務，並可由多個讀取器讀取。
 
@@ -36,11 +36,11 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 * IoT 中樞可同時連線到數百萬部裝置 (請參閱[配額和節流][lnk-quotas])。
 * IoT 中樞不允許任意進行資料分割。 裝置到雲端訊息會根據其原始的 **deviceId**進行分割。
 
-如需 IoT 中樞與事件中樞服務之間差異的詳細資訊，請參閱 [Azure IoT 中樞和 Azure 事件中樞的比較][lnk-comparison]。
+如需有關「IoT 中樞」與「事件中樞」之間差異的詳細資訊，請參閱 [Azure IoT 中樞和 Azure 事件中樞的比較][lnk-comparison]。
 
 ## <a name="send-non-telemetry-traffic"></a>傳送非遙測流量
 
-通常除了遙測資料點之外，裝置也會傳送需要在解決方案後端進行個別執行與處理的訊息及要求。 例如，必須於後端觸發特定動作的重大警示。 您可以輕鬆地撰寫[路由規則][lnk-devguide-custom]，以根據訊息的標頭或訊息內文中的值，將這些訊息類型傳送至專屬的處理端點。
+通常除了遙測之外，裝置也會傳送需要在解決方案後端個別執行和處理的訊息與要求。 例如，必須於後端觸發特定動作的重大警示。 您可以撰寫[路由規則][lnk-devguide-custom]，以根據訊息的標頭或訊息本文中的值，將這些類型的訊息傳送到專屬的處理端點。
 
 如需處理這種訊息最佳方式的詳細資訊，請參閱[教學課程：如何處理 IoT 中樞裝置到雲端訊息][lnk-d2c-tutorial]教學課程。
 

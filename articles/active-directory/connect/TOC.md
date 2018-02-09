@@ -10,7 +10,7 @@
 
 
 # 開始使用
-## [必要條件](active-directory-aadconnect-prerequisites.md)
+## [先決條件](active-directory-aadconnect-prerequisites.md)
 ## [安裝 Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [快速設定](active-directory-aadconnect-get-started-express.md)
 ### [自訂設定](active-directory-aadconnect-get-started-custom.md)
@@ -55,6 +55,7 @@
 ### [密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD 服務帳戶](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [安裝精靈](active-directory-aadconnectsync-installation-wizard.md)
+### [如何植入 UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [變更預設組態](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [設定篩選](active-directory-aadconnectsync-configure-filtering.md)
 ### [排程器](active-directory-aadconnectsync-feature-scheduler.md)

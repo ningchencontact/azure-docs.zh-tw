@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>對 Azure Service Fabric 進行監視和診斷
 
@@ -136,5 +136,6 @@ Service Fabric 平台包括健康情況模型，針對叢集中的實體狀態�
 
 * 在[平台層級事件和記錄產生](service-fabric-diagnostics-event-generation-infra.md)深入了解監視平台，以及監視 Service Fabric 提供給您的事件
 * 若要開始檢測您的應用程式，請參閱[應用程式層級事件和記錄產生](service-fabric-diagnostics-event-generation-app.md)
-* 瀏覽[監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式](service-fabric-tutorial-monitoring-aspnet.md)的教學課程
+* 透過[監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式](service-fabric-tutorial-monitoring-aspnet.md)，針對您的應用程式逐步執行設定 AI 的步驟
+* 了解如何設定 OMS Log Analytics 以監視容器：[監視和診斷 Azure Service Fabric 中的 Windows 容器](service-fabric-tutorial-monitoring-wincontainers.md)
 

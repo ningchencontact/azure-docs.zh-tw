@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/18/2018
 電子郵件的主旨依循以下模式：您收到加入 &lt;tenantname&gt; 組織的邀請
 
 ### <a name="from-address"></a>寄件者地址
-針對「寄件者地址」，我們使用類似 LinkedIn 的模式。  您應該清楚邀請者是誰及來自哪個公司，並且表明電子郵件是來自 Microsoft 電子郵件帳戶。 其格式為：來自 &lt;tenantname&gt; 的 &lt;邀請者的顯示名稱&gt; (透過 Microsoft) <invites@microsoft.com&gt;
+針對「寄件者地址」，我們使用類似 LinkedIn 的模式。  您應該清楚邀請者是誰及來自哪個公司，並且表明電子郵件是來自 Microsoft 電子郵件帳戶。 其格式為：來自 &lt;tenantname&gt; 的&lt;邀請者的顯示名稱&gt; (透過 Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>回覆地址
 回覆電子郵件會設定為邀請者的電子郵件 (如果可用)，以便在回覆電子郵件時會將電子郵件傳回給邀請者。

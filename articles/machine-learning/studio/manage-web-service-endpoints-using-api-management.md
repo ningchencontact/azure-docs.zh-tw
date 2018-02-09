@@ -68,7 +68,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
    ![API 管理功能表](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
 1. 按一下 [新增 API]。
-2. 輸入 [Web API 名稱] (此範例使用「AzureML 示範 API」)。
+2. 輸入 [Web API 名稱] \(此範例使用「AzureML 示範 API」)。
 3. 對於 [Web 服務 URL]，輸入 "`https://ussouthcentral.services.azureml.net`"。
 4. 輸入 [Web API URL 尾碼]。 此尾碼會成為 URL 的結尾，客戶將使用該 URL 將要求傳送至服務執行個體 (此範例使用 "azureml-demo")。
 5. 對於 [Web API URL 配置]，選取 [HTTPS]。
@@ -89,7 +89,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 1. 對於 [HTTP 指令動詞]，選取 [POST]。
 2. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`"。
-3. 輸入 [顯示名稱] (此範例使用「RRS 執行」)。
+3. 輸入 [顯示名稱] \(此範例使用「RRS 執行」)。
 
    ![加入 RRS 作業簽章](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
@@ -108,7 +108,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 1. 按一下 [新增作業]，將 BES 作業新增至 API。
 2. 對於 [HTTP 指令動詞]，選取 [POST]。
 3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"。
-4. 輸入 [顯示名稱] (此範例使用「BES 提交」)。
+4. 輸入 [顯示名稱] \(此範例使用「BES 提交」)。
 5. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
 6. 按一下 [儲存] 。
 
@@ -117,7 +117,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 1. 按一下 [新增作業]，將 BES 作業新增至 API。
 2. 對於 [HTTP 指令動詞]，選取 [POST]。
 3. 對於 [HTTP 指令動詞] 中，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"。
-4. 輸入 [顯示名稱] (此範例使用「BES 啟動」)。
+4. 輸入 [顯示名稱] \(此範例使用「BES 啟動」)。
 6. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
 7. 按一下 [儲存] 。
 
@@ -126,7 +126,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 1. 按一下 [新增作業]，將 BES 作業新增至 API。
 2. 對於 [HTTP 指令動詞] 中，選取 [GET]。
 3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
-4. 輸入 [顯示名稱] (此範例使用「BES 狀態」)。
+4. 輸入 [顯示名稱] \(此範例使用「BES 狀態」)。
 6. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
 7. 按一下 [儲存] 。
 
@@ -135,7 +135,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 1. 按一下 [新增作業]，將 BES 作業新增至 API。
 2. 對於 [HTTP 指令動詞]，選取 [DELETE]。
 3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
-4. 輸入 [顯示名稱] (此範例使用「BES 刪除」)。
+4. 輸入 [顯示名稱] \(此範例使用「BES 刪除」)。
 5. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
 6. 按一下 [儲存] 。
 

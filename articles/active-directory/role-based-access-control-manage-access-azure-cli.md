@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令列介面管理角色型存取控制
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-您可以使用 Azure 入口網站及 Azure Resource Manager API 中的「角色型存取控制」(RBAC) 來精確管理對您訂用帳戶和資源的存取。 透過這項功能，您可以為 Active Directory 使用者、群組或是服務主體指派特定範圍的一些角色，藉此賦予其存取權限。
+您可以使用 Azure 入口網站及 Azure Resource Manager API 中的「角色型存取控制」(RBAC) 來精確管理對您訂用帳戶和資源的存取。 透過這項功能，您可以為 Active Directory 使用者、群組或是服務主體指派特定範圍的一些角色，藉此賦予其存取權限。 
 
-使用 Azure 命令列介面 (CLI) 來管理 RBAC 之前，您必須具備下列必要條件：
+> [!NOTE] 
+> [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest) 現在有最新的角色文件可供使用。
+
+
+ 
++> [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) 的最新角色文件 使用 Azure 命令列介面 (CLI) 來管理 RBAC 之前，您必須具備下列必要條件：
 
 * Azure CLI 0.8.8 版或更新版本。 若要安裝最新版本，並將它與 Azure 訂用帳戶建立關聯，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md)。
 * Azure CLI 中的 Azure Resource Manager。 如需詳細資訊，請瀏覽 [搭配使用 Azure CLI 和 Resource Manager](../xplat-cli-azure-resource-manager.md) 。

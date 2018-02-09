@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 29b25a476344ed048673039beacdffd39469ec85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/17/2018
   >
 * **問：我是否可以代表我的使用者同步處理或設定驗證電話、驗證電子郵件或備用驗證電話欄位？**
 
-  > **答：**否，目前無法這麼做。
+  > **答：**可由全域系統管理員設定的欄位已定義於 [SSPR 資料需求](active-directory-passwords-data.md)一文中。
   >
   >
 * **問：註冊入口網站如何判斷要對我的使用者顯示哪些選項？**

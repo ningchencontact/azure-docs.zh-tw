@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Device-to-cloud communications guidance
 將資訊從裝置應用程式傳送到解決方案後端時，IoT 中樞會公開三個選項︰
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 | 頻率 | 高。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 | 中。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 | 低。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 |
 | 通訊協定 | 適用於所有通訊協定。 | 可使用 MQTT 或 AMQP。 | 使用任何通訊協定時都可用，但裝置上必須是 HTTPS。 |
 
-應用程式可能需要以遙測時間序列或警示形式傳送資訊，而且使其可用於裝置對應項。 在此案例中，您可以選擇下列其中一個選項：
+應用程式可能需要以遙測時間序列或警示形式來傳送資訊，並在裝置對應項中提供此資訊。 在此案例中，您可以選擇下列其中一個選項：
 
 * 裝置應用程式可傳送裝置到雲端訊息及回報屬性變更。
 * 解決方案後端可以在收到訊息時將資訊儲存在裝置對應項的標籤中。

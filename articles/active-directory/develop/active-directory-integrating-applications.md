@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -110,7 +110,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 - 委派權限：您的用戶端應用程式需要存取 Web API 做為已登入的使用者，但其存取權受到選取權限的限制。 這種類型的權限可由使用者授與，除非權限需要系統管理員的同意。 
 
   > [!NOTE]
-  > 應用程式中加入委派的權限不會自動授與同意在租用戶使用者。 使用者仍必須在執行階段手動同意新增委派的權限，除非系統管理員按一下 Azure 入口網站中應用程式頁面上 [必要的權限] 區段中的 [授與權限] 按鈕。 
+  > 新增對應用程式的委派權限並不會自動將同意授與租用戶內的使用者。 使用者仍必須在執行階段手動同意新增委派的權限，除非系統管理員按一下 Azure 入口網站中應用程式頁面上 [必要的權限] 區段中的 [授與權限] 按鈕。 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>新增用來存取 Web API 的應用程式認證或權限
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -309,7 +309,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>移除其他組織授權的多租用戶應用程式
 在租用戶的主要 [應用程式註冊] 頁面上的 [所有應用程式] 篩選器 (不包括 [我的應用程式] 註冊) 底下顯示的應用程式子集，都是多租用戶應用程式。 就技術上來說，這些多租用戶應用程式是來自其他租用戶，且已在同意程序期間註冊到您的租用戶中。 更具體來說，它們僅由您租用戶中的服務主體物件表示，而沒有對應的應用程式物件。 如需有關應用程式物件與服務主體物件之差異的詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件](active-directory-application-objects.md)。
 
-為了移除多租用戶應用程式對您的目錄的存取權 (在授與同意之後)，公司系統管理員必須移除其服務主體。 系統管理員必須擁有全域系統管理員存取權，並且可透過 Azure 入口網站或 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 來移除存取權。
+為了移除多租用戶應用程式對您的目錄的存取權 (在授與同意之後)，公司系統管理員必須移除其服務主體。 系統管理員必須擁有全域系統管理員存取權，才能透過 Azure 入口網站移除或使用 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 移除存取權。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需如何在 Azure AD 中進行驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。

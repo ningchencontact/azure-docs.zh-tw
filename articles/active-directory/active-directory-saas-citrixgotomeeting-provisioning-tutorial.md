@@ -1,5 +1,5 @@
 ---
-title: "教學課程：Azure Active Directory 與 GoToMeeting 整合 | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 GoToMeeting 來自動佈建使用者 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 與 GoToMeeting 之間的單一登入。"
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 GoToMeeting
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>教學課程︰設定 GoToMeeting 來自動佈建使用者
 
 本教學課程旨在說明您需要在 GoToMeeting 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 GoToMeeting。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

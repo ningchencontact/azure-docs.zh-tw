@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec9ff4a866ef8736ed260b4d17aa997433c1ef8d
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3ea8979f21fcc8a85e80db9b49377ba9a48836e2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 將您的裝置連線至 IoT 中樞
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 12/07/2017
 * **ReadDeviceToCloudMessages**，其中顯示裝置應用程式所傳送的遙測。
 * **SimulatedDevice**，這會使用先前建立的裝置識別連接到您的 IoT 中樞，並使用 MQTT 通訊協定每秒傳送遙測訊息。
 
-您可以下載或複製 Visual Studio 方案，其中包含來自 Github 的三個應用程式。
+請遵循本教學課程中的步驟，來從頭開始建立範例應用程式。 或者，您可以從 Github [下載](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip)或複製已完成的 Visual Studio 方案：
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
@@ -54,6 +54,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
 <a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>接收裝置到雲端的訊息
+
 在本節中，您會建立 .NET 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。 IoT 中樞會公開與 [Azure 事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。 為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。 若要了解如何大規模處理裝置到雲端訊息，請參閱[處理裝置到雲端訊息][lnk-process-d2c-tutorial]教學課程。 如需有關如何處理來自「事件中樞」之訊息的詳細資訊，請參閱[開始使用事件中樞][lnk-eventhubs-tutorial]教學課程。 (本教學課程適用於 IoT 中樞的事件中樞相容端點)。
 
 > [!NOTE]
@@ -63,18 +64,18 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![新的 Visual C# Windows 傳統桌面專案][10a]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 套件]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 套件]。
 
-3. 在 [NuGet 套件管理員] 視窗中，搜尋 **WindowsAzure.ServiceBus**，選取 [安裝] 並接受使用規定。 此程序會下載及安裝 [Azure 服務匯流排][lnk-servicebus-nuget]，並新增對它的參考與其所有相依項目。 此套件可讓應用程式連接到 IoT 中樞上的事件中樞相容端點。
+1. 在 [NuGet 套件管理員] 視窗中，搜尋 **WindowsAzure.ServiceBus**，選取 [安裝] 並接受使用規定。 此程序會下載及安裝 [Azure 服務匯流排][lnk-servicebus-nuget]，並新增對它的參考與其所有相依項目。 此套件可讓應用程式連接到 IoT 中樞上的事件中樞相容端點。
 
-4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
+1. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     using System.Threading;
     ```
 
-5. 將下列欄位新增到 **Program** 類別。 將預留位置的值替換為您在＜建立 IoT 中樞＞一節中為中樞所建立的 IoT 中樞連接字串。
+1. 將下列欄位新增到 **Program** 類別。 將預留位置的值替換為您在＜建立 IoT 中樞＞一節中為中樞所建立的 IoT 中樞連接字串。
 
     ```csharp
     static string connectionString = "{iothub connection string}";
@@ -82,7 +83,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     static EventHubClient eventHubClient;
     ```
 
-6. 將下列方法新增至 **Program** 類別：
+1. 將下列方法加入至 **Program** 類別：
 
     ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
@@ -102,7 +103,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     這個方法會使用 **EventHubReceiver** 執行個體接收來自所有 IoT 中樞裝置對雲端接收資料分割的訊息。 請注意當您建立 **EventHubReceiver** 物件時如何傳遞 `DateTime.Now` 參數，使它只會收到它啟動後傳送的訊息。 此篩選器很適合測試環境，因為如此一來您就可以看到目前的訊息集。 在生產環境中，您的程式碼應該要確定它能處理所有訊息。 如需詳細資訊，請參閱[如何處理 IoT 中樞裝置到雲端訊息][lnk-process-d2c-tutorial]教學課程。
 
-7. 最後，將下列幾行新增至 **Main** 方法：
+1. 最後，將下列幾行新增至 **Main** 方法：
 
     ```csharp
     Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -123,7 +124,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     foreach (string partition in d2cPartitions)
     {
         tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
-    }  
+    }
     Task.WaitAll(tasks.ToArray());
     ```
 
@@ -135,18 +136,18 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![新的 Visual C# Windows 傳統桌面專案][10b]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，然後按一下 [管理 NuGet 套件]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，然後按一下 [管理 NuGet 套件]。
 
-3. 在 [NuGet 套件管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices.Client**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK NuGet 套件][lnk-device-nuget]與其相依項目，並新增對它的參考。
+1. 在 [NuGet 套件管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices.Client**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK NuGet 套件][lnk-device-nuget]與其相依項目，並新增對它的參考。
 
-4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
+1. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Newtonsoft.Json;
     ```
 
-5. 將下列欄位新增到 **Program** 類別。 以您在「建立 IoT 中樞」一節中擷取的 IoT 中樞主機名稱替代 `{iot hub hostname}`。 以您在「建立裝置身分識別」一節中擷取的裝置金鑰替代 `{device key}`。
+1. 將下列欄位新增到 **Program** 類別。 以您在「建立 IoT 中樞」一節中擷取的 IoT 中樞主機名稱替代 `{iot hub hostname}`。 以您在「建立裝置身分識別」一節中擷取的裝置金鑰替代 `{device key}`。
 
     ```csharp
     static DeviceClient deviceClient;
@@ -154,7 +155,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     static string deviceKey = "{device key}";
     ```
 
-6. 將下列方法加入至 **Program** 類別：
+1. 將下列方法加入至 **Program** 類別：
 
     ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
@@ -190,7 +191,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     這個方法會每秒傳送新的裝置對雲端訊息。 此訊息包含 JSON 序列化物件及裝置識別碼與隨機產生的數字，以模擬溫度感應器和溼度感應器。
 
-7. 最後，將下列幾行加入至 **Main** 方法：
+1. 最後，將下列幾行新增至 **Main** 方法：
 
     ```csharp
     Console.WriteLine("Simulated device\n");
@@ -215,11 +216,11 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![啟動專案屬性 ][41]
 
-2. 按下 **F5** 來啟動這兩個執行的應用程式。 來自 **SimulatedDevice** 應用程式的主控台輸出會顯示裝置應用程式傳送給您的 IoT 中樞的訊息。 來自 **ReadDeviceToCloudMessages** 應用程式的主控台輸出則會顯示您的 IoT 中樞接收的訊息。
+1. 按下 **F5** 來啟動這兩個執行的應用程式。 來自 **SimulatedDevice** 應用程式的主控台輸出會顯示裝置應用程式傳送給您的 IoT 中樞的訊息。 來自 **ReadDeviceToCloudMessages** 應用程式的主控台輸出則會顯示您的 IoT 中樞接收的訊息。
 
     ![來自應用程式的主控台輸出][42]
 
-3. [Azure 入口網站][lnk-portal]中的 [使用量] 圖格會顯示傳送至 IoT 中樞的訊息數目︰
+1. [Azure 入口網站][lnk-portal]中的 [使用量] 圖格會顯示傳送至 IoT 中樞的訊息數目︰
 
     ![Azure 入口網站的使用量圖格][43]
 
@@ -243,7 +244,6 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
 [10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
-
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

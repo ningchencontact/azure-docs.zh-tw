@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>透過 IoT 中樞上傳檔案
 
@@ -96,7 +96,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 ## <a name="file-upload-notifications"></a>檔案上傳通知
 
-(選擇性) 當裝置向 IoT 中樞告知上傳已完成時，IoT 中樞會產生通知訊息，其中包含檔案的名稱和儲存位置。
+(選擇性) 當裝置向「IoT 中樞」通知上傳已完成時，「IoT 中樞」會產生通知訊息，其中包含檔案的名稱和儲存位置。
 
 如[端點][lnk-endpoints]中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/fileuploadnotifications**) 利用訊息來傳遞檔案上傳通知。 檔案上傳通知的接收語意與雲端到裝置訊息的接收語意相同，並且具有相同的[訊息生命週期][lnk-lifecycle]。 從檔案上傳通知端點擷取的每則訊息是具有下列屬性的 JSON 記錄：
 
@@ -153,7 +153,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 * [在裝置上叫用直接方法][lnk-devguide-directmethods]
 * [排程多個裝置上的作業][lnk-devguide-jobs]
 
-如果您想要嘗試本文章所述的概念，您可能會對下列 IoT 中樞教學課程感興趣：
+若要嘗試本文所述的一些概念，請參閱下列「IoT 中樞」教學課程：
 
 * [如何使用 IoT 中樞從裝置將檔案上傳至雲端][lnk-fileupload-tutorial]
 

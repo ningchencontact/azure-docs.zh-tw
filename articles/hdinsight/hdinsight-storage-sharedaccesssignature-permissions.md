@@ -4,7 +4,7 @@ description: "深入了解使用共用存取簽章限制 HDInsight 對儲存在 
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -216,7 +216,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
    > [!IMPORTANT]
    > 您必須重新啟動數個服務，變更才會生效。
 
-6. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [全部重新啟動]。 出現提示時，選取 [開啟維護模式]，然後選取 [確認全部重新啟動]。
+6. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目]。 出現提示時，選取 [確認全部重新啟動]。
 
     對 MapReduce2 和 YARN 重複此程序。
 
@@ -304,7 +304,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 現在您已經了解如何將有限存取權儲存體新增至您的 HDInsight 叢集，了解在叢集上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hivet](hadoop/hdinsight-use-hive.md)
+* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
 * [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 

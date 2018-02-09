@@ -3,22 +3,22 @@ title: "使用 Windows VM MSI 存取 Azure SQL"
 description: "此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL 的程序。"
 services: active-directory
 documentationcenter: 
-author: skwan
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3fa96b2c709b2b585519fa02a4e105010797947
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 6e7b431655d84c6371c62bbab83244ac88391442
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/22/2017
 > * 將您的 VM 存取權授與 Azure SQL 伺服器
 > * 使用 VM 身分識別取得存取權杖，並使用它查詢 Azure SQL 伺服器
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

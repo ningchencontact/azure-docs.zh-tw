@@ -67,7 +67,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
    在 Azure 部署您的邏輯應用程式之後，「Logic Apps 設計工具」會隨即開啟，並顯示含有簡介影片的分頁。 
    您可以在影片底下找到一般邏輯應用程式模式的範本。 
 
-5. 捲動到 [範本] (中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
+5. 捲動到 [範本] \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
 
    ![選擇邏輯應用程式範本](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -111,7 +111,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
    ![選擇 [範本]](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. 捲動到 [範本] (中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
+3. 捲動到 [範本] \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
 
    ![選擇邏輯應用程式範本](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 

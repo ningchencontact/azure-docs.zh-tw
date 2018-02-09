@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>衍生資料行實例化轉換
 
@@ -67,6 +67,10 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 在進階模式中，您可以按兩下格線中的資料列，以新增任何資料列作為範例資料列。 會複製其中一個資料列作為範例資料列，您也可以編輯來源資料行中的資料，以製作綜合範例。 如此一來，您可以新增範例資料中目前不存在的案例。
 
 使用者可按一下「轉換編輯器」中的連結，以在**基本模式**和**進階模式**之間切換。
+
+### <a name="transform-editor-send-feedback"></a>轉換編輯器：傳送意見反應
+
+按一下 [傳送意見反應] 連結會開啟 [意見反應] 對話方塊，其中會顯示具有使用者所提供範例的意見方塊。 使用者應該檢閱意見方塊的內容並提供更多詳細資料以協助我們了解問題。 若使用者不想要與 Microsoft 分享資料，使用者在按下 [傳送意見反應] 按鈕之前應該先刪除預先填寫的範例資料。 
 
 ### <a name="editing-existing-transformation"></a>編輯現有的轉換
 

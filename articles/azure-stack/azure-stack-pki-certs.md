@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 Azure Stack 服務和可能租用戶 VM 的外部可存取公用 IP 位址。 在 Azure Stack 部署期間，這些 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的 PKI 憑證。 本文提供以下相關資訊：
@@ -91,8 +91,9 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 
 <sup>2</sup> &#42;.appservice.*&lt;region>.&lt;fqdn>* 萬用字元憑證無法用來取代這三個憑證 (api.appservice.*&lt;region>.&lt;fqdn>*、ftp.appservice.*&lt;region>.&lt;fqdn>* 和 sso.appservice.*&lt;region>.&lt;fqdn>*。 應用程式服務明確要求對這些端點使用個別的憑證。 
 
+## <a name="learn-more"></a>深入了解
+了解如何[產生適用於 Azure Stack 部署的 PKI 憑證](azure-stack-get-pki-certs.md)。 
 
 ## <a name="next-steps"></a>後續步驟
-[產生適用於 Azure Stack 部署的 PKI 憑證](azure-stack-get-pki-certs.md) 
-
+[身分識別整合](azure-stack-integrate-identity.md)
 

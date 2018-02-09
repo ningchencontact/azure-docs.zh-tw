@@ -1,5 +1,5 @@
 ---
-title: "常見問題集和已知的問題與受管理服務身分識別 (MSI）) Azure Active Directory"
+title: "受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)"
 description: "受控服務識別已知問題 (Azure Active Directory)"
 services: active-directory
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>常見問題集和已知的問題與受管理服務身分識別 (MSI）) Azure Active Directory
+# <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI 可搭配 Directory Authentication Library (ADAL) 或 Microsoft Authentication Library (MSAL) 使用嗎？
 
-不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需取得使用 MSI REST 端點的 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 管理服務身分識別 (MSI) 為權杖取得](msi-how-to-use-vm-msi-token.md)。
+不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需使用 MSI REST 端點取得 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 受控服務識別 (MSI) 取得權杖](msi-how-to-use-vm-msi-token.md)。
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 其中： 
 - 適用於 Windows 的擴充功能名稱和類型是：ManagedIdentityExtensionForWindows
 - 適用於 Linux 的擴充功能名稱和類型是：ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>使用者指派的身分識別是否有 RBAC 角色？
+是：
+1. MSI 參與者： 
+
+- 可以：CRUD 使用者指派的身分識別。 
+- 不能：將使用者指派的身分識別指派給資源。 (也就是將身分識別指派給 VM)
+
+2. MSI 操作員： 
+
+- 可以：將使用者指派的身分識別指派給資源。 (也就是將身分識別指派給 VM)
+- 不能：CRUD 使用者指派的身分識別。
+
+注意：內建參與者角色可以執行上述所有動作： 
+- CRUD 使用者指派的身分識別
+- 將使用者指派的身分識別指派給資源。 (也就是將身分識別指派給 VM)
+
 
 ## <a name="known-issues"></a>已知問題
 
@@ -100,17 +117,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-private-preview-feature"></a>使用者指派 MSI 的已知問題*（私用預覽功能）*
+## <a name="known-issues-with-user-assigned-msi-private-preview-feature"></a>使用者指派之 MSI 的已知問題 (私人預覽功能)
 
-- 若要移除指定 Msi 的所有使用者的唯一方式啟用系統會指派 MSI。 
-- 佈建到 VM 的 VM 擴充功能可能會因為 DNS 查閱失敗。 重新啟動 VM，然後再試一次。 
-- Azure CLI:`Az resource show`和`Az resource list`指派 MSI 的使用者與 VM 上將會失敗。 因應措施，請使用`az vm/vmss show`
-- 目前，僅供以中央美國 EUAP azure 儲存體教學課程。 
-- IAM 分頁，該資源的使用者指派 MSI 會授與資源的存取權，會顯示 「 無法存取資料 」。 因應措施是，使用 CLI 來檢視/編輯角色指派，以使用該資源。
-- 不支援建立指派 MSI 以底線開頭的名稱中的使用者。
-- 新增第二個使用者指派身分識別時，可能無法使用要求語彙基元，其 clientID。 做為防護功能，重新啟動下列兩個 bash 指令的 MSI VM 擴充功能：
+- 移除所有使用者指派之 MSI 的唯一方法是啟用系統指派的 MSI。 
+- 將 VM 延伸模組佈建到 VM 的作業，可能會因為 DNS 查閱失敗而失敗。 重新啟動 VM，然後再試一次。 
+- 新增「不存在」的 MSI 會造成 VM 失敗。 注意：對於「如果 MSI 不存在則指派身分識別會失敗」的修正已推出
+- 目前，Azure 儲存體教學課程僅適用於美國中部 EUAP。 
+- 不支援在名稱中使用特殊字元 (例如底線) 建立使用者指派的 MSI。
+- 新增第二個使用者指派的身分識別時，可能無法使用 clientID 來要求其權杖。 使用下列兩個 bash 命令重新啟動 MSI VM 延伸模組來作為風險降低措施：
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- 在 Windows 上的 VMAgent 目前不支援使用者指派 MSI。 
-- 將角色指派給 MSI 目前存取的資源，並不需要特殊權限。 
-- 當 VM 指派 MSI 的使用者，但沒有任何系統指派 MSI 時，入口網站 UI 會顯示 MSI 為已啟用。 若要讓指派 MSI 系統，使用 Azure Resource Manager 範本、 Azure CLI 或 SDK。
+- Windows 上的 VMAgent 目前不支援使用者指派的 MSI。 
+- 將角色指派給 MSI 以存取資源目前並不需要特殊權限。 
+- 當 VM 具有使用者指派的 MSI，但是沒有系統指派的 MSI 時，入口網站 UI 會顯示 MSI 為已啟用狀態。 若要啟用系統指派的 MSI，請使用 Azure Resource Manager 範本、Azure CLI 或 SDK。

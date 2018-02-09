@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/28/2017
 
 本教學課程說明如何撰寫 .NET Core 主控台應用程式，以使用**事件處理器主機**程式庫從事件中樞接收訊息。 您可以依現狀執行 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 解決方案，其中以您事件中樞和儲存體帳戶的值來取代字串。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio 2015 或 2017](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017，但也支援 Visual Studio 2015。
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/28/2017
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 

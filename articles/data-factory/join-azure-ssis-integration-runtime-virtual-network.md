@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f40f0551ed65a42bcacf2307cbec462fd5c3ac25
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
-如果符合下列其中一種條件，您必須將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路 (VNet)： 
+在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路 (VNet)： 
 
 - 您要在屬於 VNet 一部分的 SQL Server 受控執行個體 (私人預覽) 上裝載 SSIS 目錄資料庫。
 - 您想要從 Azure-SSIS 整合執行階段上執行的 SSIS 套件連線至內部部署資料存放區。
@@ -35,10 +35,10 @@ ms.lasthandoff: 01/23/2018
 
 以下是一些需要注意的重要事項： 
 
-- 如果沒有 VNet 連線到您的內部部署網路，請先建立 Azure-SSIS 整合執行階段要加入的 [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) 或[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 然後，設定從該 VNet 到您內部部署網路的站對站 [VPN 閘道連線](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) 連線。
-- 如果在與 Azure-SSIS 整合執行階段相同的位置中有現有 Azure Resource Manager VNet 或傳統 VNet 連線到您的內部部署網路，則可以在其中加入 Azure-SSIS 整合執行階段。
-- 如果在與 Azure-SSIS 整合執行階段不同的位置中有現有傳統 VNet 連線到您的內部部署網路，則可以先建立 Azure-SSIS 整合執行階段要加入的[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 然後，設定[傳統對傳統 VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) 連線。 或者，您可以建立 [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) 讓您的 Azure-SSIS 整合執行階段加入。 然後，設定[傳統對 Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 連線。
-- 如果在與 Azure-SSIS 整合執行階段不同的位置中有現有 Azure Resource Manager VNet 連線到您的內部部署網路，則可以先建立 Azure-SSIS 整合執行階段要加入的 [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet)。 然後，設定 Azure Resource Manager 對 Azure Resource Manager VNet 連線。 或者，您可以建立[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 讓您的 Azure-SSIS 整合執行階段加入。 然後，設定[傳統對 Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 連線。
+- 如果沒有 VNet 連線到您的內部部署網路，請先建立 Azure-SSIS 整合執行階段要加入的 [Azure Resource Manager VNet](../virtual-network/quick-create-portal.md#create-a-virtual-network) 或[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 然後，設定從該 VNet 到您內部部署網路的站對站 [VPN 閘道連線](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) 連線。
+- 如果在與 Azure-SSIS 整合執行階段相同的位置中有現有的 Azure Resource Manager 或傳統 VNet 連線到您的內部部署網路，則可以將整合執行階段加入該 VNet。
+- 如果在與 Azure-SSIS 整合執行階段不同的位置中有現有傳統 VNet 連線到您的內部部署網路，則可以先建立 Azure-SSIS 整合執行階段要加入的[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 然後，設定[傳統對傳統 VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) 連線。 或者，您可以建立 [Azure Resource Manager VNet](../virtual-network/quick-create-portal.md#create-a-virtual-network) 讓您的 Azure-SSIS 整合執行階段加入。 然後，設定[傳統對 Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 連線。
+- 如果在與 Azure-SSIS 整合執行階段不同的位置中有現有 Azure Resource Manager VNet 連線到您的內部部署網路，則可以先建立 Azure-SSIS 整合執行階段要加入的 [Azure Resource Manager VNet](../virtual-network/quick-create-portal.md##create-a-virtual-network)。 然後，設定 Azure Resource Manager 對 Azure Resource Manager VNet 連線。 或者，您可以建立[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 讓您的 Azure-SSIS 整合執行階段加入。 然後，設定[傳統對 Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 連線。
 
 ## <a name="domain-name-services-server"></a>網域名稱服務伺服器 
 如果您需要在 Azure-SSIS 整合執行階段所加入的 VNet 中使用自己的網域名稱系統 (DNS) 伺服器，請遵循指南以[確定 VNet 中 Azure-SSIS 整合執行階段的節點可以解析 Azure 端點](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
@@ -48,36 +48,15 @@ ms.lasthandoff: 01/23/2018
 
 | 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 輸入來源/輸出目的地 |
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
-| 10100<br/>20100<br/>30100  | 輸入 | TCP | Azure 服務會使用這些連接埠與 VNet 中的 Azure SSIS 整合執行階段節點進行通訊。 | Internet | 
+| 10100、20100、30100 (如果您將整合執行階段加入傳統 VNet)<br/><br/>29876、29877 (如果您將整合執行階段加入 Azure Resource Manager VNet) | 輸入 | TCP | Azure 服務會使用這些連接埠與 VNet 中的 Azure SSIS 整合執行階段節點進行通訊。 | Internet | 
 | 443 | 輸出 | TCP | VNet 中的 Azure-SSIS 整合執行階段節點會使用此連接埠來存取 Azure 服務 (例如，Azure 儲存體、事件中樞等等)。 | 網際網路 | 
 | 1433<br/>11000-11999<br/>14000-14999  | 輸出 | TCP | VNet 中的 Azure-SSIS 整合執行階段節點會使用這些連接埠來存取 Azure SQL Database 伺服器所裝載的 SSISDB (不適用於 Azure SQL 受控執行個體所裝載的 SSISDB)。 | Internet | 
 
-## <a name="configure-vnet"></a>設定 VNet
-您必須先使用下列方式之一 (指令碼或Azure 入口網站) 設定 VNet，才可以將 Azure-SSIS IR 加入 VNet。 
-
-### <a name="script-to-configure-vnet"></a>設定 VNet 的指令碼 
-新增下列指令碼來自動設定 VNet 權限/設定，讓您的 Azure-SSIS 整合執行階段可以加入此 VNet。
-
-```powershell
-# Register to Azure Batch resource provider
-if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
-{
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
-    {
-    Start-Sleep -s 10
-    }
-    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
-    {
-        # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
-    }
-}
-```
+## <a name="azure-portal-data-factory-ui"></a>Azure 入口網站 (Data Factory UI)
+本節會示範如何使用 Azure 入口網站及 Data Factory UI，將現有的 Azure SSIS 執行階段加入 VNet (傳統或 Azure Resource Manager)。 首先，在將 Azure SSIS 整合執行階段加入 VNet 之前，必須先適當設定 VNet。 根據您的 VNet 類型 (傳統或 Azure Resource Manager)，執行下列兩節的其中一節。 然後，繼續執行第三節，將您的 Azure SSIS 整合執行階段加入 VNet。 
 
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>使用入口網站設定傳統 VNet
-執行指令碼是設定 VNet 的最簡單方式。 如果您沒有存取權可以設定 VNet/自動設定失敗，則該 VNet 的擁有者/您可以使用下列步驟嘗試手動設定它們：
+您必須先設定 VNet，才可以將 Azure-SSIS 整合執行階段加入 VNet。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [更多服務]。 篩選並選取 [虛擬網路 (傳統)]。
@@ -112,7 +91,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     如果您在清單中看不到 `Microsoft.Batch`，若要進行註冊，請在訂用帳戶中[建立空白 Azure Batch 帳戶](../batch/batch-account-create-portal.md)。 您可以稍後刪除它。 
 
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>使用入口網站設定 Azure Resource Manager VNet
-執行指令碼是設定 VNet 的最簡單方式。 如果您沒有存取權可以設定 VNet/自動設定失敗，則該 VNet 的擁有者/您可以使用下列步驟嘗試手動設定它們：
+您必須先設定 VNet，才可以將 Azure-SSIS 整合執行階段加入 VNet。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [更多服務]。 篩選並選取 [虛擬網路]。
@@ -129,23 +108,83 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 
     如果您在清單中看不到 `Microsoft.Batch`，若要進行註冊，請在訂用帳戶中[建立空白 Azure Batch 帳戶](../batch/batch-account-create-portal.md)。 您可以稍後刪除它。
 
-## <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>建立 Azure-SSIS IR 並將其加入 VNet
-您可以建立 Azure-SSIS IR，並同時將其加入 VNet。 如需建立 Azure SSIS-IR 並同時將其加入 VNet 的完整指令碼和指示，請參閱[建立 Azure-SSIS IR](create-azure-ssis-integration-runtime.md)。
+### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>將 Azure SSIS 整合執行階段加入 VNet
 
-## <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>將現有 Azure-SSIS IR 加入 VNet
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [資料處理站]。 如果在功能表上沒有看到 [資料處理站]，選取 [更多服務]，然後選取 [智慧 + 分析] 區段中的 [資料處理站]。 
+    
+    ![資料處理站清單](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
+2. 在清單中選取您的資料處理站與 Azure SSIS 整合執行階段。 您會看到資料處理站的首頁。 選取 [編寫與部署] 圖格。 您會在另一個索引標籤中看到 Data Factory 使用者介面 (UI)。 
+
+    ![Data Factory 首頁](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+3. 在 Data Factory UI 中，切換至 [編輯] 索引標籤，選取 [連線]，然後切換至 [整合執行階段] 索引標籤。 
+
+    ![整合執行階段索引標籤](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+4. 如果您的 Azure SSIS 整合執行階段正在執行，在整合執行階段清單中，請在 [動作] 資料行中針對您的 Azure SSIS 整合執行階段選取 [停止] 按鈕。 您必須停止整合執行階段才能進行編輯。 
+
+    ![停止整合執行階段](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
+1. 在整合執行階段清單中，請在 [動作] 資料行中針對您的 Azure SSIS 整合執行階段選取 [編輯] 按鈕。
+
+    ![編輯整合執行階段](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+5. 在 [整合執行階段設定] 視窗的 [一般設定] 頁面上，選取 [下一步]。 
+
+    ![整合執行階段設定 - 一般設定](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
+6. 在 [SQL 設定] 頁面上，輸入系統管理員**密碼**，然後選取 [下一步]。
+
+    ![整合執行階段設定 - SQL 設定](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
+7. 在 [進階設定] 頁面上，執行下列動作： 
+
+    1. 選取 [選取您的 Azure-SSIS 整合執行階段要加入的 VNet 並允許 Azure 服務設定 VNet 權限/設定] 核取方塊。 
+    2. 針對 [類型]，請指定 VNet 是傳統 VNet 或 Azure Resource Manager VNet。 
+    3. 針對 [VNet 名稱]，請選取您的 VNet。
+    4. 針對 [子網路名稱]，請選取 VNet 中的子網路。 
+    5. 選取 [更新]。 
+
+        ![整合執行階段設定 - 進階設定](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
+8. 現在，您可以針對您的 Azure SSIS 整合執行階段使用 [動作] 資料行中的 [啟動] 按鈕，以便啟動整合執行階段。 啟動 Azure SSIS 整合執行階段需要約 20 分鐘。 
+
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="configure-vnet"></a>設定 VNet
+您必須先設定 VNet，才可以將 Azure-SSIS 整合執行階段加入 VNet。 新增下列指令碼來自動設定 VNet 權限/設定，讓您的 Azure-SSIS 整合執行階段可以加入此 VNet。
+
+```powershell
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+    Start-Sleep -s 10
+    }
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
+}
+```
+
+### <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>建立 Azure-SSIS IR 並將其加入 VNet
+您可以建立 Azure-SSIS IR，並同時將其加入 VNet。 如需建立 Azure SSIS-IR 並同時將其加入 VNet 的完整指令碼和指示，請參閱[建立 Azure-SSIS IR](create-azure-ssis-integration-runtime.md#azure-powershell)。
+
+### <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>將現有 Azure-SSIS IR 加入 VNet
 [建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)一文中的指令碼會示範如何建立 Azure-SSIS IR 並在相同指令碼中將其加入 VNet。 如果您有現有的 Azure-SSIS，執行下列步驟將它加入 VNet。 
 
 1. 停止 Azure-SSIS IR。
 2. 設定將 Azure-SSIS IR 加入 VNet。 
 3. 啟動 Azure-SSIS IR。 
 
-## <a name="define-the-variables"></a>定義變數
+### <a name="define-the-variables"></a>定義變數
 
 ```powershell
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-# OPTIONAL: specify your VNet ID and the subnet name. 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+# Specify information about your classic or Azure Resource Manager virtual network (VNet).
 $VnetId = "<Name of your Azure virtual netowrk>"
 $SubnetName = "<Name of the subnet in VNet>"
 ```
@@ -191,7 +230,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-## <a name="start-the-azure-ssis-ir"></a>啟動 Azure-SSIS IR
+### <a name="start-the-azure-ssis-ir"></a>啟動 Azure-SSIS IR
 執行下列命令以啟動 Azure-SSIS 整合執行階段： 
 
 ```powershell
@@ -207,7 +246,7 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 如需 Azure-SSIS 執行階段的詳細資訊，請參閱下列主題： 
 
 - [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
-- [教學課程：將 SSIS 套件部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
+- [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
 - [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 本文展開教學課程，並提供使用 Azure SQL 受控執行個體 (私人預覽) 以及將 IR 加入 VNet 的指示。 
 - [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
 - [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 

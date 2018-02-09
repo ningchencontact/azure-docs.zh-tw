@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -37,17 +37,17 @@ ms.lasthandoff: 12/06/2017
 | Customer Insights | 無法使用結構描述。 |
 | 內容傳遞網路 | 無法使用結構描述。 |
 | CosmosDB | [Azure Cosmos DB 記錄](../cosmos-db/logging.md) |
-| Data Lake Analytics |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| 資料湖分析 |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[存取 Azure Data Lake Store 的診斷記錄](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | 事件中樞 |[Azure 事件中樞診斷記錄](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT 中樞 | [IoT 中樞作業](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| 金鑰保存庫 |[Azure 金鑰保存庫記錄](../key-vault/key-vault-logging.md) |
+| Key Vault |[Azure 金鑰保存庫記錄](../key-vault/key-vault-logging.md) |
 | 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS 保護 | 無法使用結構描述。 |
 | [復原服務] | [Azure 備份的資料模型](../backup/backup-azure-reports-data-model.md)|
-| 搜尋 |[啟用和使用搜尋流量分析](../search/search-traffic-analytics.md) |
+| Search |[啟用和使用搜尋流量分析](../search/search-traffic-analytics.md) |
 | 伺服器管理 | 無法使用結構描述。 |
 | 服務匯流排 |[Azure 服務匯流排診斷記錄](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 診斷記錄](../sql-database/sql-database-metrics-diag-logging.md) |
@@ -57,7 +57,6 @@ ms.lasthandoff: 12/06/2017
 ## <a name="supported-log-categories-per-resource-type"></a>每個資源類型支援的記錄檔類別
 |資源類型|類別|類別顯示名稱|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|登入|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
 |Microsoft.AnalysisServices/servers|服務|服務|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 閘道的相關記錄檔|
@@ -70,10 +69,10 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.DataFactory/factories|ActivityRuns|管線活動執行記錄|
 |Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
 |Microsoft.DataFactory/factories|TriggerRuns|觸發程序執行記錄|
-|Microsoft.DataLakeAnalytics/accounts|稽核|稽核記錄檔|
+|Microsoft.DataLakeAnalytics/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
-|Microsoft.DataLakeStore/accounts|稽核|稽核記錄檔|
-|Microsoft.DataLakeStore/accounts|要求|要求記錄檔|
+|Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
+|Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
 |Microsoft.Devices/IotHubs|連線|連線|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -92,7 +91,7 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄檔|
 |Microsoft.EventHub/namespaces|OperationalLogs|作業記錄|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自動調整規模記錄檔|
-|Microsoft.KeyVault/vaults|AuditEvent|稽核記錄檔|
+|Microsoft.KeyVault/vaults|AuditEvent|稽核記錄|
 |Microsoft.Logic/workflows|WorkflowRuntime|工作流程執行階段診斷事件|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|整合帳戶追蹤事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|網路安全性群組事件|
@@ -116,6 +115,8 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery 複寫項目|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery 複寫統計資料|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 復原點|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery 複寫資料上傳速率|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 受保護的磁碟資料變換|
 |Microsoft.Search/searchServices|OperationLogs|作業記錄|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|作業記錄|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查詢存放區執行階段統計資料|
@@ -125,6 +126,7 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.Sql/servers/databases|逾時|逾時|
 |Microsoft.Sql/servers/databases|區塊|區塊|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|稽核|稽核記錄|
 |Microsoft.StreamAnalytics/streamingjobs|執行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
 

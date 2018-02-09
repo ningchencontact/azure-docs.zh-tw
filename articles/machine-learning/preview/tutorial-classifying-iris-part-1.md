@@ -64,7 +64,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![資料檢視](media/tutorial-classifying-iris/data_view.png)
 
-3. 選取 [文字檔] (*.csv、.json、.txt 等)，然後按 [下一步]。
+3. 選取 [文字檔] \(*.csv、.json、.txt 等)，然後按 [下一步]。
    ![資料來源](media/tutorial-classifying-iris/data-source.png)
    
 
@@ -117,7 +117,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![步驟](media/tutorial-classifying-iris/steps.png)
 
-13. 關閉資料準備編輯器。 在包含圖形圖示的 **iris-1**索引標籤上，選取 [關閉] (x)。 您的工作會自動儲存到顯示在 [資料準備] 標題之下的 **iris-1.dprep** 檔案中。
+13. 關閉資料準備編輯器。 在包含圖形圖示的 **iris-1**索引標籤上，選取 [關閉] \(x)。 您的工作會自動儲存到顯示在 [資料準備] 標題之下的 **iris-1.dprep** 檔案中。
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>產生 Python/PySpark 程式碼來叫用資料準備套件
 

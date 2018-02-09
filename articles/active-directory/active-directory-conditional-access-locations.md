@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的位置條件 
 
@@ -100,7 +100,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ### <a name="any-location"></a>任何位置
 
-根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 這項設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到信任的位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
+根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 這項設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
 
 ### <a name="all-trusted-locations"></a>所有信任的位置
 

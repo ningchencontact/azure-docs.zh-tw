@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
 
@@ -352,9 +352,6 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 以下是 JavaScript 程式碼：
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
@@ -531,6 +528,8 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 ## <a name="trigger---limits"></a>觸發程序的 - 限制
 
 HTTP 要求的長度限制為 100K (102,400) 個位元組，而 URL 的長度限制為 4k (4,096) 個位元組。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
+
+如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#consumption-plan)。 
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 

@@ -1,5 +1,5 @@
 ---
-title: "教學課程：Azure Active Directory 與 Salesforce 整合 | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 Salesforce 來自動佈建使用者 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 與 Salesforce 之間的單一登入。"
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.openlocfilehash: 812bc3c2e13c4513161eebb30b93fee21cc091b7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動使用者佈建
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動佈建使用者
 
 本教學課程旨在說明您需要在 Salesforce 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Salesforce。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -89,7 +89,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
-11. **租用戶 URL**應輸入 Salesforce 執行個體是否位於 Salesforce 政府雲端上。 否則，它是選擇性的。 輸入 Salesforce 執行個體的名稱取代您執行個體的租用戶 URL 使用 https://your-instance.my.salesforce.com，格式。
+11. 如果 Salesforce 執行個體是位於 Salesforce 政府雲端上，則應輸入**租用戶 URL**。 否則為選擇性。 使用 https://your-instance.my.salesforce.com 的格式輸入租用戶 URL，將執行個體取代為您 Salesforce 執行個體的名稱。
 
 12. 在 Azure 入口網站中，按一下 [測試連接]，以確保 Azure AD 可以連接到您的 Salesforce 應用程式。
 

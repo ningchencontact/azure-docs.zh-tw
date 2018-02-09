@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>針對 Azure 自動化中的常見問題進行疑難排解 
 本文提供針對您在 Azure 自動化中可能遇到的一些常見錯誤進行疑難排解的協助，並且建議可能的解決方法。
@@ -195,11 +195,19 @@ ms.lasthandoff: 01/24/2018
 
 **錯誤的原因：**
 
-這個錯誤碼表示部署因違反原則而失敗。
+這個錯誤碼表示部署因違反一個或多個原則而失敗。
 
 **疑難排解秘訣：**
 
-檢查 Azure 入口網站右上角的通知，或瀏覽至包含您自動化帳戶的資源群組，然後選取 [設定] 下方的 [部署] 來檢視失敗的部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+若要成功部署解決方案，您必須考量改變指定的原則。 由於可定義的原則有許多不同類型，因此所需的特定變更就要根據違反的原則來決定。 例如，如果在定義原則的資源群組中，拒絕對於該資源群組內特定類型資源之內容的變更權限，您可以執行下列任何一項作業：
+
+*   完全移除原則。
+* 嘗試上架到不同的資源群組。
+* 透過下列方法修改原則，例如：
+   * 將原則的目標重新設定為特定的資源 (例如設定為特定的自動化帳戶)。
+   * 對於原則已設定為拒絕的資源集合進行修改。
+
+檢查 Azure 入口網站右上角的通知，或瀏覽至包含您自動化帳戶的資源群組，然後選取 [設定] 下方的 [部署] 來檢視失敗的部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)。
 
 ## <a name="next-steps"></a>後續步驟
 

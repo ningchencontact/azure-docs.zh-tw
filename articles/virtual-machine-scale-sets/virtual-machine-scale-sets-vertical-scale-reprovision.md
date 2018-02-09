@@ -17,7 +17,7 @@ ms.date: 08/03/2016
 ms.author: negat
 ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/20/2017
 
 * [Azure 自動化的 Runbook 和模組資源庫](../automation/automation-runbook-gallery.md)
 
-從 [Runbooks] 功能表選擇 [瀏覽資源庫] 選項︰
+從 Runbooks 功能表選擇 [瀏覽資源庫] 選項︰
 
 ![要匯入的 Runbook][runbooks]
 

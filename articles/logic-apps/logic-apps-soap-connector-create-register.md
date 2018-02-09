@@ -1,7 +1,7 @@
 ---
 title: "建立與註冊 SOAP 連接器 - Azure Logic Apps | Microsoft Docs"
 description: "設定要在 Azure Logic Apps 中使用的 SOAP 連接器"
-author: divyaswarnkar
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立與註冊 SOAP 連接器
 
 若要在您的邏輯應用程式工作流程中整合 SOAP 服務，您可以使用描述您 SOAP 服務的 Web 服務描述語言 (WSDL)，來建立與註冊自訂的簡易物件存取通訊協定 (SOAP) 連接器。 SOAP 連接器的運作與預先建立的連接器一樣，因此您可以如同使用邏輯應用程式中其他連接器一樣地使用它。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要註冊 SOAP 連接器，您需要下列項目：
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="share-your-connector-with-other-logic-apps-users"></a>將您的連接器與其他 Logic Apps 使用者共用
 
-已註冊但未經認證之自訂連接器的運作方式與 Microsoft Managed 連接器類似，但「只有」該連接器的作者，以及在部署邏輯應用程式的區域中，就這些應用程式而言具有相同 Azure Active Directory 租用戶和 Azure 訂用帳戶的使用者，才可以看見和使用這些自訂連接器。 雖然共用是選擇性的，但您可能會有想要將連接器與其他使用者共用的情況。 
+已註冊但未經認證之自訂連接器的運作方式與 Microsoft 受控連接器類似，但「只有」該連接器的作者，以及在部署邏輯應用程式的區域中，就這些應用程式而言具有相同 Azure Active Directory 租用戶和 Azure 訂用帳戶的使用者，才可以看見和使用這些自訂連接器。 雖然共用是選擇性的，但您可能會有想要將連接器與其他使用者共用的情況。 
 
 > [!IMPORTANT]
 > 如果您共用連接器，其他使用者便可能開始倚賴該連接器。 

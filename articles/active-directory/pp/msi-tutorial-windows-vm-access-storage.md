@@ -3,22 +3,22 @@ title: "使用 Windows VM MSI 存取 Azure 儲存體"
 description: "此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e7f715acc3ab343a36e0968701894fd29ff8af71
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 6e1364db9ecba65b90be525141f03fb9b4a33d28
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Windows VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/22/2017
 > * 在資源管理員中將您的 VM 存取權授與儲存體帳戶存取金鑰 
 > * 使用 VM 的身分識別取得存取權杖，並將其用於從資源管理員擷取儲存體存取金鑰 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

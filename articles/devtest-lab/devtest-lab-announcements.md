@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>將公告張貼到 Azure DevTest Labs 中的實驗室
 
@@ -47,6 +47,13 @@ ms.lasthandoff: 01/02/2018
 
 1. 若要在這個實驗室中建立使用者訊息，請將 [啟用] 設定為 [是]。
 
+1. 您可以輸入**到期日**以指定日期和時間，此時間過後就不再對使用者顯示公告。 如果您未輸入到期日，直到您停用之前都會持續公告。
+
+   > [!NOTE]
+   > 公告到期之後，就不會再對使用者顯示，但是仍存在於 [實驗室公告] 窗格。 您可以對它進行編輯，然後重新啟用它，讓它再次作用。
+   >
+   >
+
 1. 輸入 [公告標題] 和 [公告文字]。
 
    標題可多達 100 個字元，而且會在實驗室的 [概觀] 頁面上對使用者顯示。 如果使用者選取標題，就會顯示公告文字。
@@ -58,7 +65,7 @@ ms.lasthandoff: 01/02/2018
 
 1. 一旦準備好張貼公告，請選取 [儲存]。
 
-當您不想要再對實驗室使用者顯示此公告時，請返回 [實驗室公告] 頁面，然後將 [啟用] 設定為 [否]。
+當您不想要再對實驗室使用者顯示此公告時，請返回 [實驗室公告] 頁面，然後將 [啟用] 設定為 [否]。 如果您指定了到期日，該日期和時間到了之後就會自動停用公告。
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>使用者檢視公告的步驟
 

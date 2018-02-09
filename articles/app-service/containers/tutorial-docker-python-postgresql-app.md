@@ -4,19 +4,19 @@ description: "了解如何取得在 Azure 中運作的 Docker Python 應用程�
 services: app-service\web
 documentationcenter: python
 author: berndverst
-manager: erikre
+manager: cfowler
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2017
-ms.author: beverst
+ms.date: 01/28/2018
+ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式
 
@@ -24,9 +24,20 @@ ms.lasthandoff: 12/14/2017
 
 ![Linux 上的 App Service 中的 Docker Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
+在本教學課程中，您了解如何：
+
+> [!div class="checklist"]
+> * 在 Azure 中建立 PostgreSQL 資料庫
+> * 將 Python 應用程式連線至 MySQL
+> * 將應用程式部署至 Azure
+> * 將資料模型更新並將應用程式重新部署
+> * 在 Azure 入口網站中管理應用程式
+
 您可以在 Mac OS 上依照下列步驟進行。 Linux 和 Windows 指示在大部分情況下都相同，本教學課程對差異不加詳述。
  
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -35,18 +46,12 @@ ms.lasthandoff: 12/14/2017
 1. [安裝及執行 PostgreSQL](https://www.postgresql.org/download/)
 1. [安裝 Docker Community 版本](https://www.docker.com/community-edition)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
-
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>測試本機 PostgreSQL 安裝並建立資料庫
 
-開啟終端機視窗，然後執行 `psql postgres` 來連線至本機 PostgreSQL 伺服器。
+開啟終端機視窗，然後執行 `psql` 來連線至本機 PostgreSQL 伺服器。
 
 ```bash
-psql postgres
+sudo -u postgres psql
 ```
 
 如果連線成功，則您的 PostgreSQL 資料庫就已在執行中。 如果沒有，請確定您的本機 PostgresQL 資料庫已遵循[下載 - PostgresQL 核心散發](https://www.postgresql.org/download/)中的步驟來啟動。
@@ -58,7 +63,7 @@ CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
-輸入 \q 來結束 PostgreSQL 用戶端。 
+輸入 `\q` 來結束 PostgreSQL 用戶端。 
 
 <a name="step2"></a>
 
@@ -107,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在瀏覽器中，瀏覽至 `http://127.0.0.1:5000`。 按一下 [註冊!] 並且建立測試使用者。
+在瀏覽器中，瀏覽至 `http://localhost:5000`。 按一下 [註冊!] 並且建立測試使用者。
 
 ![在本機執行的 Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -115,40 +120,26 @@ Flask 範例應用程式會將使用者資料儲存於資料庫中。 如果您�
 
 如需隨時停止 Flask 伺服器，請在終端機上輸入 Ctrl+C。 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="create-a-production-postgresql-database"></a>建立生產環境 PostgreSQL 資料庫
 
 在此步驟中，您要在 Azure 中建立 PostgreSQL 資料庫。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
-### <a name="log-in-to-azure"></a>登入 Azure
-
-您即將使用 Azure CLI 2.0，來建立在用於容器的 Web 應用程式中裝載 Python 應用程式所需的資源。  使用 [az login](/cli/azure/?view=azure-cli-latest#az_login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
-
-```azurecli
-az login
-```
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](../../azure-resource-manager/resource-group-overview.md) 來建立[資源群組](/cli/azure/group?view=azure-cli-latest#az_group_create)。
-
-[!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
-
-下列範例會在美國西部區域中建立一個資源群組：
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-使用 [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) Azure CLI 命令以列出可用的位置。
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 
-使用 [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 命令來建立 PostgreSQL 伺服器。
+使用 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 命令來建立 PostgreSQL 伺服器。
 
 在下列命令中，使用唯一的伺服器名稱取代 \<postgresql_name> 預留位置，以及用使用者名稱取代 \<admin_username> 預留位置。 這個伺服器名稱會用來作為 PostgreSQL 端點 (`https://<postgresql_name>.postgres.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。 使用者名稱是用於初始資料庫管理使用者帳戶。 系統會提示您選取此使用者的密碼。
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
 ```
 
 建立適用於 PostgreSQL 的 Azure 資料庫伺服器後，Azure CLI 會顯示類似下列範例的資訊：
@@ -220,7 +211,7 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-輸入 \q 來結束 PostgreSQL 用戶端。
+輸入 `\q` 來結束 PostgreSQL 用戶端。
 
 ### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>針對 Azure PostgreSQL 資料庫本機測試應用程式
 
@@ -241,7 +232,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在瀏覽器中，瀏覽至 http://127.0.0.1:5000 。 按一下 [註冊!] 並且建立測試註冊。 現在您要將資料寫入 Azure 中的資料庫。
+在瀏覽器中瀏覽至 http://localhost:5000。 按一下 [註冊!] 並且建立測試註冊。 現在您要將資料寫入 Azure 中的資料庫。
 
 ![在本機執行的 Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -260,13 +251,13 @@ Docker 會顯示已成功建立容器的確認。
 Successfully built 7548f983a36b
 ```
 
-將資料庫環境變數新增至環境變數檔案 db.env。 應用程式會連線到「適用於 PostgreSQL 的 Azure 資料庫」生產資料庫。
+在存放庫根路徑中，新增名為 db.env 的環境變數檔案，然後在其中新增下列資料庫環境變數。 應用程式會連線到「適用於 PostgreSQL 的 Azure 資料庫」生產資料庫。
 
 ```text
-DBHOST="<postgresql_name>.postgres.database.azure.com"
-DBUSER="manager@<postgresql_name>"
-DBNAME="eventregistration"
-DBPASS="supersecretpass"
+DBHOST=<postgresql_name>.postgres.database.azure.com
+DBUSER=manager@<postgresql_name>
+DBNAME=eventregistration
+DBPASS=supersecretpass
 ```
 
 從 Docker 容器內執行應用程式。 下列命令會指定環境變數檔案，並將預設 Flask 連接埠 5000 對應至本機連接埠 5000。
@@ -352,8 +343,15 @@ az acr credential show -n <registry_name>
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>將 Docker 容器上傳至 Azure Container Registry
 
+登入您的登錄。 出現提示時，提供您剛才擷取的密碼。
+
 ```bash
-docker login <registry_name>.azurecr.io -u <registry_name> -p "<registry_password>"
+docker login <registry_name>.azurecr.io -u <registry_name>
+```
+
+將您的 Docker 映像推送至登錄。
+
+```bash
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
 ```
@@ -364,64 +362,18 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 ### <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
-使用 [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令來建立 App Service 方案。
-
-[!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
-
-下列範例會使用 S1 定價層，建立名為 myAppServicePlan 之以 Linux 為基礎的 App Service 方案：
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
-```
-
-建立 App Service 方案後，Azure CLI 會顯示類似下列範例的資訊：
-
-```json
-{
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West US",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "linux",
-  "location": "West US",
-  "maximumNumberOfWorkers": 10,
-  "name": "myAppServicePlan",
-  "numberOfSites": 0,
-  "perSiteScaling": false,
-  "provisioningState": "Succeeded",
-  "reserved": true,
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capabilities": null,
-    "capacity": 1,
-    "family": "S",
-    "locations": null,
-    "name": "S1",
-    "size": "S1",
-    "skuCapacity": null,
-    "tier": "Standard"
-  },
-  "status": "Ready",
-  "subscription": "00000000-0000-0000-0000-000000000000",
-  "tags": null,
-  "targetWorkerCount": 0,
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-}
-```
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>建立 Web 應用程式
 
-使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令，在 myAppServicePlan App Service 方案中建立 Web 應用程式。
+使用 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令，在 myAppServicePlan App Service 方案中建立 Web 應用程式。
 
 Web 應用程式會為您提供裝載空間來部署程式碼，以及提供 URL 讓您能夠檢視已部署的應用程式。 用來建立 Web 應用程式。
 
 在下列命令中，將 \<app_name> 預留位置取代為唯一的應用程式名稱。 這個名稱是 Web 應用程式預設 URL 的一部分，因此，這個名稱在 Azure App Service 的所有應用程式中必須是唯一的。
 
 ```azurecli
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-container-image-name "<registry_name>.azurecr.io/flask-postgresql-sample"
 ```
 
 建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的資訊：
@@ -445,7 +397,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 稍早在本教學課程中，您定義了環境變數來連線至 PostgreSQL 資料庫。
 
-在 App Service 中，您可以使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令將環境變數設定為「應用程式設定」。
+在 App Service 中，您可以使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令將環境變數設定為「應用程式設定」。
 
 下列範例會指定資料庫連線詳細資料作為應用程式設定。 它也會使用 PORT 變數，將 Docker 容器上的連接埠 5000 對應至接收連接埠 80 上的 HTTP 流量。
 
@@ -458,7 +410,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 AppService 會自動下載及執行 Docker 容器。
 
 ```azurecli
-az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
+az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
 每當您更新 Docker 容器或變更設定時，重新啟動應用程式。 重新啟動可確保套用所有設定，以及從登錄提取最新容器。
@@ -503,7 +455,6 @@ git diff 0.1-initialapp 0.2-migration
 
 透過執行 Flask 伺服器，可執行下列命令在本機測試您的變更。
 
-Mac / Linux：
 ```bash
 source venv/bin/activate
 cd app
@@ -511,7 +462,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-在瀏覽器中瀏覽至 http://127.0.0.1:5000 可檢視變更。 建立測試註冊。
+在瀏覽器中瀏覽至 http://localhost:5000 以檢視變更。 建立測試註冊。
 
 ![以 Docker 容器為基礎在本機執行的 Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 
@@ -520,6 +471,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 建立新的 Docker 映像、將其推送至容器登錄，並重新啟動應用程式。
 
 ```bash
+cd ..
 docker build -t flask-postgresql-sample .
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample

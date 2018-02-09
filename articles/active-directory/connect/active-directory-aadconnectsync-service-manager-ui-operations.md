@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 309a4ca2d5ef929bb50ed899f24709c062d7db29
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>使用 Sync Service Manager 作業索引標籤
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/18/2018
 
 | 狀態 | 註解 |
 | --- | --- |
-| stopped-* |執行無法完成。 例如，如果遠端系統已關閉且無法聯繫。 |
+| stopped-\* |執行無法完成。 例如，如果遠端系統已關閉且無法聯繫。 |
 | stopped-error-limit |有 5,000 個以上的錯誤。 執行因錯誤數量過多而自動停止。 |
 | completed-\*-errors |執行已完成，但發生應調查的錯誤 (數量少於 5,000 個)。 |
 | completed-\*-warnings |執行完成，但某些資料並未處於預期的狀態。 如果您遇到錯誤，則此訊息通常只是一個徵狀。 在您解決錯誤之前，不應該調查警告。 |

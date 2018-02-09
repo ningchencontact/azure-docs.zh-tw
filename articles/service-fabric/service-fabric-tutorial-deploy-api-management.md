@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>使用 Service Fabric 部署 API 管理
-本教學課程是一個系列的第四部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 閘道可以是任何針對流量輸入，例如 ASP.NET Core 應用程式、 事件中心、 IoT 中心或 Azure API 管理所設計的無狀態服務。 
+本教學課程是一個系列的第四部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 中，閘道可以是為流量輸入設計的任何無狀態服務，例如 ASP.NET Core 應用程式、事件中樞、IoT 中樞或 Azure API 管理。 
 
 本教學課程示範如何使用 Service Fabric 來設定 [Azure API 管理](../api-management/api-management-key-concepts.md)，以將流量路由傳送至 Service Fabric 中的後端服務。  當您完成時，就已將 API 管理部署至 VNET，已設定 API 作業來將流量傳送到後端無狀態服務。 若要深入了解搭配 Service Fabric 的「Azure API 管理」案例，請參閱[概觀](service-fabric-api-management-overview.md)一文。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/03/2018
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * 使用 Service Fabric 部署 API 管理
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前：
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](/cli/azure/install-azure-cli)。
@@ -81,8 +81,8 @@ az account set --subscription <guid>
 
  1. 在 Visual Studio 中，選取 [檔案] -> [新增專案]。
  2. 選取 [雲端] 底下的 [Service Fabric 應用程式] 範本，然後將它命名為 **"ApiApplication"**。
- 3. 選取 [ASP.NET Core] 服務範本，然後將專案命名為 **"WebApiService"**。
- 4. 選取 [Web API ASP.NET Core 1.1] 專案範本。
+ 3. 選取無狀態 ASP.NET Core 服務範本，然後將專案命名為 **"WebApiService"**。
+ 4. 選取 [Web API ASP.NET Core 2.0] 專案範本。
  5. 建立專案之後，開啟 `PackageRoot\ServiceManifest.xml`，然後從端點資源組態中移除 `Port` 屬性：
  
     ```xml
@@ -144,11 +144,15 @@ az account set --subscription <guid>
 
 5. 開啟瀏覽器然後輸入 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage，您應該會看到 "[version 1.0]Hello World!!!" 顯示。
 
-## <a name="download-and-understand-the-resource-manager-template"></a>下載並了解 Resource Manager 範本
+## <a name="download-and-understand-the-resource-manager-templates"></a>下載並了解 Resource Manager 範本
 下載並儲存下列 Resource Manager 範本和參數檔：
  
+- [network-apim.json][network-arm]
+- [network-apim.parameters.json][network-parameters-arm]
 - [apim.json][apim-arm]
 - [apim.parameters.json][apim-parameters-arm]
+
+*network-apim.json* 範本會在部署 Service Fabric 叢集的虛擬網路中，部署新的子網路與網路安全性群組。
 
 下列各節描述 apim.json 範本所定義的資源。 如需詳細資訊，請遵循每個章節內範本參考文件的連結。 在 apim.parameters.json 參數檔中定義的可設定參數會在本文稍後設定。
 
@@ -198,7 +202,7 @@ az account set --subscription <guid>
  - 無狀態服務的複本選取。
  - 解析重試條件：可讓您指定重新解析服務位置及重新傳送要求的條件。
 
-**policyContent** 是原則的 Json 逸出 XML 內容。  針對本教學課程，請建立一個後端原則，以將要求直接路由傳送到稍早部署的 .NET 或 Java 無狀態服務。 在輸入原則底下新增 `set-backend-service` 原則。  如果您稍早已部署 .NET 後端服務，將 "service-name" 取代為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則取代為 `fabric:/EchoServerApplication/EchoServerService`。
+**policyContent** 是原則的 Json 逸出 XML 內容。  針對本教學課程，請建立一個後端原則，以將要求直接路由傳送到稍早部署的 .NET 或 Java 無狀態服務。 在輸入原則底下新增 `set-backend-service` 原則。  如果您稍早已部署 .NET 後端服務，將 *sf-service-instance-name* 值替換為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則替換為 `fabric:/EchoServerApplication/EchoServerService`。  backend-id 會參考後端資源，在此例中為 apim.json 範本中定義的 `Microsoft.ApiManagement/service/backends` 資源。 backend-id 也可以參考另一個使用「API 管理」API 所建立的後端資源。 在本教學課程中，將 backend-id 設定為 service_fabric_backend_name 參數的值。
     
 ```xml
 <policies>
@@ -246,7 +250,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-在 inbound_policy 中，如果您稍早已部署 .NET 後端服務，將 "service-name" 取代為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則取代為 `fabric:/EchoServerApplication/EchoServerService`。
+在 inbound_policy 中，如果您稍早已部署 .NET 後端服務，將 sf-service-instance-name 值替換為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則替換為 `fabric:/EchoServerApplication/EchoServerService`。 backend-id 會參考後端資源，在此例中為 apim.json 範本中定義的 `Microsoft.ApiManagement/service/backends` 資源。 backend-id 也可以參考另一個使用「API 管理」API 所建立的後端資源。 在本教學課程中，將 backend-id 設定為 service_fabric_backend_name 參數的值。
 
 ```xml
 <policies>
@@ -269,12 +273,19 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 使用下列指令碼來部署用於 API 管理的 Resource Manager 範本和參數檔：
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+$templatepath="C:\clustertemplates"
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+
 az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
@@ -295,21 +306,12 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
     Vary: Origin
 
-    Access-Control-Allow-Origin: https://apimanagement.hosting.portal.azure.net
+    Ocp-Apim-Trace-Location: https://apimgmtstodhwklpry2xgkdj.blob.core.windows.net/apiinspectorcontainer/PWSQOq_FCDjGcaI1rdMn8w2-2?sv=2015-07-08&sr=b&sig=MhQhzk%2FEKzE5odlLXRjyVsgzltWGF8OkNzAKaf0B1P0%3D&se=2018-01-28T01%3A04%3A44Z&sp=r&traceId=9f8f1892121e445ea1ae4d2bc8449ce4
 
-    Access-Control-Allow-Credentials: true
+    Date: Sat, 27 Jan 2018 01:04:44 GMT
 
-    Access-Control-Expose-Headers: Transfer-Encoding,Date,Server,Vary,Ocp-Apim-Trace-Location
-
-    Ocp-Apim-Trace-Location: https://apimgmtstuvyx3wa3oqhdbwy.blob.core.windows.net/apiinspectorcontainer/RaVVuJBQ9yxtdyH55BAsjQ2-1?sv=2015-07-08&sr=b&sig=Ab6dPyLpTGAU6TdmlEVu32DMfdCXTiKAASUlwSq3jcY%3D&se=2017-09-15T05%3A49%3A53Z&sp=r&traceId=ed9f1f4332e34883a774c34aa899b832
-
-    Date: Thu, 14 Sep 2017 05:49:56 GMT
-
-
-    [
-    "value1",
-    "value2"
-    ]
+    
+    ["value1", "value2"]
     ```
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -340,14 +342,11 @@ az group delete --name $ResourceGroupName
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-[apim-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.json
-[apim-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.parameters.json
+[apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
+[apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json
 
-[network-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
+[network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

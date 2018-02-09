@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以程式設計方式調整 Service Fabric 叢集 
 
@@ -93,7 +93,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 相應縮小與相應放大類似。實際的虛擬機器擴展集變更幾乎完全相同。 但就如先前所討論的，Service Fabric 只會自動清除持久性為金級或銀級的已移除節點。 因此，在銅級持久性的相應縮小案例中，就必須與 Service Fabric 叢集互動，以關閉要移除的節點，然後移除其狀態。
 
-關閉節點的準備工作涉及尋找要移除的節點 (最近期新增的節點) 並加以停用。 對於非種子節點，可以藉由比較 `NodeInstanceId` 來找到較新的節點。 
+關閉節點的準備工作涉及尋找要移除的節點 (最近新增的虛擬機器擴展集執行個體) 並加以停用。 虛擬機器擴展集執行個體會以其新增的順序編號，因此可以藉由比較節點名稱中的數字尾碼 (其會比對基礎的虛擬機器擴展集執行個體名稱) 來找到較新的節點。 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-種子節點則不同，不一定要遵循較高的執行個體識別碼優先移除的慣例。
 
 在找到要移除的節點後，即可使用和稍早相同的 `FabricClient` 執行個體和 `IAzure` 執行個體來加以停用並移除。
 

@@ -1,5 +1,5 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定自動使用者佈建的 Slack | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 Slack 來自動佈建使用者 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 Slack。"
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Slack
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>教學課程︰設定 Slack 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 Slack 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Slack。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

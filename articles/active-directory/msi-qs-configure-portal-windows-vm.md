@@ -3,7 +3,7 @@ title: "如何使用 Azure 入口網站設定 Azure VM 上的 MSI"
 description: "使用 Azure 入口網站在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: bryanla
-ms.openlocfilehash: 8decfcedec94b9d78eac73a3e8db1219fac02029
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: f2891874fc6f894cfa141bd28c7c9edd92d7968c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VM 受控服務身分識別 (MSI)」
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 在本文中，您將了解如何使用 Azure 入口網站啟用和移除 Azure VM 的 MSI。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

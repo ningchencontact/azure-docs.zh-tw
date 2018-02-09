@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB Web 應用程式
 
 > [!NOTE]
-> 這篇文章會將應用程式部署至 Linux 上的應用程式服務。 若要將部署到應用程式服務在_Windows_，請參閱[建置在 Azure 中的 Node.js 及 MongoDB web 應用程式](../app-service-web-tutorial-nodejs-mongodb-app.md)。
+> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 Windows 上部署至 App Service，請參閱[在 Azure 中建置 Node.js 和 MongoDB Web 應用程式](../app-service-web-tutorial-nodejs-mongodb-app.md)。
 >
 
 [Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何建立 Node.js Web 應用程式，將其連線至 MongoDB 資料庫本機，然後使用 MongoDB API 部署至連線至 CosmosDB 資料庫的 Azure。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 Linux 上的 App Service 中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](http://meanjs.org/)。
@@ -41,7 +41,9 @@ ms.lasthandoff: 12/15/2017
 > * 來自 Azure 的串流診斷記錄
 > * 在 Azure 入口網站中管理應用程式
 
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -49,8 +51,6 @@ ms.lasthandoff: 12/15/2017
 1. [安裝 Node.js 6.0 版或更新版本及 NPM](https://nodejs.org/)
 1. [安裝 Gulp.js](http://gulpjs.com/) ([MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 的必要項目)
 1. [安裝及執行 MongoDB Community 版本](https://docs.mongodb.com/manual/administration/install-community/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="test-local-mongodb"></a>測試本機的 MongoDB
 
@@ -130,7 +130,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 
 ### <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶
 
-在 Cloud Shell 中，使用 [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令來建立 Cosmos DB 帳戶。
+在 Cloud Shell 中，使用 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令來建立 Cosmos DB 帳戶。
 
 在下列命令中，以唯一的 Cosmos DB 名稱取代 \<cosmosdb_name> 預留位置。 這個名稱會用來作為 Cosmos DB 端點 `https://<cosmosdb_name>.documents.azure.com/` 的一部分，因此，這個名稱在 Azure 中的所有 Cosmos DB 帳戶上必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。
 
@@ -164,7 +164,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 ### <a name="retrieve-the-database-key"></a>擷取資料庫索引鍵
 
-若要連線至 Cosmos DB 資料庫，您需要資料庫金鑰。 在 Cloud Shell 中，使用 [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 命令來擷取主要金鑰。
+若要連線至 Cosmos DB 資料庫，您需要資料庫金鑰。 在 Cloud Shell 中，使用 [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 命令來擷取主要金鑰。
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -248,7 +248,9 @@ MEAN.JS version: 0.5.0
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-linux-based-web-app"></a>建立 Linux 型 Web 應用程式
+<a name="create"></a>
+
+### <a name="create-a-web-app"></a>建立 Web 應用程式
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -256,7 +258,7 @@ MEAN.JS version: 0.5.0
 
 根據預設，MEAN.js 專案會將 _config/env/local-production.js_ 屏除在 Git 存放庫之外。 因此針對您的 Azure Web 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
 
-若要設定應用程式，請使用[az webapp config appsettings 組](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set)雲端殼層命令。
+若要設定應用程式的設定，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。
 
 下列範例會在 Azure Web 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 預留位置。
 
@@ -266,7 +268,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 在 Node.js 程式碼中，您可以利用 `process.env.MONGODB_URI` 來存取此應用程式設定，就像存取任何環境變數一樣。 
 
-在本機 MEAN.js 存放庫中，開啟 _config/env/production.js_ (而不是 _config/env/local-production.js_)，它具有生產環境特定設定。 請注意，已經將預設的 MEAN.js 應用程式設定為使用您建立的 `MONGODB_URI` 環境變數。
+在本機 MEAN.js 存放庫中，開啟 _config/env/production.js_ (而不是 _config/env/local-production.js_)，它具有生產環境特定設定。 預設的 MEAN.js 應用程式已經設定為使用您建立的 `MONGODB_URI` 環境變數。
 
 ```javascript
 db: {
@@ -424,9 +426,6 @@ exports.update = function (req, res) {
 gulp prod
 NODE_ENV=production node server.js
 ```
-
-> [!NOTE]
-> 請記住，您的 _config/env/production.js_ 已還原，`MONGODB_URI` 環境變數只會設定於 Azure Web 應用程式中，而不會設定於本機電腦上。 如果您查看設定檔，就會發現生產設定預設為使用本機的 MongoDB 資料庫。 如此可確保當您在本機測試程式碼變更時，不會碰觸到生產資料。
 
 在瀏覽器中，瀏覽至 `http://localhost:8443`，並確定您已登入。
 

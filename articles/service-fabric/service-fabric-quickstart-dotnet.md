@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0ba6cf4532e5bcd86c53a63349241509bfc941ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -123,9 +123,27 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 若要將應用程式部署至 Azure，您需要執行該應用程式的 Service Fabric 叢集。 
 
 ### <a name="join-a-party-cluster"></a>加入合作對象叢集
-合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 
+合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 叢集會針對節點對節點和用戶端對節點安全性，使用單一的自我簽署憑證。 
 
-登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 請記下 [連接端點] 的值，以便於用後續步驟。
+登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 後續步驟中會使用該憑證和 [連線端點] 值。
+
+![PFX 和連線端點](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+
+在 Windows 電腦上，將 PFX 安裝在 *CurrentUser\My* 憑證存放區。
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+請記住指紋以在後續步驟中使用。
 
 > [!Note]
 > 根據預設，Web 前端服務設定為在連接埠 8080 上接聽傳入流量。 在合作對象叢集中，會開啟連接埠 8080。  如果您需要變更應用程式連接埠，請將它變更為合作對象叢集中開啟的連接埠之一。
@@ -136,24 +154,29 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 1. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。 [發行] 對話方塊隨即出現。
 
-    ![[發佈] 對話方塊](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. 將合作對象叢集頁面上的 [連接端點] 複製到 [連接端點] 欄位，並按一下 [發行]。 例如： `winh1x87d1d.westus.cloudapp.azure.com:19000`。
+2. 將合作對象叢集頁面上的 [連線端點] 複製到 [連線端點] 欄位。 例如： `zwin7fh14scd.westus.cloudapp.azure.com:19000`。 按一下 [進階連線參數] 並填入下列資訊。  *FindValue* 和 *ServerCertThumbprint* 值必須符合先前步驟中安裝的憑證指紋。 
+
+    ![[發佈] 對話方塊](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     叢集中的每個應用程式都必須有一個唯一的名稱。  合作對象叢集是公用的共用環境，可能會與現有的應用程式發生衝突。  如果發生名稱衝突，請將 Visual Studio 專案重新命名並再次部署。
 
-3. 開啟瀏覽器並鍵入叢集位址，再加上 ': 8080' 以連接叢集中的應用程式 - 例如，`http://winh1x87d1d.westus.cloudapp.azure.com:8080`。 您現在應該會看到應用程式在 Azure 的叢集中執行。
+3. 按一下 [發佈] 。
+
+4. 開啟瀏覽器並鍵入叢集位址，再加上 ': 8080' 以連接叢集中的應用程式 - 例如，`http://zwin7fh14scd.westus.cloudapp.azure.com:8080`。 您現在應該會看到應用程式在 Azure 的叢集中執行。
 
 ![應用程式前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>調整叢集中的應用程式和服務
 您可以在整個叢集內輕鬆地調整 Service Fabric 服務，以符合服務上的負載變更。 您可以藉由變更叢集中執行的執行個體數目來調整服務。 您有多種方法來調整您的服務，您可以使用 PowerShell 或 Service Fabric CLI (sfctl) 中的指令碼或命令。 在此範例中，請使用 Service Fabric Explorer。
 
-Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從瀏覽器瀏覽至叢集 HTTP 管理連接埠 (19080) 來存取，例如 `http://winh1x87d1d.westus.cloudapp.azure.com:19080`。
+Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從瀏覽器瀏覽至叢集 HTTP 管理連接埠 (19080) 來存取，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。 
+
+您可能會收到位置不受信任的瀏覽器警告。 這是因為憑證是自我簽署的憑證。 您可以選擇忽略警告並繼續進行。 當瀏覽器出現提示時，選取已安裝的憑證來進行連線。 
 
 若要調整 Web 前端服務，請執行下列步驟：
 
-1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://winh1x87d1d.westus.cloudapp.azure.com:19080`。
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。
 2. 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -185,7 +208,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 7. 在 [發行 Service Fabric 應用程式] 對話方塊中，核取 [升級應用程式] 核取方塊，然後按一下 [發行]。
 
     ![發行對話方塊的升級設定](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. 開啟您的瀏覽器，然後瀏覽至連接埠 19080 上的叢集位址，例如 `http://winh1x87d1d.westus.cloudapp.azure.com:19080`。
+8. 開啟您的瀏覽器，然後瀏覽至連接埠 19080 上的叢集位址，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。
 9. 按一下樹狀檢視中的 [應用程式] 節點，然後按一下右窗格中的 [正在升級]。 您會看到在叢集的升級網域中輪流升級的情況，請確保每個網域的狀況良好，再繼續下一步。 當網域的健康狀態通過驗證時，進度列中的升級網域即會呈現綠色。
     ![Service Fabric Explorer 中的升級檢視](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

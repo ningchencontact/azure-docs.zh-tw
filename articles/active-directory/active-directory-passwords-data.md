@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>部署密碼重設而不需要使用者註冊
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 01/12/2018
 為了正確運作，電話號碼的格式必須是：+國碼 電話號碼，例如 +1 4255551234。
 
 > [!NOTE]
+> 國碼 (地區碼) 和電話號碼之間需要空格。
+>
 > 密碼重設不支援電話分機。 即使是 +1 4255551234X12345 格式，撥號之前都會移除分機號碼。
 
 ## <a name="fields-populated"></a>填入的欄位
@@ -42,6 +44,11 @@ ms.lasthandoff: 01/12/2018
 | telephoneNumber | 辦公室電話 | 備用手機 |
 | mobile | 行動電話 | 電話 |
 
+這些欄位可能會顯示為空白，直到使用者確認其驗證資料。
+
+全域系統管理員可以為使用者手動設定驗證連絡人資訊，如下列螢幕擷取畫面所示。
+
+![連絡人][Contact]
 
 ## <a name="security-questions-and-answers"></a>安全性問題和答案
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
 * [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "全域系統管理員可以修改使用者的驗證連絡人資訊"

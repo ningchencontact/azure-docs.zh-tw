@@ -3,7 +3,7 @@ title: "使用 Linux VM MSI 存取 Azure Resource Manager"
 description: "此教學課程引導您使用 Linux VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 391b9297ee9cf30cded0f5cb6e91d728d196d6b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 717738f68b8c91562a8fe842ad49dbee67a515ac
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>使用 Linux VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 > * 在 Azure Resource Manager 中將您的 VM 存取權授與資源群組 
 > * 使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

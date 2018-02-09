@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="what-are-os-security-configurations"></a>什麼是 OS 安全性設定？
 
-Azure 資訊安全中心藉由套用 150 個以上的建議規則來監視安全性設定以強化 OS，其中包含防火牆、稽核及密碼原則等相關規則。 如果發現電腦設定有弱點，資訊安全中心會產生安全性建議。
+Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的集合](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) \(英文\)，來監視安全性設定以強化 OS，其中包含與防火牆、稽核及密碼原則等相關的規則。 如果發現電腦設定有弱點，資訊安全中心會產生安全性建議。
 
 藉由自訂規則，組織可以控制哪些設定選項更適合其環境。 您可以設定自訂的評估原則，然後將它套用到訂用帳戶中所有適用的電腦上。
 
@@ -60,8 +60,8 @@ Azure 資訊安全中心藉由套用 150 個以上的建議規則來監視安全
 3.  選取您想要自訂的訂用帳戶。
 
 4. 在 [原則元件] 之下，選取 [編輯安全性設定]。  
-    [編輯安全性設定] 視窗隨即開啟。 
-    
+    [編輯安全性設定] 視窗隨即開啟。
+
     ![[編輯安全性設定] 視窗](media/security-center-customize-os-security-config/blade.png)
 
 5. 在右窗格中，遵循下載、編輯和上傳已修改檔案的步驟。
@@ -70,7 +70,7 @@ Azure 資訊安全中心藉由套用 150 個以上的建議規則來監視安全
    > 根據預設，您下載的設定檔為 *json* 格式。 如需修改此檔案的指示，請移至[自訂設定檔](#customize-the-configuration-file)。
    >
 
-   成功儲存檔案後，設定就會套用到訂用帳戶下連線到所有工作區的所有 VM 和電腦。 此程序通常需要數分鐘，但可能會更久，這取決於基礎結構大小。 
+   成功儲存檔案後，設定就會套用到訂用帳戶下連線到所有工作區的所有 VM 和電腦。 此程序通常需要數分鐘，但可能會更久，這取決於基礎結構大小。
 
 6. 若要認可變更，請選取 [儲存]。 否則不會儲存原則。
 
@@ -278,7 +278,7 @@ Azure 資訊安全中心藉由套用 150 個以上的建議規則來監視安全
 
 下表列出所有可能的錯誤：
 
-| **錯誤**                                | **描述**                                                                                                                              |
+| **錯誤**                                | **說明**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | BaselineConfiguratiohSchemaVersionError  | 屬性 *schemaVersion* 無效或空白。 此值必須設定為 *{0}*。                                                         |
 | BaselineInvalidStringError               | 屬性 *{0}* 不得包含 *\\n*。                                                                                                         |

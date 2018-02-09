@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: f7a4245435093358cac567cf08c8ce3979371c04
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9abd2c970a0429b908bd5650b0002c002bcdea83
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>使用 HDInsight 上的 Apache Kafka 確保您資料的高可用性
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/15/2017
 每個 Azure 區域有特定數目的容錯網域。 如需網域清單及其包含的容錯網域數目，請參閱[可用性設定組](../../virtual-machines/windows/regions-and-availability.md#availability-sets)文件。
 
 > [!IMPORTANT]
-> Kafka 不知道容錯網域。 當您在 Kafka 中建立主題時，它可將所有磁碟分割複本儲存在相同的容錯網域中。 若要解決這個問題，我們提供 [Kafka 磁碟分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。
+> Kafka 不知道容錯網域。 當您在 Kafka 中建立主題時，它可將所有磁碟分割複本儲存在相同的容錯網域中。 為了解決這個問題，HDInsight 提供 [Kafka 磁碟分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。
 
 ## <a name="when-to-rebalance-partition-replicas"></a>何時重新平衡磁碟分割複本
 

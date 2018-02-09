@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5f44d2ae42ffc6f75887a64c9ef988fe6d8fd69
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b00c89183ff0d4e7df49d29834508643e68246bb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT 中樞服務的概觀
 
-歡迎使用 Azure IoT 中樞。 本文提供 Azure IoT 中樞的概觀，並描述在實作物聯網 (IoT) 解決方案時，您應該使用此服務的原因。 Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 Azure IoT 中樞：
+歡迎使用 Azure IoT 中樞。 本文提供 Azure IoT 中樞的概觀，並描述在實作物聯網 (IoT) 解決方案時，您應該使用此服務的原因。 Azure IoT 中樞是一項完全受控的服務，可在數百萬個 IoT 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 Azure IoT 中樞：
 
 * 提供多個裝置到雲端和雲端到裝置的通訊選項。 這些選項包括單向通訊、檔案傳輸和要求回覆方法。
 * 向其他 Azure 服務提供內建宣告式訊息路由。
@@ -65,20 +65,36 @@ Azure IoT 中樞提供一組豐富的[裝置到雲端][lnk-d2c-guidance]和[雲�
 
 * **根據宣告式規則，將裝置對雲端訊息路由傳送至 Azure 服務**。 IoT 中樞可讓您根據路由規則定義訊息路由，以控制您的中樞傳送裝置對雲端訊息的位置。 路由規則不需要撰寫任何程式碼，且可代替自訂後擷取訊息發送器。
 
+* **將 IoT 中樞事件整合到商務應用程式中**。 IoT 中樞整合了 Azure Event Grid。 使用這項整合可設定其他 Azure 服務或第三方應用程式來接聽 IoT 中樞事件。 Azure Event Grid 可讓您以可靠、可擴充且安全的方式快速回應重大事件。
+
 * **裝置連線作業的監視**。 您可以收到有關裝置身分識別管理作業與裝置連線事件的詳細作業記錄檔。 這項監視功能可讓您的 IoT 解決方案識別連線能力問題。 使用這些記錄可識別提供錯誤認證、訊息傳送頻率過高，或拒絕所有雲端到裝置訊息的裝置。
 
-* **一組廣泛的裝置程式庫**。 [Azure IoT 裝置 SDK][lnk-device-sdks] 可供各種語言和平台使用並受其支援，例如許多 Linux 發行版本都支援的 C、Windows 和即時作業系統。 Azure IoT 裝置 SDK 也支援 C#、Java 和 JavaScript 等 Managed 語言。
+* **一組廣泛的裝置程式庫**。 [Azure IoT 裝置 SDK][lnk-device-sdks] 可供各種語言和平台使用並受其支援，例如許多 Linux 發行版本都支援的 C、Windows 和即時作業系統。 Azure IoT 裝置 SDK 也支援 C#、Java 和 JavaScript 等受控語言。
 
 * **IoT 通訊協定和擴充性**。 如果您的解決方案不能使用裝置程式庫，Azure IoT 中樞會公開可讓裝置以原生方式使用 MQTT v3.1.1、HTTPS 1.1 或 AMQP 1.0 通訊協定的公用通訊協定。 您也可以擴充 IoT 中樞以支援自訂通訊協定，方法如下：
 
-  * 使用 [Azure IoT Edge][lnk-iot-edge] 建立領域閘道，以將自訂通訊協定轉換成 IoT 中樞所理解的三種通訊協定之一。
+  * 使用 [Azure IoT Edge][lnk-iot-edge] 建立現場閘道，以將自訂通訊協定轉換成 IoT 中樞所理解的通訊協定。
   * 自訂 [Azure IoT 通訊協定閘道][protocol-gateway]，這是在雲端執行的開放原始碼元件。
 
 * **規模**。 Azure IoT 中樞會調整為數百萬個同時連接的裝置，以及每秒數百萬個事件。
 
+* **裝置佈建**。 [IoT 中樞裝置佈建服務](https://docs.microsoft.com/azure/iot-dps/)是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞自動進行 Just-In-Time 裝置佈建，讓您能以安全又可調整的方式佈建數百萬個裝置。
+
 ## <a name="gateways"></a>閘道
 
-IoT 解決方案中的閘道通常是部署於雲端中的[通訊協定閘道][lnk-iotedge]或隨您的裝置部署在本機的[領域閘道][lnk-field-gateway]。 通訊協定閘道會執行通訊協定轉譯，例如 AMQP 到 MQTT。 領域閘道可以在邊緣上執行分析、進行可降低延遲的時效性決策、提供裝置管理服務、強制執行安全性和隱私權條件約束，也可以執行通訊協定轉譯。 這兩種閘道器可作為您的裝置與 IoT 中樞之間的媒介。
+IoT 解決方案中的閘道通常是部署於雲端中的[通訊協定閘道][lnk-iotedge]或隨您的裝置部署在本機的[領域閘道][lnk-field-gateway]。
+
+「通訊協定閘道」可執行通訊協定轉譯，例如 AMQP 到 MQTT。
+
+「現場閘道」可執行下列作業：
+
+* 在邊緣上執行分析。
+* 制定有時效性的決策，以減少延遲。
+* 提供裝置管理服務。
+* 強制執行安全性和隱私權限制。
+* 執行通訊協定轉譯。
+
+這兩種閘道器可作為您的裝置與 IoT 中樞之間的媒介。
 
 現場閘道器與簡單的流量路由裝置 (例如網路位址轉譯裝置或防火牆) 不同，因為它通常會在解決方案內管理存取和資訊流程中扮演主動的角色。
 
@@ -86,7 +102,7 @@ IoT 解決方案中的閘道通常是部署於雲端中的[通訊協定閘道][l
 
 ## <a name="how-does-iot-hub-work"></a>IoT 中樞如何運作？
 
-Azure IoT 中樞會實作[服務輔助通訊][lnk-service-assisted-pattern]模式，以調節您的裝置與解決方案後端之間的互動。 服務輔助通訊的目標是要在控制系統 (例如 IoT 中樞) 以及在不受信任實體空間中的特殊用途裝置之間，建立可信任的雙向通訊路徑。 該模式會建立下列原則：
+Azure IoT 中樞會實作[服務輔助通訊][lnk-service-assisted-pattern]模式，以調節您的裝置與解決方案後端之間的互動。 此模式的目的是要在控制系統 (例如 IoT 中樞) 以及在不受信任實體空間中的特殊用途裝置之間，建立可信任的雙向通訊路徑。 該模式會建立下列原則：
 
 * 安全性的優先順序高於所有其他功能。
 
@@ -94,7 +110,7 @@ Azure IoT 中樞會實作[服務輔助通訊][lnk-service-assisted-pattern]模�
 
 * 裝置應該只連接至或是建立路由至與它們對等的已知服務 (例如 IoT 中樞)。
 
-* 裝置和服務之間或裝置和閘道器之間的通訊路徑會在應用程式通訊協定層受到保護。
+* 裝置和服務或閘道之間的通訊路徑會在應用程式通訊協定層受到保護。
 
 * 系統層級的授權和驗證是以每個裝置的身分識別為基礎。 可讓存取認證和權限能近乎即時撤銷。
 
@@ -108,13 +124,13 @@ ExpressRoute 的公用對等互連路徑支援 IoT 中樞。
 
 ## <a name="next-steps"></a>後續步驟
 
+若要開始撰寫一些程式碼和執行一些範例，請參閱[開始使用 IoT 中樞][lnk-get-started]教學課程。
+
 若要了解如何從裝置傳送及從 IoT 中樞接收訊息，以及如何設定訊息路由，請參閱[使用 IoT 中樞傳送及接收訊息][lnk-send-messages]。
 
 若要了解 IoT 中樞如何啟用標準型裝置管理，以便您遠端管理、設定及更新您的裝置，請參閱 [IoT 中樞的裝置管理概觀][lnk-device-management]。
 
 您可以使用 Azure IoT 裝置 SDK 來實作用戶端應用程式，以便在各式各樣的裝置硬體平台與作業系統上執行。 裝置 SDK 包含程式庫，可協助將遙測傳送至 IoT 中樞，並接收雲端到裝置訊息。 當您使用裝置 SDK 時，您可從各種網路通訊協定中選擇，以便與 IoT 中樞通訊。 若要深入了解，請參閱[裝置 SDK 的相關資訊][lnk-device-sdks]。
-
-若要開始撰寫一些程式碼和執行一些範例，請參閱[開始使用 IoT 中樞][lnk-get-started]教學課程。
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
@@ -131,7 +147,7 @@ ExpressRoute 的公用對等互連路徑支援 IoT 中樞。
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-iot-edge]: https://github.com/Azure/iot-edge
+[lnk-iot-edge]: https://docs.microsoft.com/azure/iot-edge/
 [lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 

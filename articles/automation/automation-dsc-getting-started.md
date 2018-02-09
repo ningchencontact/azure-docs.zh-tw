@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>開始使用 Azure 自動化 DSC
 本文說明如何使用 Azure 自動化預期狀態設定 (DSC) 來執行最常見的工作，例如建立、匯入和編譯組態、將要管理的機器上線，以及檢視報告。 如需何謂 Azure 自動化 DSC 的概觀，請參閱 [Azure 自動化 DSC 概觀](automation-dsc-overview.md)。 如需 DSC 文件，請參閱 [Windows PowerShell 預期狀態設定概觀](https://msdn.microsoft.com/PowerShell/dsc/overview)。
 
-本文提供使用 Azure 自動化 DSC 的逐步指南。 如果您不想遵循本主題中所述的步驟，但想要已經設定好的範例環境，您可以使用下列 [Resource Manager 範本](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup) \(英文\)。 此範本會設定完整的 Azure 自動化 DSC 環境，包括由 Azure 自動化 DSC 管理的 Azure VM。
+本文提供使用 Azure 自動化 DSC 的逐步指南。 如果您想要一個未遵循本文所述之步驟所設定的範例環境，您可以使用下列 Resource Manager 範本：此範本會設定完整的 Azure Automation DSC 環境，包括受到 Azure Automation DSC 管理的 Azure VM。
 
 ## <a name="prerequisites"></a>先決條件
 若要完成本文中的範例，需要有下列項目：
@@ -134,11 +134,11 @@ ms.lasthandoff: 01/24/2018
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>將 Azure Resource Manager VM 上架以便 Azure 自動化 DSC 管理
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 依序按一下左側的 [所有資源] 和您的自動化帳戶名稱。
-3. 在 [自動化帳戶] 頁面上，按一下 [組態管理] 下方的 [DSC 節點]。
+3. 在 [自動化帳戶] 分頁上，按一下 [組態管理] 下方的 [DSC 節點]。
 4. 在 [DSC 節點] 頁面中，按一下 [加入 Azure VM]。
    
     ![醒目提示 [加入 Azure VM] 按鈕之 [DSC 節點] 頁面的螢幕擷取畫面](./media/automation-dsc-getting-started/OnboardVM.png)
-5. 在 [虛擬機器] 頁面上，選取您的 VM。  在 [加入 Azure VM] 頁面中，按一下 [選取要上線的虛擬機器]。
+5. 在 [虛擬機器] 分頁上，選取您的 VM。 在 [加入 Azure VM] 頁面中，按一下 [選取要上線的虛擬機器]。
 6. 按一下 [ **連接**]。
    
    > [!IMPORTANT]

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: a897a97b9a1e259f5994a27b974eb5183fd1194b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>移除 Azure 自動化混合式 Runbook 背景工作角色
 
-您可以 
+Azure 自動化的混合式 Runbook 背景工作角色功能可讓您直接在裝載角色的電腦上，以及針對環境中的資源執行 Runbook，從而管理這些本機資源。 本文會逐步引導您完成從內部部署電腦移除混合式背景工作角色的步驟。
 
 ## <a name="removing-hybrid-runbook-worker"></a>移除 Hybrid Runbook Worker
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 12/14/2017
 若要移除群組，您必須先使用先前所示的程序，從群組的每一部成員電腦中移除 Hybrid Runbook Worker，然後執行下列步驟移除群組。  
 
 1. 在 Azure 入口網站中，開啟自動化帳戶。
-1. 選取 [Hybrid 背景工作角色] 刀鋒視窗中的 [Hybrid 背景工作角色群組] 圖格，然後選取要刪除的群組。  選取特定的群組之後，[Hybrid 背景工作角色群組] 屬性刀鋒視窗隨即出現。<br> ![Hybrid Runbook 背景工作角色群組刀鋒視窗](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-1. 在所選群組的屬性刀鋒視窗中，按一下 [刪除]。  將會出現一則訊息要求您確認此動作，如果您確定要繼續，請選取 [是]。<br> ![建立群組確認對話方塊](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。 
+1. 在 [程序自動化] 底下選取 [混合式背景工作角色群組]。 選取您想要刪除的群組。  選取特定的群組之後，[Hybrid 背景工作角色群組] 屬性刀鋒視窗隨即出現。<br> ![Hybrid Runbook 背景工作角色群組刀鋒視窗](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+2. 在所選群組的屬性刀鋒視窗中，按一下 [刪除]。  將會出現一則訊息要求您確認此動作，如果您確定要繼續，請選取 [是]。<br> ![建立群組確認對話方塊](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。 
 
 ## <a name="next-steps"></a>後續步驟
 

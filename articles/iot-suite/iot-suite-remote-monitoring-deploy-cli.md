@@ -1,28 +1,28 @@
 ---
 title: "部署 Java 遠端監視解決方案架構 - Azure | Microsoft Docs"
-description: "本教學課程說明如何使用 CLI 來佈建遠端監視預先設定的解決方案 Java 微服務。"
+description: "本教學課程示範如何使用 CLI 來佈建遠端監視預先設定的解決方案。"
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>使用 CLI 來部署遠端監視預先設定的解決方案
 
 本教學課程示範如何佈建遠端監視預先設定的解決方案。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案，若要了解此選項，請參閱[部署遠端監視預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視預先設定的解決方案，您需要一個作用中的 Azure 訂用帳戶。
 
@@ -54,8 +54,10 @@ pcs login
 
 | 選項 | 值 | 說明 |
 | ------ | ------ | ----------- |
-| SKU    | `basic`、`standard` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至多部虛擬機器。 |
+| SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至多部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用雲端中的 Azure 服務 (例如儲存體和 Cosmos DB)。 |
 | 執行階段 | `dotnet`、`java` | 選取微服務的語言實作。 |
+
+若要了解如何使用本機部署，請參閱[在本機執行遠端監視解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) \(英文\)。
 
 ## <a name="deploy-the-preconfigured-solution"></a>部署預先設定的解決方案
 

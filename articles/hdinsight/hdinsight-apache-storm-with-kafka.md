@@ -13,20 +13,20 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>使用 Apache Kafka 搭配 Storm on HDInsight
 
 了解如何使用 Apache Storm 讀取和寫入 Apache Kafka。 本例也示範如何將資料從 Storm 拓撲儲存到 HDInsight 所使用的 HDFS 相容檔案系統。
 
 > [!NOTE]
-> 本文件中的步驟建立 Azure 資源群組，其中包含 Storm on HDInsight 和 Kafka on HDInsight 叢集。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Storm 叢集直接與 Kafka 叢集通訊。
+> 本文件中的步驟建立 Azure 資源群組，其中包含 Storm on HDInsight 和 Kafka on HDInsight cluster 叢集。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Storm 叢集直接與 Kafka 叢集通訊。
 > 
 > 當您完成本文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
 

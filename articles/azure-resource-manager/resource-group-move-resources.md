@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -53,7 +53,10 @@ ms.lasthandoff: 01/22/2018
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  如果來源和目的地訂用帳戶的租用戶識別碼不相同，您必須連絡[支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)以將資源移至新的租用戶。
+  如果來源和目的地訂用帳戶的租用戶識別碼不相同，請使用下列方法來協調租用戶識別碼： 
+
+  * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
+  * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. 服務必須啟用移動資源的功能。 本文列出哪些服務可實現移動資源，哪些服務無法實現移動資源。
 3. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為該訂用帳戶不曾以指定的資源類型使用過而遇到問題。
@@ -93,7 +96,7 @@ ms.lasthandoff: 01/22/2018
 
 當您需要進行下列作業時，請連絡[支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)︰
 
-* 將資源移至新的 Azure 帳戶 (與 Azure Active Directory 租用戶)。
+* 將資源移至新的 Azure 帳戶 (和 Azure Active Directory 租用戶)，而且需要上一節中指示的說明。
 * 移動傳統資源，但有限制的問題。
 
 ## <a name="services-that-enable-move"></a>啟用移動的服務
@@ -319,7 +322,7 @@ App Service 方案不需要與應用程式位於相同的資源群組，應用�
  1. 暫時停止備份並保留備份資料
  2. 將虛擬機器移到目標資源群組
  3. 在相同/新的保存庫下將其重新保護。使用者可以從移動作業前建立的可用還原點進行還原。
-如果使用者是在訂用帳戶之間移動備份虛擬機器，步驟 1 和步驟 2 保持不變。 在步驟 3 中，使用者需要保護在目標訂用帳戶中存在/建立之新保存庫下的虛擬機器。復原服務的保存庫不支援跨訂用帳戶的備份。
+如果使用者是在訂用帳戶之間移動備份虛擬機器，步驟 1 和步驟 2 保持不變。 在步驟 3 中，使用者需要保護在目標訂用帳戶中存在/建立之新保存庫底下的 VM。 復原服務保存庫不支援跨訂用帳戶的備份。
 
 ## <a name="hdinsight-limitations"></a>HDInsight 限制
 

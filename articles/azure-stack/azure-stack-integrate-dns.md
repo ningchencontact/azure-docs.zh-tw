@@ -2,22 +2,20 @@
 title: "Azure Stack 資料中心整合 - DNS"
 description: "了解如何將 Azure Stack DNS 與您的資料中心 DNS 整合"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 資料中心整合 - DNS
-
-適用於：Azure Stack 整合系統
-
 若要能夠從 Azure Stack 外部存取 Azure Stack 端點 (`portal`、`adminportal`、`management`、`adminmanagement` 等)，您必須將 Azure Stack DNS 服務與裝載您想要在 Azure Stack 中使用之 DNS 區域的 DNS 伺服器整合。
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS 命名空間
@@ -140,4 +138,4 @@ Azure Stack DNS 伺服器的 FQDN 具有下列格式：
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure Stack 資料中心整合 - 身分識別](azure-stack-integrate-identity.md)
+[防火牆整合](azure-stack-firewall.md)

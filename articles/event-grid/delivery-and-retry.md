@@ -2,17 +2,17 @@
 title: "Azure Event Grid 傳遞與重試"
 description: "說明 Azure Event Grid 如何傳遞事件，以及如何處理未傳遞的訊息。"
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試 
 
@@ -58,11 +58,11 @@ Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果您的 Webh
 6. 30 分鐘
 7. 1 小時
 
-Event Grid 會將小型隨機加入所有重試間隔。
+Event Grid 會將小型隨機加入所有重試間隔。 一個小時之後，事件傳遞會每小時重試一次。
 
 ## <a name="retry-duration"></a>重試持續時間
 
-在預覽期間，Azure Event Grid 會讓兩個小時內未傳遞的所有事件到期。
+Azure Event Grid 會讓所有未在 24 小時內傳遞的事件變成過期事件。
 
 ## <a name="next-steps"></a>後續步驟
 

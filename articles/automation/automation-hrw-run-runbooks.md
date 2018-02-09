@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ca63f9c7a11bc072bd73c3d61c63a8d603020e68
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook 
 在 Azure 自動化和混合式 Runbook 背景工作上執行的 Runbook 結構中沒有任何差異。 您對兩者使用的 Runbook 可能會有顯著差異，因為目標為混合式 Runbook 背景工作角色的 Runbook 通常會自行管理本機電腦上的資源，或針對其所部署之本機環境中的資源，而 Azure 自動化中的 Runbook 通常是管理 Azure 雲端中的資源。
@@ -112,9 +112,10 @@ ms.lasthandoff: 01/24/2018
 
     [OutputType([string])] 
 
-    # Set the password used for this certificate
-    $Password = "YourStrongPasswordForTheCert"
-
+    # Generate the password used for this certificate
+    Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
+    $Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)
+    
     # Stop on errors
     $ErrorActionPreference = 'stop'
 

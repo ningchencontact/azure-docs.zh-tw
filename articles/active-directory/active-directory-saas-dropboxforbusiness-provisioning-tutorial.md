@@ -1,5 +1,5 @@
 ---
-title: "教學課程：Azure Active Directory 與 Dropbox for Business 整合 | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 Dropbox 來自動佈建使用者 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 與 Dropbox for Business 之間的單一登入。"
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Dropbox for Business
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>教學課程︰設定 Dropbox for Business 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Dropbox for Business 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Dropbox for Business。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

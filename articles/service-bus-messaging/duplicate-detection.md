@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>重複偵測
 
-如果應用程式在傳送訊息後立即發生嚴重錯誤，而重新啟動後的應用程式執行個體錯誤地認為先前的訊息傳遞並未發生，後續的傳送作業會導致同樣的訊息出現在系統中兩次。
+如果應用程式在傳送訊息後立即發生嚴重錯誤，而重新啟動後的應用程式執行個體錯誤地認為先前的訊息傳遞並未發生，後續的傳送會導致同樣的訊息在系統中出現兩次。
 
-這也有可能是用戶端或網路層級在稍早發生錯誤，在通知未能使已傳送之訊息成功返回用戶端的情況下，讓已傳送的訊息提交到佇列中。 這個案例會讓用戶端對傳送作業的結果產生疑慮。
+這也有可能是用戶端或網路層級在稍早發生錯誤，在通知未能成功返回用戶端的情況下，讓已傳送的訊息提交到佇列中。 這個案例會讓用戶端對傳送作業的結果產生疑慮。
 
 透過讓寄件者重新傳送同樣的訊息，重複偵測能將這些情況下的疑慮排除，而佇列或主題則會捨棄任何重複的複本。
 

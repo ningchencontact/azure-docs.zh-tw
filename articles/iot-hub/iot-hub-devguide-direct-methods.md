@@ -12,22 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
-IoT 中樞能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 對於立即動作的進展取決於裝置是否能夠回應的案例來說，例如在裝置離線時傳送 SMS 喚醒給裝置 (SMS 的成本比方法呼叫高)，此方法會相當有用。
+IoT 中樞能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 針對立即動作的進展取決於裝置是否能夠回應的案例，此方法會相當有用。 例如，在裝置離線時，對裝置傳送 SMS 喚醒 (SMS 的成本比方法呼叫高)。
 每個裝置方法的目標是單一裝置。 [作業][lnk-devguide-jobs]提供方法來在多個裝置上叫用直接方法，並針對已中斷連接的裝置排定方法引動過程。
 
 IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的方法。
 
-直接方法會遵循要求-回應模式，主要用於需要立即確認其結果的通訊，通常為裝置的互動式控制，例如開啟風扇。
+直接方法會依循「要求-回應」模式，適用於需要立即確認其結果的通訊。 例如，裝置的互動式控制，像是開啟風扇。
 
 如果不確定要使用所需屬性、直接方法或雲端對裝置訊息，請參閱[雲端對裝置通訊指引][lnk-c2d-guidance]。
 
@@ -39,7 +39,7 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 > 
 > 
 
-直接方法是同步的，可能在逾時期間後成功或失敗 (預設︰30 秒，可設定為 3600 秒)。 直接方法在您想要裝置當作在線上並且接收命令 (例如透過手機開燈) 的互動案例中相當有用。 在這些案例中，您想要查看立即成功或失敗，讓雲端服務可以儘速處理結果。 裝置可能會傳回部分訊息本文作為方法的結果，但是不需要方法這麼做。 不保證方法呼叫的順序或任何並行語意。
+直接方法是同步的，可能在逾時期間後成功或失敗 (預設︰30 秒，可設定為 3600 秒)。 在您想要讓裝置只有在線上且接收命令的情況下才採取行動的互動式案例中，直接方法相當有用。 例如，透過手機開燈。 在這些案例中，您想要查看立即成功或失敗，讓雲端服務可以儘速處理結果。 裝置可能會傳回部分訊息本文作為方法的結果，但是不需要方法這麼做。 不保證方法呼叫的順序或任何並行語意。
 
 直接方法從雲端來說，僅限使用 HTTPS，從裝置端來說，則使用 MQTT 或 AMQP。
 
@@ -54,16 +54,16 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 * *標頭* - 包含授權、要求識別碼、內容類型及內容編碼
 * 透明 JSON *本文*格式如下︰
 
-   ```
-   {
-       "methodName": "reboot",
-       "responseTimeoutInSeconds": 200,
-       "payload": {
-           "input1": "someInput",
-           "input2": "anotherInput"
-       }
-   }
-   ```
+    ```json
+    {
+        "methodName": "reboot",
+        "responseTimeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
+    }
+    ```
 
 逾時 (秒)。 如果未設定逾時，它會預設為 30 秒。
 
@@ -74,13 +74,14 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 * *標頭* - 包含 ETag、要求識別碼、內容類型及內容編碼
 * JSON *本文*格式如下︰
 
-   ```   {
-       "status" : 201,
-       "payload" : {...}
-   }
-   ```
+    ```json
+    {
+        "status" : 201,
+        "payload" : {...}
+    }
+    ```
 
-   `status` 和 `body` 都是由裝置提供，用來回應裝置本身的狀態碼和/或描述。
+    `status` 和 `body` 都是由裝置提供，用來回應裝置本身的狀態碼和/或描述。
 
 ## <a name="handle-a-direct-method-on-a-device"></a>在裝置上處理直接方法
 ### <a name="mqtt"></a>MQTT
@@ -89,7 +90,7 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 
 裝置所接收的本文格式如下︰
 
-```
+```json
 {
     "input1": "someInput",
     "input2": "anotherInput"
@@ -127,7 +128,7 @@ AMQP 訊息會送達代表方法要求的接收連結。 其中包含下列項�
 IoT 中樞開發人員指南中的其他參考主題包括︰
 
 * [IoT 中樞端點][lnk-endpoints]說明每個 IoT 中樞公開給執行階段和管理作業的各種端點。
-* [節流和配額][lnk-quotas]說明適用於 IoT 中樞服務的配額，和使用服務時所預期的節流行為。
+* [節流和配額][lnk-quotas]說明使用「IoT 中樞」時，適用的配額及所預期的節流行為。
 * [Azure IoT 裝置和服務 SDK][lnk-sdks] 列出各種語言 SDK，可供您在開發與「IoT 中樞」互動的裝置和服務應用程式時使用。
 * [裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][lnk-query]說明可用於從 IoT 中樞擷取有關裝置對應項和作業資訊的 IoT 中樞查詢語言。
 * [IoT 中樞 MQTT 支援][lnk-devguide-mqtt]針對 MQTT 通訊協定提供 IoT 中樞支援的詳細資訊。

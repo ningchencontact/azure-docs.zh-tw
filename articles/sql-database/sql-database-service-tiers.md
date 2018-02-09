@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 08/20/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層
 
@@ -34,8 +34,8 @@ ms.lasthandoff: 10/31/2017
 |目標工作負載|開發與生產|開發與生產|開發與生產|工作負載可以容許由於服務失敗而造成的資料遺失最多 5 分鐘|
 |執行時間 SLA|99.99%|99.99%|99.99%|預覽時，N/A|
 |備份保留期|7 天|35 天|35 天|35 天|
-|CPU|低|低、中、高|中、高|中型|
-|IO 輸送量|低  | 中型 | 量級高於標準|與進階相同|
+|CPU|低|低、中、高|中、高|中|
+|IO 輸送量|低  | 中 | 量級高於標準|與進階相同|
 |IO 延遲|高於進階|高於進階|低於基本和標準|與進階相同|
 |資料行存放區索引和記憶體內部 OLTP|N/A|N/A|支援|支援|
 |||||
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/31/2017
 > [!IMPORTANT]
 > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
 >
-> \* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：美國東部 2、美國西部、美國維吉尼亞州政府、西歐、德國中部、東南亞、日本東部、澳大利亞東部、加拿大中部和加拿大東部。 請參閱 [P11-P15 目前限制](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> \* 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 > 
 
 如需特定的效能層級和可用儲存體大小選項的詳細資訊，請參閱 [SQL Database 資源限制](sql-database-resource-limits.md)。

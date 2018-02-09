@@ -1,3 +1,8 @@
+> [!NOTE]
+> 您可以使用 Azure DNS 來設定 Azure Web Apps 的自訂 DNS 名稱。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](../articles/dns/dns-custom-domain.md#app-service-web-apps)。
+>
+>
+
 登入網域提供者的網站。
 
 尋找管理 DNS 記錄的頁面。 每個網域提供者有自己的 DNS 記錄介面，請查閱您的提供者文件。 在網站中尋找標示為 [網域名稱]、[DNS] 或 [名稱伺服器管理] 的區域。 

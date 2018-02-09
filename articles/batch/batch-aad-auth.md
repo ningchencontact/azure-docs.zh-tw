@@ -3,8 +3,8 @@ title: "使用 Azure Active Directory 驗證 Azure Batch 服務解決方案 | Mi
 description: "Batch 支援 Azure AD 從 Batch 服務進行驗證。"
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
-ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: danlep
+ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
@@ -318,7 +318,7 @@ public static async Task PerformBatchOperations()
 
 若要使用 Azure AD 驗證 Batch Management 應用程式，請參閱[使用 Active Directory 驗證 Batch Management 解決方案](batch-aad-auth-management.md)。
 
-如需 Python 的範例如何建立批次用戶端使用 Azure AD 權杖進行驗證，請參閱[Azure Active Directory 驗證](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication)Azure SDK for Python 文件中的範例。
+如需如何建立使用 Azure AD 權杖進行驗證之 Batch 用戶端的 Python 範例，請參閱 Azure SDK for Python 文件中的 [Azure Active Directory 驗證](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication)範例。
 
 [aad_about]: ../active-directory/active-directory-whatis.md "什麼是 Azure Active Directory？"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

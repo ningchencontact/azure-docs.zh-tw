@@ -1,5 +1,5 @@
 ---
-title: "建立 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs"
+title: "快速入門：建立 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs"
 description: "針對 Azure SQL 資料倉儲，在 Azure 入口網站中建立 SQL 伺服器、伺服器層級防火牆規則和資料倉儲。 然後進行查詢。"
 keywords: "sql 資料倉儲教學課程, 建立 SQL 資料倉儲"
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
 使用 Azure 入口網站快速建立及查詢 Azure SQL 資料倉儲。
 
@@ -78,7 +78,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](performance-tiers.m
 
     ![設定效能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. 按一下 [Apply (套用)] 。
+8. 按一下 [套用]。
 
 9. 您現在已完成 SQL Database 表單，請按一下 [建立] 來佈建資料庫。 佈建需要幾分鐘的時間。 
 
@@ -113,7 +113,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 4. 若要將目前的 IP 位址新增至新的防火牆規則，按一下工具列上的 [新增用戶端 IP]。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-5. 按一下 [儲存] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+5. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
 6. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
 

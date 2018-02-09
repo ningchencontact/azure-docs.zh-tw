@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
-ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="what-is-logged"></a>會記錄什麼內容？
 
-* 系統會記錄所有已驗證的 REST SQL API 要求，包括因為存取權限、系統錯誤或要求錯誤而發生的失敗要求。 目前未提供對 MongoDB、圖表和資料表 API 的支援。
+* 會跨所有 API 記錄所有已驗證的後端要求 (TCP/REST)，包括因為存取權限、系統錯誤或要求錯誤而發生的失敗要求。 目前不支援使用者起始的 Graph、Cassandra 和資料表 API 要求。
 * 對資料庫本身的作業，包括對所有文件、容器和資料庫的 CRUD 作業。
 * 對帳戶金鑰的作業，包括建立、修改或刪除這些金鑰。
 * 產生 401 回應的未經驗證要求。 例如，沒有持有人權杖的要求，或格式不正確或已過期的要求，或具有無效權杖的要求。
@@ -54,8 +54,8 @@ ms.lasthandoff: 01/19/2018
     * **封存至儲存體帳戶**。 若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)，依指示建立一個 Resource Manager (一般用途帳戶)。 然後返回入口網站的此頁面選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現在下拉式功能表中。
     * **串流處理至事件中樞**。 若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後返回入口網站的此頁面選取事件中樞命名空間和原則名稱。
     * **傳送至 Log Analytics**。     若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需有關如何檢視 Log Analytics 記錄的詳細資訊，請參閱[檢視 Log Analytics 中的記錄](#view-in-loganalytics)。
-    * **記錄 DataPlaneRequests**。 選取此選項可記錄 SQL、圖形、資料表 API 帳戶的診斷。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
-    * **記錄 MongoRequests**。 選取此選項可記錄 MongoDB API 帳戶的診斷。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **記錄 DataPlaneRequests**。 選取此選項，從適用於 SQL、Graph、MongoDB、Cassandra 和資料表 API 帳戶的 Azure Cosmos DB 基礎分散式平台記錄後端要求。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **記錄 MongoRequests**。 選取此選項，從 Azure Cosmos DB 的前端針對使用者為了替 MongoDB API 帳戶提供服務而起始的要求進行記錄。  如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量要求**。 選取此選項可儲存 [Azure 計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)中的詳細資料。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
 3. 按一下 [檔案] 。

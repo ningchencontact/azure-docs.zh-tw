@@ -1,10 +1,10 @@
 ---
-title: "檢查與 Azure 網路監看員的連線 - Azure CLI 2.0 | Microsoft Docs"
-description: "此頁面說明如何使用 Azure CLI 2.0 檢查與網路監看員的連線"
+title: "利用 Azure 網路監看員進行連線疑難排解 - Azure CLI 2.0 | Microsoft Docs"
+description: "了解如何運用 Azure CLI 2.0，來使用 Azure 網路監看員的連線疑難排解功能。"
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 檢查與 Azure 網路監看員的連線
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 利用 Azure 網路監看員進行連線疑難排解
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-了解如何使用連線，確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
+了解如何使用連線疑難排解，來確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
 
 ## <a name="before-you-begin"></a>開始之前
 
 本文假設您具有下列資源：
 
-* 您想要檢查連線之區域中的網路監看員執行個體。
-
-* 要檢查與其連線的虛擬機器。
+* 您想要進行連線疑難排解之區域中的網路監看員執行個體。
+* 要用來進行連線疑難排解的虛擬機器。
 
 > [!IMPORTANT]
-> 連線檢查需要虛擬機器延伸模組 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
+> 連線疑難排解需要虛擬機器擴充功能 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>檢查與虛擬機器的連線
 
@@ -122,7 +121,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>驗證路由問題
 
-此範例會檢查虛擬機器與遠端端點之間的連線。
+這個範例會檢查虛擬機器與遠端端點之間的連線能力。
 
 ### <a name="example"></a>範例
 

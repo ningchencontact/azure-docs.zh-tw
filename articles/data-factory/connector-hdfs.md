@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 01/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: fb4802a6a3bed163f0d2bba04cf9d80a917ba7ba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從 HDFS 複製資料或將資料複製到 HDFS | Microsoft Docs
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從 HDFS 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式推出](v1/data-factory-hdfs-connector.md)
 > * [第 2 版 - 預覽](connector-hdfs.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 HDFS 複製資料及將資料複製到 HDFS。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 HDFS 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版中的 HDFS 連接器](v1/data-factory-hdfs-connector.md)。
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-若要從不可公開存取的 HDFS 複製資料，或將資料複製到不可公開存取的 HDFS，您應該設定一個「自我裝載整合執行階段」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](concepts-integration-runtime.md) 一文。
+若要從不可公開存取的 HDFS 複製資料，您需要設定「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](concepts-integration-runtime.md) 一文。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 HDFS 來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 HDFS 來源所支援的屬性清單。
 
 ### <a name="hdfs-as-source"></a>HDFS 作為來源
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b69f6b2190362b970420ba81450978ac9faecd86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -244,7 +244,7 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 App Servi
 * 若要在 Azure CLI 中列出 Azure App Service 可用的命令，請呼叫 `azure site -h`。
 
 > [!NOTE] 
-> 針對適用於部署位置的 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 命令，請參閱 [Azure App Service Web 部署位置](/cli/azure/appservice/web/deployment/slot)。
+> 針對適用於部署位置的 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 命令，請參閱 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)。
 
 - - -
 ### <a name="azure-site-list"></a>azure site list

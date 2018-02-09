@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用範本來建立含有事件中樞的命名空間並啟用擷取
 
-本文說明如何使用 Azure Resource Manager 範本來建立含有一個事件中樞執行個體的事件中樞命名空間，也可在該事件中樞上啟用[擷取功能](event-hubs-capture-overview.md)。 此文章說明如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
+本文說明如何使用 Azure Resource Manager 範本來建立含有一個事件中樞執行個體的[事件中樞](event-hubs-what-is-event-hubs.md)命名空間，也可在該事件中樞上啟用[擷取功能](event-hubs-capture-overview.md)。 此文章說明如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
 本文也會示範如何根據您選擇的目的地，指定將事件擷取到 Azure 儲存體 Blob 或 Azure Data Lake Store 中。
 
@@ -42,11 +42,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="what-will-you-deploy"></a>您將部署什麼？
 
-使用此範本，您可部署含有事件中樞的事件中樞命名空間，也可啟用[事件中樞擷取](event-hubs-capture-overview.md)。
-
-[事件中樞](event-hubs-what-is-event-hubs.md) 是事件處理服務，用於提供大規模進入 Azure 的事件和遙測入口，並具備低延遲和高可靠性等特性。 事件中樞擷取功能讓您能夠在指定時間或大小間隔內，自動將事件中樞的串流資料傳遞到 Azure Blob 儲存體或 Azure Data Lake Store。
-
-按一下以下按鈕來啟用「事件中心擷取到 Azure 儲存體中」：
+使用此範本，您可部署含有事件中樞的事件中樞命名空間，也可啟用[事件中樞擷取](event-hubs-capture-overview.md)。 事件中樞擷取功能讓您能夠在指定時間或大小間隔內，自動將事件中樞的串流資料傳遞到 Azure Blob 儲存體或 Azure Data Lake Store。 按一下以下按鈕來啟用「事件中心擷取到 Azure 儲存體中」：
 
 [![部署至 Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-要建立的[事件中樞命名空間](event-hubs-create.md)名稱。
+要建立的事件中樞命名空間名稱。
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="eventhubname"></a>eventHubName
 
-在[事件中樞命名空間](event-hubs-create.md)中建立的事件中樞名稱。
+在「事件中樞」命名空間中建立的事件中樞名稱。
 
 ```json
 "eventHubName":{  
@@ -429,7 +425,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 

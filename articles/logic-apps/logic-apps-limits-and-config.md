@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 限制和設定
 
@@ -85,12 +85,12 @@ ms.lasthandoff: 01/19/2018
 這些限制適用於單一邏輯應用程式執行個體。
 
 | Name | 限制 | 注意 | 
-| ---- | ----- | ----- | 
-| 每 5 分鐘的動作執行 | 100,000 | 可以視需要將工作負載分散到多個應用程式。 | 
+| ----- | ----- | ----- | 
+| 每 5 分鐘的動作執行 | 100,000 |<p>限制可以透過以 `High Througput` 模式執行邏輯應用程式而提高到最高 300,000，而此動作可以透過將工作流程資源之 `runtimeConfiguration` 下的 `operationOptions` 屬性設定為 `OptimizedForHighThroughput` 來完成。 <p>請注意，高輸送量模式為預覽狀態。 此外，工作負載也可以視需要分配到多個應用程式。 | 
 | 動作並行撥出電話 | ~2,500 | 視需要減少並行要求數目或縮短持續時間。 | 
-| 執行階段端點：並行連入呼叫 | ~1,000 | 視需要減少並行要求數目或縮短持續時間。 | 
-| 執行階段端點：每隔 5 分鐘讀取一次呼叫 | 60,000 | 可以視需要將工作負載分散到多個應用程式。 | 
-| 執行階段端點：每隔 5 分鐘叫用一次呼叫 | 45,000 | 可以視需要將工作負載分散到多個應用程式。 | 
+| 執行階段端點：並行連入呼叫 |~1,000 | 視需要減少並行要求數目或縮短持續時間。 | 
+| 執行階段端點：每隔 5 分鐘讀取一次呼叫  | 60,000 | 可以視需要將工作負載分散到多個應用程式。 | 
+| 執行階段端點：每隔 5 分鐘叫用一次呼叫| 45,000 |可以視需要將工作負載分散到多個應用程式。 | 
 |||| 
 
 若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與我們連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。

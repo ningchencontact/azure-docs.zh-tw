@@ -3,8 +3,8 @@ title: "如何使用 Azure 入口網站將 MSI 存取權指派給 Azure 資源"
 description: "提供如何使用 Azure 入口網站將一個資源的 MSI 存取權指派給另一個資源的逐步指示。"
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7d0a50db28ba3d9926f7a83fe224b7a0dbe6ed20
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 83a56793d08632918a75f6580360a9dd148d7316
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站將受控服務識別 (MSI) 存取權指派給資源
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/22/2017
 
 以受控服務識別 (MSI) 設定 Azure 資源後，您就可以將 MSI 存取權提供給另一個資源，就像任何安全性主體一樣。 本文示範如何使用 Azure 入口網站將 Azure 虛擬機器的 MSI 存取權提供給 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

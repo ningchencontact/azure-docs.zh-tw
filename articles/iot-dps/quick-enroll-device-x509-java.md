@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f05524f9ec70fea243ab6cb3e87a70e762b0fa48
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 4c06127c44a1ea5a3b0ef5e755e5212bfe417fed
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 X.509 裝置
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-x509-java.md)
+> * [C#](quick-enroll-device-x509-csharp.md)
 > * [Node.js](quick-enroll-device-x509-node.md)
 
 這些步驟顯示如何使用 [Java 服務 SDK](https://azure.github.io/azure-iot-sdk-java/service/) 與範例 Java 應用程式的協助，以程式設計方式向 Azure IoT 中樞裝置佈建服務註冊 X.509 模擬裝置的群組。 雖然 Java 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦來逐步引導進行註冊程序。

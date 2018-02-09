@@ -1,298 +1,372 @@
 ---
-title: "使用 URL 路由規則建立應用程式閘道 |Microsoft Docs"
-description: "本頁面提供使用 URL 路由規則建立和設定 Azure 應用程式閘道的指示。"
-documentationcenter: na
+title: "建立包含 URL 路徑型路由規則的應用程式閘道 - Azure PowerShell | Microsoft Docs"
+description: "了解如何使用 Azure PowerShell 來建立應用程式閘道和虛擬機器擴展集的 URL 路徑型路由規則。"
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: d141cfbb-320a-4fc9-9125-10001c6fa4cf
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing"></a>使用路徑型路由建立應用程式閘道
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>使用 Azure PowerShell 建立包含 URL 路徑型路由規則的應用程式閘道
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+您可以使用 Azure PowerShell，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [URL 路徑型路由規則](application-gateway-url-route-overview.md)。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)建立後端集區。 然後，您可以建立路由規則，確保網路流量抵達集區中適當的伺服器。
 
-路徑型路由會根據 HTTP 要求的 URL 路徑來關聯路由。 它會檢查應用程式閘道中是否有路由指向 URL 設定的後端集區，然後將網路流量傳送至已定義的後端集區。 URL 型路由的常見用法是將不同內容類型的要求負載平衡至不同的後端伺服器集區。
+在本文中，您將了解：
 
-Azure 應用程式閘道具有兩種規則類型：基本路由和路徑型路由。 基本型為後端集區提供循環配置資源服務。 路徑型路由，除了循環配置資源發佈以外，還可以在選擇後端集區時使用要求 URL 的路徑模式。
+> [!div class="checklist"]
+> * 設定網路
+> * 建立包含 URL 對應的應用程式閘道
+> * 建立包含後端集區的虛擬機器擴展集
 
-## <a name="scenario"></a>案例
+![URL 路由範例](./media/application-gateway-create-url-route-arm-ps/scenario.png)
 
-在下列範例中，應用程式閘道會利用兩個後端伺服器集區來為 contoso.com 提供流量：影片伺服器集區和映像伺服器集區。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-對 http://contoso.com/image* 的要求會路由傳送至映像伺服器集區 (**pool1**)，而 http://contoso.com/video* 則會路由傳送至影片伺服器集區 (**pool2**)。 如果沒有任何路徑模式相符，則會選取預設的伺服器集區 (**pool1**)。
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-![URL 路由](./media/application-gateway-create-url-route-arm-ps/figure1.png)
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="create-a-resource-group"></a>建立資源群組
 
-1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。 您可以從 **下載頁面** 的 [Windows PowerShell](https://azure.microsoft.com/downloads/)區段下載並安裝最新版本。
-2. 建立應用程式閘道的虛擬網路和子網路。 請確定沒有虛擬機器或是雲端部署使用該子網路。 應用程式閘道必須單獨位於虛擬網路子網路中。
-3. 確保加入後端集區以供應用程式閘道使用的伺服器存在，或是在虛擬網路中建立其端點，或是指派公用 IP/VIP。
+資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 建立 Azure 資源群組。  
 
-## <a name="requirements-to-create-an-application-gateway"></a>建立應用程式閘道的需求
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
 
-* **後端伺服器集區**：後端伺服器的 IP 位址清單。 列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。
-* **後端伺服器集區設定**：例如連接埠、通訊協定和以 Cookie 為基礎的同質性。 這些會繫結至集區，並套用至集區內所有伺服器。
-* **前端連接埠**：在應用程式閘道上開啟的公用連接埠。 流量會到達此連接埠，然後重新導向至其中一個後端伺服器。
-* **接聽程式**：接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
-* **規則**：規則會繫結接聽程式和後端伺服器集區，並定義流量到達接聽程式時應該導向至哪個集區。
+## <a name="create-network-resources"></a>建立網路資源
+
+使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 建立 myAGSubnet 和 myBackendSubnet 子網路設定。 使用 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 與子網路設定來建立名為 myVNet 的虛擬網路。 最後，使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 建立名為 myAGPublicIPAddress 的公用 IP 位址。 這些資源是用來為應用程式閘道及其相關聯的資源提供網路連線。
+
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-使用傳統部署模型和 Azure 資源管理員之間的差別是您建立應用程式閘道，並需要設定之項目的順序。
+### <a name="create-the-ip-configurations-and-frontend-port"></a>建立 IP 設定與前端連接埠
 
-透過 Resource Manager，組成應用程式閘道的所有項目會個別進行設定，然後一併建立應用程式閘道資源。
+使用 [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) 將您先前建立的 myAGSubnet 與應用程式閘道產生關聯。 使用 [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) 將 myAGPublicIPAddress 指派給應用程式閘道。
 
-請遵循下列步驟以建立應用程式閘道：
-
-1. 建立資源管理員的資源群組。
-2. 建立應用程式閘道的虛擬網路、子網路和公用 IP。
-3. 建立應用程式閘道組態物件。
-4. 建立應用程式閘道資源。
-
-## <a name="create-a-resource-group-for-resource-manager"></a>建立資源管理員的資源群組
-
-確定您使用最新版本的 Azure PowerShell。 如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)。
-
-### <a name="step-1"></a>步驟 1
-
-登入 Azure。
-
-```powershell
-Login-AzureRmAccount
-```
-
-系統會提示使用您的認證進行驗證。<BR>
-
-### <a name="step-2"></a>步驟 2
-
-檢查帳戶的訂用帳戶。
-
-```powershell
-Get-AzureRmSubscription
-```
-
-### <a name="step-3"></a>步驟 3
-
-選擇其中一個要使用的 Azure 訂用帳戶。 <BR>
-
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
-
-### <a name="step-4"></a>步驟 4
-
-建立資源群組。 (如果您使用現有的資源群組，請略過此步驟。)
-
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
-```
-
-或者，您可以針對應用程式閘道建立資源群組的標記：
-
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
-```
-
-Azure Resource Manager 要求資源群組指定預設位置，用於該群組中的所有資源。 請確定所有用來建立應用程式閘道的命令都使用同一個資源群組。
-
-在上述範例中，我們建立名為 "appgw-RG" 的資源群組，並使用位置美國西部 ("West US")。
-
-> [!NOTE]
-> 如果您需要為應用程式閘道設定自訂探查，請移至[使用 PowerShell 建立具有自訂探查的應用程式閘道](application-gateway-create-probe-ps.md)。 如需詳細資訊，請參閱[應用程式閘道健全狀況監視概觀](application-gateway-probe-overview.md)。
-> 
-> 
-
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>建立應用程式閘道的虛擬網路和子網路
-
-下面的範例說明如何使用資源管理員建立虛擬網路。 這個範例會建立應用程式閘道的虛擬網路。 應用程式閘道需要有自己的子網路。 基於此原因，針對應用程式閘道建立的子網路會小於虛擬網路位址空間。 這允許其他資源，包括但不限於在相同虛擬網路中設定的 Web 伺服器。
-
-### <a name="step-1"></a>步驟 1
-
-指派用於建立虛擬網路的位址範圍 10.0.0.0/24 給子網路變數。  這會為下一個範例使用的應用程式閘道建立子網路設定物件。
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
-
-### <a name="step-2"></a>步驟 2
-
-使用前置詞 10.0.0.0/16 搭配子網路 10.0.0.0/24，在美國西部 (West US) 區域的 **appgw-rg** 資源群組中建立名為 **appgwvnet** 的虛擬網路。 這樣就完成虛擬網路的設定，有單一子網路放置應用程式閘道。
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>步驟 3
-
-指派子網路變數以供後續步驟使用。 此變數會在後續步驟傳遞至 `New-AzureRMApplicationGateway` Cmdlet。
-
-```powershell
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
 $subnet=$vnet.Subnets[0]
+$pip = Get-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAGPublicIPAddress
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>建立前端組態的公用 IP 位址
+### <a name="create-the-default-pool-and-settings"></a>建立預設集區和設定
 
-在美國西部區域的 **appgw-rg** 資源群組中建立公用 IP 資源 **publicIP01**。 應用程式閘道可以使用公用 IP 位址、內部 IP 位址或兩者來接收進行負載平衡的要求。  此範例中僅使用公用 IP 位址。 在下列範例中，未設定任何 DNS 名稱以建立公用 IP 位址，因為應用程式閘道不支援公用 IP 位址上的自訂 DNS 名稱。  如果公用端點需要自訂名稱，請建立 CNAME 記錄以指向針對公用 IP 位址自動產生的 DNS 名稱。
+使用 [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) 為應用程式閘道建立名為 appGatewayBackendPool 的預設後端集區。 使用 [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) 設定後端集區的設定。
 
-```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-在服務啟動時，系統會將 IP 位址指派至應用程式閘道。
+### <a name="create-the-default-listener-and-rule"></a>建立預設接聽程式和規則
 
-## <a name="create-the-application-gateway-configuration"></a>建立應用程式閘道組態
+需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您將建立兩個接聽程式。 您所建立的第一個基本接聽程式會接聽根 URL 的流量。 您所建立的第二個接聽程式會接聽特定 URL 的流量。
 
-建立應用程式閘道之前，必須先設定所有組態項目。 下列步驟會建立應用程式閘道資源所需的組態項目。
+使用 [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) 以及您先前建立的前端設定和前端連接埠，來建立名為 myDefaultListener 的預設接聽程式。 接聽程式需要規則才能知道要將哪個後端集區用於連入流量。 使用 [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) 建立名為 rule1 的基本規則。
 
-### <a name="step-1"></a>步驟 1
-
-建立名為 **gatewayIP01** 的應用程式閘道 IP 組態。 當應用程式閘道啟動時，它會從已設定的子網路取得 IP 位址，然後將網路流量路由傳送到後端 IP 集區中的 IP 位址。 請記住，每個執行個體需要一個 IP 位址。
-
-```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name myDefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
-### <a name="step-2"></a>步驟 2
+### <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-設定名為 **pool1** 和 **pool2** 的後端 IP 位址集區，IP 位址為 **pool1** 和 **pool2**。 這些是託管 Web 應用程式 (由應用程式閘道保護) 之資源的 IP 位址。 這些後端集區成員都由基本探查或自訂探查驗證為健康狀態。 當要求進入應用程式閘道時，流量便會路由至它們。 後端集區可以由應用程式閘道內的多個規則使用。 這表示一個後端集區可供位於相同主機上的多個 Web 應用程式使用。
+現在您已建立必要的支援資源，請使用 [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) 指定名為 myAppGateway 之應用程式閘道的參數，然後使用 [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) 加以建立。
 
-```powershell
-$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-
-$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.47, 134.170.189.222, 134.170.186.51
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
 ```
 
-在此範例中，有兩個後端集區會根據 URL 路徑路由傳送網路流量。 有一個集區會接收來自 URL 路徑 "/video" 的流量，而另一個集區會接收來自路徑 "/image" 的流量。 取代上述 IP 位址來新增自己的應用程式 IP 位址端點。 
+### <a name="add-image-and-video-backend-pools-and-port"></a>新增映像和視訊後端集區及連接埠
 
-### <a name="step-3"></a>步驟 3
+您可以使用 [Add-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool)，將名為 imagesBackendPool 和 videoBackendPool 的後端集區新增至應用程式閘道。 使用 [Add-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport) 新增集區的前端連接埠。 然後您要使用 [Set-AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway) 將變更提交至應用程式閘道。
 
-針對後端集區中負載平衡的網路流量，設定應用程式閘道設定 **poolsetting01** 和 **poolsetting02**。 在此範例中，您會針對後端集區設定不同的後端集區設定。 每個後端集區都可以有它自己的設定。  規則會使用後端 HTTP 設定，將流量路由傳送至正確的後端集區成員。 這會決定將流量傳送至後端集區成員時使用的通訊協定和連接埠。 以 Cookie 為基礎的工作階段也是由後端 HTTP 設定決定。 啟用時，Cookie 型工作階段親和性會如每個封包的先前要求將流量至相同的後端。
-
-```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-
-$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+Add-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name imagesBackendPool 
+Add-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name videoBackendPool
+Add-AzureRmApplicationGatewayFrontendPort `
+  -ApplicationGateway $appgw `
+  -Name bport `
+  -Port 8080
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-4"></a>步驟 4
+### <a name="add-backend-listener"></a>新增後端接聽程式
 
-利用公用 IP 端點設定前端 IP。 接聽程式會使用前端 IP 設定物件，將對外 IP 位址與接聽程式建立關聯。
+使用 [Add-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener) 新增名為 backendListener、路由流量所需的後端接聽程式。
 
-```powershell
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPort = Get-AzureRmApplicationGatewayFrontendPort `
+  -ApplicationGateway $appgw `
+  -Name bport
+$fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
+  -ApplicationGateway $appgw
+Add-AzureRmApplicationGatewayHttpListener `
+  -ApplicationGateway $appgw `
+  -Name backendListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $backendPort
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-5"></a>步驟 5
+### <a name="add-url-path-map"></a>新增 URL 路徑對應
 
-設定應用程式閘道的前端連接埠。 接聽程式會使用前端連接埠組態物件來定義應用程式閘道會接聽哪個連接埠以取得接聽程式上的流量。
+URL 路徑對應會確定特定 URL 已路由傳送到特定的後端集區。 您可以使用 [New-AzureRmApplicationGatewayPathRuleConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewaypathruleconfig) 及 [Add-AzureRmApplicationGatewayUrlPathMapConfig](/powershell/module/azurerm.network/add-azurermapplicationgatewayurlpathmapconfig) 建立名為 imagePathRule 和 videoPathRule 的 URL 路徑對應。
 
-```powershell
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$poolSettings = Get-AzureRmApplicationGatewayBackendHttpSettings `
+  -ApplicationGateway $appgw `
+  -Name myPoolSettings
+$imagePool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name imagesBackendPool
+$videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name videoBackendPool
+$defaultPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name appGatewayBackendPool
+$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig `
+  -Name imagePathRule `
+  -Paths "/images/*" `
+  -BackendAddressPool $imagePool `
+  -BackendHttpSettings $poolSettings
+$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
+  -Name videoPathRule `
+    -Paths "/video/*" `
+    -BackendAddressPool $videoPool `
+    -BackendHttpSettings $poolSettings
+Add-AzureRmApplicationGatewayUrlPathMapConfig `
+  -ApplicationGateway $appgw `
+  -Name urlpathmap `
+  -PathRules $imagePathRule, $videoPathRule `
+  -DefaultBackendAddressPool $defaultPool `
+  -DefaultBackendHttpSettings $poolSettings
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-6"></a>步驟 6
+### <a name="add-routing-rule"></a>新增路由規則
 
-針對用來接收傳入網路流量的公用 IP 位址和連接埠設定接聽程式。 下列範例會採用先前設定的前端 IP 設定、前端連接埠設定，以及通訊協定 (Http 或 Https，有區分大小寫)，並設定接聽程式。 在此範例中，接聽程式會接聽稍早建立的公用 IP 位址上連接埠 80 的 HTTP 流量。
+路由規則會將 URL 對應與您所建立的接聽程式產生關聯。 您可以使用 [Add-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule) 新增名為 *rule2 的規則。
 
-```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendlistener = Get-AzureRmApplicationGatewayHttpListener `
+  -ApplicationGateway $appgw `
+  -Name backendListener
+$urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
+  -ApplicationGateway $appgw `
+  -Name urlpathmap
+Add-AzureRmApplicationGatewayRequestRoutingRule `
+  -ApplicationGateway $appgw `
+  -Name rule2 `
+  -RuleType PathBasedRouting `
+  -HttpListener $backendlistener `
+  -UrlPathMap $urlPathMap
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-7"></a>步驟 7
+## <a name="create-virtual-machine-scale-sets"></a>建立虛擬機器擴展集
 
-設定後端集區的 URL 規則路徑。 這個步驟會設定應用程式閘道所使用的相對路徑，並定義 URL 路徑和已指派的後端集區之間的對應，以處理傳入流量。
+在此範例中，您要建立三個虛擬機器擴展集，以支援您所建立的三個後端集區。 您所建立的擴展集名為 myvmss1、myvmss2 和 myvmss3。 每個擴展集都會包含兩個您安裝 IIS 的虛擬機器執行個體。 當您設定 IP 設定時，要將擴展集指派給後端集區。
 
-> [!IMPORTANT]
-> 每個路徑必須以 "/" 開始，結尾只允許使用星號。 有效範例包括 /xyz、/xyz *或 /xyz/*。 傳送給路徑比對器的字串未在第一個 "?" 或 "#" 之後包含任何文字，而這些字元是不允許的。 
-
-下列範例會建立兩個規則：一個適用於將流量路由傳送到後端 **pool1** 的 "/image/" 路徑，另一個則適用於將流量路由傳送到後端 **pool2** 的 "/video/" 路徑。 這些規則確保每一組 URL 的流量都路由傳送至後端。 例如，http://contoso.com/image/figure1.jpg 會傳送至 **pool1**，http://contoso.com/video/example.mp4 會傳送至 **pool2**。
-
-```powershell
-$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
-
-$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$imagesPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name imagesBackendPool `
+  -ApplicationGateway $appgw
+$videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name videoBackendPool `
+  -ApplicationGateway $appgw
+for ($i=1; $i -le 3; $i++)
+{
+  if ($i -eq 1)
+  {
+     $poolId = $backendPool.Id
+  }
+  if ($i -eq 2) 
+  {
+    $poolId = $imagesPool.Id
+  }
+  if ($i -eq 3)
+  {
+    $poolId = $videoPool.Id
+  }
+  $ipConfig = New-AzureRmVmssIpConfig `
+    -Name myVmssIPConfig$i `
+    -SubnetId $vnet.Subnets[1].Id `
+    -ApplicationGatewayBackendAddressPoolsId $poolId
+  $vmssConfig = New-AzureRmVmssConfig `
+    -Location eastus `
+    -SkuCapacity 2 `
+    -SkuName Standard_DS2 `
+    -UpgradePolicyMode Automatic
+  Set-AzureRmVmssStorageProfile $vmssConfig `
+    -ImageReferencePublisher MicrosoftWindowsServer `
+    -ImageReferenceOffer WindowsServer `
+    -ImageReferenceSku 2016-Datacenter `
+    -ImageReferenceVersion latest
+  Set-AzureRmVmssOsProfile $vmssConfig `
+    -AdminUsername azureuser `
+    -AdminPassword "Azure123456!" `
+    -ComputerNamePrefix myvmss$i
+  Add-AzureRmVmssNetworkInterfaceConfiguration `
+    -VirtualMachineScaleSet $vmssConfig `
+    -Name myVmssNetConfig$i `
+    -Primary $true `
+    -IPConfiguration $ipConfig
+  New-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmssConfig
+}
 ```
 
-如果路徑不符合任何預先定義的路徑規則，規則路徑對應組態也會設定預設的後端位址集區。 例如，http://contoso.com/shoppingcart/test.html 會傳送至 **pool1**，因為它定義為不相符流量的預設集區。
+### <a name="install-iis"></a>安裝 IIS
 
-```powershell
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+
+for ($i=1; $i -le 3; $i++)
+{
+  $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss$i
+  Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $publicSettings
+
+  Update-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmss
+}
 ```
 
-### <a name="step-8"></a>步驟 8
+## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-建立規則設定。 這個步驟會設定應用程式閘道來使用 URL 路徑型路由。 稍早步驟中定義的 `$urlPathMap` 變數，現在用來建立以路徑為基礎的規則。 在此步驟中，我們將規則與接聽程式和稍早建立的 URL 路徑對應相關聯。
+您可以使用 [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得應用程式閘道的公用 IP 位址。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，http://52.168.55.24、http://52.168.55.24:8080/images/test.htm 或 http://52.168.55.24:8080/video/test.htm。
 
-```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-### <a name="step-9"></a>步驟 9
+![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-設定執行個體數目和應用程式閘道的大小。
+將基底 URL 結尾的 URL 變更為 http://<ip-address>:8080/video/test.htm，您應該會看到類似下列的範例：
 
-```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name "Standard_Small" -Tier Standard -Capacity 2
-```
+![在應用程式閘道中測試映像 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-## <a name="create-an-application-gateway"></a>建立應用程式閘道
+將 URL 變更為 http://<ip-address>:8080/video/test.htm，您應該會看到類似下列的範例：
 
-利用上述步驟中的所有組態物件來建立應用程式閘道。
-
-```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
-```
-
-## <a name="get-an-application-gateway-dns-name"></a>取得應用程式閘道 DNS 名稱
-
-建立閘道後，您將設定後端以供通訊使用。 當使用公用 IP 時，應用程式閘道需要動態指派的 DNS 名稱 (不易記住)。 為了確保客戶可以叫用應用程式閘道，可使用 CNAME 記錄來指向應用程式閘道的公用端點。 如需詳細資訊，請參閱[針對 Azure 雲端服務設定自訂網域名稱](../cloud-services/cloud-services-custom-domain-name-portal.md)。
-
-若要設定前端 IP CNAME 記錄，使用連接至應用程式閘道的 PublicIPAddress 元素，擷取應用程式閘道的詳細資料及其關聯的 IP/DNS 名稱。 使用應用程式閘道的 DNS 名稱以建立 CNAME 記錄。 不建議使用 A 記錄，因為重新啟動應用程式閘道時，VIP 可能會變更。
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
-```
-
-```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
-```
+![在應用程式閘道中測試影片 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要了解「安全通訊端層」(SSL) 卸載，請參閱[使用 Azure Resource Manager 設定適用於 SSL 卸載的應用程式閘道](application-gateway-ssl-arm.md)。
+在本文中，您已了解如何：
 
+> [!div class="checklist"]
+> * 設定網路
+> * 建立包含 URL 對應的應用程式閘道
+> * 建立包含後端集區的虛擬機器擴展集
+
+若要深入了解應用程式閘道和其相關聯的資源，請繼續進行說明文章。

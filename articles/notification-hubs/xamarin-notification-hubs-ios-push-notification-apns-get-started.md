@@ -255,4 +255,4 @@ ms.lasthandoff: 01/02/2018
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[HttpTrigger Nodejs 函數]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com

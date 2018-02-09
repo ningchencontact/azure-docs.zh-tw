@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>訊息到期 (存留時間)
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 10/11/2017
 
 對於通常會在應用程式或應用程式組件的部分執行內容中使用佇列和主題的開發與測試環境，它也很適合用來將擱置的測試訊息自動進行記憶體回收，如此一來，就能全新開始下一個測試執行。
 
-任何個別訊息的到期都能透過設定 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 系統屬性來控制，其會指定相對的持續期間。 將訊息加入實體的佇列時，到期就會變成絕對瞬間。 在這段時間，[ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 屬性會採用值 [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)。
+任何個別訊息的到期都能透過設定 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 系統屬性來控制，其會指定相對的持續期間。 將訊息加入實體的佇列時，到期就會變成絕對瞬間。 在那段時間，[ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 屬性會採用值 [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)。
 
 經過 **ExpiresAtUtc** 瞬間之後，訊息就會變成不適合用於擷取。 到期不會影響目前已鎖定來進行傳遞的訊息；仍會正常處理那些訊息。 如果鎖定到期或已放棄訊息，則到期將會立即生效。
 
-儘管訊息處於鎖定狀態，但應用程式可能擁有名義上已到期的訊息。 應用程式是否願意繼續進行處理，或選擇放棄訊息，都取決於實作者。
+儘管訊息處於鎖定狀態，但應用程式可能擁有已到期的訊息。 應用程式是否願意繼續進行處理，或選擇放棄訊息，都取決於實作者。
 
 ## <a name="entity-level-expiration"></a>實體層級的到期
 
@@ -47,11 +47,11 @@ ms.lasthandoff: 10/11/2017
 
 您可以將服務匯流排佇列、主題和訂用帳戶建立為暫時性實體，若經過一段指定的時間未使用它們，即會自動移除。
  
-自動清除非常適用於開發和測試案例，在這類案例中會自動建立實體，並且不會在使用之後加以清除，因為測試或偵錯執行已經中斷。 當應用程式針對接收回到 Web 伺服器處理序的回應建立動態實體 (例如回覆佇列)，或者建立到另一個相對存留期較短的物件 (當物件執行個體消失時，就很難在其中可靠地清理那些實體) 時，也很適合使用。
+自動清除適用於開發和測試案例，在這類案例中會動態建立實體，並且不會在使用之後加以清除，因為測試或偵錯執行發生部分中斷。 當應用程式針對接收回到 Web 伺服器處理序的回應建立動態實體 (例如回覆佇列)，或者建立到另一個相對存留期較短的物件 (當物件執行個體消失時，就很難在其中可靠地清理那些實體) 時，也很適合使用。
 
 使用 [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) 屬性來啟用此功能，實體必須閒置 (未使用) 了此屬性所設定的持續期間之後才會自動刪除。 最小持續期間為 5 分鐘。
  
-您必須透過 Azure Resource Manager 作業，或透過 .NET Framework 用戶端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API 來設定屬性。 您無法透過入口網站來設定它。
+您必須透過 Azure Resource Manager 作業，或透過 .NET Framework 用戶端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API 來設定 **autoDeleteOnIdle** 屬性。 您無法透過入口網站來設定它。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -3,7 +3,7 @@ title: "教學課程：Azure Active Directory 與 Salesforce 沙箱整合 | Micr
 description: "了解如何設定 Azure Active Directory 與 Salesforce Sandbox 之間的單一登入。"
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MarkusVi
 manager: mtillman
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: jeedes
-ms.openlocfilehash: 801088bd63f025ca7cb1f9e4fe66b9c6f7f93453
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: markvi
+ms.openlocfilehash: d5c2b74995e0c0794628e2c79f66969835e0fabb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 
@@ -31,7 +31,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Salesforce Sandbox 整合，您需要下列項目：
 

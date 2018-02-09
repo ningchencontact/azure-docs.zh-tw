@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -146,6 +146,17 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    
    叢集名稱是可讓您識別環境的一種方式。 位置應該與您從 Azure 入口網站建立之模型管理帳戶的位置相同。
 
+   為了確定該環境已成功設定，請使用下列命令來檢查狀態：
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   請先確定「佈建狀態」具有「成功」值 (如下所示) 之後，再於步驟 5 中設定環境。
+
+   ![佈建狀態](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. 建立模型管理帳戶。 (此設定只需要執行一次。)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -258,8 +269,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 2. 若要測試服務，請執行傳回的服務執行命令：
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    輸出是 **"2"**，這是預測的類別。 (您的結果可能不同。) 
 

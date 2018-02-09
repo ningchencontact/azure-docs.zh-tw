@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>使用容量和效能解決方案來規劃 Hyper-V 虛擬機器容量 (預覽)
 
@@ -39,18 +39,18 @@ ms.lasthandoff: 12/13/2017
 > 舊版的容量和效能解決方案稱為「容量管理」，其同時需要 System Center Operations Manager 和 System Center Virtual Machine Manager。 這個經過更新的解決方案則沒有這些相依性。
 
 
-## <a name="connected-sources"></a>連接的來源
+## <a name="connected-sources"></a>連線的來源
 
-下表描述此方案支援的連接來源。
+下表描述此方案支援的連線來源。
 
-| 連接的來源 | 支援 | 說明 |
+| 連線的來源 | 支援 | 說明 |
 |---|---|---|
-| [Windows 代理程式](log-analytics-windows-agent.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | yes | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
-| [SCOM 管理群組](log-analytics-om-agents.md) | 是 |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連線到 OMS。 資料會從管理群組轉送至 OMS 儲存機制。|
+| [SCOM 管理群組](log-analytics-om-agents.md) | yes |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連線到 Log Analytics。|
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Azure 儲存體不包含容量和效能資料。|
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Windows 或 Operations Manager 代理程式必須安裝在 Windows Server 2012 或更新版本的 Hyper-V 主機上，而非安裝在虛擬機器上。
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 12/13/2017
 
 執行下列步驟以將容量和效能解決方案新增至您的工作區。
 
-- 使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)所述的程序，將容量和效能解決方案新增至您的 OMS 工作區。
+- 使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將「容量與效能」解決方案新增至您的 Log Analytics 工作區。
 
 ## <a name="management-packs"></a>管理組件
 
-如果 SCOM 管理群組已連線到 OMS 工作區，當您加入此方案時，下列管理組件會安裝在 SCOM 中。 這些管理組件不需要任何設定或維護。
+如果 SCOM 管理群組已連線到 Log Analytics 工作區，當您加入此方案時，下列管理組件會安裝在 SCOM 中。 這些管理組件不需要任何設定或維護。
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -76,7 +76,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 當容量和效能解決方案更新時，其版本號碼也會變更。
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連線到 Log Analytics](log-analytics-om-agents.md)。
 
 ## <a name="using-the-solution"></a>使用解決方案
 

@@ -15,23 +15,24 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps 的結構描述更新 - 2016 年 6 月 1 日
 
-這個新的結構描述和 Azure Logic Apps 的 API 版本包含重要的改良功能，讓邏輯應用程式更可靠且更輕鬆地使用︰
+Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json)包含重要改進，讓邏輯應用程式更可靠且更容易使用：
 
 * [範圍](#scopes)可讓您建立動作的巢狀或群組做為動作集合。
 * [條件和迴圈](#conditions-loops)現在是第一級動作。
 * 執行動作的更精確順序與 `runAfter` 屬性，取代 `dependsOn`
 
-如需從 2015 年 8 月 1 日預覽結構描述的邏輯應用程式升級為 2016 年 6 月 1 日結構描述，[請查看升級章節](##upgrade-your-schema)。
+如需從 2015 年 8 月 1 日預覽結構描述的邏輯應用程式升級為 2016 年 6 月 1 日結構描述，[請查看升級章節](#upgrade-your-schema)。
 
 <a name="scopes"></a>
+
 ## <a name="scopes"></a>範圍
 
 這個結構描述包含可讓您將動作群組在一起或在彼此內巢狀動作的範圍。 例如，條件可包含另一個條件。 深入了解[範圍語法](../logic-apps/logic-apps-loops-and-scopes.md)，或檢閱此基本範圍範例︰
@@ -57,6 +58,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>條件和迴圈的變更
 
 在舊版結構描述中，條件和迴圈是與單一動作相關聯的參數。 此結構描述拿起這項限制，因此條件和迴圈現在會顯示為動作類型。 深入了解[迴圈和範圍](../logic-apps/logic-apps-loops-and-scopes.md)，或檢閱此基本範例的條件動作︰
@@ -86,6 +88,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>'runAfter' 屬性
 
 `runAfter` 屬性會取代 `dependsOn`，當您根據先前動作的狀態指定動作的執行順序時提供更高的精確度。
@@ -104,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="upgrade-your-schema"></a>升級您的結構描述
 
-升級為新的結構描述只需要幾個步驟。 升級程序包含執行升級指令碼、儲存為新的邏輯應用程式，以及如果想要的話，可能會覆寫先前的邏輯應用程式。
+若要升級到[最近的結構描述](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json)，您只需要執行幾個步驟。 升級程序包含執行升級指令碼、儲存為新的邏輯應用程式，以及如果想要的話，可能會覆寫先前的邏輯應用程式。
 
 1. 在 Azure 入口網站中，開啟邏輯應用程式。
 
@@ -156,7 +159,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="new-trackedproperties-for-actions"></a>動作的新 'trackedProperties'
 
-動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如：
+動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如︰
 
 ```
 {                

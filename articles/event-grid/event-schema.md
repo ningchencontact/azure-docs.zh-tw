@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: caa709fdc2a59472ee812bde91f7300396aa5755
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
 本文說明出現在所有事件中的屬性和結構描述。 事件包含一組五個必要字串屬性和一個必要資料物件。 這些屬性通用於任何發行者的所有事件。 資料物件含有各發行者特有的屬性。 系統主題下的屬性專屬於資源提供者，像是 Microsoft Azure 儲存體或 Azure 事件中樞。
 
 事件會以陣列型態傳送至 Azure Event Grid，陣列中可包含多個事件物件。 如果陣列中只有一個事件，則陣列長度為 1。 陣列可以具有的最多 1 MB 的總計大小。 陣列中的每個事件會限制為 64 KB。
+
+您可以在[事件結構描述存放區](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane)中找到 Event Grid 事件的 JSON 結構描述和每個 Azure 發行者的資料承載。
 
 ## <a name="event-schema"></a>結構描述
 
@@ -34,7 +36,9 @@ ms.lasthandoff: 11/11/2017
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -62,7 +66,9 @@ ms.lasthandoff: 11/11/2017
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -73,12 +79,14 @@ ms.lasthandoff: 11/11/2017
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 |
+| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 | 主旨 | 字串 | 發行者定義事件主體的路徑。 |
 | eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
 | eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | 字串 | 事件的唯一識別碼。 |
 | data | 物件 | 資源提供者特有的事件資料。 |
+| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 若要了解資料物件中的屬性，請參閱事件來源：
 
@@ -91,5 +99,5 @@ ms.lasthandoff: 11/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 Azure 事件格線的簡介，請參閱[什麼是事件格線？](overview.md)
+* 如需 Azure Event Grid 的簡介，請參閱[什麼是 Event Grid？](overview.md)
 * 若要了解 Event Grid 訂用帳戶的建立，請參閱 [Event Grid 訂用帳戶結構描述](subscription-creation-schema.md)。

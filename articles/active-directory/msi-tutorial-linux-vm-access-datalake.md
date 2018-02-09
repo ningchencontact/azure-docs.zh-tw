@@ -1,9 +1,9 @@
 ---
-title: "如何使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store"
-description: "本教學課程示範如何使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store。"
+title: "使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store"
+description: "本教學課程示範如何使用 Linux VM 的受控服務識別 (MSI) 來存取 Azure Data Lake Store。"
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 98ff833fe541e1207a87421d54a8ce2dfc17cda1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fdf1c49c644a97ff2f66a8b217ee54896ed54131
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
+# <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Linux 虛擬機器 (VM) 受控服務身分識別 (MSI) 來存取 Azure Data Lake Store。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程示範如何使用 Linux 虛擬機器 (VM) 的受控服務身分識別來存取 Azure Data Lake Store。 Azure 會自動管理您透過 MSI 所建立的身分識別。 您可以使用 MSI 向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
+
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 在 Linux VM 上啟用 MSI 
-> * 將您的 VM 存取權授與 Azure Data Lake Store
-> * 使用 VM 身分識別取得存取權杖，並使用它存取 Azure Data Lake Store
+> * 在 Linux VM 上啟用 MSI。 
+> * 將您的 VM 存取權授與 Azure Data Lake Store。
+> * 使用 VM 身分識別取得存取權杖，並使用它來存取 Azure Data Lake Store。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -38,77 +40,75 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 
 此教學課程中，我們會建立新的 Linux VM。 您也可以在現有的 VM 中啟用 MSI。
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 選取 Azure 入口網站左上角的 [新增] 按鈕。
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
 
-   ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![用來建立虛擬機器的「基本」窗格](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
-5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更支援的磁碟類型篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
+4. 在 [訂用帳戶] 清單中，選取虛擬機器的訂用帳戶。
+5. 若要選取需要在其中建立虛擬機器的新資源群組，請選擇 [資源群組] > [新建]。 完成時，請選取 [確定]。
+6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 窗格中，保留預設值並選取 [確定]。
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
 
-虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並在 Azure Resource Manager 中啟用 MSI。  
+您可以使用 MSI，讓虛擬機器從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼中。 啟用 MSI 會在您的 VM 上安裝 MSI VM 擴充功能，並在 Azure Resource Manager 中啟用 MSI。  
 
-1. 選取您想要在其中啟用 MSI 的 [虛擬機器]。
-2. 在左側的導覽列上，按一下 [設定] 。
-3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
-4. 按一下 [儲存] 確認儲存設定。
+1. 在 [虛擬機器] 中，選取您需要在其中啟用 MSI 的虛擬機器。
+2. 在左窗格中，選取 [設定]。
+3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]。 如果您需要將它停用，請選取 [否]。
+   ![「向 Azure Active Directory 註冊」選取項目](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+4. 選取 [ **儲存**]。
+5. 如果您需要檢查此 Linux VM 上有哪些擴充功能，請選取 [擴充功能]。 如果 MSI 已啟用，**ManagedIdentityExtensionforLinux** 就會出現在清單中。
 
-   ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. 如果您想要檢查哪些延伸模組會在此 **Linux VM** 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforLinux** 會出現在清單上。
-
-   ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+   ![擴充功能清單](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>將您的 VM 存取權授與 Azure Data Lake Store
 
-現在您可以將您的 VM 存取權授與 Azure Data Lake Store 中的檔案和資料夾。  在這個步驟，您可以使用現有的 Data Lake Store 或建立新的。  若要使用 Azure 入口網站建立新的 Data Lake Store，請遵循此 [Azure Data Lake Store 快速入門](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。 在 [Azure Data Lake Store 文件](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)中也有使用 Azure CLI 和 Azure PowerShell 的快速入門作法。
+現在您可以將您的 VM 存取權授與 Azure Data Lake Store 中的檔案和資料夾。 在這個步驟，您可以使用現有的 Data Lake Store 執行個體或建立新的執行個體。 若要使用 Azure 入口網站建立 Data Lake Store 執行個體，請遵循 [Azure Data Lake Store 快速入門](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。 在 [Azure Data Lake Store 文件](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)中，也有使用 Azure CLI 和 Azure PowerShell 的快速入門做法。
 
-在 Data Lake Store 中建立新資料夾，並將在該資料夾中讀取、寫入和執行檔案的權限授與您的 VM MSI：
+在 Data Lake Store 中建立新資料夾，並將該資料夾中的讀取、寫入和執行檔案權限授與 MSI：
 
-1. 在 Azure 入口網站中，按一下左方瀏覽列中的 [Data Lake Store]。
-2. 按一下您想要使用於本教學課程中的 Data Lake Store。
-3. 按一下命令列中的 [資料總管]。
-4. 會選取 Data Lake Store 的根資料夾。  按一下命令列中的 [存取]。
-5. 按一下 [新增] 。  在 [選取] 欄位中，輸入 VM 的名稱，例如 **DevTestVM**。  按一下以從搜尋結果中選取您的 VM，然後按一下 [選取]。
-6. 按一下 [選取權限]。  選取 [讀取] 和 [執行]，加入到 [此資料夾]，然後新增為 [僅存取權限]。  按一下 [確定] 。  權限應該已成功加入。
-7. 關閉 [存取] 刀鋒視窗。
-8. 針對此教學課程，建立一個新資料夾。  按一下命令列中的 [新資料夾]，提供新資料夾的名稱，例如 **TestFolder**。  按一下 [確定] 。
-9. 按一下您建立的資料夾，然後按一下命令列中的 [存取]。
-10. 和步驟 5 相同，按一下 [新增]，在 [選取] 欄位中輸入您的 VM 名稱，選取它，然後按一下 [選取]。
-11. 和步驟 6 相同，按一下 [選取權限]，選取 [讀取]、[寫入] 和 [執行]，加入到 [此資料夾]，並新增為 [存取權限項目及預設權限項目]。  按一下 [確定] 。  權限應該已成功加入。
+1. 在 Azure 入口網站中，選取左側窗格的 [Data Lake Store]。
+2. 選取您需要使用的 Data Lake Store 執行個體。
+3. 選取命令列上的 [資料總管]。
+4. 隨即選取 Data Lake Store 執行個體的根資料夾。 在命令列上選取 [存取]。
+5. 選取 [新增] 。  在 [選取] 方塊中，輸入 VM 的名稱，例如 **DevTestVM**。 從搜尋結果中選取您的 VM，然後按一下 [選取]。
+6. 按一下 [選取權限]。  選取 [讀取] 和 [執行]，加入到 [此資料夾]，然後新增為 [僅存取權限]。 選取 [確定]。  權限應該已成功加入。
+7. 關閉 [存取] 窗格。
+8. 針對此教學課程，建立一個新資料夾。 選取命令列中的 [新資料夾]，為新資料夾命名，例如 **TestFolder**。  選取 [確定]。
+9. 選取您所建立的資料夾，然後選取命令列中的 [存取]。
+10. 如同步驟 5，選取 [新增]。 在 [選取] 方塊中，輸入 VM 的名稱。 從搜尋結果中選取您的 VM，然後按一下 [選取]。
+11. 如同步驟 6，選取 [選取權限]。 選取 [讀取]、[寫入] 和 [執行]，新增到 [此資料夾]，並新增為 [存取權限項目及預設權限項目]。 選取 [確定]。  權限應該已成功加入。
 
-您的 VM MSI 現在可以對您所建立資料夾中的檔案執行所有作業。  如需管理 Data Lake Store 存取權的詳細資訊，請閱讀 [Azure Data Lake Store 中的存取控制](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)一文。
+MSI 現在可以對您所建立之資料夾中的檔案執行所有作業。 如需管理 Data Lake Store 存取權的詳細資訊，請參閱 [Data Lake Store 中的存取控制](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)一文。
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>使用 VM MSI 取得存取權杖，並使用它呼叫 Azure Data Lake Store 檔案系統
+## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>取得存取權杖，並呼叫 Data Lake Store 檔案系統
 
-Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使用 MSI 取得的存取權杖。  為了向 Data Lake Store 檔案系統驗證，您在授權標頭中傳送由 Azure AD 所簽發的存取權杖至 Data Lake Store 檔案系統端點，其格式如下："Bearer \<ACCESS_TOKEN_VALUE\>"。  若要深入了解 Data Lake Store 的 Azure AD 驗證支援，請閱讀[使用 Azure Active Directory 向 Data Lake Store 進行驗證](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受透過 MSI 取得的存取權杖。 為了向 Data Lake Store 檔案系統進行驗證，您要將 Azure AD 所簽發的存取權杖傳送至 Data Lake Store 檔案系統端點。 存取權杖位於授權標頭，格式為 "Bearer \<ACCESS_TOKEN_VALUE\>"。  若要深入了解 Data Lake Store 的 Azure AD 驗證支援，請參閱[使用 Azure Active Directory 向 Data Lake Store 進行驗證](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)。
 
-在本教學課程中，您使用 CURL 向 Data Lake Store 檔案系統 REST API 驗證，以提出 REST 要求。
+在本教學課程中，您使用 cURL 向 Data Lake Store 檔案系統驗證 REST API，以提出 REST 要求。
 
 > [!NOTE]
-> Data Lake Store 檔案系統用戶端 SDK 目前尚不支援受控服務識別。  待 SDK 新增支援後，將會更新本教學課程。
+> Data Lake Store 檔案系統的用戶端 SDK 尚不支援受控服務識別。
 
 若要完成這些步驟，您需要 SSH 用戶端。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 用戶端。 如果您需要設定 SSH 用戶端金鑰的協助，請參閱[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](../virtual-machines/linux/ssh-from-windows.md)，或[如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組](../virtual-machines/linux/mac-create-ssh-keys.md)。
 
-1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀] 中按一下 [連線]。  
-2. 使用您所選擇的 SSH 用戶端來**連線**到 VM。 
-3. 在終端機視窗中使用 CURL 向本機 MSI 端點提出要求，來取得 Data Lake Store 檔案系統的存取權杖。  Data Lake Store 的資源識別項是 "https://datalake.azure.net/"。  請務必包含資源識別項中結尾的斜線。
+1. 在入口網站中，瀏覽至您的 Linux VM。 在 [概觀] 中，選取 [連線]。  
+2. 使用您所選擇的 SSH 用戶端來連線到 VM。 
+3. 在終端機視窗中使用 cURL 向本機 MSI 端點提出要求，來取得 Data Lake Store 檔案系統的存取權杖。 Data Lake Store 的資源識別項是 "https://datalake.azure.net/"。  請務必包含資源識別項中的結尾斜線。
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
    ```
     
-   成功的回應會傳回您向 Data Lake Store 驗證使用的存取權杖：
+   成功的回應會傳回您向 Data Lake Store 驗證時所使用的存取權杖：
 
    ```bash
    {"access_token":"eyJ0eXAiOiJ...",
@@ -120,7 +120,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
     "token_type":"Bearer"}
    ```
 
-4. 使用 CURL 對您的 Data Lake Store 檔案系統 REST 端點提出要求，以列出根資料夾中的資料夾。  這是檢查所有項目是否正確設定的簡單方式。  複製上一個步驟中的存取權杖值。  授權標頭中的字串 "Bearer" 必須是大寫 "B"。  您可以在 Azure 入口網站 Data Lake Store 刀鋒視窗的 [概觀] 區段中找到您的 Data Lake Store 名稱。
+4. 使用 cURL 對您 Data Lake Store 檔案系統的 REST 端點提出要求，以列出根資料夾中的資料夾。 這是檢查所有項目皆正確設定的簡單方式。 複製上一個步驟中的存取權杖值。 授權標頭中的字串 "Bearer" 必須是大寫 "B"。 您可以在 Azure 入口網站 [Data Lake Store] 窗格的 [概觀] 區段中，找到您 Data Lake Store 執行個體的名稱。
 
    ```bash
    curl https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS_TOKEN>"
@@ -132,13 +132,13 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
    {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY","blockSize":0,"accessTime":1507934941392,"modificationTime":1508105430590,"replication":0,"permission":"770","owner":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071","group":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071"}]}}
    ```
 
-5. 現在您可以嘗試將檔案上傳至您的 Data Lake Store。  首先，建立要上傳的檔案。
+5. 現在您可以嘗試將檔案上傳至您的 Data Lake Store 執行個體。 首先，建立要上傳的檔案。
 
    ```bash
    echo "Test file." > Test1.txt
    ```
 
-6. 使用 CURL 對您的 Data Lake Store 檔案系統 REST 端點提出要求，以將檔案上傳到您先前建立的資料夾。  上傳需要重新導向，CURL 會自動遵循重新導向。 
+6. 使用 cURL 對您的 Data Lake Store 檔案系統 REST 端點提出要求，以將檔案上傳到您先前建立的資料夾。 上傳需要重新導向，cURL 會自動遵循重新導向。 
 
    ```bash
    curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS_TOKEN>" 'https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER_NAME>/Test1.txt?op=CREATE' 
@@ -179,16 +179,16 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
    Content-Length: 0
    ```
 
-您還可以使用其他 Data Lake Store 檔案系統 API，以附加至檔案及下載檔案等。
+您可以使用 Data Lake Store 檔案系統的其他 API，來附加至檔案及下載檔案等。
 
-恭喜！  您已經使用 VM MSI 向 Data Lake Store 檔案系統驗證。
+恭喜！ 您已經使用 Linux VM 的 MSI 向 Data Lake Store 檔案系統進行驗證。
 
 ## <a name="related-content"></a>相關內容
 
 - 如需 MSI 的概觀，請參閱[受控服務識別概觀](../active-directory/msi-overview.md)。
-- Data Lake Store 使用 Azure Resource Manager 執行管理作業。  如需有關使用 VM MSI 向 Resource Manager 驗證的詳細資訊，請閱讀[使用 Linux VM 受控服務識別 (MSI) 存取 Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm)。
+- Data Lake Store 使用 Azure Resource Manager 來執行管理作業。  如需有關使用 MSI 向 Resource Manager 進行驗證的詳細資訊，請參閱[使用 Linux VM 受控服務識別 (MSI) 存取 Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm)。
 - 深入了解[使用 Azure Active Directory 向 Data Lake Store 進行驗證](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)。
-- 深入了解[使用 REST API 在 Azure Data Lake Store 上進行檔案系統作業](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api)或 [WebHDFS 檔案系統 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis) \(英文\)。
+- 深入了解[使用 REST API 在 Azure Data Lake Store 上進行檔案系統作業](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api)或 [WebHDFS 檔案系統 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis)。
 - 深入了解 [Data Lake Store 中的存取控制](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。

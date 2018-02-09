@@ -111,9 +111,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 3. 確認您的儲存體帳戶和容器正確地顯示在儲存體總管中：
 
-   1. 在 [總管]**** 下，依序展開 [(Local and Attached)]\(本機與已連結的資源\)**** > 
-   [儲存體帳戶]**** > attachmentstorageaccount**** > 
-   [Blob 容器]****。
+   1. 在 **[總管]** 下， **依序展開** [(Local and Attached)]\(本機與已連結的資源\) > 
+    **[儲存體帳戶]** > **attachmentstorageaccount** > 
+    **[Blob 容器]** 。
 
    2. 確認此時顯示了「附件」容器。 
    例如︰
@@ -447,9 +447,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 3. 確認邏輯應用程式已將電子郵件儲存至正確的儲存體容器。 
 
-   1. 在儲存體總管中，依序展開 [(Local and Attached)]\(本機與已連結的資源\)**** > 
-   [儲存體帳戶]**** > [attachmentstorageacct (外部)]**** > 
-   [Blob 容器]**** > [附件]****。
+   1. 在儲存體總管中，依序展開 **[(Local and Attached)]\(本機與已連結的資源\)** > 
+    **[儲存體帳戶]** > **[attachmentstorageacct (外部)]** > 
+    **[Blob 容器]** > **[附件]** 。
 
    2. 檢查**附件**容器中是否有電子郵件。 
 
@@ -526,9 +526,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 3. 確認邏輯應用程式已將電子郵件和附件儲存至正確的儲存體容器。 
 
-   1. 在儲存體總管中，依序展開 [(Local and Attached)]\(本機與已連結的資源\)**** > 
-   [儲存體帳戶]**** > [attachmentstorageacct (外部)]**** > 
-   [Blob 容器]**** > [附件]****。
+   1. 在儲存體總管中，依序展開 **[(Local and Attached)]\(本機與已連結的資源\)** > 
+    **[儲存體帳戶]** > **[attachmentstorageacct (外部)]** > 
+    **[Blob 容器]** > **[附件]** 。
 
    2. 檢查**附件**容器中是否有電子郵件和附件。
 

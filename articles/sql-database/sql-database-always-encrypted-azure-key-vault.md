@@ -5,8 +5,7 @@ keywords: "資料加密, 加密金鑰, 雲端加密"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>一律加密：保護 SQL Database 中的機密資料，並將加密金鑰儲存在「Azure 金鑰保存庫」中
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 10/31/2017
 * 建立資料庫資料表並將資料行加密。
 * 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 針對本教學課程，您將需要：
 
 * Azure 帳戶和訂用帳戶。 如果您沒有帳戶，請註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -48,30 +47,18 @@ ms.lasthandoff: 10/31/2017
 * [Azure PowerShell](/powershell/azure/overview) 1.0 或更新版本。 請輸入 **(Get-Module azure -ListAvailable).Version** 來查看您正在執行的 PowerShell 版本。
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>讓用戶端應用程式能夠存取 SQL Database 服務
-您必須讓用戶端應用程式能夠存取 SQL Database 服務，方法是設定必要的驗證，並取得在接下來的程式碼中驗證應用程式所需的「用戶端識別碼」和「密碼」。
+您必須讓用戶端應用程式能夠存取 SQL Database 服務，方法是設定 Azure Active Directory (AAD) 應用程式，並複製驗證應用程式所需的「應用程式識別碼」和「金鑰」。
 
-1. 開啟 [Azure 傳統入口網站](http://manage.windowsazure.com)。
-2. 選取 [Active Directory]  ，然後按一下您應用程式將會使用的 [Active Directory]。
-3. 按一下 [應用程式]，然後按一下 [新增]。
-4. 輸入您應用程式的名稱 (例如：*myClientApp*)，選取 [WEB 應用程式]，然後按一下箭號以繼續。
-5. 針對 [登入 URL] 和 [應用程式識別碼 URI]，您可以輸入一個有效的 URL (例如： *http://myClientApp* )，然後繼續。
-6. 按一下 [設定] 。
-7. 複製您的 [用戶端識別碼] 。 (您之後在程式碼中將需要此值)。
-8. 在 [金鑰] 區段中，從 [選取持續時間] 下拉式清單中選取 [1 年]。 (您將在儲存金鑰後，於步驟 13 複製金鑰)。
-9. 向下捲動並按一下 [新增應用程式] 。
-10. 將 [顯示] 保留設定為 [Microsoft 應用程式]，然後選取 [Microsoft Azure 服務管理 API]。 按一下核取記號以繼續。
-11. 從 [委派權限] 下拉式清單中選取 [存取 Azure 服務管理...]。
-12. 按一下 [儲存] 。
-13. 完成儲存之後，複製 [金鑰]  區段中的金鑰值。 (您之後在程式碼中將需要此值)。
+若要取得「應用程式識別碼」和「金鑰」，請遵循[建立可存取資源的 Azure Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)中的步驟。
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>建立金鑰保存庫來儲存您的金鑰
-既然您的用戶端應用程式已完成設定，您也已取得用戶端識別碼，現在即可建立金鑰保存庫並設定其存取原則，以便讓您和您的應用程式能夠存取保存庫的密碼 (「一律加密」金鑰)。 若要使用 SQL Server Management Studio 來建立新的資料行主要金鑰及設定加密，必須要有 create、get、list、sign、verify、wrapKey 及 unwrapKey 權限。
+既然您的用戶端應用程式已完成設定，您也已取得應用程式識別碼，現在即可建立金鑰保存庫並設定其存取原則，以便讓您和您的應用程式能夠存取保存庫的密碼 (Always Encrypted 金鑰)。 若要使用 SQL Server Management Studio 來建立新的資料行主要金鑰及設定加密，必須要有 create、get、list、sign、verify、wrapKey 及 unwrapKey 權限。
 
 您可以執行下列指令碼來快速建立金鑰保存庫。 如需這些 Cmdlet 的詳細說明，以及有關建立及設定金鑰保存庫的詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](../key-vault/key-vault-get-started.md)。
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ ms.lasthandoff: 10/31/2017
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -151,7 +138,7 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 SSN 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 BirthDate 資料行將使用不支援操作的隨機加密。
 
-將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按一下 [下一步] 。
+將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按 [下一步] 。
 
 ![加密資料行](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -162,17 +149,17 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 
 1. 選取 [Azure 金鑰保存庫] 。
 2. 從下拉式清單中選取想要的金鑰保存庫。
-3. 按一下 [下一步] 。
+3. 按 [下一步] 。
 
 ![主要金鑰組態](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
 ### <a name="validation"></a>驗證
 您現在可以加密資料行，或儲存為 PowerShell 指令碼以供日後執行。 針對這個教學課程，請選取 [繼續以立即完成]，然後按 [下一步]。
 
-### <a name="summary"></a>摘要
+### <a name="summary"></a>總結
 確認設定全都正確，然後按一下 [完成]  以完成 [一律加密] 的設定。
 
-![摘要](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
+![總結](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>確認精靈的動作
 完成精靈步驟之後，您的資料庫便已完成「一律加密」設定。 精靈已執行下列動作：
@@ -233,7 +220,7 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);

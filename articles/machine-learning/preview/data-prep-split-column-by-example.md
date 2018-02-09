@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>分割資料行實例化轉換
 這項轉換可預測性地將資料列的內容分割為有意義的界限，而不需要使用者輸入。 分割演算法會在分析資料行的內容之後選取界限。 您可以透過下列定義這些界限：
@@ -52,6 +52,11 @@ ms.lasthandoff: 12/18/2017
 使用者可以從資料格複製值，並將其貼至另一個資料格，以提供分割的範例。
 
 使用者可按一下「轉換編輯器」中的連結，以在**基本模式**和**進階模式**之間切換。
+
+### <a name="transform-editor-send-feedback"></a>轉換編輯器：傳送意見反應
+
+按一下 [傳送意見反應] 連結會開啟 [意見反應] 對話方塊，其中會顯示以使用者所提供參數選擇與範例預先填寫的意見方塊。 使用者應該檢閱意見方塊的內容並提供更多詳細資料以協助我們了解問題。 若使用者不想要與 Microsoft 分享資料，使用者在按下 [傳送意見反應] 按鈕之前應該先刪除預先填寫的範例資料。 
+
 
 ### <a name="editing-an-existing-transformation"></a>編輯現有的轉換
 

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 09aee1ba9ec3ce72732cb1f60c9a840ffc4beb2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暫止及重新啟動傳訊實體 (停用)
 
-您可以暫時停止佇列、主題和訂用帳戶。 暫止會讓實體進入停用狀態，此時所有訊息會都保存在儲存體中。 不過，訊息無法移除或新增，而且個別的通訊協定作業都會產生錯誤。
+您可以暫時停止佇列、主題和訂用帳戶。 暫止會讓實體進入停用狀態，此時所有訊息都會保存在儲存體中。 不過，訊息無法移除或新增，而且個別的通訊協定作業都會產生錯誤。
 
 暫止實體通常是因為緊急管理的緣故。 其中一個案例是部署了錯誤的接收者，將訊息從佇列中移除、無法處理，而且無法正確地完成訊息及移除訊息。 如果診斷出該行為，您可以停用接收佇列，直到部署更正的程式碼，而且可以預防錯誤程式碼造成更嚴重的資料遺失為止。
 

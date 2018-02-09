@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 76db735ca7bbad550e792d61658fa65fe8a53caf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>更新 Azure Container Service (AKS) 中的應用程式
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/18/2017
 
 應用程式存放庫也會一併複製，其中包括應用程式原始程式碼，以及本教學課程使用的預先建立 Docker Compose 檔案。 請確認您已建立存放庫的複製品，而且已將目錄變更為複製的目錄。 其中有一個名為 `azure-vote` 的目錄和一個名為 `docker-compose.yaml` 的檔案。
 
-如果您尚未完成這些步驟，而且想要跟著做，返回[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。 
+如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。 
 
 ## <a name="update-application"></a>更新應用程式
 
@@ -61,7 +61,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-container-image"></a>更新容器映像
 
-使用[docker 撰寫][ docker-compose]重新建立前端的映像，並執行更新的應用程式。 `--build` 引數可用來指示 Docker Compose 重新建立應用程式映像。
+使用 [docker-compose][docker-compose] 重新建立前端映像，並執行已更新的應用程式。 `--build` 引數可用來指示 Docker Compose 重新建立應用程式映像。
 
 ```console
 docker-compose up --build -d
@@ -77,27 +77,27 @@ docker-compose up --build -d
 
 以容器登錄的 loginServer 標記 `azure-vote-front` 映像。 
 
-使用 [az acr list](/cli/azure/acr#list) 命令來取得登入伺服器名稱。
+使用 [az acr list](/cli/azure/acr#az_acr_list) 命令來取得登入伺服器名稱。
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-使用[docker 標記][ docker-tag]來標記的影像。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。 另請注意，映像版本已更新為 `redis-v2`。
+使用 [docker tag][docker-tag] 來標記映像。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。 另請注意，映像版本已更新為 `v2`。
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-使用[docker push] [ docker-push]登錄檔上傳映像。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。
+使用 [docker push][docker-push] 將映像上傳至您的登錄。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## <a name="deploy-update-application"></a>部署更新應用程式
 
-若要確保最大執行時間，則應用程式 pod 必須有多個執行個體正在執行中。 請確認此組態[kubectl 取得 pod] [ kubectl-get]命令。
+若要確保最大執行時間，則應用程式 pod 必須有多個執行個體正在執行中。 請使用 [kubectl get pod][kubectl-get] 命令驗證此設定。
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-若要更新應用程式，請使用[kubectl 組][ kubectl-set]命令。 以容器登錄的登入伺服器或主機名稱來更新 `<acrLoginServer>`。
+若要更新應用程式，請使用 [kubectl set][kubectl-set] 命令。 以容器登錄的登入伺服器或主機名稱來更新 `<acrLoginServer>`。
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-若要監視部署，使用[kubectl 取得 pod] [ kubectl-get]命令。 部署已更新的應用程式後，您的 pod 會終止並以新的容器映像重建。
+若要監視部署，請使用 [kubectl get pod][kubectl-get] 命令。 部署已更新的應用程式後，您的 pod 會終止並以新的容器映像重建。
 
 ```azurecli
 kubectl get pod
@@ -167,7 +167,7 @@ kubectl get service azure-vote-front
 請前進到下一個教學課程，了解如何利用 Operations Management Suite 監視 Kubernetes。
 
 > [!div class="nextstepaction"]
-> [監視 Kubernetes 記錄分析][aks-tutorial-monitor]
+> [透過 Log Analytics 監視 Kubernetes][aks-tutorial-monitor]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

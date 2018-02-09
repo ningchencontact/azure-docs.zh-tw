@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
-ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。

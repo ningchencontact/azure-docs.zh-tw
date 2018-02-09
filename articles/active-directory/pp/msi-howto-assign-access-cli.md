@@ -1,9 +1,9 @@
 ---
-title: "如何將使用者指派的 MSI 存取指派給 Azure 資源，使用 Azure CLI"
-description: "逐步解說指示指派一個資源，在使用者指派 MSI 會存取另一個資源，使用 Azure CLI。"
+title: "如何使用 Azure CLI 將使用者指派的 MSI 存取權指派給 Azure 資源"
+description: "使用 Azure CLI 在一個資源上指派使用者指派的 MSI，並存取另一個資源的逐步解說指示。"
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,28 +12,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>將使用者指派的管理服務身分識別 (MSI) 存取權指派給資源，使用 Azure CLI
+# <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>使用 Azure CLI 將使用者指派的受控服務識別 (MSI) 存取權指派給資源
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-一旦您已建立指派給使用者的 MSI，您可以提供 MSI 存取另一個資源，就像任何安全性主體。 這個範例會示範如何讓使用者指定 MSI 存取 Azure 儲存體帳戶，使用 Azure CLI。
+一旦您已建立使用者指派的 MSI 後，就可以將 MSI 存取權提供給另一個資源，就如同任何安全性主體。 此範例將示範如何使用 Azure CLI 將使用者指派的 MSI 存取權提供給 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-若要執行本教學課程的 CLI 指令碼範例，您有兩個選項：
+若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
-- 使用[Azure 雲端殼層](~/articles/cloud-shell/overview.md)從 Azure 入口網站，或是透過 「 試試看 」 按鈕位於右上角的每個程式碼區塊。
-- [安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本) 如果您想要使用本機的 CLI 主控台。 然後 Azure 中，使用登入[az 登入](/cli/azure/#login)。 使用與您想要將使用者指派 MSI 和 VM 部署所在的 Azure 訂用帳戶相關聯的帳戶：
+- 透過 Azure 入口網站或是每個程式碼區塊右上角的 [試試看] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
+- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。 然後使用 [az login](/cli/azure/#az_login) 登入 Azure。 使用與 Azure 訂用帳戶相關聯的帳戶，而您要以此帳戶部署使用者指派的 MSI 和虛擬機器：
 
    ```azurecli
    az login
@@ -41,17 +41,17 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>使用 RBAC 將 MSI 存取權指派給另一個資源
 
-若要登入或資源的存取與主機資源 （例如 VM) 使用 MSI，MSI 必須先授與透過角色指派的資源存取。 才能將 MSI 關聯的主機，或之後，您可以執行這項操作。 如需建立並與 VM 相關聯的完整步驟，請參閱[針對 VM，使用 Azure CLI 設定指派給使用者的 MSI](msi-qs-configure-cli-windows-vm.md)。
+若要使用 MSI 搭配主機資源 (例如 VM) 來登入或存取資源，MSI 必須先透過角色指派授與資源存取權。 您可以在 MSI 與主機建立關聯之前或之後，執行這項操作。 如需建立並與 VM 建立關聯的完整步驟，請參閱[使用 Azure CLI 為 VM 設定使用者指派的 MSI](msi-qs-configure-cli-windows-vm.md)。
 
-在下列範例中，指派給使用者的 MSI 獲得存取權的儲存體帳戶。  
+在下列範例中，系統會向使用者指派的 MSI 提供儲存體帳戶的存取權。  
 
-1. 為了提供 MSI 存取權，您需要 MSI 的服務主體的用戶端識別碼 （也稱為應用程式識別碼）。 用戶端識別碼由提供[az 身分識別建立](/cli/azure/identity#az_identity_create)，於 MSI 和其 （如下所示的參考） 的服務主體的佈建：
+1. 為了提供存取權給 MSI，您需要 MSI 服務主體的用戶端識別碼 (也稱為應用程式識別碼)。 用戶端識別碼是在佈建 MSI 和其服務主體 (如下所示以供參考) 時，由 [az identity create](/cli/azure/identity#az_identity_create) 提供：
 
    ```azurecli-interactive
    az identity create -g rgPrivate -n msiServiceApp
    ```
 
-   成功的回應包含指派給使用者的 MSI 的服務主體中的用戶端識別碼`clientId`屬性：
+   成功回應會在 `clientId` 屬性中包含使用者指派的 MSI 之服務主體的用戶端識別碼：
 
    ```json
    {
@@ -68,13 +68,13 @@ ms.lasthandoff: 12/22/2017
    }
    ```
 
-2. 已知的用戶端識別碼，一旦使用[az 角色指派建立](/cli/azure/role/assignment#az_role_assignment_create)將 MSI 存取指派給另一個資源。 務必使用您的用戶端 ID`--assignee`參數，且比對的訂用帳戶 ID 和資源群組名稱，當您執行時傳回`az identity create`。 這裡 MSI 指派 「 讀取 」 存取權給名為"myStorageAcct 」 的儲存體帳戶：
+2. 得知用戶端識別碼後，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 將 MSI 存取權指派給另一個資源。 務必使用您的用戶端識別碼作為 `--assignee` 參數，以及當您執行 `az identity create` 時傳回的相符訂用帳戶識別碼和資源群組名稱。 系統在這裡會將名為 "myStorageAcct" 的儲存體帳戶「讀取」存取權指派給 MSI：
 
    ```azurecli-interactive
    az role assignment create --assignee 9391e5b1-dada-4a8z-834a-43ad44f296bl --role Reader --scope /subscriptions/90z696ff-5efa-4909-a64d-f1b616f423ll/resourcegroups/rgPrivate/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-   成功的回應看起來類似下列輸出：
+   成功回應大致如下列輸出所示：
 
    ```json
    {
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="next-steps"></a>後續步驟
 
 - 如需 MSI 的概觀，請參閱[受控服務識別概觀](msi-overview.md)。
-- 若要讓指派給使用者的 MSI Azure VM 上，請參閱[設定指派給使用者管理服務身分識別 (MSI) VM，使用 Azure CLI](msi-qs-configure-cli-windows-vm.md)。
+- 若要在 Azure VM 上啟用使用者指派的 MSI，請參閱[使用 Azure CLI 為 VM 設定使用者指派的受控服務識別 (MSI)](msi-qs-configure-cli-windows-vm.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
 

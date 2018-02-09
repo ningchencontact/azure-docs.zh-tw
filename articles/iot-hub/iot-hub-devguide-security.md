@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -72,7 +72,7 @@ Azure IoT 中樞可根據共用存取原則和身分識別登錄安全性認證�
 
 每個支援的通訊協定 (例如 MQTT、AMQP 及 HTTPS) 會以不同的方式傳輸權杖。
 
-使用 MQTT 時，CONNECT 封包具有做為 ClientId 的 deviceId，在 [使用者名稱] 欄位中具有 {iothubhostname}/{deviceId}，並且在 [密碼] 欄位中具有 SAS 權杖。 {iothubhostname} 應該是 IoT 中樞的完整 CName (例如，contoso.azure-devices.net)。
+使用 MQTT 時，CONNECT 封包會有作為 ClientId 的 deviceId、Username 欄位中會有 `{iothubhostname}/{deviceId}`，而 Password 欄位中則會有 SAS 權杖。 `{iothubhostname}` 應該是 IoT 中樞的完整 CName (例如 contoso.azure-devices.net)。
 
 使用 [AMQP][lnk-amqp] 時，IoT 中樞支援 [SASL PLAIN][lnk-sasl-plain] 和 [AMQP 宣告式安全性][lnk-cbs]。
 

@@ -1,88 +1,97 @@
 ---
-title: "Azure Batch 在雲端執行大規模的平行運算解決方案 | Microsoft Docs"
+title: "Azure Batch 在雲端中執行大規模平行作業 | Microsoft Docs"
 description: "了解如何將 Azure Batch 服務用於大規模的平行工作負載和 HPC 工作負載 "
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: mscurrell
+manager: jkabat
 editor: 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
+ms.assetid: 
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
-ms.author: tamram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: overview
+ms.date: 01/19/2018
+ms.author: mscurrell
+ms.custom: mvc
+ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="run-intrinsically-parallel-workloads-with-batch"></a>使用 Batch 執行本質平行的工作負載
+# <a name="what-is-azure-batch"></a>什麼是 Azure Batch？
 
-Azure Batch 是一項平台服務，可用於在雲端有效地執行大規模的平行和高效能運算 (HPC) 應用程式。 Azure Batch 可排程要在一組受管理的虛擬機器上執行的計算密集型工作，而且可以調整計算資源以符合工作的需求。
+使用 Azure Batch 在 Azure 中有效率地執行大規模的平行和高效能運算 (HPC) 批次作業。 Azure Batch 會建立和管理計算節點 (虛擬機器) 集區、安裝您要執行的應用程式，以及排定要在節點上執行的作業。 不需要安裝、管理或調整任何叢集或作業排程器軟體。 您會改用 [Batch API 和工具](batch-apis-tools.md)、命令列指令碼或 Azure 入口網站來設定、管理及監視您的作業。 
 
-使用 Batch 時，您可以輕鬆定義用來大規模平行執行應用程式的 Azure 計算資源。 不需要手動建立、設定和管理 HPC 叢集、個別的虛擬機器、虛擬網路或複雜的作業和工作排程基礎結構。 Azure Batch 會為您自動執行或簡化這些工作。
+開發人員可以將 Batch 當作平台服務使用，以建置需要大規模執行的 SaaS 應用程式或用戶端應用程式。 例如，使用 Batch 建置一項可為金融服務公司執行 Monte Carlo 風險模擬的服務，或建置一項可處理許多影像的服務。
 
-## <a name="use-cases-for-batch"></a>Batch 的使用案例
-Batch 是一項受管理的 Azure 服務，可用於批次處理或批次運算 -- 執行大量的類似工作以得到期望的結果。 定期處理、轉換和分析大量資料的組織最常使用批次運算。
-
-Batch 很適合處理本質平行 (也稱為「超簡單平行」) 的應用程式和工作負載。 本質上平行的工作負載可輕易分割成多個工作，以在多部電腦上同時執行。
-
-![平行工作][1]<br/>
-
-常見使用這項技術處理的一些工作負載範例如下：
-
-* 財務風險模型
-* 氣候和水文資料分析
-* 影像轉譯、分析和處理
-* 媒體編碼及轉碼
-* 基因序列分析
-* 工程壓力分析
-* 軟體測試
-
-Batch 也可以執行平行計算 (最後加上歸納步驟)，以及執行其他更複雜的 HPC 工作負載，例如 [訊息傳遞介面 (MPI)](batch-mpi.md) 應用程式。
+使用 Batch 不會額外收費。 您只須針對取用的基礎資源付費，例如虛擬機器、儲存體和網路。
 
 如需 Batch 與 Azure 中其他 HPC 解決方案選項的比較，請參閱 [HPC、Batch 和 Big Compute 解決方案](../virtual-machines/linux/high-performance-computing.md)。
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+## <a name="run-parallel-workloads"></a>執行平行工作負載
+Batch 很適合處理本質平行 (也稱為「超簡單平行」) 的工作負載。 本質平行的工作負載是指應用程式可獨立執行，且每個執行個體各自完成一部分的工作。 應用程式可能會在執行時存取一些通用資料，但不會與應用程式的其他執行個體進行通訊。 因此，本質平行的工作負載可大規模執行，而這是由可用來同時執行應用程式的計算資源數量所決定。
 
-## <a name="scenario-scale-out-a-parallel-workload"></a>案例：相應放大平行工作負載
-使用 Batch API 來與 Batch 服務互動的一個常見案例涉及在一組計算節點上相應放大本質平行工作，例如轉譯 3D 場景的影像。 例如，這組計算節點可能是您的「轉譯伺服器陣列」，提供數十、數百或甚至數千個核心來呈現作業。
+可以用 Batch 處理的一些本質平行工作負載範例：
 
-下圖顯示一個常見的 Batch 工作流程，其中有一個用戶端應用程式或託管服務使用 Batch 執行平行工作負載。
+* 使用 Monte Carlo 模擬的財務風險模型
+* VFX 和 3D 影像轉譯
+* 影像分析和處理
+* 媒體轉碼
+* 基因序列分析
+* 光學字元辨識 (OCR)
+* 資料擷取、處理和 ETL 作業
+* 軟體測試執行
 
-![Batch 解決方案工作流程][2]
+您也可以使用 Batch 來[執行緊密結合的工作負載](batch-mpi.md)；這些工作負載需要您執行的應用程式彼此通訊，而非獨立執行。 緊密結合的應用程式通常會使用訊息傳遞介面 (MPI) API。 您可以搭配 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 或 Intel MPI 來使用 Batch，以執行緊密結合的工作負載。 透過特定的 [HPC](../virtual-machines/linux/sizes-hpc.md) 和 [GPU 最佳化](../virtual-machines/linux/sizes-gpu.md)虛擬機器大小來改善應用程式效能。
 
-在這個常見的案例中，應用程式或服務執行下列步驟，在 Azure Batch 中處理計算工作負載：
+一些緊密結合的工作負載範例：
+* 有限元素分析
+* 流體動力學
+* 多重節點 AI 訓練
 
-1. 將**輸入檔**和處理這些檔案的**應用程式**上傳到您的 Azure 儲存體帳戶。 輸入檔可以是您的應用程式將會處理的任何資料，例如財務模型化資料或要轉碼的視訊檔案。 應用程式檔案可以是任何用於處理資料的應用程式，例如 3D 轉譯應用程式或媒體轉碼器。
-2. 在 Batch 帳戶中建立計算節點的 Batch **集區** -- 這些節點是將執行工作的虛擬機器。 您需要指定屬性，例如[節點大小](../cloud-services/cloud-services-sizes-specs.md)、其作業系統，以及節點加入集區時要安裝的應用程式在 Azure 儲存體中的位置 (您在步驟 #1 中上傳的應用程式)。 您也可以設定集區來隨著工作所產生的工作負載而[自動調整](batch-automatic-scaling.md)。 自動調整功能可動態調整集區中的計算節點數目。
-3. 建立 Batch **作業** 以在計算節點集區上執行工作負載。 當您建立作業時，您需要將它與 Batch 集區建立關聯。
-4. 將 **工作** 加入至作業。 當您將工作加入至作業時，Batch 服務會自動排程工作在集區中的計算節點上執行。 每一項工作會使用您上傳的應用程式來處理輸入檔。
-   
-   * 4a. 工作執行之前，它可以將它要處理的資料 (輸入檔) 下載至它被指派的計算節點。 如果應用程式未安裝在節點上 (請參閱步驟 2#)，您可以從這裡下載它。 下載完成時，工作就會在它被指派的節點上執行。
-5. 工作執行時，您可以查詢 Batch 來監視作業及其工作的進度。 用戶端應用程式或服務可透過 HTTPS 來與 Batch 服務進行通訊。 因為您可能會監視在數千個計算節點上執行的數千個工作，請務必[有效率地查詢 Batch 服務](batch-efficient-list-queries.md)。
-6. 當工作完成時，它們可以將其輸出資料上傳至 Azure 儲存體。 您也可以直接從計算節點上的檔案系統擷取檔案。
-7. 當您的監視偵測到作業中的工作已完成時，用戶端應用程式或服務可以下載輸出資料來進一步處理或評估。
+使用 Batch 可以平行執行許多緊密結合的作業。 例如，對流過管道 (管道寬度不同) 的液體執行多項模擬作業。
 
-請記住，這只是使用 Batch 的一種方式，此案例只描述它可用的幾項功能。 例如，您可以在每個計算節點上[以平行方式執行多項工作](batch-parallel-node-tasks.md)，也可以使用[作業準備和完成工作](batch-job-prep-release.md)來準備作業的節點，然後再清除。
+## <a name="additional-batch-capabilities"></a>其他 Batch 功能
+
+較高層級的工作負載專屬功能也適用 Azure Batch：
+* Batch 支援使用轉譯工具的大規模[轉譯工作負載](batch-rendering-service.md)，轉譯工具包括 Autodesk Maya、3ds Max、Arnold 和 V-Ray。 
+* R 使用者可以安裝 [doAzureParallel R 套件](https://github.com/Azure/doAzureParallel)，輕鬆地在 Batch 集區上相應放大 R 演算法的執行。
+
+您也可以在 [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md) 等工具所管理的大型 Azure 工作流程中，使用 Batch 作業來轉換資料。
+
+
+## <a name="how-it-works"></a>運作方式
+Batch 的一個常見案例涉及在一組計算節點上相應放大本質平行工作，例如轉譯 3D 場景的影像。 這組計算節點可能是您的「轉譯伺服器陣列」，提供數十、數百或甚至數千個核心來轉譯作業。
+
+下圖顯示常見 Batch 工作流程中的步驟，其中有一個用戶端應用程式或託管服務使用 Batch 執行平行工作負載。
+
+![Batch 方案逐步解說](./media/batch-technical-overview/tech_overview_03.png)
+
+
+|步驟  |說明  |
+|---------|---------|
+|1.將**輸入檔案**和處理這些檔案的**應用程式**上傳到您的 Azure 儲存體帳戶。     |輸入檔案可以是應用程式會處理的任何資料，例如財務模型化資料或要轉碼的視訊檔案。 應用程式檔案可以包含處理資料的指令碼或應用程式，例如媒體轉碼器。|
+|2.在您的 Batch 帳戶中建立計算節點的 Batch **集區**、要在集區上執行工作負載的**作業**，以及作業中的**工作**。     | 集區節點就是執行工作的虛擬機器。 指定節點數目和節點大小等屬性、Windows 或 Linux 虛擬機器映像，以及將節點加入集區時要安裝的應用程式。 若要管理集區的成本與大小，可使用[低優先順序虛擬機器](batch-low-pri-vms.md)或隨著工作負載的變化[自動縮放](batch-automatic-scaling.md)節點數目。 <br/><br/>當您將工作加入至作業時，Batch 服務會自動排程工作在集區中的計算節點上執行。 每一項工作會使用您上傳的應用程式來處理輸入檔。 |
+|3.將**輸入檔案**和**應用程式**下載至 Batch     |每個工作在執行之前，可以將其要處理的輸入資料下載至指派的計算節點。 如果應用程式未安裝在集區節點上，您可以在這裡進行下載。 完成來自 Azure 儲存體的下載時，工作就會在指定的節點上執行。|
+|4.監視**工作執行**     |執行工作時，請查詢 Batch 來監視作業及其工作的進度。 用戶端應用程式或服務可透過 HTTPS 來與 Batch 服務進行通訊。 因為您可能會監視在數千個計算節點上執行的數千個工作，請務必[有效率地查詢 Batch 服務](batch-efficient-list-queries.md)。|
+|5.上傳**工作輸出**     |當工作完成時，它們可以將其輸出資料上傳至 Azure 儲存體。 您也可以直接從計算節點上的檔案系統擷取檔案。|
+|6.下載**輸出檔案**     |當監視偵測到作業中的工作已完成時，用戶端應用程式或服務即可下載輸出資料來進一步處理。|
+
+
+
+
+請記住，這只是使用 Batch 的一種方式，此案例只說明其部分功能。 例如，您可以在每個計算節點上[平行執行多項工作](batch-parallel-node-tasks.md)。 或者，使用[作業的準備與完成工作](batch-job-prep-release.md)為您的作業準備節點，並在之後加以清除。 
+
+請參閱[適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，以取得有關集區、節點、作業和工作的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。 
 
 ## <a name="next-steps"></a>後續步驟
-既然您已大致了解 Batch 服務，現在可以更深入探索服務，了解如何使用它來處理計算密集平行工作負載。
 
-* 請參閱 [適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，這是任何準備使用 Batch 的人員不可或缺的資訊。 本文包含 Batch 服務資源 (例如集區、節點、作業和工作) 的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。
-* 了解可用來建置 Batch 解決方案的 [Batch API 和工具](batch-apis-tools.md)。
-* [開始使用適用於 .NET 的 Azure Batch 程式庫](batch-dotnet-get-started.md) ，了解如何使用 C# 和 Batch .NET 程式庫，透過一般的批次工作流程來執行簡單的工作負載。 本文應該是您學習如何使用 Batch 服務的第一站。 另外還有 [Python 版本](batch-python-tutorial.md) 的教學課程。
-* 下載 [GitHub 上的程式碼範例][github_samples]，看看 C# 和 Python 如何與 Batch 相互作用，以排程和處理範例工作負載。
-* 查看 [Batch 學習路徑][learning_path]，了解您在學習使用 Batch 時可用的資源。
+透過下列其中一個快速入門開始使用 Azure Batch：
+* [使用 Azure CLI 執行您的第一個 Batch 作業](quick-create-cli.md)
+* [使用 Azure 入口網站執行您的第一個 Batch 作業](quick-create-portal.md)
+* [使用 .NET API 執行您的第一個 Batch 作業](quick-run-dotnet.md)
+* [使用 Python API 執行您的第一個 Batch 作業](quick-run-python.md)
 
-
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-
-[1]: ./media/batch-technical-overview/tech_overview_01.png
-[2]: ./media/batch-technical-overview/tech_overview_02.png

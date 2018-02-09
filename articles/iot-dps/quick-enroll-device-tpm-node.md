@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96eb9ec8dde3f7fedc0b9933ac684b9bdc7313b
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 34a1fa02513d5676811c3a37175fd7313d33c0e0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>使用 Node.js 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-tpm-java.md)
+> * [C#](quick-enroll-device-tpm-csharp.md)
 > * [Node.js](quick-enroll-device-tpm-node.md)
 
 這些步驟說明如何使用 [Node.js 服務 SDK](https://github.com/Azure/azure-iot-sdk-node) 以及範例 Node.js 應用程式，以程式設計方式在 Azure IoT 中樞裝置佈建服務中建立 TPM 裝置的個別註冊。 您可以使用此個別註冊項目，選擇性地向佈建服務註冊模擬 TPM 裝置。 雖然在 Windows 和 Linux 電腦上都可運作這些步驟，針對本文的目的，我們將使用 Windows 開發電腦。
@@ -73,7 +74,7 @@ ms.lasthandoff: 12/22/2017
   
 1. 若要執行範例，您需要佈建服務的連接字串。 
     1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。 
-    2. 按一下 [共用存取原則]，然後按一下您要用來開啟其屬性的存取原則。 在 [存取原則]視窗中，複製並記下主要索引鍵連接字串。 
+    2. 按一下 [共用存取原則]，然後按一下您要用來開啟其屬性的存取原則。 在 [存取原則] 視窗中，複製並記下主要索引鍵連接字串。 
 
     ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 

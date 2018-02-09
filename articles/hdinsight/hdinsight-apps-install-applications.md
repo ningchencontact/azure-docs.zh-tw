@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Hadoop 應用程式
 
@@ -35,7 +35,7 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 * **HDInsight 上的 DATAIKU DDS**可讓資料專業人員製作原型、建置及部署非常特定的服務，以將未經處理資料轉換成有影響力的商務預測。
 * **Datameer**： [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) 會提供互動方式，讓分析師探索、分析和視覺化巨量資料的結果。 輕鬆拉進其他資料來源，以探索新的關聯性並迅速取得您所需的答案。
 * **HDInsight (Beta) 的 H2O 人工智慧**：H2O Sparkling Water 支援下列分散式演算法︰GLM、Naïve Bayes (貝氏機率分類)、Distributed Random Forest (分散式隨機樹系)、Gradient Boosting Machine (漸層停駐提升機器)、Deep Neural Networks (深度神經網路)、深度學習、K-means、PCA、Generalized Low Rank Models (一般化低順位模型)、異常偵測和 Autoencoder。
-* **Kyligence Analytics Platform**：Kyligence Analytics Platform (KAP) 是由 Apache Kylin 和 Apache Hadoop 提供之符合企業需求的資料倉儲，對大規模資料集的查詢延遲不到一秒，而且可簡化企業用戶和分析師的資料分析作業。 
+* **Kyligence Analytics Platform**：Kyligence Analytics Platform (KAP) 是由 Apache Kylin 和 Apache Hadoop 支援之符合企業需求的資料倉儲，對大規模資料集的查詢延遲不到一秒，而且可簡化企業用戶和分析師的資料分析作業。 
 * **Paxata 自助資料準備**
 * **SnapLogic Hadooplex**：HDInsight 上執行的 SnapLogic Hadooplex 可讓客戶從 Microsoft Azure 雲端平台的幾乎任何來源自助擷取和準備資料，以更快取得商業見解。
 * **Spark Job Server for KNIME Spark Executor**：Spark Job Server for KNIME Spark Executor 可用來將 KNIME Analytics Platform 連線到 HDInsight 叢集。
@@ -44,7 +44,7 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 
 本文提供的指示將使用 Azure 入口網站。 您也可以從入口網站匯出 Azure Resource Manager 範本或從廠商取得 Resource Manage 範本的複本，然後使用 Azure PowerShell 和 Azure CLI 來部署範本。  請參閱[使用 Resource Manager 範本在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您想要在現有的 HDInsight 叢集上安裝 HDInsight 應用程式，您必須有 HDInsight 叢集。 若要建立叢集，請參閱 [建立叢集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 您也可以在建立 HDInsight 叢集時安裝 HDInsight 應用程式。
 
 ## <a name="install-applications-to-existing-clusters"></a>將應用程式安裝到現有的叢集

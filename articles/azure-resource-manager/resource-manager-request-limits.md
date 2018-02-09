@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
-針對每個訂用帳戶和租用戶，Resource Manager 限制每小時只能有 15000 個讀取要求和 1200 個寫入要求。 這些限制會套用到每個 Azure Resource Manager 執行個體；每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比上面列出的還要高，因為通常是由多個不同的執行個體來服務使用者要求。
+針對每個訂用帳戶和租用戶，Resource Manager 限制每小時只能有 15000 個讀取要求和 1200 個寫入要求。 這些限制適用於每個 Azure Resource Manager 執行個體。 每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比這些限制還要高，因為通常是由多個不同的執行個體來服務使用者要求。
 
-如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本主題說明如何判斷還剩多少要求便會到達限制，以及在到達限制時該如何應對。
+如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本文說明如何判斷觸達限制前還剩下多少要求，以及在觸達限制時該如何應對。
 
 當您到達限制時，您會收到 HTTP 狀態碼 **429 太多要求**。
 
@@ -85,7 +85,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 在 **Azure CLI** 中，您可以使用更詳細的選項擷取標頭值。
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 這會傳回許多值，包括下列物件︰

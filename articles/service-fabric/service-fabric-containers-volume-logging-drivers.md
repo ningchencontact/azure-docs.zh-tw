@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>使用容器的 Docker 磁碟區外掛程式和記錄驅動程式
 Azure Service Fabric 支援為容器服務指定 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 記錄驅動程式](https://docs.docker.com/engine/admin/logging/overview/)。 當您的容器移動了或在不同主機上重新啟動時，您可將資料保存在 [Azure 檔案](https://azure.microsoft.com/services/storage/files/)中。
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter 不支援在主機上的 SMB 掛接 ([僅 Windows Server 1709 版支援](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage))。 這可避免使用特定的磁碟區驅動程式，例如 Azure 檔案服務磁碟區驅動程式。 可以改為使用 **net use** 直接在容器中掛接共用。 
+> Windows Server 2016 Datacenter 不支援將 SMB 掛接對應至容器 ([該功能僅在 Windows Server 1709 版上受到支援](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage))。 這可避免在早於 1709 的版本上使用網路磁碟區對應和 Azure 檔案服務磁碟區驅動程式。 
 >   
 
 

@@ -1,5 +1,5 @@
 ---
-title: "教學課程：Azure Active Directory 與 Salesforce 沙箱整合 | Microsoft Docs"
+title: "教學課程︰以 Azure Active Directory 設定 Salesforce 沙箱來自動佈建使用者 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 與 Salesforce Sandbox 之間的單一登入。"
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9ff50ddc2460a94c17b2401f0c8e4ad12c6d23a7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Salesforce 沙箱
+# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 沙箱來自動佈建使用者
 
 本教學課程旨在說明您需要在 Salesforce 沙箱和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Salesforce 沙箱。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

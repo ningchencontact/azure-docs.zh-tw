@@ -3,8 +3,8 @@ title: "從 Azure 下載市集項目 | Microsoft Docs"
 description: "我可以將市集項目從 Azure 下載到我的 Azure Stack 部署。"
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+
 
 當您決定要將哪些內容包含在 Azure Stack 市集中時，應該考慮可從 Azure Marketplace 取得的內容。 您可以從已預先測試而能在 Azure Stack 上執行的 Azure Marketplace 項目策劃清單下載。 新項目會不斷新增到此清單中，因此請務必回來查看是否有新內容。
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>在連線的案例 (具有網際網路連線能力) 中下載 Marketplace 項目
 
-1. 若要下載市集項目，您必須先[向 Azure 註冊 Azure Stack](azure-stack-register.md)。 
+1. 若要下載市集項目，您必須先[向 Azure 註冊 Azure Stack](azure-stack-register.md)。
 2. 登入 Azure Stack 系統管理員入口網站 ( https://portal.local.azurestack.external )。
 3. 有些 Marketplace 項目可能很大。 按一下 [資源提供者] > [儲存體] 來檢查，以確定您的系統上有足夠的空間。
 
@@ -51,9 +52,9 @@ ms.lasthandoff: 12/02/2017
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在連線的情況 (具有網際網路連線) 下載 Marketplace 項目
 
-當您在中斷連線的模式 (沒有任何網際網路連線) 中部署 Azure Stack 時，您無法透過 Azure Stack 入口網站下載 Marketplace 項目。 不過，您可使用 Marketplace 摘要整合工具將 Marketplace 項目下載至具有網際網路連線的電腦，再將其傳輸至 Azure Stack 環境。 
+當您在中斷連線的模式 (沒有任何網際網路連線) 中部署 Azure Stack 時，您無法透過 Azure Stack 入口網站下載 Marketplace 項目。 不過，您可使用 Marketplace 摘要整合工具將 Marketplace 項目下載至具有網際網路連線的電腦，再將其傳輸至 Azure Stack 環境。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 確定您已[向您的 Azure 訂用帳戶註冊 Azure Stack](azure-stack-register.md)，才可以使用 Marketplace 摘要整合工具。  
 
 從具有網際網路連線的電腦，使用下列步驟來下載必要的 Marketplace 項目：
@@ -132,12 +133,12 @@ ms.lasthandoff: 12/02/2017
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. 使用入口網站將您的 Marketplace 項目 (.Azpkg) 上傳至 Azure Stack Blob 儲存體。 您可以上傳至本機 Azure Stack 儲存體，或上傳至 Azure 儲存體。 (它是套件的暫存位置。)請確定 Blob 可公開存取並記下 URI。  
 
-5. 使用 **Add-AzureRMGalleryItem**，將 Marketplace 項目發佈至 Azure Stack。 例如：
+5. 使用 **Add-AzsGalleryItem**，將 Marketplace 項目發佈至 Azure Stack。 例如︰
 
    ```powershell
    Add-AzsGalleryItem `

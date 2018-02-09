@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>針對訂用帳戶的 Azure 事件格線事件結構描述
 
@@ -39,7 +39,7 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,7 +57,9 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,12 +95,14 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 |
+| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 | 主旨 | 字串 | 發行者定義事件主體的路徑。 |
 | eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
 | eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | 字串 | 事件的唯一識別碼。 |
 | data | 物件 | 訂用帳戶事件資料。 |
+| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 

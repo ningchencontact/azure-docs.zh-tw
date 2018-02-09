@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f5b34c6610a1c07687f0681480f7422986d6f20
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ca68391db99d882887e41005928a30610c7cb930
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>搭配使用 Pig 與 HDInsight 上的 Hadoop
 
-了解如何使用 [Apache Pig](http://pig.apache.org/) 搭配 HDInsight...
+了解如何使用 [Apache Pig](http://pig.apache.org/) 搭配 HDInsight。
 
 Pig 是一個平台，可使用稱為 *Pig Latin*的程序性語言建立 Hadoop 的程式。 若要建立 *MapReduce* 解決方案，Pig 是 Java 的替代選項，而且也已包含在 Azure HDInsight 中。 使用下表了解可搭配 HDInsight 使用 Pig 的各種方式︰
 
@@ -34,7 +34,6 @@ Pig 是一個平台，可使用稱為 *Pig Latin*的程序性語言建立 Hadoop
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows (目前) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows |Windows |
-| [遠端桌面](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 和 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -104,7 +103,6 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows (目前) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows |Windows |
-| [遠端桌面](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 和 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -119,7 +117,7 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 
 在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 現在您已學會如何搭配 HDInsight 使用 Pig，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)
