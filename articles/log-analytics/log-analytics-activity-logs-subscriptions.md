@@ -85,7 +85,7 @@ ms.lasthandoff: 01/19/2018
 
    ![導覽中 Azure 監視器的影像](media/log-analytics-activity-logs-subscriptions/activity-log-blade.png)
 
-4. 選取要從中匯出的 [訂用帳戶]，然後按一下 [區域] 下拉式清單中的 [全選]，以選取所有區域中資源的事件。 按一下 [Export to an event hub] (匯出至事件中樞) 核取方塊。
+4. 選取要從中匯出的 [訂用帳戶]，然後按一下 [區域] 下拉式清單中的 [全選]，以選取所有區域中資源的事件。 按一下 [Export to an event hub] \(匯出至事件中樞) 核取方塊。
 7. 按一下 [服務匯流排命名空間]，然後選取含事件中樞、[事件中樞命名空間] 和 [事件中樞原則名稱] 的 [訂用帳戶]。
 
     ![匯出至事件中樞頁面的影像](media/log-analytics-activity-logs-subscriptions/export-activity-log2.png)
@@ -145,7 +145,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="add-event-hub-trigger"></a>新增事件中樞觸發程序
 
-1. 在邏輯應用程式設計工具的搜尋方塊中，鍵入 *event hubs* 作為篩選條件。 選取 [Event Hubs - When events are available in Event Hub] (事件中樞 - 當事件可用於事件中樞時) 觸發程序。
+1. 在邏輯應用程式設計工具的搜尋方塊中，鍵入 *event hubs* 作為篩選條件。 選取 [Event Hubs - When events are available in Event Hub] \(事件中樞 - 當事件可用於事件中樞時) 觸發程序。
 
    ![在 Logic Apps 中新增事件中樞觸發程序的影像](media/log-analytics-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 01/19/2018
 事件中樞的輸出包含具有記錄陣列的 JSON 承載。 [剖析 JSON](../logic-apps/logic-apps-content-type.md) 動作用來只擷取要傳送至 Log Analytics 的記錄陣列。
 
 1. 按一下 [新增步驟] > [新增動作]
-2. 在搜尋方塊中，鍵入 parse json 作為篩選條件。 選取 [Data Operations - Parse JSON] (資料作業 - 剖析 JSON) 動作。
+2. 在搜尋方塊中，鍵入 parse json 作為篩選條件。 選取 [Data Operations - Parse JSON] \(資料作業 - 剖析 JSON) 動作。
 
    ![在 Logic Apps 中新增剖析 JSON 動作](media/log-analytics-activity-logs-subscriptions/logic-apps-add-parse-json-action.png)
 
@@ -272,13 +272,13 @@ ms.lasthandoff: 01/19/2018
 ```
 
 >[!TIP]
-> 您可以按一下 [執行]，並從事件中樞中查看 [Raw Output] (原始輸出)，以取得範例承載。  您接著可以使用含有 [剖析 JSON] 活動中 [請使用範例承載產生結構描述] 的這個輸出，來產生結構描述。
+> 您可以按一下 [執行]，並從事件中樞中查看 [Raw Output] \(原始輸出)，以取得範例承載。  您接著可以使用含有 [剖析 JSON] 活動中 [請使用範例承載產生結構描述] 的這個輸出，來產生結構描述。
 
 ### <a name="add-compose-action"></a>新增撰寫動作
 [撰寫](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action)動作採用 JSON 輸出，並建立 Log Analytics 動作可使用的物件。
 
 1. 按一下 [新增步驟] > [新增動作]
-2. 鍵入 *compose* 作為篩選條件，然後選取 [Data Operations - Compose] (資料作業 - 撰寫) 動作。
+2. 鍵入 *compose* 作為篩選條件，然後選取 [Data Operations - Compose] \(資料作業 - 撰寫) 動作。
 
     ![新增撰寫動作](media/log-analytics-activity-logs-subscriptions/logic-apps-add-compose-action.png)
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 01/19/2018
 [Azure Log Analytics 資料收集器](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/)動作採用 [撰寫] 動作中的物件，並將它傳送至 Log Analytics。
 
 1. 按一下 [新增步驟] > [新增動作]
-2. 鍵入 log analytics 作為篩選條件，然後選取 [Azure Log Analytics Data Collector - Send Data] (Azure Log Analytics 資料收集器 - 傳送資料) 動作。
+2. 鍵入 log analytics 作為篩選條件，然後選取 [Azure Log Analytics Data Collector - Send Data] \(Azure Log Analytics 資料收集器 - 傳送資料) 動作。
 
    ![在 Logic Apps 中新增 Log Analytics 傳送資料動作](media/log-analytics-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
@@ -319,7 +319,7 @@ ms.lasthandoff: 01/19/2018
 
    ![測試邏輯應用程式](media/log-analytics-activity-logs-subscriptions/test-logic-app.png)
 
-若要查看每個步驟的詳細資訊，請按一下步驟名稱予以展開。 按一下 [Show raw inputs] (顯示原始輸入) 和 [Show raw outputs] (顯示原始輸出)，以查看每個步驟所接收和傳送資料的詳細資訊。
+若要查看每個步驟的詳細資訊，請按一下步驟名稱予以展開。 按一下 [Show raw inputs] \(顯示原始輸入) 和 [Show raw outputs] \(顯示原始輸出)，以查看每個步驟所接收和傳送資料的詳細資訊。
 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>步驟 5 - 在 Log Analytics 中檢視 Azure 活動記錄
 最後一個步驟是檢查 Log Analytics 工作區，確定正在如預期收集資料。
