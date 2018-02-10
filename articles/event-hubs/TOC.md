@@ -3,7 +3,7 @@
 ## [事件中樞功能](event-hubs-features.md)
 ## [常見問題集](event-hubs-faq.md)
 
-# 開始使用
+# 快速入門
 ## [建立事件中樞](event-hubs-create.md)
 ## 傳送事件
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
