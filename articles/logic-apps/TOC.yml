@@ -142,10 +142,14 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Azure Blob 儲存體
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Azure 事件中心
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Azure Functions
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
+        - name: Azure 服務匯流排
+          href: ../connectors/connectors-create-api-servicebus.md
         - name: 連接字串
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: 自訂 API 和 Web 應用程式
@@ -156,8 +160,6 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: 事件中樞
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: 檔案系統
           href: logic-apps-using-file-connector.md
         - name: 一般檔案
@@ -188,8 +190,6 @@
           href: logic-apps-using-sap-connector.md
         - name: 排程
           href: ../connectors/connectors-native-recurrence.md
-        - name: Azure 服務匯流排
-          href: ../connectors/connectors-create-api-servicebus.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
