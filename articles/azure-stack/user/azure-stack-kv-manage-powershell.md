@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![新的金鑰保存庫](media/azure-stack-kv-manage-powershell/image4.png)
 
-此命令的輸出會顯示您所建立的金鑰保存庫屬性。 應用程式存取此保存庫時，會使用此輸出中所顯示的 [保存庫 URI] 屬性。 例如，這個案例裡的保存庫統一資源識別碼 (URI) 是 "https://vault01.vault.local.azurestack.external"。 透過 REST API 與此金鑰保存庫互動的應用程式必須使用此 URI。
+此命令的輸出會顯示您所建立的金鑰保存庫屬性。 應用程式存取此保存庫時，會使用此輸出中所顯示的 [保存庫 URI] 屬性。 例如，這個案例裡的保存庫統一資源識別碼 (URI) 是" https://vault01.vault.local.azurestack.external "。 透過 REST API 與此金鑰保存庫互動的應用程式必須使用此 URI。
 
 在以 Active Directory 同盟服務 (AD FS) 為基礎的部署中，使用 PowerShell 建立金鑰保存庫時，可能會收到警告，指出「未設定存取原則， 使用者或應用程式沒有使用此保存庫的存取權」。 若要解決此問題，請使用 [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) 命令，設定保存庫的存取原則：
 
