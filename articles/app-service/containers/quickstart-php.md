@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 643262ec69fb30981b3ae5c4e26d230743b78405
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4d74d9c39a5ea22abf496666304249418079cc0d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 PHP Web 應用程式
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/01/2018
 
 ![在 Azure 中執行的範例應用程式]](media/quickstart-php/hello-world-in-browser.png)
 
-您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。
+您可以使用 Mac、Windows 或 Linux 機器，依照本文中的步驟操作。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -84,6 +84,8 @@ php -S localhost:8080
 ```bash
 http://<app_name>.azurewebsites.net
 ```
+
+新的 Web 應用程式看起來應該像這樣：
 
 ![空的 Web 應用程式頁面](media/quickstart-php/app-service-web-service-created.png)
 

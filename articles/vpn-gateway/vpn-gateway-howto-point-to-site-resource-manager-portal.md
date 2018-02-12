@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8cc387fafb2771577b55f57f79cc8b3a6ee8cfa9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/18/2018
 
 本文會協助您設定使用原生 Azure 憑證驗證來進行驗證的 P2S 組態。 如果您想要使用 RADIUS 來驗證要連線的使用者，請參閱[使用 RADIUS 驗證的 P2S](point-to-site-how-to-radius-ps.md)。
 
-![將電腦連接至 Azure VNet - 點對站連線圖表](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+![將電腦連接至 Azure VNet - 點對站連線圖表](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。
 
@@ -113,12 +113,12 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="addresspool"></a>6.新增用戶端位址集區
 
-用戶端位址集區是您指定的私人 IP 位址範圍。 透過點對站連線的用戶端會收到來自這個範圍內的 IP 位址。 使用不會重疊的私人 IP 位址範圍搭配您從其連線的內部部署位置，或搭配您要連線至的 VNet。
+用戶端位址集區是您指定的私人 IP 位址範圍。 透過點對站 VPN 連線的用戶端會動態收到這個範圍內的 IP 位址。 使用不會重疊的私人 IP 位址範圍搭配您從其連線的內部部署位置，或搭配您要連線至的 VNet。
 
 1. 一旦建立虛擬網路閘道，請瀏覽至虛擬網路閘道頁面的 [設定] 區段。 在 [設定] 區段中，按一下 [點對站組態] 以開啟 [組態] 頁面。
 
   ![點對站頁面](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. 在 [點對站組態] 頁面，您可以刪除自動填滿的區域，然後新增您要使用的私人 IP 位址範圍。 按一下 [儲存]  來驗證和儲存設定。
+2. 在 [點對站組態] 頁面，您可以刪除自動填滿的區域，然後新增您要使用的私人 IP 位址範圍。 VPN 用戶端會動態收到您指定範圍內的 IP 位址。 按一下 [儲存]  來驗證和儲存設定。
 
   ![用戶端位址集區](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 

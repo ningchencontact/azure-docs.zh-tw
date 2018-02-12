@@ -1,4 +1,20 @@
-在本機終端視窗中，將 Azure 遠端新增至本機 Git 存放庫。 將 _&lt;paste\_copied\_url\_here>_ 取代為您從[建立 Web 應用程式](#create)儲存之 Git 遠端的 URL。
+---
+title: "包含檔案"
+description: "包含檔案"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: de3be6fcd9cd1bee4cfc590a41e69d4ae2a2468b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/03/2018
+---
+回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 將 _&lt;paste\_copied\_url\_here>_ 取代為您從[建立 Web 應用程式](#create)儲存之 Git 遠端的 URL。
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

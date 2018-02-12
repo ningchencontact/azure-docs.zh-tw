@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>利用 PowerShell 開始使用 Azure DNS 私人區域
 
 本文將逐步引導您使用 Azure PowerShell 建立第一個私人 DNS 區域和記錄。
 
-DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  我們稱之為「解析網路」。  您也可以指定一組虛擬網路，每當 VM 建立、變更 IP 或被終結時，Azure DNS 將維護其主機名稱記錄。  我們稱之為「註冊網路」。
-
-因為這項功能目前是受管理的預覽版，將會提供預覽版 PowerShell 模組。
-
 [!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
+DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  我們稱之為「解析網路」。  您也可以指定一組虛擬網路，每當 VM 建立、變更 IP 或被終結時，Azure DNS 就會維護其主機名稱記錄。  我們稱之為「註冊網路」。
+
+因為這項功能目前是受控預覽版，所以當您將電子郵件寄送至 [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) 時，將會提供預覽版 PowerShell 模組。
+
+## <a name="get-the-preview-powershell-module"></a>取得預覽版 PowerShell 模組
+
+若要使用 PowerShell 建立私人 DNS 區域，請將電子郵件寄送至 [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com)，以取得預覽版 PowerShell 模組。
 
 ## <a name="create-the-resource-group"></a>建立資源群組
 

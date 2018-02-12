@@ -9,11 +9,11 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -370,7 +370,7 @@ az policy definition list
 
 5. 選取 [指派]。
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>解決不相容或拒絕的資源
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>使用排除來免除不相容或拒絕的資源
 
 遵循上述的範例，在指派原則定義需要 SQL Server 12.0 版之後，使用不同版本建立的 SQL Server 就會遭到拒絕。 在本節中，您可藉由要求排除，逐步解決建立不同 SQL Server 版本的被拒絕嘗試。 排除基本上可防止原則強制執行。 排除可以套用至資源群組，或者您可將排除範圍縮小為個別的資源。
 

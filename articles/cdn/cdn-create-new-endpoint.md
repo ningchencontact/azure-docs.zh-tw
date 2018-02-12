@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>開始使用 Azure CDN
-本文說明如何藉由建立新的 CDN 設定檔和端點來啟用 Azure 內容傳遞網路 (CDN)。
-
-> [!IMPORTANT]
-> 如需 CDN 簡介和功能清單，請參閱 [CDN 概觀](cdn-overview.md)。
-> 
-> 
+本文說明如何藉由建立新的 CDN 設定檔和端點來啟用 Azure [內容傳遞網路 (CDN)](cdn-overview.md)。
 
 ## <a name="create-a-new-cdn-profile"></a>建立新的 CDN 設定檔
 CDN 設定檔為 CDN 端點的集合。 每個設定檔皆可包含一或多個 CDN 端點。 若要依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點，您可以使用多個設定檔。

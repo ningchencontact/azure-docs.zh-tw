@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>開始在 .NET Standard 中傳送訊息至 Azure 事件中樞
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/11/2017
 
 本教學課程說明如何撰寫一個 .NET Core 主控台應用程式，以將一組訊息傳送到事件中樞。 您可以依現狀執行 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) 解決方案，其中以您事件中樞的值來取代 `EhConnectionString` 和 `EhEntityPath` 字串。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio 2015 或 2017](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017，但也支援 Visual Studio 2015。
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
 * Azure 訂用帳戶。
 * 事件中樞命名空間。
 
-為了將訊息傳送到事件中樞，我們將使用 Visual Studio 來撰寫一個 C# 主控台應用程式。
+為了將訊息傳送到事件中樞，本教學課程會使用 Visual Studio 來撰寫一個 C# 主控台應用程式。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>撰寫一些程式碼以將訊息傳送到事件中樞
 
-1. 在 Program.cs 檔案開頭處加入 `using` 陳述式。
+1. 在 Program.cs 檔案開頭處加入 `using` 陳述式：
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -77,8 +77,8 @@ ms.lasthandoff: 10/11/2017
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
     }
     ```
 
-5. 將下列程式碼行新增至 `Program` 類別中的 `Main` 方法。
+5. 將下列程式碼行新增至 `Program` 類別中的 `Main` 方法：
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -151,8 +151,8 @@ ms.lasthandoff: 10/11/2017
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -198,10 +198,10 @@ ms.lasthandoff: 10/11/2017
 恭喜！ 您現在已將傳送訊息到事件中樞。
 
 ## <a name="next-steps"></a>後續步驟
-您可以造訪下列連結以深入了解事件中樞︰
+您可以透過下列連結來深入了解事件中樞：
 
 * [從事件中樞接收事件](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 

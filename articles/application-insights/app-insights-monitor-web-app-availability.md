@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -113,6 +113,11 @@ ms.lasthandoff: 01/25/2018
 * 在 Visual Studio 中開啟 Web 測試結果。
 
 *看起來正常，但回報為失敗？* 請參閱[常見問題集](#qna)以取得降低雜訊的方法。
+
+
+> [!TIP]
+> 我們建議從至少 2 個位置進行測試，以達到可靠的監視。
+>
 
 ## <a name="multi-step-web-tests"></a>多重步驟 Web 測試
 您可以監視涉及一連串 URL 的案例。 例如，如果您正在監視銷售網站，您可以測試將項目加入購物車正確運作。
