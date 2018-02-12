@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: 內部部署至次要網站支援矩陣
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: 容錯回復類型
+      href: concepts-types-of-failback.md
     - name: 工作負載的災害復原
       href: site-recovery-workload.md
     - name: 移轉至 Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: 設定 Azure VM 災害復原 (預覽) 的網路對應功能
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: 保留 Azure VM 災害復原 (預覽) 的 IP
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: 準備 Azure 之 Hyper-V VM 複寫的網路對應
           href: site-recovery-network-mapping.md
         - name: 設定 IP 定址以在容錯移轉之後存取 Azure
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: 容錯移轉至 Azure 問題
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: 重新保護並針對問題進行容錯回復
+          href: troubleshoot-failback-reprotect.md
         - name: 監視 Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: 參考

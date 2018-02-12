@@ -172,6 +172,7 @@
 #### [Face Redactor 逐步解說](media-services-redactor-walkthrough.md)
 ### [利用視訊縮圖處理](media-services-video-summarization.md)
 ### [利用 OCR 處理](media-services-video-optical-character-recognition.md)
+### [利用 Content Moderator](media-services-content-moderation.md)
 
 ## [設定遙測](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

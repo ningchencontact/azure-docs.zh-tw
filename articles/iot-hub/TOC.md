@@ -38,6 +38,9 @@
 ### [透過適用於 Azure CLI 2.0 的 IoT 延伸模組進行裝置管理](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [搭配 Logic Apps 進行遠端監視和通知](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
+## 使用 MXChip IoT DevKit
+### [使用 Azure IoT 套件進行遠端監視](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
+
 # 使用說明指南
 ## 規劃
 ### [比較 IoT 中樞和事件中樞](iot-hub-compare-event-hubs.md)

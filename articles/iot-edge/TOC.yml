@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: 偵錯 Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: 在 Edge 中儲存資料
+      href: sql-storage.md
     - name: 疑難排解
       href: troubleshoot.md
 - name: 概念

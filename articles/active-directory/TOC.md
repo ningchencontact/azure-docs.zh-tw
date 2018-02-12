@@ -83,6 +83,7 @@
 #### [將授權指派給群組](active-directory-licensing-group-assignment-azure-portal.md)
 #### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
+#### [在產品授權間移轉使用者](active-directory-licensing-group-product-migration.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 Azure PowerShell 範例](active-directory-licensing-ps-examples.md)
 #### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [連接器](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [網路](application-proxy-network-topology-considerations.md)
-
-
 ##### [從 TMG 或 UAG 升級](application-proxy-transition-from-uag-tmg.md)
 
 #### 進階組態
@@ -212,6 +211,8 @@
 ##### [無訊息安裝](active-directory-application-proxy-silent-installation.md)
 ##### [自訂首頁](application-proxy-office365-app-launcher.md)
 ##### [翻譯內嵌連結](application-proxy-link-translation.md)
+##### [萬用字元應用程式](active-directory-application-proxy-wildcard.md)
+
 #### 發佈逐步解說
 ##### [遠端桌面](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## 保護您的身分識別
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
-#### [控制項](active-directory-conditional-access-controls.md)
+#### [條件](active-directory-conditional-access-conditions.md)
 #### [位置條件](active-directory-conditional-access-locations.md)
+#### [控制項](active-directory-conditional-access-controls.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳做法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
@@ -374,7 +376,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
+## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

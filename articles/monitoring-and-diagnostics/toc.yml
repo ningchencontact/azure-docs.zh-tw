@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: 活動記錄檔
           href: monitoring-overview-activity-logs.md
+        - name: 活動記錄警示 (預覽)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: 動作群組
           href: monitoring-action-groups.md
         - name: 診斷記錄檔
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: 使用 Azure PowerShell 設定警示
           href: insights-alerts-powershell.md
-        - name: 讓計量警示呼叫 Webhook
-          href: insights-webhooks-alerts.md
+        - name: Webhook 動作記錄警示
+          href: monitor-alerts-unified-log-webhook.md
         - name: 使用 Resource Manager 範本建立度量警示
           href: monitoring-enable-alerts-using-template.md
     - name: 使用自動調整

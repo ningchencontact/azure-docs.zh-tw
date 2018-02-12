@@ -5,11 +5,11 @@ title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ SQL 工具 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-一組適用於雲端應用程式的建議架構。 每個架構都包含建議的作法、規定步驟，以及讓建議具體化的可執行元件。
+Azure 架構中心包含在 Microsoft Azure 上建立端對端解決方案的指引。 您可以在這裡找到參考架構、最佳做法、設計模式、案例指引，以及參考實作。
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ SQL 工具 </h3>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Architecture Center</h3>
+                                                    <p>在 Microsoft Azure 上建置端對端解決方案的指引。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Azure 應用程式架構指南</h3>
-                                                    <p>在雲端獲致成功的基本知識。 如果您不熟悉雲端或 Azure，請從這裡著手。</p>
+                                                    <p>本指南會告訴您在 Azure 上設定可擴充、可復原和高可用性應用程式的結構化方法。 者是以我們與客戶合作後了解到的實證做法作為基礎。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ SQL 工具 </h3>
                                                 <div class="cardText">
                                                     <h3>雲端設計模式</h3>
                                                     <p>雲端的設計模式。 每個模式都會說明一個問題、可處理此問題的模式，以及以 Azure 為基礎的範例。</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>雲端應用程式的最佳做法</h3>
-                                                    <p>
-一組適用於雲端應用程式的最佳做法，其中涵蓋自動調整、快取、資料分割、API 設計和監視等層面。
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
