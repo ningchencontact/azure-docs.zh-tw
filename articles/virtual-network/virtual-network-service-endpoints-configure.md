@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>設定虛擬網路服務端點
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/08/2017
 
 設定 | 值
 ------- | -----
-名稱    | myVnet
+Name    | myVnet
 位址空間 | 10.0.0.0/16
 子網路名稱|mySubnet
 子網路位址範圍|10.0.0.0/24
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/08/2017
 位置|任何支援的區域，例如澳大利亞東部
 訂用帳戶|選取您的訂用帳戶。
 __ServiceEndpoints__|已啟用
-__服務__ | 選取其中一個可用的服務或全部選取。 預覽期間所支援的服務：__"Microsoft.Storage"、"Microsoft.Sql"__。
+__服務__ | 選取其中一個可用的服務或全部選取。 支援的服務：__"Microsoft.Storage"、"Microsoft.Sql"__。
 
 選取端點的服務：![選取服務端點的服務](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 輸出： 
-名稱 | ID | 類型
+Name | ID | 類型
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -387,7 +387,7 @@ az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-e
 
 深入了解[內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)以及如何將特定權限指派給[自訂角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)。
 
-VNet 和 Azure 服務資源不一定要位於相同訂用帳戶中。 如果這兩者位於不同的訂用帳戶中，則在此預覽期間，資源應該位於相同的 Active Directory (AD) 租用戶底下。
+VNet 和 Azure 服務資源不一定要位於相同訂用帳戶中。 如果這兩者位於不同的訂用帳戶中，資源應該位於相同的 Active Directory (AD) 租用戶底下。
 
 ## <a name="next-steps"></a>後續步驟
 

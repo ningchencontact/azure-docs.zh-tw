@@ -35,6 +35,7 @@
 ### 設定 P2S VPN
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [建立和安裝 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-radius.md)
+### [將 P2S VPN RADIUS 驗證與 NPS 伺服器整合](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## 設定 VNet 對 VNet 連線
 ### [Azure 入口網站](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -104,7 +105,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [部落格](https://azure.microsoft.com/blog/topics/networking)
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定價](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [價格](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>部署上傳的 ZIP 檔案
+---
+title: "包含檔案"
+description: "包含檔案"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>部署 ZIP 檔案
 
-在 Cloud Shell 中，使用 [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) 命令將上傳的 ZIP 檔案部署至 Web 應用程式。 請務必將 *\<app_name>* 取代為您的 Web 應用程式名稱。
+在瀏覽器中，瀏覽至 `https://<app_name>.scm.azurewebsites.net/ZipDeploy`。
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+上傳您在[建立專案 ZIP 檔案](#create-a-project-zip-file)中建立的 ZIP 檔案，方法是將它拖曳到網頁上的檔案總管區域。
 
-此命令會將檔案和目錄從 ZIP 檔案部署到預設的 App Service 應用程式資料夾 (`\home\site\wwwroot`)，並重新啟動應用程式。 如果已設定任何其他的自訂建置程序，它也會執行。
+正在進行部署時，右上角的圖示會顯示進度百分比。 此頁面也會在總管區域下方顯示作業的詳細資訊訊息。 完成時，最後一則部署訊息應會顯示 `Deployment successful`。

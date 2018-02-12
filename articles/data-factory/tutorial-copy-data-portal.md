@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 建立資料處理站。 此資料處理站中的管線會將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -144,10 +144,7 @@ ms.lasthandoff: 01/23/2018
 9. 在 [屬性] 視窗底部的 [一般] 索引標籤中，將 **SourceBlobDataset** 指定為 [名稱]。
 
     ![資料集名稱](./media/tutorial-copy-data-portal/dataset-name.png)
-10. 在 [屬性] 視窗中切換至 [連線] 索引標籤。   
-
-    ![連線索引標籤](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. 按一下 [連結服務] 文字方塊旁的 [+ 新增]。 連結服務會將資料存放區或計算連結至資料處理站。 在此案例中，您會建立 Azure 儲存體連結服務，將 Azure 儲存體帳戶連結到資料處理站。 連結的服務具有連線資訊，可供 Data Factory 服務在執行階段中用來連線到 Blob 儲存體。 資料集會指定容器、資料夾和包含來源資料的檔案 (選擇性)。 
+10. 在 [屬性] 視窗中切換至 [連線] 索引標籤。 按一下 [連結服務] 文字方塊旁的 [+ 新增]。 連結服務會將資料存放區或計算連結至資料處理站。 在此案例中，您會建立 Azure 儲存體連結服務，將 Azure 儲存體帳戶連結到資料處理站。 連結的服務具有連線資訊，可供 Data Factory 服務在執行階段中用來連線到 Blob 儲存體。 資料集會指定容器、資料夾和包含來源資料的檔案 (選擇性)。 
 
     ![新增連結服務按鈕](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. 在 [新增連結服務] 視窗中，執行下列步驟： 
@@ -282,8 +279,8 @@ ms.lasthandoff: 01/23/2018
     ![測試執行按鈕](./media/tutorial-copy-data-portal/test-run-output.png)
 2. 確認來源檔案中的資料已插入目的地 SQL 資料庫中。 
 
-    ![驗證 SQL 輸出](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. 按一下左窗格中的 [發佈]。 此動作會將您已建立的實體 (連結服務、資料集和管線) 發佈至 Azure Data Factory。
+    ![確認 SQL 輸出](./media/tutorial-copy-data-portal/verify-sql-output.png)
+3. 按一下左窗格中的 [全部發佈]。 此動作會將您已建立的實體 (連結服務、資料集和管線) 發佈至 Azure Data Factory。
 
     ![發佈按鈕](./media/tutorial-copy-data-portal/publish-button.png)
 4. 請靜待 [發佈成功] 訊息顯示。 若要檢視通知訊息，請按一下左側資訊看板上的 [顯示通知] 索引標籤。 按一下 **X** 以關閉通知視窗。
@@ -343,7 +340,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="trigger-the-pipeline-manually"></a>手動觸發管線
 在此步驟中，您會手動觸發您在上一個步驟中發佈的管線。 
 
-1. 按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 
+1. 按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 在 [管線執行] 頁面上，按一下 [完成]。  
 
     ![立即觸發功能表](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. 切換至左側的 [監視] 索引標籤。 您會看到手動觸發程序所觸發的管線執行。 您可以使用 [動作] 資料行中的連結來檢視活動詳細資料，以及重新執行管線。
@@ -386,10 +383,10 @@ ms.lasthandoff: 01/23/2018
 6. 在 [觸發程序執行參數] 頁面中檢閱警告，然後按一下 [完成]。 此範例中的管線未使用任何參數。 
 
     ![管線參數](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. 按一下 [發佈]，將變更發佈至存放庫。 在發佈成功之前，觸發程序並未實際啟動。 
+7. 按一下 [同步] 以同步處理您的分支與主要分支中的變更。 預設會選取 [在同步後發佈變更]。 因此，當您選取 [同步] 時，它也會將更新後的實體從主要分支發佈至 Azure Data Factory 服務。 在發佈成功之前，觸發程序並未實際啟動。
 
-    ![發佈觸發程序](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. 切換至左側的 [監視] 索引標籤，以檢視已觸發的管線執行。 
+    ![發佈觸發程序](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. 切換至左側的 [監視] 索引標籤，以檢視已觸發的管線執行。 
 
     ![已觸發的管線執行](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. 若要從管線執行檢視切換至觸發程序執行檢視，請按一下 [管線執行]，然後選取 [觸發程序執行]。

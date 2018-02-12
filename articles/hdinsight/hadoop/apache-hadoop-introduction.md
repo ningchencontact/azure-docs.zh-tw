@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: c53c4eba6d46c03bbfc6bb316ae4e505abb7b781
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 369d4444e52083c689441548dcfab70fe49ab346
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-azure-hdinsight-and-the-hadoop-and-spark-technology-stack"></a>Azure HDInsight 及 Hadoop 與 Spark 技術堆疊簡介
 本文提供 Azure HDInsight 的簡介。 Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 您可以使用開放原始碼架構，例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等等。 
@@ -47,7 +47,7 @@ Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/pr
 此區段會列出 Azure HDInsight 的功能。
 
 
-|功能  |描述  |
+|功能  |說明  |
 |---------|---------|
 |雲端原生     |     Azure HDInsight 可讓您在 Azure 上建立 [Hadoop](apache-hadoop-linux-tutorial-get-started.md)、 [Spark](../spark/apache-spark-jupyter-spark-sql.md)、 [互動式查詢 (LLAP)](../interactive-query/apache-interactive-query-get-started.md)、 [Kafka](../kafka/apache-kafka-get-started.md)、 [Storm](../storm/apache-storm-tutorial-get-started-linux.md)、 [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 和  [R Server](../r-server/r-server-get-started.md) 的最佳化叢集。 HDInsight 也提供所有生產工作負載的端對端 SLA。  |
 |低成本且可調整     | HDInsight 可讓您[相應](../hdinsight-administer-use-portal-linux.md) 增加或減少工作負載。 您可以 [依照需求建立叢集](../hdinsight-hadoop-create-linux-clusters-adf.md) 來降低成本，且只支付您所使用的部分。 您也可以建置資料管線來施行您的作業。 低耦合的計算和儲存體可提供更好的效能和彈性。 |
@@ -89,7 +89,7 @@ Azure HDInsight 可在巨量資料處理的各種案例中使用。 它可以是
 
 ![HDInsight 架構：混合式](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
 
-## <a name="overview"></a>HDInsight 中的叢集類型
+## <a name="cluster-types-in-hdinsight"></a>HDInsight 中的叢集類型
 HDInsight 包含特定叢集類型和叢集自訂功能，例如新增元件、公用程式及語言的功能。
 
 ### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark、Kafka、互動式查詢、HBase、自訂和其他叢集類型

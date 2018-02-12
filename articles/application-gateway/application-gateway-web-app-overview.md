@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c29ff60a50e68c75b4e8f62713d6d1fffd2123d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>多租用戶後端的應用程式閘道支援
 
-Azure 應用程式閘道支援以虛擬機器擴展集、網路介面、公用/私人 IP 或完整的網域名稱 (FQDN) 作為其後端集區的一部分。 根據預設，應用程式閘道不會變更來自用戶端的連入 HTTP 主機標頭，而會將標頭原封不動地傳送回後端。 有許多服務 (像是 [Azure Web Apps](../app-service/app-service-web-overview.md) 和 [API 管理](../api-management/api-management-key-concepts.md)) 本質上為多租用戶，且依賴特定主機標頭或 SNI 擴充功能來解析為正確的端點。 應用程式閘道現在支援使用者根據後端 HTTP 設定覆寫傳入 HTTP 主機標頭的能力。 這項功能可支援多租用戶後端進行 Azure Web 應用程式和 API 管理。 這項功能同時適用於標準和 WAF SKU。 多租用戶後端支援也適用於 SSL 終止和端對端 SSL 案例。
+Azure 應用程式閘道支援以虛擬機器擴展集、網路介面、公用/私人 IP 或完整的網域名稱 (FQDN) 作為其後端集區的一部分。 根據預設，應用程式閘道不會變更來自用戶端的連入 HTTP 主機標頭，而會將標頭原封不動地傳送回後端。 有許多服務 (像是 [Azure Web Apps](../app-service/app-service-web-overview.md)) 本質上為多租用戶，且依賴特定主機標頭或 SNI 擴充功能來解析為正確的端點。 應用程式閘道現在支援使用者根據後端 HTTP 設定覆寫傳入 HTTP 主機標頭的能力。 這項功能可支援多租用戶後端進行 Azure Web 應用程式和 API 管理。 這項功能同時適用於標準和 WAF SKU。 多租用戶後端支援也適用於 SSL 終止和端對端 SSL 案例。
 
 ![Web 應用程式案例](./media/application-gateway-web-app-overview/scenario.png)
 

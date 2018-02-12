@@ -90,7 +90,6 @@
 ### [Azure 記錄整合簡介](security-azure-log-integration-overview.md)
 #### [開始使用 Azure 記錄整合](security-azure-log-integration-get-started.md)
 #### [整合 Azure Active Directory 稽核記錄](security-azure-log-integration-ad.md)
-#### [整合資訊安全中心警示](security-azure-log-integration-security-center.md)
 #### [使用事件中樞，整合 Key Vault 中的記錄](security-azure-log-integration-keyvault-eventhub.md)
 #### [常見問題集](security-azure-log-integration-faq.md)
 

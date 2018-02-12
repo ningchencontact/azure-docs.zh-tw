@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 34e26e9dfdf53536c21023b9519209c474253b25
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6256ffe9f616ec35f97f792545c72dbb25b3efa6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中建立 Python Web 應用程式
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/01/2018
 
 ![在 Azure 中執行的範例應用程式](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。 安裝先決條件後，大約需要 5 分鐘才能完成這些步驟。
+您可以使用 Mac、Windows 或 Linux 機器，依照本教學課程中的步驟操作。 安裝先決條件後，大約需要 5 分鐘才能完成這些步驟。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,9 +88,11 @@ python main.py
 
 瀏覽至您剛建立的 Web 應用程式。 以唯一的應用程式名稱取代 _&lt;app name>_。
 
-```bash
+```
 http://<app name>.azurewebsites.net
 ```
+
+新的 Web 應用程式看起來應該像這樣：
 
 ![空的 Web 應用程式頁面](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
@@ -181,7 +183,7 @@ git push azure master
 
 您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。
 
-![Azure 入口網站中的 App Service 刀鋒視窗](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![Azure 入口網站中的 App Service 頁面](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 左側功能表提供不同的頁面來設定您的應用程式。
 

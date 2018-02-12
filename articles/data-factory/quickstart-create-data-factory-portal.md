@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>使用 Azure Data Factory UI 建立資料處理站
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -39,24 +39,24 @@ ms.lasthandoff: 01/25/2018
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 
-2. 選取左側功能表上的 [新增]、[資料 + 分析]，然後選取 [Data Factory]。 
+2. 選取左側功能表上的 [新增]、[資料 + 分析]，然後選取 [資料處理站]。 
    
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. 在 [新增資料處理站] 頁面上，輸入 **ADFTutorialDataFactory** 作為 [名稱]。 
       
    ![[新增資料處理站] 頁面](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
-   Azure Data Factory 的名稱必須是 *全域唯一的*。 如果您看到下列錯誤，請變更 Data Factory 名稱 (例如 **&lt;yourname&gt;ADFTutorialDataFactory**)，然後試著重新建立。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory - 命名規則](naming-rules.md)一文。
+   Azure Data Factory 的名稱必須是 *全域唯一的*。 如果您看到下列錯誤，請變更資料處理站的名稱 (例如 **&lt;yourname&gt;ADFTutorialDataFactory**)，然後試著重新建立。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory - 命名規則](naming-rules.md)一文。
   
-   ![無法使用名稱時的錯誤](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
-3. 針對 [訂用帳戶]，選取您要在其中建立資料處理站的 Azure 訂用帳戶。 
+   ![名稱無法使用時的錯誤](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
+3. 針對 [訂用帳戶]，選取您要用來建立資料處理站的 Azure 訂用帳戶。 
 4. 針對 [資源群組]，使用下列其中一個步驟︰
      
    - 選取 [使用現有的]，然後從清單中選取現有的資源群組。 
    - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
    若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 針對 [版本]，選取 [V2 (預覽)]。
+4. 針對 [版本]，選取 [V2 (預覽版)]。
 5. 針對 [位置]，選取資料處理站的位置。
 
    此清單只會顯示 Data Factory 支援的位置。 Data Factory 所使用的資料存放區 (Azure 儲存體和 Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他位置。
@@ -64,8 +64,8 @@ ms.lasthandoff: 01/25/2018
 7. 選取 [建立] 。
 8. 在儀表板上，您會看到 [正在部署 Data Factory] 狀態的下列圖格︰ 
 
-   ![[部署資料處理站] 圖格](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
-9. 建立完成之後，您會看到 [Data Factory] 頁面。 選取 [編寫與監視] 圖格，以在另一個索引標籤上啟動 Azure Data Factory 使用者介面 (UI) 應用程式。
+   ![[部署 Data Factory] 圖格](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+9. 建立完成之後，您會看到 [Data Factory] 頁面。 選取 [編寫與監視] 圖格，以在個別的索引標籤上啟動 Azure Data Factory 使用者介面 (UI) 應用程式。
    
    ![資料處理站的首頁，具有 [編寫與監視] 圖格](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
 10. 在 [現在就開始吧] 頁面上，切換至左面板中的 [編輯] 索引標籤。 
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/25/2018
 
    c. 指定 **OutputDataset** 作為名稱。
 
-   d. 輸入 **adftutorial/output** 作為資料夾。 複製活動會建立輸出資料夾 (如果不存在)。
+   d. 輸入 **adftutorial/output** 作為資料夾。 如果 **output** 資料夾不存在，則複製活動會在執行階段進行建立。
 
    e. 針對檔案名稱輸入 `@CONCAT(pipeline().RunId, '.txt')`。 
    
@@ -142,7 +142,7 @@ ms.lasthandoff: 01/25/2018
    ![輸出資料集設定](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## <a name="create-a-pipeline"></a>建立管線 
-在此程序中，您會建立並驗證管線，其中含有使用輸入和輸出資料集的複製活動。 複製活動會將資料從輸入資料集設定中指定的檔案，複製到輸出資料集設定中指定的檔案。 如果輸入資料集僅指定資料夾 (而不是檔案名稱)，則複製活動會將來源資料夾中的所有檔案複製到目的地。 
+在此程序中，您會建立並驗證管線，其中含有使用輸入和輸出資料集的複製活動。 複製活動會將資料從您在輸入資料集設定中指定的檔案，複製到您在輸出資料集設定中指定的檔案。 如果輸入資料集僅指定資料夾 (而不是檔案名稱)，則複製活動會將來源資料夾中的所有檔案複製到目的地。 
 
 1. 選取 **+** (加號) 按鈕，然後選取 [管線]。 
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 01/25/2018
 ## <a name="trigger-the-pipeline-manually"></a>手動觸發管線
 在此程序中，您會將實體 (連結服務、資料集和管線) 部署至 Azure Data Factory。 然後，您會手動觸發管線執行。 您也可以將實體發佈至自己的 Visual Studio Team Services Git 存放庫，相關說明請見[另一個教學課程](tutorial-copy-data-portal.md?#configure-code-repository)。
 
-1. 觸發管線之前，您必須將實體發佈至 Data Factory。 若要發佈，請選取左窗格中的 [發佈]。 
+1. 觸發管線之前，您必須將實體發佈至 Data Factory。 若要發佈，請選取左窗格中的 [全部發佈]。 
 
    ![發佈按鈕](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. 若要手動觸發管線，請選取工具列上的 [觸發程序]，然後選取 [立即觸發]。 
@@ -191,7 +191,7 @@ ms.lasthandoff: 01/25/2018
 
 1. 切換至左側的 [監視] 索引標籤。 使用 [重新整理] 按鈕可重新整理清單。
 
-   ![用於監視管線執行的索引標籤，具有 [重新整理] 按鈕](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
+   ![用來監視管線執行的索引標籤，具有 [重新整理] 按鈕](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
 2. 選取 [動作] 下方的 [檢視活動執行] 連結。 在此頁面上，您會看到複製活動執行的狀態。 
 
    ![管線活動執行](./media/quickstart-create-data-factory-portal/pipeline-activity-runs.png)
@@ -224,9 +224,9 @@ ms.lasthandoff: 01/25/2018
 5. 檢閱警告訊息，然後選取 [完成]。
 
    ![警告和 [完成] 按鈕](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. 選取 [發佈]，將變更發佈至 Data Factory。 
+6. 選取 [全部發佈]，將變更發佈至 Data Factory。 
 
-   ![發佈按鈕](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![發佈按鈕](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. 切換至左側的 [監視] 索引標籤。 選取 [重新整理] 即可重新整理清單。 在發佈時間到結束時間之間，您會看到管線每隔一分鐘執行一次。 
 
    請留意 [觸發方式] 資料行中的值。 手動觸發程序執行來自於您先前完成的步驟 (**立即觸發**)。 
@@ -238,4 +238,4 @@ ms.lasthandoff: 01/25/2018
 10. 確認在指定的結束日期和時間之前，每次執行管線時都會在 **output** 資料夾中建立一個輸出檔案。 
 
 ## <a name="next-steps"></a>後續步驟
-在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 若要了解使用 Data Factory 的更多案例，請瀏覽[教學課程](tutorial-copy-data-portal.md)。 
+此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 若想了解使用 Data Factory 的更多案例，請瀏覽[教學課程](tutorial-copy-data-portal.md)。 

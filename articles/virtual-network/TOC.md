@@ -158,6 +158,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [記錄檔](virtual-network-nsg-manage-log.md)
+### [路由表](manage-route-table.md)
 ### 網路介面 (NIC)
 #### [建立、變更或刪除 NIC](virtual-network-network-interface.md)
 #### [新增、變更或移除 IP 位址](virtual-network-network-interface-addresses.md)
@@ -178,6 +179,7 @@
 ### [輸送量測試](virtual-network-bandwidth-testing.md)
 ### [無法刪除虛擬網路](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM 至 VM 連線問題](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [設定 PTR 以進行 SMTP Banner 檢查](create-ptr-for-smtp-service.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
@@ -202,7 +204,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
 ## [網路論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/virtual-network)
+## [定價](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [網路資源提供者](resource-groups-networking.md)

@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9878936b5dd76730633dec16b1c3a3eaac78e95a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: fb6db6555171b65767a715c6b4c8ff37f42c94ef
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：使用 Mongoose 架構搭配 Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 1. 使用其中一種 ```npm install``` 選項安裝必要的套件：
     * Mongoose：```npm install mongoose --save```
     * Dotenv (如果您想要從 .env 檔案載入您的密碼)：```npm install dotenv --save```
-    
+
     >[!Note]
     > ```--save``` 旗標會將相依性加入到 package.json 檔案。
 
@@ -86,7 +86,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     > 此處的環境變數是使用 'dotenv' npm 套件以 process.env.{variableName} 載入。
 
     一旦您連線到 Azure Cosmos DB，就可以在 Mongoose 中立即開始設定物件模型。
-    
+
 ## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>使用 Mongoose 搭配 Azure Cosmos DB 的注意事項
 
 對於您建立的每個模型，基本上 Mongoose 會建立新的 MongoDB 集合。 不過，考慮到 Azure Cosmos DB 的按集合計費模型，如果您有多個以稀疏方式填入的物件模型，它可能不是最具成本效益的方式。
@@ -181,7 +181,7 @@ Mongoose 也有稱為[鑑別子](http://mongoosejs.com/docs/discriminators.html)
 
 1. 現在，移至 Azure 入口網站，您會發現 Azure Cosmos DB 中建立了兩個集合。
 
-    ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示集合名稱 - 節點資料庫][alldata]
+    ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示多個集合名稱 - 節點資料庫][mutiple-coll]
 
 1. 最後，我們要從 Azure Cosmos DB 讀取資料。 由於我們使用的是預設的 Mongoose 作業模型，讀取作業會和 Mongoose 的其他讀取作業相同。
 
@@ -286,7 +286,7 @@ Mongoose 也有稱為[鑑別子](http://mongoosejs.com/docs/discriminators.html)
 
 1. 現在，如果您返回 Azure 入口網站，您會發現您只有一個稱為 ```alldata``` 的集合，其中含有 'Family' 和 'VacationDestinations' 資料。
 
-    ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示集合名稱 - 節點資料庫][mutiple-coll]
+    ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示集合名稱 - 節點資料庫][alldata]
 
 1. 此外，請注意，每個物件有另一個稱為 ```__type``` 的屬性，可協助您區分兩個不同的物件模型。
 

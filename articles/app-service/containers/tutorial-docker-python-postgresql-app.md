@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/01/2018
 > * 將資料模型更新並將應用程式重新部署
 > * 在 Azure 入口網站中管理應用程式
 
-您可以在 Mac OS 上依照下列步驟進行。 Linux 和 Windows 指示在大部分情況下都相同，本教學課程對差異不加詳述。
+您可以在 macOS 上依照本文中的步驟進行。 Linux 和 Windows 指示在大部分情況下都相同，本教學課程對差異不加詳述。
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -343,7 +343,7 @@ az acr credential show -n <registry_name>
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>將 Docker 容器上傳至 Azure Container Registry
 
-登入您的登錄。 出現提示時，提供您剛才擷取的密碼。
+登入您的登錄。 出現提示時，提供您所擷取的密碼。
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

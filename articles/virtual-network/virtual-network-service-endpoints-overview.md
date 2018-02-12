@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>虛擬網路服務端點 (預覽)
+# <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
 虛擬網路 (VNet) 服務端點可透過直接連線，將您的虛擬網路私人位址空間和 VNet 的身分識別延伸至 Azure 服務。 端點可讓您將重要的 Azure 服務資源只放到您的虛擬網路保護。 從您的 VNet 到 Azure 服務的流量一定會保留在 Microsoft Azure 骨幹網路上。
 
-這項功能會以預覽形式在下列 Azure 服務和區域中提供：
+這項功能會在下列 Azure 服務和區域中提供：
 
-- **Azure 儲存體**：Azure 公用雲端中的所有區域。
-- **Azure SQL**：Azure 公用雲端中的所有區域。
+- **Azure 儲存體**：正式推出。 Azure 公用雲端和 Azure Government 中的所有區域。
+- **Azure SQL**：預覽。 Azure 公用雲端中的所有區域。
 
 如需此預覽的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/20/2017
 ### <a name="configuration"></a>組態
 
 - 服務端點設定於虛擬網路的子網路上。 端點會使用在子網路內執行之任何類型的計算執行個體。
-- 只可以對子網路中的特定服務啟用一個服務端點。 您可以對子網路上所有支援的 Azure 服務 (例如 Azure 儲存體或 Azure SQL Database) 設定多個服務端點。
+- 您可以對子網路上所有支援的 Azure 服務 (例如 Azure 儲存體或 Azure SQL Database) 設定多個服務端點。
 - 虛擬網路必須位於與 Azure 服務資源相同的區域中。 如果使用 GRS 和 RA-GRS Azure 儲存體帳戶，則主要帳戶必須位在與虛擬網路相同的區域中。
 - 端點設定所在的虛擬網路可以位於與 Azure 服務資源相同或不同的訂用帳戶中。 如需設定端點和保護 Azure 服務所需權限的詳細資訊，請參閱[佈建](#Provisioning)。
 - 對於支援的服務，您可以使用服務端點，將新的或現有資源放到虛擬網路保護。
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/20/2017
 
 - **對等互連、已連線或多個虛擬網路**：若要將 Azure 服務放到一個虛擬網路或多個虛擬網路內的多個子網路保護，您可以獨立啟用每個子網路上的服務端點，並將 Azure 服務資源放到所有子網路保護。
 - **Filtering outbound traffic from a virtual network to Azure services**：如果您想檢查或篩選從虛擬網路送到 Azure 服務的流量，則可以在虛擬網路內部署網路虛擬設備。 接著，可以將服務端點套用到網路虛擬設備部署所在的子網路，只將 Azure 服務資源放到此子網路保護。 如果您想要使用網路虛擬設備篩選，讓來自虛擬網路的 Azure 服務存取只限於特定 Azure 資源，則此案例可能有幫助。 如需詳細資訊，請參閱[使用網路虛擬設備輸出](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-- **將 Azure 資源放到直接部署至虛擬網路的服務保護**：可以將各種 Azure 資源直接部署至虛擬網路中的特定子網路。 在受管理的服務子網路上設定服務端點，即可將 Azure 服務資源放到[受管理的服務](virtual-network-for-azure-services.md)子網路保護。
+- **將 Azure 資源放到直接部署至虛擬網路的服務保護**：可以將各種 Azure 資源直接部署至虛擬網路中的特定子網路。 在受控服務子網路上設定服務端點，即可將 Azure 服務資源放到[受控服務](virtual-network-for-azure-services.md)子網路保護。
 
 ### <a name="logging-and-troubleshooting"></a>記錄和疑難排解
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/20/2017
 
 深入了解[內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)以及如何將特定權限指派給[自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-虛擬網路和 Azure 服務資源可以位在相同或不同的訂用帳戶中。 如果虛擬網路和 Azure 服務資源位在不同的訂用帳戶中，則在預覽期間，資源必須位在相同的 Active Directory (AD) 租用戶下。 
+虛擬網路和 Azure 服務資源可以位在相同或不同的訂用帳戶中。 如果虛擬網路和 Azure 服務資源位在不同的訂用帳戶中，資源必須位在相同的 Active Directory (AD) 租用戶下。 
 
 ## <a name="pricing-and-limits"></a>價格和限制
 
