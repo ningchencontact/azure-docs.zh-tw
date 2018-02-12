@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: 使用巢狀虛擬化
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: 以離線模式安裝 VM 代理程式
+          href: install-vm-agent-offline.md
 - name: 參考
   items:
     - name: Azure CLI

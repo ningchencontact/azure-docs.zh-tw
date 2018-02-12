@@ -40,11 +40,19 @@
 ## 設定多網站主控
 ### [Azure 入口網站](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## 設定重新導向
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
 ## 設定外部重新導向
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## 設定外部重新導向
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## 設定 HTTP 至 HTTPS 的重新導向
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## 設定 URL 重新導向
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## 將 Web 應用程式設定為後端集區成員
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## 設定健全狀態探查

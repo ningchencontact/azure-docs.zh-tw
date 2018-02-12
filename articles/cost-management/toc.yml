@@ -33,6 +33,10 @@
       href: activate-subs-accounts.md
     - name: 新增適用於虛擬機器的已擴充計量
       href: azure-vm-extended-metrics.md
+    - name: 與 Google 帳戶連線
+      href: connect-google-account.md
+    - name: 與 AWS 帳戶連線
+      href: connect-aws-account.md
     - name: 使用成本管理報告
       href: use-reports.md
 - name: 資源

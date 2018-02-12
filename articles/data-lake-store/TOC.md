@@ -6,6 +6,7 @@
 
 # 開始使用
 ## [使用入口網站](data-lake-store-get-started-portal.md)
+## [在儲存體總管中使用 Data Lake Store](data-lake-store-in-storage-explorer.md)
 ## [使用 PowerShell](data-lake-store-get-started-powershell.md)
 ## [使用 Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -13,6 +14,7 @@
 # 作法
 ## 載入和移動資料
 ### [使用 Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
+### [在儲存體總管中使用 Data Lake Store](data-lake-store-in-storage-explorer.md)
 ### [使用 AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [使用 DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [使用 Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

@@ -58,7 +58,9 @@
 ### [用規則來偵測問題](iot-suite-remote-monitoring-automate.md)
 ### [管理您的裝置](iot-suite-remote-monitoring-manage.md)
 ### [針對裝置問題進行疑難排解](iot-suite-remote-monitoring-maintain.md)
-### [使用模擬的裝置](iot-suite-remote-monitoring-test.md)
+### [了解裝置模型結構描述](iot-suite-remote-monitoring-device-schema.md)
+### [了解裝置模型行為](iot-suite-remote-monitoring-device-behavior.md)
+### [建立新的模擬裝置](iot-suite-remote-monitoring-test.md)
 ### [自訂解決方案](iot-suite-remote-monitoring-customize.md)
 ### [使用 CLI 進行部署](iot-suite-remote-monitoring-deploy-cli.md)
 ### 連線實體裝置

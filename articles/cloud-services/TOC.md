@@ -65,13 +65,13 @@
 
 ## 監視
 ### [監視雲端服務](cloud-services-how-to-monitor.md)
+### [使用效能計數器](diagnostics-performance-counters.md)
 ### [測試效能](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [使用 Visual Studio 分析工具進行測試](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 啟用診斷
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [使用 Azure 診斷中的效能計數器](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [在 Azure 儲存體中儲存和檢視診斷資料](cloud-services-dotnet-diagnostics-storage.md)
 ### [使用診斷追蹤雲端服務](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [將診斷資料傳送至 App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
@@ -110,7 +110,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [定價](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [價格](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
