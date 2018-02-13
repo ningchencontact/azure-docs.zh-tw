@@ -29,8 +29,6 @@
       href: apache-kafka-mirroring.md
     - name: 分析 Kafka 記錄
       href: apache-kafka-log-analytics-operations-management.md
-    - name: 使用 Kafka 搭配 Azure Container Service
-      href: apache-kafka-azure-container-services.md
     - name: 建立資料流管線
       items:
         - name: Kafka 和 Spark (結構化串流)
@@ -45,6 +43,10 @@
         - name: Kafka 和 Storm
           href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
+        - name: 使用 Kafka 搭配 Azure Container Service
+          href: apache-kafka-azure-container-services.md
+        - name: Kafka 和 Azure Functions
+          href: apache-kafka-azure-functions.md
     - name: 開發
       items:
         - name: 使用 Kafka Producer 和 Consumer API

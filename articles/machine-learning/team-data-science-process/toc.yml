@@ -1,4 +1,5 @@
 - name: Team Data Science Process 文件
+  href: index.yml
 - name: 概觀
   href: overview.md
 - name: 生命週期
@@ -10,7 +11,7 @@
       href: lifecycle-data.md
     - name: 3. 模型化
       href: lifecycle-modeling.md
-    - name: 4. Deployment
+    - name: 4. 部署
       href: lifecycle-deployment.md
     - name: 5. 客戶接受度
       href: lifecycle-acceptance.md
@@ -78,7 +79,8 @@
       href: team-data-science-process-for-data-scientists.md
     - name: 適用於 DevOps
       href: team-data-science-process-for-devops.md
-- name: "作法\r\n"
+- name: |
+    作法
   items:
     - name: 在 Azure ML 中使用 TDSP
       href: ../preview/how-to-use-tdsp-in-azure-ml.md

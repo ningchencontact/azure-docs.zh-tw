@@ -37,6 +37,8 @@
   items:
     - name: 叢集作業
       items:
+        - name: 建立 AKS 叢集
+          href: create-cluster.md
         - name: 調整 AKS 叢集
           href: scale-cluster.md
         - name: 升級 AKS 叢集
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: 設定資料磁碟區
       items:
-        - name: Azure 磁碟 - 永久性磁碟區
+        - name: Azure 磁碟
           href: azure-disks-dynamic-pv.md
-        - name: Azure 檔案 - 永久性磁碟區
+        - name: Azure 檔案
           href: azure-files-dynamic-pv.md
+    - name: 設定網路功能
+      items:
+        - name: 靜態 IP 位址
+          href: static-ip.md
     - name: 安全性和驗證
       items:
         - name: 建立服務主體
