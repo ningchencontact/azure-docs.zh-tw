@@ -27,7 +27,8 @@
       items:
         - name: 建立登錄 - CLI
           href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-        - name: "作法\r\n"
+        - name: |
+            作法
           items:
             - name: 發送和提取映像
               href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli'
@@ -49,14 +50,15 @@
       items:
         - name: 概觀 - Service Fabric 和容器
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
-        - name: "作法\r\n"
+        - name: |
+            作法
           items:
-            - name: 建立 Docker 主機
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: 使用 Docker 機器
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: 使用 Docker Compose
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: 在 Windows 上建立容器應用程式
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: 在 Linux 上建立容器應用程式
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: 將現有的 .NET 應用程式容器化
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Windows 容器
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:

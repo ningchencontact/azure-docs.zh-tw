@@ -5,11 +5,11 @@ title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags:
 - clicktale
-ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0eb89abcd31756a2147ac3df49d0c3fffb574eec
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3912,7 +3912,7 @@ ms.lasthandoff: 02/09/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/javascript/azure/node-sdk-azure-get-started">取得適用於 Node.js 的 Azure 程式庫</a>
+                                                    <a href="/nodejs/azure/">取得適用於 Node.js 的 Azure 程式庫</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">開始使用</a>

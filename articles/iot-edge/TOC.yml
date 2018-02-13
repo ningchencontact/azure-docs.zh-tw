@@ -24,8 +24,6 @@
       href: tutorial-deploy-machine-learning.md
     - name: 部署 Azure Functions
       href: tutorial-deploy-function.md
-    - name: 使用適用於 Azure CLI 2.0 的 IoT 延伸模組來建立 IoT Edge 部署
-      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: 使用說明指南
   items:
     - name: 建立閘道
@@ -34,6 +32,8 @@
           href: how-to-create-transparent-gateway.md
         - name: Modbus 閘道
           href: deploy-modbus-gateway.md
+    - name: 使用適用於 Azure CLI 2.0 的 IoT 延伸模組
+      href: tutorial-create-deployment-with-cli-iot-extension.md
     - name: 大範圍部署及監視
       href: how-to-deploy-monitor.md
     - name: 佈建 IoT Core 裝置

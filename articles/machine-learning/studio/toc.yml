@@ -1,5 +1,5 @@
 - name: Machine Learning Studio 文件
-  href: index.md
+  href: index.yml
 - name: 概觀
   expanded: true
   items:
@@ -49,7 +49,8 @@
           href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
     - name: R 快速入門
       href: r-quickstart.md
-- name: "作法\r\n"
+- name: |
+    作法
   items:
     - name: 設定工具和公用程式
       items:
