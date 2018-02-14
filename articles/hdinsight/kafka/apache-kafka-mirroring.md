@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
 
@@ -210,6 +210,41 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     如需產生者組態詳細資訊，請參閱 kafka.apache.org 上的[者組態](https://kafka.apache.org/documentation#producerconfigs)。
 
+5. 使用下列命令為目的地叢集尋找 Zookeeper 主機：
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    將 `$CLUSTERNAME` 取代為目的地叢集的名稱。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。
+
+7. HDInsight 上 Kafka 的預設組態不允許自動建立主題。 您必須先使用下列其中一個選項，才能啟動鏡像程序：
+
+    * **在目的地叢集上建立主題**：這個選項也可讓您設定分割數目和複寫因子。
+
+        您可以使用下列命令提前建立主題：
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        將 `testtopic` 取代為要建立的主題名稱。
+
+    * **設定可供自動建立主題的叢集**：此選項可讓 MirrorMaker 自動建立主題，但它可能使用與來源主題不同的分割數目或複寫因子建立主題。
+
+        若要設定目的地叢集來自動建立主題，請執行下列步驟：
+
+        1. 從 [Azure 入口網站](https://portal.azure.com)，選取 Kafka 目的地叢集。
+        2. 從叢集概觀，選取 [叢集儀表板]。 然後選取 [HDInsight 叢集儀表板]。 出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。
+        3. 從頁面左邊的清單中，選取 [Kafka] 服務。
+        4. 選取頁面中間的 [設定]。
+        5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
+        6. 將 `auto.create.topics.enable` 的值變更為 true，然後選取 [儲存]。 新增附註，然後再次選取 [儲存]。
+        7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
+
 ## <a name="start-mirrormaker"></a>啟動 MirrorMaker
 
 1. 在連往**目的地**叢集的 SSH 連線中，使用下列命令來啟動 MirrorMaker 程序：
@@ -247,11 +282,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
      當您抵達有游標的空白行時，請輸入一些文字訊息。 訊息會傳送到**來源**叢集上的主題。 完成後，使用 **Ctrl + C** 結束產生者程序。
 
-3. 在連往**目的地**叢集的 SSH 連線中，使用 **Ctrl + C** 來結束 MirrorMaker 程序。 若要驗證主題和訊息已複寫到目的地，請使用下列命令：
+3. 在連往**目的地**叢集的 SSH 連線中，使用 **Ctrl + C** 來結束 MirrorMaker 程序。 這可能需要數秒鐘的時間才能完成程序。 若要確認訊息已複寫到目的地，請使用下列命令：
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
@@ -272,5 +305,5 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 * [Apache Kafka MirrorMaker 文件](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (網址為 cwiki.apache.org)。
 * [開始使用 Apache Kafka on HDInsight](apache-kafka-get-started.md)
 * [使用 Apache Spark 搭配 Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [使用 Apache Storm 搭配 Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [使用 Apache Storm 搭配 HDInsight 上的 Kafka](../hdinsight-apache-storm-with-kafka.md)
 * [透過 Azure 虛擬網路連線到 Kafka](apache-kafka-connect-vpn-gateway.md)

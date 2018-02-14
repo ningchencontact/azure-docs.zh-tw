@@ -1,6 +1,6 @@
 ---
-title: "Azure AI 圖庫 |Microsoft 文件"
-description: "共用及探索分析資源和多個 Azure AI 圖庫中。 了解其他人並且自己貢獻社群。"
+title: "Azure AI 資源庫 | Microsoft Docs"
+description: "共用及探索 Azure AI 資源庫中的分析資源等內容。 了解其他人並且自己貢獻社群。"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 5ccb595e24d8ee169cc6ee589a3ddc2f9fef5dcd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>共用及探索 Azure AI 組件庫中的資源
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>共用及探索 Azure AI 資源庫中的資源
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/06/2018
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>我可以在資源庫中找到什麼？
-Azure AI 庫包含各種資源，您可以用來開發您自己的分析解決方案。
+Azure AI 資源庫包含各資源，可供您開發自己的分析解決方案。
 
 * **[實驗](gallery-experiments.md)**：資源庫包含各種已在 Azure Machine Learning Studio 開發的實驗。 小至示範特定機器學習服務技術的快速概念證明實驗，大至用於解決複雜機器學習服務問題的完整開發解決方案，都在這些實驗的涵蓋範圍內。
 * **[Jupyter 筆記本](gallery-jupyter-notebooks.md)**：Jupyter 筆記本可在單一的互動式畫布中納入程式碼、資料視覺效果和文件。
@@ -48,7 +48,7 @@ Azure AI 庫包含各種資源，您可以用來開發您自己的分析解決�
 
 最後，**[競賽](gallery-competitions.md)**提供了絕佳機會讓您與資料科學家社群較量，看誰能用 Cortana Intelligence Suite 解決複雜的問題。
 
-![AI 圖庫 azure 首頁](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Azure AI 資源庫首頁](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>探索及了解
 任何人都可以瀏覽和搜尋資源庫中已由 Microsoft 和進階分析社群發表的不同資源類型。
@@ -89,7 +89,7 @@ Azure AI 庫包含各種資源，您可以用來開發您自己的分析解決�
 ## <a name="we-want-to-hear-from-you"></a>歡迎您提供相關資訊！
 我們希望資源庫是由我們的使用者驅使，並且適合我們的使用者。 使用右側的笑臉符號告訴我們您喜歡或不喜歡資源庫。  
 
-![意見](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![意見反應](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[前往資源庫 >>](http://gallery.cortanaintelligence.com)**
 

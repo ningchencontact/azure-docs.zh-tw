@@ -1,6 +1,6 @@
 ---
-title: "Azure AI 圖庫教學課程 |Microsoft 文件"
-description: "探索和共用 Azure AI 圖庫中的教學課程。"
+title: "Azure AI 資源庫教學課程 | Microsoft Docs"
+description: "探索與分享 Azure AI 資源庫中的教學課程。"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>探索及共用 Azure AI 圖庫中的教學課程
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>探索與分享 Azure AI 資源庫中的教學課程
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>教學課程
-Azure AI 庫提供數個[教學課程](https://gallery.cortanaintelligence.com/tutorials)，可以逐步引導您機器學習技術和概念。 教學課程也可能會說明解決機器學習問題的進階方法。
+Azure AI 資源庫提供數個[教學課程](https://gallery.cortanaintelligence.com/tutorials)，可以逐步引導您獲得機器學習技術和概念。 教學課程也可能會說明解決機器學習問題的進階方法。
 
 ## <a name="discover"></a>探索
 若要瀏覽[資源庫](http://gallery.cortanaintelligence.com)中的教學課程，請在 [更多] 下選取 [教學課程]。
@@ -72,7 +72,7 @@ Azure AI 庫提供數個[教學課程](https://gallery.cortanaintelligence.com/t
 
 7. 選取 [建立] 。
 
-教學課程已在 Azure AI 組件庫中。 您的教學課程將列在您的帳戶頁面上的 [項目] 索引標籤上。
+您的教學課程隨即出現在 Azure AI 資源庫中。 您的教學課程將列在您的帳戶頁面上的 [項目] 索引標籤上。
 
 **[移至資源庫](http://gallery.cortanaintelligence.com)**
 

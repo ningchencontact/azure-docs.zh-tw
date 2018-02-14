@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>事件中樞範例 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/20/2017
 - [MSDN 開發人員程式碼範例](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-如需有關不同版本的.NET Framework 的詳細資訊，請參閱[架構與目標](/dotnet/articles/standard/frameworks)。
+如需不同版本的 .NET Framework 的詳細資訊，請參閱[架構與目標](/dotnet/articles/standard/frameworks)。
 
 更多的範例會隨時新增，所以請經常回到這裡查看更新。
 
@@ -60,10 +60,6 @@ ms.lasthandoff: 12/20/2017
 ### <a name="scale-out-event-processing"></a>相應放大事件處理 
 
 [相應放大事件處理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)範例示範如何使用 [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) 來分散事件中樞資料流耗用量的工作負載。 它示範如何實作 **EventProcessor** 和 **EventProcessorFactory** 物件，以管理事件資料流。 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>將資料從 SQL 提取到事件中樞
-
-[提取 SQL 資料](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql)範例示範如何從 SQL 資料表提取資料並將資料推送到事件中樞，以作為下游分析應用程式中的輸入。
 
 ### <a name="pull-web-data-into-an-event-hub"></a>將 Web 資料提取到事件中樞 
 

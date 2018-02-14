@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同區域中的多項服務與單一閘道建立關聯。 
@@ -28,11 +28,11 @@ ms.lasthandoff: 11/02/2017
 
 - **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。 您也會使用[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD 中的帳戶來登入 Azure。 不支援 Azure B2B (來賓) 帳戶。
 
-- **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。 閘道資源和 Analysis Services 伺服器**必須註冊在相同區域中**。 
+- **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。 閘道資源可以註冊於任何區域中，但建議位於與 Analysis Services 伺服器相同的區域中。 
 
 - **在 Azure 中建立閘道資源** - 在此步驟中，您會在您的 Azure 訂用帳戶中建立閘道資源。
 
-- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以將此區域中的多部伺服器和其他資源連接到它。
+- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以將多部伺服器和其他資源連線到該資源。
 
 若要立即開始，請參閱[安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="windows-service-account"> </a>Windows 服務帳戶
 內部部署資料閘道設定為使用 *NT SERVICE\PBIEgwService* 做為 Windows 服務的登入認證。 根據預設，它具有「以服務方式登入」的權限 (在您安裝閘道所在機器的環境中)。 此認證不同於連接到內部部署資料來源使用的帳戶或您的 Azure 帳戶。  
 
-如果您因為身分驗證面臨與 Proxy 服務器相關的問題，您可能需要將 Windows 服務帳戶變更為網域使用者或受管理的服務帳戶。
+如果您因為身分驗證面臨與 Proxy 服務器相關的問題，您可能需要將 Windows 服務帳戶變更為網域使用者或受控服務帳戶。
 
 ## <a name="ports"></a>連接埠
 閘道會建立 Azure 服務匯流排的輸出連接。 閘道會與下列輸出連接埠進行通訊︰TCP 443 (預設)、5671、5672、9350 到 9354。  閘道不需要輸入連接埠。
@@ -141,10 +141,10 @@ ms.lasthandoff: 11/02/2017
 **問**︰修復金鑰有什麼好處？ <br/>
 **答**：修復金鑰可在災害發生後讓您有辦法移轉或復原閘道設定。
 
-## <a name="troubleshooting"></a>疑難排解
+## <a name="troubleshooting"> </a>疑難排解
 
 **問**：我嘗試在 Azure 中建立閘道資源，為什麼在閘道器執行個體清單中看不到我的閘道？ <br/>
-**答**：有兩個可能的原因。 第一個原因是在目前或其他訂用帳戶中已建立閘道資源。 若要排除這個可能性，從入口網站列舉**內部部署資料閘道**類型的資源。 在列舉所有資源時，確定已選取所有訂用帳戶。 請注意，資源一旦建立，閘道便不會出現在 [建立閘道資源] 入口網站體驗的閘道執行個體清單中。 第二種可能性是安裝此閘道之使用者的 Azure AD 身分識別，不同於登入 Azure 入口網站的使用者。 若要解決此問題，使用閘道安裝者的帳戶登入入口網站。
+**答**：有兩個可能的原因。 第一個原因是在目前或其他訂用帳戶中已建立閘道資源。 若要排除這個可能性，從入口網站列舉**內部部署資料閘道**類型的資源。 在列舉所有資源時，確定已選取所有訂用帳戶。 一旦建立資源，閘道便不會出現在 [建立閘道資源] 入口網站體驗的閘道執行個體清單中。 第二種可能性是安裝此閘道之使用者的 Azure AD 身分識別，不同於登入 Azure 入口網站的使用者。 若要解決此問題，使用閘道安裝者的帳戶登入入口網站。
 
 **問**︰如何查看有哪些查詢正要傳送至內部部署資料來源？ <br/>
 **答**：您可以啟用查詢追蹤，其中包含要傳送的查詢。 完成疑難排解時，請務必將查詢追蹤變更回原始值。 讓查詢追蹤保持開啟會產生較大的記錄。

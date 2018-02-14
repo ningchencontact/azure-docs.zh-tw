@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"> </a> Azure 上的 Visual Studio 映像
 使用在預先設定之 Azure 虛擬機器 (VM) 中執行的 Visual Studio，是從零開始到建立已啟動並在執行中之開發環境的最簡單、也最快速的方式。  [Azure Marketplace](https://portal.azure.com/) 中提供具有各種不同 Visual Studio 設定的系統映像。 只要啟動 VM，就大功告成。
@@ -27,14 +27,14 @@ ms.lasthandoff: 02/01/2018
 不熟悉 Azure 嗎？ [建立 Azure 免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="what-configurations-and-versions-are-available"></a>有哪些設定和版本可用？
-在 Azure Marketplace 中，您可以找到適用於最新主要版本的映象：Visual Studio 2017 和 Visual Studio 2015。  針對每個主要版本，您會看到原始發行 (也稱為 ‘RTW’) 版本和「最新」更新版本。  這每一個不同版本都有 Visual Studio Enterprise 和 Visual Studio Community 版本。
+在 Azure Marketplace 中，您可以找到適用於最新主要版本的映象：Visual Studio 2017 和 Visual Studio 2015。  針對每個主要版本，您會看到原始發行 (也稱為 ‘RTW’) 版本和「最新」更新版本。  這每一個不同版本都有 Visual Studio Enterprise 和 Visual Studio Community 版本。  我們至少會每個月更新這些映像一次，以納入最新的 Visual Studio 和 Windows 更新。  雖然映像的名稱會維持不變，但每個映像的描述會納入已安裝的產品版本和映像的「生效」日期。
 
-|               發行版本              |          版本            |    產品版本    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017 - 最新版 (15.5 版) |    Enterprise、Community     |     15.5.3 版    |
-|         Visual Studio 2017 - RTW           |    Enterprise、Community     |     15.0.7 版    |
-|   Visual Studio 2015 - 最新版 (Update 3)   |    Enterprise、Community     | 14.0.25431.01 版 |
-|         Visual Studio 2015 - RTW           | 無 (服務期滿) |          ---          |
+|               發行版本              |          版本            |     產品版本     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 - 最新版 (15.5 版) |    Enterprise、Community     |      15.5.3 版     |
+|         Visual Studio 2017 - RTW           |    Enterprise、Community     |      15.0.7 版     |
+|   Visual Studio 2015 - 最新版 (Update 3)   |    Enterprise、Community     |  14.0.25431.01 版  |
+|         Visual Studio 2015 - RTW           |              None            | (服務期滿) |
 
 > [!NOTE]
 > 根據 Microsoft 服務原則，Visual Studio 2015 的原始發行 (也稱為 ‘RTW’) 版本服務期已滿。  因此，Visual Studio 2015 Update 3 是為 Visual Studio 2015 產品線提供的唯一留存版本。
@@ -52,20 +52,32 @@ ms.lasthandoff: 02/01/2018
 
 以下是在組建映像時用來安裝 Visual Studio 的命令列：
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * add Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 如果映像並未包含您所需的 Visual Studio 功能，請透過意見反應工具 (位於頁面右上角) 提供該意見反應。
 
 ## <a name="what-size-vm-should-i-choose"></a>應該選擇哪個大小的 VM？
-佈建新的虛擬機器相當簡單，Azure 提供完整的虛擬機器大小範圍。  就像購買任何硬體一樣，您會想要在效能與成本之間取得平衡。  由於 Visual Studio 是一個強大、多執行緒的應用程式，因此您會想要一個至少包含兩個處理器和 7 GB 記憶體的 VM 大小。  如需有關最新機器大小的詳細資訊，請參閱 [Azure 中 Windows 虛擬機器的大小](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes) \(機器翻譯\)。
+佈建新的虛擬機器相當簡單，Azure 提供完整的虛擬機器大小範圍。  就像購買任何硬體一樣，您會想要在效能與成本之間取得平衡。  由於 Visual Studio 是一個強大、多執行緒的應用程式，因此您會希望 VM 的大小能夠包含至少 2 個處理器和 7 GB 的記憶體。  以下是 Visual Studio 映像的建議 VM 大小：
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+如需有關最新機器大小的詳細資訊，請參閱 [Azure 中 Windows 虛擬機器的大小](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes) \(機器翻譯\)。
 
 使用 Azure 時，您無須固守最初的選擇 – 您可以透過調整 VM 大小來重新平衡您的初始選擇。  您可以佈建大小較適當的新 VM，或是調整現有 VM 的大小以配合不同的基礎硬體。  如需詳細資訊，請參閱[調整 Windows VM 大小](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm) \(機器翻譯\)。
 

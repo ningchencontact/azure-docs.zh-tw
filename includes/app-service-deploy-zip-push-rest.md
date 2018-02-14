@@ -1,16 +1,16 @@
-## <a name="rest"></a>使用 REST Api 部署 
+## <a name="rest"></a>使用 REST API 進行部署 
  
-您可以使用[部署服務 REST Api](https://github.com/projectkudu/kudu/wiki/REST-API)要將.zip 檔案部署至 Azure 中的應用程式。 只傳送 POST 要求給 https://<app_name>.scm.azurewebsites.net/api/zipdeploy。 POST 要求必須包含訊息本文中的.zip 檔案。 您的應用程式的部署認證是在利用 HTTP 基本驗證要求中提供。 如需詳細資訊，請參閱[.zip 發送部署參考](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。 
+您可以使用[部署服務 REST API](https://github.com/projectkudu/kudu/wiki/REST-API)，在 Azure 中將 .zip 檔案部署至您的應用程式。 只要將 POST 要求傳送至 https://<app_name>.scm.azurewebsites.net/api/zipdeploy。 POST 要求必須在訊息本文中包含 .zip 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。 如需詳細資訊，請參閱 [.zip 推送部署參考](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。 
 
-下列範例會使用 cURL 工具來傳送要求，其中包含的.zip 檔案。 您可以從終端機執行 cURL Mac 或 Linux 電腦上或在 Windows 上使用 Bash。 取代`<zip_file_path>`預留位置 project.zip 檔案的位置的路徑。 也取代`<app_name>`與您的應用程式的唯一名稱。
+下列範例使用 cURL 工具來傳送含有 .zip 檔案的要求。 您可以在 Mac 或 Linux 電腦上從終端機執行 cURL，或在 Windows 上使用 Bash 來執行 cURL。 使用專案之 .zip 檔案的位置路徑取代 `<zip_file_path>` 預留位置。 也請使用應用程式的唯一名稱取代 `<app_name>`。
 
-取代`<deployment_user>`您的部署認證的使用者名稱的預留位置。 出現提示時 cURL，輸入密碼。 若要了解如何設定您的應用程式的部署認證，請參閱[設定重設使用者層級認證和](../articles/app-service/app-service-deployment-credentials.md#userscope)。   
+使用部署認證的使用者名稱取代 `<deployment_user>` 預留位置。 當 cURL 顯示提示時，請輸入密碼。 若要了解如何設定應用程式的部署認證，請參閱[設定及重設使用者層級的認證](../articles/app-service/app-service-deployment-credentials.md#userscope)。   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-此要求觸發推入部署從已上傳的.zip 檔案。 下列 cURL 範例所示，您可以使用 https://<app_name>.scm.azurewebsites.net/api/deployments 端點中，檢閱目前和過去的部署。 同樣地，取代`<app_name>`與您的應用程式的名稱和`<deployment_user>`您的部署認證的使用者名稱。
+此要求會觸發從上傳的 .zip 檔案推送部署。 您可以使用 https://<app_name>.scm.azurewebsites.net/api/deployments 端點來檢閱目前和過去的部署，如下列 cURL 範例所示。 再次使用您的應用程式名稱取代 `<app_name>`，以及使用部署認證的使用者名稱取代 `<deployment_user>`。
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments

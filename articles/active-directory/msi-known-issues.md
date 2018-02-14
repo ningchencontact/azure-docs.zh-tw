@@ -3,7 +3,7 @@ title: "受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Direc
 description: "受控服務識別已知問題 (Azure Active Directory)"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: bryanla
-ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 0541e63a1d3467b9691032e66892efe8f0f0cad8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="frequently-asked-questions-faqs"></a>常見問題集 (FAQ)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>是否有私人預覽中提供其他功能？
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>是否有私人預覽版可用於提供其他功能？
 
-可以。 如果您想要在私人預覽中，註冊視為[請前往我們註冊頁面](https://aka.ms/azuremsiprivatepreview)。
+是。 如果您要在私人預覽中進行註冊，[請造訪我們的註冊頁面](https://aka.ms/azuremsiprivatepreview)。
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI 是否使用 Azure 雲端服務？
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI 可搭配 Directory Authentication Library (ADAL) 或 Microsoft Authentication Library (MSAL) 使用嗎？
 
-不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需取得使用 MSI REST 端點的 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 管理服務身分識別 (MSI) 為權杖取得](msi-how-to-use-vm-msi-token.md)。
+不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需使用 MSI REST 端點取得 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 受控服務識別 (MSI) 取得權杖](msi-how-to-use-vm-msi-token.md)。
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 

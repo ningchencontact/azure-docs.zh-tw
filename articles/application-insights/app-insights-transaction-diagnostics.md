@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>整合跨元件交易診斷
 
-*這項體驗目前為預覽狀態，會取代現有的伺服器端要求、相依性和例外狀況的診斷刀鋒視窗。*
+這項體驗目前為預覽狀態，會取代現有的伺服器端要求、相依性和例外狀況的診斷刀鋒視窗。
 
-本預覽導入了全新的整合診斷體驗，自動將所有 Application Insights 監視元件的伺服器端遙測資料相互關聯為單一檢視。 多個資源之間是否各自擁有檢測金鑰並不重要，Application Insights 能偵測基礎關聯性，讓您輕鬆診斷出導致交易緩慢或失敗的應用程式元件、相依性或例外狀況。
+本預覽導入了全新的整合診斷體驗，自動將所有 Application Insights 監視元件的伺服器端遙測資料相互關聯為單一檢視。 多個資源是否各自擁有檢測金鑰並不重要。 Application Insights 能偵測基礎關聯性，讓您輕鬆診斷出導致交易緩慢或失敗的應用程式元件、相依性或例外狀況。
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>在 Application Insights 的內容中，元件代表什麼？
+## <a name="what-is-a-component"></a>什麼是元件？
 
 元件是分散式/微服務應用程式中可獨立部署的組件。 開發人員和作業小組能在程式碼層級檢視或存取這些應用程式元件所產生的遙測資料。
 
@@ -32,10 +32,12 @@ ms.lasthandoff: 02/01/2018
 * 元件能在任何數量的伺服器/角色/容器執行個體上執行。
 * 元件可以是不同的 Application Insights 檢測金鑰 (即使訂用帳戶不同)，也可以是回報給單一 Application Insights 檢測金鑰的不同角色。 新體驗能顯示所有元件的詳細資料，不論設定方式為何。
 
-> [!Tip]
-> 為獲得最佳結果，請確認所有元件均經過最新 Application Insights 穩定版 SDK 檢測。 如果您有不同的 Application Insights 資源，請確認您有檢視其遙測資料的適當權限。
+> [!NOTE]
+> * **遺失相關項目連結？** 與伺服器端要求、相依性和例外狀況相關的所有遙測都位於左側的[頂端](#cross-component-transaction-chart)和[底部](#all-telemetry-related-to-the-selected-component-operation)區段中。 
+> * [頂端](#cross-component-transaction-chart)區段會使所有元件的交易相互關聯。 為獲得最佳結果，請確認所有元件均經過最新 Application Insights 穩定版 SDK 檢測。 如果您有不同的 Application Insights 資源，請確認您有檢視其遙測資料的適當權限。
+> * 左側的[底部](#all-telemetry-related-to-the-selected-component-operation)區段會顯示**所有**遙測，包括與所選元件要求相關的追蹤和事件。
 
-## <a name="enable-and-access"></a>啟用及存取
+## <a name="enable-transaction-diagnostics-experience"></a>啟用交易診斷體驗
 從[預覽清單](app-insights-previews.md)啟用「整合詳細資料：E2E 交易診斷」
 
 ![啟用預覽](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ ms.lasthandoff: 02/01/2018
 
 ![重要組件](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] 跨元件交易圖表
+## <a name="cross-component-transaction-chart"></a>跨元件交易圖表
 
 該圖表提供時間軸，以水平橫條呈現要求的持續時間和元件之間的相依性。 所有收集到的例外狀況也會標示在時間軸上。
 
@@ -57,20 +59,20 @@ ms.lasthandoff: 02/01/2018
 * 所有外部相依性的呼叫都是不可折疊的簡單資料列，並以圖示代表相依性類別。
 * 其他元件的呼叫是可折疊的資料列。 每個資料列都會對應到在元件叫用的特定作業。
 * 按照預設，您一開始選取的要求、相依性或例外狀況會顯示在圖表上。
-* 選取任何資料列即可在右側查看詳細資料。 按一下 [開啟分析工具追蹤] 或 [開啟偵錯快照集]，即可在對應的詳細資料窗格中查看程式碼層級的診斷資料。
+* 選取任何資料列即可[在右側查看詳細資料](#details-of-the-selected-telemetry)。 
 
 > [!NOTE]
 其他元件的呼叫有兩個資料列：一個資料列代表來自呼叫端元件的輸出呼叫 (相依性)，另一個資料列則對應至被呼叫元件的輸入要求。 主要圖示和樣式分明的持續時間橫條有助於區分兩者。
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] 選定元件作業的時間序列遙測資料
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>與所選元件作業相關的所有遙測
 
-在跨元件交易圖表中選取的任何資料列，都與特定元件叫用的作業有所關聯。 此處選取的元件作業會反映在底部區段的標題中。 這個區段開啟後會顯示一般時間序列，顯示與該特定作業相關的所有遙測資料。 您可以選取清單中的任何遙測項目，並在右側查看對應的詳細資料。
+在跨元件交易圖表中選取的任何資料列，都與特定元件叫用的作業有所關聯。 此處選取的元件作業會反映在底部區段的標題中。 這個區段開啟後會顯示一般時間序列，顯示與該特定作業相關的所有遙測資料。 您可以選取清單中的任何遙測項目，並在[右側查看對應的詳細資料](#details-of-the-selected-telemetry)。
 
 ![所有遙測資料的時間序列](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] 詳細資料窗格
+## <a name="details-of-the-selected-telemetry"></a>所選遙測的詳細資料
 
-這個窗格會根據您在左側任一區段中選取的項目，顯示其詳細資料。 [全部顯示] 能列出所有收集到的標準屬性。 任何自訂屬性都會分別列在標準集合下方。
+這個窗格會根據您在左側任一區段中選取的項目，顯示其詳細資料。 [全部顯示] 能列出所有收集到的標準屬性。 任何自訂屬性都會分別列在標準集合下方。 按一下 [開啟分析工具追蹤] 或 [開啟偵錯快照集]，即可在對應的詳細資料窗格中查看程式碼層級的診斷資料。
 
 ![例外狀況詳細資料](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 

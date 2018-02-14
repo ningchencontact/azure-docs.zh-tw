@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
@@ -43,7 +43,8 @@ ms.lasthandoff: 02/01/2018
 
 您可以在世界各地監視 ExpressRoute 電路，方法是使用下列其中一個區域中裝載的工作區：
 
-* 西歐 
+* 西歐
+* 美國中西部
 * 美國東部 
 * 東南亞 
 * 澳大利亞東南部
@@ -57,14 +58,13 @@ ms.lasthandoff: 02/01/2018
     * 在內部部署伺服器和 Azure VM 上安裝監視代理程式。
     * 設定監視代理程式伺服器上的設定，以允許監視代理程式進行通訊。 (開啟防火牆連接埠等)。
 3. 設定網路安全性群組 (NSG) 規則，以允許安裝在 Azure VM 上的監視代理程式與內部部署監視代理程式進行通訊。
-4. 要求將您的 NPM 工作區加入白名單。
-5. 設定監視功能：自動探索及管理要在 NPM 中顯示哪些網路。
+4. 設定監視功能：自動探索及管理要在 NPM 中顯示哪些網路。
 
 如果您已經使用「網路效能監視器」來監視其他物件或服務，並且在其中一個支援的區域中已經有工作區，則可以略過步驟 1 和步驟 2，然後從步驟 3 開始進行設定。
 
-## <a name="configure"></a>步驟 1：建立工作區
+## <a name="configure"></a>步驟 1：建立工作區 (在有 VNET 連結至 ExpressRoute 線路的訂用帳戶中)
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，搜尋 **Marketplace** 中的服務清單以找出 [網路效能監視器]。 在傳回的結果中，按一下以開啟 [網路效能監視器] 頁面。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取有 VNET 對等連至 ExpressRoute 線路的訂用帳戶。 然後搜尋 **Marketplace** 中的服務清單，以找出 [網路效能監視器]。 在傳回的結果中，按一下以開啟 [網路效能監視器] 頁面。
 
   ![入口網站](.\media\how-to-npm\3.png)<br><br>
 2. 在 [網路效能監視器] 主頁面底部，按一下 [建立] 以開啟 [網路效能監視器 - 建立新的解決方案] 頁面。 按一下 [OMS 工作區 - 選取工作區] 以開啟 [工作區] 頁面。 按一下 [+ 建立新工作區] 以開啟 [工作區] 頁面。
@@ -105,7 +105,7 @@ ms.lasthandoff: 02/01/2018
 
   ![PowerShell 指令碼](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2：在每部監視伺服器上安裝監視代理程式
+### <a name="installagent"></a>2.2：在每部監視伺服器上安裝監視代理程式 (在您要監視的每個 VNET 上)
 
 基於備援的因素，建議您在 ExpressRoute 連線的每一端 (亦即內部部署、Azure VNET) 安裝至少兩個代理程式。 使用下列步驟來安裝代理程式：
 
@@ -127,6 +127,8 @@ ms.lasthandoff: 02/01/2018
 6. 在 [安裝準備就緒] 頁面上，檢閱您的選擇，然後按一下 [安裝]。
 7. 在 [設定成功完成] 頁面上，按一下 [完成]。
 8. 完成時，[Microsoft Monitoring Agent] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式是否已連線到 Operational Insights (OMS)。 當連線到 OMS 時，代理程式會顯示訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。
+
+9. 請針對您需要監視的每個 VNET 重複此步驟。
 
 ### <a name="proxy"></a>2.3：設定 Proxy 設定 (選擇性)
 
@@ -165,7 +167,7 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-在代理程式伺服器上，以系統管理權限開啟 PowerShell 視窗。 執行 [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell 指令碼 (您先前所下載)。 請勿使用任何參數。
+在代理程式伺服器上，以系統管理權限開啟 PowerShell 視窗。 執行 [EnableRules](https://aka.ms/npmpowershellscript) PowerShell 指令碼 (您先前所下載)。 請勿使用任何參數。
 
   ![PowerShell 指令碼](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="setupmonitor"></a>步驟 4：設定 NPM 來進行 ExpressRoute 監視
 
->[!WARNING]
->在將您的工作區加入白名單並收到確認電子郵件之前，請勿進行進一步的動作。
->
->
-
-完成先前各節並確認您已加入白名單之後，即可設定監視功能。
+完成先前各節之後，即可設定監視功能。
 
 1. 移至 [所有資源] 頁面並按一下已加入白名單的 NPM 作區，以瀏覽至 [網路效能監視器] 概觀圖格。
 

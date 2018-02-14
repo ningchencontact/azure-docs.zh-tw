@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>NC、NCv2 及 ND 執行個體 - NVIDIA CUDA 驅動程式
 | 配送映像 | 驅動程式 |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS 型 7.3 | NVIDIA CUDA 9.1，驅動程式分支 R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 或 7.4<br/><br/> CentOS 7.3 或 7.4 | NVIDIA CUDA 9.1，驅動程式分支 R390 |
+
+> [!IMPORTANT]
+> 請確定您已安裝或升級為散發套件所適用的最新 CUDA 驅動程式。 R390 版本以前的驅動程式在搭配更新的 Linux 核心時可能會發生問題。
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>NV 執行個體 - NVIDIA GRID 驅動程式
 

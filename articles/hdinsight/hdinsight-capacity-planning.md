@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -67,9 +67,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 ## <a name="choose-a-cluster-type"></a>選擇叢集類型
 
-叢集類型會決定您 HDInsight 叢集設定要執行的工作負載，例如 Hadoop、Storm、Kafka 或 Spark。 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-每個叢集類型都有特定的部署拓撲，其中包含節點數目和大小的需求。
+叢集類型會決定您 HDInsight 叢集設定要執行的工作負載，例如 Hadoop、Storm、Kafka 或 Spark。 如需可用叢集類型的詳細說明，請參閱 [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每個叢集類型都有特定的部署拓撲，其中包含節點數目和大小的需求。
 
 ## <a name="choose-the-vm-size-and-type"></a>選擇 VM 大小與類型
 
@@ -96,9 +94,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 ### <a name="cluster-lifecycle"></a>叢集生命週期
 
-叢集的存留期需要收費。 如果您只需要叢集在特定時間開機及執行，可以使用 Azure Data Factory 來建立隨需叢集。
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-您也可以建立 PowerShell 指令碼來佈建和刪除您的叢集，並使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)來排程這些指令碼。
+叢集的存留期需要收費。 如果您只需要叢集在特定時間開機及執行，可以[使用 Azure Data Factory 來建立隨需叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。 您也可以建立 PowerShell 指令碼來佈建和刪除您的叢集，並使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)來排程這些指令碼。
 
 > [!NOTE]
 > 刪除叢集時，也會刪除其預設的 Hive 中繼存放區。 若要保存中繼存放區以進行下一次重新建立叢集，請使用外部中繼資料存放區，例如 Azure 資料庫或 Oozie。

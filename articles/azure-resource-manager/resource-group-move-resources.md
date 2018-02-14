@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
@@ -190,43 +190,29 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="app-service-limitations"></a>App Service 限制
 
-使用 App Service 應用程式時，您無法只移動 App Service 方案。 若要移動 App Service 應用程式，您的選項如下：
+根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。
 
-* 將該資源群組中的 App Service 方案和所有其他 App Service 資源，都移到還沒有 App Service 資源的新資源群組。 這項需求意謂著您甚至必須移動與 App Service 方案沒有關聯的 App Service 資源。
-* 將應用程式移到不同的資源群組，但在原始資源群組中保留所有 App Service 方案。
+### <a name="moving-within-the-same-subscription"></a>在相同的訂用帳戶內移動
 
-App Service 方案不需要與應用程式位於相同的資源群組，應用程式就能正確運作。
+在_相同訂用帳戶內_移動 Web 應用程式時，您無法移動已上傳的 SSL 憑證。 不過，您可以只將 Web 應用程式移至新的資源群組，而不移動其上傳的 SSL 憑證，而且您應用程式的 SSL 功能仍可正常運作。 
 
-例如，如果您的資源群組包含︰
+如果您想在移動 Web 應用程式時一併移動 SSL 憑證，請遵循下列步驟：
 
-* 與 **plan-a** 關聯的 **web-a**
-* 與 **plan-b** 關聯的 **web-b**
+1.  刪除從 Web 應用程式上傳的憑證。
+2.  移動 Web 應用程式。
+3.  將憑證上傳至移動的 Web 應用程式。
 
-您的選項如下：
+### <a name="moving-across-subscriptions"></a>跨訂用帳戶移動
 
-* 移動 **web-a**、**plan-a**、**web-b** 及 **plan-b**
-* 移動 **web-a** 和 **web-b**
-* 移動 **web-a**
-* 移動 **web-b**
+在_訂用帳戶之間_移動 Web 應用程式時，適用下列限制：
 
-所有其他組合都會留下移動 App Service 方案時無法留下的資源類型 (任何類型的 App Service 資源)。
-
-如果 Web 應用程式與其 App Service 方案位於不同的資源群組，但您想要將兩者移到新的資源群組，則必須使用兩個步驟來執行移動。 例如︰
-
-* **web-a** 位於 **web-group** 中
-* **plan-a** 位於 **plan-group** 中
-* 您想要讓 **web-a** 和 **plan-a** 位於 **combined-group** 中
-
-若要完成這項移動，請依下列序列執行兩個不同的移動作業︰
-
-1. 將 **web-a** 移到 **plan-group**
-2. 將 **web-a** 和 **plan-a** 移到 **combined-group**。
-
-您可以將 App Service 憑證移至新資源群組或訂用帳戶，而不會發生任何問題。 不過，如果您的 Web 應用程式包含在外部購買，並上傳至應用程式的 SSL 憑證，您必須在移動 Web 應用程式之前刪除憑證。 例如，您可以執行下列步驟︰
-
-1. 刪除從 Web 應用程式上傳的憑證
-2. 移動 Web 應用程式
-3. 將憑證上傳至 Web 應用程式
+- 目的地資源群組中必須沒有任何已存在的 App Service。 App Service 資源包括：
+    - Web Apps
+    - App Service 方案
+    - 已上傳或已匯的入 SSL 憑證
+    - App Service 環境
+- 資源群組中的所有 App Service 資源必須一起移動。
+- 只能從其最初建立 App Service 資源的資源群組中移動 App Service 資源。 如果 App Service 資源已不存在於其原始的資源群組中，則必須將其移回原始資源群組，然後才可以在訂用帳戶間移動。 
 
 ## <a name="classic-deployment-limitations"></a>傳統部署限制
 

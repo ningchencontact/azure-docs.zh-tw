@@ -8,7 +8,7 @@
 # 使用說明指南
 ## 管理虛擬機器
 ### [作者虛擬機器優惠](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md)
-#### [必要條件](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [先決條件](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
 #### [Microsoft 開發人員帳戶註冊](../../cloud-partner-portal/cloud-partner-portal-dev-center-accounts-registration.md)
 #### [建立新 VM 優惠](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [優惠設定表單](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)

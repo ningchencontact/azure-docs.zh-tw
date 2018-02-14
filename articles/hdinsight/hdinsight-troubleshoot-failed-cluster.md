@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
 
@@ -112,7 +112,7 @@ HDInsight 倚賴數個 Azure 服務。 它會在 Azure HDInsight 上執行虛擬
 
 HDInsight 叢集是由在虛擬機器執行個體上執行的各種不同類型節點所組成。 您可以監視每個節點的資源耗盡狀況、網路連線問題，以及其他可能導致叢集速斷變慢的問題。 每個叢集都包含兩個前端節點，而且大多數叢集類型都包含背景工作節點與邊緣節點的組合。 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+如需每個叢集類型所使用之各種節點的說明，請參閱[使用 Hadoop、Spark、Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 下列各節將說明如何檢查每個節點及叢集整體的健康情況。
 
@@ -255,7 +255,7 @@ HDInsight 叢集會產生寫入至 Azure 資料表和 Azure Blob 儲存體的記
 
 HDInsight 叢集已針對相關服務 (例如 Hadoop、Hive、HBase 等) 預先設定好預設設定。 視叢集的類型、其硬體組態、其節點數目、您要執行的作業類型和要搭配運作的資料 (以及資料的處理方式) 而定，您可能需要將組態最佳化。
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+如需將大部分案例的效能組態最佳化的詳細指示，請參閱[使用 Ambari 將叢集組態最佳化](hdinsight-changing-configs-via-ambari.md)。 使用 Spark 時，請參閱[最佳化 Spark 作業的效能](spark/apache-spark-perf.md)。 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>步驟 7：在不同的叢集上重現失敗情況
 

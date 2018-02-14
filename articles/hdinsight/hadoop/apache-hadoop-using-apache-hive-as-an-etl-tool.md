@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1ccbfe23e9c887a98a0dbfa8031078a15c6e41b6
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 6d0d7c8643551dde69a7bf785de72c1ca984c580
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>使用 Apache Hive 作為擷取、 轉換和載入 (ETL) 工具
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 01/12/2018
 * 要求將資料處理成特定格式或處理成包含特定類型之資訊結構的應用程式或服務。
 * <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a> 之類的「JSON 文件存放區」。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 通常在您想要執行下列操作時，會使用 ETL 模型：
 
@@ -94,7 +94,8 @@ ms.lasthandoff: 01/12/2018
 
 如果您需要在 ETL 程序中對資料執行數個作業，請考量要如何管理它們。 如果是由外部程式來控制作業，而不是以解決方案內的工作流程來控制作業，您便需要判斷某些作業是否可以平行執行，並且偵測每項作業何時完成。 與使用外部指令碼或自訂程式來嘗試協調一系列作業相比，使用工作流程機制 (例如 Hadoop 內的 Oozie) 可能較簡單。 如需有關 Oozie 的詳細資訊，請參閱[工作流程和作業協調流程](https://msdn.microsoft.com/library/dn749829.aspx) \(英文\)。
 
-<!-- ## Next steps -->
-<!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->
-<!-- * [Operationalize Data Pipelines with Oozie](hdinsight-operationalize-data-pipeline.md): Learn how to build a data pipeline that uses Hive to summarize CSV flight delay data, stage the prepared data in Azure Storage blobs, and then use Sqoop to load the summarized data into Azure SQL Database. -->
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md): Walk through an end-to-end ETL pipeline.  -->
+## <a name="next-steps"></a>後續步驟
+
+* [大規模 ETL](apache-hadoop-etl-at-scale.md)
+* [使用資料管線](../hdinsight-operationalize-data-pipeline.md)
+<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

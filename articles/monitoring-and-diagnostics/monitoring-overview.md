@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 
@@ -39,7 +39,7 @@ Azure 包含多個服務，這些服務個別在監視領域中執行特定角�
 ### <a name="service-health"></a>服務健康情況
 您應用程式的健康情況取決於其相依的 Azure 服務。  [Azure 服務健康狀態](../service-health/service-health-overview.md)可識別任何可能影響您應用程式的 Azure 服務問題，並可協助您為任何排程維護進行規劃。
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Azure 建議程式
 [Azure Advisor](../advisor/advisor-overview.md) 會持續監視您的資源設定和使用情況遙測資料，以根據最佳做法為您提供個人化建議。  依照這些建議操作將可協助您提升支援應用程式之資源的效能、安全性及可用性。
 
 
@@ -80,7 +80,7 @@ Azure 包含多個服務，這些服務個別在監視領域中執行特定角�
 
 
 
-### <a name="activity-logs"></a>活動記錄
+### <a name="activity-logs"></a>活動記錄檔
 [活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)可提供 Azure 資源作業的相關資料。  這包括資源的設定變更、服務健康情況事件、如何更有效運用資源的建議等資訊，以及與自動調整規模作業相關的資訊。  您可以在 Azure 入口網站中特定資源的頁面上檢視該資源的記錄，或是從「活動記錄總管」中的多個資源檢視記錄。  您也可以將活動記錄傳送給 Log Analytics，以便與管理解決方案、虛擬機器上的代理程式及其他資源所收集的資料一起分析。
 
 

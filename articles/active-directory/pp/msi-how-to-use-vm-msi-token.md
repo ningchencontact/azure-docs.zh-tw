@@ -1,9 +1,9 @@
 ---
-title: "如何取得存取權杖在 VM 上的使用使用者指派受管理服務身分識別。"
-description: "逐步解說的指示和範例從 Azure VM 指派使用者給 MSI 使用取得 OAuth 存取權杖。"
+title: "如何使用使用者指派的受控服務識別來取得虛擬機器上的存取權杖。"
+description: "使用來自 Azure 虛擬機器的使用者指派 MSI，取得 OAuth 存取權杖的逐步指示和範例。"
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,26 +12,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5c9bf052ecb2e9c79e0eb627a0fd709d587125cd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>為使用者指派的管理服務身分識別 (MSI) 的 VM 中取得存取權杖
+# <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>取得虛擬機器使用者指派之受控服務識別 (MSI) 的存取權杖
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)] 本文提供各種取得權杖的程式碼和指令碼，以及處理權杖到期和 HTTP 錯誤等重要主題的指引。
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+本文提供各種取得權杖的程式碼和指令碼，以及處理權杖到期和 HTTP 錯誤等重要主題的指引。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 如果您打算使用本文中的 Azure PowerShell 範例，請務必安裝最新版的 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM)。
 
 > [!IMPORTANT]
-> - 本文中的所有範例程式碼/指令碼都假設用戶端在已啟用 MSI 的虛擬機器上執行。 在 Azure 入口網站中使用虛擬機器「連線」功能，從遠端連線到您的虛擬機器。 如需有關啟用 VM 上的 MSI 的詳細資訊，請參閱[設定指派給使用者管理服務身分識別 (MSI) VM，使用 Azure CLI](msi-qs-configure-cli-windows-vm.md)，或其中一個變數 （使用入口網站、 PowerShell、 範本或 Azure SDK） 的發行項。 
+> - 本文中的所有範例程式碼/指令碼都假設用戶端在已啟用 MSI 的虛擬機器上執行。 在 Azure 入口網站中使用虛擬機器「連線」功能，從遠端連線到您的虛擬機器。 如需有關在虛擬機器上啟用 MSI 的詳細資訊，請參閱[使用 Azure CLI 為虛擬機器設定使用者指派的受控服務識別 (MSI)](msi-qs-configure-cli-windows-vm.md)，或其中一篇變化文章 (使用入口網站、PowerShell、範本或 Azure SDK)。 
 
 ## <a name="overview"></a>概觀
 
@@ -61,7 +62,7 @@ Metadata: true
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
 | `http://localhost:50342/oauth2/token` | MSI 端點，其中 50342 是預設連接埠且可設定。 |
 | `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 也會出現在所核發權杖的 `aud` (對象) 宣告中。 此範例會要求權杖來存取 Azure Resource Manager，其中就包含應用程式識別碼 URI https://management.azure.com/。 |
-| `client_id` | 查詢字串參數，指出用戶端識別碼 (也稱為應用程式 ID) 代表指派給使用者的 MSI 的服務主體。 這個值會傳回在`clientId`期間建立的使用者指派的 MSI 屬性。 這個範例要求用戶端識別碼"712eac09-e943-418 c-9be6-9fd5c91078bl"語彙基元。 |
+| `client_id` | 查詢字串參數，表示代表使用者指派 MSI 之服務主體的用戶端識別碼 (也稱為應用程式識別碼)。 在建立使用者指派的 MSI 期間，這個值會在 `clientId` 屬性中傳回。 此範例會要求用戶端識別碼 "712eac09-e943-418 c-9be6-9fd5c91078bl" 的權杖。 |
 | `Metadata` | HTTP 要求標頭欄位，MSI 需此元素以減輕伺服器端偽造要求 (SSRF) 攻擊。 此值必須設定為 "true" (全部小寫)。
 
 範例回應：
@@ -88,11 +89,11 @@ Content-Type: application/json
 | `not_before` | 存取權杖生效且可被接受的時間範圍。 日期以 "1970-01-01T0:0:0Z UTC" 起算的秒數表示 (對應至權杖的 `nbf` 宣告)。 |
 | `resource` | 要求存取權杖所針對的資源，符合要求的 `resource` 查詢字串參數。 |
 | `token_type` | 權杖的類型，即「持有人」存取權杖，表示此權杖的持有人可以存取資源。 |
-| `client_id` | 代表指派給使用者的 MSI，要求權杖的服務主體的用戶端識別碼 （也稱為應用程式識別碼）。 |
+| `client_id` | 代表使用者指派 MSI 之服務主體 (已對其要求權杖) 的用戶端識別碼 (也稱為應用程式識別碼)。 |
 
 ## <a name="get-a-token-using-curl"></a>使用 CURL 取得權杖
 
-務必以取代您指派給使用者 MSI 的服務主體，用戶端識別碼 （也稱為應用程式識別碼）<MSI CLIENT ID>值`client_id`參數。 這個值會傳回在`clientId`期間建立的使用者指派的 MSI 屬性。
+務必以使用者指派 MSI 之服務主體的用戶端識別碼 (也稱為應用程式識別碼)，取代 `client_id` 參數的 <MSI CLIENT ID> 值。 在建立使用者指派的 MSI 期間，這個值會在 `clientId` 屬性中傳回。
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -140,14 +141,14 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 | 狀態碼 | Error | 錯誤說明 | 解決方法 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 不正確的要求 | invalid_resource | AADSTS50001：在名為 \<TENANT-ID\> 的租用戶中找不到名為 \<URI\> 的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能會將驗證要求傳送至錯誤的租用戶。\ | (僅限 Linux) |
-| 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 請參閱中的 「 範例要求 」[取得使用 HTTP 語彙基元](#get-a-token-using-http)> 一節的範例。|
-| 401 未經授權 | unknown_source | 未知的來源 *\<URI\>* | 請確認 HTTP GET 要求 URI 的格式正確。 `scheme:host/resource-path` 部分必須指定為 `http://localhost:50342/oauth2/token`。 請參閱中的 「 範例要求 」[取得使用 HTTP 語彙基元](#get-a-token-using-http)> 一節的範例。|
+| 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 如需相關範例，請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」。|
+| 401 未經授權 | unknown_source | 未知的來源 *\<URI\>* | 請確認 HTTP GET 要求 URI 的格式正確。 `scheme:host/resource-path` 部分必須指定為 `http://localhost:50342/oauth2/token`。 如需相關範例，請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」。|
 |           | invalid_request | 要求遺漏必要參數、包含無效參數值、多次包含某個參數或格式不正確。 |  |
 |           | unauthorized_client | 用戶端無權使用此方法要求存取權杖。 | 因為要求並未使用本機回送呼叫延伸模組，或是所在的虛擬機器沒有正確設定 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。 |
 |           | access_denied | 資源擁有者或授權伺服器已拒絕要求。 |  |
 |           | unsupported_response_type | 授權伺服器不支援使用此方法取得存取權杖。 |  |
 |           | invalid_scope | 要求的範圍無效、未知或格式不正確。 |  |
-| 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 請確認虛擬機器上已正確啟用 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 請參閱中的 「 範例要求 」[取得使用 HTTP 語彙基元](#get-a-token-using-http)> 一節的範例，或[Azure 服務中支援 Azure AD 驗證](msi-overview.md#azure-services-that-support-azure-ad-authentication)服務和其各自的資源識別碼的清單。
+| 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 請確認虛擬機器上已正確啟用 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」，以取得相關範例，或請參閱[支援 Azure AD 驗證的 Azure 服務](msi-overview.md#azure-services-that-support-azure-ad-authentication)，以取得服務及其各自資源識別碼的清單。
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 服務的資源識別碼
 
@@ -156,7 +157,7 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要啟用 Azure VM 上的 MSI，請參閱[設定指派給使用者管理服務身分識別 (MSI) VM，使用 Azure CLI](msi-qs-configure-cli-windows-vm.md)。
+- 若要在 Azure 虛擬機器上啟用 MSI，請參閱[使用 Azure CLI 為虛擬機器設定使用者指派的受控服務識別 (MSI)](msi-qs-configure-cli-windows-vm.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>設定部署來源
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
@@ -49,8 +49,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 2. 輸入 [應用程式名稱]，例如，Azure App Service on Azure Stack。
 3. 輸入 [首頁 URL]。 首頁 URL 必須是 Azure Stack 入口網站位址。 例如，https://portal.local.azurestack.external。
 4. 輸入 [應用程式描述]。
-5. 輸入 [授權回呼 URL]。  在預設的 Azure Stack 部署中，URL 的形式為 https://portal.local.azurestack.external/tokenauthorize，如果您在不同的網域下執行，請以您的網域取代 azurestack.local。
-    ![GitHub - 註冊新的應用程式並填入值][4]
+5. 輸入 [授權回呼 URL]。  在預設的 Azure Stack 部署中，Url 的形式為 https://portal.local.azurestack.external/tokenauthorize ，如果您在不同的網域下執行，請以您的網域取代 local.azurestack.external ![GitHub - 使用填入的值註冊新的應用程式][4]
 6. 按一下 [註冊應用程式]。  您現在會看到列出應用程式之 [用戶端識別碼] 和 [用戶端密碼] 的頁面。
     ![GitHub - 已完成的應用程式註冊][5]
 7.  在新的瀏覽器索引標籤或視窗中，以服務管理員身分登入 Azure Stack 管理入口網站 ( https://adminportal.local.azurestack.external )。

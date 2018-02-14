@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: bc7df6957c0a8d9d40c5e8e5f9d274e0d1aa40bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>將 HBase 叢集移轉至新的版本
 
@@ -222,4 +222,4 @@ ms.lasthandoff: 01/29/2018
 * [將 HDInsight 叢集升級為更新的版本](../hdinsight-upgrade-cluster.md)
 * [使用 Ambari Web UI 監視和管理 Azure HDInsight](../hdinsight-hadoop-manage-ambari.md)
 * [Hadoop 元件和版本](../hdinsight-component-versioning.md)
-<!--  * [Optimizing configurations using Ambari](hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)  -->
+* [使用 Ambari 將組態最佳化](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)

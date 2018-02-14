@@ -3,8 +3,8 @@ title: "受控服務識別 (MSI) (適用於 Azure Active Directory)"
 description: "受控服務識別 (適用於 Azure 資源) 概觀。"
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: 
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 53577c8da5f82235284d1cb9e48f2d47254aa6bd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>受控服務識別 (MSI) (適用於 Azure 資源)
 
@@ -29,38 +29,38 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="how-does-it-work"></a>運作方式
 
-當 Azure 服務執行個體上使用受管理的服務身分識別，Azure 會建立您的 Azure 訂用帳戶所使用的 Azure AD 租用戶中的身分識別。 此外，Azure 會佈建身分識別服務執行個體上的認證。 如此一來，您的程式碼可以請本機要求支援 Azure AD 驗證的服務取得存取權杖。 所有 Azure 時，負責循環服務執行個體所使用的認證。
+在 Azure 服務執行個體上使用受控服務識別時，Azure 會在 Azure 訂用帳戶所用的 Azure AD 租用戶中建立一個身分識別。 此外，Azure 會將身分識別的認證佈建到服務執行個體。 因此，您的程式碼可以執行索取存取權杖的本機要求，來存取支援 Azure AD 驗證的服務。 在此期間，Azure 會負責更新服務執行個體所使用的認證。
 
-## <a name="how-do-i-enable-my-resources-to-use-a-managed-service-identity"></a>如何啟用我要使用受管理的服務身分識別的資源？
+## <a name="how-do-i-enable-my-resources-to-use-a-managed-service-identity"></a>如何讓我的資源能夠使用受控服務識別？
 
-有兩種類型的管理服務身分識別：*系統指派*和*指派給使用者*。
+可用的受控服務識別有兩種：「系統指派」和「使用者指派」。
 
-- A**系統指派**MSI 已直接在 Azure 服務執行個體上啟用。 在啟用程序，透過 Azure 在 Azure AD 租用戶中建立服務執行個體的身分識別，並佈建到服務執行個體上的身分識別的認證。 系統指派的 MSI 直接繫結至 Azure 的生命週期服務執行個體已啟用。 如果服務執行個體已刪除，則 Azure 會自動清除 Azure AD 中的認證和身分識別。
+- **系統指派**的 MSI 會直接在 Azure 服務執行個體上啟用。 透過啟用程序，Azure 會在 Azure AD 租用戶中建立服務執行個體的身分識別，並且將身分識別的認證佈建到服務執行個體上。 系統指派的 MSI 生命週期會直接繫結至已啟用該 MSI 的 Azure 服務執行個體。 如果服務執行個體已刪除，則 Azure 會自動清除 Azure AD 中的認證和身分識別。
 
-- A**指派給使用者**MSI *（私人預覽中）*建立為獨立的 Azure 資源。 透過建立程序中，Azure 會建立在 Azure AD 租用戶身分識別。 建立身分識別之後，可以將它指派至一個或多個 Azure 服務執行個體。 指派給使用者的 MSI 可供多個 Azure 服務執行個體，因為它的生命週期是分開管理。
+- **使用者指派**的 MSI (私人預覽) 會建立為獨立的 Azure 資源。 透過建立程序，Azure 會在 Azure AD 租用戶中建立身分識別。 建立身分識別之後，即可將它指派給一個或多個 Azure 服務執行個體。 由於使用者指派的 MSI 可供多個 Azure 服務執行個體使用，所以會分開管理其生命週期。
 
-以下是由系統指派給 MSI 使用 Azure 虛擬機器的運作方式的範例。
+以下範例顯示系統指派的 MSI 如何與 Azure 虛擬機器一起運作。
 
 ![虛擬機器 MSI 範例](~/articles/active-directory/media/msi-vm-example.png)
 
-1. Azure 資源管理員接收到啟用的系統指派的 MSI 在 VM 上的訊息。
+1. Azure Resource Manager 收到一則訊息，以便在 VM 上啟用系統指派的 MSI。
 2. Azure Resource Manager 在 Azure AD 中建立服務主體，代表 VM 的身分識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
 3. Azure Resource Manager 會在 VM 的 MSI VM 延伸模組中設定服務主體詳細資料。 此步驟包括設定延伸模組用來從 Azure AD 取得存取權杖的用戶端識別碼和認證。
 4. 現在我們已知道 VM 的服務主體身分識別，可以將 Azure 資源的存取權授與此身分識別。 例如，您的程式碼需要呼叫 Azure Resource Manager，您會使用 Azure AD 中的角色型存取控制 (RBAC)，指派適當角色給 VM 的服務主體。  如果您的程式碼需要呼叫 Key Vault，您會將存取權授與程式碼，以取得 Key Vault 中特定的密碼或金鑰。
-5. 您在 VM 上執行的程式碼從裝載的 MSI VM 擴充功能的本機端點要求權杖： http://localhost:50342/oauth2 權杖。 resource 參數指定將權杖傳送至哪個服務。 例如，如果您希望程式碼向 Azure Resource Manager 進行驗證，您會使用resource=https://management.azure.com/。
+5. 在 VM 上執行的程式碼會向 MSI VM 解除安裝所主控的本機端點要求權杖：http://localhost:50342/oauth2/token。 resource 參數指定將權杖傳送至哪個服務。 例如，如果您希望程式碼向 Azure Resource Manager 進行驗證，您會使用resource=https://management.azure.com/。
 6. MSI VM 延伸模組會使用其設定的用戶端識別碼和認證，來向 Azure AD 要求存取權杖。  Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
 
-使用同一個圖表，此處的範例指派給使用者的 MSI 與 Azure 虛擬機器的運作方式。
+使用相同的圖表，以下範例可顯示使用者指派的 MSI 如何與 Azure 虛擬機器一起運作。
 
 ![虛擬機器 MSI 範例](~/articles/active-directory/media/msi-vm-example.png)
 
-1. Azure 資源管理員會收到訊息，以建立指派給使用者的 MSI。
-2. Azure 資源管理員來代表 MSI 的身分識別的 Azure AD 中建立服務主體。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
-3. Azure 資源管理員接收訊息在 MSI VM 擴充功能的 VM 中設定的服務主體的詳細資料。 此步驟包括設定延伸模組用來從 Azure AD 取得存取權杖的用戶端識別碼和認證。
-4. 既然已知 MSI 的服務主體身分識別，它可以授與 Azure 資源的存取權。 例如，如果您的程式碼需要呼叫 Azure 資源管理員，然後您會指派 MSI 的服務主體適當的角色在 Azure AD 中使用角色型存取控制 (RBAC)。 如果您的程式碼需要呼叫 Key Vault，您會將存取權授與程式碼，以取得 Key Vault 中特定的密碼或金鑰。 注意： 不需要完成步驟 4 到步驟 3。 一旦 MSI 已存在，它可以授與資源，不論在 VM 上設定的存取權。
-5. 執行於 VM 上的程式碼會從本機端點要求由 MSI VM 延伸模組：http://localhost:50342/oauth2/token 託管的權杖。 用戶端 ID 參數指定要使用之 MSI 識別的名稱。 此外，資源參數會指定權杖會傳送的服務。 例如，如果您希望程式碼向 Azure Resource Manager 進行驗證，您會使用resource=https://management.azure.com/。
-6. 如果要求的用戶端識別碼的憑證設定，並從 Azure AD 要求存取權杖，則會檢查 MSI VM 延伸模組。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
+1. Azure Resource Manager 收到一則訊息，以便建立使用者指派的 MSI。
+2. Azure Resource Manager 會在 Azure AD 中建立服務主體，以代表 MSI 的身分識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
+3. Azure Resource Manager 會收到一則訊息，以便在虛擬機器的 MSI VM 解除安裝中設定服務主體詳細資料。 此步驟包括設定延伸模組用來從 Azure AD 取得存取權杖的用戶端識別碼和認證。
+4. 現在我們已知道 MSI 的服務主體身分識別，可以將 Azure 資源的存取權授與此身分識別。 例如，您的程式碼需要呼叫 Azure Resource Manager，您會使用 Azure AD 中的角色型存取控制 (RBAC)，指派適當角色給 MSI 的服務主體。 如果您的程式碼需要呼叫 Key Vault，您會將存取權授與程式碼，以取得 Key Vault 中特定的密碼或金鑰。 注意：不需要進行步驟 3 也能完成步驟 4。 一旦 MSI 存在，不論其是否設定於 VM 上，都可以獲得資源的存取權。
+5. 執行於 VM 上的程式碼會從本機端點要求由 MSI VM 延伸模組：http://localhost:50342/oauth2/token 託管的權杖。 用戶端識別碼參數指定要使用的 MSI 身分識別名稱。 此外，資源參數可指定將權杖傳送至哪個服務。 例如，如果您希望程式碼向 Azure Resource Manager 進行驗證，您會使用resource=https://management.azure.com/。
+6. MSI VM 解除安裝會檢查是否已設定所要求用戶端識別碼的憑證，並且會向 Azure AD 要求存取權杖。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
 
 每個支援受控服務識別的 Azure 服務都自有一套方法，讓您的程式碼取得存取權杖。 請查看每個服務的教學課程，找出取得權杖的特定方法。

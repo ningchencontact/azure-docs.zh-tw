@@ -1,9 +1,9 @@
 ---
-title: "如何設定 Azure VM 使用 Azure 的範本指派給使用者的 MSI"
-description: "步驟所設定的 Azure vm，使用 Azure Resource Manager 範本指派給使用者管理服務身分識別 (MSI) 的逐步指示。"
+title: "如何使用 Azure 範本為 Azure 虛擬機器設定使用者指派的 MSI"
+description: "使用 Azure Resource Manager 範本，為 Azure 虛擬機器設定使用者指派之受控服務識別 (MSI) 的逐步指示。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d97f0fa2d6c1c92aaa3d5c74dd6715de00d32438
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>設定 VM，使用 Azure 的範本指派給使用者管理服務身分識別 (MSI)
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>使用 Azure 範本為虛擬機器設定使用者指派的受控服務識別 (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-受管理的服務身分識別提供 Azure 服務與 Azure Active Directory 中的受管理的身分識別。 您可以使用這個身分識別支援 Azure AD 驗證，而不需要在程式碼中的認證的服務驗證。 
+在 Azure Active Directory 中，「受控服務識別」會提供受控身分識別給 Azure 服務。 您可以使用此身分識別來向支援 Azure AD 驗證的服務進行驗證，而不需要您程式碼中的認證。 
 
-在本文中，您會學習如何啟用及移除 Azure VM 中，使用 Azure Resource Manager 部署範本指派給使用者的 MSI。
+在本文中，您將了解如何使用 Azure Resource Manager 部署範本，為 Azure 虛擬機器啟用和移除使用者指派的 MSI。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 12/22/2017
    - 使用本機 [JSON 編輯器 (例如 VS Code)](~/articles/azure-resource-manager/resource-manager-create-first-template.md)，然後使用 PowerShell 或 CLI 上傳和部署。
    - 使用 Visual Studio 的 [Azure 資源群組專案](~/articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)來建立和部署範本。  
 
-不論您選擇的選項，在初始部署和重新部署期間，範本的語法都相同。 建立並指派新的或現有 vm 指派給使用者的 MSI 會進行相同的方式。 此外，根據預設，Azure Resource Manager 會對部署採取[累加式更新](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)：
+不論您選擇的選項，在初始部署和重新部署期間，範本的語法都相同。 建立使用者指派的 MSI 並將其指派給新的或現有虛擬機器是以相同的方式進行。 此外，根據預設，Azure Resource Manager 會對部署採取[累加式更新](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)：
 
-1. 當您在本機登入 Azure，或透過 Azure 入口網站中，使用 Azure 訂用帳戶相關聯的帳戶，其中包含 MSI VM。 此外也請確認您的帳戶是否屬於角色，可讓您的訂用帳戶或資源 （例如，「 擁有者 」 角色） 上的寫入權限。
+1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都使用與包含 MSI 和虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外，請確定您的帳戶屬於可授與您訂用帳戶或資源寫入權限的角色 (例如，「擁有者」角色)。
 
 2. 將範本載入編輯器中之後，找出＜`resources`一節中您感興趣的 `Microsoft.Compute/virtualMachines` 資源。 根據您所使用的編輯器，以及您是編輯新的或現有部署的範本而定，您的畫面與下列螢幕擷取畫面可能看起來稍有不同。
 

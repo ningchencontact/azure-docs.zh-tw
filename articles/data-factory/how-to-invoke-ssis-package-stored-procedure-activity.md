@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
@@ -97,8 +97,8 @@ ms.lasthandoff: 02/01/2018
     1. 對於 [預存程序名稱]，輸入 `sp_executesql`。 
     2. 按一下 [預存程序參數] 區段中的 [+ 新增]。 
     3. 對於參數的 [名稱]，輸入 **stmt**。 
-    4. 對於參數的 [類型]，輸入 [字串]。 
-    5. 對於參數的 [值]，輸入下列 SQL 查詢。
+    4. 針對參數的 [類型]，輸入 [字串]。 
+    5. 針對參數的 [值]，輸入下列 SQL 查詢：
 
         在 SQL 查詢中，指定 **folder_name**、**project_name** 和 **package_name** 參數的正確值。 
 
@@ -133,7 +133,9 @@ ms.lasthandoff: 02/01/2018
 
     ![確認封裝執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-您也可以建立管線的排程觸發程序，以便管線依排程執行 (每小時、每日等等)。 如需範例，請參閱[建立資料處理站 - 資料處理站 UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)。
+
+> [!NOTE]
+> 您也可以建立管線的排程觸發程序，以便管線依排程執行 (每小時、每日等等)。 如需範例，請參閱[建立資料處理站 - 資料處理站 UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 在本節中，您可以使用 Azure PowerShell 以叫用 SSIS 封裝的預存程序活動建立資料處理站管線。 
@@ -321,7 +323,7 @@ while ($True) {
     }    
     ```
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
-3. 執行 **Set-AzureRmDataFactoryV2Trigger** Cmdlet 建立觸發程序。 
+3. 執行 **Set-AzureRmDataFactoryV2Trigger** Cmdlet，以建立觸發程序。 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
