@@ -7,6 +7,7 @@
 ## [執行精靈](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # 作法
+
 ## 啟用
 ### [啟用資料庫](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [啟用資料表](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)

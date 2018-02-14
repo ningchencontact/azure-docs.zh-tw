@@ -12,7 +12,8 @@
 # 開始使用
 ## [建立流量管理員設定檔](traffic-manager-create-profile.md)
 
-# 作法：
+# 作法
+
 
 ## [設定地理路由方法](traffic-manager-configure-geographic-routing-method.md)
 ## [設定優先順序路由方法](traffic-manager-configure-priority-routing-method.md)
