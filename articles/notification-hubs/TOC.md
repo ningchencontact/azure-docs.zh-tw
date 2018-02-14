@@ -13,6 +13,7 @@
 ## [常見問題集](notification-hubs-push-notification-faq.md)
 
 # 作法
+
 ## 規劃和設計
 ### [企業推送架構指引](notification-hubs-enterprise-push-notification-architecture.md)
 

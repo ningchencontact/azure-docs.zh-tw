@@ -43,9 +43,11 @@ Azure 自動化使用 [PowerShell DSC](../automation/automation-dsc-overview.md)
 ## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![OMS 安全性與法規遵循](media/operations-management-suite-overview/icon-security-compliance.png) 安全性與法規遵循
 安全性與法規遵循可協助您識別、評定並降低基礎結構的安全性風險。  OMS 的這些功能是透過 Log Analytics 中的多個解決方案所實作，而這些解決方案會分析代理程式系統中的記錄資料和組態，協助您確保環境的未來安全性。
 
-* [安全性和稽核解決方案](oms-security-getting-started.md)會收集並分析受管理系統上的安全性事件，以找出可疑的活動。
-* [反惡意程式碼解決方案](../log-analytics/log-analytics-malware.md)會報告受管理系統上的反惡意程式碼保護狀態。  
-* 系統更新解決方案會執行受管理系統上安全性更新和其他更新的分析，讓您輕鬆地識別需要修補的系統。
+* 
+            [安全性和稽核解決方案](oms-security-getting-started.md)會收集並分析受控系統上的安全性事件，以找出可疑的活動。
+* 
+            [反惡意程式碼解決方案](../log-analytics/log-analytics-malware.md)會報告受控系統上的反惡意程式碼保護狀態。  
+* 系統更新解決方案會執行受控系統上安全性更新和其他更新的分析，讓您輕鬆地識別需要修補的系統。
 
 ## <a name="next-steps"></a>後續步驟
 * 了解 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)。

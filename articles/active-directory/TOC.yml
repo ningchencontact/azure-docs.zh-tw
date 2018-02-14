@@ -37,7 +37,7 @@
   href: pim-azure-resource.md
 - name: Azure 管理的條件式存取
   href: conditional-access-azure-management.md
-- name: 受管理的服務識別
+- name: 受控服務識別
   href: msi-overview.md
   items:
     - name: 設定 Azure VM 的 MSI

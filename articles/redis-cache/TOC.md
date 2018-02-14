@@ -5,7 +5,7 @@
 ###[存取快取中的項目](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
 ###[設定高可用性](https://azure.microsoft.com/pricing/details/cache/)
 ###[使用 SSL 安全連線](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-###[從受管理的快取服務遷移](cache-migrate-to-redis.md)
+###[從受控快取服務遷移](cache-migrate-to-redis.md)
 ###[模式與作法快取指導方針](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 

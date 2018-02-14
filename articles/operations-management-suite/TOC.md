@@ -18,7 +18,7 @@
 ## 自動化
 ### [Azure 自動化概觀](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
-## 備份
+## Backup 
 ### [備份概觀](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery 概觀](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -67,7 +67,7 @@
 ### [自動化資源](operations-management-suite-solutions-resources-automation.md)
 ### [記錄搜尋與警示](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [檢視](operations-management-suite-solutions-resources-views.md)
-### [最佳作法](operations-management-suite-solutions-best-practices.md)
+### [最佳做法](operations-management-suite-solutions-best-practices.md)
 
 ## 管理案例
 ### [從 Runbook 收集分析資料](operations-management-suite-runbook-datacollect.md)

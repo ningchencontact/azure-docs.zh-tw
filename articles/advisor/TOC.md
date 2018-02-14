@@ -1,5 +1,5 @@
 # 概觀
-## [何謂 Azure Advisor？](advisor-overview.md)
+## [何謂 Azure 建議程式？](advisor-overview.md)
 
 # 建議
 ## [成本建議](advisor-cost-recommendations.md)

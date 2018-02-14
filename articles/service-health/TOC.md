@@ -2,6 +2,7 @@
 ## [謂 Azure 服務健康情況？](service-health-overview.md)
 ## [何謂 Azure 資源健康狀態？](resource-health-overview.md)
 # 作法
+
 ## [設定適用於服務健康情況的警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [使用 Webhook 設定通知](service-health-alert-webhook-guide.md)
 ### [以 ServiceNow 設定](service-health-alert-webhook-servicenow.md)
