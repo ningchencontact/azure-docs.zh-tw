@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>資料準備 Python 延伸模組
 資料準備可用來作為填補內建功能之間功能落差的方法，Azure Machine Learning 資料準備包含多個層級的擴充性。 在本文件中，我們將透過 Python 指令碼概述擴充性。 
@@ -124,8 +124,8 @@ import scipy as sp
 
 `./pip install <libraryname>`
 
-## <a name="use-custom-modules"></a>使用自訂的模組
-在轉換資料流程 （指令碼），撰寫 python 程式碼如下：
+## <a name="use-custom-modules"></a>使用自訂模組
+在 [轉換資料流程 (指令碼)] 中，寫入下列 Python 程式碼
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-在新增資料行 （指令碼），設定程式碼區塊的類型 = 模組，以及撰寫 python 下列的程式碼：
+在 [新增資料行 (指令碼)] 中，將 [程式碼區塊類型] 設定為 [模組]，然後寫入下列 Python 程式碼
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-以不同的執行內容 (本機，docker spark)，指向正確的位置中的絕對路徑。 若要找出它使用"os.getcwd() + relativePath"。
+針對不同的執行內容 (本機、Docker、Spark)，將絕對路徑指向正確的位置。 您可以使用 “os.getcwd() + relativePath” 來尋找該位置。
 
 
 ## <a name="column-data"></a>資料行資料 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 01/03/2018
 
 如果您的程式碼會傳送這類資料，就有可能。 如果堆疊追蹤中的變數包含 PII，也可能發生這種情況。 您的開發小組應該進行風險評估，以確保正確處理 PII。 [深入了解資料保留和隱私權](app-insights-data-retention-privacy.md)。
 
-用戶端網址的最後八位元在由入口網站擷取之後一律會設為 0。
+在查閱地理位置屬性之後，用戶端 Web 位址的**所有**八位元資料一律會設定為 0。
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>在我的網頁原始碼中可以看見我的 iKey。 
 
@@ -242,7 +242,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>我是否可以將遙測資料傳送給 Application Insights 入口網站？
 
-我們建議您使用我們的 Sdk，並使用[SDK API](app-insights-api-custom-events-metrics.md)。 SDK 有適用於各種[平台](app-insights-platforms.md)的各種變體。 這些 SDK 可處理緩衝、壓縮、節流、重試等。 不過，[擷取結構描述](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema)和[端點通訊協定](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)是公用的。
+建議您使用我們的 SDK 和使用 [SDK API](app-insights-api-custom-events-metrics.md)。 SDK 有適用於各種[平台](app-insights-platforms.md)的各種變體。 這些 SDK 可處理緩衝、壓縮、節流、重試等。 不過，[擷取結構描述](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema)和[端點通訊協定](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)是公用的。
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>我是否可以監視內部網路 Web 伺服器？
 

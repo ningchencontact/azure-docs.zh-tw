@@ -64,7 +64,7 @@
 
 ### <a name="graphics-and-rendering"></a>圖形和轉譯器
 
-* Azure Batch 上的 [Autodesk Maya、3ds Max 和 Arnold](../articles/batch/batch-rendering-service.md) (預覽)
+* Azure Batch 上的 [Autodesk Maya、3ds Max 和 Arnold](../articles/batch/batch-rendering-service.md) 
 
 ### <a name="ai-and-deep-learning"></a>AI 和深入學習
 
@@ -103,11 +103,12 @@ SaaS 提供者或開發人員可使用 Batch SDK 和工具，將 HPC 應用程�
 
 了解如何：
 
-* [開始使用 Batch 進行開發](../articles/batch/batch-dotnet-get-started.md)
+* [開始使用 Batch 進行開發](../articles/batch/quick-run-dotnet.md)
 * [使用 Azure Batch 程式碼範例](https://github.com/Azure/azure-batch-samples)
 * [使用低優先順序的 VM 搭配 Batch](../articles/batch/batch-low-pri-vms.md)
 * [使用 Batch Shipyard 執行容器化的 HPC 工作負載](https://github.com/Azure/batch-shipyard)
 * [使用 R 語言搭配 Batch](https://github.com/Azure/doAzureParallel)
+* [在 Batch 上執行 Azure 分散式資料工程工具組](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>工作負載管理員
 
@@ -127,6 +128,7 @@ SaaS 提供者或開發人員可使用 Batch SDK 和工具，將 HPC 應用程�
 深入了解：
 
 * [Azure 上 HPC 儲存體的平行檔案系統 (英文)](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* 來自 [Avere](http://www.averesystems.com/about-us/about-avere) (現在[已與 Microsoft 合併](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/)) 的高效能雲端儲存體解決方案
 
 
 ## <a name="related-azure-services"></a>相關的 Azure 服務
@@ -139,11 +141,14 @@ Azure 虛擬機器、虛擬機器擴展集、Batch 和相關的運算服務是�
 * [檔案儲存體](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>資料與分析
-* Azure 上適用於 Hadoop 叢集的 [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>AI 和認知服務
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>網路
 * [虛擬網路](../articles/virtual-network/virtual-networks-overview.md)

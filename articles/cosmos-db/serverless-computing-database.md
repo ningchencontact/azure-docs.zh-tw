@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
 
@@ -101,7 +101,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 **實作：**接聽單一集合的多個 Azure Cosmos DB 觸發程序
 
-1. 您可以藉由將 Azure Cosmos DB 觸發程序新增至每個函式，以建立多個 Azure Functions，所有函式皆會接聽購物車資料的相同變更摘要。 請注意，若有多個函式接聽相同的變更摘要，則每個函式皆需要新的租用集合。
+1. 您可以藉由將 Azure Cosmos DB 觸發程序新增至每個函式，以建立多個 Azure Functions，所有函式皆會接聽購物車資料的相同變更摘要。 請注意，若有多個函式接聽相同的變更摘要，則每個函式皆需要新的租用集合。 如需有關租用集合的詳細資訊，請參閱[了解變更摘要處理器程式庫](change-feed.md#understand-cf)。
 2. 每當新的項目新增至使用者的購物車時，會根據購物車容器的變更摘要單獨叫用每個函式。
     * 某個函式可以使用目前購物籃的內容來變更使用者可能感興趣之其他項目的顯示。
     * 另一個函式可更新存貨總計。

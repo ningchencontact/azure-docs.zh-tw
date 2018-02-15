@@ -6,10 +6,11 @@
 # 開始使用
 ## [開始使用 Azure 資料目錄](data-catalog-get-started.md)
 ## [採用 Azure 資料目錄](data-catalog-adopting-data-catalog.md)
-## [必要條件](data-catalog-prerequisites.md)
+## [先決條件](data-catalog-prerequisites.md)
 ## [常見問題集](data-catalog-frequently-asked-questions.md)
 
 # 作法
+
 ## [註冊資料來源](data-catalog-how-to-register.md)
 ## [探索資料來源](data-catalog-how-to-discover.md)
 ## [註解資料來源](data-catalog-how-to-annotate.md)

@@ -4,7 +4,7 @@ description: "本文提供 Azure 流量管理員常見問題集的解答。"
 services: traffic-manager
 documentationcenter: 
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 02/01/2018
 ms.author: kumud
-ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -240,7 +240,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>我可以使用流量管理員來設定雲端服務「預備」位置嗎？
 
-可以。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。 因為外部端點類型正在使用中，所以不會自動挑選基礎服務的變更。 使用外部端點時，流量管理員無法偵測雲端服務何時停止或刪除。 因此，流量管理員會持續計費健康情況檢查，直到停用或刪除端點為止。
+是。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。 因為外部端點類型正在使用中，所以不會自動挑選基礎服務的變更。 使用外部端點時，流量管理員無法偵測雲端服務何時停止或刪除。 因此，流量管理員會持續計費健康情況檢查，直到停用或刪除端點為止。
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>流量管理員是否支援 IPv6 端點？
 
@@ -281,7 +281,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-monitor-https-endpoints"></a>我可以監視 HTTPS 端點嗎？
 
-可以。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
+是。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
 
 流量管理員無法提供任何憑證驗證，包括：
 
@@ -295,7 +295,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>即使我的應用程式不支援 HTTP 或 HTTPS 也可以使用流量管理員嗎？
 
-可以。 您可以指定 TCP 作為監視通訊協定，流量管理員可以起始 TCP 連線，並且等待端點的回應。 如果端點在逾時期間內以建立連線的回應來回覆連線要求，則該端點會標示為狀況良好。
+是。 您可以指定 TCP 作為監視通訊協定，流量管理員可以起始 TCP 連線，並且等待端點的回應。 如果端點在逾時期間內以建立連線的回應來回覆連線要求，則該端點會標示為狀況良好。
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>使用 TCP 監視時需要端點的哪些特定回應？
 
@@ -321,42 +321,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>健康情況檢查是從哪些 IP 位址產生？
 
-下列清單包含從流量管理員健康狀態檢查可產生的 IP 位址。 您可以使用此清單來確保端點會允許來自這些 IP 位址的連入連線，以檢查其健康情況狀態。
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-* 52.173.90.107
-* 52.173.250.232
-* 104.45.149.110
-* 40.114.5.197
-* 52.240.151.125
-* 52.240.144.45
-* 13.65.95.152
-* 13.65.92.252
-* 40.78.67.110
-* 104.42.192.195
+按一下[這裡](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)以檢視 JSON 檔案，此檔案會列出可發出流量管理員健康情況檢查的 IP 位址。 請檢閱 JSON 檔案中所列出的 IP，以確保端點會允許來自這些 IP 位址的連入連線，從而能夠檢查其健康情況狀態。
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>流量管理員會對端點進行多少健康情況檢查？
 
@@ -376,7 +341,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>在同一個「流量管理員」設定檔中，是否可以將其他端點類型與巢狀子設定檔混合使用？
 
-可以。 對於在設定檔內如何結合不同類型的端點，並沒有任何限制。
+是。 對於在設定檔內如何結合不同類型的端點，並沒有任何限制。
 
 ### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>巢狀設定檔如何套用計費模型？
 

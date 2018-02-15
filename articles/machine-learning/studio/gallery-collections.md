@@ -1,6 +1,6 @@
 ---
-title: "Azure AI 圖庫集合 |Microsoft 文件"
-description: "探索和共用 Azure AI 組件庫中的集合。"
+title: "Azure AI 資源庫集合 | Microsoft Docs"
+description: "探索與分享 Azure AI 資源庫中的集合。"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>探索及共用 Azure AI 組件庫中的集合
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>探索與分享 Azure AI 資源庫中的集合
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>集合
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/06/2018
     ![選取 [公開] 或 [不列示]](./media/gallery-collections/create-collection-page-3.png)
 7. 選取 [建立] 。
 
-您的集合現在為 Azure AI 組件庫。 您的集合將列在您帳戶頁面的 [集合] 索引標籤上。
+您的集合隨即出現在 Azure AI 資源庫中。 您的集合將列在您帳戶頁面的 [集合] 索引標籤上。
 
 ### <a name="add-items-to-a-collection"></a>在集合中新增項目
 若要將項目新增至集合，請開啟集合，並選取 [編輯]，然後選取 [新增項目]。

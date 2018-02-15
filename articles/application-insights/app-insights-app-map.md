@@ -1,6 +1,6 @@
 ---
 title: "Azure Application Insights 的應用程式對應 | Microsoft Docs"
-description: "應用程式元件之間的相依性視覺化呈現方式，其中會標示 KPI 和警示。"
+description: "使用應用程式對應監視複雜的應用程式拓撲"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Application Insights 的應用程式對應
-在 [Azure Application Insights](app-insights-overview.md) 中，應用程式對應是應用程式元件相依性關係的視覺化版面配置。 每個元件都會顯示負載、效能、失敗和警示等 KPI，以協助您找出任何造成效能問題或失敗的元件。 您可以從任何元件逐一點選至更詳細的診斷，例如 Application Insights 事件。 如果您的應用程式使用 Azure 服務，您也可以逐一點選 Azure 診斷，例如 SQL 資料庫建議程式的建議。
+# <a name="application-map-triage-distributed-applications"></a>應用程式對應：對分散式應用程式進行分級
+應用程式對應可協助您找出分散式應用程式所有元件的效能瓶頸或失敗熱點。 對應上的每個節點各代表應用程式元件或其相依性；並具有健康情況 KPI 和警示狀態。 您可以從任何元件逐一點選至更詳細的診斷，例如 Application Insights 事件。 如果您的應用程式使用 Azure 服務，您也可以逐一點選 Azure 診斷，例如 SQL 資料庫建議程式的建議。
 
-和其他圖表一樣，您可以將應用程式對應釘選至 Azure 儀表板，而其功能仍可完整運作。 
+## <a name="what-is-a-component"></a>什麼是元件？
 
-## <a name="open-the-application-map"></a>開啟應用程式對應
-從應用程式的概觀刀鋒視窗中開啟對應︰
+元件是分散式/微服務應用程式中可獨立部署的組件。 開發人員和作業小組能在程式碼層級檢視或存取這些應用程式元件所產生的遙測資料。 
 
-![開啟應用程式對應](./media/app-insights-app-map/01.png)
+* 元件不同於 SQL、EventHub 等小組/組織可能無法存取的「可觀察」外部相依性 (程式碼或遙測資料)。
+* 元件能在任何數量的伺服器/角色/容器執行個體上執行。
+* 元件可以是不同的 Application Insights 檢測金鑰 (即使訂用帳戶不同)，也可以是回報給單一 Application Insights 檢測金鑰的不同角色。 預覽對應體驗會顯示元件 (不論元件的設定方式為何)。
 
-![應用程式對應](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>複合應用程式對應 (預覽)
+*這是早期預覽，我們將會在此對應中新增更多功能。歡迎您提出有關新體驗的意見反應。您可以輕鬆地在預覽和傳統體驗之間進行切換。*
+
+請從[預覽清單](app-insights-previews.md)啟用「複合應用程式對應」，或按一下右上角開關中的 [預覽對應]。 若要切換回傳統體驗，請使用此開關。
+![啟用預覽對應](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+此預覽會取代先前的「多角色應用程式對應」預覽。 目前，請使用此預覽來檢視跨應用程式元件相依性多個層級的完整拓撲。 請提供您的意見反應，我們將會新增更多和傳統對應所支援功能類似的功能。
+
+您可以查看跨相關應用程式元件多個層級的完整應用程式拓撲。 元件可以是不同的 Application Insights 資源，或是單一資源中的不同角色。 應用程式對應會尋找元件，方法是遵循已安裝 Application Insights SDK 之伺服器之間所發出的 HTTP 相依性呼叫。 
+
+這項體驗一開始會漸進地探索元件。 首次載入預覽時會觸發一組查詢，以探索與此元件相關的元件。 在探索到應用程式中的元件時，左上角的按鈕會依探索到的元件數目進行更新。 
+![預覽對應](media/app-insights-app-map/preview.png)
+
+當您按一下 [更新對應元件] 時，系統便會使用目前為止所探索的所有元件來重新整理對應。
+![預覽載入的對應](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+如果所有元件都是單一 Application Insights 資源內的角色，則不需要進行此探索步驟。 這類應用程式一開始會載入所有元件。
+
+新體驗的重要目標之一，是要能夠以視覺化方式顯示含有數百個元件的複雜拓撲。 新體驗支援縮放，並可在放大時新增詳細資料。 您可以縮小以便速覽多個元件，而且仍可找出具有較高失敗率的元件。 
+
+![縮放比例](media/app-insights-app-map/zoom-levels.png)
+
+按一下任何元件，即可查看相關深入資訊，並前往該元件的效能和失敗分級體驗。
+
+![飛出視窗](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>傳統應用程式對應
 
 此對應會顯示︰
 
@@ -37,6 +66,8 @@ ms.lasthandoff: 11/01/2017
 * 用戶端元件 (使用 JavaScript SDK 監視)
 * 伺服器端元件
 * 用戶端和伺服器元件的相依性
+
+![應用程式對應](./media/app-insights-app-map/02.png)
 
 您可以展開與摺疊相依性連結群組︰
 
@@ -98,22 +129,6 @@ ms.lasthandoff: 11/01/2017
 ![資源健康情況](./media/app-insights-app-map/resource-health.png)
 
 您可以按一下資源名稱來檢視該資源的標準概觀計量。
-
-## <a name="end-to-end-system-app-maps"></a>端對端系統應用程式對應
-
-*需要 SDK 2.3 版或更新版本*
-
-如果您的應用程式有多個元件 (例如 Web 應用程式以外的後端服務)，則可以在一個整合式應用程式對應上顯示所有元件。
-
-![設定篩選](./media/app-insights-app-map/multi-component-app-map.png)
-
-應用程式對應會尋找伺服器節點，方法是遵循已安裝 Application Insights SDK 的伺服器之間所發出的任何 HTTP 相依性呼叫。 會假設每個 Application Insights 資源都包含一部伺服器。
-
-### <a name="multi-role-app-map-preview"></a>多角色應用程式對應 (預覽)
-
-預覽多角色應用程式對應功能可讓您使用應用程式對應搭配多部伺服器，將資料傳送至相同的 Application Insights  / 檢測金鑰。 對應中的伺服器會依遙測項目上的 cloud_RoleName 屬性進行區隔。 從 [預覽] 刀鋒視窗將 [多角色應用程式對應]設為 [開啟]，可啟用這項設定。
-
-在微服務應用程式，或在您要於單一 Application Insights 資源內將多部伺服器之間的事件相互關聯的其他情況下，可能需要這種方法。
 
 ## <a name="video"></a>影片
 

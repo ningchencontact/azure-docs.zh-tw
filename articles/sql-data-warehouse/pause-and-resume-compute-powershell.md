@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中暫停與繼續 Azure SQL 資料倉儲的計算
 使用 PowerShell 來暫停 Azure SQL 資料倉儲的計算以節省成本。 在您準備好使用資料倉儲時繼續計算。
@@ -59,15 +59,16 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-3. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。 
+3. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 資料倉儲隨即開啟。
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. 記下資料倉儲名稱，這將作為資料庫名稱使用。 也請記下伺服器名稱與資源群組。 您將會在暫停與繼續命令中使用它們。
-5. 如果您的伺服器是 foo.database.windows.net，請只在 PowerShell Cmdlet 中使用其第一個部分作為伺服器名稱。 在上述映像中，完整伺服器名稱是 newserver 20171113.database.windows.net。 我們將在 PowerShell Cmdlet 中使用 **newserver-20171113** 作為伺服器名稱。
+4. 記下資料倉儲名稱，這便是資料庫名稱。 也請記下伺服器名稱與資源群組。 您 
+5.  將會在暫停與繼續命令中使用它們。
+6. 如果您的伺服器是 foo.database.windows.net，請只在 PowerShell Cmdlet 中使用其第一個部分作為伺服器名稱。 在上述映像中，完整伺服器名稱是 newserver 20171113.database.windows.net。 捨棄尾碼，並在 PowerShell Cmdlet 中使用 **newserver-20171113** 作為伺服器名稱。
 
 ## <a name="pause-compute"></a>暫停計算
-為了節省成本，您可以隨選暫停和繼續計算資源。 例如，如果您在夜間和週末不會使用資料庫，可以在這段時間暫停，並且在白天時繼續。 資料庫暫停時，系統將不會向您收取計算資源的費用。 不過，您仍需持續支付儲存體費用。 
+為了節省成本，您可以隨選暫停和繼續計算資源。 例如，如果您在夜間和週末不會使用資料庫，可以在這段時間暫停，並且在白天時繼續。 資料庫暫停時，計算資源不會有費用。 不過，您仍需持續支付儲存體費用。 
 
 若要暫停資料庫，請使用 [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) Cmdlet。 下列範例會暫停在伺服器 **newserver-20171113** 上託管的資料倉儲 **mySampleDataWarehouse**。 此伺服器位於 Azure 資源群組 **myResourceGroup** 中。
 

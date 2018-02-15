@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 將事件傳送至 Azure 事件中樞
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 若要完成本教學課程，您需要下列必要條件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教學課程中的螢幕擷取畫面使用 Visual Studio 2017。
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Visual Studio 中，使用 **主控台應用程式** 專案範本建立新的「Visual C# 桌面應用程式」專案。 將專案命名為 **Sender**。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. 在 方案總管 中，以滑鼠右鍵按一下 寄件者 專案，然後按一下管理方案的 NuGet 封裝。 
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 [寄件者] 專案，然後按一下 [管理方案的 NuGet 封裝]。 
 3. 按一下 [瀏覽] 索引標籤，然後搜尋 `WindowsAzure.ServiceBus`。 按一下 [安裝] 並接受使用條款。 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
   ```
    
   這個方法會以 200 毫秒的延遲時間持續將事件傳送至事件中心。
-7. 最後，將下列幾行加入至 **Main** 方法：
+7. 最後，將下列幾行新增至 **Main** 方法：
    
   ```csharp
   Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 
 * [使用事件處理器主機接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [事件處理器主機參考](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

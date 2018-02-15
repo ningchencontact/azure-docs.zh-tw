@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/02/2018
 ms.author: magoedte
-ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>使用 Log Analytics 從您的環境中的電腦收集資料
 
@@ -55,7 +55,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Windows Server 2008 Service Pack 1 (SP1) 或更新版本
 * Windows 7 SP1 與更新版本
 
-#### <a name="network-configuration"></a>網路設定
+#### <a name="network-configuration"></a>網路組態
 下列資訊列出 Windows 代理程式與 Log Analytics 通訊所需的 Proxy 和防火牆設定資訊。 流量會從您的網路輸出至 Log Analytics 服務。 
 
 | 代理程式資源 | 連接埠 | 略過 HTTPS 檢查|
@@ -66,11 +66,11 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 |*.azure-automation.net | 443 | yes | 
 
 ### <a name="linux-operating-systems"></a>Linux 作業系統
-以下為正式支援的 Linux 散發套件。  不過，Linux 代理程式也可能在未列出的其他散發套件上執行。
+以下為正式支援的 Linux 散發套件。  不過，Linux 代理程式也可能在未列出的其他散發套件上執行。  除非另有說明，列出的每個主要版本都支援所有次要版本。  
 
 * Amazon Linux 2012.09 至 2015.09 (x86/x64)
-* CentOS Linux 5、6 和 7 (x86/x64)
-* Oracle Linux 5、6 和 7 (x86/x64)
+* CentOS Linux 5、6 和 7 (x86/x64)  
+* Oracle Linux 5、6 和 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5、6 和 7 (x86/x64)
 * Debian GNU/Linux 6、7 和 8 (x86/x64)
 * Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)
@@ -95,7 +95,7 @@ Proxy 組態值的語法如下︰
 > [!NOTE]
 > 若您的 Proxy 伺服器不要求您進行驗證，Linux 代理程式仍會要求提供虛擬使用者/密碼。 這可以是任何使用者名稱或密碼。
 
-|屬性| 描述 |
+|屬性| 說明 |
 |--------|-------------|
 |通訊協定 | https |
 |user | 用於驗證 Proxy 的選擇性使用者名稱 |
@@ -111,7 +111,7 @@ Proxy 組態值的語法如下︰
 ## <a name="install-and-configure-agent"></a>安裝及設定代理程式 
 視您的需求使用不同的方法，即可將您的內部部署電腦直接與 Log Analytics 連線。 下表說明每個方法，您可以判斷哪個方法最適合您的組織。
 
-|來源 | 方法 | 描述|
+|來源 | 方法 | 說明|
 |-------|-------------|-------------|
 | Windows 電腦|- [手動安裝](log-analytics-agent-windows.md)<br>- [Azure 動化 DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [搭配 Azure Stack 的資源管理員範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |從命令列或使用自動化方法 (例如 Azure 自動化 DSC、[System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)) 來安裝 Microsoft Monitoring 代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。| 
 |Linux 電腦| [手動安裝](log-analytics-quick-collect-linux-computer.md)|安裝適用於 Linux 的代理程式需要 GitHub 上裝載的包裝函式指令碼。 | 
@@ -121,6 +121,6 @@ Proxy 組態值的語法如下︰
 
 * 檢閱[資料來源](log-analytics-data-sources.md)以了解可用於從您的 Windows 或 Linux 系統收集資料的資料來源。 
 
-* 了解[記錄搜尋](log-analytics-log-searches.md)，它可以分析從資料來源和方案所收集的資料。 
+* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。 
 
-* 了解可將功能加入 Log Analytics 並會將資料收集到 OMS 存放庫的[方案](log-analytics-add-solutions.md) 。
+* 了解可將功能加入 Log Analytics 並會將資料收集到 OMS 儲存機制的 [方案](log-analytics-add-solutions.md) 。

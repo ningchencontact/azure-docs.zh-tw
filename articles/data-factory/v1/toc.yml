@@ -47,7 +47,8 @@
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: 常見問題集
       href: data-factory-faq.md
-- name: 作法
+- name: |
+    作法
   items:
     - name: 移動資料
       items:
@@ -78,7 +79,7 @@
               href: data-factory-azure-datalake-connector.md
             - name: Azure 搜尋服務
               href: data-factory-azure-search-connector.md
-            - name: Azure SQL Database
+            - name: 連接字串
               href: data-factory-azure-sql-connector.md
             - name: Azure SQL 資料倉儲
               href: data-factory-azure-sql-data-warehouse-connector.md

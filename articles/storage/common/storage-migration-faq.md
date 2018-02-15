@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -41,7 +41,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **有兩個檔案共用，位在相同區域的相同儲存體帳戶上，在這兩者間複製資料是否收取費用？**
 
-否。 此流程不會收取費用。
+編號 此流程不會收取費用。
 
 **如何將我的整個儲存體帳戶備份到其他儲存體帳戶？**
 
@@ -195,7 +195,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **將儲存體帳戶的複寫從異地備援儲存體變更為本地備援儲存體是否有任何必要條件？**
 
-否。 
+編號 
 
 **如何存取 Azure 檔案備援儲存體？**
 
@@ -278,7 +278,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 -   如果您使用的是讀取權限異地備援儲存體，可以隨時存取次要區域中的資料。 使用下列其中一種方法：  
       
-    - **AzCopy**：將 **-secondary** 附加至 URL 中的儲存體帳戶名稱，即可存取次要端點。 例如：  
+    - **AzCopy**：將 **-secondary** 附加至 URL 中的儲存體帳戶名稱，即可存取次要端點。 例如︰  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -294,6 +294,10 @@ Azure 檔案共用不允許使用進階儲存體。
 無法使用 FTP 直接存取儲存體帳戶。 不過可以安裝一個 Azure 虛擬機器，然後將 FTP 伺服器安裝在虛擬機器上。 您可以讓 FTP 伺服器將檔案儲存在 Azure 檔案共用中，或是儲存在虛擬機器可用的資料磁碟裡。
 
 如果您只是要下載資料，而不想使用儲存體總管或類似的應用程式，則可以使用 SAS 權杖。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
+
+**如何在儲存體帳戶之間移轉 Blob？**
+
+ 您可以使用 [Blob 移轉指令碼](../scripts/storage-common-transfer-between-storage-accounts.md)來達成。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

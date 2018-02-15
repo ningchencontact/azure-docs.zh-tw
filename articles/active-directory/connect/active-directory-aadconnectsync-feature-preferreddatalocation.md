@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect 同步處理：設定 Office 365 資源的慣用資料位置
-本主題的目的在於逐步解說如何在 Azure AD Connect 同步處理中設定 PreferredDataLocation。當客戶在 Office 365 中使用多地理位置功能時，可使用這個屬性來指定使用者 Office 365 資料的地理位置。
+本主題的目的在於逐步解說如何在 Azure AD Connect 同步處理中設定 PreferredDataLocation。當客戶在 Office 365 中使用多地理位置功能時，可使用這個屬性來指定使用者 Office 365 資料的地理位置。 **區域**與**地區**這兩個字詞可交換使用。
 
 > [!IMPORTANT]
 > 多地理位置功能目前為預覽狀態。 如果您想要加入預覽計畫，請連絡您的 Microsoft 代表。
@@ -29,29 +29,34 @@ ms.lasthandoff: 02/01/2018
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>啟用 PreferredDataLocation 的同步處理
-根據預設，使用者的 Office 365 資源會與 Azure AD 租用戶位於相同區域。 例如，如果您的租用戶位於北美洲，則使用者的 Exchange 信箱也會位於北美洲。 對於跨國組織，這可能不是最理想的情況。 藉由設定 preferredDataLocation 屬性，即可定義使用者的區域。
+根據預設，使用者的 Office 365 資源會與 Azure AD 租用戶位於相同地區。 例如，如果您的租用戶位於北美洲，則使用者的 Exchange 信箱也會位於北美洲。 對於跨國組織，這可能不是最理想的情況。 藉由設定 preferredDataLocation 屬性，即可定義使用者的地區。
 
-藉由設定這個屬性，可以讓使用者的 Office 365 資源 (例如信箱、OneDrive) 位於與使用者相同的區域，且整個組織仍有一個租用戶。
+藉由設定這個屬性，可以讓使用者的 Office 365 資源 (例如信箱、OneDrive) 位於與使用者相同的地區，且整個組織仍有一個租用戶。
 
 > [!IMPORTANT]
 > 為了要使用多地理位置功能，您的 Office 365 訂用帳戶中必須至少有 5000 個基座。
 >
 >
 
-Office 365 中適用多地理位置功能的區域如下：
+在[您的資料所在位置](https://aka.ms/datamaps)中可找到 Office 365 的所有地區清單。
 
-| 區域 | 說明 |
+Office 365 中適用多地理位置功能的地區如下：
+
+| 地理區域 | preferredDataLocation 值 |
 | --- | --- |
-| NAM | 北美洲 |
-| 歐元 | 歐洲 |
-| APC | 亞太地區 |
-| JPN | 日本 |
-| AUS | 澳大利亞 |
-| CAN | 加拿大 |
-| GBR | 英國 |
-| LAM | 拉丁美洲 |
+| 亞太地區 | APC |
+| 澳大利亞 | AUS |
+| 加拿大 | CAN |
+| 歐盟 | 歐元 |
+| 印度 | IND |
+| 日本 | JPN |
+| 南韓 | KOR |
+| 英國 | GBR |
+| 美國 | NAM |
 
-並非所有 Office 365 工作負載都支援設定使用者的區域。
+* 如有地區未列於此表中 (例如南美)，則無法使用於多地理位置功能。
+* 印度和南韓地區僅適用於具有帳單地址的客戶以及在這些地區購買的授權。
+* 並非所有 Office 365 工作負載都支援設定使用者的地區。
 
 Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **PreferredDataLocation** 屬性進行同步處理。 更具體地說，我們已導入下列變更︰
 
@@ -245,13 +250,13 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 ## <a name="step-8-verify-the-result"></a>步驟 8：確認結果
 現在該來確認組態，並且為您的使用者啟用它。
 
-1. 將區域新增至使用者的所選屬性。 [本表格](#enable-synchronization-of-preferreddatalocation)提供可用的區域清單。  
+1. 將地區新增至使用者的所選屬性。 [本表格](#enable-synchronization-of-preferreddatalocation)提供可用的地區清單。  
 ![已新增至使用者的 AD 屬性](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. 等待屬性與 Azure AD 同步。
 3. 使用 Exchange Online PowerShell，確認已正確設定信箱區域。  
 ![Exchange Online 使用者的信箱區域設定](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-假設租用戶已標示為能夠使用這項功能，則信箱會移至正確的區域。 這可藉由查看信箱所在的伺服器名稱來確認。
-4. 若要確認這項設定已在許多信箱上生效，請使用 [Technet 資源庫](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e)中的指令碼。 此指令碼也有一份所有 Office 365 資料中心伺服器前置詞以及這些資料中心所在區域的清單。 這份清單可以作為前一個步驟的參考，用來確認信箱的位置。
+假設租用戶已標示為能夠使用這項功能，則信箱會移至正確的地區。 這可藉由查看信箱所在的伺服器名稱來確認。
+4. 若要確認這項設定已在許多信箱上生效，請使用 [Technet 資源庫](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e)中的指令碼。 此指令碼也有一份所有 Office 365 資料中心伺服器前置詞以及這些資料中心所在地區的清單。 這份清單可以作為前一個步驟的參考，用來確認信箱的位置。
 
 ## <a name="next-steps"></a>後續步驟
 

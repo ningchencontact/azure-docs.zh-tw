@@ -70,7 +70,7 @@ Azure 建議程式是個人化的雲端顧問，可協助您依最佳做法來�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>開始使用 Azure 建議程式</h3>
+                        <h3>開始使用 Advisor</h3>
                     </div>
                 </div>
             </div>

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter 不支援將 SMB 掛接對應至容器 ([該功能僅在 Windows Server 1709 版上受到支援](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage))。 這可避免在早於 1709 的版本上使用網路磁碟區對應和 Azure 檔案服務磁碟區驅動程式。 
+> Windows Server 2016 Datacenter 不支援將 SMB 掛接對應至容器 ([該功能僅在 Windows Server 1709 版上受到支援](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage))。 這條件約束可避免在早於 1709 的版本上使用網路磁碟區對應和 Azure 檔案服務磁碟區驅動程式。 
 >   
 
 
@@ -53,8 +53,9 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 
 [磁碟區] 元素的 [來源] 標記是指來源資料夾。 來源資料夾可以是裝載容器或持續性遠端存放區的 VM 中的資料夾。 [目的地] 標記是 [來源] 在執行容器內所對應的位置。 因此，您的目的地不能是您容器內的現有位置。
 
+先前資訊清單程式碼片段中所示的磁碟區支援應用程式參數 (尋找 `MyStoreVar` 以取得使用範例)。
+
 指定磁碟區外掛程式時，Service Fabric 會使用指定的參數自動建立磁碟區。 [來源] 標記是磁碟區的名稱，而 [驅動程式] 標記會指定磁碟區驅動程式的外掛程式。 您可以使用 [DriverOption] 標記來指定選項，如下所示：
 
 ```xml
@@ -93,4 +96,4 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 如果指定了 Docker 記錄驅動程式，您就必須在叢集中部署代理程式 (或容器) 來處理記錄。 [DriverOption] 標記可以用來指定記錄驅動程式的選項。
 
 ## <a name="next-steps"></a>後續步驟
-若要將容器部署到 Service Fabric 叢集，請參閱[在 Service Fabric 上部署容器](service-fabric-deploy-container.md)。
+若要將容器部署到 Service Fabric 叢集，請參閱[在 Service Fabric 上部署容器](service-fabric-deploy-container.md)一文。

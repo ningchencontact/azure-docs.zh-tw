@@ -1,6 +1,6 @@
 ---
 title: "新增 Azure Log Analytics 管理解決方案 | Microsoft Docs"
-description: "Operations Management Suite (OMS) / Log Analytics 管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。"
+description: "Azure 中的管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。"
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>將 Azure Log Analytics 管理解決方案新增至您的工作區
 
-Log Analytics 管理解決方案是**邏輯**、**視覺效果**和**資料擷取規則**的集合，可提供針對特定問題領域進行計量的樞紐分析。 本文列出 Log Analytics 所支援的管理解決方案，並說明如何使用 Azure 入口網站新增和移除工作區。 您也可以在 OMS 入口網站中使用方案庫新增解決方案。
+Log Analytics 管理解決方案是**邏輯**、**視覺效果**和**資料擷取規則**的集合，可提供針對特定問題領域進行計量的樞紐分析。 本文列出 Log Analytics 所支援的管理解決方案，並說明如何使用 Azure 入口網站新增和移除工作區。
 
 管理解決方案可允許更深入的探討，以：
 
@@ -34,9 +34,9 @@ Log Analytics 管理解決方案是**邏輯**、**視覺效果**和**資料擷�
 > [!NOTE]
 > Log Analytics 包含記錄檔搜尋功能，因此您不需要安裝管理解決方案即可啟用。 不過，您可以對工作區新增管理解決方案，以取得資料視覺效果、建議的搜尋和深入資訊。
 
-透過本文，您可以使用 Azure 入口網站 Marketplace 對工作區新增管理解決方案。 加入方案後，系統會從基礎結構中的伺服器收集資料，然後再傳送到 OMS 服務。 OMS 服務的處理時間通常需要幾分鐘到一個小時。 待服務處理完資料後，您可以在 OMS 中予以檢視。
+透過本文，您可以使用 Azure 入口網站 Marketplace 對工作區新增管理解決方案。 新增方案後，系統會從基礎結構中的伺服器收集資料，然後再傳送到 Log Analytics。 處理時間通常需要幾分鐘到一個小時。 在服務處理完資料後，您可以在 Log Analytics 中進行檢視。
 
-當您不再需要管理解決方案時，您可以輕易地將它移除。 當您移除管理解決方案時，就不會將其資料傳送至 OMS。 如果您處於免費定價層，則移除解決方案可減少資料的使用量，協助您保持在每日的資料配額之下。
+當您不再需要管理解決方案時，您可以輕易地將它移除。 當您移除管理解決方案時，就不會將其資料傳送至 Log Analytics。 如果您處於免費定價層，則移除解決方案可減少資料的使用量，協助您保持在每日的資料配額之下。
 
 ## <a name="view-available-management-solutions"></a>檢視可用的管理解決方案
 
@@ -126,14 +126,14 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 ## <a name="data-collection-details"></a>資料收集詳細資料
 下列表格顯示資料收集方法，以及有關 Log Analytics 管理解決方案和資料來源的資料是如何收集的其他詳細資料。 這些表格會依解決方案優惠 (等同於[訂用帳戶定價層](https://go.microsoft.com/fwlink/?linkid=827926)) 來分類。 活動 Log Analytics 解決方案可免費供所有定價層使用。
 
-Log Analytics Windows 代理程式和 System Center Operations Manager 代理程式基本上是一樣的。 Windows 代理程式還包含其他功能，可讓它連接到 OMS 工作區，並透過 Proxy 路由傳送。 如果您使用 Operations Manager 代理程式，則必須做為與 OMS 通訊的目標 OMS 代理程式。 此表格中的 Operations Manager 代理程式是連接到 Operations Manager 的 OMS 代理程式。 如需將現有 Operations Manager 環境連接到 OMS 的相關資訊，請參閱[將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
+Log Analytics Windows 代理程式和 System Center Operations Manager 代理程式基本上是一樣的。 Windows 代理程式還包含其他功能，可讓它連接到 Log Analytics 工作區，並透過 Proxy 路由傳送。 如果您使用 Operations Manager 代理程式，則必須作為與 Log Analytics 通訊的目標 OMS 代理程式。 此表格中的 Operations Manager 代理程式是連接到 Operations Manager 的 OMS 代理程式。 如需將現有 Operations Manager 環境連線到 Log Analytics 的相關資訊，請參閱[將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
 
 > [!NOTE]
-> 您使用的代理程式類型決定資料如何傳送至 OMS，情況如下︰
+> 您使用的代理程式類型決定資料如何傳送至 Log Analytics，情況如下︰
 > - 您可以使用 Windows 代理程式，或使用已連接 Operations Manager 的 OMS 代理程式。
-> - 需要 Operations Manager 時，一律會使用 Operations Manager 管理群組將解決方案的 Operations Manager 代理程式資料傳送至 OMS。 此外，需要 Operations Manager 時，解決方案只會使用 Operations Manager 代理程式。
-> - 不需要 Operations Manager 且表格顯示使用管理群組將 Operations Manager 代理程式資料傳送至 OMS 時，一律會使用管理群組將 Operations Manager 代理程式資料傳送至 OMS。 Windows 代理程式會略過管理群組，直接將其資料傳送至 OMS。
-> - 不使用管理群組來傳送 Operations Manager 代理程式資料時，則會直接將資料傳送至 OMS - 略過管理群組。
+> - 需要 Operations Manager 時，一律會使用 Operations Manager 管理群組將解決方案的 Operations Manager 代理程式資料傳送至 Log Analytics。 此外，需要 Operations Manager 時，解決方案只會使用 Operations Manager 代理程式。
+> - 不需要 Operations Manager 且表格顯示使用管理群組將 Operations Manager 代理程式資料傳送至 Log Analytics 時，一律會使用管理群組將 Operations Manager 代理程式資料傳送至 Log Analytics。 Windows 代理程式會略過管理群組，直接將其資料傳送至 Log Analytics。
+> - 不使用管理群組來傳送 Operations Manager 代理程式資料時，則會直接將資料傳送至 Log Analytics - 略過管理群組。
 
 ### <a name="insight--analytics--log-analytics"></a>深入解析與分析 / Log Analytics
 
@@ -242,7 +242,7 @@ Log Analytics Windows 代理程式和 System Center Operations Manager 代理程
 * 不見得永遠正常運作。
   * 從造成小麻煩到完全無法運作都有可能。
 * 預覽版可能對您的系統/環境造成負面影響。
-  * 我們努力不讓負面狀況發生在您使用 OMS 的系統上，但有時難免發生非預期的情形。
+  * 我們努力不讓負面狀況發生在您使用的系統上，但有時難免發生非預期的情形。
 * 可能發生資料遺失/損毀。
 * 我們可能要求您收集診斷記錄或其他資料，以協助進行問題疑難排解。
 * 可能會移除功能或方案 (暫時或永久)。

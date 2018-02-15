@@ -1,6 +1,6 @@
 ---
 title: "Azure 串流分析文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何透過完全受管理的事件處理，在雲端執行 IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。"
+description: "了解如何透過完全受控事件處理，在雲端執行 IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。"
 services: stream-analytics
 author: czeumault
 manager: carolz
@@ -20,7 +20,7 @@ ms.lasthandoff: 11/28/2017
 ---
 # <a name="stream-analytics-documentation"></a>串流分析文件
 
-了解如何利用串流分析 (完全受管理的事件處理引擎)，在雲端執行物聯網 (IoT) 分析。 教學課程和其他文件會示範如何即時分析來自應用程式、感應器、裝置、社交媒體等的資料。 
+了解如何利用串流分析 (完全受控的事件處理引擎)，在雲端執行物聯網 (IoT) 分析。 教學課程和其他文件會示範如何即時分析來自應用程式、感應器、裝置、社交媒體等的資料。 
 
 <ul class="panelContent cardsFTitle">
      <li>

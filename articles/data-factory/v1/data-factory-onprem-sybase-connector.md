@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>使用 Azure Data Factory 從 Sybase 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Sybase
 > 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。
 
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
-若要讓資料管理閘道連接至 Sybase 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [Sybase 的資料提供者 iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 或以上版本。 支援 Sybase 版本 16 和以上版本。
+若要讓資料管理閘道連接至 Sybase 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [Sybase 的資料提供者 iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 或以上版本。 
+
+支援 SAP Sybase SQL Anywhere (ASA) 第 16 版和更新版本；不支援 IQ 和 ASE。
 
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 

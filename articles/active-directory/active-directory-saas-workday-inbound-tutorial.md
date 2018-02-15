@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -164,13 +164,17 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
     ![系統安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "系統安全性群組")  
 
 ### <a name="configure-security-group-options"></a>設定安全性群組選項
-在此步驟中，您授予新的安全性群組，對受下列網域安全性原則保護之物件進行 **Get** 和 **Put** 作業：
+在此步驟中，您會授與下列網域安全性原則所保護之背景工作資料的網域安全性原則權限：
 
-* 外部帳戶佈建
-* 人員資料：公用人員報告
-* 人員資料：所有職位
-* 人員資料：目前人員配置資訊
-* 人員資料：人員個人檔案的職稱
+
+| 作業 | 網域安全性原則 |
+| ---------- | ---------- | 
+| Get 和 Put |  外部帳戶佈建 |
+| Get 和 Put | 人員資料：公用人員報告 |
+| Get 和 Put | 人員資料：所有職位 |
+| Get 和 Put | 人員資料：目前人員配置資訊 |
+| Get 和 Put | 人員資料：人員個人檔案的職稱 |
+| View 和 Modify | 人員資料：公司電子郵件 |
 
 **設定安全性群組選項：**
 
@@ -348,7 +352,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 | **AddressLineData**    |  streetAddress  |     |   建立 + 更新 |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | 建立 + 更新 |
 | **BusinessTitle**   |  title     |     |  建立 + 更新 |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 建立 + 更新                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 僅於建立時寫入                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  建立 + 更新 |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>第 3 部分：設定內部部署同步代理程式
@@ -638,11 +642,121 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>自訂 Workday 使用者屬性的清單
+Active Directory 和 Azure AD 的 Workday 佈建應用程式都包含您可以從中選取的預設 Workday 使用者屬性清單。 不過，這些清單並不完整。 Workday 支援數百個可能的使用者屬性，這些屬性可以是 Workday 租用戶的標準或唯一屬性。 
+
+Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含任何在人力資源 API 的 [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) 作業中公開的屬性。
+
+若要這麼做，您必須使用 [Workday Studio](https://community.workday.com/studio-download) 擷取代表您要使用之屬性的 XPath 運算式，然後在 Azure 入口網站中使用進階屬性編輯器將這些運算式新增至您的佈建組態。
+
+**若要擷取 Workday 使用者屬性的 XPath 運算式：**
+
+1. 下載並安裝 [Workday Studio](https://community.workday.com/studio-download)。 您需要 Workday 社群帳戶才能存取安裝程式。
+
+2. 從下列 URL 下載 Workday Human_Resources WDSL 檔案：https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+
+3. 啟動 Workday Studio。
+
+4. 從命令列中，選取 [Workday] > [在測試器中測試 Web 服務] 選項。
+
+5. 選取 [外部]，然後選取您在步驟 2 下載的 Human_Resources WSDL 檔案。
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. 將 [位置] 欄位設定為 `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`，但是以您實際的執行個體類型取代 "IMPL-CC"，並以您實際的租用戶名稱取代 "TENANT"。
+
+7. 將 [作業] 設定為 [Get_Workers]
+
+8.  按一下 [要求]/[回應] 窗格下方的小型**設定**連結，以設定您的 Workday 認證。 勾選 [驗證]，然後輸入 Workday 整合系統帳戶的使用者名稱和密碼。 請務必將使用者名稱的格式設為 name@tenant，並讓 [WS-Security 使用者名稱權杖] 選項繼續保持已選取狀態。
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. 選取 [確定] 。
+
+10. 在 [要求] 窗格中，貼上以下的 XML 並將 [Employee_ID] 設定為您的 Workday 租用戶中真實使用者的員工識別碼。 選取已填入您想擷取之屬性的使用者。
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. 按一下 [傳送要求] (綠色箭頭) 來執行命令。 如果成功，回應應會出現在 [回應] 窗格中。 請檢查回應以確定它具有您所輸入的使用者識別碼資料，而非錯誤。
+
+12. 如果成功，請從 [回應] 窗格複製 XML 並將它儲存為 XML 檔案。
+
+13. 在 Workday Studio 的命令列中，選取 [檔案] > [開啟檔案...] 並開啟您剛儲存的 XML 檔案。 這會在 Workday Studio XML 編輯器中開啟檔案。
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. 在檔案樹狀目錄中，瀏覽 **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** 來尋找您的使用者資料。 
+
+15. 在 **wd:Worker** 之下，尋找您要新增的屬性並加以選取。
+
+16. 從 [文件路徑] 欄位複製您所選屬性的 XPath 運算式。
+
+17. 從複製的運算式中移除 **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** 前置詞。 
+
+18. 如果所複製運算式中的最後一個項目是節點 (例如："/wd:Birth_Date")，則在運算式的結尾附加 **/text()**。 如果最後一個項目是屬性 (例如："/@wd:type")，則不一定要這麼做。
+
+19. 結果應該類似 `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`。 這是您將複製到 Azure 入口網站中的內容。
+
+
+**若要將自訂 Workday 使用者屬性新增至佈建組態：**
+
+1. 如本教學課程稍早所述，啟動 [Azure 入口網站](https://portal.azure.com)，並瀏覽至 Workday 佈建應用程式的 [佈建] 區段。
+
+2. 將 [佈建狀態] 設定為 [關閉]，然後選取 [儲存]。 這有助於確保您的變更只會在您準備好時生效。
+
+3. 在 [對應] 之下，選取 [將背景工作角色同步至內部部署環境] (或 [將背景工作角色同步至 Azure AD])。
+
+4. 捲動到下一個畫面的底部，然後選取 [顯示進階選項]。
+
+5. 選取 [編輯 Workday 的屬性清單]。
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. 捲動到輸入欄位所在屬性清單的底部。
+
+7. 針對 [名稱]，輸入屬性的顯示名稱。
+
+8. 針對 [類型]，選取屬性的適當對應類型 ([字串] 最常見)。
+
+9. 針對 [API 運算式]，輸入您從 Workday Studio 複製的 XPath 運算式。 範例： `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. 選取 [新增屬性]。
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. 選取上方的 [儲存]，然後在對話方塊中選取 [是]。 如果 [屬性對應] 畫面仍然開啟，請將它關閉。
+
+12. 回到主要 [佈建] 索引標籤，再次選取 [將背景工作角色同步至內部部署環境] (或 [將背景工作角色同步至 Azure AD])。
+
+13. 選取 [新增對應]。
+
+14. 您的新屬性現在應出現在 [來源屬性] 清單中。
+
+15. 視需要為您的新屬性新增對應。
+
+16. 完成後，請記得將 [佈建狀態] 設回 [開啟] 並儲存。
+
+
 ## <a name="known-issues"></a>已知問題
 
 * 執行 **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell 命令時，目前有一項已知問題：若使用自訂網域，則全域管理員認證無法運作 (範例：admin@contoso.com)。 因應措施是在 Azure AD 以 onmicrosoft.com 網域來建立和使用全域管理員帳戶 (範例：admin@contoso.onmicrosoft.com)。
 
 * 已解決之前位於歐盟的 Azure AD 租用戶上並未出現稽核記錄的問題。 不過，位於歐盟的 Azure AD 租用戶需要進行其他代理程式設定。 欲知詳情，請參閱[第 3 部分：設定內部部署同步代理程式](#Part 3: Configure the on-premises synchronization agent)
+
 
 ## <a name="additional-resources"></a>其他資源
 * [教學課程：設定 Workday 與 Azure Active Directory 之間的單一登入](active-directory-saas-workday-tutorial.md)

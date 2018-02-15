@@ -1,10 +1,10 @@
 ---
-title: "如何在 VM 上使用使用者指派受管理服務身分識別從 Azure Sdk"
-description: "指派給使用者的 MSI 在 VM 上搭配使用 Azure Sdk 的程式碼範例。"
+title: "如何從虛擬機器上的 Azure SDK 使用使用者指派的受控服務識別 (MSI)"
+description: "在虛擬機器上使用 Azure SDK 搭配使用者指派之 MSI 的程式碼範例。"
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,24 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>使用 Azure Sdk，與指派使用者給受管理服務身分識別 (MSI)
+# <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>使用 Azure SDK 搭配使用者指派的受控服務識別 (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]本文提供的 SDK 範例，示範如何使用指派給使用者的 MSI 其各自的 Azure SDK 支援的清單。
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+本文提供一份 SDK 範例清單，其中示範如何針對使用者指派的 MSI 使用其各自的 Azure SDK 支援。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - 本文中的所有範例程式碼/指令碼都假設用戶端在已啟用 MSI 的虛擬機器上執行。 在 Azure 入口網站中使用虛擬機器「連線」功能，從遠端連線到您的虛擬機器。 如需有關啟用 VM 上的 MSI 的詳細資訊，請參閱[設定 VM 管理服務身分識別 (MSI) 使用 Azure CLI](msi-qs-configure-cli-windows-vm.md)，或其中一個變數 （使用 PowerShell、 Azure 入口網站、 範本或 Azure SDK） 的發行項。 
+> - 本文中的所有範例程式碼/指令碼都假設用戶端在已啟用 MSI 的虛擬機器上執行。 在 Azure 入口網站中使用虛擬機器「連線」功能，從遠端連線到您的虛擬機器。 如需有關在虛擬機器上啟用 MSI 的詳細資訊，請參閱[使用 Azure CLI 設定虛擬機器受控服務識別 (MSI)](msi-qs-configure-cli-windows-vm.md)，或其中一篇變化文章 (使用 PowerShell、Azure 入口網站、範本或 Azure SDK)。 
 
 ## <a name="sdk-code-samples"></a>SDK 程式碼範例
 

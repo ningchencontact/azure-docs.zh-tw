@@ -67,7 +67,7 @@
               href: azure-stack-understanding-dns.md
             - name: Azure Stack 中的 DNS
               href: azure-stack-dns.md
-        - name: 金鑰保存庫
+        - name: Key Vault
           items:
             - name: 概觀
               href: azure-stack-kv-intro.md

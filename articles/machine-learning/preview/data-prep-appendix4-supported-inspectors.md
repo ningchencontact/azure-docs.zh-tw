@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Azure Machine Learning 資料準備預覽版所支援的偵測器
 本文件概述此預覽中可用的偵測器集合。
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 - 中間值
 - 上四分位數
 - 最大值
-- 平均
+- 平均值
 - 標準差
 
 
@@ -52,6 +52,7 @@ ms.lasthandoff: 12/18/2017
 - 預設貯體數目 (Scott 的規則) 
 - 顯示光暈
 - 核心密度繪圖重疊 (高斯核心) 
+- 使用對數刻度
 
 
 ### <a name="actions"></a>動作
@@ -65,6 +66,7 @@ ms.lasthandoff: 12/18/2017
 - 遞減
 - 包含 Null/錯誤值
 - 顯示光暈
+- 使用對數刻度
 
 
 ### <a name="actions"></a>動作 

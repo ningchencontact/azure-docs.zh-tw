@@ -9,13 +9,14 @@
 ## [ExpressRoute 的虛擬網路閘道](expressroute-about-virtual-network-gateways.md)
 
 # 開始使用
-## [必要條件](expressroute-prerequisites.md)
+## [先決條件](expressroute-prerequisites.md)
 ## [工作流程](expressroute-workflows.md)
 ## [路由需求](expressroute-routing.md)
 ## [QoS 需求](expressroute-qos.md)
 ## [關於將線路從傳統移至 Resource Manager](expressroute-move.md)
 
 # 作法
+
 ## 建立及修改電路
 ### [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
@@ -81,7 +82,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [個案研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [網路部落格](https://azure.microsoft.com/blog/topics/networking/)
-## [價格](https://azure.microsoft.com/pricing/details/expressroute/)
+## [定價](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

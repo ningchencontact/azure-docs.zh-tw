@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -47,9 +47,9 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不使用從 SCOM 代理程式直接連線到 Log Analytics。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |
-| [Azure 診斷](log-analytics-azure-storage.md) | 是 | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
+| [Azure 診斷](log-analytics-azure-storage.md) | yes | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 訂用帳戶。 如果您沒有帳戶，您可以[免費](https://azure.microsoft.com/free/)建立一個。
 - Log Analytics 工作區。 您可以使用現有的帳戶，或者您可以在開始使用此解決方案之前[建立一個新的](log-analytics-quick-create-workspace.md)。
@@ -157,7 +157,7 @@ Azure SQL Database 彈性集區上的高 DTU
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-您可以針對 Azure SQL Database 和彈性集區，使用這些警示型查詢發出特定閾值警示。 若要設定您 OMS 工作區的警示：
+您可以針對 Azure SQL Database 和彈性集區，使用這些警示型查詢發出特定閾值警示。 若要設定 Log Analytics 工作區的警示：
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>若要設定您工作區的警示
 

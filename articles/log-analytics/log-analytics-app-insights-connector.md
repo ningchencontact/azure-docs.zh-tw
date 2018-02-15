@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的 Application Insights Connector 解決方案 (預覽)
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽) 
 
 ![Application Insights 符號](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-Applications Insights Connector 解決方案可協助您診斷效能問題，以及了解使用者如何使用 [Application Insights](../application-insights/app-insights-overview.md) 監視您的應用程式。 在 OMS 中可使用開發人員在 Application Insights 中看見的相同應用程式遙測檢視。 不過，在整合 Application Insights 應用程式與 OMS 時，將作業與應用程式資料放在一個地方可提高您應用程式的可見性。 具有相同的檢視，可協助您與您的應用程式開發人員共同作業。 常見的檢視可協助減少偵測及解決應用程式和平台問題的時間。
+Applications Insights Connector 解決方案可協助您診斷效能問題，以及了解使用者如何使用 [Application Insights](../application-insights/app-insights-overview.md) 監視您的應用程式。 在 Log Analytics 中可使用開發人員在 Application Insights 中看見的相同應用程式遙測檢視。 不過，在整合 Application Insights 應用程式與 Log Analytics 時，將作業與應用程式資料放在一個地方可提高您應用程式的可見性。 具有相同的檢視，可協助您與您的應用程式開發人員共同作業。 常見的檢視可協助減少偵測及解決應用程式和平台問題的時間。
 
 當您使用解決方案時，您可以：
 
 - 在一個地方檢視所有 Application Insights 應用程式，即使它們位於不同的 Azure 訂用帳戶中
 - 讓基礎結構資料與應用程式資料相互關聯
 - 在記錄搜尋中以檢視方塊將應用程式資料視覺化
-- 在 OMS 和 Azure 入口網站中將 Log Analytics 資料轉移至 Application Insights 應用程式
+- 在 Azure 入口網站中將 Log Analytics 資料轉換到 Application Insights 應用程式
 
 ## <a name="connected-sources"></a>連接的來源
 
@@ -63,8 +63,8 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 要牢記在心的其他幾點：
 
-- 您只可以將 Application Insights 應用程式連結至一個 OMS 工作區。
-- 您只可以將[標準或進階 Application Insights 資源](https://azure.microsoft.com/pricing/details/application-insights)連結至 OMS Log Analytics。 不過，您可以使用 Log Analytics 的免費層。
+- 您只可以將 Application Insights 應用程式連結至一個 Log Analytics 工作區。
+- 您只可以將[標準或進階 Application Insights 資源](https://azure.microsoft.com/pricing/details/application-insights)連結至 Log Analytics。 不過，您可以使用 Log Analytics 的免費層。
 
 ## <a name="management-packs"></a>管理組件
 
@@ -129,7 +129,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>在 Azure 入口網站中轉換至應用程式
 
-當您使用 OMS 入口網站時，Application Insights Connector 刀鋒視窗的設計可讓您轉換到所選的 Application Insights 應用程式。 您可以使用此解決方案作為高階監視平台，協助您針對應用程式進行疑難排解。 當您在任何已連線的應用程式中看到潛在問題時，您可以在 OMS 搜尋中深入探詢，也可以直接轉換至 Application Insights 應用程式。
+當您使用 OMS 入口網站時，Application Insights Connector 刀鋒視窗的設計可讓您轉換到所選的 Application Insights 應用程式。 您可以使用此解決方案作為高階監視平台，協助您針對應用程式進行疑難排解。 當您在任何已連線的應用程式中看到潛在問題時，您可以在 Log Analytics 搜尋中深入探詢，也可以直接轉換至 Application Insights 應用程式。
 
 若要轉換，按一下出現在每行結尾的省略符號 (**...**)，然後選取 [在 Application Insights 中開啟]。
 
@@ -140,7 +140,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="sample-corrected-data"></a>取樣更正資料
 
-Application Insights 提供*[取樣更正](../application-insights/app-insights-sampling.md)*來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 OMS 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
+Application Insights 提供*[取樣更正](../application-insights/app-insights-sampling.md)*來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
 
 在記錄搜尋查詢中取樣更正的範例如下：
 
@@ -162,7 +162,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 - 頁面檢視 – 為了讓工作區接收頁面檢視，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views)。
 - 自訂事件 – 為了讓工作區接收訂事件，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent)。
 
-資料可用時，是由 OMS 從 Application Insights 接收。
+資料可用時，是由 Log Analytics 從 Application Insights 接收。
 
 ## <a name="output-data"></a>輸出資料
 

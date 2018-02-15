@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics 升級為新的記錄搜尋
 
@@ -52,13 +52,13 @@ ms.lasthandoff: 12/11/2017
 轉換時，您的工作區會進行下列變更：
 
 - 您使用檢視設計工具建立的任何已儲存搜尋、警示規則及檢視，都會自動轉換成新的語言。  包含在解決方案中的搜尋不會自動轉換，而是會在您開啟它們時即時轉換。  
-- [我的儀表板](log-analytics-dashboards.md)將被取代為[檢視表設計工具](log-analytics-view-designer.md)和 [Azure 儀表板](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md)。  已新增至「我的儀表板」的圖格仍然可用，但僅限讀取。
+- [我的儀表板](log-analytics-dashboards.md)將被取代為[檢視表設計工具](log-analytics-view-designer.md)和 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。  已新增至「我的儀表板」的圖格仍然可用，但僅限讀取。
 - [Power BI 整合](log-analytics-powerbi.md)會取代為新的程序。  您所建立的任何現有 Power BI 排程將會停用，而且需要以新程序來取而代之。
 - 來自[警示動作](log-analytics-alerts-actions.md)的回應 (使用 Webhook 和 Runbook) 有新的格式，而您可能要因此更新警示規則。
 - 查看[記錄搜尋常見問題集](log-analytics-log-search-faq.md)，以了解關於升級的常見問題。
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>如何知道升級中是否有任何問題？
-升級完成之後，工作區的設定中會有**升級摘要**區段。  檢查此區段以瞭解有關您的升級，並檢視發生任何問題的資訊。
+升級完成之後，工作區的設定中會有**升級摘要**區段。  查看此區段，以了解有關升級的資訊，並檢視所遇到的任何問題。
 
  ![升級摘要](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

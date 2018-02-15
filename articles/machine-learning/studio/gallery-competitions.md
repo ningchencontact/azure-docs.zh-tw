@@ -1,6 +1,6 @@
 ---
-title: "Azure AI 圖庫競爭 |Microsoft 文件"
-description: "探索 Azure AI 圖庫中的競爭。"
+title: "Azure AI 資源庫競賽 | Microsoft Docs"
+description: "探索 Azure AI 資源庫中的競賽。"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-competitions-in-the-azure-ai-gallery"></a>探索 Azure AI 圖庫中的競爭
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>探索 Azure AI 資源庫中的競賽
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence Competitions
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/06/2018
 如需關於競賽之常見問題集的解答，請參閱 [Microsoft Cortana Intelligence 競賽常見問題集](competition-faq.md)。
 
 ## <a name="discover"></a>探索
-**[競爭](https://gallery.cortanaintelligence.com/competitions)**頁面 ([aka.ms/CIComp](http://aka.ms/CIComp)) 顯示一份最受歡迎的競爭。
+[[競賽](https://gallery.cortanaintelligence.com/competitions)] 頁面 ([aka.ms/CIComp](http://aka.ms/CIComp)) 會顯示最受歡迎的競賽清單。
 
 ![從 Gallery 首頁選取競賽](./media/gallery-competitions/select-competitions-in-gallery.png)
 

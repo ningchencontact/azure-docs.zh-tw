@@ -2,7 +2,7 @@
 ## [何謂 Azure AD Connect Health？](active-directory-aadconnect-health.md)
 
 # 開始使用
-## [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
+## [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
 ## [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 ## [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)
 

@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 從 Azure 事件中樞接收事件
 
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/11/2017
 
 [事件處理器主機][EventProcessorHost]是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞之事件的接收作業。 使用[事件處理器主機][Event Processor Host]，您可以將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 這個範例顯示單一接收者如何使用[事件處理器主機][EventProcessorHost]。 [相應放大事件處理][Scale out Event Processing with Event Hubs]範例顯示如何搭配使用[事件處理器主機][EventProcessorHost]與多個接收者。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列必要條件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教學課程中的螢幕擷取畫面使用 Visual Studio 2017。
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 10/11/2017
 2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. 在 [建立儲存體帳戶] 刀鋒視窗中，輸入儲存體帳戶名稱。 選擇要在其中建立資源的 Azure 訂用帳戶、資源群組和位置。 然後按一下 [ **建立**]。
+3. 在 [建立儲存體帳戶] 窗格中，輸入儲存體帳戶名稱。 選擇要在其中建立資源的 Azure 訂用帳戶、資源群組和位置。 接著，按一下 [建立]。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. 在儲存體帳戶清單中，按一下新建立的儲存體帳戶。
-5. 在 [儲存體帳戶] 刀鋒視窗中，按一下 [存取金鑰]。 複製 **key1** 的值以便稍後在此教學課程中使用。
+5. 在 [儲存體帳戶] 窗格中，按一下 [存取金鑰]。 複製 **key1** 的值以便稍後在此教學課程中使用。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -62,13 +62,13 @@ ms.lasthandoff: 10/11/2017
 1. 在 Visual Studio 中，使用**主控台應用程式**專案範本建立新的「Visual C# 桌面應用程式」專案。 將專案命名為 **Receiver**。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-2. 在 方案總管 中，以滑鼠右鍵按一下 收件者專案，然後按一下管理方案的 NuGet 封裝。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 [收件者]專案，然後按一下 [管理方案的 NuGet 封裝]。
 3. 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`。 按一下 [安裝] 並接受使用條款。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio 會下載、安裝並加入 [Azure 服務匯流排事件中樞 - EventProcessorHost NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)的參考與其所有相依性。
-4. 在 接收者 專案上按一下滑鼠右鍵，按一下 新增，然後按一下類別。 將新類別命名為 **SimpleEventProcessor**，然後按一下新增 以建立該類別。
+4. 在 [接收者] 專案上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **SimpleEventProcessor**，然後按一下 [新增] 以建立該類別。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 5. 在 SimpleEventProcessor.cs 檔案開頭處新增下列陳述式：

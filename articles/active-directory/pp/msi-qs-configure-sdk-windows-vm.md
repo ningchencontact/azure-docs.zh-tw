@@ -1,9 +1,9 @@
 ---
-title: "如何使用 Azure SDK 的 Azure vm 中設定指派給使用者的 MSI"
-description: "步驟所設定的 Azure vm，使用 Azure SDK 的使用者指派受管理服務身分識別 (MSI) 的逐步指示。"
+title: "如何使用 Azure SDK 為 Azure 虛擬機器設定使用者指派的 MSI"
+description: "逐步解說使用 Azure SDK 為 Azure 虛擬機器設定使用者指派的「受控服務識別 (MSI)」。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19b6179803b8de4102818c1522b00e6b4881d0f0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 097304162b85599acd1f4591091f986a646ebc2a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>設定使用者指派受管理服務身分識別 (MSI) VM，使用 Azure SDK
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>使用 Azure SDK 為虛擬機器設定使用者指派的受控服務識別 (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-受管理的服務身分識別提供 Azure 服務與 Azure Active Directory 中的受管理的身分識別。 您可以使用這個身分識別支援 Azure AD 驗證，而不需要在程式碼中的認證的服務驗證。 
+在 Azure Active Directory 中，「受控服務識別」會提供受控身分識別給 Azure 服務。 您可以使用此身分識別來向支援 Azure AD 驗證的服務進行驗證，而不需要您程式碼中的認證。 
 
-在本文中，您會學習如何啟用及為 Azure VM 中，使用 Azure SDK 中移除指派給使用者的 MSI。
+在本文中，您將了解如何使用 Azure SDK 為 Azure 虛擬機器啟用和移除使用者指派的 MSI。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -43,6 +43,6 @@ Azure 透過一系列的 [Azure SDK](https://azure.microsoft.com/downloads) 來�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱底下 「 設定 MSI 的 Azure VM 」，若要了解如何設定指派給使用者的 MSI，以及在 Azure VM 上的相關文件。
+- 若要了解如何在 Azure 虛擬機器上設定使用者指派的 MSI，請參閱「設定 Azure 虛擬機器的 MSI」底下的相關文章。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。

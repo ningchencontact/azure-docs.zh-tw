@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>從 Azure 儲存體來回移動資料
 如果您想要將內部部署資料移至 Azure 儲存體 (或相反)，有各種不同的方法可以辦到。 最適合的方法將取決於您的案例。 本文將提供不同案例的快速概觀和每個案例的適當供應項目。
@@ -41,9 +41,9 @@ Azure 儲存體提供 .NET、iOS、Java、Android、通用 Windows 平台 (UWP)�
 如果您需要或比較熟悉命令列公用程式 (例如系統管理員)，以下是您應考慮的幾個選項︰
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy 為 Windows 命令列公用程式，可以極高效能將資料複製到 Azure 儲存體，以及從 Azure 儲存體複製資料。 您也可以複製儲存體帳戶內或不同儲存體帳戶之間的資料。
+AzCopy 是命令列公用程式，可以極高效能將資料複製到 Azure 儲存體，以及從 Azure 儲存體複製資料。 您也可以複製儲存體帳戶內或不同儲存體帳戶之間的資料。 AzCopy 可於 [Windows](storage-use-azcopy.md) 和 [Linux](storage-use-azcopy-linux.md) 中取得。
 
-若要深入了解，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md) 。
+若要深入了解，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)或[使用 AzCopy on Linux 傳送資料](storage-use-azcopy-linux.md)。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell 模組提供 Cmdlet 讓您用於管理 Azure 上的服務。 此模組為工作型的命令列 Shell 與指令碼語言，專為系統管理所設計。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。
@@ -667,6 +667,14 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |ObservedCapacity|觀察的容量|Count|平均值|執行時向自動調整規模回報的容量。|無維度|
 |ScaleActionsInitiated|已起始的調整規模動作數|Count|總計|調整規模作業的方向。|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|計量|計量顯示名稱|單位|彙總類型|說明|維度|
+|---|---|---|---|---|---|
+|ServiceApiHit|服務 API 點擊次數總計|Count|計數、總計|服務 API 點擊次數總數|ActivityType、ActivityName|
+|ServiceApiLatency|整體服務 API 延遲|毫秒|計數、平均值、最小值、最大值|服務 API 要求的整體延遲|ActivityType、ActivityName、StatusCode|
+|ServiceApiResult|服務 API 結果總計|Count|計數、總計|服務 API 結果總數|ActivityType、ActivityName、StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |計量|計量顯示名稱|單位|彙總類型|說明|維度|
@@ -853,7 +861,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 
 |計量|計量顯示名稱|單位|彙總類型|說明|維度|
 |---|---|---|---|---|---|
-|QueryDuration||Count|平均值||無維度|
+|QueryDuration|查詢持續時間|Count|平均值|最後一個間隔中的 DAX 查詢持續時間|無維度|
 |QueryPoolJobQueueLength|執行緒︰查詢集區的作業佇列長度|Count|平均值|查詢執行緒集區佇列中的作業數目。|無維度|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

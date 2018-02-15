@@ -59,7 +59,7 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)
-## [價格](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [定價](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [區域可用性](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

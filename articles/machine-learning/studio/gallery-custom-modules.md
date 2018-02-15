@@ -1,6 +1,6 @@
 ---
-title: "Azure AI 圖庫自訂模組 |Microsoft 文件"
-description: "探索 Azure AI 圖庫中的自訂機器學習模組。"
+title: "Azure AI 資源庫自訂模組 | Microsoft Docs"
+description: "探索 Azure AI 資源庫中的自訂機器學習服務模組。"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>探索 Azure AI 圖庫中的自訂機器學習模組
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>探索 Azure AI 資源庫中的自訂機器學習服務模組
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Machine Learning studio 的自訂模組
-Azure AI 庫提供數個[自訂模組](https://gallery.cortanaintelligence.com/customModules)，擴充的 Azure Machine Learning Studio 功能。 您可以匯入這些模組用於您的實驗，以便開發更進階的預測性分析解決方案。
+Azure AI 資源庫會提供數個[自訂模組](https://gallery.cortanaintelligence.com/customModules)，可擴充 Azure Machine Learning Studio 的功能。 您可以匯入這些模組用於您的實驗，以便開發更進階的預測性分析解決方案。
 
 目前，Gallery 提供*時間序列分析**關聯規則**叢集演算法*(k-means 除外) 和*視覺效果*，以及其他的主力公用程式模組。
 
@@ -49,10 +49,10 @@ Azure AI 庫提供數個[自訂模組](https://gallery.cortanaintelligence.com/c
 
 ![新增您自己的留言](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="import"></a>匯入
+## <a name="import"></a>Import
 您可以從 Gallery 將任何自訂模組匯入到您自己的實驗中。
 
-Azure AI 圖庫提供兩種方式可匯入模組的複本：
+Azure AI 資源庫提供兩種匯入模組複本的方式：
 
 * **從 Gallery**。 當您從 Gallery 匯入自訂模組，您也會獲得範例實驗，以舉例說明如何使用模組。
 * **從 Machine Learning Studio 內**。 您可以在使用 Machine Learning Studio 時，可以匯入任何自訂模組 (在此狀況下，您無法取得範例實驗)。
@@ -78,7 +78,7 @@ Azure AI 圖庫提供兩種方式可匯入模組的複本：
 
 自訂模組會複製到您的工作區，並連同內建或自訂的 Machine Learning 模組一起放在模組選擇區中。 現在，您可以將自訂模組用於您自己的實驗中，就如同工作區中任何其他的模組。
 
-## <a name="use"></a>使用情況
+## <a name="use"></a>使用
 
 無論您選擇哪一種方式匯入自訂模組，當您匯入模組時，模組會放在 Machine Learning Studio 的模組選擇區中。 從模組選擇區中，您可以將自訂模組用於工作區中的任何實驗中，就如同任何其他模組一般。
 

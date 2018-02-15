@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 Azure Stack 服務和可能租用戶 VM 的外部可存取公用 IP 位址。 在 Azure Stack 部署期間，這些 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的 PKI 憑證。 本文提供以下相關資訊：
@@ -27,6 +27,8 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 部署 Azure Stack 時需要哪些憑證
 - 取得符合這些規格之憑證的程序
 - 如何在部署期間準備、驗證及使用這些憑證
+> [!NOTE]
+> 在部署期間，您必須將憑證複製到符合您要部署識別提供者 (Azure AD 或 AD FS) 的部署資料夾。 如果您將單一憑證使用於所有端點，您必須將該憑證檔案複製到下表所述的每個部署資料夾。 資料夾結構已預先建置於部署虛擬機器中且位於：C:\CloudDeployment\Setup\Certificates。 
 
 ## <a name="certificate-requirements"></a>憑證需求
 下列清單描述部署 Azure Stack 時所需的憑證需求： 

@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/26/2017
+ms.date: 01/29/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 34dee9511822acec46ba4854729939b84f3c06c6
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>將 BACPAC 檔案匯入到新的 Azure SQL Database
 
@@ -27,10 +27,6 @@ ms.lasthandoff: 10/31/2017
 
 > [!IMPORTANT] 
 > 您將資料庫移轉至 Azure SQL Database 後，可選擇於目前的相容性等級 (針對 AdventureWorks2008R2 資料庫為等級 100) 或更高等級運作資料庫。 如需於特定相容性層級操作資料庫的含意與選項詳細資訊，請參閱 [ALTER DATABASE 相容性層級 (ALTER DATABASE Compatibility Level)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)。 如需相容性層級其他相關資料庫等級設定的資訊，另請參閱 [ALTER DATABASE 範圍組態 (ALTER DATABASE SCOPED CONFIGURATION)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)。   >
-
-> [!NOTE]
-> 若要將 BACPAC 匯入到新的資料庫，您必須先建立 Azure SQL Database 邏輯伺服器。 如需如何使用 SQLPackage 將 SQL Server Database 移轉到 Azure SQL Database 的教學課程，請參閱[移轉 SQL Server 資料庫](sql-database-migrate-your-sql-server-database.md)
->
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>使用 Azure 入口網站從 BACPAC 檔案匯入
 
@@ -46,7 +42,7 @@ ms.lasthandoff: 10/31/2017
 
 若要監視匯入作業的進度，請將邏輯伺服器的頁面開啟為要匯入的資料庫。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
    
-   ![匯入](./media/sql-database-import/import-history.png)![匯入狀態](./media/sql-database-import/import-status.png)
+   ![匯入](./media/sql-database-import/import-history.png) ![匯入狀態](./media/sql-database-import/import-status.png)
 
 確認伺服器上的資料庫為線上狀態，請按一下 [SQL 資料庫]，並確認新的資料庫為 [線上]。
 
