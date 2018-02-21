@@ -22,7 +22,7 @@ ms.lasthandoff: 01/02/2018
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基礎結構備份服務進行 Azure Stack 的備份和資料復原
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您可以使用基礎結構備份服務，來備份和還原設定和服務。 每個 Azure Stack 安裝都包含了服務的執行個體。 您可以使用為了重新部署 Azure Stack 雲端由服務所建立的備份，來還原身分識別、安全性和 Azure Resource Manager 資料。
 

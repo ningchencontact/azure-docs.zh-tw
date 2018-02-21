@@ -19,7 +19,7 @@ ms.date: 12/20/2017
 ms.author: jgao
 ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) 是 Java 整合式開發環境 (IDE)，可用來開發電腦軟體。 在 Hortonworks 沙箱上開發並測試應用程式之後，您可以將應用程式移至 [Azure HDInsight](apache-hadoop-introduction.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始進行本教學課程之前，您必須具備下列項目：
 

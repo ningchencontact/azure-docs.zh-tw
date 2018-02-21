@@ -16,7 +16,7 @@ ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: 891ca1c2db431c792329b1c67c24e2e453aa00d1
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -145,7 +145,7 @@ Azure Linux 代理程式 Udev 規則會在 /dev/disk/azure 路徑下方建構一
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 如需詳細資訊，請參閱下列文章：
 

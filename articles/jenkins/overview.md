@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure 與 Jenkins
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
  
 - Azure Marketplace 中的 [Jenkins 方案範本](install-jenkins-solution-template.md)。
 - [Azure 虛擬機器](/azure/virtual-machines/linux/overview)。 請參閱我們的[教學課程](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)以在 VM 上建立 Jenkins 執行個體。
-- 在 [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) 中執行的 Kubernetes 叢集上，請參閱我們的[作法](/azure/container-service/kubernetes/container-service-kubernetes-jenkin)。
+- 在 [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) 中執行的 Kubernetes 叢集上，請參閱我們的[作法](/azure/container-service/kubernetes/container-service-kubernetes-jenkins)。
 
 使用 [Log Analytics](/azure/log-analytics/log-analytics-overview)、[Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) 和 [Azure CLI] (/cli/azure/overview)，監視和管理 Azure Jenkins 部署。
 

@@ -33,7 +33,7 @@ ms.lasthandoff: 01/08/2018
 
 下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化連接。 它們是隨著 [Azure PowerShell 模組](/powershell/azure/overview) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
-|Cmdlet|描述|
+|Cmdlet|說明|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|擷取連接。 包含具有連接欄位值的雜湊表。|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|建立新連接。|
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/08/2018
 
 下表中的活動是用來存取 Runbook 或 DSC 設定中的連接。
 
-|活動|描述|
+|活動|說明|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|取得要使用的連接。 傳回具有連線屬性的雜湊表。|
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/08/2018
 ## <a name="python2-functions"></a>Python2 函式 
 下表中的函式用於存取 Python2 Runbook 中的連線。 
 
-| 函式 | 描述 | 
+| 函式 | 說明 | 
 |:---|:---| 
 | automationassets.get_automation_connection | 擷取連接。 傳回具有連線屬性的字典。 | 
 

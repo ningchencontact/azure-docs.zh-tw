@@ -38,7 +38,7 @@ ms.lasthandoff: 01/09/2018
 > * 搜尋索引
 > * 在入口網站中檢視索引子組態
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊[免費試用](https://azure.microsoft.com/free/)。 
 

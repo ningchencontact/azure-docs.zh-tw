@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教學課程
 
@@ -45,12 +45,12 @@ ms.lasthandoff: 01/09/2018
   
 -   如何將表格式模型部署到 **Azure Analysis Services** 伺服器或內部部署 SQL Server 2017 Analysis Services 伺服器。  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 若要完成本教學課程，您需要：  
   
 -   Azure Analysis Services 伺服器。 註冊免費的 [Azure Analysis Services 試用版](https://azure.microsoft.com/services/analysis-services/)和[建立伺服器](../analysis-services-create-server.md)。 
 
--   隨附**範例 AdventureWorksDW 資料庫**的 [Azure SQL 資料倉儲](../../sql-data-warehouse/create-data-warehouse-portal.md)，或隨附 [Adventure Works 範例資料庫](http://go.microsoft.com/fwlink/?LinkID=335807)的 SQL Server 資料倉儲。
+-   隨附**範例 AdventureWorksDW 資料庫**的 [Azure SQL 資料倉儲](../../sql-data-warehouse/create-data-warehouse-portal.md)，或隨附 [Adventure Works 範例資料庫](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)的 SQL Server 資料倉儲。
 
     **重要事項︰**如果您將範例資料庫安裝到內部部署 SQL Server 資料倉儲，且將模型部署到 Azure Analysis Services 伺服器，就需要[內部部署資料閘道](../analysis-services-gateway.md)。
 

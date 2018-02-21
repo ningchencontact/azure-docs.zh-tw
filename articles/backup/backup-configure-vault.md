@@ -17,7 +17,7 @@ ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: 89553ee973e4aebc96b60caef9eefa80178fadfb
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/06/2018
 ---

@@ -17,8 +17,9 @@
 ### [安全性技術功能](azure-security-technical-capabilities.md)
 ### [在 Azure 中控管](governance-in-azure.md)
 ### [待用資料加密](azure-security-encryption-atrest.md)
-### 架構藍圖
-#### [相容性 - PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Azure 安全性與合規性藍圖
+#### PCI DSS
+##### [適用於符合 PCI DSS 規範之環境的付款處理](./blueprints/payment-processing-blueprint.md)
 ##### [需求概觀](./blueprints/pci-dss-requirements-overview.md)
 ##### [需求 1 - 防火牆](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [需求 2 - 密碼](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [需求 10 - 監視](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [需求 11 - 測試](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [需求 12 - 原則](./blueprints/pci-dss-requirement-12-policy.md)
-#### [合規性 - FedRAMP](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Web 應用程式自動化](./blueprints/fedramp.md)
 ##### [安全性控制項概觀](./blueprints/fedramp-controls-overview.md)
 ##### [存取控制](./blueprints/fedramp-access-controls.md)
 ##### [稽核和責任](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [系統與通訊保護](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [系統和資訊完整性](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [系統和服務擷取](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [相容性 - 英國官方](./blueprints/uk-official-three-tier-applications-overview.md)
+#### 英國官方 (UK-OFFICIAL)
+##### [三層式 Web 應用程式自動化](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [概觀](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [原則概觀](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### 合規性 - 金融服務
+#### 金融服務
 ##### [適用於已規範工作負載的金融服務](./blueprints/financial-services-regulated-workloads.md)
 
 # 開始使用

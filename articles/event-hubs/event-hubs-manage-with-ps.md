@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 您也可以使用 Azure Resource Manager 範本來管理事件中樞資源。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本建立事件中樞命名空間與事件中樞和取用者群組](event-hubs-resource-manager-namespace-event-hub.md)文章。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，您將需要下列項目：
 

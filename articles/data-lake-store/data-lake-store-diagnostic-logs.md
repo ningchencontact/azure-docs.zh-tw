@@ -25,7 +25,7 @@ ms.lasthandoff: 01/08/2018
 
 組織可以啟用 Azure Data Lake Store 帳戶的診斷記錄，以便收集資料存取稽核記錄，取得如存取資料的使用者清單、資料存取頻率、儲存在帳戶內的資料量等資訊。啟用時，系統會以最佳方式來記錄診斷和 (或) 要求。 只有在對服務端點提出要求時，才會建立要求和診斷記錄項目。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md) 的指示。
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 01/08/2018
     }
 
 #### <a name="request-log-schema"></a>要求記錄的結構描述
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |作業發生之資源的識別碼 |
@@ -127,7 +127,7 @@ ms.lasthandoff: 01/08/2018
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="request-log-properties-schema"></a>要求記錄屬性結構描述
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
 | Path |字串 |執行作業的所在路徑 |
@@ -160,7 +160,7 @@ ms.lasthandoff: 01/08/2018
     }
 
 #### <a name="audit-log-schema"></a>稽核記錄的結構描述
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |作業發生之資源的識別碼 |
@@ -172,7 +172,7 @@ ms.lasthandoff: 01/08/2018
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="audit-log-properties-schema"></a>稽核記錄屬性結構描述
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | StreamName |字串 |執行作業的所在路徑 |
 

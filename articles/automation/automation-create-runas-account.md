@@ -40,7 +40,7 @@ ms.lasthandoff: 01/10/2018
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsCertificate 的自動化憑證資產。 憑證資產會保存管理憑證所使用的憑證私密金鑰。
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsConnection 的自動化連線資產。 連線資產會保存訂用帳戶名稱、subscriptionId 和憑證資產名稱。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您選擇[使用 PowerShell 建立執行身分帳戶](#create-run-as-account-using-powershell)，此程序需要：
 
 * 具有 Azure Resource Manager 模組 3.4.1 和更新版本的 Windows 10 與 Windows Server 2016。 PowerShell 指令碼不支援舊版 Windows。

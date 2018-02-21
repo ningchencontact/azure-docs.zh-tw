@@ -33,7 +33,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**30 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 5 課︰建立計算結果欄](../tutorials/aas-lesson-5-create-calculated-columns.md)。  
   
 ## <a name="create-measures"></a>建立量值  
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/09/2018
 
     |欄|量值名稱|自動加總 (∑)|公式|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|計數|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|總和|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|總和|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|總和|=SUM([TotalProductCost])|  

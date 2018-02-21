@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**10 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 此補充課程是表格式模型教學課程的一部分。 在此補充課程中執行工作之前，您應已完成所有先前的課程或已完成 Adventure Works 網際網路銷售範例模型專案。  
   
 ## <a name="whats-the-issue"></a>有什麼問題？

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>如何在初次開機時自訂 Linux 虛擬機器
 在先前的教學課程中，您學到了如何以 SSH 連線到虛擬機器 (VM) 並手動安裝 NGINX。 若要以快速且一致的方式建立 VM，您通常需要借助某種形式的自動化。 在初次開機時自訂 VM 的常見方法是使用 [cloud-init (英文)](https://cloudinit.readthedocs.io)。 在本教學課程中，您將了解如何：
@@ -105,13 +105,13 @@ runcmd:
 如需 Cloud-init 組態選項的詳細資訊，請參閱 [Cloud-init 組態範例](https://cloudinit.readthedocs.io/en/latest/topics/examples.html) \(英文\)。
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-建立 VM 之前，請先使用 [az group create](/cli/azure/group#create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupAutomate 的資源群組：
+建立 VM 之前，請先使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupAutomate 的資源群組：
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-現在，使用 [az vm create](/cli/azure/vm#create) 建立 VM。 使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt 組態的完整路徑。 下列範例會建立名為 myAutomatedVM 的 VM：
+現在，使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt 組態的完整路徑。 下列範例會建立名為 myAutomatedVM 的 VM：
 
 ```azurecli-interactive 
 az vm create \
@@ -125,7 +125,7 @@ az vm create \
 
 系統需要花幾分鐘的時間來建立 VM、安裝封裝和啟動應用程式。 在 Azure CLI 將您返回提示字元之後，背景工作會繼續執行。 可能需要再等候幾分鐘，才能存取應用程式。 建立 VM 之後，請注意 Azure CLI 所顯示的 `publicIpAddress`。 此位址是用來透過 Web 瀏覽器存取 Node.js 應用程式。
 
-若要讓 Web 流量到達您的 VM，請使用 [az vm open-port](/cli/azure/vm#open-port) 從網際網路開啟通訊埠 80：
+若要讓 Web 流量到達您的 VM，請使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 從網際網路開啟通訊埠 80：
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
@@ -150,7 +150,7 @@ Azure Key Vault 會保護密碼編譯金鑰和祕密，像是憑證或密碼。 
 - 建立 VM 並插入憑證
 
 ### <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
-首先，使用 [az keyvault create](/cli/azure/keyvault#create) 建立 Key Vault，並加以啟用以供您在部署 VM 時使用。 每個 Key Vault 需要唯一的名稱，而且應該全部小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 mykeyvault：
+首先，使用 [az keyvault create](/cli/azure/keyvault#az_keyvault_create) 建立 Key Vault，並加以啟用以供您在部署 VM 時使用。 每個 Key Vault 需要唯一的名稱，而且應該全部小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 mykeyvault：
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -161,7 +161,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>產生憑證並儲存於 Key Vault
-若要在生產環境中使用，您應該使用 [az keyvault certificate import](/cli/azure/keyvault/certificate#import) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何透過使用預設憑證原則的 [az keyvault certificate create](/cli/azure/keyvault/certificate#create) 來產生自我簽署憑證：
+若要在生產環境中使用，您應該使用 [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何透過使用預設憑證原則的 [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) 來產生自我簽署憑證：
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -172,7 +172,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>準備要與 VM 搭配使用的憑證
-若要在 VM 建立程序期間使用憑證，使用 [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions) 來取得憑證的識別碼。 VM 需要特定格式的憑證，才能在開機時將其插入，因此請將憑證轉換為 [az vm format-secret](/cli/azure/vm#format-secret)。 下列範例會將這些命令的輸出指派給變數，以方便在後續步驟中使用：
+若要在 VM 建立程序期間使用憑證，使用 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions) 來取得憑證的識別碼。 VM 需要特定格式的憑證，才能在開機時將其插入，因此請將憑證轉換為 [az vm format-secret](/cli/azure/vm#az_vm_format_secret)。 下列範例會將這些命令的輸出指派給變數，以方便在後續步驟中使用：
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -238,7 +238,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>建立安全的 VM
-現在，使用 [az vm create](/cli/azure/vm#create) 建立 VM。 使用 `--secrets` 參數，從 Key Vault 插入憑證資料。 如同先前範例，您也要使用 `--custom-data` 參數來傳入 cloud-init 組態：
+現在，使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 使用 `--secrets` 參數，從 Key Vault 插入憑證資料。 如同先前範例，您也要使用 `--custom-data` 參數來傳入 cloud-init 組態：
 
 ```azurecli-interactive 
 az vm create \
@@ -253,7 +253,7 @@ az vm create \
 
 系統需要花幾分鐘的時間來建立 VM、安裝封裝和啟動應用程式。 在 Azure CLI 將您返回提示字元之後，背景工作會繼續執行。 可能需要再等候幾分鐘，才能存取應用程式。 建立 VM 之後，請注意 Azure CLI 所顯示的 `publicIpAddress`。 此位址是用來透過 Web 瀏覽器存取 Node.js 應用程式。
 
-若要讓 Web 流量安全到達您的 VM，請使用 [az vm open-port](/cli/azure/vm#open-port) 從網際網路開啟通訊埠 443：
+若要讓 Web 流量安全到達您的 VM，請使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 從網際網路開啟通訊埠 443：
 
 ```azurecli-interactive 
 az vm open-port \

@@ -49,7 +49,7 @@ ms.lasthandoff: 01/09/2018
 * [MongoDB API 資料來源支援](https://feedback.azure.com/forums/263029-azure-search/suggestions/18861421-documentdb-indexer-should-be-able-to-index-mongodb)
 * [Apache Cassandra API 資料來源支援](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure Cosmos DB 索引子，您必須擁有 [Azure 搜尋服務](search-create-service-portal.md)，並建立索引、資料來源，最後再建立索引子。 您可以使用 [入口網站](search-import-data-portal.md)、[.NET SDK](/dotnet/api/microsoft.azure.search)、或適用於所有非 .NET 語言的 [REST API](/rest/api/searchservice/) 建立這些物件。 
 

@@ -28,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) 是一個專門設計來在關聯式資料庫和巨量資料儲存機制 (例如 Data Lake Store) 之間傳送資料的工具。 您可以使用它從像是 Azure SQL Database 這類的關聯式資料庫管理系統 (RDBMS)，匯入資料至 Data Lake Store。 您可以使用巨量資料工作負載來轉換和分析資料，然後重新將資料匯出到 RDBMS。 在本教學課程中，您會使用 Azure SQL Database 做為匯入/匯出之來源關聯式資料庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。

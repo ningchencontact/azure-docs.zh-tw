@@ -26,7 +26,7 @@ ms.lasthandoff: 01/10/2018
 
 以現今 OMS 和 Configuration Manager 之間的整合為基礎建置，您可以透過在 Configuration Manager 中建置並預先暫存軟體更新部署，並使用[更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)取得所完成更新部署的詳細狀態，藉此報告和更新受控 Windows 伺服器。 如果您將 Configuration Manager 用於更新相容性報告，而不是用於管理 Windows 伺服器的更新部署，您可以繼續向 Configuration Manager 報告，同時安全性更新則是使用 OMS 更新管理解決方案來管理。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您必須將[更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)新增至您的 Log Analytics 工作區，並與您位於相同的資源群組與區域的自動化帳戶連結。   
 * 目前由 System Center Configuration Manager 環境所管理的 Windows 伺服器，也需要向也已啟用更新管理解決方案的 Log Analytics 工作區報告。  

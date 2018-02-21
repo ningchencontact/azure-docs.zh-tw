@@ -18,7 +18,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -133,7 +133,7 @@ Resource Manager 範本中，您可以使用啟動程序︰
 
 ![HDInsight Hadoop 自訂叢集 Bootstrap Azure Resource Manager 範本](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
 * [開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]
 * [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]

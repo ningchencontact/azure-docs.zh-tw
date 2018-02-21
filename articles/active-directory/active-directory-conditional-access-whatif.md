@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory 條件式存取假設工具 - 預覽
 
@@ -78,14 +78,14 @@ ms.lasthandoff: 01/18/2018
 
 ### <a name="ip-address"></a>IP 位址
 
-IP 位址是用來模擬[位置條件](active-directory-conditional-access-azure-portal.md#locations)的單一 IPv4 位址。 此位址代表使用者用來登入之裝置的網際網路對向位址。 例如，您可以瀏覽至[我的 IP 位址為何](https://whatismyipaddress.com)來確認裝置的 IP 位址。    
+IP 位址是用來模擬[位置條件](active-directory-conditional-access-locations.md)的單一 IPv4 位址。 此位址代表使用者用來登入之裝置的網際網路對向位址。 例如，您可以瀏覽至[我的 IP 位址為何](https://whatismyipaddress.com)來確認裝置的 IP 位址。    
 
 ### <a name="device-platforms"></a>裝置平台
 
-這項設定會模擬[裝置平台條件](active-directory-conditional-access-azure-portal.md#device-platforms)，並代表**所有平台 (包括不支援平台)** 的同等項目。 
+這項設定會模擬[裝置平台條件](active-directory-conditional-access-conditions.md#device-platforms)，並代表**所有平台 (包括不支援平台)** 的同等項目。 
 ### <a name="client-apps"></a>用戶端應用程式
 
-這項設定會模擬[用戶端應用程式條件](active-directory-conditional-access-azure-portal.md#client-apps)。
+這項設定會模擬[用戶端應用程式條件](active-directory-conditional-access-conditions.md#client-apps)。
 根據預設，此設定會導致系統評估已選取 [瀏覽器] 和 (或) [行動裝置應用程式和桌面用戶端] 的所有原則。 此外，還會偵測強制執行 **Exchange ActiveSync (EAS)** 的原則。 您可以選取下列選項來縮小此設定的範圍：
 
 - **瀏覽器**：可評估所有至少已選取 [瀏覽器] 的原則。 
@@ -95,7 +95,7 @@ IP 位址是用來模擬[位置條件](active-directory-conditional-access-azure
 
 ### <a name="sign-in-risk"></a>登入風險
 
-這項設定會模擬[登入風險條件](active-directory-conditional-access-azure-portal.md#sign-in-risk)。   
+這項設定會模擬[登入風險條件](active-directory-conditional-access-conditions.md#sign-in-risk)。   
 
 
 ## <a name="evaluation"></a>評估 

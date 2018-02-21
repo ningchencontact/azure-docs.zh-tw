@@ -31,7 +31,7 @@ ms.lasthandoff: 01/10/2018
 在本文中，您會了解如何使用 .NET SDK 向 Azure Data Lake Store 進行服務對服務驗證。 如需使用 .NET SDK 向 Data Lake Store 進行使用者驗證，請參閱[使用 .NET SDK 向 Data Lake Store 進行使用者驗證](data-lake-store-end-user-authenticate-net-sdk.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Visual Studio 2013、2015 或 2017**。 以下指示使用 Visual Studio 2017。
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/10/2018
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | 名稱 |CreateADLApplication |
+   | Name |CreateADLApplication |
 4. 按一下 [確定]  以建立專案。
 
 5. 將 NuGet 套件新增至您的專案。

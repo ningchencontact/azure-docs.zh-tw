@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>資料的伺服器工作負載預測 (TB)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/12/2018
 在此案例中，您將焦點放在每部機器 (或伺服器) 的工作負載預測。 特別的是，您會使用每部伺服器上的工作階段資料，預測未來伺服器的工作負載類別。 您使用 [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html) 中的隨機樹系分類器，將每個伺服器的負載歸類為低、中、高三類。 在此範例中的機器學習技術和工作流程可以輕易地延伸到其他類似的問題。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 要執行此範例所需符合的必要條件如下：
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/12/2018
 * Windows 10 (本範例中的指示大多與 macOS 系統通用)。
 * 適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)，最好位於資料所在的美國東部區域。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 
 
-請依照[指示](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present)為 AML Workbench 啟用虛擬機器上的無密碼 sudoer 存取。  您可以選擇使用[以 SSH 金鑰為基礎的驗證，以在 AML Workbench 中建立及使用虛擬機器](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取虛擬機器。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
+請依照[指示](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present)為 AML Workbench 啟用虛擬機器上的無密碼 sudoer 存取。  您可以選擇使用[以 SSH 金鑰為基礎的驗證，以在 AML Workbench 中建立及使用虛擬機器](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)。 在此範例中，我們會使用密碼來存取虛擬機器。  儲存含有 DSVM 資訊的下列表格，以供後續步驟使用：
 
  欄位名稱| 值 |  
  |------------|------|
@@ -99,7 +99,7 @@ DSVM IP 位址 | xxx|
 
 資料大小總計約為 1 TB。 每個檔案大約 1-3 GB，採用 CSV 檔案格式，且沒有標頭。 每個資料列都代表特定伺服器上的交易負載。 資料結構描述的詳細資訊如下所示：
 
-資料行編號 | 欄位名稱| 類型 | 描述 |  
+資料行編號 | 欄位名稱| 類型 | 說明 |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | DateTime |    工作階段開始時間
 2  |`SessionEnd`    | DateTime | 工作階段結束時間
@@ -127,7 +127,7 @@ DSVM IP 位址 | xxx|
 
 此範例中的檔案整理如下。
 
-| 檔案名稱 | 類型 | 描述 |
+| 檔案名稱 | 類型 | 說明 |
 |-----------|------|-------------|
 | `Code` | 資料夾 | 此資料夾包含範例中的所有程式碼。 |
 | `Config` | 資料夾 | 此資料夾包含組態檔。 |
@@ -158,7 +158,7 @@ DSVM IP 位址 | xxx|
 
 您應使用一個容器進行一個月資料集的實驗，然後使用另一個容器進行完整資料集的實驗。 因為資料和模型都會儲存為 Parquet 檔案，每個檔案實際上都是容器中的資料夾，其中包含多個 blob。 所產生的容器如下所示：
 
-| blob 前置詞名稱 | 類型 | 描述 |
+| blob 前置詞名稱 | 類型 | 說明 |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | 數值特徵的標準 scaler 模型。 |
 | stringIndexModel | Parquet | 非數值特徵的字串索引子模型。|
@@ -184,7 +184,7 @@ DSVM IP 位址 | xxx|
 
 第一個引數 `configFilename` 是一個本機組態檔，您在其中儲存 blob 儲存體資訊並指定載入資料的位置。 它會預設為 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json)，且即將用於一個月資料執行。 我們也加入您需要在完整資料集上使用的 [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json)。 組態中的內容如下所示： 
 
-| 欄位 | 類型 | 描述 |
+| 欄位 | 類型 | 說明 |
 |-----------|------|-------------|
 | storageAccount | 字串 | Azure 儲存體帳戶名稱 |
 | storageContainer | 字串 | Azure 儲存體帳戶中用來儲存中繼結果的容器 |
@@ -330,7 +330,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 在本節中，您會讓在先前步驟中建立為 Web 服務的模型付諸實行 (稱之為「運算化」)。 您也會了解如何使用 Web 服務來預測工作負載。 使用機器語言運算化的命令列介面 (CLI) 將程式碼和相依性封裝為 Docker 映像，並將模型發佈為容器化的 Web 服務。
 
-您可以使用 Machine Learning Workbench 中的命令列提示字元執行 CLI。  也可以遵循[安裝指南](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md)在 Ubuntu Linux 上執行 CLI。 
+您可以使用 Machine Learning Workbench 中的命令列提示字元執行 CLI。  也可以遵循[安裝指南](./deployment-setup-configuration.md#using-the-cli)在 Ubuntu Linux 上執行 CLI。 
 
 > [!NOTE]
 > 在下列所有命令中，將所有引數變數取代為實際值。 完成這個部份大約需要 40 分鐘。
@@ -416,7 +416,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 8. 調整 Web 服務。 
 
-   如需詳細資訊，請參閱[如何調整 Azure Container Service 叢集上的運算化](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md)。
+   如需詳細資訊，請參閱[如何調整 Azure Container Service 叢集上的運算化](how-to-scale-clusters.md)。
  
 
 ## <a name="next-steps"></a>後續步驟

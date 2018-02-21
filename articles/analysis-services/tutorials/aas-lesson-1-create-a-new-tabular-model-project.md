@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**10 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 本主題是表格式模型製作教學課程的第一課。 若要完成本課程，您需要備齊許多必要條件。 若要深入了解，請參閱 [Azure Analysis Services - Adventure Works 教學課程](../tutorials/aas-adventure-works-tutorial.md)。  
   
 ## <a name="create-a-new-tabular-model-project"></a>建立新的表格式模型專案  

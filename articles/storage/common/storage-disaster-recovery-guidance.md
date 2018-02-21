@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
 在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。
@@ -26,10 +26,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="how-to-prepare"></a>如何做好準備
 每位客戶備妥自己的災害復原計畫是相當重要的。 自儲存體中斷的狀況復原，通常需要作業人員與自動化程序，以將應用程式重新啟動回運作狀態。 請參閱下列 Azure 文件，以建立您的災害復原計畫：
 
-* [Azure 應用程式的災害復原和高可用性](/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Azure 復原技術指導](/azure/architecture/resiliency.md)
+* [可用性檢查清單](https://docs.microsoft.com/azure/architecture/checklist/availability)
+* [為 Azure 設計有彈性的應用程式](/azure/architecture/resiliency)
 * [Azure Site Recovery 服務](https://azure.microsoft.com/services/site-recovery/)
-* [Azure 儲存體複寫](storage-redundancy.md)
+* [Azure 儲存體複寫](storage-redundancy)
 * [Azure 備份服務](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>如何偵測

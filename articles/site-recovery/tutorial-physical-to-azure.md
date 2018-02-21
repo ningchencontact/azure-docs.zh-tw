@@ -2,23 +2,17 @@
 title: "使用 Azure Site Recovery 設定實體內部部署伺服器至 Azure 的災害復原 | Microsoft Docs"
 description: "了解如何使用 Azure Site Recovery 服務，以設定內部部署 Windows 和 Linux 伺服器至 Azure 的災害復原。"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e582cb789e402496c920e4a8fe27d5c6848531
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 

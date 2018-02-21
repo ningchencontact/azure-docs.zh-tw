@@ -66,7 +66,7 @@ Azure Data Factory [複製活動](data-factory-data-movement-activities.md)可�
 }
 ```
 
-| 屬性 | 描述 | 允許的值 | 必要 |
+| 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | 啟用或停用在複製期間略過不相容的資料列。 | True<br/>FALSE (預設值) | 否 |
 | **redirectIncompatibleRowSettings** | 當您想要記錄不相容的資料列時，可指定的一組屬性。 | &nbsp; | 否 |

@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 在本文中，您會了解如何使用 REST API 在 Data Lake Store 上執行帳戶管理作業。 帳戶管理作業包括建立 Data Lake Store 帳戶、刪除 Data Lake Store 帳戶等。如需有關如何使用 REST API 在 Data Lake Store 上執行檔案系統作業的指示，請參閱[使用 REST API 在 Data Lake Store 上進行檔案系統作業](data-lake-store-data-operations-rest-api.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **[cURL](http://curl.haxx.se/)**。 本文使用 cURL 示範如何對 Data Lake Store 帳戶進行 REST API 呼叫。

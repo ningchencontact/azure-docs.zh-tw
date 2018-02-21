@@ -685,7 +685,7 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a>內建函式  
  Azure Cosmos DB 提供許多內建 SQL 函式。 內建函式的分類如下所示。  
   
-|函式|描述|  
+|函式|說明|  
 |--------------|-----------------|  
 |[數學函式](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
 |[類型檢查函式](#bk_type_checking_functions)|類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。|  

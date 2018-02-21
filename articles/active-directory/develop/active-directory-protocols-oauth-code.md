@@ -47,7 +47,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。  租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
 | client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下 [Active Directory]，按一下目錄，選擇應用程式，然後按一下 [設定] |
@@ -75,7 +75,7 @@ GET  HTTP/1.1 302 Found
 Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | admin_consent |如果系統管理員已對同意要求提示表示同意，則值為 True。 |
 | code |應用程式要求的授權碼。 應用程式可以使用授權碼要求目標資源的存取權杖。 |
@@ -91,7 +91,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | 錯誤 |[OAuth 2.0 授權架構](http://tools.ietf.org/html/rfc6749)的 5.2 節中所定義的錯誤碼值。 下一份資料表會描述 Azure AD 傳回的錯誤碼。 |
 | error_description |更詳細的錯誤描述。 此訊息的目的並非要方便使用者了解。 |
@@ -100,7 +100,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>授權端點錯誤的錯誤碼
 下表說明各種可能在錯誤回應的 `error` 參數中傳回的錯誤碼。
 
-| 錯誤碼 | 描述 | 用戶端動作 |
+| 錯誤碼 | 說明 | 用戶端動作 |
 | --- | --- | --- |
 | invalid_request |通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求。 這是通常會在初始測試期間擷取到的開發錯誤。 |
 | unauthorized_client |不允許用戶端應用程式要求授權碼。 |這通常會在用戶端應用程式未在 Azure AD 中註冊，或未加入至使用者的 Azure AD 租用戶時發生。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
@@ -129,7 +129,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。  租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
 | client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 應用程式識別碼會顯示在應用程式註冊的設定中。  |
@@ -162,7 +162,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | access_token |為帶正負號之 JSON Web 權杖 (JWT) 的已要求存取權杖。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth2.0 授權架構︰持有人權杖用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
@@ -202,7 +202,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 
 `id_token` 參數包含下列宣告類型：
 
-| 宣告類型 | 描述 |
+| 宣告類型 | 說明 |
 | --- | --- |
 | aud |權杖的對象。 向用戶端應用程式發出權杖時，對象是用戶端的 `client_id` 。 |
 | exp |到期時間。 權杖的到期時間。 權杖若要有效，目前的日期/時間必須小於或等於 `exp` 值。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖有效時間到期的秒數。|
@@ -236,7 +236,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -248,7 +248,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 #### <a name="http-status-codes"></a>HTTP 狀態碼
 下表列出權杖發行端點傳回的 HTTP 狀態碼。 在某些情況下，錯誤碼就足以描述回應，但若發生錯誤，您就必須剖析隨附的 JSON 文件並檢查其錯誤碼。
 
-| HTTP 代碼 | 描述 |
+| HTTP 代碼 | 說明 |
 | --- | --- |
 | 400 |預設的 HTTP 代碼。 用於大部分情況，通常是因為要求的格式不正確。 修正並重新提交要求。 |
 | 401 |驗證失敗。 例如，要求遺漏 client_secret 參數。 |
@@ -256,7 +256,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | 500 |服務發生內部錯誤。 重試要求。 |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>權杖端點錯誤的錯誤碼
-| 錯誤碼 | 描述 | 用戶端動作 |
+| 錯誤碼 | 說明 | 用戶端動作 |
 | --- | --- | --- |
 | invalid_request |通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求 |
 | invalid_grant |授權碼無效或已過期。 |嘗試向 `/authorize` 端點提出新的要求 |
@@ -288,7 +288,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 ```
 
 #### <a name="error-parameters"></a>錯誤參數
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | authorization_uri |授權伺服器的 URI (實體端點)。 此值也可做為查閱索引鍵，以從探索端點取得伺服器的詳細資訊。 <p><p> 用戶端必須確認授權伺服器受到信任。 當資源受到 Azure AD 保護時，便足以確認 URL 開頭為 https://login.microsoftonline.com 或 Azure AD 支援的其他主機名稱。 租用戶特定資源應該一律會傳回租用戶特定授權 URI。 |
 | 錯誤 |[OAuth 2.0 授權架構](http://tools.ietf.org/html/rfc6749)的 5.2 節中所定義的錯誤碼值。 |
@@ -298,7 +298,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>持有人配置錯誤碼
 RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的資源，定義下列錯誤。
 
-| HTTP 狀態碼 | 錯誤碼 | 描述 | 用戶端動作 |
+| HTTP 狀態碼 | 錯誤碼 | 說明 | 用戶端動作 |
 | --- | --- | --- | --- |
 | 400 |invalid_request |要求的格式不正確。 例如，它可能遺漏參數或使用相同參數兩次。 |修正錯誤，然後重試要求。 這種類型的錯誤應該只會在開發期間發生，並且會在初始測試中偵測出來。 |
 | 401 |invalid_token |存取權杖遺漏、無效或已撤銷。 error_description 參數的值會提供其他詳細資料。 |從授權伺服器要求新的權杖。 如果新的權杖失敗，則表示已發生未預期的錯誤。 傳送錯誤訊息給使用者，並在隨機的延遲之後重試。 |
@@ -341,7 +341,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | token_type |權杖類型。 唯一支援的值為 **bearer**。 |
 | expires_in |權杖的剩餘存留期 (秒)。 一般值為 3600 (1 小時)。 |
@@ -367,7 +367,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |

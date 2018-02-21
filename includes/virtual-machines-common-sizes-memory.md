@@ -81,7 +81,7 @@ ACU：180 - 240
 
 <sup>1</sup> GS 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。 如需詳細資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)。 
 
-<sup>2</sup> 執行個體會隔離至單一客戶專用的硬體。
+<sup>2</sup> 執行個體會隔離至單一客戶專用的硬體。 
 
 <sup>3</sup> 可用限制核心大小 
 
@@ -117,7 +117,7 @@ ACU：210 - 250
 
 <sup>1</sup> DSv2 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)。
 
-<sup>2</sup> 執行個體是隔離的節點，可保證您的 VM 是 Intel Haswell 節點上的唯一 VM。
+<sup>2</sup> 執行個體會隔離至單一客戶專用的硬體。 
 
 <sup>3</sup> 25000 Mbps (含加速網路)。
 
@@ -135,7 +135,7 @@ ACU：210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> 執行個體是隔離的節點，可保證您的 VM 是 Intel Haswell 節點上的唯一 VM。
+<sup>1</sup> 執行個體會隔離至單一客戶專用的硬體。 
 
 <sup>2</sup> 25000 Mbps (含加速網路)。
 

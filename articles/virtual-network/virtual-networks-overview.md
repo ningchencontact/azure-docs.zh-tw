@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Azure 虛擬網路
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/01/2018
 - 使用 Azure 提供的名稱解析，或指定您自己的 DNS 伺服器，以供虛擬網路中的資源使用。 若要深入了解虛擬網路中的名稱解析，請閱讀[虛擬機器中資源的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。
 
 ## <a name = "internet"></a>網際網路通訊
-虛擬網路中的所有資源都能向網際網路進行輸出通訊。 根據預設，資源的私人 IP 位址會進行來源網路位址轉譯 (SNAT)，成為 Azure 基礎結構選取的公用 IP 位址。 若要深入了解輸出網際網路連線能力，請閱讀[了解 Azure 中的輸出連線](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address)一文。 若要避免輸出的網際網路連線，您可以實作自訂路由或流量篩選。
+虛擬網路中的所有資源都能向網際網路進行輸出通訊。 根據預設，資源的私人 IP 位址會進行來源網路位址轉譯 (SNAT)，成為 Azure 基礎結構選取的公用 IP 位址。 若要深入了解輸出網際網路連線能力，請閱讀[了解 Azure 中的輸出連線](..\load-balancer\load-balancer-outbound-connections.md)一文。 若要避免輸出的網際網路連線，您可以實作自訂路由或流量篩選。
 
 若要進行從網際網路通對 Azure 資源的輸入通訊，或進行對網際網路的輸出通訊 (未經 SNAT)，則必須指派公用 IP 位址給資源。 若要深入了解公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md)一文。
 

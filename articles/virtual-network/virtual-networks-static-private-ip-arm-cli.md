@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -30,20 +30,20 @@ ms.lasthandoff: 11/17/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文涵蓋之內容包括資源管理員部署模型。 您也可以[管理傳統部署模型中的靜態私人 IP 位址](virtual-networks-static-private-ip-classic-cli.md)。
+本文涵蓋之內容包括資源管理員部署模型。 您也可以 [管理傳統部署模型中的靜態私人 IP 位址](virtual-networks-static-private-ip-classic-cli.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> 下列範例 Azure CLI 命令預期現有的簡單環境。 如果您想要執行如本文件中所顯示的命令，請先建置[建立 vnet](virtual-networks-create-vnet-arm-cli.md) 中所述的測試環境。
+> 下列範例 Azure CLI 命令預期現有的簡單環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-arm-cli.md)中所說明的測試環境。
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時指定靜態私人 IP 位址
 
 若要在名為 *TestVNet* 之 VNet 的 *FrontEnd* 子網路中建立名為 *DNS01* 的 VM，且其靜態私人 IP 為 *192.168.1.101*，請完成下列步驟：
 
-1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。 
+1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 
 
-2. 使用 [az network public-ip create](/cli/azure/network/public-ip#create) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
+2. 使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
 
     > [!NOTE]
     > 視您的環境而定，您可能會想要或需要為此步驟和後續步驟中的引數使用不同的值。
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/17/2017
    * `--name`：公用 IP 的名稱。
    * `--location`：要在其中建立公用 IP 的 Azure 區域。
 
-3. 執行 [az network nic create](/cli/azure/network/nic#create) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
+3. 執行 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/17/2017
     * `--vnet-name`：要在其中建立 NIC 之 VNet 的名稱。
     * `--subnet`：要在其中建立 NIC 之子網路的名稱。
 
-4. 執行 [azure vm create](/cli/azure/vm/nic#create) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
+4. 執行 [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/17/2017
     }
     ```
    
-   基本 [az vm create](/cli/azure/vm#create) 參數以外的參數。
+   基本 [az vm create](/cli/azure/vm#az_vm_create) 參數以外的參數。
 
    * `--nics`︰VM 所連接至之 NIC 的名稱。
    

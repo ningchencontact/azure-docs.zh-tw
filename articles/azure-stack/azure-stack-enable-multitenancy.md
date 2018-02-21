@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: a2cba85a553f20040d2fb118b35859b05870e361
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bdf92b8b73dca55e819545913931c0a79a366486
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中啟用多重租用
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您可以設定 Azure Stack，以支援來自多重 Azure Active Directory (Azure AD) 租用戶的使用者在 Azure Stack 中使用服務。 例如，請考慮下列情節：
 
@@ -59,10 +59,14 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
+## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+$ResourceGroupName = "system.local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local"
+ -Location "local" `
+ -ResourceGroupName $ResourceGroupName
 ````
 
 

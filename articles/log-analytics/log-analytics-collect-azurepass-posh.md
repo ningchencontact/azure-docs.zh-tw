@@ -16,7 +16,7 @@ ms.date: 11/13/2017
 ms.author: magoedte
 ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -26,7 +26,7 @@ Azure 平台即服務 (PaaS) 資源 (例如 Azure SQL 和網站 (Web 應用程�
 
 目前，沒有任何方法可透過 Azure 入口網站來對 PaaS 資源啟用計量記錄功能。 因此，您需要使用 PowerShell 指令碼。 這項原生計量記錄功能以及 Log Analytics 監視功能，可讓您大規模監視 Azure 資源。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 先確認您已在電腦上安裝下列 Azure Resource Manager 模組，再繼續執行：
 
 - AzureRM.Insights

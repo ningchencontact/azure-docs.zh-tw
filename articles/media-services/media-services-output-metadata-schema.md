@@ -37,7 +37,7 @@ ms.lasthandoff: 01/08/2018
 編碼作業的 AssetFile 項目集合。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 說明 |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 [AssetFile 元素](media-services-output-metadata-schema.md)。 |
 
@@ -45,14 +45,14 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **名稱**<br/><br/> 必要 |**xs:string** |媒體資產檔案名稱。 |
 | **大小**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:long** |資產檔案大小 (以位元組為單位)。 |
 | **Duration**<br/><br/> 必要 |**xs:duration** |內容播放持續時間。 |
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 說明 |
 | --- | --- |
 | **來源** |為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 如需詳細資訊，請參閱 [VideoTracks 元素](media-services-output-metadata-schema.md)。 |
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 說明 |
 | --- | --- |
 | **來源**<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **名稱**<br/><br/> 必要 |**xs:string** |輸入的來源檔案名稱。 |
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 說明 |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定視訊播放軌。 如需詳細資訊，請參閱 [VideoTrack 元素](media-services-output-metadata-schema.md#VideoTrack)。 |
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰**此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
 | **FourCC**<br/><br/> 必要 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 說明 |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定音訊播放軌。 如需詳細資訊，請參閱 [AudioTrack 元素](media-services-output-metadata-schema.md)。 |
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。**注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
 | **Codec** |**xs:string** |音訊播放軌轉碼器字串。 |
@@ -137,7 +137,7 @@ ms.lasthandoff: 01/08/2018
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |wFormatTag 格式類型的每樣本位元數。 |
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 說明 |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |音量計量結果參數。 如需詳細資訊，請參閱 [LoudnessMeteringResultParameters 元素](media-services-output-metadata-schema.md)。 |
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 01/08/2018
 您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**Dolby** 專業音量計量開發套件版本。 |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 必要 |**xs:int** |透過 DPLM 產生的 DialogNormalization，若設定了 LoudnessMetering 則為必要 |

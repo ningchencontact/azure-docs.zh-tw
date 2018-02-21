@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>針對 SSH 連線至 Azure Linux VM 失敗、發生錯誤或被拒進行疑難排解
 當您嘗試連接到 Linux 虛擬機器 (VM) 時，有許多原因可能會導致您遇到安全殼層 (SSH) 錯誤、SSH 連線失敗或 SSH 被拒。 本文可協助您找出原因並加以更正。 您可以使用 Azure 入口網站、Azure CLI 或適用於 Linux 的 VM 存取擴充功能，針對連線問題進行疑難排解並予以解決。
@@ -70,20 +70,20 @@ Azure 入口網站可供快速重設 SSH 組態或使用者認證，而不需在
 您也可以經由此功能表，在此 VM 上建立具備 sudo 權限的使用者。 輸入新的使用者名稱和相關聯的密碼或 SSH 金鑰，然後按一下 [重設] 按鈕。
 
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
-如果尚未安裝，請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。
+如果尚未安裝，請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。
 
 如果您已建立並上傳自訂 Linux 磁碟映像，請確定已安裝 [Microsoft Azure Linux 代理程式](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 版或更新版本。 若為使用資源庫映像建立的 VM，系統已經為您安裝和設定此存取擴充功能。
 
 ### <a name="reset-ssh-configuration"></a>重設 SSH 組態
 您可以一開始先嘗試將 SSH 組態重設為預設值，然後將虛擬機器上的 SSH 伺服器重新開機。 請注意，這不會變更使用者帳戶名稱、密碼或 SSH 金鑰。
-下列範例會使用 [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上重設 SSH 組態。 使用您自己的值，如下所示︰
+下列範例會使用 [az vm user reset-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上重設 SSH 組態。 使用您自己的值，如下所示︰
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>重設使用者的 SSH 認證
-下列範例會使用 [az vm user update](/cli/azure/vm/user#update)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上，將 `myUsername` 的認證重設為 `myPassword` 中指定的值。 使用您自己的值，如下所示︰
+下列範例會使用 [az vm user update](/cli/azure/vm/user#az_vm_user_update)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上，將 `myUsername` 的認證重設為 `myPassword` 中指定的值。 使用您自己的值，如下所示︰
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -109,7 +109,7 @@ az vm user update --resource-group myResourceGroup --name myVM \
 }
 ```
 
-使用 Azure CLI，接著呼叫 `VMAccessForLinux` 擴充功能，藉由指定 json 檔案來重設 SSH 連線。 下列範例會使用 [az vm extension set](/cli/azure/vm/extension#set)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上重設 SSHD。 使用您自己的值，如下所示︰
+使用 Azure CLI，接著呼叫 `VMAccessForLinux` 擴充功能，藉由指定 json 檔案來重設 SSH 連線。 下列範例會使用 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上重設 SSHD。 使用您自己的值，如下所示︰
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-下列範例會使用 [az vm restart](/cli/azure/vm#restart) 來重新啟動名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM。 使用您自己的值，如下所示︰
+下列範例會使用 [az vm restart](/cli/azure/vm#az_vm_restart) 來重新啟動名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM。 使用您自己的值，如下所示︰
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -219,7 +219,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-下列範例會使用 [az vm redeploy](/cli/azure/vm#redeploy) 來重新部署名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM。 使用您自己的值，如下所示︰
+下列範例會使用 [az vm redeploy](/cli/azure/vm#az_vm_redeploy) 來重新部署名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM。 使用您自己的值，如下所示︰
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

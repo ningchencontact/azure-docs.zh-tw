@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI 使用 Azure 來加速其開發週期及提升其客戶服務和效能
 ![Daxko CSI/標誌](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -91,7 +91,6 @@ Azure SQL Database 不僅為 SpectrumNG 客戶帶來好處，讓他們享有快�
 * 若要深入了解資料庫工具和彈性調整，請參閱 [彈性資料庫工具和彈性調整](sql-database-elastic-scale-get-started.md)。
 * 若要深入了解如何移轉 SQL Server 資料庫，請參閱[將 SQL Server 資料庫移轉至 Azure](sql-database-cloud-migrate.md)。
 * 若要深入了解作用中異地複寫，請參閱[作用中異地複寫](sql-database-geo-replication-overview.md)。
-* 若要深入了解 Web 角色和背景工作角色，請參閱 [背景工作角色](../fundamentals-introduction-to-azure.md#compute)。    
 * 若要深入了解「Azure 服務匯流排」，請參閱 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)。
 * 若要深入了解自動調整，請參閱 [調整雲端服務](../cloud-services/cloud-services-how-to-scale-portal.md)。
 

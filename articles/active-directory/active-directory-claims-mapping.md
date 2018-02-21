@@ -280,7 +280,7 @@ ms.lasthandoff: 01/11/2018
 識別碼元素可識別宣告的值是由來源上的哪個屬性所提供。 下表列出每個來源值的有效識別碼值。
 
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
-|來源|ID|描述|
+|來源|ID|說明|
 |-----|-----|-----|
 |User|surname|姓氏|
 |User|givenname|名字|
@@ -353,7 +353,7 @@ ms.lasthandoff: 01/11/2018
 根據您所選擇的方法，系統預期會有一組輸入和輸出。 您可以使用 **InputClaims**、**InputParameters** 和 **OutputClaims** 元素來定義這些輸入和輸出。
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：轉換方法和預期的輸入和輸出
-|TransformationMethod|預期的輸入|預期的輸出|描述|
+|TransformationMethod|預期的輸入|預期的輸出|說明|
 |-----|-----|-----|-----|
 |Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 @ 符號，則原始輸入字串會以現狀傳回。|
@@ -378,7 +378,7 @@ ms.lasthandoff: 01/11/2018
 **SAML NameID 和 UPN：**您用來取得 NameID 和 UPN 值的來源屬性以及所允許的宣告轉換會受到限制。
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允許作為 SAML NameID 資料來源的屬性
-|來源|ID|描述|
+|來源|ID|說明|
 |-----|-----|-----|
 |User|mail|電子郵件地址|
 |User|userprincipalname|使用者主體名稱|
@@ -419,7 +419,7 @@ ms.lasthandoff: 01/11/2018
 
 在 Azure AD 中，當您可以為特定的服務主體自訂權杖中所發出的宣告時，許多案例便可能實現。 在本節中，我們將逐步解說一些常見案例，以協助您掌握如何使用宣告對應原則類型。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 在下列範例中，您會為服務主體建立、更新、連結和刪除原則。 如果您是 Azure AD 的新手，我們建議您先深入了解如何取得 Azure AD 租用戶，然後再利用這些範例繼續進行。 
 
 若要開始使用，請執行下列步驟：

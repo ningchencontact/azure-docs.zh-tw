@@ -16,7 +16,7 @@ ms.date: 11/17/2017
 ms.author: crdun
 ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/04/2018
 
 如果您不要使用下載的快速入門伺服器專案，則需要推播通知擴充套件。 如需詳細資訊，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您需要下列項目：
 
 * 根據您的專案後端的 IDE：

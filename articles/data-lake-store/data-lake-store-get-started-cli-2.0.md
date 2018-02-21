@@ -33,7 +33,7 @@ ms.lasthandoff: 01/10/2018
 Azure CLI 2.0 是管理 Azure 資源的 Azure 新命令列體驗。 它可以用於 macOS、Linux 和 Windows。 如需詳細資訊，請參閱 [Azure CLI 2.0 概觀](https://docs.microsoft.com/cli/azure/overview)。 您也可以查看 [Azure Data Lake Store CLI 2.0 參考](https://docs.microsoft.com/cli/azure/dls)以取得命令和語法的完整清單。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure 資訊安全中心的安全性劇本 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的安全性劇本，以回應安全性相關問題。
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 1.  開啟 [資訊安全中心] 儀表板。
 2.  在左窗格的 [自動化與協調流程] 區段中，按一下 [劇本 (預覽)]。
 
-    ![邏輯應用程式](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![邏輯應用程式](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. 在 [資訊安全中心 - 劇本 (預覽)] 分頁中，按一下 [新增] 按鈕。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 1.  開啟 [資訊安全中心] 儀表板。
 2.  在左窗格中的 [威脅偵測] 底下，按一下 [安全性事件與警示]。
 
-    ![Alerts](./media/security-center-playbooks/security-center-playbooks-fig6.png)
+    ![警示](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
 3.  按一下您想要調查的警示。
 4.  在警示分頁頂端，按一下 [執行劇本] 按鈕。

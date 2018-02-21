@@ -16,7 +16,7 @@ ms.date: 10/23/2017
 ms.author: heidist
 ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -65,7 +65,7 @@ parameters =
 > [!Note]
 > 雖然查詢中沒有 $filter 引數，但這個使用案例與篩選概念具有強烈的關聯性，因此，我們將它作為篩選案例。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)

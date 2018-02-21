@@ -29,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 
 如果您有可存取 Data Lake Store 的 HDInsight 叢集，就可以使用 Distcp 之類的 Hadoop 生態系統工具，將 **送至/來自** HDInsight 叢集儲存體 (WASB) 的資料複製到 Data Lake Store 帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure 資料湖儲存區帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)

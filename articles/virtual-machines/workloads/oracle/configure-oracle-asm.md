@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上設定 Oracle ASM  
 
@@ -41,7 +41,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-若要建立資源群組，請使用 [az group create](/cli/azure/group#create) 命令。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在此範例中，系統會在 eastus 區域中建立名為 myResourceGroup 的資源群組。
+若要建立資源群組，請使用 [az group create](/cli/azure/group#az_group_create) 命令。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在此範例中，系統會在 eastus 區域中建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>建立 VM
 
-若要建立以 Oracle 資料庫映像為基礎的虛擬機器，並將其設定為使用 Oracle ASM，請使用 [az vm create](/cli/azure/vm#create) 命令。 
+若要建立以 Oracle 資料庫映像為基礎的虛擬機器，並將其設定為使用 Oracle ASM，請使用 [az vm create](/cli/azure/vm#az_vm_create) 命令。 
 
 下列範例會建立名為 myVM 的 VM，其大小為 Standard_DS2_v2，並附加四個容量各 50 GB 的資料磁碟。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立這些金鑰。  若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 

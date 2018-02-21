@@ -117,12 +117,11 @@
 ### [分析工作負載](analyze-your-workload.md)
 
 ## 相應放大
-### [管理計算 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [自動化計算層級](manage-compute-with-azure-functions.md)
 
 
 # 參考
-
 
 ## T-SQL
 ### [完整參考](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [SQL DW 陳述式](sql-data-warehouse-reference-tsql-statements.md)
 ## [系統檢視表](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell Cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST APIs](sql-data-warehouse-manage-compute-rest-api.md)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)

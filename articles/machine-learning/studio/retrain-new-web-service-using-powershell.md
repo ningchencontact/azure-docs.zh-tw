@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 630e9958d5083300fdf7910c5fdd47989b0376ad
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.author: raymondl
+ms.openlocfilehash: 2a9302502594fa23d7bde1a71e7b096bc4152e59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>使用 Machine Learning Management PowerShell Cmdlet 重新訓練以 Resource Manager 為基礎的新 Web 服務
 當您重新訓練新的 Web 服務時，可以更新預測性 Web 服務定義以參考新的訓練模型。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須設定訓練實驗與預測性實驗，如[以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)中所示。 
 
 > [!IMPORTANT]

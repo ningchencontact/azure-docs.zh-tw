@@ -131,7 +131,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 
 如需了解所有其他活動記錄警示的特定結構詳細資料，請參閱 [Azure 活動記錄的概觀](monitoring-overview-activity-logs.md)。
 
-| 元素名稱 | 描述 |
+| 元素名稱 | 說明 |
 | --- | --- |
 | status |用於度量警示。 針對活動記錄警示，一律設為「啟動」。 |
 | context |事件的內容。 |

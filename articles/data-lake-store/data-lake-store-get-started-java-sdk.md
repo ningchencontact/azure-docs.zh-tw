@@ -33,7 +33,7 @@ ms.lasthandoff: 01/10/2018
 
 您可以在 [Azure Data Lake Store Java API 文件](https://azure.github.io/azure-data-lake-store-java/javadoc/)存取適用於 Azure Data Lake Store 的 Java SDK API 文件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Java Development Kit (JDK 7 或更新版本，使用 Java 1.7 版或更新版本)
 * Azure Data Lake Store 帳戶。 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md) 的指示。
 * [Maven](https://maven.apache.org/install.html). 本教學課程使用 Maven 來處理組建和專案相依性。 雖有可能不使用 Maven 或 Gradle 等組建系統進行建置，但這些系統讓相依性管理變得輕鬆許多。

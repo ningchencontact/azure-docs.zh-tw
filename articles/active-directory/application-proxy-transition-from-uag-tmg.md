@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -32,21 +32,21 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 | 功能 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| 憑證驗證 | 是 | 是 | - | - |
-| 選擇性地發佈瀏覽器應用程式 | 是 | 是 | 是 | 是 |
-| 預先驗證和單一登入 | 是 | 是 | 是 | 是 | 
-| 第 2 層/第 3 層防火牆 | 是 | 是 | - | - |
-| 轉接 Proxy 功能 | 是 | - | - | - |
-| VPN 功能 | 是 | 是 | - | - |
-| 豐富通訊協定支援 | - | 是 | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
-| 作為 ADFS Proxy 伺服器 | - | 是 | 是 | - |
-| 應用程式存取的單一入口網站 | - | 是 | - | 是 |
-| 回應內文連結轉譯 | 是 | 是 | - | 是 | 
-| 使用標頭進行驗證 | - | 是 | - | 是，使用 PingAccess | 
-| 雲端級別安全性 | - | - | - | 是 | 
-| 條件式存取 | - | 是 | - | 是 |
-| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | 是 |
-| 沒有輸入連線 | - | - | - | 是 |
+| 憑證驗證 | yes | yes | - | - |
+| 選擇性地發佈瀏覽器應用程式 | yes | yes | yes | yes |
+| 預先驗證和單一登入 | yes | yes | yes | yes | 
+| 第 2 層/第 3 層防火牆 | yes | yes | - | - |
+| 轉接 Proxy 功能 | yes | - | - | - |
+| VPN 功能 | yes | yes | - | - |
+| 豐富通訊協定支援 | - | yes | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
+| 作為 ADFS Proxy 伺服器 | - | yes | yes | - |
+| 應用程式存取的單一入口網站 | - | yes | - | yes |
+| 回應內文連結轉譯 | yes | yes | - | yes | 
+| 使用標頭進行驗證 | - | yes | - | 是，使用 PingAccess | 
+| 雲端級別安全性 | - | - | - | yes | 
+| 條件式存取 | - | yes | - | yes |
+| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | yes |
+| 沒有輸入連線 | - | - | - | yes |
 
 大部分情節中，建議將 Azure AD 應用程式作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
 

@@ -24,7 +24,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="azure-backup-infrastructure"></a>Azure 備份基礎結構
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 是由許多服務所組成，包含入口網站、Azure Resource Manager 和基礎結構管理體驗。 Azure Stack 類似設備的管理體驗，著重於降低解決方案操作員所需要面對的操作複雜性。
 

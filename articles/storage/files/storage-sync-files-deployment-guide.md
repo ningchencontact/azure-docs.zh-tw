@@ -25,7 +25,7 @@ ms.lasthandoff: 01/08/2018
 
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)和[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)，再完成本文章中描述的步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 位於和您要部署 Azure 檔案同步相同之區域中的 Azure 儲存體帳戶和 Azure 檔案共用。如需詳細資訊，請參閱
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - 如需如何建立儲存體帳戶的逐步說明，請參閱[建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。

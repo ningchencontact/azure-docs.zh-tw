@@ -33,7 +33,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**30 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 此補充課程主題是表格式模型教學課程的一部分，請依序完成。 在此補充課程中執行工作之前，您必須已完成所有前面的課程。  
   
 ## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>將 DimSalesTerritory 資料表新增至 AW 網際網路銷售表格式模型專案  

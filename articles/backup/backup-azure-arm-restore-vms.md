@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/22/2018
 
    * **還原磁碟**
 
-入口網站提供還原 VM 專用的 [快速建立] 選項。 若要自訂 VM 組態或在建立新的 VM 選項時所建立之資源的名稱，請使用 PowerShell 或入口網站來還原備份的磁碟。 使用 PowerShell 命令，將它們連結至您所選擇的 VM 組態。 或者，您也可以使用還原的磁碟所隨附的範本，來自訂還原的 VM 。 如需有關如何還原具有多個 NIC 或在負載平衡器管理下之 VM 的相關資訊，請參閱[使用特殊網路組態還原 VM](#restore-a vm-with-special-network-configurations)。 如果您的 Windows VM 使用[中樞授權](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，請還原磁碟並使用此文章所指定的 PowerShell/範本建立 VM。 請確定您在建立 VM 時將 [授權類型] 指定為 "Windows_Server"，以在還原的 VM 上利用中樞優點。 
+入口網站提供還原 VM 專用的 [快速建立] 選項。 若要自訂 VM 組態或在建立新的 VM 選項時所建立之資源的名稱，請使用 PowerShell 或入口網站來還原備份的磁碟。 使用 PowerShell 命令，將它們連結至您所選擇的 VM 組態。 或者，您也可以使用還原的磁碟所隨附的範本，來自訂還原的 VM 。 如需有關如何還原具有多個 NIC 或在負載平衡器管理下之 VM 的相關資訊，請參閱[使用特殊網路組態還原 VM](#restore-vms-with-special-network-configurations)。 如果您的 Windows VM 使用[中樞授權](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，請還原磁碟並使用此文章所指定的 PowerShell/範本建立 VM。 請確定您在建立 VM 時將 [授權類型] 指定為 "Windows_Server"，以在還原的 VM 上利用中樞優點。 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>從還原點建立新的 VM
 1. 如果您還沒有[選取還原點](#restore-a vm-with-special-network-configurations)，請先選取，再開始從還原點建立新的 VM。 在選取還原點之後，請於 [還原組態] 刀鋒視窗上，輸入或選取下列各欄位的值︰
