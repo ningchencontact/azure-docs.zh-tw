@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安裝 Visual Studio 並連線至 Azure Stack
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 使用 Visual Studio 建立並將 Azure Resource Manager [範本](azure-stack-arm-templates.md)部署至 Azure Stack 中。 您可以使用此文章所述的逐步執行，來從 [Azure Stack 開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或如果您透過 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)連線，從以 Windows 為基礎的外部用戶端安裝 Visual Studio。 這些逐步執行將會全新安裝 Visual Studio 2015 Community 版本。 深入了解關於在其他 Visual Studio 版本之間的[共存](https://msdn.microsoft.com/library/ms246609.aspx)。
 

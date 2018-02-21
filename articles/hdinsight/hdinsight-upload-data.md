@@ -19,7 +19,7 @@ ms.date: 12/15/2017
 ms.author: jgao
 ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Azure HDInsight 在 Azure 儲存體和 Azure Data Lake Store 上提供了功能完整的 Hadoop 分散式檔案系統 (HDFS)。 Azure 儲存體和 Data Lake Store 是設計作為 HDFS 的延伸，以便為客戶提供順暢的體驗。 它們可讓 Hadoop 生態系統中的完整元件集直接在它管理的資料上運作。 Azure 儲存體和 Data Lake Store 是不同的檔案系統，但經過最佳化後，都非常適合儲存資料以及計算儲存的資料。 如需關於使用 Azure 儲存體有哪些優點的資訊，請參閱[搭配 HDInsight 使用 Azure Storage][hdinsight-storage] 和[搭配 HDInsight 使用 Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始進行之前，請注意下列需求：
 

@@ -148,7 +148,7 @@ ms.lasthandoff: 11/14/2017
 
 本文說明針對為 SAP ASCS/SCS 執行個體進行叢集處理，如何使用 Windows Server 容錯移轉和叢集共用磁碟在 Azure 中安裝及設定高可用性 SAP 系統。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始安裝之前，請檢閱這些文章：
 

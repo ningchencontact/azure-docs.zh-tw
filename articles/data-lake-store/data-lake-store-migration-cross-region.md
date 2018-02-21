@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 隨著 Azure Data Lake Store 在新區域開放使用，您可能會選擇進行一次性移轉，以利用某個新區域。 了解在規劃和完成移轉時的一些考量。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 如需詳細資訊，請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 * **兩個不同區域中的 Data Lake Store 帳戶**。 如需詳細資訊，請參閱[開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)。

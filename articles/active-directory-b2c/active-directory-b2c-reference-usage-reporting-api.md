@@ -14,7 +14,7 @@ ms.date: 08/04/2017
 ms.author: joroja
 ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) 會根據使用者登入和 Azure Mult
 本文章著重於與計費活動有關的報告，而計費活動是以使用者數目、可計費的登入式驗證及多重要素驗證為根據。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始之前，您必須先完成[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)中的步驟。 建立應用程式、取得密碼，並授與對您的 Azure AD B2C 租用戶報告的存取權限。 這裡也提供了 Bash 指令碼和 Python 指令碼的範例。 
 
 ## <a name="powershell-script"></a>PowerShell 指令碼

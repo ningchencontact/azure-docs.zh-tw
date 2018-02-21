@@ -29,7 +29,7 @@ Azure Analysis Services 伺服器支援連線到您組織中的雲端和內部�
 | 雲端  |
 |---|
 | Azure Blob 儲存體*  |
-| Azure SQL Database  |
+| 連接字串  |
 | Azure 資料倉儲 |
 
 
@@ -60,7 +60,7 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 | **資料來源** | **In-memory** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL 資料倉儲 |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server |
-| Azure SQL Database |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
+| 連接字串 |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>內部部署 (透過閘道)
 |**資料來源** | **In-memory** | **DirectQuery** |

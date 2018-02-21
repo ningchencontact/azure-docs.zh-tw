@@ -31,7 +31,7 @@ ms.lasthandoff: 01/10/2018
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本教學課程中涵蓋的功能，您必須是在資訊安全中心的標準定價層。 前 60 天可以免費試用資訊安全中心標準定價層。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)快速入門會為您逐步解說如何升級至「標準」定價層。
 
 ## <a name="triage-security-alerts"></a>將安全性警示分級

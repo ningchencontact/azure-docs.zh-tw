@@ -87,7 +87,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 ## <a name="create-an-access-token"></a>建立存取權杖
 
-Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web 權杖。 權杖會使用來自 Power BI 工作區集合的存取金鑰進行簽署。 內嵌權杖依預設可用來提供要內嵌至應用程式之報表的唯讀存取權。 內嵌權杖會針對特定報告來核發，而且應該與內嵌 URL 相關聯。
+Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web 權杖。 權杖會使用來自 Power BI 工作區集合的存取金鑰進行簽署。 內嵌權杖依預設可用來提供要內嵌至應用程式之報告的唯讀存取權。 內嵌權杖會針對特定報告來核發，而且應該與內嵌 URL 相關聯。
 
 存取權杖應該建立在伺服器上，因為會使用存取金鑰來簽署/加密權杖。 如需如何建立存取權杖的相關資訊，請參閱[使用 Power BI 工作區集合驗證和授權](app-token-flow.md)。 您也可以檢閱 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 方法。 以下是使用 .NET SDK for Power BI 時此方法所呈現樣貌的範例。
 

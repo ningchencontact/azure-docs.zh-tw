@@ -3,7 +3,7 @@ title: "檢視 Azure Web Apps 分析資料 | Microsoft Docs"
 description: "您可以使用 Azure Web Apps 分析解決方案在所有 Azure Web 應用程式資源之間收集不同的計量，以深入了解 Azure Web 應用程式。"
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
@@ -44,7 +44,7 @@ Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程�
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 若要存取 Azure Web 應用程式資源計量資訊，您必須有 Azure 訂用帳戶。
 
@@ -90,7 +90,7 @@ Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
 
 按一下 [Azure Web Apps 分析] 圖格開啟 [Azure Web Apps 分析] 儀表板。 此儀表板包含下表中的刀鋒視窗。 每個刀鋒視窗會針對所指定的範圍與時間範圍，列出最多 10 個符合該刀鋒視窗準則的項目。 您可以按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭，以執行記錄搜尋來傳回所有記錄。
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | 欄 | 說明 |
 | --- | --- |

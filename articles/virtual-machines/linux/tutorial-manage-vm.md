@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 來建立和管理 Linux VM
 
@@ -93,7 +93,7 @@ exit
 
 Azure Marketplace 包含許多可用來建立 VM 的映像。 在先前的步驟中，是使用 Ubuntu 映像來建立虛擬機器。 在此步驟中，則是使用 Azure CLI 來搜尋 Marketplace 中的 CentOS 映像，然後使用此映像來部署第二部虛擬機器。  
 
-若要查看最常用的映像清單，請使用 [az vm image list](/cli/azure/vm/image#list) 命令。
+若要查看最常用的映像清單，請使用 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 命令。
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -162,7 +162,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ### <a name="find-available-vm-sizes"></a>尋找可用的 VM 大小
 
-若要查看特定區域中可用的 VM 大小清單，請使用 [az vm list-sizes](/cli/azure/vm#list-sizes) 命令。 
+若要查看特定區域中可用的 VM 大小清單，請使用 [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) 命令。 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -193,7 +193,7 @@ az vm list-sizes --location eastus --output table
 
 ### <a name="create-vm-with-specific-size"></a>建立特定大小的 VM
 
-在先前的 VM 建立範例中，並未提供大小，因此是採用預設大小。 您可以在建立 VM 時，使用 [az vm create](/cli/azure/vm#create) 和 `--size` 引數來選取 VM 大小。 
+在先前的 VM 建立範例中，並未提供大小，因此是採用預設大小。 您可以在建立 VM 時，使用 [az vm create](/cli/azure/vm#az_vm_create) 和 `--size` 引數來選取 VM 大小。 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,24 +206,24 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>調整 VM 的大小
 
-在部署 VM 之後，可以調整其大小以增加或減少資源配置。 您可以使用 [az vm show](/cli/azure/vm#show) 檢視 VM 目前的大小：
+在部署 VM 之後，可以調整其大小以增加或減少資源配置。 您可以使用 [az vm show](/cli/azure/vm#az_vm_show) 檢視 VM 目前的大小：
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-在調整 VM 大小之前，請先檢查目前的 Azure 叢集上是否有所需的大小可用。 [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) 命令會傳回大小清單。 
+在調整 VM 大小之前，請先檢查目前的 Azure 叢集上是否有所需的大小可用。 [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) 命令會傳回大小清單。 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-如果有所需的大小可用，即可從已開機狀態調整 VM 的大小，但是會在作業期間重新開機。 請使用 [az vm resize]( /cli/azure/vm#resize) 命令來執行調整大小作業。
+如果有所需的大小可用，即可從已開機狀態調整 VM 的大小，但是會在作業期間重新開機。 請使用 [az vm resize]( /cli/azure/vm#az_vm_resize) 命令來執行調整大小作業。
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-如果目前的叢集上沒有所需的大小，則必須先將 VM 解除配置，才能進行調整大小作業。 請使用 [az vm deallocate]( /cli/azure/vm#deallocate) 命令將 VM 停止並解除配置。 請注意，重新開啟 VM 電源之後，可能會移除暫存磁碟上的任何資料。 公用 IP 位址也會變更，除非使用的是靜態 IP 位址。 
+如果目前的叢集上沒有所需的大小，則必須先將 VM 解除配置，才能進行調整大小作業。 請使用 [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 命令將 VM 停止並解除配置。 請注意，重新開啟 VM 電源之後，可能會移除暫存磁碟上的任何資料。 公用 IP 位址也會變更，除非使用的是靜態 IP 位址。 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -259,7 +259,7 @@ Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀�
 
 ### <a name="find-power-state"></a>尋找電源狀態
 
-若要擷取特定 VM 的狀態，請使用 [az vm get instance-view](/cli/azure/vm#get-instance-view) 命令。 請務必為虛擬機器和資源群組指定有效的名稱。 
+若要擷取特定 VM 的狀態，請使用 [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) 命令。 請務必為虛擬機器和資源群組指定有效的名稱。 
 
 ```azurecli-interactive 
 az vm get-instance-view \

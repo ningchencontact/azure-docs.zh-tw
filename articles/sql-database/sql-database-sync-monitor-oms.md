@@ -52,7 +52,7 @@ ms.lasthandoff: 11/10/2017
 
 -   [資料同步記錄 OMS 檢視](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確定您已設定下列項目：
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 
 4.  在 [Runbook 檔案] 下方，使用指定的 `DataSyncLogPowerShellRunbook` 檔案。 將 [Runbook 類型] 設為 `PowerShell`。 為 Runbook 指定名稱。
 
-5.  選取 [ **建立**]。 現在您已有 Runbook。
+5.  選取 [建立] 。 現在您已有 Runbook。
 
 6.  在您的 Azure 自動化帳戶中，選取 [共用資源] 下方的 [變數] 索引標籤。
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 11/10/2017
 
 5.  將 [週期] 設為 [週期性] 並設定所要的間隔。 在指令碼與 OMS 中，使用與此處相同的間隔。
 
-6.  選取 [ **建立**]。
+6.  選取 [建立] 。
 
 ### <a name="check-the-automation"></a>檢查自動化
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/10/2017
 
 1.  在 OMS 入口網站中，選取 [記錄搜尋]。
 
-2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如：
+2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如︰
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/10/2017
 
 5.  在 [動作] 下方，將 [電子郵件通知] 設為 [是]。 輸入所需的電子郵件收件者。
 
-6.  按一下 [儲存] 。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
+6.  按一下 [檔案] 。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
 
 ## <a name="create-an-oms-view-for-monitoring"></a>建立用於監視的 OMS 檢視
 

@@ -50,7 +50,7 @@ ms.lasthandoff: 11/17/2017
 
    ![資源群組](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. 按一下 [資源群組]。
-5. 按一下 [建立] 。
+5. 按一下頁面底部的 [新增] 。
 6. 在 [資源群組] 刀鋒視窗的 [資源群組名稱] 底下，輸入資源群組的名稱。 例如，輸入 **sql-ha-rg**。
 7. 如果您有多個 Azure 訂用帳戶，請確認此訂用帳戶是您要在其中建立可用性群組的 Azure 訂用帳戶。
 8. 選取位置。 此位置是您要建立可用性群組的 Azure 區域。 在本教學課程中，我們將在一個 Azure 位置中建置所有資源。
@@ -94,7 +94,7 @@ Azure 會建立資源群組，並在入口網站中釘選資源群組的捷徑�
 
    此範例會使用子網路名稱 **Admin**。此子網路用於網域控制站。
 
-5. 按一下 [建立] 。
+5. 按一下頁面底部的 [新增] 。
 
    ![設定虛擬網路](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/06-configurevirtualnetwork.png)
 
@@ -114,7 +114,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
    ![設定虛擬網路](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. 建立第二個子網路。 按一下 [+ 子網路] 。
 6. 在 [新增子網路] 刀鋒視窗上，於 [名稱] 底下輸入 **sqlsubnet** 來設定子網路。 Azure 會自動指定有效的 [位址範圍] 。 確認此位址範圍中至少有 10 個位址。 在生產環境中，您可能需要更多位址。
-7. 按一下 [確定] 。
+7. 按一下 [SERVICEPRINCIPAL] 。
 
     ![設定虛擬網路](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
 
@@ -261,7 +261,7 @@ Azure 會建立虛擬機器。
 
 3. 按一下 [自訂]，然後輸入主要網域控制站的私人 IP 位址。
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 ### <a name="configure-the-second-domain-controller"></a>設定第二個網域控制站
 在主要網域控制站重新開機之後，您可以設定第二個網域控制站。 這個選擇性步驟適用於高可用性。 請依照下列步驟設定第二個網域控制站：
@@ -389,7 +389,7 @@ Azure 會建立虛擬機器。
 2. 在 [伺服器管理員] 中，按一下 [本機伺服器]。
 3. 按一下 [工作群組] 連結。
 4. 在 [電腦名稱] 區段中，按一下 [變更]。
-5. 選取 [網域] 核取方塊，然後在文字方塊中輸入 **corp.contoso.com**。 按一下 [確定] 。
+5. 選取 [網域] 核取方塊，然後在文字方塊中輸入 **corp.contoso.com**。 按一下 [SERVICEPRINCIPAL] 。
 6. 在 [Windows 安全性] 快顯對話方塊中，指定預設的網域系統管理員帳戶 (**CORP\DomainAdmin**) 和密碼 (**Contoso!0000**) 的認證。
 7. 出現「歡迎使用 corp.contoso.com 網域」的訊息時，請按一下 [確定] 。
 8. 按一下 [關閉]，然後按一下快顯對話方塊中的 [立即重新啟動]。
@@ -443,7 +443,7 @@ Azure 會建立虛擬機器。
 
 1. 將登入設定為 [系統管理員 (sysadmin)] 固定伺服器角色的成員。
 
-1. 按一下 [確定] 。
+1. 按一下 [SERVICEPRINCIPAL] 。
 
 在其他 SQL Server VM 上重複上述步驟。
 
@@ -486,7 +486,7 @@ Azure 會建立虛擬機器。
 
    ![SQL 防火牆](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. 按一下 [下一步] 。
+5. 按 [下一步] 。
 6. 在 [動作] 頁面上，保持選取 [允許連線]，然後按 [下一步]。
 7. 在 [設定檔] 頁面上，接受預設設定，然後按 [下一步]。
 8. 在 [名稱] 頁面上的 [名稱] 文字方塊中指定規則名稱 (例如 **Azure LB Probe**)，然後按一下 [完成]。

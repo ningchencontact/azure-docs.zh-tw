@@ -52,7 +52,7 @@
     > [!NOTE]
     > 如果您使用的識別提供者不是 Google，請將傳給 **login** 方法的值變更為下列其中一個值：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _windowsazureactivedirectory_。
 
-4. 在 **OnCreate`MobileServiceClient` 方法中，在具現化**  物件的程式碼後面加入下列這一行程式碼。
+4. 在 **OnCreate`MobileServiceClient` 方法中，在具現化** 物件的程式碼後面加入下列這一行程式碼。
 
     ```java
     authenticate();

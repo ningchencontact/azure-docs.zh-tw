@@ -39,7 +39,7 @@ ms.lasthandoff: 11/22/2017
 
 - 「SQL 驗證」會使用使用者名稱和密碼。 當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。 使用這些認證時，您能夠以資料庫擁有者身分向該伺服器上的任何資料庫進行驗證。
 
-- 「Azure Active Directory 驗證」會使用由 Azure Active Directory 管理的身分識別，並且受管理網域和整合式網域都支援此驗證。 若要使用「Azure Active Directory 驗證」，您必須建立另一個名為「Azure AD 管理員」的伺服器管理員，此管理員能夠管理 Azure AD 使用者和群組。 此管理員也可以執行一般伺服器管理員可執行的所有作業。
+- 「Azure Active Directory 驗證」會使用由 Azure Active Directory 管理的身分識別，並且受控網域和整合式網域都支援此驗證。 若要使用「Azure Active Directory 驗證」，您必須建立另一個名為「Azure AD 管理員」的伺服器管理員，此管理員能夠管理 Azure AD 使用者和群組。 此管理員也可以執行一般伺服器管理員可執行的所有作業。
 
 [Azure Active Directory 驗證](../active-directory/develop/active-directory-authentication-scenarios.md)是使用 Azure Active Directory (AD) 中的身分識別來連線到 Azure SQL Database 和「SQL 資料倉儲」的機制。 Azure AD 提供一個 SQL Server 驗證替代方案，可讓您停止在各個資料庫伺服器擴散使用者身分識別。 Azure AD 驗證可讓您在一個中央位置集中管理資料庫使用者及其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。  
 

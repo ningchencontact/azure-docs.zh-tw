@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。
@@ -861,7 +861,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 
 |計量|計量顯示名稱|單位|彙總類型|說明|維度|
 |---|---|---|---|---|---|
-|QueryDuration|查詢持續時間|Count|平均值|最後一個間隔中的 DAX 查詢持續時間|無維度|
+|QueryDuration|查詢持續時間|毫秒|平均值|最後一個間隔中的 DAX 查詢持續時間|無維度|
 |QueryPoolJobQueueLength|執行緒︰查詢集區的作業佇列長度|Count|平均值|查詢執行緒集區佇列中的作業數目。|無維度|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

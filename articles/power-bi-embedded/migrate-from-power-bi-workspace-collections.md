@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 修改應用程式以使用 Power BI REST API 和 powerbi.com 內的報表位置。
 
-2. 使用應用程式的「主要」帳戶，重建您的 AuthN/AuthZ 驗證。 您可以藉由使用「內嵌權杖」[](https://msdn.microsoft.com/library/mt784614.aspx)來允許這位使用者代表其他使用者動作。
+2. 使用應用程式的「主要」帳戶，重建您的 AuthN/AuthZ 驗證。 您可以藉由使用[內嵌權杖](https://msdn.microsoft.com/library/mt784614.aspx)來允許這位使用者代表其他使用者動作。
 
 3. 將報表從 Power BI Embedded 內嵌到您的應用程式。 如需詳細資訊，請參閱[內嵌 Power BI 儀表板、報表和磚](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 
@@ -193,4 +193,4 @@ ms.lasthandoff: 10/11/2017
 
 恭喜！ 您的應用程式會立即移轉至 Power BI Embedded。 如需如何內嵌 Power BI 儀表板、報表和資料集的相關資訊，請參閱[如何內嵌 Power BI 儀表板、報表和磚](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 
-有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/) \(英文\)
+有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/)

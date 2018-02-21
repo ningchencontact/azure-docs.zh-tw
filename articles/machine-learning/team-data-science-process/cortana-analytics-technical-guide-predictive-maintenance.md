@@ -71,7 +71,7 @@ ms.lasthandoff: 11/28/2017
 使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務 (由 Azure Data Factory 協調) 對特定飛機引擎 (提供所收到輸入資料) 的剩餘使用年限 (RUL) 進行預測。 
 
 ## <a name="data-publishing"></a>資料發佈
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>連接字串
 使用 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 儲存 Azure Machine Learning 服務收到的預測，然後在 [Power BI](https://powerbi.microsoft.com) 儀表板中取用。
 
 ## <a name="data-consumption"></a>資料耗用量

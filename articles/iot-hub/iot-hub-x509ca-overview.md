@@ -16,7 +16,7 @@ ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---

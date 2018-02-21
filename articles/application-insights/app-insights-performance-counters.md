@@ -118,10 +118,10 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Asp.Net Core 應用程式中的效能計數器
 只有在應用程式以完整的 .NET Framework 為目標時，方可支援效能計數器。 無法為 .Net Core 應用程式收集效能計數器。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 與其他計量一樣，您可以[設定警示](app-insights-alerts.md)，在效能計數器超出您指定的界限時提出警告。 開啟 [警示] 刀鋒視窗，然後按一下 [新增警示]。
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 * [相依性追蹤](app-insights-asp-net-dependencies.md)
 * [例外狀況追蹤](app-insights-asp-net-exceptions.md)
 

@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在開始之前，您需要[建立儲存體帳戶](../storage/storage-create-storage-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。 您使用的儲存體帳戶必須是一般用途的儲存體帳戶，不可以是 blob 儲存體帳戶。
 
 ## <a name="diagnostic-settings"></a>診斷設定
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
    
    ![新增診斷設定 - 現有的設定](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
     
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且每次產生新的事件資料，都會將診斷記錄封存至該儲存體帳戶。
 
@@ -59,10 +59,10 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| ResourceId |是 |要對其設定診斷設定之資源的資源識別碼。 |
+| ResourceId |yes |要對其設定診斷設定之資源的資源識別碼。 |
 | StorageAccountId |否 |資源識別碼，診斷記錄應該要儲存至此儲存體帳戶。 |
 | 類別 |否 |要啟用之記錄類別的逗號分隔清單。 |
-| 已啟用 |是 |布林值，表示要對資源啟用還是停用診斷。 |
+| 已啟用 |yes |布林值，表示要對資源啟用還是停用診斷。 |
 | RetentionEnabled |否 |布林值，表示此資源是否啟用保留原則。 |
 | RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地儲存記錄檔。 |
 
@@ -73,10 +73,10 @@ azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-456
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| ResourceId |是 |要對其設定診斷設定之資源的資源識別碼。 |
+| ResourceId |yes |要對其設定診斷設定之資源的資源識別碼。 |
 | storageId |否 |資源識別碼，診斷記錄應該要儲存至此儲存體帳戶。 |
 | 類別 |否 |要啟用之記錄類別的逗號分隔清單。 |
-| 已啟用 |是 |布林值，表示要對資源啟用還是停用診斷。 |
+| 已啟用 |yes |布林值，表示要對資源啟用還是停用診斷。 |
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>透過 REST API 封存診斷記錄
 [請參閱本文件](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。

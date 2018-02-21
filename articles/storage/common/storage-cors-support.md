@@ -169,12 +169,12 @@ CORS 規則的評估，如下所示：
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **要求上存在的 Origin 標頭** |**針對此服務指定的 CORS 規則** |**有允許所有原始網域的比對規則存在 (*)** |**有完全符合原始網域的比對規則存在** |**回應包含已設為 Origin 的 Vary 標頭** |**回應包含 Access-Control-Allowed-Origin："*"** |**回應包含 Access-Control-Exposed-Headers** |
 | 否 |否 |否 |否 |否 |否 |否 |
-| 否 |是 |否 |否 |是 |否 |否 |
-| 否 |是 |是 |否 |否 |是 |是 |
-| 是 |否 |否 |否 |否 |否 |否 |
-| 是 |是 |否 |是 |是 |否 |是 |
-| 是 |是 |否 |否 |是 |否 |否 |
-| 是 |是 |是 |否 |否 |是 |是 |
+| 否 |yes |否 |否 |yes |否 |否 |
+| 否 |yes |yes |否 |否 |yes |yes |
+| yes |否 |否 |否 |否 |否 |否 |
+| yes |yes |否 |yes |yes |否 |yes |
+| yes |yes |否 |否 |yes |否 |否 |
+| yes |yes |yes |否 |否 |yes |yes |
 
 ## <a name="billing-for-cors-requests"></a>CORS 要求的計費方式
 如果您已針對帳戶的所有儲存體服務啟用 CORS (透過呼叫[設定 Blob 服務屬性](https://msdn.microsoft.com/library/hh452235.aspx)、[設定佇列服務屬性](https://msdn.microsoft.com/library/hh452232.aspx)或[設定表格服務屬性](https://msdn.microsoft.com/library/hh452240.aspx))，則成功的預檢要求就會列入計費。 為了將費用降至最低，請考慮將 CORS 規則中的 **MaxAgeInSeconds** 元素設為較大的值，讓使用者代理程式能夠快取要求。

@@ -59,8 +59,8 @@ Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁
 
 如需 Advisor 建議的詳細資訊，請參閱：
 * [Azure 建議程式簡介](advisor-overview.md)
-* [開始使用建議程式](advisor-get-started.md)
-* [建議程式成本建議](advisor-performance-recommendations.md)
-* [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
+* [開始使用 Advisor](advisor-get-started.md)
+* [Advisor 成本建議](advisor-performance-recommendations.md)
+* [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
 

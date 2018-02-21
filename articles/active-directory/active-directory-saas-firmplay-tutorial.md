@@ -15,7 +15,7 @@ ms.date: 02/15/2017
 ms.author: jeedes
 ms.openlocfilehash: e1381f2273ee961a4b72dede8cf8e017814ba909
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ FirmPlay - Employee Advocacy for Recruiting 與 Azure AD 整合提供下列優�
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如要設定 Azure AD 與 FirmPlay - Employee Advocacy for Recruiting 的整合，您需要下列項目：
 

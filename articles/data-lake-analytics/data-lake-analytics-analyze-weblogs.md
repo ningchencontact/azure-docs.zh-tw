@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 來分析網站記錄
 了解如何使用資料湖分析來分析網站記錄，特別是找出哪些訪客來源在嘗試瀏覽網站時遇到錯誤。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Visual Studio 2015 或 Visual Studio 2013**。
 * **[Visual Studio 適用的 Data Lake 工具](http://aka.ms/adltoolsvs)**。
 
@@ -62,7 +62,7 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。 若要深入了解 U-SQL，請
 2. 選取 [U-SQL 專案] 類型。
 
     ![新的 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. 按一下 [確定] 。 Visual Studio 會建立具有 Script.usql 檔案的方案。
+3. 按一下 [SERVICEPRINCIPAL] 。 Visual Studio 會建立具有 Script.usql 檔案的方案。
 4. 在 Script.usql 檔案中輸入下列指令碼：
 
         // Create a database for easy reuse, so you don't need to read from a file every time.
@@ -155,9 +155,9 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。 若要深入了解 U-SQL，請
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
 6. 依序切換回至第一個 U-SQL 指令碼和 [提交]  按鈕，指定您的分析帳戶。
-7. 從 方案總管 中，在 Script.usql 上按一下滑鼠右鍵，然後按一下建置指令碼。 確認 [輸出] 窗格中的結果。
-8. 從 方案總管 中，在 Script.usql 上按一下滑鼠右鍵，然後按一下提交指令碼。
-9. 確認 分析帳戶 是在您想要執行工作的帳戶，然後按一下提交。 提交作業完成時，[適用於 Visual Studio 的資料湖工具結果] 視窗中便會出現提交結果和工作連結。
+7. 從 [方案總管] 中，在 [Script.usql] 上按一下滑鼠右鍵，然後按一下 [建置指令碼]。 確認 [輸出] 窗格中的結果。
+8. 從 [方案總管] 中，在 [Script.usql] 上按一下滑鼠右鍵，然後按一下 [提交指令碼]。
+9. 確認 [分析帳戶] 是在您想要執行工作的帳戶，然後按一下 [提交]。 提交作業完成時，[適用於 Visual Studio 的資料湖工具結果] 視窗中便會出現提交結果和工作連結。
 10. 請等待工作成功完成。  如果工作失敗，很可能是因為遺漏了原始檔。  請參閱本教學課程的＜必要條件＞一節。 如需其他疑難排解資訊，請參閱 [監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)。
 
     工作完成之後，您會看到下列畫面：
@@ -175,6 +175,6 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。 若要深入了解 U-SQL，請
 ## <a name="see-also"></a>另請參閱
 若要使用不同的工具開始使用資料湖分析，請參閱：
 
-* [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
-* [使用 Azure PowerShell 開始使用資料湖分析](data-lake-analytics-get-started-powershell.md)
+* [使用 Azure 入口網站開始使用 Data Lake Analytics](data-lake-analytics-get-started-portal.md)
+* [透過 Azure PowerShell 開始使用 Data Lake Analytics](data-lake-analytics-get-started-powershell.md)
 * [使用 .NET SDK 開始使用資料湖分析](data-lake-analytics-get-started-net-sdk.md)

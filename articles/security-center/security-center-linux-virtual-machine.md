@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始使用 Azure 資訊安全中心，您將需要知道並考慮下列項目︰
 
 * 您需要 Microsoft Azure 訂用帳戶。 請參閱[安全性中心價格](https://azure.microsoft.com/pricing/details/security-center/)，以深入了解資訊安全中心的免費和標準層。

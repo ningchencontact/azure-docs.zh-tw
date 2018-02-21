@@ -20,7 +20,7 @@ ms.lasthandoff: 01/10/2018
 
 本快速入門示範如何在 Ubuntu Linux VM 上安裝 [Jenkins](https://jenkins.io)，以及設定為使用 Azure 的工具和外掛程式。 當您完成時，您可讓在 Azure 中執行的 Jenkins 伺服器從 [GitHub](https://github.com) 建置範例 Java 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶
 * 在您電腦的命令列上存取SSH (例如 Bash 殼層或 [PuTTY](http://www.putty.org/))

@@ -337,7 +337,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 ## <a name="must-read"></a>必須閱讀
 * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
-* [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
+* [使用可靠的集合](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
 * [備份與還原 Reliable Services (災害復原)](service-fabric-reliable-services-backup-restore.md)
 * [Reliable State Manager 設定](service-fabric-reliable-services-configuration.md)

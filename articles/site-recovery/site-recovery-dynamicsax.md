@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: asgang
 ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要完成下列必要條件，才能使用 Site Recovery 實作 Dynamics AX 應用程式的災害復原：
 
@@ -51,9 +51,9 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | 是 | 是
-**VMware** | 是 | 是
-**實體伺服器** | 是 | 是
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**實體伺服器** | yes | yes
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>使用 Site Recovery 讓 Dynamics AX 應用程式可以災害復原
 ### <a name="protect-your-dynamics-ax-application"></a>保護 Dynamics AX 應用程式

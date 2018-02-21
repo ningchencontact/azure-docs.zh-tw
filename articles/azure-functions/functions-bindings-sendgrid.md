@@ -14,7 +14,7 @@ ms.date: 11/29/2017
 ms.author: tdykstra
 ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)使用 Service Bus 佇列觸發程序，和 SendGrid 輸出繫結。
+下列範例說明的 [C# 函式](functions-dotnet-class-library.md)，可使用服務匯流排佇列觸發程序和 SendGrid 輸出繫結。
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) 中。
 
 如需可設定的屬性內容相關資訊，請參閱[設定](#configuration)。 以下是方法簽章中的 `SendGrid` 屬性範例：
 
@@ -169,7 +169,7 @@ public static void Run(
 }
 ```
 
-如需完整範例，請參閱[C# 範例](#c-example)。
+如需完整範例，請參閱 [C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 

@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/21/2017
 
 使用 SQL Server Management Studio (SSMS) 連接及查詢 Azure SQL 資料倉儲。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用本教學課程，您需要：
 
 * 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。

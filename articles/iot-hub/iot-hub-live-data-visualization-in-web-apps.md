@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
 1. 在 [Azure 入口網站](https://ms.portal.azure.com/)中，按一下 [新增] > [Web + 行動] >  [Web 應用程式]。
-2. 輸入唯一的作業名稱、驗證訂用帳戶、指定資源群組和位置，選取 釘選到儀表板，然後按一下建立。
+2. 輸入唯一的作業名稱、驗證訂用帳戶、指定資源群組和位置，選取 [釘選到儀表板]，然後按一下 [建立]。
 
    我們建議您選取資源群組所在的相同位置。 這麼做有助於提升處理速度並減少資料傳輸成本。
 
@@ -63,14 +63,14 @@ ms.lasthandoff: 10/11/2017
 1. 開啟您剛才佈建的 Web 應用程式 (web app)。
 2. 按一下 [應用程式設定]，然後在 [應用程式設定] 之下，新增下列索引鍵/值組：
 
-   | 金鑰                                   | 值                                                        |
+   | Key                                   | 值                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | 取自 iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | 您新增至 IoT 中樞之取用者群組的名稱  |
 
    ![使用索引鍵/值組將設定新增至 Web 應用程式 (web app)](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 
-3. 按一下 應用程式設定，在 一般設定 之下切換 Web 通訊端 選項，然後按一下儲存。
+3. 按一下 [應用程式設定]，在 [一般設定] 之下切換 [Web 通訊端] 選項，然後按一下 [儲存]。
 
    ![切換 Web 通訊端選項](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 
    ![設定 Web 應用程式 (web app) 部署以使用本機 Git 存放庫](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. 按一下 部署認證，建立要用來連線到 Azure 中 Git 存放庫的使用者名稱和密碼，然後按一下儲存。
+2. 按一下 [部署認證]，建立要用來連線到 Azure 中 Git 存放庫的使用者名稱和密碼，然後按一下 [儲存]。
 
 3. 按一下 [概觀]，並記下 [Git 複製 url] 的值。
 

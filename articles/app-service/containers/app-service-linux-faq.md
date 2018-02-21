@@ -17,7 +17,7 @@ ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/08/2017
 
 **是否支援預備環境？**
 
-可以。
+是。
 
 **我可以使用 *Web 部署*來部署我的 Web 應用程式嗎？**
 
@@ -92,11 +92,11 @@ var io = require('socket.io')(server,{
 
 **是否支援未編譯的 .NET Core 應用程式？**
 
-可以。
+是。
 
 **您是否支援以 Composer 做為 PHP 應用程式的相依性管理程式？**
 
-可以。 在 Git 部署期間，Kudu 應該會偵測到您要部署 PHP 應用程式 (這點受惠於 composer.lock 檔案)，然後 Kudu 會為您觸發編輯器安裝。
+是。 在 Git 部署期間，Kudu 應該會偵測到您要部署 PHP 應用程式 (這點受惠於 composer.lock 檔案)，然後 Kudu 會為您觸發編輯器安裝。
 
 ## <a name="custom-containers"></a>自訂容器
 

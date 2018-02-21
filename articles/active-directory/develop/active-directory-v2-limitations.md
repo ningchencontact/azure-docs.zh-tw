@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -110,7 +110,7 @@ v2.0 端點不支援 SAML 或 WS-同盟，只支援 Open ID Connect 和 OAuth 2.
 * v2.0 端點不支援在識別碼權杖中發出角色或群組宣告。
 * v2.0 端點不支援 [OAuth 2.0 資源擁有者密碼認證授與 (英文)](https://tools.ietf.org/html/rfc6749#section-4.3)。
 
-此外，v2.0 端點不支援任何形式的 SAML 或 Ws-federation 通訊協定。
+此外，v2.0 端點不支援任何形式的 SAML 或 WS-同盟通訊協定。
 
 若要進一步了解 v2.0 端點中支援的通訊協定功能範圍，請參閱我們的 [OpenID Connect 與 OAuth 2.0 通訊協定參考](active-directory-v2-protocols.md)。
 

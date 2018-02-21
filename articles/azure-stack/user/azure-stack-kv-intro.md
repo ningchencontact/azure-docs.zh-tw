@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 簡介
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 * 您必須訂閱包含 Azure Key Vault 服務的供應項目。  
 * [PowerShell 設定為搭配 Azure Stack 使用](azure-stack-powershell-configure-user.md)。

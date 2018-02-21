@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="linux-clients"></a>Linux 用戶端
 Linux 用戶端通常不會在啟動時向 DNS 伺服器自行登錄，其假設 DHCP 伺服器會這麼做。 Azure 的 DHCP 伺服器並不具能力或認證，無法在您的 DNS 伺服器登錄記錄。  您可以使用稱為 *nsupdate*的工具，該工具隨附於繫結封裝，以傳送動態 DNS 更新。 因為動態 DNS 通訊協定已標準化，您甚至可以在您並非於 DNS 伺服器上使用繫結時，使用 *nsupdate* 。
 
-您可以使用 DHCP 用戶端所提供的勾點，在 DNS 伺服器中建立及維護主機名稱實體。 在 DHCP 週期中，用戶端在 */etc/dhcp/dhclient-exit-hooks.d/*中執行指令碼。 這可以用來使用 *nsupdate*註冊新的 IP 位址。 例如：
+您可以使用 DHCP 用戶端所提供的勾點，在 DNS 伺服器中建立及維護主機名稱實體。 在 DHCP 週期中，用戶端在 */etc/dhcp/dhclient-exit-hooks.d/*中執行指令碼。 這可以用來使用 *nsupdate*註冊新的 IP 位址。 例如︰
 
         #!/bin/sh
         requireddomain=mydomain.local

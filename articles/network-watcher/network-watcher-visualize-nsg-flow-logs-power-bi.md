@@ -107,7 +107,7 @@ ms.lasthandoff: 11/17/2017
 
 請儘管自訂此範本以符合您的需求。 Power BI 和網路安全性群組流程記錄互相搭配有許多做法。 
 
-## <a name="notes"></a>注意事項
+## <a name="notes"></a>注意
 
 * 記錄依預設儲存於 `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 

@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **安裝及維護防火牆設定，以保護持卡人資料**
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 防火牆是種裝置，可控制實體網路 (內部) 和未受信任網路 (外部) 之間允許的電腦流量，以及實體內部受信任網路內流進和流出較敏感區域的流量。 持卡人資料環境就是個例子，它是實體受信任網路內的較敏感區域。
 防火牆會檢查所有網路流量，並封鎖不符合指定安全準則的傳輸。
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/16/2017
 **1.1** 建立和實作防火牆與路由器設定標準，包括下列項目 (請參閱 1.1.1 至 1.1.7)。
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -52,12 +52,12 @@ ms.lasthandoff: 11/16/2017
 **1.1.1** 核准和測試所有網路連線及防火牆和路由器設定變更的正式流程
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 執行個體會建立 CI/CD DevOps 模型，確保所有變更受到正確地管理。 [Operations Management Suite (OMS)](/azure/operations-management-suite/) 提供廣泛的變更記錄。 為確保正確性，您可以檢閱及驗證變更。 如需更具體的指引，請參閱 [PCI 指引 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。<br /><br />[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可提供所有 Azure 資源安全性狀態的集中檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，以及快速找出任何需要注意的資源。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 執行個體會建立 CI/CD DevOps 模型，確保所有變更受到正確地管理。 [Operations Management Suite (OMS)](/azure/operations-management-suite/) 提供廣泛的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指導方針，請參閱 [PCI 指導方針 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。<br /><br />[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可提供所有 Azure 資源安全性狀態的集中檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，以及快速找出任何需要注意的資源。|
 
 
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.2** 目前網路圖表會識別持卡人資料環境和其他網路間的連線，包括任何無線網路
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.3** 目前圖表會顯示系統和網路上所有持卡人資料流程
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.4** 每個網際網路連線及任何非軍事區域 (DMZ) 與內部網路區域之間的防火牆需求
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -104,7 +104,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.5** 管理網路元件的群組、角色和責任說明
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -117,7 +117,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.6** 使用所有可用服務、通訊協定和連接埠的業務正當理由和核准文件，包括針對被視為不安全通訊協定所實作的安全性功能文件。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.7** 必須至少每六個月檢閱防火牆和路由規則集
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -146,7 +146,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 「未受信任網路」是指接受檢閱之實體網路以外的任何網路，和/或超出實體控制或管理能力的任何網路。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -159,7 +159,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.2.1** 僅限持卡人資料環境中需要的輸入和輸出流量，並明確拒絕所有其他流量。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.2.2** 保護並同步路由器設定檔。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -188,7 +188,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.2.3** 在持卡人資料環境與所有無線網路之間安裝周邊防火牆，並設定防火牆來拒絕或允許 (如果流量是業務上所需的) 無線環境和持卡人資料環境之間已經授權的流量。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -201,7 +201,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.3** 禁止網際網路和持卡人資料環境中任何系統元件之間的直接公開存取。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -215,7 +215,7 @@ ms.lasthandoff: 11/16/2017
 **1.3.1** 實作 DMZ，以限制輸入流量只能流入提供已授權公開存取服務、通訊協定和連接埠的系統元件。
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -228,7 +228,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.3.2** 限制輸入網際網路流量流至 DMZ 內的 IP 位址。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.3.3** 實作反詐騙措施來偵測並封鎖偽造的來源 IP 位址，防止其進入網路。 (例如，封鎖產生至內部來源位址的網際網路流量)。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/16/2017
 **1.3.4**不允許未經授權的輸出流量從持卡人資料環境傳送到網際網路。
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/16/2017
 **1.3.5** 網路內允許「已建立」的連線。
 
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/16/2017
 **1.3.6** 將儲存持卡人資料的系統元件 (例如資料庫) 放置在內部網路區域中，與 DMZ 和其他未受信任的網路分開。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -304,11 +304,11 @@ ms.lasthandoff: 11/16/2017
 > - 在內部使用 RFC1918 位址空間，而不是已註冊的位址。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 會使用網路位址轉譯 (NAT) 和網路隔離和來分開客戶流量和管理流量。 Azure 裝置可透過其 UUID 來進行唯一識別，並使用 Kerberos 驗證。 Azure 受管理的網路裝置會藉由 RFC 1918 IP 位址加以識別。 |
+| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 會使用網路位址轉譯 (NAT) 和網路隔離和來分開客戶流量和管理流量。 Azure 裝置可透過其 UUID 來進行唯一識別，並使用 Kerberos 驗證。 Azure 受控網路裝置會藉由 RFC 1918 IP 位址加以識別。 |
 | **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會將所有持卡人資料放在 Proxy 伺服器/防火牆後面，並會在內部使用 RFC1918 位址空間。|
 
 
@@ -319,7 +319,7 @@ ms.lasthandoff: 11/16/2017
 - 個人防火牆 (或同等功能) 正在執行。
 - 個人防火牆 (或同等功能) 不可由可攜式電腦裝置的使用者變更。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -332,7 +332,7 @@ ms.lasthandoff: 11/16/2017
 
 **1.5** 確定管理防火牆的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

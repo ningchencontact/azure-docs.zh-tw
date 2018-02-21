@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -63,7 +63,7 @@ public static async Task<List<string>> Run(
 
 完成時，稍早顯示的函式歷程記錄在 Azure 資料表儲存體中看起來如下所示 (針對示範目的縮寫)：
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | 輸入 | 名稱             | 結果                                                    | 狀態 | 
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | 輸入 | Name             | 結果                                                    | 狀態 | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
@@ -90,7 +90,7 @@ public static async Task<List<string>> Run(
     * **TaskScheduled**：活動函式已排程。 活動函式的名稱是在 `Name` 資料行中擷取。
     * **TaskCompleted**：活動函式已完成。 函式的結果是在 `Result` 資料行中。
     * **TimerCreated**：建立長期計時器。 `FireAt` 資料行包含計時器到期的已排程 UTC 時間。
-    * **TimerFired**： 永久性計時器引發。
+    * **TimerFired**：長期計時器已引發。
     * **EventRaised**：外部事件傳送至協調流程執行個體。 `Name` 資料行會擷取事件的名稱，而 `Input` 資料行會擷取事件的裝載。
     * **OrchestratorCompleted**：協調器函式已等候。
     * **ContinueAsNew**：協調器函式已完成，並且以新的狀態自行重新啟動。 `Result` 資料行包含值，可作為重新啟動執行個體的輸入。
@@ -98,7 +98,7 @@ public static async Task<List<string>> Run(
 * **Timestamp**：歷程記錄事件的 UTC 時間戳記。
 * **Name**：被叫用之函式的名稱。
 * **Input**：函式的 JSON 格式輸入。
-* **結果**: 函式的輸出，也就是它的傳回值。
+* **Result**：函式的輸出，也就是它的傳回值。
 
 > [!WARNING]
 > 它作為偵錯工具相當有用，請勿在此資料表上採用任何相依性。 當 Durable Functions 擴充功能進化時，此相依性可能會改變。

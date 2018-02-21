@@ -31,7 +31,7 @@ Azure Machine Learning 在 MSDN 上有一個論壇，資料科學社群的成員
 ## <a name="general-questions"></a>一般問題
 **什麼是 Azure Machine Learning 服務？**
 
-Azure Machine Learning 是受到完整管理的服務，可用來建立、測試、操作及管理雲端中的預測分析方案。 僅使用瀏覽器，您即可以登入、上傳資料，以及立即開始機器學習實驗。 拖放式預測性模型化、大型模組和用以啟動範本的程式庫，讓您得以簡便而快速地執行一般機器學習工作。 如需詳細資訊，請參閱 [Azure Machine Learning 服務概觀](https://azure.microsoft.com/services/machine-learning/)。 如需說明重要術語和概念的機器學習服務簡介，請參閱 [Azure Machine Learning 簡介](what-is-machine-learning.md)。
+Azure Machine Learning 是完全受控的服務，可用來建立、測試、操作及管理雲端中的預測分析方案。 僅使用瀏覽器，您即可以登入、上傳資料，以及立即開始機器學習實驗。 拖放式預測性模型化、大型模組和用以啟動範本的程式庫，讓您得以簡便而快速地執行一般機器學習工作。 如需詳細資訊，請參閱 [Azure Machine Learning 服務概觀](https://azure.microsoft.com/services/machine-learning/)。 如需說明重要術語和概念的機器學習服務簡介，請參閱 [Azure Machine Learning 簡介](what-is-machine-learning.md)。
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -173,7 +173,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 **可以使用內建模組來視覺化類神經網路模型的層級嗎？**
 
-否。
+編號
 
 **可以以 C# 或其他語言建立自己的模組嗎？**
 
@@ -210,7 +210,7 @@ Machine Learning Studio 目前支援 400 個以上的 CRAN 套件，以下是所
 ### <a name="create"></a>建立
 **可以在本機或在沒有網際網路連線的應用程式中部署模型嗎？**
 
-否。
+編號
 
 **所有 Web 服務是否有預期的基準延遲？**
 
@@ -280,7 +280,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以調整用來執行 Web 服務的虛擬機器大小嗎？**
 
-否。  
+編號  
 
 ## <a name="security-and-availability"></a>安全性和可用性
 **根據預設，哪些人可以存取 Web 服務的 HTTP 端點？如何限制對此端點的存取？**

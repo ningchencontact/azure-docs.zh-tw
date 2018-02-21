@@ -26,7 +26,7 @@ ms.lasthandoff: 11/28/2017
 
 在本教學課程中，您會設定及使用 *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))*，以便監視彈性集區和資料庫。 本教學課程是架構在[效能監視與管理教學課程](saas-dbpertenant-performance-monitoring.md)之上。 示範如何使用 *Log Analytics*，以增強 Azure 入口網站中提供的監視和警示功能。 Log Analytics 適合用於大規模監視和警示，因為它可支援數百個集區和數十萬個資料庫。 它也提供單一監視解決方案，可以跨多個 Azure 訂用帳戶，整合不同應用程式和 Azure 服務的監視。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 安裝及設定 Log Analytics (OMS)

@@ -39,7 +39,7 @@ Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中�
 每個方法會使用不同案例的不同多載來顯示。
 
 ## <a name="asynchronous-versus-synchronous"></a>同步與非同步
-因為 Storage Client Library for C++ 的建置基礎為 [C++ REST 程式庫](https://github.com/Microsoft/cpprestsdk)，所以我們原本就使用 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 支援非同步作業。 例如：
+因為 Storage Client Library for C++ 的建置基礎為 [C++ REST 程式庫](https://github.com/Microsoft/cpprestsdk)，所以我們原本就使用 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 支援非同步作業。 例如︰
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

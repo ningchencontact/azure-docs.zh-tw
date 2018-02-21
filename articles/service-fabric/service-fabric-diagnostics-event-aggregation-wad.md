@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 上傳和收集記錄的其中一種方式就是使用「Windows Azure 診斷 (WAD)」延伸模組，此延伸模組可將記錄上傳到「Azure 儲存體」，也可以選擇將記錄傳送至 Azure Application Insights 或「事件中樞」。 您也可以使用外部程序來讀取儲存體中的事件，然後將它們放在 [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) 這類的分析平台產品或其他記錄剖析解決方案中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 這些工具是用來執行這份文件中的某些作業：
 
 * [Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md) (與 Azure 雲端服務相關，但具備有用的資訊和範例)

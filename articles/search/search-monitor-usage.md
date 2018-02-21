@@ -96,38 +96,38 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 每個 Blob 會一個名為 **記錄** 的根物件，其中包含記錄檔物件的陣列。
 在每個 blob 中，同一小時內發生的所有作業都有記錄。
 
-| 名稱 | 類型 | 範例 | 注意事項 |
+| Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 分析 |datetime |"2015-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
-| operationName |string |"Query.Search" |作業的名稱 |
-| operationVersion |string |"2015-02-28" |使用的 api-version |
-| category |string |"OperationLogs" |常數 |
-| resultType |string |"Success" |可能的值：Success 或 Failure |
+| 分析 |Datetime |"2015-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
+| operationName |字串 |"Query.Search" |作業的名稱 |
+| operationVersion |字串 |"2015-02-28" |使用的 api-version |
+| category |字串 |"OperationLogs" |常數 |
+| resultType |字串 |"Success" |可能的值：Success 或 Failure |
 | resultSignature |int |200 |HTTP 結果碼 |
 | durationMS |int |50 |作業的持續時間 (以毫秒為單位) |
 | properties |物件 |請參閱下表 |包含作業特定資料的物件 |
 
 **屬性結構描述**
-| 名稱 | 類型 | 範例 | 注意事項 |
+| Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 說明 |string |"GET /indexes('content')/docs" |作業的端點 |
-| 查詢 |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |查詢參數 |
+| 說明 |字串 |"GET /indexes('content')/docs" |作業的端點 |
+| 查詢 |字串 |"?search=AzureSearch&$count=true&api-version=2015-02-28" |查詢參數 |
 | 文件 |int |42 |處理的文件數目 |
-| IndexName |string |"testindex" |與作業相關聯的索引名稱 |
+| IndexName |字串 |"testindex" |與作業相關聯的索引名稱 |
 
 #### <a name="metrics-schema"></a>度量結構描述
-| 名稱 | 類型 | 範例 | 注意事項 |
+| Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
-| metricName |string |"Latency" |度量的名稱 |
-| 分析 |datetime |"2015-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
+| metricName |字串 |"Latency" |度量的名稱 |
+| 分析 |Datetime |"2015-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | average |int |64 |度量時間間隔中原始範例的平均值 |
 | minimum |int |37 |度量時間間隔中原始範例的最小值 |
 | maximum |int |78 |度量時間間隔中原始範例的最大值 |
 | total |int |258 |度量時間間隔中原始範例的總和值 |
-| 計數 |int |4 |用來產生度量的原始樣本數 |
-| timegrain |string |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
+| count |int |4 |用來產生度量的原始樣本數 |
+| timegrain |字串 |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
 
 每隔一分鐘就會回報所有計量。 每個度量會顯示每分鐘的最小值、最大值和平均值。
 

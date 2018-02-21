@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="see-also"></a>另請參閱
 * [Azure CDN 概觀](cdn-overview.md)
-* [規則引擎參考](cdn-rules-engine-reference.md)
+* [規則引擎參考 (英文)](cdn-rules-engine-reference.md)
 * [規則引擎比對條件](cdn-rules-engine-reference-match-conditions.md)
 * [規則引擎條件運算式](cdn-rules-engine-reference-conditional-expressions.md)
 * [規則引擎功能](cdn-rules-engine-reference-features.md)

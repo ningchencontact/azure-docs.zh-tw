@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>更新設定檔電子郵件也會更新登入電子郵件地址嗎？
 
-不會。 更新設定檔電子郵件不會更新登入電子郵件地址。 若要變更登入電子郵件地址，您必須轉移帳戶的擁有權。
+編號 更新設定檔電子郵件不會更新登入電子郵件地址。 若要變更登入電子郵件地址，您必須轉移帳戶的擁有權。
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>更新設定檔地址也會更新信用卡帳單寄送地址嗎？
 

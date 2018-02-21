@@ -1,9 +1,9 @@
 ---
-title: "建立自訂角色型存取控制角色，並將指派給在 Azure 中的內部和外部使用者 |Microsoft 文件"
+title: "建立自訂的角色型存取控制角色，並指派給 Azure 中的內部和外部使用者 | Microsoft Docs"
 description: "將針對內部和外部使用者使用 PowerShell 和 CLI 所建立的自訂 RBAC 角色進行指派"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>角色型存取控制簡介
 
 角色型存取控制是僅限 Azure 入口網站使用的功能，可讓訂用帳戶擁有者將細微角色指派給其他能夠管理其環境中特定資源範圍的使用者。
 
-RBAC 可提供更好的安全性管理，對象包括大型組織，以及與需要存取您環境中的特定資源，但不一定需要存取整個基礎結構或任何計費相關範圍的外部共同作業者、廠商或自由工作者共同合作的 SMB。 RBAC 能提供彈性，可擁有一個系統管理員帳戶 (訂用帳戶等級中的服務系統管理員角色) 所管理的 Azure 訂用帳戶，並邀請多個使用者在相同的訂用帳戶下運作，而無需任何系統管理權限。 從管理和計費的觀點而言，RBAC 功能證實是各種情況中使用 Azure 的有效時間和管理選項。
+不論是大型組織，還是與需要存取您環境中特定資源，但不一定需要存取整個基礎結構或任何計費相關範圍的外部共同作業者、廠商或自由工作者合作的 SMB，RBAC 都可為其提供更好的安全性管理。 RBAC 能提供彈性，可擁有一個系統管理員帳戶 (訂用帳戶等級中的服務系統管理員角色) 所管理的 Azure 訂用帳戶，並邀請多個使用者在相同的訂用帳戶下運作，而無需任何系統管理權限。 從管理和計費的觀點而言，RBAC 功能證實是各種情況中使用 Azure 的有效時間和管理選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在 Azure 環境中使用 RBAC 需要︰
 
 * 將獨立的 Azure 訂用帳戶指派至使用者作為擁有者 (訂用帳戶角色)
@@ -37,7 +37,7 @@ RBAC 可提供更好的安全性管理，對象包括大型組織，以及與需
 * 請確定使用者訂用帳戶已登錄下列資源提供者︰**Microsoft.Authorization**。 如需有關如何登錄資源提供者的詳細資訊，請參閱 [Resource Manager 提供者、區域、API 版本及結構描述](../azure-resource-manager/resource-manager-supported-services.md)。
 
 > [!NOTE]
-> Office 365 訂閱或 Azure Active Directory 的授權 (例如： 存取 Azure Active Directory) center 沒有資格進行使用 RBAC Office 365 系統管理員佈建。
+> 從「Office 365 系統管理中心」佈建的 Office 365 訂用帳戶或 Azure Active Directory 授權 (例如︰存取 Azure Active Directory) 沒有資格使用 RBAC。
 
 ## <a name="how-can-rbac-be-used"></a>如何使用 RBAC
 RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍，如下所示︰
@@ -50,7 +50,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 使用 RBAC 時，有兩個常見的範例 (但是不限於)︰
 
 * 邀請來自組織 (並非管理使用者 Azure Active Directory 租用戶的一部分) 外部的使用者來管理特定的資源或是整個訂用帳戶
-* 適用於組織內部 (它們屬於使用者 Azure Active Directory 租用戶的一部分) 的使用者，但屬於不同小組或群組的使用者除外，它們需要細微存取整個訂用帳戶，或特定資源群組或環境中之資源範圍
+* 與組織內部但屬於不同小組或群組的使用者 (使用者之 Azure Active Directory 租用戶的成員) 合作，而這些使用者需要整個訂用帳戶或環境中特定資源群組或資源範圍的細微存取權
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>為 Azure Active Directory 外部的使用者授與訂用帳戶等級的存取權
 只有訂用帳戶的**擁有者**可授與 RBAC 角色，因此必須使用此角色已預先指派或已建立 Azure 訂用帳戶的使用者名稱來記錄管理使用者。
@@ -59,7 +59,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 ![Azure 入口網站中的訂用帳戶刀鋒視窗](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) 根據預設，如果管理使用者已購買 Azure 訂用帳戶，使用者就會顯示為**帳戶管理員**，這是訂用帳戶角色。 如需 Azure 訂用帳戶角色的詳細資訊，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](/billing/billing-add-change-azure-subscription-administrator.md)。
 
 在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 這個使用者是利用初始 Microsoft 帳戶 “Outlook” (Microsoft Account = Outlook, Live etc.) 的 Azure 訂用帳戶建立者，因此這個租用戶中新增之所有其他使用者的預設網域名稱為 **"@alflaniganuoutlook.onmicrosoft.com"**。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
-此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，可以使用租用戶中的自訂網域名稱進行登入。 如需如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](/active-directory/active-directory-add-domain)。
+此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，即可使用租用戶中的自訂網域名稱進行登入。 如需有關如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](/active-directory/active-directory-add-domain)。
 
 在此範例中，「預設租用戶 Azure」目錄僅包含具有 "@alflanigan.onmicrosoft.com" 網域名稱的使用者。
 
@@ -79,7 +79,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 
 下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 角色型存取控制的內建角色](role-based-access-built-in-roles.md)。
 
-然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，他會與目前已指派訂用帳戶範圍內之 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
+然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，將會與目前在「訂用帳戶」範圍獲指派 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
 
 
 
@@ -96,7 +96,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 已邀請使用者 "chessercarlton@gmail.com" 成為「免費試用」訂用帳戶的**擁有者**。 傳送邀請之後，外部使用者會收到包含啟用連結的電子郵件確認。
 ![RBAC 角色的電子郵件邀請](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-在組織外部的新使用者，沒有任何「預設租用戶 Azure」目錄中的現有屬性。 外部使用者取得同意在與訂用帳戶 (已受指派角色) 相關聯的目錄中加以記錄之後，便會建立它們。
+在組織外部的新使用者，沒有任何「預設租用戶 Azure」目錄中的現有屬性。 在外部使用者同意被記錄在與他獲指派角色之訂用帳戶關聯的目錄中之後，便會建立這些屬性。
 
 
 
@@ -104,7 +104,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 
 ![RBAC 角色的電子郵件邀請訊息](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-在 Azure 入口網站，您可以檢視中當做外部使用者從現在起的 Azure Active Directory 租用戶，而這顯示的外部使用者。
+從現在起，外部使用者在 Azure Active Directory 租用戶中就會顯示為外部使用者，而在 Azure 入口網站中即可檢視此資訊。
 
 
 
@@ -114,12 +114,12 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 
 
 
-在**使用者** 檢視中，外部使用者可以辨識的 Azure 入口網站中不同的圖示類型。
+在 Azure 入口網站的 [使用者] 檢視中，可由不同的圖示類型來辨識外部使用者。
 
-不過，除非**全域管理員**加以允許，否則將**擁有者**或**參與者**存取權授與給**訂用帳戶**範圍內的外部使用者，並不允許存取管理使用者的目錄。 在使用者內容中，可以識別具有 **Member** 和 **Guest** 這兩個常見的參數的**使用者類型**。 當來賓為外部來源受邀至目錄的使用者時，在目錄中登錄的使用者就是成員。 如需詳細資訊，請參閱 [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者](active-directory-b2b-admin-add-users.md)。
+不過，除非**全域管理員**加以允許，否則將**擁有者**或**參與者**存取權授與給**訂用帳戶**範圍內的外部使用者，並不允許存取管理使用者的目錄。 在使用者屬性中，可以識別 [使用者類型]，其中包含兩個常見的參數 [成員] 和 [來賓]。 成員是已在目錄中註冊的使用者，來賓則是從外部來源邀請到目錄的使用者。 如需詳細資訊，請參閱 [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者](active-directory-b2b-admin-add-users.md)。
 
 > [!NOTE]
-> 在入口網站中輸入認證後，請確定外部使用者選取正確的目錄進行登入。 相同使用者可以存取多個目錄，並且可以選擇其中一個目錄，方法是按一下 Azure 入口網站右上角的使用者名稱，然後從下拉式清單中選取適當的目錄。
+> 請確定外部使用者在入口網站中輸入認證之後，選取正確的目錄進行登入。 相同使用者可以存取多個目錄，並且可以選擇其中一個目錄，方法是按一下 Azure 入口網站右上角的使用者名稱，然後從下拉式清單中選取適當的目錄。
 
 在目錄中使用來賓身分時，外部使用者可以管理 Azure 訂用帳戶的所有資源，但無法存取目錄。
 
@@ -129,7 +129,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 
 ![存取限於 Azure Active Directory Azure 入口網站](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同其他 Azure 資源 (例如︰虛擬機器、虛擬網路、Web Apps、儲存體等) 與 Azure 訂用帳戶。 將 Azure 訂用帳戶用來管理 Azure 目錄的存取權時，所有後者會建立在 Azure 訂用帳戶下，並加以管理和計費。 如需詳細資訊，請參閱 [Azure 訂用帳戶與 Azure AD 有何相關](/active-directory/active-directory-how-subscriptions-associated-directory)。
+Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同其他 Azure 資源 (例如︰虛擬機器、虛擬網路、Web Apps、儲存體等) 與 Azure 訂用帳戶。 所有後者都是在 Azure 訂用帳戶底下建立、管理及計費，而 Azure 訂用帳戶則是用來管理對 Azure 目錄的存取權。 如需詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure AD 相關](/active-directory/active-directory-how-subscriptions-associated-directory)。
 
 所有內建 RBAC 角色的**擁有者**和**參與者**會提供對環境中所有資源的完整管理存取權，差異在於參與者無法建立新的 RBAC 角色並加以刪除。 其他內建角色 (例如**虛擬機器參與者**) 僅對該名稱所表示的資源提供完整管理存取權，不論它們要建立在哪一個**資源群組**。
 
@@ -148,7 +148,7 @@ Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同�
 
 ![虛擬機器參與者內建角色](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-這個具有此內建角色之外部使用者的正常行為，就是僅查看和管理虛擬機器，以及其相鄰 Resource Manager 僅在部署時所需的資源。 根據設計，這些限制的角色會提供在 Azure 入口網站中建立其對應的資源存取。
+這個具有此內建角色之外部使用者的正常行為，就是僅查看和管理虛擬機器，以及其相鄰 Resource Manager 僅在部署時所需的資源。 就設計而言，這些受限角色所提供的存取權僅限在 Azure 入口網站中所建立與它們對應的資源。
 
 
 
@@ -158,12 +158,12 @@ Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同�
 程序流程與新增外部使用者的相同，從授與 RBAC 角色的系統管理員觀點以及取得角色存取權的使用者皆然。 此處的差異在於，受邀的使用者無法接收任何電子郵件邀請，因為訂用帳戶內的所有資源範圍在登入之後都會在儀表板中提供使用。
 
 ## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>指派資源群組範圍內的 RBAC 角色
-對於兩種類型的使用者 - 外部或內部 (相同目錄的一部分)，指派**資源群組**範圍內的 RBAC 角色與指派訂用帳戶等級的角色程序相同。 獲指派 RBAC 角色的使用者只會在其環境中看到已從 Azure 入口網站中的**資源群組**圖示指派存取權的資源群組。
+對於兩種類型的使用者 - 外部或內部 (相同目錄的一部分)，指派**資源群組**範圍內的 RBAC 角色與指派訂用帳戶等級的角色程序相同。 獲指派 RBAC 角色的使用者在其環境中所看到的資源群組，僅限於已從 Azure 入口網站中的 [資源群組] 圖示指派存取權給他們的資源群組。
 
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>指派資源範圍內的 RBAC 角色
-在 Azure 中指派資源範圍內的角色與指派訂用帳戶等級或資源群組等級的角色程序相同，這兩個案例皆遵循相同的工作流程。 同樣地，獲指派 RBAC 角色的使用者只能在 [所有資源] 索引標籤或直接在儀表板中，看到他們已獲指派可存取的項目。
+在 Azure 中指派資源範圍內的角色與指派訂用帳戶等級或資源群組等級的角色程序相同，這兩個案例皆遵循相同的工作流程。 同樣地，獲指派 RBAC 角色的使用者所能看到的項目，也僅限於在 [所有資源] 索引標籤或直接在其儀表板中指派存取權給他們的項目。
 
-在資源群組範圍或資源範圍內之 RBAC 的一個重點是，讓使用者確定登入正確的目錄。
+不論是在資源群組範圍還是資源範圍，RBAC 都有一個重要層面，就是讓使用者確定登入正確的目錄。
 
 
 
@@ -172,7 +172,7 @@ Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同�
 ![Azure 入口網站中的目錄登入](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>為 Azure Active Directory 群組指派 RBAC 角色
-在 Azure 中三個不同的範圍使用 RBAC 的所有案例，都提供以指派的使用者身分管理、部署和系統管理各種資源，而不需要管理個人訂用帳戶。 無論 RBAC 角色是指派給訂用帳戶、資源群組還是資源範圍，所有已指派的使用者所進一步建立的資源，都會以使用者擁有存取權的其中一個 Azure 訂用帳戶加以計費。 如此一來，擁有整個 Azure 訂用帳戶計費系統管理員權限的使用者，可以完整概觀耗用量，不論資源管理者是誰。
+在於 Azure 的三種不同範圍使用 RBAC 的所有案例中，都提供以指派的使用者身分進行各種資源之管理、部署及系統管理的權限，而無須管理個人訂用帳戶。 不論 RBAC 角色是指派給訂用帳戶、資源群組還是資源範圍，所有由所指派使用者進一步建立的資源，都會在使用者能夠存取的一個 Azure 訂用帳戶下計費。 如此一來，擁有整個 Azure 訂用帳戶計費系統管理員權限的使用者，可以完整概觀耗用量，不論資源管理者是誰。
 
 對於較大型組織，考慮到管理使用者想要將細微存取授與小組或整個部門的方面，而非個別授與每位使用者，可透過相同的方式來套用 Azure Active Directory 群組的 RBAC 角色，因此考慮將它作為非常有效率的時間和管理選項。 為了說明此範例中，**參與者**角色已新增至訂用帳戶等級之租用戶的其中一個群組。
 
@@ -182,16 +182,16 @@ Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同�
 
 ![新增 AAD 群組的 RBAC 角色](./media/role-based-access-control-create-custom-roles-for-internal-external-users/14.png)
 
-這些群組都是安全性群組，只在 Azure Active Directory 內進行佈建和管理。
+這些群組是安全性群組，只在 Azure Active Directory 內進行佈建和管理。
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>建立自訂的 RBAC 角色，才能使用 PowerShell 開啟支援要求
-Azure 中提供的內建 RBAC 角色會以環境中可用的資源作為基礎來確保特定權限等級。 不過，如果這些角色都不符合管理使用者的需求，可透過建立自訂的 RBAC 角色，選擇限制更多存取權。
+Azure 中提供的內建 RBAC 角色會根據環境中可用的資源來確保特定的權限等級。 不過，如果這些角色都不符合管理使用者的需求，可透過建立自訂的 RBAC 角色，選擇限制更多存取權。
 
 建立自訂的 RBAC 角色需要採用一個內建角色、加以編輯，然後將它匯入回環境中。 會使用 PowerShell 或 CLI 來管理角色的上傳與下載。
 
-請務必了解建立自訂角色的必要條件，其可授與訂用帳戶等級的細微存取權，並且提供受邀使用者開啟支援要求的彈性。
+了解需滿足哪些必要條件才能建立可授與訂用帳戶層級之細微存取權的自訂角色，並且也允許受邀使用者擁有提出支援要求的彈性，相當重要。
 
-此範例中，讓使用者可存取並檢視所有資源範圍，但不能加以編輯或新建的內建角色**讀取器**已進行自訂，可供使用者選擇開啟支援要求。
+針對此範例，已將內建角色**讀者** (可賦予使用者存取權來檢視所有資源範圍，但不能編輯資源範圍或建立新的資源範圍) 自訂成可讓使用者選擇提出支援要求。
 
 將**讀取器**角色匯出的第一個動作，必須在以系統管理員身分透過提高權限執行的 PowerShell 中完成。
 
@@ -245,7 +245,7 @@ New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 > [!NOTE]
 > 允許開啟支援要求的兩個內建 RBAC 角色動作是**擁有者**和**參與者**。 使用者若要開啟支援要求，必須僅獲指派訂用帳戶範圍內的 RBAC 角色，因為所有支援要求都會以 Azure 訂用帳戶作為基礎加以建立。
 
-已從相同的目錄將這個新的自訂角色指派給使用者。
+這個新的自訂使用者已指派給來自相同目錄的使用者。
 
 
 
@@ -293,7 +293,7 @@ New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 
 建立自訂角色的步驟都相同，唯一的例外狀況是，使用 CLI，就無法在 JSON 範本中下載角色，但可以在 CLI 中加以檢視。
 
-此範例中，我選擇的內建角色是**備份讀取器**。
+針對此範例，我所選擇的內建角色是**備份讀者**。
 
 ```
 

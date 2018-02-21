@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>關鍵考量：使用服務或為 Azure Stack 建置應用程式
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 使用服務或為 Azure Stack 建置應用程式時，您必須了解 Azure Stack 與 Azure 之間有所差異。 本文章提供當您以 Azure Stack 做為混合式雲端開發環境的目標時，關鍵考量事項的概觀。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在內部虛擬網路中使用 Azure API 管理服務
 在 Azure 虛擬網路中，Azure API 管理可以管理無法在網際網路上存取的 API。 有許多 VPN 技術可讓您建立連線。 API 管理在虛擬網路內有兩種主要的部署模式：
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/04/2017
 * 內部
 
 
-當 API 管理以內部虛擬網路模式部署時，只有在您控制存取的虛擬網路內才看得到所有服務端點 (閘道、開發人員入口網站、發行者入口網站、直接管理和 Git)。 公用 DNS 伺服器上不會註冊任何服務端點。
+當 API 管理以內部虛擬網路模式部署時，只有在您控制存取的虛擬網路內才看得到所有服務端點 (閘道、開發人員入口網站、Azure 入口網站、直接管理和 Git)。 公用 DNS 伺服器上不會註冊任何服務端點。
 
 在內部模式中使用 API 管理可讓您實現下列情節：
 * 使用站對站或 Azure ExpressRoute VPN 連線，讓裝載於私人資料中心的 API 可供外部第三方安全地存取。
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/04/2017
 * 使用單一閘道端點，管理裝載於多個地理位置的 API。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要執行本文所述的步驟，您必須具有：
 
@@ -72,14 +72,14 @@ ms.lasthandoff: 12/04/2017
 當 API 管理處於外部虛擬網路模式時，DNS 是由 Azure 管理。 若是內部虛擬網路模式，您必須管理自己的路由。
 
 > [!NOTE]
-> API 管理服務不會接聽 IP 位址傳來的要求。 只有當要求指明其服務端點上所設定的主機名稱時，才會有所回應。 這些端點包括閘道、開發人員入口網站、發行者入口網站，直接管理端點和 Git。
+> API 管理服務不會接聽 IP 位址傳來的要求。 只有當要求指明其服務端點上所設定的主機名稱時，才會有所回應。 這些端點包括閘道、開發人員入口網站、Azure 入口網站，直接管理端點和 Git。
 
 ### <a name="access-on-default-host-names"></a>在預設主機名稱上存取
 當您建立 API 管理服務時，假設名為 "contoso"，依預設會設定下列服務端點：
 
    * 閘道或 Proxy：contoso.azure-api.net
 
-   * 發行者入口網站和開發人員入口網站：contoso.portal.azure-api.net
+   * Azure 入口網站和開發人員入口網站：contoso.portal.azure-api.net
 
    * 直接管理端點：contoso.management.azure-api.net
 

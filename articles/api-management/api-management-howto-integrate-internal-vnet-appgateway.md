@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -32,7 +32,7 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 * 使用單一 API 管理資源，並在 API 管理中定義一部分 API 供外部取用者使用。
 * 提供周全的方法來開啟和關閉從公用網際網路對 API 管理的存取權。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要執行本文所述的步驟，您必須具有：
 

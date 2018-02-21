@@ -266,7 +266,7 @@ Tomcat7 伺服器會在您進行安裝時自動啟動。 您也可以使用下�
 
 
         w3m http://localhost:8080  
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 
   * 如果 Tomcat 接聽連接埠與虛擬機器上用於流量的端點私人連接埠不同，您需要將私人連接埠變更為與 tomcat 接聽連接埠相同。   
   2. 如果問題是由防火牆/iptables 造成，請在 /etc/sysconfig/iptables 中新增下列幾行。 https 流量才需要第二行：  
@@ -296,7 +296,7 @@ Tomcat7 伺服器會在您進行安裝時自動啟動。 您也可以使用下�
      Error:    File transfer failed
 #### <a name="possible-root-cause"></a>可能的根本原因
   您沒有存取 /var/lib/tomcat7/webapps 資料夾的權限。  
-#### <a name="solution"></a>方案  
+#### <a name="solution"></a>解決方法  
   您需要從 root 帳戶取得權限。 您可以將該資料夾的擁有權從 root 變更為佈建機器時所用的使用者名稱。 下列是一個 azureuser 帳戶名稱的範例：  
 
      sudo chown azureuser -R /var/lib/tomcat7/webapps

@@ -16,7 +16,7 @@ ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 此文章說明如何設定您的內部部署環境，以開始將在 VMware 上執行的虛擬機器複寫到 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此文章假設您已經建立：
 - [Azure 入口網站](http://portal.azure.com "Azure 入口網站")中的復原服務保存庫。

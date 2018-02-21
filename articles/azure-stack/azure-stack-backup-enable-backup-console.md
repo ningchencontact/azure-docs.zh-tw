@@ -22,7 +22,7 @@ ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生失敗情況時，您可以使用這些備份來還原環境。
 

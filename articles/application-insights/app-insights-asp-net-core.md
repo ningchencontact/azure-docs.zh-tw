@@ -44,7 +44,7 @@ ms.lasthandoff: 11/01/2017
 * [搜尋總管](app-insights-diagnostic-search.md)列出個別事件，例如特定要求、例外狀況、記錄檔追蹤或您使用 [API](app-insights-api-custom-events-metrics.md) 自行建立的事件。 在事件中篩選和搜尋，並瀏覽相關事件以調查問題。
 * [分析](app-insights-analytics.md) 可讓您在遙測上執行類似 SQL 的查詢，而且這是一個功能強大的分析與診斷工具。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 * 自動取得[主動診斷警示](app-insights-proactive-diagnostics.md)，告訴您相關的失敗率和其他度量異常的變更。
 * 設定 [可用性測試](app-insights-monitor-web-app-availability.md) ，持續從全球各地的位置 測試您的網站，並在有任何測試失敗時立即取得電子郵件。
 * 設定 [計量警示](app-insights-monitor-web-app-availability.md) ，以了解計量 (如回應時間或例外狀況率) 是否超出可接受的限制。

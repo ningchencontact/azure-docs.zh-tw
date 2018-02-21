@@ -56,7 +56,7 @@ ms.lasthandoff: 12/11/2017
 在 Azure AD powershell 工作階段中執行下列步驟︰連線至包含網域 fabrikam.com 的 Azure Active Directory
 
     Connect-MsolService
-將 fabrikam.com 受管理的網域轉換為同盟︰
+將 fabrikam.com 受控網域轉換為同盟︰
 
     Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
  

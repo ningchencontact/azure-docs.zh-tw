@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 進行連接
 
@@ -38,7 +38,9 @@ ms.lasthandoff: 01/11/2018
 
 3. 在 [資料庫] 中，如果您知道所要連線表格式模型資料庫或檢視方塊的名稱，請在此貼上。 否則，您可以將此欄位保留空白，然後稍後選取資料庫或檢視方塊。
 
-4. 保留預設的 [即時連接] 選項，然後按 [連接]。 目前不支援匯入連線。
+4. 選取連接選項，然後按 [連接]。 
+
+    同時支援 [即時連接] 和 [匯入] 選項。 不過，建議您使用即時連接，因為匯入模式確實有一些限制；最值得注意的是，在匯入期間，伺服器效能可能會受到影響。 此外，如果要重新整理 Power BI 服務中的模型，只有選擇 [即時連接]，才適用 [允許從 Power BI 存取] 設定。
 
 5. 如果出現提示，請輸入您的登入認證。 
 

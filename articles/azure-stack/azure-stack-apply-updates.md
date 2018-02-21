@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 身為 Azure Stack 操作員，您可以使用系統管理員入口網站中的 [更新] 圖格來為 Azure Stack 套用 Microsoft 更新套件。 您必須下載 Microsoft 更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。 
 

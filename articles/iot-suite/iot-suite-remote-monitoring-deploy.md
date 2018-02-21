@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/13/2017
 > * 部署預先設定的解決方案
 > * 登入預先設定的解決方案
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，您需要一個有效的 Azure 訂用帳戶。
 

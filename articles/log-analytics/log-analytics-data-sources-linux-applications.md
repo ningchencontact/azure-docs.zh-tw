@@ -49,7 +49,7 @@ MySQL 驗證檔案儲存在 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysq
 
 | 屬性 | 說明 |
 |:--|:--|
-| 連接埠 | 代表 MySQL 執行個體目前正在接聽的連接埠。 連接埠 0 指定後面的屬性用於預設執行個體。 |
+| Port | 代表 MySQL 執行個體目前正在接聽的連接埠。 連接埠 0 指定後面的屬性用於預設執行個體。 |
 | 繫結位址| 目前的 MySQL 繫結位址。 |
 | username| 用來監視 MySQL 伺服器執行個體的 MySQL 使用者。 |
 | Base64 編碼的密碼| MySQL 監視使用者的密碼，以 Base64 編碼。 |

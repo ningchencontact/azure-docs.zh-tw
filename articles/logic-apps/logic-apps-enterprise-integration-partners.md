@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
-4. 選取 [夥伴]  圖格。
+4. 選取 [合作夥伴] 圖格。
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="how-to-delete-a-partner"></a>如何刪除夥伴
 
-1. 選取 [夥伴]  圖格。
+1. 選取 [合作夥伴] 圖格。
 2. [合作夥伴] 刀鋒視窗開啟之後，請選取您要刪除的合作夥伴。
 3. 選擇 [刪除]。
 

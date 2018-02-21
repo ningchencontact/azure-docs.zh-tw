@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
     |設定|值|
     |---|---|
     |SKU| **基本**：使用靜態或動態配置方法來指派。 可指派給任何可以指派公用 IP 位址的 Azure 資源，例如網路介面、VPN 閘道、應用程式閘道和網際網路對應負載平衡器。 您可以在 [可用性區域] 設定內，將公用 IP 位址指派給特定區域。 沒有區域備援。 若要深入了解可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 **標準**：只會使用靜態配置方法來指派。 可指派給網路介面或標準的網際網路對應負載平衡器。 如果您將公用 IP 位址指派給標準的網際網路對向負載平衡器，則必須選取 [標準]。 如需 Azure 負載平衡器 SKU 的詳細資訊，請參閱 [Azure 負載平衡器的標準 SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)。 預設有區域備援。 可以建立為區域型，並保證在特定可用性區域中。 標準 SKU 目前為預覽版本。 您必須先註冊預覽版，才可以建立標準 SKU 公用 IP 位址。 若要註冊預覽版本，請參閱[註冊標準 SKU 預覽版本](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#preview-sign-up)。 您只能在受支援的位置中建立標準 SKU。  如需支援位置 (區域) 清單，請參閱[區域可用性](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#region-availability)並監看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面以取得其他區域支援。|   
-    |名稱|名稱必須是您選取的資源群組中唯一的名稱。|
+    |Name|名稱必須是您選取的資源群組中唯一的名稱。|
     |資源群組|按一下 [建立新的]，然後輸入 myResourceGroup|
     |位置|西歐|
     |可用性區域|如果您已選取 [標準] SKU，並且想要讓 IP 位址能夠跨區域復原，則可以選取 [區域備援]。 如果您選取 [基本] SKU，則 IP 位址無法跨區域復原。 不論您選擇哪種 SKU，您都可以選擇將位址指派給特定區域。 |

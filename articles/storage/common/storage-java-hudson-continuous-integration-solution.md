@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>使用 Azure 儲存體與 Hudson 連續整合解決方案
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 下列資訊說明如何使用 Blob 儲存體，做為 Hudson 連續整合 (CI) 解決方案所建立的組建構件儲存機制，或做為在組建程序中要使用之可下載檔案的來源。 您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。  另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
 在本教學課程中，您將使用由 Microsoft 所提供適用於 Hudson CI 的 Azure 儲存體外掛程式。
@@ -39,7 +39,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 * 在您的客戶和合作夥伴下載組建成品時提供良好的效能。
 * 提供使用者存取原則控制，可以選擇匿名存取、期限型共用存取簽章存取、私用存取等。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您將需要下列項目來使用 Blob 服務與 Hudson CI 解決方案：
 
 * Hudson 連續整合解決方案。
@@ -93,7 +93,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 為了方便說明，首先，我們需要建立一個會建立數個檔案的工作，然後新增一個會將這些檔案上傳至您儲存體帳戶的建置後動作。
 
 1. 在 Hudson 儀表板中，按一下 [新增工作] 。
-2. 將此工作命名為 **MyJob**，按一下 Build a free-style software job，然後按一下確定。
+2. 將此工作命名為 **MyJob**，按一下 [Build a free-style software job]，然後按一下 [確定]。
 3. 在工作組態的 [Build] 區段中，按一下 [Add build step] 並選擇 [Execute Windows batch command]。
 4. 在 [Command] 中，使用下列命令：
 

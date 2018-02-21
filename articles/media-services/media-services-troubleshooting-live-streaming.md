@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
   
     rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
   
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
 > [!NOTE]
 > 如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 入口網站提交支援票證。

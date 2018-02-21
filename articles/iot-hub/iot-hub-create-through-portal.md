@@ -180,7 +180,7 @@ Azure IoT 中樞會自動列出使用者帳戶所連結的 Azure 訂用帳戶。
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南][lnk-devguide]
-* [使用 Azure IoT Edge 將 AI 部署到邊緣裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 * [徹底保護您的 IoT 解決方案][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

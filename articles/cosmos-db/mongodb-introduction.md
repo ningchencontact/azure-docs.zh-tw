@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB 簡介：適用於 MongoDB 的 API
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域發佈的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[一站式全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA (英文)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，支援文件、索引鍵/值、圖表和單欄式資料模型。 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域發佈的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[一站式全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲，以及保證的高可用性，全部都由[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) \(英文\) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，支援文件、索引鍵/值、圖表和單欄式資料模型。 
 
 ![Azure Cosmos DB：MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -39,7 +39,15 @@ Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manu
 
 **不需要任何伺服器管理工作**︰您不需要管理和調整 MongoDB 資料庫。 Azure Cosmos DB 是完全受控的服務，這表示您不需要自己管理任何基礎結構或虛擬機器。 Azure Cosmos DB 可在 30 個以上的 [Azure 區域](https://azure.microsoft.com/regions/services/)中使用。
 
-**可調整的一致性等級：**有五個定義完善的一致性等級可選擇，讓您在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性層級可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
+**可調式一致性層級：**Azure Cosmos DB 目前實作 MongoDB 3.4 版，有強式與最終這兩種一致性設定。 因為 Azure Cosmos DB 是多 API，所以一致性設定適用於帳戶層級，而強制執行一致性則由各個 API 控制。 MongoDB 3.6 問世之前，並沒有工作階段一致性的概念，如果您將 MongoDB API 帳戶設定為使用工作階段一致性，使用 MongoDB API 時都會降級為最終一致性。 如果您需要 MongoDB API 帳戶的讀取自己的寫入保證，該帳戶的預設一致性層級應設定為強式或限定過期。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
+
+| Azure Cosmos DB 預設一致性層級 |   Mongo API (3.4) |
+|---|---|
+|最終| 最終 |
+|一致前置詞| 最終有一致的順序 |
+|工作階段| 最終有一致的順序 |
+|限定過期| 強式 |
+| 強式 | 強式 |
 
 **自動編製索引**：根據預設，Azure Cosmos DB 會自動為 MongoDB 資料庫中文件內的所有屬性編製索引，且不預期或需要任何結構描述或建立次要索引。 此外，唯一索引功能可讓任何已在 Azure Cosmos DB 中自動編制索引的文件欄位具有唯一性的限制。
 

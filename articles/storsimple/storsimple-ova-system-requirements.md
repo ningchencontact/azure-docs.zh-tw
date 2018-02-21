@@ -94,11 +94,11 @@ ms.lasthandoff: 11/15/2017
 | **連接埠號碼<sup>1</sup>** | **內或外** | **連接埠範圍** | **必要** | **注意事項** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |外 |WAN |否 |輸出連接埠用於網際網路存取以擷取更新。 <br></br>輸出 Web Proxy 可由使用者設定。 |
-| TCP 443 (HTTPS) |外 |WAN |是 |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
+| TCP 443 (HTTPS) |外 |WAN |yes |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
 | UDP 53 (DNS) |外 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。 <br></br> 注意，如果部署的是檔案伺服器，建議使用本機 DNS 伺服器。 |
 | UDP 123 (NTP) |外 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。<br></br> 注意，如果部署的是檔案伺服器，建議將時間與您的 Active Directory 網域控制站同步。 |
-| TCP 80 (HTTP) |在 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 <br></br> 注意，透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。 |
-| TCP 443 (HTTPS) |在 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 |
+| TCP 80 (HTTP) |在 |LAN |yes |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 <br></br> 注意，透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。 |
+| TCP 443 (HTTPS) |在 |LAN |yes |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 |
 | TCP 3260 (iSCSI) |在 |LAN |否 |此連接埠用來透過 iSCSI 存取資料。 |
 
 <sup>1</sup> 公用網際網路上沒有必須開啟的輸入連接埠。

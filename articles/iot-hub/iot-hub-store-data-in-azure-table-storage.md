@@ -57,7 +57,7 @@ ms.lasthandoff: 11/15/2017
 
    * **釘選到儀表板**：選取此選項可讓您從儀表板輕鬆地存取 IoT 中樞。
 
-3. 按一下 [建立] 。
+3. 按一下頁面底部的 [新增] 。
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>準備 IoT 中樞以將訊息路由傳送至儲存體
 

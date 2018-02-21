@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---

@@ -31,7 +31,7 @@ ms.lasthandoff: 10/16/2017
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
 - 針對組織的 Office 365 活動資料使用 OMS 搜尋，執行作業疑難排解。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 安裝和設定此解決方案之前必須先具備下列項目。
 
 - 組織的 Office 365 訂閱。
@@ -121,7 +121,7 @@ Office 365 解決方案不會從任何 [OMS 代理程式](../log-analytics/log-a
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
-| 應用程式 | 觸發帳戶登入事件的應用程式，例如 Office 15。 |
+| Application | 觸發帳戶登入事件的應用程式，例如 Office 15。 |
 | 用戶端 | 帳戶登入事件所使用的用戶端裝置、裝置作業系統及裝置瀏覽器的相關詳細資料。 |
 | LoginStatus | 此屬性直接來自 OrgIdLogon.LoginStatus。 各種感興趣之登入失敗的對應可由警示演算法完成。 |
 | UserDomain | 租用戶身分識別資訊 (TII)。 | 
@@ -275,7 +275,7 @@ Office 365 解決方案不會從任何 [OMS 代理程式](../log-analytics/log-a
 
 
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 下表提供此方案所收集之更新記錄的記錄搜尋範例。
 
 | 查詢 | 說明 |

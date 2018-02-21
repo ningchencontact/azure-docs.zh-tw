@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: 移轉節流
       href: time-series-insights-environment-mitigate-latency.md
+    - name: 了解資料保留
+      href: time-series-insights-concepts-retention.md
     - name: 診斷和疑難排解
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: 開發
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: 連線至 IoT 中樞
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: 設定資料保留期
+      href: time-series-insights-how-to-configure-retention.md
     - name: 建立參考資料集
       href: time-series-insights-add-reference-data-set.md
     - name: 傳送事件

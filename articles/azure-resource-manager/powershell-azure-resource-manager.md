@@ -257,5 +257,5 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 * 若要了解如何建立 Resource Manager 範本，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 * 若要了解部署範本的相關資訊，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy.md)。
 * 您可以將現有的資源移動到新的資源群組。 如需範例，請參閱 [將資源移至新的資源群組或訂用帳戶](resource-group-move-resources.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
 

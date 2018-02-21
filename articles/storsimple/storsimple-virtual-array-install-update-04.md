@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 如果這是您第一次在此電腦上使用 Microsoft Update Catalog，請在系統提示您安裝 Microsoft Update Catalog 附加元件時，按一下 [安裝]  。
 
-3. 在 Microsoft Update Catalog 的搜尋方塊中，輸入您要下載的 Hotfix 知識庫 (KB) 編號。 針對 Update 0.4 輸入 **3216577**，然後按一下搜尋。
+3. 在 Microsoft Update Catalog 的搜尋方塊中，輸入您要下載的 Hotfix 知識庫 (KB) 編號。 針對 Update 0.4 輸入 **3216577**，然後按一下 [搜尋]。
    
     此時會顯示 Hotfix 清單，例如 **StorSimple Virtual Array Update 0.4**。
    
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
    
     ![更新裝置](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. 在 [更新檔案路徑] 中，輸入更新或 Hotfix 的檔案名稱。 如果更新或 Hotfix 的安裝檔案是放在網路共用上，您也可以瀏覽至該檔案。 按一下 [Apply (套用)] 。
+2. 在 [更新檔案路徑] 中，輸入更新或 Hotfix 的檔案名稱。 如果更新或 Hotfix 的安裝檔案是放在網路共用上，您也可以瀏覽至該檔案。 按一下 [套用]。
    
     ![更新裝置](./media/storsimple-virtual-array-install-update/update2m.png)
 

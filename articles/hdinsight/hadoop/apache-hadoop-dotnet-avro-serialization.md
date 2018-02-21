@@ -865,7 +865,7 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 
 
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>範例 5：使用物件容器檔案和自訂壓縮轉碼器進行序列化
-第五個範例說明如何使用自訂壓縮轉碼器來處理 Avro 物件容器檔案。 您可以從 [Azure 程式碼範例](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) (英文) 網站下載包含此案例程式碼的範例。
+第五個範例說明如何使用自訂壓縮轉碼器來處理 Avro 物件容器檔案。 您可以從 [Azure 程式碼範例](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) 網站 (英文) 下載包含此案例程式碼的範例。
 
 [Avro 規格](http://avro.apache.org/docs/current/spec.html#Required+Codecs)允許使用選用的壓縮轉碼器 (**Null** 和 **Deflate** 預設值除外)。 本範例並未實作新的轉碼器，例如 Snappy (如同 [Avro 規格](http://avro.apache.org/docs/current/spec.html#snappy)中所提及的支援選用轉碼器)。 其中說明如何使用 .NET Framework 4.5 的 [**Deflate**][deflate-110] 轉碼器實作，採用 [zlib](http://zlib.net/) 壓縮程式庫，提供比預設 .NET Framework 4 版本更好的壓縮演算法。
 
@@ -1361,7 +1361,7 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
     // Press any key to exit.
 
 ## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>範例 6：使用 Avro 來上傳 Microsoft Azure HDInsight 服務的資料
-第六個範例說明與 Azure HDInsight 服務互動相關的一些程式設計技巧。 您可以從 [Azure 程式碼範例](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) (英文) 網站下載包含此案例程式碼的範例。
+第六個範例說明與 Azure HDInsight 服務互動相關的一些程式設計技巧。 您可以從 [Azure 程式碼範例](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) 網站 (英文) 下載包含此案例程式碼的範例。
 
 此範例會執行下列工作：
 

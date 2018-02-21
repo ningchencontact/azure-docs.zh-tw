@@ -25,7 +25,7 @@ ms.lasthandoff: 11/03/2017
 Hive 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 Hadoop MapReduce 作業，可用來彙總、查詢和分析大量資料。
 
 > [!IMPORTANT]
-> 此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需與 Linux 叢集搭配使用的步驟，請參閱 [在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
+> 此文件中的步驟需要 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需與 Linux 叢集搭配使用的步驟，請參閱 [在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 HDInsight 使用 Azure Blob 儲存體來儲存資料。 典型的工作包含三個部分：
 
@@ -51,10 +51,10 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 
 > [!NOTE]
 > 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列項目：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **具有 Azure PowerShell 的工作站**。
 
     > [!IMPORTANT]
@@ -256,7 +256,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
 2. 在此頁面上選取下列值：
 
     <table border="1">
-    <tr><th>名稱</th><th>值</th></tr>
+    <tr><th>Name</th><th>值</th></tr>
     <tr><td>篩選年份</td><td>2013 </td></tr>
     <tr><td>篩選期間</td><td>一月</td></tr>
     <tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>
@@ -271,7 +271,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
 1. 準備參數：
 
     <table border="1">
-    <tr><th>變數名稱</th><th>注意事項</th></tr>
+    <tr><th>變數名稱</th><th>注意</th></tr>
     <tr><td>$storageAccountName</td><td>您要上傳資料的 Azure 儲存體帳戶。</td></tr>
     <tr><td>$blobContainerName</td><td>您要上傳資料的 Blob 容器。</td></tr>
     </table>
@@ -379,7 +379,7 @@ HiveQL 指令碼將執行下列作業：
 1. 準備參數：
 
     <table border="1">
-    <tr><th>變數名稱</th><th>注意事項</th></tr>
+    <tr><th>變數名稱</th><th>注意</th></tr>
     <tr><td>$storageAccountName</td><td>您要上傳 HiveQL 指令碼的 Azure 儲存體帳戶。</td></tr>
     <tr><td>$blobContainerName</td><td>您要上傳 HiveQL 指令碼的 Blob 容器。</td></tr>
     </table>
@@ -566,7 +566,7 @@ HiveQL 指令碼將執行下列作業：
 1. 準備參數：
 
     <table border="1">
-    <tr><th>變數名稱</th><th>注意事項</th></tr>
+    <tr><th>變數名稱</th><th>注意</th></tr>
     <tr><td>$sqlDatabaseServerName</td><td>Azure SQL Database 伺服器的名稱。 不輸入則會建立新的伺服器。</td></tr>
     <tr><td>$sqlDatabaseUsername</td><td>Azure SQL Database 的登入名稱。 如果 $sqlDatabaseServerName 是現有的伺服器，登入和登入密碼會用來向伺服器驗證。 否則會建立新的伺服器。</td></tr>
     <tr><td>$sqlDatabasePassword</td><td>Azure SQL Database 的登入密碼。</td></tr>

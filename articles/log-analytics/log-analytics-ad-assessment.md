@@ -3,7 +3,7 @@ title: "使用 Azure Log Analytics 最佳化 Active Directory 環境 | Microsoft
 description: "您可以使用 Active Directory 健康情況檢查方案定期評估環境的風險和健全狀況。"
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 健康情況檢查方案來最佳化 Active Directory 環境
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-* Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。 
+* Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。
 * 方案支援執行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 及 Windows Server 2016 的網域控制站。
 * Log Analytics 工作區，可以從 Azure 入口網站中的 Azure 市集將 Active Directory 健康情況檢查方案新增至此。  不需要進一步的組態。
 
@@ -62,13 +62,13 @@ ms.lasthandoff: 02/03/2018
 
 Active Directory 健康情況檢查會使用您已啟用的代理程式，從下列來源收集資料：
 
-- 登錄 
-- LDAP 
+- 登錄
+- LDAP
 - .NET Framework
-- 事件記錄檔 
+- 事件記錄檔
 - Active Directory 服務介面 (ADSI)
 - Windows PowerShell
-- 檔案資料 
+- 檔案資料
 - Windows Management Instrumentation (WMI)
 - DCDIAG 工具 API
 - 檔案複寫服務 (NTFRS) API
@@ -109,7 +109,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
 3. 按一下 Azure 入口網站中您 Log Analytics 工作區的 [概觀] 圖格。
-4. 在 [概觀] 頁面上，按一下 [Active Directory 健康情況檢查] 圖格。 
+4. 在 [概觀] 頁面上，按一下 [Active Directory 健康情況檢查] 圖格。
 5. 在 [健康情況檢查] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
 6. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![健康情況檢查建議的影像](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
@@ -133,7 +133,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 2. 在個別行上貼上或輸入您想要 Log Analytics 忽略之每個建議的各個 RecommendationId，然後儲存並關閉檔案。
 3. 將檔案放在您想要 Log Analytics 忽略建議之每一部電腦的下列資料夾中。
    * 在具有 Microsoft Monitoring Agent 的電腦 (直接連線或透過 Operations Manager 連線) 上 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * 在 Operations Manager 2012 R2 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * 在 Operations Manager 2012 R2 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * 在 Operations Manager 2016 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>驗證已忽略建議

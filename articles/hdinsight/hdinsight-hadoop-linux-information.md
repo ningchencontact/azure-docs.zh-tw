@@ -29,7 +29,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
@@ -243,7 +243,7 @@ Azure 儲存體帳戶可以保存多達 4.75 TB 的資料，但個別 Blob (或�
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安裝 Hue (或其他 Hadoop 元件)？
 
-HDInsight 是受管理的服務。 如果 Azure 偵測到叢集問題，它可能會刪除失敗節點並建立要取代它的節點。 如果您以手動方式在叢集上安裝項目，此作業發生時，不會保存這些項目。 請改用 [HDInsight 指令碼動作](hdinsight-hadoop-customize-cluster.md)。 指令碼動作可用來進行下列變更︰
+HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會刪除失敗節點並建立要取代它的節點。 如果您以手動方式在叢集上安裝項目，此作業發生時，不會保存這些項目。 請改用 [HDInsight 指令碼動作](hdinsight-hadoop-customize-cluster.md)。 指令碼動作可用來進行下列變更︰
 
 * 安裝及設定服務或網站。
 * 安裝及設定需要在叢集中的多個節點上進行組態變更的元件。
@@ -278,6 +278,6 @@ HDInsight 是受管理的服務。 如果 Azure 偵測到叢集問題，它可�
 ## <a name="next-steps"></a>後續步驟
 
 * [從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
-* [搭配 HDInsight 使用 Hivet](hadoop/hdinsight-use-hive.md)
+* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hadoop/hdinsight-use-mapreduce.md)

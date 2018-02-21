@@ -83,7 +83,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 此命令會傳回下列結果。
 
-| 名稱| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 |AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -101,7 +101,7 @@ Get-AzureRmEnvironment -Name AzureGermanCloud
 
 |屬性名稱|值|
 |----|----|
-| 名稱 | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

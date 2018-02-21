@@ -31,7 +31,7 @@ ms.lasthandoff: 11/28/2017
 > 如需部署和監視以 Windows 為基礎的 HDInsight 上的拓撲的詳細資訊，請參閱 [部署和管理以 Windows 為基礎的 HDInsight 上的Apache Storm 拓撲](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **HDInsight 叢集上以 Linux 為基礎的 Storm**：請參閱 [開始使用 Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md) 以取得建立叢集的步驟
 
@@ -65,7 +65,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
 3. 在 [新增專案] 對話方塊中，依序展開 [已安裝]  >  [範本]，然後選取 [HDInsight]。 從範本清單中，選取 [Storm 範例] 。 在對話方塊底部，輸入應用程式的名稱。
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![映像](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
@@ -191,7 +191,7 @@ Storm UI 的主頁面會提供下列資訊：
   * **停用**：暫停執行中的拓撲。
   * **重新平衡**：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 這個作業可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
 
-    如需詳細資訊，請參閱<a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">了解 Storm 拓撲的平行處理原則</a>。
+    如需詳細資訊，請參閱 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">了解 Storm 拓撲的平行處理原則</a>。
   * **終止**：在指定的逾時之後結束 Storm 拓撲。
 * **拓撲統計資料**：拓撲的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
 * **Spout**：拓撲所使用的 Spout。 使用本節中的連結檢視特定 Spout 的詳細資訊。

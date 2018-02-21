@@ -18,7 +18,7 @@ ms.date: 12/20/2017
 ms.author: jgao
 ms.openlocfilehash: 1eaf55ea8e46598e261be43c646b5dbd48ac730b
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/21/2017
 > 
 > 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列項目：
 
 * 具有 Azure PowerShell 的工作站。

@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>名稱</td>
+        <tr><td>Name</td>
             <td>指定指令碼動作的名稱。 例如，<b>安裝 Giraph</b>。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/11/2017
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)
 * [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]：關於安裝 Spark 的指令碼動作範例。
 * [在 HDInsight 叢集上安裝 R][hdinsight-install-r]：關於安裝 R 的指令碼動作範例。
-* [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)：關於安裝 Solr 的指令碼動作範例。
+* [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)：有關安裝 Solr 的指令碼動作範例。
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/

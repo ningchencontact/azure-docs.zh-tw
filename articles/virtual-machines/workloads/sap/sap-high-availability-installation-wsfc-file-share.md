@@ -198,7 +198,7 @@ ms.lasthandoff: 11/17/2017
 
 本文說明如何在 Azure 上透過 Windows 容錯移轉叢集 (WSFC) 和向外延展檔案共用作為叢集 SAP ASCS/SCS 執行個體的選項，以安裝並設定高可用的 SAP 系統。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始安裝之前，請檢閱下列文章：
 

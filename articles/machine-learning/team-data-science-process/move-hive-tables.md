@@ -27,7 +27,7 @@ ms.lasthandoff: 11/09/2017
 
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經：
 
 * 建立 Azure 儲存體帳戶。 如需相關指示，請參閱[關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)。
@@ -84,7 +84,7 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 根據預設，在 Hadoop 命令列中提交 Hive 查詢之後，Map/Reduce 作業的進度會顯示於螢幕上。 若要隱藏 Map/Reduce 工作進度的畫面顯示，您可以在命令列中使用引數 `-S` (大寫的 "S")，如下所示：
 
     hive -S -f "<path to the .hql file>"
-。    hive -S -e "<Hive queries>"
+.    hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>在 Hive 命令主控台中提交 Hive 查詢。
 您也可以在 Hadoop 命令列中執行 `hive` 命令，先進入 Hive 命令主控台，然後在 Hive 命令主控台中提交 Hive 查詢。 範例如下。 在此範例中，這兩個紅色方塊反白顯示的命令分別是用來進入 Hive 命令主控台，以及在 Hive 命令主控台中提交 Hive 查詢。 綠色方塊反白顯示的是 Hive 查詢的輸出。
@@ -179,7 +179,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-查詢資料分割資料表時，建議在** 子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
+查詢資料分割資料表時，建議在 **子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
 
     select
         field1, field2, ..., fieldN

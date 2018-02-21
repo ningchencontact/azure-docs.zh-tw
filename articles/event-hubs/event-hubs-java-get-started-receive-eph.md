@@ -16,7 +16,7 @@ ms.date: 08/15/2017
 ms.author: sethm
 ms.openlocfilehash: 94b56fdd1ad350d861b27644c6bedcc59e1cefb0
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 
 本教學課程也會示範如何使用以 Java 撰寫的主控台應用程式，將事件接收到事件中樞。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列必要條件：
 

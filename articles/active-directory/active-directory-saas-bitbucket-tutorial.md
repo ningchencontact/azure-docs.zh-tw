@@ -16,7 +16,7 @@ ms.date: 12/04/2017
 ms.author: jeedes
 ms.openlocfilehash: 52c741c66a796e53698a690c415cc60c814f74e8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 SAML SSO for Bitbucket by resolution GmbH 整合，您需要下列項目：
 

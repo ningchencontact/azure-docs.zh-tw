@@ -110,7 +110,7 @@ while True:
 1. 從 STDIN 中讀取資料行。
 2. 使用 `string.strip(line, "\n ")` 移除結尾新行字元。
 3. 執行串流處理時，有一行包含所有的值，而每個值之間是一個定位字元。 因此， `string.split(line, "\t")` 可在每個索引標籤進行分割輸入，並只傳回欄位。
-4. 處理完成時，輸出必須以一行寫入 STDOUT，而每一個欄位之間是一個定位字元。 例如， `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`。
+4. 處理完成時，輸出必須以一行寫入 STDOUT，而每一個欄位之間是一個定位字元。 例如： `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`。
 5. `while` 迴圈會一直重複直到沒有 `line` 讀取。
 
 指令碼輸出是 `devicemake` 和 `devicemodel` 的輸入值串連，並且是串連值的雜湊。
@@ -239,7 +239,7 @@ def create_structure(input):
    ORDER BY clientid LIMIT 50;
    ```
 
-3. 輸入最後一行後，工作應該就會開始。 作業完成之後，它會傳回與下列範例類似的輸出：
+3. 輸入最後一行後，作業應該就會開始。 作業完成之後，它會傳回與下列範例類似的輸出：
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -383,7 +383,7 @@ PowerShell 也可用來執行 Pig Latin 作業。 若要執行使用 **pigudf.py
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 
 如果您需要載入非預設提供的 Python 模組，請參閱 [如何將模組部署至 Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (英文)。
 

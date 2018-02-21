@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 > * 使用 mongoimport 匯入 MongoDB 資料
 > * 使用 mongorestore 匯入 MongoDB 資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 增加輸送量︰資料移轉的時間長短取決於您為集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱 [Azure Cosmos DB 中的效能等級和定價層](performance-levels.md)。
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 從 MongoDB 殼層連線到您的 Azure Cosmos DB MongoDB 資料庫。 您可以在[將 MongoDB 應用程式連接到 Azure Cosmos DB](connect-mongodb-account.md) 中找到指示。
     
-    b.這是另一個 C# 主控台應用程式。 從 MongoDB 殼層使用其中一個範例文件來執行範例插入命令：
+    b. 從 MongoDB 殼層使用其中一個範例文件來執行範例插入命令：
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
     
     a. 從 MongoDB 殼層使用此命令，以啟用詳細資訊記錄：```setVerboseShell(true)```
     
-    b.這是另一個 C# 主控台應用程式。 對資料庫執行簡單的查詢：```db.coll.find().limit(1)```。 您會收到如下的回應：
+    b. 對資料庫執行簡單的查詢：```db.coll.find().limit(1)```。 您會收到如下的回應：
 
         ```
         Fetched 1 record(s) in 100(ms)
@@ -134,7 +134,7 @@ ms.lasthandoff: 10/11/2017
     |--------|-----|
     |batchSize| 24 |
     |佈建的 RU | 10000 |
-    |延遲 | 0.100 秒 |
+    |Latency | 0.100 秒 |
     |寫入 1 個文件花費的 RU | 10 RU |
     |numInsertionWorkers | ? |
     

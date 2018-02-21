@@ -19,7 +19,7 @@ ms.lasthandoff: 11/29/2017
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
 您可以使用 Azure CLI (Azure 的命令列公用程式) 來下載適用於 MySQL 的 Azure 資料庫的伺服器記錄檔。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) 或在瀏覽器中使用 Azure Cloud Shell。

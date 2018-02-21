@@ -24,7 +24,7 @@ ms.lasthandoff: 12/05/2017
 
 函式鏈結是指以特定順序執行一連串函式的模式。 通常，一個函式的輸出必須套用至另一個函式的輸入。 本文以一個範例說明如何使用 [Durable Functions](durable-functions-overview.md) 來實作函式鏈結。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
 

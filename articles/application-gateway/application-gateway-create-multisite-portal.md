@@ -1,142 +1,189 @@
 ---
-title: "使用 Azure 應用程式閘道裝載多個站台 | Microsoft Docs"
-description: "本頁面提供設定現有 Azure 應用程式閘道以在具有 Azure 入口網站的相同閘道上裝載多個 Web 應用程式的指示。"
-documentationcenter: na
+title: "建立有多站台裝載的應用程式閘道 - Azure 入口網站 | Microsoft Docs"
+description: "了解如何使用 Azure 入口網站來建立應用程式閘道，裝載多個站台。"
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>設定現有應用程式閘道來裝載多個 Web 應用程式
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 入口網站，建立有多站台裝載的應用程式閘道
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-create-multisite-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
+您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定[裝載多個站台](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
 
-多站台裝載可讓您在相同的應用程式閘道上部署多個 Web 應用程式。 它需倚賴在連入的 HTTP 要求中有主機標頭存在，以判斷哪一個接聽程式要接收流量。 然後再由接聽程式將流量導向閘道的規則定義中所設定的適當後端集區。 在已啟用 SSL 功能的 Web 應用程式中，則應用程式閘道會依賴「伺服器名稱指示」(SNI) 擴充功能來選擇正確的 Web 流量接聽程式。 多站台裝載的常見用法是將不同 Web 網域的要求負載平衡至不同的後端伺服器集區。 同樣地，相同根網域的多個子網域也可以裝載在相同的應用程式閘道上。
+在本文中，您將了解：
 
-## <a name="scenario"></a>案例
+> [!div class="checklist"]
+> * 建立應用程式閘道
+> * 建立後端伺服器的虛擬機器
+> * 建立包含後端伺服器的後端集區
+> * 建立接聽程式和路由規則
+> * 在網域中建立 CNAME 記錄
 
-在下列範例中，應用程式閘道會利用兩個後端伺服器集區來為 contoso.com 和 fabrikam.com 的流量提供服務：contoso 伺服器集區和 fabrikam 伺服器集區。 類似的設定也可用來裝載子網域，例如 app.contoso.com 和 blog.contoso.com。
+![多站台路由範例](./media/application-gateway-create-multisite-portal/scenario.png)
 
-![多網站案例][multisite]
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="log-in-to-azure"></a>登入 Azure
 
-這個案例會將多網站支援新增至現有應用程式閘道。 若要完成此案例，現有的應用程式閘道必須可供設定。 請造訪[使用入口網站建立應用程式閘道](application-gateway-create-gateway-portal.md)，以了解如何在入口網站中建立基本應用程式閘道。
+登入 Azure 入口網站，網址是 [http://portal.azure.com](http://portal.azure.com)
 
-以下是更新應用程式閘道所需的步驟：
+## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-1. 建立要用於每個網站的後端集區。
-2. 建立每個網站應用程式閘道都支援的接聽程式。
-3. 建立規則，將每個接聽程式與適當的後端對應。
+需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
 
-## <a name="requirements"></a>需求
+1. 按一下 Azure 入口網站左上角的 [新增]。
+2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
+3. 針對應用程式閘道輸入這些值：
 
-* **後端伺服器集區：** 後端伺服器的 IP 位址清單。 列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。 您也可以使用 FQDN。
-* **後端伺服器集區設定：** 每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。 這些設定會繫結至集區，並套用至集區內所有伺服器。
-* **前端連接埠：** 此連接埠是在應用程式閘道上開啟的公用連接埠。 流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
-* **接聽程式：** 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，這些值都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 針對啟用多站台功能的應用程式閘道，會一併新增主機名稱和 SNI 指示器。
-* **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。 會以規則列出的順序進行處理，且不論精確性，都會透過相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
-* **憑證︰**每個接聽程式需要唯一的憑證，在此範例中針對多網站建立 2 個接聽程式。 必須建立兩個 .pfx 憑證和它們的密碼。
+    - myAppGateway - 作為應用程式閘道的名稱。
+    - myResourceGroupAG - 作為新資源群組。
 
-## <a name="create-back-end-pools-for-each-site"></a>建立每個網站的後端集區
+    ![建立新的應用程式閘道](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
-需要應用程式閘道支援之每個網站的後端集區，在此案例中會建立 2 個，一個用於 contoso11.com，另一個用於 fabrikam11.com。
+4. 接受其他設定的預設值，然後按一下 [確定]。
+5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-### <a name="step-1"></a>步驟 1
+    - myVNet - 作為虛擬網路的名稱。
+    - 10.0.0.0/16 - 作為虛擬網路位址空間。
+    - myAGSubnet - 作為子網路名稱。
+    - 10.0.0.0/24 - 作為子網路位址空間。
 
-瀏覽至 Azure 入口網站中現有的應用程式閘道 ( https://portal.azure.com ) 。 選取 [後端集區]，按一下 [新增]
+    ![建立虛擬網路](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
-![新增後端集區][7]
+6. 按一下 [確定] 以建立虛擬網路和子網路。
+7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
+8. 接受接聽程式設定的預設值，將 Web 應用程式防火牆保持為停用，然後按一下 [確定]。
+9. 檢閱 [摘要] 頁面上的設定，然後按一下 [確定] 以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
 
-### <a name="step-2"></a>步驟 2
+### <a name="add-a-subnet"></a>新增子網路
 
-針對後端集區 **pool1** 填入資訊，新增後端伺服器的 ip 位址或 FQDN，然後按一下 [確定]
+1. 按一下左側功能表中的 [所有資源]，然後從 [資源] 清單中按一下 [myVNet]。
+2. 按一下 [子網路]，然後按一下 [子網路]。
 
-![後端集區 pool1 設定][8]
+    ![建立子網路](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
-### <a name="step-3"></a>步驟 3
+3. 輸入 myBackendSubnet 作為子網路的名稱，然後按一下 [確定]。
 
-在後端集區刀鋒視窗上按一下 [新增] 以新增額外的後端集區 **pool2**，新增後端伺服器的 ip 位址或 FQDN，然後按一下 **[確定]**
+## <a name="create-virtual-machines"></a>建立虛擬機器
 
-![後端集區 pool2 設定][9]
+在此範例中，您要建立兩個虛擬機器，作為應用程式閘道的後端伺服器。 您也要在虛擬機器上安裝 IIS，確認會正確地路由流量。
 
-## <a name="create-listeners-for-each-back-end"></a>建立每個後端的接聽程式
+1. 按一下 [新增] 。
+2. 按一下 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。
+3. 針對虛擬機器，請輸入這些值：
 
-「應用程式閘道」需依賴 HTTP 1.1 主機標頭，才能在相同的公用 IP 位址和連接埠上裝載多個網站。 在入口網站中建立的基本接聽程式不包含這個屬性。
+    - *contosoVM* - 作為虛擬機器的名稱。
+    - azureuser - 作為系統管理員使用者名稱。
+    - *Azure123456!* 作為密碼。
+    - 選取 [使用現有的]，然後選取 [myResourceGroupAG]。
 
-### <a name="step-1"></a>步驟 1
+4. 按一下 [SERVICEPRINCIPAL] 。
+5. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
+6. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。 
+7. 按一下 [停用] 來停用開機診斷。
+8. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
 
-按一下現有應用程式閘道上的 [接聽程式]，然後按一下 [多網站] 以新增第一個接聽程式。
+### <a name="install-iis"></a>安裝 IIS
 
-![接聽程式概觀刀鋒視窗][1]
+1. 開啟互動式殼層，並確定它是設定為 **PowerShell**。
 
-### <a name="step-2"></a>步驟 2
+    ![安裝自訂延伸模組](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
 
-填入接聽程式的資訊。 在此範例中，會設定 SSL 終止，建立新的前端連接埠。 上傳 .pfx 憑證，用於進行 SSL 終止。 此刀鋒視窗上相較於標準基本接聽程式刀鋒視窗的唯一差別是主機名稱。
+2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
-![接聽程式屬性刀鋒視窗][2]
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName contosoVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
 
-### <a name="step-3"></a>步驟 3
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 *fabrikamVM* 作為名稱，並作為 Set-AzureRmVMExtension 中的 VMName 值。
 
-按一下 [多網站]，並且針對第二個網站建立另一個接聽程式，如同上一個步驟所述。 請確定針對第二個接聽程式使用不同的憑證。 此刀鋒視窗上相較於標準基本接聽程式刀鋒視窗的唯一差別是主機名稱。 填入接聽程式的資訊，然後按一下 [確定]。
+## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
-![接聽程式屬性刀鋒視窗][3]
+1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
+2. 依序按一下 [後端集區] 和 [新增]。
+3. 輸入 contosoPool 的名稱，然後使用 [新增目標] 新增 contosoVM。
 
-> [!NOTE]
-> 在 Azure 入口網站中針對應用程式閘道建立接聽程式是長時間執行的工作，在此案例中可能需要一段時間來建立兩個接聽程式。 完成時，入口網站中的接聽程式如下圖所示：
+    ![新增後端伺服器](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
-![接聽程式概觀][4]
+4. 按一下 [SERVICEPRINCIPAL] 。
+5. 依序按一下 [後端集區] 和 [新增]。
+6. 使用您剛才完成的步驟，建立含有 fabrikamVM 的 fabrikamPool。
 
-## <a name="create-rules-to-map-listeners-to-backend-pools"></a>建立規則，將接聽程式對應至後端集區
+## <a name="create-listeners-and-routing-rules"></a>建立接聽程式和路由規則
 
-### <a name="step-1"></a>步驟 1
+1. 按一下 [接聽程式]，然後按一下 [多站台]。
+2. 為接聽程式輸入這些值：
+    
+    - contosoListener - 作為接聽程式的名稱。
+    - www.contoso.com - 以您的網域名稱取代此主機名稱範例。
 
-瀏覽至 Azure 入口網站中現有的應用程式閘道 ( https://portal.azure.com ) 。 選取 [規則]，選擇現有的預設規則 **rule1**，然後按一下 [編輯]。
+3. 按一下 [SERVICEPRINCIPAL] 。
+4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 此範例中使用 www.fabrikam.com。
 
-### <a name="step-2"></a>步驟 2
+會以規則列出的順序進行處理，而且不論精確性為何，都會使用相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
 
-填寫 [規則] 刀鋒視窗，如下圖所示。 選擇第一個接聽程式和第一個集區，完成時按一下 [儲存]。
+在此範例中，您會建立兩個新規則，並刪除您在建立應用程式閘道時所建立的預設規則。 
 
-![編輯現有的規則][6]
+1. 按一下 [規則]，然後按一下 [基本]。
+2. 輸入 *contosoRule* 作為名稱。
+3. 選取 contosoListener 作為接聽程式。
+4. 選取 contosoPool 作為後端集區。
 
-### <a name="step-3"></a>步驟 3
+    ![建立路徑型規則](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-按一下 [基本規則] 以建立第 2 個規則。 以第二個接聽程式和第二個後端集區填寫表單，按一下 [確定] 以儲存。
+5. 按一下 [SERVICEPRINCIPAL] 。
+6. 使用 fabrikamRule、fabrikamListener 及 *fabrikamPool* 的名稱，建立第二個規則。
+7. 按一下名為 rule1 的預設規則，然後按一下 [刪除]，即可刪除。
 
-![新增基本規則刀鋒視窗][10]
+## <a name="create-a-cname-record-in-your-domain"></a>在網域中建立 CNAME 記錄
 
-此案例會完成透過 Azure 入口網站設定具有多網站支援的現有應用程式閘道。
+在以公用 IP 位址建立應用程式閘道之後，您可以取得 DNS 位址並用以在網域中建立 CNAME 記錄。 不建議使用 A-records，因為重新啟動應用程式閘道時，可能會變更 VIP。
+
+1. 按一下 [所有資源]，然後按一下 [myAGPublicIPAddress]。
+
+    ![記錄應用程式閘道 DNS 位址](./media/application-gateway-create-multisite-portal/application-gateway-multisite-dns.png)
+
+2. 複製 DNS 位址，並用來作為網域中新 CNAME 記錄的值。
+
+## <a name="test-the-application-gateway"></a>測試應用程式閘道
+
+1. 在瀏覽器的網址列中輸入您的網域名稱。 例如 http://www.contoso.com。
+
+    ![測試應用程式閘道中的 contoso 網站](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+
+2. 將位址變更為您的另一個網域，您應該會看到類似下列的範例：
+
+    ![測試應用程式閘道中的 fabrikam 網站](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何使用[應用程式閘道 - Web 應用程式防火牆](application-gateway-webapplicationfirewall-overview.md)保護您的網站
+在本文中，您已了解如何：
 
-<!--Image references-->
-[1]: ./media/application-gateway-create-multisite-portal/figure1.png
-[2]: ./media/application-gateway-create-multisite-portal/figure2.png
-[3]: ./media/application-gateway-create-multisite-portal/figure3.png
-[4]: ./media/application-gateway-create-multisite-portal/figure4.png
-[5]: ./media/application-gateway-create-multisite-portal/figure5.png
-[6]: ./media/application-gateway-create-multisite-portal/figure6.png
-[7]: ./media/application-gateway-create-multisite-portal/figure7.png
-[8]: ./media/application-gateway-create-multisite-portal/figure8.png
-[9]: ./media/application-gateway-create-multisite-portal/figure9.png
-[10]: ./media/application-gateway-create-multisite-portal/figure10.png
-[multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
+> [!div class="checklist"]
+> * 建立應用程式閘道
+> * 建立後端伺服器的虛擬機器
+> * 建立包含後端伺服器的後端集區
+> * 建立接聽程式和路由規則
+> * 在網域中建立 CNAME 記錄
+
+> [!div class="nextstepaction"]
+> [深入了解應用程式閘道的用途](application-gateway-introduction.md)

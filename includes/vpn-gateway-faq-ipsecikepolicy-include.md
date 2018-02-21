@@ -84,4 +84,4 @@ SA 存留期只需要在本機指定，不需要相符。
 是。 VNet 對 VNet 通道在 Azure 中包含兩個連線資源，這兩個資源各自應對一個方向。 確保這兩個連線資源具有相同的原則，否則系統不會建立 VNet 對 VNet 連線。
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>自訂 IPsec/IKE 原則是否適用於 ExpressRoute 連線？
-否。 IPsec/IKE 原則只適用於透過 Azure VPN 閘道的 S2S VPN 連線和 VNet 對 VNet 連線。
+編號 IPsec/IKE 原則只適用於透過 Azure VPN 閘道的 S2S VPN 連線和 VNet 對 VNet 連線。

@@ -35,14 +35,14 @@ ms.lasthandoff: 10/11/2017
 
 最大的改變是您不再需要將 API Apps 部署至您的 Azure 訂用帳戶，因此您可以使用 API。 以下是您可以使用 API 的方法︰
 
-* Managed API
+* 受控 API
 * 您自訂的 Web API
 
 每一種方式都因為其管理和裝載模型不同，而有稍微不同的處理方式。 此模型的優點之一是您不再受限於只能存取部署在 Azure 資源群組中的資源。 
 
-### <a name="managed-apis"></a>Managed API
+### <a name="managed-apis"></a>受控 API
 
-Microsoft 會代表您管理某些 API，例如 Office 365、Salesforce、Twitter 和 FTP。 您可以直接使用部分 Managed API (例如 Bing 翻譯)，有些則需要設定。 此組態稱為「連接」 。
+Microsoft 會代表您管理某些 API，例如 Office 365、Salesforce、Twitter 和 FTP。 您可以直接使用部分受控 API (例如 Bing 翻譯)，有些則需要設定。 此組態稱為「連接」 。
 
 例如，當您使用 Office 365 時，您必須建立包含 Office 365 登入權杖的連線。 系統會安全地儲存並重新整理此權杖，讓您的邏輯應用程式隨時都可呼叫 Office 365 API。 或者，如果您想要連線到 SQL 或 FTP 伺服器，您必須建立具有連接字串的連線。 
 
@@ -77,7 +77,7 @@ Microsoft 會代表您管理某些 API，例如 Office 365、Salesforce、Twitte
 
 `host` 物件是輸入的一部分且對 API 連線是唯一的，並包含兩個部分：`api` 和 `connection`。
 
-`api` 有用來裝載該 Managed API 的執行階段 URL。 您可以呼叫 `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`，來查看所有可供使用的 Managed API。
+`api` 有用來裝載該受控 API 的執行階段 URL。 您可以呼叫 `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`，來查看所有可供使用的受控 API。
 
 當您使用 API 時，該 API 或許定義了任何*連接參數*。 如果 API 並未定義，則不需任何*連接* 。 如果 API 定義了參數，您就必須建立連線。 建立的連線有您所選擇的名稱。 您接著會在 `host` 物件內的 `connection` 物件中參考該名稱。 若要在資源群組中建立連接，請呼叫：
 
@@ -101,7 +101,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>在 Azure Resource Manager 範本中部署 Managed API
+### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>在 Azure Resource Manager 範本中部署受控 API
 
 您可以在 Azure Resource Manager 範本中建立完整的應用程式，但前提是不需進行互動式登入。
 如果需要登入，您可以使用 Azure Resource Manager 範本來設定所有項目，但仍然必須造訪入口網站來授權連接。 
@@ -194,7 +194,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
     }]
 ```
 
-在此範例中，您可以看到連接只是存在於資源群組中的資源。 它們會參考您訂用帳戶中可供使用的 Managed API。
+在此範例中，您可以看到連接只是存在於資源群組中的資源。 它們會參考您訂用帳戶中可供使用的受控 API。
 
 ### <a name="your-custom-web-apis"></a>您自訂的 Web API
 
@@ -304,7 +304,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 | `inputs.body` |與 API 應用程式參數相同 |
 | `inputs.authentication` |與 API 應用程式驗證相同 |
 
-此方法應可適用於 API 應用程式的所有動作。 不過，請記住這些先前的 API 應用程式已不再受到支援。 因此，您應該移至兩個其他先前選項其中之一，受管理的 API 或裝載自訂的 Web API。
+此方法應可適用於 API 應用程式的所有動作。 不過，請記住這些先前的 API 應用程式已不再受到支援。 因此，您應該移至兩個其他先前選項其中之一，受控 API 或裝載自訂的 Web API。
 
 <a name="foreach"></a>
 ## <a name="renamed-repeat-to-foreach"></a>將 'repeat' 重新命名為 'foreach'
@@ -477,4 +477,4 @@ HTTP 接聽程式功能現在是內建的。 因此您不再需要部署 HTTP �
 
 ## <a name="coming-soon-enterprise-integration-apis"></a>敬請期待：企業整合 API
 
-我們還沒有企業整合 API 的受管理版本，像是 AS2。 同時，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 
+我們還沒有企業整合 API 的受控版本，像是 AS2。 同時，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 

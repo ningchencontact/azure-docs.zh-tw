@@ -15,7 +15,7 @@ ms.date: 10/30/2017
 ms.author: apimpm
 ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,7 +24,7 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 �
 
 如需使用 API 管理 REST API 來管理憑證的詳細資訊，請參閱 [Azure API 管理 REST API 憑證實體][Azure API Management REST API Certificate entity]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"> </a>先決條件
 本指南將示範如何設定 API 管理服務執行個體，以使用用戶端憑證驗證來存取 API 的後端服務。 在遵循本主題中的步驟之前，請先設定後端服務以進行用戶端憑證驗證 ([若要在 Azure WebSites 中設定憑證驗證，請參閱此文章][to configure certificate authentication in Azure WebSites refer to this article])，以及取得憑證的存取權限和憑證密碼，以在 API 管理發佈者入口網站內上傳。
 
 ## <a name="step1"> </a>上傳用戶端憑證

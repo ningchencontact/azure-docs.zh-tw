@@ -38,7 +38,7 @@ ELSE IF| ELSE IF 運算式會指定其他條件，必須在此 ELSE IF 陳述式
 
 ### <a name="next-steps"></a>後續步驟
 * [Azure CDN 概觀](cdn-overview.md)
-* [規則引擎參考](cdn-rules-engine-reference.md)
+* [規則引擎參考 (英文)](cdn-rules-engine-reference.md)
 * [規則引擎比對條件](cdn-rules-engine-reference-match-conditions.md)
 * [規則引擎功能](cdn-rules-engine-reference-features.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)

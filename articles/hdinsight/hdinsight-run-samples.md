@@ -25,7 +25,7 @@ ms.lasthandoff: 11/03/2017
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-我們提供了一組範例，協助您使用 Azure HDInsight 並開始在 Hadoop 叢集上執行 MapReduce 工作。 這些範例可套用在您所建立的每個 HDInsight 受管理叢集上。 執行這些範例可協助您熟悉使用 Azure PowerShell Cmdlet 在 Hadoop 叢集上執行作業。
+我們提供了一組範例，協助您使用 Azure HDInsight 並開始在 Hadoop 叢集上執行 MapReduce 工作。 這些範例可套用在您所建立的每個 HDInsight 受控叢集上。 執行這些範例可協助您熟悉使用 Azure PowerShell Cmdlet 在 Hadoop 叢集上執行作業。
 
 * [字數統計][hdinsight-sample-wordcount]：計算文字檔中的文字出現次數。
 * [C# 串流字數統計][hdinsight-sample-csharp-streaming]：使用 Hadoop 串流介面計算文字檔中的文字出現次數。
@@ -41,14 +41,14 @@ ms.lasthandoff: 11/03/2017
 * [在 HDInsight 上提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 簡介][hdinsight-introduction]
 
-時至今日，很多人選擇 Hive 和 Pig 而非 MapReduce。  如需詳細資訊，請參閱：
+時至今日，很多人選擇 Hive 和 Pig 而非 MapReduce。  如需詳細資訊，請參閱
 
 * [在 HDInsight 中使用 Hive](hadoop/hdinsight-use-hive.md)
 * [在 HDInsight 中使用 Pig](hadoop/hdinsight-use-pig.md)
 
 **必要條件**：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **HDInsight 叢集**。 如需可建立此類叢集之各種方式的指示，請參閱 [在 HDInsight 中使用 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 * **具有 Azure PowerShell 的工作站**。
 

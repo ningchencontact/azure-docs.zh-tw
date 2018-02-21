@@ -47,7 +47,7 @@ ms.lasthandoff: 10/31/2017
 | *api-version* |用來提出此要求的通訊協定版本。 此值會設定為 2015-06-01-preview. |
 | *continuationToken* |從上次呼叫使用情況 API 提供者所擷取的權杖。 回應大於 1000 行時就需要這個權杖，可作為進度的書籤。 若無此權杖，則會從一天或小時開始時的時間擷取資料，取決於所傳遞的細微性。 |
 
-### <a name="response"></a>回應
+### <a name="response"></a>Response
 GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
 ```json

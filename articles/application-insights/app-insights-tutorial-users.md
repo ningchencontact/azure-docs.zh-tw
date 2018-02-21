@@ -30,7 +30,7 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 > * 調查使用者如何瀏覽您的應用程式
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 

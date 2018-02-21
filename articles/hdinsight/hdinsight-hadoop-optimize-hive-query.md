@@ -113,7 +113,7 @@ Hive 分割的實作方法是將未經處理的資料重新整理成新的目錄
 如需詳細資訊，請參閱[資料分割資料表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) \(英文\)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
-Hive 支援不同的檔案格式。 例如：
+Hive 支援不同的檔案格式。 例如︰
 
 * **文字**：這是預設檔案格式，適用於大部分的案例
 * **Avro**：適用於互通性案例
@@ -137,7 +137,7 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-接著，將資料從暫存資料表插入至 ORC 資料表。 例如：
+接著，將資料從暫存資料表插入至 ORC 資料表。 例如︰
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 

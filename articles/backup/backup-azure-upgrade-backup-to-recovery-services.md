@@ -1,5 +1,5 @@
 ---
-title: "升級至復原服務保存庫的備份保存庫 |Microsoft 文件"
+title: "將備份保存庫升級至復原服務保存庫 | Microsoft Docs"
 description: "將 Azure 備份保存庫升級至復原服務保存庫的指示和支援資訊。"
 services: backup
 documentationcenter: dev-center-name
@@ -15,7 +15,7 @@ ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
 ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>升級之後對自動化及工具的變更
 
 當您在準備保存庫升級的基礎結構時，必須更新您現有的自動化或工具，確保它在升級之後會繼續運作。
-請參閱 PowerShell cmdlet 參考[Resource Manager 部署模型](backup-client-automation.md)。
+如需了解 [Resource Manager 部署模型](backup-client-automation.md)，請參閱 PowerShell Cmdlet 參考。
 
 
 ## <a name="before-you-upgrade"></a>您在升級之前
@@ -60,10 +60,10 @@ ms.lasthandoff: 01/05/2018
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** - 正在進行升級的保存庫之訂用帳戶識別碼編號。<br/>
-**VaultName** -正在升級的備份保存庫的名稱。<br/>
-**位置**-正在升級的保存庫的位置。<br/>
-**ResourceType** -使用 BackupVault。<br/>
-**TargetResourceGroupName** -因為您要升級的保存庫資源管理員為基礎的部署，以指定資源群組。 您可以使用現有的資源群組，或提供新的名稱來建立一個新的群組。 如果您將資源群組的名稱拼錯，可以建立新的資源群組。 若要深入了解資源群組，請閱讀此[資源群組概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+**VaultName** - 正在進行升級之備份保存庫的名稱。<br/>
+**Location** - 正在進行升級之保存庫的位置。<br/>
+**ResourceType** - 使用 BackupVault。<br/>
+**TargetResourceGroupName** - 由於您要將保存庫升級至以 Resource Manager 為基礎的部署，因此請指定「資源群組」。 您可以使用現有的資源群組，或提供新的名稱來建立一個新的群組。 如果您將資源群組的名稱拼錯，可以建立新的資源群組。 若要深入了解資源群組，請閱讀此[資源群組概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 
 >[!NOTE]
 > 資源群組名稱具有條件約束。 請務必遵循指導方針；若無法這樣做，可能導致保存庫升級失敗。
@@ -132,7 +132,7 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 編號 將資源成功升級之後，即不支援復原。
 
 **我是否可以驗證訂用帳戶或資源，以查看是否能夠將它們升級？**</br>
-可以。 升級的第一個步驟是驗證這些資源是否能夠升級。 如果必要條件驗證失敗，您將會收到無法完成升級的所有原因相關訊息。
+是。 升級的第一個步驟是驗證這些資源是否能夠升級。 如果必要條件驗證失敗，您將會收到無法完成升級的所有原因相關訊息。
 
 **可以升級以 CSP 為基礎的備份保存庫嗎？**</br>
 編號 您目前無法升級以 CSP 為基礎的備份保存庫。 我們會在後續版本中新增以 CSP 為基礎之備份保存庫的升級支援。
@@ -155,4 +155,4 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 使用下列文章︰</br>
 [備份 IaaS VM](backup-azure-arm-vms-prepare.md)</br>
 [備份 Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)</br>
-[備份 Windows Server](backup-configure-vault.md)。
+[備份 Windows Server](backup-configure-vault.md).

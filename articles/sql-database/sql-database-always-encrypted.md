@@ -38,7 +38,7 @@ ms.lasthandoff: 10/31/2017
 * 建立資料庫資料表並將資料行加密。
 * 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 針對本教學課程，您將需要：
 
 * Azure 帳戶和訂用帳戶。 如果您沒有帳戶，請註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -107,7 +107,7 @@ SSMS 提供一個精靈，可為您設定 CMK、CEK 及加密的資料行，來�
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 **SSN** 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 **BirthDate** 資料行將使用不支援操作的隨機加密。
 
-將 **SSN** 資料行的 [加密類型] 設定為 [決定性]，並將 **BirthDate** 資料行設定為 [隨機化]。 按一下 [下一步] 。
+將 **SSN** 資料行的 [加密類型] 設定為 [決定性]，並將 **BirthDate** 資料行設定為 [隨機化]。 按 [下一步] 。
 
 ![加密資料行](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -121,10 +121,10 @@ SSMS 提供一個精靈，可為您設定 CMK、CEK 及加密的資料行，來�
 ### <a name="validation"></a>驗證
 您現在可以加密資料行，或儲存為 PowerShell 指令碼以供日後執行。 針對這個教學課程，請選取 [繼續以立即完成]，然後按 [下一步]。
 
-### <a name="summary"></a>摘要
+### <a name="summary"></a>總結
 確認設定全都正確，然後按一下 [完成]  以完成 [一律加密] 的設定。
 
-![摘要](./media/sql-database-always-encrypted/summary.png)
+![總結](./media/sql-database-always-encrypted/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>確認精靈的動作
 完成精靈步驟之後，您的資料庫便已完成「一律加密」設定。 精靈已執行下列動作：

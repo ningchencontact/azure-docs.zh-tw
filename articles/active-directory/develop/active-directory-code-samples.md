@@ -17,7 +17,7 @@ ms.author: mbaldwin
 ms.custom: aaddev
 ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -124,7 +124,7 @@ ms.lasthandoff: 12/11/2017
 | C#/.NET |[使用 Azure AD 保護 Windows 市集應用程式和 REST Web 服務](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) |使用 Azure AD 和 [Azure AD 驗證程式庫 (ADAL)](active-directory-authentication-libraries.md)建立簡單 Web API 資源和 Windows 市集用戶端應用程式。 |
 | C#/.NET |[使用 Graph API 來查詢 Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |設定 Microsoft .NET 應用程式，以使用 Azure AD Graph API 從 Azure AD 租用戶目錄存取資料。 |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 ##### <a name="other-resources"></a>其他資源
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 

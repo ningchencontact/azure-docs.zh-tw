@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Windows 市集和 Windows Phone 8.1 版與更早版本的專案在 Visual Studio 2017 不受支援。 如需詳細資訊，請參閱 [Visual Studio 2017 平台目標及相容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本主題會以您在[開始使用通知中樞][get-started]中所建立的應用程式為基礎。 在開始本教學課程之前，您必須先完成[開始使用通知中樞][get-started]。
 
 ## <a name="add-category-selection-to-the-app"></a>在應用程式中新增類別選項
@@ -204,7 +204,7 @@ ms.lasthandoff: 10/11/2017
    
     ![即時新聞應用程式][1]
 
-2. 啟用一或多個類別切換，然後按一下訂閱。
+2. 啟用一或多個類別切換，然後按一下 [訂閱]。
    
     應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 系統會傳回已註冊類別並顯示在對話方塊中。
    

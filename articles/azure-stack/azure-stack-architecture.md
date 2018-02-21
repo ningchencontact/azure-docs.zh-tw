@@ -34,7 +34,7 @@ Azure Stack 開發套件是 Azure Stack 的單一節點部署。 所有元件都
 ## <a name="virtual-machine-roles"></a>虛擬機器角色
 Azure Stack 開發套件會在主機上使用下列 VM 來提供服務：
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack 儲存體服務。|
 | **AzS-ADFS01** | Active Directory 同盟服務 (AD FS)。  |

@@ -22,7 +22,7 @@ ms.lasthandoff: 01/02/2018
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您在資料中心內部署和管理 Azure Stack 時，可以遵照最佳做法，以利發生重大失敗時減少資料遺失。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="configuration-best-practices"></a>組態的最佳作法
 
-### <a name="deployment"></a>Deployment
+### <a name="deployment"></a>部署
 
 在部署每個 Azure Stack 雲端後，啟用基礎結構備份。 您可以使用 Azure Stack 工具，從任何可存取操作員管理 API 端點的用戶端/伺服器來排程備份。
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>從 Azure 重新保護至內部部署網站
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/28/2017
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 在針對 Azure 的容錯移轉期間，可能會無法存取內部部署網站，因此設定伺服器可能會無法使用或關機。 在重新保護和容錯回復期間，內部部署設定伺服器應該會執行並處於連線正常狀態。
@@ -221,13 +221,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 重新保護成功之後，虛擬機器將進入受保護狀態。
 
-## <a name="next-steps"></a>後續步驟
-
-在虛擬機器進入受保護狀態後，您就可以[起始容錯回復](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back)。 
-
-容錯回復會關閉 Azure 中的虛擬機器，並啟動內部部署虛擬機器。 預期應用程式停機一段時間。 選擇應用程式允許停機時的容錯回復時間。
-
-## <a name="common-problems"></a>常見問題
+## <a name="common-issues"></a>常見問題
 
 * 如果您使用範本來建立虛擬機器，請確定每部虛擬機器有磁碟本身的 UUID。 如果內部部署虛擬機器和主要目標的 UUID 衝突 (因為兩者都是從相同的範本建立)，則重新保護會失敗。 部署另一個不是從相同範本建立的主要目標。
 
@@ -245,38 +239,9 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 * 做為實體內部部署伺服器保護的 Windows Server 2008 R2 SP1 伺服器無法從 Azure 容錯回復到內部部署網站。
 
-### <a name="common-error-codes"></a>常見的錯誤碼
 
-#### <a name="error-code-95226"></a>錯誤碼 95226
+## <a name="next-steps"></a>後續步驟
 
-重新保護失敗，因為 Azure 虛擬機器無法觸達內部部署組態伺服器。
+在虛擬機器進入受保護狀態後，您就可以[起始容錯回復](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back)。 
 
-發生這種情況的時機： 
-1. Azure 虛擬機器無法觸達內部部署組態伺服器，因此無法加以探索和註冊到組態伺服器。 
-2. Azure 虛擬機器上必須執行才能與內部部署組態伺服器通訊的 InMage Scout 應用程式服務，在容錯移轉後可能不會執行。
-
-若要解決此問題
-1. 您必須確定已設定 Azure 虛擬機器的網路，使虛擬機器可與內部部署組態伺服器進行通訊。 若要這樣做，請將網站對網站 VPN 設定回到您的內部部署資料中心，或是使用 Azure 虛擬機器之虛擬網路上的私人對等互連來設定 ExpressRoute 連線。 
-2. 如果您已將網路設定為 Azure 虛擬機器可與內部部署組態伺服器進行通訊，請登入虛擬機器並檢查 'InMage Scout Application Service'。 如果您觀察到 InMage Scout 應用程式服務未執行，請以手動方式啟動服務，並確定服務啟動類型設定為自動。
-
-### <a name="error-code-78052"></a>錯誤碼 78052
-重新保護會失敗，並出現錯誤訊息：*無法完成虛擬機器的保護。*
-
-可能有兩個原因會造成這個問題
-1. 您要重新保護的虛擬機器是 Windows Server 2016。 此作業系統目前不支援容錯回復，但很快就會受到支援。
-2. 在您要容錯回復的對象主要目標伺服器上，已經存在具有相同名稱的虛擬機器。
-
-若要解決這個問題，您可以在不同的主機上選取不同的主要目標伺服器，使重新保護可在不同的主機上建立機器，而其中的名稱不會衝突。 您也可以將主要目標 vMotion 到不同的主機，而其中的名稱不會發生衝突。 如果現有的虛擬機器為偏離機器，您可以重新命名它，以在相同的 ESXi 主機上建立新的虛擬機器。
-
-### <a name="error-code-78093"></a>錯誤碼 78093
-
-VM 非執行中，處於無回應狀態或無法存取。
-
-若要重新保護容錯移轉的虛擬機器回到內部部署，Azure 虛擬機器必須為執行中。 如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行 (停止回應狀態或關機)，組態伺服器就無法觸達虛擬機器中的行動服務以開始重新保護。 您可以重新啟動虛擬機器，讓它能夠開始通訊回內部部署。 啟動 Azure 虛擬機器之後，重新啟動重新保護作業
-
-### <a name="error-code-8061"></a>錯誤碼 8061
-
-*無法從 ESXi 主機存取資料存放區。*
-
-請參閱[主要目標必要條件](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)和[支援資料存放區](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback)以進行容錯回復
-
+容錯回復會關閉 Azure 中的虛擬機器，並啟動內部部署虛擬機器。 預期應用程式停機一段時間。 選擇應用程式允許停機時的容錯回復時間。

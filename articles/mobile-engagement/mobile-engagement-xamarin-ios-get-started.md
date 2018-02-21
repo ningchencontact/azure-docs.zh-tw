@@ -94,7 +94,7 @@ Xamarin Studio 會建立示範應用程式，我們將在其中整合 Mobile Eng
         using Microsoft.Azure.Engagement.Xamarin;
 2. 取代 `ViewController` 從 `UIViewController` 繼承到 `EngagementViewController` 的類別。 
 
-## <a id="monitor"></a>將 App 與即時監視連接
+## <a id="monitor"></a>將應用程式與即時監視連接
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>啟用推播通知與 App 內傳訊

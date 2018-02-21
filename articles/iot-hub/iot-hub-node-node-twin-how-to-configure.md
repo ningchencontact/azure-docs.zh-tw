@@ -209,7 +209,7 @@ ms.lasthandoff: 10/11/2017
     > [!IMPORTANT]
     > 為了便於說明，此應用程式每 10 秒查詢一次 IoT 中樞。 跨許多裝置時，請使用查詢來產生適合使用者的報告，而非偵測變更。 如果您的解決方案需要裝置事件的即時通知，請使用[對應項通知][lnk-twin-notifications]。
     > 
-    >。
+    >.
 
 1. 在 `registry.getDeviceTwin()` 叫用之前，新增下列程式碼來實作 **queryTwins** 函式︰
    

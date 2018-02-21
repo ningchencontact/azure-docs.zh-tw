@@ -35,7 +35,7 @@ Microsoft HPC Pack 提供可在 Microsoft Azure 虛擬機器叢集上執行大�
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **具有支援 RDMA 之 Linux 計算節點的 HPC Pack 叢集** - 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)或 [Azure PowerShell 指令碼](hpcpack-cluster-powershell-script.md)，部署具有 A8、A9、H16r 或 H16rm 大小之 Linux 計算節點的 HPC Pack 叢集。 如需了解任一選項的必要條件與步驟，請參閱 [開始使用 Azure 中 HPC Pack 叢集內的 Linux 計算節點](hpcpack-cluster.md) 。 如果您選擇 PowerShell 指令碼部署選項，請參閱本文結尾範例檔案中的範例組態檔。 您可以使用此組態來部署 Azure 型 HPC Pack 叢集，其中包含一個 A8 大小的 Windows Server 2012 R2 前端節點，以及兩個 A8 大小的 SUSE Linux Enterprise Server 12 計算節點。 請將您的訂用帳戶和服務名稱取代為適當的值。 
   
   **其他應該知道的事項**
@@ -306,7 +306,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 5. 在 [ **工作資源**] 中，選取 [節點] 做為資源類型，並將 [最小值] 設為 2。 在此範例中，此組態會在兩個分別具有 8 個核心的 Linux 節點上執行作業。
    
    ![工作資源][job_resources]
-6. 按一下左導覽窗格中的 編輯工作，然後按一下加入 來將工作加入到作業中。 請使用下列命令列與設定，將四個工作新增到作業中。
+6. 按一下左導覽窗格中的 [編輯工作]，然後按一下 [加入] 來將工作加入到作業中。 請使用下列命令列與設定，將四個工作新增到作業中。
    
    > [!NOTE]
    > 執行 `source /openfoam/settings.sh` 會設定 OpenFOAM 和 MPI 執行階段環境，因此下列每個作業會在 OpenFOAM 命令之前加以呼叫。

@@ -15,7 +15,7 @@ ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 >
 >
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。 透過這項功能建立檢閱、存取檢閱或套用檢閱結果的每位使用者都需要授權。
 

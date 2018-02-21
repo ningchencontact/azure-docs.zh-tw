@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令列部署 Azure Stack 中的範本
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 使用命令列將 Azure Resource Manager 範本部署到 Azure Stack 開發套件。 Azure Resource Manager 範本可藉由單一協調作業，來部署和佈建應用程式的所有資源。
 

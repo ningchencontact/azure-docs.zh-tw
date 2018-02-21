@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>建構資料表設計工具的篩選字串
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 若要在 Visual Studio [資料表設計工具] 中顯示的 Azure 資料表中篩選資料，您可以建構篩選字串並在篩選欄位中輸入它。 篩選條件字串語法由 WCF Data Services 定義，類似於 SQL WHERE 子句，但會透過 HTTP 要求傳送至表格服務。 [資料表設計工具]  會為您處理適當的編碼，因此，若要篩選所需的屬性值，您只需要在篩選欄位中輸入屬性名稱、比較運算子、準則值和 (選擇性) 布林運算子。 您不需要像透過 [儲存體服務 REST API 參考](http://go.microsoft.com/fwlink/p/?LinkId=400447)建構 URL 來查詢資料表一樣包含 $filter 查詢選項。
 
 WCF Data Services 以 [開放式資料通訊協定](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData) 為基礎。 如需篩選系統查詢選項 (**$filter**) 的詳細資訊，請參閱 [OData URI 轉換規格](http://go.microsoft.com/fwlink/p/?LinkId=214806)。

@@ -41,7 +41,7 @@ ms.lasthandoff: 11/14/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 您必須擁有 Azure 訂用帳戶。 如果還沒有， [請取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * 您需要 Azure HDInsight 3.4 Spark 1.6 叢集來完成下列程序。 若要建立叢集，請參閱 [開始使用：在 Azure HDInsight 上建立 Apache Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示。 在 [選取叢集類型]  功能表上設定叢集類型和版本。
 

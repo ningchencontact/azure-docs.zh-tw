@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 533d4ddfc645843ed8feb8652021f47d93ed2ac1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 75031b6189710286625406246e6dcde6f1c2b938
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Linux 虛擬機器從非受控磁碟轉換成受控磁碟
 
@@ -36,19 +36,19 @@ ms.lasthandoff: 12/16/2017
 ## <a name="convert-single-instance-vms"></a>轉換單一執行個體 VM
 本節說明如何將單一執行個體 Azure VM 從非受控磁碟轉換為受控磁碟。 (如果您的 VM 位於可用性設定組中，請參閱下一節)。您可以使用此程序將 VM 從進階 (SSD) 非受控磁碟轉換成進階受控磁碟，或從標準 (HDD) 非受控磁碟轉換成標準受控磁碟。
 
-1. 使用 [az vm deallocate](/cli/azure/vm#deallocate) 將 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
+1. 使用 [az vm deallocate](/cli/azure/vm#az_vm_deallocate) 將 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. 使用 [az vm convert](/cli/azure/vm#convert) 將 VM 轉換成受控磁碟。 下列程序會轉換名為 `myVM` 的 VM，包括 OS 磁碟和任何資料磁碟︰
+2. 使用 [az vm convert](/cli/azure/vm#az_vm_convert) 將 VM 轉換成受控磁碟。 下列程序會轉換名為 `myVM` 的 VM，包括 OS 磁碟和任何資料磁碟︰
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. 轉換成受控磁碟之後，使用 [az vm start](/cli/azure/vm#start) 來啟動 VM。 下列範例會啟動 `myResourceGroup` 資源群組中名為 `myVM` 的 VM。
+3. 轉換成受控磁碟之後，使用 [az vm start](/cli/azure/vm#az_vm_start) 來啟動 VM。 下列範例會啟動 `myResourceGroup` 資源群組中名為 `myVM` 的 VM。
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/16/2017
 
 轉換可用性設定組之前，必須先解除配置可用性設定組中的所有 VM。 在可用性設定組本身轉換成受控可用性設定組之後，請規劃將所有 VM 轉換成受控磁碟。 然後，啟動所有 VM 並繼續像平常一樣運作。
 
-1. 使用 [az vm availability-set list](/cli/azure/vm/availability-set#list) 來列出可用性設定組中的所有 VM。 下列範例會列出 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組中的所有 VM：
+1. 使用 [az vm availability-set list](/cli/azure/vm/availability-set#az_vm_availability_set_list) 來列出可用性設定組中的所有 VM。 下列範例會列出 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組中的所有 VM：
 
     ```azurecli
     az vm availability-set show \
@@ -70,13 +70,13 @@ ms.lasthandoff: 12/16/2017
         --output table
     ```
 
-2. 使用 [az vm deallocate](/cli/azure/vm#deallocate) 將所有 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
+2. 使用 [az vm deallocate](/cli/azure/vm#az_vm_deallocate) 將所有 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. 使用 [az vm availability-set convert](/cli/azure/vm/availability-set#convert) 來轉換可用性設定組。 下列範例會轉換 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組：
+3. 使用 [az vm availability-set convert](/cli/azure/vm/availability-set#az_vm_availability_set_convert) 來轉換可用性設定組。 下列範例會轉換 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組：
 
     ```azurecli
     az vm availability-set convert \
@@ -84,13 +84,13 @@ ms.lasthandoff: 12/16/2017
         --name myAvailabilitySet
     ```
 
-4. 使用 [az vm convert](/cli/azure/vm#convert) 將所有 VM 轉換成受控磁碟。 下列程序會轉換名為 `myVM` 的 VM，包括 OS 磁碟和任何資料磁碟︰
+4. 使用 [az vm convert](/cli/azure/vm#az_vm_convert) 將所有 VM 轉換成受控磁碟。 下列程序會轉換名為 `myVM` 的 VM，包括 OS 磁碟和任何資料磁碟︰
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. 轉換成受控磁碟之後，使用 [az vm start](/cli/azure/vm#start) 來啟動所有 VM。 下列範例會啟動 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
+5. 轉換成受控磁碟之後，使用 [az vm start](/cli/azure/vm#az_vm_start) 來啟動所有 VM。 下列範例會啟動 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

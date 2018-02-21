@@ -17,7 +17,7 @@ ms.date: 03/14/2017
 ms.author: danis
 ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視、警示和警示補救功能。 Microsoft 已發佈和支援適用於 Windows 的 OMS 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 OMS 代理程式，並且在現有的 OMS 工作區中註冊虛擬機器。 本文件詳述適用於 Windows 的 OMS 虛擬機器擴充功能所支援的平台、組態和部署選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -67,7 +67,7 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 ```
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

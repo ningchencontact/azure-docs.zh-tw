@@ -47,7 +47,7 @@ ms.lasthandoff: 12/11/2017
 > [!NOTE] 
 > VPN 連線無法連線到 Azure Stack 基礎結構 VM。 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 1. 在您的本機電腦上安裝 [Azure Stack 相容的 Azure PowerShell](azure-stack-powershell-install.md)。  
 2. 下載[處理 Azure Stack 所需的工具](azure-stack-powershell-download.md)。 

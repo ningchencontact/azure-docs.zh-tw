@@ -111,11 +111,11 @@ ms.lasthandoff: 11/01/2017
 ## <a name="monitor"></a> 檢視遙測
 返回 [Azure 入口網站](https://portal.azure.com/) ，並且瀏覽至您的 Application Insights 資源。
 
-在 [概觀] 圖表中尋找資料。 剛開始的時候，您只會看見一或兩個資料點。 例如：
+在 [概觀] 圖表中尋找資料。 剛開始的時候，您只會看見一或兩個資料點。 例如︰
 
 ![Click through to more data](./media/app-insights-windows-services/12-first-perf.png)
 
-按一下任何圖表以查看詳細度量。 [深入了解度量。](app-insights-web-monitor-performance.md)
+逐一點選任何圖表以查看更詳細的度量。 [深入了解度量。](app-insights-web-monitor-performance.md)
 
 ### <a name="no-data"></a>沒有資料？
 * 使用應用程式、開啟不同頁面，以產生一些遙測。

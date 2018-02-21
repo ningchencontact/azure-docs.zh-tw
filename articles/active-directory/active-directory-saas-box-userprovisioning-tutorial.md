@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>教學課程︰設定 Box 來自動佈建使用者
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/29/2018
 本教學課程中說明的案例假設您已經具有下列項目：
 
 *   Azure Active Directory 租用戶。
-*   已啟用 Box 單一登入功能的訂用帳戶。
+*   已啟用 Box 單一登入的訂用帳戶。
 *   具有小組系統管理員權限的 Box 使用者帳戶。
 
 ## <a name="assigning-users-to-box"></a>將使用者指派給 Box 
@@ -108,9 +108,9 @@ Azure 入口網站的 [Box] > [使用者和群組] 索引標籤可讓您指定�
 
 14. 按一下 [儲存]。
 
-這會對 [使用者和群組] 區段中指派給 Box 的任何使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，大約每 20 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Box 應用程式上的佈建服務所執行之所有動作。
+這會對 [使用者和群組] 區段中指派給 Box 的任何使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Box 應用程式上佈建服務所執行的所有動作。
 
-您現在可以建立測試帳戶了。 請等候 20 分鐘以確認帳戶已同步至 Box。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](active-directory-saas-provisioning-reporting.md)。
 
 在 Box 租用戶中，已同步處理的使用者會列在 [管理主控台] 的 [受控使用者] 之下。
 

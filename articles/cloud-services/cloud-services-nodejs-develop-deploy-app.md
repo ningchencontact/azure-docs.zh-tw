@@ -35,7 +35,7 @@ ms.lasthandoff: 12/07/2017
 
 ![顯示 Hello World 網頁的網頁瀏覽器][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 > [!NOTE]
 > 本教學課程使用 Azure PowerShell (需要 Windows)。
 
@@ -136,7 +136,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 4. 將部署封裝發佈到 Azure。
 
 ## <a name="stopping-and-deleting-your-application"></a>停止並刪除您的應用程式
-部署您的應用程式後，建議您將它停用，以避免額外的成本。 Azure 會對於 Web 角色執行個體的伺服器使用時間時數計費。 部署應用程式之後，即使執行個體未執行而在停止狀態中，也會使用伺服器時間。
+部署您的應用程式後，您可能會想要將它停用，以便避免額外的成本。 Azure 會對於 Web 角色執行個體的伺服器使用時間時數計費。 部署應用程式之後，即使執行個體未執行而在停止狀態中，也會使用伺服器時間。
 
 1. 在 Windows PowerShell 視窗中，使用下列 Cmdlet 停止上一個小節中建立的服務部署：
 

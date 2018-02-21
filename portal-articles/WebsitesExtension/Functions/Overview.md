@@ -22,7 +22,7 @@ Azure Functions 是無伺服器計算服務，可讓您依需求執行程式碼�
 
 了解如何建立 Hello World 函式，方法為使用：
 
-- [Azure 入口網站](/azure/azure-functions/functions-create-first-azure-function)
+- [HttpTrigger Nodejs 函數](/azure/azure-functions/functions-create-first-azure-function)
 - [Azure CLI](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>逐步教學課程

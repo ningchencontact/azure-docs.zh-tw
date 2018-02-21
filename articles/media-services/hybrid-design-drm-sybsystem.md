@@ -95,11 +95,11 @@ Azure 媒體服務 DRM 是全面雲端視訊平台的一部分，設計富彈性
 
 |**內容裝載與來源**|**DRM 加密**|**DRM 授權傳遞**|**設定內容金鑰**|**設定資產傳遞原則**|**範例**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|是|是|範例 1|
-|AMS|AMS|協力廠商|是|是|範例 2|
-|AMS|協力廠商|AMS|是|否|範例 3|
+|AMS|AMS|AMS|yes|yes|範例 1|
+|AMS|AMS|協力廠商|yes|yes|範例 2|
+|AMS|協力廠商|AMS|yes|否|範例 3|
 |AMS|協力廠商|外部|否|否|範例 4|
-|協力廠商|協力廠商|AMS|是|否|    
+|協力廠商|協力廠商|AMS|yes|否|    
 
 在範例中，PlayReady 保護對 DASH 和 Smooth Streaming 都有效。 下列的影片 URL 是 Smooth Streaming URL。 若要取得對應的 DASH URL，只要加上 "(format=mpd-time-csf)" 即可。 您可以使用 [Azure 媒體測試播放器](http://aka.ms/amtest)在瀏覽器中測試。 它可讓您設定要在哪些技術之下使用哪一個串流處理通訊協定。 Windows 10 的 IE11 和 MS Edge 都透過 EME 支援 PlayReady。 如需詳細資訊，請參閱[測試工具的詳細資料](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)。
 
@@ -125,7 +125,7 @@ Azure 媒體服務 DRM 是全面雲端視訊平台的一部分，設計富彈性
 * 來源 URL：https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (DASH & Smooth)：https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 總而言之，Azure 媒體服務 DRM 元件富有彈性，只要如本主題所述正確設定內容金鑰與資產傳遞原則，就可以在混合式案例中使用它們。
 

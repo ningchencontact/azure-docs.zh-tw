@@ -37,7 +37,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 當您選取的資源 SKU (例如 VM 大小) 不適用於您選取的位置時，您會收到這個錯誤。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 若要解決此問題，您需要判斷區域中有哪些 SKU。 您可以使用 PowerShell、入口網站或 REST 作業來尋找可用的 SKU。
 

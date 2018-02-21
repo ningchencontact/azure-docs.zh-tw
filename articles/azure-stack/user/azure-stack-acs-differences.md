@@ -22,7 +22,7 @@ ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 「Azure Stack 儲存體」是 Microsoft Azure Stack 中的一組儲存體雲端服務。 「Azure Stack 儲存體」使用與 Azure 一致的語意來提供 Blob、資料表、佇列及帳戶管理功能。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/09/2017
 |受控磁碟|支援進階和標準|尚不支援
 |Blob 名稱|1,024 個字元 (2,048 個位元組)|880 個字元 (1,760 個位元組)
 |區塊 Blob 大小上限|4.75 TB (100 MB X 50,000 個區塊)|50,000 x 4 MB (約為 195 GB)
-|分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 未受管理 VM 進行備份|尚不支援
+|分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 非受控 VM 進行備份|尚不支援
 |分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援
 |分頁 Blob 大小上限|8 TB|1 TB
 |分頁 Blob 分頁大小|512 個位元組|4 KB

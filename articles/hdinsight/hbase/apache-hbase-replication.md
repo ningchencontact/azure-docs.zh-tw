@@ -43,7 +43,7 @@ ms.lasthandoff: 01/08/2018
 
 您可以從 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication) 使用[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)指令碼複寫叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ## <a name="set-up-the-environments"></a>設定環境
@@ -182,7 +182,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 必要的引數︰
 
-|名稱|描述|
+|Name|說明|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 選擇性的引數︰
 
-|名稱|描述|
+|Name|說明|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |

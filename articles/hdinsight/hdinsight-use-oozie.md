@@ -58,7 +58,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 > 
 > 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列項目：
 
 * **具有 Azure PowerShell 的工作站**。 

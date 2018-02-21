@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 robots: noindex
 ms.openlocfilehash: 471099c58a7fc1dfd520e693873a76f64c0fbf0a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---

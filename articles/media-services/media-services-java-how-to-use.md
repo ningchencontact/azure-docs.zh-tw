@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 
 本教學課程會逐步引導您使用 Java 用戶端 SDK，來實作搭配 Azure 媒體服務的基本視訊內容傳遞服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目，才能完成本教學課程：
 

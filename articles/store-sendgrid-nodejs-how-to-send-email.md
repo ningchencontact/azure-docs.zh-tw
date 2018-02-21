@@ -60,7 +60,7 @@ SendGrid 模組會匯出 **SendGrid** 和 **Email** 函數。
         text: 'This is a sample email message.'
     });
 
-您也可以設定 html 屬性，為支援 HTML 訊息的用戶端指定一個 HTML 訊息。 例如：
+您也可以設定 html 屬性，為支援 HTML 訊息的用戶端指定一個 HTML 訊息。 例如︰
 
     html: This is a sample <b>HTML<b> email message.
 
@@ -78,7 +78,7 @@ SendGrid 模組會匯出 **SendGrid** 和 **Email** 函數。
     });
 
 > [!NOTE]
-> 上述範例示範的是傳入一個電子郵件物件和回呼函數，您也可以直接指定電子郵件屬性來直接叫用 send 函數。 例如：  
+> 上述範例示範的是傳入一個電子郵件物件和回呼函數，您也可以直接指定電子郵件屬性來直接叫用 send 函數。 例如︰  
 > 
 > `````
 > sendgrid.send({

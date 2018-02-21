@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在裝載於 Azure 上的網站中使用 ReportViewer
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 您可以使用 Visual Studio ReportViewer 控制項 (可顯示儲存在 Microsoft Azure 虛擬機器上的報告)，建置 Microsoft Azure 網站。 ReportViewer 控制項位於您使用 ASP.NET Web 應用程式範本建置的 Web 應用程式中。
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 * **設定** 驗證和授權
 * **發佈** 至 Azure
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 檢閱 [Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)中的＜一般建議和最佳作法＞一節。
 
 > [!NOTE]
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 2. 從下拉式清單中選取語言，然後頁面會重新導向至對應的下載中心頁面。
 3. 按 [下載]  即可開始下載 ReportViewerLP.exe。
 4. 下載 ReportViewerLP.exe 之後，按一下 [執行] 以立即安裝，或按一下 [儲存]，將其儲存至電腦中。 如果您按一下 [儲存] ，請記住儲存檔案的目的地資料夾名稱。
-5. 尋找您儲存檔案的目的地資料夾。 在 ReportViewerLP.exe 上按一下滑鼠右鍵，按一下 以系統管理員身分執行，然後按一下是。
+5. 尋找您儲存檔案的目的地資料夾。 在 ReportViewerLP.exe 上按一下滑鼠右鍵，按一下 [以系統管理員身分執行]，然後按一下 [是]。
 6. 執行 ReportViewerLP.exe 之後，您會看到 c:\windows\assembly 中有資源檔案 **Microsoft.ReportViewer.Webforms.Resources** 和 **Microsoft.ReportViewer.Common.Resources**。
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>設定當地語系化的 ReportViewer 控制項

@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 在不同的伺服器上安裝 Azure Multi-Factor Authentication Server，由它代理將 RADIUS 要求傳回到遠端桌面閘道器伺服器上的 NPS。 NPS 驗證使用者名稱和密碼之後，它會將回應傳回給 Multi-Factor Authentication Server。 然後，MFA Server 會執行第二因素驗證，然後將結果傳回給閘道。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 已加入網域的 Azure MFA Server。 如果尚未進行安裝，請遵循[開始使用 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md)中的步驟。
 - 使用網路原則服務進行驗證的遠端桌面閘道。

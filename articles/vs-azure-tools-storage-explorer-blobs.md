@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 [Azure Blob 儲存體](storage/blobs/storage-dotnet-how-to-use-blobs.md)是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。
 您可以使用 Blob 儲存體向全球公開資料，或私下儲存應用程式資料。 在本文中，您將學習如何使用儲存體 Explorer (預覽) 來使用 blob 容器和 blob。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 * [下載並安裝儲存體 Explorer (預覽)](http://www.storageexplorer.com)

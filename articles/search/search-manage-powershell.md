@@ -17,7 +17,7 @@ ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 本主題說明用來執行多種 Azure 搜尋服務管理工作的 PowerShell 命令。 我們將逐步建立搜尋服務、調整及管理其 API 金鑰。
 這些命令和 [Azure 搜尋管理 REST API](http://msdn.microsoft.com/library/dn832684.aspx)中提供的管理選項相同。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 您必須有 Azure PowerShell 1.0 或更新版本。 如需指示，請參閱 [安裝並設定 Azure PowerShell](/powershell/azure/overview)。
 * 您必須在 PowerShell 中登入 Azure 訂用帳戶，如下所述。
 

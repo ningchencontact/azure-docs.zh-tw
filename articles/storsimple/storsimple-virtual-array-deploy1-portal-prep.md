@@ -54,7 +54,7 @@ ms.lasthandoff: 11/14/2017
 * 下載 [StorSimple Virtual Array 檔案伺服器的設定檢查清單](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)。
 * 下載 [StorSimple Virtual Array iSCSI 伺服器的設定檢查清單](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 我們在此提供 StorSimple 裝置管理員服務、StorSimple Virtual Array 及資料中心網路的設定必要條件。
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/14/2017
 
 1. 瀏覽至您的裝置管理員服務，選取它並按兩下。 這會開啟 [概觀] 刀鋒視窗。
 2. 在 [設定] 區段內選取 [儲存體帳戶認證]。
-3. 按一下 [新增]。
+3. 按一下 [新增] 。
 4. 在 [加入儲存體帳戶] 刀鋒視窗中，執行下列動作︰
    
     1. 在 [訂用帳戶] 中，選取 [目前]。

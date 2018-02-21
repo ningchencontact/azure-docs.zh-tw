@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 本教學課程會逐步引導您在 Azure 入口網站中透過 Azure 媒體服務 (AMS) 應用程式實作基本點播視訊內容傳遞服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要有下列項目，才能完成教學課程：
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
    為了協助您管理資源，您可以編輯輸出資產的名稱和作業的名稱。
    
    ![為資產編碼](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. 選取 [ **建立**]。
+5. 選取 [建立] 。
 
 ### <a name="monitor-encoding-job-progress"></a>監視編碼作業進度
 若要監視編碼作業的進度，請按一下 [設定]，然後選取 [作業]。

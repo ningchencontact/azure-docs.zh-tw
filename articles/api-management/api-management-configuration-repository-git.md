@@ -6,25 +6,22 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: mattfarm
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
-> 
-> 
 
-每個 API 管理服務執行個體會維護組態資料庫，包含服務執行個體的組態和中繼資料的相關資訊。 可以對服務執行個體進行變更，方法是使用PowerShell Cmdlet 或進行 REST API 呼叫，變更發佈者入口網站中的設定。 除了這些方法，您也可以使用 Git 管理服務執行個體組態，啟用下列服務管理案例︰
+每個 API 管理服務執行個體會維護組態資料庫，包含服務執行個體的組態和中繼資料的相關資訊。 可以對服務執行個體進行變更，方法是使用PowerShell Cmdlet 或進行 REST API 呼叫，變更 Azure 入口網站中的設定。 除了這些方法，您也可以使用 Git 管理服務執行個體組態，啟用下列服務管理案例︰
 
 * 組態版本 - 下載並儲存不同版本的服務組態
 * 大量的組態變更 - 對本機儲存機制中服務組態的多個部分進行變更，並且使用單一作業將變更整合回伺服器
@@ -34,7 +31,7 @@ ms.lasthandoff: 12/08/2017
 
 ![Git 設定][api-management-git-configure]
 
-當您使用發佈者入口網站、PowerShell Cmdlet 或 REST API 對服務進行變更時，您會使用 `https://{name}.management.azure-api.net` 端點管理服務組態資料庫，如圖表右側所示。 圖表左側說明如何針對位於 `https://{name}.scm.azure-api.net`的服務，使用 Git 和 Git 儲存機制管理服務組態。
+當您使用 Azure 入口網站、PowerShell Cmdlet 或 REST API 對服務進行變更時，您會使用 `https://{name}.management.azure-api.net` 端點管理服務組態資料庫，如圖表右側所示。 圖表左側說明如何針對位於 `https://{name}.scm.azure-api.net`的服務，使用 Git 和 Git 儲存機制管理服務組態。
 
 下列步驟提供使用 Git 管理 API 管理服務執行個體的概觀。
 
@@ -47,11 +44,8 @@ ms.lasthandoff: 12/08/2017
 本文說明如何啟用及使用 Git 來管理您的服務組態，並提供 Git 儲存機制中檔案和資料夾的參考。
 
 ## <a name="access-git-configuration-in-your-service"></a>存取服務中的 Git 組態
-您可以檢視發行者入口網站右上角的 Git 圖示，藉以快速檢視 Git 組態的狀態。 在此範例中，狀態訊息指出存放庫有未儲存的變更。 這是因為 API 管理服務組態資料庫尚未儲存到儲存機制所致。
 
-![Git 狀態][api-management-git-icon-enable]
-
-若要檢視並設定您的 Git 組態設定，您可以按一下 [Git] 圖示，或按一下 [安全性] 功能表，然後瀏覽至 [組態儲存機制] 索引標籤。
+若要檢視並設定您的 Git 組態設定，您可以按一下 [安全性] 功能表，然後瀏覽至 [設定存放庫] 索引標籤。
 
 ![啟用 GIT][api-management-enable-git]
 
@@ -63,43 +57,30 @@ ms.lasthandoff: 12/08/2017
 如需使用 REST API 啟用或停用 Git 存取的詳細資訊，請參閱 [使用 REST API 啟用或停用 Git 存取](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)。
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>將服務組態儲存至 Git 儲存機制
-複製儲存機制之前的第一個步驟是將服務組態的目前狀態儲存至儲存機制。 按一下 [將組態儲存至儲存機制] 。
 
-![儲存組態][api-management-save-configuration]
+複製儲存機制之前的第一個步驟是將服務組態的目前狀態儲存至儲存機制。 按一下 [儲存到存放庫]。
 
 在 [確認] 畫面上進行任何所需的變更，然後按一下 [確定]  以儲存。
 
-![儲存組態][api-management-save-configuration-confirm]
-
 儲存組態一段時間後，儲存機制的組態狀態隨即顯示，包括最後組態變更和上次同步處理服務組態和儲存機制的日期與時間。
-
-![組態狀態][api-management-configuration-status]
 
 一旦組態儲存至儲存機制，就可以複製。
 
 如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 認可組態快照集](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot)。
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>將儲存機制複製到本機電腦
-若要複製儲存機制，您需要儲存機制的 URL、使用者名稱和密碼。 使用者名稱和 URL 會顯示於接近 [組態儲存機制]  索引標籤頂端的地方。
 
-![git 複製][api-management-configuration-git-clone]
-
-密碼會在 [組態儲存機制]  索引標籤的底端產生。
-
-![產生密碼][api-management-generate-password]
-
-若要產生密碼，請先確定已將 [到期] 設為所需的到期日期和時間，然後按一下 [產生權杖]。
-
-![密碼][api-management-password]
+若要複製儲存機制，您需要儲存機制的 URL、使用者名稱和密碼。 若要取得使用者名稱和其他認證，按一下靠近頁面頂端的 [存取認證]。  
+ 
+若要產生密碼，請先確定已將 [到期] 設為所需的到期日期和時間，然後按一下 [產生]。
 
 > [!IMPORTANT]
 > 記下此密碼。 一旦您離開此頁面，就不會再次顯示密碼。
 > 
-> 
 
 下列範例會使用來自 [Git for Windows](http://www.git-scm.com/downloads) 的 Git Bash 工具，但是您可以使用任何您已熟悉的 Git 工具。
 
-在想要的資料夾中開啟 Git 工具，然後執行下列命令，使用發佈者入口網站提供的命令，將 git 儲存機制複製到本機電腦。
+在想要的資料夾中開啟 Git 工具，然後執行下列命令，使用 Azure 入口網站提供的命令，將 git 存放庫複製到本機電腦。
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -116,7 +97,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 如果發生錯誤，請嘗試 URL 編碼命令的密碼部分。 完成這項操作的其中一個快速方法是開啟 Visual Studio，並且在 [即時運算視窗] 發出下列命令。 若要開啟 [即時運算視窗]，請在 Visual Studio 中開啟任何解決方案或專案 (或建立新的空白主控台應用程式)，然後從 [偵錯] 功能表選擇 [視窗]、[即時運算]。
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 使用編碼的密碼以及使用者名稱和儲存機制位置以建構 git 命令。
@@ -128,7 +109,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 複製儲存機制之後，您可以在您的本機檔案系統中檢視及使用它。 如需詳細資訊，請參閱 [本機 Git 儲存機制的檔案和資料夾結構參考](#file-and-folder-structure-reference-of-local-git-repository)。
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>使用最新的服務執行個體組態更新本機儲存機制
-如果您在發佈者入口網站中或使用 REST API 變更您的 API 管理服務執行個體，您必須先將這些變更儲存至儲存機制，才能使用最新的變更來更新本機儲存機制。 若要這樣做，請按一下發佈者入口網站中 [組態儲存機制] 索引標籤上的 [將組態儲存至儲存機制]，然後在本機儲存機制中發出下列命令。
+
+如果您在 Azure 入口網站中或使用 REST API 變更您的 API 管理服務執行個體，您必須先將這些變更儲存至存放庫，才能使用最新的變更來更新本機存放庫。 若要這樣做，請按一下 Azure 入口網站中 [設定存放庫] 索引標籤上的 [將設定儲存到存放庫]，然後在本機存放庫中發出下列命令。
 
 ```
 git pull
@@ -155,13 +137,13 @@ git push
 ```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>將服務組態變更部署至 API 管理服務執行個體
-一旦您的本機變更被認可並且推送至伺服器儲存機制，您可以將它們部署到您的 API 管理服務執行個體。
 
-![部署][api-management-configuration-deploy]
+一旦您的本機變更被認可並且推送至伺服器儲存機制，您可以將它們部署到您的 API 管理服務執行個體。
 
 如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 將 Git 變更部署至組態資料庫](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration)。
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>本機 Git 儲存機制的檔案和資料夾結構參考
+
 本機 git 儲存機制中的檔案和資料夾包含服務執行個體的相關組態資訊。
 
 | Item | 說明 |
@@ -193,7 +175,6 @@ git push
 > * properties
 > * 樣式以外的開發人員入口網站實體
 > 
-> 
 
 ### <a name="root-api-management-folder"></a>根 api 管理資料夾
 根 `api-management` 資料夾包含 `configuration.json` 檔案，其中包含服務執行個體的最上層資訊，格式如下。
@@ -223,8 +204,6 @@ git push
 | UserRegistrationTermsEnabled | 核取方塊 |
 | UserRegistrationTermsConsentRequired | 核取方塊 |
 
-![身分識別設定][api-management-identity-settings]
-
 接下來四個設定 (`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`) 對應至 [安全性] 區段的 [委派] 索引標籤中的下列設定。
 
 | 委派設定 | 對應至 |
@@ -233,8 +212,6 @@ git push
 | DelegationUrl | 文字方塊 |
 | DelegatedSubscriptionEnabled | 核取方塊 |
 | DelegationValidationKey | 文字方塊 |
-
-![委派設定][api-management-delegation-settings]
 
 最後的設定 ( `$ref-policy`) 會對應至服務執行個體的全域原則陳述式檔案。
 
@@ -283,15 +260,9 @@ git push
 * 使用下列 PowerShell Cmdlet 管理您的服務執行個體
   * [服務部署 PowerShell Cmdlet 參考](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [服務管理 PowerShell Cmdlet 參考](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* 在發佈者入口網站中管理您的服務執行個體
-  * [管理第一個 API](import-and-publish.md)
 * 使用 REST API 管理您的服務執行個體
   * [API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>觀看影片概觀
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

@@ -16,7 +16,7 @@ ms.date: 03/16/2017
 ms.author: v-craic
 ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -55,12 +55,12 @@ ms.lasthandoff: 01/02/2018
 | 元素名稱 | 必要？ | 說明 |
 | --- | --- | --- |
 | $schema |否 |JSON 結構描述檔案的位置。 JSON 結構描述檔案可協助您測試定義檔是否有效。 |
-| title |是 |實驗室中顯示的構件名稱。 |
-| 說明 |是 |實驗室中顯示的構件說明。 |
+| title |yes |實驗室中顯示的構件名稱。 |
+| 說明 |yes |實驗室中顯示的構件說明。 |
 | iconUri |否 |實驗室中顯示的圖示 URI。 |
-| targetOsType |是 |構件安裝所在之 VM 的作業系統。 支援的選項為 Windows 和 Linux。 |
+| targetOsType |yes |構件安裝所在之 VM 的作業系統。 支援的選項為 Windows 和 Linux。 |
 | parameters |否 |在電腦上執行構件安裝命令時所提供的值。 這可協助您自訂構件。 |
-| runCommand |是 |在 VM 上執行的構件安裝命令。 |
+| runCommand |yes |在 VM 上執行的構件安裝命令。 |
 
 ### <a name="artifact-parameters"></a>構件參數
 在定義檔的參數區段中，指定可供使用者在安裝構件時輸入的值。 您可以在構件安裝命令中參考這些值。
@@ -77,9 +77,9 @@ ms.lasthandoff: 01/02/2018
 
 | 元素名稱 | 必要？ | 說明 |
 | --- | --- | --- |
-| type |是 |參數值類型。 請參閱下列清單以了解允許的類型。 |
-| displayName |是 |為實驗室中的使用者顯示的參數名稱。 | |
-| 說明 |是 |在實驗室中顯示的參數說明。 |
+| type |yes |參數值類型。 請參閱下列清單以了解允許的類型。 |
+| displayName |yes |為實驗室中的使用者顯示的參數名稱。 | |
+| 說明 |yes |在實驗室中顯示的參數說明。 |
 
 允許的類型為：
 

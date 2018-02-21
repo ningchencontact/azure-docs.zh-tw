@@ -16,7 +16,7 @@ ms.date: 03/06/2015
 ms.author: mbullwin
 ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -141,13 +141,13 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 在此範例中，我們會使用頁面檢視的資料。 若要查看其他可用的資料，請檢查您的 JSON 輸出，並查看 [匯出資料模型](app-insights-export-data-model.md)。
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>建立 Azure 串流分析執行個體
-從[Azure 入口網站](https://portal.azure.com/)、 選取 Azure Stream Analytics 服務，並建立新的資料流分析工作：
+在 [Azure 入口網站](https://portal.azure.com/)中，選取 Azure 串流分析服務，然後建立新的串流分析工作：
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-建立新的工作時，選取**資源移**。
+建立新的工作之後，選取 [前往資源]。
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 

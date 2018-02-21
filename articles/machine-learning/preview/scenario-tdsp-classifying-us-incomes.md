@@ -17,7 +17,7 @@ ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/18/2017
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 ### <a name="required-subscription-hardware-software"></a>必要：訂用帳戶、硬體、軟體
 1. Azure [訂用帳戶](https://azure.microsoft.com)。 您也可取得[免費訂用帳戶](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg)來執行這個範例。
 2. [Azure 資料科學虛擬機器 (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm)、(VM 大小：[DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)具有 4 個虛擬 CPU 和 14 Gb 的 RAM)。 雖然是在 Azure DSVM 上測試，但有可能在任何 Windows 10 電腦上運作。

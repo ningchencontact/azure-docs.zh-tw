@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 在本教學課程中，您會開發一個 Java 主控台應用程式，以執行 Azure Data Lake 的一般作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Java Development Kit (JDK) 8** (使用 Java 1.8 版)。
 * **IntelliJ** 或其他合適的 Java 開發環境。 本文件中的指示使用 IntelliJ。
 * 建立 Azure Active Directory (AAD) 應用程式，並擷取其**用戶端識別碼**、**租用戶識別碼**和**金鑰**。 如需了解 AAD 應用程式，以及如何取得用戶端識別碼的指示，請參閱 [使用入口網站建立 Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。 建立應用程式並產生金鑰後，可以從入口網站取得回覆 URI 和金鑰。

@@ -25,7 +25,7 @@ ms.lasthandoff: 01/09/2018
 
 本快速入門示範如何在 Azure 上使用 [Swagger](http://swagger.io/) 定義並將其部署在 Azure 上，建立以 Node.js [Express](http://expressjs.com/) 撰寫的 REST API。 您可使用命令列工具建立應用程式、使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 設定資源，以及使用 Git 部署應用程式。  當您完成後，您必須在 Azure 上執行工作範例 REST API。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Git](https://git-scm.com/)
 * [ 安裝 Node.js 和 NPM](https://nodejs.org/)

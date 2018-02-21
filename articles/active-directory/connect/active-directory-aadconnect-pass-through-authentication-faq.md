@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -38,11 +38,11 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[條件式存取](../active-directory-conditional-access-azure-portal.md)是否能與傳遞驗證搭配運作？
 
-可以。 所有條件式存取功能 (包括 Azure Multi-Factor Authentication) 都能與傳遞驗證搭配運作。
+是。 所有條件式存取功能 (包括 Azure Multi-Factor Authentication) 都能與傳遞驗證搭配運作。
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>傳遞驗證支援以「替代識別碼」而非「userPrincipalName」來作為使用者名稱嗎？
 
-可以。 當您在 Azure AD Connect 中設定了傳遞驗證時，傳遞驗證支援以 `Alternate ID` 作為使用者名稱。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
+是。 當您在 Azure AD Connect 中設定了傳遞驗證時，傳遞驗證支援以 `Alternate ID` 作為使用者名稱。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>能否在傳遞驗證代理程式所在的同一部伺服器上安裝 [Azure AD 應用程式 Proxy](../active-directory-application-proxy-get-started.md) 連接器？
 
-可以。 傳遞驗證代理程式的改版版本 (1.5.193.0 版或更新版本) 支援此組態。
+是。 傳遞驗證代理程式的改版版本 (1.5.193.0 版或更新版本) 支援此組態。
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>需要哪些版本的 Azure AD Connect 和傳遞驗證代理程式？
 
@@ -76,17 +76,17 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>傳遞驗證代理程式是否能透過輸出 Web Proxy 伺服器進行通訊？
 
-可以。 如果您的內部部署環境啟用了 Web Proxy 自動探索 (WPAD)，則驗證代理程式會自動嘗試在網路上找出並使用 Web Proxy 伺服器。
+是。 如果您的內部部署環境啟用了 Web Proxy 自動探索 (WPAD)，則驗證代理程式會自動嘗試在網路上找出並使用 Web Proxy 伺服器。
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>是否可以在相同的伺服器上安裝兩個以上的傳遞驗證代理程式？
 
 不可以，您只能在單一伺服器上安裝一個傳遞驗證代理程式。 如果您想要為傳遞驗證設定高可用性，請遵循 [Azure Active Directory 傳遞驗證：快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)中的指示。
 
-## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>如何移除傳遞驗證代理程式？
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>如何移除「傳遞驗證代理程式」？
 
-傳遞驗證代理程式 」 正在執行，因為它會保持使用中，並持續處理使用者登入要求。 如果您想要解除安裝代理程式驗證，請移至**控制台]-> [程式]-> [程式和功能**和解除安裝**Microsoft Azure AD Connect 驗證代理程式**和**Microsoft Azure AD 連接代理程式 Updater**程式。
+「傳遞驗證代理程式」只要正在執行，就會維持作用中並持續處理使用者登入要求。 如果您想要將「驗證代理程式」解除安裝，請移至 [控制台] -> [程式集] -> [程式和功能]，然後將 [Microsoft Azure AD Connect 驗證代理程式] 和 [Microsoft Azure AD Connect 代理程式更新程式] 程式都解除安裝。
 
-如果您檢查 [傳遞驗證] 刀鋒視窗上[Azure Active Directory 系統管理中心](https://aad.portal.azure.com)之後完成上述步驟後，您會看到驗證代理程式 」 顯示為**Inactive**。 這是_預期行為_。 在幾天後驗證代理程式自動卸除從清單中。
+如果您在完成上述步驟後查看 [Azure Active Directory 管理中心](https://aad.portal.azure.com)上的 [傳遞驗證] 刀鋒視窗，您將會看到「驗證代理程式」顯示為 [非作用中]。 這是_預期行為_。 幾天後，「驗證代理程式」就會自動從清單中卸除。
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>我已使用 AD FS 登入 Azure AD。 要如何改為使用傳遞驗證？
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>是否可以在多樹系 Active Directory 環境中使用傳遞驗證？
 
-可以。 如果 Active Directory 樹系之間有樹系信任且名稱尾碼路由已正確設定，就支援多樹系環境。
+是。 如果 Active Directory 樹系之間有樹系信任且名稱尾碼路由已正確設定，就支援多樹系環境。
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>我需要安裝幾個傳遞驗證代理程式？
 

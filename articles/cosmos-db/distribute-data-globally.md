@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: arramac
 ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -88,7 +88,7 @@ Azure Cosmos DB 支援在發生一或多個區域中斷時自動容錯移轉。 
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB 中的多路連接 API
 Azure Cosmos DB 可讓您使用邏輯 (區域無從驗證) 或實體 (區域特定) 端點來和資料庫互動。 使用邏輯端點，萬一進行容錯移轉時，可確保以透明的方式多路連接應用程式。 後者實體端點可微調控制應用程式，將讀取和寫入將重新導向特定區域。
 
-您可以找到有關如何設定讀取喜好設定[SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md)， [Graph API](../cosmos-db/tutorial-global-distribution-graph.md)，[表格 API](../cosmos-db/tutorial-global-distribution-table.md)，和[MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md)中其個別連結的文件。
+在個別連結的文章中，可以找到如何設定 [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md)、[圖形 API](../cosmos-db/tutorial-global-distribution-graph.md)、[資料表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 讀取喜好設定的資訊。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的資料庫結構描述與索引移轉 
 Azure Cosmos DB 完全[無從驗證結構描述 (英文)](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 資料庫引擎的獨特設計能自動且同步對內嵌的所有資料編製索引，不需要您提供任何結構描述或次要索引。 這可讓您快速地反覆查看分散在世界各地的應用程式，而不必擔心資料庫結構描述和索引移轉，或協調多階段應用程式推出結構描述變更。 Azure Cosmos DB 保證任何明確由您對編製索引原則所做的變更，都不會導致效能或可用性降低。  

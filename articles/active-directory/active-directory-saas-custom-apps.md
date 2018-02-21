@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
-本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](active-directory-editions.md)中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
+本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](active-directory-editions.md) 中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
 
-Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如 [本文](active-directory-appssoaccess-whatis.md)所說明。 一旦您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式，您就可以遵循應 Azure 管理入口網站中顯示的逐步指示，啟用單一登入。
+Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如 [本文](active-directory-appssoaccess-whatis.md)所說明。 在您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式之後，就可以依照 Azure 入口網站中展示的逐步指示來啟用單一登入。
 
-具有 [Azure Active Directory Premium](active-directory-editions.md) 授權的客戶也會取得以下額外功能：
+具有 [Azure Active Directory Premium](active-directory-editions.md) 授權的客戶還會獲得下列額外功能：
 
 * 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合 (SP 起始或 IdP 起始)
 * Web 應用程式可在使用 [密碼型 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -38,32 +38,32 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 這些功能 (也稱為「應用程式整合範本」 )，為支援 SAML、SCIM 或表單型驗證的應用程式提供標準型連接點，包括有彈性的選項和與廣泛應用程式相容性的設定。 
 
 ## <a name="adding-an-unlisted-application"></a>新增未列出的應用程式
-若要使用應用程式整合範本連接應用程式，使用您的 Azure Active Directory 系統管理員帳戶登入 Azure 管理入口網站，並瀏覽至 [Active Directory] > [目錄] > [應用程式] 區段、選取 [新增]，然後選取 [從資源庫中新增應用程式]。 
+若要使用應用程式整合範本來連接應用程式，請使用您的 Azure Active Directory 系統管理員帳戶登入 Azure 管理入口網站，接著瀏覽至 [Active Directory] > [企業應用程式] > [新增應用程式] > [不在資源庫內的應用程式] 區段、選取 [新增]，然後選取 [從資源庫中新增應用程式]。
 
-![][1]
+  ![][1]
 
-在應用程式資源庫，您可以使用左側的 [自訂] 類別來新增未列出的應用程式；找不到您想要的應用程式，可以選取顯示在搜尋結果中的 [新增未列出的應用程式] 連結來進行新增。 輸入應用程式的名稱之後，您可以設定單一登入選項和行為。 
+在應用程式庫中，如果找不到您想要的應用程式，您可以選取顯示在搜尋結果中的 [不在資源庫內的應用程式] 圖格，以新增未列出的應用程式。 輸入應用程式的名稱之後，您可以設定單一登入選項和行為。 
 
-**快速提示**：最佳作法是使用搜尋函式來查看應用程式是否已存在於應用程式庫中。 如果找到應用程式，且其描述提及「單一登入」，則應用程式已支援同盟單一登入。 
+**快速提示**：最佳作法是使用搜尋函式來查看應用程式是否已存在於應用程式庫中。 如果找到應用程式，且其描述提及「單一登入」，即表示應用程式已支援同盟單一登入。
 
-![][2]
+  ![][2]
 
-以這樣的方式新增應用程式所提供的體驗，非常類似於預先整合的應用程式所提供的體驗。 若要開始作業，請選取 [設定單一登入] 。 下一個畫面會呈現下列三個單一登入設定選項，其說明將在後續幾節提供。
+以這樣的方式新增應用程式所提供的體驗，非常類似於預先整合的應用程式所提供的體驗。 若要開始作業，請選取 [設定單一登入] 。 下一個畫面顯示下列三個用來設定單一登入的選項，在接下來的小節中將會提供這些選項的說明。
 
-![][3]
+  ![][3]
 
-## <a name="azure-ad-single-sign-on"></a>Azure AD 單一登入
-選取此選項，可為應用程式設定 SAML 型驗證。 若使用此選項，應用程式必須支援 SAML 2.0，您應先收集有關於如何使用應用程式之 SAML 功能的資訊，再繼續作業。 選取 [下一步] 後，系統會提示您為應用程式輸入三個對應於 SAML 端點的不同 URL。 
+## <a name="saml-based-sign-on"></a>SAML 型登入
+選取此選項，可為應用程式設定 SAML 型驗證。 若使用此選項，應用程式必須支援 SAML 2.0，您應先收集有關於如何使用應用程式之 SAML 功能的資訊，再繼續作業。 選取 [下一步] 後，系統會提示您為應用程式輸入三個對應於 SAML 端點的不同 URL。
 
-![][4]
+  ![][4]
 
 它們是：
 
-* **登入 URL (僅限 SP 起始)** - 使用者在此登入此應用程式。 如果應用程式設定為執行服務提供者起始單一登入，則當使用者導覽到此 URL，服務提供者會執行必要的重新導向至 Azure AD，以進行驗證並將使用者登入。 如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果省略此欄位，則 Azure AD 將會改為執行身分識別提供者-初始的登入應用程式啟動時從 Office 365、 Azure AD 存取面板中，或從 Azure AD 單一登入 URL （複製從儀表板 索引標籤）。
-* **簽發者 URL** - 簽發者 URL 應專門用於識別正在設定單一登入的應用程式。  參數值，應用程式預期會驗證它。 在應用程式中提供的任何 SAML 中繼資料中，這個值也會顯示為實體識別碼  。 查看應用程式的 SAML 文件，了解實體識別碼或 Audience 值的詳細資訊。 以下是觀眾 URL 在傳回應用程式的 SAML 權杖中的外觀範例︰
-
-```
-    <Subject>
+* **登入 URL (僅限 SP 起始)** - 使用者在此登入此應用程式。 如果已將應用程式設定為執行服務提供者所起始的單一登入，則當使用者瀏覽至此 URL 時，服務提供者就會執行必要的重新導向來連至 Azure AD，以進行使用者驗證和登入。 如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果略過這個欄位，則從 Office 365、Azure AD 存取面板或 Azure AD 單一登入 URL (可從 [儀表板] 索引標籤複製) 啟動應用程式時，Azure AD 會改為執行識別提供者所起始的登入。
+* **簽發者 URL** - 簽發者 URL 應該要能夠唯一識別所要設定單一登入的應用程式。  參數值，應用程式預期會驗證它。 在應用程式中提供的任何 SAML 中繼資料中，這個值也會顯示為實體識別碼  。 請查看應用程式的 SAML 文件，以了解其「實體識別碼」或「對象」值的詳細資訊。 以下是觀眾 URL 在傳回應用程式的 SAML 權杖中的外觀範例︰
+  
+  ```
+  <Subject>
     <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
         <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
       </Subject>
@@ -72,12 +72,14 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
           <Audience>https://tenant.example.com</Audience>
         </AudienceRestriction>
       </Conditions>
-```
+    ```
 
 * **回覆 URL** -回覆 URL 是應用程式預期接收 SAML 權杖的位置。 。 查看應用程式的 SAML 文件，了解 SAML 權杖回覆 URL 或 ACS URL 的詳細資訊。
-  在輸入這些資料後，請按 [下一步]  繼續前往下一個畫面。 此畫面會提供相關資訊來說明在應用程式端需要進行哪些設定，才能使應用程式接受來自於 Azure AD 的 SAML 權杖。 
+  在輸入這些資料後，請按 [下一步]  繼續前往下一個畫面。 此畫面會提供相關資訊來說明在應用程式端需要進行哪些設定，才能使應用程式接受來自於 Azure AD 的 SAML 權杖。
 
-![][5]
+  * 按一下 [設定 Litware]。
+  
+    ![][5]
 
 所需的值會隨應用程式而不同，請查看應用程式的 SAML 文件以取得詳細資訊。 **登入**和**登出**服務 URL 會解析為相同的端點，這是您的 Azure AD 執行個體的 SAML 要求處理端點。 「簽發者 URL」是在發出給應用程式的 SAML 權杖內顯示為「簽發者」的值。 
 
@@ -86,9 +88,9 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 ## <a name="assigning-users-and-groups-to-your-saml-application"></a>將使用者和群組指派給您的 SAML 應用程式
 您的應用程式在設定為使用 Azure AD 作為 SAML 型身分識別提供者之後，就幾乎可以進行測試了。 為了控制安全性，Azure AD 不會核發允許他們登入應用程式的權杖，除非他們已使用 Azure AD 獲得存取存取權。 使用者可以直接獲得存取權，或透過其所屬的群組取得。 
 
-若要將使用者或群組指派給您的應用程式，請按一下 [指派使用者]  按鈕。 選取您要指派的使用者或群組，然後選取 [指派]  按鈕。 
+若要將使用者或群組指派給您的應用程式，請按一下 [指派使用者]  按鈕。 選取您要指派的使用者或群組，然後選取 [指派]  按鈕。
 
-![][6]
+  ![][6]
 
 指派使用者可讓 Azure AD 為該使用者核發權杖，並使此應用程式的圖格出現在使用者的存取面板中。 如果使用者使用 Office 365，則也會有應用程式圖格出現在 Office 365 應用程式啟動器中。 
 
@@ -97,9 +99,9 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 ### <a name="customizing-the-claims-issued-in-the-saml-token"></a>自訂在 SAML 權杖中發出的宣告
 當使用者對應用程式進行驗證時，Azure AD 會將 SAML 權杖發出給應用程式，其中包含可唯一識別使用者的使用者相關資訊 (或宣告)。 根據預設，其中包含使用者的使用者名稱、電子郵件地址、名字和姓氏。 
 
-您可以在 [屬性]  索引標籤下檢視或編輯在 SAML 權杖中傳送給應用程式的宣告。 
+您可以在 [屬性]  索引標籤下檢視或編輯在 SAML 權杖中傳送給應用程式的宣告。
 
-![][7]
+  ![][7]
 
 您可能需要編輯在 SAML 權杖中發出的宣告的兩個可能原因為：•被寫入的應用程式需要一組不同的宣告 URI 或宣告值 •您的應用程式的部署方式需要 NameIdentifier 宣告不同於儲存在 Azure Active Directory 中的使用者名稱 (也稱為使用者主體名稱)。 
 

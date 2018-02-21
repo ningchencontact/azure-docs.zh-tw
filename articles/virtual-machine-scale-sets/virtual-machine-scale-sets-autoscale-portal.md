@@ -17,7 +17,7 @@ ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 本文示範如何在 Azure 入口網站中建立自動調整規則，用以監視擴展集內的 VM 執行個體效能。 這些自動調整規則可增加或減少 VM 執行個體的數目，以回應這些效能計量。 您也可以透過 [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) 或[Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md) 來完成這些步驟。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要建立自動調整規則，您會需要現有的虛擬機器擴展集。 您可以使用 [Azure 入口網站](virtual-machine-scale-sets-create-portal.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 來建立擴展集。
 
 
@@ -48,9 +48,9 @@ ms.lasthandoff: 12/21/2017
     
     | 參數              | 說明                                                                                                         | 值          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *時間彙總*     | 定義應該如何彙總收集的計量以進行分析。                                                | 平均        |
+    | *時間彙總*     | 定義應該如何彙總收集的計量以進行分析。                                                | 平均值        |
     | *計量名稱*          | 要監視並套用擴展集動作的效能計量。                                                   | Percentage CPU |
-    | *時間粒紋統計資料* | 定義在每個時間粒紋中所收集的計量，應如何彙總以便進行分析。                             | 平均        |
+    | *時間粒紋統計資料* | 定義在每個時間粒紋中所收集的計量，應如何彙總以便進行分析。                             | 平均值        |
     | *運算子*             | 用以比較計量資料與閾值之間差異的運算子。                                                     | 大於   |
     | *閾值*            | 讓自動調整規則觸發動作的百分比。                                                 | 70             |
     | *Duration*             | 在比較計量與閾值之前監視的時間長短。                                   | 10 分鐘     |

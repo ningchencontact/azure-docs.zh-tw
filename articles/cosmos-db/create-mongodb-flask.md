@@ -27,7 +27,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本快速入門指南會使用下列 [Flask 範例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) \(英文\)，並示範如何使用 [Azure Cosmos DB 模擬器](/local-emulator.md) (而不是 MongoDB) 來建置簡單的待辦事項 Flask 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 下載 [Azure Cosmos DB 模擬器](/local-emulator.md)。 目前只有 Windows 支援此模擬器。 此範例示範如何搭配來自 Azure 的生產金鑰使用範例，這可以在任何平台上進行。
 

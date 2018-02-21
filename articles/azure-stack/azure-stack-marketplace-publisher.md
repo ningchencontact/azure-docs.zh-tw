@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 將您的內容新增到 [Azure Stack Marketplace](azure-stack-marketplace.md)，可讓您的解決方案供您和您的租用戶用於部署。  Marketplace 工具組會根據您的 IaaS Azure Resource Manager 範本或 VM 擴充功能，建立 Azure Marketplace 套件 (.azpkg) 檔案。  您也可以使用 Marketplace 工具組來發佈 .azpkg 檔案 (可使用此工具或使用[手動](azure-stack-create-and-publish-marketplace-item.md)步驟建立)。  本主題會逐步引導您下載工具、根據 VM 範本建立 Marketplace 項目，然後將該項目發佈到 Azure Stack Marketplace。     
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
  - 您必須在 Azure Stack 主機上執行此工具組，或在執行工具所在的電腦上具有 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 連線能力。
 
  - 下載 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip)並解壓縮。

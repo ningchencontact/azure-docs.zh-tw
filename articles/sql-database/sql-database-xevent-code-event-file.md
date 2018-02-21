@@ -38,7 +38,7 @@ ms.lasthandoff: 10/31/2017
   * 將 Azure 儲存體容器指定為事件檔案目標。
   * 建立和啟動事件工作階段等等。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。

@@ -24,7 +24,7 @@ ms.lasthandoff: 10/31/2017
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure 讓 GEP 全球化並更有效率
 ![GEP 標誌](./media/sql-database-implementation-gep/geplogo.png)
 
-GEP 提供軟體和服務，可讓世界各地的採購領導者充分影響其業務營運、策略及財務表現。 除了諮詢和受管理的服務，該公司還提供 SMART by GEP® 這個雲端型的全方位採購軟體平台。 不過，GEP 在嘗試使用自己的內部部署資料中心來支援 SMART by GEP 時遇到一些限制︰所需的投資過高，而其他國家/地區的法規需求則令人在必要的投資上更為卻步。 透過移至雲端，GEP 釋出了 IT 資源，讓它可以節省 IT 營運上的心力，而更專注於為其全球客戶開發新的價值來源。
+GEP 提供軟體和服務，可讓世界各地的採購領導者充分影響其業務營運、策略及財務表現。 除了諮詢和受控服務，該公司還提供 SMART by GEP® 這個雲端型的全方位採購軟體平台。 不過，GEP 在嘗試使用自己的內部部署資料中心來支援 SMART by GEP 時遇到一些限制︰所需的投資過高，而其他國家/地區的法規需求則令人在必要的投資上更為卻步。 透過移至雲端，GEP 釋出了 IT 資源，讓它可以節省 IT 營運上的心力，而更專注於為其全球客戶開發新的價值來源。
 
 ## <a name="expanding-services-and-growth-by-using-azure"></a>透過使用 Azure 來擴大服務範圍和成長幅度
 SMART by GEP 客戶喜歡此平台的功能和易用性；客戶可以隨時隨地透過任何裝置 (膝上型電腦、平板電腦或手機) 管理他們的程序。 透過移至 Microsoft Azure，GEP 已經能夠順應其快速成長及擴展到新市場的可能性。 GEP 技術副總裁 Dhananjay Nagalkar 表示：「Microsoft Azure 不僅讓我們能夠快速靈活地調整服務，還提供可協助我們符合全球客戶法規需求的區域資料中心，因此在 GEP 的成功上扮演了關鍵角色。」

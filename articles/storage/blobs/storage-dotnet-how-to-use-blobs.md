@@ -168,7 +168,7 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 
 在 Blob 名稱中包含路徑資訊，您可以建立虛擬目錄結構，讓您能夠組織及周遊，就像使用傳統檔案系統一樣。 目錄結構僅限虛擬目錄結構--Blob 儲存體中唯一可用的資源為容器和 blob。 但是，儲存體用戶端程式庫提供 **CloudBlobDirectory** 物件來參照虛擬目錄，以及簡化透過此方式組織之 blob 的使用程序。
 
-例如，假設名為 *photos* 的容器中有下列一組區塊 Blob：
+例如，假設名為 *photos*的容器中有下列一組區塊 Blob：
 
 ```
 photo1.jpg

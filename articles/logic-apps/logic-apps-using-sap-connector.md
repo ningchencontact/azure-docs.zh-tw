@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > - 如果回應所需的所有步驟未在[要求逾時限制](./logic-apps-limits-and-config.md)內完成，則邏輯應用程式會逾時。 在此情況下，可能會封鎖要求。 
 > - 檔案選擇器不會顯示所有可用的欄位。 在此案例中，您可以手動新增路徑。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 安裝及設定最新的[內部部署資料閘道](https://www.microsoft.com/download/details.aspx?id=53127)版本 1.15.6150.1 或更新版本。 [如何連接至邏輯應用程式中的內部部署資料閘道](http://aka.ms/logicapps-gateway)中有列出步驟。 必須先在內部部署機器上安裝閘道，然後才能繼續。
 

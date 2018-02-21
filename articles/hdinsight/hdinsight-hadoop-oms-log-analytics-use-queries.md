@@ -29,7 +29,7 @@ ms.lasthandoff: 11/18/2017
 * [搜尋特定的記錄訊息](#search-for-specific-log-messages)
 * [建立事件警示](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您必須先設定好 HDInsight 叢集，才可使用 Azure Log Analytics。 如需指示，請參閱[搭配使用 Azure Log Analytics 與 HDInsight 叢集](hdinsight-hadoop-oms-log-analytics-tutorial.md)。
 

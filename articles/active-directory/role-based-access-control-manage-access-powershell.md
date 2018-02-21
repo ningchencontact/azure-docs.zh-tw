@@ -3,7 +3,7 @@ title: "使用 Azure PowerShell 管理角色型存取控制 (RBAC) | Microsoft D
 description: "如何使用 Azure PowerShell 管理 RBAC，包括列出角色、指派角色，以及刪除角色指派。"
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 631274ec57586a777df8ee07a18b0ad72b905222
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: fa364c8f43d38bfa40c2d08cc1fe2d2d46629217
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理角色型存取控制
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 螢幕擷取畫面](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [搭配使用 Azure PowerShell 與 Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

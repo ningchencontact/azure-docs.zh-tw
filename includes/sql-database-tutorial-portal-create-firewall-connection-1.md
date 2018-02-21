@@ -16,7 +16,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](../article
 
 3. 使用下列資訊填寫 SQL Database 表單，如上圖所示︰   
 
-   | 設定       | 建議的值 | 描述 | 
+   | 設定       | 建議的值 | 說明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **資料庫名稱** | mySampleDatabase | 如需有效的資料庫名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -25,12 +25,12 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](../article
 
 4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-   | 設定       | 建議的值 | 描述 | 
+   | 設定       | 建議的值 | 說明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 | 
    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
    | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
-   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
+   | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
 
    ![建立資料庫伺服器](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 

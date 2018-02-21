@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 本教學課程會逐步引導您使用 Azure 媒體服務 .NET SDK 實作含 Azure 媒體服務 (AMS) 應用程式的基本點播視訊 (VoD) 內容傳遞服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目，才能完成教學課程：
 

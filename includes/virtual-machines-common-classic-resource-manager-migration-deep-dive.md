@@ -118,12 +118,12 @@
 
 以下流程圖顯示如何繼續進行移轉：
 
-![顯示移轉步驟的螢幕擷取畫面](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>從傳統部署模型轉譯成 Resource Manager 資源
 下表提供資源的傳統部署模型和 Resource Manager 表示法。 目前不支援其他功能和資源。
 
-| 傳統表示法 | Resource Manager 表示法 | 注意事項 |
+| 傳統表示法 | Resource Manager 表示法 | 注意 |
 | --- | --- | --- |
 | 雲端服務名稱 |DNS 名稱 |在移轉期間，會以命名樣式 `<cloudservicename>-migrated`為每個雲端服務建立新的資源群組。 此資源群組包含您的所有資源。 雲端服務名稱會成為與公用 IP 位址關聯的 DNS 名稱。 |
 | 虛擬機器 |虛擬機器 |VM 特定屬性會原封不動地移轉過去。 有些 osProfile 資訊 (例如電腦名稱) 不會儲存在傳統部署模型中，因此移轉後會保留空白。 |

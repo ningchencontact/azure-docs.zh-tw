@@ -16,7 +16,7 @@ ms.date: 05/31/2016
 ms.author: deonhe
 ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 
 為了完成案例，我們使用服務匯流排佇列將發票從 Contoso 傳送至 Northwind，或從 Northwind 接收通知。 這些佇列可以透過用戶端應用程式 (可經由下載取得) 來予以建立，並且會包含在本教學課程所提供的範例封裝中。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 您必須具有服務匯流排命名空間。 如需建立命名空間的指示，請參閱 [作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)。 讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
 * 您必須擁有 BizTalk 服務訂用帳戶。 在本教學課程中，讓我們假設您擁有 BizTalk 服務訂用帳戶，且其名稱為 **contosowabs**。
 * 在 BizTalk 服務入口網站註冊 BizTalk 服務訂用帳戶。 如需相關指示，請參閱 [在 BizTalk 服務入口網站註冊 BizTalk 服務部署](https://msdn.microsoft.com/library/hh689837.aspx)

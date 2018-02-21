@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/19/2017
 ms.author: anoopkv
-ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>管理在 Azure 中執行的處理伺服器 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 > [!NOTE]
 > 若要在容錯回復期間使用 **Resource Manager** 做為虛擬機器部署模型，可以參考此文章。 如果您使用「傳統」部署模型，請依照[如何設定及配置容錯回復處理序伺服器 (傳統)](./site-recovery-vmware-setup-azure-ps-classic.md) 中的步驟執行
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 

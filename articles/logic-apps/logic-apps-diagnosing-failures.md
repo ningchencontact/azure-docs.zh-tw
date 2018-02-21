@@ -98,7 +98,7 @@ ms.lasthandoff: 10/21/2017
 
    ![檢視邏輯應用程式執行的詳細資料](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. 若要檢查特定步驟的輸入、輸出和任何錯誤訊息，請選擇該步驟，以便圖形展開並顯示詳細資料。 例如：
+3. 若要檢查特定步驟的輸入、輸出和任何錯誤訊息，請選擇該步驟，以便圖形展開並顯示詳細資料。 例如︰
 
    ![檢視步驟詳細資料](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

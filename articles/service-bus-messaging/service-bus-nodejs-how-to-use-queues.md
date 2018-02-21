@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用 Azure 服務匯流排，請下載及使用 Node.js Azure 套件。 此封裝含有一組能與服務匯流排 REST 服務通訊的便利程式庫。
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node Package Manager (NPM) 取得封裝
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node Package Manager (NPM) 取得套件
 1. 使用 **Windows PowerShell for Node.js** 命令視窗巡覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
 2. 在命令視窗中輸入 **npm install azure**，這應該會產生類似下列內容的輸出：
 

@@ -23,10 +23,10 @@ ms.lasthandoff: 11/16/2017
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的安全系統需求 
 ## <a name="pci-dss-requirement-6"></a>PCI DSS 需求 6
 
-**開發及維護安全系統和應用程式**這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
+**開發與維護安全的系統和應用程式**
 
 > [!NOTE]
-> These requirements are defined by the <bpt id="p1">[</bpt>Payment Card Industry (PCI) Security Standards Council<ept id="p1">](https://www.pcisecuritystandards.org/pci_security/)</ept> as part of the <bpt id="p2">[</bpt>PCI Data Security Standard (DSS) Version 3.2<ept id="p2">](https://www.pcisecuritystandards.org/document_library?category=pcidss&amp;document=pci_dss)</ept>. Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 不懷好意的人會使用安全性弱點取得系統的存取權限。 許多這些弱點可由廠商提供的安全性修補程式修正，這些安全性修補程式必須由管理系統的實體進行安裝。 所有系統都必須具備所有適當的軟體修補程式，以保護持卡人資料免受惡意人士和惡意軟體的利用與危害。
 

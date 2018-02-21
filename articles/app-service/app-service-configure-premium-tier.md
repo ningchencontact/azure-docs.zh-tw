@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>設定 Azure App Service 的 PremiumV2 層
 
-新的 **PremiumV2** 層提供搭載更快速處理器的 [Dv2 系列 VM](../virtual-machines/windows/sizes-general.md#dv2-series)、SSD 儲存體，以及**標準**層雙倍的記憶體/核心比率。 在本文中，您將了解如何在 **PremiumV2** 層建立應用程式，或將應用程式相應增加為 **PremiumV2** 層。
+新 **PremiumV2** 定價層提供更快速的處理器、SSD 儲存體，而且記憶體與核心的比例是現有定價層的兩倍。 有此效能優勢，您可在較少的執行個體上執行應用程式來節省成本。 在本文中，您將了解如何在 **PremiumV2** 層建立應用程式，或將應用程式相應增加為 **PremiumV2** 層。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要將 Web 應用程式相應增加為 **PremiumV2**，您在 Azure App Service 中所擁有的 Web 應用程式必須是在低於 **PremiumV2** 的定價層中執行。
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="premiumv2-availability"></a>PremiumV2 可用性
 
-PremiumV2 層目前僅提供給 Windows 上的 App Service 使用。 Linux 容器尚未獲得支援。
+PremiumV2 層目前僅提供給 Windows 上的 App Service 使用。 尚不支援 Linux 容器。
 
 PremiumV2 目前已在大部分 Azure 區域中推出，且適用範圍仍在擴大。 若要查看您的區域是否可以使用，請在 [Azure Cloud Shell](../cloud-shell/overview.md) 中執行下列 Azure CLI 命令：
 
@@ -82,13 +82,13 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
 某些 App Service 方案無法相應增加為 PremiumV2 層。 如果相應增加作業對您發送錯誤訊息，就表示您的應用程式需要新的 App Service 方案。
 
-在與現有 App Service 應用程式相同的區域和資源群組中，建立 Windows App Service 方案。 遵循[在 PremiumV2 層中建立應用程式](#create)中的步驟，將它設定為 **PremiumV2** 層。 如有需要，請使用與現有 App Service 方案相同的相應放大組態 (執行個體數目、自動調整等等)。
+在與現有 App Service 應用程式相同的區域和資源群組中，建立 Windows App Service 方案。 遵循[在 PremiumV2 層中建立應用程式](#create)中的步驟，將它設定為 **PremiumV2** 層。 如果您想要的話，可以使用與現有 App Service 方案相同的相應放大組態 (執行個體數目、自動調整等等)。
 
 再次開啟 App Service 應用程式頁面。 在 App Service 的左側導覽中，選取 [變更 App Service 方案]。
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-選取您剛才建立的 App Service 方案。
+選取您建立的 App Service 方案。
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -105,7 +105,7 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    在 [複製應用程式] 頁面上，您可以在您想要的區域建立新的 App Service 方案，並指定您要複製的設定。
+    在 [複製應用程式] 頁面上，您可以在您想要的區域建立 App Service 方案，並指定您要複製的設定。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 

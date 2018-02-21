@@ -16,7 +16,7 @@ ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---

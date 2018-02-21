@@ -215,7 +215,7 @@ ms.lasthandoff: 11/18/2017
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
-* [使用 Azure IoT Edge 將 AI 部署到邊緣裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

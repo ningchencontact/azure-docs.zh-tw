@@ -72,7 +72,7 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 6. 選取 Azure 資料中心的 [位置]。  
 7. 在 [來源磁碟] 中，選取要建立快照集的受控磁碟。
 8. 選取用來儲存快照集的 [帳戶類型]。 除非需要儲存在高效能磁碟上，否則建議選取 **Standard_LRS**。
-9. 按一下 [建立] 。
+9. 按一下頁面底部的 [新增] 。
 
 如果您打算使用快照集來建立受控磁碟，並將它附加至必須是高效能的 VM，請使用 `--sku Premium_LRS` 參數搭配 `az snapshot create` 命令。 這麼做建立的快照集會儲存為進階受控磁碟。 進階受控磁碟的效能比較好，因為它們是固態硬碟 (SSD)，但成本高於標準磁碟 (HDD)。
 

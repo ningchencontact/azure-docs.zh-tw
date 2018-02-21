@@ -113,7 +113,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
     Azure 會取得虛擬機器上處理序的清單，並將清單顯示在 [附加至處理序] 對話方塊。
 
     ![附加偵錯工具命令](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
-4. 在 [附加至處理序] 對話方塊中，選取 [選取] 以將結果清單限制為只顯示您要偵錯的程式碼類型。 您可以偵錯 32 或 64 位元 Managed 程式碼、原生程式碼或兩者。
+4. 在 [附加至處理序] 對話方塊中，選取 [選取] 以將結果清單限制為只顯示您要偵錯的程式碼類型。 您可以偵錯 32 或 64 位元受控碼、原生程式碼或兩者。
 
     ![選取程式碼類型對話方塊](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 5. 選取您想要在虛擬機器上偵錯的處理序，然後選取 [附加] 。 例如，如果您想要在虛擬機器上偵錯 Web 應用程式，可以選擇 w3wp.exe 處理序。 如需詳細資訊，請參閱[在 Visual Studio 中偵錯一或多個處理序](https://msdn.microsoft.com/library/jj919165.aspx)和 [Azure 角色架構](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)。
@@ -157,7 +157,7 @@ Visual Studio ASP.NET 專案提供選項，讓您建立可用於測試應用程�
     Azure 會取得虛擬機器上處理序的清單，並將清單顯示在 [附加至處理序] 對話方塊。
 
     ![附加偵錯工具命令](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
-7. 在 [附加至處理序] 對話方塊中，選取 [選取] 以將結果清單限制為只顯示您要偵錯的程式碼類型。 您可以偵錯 32 或 64 位元 Managed 程式碼、原生程式碼或兩者。
+7. 在 [附加至處理序] 對話方塊中，選取 [選取] 以將結果清單限制為只顯示您要偵錯的程式碼類型。 您可以偵錯 32 或 64 位元受控碼、原生程式碼或兩者。
 
     ![選取程式碼類型對話方塊](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 8. 選取您想要在虛擬機器上偵錯的處理序，然後選取 [附加] 。 例如，如果您想要在虛擬機器上偵錯 Web 應用程式，可以選擇 w3wp.exe 處理序。 如需詳細資訊，請參閱 [在 Visual Studio 中偵錯一或多個處理序](https://msdn.microsoft.com/library/jj919165.aspx) 。

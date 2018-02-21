@@ -47,7 +47,7 @@ ms.lasthandoff: 12/18/2017
 * 確定您有相容的 VPN 裝置以及能夠對其進行設定的人員。 如需相容 VPN 裝置和裝置組態的詳細資訊，請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。
 * 確認您的 VPN 裝置有對外開放的公用 IPv4 位址。 此 IP 位址不能位於 NAT 後方。
 * 如果您不熟悉位於內部部署網路組態的 IP 位址範圍，您需要與能夠提供那些詳細資料的人協調。 當您建立此組態時，您必須指定 IP 位址範圍的首碼，以供 Azure 路由傳送至您的內部部署位置。 內部部署網路的子網路皆不得與您所要連線的虛擬網路子網路重疊。
-* 目前需要 PowerShell，才能指定共用金鑰及建立 VPN 閘道連線。 安裝最新版的 Azure 服務管理 (SM) PowerShell Cmdlet。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 使用 PowerShell 進行這項設定時，請確定您是以系統管理員身分執行。 
+* 目前需要 PowerShell，才能指定共用金鑰及建立 VPN 閘道連線。 安裝最新版的 Azure 服務管理 (SM) PowerShell Cmdlet。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。 使用 PowerShell 進行這項設定時，請確定您是以系統管理員身分執行。 
 
 ### <a name="values"></a>此練習的範例組態值
 

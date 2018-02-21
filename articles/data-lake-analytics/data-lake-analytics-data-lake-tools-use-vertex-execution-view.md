@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>在適用於 Visual Studio 的 Data Lake 工具中使用 Vertex 執行檢視
 了解如何使用頂點執行檢視測驗 Data Lake Analytics 作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要有使用 Data Lake Tools for Visual Studio 的基本知識，才能開發 U-SQL 指令碼。  請參閱[教學課程：使用適用於 Visual Studio 的 Data Lake 工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 

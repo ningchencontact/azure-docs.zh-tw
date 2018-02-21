@@ -37,10 +37,10 @@ ms.lasthandoff: 11/29/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * Oracle Java Development Kit。 您可以從[這裡](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安裝它。
 * Java IDE。 本文使用 IntelliJ IDEA 15.0.1。 您可以從[這裡](https://www.jetbrains.com/idea/download/)安裝它。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/29/2017
    * 指定 [專案 SDK] 。 按一下 [新增]，然後導覽至 Java 安裝目錄 (通常是 `C:\Program Files\Java\jdk1.8.0_66`)。
    * 選取 [從原型建立]  選項。
    * 從原型清單中，選取 **org.scala-tools.archetypes:scala-archetype-simple**。 這會建立正確的目錄結構，並下載撰寫 Scala 程式所需的預設相依性。
-2. 為 [GroupId]、[ArtifactId] 和 [版本] 提供相關值。 按一下 [下一步] 。
+2. 為 [GroupId]、[ArtifactId] 和 [版本] 提供相關值。 按 [下一步] 。
 3. 在下一個對話方塊中 (您可以在此處指定 Maven 主目錄及其他使用者設定) 接受預設值，然後按 [下一步] 。
 4. 在最後一個對話方塊中指定專案名稱和位置，然後按一下 [完成] 。
 5. 刪除位於 **src\test\scala\com\microsoft\spark\example** 的 **MySpec.Scala** 檔案。 應用程式並不需要此檔案。

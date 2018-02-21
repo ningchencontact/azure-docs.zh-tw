@@ -7,7 +7,7 @@
 | 設定      | 範例值  | 說明                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **名稱** | Contoso B2C 應用程式 | 輸入應用程式的 [名稱]，此名稱可為取用者說明您的應用程式。 |
-| **原生用戶端** | 是 | 針對行動或原生應用程式選取 [是]。 |
+| **原生用戶端** | yes | 針對行動或原生應用程式選取 [是]。 |
 | **自訂重新導向 URI** | `com.onmicrosoft.contoso.appname://redirect/path` | 輸入具有自訂配置的重新導向 URI。 務必選擇[良好的重新導向 URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri)，但不包含特殊字元 (例如底線)。 |
 
 按一下 [建立]  以註冊您的應用程式。

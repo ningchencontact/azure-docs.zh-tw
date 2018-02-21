@@ -17,7 +17,7 @@ ms.date: 06/28/2017
 ms.author: cephalin
 ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/03/2018
 
 如果您不擔心 DNS 解析發生停機，請參閱[將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本操作說明：
 

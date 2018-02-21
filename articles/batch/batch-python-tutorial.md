@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 ![Batch 方案工作流程 (基本)][11]<br/>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已具備 Python 的使用知識並熟悉 Linux。 而且假設您可以滿足針對 Azure Batch 和儲存體服務所指定的帳戶建立需求。
 
 ### <a name="accounts"></a>帳戶
@@ -87,7 +87,7 @@ Python 教學課程[程式碼範例][github_article_samples]是在 GitHub 上 [a
 `pip install azure-storage`
 
 > [!TIP]
-> 如果您使用無特殊權限的帳戶，則可能需要在您的命令前面加上 `sudo`。 例如， `sudo pip install -r requirements.txt`。 如需有關如何安裝 Python 套件的詳細資訊，請參閱 readthedocs.io 上的[安裝套件][pypi_install]。
+> 如果您使用無特殊權限的帳戶，則可能需要在您的命令前面加上 `sudo`。 例如： `sudo pip install -r requirements.txt`。 如需有關如何安裝 Python 套件的詳細資訊，請參閱 readthedocs.io 上的[安裝套件][pypi_install]。
 >
 >
 

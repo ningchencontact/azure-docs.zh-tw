@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: juliako
 ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -34,7 +34,7 @@ Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 
 >[!NOTE]
 > 從 2017 年 4 月 1 日起，您的帳戶中任何超過 90 天的作業記錄以及其相關工作記錄都會自動刪除，即使記錄總數低於配額上限亦然。 例如，在 2017 年 4 月 1 日，您帳戶中任何在 2016 年 12 月 31 日以前的作業記錄將會自動刪除。 如果您需要封存作業/工作資訊，您可以使用本主題中所述的程式碼。
 
-## <a name="considerations"></a>注意事項  
+## <a name="considerations"></a>考量  
 
 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 

@@ -29,7 +29,7 @@ ms.lasthandoff: 11/02/2017
 >[!Note]
 >本指南說明如何將 SAP HANA 部署到 Azure VM。 如需將 SAP HANA 部署至 HANA 大型執行個體上的資訊，請參閱[在 Azure 虛擬機器 (VM) 上使用 SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)。
  
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本指南假設您已熟悉如下的這類基礎結構即服務 (IaaS) 基本知識：
  * 如何透過 Azure 入口網站或 PowerShell 部署虛擬機器或虛擬網路。
  * Azure 跨平台命令列介面 (CLI)，包括使用 JavaScript 物件通知 (JSON) 範本的選項。

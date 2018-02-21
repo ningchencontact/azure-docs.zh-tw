@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![檢視記錄中的訊息。](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 下載並安裝 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)。
 + Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。

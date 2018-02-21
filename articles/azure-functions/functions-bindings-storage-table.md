@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 0fd6de8b59400270e42d428664df74d81d790f62
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -634,6 +634,14 @@ public static MyPoco TableOutput(
 * **寫入 JavaScript 中的一或多個資料列**
 
   在 JavaScript 函式中，會使用 `context.bindings.<name>` 來存取資料表輸出。
+
+## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
+
+| 繫結 | 參考 |
+|---|---|
+| 資料表 | [資料表錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Bob、資料表、佇列 | [儲存體錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Bob、資料表、佇列 | [疑難排解](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>後續步驟
 

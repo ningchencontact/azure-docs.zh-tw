@@ -27,7 +27,7 @@ ms.lasthandoff: 10/16/2017
 
 由於中國無法使用 Google Play 和 FCM (Firebase Cloud Messaging)，因此必須使用不同的應用程式市集和推送服務。 百度是其中一種方法，且目前由通知中樞所使用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程需要：
 
 * Android SDK (我們假設您使用 Android Studio)，您可從 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 網站</a>下載該套件
@@ -487,7 +487,7 @@ ms.lasthandoff: 10/16/2017
    
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
-2. 在 [封裝管理員主控台] 視窗中，將 [預設專案]  設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
+2. 在 [套件管理員主控台] 視窗中，將 [預設專案]  設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
    
         Install-Package Microsoft.Azure.NotificationHubs
    

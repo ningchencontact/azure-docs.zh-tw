@@ -106,7 +106,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 > 
 > 
 
-最後一次執行實驗 (按一下 [執行])。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
+最後一次執行實驗 (按一下 **執行**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 **檢視結果**。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
 
 ## <a name="deploy-the-web-service"></a>部署 Web 服務
 您可以將實驗部署為傳統 Web 服務或架構在 Azure Resource Manager 上的新式 Web 服務。

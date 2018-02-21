@@ -130,7 +130,7 @@ Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函
  
     ![設定持續部署](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. 在 部署來源 刀鋒視窗中，按一下 本機 Git 存放庫，然後按一下確定。
+2. 在 [部署來源] 刀鋒視窗中，按一下 [本機 Git 存放庫]，然後按一下 [確定]。
 
 3. 在 [平台功能] 中，按一下 [屬性]，然後記下 Git URL 的值。 
    

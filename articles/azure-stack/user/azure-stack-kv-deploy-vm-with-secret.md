@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 在本文中，我們會針對如何擷取存放在 Key Vault 中的密碼，以完成在 Azure Stack 中部署 Windows 虛擬機器，逐步說明所需的步驟。 因此，密碼絕不會以純文字的形式，放在範本參數檔案中。 您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
  
 * 您必須訂閱包含 Key Vault 服務的供應項目。  
 * [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)  

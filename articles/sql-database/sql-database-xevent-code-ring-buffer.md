@@ -44,7 +44,7 @@ ms.lasthandoff: 10/31/2017
 7. 卸除信號緩衝區目標以釋放其資源。
 8. 卸除事件工作階段和示範資料表。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="code-sample"></a>程式碼範例
 
-只要稍加修改，就可以在 Azure SQL Database 或 Microsoft SQL Server 上執行下列信號緩衝區的程式碼範例。 不同之處在於有些動態管理檢視 (DMV) (步驟 5 的 FROM 子句中所使用) 的名稱中有 '_database' ()。 例如：
+只要稍加修改，就可以在 Azure SQL Database 或 Microsoft SQL Server 上執行下列信號緩衝區的程式碼範例。 不同之處在於有些動態管理檢視 (DMV) (步驟 5 的 FROM 子句中所使用) 的名稱中有 '_database' ()。 例如︰
 
 * sys.dm_xe**_database**_session_targets
 * sys.dm_xe_session_targets

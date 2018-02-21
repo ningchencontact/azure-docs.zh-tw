@@ -25,10 +25,10 @@ ms.lasthandoff: 11/17/2017
 
 [彈性資料庫工具](sql-database-elastic-scale-get-started.md)和[資料列層級安全性 (RLS)][rls] 共同運作，讓您可以透過 Azure SQL Database 調整多租用戶應用程式的資料層。 綜合這些技術可協助您建置具有高擴充性資料層的應用程式。 資料層支援多租用戶分區，並使用 **ADO.NET SqlClient** 或 **Entity Framework**。 如需詳細資訊，請參閱[多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](saas-tenancy-app-design-patterns.md)。
 
-- **彈性資料庫工具**可讓開發人員透過使用 .NET 程式庫和 Azure 服務範本的業界標準分區化作法，相應放大資料層。 使用[彈性資料庫用戶端程式庫][s-d-elastic-database-client-library]管理分區，有助於自動化及簡化通常與分區化相關的許多基礎結構工作。
-- **資料列層級安全性**可讓開發人員安全地在相同資料庫中儲存多個租用戶的資料。 RLS 安全性原則會篩選掉不屬於執行查詢之租用戶的資料列。 將篩選邏輯集中在資料庫中，簡化了維護工作，並且降低安全性錯誤的風險。 仰賴所有用戶端程式碼來強制執行安全性的替代方法具有風險。
+- **彈性資料庫工具**可讓開發人員透過使用 .NET 程式庫和 Azure 服務範本的業界標準分區化作法，相應放大資料層。 使用[彈性資料庫用戶端程式庫][s-d-elastic-database-client-library]管理分區，有助於自動化及簡化許多常與分區化相關的基礎結構工作。
+- **資料列層級安全性**可讓開發人員在相同資料庫中安全地儲存多個租用戶的資料。 RLS 安全性原則會篩選掉不屬於執行查詢之租用戶的資料列。 將篩選邏輯集中在資料庫中，簡化了維護工作，並且降低安全性錯誤的風險。 只仰賴用戶端程式碼來強制執行安全性是種極具風險的替代方案。
 
-透過搭配使用這些功能，應用程式可以在同一個分區資料庫中儲存多個租用戶的資料。 當租用戶共用資料庫時，每個租用戶所花費的成本更少。 然而，同一個應用程式也可以提供其進階租用戶付費的選項，以取得其專屬的單一租用戶分區。 單一租用戶隔離的一個優點是較穩固的效能保證。 在單一租用戶資料庫中，不會有其他租用戶競爭資源。
+透過搭配使用這些功能，應用程式可以在同一個分區資料庫中儲存多個租用戶的資料。 當租用戶共用資料庫時，每個租用戶所花費的成本更少。 然而，相同的應用程式也可以為進階租用戶提供付費選項，讓它們取得專屬的單一租用戶分區。 隔離出單一租用戶的一個好處在於能保證較穩固的效能， 因為在單一租用戶的資料庫中，不會有其他租用戶競爭資源。
 
 目標是要使用彈性資料庫用戶端程式庫[資料依存路由](sql-database-elastic-scale-data-dependent-routing.md) API，來將每個指定的租用戶自動連線到正確的分區資料庫。 只有一個分區包含指定租用戶的特定 TenantId 值。 TenantId 是「分區索引鍵」。 建立連線之後，資料庫中的 RLS 安全性原則可確保指定的租用戶只能存取包含其 TenantId 的資料列。
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/17/2017
 
 請注意，因為分區資料庫中尚未啟用 RLS，所以這些測試都會顯現出一個問題：租用戶能夠查看不屬於自己的部落格，且應用程式無法阻止插入錯誤的租用戶部落格。 本文的其餘部分會說明，如何藉由 RLS 強制執行租用戶隔離來解決這些問題。 有兩個步驟： 
 
-1. **應用程式層**：修改應用程式程式碼，以在開啟連線之後一律設定 SESSION\_CONTEXT 中目前的 TenantId。 範例專案已透過此方式設定 TenantId。 
+1. **應用程式層**：將應用程式程式碼修改成一律會在連線開啟後，於 SESSION\_CONTEXT 中設定目前的 TenantId。 範例專案已透過此方式設定 TenantId。 
 2. **資料層**：在每個分區資料庫中建立 RLS 安全性原則，以根據儲存在 SESSION\_CONTEXT 中的 TenantId 來篩選資料列。 為每個分區資料庫建立原則，否則不會篩選多租用戶分區中的資料列。 
 
 ## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1.應用程式層：設定 SESSION\_CONTEXT 中的 TenantId
@@ -67,7 +67,7 @@ SESSION\_CONTEXT 的替代方式是使用 [CONTEXT\_INFO](https://docs.microsoft
 
 ### <a name="entity-framework"></a>Entity Framework
 
-對於使用 Entity Framework 的應用程式，最簡單的方法是在[使用 EF DbContext 的資料相依路由](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)一文中所述的 ElasticScaleContext 覆寫中設定 SESSION\_CONTEXT。 建立並執行將 SESSION\_CONTEXT 中 TenantId 設定成針對連線指定之 shardingKey 的 SqlCommand。 然後傳回透過資料依存路由代理的連線。 如此一來，您只需要撰寫程式碼一次，就能設定 SESSION\_CONTEXT。 
+對於使用 Entity Framework 的應用程式，最簡單的方法是在[使用 EF DbContext 的資料相依路由](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)一文中所述的 ElasticScaleContext 覆寫中設定 SESSION\_CONTEXT。 建立並執行 SqlCommand，以將 SESSION\_CONTEXT 中的 TenantId 設為連線的指定 shardingKey。 然後傳回透過資料依存路由代理的連線。 如此一來，您只需要撰寫程式碼一次，就能設定 SESSION\_CONTEXT。 
 
 ```csharp
 // ElasticScaleContext.cs 
@@ -221,16 +221,16 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 現在應用程式會在查詢之前，使用目前的 TenantId 來設定 SESSION\_CONTEXT，RLS 安全性原則可篩選查詢並排除具有不同 TenantId 的資料列。  
 
-RLS 實作於 Transact-SQL 中。 使用者定義的函式會定義存取邏輯，而安全性原則會將此函式繫結至任意數目的資料表。 針對此專案：
+RLS 已實作於 Transact-SQL 中。 使用者定義的函式會定義存取邏輯，而安全性原則會將此函式繫結至任意數目的資料表。 針對此專案：
 
 1. 此函式會確認應用程式已連線至資料庫，且儲存在 SESSION\_CONTEXT 中的 TenantId 符合指定之資料列的 TenantId。
-    - 應用程式已建立連線，而不是其他 SQL 使用者。
+    - 已與應用程式建立連線，而不是與其他 SQL 使用者。
 
 2. FILTER 述詞讓符合 TenantId 篩選條件的資料列能夠通過 SELECT、UPDATE 和 DELETE 查詢。
     - BLOCK 述詞會防止系統在被篩選條件篩選掉的資料列上執行 INSERT 或 UPDATE 操作。
     - 如果尚未設定 SESSION\_CONTEXT，則函式會傳回 NULL，而且看不見或無法插入任何資料列。 
 
-若要在所有分區上啟用 RLS，請使用 Visual Studio (SSDT)、SSMS 或專案中包含的 PowerShell 指令碼來執行下列 T-SQL。 或者，如果您是使用[彈性資料庫工作](sql-database-elastic-jobs-overview.md)，則可以將此 T-SQL 在所有分區上的執行自動化。
+若要為所有分區啟用 RLS，請使用 Visual Studio (SSDT)、SSMS 或專案中包含的 PowerShell 指令碼來執行下列 T-SQL。 或者，如果您是使用[彈性資料庫工作](sql-database-elastic-jobs-overview.md)，則可以將此 T-SQL 在所有分區上的執行自動化。
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

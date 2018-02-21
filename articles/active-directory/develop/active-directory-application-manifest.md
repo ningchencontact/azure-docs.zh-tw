@@ -18,12 +18,12 @@ ms.custom: aaddev
 ms.reviewer: elisol
 ms.openlocfilehash: f3284d4cbb15f21522549c678410815b54344744
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 應用程式資訊清單
-與 Azure AD 整合的應用程式必須向 Azure AD 租用戶。 此應用程式可以使用應用程式資訊清單 （在 [Azure AD] 刀鋒視窗） 中設定[Azure 入口網站](https://portal.azure.com)。
+與 Azure AD 整合的應用程式必須使用 Azure AD 租用戶來註冊。 此應用程式可以在 [Azure 入口網站](https://portal.azure.com)中使用 Azure AD 刀鋒視窗下的 應用程式資訊清單來設定。
 
 ## <a name="manifest-reference"></a>資訊清單參考
 
@@ -31,38 +31,38 @@ ms.lasthandoff: 12/16/2017
 >[!div class="mx-tdCol2BreakAll"]
 |Key  |值類型 |範例值  |說明  |
 |---------|---------|---------|---------|
-|appID     |  識別項字串       |""|  由 Azure AD 指派給應用程式的應用程式的唯一識別碼。|
-|appRoles     |    陣列的型別     |[{<br>&emsp;「 allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;「 使用者 」<br>&emsp;],<br>&emsp;「 描述 」: 「 讀取只存取裝置資訊 」，<br>&emsp;"displayName": 「 唯讀 」，<br>&emsp;「 識別碼 」: guid，<br>&emsp;"isEnabled": true，<br>&emsp;"使用 value":"ReadOnly"<br>}]|應用程式可以宣告的角色集合。 這些角色可以指派給使用者、 群組或服務主體。|
-|AvailableToOtherTenants|布林值|true|如果此值設為 true，應用程式可用於其他租用戶。  只能為租用戶了設為 false，應用程式是否已登錄在。  如需詳細資訊，請參閱：[如何登入使用多租用戶應用程式模式的任何 Azure Active Directory (AD) 使用者](active-directory-devhowto-multi-tenant-overview.md)。 |
+|appID     |  識別碼字串       |""|  由 Azure AD 指派給應用程式的應用程式唯一識別碼。|
+|appRoles     |    陣列類型     |[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"裝置資訊的唯讀存取權",<br>&emsp;"displayName":"唯讀",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]|應用程式可以宣告的角色集合。 這些角色可以指派給使用者、群組或服務主體。|
+|availableToOtherTenants|布林值|true|如果此值設為 true，則此應用程式可供其他租用戶使用。  如果設為 false，則只有註冊應用程式的租用戶才能使用。  如需詳細資訊，請參閱：[如何使用多租用戶應用程式模式以任何 Azure Active Directory (AD) 使用者來登入](active-directory-devhowto-multi-tenant-overview.md)。 |
 |displayName     |字串         |MyRegisteredApp         |應用程式的顯示名稱。 |
-|errorURL     |字串         |http:<i></i>//MyRegisteredAppError         |應用程式中發生錯誤的 URL。 |
-|GroupMembershipClaims     |    字串     |    1     |   位元遮罩設定的使用者或應用程式預期 OAuth 2.0 存取權杖中發出的 「 群組 」 宣告。 位元遮罩值為： 0: None、 1： 安全性群組和 Azure AD 角色，2： 保留，和 4： 保留。 設定為 7 位元遮罩，會收到的所有安全性群組、 通訊群組和登入使用者所屬的 Azure AD 目錄角色。      |
-|optionalClaims     |  字串       |     null    |    選擇性的宣告，這個特定的應用程式的安全性權杖服務所傳回之權杖中。     |
-|acceptMappedClaims    |      布林值   | true        |    如果此值設定為 true 時，它可讓應用程式使用宣告對應，但未指定自訂的簽署金鑰。|
-|首頁     |  字串       |http:<i></i>//MyRegistererdApp         |    應用程式的首頁 URL。     |
-|identifierUris     |  字串陣列       | http:<i></i>//MyRegistererdApp        |   使用者定義的 URI 來唯一識別 Web 應用程式在其 Azure AD 租用戶，或驗證的自訂網域內，如果應用程式是多租用戶。      |
-|keyCredentials     |   陣列的型別      |   [{<br>&nbsp;「 customKeyIdentifier": null，<br>「 endDate":"2018年-09-13T00:00:00Z"，<br>"keyId":"\<guid >"，<br>「 startDate":"2017年-09-12T00:00:00Z"，<br>「 類型 」: 「 AsymmetricX509Cert"，<br>「 用法": [驗證]，<br>「 值 」: null<br>}]      |   這個屬性會保留應用程式指定的認證，以字串為基礎的共用的密碼和 X.509 憑證的參考。  這些認證是必須列入要求存取權杖時 (當應用程式作為用戶端，而是做為資源)。     |
-|knownClientApplications     |     陣列的型別    |    [guid]     |     如果您有包含兩個組件、 用戶端應用程式和自訂的 web API 應用程式的方案將同意已使用的值。 如果您將用戶端應用程式的 appID 輸入此值時，使用者將只有一次用戶端應用程式同意。 Azure AD 會知道的用戶端同意表示隱含地同意 web 應用程式開發介面，並會自動佈建用戶端和 web 應用程式開發介面的服務主體在相同 （在用戶端和 web API 應用程式必須註冊在相同的時間租用戶）。|
+|errorURL     |字串         |http:<i></i>//MyRegisteredAppError         |應用程式中所發生錯誤的 URL。 |
+|groupMembershipClaims     |    字串     |    1     |   此為位元遮罩，可設定應用程式所需使用者或 OAuth 2.0 存取權杖中所發出的 "groups" 宣告。 位元遮罩值包括：0：無、1：安全性群組與 Azure AD 角色、2：保留，及 4：保留。 將位元遮罩設為 7，則可以取得登入使用者所屬的所有安全性群組、通訊群組及 Azure AD 目錄角色。      |
+|optionalClaims     |  字串       |     null    |    由此特定應用程式的安全性權杖服務在權杖中傳回的選擇性宣告。     |
+|acceptMappedClaims    |      布林值   | true        |    如果此值設為 true，即允許應用程式使用宣告對應，而不需要指定自訂的簽署金鑰。|
+|homepage     |  字串       |http:<i></i>//MyRegistererdApp         |    應用程式首頁的 URL。     |
+|identifierUris     |  字串陣列       | http:<i></i>//MyRegistererdApp        |   當應用程式為多租用戶時，專門在 Web 應用程式的 Azure AD 租用戶或經過驗證的自訂網域中，用於識別 Web 應用程式的使用者定義 URI。      |
+|keyCredentials     |   陣列類型      |   [{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]      |   此屬性會保留對應用程式指定認證、字串型的共用密碼以及 X.509 憑證的參考。  要求存取權杖時需要這些認證 (當應用程式作為用戶端，而不是資源時)。     |
+|knownClientApplications     |     陣列類型    |    [guid]     |     如果您有包含兩個組件、用戶端應用程式及自訂 Web API 應用程式的方案，則可使用此值來統合同意。 如果您將此值輸入為用戶端應用程式的 appID ，則使用者只需同意用戶端應用程式一次。 Azure AD 會知道同意用戶端表示隱含地同意 Web API，並會自動同時佈建用戶端與 Web API 的服務主體 (用戶端與 Web API 應用程式都必須在相同的租用戶中註冊)。|
 |logoutUrl     |   字串      |     http:<i></i>//MyRegisteredAppLogout    |   登出應用程式的 URL。      |
-|oauth2AllowImplicitFlow     |   布林值      |  false       |       指定此 web 應用程式是否可以要求 OAuth2.0 隱含流程權杖。 預設值為 false。 這用於瀏覽器為基礎的應用程式，例如 Javascript 單一頁面應用程式。 |
-|oauth2AllowUrlPathMatching     |   布林值      |  false       |   指定，在 OAuth 2.0 權杖要求，Azure AD 是否允許比對針對應用程式的回覆 url 來重新導向 URI 的路徑。 預設值為 false。      |
-|oauth2Permissions     | 陣列的型別         |      [{<br>「 adminConsentDescription 」: 「 允許存取資源應用程式代表登入的使用者。 」，<br>「 adminConsentDisplayName":"存取 resource1"<br>"id":"\<guid >"，<br>"isEnabled": true，<br>「 類型 」: 「 使用者 」，<br>「 userConsentDescription 」: 「 允許應用程式存取您的名義 resource1。 」，<br>「 userConsentDisplayName 」: 「 存取資源 」<br>"使用 value":"user_impersonation"<br>}]   |  Web API （資源） 應用程式公開給用戶端應用程式的 OAuth 2.0 權限範圍的集合。 這些權限範圍可能會決定同意期間授與用戶端應用程式之用。 |
-|oauth2RequiredPostResponse     | 布林值        |    false     |      指定，在 OAuth 2.0 權杖要求，Azure AD 是否允許 POST 要求，而不是 GET 要求。 預設值為 false，指定將允許只 GET 要求。   
-|objectId     | 識別項字串        |     ""    |    在目錄中應用程式的唯一識別碼。  這不是用來識別任何通訊協定交易中的應用程式的識別項。  它是用來參考目錄查詢中的物件。|
-|passwordCredentials     | 陣列的型別        |   [{<br>「 customKeyIdentifier": null，<br>「 endDate":"2018年-10-19T17:59:59.6521653Z"，<br>"keyId":"\<guid >"，<br>「 startDate":"2016年-10-19T17:59:59.6521653Z"，<br>「 值 」: null<br>}]      |    請參閱 keyCredentials 屬性的描述。     |
-|PublicClient     |  布林值       |      false   | 指定應用程式是否為公用用戶端 （例如安裝應用程式的行動裝置上執行）。 預設值為 false。        |
+|oauth2AllowImplicitFlow     |   布林值      |  false       |       指定此 Web 應用程式可否要求 OAuth2.0 隱含流程權杖。 預設值為 false。 這會用於瀏覽器型應用程式，例如 JavaScript 單一頁面應用程式。 |
+|oauth2AllowUrlPathMatching     |   布林值      |  false       |   指定 Azure AD 是否允許在 OAuth 2.0 權杖要求期間，比對重新導向 URI 的路徑與應用程式回覆 URL 的路徑。 預設值為 false。      |
+|oauth2Permissions     | 陣列類型         |      [{<br>"adminConsentDescription":"允許應用程式以登入的使用者身分存取資源。",<br>"adminConsentDisplayName":"存取 resource1",<br>"id":"\<guid>",<br>"isEnabled":true,<br>"type":"User",<br>"userConsentDescription":"允許應用程式以您的身分存取 resource1。",<br>"userConsentDisplayName":"存取資源",<br>"value":"user_impersonation"<br>}]   |  Web API (資源) 應用程式公開給用戶端應用程式的 OAuth 2.0 權限範圍集合。 這些權限範圍可能會在同意過程中授與用戶端應用程式。 |
+|oauth2RequiredPostResponse     | 布林值        |    false     |      指定 Azure AD 在 OAuth 2.0 權杖要求期間是否允許 POST 要求 (相對於 GET 要求)。 預設值為 false，亦即指定只允許 GET 要求。   
+|objectId     | 識別碼字串        |     ""    |    目錄中應用程式的唯一識別碼。  這不是用來在任何通訊協定交易中識別應用程式的識別碼。  它是用來參考目錄查詢中的物件。|
+|passwordCredentials     | 陣列類型        |   [{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]      |    請參閱 keyCredentials 屬性的描述。     |
+|publicClient     |  布林值       |      false   | 指定應用程式是否為公開用戶端 (例如行動裝置上執行的已安裝應用程式)。 預設值為 false。        |
 |supportsConvergence     |  布林值       |   false      | 不應編輯這個屬性。  接受預設值。        |
-|replyUrls     |  字串陣列       |   http:<i></i>//localhost     |  此多重值屬性會保留的 Azure AD 將會接受做為目的地的已註冊的 redirect_uri 值清單時 returining 語彙基元。 |
-|RequiredResourceAccess     |     陣列的型別    |    [{<br>「 resourceAppId":"00000002-0000-0000-c000-000000000000"，<br>「 resourceAccess": [{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6"，<br>&nbsp;&nbsp;&nbsp;&nbsp;「 類型 」: 「 範圍 」<br>&nbsp;&nbsp;}]<br>}]     |   指定此應用程式需要存取和一組 OAuth 權限範圍和應用程式角色，它需要每個這些資源的資源。 這樣預先設定必要的資源存取的磁碟機的同意體驗。|
-|resourceAppId     |    識別項字串     |  ""      |   應用程式需要存取之資源的唯一識別碼。 這個值應該等於 appId 目標資源應用程式上宣告。     |
-|resourceAccess     |  陣列的型別       | 請參閱 requiredResourceAccess 屬性的範例值。        |   OAuth2.0 權限範圍和應用程式需要從指定的資源 （包含指定的資源 ID 與型別值） 的應用程式角色的清單        |
-|samlMetadataUrl|字串|http:<i></i>//MyRegisteredAppSAMLMetadata|進入應用程式 SAML中繼資料的 URL。| 
+|replyUrls     |  字串陣列       |   http:<i></i>//localhost     |  傳回權杖時，此多值屬性會保留 Azure AD 接受作為目的地的已註冊 redirect_uri 值清單。 |
+|requiredResourceAccess     |     陣列類型    |    [{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}]     |   指定此應用程式所需存取的資源，並針對每項資源設定此應用程式所需的 OAuth 權限範圍及應用程式角色。 預先設定所需的資源存取需要使用者同意。|
+|resourceAppId     |    識別碼字串     |  ""      |   應用程式需要存取之資源的唯一識別碼。 此值應該等於目標資源應用程式上宣告的 appID。     |
+|resourceAccess     |  陣列類型       | 請參閱 requiredResourceAccess 屬性的範例值。        |   應用程式向指定資源要求的 OAuth2.0 權限範圍和應用程式角色清單 (包含指定資源的識別碼與類型值)        |
+|samlMetadataUrl|字串|http:<i></i>//MyRegisteredAppSAMLMetadata|應用程式 SAML 中繼資料的 URL。| 
 
 ## <a name="next-steps"></a>後續步驟
-* 如需有關應用程式的應用程式和服務主體物件之間的關聯性的詳細資訊，請參閱[應用程式和服務主體物件，在 Azure AD 中的][AAD-APP-OBJECTS]。
+* 如需有關應用程式之「應用程式」和「服務主體」物件之間關係的詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件][AAD-APP-OBJECTS]。
 * 如需核心 Azure Active Directory (AD) 開發人員概念的一些定義，請參閱 [Azure AD 開發人員詞彙][AAD-DEVELOPER-GLOSSARY]。
 
-使用下列註解區段提供可協助調整及圖形內容的意見反應。
+使用下列意見區段來提供意見反應，以協助改善及塑造我們的內容。
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md

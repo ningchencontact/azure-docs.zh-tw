@@ -28,7 +28,7 @@ ms.lasthandoff: 12/05/2017
 
 本文示範如何執行「計數器」範例。 此範例示範單次物件，此物件支援「遞增」和「遞減」作業，然後據以更新其內部狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
 * 本文假設您已經完成 [Hello Sequence](durable-functions-sequence.md) 範例逐步解說。

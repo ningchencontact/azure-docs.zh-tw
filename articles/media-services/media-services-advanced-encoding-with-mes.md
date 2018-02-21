@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-如需結構描述的資訊，請參閱 [這個](media-services-mes-schema.md) 主題。
+如需結構描述的資訊，請參閱 [這個主題](media-services-mes-schema.md) 。
 
 請務必閱讀 [考量](#considerations) 一節。
 

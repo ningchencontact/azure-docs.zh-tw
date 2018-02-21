@@ -5,24 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>在 Azure 區域之間容錯移轉及容錯回復 (預覽)
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何將單一 Azure VM 容錯移轉到次要 Azure 區域。 在容錯移轉之後，您可以容錯回復到可用的主要區域。 在本教學課程中，您將了解如何：
+本教學課程說明如何將單一 Azure VM 容錯移轉到次要 Azure 區域。 在容錯移轉之後，您可以容錯回復到可用的主要區域。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 容錯移轉 Azure VM
@@ -30,7 +27,7 @@ ms.lasthandoff: 11/01/2017
 > * 容錯回復次要 VM
 > * 將主要 VM 放回次要區域保護
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 確定您已完成[災害復原演練](azure-to-azure-tutorial-dr-drill.md)，檢查一切是否如預期般運作。
 - 執行測試容錯移轉之前，請確認 VM 屬性。 VM 必須符合 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。

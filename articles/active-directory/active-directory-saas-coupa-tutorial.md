@@ -1,6 +1,6 @@
 ---
 title: "教學課程：Azure Active Directory 與 Coupa 整合 | Microsoft Docs"
-description: "了解如何設定單一登入 Azure Active Directory 與 Coupa 之間。"
+description: "了解如何設定 Azure Active Directory 與 Coupa 之間的單一登入。"
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,25 +16,25 @@ ms.date: 12/08/2017
 ms.author: jeedes
 ms.openlocfilehash: 30149f181d8b0ebdc1ae6820da5d561f3a942fa3
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>教學課程：Azure Active Directory 與 Coupa 整合
 
-在本教學課程中，您可以了解如何與 Azure Active Directory (Azure AD) 整合 Coupa。
+在本教學課程中，您將了解如何整合 Coupa 與 Azure Active Directory (Azure AD)。
 
-使用 Azure AD 整合 Coupa 可以提供下列優點：
+將 Coupa 與 Azure AD 整合提供下列優點：
 
-- 您可以控制可以存取 Coupa 的 Azure AD 中。
-- 您可以讓您自動取得登入 Coupa （單一登入） 具有其 Azure AD 帳戶的使用者。
+- 您可以在 Azure AD 中控制可存取 Coupa 的人員。
+- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Coupa (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要設定 Azure AD 整合與 Coupa，您需要下列項目：
+若要設定 Azure AD 與 Coupa 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 Coupa 單一登入的訂用帳戶
@@ -50,13 +50,13 @@ ms.lasthandoff: 12/12/2017
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
-1. 從資源庫加入 Coupa
+1. 從資源庫新增 Coupa
 2. 設定並測試 Azure AD 單一登入
 
-## <a name="adding-coupa-from-the-gallery"></a>從資源庫加入 Coupa
-若要設定 Coupa 整合 Azure AD，您需要加入 Coupa 從資源庫，您的受管理的 SaaS 應用程式清單。
+## <a name="adding-coupa-from-the-gallery"></a>從資源庫新增 Coupa
+若要設定將 Coupa 整合到 Azure AD 中，您需要將 Coupa 從資源庫新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 Coupa，執行下列步驟：**
+**若要從資源庫新增 Coupa，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
@@ -70,33 +70,33 @@ ms.lasthandoff: 12/12/2017
 
     ![新增應用程式按鈕][3]
 
-4. 在 搜尋 方塊中，輸入**Coupa**，選取**Coupa**然後按一下 從結果面板**新增**按鈕以加入應用程式。
+4. 在搜尋方塊中，輸入 **Coupa**，從結果面板中選取 [Coupa]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![在 [結果] 清單中的 Coupa](./media/active-directory-saas-coupa-tutorial/tutorial_coupa_addfromgallery.png)
+    ![結果清單中的 Coupa](./media/active-directory-saas-coupa-tutorial/tutorial_coupa_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您可以設定及測試 Azure AD 單一登入 Coupa 根據稱為 「 許 Simon"的測試使用者。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Coupa 搭配運作的 Azure AD 單一登入。
 
-單一登入工作，如 Azure AD 需要知道在 Coupa 中對等項目的使用者是使用者在 Azure AD 中。 換句話說，必須建立 Azure AD 使用者和相關的使用者在 Coupa 之間的連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 Coupa 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Coupa 中的相關使用者之間建立連結關聯性。
 
-在 Coupa 中，將指派的值**使用者名稱**做為值的 Azure AD 中**Username**建立的連結關聯性。
+在 Coupa 中，指派 Azure AD 中的**使用者名稱**值作為 [Username] \(使用者名稱\) 的值，以建立連結關聯性。
 
-若要設定和測試 Azure AD 單一登入與 Coupa，您需要完成下列的建置組塊：
+若要設定及測試與 Coupa 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立測試使用者 Coupa](#create-a-coupa-test-user)**  -若要在連結至使用者的 Azure AD 表示的 Coupa 許 Simon 對應項目。
+3. **[建立 Coupa 測試使用者](#create-a-coupa-test-user)** - 在 Coupa 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您可以啟用 Azure AD 單一登入 Azure 入口網站中，並設定單一登入 Coupa 應用程式中。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Coupa 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與 Coupa，執行下列步驟：**
+**若要設定與 Coupa 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站上**Coupa**應用程式整合頁面上，按一下 **單一登入**。
+1. 在 Azure 入口網站的 [Coupa] 應用程式整合頁面上，按一下 [單一登入]。
 
     ![設定單一登入連結][4]
 
@@ -104,9 +104,9 @@ ms.lasthandoff: 12/12/2017
  
     ![單一登入對話方塊](./media/active-directory-saas-coupa-tutorial/tutorial_coupa_samlbase.png)
 
-3. 在**Coupa 網域和 Url**區段中，執行下列步驟：
+3. 在 [Coupa 網域及 URL] 區段上，執行下列步驟：
 
-    ![Coupa 網域和 Url 的單一登入資訊](./media/active-directory-saas-coupa-tutorial/tutorial_coupa_url.png)
+    ![Coupa 網域及 URL 單一登入資訊](./media/active-directory-saas-coupa-tutorial/tutorial_coupa_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`http://<companyname>.Coupa.com`
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/12/2017
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyname>.coupahost.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡[Coupa 用戶端支援小組](https://success.coupa.com/Support/Contact_Us?)取得這些值。 您會取得回覆 URL 值從中繼資料，在本教學課程稍後會說明。
+    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Coupa 用戶端支援小組](https://success.coupa.com/Support/Contact_Us?) \(英文\) 以取得這些值。 您會從中繼資料取得 [回覆 URL] 值，這在本教學課程中稍後會提供說明。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -137,9 +137,9 @@ ms.lasthandoff: 12/12/2017
     
     a. 選取 [使用 SAML 登入] 。
     
-    b. 若要將 Coupa 中繼資料檔案下載至您的電腦，按一下 [下載和匯入預存程序的中繼資料] 。 開啟 [中繼資料和複本**AssertionConsumerService index/URL**值，請將該值貼入**回覆 URL** ] 文字方塊中的**Coupa 網域和 Url** > 一節。 
+    b. 若要將 Coupa 中繼資料檔案下載至您的電腦，按一下 [下載和匯入預存程序的中繼資料] 。 開啟中繼資料並複製 **AssertionConsumerService index/URL** 值，將此值貼到 [Coupa 網域及 URL] 區段的 [回覆 URL] 文字方塊中。 
     
-    c. 按一下**瀏覽**上傳從 Azure 入口網站下載的中繼資料。
+    c. 按一下 [Browse] \(瀏覽\) 以上傳您從 Azure 入口網站下載的中繼資料。
     
     d. 按一下 [檔案] 。
 
@@ -214,17 +214,17 @@ ms.lasthandoff: 12/12/2017
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，以啟用要使用 Azure 單一登入授與存取權給 Coupa 許 Simon。
+在本節中，您會將 Coupa 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 ![指派使用者角色][200] 
 
-**若要指派給 Coupa 的許 Simon，執行下列步驟：**
+**若要將 Britta Simon 指派給 Coupa，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取**Coupa**。
+2. 在應用程式清單中，選取 [Coupa]。
 
     ![應用程式清單中的 [Coupa] 連結](./media/active-directory-saas-coupa-tutorial/tutorial_coupa_app.png)  
 
@@ -246,7 +246,7 @@ ms.lasthandoff: 12/12/2017
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下 Coupa 磚，在存取面板時，您應該取得自動登入 Coupa 應用程式。
+當您在「存取面板」中按一下 [Coupa] 圖格時，應該會自動登入您的 Coupa 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源

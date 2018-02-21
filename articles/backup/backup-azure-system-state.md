@@ -28,7 +28,7 @@ ms.lasthandoff: 11/11/2017
 
 如果您沒有 Azure 訂用帳戶，請建立 [免費帳戶](https://azure.microsoft.com/free/) ，以便存取任何 Azure 服務。
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
+## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
 若要備份 Windows Server 系統狀態，您必須在要儲存這些資料的區域中建立復原服務保存庫。 您也需要決定儲存體的複寫方式。
 
 ### <a name="to-create-a-recovery-services-vault"></a>建立復原服務保存庫
@@ -132,7 +132,7 @@ ms.lasthandoff: 11/11/2017
 
     ![下載保存庫認證](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    保存庫認證會下載至「下載」資料夾。 保存庫認證下載完成之後，您會看到快顯視窗，詢問您是否要開啟或儲存認證。 按一下 [儲存] 。 如果您不小心按到 [開啟]，請讓嘗試開啟保存庫認證的對話方塊失敗。 您無法開啟保存庫認證。 請繼續進行下一個步驟。 保存庫認證位於 [下載] 資料夾中。   
+    保存庫認證會下載至「下載」資料夾。 保存庫認證下載完成之後，您會看到快顯視窗，詢問您是否要開啟或儲存認證。 按一下 [檔案] 。 如果您不小心按到 [開啟]，請讓嘗試開啟保存庫認證的對話方塊失敗。 您無法開啟保存庫認證。 請繼續進行下一個步驟。 保存庫認證位於 [下載] 資料夾中。   
 
     ![保存庫認證下載完成](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/11/2017
 
 5. 選取 [系統狀態]，然後按一下 [確定]。
 
-6. 按一下 [下一步] 。
+6. 按 [下一步] 。
 
 7. 在後續頁面中針對系統狀態備份選取所需的備份頻率和保留原則。 
 

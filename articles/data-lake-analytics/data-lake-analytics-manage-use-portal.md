@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
    3. **資源群組**：在其中建立帳戶的 Azure 資源群組。 
    4. **位置**：Data Lake Analytics 帳戶的 Azure 資料中心。 
    5. **Data Lake Store**：Data Lake Analytics 帳戶所要使用的預設存放區。 Azure Data Lake Store 帳戶和 Data Lake Analytics 帳戶必須位於相同位置。
-4. 按一下 [建立] 。 
+4. 按一下頁面底部的 [新增] 。 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>刪除 Data Lake Analytics 帳戶
 
@@ -89,11 +89,11 @@ Data Lake Analytics 支援下列資料來源：
 
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 在左側 [快速入門] 之下，按一下 [新增使用者精靈]。
-3. 選取使用者，然後按一下選取。
-4. 選取角色，然後按一下選取。 若要設定新的開發人員以使用 Azure Data Lake，請選取 [Data Lake Analytics 開發人員] 角色。
+3. 選取使用者，然後按一下 [選取]。
+4. 選取角色，然後按一下 [選取]。 若要設定新的開發人員以使用 Azure Data Lake，請選取 [Data Lake Analytics 開發人員] 角色。
 5. 選取 U-SQL 資料庫的存取控制清單 (ACL)。 當您對您的選擇感到滿意時，請按一下 [選取]。
 6. 選取檔案的 ACL。 對於預設存放區，請不要變更根資料夾 "/" 和 /system 資料夾的 ACL。 按一下 [選取] 。
-7. 檢閱您選取的所有變更，然後按一下執行。
+7. 檢閱您選取的所有變更，然後按一下 [執行]。
 8. 當精靈完成時，按一下 [完成]。
 
 ## <a name="manage-role-based-access-control"></a>管理角色型存取控制
@@ -117,7 +117,7 @@ Data Lake Analytics 支援下列資料來源：
 2. 按一下 [存取控制 (IAM)] > [新增]。
 3. 選取角色。
 4. 新增使用者。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
 
 >[!NOTE]
 >如果使用者或安全性群組需要提交作業，他們也需要有存放區帳戶的權限。 如需詳細資訊，請參閱[保護儲存在 Data Lake Store 中的資料](../data-lake-store/data-lake-store-secure-data.md)。
@@ -178,7 +178,7 @@ Data Lake Analytics 支援下列資料來源：
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 按一下 [內容] 。
 3. 在 [AU 上限] 之下，移動滑桿以選取值，或在文字方塊中輸入值。 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 > [!NOTE]
 > 如果您需要的 AU 超過預設值 (250)，請在入口網站中按一下 [說明 + 支援] 以提交支援要求。 您可以增加 Data Lake Analytics 帳戶中可用的 AU 數目。
@@ -192,7 +192,7 @@ Data Lake Analytics 支援下列資料來源：
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 按一下 [內容] 。
 3. 在 [執行中作業數目上限] 之下，移動滑桿以選取值，或在文字方塊中輸入值。 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 > [!NOTE]
 > 如果您需要執行的作業數目超過預設值 (20)，請在入口網站中按一下 [說明 + 支援] 以提交支援要求。 您可以增加 Data Lake Analytics 帳戶中可以同時執行的作業數目。
@@ -206,7 +206,7 @@ Data Lake Analytics 支援下列資料來源：
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 按一下 [內容] 。
 3. 在 [保留作業查詢的天數] 之下，移動滑桿以選取值，或在文字方塊中輸入值。  
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 ### <a name="job-level-policies"></a>作業層級原則
 使用工作層級原則，您可以控制 AU 上限和個別使用者 (或特定安全性群組的成員) 可以在其提交的作業上設定的最高優先順序。 這可讓您控制使用者所產生的成本。 也可讓您控制已排程的作業可能對正在相同 Data Lake Analytics 帳戶中執行之高優先順序生產作業的影響。

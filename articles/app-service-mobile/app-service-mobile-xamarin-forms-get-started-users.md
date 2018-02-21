@@ -16,7 +16,7 @@ ms.date: 08/07/2017
 ms.author: panarasi
 ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/04/2018
 ## <a name="overview"></a>概觀
 本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。 在本教學課程中，您將使用 App Service 支援的識別提供者，將驗證新增至 Xamarin.Forms 快速入門專案。 由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值，而您也將可以存取受限制的資料庫資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 為了讓本教學課程產生最佳結果，建議您先完成 [建立 Xamarin.Forms 應用程式][1]教學課程。 完成本教學課程之後，您將會有一個多平台 TodoList 應用程式的 Xamarin.Forms 專案。
 
 如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK][2]。

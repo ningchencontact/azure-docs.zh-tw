@@ -27,7 +27,7 @@ ms.lasthandoff: 01/10/2018
 > * 檢視已安裝的軟體
 > * 搜尋已安裝軟體的清查記錄
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 

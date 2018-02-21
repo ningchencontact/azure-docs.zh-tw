@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 ![Batch 方案工作流程 (基本)][11]<br/>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已具備 C# 和 Visual Studio 的使用知識。 而且假設您可以滿足針對 Azure Batch 和儲存體服務所指定的帳戶建立需求。
 
 ### <a name="accounts"></a>帳戶

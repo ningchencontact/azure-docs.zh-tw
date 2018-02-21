@@ -327,7 +327,7 @@ sudo apt-get install -y nodejs
 
     ![書籍記錄](media/tutorial-mean/meanstack-init.png)
 
-3. 在文字方塊中輸入資料，然後按一下 [新增]。 例如：
+3. 在文字方塊中輸入資料，然後按一下 [新增]。 例如︰
 
     ![新增書籍記錄](media/tutorial-mean/meanstack-add.png)
 

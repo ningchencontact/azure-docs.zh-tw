@@ -5,7 +5,7 @@ Kubernetes、DC/OS 和 Docker Swarm 叢集都會在本機提供 HTTP 端點。 �
 
 對於 DC/OS 和 Docker Swarm，建議您建立從本機電腦到叢集管理系統的安全殼層 (SSH) 通道。 建立通道後，您可以執行使用 HTTP 端點的命令，並從您的本機系統檢視 Orchestrator 的 web 介面 (如果可用)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [在 Azure Container Service 中部署](../articles/container-service/dcos-swarm/container-service-deployment.md)的 Kubernetes、DC/OS 或 Docker Swarm 叢集。
 * SSH RSA 私密金鑰檔案，其對應至在部署期間新增至叢集的公開金鑰。 這些命令假設 SSH 私密金鑰在您電腦上的 `$HOME/.ssh/id_rsa` 中。 如需詳細資訊，請參閱 [macOS 及 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 或 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) 的相關指示。 如果 SSH 連線無法運作，您可能需要[重設 SSH 金鑰](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)。
@@ -40,7 +40,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 此命令會將叢集認證下載到 `$HOME/.kube/config`，這是 `kubectl` 預期會找到它的位置。
 
-或者，您可以使用 `scp` 以安全地將檔案從主要 VM 上的 `$HOME/.kube/config` 複製到您的本機電腦。 例如：
+或者，您可以使用 `scp` 以安全地將檔案從主要 VM 上的 `$HOME/.kube/config` 複製到您的本機電腦。 例如︰
 
 ```bash
 mkdir $HOME/.kube
@@ -145,7 +145,7 @@ ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp
 export DOCKER_HOST=:2375
 ```
 
-執行可透過通道連至 Docker Swarm 叢集的 Docker 命令。 例如：
+執行可透過通道連至 Docker Swarm 叢集的 Docker 命令。 例如︰
 
 ```bash
 docker info

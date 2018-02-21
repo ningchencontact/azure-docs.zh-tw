@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
    ![Slack channels](media/log-analytics-alerts-webhooks/oms-webhooks02.png)
 5. 按一下小組名稱旁邊的 [安裝]  。
 6. 按一下 [加入組態] 。
-7. 選取您要用於此範例的通道，然後按一下加入連入 Webhook 整合 。  
+7. 選取您要用於此範例的通道，然後按一下 [加入連入 Webhook 整合] 。  
 8. 複製 [Webhook URL] 。  您將會此資訊貼入 [警示組態] 中。 <br>
    
     ![Slack channels](media/log-analytics-alerts-webhooks/oms-webhooks05.png)
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 
 ![example message in Slack](media/log-analytics-alerts-webhooks/oms-webhooks09.png)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 有了此警示規則後，每次符合準則時，我們就將訊息傳送至 Slack。  
 
 這只是舉例說明您可以建立以回應警示的動作。  您可以建立 webhook 動作以呼叫另一個外部服務、建立 Runbook 動作以啟動 Azure 自動化中的 Runbook，或建立電子郵件動作將郵件傳送給自己或其他收件者。   

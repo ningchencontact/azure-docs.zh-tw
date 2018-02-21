@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 * [自動化 REST API](http://msdn.microsoft.com/library/mt662285.aspx)
 * [社群 Runbook](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure)
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup 
 * [Azure 備份文件](http://azure.microsoft.com/documentation/services/backup)
 * [備份 PowerShell Cmdlet](https://msdn.microsoft.com/library/mt619253.aspx)
 * [備份 REST API](https://msdn.microsoft.com/library/azure/mt772375.aspx)
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 * [服務對應文件](operations-management-suite-service-map.md)
 * [服務對應 REST API](https://docs.microsoft.com/rest/api/servicemap/)
 
-## <a name="site-recovery"></a>站台復原
+## <a name="site-recovery"></a>Site Recovery
 * [Site Recovery PowerShell Cmdlet](https://msdn.microsoft.com/library/mt637930.aspx)
 * [Site Recovery REST API](https://msdn.microsoft.com/library/azure/mt750497.aspx)
 * [將 Azure 自動化 Runbook 新增至復原計劃](../site-recovery/site-recovery-runbook-automation.md)

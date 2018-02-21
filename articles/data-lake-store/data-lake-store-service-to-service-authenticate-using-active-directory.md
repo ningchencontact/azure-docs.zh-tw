@@ -35,7 +35,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 
 本文說明如何建立 **Azure AD Web 應用程式，以進行服務對服務驗證**。 如需有關適用於終端使用者驗證的 Azure AD 應用程式設定的指示，請參閱[使用 Azure Active Directory 以 Data Lake Store 進行終端使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>步驟 1：建立 Active Directory Web 應用程式

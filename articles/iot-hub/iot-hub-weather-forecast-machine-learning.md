@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>設定、設定及執行串流分析作業
 
-### <a name="create-a-stream-analytics-job"></a>建立串流分析工作
+### <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
 1. 在 [Azure 入口網站](https://ms.portal.azure.com/)中，按一下 [新增] > [物聯網] > [串流分析作業]。
 1. 輸入作業的以下資訊。
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
    ![在 Azure 中建立串流分析作業](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 10/11/2017
 
    ![在 Azure 中將輸入新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 
    ![在 Azure 中將輸出新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>將功能新增至串流分析作業，以呼叫您所部署的 Web 服務
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 
    ![在 Azure 中將功能新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 10/11/2017
 
    使用作業的輸出別名取代 `[YourOutputAlias]`。
 
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
 ### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 10/11/2017
 
    ![使用 Azure Machine Learning 取得氣象預報結果](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 您已成功使用 Azure Machine Learning 根據 IoT 中樞收到的溫度和溼度資料來產生下雨的機會。
 

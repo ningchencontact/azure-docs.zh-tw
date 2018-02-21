@@ -36,7 +36,7 @@ ms.lasthandoff: 12/05/2017
 
 另外，加強使用 [.NET 中程式設計 Azure 搜尋服務的程式碼型簡介](search-howto-dotnet-sdk.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程會採用 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)和 [Azure 搜尋服務](search-create-service-portal.md)。 
 

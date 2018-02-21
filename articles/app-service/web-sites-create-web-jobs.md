@@ -85,7 +85,7 @@ when making changes in one don't forget the other two.
    | **類型** | 連續 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
    | **調整** | 多重執行個體 | 僅適用於連續 WebJob。 決定程式或指令碼是在所有執行個體上執行，或是只在一個執行個體上執行。 在多個執行個體上執行的選項不適用於免費或共用[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 | 
 
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 
    新的 WebJob 會出現在 [WebJob] 分頁。
 
@@ -123,7 +123,7 @@ when making changes in one don't forget the other two.
    | **類型** | 觸發 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
    | **觸發程序** | 手動 | |
 
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 
    新的 WebJob 會出現在 [WebJob] 分頁。
 
@@ -162,7 +162,7 @@ when making changes in one don't forget the other two.
    | **觸發程序** | 已排程 | 若要讓排程可靠地運作，請啟用 [永遠開啟] 功能。 [永遠開啟] 僅適用於基本、標準和進階定價層。|
    | **CRON 運算式** | 0 0/20 * * * * | [CRON 運算式](#cron-expressions)將於下一節中說明。 |
 
-4. 按一下 [確定] 。
+4. 按一下 [SERVICEPRINCIPAL] 。
 
    新的 WebJob 會出現在 [WebJob] 分頁。
 

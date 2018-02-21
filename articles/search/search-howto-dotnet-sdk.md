@@ -56,7 +56,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.6 和 .NET Core 為目標
 
 這些情節的說明都隨附範例程式碼， 歡迎在您的應用程式中使用這些程式碼片段。
 
-### <a name="overview"></a>Overview
+### <a name="overview"></a>概觀
 我們將探索的範例應用程式，會建立名為 "hotels" 的新索引，並透過一些文件填入索引，然後執行一些搜尋查詢。 以下是主要程式，該程式顯示了整體流程：
 
 ```csharp

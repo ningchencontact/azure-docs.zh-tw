@@ -42,7 +42,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 ### <a name="templates"></a>可用範本
 
-|名稱| 描述 |
+|Name| 說明 |
 |:-----|:-----|
 |已產生的定義|具有可從函式現有中繼資料推斷之最大數量資訊的 OpenAPI 定義。|
 
@@ -55,7 +55,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 |[Host](http://swagger.io/specification/#fixed-fields-15)|**函式應用程式設定** > **App Service 設定** > **概觀** > **URL**|不存在
 |[Paths](http://swagger.io/specification/#paths-object-29)|[整合] > [選取的 HTTP 方法]|繫結：路由
 |[Path Item](http://swagger.io/specification/#path-item-object-32)|[整合] > [路由範本]|繫結：方法
-|[安全性](http://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在|
+|[Security](http://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在|
 |operationID*|**路由 + 允許的動詞**|路由 + 允許的動詞|
 
 \*只有與 PowerApps 和 Flow 整合才需要作業識別碼。

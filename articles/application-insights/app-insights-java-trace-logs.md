@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中探索 Java 追蹤記錄
 如果您使用 Logback 或 Log4J (v1.2 或 v2.0) 進行追蹤，您可以將追蹤記錄自動傳送到 Application Insights，您可以在其中探索及搜尋記錄。
 
 ## <a name="install-the-java-sdk"></a>安裝 Java SDK
 
-安裝 [Java 適用的 Application Insights SDK][java]，如果您還未完成的話。
-
-(如果您不想要追蹤 HTTP 要求，您可以省略大多數 .xml 組態檔，但必須至少包含 `InstrumentationKey` 元素。 您還應該呼叫 `new TelemetryClient()` 來將 SDK 初始化)。
-
+依指示安裝 [Application Insights SDK for Java][java]，如果您還未完成的話。
 
 ## <a name="add-logging-libraries-to-your-project"></a>將記錄程式庫加入至專案
 *選擇適合您的專案的方式。*
@@ -101,13 +98,14 @@ ms.lasthandoff: 11/01/2017
 ```
 
 #### <a name="otherwise-"></a>否則...
-下載並擷取適當的附加器，然後加入適當的程式庫至您的專案：
+依照指導方針手動安裝 Application Insights Java SDK，下載適當附加器的 jar (到達 Maven 中央頁面之後，在下載區段中按一下 'jar' 連結)，然後將下載的附加器 jar 新增至專案。
 
 | 記錄器 | 下載 | 程式庫 |
 | --- | --- | --- |
-| Logback |[具有 Logback 附加器的 SDK](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J v2.0 |[具有 Log4J v2 附加器的 SDK](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4J v1.2 |[具有 Log4J v1.2 附加器的 SDK](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[Logback 附加器 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 附加器 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J v1.2 |[Log4J v1.2 附加器 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>將附加器加入至記錄架構
 若要開始進行追蹤，請將相關的程式碼片段合併到 Log4J 或 Logback 組態檔案： 
@@ -128,7 +126,7 @@ ms.lasthandoff: 11/01/2017
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -157,6 +155,8 @@ Application Insights 附加器可由任何設定的記錄器參考，而不一�
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>在 Application Insights 入口網站中探索您的追蹤
 既然已將專案設定為傳送追蹤至 Application Insights，您可以在 Application Insights 入口網站的[搜尋][diagnostic]刀鋒視窗中檢視及搜尋這些追蹤。
+
+透過記錄器提交的例外狀況會在入口網站上顯示為例外狀況遙測。
 
 ![在 Application Insights 入口網站中，開啟 [搜尋]](./media/app-insights-java-trace-logs/10-diagnostics.png)
 

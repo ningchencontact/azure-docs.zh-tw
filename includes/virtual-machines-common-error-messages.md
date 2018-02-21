@@ -87,7 +87,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  InvalidParameter  |  Linux 主機名稱長度不可超過 {0} 個字元，也不得包含下列字元: {1}。  |
 |  InvalidParameter  |  由於 Linux 佈建代理程式中的已知問題，SSH 公開金鑰的目的地路徑目前僅限於其預設值 {0}。  |
 |  InvalidParameter  |  已有磁碟的 LUN 為 {0}。  |
-|  InvalidParameter  |  要求的訂用帳戶 {0} 必須與受管理磁碟識別碼內含的訂用帳戶 {1} 相符。  |
+|  InvalidParameter  |  要求的訂用帳戶 {0} 必須與受控磁碟識別碼內含的訂用帳戶 {1} 相符。  |
 |  InvalidParameter  |  OSProfile 中的自訂資料必須以 Base64 編碼，而且長度上限為 {0} 個字元。  |
 |  InvalidParameter  |  URL {0} 中的 blob 名稱必須以 '{1}' 副檔名結尾。  |
 |  InvalidParameter  |  '{0}' 不是有效擷取的 VHD blob 名稱前置詞。 有效的前置詞符合 regex '{1}'。  |
@@ -113,7 +113,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  OperationNotAllowed  |  無法刪除可用性設定組 {0}。 在刪除可用性設定組之前，請確定它未包含任何 VM。  |
 |  OperationNotAllowed  |  不允許將可用性設定組 SKU 從「對齊」變更為「傳統」。  |
 |  OperationNotAllowed  |  未執行 VM 時，無法修改 VM 中的擴充。  |
-|  OperationNotAllowed  |  只在具有 Blob 磁碟的虛擬機器上才支援擷取動作。 使用「映像」資源的 API，從受管理的虛擬機器建立映像。  |
+|  OperationNotAllowed  |  只在具有 Blob 磁碟的虛擬機器上才支援擷取動作。 使用「映像」資源的 API，從受控虛擬機器建立映像。  |
 |  OperationNotAllowed  |  必須先成功建立映像 {1}，才能從該映像建立資源 {0}。  |
 |  OperationNotAllowed  |  若已配置 VM，即無法更新 encryptionSettings。請在 VM 解除配置之後再試一次。  |
 |  OperationNotAllowed  |  不支援將受控磁碟新增至具有 blob 磁碟的 VM。  |

@@ -92,7 +92,7 @@ ms.lasthandoff: 11/28/2017
 
     Write-HDILog "$configFileName has been configured."
 
-此指令碼採用四個參數，組態檔名稱、您想要修改的屬性、您要設定的值以及描述。 例如：
+此指令碼採用四個參數，組態檔名稱、您想要修改的屬性、您要設定的值以及描述。 例如︰
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/28/2017
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
-| 名稱 | 指令碼 |
+| Name | 指令碼 |
 | --- | --- |
 | **安裝 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。 請參閱[在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]。 |
 | **安裝 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。 請參閱[在 HDInsight 叢集上安裝和使用 R][hdinsight-r-scripts]。 |
@@ -202,7 +202,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 在此範例中，您必須確定儲存體帳戶 'somestorageaccount' 中的容器 'somecontainer' 可公開存取。 否則，指令碼會擲回「找不到」例外狀況而失敗。
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>傳遞參數到 Add-AzureRmHDInsightScriptAction Cmdlet
-若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction cmdlet，您必須先格式化字串值以包含指令碼的所有參數。 例如：
+若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction cmdlet，您必須先格式化字串值以包含指令碼的所有參數。 例如︰
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

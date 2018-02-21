@@ -71,7 +71,7 @@ ms.lasthandoff: 01/11/2018
     | **API** | SQL | 選取 SQL API。 此時，Azure Cosmos DB 觸發程序、輸入繫結，以及輸出繫結只會使用 SQL API 和圖形 API 帳戶。 |
     | **訂用帳戶** | Azure 訂閱 | Azure 訂閱  |
     | **資源群組** | myResourceGroup |  使用含有您的函式應用程式的現有資源群組。 |
-    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>  | WestEurope | 選取您的函式應用程式或其他使用已儲存文件的應用程式附近的位置。  |
+    | **位置**  | WestEurope | 選取您的函式應用程式或其他使用已儲存文件的應用程式附近的位置。  |
 
 6. 按一下 [確定]  以建立資料庫。 建立資料庫可能需要幾分鐘的時間。 建立資料庫之後，資料庫連接字串會儲存為函式應用程式設定。 此應用程式設定的名稱會插入在 **Azure Cosmos DB 帳戶連線**中。 
  

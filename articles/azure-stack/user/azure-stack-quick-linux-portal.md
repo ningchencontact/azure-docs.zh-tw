@@ -18,11 +18,11 @@ ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站來建立 Linux 虛擬機器
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您可以透過 Azure Stack 入口網站來建立 Azure Stack 虛擬機器。 此方法提供一個瀏覽器型使用者介面，可建立和設定虛擬機器及所有相關的資源。 本快速入門說明如何快速建立 Linux 虛擬機器並在虛擬機器上安裝 Web 伺服器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure Stack 市集中的 Linux 映像**
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/08/2017
 1. 按一下 Azure Stack 入口網站左上角的 [新增] 按鈕。
 
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
-3. 按一下 [建立] 。
+3. 按一下頁面底部的 [新增] 。
 
 4. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰]。 當您貼上 SSH 公開金鑰 (先前已儲存至檔案中) 時 ，請謹慎地移除任何前置或尾端的空白字元。 完成時，按一下 [確定]。
 
@@ -121,7 +121,7 @@ sudo apt-get -y install nginx
 3. 在左側功能表的 [設定] 底下，按一下 [輸入安全性規則]。
 4. 按一下 [新增] 。
 5. 在 [名稱] 中輸入 **http**。 確定 [連接埠範圍] 已設為 80 且 [動作] 已設為 [允許]。 
-6. 按一下 [確定] 。
+6. 按一下 [SERVICEPRINCIPAL] 。
 
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面

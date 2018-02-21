@@ -58,7 +58,7 @@ Azure 資料湖存放區的資料容器基本上是資料夾和檔案。 您可�
 ## <a name="DataLakeStoreSecurity"></a>在 Azure 資料湖存放區中保護資料
 Azure 資料湖存放區會使用 Azure Active Directory 進行驗證，並使用存取控制清單 (ACL) 來管理資料的存取。
 
-| 功能 | 描述 |
+| 功能 | 說明 |
 | --- | --- |
 | 驗證 |Azure 資料湖存放區整合了 Azure Active Directory (AAD)，可對 Azure 資料湖存放區中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Azure 資料湖受惠於所有的 AAD 功能，包括 Multi-Factor Authentication、條件式存取、角色型存取控制、應用程式使用情況監視、安全性監視和警示等。Azure 資料湖存放區支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱 [Data Lake Store 驗證](data-lakes-store-authentication-using-azure-active-directory.md)|
 | 存取控制 |Azure 資料湖存放區藉由支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 在 Data Lake Store 公開預覽 (目前版本) 中，可在根資料夾、子資料夾和個別檔案上啟用 ACL。 如需 ACL 如何在 Data Lake Store 的內容中運作的詳細資訊，請參閱 [Data Lake Store 中的存取控制](data-lake-store-access-control.md)。 |

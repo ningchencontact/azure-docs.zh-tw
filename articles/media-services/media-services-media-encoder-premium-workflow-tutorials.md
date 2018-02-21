@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文件包含的逐步解說可示範如何使用**工作流程設計工具**自訂工作流程。 您可以在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples)尋找實際的工作流程檔案。  
 
 ## <a name="toc"></a>目錄

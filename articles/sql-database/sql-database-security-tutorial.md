@@ -39,7 +39,7 @@ SQL Database 使用防火牆規則、要求使用者證明其身分的驗證機�
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，請確定您具有下列項目︰
 
@@ -184,7 +184,7 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
    > 讓所有稽核的資料庫都使用相同的儲存體帳戶，以充分利用稽核報告範本。
    > 
 
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
 > [!IMPORTANT]
 > 如果您想要自訂稽核事件，您可以透過 PowerShell 或 REST API 來自訂- 詳細資訊請參閱 [SQL 資料庫稽核](sql-database-auditing.md)。
@@ -206,7 +206,7 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 
 5. 按一下 [稽核與威脅偵測] 刀鋒視窗中的 [儲存]，以儲存新的或已更新的稽核與威脅偵測原則。
 
-    ![導覽窗格](./media/sql-database-security-tutorial/td-turn-on-threat-detection.png)
+    ![瀏覽窗格](./media/sql-database-security-tutorial/td-turn-on-threat-detection.png)
 
     如果偵測到異常的資料庫活動，您會在一偵測到異常的資料庫活動時，就收到電子郵件通知。 電子郵件將提供可疑安全性事件的相關資訊，包括異常活動的性質、資料庫名稱、伺服器名稱和事件時間。 此外，還會提供可能原因和建議動作的相關資訊，以協助您調查和減輕資料庫的潛在威脅。 以下步驟會逐步說明收到以下類型的電子郵件時，您該怎麼做：
 

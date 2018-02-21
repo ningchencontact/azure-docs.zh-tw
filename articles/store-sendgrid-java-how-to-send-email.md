@@ -158,7 +158,7 @@ SendGrid 運用「篩選器」提供其他電子郵件功能。 這些設定可�
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>如何：更新電子郵件屬性
-某些電子郵件屬性可使用 **set*Property*** 進行覆寫，或使用  **add*Property*** 進行附加。
+某些電子郵件屬性可使用 **set*Property*** 進行覆寫，或使用 **add*Property*** 進行附加。
 
 例如，若要指定 **ReplyTo** 地址，請使用下列程式碼：
 

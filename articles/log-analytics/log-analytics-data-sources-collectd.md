@@ -110,16 +110,16 @@ OMS Agent for Linux 也會在連接埠 26000 接聽 CollectD 計量，然後將�
 
 | CollectD 計量欄位 | Log Analytics 欄位 |
 |:--|:--|
-| 主機 | 電腦 |
+| host | 電腦 |
 | plugin | None |
 | plugin_instance | 執行個體名稱<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
-| 類型 | ObjectName |
+| type | ObjectName |
 | type_instance | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
 | dsnames[] | CounterName |
 | dstypes | None |
 | values[] | CounterValue |
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，以分析從資料來源和解決方案所收集的資料。 
+* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。 
 * 使用 [自訂欄位](log-analytics-custom-fields.md) ，以將來自 syslog 記錄的資料剖析至個別欄位。
 

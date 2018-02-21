@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 4. 在 [類型] 底下選取 [公用]。
 5. 在 SKU 底下選取 [標準 (預覽)]。
 6. 按一下 [公用 IP 位址]，按一下 [建立新的]，在 [建立公用 IP 位址] 頁面上的 [名稱] 底下輸入 **myPublicIPStandard**，然後在 [可用性區域 (預覽)] 中選取 [區域備援]。
-7. 在 位置 底下選取 美國東部 2，然後按一下確定。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
+7. 在 [位置] 底下選取 [美國東部 2]，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
 
     ![使用 Azure 入口網站建立區域備援 Load Balancer Standard](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 

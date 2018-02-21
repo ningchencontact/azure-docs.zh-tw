@@ -147,7 +147,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 | 參數 | value |
 | --- | --- |
-| 名稱 |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | 此警示規則的位置 |美國東部 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

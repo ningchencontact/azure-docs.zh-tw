@@ -16,7 +16,7 @@ ms.date: 10/13/2017
 ms.author: heidist
 ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -127,7 +127,7 @@ if (categoryFacet != "")
 
 儘管這是一個常見使用案例，但並不是多面向導覽目前預設提供的功能。 需要靜態 Facet 的開發人員通常可藉由發出兩個篩選查詢來解決限制：一個將範圍設為結果，另一個則基於導覽目的用來建立靜態的 Facet 清單。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)

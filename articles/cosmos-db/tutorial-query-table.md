@@ -43,7 +43,7 @@ Azure Cosmos DB [資料表 API](table-introduction.md) 支援對索引鍵/值 (�
 
 如需 Azure Cosmos DB 所提供之進階功能的詳細資訊，請參閱 [Azure Cosmos DB：資料表 API](table-introduction.md) 和[在 .NET 中使用資料表 API 進行開發](tutorial-develop-table-dotnet.md)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要讓這些查詢能夠運作，您必須具備 Azure Cosmos DB 帳戶，並且在容器中有實體資料。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](create-table-dotnet.md)或[開發人員教學課程](tutorial-develop-table-dotnet.md)，以建立帳戶並在資料庫中填入資料。
 

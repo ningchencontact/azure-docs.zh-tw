@@ -143,7 +143,7 @@ ms.lasthandoff: 11/18/2017
     }
     ```
 
-1. 最後，將下列幾行加入至 **Main** 方法：
+1. 最後，將下列幾行新增至 **Main** 方法：
 
     ```csharp
     jobClient = JobClient.CreateFromConnectionString(connString);

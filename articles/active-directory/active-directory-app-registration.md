@@ -17,7 +17,7 @@ ms.author: priyamo
 ms.reviewer: elisol
 ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/11/2017
   * [屬性] 頁面可讓您修改應用程式的一般資訊。 這包括應用程式名稱、登入 URL 以及登出 URL。
   * [回覆 URL] 頁面可讓您新增回覆 URL，也就是 Azure AD 傳送權杖回應的位置。
   * [擁有者] 頁面可讓您新增應用程式擁有者。
-  * **必要的權限**頁面可讓您設定應用程式的權限。 例如，若要存取 Microsoft 圖形 API，請按一下 [新增] 並在 API 選取器中選取 [Microsoft Graph]，然後選擇所需的權限，例如 [讀取目錄資料]。
+  * [必要權限] 頁面可讓您設定應用程式的權限。 例如，若要存取 Microsoft 圖形 API，請按一下 [新增] 並在 API 選取器中選取 [Microsoft Graph]，然後選擇所需的權限，例如 [讀取目錄資料]。
   * [金鑰] 頁面可讓您新增應用程式密碼。 密碼只會在建立後立即顯示一次，請務必加以複製以便進一步使用。
 
 ## <a name="use-the-inline-manifest-editor"></a>使用內嵌資訊清單編輯器

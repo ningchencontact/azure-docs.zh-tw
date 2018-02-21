@@ -148,5 +148,5 @@ ms.lasthandoff: 10/11/2017
 | 使用者動作 | 此錯誤表示輸入訊息未包含本文 |
 |   |   | 
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md)

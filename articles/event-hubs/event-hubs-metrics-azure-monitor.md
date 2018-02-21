@@ -24,7 +24,7 @@ ms.lasthandoff: 10/23/2017
 
 「事件中樞」計量可提供您 Azure 訂用帳戶中「事件中樞」資源的狀態。 您可以使用一組豐富的計量資料，來評估事件中樞的整體健康情況 (不僅是命名空間層級，還包括實體層級)。 這些統計資料相當重要，因為它們可協助您監視事件中樞的狀態。 計量也可協助您針對根本原因問題進行疑難排解，而不需連絡 Azure 支援服務。
 
-「Azure 監視器」提供統一的使用者介面，可供您監視各個不同的 Azure 服務。 如需詳細資訊，請參閱 [Microsoft Azure 中的監視](../monitoring-and-diagnostics/monitoring-overview.md)和 GitHub 上的[使用 .NET 擷取 Azure 監視計量](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) \(英文\) 範例。
+「Azure 監視器」提供統一的使用者介面，可供您監視各個不同的 Azure 服務。 如需詳細資訊，請參閱 [Microsoft Azure 中的監視](../monitoring-and-diagnostics/monitoring-overview.md)和 GitHub 上的 [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) (使用 .NET 擷取 Azure 監視計量) 範例。
 
 ## <a name="access-metrics"></a>存取計量
 
@@ -48,10 +48,10 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 在預覽版「Azure 監視器」中使用計量目前是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 如果您將計量資料串流到 Operation Management Suite (OMS) 以進行進階分析，則也需支付 OMS 的使用費。
 
-下列計量可提供您服務健康情況的概觀。 
+下列計量會提供您服務健康狀態的概觀。 
 
 > [!NOTE]
-> 我們正在淘汰數個計量，因為它們已移至不同的名稱下。 這可能需要您更新參考。 以後將不再支援標記「已被取代」關鍵字的計量。
+> 我們正在取代許多計量，因為它們移至不同的名稱下。 這可能需要您更新參考。 此後不再支援標記「已取代」關鍵字的計量。
 
 所有計量值都會每分鐘傳送至「Azure 監視器」。 時間細微性會定義呈現計量值的時間間隔。 針對所有「事件中樞」計量，支援的時間間隔為 1 分鐘。
 
@@ -118,7 +118,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 * 開始使用[事件中樞教學課程](event-hubs-dotnet-standard-getstarted-send.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
-* [使用事件中樞的範例應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+* [使用事件中樞的完整範例應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 [1]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor1.png
 [2]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor2.png

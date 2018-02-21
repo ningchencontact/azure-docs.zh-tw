@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * Twilio 帳戶
 * 已驗證的 Twilio 電話號碼，以便接收簡訊
 * 已驗證的 Twilio 電話號碼，以便傳送簡訊
@@ -12,7 +12,7 @@
 
 若要授與邏輯應用程式連接到 Twilio 帳戶的權限，其步驟如下：
 
-1. 若要建立 Twilio 連線，請在邏輯應用程式設計工具中，選取下拉式清單的 [顯示 Microsoft Managed API]，然後在搜尋方塊中輸入「Twilio」。 選取您要使用的觸發程序或動作：  
+1. 若要建立 Twilio 連線，請在邏輯應用程式設計工具中，選取下拉式清單的 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「Twilio」。 選取您要使用的觸發程序或動作：  
    ![](./media/connectors-create-api-twilio/twilio-0.png)
 2. 如果您之前尚未建立任何 Twilio 連線，系統會提示您提供 Twilio 認證。 這些認證會用來授與邏輯應用程式連接並存取 Twilio 帳戶資料的權限：  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  

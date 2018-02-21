@@ -37,7 +37,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="known-issues"></a>已知問題
  
-#### <a name="deployment"></a>Deployment
+#### <a name="deployment"></a>部署
 - 在部署期間，您必須使用 IP 位址指定時間伺服器。
 
 #### <a name="infrastructure-management"></a>基礎結構管理
@@ -106,7 +106,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="known-issues"></a>已知問題
  
-#### <a name="deployment"></a>Deployment
+#### <a name="deployment"></a>部署
 - 在部署期間，您必須使用 IP 位址指定時間伺服器。
 
 #### <a name="infrastructure-management"></a>基礎結構管理
@@ -183,7 +183,7 @@ ms.lasthandoff: 01/05/2018
 #### <a name="powershell"></a>PowerShell
 - AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 如需從 1.2.10 版升級的詳細資訊，請參閱[移轉指南](https://aka.ms/azspowershellmigration)。
  
-#### <a name="deployment"></a>Deployment
+#### <a name="deployment"></a>部署
 - 在部署期間，您必須使用 IP 位址指定時間伺服器。
 
 #### <a name="infrastructure-management"></a>基礎結構管理

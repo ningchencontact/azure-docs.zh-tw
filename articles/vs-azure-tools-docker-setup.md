@@ -21,10 +21,10 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>使用 VirtualBox 設定 Docker 主機
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文會逐步引導您使用 Docker 機器和 VirtualBox 來設定預設 Docker 執行個體。 如果您是使用 [Docker for Windows Beta 版](http://beta.docker.com/)，則不需要此組態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您的電腦必須安裝下列工具。
 
 * [Docker 工具箱](https://www.docker.com/products/overview#/docker_toolbox)

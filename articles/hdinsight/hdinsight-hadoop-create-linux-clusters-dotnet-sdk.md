@@ -34,11 +34,11 @@ ms.lasthandoff: 11/06/2017
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **Azure 儲存體帳戶**。 請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 * **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
 
@@ -393,10 +393,10 @@ static void Main(string[] args)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark 叢集
-* [使用 Scala 來建立獨立的應用程式](spark/apache-spark-create-standalone-application.md)
+* [使用 Scala 建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
 * [利用 Livy 在 Spark 叢集上遠端執行工作](spark/apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](spark/apache-spark-eventhub-streaming.md)
 
 ### <a name="run-jobs"></a>執行工作

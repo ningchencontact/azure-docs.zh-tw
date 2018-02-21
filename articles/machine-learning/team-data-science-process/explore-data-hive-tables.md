@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經：
 
 * 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 3. 取得類別資料行中的層級   
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
 4. 取得兩個類別資料行組合中的層級數目 `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. 取得數值資料行的分佈   
+5. 取得數值資料行的分佈  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. 聯結兩個資料表來擷取記錄
    

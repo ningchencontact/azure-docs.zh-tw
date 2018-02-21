@@ -21,7 +21,7 @@ ms.lasthandoff: 10/31/2017
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>如何使用不同的硬體安全性模組搭配裝置佈建服務用戶端 SDK
 這些步驟顯示如何透過實體裝置和模擬器使用不同的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)搭配 C 中的裝置佈建服務用戶端 SDK。  佈建服務支援兩種驗證模式：X**.**509 和受信任的平台模組 (TPM)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 根據 [建立及佈建模擬的裝置] (./quick-create-simulated-device.md) 指南中標題為「準備開發環境」一節，準備您的開發環境。
 

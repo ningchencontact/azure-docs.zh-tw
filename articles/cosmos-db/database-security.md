@@ -81,7 +81,7 @@ ms.lasthandoff: 11/15/2017
 |受保護的設施|Azure Cosmos DB 中的資料儲存在 Azure 受保護資料中心內的 SSD 上。<br><br>請參閱 [Microsoft 全球資料中心](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)以深入了解|
 |HTTPS/SSL/TLS 加密|用戶端對服務的所有 Azure Cosmos DB 互動都強制使用 SSL/TLS 1.2。 此外，資料中心內和跨資料中心的所有複寫也都強制使用 SSL/TLS 1.2。|
 |待用加密|所有儲存至 Azure Cosmos DB 的資料都會進行待用加密。 若要深入了解，請參閱 [Azure Cosmos DB 待用加密](.\database-encryption-at-rest.md)|
-|修補的伺服器|Azure Cosmos DB 是受管理的資料庫，會自動替您管理和修補伺服器。|
+|修補的伺服器|Azure Cosmos DB 是受控資料庫，會自動替您管理和修補伺服器。|
 |使用強式密碼的系統管理帳戶|很難相信我們需要提到這個需求，但是與一些競爭者不同，Azure Cosmos DB 中的系統管理帳戶一定會有密碼。<br><br> 依預設已內建透過 SSL 和 HMAC 密碼型驗證的安全性。|
 |安全性和資料保護認證|Azure Cosmos DB 已取得 [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001)、[歐盟資料隱私保護規範 (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) 和 [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) 認證。 還有其他認證在進行中。|
 

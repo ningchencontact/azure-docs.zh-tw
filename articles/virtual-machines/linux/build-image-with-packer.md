@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像
 Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Linux 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的散發套件和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/)，在 Azure 中定義並建置自訂映像。
@@ -28,7 +28,7 @@ Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則�
 ## <a name="create-azure-resource-group"></a>建立 Azure 資源群組
 建置程序進行期間，Packer 會在建置來源 VM 時建立暫存的 Azure 資源。 若要擷取該來源 VM 以作為映像，您必須定義資源群組。 Packer 建置程序所產生的輸出會儲存在此資源群組中。
 
-使用 [az group create](/cli/azure/group#create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -54,7 +54,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 }
 ```
 
-若要向 Azure 驗證，您也需要使用 [az account show](/cli/azure/account#show) 取得 Azure 訂用帳戶識別碼：
+若要向 Azure 驗證，您也需要使用 [az account show](/cli/azure/account#az_account_show) 取得 Azure 訂用帳戶識別碼：
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -200,7 +200,7 @@ Packer 需要幾分鐘的時間來建置 VM、執行佈建程式並清除部署�
 
 
 ## <a name="create-vm-from-azure-image"></a>從 Azure 映像建立 VM
-您現在可以使用 [az vm create](/cli/azure/vm#create) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage 建立名為 myVM 的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
+您現在可以使用 [az vm create](/cli/azure/vm#az_vm_create) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage 建立名為 myVM 的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
 
 ```azurecli
 az vm create \

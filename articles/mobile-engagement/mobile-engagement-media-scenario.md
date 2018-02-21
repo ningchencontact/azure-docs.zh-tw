@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>對媒體應用程式實作 Mobile Engagement
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 John 是一家大型媒體公司的行動裝置專案經理。 他最近推出了一款新的應用程式，並獲得很高的下載次數。 他已達成預定的下載次數目標，但從每位使用者身上所獲得的投資回報 (ROI) 卻未達要求。 
 
 John 已找到 ROI 太低的原因。 使用者經常在短短 2 週後就停止使用他的應用程式，而且大多不會再回頭使用。 他想要提升應用程式的保留期。

@@ -16,7 +16,7 @@ ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: db4cfe91b8d27b5336763eff7c6f22f0f345caf2
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 >
 >
 
-您可以使用 PowerShell 命令來檢視 IssuerUri `Get-MsolDomainFederationSettings -DomainName <your domain>`。
+您可以使用 PowerShell 命令 `Get-MsolDomainFederationSettings -DomainName <your domain>` 來檢視 IssuerUri。
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 01/03/2018
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-規則運算式中的最後一個數字設定了您根網域中的父網域數目。 此處我所擁有的是 bmcontoso.com，因此必須有 2 個父網域。 如果要保留 3 個父網域 (亦即 corp.bmcontoso.com)，則數字就會是 3。 最後一個範圍，可看出，一律會進行比對符合網域的最大值。 "{2,3}" 會比對出 2 到 3 個網域 (亦即 bmfabrikam.com 和 corp.bmcontoso.com)。
+規則運算式中的最後一個數字設定了您根網域中的父網域數目。 此處我所擁有的是 bmcontoso.com，因此必須有 2 個父網域。 如果要保留 3 個父網域 (亦即 corp.bmcontoso.com)，則數字就會是 3。 最後可以指出一個範圍，系統一律會進行比對來符合網域數目上限。 "{2,3}" 會比對出 2 到 3 個網域 (亦即 bmfabrikam.com 和 corp.bmcontoso.com)。
 
 請使用下列步驟來加入自訂宣告，以支援子網域。
 

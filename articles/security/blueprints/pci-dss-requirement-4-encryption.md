@@ -48,7 +48,7 @@ ms.lasthandoff: 11/16/2017
 > - 衛星通訊
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/16/2017
 
 **4.1.1** 確保傳輸持卡人資料或與持卡人資料環境連線的無線網路，是使用業界最佳作法 (例如，IEEE 802.11i) 來實作驗證和傳輸的強式加密。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/16/2017
 
 **4.2** 永遠不會透過使用者傳訊技術 (例如電子郵件、即時訊息、SMS 和 聊天軟體等) 傳送未受保護的 PAN。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/16/2017
 
 **4.3** 確定持卡人資料傳輸加密的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

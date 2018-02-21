@@ -23,10 +23,10 @@ ms.lasthandoff: 11/28/2017
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>使用 Power BI 分析 Data Lake Store 中的資料
 在本文中，您將了解如何使用 Power BI Desktop 分析 Azure Data Lake Store 中所儲存的資料並加以視覺化。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。 本文假設您已經建立稱為 **mybidatalakestore** 的 Data Lake Store 帳戶，並將範例資料檔案 (**Drivers.txt**) 上傳到其中。 此範例檔案可從 [Azure Data Lake Git 儲存機制](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)進行下載。
 * **Power BI Desktop**。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=45331)下載此項目。 
 

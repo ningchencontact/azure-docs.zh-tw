@@ -183,7 +183,7 @@ ApplicationLoad 查詢會傳回應用程式指定之「應用程式容量」的�
 * 應用程式容量︰許可的應用程式負載值上限。
 
 ## <a name="removing-application-capacity"></a>移除應用程式容量
-一旦針對應用程式設定應用程式容量參數，它們可以使用更新的應用程式 API 或 PowerShell Cmdlet 來移除。 例如：
+一旦針對應用程式設定應用程式容量參數，它們可以使用更新的應用程式 API 或 PowerShell Cmdlet 來移除。 例如︰
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

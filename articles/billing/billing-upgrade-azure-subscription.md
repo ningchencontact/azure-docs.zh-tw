@@ -19,7 +19,7 @@ ms.author: jlian
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7b9642eec0fd0f1e547f34de1077e551fbb61593
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -35,4 +35,4 @@ ms.lasthandoff: 12/08/2017
    
     ![此螢幕擷取畫面顯示要選取以確認您想要升級訂用帳戶的項目](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- 當您升級從免費試用訂用帳戶時，您會保留完整的 30 天內建立訂閱之後剩餘信用點數。 您也可以免費 12 個月的服務。
+ 當您從免費試用訂用帳戶升級時，可在建立訂用帳戶之後保留剩餘信用點數長達 30 天。 您也可以存取 12 個月的免費服務。

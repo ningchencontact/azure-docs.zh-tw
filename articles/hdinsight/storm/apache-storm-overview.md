@@ -123,7 +123,7 @@ Storm on HDInsight 隨附完整的企業級連續支援。 Storm on HDInsight �
 * 社交分析
 * 擷取、轉換和載入 (ETL)
 * 網路監視
-* 搜尋
+* Search
 * Mobile Engagement
 
 如需真實案例的相關資訊，請參閱[公司如何使用 Storm](https://storm.apache.org/documentation/Powered-By.html)文件。

@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 在本教學課程中，您將了解如何整合 Zoom 與 Azure Active Directory (Azure AD)。
 
-Zoom 與 Azure AD 整合提供下列優點：
+將 Zoom 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Zoom 的人員。
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Zoom (單一登入)。
@@ -32,7 +32,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Zoom 整合，您需要下列項目：
 
@@ -54,7 +54,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-zoom-from-the-gallery"></a>從資源庫新增 Zoom
-若要設定將 Zoom 整合到 Azure AD 中，您需要從資源庫將 Zoom 新增到受控 SaaS 應用程式清單。
+若要設定將 Zoom 整合到 Azure AD 中，您需要將 Zoom 從資源庫新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Zoom，請執行下列步驟：**
 
@@ -104,9 +104,9 @@ Zoom 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_samlbase.png)
 
-3. 在 [Zoom 網域與 URL] 區段中，執行下列步驟：
+3. 在 [Zoom 網域及 URL] 區段上，執行下列步驟：
 
-    ![Zoom 網域與 URL 單一登入資訊](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_url.png)
+    ![Zoom 網域及 URL 單一登入資訊](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.zoom.us`
 
@@ -115,7 +115,7 @@ Zoom 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc)以取得這些值。
 
-4. 縮放應用程式預期的 SAML 判斷提示，以特定格式，會要求您新增自訂屬性對應到 SAML token 屬性組態。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 
+4. Zoom 應用程式會預期要有特定格式的 SAML 判斷提示，這需要您將自訂屬性對應新增到您的 SAML 權杖屬性設定。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 
 
     ![設定單一登入](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
 
@@ -139,7 +139,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     c. 在 [值] 清單中，選取該列所顯示的值。
 
-    d. 在**命名空間**文字方塊中，輸入該列顯示的命名空間值。
+    d. 在 [命名空間] 文字方塊中，輸入該資料列顯示的命名空間值。
     
     e. 按一下 [確定] 。 
  
@@ -178,7 +178,7 @@ Zoom 與 Azure AD 整合提供下列優點：
     e. 按一下 [檔案] 。
 
     > [!NOTE] 
-    > 如需詳細資訊，請瀏覽縮放文件[https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
+    > 如需詳細資訊，請瀏覽 Zoom 文件 [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

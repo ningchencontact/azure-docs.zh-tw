@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Azure Mobile Engagement 服務將於 2018 年 3 月淘汰，目前僅供現有客戶使用。 如需詳細資訊，請參閱 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>設定 Windows 通用應用程式的 Mobile Engagement
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 即使下列步驟與舊版 Visual Studio 中的步驟類似，但這些步驟假設使用的是 Visual Studio 2015。
 
 1. 啟動 Visual Studio，並在 [首頁] 畫面上選取 [新增專案]。
-2. 在快顯視窗中，選取 [Windows] -> [通用] -> [空白應用程式 (通用 Windows)]。 輸入應用程式的 名稱 和 方案名稱，然後按一下確定。
+2. 在快顯視窗中，選取 [Windows] -> [通用] -> [空白應用程式 (通用 Windows)]。 輸入應用程式的 [名稱] 和 [方案名稱]，然後按一下 [確定]。
 
     ![][1]
 
@@ -122,10 +122,10 @@ ms.lasthandoff: 10/11/2017
 >
 > 對於 **Windows 10 通用應用程式**，請使用[使用 Windows 通用 App Engagement SDK 的進階報告](mobile-engagement-windows-store-advanced-reporting.md)之「建議使用的方法：多載您的 Page 類別」一節的建議方法，而非先前所述方法。
 
-## <a id="monitor"></a>將 App 與即時監視連接
+## <a id="monitor"></a>將應用程式與即時監視連接
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>啟用推播通知與 App 內傳訊
+## <a id="integrate-push"></a>啟用推播通知與應用程式內傳訊的功能
 Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活動進行時與使用者互動和觸達。 此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。
 以下各節將設定您的用程式來接收它們。
 

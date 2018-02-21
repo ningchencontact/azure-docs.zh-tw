@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 建立網路安全性群組
 
@@ -36,9 +36,9 @@ ms.lasthandoff: 11/17/2017
 
 若要根據上述案例建立名為 *NSG-FrontEnd* 的 NSG，請依照下列步驟執行。
 
-1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。 
+1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 
 
-2. 使用 [az network nsg create](/cli/azure/network/nsg#create) 命令建立 NSG。 
+2. 使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 命令建立 NSG。 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/17/2017
 
 
 
-3. 使用 [az network nsg rule create](/cli/azure/network/nsg/rule#create) 命令來建立規則，允許從網際網路存取連接埠 3389 (RDP)。
+3. 使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 命令來建立允許從網際網路存取連接埠 3389 (RDP) 的規則。
 
     > [!NOTE]
     > 根據您所使用的殼層，您可能需要修改下列引數中的 `*` 字元，以免在執行之前就展開引數。
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/17/2017
     }
     ```
 
-5. 使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) 命令，將 NSG 繫結至 **FrontEnd** 子網路。
+5. 使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) 命令，將 NSG 繫結至 **FrontEnd** 子網路。
         
     ```azurecli
     az network vnet subnet update \

@@ -34,9 +34,9 @@ ms.lasthandoff: 10/11/2017
 
 <a name="resources"></a>部署範本會建立下列資源︰
 
-|資源|名稱|說明|
+|資源|Name|說明|
 |---|---|---|
-|網路介面|myNic1|這篇文章的案例一節所述的三個 IP 組態會建立並指派給此 NIC。|
+|Linux|myNic1|這篇文章的案例一節所述的三個 IP 組態會建立並指派給此 NIC。|
 |公用 IP 位址資源|會建立 2 個：myPublicIP 和 myPublicIP2|這些資源會獲得指派靜態公用 IP 位址，並且指派給案例中所述的 IPConfig-1 和 IPConfig-2 IP 組態。|
 |VM|myVM1|標準 DS3 VM。|
 |虛擬網路|myVNet1|具有一個名為 mySubnet 子網路的虛擬網路。|
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 <a name="parameters"></a>在部署範本時，您必須指定下列參數的值︰
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |adminUsername|系統管理員使用者名稱。 使用者名稱必須符合 [Azure 使用者名稱需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。|
 |adminPassword|系統管理員密碼的密碼必須符合 [Azure 密碼需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|

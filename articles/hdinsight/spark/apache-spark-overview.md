@@ -44,7 +44,7 @@ Spark 提供用於記憶體內部叢集運算的基本項目。 Spark 作業可�
 在 Spark 中，作業之間的資料共用比較快速，因為資料位於記憶體中。 相反地，Hadoop 透過 HDFS 共用資料，其所需的處理時間比較長。
 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>什麼是 Apache Spark on Azure HDInsight？
-HDInsight 上的 Spark 叢集可提供完全受管理的 Spark 服務。 在 HDInsight 上建立 Spark 叢集的優點如下所列。
+HDInsight 上的 Spark 叢集可提供完全受控的 Spark 服務。 在 HDInsight 上建立 Spark 叢集的優點如下所列。
 
 | 功能 | 說明 |
 | --- | --- |

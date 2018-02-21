@@ -26,9 +26,9 @@ ms.lasthandoff: 12/13/2017
 ## <a name="supported-scenarios"></a>支援的案例
 **功能** | **VMware 至 Azure** | **Hyper-V 至 Azure** | **Azure 至 Azure**| **Hyper-V 至 Hyper-V** 
 --|--|--|--|--
-排除磁碟 | 是 | 是 | 否 | 否
+排除磁碟 | yes | yes | 否 | 否
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 依預設會複寫機器上的所有磁碟。 若要排除磁碟不要複寫，如果您是從 VMware 複寫至 Azure，您必須先在機器上手動安裝行動服務，然後才啟用複寫。
 

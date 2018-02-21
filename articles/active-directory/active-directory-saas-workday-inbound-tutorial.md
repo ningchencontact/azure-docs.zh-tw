@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -297,7 +297,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
          * **運算式** – 可讓您根據一或多個 Workday 屬性，將自訂值寫入 AD 屬性。 [如需詳細資訊，請參閱這篇有關運算式的文章](active-directory-saas-writing-expressions-for-attribute-mappings.md)。
 
-      * **來源屬性** - 來自 Workday 的使用者屬性。
+      * **來源屬性** - 來自 Workday 的使用者屬性。 如果您要尋找的屬性不存在，請參閱[自訂 Workday 使用者屬性的清單](#customizing-the-list-of-workday-user-attributes)。
 
       * **預設值** – 選用。 如果來源屬性具有空值，則對應將會改為寫入此值。
             最常見的設定是將其保留空白。
@@ -549,7 +549,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
       * **運算式** – 可讓您根據一或多個 Workday 屬性，將自訂值寫入 AD 屬性。 [如需詳細資訊，請參閱這篇有關運算式的文章](active-directory-saas-writing-expressions-for-attribute-mappings.md)。
 
-   * **來源屬性** - 來自 Workday 的使用者屬性。
+   * **來源屬性** - 來自 Workday 的使用者屬性。 如果您要尋找的屬性不存在，請參閱[自訂 Workday 使用者屬性的清單](#customizing-the-list-of-workday-user-attributes)。
 
    * **預設值** – 選用。 如果來源屬性具有空值，則對應將會改為寫入此值。
             最常見的設定是將其保留空白。
@@ -646,7 +646,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>自訂 Workday 使用者屬性的清單
 Active Directory 和 Azure AD 的 Workday 佈建應用程式都包含您可以從中選取的預設 Workday 使用者屬性清單。 不過，這些清單並不完整。 Workday 支援數百個可能的使用者屬性，這些屬性可以是 Workday 租用戶的標準或唯一屬性。 
 
-Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含任何在人力資源 API 的 [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) 作業中公開的屬性。
+Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含任何在人力資源 API 的 [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 作業中公開的屬性。
 
 若要這麼做，您必須使用 [Workday Studio](https://community.workday.com/studio-download) 擷取代表您要使用之屬性的 XPath 運算式，然後在 Azure 入口網站中使用進階屬性編輯器將這些運算式新增至您的佈建組態。
 
@@ -654,7 +654,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 1. 下載並安裝 [Workday Studio](https://community.workday.com/studio-download)。 您需要 Workday 社群帳戶才能存取安裝程式。
 
-2. 從下列 URL 下載 Workday Human_Resources WDSL 檔案：https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. 從下列 URL 下載 Workday Human_Resources WDSL 檔案：https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. 啟動 Workday Studio。
 
@@ -680,12 +680,23 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

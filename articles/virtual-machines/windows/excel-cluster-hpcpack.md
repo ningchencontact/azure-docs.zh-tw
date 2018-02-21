@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 ![HPC 叢集與執行 Excel 工作負載的節點][scenario]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **用戶端電腦** - 您需要 Windows 用戶端電腦，以將範例 Excel 和 SOA 工作提交至叢集。 您也需要 Windows 電腦來執行 Azure PowerShell 叢集部署指令碼 (如果您選擇該部署方法)。
 * **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 * **核心配額** - 您可能需要增加核心的配額，特別是如果您部署多核心 VM 大小的數個叢集節點。 如果您使用 Azure 快速入門範本，則 Resource Manager 中的核心配額是根據 Azure 區域而定。 在此情況下，您可能需要增加特定區域中的配額。 請參閱 [Azure 訂用帳戶限制、配額與限制](../../azure-subscription-service-limits.md)。 若要增加配額，請 [開立線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (免費)。
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
    
     <!-- ![Connect to the head node][connect] -->
    
-   b.這是另一個 C# 主控台應用程式。 在憑證管理員中，使用標準程序來匯出前端節點憑證 (位於 Cert: \LocalMachine\My 之下) 而不需私密金鑰。 在此範例中，匯出 *CN = hpc01.eastus.cloudapp.azure.com*。
+   b. 在憑證管理員中，使用標準程序來匯出前端節點憑證 (位於 Cert: \LocalMachine\My 之下) 而不需私密金鑰。 在此範例中，匯出 *CN = hpc01.eastus.cloudapp.azure.com*。
    
    ![匯出憑證][cert]
 

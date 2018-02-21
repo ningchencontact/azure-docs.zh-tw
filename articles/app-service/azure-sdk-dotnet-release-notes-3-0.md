@@ -45,7 +45,7 @@ Azure SDK 3.0 在此版本中沒有重大變更。 在現有的雲端服務專�
 
 ### <a name="known-issues"></a>已知問題
 
-- Azure .NET SDK 3.0 中造成了在 Visual Studio 2015 的並存組態中移除 Visual Studio 2017 時的問題。  如果已安裝 Visual Studio 2015 的 Azure SDK，如果解除安裝 Visual Studio 2017，將會移除 Microsoft Azure 儲存體模擬器和 Microsoft Azure 計算模擬器。  這會在 Visual Studio 2015 建立和偵錯新雲端服務專案時產生錯誤。 若要修正這個問題，請透過 Web Platform Installer 重新安裝 Azure SDK。  此問題將在未來的 Visual Studio 2017 更新中獲得解決。  。
+- Azure .NET SDK 3.0 中造成了在 Visual Studio 2015 的並存組態中移除 Visual Studio 2017 時的問題。  如果已安裝 Visual Studio 2015 的 Azure SDK，如果解除安裝 Visual Studio 2017，將會移除 Microsoft Azure 儲存體模擬器和 Microsoft Azure 計算模擬器。  這會在 Visual Studio 2015 建立和偵錯新雲端服務專案時產生錯誤。 若要修正這個問題，請透過 Web Platform Installer 重新安裝 Azure SDK。  此問題將在未來的 Visual Studio 2017 更新中獲得解決。  .
 
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 

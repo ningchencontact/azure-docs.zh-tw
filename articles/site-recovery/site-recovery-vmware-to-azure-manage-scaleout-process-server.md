@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 相應放大處理序伺服器是 Site Recovery 服務和您的內部部署基礎結構之間的資料傳輸協調者。 本文說明如何設定、配置及管理相應放大處理序伺服器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 下列為設定相應放大處理序伺服器所需的建議硬體、軟體及網路組態。
 
 > [!NOTE]

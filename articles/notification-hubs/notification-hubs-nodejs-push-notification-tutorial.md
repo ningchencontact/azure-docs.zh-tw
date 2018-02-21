@@ -17,7 +17,7 @@ ms.date: 10/25/2016
 ms.author: yuaxu
 ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---

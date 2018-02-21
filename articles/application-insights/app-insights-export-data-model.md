@@ -114,7 +114,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="context"></a>Context
 所有類型的遙測都會伴隨內容區段。 並非所有的欄位都會連同每個資料點傳輸。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |物件 [ ] |由自訂屬性參數設定的索引鍵-值字串組。 索引鍵的最大長度 100，值的最大長度 1024。 超過 100 個唯一值時，屬性可供搜尋，但無法用來分割。 每個 ikey 的最大值 200 索引鍵。 |
 | context.custom.metrics [0] |物件 [ ] |由自訂測量參數和 TrackMetrics 設定的索引鍵-值組。 索引鍵的最大長度 100，值可能為數值。 |
@@ -153,10 +153,10 @@ ms.lasthandoff: 11/01/2017
 | internal.data.documentVersion |字串 | |
 | internal.data.id |字串 | |
 
-## <a name="events"></a>事件
+## <a name="events"></a>活動
 [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)產生的自訂事件。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | 事件 [0] 計數 |integer |100/([取樣](app-insights-sampling.md) 率)。 例如 4 =&gt; 25%。 |
 | 事件 [0] 名稱 |字串 |事件名稱。  最大長度 250。 |
@@ -167,12 +167,12 @@ ms.lasthandoff: 11/01/2017
 ## <a name="exceptions"></a>例外狀況
 回報在伺服器和瀏覽器中的 [例外狀況](app-insights-asp-net-exceptions.md) 。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | basicException [0] 組件 |字串 | |
 | basicException [0] 計數 |integer |100/([取樣](app-insights-sampling.md) 率)。 例如 4 =&gt; 25%。 |
 | basicException [0] exceptionGroup |字串 | |
-| basicException [0] exceptionType |string | |
+| basicException [0] exceptionType |字串 | |
 | basicException [0] failedUserCodeMethod |字串 | |
 | basicException [0] failedUserCodeAssembly |字串 | |
 | basicException [0] handledAt |字串 | |
@@ -196,7 +196,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="trace-messages"></a>追蹤訊息
 由 [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) 及[記錄配接器](app-insights-asp-net-trace-logs.md)傳送。
 
-| 路徑 | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | 訊息 [0] loggerName |字串 | |
 | 訊息 [0] 參數 |字串 | |
@@ -206,7 +206,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="remote-dependency"></a>遠端相依性
 由 TrackDependency 傳送。 用於回報伺服器中 [相依性呼叫](app-insights-asp-net-dependencies.md) 以及瀏覽器中 AJAX 呼叫的效能和使用情形。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | remoteDependency [0] async |布林值 | |
 | remoteDependency [0] baseName |字串 | |
@@ -224,10 +224,10 @@ ms.lasthandoff: 11/01/2017
 | remoteDependency [0] urlData.hashTag |字串 | |
 | remoteDependency [0] urlData.host |字串 |最大長度 200 |
 
-## <a name="requests"></a>要求
+## <a name="requests"></a>Requests
 由 [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest)傳送。 標準模組使用它回報在伺服器上測量的伺服器回應時間。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | 要求 [0] 計數 |integer |100/([取樣](app-insights-sampling.md) 率)。 例如：4 =&gt; 25%。 |
 | 要求 [0] durationMetric.value |number |從要求抵達到回應的時間。 1e7 == 1s |
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/01/2017
 
 內容值會顯示用戶端作業系統和瀏覽器版本。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |從接收 HTML 完成到顯示頁面的時間。 |
 | clientPerformance [0] 名稱 |字串 | |
@@ -262,7 +262,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="page-views"></a>頁面檢視
 由 trackPageView() 或 [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views) 傳送
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | 檢視 [0] 計數 |integer |100/([取樣](app-insights-sampling.md) 率)。 例如 4 =&gt; 25%。 |
 | 檢視 [0] durationMetric.value |integer |在 trackPageView() 中或由 startTrackPage() - stopTrackPage() 選擇性設定的值。 和 clientPerformance 的值不同。 |
@@ -275,7 +275,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="availability"></a>Availability
 回報 [可用性 Web 測試](app-insights-monitor-web-app-availability.md)。
 
-| Path | 類型 | 注意事項 |
+| Path | 類型 | 注意 |
 | --- | --- | --- |
 | 可用性 [0] availabilityMetric.name |字串 |Availability |
 | 可用性 [0] availabilityMetric.value |number |1.0 或 0.0 |
@@ -296,7 +296,7 @@ ms.lasthandoff: 11/01/2017
 
 度量值位於 context.custom.metrics[0]
 
-例如：
+例如︰
 
     {
      "metric": [ ],
@@ -322,7 +322,7 @@ ms.lasthandoff: 11/01/2017
     }
 
 ## <a name="about-metric-values"></a>關於度量值
-在度量報告和其他位置中的度量值，會利用標準物件結構回報。 例如：
+在度量報告和其他位置中的度量值，會利用標準物件結構回報。 例如︰
 
       "durationMetric": {
         "name": "contoso.org",

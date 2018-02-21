@@ -39,7 +39,7 @@ ms.lasthandoff: 12/05/2017
 
 您想要以 Angular 建置此範例應用程式嗎？ 請參閱 [Angular 教學課程影片系列](tutorial-develop-mongodb-nodejs.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>已完成的專案

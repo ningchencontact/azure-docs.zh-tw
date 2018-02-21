@@ -113,7 +113,7 @@ SAS 權杖是*用戶端*所產生的字串 (如需程式碼範例，請參閱〈
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| 名稱 | SAS 部分 | 說明 |
+| Name | SAS 部分 | 說明 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob 的位址。 請注意，我們強烈建議您使用 HTTPS。 |
 | 儲存體服務版本 |`sv=2015-04-05` |若是儲存體服務版本 2012-02-12 和更新版本，此參數表示要使用的版本。 |
@@ -133,7 +133,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| 名稱 | SAS 部分 | 說明 |
+| Name | SAS 部分 | 說明 |
 | --- | --- | --- |
 | 資源 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Blob 服務端點，具有用來取得服務屬性 (使用 GET 呼叫時) 或設定服務屬性 (使用 SET 呼叫時) 的參數。 |
 | 服務 |`ss=bf` |SAS 適用於 Blob 和檔案服務 |

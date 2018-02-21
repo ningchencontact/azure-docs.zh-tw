@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
@@ -67,7 +67,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
 對於此詳細逐步解說，我們會建立必要的先決條件，先建立檔案儲存體共用，然後透過 SMB 在 Linux VM 上掛接它。
 
-1. 使用 [az group create](/cli/azure/group#create) 來建立資源群組以存放檔案共用。
+1. 使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組以存放檔案共用。
 
     若要在「美國西部」位置建立名為 `myResourceGroup` 的資源群組，請使用下列範例：
 
@@ -75,7 +75,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     az group create --name myResourceGroup --location westus
     ```
 
-2. 使用 [az storage account create](/cli/azure/storage/account#create) 來建立 Azure 儲存體帳戶以儲存實際檔案。
+2. 使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 來建立 Azure 儲存體帳戶以儲存實際檔案。
 
     若要使用 Standard_LRS 儲存體 SKU 建立名為 mystorageaccount 的儲存體帳戶，請使用下列範例︰
 
@@ -90,7 +90,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
     在建立儲存體帳戶時，帳戶金鑰會成對建立，因此您可以輪替金鑰，而不會干擾到服務。 當您將金鑰切換為金鑰組中的第二個金鑰時，您會建立新的金鑰組。 新的儲存體帳戶金鑰一律會成對建立，確保您永遠有至少一個準備切換到的未使用儲存體帳戶金鑰。
 
-    使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 來檢視儲存體帳戶金鑰。 下列範例會列出名為 `mystorageaccount` 的儲存體帳戶金鑰：
+    使用 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 來檢視儲存體帳戶金鑰。 下列範例會列出名為 `mystorageaccount` 的儲存體帳戶金鑰：
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
 4. 建立檔案儲存體共用。
 
-    使用 [az storage share create](/cli/azure/storage/share#create) 來建立包含 SMB 共用的檔案儲存體共用。 配額永遠是以 GB 表示。 傳入來自上述 `az storage account keys list` 命令的其中一個金鑰。 使用下列範例來建立名為 mystorageshare 且擁有 10 GB 配額的共用︰
+    使用 [az storage share create](/cli/azure/storage/share#az_storage_share_create) 來建立包含 SMB 共用的檔案儲存體共用。 配額永遠是以 GB 表示。 傳入來自上述 `az storage account keys list` 命令的其中一個金鑰。 使用下列範例來建立名為 mystorageshare 且擁有 10 GB 配額的共用︰
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     當您重新開機 Linux VM 時，掛接的 SMB 共用會在關機期間取消掛接。 若要在開機時重新掛接 SMB 共用，請新增一行至 Linux /etc/fstab。 Linux 會使用 fstab 檔案來列出它在開機程序期間所必須掛接的檔案系統。 新增 SMB 共用可確保檔案儲存體共用是 Linux VM 的永久掛接檔案系統。 當您使用 cloud-init 時，便可以將檔案儲存體 SMB 共用新增至新的 VM。
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>後續步驟

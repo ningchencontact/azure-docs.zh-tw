@@ -16,7 +16,7 @@ ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure Stack 訓練與認證
 
-*適用於：Azure Stack 整合系統*
+「適用於：Azure Stack 整合系統」
 
 下列訓練與認證機會可協助您了解 Azure Stack，並展現您的 Azure 熟練度。
 

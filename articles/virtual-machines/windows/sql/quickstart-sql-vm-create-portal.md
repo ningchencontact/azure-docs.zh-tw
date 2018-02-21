@@ -44,7 +44,7 @@ ms.lasthandoff: 12/12/2017
    > [!TIP]
    > 本教學課程中使用 Developer 版本，因為它是免費供開發測試使用的 SQL Server 完整功能版。 您只需支付執行 VM 的費用。 如需完整的定價考量，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ## <a id="configure"></a> 提供基本詳細資料
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 12/12/2017
 
 1. 在 [密碼]  方塊中，輸入登入的密碼。
 
-1. 按一下 [連接] 。
+1. 按一下 [ **連接**]。
 
     ![SSMS 連線](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 

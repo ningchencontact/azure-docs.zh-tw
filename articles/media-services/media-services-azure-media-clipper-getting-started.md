@@ -16,7 +16,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
-本節說明開始使用 Azure Media Clipper 的基本步驟。 以下各節提供有關如何設定 Azure Media Clipper 的細節。
+本節說明開始使用 Azure Media Clipper 的基本步驟。 以下章節提供有關如何設定 Azure Media Clipper 的細節。
 
 - 首先，將 Azure Media Player 和 Azure Media Clipper 的下列連結新增至您文件的標頭。 建議在 URL 中明確指定 Clipper 和 Azure Media Player 的版本。 不要在生產中使用這些資源的最新版本，因為它們依據需求還會變動。
 

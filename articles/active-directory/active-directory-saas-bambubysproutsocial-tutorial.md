@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: jeedes
 ms.openlocfilehash: 7cc057263f2b2fc5f83201b2edcb519e682b2ffc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ To enable single sign-on with Bambu by Sprout Social, it must be configured to u
 >This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Bambu by Sprout Social 的整合，您需要下列項目：
 

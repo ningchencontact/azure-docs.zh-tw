@@ -26,7 +26,7 @@ Log Analytics 警示 REST API 可讓您在 Operations Management Suite (OMS) 中
 
 Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API 來存取。 在這份文件中，您可以找到透過 [ARMClient](https://github.com/projectkudu/ARMClient) 從 PowerShell 命令列存取 API 的範例，這是一個開放原始碼命令列工具，可簡化叫用 Azure Resource Manager API。 使用 ARMClient 和 PowerShell 是存取 Log Analytics 搜尋 API 的許多選項之一。 透過這些工具，您可以利用 RESTful Azure Resource Manager API 呼叫 OMS 工作區並在其中執行搜尋命令。 API 會以 JSON 格式向您輸出搜尋結果，讓您以程式設計方式透過許多不同的方法使用搜尋結果。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 目前，在 Log Analytics 中只能使用已儲存的搜尋來建立警示。  如需詳細資訊，請參閱 [記錄檔搜尋 REST API](log-analytics-log-search-api.md) 。
 
 ## <a name="schedules"></a>排程
@@ -95,7 +95,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 | 屬性 | 說明 |
 |:--- |:--- |
 | 類型 |動作的類型。  目前可能的值為 Alert 和 Webhook。 |
-| 名稱 |警示的顯示名稱。 |
+| Name |警示的顯示名稱。 |
 | 版本 |所使用的 API 版本。  目前，這應該一律設為 1。 |
 
 ### <a name="retrieving-actions"></a>擷取動作
@@ -172,7 +172,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 | 屬性 | 說明 |
 |:--- |:--- |
 | 收件者 |郵件地址清單。 |
-| 主旨 |郵件的主旨。 |
+| 主體 |郵件的主旨。 |
 | 附件 |目前不支援附件，這個值永遠為 “None”。 |
 
 以下是一個包含臨界值的電子郵件通知動作的回應範例。  

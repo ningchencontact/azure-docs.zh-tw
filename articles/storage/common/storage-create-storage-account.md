@@ -12,7 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords: sql13.swb.windowsazurestorage.connect.f1
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
 ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
@@ -27,7 +28,7 @@ ms.lasthandoff: 12/19/2017
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Azure 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 儲存體帳戶中的所有物件會做為群組共同計費。 根據預設，您帳戶中的資料只有帳戶擁有者 (也就是您) 可以使用。
 
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]

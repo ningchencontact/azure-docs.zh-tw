@@ -25,14 +25,14 @@ ms.lasthandoff: 11/09/2017
 如果您在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集，您可能想迅速相應增加或相應減少叢集容量，而不用維護一組預先設定的計算節點 VM。 本文說明如何將隨選「高載」節點 (在雲端服務中執行的背景工作角色執行個體) 新增至 Azure 中的前端節點作為運算資源。 
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![高載節點][burst]
 
 本文中的步驟可協助您將 Azure 節點快速新增至雲端型 HPC Pack 前端節點 VM，以進行測試或概念驗證部署。 高階步驟與將雲端計算能力新增至內部部署 HPC Pack 叢集的「將暴增的工作負載移至 Azure」步驟相同。 如需教學課程，請參閱 [使用 Microsoft HPC Pack 設定混合式計算叢集](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。 如需生產部署的詳細指引和考量，請參閱 [使用 Microsoft HPC Pack 將暴增的工作負載移至 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **部署在 Azure VM 中的 HPC Pack 前端節點** -您可以使用獨立的前端節點 VM 或屬於較大叢集的節點。 若要建立獨立的前端節點，請參閱 [在 Azure VM 中部署 HPC Pack 前端節點](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 如需自動化的 HPC Pack 叢集部署選項，請參閱 [使用 Microsoft HPC Pack 在 Azure 中建立及管理 Windows HPC 叢集的選項](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
   
   > [!TIP]

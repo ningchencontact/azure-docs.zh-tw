@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf6cf780867f9ecf5c5be93dc28fe3e00a0c3f82
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 與傳統環境相比，託管於雲端環境的分散式應用程式一旦發生問題，無論要為其進行診斷或疑難排解，都更加複雜。 應用程式可以部署在 PaaS 或 IaaS 基礎架構、內部部署環境、行動裝置或是這幾種環境的組合上。 一般來說，您的應用程式網路流量可能會跨越公共與私有網路，而您的應用程式有可能使用多項儲存技術，例如 Microsoft Azure 儲存體資料表、Blob、佇列或是檔案服務，以及關聯式資料庫與文件資料庫之類的其他資料存放區。
 
 若要成功管理這類應用程式，您除了需要主動監視它們之外，還需要了解如何為其各層面與相依技術進行診斷與疑難排解。 身為 Azure 儲存體服務的使用者，您應持續監視應用程式所使用的儲存體服務，以預防發生非預期的行為改變 (例如，回應速度明顯比平時慢)，並使用記錄功能來收集更多的詳細資料，同時深入分析問題的成因。 從監視與記錄手段中取得的診斷資訊，將在應用程式遭遇問題時，協助您判斷根本原因。 接著才能為問題進行疑難排解，並決定該採取哪些合宜的步驟來加以矯正。 Azure 儲存體是 Azure 的核心服務之一，更在客戶部署至 Azure 基礎結構的主要解決方案之中扮演著重要的環節。 Azure 儲存體會在您的雲端架構應用程式裡加入各項功能，從而簡化儲存體問題的監視、診斷與疑難排解程序。
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="monitoring-your-storage-service"></a>監視您的儲存體服務
 如果您熟悉 Windows 效能監視，可以將儲存體度量當成相當於 Windows 效能監視器計數的 Azure 儲存體。 儲存體度量中包含完整的度量集合 (Windows 效能監視器詞彙裡的計數)，例如服務可用性、服務要求總數，或是服務要求成功的百分比。 如需可用度量的完整清單，請參閱 [儲存體分析度量資料表結構描述](http://msdn.microsoft.com/library/azure/hh343264.aspx)。 您可以指定讓儲存體服務每小時或每分鐘收集並彙總度量一次。 如需如何啟用度量並監視您的儲存體帳戶的詳細資訊，請參閱 [啟用儲存體度量和檢視度量資料](http://go.microsoft.com/fwlink/?LinkId=510865)。
 
-您可以選擇要在 [Azure 入口網站](https://portal.azure.com)中顯示哪些每小時計量，並設定規則以在每次每小時計量超出特定臨界值時，便以電子郵件通知系統管理員。 如需詳細資訊，請參閱[接收警示通知](/azure/monitoring-and-diagnostics/monitoring-overview-alerts.md)。 
+您可以選擇要在 [Azure 入口網站](https://portal.azure.com)中顯示哪些每小時計量，並設定規則以在每次每小時計量超出特定臨界值時，便以電子郵件通知系統管理員。 如需詳細資訊，請參閱[接收警示通知](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)。 
 
 儲存體服務會盡其所能收集各項度量，但是不一定會記錄每一次的儲存體操作。
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
 以下章節概述當您對這四個類別分別進行問題診斷與疑難排解時，應該遵循的步驟。 本指南稍後的「[疑難排解指引]」一節深入說明您可能會碰到的一些常見問題。
 
 ### <a name="service-health-issues"></a>服務健康情況問題
-服務健康情況問題通常是您無法掌控的部分。 [Azure 入口網站](https://portal.azure.com)會提供有關 Azure 服務 (包括儲存體服務) 之任何持續出現的問題相關資訊。 若您在建立儲存體帳戶時選擇使用「讀取存取地理區域備援儲存體」，則當主要位置無法提供您的資料時，您的應用程式會暫時切換到次要位置的唯讀副本。 若要這麼做，您的應用程式必須要能切換使用主要與次要儲存位置，並能在降低功能模式下使用唯讀資料。 Azure 儲存體用戶端程式庫可讓您定義重試原則，當無法從主要儲存體讀取資料時，才能嘗試從次要儲存體讀取資料。 您的應用程式還需要了解次要位置的資料最終會與主要位置的資料維持一致。 如需詳細資訊，請參閱部落格文章 [Azure 儲存體備援選項與讀取存取異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
+服務健康情況問題通常是您無法掌控的部分。 [Azure 入口網站](https://portal.azure.com)會提供有關 Azure 服務 (包括儲存體服務) 之任何持續出現的問題相關資訊。 若您在建立儲存體帳戶時選擇使用「讀取存取異地備援備援儲存體」，則當主要位置無法提供您的資料時，您的應用程式會暫時切換到次要位置的唯讀副本。 若要這麼做，您的應用程式必須要能切換使用主要與次要儲存位置，並能在降低功能模式下使用唯讀資料。 Azure 儲存體用戶端程式庫可讓您定義重試原則，當無法從主要儲存體讀取資料時，才能嘗試從次要儲存體讀取資料。 您的應用程式還需要了解次要位置的資料最終會與主要位置的資料維持一致。 如需詳細資訊，請參閱部落格文章 [Azure 儲存體備援選項與讀取存取異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 
 ### <a name="performance-issues"></a>效能問題
 應用程式效能是很主觀的問題，尤其是從使用者觀點來看。 因此，我們需要一套基準度量來協助您識別出現效能問題的位置。 從用戶端應用程式觀點來看，許多因素都會影響 Azure 儲存體服務的效能。 這些因素可能會影響儲存體服務、用戶端或是網路基礎結構，因此我們有必要制訂策略來找出效能問題的源頭。
@@ -480,7 +480,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止. |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
-| Microsoft.WindowsAzure.Storage |錯誤 |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
+| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
 
 在此案例中，您應該調查 SAS 權杖為何在用戶端將權杖傳送給伺服器之前到期：
 
@@ -564,7 +564,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 下列資料表顯示來自儲存體記錄檔案的伺服器端記錄訊息範例：
 
-| 名稱 | 值 |
+| Name | 值 |
 | --- | --- |
 | 要求開始時間 | 2014-05-30T06:17:48.4473697Z |
 | 作業類型     | GetBlobProperties            |
@@ -730,7 +730,7 @@ sqllocaldb create v11.0
 Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS 流量。 以下提供您一些有用的命令，方便您控制 Fiddler：
 
 * 停止與開始擷取流量。 在主要功能表上，移至 [檔案] 並按一下 [擷取流量] 以開啟及關閉擷取作業。
-* 儲存擷取的流量資料。 在主功能表上，移至 檔案，按一下 儲存，然後按一下所有工作階段：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
+* 儲存擷取的流量資料。 在主功能表上，移至 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
 
 若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
 

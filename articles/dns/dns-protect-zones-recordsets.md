@@ -161,7 +161,7 @@ azure role create -inputfile <file path>
 
 ## <a name="resource-locks"></a>資源鎖定
 
-除了 RBAC，Azure Resource Manager 支援另一種安全性控制項，也就是「鎖定」資源的能力。 其中 RBAC 規則可讓您控制特定使用者和群組的動作，資源鎖定會套用至資源，而且對於所有使用者和角色都有效。 如需詳細資訊，請參閱 [使用 Azure 資源管理員來鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
+除了 RBAC，Azure Resource Manager 支援另一種安全性控制項，也就是「鎖定」資源的能力。 其中 RBAC 規則可讓您控制特定使用者和群組的動作，資源鎖定會套用至資源，而且對於所有使用者和角色都有效。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
 
 有兩種類型的資源鎖定︰**DoNotDelete** 和 **ReadOnly**。 這些可以套用至 DNS 區域，或個別的記錄集。  下列章節說明幾個常見的案例，以及如何使用資源鎖定進行支援。
 

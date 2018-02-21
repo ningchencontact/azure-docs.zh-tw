@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
     再次輸入密碼以進行確認。
 
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+    ![映像](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
 * 步驟 2：登入 MySQL Server
   
@@ -175,6 +175,6 @@ ms.lasthandoff: 10/11/2017
 
            #[root@mysqlnode ~]# insserv mysql
 
-### <a name="next-step"></a>下一步
+### <a name="next-step"></a>後續步驟
 按一下 [這裡](https://www.mysql.com/)，了解更多 MySQL 使用方式和相關資訊。
 

@@ -29,7 +29,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
 
 本教學課程說明如何使用 Azure 表格儲存體實體撰寫一些常見案例的 ASP.NET 程式碼。 這些案例包括建立資料表，以及新增、查詢和刪除資料表實體。 
 
-##<a name="prerequisites"></a>必要條件
+##<a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -176,7 +176,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
 
     如前所述，僅當資料表不存在且已建立時，**CloudTable.CreateIfNotExists** 方法才會傳回 **true**。 因此，如果您在資料表已存在時執行應用程式，此方法會傳回 **false**。 若要多次執行應用程式，您必須先刪除資料表後，才能再次執行應用程式。 可以透過完成 **CloudTable.Delete** 方法來刪除資料表。 您也可以使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)或 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)來刪除資料表。  
 
-## <a name="add-an-entity-to-a-table"></a>將實體加入至資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 
 使用衍生自 **TableEntity** 的自訂類別，將實體對應至 C\# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。 在本節中，您將了解如何定義一個使用客戶名字作為資料列索引鍵、並使用姓氏作為資料分割索引鍵的實體類別。 實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。 查詢具有相同分割區索引鍵的實體，其速度快於查詢具有不同分割區索引鍵的實體，但使用不同的資料分割索引鍵可提供更佳的延展性或平行作業。 應該儲存在資料表服務中的任何屬性，都必須是公開設定和擷取值之支援類型的公用屬性。
 實體類別必須宣告公用的無參數建構函式。

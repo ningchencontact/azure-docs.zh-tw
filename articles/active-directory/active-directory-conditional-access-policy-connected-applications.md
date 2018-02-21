@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>設定 Azure Active Directory 裝置型條件式存取原則
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 12/11/2017
 
 在行動第一、雲端第一的世界中，Azure Active Directory 可讓您從任何地方單一登入至裝置、應用程式和服務。 對於您環境中的某些資源，授與存取權給適當的使用者可能還不夠好。 除了適當的使用者，您可能也需要將受信任的裝置用來存取資源。 在您的環境中，您可以根據下列元件定義受信任的裝置：
 
-- 裝置上的[裝置平台](active-directory-conditional-access-azure-portal.md#device-platforms)
+- 裝置上的[裝置平台](active-directory-conditional-access-conditions.md#device-platforms)
 - 裝置是否符合規範
 - 裝置是否已加入網域 
 
-[裝置平台](active-directory-conditional-access-azure-portal.md#device-platforms)的特點是您裝置執行的作業系統。 在裝置型條件式存取原則中，您可以將特定資源的存取權限制為特定裝置平台。
+[裝置平台](active-directory-conditional-access-conditions.md#device-platforms)的特點是您裝置執行的作業系統。 在裝置型條件式存取原則中，您可以將特定資源的存取權限制為特定裝置平台。
 
 
 

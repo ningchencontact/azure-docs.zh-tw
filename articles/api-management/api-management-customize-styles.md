@@ -28,7 +28,7 @@ ms.lasthandoff: 12/04/2017
 * 更新用於開發人員入口網站上頁面元素的樣式 (如本指南所述)
 * [修改入口網站所產生的網頁用範本](api-management-developer-portal-templates.md) (例如 API 文件、產品、使用者驗證)
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 自訂**開發人員**入口網站頁面的元素樣式
@@ -36,10 +36,10 @@ ms.lasthandoff: 12/04/2017
 
 ![自訂樣式](./media/modify-developer-portal-style/developer_portal.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ 以及完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
++ 同時也請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

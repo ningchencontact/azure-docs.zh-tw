@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>使用 Azure Stack 中的系統管理員入口網站
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者入口網站 (有時也稱作「租用戶」入口網站)。 身為 Azure Stack 操作員，您可以使用系統管理員入口網站來進行每日的 Azure Stack 管理和作業。 
 
@@ -32,7 +32,7 @@ Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者�
 
 若要存取系統管理員入口網站，請瀏覽至入口網站 URL，然後使用 Azure Stack 操作員的認證進行登入。 如果是整合系統，則入口網站 URL 會依 Azure Stack 部署的區域名稱和外部完整網域名稱 (FQDN) 之不同而有所不同。
 
-| Environment | 系統管理員入口網站 URL |   
+| 環境 | 系統管理員入口網站 URL |   
 | -- | -- | 
 | 開發套件| https://adminportal.local.azurestack.external  |
 | 整合系統 | https://adminportal.&lt;*區域*&gt;.&lt;*FQDN*&gt; | 

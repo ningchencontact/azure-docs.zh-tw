@@ -23,9 +23,9 @@ ms.lasthandoff: 11/28/2017
 
 了解如何使用 Azure Data Lake Store 來擷取 Azure 事件中樞所收到的資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **Azure Data Lake Store 帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱[開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)。
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/28/2017
 
     ![為 Data Lake Store 根目錄指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "為 Data Lake Store 根目錄指派權限")
 
-    按一下 [確定] 。
+    按一下 [SERVICEPRINCIPAL] 。
 
 4. 為 Data Lake Store 帳戶下要擷取資料的目的地資料夾指派權限。
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/28/2017
 
     ![為 Data Lake Store 資料夾指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "為 Data Lake Store 資料夾指派權限")
     
-    按一下 [確定] 。 
+    按一下 [SERVICEPRINCIPAL] 。 
 
 ## <a name="configure-event-hubs-to-capture-data-to-data-lake-store"></a>設定事件中樞，以將資料擷取到 Data Lake Store
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/28/2017
 
     e. 將 [擷取檔案名稱格式範例] 保留為預設值。 此選項會掌管在擷取資料夾下建立的資料夾結構。
 
-    f. 按一下 [建立] 。
+    f. 按一下頁面底部的 [新增] 。
 
 ## <a name="test-the-setup"></a>測試設定
 

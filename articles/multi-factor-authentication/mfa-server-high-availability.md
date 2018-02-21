@@ -18,7 +18,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: c2f9a2422ea5a47edd80948073c7f7a6cb0d0945
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -42,7 +42,7 @@ MFA Server 是已安裝 Azure Multi-Factor Authentication 軟體的 Windows Serv
 
 如果 MFA 主要伺服器離線，仍可處理驗證，但無法處理需要變更 MFA 資料庫的作業。 (範例包括：新增使用者、自助式 PIN 變更及變更使用者資訊)。
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 請考慮對 Azure MFA Server 及其相關元件進行負載平衡的下列重點。
 

@@ -92,7 +92,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 
 * 成人收入普查二進位分類資料集
 * [二元羅吉斯迴歸][two-class-logistic-regression]
-* [訓練模型][train-model]
+* [定型模型][train-model]
 * [計分模型][score-model]
 * [評估模型][evaluate-model]
 
@@ -143,7 +143,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 * [匯入資料][import-data]
 * [多元決策樹系][multiclass-decision-forest]
 * [分割資料][split]
-* [訓練模型][train-model]
+* [定型模型][train-model]
 * [計分模型][score-model]
 * [評估模型][evaluate-model]
 

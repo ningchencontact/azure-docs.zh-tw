@@ -97,14 +97,14 @@ Azure 有三種不同的方法可在 Linux VM 部署或啟動時進行變更。
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Cloud-init 在 Azure VM quick-create 映像別名上的可用性︰
-| Alias | 發佈者 | 提供項目 | SKU | 版本 | Cloud-init |
+| Alias | 發行者 | 提供項目 | SKU | 版本 | Cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7.2 |最新 |no |
-| CoreOS |CoreOS |CoreOS |Stable |最新 |yes |
+| CoreOS |CoreOS |CoreOS |Stable |最新 |是 |
 | Debian |credativ |Debian |8 |最新 |no |
 | openSUSE |SUSE |openSUSE |13.2 |最新 |no |
 | RHEL |Redhat |RHEL |7.2 |最新 |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |最新 |yes |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |最新 |是 |
 
 Microsoft 正與我們的合作夥伴合作，以期在他們提供給 Azure 的映像中包含和使用 cloud-init。
 

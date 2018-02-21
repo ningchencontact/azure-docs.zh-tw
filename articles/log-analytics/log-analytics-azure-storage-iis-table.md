@@ -70,7 +70,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
    3. 按一下 [診斷] 。
    4. 將 [狀態] 設為 [開啟]。
    5. 選取您想要收集的每個診斷記錄。
-   6. 按一下 [確定] 。
+   6. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中針對 IIS 記錄檔和事件集合啟用 Azure 診斷
 請參閱[如何在雲端服務中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)瞭解啟用 Azure 診斷的一般步驟。 下面的指示會使用此資訊並自訂它來與 Log Analytics 搭配使用。

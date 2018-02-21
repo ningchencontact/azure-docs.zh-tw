@@ -48,7 +48,7 @@ ms.lasthandoff: 11/02/2017
    * **資源群組**：這些容器是為了協助您管理 Azure 資源集合而設計。 若要深入了解，請參閱[資源群組](../azure-resource-manager/resource-group-overview.md)。
    * **位置**︰此 Azure 資料中心位置裝載著伺服器。 請選擇最靠近最大使用者群體的位置。
    * **定價層**：選取定價層。 表格式模型最多支援 400 GB。 若要深入了解，請參閱 [Azure Analysis Services 定價](https://azure.microsoft.com/pricing/details/analysis-services/)。
-4. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 
 建立程序通常不到一分鐘即可完成；往往在數秒內。 如果您選取 [新增到入口網站]，請瀏覽至您的入口網站來查看新的伺服器。 或者，瀏覽至 [更多服務]  >  **Analysis Services** 以查看您的伺服器是否就緒。
 

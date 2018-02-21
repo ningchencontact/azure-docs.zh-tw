@@ -1,9 +1,9 @@
 ---
 title: "Azure Data Lake Store 中的加密 | Microsoft Docs"
-description: "了解 Azure Data Lake Store 中的加密和金鑰輪替方式"
+description: "Azure Data Lake Store 中的加密可協助您保護資料，實作企業安全性原則，並符合合規性需求。 本文提供設計概觀，並討論實作的一些技術層面。"
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store 中的資料加密
 
@@ -53,16 +53,16 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
 *   服務管理的金鑰
 *   客戶管理的金鑰
 
-這兩種模式都會將主要加密金鑰儲存在 Azure Key Vault 中進行保護。 Key Vault 是 Azure 上受到完整管理、高度安全的服務，可用來保護加密金鑰。 如需詳細資訊，請參閱 [Key Vault](https://azure.microsoft.com/services/key-vault)。
+這兩種模式都會將主要加密金鑰儲存在 Azure Key Vault 中進行保護。 Key Vault 是 Azure 上完全受控、高度安全的服務，可用來保護加密金鑰。 如需詳細資訊，請參閱 [Key Vault](https://azure.microsoft.com/services/key-vault)。
 
 以下是兩種管理 MEK 模式所提供的簡潔功能比較。
 
 |  | 服務管理的金鑰 | 客戶管理的金鑰 |
 | --- | --- | --- |
 |儲存資料的方式|一律在儲存之前加密。|一律在儲存之前加密。|
-|主要加密金鑰的儲存位置|金鑰保存庫|金鑰保存庫|
+|主要加密金鑰的儲存位置|Key Vault|Key Vault|
 |任何加密金鑰是否會完全儲存在 Key Vault 外部？ |否|否|
-|Key Vault 是否可以擷取 MEK？|否。 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|否。 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|
+|Key Vault 是否可以擷取 MEK？|編號 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|編號 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|
 |誰擁有 Key Vault 執行個體和 MEK？|Data Lake Store 服務|您擁有 Key Vault 執行個體，其屬於您自己的 Azure 訂用帳戶。 Key Vault 中的 MEK 可以由軟體或硬體管理。|
 |您是否可以撤銷 Data Lake Store 服務對於 MEK 的存取權？|否|是。 您可以管理 Key Vault 中的存取控制清單，並移除 Data Lake Store 服務之服務識別的存取控制項目。|
 |您是否可以永久刪除 MEK？|否|是。 如果您從 Key Vault 中刪除 MEK，任何人 (包括 Data Lake Store 服務) 都無法將 Data Lake Store 帳戶中的資料解密。 <br><br> 如果從 Key Vault 中刪除 MEK 之前，您已明確進行備份，即可還原 MEK，進而復原資料。 不過，如果從 Key Vault 中刪除 MEK 之前，您尚未進行備份，則 Data Lake Store 帳戶中的資料之後就永遠無法解密。|
@@ -79,9 +79,9 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
 
 資料加密設計使用三種金鑰類型。 下表提供摘要：
 
-| 索引鍵                   | 縮寫 | 相關聯的項目 | 儲存位置                             | 類型       | 注意事項                                                                                                   |
+| Key                   | 縮寫 | 相關聯的項目 | 儲存位置                             | 類型       | 注意                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| 主要加密金鑰 | MEK          | Data Lake Store 帳戶 | 金鑰保存庫                              | 非對稱 | 它可由 Data Lake Store 或您管理。                                                              |
+| 主要加密金鑰 | MEK          | Data Lake Store 帳戶 | Key Vault                              | 非對稱 | 它可由 Data Lake Store 或您管理。                                                              |
 | 資料加密金鑰   | DEK          | Data Lake Store 帳戶 | 永續性儲存體，由 Data Lake Store 服務管理 | 對稱  | DEK 是由 MEK 加密。 已加密的 DEK 會儲存在持續性媒體上。 |
 | 區塊加密金鑰  | BEK          | 資料區塊 | None                                         | 對稱  | BEK 衍生自 DEK 和資料區塊。                                                      |
 
@@ -110,9 +110,9 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
 
 ## <a name="key-rotation"></a>金鑰輪替
 
-當您使用客戶管理的金鑰時，您可以輪替 MEK。 若要了解如何使用客戶管理的金鑰來設定 Data Lake Store 帳戶，請參閱[開始使用](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
+當您使用客戶受控的金鑰時，您可以輪替 MEK。 若要了解如何使用客戶管理的金鑰來設定 Data Lake Store 帳戶，請參閱[開始使用](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 當您設定 Data Lake Store 帳戶時，您已選擇使用自己的金鑰。 建立帳戶之後，就無法變更此選項。 下列步驟假設您使用客戶管理的金鑰 (也就是，您已從 Key Vault 中選擇自己的金鑰)。
 

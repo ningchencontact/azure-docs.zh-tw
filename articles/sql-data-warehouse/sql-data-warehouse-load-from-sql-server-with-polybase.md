@@ -39,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本教學課程，您需要
 
 * SQL 資料倉儲資料庫。

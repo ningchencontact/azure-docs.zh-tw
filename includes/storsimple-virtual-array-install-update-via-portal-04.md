@@ -22,7 +22,7 @@
 
     ![更新裝置](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate6m.png)
 
-5. 在 [新的更新] 刀鋒視窗中，於下載完成之後檢閱資訊，您必須確認安裝。 按一下 [確定] 。
+5. 在 [新的更新] 刀鋒視窗中，於下載完成之後檢閱資訊，您必須確認安裝。 按一下 [SERVICEPRINCIPAL] 。
 
     ![更新裝置](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate7m.png)
 

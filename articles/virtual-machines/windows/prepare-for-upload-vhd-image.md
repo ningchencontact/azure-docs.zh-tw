@@ -384,7 +384,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 
     ![系統準備工具](media/prepare-for-upload-vhd-image/syspre.png)
 4. 在 [關機選項] 中選取 [關機]。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
 6. 當 Sysprep 完成時，關閉 VM。 不要使用**重新啟動**來關閉 VM。
 7. 現在已準備好上傳 VHD。 如需如何從一般化磁碟建立 VM 的詳細資訊，請參閱[將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM](sa-upload-generalized.md)。
 
@@ -392,7 +392,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 ## <a name="complete-recommended-configurations"></a>完成建議的設定
 下列設定不會影響 VHD 上傳。 不過，我們強烈建議您設定它們。
 
-* 安裝 [Azure VM 代理程式](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然後您可以啟用 VM 擴充功能。 VM 擴充功能實作了您可能想要與 VM 搭配使用的大部分重要功能，例如重設密碼、設定 RDP 等功能。 如需詳細資訊，請參閱：
+* 安裝 [Azure VM 代理程式](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然後您可以啟用 VM 擴充功能。 VM 擴充功能實作了您可能想要與 VM 搭配使用的大部分重要功能，例如重設密碼、設定 RDP 等功能。 如需詳細資訊，請參閱
 
     - [VM 代理程式與擴充功能 - 第 1 部分](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/) \(英文\)
     - [VM 代理程式與擴充功能 - 第 2 部分](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) \(英文\)

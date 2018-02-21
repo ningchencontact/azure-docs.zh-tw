@@ -44,7 +44,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="bizops"></a>使用 Azure 管理服務進行追蹤的作業
 下表列出可使用 Azure 管理服務進行追蹤的作業：
 
-| 作業名稱 | 工作 |
+| 作業名稱 | Task |
 | --- | --- |
 | CreateBizTalkService |建立新 BizTalk 服務的作業 |
 | DeleteBizTalkService |刪除 BizTalk 服務的作業 |

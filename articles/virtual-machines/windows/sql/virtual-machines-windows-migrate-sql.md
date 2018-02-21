@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 下表會列出每個主要的移轉方法，並討論何時使用每個方法是最合適的。
 
-| 方法 | 來源資料庫版本 | 目的地資料庫版本 | 來源資料庫備份的大小條件約束 | 注意事項 |
+| 方法 | 來源資料庫版本 | 目的地資料庫版本 | 來源資料庫備份的大小條件約束 | 注意 |
 | --- | --- | --- | --- | --- |
 | [使用壓縮執行在內部部署備份，並手動將備份檔案複製到 Azure 虛擬機器](#backup-and-restore) |SQL Server 2005 或更新版本 |SQL Server 2005 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 對於在電腦之間移動資料庫，這是非常簡單且通過完善測試的技術。 |
 | [執行備份至 URL 並從 URL 還原到 Azure 虛擬機器](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 或更新版本 |SQL Server 2012 SP1 CU2 或更新版本 |< 12.8 TB 適用於 SQL Server 2016，否則為 < 1 TB | 此法是使用 Azure 儲存體將備份檔案移至 VM 的另一種方式。 |

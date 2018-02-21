@@ -18,7 +18,7 @@ ms.author: mblythe
 ms.custom: 
 ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 > * 如果修復符合成本效益，就建立流程來傳送電子郵件。
 > * 執行流程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 使用中的 [Microsoft Flow 帳戶](https://flow.microsoft.com/documentation/sign-up-sign-in/)，其登入認證與您的 Azure 帳戶相同。 
 + SharePoint，您可用來作為此流程的資料來源。 如果您還沒有 SharePoint，請註冊 [Office 365 試用版](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1)。
@@ -232,7 +232,7 @@ ms.lasthandoff: 12/18/2017
     | **標題**           | 渦輪機 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | 是 |
+    | **ServiceRequired** | yes |
     | **EstimatedEffort** | 10 |
 
 3. 按一下 [完成] 。

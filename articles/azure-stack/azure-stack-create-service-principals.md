@@ -21,7 +21,7 @@ ms.lasthandoff: 10/18/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 當應用程式需要存取權透過 Azure Resource Manager 在 Azure Stack 中部署或設定資源時，您會建立服務主體，這是您的應用程式的認證。  然後，您可以只對該服務主體委派必要權限。  
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/18/2017
 
 |參數|說明|範例|
 |---------|---------|---------|
-|名稱|SPN 的帳戶名稱|MyAPP|
+|Name|SPN 的帳戶名稱|MyAPP|
 |ClientCertificates|憑證物件的陣列|X509 憑證|
 |ClientRedirectUris<br>(選用)|應用程式重新導向 URI|         |
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/18/2017
 
 2. 自動化完成之後，它會顯示使用 SPN 的必要詳細資料。 
 
-   例如：
+   例如︰
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

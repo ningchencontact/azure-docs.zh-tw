@@ -51,7 +51,7 @@ Machine Learning Workbench 是針對 Git 整合所設計。 在您建立新專�
     - **版本控制**：選取 [Git]。
     - **訂用帳戶**：選取擁有 Machine Learning 測試帳戶的訂用帳戶。
     - **位置**：最好選擇接近 Machine Learning 測試資源的區域。
-4. 選取 [ **建立**]。 
+4. 選取 [建立] 。 
 
 ![在 Azure 入口網站中建立 Team 專案](media/using-git-ml-project/create_vsts_team.png)
 
@@ -129,7 +129,7 @@ $ az ml project restore --run-id <run ID>
 在執行此作業之前，您應該使用 Git 將變更認可到最新分支。
 
 ## <a name="step-6-use-the-master-branch"></a>步驟 6. 使用主要分支
-為了避免不小心遺失目前的專案狀態，有一種作法是將專案認可到 Git 存放庫的 master 分支 (或您自行建立的任何分支)。 您可以從命令列或慣用的 Git 用戶端工具使用 Git，在 master 分支上進行操作。 例如：
+為了避免不小心遺失目前的專案狀態，有一種作法是將專案認可到 Git 存放庫的 master 分支 (或您自行建立的任何分支)。 您可以從命令列或慣用的 Git 用戶端工具使用 Git，在 master 分支上進行操作。 例如︰
 
 ```sh
 # Check status to make sure you are on the master branch (or branch of your choice).

@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="quick-commands"></a>快速命令
 若要快速完成工作，請遵循本節中的步驟。 如需詳細資訊和內容，請從＜[詳細的逐步解說](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough)＞一節來開始。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * 資源群組
 * Azure 虛擬網路
 * 具有 SSH 輸入的網路安全性群組

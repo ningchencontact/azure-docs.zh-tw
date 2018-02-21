@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -31,7 +31,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前的已知問題
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
-| 問題 | 描述 |
+| 問題 | 說明 |
 | --- | --- |
 | 有幾個常用的 HTTP 標題未提供於 REST API 中。 |如果您使用 REST API 來開發媒體服務應用程式，您會發現有些常用的 HTTP 標題欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
 | 不允許 percent-encoding。 |建置串流內容的 URL (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。 基於此原因，不允許使用 percent-encoding。 Name 屬性的值不可有下列任何[百分比編碼保留字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，副檔名只能有一個 "."。 |
@@ -348,8 +348,8 @@ Media Services SDK for .NET 的現行版本為 3.0.0.7
 * 即時資料流預覽。 如需詳細資訊，請參閱[使用媒體服務即時資料流](http://msdn.microsoft.com/library/azure/dn783466.aspx)。
 * 金鑰傳遞服務。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](http://msdn.microsoft.com/library/azure/dn783457.aspx)。
 * AES 動態加密。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](http://msdn.microsoft.com/library/azure/dn783457.aspx)。
-* PlayReady 授權傳遞服務。 如需詳細資訊，請參閱[使用 PlayReady 動態加密和授權傳遞服務](http://msdn.microsoft.com/library/azure/dn783467.aspx)。
-* PlayReady 動態加密。 如需詳細資訊，請參閱[使用 PlayReady 動態加密和授權傳遞服務](http://msdn.microsoft.com/library/azure/dn783467.aspx)。
+* PlayReady 授權傳遞服務。 
+* PlayReady 動態加密。 
 * 媒體服務 PlayReady 授權範本。 如需詳細資訊，請參閱[媒體服務 PlayReady 授權範本概觀]。
 * 資料流儲存體加密資產。 如需詳細資訊，請參閱[資料流儲存體加密內容](http://msdn.microsoft.com/library/azure/dn783451.aspx)。
 

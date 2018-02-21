@@ -17,7 +17,7 @@ ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 588084481ffc5cbbeed34e9527271179fa359ed5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="mdm-settings"></a>MDM 設定
 MDM 原則設定會套用至 Windows 10 及 Windows 10 行動裝置版。  Windows 10 行動裝置版支援僅適用於以 Microsoft 帳戶為基礎且透過使用者的 OneDrive 帳戶進行的漫遊。  如需哪些裝置支援以 Azure AD 為基礎的同步處理的詳細資訊，請參閱＜裝置與端點＞一節。
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | 允許 Microsoft 帳戶連接 |允許使用者在裝置上使用 Microsoft 帳戶進行驗證 |
 | 允許同步處理我的設定 |讓使用者能夠漫遊 Windows 設定和應用程式資料。停用此原則，將停用行動裝置上的同步處理及備份 |
@@ -38,7 +38,7 @@ MDM 原則設定會套用至 Windows 10 及 Windows 10 行動裝置版。  Windo
 ## <a name="group-policy-settings"></a>群組原則設定
 群組原則設定會套用至加入 Active Directory 網域的 Windows 10 裝置上。 資料表也包含看似可管理同步處理設定的舊版設定，但不適用於 Windows 10 的企業狀態漫遊 (已在其說明中註明「不要使用」)。
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | 帳戶：封鎖 Microsoft 帳戶 |此原則設定會防止使用者在這部電腦上新增新的 Microsoft 帳戶 |
 | 不要同步處理 |防止使用者漫遊 Windows 設定和應用程式資料 |

@@ -16,7 +16,7 @@ ms.date: 09/12/2017
 ms.author: v-deasim
 ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -290,33 +290,33 @@ Verizon 記錄資料會延遲 1 小時，端點傳播完成後需花費最多 2 
 
 |計量                     | 說明   | Verizon  | Akamai 
 |---------------------------|---------------|---|---|
-| RequestCountTotal         |這段期間要求命中總數| 是  |是   |
-| RequestCountHttpStatus2xx |產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數              | 是  |是   |
-| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數              | 是  |是   |
-| RequestCountHttpStatus4xx |產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數               | 是   |是   |
-| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數              | 是  |是   |
-| RequestCountHttpStatusOthers |  所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數 | 是  |是   |
-| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數              |否   |是   |
-| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數              |否   |是   |
-| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數              |否   |是   |
-| RequestCountHttpStatus304 |  產生 304 HTTP 代碼回應的所有要求計數             |否   |是   |
-| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數              |否   |是   |
-| RequestCountCacheHit |產生快取命中的所有要求計數。 資產是從 POP 直接提供給用戶端。               | 是  |否   |
-| RequestCountCacheMiss | 產生快取遺漏的所有要求計數。 這表示最靠近用戶端的 POP 上找不到資產，且因此從來源擷取。              |是   | 否  |
-| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。              |是   | 否  |
-| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求                |是   |否   |
-| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。              |是   | 否  |
-| EgressTotal | 輸出資料傳輸 (單位 GB)              |是   |是   |
-| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)            |是   |否   |
-| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)              |是   |否   |
-| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)               |是   | 否  |
-| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)               |是   |  否 |
-| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)                |是   |否   |
-| EgressCacheHit |  直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸  |是   |  否 |
-| EgressCacheMiss | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸              |是   |  否 |
-| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。                |是   |否   |
-| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。                   |是   | 否  |
-| EgressCacheOthers |  其他快取案例的輸出資料傳輸。             |是   | 否  |
+| RequestCountTotal         |這段期間要求命中總數| yes  |yes   |
+| RequestCountHttpStatus2xx |產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數              | yes  |yes   |
+| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數              | yes  |yes   |
+| RequestCountHttpStatus4xx |產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數               | yes   |yes   |
+| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數              | yes  |yes   |
+| RequestCountHttpStatusOthers |  所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數 | yes  |yes   |
+| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數              |否   |yes   |
+| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數              |否   |yes   |
+| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數              |否   |yes   |
+| RequestCountHttpStatus304 |  產生 304 HTTP 代碼回應的所有要求計數             |否   |yes   |
+| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數              |否   |yes   |
+| RequestCountCacheHit |產生快取命中的所有要求計數。 資產是從 POP 直接提供給用戶端。               | yes  |否   |
+| RequestCountCacheMiss | 產生快取遺漏的所有要求計數。 這表示最靠近用戶端的 POP 上找不到資產，且因此從來源擷取。              |yes   | 否  |
+| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。              |yes   | 否  |
+| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求                |yes   |否   |
+| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。              |yes   | 否  |
+| EgressTotal | 輸出資料傳輸 (單位 GB)              |yes   |yes   |
+| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)            |yes   |否   |
+| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)              |yes   |否   |
+| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)               |yes   | 否  |
+| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)               |yes   |  否 |
+| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)                |yes   |否   |
+| EgressCacheHit |  直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸  |yes   |  否 |
+| EgressCacheMiss | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸              |yes   |  否 |
+| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。                |yes   |否   |
+| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。                   |yes   | 否  |
+| EgressCacheOthers |  其他快取案例的輸出資料傳輸。             |yes   | 否  |
 
 *輸出資料傳輸是指從 CDN POP 伺服器傳遞到用戶端的流量。
 

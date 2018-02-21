@@ -35,7 +35,7 @@ ms.lasthandoff: 01/10/2018
 
 本文中討論這兩個選項。 如需使用 Python 向 Data Lake Store 進行服務對服務驗證，請參閱[使用 Python 向 Data Lake Store 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-python.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Python**。 您可以從[這裡](https://www.python.org/downloads/)下載 Python。 本文使用 Python 3.6.2。
 

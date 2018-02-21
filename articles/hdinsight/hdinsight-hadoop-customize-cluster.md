@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
-| 名稱 | 指令碼 |
+| Name | 指令碼 |
 | --- | --- |
 | **安裝 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。 請參閱[在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]。 |
 | **安裝 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。 請參閱[在 HDInsight 叢集上安裝和使用 R][hdinsight-install-r]。 |
@@ -70,7 +70,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>名稱</td>
+        <tr><td>Name</td>
             <td>指定指令碼動作的名稱。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>對自訂叢集所叫用的指令碼指定 URI。 s</td></tr>

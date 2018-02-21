@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: af922aaae21ab87c7e8d9354bcbae64fc97c6f02
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>教學課程︰設定 LinkedIn Elevate 來自動佈建使用者
 
@@ -116,7 +116,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 16) 按一下 [檔案] 。 
 
-這會啟動在 [使用者和群組] 區段中指派給 LinkedIn Elevate 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 20 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，報告中會描述您的 LinkedIn Elevate 應用程式上的佈建服務所執行之所有動作。
+這會啟動在 [使用者和群組] 區段中指派給 LinkedIn Elevate 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 LinkedIn Elevate 應用程式上佈建服務所執行的所有動作。
+
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](active-directory-saas-provisioning-reporting.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

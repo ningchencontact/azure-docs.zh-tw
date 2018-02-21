@@ -1,5 +1,5 @@
 ---
-title: "Azure 雲端服務定義NetworkTrafficRules 結構描述 | Microsoft Docs"
+title: "Azure 雲端服務定義。NetworkTrafficRules 結構描述 | Microsoft Docs"
 ms.custom: 
 ms.date: 04/14/2015
 ms.prod: azure
@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: "17"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt

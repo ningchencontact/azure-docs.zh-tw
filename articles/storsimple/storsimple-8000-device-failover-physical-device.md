@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 若要將 StorSimple 實體裝置容錯移轉至 StorSimple 雲端設備，請移至[容錯移轉至 StorSimple 雲端設備](storsimple-8000-device-failover-cloud-appliance.md)。 若要將實體裝置容錯移轉至本身的裝置，請移至[容錯移轉至相同的 StorSimple 實體裝置](storsimple-8000-device-failover-same-device.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 請確定您已檢閱裝置容錯移轉的注意事項。 如需詳細資訊，請移至[裝置容錯移轉的一般注意事項](storsimple-8000-device-failover-disaster-recovery.md)。
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 請執行下列步驟以將裝置還原至目標實體裝置。
 
 1. 確認您要容錯移轉的磁碟區容器是否具有相關聯的雲端快照。 如需詳細資訊，請移至[使用 StorSimple 裝置管理員服務建立備份](storsimple-8000-manage-backup-policies-u2.md)。
-2. 移至您的 StorSimple 裝置管理員，然後按一下裝置。 在 [裝置] 刀鋒視窗中，移至與您的服務連接的裝置清單。
+2. 移至您的 StorSimple 裝置管理員，然後按一下 [裝置]。 在 [裝置] 刀鋒視窗中，移至與您的服務連接的裝置清單。
     ![選取裝置](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
 3. 選取並按一下您的來源裝置。 來源裝置具有您想要容錯移轉的磁碟區容器。 移至 [設定] > [磁碟區容器]。
 4. 選取您要容錯移轉至另一個裝置的磁碟區容器。 按一下磁碟區容器，以顯示此容器內的磁碟區清單。 選取磁碟區，按一下滑鼠右鍵，然後按一下 [離線]，讓磁碟區離線。 針對磁碟區容器中的所有磁碟區，重複執行這個程序。
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
         ![選取目標](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. 最後，檢閱 [摘要] 下的所有容錯移轉設定。 檢閱設定之後，選取核取方塊，代表所選取磁碟區容器中的磁碟區已離線。 按一下 [確定] 。
+   3. 最後，檢閱 [摘要] 下的所有容錯移轉設定。 檢閱設定之後，選取核取方塊，代表所選取磁碟區容器中的磁碟區已離線。 按一下 [SERVICEPRINCIPAL] 。
 
        ![檢閱容錯移轉設定](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   

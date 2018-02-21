@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > 同義字功能目前處於預覽狀態，只在最新的預覽 API 和 SDK 版本 (api-version=2016-09-01-Preview, SDK version 4.x-preview) 中提供支援。 這一次沒有 Azure 入口網站支援。 預覽 API 不受 SLA 約束，且預覽功能可能會變更，因此不建議在生產應用程式中使用它們。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 教學課程包含下列需求︰
 

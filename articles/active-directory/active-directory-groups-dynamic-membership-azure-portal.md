@@ -18,7 +18,7 @@ ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 >
 > 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置物件的規則。
 > 
-> 目前，不可能建立裝置群組，依據擁有使用者的屬性。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
+> 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
 
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
 1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
@@ -293,7 +293,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>將動態成員資格變更為靜態，反之亦然
 您可以變更在群組中管理成員資格的方式。 當您想要在系統中保留相同的群組名稱和識別碼，讓任何現有的群組參考仍然有效時，這非常實用；建立新的群組需要更新這些參考。
 
-我們正在更新 Azure 入口網站以支援此功能。 在此同時，您可以使用 PowerShell cmdlet，如下所示。
+我們正在更新 Azure 入口網站以支援此功能。 在此同時，您可以使用 PowerShell Cmdlet，如下所示。
 
 > [!WARNING]
 > 將現有的靜態群組變更為動態群組時，系統將從群組中移除所有現有的成員，然後再處理成員資格規則，以加入新的成員。 如果群組用來控制對應用程式或資源的存取，則在完全處理成員資格規則之前，原始成員可能會失去存取權。

@@ -16,7 +16,7 @@ ms.date: 08/23/2017
 ms.author: ccompy
 ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,7 +39,7 @@ VNet 整合功能：
 * 需要「標準」、「進階」或「隔離」價格方案 
 * 使用傳統 VNet 或 Resource Manager VNet 使用傳統或 Resource Manager VNet 
 * 支援 TCP 和 UDP
-* 適用於 Web、 行動裝置、 應用程式開發介面應用程式和功能的應用程式
+* 使用 Web、行動裝置、API 應用程式及函數應用程式
 * 可讓應用程式一次只連接到 1 個 VNet
 * 可在 App Service 方案中與最多五個 VNet 整合 
 * 可讓 App Service 方案中的多個應用程式使用相同的 VNet
@@ -93,7 +93,7 @@ VNet 整合 UI 可讓您從 VNet 的清單中選取。 傳統 VNet 會在 VNet �
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>啟用 Resource Manager VNet 中的點對站
-若要為 Resource Manager VNet 設定閘道和「點對站」，可以如以下文件所述使用 PowerShel：[使用 PowerShell 設定虛擬網路的點對站連線][V2VNETP2S]；或使用「Azure 入口網站」，如以下文件所述：[使用 Azure 入口網站設定 VNet 的點對站連線][V2VNETPortal]。 用來執行這項功能的 UI 尚無法使用。 請注意，您不需要建立指向站台設定的憑證。 這會在您將 WebApp 連線至 VNet 時自動設定。 
+若要為 Resource Manager VNet 設定閘道和「點對站」，可以如以下文件所述使用 PowerShel：[使用 PowerShell 設定虛擬網路的點對站連線][V2VNETP2S]；或使用「Azure 入口網站」，如以下文件所述：[使用 Azure 入口網站設定 VNet 的點對站連線][V2VNETPortal]。 用來執行這項功能的 UI 尚無法使用。 請注意，您不需要針對「點對站」組態建立憑證。 這會在您將 WebApp 連線至 VNet 時自動設定。 
 
 ### <a name="creating-a-pre-configured-vnet"></a>建立預先設定的 VNet
 如果您想要建立新的 VNet，以閘道和點對站進行設定，則 App Service 網路 UI 具有功能可以完成這項操作，但是僅適用於 Resource Manager VNet。 如果您想要以閘道和點對站建立 Classic VNet，您需要透過網路使用者介面手動執行。 
@@ -260,7 +260,7 @@ tcpping 公用程式會讓您知道是否可觸達特定主機和連接埠。 �
 
 ## <a name="powershell-automation"></a>PowerShell 自動化
 
-您可以使用 PowerShell 的 Azure 虛擬網路整合應用程式服務。 針對已備妥的執行指令碼，請參閱[Azure App Service 中的應用程式連接到 Azure 虛擬網路](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)。
+您可以使用 PowerShell 將 App Service 與 Azure 虛擬網路整合。 如需隨時可執行的指令碼，請參閱[將 Azure App Service 中的應用程式連線到 Azure 虛擬網路](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3) \(英文\)。
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>混合式連線和 App Service 環境
 有三個可讓您存取 VNet 裝載之資源的功能。 如下：

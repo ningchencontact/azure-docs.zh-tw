@@ -34,7 +34,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="overview"></a>概觀
 
- 您可以使用媒體服務來傳遞受到 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/) 保護的 MPEG-DASH、Smooth Streaming 和 HTTP 即時串流 (HLS) 串流。 您也可傳遞包含 Widevine DRM 授權的加密 DASH 資料流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。 您可以使用[媒體服務 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API，來設定 AssetDeliveryConfiguration 以使用 Widevine。
+ 您可以使用媒體服務來傳遞受到 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/) 保護的 MPEG-DASH、Smooth Streaming 和 HTTP 即時串流 (HLS) 串流。 您也可傳遞包含 Widevine DRM 授權的加密 DASH 資料流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。 您可以使用[媒體服務 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從 3.5.1 版開始) 或 REST API 設定 AssetDeliveryConfiguration，以使用 Widevine。
 
 媒體服務提供傳遞 PlayReady 和 Widevine DRM 授權的服務。 媒體服務也提供 API，供您用來設定需要 PlayReady DRM 或 Widevine DRM 執行階段在使用者播放受保護內容時，強制執行的權限和限制。 當使用者要求受 DRM 保護的內容時，播放器應用程式會向媒體服務授權服務要求授權。 如果播放器應用程式已獲得授權，媒體服務授權服務就會發出授權給播放器。 PlayReady 或 Widevine 授權包含解密金鑰，可被用戶端播放器用來解密和串流處理內容。
 

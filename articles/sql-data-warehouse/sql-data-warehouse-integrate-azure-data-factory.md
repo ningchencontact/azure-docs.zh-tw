@@ -22,13 +22,13 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>搭配使用 Azure Data Factory 與 SQL 資料倉儲
-Azure Data Factory 提供完全受管理的方法，可供協調資料的傳輸和 SQL 資料倉儲上預存程序的執行。  這可讓您更輕鬆地設定及排程 SQL 資料倉儲的複雜擷取、轉換和載入 (ETL) 程序。 如需 Azure Data Factory 的更完整概觀，請參閱 [Azure Data Factory 文件][Azure Data Factory documentation]。
+Azure Data Factory 提供完全受控的方法，可供協調資料的傳輸和 SQL 資料倉儲上預存程序的執行。  這可讓您更輕鬆地設定及排程 SQL 資料倉儲的複雜擷取、轉換和載入 (ETL) 程序。 如需 Azure Data Factory 的更完整概觀，請參閱 [Azure Data Factory 文件][Azure Data Factory documentation]。
 
 ## <a name="data-movement"></a>資料移動
 Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之間移動。  整體而言，目前與 Azure Data Factory 的整合可支援下列位置的雙向資料移動：
 
 * Azure Blob
-* Azure SQL Database
+* 連接字串
 * 內部部署 SQL Server
 * IaaS 上的 SQL Server
 

@@ -90,7 +90,7 @@ Azure 儲存體帳戶會儲存應用程式部署的封裝。 部署應用程式�
 
 **啟用 IntelliTrace** - 指定您是否要啟用 IntelliTrace。 有了 IntelliTrace，您可以於角色執行個體在 Azure 中執行時，記錄其廣泛的偵錯資訊。 如果您需要找出問題的原因，您可以從 Visual Studio 使用 IntelliTrace 記錄檔來瀏覽程式碼，如同它是在 Azure 中執行。 如需使用 IntelliTrace 的詳細資訊，請參閱[使用 Visual Studio 和 IntelliTrace 進行已發佈 Azure 雲端服務的偵錯](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)。 
 
-**啟用剖析** - 指定您是否要啟用效能剖析。 Visual Studio 分析工具可讓您取得雲端服務執行情況在計算方面的深入分析。 如需有關如何使用 Visual Studio 分析工具的詳細資訊，請參閱[測試 Azure 雲端服務的效能](./vs-azure-tools-performance-profiling-cloud-services.md)。
+**啟用分析** - 指定您是否要啟用效能分析。 Visual Studio 分析工具可讓您取得雲端服務執行情況在計算方面的深入分析。 如需有關如何使用 Visual Studio 分析工具的詳細資訊，請參閱[測試 Azure 雲端服務的效能](./vs-azure-tools-performance-profiling-cloud-services.md)。
 
 **啟用所有角色的遠端偵錯工具** - 指定您是否要啟用遠端偵錯。 如需使用 Visual Studio 進行雲端服務偵錯的詳細資訊，請參閱[在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯](./vs-azure-tools-debug-cloud-services-virtual-machines.md)。
 
@@ -102,7 +102,7 @@ Azure 儲存體帳戶會儲存應用程式部署的封裝。 部署應用程式�
 
 ## <a name="summary-page"></a>摘要頁面
 
-![摘要](./media/vs-azure-tools-publish-azure-application-wizard/summary.png)
+![總結](./media/vs-azure-tools-publish-azure-application-wizard/summary.png)
 
 **目標設定檔** - 您可以選擇從您所選擇的設定建立發行設定檔。 例如，您可能會建立一個設定檔用於測試環境，並建立另一個用於生產。 若要儲存這個設定檔，請選擇 **儲存** 圖示。 此精靈會建立設定檔並將它儲存在 Visual Studio 專案。 若要修改設定檔名稱，請開啟 [目標設定檔] 清單，然後選擇 **<管理...>**。
    

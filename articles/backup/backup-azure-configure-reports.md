@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 4. Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以在 Power BI 中執行報告的臨機操作重新整理，這會使用客戶儲存體帳戶中的最新資料來轉譯報告。 
 5. 國家雲端目前不支援 Azure 備份報告。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. 建立 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)以針對報告進行設定。 這個儲存體帳戶是用來儲存與報告相關的資料。
 2. [建立 Power BI 帳戶](https://powerbi.microsoft.com/landing/signin/)，以使用 Power BI 入口網站檢視、自訂和建立您自己的報告。
 3. 如果尚未註冊，請註冊資源提供者 **Microsoft.insights**，並搭配儲存體帳戶及復原服務保存庫的訂用帳戶，來使報告資料能流入儲存體帳戶。 若要這麼做，您必須前往 Azure 入口網站 > [訂用帳戶] > [資源提供者]，並查看此提供者以註冊它。 

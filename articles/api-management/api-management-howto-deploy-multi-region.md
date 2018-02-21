@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何將 Azure API 管理服務執行個體部署到多個 Azure 區域
 API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 Azure 區域發佈單一 API 管理服務。 這有助於降低地理上分散的 API 取用者感受到的要求延遲，並且可以改善某個區域離線時服務的可用性。 
@@ -52,13 +52,12 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 重複此程序，直到設定好所有位置為止，然後從工具列中按一下 [儲存] 來開始部署程序。
 
 ## <a name="remove-region"> </a>從區域中刪除 API 管理服務執行個體
+
 在「Azure 入口網站」中，瀏覽至「API 管理」服務執行個體的 [級別與價格] 頁面。 
 
 ![調整索引標籤][api-management-scale-service]
 
 針對您想要移除的位置，使用表格最右邊的 [...] 按鈕來開啟操作功能表。 選取 [刪除] 選項。
-
-![移除區域][api-management-remove-region]
 
 確認刪除，然後按一下 [儲存] 來套用變更。
 

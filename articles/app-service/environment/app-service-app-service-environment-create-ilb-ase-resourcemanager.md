@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 首先會使用內部負載平衡器位址 (而不是公用 VIP)，在虛擬網路中建立基底 ASE。  在此步驟中，根網域名稱會指派給 ILB ASE。
 2. 一旦建立 ILB ASE，就會上傳 SSL 憑證。  
-3. 上傳的 SSL 憑證會明確指派給 ILB ASE 做為其「預設」SSL 憑證。  如果應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com) 來定址，此 SSL 憑證將使用於 ILB ASE 上應用程式的 SSL 流量
+3. 上傳的 SSL 憑證會明確指派給 ILB ASE 做為其「預設」SSL 憑證。  如果應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com ) 來定址，此 SSL 憑證將使用於 ILB ASE 上應用程式的 SSL 流量
 
 ## <a name="creating-the-base-ilb-ase"></a>建立基底 ILB ASE
 在 GitHub 上 ([這裡][quickstartilbasecreate]) 可以取得範例 Azure Resource Manager 範本及其相關聯的參數檔案。

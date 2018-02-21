@@ -146,7 +146,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 如先前所述，針對 2 Tuple 同質性，請將 `LoadBalancerDistribution` 元素設定成 sourceIP，針對 3 Tuple 同質性，請設定成 sourceIPProtocol，或針對無同質性 (5 Tuple 同質性)，則設定成 none。
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

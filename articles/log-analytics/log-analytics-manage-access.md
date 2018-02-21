@@ -48,7 +48,7 @@ ms.lasthandoff: 12/13/2017
 * 您是一家全球性公司，基於資料主權或合規性理由，您需要將資料儲存在特定區域。
 * 您使用 Azure，想要將工作區和它所管理的 Azure 資源放在相同區域中，以避免輸出資料傳輸費用。
 * 您想要根據不同部門或事業群的使用量來配置費用。 當您建立每個部門或事業群的工作區時，Azure 帳單和用量表會個別顯示每個工作區的費用。
-* 您是受管理的服務提供者，需要將您管理的每個客戶的 Log Analytics 資料和其他客戶的資料保持隔離。
+* 您是受控服務提供者，需要將您管理的每個客戶的 Log Analytics 資料和其他客戶的資料保持隔離。
 * 您管理多個客戶，想要讓每個客戶/部門/事業群只看到他們自己的資料，而不是其他客戶/部門/事業群的資料。
 
 使用代理程式收集資料時，您可以[設定每個代理程式向一或多個工作區回報](log-analytics-windows-agent.md)。
@@ -83,8 +83,8 @@ Log Analytics 工作區有兩個存取控制權限模型︰
 
 |                          | Log Analytics 入口網站 | Azure 入口網站 | API (包括 PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Log Analytics 使用者角色 | 是                  | 否           | 否                         |
-| Azure 角色型存取  | 是                  | 是          | 是                        |
+| Log Analytics 使用者角色 | yes                  | 否           | 否                         |
+| Azure 角色型存取  | yes                  | yes          | yes                        |
 
 > [!NOTE]
 > Log Analytics 將改為使用 Azure 角色型存取來作為權限模型，以取代 Log Analytics 使用者角色。
@@ -95,7 +95,7 @@ Log Analytics 工作區有兩個存取控制權限模型︰
 
 下列活動也需要 Azure 權限︰
 
-| 動作                                                          | 所需的 Azure 權限 | 注意事項 |
+| 動作                                                          | 所需的 Azure 權限 | 注意 |
 |-----------------------------------------------------------------|--------------------------|-------|
 | 新增及移除管理解決方案                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | 變更定價層                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -164,7 +164,7 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 開啟 OMS 入口網站時，您會改為使用舊版 Log Analytics 使用者角色。 如果您沒有 Log Analytics 入口網站的角色指派，服務會[檢查您在工作區上擁有的 Azure 權限](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)。
 您在 OMS 入口網站中的角色指派是使用如下方式來決定︰
 
-| 條件                                                   | 指派的 Log Analytics 使用者角色 | 注意事項 |
+| 條件                                                   | 指派的 Log Analytics 使用者角色 | 注意 |
 |--------------------------------------------------------------|----------------------------------|-------|
 | 您的帳戶屬於舊版 Log Analytics 使用者角色     | 指定的 Log Analytics 使用者角色 | |
 | 您的帳戶不屬於舊版 Log Analytics 使用者角色 <br> 工作區的完整 Azure 權限 (`*` 權限<sup>1</sup>) | 系統管理員 ||
@@ -181,7 +181,7 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 * 當您使用 http://mms.microsoft.com 登入 OMS 入口網站時，您會看到 [選取工作區] 清單。 此清單只包含您具有 Log Analytics 使用者角色的工作區。 若要查看您可利用 Azure 訂用帳戶存取的工作區，則必須將租用戶指定為 URL 的一部分。 例如：`mms.microsoft.com/?tenant=contoso.com`。 租用戶識別碼通常是您用來登入的電子郵件地址的最後一部分。
 * 如果您想要利用 Azure 權限直接瀏覽到您有存取權的入口網站，您需要在 URL 中指定此資源。 就可以使用 PowerShell 取得此 URL。
 
-  例如， `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`。
+  例如： `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`。
 
   URL 看起來像這樣：`https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
@@ -271,9 +271,9 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
    * 訂用帳戶
    * 資源群組
    * 位置
-   * 定價層   
+   * 定價層  
      ![變更值](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8. 按一下 [確定] 。 工作區現在已連結到您的 Azure 帳戶。
+8. 按一下 [SERVICEPRINCIPAL] 。 工作區現在已連結到您的 Azure 帳戶。
 
 > [!NOTE]
 > 如果您看不到想要連結的工作區，則您的 Azure 訂用帳戶沒有使用 OMS 入口網站建立之工作區的存取權。  若要從 OMS 入口網站授與此帳戶的存取權，請參閱[將使用者新增至現有的工作區](#add-a-user-to-an-existing-workspace)。

@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: 複本和執行個體生命週期
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Reliable Services 生命週期 - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services 生命週期 - Java
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: 服務的可用性
           href: service-fabric-availability-services.md
-        - name: 複本和執行個體生命週期
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Reconfiguration
           href: service-fabric-concepts-reconfiguration.md
         - name: 服務通訊

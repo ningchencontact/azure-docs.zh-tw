@@ -109,7 +109,7 @@ ms.lasthandoff: 10/31/2017
 ||||||               
 | SQL 資料倉儲 | cpu_percent | CPU 百分比 | 平均值 | 10 分鐘 |
 | SQL 資料倉儲 | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 10 分鐘 |
-| SQL 資料倉儲 | 儲存體 | 資料庫大小總計 | 最大值 | 10 分鐘 |
+| SQL 資料倉儲 | storage | 資料庫大小總計 | 最大值 | 10 分鐘 |
 | SQL 資料倉儲 | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |

@@ -16,7 +16,7 @@ ms.date: 04/29/2017
 ms.author: joroja
 ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 在本文中，您會在您的註冊使用者旅程中新增使用者所提供的輸入 (宣告)。  您會將輸入設定為下拉式清單，並定義它是否為必要項目。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。  測試註冊/登入使用者旅程以註冊新的本機帳戶，再繼續進行。
 

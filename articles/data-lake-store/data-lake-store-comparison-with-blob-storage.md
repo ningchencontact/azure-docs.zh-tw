@@ -31,7 +31,7 @@ ms.lasthandoff: 01/10/2018
 | Structure |階層式檔案系統 |具有扁平命名空間的物件存放區 |
 | API |透過 HTTPS 的 REST API |透過 HTTP/HTTPS 的 REST API |
 | 伺服器端 API |[WebHDFS 相容的 REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob 儲存體 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Hadoop 檔案系統用戶端 |是 |是 |
+| Hadoop 檔案系統用戶端 |yes |yes |
 | 資料作業 - 驗證 |採用 [Azure Active Directory 身分識別](../active-directory/active-directory-authentication-scenarios.md) |採用共用密碼 - [帳戶存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)和[共用存取簽章金鑰](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 |
 | 資料作業 - 驗證通訊協定 |OAuth 2.0。 呼叫必須包含由 Azure Active Directory 發行的有效 JWT (JSON Web 權杖) |雜湊式訊息驗證碼 (HMAC)。 呼叫必須包含透過 HTTP 要求之一部分的 Base64 編碼 SHA-256 雜湊。 |
 | 資料作業 - 授權 |POSIX 存取控制清單 (ACL)  ACL 採用 Azure Active Directory 身分識別，可設為檔案或資料夾層級。 |針對帳戶層級授權 – 使用[帳戶存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>針對帳戶、容器或 Blob 授權 - 使用[共用存取簽章金鑰](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

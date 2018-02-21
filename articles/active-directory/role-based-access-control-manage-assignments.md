@@ -3,7 +3,7 @@ title: "檢視 Azure 資源存取權指派 | Microsoft Docs"
 description: "檢視及管理 Azure 入口網站中任何使用者或群組的所有角色型存取控制指派"
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: jeffsta
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
-ms.author: andredm
-ms.openlocfilehash: 51b158ebfeea52e726213edd042277779f52124b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.author: rolyon
+ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>在 Azure 入口網站中檢視使用者和群組的存取指派
 > [!div class="op_single_selector"]

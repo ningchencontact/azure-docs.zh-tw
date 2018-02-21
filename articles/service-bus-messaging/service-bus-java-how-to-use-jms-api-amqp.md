@@ -314,7 +314,7 @@ exit
 * 目前不支援 **TemporaryQueue** 和 **TemporaryTopic** 這些暫時目的地，也不支援用到這些目的地的 **QueueRequestor** 和 **TopicRequestor** API。
 * 不支援交易式工作階段和分散式交易。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。
 
 您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。 使用這些不同的語言撰寫的元件可使用服務匯流排中的 AMQP 1.0 支援確實完整交換訊息。

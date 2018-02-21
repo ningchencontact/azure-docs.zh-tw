@@ -68,7 +68,7 @@ OMS 的核心功能是由在 Azure 中執行的一組服務所提供。 每個�
 | :------------- | :-------------|
 | Log Analytics | 監視及分析不同資源 (包括實體和虛擬機器) 的可用性和效能。 |
 |自動化 | 讓手動程序自動化，並強制設定實體和虛擬機器。 |
-| 備份 | 備份及還原重要資料。 |
+| Backup  | 備份及還原重要資料。 |
 | Site Recovery | 為重要應用程式提供高可用性。 |
 
 ### <a name="log-analytics"></a>Log Analytics
@@ -305,7 +305,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 
 若是對於儲存其[稽核事件](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events)較長的保留時間感興趣的客戶，報告 API 可用來定期將稽核事件提取至不同的資料存放區。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 本文摘要說明保護您的隱私權和保護資料安全，同時提供軟體和服務，幫助您管理組織的 IT 基礎結構。 Microsoft 了解當他們將資料委託給他人管理時，該信任需要嚴格的安全性。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。 保全和保護資料在 Microsoft 是第一要務。
 

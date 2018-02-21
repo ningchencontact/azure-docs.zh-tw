@@ -28,7 +28,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="overview"></a>概觀
 讓超級電腦步出實驗室並停駐在車庫。 這些新銳汽車內含大量感應器，每秒可追蹤和監控數以百萬計的事件。 在 2020 年前，在上述新銳汽車中，大部分的車輛都將連線至網際網路。 使用此豐富資料可提供更好的安全性、可靠性和更佳的駕駛體驗的美好願景。 Microsoft 透過 Cortana Intelligence 讓此夢想成真。
 
-Cortana Intelligence 是受完整管理的巨量資料與進階分析套件，您可用來將資料轉換成可採取的智慧行動。 Cortana Intelligence 車輛遙測分析解決方案範本示範汽車經銷商、汽車製造商和保險公司如何取得車輛健全狀態與駕駛習慣的即時和預測情資。 
+Cortana Intelligence 是完全受控的巨量資料與進階分析套件，您可用來將資料轉換成可採取的智慧行動。 Cortana Intelligence 車輛遙測分析解決方案範本示範汽車經銷商、汽車製造商和保險公司如何取得車輛健全狀態與駕駛習慣的即時和預測情資。 
 
 此解決方案是以 [lambda 架構模式](https://en.wikipedia.org/wiki/Lambda_architecture)實作，該模式完全展現 Cortana Intelligence 平台在即時批次處理方面的優異潛力。
 

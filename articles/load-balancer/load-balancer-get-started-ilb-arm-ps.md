@@ -90,7 +90,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager 需要所有的資源群組指定一個位置。 此位置會作為資源群組中之資源的預設位置。 針對與建立負載平衡器相關的所有命令，一律使用相同的資源群組。
+Azure 資源管理員需要所有的資源群組指定一個位置。 此位置會作為資源群組中之資源的預設位置。 針對與建立負載平衡器相關的所有命令，一律使用相同的資源群組。
 
 在範例中，我們已建立名為 **NRP-RG** 的資源群組，且位置為「美國西部」。
 

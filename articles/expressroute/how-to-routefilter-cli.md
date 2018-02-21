@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: anzaman
 ms.openlocfilehash: a85a68393f3dc946db651791de9efff0694f9989
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---

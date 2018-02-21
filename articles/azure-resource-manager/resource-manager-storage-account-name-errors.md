@@ -46,7 +46,7 @@ Message=The storage account named mystorage is already taken.
 
 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能使用數字和小寫字母。 名稱必須是唯一的。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 ### <a name="solution-1"></a>解決方案 1
 

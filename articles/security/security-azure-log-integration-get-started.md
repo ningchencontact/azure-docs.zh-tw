@@ -37,7 +37,7 @@ Azure 記錄整合 (AzLog) 可讓您將來自 Azure 資源的未經處理記錄�
 
 執行 Azure 記錄整合服務的實體或虛擬機器需要網路連線至 Azure 公用雲端。 本文中的步驟提供組態詳細資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 AzLog 安裝至少需要下列項目︰
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。
 * 可用於 Windows Azure 診斷記錄的**儲存體帳戶** (您可以使用預先設定的儲存體帳戶，或建立一個新帳戶，我們稍後將在本文示範如何設定儲存體帳戶)

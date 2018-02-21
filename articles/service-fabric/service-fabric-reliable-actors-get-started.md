@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 本文將逐步說明如何在 Visual Studio 中建立一個簡單的 Reliable Actor 應用程式並進行偵錯。 如需 Reliable Actors 的相關詳細資訊，請參閱 [Service Fabric Reliable Actors 簡介](service-fabric-reliable-actors-introduction.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，請確保您的電腦上已設定 Service Fabric 開發環境 (包括 Visual Studio)。 如需詳細資訊，請參閱[如何設定開發環境](service-fabric-get-started.md)。
 

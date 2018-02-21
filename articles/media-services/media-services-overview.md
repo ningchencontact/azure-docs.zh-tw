@@ -34,7 +34,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 * [AMS 即時資料流工作流程](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [AMS 隨選串流工作流程](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始使用 Azure 媒體服務，您應該具備下列項目：
 

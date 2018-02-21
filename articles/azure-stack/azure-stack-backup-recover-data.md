@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: 859d31b554fcd1936ce555f6afb0f4631a3af7aa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 141641b01b338e3426861dad7424a1de1bd2c63c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>從重大資料遺失的情況下復原
 
@@ -30,7 +30,7 @@ Azure Stack 會在您的資料中心內執行 Azure 服務。 Azure Stack 執行
 
 本案例說明如何在設備失敗時復原整個安裝，以及如何重新部署私人雲端。
 
-| 案例                                                           | 資料遺失                            | 注意事項                                                             |
+| 案例                                                           | 資料遺失                            | 考量                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | 從災害或產品錯誤所導致的重大資料遺失情況下復原 | 所有的基礎結構、使用者和應用程式資料 | 使用者應用程式和資料在基礎結構資料中會分別受到保護 |
 

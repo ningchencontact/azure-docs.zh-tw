@@ -178,7 +178,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 下表列出可用來控制您的 IoT 裝置佈建服務存取權的權限。
 
-| 權限 | 注意事項 |
+| 權限 | 注意 |
 | --- | --- |
 | **ServiceConfig** |授與變更服務設定的存取權。 <br/>後端雲端服務會使用此權限。 |
 | **EnrollmentRead** |授與對裝置註冊和註冊群組進行讀取的權限。 <br/>後端雲端服務會使用此權限。 |

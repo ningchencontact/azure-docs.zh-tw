@@ -15,7 +15,7 @@ ms.date: 05/10/2017
 ms.author: mbullwin
 ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/03/2018
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>檢閱定價方案和估計成本
 
-Application Insights 可讓您更輕鬆地了解可用的定價和哪些成本可能會根據最近的使用模式。 從開啟 Azure 入口網站之 Application Insights 資源中的 [功能 + 定價] 刀鋒視窗開始：
+Application Insights 可讓您輕鬆地了解可用的定價方案，以及根據最近的使用模式可能的成本。 從開啟 Azure 入口網站之 Application Insights 資源中的 [功能 + 定價] 刀鋒視窗開始：
 
 ![選擇價格。](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>管理最大每日資料量
 
-您可以使用每日的磁碟區最來限制的資料收集，但如果符合端點時，將會導致從一天的剩餘部分應用程式傳送的所有遙測資料遺失。 我們「不建議」讓您的應用程式達到每日上限，因為在達到該上限後，您將無法追蹤應用程式的健康狀態和效能。 
+您可以使用每日用量上限來限制收集的資料量，但如果達到該上限，您便會失去當天接下來所有來自應用程式的遙測。 我們「不建議」讓您的應用程式達到每日上限，因為在達到該上限後，您將無法追蹤應用程式的健康狀態和效能。 
 
-請改用[取樣](app-insights-sampling.md)微調資料磁碟區層級，，然後使用每日最只當做 」 最後的手段 」 應用程式啟動意外傳送的遙測資料量較高的磁碟區。 
+請改為使用[取樣](app-insights-sampling.md)來將資料量調整到您所需的程度，並只將每日上限做為「最後的手段」，以防您的應用程式開始未預期地傳送大量遙測。 
 
-若要變更您的 Application Insights 資源的設定區段中的每日最按一下**資料磁碟區管理**然後**每日最**。
+若要變更每日上限，請在您 Application Insights 的 [設定] 區段中依序按一下 [資料量管理]、[每日上限]。
 
 ![調整每日遙測資料量上限](./media/app-insights-pricing/daily-cap.png) 
 

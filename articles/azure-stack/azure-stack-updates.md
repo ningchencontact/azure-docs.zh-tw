@@ -33,7 +33,7 @@ Microsoft 會以一般的步調釋出 Azure Stack 整合系統的更新套件，
 為了讓系統獲得支援，您必須將 Azure Stack 更新為特定版本等級。 務必檢閱 [Azure Stack 服務原則](azure-stack-servicing-policy.md)。
 
 > [!NOTE]
-> 您無法將 Azure Stack 更新封裝套用於 Azure Stack 開發封裝。 更新封裝專為整合系統所設計。
+> 您無法將 Azure Stack 更新封裝套用於 Azure Stack 開發套件。 更新封裝專為整合系統所設計。
 
 ## <a name="the-update-resource-provider"></a>更新資源提供者
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 條件式存取中的控制項 | Microsoft Docs"
-description: "了解 Azure Active Directory 條件式存取中的控制項有何作用。"
+title: "Azure Active Directory 條件式存取中的存取控制 | Microsoft Docs"
+description: "了解 Azure Active Directory 條件式存取中的存取控制如何運作。"
 services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的控制項 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的存取控制 
 
-透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您可以定義對特定條件 ("when this happens") 做出的回應 ("do this")。 在條件式存取的情境中， 
+透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因做出的回應。 
 
-- "**When this happens**" 稱為**條件陳述式**
+![控制](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Then do this**" 成為**控制項**
 
-![控制](./media/active-directory-conditional-access-controls/11.png)
+在條件式存取的情境中， 
+
+- "**When this happens**" 稱為**條件**
+
+- "**Then do this**" 稱為**存取控制**
+
 
 條件陳述式與控制項的組合代表條件式存取原則。
 
-![控制](./media/active-directory-conditional-access-controls/12.png)
+![控制](./media/active-directory-conditional-access-controls/61.png)
 
 每種控制項都是必須由登入之使用者或系統履行的要求，或是規範使用者在登入後之行為的限制。 
 

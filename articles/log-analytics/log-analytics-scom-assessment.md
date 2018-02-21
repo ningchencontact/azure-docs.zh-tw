@@ -3,7 +3,7 @@ title: "使用 Azure Log Analytics 最佳化 System Center Operations Manager �
 description: "您可以使用 System Center Operations Manager 健康情況檢查解決方案，定期評估環境的風險和健康狀態。"
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>收集 System Center Operations Manager 評定資料的詳細資料
 
-System Center Operations Manager 評定會從下列來源收集資料： 
+System Center Operations Manager 評定會從下列來源收集資料：
 
 * 登錄
 * Windows Management Instrumentation (WMI)
@@ -72,7 +72,7 @@ System Center Operations Manager 評定會從下列來源收集資料：
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Log Analytics 的 Operations Manager 執行身分帳戶
 
-Log Analytics 會建立工作負載的管理套件以提供加值服務。 每個工作負載都需要具有特定的工作負載權限，才能在不同的安全性內容中執行管理套件，例如網域使用者帳戶。 請使用具特殊權限的認證設定 Operations Manager 執行身分帳戶。 如需詳細資訊，請參閱 Operations Manager 文件中的[如何建立執行身分帳戶](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)。 
+Log Analytics 會建立工作負載的管理套件以提供加值服務。 每個工作負載都需要具有特定的工作負載權限，才能在不同的安全性內容中執行管理套件，例如網域使用者帳戶。 請使用具特殊權限的認證設定 Operations Manager 執行身分帳戶。 如需詳細資訊，請參閱 Operations Manager 文件中的[如何建立執行身分帳戶](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)。
 
 請使用下列資訊來設定 System Center Operations Manager 健康情況檢查的 Operations Manager 執行身分帳戶。
 
@@ -82,21 +82,21 @@ Log Analytics 會建立工作負載的管理套件以提供加值服務。 每�
 
 * 屬於網域使用者帳戶，且此帳戶是所有支援任何 Operations Manager 角色(管理伺服器；裝載了作業、資料倉儲和 ACS 資料庫的 SQL Server；報告、Web 主控台和閘道伺服器) 之伺服器上的本機 Administrators 群組成員。
 * 要評估的管理群組之 Operation Manager 系統管理員角色
-* 如果帳戶沒有 SQL 系統管理員權限，則請執行[指令碼](#sql-script-to-grant-granular-permissions-to-the-run-as-account)，將細微權限授與給裝載了一個或所有 Operations Manager 資料庫之每個 SQL Server 執行個體上的帳戶。 
+* 如果帳戶沒有 SQL 系統管理員權限，則請執行[指令碼](#sql-script-to-grant-granular-permissions-to-the-run-as-account)，將細微權限授與給裝載了一個或所有 Operations Manager 資料庫之每個 SQL Server 執行個體上的帳戶。
 
 1. 在 Operations Manager 主控台中，選取 [管理] 導覽按鈕。
 2. 在 [執行身分設定] 下，按一下 [帳戶]。
 3. 在 [建立執行身分帳戶] 精靈中，於 [簡介] 頁面上按 [下一步]。
 4. 在 [一般屬性] 頁面上，於 [執行身分帳戶類型:] 清單中選取 [Windows]。
-5. 在 [顯示名稱] 文字方塊中輸入顯示名稱，在 [說明] 方塊中選擇性地輸入說明，然後按 [下一步]。 
+5. 在 [顯示名稱] 文字方塊中輸入顯示名稱，在 [說明] 方塊中選擇性地輸入說明，然後按 [下一步]。
 6. 在 [散發安全性] 頁面上，選取 [較安全]。
-7. 按一下 [建立] 。  
+7. 按一下頁面底部的 [新增] 。  
 
 您現已建立執行身分帳戶，接下來您必須將其鎖定在管理群組中的管理伺服器，並與預先定義的執行身分設定檔相關聯，如此一來，工作流程才會使用認證來執行。  
 
 1. 在 [執行身分設定]、[帳戶] 下，於 [結果] 窗格中對您稍早建立的帳戶連按兩下。
 2. 在 [散發] 索引標籤上，按一下 [選取的電腦] 方塊的 [新增]，並新增要做為帳戶散發目標的管理伺服器。  按 [確定] 兩次以儲存變更。
-3. 在 [執行身分設定] 下，按一下 [設定檔]。 
+3. 在 [執行身分設定] 下，按一下 [設定檔]。
 4. 搜尋「SCOM 評定設定檔」。
 5. 設定檔名稱應該是︰「Microsoft System Center Advisor SCOM 評定執行身分設定檔」。
 6. 以滑鼠右鍵按一下其屬性並更新，然後新增您稍早建立的執行身分帳戶。
@@ -216,7 +216,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
-1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
+1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。
 2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [OMS 入口網站] 圖格。  
 4. 在 [概觀] 頁面上，按一下 [System Center Operations Manager 健康情況檢查] 圖格。
@@ -228,7 +228,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 
 如果您有想要忽略的建議，則可以建立供 Log Analytics 用來防止建議出現在您評估結果的文字檔。
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>若要識別您想要忽略的建議
 1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 圖格。

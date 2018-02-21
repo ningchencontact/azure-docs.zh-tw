@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 入口網站中建立 Power BI Embedded 容量
 
-本文將逐步解說如何在 Microsoft Azure 中建立 Power BI Embedded 容量。 Power BI Embedded 可協助您在應用程式中快速新增令人讚嘆的視覺效果、報表和儀表板，藉以簡化 Power BI 功能。
+本文將逐步解說如何在 Microsoft Azure 中建立 Power BI Embedded 容量。 Power BI Embedded 可協助您在應用程式中快速新增令人讚嘆的視覺效果、報告和儀表板，藉以簡化 Power BI 功能。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
     |**位置**|針對您的租用戶裝載 Power BI 的位置。 系統會自動解析此設定，無法選取不同的位置。|
     |**定價層**|選取符合您需求的 SKU (V 核心計數和記憶體大小)。  如需詳細資料，請參閱 [Power BI Embedded 定價](https://azure.microsoft.com/pricing/details/power-bi-embedded/)。|
 
-6. 選取 [ **建立**]。
+6. 選取 [建立] 。
 
 建立通常不到一分鐘即可完成；往往在數秒內。 如果您選取 [釘選到儀表板]，請瀏覽至您的儀表板以查看新容量。 或者，瀏覽至 [更多服務] > [Power BI Embedded] 以查看您的容量是否已就緒。
 
@@ -72,6 +72,6 @@ ms.lasthandoff: 10/11/2017
 
 如果您不需使用這個容量，請暫停它以便停止計費。 如需詳細資訊，請參閱[在 Azure 入口網站中暫停和啟動您的 Power BI Embedded 容量](pause-start.md)。
 
-若要在您的應用程式內開始內嵌 Power BI 內容，請參閱[如何內嵌 Power BI 儀表板、報表和磚](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
+若要在您的應用程式內開始內嵌 Power BI 內容，請參閱[如何內嵌 Power BI 儀表板、報告和圖格](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 
-有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/) \(英文\)
+有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/)

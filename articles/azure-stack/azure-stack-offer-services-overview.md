@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack 中的服務供應項目概觀
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 [Microsoft Azure Stack](azure-stack-poc.md) 是一個混合式雲端平台，可讓您從資料中心提供服務。 作為服務提供者，您可以提供服務給租用戶。 在企業或政府機構中，您可以提供內部部署服務給您的員工。 您可以傳遞的服務包括、但不限於：
 

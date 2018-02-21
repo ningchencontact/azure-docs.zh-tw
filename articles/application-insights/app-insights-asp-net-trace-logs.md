@@ -131,14 +131,14 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 ## <a name="using-the-trace-api-directly"></a>直接使用追蹤 API
 您可以直接呼叫 Application Insights 追蹤 API。 記錄配接器會使用此 API。
 
-例如：
+例如︰
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。
 
-此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如：
+此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如︰
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -154,7 +154,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 
 ![在 Application Insights 中，選擇 [搜尋]](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![搜尋](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 例如，您可以：
 
@@ -200,7 +200,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>我沒看到一些預期的記錄項目
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。 [深入了解取樣。](app-insights-sampling.md)
 
-## <a name="add"></a>接續步驟
+## <a name="add"></a>後續步驟
 * [設定可用性和回應性測試][availability]
 * [疑難排解][qna]
 

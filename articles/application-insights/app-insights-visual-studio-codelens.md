@@ -72,7 +72,7 @@ Web 應用程式的程式碼方法可透過遙測資料來標註出執行階段�
 * 選擇 [趨勢]  可檢視過去 24 小時內要求、失敗的要求或平均回應時間的趨勢視覺效果。
 * 選擇 CodeLens 詳細資料檢視左上角的 Application Insights 資源名稱，以變更哪個資源是 CodeLens 資料的來源。
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 |  |  |
 | --- | --- |
 | **[在 Visual Studio 中使用 Application Insights](app-insights-visual-studio.md)**<br/>搜尋遙測、查看 CodeLens 中的資料，以及設定 Application Insights。 盡在 Visual Studio 中。 |![以滑鼠右鍵按一下專案，然後選擇 [Application Insights]、[搜尋]](./media/app-insights-visual-studio-codelens/34.png) |

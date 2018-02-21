@@ -23,12 +23,12 @@ ms.lasthandoff: 11/29/2017
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>在 Azure 資料目錄中註冊來自 Data Lake Store 的資料
 在本文中，您將了解如何使用 Azure 資料目錄整合 Azure Data Lake Store，讓您的資料可在組織中藉由與資料目錄整合進行搜尋。 如需編目資料的詳細資訊，請參閱 [Azure 資料目錄](../data-catalog/data-catalog-what-is-data-catalog.md)。 若要了解您可以使用資料目錄的案例，請參閱 [Azure 資料目錄常見案例](../data-catalog/data-catalog-common-scenarios.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **啟用您的 Azure 訂用帳戶** 以使用「Data Lake Store 公開預覽版」。 請參閱 [指示](data-lake-store-get-started-portal.md)。
-* **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。 在本教學課程中，讓我們建立名為 **datacatalogstore**的 Data Lake Store 帳戶。
+* **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md) 的指示。 在本教學課程中，讓我們建立名為 **datacatalogstore**的 Data Lake Store 帳戶。
 
     一旦您建立帳戶之後，請將範例資料集上傳給它。 在本教學課程中，讓我們上傳 **Azure Data Lake Git 儲存機制** 中 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)資料夾下的所有 .csv 檔案。 您可以使用各種用戶端，例如： [Azure 儲存體總管](http://storageexplorer.com/)，將資料上傳至 Blob 容器。
 * **Azure 資料目錄**。 您的組織必須為組織建立 Azure 資料目錄。 每個組織只允許有一個目錄。

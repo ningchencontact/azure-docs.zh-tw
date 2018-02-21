@@ -16,7 +16,7 @@ ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 此文件說明適用於 Azure Mobile Engagement Android SDK 的所有整合及組態選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="advanced-features"></a>進階功能

@@ -25,7 +25,7 @@ ms.lasthandoff: 11/07/2017
 有許多因素會影響 Azure 上的 MySQL 效能，均與虛擬硬體選取和軟體設定有關。 本文著重於透過儲存體、系統和資料庫設定最佳化效能。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如需使用 Resource Manager 模型進行 Linux VM 最佳化的詳細資訊，請參閱[在 Azure 上最佳化您的 Linux VM](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需使用 Resource Manager 模型進行 Linux VM 最佳化的詳細資訊，請參閱[在 Azure 上最佳化您的 Linux VM](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>在 Azure 虛擬機器上利用 RAID

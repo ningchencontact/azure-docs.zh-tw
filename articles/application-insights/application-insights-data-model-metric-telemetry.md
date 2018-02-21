@@ -40,7 +40,7 @@ Application Insights 支援數個已知的計量名稱。 這些計量會置入 
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | 進行中... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | 平均要求執行時間
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | 進行中... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | 佇列中等候處理的要求數目
 
-## <a name="name"></a>名稱
+## <a name="name"></a>Name
 
 您想要在 Application Insights 入口網站和 UI 中看到的計量名稱。 
 

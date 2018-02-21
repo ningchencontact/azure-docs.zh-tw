@@ -16,7 +16,7 @@ ms.date: 12/08/2017
 ms.author: maheshu
 ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>安全 LDAP 憑證的需求
 請先根據下列準則取得有效的憑證，再啟用安全的 LDAP。 如果您嘗試使用無效/不正確的憑證來為受控網域啟用安全的 LDAP，您會遭遇失敗。
 
-1. **信任的簽發者** - 憑證必須由使用安全 LDAP 連線到網域的電腦，所信任的授權單位加以發行。 此授權單位可能是公用憑證授權單位 (CA) 或企業 CA 信任這些電腦。
+1. **信任的簽發者** - 憑證必須由使用安全 LDAP 連線到網域的電腦，所信任的授權單位加以發行。 此授權單位可能是受這些電腦信任的公用憑證授權單位 (CA) 或企業 CA。
 2. **存留期** - 憑證必須至少在接下來的 3 至 6 個月內都要保持有效。 當憑證過期時，受控網域的安全 LDAP 存取會中斷。
 3. 
             **主體名稱** - 在受控網域中，憑證的主體名稱必須是萬用字元。 比方說，如果您的網域名稱為 'contoso100.com'，則憑證的主體名稱必須是 '*.contoso100.com'。 設定此萬用字元名稱的 DNS 名稱 (主體替代名稱)。
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/11/2017
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>選項 A (建議選項) - 從憑證授權單位取得安全的 LDAP 憑證
-如果您的組織從公用 CA 取得憑證，請從公用 CA 取得安全 LDAP 的憑證。 如果您部署企業 CA，請從企業 CA 取得安全 LDAP 的憑證。
+如果您的組織從公用 CA 取得其憑證，請從該公用 CA 取得安全的 LDAP 憑證。 如果您部署企業 CA，請從企業 CA 取得安全 LDAP 的憑證。
 
 > [!TIP]
 > 

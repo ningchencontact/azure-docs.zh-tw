@@ -17,9 +17,9 @@ ms.lasthandoff: 10/20/2017
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 入口網站中設定和存取伺服器記錄
 
-您可以從 Azure 入口網站設定、列示和下載[適用於 MySQL 的 Azure 資料庫](concepts-server-logs.md)。
+您可以從 Azure 入口網站設定、列出和下載[適用於 MySQL 的 Azure 資料庫伺服器記錄](concepts-server-logs.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -43,14 +43,14 @@ ms.lasthandoff: 10/20/2017
 
 6. 變更您需要調整的參數。 您在此工作階段中所做的所有變更都會以紫色顯示。 
 
-   一旦變更了參數，您就可以按一下 [儲存]。 或者，也可以**捨棄**您的變更。
+   變更參數之後，您可以按一下 [儲存]。 或者，也可以**捨棄**您的變更。
 
    ![按一下 [儲存] 或 [捨棄]](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
 7. 按一下 [伺服器參數] 頁面上的**關閉按鈕** (X 圖示)。
 
 ## <a name="view-list-and-download-logs"></a>檢視清單並下載記錄
-一旦開始記錄，您就可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄。 
+開始記錄之後，您可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄檔。 
 
 1. 開啟 Azure 入口網站。
 

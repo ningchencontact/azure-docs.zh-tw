@@ -30,7 +30,7 @@ ms.lasthandoff: 11/02/2017
 > [!NOTE]
 > 建立伺服器可能會導致新的可計費服務。 若要深入了解，請參閱 [Analysis Services 價格](https://azure.microsoft.com/pricing/details/analysis-services/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本快速入門，您需要：
 
 * **Azure 訂用帳戶**︰瀏覽 [Azure 免費試用](https://azure.microsoft.com/offers/ms-azr-0044p/)建立帳戶。

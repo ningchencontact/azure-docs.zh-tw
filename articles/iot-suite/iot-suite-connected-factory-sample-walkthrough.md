@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>連線處理站預先設定的解決方案逐步解說
 
@@ -233,7 +233,7 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
 
 * [azureiotsuite.com 網站的權限][lnk-permissions]
 * [在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)
-* [OPC 發行者參考實作](iot-suite-connected-factory-publisher.md)。
+* [OPC 發行者參考實作](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)。
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

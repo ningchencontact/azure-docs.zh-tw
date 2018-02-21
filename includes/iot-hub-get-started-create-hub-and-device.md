@@ -34,7 +34,7 @@
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 5. 建立裝置之後，請在 [裝置總管] 窗格中開啟裝置。
 6. 記下連接字串的主索引鍵。
 

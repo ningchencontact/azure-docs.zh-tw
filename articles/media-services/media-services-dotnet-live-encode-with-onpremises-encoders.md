@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: cenkdin;juliako
 ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 本教學課程將逐步引導您使用 Azure 媒體服務 .NET SDK，建立針對即時通行傳遞設定的 **通道** 。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要有下列項目，才能完成教學課程：
 
 * 一個 Azure 帳戶。

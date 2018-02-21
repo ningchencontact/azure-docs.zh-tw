@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>設定虛擬網路服務端點
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 安裝的先決條件：
-- 使用 [az login](/cli/azure/#login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。 如需有關登入的詳細資訊，請參閱[開始使用 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
+- 使用 [az login](/cli/azure/#az_login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。 如需有關登入的詳細資訊，請參閱[開始使用 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
  - 該帳戶必須擁有必要的[權限](#provisioning)，以便建立虛擬網路和服務端點。
 
  如需完整的虛擬網路命令清單，請參閱 [Azure CLI 虛擬網路命令](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)

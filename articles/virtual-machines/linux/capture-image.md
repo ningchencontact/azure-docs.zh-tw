@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -35,9 +35,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="before-you-begin"></a>開始之前
 請確保符合下列必要條件︰
 
-* 您需要在 Resource Manager 部署模型中使用受管理磁碟建立的 Azure VM。 如果您尚未建立 Linux VM，可以使用[入口網站](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或 [Resource Manager 範本](create-ssh-secured-vm-from-template.md)。 視需要設定 VM。 例如，[新增資料磁碟](add-disk.md)、套用更新，並安裝應用程式。 
+* 您需要在 Resource Manager 部署模型中使用受控磁碟建立的 Azure VM。 如果您尚未建立 Linux VM，可以使用[入口網站](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或 [Resource Manager 範本](create-ssh-secured-vm-from-template.md)。 視需要設定 VM。 例如，[新增資料磁碟](add-disk.md)、套用更新，並安裝應用程式。 
 
-* 您還需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。
+* 您還需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。
 
 ## <a name="quick-commands"></a>快速命令
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
       --name myVM
     ```
 
-3. 使用 [az image create](/cli//azure/image#create) 建立 VM 資源的映像。 下列範例會使用名為 myVM 的 VM 資源，在 myResourceGroup 資源群組中建立名為 myImage 的映像：
+3. 使用 [az image create](/cli/azure/image#az_image_create) 建立 VM 資源的映像。 下列範例會使用名為 myVM 的 VM 資源，在 myResourceGroup 資源群組中建立名為 myImage 的映像：
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
    > 此映像與來源 VM 建立於相同的資源群組中。 您可以從此映像，在您訂用帳戶的任何資源群組中建立 VM。 從管理觀點來看，您可能想為您的 VM 資源和映像建立特定的資源群組。
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步驟 3：從擷取的映像建立 VM
-使用您以 [az vm create](/cli/azure/vm#create) 建立的映像來建立 VM。 下列範例會從名為 myImage 的映像建立名為 myVMDeployed 的 VM：
+使用您以 [az vm create](/cli/azure/vm#az_vm_create) 建立的映像來建立 VM。 下列範例會從名為 myImage 的映像建立名為 myVMDeployed 的 VM：
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>在另一個資源群組中建立 VM 
 
-您可以從某個映像，在您訂用帳戶的任何資源群組中建立 VM。 若要在與映像不同的資源群組中建立 VM，請指定您映像的完整資源識別碼。 使用 [az image list](/cli/azure/image#list) 來檢視映像清單。 輸出類似於下列範例：
+您可以從某個映像，在您訂用帳戶的任何資源群組中建立 VM。 若要在與映像不同的資源群組中建立 VM，請指定您映像的完整資源識別碼。 使用 [az image list](/cli/azure/image#az_image_list) 來檢視映像清單。 輸出類似於下列範例：
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ az vm create \
    "name": "myImage",
 ```
 
-下列範例藉由指定映像資源識別碼，進而使用 [az vm create](/cli/azure/vm#create) 在與來源映像不同的資源群組中建立 VM︰
+下列範例藉由指定映像資源識別碼，進而使用 [az vm create](/cli/azure/vm#az_vm_create) 在與來源映像不同的資源群組中建立 VM︰
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>步驟 4：驗證部署
 
-現在使用您建立的虛擬機器的 SSH 來驗證部署並開始使用新的 VM。 若要透過 SSH 連接，請利用 [az vm show](/cli/azure/vm#show) 尋找您 VM 的 IP 位址或 FQDN：
+現在使用您建立的虛擬機器的 SSH 來驗證部署並開始使用新的 VM。 若要透過 SSH 連接，請利用 [az vm show](/cli/azure/vm#az_vm_show) 尋找您 VM 的 IP 位址或 FQDN：
 
 ```azurecli
 az vm show \

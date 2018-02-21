@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
    
     ![設定儲存體帳戶](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
 4. 使用滑桿或文字方塊，定義活動記錄事件應該在儲存體帳戶中保留的天數。 如果您想要讓您的資料無限期保存在儲存體帳戶，將此數目設定為零。
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
 ## <a name="archive-the-activity-log-via-powershell"></a>透過 PowerShell 封存活動記錄檔
 ```
@@ -50,9 +50,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
 | StorageAccountId |否 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
-| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您要檢視所有地區的清單，可以[瀏覽此頁面](https://azure.microsoft.com/en-us/regions)或使用 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)。 |
-| RetentionInDays |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
-| 類別 |是 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
+| 位置 |yes |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您要檢視所有地區的清單，可以[瀏覽此頁面](https://azure.microsoft.com/en-us/regions)或使用 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)。 |
+| RetentionInDays |yes |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
+| 類別 |yes |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 ## <a name="archive-the-activity-log-via-cli"></a>透過 CLI 封存活動記錄檔
 ```
@@ -61,11 +61,11 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| 名稱 |是 |記錄檔設定檔的名稱。 |
+| name |yes |記錄檔設定檔的名稱。 |
 | storageId |否 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
-| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您要檢視所有地區的清單，可以[瀏覽此頁面](https://azure.microsoft.com/en-us/regions)或使用 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)。 |
-| RetentionInDays |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
-| 類別 |是 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
+| 位置 |yes |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您要檢視所有地區的清單，可以[瀏覽此頁面](https://azure.microsoft.com/en-us/regions)或使用 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)。 |
+| RetentionInDays |yes |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
+| 類別 |yes |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 ## <a name="storage-schema-of-the-activity-log"></a>活動記錄檔的儲存體結構描述
 一旦您已經設定封存，只要一發生活動記錄檔事件，就會在儲存體帳戶中建立儲存體容器。 在容器內的 blob 的活動記錄檔和診斷記錄檔會遵循相同的格式。 這些 blob 的結構為：

@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
   
  本主題說明 XML 和 JSON 格式的 `H264 Single Bitrate High Quality SD for Android` 預設。  
   
- 此預設會產生位元速率為 500 kbps 的單一 MP4 檔案，而且是立體聲 AAC 音訊。 如需此預設的設定檔、位元速率、取樣率等的詳細資訊，請檢查以下定義的 XML 或 JSON。 如需這些預設中每個元素的意義說明及每個元素的有效值，請參閱[媒體編碼器標準結構描述](media-services-mes-schema.md)主題。  
+ 此預設會產生位元速率為 500 kbps 的單一 MP4 檔案，而且是立體聲 AAC 音訊。 如需此預設的設定檔、位元速率、取樣率等的詳細資訊，請檢查以下定義的 XML 或 JSON。 如需這些預設中每個元素的意義說明，請參閱[媒體編碼器標準結構描述](media-services-mes-schema.md)主題。  
   
  XML  
   

@@ -66,7 +66,7 @@ adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 > [!NOTE]
 > 目前，您只可以從 Azure Data Factory 建立 HDInsight 叢集 3.2 版。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始執行本文中的指示之前，您必須擁有以下項目：
 
 * [Azure 訂用帳戶](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。

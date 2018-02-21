@@ -29,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 Microsoft Azure 服務匯流排傳訊已定義產生者與取用者應用來傳遞此類追蹤內容的裝載屬性。
 該通訊協定是以 [HTTP 關聯性通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) \(英文\) 為基礎。
 
-| 屬性名稱        | 描述                                                 |
+| 屬性名稱        | 說明                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | 產生者針對佇列之外部呼叫的唯一識別碼。 請參閱 [HTTP 通訊協定中的 Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) \(英文\) 以了解邏輯依據、考量及格式 |
 |  Correlation-Context | 作業內容，系統會將它傳播至涉及作業處理的所有服務。 如需詳細資訊，請參閱 [HTTP 通訊協定中的 Correlation-Context](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) \(英文\) |

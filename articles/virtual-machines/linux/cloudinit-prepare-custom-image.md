@@ -21,9 +21,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/04/2017
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>準備現有的 Linux Azure 虛擬機器映像以搭配 cloud-init 使用
-本文會示範如何讓現有的 Azure 虛擬機器準備好進行重新部署，並且可使用 cloud-init。 所產生的映像可用來部署新的虛擬機器或虛擬機器擴展集 - 之後這兩者都可進一步使用 cloud-init 在部署期間進行自訂。  一旦 Azure 佈建資源之後，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
+本文會示範如何讓現有的 Azure 虛擬機器準備好進行重新部署，並且可使用 cloud-init。 所產生的映像可用來部署新的虛擬機器或虛擬機器擴展集 - 之後這兩者都可進一步使用 cloud-init 在部署期間進行自訂。  一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文件會假設您已經有正在執行的 Azure 虛擬機器，且執行著支援版本的 Linux 作業系統。 您已設定符合您需求的電腦、已安裝所有必要模組、已處理所有所需更新並且已經過測試，確定其符合您的需求。 
 
 ## <a name="preparing-rhel-74--centos-74"></a>準備 RHEL 7.4 / CentOS 7.4
@@ -130,6 +130,6 @@ az image create --resource-group myResourceGroup --name myCloudInitImage --sourc
 如需其他設定變更的 cloud-init 範例，請參閱下列文件：
  
 - [將其他 Linux 使用者新增至虛擬機器](cloudinit-add-user.md)
-- [執行封裝管理員以便在初次開機時更新現有的封裝](cloudinit-update-vm.md)
+- [執行套件管理員以便在初次開機時更新現有的套件](cloudinit-update-vm.md)
 - [變更虛擬機器本機的主機名稱](cloudinit-update-vm-hostname.md) 
-- [安裝應用程式封裝、更新設定檔及插入金鑰](tutorial-automate-vm-deployment.md)
+- [安裝應用程式套件、更新組態檔案，以及插入金鑰](tutorial-automate-vm-deployment.md)

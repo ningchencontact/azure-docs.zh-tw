@@ -16,7 +16,7 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/06/2018
 ---
@@ -36,7 +36,7 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 
 ![風險事件](./media/active-directory-reporting-risk-events/91.png)
 
-偵測到的風險事件可獲得深入了解繫結至 Azure AD 訂用帳戶。 使用 Azure AD Premium P2 版時，您會取得所有基礎偵測最詳細的資訊。 使用 Azure AD Premium P1 版時，您的授權未涵蓋的偵測會顯示為風險事件**使用額外的風險，偵測到登入**。
+您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 使用 Azure AD Premium P2 版本時，您會獲得有關所有基礎偵測的最詳細資訊。 使用 Azure AD Premium P1 版本時，您授權未涵蓋的偵測會顯示為**偵測到有額外風險的登入**風險事件。
 
 
 本主題提供哪些屬於風險事件，以及您如何使用它們來保護 Azure AD 身分識別的概觀。
@@ -66,7 +66,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 此風險事件類型會識別從被視為匿名 Proxy IP 位址的 IP 位址成功登入的使用者。 這些 Proxy 通常由想要隱藏其裝置 IP 位址的人員使用，而且可能用於惡意意圖。
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>不可能進入非慣用位置
+### <a name="impossible-travel-to-atypical-locations"></a>不可能到達非典型位置的移動
 
 此風險事件類型會識別來自距離遙遠的位置的兩次登入，而根據使用者過去的行為，其中至少有一個位置可能不尋常。 在許多其他因素中，此機器學習演算法會考量兩次登入之間的時間，以及使用者從第一個位置移到第二個位置所需的時間，這表示有不同的使用者正在使用相同的認證。
 
@@ -80,7 +80,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 
 此風險事件類型會識別從感染惡意程式碼的裝置登入，已知這類登入會主動與 Bot 伺服器通訊。 讓使用者裝置的 IP 位址與聯繫 Bot 伺服器的 IP 位址相互關聯，即可判定此類型。 
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從有可疑活動的 IP 位址登入
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
 此風險事件類型會識別在短期內透過多個使用者帳戶多次嘗試登入失敗的 IP 位址。 這符合攻擊者所使用的 IP 位址流量模式，而且強烈指出帳戶已經或即將遭到入侵。 這種機器學習演算法會忽略明顯的「誤判」，例如，組織中的其他使用者定期使用的 IP 位址。  系統有為期 14 天的初始學習期間，它會在這段期間了解新使用者和新租用戶的登入行為。
 
 
@@ -136,12 +136,12 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 我們建議您立即連絡使用者，確認他們是否使用匿名 IP 位址。
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>不可能進入非慣用位置
+### <a name="impossible-travel-to-atypical-locations"></a>不可能到達非典型位置的移動
 
 不可能的移動通常會明顯指出駭客已能夠成功登入。 不過，當使用者使用新裝置或使用組織中其他使用者通常不會使用的 VPN 進行移動時，可能會發生誤判。 另一個誤判來源是誤將伺服器 IP 當作用戶端 IP 傳遞的應用程式，其可能會導致從裝載應用程式後端的資料中心進行登入 (這些通常是 Microsoft 資料中心，其可能導致從 Microsoft 擁有的 IP 位址進行登入)。 由於這些誤判，以致此風險事件的風險層級為**中**。
 
 > [!TIP]
-> 您可以減少這個風險事件類型的報告 false 誤判藉由設定[名為位置](active-directory-named-locations.md)。 
+> 您可以藉由設定[具名位置](active-directory-named-locations.md)，來降低針對此風險事件類型所報告的誤判數量。 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>從不熟悉的位置登入
 
@@ -156,7 +156,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 如需如何處理惡意程式碼感染的詳細資訊，請參閱 [惡意程式碼防護中心](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)。
 
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從有可疑活動的 IP 位址登入
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
 
 我們建議您連絡使用者，確認他們是否實際從標示為可疑的 IP 位址進行登入。 此事件類型的風險層級為「**中**」，因為相同 IP 位址背後可能有數個裝置，而只有某些裝置可能負責進行可疑的活動。 
 

@@ -8,7 +8,7 @@
 下列各節說明這些必要條件和您必須收集以在稍後執行 PowerShell Cmdlet 的資訊。
 
 ### <a name="install-azure-powershell"></a>安裝 Azure PowerShell
-確定您已安裝最新版本的 Azure PowerShell SDK。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
+確定您已安裝最新版本的 Azure PowerShell SDK。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
 
 ### <a name="create-an-azure-active-directory"></a>建立 Azure Active Directory
 首先，您必須在您的訂用帳戶中具有 [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD)。 在許多優點中，這可讓您將金鑰保存庫的權限授與特定使用者和應用程式。

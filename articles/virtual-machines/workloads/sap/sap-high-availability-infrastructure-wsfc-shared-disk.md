@@ -165,7 +165,7 @@ ms.lasthandoff: 11/14/2017
 
 本文說明使用*叢集共用的磁碟*作為叢集 SAP ASCS 執行個體的選項，針對在 Windows 容錯移轉叢集上安裝及設定高可用性 SAP 系統，準備 Azure 基礎結構的步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始安裝之前，請檢閱這篇文章：
 
@@ -525,8 +525,8 @@ _**圖 5：**Azure 內部負載平衡器的預設 ASCS/SCS 負載平衡規則_
 1.  在 Azure 入口網站中，選取 **\<SID\>-lb-ascs 負載平衡器** > **負載平衡規則**。
 2.  針對屬於 SAP ASCS 或 SCS 執行個體的所有負載平衡規則，變更下列值：
 
-  * 名稱
-  * 連接埠
+  * Name
+  * Port
   * 後端連接埠
 
   例如，如果您要將預設 ASCS 執行個體號碼從 00 變更為 31，您需要針對表 1 中所列的所有通訊埠進行變更。
@@ -551,7 +551,7 @@ Azure Load Balancer 具有內部負載平衡器，會在連線閒置一段時間
 
 若要在 SAP ASCS/SCS 執行個體的兩個叢集節點上新增登錄項目，首先，在 SAP ASCS/SCS 的兩個 Windows 叢集節點上新增這些 Windows 登錄項目︰
 
-| 路徑 | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 變數名稱 |`KeepAliveTime` |
 | 變數類型 |REG_DWORD (十進位) |

@@ -42,9 +42,9 @@ ms.lasthandoff: 12/05/2017
 
 |元素|類型|說明|
 |-------------|----------|-----------|
-|`id`|String|Webhook 事件的識別碼。|
-|`timestamp`|DateTime|Webhook 事件觸發的時間。|
-|`action`|String|觸發 webhook 事件的動作。|
+|`id`|字串|Webhook 事件的識別碼。|
+|`timestamp`|Datetime|Webhook 事件觸發的時間。|
+|`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#target)|複雜類型|觸發 webhook 事件的事件目標。|
 |[要求](#request)|複雜類型|產生 webhook 事件的要求。|
 
@@ -52,21 +52,21 @@ ms.lasthandoff: 12/05/2017
 
 |元素|類型|說明|
 |------------------|----------|-----------|
-|`mediaType`|String|參考物件的 MIME 類型。|
+|`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。 與長度欄位相同。|
-|`digest`|String|如 Registry V2 HTTP API 規格所定義的內容摘要。|
+|`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
 |`length`|Int32|內容的位元組數目。 [與大小相同] 欄位。|
-|`repository`|String|存放庫名稱。|
-|`tag`|String|映像標記名稱。|
+|`repository`|字串|存放庫名稱。|
+|`tag`|字串|映像標記名稱。|
 
 ### <a name="request"></a>要求
 
 |元素|類型|說明|
 |------------------|----------|-----------|
-|`id`|String|起始事件之要求的識別碼。|
-|`host`|String|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
-|`method`|String|產生事件的要求方法。|
-|`useragent`|String|要求的使用者代理程式標頭。|
+|`id`|字串|起始事件之要求的識別碼。|
+|`host`|字串|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
+|`method`|字串|產生事件的要求方法。|
+|`useragent`|字串|要求的使用者代理程式標頭。|
 
 ### <a name="payload-example-push-event"></a>承載範例：推送事件
 
@@ -106,9 +106,9 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 |元素|類型|說明|
 |-------------|----------|-----------|
-|`id`|String|Webhook 事件的識別碼。|
-|`timestamp`|DateTime|Webhook 事件觸發的時間。|
-|`action`|String|觸發 webhook 事件的動作。|
+|`id`|字串|Webhook 事件的識別碼。|
+|`timestamp`|Datetime|Webhook 事件觸發的時間。|
+|`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#delete_target)|複雜類型|觸發 webhook 事件的事件目標。|
 |[要求](#delete_request)|複雜類型|產生 webhook 事件的要求。|
 
@@ -116,18 +116,18 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 |元素|類型|說明|
 |------------------|----------|-----------|
-|`mediaType`|String|參考物件的 MIME 類型。|
-|`digest`|String|如 Registry V2 HTTP API 規格所定義的內容摘要。|
-|`repository`|String|存放庫名稱。|
+|`mediaType`|字串|參考物件的 MIME 類型。|
+|`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
+|`repository`|字串|存放庫名稱。|
 
 ### <a name="delete_request"></a> 要求
 
 |元素|類型|說明|
 |------------------|----------|-----------|
-|`id`|String|起始事件之要求的識別碼。|
-|`host`|String|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
-|`method`|String|產生事件的要求方法。|
-|`useragent`|String|要求的使用者代理程式標頭。|
+|`id`|字串|起始事件之要求的識別碼。|
+|`host`|字串|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
+|`method`|字串|產生事件的要求方法。|
+|`useragent`|字串|要求的使用者代理程式標頭。|
 
 ### <a name="payload-example-delete-event"></a>承載範例：刪除事件
 

@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 關閉目前的 Powershell 視窗，並以系統管理員身分開啟新的 Powershell 視窗。 您現在應該能夠成功執行指令碼。
 
 ## <a name="cluster-connection-failures"></a>叢集連接失敗
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="problem"></a>問題
 如果您嘗試執行任何 Service Fabric PowerShell Cmdlet (例如，在 Azure PowerShell 視窗中執行 `Connect-ServiceFabricCluster` )，它將會失敗，並指出無法辨識此 Cmdlet。 這是因為 Azure PowerShell 使用 32 位元版本的 Windows PowerShell (即使是在 64 位元作業系統版本上)，而 Service Fabric Cmdlet 只能在 64 位元環境中運作。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 一律直接從 Windows PowerShell 執行 Service Fabric Cmdlet。
 
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="problem"></a>問題
 在 PowerShell 中連線到叢集時，看到 System.Fabric.Common.AppTrace 的 TypeInitializationException 錯誤。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 在安裝期間未正確設定路徑變數。 登出 Windows，再重新登入。 這會重新整理您的路徑。
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>叢集連接失敗，且出現「物件已關閉」
@@ -69,14 +69,14 @@ ms.lasthandoff: 10/11/2017
     + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 關閉目前的 Powershell 視窗，並以系統管理員身分開啟新的 Powershell 視窗。 您現在應該能夠成功連接。
 
 ### <a name="fabric-connection-denied-exception"></a>拒絕網狀架構連線例外狀況
 #### <a name="problem"></a>問題
 從 Visual Studio 進行偵錯時，看見 FabricConnectionDeniedException 錯誤。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方法
 當您嘗試以手動方式啟動服務主機處理序，而非讓 Service Fabric 執行階段啟動時，通常會發生這個錯誤。
 
 請確定您的解決方法中沒有任何設定為啟始專案的服務專案。 只有 Service Fabric 應用程式專案才可設為啟始專案。

@@ -33,7 +33,7 @@ ms.lasthandoff: 11/06/2017
 
 這篇文章會引導您完成從服務程式碼回報健全狀況的範例。 此範例也會示範如何使用 Service Fabric 提供的工具來檢查健康情況。 本文旨在快速介紹 Service Fabric 的健全狀況監視功能。 如需更詳細的資訊，您可以閱讀一系列有關健全狀況的深入文章，從本文結尾的連結開始。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須安裝下列項目：
 
 * Visual Studio 2015 或 Visual Studio 2017

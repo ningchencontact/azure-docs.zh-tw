@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 
 **答：**若要存取 Azure 入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 * [在 Azure 中管理 Office 365 訂用帳戶的目錄](active-directory-manage-o365-subscription.md)
@@ -160,7 +160,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：**若您使用 Azure AD Premium，就可以新增及設定您想要的任何應用程式。 視應用程式功能和您的喜好設定而定，您可以設定 SSO 和自動化佈建。  
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](active-directory-scim-provisioning.md)
@@ -182,7 +182,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：**Azure AD 針對驗證和授權支援許多標準化的通訊協定，例如 SAML 2.0、OpenID Connect、OAuth 2.0 和 WS-同盟。 Azure AD 也可針對僅支援表單型驗證的應用程式，支援密碼存放和自動化登入功能。  
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)
 * [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)

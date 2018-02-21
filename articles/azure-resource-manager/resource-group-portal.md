@@ -36,7 +36,7 @@ ms.lasthandoff: 11/16/2017
 2. 若要建立空的資源群組，請選取 [新增] 。
    
     ![新增資源群組](./media/resource-group-portal/add-resource-group.png)
-3. 提供新資源群組的名稱和位置。 選取 [ **建立**]。
+3. 提供新資源群組的名稱和位置。 選取 [建立] 。
    
     ![建立資源群組](./media/resource-group-portal/create-empty-group.png)
 4. 您可能必須選取 [重新整理]  才能查看最近建立的資源群組。
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/16/2017
 如果您需要將資源移至其他資源群組或其他訂用帳戶，請參閱 [將資源移到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
 
 ## <a name="lock-resources"></a>鎖定資源
-您可以鎖定訂用帳戶、資源群組或資源，以防止組織中的其他使用者不小心刪除或修改重要資源。 如需詳細資訊，請參閱 [使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
+您可以鎖定訂用帳戶、資源群組或資源，以防止組織中的其他使用者不小心刪除或修改重要資源。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](resource-group-lock-resources.md)。
 
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
@@ -128,5 +128,5 @@ ms.lasthandoff: 11/16/2017
 * 若要檢視有關部署的詳細資料，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
 * 若要透過入口網站部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](resource-group-template-deploy-portal.md)。
 * 若要管理資源的存取權，請參閱 [使用角色指派來管理 Azure 訂用帳戶資源的存取權](../active-directory/role-based-access-control-configure.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
 

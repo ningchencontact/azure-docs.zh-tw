@@ -32,7 +32,7 @@ ms.lasthandoff: 01/10/2018
 
 本教學課程將逐步引導您在 Azure 自動化中建立 [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 。 您先從測試和發佈的簡單 Runbook 開始，同時了解如何追蹤 Runbook 作業的狀態。 接著您會修改 Runbook 以實際管理 Azure 資源，在此情況下會啟動 Azure 虛擬機器。 接著您會新增 Runbook 參數和條件式連結，讓 Runbook 更加穩固，藉此完成本教學課程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，您需要下列項目：
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/10/2018
 
    作業狀態一開始為「已排入佇列」，表示正在等候雲端中的 Runbook 背景工作可供使用。 然後當背景工作宣告該作業時，狀態會變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。
 
-1. Runbook 工作完成時，會顯示其輸出。 在此情況下，您會看到 Hello World。<br> ![](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Runbook 工作完成時，會顯示其輸出。 在此情況下，您會看到 Hello World。<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. 關閉 [測試] 頁面以返回畫布。
 
 ## <a name="publish-and-start-the-runbook"></a>發佈和啟動 Runbook

@@ -17,7 +17,7 @@ ms.date: 03/06/2017
 ms.author: samacha
 ms.openlocfilehash: 2ac5d305aae110eff46459ecb7d89ca50ae1823d
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -31,7 +31,7 @@ Azure 資料流分析是完全受控的服務，可用來對雲端中的串流�
 > [!NOTE]
 > 我們已將本文中的範例程式碼更新為 Azure 串流分析管理 .NET SDK v2.x 版本。 如需查看使用舊版 (1.x) SDK 的範例程式碼，請參閱[使用適用於串流分析的管理 .NET SDK v1.x](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始閱讀本文之前，您必須符合下列必要條件：
 
 * 安裝 Visual Studio 2017 或 2015。

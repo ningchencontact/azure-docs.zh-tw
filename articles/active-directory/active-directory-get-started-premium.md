@@ -61,7 +61,7 @@ Azure Active Directory Premium 可透過 [Microsoft Enterprise 合約](https://w
 
 1. 若要開始啟用，請按一下 [登入] 或 [註冊]。
    
-    ![Sign in][1]
+    ![登入][1]
 
     - 如果您有現有的租用戶，請按一下 [登入]  以使用現有的系統管理員帳戶登入。 使用租用戶的全域管理員認證進行登入，且租用戶必須已啟用授權。
 

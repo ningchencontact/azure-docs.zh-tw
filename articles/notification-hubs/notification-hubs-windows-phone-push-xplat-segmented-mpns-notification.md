@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 在通知中樞內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。 當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。 由於標籤只是簡單的字串而已，您無需預先佈建標籤。 如需標籤的詳細資訊，請參閱 [通知中樞路由與標記運算式](notification-hubs-tags-segment-push-message.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本主題會以您在 [開始使用通知中心]中所建立的應用程式為基礎。 開始本教學課程之前，您必須已完成 [開始使用通知中心]。
 
 ## <a name="add-category-selection-to-the-app"></a>在應用程式中新增類別選項

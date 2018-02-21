@@ -17,11 +17,11 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-angularjs-getting-started"></a>開始使用 azure AD AngularJS
+# <a name="azure-ad-angularjs-getting-started"></a>開始使用 Azure AD AngularJS
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 

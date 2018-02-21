@@ -29,7 +29,7 @@ ms.lasthandoff: 01/08/2018
 本文說明如何建立及上傳虛擬硬碟 (VHD)，以便用它做為您自己的映像，在 Azure 中建立虛擬機器。 了解如何準備作業系統，以便使用它根據該映像建立多部虛擬機器。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您具有下列項目：
 
 * **以 .vhd 檔案安裝的 Linux 作業系統** - 您已經以 VHD 格式將 [Azure 背書的 Linux 散發套件](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (或參閱[非背書散發套件的資訊](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) 安裝到虛擬磁碟。 有多項工具可用來建立 VM 和 VHD：

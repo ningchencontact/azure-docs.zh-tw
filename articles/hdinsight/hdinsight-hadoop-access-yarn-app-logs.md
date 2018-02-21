@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 >
 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * Windows 型 HDInsight 叢集。  請參閱 [在 HDInsight 中建立 Windows 型 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server

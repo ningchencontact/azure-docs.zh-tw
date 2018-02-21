@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 如果您不熟悉 Azure 搜尋服務，請從這裡開始。 您在大約一小時內便能將這些資源檢閱完畢。
 
-| 標題 | 描述 | 日期 |
+| 標題 | 說明 | 日期 |
 |-------|-------------|------|
 | [觀賞此影片介紹 (英文)](https://channel9.msdn.com/Events/Connect/2016/138) | 歷時 9 分 38 秒的功能、服務建立及查詢介紹。 | 2016 年 11 月 |
 | [ 建立服務](search-get-started-portal.md) | 在入口網站中設定 Azure 搜尋服務的步驟。 | 2017 年 2 月 |
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 透過範例和逐步解說的程式碼式探索。
 
-| 程式碼範例 | 描述 |
+| 程式碼範例 | 說明 |
 |-------|-------------|
 | [開始使用 .NET 用戶端程式庫 (英文)](https://github.com/Azure-Samples/search-dotnet-getting-started) | 使用 .NET 用戶端程式庫的 ASP.NET MVC 5 應用程式。 |
 | [開始使用 REST API (英文)](https://github.com/Azure-Samples/search-rest-api-getting-started) | REST API 程式碼範例。 |
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure 搜尋服務的多重工作階段示範和實驗室。
 
-| 連結 | 描述 | 日期 |
+| 連結 | 說明 | 日期 |
 |------|-------------|------|
 [使用 Xamarin 和 Azure 搜尋服務建置智慧跨平台行動裝置應用程式 (英文)](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Typeahead, full text search and paging, filtering, lookup, moreLikeThis, machine learning, scoring and tuning, analytics, 自動提示, 全文檢索搜尋及分頁, 篩選, 查詢, 機器學習, 評分及調整, 分析 | 2016 年 12 月 |
 [使用 Windows Azure 搜尋服務 (英文)](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | 針對級別、地理空間搜尋、語言分析、Cortana 語音辨識之較舊卻仍然相關的向下鑽研 | 2015 年 5 月 | 

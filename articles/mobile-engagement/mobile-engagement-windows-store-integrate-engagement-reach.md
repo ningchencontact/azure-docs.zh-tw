@@ -69,7 +69,7 @@ Engagement 重疊會以動態方式加入用以在頁面中顯示觸達活動的
 
 在您的 .xaml 檔案中，將 `EngagementPage` 參考變更為 `EngagementPageOverlay`
 
-* 新增至命名空間宣告：
+* 新增命名空間宣告：
   
       xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 * 以 `engagement:EngagementPageOverlay` 取代 `engagement:EngagementPage`：

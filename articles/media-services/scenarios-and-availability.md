@@ -29,7 +29,7 @@ AMS 在世界各地多個資料中心運作。 這些資料中心會依據地理
 
 ## <a name="overview"></a>概觀
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 若要開始使用 Azure 媒體服務，您應該具備下列項目：
 
@@ -127,7 +127,7 @@ AMS 在世界各地多個資料中心運作。 這些資料中心會依據地理
 
 ![即時工作流程](./media/scenarios-and-availability/media-services-live-streaming-new.png)
 
-如需詳細資訊，請參閱 [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 如需資料中心內可用性的資訊，請參閱[可用性](#availability)一節。
 
@@ -173,7 +173,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
 #### <a name="availability"></a>Availability
 
-|名稱|狀態|資料中心
+|Name|狀態|資料中心
 |---|---|---|
 |標準|GA|全部|
 |進階|GA|全部|

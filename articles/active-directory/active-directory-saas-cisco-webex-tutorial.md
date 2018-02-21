@@ -1,6 +1,6 @@
 ---
-title: "教學課程： Azure Active Directory 與 Cisco Webex 的整合 |Microsoft 文件"
-description: "了解如何設定單一登入 Azure Active Directory 與 Cisco Webex 之間。"
+title: "教學課程：Azure Active Directory 與 Cisco Webex 整合 | Microsoft Docs"
+description: "了解如何設定 Azure Active Directory 與 Cisco Webex 之間的單一登入。"
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 12/08/2017
 ms.author: jeedes
 ms.openlocfilehash: 42632dcf8997ec5e987ac8a6615aae24e903399a
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>教學課程： Azure Active Directory 與 Cisco Webex 的整合
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>教學課程：Azure Active Directory 與 Cisco Webex 整合
 
-在本教學課程中，您可以了解如何與 Azure Active Directory (Azure AD) 整合 Cisco Webex。
+在本教學課程中，您將了解如何整合 Cisco Webex 與 Azure Active Directory (Azure AD)。
 
-Cisco Webex 整合與 Azure AD 可以提供下列優點：
+將 Cisco Webex 與 Azure AD 整合提供下列優點：
 
-- 您可以控制可以存取 Cisco Webex 的 Azure AD 中。
-- 您可以啟用自動取得登入 Cisco Webex 其 Azure AD 帳戶與您的使用者。
+- 您可以在 Azure AD 中控制可存取 Cisco Webex 的人員。
+- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Cisco Webex。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
 如需有關 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要設定 Azure AD 整合與 Cisco Webex，您需要下列項目：
+若要設定 Azure AD 與 Cisco Webex 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- Cisco Webex 單一登入-啟用的訂閱
+- 已啟用 Cisco Webex 單一登入的訂用帳戶
 
 > [!NOTE]
 > 我們不建議使用生產環境來測試本教學課程中的步驟。
@@ -50,13 +50,13 @@ Cisco Webex 整合與 Azure AD 可以提供下列優點：
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
-1. 從資源庫加入 Cisco Webex
+1. 從資源庫新增 Cisco Webex
 2. 設定並測試 Azure AD 單一登入
 
-## <a name="add-cisco-webex-from-the-gallery"></a>從資源庫加入 Cisco Webex
-若要設定 Cisco Webex 整合 Azure AD，您需要加入 Cisco Webex 從資源庫，您的受管理的 SaaS 應用程式清單。
+## <a name="add-cisco-webex-from-the-gallery"></a>從資源庫新增 Cisco Webex
+若要設定將 Cisco Webex 整合到 Azure AD 中，您需要將 Cisco Webex 從資源庫新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 Cisco Webex，採取下列步驟：**
+**若要從資源庫新增 Cisco Webex，請執行下列步驟：**
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [Azure Active Directory] 圖示。 
 
@@ -70,103 +70,103 @@ Cisco Webex 整合與 Azure AD 可以提供下列優點：
 
     ![新增應用程式按鈕][3]
 
-4. 在 [搜尋] 方塊中，輸入**Cisco Webex**。 
+4. 在搜尋方塊中，輸入 **Cisco Webex**。 
 
-5. 選取**Cisco Webex**從 [結果] 窗格。 然後選取**新增**按鈕以加入應用程式。
+5. 從結果面板中選取 [Cisco Webex]。 然後選取 [新增] 按鈕以新增應用程式。
 
-    ![在 [結果] 清單中的 cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
+    ![結果清單中的 Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，設定並測試 Azure AD 單一登入與 Cisco Webex 根據測試使用者稱為 「 許 Simon。 」
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Cisco Webex 搭配運作的 Azure AD 單一登入。
 
-單一登入工作，如 Azure AD 需要知道誰在 Cisco Webex 的對等項目的使用者是使用者在 Azure AD 中。 換句話說，您需要為 Cisco Webex 中建立 Azure AD 使用者和相關的使用者之間的連結。
+若要讓單一登入能夠運作，Azure AD 必須知道 Cisco Webex 與 Azure AD 中互相對應的使用者。 換句話說，您必須在 Azure AD 使用者與 Cisco Webex 中的相關使用者之間建立連結。
 
-在 Cisco Webex 價值**Username**相同的值做**使用者名稱**在 Azure AD 中。 現在您已經建立兩名使用者之間的連結。 
+在 Cisco Webex 中，為 [Username] \(使用者名稱\) 值提供與 Azure AD 中**使用者名稱**相同的值。 現在您已經建立兩名使用者之間的連結。 
 
-若要設定和測試 Azure AD 單一登入與 Cisco Webex，請完成下列的建置組塊：
+若要設定及測試與 Cisco Webex 搭配運作的 Azure AD 單一登入，請完成下列構成要素：
 
 1. [設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
 2. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. [建立測試使用者 Cisco Webex](#create-a-cisco-webex-test-user)能夠許 Simon 對應項目連結至使用者的 Azure AD 表示的 Cisco Webex。
+3. [建立 Cisco Webex 測試使用者](#create-a-cisco-webex-test-user)，以在 Cisco Webex 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 4. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. [測試單一登入](#test-single-sign-on)，以驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您可以啟用 Azure AD 單一登入 Azure 入口網站中，並設定單一登入 Cisco Webex 的應用程式中。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Cisco Webex 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與 Cisco Webex，採取下列步驟：**
+**若要設定與 Cisco Webex 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站上**Cisco Webex**應用程式整合頁面上，選取**單一登入**。
+1. 在 Azure 入口網站的 [Cisco Webex] 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結][4]
 
-2. 若要啟用單一登入，在**單一登入**對話方塊中，於**模式**下拉式清單中，選取**SAML 型登入**。
+2. 若要啟用單一登入，請在 [單一登入] 對話方塊的 [模式] 下拉式清單中，選取 [SAML 登入]。
  
     ![單一登入對話方塊](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
 
-3. 在**Cisco Webex 網域和 Url**區段中，執行下列步驟：
+3. 在 [Cisco Webex 網域及 URL] 區段中，執行下列步驟：
 
-    ![Cisco Webex 網域和 Url 的單一登入資訊](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_url.png)
+    ![Cisco Webex 網域及 URL 單一登入資訊](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
     a. 在 [登入 URL] 方塊中，以下列模式輸入 URL：`https://<subdomain>.webex.com`
 
-    b. 在**識別碼**方塊中，輸入 URL `http://www.webex.com`。
+    b. 在 [識別碼] 方塊中，輸入 URL `http://www.webex.com`。
 
     c. 在 [回覆 URL] 方塊中，使用下列模式輸入 URL：`https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 更新這些值與實際的回覆 URL 並登入 URL。 請連絡[Cisco Webex 用戶端支援小組](https://www.webex.co.in/support/support-overview.html)取得這些值。 
+    > 這些都不是真正的值。 請使用實際的回覆 URL 和登入 URL 來更新這些值。 請連絡 [Cisco Webex 用戶端支援小組](https://www.webex.co.in/support/support-overview.html) \(英文\) 以取得這些值。 
 
-5. 在**SAML 簽章憑證**區段中，選取**中繼資料 XML**，然後儲存您的電腦上的中繼資料檔案。
+5. 在 [SAML 簽署憑證] 區段上，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
 6. 選取 [ **儲存**]。
 
-    ![設定單一登入儲存按鈕](./media/active-directory-saas-cisco-webex-tutorial/tutorial_general_400.png)
+    ![設定單一登入 [儲存] 按鈕](./media/active-directory-saas-cisco-webex-tutorial/tutorial_general_400.png)
     
-6. 在**Cisco Webex 設定**區段中，選取**設定 Cisco Webex**開啟**設定登入**視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼]，以及 [SAML 單一登入服務 URL]。
+6. 在 [Cisco Webex 設定] 區段中，選取 [設定 Cisco Webex] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼]，以及 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
 
-7. 在不同的網頁瀏覽器視窗中，您的 Cisco Webex 公司網站管理員身分登入。
+7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Cisco Webex 公司網站。
 
-8. 在頂端功能表中，從選取**網站管理**。
+8. 在頂端的功能表中，選取 [Site Administration] \(網站管理\)。
 
     ![網站管理](./media/active-directory-saas-cisco-webex-tutorial/ic777621.png "網站管理")
 
-9. 在**管理站台**區段中，選取**SSO 組態**。
+9. 在 [Manage Site] \(管理網站\) 區段中，選取 [SSO Configuration] \(SSO 設定\)。
    
     ![SSO 組態](./media/active-directory-saas-cisco-webex-tutorial/ic777622.png "SSO 組態")
 
-10. 在**同盟網頁 SSO 組態**區段中，執行下列步驟：
+10. 在 [Federated Web SSO Configuration] \(同盟 Web SSO 設定\) 區段中，執行下列步驟：
    
     ![同盟 SSO 組態](./media/active-directory-saas-cisco-webex-tutorial/ic777623.png "同盟 SSO 組態")  
 
-    a. 在**同盟通訊協定**清單中，選取**SAML 2.0**。
+    a. 從 [Federation Protocol] \(同盟通訊協定\) 清單中，選取 [SAML 2.0]。
 
-    b. 如**SSO 設定檔**，選取**SP 起始**。
+    b. 針對 [SSO profile] \(SSO 設定檔\)，選取 [SP Initiated] \(SP 起始\)。
 
-    c. 在 [記事本] 中開啟下載的憑證，然後複製其內容。
+    c. 在「記事本」中開啟所下載的憑證，然後複製其內容。
 
-    d. 選取**匯入 SAML 中繼資料**，然後貼上複製的內容的憑證。
+    d. 選取 [Import SAML Metadata] \(匯入 SAML 中繼資料\)，然後貼上所複製的憑證內容。
 
-    e. 在**SAML (IdP ID) 的簽發者**方塊中，貼上的值**SAML 實體識別碼**您從 Azure 入口網站複製。
+    e. 在 [Issuer for SAML (IdP ID)] \(SAML 的簽發者 (IdP ID)\) 方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
-    f. 在**客戶 SSO 服務登入 URL**方塊中，貼上**SAML 單一登入服務 URL**，您從 Azure 入口網站複製的。
+    f. 在 [Customer SSO Service Login URL] \(客戶 SSO 服務登入 URL\) 方塊中，貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL**。
 
     g. 從 [NameID 格式] 清單中選取 [電子郵件地址]。
 
-    h. 在**AuthnContextClassRef**方塊中，輸入**urn: oasis： 名稱： tc: SAML:2.0:ac:classes:Password**。
+    h. 在 [AuthnContextClassRef] 方塊中，輸入 **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**。
 
-    i. 在**客戶 SSO 服務登出 URL**方塊中，貼上**登出 URL**，您從 Azure 入口網站複製的。
+    i. 在 [Customer SSO Service Logout URL] \(客戶 SSO 服務登出 URL\) 方塊中，貼上您從 Azure 入口網站複製的**登出 URL**。
    
-    j. 選取**更新**。
+    j. 選取 [更新]。
 
 > [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本。 您將從這個應用程式之後**Active Directory** > **企業應用程式**區段中，選取**單一登入**索引標籤，然後再存取 內嵌透過文件**組態**底部區段。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件](https://go.microsoft.com/fwlink/?linkid=845985)。
+> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本。 從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，請選取 [單一登入] 索引標籤，然後透過底部的 [設定] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件](https://go.microsoft.com/fwlink/?linkid=845985)。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -202,54 +202,54 @@ Cisco Webex 整合與 Azure AD 可以提供下列優點：
  
 ### <a name="create-a-cisco-webex-test-user"></a>建立 Cisco Webex 測試使用者
 
-若要讓 Azure AD 使用者能夠登入 Cisco Webex，他們必須提供在 Cisco Webex。 Cisco Webex 需以手動方式佈建。
+若要讓 Azure AD 使用者能夠登入 Cisco Webex，必須在 Cisco Webex 中佈建這些使用者。 Cisco Webex 需以手動方式佈建。
 
-**若要佈建使用者帳戶，請採取下列步驟：**
+**若要佈建使用者帳戶，請執行下列步驟：**
 
-1. 登入您**Cisco Webex**租用戶。
+1. 登入您的 **Cisco Webex** 租用戶。
 
-2. 移至**管理使用者** > **將使用者加入**。
+2. 移至 [Manage Users] \(管理使用者\) > [Add User] \(加入使用者\)。
    
     ![新增使用者](./media/active-directory-saas-cisco-webex-tutorial/ic777625.png "新增使用者")
 
-3. 在**新增使用者**區段中，執行下列步驟：
+3. 在 [Add User] \(新增使用者\) 區段中，執行下列步驟：
    
     ![新增使用者](./media/active-directory-saas-cisco-webex-tutorial/ic777626.png "新增使用者")   
 
-    a. 如**帳戶類型**，選取**主機**。
+    a. 針對 [Account Type] \(帳戶類型\)，選取 [Host] \(主機\)。
 
-    b. 在**名字**方塊中，輸入使用者的名字 (在此情況下，**許**)。
+    b. 在 [First name] \(名字\) 方塊中，輸入使用者的名字 (在此案例中為 **Britta**)。
 
-    c. 在**姓氏**方塊中，輸入使用者的姓氏 (在此情況下， **Simon**)。
+    c. 在 [Last name] \(姓氏\) 方塊中，輸入使用者的姓氏 (在此案例中為 **Simon**)。
 
-    d. 在**Username**方塊中，輸入使用者的電子郵件 (在此情況下，  **Brittasimon@contoso.com** )。
+    d. 在 [Username] \(使用者名稱\) 方塊中，輸入使用者的電子郵件 (在此案例中為 **Brittasimon@contoso.com**)。
 
-    e. 在**電子郵件**方塊中，輸入使用者的電子郵件地址 (在此情況下，  **Brittasimon@contoso.com** )。
+    e. 在 [Email] \(電子郵件\) 方塊中，輸入使用者的電子郵件地址 (在此案例中為 **Brittasimon@contoso.com**)。
 
     f. 在 [密碼] 方塊中，輸入使用者的密碼。
 
-    g. 在**確認**密碼方塊中，重新輸入使用者的密碼。
+    g. 在 [Confirm Password] \(確認密碼\) 方塊中，重新輸入使用者的密碼。
 
     h. 選取 [新增] 。
 
 >[!NOTE]
->您可以使用任何其他 Cisco Webex 使用者帳戶建立工具或 Api 來佈建 Azure AD 使用者帳戶的 Cisco Webex 所提供。 
+>您可以使用任何其他 Cisco Webex 使用者帳戶建立工具或 Cisco Webex 所提供的 API 來佈建 Azure AD 使用者帳戶。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您可以讓使用者使用 Azure 單一登入授與他們存取給 Cisco Webex 許 Simon。
+在本節中，您會將 Cisco Webex 的存取權授與使用者 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 ![指派使用者角色][200] 
 
-**若要指派給 Cisco Webex 的許 Simon，採取下列步驟：**
+**若要將 Britta Simon 指派給 Cisco Webex，請執行下列步驟：**
 
-1. 在 Azure 入口網站中，開啟應用程式檢視。 下一步，移至 目錄 檢視中，再**企業應用程式**。  
+1. 在 Azure 入口網站中，開啟應用程式檢視。 接著，移至目錄檢視，然後移至 [企業應用程式]。  
 
 2. 選取 [所有應用程式]。
 
     ![指派使用者][201] 
 
-3. 在應用程式清單中，選取**Cisco Webex**。
+3. 在應用程式清單中，選取 [Cisco Webex]。
 
     ![應用程式清單中的 [Cisco Webex] 連結](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
 
@@ -257,7 +257,7 @@ Cisco Webex 整合與 Azure AD 可以提供下列優點：
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增] 按鈕。 然後選取**使用者和群組**中**將作業加入** 對話方塊。
+4. 選取 [新增] 按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
@@ -271,7 +271,7 @@ Cisco Webex 整合與 Azure AD 可以提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入組態。
 
-當您選取 Cisco Webex 磚存取面板中時，您會自動取得登入 Cisco Webex 的應用程式。
+當您在存取面板中選取 [Cisco Webex] 圖格時，會自動登入您的 Cisco Webex 應用程式。
 
 如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
 

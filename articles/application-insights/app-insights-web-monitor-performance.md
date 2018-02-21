@@ -57,7 +57,7 @@ Application Insights 可以監視 Java 和 ASP.NET Web 應用程式與服務、W
 ## <a name="metrics"></a>這具有哪些意義？ 效能磚和報告
 您可以取用多種效能計量。 我們從預設顯示在應用程式分頁中的度量開始討論。
 
-### <a name="requests"></a>要求
+### <a name="requests"></a>Requests
 在指定期間內接收到的 HTTP 要求數量。 將此度量與其他報告中的結果比較，可了解應用程式在各種負載下的行為。
 
 HTTP 要求包括分頁、資料及映像的所有 GET 或 POST 要求。
@@ -174,7 +174,7 @@ HTTP 要求包括分頁、資料及映像的所有 GET 或 POST 要求。
 ![Application Insights 作業刀鋒視窗](./media/app-insights-web-monitor-performance/performance3.png)
 
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 [Web 測試][availability] - 定期從全世界傳送 Web 要求給應用程式。
 
 [擷取及搜尋診斷追蹤][diagnostic] - 插入追蹤呼叫並詳查結果，以便找出問題所在。

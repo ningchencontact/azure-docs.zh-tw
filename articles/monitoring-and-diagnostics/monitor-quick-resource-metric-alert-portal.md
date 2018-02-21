@@ -59,7 +59,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 11. 將 [方法] 設為 POST，將 [Uri] 設為您選擇的網址。
 
-12. 按一下 [儲存] 。
+12. 按一下 [檔案] 。
 
 ## <a name="view-metrics-for-your-logic-app"></a>檢視邏輯應用程式的計量
 

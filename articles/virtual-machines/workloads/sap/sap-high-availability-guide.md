@@ -188,7 +188,7 @@ ms.lasthandoff: 10/11/2017
 
 下列 SAP 附註與 Azure 上的 SAP 主題相關：
 
-| 附註編號 | 課程名稱 |
+| 附註編號 | 標題 |
 | --- | --- |
 | [1928533] |Azure 上的 SAP 應用程式︰支援的產品和大小 |
 | [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
@@ -397,7 +397,7 @@ Azure Resource Manager 中的三層式範本也支援高可用性案例，例如
 
 以下是可取得我們在本文中說明之範例案例的 Azure Resource Manager 範本︰
 
-* [Azure Marketplace 映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Azure Marketplace 映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image) \(英文\)  
 * [使用受控磁碟的 Azure Marketplace 映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md) \(英文\)  
 * [自訂映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
 * [使用受控磁碟的自訂映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md) \(英文\)
@@ -490,7 +490,7 @@ _**圖 11：**設定 SAP 高可用性 Azure Resource Manager 參數_
 
 您可以在這裡取得此部署案例的 Azure Resource Manager 範本：
 
-* [Azure Marketplace 映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Azure Marketplace 映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged) \(英文\)  
 * [使用受控磁碟的 Azure Marketplace 映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md) \(英文\)  
 * [自訂映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
 * [使用受控磁碟的自訂映像](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md) \(英文\)
@@ -742,8 +742,8 @@ _**圖 15：**Azure 內部負載平衡器的預設 ASCS/SCS 負載平衡規_
 1.  在 Azure 入口網站中，選取 **<*SID*>-lb-ascs 負載平衡器** > **[負載平衡規則]**。
 2.  針對屬於 SAP ASCS 或 SCS 執行個體的所有負載平衡規則，變更下列值：
 
-  * 名稱
-  * 連接埠
+  * Name
+  * Port
   * 後端連接埠
 
   例如，如果您要將預設 ASCS 執行個體號碼從 00 變更為 31，您需要針對表 1 中所列的所有通訊埠進行變更。
@@ -768,7 +768,7 @@ Azure Load Balancer 具有內部負載平衡器，會在連線閒置一段時間
 
 若要在 SAP ASCS/SCS 執行個體的兩個叢集節點上新增登錄項目，首先，在 SAP ASCS/SCS 的兩個 Windows 叢集節點上新增這些 Windows 登錄項目︰
 
-| 路徑 | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 變數名稱 |`KeepAliveTime` |
 | 變數類型 |REG_DWORD (十進位) |
@@ -779,7 +779,7 @@ _**表 3：**變更第一個 TCP/IP 參數_
 
 然後，在 SAP ASCS/SCS 的兩個 Windows 叢集節點上都新增下列 Windows 登錄項目：
 
-| 路徑 | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 變數名稱 |`KeepAliveInterval` |
 | 變數類型 |REG_DWORD (十進位) |

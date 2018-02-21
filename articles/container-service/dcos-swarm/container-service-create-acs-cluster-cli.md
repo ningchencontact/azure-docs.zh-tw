@@ -23,7 +23,7 @@ ms.lasthandoff: 12/06/2017
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 Azure CLI 2.0 建立 Azure Container Service 叢集，您必須︰
 * 有一個 Azure 帳戶 ([取得免費試用帳戶](https://azure.microsoft.com/pricing/free-trial/))
 * 已安裝及設定 [Azure CLI 2.0](/cli/azure/install-az-cli2)
@@ -38,7 +38,7 @@ az login
 
 ### <a name="set-your-azure-subscription"></a>設定您的 Azure 訂用帳戶
 
-如果您有一個以上的 Azure 訂用帳戶，請設定預設訂用帳戶。 例如：
+如果您有一個以上的 Azure 訂用帳戶，請設定預設訂用帳戶。 例如︰
 
 ```
 az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>建立資源群組
-建議您建立每個叢集的資源群組。 指定[可使用](https://azure.microsoft.com/en-us/regions/services/) Azure Container Service 的 Azure 區域。 例如：
+建議您建立每個叢集的資源群組。 指定[可使用](https://azure.microsoft.com/en-us/regions/services/) Azure Container Service 的 Azure 區域。 例如︰
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

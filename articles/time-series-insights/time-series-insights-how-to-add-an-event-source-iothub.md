@@ -20,7 +20,7 @@ ms.lasthandoff: 11/22/2017
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>如何將 IoT 中樞事件來源新增至時間序列深入解析環境
 本文說明如何使用 Azure 入口網站，將從 IoT 中樞讀取資料的事件來源新增至時間序列深入解析環境。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 建立時間序列深入解析環境。 如需詳細資訊，請參閱[建立 Azure 時間序列深入解析環境](time-series-insights-get-started.md) 
 - 建立 IoT 中樞。 如需有關 IoT 中樞的詳細資訊，請參閱[使用 Azure 入口網站建立 IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)
 - IoT 中樞必須要有傳入的作用中訊息事件。

@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
-caps.latest.revision: "28"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt

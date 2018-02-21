@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
-caps.latest.revision: "12"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt
@@ -46,10 +46,10 @@ ms.lasthandoff: 10/11/2017
 
 | 屬性 | 說明 |
 | --------- | ----------- |
-| 名稱   | 必要。 指定角色的名稱。 名稱必須符合為服務定義檔中之角色提供的名稱。|
+| name   | 必要。 指定角色的名稱。 名稱必須符合為服務定義檔中之角色提供的名稱。|
 | vmName | 選用。 指定虛擬機器的 DNS 名稱。 名稱長度必須等於或小於 10 個字元。|
 
-下表說明 `Role` 元素的子元素。
+下表說明 `Role` 元素的子項目。
 
 | 元素 | 說明 |
 | ------- | ----------- |

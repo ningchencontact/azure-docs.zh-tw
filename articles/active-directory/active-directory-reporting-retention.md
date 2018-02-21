@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
@@ -40,8 +40,8 @@ ms.lasthandoff: 12/16/2017
 
 **答：**
 
-- **立即**-如果您已使用 Azure 入口網站中的報表
-- **在 2 小時內**-如果您尚未開啟報告在 Azure 入口網站
+- **立即** - 如果您已在 Azure 入口網站中使用報告
+- **2 小時內** - 如果您尚未在 Azure 入口網站中開啟報告功能
 
 ---
 **問：如何才能開始收集安全性訊號？**  

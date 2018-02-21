@@ -46,7 +46,7 @@ ms.lasthandoff: 11/29/2017
 
     a. 必須為隨附 HDInsight 3.5 版的 Hadoop 叢集。
 
-    b.這是另一個 C# 主控台應用程式。 它必須使用 Azure 儲存體作為資料存放區。 尚未支援在將 Azure Data Lake Store 作為儲存體選項的叢集上使用 Presto。 
+    b. 它必須使用 Azure 儲存體作為資料存放區。 尚未支援在將 Azure Data Lake Store 作為儲存體選項的叢集上使用 Presto。 
 
     ![使用自訂選項建立 HDInsight 叢集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 11/29/2017
 
     ![HDInsight 在 Presto 叢集上啟動 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    b.這是另一個 C# 主控台應用程式。 從 [安裝應用程式] 刀鋒視窗中，針對 airpal 按一下 [入口網站]。
+    b. 從 [安裝應用程式] 刀鋒視窗中，針對 airpal 按一下 [入口網站]。
 
     ![HDInsight 在 Presto 叢集上啟動 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 

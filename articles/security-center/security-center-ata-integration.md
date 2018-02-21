@@ -39,7 +39,7 @@ ms.lasthandoff: 10/14/2017
 
     ![通知](./media/security-center-ata-integration/security-center-ata-integration-fig2.png)
 
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 6. 開啟 [資訊安全中心] 儀表板。
 7. 在左窗格上，按一下 [安全性解決方案]。
 8. 在 **Advanced Threat Analytics** 下，按一下 [新增]**ADD**。

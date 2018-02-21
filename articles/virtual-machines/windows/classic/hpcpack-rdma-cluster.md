@@ -183,7 +183,7 @@ Microsoft HPC Pack 是免費提供的工具，可在內部部署環境中或 Azu
 * 當您將 Azure 節點新增至您的叢集並使其上線時，HPC 工作排程器服務會立即嘗試在節點上啟動工作。 如果您的工作負載只有一部分可在 Azure 上執行，請確實更新或建立工作範本，以定義可在 Azure 上執行的工作類型。 例如，若要確保使用工作範本的已提交工作只會在 Azure 節點上執行，請在工作範本中新增 [節點群組] 屬性，並選取 AzureNodes 做為必要的值。 若要為您的 Azure 節點建立自訂群組，請使用 Add-HpcGroup HPC PowerShell Cmdlet。
 
 ## <a name="next-steps"></a>後續步驟
-* 除了使用 HPC Pack 之外，還可以在 Azure 中計算節點的受管理集區上使用 Azure Batch 服務來進行開發以執行 MPI 應用程式。 請參閱 [在 Azure Batch 中使用多重執行個體工作來執行訊息傳遞介面 (MPI) 應用程式](../../../batch/batch-mpi.md)。
+* 除了使用 HPC Pack 之外，還可以在 Azure 中計算節點的受控集區上使用 Azure Batch 服務來進行開發以執行 MPI 應用程式。 請參閱 [在 Azure Batch 中使用多重執行個體工作來執行訊息傳遞介面 (MPI) 應用程式](../../../batch/batch-mpi.md)。
 * 如果您想要執行可存取 Azure RDMA 網路的 Linux MPI 應用程式，請參閱 [設定 Linux RDMA 叢集以執行 MPI 應用程式](../../linux/classic/rdma-cluster.md)。
 
 <!--Image references-->

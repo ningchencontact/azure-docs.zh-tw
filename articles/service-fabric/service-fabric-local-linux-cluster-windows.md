@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/08/2017
 
 本文件涵蓋如何在 Windows 開發電腦上設定本機 Linux Service Fabric。 設定本機 Linux 叢集，對快速測試以 Linux 叢集為目標但在 Windows 電腦上開發的應用程式而言，會很有用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 以 Linux 為基礎的 Service Fabric 叢集無法在 Windows 上原生執行。 為執行本機 Service Fabric 叢集，我們提供預先設定的 Docker 容器映像。 開始之前，您需要：
 
 * 至少 4 GB 的 RAM

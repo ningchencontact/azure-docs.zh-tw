@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
-## <a name="name"></a>名稱
+## <a name="name"></a>Name
 
 要求的名稱代表處理要求所採用的程式碼路徑。 較低的基數值可使群組要求更妥善。 針對 HTTP 要求，它代表 HTTP 方法和 URL 路徑範本，例如無實際 `id` 值的 `GET /values/{id}`。
 
@@ -50,7 +50,7 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 最大長度︰1024 個字元
 
-## <a name="duration"></a>持續時間
+## <a name="duration"></a>Duration
 
 要求持續時間格式為︰`DD.HH:MM:SS.MMMMMM`。 必須是正數且小於 `1000` 天。 這是必要欄位，因為要求遙測代表開頭與結尾的作業。
 

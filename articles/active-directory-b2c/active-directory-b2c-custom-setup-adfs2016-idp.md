@@ -16,7 +16,7 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 ADFS 帳戶的使用者登入。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 

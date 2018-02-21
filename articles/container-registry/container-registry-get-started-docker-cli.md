@@ -21,7 +21,7 @@ Azure 容器登錄庫儲存和管理私人 [Docker](http://hub.docker.com) 容�
 
 在下列步驟中，您會從公用 Docker 中樞登錄庫下載官方提供的 [Nginx 映像](https://store.docker.com/images/nginx)，將其標記為私人 Azure 容器登錄庫，推送到您的登錄庫，然後再從登錄庫將其提取出來。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 容器登錄庫** - 在 Azure 訂用帳戶中建立容器登錄庫。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI 2.0](container-registry-get-started-azure-cli.md)。
 * **Docker CLI** - 若要將您的本機電腦設定為 Docker 主機並存取 Docker CLI 命令，請安裝 [Docker](https://docs.docker.com/engine/installation/)。

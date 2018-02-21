@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 **AzureStack-Tools** 是裝載 PowerShell 模組的 GitHub 存放庫，可用來管理資源並部署至 Azure Stack。 如果您打算建立 VPN 連線能力，您可以將這些 PowerShell 模組下載到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 若要取得這些工具，請複製 GitHub 存放庫或下載 **AzureStack-Tools** 資料夾，方法是執行下列指令碼：
 

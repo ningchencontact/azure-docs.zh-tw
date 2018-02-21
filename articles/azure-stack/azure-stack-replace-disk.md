@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更換 Azure Stack 中的實體磁碟
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 本文說明更換 Azure Stack 中實體磁碟的一般程序。 如果實體磁碟故障，您應該儘快更換它。
 

@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **保護儲存的持卡人資料**
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 加密、截斷 (truncation)、遮罩和雜湊等保護方法是保護持卡人資料的重要元素。 如果入侵者避開其他安全性控制項，並取得加密資料的存取權，但若沒有正確的密碼編譯金鑰，該使用者無法讀取也無法使用此資料。 其他保護儲存資料的有效方法，也應視為降低潛在風險的機會。 例如，可將風險降到最低的方法包括不儲存持卡人的資料 (除非絕對必要)、截斷持卡人資料 (若不需要完整的 PAN)，以及不要透過使用者傳訊技術 (例如電子郵件和即時訊息) 傳送未受保護的 PAN。
 請參閱 PCI DSS 和 PA DSS 詞彙表、縮寫及縮略字來了解「強式密碼編譯」和其他 PCI DSS 詞彙的定義。
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/16/2017
 - 資料不再需要時的安全刪除流程
 - 每一季對超出所定義保留期的持卡人資料，進行識別並安全地加以刪除。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/16/2017
 敏感驗證資料所包含的資料，會在下方的需求 3.2.1 至 3.2.3 中說明：
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/16/2017
 >
 > 若要將風險降至最低，請只在業務上有需要時儲存這些資料元素。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.2.2** 請勿在授權後儲存卡片驗證碼或值 (列印在支付卡正面或背面的三位數或四位數數字，用來驗證不用出示卡片的交易)。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -104,7 +104,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.2.3** 請勿在授權後儲存個人識別碼 (PIN) 或加密的 PIN 區塊。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 這項需求不會取代現有的嚴格持卡人資料顯示需求 — 例如，銷售點 (POS) 收據上要顯示法定或支付卡廠牌的需求。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 如果有惡意的個體可存取已截斷和已雜湊處理的 PAN 版本，並重建原始 PAN 資料，則這些方法將毫無用武之地。 由於相同的已雜湊和已截斷 PAN 版本會存在實體環境中，因此必須具有額外的控制項，來確保已雜湊和已截斷的版本不會被用來重建原始 PAN。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 此需求適用於所有其他 PCI DSS 加密和金鑰管理需求。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -172,7 +172,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 這項需求適用於用來加密持卡人資料的金鑰，也適用於用來保護資料加密金鑰的金鑰加密金鑰，這類金鑰加密金鑰必須至與資料加密金鑰有一樣的強度。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -189,9 +189,9 @@ ms.lasthandoff: 11/16/2017
 - 清查用來管理金鑰的任何 HSM 及其他 SCD 
 
 > [!NOTE]
-> 這項需求在 2018 年 1 月 31 日前是屬於最佳作法，該日期之後會變成需求。
+> 這項需求在 2018 年 1 月 31 日前為最佳做法，並會於該日期後變成需求。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -205,7 +205,7 @@ ms.lasthandoff: 11/16/2017
 **3.5.2** 僅限最少數的監管人在必要時可存取密碼編譯金鑰。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -238,7 +238,7 @@ ms.lasthandoff: 11/16/2017
 **3.5.4** 盡可能在最少位置中儲存密碼編譯金鑰。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -254,7 +254,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 金鑰管理的許多業界標準都可從各種資源取得，包括 NIST，網址為 http://csrc.nist.gov。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -267,7 +267,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.6.1** 強式密碼編譯金鑰的產生
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -280,7 +280,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.6.2** 安全的密碼編譯金鑰配送
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -293,7 +293,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.6.3** 安全的密碼編譯金鑰儲存體
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -306,7 +306,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.6.4** 金鑰的密碼編譯金鑰會因為達到加密期限而變更 (例如，經過定義的一段時間後和/或指定金鑰產生的加密文字數量達到特定量)，此變更會由相關聯應用程式廠商或金鑰擁有者所定義，並以業界最佳作法和指導方針為基礎 (例如，NIST 特殊出版品 800-57)。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -322,7 +322,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 如果需要保留已淘汰或已取代的密碼編譯金鑰，這些金鑰必須安全地加以封存 (例如，藉由使用金鑰加密金鑰)。 封存的密碼編譯金鑰應只用於解密/驗證。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -338,7 +338,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 手動金鑰管理作業的範例包括 (但不限於)：金鑰產生、傳輸、載入、儲存和解構。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -351,7 +351,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.6.7** 防止未經授權的密碼編譯金鑰替換。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -364,7 +364,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.6.8** 要求密碼編譯金鑰監管人正式聲明他們了解並接受他們身為金鑰監管人的責任。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -377,7 +377,7 @@ ms.lasthandoff: 11/16/2017
 
 **3.7** 確定保護持卡人資料的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

@@ -6,7 +6,7 @@
 
 如需規劃 HPC Pack 2012 R2 叢集的背景資訊，請參閱 HPC Pack TechNet 文件庫中的[產品評估及規劃](https://technet.microsoft.com/library/jj899596.aspx)和[快速入門](https://technet.microsoft.com/library/jj899590.aspx)內容。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 訂用帳戶**：您可以使用「Azure 全球」或「Azure 中國」服務中的訂用帳戶。 您的訂用帳戶限制將會影響到您可以部署的叢集節點類型與數量。 如需相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../articles/azure-subscription-service-limits.md)。
 * **已安裝並設定 Azure PowerShell 0.8.10 或更新版本的 Windows 用戶端電腦**：如需連線至 Azure 訂用帳戶的安裝指示和步驟，請參閱[始使用 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
 * **HPC Pack IaaS 部署指令碼**：從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。 執行 `New-HPCIaaSCluster.ps1 –Version`以檢查指令碼的版本。 這篇文章是根據 4.5.2 版的指令碼撰寫的。

@@ -1,4 +1,4 @@
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 * Azure 帳戶；您可以建立一個 [免費帳戶](https://azure.microsoft.com/free)
 * [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 帳戶 
 
@@ -6,7 +6,7 @@
 
 使用以下步驟授權邏輯應用程式連接到 OneDrive 帳戶的權限：
 
-1. 建立邏輯應用程式。 在 Logic Apps 設計工具中，從下拉式清單中選取 [顯示 Microsoft Managed API]，然後在搜尋方塊中輸入 "onedrive"。 選取其中一個觸發程序或動作︰  
+1. 建立邏輯應用程式。 在 Logic Apps 設計工具中，從下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入 "onedrive"。 選取其中一個觸發程序或動作︰  
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. 如果您之前尚未對 OneDrive 建立任何連線，系統會提示您使用 OneDrive 認證來登入：  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)

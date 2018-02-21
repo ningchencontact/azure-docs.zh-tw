@@ -42,7 +42,7 @@ ms.lasthandoff: 10/17/2017
 
 如需 Azure 金鑰保存庫的概觀資訊，請參閱 [什麼是 Azure 金鑰保存庫？](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列項目：
 
 * 所使用的現有金鑰保存庫。  
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/17/2017
 
 因為可以使用相同的儲存體帳戶來收集多個資源的記錄，blob 名稱中的完整資源識別碼很適合用來只存取或下載所需 blob。 但在這麼做之前，我們要先討論如何下載所有 blob。
 
-首先，建立資料夾來下載 blob。 例如：
+首先，建立資料夾來下載 blob。 例如︰
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/17/2017
 
 在執行第二個命令時，blob 名稱中的 **/** 分隔符號會在目的地資料夾下建立完整資料夾結構，而此結構將會用來下載 blob 並儲存為檔案。
 
-若要有所選擇地下載 blob，請使用萬用字元。 例如：
+若要有所選擇地下載 blob，請使用萬用字元。 例如︰
 
 * 如果您有多個金鑰保存庫，並且只想下載其中的 CONTOSOKEYVAULT3 金鑰保存庫的記錄：
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 10/17/2017
 | 欄位名稱 | 說明 |
 | --- | --- |
 | 分析 |日期和時間 (UTC)。 |
-| resourceId |Azure 資源管理員資源識別碼。 對於金鑰保存庫記錄來說，這一律是金鑰保存庫的資源識別碼。 |
+| ResourceId |Azure 資源管理員資源識別碼。 對於金鑰保存庫記錄來說，這一律是金鑰保存庫的資源識別碼。 |
 | operationName |下一份表格所述作業的名稱。 |
 | operationVersion |這是用戶端所要求的 REST API 版本。 |
 | category |對於金鑰保存庫記錄來說，AuditEvent 是其唯一可用的值。 |
@@ -224,7 +224,7 @@ ms.lasthandoff: 10/17/2017
 | 身分識別 |在提出 REST API 要求時所提供之權杖中的身分識別。 和 Azure PowerShell Cmdlet 所產生之要求的案例一樣，這通常是「使用者」、「服務主體」或「使用者+appId」的組合。 |
 | properties |在不同作業 (operationName) 中，此欄位會包含不同的資訊。 在大部分情況下，會包含用戶端資訊 (用戶端所傳遞的使用者代理程式字串)、確切的 REST API 要求 URI 和 HTTP 狀態碼。 此外，在因為提出要求 (例如，KeyCreate 或 VaultGet) 而傳回物件時，此欄位還將包含金鑰 URI (形式為 "id")、保存庫 URI 或密碼 URI。 |
 
-**operationName** 欄位值的格式為 ObjectVerb。 例如：
+**operationName** 欄位值的格式為 ObjectVerb。 例如︰
 
 * 所有金鑰保存庫作業都有 'Vault`<action>`' 格式，例如 `VaultGet` 和 `VaultCreate`。
 * 所有金鑰作業都有 'Key`<action>`' 格式，例如 `KeySign` 和 `KeyList`。

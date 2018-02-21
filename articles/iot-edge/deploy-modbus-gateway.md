@@ -31,7 +31,7 @@ ms.lasthandoff: 01/05/2018
 
 本文假設您使用 Modbus TCP 通訊協定。 如需如何設定此模組以支援 Modbus RTU 的詳細資訊，請參閱 Github 上的 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure IoT Edge 裝置。 如需有關如何設定 Azure IoT Edge 裝置的逐步解說，請參閱[在 Windows 中的模擬裝置上部署 Azure IoT Edge](tutorial-simulate-device-windows.md) 或[在 Linux 中的模擬裝置上部署 Azure IoT Edge](tutorial-simulate-device-linux.md)。 
 * IoT Edge 裝置的主索引鍵連接字串。
 * 支援 Modbus TCP 的實體或模擬 Modbus 裝置。
@@ -82,7 +82,7 @@ microsoft/azureiotedge-modbus-tcp:1.0-preview
       ```
 
    6. 選取 [ **儲存**]。
-5. 回到 [新增模組] 步驟，選取 [下一步]。
+5. 回到 [新增模組] 步驟中，選取 [下一步]。
 7. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊中。 此路由會將 Modbus 模組收集的所有訊息傳送到 IoT 中樞。 在此路由中，''modbusOutput'' 是 Modbus 模組用來輸出資料的端點，而 ''upstream'' 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
    ```JSON
    {

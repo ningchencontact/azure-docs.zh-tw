@@ -20,7 +20,7 @@
       如果您有可用的頻寬使用量資訊，就可以透過指定 [選取頻寬範本] ，根據排程來配置頻寬。 如需逐步程序，請參閱[新增頻寬範本](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template)。
 
       ![磁碟區容器刀鋒視窗](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
-   7. 按一下 [建立] 。
+   7. 按一下頁面底部的 [新增] 。
 
         ![磁碟區容器刀鋒視窗](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    

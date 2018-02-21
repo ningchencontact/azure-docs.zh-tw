@@ -236,4 +236,4 @@ using System.Threading.Tasks;
 
 如需移轉程序的相關資訊，請參閱[如何將 Power BI 工作區集合內容移轉至 Power BI Embedded](migrate-from-power-bi-workspace-collections.md)。
 
-有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/) \(英文\)
+有其他疑問？ [嘗試在 Power BI 社群中提問](http://community.powerbi.com/)
