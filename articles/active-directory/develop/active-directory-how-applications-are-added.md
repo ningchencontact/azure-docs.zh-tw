@@ -17,7 +17,7 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -138,7 +138,7 @@ ms.lasthandoff: 12/11/2017
 * IT 專業人員： [尋找設定特定預先整合應用程式的教學課程](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 * IT 專業人員： [了解如何使用 Azure Active Directory 應用程式 Proxy 發佈應用程式](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
 
 <!--Image references-->

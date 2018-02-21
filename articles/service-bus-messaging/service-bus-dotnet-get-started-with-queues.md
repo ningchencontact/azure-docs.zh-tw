@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 3. 撰寫 .NET Core 主控台應用程式，以將一組訊息傳送到佇列。
 4. 撰寫 .NET Core 主控台應用程式，以從佇列接收這些訊息。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](http://www.visualstudio.com/vs) 或更新版本。
 2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。

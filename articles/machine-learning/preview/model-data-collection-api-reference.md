@@ -53,14 +53,14 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 請參閱類別和參數的詳細資料：
 
 ### <a name="class"></a>類別
-| 名稱 | 說明 |
+| Name | 說明 |
 |--------------------|--------------------|
 | ModelDataCollector | azureml.datacollector 命名空間中的類別。 這個類別的執行個體將用來收集模型資料。 單一評分檔案可以包含多個 ModelDataCollectors。 每個執行個體都應該用於收集評分檔案中某個個別位置的資料，以便讓收集到之資料的結構描述保持一致 (亦即輸入和預測)|
 
 
 ### <a name="parameters"></a>參數
 
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 |-------------|------------|-------------------------|
 | model_name | 字串 | 要收集資料之模型的名稱 |
 | 識別碼 | 字串 | 程式碼中可識別此資料的位置，也就是'RawInput' 或 'Prediction' |
@@ -83,14 +83,14 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 請參閱方法和參數的詳細資料：
 
 ### <a name="method"></a>方法
-| 名稱 | 說明 |
+| Name | 說明 |
 |--------------------|--------------------|
 | 收集 | 用來收集資料以供模型的輸入或預測使用|
 
 
 ### <a name="parameters"></a>參數
 
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 |-------------|------------|-------------------------|
 | input_data | 多個類型 | 要收集的資料 (目前可接受類型清單、numpy.array、pandas.DataFrame、pyspark.sql.DataFrame)。 若為資料框架類型，如果有這些功能名稱的標頭存在，則此資訊會包含在資料目的地內 (而不必明確地在 ModelDataCollector 建構函式中傳遞功能名稱) |
 | user_correlation_id | 字串 | 選擇性的相互關聯識別碼，可由使用者提供以便與此預測相互關聯 |

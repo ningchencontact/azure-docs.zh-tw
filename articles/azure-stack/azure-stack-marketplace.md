@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure Stack Marketplace 概觀
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Marketplace 是一組針對 Azure Stack 自訂的服務、應用程式與資源集合，像是網路、虛擬機器、儲存體等等。 這是使用者用以建立新資源及部署新應用程式的位置。 不妨將其視為購物目錄，使用者可以在此瀏覽並選擇他們想要使用的項目。 若要使用 Marketplace 項目，使用者必須訂閱會授與他們項目存取權的產品。
 

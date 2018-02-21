@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是整合式的環境，可用來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。 此快速入門示範如何使用 SSMS 來連線至 Azure SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本快速入門可作為在其中一個快速入門中所建立資源的起點︰
 

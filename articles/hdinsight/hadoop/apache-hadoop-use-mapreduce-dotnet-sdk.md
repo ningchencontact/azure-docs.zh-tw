@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始閱讀本文之前，您必須有下列各項：
 
 * **HDInsight 中的 Hadoop 叢集**。 請參閱[開始在 Hdinsight 中使用 Linux 型 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。

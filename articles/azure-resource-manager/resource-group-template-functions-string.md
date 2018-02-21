@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| inputString |是 |字串 |要以 base64 表示法傳回的值。 |
+| inputString |yes |字串 |要以 base64 表示法傳回的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -113,12 +113,12 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | 字串 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 字串 | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -144,7 +144,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| base64Value |是 |字串 |要轉換為 JSON 物件的 base64 表示法。 |
+| base64Value |yes |字串 |要轉換為 JSON 物件的 base64 表示法。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -191,12 +191,12 @@ JSON 物件。
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | 字串 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 字串 | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -222,7 +222,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| base64Value |是 |字串 |要轉換為字串的 base64 表示法。 |
+| base64Value |yes |字串 |要轉換為字串的 base64 表示法。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -269,12 +269,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | 字串 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 字串 | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -300,7 +300,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串或陣列 |串連的第一個值。 |
+| arg1 |yes |字串或陣列 |串連的第一個值。 |
 | 其他引數 |否 |字串 |串連的其他值 (循序順序)。 |
 
 ### <a name="return-value"></a>傳回值
@@ -330,11 +330,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | 字串 | prefix-5yj4yjf5mbg72 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -383,9 +383,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -412,8 +412,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| container |是 |陣列、物件或字串 |其中包含要尋找之值的值。 |
-| itemToFind |是 |字串或整數 |要尋找的值。 |
+| container |yes |陣列、物件或字串 |其中包含要尋找之值的值。 |
+| itemToFind |yes |字串或整數 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -472,9 +472,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -506,7 +506,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |是 |字串 |要轉換為資料 URI 的值。 |
+| stringToConvert |yes |字串 |要轉換為資料 URI 的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -544,12 +544,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | 字串 | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | 字串 | Hello, World! |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -574,7 +574,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |是 |字串 |要轉換的資料 URI 值。 |
+| dataUriToConvert |yes |字串 |要轉換的資料 URI 值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -612,12 +612,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | 字串 | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | 字串 | Hello, World! |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -642,7 +642,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| itemToTest |是 |陣列、物件或字串 |要檢查其是否為空白的值。 |
+| itemToTest |yes |陣列、物件或字串 |要檢查其是否為空白的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -689,9 +689,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -720,8 +720,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |string |要尋找的值。 |
+| stringToSearch |yes |字串 |其中包含要尋找之項目的值。 |
+| stringToFind |yes |字串 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -765,9 +765,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -799,7 +799,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |要擷取其第一個元素或字元的值。 |
+| arg1 |yes |陣列或字串 |要擷取其第一個元素或字元的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -834,12 +834,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | 字串 | one |
+| stringOutput | 字串 | O |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -863,7 +863,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| baseString |是 |字串 |雜湊函式中用來建立 GUID 的值。 |
+| baseString |yes |字串 |雜湊函式中用來建立 GUID 的值。 |
 | 視需要，也會使用其他參數 |否 |字串 |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
 
 ### <a name="remarks"></a>備註
@@ -947,8 +947,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |string |要尋找的值。 |
+| stringToSearch |yes |字串 |其中包含要尋找之項目的值。 |
+| stringToFind |yes |字串 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -988,9 +988,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1021,7 +1021,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |要擷取其最後一個元素或字元的值。 |
+| arg1 |yes |陣列或字串 |要擷取其最後一個元素或字元的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1056,12 +1056,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | 字串 | three |
+| stringOutput | 字串 | e |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1086,8 +1086,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |string |要尋找的值。 |
+| stringToSearch |yes |字串 |其中包含要尋找之項目的值。 |
+| stringToFind |yes |字串 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1127,9 +1127,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1160,7 +1160,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |要用來取得元素數目的陣列，或用來取得字元數目的字串。 |
+| arg1 |yes |陣列或字串 |要用來取得元素數目的陣列，或用來取得字元數目的字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1202,9 +1202,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -1232,8 +1232,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| valueToPad |是 |字串或整數 |要靠右對齊的值。 |
-| totalLength |是 |int |傳回字串中的字元總數。 |
+| valueToPad |yes |字串或整數 |要靠右對齊的值。 |
+| totalLength |yes |int |傳回字串中的字元總數。 |
 | paddingCharacter |否 |單一字元 |要用於左側填補直到達到總長度的字元。 預設值是空格。 |
 
 如果原始字串長度超過要填補的字元數，則不會新增任何字元。
@@ -1266,11 +1266,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | 字串 | 0000000123 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1295,9 +1295,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalString |是 |字串 |具備由另一個字串取代的一個字串之所有執行個體的值。 |
-| oldString |是 |字串 |要從原始字串中移除的字串。 |
-| newString |是 |字串 |要新增來取代移除之字串的字串。 |
+| originalString |yes |字串 |具備由另一個字串取代的一個字串之所有執行個體的值。 |
+| oldString |yes |字串 |要從原始字串中移除的字串。 |
+| newString |yes |字串 |要新增來取代移除之字串的字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1331,12 +1331,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| firstOutput | 字串 | 1231231234 |
+| secodeOutput | 字串 | 123-123-xxxx |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1361,8 +1361,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalValue |是 |陣列或字串 |要用於略過的陣列或字串。 |
-| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大於陣列或字串的長度，則會傳回空白陣列或字串。 |
+| originalValue |yes |陣列或字串 |要用於略過的陣列或字串。 |
+| numberToSkip |yes |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大於陣列或字串的長度，則會傳回空白陣列或字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1412,12 +1412,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | 字串 | two three |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1442,8 +1442,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| inputString |是 |string |要分割的字串。 |
-| 分隔符號 |是 |字串或字串陣列 |用於分割字串的分隔符號。 |
+| inputString |yes |字串 |要分割的字串。 |
+| 分隔符號 |yes |字串或字串陣列 |用於分割字串的分隔符號。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1484,9 +1484,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstOutput | 陣列 | ["one", "two", "three"] |
 | secondOutput | 陣列 | ["one", "two", "three"] |
@@ -1514,8 +1514,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |string |要尋找的值。 |
+| stringToSearch |yes |字串 |其中包含要尋找之項目的值。 |
+| stringToFind |yes |字串 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1559,9 +1559,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1593,7 +1593,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |是 | 任意 |要轉換成字串的值。 任何類型的值均可轉換，包括物件和陣列。 |
+| valueToConvert |yes | 任意 |要轉換成字串的值。 任何類型的值均可轉換，包括物件和陣列。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1646,13 +1646,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | 字串 | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | 字串 | ["a","b","c"] |
+| intOutput | 字串 | 5 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1677,7 +1677,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToParse |是 |string |要用來擷取子字串的原始字串。 |
+| stringToParse |yes |字串 |要用來擷取子字串的原始字串。 |
 | startIndex |否 |int |起始字元位置為零的子字串。 |
 | length |否 |int |子字串的字元數。 必須參考字串內的位置。 |
 
@@ -1722,11 +1722,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| substringOutput | String | two |
+| substringOutput | 字串 | two |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1751,8 +1751,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalValue |是 |陣列或字串 |要從其中擷取元素的陣列或字串。 |
-| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
+| originalValue |yes |陣列或字串 |要從其中擷取元素的陣列或字串。 |
+| numberToTake |yes |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1802,12 +1802,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["one", "two"] |
-| stringOutput | String | on |
+| stringOutput | 字串 | on |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1832,7 +1832,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToChange |是 |字串 |要轉換成小寫字母的值。 |
+| stringToChange |yes |字串 |要轉換成小寫字母的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1866,12 +1866,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | 字串 | one two three |
+| toUpperOutput | 字串 | ONE TWO THREE |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1896,7 +1896,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToChange |是 |字串 |要轉換成大寫字母的值。 |
+| stringToChange |yes |字串 |要轉換成大寫字母的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1930,12 +1930,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | 字串 | one two three |
+| toUpperOutput | 字串 | ONE TWO THREE |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1960,7 +1960,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |是 |string |要修剪的值。 |
+| stringToTrim |yes |字串 |要修剪的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1990,11 +1990,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| 傳回 | String | one two three |
+| 傳回 | 字串 | one two three |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -2019,7 +2019,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| baseString |是 |字串 |雜湊函式中用來建立唯一字串的值。 |
+| baseString |yes |字串 |雜湊函式中用來建立唯一字串的值。 |
 | 視需要，也會使用其他參數 |否 |字串 |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
 
 ### <a name="remarks"></a>備註
@@ -2108,8 +2108,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| baseUri |是 |string |基底 uri 的字串。 |
-| relativeUri |是 |字串 |要加入至基底 uri 字串的相對 uri 字串。 |
+| baseUri |yes |字串 |基底 uri 的字串。 |
+| relativeUri |yes |字串 |要加入至基底 uri 字串的相對 uri 字串。 |
 
 **baseUri** 參數的值可包含特定檔案，但在建構 URI 時只會使用基底路徑。 例如，將 `http://contoso.com/resources/azuredeploy.json` 作為 baseUri 參數傳遞時，會產生 `http://contoso.com/resources/` 的基底 URI。
 
@@ -2154,13 +2154,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | 字串 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -2185,7 +2185,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |是 |字串 |要編碼的值。 |
+| stringToEncode |yes |字串 |要編碼的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -2222,13 +2222,13 @@ URI 編碼值的字串。
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | 字串 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -2253,7 +2253,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |是 |string |要轉換為字串的 URI 編碼值。 |
+| uriEncodedString |yes |字串 |要轉換為字串的 URI 編碼值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -2290,13 +2290,13 @@ URI 編碼值的解碼字串。
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | 字串 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 

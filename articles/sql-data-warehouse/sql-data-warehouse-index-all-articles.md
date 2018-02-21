@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 本主題會列出每一個直接適用於 Azure **SQL 資料倉儲** 服務的主題。 您可以使用 **Ctrl+F**，利用關鍵字搜尋本網頁，以尋找目前感興趣的主題。
 
 ## <a name="new"></a>新增
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 1 |[SQL 資料倉儲備份](sql-data-warehouse-backups.md) |了解 SQL 資料倉儲內建資料庫備份，它可以讓您將 Azure SQL 資料倉儲還原到還原點或不同的地理區域。 |
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 | 3 |[SQL 資料倉儲還原](sql-data-warehouse-restore-database-overview.md) |**是否可以還原暫停的資料倉儲？** 若要還原已經暫停的資料倉儲，您需要先讓它恢復上線。 在資料倉儲恢復上線之後，您有七天的還原點可以選擇。 **還原到異地備援區域** 如果您正在使用異地備援儲存體，您可以將資料倉儲還原到您位於不同地理區域的已配對資料中心。 資料倉儲已經從上次每日備份還原。 **還原時間軸** 您可以將資料庫還原到過去七天內的任何還原點。 快照集每四到八個小時會啟動，並且可供使用七天。 當快照集存在時間超過七天，它就會過期，而且無法再使用其還原點。 **還原成本** 針對已還原資料倉儲的儲存體費用，會以 Azure 進階儲存體費率收費。 如果您將已還原的資料倉儲暫停，會依據 Azure 進階儲存體費率向您收取儲存體費用。 暫停的好處是您不會被收取費用 |2016-09-29 |
 
 ## <a name="get-started"></a>開始使用
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 4 |[適用於 Azure SQL 資料倉儲的驗證](sql-data-warehouse-authentication.md) |適用於 Azure SQL 資料倉儲的 Azure Active Directory (AAD) 與 SQL Server 驗證。 |
 | 5 |[Azure SQL 資料倉儲最佳做法](sql-data-warehouse-best-practices.md) |開發 Azure SQL 資料倉儲的解決方案時應該知道的建議和最佳作法。 這些可協助您成功。 |
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 | 17 |[查詢 Azure SQL 資料倉儲 (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |使用 Visual Studio 查詢 SQL 資料倉儲。 |
 
 ## <a name="develop"></a>開發
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 18 |[最佳化 SQL 資料倉儲的交易](sql-data-warehouse-develop-best-practices-transactions.md) |在 Azure SQL 資料倉儲中撰寫有效率交易更新的最佳作法指引 |
 | 19 |[SQL 資料倉儲中的並行存取和工作負載管理](sql-data-warehouse-develop-concurrency.md) |了解 Azure SQL 資料倉儲中的並行存取和工作負載管理以開發解決方案。 |
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | 30 |[SQL 資料倉儲的設計決策和程式碼撰寫技術](sql-data-warehouse-overview-develop.md) |SQL 資料倉儲的開發概念、設計決策、建議和程式碼撰寫技巧。 |
 
 ## <a name="manage"></a>管理
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 31 |[管理 Azure SQL 資料倉儲中的計算能力 (概觀)](sql-data-warehouse-manage-compute-overview.md) |Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 以相應放大或暫停和繼續計算資源來節省成本。 |
 | 32 |[管理 Azure SQL 資料倉儲中的計算能力 (Azure 入口網站)](sql-data-warehouse-manage-compute-portal.md) |管理計算能力的 Azure 入口網站工作。 透過調整 DWU 以調整計算資源。 或者，暫停和繼續計算資源以節省成本。 |
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 | 42 |[還原 Azure SQL 資料倉儲 (REST API)](sql-data-warehouse-restore-database-rest-api.md) |還原 Azure SQL 資料倉儲的 REST API 工作。 |
 
 ## <a name="tables-and-indexes"></a>資料表與索引
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 43 |[SQL 資料倉儲中的資料表的資料類型](sql-data-warehouse-tables-data-types.md) |開始使用 Azure SQL 資料倉儲資料表的資料類型。 |
 | 44 |[在 SQL 資料倉儲中散發資料表](sql-data-warehouse-tables-distribute.md) |開始在 Azure SQL 資料倉儲中散發資料表。 |
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 | 49 |[SQL 資料倉儲中的暫存資料表](sql-data-warehouse-tables-temporary.md) |開始使用 Azure SQL 資料倉儲中的暫存資料表。 |
 
 ## <a name="integrate"></a>整合
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 50 |[搭配使用 Azure Data Factory 與 SQL 資料倉儲](sql-data-warehouse-integrate-azure-data-factory.md) |搭配使用 Azure Data Factory (ADF) 與 SQL 資料倉儲以便開發解決方案的秘訣。 |
 | 51 |[搭配使用 Azure 機器學習服務與 SQL 資料倉儲](sql-data-warehouse-integrate-azure-machine-learning.md) |搭配使用 Azure 機器學習服務與 SQL 資料倉儲以便開發解決方案的秘訣。 |
@@ -123,7 +123,7 @@ ms.lasthandoff: 10/11/2017
 | 64 |[將資料載入 Azure SQL 資料倉儲](sql-data-warehouse-overview-load.md) |了解將資料載入 SQL 資料倉儲的常見案例 這包含使用 PolyBase、Azure Blob 儲存體、一般檔案及寄送磁碟。 您也可以使用協力廠商工具。 |
 
 ## <a name="migrate"></a>移轉
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 65 |[將您的 SQL 程式碼移轉至 SQL 資料倉儲](sql-data-warehouse-migrate-code.md) |將 SQL 程式碼移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。 |
 | 66 |[移轉資料](sql-data-warehouse-migrate-data.md) |將您的資料移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。 |
@@ -132,14 +132,14 @@ ms.lasthandoff: 10/11/2017
 | 69 |[將您的解決方案移轉至 SQL 資料倉儲](sql-data-warehouse-overview-migrate.md) |將您的解決方案帶入 Azure SQL 資料倉儲平台的移轉指導。 |
 
 ## <a name="partners"></a>合作夥伴
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 70 |[SQL 資料倉儲商業智慧合作夥伴](sql-data-warehouse-partner-business-intelligence.md) |具有可支援「SQL 資料倉儲」之解決方案的協力廠商商業智慧合作夥伴清單。 |
 | 71 |[SQL 資料倉儲資料整合合作夥伴](sql-data-warehouse-partner-data-integration.md) |具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的協力廠商合作夥伴清單。 |
 | 72 |[SQL 資料倉儲資料管理合作夥伴](sql-data-warehouse-partner-data-management.md) |具有可支援「SQL 資料倉儲」之解決方案的協力廠商資料管理合作夥伴清單。 |
 
 ## <a name="reference"></a>參考
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 73 |[SQL 資料倉儲的參考主題](sql-data-warehouse-overview-reference.md) |SQL 資料倉儲的參考內容連結。 |
 | 74 |[適用於 SQL 資料倉儲的 PowerShell Cmdlet 和 REST API](sql-data-warehouse-reference-powershell-cmdlets.md) |尋找 Azure SQL 資料倉儲的前幾個 PowerShell Cmdlet，包括如何暫停和繼續資料庫。 |
@@ -148,7 +148,7 @@ ms.lasthandoff: 10/11/2017
 | 77 |[系統檢視表](sql-data-warehouse-reference-tsql-system-views.md) |SQL 資料倉儲的系統檢視表內容的連結。 |
 
 ## <a name="security"></a>安全性
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 78 |[SQL 資料倉儲 -  下層用戶端對稽核和動態資料遮罩的支援](sql-data-warehouse-auditing-downlevel-clients.md) |了解 SQL 資料倉儲下層用戶端對資料稽核的支援 |
 | 79 |[Azure SQL 資料倉儲中的稽核](sql-data-warehouse-auditing-overview.md) |開始使用 Azure SQL 資料倉儲中的稽核 |
@@ -157,7 +157,7 @@ ms.lasthandoff: 10/11/2017
 | 82 |[保護 SQL 資料倉儲中的資料庫](sql-data-warehouse-overview-manage-security.md) |保護 Azure SQL 資料倉儲中的資料庫以便開發解決方案的秘訣。 |
 
 ## <a name="miscellaneous"></a>其他資訊
-| &nbsp; | 課程名稱 | 說明 |
+| &nbsp; | 標題 | 說明 |
 | ---:|:--- |:--- |
 | 83 |[安裝適用於 SQL 資料倉儲的 Visual Studio 和 SSDT](sql-data-warehouse-install-visual-studio.md) |安裝適用於 Azure SQL 資料倉儲的 Visual Studio 和 SQL Server Development Tools (SSDT) |
 | 84 |[移轉至進階儲存體詳細資料](sql-data-warehouse-migrate-to-premium-storage.md) |將現有「SQL 資料倉儲」移轉到進階儲存體的指示 |

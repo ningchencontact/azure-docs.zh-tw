@@ -55,7 +55,7 @@ ms.lasthandoff: 11/17/2017
 
     a. **Microsoft Azure (傳統)** 是傳統部署模型，目前不再建議使用。
 
-    b.這是另一個 C# 主控台應用程式。 **Microsoft Azure** 是新的 Resource Manager 部署模型。
+    b. **Microsoft Azure** 是新的 Resource Manager 部署模型。
 
     c. **Windows Azure operated by 21Vianet** 是為中國提供的選項，此選項使用傳統部署模型。
 

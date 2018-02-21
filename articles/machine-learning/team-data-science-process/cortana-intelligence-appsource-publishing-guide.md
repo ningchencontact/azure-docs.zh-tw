@@ -46,10 +46,10 @@ AppSource 是業務決策者 (BDM) 能探索及順利嘗試由合作夥伴所建
 1. 解決方案應至少使用下列元件其中一種：
 
     - HDInsight
-    - 機器學習服務
-    - Data Lake Analytics
+    - Machine Learning
+    - 資料湖分析
     - 串流分析
-    - 辨識服務
+    - 認知服務
     - Bot Framework
     - Analysis Services
     - 獨立 Microsoft R 伺服器

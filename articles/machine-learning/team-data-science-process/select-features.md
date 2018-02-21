@@ -25,7 +25,7 @@ ms.lasthandoff: 11/23/2017
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-特徵的工程設計與選取是[什麼是 Team Data Science Process？](overview.md)中所概述 Team Data Science Process (TDSP) 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的**開發特徵** 步驟。
+特徵的工程設計與選取是[什麼是 Team Data Science Process？](overview.md)中所概述 Team Data Science Process (TDSP) 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。
 
 * **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
 * **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。

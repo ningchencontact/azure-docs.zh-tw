@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 了解如何使用 Visual Studio 建立 Azure Data Lake Analytics 帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md) 中定義作業，以及將作業提交至 Data Lake Analytics 服務。 如需有關 Data Lake Analytics 的詳細資訊，請參閱 [Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Visual Studio**：支援 Express 以外的所有版本。
     * Visual Studio 2017
@@ -71,7 +71,7 @@ OUTPUT @a
 
 1. 選取 [檔案] > [新增] > [專案]。
 
-2. 選取 U-SQL 專案 類型，然後按一下確定。 Visual Studio 會建立具有 **Script.usql** 檔案的解決方案。
+2. 選取 [U-SQL 專案] 類型，然後按一下 [確定]。 Visual Studio 會建立具有 **Script.usql** 檔案的解決方案。
 
 3. 將先前的指令碼貼上 **Script.usql** 視窗。
 

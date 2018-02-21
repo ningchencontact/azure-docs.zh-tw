@@ -31,7 +31,7 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 將您的雲端管理工作交由「Azure 自動化」自動執行，以降低營運負擔並釋出 IT/開發維運人力，使其專注於能夠為企業創造價值的工作上。
 
 ## <a name="how-can-azure-automation-help-manage-azure-storage"></a>Azure 自動化為何有助於管理 Azure 儲存體？
-您可以透過使用 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)中提供的 PowerShell Cmdlet，於 Azure 自動化中管理 Azure 儲存體。 Azure 自動化的這些 儲存體 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有 Blob、資料表及佇列管理工作。 您也可以將 Azure 自動化中的這些 Cmdlet 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
+您可以透過使用 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)中提供的 PowerShell Cmdlet，於 Azure 自動化中管理 Azure 儲存體。 Azure 自動化的這些 儲存體 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有 Blob、資料表及佇列管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
 
 [Azure 自動化 Runbook 資源庫](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) 含有多種產品團隊和社群 Runbook，可供您開始針對 Azure 儲存體、其他 Azure 服務及協力廠商系統進行自動化管理。 資源庫 Runbook 包括：
 

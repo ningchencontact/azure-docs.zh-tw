@@ -42,7 +42,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 ### <a name="scripts"></a>指令碼
 本逐步解說只概述主要步驟。 您可以從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) 下載完整的 **U-SQL 指令碼**和 **Jupyter Notebook**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始運用這些主題之前，您必須符合下列條件：
 
 * Azure 訂用帳戶。 如果還沒有訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -678,7 +678,7 @@ Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 完成這個逐步解說之後，您就已經建立了資料科學環境，可在 Azure Data Lake 中建置可調整的端對端解決方案。 這個環境可用來分析大型公用資料集，透過資料科學程序的標準步驟來取得此公用資料集，過程中從取得資料開始、經過模型訓練，最後將模型部署成 Web 服務。 您可以使用 U-SQL 來處理、探索和取樣資料。 Python 和 Hive 會與 Azure Machine Learning Studio 搭配使用來建置和部署預測模型。
 
 ## <a name="whats-next"></a>後續步驟

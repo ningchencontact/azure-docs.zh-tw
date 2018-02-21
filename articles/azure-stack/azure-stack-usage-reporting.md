@@ -76,7 +76,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基礎結構 VM 是否需要付費？
 
-否。 某些 Azure Stack 資源提供者 VM 的使用量資料會回報給 Azure，但這些 VM 以及在部署期間為了啟用 Azure Stack 基礎結構所建立的 VM，都沒有費用。  
+編號 某些 Azure Stack 資源提供者 VM 的使用量資料會回報給 Azure，但這些 VM 以及在部署期間為了啟用 Azure Stack 基礎結構所建立的 VM，都沒有費用。  
 
 使用者只需針對在租用戶訂用帳戶下執行的 VM 付費。 必須將所有工作負載部署在租用戶訂用帳戶底下，才符合 Azure Stack 的授權條款。
 

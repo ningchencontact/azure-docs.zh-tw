@@ -98,7 +98,7 @@ ms.lasthandoff: 12/05/2017
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
-您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受管理 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。
+您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。
 
 > [!IMPORTANT]
 > 所建立的每個網域名稱標籤必須是 Azure 位置中唯一的。  
@@ -125,10 +125,10 @@ ms.lasthandoff: 12/05/2017
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |是 |是 |
-| 網際網路對應負載平衡器 |前端組態 |是 |是 |
-| VPN 閘道 |閘道 IP 組態 |是 |否 |
-| 應用程式閘道 |前端組態 |是 |否 |
+| 虛擬機器 |Linux |yes |yes |
+| 網際網路對應負載平衡器 |前端組態 |yes |yes |
+| VPN 閘道 |閘道 IP 組態 |yes |否 |
+| 應用程式閘道 |前端組態 |yes |否 |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源透過 VPN 閘道或 ExpressRoute 電路，與 [虛擬網路](virtual-networks-overview.md) 中或內部部署網路中的其他資源進行通訊，而不必使用可網際網路連線的 IP 位址。
@@ -158,11 +158,11 @@ ms.lasthandoff: 12/05/2017
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>內部 DNS 主機名稱解析 (適用於虛擬機器)
 
-除非明確設定自訂 DNS 伺服器，否則所有 Azure 虛擬機器預設都會設定 [Azure 受管理 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 。 這些 DNS 伺服器會針對位於相同虛擬網路的虛擬機器提供內部名稱解析。
+除非明確設定自訂 DNS 伺服器，否則所有 Azure 虛擬機器預設都會設定 [Azure 受控 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 。 這些 DNS 伺服器會針對位於相同虛擬網路的虛擬機器提供內部名稱解析。
 
-當您建立虛擬機器時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受管理 DNS 伺服器。 如果一部虛擬機器有多個網路介面，或一個網路介面有多個 IP 組態，則主機名稱會對應至主要網路介面之主要 IP 組態的私人 IP 位址。
+當您建立虛擬機器時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受控 DNS 伺服器。 如果一部虛擬機器有多個網路介面，或一個網路介面有多個 IP 組態，則主機名稱會對應至主要網路介面之主要 IP 組態的私人 IP 位址。
 
-使用 Azure 受管理 DNS 伺服器所設定的虛擬機器，能夠將相同虛擬網路內所有虛擬機器的主機名稱解析為其私人的 IP 位址。 若要解析已連線的虛擬網路中虛擬機器的主機名稱，您必須使用自訂 DNS 伺服器。
+使用 Azure 受控 DNS 伺服器所設定的虛擬機器，能夠將相同虛擬網路內所有虛擬機器的主機名稱解析為其私人的 IP 位址。 若要解析已連線的虛擬網路中虛擬機器的主機名稱，您必須使用自訂 DNS 伺服器。
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>內部負載平衡器 (ILB) 與應用程式閘道
 
@@ -173,9 +173,9 @@ ms.lasthandoff: 12/05/2017
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |是 |是 |
-| 負載平衡器 |前端組態 |是 |是 |
-| 應用程式閘道 |前端組態 |是 |是 |
+| 虛擬機器 |Linux |yes |yes |
+| 負載平衡器 |前端組態 |yes |yes |
+| 應用程式閘道 |前端組態 |yes |yes |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

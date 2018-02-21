@@ -29,7 +29,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 您可以觀看此情節的[影片](https://www.youtube.com/watch?v=SGUpT-a99MA)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您具有下列項目：
 
@@ -72,7 +72,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
     > 我們不建議您在 Power BI 帳戶中明確建立此資料集和資料表。 當您啟動串流分析作業，而該作業開始將輸出提取至 Power BI 時，系統會自動建立資料集和資料表。 如果作業查詢沒有傳回任何結果，則不會建立資料集和資料表。
     >
 
-8. 按一下 [建立] 。
+8. 按一下頁面底部的 [新增] 。
 
 系統會使用下列設定來建立資料集：
 
@@ -113,7 +113,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 
 ## <a name="test-the-query"></a>測試查詢
@@ -173,13 +173,13 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
     ![新磚的視覺效果詳細資料](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
-7. 按一下 [下一步] 。
+7. 按 [下一步] 。
 
 8. 填寫磚詳細資料，例如標題和副標題。
 
     ![新磚的標題和副標題](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. 按一下 [Apply (套用)] 。
+9. 按一下 [套用]。
 
     您現在有一個詐騙計數器了！
 
@@ -217,7 +217,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 ![Equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-例如：
+例如︰
 
 * 您有 1 千個以一秒間隔傳送資料的裝置。
 * 您使用的 Power BI Pro SKU 支援每小時 100 萬個資料列。

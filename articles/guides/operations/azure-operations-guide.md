@@ -17,7 +17,7 @@ ms.date: 06/12/2017
 ms.author: nepeters
 ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/11/2017
 
 Microsoft 已在世界各地部署許多 Azure 資料中心，且更有計劃。 此外，Microsoft 逐漸增加中國和德國等區域中的統領雲端。 只有最大型全域企業可以用這種方式部署資料中心，所以使用 Azure 可讓任何規模的企業輕鬆將其服務部署到客戶的附近。
 
-對於小型企業，Azure 提供低成本的進入點，以及隨著計算需求增加而迅速調整的能力。 這可防止基礎結構方面的大型前期資金投資，並提供視需要設計和重新設計系統的彈性。 雲端運算最適合用於大起大落的初創成長模型。
+對於小型企業，Azure 提供低成本的進入點，以及隨著計算需求增加而迅速調整的能力。 這可防止基礎結構方面的大型前期資金投資，並提供視需要設計和重新設計系統的彈性。 雲端運算最適合用於具速錯機制 (Fail-fast) 的初創成長模型。
 
 如需可用 Azure 區域的詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。
 

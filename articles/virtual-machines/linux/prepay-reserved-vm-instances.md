@@ -1,6 +1,6 @@
 ---
 title: "節省成本的 Azure 虛擬機器預付 | Microsoft Docs"
-description: "瞭解如何購買 Azure 保留執行個體，以節省您的計算成本。"
+description: "瞭解如何購買 Azure 保留的虛擬機器執行個體，以節省您的計算成本。"
 services: virtual-machines-linux
 documentationcenter: 
 author: vikramdesai01

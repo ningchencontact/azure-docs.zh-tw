@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 |命令列參數|說明|
 |-----------------------------|-----------------|
 |**/sk:**<StorageAccountKey\>|`Optional.`將匯入資料的儲存體帳戶的儲存體帳戶金鑰。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。|
-|**/csas:**<ContainerSas\>|`Optional`。 用於將資料匯入儲存體帳戶的容器 SAS。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如：<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
+|**/csas:**<ContainerSas\>|`Optional`。 用於將資料匯入儲存體帳戶的容器 SAS。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如︰<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
 |**/t:**<TargetDriveLetter\>|`Required.`目前複製工作階段中目標硬碟的磁碟機代號，不包含結尾的冒號。|
 |**/format**|`Optional.`當磁碟機需要進行格式化時請指定此參數；否則請省略。 此工具格式化磁碟機之前，會提示您從主控台進行確認。 若要隱藏確認，請指定 /silentmode 參數。|
 |**/silentmode**|`Optional.`指定此參數可隱藏格式化目標磁碟機的確認。|

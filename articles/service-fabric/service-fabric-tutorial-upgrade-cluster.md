@@ -17,7 +17,7 @@ ms.author: adegeo
 ms.custom: mvc
 ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/07/2017
 > * 升級叢集的執行階段
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前：
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](/cli/azure/install-azure-cli)。

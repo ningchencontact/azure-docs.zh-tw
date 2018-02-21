@@ -28,7 +28,7 @@ ms.lasthandoff: 10/31/2017
 
 **如需最新版本** ：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 另請參閱 [將應用程式升級以使用最新的彈性資料庫用戶端程式庫](sql-database-elastic-scale-upgrade-client-library.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 若要建立效能類別和計數器，使用者必須屬於裝載應用程式的電腦上的本機 **Administrators** 群組。  
 * 若要建立效能計數器執行個體和更新計數器，使用者必須是 **Administrators** 或 **Performance Monitor Users** 群組的成員。 
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/31/2017
 
 效能計數器會在每個程序針對每個快取的分區對應建立。  
 
-## <a name="notes"></a>注意事項
+## <a name="notes"></a>注意
 下列事件會觸發效能計數器的建立︰  
 
 * 在 ShardMapManager 包含任何分區對應的情況下，使用[積極式載入](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx)將 [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) 初始化。 這些包括 [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) 和 [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) 方法。

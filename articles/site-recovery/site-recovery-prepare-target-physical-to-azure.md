@@ -16,7 +16,7 @@ ms.date: 11/23/2017
 ms.author: bsiva
 ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 本文將說明如何準備您的 Azure 環境，以便開始將執行 Windows 或 Linux 的實體伺服器 (x64) 複寫至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設：
 - 您已建立復原服務保存庫，用以保護實體伺服器。 您可以從 [Azure 入口網站] (http://portal.azure.com "Azure 入口網站")建立復原服務保存庫。

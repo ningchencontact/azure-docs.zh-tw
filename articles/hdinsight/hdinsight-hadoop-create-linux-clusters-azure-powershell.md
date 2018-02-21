@@ -31,10 +31,10 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 > [!NOTE]
 > Azure PowerShell 僅適用於 Windows 用戶端。 如果您使用 Linux、Unix 或 Mac OS X 用戶端，請參閱 [使用 Azure CLI 建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-cli.md) ，以取得使用 Azure CLI 建立叢集的相關資訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行此程序之前，您必須先具備下列項目：
 
-* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
     > [!IMPORTANT]
@@ -115,9 +115,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 ### <a name="spark-clusters"></a>Spark 叢集
 
-* [使用 Scala 來建立獨立的應用程式](spark/apache-spark-create-standalone-application.md)
+* [使用 Scala 建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
 * [利用 Livy 在 Spark 叢集上遠端執行工作](spark/apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](spark/apache-spark-eventhub-streaming.md)
 

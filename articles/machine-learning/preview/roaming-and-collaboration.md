@@ -21,7 +21,7 @@ ms.lasthandoff: 12/06/2017
 
 當您建立具有遠端 Git 存放庫連結 的 Azure Machine Learning 專案時，專案中繼資料和快照集會儲存在雲端。 您可以使用雲端連結從不同的電腦存取專案 (漫遊)。 也可以提供專案存取權給小組成員，來和他們共同作業。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. 安裝 Machine Learning Workbench 應用程式。 確定您擁有 Azure Machine Learning 測試帳戶的存取權。 如需詳細資訊，請參閱[安裝指南](quickstart-installation.md)。
 
 2. 存取 [Visual Studio Team Services](https://www.visualstudio.com) (Team Services)，然後建立要連結專案的存放庫。 如需詳細資訊，請參閱[使用 Git 存放庫搭配 Machine Learning Workbench 專案](using-git-ml-project.md)。

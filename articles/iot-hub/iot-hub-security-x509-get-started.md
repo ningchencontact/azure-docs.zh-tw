@@ -23,7 +23,7 @@ ms.lasthandoff: 11/18/2017
 
 本教學課程中會使用 X.509 憑證驗證來模擬您保護 Azure IoT 中樞所需的步驟。 為了說明起見，我們將示範如何使用開放原始碼工具 OpenSSL 在 Windows 電腦上本機建立憑證。 建議您僅將本教學課程用於測試目的。 針對生產環境，您應該向根憑證授權單位 (CA) 購買憑證。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程需要您準備下列資源：
 
 - 您已使用 Azure 訂用帳戶建立 IoT 中樞。 如需詳細步驟，請參閱[透過入口網站建立 IoT 中樞](iot-hub-create-through-portal.md)。 
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/18/2017
 
 2. 按一下 [新增] 以新增新的裝置。 
 
-3. 為 [裝置識別碼] 提供好記的顯示名稱，然後選取 [X.509 CA 簽署] 作為 [驗證類型]。 按一下 [儲存] 。
+3. 為 [裝置識別碼] 提供好記的顯示名稱，然後選取 [X.509 CA 簽署] 作為 [驗證類型]。 按一下 [檔案] 。
 
    ![在入口網站中建立 X.509 裝置](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 11/18/2017
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
-* [使用 Azure IoT Edge 將 AI 部署到邊緣裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md

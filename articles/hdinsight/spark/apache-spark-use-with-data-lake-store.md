@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 在本教學課程中，您可使用 HDInsight Spark 叢集提供的 Jupyter Notebook 來執行可從 Data Lake Store 帳戶讀取資料的作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure Data Lake Store 帳戶。 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md) 的指示。
 

@@ -101,7 +101,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 
 下表描述計算、網路和儲存體資源提供者互動方式的變更：
 
-| 項目 | 傳統 | Resource Manager |
+| Item | 傳統 | Resource Manager |
 | --- | --- | --- |
 | 虛擬機器的雲端服務 |雲端服務是一種容器，專門保管那些要求平台和負載平衡可用性的虛擬機器。 |使用新模型建立虛擬機器時，雲端服務已經不是必要的物件了。 |
 | 虛擬網路 |虛擬網路是虛擬機器的選用項目。 如果包含，即無法使用 Resource Manager 部署虛擬網路。 |虛擬機器需要已使用 Resource Manager 部署的虛擬網路。 |

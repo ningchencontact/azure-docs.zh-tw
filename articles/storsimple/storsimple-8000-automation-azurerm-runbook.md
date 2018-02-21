@@ -29,7 +29,7 @@ ms.lasthandoff: 10/24/2017
 
 本節採用 StorSimple 的範例 Windows PowerShell 指令碼，並詳細說明各種必要步驟將指令碼匯入 Runbook，然後發佈及執行 Runbook。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您有︰
 
@@ -191,7 +191,7 @@ ms.lasthandoff: 10/24/2017
     3. 建立新的資源群組，或從現有的資源群組中選取。
     4. 選取 [位置] (如果可能，請選取服務執行所在位置)。
     5. 保持選取預設值 [建立執行身分帳戶] 選項。
-    5. 或者勾選 [釘選到儀表板]。 按一下 [建立] 。
+    5. 或者勾選 [釘選到儀表板]。 按一下頁面底部的 [新增] 。
 
         ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
@@ -203,11 +203,11 @@ ms.lasthandoff: 10/24/2017
 
 4. 在新建立的帳戶中，移至 [共用資源] > [模組] 並按一下 [+ 新增模組]。
 
-5. 在 [新增模組] 刀鋒視窗中，瀏覽至 ZIP 壓縮模組的位置，然後選取並開啟模組。 按一下 [確定] 。
+5. 在 [新增模組] 刀鋒視窗中，瀏覽至 ZIP 壓縮模組的位置，然後選取並開啟模組。 按一下 [SERVICEPRINCIPAL] 。
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. 移至 [程序自動化] > [Runbook] 並按一下 [+ 新增 Runbook]。 在 [新增 Runbook] 刀鋒視窗中，按一下 [匯入現有 Runbook]。 指向 **Runbook 檔案** 的 Windows PowerShell 指令碼檔案。 會自動選取 Runbook 類型。 提供 Runbook 的名稱和選擇性描述。 按一下 [建立] 。
+6. 移至 [程序自動化] > [Runbook] 並按一下 [+ 新增 Runbook]。 在 [新增 Runbook] 刀鋒視窗中，按一下 [匯入現有 Runbook]。 指向 **Runbook 檔案** 的 Windows PowerShell 指令碼檔案。 會自動選取 Runbook 類型。 提供 Runbook 的名稱和選擇性描述。 按一下頁面底部的 [新增] 。
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 

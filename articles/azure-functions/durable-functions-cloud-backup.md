@@ -24,7 +24,7 @@ ms.lasthandoff: 12/05/2017
 
 「展開傳送/收合傳送」是指同時執行多個函式，然後對結果執行一些彙總的模式。 本文以一個範例說明如何使用 [Durable Functions](durable-functions-overview.md) 來實作展開傳送/收合傳送情節。 範例是一個永久性函式，可將應用程式的所有或部分網站內容備份至 Azure 儲存體。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
 * 本文假設您已經完成 [Hello Sequence](durable-functions-sequence.md) 範例逐步解說。

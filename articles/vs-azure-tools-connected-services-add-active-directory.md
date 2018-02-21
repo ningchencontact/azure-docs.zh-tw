@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連接服務加入 Azure Active Directory
 藉由使用 Azure Active Directory (Azure AD)，您便可以針對 ASP.NET MVC Web 應用程式支援「單一登入」(SSO)，或在 Web API 服務中支援「Active Directory 驗證」。 在使用「Azure Active Directory 驗證」的情況下，您的使用者可以從 Azure Active Directory 使用其帳戶來連接到您的 Web 應用程式。 「Azure Active Directory 驗證」搭配 Web API 的優點包括在從 Web 應用程式公開 API 時，可增強資料安全性。 有了 Azure AD，您不必以各自的帳戶和使用者管理作業來管理個別的驗證系統。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - Azure 帳戶 - 如果您沒有 Azure 帳戶，您可以[申請免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)，或是[啟用您的 Visual Studio 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)。
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>使用 [已連接服務] 對話方塊來連接到 Azure Active Directory

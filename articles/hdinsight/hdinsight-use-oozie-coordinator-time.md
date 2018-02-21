@@ -62,7 +62,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 >
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **具有 Azure PowerShell 的工作站**。
@@ -287,7 +287,7 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。 wasb:// 是 Azure Blob �
 
 關於 Hive 內部資料表和外部資料表，有若干事項您必須了解：
 
-* CREATE TABLE 命令會建立內部資料表，也稱為受管理的資料表。 資料檔案必須位於預設容器中。
+* CREATE TABLE 命令會建立內部資料表，也稱為受控資料表。 資料檔案必須位於預設容器中。
 * CREATE TABLE 命令會將資料檔案移至預設容器中的 /hive/warehouse/<TableName> 資料夾。
 * CREATE EXTERNAL TABLE 命令會建立外部資料表。 資料檔案可位於預設容器外。
 * CREATE EXTERNAL TABLE 命令不會移動資料檔案。
@@ -663,7 +663,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
     # killOozieJob($oozieJobId)
     ```
 
-如果您想執行其他函式，請移除 # 符號
+Remove the # signs if you want to run the additional functions.
 
 9. 如果您的 HDinsight 叢集是 2.1 版，請將 "https://$clusterName.azurehdinsight.net:443/oozie/v2/" 取代為 "https://$clusterName.azurehdinsight.net:443/oozie/v1/"。 HDInsight 叢集 2.1 版不支援 Web 服務的第 2 版。
 10. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。 輸出將類似於：

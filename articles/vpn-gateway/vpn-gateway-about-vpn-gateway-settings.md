@@ -149,7 +149,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 使用 REST API、PowerShell Cmdlet 或 Azure CLI 來設定 VPN 閘道組態時，如需其他技術資源和特定語法需求，請參閱下列頁面：
 
-| **傳統** | **資源管理員** |
+| **傳統** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |

@@ -55,7 +55,7 @@ R 與 Azure Blob 儲存體 (WASB) 相容，因此便可在 HDInsight 上使用 R
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>名稱</td>
+        <tr><td>Name</td>
             <td>指定指令碼動作的名稱，例如<b>安裝 R</b>。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>指定為了自訂叢集所叫用之指令碼的 URI，例如 <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>

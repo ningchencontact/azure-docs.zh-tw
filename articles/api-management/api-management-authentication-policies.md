@@ -46,16 +46,16 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|authentication-basic|根元素。|是|  
+|authentication-basic|根元素。|yes|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|username|指定「基本驗證」認證的使用者名稱。|是|N/A|  
-|password|指定「基本驗證」認證的密碼。|是|N/A|  
+|username|指定「基本驗證」認證的使用者名稱。|yes|N/A|  
+|password|指定「基本驗證」認證的密碼。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -81,15 +81,15 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|authentication-certificate|根元素。|是|  
+|authentication-certificate|根元素。|yes|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|用戶端憑證的指紋。|是|N/A|  
+|thumbprint|用戶端憑證的指紋。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

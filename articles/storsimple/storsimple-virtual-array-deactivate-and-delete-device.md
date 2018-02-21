@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 2. 在 [裝置儀表板] 刀鋒視窗中，按一下 [...更多]，然後從清單中選取 [停用]。
    
     ![按一下停用](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete8.png)
-3. 在 停用 刀鋒視窗中，輸入裝置名稱，然後按一下停用。 
+3. 在 [停用] 刀鋒視窗中，輸入裝置名稱，然後按一下 [停用]。 
    
     ![確認停用](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete1.png)
    
@@ -73,10 +73,10 @@ ms.lasthandoff: 10/11/2017
 #### <a name="to-delete-the-device"></a>刪除裝置
 
 1. 在 StorSimple 裝置管理員中，然移至 [管理] > [裝置]。 在 [裝置] 刀鋒視窗中，選取您想要刪除的已停用裝置。
-2. 在 裝置儀表板 刀鋒視窗中，按一下 ...更多，然後按一下刪除。
+2. 在 [裝置儀表板] 刀鋒視窗中，按一下 [...更多]，然後按一下 [刪除]。
    
    ![選取要刪除的裝置](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
-3. 在 刪除 刀鋒視窗中，輸入裝置的名稱來確認刪除，然後按一下刪除。 刪除裝置並不會刪除與裝置相關聯的雲端資料。 
+3. 在 [刪除] 刀鋒視窗中，輸入裝置的名稱來確認刪除，然後按一下 [刪除]。 刪除裝置並不會刪除與裝置相關聯的雲端資料。 
    
    ![Confirm delete](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete5.png) 
 4. 刪除程序開始，需要幾分鐘才能完成。

@@ -40,7 +40,7 @@ ms.lasthandoff: 12/01/2017
 
 這是 JSON 格式的資料集，其中包含下列結構描述。
 
-| 資料欄 | 說明 | 值 |
+| 欄 | 說明 | 值 |
 | --- | --- | --- |
 | VIN |隨機產生的 VIN |取自於一份含有 10,000 個隨機產生 VIN 的主要清單 |
 | Outside temperature |車輛行駛時的外部溫度 |從 0 至 100 隨機產生的數字 |
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/01/2017
 | Ignition_status |指出車輛在行駛中或已停車 |True 或 False |
 | Windshield_wiper_status |指出擋風玻璃雨刷是否啟動 |True 或 False |
 | ABS |指出 ABS 是否發揮作用 |True 或 False |
-| Timestamp |建立資料點時的時間戳記 |Date |
+| Timestamp |建立資料點時的時間戳記 |日期 |
 | City |車輛的位置 |此方案中有 4 個城市：Bellevue、Redmond、Sammamish、Seattle |
 
 車輛型號參考資料集會將 VIN 對應至模型。 
@@ -662,7 +662,7 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 ![Power BI 儀表板](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 本文件包含車輛遙測資料分析方案的詳細探討。 Lambda 架構模式可用於以預測和動作進行即時和批次分析。 此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。 
 
 ### <a name="references"></a>參考

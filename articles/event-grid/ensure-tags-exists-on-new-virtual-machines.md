@@ -22,7 +22,7 @@ ms.lasthandoff: 12/07/2017
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>將 Azure 自動化與事件格線和 Microsoft Teams 整合
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 匯入事件格線範例 Runbook。
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/07/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，需要有 [Azure 自動化帳戶](../automation/automation-offering-get-started.md)，才能保留從 Azure 事件格線訂用帳戶觸發的 Runbook。
 

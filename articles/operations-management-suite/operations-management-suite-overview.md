@@ -53,8 +53,8 @@ OMS 的核心功能是由在 Azure 中執行的一組服務所提供。  每個�
 |:--|:--|:--|
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | 監視及分析不同資源 (包括實體和虛擬機器) 的可用性和效能。 |
 | ![Azure 自動化](media/operations-management-suite-overview/icon-automation.png) | 自動化 | 讓手動程序自動化，並強制設定實體和虛擬機器。 |
-| ![Azure 備份](media/operations-management-suite-overview/icon-backup.png) | 備份 | 備份及還原重要資料。 |
-| ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | 站台復原 | 為重要應用程式提供高可用性。 |
+| ![Azure 備份](media/operations-management-suite-overview/icon-backup.png) | Backup  | 備份及還原重要資料。 |
+| ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | 為重要應用程式提供高可用性。 |
 
 ### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央儲存機制，以提供 OMS 監視服務。  此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。  這個方法可讓您合併各種來源的資料，以便結合來自 Azure 服務與現有內部部署環境的資料。  它也可清楚劃分資料的收集與對該資料採取的動作，而讓所有類型的資料可以使用所有的動作。  
@@ -153,7 +153,7 @@ Site Recovery 會將元資料儲存到位於特定地理 Azure 區域的保存�
 
 [更新管理解決方案](oms-solution-update-management.md)就是利用多項服務來提供其他功能的良好解決方案範例。  這個解決方案使用 Windows 和 Linux 適用的 Log Analytics 代理程式，來收集每個代理程式上必要更新的相關資訊。  它會將此資料寫入至 Log Analytics 儲存機制，以便透過內含的儀表板分析資料。  當您建立部署時，Azure 自動化中的 Runbook 用來安裝必要的更新。  您可在入口網站中管理這整個程序，而不需擔心基礎詳細資料。
 
-![方案](media/operations-management-suite-overview/overview-solution.png)
+![解決方法](media/operations-management-suite-overview/overview-solution.png)
 
 大多數解決方案都可以執行下列一或多項功能。
 

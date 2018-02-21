@@ -18,7 +18,7 @@ ms.lasthandoff: 11/17/2017
 
 了解如何建立和刪除在 Azure Service Fabric 叢集中執行的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 安裝 Service Fabric CLI。 然後選取 Service Fabric 叢集。 如需詳細資訊，請參閱[開始使用 Service Fabric CLI](service-fabric-cli.md)。
 

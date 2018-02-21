@@ -32,7 +32,7 @@ NSG 包含下列屬性：
 
 | 屬性 | 說明 | 條件約束 | 考量 |
 | --- | --- | --- | --- |
-| 名稱 |NSG 的名稱 |必須是區域內唯一的。<br/>可以包含字母、數字、底線、句號和連字號。<br/>必須以字母或數字開頭。<br/>必須以字母、數字或底線結尾。<br/>不能超過 80 個字元。 |因為您可能需要建立數個 NSG，請確定您的命名慣例可讓您輕鬆識別 NSG 的功能。 |
+| Name |NSG 的名稱 |必須是區域內唯一的。<br/>可以包含字母、數字、底線、句號和連字號。<br/>必須以字母或數字開頭。<br/>必須以字母、數字或底線結尾。<br/>不能超過 80 個字元。 |因為您可能需要建立數個 NSG，請確定您的命名慣例可讓您輕鬆識別 NSG 的功能。 |
 | 區域 |在其中建立 NSG 的 [Azure 區域](https://azure.microsoft.com/regions)。 |NSG 只能與 NSG 相同區域內的資源相關聯。 |若要了解每個區域可以有多少個 NSM ，請閱讀 [Azure 限制](../azure-subscription-service-limits.md#virtual-networking-limits-classic)一文。|
 | 資源群組 |NSG 所在的[資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |雖然 NSG 存在於資源群組中，它可以與任何資源群組中的資源相關聯，只要資源是與 NSG 相同的 Azure 區域的一部分。 |資源群組用來以部署單位的形式一起管理多個資源。<br/>您可以考慮將 NSG 其相關聯的資源群組在一起。 |
 | 規則 |定義允許或拒絕流量的輸入或輸出規則。 | |請參閱本文的 [NSG 規則](#Nsg-rules)一節。 |
@@ -79,7 +79,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 **輸入預設規則**
 
-| 名稱 | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
+| Name | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | 允許 |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | 允許 |
@@ -87,7 +87,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 **輸出預設規則**
 
-| 名稱 | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
+| Name | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | 允許 |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | 允許 |

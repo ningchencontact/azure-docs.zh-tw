@@ -75,7 +75,7 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
 
 4. 在 [Azure VM 上未安裝端點保護] 下，有未安裝反惡意程式碼軟體的 Azure VM 清單。  您可以在清單中選擇在所有 VM 上安裝反惡意程式碼軟體，也可以按一下特定的 VM，選取個別 VM 安裝反惡意程式碼軟體。
 5. 在 [選取端點保護] 下，選取想要使用的端點保護解決方案。 在此範例中，選取 [Microsoft Antimalware] 。
-6. 將會顯示 Endpoint Protection 解決方案的其他相關資訊。 選取 [ **建立**]。
+6. 將會顯示 Endpoint Protection 解決方案的其他相關資訊。 選取 [建立] 。
 
 ## <a name="install-antimalware-on-non-azure-computers"></a>在非 Azure 電腦上安裝反惡意程式碼軟體
 

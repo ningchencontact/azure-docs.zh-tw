@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure Stack 儲存體簡介
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 ## <a name="overview"></a>概觀
 Azure Stack 儲存體是一組雲端儲存體服務，包括與 Azure 儲存體服務一致的 Blob、資料表和佇列。

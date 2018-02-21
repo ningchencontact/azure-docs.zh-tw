@@ -10,7 +10,7 @@
  
 5. 在 [資源群組] 之下，選取現有的資源群組或建立新的資源群組 (使用與應用程式相同的名稱)。
 
-6. 按一下 [建立] 。 等候幾分鐘的時間來成功地部署服務，然後再繼續進行。
+6. 按一下頁面底部的 [新增] 。 等候幾分鐘的時間來成功地部署服務，然後再繼續進行。
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png

@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>為 Azure Stack 使用者啟用 Azure CLI
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您無法使用 Azure CLI 執行任何 Azure Stack 操作員特定工作。 但是在使用者可透過 CLI 管理資源之前，Azure Stack 操作員必須為使用者提供下列項目：
 

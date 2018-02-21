@@ -30,11 +30,11 @@ ms.lasthandoff: 11/28/2017
 
 本文提供有關如何使用 Azure 入口網站執行上述工作的詳細指示。 如需 Data Lake Store 如何在帳戶和資料層級實作安全性的深入資訊，請參閱 [Azure Data Lake Store 安全性](data-lake-store-security-overview.md)。 如需 ACL 如何在 Azure Data Lake Store 中實作的深入資訊，請參閱 [Data Lake Store 中的存取控制的概觀](data-lake-store-access-control.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure Data Lake Store 帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure 資料湖儲存區](data-lake-store-get-started-portal.md)
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 資料湖儲存區帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure 資料湖儲存區](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>在 Azure Active Directory 中建立安全性群組
 如需有關如何建立 AAD 安全性群組及如何新增使用者至群組的詳細指示，請參閱 [管理 Azure Active Directory 中的安全性群組](../active-directory/active-directory-groups-create-azure-portal.md)。
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/28/2017
     ![新增安全性群組](./media/data-lake-store-secure-data/adl.add.user.2.png "新增安全性群組")
    
     若要新增未列出的群組/使用者，您可使用 [邀請]  圖示並指定使用者/群組的電子郵件位址來邀請。
-6. 按一下 [確定] 。 您會看見新增的安全性群組，如下所示。
+6. 按一下 [SERVICEPRINCIPAL] 。 您會看見新增的安全性群組，如下所示。
    
     ![已新增的安全性群組](./media/data-lake-store-secure-data/adl.add.user.3.png "已新增的安全性群組")
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/28/2017
 ## <a name="filepermissions"></a>將使用者或安全性群組以 ACL 型式指派給 Azure 資料湖儲存區檔案系統
 藉由指派使用者/安全性群組給 Azure 資料湖檔案系統，您可以針對儲存在 Azure 資料湖儲存區中的資料設定存取控制。
 
-1. 在您的 [資料湖儲存區帳戶] 刀鋒視窗中，按一下 [資料總管] 。
+1. 在您的 [Data Lake Store 帳戶] 刀鋒視窗中，按一下 [資料總管] 。
    
     ![在 Data Lake Store 帳戶中建立目錄](./media/data-lake-store-secure-data/adl.start.data.explorer.png "在 Data Lake Store 帳戶中建立目錄")
 2. 在 [資料總管] 刀鋒視窗中，按一下您要將設定 ACL 的檔案或資料夾，然後按一下 [存取]。 若要指派 ACL 至檔案，您必須從 [檔案預覽] 刀鋒視窗按一下 [存取]。
@@ -104,7 +104,7 @@ ms.lasthandoff: 11/28/2017
 4. 按一下 [新增] 圖示，以開啟 [新增自訂存取] 刀鋒視窗。 在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，搜尋您稍早在 Azure Active Directory 中建立的安全性群組。 若您需要搜尋大量的群組，請使用頂端的文字方塊來篩選群組名稱。 按一下您要新增的群組，然後按一下 [選取] 。
    
     ![加入群組](./media/data-lake-store-secure-data/adl.acl.3.png "加入群組")
-5. 按一下 [選取權限]，選取權限及權限的指派方式 (例如預設 ACL、存取 ACL 或兩者並用)。 按一下 [確定] 。
+5. 按一下 [選取權限]，選取權限及權限的指派方式 (例如預設 ACL、存取 ACL 或兩者並用)。 按一下 [SERVICEPRINCIPAL] 。
    
     ![將權限指派至群組](./media/data-lake-store-secure-data/adl.acl.4.png "將權限指派至群組")
    
@@ -140,7 +140,7 @@ Azure Data Lake Store 可讓您進一步在網路層級鎖定資料存放區的�
 ## <a name="remove-security-group-acls-from-azure-data-lake-store-file-system"></a>從 Azure 資料湖儲存區檔案系統移除安全性群組 ACL
 當您從 Azure 資料湖儲存區檔案系統中移除安全性群組 ACL 時，會變更資料湖儲存區資料的存取。
 
-1. 在您的 [資料湖儲存區帳戶] 刀鋒視窗中，按一下 [資料總管] 。
+1. 在您的 [Data Lake Store 帳戶] 刀鋒視窗中，按一下 [資料總管] 。
    
     ![在 Data Lake 帳戶中建立目錄](./media/data-lake-store-secure-data/adl.start.data.explorer.png "在 Data Lake 帳戶中建立目錄")
 2. 在 [資料總管] 刀鋒視窗中，按一下您要將移除 ACL 的檔案或資料夾，然後在您的帳戶刀鋒視窗中按一下 [存取] 圖示。 若要移除檔案的 ACL，您必須從 [檔案預覽] 刀鋒視窗按一下 [存取]。
@@ -154,7 +154,7 @@ Azure Data Lake Store 可讓您進一步在網路層級鎖定資料存放區的�
 * [Azure Data Lake Store 概觀](data-lake-store-overview.md)
 * [將資料從 Azure 儲存體 Blob 複製到資料湖存放區](data-lake-store-copy-data-azure-storage-blob.md)
 * [搭配資料湖存放區使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md)
 * [使用 .NET SDK 開始使用資料湖存放區](data-lake-store-get-started-net-sdk.md)
 * [存取 Data Lake Store 的診斷記錄](data-lake-store-diagnostic-logs.md)

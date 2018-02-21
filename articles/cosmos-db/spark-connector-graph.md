@@ -17,7 +17,7 @@ ms.date: 09/08/2017
 ms.author: khdang
 ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 
 結合 Azure Cosmos DB 與 Spark，您可以使用 Gremlin 執行 OLTP 和 OLAP 工作負載。 本快速入門文章示範如何在 Azure HDInsight Spark 叢集上對 Azure Cosmos DB 執行 Gremlin 查詢。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須具備下列必要條件，才能執行此範例：
 * Azure HDInsight Spark 叢集 2.0

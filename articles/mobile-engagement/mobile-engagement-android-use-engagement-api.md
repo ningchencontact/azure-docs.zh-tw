@@ -138,7 +138,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
               }
             }
 
-## <a name="reporting-jobs"></a>報告工作
+## <a name="reporting-jobs"></a>報告作業
 ### <a name="example"></a>範例
 假設您想要報告登入程序持續時間：
 
@@ -238,7 +238,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
             EngagementAgent.getInstance(context).sendEvent("video_clicked", extras);
 
 ### <a name="limits"></a>限制
-#### <a name="keys"></a>之間的信任
+#### <a name="keys"></a>金鑰
 `Bundle` 中的每個索引鍵都必須符合下列規則運算式：
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
@@ -255,7 +255,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
 ## <a name="reporting-application-information"></a>報告應用程式資訊
 您可以使用 `sendAppInfo()` 函式手動報告追蹤資訊 (或是任何其他應用程式特定資訊)。
 
-請注意，這些資訊可以累加地傳送：只有指定的索引鍵的最新值會保留給指定的裝置。
+請注意，這些資訊可以累加地傳送：只有指定索引鍵的最新值會保留給指定的裝置。
 
 就像事件的額外項目，Bundle 類別用來摘要應用程式資訊，請注意陣列或子組合會被視為一般字串 (使用 JSON 序列化)。
 
@@ -268,7 +268,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
             EngagementAgent.getInstance(context).sendAppInfo(appInfo);
 
 ### <a name="limits"></a>限制
-#### <a name="keys"></a>之間的信任
+#### <a name="keys"></a>金鑰
 `Bundle` 中的每個索引鍵都必須符合下列規則運算式：
 
 `^[a-zA-Z][a-zA-Z_0-9]*`

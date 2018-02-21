@@ -16,7 +16,7 @@ ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 本主題說明 Android 應用程式中的其他報告案例。 您可以將這些選項套用至 [快速入門](mobile-engagement-android-get-started.md) 教學課程中建立的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 您完成的教學課程相當直接明瞭，但您還有一些進階選項可選擇。

@@ -31,7 +31,7 @@ ms.lasthandoff: 11/29/2017
 > * 使用 cqlsh COPY 命令匯入資料
 > * 使用 Spark 連接器匯入 
 
-# <a name="prerequisites"></a>必要條件
+# <a name="prerequisites"></a>先決條件
 
 * 安裝 [Apache Cassandra](http://cassandra.apache.org/download/)，並特別確認 *cqlsh* 已存在。
 * 增加輸送量︰資料移轉的時間長短取決於您為資料表佈建的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱[設定 Azure Cosmos DB 容器的輸送量](set-throughput.md)。

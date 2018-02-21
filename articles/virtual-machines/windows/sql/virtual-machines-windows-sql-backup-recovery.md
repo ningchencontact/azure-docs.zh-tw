@@ -52,7 +52,7 @@ Microsoft SQL Server 2016 支援在 SQL Server 2014 中也能找到的 [使用 A
 | --- | --- |
 | **串接** |當備份至 Microsoft Azure Blob 儲存體時，SQL Server 2016 支援備份至多個 Blob，以啟用可高達 12.8 TB 之大型資料庫的備份。 |
 | **快照集備份** |藉由 Azure 快照集，SQL Server 檔案快照集備份對使用 Azure Blob 儲存體服務儲存的資料庫檔案，提供幾乎即時的備份及快速還原。 這項功能可簡化備份和還原原則。 檔案快照集備份也支援還原時間點。 如需詳細資訊，請參閱 [適用於在 Azure 中的資料庫檔案的快照集備份](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx)。 |
-| **管理備份排程** |SQL Server Managed Backup 至 Azure 現在支援自訂排程。 如需詳細資訊，請參閱 [SQL Server Managed Backup 至 Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx)。 |
+| **管理備份排程** |SQL Server 受控備份至 Azure 現在支援自訂排程。 如需詳細資訊，請參閱 [SQL Server 受控備份至 Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx)。 |
 
 如需在使用 Azure Blob 儲存體時使用 SQL Server 2016 功能的教學課程，請參閱 [教學課程：使用 Microsoft Azure Blob 儲存體服務搭配 SQL Server 2016 資料庫](https://msdn.microsoft.com/library/dn466438.aspx)。
 
@@ -62,8 +62,10 @@ SQL Server 2014 包含下列增強功能：
 1. **備份和還原至 Azure**：
    
    * *SQL Server 備份至 URL* 現在也支援在 SQL Server Management Studio 中使用。 現在，在 SQL Server Management Studio 中使用「備份」或「還原」工作或維護計畫精靈時，已可使用備份至 Azure 的選項。 如需詳細資訊，請參閱 [SQL Server 備份至 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)。
-   * *SQL Server Managed Backup 至 Azure* 具有讓備份管理自動化的新功能。 這特別適用於在 Azure 機器上執行的 SQL Server 2014 執行個體之自動化備份管理。 如需詳細資訊，請參閱 [SQL Server Managed Backup 至 Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)。
-   * *自動化備份*在 Azure 中的 SQL Server VM 所有現有和新的資料庫上，提供額外的自動化來自動啟用 *SQL Server Managed Backup 至 Azure*。 如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的自動化備份](virtual-machines-windows-sql-automated-backup.md)。
+   * 
+            *SQL Server 受控備份至 Azure* 具有讓備份管理自動化的新功能。 這特別適用於在 Azure 機器上執行的 SQL Server 2014 執行個體之自動化備份管理。 如需詳細資訊，請參閱 [SQL Server 受控備份至 Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)。
+   * 
+            *自動化備份*在 Azure 中的 SQL Server VM 所有現有和新的資料庫上，提供額外的自動化來自動啟用 *SQL Server 受控備份至 Azure*。 如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的自動化備份](virtual-machines-windows-sql-automated-backup.md)。
    * 如需 SQL Server 2014 備份至 Azure 的所有選項概觀，請參閱 [使用 Microsoft Azure Blob 儲存體服務備份及還原 SQL Server](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)。
 2. **加密**：SQL Server 2014 支援在建立備份時加密資料。 它支援數種加密演算法以及使用憑證或非對稱金鑰。 如需詳細資訊，請參閱 [備份加密](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx)。
 

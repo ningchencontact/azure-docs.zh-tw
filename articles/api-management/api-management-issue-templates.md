@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 |分頁|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
 |IsAuthenticated|布林值|目前使用者是否已登入開發人員入口網站。|  
 |CanReportIssues|布林值|目前使用者是否具備提出問題的權限。|  
-|搜尋|字串|此屬性已過時而不應使用。|  
+|Search|字串|此屬性已過時而不應使用。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

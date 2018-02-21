@@ -29,7 +29,7 @@ ms.lasthandoff: 12/01/2017
 
 了解如何執行隨附於 HDInsight 上之 Hadoop 的 MapReduce 範例。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **HDInsight 叢集**：請參閱 [在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive](apache-hadoop-linux-tutorial-get-started.md)
 

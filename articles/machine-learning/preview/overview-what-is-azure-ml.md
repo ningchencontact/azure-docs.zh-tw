@@ -40,7 +40,7 @@ Azure Machine Learning 完全支援開放原始碼技術。 您可以使用數�
 - [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)
 - [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html)
 
-您可以在受管理的環境，例如 Docker 容器和 Spark 叢集中執行您的測試。 您也可以使用進階硬體，例如[在 Azure 虛擬機器中啟用 GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) 來加速執行。
+您可以在受控環境，例如 Docker 容器和 Spark 叢集中執行您的測試。 您也可以使用進階硬體，例如[在 Azure 虛擬機器中啟用 GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) 來加速執行。
 
 Azure Machine Learning 以下列開放原始碼技術為建置基礎：
 
@@ -153,7 +153,7 @@ Azure Machine Learning Workbench 是桌面應用程式加上命令列工具，�
 * HDInsight 中的 Spark MLLib
 * Batch AI 定型服務
 * Microsoft 辨識工具組
-* Microsoft 辨識服務
+* Microsoft 認知服務
 
 
 ### <a name="microsoft-machine-learning-services-in-sql-server"></a>SQL Server 中的 Microsoft Machine Learning Services
@@ -203,15 +203,15 @@ Azure Machine Learning 模型管理可用來取得來自 Batch AI 定型的模�
 
 當您想要使用深入學習建置模型時，請使用辨識工具組。  辨識工具組可以用於任何先前的服務。
 
-### <a name="microsoft-cognitive-services"></a>Microsoft 辨識服務
-Microsoft 辨識服務是具有 30 個 API 的組合，可讓您建置使用自然通訊方法的應用程式。 只要幾行程式碼，這些 API 即讓您的應用程式查看、聽取、說出、了解並解譯我們的需求。 輕鬆地將智慧型功能新增至您的應用程式，例如： 
+### <a name="microsoft-cognitive-services"></a>Microsoft 認知服務
+Microsoft 認知服務是具有 30 個 API 的組合，可讓您建置使用自然通訊方法的應用程式。 只要幾行程式碼，這些 API 即讓您的應用程式查看、聽取、說出、了解並解譯我們的需求。 輕鬆地將智慧型功能新增至您的應用程式，例如： 
 
 - 情緒和人氣偵測
 - 願景與語音辨識
 - 語言理解
 - 知識和搜尋
 
-Microsoft 辨識服務可以用來開發跨裝置及平台的應用程式。 API 會持續改進，且易於設定。 
+Microsoft 認知服務可以用來開發跨裝置及平台的應用程式。 API 會持續改進，且易於設定。 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

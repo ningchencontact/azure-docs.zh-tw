@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>名稱</td>
+        <tr><td>Name</td>
             <td>指定指令碼動作的名稱。 例如，<b>安裝 Solr</b>。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>

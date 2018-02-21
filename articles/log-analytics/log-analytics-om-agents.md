@@ -16,7 +16,7 @@ ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -50,15 +50,15 @@ ms.lasthandoff: 12/11/2017
 |資源 | 連接埠號碼| 略過 HTTPS 檢查|  
 |---------|------|-----------------------|  
 |**代理程式**|||  
-|\*.ods.opinsights.azure.com| 443 |是|  
-|\*.oms.opinsights.azure.com| 443|是|  
-|\*.blob.core.windows.net| 443|是|  
-|\*.azure-automation.net| 443|是|  
+|\*.ods.opinsights.azure.com| 443 |yes|  
+|\*.oms.opinsights.azure.com| 443|yes|  
+|\*.blob.core.windows.net| 443|yes|  
+|\*.azure-automation.net| 443|yes|  
 |**管理伺服器**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| 是|  
-|\*.ods.opinsights.azure.com| 443| 是|  
-|*.azure-automation.net | 443| 是|  
+|\*.blob.core.windows.net| 443| yes|  
+|\*.ods.opinsights.azure.com| 443| yes|  
+|*.azure-automation.net | 443| yes|  
 |**Operations Manager 主控台至 OMS**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  

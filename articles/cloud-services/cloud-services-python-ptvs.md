@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 本文提供在 [Python Tools for Visual Studio][Python Tools for Visual Studio] 中使用 Python Web 和背景工作角色的概觀。 學習如何使用 Visual Studio 來建立和部署使用 Python 的基本雲端服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] 或  

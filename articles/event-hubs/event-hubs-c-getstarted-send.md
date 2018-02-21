@@ -153,7 +153,7 @@ ms.lasthandoff: 12/05/2017
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 
 <!-- Images. -->

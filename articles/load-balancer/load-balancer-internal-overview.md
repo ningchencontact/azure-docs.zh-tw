@@ -77,7 +77,7 @@ Web 層具有網際網路用戶端的網際網路面向端點，而且是負載�
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Resource Manager 的 Azure Load Balancer 支援](load-balancer-arm.md)
-* [開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
+* [開始設定網際網路對應負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 * [開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 * [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 * [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)

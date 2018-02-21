@@ -446,7 +446,7 @@ JavaScript UDA 會初始化 `init` 函式中的所有累加器、以新增至視
 ![PNL](./media/stream-analytics-high-frequency-trading/pnl.png)
 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 我們可以在 Azure 串流分析中，使用適度複雜的查詢來實作實際高頻率的交易模型。 因為缺少內建線性迴歸變數，所以我們必須將模型從五個輸入變數簡化為兩個。 但是對於下定決心的使用者而言，具有更高維度和複雜度的演算法也可能實作為 JavaScript UDA。 
 
 值得注意的是，JavaScript UDA 以外的大部分查詢，都可以透過[適用於 Visual Studio 的 Azure 串流分析工具](stream-analytics-tools-for-visual-studio.md)在 Visual Studio 中進行測試和偵錯。 寫入初始查詢之後，作者花不到 30 分鐘的時間在 Visual Studio 中進行查詢測試和偵錯。 

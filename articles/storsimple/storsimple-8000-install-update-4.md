@@ -75,10 +75,10 @@ Hotfix 方法涉及下列三個步驟：
 
 | 順序 | KB | 說明 | 更新類型 | 安裝時間 |安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |軟體更新 |定期  <br></br>非干擾性 |~ 25 分鐘 |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |LSI 驅動程式與韌體更新 <br> USM 韌體更新 (3.38 版) |定期  <br></br>非干擾性 |~ 3 小時 <br> (包括 2A. 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398、KB3108381 <br> KB3205400、KB3142030 <br> KB3197873、KB3197873 <br> KB3192392、KB3153704 <br> KB3174644、KB3139914  |OS 安全性更新套件 <br> 下載 Windows Server 2012 R2 |定期  <br></br>非干擾性 |- |SecondOrderUpdate|
-| 2C. |KB3210083、KB3103616 <br> KB3146621、KB3121261 <br> KB3123538 |OS 更新套件 <br> 下載 Windows Server 2012 R2 |定期  <br></br>非干擾性 |- |SecondOrderUpdate|
+| 1. |KB4011839 |軟體更新 |Regular <br></br>非干擾性 |~ 25 分鐘 |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |LSI 驅動程式與韌體更新 <br> USM 韌體更新 (3.38 版) |Regular <br></br>非干擾性 |~ 3 小時 <br> (包括 2A. 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398、KB3108381 <br> KB3205400、KB3142030 <br> KB3197873、KB3197873 <br> KB3192392、KB3153704 <br> KB3174644、KB3139914  |OS 安全性更新套件 <br> 下載 Windows Server 2012 R2 |Regular <br></br>非干擾性 |- |SecondOrderUpdate|
+| 2C. |KB3210083、KB3103616 <br> KB3146621、KB3121261 <br> KB3123538 |OS 更新套件 <br> 下載 Windows Server 2012 R2 |Regular <br></br>非干擾性 |- |SecondOrderUpdate|
 
 除了前面表格所示的所有更新之外，您可能還需要安裝磁碟韌體更新。 您可以執行 `Get-HcsFirmwareVersion` Cmdlet 來確認是否需要進行磁碟韌體更新。 如果您執行的是這些韌體版本：`XMGJ`、`XGEG`、`KZ50`、`F6C2`、`VR08`、`N002`、`0106`，您就不需要安裝這些更新。
 

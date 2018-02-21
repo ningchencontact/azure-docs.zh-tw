@@ -114,7 +114,7 @@ Contoso Corp 開發出新的合作夥伴入口網站。 此入口網站的 URL �
 
 深入了解「流量管理員」的 [流量路由方法](traffic-manager-routing-methods.md)。
 
-深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
+了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png

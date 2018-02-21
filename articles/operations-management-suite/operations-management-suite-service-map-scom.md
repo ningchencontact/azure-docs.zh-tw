@@ -29,7 +29,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
 透過這項服務對應與 System Center Operations Manager 之間的整合，您便可以在根據服務對應中動態相依性對應的 Operations Manager 中，自動建立分散式應用程式圖表。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 管理一組伺服器的 Operations Manager 管理群組 (2012 R2 或更新版)。
 * 已啟用服務對應解決方案的 Operations Management Suite 工作區。
 * 由 Operations Manager 管理並傳送資料至服務對應的一組伺服器 (至少一部)。 支援 Windows 和 Linux 伺服器。

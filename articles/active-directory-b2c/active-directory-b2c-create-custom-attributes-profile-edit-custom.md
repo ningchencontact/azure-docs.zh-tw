@@ -16,7 +16,7 @@ ms.date: 08/04/2017
 ms.author: joroja
 ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 在本文中，您會在 Azure AD B2C 目錄中建立自訂屬性，並使用這個新屬性來作為設定檔編輯使用者旅程圖中的自訂宣告。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 

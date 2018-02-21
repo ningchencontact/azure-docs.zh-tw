@@ -47,7 +47,7 @@ ms.lasthandoff: 11/09/2017
 本教學課程假設您有：
 
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure 儲存體帳戶**。 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體存取金鑰](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)。
+* **Azure 儲存體帳戶**。 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱 [管理儲存體存取金鑰](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)。
 * 已佈建 **Azure VM 上的 SQL Server**。 如需指示，請參閱 [將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 

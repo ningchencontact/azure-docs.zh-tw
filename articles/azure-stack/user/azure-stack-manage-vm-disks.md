@@ -23,7 +23,7 @@ ms.lasthandoff: 12/15/2017
 ---
 # <a name="virtual-machine-disk-storage-for-azure-stack"></a>Azure Stack 的虛擬機器連結儲存體
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 支援在虛擬機器中使用[非受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)作為作業系統 (OS) 磁碟和資料磁碟。 若要使用非受控磁碟，您可建立[儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)，然後將磁碟儲存為儲存體帳戶內容器中的分頁 blob。 這些磁碟之後稱為 VM 磁碟。
 

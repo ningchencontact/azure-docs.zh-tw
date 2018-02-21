@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 本快速入門示範如何使用 [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) 連線至 Azure SQL 資料庫。 也會示範用以查詢及修改資料的 TRANSACT-SQL 陳述式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門教學課程，請確定您具有下列必要條件︰
 

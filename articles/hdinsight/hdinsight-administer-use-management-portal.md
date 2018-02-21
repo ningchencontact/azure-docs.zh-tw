@@ -26,17 +26,17 @@ ms.lasthandoff: 11/03/2017
 
 您可以使用 [Azure 入口網站][azure-portal]，在 Azure HDInsight 中建立 Windows 型 Hadoop 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以存取叢集上的 Hadoop 命令主控台。
 
-本文的資訊僅適用於以 Windows 為基礎的 HDInsight 叢集。 如需管理 Linux 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
+本文的資訊僅適用於 Windows 型 HDInsight 叢集。 如需管理 Linux 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。 如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱 [搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。 如需建立 Azure 儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 
 ## <a name="open-the-portal"></a>開啟入口網站
@@ -164,7 +164,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
 
     減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 這會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
-* HBase
+* hbase
 
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
@@ -258,7 +258,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
     ![HDInsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="find-the-default-storage-account"></a>尋找預設的儲存體帳戶
-每個 HDInsight 叢集都有預設的儲存體帳戶。 叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] /**屬性**/**Azure 儲存體金鑰**。 請參閱 [列出和顯示叢集](#list-and-show-clusters)。
+每個 HDInsight 叢集都有預設的儲存體帳戶。 叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] /**屬性**/**Azure 儲存體金鑰**。 請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
 ## <a name="find-the-resource-group"></a>尋找資源群組
 在 Azure Resource Manager 模式中，每個 HDInsight 叢集是隨著 Azure 資源群組一起建立。 叢集所屬的 Azure 資源群組會出現於：
@@ -266,7 +266,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 * 叢集清單含有 [資源群組]  資料行。
 * 叢集 [基本資料]  磚。  
 
-請參閱 [列出和顯示叢集](#list-and-show-clusters)。
+請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
 ## <a name="open-hdinsight-query-console"></a>開啟 HDInsight 查詢主控台
 HDInsight 查詢主控台包括下列功能：
@@ -356,7 +356,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
     如需 Hadoop 命令的詳細資訊，請參閱 [Hadoop 命令參考](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html)。
 
-在前一個螢幕擷取畫面上，資料夾名稱已內嵌 Hadoop 版本號碼。 版本號碼會根據叢集上所安裝的 Hadoop 元件版本而變更。 您可以使用 Hadoop 環境變數來參照那些資料夾。 例如：
+在前一個螢幕擷取畫面上，資料夾名稱已內嵌 Hadoop 版本號碼。 版本號碼會根據叢集上所安裝的 Hadoop 元件版本而變更。 您可以使用 Hadoop 環境變數來參照那些資料夾。 例如︰
 
     cd %hadoop_home%
     cd %hive_home%

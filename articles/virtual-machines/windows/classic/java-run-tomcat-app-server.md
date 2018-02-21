@@ -23,7 +23,7 @@ ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在以傳統部署模型建立的虛擬機器上執行 Java 應用程式伺服器
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如需 Resource Manager 範本使用 Java 8 與 Tomcat 部署 webapp 的詳細資訊，請參閱[這裡](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需 Resource Manager 範本使用 Java 8 與 Tomcat 部署 webapp 的詳細資訊，請參閱[這裡](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 上執行的虛擬機器在經過設定後可代管 Apache Tomcat 等 Java 應用程式伺服器。
@@ -55,7 +55,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 
    4. 選取適當的**訂用帳戶**。
    5. 針對**資源群組**，按一下 [建立新項目]，然後輸入新資源群組的名稱。 或者，按一下 [使用現有的項目]，然後選取其中一個可用的資源群組。
    6. 選取虛擬機器所在的位置，例如**美國中南部**。
-6. 按一下 [下一步] 。
+6. 按 [下一步] 。
 7. 在 [虛擬機器映像大小] 刀鋒視窗中，選取 [A1 標準] 或另一個適當的映像。
 8. 按一下 [選取] 。
 

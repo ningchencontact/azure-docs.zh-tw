@@ -55,7 +55,7 @@ Message: This size is currently unavailable in this location for this subscripti
 
 ### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>在建立支援要求以增加計算核心配額時，無法選取區域或 SKU 系列。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 我們先建議您考慮符合您的業務需求的替代地區或 SKU。 如果您找不到適合的區域或 SKU，請遵循下列步驟來建立「訂用帳戶管理」[支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)：
 
 
@@ -79,6 +79,6 @@ Message: This size is currently unavailable in this location for this subscripti
 ## <a name="feedback"></a>意見反應
 我們歡迎意見反應和建議！ 請將您的 [建議](https://feedback.azure.com/forums/266794-support-feedback)傳送給我們。 此外，您可以透過 [Twitter](https://twitter.com/azuresupport) 或 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure)與我們連絡。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq)
 

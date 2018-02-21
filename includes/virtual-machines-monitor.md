@@ -16,7 +16,7 @@
 
     使用所收集的診斷資料，即可設定 VM 的自動調整。 您也可以設定記錄來儲存資料及設定警示，讓您知道效能何時不太理想。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 
 您可以根據特定效能計量來建立[警示](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 或 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)，在 [Azure 入口網站](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)中設定警示。
 

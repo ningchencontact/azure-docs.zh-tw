@@ -16,7 +16,7 @@ ms.date: 10/31/2017
 ms.author: patricka
 ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ Azure Active Directory B2C 提供雲端身分識別管理，使您的應用程�
 > * 建立和管理您的 Azure AD B2C 帳戶及使用者設定檔。
 > * 呼叫受 Azure AD B2C 保護的 Web API。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。 
 * Facebook、Google、Microsoft 或 Twitter 社交帳戶。

@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 
 如果在子網路或 VM 上設定的一或多個網路安全性群組封鎖來源 IP 或連接埠，VM 就無法回應。
 
-* 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱：
+* 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱
     -  [使用入口網站管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
     -  [使用 PowerShell 管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
 * 從網路安全性群組的清單中，檢查︰

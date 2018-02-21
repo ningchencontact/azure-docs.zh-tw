@@ -108,7 +108,7 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
 
 ## <a name="create-a-jenkins-workflow"></a>建立 Jenkins 工作流程
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 - 程式碼儲存機制的 GitHub 帳戶。
 - 用來儲存和更新映像的 Docker 中樞帳戶。

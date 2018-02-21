@@ -19,7 +19,7 @@ ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 Spark 上的 Jupyter Not
 
 在本文中，您將了解使用這些核心的方式及優點。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight 中的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 

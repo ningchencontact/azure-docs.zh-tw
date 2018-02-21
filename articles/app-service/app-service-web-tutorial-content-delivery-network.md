@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > * 使用查詢字串來控制快取的版本。
 > * 使用 CDN 端點的自訂網域。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 | **定價層** | 標準 Akamai | [定價層](../cdn/cdn-overview.md#azure-cdn-features)指定提供者和可用的功能。 在本教學課程中，我們會使用標準 Akamai。 |
 | **CDN 端點名稱** | azureedge.net 網域中任何唯一的名稱 | 您可在網域 *\<endpointname>.azureedge.net* 存取快取的資源。
 
-選取 [ **建立**]。
+選取 [建立] 。
 
 Azure 會建立設定檔和端點。 新端點會出現在相同頁面上的 [端點] 清單中，而且其佈建後的狀態為 [執行中]。
 

@@ -16,7 +16,7 @@ ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 本主題說明 Windows 通用應用程式中的其他報告案例。 這些案例包含的選項可供您選擇套用至 [快速入門](mobile-engagement-windows-store-dotnet-get-started.md) 教學課程中建立的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 開始本教學課程之前，您必須先完成 [快速入門](mobile-engagement-windows-store-dotnet-get-started.md) 教學課程，此教學課程相當直接明瞭。 本教學課程涵蓋您可以選擇的其他選項。

@@ -37,7 +37,7 @@ Azure Cosmos DB 資料表 API 可讓您儲存和查詢龐大的結構化、非�
 > * 查詢資料表
 > * 刪除資料表實體
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 這些範例需要 Azure PowerShell 模組 4.4.0 版或更新版本。 在 PowerShell 視窗中，執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果未顯示任何項目，或者您必須升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
 
@@ -111,7 +111,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > * 查詢資料表
 > * 刪除資料表實體
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
 * [從 PowerShell 使用 Azure 儲存體資料表](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/) \(英文\)
 

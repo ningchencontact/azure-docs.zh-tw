@@ -16,7 +16,7 @@ ms.date: 11/10/2017
 ms.author: mazha
 ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---

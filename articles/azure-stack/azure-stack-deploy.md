@@ -90,10 +90,10 @@ ms.lasthandoff: 12/13/2017
    
    | **Azure Active Directory 帳戶** | **是否支援？** |
    | --- | --- |
-   | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |是 |
-   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |是 |
-   | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |是 |
-   | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |是 |
+   | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |yes |
+   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |yes |
+   | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |yes |
+   | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |yes |
 
 ## <a name="network"></a>網路
 ### <a name="switch"></a>Switch

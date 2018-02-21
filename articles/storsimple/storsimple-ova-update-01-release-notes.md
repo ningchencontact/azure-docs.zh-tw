@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0.2 和 0.1 版本資訊
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 下列版本資訊指出 Microsoft Azure StorSimple Virtual Array 更新的重大未決問題和已解決問題。 (Microsoft Azure StorSimple Virtual Array 也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置。) 
 
 版本資訊會持續更新，並在發現需要提出因應措施的重大問題時有所增補。 部署 StorSimple 虛擬裝置之前，請仔細檢閱版本資訊中所含的資訊。

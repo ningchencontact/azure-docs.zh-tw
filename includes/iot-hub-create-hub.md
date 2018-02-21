@@ -19,7 +19,7 @@
 
     ![IoT 中樞視窗][2]
 
-1. 按一下 [建立] 。 建立 IoT 中樞可能需要數分鐘。 您可以在 [通知] 窗格中監視進度。
+1. 按一下頁面底部的 [新增] 。 建立 IoT 中樞可能需要數分鐘。 您可以在 [通知] 窗格中監視進度。
 <!-- Images -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png

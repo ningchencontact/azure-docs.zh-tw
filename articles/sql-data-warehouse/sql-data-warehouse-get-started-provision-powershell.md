@@ -23,7 +23,7 @@ ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>使用 PowerShell 建立 SQL 資料倉儲
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](sql-data-warehouse-get-started-provision.md)
+> * [HttpTrigger Nodejs 函數](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 本文說明如何使用 PowerShell 建立 SQL 資料倉儲。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始，您需要：
 
 * **Azure 帳戶**︰請瀏覽 [Azure 免費試用][Azure Free Trial]或 [MSDN Azure 點數][MSDN Azure Credits]以建立帳戶。

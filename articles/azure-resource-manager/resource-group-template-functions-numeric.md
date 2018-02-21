@@ -46,8 +46,8 @@ ms.lasthandoff: 11/09/2017
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- | 
-|operand1 |是 |int |要新增的第一個數字。 |
-|operand2 |是 |int |要新增的第二個數字。 |
+|operand1 |yes |int |要新增的第一個數字。 |
+|operand2 |yes |int |要新增的第二個數字。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -88,9 +88,9 @@ ms.lasthandoff: 11/09/2017
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -163,8 +163,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |被除數。 |
-| operand2 |是 |int |除數。 不能為 0。 |
+| operand1 |yes |int |被除數。 |
+| operand2 |yes |int |除數。 不能為 0。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -205,9 +205,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -234,7 +234,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串或整數 |要轉換為浮點數的值。 |
+| arg1 |yes |字串或整數 |要轉換為浮點數的值。 |
 
 ### <a name="return-value"></a>傳回值
 浮點數。
@@ -268,7 +268,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |是 |字串或整數 |要轉換成整數的值。 |
+| valueToConvert |yes |字串或整數 |要轉換成整數的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -299,9 +299,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -328,7 +328,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
+| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -362,9 +362,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -392,7 +392,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
+| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -426,9 +426,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -456,8 +456,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |被除數。 |
-| operand2 |是 |int |除數，不能為 0。 |
+| operand1 |yes |int |被除數。 |
+| operand2 |yes |int |除數，不能為 0。 |
 
 ### <a name="return-value"></a>傳回值
 代表餘數的整數。
@@ -497,9 +497,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -526,8 +526,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |要相乘的第一個數字。 |
-| operand2 |是 |int |要相乘的第二個數字。 |
+| operand1 |yes |int |要相乘的第一個數字。 |
+| operand2 |yes |int |要相乘的第二個數字。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -568,9 +568,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -597,8 +597,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |int |減數。 |
-| operand2 |是 |int |被減數。 |
+| operand1 |yes |int |減數。 |
+| operand2 |yes |int |被減數。 |
 
 ### <a name="return-value"></a>傳回值
 代表減法的整數。
@@ -638,9 +638,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

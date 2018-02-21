@@ -47,7 +47,7 @@ ms.lasthandoff: 12/11/2017
   - 選取驗證主要認證時是要對照 Windows 網域、LDAP 目錄 還是 RADIUS 伺服器來進行驗證。
 
 12. 按一下 [確定] 以返回 [新增表單架構網站] 對話方塊。
-13. 按一下 [確定] 。
+13. 按一下 [SERVICEPRINCIPAL] 。
 14. 偵測到或已輸入 URL 和頁面變數後，網站資料就會顯示在表單架構面板中。
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>搭配 Azure Multi-Factor Authentication Server 使用整合式 Windows 驗證
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/11/2017
 5. 調整 [閒置逾時] 和 [最長工作階段時間] \(如果預設值不足夠)。
 6. 如果所有使用者都已經或將要匯入到伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。
 7. 視需要選取 [Cookie 快取] 方塊。
-8. 按一下 [確定] 。
+8. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>啟用 Azure Multi-Factor Authentication Server 的 IIS 外掛程式
 設定表單架構驗證或 HTTP 驗證 URL 及設定之後，請在 IIS 中選取應該載入和啟用 Azure Multi-Factor Authentication IIS 外掛程式的位置。 請使用下列程序：

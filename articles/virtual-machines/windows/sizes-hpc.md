@@ -1,6 +1,6 @@
 ---
 title: "Azure Windows VM 大小 - HPC | Microsoft Docs"
-description: "列出 Azure 中可用的不同 Windows 高效能運算虛擬機器大小。 列出 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。"
+description: "列出 Azure 中可用的不同 Windows 高效能運算虛擬機器大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。"
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7

@@ -16,7 +16,7 @@ ms.date: 08/16/2017
 ms.author: saeeda
 ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求，是在建立帳戶時由使用者所提供的。  根據預設，Azure AD B2C 是使用**強式**密碼。  Azure AD B2C 也支援組態選項，可控制客戶可以使用的密碼複雜度。  本文示範如何在自訂原則中設定密碼複雜度。  它也可使用[在內建原則中設定密碼複雜度](active-directory-b2c-reference-password-complexity.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 

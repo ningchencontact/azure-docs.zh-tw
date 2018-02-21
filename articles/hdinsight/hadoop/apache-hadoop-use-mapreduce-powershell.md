@@ -111,7 +111,7 @@ Get-AzureRmHDInsightJobOutput `
 
 如您所見，Azure PowerShell 提供簡單的方法，在 HDInsight 叢集上執行 MapReduce 工作、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 MapReduce 工作的一般資訊：
 

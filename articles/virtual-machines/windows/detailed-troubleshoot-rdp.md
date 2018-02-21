@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-在繼續之前，在心裡檢閱最後一個成功的遠端桌面連線至 VM 以來的變更可能有幫助。 例如：
+在繼續之前，在心裡檢閱最後一個成功的遠端桌面連線至 VM 以來的變更可能有幫助。 例如︰
 
 * VM 或包含 VM 之雲端服務的公用 IP 位址 (也稱為虛擬 IP 位址 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) 已變更。 RDP 失敗的原因可能是 DNS 用戶端快取仍然有針對該 DNS 名稱註冊的「舊 IP 位址」  。 請清除 DNS 用戶端快取並嘗試再次連接 VM。 或嘗試直接與新的 VIP 連接。
 * 您使用協力廠商應用程式來管理「遠端桌面」連線，而不是使用 Azure 入口網站所產生的連線。 請確認應用程式組態包含正確的「遠端桌面」流量 TCP 連接埠。 您可以在 [Azure 入口網站](https://portal.azure.com)中查看傳統虛擬機器的這個連接埠，方法是按一下該 VM 的 [設定] > [端點]。

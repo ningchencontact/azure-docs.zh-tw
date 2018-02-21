@@ -70,7 +70,7 @@ Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式�
 | Disk Write Bytes          |
 | Disk Read Operations/Sec  |
 | Disk Write Operations/Sec |
-| CPU Credits Remaining     |
+| 剩餘 CPU 信用額度     |
 | CPU Credits Consumed      |
 
 建立自動調整規則來監視指定的計量時，規則會查看下列其中一個計量彙總動作：

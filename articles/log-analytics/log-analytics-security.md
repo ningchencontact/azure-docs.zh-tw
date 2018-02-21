@@ -46,7 +46,7 @@ Microsoft 會在 OMS 工作區關閉 30 天後刪除客戶資料。 Microsoft �
 
 下表列出 OMS 中可用的一些解決方案與它們所收集的資料類型範例。
 
-| <bpt id="p1">**</bpt>Solution<ept id="p1">**</ept> | **資料類型** |
+| **方案** | **資料類型** |
 | --- | --- |
 | 組態評估 |組態資料、中繼資料及狀態資料 |
 | 容量規劃 |效能資料和中繼資料 |
@@ -65,7 +65,7 @@ Microsoft 會在 OMS 工作區關閉 30 天後刪除客戶資料。 Microsoft �
 | Event |EventId、EventOriginalID、BaseManagedEntityInternalId、RuleId、PublisherId、PublisherName、FullNumber、Number、Category、ChannelLevel、LoggingComputer、EventData、EventParameters、TimeGenerated、TimeAdded <br>**附註：**當您使用自訂欄位將事件寫入 Windows 事件記錄檔時，OMS 會收集它們。 |
 | 中繼資料 |BaseManagedEntityId、ObjectStatus、OrganizationalUnit、ActiveDirectoryObjectSid、PhysicalProcessors、NetworkName、IPAddress、ForestDNSName、NetbiosComputerName、VirtualMachineName、LastInventoryDate、HostServerNameIsVirtualMachine、IP 位址、NetbiosDomainName、LogicalProcessors、DNSName、DisplayName、DomainDnsName、ActiveDirectorySite、PrincipalName、OffsetInMinuteFromGreenwichTime |
 | 效能 |ObjectName、CounterName、PerfmonInstanceName、PerformanceDataId、PerformanceSourceInternalID、SampleValue、TimeSampled、TimeAdded |
-| 狀況 |StateChangeEventId、StateId、NewHealthState、OldHealthState、Context、TimeGenerated、TimeAdded、StateId2、BaseManagedEntityId、MonitorId、HealthState、LastModified、LastGreenAlertGenerated、DatabaseTimeModified |
+| State |StateChangeEventId、StateId、NewHealthState、OldHealthState、Context、TimeGenerated、TimeAdded、StateId2、BaseManagedEntityId、MonitorId、HealthState、LastModified、LastGreenAlertGenerated、DatabaseTimeModified |
 
 ## <a name="physical-security"></a>實體安全性
 OMS 服務中的 Log Analytics 是由 Microsoft 人員操縱，所有活動都有記錄並且可供稽核。 服務完全在 Azure 中執行，並符合 Azure 通用工程準則。 您可以在 [Microsoft Azure 安全性概觀](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 頁上檢視 Azure 資產之實體安全性的詳細資料。 不再負責管理 OMS 服務的人員，其用來確保區域安全的實體存取權限 (包括傳輸和終止) 將會在一個工作天內變更。 若要了解我們使用的全域實體基礎結構，請參閱 [Microsoft 資料中心](https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx)。

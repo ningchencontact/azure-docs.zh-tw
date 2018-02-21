@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>設定警示閾值與電子郵件收件者
 1. 請瀏覽[預覽功能頁面](https://account.windowsazure.com/PreviewFeatures)並啟用**計費警示服務**。
 
-1. 在收到已為您的訂用帳戶開啟計費服務的電子郵件確認之後，請瀏覽帳戶入口網站中的 [訂用帳戶頁面](https://account.windowsazure.com/Subscriptions) 。 按一下您想要監視的訂用帳戶，然後按一下警示 。
+1. 在收到已為您的訂用帳戶開啟計費服務的電子郵件確認之後，請瀏覽帳戶入口網站中的 [訂用帳戶頁面](https://account.windowsazure.com/Subscriptions) 。 按一下您想要監視的訂用帳戶，然後按一下 [警示] 。
 
     ![Azure 帳戶中心的訂用帳戶檢視螢幕擷取畫面，已醒目提示警示][Image1]
 

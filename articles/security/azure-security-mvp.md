@@ -29,4 +29,4 @@ Microsoft Azure 現在會表彰在 Azure 安全性方面具有特殊專業知識
 
 由於是否能成為 MVP 並沒有任何評斷基準，一部分是因為它會隨著技術和其生命週期而有所不同，部分條件包括被提名人在線上論壇 (例如 Microsoft Answers、TechNet 和 MSDN；Wiki 和線上內容；會議和使用者群組；播客；網站；部落格和社交媒體)，以及文章與書籍中提供之貢獻所產生的影響。
 
-您是 Azure 安全性方面的專家嗎？ 您知道有人是嗎？ 那麼，請[為自己或為他人提名](https://mvp.microsoft.com/Nomination/nominate-an-mvp) ，立即成為 Azure 安全性 MVP！
+您是 Azure 安全性方面的專家嗎？ 您知道有人是嗎？ 那麼，請 [為自己或為他人提名](https://mvp.microsoft.com/Nomination/nominate-an-mvp) ，立即成為 Azure 安全性 MVP！

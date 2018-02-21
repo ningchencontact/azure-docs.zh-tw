@@ -266,6 +266,6 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 若要了解Pig 和 Hive 的其他使用方式，以及了解使用 MapReduce 的方式，請參閱下列文件：
 
-* [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
+* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)

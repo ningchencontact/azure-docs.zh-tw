@@ -205,6 +205,6 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 | Syslog &#124; summarize AggregatedValue = count() by Facility |依設備的 Syslog 記錄計數。 |
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，以分析從資料來源和解決方案所收集的資料。
+* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。
 * 使用 [自訂欄位](log-analytics-custom-fields.md) ，以將來自 syslog 記錄的資料剖析至個別欄位。
 * [設定 Linux 代理程式](log-analytics-linux-agents.md) ，以收集其他類型的資料。

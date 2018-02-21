@@ -16,7 +16,7 @@ ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: f07e05a1786f8afc1ccecf21994b1ad263ead285
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -145,8 +145,8 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 |----------------|-------------|
 | phonefactor.html | 此頁面可作為 Multi-Factor Authentication 頁面的範本。 |
 | resetpassword.html | 此頁面可作為忘記密碼頁面的範本。 |
-| selfasserted.html | 此頁面可作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
-| unified.html | 此頁面可作為統一之註冊或登入頁面的範本。 |
+| *selfasserted.html* | 此頁面可作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
+| *unified.html* | 此頁面可作為統一之註冊或登入頁面的範本。 |
 | updateprofile.html | 此頁面可作為設定檔更新頁面的範本。 |
 
 ## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>將 HTML5/CSS 範本的連結新增至使用者旅程
@@ -166,8 +166,8 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 | api.localaccountsignin | **本機帳戶登入頁面**。 此頁面包含登入表單，使用者必須填寫此表單才能使用以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
 | api.localaccountsignup | **本機帳戶註冊頁面**。 此頁面包含使用者在使用以電子郵件地址或使用者名稱為基礎的本機帳戶註冊時所需填寫的註冊表單。 此表單可以包含不同的輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
 | api.phonefactor | **Multi-Factor Authentication 頁面**。 在此頁面上，使用者可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
-| api.selfasserted | **社交帳戶註冊頁面**。 此頁面包含使用者在使用社交識別提供者 (例如 Facebook 或 Google+) 的現有帳戶註冊時所需填寫的註冊表單。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
-| api.selfasserted.profileupdate | **設定檔更新頁面**。 此頁面包含表單，以供使用者用來更新其設定檔。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
+| *api.selfasserted* | **社交帳戶註冊頁面**。 此頁面包含使用者在使用社交識別提供者 (例如 Facebook 或 Google+) 的現有帳戶註冊時所需填寫的註冊表單。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
+| *api.selfasserted.profileupdate* | **設定檔更新頁面**。 此頁面包含表單，以供使用者用來更新其設定檔。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | api.signuporsignin | **統一的註冊或登入頁面**。  此頁面可處理使用者的註冊和登入，這些使用者可使用企業識別提供者、社交識別提供者 (例如 Facebook 或 Google+) 或本機帳戶。
 
 ## <a name="next-steps"></a>後續步驟

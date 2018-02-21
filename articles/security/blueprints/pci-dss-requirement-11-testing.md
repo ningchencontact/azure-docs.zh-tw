@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **定期測試安全性系統和流程**
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 惡意人士和研究人員會不斷找出弱點，並藉以引入新軟體。 應時常測試系統元件、流程和自訂軟體，以確保安全性控制會繼續反映變動的環境。
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/16/2017
 無論使用何種方法，這些方法必須足夠用來偵測及識別授權和未經授權的裝置。
 
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.1.1** 維護授權的無線存取點庫存，包括已記錄的業務正當理由。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/16/2017
 **11.1.2** 在偵測到未授權無線存取點的事件中，實作事件回應程序。
 
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/16/2017
 > 針對取得初始 PCI DSS 合規性，如果評估者已確認下列項目，則您不用完成四個季度的通過性掃描：1) 最近的掃描結果是通過的掃描、2) 實體已記錄需要每季掃描的原則和程序，以及 3) 掃描結果中註明的弱點已在重新掃描結果中顯示為已修正。 完成初始 PCI DSS 檢閱之後的每年，皆必須執行四個季度的通過性掃描。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.2.1** 每季執行內部弱點掃描。 解決弱點並執行重新掃描，以確認所有實體弱點排名 (參考需求 6.1) 中的「高風險」弱點都已解決。 僅限合格人員可執行掃描。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -114,7 +114,7 @@ ms.lasthandoff: 11/16/2017
 > 必須由支付卡產業安全標準委員會 (PCI SSC) 核准的核准掃描廠商 (ASV)，每季執行外部弱點掃描。
 > 請參閱 PCI SSC 網站上發行的 ASV 計畫指南，了解掃描的客戶責任和掃描準備等。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -127,7 +127,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.2.3** 在任何重大變更之後，執行內部和外部掃描，以及視需要進行重新掃描。 僅限合格人員可執行掃描。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/16/2017
 - 包含前 12 個月內發生的威脅與弱點檢閱與考量
 - 指定保留滲透測試結果和補救活動結果
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.3.1** 至少每年以及在發生任何重大基礎結構或應用程式更新或修改後 (例如作業系統升級，將子網路新增至環境中或將網頁伺服器新增至環境中時)，執行「外部」滲透測試。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -174,11 +174,11 @@ ms.lasthandoff: 11/16/2017
 
 **11.3.2** 至少每年以及在發生任何重大基礎結構或應用程式更新或修改後 (例如作業系統升級，將子網路新增至環境中或將網頁伺服器新增至環境中時)，執行「內部」滲透測試。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 與獨立技術顧問簽約，以執行 Microsoft Azure 界限的滲透測試。 Red Team 的活動也會定期執行，而結果會用於進行安全性改善。 |
+| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 與獨立技術顧問簽約，以執行 Microsoft Azure 界限的滲透測試。 紅隊活動也會定期執行，而結果會用於進行安全性改善。 |
 | **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 本身已經過滲透測試 (pen test) 及弱點掃描。 滲透測試結果可以透過使用常見工具 (如 nmap 或 pentest tools.com) 重複進行。滲透測試的結果將提供不明確的易受攻擊面，並且沒有可利用的項目。 此外，[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)和 [Azure Advisor](/azure/advisor/advisor-security-recommendations) 會提供弱點資訊與補救方法。|
 
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.3.3** 針對滲透測試期間發現的可利用弱點進行修正，並重複測試以確認修正已完成。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -200,7 +200,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.3.4** 如果使用分割來將 CDE 與其他網路隔離，則至少每年及在變更分割控制項/方法後，執行滲透測試，以驗證分割方法可正常運作而且能發揮效用，並將範圍外的所有系統與 CDE 中的系統隔離。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/16/2017
 > 這項需求在 2018 年 1 月 31 日前是屬於最佳作法，該日期之後會變成需求。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/16/2017
 **11.4** 使用入侵偵測和/或入侵防護技術來偵測及/或防止網路入侵。 監視持卡人資料環境周邊及持卡人資料環境中重點位置的所有流量，並針對可疑的危害行為向人員發出警示。
 使所有入侵偵測和防護引擎、基準及簽章維持在最新狀態。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -247,7 +247,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 基於變更偵測的目的，重要的檔案通常不會定期變更，但修改該檔案可能會使系統受到危害，或增加發生危害的風險。 變更偵測機制 (例如檔案完整性監視產品) 通常會隨附針對相關作業系統預先設定的重要檔案。 其他重要檔案，例如用於自訂應用程式的檔案，則必須由實體 (也就是商家或服務提供者) 評估和定義。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.5.1** 實作流程以回應任何變更偵測解決方案所產生的警示。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/16/2017
 
 **11.6** 確定安全性監視和測試的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

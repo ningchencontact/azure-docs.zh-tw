@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/11/2017
 - 計算
 - 儲存體
 - 網路
-- 金鑰保存庫
+- Key Vault
 
 利用這些基礎服務，您可用最少的設定，將基礎結構即服務 (IaaS) 提供給您的使用者。
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 目前，我們支援下列的其他平台即服務 (PaaS) 服務：
 
-- App Service
+- App Service 方案
 - Azure Functions
 - SQL 和 MySQL 資料庫
 

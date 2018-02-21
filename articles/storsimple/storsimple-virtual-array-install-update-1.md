@@ -102,7 +102,7 @@ ms.lasthandoff: 11/06/2017
    
     ![更新裝置](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. 在 [更新檔案路徑] 中，輸入更新或 Hotfix 的檔案名稱。 如果更新或 Hotfix 的安裝檔案是放在網路共用上，您也可以瀏覽至該檔案。 按一下 [Apply (套用)] 。
+2. 在 [更新檔案路徑] 中，輸入更新或 Hotfix 的檔案名稱。 如果更新或 Hotfix 的安裝檔案是放在網路共用上，您也可以瀏覽至該檔案。 按一下 [套用]。
    
     ![更新裝置](./media/storsimple-virtual-array-install-update-1/update2m.png)
 

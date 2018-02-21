@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 了解如何使用 Azure PowerShell 來管理 Azure Data Lake Analytics 帳戶、資料來源、作業及目錄項目。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 建立 Data Lake Analytics 帳戶時，您必須知道：
 
@@ -295,7 +295,7 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 使用 `-Result` 參數來偵測已結束的工作是否順利完成。 它有下列值：
 
-* Cancelled
+* 已取消
 * Failed
 * None
 * Succeeded

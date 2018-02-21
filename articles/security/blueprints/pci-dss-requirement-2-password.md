@@ -53,7 +53,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | 解決方案中沒有實作無線和 SNMP。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | 解決方案中不會實作無線及 SNMP。|
 
 
 

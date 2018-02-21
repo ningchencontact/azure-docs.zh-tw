@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
     a. **Microsoft Azure (傳統)** 是傳統部署模型，目前不再建議使用。
 
-    b.這是另一個 C# 主控台應用程式。 **Microsoft Azure** 是新的 Resource Manager 部署模型。
+    b. **Microsoft Azure** 是新的 Resource Manager 部署模型。
 
     ![SAP CAL 帳戶](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
@@ -99,13 +99,13 @@ ms.lasthandoff: 10/11/2017
 
     a. 輸入執行個體**名稱**。
 
-    b.這是另一個 C# 主控台應用程式。 選取 Azure **區域**。 您可能需要 SAP CAL 訂用帳戶才能取得所提供的多個 Azure 區域。
+    b. 選取 Azure **區域**。 您可能需要 SAP CAL 訂用帳戶才能取得所提供的多個 Azure 區域。
 
     c.  輸入解決方案的主要**密碼**，如下所示：
 
     ![SAP CAL 基本模式：建立執行個體](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-3. 按一下 [建立] 。 在一段時間之後，視解決方案的大小和複雜性 (SAP CAL 會提供預估) 而定，狀態將會顯示為作用中並可供使用： 
+3. 按一下頁面底部的 [新增] 。 在一段時間之後，視解決方案的大小和複雜性 (SAP CAL 會提供預估) 而定，狀態將會顯示為作用中並可供使用： 
 
     ![SAP CAL 執行個體](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

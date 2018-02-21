@@ -37,7 +37,7 @@ ms.lasthandoff: 12/05/2017
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始本教學課程的這個部分之前，請確定您已觀看[簡介影片](tutorial-develop-mongodb-nodejs.md)。
 

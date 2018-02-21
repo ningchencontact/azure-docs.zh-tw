@@ -43,7 +43,7 @@ ms.lasthandoff: 11/15/2017
 
    例如，如果提供的索引鍵名稱為 **DeviceId**，而類型為 **String**，則時間序列深入解析輸入引擎會在要查詢和聯結的每個輸入事件中尋找名稱為 **DeviceId** 和類型為 **String** 的屬性。 您可以提供一個以上的索引鍵與事件聯結。 索引鍵名稱的對應會區分大小寫。
 
-7. 選取 [ **建立**]。
+7. 選取 [建立] 。
 
 ## <a name="next-steps"></a>後續步驟
 * 以程式設計的方式[管理參考資料](time-series-insights-manage-reference-data-csharp.md)。

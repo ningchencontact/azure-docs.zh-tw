@@ -16,7 +16,7 @@ ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -61,7 +61,7 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 ### <a name="jwt-token-in-castlabs"></a>castLabs 中的 JWT 權杖
 下表說明 castLabs 中的 JWT 權杖。 
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | optData |JSON 字串，其中包含您的相關資訊。 |
 | crt |JSON 字串，其中包含資產、其授權資訊與播放權限的相關資訊。 |

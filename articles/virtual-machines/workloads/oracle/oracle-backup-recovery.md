@@ -169,7 +169,7 @@ ms.lasthandoff: 10/11/2017
 
 4. 編輯 JSON 檔案。
 
-    編輯 VMSnapshotScriptPluginConfig.json 檔案，以包含 `PreScriptLocation` 和 `PostScriptlocation` 參數。 例如：
+    編輯 VMSnapshotScriptPluginConfig.json 檔案，以包含 `PreScriptLocation` 和 `PostScriptlocation` 參數。 例如︰
 
     ```azurecli
     {
@@ -283,15 +283,15 @@ ms.lasthandoff: 10/11/2017
 
     ![復原服務保存庫備份頁面](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  在 [備份目標] 刀鋒視窗上，使用 [Azure] 和 [虛擬機器]預設值。 按一下 [確定] 。
+5.  在 [備份目標] 刀鋒視窗上，使用 [Azure] 和 [虛擬機器]預設值。 按一下 [SERVICEPRINCIPAL] 。
 
     ![復原服務保存庫詳細資料頁面](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  在 [備份原則] 中，使用 **DefaultPolicy**，或選取 [建立新原則]。 按一下 [確定] 。
+6.  在 [備份原則] 中，使用 **DefaultPolicy**，或選取 [建立新原則]。 按一下 [SERVICEPRINCIPAL] 。
 
     ![復原服務保存庫備份原則詳細資料頁面](./media/oracle-backup-recovery/recovery_service_06.png)
 
-7.  在 選取虛擬機器 刀鋒視窗上，選取 myVM1 核取方塊，然後按一下確定。 按一下 [啟用備份] 按鈕。
+7.  在 [選取虛擬機器] 刀鋒視窗上，選取 [myVM1] 核取方塊，然後按一下 [確定]。 按一下 [啟用備份] 按鈕。
 
     ![備份的復原服務保存庫項目詳細資料頁面](./media/oracle-backup-recovery/recovery_service_07.png)
 
@@ -302,7 +302,7 @@ ms.lasthandoff: 10/11/2017
 
     ![復原服務保存庫 myVault 詳細資料頁面](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  在 Backup Items (Azure Virtual Machine) (備份項目 (Azure 虛擬機器)) 刀鋒視窗上，按一下頁面右側的省略符號 (**...**) 按鈕，然後按一下立即備份。
+9.  在 [Backup Items (Azure Virtual Machine)] (備份項目 (Azure 虛擬機器)) 刀鋒視窗上，按一下頁面右側的省略符號 (**...**) 按鈕，然後按一下 [立即備份]。
 
     ![復原服務保存庫立即備份命令](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -471,23 +471,23 @@ ms.lasthandoff: 10/11/2017
 
     ![復原 VM 頁面](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  在 myvm1 刀鋒視窗上，按一下省略符號 (**...**) 按鈕，然後按一下還原 VM。
+4.  在 [myvm1] 刀鋒視窗上，按一下省略符號 (**...**) 按鈕，然後按一下 [還原 VM]。
 
     ![還原 VM 命令](./media/oracle-backup-recovery/recover_vm_05.png)
 
-5.  在 選取還原點 刀鋒視窗上，選取您想要還原的項目，然後按一下確定。
+5.  在 [選取還原點] 刀鋒視窗上，選取您想要還原的項目，然後按一下 [確定]。
 
     ![選取還原點](./media/oracle-backup-recovery/recover_vm_06.png)
 
     如果您已啟用應用程式一致備份，則會顯示藍色垂直線。
 
-6.  在 還原設定 刀鋒視窗上，選取虛擬機器名稱，並選取資源群組，然後按一下確定。
+6.  在 [還原設定] 刀鋒視窗上，選取虛擬機器名稱，並選取資源群組，然後按一下 [確定]。
 
     ![還原設定值](./media/oracle-backup-recovery/recover_vm_07.png)
 
 7.  若要還原 VM，請按一下 [還原] 按鈕。
 
-8.  若要檢視還原程序的狀態，請按一下 工作，然後按一下備份工作。
+8.  若要檢視還原程序的狀態，請按一下 [工作]，然後按一下 [備份工作]。
 
     ![備份工作狀態命令](./media/oracle-backup-recovery/recover_vm_08.png)
 
@@ -502,7 +502,7 @@ ms.lasthandoff: 10/11/2017
 
     ![公用 IP 位址的清單](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  在 [公用 IP 位址] 刀鋒視窗上，按一下 [新增]。 在 [建立公用 IP 位址] 刀鋒視窗上，於 [名稱] 中選取公用 IP 名稱。 針對 [資源群組]，選取 [使用現有的]。 然後按一下 [建立] 。
+2.  在 [公用 IP 位址] 刀鋒視窗上，按一下 [新增]。 在 [建立公用 IP 位址] 刀鋒視窗上，於 [名稱] 中選取公用 IP 名稱。 針對 [資源群組]，選取 [使用現有的]。 然後按一下 [ **建立**]。
 
     ![建立 IP 位址](./media/oracle-backup-recovery/create_ip_01.png)
 
@@ -510,7 +510,7 @@ ms.lasthandoff: 10/11/2017
 
     ![將 IP 位址產生關聯](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  在 [資源類型] 中，選取 [網路介面]。 選取 myVM 執行個體所使用的網路介面，然後按一下確定。
+4.  在 [資源類型] 中，選取 [網路介面]。 選取 myVM 執行個體所使用的網路介面，然後按一下 [確定]。
 
     ![選取資源類型和 NIC 值](./media/oracle-backup-recovery/create_ip_03.png)
 

@@ -16,7 +16,7 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -46,6 +46,6 @@ ms.lasthandoff: 12/11/2017
 * [Microsoft System Center Configuration Manager 部落格](http://blogs.technet.com/b/configurationmgr/)
 * [Microsoft System Center Configuration Manager Team 部落格](http://blogs.technet.com/b/configmgrteam/)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 

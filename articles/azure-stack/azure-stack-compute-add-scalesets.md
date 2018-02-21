@@ -16,7 +16,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 虛擬機器擴展集是 Azure Stack 計算資源。 您可以使用它們來部署和管理一組相同的虛擬機器。 由於所有虛擬機器具有相同的設定，擴展集不需要預先佈建虛擬機器。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
 
@@ -28,7 +28,7 @@ Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展�
 
 在 Azure Stack 上，虛擬機器擴展集不支援自動擴展。 您可以使用 Azure Stack 入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增至擴展集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Powershell 和工具**
 
    安裝和設定適用於 Azure Stack 的 PowerShell 和 Azure Stack 工具。 請參閱[在 Azure Stack 使用 PowerShell 啟動和執行](azure-stack-powershell-configure-quickstart.md)。

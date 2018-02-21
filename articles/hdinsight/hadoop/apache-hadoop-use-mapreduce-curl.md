@@ -98,7 +98,7 @@ ms.lasthandoff: 12/05/2017
 
 您可以使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需從 Azure CLI 使用 Blob 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI 2.0](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 文件。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 MapReduce 工作的一般資訊：
 

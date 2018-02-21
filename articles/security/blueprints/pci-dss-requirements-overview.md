@@ -25,7 +25,7 @@ ms.lasthandoff: 11/16/2017
 開發支付卡產業資料安全標準 (PCI DSS) 的目的是提升及加強持卡人資料安全性，並促進全球廣泛採用一致的資料安全性措施。 PCI DSS 提供保護帳戶資料技術和作業的需求基準。 PCI DSS 適用於所有涉及到支付卡處理的實體，包括商家、處理機構、收單機構、發行機構及服務提供者。 PCI DSS 也適用於所有其他儲存、處理或傳輸持卡人資料 (CHD) 及/或敏感驗證資料 (SAD) 的實體。 以下是 12 個 PCI DSS 需求的高階概觀。
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 |   |   |
 |---|---|

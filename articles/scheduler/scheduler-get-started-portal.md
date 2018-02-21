@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="manage-and-monitor-jobs"></a>管理和監視作業
 建立作業之後，它會出現在主要 Azure 儀表板。 按一下作業，即會開啟新視窗並顯示下列索引標籤：
 
-1. 屬性  
+1. properties  
 2. 動作設定  
 3. 排程  
 4. 歷程記錄
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
    
    ![][job-overview]
 
-### <a name="properties"></a>屬性
+### <a name="properties"></a>properties
 這些唯讀屬性說明排程器作業的管理中繼資料。
 
    ![][job-properties]

@@ -25,7 +25,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
 
 依預設，Azure Data Lake Analytics 服務會封存作業 30 天。 您可以藉由設定自訂的到期原則，從 Azure 入口網站設定有效期限。 期限到期後，您將無法存取作業資訊。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 請參閱[適用於 Visual Studio 的 Azure Data Lake 工具](data-lake-analytics-data-lake-tools-get-started.md#prerequisites)。
 
 ## <a name="open-the-job-browser"></a>開啟作業瀏覽器
@@ -173,6 +173,6 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
 
 ## <a name="next-steps"></a>後續步驟
 * 若要記錄診斷資訊，請參閱 [為 Azure Data Lake Analytics 存取診斷記錄檔](data-lake-analytics-diagnostic-logs.md)
-* 若要了解更複雜的查詢，請參閱 [使用 Azure 資料湖分析來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
+* 若要了解更複雜的查詢，請參閱 [使用 Azure Data Lake Analytics 來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
 * 若要使用頂點執行檢視，請參閱[在 Data Lake Tools for Visual Studio 中使用頂點執行檢視](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

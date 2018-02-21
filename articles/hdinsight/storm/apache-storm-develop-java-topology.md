@@ -35,7 +35,7 @@ ms.lasthandoff: 12/02/2017
 > [!NOTE]
 > [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)有提供本文件中建立之 Storm 拓撲範例的完整版本。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Java Developer Kit (JDK) 第 8 版](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 

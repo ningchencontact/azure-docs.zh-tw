@@ -84,7 +84,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. 在 [摘要] 頁面的 [輸出] 底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
 
-如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如：
+如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如︰
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

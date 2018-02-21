@@ -1,5 +1,5 @@
 ---
-title: "從通用內部部署 VHD 建立受管理的 Azure VM | Microsoft Docs"
+title: "從通用內部部署 VHD 建立受控 Azure VM | Microsoft Docs"
 description: "在 Resource Manager 部署模型中，將一般化 VHD 上傳至 Azure 並使用它來建立新 VM。"
 services: virtual-machines-windows
 documentationcenter: 
@@ -54,7 +54,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]。
-5. 按一下 [確定] 。
+5. 按一下 [SERVICEPRINCIPAL] 。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 不要重新啟動 VM。

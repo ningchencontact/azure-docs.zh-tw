@@ -15,7 +15,7 @@ ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 
 若您想了解軟體即服務 (SaaS) 應用程式與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要設定與 Clarizen 的 Azure AD 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶

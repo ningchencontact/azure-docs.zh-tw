@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 使用其中一種 [Azure Resource Manager 範本](https://github.com/MsHpcPack/HPCPack2016) 部署 HPC Pack 2016 叢集。 您可以選擇多種叢集拓撲，當中包含不同數目的叢集前端節點，與 Linux 或 Windows 運算節點。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="pfx-certificate"></a>PFX 憑證
 
@@ -140,7 +140,7 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 指定您在必要條件中記錄之下列參數的值︰**保存庫名稱**、**保存庫資源群組**、**憑證 URL** 和 **憑證指紋**。
 
 ### <a name="step-3-review-legal-terms-and-create"></a>步驟 3. 檢閱法律條款並建立
-按一下 [檢閱法律條款] 檢閱條款。 如果您同意，請按一下 購買，然後按一下建立 以開始部署。
+按一下 [檢閱法律條款] 檢閱條款。 如果您同意，請按一下 [購買]，然後按一下 [建立] 以開始部署。
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 1. 部署 HPC Pack 叢集之後，請移至 [Azure 入口網站](https://portal.azure.com)。 按一下 [資源群組]，並尋找已在當中部署叢集的資源群組。 您可以找到前端節點虛擬機器。

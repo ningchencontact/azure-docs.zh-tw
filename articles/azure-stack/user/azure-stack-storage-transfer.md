@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure Stack 儲存體適用的工具
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功能適用的一組儲存體服務。 如果您要管理資料、將資料移動至 Azure Stack 儲存體，或從 Azure Stack 儲存體移動資料，就可以使用一組 Azure 儲存體工具。 本文提供可用工具的快速概觀。
 

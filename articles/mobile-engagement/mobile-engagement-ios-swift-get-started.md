@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>將 App 與即時監視連接
+## <a id="monitor"></a>將應用程式與即時監視連接
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>啟用推播通知與應用程式內傳訊

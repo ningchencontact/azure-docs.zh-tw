@@ -77,7 +77,7 @@ ms.lasthandoff: 12/07/2017
 * 說明：執行目前的 Web 要求期間發生未處理的例外狀況。 請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
 * 例外狀況詳細資料：System.IO.FIleNotFoundException：無法載入檔案或組件 ‘Microsoft.WindowsAzure.StorageClient，Version=1.1.0.0，Culture=neutral，PublicKeyToken=31bf856ad364e35’ 或其相依性之一。 系統找不到指定的檔案。
 
-例如：
+例如︰
 
 !['/' 應用程式中有明確的伺服器錯誤。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

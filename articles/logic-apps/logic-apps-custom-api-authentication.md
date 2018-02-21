@@ -192,14 +192,14 @@ ms.lasthandoff: 11/03/2017
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 
-| tenant | 是 | Azure AD 租用戶的 GUID | 
-| audience | 是 | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
-| clientId | 是 | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
-| secret | 是 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
-| 類型 | 是 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
+| tenant | yes | Azure AD 租用戶的 GUID | 
+| audience | yes | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
+| clientId | yes | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
+| secret | yes | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
+| type | yes | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
 |||| 
 
-例如：
+例如︰
 
 ``` json
 {
@@ -238,9 +238,9 @@ ms.lasthandoff: 11/03/2017
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 
-| 類型 | 是 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
-| password | 是 | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
-| pfx | 是 | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
+| type | yes | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
+| password | yes | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
+| pfx | yes | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
 |||| 
 
 <a name="basic"></a>
@@ -255,9 +255,9 @@ ms.lasthandoff: 11/03/2017
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 
-| 類型 | 是 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
-| username | 是 | 您想要用來進行驗證的使用者名稱 | 
-| password | 是 | 您想要用來進行驗證的密碼 | 
+| type | yes | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
+| username | yes | 您想要用來進行驗證的使用者名稱 | 
+| password | yes | 您想要用來進行驗證的密碼 | 
 |||| 
 
 <a name="azure-ad-code"></a>

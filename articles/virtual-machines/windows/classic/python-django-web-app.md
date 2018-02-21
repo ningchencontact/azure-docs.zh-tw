@@ -56,7 +56,7 @@ ms.lasthandoff: 11/09/2017
 
      ![輸入名稱並設定公用和私人連接埠](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
 
-   4. 按一下 [確定] 。
+   4. 按一下 [SERVICEPRINCIPAL] 。
      
 3. 在儀表板中選取您的 VM。 若要使用遠端桌面通訊協定 (RDP) 來遠端登入新建立的 Azure 虛擬機器，請按一下 [連線]。  
 

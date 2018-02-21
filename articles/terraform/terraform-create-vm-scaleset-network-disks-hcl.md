@@ -1,6 +1,6 @@
 ---
 title: "使用 Terraform 並利用 HCL 來建立 Azure VM 擴展集。"
-description: "使用 Terraform 設定以虛擬網路和受管理的已連接磁碟完成的 Azure 虛擬機器擴展集並設定版本。"
+description: "使用 Terraform 設定以虛擬網路和受控已連接磁碟完成的 Azure 虛擬機器擴展集並設定版本。"
 keywords: "Terraform, DevOps, 擴展集, 虛擬機器, 網路, 儲存體, 模組"
 ms.service: virtual-machines-linux
 author: dcaro
@@ -13,11 +13,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-terraform-to-plan-and-create-a-networked-azure-vm-scale-set-with-managed-storage"></a>使用 Terraform 來規劃並建立具有受管理儲存體的網路型 Azure VM 擴展集
+# <a name="use-terraform-to-plan-and-create-a-networked-azure-vm-scale-set-with-managed-storage"></a>使用 Terraform 來規劃並建立具有受控儲存體的網路型 Azure VM 擴展集
 
-在本文中，您將使用 [Terraform](https://www.terraform.io/) \(英文\)，並利用 [Hashicorp 設定語言](https://www.terraform.io/docs/configuration/syntax.html) \(HCL\) \(英文\)，以建立及部署含受管理磁碟的 [Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)。  
+在本文中，您將使用 [Terraform](https://www.terraform.io/) \(英文\)，並利用 [Hashicorp 設定語言](https://www.terraform.io/docs/configuration/syntax.html) \(HCL\) \(英文\)，以建立及部署含受控磁碟的 [Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)。  
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定 Terraform 部署

@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 您可以使用 Azure Stack 入口網站管理 Azure Stack 中的金鑰保存庫。 此文章可協助您開始建立和管理 Azure Stack 中的金鑰保存庫。 
 
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 
 您必須訂閱包含 Azure Key Vault 服務的供應項目。
  

@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 身為 Azure Stack 服務的取用者，您可以使用 Azure Stack 入口網站來訂閱公用供應項目，以及使用透過這些供應項目提供的服務。 如果您之前使用過 Azure 入口網站，便已熟悉使用者介面。
 

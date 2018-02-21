@@ -16,7 +16,7 @@ ms.date: 05/10/2017
 ms.author: kgremban
 ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -58,7 +58,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 以下是透過 Proxy 基礎結構啟用「租用戶限制」的必要組態。 本指導方針是通用的，因此如需了解特定的實作步驟，您應該參考您 Proxy 廠商的文件。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 - Proxy 必須要能夠執行 SSL 攔截、HTTP 標頭插入，以及使用 FQDN/URL 來篩選目的地。 
 

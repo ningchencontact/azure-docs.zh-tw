@@ -38,15 +38,15 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 如果您尚未安裝 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)，請進行安裝。 在 工作負載 分頁上選取 .NET 桌面開發，然後按一下安裝。 在摘要中，您可以看到系統自動為您選取 [NET Framework 4 – 4.6 開發工具]。 如果您已安裝 Visual Studio，您可以使用 Visual Studio Launcher 新增 .NET 工作負載。
+1. 如果您尚未安裝 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)，請進行安裝。 在 [工作負載] 分頁上選取 [.NET 桌面開發]，然後按一下 [安裝]。 在摘要中，您可以看到系統自動為您選取 [NET Framework 4 – 4.6 開發工具]。 如果您已安裝 Visual Studio，您可以使用 Visual Studio Launcher 新增 .NET 工作負載。
 2. 在 Visual Studio 中，按一下 [檔案] > [新增] > [專案]。
-3. 在 範本 > Visual C# 中，選取 主控台應用程式 (.NET Framework)，針對專案名稱輸入 myDotnetProject，選取專案的位置，然後按一下確定。
+3. 在 [範本] > [Visual C#] 中，選取 [主控台應用程式 (.NET Framework)]，針對專案名稱輸入 myDotnetProject，選取專案的位置，然後按一下 [確定]。
 
 ## <a name="install-the-package"></a>安裝套件
 
 NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 若要取得在 Visual Studio 中所需要的程式庫，請執行下列步驟：
 
-1. 按一下 工具 > NuGet 套件管理員，然後按一下Package Manager Console。
+1. 按一下 [工具] > [NuGet 套件管理員]，然後按一下 [Package Manager Console]。
 2. 在主控台中輸入以下命令：
 
     ```
@@ -59,7 +59,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ### <a name="create-the-authorization-file"></a>建立授權檔
 
-1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *azureauth.properties*，然後按一下新增。
+1. 在 [方案總管] 中，於 [myDotnetProject] 上按一下滑鼠右鍵 > [新增] > [新增項目]，然後選取 [Visual C# 項目] 中的 [文字檔]。 將檔案命名為 *azureauth.properties*，然後按一下 [新增]。
 2. 新增下列授權屬性：
 
     ```

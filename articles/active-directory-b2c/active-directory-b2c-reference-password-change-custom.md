@@ -15,7 +15,7 @@ ms.date: 09/05/2016
 ms.author: vigunase
 ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 利用密碼變更功能，登入的取用者 (使用本機帳戶) 可以變更其密碼而不需要透過電子郵件驗證來證明其真實性，如[自助式密碼重設流程](active-directory-b2c-reference-sspr.md)中所述。 如果取用者進入密碼變更流程時工作階段到期，系統會提示使用者重新登入。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 

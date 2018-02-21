@@ -16,7 +16,7 @@ ms.date: 06/11/2017
 ms.author: parakhj
 ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)設定特定 Salesforce 組織的使用者登入。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-ad-b2c-setup"></a>Azure AD B2C 設定
 

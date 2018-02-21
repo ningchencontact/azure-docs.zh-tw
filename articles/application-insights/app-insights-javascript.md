@@ -51,7 +51,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ![在您的應用程式概觀刀鋒視窗中，選擇 [快速入門]，取得程式碼以監視我的網頁。 複製指令碼。](./media/app-insights-javascript/02-monitor-web-page.png)
 
-在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如：
+在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如︰
 
 * 在 ASP.NET MVC 專案中，可放在 `View\Shared\_Layout.cshtml`
 * 在 SharePoint 網站中，在控制台中開啟 [站台設定/主要頁面](app-insights-sharepoint.md)。

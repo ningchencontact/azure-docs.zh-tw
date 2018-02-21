@@ -17,7 +17,7 @@ ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -80,7 +80,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 | 發出時間 |記錄核發權杖的時間，通常用於權杖有效期限。 |
 | 簽發者 |識別發出權杖的 STS，以及 Azure AD 租用戶。 |
 | 姓氏 |提供 Azure AD 中設定的使用者姓氏。 |
-| 名稱 |提供人類看得懂的值，用以識別權杖的主體。 |
+| Name |提供人類看得懂的值，用以識別權杖的主體。 |
 | 物件識別碼 |包含主體在 Azure AD 中不可變的唯一識別碼。 |
 | 角色 |包含已授與使用者的 Azure AD 應用程式角色的易記名稱。 |
 | Scope |指出授與用戶端應用程式的權限。 |

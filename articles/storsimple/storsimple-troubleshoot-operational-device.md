@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>可運作的 StorSimple 裝置疑難排解
 > [!NOTE]
-> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
 ## <a name="overview"></a>概觀
 本文提供實用的疑難排解指導方針，可用來解決在部署 StorSimple 裝置且可運作之後您可能遇到的問題。 文中將描述常見問題、可能原因和建議的步驟，可協助您解決在執行 Microsoft Azure StorSimple 時可能遇到的問題。 此資訊適用於 StorSimple 內部部署實體裝置和 StorSimple 虛擬裝置。

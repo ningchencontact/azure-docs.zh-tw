@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>使用 Azure 儲存體進行 SQL Server 備份與還原
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 從 SQL Server 2012 SP1 CU2 開始，您現在已可以將 SQL Server 備份直接寫入 Azure Blob 儲存體服務中。 您可以使用此功能，搭配內部部署 SQL Server 資料庫或 Azure 虛擬機器中的 SQL Server 資料庫，從 Azure Blob 服務備份或還原。 備份至雲端提供的好處包括可用性、無限制的地理區域備援異地儲存體，以及輕鬆地與雲端之間來回移轉資料。 您可以使用 Transact-SQL 或 SMO 發出 BACKUP 或 RESTORE 陳述式。
 
 SQL Server 2016 導入了新功能；您可以使用 [檔案快照集備份](http://msdn.microsoft.com/library/mt169363.aspx) 來執行幾乎即時的備份與非常快速的還原。
@@ -33,7 +33,8 @@ SQL Server 2016 導入了新功能；您可以使用 [檔案快照集備份](htt
 
 * **容易使用**：將您的備份存放在 Azure Blob 中可以是一個既方便、有彈性又容易存取的異地選項。 為您的 SQL Server 備份建立異地儲存體相當簡單，只需將現有的指令碼/工作修改成使用 **BACKUP TO URL** 語法即可。 異地儲存體應該通常要離生產資料庫位置夠遠，以避免單一災害同時影響異地和生產資料庫位置。 藉由選擇 [異地複寫 Azure Blob](../../../storage/common/storage-redundancy.md)，在發生可能影響整個區域的災害時，您會有額外的一層保護。
 * **備份封存**：「Azure Blob 儲存體」服務提供比常用的磁帶選項更好的替代方案來封存備份。 磁帶儲存體可能需要實體運輸到異地設施，以及保護媒體的措施。 將備份存放在 Azure Blob 儲存體提供了立即、高度可用且持久的封存選項。
-* **受管理的硬體**：使用 Azure 服務時，沒有硬體管理的額外負荷。 Azure 服務會管理硬體，並提供地埋區域備援複寫，以提供備援及硬體故障的防護。
+* 
+            **受控硬體**：使用 Azure 服務時，沒有硬體管理的額外負荷。 Azure 服務會管理硬體，並提供地埋區域備援複寫，以提供備援及硬體故障的防護。
 * **無限制的儲存體**：藉由啟用直接備份到 Azure Blob 的功能，您可以存取幾乎無限制的儲存體。 或者，您也可以選擇備份到 Azure 虛擬機器磁碟，所受的限制會取決於機器大小。 您可以連結到 Azure 虛擬機器以進行備份的磁碟數是有限制的。 超大型執行個體的限制為 16 個磁碟，較小的執行個體則更少。
 * **備份可用性**：存放在 Azure Blob 中的備份可供隨時隨地使用，並且可供輕鬆存取來還原到內部部署的 SQL Server 或在「Azure 虛擬機器」中執行的另一個 SQL Server，而不需要進行資料庫連結/中斷連結或是下載並連結 VHD。
 * **成本**：只需針對使用的服務付費。 可以作為具成本效益的異地及備份封存選項。 如需詳細資訊，請參閱[Azure 定價計算機](http://go.microsoft.com/fwlink/?LinkId=277060 "定價計算機")，以及[Azure 定價文章](http://go.microsoft.com/fwlink/?LinkId=277059 "定價文章")。

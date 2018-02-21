@@ -24,7 +24,7 @@ ms.lasthandoff: 12/05/2017
 
 如果您想要安裝 Azure Functions 執行階段預覽 2，請遵循下列步驟：
 
-1. 確定您的電腦符合最低需求。
+1. 請確定您的電腦符合最低需求。
 1. 下載 [Azure Functions 執行階段預覽安裝程式](https://aka.ms/azafrv2)。
 1. 解除安裝 Azure Functions 執行階段預覽 1。
 1. 安裝 Azure Functions 執行階段預覽 2。
@@ -52,8 +52,8 @@ Azure Functions 執行階段預覽安裝程式會引導您完成安裝 Azure Fun
 
     ![Azure Functions 執行階段預覽安裝程式][1]
 
-1. 按一下 [下一步]。
-1. 閱讀 **EULA** 的條款之後，**勾選方塊接受條款**，然後按 [下一步] 以繼續。
+1. 按 [下一步] 。
+1. 閱讀 **EULA** 的條款之後，**勾選方塊接受條款**，然後按 [下一步] 前進。
 1. 選取您想要在這部電腦上安裝的角色：**Functions 管理角色**和/或 **Functions 背景工作角色**，然後按一下 [下一步]。
 
     ![Azure Functions 執行階段預覽安裝程式 - 選取角色][3]
@@ -89,7 +89,7 @@ Azure Functions 執行階段預覽安裝程式會引導您完成安裝 Azure Fun
 
     ![Azure Functions 執行階段預覽檔案共用][10]
 
-1. 按一下 [IIS] 索引標籤。此索引標籤會顯示 Azure Functions 執行階段設定工具要在 IIS 中建立之網站的詳細資料。  您可以在這裡指定自訂 DNS 名稱，以供 Azure Functions 執行階段預覽入口網站使用。  按一下 [套用] 以完成。
+1. 按一下 [IIS] 索引標籤。此索引標籤會顯示 Azure Functions 執行階段設定工具要在 IIS 中建立之網站的詳細資料。  您可以在這裡指定自訂 DNS 名稱，以供 Azure Functions 執行階段預覽入口網站使用。  按一下 [套用] 完成。
 
     ![Azure Functions 執行階段預覽 IIS][11]
 

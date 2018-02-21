@@ -82,7 +82,7 @@ system error | sort ManagementGroupName, TimeGenerated desc | top 10
 These all are string literals
 ```
 
-此查詢會搜尋包含五個字全都出現的結果。 若要執行複雜的字串搜尋，請將字串常值以引號括起來。 例如：
+此查詢會搜尋包含五個字全都出現的結果。 若要執行複雜的字串搜尋，請將字串常值以引號括起來。 例如︰
 
 ```
 "Windows Server"
@@ -135,7 +135,7 @@ yyyy-mm-dd
 ```
 
 
-例如：
+例如︰
 
 ```
 TimeGenerated:2013-10-01T12:20
@@ -165,7 +165,7 @@ datetime[+|-]count unit
 | / |將日期/時間四捨五入到指定的單位。 例如，NOW/DAY 會將目前的日期/時間四捨五入至目前日期的午夜。 |
 | + 或 - |將日期/時間位移指定的單位數。 例如，NOW+1HOUR 會將目前日期/時間位移晚一個小時。 2013-10-01T12:00-10DAYS 會將日期值位移回 10 天。 |
 
-您可以將日期/時間數學運算子鏈結在一起。 例如：
+您可以將日期/時間數學運算子鏈結在一起。 例如︰
 
 ```
 NOW+1HOUR-10MONTHS/MINUTE
@@ -200,7 +200,7 @@ field=value
 
 搜尋特定值的欄位。 此值可以是字串常值、數字或日期和時間。
 
-例如：
+例如︰
 
 ```
 TimeGenerated:NOW
@@ -230,7 +230,7 @@ field<=value
 
 提供比較。
 
-例如：
+例如︰
 
 ```
 TimeGenerated>NOW+2HOURS
@@ -246,7 +246,7 @@ field:[from..to]
 
 提供範圍面相化。
 
-例如：
+例如︰
 
 ```
 TimeGenerated:[NOW..NOW+1DAY]
@@ -824,7 +824,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 | WindowsUpdateAgentVersion |UpdateAgent |Microsoft Update 代理程式的版本號碼。 |
 | WSUSServer |UpdateAgent |此更新代理程式的目標是哪個 WSUS 伺服器？ |
 | OSVersion |UpdateAgent |此更新代理程式在其上執行的作業系統版本。 |
-| 名稱 |建議，ConfigurationObjectProperty |來自 Log Analytics 組態評估的建議名稱/標題或屬性名稱。 |
+| Name |建議，ConfigurationObjectProperty |來自 Log Analytics 組態評估的建議名稱/標題或屬性名稱。 |
 | 值 |ConfigurationObjectProperty |來自 Log Analytics 組態評估的屬性值。 |
 | KBLink |建議 |描述此最佳做法或更新的 KB 文章 URL。 |
 | RecommendationStatus |建議 |建議為一些類型，其記錄會更新，而不只是新增至搜尋索引。 此狀態會變更建議是否為作用中/開啟，或者 Log Analytics 是否偵測到狀態已解決。 |
@@ -868,7 +868,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 | ChangeCategory |ConfigurationChange |變更的類別 (已修改/已新增/已移除)。 |
 | SoftwareType |ConfigurationChange |軟體的類型 (更新/應用程式)。 |
 | SoftwareName |ConfigurationChange |軟體的名稱 (僅適用於軟體變更)。 |
-| 發佈者 |ConfigurationChange |發佈軟體的供應商 (僅適用於軟體變更)。 |
+| 發行者 |ConfigurationChange |發佈軟體的供應商 (僅適用於軟體變更)。 |
 | SvcChangeType |ConfigurationChange |已套用在 Windows 服務的變更類型 (State/StartupType/Path/ServiceAccount)。 這僅適用於 Windows 服務變更。 |
 | SvcDisplayName |ConfigurationChange |顯示已變更的服務名稱。 |
 | SvcName |ConfigurationChange |已變更的服務名稱。 |

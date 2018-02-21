@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>如何建立前端子網路的 NSG
 若要根據上述案例建立名為 **NSG-FrontEnd** 的 NSG，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **`azure config mode`** 命令，以切換為傳統模式，如下所示。
    
         azure config mode asm
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
     參數：
    
    * **-l (或 --location)**。 將要建立新 NSG 的 Azure 區域。 在本文案例中為 *westus*。
-   * **-n (或 --name)**。 新 NSG 的名稱。 在本文案例中為 *NSG-FrontEnd*。
+   * **-n (or --name)**。 新 NSG 的名稱。 在本文案例中為 *NSG-FrontEnd*。
 4. 執行 **`azure network nsg rule create`** 命令來建立允許從網際網路存取連接埠 3389 (RDP) 的規則。
    
         azure network nsg rule create -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
     參數：
    
    * **-a (或 --nsg-name)**。 將在其中建立規則之 NSG 的名稱。 在本文案例中為 *NSG-FrontEnd*。
-   * **-n (或 --name)**。 新規則的名稱。 在本文案例中為 *rdp-rule*。
+   * **-n (or --name)**。 新規則的名稱。 在本文案例中為 *rdp-rule*。
    * **-c (或 --action)**。 規則 (拒絕或允許) 的存取層級。
    * **-p (或 --protocol)**。 規則的通訊協定 (TCP、UDP 或 *)。
    * **-r (或 --type)**。 連線 (輸入或輸出) 的方向。
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
     參數：
    
    * **-l (或 --location)**。 將要建立新 NSG 的 Azure 區域。 在本文案例中為 *westus*。
-   * **-n (或 --name)**。 新 NSG 的名稱。 在本文案例中為 *NSG-FrontEnd*。
+   * **-n (or --name)**。 新 NSG 的名稱。 在本文案例中為 *NSG-FrontEnd*。
 2. 執行 **`azure network nsg rule create`** 命令來建立允許從前端子網路存取連接埠 1433 (SQL) 的規則。
    
         azure network nsg rule create -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433

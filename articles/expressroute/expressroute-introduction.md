@@ -112,4 +112,4 @@ Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境�
   * [建立 ExpressRoute 線路](expressroute-howto-circuit-portal-resource-manager.md)
   * [設定 ExpressRoute 線路的對等互連](expressroute-howto-routing-portal-resource-manager.md)
   * [將虛擬網路連線到 ExpressRoute 線路](expressroute-howto-linkvnet-portal-resource-manager.md)
-* 深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
+* 了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。

@@ -68,7 +68,7 @@ Login-AzureRmAccount
 ```
 
 >[!NOTE]
- 如果您是使用 Azure 的特定執行個體，請使用 -Environment 參數。 例如： 
+ 如果您是使用 Azure 的特定執行個體，請使用 -Environment 參數。 例如︰ 
  ```powershell
  Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
@@ -142,7 +142,7 @@ $key.id
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>將現有的 PFX 檔案匯入 Azure Key Vault 中
 
-如果現有金鑰是儲存在您需要上傳至 Azure Key Vault 的 pfx 檔案中，步驟就會不同。 例如：
+如果現有金鑰是儲存在您需要上傳至 Azure Key Vault 的 pfx 檔案中，步驟就會不同。 例如︰
 - 如果您在 .PFX 檔案中有現有的軟體受保護金鑰
 - pfx 檔案就會命名為 softkey.pfx 
 - 檔案會儲存在 C 磁碟機中。
@@ -214,7 +214,7 @@ $secret.Id
 使用金鑰保存庫的應用程式必須使用 Azure Active Directory 的權杖進行驗證。 若要達到此目的，應用程式擁有者首先必須在其 Azure Active Directory 中註冊該應用程式。 註冊結束時，應用程式擁有者會取得下列值：
 
 - **應用程式識別碼** 
-- **驗證金鑰**(也稱為共用祕密)。 
+- **驗證金鑰** (也稱為共用密碼)。 
 
 應用程式必須向 Azure Active Directory 出示這兩個值才能取得權杖。 如何設定應用程式執行此作業會取決於應用程式。 在 [Key Vault 範例應用程式](https://www.microsoft.com/download/details.aspx?id=45343)中，應用程式擁有者會在 app.config 檔案中設定這些值。
 

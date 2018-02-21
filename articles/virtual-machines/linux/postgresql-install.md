@@ -124,12 +124,12 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
    
     您應該會收到下列輸出：
 
-![image](./media/postgresql-install/no1.png)
+![映像](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>設定 PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
-執行以下命令：
+執行下列命令：
 
     # cd /root/postgresql-9.3.5/contrib/start-scripts
 
@@ -141,7 +141,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/postgresql-install/no2.png)
+![映像](./media/postgresql-install/no2.png)
 
 變更檔案，使其可執行：
 
@@ -157,7 +157,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 您應該會看見下列輸出：
 
-![image](./media/postgresql-install/no3.png)
+![映像](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>連接到 Postgres 資料庫
 再一次切換到 postgres 使用者：
@@ -188,11 +188,11 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 如果您成功建立資料表，您會看到下列內容：
 
-![image](./media/postgresql-install/no4.png)
+![映像](./media/postgresql-install/no4.png)
 
 您也可以利用下列命令檢查資料表結構：
 
-![image](./media/postgresql-install/no5.png)
+![映像](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>將資料新增至資料表
 首先，將資料插入資料列：
@@ -201,7 +201,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 您應該會看見此輸出：
 
-![image](./media/postgresql-install/no6.png)
+![映像](./media/postgresql-install/no6.png)
 
 您也可以將更多人員新增至資料表。 以下是一些選項，或者您可以建立自己的選項：
 
@@ -218,7 +218,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 輸出如下：
 
-![image](./media/postgresql-install/no7.png)
+![映像](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>刪除資料表中的資料
 使用下列命令刪除資料表中的資料：
@@ -227,7 +227,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 這會刪除 "John" 資料列中的所有資訊。 輸出如下：
 
-![image](./media/postgresql-install/no8.png)
+![映像](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>更新資料表中的資料
 使用下列命令更新資料表中的資料。 對於此項目，Sandy 已確認她會參加，所以我們要將她的 RSVP 從 "N" 變更為 "Y"：

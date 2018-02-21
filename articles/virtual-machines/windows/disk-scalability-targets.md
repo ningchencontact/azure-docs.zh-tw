@@ -21,11 +21,11 @@ ms.lasthandoff: 11/16/2017
 
 如需詳細資訊，請參閱 [Windows 虛擬機器大小](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-## <a name="managed-virtual-machine-disks"></a>受管理的虛擬機器磁碟
+## <a name="managed-virtual-machine-disks"></a>受控虛擬機器磁碟
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
-## <a name="unmanaged-virtual-machine-disks"></a>未受管理的虛擬機器磁碟
+## <a name="unmanaged-virtual-machine-disks"></a>非受控虛擬機器磁碟
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]

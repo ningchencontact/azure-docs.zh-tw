@@ -35,7 +35,7 @@ Azure Functions 的 F# 是可在雲端輕鬆執行程式碼片段或「函式」
 當您使用 Azure 函式的 `.fsx` 時，其中會自動包含常用的必要組件，讓您得以專注於函式本身而非「重複使用」的程式碼。
 
 ## <a name="binding-to-arguments"></a>繫結至引數
-如 [Azure Functions 觸發程序和繫結開發人員參考](functions-triggers-bindings.md)所述，每個繫結都支援某幾組引數。 例如，Blob 觸發程序支援的其中一個引數繫結是可使用 F# 記錄來表示的 POCO。 例如：
+如 [Azure Functions 觸發程序和繫結開發人員參考](functions-triggers-bindings.md)所述，每個繫結都支援某幾組引數。 例如，Blob 觸發程序支援的其中一個引數繫結是可使用 F# 記錄來表示的 POCO。 例如︰
 
 ```fsharp
 type Item = { Id: string }
@@ -49,7 +49,7 @@ F# Azure 函式會採用一個或多個引數。 在談論 Azure Functions 引�
 
 在上述範例中，`blob` 是輸入引數，而 `output` 是輸出引數。 請注意，我們使用 `byref<>` 做為 `output` (不必加上 `[<Out>]` 註解)。 使用 `byref<>` 類型可讓您的函式變更引數所指稱的記錄或物件。
 
-使用 F# 記錄做為輸入類型時，記錄定義必須標上 `[<CLIMutable>]` ，以便讓 Azure Functions 架構先適當地設定欄位，再將記錄傳遞給您的函式。 實際上， `[<CLIMutable>]` 會產生記錄屬性的 setter。 例如：
+使用 F# 記錄做為輸入類型時，記錄定義必須標上 `[<CLIMutable>]` ，以便讓 Azure Functions 架構先適當地設定欄位，再將記錄傳遞給您的函式。 實際上， `[<CLIMutable>]` 會產生記錄屬性的 setter。 例如︰
 
 ```fsharp
 [<CLIMutable>]
@@ -61,7 +61,7 @@ let Run(req: TestObject, log: TraceWriter) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-F# 類別也可用於輸入和輸出引數。 針對類別，屬性通常需要 getter 和 setter。 例如：
+F# 類別也可用於輸入和輸出引數。 針對類別，屬性通常需要 getter 和 setter。 例如︰
 
 ```fsharp
 type Item() =
@@ -74,7 +74,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>記錄
-若要將輸出記錄至 F# 的[串流記錄](../app-service/web-sites-enable-diagnostic-log.md)，您的函式應該採用 `TraceWriter` 類型的引數。 為求一致，我們建議將此引數命名為 `log`。 例如：
+若要將輸出記錄至 F# 的[串流記錄](../app-service/web-sites-enable-diagnostic-log.md)，您的函式應該採用 `TraceWriter` 類型的引數。 為求一致，我們建議將此引數命名為 `log`。 例如︰
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -164,7 +164,7 @@ Azure Functions 裝載環境會自動加入下列組件︰
 如果您需要參考私用組件，您可以將組件檔案上傳至您函式的相對 `bin` 資料夾，然後使用檔案名稱來參考它 (例如 `#r "MyAssembly.dll"`)。 如需如何將檔案上傳至函數資料夾的資訊，請參閱以下的＜封裝管理＞小節。
 
 ## <a name="editor-prelude"></a>編輯器序言
-支援 F# 編譯器服務的編輯器不會知道 Azure Functions 自動包含的命名空間和組件。 因此，最好在其中包含序言以協助編輯器找到您使用的組件，並明確開啟命名空間。 例如：
+支援 F# 編譯器服務的編輯器不會知道 Azure Functions 自動包含的命名空間和組件。 因此，最好在其中包含序言以協助編輯器找到您使用的組件，並明確開啟命名空間。 例如︰
 
 ```fsharp
 #if !COMPILED
@@ -238,7 +238,7 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```
 
 ## <a name="reusing-fsx-code"></a>重複使用 .fsx 程式碼
-您可以使用 `#load` 指示詞以使用其他 `.fsx` 檔案中的程式碼。 例如：
+您可以使用 `#load` 指示詞以使用其他 `.fsx` 檔案中的程式碼。 例如︰
 
 `run.fsx`
 

@@ -29,7 +29,7 @@ Azure 物聯網 (IoT) 服務提供廣泛的功能。 這些企業等級的服務
 * 視覺化即時和歷程記錄資料
 * 與後端辦公室系統整合
 
-為了提供這些功能，Azure IoT 套件將多個 Azure 服務與自訂延伸模組封裝在一起做為預先設定的解決方案。 這些預先設定的解決方案是常見 IoT 解決方案模式的基礎實作，可幫助您減少實行 IoT 解決方案所花費的時間。 透過使用 IoT 軟體開發套件，您將可自訂和擴充這些解決方案來滿足您自己的需求。 您也可以使用這些解決方案做為開發新 IoT 解決方案時的範例或範本。
+為了提供這些功能，Azure IoT 套件將多個 Azure 服務與自訂延伸模組封裝在一起做為預先設定的解決方案。 這些預先設定的解決方案是常見 IoT 解決方案模式的基礎實作，可幫助您減少實行 IoT 解決方案所花費的時間。 透過使用 IoT 軟體開發套件，您將可自訂和擴充這些解決方案來滿足您自己的需求。 您也可以使用這些解決方案作為開發新 IoT 解決方案時的範例或範本。
 
 Azure IoT 套件是針對您的 IoT 需求的功能強大的解決方案。 不過，最重要的是您的 IoT 解決方案一開始就是以安全性為考量而設計的。 因為有大量的 IoT 裝置，所以任何安全性事件可能很快就會造成有嚴重後果的大規模事件。
 
@@ -56,7 +56,7 @@ IoT 使得全球企業面臨獨特的安全性、隱私權及相容性挑戰。 
 * [徹底保護基礎結構的安全](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
 * [Microsoft Azure - 適用於貴公司的安全 IoT 基礎結構](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 保護 IoT 基礎結構需要嚴格的深度安全性防禦策略。 從保護雲端資料的安全、保護資料在公用網際網路上傳輸時的資料完整性，到安全佈建裝置，在整體基礎結構的每一階層建置更強大的安全性保證。
 
 您可以藉由閱讀 [物聯網安全性最佳作法](../iot-suite/iot-security-best-practices.md)，了解物聯網安全性最佳作法。

@@ -21,7 +21,7 @@ ms.lasthandoff: 11/18/2017
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程假設您使用執行 Windows 的電腦或虛擬機器，來模擬物聯網裝置。 如果您在虛擬機器中執行 Windows，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
 

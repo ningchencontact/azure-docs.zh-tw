@@ -1,4 +1,4 @@
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在撰寫 CDN 管理程式碼之前，需要做一些準備工作，讓我們的程式碼與 Azure Resource Manager 進行互動。  若要這樣做，您需要執行下列動作：
 
 * 建立資源群組，以包含我們在本教學課程中建立的 CDN 設定檔

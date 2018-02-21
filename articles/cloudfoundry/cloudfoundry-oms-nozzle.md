@@ -29,7 +29,7 @@ Log Analytics Nozzle (下文簡稱為 Nozzle) 是一項 Cloud Foundry (CF) 元�
 
 在本文件中，您會了解如何將 Nozzle 部署到 CF 環境，然後從 Log Analytics OMS 主控台存取資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 下列步驟是部署 Nozzle 的必要條件。
 

@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 
 相依性遙測 (在 [Application Insights](app-insights-overview.md) 中) 代表受監視元件與遠端元件 (例如 SQL 或 HTTP 端點) 的互動。
 
-## <a name="name"></a>名稱
+## <a name="name"></a>Name
 
 使用此相依性呼叫所起始之命令的名稱。 基數值低。 範例為預存程序名稱和 URL 路徑範本。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/01/2017
 
 相依性呼叫的目標網站。 範例為伺服器名稱、主機位址。 如需詳細資訊，請參閱[相互關聯](application-insights-correlation.md)頁面。
 
-## <a name="duration"></a>持續時間
+## <a name="duration"></a>Duration
 
 要求持續時間格式為︰`DD.HH:MM:SS.MMMMMM`。 必須小於 `1000` 天。
 

@@ -34,7 +34,7 @@ Akamai 的 Azure 內容傳遞網路現在提供一項功能，可將大型檔案
 
 ## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>設定 CDN 端點以最佳化大型檔案的傳遞
 
-您可以設定 CDN 端點，以最佳化透過 Azure 入口網站傳遞大型檔案。 若要這樣做，您也可以使用 REST API 或任何用戶端 SDK。 下列步驟示範透過 Azure 入口網站的程序。
+您可以設定 CDN 端點，以最佳化透過 Azure 入口網站傳遞大型檔案。 使用 REST API 或任何用戶端 SDK 也都能達到相同目的。 下列步驟示範透過 Azure 入口網站的程序。
 
 1. 若要新增新的端點，請在 [CDN 設定檔] 頁面上選取 [端點]。
 

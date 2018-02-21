@@ -16,7 +16,7 @@ ms.date: 06/07/2017
 ms.author: parja
 ms.openlocfilehash: afca6cf8f19c9b96de292881582e27133e35f096
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 本快速入門協助您在數分鐘內建立 Microsoft Azure Active Directory (Azure AD) B2C 租用戶。 完成後，您便有 B2C 租用戶 (也稱為目錄) 可用於註冊 B2C 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

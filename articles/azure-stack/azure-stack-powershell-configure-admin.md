@@ -22,11 +22,11 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-operators-powershell-environment"></a>設定 Azure Stack 操作員的 PowerShell 環境
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 作為 Azure Stack 操作員，您可以設定您 Azure Stack 開發套件的 PowerShell 環境。 設定之後，可以使用 PowerShell 管理 Azure Stack 資源，例如建立產品、方案、配額、管理警示等等。本主題僅說明雲端操作員環境的使用，若要為使用者環境設定 PowerShell，請參閱[設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)主題。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 從[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或從 Windows 型外部用戶端 (如果您是[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn))，執行下列先決條件： 
 

@@ -58,7 +58,7 @@ Linux 資料科學虛擬機器可以大幅減輕這樣的負擔。 使用它可�
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>其他版本的資料科學虛擬機器
 另提供 [Ubuntu](dsvm-ubuntu-intro.md) 映像，其中包含許多與 CentOS 映像相同的工具及深入學習架構。 亦提供 [Windows](provision-vm.md) 映像。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須先具有下列項目，才可以建立 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**：若要取得訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/free/)。
@@ -151,7 +151,7 @@ Python 3.5 安裝於 */anaconda/envs/py35/bin*上。
 
 若要叫用 Python 互動式工作階段，只需在殼層中輸入 **python** 。 如果您位於圖形化介面，或已設定 X11 轉寄，則可輸入 **pycharm** 來啟動 PyCharm Python IDE。
 
-若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ````pip```` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如：
+若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ````pip```` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如︰
 
     sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
     sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
@@ -260,7 +260,7 @@ VM 上安裝了下列 Azure 工具：
 您可以從預先安裝的 Firefox 瀏覽器存取 [Azure 入口網站](https://portal.azure.com) 。 在 Azure 入口網站中，您可以建立、管理和監視 Azure 資源。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Azure Machine Learning 是完全受管理的雲端服務，讓您能夠建置、部署及共用預測性分析解決方案。 您可以從 Azure Machine Learning Studio 中建置實驗和模型。 其可從資料科學虛擬機器上的網頁瀏覽器中存取，請造訪 [Microsoft Azure Machine Learning](https://studio.azureml.net)。
+Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部署及共用預測性分析解決方案。 您可以從 Azure Machine Learning Studio 中建置實驗和模型。 其可從資料科學虛擬機器上的網頁瀏覽器中存取，請造訪 [Microsoft Azure Machine Learning](https://studio.azureml.net)。
 
 當您登入 Azure Machine Learning Studio 之後，就能存取實驗畫布，您可以在這裡建置機器學習演算法的邏輯流程。 您也可以存取裝載於 Azure Machine Learning 的 Jupyter 筆記本，並且可以順暢地在 Machine Learning Studio 中使用實驗。 讓您建置的機器學習模型能夠運作，方法是將它們包裝在 Web 服務介面中。 這讓使用任何語言撰寫的用戶端可從機器學習模型中叫用預測。 如需詳細資訊，請參閱 [機器學習文件](https://azure.microsoft.com/documentation/services/machine-learning/)。
 

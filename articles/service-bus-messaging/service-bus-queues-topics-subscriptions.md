@@ -34,7 +34,7 @@ Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的�
 
 使用佇列在訊息產生者與取用者之間居中協調，可提供元件之間的固有鬆散結合。 因為產生者和取用者不知道彼此的存在，所以取用者可以升級，而不會對產生者造成任何影響。
 
-建立佇列是一個多步驟的程序。 您會透過 [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 類別對服務匯流排傳訊實體 (佇列和主題) 執行管理作業，而該類別的建構方式為提供服務匯流排命名空間的基底位址和使用者認證。 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 提供用以建立、列舉及刪除訊息實體的方法。 從 SAS 名稱和金鑰以及服務命名空間管理物件建立 [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) 物件之後，您可以使用 [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) 方法來建立佇列。 例如：
+建立佇列是一個多步驟的程序。 您會透過 [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 類別對服務匯流排傳訊實體 (佇列和主題) 執行管理作業，而該類別的建構方式為提供服務匯流排命名空間的基底位址和使用者認證。 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 提供用以建立、列舉及刪除訊息實體的方法。 從 SAS 名稱和金鑰以及服務命名空間管理物件建立 [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) 物件之後，您可以使用 [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) 方法來建立佇列。 例如︰
 
 ```csharp
 // Create management credentials
@@ -43,7 +43,7 @@ TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvid
 NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
 ```
 
-您接著可以服務匯流排 URI 作為引數，建立佇列物件和訊息工廠。 例如：
+您接著可以服務匯流排 URI 作為引數，建立佇列物件和訊息工廠。 例如︰
 
 ```csharp
 QueueDescription myQueue;
@@ -89,7 +89,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 藉由比較，佇列的訊息傳送功能會直接對應至主題，而其訊息接收功能會對應至訂用帳戶。 除此之外，這表示訂用帳戶支援本節前面所述有關佇列的相同模式︰競爭取用者、暫時分離、負載調節和負載平衡。
 
-如上一節中的範例所示，建立主題類似於建立佇列。 建立服務 URI，然後使用 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 類別來建立命名空間用戶端。 您可以接著使用 [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) 方法建立主題。 例如：
+如上一節中的範例所示，建立主題類似於建立佇列。 建立服務 URI，然後使用 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 類別來建立命名空間用戶端。 您可以接著使用 [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) 方法建立主題。 例如︰
 
 ```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
@@ -102,14 +102,14 @@ SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription
 SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
 ```
 
-您可以接著建立主題用戶端。 例如：
+您可以接著建立主題用戶端。 例如︰
 
 ```csharp
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
 TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
 ```
 
-如前一節中所示，您可以使用訊息傳送者，從主題來回傳送和接收訊息。 例如：
+如前一節中所示，您可以使用訊息傳送者，從主題來回傳送和接收訊息。 例如︰
 
 ```csharp
 foreach (BrokeredMessage message in messageList)

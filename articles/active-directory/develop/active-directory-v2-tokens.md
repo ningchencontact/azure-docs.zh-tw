@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -54,7 +54,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 >
 
 #### <a name="claims-in-id-tokens"></a>ID 權杖中的宣告
-| 名稱 | 宣告 | 範例值 | 說明 |
+| Name | 宣告 | 範例值 | 說明 |
 | --- | --- | --- | --- |
 | audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |識別權杖的預定接收者。 在識別碼權杖中，對象是在「Microsoft 應用程式註冊入口網站」中指派給您應用程式的「應用程式識別碼」。 您的應用程式應驗證此值，並拒絕值不相符的權杖。 |
 | 簽發者 |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |識別建構並傳回權杖的 Security Token Service (STS)，以及在其中驗證使用者的 Azure AD 租用戶。 您的應用程式應驗證簽發者宣告，以確保權杖來自 v2.0 端點。 它也應該使用宣告的 GUID 部分來限制可登入應用程式的租用戶集合。 指出使用者是來自 Microsoft 帳戶之取用者使用者的 GUID 是 `9188040d-6c67-4c5b-b112-36a304b66dad`。 |

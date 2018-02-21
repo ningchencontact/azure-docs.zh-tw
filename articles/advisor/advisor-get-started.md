@@ -1,6 +1,6 @@
 ---
 title: "開始使用 Azure 建議程式 | Microsoft Docs"
-description: "開始使用 Azure Advisor。"
+description: "開始使用 Azure 建議程式。"
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
@@ -16,11 +16,11 @@ ms.date: 02/10/2017
 ms.author: makohli
 ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2017
 ---
-# <a name="get-started-with-azure-advisor"></a>開始使用 Azure Advisor
+# <a name="get-started-with-azure-advisor"></a>開始使用 Advisor
 
 了解如何透過 Azure 入口網站存取 Advisor、取得建議，以及實作建議。
 

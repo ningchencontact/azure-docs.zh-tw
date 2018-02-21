@@ -18,7 +18,7 @@ ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫
 
-「適用於 PostgreSQL 的 Azure 資料庫」是一個受管理的服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
+「適用於 PostgreSQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
 在本教學課程中，您將使用 Azure 入口網站來學習如何：
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/06/2017
 > * 更新資料
 > * 還原資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站

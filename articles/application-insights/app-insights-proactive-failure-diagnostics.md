@@ -122,7 +122,7 @@ ms.lasthandoff: 11/01/2017
 
 *所以你們會看到我的資料嗎？*
 
-* 不會。 服務完全是自動的。 只有您會收到通知。 您的資料是 [不公開的](app-insights-data-retention-privacy.md)。
+* 編號 服務完全是自動的。 只有您會收到通知。 您的資料是 [不公開的](app-insights-data-retention-privacy.md)。
 
 *我是否必須訂閱此警示？*
 

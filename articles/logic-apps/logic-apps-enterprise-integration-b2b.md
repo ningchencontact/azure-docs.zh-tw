@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 建立具有合作夥伴與合約的整合帳戶之後，您就可以使用[企業整合套件](logic-apps-enterprise-integration-overview.md)為您的邏輯應用程式建立企業對企業 (B2B) 工作流程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用 AS2 和 X12 動作，您必須有企業整合帳戶。 了解[如何建立企業整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)。
 
@@ -109,5 +109,5 @@ ms.lasthandoff: 10/11/2017
 * B2B 動作可協助您在整合帳戶中輕鬆地建立合作夥伴與合約，並在邏輯應用程式中取用。
 * 當您使用其他動作延伸您邏輯應用程式的功能時，您可以在其他應用程式與服務 (例如 SalesForce) 之間傳送及接收資料。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md)

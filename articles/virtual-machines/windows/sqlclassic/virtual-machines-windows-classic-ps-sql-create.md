@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 這篇文章提供如何使用 PowerShell Cmdlet 在 Azure 中建立 SQL Server 虛擬機器的步驟。
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 如果您需要本主題的 Resource Manager 版本，請參閱 [使用 Azure PowerShell Resource Manager 佈建 SQL Server 虛擬機器](../sql/virtual-machines-windows-ps-sql-create.md)。
 

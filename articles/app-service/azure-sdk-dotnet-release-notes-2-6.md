@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
     目前 Azure 儲存體版本 2011-08-18 己預計於 2016 年 8 月 1 日移除。 任何將 In-Role Cache 從 Azure SDK 2.5 或較低版本移轉到 Azure SDK 2.6 的作業都必須在這個時間前完成。 如需 版本 Azure 儲存體版本 2011-08-18 的詳細資訊，請參閱 [Microsoft Azure 儲存體服務版本移除更新：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
 
 > [!IMPORTANT]
-> 我們現在宣布將在 2016 年 11 月 30 日淘汰「Azure 受管理的快取服務」和 Azure In-Role Cache。 我們建議您移轉到 Azure Redis Cache 以為這次淘汰做準備。 如需日期和移轉指南的詳細資訊，請參閱 [我適合使用哪個 Azure 快取服務？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> 我們現在宣布將在 2016 年 11 月 30 日淘汰「Azure 受控快取服務」和 Azure In-Role Cache。 我們建議您移轉到 Azure Redis Cache 以為這次淘汰做準備。 如需日期和移轉指南的詳細資訊，請參閱 [我適合使用哪個 Azure 快取服務？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 

@@ -181,7 +181,7 @@ ms.lasthandoff: 11/01/2017
 ### <a name="power-bi"></a>Power BI
 如果您希望更完整地檢視您的資料，您可以 [匯出至 Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)。
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>分析
 [分析](app-insights-analytics.md) 是使用強大的查詢語言來分析遙測的更靈活方式。 如果您想要合併或計算計量的結果，或執行您應用程式近期效能的深入探索，請使用它。 
 
 從計量圖表中，您可以按一下 [分析] 圖示，直接前往對應的分析查詢。

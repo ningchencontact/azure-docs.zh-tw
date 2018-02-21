@@ -128,7 +128,7 @@ A. `Move-AzureRmResource` Cmdlet 可讓您將 Log Analytics 工作區及自動�
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>問：如何阻止代理程式與 Log Analytics 通訊？
 
-答：在 System Center Operations Manager 中，從 OMS 受管理的電腦清單中移除該電腦。 Operations Manager 會將代理程式的設定更新為不再向 Log Analytics 回報。 針對直接連線到 Log Analytics 的代理程式，您可以透過 [控制台] > [安全性和設定] > [Microsoft Monitoring Agent] 來阻止其通訊。
+答：在 System Center Operations Manager 中，從 OMS 受控電腦清單中移除該電腦。 Operations Manager 會將代理程式的設定更新為不再向 Log Analytics 回報。 針對直接連線到 Log Analytics 的代理程式，您可以透過 [控制台] > [安全性和設定] > [Microsoft Monitoring Agent] 來阻止其通訊。
 在 **Azure Log Analytics (OMS)** 下，移除所有列出的工作區。
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>問︰當我試著將工作區從某個 Azure 訂用帳戶移到另一個時，為什麼會發生錯誤？
@@ -157,7 +157,7 @@ A. 每個代理程式所傳送的資料量取決於：
 * 記錄檔和要收集之效能計數器的數目
 * 記錄檔中的資料量
 
-免費定價層是將數個伺服器上架和量測典型資料量的好方法。 [使用量](log-analytics-usage.md)頁面會顯示整體使用方式。
+免費定價層是將數個伺服器上架和量測典型資料量的好方法。 [使用量](log-analytics-usage.md) 頁面會顯示整體使用方式。
 
 對於可執行 WireData 代理程式的電腦，請使用下列查詢查看正在傳送的資料量：
 

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure API 管理中使用 Azure 受管理服務識別 | Microsoft Docs"
-description: "了解如何在 API 管理中使用 Azure 受管理服務識別"
+title: "在 Azure API 管理中使用 Azure 受控服務識別 | Microsoft Docs"
+description: "了解如何在 API 管理中使用 Azure 受控服務識別"
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -17,12 +17,12 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/04/2017
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>在 Azure API 管理中使用 Azure 受管理服務識別
+# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>在 Azure API 管理中使用 Azure 受控服務識別
 
 > [!Note]
-> 適用於「Azure API 管理」的「受管理服務識別」目前為預覽版。
+> 適用於「Azure API 管理」的「受控服務識別」目前為預覽版。
 
-本文說明如何為「API 管理」服務執行個體建立受管理服務識別，以及如何存取其他資源。 Azure Active Directory (Azure AD) 所產生的受管理服務識別可讓您的「API 管理」執行個體輕鬆且安全地存取其他受 Azure AD 保護的資源 (例如 Azure Key Vault)。 這個受管理服務識別是由 Azure 所管理的，因此您不需要佈建或輪替任何祕密。 如需有關「Azure 受管理服務識別」的詳細資訊，請參閱[受管理的服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)。
+本文說明如何為「API 管理」服務執行個體建立受控服務識別，以及如何存取其他資源。 Azure Active Directory (Azure AD) 所產生的受控服務識別可讓您的「API 管理」執行個體輕鬆且安全地存取其他受 Azure AD 保護的資源 (例如 Azure Key Vault)。 這個受控服務識別是由 Azure 所管理的，因此您不需要佈建或輪替任何祕密。 如需有關「Azure 受控服務識別」的詳細資訊，請參閱[受控服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)。
 
 ## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>使用 Resource Manager 範本來建立具有身分識別的 API 管理執行個體
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/04/2017
 2. 更新 Azure Key Vault 執行個體的存取原則，以允許「API 管理」執行個體從它取得祕密。
 3. 透過來自 Key Vault 執行個體的憑證來設定自訂網域名稱，以更新「API 管理」執行個體。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 1. 包含 pfx 憑證的 Key Vault 必須位於相同的 Azure 訂用帳戶中，以及與 API 管理服務相同的資源群組中。 這是 Azure Resource Manager 範本的需求。 
 2. 秘密的內容類型必須是 application/x-pkcs12。 您可以使用下列指令碼來上傳憑證：
 
@@ -263,8 +263,9 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解「Azure 受管理服務識別」：
+深入了解「Azure 受控服務識別」：
 
-* [受管理的服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)
+* 
+            [受控服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)
 * [Azure 資源管理員範本](https://github.com/Azure/azure-quickstart-templates)
 

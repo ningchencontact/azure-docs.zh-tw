@@ -60,16 +60,16 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
    **資源群組**︰使用 IoT 中樞所用的相同資源群組。
 
    **位置**：使用 IoT 中樞使用的同一個位置。
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
    ![在 Azure 入口網站中建立服務匯流排命名空間](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
 ### <a name="add-a-service-bus-queue"></a>新增服務匯流排佇列
 
-1. 開啟服務匯流排命名空間，然後按一下+ 佇列。
-1. 輸入佇列的名稱，然後按一下建立。
-1. 開啟服務匯流排佇列，然後按一下共用存取原則 > + 新增。
-1. 輸入原則名稱，並勾選 管理，然後按一下建立。
+1. 開啟服務匯流排命名空間，然後按一下 [+ 佇列]。
+1. 輸入佇列的名稱，然後按一下 [建立]。
+1. 開啟服務匯流排佇列，然後按一下 [共用存取原則] > [+ 新增]。
+1. 輸入原則名稱，並勾選 [管理]，然後按一下 [建立]。
 
    ![在 Azure 入口網站中新增服務匯流排佇列](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2_add-service-bus-queue-azure-portal.png)
 
@@ -87,7 +87,7 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
    **服務匯流排命名空間**：選取您建立的命名空間。
 
    **服務匯流排佇列**：選取您建立的佇列。
-1. 按一下 [確定] 。
+1. 按一下 [SERVICEPRINCIPAL] 。
 
    ![將端點新增至 Azure 入口網站的 IoT 中樞](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
 
@@ -103,7 +103,7 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
    **端點**：選取您建立的端點。
 
    **查詢字串**：輸入 `temperatureAlert = "true"`。
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
    ![在 Azure 入口網站中新增路由規格](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
 
@@ -119,7 +119,7 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
    **資源群組**︰使用 IoT 中樞所用的相同資源群組。
 
    **位置**：使用 IoT 中樞使用的同一個位置。
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ### <a name="configure-the-logic-app"></a>設定邏輯應用程式
 
@@ -147,17 +147,17 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
 
 1. 建立 SMTP 服務連接。
    1. 按一下 [新增步驟] > [新增動作]。
-   1. 輸入 `SMTP`，並按一下搜尋結果中的 **SMTP** 服務，然後按一下SMTP - 傳送電子郵件。
+   1. 輸入 `SMTP`，並按一下搜尋結果中的 **SMTP** 服務，然後按一下 [SMTP - 傳送電子郵件]。
 
       ![在 Azure 入口網站的邏輯應用程式中建立 SMTP 連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9_create-smtp-connection-logic-app-azure-portal.png)
 
-   1. 輸入您信箱的 SMTP 資訊，然後按一下建立。
+   1. 輸入您信箱的 SMTP 資訊，然後按一下 [建立]。
 
       ![在 Azure 入口網站的邏輯應用程式中輸入 SMTP 連接資訊](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
 
       取得 [Hotmail/Outlook.com](https://support.office.com/en-us/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970)、[Gmail](https://support.google.com/a/answer/176600?hl=en) 和 [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html) 的 SMTP 資訊。
    1. 輸入**寄件者**和**收件者**的電子郵件地址，並對於**主旨**和**內文**輸入 `High temperature detected`。
-   1. 按一下 [儲存] 。
+   1. 按一下 [檔案] 。
 
 邏輯應用程式隨即在您儲存時開始運作。
 

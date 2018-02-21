@@ -47,7 +47,7 @@ please delete some resources of this type before creating a new one.
 配額在每個資源群組、訂用帳戶、帳戶和其他範圍套用。 例如，您的訂用帳戶可能設定為要限制區域的核心數目。 如果您嘗試部署超過允許核心數目的虛擬機器，您會收到錯誤訊息指出已超過配額。
 如需完整的配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 ### <a name="solution-1"></a>解決方案 1
 

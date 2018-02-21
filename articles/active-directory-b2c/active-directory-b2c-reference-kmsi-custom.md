@@ -15,7 +15,7 @@ ms.date: 09/05/2016
 ms.author: vigunase
 ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ Azure AD B2C 現在可讓您的 Web 和原生應用程式啟用「讓我保持�
 ![影像](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定以允許本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 

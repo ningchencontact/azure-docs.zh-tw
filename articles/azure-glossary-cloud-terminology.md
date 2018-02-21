@@ -68,7 +68,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 請參閱 [Azure SQL Database 的主動式異地複寫](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>image
+## <a name="image"></a>映像
 包含作業系統和應用程式組態的檔案，可用來建立任意數目的虛擬機器。 在 Azure 中有兩種類型的映像：VM 映像和作業系統映像。 VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。 作業系統映像只包含通用的作業系統且不含任何資料磁碟組態。  
 請參閱[使用 PowerShell 或 CLI 在 Azure 中瀏覽並選取 Windows 虛擬機器映像](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -93,7 +93,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和優惠類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」。  
 請參閱 [Azure 區域](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>資源
+## <a name="resource"></a>resource
 Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型的資源，例如資料庫或虛擬機器。   
 請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
 

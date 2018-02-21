@@ -8,7 +8,7 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
  
 不過，若為 Windows 和 Linux 虛擬機器，Azure 也可讓您從 Hypervisor 查看 VM 的螢幕擷取畫面︰
 
-![錯誤](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
+![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
 所有區域中的 Azure 虛擬機器都支援這兩項功能。 請注意，螢幕擷取畫面和輸出最多可能需要 10 分鐘的時間才會出現在您的儲存體帳戶中。
 
@@ -31,7 +31,7 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>在新的虛擬機器上啟用診斷
 1. 從預覽入口網站建立新的虛擬機器時，從部署模型下拉式清單中選取 [Azure Resource Manager]︰
  
-    ![資源管理員](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
+    ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
 2. 設定 [監視] 選項來選取您想要放置這些診斷檔案的儲存體帳戶。
  

@@ -17,7 +17,7 @@ ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -68,7 +68,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 請檢查是否列出您的連線服務提供者。 記下下列資訊，稍後當您建立線路時將會用到：
 
-* 名稱
+* Name
 * PeeringLocations
 * BandwidthsOffered
 

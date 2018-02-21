@@ -27,7 +27,7 @@ ms.lasthandoff: 11/09/2017
 如需在 Linux 上安裝 MySQL 的指示，請參閱[如何在 Azure 上安裝 MySQL](../../linux/mysql-install.md)。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>建立執行 Windows Server 2016 的虛擬機器

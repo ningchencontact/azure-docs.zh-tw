@@ -16,7 +16,7 @@ ms.date: 04/24/2017
 ms.author: joroja
 ms.openlocfilehash: 3e4f0bccf02c0332663a746d4ed8e5234c51f54e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -42,7 +42,7 @@ IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 REST A
 2. 取得註冊該使用者的城市。
 3. 以宣告形式將該屬性傳回應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 - 要互動的 REST API 端點。 本逐步解說使用簡單的 Azure 函式應用程式 Webhook 作為範例。

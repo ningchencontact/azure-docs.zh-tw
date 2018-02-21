@@ -47,7 +47,7 @@ ms.lasthandoff: 11/28/2017
 * 將行動服務和 Azure VM 代理程式部署到您想要保護 Windows 機器。
 * 當 Azure 是複寫目標時，行動服務和 Azure VM 代理程式一律都會處於執行狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 用來儲存必要安裝程式的儲存機制
 * 用來儲存必要複雜密碼以向管理伺服器註冊的儲存機制
 
@@ -355,7 +355,7 @@ Get-DscConfigurationStatus
 
 請注意，在此範例中，為電腦名稱新增了一個參數。 遠端檔案現在位於您想要保護之機器應可存取的遠端共用上。 指令碼的最後會頒布組態，然後開始將 DSC 組態套用到目標電腦。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 確定已安裝 xPSDesiredStateConfiguration PowerShell 模組。 針對已安裝 WMF 5.0 的 Windows 電腦，您可以在目標機器上執行下列 Cmdlet 來安裝 xPSDesiredStateConfiguration 模組：
 
 ```powershell

@@ -126,7 +126,7 @@ Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情�
 ## <a name="related-links"></a>相關連結
 * [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
-* [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
+* [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
 * [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 * [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)

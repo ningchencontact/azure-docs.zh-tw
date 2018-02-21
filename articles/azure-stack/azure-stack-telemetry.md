@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遙測
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 系統資料或遙測會透過「已連線使用者體驗」自動上傳至 Microsoft。 從 Azure Stack 遙測收集的資料主要由 Microsoft 小組用來改善我們的客戶體驗，以及進行安全性、健康情況、品質和效能分析。
 

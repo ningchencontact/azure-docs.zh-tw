@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 當應用程式需要存取權透過 Azure Resource Manager 在 Azure Stack 中部署或設定資源時，您會建立服務主體，這是您的應用程式的認證。  然後，您可以只對該服務主體委派必要權限。  
 

@@ -36,7 +36,7 @@ ms.lasthandoff: 10/31/2017
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，請確定已完成下列必要條件：
 

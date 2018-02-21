@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: sujie
 ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/08/2017
 * 使用監視功能進行問題疑難排解。
 * 將現有作業匯出到專案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您需要下列必要條件：
 
 * 完成[利用串流分析來建置 IoT 解決方案](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中直至「建立串流分析作業」的步驟。 

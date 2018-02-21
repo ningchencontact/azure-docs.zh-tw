@@ -69,7 +69,7 @@ Azure DNS 僅支援裝載「靜態」DNS 網域，其中所指定 DNS 記錄的�
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Azure DNS 是否支援網域名稱註冊？
 
-否。 Azure DNS 目前不支援購買網域名稱。 若想要購買網域，必須洽詢第三方網域名稱註冊機構。 註冊機構通常會收取些微年費。 然後便可以在 Azure DNS 裝載這些網域來管理 DNS 記錄。 如需詳細資訊，請參閱 [將網域委派給 Azure DNS](dns-domain-delegation.md) 。
+編號 Azure DNS 目前不支援購買網域名稱。 若想要購買網域，必須洽詢第三方網域名稱註冊機構。 註冊機構通常會收取些微年費。 然後便可以在 Azure DNS 裝載這些網域來管理 DNS 記錄。 如需詳細資訊，請參閱 [將網域委派給 Azure DNS](dns-domain-delegation.md) 。
 
 這是我們的待處理項目上所追蹤的一項功能。 您可以使用我們的意見反應網站來[表達您對這項功能的支持](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar)。
 
@@ -80,19 +80,19 @@ Azure DNS 僅支援裝載「靜態」DNS 網域，其中所指定 DNS 記錄的�
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS 是否支援 DNSSEC？
 
-否。 Azure DNS 目前不支援 DNSSEC。
+編號 Azure DNS 目前不支援 DNSSEC。
 
 這是我們的待處理項目上所追蹤的一項功能。 您可以使用我們的意見反應網站來[表達您對這項功能的支持](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support)。
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS 是否支援區域傳輸 (AXFR/IXFR)？
 
-否。 Azure DNS 目前不支援區域傳輸。 您可以[使用 Azure CLI 將 DNS 區域匯入到 Azure DNS 中](dns-import-export.md)。 接著便可以透過 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、我們的 [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來管理 DNS 記錄。
+編號 Azure DNS 目前不支援區域傳輸。 您可以[使用 Azure CLI 將 DNS 區域匯入到 Azure DNS 中](dns-import-export.md)。 接著便可以透過 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、我們的 [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來管理 DNS 記錄。
 
 這是我們的待處理項目上所追蹤的一項功能。 您可以使用我們的意見反應網站來[表達您對這項功能的支持](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c)。
 
 ### <a name="does-azure-dns-support-url-redirects"></a>Azure DNS 是否支援 URL 重新導向？
 
-否。 URL 重新導向服務實際上並不是 DNS 服務，它們是在 HTTP 層級運作，而不是在 DNS 層級。 有些 DNS 提供者會將 URL 重新導向服務結合成其整體方案的一部分。 Azure DNS 目前不支援此做法。
+編號 URL 重新導向服務實際上並不是 DNS 服務，它們是在 HTTP 層級運作，而不是在 DNS 層級。 有些 DNS 提供者會將 URL 重新導向服務結合成其整體方案的一部分。 Azure DNS 目前不支援此做法。
 
 這項功能列入我們的待處理項目追蹤。 您可以使用我們的意見反應網站來[表達您對這項功能的支持](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape)。
 

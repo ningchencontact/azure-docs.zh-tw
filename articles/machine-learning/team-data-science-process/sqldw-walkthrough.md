@@ -876,7 +876,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 
 ![Azure ML 發佈][11]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 讓我們回顧一下已在此逐步解說教學課程中完成的工作，您已經建立 Azure 資料科學環境、使用大型公用資料集，並在 Team Data Science Process 的整個過程中使用它，而您在這個過程中擷取資料、進行模型定型，然後部署 Azure Machine Learning Web 服務。
 
 ### <a name="license-information"></a>授權資訊

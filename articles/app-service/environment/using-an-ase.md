@@ -72,7 +72,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
     
     ![隔離定價層][2]
 
-6. 選取 [ **建立**]。
+6. 選取 [建立] 。
 
 ## <a name="how-scale-works"></a>調整方式 ##
 

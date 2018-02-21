@@ -30,7 +30,7 @@ ms.lasthandoff: 12/04/2017
 若要設定或編輯原則，請遵循下列步驟：
 
 1. 登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
-2. 瀏覽至您 APIM 執行個體。
+2. 瀏覽至您的 APIM 執行個體。
 3. 按一下 [API] 索引標籤。
 4. 選取其中一個您先前匯入的 API。
 5. 選取 [設計] 索引標籤。

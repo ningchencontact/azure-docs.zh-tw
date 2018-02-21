@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 即使下列步驟與舊版 Visual Studio 中的步驟類似，但這些步驟假設使用的是 Visual Studio 2015。 
 
 1. 啟動 Visual Studio，並在 [首頁] 畫面上選取 [新增專案]。
-2. 在快顯視窗中，選取 [Web] -> [ASP.Net Web 應用程式]。 填入應用程式的 名稱、位置 和 方案名稱，然後按一下確定。
+2. 在快顯視窗中，選取 [Web] -> [ASP.Net Web 應用程式]。 填入應用程式的 [名稱]、[位置] 和 [方案名稱]，然後按一下 [確定]。
 3. 在 [選取範本] 快顯視窗中，選取 [ASP.Net 4.5 範本] 底下的 [空白]，然後按一下 [確定]。 
 
 現在已建立新的空白 Web 應用程式專案，接著我們要將 Azure Mobile Engagement Web SDK 整合至其中。
@@ -103,13 +103,13 @@ ms.lasthandoff: 10/11/2017
    
         engagement.agent.startActivity(name);
         engagement.agent.endActivity();
-2. 事件
+2. 活動
    
         engagement.agent.sendEvent(name, extras);
 3. 錯誤數
    
         engagement.agent.sendError(name, extras);
-4. 作業
+4. 工作
    
         engagement.agent.startJob(name);
         engagement.agent.endJob(name);

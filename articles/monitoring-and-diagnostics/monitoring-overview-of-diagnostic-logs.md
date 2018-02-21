@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
    
    ![新增診斷設定 - 現有的設定](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
     
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且每次產生新的事件資料，都會將診斷記錄傳送至指定的目的地。
 

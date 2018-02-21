@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 在本教學課程中，您會了解如何從通用 Windows 平台應用程式，運用 Azure 通知中樞和 Bing 空間資料來傳遞以位置為基礎的推播通知。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 首先，確定您擁有所有必要的軟體和服務︰
 
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 或更新版本 ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) 也行)。 
@@ -353,7 +353,7 @@ ms.lasthandoff: 10/11/2017
 
 選擇 [儲存]。
 
-在 [方案總管] 中開啟 [參考]，然後選取 [管理 NuGet 套件]。 我們需要新增 **Microsoft Azure 服務匯流排受管理程式庫**的參考；只要搜尋 `WindowsAzure.Messaging.Managed` 並將它新增至專案即可。
+在 [方案總管] 中開啟 [參考]，然後選取 [管理 NuGet 套件]。 我們需要新增 **Microsoft Azure 服務匯流排受控程式庫**的參考；只要搜尋 `WindowsAzure.Messaging.Managed` 並將它新增至專案即可。
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 

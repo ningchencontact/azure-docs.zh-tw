@@ -64,7 +64,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>從 Azure 入口網站取得連接字串詳細資料
-在 [Azure 入口網站](https://portal.azure.com)中，移至適用於 MySQL 的 Azure 資料庫伺服器，然後按一下連接字串 以取得您執行個體的字串清單︰![Azure 入口網站中的 [連接字串] 窗格](./media/howto-connection-strings/connection-strings-on-portal.png)
+在 [Azure 入口網站](https://portal.azure.com)中，移至適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連接字串] 以取得您執行個體的字串清單︰![Azure 入口網站中的 [連接字串] 窗格](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 此字串會提供詳細資料，例如驅動程式、伺服器和其他資料庫連線參數。 修改這些範例，以使用您自己的參數 (例如資料庫名稱、密碼等)。 接著，您可以使用這個字串從您的程式碼和應用程式連接到伺服器。
 

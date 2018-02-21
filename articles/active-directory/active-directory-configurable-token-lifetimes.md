@@ -18,7 +18,7 @@ ms.custom: aaddev
 ms.reviewer: anchitn
 ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -194,7 +194,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 * 針對呼叫 Web API 的原生應用程式建立原則
 * 管理進階原則
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在下列範例中，您建立、更新連結，並刪除應用程式、服務主體和您整體組織的原則。 如果您是 Azure AD 的新手，我們建議您先深入了解[如何取得 Azure AD 租用戶](active-directory-howto-tenant.md)，然後再利用這些範例繼續進行。  
 
 若要開始使用，請執行下列步驟：

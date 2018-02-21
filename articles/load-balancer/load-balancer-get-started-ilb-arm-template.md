@@ -23,7 +23,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用範本建立內部負載平衡器
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [HttpTrigger Nodejs 函數](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-ilb-arm-template.md)

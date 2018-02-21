@@ -22,7 +22,7 @@ Azure SQL Database 是關聯式資料庫即服務，使用 Microsoft SQL Server 
 
 了解如何建立 SQL Database、使用 SQL Management Studio 加以管理，並以 C#、Java、Python、Node.js 和 Ruby 等進行開發：
 
-- [Azure 入口網站](/azure/sql-database/sql-database-get-started-portal)
+- [HttpTrigger Nodejs 函數](/azure/sql-database/sql-database-get-started-portal)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
 - [Azure CLI](/azure/sql-database/sql-database-get-started-cli)
 

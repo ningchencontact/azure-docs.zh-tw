@@ -16,7 +16,7 @@ ms.date: 06/01/2017
 ms.author: bwren
 ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -98,7 +98,7 @@ Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使�
 
 * 若要使用第三方程式庫，必須在 [Windows 混合式 Runbook 背景工作角色](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install)或 [Linux 混合式 Runbook 背景工作角色](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install)上執行 Runbook，且必須已先在機器上安裝程式庫，再啟動 Runbook。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 在決定特定 Runbook 要使用何種類型時，您應該考慮下列其他事項。
 
 * 您無法將 Runbook 從圖形化轉換為文字類型，反之亦然。

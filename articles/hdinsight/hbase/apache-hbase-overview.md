@@ -31,7 +31,7 @@ Apache HBase 是開放原始碼的 NoSQL 資料庫，其建置於 Hadoop 上並�
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight 中的 HBase 是如何實作的？
-HDInsight HBase 會以受管理叢集的形式提供，並整合到 Azure 環境中。 叢集依設定會將資料直接儲存至 [Azure 儲存體](./../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake Store](./../hdinsight-hadoop-use-data-lake-store.md)，使其在效能與成本的選擇中提供低延遲性與高度彈性。 這可讓客戶建置使用大型資料集的互動式網站、建置可儲存數百萬端點上之感應器和遙測資料的服務，以及使用 Hadoop 工作分析此資料。 HBase 和 Hadoop 是在 Azure 中處理巨量資料專案的好起點，尤其是它們讓即時應用程式能夠使用大型資料集。
+HDInsight HBase 會以受控叢集的形式提供，並整合到 Azure 環境中。 叢集依設定會將資料直接儲存至 [Azure 儲存體](./../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake Store](./../hdinsight-hadoop-use-data-lake-store.md)，使其在效能與成本的選擇中提供低延遲性與高度彈性。 這可讓客戶建置使用大型資料集的互動式網站、建置可儲存數百萬端點上之感應器和遙測資料的服務，以及使用 Hadoop 工作分析此資料。 HBase 和 Hadoop 是在 Azure 中處理巨量資料專案的好起點，尤其是它們讓即時應用程式能夠使用大型資料集。
 
 HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區功能、讀取和寫入的強大一致性，以及自動容錯移轉功能。 透過在記憶體內部快取讀取和高輸送量的串流寫入，來提高效能。 可以在虛擬網路內建立 HBase 叢集。 如需詳細資訊，請參閱[在 Azure 虛擬網路上建立 HDInsight 叢集](./apache-hbase-provision-vnet.md)。
 
@@ -58,7 +58,7 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
   
     應用程式可以將 HBase 做為資料存放區，並在此基礎上執行。 範例包括 Phoenix、OpenTSDB、Kiji 及 Titan。 應用程式也可與 HBase 整合。 範例包括 Hive、Pig、Solr、Storm、Flume、Impala、Spark、Ganglia 及 Drill。
 
-## <a name="next-steps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 * [開始在 HDInsight 中搭配使用 HBase 與 Hadoop](./apache-hbase-tutorial-get-started-linux.md)
 * [在 Azure 虛擬網路上建立 HDInsight 叢集](./apache-hbase-provision-vnet.md)
 * [在 HDInsight 中設定 HBase 複寫](apache-hbase-replication.md)

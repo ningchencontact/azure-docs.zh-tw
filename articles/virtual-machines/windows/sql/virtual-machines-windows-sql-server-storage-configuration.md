@@ -16,7 +16,7 @@ ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/12/2017
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用自動儲存體組態設定，您的虛擬機器需具備下列特性︰
 
 * 使用 [SQL Server 資源庫映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)佈建。

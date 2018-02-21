@@ -22,14 +22,14 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-in-azure-stack"></a>Azure Stack 中的 DNS
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 包括下列 DNS 功能：
 * 支援 DNS 主機名稱解析
 * 使用 API 建立和管理 DNS 區域和記錄
 
 ## <a name="support-for-dns-hostname-resolution"></a>支援 DNS 主機名稱解析
-您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location 與 Azure Stack 受管理 DNS 伺服器中公用 IP 位址的對應。  
+您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location 與 Azure Stack 受控 DNS 伺服器中公用 IP 位址的對應。  
 
 例如，如果您建立公用 IP 資源並以 **contoso** 作為本機 Azure Stack 位置的網域名稱標籤，則完整網域名稱 (FQDN) **contoso.local.cloudapp.azurestack.external** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure Stack 中的公用 IP 位址。
 

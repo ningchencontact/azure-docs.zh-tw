@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites-for-device-failover"></a>裝置容錯移轉需求
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 對於裝置容錯移轉，請確定符合下列必要條件：
 

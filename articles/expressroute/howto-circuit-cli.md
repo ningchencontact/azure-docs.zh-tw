@@ -17,7 +17,7 @@ ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -124,7 +124,7 @@ az network express-route list-service-providers
 
 請檢查回應以查看是否列出您的連線提供者。 記下下列資訊，當您建立線路時將會用到：
 
-* 名稱
+* Name
 * PeeringLocations
 * BandwidthsOffered
 

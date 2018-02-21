@@ -22,11 +22,11 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中建立方案
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 [方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為使用者製作方案。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
 
-1. 登入 Azure Stack 系統管理員入口網站 ( https://adminportal.local.azurestack.external )。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
+1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
 
 2. 若要建立使用者可訂閱的方案和供應項目，請按一下 [新增] > [租用戶供應項目 + 方案] > [方案]。
 

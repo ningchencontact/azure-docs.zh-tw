@@ -143,7 +143,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 
 | 部分 | 說明 |
 | --- | --- |
-| Title |報表名稱。 |
+| 標題 |報表名稱。 |
 | QueryString |報表識別碼的連結。 |
 
     <div id="reports-nav" class="panel-collapse collapse">

@@ -45,7 +45,7 @@ Log Analytics 升級的主要改變是新的查詢語言，相較於先前的語
 
 您可以在 [Azure Log Analytics 中用於建立和編輯記錄查詢的入口網站](log-analytics-log-search-portals.md)看到兩個入口網站的簡單說明。  在 [Analytics 入口網站使用者入門](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal)中有新入口網站的逐步教學課程。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 在升級後的工作區中，警示的運作方式不變，但它們執行的查詢必須以新的語言撰寫。  任何在升級前便已存在的現有警示規則，將自動轉換成新的語言。  如需詳細資訊，請參閱[了解 Log Analytics 中的警示](log-analytics-alerts.md)。
 
 由警示傳出的 Runbook 和 Webhook 承載的格式已改變。  可至[將動作新增至 Log Analytics 中的警示規則](log-analytics-alerts-actions.md)取得新承載格式的詳細資料。

@@ -22,7 +22,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/04/2017
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service 環境的自訂組態設定
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 因為 App Service 環境對單一客戶是隔離的，所以有某些專門套用到 App Service 環境的組態設定。 本文記錄各種可供 App Service 環境使用的特定自訂。
 
 如果您沒有 App Service 環境，請參閱 [如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。

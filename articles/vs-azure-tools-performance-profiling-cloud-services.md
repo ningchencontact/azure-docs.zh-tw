@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/28/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>測試雲端服務的效能
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 您可以利用下列方式測試雲端服務的效能：
 
 * 使用 Azure 診斷來收集關於要求和連接的資訊，並檢閱可顯示從客戶觀點來看，服務執行的情況的網站統計資料。 若要開始使用，請參閱 [為 Azure 雲端服務和虛擬機器設定診斷功能](http://go.microsoft.com/fwlink/p/?LinkId=623009)。

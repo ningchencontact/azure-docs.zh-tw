@@ -33,7 +33,7 @@ ms.lasthandoff: 12/18/2017
 * [變更 SA 密碼](#password)
 * [設定遠端連線](#remote)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/18/2017
    > [!TIP]
    > Developer Edition 可讓您使用 Enterprise Edition 的功能進行測試或開發，但不需要 SQL Server 授權費用。 您只需支付執行 Linux VM 的費用。
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 1. 在 [基本概念] 視窗中，填入 Linux VM 的詳細資料。 
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/18/2017
     > [!Note]
     > 您可以選擇使用 SSH 公開金鑰或密碼進行驗證。 SSH 較為安全。 如需有關如何產生 SSH 金鑰的指示，請參閱[在 Linux 和 Mac 上為 Azure 中的 Linux VM 建立 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)。
 
-1. 按一下 [確定] 。
+1. 按一下 [SERVICEPRINCIPAL] 。
 
 1. 在 [大小] 視窗中，選擇機器大小。 若要查看其他大小，請選取 [檢視全部]。 如需關於 VM 機器大小的詳細資訊，請參閱 [Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)。
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 在 [設定] 視窗中，您可以對設定進行變更或保留預設設定。
 
-1. 按一下 [確定] 。
+1. 按一下 [SERVICEPRINCIPAL] 。
 
 1. 在 [摘要] 頁面上，按一下 [購買] 以建立 VM。
 

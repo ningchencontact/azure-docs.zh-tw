@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文將示範如何使用 Microsoft Azure Blob 儲存體執行一般案例。 這些範例均以 Objective-C 撰寫，並使用 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)。 所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob。 如需 Blob 的詳細資訊，請參閱 [後續步驟](#next-steps) 一節。 您也可以下載 [範例應用程式](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，以快速查看在 iOS 應用程式中使用 Azure 儲存體的方法。
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]

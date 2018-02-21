@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 您可以在 Nuget.org 上的[這裡](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)取得 Azure Data Lake U-SQL SDK。在使用它之前，您必須確定您具有下列相依性。
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 
 Data Lake U-SQL SDK 需要下列相依性︰
 
@@ -73,7 +73,7 @@ Data Lake U-SQL SDK 需要下列相依性︰
 |C6A101DDCB470506| | |執行階段版本的雜湊字串|陰影複製本機執行所需的執行階段檔案|
 | |Script_66AE4909AA0ED06C| |指令碼名稱 + 指令碼路徑的雜湊字串|編譯輸出和執行步驟記錄|
 | | |\_script\_.abr|編譯器輸出|代數檔案|
-| | |\_ScopeCodeGen\_.*|編譯器輸出|產生的 Managed 程式碼|
+| | |\_ScopeCodeGen\_.*|編譯器輸出|產生的受控碼|
 | | |\_ScopeCodeGenEngine\_.*|編譯器輸出|產生的原生程式碼|
 | | |參考的組件|組件參考|參考的組件檔案|
 | | |deployed_resources|資源部署|資源部署檔案|
@@ -346,21 +346,21 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |屬性|類型|說明|
 |--------|----|-----------|
 |AlgebraPath|字串|代數檔案的路徑 (代數檔案是其中一個編譯結果)|
-|CodeBehindReferences|string|如果指令碼具有其他程式碼後置參考，請指定路徑並以 ';' 分隔|
+|CodeBehindReferences|字串|如果指令碼具有其他程式碼後置參考，請指定路徑並以 ';' 分隔|
 |CppSdkDir|字串|CppSDK 目錄|
 |CurrentDir|字串|目前的目錄|
-|DataRoot|string|資料根路徑|
+|DataRoot|字串|資料根路徑|
 |DebuggerMailPath|字串|偵錯工具郵件槽的路徑|
 |GenerateUdoRedirect|布林|是否要產生載入重新導向覆寫設定的組件|
 |HasCodeBehind|布林|指令碼是否具有程式碼後置|
-|InputDir|string|輸入資料的目錄|
+|InputDir|字串|輸入資料的目錄|
 |MessagePath|字串|訊息傾印檔案路徑|
-|OutputDir|string|輸出資料的目錄|
+|OutputDir|字串|輸出資料的目錄|
 |平行處理原則|int|執行代數的平行處理原則|
 |ParentPid|int|服務監視器結束的父項 PID，設定為 0 或負數以略過|
 |ResultPath|字串|結果傾印檔案路徑|
 |RuntimeDir|字串|執行階段目錄|
-|ScriptPath|string|尋找指令碼的位置|
+|ScriptPath|字串|尋找指令碼的位置|
 |Shallow|布林|是否進行淺層編譯|
 |TempDir|字串|Temp 目錄|
 |UseDataBase|字串|指定程式碼後置暫存組件註冊要使用的資料庫，預設為 master|

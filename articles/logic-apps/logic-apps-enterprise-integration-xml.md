@@ -37,5 +37,5 @@ ms.lasthandoff: 10/11/2017
 ## <a name="try-it-out"></a>試做
 使用 Azure Logic Apps 中的 XML 功能，[部署全功能的邏輯應用程式 (GitHub sample)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline)。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")

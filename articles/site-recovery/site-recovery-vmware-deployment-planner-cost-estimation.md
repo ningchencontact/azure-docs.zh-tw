@@ -154,7 +154,7 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|貨幣|名稱||貨幣|名稱||貨幣|名稱|
+|貨幣|Name||貨幣|Name||貨幣|Name|
 |---|---|---|---|---|---|---|---|
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|

@@ -23,7 +23,7 @@ ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>建立和管理 Azure SQL Database 伺服器與資料庫
 
-Azure SQL Database 是在 Microsoft Azure 中在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md) 內建立的一種受管理資料庫，且[針對不同工作負載定義好一組運算和儲存資源](sql-database-service-tiers.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。 
+Azure SQL Database 是在 Microsoft Azure 中在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md) 內建立的一種受控資料庫，且[針對不同工作負載定義好一組運算和儲存資源](sql-database-service-tiers.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。 
 
 ## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>Azure SQL Database 可以是單一、集區或分割的資料庫
 

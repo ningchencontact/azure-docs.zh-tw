@@ -17,7 +17,7 @@ ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -74,7 +74,7 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 6. ACS 驗證 IP 所簽發的安全性權杖、將此權杖中的身分識別宣告輸入至 ACS 規則引擎、計算輸出的身分識別宣告，然後簽發含有這些輸出宣告的新安全性權杖。
 7. ACS 將用戶端重新導向至 RP。 用戶端將 ACS 所簽發的全新安全性權杖傳送給 RP。 RP 在 ACS 所簽發的安全性權杖上驗證簽章及宣告，然後傳回原先要求的頁面。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本指南中的工作，您需要有下列項目：
 
 * Java Developer Kit (JDK) 1.6 版或更新版本。

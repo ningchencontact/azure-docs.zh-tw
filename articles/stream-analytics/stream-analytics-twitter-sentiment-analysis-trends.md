@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 為了在 Twitter 上即時找出熱門話題，公司需要即時分析重要話題的推文數量和情感。 換言之，他們需要以該社交媒體摘要為基礎的情感分析分析引擎。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在本教學課程中，您將會透過用戶端應用程式來連線到 Twitter，並尋找具有特定主題標籤 (可設定) 的推文。 若要執行應用程式並使用 Azure 串流分析來分析推文，您必須具備下列項目：
 
 * Azure 訂用帳戶
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立新事件中樞的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. 按一下 [建立] 。
+7. 按一下頁面底部的 [新增] 。
 
 
 ### <a name="grant-access-to-the-event-hub"></a>授權存取事件中樞
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 1.  在事件命名空間刀鋒視窗中，按一下 [事件中樞]，然後按一下新事件中樞的名稱。
 
-2.  在事件中樞刀鋒視窗中，按一下 共用存取原則，然後按一下+&nbsp;新增。
+2.  在事件中樞刀鋒視窗中，按一下 [共用存取原則]，然後按一下 [+&nbsp;新增]。
 
     >[!NOTE]
     >請確定您正在使用事件中樞，而不是事件中樞命名空間。
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立新事件中樞存取原則的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  按一下 [建立] 。
+4.  按一下頁面底部的 [新增] 。
 
 5.  部署原則之後，在共用存取原則清單中按一下此原則。
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 10/11/2017
     >如果您看到錯誤，而且在視窗下半部沒有看到推文的資料流，請仔細檢查金鑰和祕密。 也請檢查連接字串 (請確定不包含 `EntityPath` 索引鍵和值。)
 
 
-## <a name="create-a-stream-analytics-job"></a>建立串流分析工作
+## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
 既然正在從 Twitter 即時串流推文事件，您可以設定串流分析作業來即時分析這些事件。
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立新的串流分析作業](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. 按一下 [建立] 。
+3. 按一下頁面底部的 [新增] 。
 
     即可建立作業，入口網站會顯示作業詳細資料。
 
@@ -229,7 +229,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立串流分析作業的新輸入](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. 按一下 [建立] 。
+3. 按一下頁面底部的 [新增] 。
 
 
 ## <a name="specify-the-job-query"></a>指定作業查詢
@@ -250,7 +250,7 @@ ms.lasthandoff: 10/11/2017
 
     這會開啟刀鋒視窗，讓您決定要花多少時間來讀取輸入資料流，以指定取得多少範例資料。
 
-4. 將 分鐘 設定為 3，然後按一下確定。 
+4. 將 [分鐘] 設定為 3，然後按一下 [確定]。 
     
     ![輸入資料流的取樣選項，已選取 [3 分鐘]。](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
 
@@ -274,7 +274,7 @@ ms.lasthandoff: 10/11/2017
 
 5. 按一下 [ **測試**]。 這時會針對您已取樣的資料執行查詢。
     
-6. 按一下 [儲存] 。 這會將查詢儲存在串流分析作業中。 (不會儲存範例資料。)
+6. 按一下 [檔案] 。 這會將查詢儲存在串流分析作業中。 (不會儲存範例資料。)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>使用資料流中的不同欄位進行實驗 
@@ -314,7 +314,7 @@ ms.lasthandoff: 10/11/2017
     
     ![串流分析作業的 [新輸出] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. 按一下 [建立] 。 
+4. 按一下頁面底部的 [新增] 。 
 
     Azure 會建立儲存體帳戶，並自動產生金鑰。 
 
@@ -331,7 +331,7 @@ ms.lasthandoff: 10/11/2017
 
     ![啟動串流分析工作](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
 
-3. 在 啟動作業 刀鋒視窗的 作業輸出開始時間 中，選取 現在，然後按一下啟動。 
+3. 在 [啟動作業] 刀鋒視窗的 [作業輸出開始時間] 中，選取 [現在]，然後按一下 [啟動]。 
 
     ![串流分析作業的 [啟動作業] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
 
@@ -367,7 +367,7 @@ ms.lasthandoff: 10/11/2017
     HAVING COUNT(*) > 20
     ```
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 5. 請確定 TwitterWpfClient 應用程式正在執行。 
 

@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 如果您選取錯誤的目錄或帳戶沒有足夠的權限，就會發生此問題。 
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 ### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>情節 1：在 [Azure 入口網站](https://portal.azure.com)收到錯誤訊息
 

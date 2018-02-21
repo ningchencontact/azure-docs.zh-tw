@@ -30,9 +30,9 @@ ms.lasthandoff: 11/04/2017
 
 >**無法刪除 # 個 Blob (共 # 個)：<br>：目前 Blob 上有租用，但要求中沒有指定任何租用識別碼。**
 
-Azure VM 中使用的虛擬硬碟是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。  如需 Azure 磁碟的詳細資訊，請參閱[](../../virtual-machines/windows/about-disks-and-vhds.md)。 Azure 能預防刪除已連接 VM 的磁碟，以避免損毀。 它也能預防刪除分頁 Blob 已連接 VM 的容器和儲存體帳戶。 
+Azure VM 中使用的虛擬硬碟是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。  如需 Azure 磁碟的詳細資訊，[請參閱](../../virtual-machines/windows/about-disks-and-vhds.md)。 Azure 能預防刪除已連接 VM 的磁碟，以避免損毀。 它也能預防刪除分頁 Blob 已連接 VM 的容器和儲存體帳戶。 
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 收到前述任一錯誤時，刪除儲存體帳戶、容器或 Blob 的程序如下： 
 1. [識別連接 VM 的 Blob](#step-1-identify-blobs-attached-to-a-vm)
 2. [刪除已連接**作業系統磁碟**的 VM](#step-2-delete-vm-to-detach-os-disk)

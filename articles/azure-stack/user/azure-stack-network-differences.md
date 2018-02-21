@@ -16,7 +16,7 @@ ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 的網路功能提供了 Azure Stack 中的許多功能，但在開始部署之前應該瞭解一些差異。
 

@@ -25,9 +25,9 @@ ms.lasthandoff: 11/23/2017
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
-這個**功能表**所連結的文章會說明如何在各種環境中建立資料的特徵。 此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
+這個**功能表**所連結的文章會說明如何在各種環境中建立資料的特徵。 此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
 
-特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 特徵的工程設計與選取是[什麼是 Team Data Science Process 生命週期？](overview.md)中所概述 TDSP 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。 
+特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 特徵的工程設計與選取是何謂 [Team Data Science Process 生命週期？](overview.md)中所概述 TDSP 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。 
 
 * **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
 * **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。

@@ -25,9 +25,9 @@ ms.lasthandoff: 10/11/2017
 
 了解如何使用 Azure 入口網站建立 Azure Data Lake Analytics 帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md)中定義作業，以及將作業提交至 Data Lake Analytics 服務。 如需有關 Data Lake Analytics 的詳細資訊，請參閱 [Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-開始進行本教學課程之前，您必須擁有 **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+開始進行本教學課程之前，您必須擁有 **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="create-a-data-lake-analytics-account"></a>建立 Data Lake Analytics 帳戶
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
    * **位置**。 為 Data Lake Analytics 帳戶選取 Azure 資料中心。
    * **Data Lake Store**：請依照指示來建立新的 Data Lake Store 帳戶，或選取現有的帳戶。 
 4. (選擇性) 選取 Data Lake Analytics 帳戶的定價層。
-5. 按一下 [建立] 。 
+5. 按一下頁面底部的 [新增] 。 
 
 
 ## <a name="your-first-u-sql-script"></a>您的第一個 U-SQL 指令碼

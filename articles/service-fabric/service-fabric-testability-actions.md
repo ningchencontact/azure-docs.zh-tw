@@ -36,7 +36,7 @@ Testability 動作分為兩個主要貯體：
 為了提供更好的品質驗證，請在引發各種非失誤性及失誤性錯誤時，執行服務及商務工作負載。 失誤性錯誤會模擬服務處理程序在部分工作流程中突然結束的案例。 當服務複本由 Service Fabric 還原時，便會測試復原路徑。 這有助於測試資料的一致性，以及服務狀態在失敗之後是否已正確維護。 其他錯誤集 (非失誤性錯誤) 會測試由 Service Fabric 移動的複本是否正確反應。 這會測試 RunAsync 方法中的取消處理作業。 該服務必須檢查已設定的取消語彙基元、正確地儲存其狀態，並結束 RunAsync 方法。
 
 ## <a name="testability-actions-list"></a>Testability 動作清單
-| 動作 | 說明 | Managed API | PowerShell Cmdlet | 非失誤性/失誤性錯誤 |
+| 動作 | 說明 | 受控 API | PowerShell Cmdlet | 非失誤性/失誤性錯誤 |
 | --- | --- | --- | --- | --- |
 | CleanTestState |會移除叢集的所有測試狀態，以防止測試驅動程式不正確關閉。 |CleanTestStateAsync |Remove-ServiceFabricTestState |不適用 |
 | InvokeDataLoss |會引發資料遺失至服務分割區中。 |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |非失誤性 |

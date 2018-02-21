@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 如果您沒有 Azure 訂用帳戶，請建立 [免費帳戶](https://azure.microsoft.com/free/) ，以便存取任何 Azure 服務。
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
+## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
 若要備份檔案與資料夾，您必須在要儲存這些資料的區域中建立復原服務保存庫。 您也需要決定儲存體的複寫方式。
 
 ### <a name="to-create-a-recovery-services-vault"></a>建立復原服務保存庫
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
 
     ![下載保存庫認證](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    保存庫認證會下載至「下載」資料夾。 保存庫認證下載完成之後，您會看到快顯視窗，詢問您是否要開啟或儲存認證。 按一下 [儲存] 。 如果您不小心按到 [開啟]，請讓嘗試開啟保存庫認證的對話方塊失敗。 您無法開啟保存庫認證。 請繼續進行下一個步驟。 保存庫認證位於 [下載] 資料夾中。   
+    保存庫認證會下載至「下載」資料夾。 保存庫認證下載完成之後，您會看到快顯視窗，詢問您是否要開啟或儲存認證。 按一下 [檔案] 。 如果您不小心按到 [開啟]，請讓嘗試開啟保存庫認證的對話方塊失敗。 您無法開啟保存庫認證。 請繼續進行下一個步驟。 保存庫認證位於 [下載] 資料夾中。   
 
     ![保存庫認證下載完成](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 10/11/2017
     ![Windows Server 備份排程](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 3. 在排程備份精靈的 [開始使用] 頁面上，按 [下一步] 。
 4. 在 [選取要備份的項目] 頁面上，按一下 [新增項目] 。
-5. 選取您要備份的檔案和資料夾，然後按一下確定 。
+5. 選取您要備份的檔案和資料夾，然後按一下 [確定] 。
 6. 按 [下一步] 。
 7. 在 [指定備份排程] 頁面上，指定[備份排程]，然後按 [下一步]。
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 10/11/2017
 9. 在 [選擇初始備份類型] 頁面上，選擇初始備份類型。 讓 [自動透過網路] 選項保持已選取狀態，然後按 [下一步]。
 
     您可以透過網路自動備份，也可以離線備份。 這篇文章的其餘部分說明自動備份的程序。 如果您想要執行離線備份，請檢閱 [在 Azure Backup 中離線備份工作流程](backup-azure-backup-import-export.md) 一文以了解其他資訊。
-10. 在 確認 頁面上檢閱資訊，然後按一下完成 。
+10. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成] 。
 11. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>第一次備份檔案和資料夾

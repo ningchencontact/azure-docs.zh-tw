@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: magoedte;sngun
 ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/14/2017
      
      | **參數** | **值** |
      |:--- |:--- |
-     | 名稱 |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
      | 類型 |字串 |
      | 值 |{"Branch":\<您的分支名稱>,"RunbookFolderPath":\<Runbook 資料夾路徑>,"ProviderType":\<GitHub 的值為 1>,"Repository":\<您的儲存機制名稱>,"Username":\<您的 GitHub 使用者名稱>} |
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/14/2017
 
     |**參數**            |**值** |
     |:---|:---|
-    | 名稱  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
     | 類型 | Unknown(Encrypted) |
     | 值 | <*已加密的 OAuthToken*> |  
 

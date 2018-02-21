@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 | ResourceProvider |文字 |此欄位代表所收集資料的資源提供者 - Microsoft.RecoveryServices |
 | ResourceType |文字 |此欄位代表所收集資料的資源類型 - Vaults |
 
-### <a name="job"></a>作業
+### <a name="job"></a>工作 (Job)
 下表提供作業相關欄位的詳細資料。
 
 | 欄位 | 資料類型 | 說明 |

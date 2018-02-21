@@ -23,7 +23,7 @@ ms.lasthandoff: 12/04/2017
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>在 Azure Site Recovery 中管理 VMware vCenter Server
 本文討論可以在 VMware vCenter 上執行的各種 Site Recovery 作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 **支援 VMware vCenter 和 VMware vSphere ESX 主機** | **詳細資料** |
 |--- | --- |

@@ -176,5 +176,5 @@ OUTPUT @res
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
-* [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
+* [使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 * [使用 Azure 入口網站監視和疑難排解 Azure Data Lake Analytics 作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

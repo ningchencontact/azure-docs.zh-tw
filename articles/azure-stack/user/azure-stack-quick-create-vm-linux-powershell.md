@@ -23,11 +23,11 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 建立 Linux 虛擬機器 
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 Azure PowerShell 可用來從命令列或在指令碼中建立和管理 Azure Stack 中的資源。  本指南詳細說明如何使用 PowerShell 來建立在 Azure Stack 中執行 Ubuntu 伺服器的虛擬機器。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 * 請確定 Azure Stack 操作員已將 “Ubuntu Server 16.04 LTS” 映像新增至 Azure Stack 市集。  
 

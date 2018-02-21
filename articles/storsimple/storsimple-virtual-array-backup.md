@@ -57,7 +57,7 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
    
     ![瀏覽至備份原則](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 ### <a name="take-a-manual-backup"></a>進行手動備份
 
@@ -89,7 +89,7 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
    
     ![已完成的備份](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
-## <a name="view-existing-backups"></a>檢視現有的備份
+## <a name="view-existing-backups"></a>檢視現有備份
 若要檢視現有備份，請在 Azure 入口網站中執行下列步驟。
 
 #### <a name="to-view-existing-backups"></a>檢視現有備份
@@ -107,7 +107,7 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
    
     ![篩選備份](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. 按一下 [Apply (套用)] 。 已篩選的備份清單會顯示在 [備份目錄] 刀鋒視窗中。 請注意，永遠只會顯示 100 個備份項目。
+3. 按一下 [套用]。 已篩選的備份清單會顯示在 [備份目錄] 刀鋒視窗中。 請注意，永遠只會顯示 100 個備份項目。
    
     ![更新備份目錄](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

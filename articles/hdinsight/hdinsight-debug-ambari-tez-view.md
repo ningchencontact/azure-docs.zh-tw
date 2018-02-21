@@ -26,9 +26,9 @@ ms.lasthandoff: 12/06/2017
 適用於 HDInsight 的 Ambari Web UI 包含 Tez 檢視，可用來了解使用 Tez 的作業，和為該類型作業偵錯。 Tez 檢視可讓您把作業視覺化有已連接項目的圖表、深入每個項目、取得統計資料，以及記錄資訊。
 
 > [!IMPORTANT]
-> 本文件中的步驟需要一個使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支援 HTML5 的新式網頁瀏覽器。

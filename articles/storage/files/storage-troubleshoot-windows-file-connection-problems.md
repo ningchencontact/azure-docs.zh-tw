@@ -88,7 +88,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 當您到達同時開啟的控制代碼上限時 (此為針對掛接檔案共用之電腦上的檔案所允許的上限)，即會發生錯誤 1816。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 關閉一些控制代碼以減少同時開啟的控制代碼數，然後再試一次。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
@@ -127,7 +127,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 根據預設，Windows 檔案總管不會以系統管理員身分執行。 如果您從系統管理命令提示字元執行 net use，就是以系統管理員身分對應網路磁碟機。 因為對應的磁碟機是以使用者為中心，如果磁碟機掛接在不同的使用者帳戶下，登入的使用者帳戶不會顯示此磁碟機。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 從非系統管理員命令掛接共用。 或者，您可以依照[此 TechNet 主題](https://technet.microsoft.com/library/ee844140.aspx)設定 **EnableLinkedConnections** 登錄值。
 
 <a id="netuse"></a>
@@ -137,7 +137,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者帳戶名稱開頭為斜線，磁碟機對應將會失敗。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 您可以使用下列其中一種方式來解決這個問題：
 
@@ -158,7 +158,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 磁碟機是按每個使用者掛接。 如果您的應用程式或服務正在與掛接磁碟機之帳戶不同的使用者帳戶下執行，應用程式將不會看到該磁碟機。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方法
 
 使用下列其中一個解決方案：
 

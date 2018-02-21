@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="google-cloud-messaging-for-android-gcm"></a>Google Cloud Messaging for Android (GCM)
 若要讓原生推送使用 GCM，您必須依照 Google 的指示進行。 然後，您必須貼上在沒有 IP 限制下設定的伺服器簡易 API 金鑰。 需要與 SDK for Android 1.12.0 版以上整合。
 
-如需詳細資訊，請參閱： 
+如需詳細資訊，請參閱 
 
 * [SDK 文件 Android 如何整合 GCM][Link 5]
 * [Google 開發人員 GCM 指南](http://developer.android.com/guide/google/gcm/gs.html)
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="amazon-device-messaging-for-android-adm"></a>Android 的 Amazon 裝置傳訊 (ADM)
 若要讓原生推送使用 ADM，您必須提供由用戶端識別碼和用戶端密碼組成的 <OAuth credentials> (需要與 Android 2.1.0 版以上的 SDK 整合)。
 
-如需詳細資訊，請參閱： 
+如需詳細資訊，請參閱 
 
 * [SDK 文件 Android 如何整合 ADM][Link 5]
 * [Amazon 開發人員 ADM 文件](https://developer.amazon.com/sdk/adm/credentials.html#Getting)

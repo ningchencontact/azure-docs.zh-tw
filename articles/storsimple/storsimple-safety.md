@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 * 請勿利用單元後方電源和冷卻模組 (PCM) 上的把手抬起機箱。 這些把手不是設計來承受重量的。
 
 ## <a name="connection-precautions"></a>連接預防措施
-![警告圖示](./media/storsimple-safety/IC740879.png) ![電擊圖示](./media/storsimple-safety/IC740882.png) **警告！**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **警告！**
 
 減少傷害、電擊或死亡的可能性：
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 * 從機箱移除 PCM 之前請務必中斷電源連接。
 * 假設電源供應線上的插頭是主要的中斷裝置，請確保插座位於設備附近且可輕鬆觸及。
 
-![警告圖示](./media/storsimple-safety/IC740879.png) ![電擊圖示](./media/storsimple-safety/IC740882.png) **警告！**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **警告！**
 
 降低電力連接過熱或火災的可能性：
 

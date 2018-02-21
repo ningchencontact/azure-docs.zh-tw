@@ -30,7 +30,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 「媒體服務」提供動態封裝，這可讓您以「媒體服務」支援的串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
 >[!NOTE]
->建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 若要利用 [動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
+>建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 >
 >此外，請將您的來源檔案編碼成一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (本教學課程稍後會示範編碼步驟)。
 
@@ -71,8 +71,8 @@ Media Encoder Standard 使用 [這裡](http://go.microsoft.com/fwlink/?linkid=61
 ### <a name="see-also"></a>另請參閱
 [媒體服務部落格](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
-### <a name="overview"></a>Overview
+## <a name="media-encoder-premium-workflow"></a>媒體編碼器高階工作流程
+### <a name="overview"></a>概觀
 [介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>使用方式

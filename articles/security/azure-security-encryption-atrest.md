@@ -121,7 +121,7 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 對許多客戶而言，基本需求就是確保在靜態時會將資料加密。 使用服務管理金鑰的伺服器端加密會啟用這個模型，方法是允許客戶標示特定的資源 (儲存體帳戶、SQL DB 等) 以進行加密，並將諸如金鑰發佈、輪替和備份等所有金鑰管理層面保留給 Microsoft。 大部分支援靜態加密的 Azure 服務通常會支援這個將加密金鑰管理卸載至 Azure 的模型。 Azure 資源提供者會建立金鑰、將它們放置在安全的儲存體，並在需要時加以擷取。 這表示服務具有金鑰的完整存取權，且服務可完整控制認證生命週期管理。
 
-![受管理](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
+![受控](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
 伺服器端加密使用管理服務的金鑰，因此能快速解決為客戶提供具有低額外負荷之靜態加密的需求。 可用時，客戶通常會開啟目標訂用帳戶和資源提供者的 Azure 入口網站，並勾選指出他們要加密資料的方塊。 在部分 Resource Manager 中，使用服務管理金鑰的伺服器端加密預設為開啟。 
 
@@ -224,7 +224,7 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 #### <a name="custom-encryption-at-rest"></a>自訂靜態加密
 
-建議您盡可能讓 IaaS 應用程式運用任何已使用 Azure 服務所提供的 Azure 磁碟加密及靜態加密選項。 在某些情況下，例如異常加密需求或非以 Azure 為基礎的儲存體，IaaS 應用程式的開發人員可能需要自行實作靜態加密。 IaaS 解決方案的開發人員可以運用某些 Azure 元件，更妥善與 Azure 管理和客戶期望進行整合。 具體來說，開發人員應該使用 Azure Key Vault 服務來提供安全的金鑰儲存體，並為客戶提供一致的金鑰管理選項，以及大部分 Azure 平台服務的選項。 此外，自訂的解決方案應該使用 Azure 受管理的服務身分識別，讓服務帳戶可存取加密金鑰。 如需關於 Azure Key Vault 和受管理服務身分識別的開發人員資訊，請參閱其個別的 SDK。
+建議您盡可能讓 IaaS 應用程式運用任何已使用 Azure 服務所提供的 Azure 磁碟加密及靜態加密選項。 在某些情況下，例如異常加密需求或非以 Azure 為基礎的儲存體，IaaS 應用程式的開發人員可能需要自行實作靜態加密。 IaaS 解決方案的開發人員可以運用某些 Azure 元件，更妥善與 Azure 管理和客戶期望進行整合。 具體來說，開發人員應該使用 Azure Key Vault 服務來提供安全的金鑰儲存體，並為客戶提供一致的金鑰管理選項，以及大部分 Azure 平台服務的選項。 此外，自訂的解決方案應該使用 Azure 受控服務身分識別，讓服務帳戶可存取加密金鑰。 如需關於 Azure Key Vault 和受控服務身分識別的開發人員資訊，請參閱其個別的 SDK。
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Azure 資源提供者加密模型支援
 
@@ -244,7 +244,7 @@ Azure Blob 和檔案支援伺服器端加密情節，以及客戶加密資料 (�
 
 #### <a name="sql-azure"></a>SQL Azure
 
-SQL Azure 目前支援 Microsoft 受管理服務端和用戶端加密情節的靜態加密。
+SQL Azure 目前支援 Microsoft 受控服務端和用戶端加密情節的靜態加密。
 
 伺服器加密的支援目前是透過稱為「透明資料加密」的 SQL 功能所提供。 一旦 SQL Azure 客戶啟用 TDE 後，就會為他們自動建立和管理金鑰。 可以在資料庫和伺服器等級啟用靜態加密。 自 2017 年 6 月起，[透明資料加密 (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) 依預設將會在新建立的資料庫上啟用。
 
@@ -255,28 +255,28 @@ SQL Azure 目前支援 Microsoft 受管理服務端和用戶端加密情節的�
 |                                  |                |                     |                              |                              | **用戶端** |
 |                                  | **金鑰管理** | **服務管理的金鑰** | **在 Key Vault 中管理的客戶** | **在內部部署管理的客戶** |        |
 | **儲存體和資料庫**            |                |                     |                              |                              |        |
-| 磁碟 (IaaS)                      |                | -                   | 是                          | 是*                         | -      |
-| SQL Server (IaaS)                |                | 是                 | 是                          | 是                          | 是    |
-| SQL Azure (PaaS)                 |                | 是                 | 預覽                      | -                            | 是    |
-| Azure 儲存體 (區塊/分頁 Blob) |                | 是                 | 預覽                      | -                            | 是    |
-| Azure 儲存體 (檔案)            |                | 是                 | -                            | -                            | -      |
-| Azure 儲存體 (資料表、佇列)   |                | -                   | -                            | -                            | 是    |
-| Cosmos DB (文件 DB)          |                | 是                 | -                            | -                            | -      |
-| StorSimple                       |                | 是                 | -                            | -                            | 是    |
-| 備份                           |                | -                   | -                            | -                            | 是    |
+| 磁碟 (IaaS)                      |                | -                   | yes                          | 是*                         | -      |
+| SQL Server (IaaS)                |                | yes                 | yes                          | yes                          | yes    |
+| SQL Azure (PaaS)                 |                | yes                 | 預覽                      | -                            | yes    |
+| Azure 儲存體 (區塊/分頁 Blob) |                | yes                 | 預覽                      | -                            | yes    |
+| Azure 儲存體 (檔案)            |                | yes                 | -                            | -                            | -      |
+| Azure 儲存體 (資料表、佇列)   |                | -                   | -                            | -                            | yes    |
+| Cosmos DB (文件 DB)          |                | yes                 | -                            | -                            | -      |
+| StorSimple                       |                | yes                 | -                            | -                            | yes    |
+| Backup                            |                | -                   | -                            | -                            | yes    |
 | **智慧和分析**       |                |                     |                              |                              |        |
-| Azure Data Factory               |                | 是                 | -                            | -                            | -      |
+| Azure Data Factory               |                | yes                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | 預覽                      | -                            | -      |
-| Azure 串流分析           |                | 是                 | -                            | -                            | -      |
-| HDInsights (Azure Blob 儲存體)  |                | 是                 | -                            | -                            | -      |
-| HDInsights (Data Lake 儲存體)   |                | 是                 | -                            | -                            | -      |
-| Azure Data Lake Store            |                | 是                 | 是                          | -                            | -      |
-| Azure 資料目錄               |                | 是                 | -                            | -                            | -      |
-| Power BI                         |                | 是                 | -                            | -                            | -      |
+| Azure 串流分析           |                | yes                 | -                            | -                            | -      |
+| HDInsights (Azure Blob 儲存體)  |                | yes                 | -                            | -                            | -      |
+| HDInsights (Data Lake 儲存體)   |                | yes                 | -                            | -                            | -      |
+| Azure Data Lake Store            |                | yes                 | yes                          | -                            | -      |
+| Azure 資料目錄               |                | yes                 | -                            | -                            | -      |
+| Power BI                         |                | yes                 | -                            | -                            | -      |
 | **IoT 服務**                     |                |                     |                              |                              |        |
-| IoT 中樞                          |                | -                   | -                            | -                            | 是    |
-| 服務匯流排                      |                | 是 (進階層)              | -                            | -                            | 是    |
-| 事件中樞                       |                | 是             | -                            | -                            | -      |
+| IoT 中樞                          |                | -                   | -                            | -                            | yes    |
+| 服務匯流排                      |                | 是 (進階層)              | -                            | -                            | yes    |
+| 事件中樞                       |                | yes             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>結論

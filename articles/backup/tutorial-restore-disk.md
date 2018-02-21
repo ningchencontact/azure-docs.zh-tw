@@ -23,7 +23,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/01/2017
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中還原磁碟並建立已復原的 VM
-Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文說明如何還原完整的 VM。 在本教學課程中，您了解如何：
+Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文說明如何還原完整的 VM。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 列出和選取復原點
@@ -35,7 +35,7 @@ Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當�
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.18 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程需要已使用 Azure 備份保護的 Linux VM。 若要模擬意外刪除 VM 和復原程序，您可以在復原點從磁碟建立 VM。 如果您需要已使用 Azure 備份保護的 Linux VM，請參閱[使用 CLI 在 Azure 中備份虛擬機器](quick-backup-vm-cli.md)。
 
 

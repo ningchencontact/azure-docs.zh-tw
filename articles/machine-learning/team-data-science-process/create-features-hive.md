@@ -37,7 +37,7 @@ ms.lasthandoff: 11/23/2017
 * 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * 佈建含有 HDInsight 服務的自訂 Hadoop 叢集。  如需指示，請參閱 [自訂適用於進階分析的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)。
 * 已將資料上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。 如果沒有，則遵循[建立資料並載入到 Hive 資料表](move-hive-tables.md) ，先將資料上傳至 Hive 資料表。
-* 啟用叢集的遠端存取。 如需指示，請參閱[存取 Hadoop 叢集的前端節點](customize-hadoop-cluster.md)。
+* 啟用叢集的遠端存取。 如需指示，請參閱 [存取 Hadoop 叢集的前端節點](customize-hadoop-cluster.md)。
 
 ## <a name="hive-featureengineering"></a>特徵產生
 在本節中，說明可以使用 Hive 查詢特性之數個方式的範例。 一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (然後與原始資料表聯結)。 以下是顯示的範例：

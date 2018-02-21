@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - **SQL Server**。 在此範例中，您會使用內部部署 SQL Server 資料庫作為**來源**資料存放區。
 - **Azure 儲存體帳戶**。 在此範例中，您會使用 Azure Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
@@ -76,7 +76,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 此指令碼會使用下列命令： 
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | 建立資料處理站。 |

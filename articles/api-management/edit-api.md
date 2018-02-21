@@ -26,7 +26,7 @@ ms.lasthandoff: 12/04/2017
 + 您可以透過新增、刪除或重新命名 APIM 執行個體中的作業來執行此動作。 
 + 您可以編輯您 API 的 Swagger。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + [建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 + [匯入和發佈您的第一個 API](import-and-publish.md)

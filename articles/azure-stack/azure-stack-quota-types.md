@@ -22,7 +22,7 @@ ms.lasthandoff: 10/25/2017
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 [配額](azure-stack-plan-offer-quota-overview.md#plans)會定義使用者訂用帳戶可以佈建或取用的資源限制。 例如，配額可能會允許使用者建立最多五個 VM。 每個資源都可以有自己的配額類型。
 

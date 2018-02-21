@@ -41,7 +41,7 @@ ms.lasthandoff: 12/05/2017
 
 Azure 檔案服務會提供兩種廣泛的方法給用戶端應用程式：伺服器訊息區 (SMB) 和 REST。 在 .NET 內，這些方法會由 `System.IO` 和 `WindowsAzure.Storage` API 摘要說明。
 
-API | 使用時機 | 注意事項
+API | 使用時機 | 注意
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 您的應用程式： <ul><li>需要經由 SMB 讀取/寫入檔案</li><li>正在可透過連接埠 445 存取您 Azure 檔案服務帳戶的裝置上執行</li><li>不需要管理檔案共用的任何系統管理設定</li></ul> | 使用 Azure 檔案服務透過 SMB 編碼檔案 I/O 通常是與使用任何網路檔案共用或本機存放裝置編碼 I/O 相同。 如需 .NET 中許多功能的簡介 (包括檔案 I/O)，請參閱[本教學課程](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)。
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 您的應用程式： <ul><li>由於防火牆或 ISP 限制，無法在連接埠 445 上透過 SMB 存取 Azure 檔案服務</li><li>需要系統管理功能，例如設定檔案共用的配額，或建立共用存取簽章的能力</li></ul> | 本文示範使用 REST 檔案的 I/O 之 `WindowsAzure.Storage` 用法 (而不是 SMB) 和管理檔案共用。

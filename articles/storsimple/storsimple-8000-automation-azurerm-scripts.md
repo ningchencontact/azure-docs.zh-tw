@@ -16,7 +16,7 @@ ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/08/2017
 
 本節會採用範例指令碼，並詳細說明執行指令碼所需的各種步驟。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您有︰
 

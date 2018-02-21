@@ -18,7 +18,7 @@ ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---

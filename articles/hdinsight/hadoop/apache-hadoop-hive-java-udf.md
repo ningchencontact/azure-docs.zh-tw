@@ -52,7 +52,7 @@ ms.lasthandoff: 12/01/2017
     ```
 
    > [!NOTE]
-   > 如果您使用 PowerShell，必須將參數放置在引號內。 例如， `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
+   > 如果您使用 PowerShell，必須將參數放置在引號內。 例如： `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
 
     此命令會建立名為 **exampleudf** 的目錄，其包含 Maven 專案。
 

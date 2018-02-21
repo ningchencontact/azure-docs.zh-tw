@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -72,7 +72,7 @@ Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時�
   * **應用程式憑證密碼識別碼**︰您必須上傳密碼，做法類似於其上傳其他媒體服務金鑰的方式。 使用 **ContentKeyType.FairPlayPfxPassword** 列舉值來取得媒體服務識別碼。 這是它們要在金鑰傳遞原則選項內使用所需之物。
   * **iv**︰這是 16 位元組的隨機值。 其必須符合資產傳遞原則中的 iv。 您會產生 iv，並將它放在兩個位置︰資產傳遞原則和金鑰傳遞原則選項。
   * **ASK**：當您使用 Apple 開發人員入口網站產生憑證時，會收到此金鑰。 每個開發小組都會收到一個唯一的 ASK。 儲存一份 ASK，並將它存放在安全的地方。 您之後必須將 ASK 設定為媒體服務的 FairPlayAsk。
-  *  **ASK 識別碼**︰當您將 ASK 上傳至媒體服務時，會取得這個識別碼。 您必須使用 **ContentKeyType.FairPlayAsk** 列舉值來上傳 ASK。 結果會傳回媒體服務識別碼，設定金鑰傳遞原則選項時應使用此識別碼。
+  * **ASK 識別碼**︰當您將 ASK 上傳至媒體服務時，會取得這個識別碼。 您必須使用 **ContentKeyType.FairPlayAsk** 列舉值來上傳 ASK。 結果會傳回媒體服務識別碼，設定金鑰傳遞原則選項時應使用此識別碼。
 
 FPS 用戶端必須設定下列各項︰
 

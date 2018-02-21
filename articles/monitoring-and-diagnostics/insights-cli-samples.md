@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您尚未安裝 Azure CLI，請參閱 [安裝 Azure CLI](../cli-install-nodejs.md)。 若您不熟悉 Azure CLI，可閱讀 [搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure Resource Manager](../xplat-cli-azure-resource-manager.md)以深入了解。
 
 在 Windows 中，從 [Node.js 網站](https://nodejs.org/)安裝 npm。 以「以系統管理員身分執行」權限使用 CMD.exe 完成安裝後，從安裝 npm 的資料夾中執行下列命令︰

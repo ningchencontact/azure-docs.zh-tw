@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/13/2017
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 需求
-若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理 NAT。 有些連線提供者會以受管理的服務來支援設定和管理路由。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵守以下所述的需求。 
+若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理 NAT。 有些連線提供者會以受控服務來支援設定和管理路由。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵守以下所述的需求。 
 
 如需不同路由網域的概觀，請檢閱 [ExpressRoute 線路和路由網域](expressroute-circuit-peerings.md) 頁面。 為了符合 Azure 公用和 Microsoft 對等的公用 IP 位址需求，建議在您的網路與 Microsoft 之間設定 NAT。 本節提供您需要設定的 NAT 基礎結構的詳細描述。
 

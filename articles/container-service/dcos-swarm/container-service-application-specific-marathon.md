@@ -23,7 +23,7 @@ Azure Container Service 提供了一組主要伺服器，供我們在上面預�
 
 由於此服務將隸屬於單一使用者或團隊，因此可以用任何想要的方式加以設定。 此外，Azure 容器服務會確保服務繼續執行。 如果服務失敗，Azure 容器服務會為您重新啟動該服務。 多數時候，您甚至不會發覺它有停機過。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [部署 Azure Container Service 的執行個體](container-service-deployment.md) (其 Orchestrator 類型為 DCOS)，並[確保您的用戶端可以連線至您的叢集](../container-service-connect.md)。 此外，請執行下列步驟。
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

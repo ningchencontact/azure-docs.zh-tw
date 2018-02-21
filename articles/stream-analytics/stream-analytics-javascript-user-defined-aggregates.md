@@ -84,7 +84,7 @@ function main() {
 
 ### <a name="function-alias"></a>函式別名
 
-函式別名是 UDA 識別碼。 在「串流分析」查詢中呼叫時，請一律將 UDA 別名與 “uda.” 前置詞搭配使用。
+函式別名是 UDA 識別碼。 在「串流分析」查詢中呼叫時，請一律將 UDA 別名與 “uda.” 。
 
 ### <a name="function-type"></a>函式類型
 
@@ -179,7 +179,7 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>在 ASA 查詢中呼叫 JavaScript UDA
 
-在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 “uda.” 來呼叫 TWA() 函式。 例如：
+在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 “uda.” 來呼叫 TWA() 函式。 例如︰
 
 ````SQL
 WITH value AS

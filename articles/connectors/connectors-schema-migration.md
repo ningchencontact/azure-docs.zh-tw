@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>將邏輯應用程式移轉至最新結構描述版本時的最佳作法︰
 * 將已移轉的指令碼複製到新的邏輯應用程式 - 在完成測試並確認移轉的應用程式已如預期般運作後再覆寫舊的邏輯應用程式。
 * 放入生產環境 **之前** 先測試邏輯應用程式
-* 移轉完成後，開始更新邏輯應用程式以盡可能使用 [Managed API](apis-list.md)。 例如，您可以在使用 DropBox v1 的地方開始使用 Dropbox v2。
+* 移轉完成後，開始更新邏輯應用程式以盡可能使用[受控 API](apis-list.md)。 例如，您可以在使用 DropBox v1 的地方開始使用 Dropbox v2。
 
 ## <a name="whats-next"></a>後續步驟
 * [了解如何手動移轉邏輯應用程式](../logic-apps/logic-apps-schema-2015-08-01.md)

@@ -50,7 +50,7 @@ Log Analytics 最近已實作新的查詢語言。  如果您雖熟悉舊版語�
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (不區分大小寫)<br>Event &#124; where Computer contains_cs "Contoso" (區分大小寫) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | 日期比較        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | 布林值比較     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | 排序                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinct               | Type=Event &#124; dedup Computer \| 選取電腦 | Event &#124; summarize by Computer, EventLog |

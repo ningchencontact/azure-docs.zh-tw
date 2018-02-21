@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>如何設定 Web 應用程式的 TLS 相互驗證
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 為 Azure Web 應用程式啟用不同類型的驗證，即可限制其存取。 這樣做的其中一種方法是要求透過 TLS/SSL 時使用用戶端憑證進行驗證。 這項機制稱為 TLS 相互驗證或用戶端憑證驗證，本文將詳細說明如何設定 Web 應用程式使用用戶端憑證驗證。
 
 > **附註：** 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此如果您的應用程式需要用戶端憑證，請勿允許透過 HTTP 傳入您應用程式的要求。

@@ -51,7 +51,8 @@ ms.lasthandoff: 10/17/2017
 > | **預定的維修** |修補/升級|[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (Azure 所管理的修補/升級) |
 > | **Resource** |專用  |與其他用戶端共用|
 > | **區域** |資料中心 |[區域配對](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **儲存體** |SAN/實體磁碟 |[Azure 受管理儲存體](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **儲存體** |SAN/實體磁碟 |
+            [Azure 受控儲存體](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **調整** |垂直調整 |水平調整|
 
 
@@ -155,7 +156,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 當您從入口網站建立新的受控磁碟時，可以選擇您想要使用之磁碟類型的 [帳戶類型]。 請記住，並非所有可用的磁碟都會顯示在下拉式功能表中。 在選擇特定的 VM 大小之後，功能表只會根據該 VM 大小顯示可用的進階儲存體 SKU。
 
-![受管理磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk01.png)
+![受控磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk01.png)
 
 如需詳細資訊，請參閱 [VM 高效能進階儲存體與受控磁碟](https://docs.microsoft.com/azure/storage/storage-premium-storage)。
 
@@ -178,7 +179,7 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 **建議**
 
-- 針對資料的資料表空間，使用受管理儲存體或 Oracle ASM，將 I/O 工作負載分散到一些磁碟。
+- 針對資料的資料表空間，使用受控儲存體或 Oracle ASM，將 I/O 工作負載分散到一些磁碟。
 - 隨著 I/O 區塊大小的增加，針對讀取密集和寫入密集作業，新增更多資料磁碟。
 - 增加大型循序處理序的區塊大小。
 - 使用資料壓縮來減少 I/O (適用於資料和索引)。
@@ -201,7 +202,7 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 如需詳細資訊，請參閱[適用於 Linux VM 的進階儲存體](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms)。
 
-![受管理磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk02.png)
+![受控磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk02.png)
 
 - 針對 OS 磁碟，使用預設的 [讀取/寫入] 快取。
 - 針對 SYSTEM、TEMP 和 UNDO，對快取功能使用 [無]。

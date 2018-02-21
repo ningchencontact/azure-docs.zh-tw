@@ -151,7 +151,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="parameters" />
 
-## <a name="parameters"></a>參數
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 傳回參數值。 指定的參數名稱必須定義於範本的 parameters 區段中。
@@ -160,7 +160,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |字串 |要傳回的參數名稱。 |
+| parameterName |yes |字串 |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -243,15 +243,15 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | String | 選項 1 |
+| stringOutput | 字串 | 選項 1 |
 | intOutput | int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | 陣列 | [1, 2, 3] |
-| crossOutput | String | 選項 1 |
+| crossOutput | 字串 | 選項 1 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -276,7 +276,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| variableName |是 |String |要傳回的變數名稱。 |
+| variableName |yes |字串 |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -346,13 +346,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | 字串 | myVariable |
 | exampleOutput2 | 陣列 | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
+| exampleOutput3 | 字串 | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 若要使用 Azure CLI 部署此範例範本，請使用：

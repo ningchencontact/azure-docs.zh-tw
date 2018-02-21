@@ -303,7 +303,7 @@ Engagement 也提供將傳送未處理的例外狀況之方法。 在 Silverligh
 
 您可以使用 SendAppInfo() 函式來報告追蹤資訊 (或任何其他應用程式相關的資訊)。
 
-請注意，這些資訊可以累加地傳送：只有指定的索引鍵的最新值會保留給指定的裝置。 和事件額外資料一樣，請使用 Dictionary\<object, object\> 來附加資訊。
+請注意，這些資訊可以累加地傳送：只有指定索引鍵的最新值會保留給指定的裝置。 和事件額外資料一樣，請使用 Dictionary\<object, object\> 來附加資訊。
 
 ### <a name="example"></a>範例
             Dictionary<object, object> appInfo = new Dictionary<object, object>()

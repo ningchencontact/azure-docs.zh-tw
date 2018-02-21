@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 23e72fdb2ed063f416e65d34727ca9babc143a26
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 若要設定替代登入識別碼，請移至 `HKLM\SOFTWARE\Microsoft\AzureMfa`，然後編輯下列登錄值：
 
-| 名稱 | 類型 | 預設值 | 說明 |
+| Name | 類型 | 預設值 | 說明 |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | 字串 | 空白 | 指定您想要使用的 Active Directory 屬性名稱，而非 UPN。 此屬性用作 AlternateLoginId 屬性。 如果此登錄值設定為[有效的 Active Directory 屬性](https://msdn.microsoft.com/library/ms675090.aspx) (例如，mail 或 displayName)，則會使用屬性的值來取代使用者的 UPN 以進行驗證。 如果此登錄值是空的或未設定，則會停用 AlternateLoginId，並以使用者的 UPN 進行驗證。 |
 | LDAP_FORCE_GLOBAL_CATALOG | 布林值 | False | 使用此旗標，可在查閱 AlternateLoginId 時強制使用通用類別目錄進行 LDAP 搜尋。 將網域控制站設定為通用類別目錄，並將 AlternateLoginId 屬性新增至通用類別目錄，然後啟用此旗標。 <br><br> 如果設定 LDAP_LOOKUP_FORESTS (不是空的)，則**此旗標會強制執行為 true**，不論登錄設定的值為何。 在此情況下，NPS 延伸模組需要使用每個樹系的 AlternateLoginId 屬性來設定通用類別目錄。 |
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/11/2017
 
 若要設定 IP 白名單，請移至 `HKLM\SOFTWARE\Microsoft\AzureMfa`，然後設定下列登錄值： 
 
-| 名稱 | 類型 | 預設值 | 說明 |
+| Name | 類型 | 預設值 | 說明 |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | 字串 | 空白 | 提供 IP 位址清單 (以分號分隔)。 包含產生服務要求之機器的 IP 位址，例如 NAS/VPN 伺服器。 不支援 IP 範圍和子網路。 <br><br> 例如，*10.0.0.1;10.0.0.2;10.0.0.3*。
 

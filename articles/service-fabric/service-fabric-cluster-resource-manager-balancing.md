@@ -157,7 +157,7 @@ ClusterManifest.xml
     </Section>
 ```
 
-透過 ClusterConfig.json (適用於獨立部署) 或 Template.json (適用於 Azure 裝載的叢集)：
+獨立部署透過 ClusterConfig.json，Azure 託管叢集透過 Template.json：
 
 ```json
 "fabricSettings": [

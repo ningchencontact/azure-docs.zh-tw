@@ -153,4 +153,4 @@ ExpressRoute 是從 WAN (不透過公用網際網路) 到 Microsoft 服務 (包�
 - 規劃您的 VPN 閘道設定。 請參閱 [VPN 閘道的規劃與設計](vpn-gateway-plan-design.md)。
 - 如需詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
 - 檢視[訂用帳戶與服務限制](../azure-subscription-service-limits.md#networking-limits)。
-- 深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
+- 了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。

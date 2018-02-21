@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 這些範例可與 AzureRm.OperationalInsights 模組的 2.3.0 版或更新版本搭配運作。
 
 
@@ -191,24 +191,24 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 | 資源類型 | 記錄檔 | 度量 |
 | --- | --- | --- |
-| 應用程式閘道    | 是 | 是 |
-| 自動化帳戶     | 是 | |
-| Batch 帳戶          | 是 | 是 |
-| Data Lake Analytics     | 是 | | 
-| Data Lake Store         | 是 | |
-| SQL 彈性集區        |     | 是 |
-| 事件中樞命名空間     |     | 是 |
-| IoT 中樞                |     | 是 |
-| 金鑰保存庫               | 是 | |
-| 負載平衡器          | 是 | |
-| Logic Apps              | 是 | 是 |
-| 網路安全性群組 | 是 | |
-| Redis 快取             |     | 是 |
-| 搜尋服務         | 是 | 是 |
-| 服務匯流排命名空間   |     | 是 |
-| SQL (v12)               |     | 是 |
-| 網站               |     | 是 |
-| Web 伺服器陣列        |     | 是 |
+| 應用程式閘道    | yes | yes |
+| 自動化帳戶     | yes | |
+| Batch 帳戶          | yes | yes |
+| Data Lake Analytics     | yes | | 
+| Data Lake Store         | yes | |
+| SQL 彈性集區        |     | yes |
+| 事件中樞命名空間     |     | yes |
+| IoT 中樞                |     | yes |
+| Key Vault               | yes | |
+| 負載平衡器          | yes | |
+| Logic Apps              | yes | yes |
+| 網路安全性群組 | yes | |
+| Redis 快取             |     | yes |
+| 搜尋服務         | yes | yes |
+| 服務匯流排命名空間   |     | yes |
+| SQL (v12)               |     | yes |
+| 網站               |     | yes |
+| Web 伺服器陣列        |     | yes |
 
 如需可用度量的詳細資訊，請參閱[支援 Azure 監視器的度量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
 

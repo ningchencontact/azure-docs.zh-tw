@@ -237,7 +237,7 @@ Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預�
 | Storm UI |Storm UI 可以在 https://CLUSTERNAME.azurehdinsight.net/stormui 使用 |
 | Visual Studio 以建立、部署及管理 C# 或混合式拓撲 |在以 Linux 作為基礎的 Storm on HDInsight 上，可以使用 Visual Studio 來建立、部署和管理 C# (SCP.NET) 或混合式拓撲。 僅能搭配使用 10/28/2016 之後建立的叢集。 |
 
-## <a name="hbase"></a>HBase
+## <a name="hbase"></a>hbase
 
 在以 Linux 為基礎的叢集上，HBase 的 znode 父項目為 `/hbase-unsecure`。 針對任何使用原生 HBase Java API 的 Java 用戶端應用程式，在組態中設定此值。
 

@@ -16,7 +16,7 @@ ms.date: 04/04/2017
 ms.author: saeedakhter-msft
 ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 完成本文之後，您將擁有一個具備您的品牌和外觀的註冊和登入自訂原則。 使用 Azure Active Directory B2C (Azure AD B2C)，幾乎可完全掌控對使用者呈現的 HTML 和 CSS 內容。 使用自訂原則時，您會以 XML 設定 UI 自訂，而不是在 Azure 入口網站中使用控制項。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)。 您應該有一個使用本機帳戶來註冊和登入的有效自訂原則。
 
@@ -165,7 +165,7 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 | resetpassword.html | 使用此檔案作為忘記密碼頁面的範本。 |
 | selfasserted.html | 使用此檔案作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
 | unified.html | 使用此檔案作為統一註冊或登入頁面的範本。 |
-| updateprofile.html | 使用此檔案作為統一註冊或登入頁面的範本。 |
+| *updateprofile.html* | 使用此檔案作為統一註冊或登入頁面的範本。 |
 
 在[修改註冊或登入自訂原則](#modify-your-sign-up-or-sign-in-custom-policy)區段中，設定 `api.idpselections` 的內容定義。 Azure AD B2C 身分識別體驗架構所能辨識的一組完整內容定義識別碼，而其說明位於下表中：
 
@@ -175,12 +175,12 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 | api.idpselections | **識別提供者選取頁面**。 此頁面包含使用者可以在登入期間選擇的識別提供者清單。 這些選項是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
 | api.idpselections.signup | **用於註冊的識別提供者選取**。 此頁面包含使用者可以在註冊期間選擇的識別提供者清單。 這些選項是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
 | api.localaccountpasswordreset | **忘記密碼頁面**。 此頁面包含一份表單，使用者必須填妥此表單才能開始重設密碼。  |
-| api.localaccountsignin | **本機帳戶登入頁面**。 此頁面包含登入表單，可供使用以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
+| *api.localaccountsignin* | **本機帳戶登入頁面**。 此頁面包含登入表單，可供使用以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
 | api.localaccountsignup | **本機帳戶註冊頁面**。 此頁面包含登入表單，可供註冊以電子郵件地址或使用者名稱為基礎的本機帳戶。 此表單可以包含各種輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
-| api.phonefactor | **Multi-Factor Authentication 頁面**。 在此頁面上，使用者可以在註冊或登入期間驗證其電話號碼 (藉由使用文字或語音)。 |
+| *api.phonefactor* | **Multi-Factor Authentication 頁面**。 在此頁面上，使用者可以在註冊或登入期間驗證其電話號碼 (藉由使用文字或語音)。 |
 | api.selfasserted | **社交帳戶註冊頁面**。 此頁面包含使用者在使用社交識別提供者 (例如 Facebook 或 Google+) 的現有帳戶註冊時必須填妥的註冊表單。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | api.selfasserted.profileupdate | **設定檔更新頁面**。 此頁面包含一份表單，以供使用者用來更新其設定檔。 此頁面類似於社交帳戶註冊頁面，但密碼輸入欄位除外。 |
-| api.signuporsignin | **統一的註冊或登入頁面**。 此頁面可處理使用者的註冊和登入，這些使用者可使用企業識別提供者、社交識別提供者 (例如 Facebook 或 Google+) 或本機帳戶。  |
+| *api.signuporsignin* | **統一的註冊或登入頁面**。 此頁面可處理使用者的註冊和登入，這些使用者可使用企業識別提供者、社交識別提供者 (例如 Facebook 或 Google+) 或本機帳戶。  |
 
 ## <a name="next-steps"></a>後續步驟
 

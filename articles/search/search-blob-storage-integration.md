@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="image-search"></a>影像搜尋
 Azure 搜尋服務的全文檢索搜尋、多面向導覽和排序功能現在可套用至 Blob 中儲存的影像中繼資料。
 
-如果從 Microsoft 辨識服務使用[電腦視覺 API](https://www.microsoft.com/cognitive-services/computer-vision-api) 預先處理這些影像，則可以為在每個影像中找到的視覺內容 (包括 OCR 和手寫辨識) 編製索引。 我們正努力將 OCR 和其他影像處理功能直接新增到 Azure 搜尋服務，如果您對這些功能有興趣，請在我們的 [UserVoice](https://aka.ms/azsuv) 上提出要求或[傳送電子郵件給我們](mailto:azscustquestions@microsoft.com)。
+如果從 Microsoft 認知服務使用[電腦視覺 API](https://www.microsoft.com/cognitive-services/computer-vision-api) 預先處理這些影像，則可以為在每個影像中找到的視覺內容 (包括 OCR 和手寫辨識) 編製索引。 我們正努力將 OCR 和其他影像處理功能直接新增到 Azure 搜尋服務，如果您對這些功能有興趣，請在我們的 [UserVoice](https://aka.ms/azsuv) 上提出要求或[傳送電子郵件給我們](mailto:azscustquestions@microsoft.com)。
 
 ## <a name="index-and-search-through-json-blobs"></a>檢索和搜尋 JSON Blob
 可以將 Azure 搜尋服務設定為擷取在包含 JSON 的 Blob 中找到的結構化內容。 Azure 搜尋服務可以讀取 JSON Blob，並將結構化內容剖析成 Azure 搜尋服務文件的適當欄位。 Azure 搜尋服務也會採用包含 JSON 物件陣列的 Blob，並將每個元素對應至不同的 Azure 搜尋服務文件。

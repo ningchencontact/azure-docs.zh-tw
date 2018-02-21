@@ -15,7 +15,7 @@ ms.date: 06/15/2017
 ms.author: gwallace
 ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 在此範例中，我們將建立 PowerShell 指令碼，該指令碼會呼叫 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 以啟動 PowerShell Runbook，並將 JSON 內容傳送至 Runbook。
 PowerShell Runbook 會啟動 Azure VM，並從傳入的 JSON 取得 VM 的參數。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成此教學課程，您需要下列項目：
 
 * Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益<a href="/pricing/free-account/" target="_blank">或](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)[註冊免費帳戶](https://azure.microsoft.com/free/)。

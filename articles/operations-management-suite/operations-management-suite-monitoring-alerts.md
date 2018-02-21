@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 警示表示有一些需要系統管理員注意的問題。  在如何建立警示、如何管理和分析警示以及在偵測到嚴重問題時如何通知您的方面，System Center Operations Manager (SCOM) 與 Operations Management Suite (OMS) 中的 Log Analytics 之間有一些顯著的差異。
 
 ## <a name="alerts-in-operations-manager"></a>Operations Manager 中的警示
-SCOM 中的警示是由個別規則或監視器所產生，表示發生特定問題。  規則產生警示以表示發生一些與受管理物件健康狀態無直接相關的重要問題時，如果監視器進入錯誤狀態，則監視器可能會產生警示。  管理組件包含各種工作流程，可建立其所管理的應用程式或服務的警示。  在設定新管理組件的程序期間會進行調整，確保您不會收到您不認為重要之問題的過多警示。
+SCOM 中的警示是由個別規則或監視器所產生，表示發生特定問題。  規則產生警示以表示發生一些與受控物件健康狀態無直接相關的重要問題時，如果監視器進入錯誤狀態，則監視器可能會產生警示。  管理組件包含各種工作流程，可建立其所管理的應用程式或服務的警示。  在設定新管理組件的程序期間會進行調整，確保您不會收到您不認為重要之問題的過多警示。
 
 ![SCOM 警示檢視](media/operations-management-suite-monitoring-alerts/scom-alert-view.png)
 

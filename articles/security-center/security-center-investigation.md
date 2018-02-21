@@ -56,11 +56,11 @@ ms.lasthandoff: 10/11/2017
 
 ![實體](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>搜尋
+### <a name="search"></a>Search
 
 [搜尋] 索引標籤會顯示實體可用的所有記錄類型。 您可以針對每個記錄類型，查看有多少記錄可用。 按一下每個記錄類型，系統就會帶領您前往搜尋畫面。 在搜尋畫面中，您可以調整您的搜尋，並使用不同的搜尋功能，例如設定警示。 在目前版本中，[搜尋] 索引標籤僅適用於使用者和電腦實體。
 
-![搜尋](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>探索
 

@@ -75,6 +75,6 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 * WINDOWS
 * XBOX
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 提供名稱時，不要使用任何一個保留字。

@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 ## <a name="create-a-marketplace-item"></a>建立 Marketplace 項目
 1. [下載](http://www.aka.ms/azurestackmarketplaceitem) Azure Gallery Packager 工具和範例 Azure Stack Marketplace 項目。
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="publish-a-marketplace-item"></a>發佈 Marketplace 項目
 1. 使用 PowerShell 或 Azure 儲存體總管來將您的 Marketplace 項目 (.azpkg) 上傳至 Azure Blob 儲存體。 您可以上傳至本機 Azure Stack 儲存體，或上傳至 Azure 儲存體。 (它是套件的暫存位置。)請確定 Blob 可公開存取。
 2. 在 Microsoft Azure Stack 環境中的用戶端虛擬機器上，確定您的 PowerShell 工作階段已設有您服務系統管理員的認證。 您可以在[使用 PowerShell 部署範本](user/azure-stack-deploy-template-powershell.md)中找到如何在 Azure Stack 中驗證 PowerShell 的指示。
-3. 使用 **Add-AzureRMGalleryItem** PowerShell Cmdlet，將 Marketplace 項目發佈至 Azure Stack。 例如：
+3. 使用 **Add-AzureRMGalleryItem** PowerShell Cmdlet，將 Marketplace 項目發佈至 Azure Stack。 例如︰
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
@@ -100,30 +100,30 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="reference-marketplace-item-manifestjson"></a>參考：Marketplace 項目 manifest.json
 ### <a name="identity-information"></a>身分識別資訊
-| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
+| Name | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
-| 名稱 |X |String |[A-a-za-z0-9] + | |
-| 發行者 |X |String |[A-a-za-z0-9] + | |
-| 版本 |X |String |[SemVer v2](http://semver.org/) | |
+| Name |X |字串 |[A-a-za-z0-9] + | |
+| 發行者 |X |字串 |[A-a-za-z0-9] + | |
+| 版本 |X |字串 |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>中繼資料
-| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
+| Name | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |建議 80 個字元 |如果超過 80 個字元，入口網站可能無法正常顯示項目名稱。 |
-| PublisherDisplayName |X |String |建議 30 個字元 |如果超過 30 個字元，入口網站可能無法正常顯示發行者名稱。 |
-| PublisherLegalName |X |String |上限 256 個字元 | |
-| 摘要 |X |String |60 到 100 個字元 | |
-| LongSummary |X |String |140 到 256 個字元 |目前在 Azure Stack 中不適用。 |
+| DisplayName |X |字串 |建議 80 個字元 |如果超過 80 個字元，入口網站可能無法正常顯示項目名稱。 |
+| PublisherDisplayName |X |字串 |建議 30 個字元 |如果超過 30 個字元，入口網站可能無法正常顯示發行者名稱。 |
+| PublisherLegalName |X |字串 |上限 256 個字元 | |
+| 總結 |X |字串 |60 到 100 個字元 | |
+| LongSummary |X |字串 |140 到 256 個字元 |目前在 Azure Stack 中不適用。 |
 | 說明 |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 到 5,000 個字元 | |
 
 ### <a name="images"></a>映像
 Marketplace 會使用下列圖示：
 
-| 名稱 | 寬度 | 高度 | 注意事項 |
+| Name | 寬度 | 高度 | 注意 |
 | --- | --- | --- | --- |
 | 寬 |255 像素 |115 像素 |一律需要 |
 | 大型 |115 像素 |115 像素 |一律需要 |
-| 中型 |90 像素 |90 像素 |一律需要 |
+| 中 |90 像素 |90 像素 |一律需要 |
 | 小型 |40 像素 |40 像素 |一律需要 |
 | 螢幕擷取畫面 |533 像素 |32 像素 |選用 |
 
@@ -133,18 +133,18 @@ Marketplace 會使用下列圖示：
 ### <a name="links"></a>連結
 每個 Marketplace 項目可以包含各種其他內容的連結。 連結已指定為名稱與 URI 的清單。
 
-| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
+| Name | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |上限 64 個字元 | |
+| DisplayName |X |字串 |上限 64 個字元 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他屬性
 除了前述中繼資料，Marketplace 作者可以下列形式提供自訂的成對索引鍵/值資料：
 
-| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
+| Name | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |上限 25 個字元 | |
-| 值 |X |String |上限 30 個字元 | |
+| DisplayName |X |字串 |上限 25 個字元 | |
+| 值 |X |字串 |上限 30 個字元 | |
 
 ### <a name="html-sanitization"></a>HTML 病毒掃描
 任何可使用 HTML 的欄位，都可以使用下列項目與屬性：

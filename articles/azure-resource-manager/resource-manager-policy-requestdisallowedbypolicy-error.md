@@ -56,12 +56,12 @@ ms.lasthandoff: 11/06/2017
 az policy definition show --name regionPolicyAssignment
 ```
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 基於安全性或合規性等因素，您的 IT 部門可能會強制執行資源原則，以禁止建立公用 IP 位址、網路安全性群組、使用者定義的路由或路由表。 [徵兆] 區段中的錯誤訊息會顯示名為 **regionPolicyDefinition** 的原則。 您的原則可能有不同的名稱。
 若要解決這個問題，請與您的 IT 部門合作來檢閱資源原則，並決定如何依照這些原則來執行所要求的動作。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
 - [資源原則概觀](resource-manager-policy.md)
 - [透過入口網站檢視原則指派](resource-manager-policy-portal.md)

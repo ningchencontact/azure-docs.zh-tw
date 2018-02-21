@@ -27,7 +27,7 @@ Azure 入口網站中的 Azure Analysis Services Web 設計工具 (預覽) 提�
 
 請記住，Web 設計工具為**預覽**狀態。 雖然在預覽中隨時會新增新功能，但是功能受到限制。 對於進階模型開發和測試，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 在標準或開發人員層的 Azure Analysis Services 伺服器。 使用 Web 設計工具所建立的新模型是 DirectQuery，只受到這些層級的支援。
 - 作為資料來源的 Azure SQL Database、Azure SQL 資料倉儲或 Power BI Desktop (.pbix) 檔案。 從 Power BI Desktop 檔案建立的新模型支援 Azure SQL Database、Azure SQL 資料倉儲、Oracle 和 Teradata 資料來源。

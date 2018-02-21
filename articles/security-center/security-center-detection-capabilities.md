@@ -46,7 +46,7 @@ Microsoft 資訊安全研究人員會持續監視威脅。 他們可以存取從
 
 * **整合性威脅情報**：利用 Microsoft 產品和服務、Microsoft 數位犯罪防治中心 (DCU)、Microsoft Security Response Center (MSRC) 以及外部摘要的全域威脅情報，尋找已知的不良執行者。
 * **行為分析**：套用已知模式來探索惡意行為。 
-* **異常偵測**︰使用統計剖析來建置歷程基準。 它會對偏離已確立基準 (符合潛在攻擊向量) 的情況提出警示。
+* **異常偵測**︰使用統計分析來建置歷程基準。 它會對偏離已確立基準 (符合潛在攻擊向量) 的情況提出警示。
 
 ### <a name="threat-intelligence"></a>威脅情報
 Microsoft 有大量全域威脅情報。 遙測會從多個來源 (例如 Azure、Office 365、Microsoft CRM Online、Microsoft Dynamics AX、outlook.com、MSN.com、Microsoft 數位犯罪防治中心 (DCU) 和 Microsoft 安全性回應中心 (MSRC) 流入。 研究人員也會收到主要雲端服務提供者之間共用的威脅情報資訊，並訂閱來自協力廠商的威脅情報摘要。 Azure 資訊安全中心可以使用這項資訊來警示您來自已知不良執行者的威脅。 部分範例包括：

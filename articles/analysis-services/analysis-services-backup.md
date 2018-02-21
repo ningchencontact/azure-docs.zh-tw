@@ -56,7 +56,7 @@ ms.lasthandoff: 11/02/2017
 
     ![儲存備份設定](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup 
 
 ### <a name="to-backup-by-using-ssms"></a>使用 SSMS 來進行備份
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/02/2017
 ### <a name="powershell"></a>PowerShell
 使用 [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) Cmdlet。
 
-## <a name="restore"></a>還原
+## <a name="restore"></a>Restore
 在還原時，您的備份檔案必須位於您為伺服器所設定的儲存體帳戶中。 如果您需要將備份檔案從內部部署位置移至儲存體帳戶，請使用 [Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)或 [AzCopy](../storage/common/storage-use-azcopy.md) 命令列公用程式。 
 
 

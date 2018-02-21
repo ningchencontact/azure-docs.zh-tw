@@ -53,7 +53,7 @@ Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用�
 
 ### <a name="create-a-partitioned-entity"></a>建立分割實體
 
-有多種方式可以建立分割的佇列或主題。 當您從應用程式建立佇列或主題時，您可以分別將 [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] 或 [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] 屬性設為 **true** 來啟用佇列或主題的分割。 這些屬性必須在建立佇列或主題時設定。 如先前所述，在現有的佇列或主題上無法變更這些屬性。 例如：
+有多種方式可以建立分割的佇列或主題。 當您從應用程式建立佇列或主題時，您可以分別將 [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] 或 [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] 屬性設為 **true** 來啟用佇列或主題的分割。 這些屬性必須在建立佇列或主題時設定。 如先前所述，在現有的佇列或主題上無法變更這些屬性。 例如︰
 
 ```csharp
 // Create partitioned topic
@@ -89,7 +89,7 @@ ns.CreateTopic(td);
 請注意，分割索引鍵會將訊息「釘選」到指定的片段。 如果保留此片段的訊息存放區無法使用，服務匯流排會傳回錯誤。 沒有分割索引鍵時，服務匯流排可以選擇不同的片段，而作業就會成功。 因此，建議您若非必要請勿提供分割索引鍵。
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>進階主題：搭配交易使用分割的實體
-傳送做為交易一部分的訊息必須指定資料分割索引鍵。 這可以是下列屬性之一：[BrokeredMessage.SessionId][BrokeredMessage.SessionId]、[BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] 或 [BrokeredMessage.MessageId][BrokeredMessage.MessageId]。 傳送做為相同交易一部分的所有訊息必須指定相同的分割索引鍵。 如果您嘗試在交易內傳送沒有分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 如果您嘗試在相同交易內傳送多個具有不同分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 例如：
+傳送做為交易一部分的訊息必須指定資料分割索引鍵。 這可以是下列屬性之一：[BrokeredMessage.SessionId][BrokeredMessage.SessionId]、[BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] 或 [BrokeredMessage.MessageId][BrokeredMessage.MessageId]。 傳送做為相同交易一部分的所有訊息必須指定相同的分割索引鍵。 如果您嘗試在交易內傳送沒有分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 如果您嘗試在相同交易內傳送多個具有不同分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 例如︰
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -108,7 +108,7 @@ committableTransaction.Commit();
 ## <a name="using-sessions-with-partitioned-entities"></a>搭配工作階段使用分割的實體
 若要將交易訊息傳送至工作階段感知的主題或佇列，該訊息必須設定 [BrokeredMessage.SessionId][BrokeredMessage.SessionId] 屬性。 如果也指定 [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] 屬性，它必須與 [SessionId][SessionId] 屬性相同。 如果兩者不同，服務匯流排會傳回無效作業例外狀況。
 
-不同於一般 (非分割) 的佇列或主題，無法使用單一交易將多則訊息傳送到不同的工作階段。 如果嘗試這樣做，服務匯流排會傳回無效作業例外狀況。 例如：
+不同於一般 (非分割) 的佇列或主題，無法使用單一交易將多則訊息傳送到不同的工作階段。 如果嘗試這樣做，服務匯流排會傳回無效作業例外狀況。 例如︰
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

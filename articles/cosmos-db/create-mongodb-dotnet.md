@@ -27,7 +27,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本快速入門會示範如何使用 Azure 入口網站建立 Azure Cosmos DB 帳戶、文件資料庫和集合。 您會接著建置和部署以 [MongoDB .NET 驅動程式](https://docs.mongodb.com/ecosystem/drivers/csharp/)為基礎的工作清單 Web 應用程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-讓我們快速檢閱應用程式中所發生的事情。 請開啟 **DAL** 目錄之下的 **Dal.cs** 檔案，您會發現這些程式碼行會建立 Azure Cosmos DB 資源。 
+讓我們快速檢閱應用程式中發生了什麼。 請開啟 **DAL** 目錄之下的 **Dal.cs** 檔案，您會發現這些程式碼行會建立 Azure Cosmos DB 資源。 
 
 * 初始化 Mongo 用戶端。
 

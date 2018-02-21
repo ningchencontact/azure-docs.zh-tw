@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 本文是根據 Azure PowerShell 3.0.0 版中的 Cmdlet 所撰寫。 建議您經常更新您的 Azure PowerShell 以利用服務更新和增強功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 執行下列作業，以使用 Azure PowerShell 來管理您的 Batch 資源。
 
 * [安裝並設定 Azure PowerShell](/powershell/azure/overview)
@@ -42,11 +42,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="manage-batch-accounts-and-keys"></a>管理 Batch 帳戶和金鑰
 ### <a name="create-a-batch-account"></a>建立批次帳戶：
-**New-AzureRmBatchAccount** 會在指定的資源群組中建立 Batch 帳戶。 如果您還沒有資源群組，請執行 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) Cmdlet 建立一個資源群組。 在 **Location** 參數中指定其中一個 Azure 區域，例如 "Central US"。 例如：
+**New-AzureRmBatchAccount** 會在指定的資源群組中建立 Batch 帳戶。 如果您還沒有資源群組，請執行 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) Cmdlet 建立一個資源群組。 在 **Location** 參數中指定其中一個 Azure 區域，例如 "Central US"。 例如︰
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-然後，在資源群組中建立 Batch 帳戶，為 <account_name> 中的帳戶指定名稱，以及指定資源群組的位置和名稱。 建立 Batch 帳戶可能需要一些時間來完成。 例如：
+然後，在資源群組中建立 Batch 帳戶，為 <account_name> 中的帳戶指定名稱，以及指定資源群組的位置和名稱。 建立 Batch 帳戶可能需要一些時間來完成。 例如︰
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ### <a name="delete-a-batch-account"></a>刪除 Batch 帳戶
-**Remove-AzureRmBatchAccount** 將刪除 Batch 帳戶。 例如：
+**Remove-AzureRmBatchAccount** 將刪除 Batch 帳戶。 例如︰
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 10/11/2017
 **Id** 參數僅支援完整識別碼的搜尋，不能使用萬用字元或 OData 樣式的篩選器。
 
 ### <a name="use-the-maxcount-parameter"></a>使用 MaxCount 參數
-依預設，每個 Cmdlet 最多傳回 1000 個物件。 如果到達此限制，請調整您的篩選器以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。 例如：
+依預設，每個 Cmdlet 最多傳回 1000 個物件。 如果到達此限制，請調整您的篩選器以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。 例如︰
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 

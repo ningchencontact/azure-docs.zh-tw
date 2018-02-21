@@ -44,7 +44,7 @@ group {resource group name} was not found.
 
 資源管理員需要擷取資源的屬性，但是無法識別您的訂用帳戶中的資源。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 ### <a name="solution-1"></a>解決方案 1
 

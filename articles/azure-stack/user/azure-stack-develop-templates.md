@@ -22,7 +22,7 @@ ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 範本考量
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 當您開發應用程式時，請務必確保 Azure 與 Azure Stack 之間的範本可攜性。  此主題提供開發 Azure Resource Manager [範本](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)時必須考量的事項，以便您可以建立原型應用程式並在 Azure 中測試部署，而不需要存取 Azure Stack 環境。
 
@@ -45,7 +45,7 @@ Azure 服務版本在 Azure 與 Azure Stack 之間可能不同。 每個資源�
 | 網路 |`'2015-06-15'`、`'2015-05-01-preview'` |
 | 儲存體 |`'2016-01-01'`、`'2015-06-15'`, `'2015-05-01-preview'` |
 | KeyVault | `'2015-06-01'` |
-| App Service |`'2015-08-01'` |
+| App Service 方案 |`'2015-08-01'` |
 | MySQL |`'2015-09-01'` |
 | SQL |`'2014-04-01-preview'` |
 

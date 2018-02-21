@@ -15,7 +15,7 @@
   OS.UpdateRdmaDriver=y
   ```
 
-3. 在 /etc/security/limits.conf 檔案中，新增或變更下列記憶體設定 (KB)。 您必須要有根目錄存取權才能編輯此檔案。 基於測試目的，您可以將 memlock 設定為無限制。 例如： `<User or group name>   hard    memlock   unlimited`。
+3. 在 /etc/security/limits.conf 檔案中，新增或變更下列記憶體設定 (KB)。 您必須要有根目錄存取權才能編輯此檔案。 基於測試目的，您可以將 memlock 設定為無限制。 例如：`<User or group name>   hard    memlock   unlimited`。
 
   ```
   <User or group name> hard    memlock <memory required for your application in KB>

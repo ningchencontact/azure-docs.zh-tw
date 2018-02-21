@@ -15,7 +15,7 @@ ms.date: 06/24/2017
 ms.author: jeedes
 ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 HR2day by Merces 整合，您需要下列項目：
 
@@ -61,7 +61,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 移至 **企業應用程式**。 然後移至 [所有應用程式]。
+2. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     

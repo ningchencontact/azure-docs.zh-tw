@@ -73,14 +73,14 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 虛擬機器映像
 * **只有在 Enterprise Edition 上才支援叢集。** 只有當您使用的是 WebLogic Server Enterprise Edition 時，才會獲授權使用 WebLogic 叢集。 請勿在使用 WebLogic Server Standard Edition 時使用叢集。
-* **不支援 UDP 多點傳送。** Azure 支援 UDP 單點傳播，但不支援多點傳送或廣播。 WebLogic Server 可以依賴 Azure 的 UDP 單點傳播功能。 若要依賴 UDP 單點傳播獲得最佳結果，建議 WebLogic 叢集大小保持靜態，或叢集中保持不超過 10 個受管理伺服器。
+* **不支援 UDP 多點傳送。** Azure 支援 UDP 單點傳播，但不支援多點傳送或廣播。 WebLogic Server 可以依賴 Azure 的 UDP 單點傳播功能。 若要依賴 UDP 單點傳播獲得最佳結果，建議 WebLogic 叢集大小保持靜態，或叢集中保持不超過 10 個受控伺服器。
 * **WebLogic Server 預期針對 T3 存取的公用和私人連接埠是相同的 (例如，使用 Enterprise JavaBeans 時)。** 請考慮使用多層式案例，其中服務層 (EJB) 應用程式會在 WebLogic Server 叢集上執行，而該叢集包含兩個或多個 VM，且都位於名為 **SLWLS** 的 vNet 中。 用戶端層位於相同 vNet 中的不同子網路，並執行簡單的 Java 程式，嘗試呼叫服務層中的 EJB。 由於負載平衡服務層是必要動作，所以必須先為 WebLogic Server 叢集中的虛擬機器建立公用負載平衡端點。 如果您指定的私人連接埠與公用連接埠不同 (例如，7006:7008)，則會發生下列錯誤：
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   這是因為對於任何遠端 T3 存取，WebLogic Server 預期負載平衡器連接埠和 WebLogic 受管理伺服器連接埠是相同的。 在上述情況中，用戶端正在存取連接埠 7006 (負載平衡器連接埠)，而受管理的伺服器正在接聽 7008 (私人連接埠)。 這項限制只適用於 T3 存取，不適用於 HTTP。
+   這是因為對於任何遠端 T3 存取，WebLogic Server 預期負載平衡器連接埠和 WebLogic 受控伺服器連接埠是相同的。 在上述情況中，用戶端正在存取連接埠 7006 (負載平衡器連接埠)，而受控伺服器正在接聽 7008 (私人連接埠)。 這項限制只適用於 T3 存取，不適用於 HTTP。
 
    若要避免此問題，請使用下列其中一種因應措施：
 
@@ -91,9 +91,9 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 
 如需相關資訊，請參閱知識庫文章 **860340.1**，位於：<http://support.oracle.com>。
 
-* **動態叢集和負載平衡限制。** 假設您想要在 WebLogic Server 中使用動態叢集，並透過 Azure 中的單一、公用負載平衡端點將它公開。 做法是只要您使用各個受管理伺服器的固定連接埠號碼 (不是從範圍動態指派)，且不要啟動比系統管理員正在追蹤之機器的數量還多的受管理伺服器 (也就是每台虛擬機器不超過一個受管理伺服器)。 若您的設定會導致啟動的 WebLogic 伺服器多於可用的虛擬機器 (也就是多個 WebLogic Server 執行個體共用相同的虛擬機器)，則那些 WebLogic 伺服器執行個體中只有一個可以繫結到指定的連接埠號碼，該虛擬機器上的其他執行個體則會失敗。
+* **動態叢集和負載平衡限制。** 假設您想要在 WebLogic Server 中使用動態叢集，並透過 Azure 中的單一、公用負載平衡端點將它公開。 做法是只要您使用各個受控伺服器的固定連接埠號碼 (不是從範圍動態指派)，且不要啟動比系統管理員正在追蹤之機器的數量還多的受控伺服器 (也就是每台虛擬機器不超過一個受控伺服器)。 若您的設定會導致啟動的 WebLogic 伺服器多於可用的虛擬機器 (也就是多個 WebLogic Server 執行個體共用相同的虛擬機器)，則那些 WebLogic 伺服器執行個體中只有一個可以繫結到指定的連接埠號碼，該虛擬機器上的其他執行個體則會失敗。
 
-   若您設定管理伺服器自動將唯一的連接埠號碼指派給受其管理的伺服器，則無法進行負載平衡，因為 Azure 不支援從單一公用連接埠對應至多個私人連接埠，而此設定中需要這樣做。
+   若您設定管理伺服器自動將唯一的連接埠號碼指派給其受控伺服器，則無法進行負載平衡，因為 Azure 不支援從單一公用連接埠對應至多個私人連接埠，而此設定中需要這樣做。
 * **虛擬機器上的多個 Weblogic Server 執行個體。** 根據您的部署需求，如果虛擬機器夠大，您可以考慮選擇在相同虛擬機器上執行多個 WebLogic Server 的執行個體。 例如，在中型大小虛擬機器上 (包含 2 個核心)，您可以選擇執行兩個 WebLogic Server 的執行個體。 不過請注意，仍然建議您避免將單一失敗點引入您的架構，如果您僅使用一個執行多個 WebLogic Server 執行個體的虛擬機器也是如此。 使用至少兩個虛擬機器可能是較好的方法，每個虛擬機器可以執行多個 WebLogic Server 執行個體。 每個 WebLogic Server 的執行個體仍可以是相同叢集的一部分。 但是請注意，目前無法使用 Azure 對相同虛擬機器內此類 WebLogic Server 部署所公開的端點進行負載平衡，因為 Azure 負載平衡器需要負載平衡伺服器在唯一的虛擬機器內散佈。
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Oracle JDK 虛擬機器映像

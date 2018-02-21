@@ -16,7 +16,7 @@ ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/21/2017
 - Azure Load Balancer 用來公開兩個前端 IP 位址 (每個網站一個)。 前端 IP 位址用於將流量分散至每個網站的各自 IP 組態。
 - 前端 IP 位址和後端集區 IP 位址使用相同的連接埠號碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 我們的案例假設您有一個名為 **contosofabrikam** 的資源群組，其設定如下︰
 

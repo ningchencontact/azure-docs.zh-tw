@@ -53,14 +53,14 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|  
+|cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|yes|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入  
+-   **原則區段︰**inbound  
 -   **原則範圍︰**全域  
   
 ##  <a name="CORS"></a>CORS  
@@ -122,11 +122,11 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|cors|根元素。|是|N/A|  
-|allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|是|N/A|  
-|來源|值可以是 `*` 以允許所有來源，或是 URI 以指定單一來源。 URI 必須包含配置、主機和連接埠。|是|如果 URI 中省略了連接埠，則會將連接埠 80 用於 HTTP，將連接埠 443 用於 HTTPS。|  
+|cors|根元素。|yes|N/A|  
+|allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|yes|N/A|  
+|來源|值可以是 `*` 以允許所有來源，或是 URI 以指定單一來源。 URI 必須包含配置、主機和連接埠。|yes|如果 URI 中省略了連接埠，則會將連接埠 80 用於 HTTP，將連接埠 443 用於 HTTPS。|  
 |allowed-methods|如果允許 GET 或 POST 以外的方法，則需要此元素。 包含指定了所支援 HTTP 動詞命令的 `method` 元素。|否|如果這個區段不存在，則會支援 GET 和 POST。|  
 |method|指定 HTTP 動詞命令。|如果 `allowed-methods` 區段存在，則需要至少一個 `method` 元素。|N/A|  
 |allowed-headers|此元素包含指定了可包含在要求中之標頭名稱的 `header` 元素。|否|N/A|  
@@ -135,7 +135,7 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|false|  
 |preflight-result-max-age|事前回應中的 `Access-Control-Max-Age` 標頭會設定為這個屬性的值，並影響使用者代理程式是否能夠快取事前回應。|否|0|  
@@ -167,15 +167,15 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|jsonp|根元素。|是|  
+|jsonp|根元素。|yes|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|是|N/A|  
+|callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

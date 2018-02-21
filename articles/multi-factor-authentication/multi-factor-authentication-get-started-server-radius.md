@@ -47,7 +47,7 @@ RADIUS 是接受驗證要求並處理這些要求的標準通訊協定。 Azure 
 
 6. 如果所有使用者都已經匯入伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器或將免除雙步驟驗證，請勿核取此方塊。
 7. 如果您想要使用來自行動驗證應用程式的 OATH 密碼作為備份方法，請核取 [啟用遞補 OATH 權杖] 方塊。
-8. 按一下 [確定] 。
+8. 按一下 [SERVICEPRINCIPAL] 。
 
 請重複步驟 4 到 8 以視需要新增多個其他 RADIUS 用戶端。
 
@@ -65,7 +65,7 @@ RADIUS 是接受驗證要求並處理這些要求的標準通訊協定。 Azure 
 
   共用密碼在 Azure Multi-Factor Authentication Server 和 RADIUS 伺服器上必須相同。 如果 RADIUS 伺服器使用不同的通訊埠，請變更 [驗證連接埠] 和 [帳戶處理連接埠]。
 
-7. 按一下 [確定] 。
+7. 按一下 [SERVICEPRINCIPAL] 。
 8. 在另一部 RADIUS 伺服器中新增 Azure MFA Server 作為 RADIUS 用戶端，如此它才能夠處理從 Azure MFA Server 傳送給它的存取要求。 請使用 Azure Multi-Factor Authentication Server 中設定的相同共用密碼。
 
 重複這些步驟來新增更多 RADIUS 伺服器。 使用 [上移] 和 [下移] 按鈕來設定 Azure MFA Server 應呼叫它們的順序。

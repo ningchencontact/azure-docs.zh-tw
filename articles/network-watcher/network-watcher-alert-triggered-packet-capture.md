@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ![案例][scenario]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 最新版的 [Azure PowerShell](/powershell/azure/install-azurerm-ps)。
 * 網路監看員的現有執行個體。 如果您還沒有，請[建立網路監看員執行個體](network-watcher-create.md)。

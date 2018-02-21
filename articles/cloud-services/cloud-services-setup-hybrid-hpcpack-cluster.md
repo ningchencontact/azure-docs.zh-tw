@@ -30,7 +30,7 @@ ms.lasthandoff: 11/04/2017
 
 本教學課程假設您先前沒有使用計算叢集或 HPC Pack 的經驗。 其只是要協助您快速部署一個示範性質的混合式計算叢集。 如需有關使用 HPC Pack 2016，或有關在生產環境中以較大規模部署混合式 HPC Pack 叢集的考量和步驟，請參閱[詳細指引 (英文)](http://go.microsoft.com/fwlink/p/?LinkID=200493)。 如需使用 HPC Pack 的其他案例，包括 Azure 虛擬機器中的自動化叢集部署，請參閱[使用 HPC Pack 在 Azure 中建立及管理 Windows HPC 叢集的選項](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 * **一部執行 Windows Server 2012 R2 或 Windows Server 2012 的內部部署電腦** - 使用這部電腦作為 HPC 叢集的前端節點。 如果您目前執行的不是 Windows Server，可以下載並安裝 [評估版](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2)。
   
@@ -110,7 +110,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 2. 鍵入帳戶的名稱，然後選取 [傳統] 部署模型。
 
-3. 選擇資源群組和位置，並保留其他設定的預設值。 然後按一下 [ **建立**]。
+3. 選擇資源群組和位置，並保留其他設定的預設值。 接著，按一下 [建立]。
 
 ## <a name="configure-the-head-node"></a>設定前端節點
 若要使用 HPC 叢集管理員來部署 Azure 節點及提交工作，請先執行一些必要的叢集設定步驟。

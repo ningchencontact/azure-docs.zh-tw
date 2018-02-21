@@ -26,7 +26,7 @@ ms.lasthandoff: 12/05/2017
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、資料表、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]或者，您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。
 
@@ -110,7 +110,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 連接字串資訊可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
 
     使用 ![[複製] 按鈕](./media/create-cassandra-dotnet/copy.png) 位於螢幕右側的按鈕來複製 [使用者名稱] 值。
 

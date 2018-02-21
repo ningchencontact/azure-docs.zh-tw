@@ -22,7 +22,7 @@ ms.lasthandoff: 10/18/2017
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 的主要功能與概念
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 如果您是 Microsoft Azure Stack 的新手，這些字詞與功能描述可能相當實用。
 

@@ -16,7 +16,7 @@ ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 * iOS 應用程式允許用戶端裝置指定語言，以及訂閱不同的即時新聞類別；
 * 後端使用 Azure 通知中樞的**標籤**和**範本**功能廣播通知。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須已完成 [使用通知中心傳送即時新聞] 教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 (選擇性) 需要 Visual Studio 2012 或更新版本。

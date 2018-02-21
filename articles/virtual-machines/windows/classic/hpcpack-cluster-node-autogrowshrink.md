@@ -35,7 +35,7 @@ ms.lasthandoff: 10/27/2017
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>設定 AutoGrowShrink 叢集屬性
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * **HPC Pack 2012 R2 Update 2 或更新版叢集** - 叢集前端節點可以部署在內部部署或在 Azure VM 中。 請參閱 [使用 HPC Pack 設定混合式叢集](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) ，以開始使用內部部署前端節點與 Azure「高載」節點。 請參閱 [HPC Pack IaaS 部署指令碼](hpcpack-cluster-powershell-script.md)，以在 Azure VM 中快速部署 HPC Pack 叢集。
 
@@ -181,7 +181,7 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 根據預設，**SoaJobGrowThreshold** 設為 50000，而 **SoaRequestsPerCore** 設為 20000。 如果您送出一個包含 70000 個要求的 SOA 作業，則會有一個排入佇列工作，且傳入要求為 70000。 在此情況下，HPC Pack 會針對排入佇列工作增加 1 個核心，並針對傳入要求，將增加 (70000 - 50000)/20000 = 1 核心，因此總共會為此 SOA 作業增加 2 個核心。
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>執行 AzureAutoGrowShrink.ps1 指令碼
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * **HPC Pack 2012 R2 更新 1 或更新版本叢集** - **AzureAutoGrowShrink.ps1** 指令碼會安裝在 %CCP_HOME%bin 資料夾中。 叢集前端節點可以部署在內部部署或在 Azure VM 中。 請參閱 [使用 HPC Pack 設定混合式叢集](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) ，以開始使用內部部署前端節點與 Azure「高載」節點。 請參閱 [HPC Pack IaaS 部署指令碼](hpcpack-cluster-powershell-script.md)，以在 Azure VM 中快速部署 HPC Pack 叢集，或使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)。
 * **Azure PowerShell 1.4.0** - 指令碼目前取決於此特定版本的 Azure PowerShell。

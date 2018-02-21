@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文描述如何在您使用 Visual Studio 的 [新增連接的服務] 對話方塊，建立或參考了 Azure 儲存體帳戶之後，開始在 Visual Studio Azure WebJob 專案中使用 Azure 佇列儲存體。 當您使用 Visual Studio [新增連接的服務]  對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 封裝便已安裝、適當的 .NET 參考會加入至專案，以及儲存體帳戶的連接字串會在 App.config 檔案中更新。  
 
 本文提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。

@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 
 了解如何使用 [Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) 在 Node.js 中建置 Batch 用戶端的基本概念。 我們會逐步了解批次應用程式的案例，然後使用 Node.js 用戶端加以設定。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已具備 Node.js 的使用知識並熟悉 Linux。 同時假設您的 Azure 帳戶設有存取權限，可建立 Batch 和儲存體服務。
 
 建議您先閱讀 [Azure Batch 技術概觀](batch-technical-overview.md)，再進行本文概述的步驟。

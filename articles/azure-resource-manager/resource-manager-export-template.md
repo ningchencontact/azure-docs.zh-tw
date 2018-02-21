@@ -40,11 +40,11 @@ ms.lasthandoff: 10/11/2017
    
       ![搜尋 Web 應用程式和 SQL](./media/resource-manager-export-template/webapp-sql.png)
 
-3. 選取 [ **建立**]。
+3. 選取 [建立] 。
 
       ![選取 [建立]](./media/resource-manager-export-template/create.png)
 
-4. 提供 Web 應用程式和 SQL 資料庫的必要值。 選取 [ **建立**]。
+4. 提供 Web 應用程式和 SQL 資料庫的必要值。 選取 [建立] 。
 
       ![提供 Web 和 SQL 值](./media/resource-manager-export-template/provide-web-values.png)
 

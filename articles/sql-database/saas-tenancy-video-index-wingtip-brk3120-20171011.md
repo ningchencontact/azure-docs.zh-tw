@@ -6,7 +6,8 @@ ms.date: 12/06/2017
 ms.prod: sql-server
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
@@ -19,9 +20,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>已為使用 Azure SQL Database 的多租用戶 SaaS 應用程式影片編製索引和標註
+# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>影片索引與註解，適用主題為使用 Azure SQL Database 的多租用戶 SaaS 應用程式之影片
 
-針對有關 SaaS 租用模型或模式的 81 分鐘影片，本文為其時間位置的標註索引。 本文可讓您向後或向前跳到感興趣的影片部分。 影片說明 Azure SQL Database 上多租用戶資料庫應用程式的主要設計選項。 影片包括示範、逐步解說管理程式碼，而且根據經驗有時我們的書面文件會有更多詳細資訊。
+就主題為 SaaS 租用模型或模式的影片，本文已將其 81 分鐘的片長編製成數個時間點的索引，並附上註解。 本文可讓您向後或向前跳到影片中感興趣的部分。 影片說明 Azure SQL Database 上多租用戶資料庫應用程式的主要設計選項。 該影片包括示範、管理程式碼的逐步解說，也會不時詳談書面文件中不曾有過的經驗。
 
 影片詳述以下書面文件中的資訊： 
 - *概念：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]

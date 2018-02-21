@@ -333,7 +333,7 @@ ms.lasthandoff: 11/10/2017
 
 若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱 [混合式連線](integration-hybrid-connection-overview.md)。
 
-## <a name="next"></a>下一步
+## <a name="next"></a>下一頁
 現在，您已熟悉不同的索引標籤，您可以繼續深入了解 Azure BizTalk 服務的功能：
 
 * [BizTalk 服務：節流](biztalk-throttling-thresholds.md)  
@@ -341,7 +341,7 @@ ms.lasthandoff: 11/10/2017
 * [BizTalk 服務：備份與還原](biztalk-backup-restore.md)
 
 ## <a name="see-also"></a>另請參閱
-* [混合式連線](integration-hybrid-connection-overview.md)  
+* [VNet](integration-hybrid-connection-overview.md)  
 * [BizTalk 服務：開發人員、基本、標準和高級版本圖表](biztalk-editions-feature-chart.md)  
 * [BizTalk 服務：佈建](biztalk-provision-services.md)  
 * [BizTalk 服務：BizTalk 服務狀態圖](biztalk-service-state-chart.md)  

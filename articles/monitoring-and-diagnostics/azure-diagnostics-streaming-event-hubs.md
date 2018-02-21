@@ -16,7 +16,7 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -38,7 +38,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 * 如何檢視事件中樞串流資料
 * 如何針對連線問題進行疑難排解  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 雲端服務、VM、虛擬機器擴展集，以及 Azure SDK 2.9 開始的 Service Fabric 和對應的 Azure Tools for Visual Studio，皆支援從 Azure 診斷接收資料的事件中樞。
 
 * Azure 診斷擴充 1.6 ([Azure SDK for. NET 2.9 或更新版本](https://azure.microsoft.com/downloads/) 預設以此為目標)

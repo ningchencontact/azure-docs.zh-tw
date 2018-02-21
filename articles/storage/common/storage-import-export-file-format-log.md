@@ -38,8 +38,8 @@ ms.lasthandoff: 10/11/2017
   
 |驗證方法|`ImportExportStatesPath` 元素的值|記錄檔 Blob 的位置|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|儲存體帳戶金鑰|預設值|名為 `waimportexport` 的容器，這是預設容器。 例如：<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|儲存體帳戶金鑰|使用者指定值|使用者命名的容器。 例如：<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|儲存體帳戶金鑰|預設值|名為 `waimportexport` 的容器，這是預設容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|儲存體帳戶金鑰|使用者指定值|使用者命名的容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |容器 SAS|預設值|名為 `waimportexport` 的虛擬目錄，這是預設名稱，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |容器 SAS|使用者指定值|使用者命名的虛擬目錄，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，且指定的虛擬目錄名為 `mylogblobs`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`。|  
   
@@ -110,15 +110,15 @@ properties-status ::=
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML 元素|代表磁碟機記錄檔。|  
 |`Version`|屬性、字串|記錄檔格式的版本。|  
-|`DriveId`|String|磁碟機的硬體序號。|  
-|`Status`|String|磁碟機處理狀態。 如需詳細資訊，請參閱以下的 `Drive Status Codes` 表格。|  
+|`DriveId`|字串|磁碟機的硬體序號。|  
+|`Status`|字串|磁碟機處理狀態。 如需詳細資訊，請參閱以下的 `Drive Status Codes` 表格。|  
 |`Blob`|巢狀的 XML 元素|代表 Blob。|  
-|`Blob/BlobPath`|String|Blob 的 URI。|  
-|`Blob/FilePath`|String|磁碟機上檔案的相對路徑。|  
-|`Blob/Snapshot`|DateTime|Blob 快照集版本 (限匯出工作)。|  
-|`Blob/Length`|Integer|Blob 總長度 (以位元組為單位)。|  
-|`Blob/LastModified`|DateTime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
-|`Blob/ImportDisposition`|String|Blob 的匯入配置 (限匯入工作)。|  
+|`Blob/BlobPath`|字串|Blob 的 URI。|  
+|`Blob/FilePath`|字串|磁碟機上檔案的相對路徑。|  
+|`Blob/Snapshot`|Datetime|Blob 快照集版本 (限匯出工作)。|  
+|`Blob/Length`|整數 |Blob 總長度 (以位元組為單位)。|  
+|`Blob/LastModified`|Datetime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
+|`Blob/ImportDisposition`|字串|Blob 的匯入配置 (限匯入工作)。|  
 |`Blob/ImportDisposition/@Status`|屬性、字串|匯入配置狀態。|  
 |`PageRangeList`|巢狀的 XML 元素|代表分頁 Blob 的頁面範圍清單。|  
 |`PageRange`|XML 元素|代表頁面範圍。|  
@@ -135,17 +135,17 @@ properties-status ::=
 |`Block/@Status`|屬性、字串|區塊處理狀態。|  
 |`Metadata`|巢狀的 XML 元素|代表 Blob 的中繼資料。|  
 |`Metadata/@Status`|屬性、字串|Blob 中繼資料處理狀態。|  
-|`Metadata/GlobalPath`|String|全域中繼資料檔案的相對路徑。|  
+|`Metadata/GlobalPath`|字串|全域中繼資料檔案的相對路徑。|  
 |`Metadata/GlobalPath/@Hash`|屬性、字串|全域中繼資料檔案的 Base16 式編碼的 MD5 雜湊。|  
-|`Metadata/Path`|String|中繼資料檔案的相對路徑。|  
+|`Metadata/Path`|字串|中繼資料檔案的相對路徑。|  
 |`Metadata/Path/@Hash`|屬性、字串|中繼資料檔案的 Base16 式編碼的 MD5 雜湊。|  
 |`Properties`|巢狀的 XML 元素|表示 Blob 屬性。|  
 |`Properties/@Status`|屬性、字串|Blob 屬性處理狀態，例如，找不到檔案、已完成。|  
-|`Properties/GlobalPath`|String|全域屬性檔案的相對路徑。|  
+|`Properties/GlobalPath`|字串|全域屬性檔案的相對路徑。|  
 |`Properties/GlobalPath/@Hash`|屬性、字串|全域屬性檔案的 Base16 式編碼的 MD5 雜湊。|  
-|`Properties/Path`|String|屬性檔案的相對路徑。|  
+|`Properties/Path`|字串|屬性檔案的相對路徑。|  
 |`Properties/Path/@Hash`|屬性、字串|屬性檔案的 Base16 式編碼的 MD5 雜湊。|  
-|`Blob/Status`|String|Blob 處理狀態。|  
+|`Blob/Status`|字串|Blob 處理狀態。|  
   
 # <a name="drive-status-codes"></a>磁碟機狀態碼  
 下表列出磁碟機處理的狀態碼。  

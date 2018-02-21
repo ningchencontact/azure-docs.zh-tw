@@ -16,7 +16,7 @@ ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -43,7 +43,7 @@ Data Lake Store 對於支援的叢集類型，是做為預設儲存體或額外�
 
 在本文中，我們佈建 Hadoop 叢集與 Data Lake Store 做為額外的儲存體。 如需有關如何建立以 Data Lake Store 做為預設儲存體之 Hadoop 叢集的指示，請參閱[使用 Azure 入口網站建立搭配 Data Lake Store 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。

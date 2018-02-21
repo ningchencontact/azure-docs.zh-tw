@@ -1,6 +1,6 @@
 ---
-title: "Azure 受管理的應用程式建立 UI 定義函式 | Microsoft Docs"
-description: "描述建構 Azure 受管理應用程式的 UI 定義時要使用的函式"
+title: "Azure 受控應用程式建立 UI 定義函式 | Microsoft Docs"
+description: "描述建構 Azure 受控應用程式的 UI 定義時要使用的函式"
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -22,19 +22,19 @@ ms.lasthandoff: 10/27/2017
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 函式
 本節包含 CreateUiDefinition 所有支援的函式的簽章。
 
-若要使用函式，請使用方括弧括住宣告。 例如：
+若要使用函式，請使用方括弧括住宣告。 例如︰
 
 ```json
 "[function()]"
 ```
 
-您可以參考字串和其他函式做為函式的參數，但必須以單引號括住字串。 例如：
+您可以參考字串和其他函式做為函式的參數，但必須以單引號括住字串。 例如︰
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-如果適用，您可以使用點運算子參考函式輸出的屬性。 例如：
+如果適用，您可以使用點運算子參考函式輸出的屬性。 例如︰
 
 ```json
 "[func().prop1]"

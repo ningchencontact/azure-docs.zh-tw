@@ -178,7 +178,7 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 #### <a name="constructor-rewrites"></a>建構函式重寫
 上述程式碼範例說明應用程式所需的預設建構函式重寫，以便使用資料相依路由與 Entity Framework。 下表將這個方法擴及其他建構函式。 
 
-| 目前的建構函式 | 重寫的資料建構函式 | 基底建構函式 | 注意事項 |
+| 目前的建構函式 | 重寫的資料建構函式 | 基底建構函式 | 注意 |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |連接必須是分區對應和資料相依路由索引鍵的函數。 您需要略過由 EF 自動建立連接，改用分區對應來代理連接。 |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |連接是分區對應和資料相依路由索引鍵的函數。 固定的資料庫名稱或連接字串無法運作，因為它們會略過分區對應所執行的驗證。 |

@@ -34,15 +34,15 @@ ms.lasthandoff: 11/08/2017
 
 - 使用適用於 Windows 的 DSC 擴充功能將 PowerShell 預期狀態設定套用至虛擬機器。 如需詳細資訊，請參閱 [Azure 期望狀態組態擴充功能簡介](extensions-dsc-overview.md)。
 - 使用 Microsoft 監視代理程式 VM 擴充功能設定虛擬機器監視。 如需詳細資訊，請參閱[將 Azure 虛擬機器連接到 Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md)。
-- 使用 Datadog 擴充功能設定監視您的 Azure 基礎結構。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
+- 使用 Datadog 副檔名設定 Azure 基礎結構的監視。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 - 使用 Chef 設定 Azure 虛擬機器。 如需詳細資訊，請參閱[使用 Chef 自動化 Azure 虛擬機器部署](chef-automation.md)。
 
 除了處理序特定擴充功能，自訂指令碼延伸模組適用於 Windows 和 Linux 虛擬機器。 適用於 Windows 的自訂指令碼擴充功能允許在虛擬機器上執行任何 PowerShell 指令碼。 這對於設計需要超過原生 Azure 工具可提供之組態的 Azure 部署很有用。 如需詳細資訊，請參閱 [Windows VM 自訂指令碼擴充功能](extensions-customscript.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-每個虛擬機器擴充功能可能有它自己的必要條件組。 例如，Docker VM 擴充功能有受支援 Linux 散發套件的必要條件。 擴充功能特定文件中詳述的個別擴充功能的需求。
+每個虛擬機器擴充功能可能有它自己的必要條件組。 比方說，Docker VM 擴充功能有受支援 Linux 散發套件的必要條件。 擴充功能特定文件中詳述的個別擴充功能的需求。
 
 ### <a name="azure-vm-agent"></a>Azure VM 代理程式
 Azure VM 代理程式可管理 Azure 虛擬機器與 Azure 網狀架構控制器之間的互動。 VM 代理程式負責部署和管理「Azure 虛擬機器」的許多功能層面，包括執行「VM 擴充功能」。 Azure VM 代理程式會預先安裝在 Azure Marketplace 映像上，並可安裝在支援的作業系統上。
@@ -228,7 +228,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 
 ## <a name="troubleshoot-vm-extensions"></a>針對 VM 擴充功能進行疑難排解
 
-每個 VM 擴充功能可能都會有特定的疑難排解步驟。 例如，當您使用自訂指令碼擴充功能時，指令碼執行詳細資料可以在擴充功能執行所在的虛擬機器本機上找到。 所有擴充功能特定的疑難排解步驟都會在擴充功能特定文件中詳述。
+每個 VM 擴充功能可能都會有特定的疑難排解步驟。 例如，當您使用自訂指令碼擴充功能時，指令碼執行詳細資料可以在擴充功能執行所在的虛擬機器本機上找到。 所有擴充功能特定疑難排解步驟都會在擴充功能特定文件中詳述。
 
 下列疑難排解步驟適用於所有虛擬機器擴充功能。
 

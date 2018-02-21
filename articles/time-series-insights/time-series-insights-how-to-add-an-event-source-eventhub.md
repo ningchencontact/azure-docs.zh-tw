@@ -21,7 +21,7 @@ ms.lasthandoff: 11/22/2017
 
 本文說明如何使用 Azure 入口網站，將從事件中樞讀取資料的事件來源新增至時間序列深入解析環境。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 建立時間序列深入解析環境。 如需詳細資訊，請參閱[建立 Azure 時間序列深入解析環境](time-series-insights-get-started.md) 
 - 建立事件中樞。 如需事件中樞的詳細資料，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)
 - 事件中樞必須要有傳入的作用中訊息事件。 如需詳細資訊，請參閱[使用 .NET Framework 將事件傳送至 Azure 事件中樞](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。

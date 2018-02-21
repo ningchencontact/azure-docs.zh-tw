@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 
 本快速入門示範如何將 Application Insights 新增至現有的 ASP.NET Web 應用程式，並開始分析即時統計資料，而這只是您可用來分析應用程式的多種方法的其中一個。 如果您沒有 ASP.NET Web 應用程式，您可以遵循[建立 ASP.NET Web 應用程式快速入門](../app-service/app-service-web-get-started-dotnet.md)來建立一個。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本快速入門：
 
 - 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
@@ -64,7 +64,7 @@ Application Insights 會為您的應用程式收集遙測資料，不論其執�
 
 3. 按一下其中一個應用程式元件的 [應用程式對應]![](media/quick-monitor-portal/app-analytics-icon.png) 上的 [應用程式分析] 圖示。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。  此案例中會為您產生查詢，可將要求計數以圖表呈現。  您可以撰寫自己的查詢來分析其他資料。
 
-    ![Analytics](media/quick-monitor-portal/analytics.png)
+    ![分析](media/quick-monitor-portal/analytics.png)
 
 4. 返回 [概觀] 頁面，然後按一下 [即時資料流]。  這會顯示有關您的應用程式的即時統計資料，因為它在執行中。  這包含連入要求數量、這些要求的持續時間及發生的任何失敗之類的資訊。  您也可以檢查重要效能計量，例如處理器和記憶體。
 

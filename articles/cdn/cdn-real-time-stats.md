@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN 中的即時統計資料
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文件說明 Microsoft Azure CDN 中的即時統計資料。  在將內容傳遞給您的用戶端時，這項功能會提供即時資料 (例如頻寬、快取狀態和並行連線) 給您的 CDN 設定檔。 這可讓您隨時連續監視服務的健全狀況，包括上線事件。
 
 可用圖表如下︰

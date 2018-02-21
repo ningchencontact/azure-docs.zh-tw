@@ -132,13 +132,13 @@ ms.lasthandoff: 11/18/2017
 事件資料︰
 * Offset
 * 序號
-* 內文
+* body
 * 使用者屬性
 * 系統屬性
 
 您必須負責管理位移。
 
-## <a name="capacity"></a>容量
+## <a name="capacity"></a>Capacity
 
 事件中樞具有可高度調整的平行架構，在調整和縮放規模時需要考慮許多重要因素。
 

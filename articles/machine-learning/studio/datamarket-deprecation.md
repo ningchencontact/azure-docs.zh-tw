@@ -24,17 +24,17 @@ ms.lasthandoff: 10/11/2017
 
 [Microsoft DataMarket](https://datamarket.azure.com/datasets) 現在已過時，因此裝載在該處的 Machine Learning API 現在也已過時。
 
-您現在可以在[辨識服務 API](https://www.microsoft.com/cognitive-services) (英文) 中找到這些功能 (和其他功能)。
+您現在可以在[認知服務 API](https://www.microsoft.com/cognitive-services) (英文) 中找到這些功能 (和其他功能)。
 
 ## <a name="text-analytics-api"></a>Text Analytics API
 
-先前的 DataMarket Text Analytics API 客戶應該開始使用[辨識服務文字分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api) (英文)。
-辨識服務文字分析 API 支援舊版 DataMarket 的所有案例，以及語言偵測和主題偵測等其他案例。
+先前的 DataMarket Text Analytics API 客戶應該開始使用[認知服務文字分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api) (英文)。
+認知服務文字分析 API 支援舊版 DataMarket 的所有案例，以及語言偵測和主題偵測等其他案例。
 
 
 ## <a name="recommendations-api"></a>建議 API 
 
-先前的 DataMarket Recommendations API 客戶應該開始使用[辨識服務建議 API](https://www.microsoft.com/cognitive-services/recommendations-api)。
-辨識服務文字分析 API 支援舊版 DataMarket 的所有案例，以及批次支援等其他案例，還提供較佳的離線度量來評估模型品質。 
+先前的 DataMarket 建議 API 客戶應該開始使用[認知服務建議 API](https://www.microsoft.com/cognitive-services/recommendations-api)。
+認知服務文字分析 API 支援舊版 DataMarket 的所有案例，以及批次支援等其他案例，還提供較佳的離線度量來評估模型品質。 
 
-如需如何開始使用辨識服務建議 API 的詳細資訊，請參閱[移轉至 Azure 辨識服務建議 API](http://aka.ms/recomigrate) (英文)。
+如需如何開始使用認知服務建議 API 的詳細資訊，請參閱[移轉至 Azure 認知服務建議 API](http://aka.ms/recomigrate) (英文)。

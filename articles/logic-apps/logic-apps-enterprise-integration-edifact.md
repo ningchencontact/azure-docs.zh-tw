@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
     | 屬性 | 說明 |
     | --- | --- |
-    | 名稱 |合約的名稱 |
+    | Name |合約的名稱 |
     | 合約類型 | 應該是 EDIFACT |
     | 主控夥伴 |合約需要主控夥伴和來賓夥伴。 主機夥伴代表設定合約的組織。 |
     | 主控身分識別 |主控夥伴的識別碼 |
@@ -251,6 +251,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="view-swagger-file"></a>檢視 Swagger 檔案
 若要檢視 EDIFACT 連接器的 Swagger 詳細資料，請參閱 [EDIFACT](/connectors/edifact/)。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 * [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
 

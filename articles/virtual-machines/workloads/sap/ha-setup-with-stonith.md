@@ -26,7 +26,7 @@ ms.lasthandoff: 11/22/2017
 **免責聲明：***本指南為透過在可成功運作的 Microsoft HANA 大型執行個體環境中測試設定所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。Microsoft 服務管理小組會設定 STONITH 裝置並傾力支援，而且會參與對於 STONITH 裝置問題的疑難排解。*
 ## <a name="overview"></a>概觀
 若要使用 SUSE 叢集進行高可用性設定，必須符合下列先決條件。
-### <a name="pre-requisites"></a>必要條件
+### <a name="pre-requisites"></a>先決條件
 - 已佈建 HANA 大型執行個體
 - 作業系統已註冊
 - HANA 大型執行個體伺服器已連線到 SMT 伺服器以取得修補程式/套件
@@ -154,7 +154,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-按一下 [檔案] &gt; [新增] &gt; [專案] 
+按一下 [確定] 
 
 驗證會使用 IP 位址和 Csync2 中的預先共用金鑰執行。 金鑰檔案是使用 csync2 -k /etc/csync2/key_hagroup 產生。 檔案 key_hagroup 應在建立之後手動複製到叢集的所有成員。 **務必將檔案從 node1 複製到 node2**。
 

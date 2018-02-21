@@ -56,7 +56,7 @@ python --version
 
 使用安裝於 Visual Studio Community 版本的「適用於 Visual Studio 的 Python 工具」(PTVS)。 Python 2.7 是 PTVS 中唯一會自動設定的環境。 
 > [!NOTE]
-> 若要將 PTVS 指向 Python 3.5，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 工具 -> Python 工具 -> Python 環境，然後按一下+ 自訂。 然後將位置設定為 `c:\anaconda\envs\py35`，並按一下 [自動偵測]。 
+> 若要將 PTVS 指向 Python 3.5，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 [+ 自訂]。 然後將位置設定為 `c:\anaconda\envs\py35`，並按一下 [自動偵測]。 
 
 * 在 Jupyter 中使用
 

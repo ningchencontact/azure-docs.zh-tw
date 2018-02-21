@@ -1,5 +1,5 @@
 ## <a name="connect-to-outlookcom"></a>連接到 Outlook.com
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * Outlook.com 帳戶
 
 您必須先授與邏輯應用程式連接到 Outlook.com 帳戶的權限，之後才能在邏輯應用程式中使用您的 Outlook.com 帳戶。 所幸，您可以使用 Azure 入口網站在邏輯應用程式內輕易達成這項作業。 

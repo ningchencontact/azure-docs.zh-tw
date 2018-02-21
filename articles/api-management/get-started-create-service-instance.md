@@ -36,7 +36,7 @@ ms.lasthandoff: 12/04/2017
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [新增] > [企業整合] > [API 管理]。
 
-    或者，選擇 [新增]，在搜尋方塊中輸入 `API management`，然後按 Enter 鍵。 按一下 [建立] 。
+    或者，選擇 [新增]，在搜尋方塊中輸入 `API management`，然後按 Enter 鍵。 按一下頁面底部的 [新增] 。
 
 2. 在 [API 管理服務] 視窗中，輸入設定。
 

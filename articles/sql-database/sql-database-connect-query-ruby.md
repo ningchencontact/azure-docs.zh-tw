@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 此快速入門教學課程示範如何使用 [Ruby](https://www.ruby-lang.org) 來建立程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門教學課程，請確定您具有下列必要條件︰
 

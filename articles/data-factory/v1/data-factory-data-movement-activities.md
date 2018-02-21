@@ -27,7 +27,7 @@ ms.lasthandoff: 12/05/2017
 > * [第 2 版 - 預覽](../copy-activity-overview.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版中的複製活動](../copy-activity-overview.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版中的複製活動](../copy-activity-overview.md)。
 
 ## <a name="overview"></a>概觀
 在 Azure Data Factory 中，您可以使用「複製活動」在內部部署與雲端資料存放區之間複製資料。 複製資料之後，可以將它進一步轉換及進行分析。 您也可以使用「複製活動」來發佈商業智慧 (BI) 及應用程式使用情況的轉換和分析結果。

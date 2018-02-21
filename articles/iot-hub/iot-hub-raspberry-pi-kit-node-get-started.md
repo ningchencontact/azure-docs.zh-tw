@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
    ![[Raspbian 偏好設定] 功能表](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. 在 介面索引標籤上，將 I2C 和 SSH 設定為 啟用，然後按一下確定。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
+1. 在 [介面]索引標籤上，將 [I2C] 和 [SSH] 設定為 [啟用]，然後按一下 [確定]。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
 
    ![在 Raspberry Pi 上啟用 I2C 和 SSH](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 

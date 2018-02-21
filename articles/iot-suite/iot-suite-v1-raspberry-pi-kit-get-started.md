@@ -26,7 +26,7 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="the-tutorials"></a>教學課程
 
-| 教學課程 | 注意事項 | 語言 |
+| 教學課程 | 注意 | 語言 |
 | -------- | ----- | --------- |
 | 模擬遙測 (基本)| 模擬感應器資料。 使用獨立 Raspberry Pi。 | [C][lnk-c-simulator]、[Node.js][lnk-node-simulator] |
 | 真實感應器 (中級) | 使用連線到 Raspberry Pi 之 BME280 感應器的資料。 | [C][lnk-c-basic]、[Node.js][lnk-node-basic] |

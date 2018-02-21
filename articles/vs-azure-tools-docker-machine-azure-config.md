@@ -115,7 +115,7 @@ PS C:\> docker-machine ip MyDockerHost
 
 ![執行 ngnix 容器](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 docker-machine 可讓您在 Azure 中輕鬆地佈建 docker 主機，以進行個別 docker 主機驗證。
 如需實際執行裝載容器，請參閱 [Azure Container Service](http://aka.ms/AzureContainerService)
 

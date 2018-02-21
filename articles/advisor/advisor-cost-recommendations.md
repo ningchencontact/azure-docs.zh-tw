@@ -16,7 +16,7 @@ ms.date: 11/16/2016
 ms.author: kumud
 ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/08/2017
 Advisor 可找出閒置和未充分利用的資源，協助您減少 Azure 的整體費用並加以最佳化。 您可以從 Advisor 儀表板上的 [成本] 索引標籤取得成本建議。
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>關閉使用量過低的執行個體，或者重新調整其大小或，從而將虛擬機器的費用最佳化 
-雖然特定應用程式的設計情境可能導致低使用率，但您通常可以藉由調整虛擬機器的大小和數量來節省費用。 Advisor 可監視過去 14 天的虛擬機器使用量，並找出低使用率的虛擬機器。 CPU 使用率小於 (含) 5% 且網路使用量小於 (含) 7 MB 長達 4 天 (含) 以上的虛擬機器，將會視為低使用率虛擬機器。
+雖然特定應用程式的設計情境可能導致低使用率，但您通常可以藉由調整虛擬機器的大小和數量來節省費用。 Advisor 可監視過去 14 天的虛擬機器使用量，並找出低使用率的虛擬機器。 CPU 使用率等於或低於 5% 且網路使用量等於或低於 7 MB 長達 4 天 (含) 以上的虛擬機器，會被視為低使用率虛擬機器。
 
 Advisor 會顯示繼續執行虛擬機器的預估成本，以便您可以選擇將它關閉或調整其大小。
 

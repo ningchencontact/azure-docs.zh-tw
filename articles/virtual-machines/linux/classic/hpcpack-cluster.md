@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 如需 Azure 中的 HPC Pack 叢集部署選項有關的詳細資訊，請參閱[使用 Microsoft HPC Pack 在 Azure 中建立及管理高效能運算 (HPC) 叢集的選項](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * **Azure 訂用帳戶** - 您可以使用「Azure 全球」或「Azure 中國」服務中的訂用帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 * **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。 若要增加配額，您可以免費開立線上客戶支援要求。
 * **Linux 散發** - 目前 HPC Pack 針對計算節點支援下列 Linux 發佈。 您可以使用這些發佈的 Marketplace 版本，或提供您自己的版本。
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>部署選項 1。 使用 Resource Manager 範本
 1. 前往 Azure Marketplace 的 [HPC Pack cluster for Linux workloads (處理 Linux 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 範本，按一下 [部署]。
-2. 檢閱 Azure 入口網站中的資訊，然後按一下建立 。
+2. 檢閱 Azure 入口網站中的資訊，然後按一下 [建立] 。
    
     ![建立入口網站][portal]
 3. 在 [基本]  刀鋒視窗中，輸入叢集的名稱，這也會指定前端節點 VM 的名稱。 您可以選擇現有的資源群組或建立新的資源群組，以便在您可用的位置進行部署。 位置會影響特定 VM 大小和其他 Azure 服務的可用性 (請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/))。
@@ -173,12 +173,13 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔作為輸入，以描述 HPC
 
 您也可以在 [熱度圖]  檢視中看到 Linux 節點。
 
-![熱圖][heatmap]
+![熱度圖][heatmap]
 
 ## <a name="how-to-move-data-in-a-cluster-with-linux-nodes"></a>如何在具有 Linux 節點的叢集中移動資料
 您有數個選擇可在 Linux 節點與叢集的 Windows 前端節點間移動資料。 以下是三種常見的方法，下列各節將詳細說明︰
 
-* **Azure 檔案** - 公開受管理的 SMB 檔案共用，以在 Azure 儲存體中儲存資料檔案。 Windows 節點和 Linux 節點可同時掛接 Azure 檔案共用作為磁碟機或資料夾，即使它們部署在不同的虛擬網路中。
+* 
+            **Azure 檔案** - 公開受控 SMB 檔案共用，以在 Azure 儲存體中儲存資料檔案。 Windows 節點和 Linux 節點可同時掛接 Azure 檔案共用作為磁碟機或資料夾，即使它們部署在不同的虛擬網路中。
 * **前端節點 SMB 共用** - 在 Linux 節點上裝載前端節點的標準 Windows 共用資料夾。
 * **前端節點 NFS 伺服器** - 為混合式 Windows 與 Linux 環境提供檔案共用解決方案。
 

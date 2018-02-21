@@ -20,7 +20,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>跨負載平衡 IoT 中樞來佈建裝置
 
-本教學課程示範如何使用裝置佈建服務 (DP) 針對多個負載平衡 IoT 中樞佈建裝置。 在本教學課程中，您將了解如何：
+本教學課程示範如何使用裝置佈建服務 (DP) 針對多個負載平衡 IoT 中樞佈建裝置。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來將第二個裝置佈建到第二個 IoT 中樞 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程是以先前的[將裝置佈建到中樞](tutorial-provision-device-to-hub.md)教學課程為基礎所建置。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在 DPS 的頁面中，按一下 [管理註冊]。 [新增註冊清單項目] 頁面會隨即出現。 
 2. 按一下頁面頂端的 [新增]。
-2. 填寫欄位，然後按一下儲存。
+2. 填寫欄位，然後按一下 [儲存]。
 
 ## <a name="set-the-dps-allocation-policy"></a>設定 DPS 配置原則
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 若要設定配置原則，請在 [DPS] 頁面中按一下 [管理配置原則]。
 2. 將配置原則設為 [平均加權分佈]。
-3. 按一下 [儲存] 。
+3. 按一下 [檔案] 。
 
 ## <a name="link-the-new-iot-hub-to-dps"></a>將新的 IoT 中樞連結至 DPS
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 2. 在 [DPS] 頁面上，按一下 [連結的 IoT 中樞]。
 3. 按一下 [新增] 。
 4. 在 [將連結新增至 IoT 中樞] 頁面中，使用選項按鈕來指定連結的 IoT 中樞是位於目前的訂用帳戶中，還是位於不同的訂用帳戶中。 然後，從 [IoT 中樞] 方塊選擇 IoT 中樞的名稱。
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
 ## <a name="next-steps"></a>後續步驟
 

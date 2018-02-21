@@ -561,10 +561,10 @@ SQL 資料倉儲使用工作負載群組來實作資源類別。 共有八個工
 ### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>工作負載群組與並行存取插槽數目和重要性的對應
 | 工作負載群組 | 並行存取插槽對應 | MB / 散發套件 | 重要性對應 |
 |:--- |:---:|:---:|:--- |
-| SloDWGroupC00 |1 |100 |中型 |
-| SloDWGroupC01 |2 |200 |中型 |
-| SloDWGroupC02 |4 |400 |中型 |
-| SloDWGroupC03 |8 |800 |中型 |
+| SloDWGroupC00 |1 |100 |中 |
+| SloDWGroupC01 |2 |200 |中 |
+| SloDWGroupC02 |4 |400 |中 |
+| SloDWGroupC03 |8 |800 |中 |
 | SloDWGroupC04 |16 |1,600 |高 |
 | SloDWGroupC05 |32 |3,200 |高 |
 | SloDWGroupC06 |64 |6,400 |高 |
@@ -575,14 +575,14 @@ SQL 資料倉儲使用工作負載群組來實作資源類別。 共有八個工
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>重要性與資源類別的 DW500 對應
 | 資源類別 | 工作負載群組 | 已使用的並行存取插槽 | MB / 散發套件 | 重要性 |
 |:--- |:--- |:---:|:---:|:--- |
-| smallrc |SloDWGroupC00 |1 |100 |中型 |
-| mediumrc |SloDWGroupC02 |4 |400 |中型 |
-| largerc |SloDWGroupC03 |8 |800 |中型 |
+| smallrc |SloDWGroupC00 |1 |100 |中 |
+| mediumrc |SloDWGroupC02 |4 |400 |中 |
+| largerc |SloDWGroupC03 |8 |800 |中 |
 | xlargerc |SloDWGroupC04 |16 |1,600 |高 |
-| staticrc10 |SloDWGroupC00 |1 |100 |中型 |
-| staticrc20 |SloDWGroupC01 |2 |200 |中型 |
-| staticrc30 |SloDWGroupC02 |4 |400 |中型 |
-| staticrc40 |SloDWGroupC03 |8 |800 |中型 |
+| staticrc10 |SloDWGroupC00 |1 |100 |中 |
+| staticrc20 |SloDWGroupC01 |2 |200 |中 |
+| staticrc30 |SloDWGroupC02 |4 |400 |中 |
+| staticrc40 |SloDWGroupC03 |8 |800 |中 |
 | staticrc50 |SloDWGroupC03 |16 |1,600 |高 |
 | staticrc60 |SloDWGroupC03 |16 |1,600 |高 |
 | staticrc70 |SloDWGroupC03 |16 |1,600 |高 |

@@ -46,7 +46,7 @@ Azure DNS 提供一個可靠、安全的 DNS 服務，讓您不必新增自訂 D
 
 ## <a name="pricing"></a>價格
 
-私人 DNS 區域在受管理的預覽版期間為免費。 在正式運作期間，此功能將與現有的 Azure DNS 供應項目類似，採用以使用量作為基礎計價的模型。 
+私人 DNS 區域在受控預覽版期間為免費。 在正式運作期間，此功能將與現有的 Azure DNS 供應項目類似，採用以使用量作為基礎計價的模型。 
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -55,5 +55,5 @@ Azure DNS 提供一個可靠、安全的 DNS 服務，讓您不必新增自訂 D
 
 如需深入了解 DNS 區域和記錄，請瀏覽：[DNS 區域和記錄的概觀](dns-zones-records.md)。
 
-深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
+了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
 
