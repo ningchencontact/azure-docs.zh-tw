@@ -16,7 +16,7 @@ ms.date: 12/15/2017
 ms.author: mahender; mblythe
 ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 若要匯出 API 定義，請遵循以下步驟：
 
-1. 在[Azure 入口網站](https://portal.azure.com)，瀏覽至您的 Azure 函式或另一個應用程式服務應用程式。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 Azure Functions 或另一個 App Service 應用程式。
 
     如果使用 Azure Functions，請選取您的函式應用程式，然後依序選擇 [平台功能]、[API 定義]。
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 12/18/2017
 
     ![[匯出至 PowerApps 和 Microsoft Flow] 按鈕](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. 選取**匯出模式**:
+3. 選取 [匯出模式]：
 
-    [快速] 可讓您從 Azure 入口網站建立自訂連接器。 您必須登入 PowerApps 或 Microsoft Flow，而且擁有在目標環境中建立連接器的權限。 如果可以符合這兩項需求，這是建議的方法。 如果使用此模式，請依照下面的[使用快速匯出](#express)指示執行。
+    [快速] 可讓您從 Azure 入口網站建立自訂連接器。 您必須登入 PowerApps 或 Microsoft Flow，而且擁有在目標環境中建立連接器的權限。 如果可符合這兩項需求，則這是建議的方法。 如果使用此模式，請依照下面的[使用快速匯出](#express)指示執行。
 
-    [手動] 可讓您匯出 API 定義，稍後再使用 PowerApps 或 Microsoft Flow 入口網站匯入。 如果 Azure 的使用者和使用者建立接點的權限不同的人，或是連接器必須建立另一個 Azure 租用戶中，這是建議的方法。 如果使用此模式，請依照下面的[使用手動匯出](#manual)指示執行。
+    [手動] 可讓您匯出 API 定義，稍後再使用 PowerApps 或 Microsoft Flow 入口網站匯入。 如果 Azure 使用者和具有建立連接器權限的使用者是不同的人，或連接器必須在另一個 Azure 租用戶中建立，則這是建議的方法。 如果使用此模式，請依照下面的[使用手動匯出](#manual)指示執行。
 
     ![匯出模式](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -99,21 +99,21 @@ ms.lasthandoff: 12/18/2017
 
 若要將 API 定義匯入 PowerApps 和 Microsoft Flow 中，請依照下列步驟執行：
 
-1. 移至[powerapps.com](https://web.powerapps.com)或[flow.microsoft.com](https://flow.microsoft.com)。
+1. 移至 [powerapps.com](https://web.powerapps.com) 或 [flow.microsoft.com](https://flow.microsoft.com)。
 
-2. 在右上角，按一下齒輪圖示，然後按一下**自訂連接器**。
+2. 在右上角，按一下齒輪圖示，然後按一下 [Custom connectors] \(自訂連接器\)。
 
-   ![在服務中的齒輪圖示](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
+   ![服務中的齒輪圖示](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. 按一下**建立自訂的連接器**，然後按一下 **匯入 OpenAPI 定義**。
+3. 按一下 [Create custom connector] \(建立自訂連接器\)，然後按一下 [Import an OpenAPI definition] \(匯入 OpenAPI 定義\)。
 
-   ![建立自訂的連接器](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
+   ![建立自訂連接器](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-4. 輸入的名稱是自訂連接器，然後按一下瀏覽至您已匯出，OpenAPI 定義並**繼續**。
+4. 輸入自訂連接器的名稱，然後瀏覽至您所匯出的 OpenAPI 定義，並按一下 [Continue] \(繼續\)。
 
    ![上傳 OpenAPI 定義](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
 
-4. 在**一般**索引標籤上，檢閱來自 OpenAPI 定義的資訊。
+4. 在 [General] \(一般\) 索引標籤上，檢閱來自 OpenAPI 定義的資訊。
 
 5. 在 [安全性] 索引標籤上，如果系統提示您提供驗證詳細資訊，請輸入適當的驗證類型值。 按一下 [繼續]。
 

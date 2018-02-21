@@ -16,23 +16,23 @@ ms.date: 12/13/2017
 ms.author: jeedes
 ms.openlocfilehash: 55479406487bf445c5f449b13663c0bfaee751fd
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>教學課程：Azure Active Directory 與 Proofpoint on Demand 整合
 
-在本教學課程中，您會了解如何整合 Proofpoint on Demand 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您將了解如何整合 Proofpoint on Demand 與 Azure Active Directory (Azure AD)。
 
-Proofpoint on Demand 與 Azure AD 整合提供下列優點：
+將 Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Proofpoint on Demand 的人員。
-- 您可以讓您以自動取得登入 Proofpoint 依需求 （單一登入） 至其 Azure AD 帳戶的使用者。
+- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Proofpoint on Demand (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Proofpoint on Demand 的整合，您需要下列項目：
 
@@ -54,7 +54,7 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-proofpoint-on-demand-from-the-gallery"></a>從資源庫新增 Proofpoint on Demand
-若要設定將 Proofpoint on Demand 整合到 Azure AD 中，您需要從資源庫將 Proofpoint on Demand 新增到受控 SaaS 應用程式清單。
+若要設定將 Proofpoint on Demand 整合到 Azure AD 中，您需要將 Proofpoint on Demand 從資源庫新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Proofpoint on Demand，請執行下列步驟：**
 
@@ -70,23 +70,23 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕][3]
 
-4. 在 搜尋 方塊中，輸入**視 Proofpoint**，選取**視 Proofpoint**然後按一下 從結果面板**新增**按鈕以加入應用程式。
+4. 在搜尋方塊中，輸入 **Proofpoint on Demand**，從結果面板中選取 [Proofpoint on Demand]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![在 [結果] 清單中以隨 Proofpoint](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
+    ![結果清單中的 Proofpoint on Demand](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您可以設定及測試 Azure AD 單一登入與 Proofpoint 視根據稱為 「 許 Simon"的測試使用者。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Proofpoint on Demand 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入能夠運作，Azure AD 必須知道 Proofpoint on Demand 與 Azure AD 中互相對應的使用者。 換句話說，您必須建立 Azure AD 使用者和 Proofpoint on Demand 中相關使用者之間的連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 Proofpoint on Demand 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Proofpoint on Demand 中的相關使用者之間建立連結關聯性。
 
-視 Proofpoint，在指定的值**使用者名稱**做為值的 Azure AD 中**Username**建立的連結關聯性。
+在 Proofpoint on Demand 中，指派 Azure AD 中的**使用者名稱**值作為 [Username] \(使用者名稱\)  的值，以建立連結關聯性。
 
-若要設定及測試與 Proofpoint on Demand 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Proofpoint on Demand 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[視需要測試使用者上建立 Proofpoint](#create-a-proofpoint-on-demand-test-user)**  -若要在隨選連結至使用者的 Azure AD 表示 Proofpoint 許 Simon 對應項目。
+3. **[建立 Proofpoint on Demand 測試使用者](#create-a-proofpoint-on-demand-test-user)** - 在 Proofpoint on Demand 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -106,7 +106,7 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 
 3. 在 [Proofpoint on Demand 網域及 URL] 區段中，執行下列步驟：
 
-    ![Proofpoint 要求網域和 Url 單一登入資訊](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
+    ![Proofpoint on Demand 網域及 URL 單一登入資訊](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
@@ -127,9 +127,9 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
     
 7. 在 [Proofpoint on Demand 組態] 區段中，按一下 [設定 Proofpoint on Demand]，以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
-    ![Proofpoint 隨選安裝設定](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
+    ![Proofpoint on Demand 設定](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
 
-8. 若要設定單一登入上**視 Proofpoint**端，您需要傳送下載**Certificate(Base64)**，**登出 URL、 SAML 實體識別碼、 和 SAML 單一登入服務 URL**至[要求支援小組 Proofpoint](https://www.proofpoint.com/us/support-services)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+8. 若要在 **Proofpoint on Demand** 端設定單一登入，您必須將已下載的**憑證 (Base64)**、**登出 URL、SAML 實體識別碼及 SAML 單一登入服務 URL** 傳送給 [Proofpoint on Demand 用戶端支援小組](https://www.proofpoint.com/us/support-services)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -184,7 +184,7 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Proofpoint on Demand]。
 
-    ![指定應用程式清單中的連結上 Proofpoint](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
+    ![應用程式清單中的 [Proofpoint on Demand] 連結](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
@@ -204,7 +204,7 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下 Proofpoint 指定磚在存取面板上時，您應該取得自動登入您 Proofpoint 要求應用程式上。
+當您在「存取面板」中按一下 [Proofpoint on Demand] 圖格時，應該會自動登入您的 Proofpoint on Demand 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源

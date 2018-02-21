@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -483,6 +483,12 @@ module.exports = function (context, info) {
 ## <a name="functionjson-file-schema"></a>function.json 檔案結構描述
 
 *function.json* 檔案結構描述位於 [http://json.schemastore.org/function](http://json.schemastore.org/function)。
+
+## <a name="handling-binding-errors"></a>處理繫結錯誤
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+如需 Functions 所支援各種服務的所有相關錯誤主題連結，請參閱[Azure Functions 錯誤處理](functions-bindings-error-pages.md) \(英文\) 概觀主題的[繫結錯誤碼](functions-bindings-error-pages.md#binding-error-codes)一節。  
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
 
@@ -493,6 +493,9 @@ module.exports = function (context, req) {
 ### <a name="authorization-keys"></a>授權金鑰
 
 HTTP 觸發程序可讓您使用金鑰來提高安全性。 標準 HTTP 觸發程序可以使用這些金鑰作為 API 金鑰，要求金鑰必須存在於要求上。 Webhook 可以以多種方式使用金鑰授權要求，視提供者支援的方式而定。
+
+> [!NOTE]
+> 在本機執行函式時，不論是否在 `function.json` 中設定 `authLevel`，都會停用授權。 一旦您發行至 Azure 函式，`authLevel` 會立即生效。
 
 金鑰會當作您函數應用程式的一部分儲存於 Azure 中，並在加密後靜置。 若要檢視您的金鑰，請建立新的金鑰或將金鑰輪替為新的值，瀏覽至入口網站中您的其中一個函式，然後選取 [管理]。 
 

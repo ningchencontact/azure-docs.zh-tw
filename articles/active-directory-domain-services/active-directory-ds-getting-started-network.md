@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 680ffc41ab96d69153ef7039698bf9285ed6ce16
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
@@ -47,6 +47,9 @@ ms.lasthandoff: 12/11/2017
 
     ![挑選虛擬網路](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
+  > [!WARNING]
+  > 請務必挑選私人 IP 位址空間內的位址空間。 不是您所擁有的 IP 位址位於公用位址空間中會導致 Azure AD 網域服務內發生錯誤。
+
 5. **現有的虛擬網路：**如果您計畫挑選現有的虛擬網路，[使用虛擬網路延伸模組建立專用子網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)，然後挑選該子網路。 按一下 [虛擬網路] 以選取現有的虛擬網路。 按一下 [子網路] 以挑選現有虛擬網路中的專用子網路，在其中啟用新的受控網域。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路內的子網路](./media/getting-started/domain-services-blade-network-pick-subnet.png)
@@ -55,7 +58,7 @@ ms.lasthandoff: 12/11/2017
   > **選取子網路的指導方針**
   > 1. 針對 Azure AD Domain Services 使用專用子網路。 不要將任何其他虛擬機器部署到此子網路。 此設定可讓您為工作負載/虛擬機器設定網路安全性群組 (NSG)，而不會中斷受控網域。 如需詳細資訊，請參閱 [Azure Active Directory Domain Services 的網路考量](active-directory-ds-networking.md)。
   2. 請勿選取閘道子網路來部署 Azure AD Domain Services，因為它不是支援的設定。
-  3. 請確定您選取的子網路具有足夠的可用位址空間，至少 3-5 個可用 IP 位址。
+  3. 請確定您選取的子網路具有足夠的可用位址空間，至少 3-5 個可用 IP 位址且存在於私人 IP 位址空間。
   >
 
 6. 完成時，按一下 [確定] 以繼續前往精靈的 [Administrator 群組] 分頁。

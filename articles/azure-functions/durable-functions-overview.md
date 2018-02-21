@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -235,7 +235,7 @@ Durable Functions 擴充功能其實是以[長期工作架構](https://github.co
 
 協調器函式能夠使用稱為[事件來源](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)的雲端設計模式，可靠地維持其執行狀態。 長期擴充功能會使用僅限附加的存放區來記錄函式協調流程所採取的「一系列完整動作」，而不會直接儲存協調流程的「目前」狀態。 相對於「傾印」完整的執行階段狀態，這種作法有許多優點，包括提升效能、延展性及回應性。 其他優點包括為交易資料提供最終一致性，以及維持完整的稽核記錄和歷程記錄。 稽核記錄本身可啟用可靠的補償動作。
 
-此擴充功能會透明地使用事件來源。 實際上，協調器函式中的 `await` 運算子會將協調器執行緒的控制往回產生給長期工作架構發送器。 發送器接著會將協調器函式所排程的任何新的動作 (例如，呼叫一或多個子函式或排程長期計時器) 認可至儲存體。 此透明認可動作會附加至協調流程執行個體的「執行歷程記錄」。 歷程記錄會儲存在儲存體資料表。 認可動作接著會將訊息新增至佇列以排程實際的工作。 此時，協調器函式即可從記憶體卸載。 如果您使用 Azure Functions 取用方案，則會停止其計費。  有更多工作要執行時，便會重新啟動函式，而且其狀態會重新建構。
+此擴充功能會透明地使用事件來源。 實際上，協調器函式中的 `await` 運算子會將協調器執行緒的控制往回產生給長期工作架構發送器。 發送器接著會將協調器函式所排程的任何新的動作 (例如，呼叫一或多個子函式或排程長期計時器) 認可至儲存體。 此透明認可動作會附加至協調流程執行個體的「執行歷程記錄」。 歷程記錄會儲存於儲存體資料表。 認可動作接著會將訊息新增至佇列以排程實際的工作。 此時，協調器函式即可從記憶體卸載。 如果您使用 Azure Functions 取用方案，則會停止其計費。  有更多工作要執行時，便會重新啟動函式，而且其狀態會重新建構。
 
 協調流程函式在收到更多要執行的工作後 (例如，收到回應訊息或長期計時器過期)，協調器會再度甦醒，並從頭開始重新執行整個函式，以便重建本機狀態。 如果在此重新執行期間，這個程式碼嘗試呼叫函式 (或進行任何其他非同步工作)，長期工作架構便會諮詢目前協調流程的「執行歷程記錄」。 如果它發現活動函式已執行並產生某種結果，便會重新執行該函式的結果，而協調器程式碼則會繼續執行。 這種情況會繼續發生，直到函式程式碼已完成，或已排程新的非同步工作。
 
@@ -249,7 +249,7 @@ Durable Functions 目前僅支援 C# 語言。 這包括協調器函式和活動
 
 ## <a name="monitoring-and-diagnostics"></a>監視和診斷
 
-持久的函式延伸模組會自動追蹤結構化的資料發出到[Application Insights](functions-monitoring.md)當函式應用程式設定為 Application Insights 檢測金鑰。 這個追蹤資料可用於監視協調流程的行為和進度。
+當函式應用程式設定了 Application Insights 檢測金鑰時，Durable Functions 擴充功能會自動將結構化的追蹤資料發出到 [Application Insights](functions-monitoring.md)。 這個追蹤資料可用於監視協調流程的行為和進度。
 
 以下是 Durable Functions 追蹤事件在使用 [Application Insights 分析](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)時，於 Application Insights 入口網站中所呈現之樣貌的範例：
 

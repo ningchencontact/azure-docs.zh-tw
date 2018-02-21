@@ -17,11 +17,11 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-java-web-app-getting-started"></a>開始使用 azure AD Java web 應用程式
+# <a name="azure-ad-java-web-app-getting-started"></a>Azure AD Java Web 應用程式快速入門
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory (Azure AD) 只需幾行的程式碼便可提供單一登入和登出，讓您外包 Web 應用程式的身分識別管理變得簡單。 您可以藉由使用社群導向 Azure Active Directory Authentication Library for Java (ADAL4J) 的 Microsoft 實作，將使用者登入和登出 Java Web 應用程式。

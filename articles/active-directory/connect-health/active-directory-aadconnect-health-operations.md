@@ -15,7 +15,7 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -114,7 +114,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>步驟 2：新增使用者和群組及指派角色
 1. 從 [設定] 區段中，按一下 [使用者]。<br>
-   ![螢幕擷取畫面的 Azure AD 連線健全狀況 RBAC 主要刀鋒視窗中，反白顯示的使用者](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Azure AD Connect Health RBAC 主要刀鋒視窗的螢幕擷取畫面，其中已醒目提示 [使用者]](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. 選取 [新增] 。
 3. 在 [選取角色] 窗格中，選取角色 (例如，**擁有者**)。<br>
    ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面](./media/active-directory-aadconnect-health/RBAC_add.png)
@@ -122,7 +122,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
    ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. 選取 [確定] 。<br>
 6. 完成角色指派之後，使用者和群組就會出現在清單中。<br>
-   ![螢幕擷取畫面的 Azure AD 連線健全狀況 RBAC 使用者視窗中，反白顯示的新使用者](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+   ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面，其中已醒目提示新使用者](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 現在，列出的使用者和群組根據其獲指派的角色，已具有存取權。
 
@@ -135,7 +135,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>步驟 3：與使用者或群組共用刀鋒視窗位置
 1. 指派權限之後，使用者就可以前往[這裡](http://aka.ms/aadconnecthealth)來存取 Azure AD Connect Health。
 2. 在刀鋒視窗上，使用者可以將刀鋒視窗或其他組件釘選到儀表板。 只要按一下 [釘選到儀表板] 圖示即可。<br>
-   ![螢幕擷取畫面的 Azure AD 連線健全狀況 RBAC pin 刀鋒視窗中，以反白顯示的釘選圖示](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+   ![Azure AD Connect Health RBAC 釘選刀鋒視窗的螢幕擷取畫面，其中已醒目提示釘選圖示](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 > [!NOTE]
 > 被指派「讀者」角色的使用者無法從 Azure Marketplace 取得 Azure AD Connect Health 擴充。 此使用者無法執行必要的「建立」作業來這麼做。 此使用者仍可前往上述連結以存取刀鋒視窗。 為方便之後使用，使用者可以將刀鋒視窗釘選到儀表板。
@@ -144,7 +144,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 
 ### <a name="remove-users-or-groups"></a>移除使用者或群組
 您可以移除已新增至 Azure AD Connect Health RBAC 的使用者或群組。 只要以滑鼠右鍵按一下使用者或群組，然後選取 [移除] 即可。<br>
-![螢幕擷取畫面的 Azure AD 連線健全狀況 RBAC 使用者視窗中，移除反白顯示與](./media/active-directory-aadconnect-health/RBAC_remove.png)
+![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面，其中已醒目提示 [移除]](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
 

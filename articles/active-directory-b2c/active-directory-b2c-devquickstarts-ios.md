@@ -1,6 +1,6 @@
 ---
-title: "使用中 iOS 應用程式的 Azure Active Directory B2C AppAuth"
-description: "這篇文章會示範如何建立 iOS 應用程式與 Azure Active Directory B2C 的 AppAuth 用來管理使用者身分識別和驗證使用者。"
+title: "在 iOS 應用程式中使用 AppAuth - Azure Active Directory B2C"
+description: "本文說明如何建立 iOS 應用程式，以使用 AppAuth 和 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者。"
 services: active-directory-b2c
 documentationcenter: ios
 author: PatAltimore
@@ -16,7 +16,7 @@ ms.date: 03/07/2017
 ms.author: saeeda
 ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -129,8 +129,8 @@ appDelegate.currentAuthorizationFlow =
 * 按一下 [項目 0] 左邊的箭頭以開啟樹狀結構。
 * 將 [項目 0] 下方的第一個項目重新命名為 [URL 配置]。
 * 按一下 [URL 配置] 左邊的箭頭以開啟樹狀結構。
-* 在 [值] 資料行中，[URL 配置] 下方的 [項目 0] 左邊有一個空白欄位。  將此值設為應用程式的唯一配置。  建立 OIDAuthorizationRequest 物件時，此值必須符合 redirectURL 中使用的配置。  在此範例中，會使用 'com.onmicrosoft.fabrikamb2c.exampleapp' 的配置。
+* 在 [值] 資料行中，[URL 配置] 下方的 [項目 0] 左邊有一個空白欄位。  將此值設為應用程式的唯一配置。  建立 OIDAuthorizationRequest 物件時，此值必須符合 redirectURL 中使用的配置。  在範例中，使用配置 'com.onmicrosoft.fabrikamb2c.exampleapp'。
 
-有關如何完成此程序的其餘部分，請參閱 [AppAuth 指南](https://openid.github.io/AppAuth-iOS/)。 如果您需要快速地開始使用工作應用程式，請參閱[範例](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c)。 請依照 [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) 中的步驟，輸入自己的 Azure AD B2C 組態。
+有關如何完成此程序的其餘部分，請參閱 [AppAuth 指南](https://openid.github.io/AppAuth-iOS/)。 如果您需要快速開始使用一個可操作的應用程式，請參閱[範例](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c) \(英文\)。 請依照 [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) 中的步驟，輸入自己的 Azure AD B2C 組態。
 
-我們歡迎意見反應和建議！ 如果您有此篇文章的任何問題，或有改善此內容的建議，我們非常感謝您在頁面底部的意見反應。 對於功能要求，請將它們新增到 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)。
+我們歡迎意見反應和建議！ 如果您對本文有任何問題，或有改進此內容的建議，非常歡迎您在頁面底部提供意見反應。 對於功能要求，請將它們新增到 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)。

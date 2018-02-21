@@ -10,15 +10,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>使用 Azure PowerShell 建立包含 URL 路徑型路由規則的應用程式閘道
 
-您可以使用 Azure PowerShell，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [URL 路徑型路由規則](application-gateway-url-route-overview.md)。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)建立後端集區。 然後，您可以建立路由規則，確保網路流量抵達集區中適當的伺服器。
+您可以使用 Azure PowerShell，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [URL 路徑型路由規則](application-gateway-url-route-overview.md)。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)建立後端集區。 然後，您可以建立路由規則，確保 Web 流量會抵達集區中的適當伺服器。
 
 在本文中，您將了解：
 
@@ -45,7 +45,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源
 
-使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 建立 myAGSubnet 和 myBackendSubnet 子網路設定。 使用 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 與子網路設定來建立名為 myVNet 的虛擬網路。 最後，使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 建立名為 myAGPublicIPAddress 的公用 IP 位址。 這些資源是用來為應用程式閘道及其相關聯的資源提供網路連線。
+使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 建立 myAGSubnet 和 myBackendSubnet 子網路設定。 使用 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 與子網路設定來建立名為 myVNet 的虛擬網路。 最後，使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 建立名為 myAGPublicIPAddress 的公用 IP 位址。 這些資源可用來為應用程式閘道及其相關聯的資源提供網路連線。
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -352,9 +352,9 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-將基底 URL 結尾的 URL 變更為 http://<ip-address>:8080/video/test.htm，您應該會看到類似下列的範例：
+將 URL 變更為 http://<ip-address>:8080/video/test.htm，使用您的 IP 位址取代 <ip-address> ，然後您會看到類似下列的範例：
 
-![在應用程式閘道中測試映像 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
+![在應用程式閘道中測試影像 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
 將 URL 變更為 http://<ip-address>:8080/video/test.htm，您應該會看到類似下列的範例：
 
@@ -369,4 +369,4 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 > * 建立包含 URL 對應的應用程式閘道
 > * 建立包含後端集區的虛擬機器擴展集
 
-若要深入了解應用程式閘道和其相關聯的資源，請繼續進行說明文章。
+若要深入了解應用程式閘道和其相關聯的資源，請繼續進行操作說明文章。

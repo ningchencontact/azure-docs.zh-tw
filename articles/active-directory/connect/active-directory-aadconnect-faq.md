@@ -15,7 +15,7 @@ ms.date: 08/12/2017
 ms.author: billmath
 ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,14 +32,14 @@ ms.lasthandoff: 12/11/2017
 從 2016 年 2 月的組建開始便提供這項支援。
 
 **問︰AD DS 健康情況代理程式是否是在伺服器核心上運作？**  
-可以。 安裝代理程式之後，您可以使用下列 PowerShell Cmdlet 來完成註冊程序︰ 
+是。 安裝代理程式之後，您可以使用下列 PowerShell Cmdlet 來完成註冊程序︰ 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**問： AADConnect 支援兩個網域在 Azure AD 同步？**</br>
+**問：AADConnect 是否支援從兩個網域同步至 Azure AD？**</br>
 是，支援此做法。 請參閱[多個網域](active-directory-aadconnect-multiple-domains.md)
  
-**問： 是否我們支援連線相同的 Active Directory 網域，在 Azure AD 中有多個連接器？**</br> 否，這不是支援 
+**問：Azure AD Connect 中是否支援相同 Active Directory 網域有多個連接器？**</br> 否，不提供支援。 
 
 ## <a name="network"></a>網路
 **問：我的防火牆、網路裝置或其他軟硬體會限制在網路上開啟連線的時間上限。使用 Azure AD Connect 時，用戶端逾時閥值時間應該多長？**  

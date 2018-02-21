@@ -16,28 +16,28 @@ ms.date: 12/13/2017
 ms.author: jeedes
 ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>教學課程：Azure Active Directory 與 ArcGIS Online 整合
 
-在本教學課程中，您會了解如何將 ArcGIS Online 與 Azure Active Directory (Azure AD) 整合。
+在本教學課程中，您將了解如何整合 ArcGIS Online 與 Azure Active Directory (Azure AD)。
 
 將 ArcGIS Online 與 Azure AD 整合可提供下列優點：
 
-- 您可以控制可以存取線上 ArcGIS 的 Azure AD 中。
-- 您可以啟用自動取得登入 ArcGIS 線上 （單一登入） 讓使用者使用其 Azure AD 帳戶。
+- 您可以在 Azure AD 中控制可存取 ArcGIS Online 的人員。
+- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 ArcGIS Online (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 ArcGIS Online 的整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 線上 ArcGIS 單一登入啟用的訂閱
+- 已啟用 ArcGIS Online 單一登入的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/14/2017
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-arcgis-online-from-the-gallery"></a>從資源庫新增 ArcGIS Online
-若要設定將 ArcGIS Online 整合到 Azure AD 中，您需要從資源庫將 ArcGIS Online 新增到受控 SaaS 應用程式清單。
+若要設定將 ArcGIS Online 整合到 Azure AD 中，您需要將 ArcGIS Online 從資源庫新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 ArcGIS Online，請執行下列步驟：**
 
@@ -70,23 +70,23 @@ ms.lasthandoff: 12/14/2017
 
     ![新增應用程式按鈕][3]
 
-4. 在 搜尋 方塊中，輸入**ArcGIS 線上**，選取**ArcGIS 線上**然後按一下 從結果面板**新增**按鈕以加入應用程式。
+4. 在搜尋方塊中，輸入 **ArcGIS Online**，從結果面板中選取 [ArcGIS Online]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![在 [結果] 清單中 Online ArcGIS](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
+    ![結果清單中的 ArcGIS Online](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您可以設定及測試 Azure AD 單一登入與 ArcGIS Online 根據稱為 「 許 Simon"的測試使用者。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 ArcGIS Online 搭配運作的 Azure AD 單一登入。
 
 若要讓單一登入能夠運作，Azure AD 必須知道 ArcGIS Online 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 ArcGIS Online 中的相關使用者之間建立連結關聯性。
 
-線上 ArcGIS 中的值指派**使用者名稱**做為值的 Azure AD 中**Username**建立的連結關聯性。
+在 ArcGIS Online 中，指派 Azure AD 中的**使用者名稱**值作為 [Username] \(使用者名稱\) 的值，以建立連結關聯性。
 
 若要設定及測試與 ArcGIS Online 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立測試使用者 ArcGIS 線上](#create-a-arcgis-online-test-user)** -若要在 ArcGIS 線上連結至使用者的 Azure AD 表示有許 Simon 對應項目。
+3. **[建立 ArcGIS Online 測試使用者](#create-a-arcgis-online-test-user)** - 在 ArcGIS Online 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -104,16 +104,16 @@ ms.lasthandoff: 12/14/2017
  
     ![單一登入對話方塊](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
-3. 在**ArcGIS 線上網域和 Url**區段中，執行下列步驟：
+3. 在 [ArcGIS Online 網域及 URL] 區段上，執行下列步驟：
 
-    ![ArcGIS 線上網域和 Url 的單一登入資訊](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+    ![ArcGIS Online 網域及 URL 單一登入資訊](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.maps.arcgis.com`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`<companyname>.maps.arcgis.com`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡[ArcGIS 線上的用戶端支援小組](http://support.esri.com/en/)取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [ArcGIS Online 用戶端支援小組](http://support.esri.com/en/)以取得這些值。 
  
 
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 12/14/2017
 
     d. 按一下頁面底部的 [新增] 。
  
-### <a name="create-a-arcgis-online-test-user"></a>建立線上 ArcGIS 的測試使用者
+### <a name="create-a-arcgis-online-test-user"></a>建立 ArcGIS Online 測試使用者
 
 若要讓 Azure AD 使用者能夠登入 ArcGIS Online，必須將他們佈建到 ArcGIS Online。  
 就 ArcGIS Online 而言，需以手動方式佈建。
@@ -232,7 +232,7 @@ ms.lasthandoff: 12/14/2017
 
 2. 在應用程式清單中，選取 [ArcGIS Online]。
 
-    ![應用程式清單中的 ArcGIS 線上連結](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
+    ![應用程式清單中的 [ArcGIS Online] 連結](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 

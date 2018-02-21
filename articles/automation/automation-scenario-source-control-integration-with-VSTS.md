@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure 自動化案例 - 自動化原始檔控制與 Visual Studio Team Services 的整合
 
@@ -33,17 +33,17 @@ ms.lasthandoff: 10/11/2017
 
 Runbook | 說明| 
 --------|------------|
-Sync-VSTS | 完成簽入時，從 VSTS 原始檔控制匯入 Runbook 或組態。 如果以手動執行，它會將所有 Runbook 或組態匯入並發佈到自動化帳戶。| 
-Sync-VSTSGit | 完成簽入時，從 Git 原始檔控制下的 VSTS 匯入 Runbook 或組態。 如果以手動執行，它會將所有 Runbook 或組態匯入並發佈到自動化帳戶。|
+Sync-VSTS | 完成簽入時，從 VSTS 原始檔控制匯入 Runbook 或組態。 如果以手動方式執行，會將所有 Runbook 或設定匯入並發佈到「自動化」帳戶。| 
+Sync-VSTSGit | 完成簽入時，從 Git 原始檔控制下的 VSTS 匯入 Runbook 或組態。 如果以手動方式執行，會將所有 Runbook 或設定匯入並發佈到「自動化」帳戶。|
 
 ### <a name="variables"></a>變數
 
 變數 | 說明|
 -----------|------------|
-VSToken | 您將建立的安全變數資產，其中包含 VSTS 個人存取權杖。 您可以了解如何在 [VSTS 驗證頁面 (VSTS authentication page)](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) 建立 VSTS 個人存取權杖。 
+VSToken | 您所建立的安全變數資產，其中包含 VSTS 個人存取權杖。 您可以了解如何在 [VSTS 驗證頁面 (VSTS authentication page)](/vsts/accounts/use-personal-access-tokens-to-authenticate) 建立 VSTS 個人存取權杖。
 ## <a name="installing-and-configuring-this-scenario"></a>安裝和設定此案例
 
-在 VSTS 中建立[個人存取權杖 (personal access token)](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview)，用來將 Runbook 或組態同步處理到您的自動化帳戶。
+在 VSTS 中建立[個人存取權杖](/vsts/accounts/use-personal-access-tokens-to-authenticate)，用來將 Runbook 或設定同步處理到您的自動化帳戶。
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
@@ -51,21 +51,21 @@ VSToken | 您將建立的安全變數資產，其中包含 VSTS 個人存取權�
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-匯入的 Runbook 會將您的 Runbook 或組態同步處理到自動化帳戶。 如果您使用 VSTS 原始檔控制，可以使用來自 PowerShellGallery.com 的 [VSTS 範例 Runbook (VSTS sample runbook)](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript)，如果搭配 Git 使用 VSTS，則可以使用 [VSTS with Git 範例 Runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript)，然後再部署至自動化帳戶。
+請匯入會將 Runbook 或設定同步處理到自動化帳戶的 Runbook。 如果您使用 VSTS 原始檔控制，可以使用來自 PowerShellGallery.com 的 [VSTS 範例 Runbook (VSTS sample runbook)](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript)，如果搭配 Git 使用 VSTS，則可以使用 [VSTS with Git 範例 Runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript)，然後再部署至自動化帳戶。
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
 您現在可以[發佈](automation-creating-importing-runbook.md#publishing-a-runbook)此 Runbook，以便建立 Webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-建立此 Sync-VSTS Runbook 的 [Webhook](automation-webhooks.md)，並填入參數，如下所示。 請務必複製 Webhook URL，因為您需要將它當做 VSTS 中的服務勾點。 VSAccessTokenVariableName 是您稍早建立的安全變數名稱 (VSToken)，可保存個人存取權杖。 
+建立此 Sync-VSTS Runbook 的 [Webhook](automation-webhooks.md)，並填入參數，如下所示。 請務必複製 Webhook URL，因為您將需要它來作為 VSTS 中的服務掛勾。 VSAccessTokenVariableName 是您稍早建立的安全變數名稱 (VSToken)，可保存個人存取權杖。 
 
-與 VSTS (Sync-VSTS.ps1) 整合將需要下列參數。
+與 VSTS (Sync-VSTS.ps1) 整合需要下列參數：
 ### <a name="sync-vsts-parameters"></a>Sync-VSTS Parameters
 
 參數 | 說明| 
 --------|------------|
-WebhookData | 這將包含從 VSTS 服務勾點傳送的簽入資訊。 您應該將此參數保留為空白。| 
+WebhookData | 這包含從 VSTS 服務掛勾傳送的簽入資訊。 您應該將此參數保留為空白。| 
 ResourceGroup | 這是自動化帳戶所在資源群組的名稱。|
 AutomationAccountName | 與 VSTS 同步處理的自動化帳戶名稱。|
 VSFolder | VSTS 中有 Runbook 與組態存在的資料夾名稱。|
@@ -90,13 +90,13 @@ VSAccessTokenVariableName | 保留 VSTS 個人存取權杖的安全變數 (VSTok
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-針對會在程式碼簽入時觸發此 Webhook 的資料夾，在 VSTS 中建立服務掛勾以供簽入使用。 選取 Webhook 作為建立新的訂用帳戶時要與之整合的服務。 您可以在 [VSTS 服務掛勾說明文件](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started)深入了解服務掛勾。
+針對會在程式碼簽入時觸發此 Webhook 的資料夾，在 VSTS 中建立服務掛勾以供簽入使用。 選取 [Webhook] 作為建立新訂用帳戶時要與之整合的服務。 您可以在 [VSTS 服務掛勾說明文件](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started)深入了解服務掛勾。
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-您現在應能執行 Runbook 和組態的所有簽入至 VSTS，並讓這些自動同步處理至您的自動化帳戶。
+您現在應該能夠執行將 Runbook 和設定簽入至 VSTS 的所有簽入作業，並讓這些自動同步處理至您的自動化帳戶。
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-如果您以手動執行而非由 VSTS 觸發此 Runbook，您可以將 webhookdata 參數保留為空白，它會從指定的 VSTS 資料夾執行完整同步處理。
+如果您以手動方式執行此 Runbook 而不是由 VSTS 觸發，則可以將 webhookdata 參數保留為空白，它將會從指定的 VSTS 資料夾執行完整同步處理。
 
 如果您想要將案例解除安裝，請從 VSTS 移除其服務掛勾，刪除 Runbook 和 VSToken 變數。

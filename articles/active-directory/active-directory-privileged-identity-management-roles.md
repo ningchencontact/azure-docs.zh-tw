@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/11/2017
 您可以將組織中的使用者指派給 Azure AD 內的不同系統管理角色。 這些角色指派控制使用者可以在 Azure AD、Office 365 和其他 Microsoft Online Services 與連線的應用程式執行哪些工作，像是新增或移除使用者或變更服務設定。  
 
 > [!IMPORTANT]
-> Microsoft 建議您管理 Azure AD 使用[Azure AD 系統管理中心](https://aad.portal.azure.com)在 Azure 入口網站。
+> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD。
 
-全域管理員可以更新哪些使用者**永久**指派給角色在 Azure AD 中使用 PowerShell cmdlet，例如`Add-MsolRoleMember`和`Remove-MsolRoleMember`，或透過入口網站中所述[指派Azure Active Directory 中的系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
+全域管理員可以使用 PowerShell Cmdlet (例如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`) 或如[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)中所述透過入口網站，更新要將哪些使用者「永久」指派給 Azure AD 中的角色。
 
 Azure AD Privileged Identity Management (PIM) 可管理以特殊權限存取 Azure AD 中之使用者的原則。 PIM 會將使用者指派給 Azure AD 中的一或多個角色，您可以指派某位使用者永久擔任該角色，或是將其指派成符合該角色資格。 將使用者永久指派給某個角色或是啟用合格角色指派時，他們便可以使用指派給他們角色的權限來管理 Azure Active Directory、Office 365 及其他應用程式。
 
@@ -75,14 +75,14 @@ Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理
 ## <a name="user-roles-and-signing-in"></a>使用者角色和登入
 對於某些 Microsoft 服務和應用程式來說，將使用者指派給角色可能還不足以讓該使用者成為管理員。
 
-存取 Azure 入口網站需要使用者是服務管理員或共同管理員針對 Azure 訂用帳戶，即使使用者不需要管理 Azure 訂用帳戶。  比方說，若要管理 Azure ad 的組態設定，使用者必須是 Azure AD 中的全域管理員和 Azure 訂用帳戶的訂用帳戶共同管理員。  若要了解如何將使用者新增到 Azure 訂用帳戶，請參閱 [如何新增或變更 Azure 管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)。
+使用者若要存取 Azure 入口網站，就必須是 Azure 訂用帳戶的服務管理員或共同管理員，即使使用者並不需要管理 Azure 訂用帳戶也是如此。  例如，若要管理 Azure AD 的組態設定，使用者必須既是 Azure AD 中的全域管理員也是 Azure 訂用帳戶上的訂用帳戶共同管理員。  若要了解如何將使用者新增到 Azure 訂用帳戶，請參閱 [如何新增或變更 Azure 管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)。
 
 使用者若要存取 Microsoft Online Services，可能也必須已獲指派授權才能開啟服務的入口網站或執行系統管理工作。
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>將授權指派給 Azure AD 中的使用者
-1. 登入[Azure 入口網站](http://portal.azure.com)與全域管理員帳戶或共同管理員帳戶。
-3. 選取 Azure AD，您想要使用的目錄有與其相關聯的授權。
-4. 選取**授權**左側。 隨即會出現可用的授權清單。
+1. 使用全域管理員帳戶或共同管理員帳戶登入 [Azure 入口網站](http://portal.azure.com)。
+3. 選取 Azure AD 以及您想要使用且有相關授權的目錄。
+4. 選取左邊的 [授權]。 隨即會出現可用的授權清單。
 5. 選取包含您要散發之授權的授權方案。
 6. 選取 [指派使用者] 。
 7. 選取您想要指派授權的使用者。

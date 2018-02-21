@@ -1,23 +1,8 @@
----
-title: "監視任何網站的可用性和回應性 | Microsoft Docs"
-description: "在 Application Insights 中設定 Web 測試。 如果網站無法使用或回應緩慢，將收到警示。"
-services: application-insights
-documentationcenter: 
-author: SoubhagyaDash
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: sdash
-ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ ;--- title: 監視任何網站的可用性和回應性 | Microsoft Docs description: 在 Application Insights 中設定 Web 測試。 如果網站無法使用或回應緩慢，將收到警示。
+services: application-insights documentationcenter: '' author: SoubhagyaDash manager: carmonm
+
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: get-started-article ms.date: 02/09/2018 ms.author: sdash ; mbullwin
+
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -41,7 +26,7 @@ ms.lasthandoff: 02/03/2018
 
 **如果您已針對應用程式設定 Application Insights**，請在 [Azure 入口網站](https://portal.azure.com)中開啟其 Application Insights 資源。
 
-**或者，如果您想要在新的資源中查看報告，**請註冊 [Microsoft Azure](http://azure.com)，並移至 [Azure 入口網站](https://portal.azure.com)，然後建立 Application Insights 資源。
+**或者，如果您想要在新的資源中查看報告，**請前往 [Azure 入口網站](https://portal.azure.com)，然後建立 Application Insights 資源。
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -56,9 +41,13 @@ ms.lasthandoff: 02/03/2018
 * **剖析相依要求**︰若已核取這個選項，測試會要求影像、指令碼、樣式檔案以及其他屬於受測試網頁的檔案。 記錄的回應時間包含取得這些檔案所需的時間。 如果無法在逾時內為整個測試成功下載所有這些資源，則測試將會失敗。 
 
     如果未核取這個選項，測試只會要求您指定之 URL 中的檔案。
+
 * **啟用重試**：若已核取這個選項，就會在短時間內進行重試。 只有在連續三次重試失敗後，才會回報失敗。 後續測試則會以一般測試頻率執行。 重試會暫時停止，直到下次成功為止。 此規則可個別套用在每個測試位置。 我們建議使用這個選項。 平均來說，大約 80% 失敗會在重試後消失。
-* **測試頻率**：設定從每個測試位置執行測試的頻率。 頻率為 5 分鐘且有五個測試位置，則您的網站平均每一分鐘會執行測試。
+
+* **測試頻率**：設定從每個測試位置執行測試的頻率。 預設頻率為 5 分鐘且有五個測試位置，則您的網站平均每一分鐘會執行測試。
+
 * **測試位置** 是我們的伺服器將 Web 要求傳送至您的 URL 的位置。 請選擇多個位置，以便區分網站問題與網路問題。 您最多可以選取 16 個位置。
+
 * **成功準則**：
 
     **測試逾時**：減少此值以警示回應變慢。 如果未在這段時間內收到您網站的回應，則測試會視為失敗。 如果已選取 [剖析相依要求] ，則必須在這段時間內收到所有映像、樣式檔、指令碼和其他相依資源。

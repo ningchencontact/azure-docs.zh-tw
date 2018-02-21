@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -117,6 +117,8 @@ Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制�
 以下是所有已支援繫結的表格。
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+遇到繫結發生錯誤的問題嗎？ 請檢閱 [Azure Functions 繫結錯誤碼](functions-bindings-error-pages.md)文件。
 
 ## <a name="reporting-issues"></a>報告問題
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

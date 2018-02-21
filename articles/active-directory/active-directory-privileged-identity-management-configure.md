@@ -17,7 +17,7 @@ ms.author: barclayn
 ms.custom: pim
 ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -57,7 +57,7 @@ Azure AD Privileged Identity Management 可協助您的組織：
 3. 選取 [更多服務] 並使用 [篩選器] 文字方塊來搜尋 [Azure AD Privileged Identity Management]。
 4. 選取 [釘選到儀表板]，然後按一下 [建立]。 Privileged Identity Management 應用程式隨即開啟。
 
-如果您使用 Azure AD Privileged Identity Management 目錄中的第一個人和您瀏覽至 Azure AD 目錄角色，而且您瀏覽至 Azure AD 目錄角色，[安全性精靈](active-directory-privileged-identity-management-security-wizard.md)會引導您完成初始指派的體驗。 之後，您就會自動成為目錄的第一個「安全性系統管理員」和「特殊權限角色管理員」。
+如果您是在目錄中第一個使用 Azure AD Privileged Identity Management 的人，並且瀏覽至 Azure AD 目錄角色，則[安全性精靈](active-directory-privileged-identity-management-security-wizard.md)會引導您完成初始指派體驗。 之後，您就會自動成為目錄的第一個「安全性系統管理員」和「特殊權限角色管理員」。
 
 對於 Azure AD 角色，只有具特殊權限角色系統管理員角色的使用者可以管理 Azure AD PIM 中其他系統管理員的指派。 您可以[在 PIM 中為其他使用者提供管理目錄角色的能力](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)。 全域管理員、安全性系統管理員和安全性讀取者可以在 Azure AD PIM 中檢視 Azure AD 角色指派。
 對於 Azure RBAC 角色，只有訂用帳戶管理員、資源擁有者、或資源使用者存取系統管理員可以管理 Azure AD PIM 中其他系統管理員的指派。  作為特殊權限角色系統管理員、安全性系統管理員或安全性讀取者的使用者，依預設沒有存取權限可檢視 Azure AD PIM 中的 Azure RBAC 角色指派。

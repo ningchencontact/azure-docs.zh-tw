@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
 
 > [!NOTE]
-> 新 **PremiumV2** 層提供更快速的 CPU、SSD 儲存體，而且記憶體與核心的比例比現有的定價層高出兩倍。 若要相應增加 **PremiumV2** 層，請參閱[設定 App Service 的 PremiumV2 層](app-service-configure-premium-tier.md)。
+> 新 **PremiumV2** 層提供更快速的 CPU、SSD 儲存體，而且記憶體與核心的比例是現有定價層的兩倍。 有此效能優勢，您可在較少的執行個體上執行應用程式來節省成本。 若要相應增加 **PremiumV2** 層，請參閱[設定 App Service 的 PremiumV2 層](app-service-configure-premium-tier.md)。
 >
 
 本文將說明如何在 Azure App Service 中相應增加應用程式的規模。 有兩個工作流程適合用來相應增加和相應放大規模，而本文說明相應增加工作流程。
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="scale-up-your-pricing-tier"></a>相應增加您的定價層
 1. 在瀏覽器中，開啟 [Azure 入口網站][portal]。
-2. 在 App Service 應用程式頁面中，按一下 所有設定，然後按一下Scale Up\(相應增加\)。
+2. 在 App Service 應用程式頁面中，按一下 [所有設定]，然後按一下 [Scale Up]\(相應增加\)。
    
     ![瀏覽以相應增加您的 Azure 應用程式規模。][ChooseWHP]
-3. 選擇您的定價層，然後按一下選取 。
+3. 選擇您的定價層，然後按一下 [選取] 。
    
     當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 
@@ -81,11 +81,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="compare-pricing-tiers"></a>比較定價層
 如需詳細資訊，例如每個定價層的 VM 大小，請參閱 [App Service 定價詳細資料](https://azure.microsoft.com/pricing/details/web-sites/)。
 如需服務限制、配額及條件約束的表格，以及每層支援的功能，請參閱 [App Service 限制](../azure-subscription-service-limits.md#app-service-limits)。
-
-> [!NOTE]
-> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/) ，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡，無需承諾。
-> 
-> 
 
 <a name="Next Steps"></a>
 

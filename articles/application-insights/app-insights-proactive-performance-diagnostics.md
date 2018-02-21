@@ -15,7 +15,7 @@ ms.date: 05/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -157,7 +157,7 @@ Web 上有改善您的伺服器回應和頁面載入時間的完整建議，因�
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>效能變慢模式的智慧型偵測 
 
-Application Insights 會尋找可能只會影響某部分使用者，或只在某些情況下影響使用者的效能問題。 比方說，頁面載入通知是一種類型的其他類型的瀏覽器上的瀏覽器比速度較慢或要求會由特定的伺服器提供速度更慢。 它同時可以探索與屬性組合相關的問題，例如在某地區中使用特定作業系統的用戶端，頁面載入速度緩慢的問題。  
+Application Insights 會尋找可能只會影響某部分使用者，或只在某些情況下影響使用者的效能問題。 例如，通知關於頁面在某一類型瀏覽器上的載入速度低於其他類型瀏覽器，或特定伺服器服務要求的速度較慢。 它同時可以探索與屬性組合相關的問題，例如在某地區中使用特定作業系統的用戶端，頁面載入速度緩慢的問題。  
 
 這類異常狀況很難只藉由調查資料來偵測，但比您想像的更為常見。 通常只在您的客戶抱怨時才會浮出檯面。 但那時就太晚了：受影響的使用者已經轉而選擇您的對手！
 

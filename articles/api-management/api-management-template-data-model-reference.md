@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理範本資料模型參考
 本主題說明在 Azure API 管理的開發人員入口網站範本資料模型中，所使用之一般項目的實體和類型表示法。  
@@ -56,10 +56,10 @@ ms.lasthandoff: 12/06/2017
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
 |id|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的 API。 其值為 `apis/{id}` 格式的有效相對 URL，其中 `{id}` 是 API 識別碼。 這個屬性是唯讀的。|  
-|名稱|字串|API 的名稱。 不能空白。 長度上限是 100 個字元。|  
+|name|字串|API 的名稱。 不能空白。 長度上限是 100 個字元。|  
 |說明|字串|API 的描述。 不能空白。 可包含 HTML 格式標籤。 長度上限是 1000 個字元。|  
 |serviceUrl|字串|實作此 API 之後端服務的絕對 URL。|  
-|路徑|字串|可在 API 管理服務執行個體內唯一識別此 API 及其所有資源路徑的相對 URL。 此路徑會附加至在服務執行個體建立期間所指定的 API 端點基底 URL，以形成此 API 的公用 URL。|  
+|path|字串|可在 API 管理服務執行個體內唯一識別此 API 及其所有資源路徑的相對 URL。 此路徑會附加至在服務執行個體建立期間所指定的 API 端點基底 URL，以形成此 API 的公用 URL。|  
 |protocols|數字陣列|描述此 API 中的作業可在哪些通訊協定上叫用。 允許的值為 `1 - http` 和 `2 - https`或兩者兼具。|  
 |authenticationSettings|[授權伺服器驗證設定](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|此 API 中所包含之驗證設定的集合。|  
 |subscriptionKeyParameterNames|物件|選擇性屬性，可用來指定包含訂用帳戶金鑰之查詢和/或標頭參數的自訂名稱。 此屬性若存在，其中就至少必須包含下列兩個屬性的其中一個。<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/06/2017
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
 |id|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的 API。 其值為 `apis/{id}` 格式的有效相對 URL，其中 `{id}` 是 API 識別碼。 這個屬性是唯讀的。|  
-|名稱|字串|API 的名稱。 不能空白。 長度上限是 100 個字元。|  
+|name|字串|API 的名稱。 不能空白。 長度上限是 100 個字元。|  
 |說明|字串|API 的描述。 不能空白。 可包含 HTML 格式標籤。 長度上限是 1000 個字元。|  
   
 ##  <a name="Application"></a>應用程式  
@@ -78,14 +78,14 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|識別碼|字串|應用程式的唯一識別碼。|  
-|課程名稱|字串|應用程式的標題。|  
+|id|字串|應用程式的唯一識別碼。|  
+|標題|字串|應用程式的標題。|  
 |說明|字串|應用程式的描述。|  
 |Url|URI|應用程式的 URI。|  
 |版本|字串|應用程式的版本資訊。|  
 |需求|字串|應用程式需求的描述。|  
 |State|number|應用程式的目前狀態。<br /><br /> - 0 - 已註冊<br /><br /> - 1 - 已提交<br /><br /> - 2 - 已發佈<br /><br /> - 3 - 已拒絕<br /><br /> - 4 - 已解除發佈|  
-|RegistrationDate|DateTime|應用程式的註冊日期和時間。|  
+|RegistrationDate|Datetime|應用程式的註冊日期和時間。|  
 |CategoryId|number|應用程式的類別 (金融、娛樂等)|  
 |DeveloperId|字串|提交應用程式之開發人員的唯一識別碼。|  
 |附件|[附件](#Attachment)實體的集合。|應用程式的任何附件，例如螢幕擷取畫面或圖示。|  
@@ -106,17 +106,17 @@ ms.lasthandoff: 12/06/2017
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
 |title|字串|作業的名稱。|  
-|snippet|字串|此屬性已被取代而不應該使用。|  
+|snippet|字串|此屬性已過時而不應使用。|  
 |brush|字串|在顯示程式碼範例時所要使用的程式碼語法著色範本。 允許的值為 `plain`、`php``java`、`xml``objc`、`python`、`ruby` 和 `csharp`。|  
 |template|字串|此程式碼範例範本的名稱。|  
 |body|字串|程式碼片段之程式碼範例部分的預留位置。|  
 |method|字串|作業的 HTTP 方法。|  
 |scheme|字串|作業要求所要使用的通訊協定。|  
-|路徑|字串|作業的路徑。|  
+|path|字串|作業的路徑。|  
 |query|字串|具有已定義參數的查詢字串範例。|  
-|主機|字串|包含此作業之 API 的 API 管理服務閘道 URL。|  
-|標頭|[標頭](#Header)實體的集合。|此作業的標頭。|  
-|參數|[參數](#Parameter)實體的集合。|針對這項作業所定義的參數。|  
+|host|字串|包含此作業之 API 的 API 管理服務閘道 URL。|  
+|headers|[標頭](#Header)實體的集合。|此作業的標頭。|  
+|parameters|[參數](#Parameter)實體的集合。|針對這項作業所定義的參數。|  
   
 ##  <a name="Comment"></a>註解  
  `API` 實體具有下列屬性。  
@@ -126,20 +126,20 @@ ms.lasthandoff: 12/06/2017
 |識別碼|number|註解的識別碼。|  
 |CommentText|字串|註解的本文。 可包含 HTML。|  
 |DeveloperCompany|字串|開發人員的公司名稱。|  
-|PostedOn|DateTime|註解的公佈日期和時間。|  
+|PostedOn|Datetime|註解的公佈日期和時間。|  
   
 ##  <a name="Issue"></a>問題  
  `issue` 實體具有下列屬性。  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|識別碼|字串|問題的唯一識別碼。|  
+|id|字串|問題的唯一識別碼。|  
 |ApiID|字串|所報告的這個問題所屬之 API 的識別碼。|  
-|課程名稱|字串|問題的標題。|  
+|標題|字串|問題的標題。|  
 |說明|字串|問題的描述。|  
 |SubscriptionDeveloperName|字串|報告問題之開發人員的名字。|  
 |IssueState|字串|問題的目前狀態。 可能的值為已提議、已開啟、已關閉。|  
-|ReportedOn|DateTime|問題的報告日期和時間。|  
+|ReportedOn|Datetime|問題的報告日期和時間。|  
 |註解|[註解](#Comment)實體的集合。|此問題的註解。|  
 |附件|[附件](api-management-template-data-model-reference.md#Attachment)實體的集合。|問題的任何附件。|  
 |服務|[API](#API) 實體的集合。|提出問題之使用者所訂閱的 API。|  
@@ -157,7 +157,7 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|說明|類型|  
 |--------------|-----------------|----------|  
-|名稱|字串|參數名稱。|  
+|name|字串|參數名稱。|  
 |說明|字串|參數描述。|  
 |value|字串|標頭值。|  
 |typeName|字串|標頭值的資料類型。|  
@@ -172,7 +172,7 @@ ms.lasthandoff: 12/06/2017
 |--------------|----------|-----------------|  
 |說明|字串|作業要求描述。|  
 |標頭|[標頭](#Header)實體的陣列。|要求標頭。|  
-|參數|[參數](#Parameter)的陣列|作業要求參數的集合。|  
+|parameters|[參數](#Parameter)的陣列|作業要求參數的集合。|  
 |representations|[表示法](#Representation)的陣列|作業要求表示法的集合。|  
   
 ##  <a name="HTTPResponse"></a>HTTP 回應  
@@ -190,11 +190,11 @@ ms.lasthandoff: 12/06/2017
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
 |id|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的作業。 其值為 `apis/{aid}/operations/{id}` 格式的有效相對 URL，其中 `{aid}` 是 API 識別碼，`{id}` 是作業識別碼。 這個屬性是唯讀的。|  
-|名稱|字串|作業名稱。 不能空白。 長度上限是 100 個字元。|  
+|name|字串|作業名稱。 不能空白。 長度上限是 100 個字元。|  
 |說明|字串|作業的描述。 不能空白。 可包含 HTML 格式標籤。 長度上限是 1000 個字元。|  
 |scheme|字串|描述此 API 中的作業可在哪些通訊協定上叫用。 允許的值為 `http`、`https` 或 `http` 和 `https` 兼具。|  
 |uriTemplate|字串|可識別此作業之目標資源的相對 URL 範本。 可包含參數。 範例： `customers/{cid}/orders/{oid}/?date={date}`|  
-|主機|字串|裝載 API 的 API 管理閘道 URL。|  
+|host|字串|裝載 API 的 API 管理閘道 URL。|  
 |httpMethod|字串|作業 HTTP 方法。|  
 |要求|[HTTP 要求](#HTTPRequest)|包含要求詳細資料的實體。|  
 |responses|[HTTP 回應](#HTTPResponse)的陣列|作業 [HTTP 回應](#HTTPResponse)實體的陣列。|  
@@ -214,8 +214,8 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|識別碼|字串|作業的識別碼。|  
-|課程名稱|字串|作業的描述。|  
+|id|字串|作業的識別碼。|  
+|標題|字串|作業的描述。|  
 |HttpMethod|字串|作業的 HTTP 方法。|  
   
 ##  <a name="Paging"></a>分頁  
@@ -234,7 +234,7 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|說明|類型|  
 |--------------|-----------------|----------|  
-|名稱|字串|參數名稱。|  
+|name|字串|參數名稱。|  
 |說明|字串|參數描述。|  
 |value|字串|參數值。|  
 |options|字串陣列|針對查詢參數值所定義的值。|  
@@ -247,20 +247,20 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|識別碼|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的產品。 其值為 `products/{pid}` 格式的有效相對 URL，其中 `{pid}` 是產品識別碼。 這個屬性是唯讀的。|  
-|課程名稱|字串|產品的名稱。 不能空白。 長度上限是 100 個字元。|  
+|id|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的產品。 其值為 `products/{pid}` 格式的有效相對 URL，其中 `{pid}` 是產品識別碼。 這個屬性是唯讀的。|  
+|標題|字串|產品的名稱。 不能空白。 長度上限是 100 個字元。|  
 |說明|字串|產品的描述。 不能空白。 可包含 HTML 格式標籤。 長度上限是 1000 個字元。|  
 |詞彙|字串|產品使用規定。 嘗試訂閱產品的開發人員將會看到且必須接受這些使用規定，才能完成訂閱程序。|  
 |ProductState|number|指定產品是否已發佈。 開發人員可在開發人員入口網站中找到已發佈的產品。 未發佈的產品則只有系統管理員能看見。<br /><br /> 產品狀態的允許值為︰<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|布林值|指定使用者是否可以同時對此產品擁有多個訂閱。|  
-|MultipleSubscriptionsCount|number|目前的使用者對此產品的訂閱數。|  
+|MultipleSubscriptionsCount|number|允許使用者同時擁有此產品的訂用帳戶數目上限。|  
   
 ##  <a name="Provider"></a>提供者  
  `provider` 實體具有下列屬性。  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|屬性|字串字典|此驗證提供者的屬性。|  
+|properties|字串字典|此驗證提供者的屬性。|  
 |AuthenticationType|字串|提供者類型  (Azure Active Directory、Facebook 登入、Google 帳戶、Microsoft 帳戶、Twitter)。|  
 |Caption|字串|提供者的顯示名稱。|  
   
@@ -277,7 +277,7 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|識別碼|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的訂用帳戶。 其值為 `subscriptions/{sid}` 格式的有效相對 URL，其中 `{sid}` 是訂用帳戶識別碼。 這個屬性是唯讀的。|  
+|id|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的訂用帳戶。 其值為 `subscriptions/{sid}` 格式的有效相對 URL，其中 `{sid}` 是訂用帳戶識別碼。 這個屬性是唯讀的。|  
 |ProductId|字串|已訂閱之產品的產品資源識別碼。 其值為 `products/{pid}` 格式的有效相對 URL，其中 `{pid}` 是產品識別碼。|  
 |ProductTitle|字串|產品的名稱。 不能空白。 長度上限是 100 個字元。|  
 |ProductDescription|字串|產品的描述。 不能空白。 可包含 HTML 格式標籤。 長度上限是 1000 個字元。|  
@@ -303,7 +303,7 @@ ms.lasthandoff: 12/06/2017
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|識別碼|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的訂用帳戶。 其值為 `subscriptions/{sid}` 格式的有效相對 URL，其中 `{sid}` 是訂用帳戶識別碼。 這個屬性是唯讀的。|  
+|id|字串|資源識別碼。 可唯一識別目前 API 管理服務執行個體內的訂用帳戶。 其值為 `subscriptions/{sid}` 格式的有效相對 URL，其中 `{sid}` 是訂用帳戶識別碼。 這個屬性是唯讀的。|  
 |DisplayName|字串|訂用帳戶的顯示名稱|  
   
 ##  <a name="UserAccountInfo"></a>使用者帳戶資訊  
@@ -351,7 +351,7 @@ ms.lasthandoff: 12/06/2017
 |電子郵件|字串|電子郵件地址。 不能空白，且在服務執行個體內必須是唯一的。 長度上限是 254 個字元。|  
 |名字|字串|名字。 不能空白。 長度上限是 100 個字元。|  
 |姓氏|字串|姓氏。 不能空白。 長度上限是 100 個字元。|  
-|UserData|string|[註冊](api-management-page-controls.md#sign-up)控制項所使用的值。|  
+|UserData|字串|[註冊](api-management-page-controls.md#sign-up)控制項所使用的值。|  
 |NameIdentifier|字串|[註冊](api-management-page-controls.md#sign-up)註冊控制項所使用的值。|  
 |ProviderName|字串|驗證提供者名稱。|
 

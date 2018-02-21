@@ -16,7 +16,7 @@ ms.date: 01/02/2018
 ms.author: billmath
 ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/05/2018
 >
 >
 
-以下文件提供有關在 Azure AD Connect 中啟用裝置回寫功能的資訊。 裝置回寫用在下列案例：
+以下文件提供有關在 Azure AD Connect 中啟用裝置回寫功能的資訊。 裝置回寫會用於下列案例：
 
 * 對 ADFS (2012 R2 或更高版本) 保護的應用程式 (信賴憑證者信任)，根據裝置啟用條件式存取。
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/05/2018
 
 > [!IMPORTANT]
 > <li>裝置必須位於使用者所在的樹系中。 由於裝置必須回寫到單一樹系中，因此這項功能目前並不支援利用多重使用者樹系的部署。</li>
-> <li>只有一個裝置註冊設定物件可以新增至內部部署 Active Directory 樹系。 這項功能與不相容，在內部部署 Active Directory 同步處理多個 Azure AD 租用戶的拓撲。</li>
+> <li>只有一個裝置註冊設定物件可以新增至內部部署 Active Directory 樹系。 這項功能與會將內部部署 Active Directory 同步至多個 Azure AD 租用戶的拓撲不相容。</li>
 >
 
 ## <a name="part-1-install-azure-ad-connect"></a>第 1 部分：安裝 Azure AD Connect
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/05/2018
 使用下列步驟來準備使用裝置回寫。
 
 1. 從已安裝 Azure AD Connect 的電腦上，以提升權限的模式啟動 PowerShell。
-2. 如果未安裝 Active Directory PowerShell 模組，安裝遠端伺服器管理工具，其中包含 AD PowerShell 模組和 dsacls.exe，才能執行指令碼。 執行以下命令：
+2. 如果「未」安裝 Active Directory PowerShell 模組，請安裝「遠端伺服器管理工具」，其中包含了 AD PowerShell 模組，以及執行指令碼所需的 dsacls.exe。 執行以下命令：
 
    ``` powershell
    Add-WindowsFeature RSAT-AD-Tools
@@ -87,13 +87,13 @@ Description:
 3. 在 [回寫] 頁面中，您會看到提供的網域已成為預設的裝置回寫樹系。
    ![自訂安全裝置回寫樹系](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4. 完成精靈安裝，不需要變更其他設定。 如有需要，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。
-5. 如果您已啟用[篩選](active-directory-aadconnectsync-configure-filtering.md)在 Azure AD Connect，請確認新建立的容器 CN = RegisteredDevices 隨附在範圍內。
+5. 如果您已在 Azure AD Connect 中啟用[篩選](active-directory-aadconnectsync-configure-filtering.md)，則請確定新建立的容器 CN=RegisteredDevices 包含在您的範圍中。
 
-## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>第 4 部分： 確認裝置與 Active Directory 同步處理
-裝置回寫現在應該正常運作。 請注意，裝置物件寫回至 Active Directory 可能需要 3 小時。 若要確認您的裝置會在已正確地同步，請執行下列動作的同步處理完成之後：
+## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>第 4 部分：確認裝置已同步至 Active Directory
+裝置回寫現在應該正常運作。 請注意，裝置物件寫回至 Active Directory 可能需要 3 小時。 若要確認您的裝置已正確同步，請在同步完成之後執行下列操作：
 
 1. 啟動 Active Directory 管理中心。
-2. 展開 RegisteredDevices，網域中設定內[第 2 部分](#part-2-prepare-active-directory)。  
+2. 展開[第 2 部分](#part-2-prepare-active-directory)中所設定網域內的 [RegisteredDevices]。  
 
    ![Active Directory 管理中心已註冊的裝置](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
    
@@ -119,11 +119,11 @@ Description:
   * 選取 [動作] 下方的 [屬性]。
   * 前往 [連線至 Active Directory 樹系] 。 請確認此畫面上所指定的網域和使用者名稱，與提供給指令碼的帳戶相符。  
   
-    ![連接器帳戶同步處理 Service Manager 中](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
+    ![Sync Service Manager 中的連接器帳戶](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 確認 Active Directory 中的組態：
 
-* 確認裝置註冊服務在以下位置找到 (CN = DeviceRegistrationService，CN = 裝置註冊服務，CN = Device Registration Configuration，CN = Services，CN = Configuration) 之下的設定命名內容。
+* 確認「裝置註冊服務」位於組態命名內容下方 (CN=DeviceRegistrationService,CN=Device Registration Services,CN=Device Registration Configuration,CN=Services,CN=Configuration) 底下的位置。
 
 ![疑難排解，組態命名空間中的 DeviceRegistrationService](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
 

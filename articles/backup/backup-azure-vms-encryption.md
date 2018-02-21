@@ -17,7 +17,7 @@ ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -34,10 +34,10 @@ ms.lasthandoff: 12/21/2017
  
    |  | BEK + KEK VM | 僅限 BEK VM |
    | --- | --- | --- |
-   | **非受控 VM**  | 是 | 是  |
-   | **受控 VM**  | 是 | 是  |
+   | **非受控 VM**  | yes | yes  |
+   | **受控 VM**  | yes | yes  |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * VM 是使用 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)來加密。
 
 * 已建立復原服務保存庫，並且藉由遵循[準備環境以便備份](backup-azure-arm-vms-prepare.md)中的步驟來設定儲存體複寫。
@@ -78,15 +78,15 @@ ms.lasthandoff: 12/21/2017
 
       ![選取加密的 VM](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 7. 此頁面會顯示與所選加密的 VM 相關聯的金鑰保存庫相關訊息。 備份需要金鑰保存庫中金鑰和密碼的唯讀存取權。 它會使用這些權限來備份金鑰和密碼，以及相關聯的 VM。<br>
-如果您是**成員使用者**，啟用備份程序會順暢地取得金鑰保存庫來存取加密金鑰加密備份 Vm 而不需要使用者介入。
+如果您是**成員使用者**，「啟用備份」程序將會以無縫接軌的方式取得金鑰保存庫的存取權來備份加密的 VM，而不需要任何使用者介入操作。
 
    ![加密的 VM 訊息](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   如**Guest 使用者**，您必須提供備份服務存取金鑰保存庫運作的備份所需的權限。 您可以提供這些權限遵循[下一節所述的步驟](#provide-permissions-to-backup)
+   針對**來賓使用者**，您則必須將金鑰保存庫的存取權限提供給備份服務，才能進行備份。 您可以依照[下一節所述的步驟](#provide-permissions-to-backup)來提供這些權限
 
    ![加密的 VM 訊息](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
  
-    現在您已定義保存庫的所有設定，接下來選取分頁底部的 [啟用備份]。 **啟用備份**將原則部署到保存庫和 Vm。
+    現在您已定義保存庫的所有設定，接下來選取分頁底部的 [啟用備份]。 [啟用備份] 會將原則部署至保存褲和 VM。
   
 8. 下一個階段的準備作業是安裝 VM 代理程式，或確定 VM 代理程式已安裝。 若要執行相同的動作，請依照[準備環境以進行備份](backup-azure-arm-vms-prepare.md)中的步驟。
 

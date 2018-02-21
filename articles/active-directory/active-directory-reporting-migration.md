@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 入口網站中尋找 Azure Active Directory 使用者活動報表 |Microsoft 文件"
-description: "了解 Azure Active Directory 使用者活動報表會位於 Azure 入口網站。"
+title: "在 Azure 入口網站中尋找 Azure Active Directory 使用者活動報告 | Microsoft Docs"
+description: "了解 Azure Active Directory 使用者活動報告在 Azure 入口網站中的位置。"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -17,17 +17,17 @@ ms.author: curtand
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
-在本文中，我們會說明如何在 Azure 入口網站中尋找 Azure Active Directory 使用者活動報表。
+在本文中，我們將說明如何在 Azure 入口網站中尋找 Azure Active Directory 使用者活動報告。
 
 ## <a name="whats-new"></a>新功能
 
-Azure 傳統入口網站中的報表已分成類別：
+Azure 傳統入口網站中的報告分為下列幾類：
 * 安全性報告
 * 活動報告
 * 整合式應用程式報告

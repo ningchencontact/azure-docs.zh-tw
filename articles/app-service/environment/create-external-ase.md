@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
@@ -87,7 +87,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     b. 輸入新的子網路名稱。
 
-    c. 選取子網路的大小。 請記得選取大小足以容納未來成長的 ASE。 建議是 `/25`，具有 128 個位址，而且可以處理最大大小的 ASE。 例如，不建議 `/28`，因為只有 16 個位址可供使用。 基礎結構會使用至少五個位址。 在 `/28` 子網路中，您會擁有 11 個執行個體的最大縮放比例。
+    c. 選取子網路的大小。 請記得選取大小足以容納未來成長的 ASE。 建議是 `/25`，具有 128 個位址，而且可以處理最大大小的 ASE。 例如，不建議 `/28`，因為只有 16 個位址可供使用。 基礎結構會使用至少 7 個位址，而 Azure 網路會使用另外 5 個。 在 `/28` 子網路中，外部 ASE 只有最多 4 個 App Service 方案執行個體的規模，而 ILB ASE 只有 3 個 App Service 方案執行個體。
 
     d. 選取子網路 IP 範圍。
 

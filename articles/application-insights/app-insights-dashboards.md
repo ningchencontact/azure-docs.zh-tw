@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/08/2017
 深入了解 [角色和存取控制](app-insights-resources-roles-access-control.md)。
 
 ## <a name="create-dashboards-programmatically"></a>以程式設計方式建立儀表板
-您可以自動化儀表板建立使用[Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically)和簡單的 JSON 編輯器。
+您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) 與簡單的 JSON 編輯器，將建立儀表板自動化。
 
 ## <a name="app-navigation"></a>應用程式導覽
 概觀刀鋒視窗是您的應用程式詳細資訊的閘道。

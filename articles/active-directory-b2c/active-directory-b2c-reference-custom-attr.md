@@ -16,7 +16,7 @@ ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 4. 提供自訂屬性的**名稱** (例如 "ShoeSize") 和**說明** (選擇性)。 按一下頁面底部的 [新增] 。
    
    > [!NOTE]
-   > 只有"String"、"Boolean"和"Int"**資料型別**目前可用。
+   > 目前只能使用 "String"、"Boolean" 及 "Int" **資料類型**。
    > 
    > 
 
