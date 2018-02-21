@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 從 Azure 入口網站中的 [[訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)選取您的訂用帳戶。
 
-1. 選取 存取控制 (IAM)，然後按一下新增。
+1. 選取 [存取控制 (IAM)]，然後按一下 [新增]。
 
     ![顯示 [訂用帳戶] 刀鋒視窗中 IAM 的螢幕擷取畫面](./media/billing-manage-access/select-iam.PNG)
 

@@ -16,7 +16,7 @@ ms.date: 08/09/2017
 ms.author: parakhj
 ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -117,7 +117,7 @@ OpenID Connect 標準會指定數個特殊的「範圍」值。 下列特殊範�
 
 在成功產生**存取\_權杖** (從 `/authorize` 或 `/token` 端點)，會出現下列宣告︰
 
-| 名稱 | 宣告 | 說明 |
+| Name | 宣告 | 說明 |
 | --- | --- | --- |
 |對象 |`aud` |權杖授與存取權的單一資源之應用程式識別碼。 |
 |Scope |`scp` |授與給資源的權限。 多個授與權限將會以空格隔開。 |

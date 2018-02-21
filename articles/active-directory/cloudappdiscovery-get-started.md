@@ -18,7 +18,7 @@ ms.author: curtand
 ms.reviewer: nigu
 ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/13/2017
 
 Azure AD 中的 Cloud App Discovery 現在會以 Microsoft Cloud App Security 中可用資料的整合為基礎。 為持續提供雲端使用和陰影 IT 的資訊，Cloud App Discovery 會比較您的流量記錄與超過 15,000 個雲端應用程式的 Cloud App Security 目錄。 本文會描述安裝程序，並包含每個步驟的詳細資訊連結。 也會說明防火牆和 Proxy 資訊，以及記錄檔支援。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您的組織必須有 Azure AD Premium P1 授權才能使用本產品。 如需詳細資訊，請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
 * 若要設定 Cloud App Discovery，您必須是 Azure Active Directory 中的全域管理員或安全性讀取者。
@@ -79,7 +79,7 @@ Cloud App Discovery 無法顯示，或分析記錄中未包含的屬性。 例�
 * Barracuda - Web 應用程式防火牆 (W3C)
 * Blue Coat Proxy SG - 存取記錄 (W3C)
 * Check Point
-* Cisco ASA 火力
+* Cisco ASA FirePOWER
 * Cisco ASA 防火牆 (針對 Cisco ASA 防火牆，將資訊層級設定為 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe

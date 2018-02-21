@@ -46,7 +46,7 @@ ms.lasthandoff: 11/01/2017
 * `myWebAppName` - Web 應用程式的識別碼
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>啟用診斷延伸模組做為部署雲端服務的一部分
-`New-AzureDeployment` Cmdlet 具有 `ExtensionConfiguration` 參數，其採用診斷組態的陣列。 使用 `New-AzureServiceDiagnosticsExtensionConfig` Cmdlet 建立可以診斷組態。 例如：
+`New-AzureDeployment` Cmdlet 具有 `ExtensionConfiguration` 參數，其採用診斷組態的陣列。 使用 `New-AzureServiceDiagnosticsExtensionConfig` Cmdlet 建立可以診斷組態。 例如︰
 
 ```ps
 

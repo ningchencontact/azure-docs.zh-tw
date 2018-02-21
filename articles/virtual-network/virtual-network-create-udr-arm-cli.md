@@ -1,6 +1,6 @@
 ---
 title: "透過網路虛擬設備 Azure CLI，建立使用者定義的路由到路由網路流量 | Microsoft Docs"
-description: "了解如何建立使用者定義的路由來覆寫 Azure 的預設路由，方法是透過網路虛擬設備來路由網路流量。"
+description: "了解如何建立使用者定義的路由，透過網路虛擬設備來路由網路流量以覆寫 Azure 的預設路由。"
 services: virtual-network
 documentationcenter: na
 author: jimdial

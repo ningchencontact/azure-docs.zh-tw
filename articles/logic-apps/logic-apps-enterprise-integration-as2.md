@@ -16,7 +16,7 @@ ms.date: 06/08/2017
 ms.author: LADocs; mandia
 ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/18/2017
 
     | 屬性 | 說明 |
     | --- | --- |
-    | 名稱 |合約的名稱 |
+    | Name |合約的名稱 |
     | 合約類型 | 應該是 AS2 |
     | 主控夥伴 |合約需要主控夥伴和來賓夥伴。 主機夥伴代表設定合約的組織。 |
     | 主控身分識別 |主控夥伴的識別碼 |

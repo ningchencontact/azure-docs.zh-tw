@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 ![將工作提交至 Azure 中的叢集][jobsubmit]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **在 Azure VM 中部署的 HPC Pack 前端節點** - 建議您使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/) 或 [Azure PowerShell 指令碼](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)等自動化工具來部署前端節點和叢集。 您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
 * **用戶端電腦** - 您必須要有可執行 HPC Pack 用戶端公用程式的 Windows 或 Windows Server 用戶端電腦 (請參閱[系統需求](https://technet.microsoft.com/library/dn535781.aspx))。 如果您只想要使用 HPC Pack Web 入口網站或 REST API 來提交工作，您可以使用自行選擇的任何用戶端電腦。
 * **HPC Pack 安裝媒體** - 若要安裝 HPC Pack 用戶端公用程式，可從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=328024)取得最新版 HPC Pack (HPC Pack 2012 R2) 的免費安裝套件。 請確定您下載的是安裝在前端節點 VM 上的相同 HPC Pack 版本。
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 **從前端節點匯出憑證**
 
 1. 在前端節點上，將 [憑證] 嵌入式管理單元新增至本機電腦帳戶的 Microsoft 管理主控台。 如需新增嵌入式管理單元的步驟，請參閱 [將憑證嵌入式管理單元新增至 MMC](https://technet.microsoft.com/library/cc754431.aspx)。
-2. 在主控台樹狀目錄中，展開 憑證 - 本機電腦  >  個人，然後按一下憑證。
+2. 在主控台樹狀目錄中，展開 [憑證 - 本機電腦]  >  [個人]，然後按一下 [憑證]。
 3. 找出您在[步驟 1：在前端節點上安裝及設定 Web 元件](#step-1:-install-and-configure-the-web-components-on-the-head-node)中為 HPC Pack Web 元件設定的憑證 (例如 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net)。
 4. 在憑證上按一下滑鼠右鍵，並選取 [所有工作]  >  [匯出]。
 5. 在 [憑證匯出精靈] 中按 [下一步]，然後確定已選取 [否，不要匯出私密金鑰]。
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 將您從前端節點中匯出的憑證複製到用戶端電腦上的資料夾。
 2. 在用戶端電腦上執行 certmgr.msc。
-3. 在 憑證管理員 中，展開 憑證 - 目前的使用者  >  受信任的根憑證授權單位，在 憑證 上按一下滑鼠右鍵，然後按一下所有工作  >  匯入。
+3. 在 [憑證管理員] 中，展開 [憑證 - 目前的使用者]  >  [受信任的根憑證授權單位]，在 [憑證] 上按一下滑鼠右鍵，然後按一下 [所有工作]  >  [匯入]。
 4. 在 [憑證匯入精靈] 中按 [下一步]  ，然後依照步驟，將您從前端節點匯出的憑證匯入到「受信任的根憑證授權單位」存放區。
 
 > [!TIP]
@@ -165,7 +165,7 @@ ms.lasthandoff: 10/11/2017
 3. 若要提交會從叢集傳回字串 "Hello World" 的範例工作，請按一下左側導覽列中的 [新增工作]  。
 4. 在 [新增作業] 頁面的 [來源提交頁面] 下，按一下 **HelloWorld**。 工作提交頁面隨即出現。
 5. 按一下 [提交] 。 出現提示時，請提供 HPC 叢集系統管理員的網域認證。 作業提交後，作業 ID 會出現在 [我的作業]  頁面上。
-6. 若要檢視您所提交之作業的結果，請按一下作業 ID，然後按一下檢視工作 以檢視命令輸出 (在 輸出 下)。
+6. 若要檢視您所提交之作業的結果，請按一下作業 ID，然後按一下 [檢視工作] 以檢視命令輸出 (在 [輸出] 下)。
 
 ## <a name="next-steps"></a>後續步驟
 * 您也可以使用 [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)將工作提交至 Azure 叢集。

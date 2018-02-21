@@ -26,7 +26,7 @@ ms.lasthandoff: 12/05/2017
 
 這個範例會實作以 SMS 為基礎的電話驗證系統。 這些類型的流量通常會在驗證客戶的電話號碼時，或針對多重要素驗證 (MFA) 使用。 這是功能強大的範例，因為整個實作是使用幾個小型函式來完成。 不需要外部資料存放區，例如資料庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
 * 本文假設您已經完成 [Hello Sequence](durable-functions-sequence.md) 範例逐步解說。

@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 | 欄位            | 說明                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| 名稱             | 應用程式的名稱。 至少應該有四個字元。                |
+| Name             | 應用程式的名稱。 至少應該有四個字元。                |
 | 應用程式類型 | **Web 應用程式/Web API**：代表 Web 應用程式、Web API 或兩者的應用程式 
 | |**原生**：可安裝在使用者裝置或電腦上的應用程式           |
 | 登入 URL      | 使用者可登入以使用您應用程式的 URL                                  |

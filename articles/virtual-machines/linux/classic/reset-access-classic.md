@@ -42,7 +42,7 @@ ms.lasthandoff: 01/08/2018
 * [檢查新增的磁碟的一致性](#checkdisk)
 * [修復 Linux VM 上新增的磁碟](#repairdisk)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您需要執行下列動作：
 
 * 您需要[安裝 Azure CLI](../../../cli-install-nodejs.md)，並[連接至您的訂用帳戶](/cli/azure/authenticate-azure-cli)以使用您帳戶的相關 Azure 資源。

@@ -1,5 +1,5 @@
 ---
-title: "開始使用 azure AD iOS |Microsoft 文件"
+title: "Azure AD iOS 快速入門 | Microsoft Docs"
 description: "如何建置 iOS 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: ios
@@ -17,11 +17,11 @@ ms.author: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-ad-ios-getting-started"></a>開始使用 azure AD iOS
+# <a name="azure-ad-ios-getting-started"></a>Azure AD iOS 快速入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 Azure Active Directory (Azure AD) 提供 Active Directory 驗證程式庫 (ADAL) 給需要存取受保護資源的 iOS 用戶端。 ADAL 可簡化您的應用程式用來取得存取權杖的程序。 為了示範究竟多麼簡單，我們會在本文中建置一個可執行下列動作的 Objective C 待辦事項清單應用程式：
@@ -54,7 +54,7 @@ iOS 格式的重新導向 URI：
 ```
 
 * **aap-scheme** - 這已在您的 XCode 專案中註冊。 它是其他應用程式呼叫您的方式。 您可以在 Info.plist -> URL types -> URL Identifier 下找到此項目。 如果您尚未設定任何一個，建議您建立一個。
-* **套件組合識別碼**-這是 「 識別 」 下找到您的 XCode 專案設定中的配套識別碼。
+* **bundle-id** - 這是可在 XCode 專案設定中的 [identity] 下找到的 [Bundle Identifier]。
 
 此 QuickStart 程式碼的範例：***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

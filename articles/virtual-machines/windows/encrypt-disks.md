@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 * 與內部部署「金鑰管理服務」整合。
 
 ## <a name="create-azure-key-vault-and-keys"></a>建立 Azure Key Vault 和金鑰
-開始之前，請確定已安裝最新版的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 在整個命令範例中，以您自己的名稱、位置和金鑰值取代所有的範例參數。 下列範例使用 *myResourceGroup*、*myKeyVault*、*myVM* 等慣例。
+開始之前，請確定已安裝最新版的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。 在整個命令範例中，以您自己的名稱、位置和金鑰值取代所有的範例參數。 下列範例使用 *myResourceGroup*、*myKeyVault*、*myVM* 等慣例。
 
 建立 Azure 金鑰保存庫的第一個步驟是儲存您的密碼編譯金鑰。 Azure 金鑰保存庫儲存可讓您安全地在應用程式和服務中實作的金鑰和密碼 (Secret 或 Password)。 針對虛擬磁碟加密，您需建立 Key Vault 來儲存用來加密或解密虛擬磁碟的密碼編譯金鑰。 
 

@@ -75,7 +75,7 @@ Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>在負載平衡端點集上設定 TCP 逾時
 
-如果端點是負載平衡端點集的一部分，就必須在負載平衡端點集上設定 TCP 逾時。 例如：
+如果端點是負載平衡端點集的一部分，就必須在負載平衡端點集上設定 TCP 逾時。 例如︰
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15

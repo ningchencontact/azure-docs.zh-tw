@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 **預估時間**︰一旦符合先決條件後，本教學課程需要大約 10-15 分鐘才能完成。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您需要 **SQL Server 資料庫**，其中的資料表含有要複製到 SQL 資料倉儲的資料。  
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 10/11/2017
 
     ![對應結構描述](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. 按一下 [下一步] 。
+4. 按 [下一步] 。
 
 ## <a name="configure-the-performance-settings"></a>設定效能設定
 在 [效能] 設定中，您可以設定 Azure 儲存體帳戶，在資料載入至 SQL 資料倉儲之前用來暫存資料 (使用 [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly) 會有較高的效能)。 複製完成之後，將會自動清除儲存體中的暫時資料。

@@ -33,7 +33,7 @@ ms.lasthandoff: 12/04/2017
 > * 為您的 API 新增回應快取
 > * 驗證快取的運作方式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/04/2017
 根據此範例中顯示的快取原則，對 **GetSpeakers** 作業的第一個要求會從後端服務傳回回應。 此回應會被快取，並依指定的標頭和查詢字串參數來識別。 後續使用相符的參數呼叫此操作時，將傳回快取的回應，直到快取期間間隔到期為止。
 
 1. 登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
-2. 瀏覽至您 APIM 執行個體。
+2. 瀏覽至您的 APIM 執行個體。
 3. 選取 [API] 索引標籤。
 4. 按一下 API 清單中的 [示範會議 API]。
 5. 選取 **GetSpeakers**。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>使用 Team Data Science Process 以文字內嵌預測 Twitter 人氣
 
@@ -131,7 +131,7 @@ SSWE 演算法會嘗試解決 Word2Vec 演算法的弱點，這個弱點是具�
 
 ![Kubernetes 儀表板](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-如需有關運作程序的詳細資訊，請參閱[將 Azure Machine Learning 模型部署為 Web 服務](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)。
+如需有關運作程序的詳細資訊，請參閱[將 Azure Machine Learning 模型部署為 Web 服務](../preview/model-management-service-deploy.md)。
 
 ## <a name="conclusion"></a>結論
 
@@ -143,8 +143,8 @@ SSWE 演算法會嘗試解決 Word2Vec 演算法的弱點，這個弱點是具�
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [如何在 Azure Machine Learning 中使用 Team Data Science Process (TDSP)](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning 的 TDSP 專案範本](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [UCI ML 存放庫中的美國所得資料集](https://archive.ics.uci.edu/ml/datasets/adult)
-* [使用 TDSP 範本的生物醫學實體辨識](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [使用 TDSP 範本的生物醫學實體辨識](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas 等人"Distributed Representations of Words and Phrases and their Compositionality.Advances in neural information processing systems."2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu 等人"Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification."ACL (1).2014.](http://www.aclweb.org/anthology/P14-1146)

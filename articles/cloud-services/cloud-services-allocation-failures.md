@@ -22,7 +22,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>疑難排解在 Azure 中部署雲端服務時發生的配置失敗
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 當您部署執行個體至雲端服務或加入新的 Web 或背景工作角色執行個體時，Microsoft Azure 會配置計算資源。 執行這些作業時，即使尚未達到 Azure 訂用帳戶限制，也可能偶爾發生錯誤。 本文說明一些常見配置失敗的原因，並建議可能的補救方法。 規劃服務的部署時，本資訊可能也很有用。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

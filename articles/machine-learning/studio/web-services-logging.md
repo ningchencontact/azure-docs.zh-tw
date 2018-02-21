@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
    ![選取記錄等級](./media/web-services-logging/enable-logging.png)
 
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 7. 對於傳統 Web 服務，請建立 **ml-診斷**容器。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
    2. 在 [Blob 服務] 下，按一下 [容器]。
 
-   3. 如果容器 **ml-診斷**不存在，按一下 [+ 容器]，將容器命名為「ml-診斷」，[存取型別] 選取「Blob」。 按一下 [確定] 。
+   3. 如果容器 **ml-診斷**不存在，按一下 [+ 容器]，將容器命名為「ml-診斷」，[存取型別] 選取「Blob」。 按一下 [SERVICEPRINCIPAL] 。
 
       ![選取記錄等級](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="the-effects-of-enabling-logging"></a>啟用記錄的效果
 記錄啟用時，診斷和錯誤都會從 Web 服務端點記錄到與使用者工作區連結的 Azure 儲存體帳戶之 **ml-診斷** blob 容器中。 這個容器針對所有與此儲存體帳戶相關聯的工作區，存放所有 Web 服務端點的診斷資訊。
 
-記錄可使用任何可用於探索 Azure 儲存體帳戶的多種工具來檢視。 最簡單的方法就是瀏覽至 Azure 入口網站中的儲存體帳戶，按一下 容器，然後按一下ml-診斷 容器。  
+記錄可使用任何可用於探索 Azure 儲存體帳戶的多種工具來檢視。 最簡單的方法就是瀏覽至 Azure 入口網站中的儲存體帳戶，按一下 [容器]，然後按一下 [ml-診斷] 容器。  
 
 ## <a name="log-blob-detail-information"></a>記錄檔 blob 詳細資訊
 在容器中的每個 blob，只會存放下列其中一項動作的診斷資訊：

@@ -52,7 +52,7 @@ Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資�
 
 請參閱 [JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation)一節，了解 Azure Active Directory 為何無法作為 Axinom Widevine 授權伺服器的 STS。
 
-### <a name="considerations"></a>注意事項
+### <a name="considerations"></a>考量
 1. 您必須使用 Axinom 指定的金鑰種子 (8888000000000000000000000000000000000000) 和您產生或選取的金鑰識別碼，產生用以設定金鑰傳遞服務的內容金鑰。 Axinom 授權伺服器會根據相同的金鑰種子 (同時適用於測試和生產環境)，發行包含內容金鑰的所有授權。
 2. 測試用的 Widevine 授權取得 URL： [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)。 HTTP 與 HTTS 皆可使用。
 
@@ -134,7 +134,7 @@ Axinom Widevine 授權伺服器
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
 
-### <a name="considerations"></a>注意事項
+### <a name="considerations"></a>考量
 1. 即使 AMS PlayReady 授權傳遞服務會要求驗證權杖之前必須有 “Bearer=”，Axinom Widevine 授權伺服器並不會加以使用。
 2. Axinom 通訊金鑰會做為簽署金鑰。 此金鑰是十六進位字串，但在編碼時必須將其視為一系列的位元組，而不是字串。 這可藉由 ConvertHexStringToByteArray 方法來達成。
 

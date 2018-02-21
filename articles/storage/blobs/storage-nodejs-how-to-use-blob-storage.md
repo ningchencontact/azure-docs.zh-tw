@@ -14,18 +14,18 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>如何使用 Node.js 的 Blob 儲存體
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文章示範如何使用 Blob 儲存體執行一般案例。 這些範例透過 Node.js API 撰寫。 涵蓋的案例包括如何上傳、列出、下載及刪除 blob。
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
@@ -33,12 +33,12 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
-如需如何建立 Node.js 應用程式的相關指示，請參閱 [在 Azure App Service 中建立 Node.js Web 應用程式]、[使用 Windows PowerShell 建立 Node.js 應用程式並部署至 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)，或[使用 Web Matrix 建立 Node.js Web 應用程式並部署至 Azure](https://www.microsoft.com/web/webmatrix/)。
+如需如何建立 Node.js 應用程式的相關指示，請參閱[在 Azure App Service 中建立 Node.js Web 應用程式](../../app-service/app-service-web-get-started-nodejs.md)、[使用 Windows PowerShell 建立 Node.js 應用程式並部署至 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)，或[使用 Web Matrix 建立 Node.js Web 應用程式並部署至 Azure](https://www.microsoft.com/web/webmatrix/)。
 
 ## <a name="configure-your-application-to-access-storage"></a>設定您的應用程式以存取儲存體
 若要使用 Azure 儲存體，您需要 Azure Storage SDK for Node.js，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node Package Manager (NPM) 取得封裝
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node Package Manager (NPM) 取得套件
 1. 使用命令列介面，例如 **PowerShell** (Windows)、**[終端機]** \(Mac) 或 **Bash** \(Unix)，瀏覽到您建立範例應用程式的資料夾。
 2. 在命令視窗中輸入 **npm install azure-storage** 。 此命令的輸出類似下列程式碼範例。
 
@@ -192,7 +192,7 @@ blobSvc.createAppendBlobFromLocalFile('mycontainer', 'myappendblob', 'test.txt',
 * **appendBlockFromText** - 將字串的內容附加到現有附加 Blob
 
 > [!NOTE]
-> appendFromXXX API 會讓部分用戶端驗證立即失敗，以避免不必要的伺服器呼叫。 appendBlockFromXXX 則否。
+> appendFromXXX API 會快速檢錯部分用戶端的驗證，以避免不必要的伺服器呼叫。 appendBlockFromXXX 則否。
 >
 >
 

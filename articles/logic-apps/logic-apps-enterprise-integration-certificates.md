@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>了解憑證與企業整合套件
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 企業整合使用憑證來保護 B2B 通訊的安全。 您可以在企業整合應用程式中使用兩種憑證類型：
 
 * 公開憑證，必須先向憑證授權單位 (CA) 購買。

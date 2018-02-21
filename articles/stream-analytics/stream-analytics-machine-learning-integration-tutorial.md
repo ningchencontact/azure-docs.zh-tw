@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 ![串流分析機器學習服務整合概觀](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始之前，請確定您具有下列項目：
 
 * 有效的 Azure 訂用帳戶。
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
     ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
 
-4. 在 Azure 入口網站中，選取儲存體帳戶。 在 儲存體帳戶 刀鋒視窗中，按一下 容器，然後按一下+&nbsp;容器 建立 Blob 儲存體。
+4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [+&nbsp;容器] 建立 Blob 儲存體。
 
     ![建立 Blob 容器](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
 
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 
     ![新工作輸入的設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 
 ### <a name="configure-the-job-output"></a>設定工作輸出
 工作會將結果傳送至取得輸入的相同 Blob 儲存體。 
@@ -179,7 +179,7 @@ ms.lasthandoff: 10/11/2017
 
    ![新工作輸出的設定](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. 按一下 [建立] 。   
+4. 按一下頁面底部的 [新增] 。   
 
 
 ### <a name="add-the-machine-learning-function"></a>新增機器學習服務函數 
@@ -191,7 +191,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 回到工作概觀刀鋒視窗。
 
-3. 在 設定 下，選取 函數，然後按一下+ 新增。
+3. 在 [設定] 下，選取 [函數]，然後按一下 [+ 新增]。
 
    ![將函數新增至串流分析工作](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 10/11/2017
   
     ![將機器學習服務函數新增至串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. 按一下 [建立] 。
+5. 按一下頁面底部的 [新增] 。
 
 ### <a name="create-a-query-to-transform-the-data"></a>建立查詢來轉換資料
 

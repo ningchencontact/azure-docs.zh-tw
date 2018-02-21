@@ -66,7 +66,7 @@ StorSimple 資料實際儲存在 Azure 儲存體帳戶中，且這些帳戶在�
 
 如果使用的是 StorSimple 8100 或 8600 實體裝置，則該裝置可以在下列國家/地區使用。
 
-| #  | 國家/地區        | #  | 國家/地區     | #  | 國家/地區      | #  | 國家/地區              |
+| #  | 國家 (地區)        | #  | 國家 (地區)     | #  | 國家 (地區)      | #  | 國家 (地區)              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
 | 1  | 澳大利亞      | 16 | 香港   | 31 | 紐西蘭  | 46 | 南非         |
 | 2  | 奧地利        | 17 | 匈牙利     | 32 | 奈及利亞      | 47 | 南韓          |
@@ -104,5 +104,5 @@ Microsoft 可以在前述清單中的地理位置寄送實體硬體，並提供 
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解[各種 StorSimple 型號的定價](https://azure.microsoft.com/pricing/calculator/#storsimple2)。
-* 深入了解如何[管理 StorSimple 儲存體帳戶](storsimple-8000-manage-storage-accounts.md)。
+* 深入了解 [管理 StorSimple 儲存體帳戶](storsimple-8000-manage-storage-accounts.md)。
 * 深入了解如何[使用 StorSimple 裝置管理員服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。

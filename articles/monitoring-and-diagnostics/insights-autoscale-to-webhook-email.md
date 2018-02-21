@@ -66,13 +66,13 @@ Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或�
 ```
 | 欄位 | 是否為強制？ | 說明 |
 | --- | --- | --- |
-| operation |yes |值必須是 [調整] |
-| sendToSubscriptionAdministrator |yes |值必須是 "true" 或 "false" |
-| sendToSubscriptionCoAdministrators |yes |值必須是 "true" 或 "false" |
-| customEmails |yes |值可以是 null 或電子郵件的字串陣列 |
-| Webhook |yes |值可以是 null 或有效的 Uri |
-| serviceUri |yes |有效的 https Uri |
-| properties |yes |值必須是空的 {}，或可以包含索引鍵-值組 |
+| operation |是 |值必須是 [調整] |
+| sendToSubscriptionAdministrator |是 |值必須是 "true" 或 "false" |
+| sendToSubscriptionCoAdministrators |是 |值必須是 "true" 或 "false" |
+| customEmails |是 |值可以是 null 或電子郵件的字串陣列 |
+| Webhook |是 |值可以是 null 或有效的 Uri |
+| serviceUri |是 |有效的 https Uri |
+| properties |是 |值必須是空的 {}，或可以包含索引鍵-值組 |
 
 ## <a name="authentication-in-webhooks"></a>Webhook 中的驗證
 Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI 並以權杖識別碼做為查詢參數。 例如，https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -109,18 +109,18 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 
 | 欄位 | 是否為強制？ | 說明 |
 | --- | --- | --- |
-| status |yes |此狀態表示產生了自動調整動作 |
-| operation |yes |若執行個體增加，它會「相應放大」，若執行個體減少，它會「相應縮小」。 |
-| context |yes |自動調整動作內容 |
-| timestamp |yes |自動調整動作觸發時的時間戳記 |
+| status |是 |此狀態表示產生了自動調整動作 |
+| operation |是 |若執行個體增加，它會「相應放大」，若執行個體減少，它會「相應縮小」。 |
+| context |是 |自動調整動作內容 |
+| timestamp |是 |自動調整動作觸發時的時間戳記 |
 | id |yes |自動調整設定的 Resource Manager 識別碼 |
-| 名稱 |yes |自動調整設定的名稱 |
+| name |yes |自動調整設定的名稱 |
 | 詳細資料 |yes |說明自動調整服務所採取的動作和執行個體計數的變更 |
 | subscriptionId |yes |正在調整的目標資源的訂用帳戶識別碼 |
 | resourceGroupName |yes |正在調整的目標資源的資源群組 |
 | resourceName |yes |正在調整的目標資源的名稱 |
-| resourceType |是 |支援三個值：microsoft.classiccompute/domainnames/slots/roles" (雲端服務角色)、"microsoft.compute/virtualmachinescalesets" (虛擬機器擴展集) 以及 "Microsoft.Web/serverfarms" - (Web 應用程式) |
-| resourceId |yes |正在調整的目標資源的 Resource Manager 識別碼 |
+| resourceType |yes |支援三個值：microsoft.classiccompute/domainnames/slots/roles" (雲端服務角色)、"microsoft.compute/virtualmachinescalesets" (虛擬機器擴展集) 以及 "Microsoft.Web/serverfarms" - (Web 應用程式) |
+| ResourceId |yes |正在調整的目標資源的 Resource Manager 識別碼 |
 | portalLink |yes |連到目標資源摘要頁面的 Azure 入口網站連結 |
 | oldCapacity |yes |自動調整進行調整動作時的當前 (舊) 執行個體計數 |
 | newCapacity |yes |自動調整要將資源調整為此數目的新執行個體計數 |

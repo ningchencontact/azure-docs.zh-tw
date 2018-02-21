@@ -14,7 +14,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 5869120350ccfeacabaa79037ae57c1ee0fd8e5d
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/23/2017
 本文將協助您尋找實用的相關文件，讓您了解如何針對使用 **Application Registry** 來管理**企業應用程式**和開發新應用程式時的一些最常見相關問題進行疑難排解。
 
 ## <a name="problems-with-application-development"></a>應用程式開發的問題
-下列連結會將您帶到可以幫助您解決最常見的問題與應用程式開發的內容對應**Application Registry** Azure Active Directory 中。
+下列連結會將您帶到一個內容對應表，此對應表可幫助您解決在 Azure Active Directory 中使用 **Application Registry** 來開發應用程式時，最常見的一些問題。
 
 * [應用程式設定和註冊的問題](active-directory-application-dev-config-content-map.md)
 * [應用程式開發的問題](active-directory-application-dev-development-content-map.md)

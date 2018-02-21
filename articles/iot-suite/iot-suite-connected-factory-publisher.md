@@ -44,7 +44,7 @@ ms.lasthandoff: 11/14/2017
 
 可以在[適用於 Azure IoT Edge 的 OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher) GitHub 存放庫，找到 OPC 發行者的原始程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要建置應用程式，需要作業系統適用的 [.NET Core SDK 1.1.](https://docs.microsoft.com/dotnet/core/sdk) 。
 
@@ -382,7 +382,7 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>使用繫結掛接 (共用檔案系統)
 
-在某些情況下，您會想要從主機上的某些位置讀取組態資訊，或是寫入記錄檔，而不想使用容器檔案系統。 若要設定此行為，請在繫結掛接模式下使用 `docker run` 的 `-v` 選項。 例如：
+在某些情況下，您會想要從主機上的某些位置讀取組態資訊，或是寫入記錄檔，而不想使用容器檔案系統。 若要設定此行為，請在繫結掛接模式下使用 `docker run` 的 `-v` 選項。 例如︰
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs

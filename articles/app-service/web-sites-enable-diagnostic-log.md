@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。 您會在本文中了解如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
 
 本文使用 [Azure 入口網站](https://portal.azure.com)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
@@ -39,7 +39,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 * **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 交易相關資訊。 當您需要判斷整體網站指標 (例如，處理的要求數目，或者有多少要求來自特定的 IP 位址) 時，這非常實用。
 
 ### <a name="application-diagnostics"></a>應用程式診斷
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。 例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。 例如︰
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -159,11 +159,11 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 此命令會連線至 **-Name** 參數所指定的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至 PowerShell 視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
-若要篩選特定事件，例如錯誤，請使用 **-Message** 參數。 例如：
+若要篩選特定事件，例如錯誤，請使用 **-Message** 參數。 例如︰
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-若要篩選特定記錄類型，例如 HTTP，請使用 **-Path** 參數。 例如：
+若要篩選特定記錄類型，例如 HTTP，請使用 **-Path** 參數。 例如︰
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
@@ -181,11 +181,11 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 此命令會連線至名為 'webappname' 的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
-若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如：
+若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如︰
 
     az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
-若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如：
+若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如︰
 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
@@ -276,6 +276,6 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * [在 HDInsight 中分析 Web 應用程式記錄](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
-> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。
+> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。
 >
 >

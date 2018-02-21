@@ -18,7 +18,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/03/2018
 
 本文件使用 Curl 示範如何使用未經處理的 HTTP 要求來與 HDInsight 互動，以便執行、監視和擷取 Sqoop 作業的結果。 要想執行這些作業，就要使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本文中的步驟，您需要下列項目：
 
 * 完成[在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用](hdinsight-use-sqoop.md#create-cluster-and-sql-database)，以使用 HDInsight 叢集和 Azure SQL Database 設定環境。

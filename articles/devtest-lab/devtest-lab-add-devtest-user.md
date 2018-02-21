@@ -16,7 +16,7 @@ ms.date: 01/11/2017
 ms.author: v-craic
 ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -39,20 +39,20 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ac
 | **此角色中的使用者可以執行的動作** | **DevTest Labs 使用者** | **擁有者** | **參與者** |
 | --- | --- | --- | --- |
 | **實驗室工作** | | | |
-| 將使用者新增至實驗室 |否 |是 |否 |
-| 更新成本設定 |否 |是 |是 |
+| 將使用者新增至實驗室 |否 |yes |否 |
+| 更新成本設定 |否 |yes |yes |
 | **VM 的基本工作** | | | |
-| 新增和移除自訂映像 |否 |是 |是 |
-| 新增、更新和刪除公式 |是 |是 |是 |
-| 將 Azure Marketplace 映像加入白名單 |否 |是 |是 |
+| 新增和移除自訂映像 |否 |yes |yes |
+| 新增、更新和刪除公式 |yes |yes |yes |
+| 將 Azure Marketplace 映像加入白名單 |否 |yes |yes |
 | **VM 工作** | | | |
-| 建立 VM |是 |是 |是 |
-| 啟動、停止和刪除 VM |僅限使用者所建立的 VM |是 |是 |
-| 更新 VM 原則 |否 |是 |是 |
-| 在 VM 中新增/移除資料磁碟 |僅限使用者所建立的 VM |是 |是 |
+| 建立 VM |yes |yes |yes |
+| 啟動、停止和刪除 VM |僅限使用者所建立的 VM |yes |yes |
+| 更新 VM 原則 |否 |yes |yes |
+| 在 VM 中新增/移除資料磁碟 |僅限使用者所建立的 VM |yes |yes |
 | **構件工作** | | | |
-| 新增和移除構件儲存機制 |否 |是 |是 |
-| 套用構件 |是 |是 |是 |
+| 新增和移除構件儲存機制 |否 |yes |yes |
+| 套用構件 |yes |yes |yes |
 
 > [!NOTE]
 > 當使用者建立 VM 時，該使用者會自動指派給所建立 VM 的 **擁有者** 角色。

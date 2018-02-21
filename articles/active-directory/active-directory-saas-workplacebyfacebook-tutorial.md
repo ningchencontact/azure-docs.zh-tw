@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d8b3046bc242deb90f435498c79eb94420c3909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
-在本教學課程中，您會了解如何將 Workplace by Facebook 與 Azure Active Directory (Azure AD) 整合。
+在本教學課程中，您將了解如何整合 Workplace by Facebook 與 Azure Active Directory (Azure AD)。
 
-將 Workplace by Facebook 與 Azure AD 整合可提供下列優點：
+將 Workplace by Facebook 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Workplace by Facebook 的人員
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Workplace by Facebook (單一登入)
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Workplace by Facebook 的整合，您需要下列項目：
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>從資源庫新增 Workplace by Facebook
-若要設定將 Workplace by Facebook 整合到 Azure AD 中，您需要從資源庫將 Workplace by Facebook 新增到受控 SaaS 應用程式清單中。
+若要設定將 Workplace by Facebook 整合到 Azure AD 中，您需要將 Workplace by Facebook 從資源庫新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Workplace by Facebook，請執行下列步驟：**
 
@@ -107,16 +107,16 @@ ms.lasthandoff: 12/11/2017
  
     ![設定單一登入](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. 在 [Workplace by Facebook 網域與 URL] 區段上，執行下列步驟：
+3. 在 [Workplace by Facebook 網域及 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<instancename>.facebook.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<instancename>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Workplace by Facebook 用戶端支援小組](https://workplace.fb.com/faq/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請參閱 [Workplace 公司儀表板] 的 [驗證] 頁面，以查看您 Workplace 社群的正確值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

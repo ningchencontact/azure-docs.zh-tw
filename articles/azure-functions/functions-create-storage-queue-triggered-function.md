@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![檢視記錄中的訊息。](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 下載並安裝 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)。
 

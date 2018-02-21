@@ -32,7 +32,7 @@ ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS
 
 ## <a name="before"></a>開始之前
 
-* 若要連接到 Microsoft 對等互連，您必須設定與管理 NAT。 您的連線服務提供者可能會將 NAT 當成受管理的服務加以設定及管理。 如果您打算存取 Microsoft 對等互連上的 Azure PaaS 和 Azure SaaS 服務，請務必正確調整 NAT IP 集區的大小。 如需 NAT for ExpressRoute 的詳細資訊，請參閱 [Microsoft 對等互連的 NAT 需求](expressroute-nat.md#nat-requirements-for-microsoft-peering)。
+* 若要連接到 Microsoft 對等互連，您必須設定與管理 NAT。 您的連線服務提供者可能會將 NAT 當成受控服務加以設定及管理。 如果您打算存取 Microsoft 對等互連上的 Azure PaaS 和 Azure SaaS 服務，請務必正確調整 NAT IP 集區的大小。 如需 NAT for ExpressRoute 的詳細資訊，請參閱 [Microsoft 對等互連的 NAT 需求](expressroute-nat.md#nat-requirements-for-microsoft-peering)。
 
 * 如果您使用公用對等互連，且已經有用於存取 [Azure 儲存體](../storage/common/storage-network-security.md)或 [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) 的公用 IP 位址 IP 網路規則，必須確定 Microsoft 對等互連搭配設定的 NAT IP 集區有包含在 Azure 儲存體帳戶或 Azure SQL 帳戶的公用 IP 位址清單中。
 
@@ -40,7 +40,7 @@ ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS
 
 ## <a name="create"></a>1.建立 Microsoft 對等互連
 
-如果尚未建立 Microsoft 對等互連，請使用下列任一文章建立 Microsoft 對等互連。 若您的連線提供者提供受管理的第 3 層服務，您可以要求連線提供者為您的線路啟用 Microsoft 對等互連。
+如果尚未建立 Microsoft 對等互連，請使用下列任一文章建立 Microsoft 對等互連。 若您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您的線路啟用 Microsoft 對等互連。
 
   * [建立使用 Azure 入口網站的 Microsoft 對等互連](expressroute-howto-routing-portal-resource-manager.md#msft)
   * [建立使用 Azure Powershell 的 Microsoft 對等互連](expressroute-howto-routing-arm.md#msft)

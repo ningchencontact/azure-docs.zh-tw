@@ -68,7 +68,7 @@ ms.lasthandoff: 11/21/2017
 
        ```rand -hex <key length>```
 
-       例如：
+       例如︰
 
        ```OpenSSL> rand -hex 32``` 
 

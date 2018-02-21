@@ -122,7 +122,7 @@ Azure 磁碟加密先決條件組態指令碼會設定用來加密 Azure 虛擬�
 
 **$resourceGroupName**
 
-按 **ENTER**鍵。 您應該會看到虛擬機器所在資源群組的名稱。 例如：
+按 **ENTER**鍵。 您應該會看到虛擬機器所在資源群組的名稱。 例如︰
 
 ![PowerShell 輸出](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
@@ -137,7 +137,7 @@ Azure 磁碟加密先決條件組態指令碼會設定用來加密 Azure 虛擬�
 
 **$vmName**
 
-按 **ENTER**鍵。 您應該會看到想要加密的虛擬機器名稱。 例如：
+按 **ENTER**鍵。 您應該會看到想要加密的虛擬機器名稱。 例如︰
 
 ![PowerShell 輸出](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 

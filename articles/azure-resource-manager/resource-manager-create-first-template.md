@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 若要建立並修改範本，您需要 JSON 編輯器。 [Visual Studio Code](https://code.visualstudio.com/) 是輕量型、開放原始碼、跨平台的程式碼編輯器。 強烈建議使用 Visual Studio Code 來建立 Resource Manager 範本。 本文假設您使用 VS Code。 如果您有其他 JSON 編輯器 (如 Visual Studio)，您可以使用該編輯器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Visual Studio Code。 如有需要，請從 [https://code.visualstudio.com/](https://code.visualstudio.com/) 進行安裝。
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。

@@ -126,31 +126,31 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:renew-lock`|  
+|operation|字串|yes|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
  要求訊息本文必須由包含對應與下列項目的 amqp-value 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|UUID 的陣列|是|要更新的訊息鎖定權杖。|  
+|`lock-tokens`|UUID 的陣列|yes|要更新的訊息鎖定權杖。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗。|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗。|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 amqp-value 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|到期日|時間戳記的陣列|是|對應到要求鎖定權杖的訊息鎖定權杖新期限。|  
+|到期日|時間戳記的陣列|yes|對應到要求鎖定權杖的訊息鎖定權杖新期限。|  
   
 ### <a name="peek-message"></a>查看訊息  
 
@@ -160,38 +160,38 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:peek-message`|  
+|operation|字串|yes|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|long|是|要開始查看的序號。|  
-|`message-count`|int|是|要查看的訊息數目上限。|  
+|`from-sequence-number`|long|yes|要開始查看的序號。|  
+|`message-count`|int|yes|要查看的訊息數目上限。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+|上限|對應的清單|yes|當中每個對應都代表一則訊息的訊息清單。|  
   
 代表訊息的對應必須包含下列項目：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|訊息|位元組的陣列|是|AMQP 1.0 連線編碼訊息。|  
+|Message|位元組的陣列|yes|AMQP 1.0 連線編碼訊息。|  
   
 ### <a name="schedule-message"></a>排程訊息  
 
@@ -201,40 +201,40 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:schedule-message`|  
+|operation|字串|yes|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+|上限|對應的清單|yes|當中每個對應都代表一則訊息的訊息清單。|  
   
 代表訊息的對應必須包含下列項目：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|message-id|字串|是|`amqpMessage.Properties.MessageId` 為字串|  
-|session-id|string|是|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|字串|是|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
-|訊息|位元組的陣列|是|AMQP 1.0 連線編碼訊息。|  
+|message-id|字串|yes|`amqpMessage.Properties.MessageId` 為字串|  
+|session-id|字串|yes|`amqpMessage.Properties.GroupId as string`|  
+|partition-key|字串|yes|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|Message|位元組的陣列|yes|AMQP 1.0 連線編碼訊息。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗。|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗。|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|長整數的陣列|是|排定訊息的序號。 序號用來取消。|  
+|sequence-numbers|長整數的陣列|yes|排定訊息的序號。 序號用來取消。|  
   
 ### <a name="cancel-scheduled-message"></a>取消排定的訊息  
 
@@ -244,31 +244,31 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:cancel-scheduled-message`|  
+|operation|字串|yes|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|長整數的陣列|是|要取消之排程訊息的序號。|  
+|sequence-numbers|長整數的陣列|yes|要取消之排程訊息的序號。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗。|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗。|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|長整數的陣列|是|排定訊息的序號。 序號用來取消。|  
+|sequence-numbers|長整數的陣列|yes|排定訊息的序號。 序號用來取消。|  
   
 ## <a name="session-operations"></a>工作階段作業  
   
@@ -280,31 +280,31 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:renew-session-lock`|  
+|operation|字串|yes|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|session-id|string|是|工作階段識別碼。|  
+|session-id|字串|yes|工作階段識別碼。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|expiration|timestamp|是|新的到期日。|  
+|expiration|timestamp|yes|新的到期日。|  
   
 ### <a name="peek-session-message"></a>查看工作階段訊息  
 
@@ -314,39 +314,39 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:peek-message`|  
+|operation|字串|yes|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|from-sequence-number|long|是|要開始查看的序號。|  
-|message-count|int|是|要查看的訊息數目上限。|  
-|session-id|string|是|工作階段識別碼。|  
+|from-sequence-number|long|yes|要開始查看的序號。|  
+|message-count|int|yes|要查看的訊息數目上限。|  
+|session-id|字串|yes|工作階段識別碼。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+|上限|對應的清單|yes|當中每個對應都代表一則訊息的訊息清單。|  
   
  代表訊息的對應必須包含下列項目：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|訊息|位元組的陣列|是|AMQP 1.0 連線編碼訊息。|  
+|Message|位元組的陣列|yes|AMQP 1.0 連線編碼訊息。|  
   
 ### <a name="set-session-state"></a>設定工作階段狀態  
 
@@ -356,25 +356,25 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:peek-message`|  
+|operation|字串|yes|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|session-id|string|是|工作階段識別碼。|  
-|session-state|位元組的陣列|是|不透明的二進位資料。|  
+|session-id|字串|yes|工作階段識別碼。|  
+|session-state|位元組的陣列|yes|不透明的二進位資料。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|  
   
 ### <a name="get-session-state"></a>取得工作階段狀態  
@@ -385,31 +385,31 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:get-session-state`|  
+|operation|字串|yes|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|session-id|string|是|工作階段識別碼。|  
+|session-id|字串|yes|工作階段識別碼。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|session-state|位元組的陣列|是|不透明的二進位資料。|  
+|session-state|位元組的陣列|yes|不透明的二進位資料。|  
   
 ### <a name="enumerate-sessions"></a>列舉工作階段  
 
@@ -419,34 +419,34 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:get-message-sessions`|  
+|operation|字串|yes|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|timestamp|是|篩選以在指定時間之後只包括更新的工作階段。|  
-|skip|int|是|略過工作階段數。|  
-|top|int|是|工作階段數上限。|  
+|last-updated-time|timestamp|yes|篩選以在指定時間之後只包括更新的工作階段。|  
+|skip|int|yes|略過工作階段數。|  
+|top|int|yes|工作階段數上限。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 0xcc︰沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|skip|int|是|如果狀態碼為 200 所略過的工作階段數。|  
-|sessions-ids|字串的陣列|是|如果狀態碼為 200 的工作階段識別碼陣列。|  
+|skip|int|yes|如果狀態碼為 200 所略過的工作階段數。|  
+|sessions-ids|字串的陣列|yes|如果狀態碼為 200 的工作階段識別碼陣列。|  
   
 ## <a name="rule-operations"></a>規則作業  
   
@@ -456,59 +456,59 @@ properties: {
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:add-rule`|  
+|operation|字串|yes|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|rule-name|字串|是|規則名稱，不包括訂用帳戶和主題名稱。|  
-|rule-description|map|是|如下一節中指定的規則描述。|  
+|rule-name|字串|yes|規則名稱，不包括訂用帳戶和主題名稱。|  
+|rule-description|map|yes|如下一節中指定的規則描述。|  
   
 **rule-description** 對應必須包含下列項目，當中 **sql-filter** 和 **correlation-filter** 為互斥：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|sql-filter|map|是|`sql-filter`，如下一節中所指定。|  
-|correlation-filter|map|是|`correlation-filter`，如下一節中所指定。|  
-|sql-rule-action|map|是|`sql-rule-action`，如下一節中所指定。|  
+|sql-filter|map|yes|`sql-filter`，如下一節中所指定。|  
+|correlation-filter|map|yes|`correlation-filter`，如下一節中所指定。|  
+|sql-rule-action|map|yes|`sql-rule-action`，如下一節中所指定。|  
   
 sql-filter 對應必須包含下列項目：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|expression|字串|是|Sql 篩選運算式。|  
+|expression|字串|yes|Sql 篩選運算式。|  
   
 **correlation-filter** 對應必須至少包含下列項目之一：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
 |correlation-id|字串|否||  
 |message-id|字串|否||  
 |to|字串|否||  
-|reply-to|string|否||  
-|標籤|string|否||  
-|session-id|string|否||  
-|reply-to-session-id|string|否||  
+|reply-to|字串|否||  
+|標籤|字串|否||  
+|session-id|字串|否||  
+|reply-to-session-id|字串|否||  
 |Content-Type|字串|否||  
 |properties|map|否|對應至服務匯流排 [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)。|  
   
 **sql-rule-action** 對應必須包含下列項目：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|expression|字串|是|Sql 動作運算式。|  
+|expression|字串|yes|Sql 動作運算式。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|  
   
 ### <a name="remove-rule"></a>移除規則  
@@ -517,24 +517,24 @@ sql-filter 對應必須包含下列項目：
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:remove-rule`|  
+|operation|字串|yes|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|rule-name|字串|是|規則名稱，不包括訂用帳戶和主題名稱。|  
+|rule-name|字串|yes|規則名稱，不包括訂用帳戶和主題名稱。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|  
   
 ## <a name="deferred-message-operations"></a>延遲的訊息作業  
@@ -547,39 +547,39 @@ sql-filter 對應必須包含下列項目：
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:receive-by-sequence-number`|  
+|operation|字串|yes|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|長整數的陣列|是|序號。|  
-|receiver-settle-mode|ubyte|是|AMQP 核心 1.0 版中所指定的「收件者支付」模式。|  
+|sequence-numbers|長整數的陣列|yes|序號。|  
+|receiver-settle-mode|ubyte|yes|AMQP 核心 1.0 版中所指定的「收件者支付」模式。|  
   
 #### <a name="response"></a>Response  
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+|上限|對應的清單|yes|當中每個對應都代表一則訊息的訊息清單。|  
   
 代表訊息的對應必須包含下列項目：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|lock-token|uuid|是|如果 `receiver-settle-mode` 為 1 則鎖定權杖。|  
-|訊息|位元組的陣列|是|AMQP 1.0 連線編碼訊息。|  
+|lock-token|uuid|yes|如果 `receiver-settle-mode` 為 1 則鎖定權杖。|  
+|Message|位元組的陣列|yes|AMQP 1.0 連線編碼訊息。|  
   
 ### <a name="update-disposition-status"></a>更新配置狀態  
 
@@ -589,17 +589,17 @@ sql-filter 對應必須包含下列項目：
 
 要求訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|operation|字串|是|`com.microsoft:update-disposition`|  
+|operation|字串|yes|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
   
 要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|string|是|完成<br /><br /> 放棄<br /><br /> 暫止|  
-|lock-tokens|UUID 的陣列|是|要更新配置狀態的訊息鎖定權杖。|  
+|disposition-status|字串|yes|完成<br /><br /> 放棄<br /><br /> 暫止|  
+|lock-tokens|UUID 的陣列|yes|要更新配置狀態的訊息鎖定權杖。|  
 |deadletter-reason|字串|否|如果配置狀態設定為 **暫停** 則可能會設定。|  
 |deadletter-description|字串|否|如果配置狀態設定為 **暫停** 則可能會設定。|  
 |properties-to-modify|map|否|要修改的服務匯流排代理訊息屬性清單。|  
@@ -608,9 +608,9 @@ sql-filter 對應必須包含下列項目：
 
 回應訊息必須包含下列應用程式屬性：  
   
-|金鑰|值類型|必要|值內容|  
+|Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|
 
 ## <a name="next-steps"></a>後續步驟

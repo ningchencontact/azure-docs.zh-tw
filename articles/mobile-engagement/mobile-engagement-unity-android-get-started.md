@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 * Google Android SDK
 
 > [!NOTE]
-> 若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started)。
+> 若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started)。
 > 
 > 
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 2. 開啟 [檔案] -> [組建設定] 
    
     ![][40]
-3. 選取 Android，然後按一下切換平台
+3. 選取 [Android]，然後按一下 [切換平台]
    
     ![][51]
    

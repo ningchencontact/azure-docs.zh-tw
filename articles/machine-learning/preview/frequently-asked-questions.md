@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -110,11 +110,11 @@ Workbench 目標包含並支援 MMLSpark 0.8 版，此版本與 Apache Spark 2.1
 
 **是否同時支援內部部署和雲端部署案例？**
 
-可以。 我們透過 Docker 容器支援內部部署和雲端部署情節。 本機執行目標包括：單一節點 Docker 部署、[搭配 ML 服務的 Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)、Hadoop 或 Spark。 我們也支援透過 Docker 進行雲端部署，包括：透過 Azure Container Service 和 Kubernetes、HDInsight 或 Spark 叢集進行叢集部署。 針對邊緣案例，則是透過 Docker 容器和 Azure IOT Edge 提供支援。 
+是。 我們透過 Docker 容器支援內部部署和雲端部署情節。 本機執行目標包括：單一節點 Docker 部署、[搭配 ML 服務的 Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)、Hadoop 或 Spark。 我們也支援透過 Docker 進行雲端部署，包括：透過 Azure Container Service 和 Kubernetes、HDInsight 或 Spark 叢集進行叢集部署。 針對邊緣案例，則是透過 Docker 容器和 Azure IOT Edge 提供支援。 
 
 **我是否可以在另一部主機上執行使用 Azure Machine Learning CLI 建立的 Docker 映像？**
 
-可以。 您可以使用該映像作為任何 Docker 主機上的 Web 服務，只要主機擁有足夠的運算資源來裝載該 Docker 映像即可。
+是。 您可以使用該映像作為任何 Docker 主機上的 Web 服務，只要主機擁有足夠的運算資源來裝載該 Docker 映像即可。
 
 **是否支援重新訓練已部署的模型？**
 

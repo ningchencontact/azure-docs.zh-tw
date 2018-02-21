@@ -293,7 +293,7 @@ SecondaryTiles 字典使用的 TileId 會與在「Windows 市集」應用程式�
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>使用註冊識別碼從裝置向通知中樞註冊的範例程式碼
-您可以從 app 後端，對註冊執行基本 CRUD 作業。 例如：
+您可以從 app 後端，對註冊執行基本 CRUD 作業。 例如︰
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 

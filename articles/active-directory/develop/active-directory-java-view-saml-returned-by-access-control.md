@@ -17,7 +17,7 @@ ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本指南中的工作，請完成[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者](active-directory-java-authenticate-users-access-control-eclipse.md)中的範例，並使用它作為本教學課程的起點。
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>將 JspWriter 程式庫加入至組建路徑和部署組件

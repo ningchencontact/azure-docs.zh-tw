@@ -30,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 
 所有其他 Apache Cordova 教學課程只要是與使用 Azure App Service 中的 Mobile Apps 功能相關，都必須先完成本教學課程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您需要下列必要條件：
 
 * 具有 [Visual Studio Community 2017] 或更新版本的電腦。

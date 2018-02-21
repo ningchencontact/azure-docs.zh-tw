@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack 中的區域管理
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 具有區域概念，也就是由邏輯實體組成硬體資源以形成 Azure Stack 基礎結構。 在區域管理內，您可以找到成功操作 Azure Stack 基礎結構生命週期所需的所有資源。
 

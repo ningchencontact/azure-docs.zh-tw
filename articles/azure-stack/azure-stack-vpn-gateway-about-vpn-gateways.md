@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/02/2017
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>關於 Azure Stack 的 VPN 閘道
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 
 您必須先為您的虛擬網路建立虛擬網路閘道，才能傳送 Azure 虛擬網路和內部部署網站之間的網路流量。

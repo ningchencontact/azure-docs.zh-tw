@@ -22,7 +22,7 @@ ms.lasthandoff: 10/31/2017
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委派優惠
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 身為 Azure Stack 操作員，您往往會想要了解如何讓其他人負責建立供應項目和註冊使用者。 例如，如果您是服務提供者，或許會想要請轉銷商註冊客戶並代表您管理客戶。 或者，如果您是公司內中央 IT 群組的一員，或許您會想要讓子公司在不需要您介入的情況下註冊使用者。
 

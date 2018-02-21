@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
    為了協助您管理資源，您可以編輯輸出資產的名稱和作業的名稱。
    
    ![為資產編碼](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. 選取 [ **建立**]。
+5. 選取 [建立] 。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

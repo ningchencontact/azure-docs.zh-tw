@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 
 [部署可運作的 AS2 傳送與接收邏輯應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)，這些應用程式使用 Azure Logic Apps 的 B2B 功能。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 * [合約](../logic-apps/logic-apps-enterprise-integration-agreements.md "了解企業整合合約")
 * [企業對企業 (B2B) 案例](../logic-apps/logic-apps-enterprise-integration-b2b.md "了解如何建立具有 B2B 功能的 Logic Apps")  
 * [憑證](logic-apps-enterprise-integration-certificates.md "了解企業整合憑證")

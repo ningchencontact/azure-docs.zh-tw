@@ -38,7 +38,7 @@ ms.lasthandoff: 12/06/2017
 7. 叢集上的 Docker Swarm 提取最新版本的映像 
 8. 使用 Docker Compose 部署應用程式的最新版本 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始進行本教學課程之前，您需要完成下列工作：
 

@@ -16,7 +16,7 @@ ms.date: 08/15/2017
 ms.author: jeedes
 ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/20/2017
 
 若您想深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定與 Absorb LMS 的 Azure AD 整合，您需要下列項目：
 

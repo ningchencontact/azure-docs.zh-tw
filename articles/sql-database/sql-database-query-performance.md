@@ -31,7 +31,7 @@ ms.lasthandoff: 10/31/2017
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 如果查詢存放區不在執行中，則入口網站會提示您將它開啟。
 
 ## <a name="permissions"></a>權限
@@ -206,7 +206,7 @@ ms.lasthandoff: 10/31/2017
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 「查詢效能深入解析」可協助您了解您的查詢工作負載的影響，以及其與資料庫資源取用量的關係。 使用此功能，您將了解排名最前面的取用查詢，並且在發生問題前輕鬆地找出要修正的項目。
 
 ## <a name="next-steps"></a>後續步驟

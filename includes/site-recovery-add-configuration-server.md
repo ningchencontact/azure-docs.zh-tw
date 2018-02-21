@@ -17,7 +17,7 @@
      ![防火牆](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. 在 [必要條件檢查] 中，安裝程式會執行檢查來確定可以執行安裝。 如果出現有關「通用時間同步處理檢查」的警告，請確認系統時鐘上的時間 ([日期和時間] 設定) 與時區相同。
 
-    ![必要條件](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![先決條件](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. 在 [MySQL 組態] 中，建立認證來登入已安裝的 MySQL 伺服器執行個體。
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
@@ -35,6 +35,6 @@
 
 11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安裝完成時，會產生複雜密碼。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
 
-    ![摘要](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![總結](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 註冊完成後，伺服器會顯示在保存庫的 [設定]  >  刀鋒視窗上。

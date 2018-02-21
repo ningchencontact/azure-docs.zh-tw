@@ -22,7 +22,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>在 Azure VM 上安裝 LEMP 網頁伺服器
-本文會逐步引導您在 Azure 中的 Ubuntu VM 上部署 NGINX 網頁伺服器、MySQL 和 PHP (LEMP 堆疊)。 LEMP 堆疊可替代熱門的 [LAMP 堆疊](tutorial-lamp-stack.md) (後者也可以安裝在 Azure 中)。 若要查看作用中的 LEMP 伺服器，您可以選擇安裝及設定 WordPress 網站。 在本教學課程中，您了解如何：
+本文會逐步引導您在 Azure 中的 Ubuntu VM 上部署 NGINX 網頁伺服器、MySQL 和 PHP (LEMP 堆疊)。 LEMP 堆疊可替代熱門的 [LAMP 堆疊](tutorial-lamp-stack.md) (後者也可以安裝在 Azure 中)。 若要查看作用中的 LEMP 伺服器，您可以選擇安裝及設定 WordPress 網站。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立 Ubuntu VM (LEMP 堆疊中的 'L')

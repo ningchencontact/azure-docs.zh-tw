@@ -27,7 +27,7 @@ ms.lasthandoff: 11/03/2017
 > * [第 2 版 - 預覽](../transform-data-using-data-lake-analytics.md)
 
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱[第 2 版中的 U-SQL 活動](../transform-data-using-data-lake-analytics.md)。
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱[第 2 版中的 U-SQL 活動](../transform-data-using-data-lake-analytics.md)。
 
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。 它包含一系列活動，其中每個活動都會執行特定的處理作業。 本文將說明 **Data Lake Analytics U-SQL 活動**，它在 **Azure Data Lake Analytics** 計算連結的服務上執行 **U-SQL** 指令碼。 
 
@@ -49,8 +49,8 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |type 屬性應設為： **AzureDataLakeAnalytics**。 |是 |
-| **accountName** |Azure Data Lake Analytics 帳戶名稱。 |是 |
+| **type** |type 屬性應設為： **AzureDataLakeAnalytics**。 |yes |
+| **accountName** |Azure Data Lake Analytics 帳戶名稱。 |yes |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI。 |否 |
 | **subscriptionId** |Azure 訂用帳戶識別碼 |否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
 | **resourceGroupName** |Azure 資源群組名稱 |否 (若未指定，便會使用 Data Factory 的資源群組)。 |
@@ -65,9 +65,9 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | 是 |
-| **servicePrincipalKey** | 指定應用程式的金鑰。 | 是 |
-| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | yes |
+| **servicePrincipalKey** | 指定應用程式的金鑰。 | yes |
+| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | yes |
 
 **範例：服務主體驗證**
 ```json
@@ -93,8 +93,8 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
-| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | yes |
+| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | yes |
 
 **範例：使用者認證授權**
 ```json
@@ -209,14 +209,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 | 屬性            | 說明                              | 必要                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| 類型                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | 是                                      |
-| linkedServiceName   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | 是                                      |
+| type                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | yes                                      |
+| 預設容器   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | yes                                      |
 | scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 否 (如果您使用指令碼)                   |
 | scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)                   |
-| script              | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如： `"script": "CREATE DATABASE test"`。 | 否 (如果您使用 scriptPath 和 scriptLinkedService) |
+| script              | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如：`"script": "CREATE DATABASE test"`。 | 否 (如果您使用 scriptPath 和 scriptLinkedService) |
 | degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否                                       |
 | 優先順序            | 判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 | 否                                       |
-| 參數          | U-SQL 指令碼的參數          | 否                                       |
+| parameters          | U-SQL 指令碼的參數          | 否                                       |
 | runtimeVersion      | 所要使用之 U-SQL 引擎的執行階段版本 | 否                                       |
 | compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：</p> <ul><li>**Semantic：**僅執行語意檢查和必要的例行性檢查。</li><li>**Full：**執行完整編譯，包括語法檢查、最佳化、程式碼產生等。</li><li>**SingleBox：**在將 TargetType 設定為 SingleBox 的情況下，執行完整編譯。</li></ul><p>如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 </p> | 否                                       |
 
@@ -332,7 +332,7 @@ ADF 會使用 ‘parameters’ 區段來動態傳遞 U-SQL 指令碼中 **@in** 
 }
 ```
 
-您可改為使用動態參數。 例如： 
+您可改為使用動態參數。 例如︰ 
 
 ```json
 "parameters": {

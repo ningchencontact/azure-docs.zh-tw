@@ -26,7 +26,7 @@ ms.lasthandoff: 01/09/2018
 
 本指南將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 Google+ 帳戶的使用者登入。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 

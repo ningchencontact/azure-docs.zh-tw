@@ -1,6 +1,6 @@
 ---
-title: "將傳統 VM 移轉到 ARM 受管理的磁碟 VM | Microsoft Docs"
-description: "將單一 Azure VM 從傳統部署模型移轉至 Resource Manager 部署模型中的受管理的磁碟。"
+title: "將傳統 VM 移轉到 ARM 受控磁碟 VM | Microsoft Docs"
+description: "將單一 Azure VM 從傳統部署模型移轉至 Resource Manager 部署模型中的受控磁碟。"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>手動從 VHD 將傳統 VM 移轉到新的 ARM 受管理的磁碟 VM 
+# <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>手動從 VHD 將傳統 VM 移轉到新的 ARM 受控磁碟 VM 
 
 
 本節協助您將現有 Azure VM 從傳統部署模型移轉至 Resource Manager 部署模型中的[受控磁碟](managed-disks-overview.md)。

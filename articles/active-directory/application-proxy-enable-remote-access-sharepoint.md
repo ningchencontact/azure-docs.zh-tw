@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/05/2018
 
 若要啟用使用 Azure AD 應用程式 Proxy 對 SharePoint 的遠端存取，請遵循本逐步解說文件中的各節。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您的環境中已經有 SharePoint 2013 或更新版本。 此外，請考慮下列必要條件︰
 

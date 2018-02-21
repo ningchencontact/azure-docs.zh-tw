@@ -16,7 +16,7 @@ ms.author: gwallace
 ms.custom: mvc
 ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/05/2018
 
 [Azure Blob 儲存體](../common/storage-introduction.md#blob-storage)提供強固的服務來儲存應用程式的檔案。 本教學課程延伸[上一個主題][previous-tutorial]，說明如何從 Web 應用程式安全存取您的儲存體帳戶。 當您完成時，影像會經過加密，而 Web 應用程式會使用安全的 SAS 權杖來存取縮圖影像。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您必須已完成上一個儲存體教學課程：[使用 Event Grid 自動調整已上傳影像的大小][previous-tutorial]。 
 

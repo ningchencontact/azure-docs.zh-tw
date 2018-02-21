@@ -13,7 +13,7 @@
 
 ![Docker Hub 中的 Nginx 映像](./media/container-service-security/docker-hub-nginx.png)
 
-企業非常注重安全性，而且為了保護企業本身不會遭受安全性攻擊，它們應該在私人登錄中儲存和擷取映像，例如 Azure Container Registry 或 Docker Trusted Registry。 Azure Container Registry 除了提供受管理的私人登錄外，還可透過適用於基本驗證流程的 Azure Active Directory 來支援[以服務主體為基礎的驗證](../articles/container-registry/container-registry-authentication.md)，包括以角色為基礎的唯讀、寫入和擁有者存取權限。
+企業非常注重安全性，而且為了保護企業本身不會遭受安全性攻擊，它們應該在私人登錄中儲存和擷取映像，例如 Azure Container Registry 或 Docker Trusted Registry。 Azure Container Registry 除了提供受控私人登錄外，還可透過適用於基本驗證流程的 Azure Active Directory 來支援[以服務主體為基礎的驗證](../articles/container-registry/container-registry-authentication.md)，包括以角色為基礎的唯讀、寫入和擁有者存取權限。
 
 ### <a name="image-security-scanning"></a>映像安全性掃描
 

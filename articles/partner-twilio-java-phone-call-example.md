@@ -178,7 +178,7 @@ ms.lasthandoff: 10/11/2017
 當您做好部署至 Azure 的準備後，您可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://your_hosted_name.cloudapp.net/TwilioCloud/callform.jsp (請將 your_hosted_name 取代為您的值)。
 
 ## <a name="next-steps"></a>後續步驟
-此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如：
+此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰
 
 * 除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。 如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何使用 Java 的 Blob 儲存體服務][howto_blob_storage_java]。 如需在 Java 中使用 SQL Database 的相關資訊，請參閱[在 Java 中使用 SQL Database][howto_sql_azure_java]。
 * 您可以使用 **RoleEnvironment.getConfigurationSettings** ，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在 makecall.jsp 中進行值的硬式編碼。 如需 **RoleEnvironment** 類別的相關資訊，請參閱[在 JSP 中使用 Azure 服務執行階段程式庫][azure_runtime_jsp]，以及 [http://dl.windowsazure.com/javadoc][azure_javadoc] 上的 Azure 服務執行階段封裝文件。

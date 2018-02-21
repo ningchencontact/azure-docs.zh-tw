@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/28/2017
 ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -222,7 +222,7 @@ _**Python 指令碼的遠端 VM 執行概觀：**_
 HDInsight 是支援 Apache Spark 的巨量資料分析常用平台。 Workbench 可讓您使用 HDInsight Spark 叢集測試巨量資料。 
 
 >[!NOTE]
->HDInsight 叢集必須使用 Azure Blob 的主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
+>HDInsight 叢集必須使用 Azure Blob 作為主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
 
 您可以使用下列命令來建立計算目標，以及 HDInsight Spark 叢集的回合組態：
 

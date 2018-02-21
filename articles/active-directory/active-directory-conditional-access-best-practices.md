@@ -18,7 +18,7 @@ ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -100,18 +100,18 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 ## <a name="policy-migration"></a>原則移轉
 
-您應該考慮將移轉因為時，您已不在 Azure 入口網站中建立的原則：
+您應該考慮移轉尚未在 Azure 入口網站中建立的原則，因為：
 
-- 您現在可以解決無法處理之前的案例。
+- 您現在可以處理之前無法處理的案例。
 
 - 您可以合併它們以減少必須管理的原則數目。   
 
-- 您可以管理您所有單一中央位置的條件式存取原則。
+- 您可以在一個集中位置管理您的所有條件存取原則。
 
-- Azure 傳統入口網站將會停用。   
+- Azure 傳統入口網站將被淘汰。   
 
 
-如需詳細資訊，請參閱[移轉 Azure 入口網站中的傳統原則](active-directory-conditional-access-migration.md)。
+如需詳細資訊，請參閱[在 Azure 入口網站中移轉傳統原則](active-directory-conditional-access-migration.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

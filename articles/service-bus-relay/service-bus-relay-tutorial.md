@@ -30,7 +30,7 @@ ms.lasthandoff: 11/04/2017
 
 最後三個步驟描述如何建立用戶端應用程式、設定用戶端應用程式，以及建立和使用可存取主機功能的用戶端。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，您需要下列項目：
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/04/2017
 6. 將命名空間名稱從 **EchoService** 的預設名稱變更為 **Microsoft.ServiceBus.Samples**。
 
    > [!IMPORTANT]
-   > 本教學課程使用 C# 命名空間 **Microsoft.ServiceBus.Samples**，也就是在[設定 WCF 用戶端](#configure-the-wcf-client)步驟的設定檔中所使用合約型 Managed 型別的命名空間。 您可以在建置此範例時指定您要的任何命名空間；不過，除非您後來在應用程式組態檔中相應地修改合約的命名空和服務，否則本教學課程將無法運作。 在 App.config 檔案中指定的命名空間必須與在 C# 檔案中指定的命名空間相同。
+   > 本教學課程使用 C# 命名空間 **Microsoft.ServiceBus.Samples**，也就是在[設定 WCF 用戶端](#configure-the-wcf-client)步驟的設定檔中所使用合約型受控型別的命名空間。 您可以在建置此範例時指定您要的任何命名空間；不過，除非您後來在應用程式組態檔中相應地修改合約的命名空和服務，否則本教學課程將無法運作。 在 App.config 檔案中指定的命名空間必須與在 C# 檔案中指定的命名空間相同。
    >
    >
 7. 緊接在 `Microsoft.ServiceBus.Samples` 命名空間宣告後面 (但在命名空間內)，定義名為 `IEchoContract` 的新介面，並將 `ServiceContractAttribute` 屬性套用至命名空間值為 `http://samples.microsoft.com/ServiceModel/Relay/` 的介面。 命名空間值與您的整個程式碼範圍中使用的命名空間不同。 然而，命名空間值會作為此合約的唯一識別碼。 明確指定命名空間可避免將預設命名空間值新增至合約名稱。 將下列程式碼貼上到命名空間宣告之後：
@@ -413,7 +413,7 @@ namespace Microsoft.ServiceBus.Samples
 
    1. 在方案總管中含有服務的相同方案中，以滑鼠右鍵按一下目前的方案 (而非專案)，然後按一下 [加入]。 然後按一下 [新增專案]。
    2. 在 [新增專案] 對話方塊中，按一下 [Visual C#] \(如果 **Visual C#** 未出現，請在 [其他語言] 下尋找)，選取 [主控台應用程式 (.NET Framework)] 範本，並將它命名為 **EchoClient**。
-   3. 按一下 [確定]。
+   3. 按一下 [SERVICEPRINCIPAL] 。
       <br />
 2. 在 [方案總管] 中，按兩下 **EchoClient** 專案中的 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
 3. 將命名空間名稱從 `EchoClient` 的預設名稱變更為 `Microsoft.ServiceBus.Samples`。

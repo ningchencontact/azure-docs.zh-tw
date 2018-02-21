@@ -150,7 +150,7 @@ ms.lasthandoff: 10/31/2017
     Get-Shards -ShardMap $ShardMap 
     Get-Mappings -ShardMap $ShardMap 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 一旦完成安裝後，您就可以開始使用彈性資料庫用戶端程式庫。 您也可以使用[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)。
 
 ## <a name="next-steps"></a>後續步驟

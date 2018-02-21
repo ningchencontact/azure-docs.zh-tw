@@ -83,7 +83,7 @@ Azure 自動化中的 Runbook 會在 Azure 雲端中執行 PowerShell 指令碼�
 * [自動化 REST API](https://msdn.microsoft.com/library/mt662285.aspx)
 * [自動化 .NET](https://msdn.microsoft.com//library/mt465763.aspx)
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>警示
 警示規則會根據排程自動執行記錄搜尋。  如果結果符合特定準則，產生的警示可以在 Azure 自動化中啟動 Runbook，或呼叫可以啟動外部處理序的 webhook。  這兩個回應都可包括警示的詳細資料，包含記錄搜尋中傳回的資料。
 
 * [Log Analytics 中的警示](../log-analytics/log-analytics-alerts.md)

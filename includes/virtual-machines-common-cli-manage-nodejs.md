@@ -16,7 +16,7 @@
 > 
 > 
 
-| Task | 資源管理員 |
+| Task | Resource Manager |
 | --- | --- | --- |
 | 建立最基本的 VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(從 `azure vm image list` 命令取得 `image-urn`。 如需範例，請參閱[這篇文章](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。) |
 | 建立 Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |

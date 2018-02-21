@@ -18,7 +18,7 @@ ms.custom: oldportal
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -36,13 +36,13 @@ ms.lasthandoff: 01/05/2018
 如果過去的 30 天內或自從最後一次傳送電子郵件後 (視何者日數較少) 發生 10 起新的異常登入活動，就會傳送本電子郵件。
 
 ## <a name="how-do-i-access-the-report-mentioned-in-the-email"></a>如何存取電子郵件中提到的報告？
-當您按一下連結時，您將會重新導向至 Azure 入口網站中的報表頁面。 若要存取報告，您必須同時是：
+當您按一下連結時，系統會將您重新導向至 Azure 入口網站中的報告頁面。 若要存取報告，您必須同時是：
 
 * 您的 Azure 訂用帳戶的管理員或共同管理員
 * 目錄中的全域管理員，並獲得指派的 Active Directory Premium 授權。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 ## <a name="can-i-turn-off-these-emails"></a>我可以關閉這些電子郵件嗎？
-是，若要關閉通知相關的異常登入 Azure 入口網站中，按一下**設定**，然後選取**已停用**下**通知**> 一節。
+是，若要關閉 Azure 入口網站中異常登入的相關通知，請按一下 [設定]，然後選取 [通知] 區段之下的 [已停用]。
 
 ## <a name="whats-next"></a>後續步驟
 * 想知道有哪些安全性、稽核及活動報告可用嗎？ 請查看 [Azure AD 安全性、稽核及活動報告](active-directory-view-access-usage-reports.md)

@@ -3,7 +3,7 @@ title: "Azure Log Analytics 中的容量和效能解決方案 | Microsoft Docs"
 description: "使用 Log Analytics 中的容量和效能解決方案，來協助您了解 Hyper-V 伺服器的容量。"
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: banders
-ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: magoedte
+ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>使用容量和效能解決方案來規劃 Hyper-V 虛擬機器容量 (預覽)
 
@@ -39,15 +39,15 @@ ms.lasthandoff: 01/29/2018
 > 舊版的容量和效能解決方案稱為「容量管理」，其同時需要 System Center Operations Manager 和 System Center Virtual Machine Manager。 這個經過更新的解決方案則沒有這些相依性。
 
 
-## <a name="connected-sources"></a>連線的來源
+## <a name="connected-sources"></a>連接的來源
 
-下表描述此方案支援的連線來源。
+下表描述此方案支援的連接來源。
 
-| 連線的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 說明 |
 |---|---|---|
 | [Windows 代理程式](log-analytics-windows-agent.md) | yes | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
-| [SCOM 管理群組](log-analytics-om-agents.md) | yes |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連線到 Log Analytics。|
+| [SCOM 管理群組](log-analytics-om-agents.md) | yes |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連接到 Log Analytics。|
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Azure 儲存體不包含容量和效能資料。|
 
 ## <a name="prerequisites"></a>先決條件
@@ -76,7 +76,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 當容量和效能解決方案更新時，其版本號碼也會變更。
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連線到 Log Analytics](log-analytics-om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
 
 ## <a name="using-the-solution"></a>使用解決方案
 

@@ -415,7 +415,7 @@ Engagement Reach SDK 會自動偵測到通知配置已包含在此活動中，�
 ##### <a name="system-notifications"></a>系統通知
 藉由延伸 `EngagementDefaultNotifier`，您可以覆寫 `onNotificationPrepared` 以改變預設實作所準備的通知。
 
-例如：
+例如︰
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)

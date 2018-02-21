@@ -17,7 +17,7 @@ ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 本文示範如何使用 Azure CLI 2.0 建立自動調整規則，用以監視擴展集內的 VM 執行個體效能。 這些自動調整規則可增加或減少 VM 執行個體的數目，以回應這些效能計量。 您也可以使用 [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) 或在 [Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)中完成這些步驟。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要建立自動調整規則，您會需要現有的虛擬機器擴展集。 您可以使用 [Azure 入口網站](virtual-machine-scale-sets-create-portal.md)、[Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 來建立擴展集。
 
 若要更輕鬆地建立自動調整規則，請定義您擴展集的一些變數。 下列範例會在 myResourceGroup 的資源群組和 eastus 區域中定義 myScaleSet 擴展集的變數。 訂用帳戶的識別碼是使用 [az account show](/cli/azure/account#az_account_show) 取得的。 如果您有多個與帳戶相關聯的訂用帳戶，則只會傳回第一個訂用帳戶。 請調整名稱和訂用帳戶識別碼，如下所示：
@@ -67,7 +67,7 @@ location_name="eastus"
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | 要監視並套用擴展集動作的效能計量。                                                   | Percentage CPU  |
 | *timeGrain*       | 收集計量進行分析的頻率。                                                                   | 1 分鐘        |
-| *timeAggregation* | 定義應該如何彙總收集的計量以進行分析。                                                | 平均         |
+| *timeAggregation* | 定義應該如何彙總收集的計量以進行分析。                                                | 平均值         |
 | *timeWindow*      | 在比較計量與閾值之前監視的時間長短。                                   | 10 分鐘      |
 | *operator*        | 用以比較計量資料與閾值之間差異的運算子。                                                     | 大於    |
 | *threshold*       | 讓自動調整規則觸發動作的值。                                                      | 70%             |

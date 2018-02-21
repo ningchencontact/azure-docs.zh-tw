@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -120,7 +119,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 1. 估計集區所需的 eDTU，如下所示：
 
    最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
-   < *並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量* )
+   <並行尖峰 DB 的數目** X 每個 DB 的尖峰 DTU 使用量**)
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。 如需以 eDTU 集區大小為基礎的集區儲存體限制，請參閱 [彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 3. 採用步驟 1 和步驟 2 中較大的 eDTU 估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/) 並尋找大於步驟 3 估計值的最小 eDTU 集區大小。
@@ -171,7 +170,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 集區建議包含下列內容︰
 
-- 集區的定價層 (基本、標準、進階或進階 RS)
+- 集區的定價層 (基本、標準或進階)。
 - 適當的 [集區 eDTU]  \(也稱為每一集區的最大 eDTU)
 - 每一資料庫的 [eDTU 上限] 和 [eDTU 下限]
 - 集區的建議資料庫清單
@@ -262,7 +261,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 4. 選擇 [條件] \(大於、小於等等) 和 [臨界值]。
 5. 選擇警示觸發程序之前，計量規則必須滿足的 [期間]。
-6. 按一下 [確定] 。
+6. 按一下 [SERVICEPRINCIPAL] 。
 
 如需詳細資訊，請參閱[在 Azure 入口網站中建立 SQL Database 警示](sql-database-insights-alerts-portal.md)。
 
@@ -278,7 +277,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 ![擱置中的新增集區](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
-![按一下 [儲存]。](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+![按一下 [Save] \(儲存)。](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ### <a name="move-a-database-out-of-an-elastic-pool"></a>將資料庫移出彈性集區
 

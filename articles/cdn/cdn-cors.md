@@ -35,7 +35,7 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 
 2. 該伺服器的回應可能是下列其中一項：
 
-   * 回應中的 **Access-Control-Allow-Origin** 標頭指出所允許的來源網站。 例如：
+   * 回應中的 **Access-Control-Allow-Origin** 標頭指出所允許的來源網站。 例如︰
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

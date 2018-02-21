@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
    - 儲存及管理密碼編譯金鑰和密碼。 
    - 授權使用者或應用程式叫用保存庫中的作業。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 您必須訂閱包含 Azure Key Vault 服務的供應項目。
 * [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。  
 * [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)。
@@ -111,7 +111,7 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 
 ![新金鑰](media/azure-stack-kv-manage-powershell/image5.png)
 
-您現在可以使用其 URI 參考建立的金鑰。 如果您建立或匯入與現有金鑰名稱相同的金鑰，就會以新金鑰中指定的值來更新原始金鑰。 您可以使用金鑰的版本特定 URI 來存取先前的版本。 例如： 
+您現在可以使用其 URI 參考建立的金鑰。 如果您建立或匯入與現有金鑰名稱相同的金鑰，就會以新金鑰中指定的值來更新原始金鑰。 您可以使用金鑰的版本特定 URI 來存取先前的版本。 例如︰ 
 
 * 使用 "https://vault10.vault.local.azurestack.external:443/keys/key01" 一律會取得目前的版本。 
 * 使用 "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" 則可取得此特定版本。

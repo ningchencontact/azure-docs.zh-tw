@@ -27,7 +27,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本快速入門會示範如何使用 Azure 入口網站建立 Azure Cosmos DB 帳戶、文件資料庫和集合。 您會接著建置和部署以 [MongoDB Java 驅動程式](https://docs.mongodb.com/ecosystem/drivers/java/)為基礎的主控台應用程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須具備下列必要條件，才能執行此範例：
 * JDK 1.7+ (如果您沒有 JDK 則執行 `apt-get install default-jdk`)
@@ -62,7 +62,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-讓我們快速檢閱應用程式中所發生的事情。 請開啟 `Program.cs` 檔案，您會發現這些程式碼行建立 Azure Cosmos DB 資源。 
+讓我們快速檢閱應用程式中發生了什麼。 請開啟 `Program.cs` 檔案，您會發現這些程式碼行建立 Azure Cosmos DB 資源。 
 
 * 已初始化 DocumentClient。
 

@@ -41,10 +41,10 @@ ms.lasthandoff: 11/22/2017
 
 | 端點保護               | 平台                             | 資訊安全中心安裝 | 資訊安全中心探索 |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft 反惡意程式碼軟體)                  | Windows Server 2016                   | 否，內建於 OS           | 是                       |
-| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 | 透過延伸模組                | 是                       |
-| Trend Micro – 所有版本         | Windows Server 系列                 | 透過延伸模組                | 是                       |
-| Symantec v12.1.1100+                     | Windows Server 系列                 | 否                           | 是                        |
+| Windows Defender (Microsoft 反惡意程式碼軟體)                  | Windows Server 2016                   | 否，內建於 OS           | yes                       |
+| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 | 透過延伸模組                | yes                       |
+| Trend Micro – 所有版本         | Windows Server 系列                 | 透過延伸模組                | yes                       |
+| Symantec v12.1.1100+                     | Windows Server 系列                 | 否                           | yes                        |
 | MacAfee                           | Windows Server 系列                 | 否                           | 否                        |
 | Kaspersky                         | Windows Server 系列                 | 否                           | 否                        |
 | Sophos                            | Windows Server 系列                 | 否                           | 否                        |

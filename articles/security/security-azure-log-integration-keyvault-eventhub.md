@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
    至少擁有 PowerShell 5.0 之後，您便可以繼續安裝最新版本：
    
    a. 在 PowerShell 視窗中，輸入 ```Install-Module Azure``` 命令。 完成安裝步驟。    
-   b. 輸入 ```Install-Module AzureRM``` 命令。 完成安裝步驟。
+   b. 輸入 ```Install-Module AzureRM``` 命令 完成安裝步驟。
 
    如需詳細資訊，請參閱[安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0) (英文)。
 
@@ -73,11 +73,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-supporting-infrastructure-elements"></a>建立支援基礎結構元素
 
 1. 開啟提升權限的 PowerShell 視窗並移至 **C:\Program Files\Microsoft Azure Log Integration**。
-2. 透過執行指令碼 LoadAzLogModule.ps1，匯入 AzLog Cmdlet。 輸入 `.\LoadAzLogModule.ps1` 命令。 (請注意該命令中的 “.\”)。您應該會看到如下的結果：</br>
+2. 透過執行指令碼 LoadAzLogModule.ps1，匯入 AzLog Cmdlet。 輸入 `.\LoadAzLogModule.ps1` 命令 (請注意該命令中的 “.\”)。您應該會看到如下的結果：</br>
 
    ![載入的模組清單](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. 輸入 `Login-AzureRmAccount` 命令。 在登入視窗中，輸入將用於本教學課程的訂用帳戶認證資訊。
+3. 輸入 `Login-AzureRmAccount` 命令 在登入視窗中，輸入將用於本教學課程的訂用帳戶認證資訊。
 
    >[!NOTE]
    >如果這是您第一次從此電腦登入 Azure，您會看到有關允許 Microsoft 收集 PowerShell 使用情況資料的訊息。 由於此資料收集會用於改進 Azure PowerShell，因此我們建議您將其啟用。

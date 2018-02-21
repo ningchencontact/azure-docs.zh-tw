@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 了解如何使用適用於 Azure Data Lake Store 的 Python SDK 來執行基本帳戶管理作業，例如建立 Data Lake Store 帳戶、列出 Data Lake Store 帳戶等。如需有關如何使用 Python 在 Data Lake Store 上執行檔案系統作業的指示，請參閱[使用 Python 在 Data Lake Store 上進行檔案系統作業](data-lake-store-data-operations-python.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Python**。 您可以從[這裡](https://www.python.org/downloads/)下載 Python。 本文使用 Python 3.6.2。
 

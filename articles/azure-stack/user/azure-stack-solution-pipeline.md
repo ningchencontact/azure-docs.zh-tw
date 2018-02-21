@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>將應用程式部署至 Azure 和 Azure Stack
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 混合式[持續整合](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[持續傳遞](https://www.visualstudio.com/learn/what-is-continuous-delivery/) (CI/CD) 管線可讓您建置、測試以及將應用程式部署至多個雲端。  在本教學課程中，您會建立一個範例環境以了解混合式 CI/CD 管線可以協助您的方式：
  
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 > * 一旦您的程式碼已通過測試，便會自動部署至 Azure Stack。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 建置混合式 CI/CD 管線所需的幾個元件，且可能需要一些時間來準備。  如果您已擁有其中部分元件，請在開始之前確定它們符合需求。
 
 本主題也假設您擁有 Azure 和 Azure Stack 的部分知識。 如果您想要深入了解之後再繼續，請務必從這些主題開始：
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 1.  從 VSTS 橫幅中從選取 [建置與發行]，然後選取 [建置]。
 2.  按一下綠色的 [+ 新定義]。
 3.  選取 [空白] ，然後按一下 [下一步]。
-4.  勾選 持續部署 的核取方塊，然後按一下建立。
+4.  勾選 [持續部署] 的核取方塊，然後按一下 [建立]。
 
 現在，您已建立空白的發行定義並將其連結至組建，而我們會加入 Azure 環境的步驟：
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 10/11/2017
 
 1.  在發行定義中，選取 [+ 新增環境] 和 [建立新環境]。
 2.  選取 [空白] 並按一下 [下一步]。
-3.  選取 [特定使用者] 並指定您的帳戶。  選取 [ **建立**]。
+3.  選取 [特定使用者] 並指定您的帳戶。  選取 [建立] 。
 4.  透過選取現有的名稱，然後輸入 Azure Stack 以重新命名環境。
 5.  現在，選取 Azure Stack 環境，然後選取 [新增工作]。
 6.  選取 [FTP 上傳] 工作，接著選取 [新增]，然後選取 [關閉]。

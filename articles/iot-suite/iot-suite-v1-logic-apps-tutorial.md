@@ -42,7 +42,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="set-up-the-logic-app"></a>設定邏輯應用程式
 1. 在 Azure 入口網站中，按一下資源群組刀鋒視窗頂端的 [新增]。
 2. 搜尋 [邏輯應用程式]，選取它，然後按一下 [建立]。
-3. 填寫 [名稱]，並使用您佈建遠端監視解決方案時使用的相同 [訂用帳戶] 和 [資源群組]。 按一下 [建立] 。
+3. 填寫 [名稱]，並使用您佈建遠端監視解決方案時使用的相同 [訂用帳戶] 和 [資源群組]。 按一下頁面底部的 [新增] 。
    
     ![](media/iot-suite-v1-logic-apps-tutorial/createlogicapp.png)
 4. 部署完成時，您會看到邏輯應用程式列為資源群組中的資源。
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="set-up-the-eventprocessor-web-job"></a>設定 EventProcessor Web 作業
 在本節中，您會將您預先設定的解決方案連接到您建立的邏輯應用程式。 為了完成此工作，您要將用於觸發邏輯應用程式的 URL，加入當裝置感應器值超過臨界值時引發的動作。
 
-1. 使用您的 git 用戶端複製最新版的 [azure-iot-remote-monitoring github 儲存機制][lnk-rmgithub]。 例如：
+1. 使用您的 git 用戶端複製最新版的 [azure-iot-remote-monitoring github 儲存機制][lnk-rmgithub]。 例如︰
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git

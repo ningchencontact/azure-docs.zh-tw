@@ -43,7 +43,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
 ### <a name="user-starts-a-new-activity"></a>使用者啟動新的活動
             [[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
-每當使用者活動變更，您就需要呼叫 `startActivity()` 。 第一次呼叫此函數會啟動新的使用者工作階段。
+每當使用者活動變更，您就需要呼叫 `startActivity()` 。 第一次呼叫此函式會啟動新的使用者工作階段。
 
 ### <a name="user-ends-his-current-activity"></a>使用者結束其目前的活動
             [[EngagementAgent shared] endActivity];
@@ -225,7 +225,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
 ### <a name="limits"></a>限制
-#### <a name="keys"></a>之間的信任
+#### <a name="keys"></a>金鑰
 `NSDictionary` 中的每個索引鍵都必須符合下列規則運算式：
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
@@ -254,7 +254,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
 ### <a name="limits"></a>限制
-#### <a name="keys"></a>之間的信任
+#### <a name="keys"></a>金鑰
 `NSDictionary` 中的每個索引鍵都必須符合下列規則運算式：
 
 `^[a-zA-Z][a-zA-Z_0-9]*`

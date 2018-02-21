@@ -72,22 +72,22 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 我們支援的最小子網路是 /29，最大則是 /8 (使用 CIDR 子網路定義)。
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>我可以使用 VNet 將 VLAN 帶到 Azure 嗎？
-否。 VNet 是 Layer-3 重疊。 Azure 不支援任何 Layer-2 語意。
+編號 VNet 是 Layer-3 重疊。 Azure 不支援任何 Layer-2 語意。
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>可以在我的 Vnet 和子網路上指定自訂路由原則嗎？
 是。 您可以使用「使用者定義的路由」(UDR)。 如需有關 UDR 的詳細資訊，請造訪 [使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>VNet 是否支援多點傳送或廣播？
-否。 我們不支援多點傳送或廣播。
+編號 我們不支援多點傳送或廣播。
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>我可以在 VNet 中使用哪些通訊協定？
 您可以在 VNet 中使用 TCP、UDP 和 ICMP TCP/IP 通訊協定。 多點傳送、廣播、IP-in-IP 封裝式封包和 Generic Routing Encapsulation (GRE) 封包在 VNet 內會遭到封鎖。 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>我可以在 VNet 中偵測我的預設路由器嗎？
-否。
+編號
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>我可以使用 tracert 來診斷連線嗎？
-否。
+編號
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>我可以在建立 VNet 之後新增子網路嗎？
 是。 子網路隨時可以加入至 VNet，前提是子網路位址不是 VNet 中另一個子網路的一部分。
@@ -102,10 +102,10 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 是。 部署在 VNet 中的所有服務皆可連線到網際網路。 Azure 中部署的每個雲端服務皆已指派公開可定址的 VIP。 您必須定義 PaaS 角色的輸入端點和虛擬機器的端點，啟用這些服務以接受來自網際網路的連接。
 
 ### <a name="do-vnets-support-ipv6"></a>VNet 是否支援 IPv6？
-否。 目前您無法使用 IPv6 搭配 VNet。
+編號 目前您無法使用 IPv6 搭配 VNet。
 
 ### <a name="can-a-vnet-span-regions"></a>VNet 可以跨區域嗎？
-否。 VNet 僅限於單一區域。
+編號 VNet 僅限於單一區域。
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>我可以將 VNet 連線到 Azure 中的另一個 VNet 嗎？
 是。 您可以使用下列項目，將一個 VNet 連接到另一個 VNet︰
@@ -138,7 +138,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azur
 是。 您可以根據雲端服務設定 DNS 伺服器，以便覆寫預設網路設定。 不過，我們建議您盡可能使用全網路 DNS。
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>我可以加上自己的 DNS 尾碼嗎？
-否。 您無法針對 VNet 指定自訂的 DNS 尾碼。
+編號 您無法針對 VNet 指定自訂的 DNS 尾碼。
 
 ## <a name="connecting-virtual-machines"></a>連接虛擬機器
 
@@ -150,7 +150,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azur
 * **公用︰**選擇性地指派至與透過 Azure Resource Manager 部署模型部署的 VM 所連接的 NIC。 您可使用靜態或動態配置方法來指派位址。 所有透過傳統部署模型部署的 VM 與雲端服務角色執行個體，皆存在於受指派動態公用虛擬 IP (VIP) 位址的雲端服務內。 公用*靜態* IP 位址，稱為[保留的 IP 位址](virtual-networks-reserved-public-ip.md)，可選擇性地被指派為 VIP。 您可以將公用 IP 位址指派至透過傳統部署模型部署的個別 VM 或雲端服務角色執行個體。 這些位址稱為[執行個體層級公用 IP (ILPIP](virtual-networks-instance-level-public-ip.md)位址，並可動態指派。
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>我可以為稍後建立的 VM 保留私人 IP 位址嗎？
-否。 您不能保留私人 IP 位址。 如果有可用的私人 IP 位址，則會由 DHCP 伺服器指派至 VM 或角色執行個體。 該 VM 可能不是您想要指派私人 IP 位址的目的地。 不過，您可以將已建立 VM 的私人 IP 位址變更為任何可用的私人 IP 位址。
+編號 您不能保留私人 IP 位址。 如果有可用的私人 IP 位址，則會由 DHCP 伺服器指派至 VM 或角色執行個體。 該 VM 可能不是您想要指派私人 IP 位址的目的地。 不過，您可以將已建立 VM 的私人 IP 位址變更為任何可用的私人 IP 位址。
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet 中的私人 IP 位址會根據 VM 進行變更嗎？
 這要看狀況。 VM 中仍會保留動態私人 IP 位址，直到 IP 位址停止 (重新分配) 或刪除為止。 靜態私人 IP 位址在刪除後才會從 VM 中釋放。
@@ -159,13 +159,13 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azur
 可以，但我們不建議這樣做。 在 VM 作業系統內將 IP 位址手動指派至 NIC，可能會使指派至 Azure VM 中 NIC 的 IP 位置變更，導致失去與 VM 的連線。
 
 ### <a name="what-happens-to-my-ip-addresses-if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system"></a>若我在作業系統內停止雲端服務部署位置或關閉 VM，我的 IP 位址會受到影響嗎？
-不會受到影響。 IP 位址 (公用 VIP、公用與私人) 仍會指派至雲端服務部署位置或 VM。 動態位址只會在 VM 停止 (重新分配) 或刪除，或雲端服務部署位置已刪除時釋放。 在 Azure 入口網站中的 VM 按一下 [停止] 按鈕，會將 Azure 入口網站的狀態設為「已停止 (已重新分配)」。 在此情況下，VM 將會遺失其 IP 位址。
+不做任何動作。 IP 位址 (公用 VIP、公用與私人) 仍會指派至雲端服務部署位置或 VM。 動態位址只會在 VM 停止 (重新分配) 或刪除，或雲端服務部署位置已刪除時釋放。 在 Azure 入口網站中的 VM 按一下 [停止] 按鈕，會將 Azure 入口網站的狀態設為「已停止 (已重新分配)」。 在此情況下，VM 將會遺失其 IP 位址。
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-re-deploying"></a>我可以將 VM 從子網路移動至 VNet 中的其他子網路而不需重新部署嗎？
 是。 您可以在[如何將 VM 或角色執行個體移至不同的子網路](virtual-networks-move-vm-role-to-subnet.md)一文內找到更多資訊。
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>我可以針對 VM 設定靜態 MAC 位址嗎？
-否。 MAC 位址無法以靜態方式設定。
+編號 MAC 位址無法以靜態方式設定。
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-it-has-been-created"></a>當我建立 VM 之後 MAC 位址會保持相同的狀態嗎？
 是，若是建立透過 Resource Manager 和傳統部署模型部署的 VM，MAC 位址會維持不變，直至刪除為止。 以往，當 VM 狀態為已停止 (已重新分配) 時，系統會釋放 MAC 位址，但現在即使 VM 狀態為重新分配時，MAC 位址仍會保持不變。
@@ -176,7 +176,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azur
 ## <a name="azure-services-that-connect-to-vnets"></a>連線到 VNet 的 Azure 服務
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>我可以搭配使用 Azure App Service Web Apps 和 VNet 嗎？
-是。 您可以使用 ASE (App Service 環境) 在 VNet 中部署 Web Apps。 如果您已針對 VNet 設定點對站連線，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。 如需詳細資訊，請參閱下列文章。
+是。 您可以使用 ASE (App Service 環境) 在 VNet 中部署 Web Apps。 如果您已針對 VNet 設定點對站連線，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。 如需詳細資訊，請參閱下列文章：
 
 * [在 App Service 環境中建立 Web Apps](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 * [將您的應用程式與 Azure 虛擬網路整合](../app-service/web-sites-integrate-with-vnet.md)
@@ -189,7 +189,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azur
 是。 您必須將 VMSS 連接至 VNet。
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>我可以將服務移入和移出 VNet 嗎？
-否。 您無法將服務移入和移出 VNet。 您必須刪除並重新部署服務，才能將它移動到另一個 VNet。
+編號 您無法將服務移入和移出 VNet。 您必須刪除並重新部署服務，才能將它移動到另一個 VNet。
 
 ## <a name="security"></a>安全性
 

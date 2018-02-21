@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>使用 Azure 入口網站建立搭配 Data Lake Store 的 HDInsight 叢集
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 了解如何利用 Azure 入口網站，建立使用 Azure Data Lake Store 帳戶作為預設儲存體或其他儲存體的 HDInsight 叢集。 即使其他儲存體是 HDInsight 叢集的選用項目，還是建議將您的商務資料儲存在其他儲存體帳戶中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始本教學課程之前，確保您已符合下列需求：
 
 * **Azure 訂用帳戶**。 請移至[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/21/2017
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "將服務主體新增至 HDInsight 叢集")
 
-    - **選取 Data Lake Store 帳戶**： 選取現有的 Data Lake Store 帳戶。 需要現有的 Data Lake Store 帳戶。  請參閱[必要條件](#prereuisites)。
+    - **選取 Data Lake Store 帳戶**： 選取現有的 Data Lake Store 帳戶。 需要現有的 Data Lake Store 帳戶。  請參閱[必要條件](#prerequisites)。
     - **根路徑**：輸入要儲存叢集特定檔案的路徑。 在螢幕擷取畫面上，它是 __/clusters/myhdiadlcluster/__，其中 __/clusters__ 資料夾必須已存在，而入口網站會建立 *myhdicluster* 資料夾。  *myhdicluster* 是叢集名稱。
     - **Data Lake Store 存取**：設定 Data Lake Store 帳戶與 HDInsight 叢集之間的存取。 如需指示，請參閱[設定 Data Lake Store 存取](#configure-data-lake-store-access)。
     - **其他儲存體帳戶**：新增 Azure 儲存體帳戶作為叢集的其他儲存體帳戶。 若要新增其他 Data Lake Store，做法是設定某個 Data Lake Store 帳戶作為主要儲存體類型，同時授與叢集存取其他 Data Lake Store 帳戶資料的權限。 請參閱[設定 Data Lake Store 存取](#configure-data-lake-store-access)。
@@ -205,7 +205,7 @@ ms.lasthandoff: 12/21/2017
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>在 Storm 拓撲中使用 Data Lake Store
 您可以使用 Data Lake Store 從 Storm 拓撲寫入資料。 如需有關如何達到這種情況的指示，請參閱 [搭配使用 Azure Data Lake Store 與 HDInsight 上的 Apache Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [搭配 Azure HDInsight 叢集使用 Data Lake Store](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell：建立 HDInsight 叢集以使用 Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

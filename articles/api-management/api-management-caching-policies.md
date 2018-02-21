@@ -103,26 +103,26 @@ ms.lasthandoff: 12/06/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cache-lookup|根元素。|是|  
+|cache-lookup|根元素。|yes|  
 |vary-by-header|根據指定標頭 (例如 Accept、Accept-Charset、Accept-Encoding、Accept-Language、Authorization、Expect、From、Host、If-Match) 的值開始快取回應。|否|  
 |vary-by-query-parameter|根據指定查詢參數的值開始快取回應。 輸入單一或多個參數。 使用分號作為分隔符號。 如果未指定任何參數，則會使用所有查詢參數。|否|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |allow-private-response-caching|當設定為 `true` 時，可快取包含 Authorization 標頭的要求。|否|false|  
-|downstream-caching-type|此屬性必須設為下列其中一個值。<br /><br /> -   none - 不允許下游快取。<br />-   private - 允許下游私人快取。<br />-   public - 允許私人和共用下游快取。|否|無|  
+|downstream-caching-type|此屬性必須設為下列其中一個值。<br /><br /> -   none - 不允許下游快取。<br />-   private - 允許下游私人快取。<br />-   public - 允許私人和共用下游快取。|否|None|  
 |must-revalidate|當下游快取啟用時，此屬性會開啟或關閉閘道回應中的 `must-revalidate` 快取控制指示詞。|否|true|  
-|vary-by-developer|設定為 `true` 可按照開發人員索引鍵來快取回應。|是||  
-|vary-by-developer-groups|設定為 `true` 可按照使用者角色來快取回應。|是||  
+|vary-by-developer|設定為 `true` 可按照開發人員索引鍵來快取回應。|yes||  
+|vary-by-developer-groups|設定為 `true` 可按照使用者角色來快取回應。|yes||  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入  
+-   **原則區段︰**inbound  
 -   **原則範圍︰**API、作業、產品  
   
 ##  <a name="StoreToCache"></a>儲存至快取  
@@ -181,15 +181,15 @@ ms.lasthandoff: 12/06/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cache-store|根元素。|是|  
+|cache-store|根元素。|yes|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|duration|快取項目的存留時間，以秒為單位進行指定。|是|N/A|  
+|duration|快取項目的存留時間，以秒為單位進行指定。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -223,17 +223,17 @@ ms.lasthandoff: 12/06/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cache-lookup-value|根元素。|是|  
+|cache-lookup-value|根元素。|yes|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |default-value|當快取索引鍵查閱沒有結果時，要指派給變數的值。 如果未指定此屬性，則會指派 `null`。|否|`null`|  
-|索引鍵|要在查閱中使用的快取索引鍵值。|是|N/A|  
-|variable-name|查閱成功時，要將查閱到的值指派到之[內容變數](api-management-policy-expressions.md#ContextVariables)的名稱。 如果查閱沒有結果，會對變數指派 `default-value` 屬性的值，如果省略 `default-value` 屬性，則會指派 `null`。|是|N/A|  
+|索引鍵|要在查閱中使用的快取索引鍵值。|yes|N/A|  
+|variable-name|查閱成功時，要將查閱到的值指派到之[內容變數](api-management-policy-expressions.md#ContextVariables)的名稱。 如果查閱沒有結果，會對變數指派 `default-value` 屬性的值，如果省略 `default-value` 屬性，則會指派 `null`。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -265,17 +265,17 @@ ms.lasthandoff: 12/06/2017
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cache-store-value|根元素。|是|  
+|cache-store-value|根元素。|yes|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|duration|會針對所提供的持續時間值來快取值，以秒為單位進行指定。|是|N/A|  
-|索引鍵|用來做為值儲存依據的快取索引鍵。|是|N/A|  
-|value|要快取的值。|是|N/A|  
+|duration|會針對所提供的持續時間值來快取值，以秒為單位進行指定。|yes|N/A|  
+|索引鍵|用來做為值儲存依據的快取索引鍵。|yes|N/A|  
+|value|要快取的值。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -304,15 +304,15 @@ ms.lasthandoff: 12/06/2017
   
 #### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cache-remove-value|根元素。|是|  
+|cache-remove-value|根元素。|yes|  
   
 #### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
-|索引鍵|要從快取中移除之先前快取值的索引鍵。|是|N/A|  
+|索引鍵|要從快取中移除之先前快取值的索引鍵。|yes|N/A|  
   
 #### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -326,5 +326,5 @@ ms.lasthandoff: 12/06/2017
 
 + [API 管理中的原則](api-management-howto-policies.md)
 + [轉換 API](transform-api.md)
-+ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單。
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
 + [原則範例](policy-samples.md)   

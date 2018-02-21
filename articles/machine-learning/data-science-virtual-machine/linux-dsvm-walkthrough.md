@@ -27,7 +27,7 @@ ms.lasthandoff: 10/12/2017
 
 在本逐步解說中，我們會分析 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 資料集。 這是一組標示為垃圾郵件或非垃圾郵件 (亦即這些郵件不是垃圾郵件) 的電子郵件，並同時包含關於電子郵件內容的一些統計資料。 其中所含的統計資料會在下下一節中討論。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須先具有下列項目，才可以使用 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**。 如果您還沒有訂用帳戶，請參閱 [立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
@@ -477,7 +477,7 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 * 將其命名為*垃圾郵件資料庫*，然後選擇 [驅動程式] 下拉式清單中的 [PostgreSQL]。
 * 將 URL 設定為 *jdbc:postgresql://localhost/spam*。
 * 輸入您的*使用者名稱*和*密碼*。
-* 按一下 [確定] 。
+* 按一下 [SERVICEPRINCIPAL] 。
 * 若要開啟 [連線] 視窗，請按兩下***垃圾郵件資料庫***別名。
 * 選取 [ **連接**]。
 

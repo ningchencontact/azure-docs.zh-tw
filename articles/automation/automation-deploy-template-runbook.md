@@ -15,7 +15,7 @@ ms.date: 07/09/2017
 ms.author: gwallace
 ms.openlocfilehash: 63c8f1b1190e19e1f1d2a7871bffee44ef5c7877
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/03/2018
 
 在本主題中，我們會建立使用儲存在 [Azure 儲存體](../storage/common/storage-introduction.md)中 Resource Manager 範本的 PowerShell Runbook，來部署新的 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，您需要下列項目：
 

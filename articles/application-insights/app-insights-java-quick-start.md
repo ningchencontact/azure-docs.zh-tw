@@ -22,7 +22,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 本快速入門引導您將 Application Insights SDK 新增至現有的 Java 動態 Web 專案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門：
 
@@ -55,7 +55,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
-2. 按一下 [建立] 。
+2. 按一下頁面底部的 [新增] 。
 
 ## <a name="install-app-insights-plugin"></a>安裝 App Insights 外掛程式
 

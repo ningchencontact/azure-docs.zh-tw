@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>概觀
-本文說明如何在您使用 Visual Studio 的 [新增連接的服務]  對話方塊建立或參考雲端服務專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 中使用 Azure 表格儲存體。 [新增連接的服務]  作業會安裝適當的 NuGet 套件，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案設定檔。
+本文說明如何在您使用 Visual Studio 的 [新增連接的服務]  對話方塊建立或參考雲端服務專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 中使用 Azure 表格儲存體。 [ **新增連接的服務** ] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。
 
@@ -71,7 +71,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
     // Create the CloudTable if it does not exist.
     await peopleTable.CreateIfNotExistsAsync();
 
-## <a name="add-an-entity-to-a-table"></a>將實體加入至資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。 下列程式碼會定義稱為 **CustomerEntity** 的實體類別，其使用客戶名字作為資料列索引鍵，並使用姓氏作為資料分割索引鍵。
 
     public class CustomerEntity : TableEntity
@@ -103,7 +103,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
     await peopleTable.ExecuteAsync(insertOperation);
 
 
-## <a name="insert-a-batch-of-entities"></a>插入實體批次
+## <a name="insert-a-batch-of-entities"></a>插入一批實體
 您可以在單一寫入操作中將多個項目插入至資料表。 下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將這兩個物件加入 **TableBatchOperation** 物件中，然後再呼叫 **CloudTable.ExecuteBatchAsync** 啟動作業。
 
     // Create the batch operation.

@@ -16,7 +16,7 @@ ms.date: 08/15/2016
 ms.author: deonhe
 ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -36,8 +36,8 @@ Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
 * 支援組織帳戶：  
   * **情節**：您使用 Microsoft 帳戶註冊了 BizTalk 服務部署 (例如 user@live.com)。 在此情節中，只有 Microsoft 帳戶使用者可以使用 BizTalk 服務入口網站來管理 BizTalk 服務。 無法使用組織帳戶。  
   * **情節**：您使用 Azure Active Directory 中的組織帳戶註冊了 BizTalk 服務部署 (例如 user@fabrikam.com 或 user@contoso.com)。 在此情節中，只有相同組織內的 Azure Active Directory 使用者可以使用 BizTalk 服務入口網站來管理 BizTalk 服務。 無法使用 Microsoft 帳戶。  
-* 當您建立 BizTalk 服務時，您會自動註冊 BizTalk 服務入口網站中。
-  * **案例**： 您登入 Azure，建立 BizTalk 服務，然後選取**管理**非常第一次。 BizTalk 服務入口網站開啟時，BizTalk 服務自會動註冊，並且可用於您的部署。  
+* 當您建立 BizTalk 服務時，您會自動在 BizTalk 服務入口網站中註冊。
+  * **案例**：您第一次登入 Azure，建立 BizTalk 服務，然後選取 [管理]。 BizTalk 服務入口網站開啟時，BizTalk 服務自會動註冊，並且可用於您的部署。  
     請參閱 [在 BizTalk 服務入口網站註冊和更新 BizTalk 服務部署](https://msdn.microsoft.com/library/azure/hh689837.aspx)。  
 
 ### <a name="august-14-update"></a>8 月 14 日更新

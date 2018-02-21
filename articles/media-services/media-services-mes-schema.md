@@ -27,13 +27,13 @@ ms.lasthandoff: 01/08/2018
 定義編碼預設值。  
 
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **編碼** |[編碼](media-services-mes-schema.md#Encoding) |根元素，表示即將編碼的輸入來源。 |
 | **輸出** |[輸出](media-services-mes-schema.md#Output) |想要的輸出檔案集合。 |
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **版本**<br/><br/> 必要 |**xs: decimal** |預設版本。 套用下列限制︰xs:fractionDigits value="1" 和 xs:minInclusive value="1"。例如，**version="1.0"**。 |
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/08/2018
 包含下列一連串的元素：  
 
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |視訊的 H.264 編碼設定。 |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |音訊的 AAC 編碼設定。 |
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |目前，只支援 One-pass 編碼。 |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |決定 IDR 框架之間的固定間距 (以秒為單位)。 也稱為 GOP 持續時間。 若要控制編碼器是否可以脫離此值，請參閱 **SceneChangeDetection**。 |
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/08/2018
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |輸出視訊圖層的集合。 |
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | 當輸入沒有視訊時，您可能需要強制編碼器插入單色視訊播放軌。若要這樣做，請使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" (只以最低位元速率插入視訊) 或 Condition="InsertBlackIfNoVideo" (以所有輸出位元速率插入視訊)。 如需詳細資訊，請參閱[本篇文章](media-services-advanced-encoding-with-mes.md#no_video)。|
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/08/2018
 根據預設，如果您傳送僅包含音訊但不含視訊的編碼器輸入，則輸出資產會包含只有音訊資料的檔案。 某些播放器可能無法處理此類型輸出資料流。 您可以在該案例中使用 H264Video 的 **InsertBlackIfNoVideo** 屬性設定來強制編碼器將視訊播放軌新增至輸出。 如需詳細資訊，請參閱[本篇文章](media-services-advanced-encoding-with-mes.md#no_video)。
               
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |H264 圖層的集合。 |
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/08/2018
 > 
 
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **設定檔**<br/><br/> minOccurs="0"<br/><br/> 預設值=”Auto” |**xs:string** |可能是下列其中一個 **xs:string** 值：**Auto**、**Baseline**、**Main**、**High**。 |
 | **Level**<br/><br/> minOccurs="0"<br/><br/> 預設值=”Auto” |**xs:string** | |
@@ -103,17 +103,17 @@ ms.lasthandoff: 01/08/2018
  如需有關 AAC 的詳細資訊，請參閱 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)。  
 
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **設定檔**<br/><br/> minOccurs="0 "<br/><br/> 預設值="AACLC" |**xs:string** |可能是下列其中一個值：**AACLC**、**HEAACV1** 或 **HEAACV2**。 |
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Condition** |**xs:string** |若要強制編碼器在輸入不含音訊時產生包含靜音曲目的資產，請指定 "InsertSilenceIfNoAudio" 值。<br/><br/> 依照預設，如果您傳送僅包含視訊不含音訊的輸入到編碼器，輸出資產將包含僅含視訊資料的檔案。 某些播放器可能無法處理此類型輸出資料流。 您可以在該案例中使用此設定來強制編碼器將靜音曲目新增至輸出。 |
 
 ### <a name="groups"></a>群組
-| 參考 | 描述 |
+| 參考 | 說明 |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |請參閱 [AudioGroup](media-services-mes-schema.md#AudioGroup) 的說明，以得知適當的聲道數目、取樣率以及可為每個設定檔設定的位元速率。 |
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 01/08/2018
 如需每個設定檔的有效值詳細資訊，請參閱後面的「音訊轉碼器詳細資料」表格。  
 
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Channels**<br/><br/> minOccurs="0" |**xs:int** |編碼的音訊聲道數目。 以下是有效的選項︰1、2、5、6、8。<br/><br/> 預設值︰2。 |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |音訊取樣率 (以 Hz 指定)。 |
@@ -137,19 +137,19 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="Clip"></a> 剪輯
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |指定簡報的開始時間。 StartTime 值必須符合輸入視訊的絕對時間戳記。 例如，如果輸入視訊的第一個畫面有 12:00:10.000 的時間戳記，則 StartTime 至少應該為 12:00:10.000 或以上。 |
 | **Duration** |**xs:duration** |指定簡報的持續時間 (例如，視訊中的覆疊外觀)。 |
 
 ## <a name="Output"></a> 輸出
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **FileName** |**xs:string** |輸出檔案的名稱。<br/><br/> 您可以使用下表中所述的巨集來建置輸出檔案名稱。 例如︰<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>巨集
-| 巨集 | 描述 |
+| 巨集 | 說明 |
 | --- | --- |
 | **{Basename}** |如果您正在進行 VoD 編碼，{Basename} 是輸入資產中主要檔案之 AssetFile.Name 屬性的前 32 個字元。<br/><br/> 如果輸入資產是即時封存，則 {Basename} 衍生自伺服器資訊清單中的 trackName 屬性。 如果您使用 TopBitrate 提交子片段作業 (例如：“<VideoStream\>TopBitrate</VideoStream\>”)，而且輸出檔案包含視訊，則 {Basename} 是最高位元速率之視訊層的 trackName 的前 32 個字元。<br/><br/> 如果您使用所有輸入位元速度提交子片段作業 (例如：“<VideoStream\>*</VideoStream\>”)，而且輸出檔案包含視訊，則 {Basename} 是對應視訊層之 trackName 的前 32 個字元。 |
 | **{Codec}** |對應至視訊的 “H264” 和音訊的 “AAC”。 |
@@ -162,7 +162,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="Video"></a> 視訊 (複雜類型繼承自轉碼器)
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **啟動** |**xs:string** | |
 | **Step** |**xs:string** | |
@@ -186,7 +186,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="FormatGroup"></a> FormatGroup (群組)
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -194,74 +194,74 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Quality**<br/><br/> minOccurs="0" |**xs:int** |有效值：1 (最差) - 100 (最佳) |
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (複雜類型繼承自視訊)
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 圖層 |
 
 ## <a name="JpgImage"></a> JpgImage (複雜類型繼承自視訊)
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 圖層 |
 
 ## <a name="PngImage"></a> PngImage (複雜類型繼承自視訊)
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 圖層 |
 

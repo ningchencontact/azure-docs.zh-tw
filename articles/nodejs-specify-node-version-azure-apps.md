@@ -46,7 +46,7 @@ Azure 提供的 Node.js 版本會持續進行更新。 除非另有指定，否�
 如果您在網站中裝載應用程式，您可以將環境變數 **WEBSITE_NODE_DEFAULT_VERSION** 設定為所需的版本。
 
 ## <a name="versioning-cloud-services-with-powershell"></a>以 PowerShell 進行雲端服務版本設定
-如果您要將應用程式裝載在雲端服務中，而且要使用 Azure PowerShell 來部署應用程式，您可以使用 **Set-AzureServiceProjectRole** PowerShell Cmdlet 覆寫預設 Node.js 版本。 例如：
+如果您要將應用程式裝載在雲端服務中，而且要使用 Azure PowerShell 來部署應用程式，您可以使用 **Set-AzureServiceProjectRole** PowerShell Cmdlet 覆寫預設 Node.js 版本。 例如︰
 
     Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 

@@ -37,11 +37,11 @@ Azure Advisor 可針對所有的 Azure 資源提供一致的合併建議檢視�
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Advisor 建議，請參閱：
-* [建議程式簡介](advisor-overview.md)
-* [開始使用建議程式](advisor-get-started.md)
-* [建議程式成本建議](advisor-performance-recommendations.md)
-* [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 簡介](advisor-overview.md)
+* [開始使用 Advisor](advisor-get-started.md)
+* [Advisor 成本建議](advisor-performance-recommendations.md)
+* [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
 
 
  

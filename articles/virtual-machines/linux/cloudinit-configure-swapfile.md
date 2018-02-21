@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: a8ccec0dc8ff100c5d067cd50f2a6fa8cb4871fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>使用 cloud-init 在 Linux 虛擬機器上設定分頁檔
 本文會示範如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各種 Linux 發行套件上設定分頁檔。 傳統上是由 Linux 代理程式 (WALA) 根據發行套件的需求來設定分頁檔。  本文將概述在佈建期間，使用 cloud-init 依需求建置分頁檔的流程。  如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>建立 RedHat 和 CentOS 型映像的分頁檔
 
-在您目前的殼層中，建立名為 cloud_init_swapfile.txt的檔案，並貼上下列設定。 針對此範例，請在 Cloud Shell 中 (而不是本機電腦上) 建立該檔案。 您可以使用任何您想要的編輯器。 輸入 `sensible-editor cloud_init_swapfile.txt` 可建立檔案，並查看可用的編輯器清單。 建議選擇使用 **nano** 編輯器。 請確定已正確複製整個 cloud-init 檔案，特別是第一行。  
+在您目前的殼層中，建立名為 cloud_init_swapfile.txt的檔案，並貼上下列設定。 針對此案例，在 Cloud Shell 中 (而不是本機電腦上) 建立該檔案。 您可以使用任何您想要的編輯器。 輸入 `sensible-editor cloud_init_swapfile.txt` 可建立檔案，並查看可用的編輯器清單。 建議首先選擇使用 **nano** 編輯器。 請確定已正確複製整個 cloud-init 檔案，特別是第一行。  
 
 ```yaml
 #cloud-config
@@ -47,13 +47,13 @@ mounts:
 - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-部署此映像前，您必須使用 [az group create](/cli/azure/group#create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+部署此映像前，您必須使用 [az group create](/cli/azure/group#az_group_create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-現在，請使用 [az vm create](/cli/azure/vm#create) 建立 VM 並以 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 檔案，如下所示：
+現在，請使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM 並以 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 檔案，如下所示：
 
 ```azurecli-interactive 
 az vm create \
@@ -91,6 +91,6 @@ Filename                Type        Size    Used    Priority
 如需其他設定變更的 cloud-init 範例，請參閱下列文件：
  
 - [將其他 Linux 使用者新增至虛擬機器](cloudinit-add-user.md)
-- [執行封裝管理員以便在初次開機時更新現有的封裝](cloudinit-update-vm.md)
+- [執行套件管理員以便在初次開機時更新現有的套件](cloudinit-update-vm.md)
 - [變更虛擬機器本機的主機名稱](cloudinit-update-vm-hostname.md) 
-- [安裝應用程式封裝、更新設定檔及插入金鑰](tutorial-automate-vm-deployment.md)
+- [安裝應用程式套件、更新組態檔案，以及插入金鑰](tutorial-automate-vm-deployment.md)

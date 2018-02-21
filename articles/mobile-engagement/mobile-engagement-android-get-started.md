@@ -26,7 +26,7 @@ ms.lasthandoff: 01/05/2018
 本主題說明如何使用 Azure Mobile Engagement 來了解您應用程式的使用情形，以及如何將推播通知傳送給 Android 應用程式的分段使用者。
 本教學課程將示範使用 Mobile Engagement 的簡單廣播案例。 在此案例中，您先建立空白的 Android 應用程式，使用 Google 雲端通訊 (GCM) 來收集基本資料並接收推播通知。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 完成本教學課程需要 [Android Developer Tools](https://developer.android.com/sdk/index.html)，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。
 
 還需要 [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)。

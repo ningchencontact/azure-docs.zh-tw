@@ -37,47 +37,47 @@ ms.lasthandoff: 10/11/2017
 
 | 例外狀況 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>如需詳細資訊，請參閱 [WebException 狀態碼](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus)一節。 |是 |是 |是 |是 |
-| DataServiceClientException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
-| DataServiceQueryException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
-| DataServiceRequestException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
-| DataServiceTransportException |否 |否 |是 |是 |
-| TimeoutException |是 |是 |是 |否 |
-| SocketException |是 |是 |是 |是 |
-| StorageException |否 |是 |否 |否 |
-| IOException |否 |是 |否 |否 |
+| WebException<br/>如需詳細資訊，請參閱 [WebException 狀態碼](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus)一節。 |yes |yes |yes |yes |
+| DataServiceClientException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |yes |yes |
+| DataServiceQueryException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |yes |yes |
+| DataServiceRequestException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |yes |yes |
+| DataServiceTransportException |否 |否 |yes |yes |
+| TimeoutException |yes |yes |yes |否 |
+| SocketException |yes |yes |yes |yes |
+| StorageException |否 |yes |否 |否 |
+| IOException |否 |yes |否 |否 |
 
 ### <a name="WebExceptionStatus"></a> WebException 狀態碼
 下表顯示重試邏輯實作的 WebException 錯誤碼。 [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 列舉定義狀態碼。  
 
 | 狀態 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| ConnectFailure |是 |是 |是 |是 |
-| NameResolutionFailure |是 |是 |是 |是 |
-| ProxyNameResolutionFailure |是 |是 |是 |是 |
-| SendFailure |是 |是 |是 |是 |
-| PipelineFailure |是 |是 |是 |否 |
-| ConnectionClosed |是 |是 |是 |否 |
-| KeepAliveFailure |是 |是 |是 |否 |
-| UnknownError |是 |是 |是 |否 |
-| ReceiveFailure |是 |是 |是 |否 |
-| RequestCanceled |是 |是 |是 |否 |
-| 逾時 |是 |是 |是 |否 |
-| ProtocolError <br/>ProtocolError 重試是由 HTTP 狀態碼處理所控制。 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |是 |是 |是 |是 |
+| ConnectFailure |yes |yes |yes |yes |
+| NameResolutionFailure |yes |yes |yes |yes |
+| ProxyNameResolutionFailure |yes |yes |yes |yes |
+| SendFailure |yes |yes |yes |yes |
+| PipelineFailure |yes |yes |yes |否 |
+| ConnectionClosed |yes |yes |yes |否 |
+| KeepAliveFailure |yes |yes |yes |否 |
+| UnknownError |yes |yes |yes |否 |
+| ReceiveFailure |yes |yes |yes |否 |
+| RequestCanceled |yes |yes |yes |否 |
+| 逾時 |yes |yes |yes |否 |
+| ProtocolError <br/>ProtocolError 重試是由 HTTP 狀態碼處理所控制。 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |yes |yes |yes |yes |
 
 ### <a name="HTTPStatusCode"></a> HTTP 錯誤狀態碼
 當查詢和 SaveChanges 作業擲回 DataServiceClientException、DataServiceQueryException 或 DataServiceQueryException 時，StatusCode 屬性中會傳回 HTTP 錯誤狀態碼。  下表顯示重試邏輯實作的錯誤碼。  
 
 | 狀態 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |否 |是 |否 |否 |
-| 403 |否 |是<br/>處理重試等待較久。 |否 |否 |
-| 408 |是 |是 |是 |是 |
-| 429 |是 |是 |是 |是 |
-| 500 |是 |是 |是 |否 |
-| 502 |是 |是 |是 |否 |
-| 503 |是 |是 |是 |是 |
-| 504 |是 |是 |是 |否 |
+| 401 |否 |yes |否 |否 |
+| 403 |否 |yes<br/>處理重試等待較久。 |否 |否 |
+| 408 |yes |yes |yes |yes |
+| 429 |yes |yes |yes |yes |
+| 500 |yes |yes |yes |否 |
+| 502 |yes |yes |yes |否 |
+| 503 |yes |yes |yes |yes |
+| 504 |yes |yes |yes |否 |
 
 如果您想要看一下 Media Services SDK for .NET 重試邏輯的實際實作，請參閱 [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling)。
 

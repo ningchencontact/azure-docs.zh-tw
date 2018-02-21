@@ -38,7 +38,7 @@ ms.lasthandoff: 10/31/2017
 - [Quick Start: Extended events in SQL Server (快速入門：SQL Server 中的擴充事件)](http://msdn.microsoft.com/library/mt733217.aspx)
 - [擴充事件](http://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本主題假設您已經有一些下列項目的知識：
 

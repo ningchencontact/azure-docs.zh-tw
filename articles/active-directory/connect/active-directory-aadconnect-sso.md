@@ -57,10 +57,10 @@ ms.lasthandoff: 01/09/2018
 
 | 作業系統\瀏覽器 |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|是|否|是|是\*|N/A
-|Windows 8.1|是|N/A|是|是\*|N/A
-|Windows 8|是|N/A|是|是\*|N/A
-|Windows 7|是|N/A|是|是\*|N/A
+|Windows 10|yes|否|yes|是\*|N/A
+|Windows 8.1|yes|N/A|yes|是\*|N/A
+|Windows 8|yes|N/A|yes|是\*|N/A
+|Windows 7|yes|N/A|yes|是\*|N/A
 |Mac OS X|N/A|N/A|是\*|是\*|是\*
 
 \*需要[其他設定](active-directory-aadconnect-sso-quick-start.md#browser-considerations)

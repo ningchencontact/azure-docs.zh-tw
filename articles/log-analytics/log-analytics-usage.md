@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 Log Analytics 包含下列資訊：收集的資料量、傳送資料的系統，以及傳送的不同資料類型。  使用 [Log Analytics 使用量] 儀表板，查看傳送到 Log Analytics 服務的資料量。 此儀表板會顯示每個解決方案所收集的資料量，以及您的電腦正在傳送的資料量。
@@ -36,7 +36,9 @@ Log Analytics 包含下列資訊：收集的資料量、傳送資料的系統，
 - 供應項目
     - 深入解析和分析節點
     - 自動化和控制節點
-    - 安全性節點
+    - 安全性節點  
+- 效能
+    - 收集資料和編制索引所花費的時間  
 - 查詢清單
 
 ![使用量儀表板](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Log Analytics [警示](log-analytics-alerts-creating.md)會使用搜尋查詢。
 
 使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。
 
-## <a name="check-if-there-is-ingestion-latency"></a>檢查是否有內嵌延遲
-使用 Log Analytics，擷取所收集的資料時會發生預期的延遲。  無法預期檢索資料與資料可供搜尋的時間之間的絕對時間。 我們先前在儀表板上納入一個效能圖表，該圖表會顯示收集和索引資料所花費的時間，但隨著新查詢語言的引進，我們已暫時移除這個圖表。  在我們發行更新的資料擷取延遲計量之前，下列查詢是暫時的解決方案，可用於模擬每個資料類型的延遲。  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> 內嵌延遲查詢不會顯示過去的延遲，且受限於只傳回目前時間的結果。  系統會在一般結構描述記錄的代理程式，以及自訂記錄的收集端點填入 TimeGenerated 的值。  
->
 
 ## <a name="next-steps"></a>後續步驟
 * 請參閱 [Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)，以了解如何使用搜尋語言。 您可以使用搜尋查詢，對使用量資料執行額外的分析。

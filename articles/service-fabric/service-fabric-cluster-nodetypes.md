@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 2/5/2018
 ms.author: chackdan
-ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 720bb83c9d8540549852ce78ee1709f8c8717348
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 節點類型與虛擬機器擴展集
 虛擬機器擴展集是 Azure 計算資源。 您可以使用擴展集來將虛擬機器集合以一組的方式加以部署和管理。 為 Azure Service Fabric 叢集中定義的每個節點類型設定不同的擴展集。 您可以分開相應增加或減少每個節點類型，可以開啟不同組的連接埠，並使用不同的容量計量。
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
     ```
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱[「到處部署」功能和與 Azure 受管理叢集比較的概觀](service-fabric-deploy-anywhere.md)。
+* 請參閱[「到處部署」功能和與 Azure 受控叢集比較的概觀](service-fabric-deploy-anywhere.md)。
 * 了解[叢集安全性](service-fabric-cluster-security.md)。
 * 了解 [Service Fabric SDK 和開始使用](service-fabric-get-started.md)。
 

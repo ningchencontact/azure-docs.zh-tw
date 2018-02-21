@@ -34,7 +34,7 @@ ms.lasthandoff: 11/16/2017
 
 如需 Azure 金鑰保存庫的概觀資訊，請參閱 [什麼是 Azure 金鑰保存庫？](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您必須具備下列項目：
 
@@ -118,7 +118,7 @@ azure provider register Microsoft.KeyVault
 
 使用 `azure keyvault create` 命令來建立金鑰保存庫。 這個指令碼包含三個必要參數：資源群組名稱、金鑰保存庫名稱和地理位置。
 
-例如：
+例如︰
 - 如果您使用保存庫名稱 **ContosoKeyVault**
 - 資源群組名稱 **ContosoResourceGroup**
 - **東亞**類型的位置：

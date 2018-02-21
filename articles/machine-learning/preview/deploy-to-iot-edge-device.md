@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>將 Azure Machine Learning 模型部署到 Azure IoT Edge 裝置
 
 容器化為 Docker 型 Web 服務的所有 Azure Machine Learning 模型也可以在 Azure IoT Edge 裝置上執行。 其他指令碼與指示位於[適用於 Azure IoT Edge 的 AI 工具組](http://aka.ms/AI-toolkit)。
 
 ## <a name="operationalize-the-model"></a>模型運算化
-依照[部署 Azure Machine Learning 模型管理 Web 服務](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)中的指示進行，讓您的模型可以運作，以使用該模型建立 Docker 映像。
+依照[部署 Azure Machine Learning 模型管理 Web 服務](model-management-service-deploy.md)中的指示進行，讓您的模型可以運作，以使用該模型建立 Docker 映像。
 
 ## <a name="deploy-to-azure-iot-edge"></a>部署至 Azure IoT Edge
 Azure IoT Edge 會將雲端分析和自訂商務邏輯移至裝置。 所有 Machine Learning 模型都可以在 IoT Edge 裝置上執行。 設定 IoT Edge 裝置和建立部署的文件位於 [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc)。

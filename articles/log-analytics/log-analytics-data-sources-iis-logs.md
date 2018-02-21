@@ -41,7 +41,7 @@ Log Analytics 會從每個連接的來源收集 IIS 記錄檔項目，間隔大�
 ## <a name="iis-log-record-properties"></a>IIS 記錄檔記錄屬性
 IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦名稱。 |
 | cIP |用戶端的 IP 位址。 |
@@ -68,7 +68,7 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 ## <a name="log-searches-with-iis-logs"></a>使用 IIS 記錄檔的記錄搜尋
 下表提供擷取 IIS 記錄檔記錄的不同記錄查詢範例。
 
-| 查詢 | 描述 |
+| 查詢 | 說明 |
 |:--- |:--- |
 | W3CIISLog |所有 IIS 記錄檔記錄。 |
 | W3CIISLog &#124; where scStatus==500 |具有傳回狀態 500 的所有 IIS 記錄。 |

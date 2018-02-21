@@ -12,7 +12,7 @@
 
 您可以為每個實體最多定義 252 個自訂屬性。 
 
-### <a name="add-table-entities"></a>加入資料表實體
+### <a name="add-table-entities"></a>新增資料表實體
 
 使用 **Add-StorageTableRow** 將實體加入至資料表。 這些範例使用分割區索引鍵，其值為 "partition1" 和 "partition2"，資料列索引鍵等於州名縮寫。 每個實體中的屬性為使用者名稱和使用者識別碼。 
 

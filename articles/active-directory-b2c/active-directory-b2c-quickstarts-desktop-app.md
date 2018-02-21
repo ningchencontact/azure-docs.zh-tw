@@ -16,7 +16,7 @@ ms.date: 10/31/2017
 ms.author: saraford
 ms.openlocfilehash: 51f5643f0bd975beb939c2d5a8853810fb609ec9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,7 +27,7 @@ Azure Active Directory B2C 提供雲端身分識別管理，使您的應用程�
 * 使用「註冊或登入」原則建立，或以電子郵件地址使用社交識別提供者或本機帳戶登入。 
 * **呼叫 API** 以從受 Azure AD B2C 保護的資源擷取您的顯示名稱。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     - **.NET 桌面開發**

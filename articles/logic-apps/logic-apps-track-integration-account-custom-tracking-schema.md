@@ -65,14 +65,14 @@ ms.lasthandoff: 10/11/2017
 | --- | --- | --- |
 | sourceType |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 (必要) |
 | 來源 |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 (必要) |
-| systemId | String | 邏輯應用程式系統識別碼。 (必要) |
-| runId | String | 邏輯應用程式執行識別碼。 (必要) |
-| operationName | String | 作業 (例如動作或觸發程序) 的名稱。 (必要) |
-| repeatItemScopeName | String | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 (必要) |
-| repeatItemIndex | Integer | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 (必要) |
-| trackingId | String | 追蹤識別碼，使訊息相互關聯。 (選用) |
-| correlationId | String | 相互關連識別碼，使訊息相互關聯。 (選用) |
-| clientRequestId | String | 用戶端可以填入此值，使訊息相互關聯。 (選用) |
+| systemId | 字串 | 邏輯應用程式系統識別碼。 (必要) |
+| runId | 字串 | 邏輯應用程式執行識別碼。 (必要) |
+| operationName | 字串 | 作業 (例如動作或觸發程序) 的名稱。 (必要) |
+| repeatItemScopeName | 字串 | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 (必要) |
+| repeatItemIndex | 整數  | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 (必要) |
+| trackingId | 字串 | 追蹤識別碼，使訊息相互關聯。 (選用) |
+| correlationId | 字串 | 相互關連識別碼，使訊息相互關聯。 (選用) |
+| clientRequestId | 字串 | 用戶端可以填入此值，使訊息相互關聯。 (選用) |
 | eventLevel |   | 事件的層級。 (必要) |
 | eventTime |   | 事件的時間，以 UTC 格式 YYYY-MM-DDTHH:MM:SS.00000Z。 (必要) |
 | recordType |   | 追蹤記錄的類型。 允許的值為 **custom**。 (必要) |

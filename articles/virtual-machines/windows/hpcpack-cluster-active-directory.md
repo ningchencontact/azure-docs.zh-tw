@@ -45,7 +45,7 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
     ![Azure Active Directory 環境](./media/hpcpack-cluster-active-directory/aad.png)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 虛擬機器中部署的 HPC Pack 2016 叢集** - 如需相關步驟，請參閱[在 Azure 中部署 HPC Pack 2016 叢集](hpcpack-2016-cluster.md)。 您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
 
   > [!NOTE]
@@ -66,11 +66,11 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
     * **名稱** - HPCPackClusterServer
     * **應用程式類型** - 選取 [Web 應用程式/API]
     * **單入 URL**- 範例的基礎 URL，預設為 `https://hpcserver`
-    * 按一下 [建立] 。
+    * 按一下頁面底部的 [新增] 。
 5. 新增應用程式之後，請在 [應用程式註冊] 清單中選取它。 然後按一下 [設定] > [內容]。 輸入以下資訊：
     * 針對 [多重租用戶] 選取 [是]。
     * 將 [應用程式識別碼 URI] 變更為 `https://<Directory_name>/<application_name>`。 以 Azure AD 租用戶的完整名稱 (例如 `hpclocal.onmicrosoft.com`) 取代 `<Directory_name`> ，並以您先前選擇的名稱取代 `<application_name>`。
-6. 按一下 [儲存] 。 儲存完成時，在應用程式頁面上，按一下 [資訊清單]。 找出 `appRoles` 設定並新增下列應用程式角色，以編輯資訊清單，然後按一下 [儲存]：
+6. 按一下 [檔案] 。 儲存完成時，在應用程式頁面上，按一下 [資訊清單]。 找出 `appRoles` 設定並新增下列應用程式角色，以編輯資訊清單，然後按一下 [儲存]：
 
   ```json
   "appRoles": [
@@ -99,7 +99,7 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
   ],
   ```
 7. 在 [Azure Active Directory] 中，按一下 [企業應用程式] > [所有應用程式]。 從清單中選取 **HPCPackClusterServer**。
-8. 按一下 [內容]，並將 [需要使用者指派] 變更為 [是]。 按一下 [儲存] 。
+8. 按一下 [內容]，並將 [需要使用者指派] 變更為 [是]。 按一下 [檔案] 。
 9. 按一下 [使用者和群組] > [新增使用者]。 選取使用者並選取角色，然後按一下 [指派]。 將其中一個可用的角色 (HpcUsers 或 HpcAdminMirror) 指派給使用者。 對目錄中的其他使用者重複此步驟。 如需叢集使用者的背景資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx)。
 
 

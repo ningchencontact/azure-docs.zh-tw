@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解決無效範本的錯誤
 
@@ -38,7 +38,7 @@ Message=<varies>
 
 此錯誤可能起因於數個不同類型的錯誤。 通常涉及範本中的語法或結構錯誤。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 ### <a name="solution-1---syntax-error"></a>解決方案 1 - 語法錯誤
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 在範本中重複檢查允許的值，並在部署期間提供一個值。
 
-### <a name="solution-4---circular-dependency-detected"></a>解決方案 4 - 偵測到循環相依性
+### <a name="solution-4---too-many-target-resource-groups"></a>解決方案 4 - 太多目標資源群組
+
+如果您在單一部署中指定五個以上的目標資源群組，就會收到此錯誤。 請考慮合併部署中的資源群組數目，或將一些範本部署為個別部署。 如需詳細資訊，請參閱[將 Azure 資源部署至多個訂用帳戶和資源群組](resource-manager-cross-resource-group-deployment.md)。
+
+### <a name="solution-5---circular-dependency-detected"></a>解決方案 5 - 偵測到循環相依性
 
 當資源以防止部署啟動的方式互相相依，您會收到這個錯誤。 只要有相互相依性的組合，就會讓兩個或多個資源等候其他也正在等候的資源。 例如，resource1 相依於 resource3、resource2 相依於 resource1，而 resource3 相依於 resource2。 您通常可以移除不必要的相依性來解決此問題。

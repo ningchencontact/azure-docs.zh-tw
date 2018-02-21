@@ -22,7 +22,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>了解如何使用 API 管理來管理 AzureML Web 服務
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本指南示範如何快速開始使用 API 管理，來管理您的 AzureML Web 服務。
 
 ## <a name="what-is-azure-api-management"></a>什麼是 Azure API 管理？
@@ -31,7 +31,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 ## <a name="what-is-azureml"></a>什麼是 AzureML？
 AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共用進階分析解決方案。 如需 AzureML 的詳細資訊，請按一下 [這裡](https://azure.microsoft.com/services/machine-learning/) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本指南，您需要：
 
 * 一個 Azure 帳戶。 如果您沒有 Azure 帳戶，請按一下 [這裡](https://azure.microsoft.com/pricing/free-trial/) 以取得如何建立免費試用帳戶的詳細資訊。
@@ -45,12 +45,12 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [+ 建立資源]。
 3. 在搜尋方塊中，輸入 [API 管理]，然後選取 [API 管理] 資源。
-4. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 5. [名稱] 值將用來建立唯一的 URL (此範例使用 "demoazureml")。
 6. 針對您的服務執行個體，選取 [訂用帳戶]、[資源群組] 和 [位置]。
 7. 指定 [組織名稱] 的值 (此範例使用 "demoazureml")。
 8. 輸入您的 [系統管理員電子郵件] - 此電子郵件將用於自 API 管理系統傳送通知。
-9. 按一下 [建立] 。
+9. 按一下頁面底部的 [新增] 。
 
 新服務建立作業最多可能需要花費 30 分鐘的時間。
 
@@ -73,7 +73,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 4. 輸入 [Web API URL 尾碼]。 此尾碼會成為 URL 的結尾，客戶將使用該 URL 將要求傳送至服務執行個體 (此範例使用 "azureml-demo")。
 5. 對於 [Web API URL 配置]，選取 [HTTPS]。
 6. 對於 [產品]，選取 [入門]。
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 
 ## <a name="add-the-operations"></a>加入作業
@@ -110,7 +110,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"。
 4. 輸入 [顯示名稱] \(此範例使用「BES 提交」)。
 5. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 ### <a name="start-a-batch-execution-job"></a>啟動批次執行工作
 
@@ -119,7 +119,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 3. 對於 [HTTP 指令動詞] 中，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"。
 4. 輸入 [顯示名稱] \(此範例使用「BES 啟動」)。
 6. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>取得批次執行工作的狀態或結果
 
@@ -128,7 +128,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
 4. 輸入 [顯示名稱] \(此範例使用「BES 狀態」)。
 6. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
-7. 按一下 [儲存] 。
+7. 按一下 [檔案] 。
 
 ### <a name="delete-a-batch-execution-job"></a>刪除批次執行工作
 
@@ -137,7 +137,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
 4. 輸入 [顯示名稱] \(此範例使用「BES 刪除」)。
 5. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>從開發人員入口網站呼叫作業
 
@@ -163,7 +163,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
    ![AzureML 示範 API](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
-5. 按一下 [傳送] 。
+5. 按一下 [ **傳送**]。
 
    ![傳送](./media/manage-web-service-endpoints-using-api-management/send.png)
 
@@ -173,7 +173,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>附錄 A - 建立及測試簡單的 AzureML Web 服務
 ### <a name="creating-the-experiment"></a>建立實驗
-以下步驟可讓您建立簡單的 AzureML 實驗並將其部署為 Web 服務。 Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。 例如：
+以下步驟可讓您建立簡單的 AzureML 實驗並將其部署為 Web 服務。 Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。 例如︰
 
 | 文字 | 雜湊的文字 |
 | --- | --- |

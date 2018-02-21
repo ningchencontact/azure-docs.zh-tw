@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
@@ -78,8 +78,6 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
       - **密碼**：輸入與 AzureStackAdmin 網域系統管理員帳戶安裝期間所提供的相同密碼。
     
 3.  連線之後，視環境而定，提示會變更為 **[*IP 位址或 ERCS VM 名稱*]: PS>** 或變更為 **[azs-ercs01]: PS>**。 從這裡執行 `Get-Command` 可檢視可用的 Cmdlet 清單。
-
-    ![顯示可用命令清單的 Get-command Cmdlet 輸出](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     這些 Cmdlet 有許多僅供整合系統環境 (例如與資料中心整合相關的 cmdlet) 使用。 在 ASDK 中，下列 Cmdlet 已經過驗證：
 

@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文涵蓋使用 Cortana Intelligence (尤其是 Azure Machine Learning (AML)) 來實作與部署能源預測解決方案的商務、資料和技術層面。 文件包含三個主要部分 ︰  
 
 1. 了解商務  

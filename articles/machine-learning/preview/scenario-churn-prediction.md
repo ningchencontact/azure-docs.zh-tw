@@ -17,7 +17,7 @@ ms.date: 09/17/2017
 ms.author: miprasad
 ms.openlocfilehash: 7db93786b71fb7876ae02fd8fd006a1e8e0c2271
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/18/2017
 
 在此解決方案中，我們將使用具體範例來建立電信公司的預測客戶流失模型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (提供免費試用)
 

@@ -16,7 +16,7 @@ ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 此程序描述如何設定 Azure Mobile Engagement Android 應用程式的各種組態選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="advanced-configuration"></a>進階組態

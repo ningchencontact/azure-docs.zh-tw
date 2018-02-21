@@ -3,7 +3,7 @@ title: "Actions 和 NotActions - Azure 角色型存取控制 | Microsoft Docs"
 description: "本主題說明角色型存取控制 (RBAC) 的內建角色。 角色會持續新增，因此請查看文件更新時間。"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 01/30/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 角色型存取控制的內建角色
 Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派給使用者、群組與服務。 您無法修改內建角色定義。 不過，您可以建立 [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md) 以符合您組織的特定需求。

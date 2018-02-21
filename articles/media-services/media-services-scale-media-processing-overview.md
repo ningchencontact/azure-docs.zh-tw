@@ -16,7 +16,7 @@ ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 | 預定的使用案例 |單一位元速率編碼。 <br/>在 SD或如下解決方法的檔案、對時間不敏感、低成本。 |單一位元速率和多重位元速率編碼。<br/>SD 和 HD 編碼的一般使用方式。 |單一位元速率和多重位元速率編碼。<br/>Full HD 和 4K 解析度影片。 對時間敏感、周轉時間更快的編碼。 |
 | 基準測試 |[輸入檔案︰長度 5 分鐘，每秒 29.97 格畫面的解析度為 640x360p](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)。<br/><br/>編碼為相同解析度的單一位元速率 MP4 檔案，大約需要 11 分鐘。 |[輸入檔案︰長度 5 分鐘，每秒 29.97 格畫面的解析度為 1280x720p](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>具有「H264 單一位元速率 720p」預設值的編碼會花大約 5 分鐘。<br/><br/>具有「H264 多重位元速率 720p」預設值的編碼會花大約 11.5 分鐘。 |[輸入檔案︰長度 5 分鐘，每秒 29.97 格畫面的解析度為 1920x1080p](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)。 <br/><br/>具有「H264 單一位元速率 1080p」預設值的編碼會花大約 2.7 分鐘。<br/><br/>具有「H264 多重位元速率 1080p」預設值的編碼會花大約 5.7 分鐘。 |
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 > [!IMPORTANT]
 > 請檢閱本章節所述的考量。  
 > 

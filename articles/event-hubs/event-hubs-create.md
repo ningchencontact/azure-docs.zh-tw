@@ -63,7 +63,7 @@ ms.lasthandoff: 11/07/2017
 ## <a name="next-steps"></a>後續步驟
 若要深入了解事件中樞，請造訪下列連結：
 
-* [事件中樞概觀](event-hubs-what-is-event-hubs.md)
+* [事件中心概觀](event-hubs-what-is-event-hubs.md)
 * [事件中樞 API 概觀](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/

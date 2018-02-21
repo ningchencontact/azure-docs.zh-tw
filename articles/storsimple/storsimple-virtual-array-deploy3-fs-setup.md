@@ -68,11 +68,11 @@ ms.lasthandoff: 10/11/2017
    1. 為裝置指派唯一的 [名稱]  。 這個名稱可以有 1 至 15 個字元，且可以包含字母、數字和連字號。
    2. 對於您要建立的裝置 [類型]，按一下 [檔案伺服器] 圖示 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png)。 檔案伺服器可讓您建立共用資料夾。
    3. 由於您的裝置是檔案伺服器，您必須讓裝置加入某個網域。 輸入 [網域名稱] 。
-   4. 按一下 [Apply (套用)] 。
+   4. 按一下 [套用]。
 7. 此時畫面會出現對話方塊。 請以指定格式輸入網域認證。 按一下核取圖示。 系統會驗證該網域認證。 如果認證不正確，畫面會出現錯誤訊息。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
-8. 按一下 [Apply (套用)] 。 這將會套用並驗證裝置設定。
+8. 按一下 [套用]。 這將會套用並驗證裝置設定。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
    1. 以下列格式提供 **Web Proxy URL**：「http://&lt;host-IP 位址」或「FDQN&gt;:連接埠號碼」。 請注意，此處不支援 HTTPS URL。
    2. 將 [驗證] 指定為 [基本] 或 [無]。
    3. 如果要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
-   4. 按一下 [Apply (套用)] 。 這將會驗證並套用您設定的 Web Proxy 設定。
+   4. 按一下 [套用]。 這將會驗證並套用您設定的 Web Proxy 設定。
 10. (可省略) 設定裝置的時間設定，例如時區，以及主要和次要 NTP 伺服器。 NTP 伺服器是必要的，因為您的裝置必須讓時間同步，才能與您的雲端服務提供者進行驗證。
     
     ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
@@ -199,7 +199,7 @@ ms.lasthandoff: 10/11/2017
 您現在必須連接至您在上一個步驟所建立的一或多個共用。 請在連接至 StorSimple Virtual Array 的 Windows Server 主機上執行這些步驟。
 
 #### <a name="to-connect-to-the-share"></a>如何連線至共用
-1. 按下 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 鍵，然後在 [執行] 視窗中，指定 &#92;&#92;&lt;檔案伺服器名稱&gt; 做為路徑，「檔案伺服器名稱」要換成您指派給檔案伺服器的裝置名稱。 按一下 [確定] 。
+1. 按下 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 鍵，然後在 [執行] 視窗中，指定 &#92;&#92;&lt;檔案伺服器名稱&gt; 做為路徑，「檔案伺服器名稱」要換成您指派給檔案伺服器的裝置名稱。 按一下 [SERVICEPRINCIPAL] 。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. 這會開啟 [檔案總管]。 您應該會看到所建立的共用以資料夾形式呈現。 選取並按兩下某個共用 (資料夾)，就能檢視該共用的內容。

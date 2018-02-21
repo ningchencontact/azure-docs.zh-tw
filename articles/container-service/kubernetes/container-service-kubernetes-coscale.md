@@ -31,7 +31,7 @@ CoScale 是監視平台，收集數個協調流程平台上所有容器的計量
 如本文所示，您可以在 Kubernetes 叢集上安裝代理程式，將 CoScale 當成 SaaS 解決方案執行。 如果您想要在現場保留資料，CoScale 也提供內部部署安裝。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要先[建立 CoScale 帳戶](https://www.coscale.com/free-trial)。
 

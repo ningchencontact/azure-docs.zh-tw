@@ -18,7 +18,7 @@ ms.lasthandoff: 12/11/2017
 
 Open Service Broker for Azure (OSBA) 可以與 [Kubernetes 服務類別目錄][kubernetes-service-catalog]搭配使用，允許開發人員利用 Kubernetes 中的 Azure 受控服務。 本指南著重於部署 Kubernetes 服務類別目錄、Open Service Broker for Azure (OSBA)，以及利用 Kubernetes 使用 Azure 受控服務的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶
 
 * Azure CLI 2.0：您可以[在本機進行安裝][azure-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。

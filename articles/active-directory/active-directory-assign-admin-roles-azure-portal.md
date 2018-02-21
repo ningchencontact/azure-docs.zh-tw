@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 01/24/2018
 
 * **來賓邀請者**︰當「可邀請成員」使用者設定設為 [否] 時，此角色中的使用者可管理 Azure Active Directory B2B 來賓使用者邀請。 在[關於 Azure AD B2B 共同作業預覽](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
 
-* **資訊保護系統管理員**：具備此角色的使用者可以在 Azure 入口網站中存取「Azure 資訊保護」。 他們可以設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。
+* **資訊保護系統管理員 (預覽)**：具備此角色的使用者只在「Azure 資訊保護」服務上具有使用者權限。 他們並未取得「Identity Protection 中心」、Privileged Identity Management、「監視 Office 365 服務健康狀況」及「Office 365 安全與規範中心」上的使用者權限。 他們可以設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。
 
 * **Intune 服務管理員**︰在有 Microsoft Intune Online 服務時，具備此角色的使用者在該服務內會具有全域權限。 此外，此角色包含管理使用者和裝置的能力，可相關聯原則以及建立和管理群組。
 
@@ -128,11 +127,10 @@ ms.lasthandoff: 01/24/2018
 | --- | --- |
 | <p>檢視公司與使用者資訊</p><p>建立 Office 支援票證</p><p>只能變更使用者及其他技術支援中心管理員的密碼</p>|<p>執行 Office 產品的計費和購買作業</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者與群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步作業</p><p>檢視報告</p>|
 
-### <a name="information-protection-administrator"></a>資訊保護管理員 
+### <a name="information-protection-administrator-preview"></a>資訊保護系統管理員 (預覽)
 在 | 可以執行
 -------- | ---------
-Azure 資訊保護 | * 設定全域、有範圍的原則和標籤<br>* 管理、設定、更新保護範本<br>* 啟用 [保護啟用] 以供使用 
-Privileged Identity Management | * 讀取權限<br>* 無法管理 Azure AD 角色成員資格或設定。
+Azure 資訊保護 | <li>在全域和有範圍的原則中設定標籤和設定<li>設定及管理保護範本<li>啟用或停用保護--
  
 ### <a name="reports-reader"></a>報告讀者 
 可以執行 | 無法執行

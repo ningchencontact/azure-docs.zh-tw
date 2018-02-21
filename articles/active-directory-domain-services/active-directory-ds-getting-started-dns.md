@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services：更新 Azure 虛擬網路的 DNS 設定 | Microsoft Docs"
-description: "開始使用 Azure Active Directory 網域服務"
+description: "開始使用 Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan

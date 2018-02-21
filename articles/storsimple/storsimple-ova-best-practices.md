@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array 的最佳作法
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Microsoft Azure StorSimple Virtual Array 是一個整合式儲存體解決方案，可管理 Hypervisor 中執行之內部部署虛擬裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。 StorSimple Virtual Array 是 8000 系列實體陣列的替代品，它既有效率又符合成本效益。 虛擬陣列可在現有 Hypervisor 基礎結構上執行、支援 iSCSI 和 SMB 通訊協定，而且適合用於遠端辦公室/分公司案例。 如需 StorSimple 解決方案的詳細資訊，請前往 [Microsoft Azure StorSimple 概觀](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx)。
 
 本文內容涵蓋 StorSimple Virtual Array 的初始設定、部署和管理期間所實作的最佳作法。 這些最佳作法提供了經過驗證的指導方針，可讓您了解如何設定和管理虛擬陣列。 本文適用對象為部署和管理資料中心內虛擬陣列的 IT 系統管理員。
@@ -210,7 +210,7 @@ StorSimple Virtual Array 擁有資料安全性和加密功能，可確保資料�
 * 將備份排程在離峰時間。 備份開始時間不應該與大量主機 IO 一致。
 * 在打算執行裝置容錯移轉時或在維護前，先起始手動的隨選備份，以保護虛擬陣列上的資料。
 
-### <a name="restore"></a>還原
+### <a name="restore"></a>Restore
 從備份組還原的方法有兩種︰還原到另一個磁碟區或共用，或執行項目層級復原 (僅適用於設定為檔案伺服器的虛擬陣列)。 項目層級復原可讓您從 StorSimple 裝置上所有共用的雲端備份執行檔案和資料夾的細微復原。 如需詳細資訊，請移至 [從備份還原](storsimple-virtual-array-clone.md)。
 
 在執行還原時，請記住下列指導方針︰

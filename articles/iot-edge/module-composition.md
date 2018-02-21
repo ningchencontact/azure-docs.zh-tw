@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -195,24 +195,24 @@ Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置�
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| schemaVersion | 必須為「1.0」 | 是 |
-| runtime.type | 必須為「docker」 | 是 |
-| runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | 是 |
+| schemaVersion | 必須為「1.0」 | yes |
+| runtime.type | 必須為「docker」 | yes |
+| runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | yes |
 | runtime.settings.loggingOptions | stringified JSON，包含 Edge 代理程式容器的記錄選項。 [Docker 記錄選項][lnk-docker-logging-options] | 否 |
-| systemModules.edgeAgent.type | 必須為「docker」 | 是 |
-| systemModules.edgeAgent.settings.image | Edge 代理程式映像的 URI。 目前，Edge 代理程式無法自行更新。 | 是 |
+| systemModules.edgeAgent.type | 必須為「docker」 | yes |
+| systemModules.edgeAgent.settings.image | Edge 代理程式映像的 URI。 目前，Edge 代理程式無法自行更新。 | yes |
 | systemModules.edgeAgent.settings.createOptions | stringified JSON，包含 Edge 代理程式容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
 | systemModules.edgeAgent.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用此資訊清單時，這是由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
-| systemModules.edgeHub.type | 必須為「docker」 | 是 |
-| systemModules.edgeHub.status | 必須為「執行中」 | 是 |
-| systemModules.edgeHub.restartPolicy | 必須為「永遠」 | 是 |
-| systemModules.edgeHub.settings.image | Edge 中樞映像的 URI。 | 是 |
+| systemModules.edgeHub.type | 必須為「docker」 | yes |
+| systemModules.edgeHub.status | 必須為「執行中」 | yes |
+| systemModules.edgeHub.restartPolicy | 必須為「永遠」 | yes |
+| systemModules.edgeHub.settings.image | Edge 中樞映像的 URI。 | yes |
 | systemModules.edgeHub.settings.createOptions | stringified JSON，包含 Edge 中樞容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
 | systemModules.edgeHub.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用此資訊清單時，這是由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
-| modules.{moduleId}.version | 使用者定義的字串，表示此模組的版本。 | 是 |
-| modules.{moduleId}.type | 必須為「docker」 | 是 |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | 是 |
-| modules.{moduleId}.settings.image | 模組映像的 URI。 | 是 |
+| modules.{moduleId}.version | 使用者定義的字串，表示此模組的版本。 | yes |
+| modules.{moduleId}.type | 必須為「docker」 | yes |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | yes |
+| modules.{moduleId}.settings.image | 模組映像的 URI。 | yes |
 | modules.{moduleId}.settings.createOptions | stringified JSON，包含模組容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
 | modules.{moduleId}.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用此資訊清單時，這是由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 
@@ -266,9 +266,9 @@ Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 IoT �
 
 | 屬性 | 說明 | 部署資訊清單中的必要項目 |
 | -------- | ----------- | -------- |
-| schemaVersion | 必須為「1.0」 | 是 |
+| schemaVersion | 必須為「1.0」 | yes |
 | routes.{routeName} | 字串，表示 Edge 中樞路由。 | `routes` 元素可以存在但為空白。 |
-| storeAndForwardConfiguration.timeToLiveSecs | Edge 中樞在與路由端點中斷連線時保留訊息的時間 (以秒為單位)，例如，與 IoT 中樞或本機模組中斷連線 | 是 |
+| storeAndForwardConfiguration.timeToLiveSecs | Edge 中樞在與路由端點中斷連線時保留訊息的時間 (以秒為單位)，例如，與 IoT 中樞或本機模組中斷連線 | yes |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Edge 中樞對應項報告屬性
 

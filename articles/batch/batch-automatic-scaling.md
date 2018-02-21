@@ -125,7 +125,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 * double
 * doubleVec
 * doubleVecList
-* string
+* 字串
 * timestamp：timestamp 是包含下列成員的複合結構：
 
   * 年
@@ -197,7 +197,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | time(string dateTime="") |timestamp |如果未傳遞參數，則傳回目前時間的時間戳記，如果有傳遞參數，則為 dateTime 字串的時間戳記。 支援的 dateTime 格式為 W3C-DTF 和 RFC 1123。 |
 | val(doubleVec v, double i) |double |傳回向量 v 中位置 i 的元素值，起始索引為零。 |
 
-上表中所述的某些函式可以接受清單作為引數。 逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。 例如：
+上表中所述的某些函式可以接受清單作為引數。 逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。 例如︰
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -216,7 +216,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |傳回歷史範例資料集中取得範例的期間。 |
 | Count() |傳回度量歷程記錄中的範例總數。 |
 | HistoryBeginTime() |傳回度量的最舊可用資料範例的時間戳記。 |
-| GetSamplePercent() |傳回指定的時間間隔內可用的樣本百分比。 例如：<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>因為 `GetSample` 方法在傳回樣本的百分比小於指定的 `samplePercent` 時會失敗，因此，您可以先使用 `GetSamplePercent` 方法進行檢查。 然後您可以在樣本不足時執行替代動作，而不暫停自動調整評估。 |
+| GetSamplePercent() |傳回指定的時間間隔內可用的樣本百分比。 例如︰<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>因為 `GetSample` 方法在傳回樣本的百分比小於指定的 `samplePercent` 時會失敗，因此，您可以先使用 `GetSamplePercent` 方法進行檢查。 然後您可以在樣本不足時執行替代動作，而不暫停自動調整評估。 |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>樣本、樣本百分比和 GetSample()  方法
 自動調整公式的核心是要取得工作和資源度量資料，然後根據該資料調整集區大小。 因此，請務必清楚了解自動調整公式如何與計量資料 (樣本) 互動。
@@ -241,7 +241,7 @@ Batch 服務會定期取得工作和資源計量的樣本，使其可供自動�
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍。 例如：
+Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍。 例如︰
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -267,7 +267,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 
 <table>
   <tr>
-    <th>度量</th>
+    <th>計量</th>
     <th>說明</th>
   </tr>
   <tr>
@@ -397,7 +397,7 @@ await pool.CommitAsync();
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>在現有集區啟用自動調整
 
-每個 Batch SDK 會提供啟用自動調整的方法。 例如：
+每個 Batch SDK 會提供啟用自動調整的方法。 例如︰
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [在自動調整中啟用集區][rest_enableautoscale] (REST API)

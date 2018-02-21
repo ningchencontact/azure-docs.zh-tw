@@ -1,6 +1,6 @@
 ---
-title: "Azure 受管理的應用程式 FileUpload UI 元素 | Microsoft Docs"
-description: "描述 Azure 受管理應用程式的 Microsoft.Common.FileUpload UI 元素"
+title: "Azure 受控應用程式 FileUpload UI 元素 | Microsoft Docs"
+description: "描述 Azure 受控應用程式的 Microsoft.Common.FileUpload UI 元素"
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -20,7 +20,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/27/2017
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 元素
-控制項可讓使用者指定要上傳的一個或多個檔案。 您可以在[建立 Azure 受管理應用程式](publish-service-catalog-app.md)時使用此元素。
+控制項可讓使用者指定要上傳的一個或多個檔案。 您可以在[建立 Azure 受控應用程式](publish-service-catalog-app.md)時使用此元素。
 
 ## <a name="ui-sample"></a>UI 範例
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -91,6 +91,6 @@ ms.lasthandoff: 10/27/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-* 如需受管理應用程式的簡介，請參閱 [Azure 受管理的應用程式概觀](overview.md)。
+* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

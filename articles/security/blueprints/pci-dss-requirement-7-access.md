@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **限制讓業務上必須知道的人存取持卡人資料**
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 為確保重要資料只能由取得授權的人員存取，必須以「必須知道」的人為基礎和根據工作職責，來制定限制存取的系統和流程。
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/16/2017
 
 **7.1** 限制只有作業上需要這類存取的個人，可存取系統元件及持卡人資料。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/16/2017
 - 每個角色需要為其作業職責存取的系統元件和資料資源
 - 存取資源所需的權限層級 (例如使用者或系統管理員等)
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/16/2017
 
 **7.1.2** 對於有權限的使用者識別碼，將其存取權限制為執行工作職責所需的最低權限。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/16/2017
 
 **7.1.3** 根據個別人員的作業分類與職責來指派存取權。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/16/2017
 
 **7.1.4** 需有已獲授權合作對象的記錄核准，才能指定所需權限。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -107,7 +107,7 @@ ms.lasthandoff: 11/16/2017
 - 7.2.2 根據作業分類和職責指派個人權限。
 - 7.2.3 預設「全部拒絕」。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/16/2017
 
 **7.3** 確定限制持卡人資料存取的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

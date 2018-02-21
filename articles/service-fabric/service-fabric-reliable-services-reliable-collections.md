@@ -55,12 +55,12 @@ Reliable Collection 具有增強式一致性保證，可讓您更輕鬆地推論
 
 ## <a name="next-steps"></a>後續步驟
 * [Reliable Collection 指導方針與建議](service-fabric-reliable-services-reliable-collections-guidelines.md)
-* [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
+* [使用可靠的集合](service-fabric-work-with-reliable-collections.md)
 * [交易和鎖定](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [Reliable State Manager 與 Collection 內部](service-fabric-reliable-services-reliable-collections-internals.md)
 * 管理資料
   * [備份與還原](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [通知](service-fabric-reliable-services-notifications.md)
   * [可靠的集合序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [序列化與升級](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager 組態](service-fabric-reliable-services-configuration.md)

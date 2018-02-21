@@ -22,7 +22,7 @@ Azure Windows 虛擬機器使用 Windows Server 提供隨選、高度可調整�
 
 了解如何在執行 Windows Server 2016 的虛擬機器中部署 IIS 網頁伺服器：
 
-- [Azure 入口網站](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [HttpTrigger Nodejs 函數](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure CLI](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -32,7 +32,7 @@ Azure Windows 虛擬機器使用 Windows Server 提供隨選、高度可調整�
 
 - [建立並管理 Windows VM](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [建立和管理 VM 磁碟](/azure/virtual-machines/windows/tutorial-manage-data-disk)
-- [自動化 VM 組態](/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
+- [自動設定 VM](/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
 - [建立自訂的 VM 映像](/azure/virtual-machines/windows/tutorial-custom-images)
 - [建立高可用性 VM](/azure/virtual-machines/windows/tutorial-availability-sets)
 - [建立 VM 擴展集](/azure/virtual-machines/windows/tutorial-create-vmss)

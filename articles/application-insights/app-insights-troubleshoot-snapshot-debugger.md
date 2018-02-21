@@ -98,7 +98,7 @@ Application Insights 快照集偵錯工具是 Application Insights 遙測管道 
 
 ## <a name="snapshot-view-local-variables-are-not-complete"></a>快照集檢視區域變數不完整
 
-遺漏了某些區域變數。 若您的應用程式正在執行版本程式碼，編譯器會對某些變數進行最佳化，使其消失。 例如：
+遺漏了某些區域變數。 若您的應用程式正在執行版本程式碼，編譯器會對某些變數進行最佳化，使其消失。 例如︰
 
 ```csharp
     const int a = 1; // a will be discarded by compiler and the value 1 will be inline.

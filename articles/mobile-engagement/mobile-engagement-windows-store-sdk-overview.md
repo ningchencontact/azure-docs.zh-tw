@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>適用於 Azure Mobile Engagement 的 Windows 通用 SDK 整合
 此文件說明適用於 Azure Mobile Engagement Windows 通用 SDK 的所有整合及組態選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始本教學課程之前，您必須先完成 [15 分鐘教學課程](mobile-engagement-windows-store-dotnet-get-started.md)。
 
 ## <a name="advanced-features"></a>進階功能

@@ -43,9 +43,9 @@ Contoso 正在建置原始程式碼管理系統 (BitBucket)，以供世界各地
 ### <a name="naming-standards--resource-groups"></a>命名標準與資源群組
 Dave 會建立一個訂用帳戶，以支援所有業務單位常見的開發人員工具。 他需要針對訂用帳戶和資源群組建立有意義的名稱 (適用於應用程式和網路)。 他會建立下列訂用帳戶和資源群組︰
 
-| 項目 | 名稱 | 說明 |
+| Item | Name | 說明 |
 | --- | --- | --- |
-| 訂閱 |Contoso ETS DeveloperTools Production |支援一般開發人員工具 |
+| 訂用帳戶 |Contoso ETS DeveloperTools Production |支援一般開發人員工具 |
 | 資源群組 |bitbucket-prod-rg |包含應用程式 Web 伺服器和資料庫伺服器 |
 | 資源群組 |corenetworks-prod-rg |包含虛擬網路和站對站閘道連線 |
 
@@ -56,7 +56,7 @@ Dave 為訂用帳戶指派下列角色︰
 
 | 角色 | 指派對象 | 說明 |
 | --- | --- | --- |
-| [擁有者](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso AD 提供的受管理識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權 |
+| [擁有者](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso AD 提供的受控識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權 |
 | [安全性管理員](../active-directory/role-based-access-built-in-roles.md#security-manager) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態 |
 | [網路參與者](../active-directory/role-based-access-built-in-roles.md#network-contributor) |網路小組 |此角色可讓 Contoso 的網路小組管理站對站 VPN 和虛擬網路 |
 | *自訂角色* |應用程式擁有者 |Dave 會建立一個角色，以授與修改資源群組內資源的能力。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../active-directory/role-based-access-control-custom-roles.md) |
@@ -73,10 +73,10 @@ Dave 管理訂用帳戶中資源的需求如下︰
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
 | location |稽核 |稽核在任何區域中的資源建立 |
-| 類型 |deny |拒絕建立 G 系列虛擬機器 |
-| 標籤 |deny |需要應用程式擁有者標籤 |
-| 標籤 |deny |需要成本中心標籤 |
-| 標籤 |附加 |將標籤名稱 **BusinessUnit** 和標籤值 **ETS** 附加至所有資源 |
+| type |deny |拒絕建立 G 系列虛擬機器 |
+| tags |deny |需要應用程式擁有者標籤 |
+| tags |deny |需要成本中心標籤 |
+| tags |附加 |將標籤名稱 **BusinessUnit** 和標籤值 **ETS** 附加至所有資源 |
 
 ### <a name="resource-tags"></a>資源標籤
 Dave 了解他需要有帳單上的特定資訊，才能識別 BitBucket 實作的成本中心。 此外，Dave 想要知道 ETS 擁有的所有資源。
@@ -94,7 +94,7 @@ Contoso ETS 資訊安全性和風險管理小組會審查 Dave 提議將應用�
 
 他會建立下列資源︰
 
-| 資源類型 | 名稱 | 說明 |
+| 資源類型 | Name | 說明 |
 | --- | --- | --- |
 | 虛擬網路 |內部 vnet |搭配 BitBucket 應用程式使用，而且透過 ExpressRoute 連接到 Contoso 的公司網路。  子網路 (`bitbucket`) 會提供特定 IP 位址空間給應用程式 |
 | 虛擬網路 |外部 vnet |適用於未來需要公開端點的應用程式 |
@@ -123,7 +123,7 @@ Contoso IT 服務管理部門需要快速識別及處理威脅。 他們也想�
 ### <a name="azure-subscriptions"></a>Azure 訂用帳戶
 Dave 登入 Azure 企業入口網站並看到供應鏈部門已經存在。  不過，因為此專案是供應鏈小組在 Azure 中的第一個開發專案，所以 Dave 認為 Alice 的開發小組需要有新帳戶。  他替 Alice 的小組建立「研發」帳戶並將存取權指派給她。 Alice 透過 Azure 入口網站登入並建立兩個訂用帳戶︰一個用來保存開發伺服器，一個用來保存生產伺服器。  建立下列訂用帳戶時，她會依循先前建立的命名標準︰
 
-| 訂用帳戶用途 | 名稱 |
+| 訂用帳戶用途 | Name |
 | --- | --- |
 | 開發 |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
 | Production |Contoso SupplyChain Operations LoyaltyCard Production |
@@ -145,7 +145,7 @@ Dave 和 Alice 一起討論應用程式並認定此應用程式只為北美地�
 | --- | --- | --- |
 | location |deny |拒絕在美國資料中心以外建立任何資源 |
 | tags |deny |需要應用程式擁有者標籤 |
-| 標籤 |deny |需要部門標籤 |
+| tags |deny |需要部門標籤 |
 | tags |附加 |將標籤附加至每個表示生產環境的資源群組 |
 
 他們不會限制使用者可以在生產環境中建立的 SKU 類型。
@@ -164,13 +164,13 @@ Contoso ETS 資訊安全性和風險管理小組會審查 Dave 提議將應用�
 
 針對**開發訂用帳戶**，他們可建立︰
 
-| 資源類型 | 名稱 | 說明 |
+| 資源類型 | Name | 說明 |
 | --- | --- | --- |
 | 虛擬網路 |內部 vnet |為 Contoso 忠誠卡開發環境提供服務，而且透過 ExpressRoute 連接到 Contoso 的公司網路 |
 
 對於**生產訂用帳戶**，他們可建立︰
 
-| 資源類型 | 名稱 | 說明 |
+| 資源類型 | Name | 說明 |
 | --- | --- | --- |
 | 虛擬網路 |外部 vnet |裝載忠誠卡應用程式，但不會直接連接到 Contoso 的 ExpressRoute。 程式碼會透過其原始程式碼系統直接推送至 PaaS 服務 |
 | 網路安全性群組 |loyaltycard-nsg |只允許 TCP 443 的輸入通訊，以確保此工作負載的受攻擊面最小化。  Contoso 也正在調查如何使用 Web 應用程式防火牆提供額外的保護 |

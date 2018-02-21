@@ -32,9 +32,9 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
 
 #### <a name="to-log-a-new-request"></a>若要登錄新的要求
 
-1. 移至您的 StorSimple 裝置管理員服務。 在服務摘要刀鋒視窗的設定中，移至 支援 + 疑難排解 區段，然後按一下新增支援要求。
+1. 移至您的 StorSimple 裝置管理員服務。 在服務摘要刀鋒視窗的設定中，移至 [支援 + 疑難排解] 區段，然後按一下 [新增支援要求]。
    
-    ![新的支援要求](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![新增支援要求](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. 在 [基本] 刀鋒視窗上，執行下列動作：
 
@@ -48,11 +48,11 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
 
 3. 在**步驟 2** 中，選擇 [嚴重性]，並指定問題是與陣列還是 StorSimple 裝置管理員服務有關。 同時，選擇這個問題的 [類別]，並提供問題的其他 [詳細資料]。
    
-    ![新的支援要求](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![新增支援要求](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. 在**步驟 3** 中，提供您的連絡資訊。 Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
    
-    ![新的支援要求](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![新增支援要求](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>管理支援要求
 

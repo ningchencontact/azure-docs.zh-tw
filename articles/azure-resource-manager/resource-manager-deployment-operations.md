@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure Resource Manager 來檢視部署作業
 
 
 您可以透過 Azure 入口網站檢視部署的作業。 當您在部署期間收到錯誤時，您可能對於檢視作業最感興趣，所以本文著重於檢視失敗的作業。 入口網站提供介面，讓您輕鬆地找到錯誤並判斷可能的修正方法。
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+您可以藉由查看稽核記錄檔或部署作業來疑難排解您的部署。 本主題說明這兩種方法。 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 
 ## <a name="portal"></a>入口網站
 若要查看部署作業，請使用下列步驟 ︰
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
     ![檢視失敗的部署](./media/resource-manager-deployment-operations/view-error.png)
    
     此錯誤訊息應足以讓您開始進行疑難排解。 不過，如果您需要有關哪些工作已完成的詳細資料，您可以檢視如下列步驟中所示的作業。
-4. 您可以在 [部署] 刀鋒視窗中檢視所有的部署作業。 選取任一作業以查看詳細資料。
+4. 您可以檢視所有的部署作業。 選取任一作業以查看詳細資料。
    
     ![檢視作業](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 5. 您可以選取 [事件] ，以檢視部署的事件。
    
     ![檢視事件](./media/resource-manager-deployment-operations/view-events.png)
-6. 您會看見部署的所有事件，選取任何一個事件即可取得詳細資料。 請一併注意相互關聯識別碼。 與技術支援人員合作來排解部署問題時，此值會相當有用。
+6. 您會看見部署的所有事件，選取任何一個事件即可取得詳細資料。 請注意相互關聯識別碼。 與技術支援人員合作來排解部署問題時，此值會相當有用。
    
     ![查看事件](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 10/11/2017
   }
   ```
 
-2. 使用 [列出所有範本部署作業](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) 的作業，來取得部署作業的相關資訊。 
+2. 使用[列出所有範本部署作業](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) \(英文\) ，來取得部署的相關資訊。 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

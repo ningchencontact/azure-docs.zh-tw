@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/03/2018
 我已在 Web 伺服器上安裝我的應用程式，而我現在沒看到任何來自於它的遙測。它在我的開發電腦上運作正常。
 
 * 可能是防火牆問題。 [設定 Application Insights 的防火牆例外狀況以傳送資料](app-insights-ip-addresses.md)。
-* IIS 伺服器可能會遺失某些必要元件：.NET 擴充性 4.5 和 ASP.NET 4.5。
+* IIS 伺服器可能會遺漏某些先決條件：.NET 擴充性 4.5 和 ASP.NET 4.5。
 
 *我已在 Web 伺服器上[安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)來監視現有的應用程式。我沒有看到任何結果。*
 

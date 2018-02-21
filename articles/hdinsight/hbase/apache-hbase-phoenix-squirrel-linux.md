@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 12791da56f32ffffa4b1131c408829f50f6e9124
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/03/2018
 ## <a name="use-sqlline"></a>使用 SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) \(英文\) 是執行 SQL 的命令列公用程式。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始使用 SQLLine 之前，您必須具備下列項目：
 
 * **HDInsight 中的 HBase 叢集**。 若要建立，請參閱[開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)。

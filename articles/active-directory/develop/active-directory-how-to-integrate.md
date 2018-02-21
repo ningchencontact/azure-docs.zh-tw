@@ -17,7 +17,7 @@ ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: bd9f984a625ae951a16eb729c0a4565eea05e46b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---

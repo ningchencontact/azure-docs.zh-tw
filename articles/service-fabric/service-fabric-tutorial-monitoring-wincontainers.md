@@ -17,7 +17,7 @@ ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/08/2017
 > * 使用 OMS 工作區，檢視和查詢來自您容器和節點的記錄
 > * 設定 OMS 代理程式以挑選容器和節點計量
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須：
 - 具有 Azure 上的叢集，或[使用本教學課程建立一個](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [將容器化應用程式部署至該叢集](service-fabric-host-app-in-a-container.md)

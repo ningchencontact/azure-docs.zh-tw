@@ -31,17 +31,17 @@ ms.lasthandoff: 11/04/2017
 * 透過使流量不須經過多個閘道器及負載平衡器，以提升其效能。
 * 能夠以更安全的方式處理敏感資訊，而不會暴露公用端點。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列項目：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **具有 Azure PowerShell 的工作站**。 請參閱 [安裝及使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>在虛擬網路上建立 HBase 叢集
 在本節中，您會使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)，在 Azure 虛擬網路中建立以 Linux 為基礎的 HBase 叢集與相依的 Azure 儲存體帳戶。 如需其他叢集建立方法及了解各項設定，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關使用範本在 HDInsight 中建立 Hadoop 叢集的詳細資訊，請參閱 [使用 Azure Resource Manager 範本在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-> 某些屬性已以硬式編碼方式寫入範本。 例如：
+> 某些屬性已以硬式編碼方式寫入範本。 例如︰
 >
 > * **位置**：美國東部 2
 > * **叢集版本**：3.6
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/04/2017
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     在傳回的 JavaScript 物件標記法 (JSON) 資料中，找出 "host_name" 項目。 其中包含叢集中節點的 FQDN。 例如：
+     在傳回的 JavaScript 物件標記法 (JSON) 資料中，找出 "host_name" 項目。 其中包含叢集中節點的 FQDN。 例如︰
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/04/2017
 
 若要驗證虛擬機器能夠與 HBase 叢集通訊，請從虛擬機器使用命令 `ping headnode0.<dns suffix>` 。 例如，ping headnode0.mycluster.b1.cloudapp.net。
 
-若要在 Java 應用程式中使用此資訊，您可以依照＜ [使用 Maven 建置在 HDInsight (Hadoop) 上使用 HBase 的 Java 應用程式](./apache-hbase-build-java-maven-linux.md) ＞(英文) 中的步驟來建立應用程式。 若要讓應用程式連接到遠端 HBase 伺服器，請修改此範例中的 **hbase-site.xml** 檔案，以使用 Zookeeper 的 FQDN。 例如：
+若要在 Java 應用程式中使用此資訊，您可以依照＜ [使用 Maven 建置在 HDInsight (Hadoop) 上使用 HBase 的 Java 應用程式](./apache-hbase-build-java-maven-linux.md) ＞(英文) 中的步驟來建立應用程式。 若要讓應用程式連接到遠端 HBase 伺服器，請修改此範例中的 **hbase-site.xml** 檔案，以使用 Zookeeper 的 FQDN。 例如︰
 
     <property>
         <name>hbase.zookeeper.quorum</name>

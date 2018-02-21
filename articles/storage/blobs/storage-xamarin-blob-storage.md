@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何使用 Xamarin 的 Blob 儲存體
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生的使用者介面以建立 iOS、Android 和 Windows 市集應用程式。 本教學課程會示範如何搭配 Xamarin 應用程式使用 Azure Blob 儲存體。 如果您想要深入了解 Azure 儲存體，在一頭栽進程式碼之前，請先參閱 [Microsoft Azure 儲存體簡介](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]

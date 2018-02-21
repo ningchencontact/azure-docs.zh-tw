@@ -163,7 +163,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 以下詳細說明各種組態選項。 組態選項可分成三種：布林、字串或整數。 布林組態選項可指定為 "y" 或 "n"。 特殊關鍵字 "None" 可用於某些字串類型組態項目，詳述如下。
 
 **Provisioning.Enabled：**  
-型別︰布林值  
+類型：布林值  
 預設：y
 
 這可讓使用者啟用或停用代理程式的佈建功能。 有效值為 "y" 或 "n"。 如果停用佈建，則會保留映像檔中的 SSH 主機金鑰和使用者金鑰，並忽略 Azure 佈建 API 中指定的任何組態。
@@ -174,13 +174,13 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 > 
 
 **Provisioning.DeleteRootPassword：**  
-型別︰布林值  
+類型：布林值  
 預設：n
 
 如果設定，則佈建過程中會清除 /etc/shadow 檔案中的根密碼。
 
 **Provisioning.RegenerateSshHostKeyPair：**  
-型別︰布林值  
+類型：布林值  
 預設：y
 
 如果設定，則佈建過程會從 /etc/ssh/ 中刪除所有 SSH 主機金鑰組 (ecdsa、dsa 和 rsa)。 還會產生單一全新的金鑰組。
@@ -200,13 +200,13 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 如果設定，waagent 會監視 Linux 虛擬機器的主機名稱有無變動 (由 "hostname" 命令傳回)，並自動更新映像檔中的網路組態來反映此變動。 為了將名稱變更發送至 DNS 伺服器，虛擬機器中將重新啟動網路功能。 這會導致網際網路連線短暫中斷。
 
 **Provisioning.DecodeCustomData**  
-型別︰布林值  
+類型：布林值  
 預設：n
 
 如果設定，waagent 會從 CustomData 將 Base64 解碼。
 
 **Provisioning.ExecuteCustomData**  
-型別︰布林值  
+類型：布林值  
 預設：n
 
 如果設定，waagent 將在佈建之後執行 CustomData。
@@ -232,7 +232,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 產生密碼雜湊時使用的隨機 salt 長度。
 
 **ResourceDisk.Format：**  
-型別︰布林值  
+類型：布林值  
 預設：y
 
 如果設定，如果使用者在 "ResourceDisk.Filesystem" 中要求的檔案系統類型不是 "ntfs"，則 waagent 會格式化並掛接平台所提供的資源磁碟。 磁碟上將會有 Linux (83) 類型的單一磁碟分割。 請注意，如果可順利掛接此磁碟分割，則不會格式化。
@@ -256,7 +256,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 指定要傳遞至 mount -o 指令的磁碟掛接選項。 這是以逗號分隔的值清單，例如： 'nodev,nosuid'。 如需詳細資訊，請參閱 Mount(8)。
 
 **ResourceDisk.EnableSwap：**  
-型別︰布林值  
+類型：布林值  
 預設：n
 
 如果設定，則會在資源磁碟上建立交換檔 (/swapfile) 並加入至系統交換空間。
@@ -268,13 +268,13 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 交換檔的大小 (MB)。
 
 **Logs.Verbose：**  
-型別︰布林值  
+類型：布林值  
 預設：n
 
 如果設定，則記錄詳細程度會提高。 Waagent 會記錄到 /var/log/waagent.log，並利用系統 logrotate 功能來輪換記錄檔。
 
 **OS.EnableRDMA**  
-型別︰布林值  
+類型：布林值  
 預設：n
 
 如果設定，該代理程式將嘗試安裝並載入 RDMA 核心驅動程式，這個驅動程式與基礎硬體上的軔體版本相符。

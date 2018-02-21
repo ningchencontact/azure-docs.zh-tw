@@ -36,14 +36,14 @@ ms.lasthandoff: 12/11/2017
    ![Windows 驗證](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. 核取 [啟用 Windows 驗證] 核取方塊。 預設不核取此方塊。
 3. [應用程式] 索引標籤可讓系統管理員設定一或多個應用程式要經過 Windows 驗證。
-4. 選取伺服器或應用程式 – 指定是否啟用伺服器/應用程式。 按一下 [確定] 。
+4. 選取伺服器或應用程式 – 指定是否啟用伺服器/應用程式。 按一下 [SERVICEPRINCIPAL] 。
 5. 按一下 [新增...]
 6. [信任的 IP] 索引標籤可讓您針對來自特定 IP 的 Windows 工作階段，略過 Azure Multi-Factor Authentication。 例如，如果員工從辦公室和家裡使用應用程式，您可能決定當他們在辦公室時不要響起 Azure Multi-Factor Authentication 的電話。 為此，您可以將辦公室子網路指定為信任的 IP 項目。
 7. 按一下 [新增...]
 8. 如果您想要跳過單一 IP 位址，請選取 [單一 IP]。
 9. 如果您想要跳過整個 IP 範圍，請選取 [IP 範圍]。 範例：10.63.193.1-10.63.193.100。
 10. 如果您想要使用子網路標記法指定 IP 範圍，請選取 [子網路]。 輸入子網路的起始 IP，並從下拉式清單中挑選適當的網路遮罩。
-11. 按一下 [確定] 。
+11. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a name="next-steps"></a>後續步驟
 

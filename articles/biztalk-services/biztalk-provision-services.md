@@ -87,7 +87,7 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 </td>
 </tr>
 <tr>
-<td>Azure SQL Database</td>
+<td>連接字串</td>
 <td>儲存 Azure BizTalk 服務所使用的資料表、檢視和預存程序，包括追蹤資料。
 <br/><br/>
 在建立 BizTalk 服務時，您可使用現有的 Azure SQL Server、Azure SQL Database，或自動建立新的伺服器或資料庫。
@@ -174,7 +174,7 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 * [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 * [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [混合式連線](integration-hybrid-connection-overview.md)
+* [VNet](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

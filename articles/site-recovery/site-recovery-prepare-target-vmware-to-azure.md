@@ -16,7 +16,7 @@ ms.date: 11/23/2017
 ms.author: bsiva
 ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 本文將說明如何準備您的 Azure 環境，以開始將 VMware 虛擬機器複寫至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設：
 - 您已建立復原服務保存庫，用以保護 VMware 虛擬機器。 您可以從 [Azure 入口網站] (http://portal.azure.com "Azure 入口網站")建立復原服務保存庫。

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL Database 為雲端中數千個租用戶快速佈建和調整服務
 ![Umbraco 標誌](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -124,7 +124,6 @@ Mikkel Madsen 總結：「除了將「Azure 服務匯流排」與 Azure SQL Data
 ## <a name="more-information"></a>詳細資訊
 * 若要深入了解 Azure 彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 * 若要深入了解「Azure 服務匯流排」，請參閱 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)。
-* 若要深入了解 Web 角色和背景工作角色，請參閱 [背景工作角色](../fundamentals-introduction-to-azure.md#compute)。    
 * 若要深入了解虛擬網路，請參閱 [虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)。    
 * 若要深入了解備份與復原，請參閱 [商務持續性](sql-database-business-continuity.md)。    
 * 若要深入了解監視集區，請參閱 [監視集區](sql-database-elastic-pool-manage-portal.md)。    

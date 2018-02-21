@@ -15,7 +15,7 @@ ms.date: 05/08/2017
 ms.author: jeedes
 ms.openlocfilehash: db8072e072fca5041a98f38b27a5f542a36ce674
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 
 如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Menlo Security 整合，您需要下列項目：
 

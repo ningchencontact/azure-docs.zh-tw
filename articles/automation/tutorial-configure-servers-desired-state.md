@@ -18,7 +18,7 @@ ms.author: gwallace
 ms.custom: 
 ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -35,7 +35,7 @@ Azure 自動化預期狀態設定 (DSC) 可讓您指定伺服器的設定，並�
 > * 將節點設定指派給受控節點
 > * 檢查受控節點的合規性狀態
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 

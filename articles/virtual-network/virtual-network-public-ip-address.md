@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e52dc76608a83d446ccc8503d17445a8d6a61ae4
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -47,18 +47,18 @@ ms.lasthandoff: 11/07/2017
 
     |設定|必要？|詳細資料|
     |---|---|---|
-    |SKU|是|在 SKU 推出之前所建立的公用 IP 位址全都是**基本** SKU 的公用 IP 位址。  建立公用 IP 位址之後，即無法變更 SKU。 獨立虛擬機器、可用性設定組內的虛擬機器，或虛擬機器擴展集，可以使用基本或標準 SKU。  不允許混用可用性設定組或擴展集內虛擬機器之間的 SKU。 **基本** SKU：如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「無」。 您可以選擇選取可用性區域，以確保您公用 IP 位址的特定區域。 **標準** SKU：標準 SKU 公用 IP 可與虛擬機器或負載平衡器前端建立關聯。 如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「區域備援」。 如需可用性區域的詳細資訊，請參閱**可用性區域**設定。 如果您要將位址與標準負載平衡器建立關聯，則需要標準 SKU。 若要深入了解標準負載平衡器，請參閱 [Azure 負載平衡器標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 標準 SKU 目前為預覽版本。 在建立標準 SKU 的公用 IP 位址之前，您必須先完成[註冊標準 SKU 預覽版](#register-for-the-standard-sku-preview)中的步驟，並在受支援的位置 (區域) 建立公用 IP 位址。 如需支援位置的清單，請參閱[區域可用性](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability)，並監看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面以取得其他區域支援。 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。|
-    |名稱|是|名稱必須是您選取的資源群組中唯一的名稱。|
-    |IP 版本|是| 選取 IPv4 或 IPv6。 公用的 IPv4 位址可指派給數個 Azure 資源，而 IPv6 公用 IP 位址只可指派給網際網路面向的負載平衡器。 負載平衡器可將 IPv6 的流量負載分散到 Azure 虛擬機器。 深入了解[將 IPv6 流量負載分散到虛擬機器](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**標準 SKU**，則無法選擇 *IPv6*。 使用**標準 SKU** 時，您只能建立 IPv4 位址。|
-    |IP 位址指派|是|**動態︰**只有在公用 IP 位址與連接至虛擬機器的網路介面建立關聯，而且該虛擬機器第一次啟動之後，才會指派動態位址。 如果網路介面連接的虛擬機器已停止 (已解除配置)，則可變更動態位址。 如果虛擬機器已重新啟動或停止 (但未解除配置)，則位址維持不變。 **靜態︰**建立公用 IP 位址時會指派靜態位址。 即使虛擬機器處於已停止 (已解除配置) 狀態，靜態位址也不會變更。 只有在刪除網路介面後才會釋出位址。 您可以在建立網路介面後變更指派方法。 如果您選取 *IPv6* 作為 **IP 版本**，則指派方法為「動態」。 如果您為 **SKU** 選取*標準*，則指派方法為「靜態」。|
+    |SKU|yes|在 SKU 推出之前所建立的公用 IP 位址全都是**基本** SKU 的公用 IP 位址。  建立公用 IP 位址之後，即無法變更 SKU。 獨立虛擬機器、可用性設定組內的虛擬機器，或虛擬機器擴展集，可以使用基本或標準 SKU。  不允許混用可用性設定組或擴展集內虛擬機器之間的 SKU。 **基本** SKU：如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「無」。 您可以選擇選取可用性區域，以確保您公用 IP 位址的特定區域。 **標準** SKU：標準 SKU 公用 IP 可與虛擬機器或負載平衡器前端建立關聯。 如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「區域備援」。 如需可用性區域的詳細資訊，請參閱**可用性區域**設定。 如果您要將位址與標準負載平衡器建立關聯，則需要標準 SKU。 若要深入了解標準負載平衡器，請參閱 [Azure 負載平衡器標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 標準 SKU 目前為預覽版本。 在建立標準 SKU 的公用 IP 位址之前，您必須先完成[註冊標準 SKU 預覽版](#register-for-the-standard-sku-preview)中的步驟，並在受支援的位置 (區域) 建立公用 IP 位址。 如需支援位置的清單，請參閱[區域可用性](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability)，並監看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面以取得其他區域支援。 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。|
+    |Name|yes|名稱必須是您選取的資源群組中唯一的名稱。|
+    |IP 版本|yes| 選取 IPv4 或 IPv6。 公用的 IPv4 位址可指派給數個 Azure 資源，而 IPv6 公用 IP 位址只可指派給網際網路面向的負載平衡器。 負載平衡器可將 IPv6 的流量負載分散到 Azure 虛擬機器。 深入了解[將 IPv6 流量負載分散到虛擬機器](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**標準 SKU**，則無法選擇 *IPv6*。 使用**標準 SKU** 時，您只能建立 IPv4 位址。|
+    |IP 位址指派|yes|**動態︰**只有在公用 IP 位址與連接至虛擬機器的網路介面建立關聯，而且該虛擬機器第一次啟動之後，才會指派動態位址。 如果網路介面連接的虛擬機器已停止 (已解除配置)，則可變更動態位址。 如果虛擬機器已重新啟動或停止 (但未解除配置)，則位址維持不變。 **靜態︰**建立公用 IP 位址時會指派靜態位址。 即使虛擬機器處於已停止 (已解除配置) 狀態，靜態位址也不會變更。 只有在刪除網路介面後才會釋出位址。 您可以在建立網路介面後變更指派方法。 如果您選取 *IPv6* 作為 **IP 版本**，則指派方法為「動態」。 如果您為 **SKU** 選取*標準*，則指派方法為「靜態」。|
     |閒置逾時 (分鐘)|否|不需依賴用戶端傳送保持連線訊息，讓 TCP 或 HTTP 連線保持開啟的分鐘數。 如果您選取 IPv6 作為 **IP 版本**，則無法變更此值。 |
     |DNS 名稱標籤|否|在您建立名稱的 Azure 位置 (跨越所有訂用帳戶和所有位置) 中必須是唯一的。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱 ，以建立完整的 DNS 名稱。 如果您選擇兩個位址版本都建立，則會指派相同的 DNS 名稱給 IPv4 和 IPv6 位址。 Azure 預設 DNS 包含 IPv4 A 和 IPv6 AAAA 名稱記錄，並且會在查詢 DNS 名稱時回應這兩個記錄。 用戶端選擇要與哪一個位址 (IPv4 或 IPv6) 通訊。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
     |建立 IPv6 (或 IPv4) 位址|否| 顯示 IPv6 或 IPv4 取決於您選取的 **IP 版本**。 例如，如果您選取 **IPv4** 作為 **IP 版本**，則此處會顯示 **IPv6**。 如果您為 **SKU** 選取「標準」，則無法建立 IPv6 位址。
     |名稱 (僅在您核取 [建立 IPv6 (或 IPv4) 位址] 核取方塊時顯示)|是 (如果您選取 [建立 IPv6] \(或 IPv4) 核取方塊)。|該名稱必須與此清單中的第一個**名稱**不同。 如果您選擇同時建立 IPv4 和 IPv6 位址，則入口網站會建立兩個個別的公用 IP 位址資源，並各指派一個 IP 位址版本。|
     |IP 位址指派 (僅在您核取 [建立 IPv6 (或 IPv4) 位址] 核取方塊時顯示)|是 (如果您選取 [建立 IPv6] \(或 IPv4) 核取方塊)。|如果核取方塊顯示**建立 IPv4 位址**，表示您可以選擇指派方法。 如果核取方塊顯示**建立 IPv6 位址**，表示您無法選擇指派方法，因為指派方法必須為**動態**。|
-    |訂用帳戶|是|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
-    |資源群組|是|所在的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)可以與您想要與公用 IP 位址建立關聯的資源相同或不同。|
-    |位置|是|所在的[位置](https://azure.microsoft.com/regions) (也稱為區域) 必須與您想要與公用 IP 位址建立關聯的資源相同。|
+    |訂用帳戶|yes|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
+    |資源群組|yes|所在的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)可以與您想要與公用 IP 位址建立關聯的資源相同或不同。|
+    |位置|yes|所在的[位置](https://azure.microsoft.com/regions) (也稱為區域) 必須與您想要與公用 IP 位址建立關聯的資源相同。|
     |可用性區域| 否 | 只有在您選取受支援的位置時，才會出現此設定。 如需受支援位置的清單，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 可用性區域目前為預覽版本。 選取區域或區域備援選項之前，您必須先完成[註冊可用性區域預覽版](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview)中的步驟。 如果您選取**基本** SKU，則會自動為您選取「無」。 如果您想要保證特定區域，可選取特定區域。 或選擇非區域備援。 如果您選取**標準** SKU：會自動為您選取區域備援，並針對區域失敗進行資料路徑復原。 如果您希望保證對區域失敗無法復原的特定區域，則可選取特定區域。
   
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/07/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>檢視、變更公用 IP 位址的設定，或刪除公用 IP 位址
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/07/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#list) 可列出公用 IP 位址、[az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#show) 可顯示設定；[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) 可進行更新；[az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) 可進行刪除|
+|CLI|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) 可列出公用 IP 位址、[az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) 可顯示設定；[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) 可進行更新；[az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) 可進行刪除|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 可更新設定；[Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) 可進行刪除|
 
 ## <a name="register-for-the-standard-sku-preview"></a>註冊標準 SKU 預覽版

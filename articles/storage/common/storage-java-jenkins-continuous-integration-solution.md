@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>使用 Azure 儲存體搭配 Jenkins 連續整合解決方案
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 下列資訊說明如何使用 Blob 儲存體，做為 Jenkins 連續整合 (CI) 解決方案所建立的組建構件儲存機制，或做為在組建程序中要使用之可下載檔案的來源。 您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。 另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
 在本教學課程中，您將使用由 Microsoft 所提供適用於 Jenkins CI 的 Azure 儲存體外掛程式。
@@ -39,7 +39,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 * 在您的客戶和合作夥伴下載組建成品時提供良好的效能。
 * 提供使用者存取原則控制，可以選擇匿名存取、期限型共用存取簽章存取、私用存取等。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 Blob 服務搭配 Jenkins CI 解決方案，您將需要下列項目：
 
 * 一套 Jenkins 連續整合解決方案。
@@ -84,7 +84,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 為了方便說明，首先，我們需要建立一個會建立數個檔案的工作，然後新增一個會將這些檔案上傳至您儲存體帳戶的建置後動作。
 
 1. 在 Jenkins 儀表板中，按一下 [新增項目] 。
-2. 將工作命名為 **MyJob**，按一下 建立任意樣式的軟體專案，然後按一下確定。
+2. 將工作命名為 **MyJob**，按一下 [建立任意樣式的軟體專案]，然後按一下 [確定]。
 3. 在工作組態的 [Build] 區段中，按一下 [Add build step] 並選擇 [Execute Windows batch command]。
 4. 在 [Command] 中，使用下列命令：
 
@@ -116,7 +116,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
     4. 按一下 [容器] 。
     5. 按一下名為 **myjob**的容器，這是您建立 Jenkins 工作時所指派之工作名稱的小寫版本。 在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。 在名為 **myjob** 之容器的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。 請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。 您會看到文字檔已上傳作為組建成品。
 
-每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。 請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [要上傳的構件清單] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。 例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 **[要上傳的構件清單]** 中使用下列值：**build/\*.jar;build/\*.txt**。 您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。 例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 **[List of Artifacts to upload]** 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
+每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。 請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [要上傳的構件清單] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。 例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [要上傳的構件清單] 中使用下列值：build/.jar;build/.txt**\*\***。 您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。 例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>如何建立從 Azure Blob 儲存體下載的組建步驟
 下列步驟示範如何設定從 Azure Blob 儲存體下載項目的組建步驟。 如果您要在組建中加入項目，例如您存放在 Azure Blob 儲存體中的 JAR，則這會很有用。

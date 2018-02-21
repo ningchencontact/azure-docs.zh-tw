@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 
 以下是 Service Fabric 的作業通道中所提供的完整記錄清單。 
 
-| EventId | 名稱 | 來源 (工作) | 等級 |
+| EventId | Name | 來源 (工作) | 等級 |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | 資訊 |
 | 25621 | NodeOpenedSuccess | FabricNode | 資訊 |

@@ -47,7 +47,7 @@ ms.lasthandoff: 10/31/2017
 可以，分區是個別的資料庫，因此可以有一個分區是「高階」版，另一個是「標準」版。 此外，在分區存留期間，分區的版本可以多次相應增加或相應減少。
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>分割合併工具會在分割或合併作業期間佈建 (或刪除) 資料庫嗎？
-不會。 如果是「分割」  作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」  作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
+編號 如果是「分割」  作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」  作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

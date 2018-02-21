@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
@@ -100,7 +100,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 通常建議使用 EventFlow 和 WAD 做為彙總解決方案，因為它們允許以更接近模組化的方法來診斷和監視，亦即，如果您想要變更來自 EventFlow 的輸出，不必變更實際的檢測，只要簡單修改組態檔即可。 但如果決定投資使用 Application Insights，而且不太可能變更到不同的平台，您應該考慮使用 AI 的新 SDK 來彙總事件，並將它們傳送到 AI。 這表示您不必再設定 EventFlow 將資料傳送至 AI，而是改為安裝 ApplicationInsight 的 Service Fabric NuGet 套件。 套件的詳細資訊位於[這裡](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)。
 
-[微服務與容器的 Application Insights 支援](https://azure.microsoft.com/app-insights-microservices/)會顯示一些開發中的新功能 (目前仍為 beta 版)，讓您有更多的 AI 立即可用監視選項。 包括相依性追蹤 (用於建置叢集中所有服務和應用程式的 AppMap 及它們之間的通訊)，以及來自服務的追蹤有更好的相互關聯 (更有助於查明應用程式或服務工作流程中的問題)。
+[微服務與容器的 Application Insights 支援](https://azure.microsoft.com/en-us/blog/app-insights-microservices/)會顯示一些開發中的新功能 (目前仍為 beta 版)，讓您有更多的 AI 立即可用監視選項。 包括相依性追蹤 (用於建置叢集中所有服務和應用程式的 AppMap 及它們之間的通訊)，以及來自服務的追蹤有更好的相互關聯 (更有助於查明應用程式或服務工作流程中的問題)。
 
 如果您是在 .NET 中進行開發，可能會使用一些 Service Fabric 的程式設計模型，而且是願意使用 AI 做視覺化和分析事件和記錄檔資料的平台，我們建議您在監視和診斷工作流程時透過 AI SDK 路由。 閱讀[本文](../application-insights/app-insights-asp-net-more.md)和[本文](../application-insights/app-insights-asp-net-trace-logs.md)開始使用 AI 來收集和顯示您的記錄檔。
 

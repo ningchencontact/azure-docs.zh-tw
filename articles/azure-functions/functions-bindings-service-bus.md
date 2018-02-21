@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)記錄服務匯流排佇列訊息。
+下列範例示範的 [C# 函式](functions-dotnet-class-library.md)可記錄服務匯流排佇列訊息。
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，若要設定的服務匯流排觸發程序使用下列屬性：
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定服務匯流排觸發程序：
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs)，定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中
 
@@ -173,7 +173,7 @@ module.exports = function(context, myQueueItem) {
   }
   ```
 
-  如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
+  如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs)，定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中
 
@@ -257,7 +257,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)傳送的服務匯流排佇列的訊息：
+下列範例示範的 [C# 函式](functions-dotnet-class-library.md)可記錄服務匯流排佇列訊息：
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs)，定義在 NuGet 套件[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
 
 該屬性的建構函式會採用佇列名稱或標題和訂用帳戶。 您也可以指定連線的存取權限。 [輸出 - 組態](#output---configuration)一節說明如何選擇存取權限設定。 以下範例顯示套用至函式傳回值的屬性：
 
@@ -435,7 +435,7 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
 
 您可以使用 `ServiceBusAccount` 屬性來指定要在類別、方法或參數層級使用的服務匯流排帳戶。  如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
@@ -468,6 +468,13 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 若要在 C# 或 C# 指令碼函式中建立多則訊息，您可以使用 `ICollector<T>` 或 `IAsyncCollector<T>`。 當您呼叫 `Add` 方法時，就會建立一則訊息。
 
 在 JavaScript 中，使用 `context.bindings.<name>` 來存取佇列或主題。 `<name>` 是 function.json 之 `name` 屬性中指定的值。 您可以指派字串、位元組陣列或 Javascript 物件 (還原序列化為 JSON) 給 `context.binding.<name>`。
+
+## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
+
+| 繫結 | 參考 |
+|---|---|
+| 服務匯流排 | [服務匯流排錯誤碼](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| 服務匯流排 | [服務匯流排限制](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 ## <a name="next-steps"></a>後續步驟
 

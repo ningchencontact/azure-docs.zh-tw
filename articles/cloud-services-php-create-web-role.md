@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>如何建立 PHP Web 和背景工作角色
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本指南將說明如何在 Windows 開發環境中建立 PHP Web 或背景工作角色、從「內建」的可用版本中選擇特定版本的 PHP、變更 PHP 組態、啟用擴充功能，最終部署至 Azure。 此外也會說明如何設定 Web 或背景工作角色，以使用您所提供的 PHP 執行階段 (具有自訂組態和擴充功能)。
 
 ## <a name="what-are-php-web-and-worker-roles"></a>什麼是 PHP Web 和背景工作角色？

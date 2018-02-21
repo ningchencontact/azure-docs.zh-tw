@@ -28,7 +28,7 @@ Microsoft Smooth Streaming Client Porting Kit (簡稱**SSPK** ) 是最佳化的 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>描述
+## <a name="description"></a>說明
 SSPK 是根據可提供絕佳商業價值的條款授權。 SSPK 授權提供給業界：
 
 * Smooth Streaming Porting Kit 的 C++ 原始碼 

@@ -16,7 +16,7 @@ ms.date: 06/08/2016
 ms.author: mlearned
 ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 Docker 是輕量級容器引擎，與虛擬機器在某些方面類似，您可以用它來裝載應用程式和服務。
 本教學課程將逐步引導您使用 [Visual Studio Tools for Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) 延伸模組，透過 PowerShell 將 ASP.NET Core 應用程式部署至 Azure 上的 Docker 主機。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要下列項目以完成此教學課程：
 
 * 按照 [如何使用 Docker 電腦搭配 Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 中的說明建立 Azure Docker Host VM

@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="setting-up-the-game"></a>設定遊戲
 下列步驟來自 [Unity 教學課程](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
 
-1. 開啟 **Unity 編輯器**，然後按一下新增。 
+1. 開啟 **Unity 編輯器**，然後按一下 [新增]。 
    
     ![][51] 
 2. 提供 [專案名稱]  &  [位置]、選取 [3D]，然後按一下 [建立專案]。

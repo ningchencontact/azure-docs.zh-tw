@@ -28,8 +28,8 @@ ms.lasthandoff: 10/11/2017
 若要完成本主題的程序，您必須具有已驗證過電子郵件地址和電話號碼的 Twitter 帳戶。 若要建立新的 Twitter 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>。
 
 ## <a name="register"> </a>向 Twitter 註冊您的應用程式
-1. 登入 [Azure 入口網站]，然後瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Twitter 應用程式。
-2. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下建立新的應用程式。
+1. 登入 [Azure 入口網站]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Twitter 應用程式。
+2. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [建立新的應用程式]。
 3. 針對您新的應用程式輸入 [名稱]和 [說明]。 貼上您應用程式的 **URL** 作為 [網站]值。 然後，針對 [回呼 URL]，貼上您之前複製的 [回呼 URL]。 這是您已附加路徑 /.auth/login/twitter/callback 的行動應用程式閘道器。 例如： `https://contoso.azurewebsites.net/.auth/login/twitter/callback`。 請確實使用 HTTPS 配置。
 4. 在頁面底部，閱讀並接受條款。 然後按一下 [ **建立 Twitter 應用程式**]。 這會註冊應用程式並顯示應用程式詳細資料。
 5. 按一下 [設定] 索引標籤，勾選 [允許此應用程式用來以 Twitter 登入]，然後按一下 [更新設定]。
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
    
    App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。 您必須在應用程式程式碼中授權使用者。
 4. (選擇性) 若要限制只有透過 Twitter 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Twitter]。 這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Twitter 以進行驗證。
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
 現在，您已可在應用程式中使用 Twitter 進行驗證。
 

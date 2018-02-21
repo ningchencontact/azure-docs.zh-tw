@@ -24,7 +24,7 @@ ms.lasthandoff: 12/05/2017
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>將檔案從 Azure 復原至 Windows Server
 
-Azure Backup 可以復原 Windows Server 備份中的個別項目。 如果必須迅速還原意外刪除的檔案，復原個別檔案很有幫助。 本教學課程涵蓋如何使用 Microsoft Azure 復原服務 (MARS) 代理程式，復原 Azure 已執行備份中的項目。 在本教學課程中，您了解如何：
+Azure Backup 可以復原 Windows Server 備份中的個別項目。 如果必須迅速還原意外刪除的檔案，復原個別檔案很有幫助。 本教學課程涵蓋如何使用 Microsoft Azure 復原服務 (MARS) 代理程式，復原 Azure 已執行備份中的項目。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 起始復原個別的項目 

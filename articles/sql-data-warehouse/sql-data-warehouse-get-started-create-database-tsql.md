@@ -32,7 +32,7 @@ ms.lasthandoff: 12/18/2017
 
 本文說明如何使用 T-SQL 建立 SQL 資料倉儲。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始，您需要：
 
 * **Azure 帳戶**︰請瀏覽 [Azure 免費試用][Azure Free Trial]或 [MSDN Azure 點數][MSDN Azure Credits]以建立帳戶。

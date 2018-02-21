@@ -9,16 +9,13 @@ ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 16d97765c9340555bfc0db22975a43227cc6b517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure Stack 資料中心整合 - 安全性
-
-「適用於：Azure Stack 整合系統」
-
 Azure Stack 在設計和建置時，已將安全性考慮進去。 Azure Stack 是鎖定的系統，因此不支援安裝軟體安全性代理程式。
 
 本文會協助您將 Azure Stack 的安全性功能以及您的資料中心內已部署的安全性解決方案整合在一起。

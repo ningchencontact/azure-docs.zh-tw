@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
    ![搜尋範本部署](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. 選取 [ **建立**]。
+1. 選取 [建立] 。
 
    ![選取 [建立]](./media/resource-group-template-deploy-portal/show-template-option.png)
 

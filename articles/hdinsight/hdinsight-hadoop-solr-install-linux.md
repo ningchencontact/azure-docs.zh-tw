@@ -178,7 +178,7 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。 Solr 儀
 
 1. 決定主要前端節點的主機名稱：
 
-   1. 使用 SSH 連線到叢集前端節點。 例如， `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
+   1. 使用 SSH 連線到叢集前端節點。 例如： `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
 
        如需使用 SSH 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 

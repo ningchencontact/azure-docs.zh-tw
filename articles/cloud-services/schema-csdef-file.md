@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
-caps.latest.revision: "42"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 
 | 屬性               | 說明 |
 | ----------------------- | ----------- |
-| 名稱                    |必要。 服務的名稱。 名稱在服務帳戶內必須是唯一的。|
+| name                    |必要。 服務的名稱。 名稱在服務帳戶內必須是唯一的。|
 | topologyChangeDiscovery | 選用。 指定拓撲變更通知的類型。 可能的值包括：<br /><br /> -   `Blast` - 儘速將更新傳送到所有角色執行個體。 如果您選擇選項，角色就應該能夠處理拓撲更新而不必重新啟動。<br />-   `UpgradeDomainWalk` - 在前一個執行個體成功接受更新之後，以循序方式將更新傳送到每個角色執行個體。|
 | schemaVersion           | 選用。 指定服務定義結構描述的版本。 如果已並行安裝一個以上的 SDK 版本，結構描述版本就可讓 Visual Studio 選取要用於結構描述驗證的正確 SDK 工具。|
 | upgradeDomainCount      | 選用。 指定要配置此服務中角色的升級網域數目。 部署服務時，會將角色執行個體配置給升級網域。 如需詳細資訊，請參閱[更新雲端服務角色或部署](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment)。<br /><br /> 您可以指定最多 20 個升級網域。 如果未指定，預設的升級網域數目為 5。|

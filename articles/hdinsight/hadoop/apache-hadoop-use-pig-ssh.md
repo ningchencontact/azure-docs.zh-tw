@@ -138,11 +138,11 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
         (FATAL,2)
 
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需有關 HDInsight 中 Pig 的一般資訊，請參閱下列文件：
 
-* [搭配 HDInsight 上的 Hadoop 使用 Pig](hdinsight-use-pig.md)
+* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
 如需搭配 HDInsight 上的 Hadoop 使用之其他方式的詳細資訊，請參閱下列文件：
 

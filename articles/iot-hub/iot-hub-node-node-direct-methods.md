@@ -184,7 +184,7 @@ ms.lasthandoff: 10/11/2017
 
 若要繼續開始使用 IoT 中樞並瀏覽其他 IoT 案例，請參閱︰
 
-* [IoT 中樞入門]
+* [IoT 中心入門]
 * [排程多個裝置上的作業][lnk-devguide-jobs]
 
 若要了解如何擴充您的 IoT 解決方案以及在多個裝置上排程方法呼叫，請參閱[排程及廣播作業][lnk-tutorial-jobs]教學課程。
@@ -210,4 +210,4 @@ ms.lasthandoff: 10/11/2017
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[IoT 中樞入門]: iot-hub-node-node-getstarted.md
+[IoT 中心入門]: iot-hub-node-node-getstarted.md

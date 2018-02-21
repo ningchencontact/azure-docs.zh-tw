@@ -52,7 +52,7 @@ ms.lasthandoff: 12/13/2017
     - 針對**定價層**選取 [基本：1 個 vCore]。
 
     ![建立移轉服務](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
-4. 選取 [ **建立**]。
+4. 選取 [建立] 。
 
 在幾分鐘之後，您的 Azure 資料庫移轉服務執行個體就會建立且可供使用。 您會看到如下圖所示的資料庫移轉服務：
 

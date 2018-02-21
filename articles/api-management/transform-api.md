@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure API 管理轉換及保護您的 API| Microsoft Docs"
-description: "了解如何使用配額和節流 (速率限制) 原則保護您的 API。"
+description: "了解如何使用配額和節流 (頻率限制) 原則保護您的 API。"
 services: api-management
 documentationcenter: 
 author: juliako
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/04/2017
 
 本教學課程示範透過使用「Azure API 管理」設定速率限制，來為後端 API 新增保護是多麼簡單容易的工作。 例如，您可以限制呼叫 API 的呼叫次數，使得開發人員不會過度使用它。 如需詳細資訊，請參閱 [API 管理原則](api-management-policies.md)。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 轉換 API 以刪除回應標頭
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/04/2017
 7. 選取 [程式碼編輯器]。
 8. 將游標放在 **<outbound>** 元素內部。
 9. 在右側視窗的 [轉換原則] 下方，按一下 [+ 尋找並取代主體中的字串]。
-10. 修改您的 **<find-and-replace** 程式碼 (位於 **<outbound>** 元素中)，取代 URL 以符合您的 APIM 閘道。 例如：
+10. 修改您的 **<find-and-replace** 程式碼 (位於 **<outbound>** 元素中)，取代 URL 以符合您的 APIM 閘道。 例如︰
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 

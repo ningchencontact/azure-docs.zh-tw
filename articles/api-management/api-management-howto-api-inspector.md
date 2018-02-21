@@ -24,14 +24,14 @@ ms.lasthandoff: 12/04/2017
 
 本教學課程會說明如何檢查要求處理，協助您對 API 進行偵錯和疑難排解。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 追蹤呼叫
 
 ![API 偵測器](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 + 以及完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。

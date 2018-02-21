@@ -24,7 +24,7 @@ ms.lasthandoff: 10/19/2017
 
 WAImportExport 工具是磁碟機準備及修復工具，可搭配 [Microsoft Azure 匯入/匯出服務](../storage-import-export-service.md)使用。 您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。 匯入工作完成後，您可以使用此工具來修復損毀、遺漏或與其他 Blob 衝突的任何 Blob。 當您收到已完成的匯出工作中的磁碟機後，您可以使用此工具來修復磁碟機上損毀或遺漏的任何檔案。 我們會在本文中介紹此工具的使用方式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="requirements-for-waimportexportexe"></a>WAImportExport.exe 的需求
 
@@ -207,7 +207,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 | 參數 | 說明 |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **必要**<br/> 日誌檔案的路徑。 日誌檔案會追蹤一組磁碟機，並記錄準備這些磁碟機的進度。 日誌檔案一律需要指定。  |
-|     /logdir:&lt;LogDirectory&gt;  | **選用**。 記錄檔目錄。<br/> 詳細資訊記錄檔及某些暫存檔案會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。 同一日誌檔案只能指定一次記錄檔目錄。  |
+|     /logdir:&lt;LogDirectory&gt;  | **選擇性**。 記錄檔目錄。<br/> 詳細資訊記錄檔及某些暫存檔案會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。 同一日誌檔案只能指定一次記錄檔目錄。  |
 |     /id:&lt;SessionId&gt;  | **必要**<br/> 工作階段識別碼用於識別複製工作階段。 其用來確保正確復原中斷的複製工作階段。  |
 |     /ResumeSession  | 選用。 如果最後一個複製工作階段異常終止，可以指定此參數以繼續工作階段。   |
 |     /AbortSession  | 選用。 如果最後一個複製工作階段異常終止，可以指定此參數以中止工作階段。  |
@@ -219,11 +219,11 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /d:&lt;TargetDirectories&gt; | **必要**。 僅適用於 RepairImport 和 RepairExport。 用於 RepairImport 時，是要修復的一或多個目錄 (以分號分隔)；用於 RepairExport 時，是要修復的目錄，例如磁碟機根目錄。  |
 |     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **必要** 僅適用於 RepairImport 和 RepairExport。 磁碟機複製記錄檔 (詳細資訊或錯誤) 的路徑。  |
 |     /ManifestFile:&lt;DriveManifestFile&gt; | **必要** 僅適用於 RepairExport。<br/> 磁碟機資訊清單檔案的路徑。  |
-|     /PathMapFile:&lt;DrivePathMapFile&gt; | **選用**。 僅適用於 RepairImport。<br/> 包含檔案路徑對應 (相對於實際檔案位置的磁碟機根目錄) 之檔案的路徑 (以 tab 分隔)。 第一次指定時，它會填入空白目標的檔案路徑，表示在 TargetDirectories 中找不到它們、存取被拒、具有無效名稱，或它們存在多個目錄中。 路徑對應檔案可以手動編輯以包含正確的目標路徑，並可再次指定，使工具可以正確解析檔案路徑。  |
+|     /PathMapFile:&lt;DrivePathMapFile&gt; | **選擇性**。 僅適用於 RepairImport。<br/> 包含檔案路徑對應 (相對於實際檔案位置的磁碟機根目錄) 之檔案的路徑 (以 tab 分隔)。 第一次指定時，它會填入空白目標的檔案路徑，表示在 TargetDirectories 中找不到它們、存取被拒、具有無效名稱，或它們存在多個目錄中。 路徑對應檔案可以手動編輯以包含正確的目標路徑，並可再次指定，使工具可以正確解析檔案路徑。  |
 |     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **必要**。 僅適用於 PreviewExport。<br/> XML 檔案的路徑，此檔案包含要匯出的 Blob 的Blob 路徑清單或 Blob 路徑前置詞。 此檔案格式與匯入/匯出服務 REST API 的 Put Job 作業中的 Blob 清單 Blob 格式相同。  |
 |     /DriveSize:&lt;DriveSize&gt; | **必要**。 僅適用於 PreviewExport。<br/>  要用於匯出的磁碟機大小。 例如，500 GB、1.5 TB。 注意：1 GB = 1,000,000,000 個位元組 1 TB = 1,000,000,000,000 個位元組  |
 |     /DataSet:&lt;dataset.csv&gt; | **必要**<br/> CSV 檔案，包含要複製到目標磁碟機的目錄清單和/或檔案清單。  |
-|     /silentmode  | **選用**。<br/> 如未指定，它會提醒您磁碟機的需求，並需要您確認才能繼續。  |
+|     /silentmode  | **選擇性**。<br/> 如未指定，它會提醒您磁碟機的需求，並需要您確認才能繼續。  |
 
 ## <a name="tool-output"></a>工具輸出
 
@@ -338,7 +338,7 @@ WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportE
 
 記錄檔目錄指定要用來儲存詳細資訊記錄檔和暫存資訊清單檔案的目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。 記錄是詳細資訊記錄。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>什麼是磁碟的規格？
 

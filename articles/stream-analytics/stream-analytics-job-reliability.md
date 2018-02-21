@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>在服務更新期間確保串流分析工作可靠性
 
-完全受管理服務的其中一個特性，就是能夠快速導入新的服務功能和改良功能。 因此，「串流分析」可以每週 (或更頻繁地) 進行服務更新部署。 不論做了多少測試，現有的執行中工作仍然可能有因引入錯誤而導致中斷的風險。 對於執行重要串流處理工作的客戶來說，必須避免這些風險。 有一個可供客戶用來降低此風險的機制，就是 Azure 的**[配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**模型。 
+完全受控服務的其中一個特性，就是能夠快速導入新的服務功能和改良功能。 因此，「串流分析」可以每週 (或更頻繁地) 進行服務更新部署。 不論做了多少測試，現有的執行中工作仍然可能有因引入錯誤而導致中斷的風險。 對於執行重要串流處理工作的客戶來說，必須避免這些風險。 有一個可供客戶用來降低此風險的機制，就是 Azure 的**[配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**模型。 
 
 ## <a name="how-do-azure-paired-regions-address-this-concern"></a>Azure 配對區域如何解決這個問題？
 

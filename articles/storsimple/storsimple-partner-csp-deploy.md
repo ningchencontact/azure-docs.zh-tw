@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 本文說明 CSP 合作夥伴如何新增客戶，或將新的訂用帳戶新增至現有的客戶，然後建立服務在 CSP 中部署 StorSimple Virtual Array。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定︰
 

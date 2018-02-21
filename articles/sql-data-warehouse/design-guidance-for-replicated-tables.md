@@ -16,7 +16,7 @@ ms.date: 10/23/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 > 複寫資料表功能目前為公開預覽版。 有些行為可能會變更。
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[架構](massively-parallel-processing-mpp-architecture.md)文章。 
 
 在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請思考一下下列問題：

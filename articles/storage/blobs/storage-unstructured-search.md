@@ -19,7 +19,7 @@ ms.lasthandoff: 10/17/2017
 
 在本教學課程中，您會了解如何使用利用 Azure Blob 中所儲存資料的 [Azure 搜尋服務](../../search/search-what-is-azure-search.md)來搜尋非結構化資料。 非結構化資料是未依預先定義方式組織或沒有資料模型的資料。 範例是 .txt 檔案。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立資源群組

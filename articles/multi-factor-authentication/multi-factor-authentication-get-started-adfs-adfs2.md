@@ -67,7 +67,7 @@ ms.lasthandoff: 12/11/2017
 
    <center>![設定](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
 
-3. 按一下 [ **編輯**]。
+3. 按一下 [編輯]。
 4. 在 [編輯 LDAP 設定] 對話方塊的欄位中，填入連接到 AD 網域控制站所需的資訊。 欄位說明包含在 Azure Multi-Factor Authentication Server 說明檔中。
 5. 按一下 [測試] 按鈕來測試 LDAP 連接。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 12/11/2017
 
    <center>![設定](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 
-8. 按一下 [確定] 。
+8. 按一下 [SERVICEPRINCIPAL] 。
 9. 按一下 [原生模組] 索引標籤，然後選取伺服器、網站 (例如 [預設網站]) 或 AD FS 應用程式 (例如 "adfs" 之下的 "ls")，以在所需的層級啟用 IIS 外掛程式。
 10. 按一下畫面頂端的 [啟用 IIS 驗證] 方塊。
 

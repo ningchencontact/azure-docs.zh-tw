@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: nepeters
 ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---

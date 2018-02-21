@@ -10,7 +10,7 @@ DNS 區域擁有名為「記錄集」的子物件。 記錄集是 DNS 區域依�
 
 | 屬性 | 說明 | 範例值 |
 | --- | --- | --- |
-| A |IPv4 記錄類型 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| 具有使用  |IPv4 記錄類型 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | AAAA |IPv6 記錄類型 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
 | CNAME |正式名稱記錄類型 <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
 | MX |郵件記錄類型 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |

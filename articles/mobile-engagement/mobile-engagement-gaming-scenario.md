@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>對遊戲應用程式實作 Mobile Engagement
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 某家新創遊戲公司推出了一款新的釣魚角色扮演/策略遊戲應用程式。 該遊戲已上線運作 6 個月之久， 所創造的成績非常優異，下載人數已達數百萬，且相較於其他新創公司所推出的遊戲應用程式，這款遊戲的保留期相當高。 在每季檢討會議中，重要關係人一致認為他們需要增加每位使用者的平均營收 (ARPU)。 他們在遊戲中提供高階套件做為特殊優惠。 這些遊戲套件可讓使用者升級他們在遊戲中所用釣線和誘餌或釣具的外觀和效果。 不過，這些套件的銷售成績非常差。 因此他們決定先使用分析工具分析客戶在玩遊戲時的體驗，然後發展業務開發計劃，透過進一步劃分玩家來增加銷售額。
 
 他們根據 [Azure Mobile Engagement - 入門指南與最佳作法](mobile-engagement-getting-started-best-practices.md) 建構了業務開發策略。

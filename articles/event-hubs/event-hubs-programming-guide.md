@@ -28,7 +28,7 @@ ms.lasthandoff: 11/29/2017
 
 您可以使用 HTTP POST 或透過 AMQP 1.0 連線，將事件傳送到事件中樞。 使用選擇取決於應用的特定案例。 AMQP 1.0 連線是以服務匯流排中的代理連線形式計量，其較適合經常出現大量訊息且需要低延遲的案例，因為它們可提供持續的傳訊通道。
 
-您可以使用 [NamespaceManager][] 類別來建立及管理事件中樞。 在使用 .NET Managed API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) 和 [EventData][] 類別。 [EventHubClient][] 提供將事件傳送到事件中樞時所透過的 AMQP 通訊通道。 [EventData][] 類別代表事件，可用來將訊息發佈到事件中樞。 這個類別包含主體、一些中繼資料，以及有關事件的標頭資訊。 當 [EventData][] 物件通過事件中樞時，系統會為它新增其他屬性。
+您可以使用 [NamespaceManager][] 類別來建立及管理事件中樞。 在使用 .NET 受控 API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) 和 [EventData][] 類別。 [EventHubClient][] 提供將事件傳送到事件中樞時所透過的 AMQP 通訊通道。 [EventData][] 類別代表事件，可用來將訊息發佈到事件中樞。 這個類別包含主體、一些中繼資料，以及有關事件的標頭資訊。 當 [EventData][] 物件通過事件中樞時，系統會為它新增其他屬性。
 
 ## <a name="get-started"></a>開始使用
 
@@ -39,14 +39,14 @@ Install-Package WindowsAzure.ServiceBus
 ```
 
 ## <a name="create-an-event-hub"></a>建立事件中心
-您可以使用 [NamespaceManager][] 類別來建立事件中樞。 例如：
+您可以使用 [NamespaceManager][] 類別來建立事件中樞。 例如︰
 
 ```csharp
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
 
-在大部分情況下，建議您使用 [CreateEventHubIfNotExists][] 方法，以避免在服務重新啟動時產生例外狀況。 例如：
+在大部分情況下，建議您使用 [CreateEventHubIfNotExists][] 方法，以避免在服務重新啟動時產生例外狀況。 例如︰
 
 ```csharp
 var description = manager.CreateEventHubIfNotExists("MyEventHub");
@@ -65,7 +65,7 @@ var client = EventHubClient.Create(description.Path);
 
 這個方法會使用 App.config 檔案之 `appSettings` 區段中的服務匯流排連線資訊。 如需用來儲存服務匯流排連線資訊之 `appSettings` XML 的範例，請參閱 [Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) 方法的文件。
 
-另一個選項是從連接字串建立用戶端。 這個選項適合用來搭配 Azure 背景工作角色，因為您可以將字串儲存在背景工作的組態屬性中。 例如：
+另一個選項是從連接字串建立用戶端。 這個選項適合用來搭配 Azure 背景工作角色，因為您可以將字串儲存在背景工作的組態屬性中。 例如︰
 
 ```csharp
 EventHubClient.CreateFromConnectionString("your_connection_string");
@@ -123,7 +123,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 您也可以採用非同步方式將事件傳送到事件中樞。 以非同步方式傳送可以增加用戶端傳送事件的速率。 [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) 和 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) 這兩個方法都有會傳回 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 物件的非同步版本。 雖然這項技術可以增加輸送量，不過如果實作不當，可能會造成用戶端在受到事件中樞服務節流的情況下繼續傳送事件，導致用戶端發生失敗或遺失訊息。 此外，您還可以在用戶端上使用 [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) 屬性來控制用戶端重試選項。
 
 ## <a name="create-a-partition-sender"></a>建立資料分割的傳送者
-雖然最常見的情況是不使用資料分割索引鍵就將事件傳送到事件中樞，不過在某些情況下，您可能會想要將事件直接傳送到指定的資料分割。 例如：
+雖然最常見的情況是不使用資料分割索引鍵就將事件傳送到事件中樞，不過在某些情況下，您可能會想要將事件直接傳送到指定的資料分割。 例如︰
 
 ```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -142,7 +142,7 @@ EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
-[CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) 方法有幾個有助於控制所建立之讀取器的多載。 這些方法包括將位移指定為字串或時間戳記，以及讓您指定要在傳回的資料流中包括指定位移，或是在位移之後開始。 建立接收者後，您可以開始接收有關傳回之物件的事件。 [Receive](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) 方法有四個控制接收作業參數的多載，如批次大小和等待時間。 若要增加消費者的輸送量，您可以使用這些方法的非同步版本。 例如：
+[CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) 方法有幾個有助於控制所建立之讀取器的多載。 這些方法包括將位移指定為字串或時間戳記，以及讓您指定要在傳回的資料流中包括指定位移，或是在位移之後開始。 建立接收者後，您可以開始接收有關傳回之物件的事件。 [Receive](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) 方法有四個控制接收作業參數的多載，如批次大小和等待時間。 若要增加消費者的輸送量，您可以使用這些方法的非同步版本。 例如︰
 
 ```csharp
 bool receive = true;

@@ -27,7 +27,7 @@ ms.lasthandoff: 12/01/2017
 
 本車輛遙測分析解決方案示範汽車經銷商、汽車製造商及保險公司如何使用 Cortana Intelligence 的功能。 取得車輛健全狀況和駕駛習慣的即時和預測性深入解析，從而改善客戶經驗、研究和開發以及行銷活動。 這些逐步指示說明在您的訂用帳戶中部署方案之後，如何設定 Power BI 報告和儀表板。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 部署[車輛遙測分析](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) /(英文/) 解決方案。 
 * [安裝 Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331)。
 * 取得 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。 如果您沒有 Azure 訂用帳戶，請立即取得免費的 Azure 訂用帳戶。

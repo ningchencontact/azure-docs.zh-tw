@@ -15,7 +15,7 @@ ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="examples"></a>範例
 
-### <a name="apply-policies-specified-at-different-scopes"></a>將指定在不同範圍的原則套用
+### <a name="apply-policies-specified-at-different-scopes"></a>套用在不同範圍指定的原則
 
 若您在全域層級中有一個原則，還有一個為 API 設定的原則，則每次使用該特定 API 時，皆會套用這兩個原則。 API 管理可透過 base 元素來指定組合式原則陳述式的固定順序。 
 

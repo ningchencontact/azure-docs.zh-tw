@@ -33,7 +33,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**3 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 2 課︰取得資料](../tutorials/aas-lesson-2-get-data.md)。 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>重新命名 FullDateAlternateKey 資料行

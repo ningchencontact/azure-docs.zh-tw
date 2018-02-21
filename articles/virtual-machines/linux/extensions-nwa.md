@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 本文件會詳述適用於 Linux 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |

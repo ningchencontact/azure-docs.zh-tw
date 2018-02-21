@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
     若要在 Azure 儀表板中新增閘道資源，請選擇 [釘選到儀表板]。 
     完成之後，請選擇 [建立]。
 
-    例如：
+    例如︰
 
     ![提供詳細資料以建立內部部署資料閘道](./media/logic-apps-gateway-connection/createblade.png)
 

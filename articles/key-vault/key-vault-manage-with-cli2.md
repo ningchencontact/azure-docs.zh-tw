@@ -38,7 +38,7 @@ ms.lasthandoff: 11/28/2017
 
 如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列項目：
 
 * Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial)。
@@ -121,7 +121,7 @@ az provider register -n Microsoft.KeyVault
 ## <a name="create-a-key-vault"></a>建立金鑰保存庫
 使用 `az keyvault create` 命令來建立金鑰保存庫。 這個指令碼包含三個必要參數：資源群組名稱、金鑰保存庫名稱和地理位置。
 
-例如：
+例如︰
 
 - 如果您使用保存庫名稱 **ContosoKeyVault**
 - 資源群組名稱 **ContosoResourceGroup**
@@ -187,7 +187,7 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 使用金鑰保存庫的應用程式必須使用 Azure Active Directory 的權杖進行驗證。 若要達到此目的，應用程式擁有者首先必須在其 Azure Active Directory 中註冊該應用程式。 註冊結束時，應用程式擁有者會取得下列值：
 
 - **應用程式識別碼** 
-- **驗證金鑰**(也稱為共用祕密)。 
+- **驗證金鑰** (也稱為共用密碼)。 
 
 應用程式必須向 Azure Active Directory 出示這兩個值才能取得權杖。 如何設定應用程式執行此作業會取決於應用程式。 在 [Key Vault 範例應用程式](https://www.microsoft.com/download/details.aspx?id=45343)中，應用程式擁有者會在 app.config 檔案中設定這些值。
 

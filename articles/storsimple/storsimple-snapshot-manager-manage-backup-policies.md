@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
    2. 在 [設定] 之下，選取 [一次]、[每日]、[每週] 或 [每月]。
    3. 在 [ **開始** ] 文字方塊中，按一下日曆圖示，然後選取開始日期。
    4. 在 [ **進階設定**] 之下，您可以設定選用的重複排程和結束日期。
-   5. 按一下 [確定] 。
+   5. 按一下 [SERVICEPRINCIPAL] 。
 
 建立備份原則之後，下列資訊會出現在 [ **結果** ] 窗格中：
 
@@ -74,10 +74,10 @@ ms.lasthandoff: 10/11/2017
 #### <a name="to-edit-a-backup-policy"></a>若要編輯備份原則
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [備份原則] 節點。 所有備份原則都會出現在 [ **結果** ] 窗格中。
-3. 以滑鼠右鍵按一下您要編輯的原則，然後按一下 **編輯**。
+3. 以滑鼠右鍵按一下您要編輯的原則，然後按一下 [ **編輯**]。
 
     ![編輯備份原則](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. 當 建立原則 視窗出現時，輸入您的變更，然後按一下確定。
+4. 當 [建立原則] 視窗出現時，輸入您的變更，然後按一下 [確定]。
 
 ## <a name="delete-a-backup-policy"></a>刪除備份原則
 請使用下列程序來刪除備份原則。
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="to-delete-a-backup-policy"></a>若要刪除備份原則
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [備份原則] 節點。 所有備份原則都會出現在 [ **結果** ] 窗格中。
-3. 以滑鼠右鍵按一下您要刪除的備份原則，然後按一下刪除 。
+3. 以滑鼠右鍵按一下您要刪除的備份原則，然後按一下 [刪除] 。
 4. 確認訊息出現時，按一下 [ **是**]。
 
     ![確認刪除備份原則](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)

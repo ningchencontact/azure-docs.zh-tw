@@ -45,7 +45,7 @@ Azure Database for PostgreSQL 是 Microsoft 雲端中以開放原始碼 [Postgre
 如何決定何時應增加或減少？ 您使用內建的效能監視和警示功能，加上以計算單位為基礎的效能分級。 使用這些工具，您可以根據目前或計畫中的效能需求快速評估相應增加或減少計算單位的影響。 如需詳細資訊，請參閱[警示](howto-alert-on-metric.md)。
 
 ## <a name="keep-your-app-and-business-running"></a>讓您的應用程式和業務持續運作
-Azure 領先業界的 99.99% 可用性 (不是預覽狀態) 服務等級協定 (SLA) (由 Microsoft 管理之資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 使用每一 Azure Database for PostgreSQL 伺服器，您可以利用內建的安全性、容錯功能，以及可能需要另外設計、購買、建置和管理的資料保護功能。 使用 Azure Database for PostgreSQL 時，每個服務層都會提供一組完整的業務持續性功能和選項，讓您能夠用來啟動和執行，並持續維持該狀態。 您可以使用[時間點還原](howto-restore-server-portal.md)將資料庫回復成先前的狀態，最久可至 35 天前。 此外，如果裝載資料庫的資料中心發生中斷情形，您可以從最新備份的異地備援複本還原資料庫。
+Azure 領先業界的 99.99% 可用性 (不是預覽狀態) 服務等級協定 (SLA) (Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 使用每一 Azure Database for PostgreSQL 伺服器，您可以利用內建的安全性、容錯功能，以及可能需要另外設計、購買、建置和管理的資料保護功能。 使用 Azure Database for PostgreSQL 時，每個服務層都會提供一組完整的業務持續性功能和選項，讓您能夠用來啟動和執行，並持續維持該狀態。 您可以使用[時間點還原](howto-restore-server-portal.md)將資料庫回復成先前的狀態，最久可至 35 天前。 此外，如果裝載資料庫的資料中心發生中斷情形，您可以從最新備份的異地備援複本還原資料庫。
 
 ## <a name="secure-your-data"></a>保護您的資料
 Azure 資料庫服務一向重視資料安全性，Azure Database for PostgreSQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心 (英文)](https://www.microsoft.com/TrustCenter/Security/default.aspx)。

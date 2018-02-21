@@ -61,11 +61,11 @@ ms.lasthandoff: 10/11/2017
 * 平均回應時間
 * CPU 時間
 * 記憶體工作集
-* 要求
+* Requests
 
 ![監視 Web 應用程式，以解決 502 不正確的閘道和 503 服務無法使用的 HTTP 錯誤](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [監視 Azure App Service 中的 Web Apps](web-sites-monitor.md)
 * [接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)

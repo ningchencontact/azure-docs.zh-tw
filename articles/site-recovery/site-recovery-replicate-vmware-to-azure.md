@@ -25,7 +25,7 @@ ms.lasthandoff: 10/20/2017
 
 
 本文說明如何將在 VMware 上執行的虛擬機器 (VM) 設定複寫至 Azure。
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您已經：
 

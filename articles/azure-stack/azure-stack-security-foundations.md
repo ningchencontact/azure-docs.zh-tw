@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基礎結構安全性狀態
 
-適用於：Azure Stack 整合系統
+「適用於：Azure Stack 整合系統」
 
 安全性考量和符合法規規範是使用混合式雲端的主要因素。 Azure Stack 就是針對這些案例而設計的，而且請務必了解，在採用 Azure Stack 時，這些控制措施便已包含在內。
 
@@ -47,9 +47,9 @@ Azure Stack 基礎結構元件使用以 TLS 1.2 加密的通道進行通訊。 �
 雖然自我簽署的憑證可以用於這些外部端點，但 Microsoft 強烈建議不要使用這類憑證。 
 
 ## <a name="secret-management"></a>祕密管理
-Azure Stack 基礎結構使用許多祕密 (例如密碼) 來運作。 這些祕密大多數都會自動輪換，因為它們是「群組受管理服務」帳戶，每隔 24 小時會輪換一次。
+Azure Stack 基礎結構使用許多祕密 (例如密碼) 來運作。 這些祕密大多數都會自動輪換，因為它們是「群組受控服務」帳戶，每隔 24 小時會輪換一次。
 
-針對其餘不是「群組受管理服務」帳戶的祕密，您可以使用「具特殊權限的端點」中的指令碼以手動方式輪換。
+針對其餘不是「群組受控服務」帳戶的祕密，您可以使用「具特殊權限的端點」中的指令碼以手動方式輪換。
 
 ## <a name="code-integrity"></a>程式碼完整性
 Azure Stack 使用最新的 Windows Server 2016 安全性功能。 其中一個是 Windows Defender Device Guard，此功能提供應用程式白名單功能，可確保只有經授權的程式碼會在 Azure Stack 基礎結構內執行。 

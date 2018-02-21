@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="how-to-access-the-threat-intelligence-report"></a>如何存取威脅情報報告？
 您可以查看 [安全性警示]  圖格來檢視目前的警示。 開啟 Azure 入口網站並遵循下列步驟來查看有關每個警示的更多詳細資訊：
 
-1. 您會在「資訊安全中心」的儀表板看到 [安全性警示]  圖格。
+1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示]  圖格。
 2. 按一下圖格便可開啟 [安全性警示] 刀鋒視窗，其中包含有關警示的更多詳細資料，按一下您想了解的安全性警示即可取得更多相關資訊。
 
     ![安全性警示](./media/security-center-threat-report/security-center-threat-report-fig1.png)

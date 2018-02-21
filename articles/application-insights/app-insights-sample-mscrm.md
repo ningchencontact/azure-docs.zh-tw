@@ -138,7 +138,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="sample-microsoft-dynamics-crm-solution"></a>Microsoft Dynamics CRM 解決方案範例
 [以下是在 Microsoft Dynamics CRM 中實作的解決方案範例](https://dynamicsandappinsights.codeplex.com/)。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 * [什麼是 Application Insights？](app-insights-overview.md)
 * [適用於網頁的 Application Insights](app-insights-javascript.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)

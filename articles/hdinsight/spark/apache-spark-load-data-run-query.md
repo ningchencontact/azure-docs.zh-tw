@@ -32,7 +32,7 @@ HDInsight 叢集上的 Jupyter Notebook 支援三種核心：**PySpark**、**PyS
 
 在本教學課程中，您會以 csv 檔案查詢資料。 您必須先將該資料載入到 Spark 作為資料框架。 然後您可以使用 Jupyter Notebook 在資料框架上執行查詢。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure HDInsight Spark 叢集**。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * **使用 PySpark 的 Jupyter Notebook**。 如需指示，請參閱[建立 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。

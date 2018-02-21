@@ -67,9 +67,9 @@ ms.lasthandoff: 11/13/2017
 
 **組態** | **VMware/實體伺服器** | **Hyper-V (含 VMM)**
 --- | --- | ---
-NIC Teaming | 是 | 是
-VLAN | 是 | 是
-IPv4 | 是 | 是
+NIC Teaming | yes | yes
+VLAN | yes | yes
+IPv4 | yes | yes
 IPv6 | 否 | 否
 
 ### <a name="guest-vms"></a>客體 VM
@@ -77,11 +77,11 @@ IPv6 | 否 | 否
 **組態** | **VMware/實體伺服器** | **Hyper-V (含 VMM)**
 --- | --- | ---
 NIC Teaming | 否 | 否
-IPv4 | 是 | 是
+IPv4 | yes | yes
 IPv6 | 否 | 否
-靜態 IP (Windows) | 是 | 是
-靜態 IP (Linux) | 是 | 是
-多個 NIC | 是 | 是
+靜態 IP (Windows) | yes | yes
+靜態 IP (Linux) | yes | yes
+多個 NIC | yes | yes
 
 
 ## <a name="storage"></a>儲存體
@@ -90,34 +90,34 @@ IPv6 | 否 | 否
 
 **儲存體 (主機)** | **VMware/實體伺服器** | **Hyper-V (含 VMM)**
 --- | --- | ---
-NFS | 是 | N/A
-SMB 3.0 | N/A | 是
-SAN (ISCSI) | 是 | 是
-多重路徑 (MPIO) | 是 | 是
+NFS | yes | N/A
+SMB 3.0 | N/A | yes
+SAN (ISCSI) | yes | yes
+多重路徑 (MPIO) | yes | yes
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
 **組態** | **VMware/實體伺服器** | **Hyper-V (含 VMM)**
 --- | --- | ---
-VMDK | 是 | N/A
+VMDK | yes | N/A
 VHD/VHDX | N/A | 是 (最多 16 個磁碟)
-第 2 代 VM | N/A | 是
-共用叢集磁碟 | 是  | 否
+第 2 代 VM | N/A | yes
+共用叢集磁碟 | yes  | 否
 已加密磁碟 | 否 | 否
-UEFI| 是 | N/A
+UEFI| yes | N/A
 NFS | 否 | 否
 SMB 3.0 | 否 | 否
-RDM | 是 | N/A
-磁碟 > 1 TB | 是 | 是
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是 | 是
-儲存空間 | 否 | 是
-熱新增/移除磁碟 | 是 | 否
-排除磁碟 | 是 | 是
-多重路徑 (MPIO) | N/A | 是
+RDM | yes | N/A
+磁碟 > 1 TB | yes | yes
+使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | yes | yes
+儲存空間 | 否 | yes
+熱新增/移除磁碟 | yes | 否
+排除磁碟 | yes | yes
+多重路徑 (MPIO) | N/A | yes
 
 ## <a name="vaults"></a>保存庫
 
-**動作** | **VMware/實體伺服器** | **Hyper-V (含 VMM)**
+**Action** | **VMware/實體伺服器** | **Hyper-V (含 VMM)**
 --- | --- | ---
 跨資源群組間移動保存庫 (在訂用帳戶之內或跨訂用帳戶) | 否 | 否
 跨資源群組間移動儲存體、網路、Azure VM (在訂用帳戶之內或跨訂用帳戶) | 否 | 否

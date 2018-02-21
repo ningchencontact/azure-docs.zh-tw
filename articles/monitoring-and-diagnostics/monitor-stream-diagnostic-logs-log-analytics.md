@@ -56,7 +56,7 @@ Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的
    
    ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該工作區。 請注意，從發出事件到事件出現在 Log Analytics 中，之間最多會有 15 分鐘的間隔。
 

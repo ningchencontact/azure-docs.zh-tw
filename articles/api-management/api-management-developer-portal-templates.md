@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用範本自訂 Azure API 管理開發人員入口網站。
 
@@ -31,13 +31,7 @@ ms.lasthandoff: 10/16/2017
 範本可用來自訂系統產生之開發人員入口網站網頁的內容 (例如 API 文件、產品、使用者驗證等)。 使用 [DotLiquid](http://dotliquidmarkup.org/) 語法及一組提供的當地語系化字串資源、圖示和頁面控制項，您可以依照您的想法自由靈活地設定頁面內容。
 
 ## <a name="developer-portal-templates-overview"></a>開發人員入口網站範本概觀
-當您以系統管理員身分登入時，可從 [開發人員入口網站] 編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [發行者入口網站]。
-
-![發行者入口網站][api-management-management-console]
-
-接著按一下右上角的 [開發人員入口網站]。 
-
-![開發人員入口網站功能表][api-management-developer-portal-menu]
+當您以系統管理員身分登入時，可從 [開發人員入口網站] 編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [開發人員入口網站]。
 
 若要存取開發人員入口網站範本，請按一下左側的自訂圖示，顯示 [自訂] 功能表，然後按一下 [範本] 。
 
@@ -47,7 +41,7 @@ ms.lasthandoff: 10/16/2017
 
 ![開發人員入口網站範本][api-management-templates-menu]
 
-按一下範本即會將您帶到可使用該範本自訂的開發人員入口網站頁面。 這個範例會顯示 **產品清單** 範本。 **產品清單** 範本控制的畫面區域會以紅色矩形表示。 
+按一下範本即會將您帶到可使用該範本自訂的開發人員入口網站頁面。 這個範例會顯示**產品清單**範本。 **產品清單** 範本控制的畫面區域會以紅色矩形表示。 
 
 ![產品清單範本][api-management-developer-portal-templates-overview]
 
@@ -65,7 +59,7 @@ ms.lasthandoff: 10/16/2017
 
 ![範本資料模型][api-management-template-data]
 
-上述範例在開發人員入口網站中顯示了兩項產品，擷取自 [範本資料]  窗格顯示的資料，如下例所示。
+上述範例在開發人員入口網站中顯示了兩項產品，擷取自 [範本資料] 窗格顯示的資料，如下列範例所示：
 
 ```json
 {
@@ -177,7 +171,7 @@ ms.lasthandoff: 10/16/2017
 
 按一下 [ **是** ] 以確認。
 
-![Confirm][api-management-reset-template-confirm]
+![確認][api-management-reset-template-confirm]
 
 若要還原所有範本的預設版本，請按一下範本清單的 [Restore default templates]\(還原預設範本)  。
 

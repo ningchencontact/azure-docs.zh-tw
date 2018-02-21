@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>在 Eclipse 中利用 Java 開始使用 Application Insights
 Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您可以分析使用量和效能。 Application Insights 適用的 Eclipse 外掛程式會自動在您的專案中安裝 SDK，使得您可以取得內建的遙測，加上可以用來編寫自訂遙測的 API。   
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 目前外掛程式可用於 Eclipse 中的 Maven 專案和動態網站專案。
 ([將 Application Insights 新增至其他類型的 Java 專案][java]。)
 
@@ -101,7 +101,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 [深入了解設定用戶端遙測。][usage]
 
-## <a name="publish-your-application"></a>發行您的應用程式
+## <a name="publish-your-application"></a>發佈您的應用程式
 現在將您的應用程式發佈至伺服器供人使用，然後查看入口網站顯示的遙測。
 
 * 請確定您的防火牆允許應用程式將遙測傳送至這些連接埠：

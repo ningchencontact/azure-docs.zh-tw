@@ -16,7 +16,7 @@ ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -31,13 +31,13 @@ ms.lasthandoff: 01/03/2018
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| 名稱 |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。  該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br>  最佳做法是您給予 Webhook 的名稱應該與會使用其的用戶端相關。 |
+| Name |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。  該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br>  最佳做法是您給予 Webhook 的名稱應該與會使用其的用戶端相關。 |
 | URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。  當您建立 Webhook 時其會自動產生。  您無法指定自訂 URL。 <br> <br>  URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。 基於這個原因，應該將其視為一種密碼。  基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。 您應該在安全的位置記下 URL 以供日後使用。 |
 | 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。  此到期日期可在 Webhook 建立後加以修改。 |
 | 已啟用 |建立 Runbook 時 Webhook 會預設為啟用。  如果您將其設定為 [停用]，則任何用戶端皆無法使用。  當您建立 Webhook 時或在建立後的任何時候，您可以設定 [ **啟用** ] 屬性。 |
 
 ### <a name="parameters"></a>參數
-Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數值。 Webhook 必須包含任何 Runbook 的強制參數值，且可能包含選擇性的參數值。 設定 webhook 參數值可以修改甚至之後建立 webhook。 多個 Webhook 連結至單一 Runbook 時，可以個別使用不同的參數值。
+Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數值。 Webhook 必須包含任何 Runbook 的強制參數值，且可能包含選擇性的參數值。 您可以修改設定至 Webhoook 的參數值，甚至是在建立 Webhook 之後也可以進行修改。 多個 Webhook 連結至單一 Runbook 時，可以個別使用不同的參數值。
 
 當用戶端使用 Webhook 啟動 Runbook 時，其無法覆寫 Webhook 中定義的參數值。  若要從用戶端接收資料，Runbook 可以接受單一參數，稱之為 **$WebhookData** 的 [物件] 類型，其中包含用戶端在 POST 要求中所包含的資料。
 
@@ -53,7 +53,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 支援 **$WebhookData** 參數不需要 Webhook 的組態，且 Runbook 不需要接受其。  若 Runbook 並未定義參數，則會忽略從用戶端所傳送要求的任何詳細資料。
 
-如果您指定的值 $WebhookData 建立 webhook 時，值將會覆寫時 webhook 啟動 runbook 的資料從用戶端的 POST 要求，即使在要求主體中用戶端不包含任何資料。  若您使用 Webhook 以外的方式啟動具有 $WebhookData 的 Runbook，您可以提供可讓 Runbook 識別的 $WebhookData 值。  這個值應該是 [屬性](#details-of-a-webhook) 相同皆為 $Webhookdata 的物件，Runbook 如此即可正確地與其一起運作，就像是其使用 webhook 所傳遞的實際 WebhookData 一般。
+若您在建立 Webhook 時指定 $WebhookData 的值，即使用戶端在要求本文中並未包含任何資料，該值也會在 Webhook 使用來自用戶端 POST 要求的資料來啟動 Runbook 時遭到覆寫。  若您使用 Webhook 以外的方式啟動具有 $WebhookData 的 Runbook，您可以提供可讓 Runbook 識別的 $WebhookData 值。  這個值應該是 [屬性](#details-of-a-webhook) 相同皆為 $Webhookdata 的物件，Runbook 如此即可正確地與其一起運作，就像是其使用 webhook 所傳遞的實際 WebhookData 一般。
 
 例如，如果要從 Azure 入口網站啟動下列 Runbook，並想要傳遞一些 WebhookData 範例進行測試，因為 WebhookData 為物件，所以應以 UI 中的 JSON 加以傳遞。
 
@@ -85,10 +85,10 @@ Webhook 的安全性仰賴其 URL 的隱私權，其中包含可允許其接受�
 ## <a name="creating-a-webhook"></a>建立 Webhook
 使用下列程序在 Azure 入口網站中建立連結至 Runbook 的全新 Webhook。
 
-1. 從**Runbook 頁面**在 Azure 入口網站中，按一下 runbook webhook 啟動，檢視其詳細資料頁面。
-2. 按一下**Webhook**頂端的頁面，即可開啟**新增 Webhook**頁面。 <br>
+1. 從 Azure 入口網站的 [Runbook] 頁面中，按一下 Webhook 將開始檢視其詳細資料頁面的 Runbook。
+2. 按一下頁面頂端的 [Webhook] 以開啟 [新增 Webhook] 頁面。 <br>
    ![Webhook 按鈕](media/automation-webhooks/webhooks-button.png)
-3. 按一下**建立新的 webhook**開啟**建立 webhook 頁面**。
+3. 按一下 [建立新的 Webhook] 以開啟 [建立 Webhook] 頁面。
 4. 指定 Webhook 的 [名稱]、[到期日期] 以及是否應該啟用。 請參閱 [Webhook 的詳細資料](#details-of-a-webhook) 以取得這些屬性的詳細資訊。
 5. 按一下複製圖示，然後按 Ctrl + C 以複製 Webhook 的 URL。  然後將其記錄在安全的地方。  **一旦您建立 Webhook，即無法再次擷取 URL。** <br>
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)

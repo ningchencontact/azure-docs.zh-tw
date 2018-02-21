@@ -262,7 +262,7 @@ POST
 
 #### <a name="on-premises-data-gateway"></a>內部部署資料閘道
 
-邏輯應用程式的許多受管理連接器提供對內部部署系統 (包括檔案系統、SQL、SharePoint、DB2 等等) 的安全連線能力。 閘道會在加密通道上經過 Azure 服務匯流排轉送來自內部部署來源的資料。 源自閘道代理程式的所有流量都是安全輸出流量。 深入了解[資料閘道的運作方式](logic-apps-gateway-install.md#gateway-cloud-service)。
+邏輯應用程式的許多受控連接器提供對內部部署系統 (包括檔案系統、SQL、SharePoint、DB2 等等) 的安全連線能力。 閘道會在加密通道上經過 Azure 服務匯流排轉送來自內部部署來源的資料。 源自閘道代理程式的所有流量都是安全輸出流量。 深入了解[資料閘道的運作方式](logic-apps-gateway-install.md#gateway-cloud-service)。
 
 #### <a name="azure-api-management"></a>Azure API 管理
 

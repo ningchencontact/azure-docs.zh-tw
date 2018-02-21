@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -50,7 +50,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### <a name="claims-in-idtokens"></a>id_tokens 中的宣告
 > [!div class="mx-codeBreakAll"]
-| JWT 宣告 | 名稱 | 說明 |
+| JWT 宣告 | Name | 說明 |
 | --- | --- | --- |
 | `appid` |應用程式識別碼 |識別使用權杖來存取資源的應用程式。 應用程式代表本身或使用者行事。 應用程式識別碼通常代表應用程式物件，但也可以代表 Azure AD 中的服務主體物件。 <br><br> **範例 JWT 值**： <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |對象 |權杖的預定接收者。 接收權杖的應用程式必須確認對象值正確無誤，並拒絕任何適用於不同對象的權杖。 <br><br> **範例 SAML 值**： <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **範例 JWT 值**： <br> `"aud":"https://contoso.com"` |
@@ -64,7 +64,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `iat` |IssuedAt |儲存權杖簽發的時間。 這通常用來測量權杖有效時間。 <br><br> **範例 SAML 值**： <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **範例 JWT 值**： <br> `"iat": 1390234181` |
 | `iss` |簽發者 |識別負責建構並傳回權杖的 Security Token Service (STS)。 在 Azure AD 傳回的權杖中，簽發者為 sts.windows.net。 簽發者宣告值中的 GUID 是 Azure AD 目錄的租用戶識別碼。 租用戶識別碼是目錄的不可變且可靠的識別碼。 <br><br> **範例 SAML 值**： <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **範例 JWT 值**： <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |姓氏 |提供使用者的姓氏 (如 Azure AD 使用者物件中所定義)。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"family_name": "Miller"` |
-| `unique_name` |名稱 |提供人類看得懂的值，用以識別權杖的主體。 此值不保證是租用戶中的唯一值，而且僅限用於顯示目的。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"unique_name": "frankm@contoso.com"` |
+| `unique_name` |Name |提供人類看得懂的值，用以識別權杖的主體。 此值不保證是租用戶中的唯一值，而且僅限用於顯示目的。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |物件識別碼 |包含 Azure AD 中物件的唯一識別碼。 這個值不可變，而且無法重新指派或重複使用。 使用物件識別碼來識別 Azure AD 查詢中的物件。 <br><br> **範例 SAML 值**： <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` |角色 |表示透過群組成員資格，直接或間接授與主體的所有應用程式角色，而且可用來強制執行角色型存取控制。 應用程式角色是透過應用程式資訊清單的 `appRoles` 屬性，針對每個應用程式進行定義。 每個應用程式角色的 `value` 屬性就是出現在角色宣告中的值。 <br><br> **範例 SAML 值**： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **範例 JWT 值**： <br> `“roles”: ["Admin", … ]` |
 | `scp` |Scope |識別授與用戶端應用程式的模擬權限。 預設權限為 `user_impersonation`。 受保護資源的擁有者可以在 Azure AD 中註冊其他的值。 <br><br> **範例 JWT 值**： <br> `"scp": "user_impersonation"` |

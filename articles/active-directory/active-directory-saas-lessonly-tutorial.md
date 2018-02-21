@@ -15,7 +15,7 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
@@ -31,7 +31,7 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Lesson.ly 與 Azure AD 的整合作業，需要下列項目：
 

@@ -21,7 +21,7 @@ ms.author:
 - justcla
 ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 本文件說明如何使用 Visual Studio 2017 中的 [Microsoft Azure 虛擬機器] 發佈功能，將 ASP.NET Web 應用程式發行到 Azure 虛擬機器 (VM)。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 Visual Studio 將 ASP.NET 專案發行到 Azure VM，必須正確設定 VM。
 
 - 機器必須設定為執行 ASP.NET web 應用程式，並安裝 WebDeploy。

@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-sql-databases"></a>建立 SQL 資料庫
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 自助服務資料庫是透過使用者入口網站體驗所提供的。 使用者需要供應項目中包含資料庫服務的訂用帳戶。
 

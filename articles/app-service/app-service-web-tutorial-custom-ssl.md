@@ -38,7 +38,7 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 > [!NOTE]
 > 如果您需要自訂 SSL 憑證，可以直接在 Azure 入口網站取得，並將它繫結至 web 應用程式。 遵循 [App Service 憑證教學課程](web-sites-purchase-ssl-web-site.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -220,7 +220,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![強制使用 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-當作業完成時，瀏覽至指向您的應用程式的任何 HTTP URL。 例如：
+當作業完成時，瀏覽至指向您的應用程式的任何 HTTP URL。 例如︰
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

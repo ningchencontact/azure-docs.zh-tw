@@ -25,7 +25,7 @@ Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性�
 
 在本文中，您可升級到標準層以取得額外的安全性，並且在您的虛擬機器上安裝 Microsoft Monitoring Agent 以監視安全性弱點和威脅。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始使用資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 若要將訂用帳戶升級到標準層，您必須取得「訂用帳戶擁有者」、「訂用帳戶參與者」或「安全性管理員」角色。

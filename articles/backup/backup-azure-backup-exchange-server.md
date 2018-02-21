@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 繼續之前，請確定符合使用 Microsoft Azure 備份保護工作負載的所有 [必要條件](backup-azure-dpm-introduction.md#prerequisites) 。 這些先決條件包含下列各項：
 
 * 已在 Azure 網站上建立備份保存庫。
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
    * 我想要使用磁碟進行短期保護。
    * 我想要線上保護。
-6. 按一下 [下一步] 。
+6. 按 [下一步] 。
 7. 如果您想要檢查 Exchange Server 資料庫的完整性，請選取 [執行 Eseutil 以檢查資料完整性]  選項。
 
     選取此選項之後，將會在 DPM 伺服器上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
    > ![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 按一下 [下一步] 。
+8. 按 [下一步] 。
 9. 選取用於 [複製備份] 的資料庫，然後按 [下一步]。
 
    > [!NOTE]
@@ -87,10 +87,10 @@ ms.lasthandoff: 10/11/2017
 11. 檢閱可用的磁碟空間，然後按 [下一步] 。
 12. 選取 DPM 伺服器將建立初始複寫的時間，然後按 [下一步] 。
 13. 選取一致性檢查選項，然後按 [下一步] 。
-14. 選擇您要備份至 Azure 資料庫，然後按 [下一步] 。 例如：
+14. 選擇您要備份至 Azure 資料庫，然後按 [下一步] 。 例如︰
 
     ![指定線上保護資料](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如：
+15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如︰
 
     ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
     如果您有大型資料庫，則透過網路建立初始備份所需的時間很長。 若要避免這個問題，您可以建立離線備份。  
 
     ![指定線上保留期原則](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
-18. 確認設定，然後按一下建立群組 。
+18. 確認設定，然後按一下 [建立群組] 。
 19. 按一下 [關閉] 。
 
 ## <a name="recover-the-exchange-database"></a>復原 Exchange 資料庫

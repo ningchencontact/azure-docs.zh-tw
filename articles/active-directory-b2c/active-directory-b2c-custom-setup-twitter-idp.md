@@ -16,7 +16,7 @@ ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 本文將說明如何使用[自訂原則](active-directory-b2c-overview-custom.md)，讓 Twitter 帳戶的使用者登入。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="step-1-create-a-twitter-account-application"></a>步驟 1：建立 Twitter 帳戶應用程式

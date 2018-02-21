@@ -59,12 +59,12 @@ Linux 診斷延伸模組可協助使用者監視在 Microsoft Azure 上執行的
 
 請注意，此處描述的設定方法無法用於 Azure 入口網站。 若要直接從 Azure 入口網站檢視和設定系統及效能資料，就必須透過 Azure 入口網站啟用此延伸模組。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure Linux Agent 2.0.6 版或更新版本**。
 
   請注意，大部分的 Azure VM Linux 資源庫映像包含版本 2.0.6 或更新版本。 您可以執行 **WAAgent -version** 來確認 VM 上安裝的版本。 如果執行的 VM 版本早於 2.0.6，您可以依照 [GitHub 上的這些指示](https://github.com/Azure/WALinuxAgent "指示") 更新它。
-* **Azure CLI**。 遵循[本指引來安裝 CLI](../../../cli-install-nodejs.md)，以在電腦上設定 Azure CLI 環境。 安裝 Azure CLI 之後，您可以在命令列介面 (Bash、終端機或命令提示字元) 使用 **azure** 命令來存取 Azure CLI 命令。 例如：
+* **Azure CLI**。 遵循[本指引來安裝 CLI](../../../cli-install-nodejs.md)，以在電腦上設定 Azure CLI 環境。 安裝 Azure CLI 之後，您可以在命令列介面 (Bash、終端機或命令提示字元) 使用 **azure** 命令來存取 Azure CLI 命令。 例如︰
 
   * 執行 **azure vm extension set --help** 取得詳細的說明資訊。
   * 執行 **azure login** 登入 Azure。

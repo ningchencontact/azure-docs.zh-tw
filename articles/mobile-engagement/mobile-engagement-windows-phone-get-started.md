@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 即使下列步驟與舊版 Visual Studio 中的步驟類似，但這些步驟假設使用的是 Visual Studio 2015。 
 
 1. 啟動 Visual Studio，並在 [首頁] 畫面上選取 [新增專案]。
-2. 在快顯視窗中，依序選取 [Windows 8] -> [Windows Phone] ->  -> [空白應用程式 (Windows Phone Silverlight)]。 輸入應用程式的 名稱 和 方案名稱，然後按一下確定。
+2. 在快顯視窗中，依序選取 [Windows 8] -> [Windows Phone] ->  -> [空白應用程式 (Windows Phone Silverlight)]。 輸入應用程式的 [名稱] 和 [方案名稱]，然後按一下 [確定]。
    
     ![][1]
 3. 您可以選擇要將目標設為 **Windows Phone 8.0** 或 **Windows Phone 8.1**。
@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
    
     b. 以 `engagement:EngagementPage` 取代 XML 標記名稱內的 `phone:PhoneApplicationPage`。
 
-## <a id="monitor"></a>將 App 與即時監視連接
+## <a id="monitor"></a>將應用程式與即時監視連接
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>啟用推播通知與應用程式內傳訊

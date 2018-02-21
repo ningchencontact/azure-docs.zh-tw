@@ -89,7 +89,7 @@ ms.lasthandoff: 11/07/2017
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. 最後，將下列幾行加入至 **Main** 方法：
+7. 最後，將下列幾行新增至 **Main** 方法：
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartReboot().Wait();

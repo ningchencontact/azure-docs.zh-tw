@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
@@ -47,7 +47,7 @@ App Service Environment 現在有兩個版本：ASEv1 和 ASEv2。 如需 ASEv1 
 
 一般的應用程式存取連接埠為：
 
-| 使用 | 從 | 收件人 |
+| 使用 | 從 | 至 |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | 可由使用者設定 |  80、443 |
 |  FTP/FTPS    | 可由使用者設定 |  21、990、10001-10020 |
@@ -55,11 +55,18 @@ App Service Environment 現在有兩個版本：ASEv1 和 ASEv2。 如需 ASEv1 
 
 這適用於您位於外部 ASE 或 ILB ASE 上的情況。 如果您是在外部 ASE 中，就會叫用公用 VIP 上的那些連接埠。 如果您是在 ILB ASE 中，就會叫用 ILB 上的那些連接埠。 如果您鎖定連接埠 443，可能會影響在入口網站中公開的某些功能。 如需詳細資訊，請參閱[入口網站相依性](#portaldep)。
 
+## <a name="ase-subnet-size"></a>ASE 子網路大小 ##
+
+ASE 部署之後，就無法變更用來裝載 ASE 的子網路大小。  每個基礎結構角色以及每個隔離的 App Service 方案執行個體，ASE 都會使用一個位址。  此外，每建立一個子網路，Azure 網路就會使用 5 個位址。  在您建立應用程式之前，完全沒有 App Service 方案的 ASE 會使用 12 個位址。  如果是 ILB ASE，在您於其中建立應用程式之前，該 ASE 會使用 13 個位址。 隨著您相應放大 App Serivce 方案，新增的每個前端都需要額外的位址。  根據預設，每 15 個 App Service 方案執行個體就會新增前端伺服器。 
+
+   > [!NOTE]
+   > 除了 ASE 以外，子網路中可能沒有其他項目。 請務必選擇預留未來成長空間的位址空間。 您之後無法變更此設定。 我們建議使用包含 128 個位址的 `/25` 大小。
+
 ## <a name="ase-dependencies"></a>ASE 相依性 ##
 
 ASE 輸入存取相依性為：
 
-| 使用 | 從 | 收件人 |
+| 使用 | 從 | 至 |
 |-----|------|----|
 | 管理 | App Service 管理位址 | ASE 子網路：454、455 |
 |  ASE 內部通訊 | ASE 子網路：所有連接埠 | ASE 子網路：所有連接埠
@@ -76,10 +83,10 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 對於輸出存取，ASE 取決於多個外部系統。 那些系統相依性會以 DNS 名稱定義，且不會對應至一組固定的 IP 位址。 因此，ASE 需要透過不同的連接埠進行從 ASE 子網路至所有外部 IP 的輸出存取。 ASE 具有下列輸出相依性：
 
-| 使用 | 從 | 收件人 |
+| 使用 | 從 | 至 |
 |-----|------|----|
 | Azure 儲存體 | ASE 子網路 | table.core.windows.net、blob.core.windows.net、queue.core.windows.net、file.core.windows.net：80、443、445 (只有 ASEv1 才需要 445) |
-| Azure SQL Database | ASE 子網路 | database.windows.net：1433、11000-11999、14000-14999 (如需詳細資訊，請參閱 [SQL Database V12 連接埠用法](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md))|
+| 連接字串 | ASE 子網路 | database.windows.net：1433、11000-11999、14000-14999 (如需詳細資訊，請參閱 [SQL Database V12 連接埠用法](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md))|
 | Azure 管理 | ASE 子網路 | management.core.windows.net、management.azure.com：443 
 | SSL 憑證驗證 |  ASE 子網路            |  ocsp.msocsp.com、mscrl.microsoft.com、crl.microsoft.com：443
 | Azure Active Directory        | ASE 子網路            |  網際網路：443
@@ -150,7 +157,7 @@ ASE 有一些 IP 位址需要注意。 如下：
 
 NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊僅針對 Azure 入口網站說明。 您會在入口網站中的 [網路] 底下，以最上層資源的形式建立及管理 NSG。
 
-將輸入和輸出需求納入考量時，NSG 看起來應類似此範例中顯示的 NSG。 VNet 位址範圍為 _192.168.250.0/16_，且 ASE 所在的子網路為 _192.168.251.128/25_。
+將輸入和輸出需求納入考量時，NSG 看起來應類似此範例中顯示的 NSG。 VNet 位址範圍為 _192.168.250.0/23_，且 ASE 所在的子網路為 _192.168.251.128/25_。
 
 讓 ASE 能夠運作的前兩個輸入需求顯示在此範例中清單的最上方。 它們能啟用 ASE 管理，並允許 ASE 和自己通訊。 其他項目都是租用戶設定項目，而且可以管理對 ASE 裝載應用程式的網路存取。 
 
@@ -168,13 +175,13 @@ NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊�
 
 ## <a name="routes"></a>路由 ##
 
-路由最常在您使用 Azure ExpressRoute 設定 VNet 時造成問題。 VNet 中有三種類型的路由：
+路由是強制通道處理以及其處理方式的重要關鍵。 在 Azure 虛擬網路中，路由是根據 最長首碼比對 (LPM) 而進行。 如果有多個符合相同 LPM 的路由，則會根據其來源，以下列順序選取路由：
 
--   系統路由
--   BGP 路由
--   使用者定義的路由 (UDR)
+- 使用者定義的路由 (UDR)
+- BGP 路由 (使用 ExpressRoute 時)
+- 系統路由
 
-BGP 路由會覆寫系統路由。 UDR 會覆寫 BGP 路由。 如需 Azure 虛擬網路中關於路由的詳細資訊，請參閱[使用者定義路由概觀][UDRs]。
+若要深入了解虛擬網路中的路由，請閱讀[使用者定義的路由和 IP 轉送][UDRs]。
 
 ASE 用來管理系統的 Azure SQL 資料庫具備防火牆。 它需要透過通訊由 ASE 公用 VIP 產生。 從 ASE 連線到 SQL 資料庫的連線如果是透過 ExpressRoute 連線傳送及送出到其他 IP 位址，該連線將會遭到拒絕。
 

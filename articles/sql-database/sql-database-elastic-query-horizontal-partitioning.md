@@ -29,7 +29,7 @@ ms.lasthandoff: 10/31/2017
 
 如需非分區化資料庫，請參閱 [對不同結構描述的雲端資料庫執行查詢](sql-database-elastic-query-vertical-partitioning.md)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 使用彈性資料庫用戶端程式庫，建立分區對應。 請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。 或使用 [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)中的範例應用程式。
 * 或者，請參閱 [轉換現有的資料庫以使用彈性資料庫工具](sql-database-elastic-convert-to-use-elastic-tools.md)。
 * 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。

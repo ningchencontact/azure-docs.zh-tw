@@ -23,7 +23,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 建立內部負載平衡器
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [HttpTrigger Nodejs 函數](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-ilb-arm-template.md)

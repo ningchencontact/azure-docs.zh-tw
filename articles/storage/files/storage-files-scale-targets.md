@@ -20,7 +20,8 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
-[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中受到完整管理的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文討論 Azure 檔案服務和 Azure 檔案同步 (預覽) 的延展性和效能目標。
+
+            [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文討論 Azure 檔案服務和 Azure 檔案同步 (預覽) 的延展性和效能目標。
 
 此處所列的延展性和效能目標是高階的目標，但可能會受到部署中的其他變數影響。 例如，檔案的輸送量可能也受限於可用的網路頻寬，而不只是裝載 Azure 檔案服務的伺服器。 我們強烈建議您測試您的使用模式，以判斷 Azure 檔案服務的延展性和效能是否符合您的需求。 我們也保證會隨時間提高這些限制。 歡迎您在底下留言或前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，提供想要我們提高哪些限制的意見反應。
 

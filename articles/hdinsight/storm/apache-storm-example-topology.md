@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 以下是 Microsoft 所建立和維護的範例清單，可搭配 Apache Storm on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務，例如事件中樞、Cosmos DB、SQL Database、HBase on HDInsight 和 Azure 儲存體。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
 
-| 描述 | 示範 | 語言/架構 |
+| 說明 | 示範 | 語言/架構 |
 |:--- |:--- |:--- |
 | [從 Apache Storm 寫入 Azure Data Lake Store](apache-storm-write-data-lake-store.md) |寫入 Azure Data Lake Store |Java |
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |事件中樞 Spout 和 Bolt 的來源 |Java |

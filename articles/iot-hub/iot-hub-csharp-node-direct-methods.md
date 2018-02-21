@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 確定 .NET Framework 為 4.5.1 或更新版本。 將專案命名為 **CallMethodOnDevice**。
    
     ![新的 Visual C# Windows 傳統桌面專案][10]
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CallMethodOnDevice** 專案，然後按一下 [管理 NuGet 套件...]
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CallMethodOnDevice** 專案，然後按一下 [管理 NuGet 套件...]。
 3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 套件管理員視窗][11]
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
         }
    
     此方法會在 `myDeviceId` 裝置上叫用名稱為 `writeLine` 的直接方法。 然後，它會在主控台上寫入裝置所提供的回應。 請注意，可以針對要回應的裝置指定逾時值。
-7. 最後，將下列幾行加入至 **Main** 方法：
+7. 最後，將下列幾行新增至 **Main** 方法：
    
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
         InvokeMethod().Wait();
@@ -168,7 +168,7 @@ ms.lasthandoff: 10/11/2017
 
 若要繼續開始使用 IoT 中樞並瀏覽其他 IoT 案例，請參閱︰
 
-* [IoT 中樞入門]
+* [IoT 中心入門]
 * [排程多個裝置上的作業][lnk-devguide-jobs]
 
 若要了解如何擴充您的 IoT 解決方案以及在多個裝置上排程方法呼叫，請參閱[排程及廣播作業][lnk-tutorial-jobs]教學課程。
@@ -198,4 +198,4 @@ ms.lasthandoff: 10/11/2017
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[IoT 中樞入門]: iot-hub-node-node-getstarted.md
+[IoT 中心入門]: iot-hub-node-node-getstarted.md

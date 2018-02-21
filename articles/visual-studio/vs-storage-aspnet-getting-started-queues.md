@@ -29,7 +29,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 本教學課程說明如何使用 Azure 佇列儲存體實體撰寫一些常見案例的 ASP.NET 程式碼。 這些案例包括一般工作，例如建立 Azure 佇列，以及新增、修改、讀取和移除佇列訊息。
 
-##<a name="prerequisites"></a>必要條件
+##<a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)

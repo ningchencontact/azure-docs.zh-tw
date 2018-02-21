@@ -51,7 +51,7 @@ ms.lasthandoff: 10/23/2017
 ![您需要什麼](media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
 * Raspberry Pi 2 或 Raspberry Pi 3 電路板。
-* 有效的 Azure 訂用帳戶。 如果您沒有 Azure 帳戶，請花幾分鐘的時間建立[免費的 Azure 試用帳戶](https://azure.microsoft.com/free/)。
+* 有效的 Azure 訂用帳戶。 如果您沒有 Azure 帳戶，請花幾分鐘的時間[建立免費的 Azure 試用帳戶](https://azure.microsoft.com/free/)。
 * 連接至 Pi 的監視器、 USB 鍵盤和滑鼠。
 * 執行 Windows 或 Linux 的 Mac 或 PC。
 * 網際網路連線。

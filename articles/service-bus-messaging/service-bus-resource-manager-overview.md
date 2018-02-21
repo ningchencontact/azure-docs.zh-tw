@@ -180,7 +180,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>設定資源群組
 
-如果沒有現成的資源群組，請使用 **New-AzureRmResourceGroup ** 命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如：
+如果沒有現成的資源群組，請使用 **New-AzureRmResourceGroup ** 命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如︰
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"

@@ -399,7 +399,7 @@ Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>深入了解
 觀賞[深入了解 Azure 搜尋服務](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)。 在 45:25 時有示範如何實作多面向。
 
 如需多面向導覽設計原則的深入見解，推薦您下列連結：

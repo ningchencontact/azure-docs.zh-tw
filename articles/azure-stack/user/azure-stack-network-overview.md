@@ -15,7 +15,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 網路服務簡介
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 提供各種不同的網路服務功能，可以一起或分開使用。
 - Azure Stack 資源之間的連線能力︰在雲端的安全私人虛擬網路中，將 Azure 資源連接在一起。

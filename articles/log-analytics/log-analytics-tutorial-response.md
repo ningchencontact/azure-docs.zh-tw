@@ -24,7 +24,7 @@ ms.lasthandoff: 10/24/2017
 # <a name="respond-to-events-with-log-analytics-alerts"></a>使用 Log Analytics 警示來回應事件
 Log Analytics 中的警示會識別您的 Log Analytics 儲存機制中的重要資訊。  它們是由自動定期執行記錄搜尋的警示規則所建立，如果記錄搜尋的結果符合特定準則，則會建立一個警示記錄，而它可以設定為執行自動化的回應。  本教學課程是[建立和共用 Log Analytics 資料的儀表板](log-analytics-tutorial-dashboards.md)教學課程的延續。   
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立警示規則

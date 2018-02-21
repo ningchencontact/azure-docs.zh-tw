@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 在本教學課程中，您將使用下列工具。 這不是工具的完整討論，因此將著重在端對端案例，並且只對每個工具進行簡短介紹，以及您可以在哪裡找到更多資訊。 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 資源管理員範本 (JSON)
-例如，每次在 Azure App Service 中建立 Web 應用程式時，Azure 資源管理員都會使用 JSON 範本來建立具有元件資源的整個資源群組。 來自 [Azure Marketplace](/marketplace) 的複雜範本 (例如 [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/) 應用程式) 可以包括 MySQL 資料庫、儲存體帳戶、App Service 方案、Web 應用程式本身、警示規則、應用程式設定、自動調整設定等，而且您可以透過 PowerShell 使用所有這些範本。 如需如何下載和使用這些範本的詳細資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+例如，每次在 Azure App Service 中建立 Web 應用程式時，Azure 資源管理員都會使用 JSON 範本來建立具有元件資源的整個資源群組。 像是 [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/) 應用程式等來自 [Azure Marketplace](/marketplace) 的複雜範本，可包括 MySQL 資料庫、儲存體帳戶、App Service 方案、Web 應用程式本身、警示規則等等，而且您可以透過 PowerShell 使用所有這類範本。 如需如何下載和使用這些範本的詳細資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
 
 如需 Azure 資源管理員範本的詳細資訊，請參閱 [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
 
@@ -206,7 +206,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
 6. 按一下 [ **加入資源**]，將一些標準 Application Insight 資源加入 JSON 檔案，但此作業僅供示範之用。 如果您只想部署 JSON 檔案，請跳至部署步驟。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. 選取 Web Apps 的 Application Insights，並確定已選取現有 App Service 方案和 Web 應用程式，然後按一下新增。
+7. 選取 [Web Apps 的 Application Insights]，並確定已選取現有 App Service 方案和 Web 應用程式，然後按一下 [新增]。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
@@ -225,7 +225,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 登入 Azure 帳戶 (如果您尚未這樣做)。
-14. 在您的訂用帳戶中選取現有的資源群組，或選取 **azuredeploy.json**，然後按一下編輯參數 建立新的資源群組。
+14. 在您的訂用帳戶中選取現有的資源群組，或選取 **azuredeploy.json**，然後按一下 [編輯參數] 建立新的資源群組。
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
@@ -256,7 +256,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
 
 最後一個 Cmdlet ( `New-AzureResourceGroup`) 是實際執行動作的 Cmdlet。 所有這些動作都是在告訴您，在工具的協助下，透過可預測方式部署您的雲端應用程式相當簡單。 每次對具有相同參數檔案的相同範本執行 Cmdlet 時，結果都會相同。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 在 DevOps 中，重複性和可預測性是任何成功部署包含微服務之高級別應用程式的關鍵。 在本教學課程中，您已使用 Azure 資源管理員範本將雙微服務應用程式部署至 Azure 以做為單一資源群組。 希望這可讓您了解如何開始將 Azure 中的應用程式轉換成範本，而且可以透過可預測方式進行佈建和部署。 
 
 <a name="resources"></a>

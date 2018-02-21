@@ -15,7 +15,7 @@ ms.date: 03/17/2017
 ms.author: mbullwin
 ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -57,7 +57,7 @@ Application Insights 趨勢會從您的應用程式的遙測建立時間序列�
 
 使用視窗頂端的控制項來調整您可檢視的遙測類型。 首先，選擇您感興趣的遙測類型︰
 
-* **遙測類型**-伺服器要求、 例外狀況、 相依性或自訂事件
+* **遙測類型** - 伺服器要求、例外狀況、相依性或自訂事件
 * **時間範圍** - 從過去 30 分鐘到過去 3 天的任何時間
 * **分組依據** - 例外狀況類型、問題識別碼、國家/區域等等。
 

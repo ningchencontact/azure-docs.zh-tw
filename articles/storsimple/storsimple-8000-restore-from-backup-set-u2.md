@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="to-restore-your-volume"></a>還原您的磁碟區
-1. 移至 StorSimple 裝置管理員服務，然後按一下備份類別目錄。
+1. 移至 StorSimple 裝置管理員服務，然後按一下 [備份類別目錄]。
 
 2. 選取備份組，如下所示：
    

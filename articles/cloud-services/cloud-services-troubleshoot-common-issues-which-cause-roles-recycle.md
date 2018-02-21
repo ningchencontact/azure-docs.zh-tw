@@ -27,7 +27,7 @@ ms.lasthandoff: 11/04/2017
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>遺失執行階段相依性
-如果應用程式中的角色依賴任何不屬於 .NET Framework 或 Azure Managed 程式庫的組件，您必須明確地在應用程式封裝中包含該組件。 請記住，其他 Microsoft 架構依預設並未在 Azure 上提供。 如果您的角色依賴這類架構，您必須將這些組件新增至應用程式封裝。
+如果應用程式中的角色依賴任何不屬於 .NET Framework 或 Azure 受控程式庫的組件，您必須明確地在應用程式封裝中包含該組件。 請記住，其他 Microsoft 架構依預設並未在 Azure 上提供。 如果您的角色依賴這類架構，您必須將這些組件新增至應用程式封裝。
 
 在您建置及封裝應用程式之前，請確認下列項目：
 

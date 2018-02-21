@@ -170,7 +170,7 @@ mysql>
 |   連線名稱 | 我的連線 | 指定此連線的標籤 (這可以是任何項目) |
 | 連線方式 | 選擇標準 (TCP/IP) | 使用 TCP/IP 通訊協定來連線到 MySQL> 的 Azure 資料庫 |
 | 主機名稱 | myserver4demo.mysql.database.azure.com | 您先前記下的伺服器名稱。 |
-| 連接埠 | 3306 | 會使用 MySQL 的預設連接埠。 |
+| Port | 3306 | 會使用 MySQL 的預設連接埠。 |
 | 使用者名稱 | myadmin@myserver4demo | 先前記下的伺服器管理員登入。 |
 | 密碼 | **** | 使用您稍早設定的管理帳戶密碼。 |
 

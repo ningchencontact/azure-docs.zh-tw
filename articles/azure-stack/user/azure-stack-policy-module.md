@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 原則模組管理 Azure 原則
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 原則模組可讓您將 Azure 訂用帳戶，設定與 Azure Stack 具有相同的版本和服務可用性。  此模組會使用 **New-AzureRMPolicyAssignment** cmdlet 來建立 Azure 原則，限制訂用帳戶中可用的資源類型和服務。  完成後，您可以使用您的 Azure 訂用帳戶來開發 Azure Stack 的目標應用程式。  
 

@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -399,9 +399,9 @@ Azure 記錄整合目前支援整合 Azure 活動記錄、您 Azure 訂用帳戶
 | 記錄類型 | 支援 JSON 的記錄分析 (Splunk、ArcSight、Qradar) |
 | :------- | :-------------------------------------------------------- |
 |AAD 稽核記錄|    是|
-|活動記錄檔| 是|
-|ASC 警示 |是|
-|診斷記錄 (資源記錄)|  是|
+|活動記錄檔| yes|
+|ASC 警示 |yes|
+|診斷記錄 (資源記錄)|  yes|
 |VM 記錄|   是，透過轉送的事件，而非透過 JSON|
 
 

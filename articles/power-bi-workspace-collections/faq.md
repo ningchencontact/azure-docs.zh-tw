@@ -66,7 +66,7 @@ Azure 入口網站會針對您的訂用帳戶提供已經執行多少轉譯/報�
 是。 您可以使用現有的 Azure 訂用帳戶來佈建及使用 Microsoft Power BI 工作區集合服務。
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>我的應用程式的使用者是否需要 Power BI 授權？
-否。 您應用程式的使用者不需購買個別的 Power BI 訂用帳戶，就能存取應用程式內資料視覺效果。 在 Power BI 工作區集合模型中，應用程式提供者需透過 Azure 使用計量來為服務付費。 請參閱[定價和授權頁面](http://go.microsoft.com/fwlink/?LinkId=760527)。
+編號 您應用程式的使用者不需購買個別的 Power BI 訂用帳戶，就能存取應用程式內資料視覺效果。 在 Power BI 工作區集合模型中，應用程式提供者需透過 Azure 使用計量來為服務付費。 請參閱[定價和授權頁面](http://go.microsoft.com/fwlink/?LinkId=760527)。
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>如何使用 Power BI 工作區集合來執行使用者驗證工作？
 Power BI 工作區集合服務會使用應用程式權杖進行驗證和授權，而不使用明確的使用者驗證。 在應用程式權杖模型中，您的應用程式會管理使用者的驗證與授權。 然後，必要時，您的應用程式會建立

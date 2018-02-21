@@ -53,7 +53,7 @@ Application Insights 資料模型會定義兩個欄位來解決這個問題：`r
 
 在結果檢視中，請注意所有遙測項目都會共用根目錄 `operation_Id`。 從此頁面發出 AJAX 呼叫時 - 會將新的唯一識別碼 `qJSXU` 指派給相依性遙測，並使用 pageView 的識別碼作為 `operation_ParentId`。 伺服器要求接著會使用 AJAX 的識別碼作為 `operation_ParentId` 等等。
 
-| itemType   | 名稱                      | id           | operation_ParentId | operation_Id |
+| itemType   | name                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock 頁面                |              | STYz               | STYz         |
 | 相依性 | GET /Home/Stock           | qJSXU        | STYz               | STYz         |

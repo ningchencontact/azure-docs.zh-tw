@@ -264,7 +264,7 @@ HBase Master 服務可能需要五分鐘的時間，才能穩定和完成復原�
 
 ## <a name="what-causes-a-master-server-to-fail-to-start"></a>什麼情況導致主要伺服器無法啟動？
 
-### <a name="error"></a>錯誤 
+### <a name="error"></a>Error 
 
 發生不可部分完成的重新命名失敗。
 
@@ -286,7 +286,7 @@ HBase Master 服務可能需要五分鐘的時間，才能穩定和完成復原�
 
 執行這些命令之後，HMaster 應立即啟動。 
 
-### <a name="error"></a>錯誤
+### <a name="error"></a>Error
 
 區域 xxx 的 *hbase: meta* 中未列出任何伺服器位址。
 
@@ -321,7 +321,7 @@ HBase Master 服務可能需要五分鐘的時間，才能穩定和完成復原�
 [Unable to process the HBase table](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table) (無法處理 HBase 資料表)
 
 
-### <a name="error"></a>錯誤
+### <a name="error"></a>Error
 
 HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOException：等待指派命名空間資料表時，逾時 300000 毫秒」。
 

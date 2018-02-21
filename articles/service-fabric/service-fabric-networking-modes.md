@@ -179,7 +179,7 @@ ms.lasthandoff: 01/09/2018
    |設定 |值 | |
    | --- | --- | --- |
    |優先順序 |2000 | |
-   |名稱 |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |來源 |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |

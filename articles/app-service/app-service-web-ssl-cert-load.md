@@ -27,7 +27,7 @@ ms.lasthandoff: 12/01/2017
 
 當您讓 App Service 管理您的 SSL 憑證時，您可以分開維護憑證以及應用程式程式碼，並保護您的敏感性資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本作法指南：
 

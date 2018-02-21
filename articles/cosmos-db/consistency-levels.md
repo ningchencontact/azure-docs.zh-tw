@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Tunable 資料一致性層級
 Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計。 它的設計目的是提供可預測的低延遲保證，以及多個定義完善且寬鬆的一致性層級模型。 Azure Cosmos DB 目前提供五種一致性層級：強式、限定過期、工作階段、一致的前置和最終。 限定過期、工作階段、一致前置詞、最終，統稱為「寬鬆的一致性模型」，因為它們提供的一致性比強式更小，後者是最高一致性的模型。 
@@ -117,6 +117,10 @@ Azure Cosmos DB 提供全面性的 99.99% [SLA](https://azure.microsoft.com/supp
 | None |從強式、限定過期、工作階段、一致前置詞或最終等選項中選取 |不適用 |
 
 和讀取要求相同，您可以在每個 API 中降低特定查詢要求的一致性層級。
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>MongoDB API 的一致性層級
+
+Azure Cosmos DB 目前實作 MongoDB 3.4 版，有強式與最終這兩種一致性設定。 因為 Azure Cosmos DB 是多 API，所以一致性設定適用於帳戶層級，而強制執行一致性則由各個 API 控制。  MongoDB 3.6 問世之前，並沒有工作階段一致性的概念，如果您將 MongoDB API 帳戶設定為使用工作階段一致性，使用 MongoDB API 時都會降級為最終一致性。 如果您需要 MongoDB API 帳戶的讀取自己的寫入保證，該帳戶的預設一致性層級應設定為強式或限定過期。
 
 ## <a name="next-steps"></a>後續步驟
 如果您想要詳細了解一致性層級和取捨，我們建議下列資源：

@@ -65,4 +65,4 @@ ms.lasthandoff: 10/11/2017
 * 設定 ExpressRoute 連線。
   * [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
   * [設定路由](expressroute-howto-routing-classic.md)
-  * [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
+  * [將 VNet 連結到 ExpressRoute 循環](expressroute-howto-linkvnet-classic.md)

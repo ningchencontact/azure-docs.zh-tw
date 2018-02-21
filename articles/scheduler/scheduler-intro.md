@@ -27,7 +27,7 @@ Azure 排程器可讓您以宣告方式描述在雲端中執行的動作。 然�
 
 排程器會排程 [工作](scheduler-concepts-terms.md)、保留使用者可以檢閱的工作執行結果歷程記錄，並且決定性地和可靠地排程要執行的工作負載。 Azure WebJobs (Azure App Service 之 Web Apps 功能的一部分) 和其他 Azure 排程功能會在背景使用排程器。 [排程器 REST API](https://msdn.microsoft.com/library/mt629143.aspx) 會協助管理這些動作的通訊。 因此，排程器可輕鬆地支援 [複雜的排程和進階週期](scheduler-advanced-complexity.md) 。
 
-需要使用排程器的案例有幾個。 例如：
+需要使用排程器的案例有幾個。 例如︰
 
 * 週期性應用程式動作：定期將 Twitter 中的資料收集到摘要中。
 * 每日維護：每日剪除記錄、執行備份及其他維護工作。 例如，系統管理員可以選擇早上 1:00 備份資料庫， 期間為接下來九個月的每天。

@@ -38,7 +38,7 @@
             info:    network vnet subnet create command OK
    
    * **-t (或 --vnet-name)**。 將會建立子網路的 VNet 名稱。 在本文案例中為 *TestVNet*。
-   * **-n (或 --name)**。 新子網路的名稱。 在本文案例中為 *BackEnd*。
+   * **-n (or --name)**。 新子網路的名稱。 在本文案例中為 *BackEnd*。
    * **-a (或 --address-prefix)**。 子網路 CIDR 區塊。 在本文案例中為 *192.168.2.0/24*。
 4. 執行 **azure network vnet show** 命令以檢視新 Vnet 的屬性，如下所示。
    

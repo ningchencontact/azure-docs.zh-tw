@@ -181,7 +181,7 @@ Microsoft 會使用加密功能來保護在客戶與 Azure 雲端服務之間傳
 
 傳輸中的資料一律會在 [Data Lake Store] 中加密 (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview)。 除了在儲存至持續性媒體之前加密資料，也一律會使用 HTTPS 保護傳輸中的資料。 HTTPS 是 Data Lake Store REST 介面支援的唯一通訊協定。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 強制使用 Azure 儲存體的 HTTPS 連線、使用共用存取簽章，以及在儲存體帳戶上啟用「需要安全傳輸」，公司即可完成其保護個人資料及這類資料隱私權的目標。 他們也可藉由使用 SMB 3.0 連線並實作用戶端加密來保護個人資料。 從公司網路至 Azure 虛擬網路的站對站 VPN 連線以及來自個別使用者的點對站 VPN 連線將會建立安全通道，透過它即可安全地傳輸個人資料。 Microsoft 的預設加密作法會進一步保護個人資料的隱私權。
 

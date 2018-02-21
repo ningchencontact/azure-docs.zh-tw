@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 2. 按一下頁面底部的 [關閉] 。
    
     ![裝置關閉 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. 會出現警告，指出關閉裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png)。
+3. 會出現警告，指出關閉裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![裝置關閉警告](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
 2. 按一下頁面底部的 [重新啟動] 。
    
     ![裝置重新啟動](./media/storsimple-ova-web-ui-admin/image36.png)
-3. 會出現警告，指出重新啟動裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png)。
+3. 會出現警告，指出重新啟動裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![重新啟動警告](./media/storsimple-ova-web-ui-admin/image37.png)
    

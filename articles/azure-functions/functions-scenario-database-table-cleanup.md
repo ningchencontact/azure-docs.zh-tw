@@ -26,7 +26,7 @@ ms.lasthandoff: 11/30/2017
 
 若要讓您的函式程序在 Mobile Apps 資料表中個別建立、讀取、更新及刪除 (CRUD) 作業，您應該改用 [Mobile Apps 繫結](functions-bindings-mobile-apps.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 本主題使用計時器觸發的函數。 完成主題[在 Azure 中建立由計時器觸發的函數](functions-create-scheduled-function.md)中的步驟，以建立此函數的 C# 版本。   
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/30/2017
     | **值** | 複製的字串  | 貼上您在上一節中複製的連接字串，並將 `{your_username}` 和 `{your_password}` 預留位置取代為實際的值。 |
     | **類型** | SQL Database | 使用預設的 SQL Database 連接。 |   
 
-3. 按一下 [儲存] 。
+3. 按一下 [檔案] 。
 
 現在，您可以加入 C# 函數程式碼來連接到 SQL Database。
 

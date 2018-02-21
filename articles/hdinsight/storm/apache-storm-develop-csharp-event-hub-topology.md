@@ -114,7 +114,7 @@ topologyBuilder.SetJavaBolt(
 
 您可以從 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) 下載本教學課程中所建立之專案的完整版本。 不過，您仍需要遵循本教學課程中的步驟，提供組態設定。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * [Apache Storm on HDInsight 叢集 3.5 或 3.6 版](apache-storm-tutorial-get-started-linux.md)。
 
@@ -144,7 +144,7 @@ topologyBuilder.SetJavaBolt(
 
 1. 在建立事件中樞之後，檢視 Azure 入口網站中的 [事件中樞] 刀鋒視窗，然後選取 [共用存取原則]。 選取 [+ 新增] 連結來新增下列原則︰
 
-   | 名稱 | 權限 |
+   | Name | 權限 |
    | --- | --- |
    | 寫入器 |傳送 |
    | 讀取器 |接聽 |

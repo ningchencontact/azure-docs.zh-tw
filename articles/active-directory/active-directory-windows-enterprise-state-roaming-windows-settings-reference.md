@@ -17,7 +17,7 @@ ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,10 +29,10 @@ ms.lasthandoff: 12/11/2017
 
 | 帳戶類型和作業 | 桌上型 | 行動 |
 | --- | --- | --- |
-| Azure Active Directory：同步處理 |是 |否 |
+| Azure Active Directory：同步處理 |yes |否 |
 | Azure Active Directory：備份/還原 |否 |否 |
-| Microsoft 帳戶：同步處理 |是 |是 |
-| Microsoft 帳戶：備份/還原 |否 |是 |
+| Microsoft 帳戶：同步處理 |yes |yes |
+| Microsoft 帳戶：備份/還原 |否 |yes |
 
 ## <a name="what-is-backup"></a>什麼是備份？
 根據預設，Windows 設定一般會同步處理，但是某些設定只能備份，例如裝置上已安裝應用程式的清單。 備份僅適用於行動裝置，目前不適用企業狀態漫遊使用者。 備份會使用 Microsoft 帳戶，並將設定和應用程式資料儲存到 OneDrive。 如果使用者使用 [設定] 應用程式在裝置上停用同步處理，通常可以同步處理的應用程式資料會變成只能備份。 備份資料在新裝置第一次執行期間，只能透過還原作業存取。 備份可以透過裝置設定停用，並且能透過使用者的 OneDrive 帳戶管理及刪除。

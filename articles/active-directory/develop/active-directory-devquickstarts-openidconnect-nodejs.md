@@ -1,5 +1,5 @@
 ---
-title: "開始使用 azure AD Node.js web 應用程式 |Microsoft 文件"
+title: "Azure AD Node.js Web 應用程式快速入門 | Microsoft Docs"
 description: "了解如何建立可整合 Azure AD 以進行登入的 Node.js Express MVS Web 應用程式。"
 services: active-directory
 documentationcenter: nodejs
@@ -17,11 +17,11 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-nodejs-web-app-getting-started"></a>開始使用 azure AD Node.js web 應用程式
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 應用程式快速入門
 在此我們使用 Passport 來執行下列動作：
 
 * 使用 Azure Active Directory (Azure AD) 將使用者登入應用程式。

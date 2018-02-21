@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [Azure Batch 帳戶](batch-account-create-portal.md)
 * [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   

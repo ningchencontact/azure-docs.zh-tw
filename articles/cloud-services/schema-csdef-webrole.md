@@ -1,5 +1,5 @@
 ---
-title: "Azure 雲端服務定義WebRole 結構描述 | Microsoft Docs"
+title: "Azure 雲端服務定義。WebRole 結構描述 | Microsoft Docs"
 ms.custom: 
 ms.date: 04/14/2015
 ms.prod: azure
@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: "60"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt
@@ -117,7 +117,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 [FixedPortRange](#FixedPortRange)
 
-[憑證](#Certificates)
+[Certificates](#Certificates)
 
 [憑證](#Certificate)
 
@@ -164,7 +164,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 Web 角色的名稱。 角色的名稱必須是唯一的。|  
+|name|字串|必要。 Web 角色的名稱。 角色的名稱必須是唯一的。|  
 |enableNativeCodeExecution|布林值|選用。 預設值是 `true`；預設會啟用機器碼執行和完全信任。 將此屬性設為 `false` 會停用 Web 角色的機器碼執行，並改用 Azure 部分信任。|  
 |vmsize|字串|選用。 設定此值可變更對角色所配置的虛擬機器大小。 預設值為 `Small`。 如需詳細資訊，請參閱[雲端服務的虛擬機器大小](cloud-services-sizes-specs.md)。|  
 
@@ -178,7 +178,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 組態設定的唯一名稱。|  
+|name|字串|必要。 組態設定的唯一名稱。|  
 
 角色的組態設定是名稱/值組，此組合會於服務定義檔中宣告並於服務組態檔中設定。
 
@@ -195,7 +195,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 本機存放區的唯一名稱。|  
+|name|字串|必要。 本機存放區的唯一名稱。|  
 |cleanOnRoleRecycle|布林值|選用。 指出當角色重新啟動時，是否應清除本機存放區。 預設值為 `true`。|  
 |sizeInMb|int|選用。 想要配置給本機存放區的儲存體空間數量，以 MB 為單位。 若未指定，則預設配置的儲存體空間是 100 MB。 可配置的儲存體空間最小數量為 1 MB。<br /><br /> 本機資源最大的大小取決於虛擬機器大小。 如需詳細資訊，請參閱[雲端服務的虛擬機器大小](cloud-services-sizes-specs.md)。|  
   
@@ -218,8 +218,8 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 外部端點的唯一名稱。|  
-|protocol|string|必要。 外部端點的傳輸通訊協定。 針對 Web 角色，可能的值為 `HTTP`、`HTTPS`、`UDP` 或 `TCP`。|  
+|name|字串|必要。 外部端點的唯一名稱。|  
+|protocol|字串|必要。 外部端點的傳輸通訊協定。 針對 Web 角色，可能的值為 `HTTP`、`HTTPS`、`UDP` 或 `TCP`。|  
 |連接埠|int|必要。 外部端點的連接埠。 您可以指定所選擇的任何通訊埠編號，但服務中每個角色指定的連接埠號碼必須是唯一的。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。|  
 |憑證|字串|HTTPS 端點的必要項。 `Certificate` 元素所定義的憑證名稱。|  
 |localPort|int|選用。 指定用於端點上內部連線的通訊埠。 `localPort` 屬性會將端點上的外部連接埠對應至角色上的內部連接埠。 這對於一個角色必須與不同於對外連接埠之連接埠上的內部元件通訊的情節很有用。<br /><br /> 如果未指定，`localPort` 的值會與 `port` 屬性相同。 將 `localPort` 的值設定為 “*”，可使用執行階段 API 自動指派可探索的未配置連接埠。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。<br /><br /> 在使用 Azure SDK 1.3 版或更新版本時，才能使用 `localPort` 屬性。|  
@@ -233,8 +233,8 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 內部端點的唯一名稱。|  
-|protocol|string|必要。 內部端點的傳輸通訊協定。 可能的值為 `HTTP`、`TCP`、`UDP` 或 `ANY`。<br /><br /> `ANY` 的值會指定允許的任何通訊協定、任何連接埠。|  
+|name|字串|必要。 內部端點的唯一名稱。|  
+|protocol|字串|必要。 內部端點的傳輸通訊協定。 可能的值為 `HTTP`、`TCP`、`UDP` 或 `ANY`。<br /><br /> `ANY` 的值會指定允許的任何通訊協定、任何連接埠。|  
 |連接埠|int|選用。 用於端點上內部負載平衡連線的通訊埠。 負載平衡的端點會使用兩個連接埠。 用於公用 IP 位址的連接埠和私用 IP 位址上使用的通訊埠。 這些通常會設為相同，但您可以選擇使用不同的通訊埠。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。<br /><br /> 在使用 Azure SDK 1.3 版或更新版本時，才能使用 `Port` 屬性。|  
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint  
@@ -246,9 +246,9 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
   
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 端點的唯一名稱。|  
+|name|字串|必要。 端點的唯一名稱。|  
 |localPort|int|必要。 指定所有角色執行個體都會接聽的內部連接埠，可接收從負載平衡器轉送的連入流量。 可能的值範圍介於 1 到 65535 (含) 之間。|  
-|protocol|string|必要。 內部端點的傳輸通訊協定。 可能的值為 `udp` 或 `tcp`。 將 `tcp` 用於以 http/https 作為基礎的流量。|  
+|protocol|字串|必要。 內部端點的傳輸通訊協定。 可能的值為 `udp` 或 `tcp`。 將 `tcp` 用於以 http/https 作為基礎的流量。|  
   
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom  
 `AllocatePublicPortFrom` 元素會描述可供外部客戶存取每個執行個體輸入端點的公用連接埠範圍。 在租用戶部署和更新期間，會從此範圍配置公用 (VIP) 連接埠號碼，並加以指派給每個個別的角色執行個體端點。 此元素是 `FixedPortRange` 元素的父代。
@@ -291,7 +291,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 此憑證的名稱，當與 HTTPS `InputEndpoint` 元素相關聯時，會用來參考它。|  
+|name|字串|必要。 此憑證的名稱，當與 HTTPS `InputEndpoint` 元素相關聯時，會用來參考它。|  
 |storeLocation|字串|必要。 可在本機電腦上找到此憑證的憑證存放區位置。 可能的值為 `CurrentUser` 與 `LocalMachine`。|  
 |storeName|字串|必要。 可在本機電腦上找到此憑證的憑證存放區名稱。 可能的值包括內建存放區名稱 `My`、`Root`、`CA`、`Trust`、`Disallowed`、`TrustedPeople`、`TrustedPublisher`、`AuthRoot`、`AddressBook` 或任何自訂存放區名稱。 如果指定自訂存放區名稱，則會自動建立該存放區。|  
 |permissionLevel|字串|選用。 指定提供給角色處理序的存取權限。 如果您希望只有提升權限的處理序能夠存取私密金鑰，則請指定 `elevated` 權限。 `limitedOrElevated` 權限可讓所有角色處理序存取私密金鑰。 可能的值為 `limitedOrElevated` 或 `elevated`。 預設值為 `limitedOrElevated`。|  
@@ -335,7 +335,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 要設定之環境變數的名稱。|  
+|name|字串|必要。 要設定之環境變數的名稱。|  
 |value|字串|選用。 要為環境變數設定的值。 您必須包含值屬性或 `RoleInstanceValue` 元素。|  
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue  
@@ -379,7 +379,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 網站或應用程式的名稱。|  
+|name|字串|必要。 網站或應用程式的名稱。|  
 |physicalDirectory|字串|網站根目錄之內容目錄的位置。 您可以將位置指定為絕對路徑或相對於 .csdef 位置的路徑。|  
 
 ##  <a name="VirtualApplication"></a> VirtualApplication  
@@ -391,7 +391,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 指定用來識別虛擬應用程式的名稱。|  
+|name|字串|必要。 指定用來識別虛擬應用程式的名稱。|  
 |physicalDirectory|字串|必要。 指定開發機器上包含虛擬應用程式的路徑。 在計算模擬器中，IIS 會設定為從這個位置擷取內容。 在部署至 Azure 時，實體目錄的內容會連同服務的其餘部分一起封裝。 當服務套件部署至 Azure 時，系統會對 IIS 設定解除封裝之內容的位置。|  
 
 ##  <a name="VirtualDirectory"></a> VirtualDirectory  
@@ -403,7 +403,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 指定用來識別虛擬目錄的名稱。|  
+|name|字串|必要。 指定用來識別虛擬目錄的名稱。|  
 |value|physicalDirectory|必要。 指定開發機器上包含網站或虛擬目錄內容的路徑。 在計算模擬器中，IIS 會設定為從這個位置擷取內容。 在部署至 Azure 時，實體目錄的內容會連同服務的其餘部分一起封裝。 當服務套件部署至 Azure 時，系統會對 IIS 設定解除封裝之內容的位置。|  
 
 ##  <a name="Bindings"></a> Bindings  
@@ -418,7 +418,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|名稱|字串|必要。 指定用來識別繫結的名稱。|  
+|name|字串|必要。 指定用來識別繫結的名稱。|  
 |endpointName|字串|必要。 指定要繫結的端點名稱。|  
 |hostHeader|字串|選用。 指定可讓您使用不同主機名稱在單一 IP 位址/連接埠號碼組合上裝載多個網站的主機名稱。|  
 
@@ -471,7 +471,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 
 | 屬性 | 類型 | 說明 |  
 | --------- | ---- | ----------- |  
-|路徑|字串|必要。 其內容將會複製到 Azure 虛擬機器之本機目錄的相對或絕對路徑。 支援在目錄路徑中展開環境變數。|  
+|path|字串|必要。 其內容將會複製到 Azure 虛擬機器之本機目錄的相對或絕對路徑。 支援在目錄路徑中展開環境變數。|  
   
 ## <a name="see-also"></a>另請參閱
 [雲端服務 (傳統) 定義結構描述](schema-csdef-file.md)

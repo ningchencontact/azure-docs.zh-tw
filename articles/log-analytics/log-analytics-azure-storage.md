@@ -31,19 +31,19 @@ ms.lasthandoff: 10/11/2017
 4. 使用指令碼來收集，再將資料公佈至 Log Analytics (下表中的空格，適用於未列出的服務)
 
 
-| 服務                 | 資源類型                           | 記錄檔        | 度量     | 方案 |
+| 服務                 | 資源類型                           | 記錄檔        | 度量     | 解決方法 |
 | --- | --- | --- | --- | --- |
 | 應用程式閘道    | Microsoft.Network/applicationGateways   | 診斷 | 診斷 | [Azure 應用程式閘道分析](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | 連接器   | 連接器   | [Application Insights Connector (Application Insights 連接器)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (預覽) |
 | 自動化帳戶     | Microsoft.Automation/AutomationAccounts | 診斷 |             | [詳細資訊](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch 帳戶          | Microsoft.Batch/batchAccounts           | 診斷 | 診斷 | |
 | 傳統雲端服務  |                                         | 儲存體     |             | [詳細資訊](log-analytics-azure-storage-iis-table.md) |
-| 辨識服務      | Microsoft.CognitiveServices/accounts    |             | 診斷 | |
+| 認知服務      | Microsoft.CognitiveServices/accounts    |             | 診斷 | |
 | Data Lake Analytics     | Microsoft.DataLakeAnalytics/accounts    | 診斷 |             | |
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | 診斷 |             | |
 | 事件中樞命名空間     | Microsoft.EventHub/namespaces           | 診斷 | 診斷 | |
 | IoT 中樞                | Microsoft.Devices/IotHubs               |             | 診斷 | |
-| 金鑰保存庫               | Microsoft.KeyVault/vaults               | 診斷 |             | [金鑰保存庫分析](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | 診斷 |             | [金鑰保存庫分析](log-analytics-azure-key-vault.md) |
 | 負載平衡器          | Microsoft.Network/loadBalancers         | 診斷 |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | 診斷 | 診斷 | |
 | 網路安全性群組 | Microsoft.Network/networksecuritygroups | 診斷 |             | [Azure 網路安全性群組分析](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |

@@ -17,7 +17,7 @@ ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>適用於 MySQL 的 Azure 資料庫選項和效能：了解每個定價層中可用的項目
 當您建立適用於 MySQL 伺服器的 Azure 資料庫時，有三個主要選項可供您決定如何設定配置給該伺服器的資源。 這些選項會影響伺服器的效能和規模。
-- 定價層 
+- 定價層
 - 計算單位
 - 儲存體 (GB)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/06/2017
 | :------------------------ | :-------- | :----------- |
 | 計算單位數目上限 | 100 | 800 | 
 | 總儲存體上限 | 1 TB | 1 TB | 
-| 儲存體 IOPS 保證 | N/A | 是 | 
+| 儲存體 IOPS 保證 | N/A | yes | 
 | 儲存體 IOPS 上限 | N/A | 3,000 | 
 | 資料庫備份的保留期限 | 7 天 | 35 天 | 
 

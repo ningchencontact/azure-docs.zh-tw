@@ -31,7 +31,7 @@ U-SQL 可讓您輕鬆地以 .Net 語言來新增您自己的程式碼，例如 C
 
 若要解決這些缺點，您可以將程式碼後置轉換成組件，再將組件註冊到 Data Lake Analytics 目錄。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 已安裝 Visual Studio 2017、Visual Studio 2015、Visual Studio 2013 Update 4，或具有 Visual C++ 的 Visual Studio 2012。
 * Microsoft Azure SDK for .NET 2.5 版或更新版本。  使用 Web 平台安裝程式或 Visual Studio 安裝程式來安裝它。
 * Data Lake Analytics 帳戶。  請參閱[使用 Azure 入口網站開始使用 Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)。
@@ -44,7 +44,7 @@ U-SQL 可讓您輕鬆地以 .Net 語言來新增您自己的程式碼，例如 C
 **建立和提交 U-SQL 工作**
 
 1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-2. 展開 已安裝、範本、Azure Data Lake、U-SQL(ADLA)，選取 類別庫 (適用於 U-SQL 應用程式) 範本，然後按一下確定。
+2. 展開 [已安裝]、[範本]、[Azure Data Lake]、[U-SQL(ADLA)]，選取 [類別庫 (適用於 U-SQL 應用程式)] 範本，然後按一下 [確定]。
 3. 在 Class1.cs 中撰寫程式碼。  以下是程式碼範例。
 
         using Microsoft.Analytics.Interfaces;
@@ -62,7 +62,7 @@ U-SQL 可讓您輕鬆地以 .Net 語言來新增您自己的程式碼，例如 C
                 }
             }
         }
-4. 按一下 建置 功能表，然後按一下建置方案 來建立 dll。
+4. 按一下 [建置] 功能表，然後按一下 [建置方案] 來建立 dll。
 
 ## <a name="register-assemblies"></a>註冊組件
 

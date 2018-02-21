@@ -124,7 +124,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## <a name="create-a-subscription"></a>建立訂閱
+## <a name="create-a-subscription"></a>建立訂用帳戶
 `ServiceBusRestProxy->createSubscription` 方法也能用來建立主題訂用帳戶。 為訂閱命名，且能包含選擇性篩選器，以用來限制傳遞至訂閱的虛擬佇列的訊息集合。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶

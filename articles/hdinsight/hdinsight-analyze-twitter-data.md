@@ -28,7 +28,7 @@ ms.lasthandoff: 11/03/2017
 > [!IMPORTANT]
 > 此文件中的步驟需要 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需 Linux 型叢集的特定步驟，請參閱 [在 HDInsight (Linux) 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **工作站** 。
@@ -83,7 +83,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
    | 欄位 | 值 |
    | --- | --- |
-   |  名稱 |MyHDInsightApp |
+   |  Name |MyHDInsightApp |
    |  說明 |MyHDInsightApp |
    |  網站 |http://www.myhdinsightapp.com |
 4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。

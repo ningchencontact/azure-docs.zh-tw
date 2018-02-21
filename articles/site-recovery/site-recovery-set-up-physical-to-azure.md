@@ -16,7 +16,7 @@ ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: d242954eb62a0d7325cc4222a54f2581967fdc19
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 這篇文章說明如何設定內部部署環境，開始將執行 Windows 或 Linux 的實體伺服器複寫至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您已經有：
 1. [Azure 入口網站] (http://portal.azure.com "Azure 入口網站")中的復原服務保存庫。

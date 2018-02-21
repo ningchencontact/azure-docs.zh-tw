@@ -28,14 +28,14 @@ Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [
 
 可協助您收集和/或檢視 EventSource 事件之工具和技術的範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
-## <a name="events"></a>事件
+## <a name="events"></a>活動
 | 事件名稱 | 事件識別碼 | Level | 事件說明 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |資訊 |啟動服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCancellation |2 |資訊 |取消服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCompletion |3 |資訊 |完成服務 RunAsync 工作時發出 |
 | StatefulRunAsyncSlowCancellation |4 |警告 |服務 RunAsync 工作花太多時間才能完成取消時發出 |
-| StatefulRunAsyncFailure |5 |錯誤 |服務 RunAsync 工作擲回例外狀況時發出 |
+| StatefulRunAsyncFailure |5 |Error |服務 RunAsync 工作擲回例外狀況時發出 |
 
 ## <a name="interpret-events"></a>解譯事件
 StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCancellation 事件可讓服務撰寫者了解服務的生命週期--以及服務啟動、取消或完成的時機。 此資訊可能適用於偵錯服務問題或了解服務生命週期。

@@ -22,7 +22,7 @@ Azure Linux 虛擬機器依您的選擇使用 Red Hat、Ubuntu 或 Linux 發行�
 
 了解如何在執行 Ubuntu 的虛擬機器中部署 NGINX 網頁伺服器：
 
-- [Azure 入口網站](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [HttpTrigger Nodejs 函數](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -32,7 +32,7 @@ Azure Linux 虛擬機器依您的選擇使用 Red Hat、Ubuntu 或 Linux 發行�
 
 - [建立並管理 Linux VM](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [建立和管理 VM 磁碟](/azure/virtual-machines/linux/tutorial-manage-disks)
-- [自動化 VM 組態](/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
+- [自動設定 VM](/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
 - [建立自訂的 VM 映像](/azure/virtual-machines/linux/tutorial-custom-images)
 - [建立高可用性 VM](/azure/virtual-machines/linux/tutorial-availability-sets)
 - [建立 VM 擴展集](/azure/virtual-machines/linux/tutorial-create-vmss)

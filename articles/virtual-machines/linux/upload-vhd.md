@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 從自訂磁碟建立 Linux VM
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="quick-commands"></a>快速命令
 
-使用 [az vm create](/cli/azure/vm#create) 從自訂或特定磁碟建立新的 VM 時，您需要**連接**磁碟 (--attach-os-disk)，而不是指定自訂或 Marketplace 映像 (--image)。 下列範例會使用從您自訂 VHD 建立的受控磁碟 (名為 *myManagedDisk*) 來建立名為 *myVM* 的 VM：
+使用 [az vm create](/cli/azure/vm#az_vm_create) 從自訂或特定磁碟建立新的 VM 時，您需要**連接**磁碟 (--attach-os-disk)，而不是指定自訂或 Marketplace 映像 (--image)。 下列範例會使用從您自訂 VHD 建立的受控磁碟 (名為 *myManagedDisk*) 來建立名為 *myVM* 的 VM：
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,7 +56,7 @@ az vm create --resource-group myResourceGroup --location eastus --name myVM \
 > 
 
 
-* 請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
+* 請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 myResourceGroup、mystorageaccount 和 mydisks。
 
@@ -87,7 +87,7 @@ Azure 支援各種 Linux 散發套件 (請參閱 [背書的散發套件](endorse
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-在上傳您的自訂磁碟並建立 VM 之前，您必須先使用 [az group create](/cli/azure/group#create) 建立資源群組。
+在上傳您的自訂磁碟並建立 VM 之前，您必須先使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：[Azure 受控磁碟概觀](../windows/managed-disks-overview.md)
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#create) 為自訂磁碟和 VM 建立儲存體帳戶。 
+使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 為自訂磁碟和 VM 建立儲存體帳戶。 
 
 下列範例會在先前建立的資源群組中建立名為 mystorageaccount 的儲存體帳戶：
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>列出儲存體帳戶金鑰
-Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如，執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)深入了解如何管理對儲存體的存取。 您使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 來檢視存取金鑰。
+Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如，執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)深入了解如何管理對儲存體的存取。 您使用 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 來檢視存取金鑰。
 
 檢視您所建立儲存體帳戶的存取金鑰：
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 請記下 **key1**，因為在接下來的步驟中，您將使用它來與您的儲存體帳戶互動。
 
 ### <a name="create-a-storage-container"></a>建立儲存體容器
-您可以在儲存體帳戶內建立容器來組織您的磁碟，方法與您建立不同目錄來以邏輯方式組織本機檔案系統相同。 儲存體帳戶可以包含任意數目的容器。 使用 [az storage container create](/cli/azure/storage/container#create) 來建立容器。
+您可以在儲存體帳戶內建立容器來組織您的磁碟，方法與您建立不同目錄來以邏輯方式組織本機檔案系統相同。 儲存體帳戶可以包含任意數目的容器。 使用 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 來建立容器。
 
 下列範例會建立名為 mydisks 的容器：
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>上傳 VHD
-現在您可以使用 [az storage blob upload](/cli/azure/storage/blob#upload) 上傳您的自訂磁碟。 您上傳並將您的自訂磁碟儲存為分頁 Blob。
+現在您可以使用 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 上傳您的自訂磁碟。 您上傳並將您的自訂磁碟儲存為分頁 Blob。
 
 指定您的存取金鑰、您在上一個步驟中建立的容器，然後指定您本機電腦上自訂磁碟的路徑：
 
@@ -164,7 +164,7 @@ az storage blob upload --account-name mystorageaccount \
 ### <a name="create-a-managed-disk"></a>建立受控磁碟
 
 
-使用 [az disk create](/cli/azure/disk#create) 從 VHD 建立受控磁碟。 下列範例會從您上傳至具名儲存體帳戶和容器的 VHD 建立名為 myManagedDisk 的受控磁碟：
+使用 [az disk create](/cli/azure/disk#az_disk_create) 從 VHD 建立受控磁碟。 下列範例會從您上傳至具名儲存體帳戶和容器的 VHD 建立名為 myManagedDisk 的受控磁碟：
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>建立 VM
 
-現在，使用 [az vm create](/cli/azure/vm#create) 建立您的 VM，並連接 (--attach-os-disk) 受控磁碟作為 OS 磁碟。 下列範例會使用從您上傳之 VHD 建立的受控磁碟來建立名為 myNewVM 的 VM：
+現在，使用 [az vm create](/cli/azure/vm#az_vm_create) 建立您的 VM，並連接 (--attach-os-disk) 受控磁碟作為 OS 磁碟。 下列範例會使用從您上傳之 VHD 建立的受控磁碟來建立名為 myNewVM 的 VM：
 
 ```azurecli
 az vm create \

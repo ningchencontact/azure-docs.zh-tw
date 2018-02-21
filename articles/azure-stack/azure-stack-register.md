@@ -22,7 +22,7 @@ ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>使用您的 Azure 訂用帳戶註冊 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您可以向 Azure 註冊 [Azure Stack](azure-stack-poc.md)，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="verify-the-registration"></a>確認註冊  
 
-1. 登入系統管理員入口網站( https://adminportal.local.azurestack.external )。
+1. 登入系統管理員入口網站 (https://adminportal.local.azurestack.external)。
 
 2. 按一下 [更多服務]  >  [市集管理]  >  [從 Azure 新增]。
 

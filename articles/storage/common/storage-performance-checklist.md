@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 在推出 Microsoft Azure 儲存體服務後，Microsoft 針對以具效能方式使用這些服務方面，開發許多經實證的做法，本文的目的在於將最重要的做法整合成檢查清單樣式的清單。 本文旨在協助應用程式開發人員驗證他們在 Azure 儲存體上使用的做法是否已經實證，並協助他們識別應該考慮採用的其他已經實證做法。 本文並不嘗試包含每個可能的效能與延展性最佳化做法 — 它會將影響不大或無法廣泛適用的做法排除。 對於設計過程中可預測的應用程式行為，一開始便謹記這些行為將可避免設計遇到效能問題。  
 
 每位使用 Azure 儲存體的應用程式開發人員都應該花一點時間閱讀本文，並檢查他或她的應用程式是否遵循以下所列的每個已經實證做法。  

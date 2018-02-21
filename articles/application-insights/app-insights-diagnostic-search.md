@@ -178,7 +178,7 @@ ms.lasthandoff: 11/01/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="add"></a>接續步驟
+## <a name="add"></a>後續步驟
 * [在分析中撰寫複雜的查詢](app-insights-analytics-tour.md)
 * [將記錄和自訂遙測傳送至 Application Insights](app-insights-asp-net-trace-logs.md)
 * [設定可用性和回應性測試](app-insights-monitor-web-app-availability.md)

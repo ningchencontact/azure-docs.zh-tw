@@ -15,7 +15,7 @@ ms.date: 07/19/2017
 ms.author: davidmu
 ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -110,7 +110,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>設定自訂 SSL 原則
 
-當設定自訂的 SSL 原則，您會傳遞下列參數： PolicyType、 MinProtocolVersion、 CipherSuite 和 ApplicationGateway。 如果您嘗試將其他參數傳遞，您會收到錯誤時建立或更新應用程式閘道。 
+設定自訂 SSL 原則時，您會傳遞下列參數：PolicyType、MinProtocolVersion、CipherSuite 及 ApplicationGateway。 如果您嘗試傳遞其他參數，會在建立或更新應用程式閘道時發生錯誤。 
 
 下列範例會在應用程式閘道上設定自訂 SSL 原則。 它會設定 `TLSv1_1` 的最小通訊協定版本，並且啟用下列加密套件：
 
@@ -142,7 +142,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>使用預先定義的 SSL 原則建立應用程式閘道
 
-設定預先定義的 SSL 原則時，您必須傳遞下列參數： PolicyType、 PolicyName 和 ApplicationGateway。 如果您嘗試將其他參數傳遞，您會收到錯誤時建立或更新應用程式閘道。
+設定預先定義的 SSL 原則時，您會傳遞下列參數：PolicyType、PolicyName 及 ApplicationGateway。 如果您嘗試傳遞其他參數，會在建立或更新應用程式閘道時發生錯誤。
 
 下列範例會使用預先定義的 SSL 原則建立新的應用程式閘道。
 
@@ -181,11 +181,11 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>使用預先定義的 SSL 原則更新現有的應用程式閘道
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>使用預先定義的 SSL 原則更新現有應用程式閘道
 
-若要設定自訂的 SSL 原則，傳遞下列參數： **PolicyType**， **MinProtocolVersion**， **CipherSuite**，和**ApplicationGateway**. 若要設定預先定義的 SSL 原則，傳遞下列參數： **PolicyType**， **PolicyName**，和**ApplicationGateway**。 如果您嘗試將其他參數傳遞，您會收到錯誤時建立或更新應用程式閘道。
+若要自訂 SSL 原則，請傳遞下列參數：**PolicyType**、**MinProtocolVersion**、**CipherSuite** 及 **ApplicationGateway**。 若要設定預先定義的 SSL 原則，請傳遞下列參數：**PolicyType**、**PolicyName** 及 **ApplicationGateway**。 如果您嘗試傳遞其他參數，會在建立或更新應用程式閘道時發生錯誤。
 
-在下列範例中，有預先定義的原則和自訂原則的程式碼範例。 取消註解您想要使用的原則。
+在下列範例中，有自訂原則和預先定義原則兩者的程式碼範例。 對您想要使用的原則取消註解。
 
 ```powershell
 # You have to change these parameters to match your environment.

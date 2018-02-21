@@ -26,7 +26,7 @@ ms.lasthandoff: 12/13/2017
 ## <a name="supported-scenarios"></a>支援的案例
 **功能** | **VMware 至 Azure** | **Hyper-V 至 Azure** | **Azure 至 Azure**| **Hyper-V 至 Hyper-V** 
 --|--|--|--|--
-排除磁碟 | 是 | 是 | 否 | 否
+排除磁碟 | yes | yes | 否 | 否
 
 ## <a name="why-exclude-disks-from-replication"></a>為什麼要排除磁碟不要複寫？
 排除磁碟不要複寫往往是因為︰

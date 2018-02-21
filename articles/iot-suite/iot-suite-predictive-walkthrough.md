@@ -64,7 +64,7 @@ IoT 中樞會提供裝置命令通知。
 ## <a name="event-processor"></a>事件處理器
 **事件處理器主機**會在 Azure Web 作業中執行。 **事件處理器** 需要一個完整的週期來處理平均感應器值。 接著將這些值傳遞至 API，該 API 會公開定型模型來計算引擎的 RUL。 此 API 是由佈建為方案一部分的 Machine Learning 工作區所公開。
 
-## <a name="machine-learning"></a>機器學習服務
+## <a name="machine-learning"></a>Machine Learning
 Machine Learning 元件使用的模型衍生自從真實飛機引擎收集而來的資料。 您可以在 [azureiotsuite.com][lnk-azureiotsuite] 頁面上，您從的解決方案圖格瀏覽至 Machine Learning 工作區。 當解決方案處於**就緒**狀態時，就會出現此圖格。
 
 

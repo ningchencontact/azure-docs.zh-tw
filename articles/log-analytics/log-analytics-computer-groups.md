@@ -27,7 +27,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 ## <a name="creating-a-computer-group"></a>建立電腦群組
 您可以使用下表的任何方法，在 Log Analytics 中建立電腦群組。  下列各節提供每個方法的詳細資料。 
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 |:--- |:--- |
 | 記錄搜尋 |建立記錄檔搜尋來傳回電腦清單。 |
 | 記錄檔搜尋 API |使用記錄檔搜尋 API，根據記錄檔搜尋結果，以程式設計方式建立電腦群組。 |
@@ -44,7 +44,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 
 下表描述定義電腦群組的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:---|:---|
 | 顯示名稱   | 要在入口網站中顯示的搜尋名稱。 |
 | 類別       | 用來在入口網站中組織搜尋的類別。 |
@@ -147,7 +147,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 ## <a name="computer-group-records"></a>電腦群組記錄
 針對從 Active Directory 或 WSUS 建立每個電腦群組成員資格，Log Analytics 工作區中會建立一筆記錄。  這些記錄的類型為 **ComputerGroup**，且具有下表中的屬性。  如果電腦群組是根據記錄檔搜尋，則不會建立記錄。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 類型 |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |

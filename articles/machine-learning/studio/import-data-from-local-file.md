@@ -1,7 +1,7 @@
 ---
 title: "將資料從檔案匯入到 Azure Machine Learning Studio | Microsoft Docs"
 description: "了解如何將訓練資料檔案從硬碟上傳到 Azure Machine Learning Studio。 這樣會在工作區中建立資料集模組。"
-keywords: "匯入資料,資料格式,資料類型,資料來源,定型資料"
+keywords: "匯入資料、資料格式、資料類型、資料來源、定型資料"
 services: machine-learning
 documentationcenter: 
 author: garyericson

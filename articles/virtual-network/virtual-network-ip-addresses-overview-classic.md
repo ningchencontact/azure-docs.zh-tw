@@ -51,7 +51,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 > 
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
-當您建立雲端服務或 IaaS VM 時，您必須提供在 Azure 的所有資源中唯一的雲端服務 DNS 名稱。 這會在 Azure 受管理 DNS 伺服器中建立 *dnsname*.cloudapp.net 與資源公用 IP 位址的對應。 例如，當您建立雲端服務 DNS 名稱為 **contoso** 的雲端服務時，完整網域名稱 (FQDN) **contoso.cloudapp.net** 會解析為雲端服務的公用 IP 位址 (VIP)。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。
+當您建立雲端服務或 IaaS VM 時，您必須提供在 Azure 的所有資源中唯一的雲端服務 DNS 名稱。 這會在 Azure 受控 DNS 伺服器中建立 *dnsname*.cloudapp.net 與資源公用 IP 位址的對應。 例如，當您建立雲端服務 DNS 名稱為 **contoso** 的雲端服務時，完整網域名稱 (FQDN) **contoso.cloudapp.net** 會解析為雲端服務的公用 IP 位址 (VIP)。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。
 
 ### <a name="cloud-services"></a>雲端服務
 雲端服務一律有公用 IP 位址，稱為虛擬 IP 位址 (VIP)。 您可以在雲端服務中建立端點，以便讓 VIP 中不同的連接埠與 VM 上的內部連接埠和雲端服務內的角色執行個體建立關聯。 
@@ -91,10 +91,10 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 | 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
-| 雲端服務 |是 |是 |是 |
-| IaaS VM 或 PaaS 角色執行個體 |是 |否 |否 |
-| VPN 閘道 |是 |否 |否 |
-| 應用程式閘道 |是 |否 |否 |
+| 雲端服務 |yes |yes |yes |
+| IaaS VM 或 PaaS 角色執行個體 |yes |否 |否 |
+| VPN 閘道 |yes |否 |否 |
+| 應用程式閘道 |yes |否 |否 |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源與雲端服務或 [虛擬網路](virtual-networks-overview.md)(VNet) 或內部部署網路中的其他資源進行通訊 (透過 VPN 閘道或 ExpressRoute 電路)，而不必使用可網際網路連線的 IP 位址。
@@ -127,9 +127,9 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 * 正在執行其他應用程式透過 IP 位址存取之服務的 VM。
 
 #### <a name="internal-dns-hostname-resolution"></a>內部 DNS 主機名稱解析
-除非明確設定自訂 DNS 伺服器，否則所有 Azure VM 和 PaaS 角色執行個體預設都會設定 [Azure 受管理 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 。 這些 DNS 伺服器會針對位於相同 VNet 或雲端服務內的 VM 和角色執行個體提供內部名稱解析。
+除非明確設定自訂 DNS 伺服器，否則所有 Azure VM 和 PaaS 角色執行個體預設都會設定 [Azure 受控 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 。 這些 DNS 伺服器會針對位於相同 VNet 或雲端服務內的 VM 和角色執行個體提供內部名稱解析。
 
-當您建立 VM 時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受管理 DNS 伺服器。 如果是多個 NIC 的 VM，主機名稱會對應至主要 NIC 的私人 IP 位址。 不過，此對應資訊僅限於相同雲端服務或 VNet 內的資源。
+當您建立 VM 時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受控 DNS 伺服器。 如果是多個 NIC 的 VM，主機名稱會對應至主要 NIC 的私人 IP 位址。 不過，此對應資訊僅限於相同雲端服務或 VNet 內的資源。
 
 如果是獨立  雲端服務，您只能夠解析相同雲端服務內所有 VM/角色執行個體的主機名稱。 如果是 VNet 內的雲端服務，您將能夠解析 VNet 內所有 VM/角色執行個體的主機名稱。
 
@@ -141,10 +141,10 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 | 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
-| VM (位於獨立雲端服務或 VNet 中) |是 |是 |是 |
-| PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |是 |否 |否 |
-| 內部負載平衡器前端 |是 |是 |是 |
-| 應用程式閘道前端 |是 |是 |是 |
+| VM (位於獨立雲端服務或 VNet 中) |yes |yes |yes |
+| PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |yes |否 |否 |
+| 內部負載平衡器前端 |yes |yes |yes |
+| 應用程式閘道前端 |yes |yes |yes |
 
 ## <a name="limits"></a>限制
 下表顯示在 Azure 中，針對每一訂用帳戶在 IP 定址上所加諸的限制。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

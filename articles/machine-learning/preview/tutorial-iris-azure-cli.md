@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 10/15/2017
 ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 您需要存取 Azure 訂用帳戶與權限，以建立該訂用帳戶中的資源。 
 - 您必須遵循[安裝及建立快速入門](quickstart-installation.md)，以安裝 Azure Machine Learing Workbench 應用程式。 
 

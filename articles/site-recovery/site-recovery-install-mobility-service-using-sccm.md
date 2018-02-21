@@ -16,7 +16,7 @@ ms.date: 11/29/2017
 ms.author: anoopkv
 ms.openlocfilehash: b99f0a2ff2521438bf543b010f688b13ad19f94c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/08/2017
 > [!NOTE]
 > 本文使用 System Center Configuration Manager 2012 R2 示範部署活動。 您也可以使用 [Azure 自動化和期望的狀態設定](site-recovery-automate-mobility-service-install.md)，將行動服務安裝進行自動化。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. 環境中已部署的軟體部署工具，例如 Configuration Manager。
   建立兩個[裝置集合](https://technet.microsoft.com/library/gg682169.aspx)，一個用於所有 **Windows 伺服器**，另一個用於所有 **Linux 伺服器** (都是您想要使用 Site Recovery 保護的伺服器)。
 3. 已向 Site Recovery 註冊的設定伺服器。
@@ -178,7 +178,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **參數名稱** | **值** |
   |--|--|
-  | 名稱 | 安裝 Microsoft Azure 行動服務 (Windows) |
+  | Name | 安裝 Microsoft Azure 行動服務 (Windows) |
   | 命令列 | install.bat |
   | 程式可以執行 | 使用者是否登入 |
 
@@ -403,7 +403,7 @@ cd /tmp
 
     | **參數名稱** | **值** |
   |--|--|
-  | 名稱 | 安裝 Microsoft Azure 行動服務 (Linux) |
+  | Name | 安裝 Microsoft Azure 行動服務 (Linux) |
   | 命令列 | ./install_linux.sh |
   | 程式可以執行 | 使用者是否登入 |
 

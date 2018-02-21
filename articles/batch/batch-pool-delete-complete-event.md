@@ -32,10 +32,10 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-|元素|類型|注意事項|
+|元素|類型|注意|
 |-------------|----------|-----------|
-|id|String|集區識別碼。|
-|startTime|DateTime|集區刪除開始時間。|
+|id|字串|集區識別碼。|
+|startTime|Datetime|集區刪除開始時間。|
 |EndTime|DateTime|集區刪除完成時間。|
 
 ## <a name="remarks"></a>備註

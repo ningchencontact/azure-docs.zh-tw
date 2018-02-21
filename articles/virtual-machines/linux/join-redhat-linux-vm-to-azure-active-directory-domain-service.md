@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>將 RedHat Linux VM 加入 Azure Active Directory 網域服務
 
-本文說明如何將 Red Hat Enterprise Linux (RHEL) 7 虛擬機器加入 Azure Active Directory Domain Services (AADDS) 管理的網域。  這些需求包括：
+本文說明如何將 Red Hat Enterprise Linux (RHEL) 7 虛擬機器加入 Azure Active Directory Domain Services (AADDS) 的受控網域。  這些需求包括：
 
 - [一個 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -77,9 +77,9 @@ sudo yum update
 sudo yum -y install realmd sssd krb5-workstation krb5-libs
 ```
 
-既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受管理的網域。
+既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受控網域。
 
-### <a name="discover-the-aad-domain-services-managed-domain"></a>探索 AAD Domain Services 管理的網域
+### <a name="discover-the-aad-domain-services-managed-domain"></a>探索 AAD Domain Services 的受控網域
 
 ```bash
 sudo realm discover mydomain.com
@@ -87,7 +87,7 @@ sudo realm discover mydomain.com
 
 ### <a name="initialize-kerberos"></a>初始化 kerberos
 
-請確定您是指定屬於 'AAD DC Administrators' 群組的使用者。 只有這些使用者可以將電腦加入受管理的網域。
+請確定您是指定屬於 'AAD DC Administrators' 群組的使用者。 只有這些使用者可以將電腦加入受控網域。
 
 ```bash
 kinit ahmet@mydomain.com

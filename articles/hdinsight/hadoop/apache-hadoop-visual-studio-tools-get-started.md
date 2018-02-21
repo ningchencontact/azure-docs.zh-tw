@@ -29,7 +29,7 @@ ms.lasthandoff: 11/28/2017
 
 Data Lake Tools for Visual Studio 可用來存取 Data Lake Analytics 和 HDInsight。  如需 Data Lake Tools 的相關資訊，請參閱[教學課程：使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)。
 
-**必要條件**
+**先決條件**
 
 若要完成本教學課程並使用 Visual Studio 中的 Data Lake Tools，您需要下列項目：
 
@@ -254,7 +254,7 @@ Data Lake Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 * Visual Studio 所建立的 HQL 指令碼是根據使用者的所在區域設定進行編碼。 如果使用者將指令碼以二進位格式上傳至叢集，則可能無法正常執行。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您學會如何使用 Data Lake (HDInsight) Tools 套件從 Visual Studio 連線到 HDInsight 叢集，以及如何執行 Hive 查詢。 如需詳細資訊，請參閱：
+在本文中，您學會如何使用 Data Lake (HDInsight) Tools 套件從 Visual Studio 連線到 HDInsight 叢集，以及如何執行 Hive 查詢。 如需詳細資訊，請參閱
 
 * [在 HDInsight 中使用 Hadoop Hive](hdinsight-use-hive.md)
 * [開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)

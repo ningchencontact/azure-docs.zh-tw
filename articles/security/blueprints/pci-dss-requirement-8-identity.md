@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **識別及驗證系統元件的存取**
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 將唯一識別碼 (ID) 指派給每個具有存取權的人員，可確保每個人對自己的動作都負有責任。 當這類責任存在時，對重要資料和系統所採取的動作就會由已知且經過授權的使用者和流程來執行，並可對其進行追蹤。
 密碼的效能主要取決於設計和實作驗證系統，特別是，攻擊者可嘗試破解密碼的次數，以及在入口點、傳輸期間和儲存體內保護使用者密碼的安全性方法。
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1** 確保針對系統元件上的所有非客戶使用者和系統管理員，都已定義和實作適當的使用者識別管理原則和程序，如下所示。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.1** 將唯一識別碼指派給所有使用者後，才能允許他們存取系統元件或持卡人資料。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.2** 控制使用者識別碼、認證和其他識別碼物件的新增、刪除和修改。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.3** 對於任何終止動作的使用者，立即撤銷存取權。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.4** 在90 天內移除或停用非作用中的使用者帳戶。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/16/2017
 - 只在所需期間內啟用，並在不使用時將其停用。
 - 在使用中時進行監視。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.6** 限制重複的存取，嘗試輸入使用者識別碼最多六次後，即鎖定該使用者識別碼。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -131,7 +131,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.7** 將鎖定期間設定為最少 30 分鐘，或直到系統管理員啟用該使用者識別碼。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -144,7 +144,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.1.8** 如果工作階段已閒置超過 15 分鐘，則使用者需要重新進行驗證以重新啟動終端機或工作階段。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -160,7 +160,7 @@ ms.lasthandoff: 11/16/2017
 - 您擁有的權杖裝置或智慧卡 (smart card) 等
 - 您的特徵，例如生物辨識技術
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -173,7 +173,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.2.1** 在所有系統元件上進行傳輸和儲存時，使用強式密碼編譯，將所有驗證認證 (例如密碼/複雜密碼) 處理為無法讀取。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -187,7 +187,7 @@ ms.lasthandoff: 11/16/2017
 **8.2.2** 修改任何驗證認證 (例如執行密碼重設、佈建新權杖或產生新金鑰) 之前，先驗證使用者的身分識別。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/16/2017
 - 包含數字及英文字母字元。
 或者，密碼/複雜密碼的複雜性及強度至少要相當於上方指定的參數。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.2.4** 至少每隔 90 天變更使用者密碼/複雜密碼。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -229,7 +229,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.2.5** 個人提交的新密碼/複雜密碼不可與他們前四次使用的任一密碼/複雜密碼一樣。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -242,7 +242,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.2.6** 為使用者設定唯一值作為密碼/複雜密碼以供第一次或重設時使用，並在第一次使用之後立即變更。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/16/2017
 > 多重要素驗證至少需要使用三種驗證方法中的兩個 (如需驗證方法的說明，請參閱需求 8.2)，才可進行驗證。 若使用其中一個要素兩次 (例如，使用兩個重複的密碼) ，則不被視為多重要素驗證。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -273,9 +273,9 @@ ms.lasthandoff: 11/16/2017
 **8.3.1** 針對具有系統管理員存取權的人員，將適用於非主控台存取的多重要素驗證併入 CDE。
 
 > [!NOTE]
-> 這項需求在 2018 年 1 月 31 日前是屬於最佳作法，該日期之後會變成需求。
+> 這項需求在 2018 年 1 月 31 日前為最佳做法，並會於該日期後變成需求。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -289,7 +289,7 @@ ms.lasthandoff: 11/16/2017
 **8.3.2** 針對所有來自實體網路外部的遠端網路存取 (包含使用者和系統管理員，以及用於支援或維護的第三方存取)，併入多重要素驗證。
 
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -306,7 +306,7 @@ ms.lasthandoff: 11/16/2017
 - 指示不重複使用先前用過的密碼
 - 變更密碼的簡介 (如果懷疑密碼有洩露的可能)
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -322,7 +322,7 @@ ms.lasthandoff: 11/16/2017
 - 共用的使用者識別碼不適用於系統管理與其他重要功能。
 - 共用和一般的使用者識別碼不會用來管理任何系統元件。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -338,7 +338,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 這項需求不適用於讓共用裝載的提供者存取自有裝載環境，因為其中裝載多個客戶環境。
 
-**職責：&nbsp;&nbsp;`Not Applicable`**
+**責任：&nbsp;&nbsp;`Not Applicable`**
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 11/16/2017
 - 驗證機制必須指派給個別帳戶，並不在多個帳戶之間共用。
 - 必須有實體和 (或) 邏輯控制項，以確保只有預定帳戶可以使用該機制來取得存取權。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -369,7 +369,7 @@ ms.lasthandoff: 11/16/2017
 - 只有資料庫管理員能夠直接存取或查詢資料庫。
 - 資料庫應用程式的應用程式識別碼僅能由應用程式使用 (而不是由個別使用者或其他非應用程式流程)。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -382,7 +382,7 @@ ms.lasthandoff: 11/16/2017
 
 **8.8** 確定識別碼和驗證的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

@@ -62,17 +62,17 @@ ms.lasthandoff: 10/11/2017
 
 | 功能 | 傳遞通道 | 標準通道 |
 | --- | --- | --- |
-| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |是 |
+| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |yes |
 | 最大解析度、分層數目 |1080p、8 層、60+fps |720p、6 層、30 fps |
 | 輸入通訊協定 |RTMP、Smooth Streaming |RTMP、Smooth Streaming 和 RTP |
 | 價格 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) |
 | 最長執行時間 |全天候 |8 小時 |
-| 插入靜態圖像支援 |否 |是 |
-| 廣告訊號支援 |否 |是 |
-| 傳遞 CEA 608/708 字幕 |是 |是 |
-| 在比重摘要內能從短暫延遲中復原的能力 |是 |否 (經過 6 秒以上且未有任何輸入資料時，通道便會中斷) |
-| 支援未統一輸入的 GOP |是 |否 – 輸入必須為固定式 2 秒 GOP |
-| 支援變動畫面播放速率輸入 |是 |否 – 輸入必須為固定畫面播放速率。<br/>輕微的差異可以接受，例如：處於高速動態場景的情況。 但編碼器無法降至 10 個畫面/秒的標準。 |
+| 插入靜態圖像支援 |否 |yes |
+| 廣告訊號支援 |否 |yes |
+| 傳遞 CEA 608/708 字幕 |yes |yes |
+| 在比重摘要內能從短暫延遲中復原的能力 |yes |否 (經過 6 秒以上且未有任何輸入資料時，通道便會中斷) |
+| 支援未統一輸入的 GOP |yes |否 – 輸入必須為固定式 2 秒 GOP |
+| 支援變動畫面播放速率輸入 |yes |否 – 輸入必須為固定畫面播放速率。<br/>輕微的差異可以接受，例如：處於高速動態場景的情況。 但編碼器無法降至 10 個畫面/秒的標準。 |
 | 在輸入摘要遺失時自動關閉通道 |否 |經過 12 個小時，如果沒有程式仍在執行 |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>使用可從內部部署編碼器接收多位元速率即時串流的通道 (傳遞)
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 
 ![即時工作流程](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
-如需詳細資訊，請參閱 [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>通道和其相關元件的說明
 ### <a name="channel"></a>通道

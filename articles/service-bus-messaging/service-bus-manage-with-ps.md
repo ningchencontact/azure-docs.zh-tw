@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 您也可以使用 Azure Resource Manager 範本來管理服務匯流排實體。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本建立服務匯流排資源](service-bus-resource-manager-overview.md)文章。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，您需要下列必要條件：
 

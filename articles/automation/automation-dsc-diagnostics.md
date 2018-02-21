@@ -15,7 +15,7 @@ ms.date: 05/24/2017
 ms.author: gwallace
 ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 * 相互關聯自動化帳戶之間的合規性狀態
 * 以視覺化方式呈現一段時間的合規性歷程記錄
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始將 Automation DSC 報表傳送到 Log Analytics，您需要：
 

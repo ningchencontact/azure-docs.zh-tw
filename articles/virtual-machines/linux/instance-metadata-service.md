@@ -279,7 +279,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>執行個體中繼資料資料類別
 可透過執行個體中繼資料服務取得下列資料類別：
 
-資料 | 描述 | 引進的版本 
+資料 | 說明 | 引進的版本 
 -----|-------------|-----------------------
 location | VM 執行所在的 Azure 區域 | 2017-04-02 
 name | VM 的名稱 | 2017-04-02

@@ -17,7 +17,7 @@ ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
 ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -57,7 +57,7 @@ Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的大部分工作�
 
 | 作業系統 | 平台 | SKU |
 |:--- | --- |:--- |
-| Windows Server 2016 和最新的預存程序 |64 位元 |Standard、 Datacenter、 Essentials (起 MABS v2) |
+| Windows Server 2016 和最新的 SP |64 位元 |Standard、Datacenter、Essentials (MABS v2 和更新版本) |
 | Windows Server 2012 R2 和最新的 SP |64 位元 |Standard、Datacenter、Foundation |
 | Windows Server 2012 和最新的 SP |64 位元 |Datacenter、Foundation、Standard |
 | Windows Storage Server 2012 R2 和最新的 SP |64 位元 |Standard、Workgroup |

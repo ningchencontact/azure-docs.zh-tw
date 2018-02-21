@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 管理網路安全性群組
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 11/17/2017
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
-## <a name="prerequisite"></a>先決條件
-安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。 
+## <a name="prerequisite"></a>必要條件
+安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 
 
 ## <a name="view-existing-nsgs"></a>檢視現有的 NSG
-若要檢視特定資源群組中的 NSG 清單，請使用 `-o table` 輸出格式執行 [az network nsg list](/cli/azure/network/nsg#list) 命令︰
+若要檢視特定資源群組中的 NSG 清單，請使用 `-o table` 輸出格式執行 [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) 命令︰
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ az network nsg list -g RG-NSG -o table
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>列出 NSG 的所有規則
-若要檢視名為 **NSG-FrontEnd** 之 NSG 的規則，請使用 [JMESPATH 查詢篩選](/cli/azure/query-az-cli2)和 `-o table` 輸出格式執行 [az network nsg show](/cli/azure/network/nsg#show) 命令︰
+若要檢視名為 **NSG-FrontEnd** 之 NSG 的規則，請使用 [JMESPATH 查詢篩選](/cli/azure/query-az-cli2)和 `-o table` 輸出格式執行 [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) 命令︰
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ az network nsg list -g RG-NSG -o table
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> 您也可以使用 [az network nsg rule list](/cli/azure/network/nsg/rule#list) 來僅列出 NSG 中的自訂規則。
+> 您也可以使用 [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) 來僅列出 NSG 中的自訂規則。
 >
 
 ## <a name="view-nsg-associations"></a>檢視 NSG 關聯
@@ -151,7 +151,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>變更規則
-若要變更之前所建立的規則，僅允許來自**網際網路**的連入流量，請執行 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 命令：
+若要變更之前所建立的規則，僅允許來自**網際網路**的連入流量，請執行 [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) 命令：
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>建立 NSG 與 NIC 的關聯
-若要建立 **NSG-FrontEnd** NSG 與 **TestNICWeb1** NIC 的關聯，請使用 [az network nic update](/cli/azure/network/nic#update) 命令：
+若要建立 **NSG-FrontEnd** NSG 與 **TestNICWeb1** NIC 的關聯，請使用 [az network nic update](/cli/azure/network/nic#az_network_nic_update) 命令：
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ az network nic update \
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>中斷 NSG 與 NIC 的關聯
 
-若要取消 **NSG-FrontEnd** NSG 與 **TestNICWeb1** NIC 的關聯，請再次執行 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 命令，但以空白字串 (`""`) 取代 `--network-security-group` 引數。
+若要取消 **NSG-FrontEnd** NSG 與 **TestNICWeb1** NIC 的關聯，請再次執行 [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) 命令，但以空白字串 (`""`) 取代 `--network-security-group` 引數。
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 在輸出中，`networkSecurityGroup` 機碼設為 null。
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>中斷 NSG 與子網路的關聯
-若要取消 **NSG-FrontEnd** NSG 與 **FrontEnd** 子網路的關聯，請再次執行 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 命令，但以空白字串 (`""`) 取代 `--network-security-group` 引數。
+若要取消 **NSG-FrontEnd** NSG 與 **FrontEnd** 子網路的關聯，請再次執行 [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) 命令，但以空白字串 (`""`) 取代 `--network-security-group` 引數。
 
 ```azurecli
 az network vnet subnet update \

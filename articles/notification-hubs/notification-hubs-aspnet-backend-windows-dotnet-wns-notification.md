@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Azure 通知中樞透過 .NET 後端通知使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。 本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。 ASP.NET WebAPI 後端是用來驗證用戶端。 使用驗證的用戶端使用者，後端就會自動將標記新增通知註冊。 後端會傳送此標記，以產生特定使用者的通知。 如需使用應用程式後端註冊通知的詳細資訊，請參閱指引主題 [從應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)。 本教學課程會以您在 [開始使用通知中樞] 教學課程中所建立的通知中樞和專案為基礎。
 
 本教學課程還是 [安全推播] 教學課程的必要條件。 完成本教學課程中的步驟後，您可以繼續進行 [安全推播] 教學課程，該教學課程說明如何修改本教學課程中的程式碼，以安全的方式傳送推播通知。
@@ -33,7 +33,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 您可以在 [此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)的 GitHub 上找到本教學課程的完整程式碼。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
 * [開始使用通知中樞]<br/>您要建立通知中樞，然後保留應用程式名稱並註冊以接收本教學課程中的通知。 本教學課程假設您已完成這些步驟。 否則，請依照[開始使用通知中樞 (Windows 市集)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 中的步驟進行；尤其是[向 Windows 市集註冊您的應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store)一節和[向 Windows 市集註冊您的應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub)一節。 尤其請確定您已在入口網站的通知中心內，輸入 [設定] 索引標籤中的 [套件 SID] 和 [用戶端祕密] 值。 此組態程序會在 [設定您的通知中心](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub)一節中加以說明。 這是重要步驟：如果入口網站上的認證與您為所選應用程式名稱指定的認證不符，則推播通知將無法順利進行。
@@ -51,10 +51,10 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 在本節中，您會更新已針對 [開始使用通知中樞] 教學課程完成之專案中的程式碼。 這應該已經與市集相關聯，並已針對您的通知中樞進行設定。 在本節中，您將加入程式碼以呼叫新的 WebAPI 後端，並使用它來註冊和傳送通知。
 
 1. 在 Visual Studio 中，開啟您為 [開始使用通知中樞] 教學課程所建立的方案。
-2. 在 方案總管 中，以滑鼠右鍵按一下 (Windows 8.1) 專案，然後按一下管理 NuGet 套件。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 [(Windows 8.1)] 專案，然後按一下 [管理 NuGet 套件]。
 3. 在左側，按一下 [線上] 。
 4. 在 [搜尋] 方塊中，輸入 **Http Client**。
-5. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下安裝。 完成安裝。
+5. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]。 完成安裝。
 6. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
 7. 針對 [(Windows 8.1)] 專案重複上述步驟，來安裝 Windows Phone 專案的 **JSON.NET** NuGet 套件。
 8. 在 [方案總管] 的 [(Windows 8.1)] 專案中，連按兩下 **MainPage.xaml**，在 Visual Studio 編輯器中開啟該檔案。
@@ -212,7 +212,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
             //InitNotificationsAsync();
 
 
-1. 在 方案總管 中，以滑鼠右鍵按一下 共用 專案，然後按一下新增，再按一下 類別。 將類別命名為 **RegisterClient.cs**，然後按一下 [確定] 以產生類別。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [共用] 專案，然後按一下 [新增]，再按一下 [類別]。 將類別命名為 **RegisterClient.cs**，然後按一下 [確定] 以產生類別。
    
    為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。 它也會在本機儲存通知中心所建立的 *registrationIds* ，如 [從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。 請注意，當您按一下 [Log in and register]  按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
 2. 在 RegisterClient.cs 檔案開頭加入下列 `using` 陳述式：

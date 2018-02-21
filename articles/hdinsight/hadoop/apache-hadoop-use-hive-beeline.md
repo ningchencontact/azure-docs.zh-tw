@@ -245,7 +245,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
 Spark 提供自己的 HiveServer2 實作，這有時是指 Spark Thrift 伺服器。 此服務會使用 Spark SQL 來解析查詢而不是 Hive，並可能提供更佳的效能 (視您的查詢而定)。
 
-若要連線到 HDInsight 叢集上 Spark 的 Spark Thrift 伺服器，請使用連接埠 `10002` 而不是 `10001`。 例如， `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`。
+若要連線到 HDInsight 叢集上 Spark 的 Spark Thrift 伺服器，請使用連接埠 `10002` 而不是 `10001`。 例如： `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`。
 
 > [!IMPORTANT]
 > 無法透過網際網路直接存取 Spark Thrift 伺服器。 您只能從 SSH 工作階段或在與 HDInsight 叢集相同的 Azure 虛擬網路內連線到它。

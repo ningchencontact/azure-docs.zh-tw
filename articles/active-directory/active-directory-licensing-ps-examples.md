@@ -17,7 +17,7 @@ ms.date: 06/05/2017
 ms.author: curtand
 ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>取得群組中具有授權錯誤的所有使用者
 
-若群組中包含某些授權相關錯誤，您現在可以列出這些錯誤所影響到的使用者。 使用者可以從其他群組中，錯誤太。 不過，此範例所列出的結果僅限於與有問題之群組有關的錯誤，其方法是對使用者每個 **IndirectLicenseError** 項目的 **ReferencedObjectId** 屬性進行檢查。
+若群組中包含某些授權相關錯誤，您現在可以列出這些錯誤所影響到的使用者。 使用者也可能有來自其他群組的錯誤。 不過，此範例所列出的結果僅限於與有問題之群組有關的錯誤，其方法是對使用者每個 **IndirectLicenseError** 項目的 **ReferencedObjectId** 屬性進行檢查。
 
 ```
 #a sample group with errors

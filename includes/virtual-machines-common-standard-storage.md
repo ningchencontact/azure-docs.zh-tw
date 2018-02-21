@@ -19,7 +19,7 @@
 如需有關如何以受控磁碟建立 VM 的資訊，請參閱下列其中一份文件。
 
 * [使用 Resource Manager 和 PowerShell 建立 VM](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [使用 Azure CLI 2.0 來建立 Linux VM](../articles/virtual-machines/linux/quick-create-cli.md)
+* [使用 Azure CLI 2.0 建立 Linux VM](../articles/virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>標準儲存體功能 
 
@@ -130,4 +130,4 @@
 
 * [使用 Resource Manager 和 PowerShell 建立 VM](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [使用 Azure CLI 2.0 來建立 Linux VM](../articles/virtual-machines/linux/quick-create-cli.md)
+* [使用 Azure CLI 2.0 建立 Linux VM](../articles/virtual-machines/linux/quick-create-cli.md)

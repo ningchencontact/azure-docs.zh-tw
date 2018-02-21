@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: jroth
 ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---

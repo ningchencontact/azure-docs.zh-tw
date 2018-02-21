@@ -241,12 +241,12 @@ class MyCustomActorService : ActorService
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>幕後：備份與還原的詳細資料
 以下是備份與還原的詳細資料。
 
-### <a name="backup"></a>備份
+### <a name="backup"></a>Backup 
 可靠的狀態管理員能夠建立一致的備份，而不會封鎖任何讀取或寫入作業。 為了達到這個目的，它會利用檢查點和記錄持續性機制。  可靠的狀態管理員會在特定時間點採用模糊 (輕量型) 檢查點，來減輕交易記錄檔的壓力和改善復原時間。  呼叫 `BackupAsync` 時，可靠的狀態管理員會指示所有可靠物件，將其最新檢查點檔案複製到本機備份資料夾。  然後，可靠的狀態管理員會從「開始指標」開始，將所有記錄檔記錄複製到備份資料夾中的最新記錄檔記錄。  因為記錄到最新記錄資料列的所有記錄資料列都會包含於備份中，而且可靠的狀態管理員會保留預寫記錄，所以，可靠的狀態管理員保證所有已認可的交易 (`CommitAsync` 已順利傳回) 都會包含於備份中。
 
 呼叫 `BackupAsync` 之後認可的任何交易，不一定會在備份中。  一旦由平台填入本機備份資料夾 (亦即執行階段完成的本機備份) 之後，即會叫用服務的備份回呼。  此回呼會負責將備份資料夾移到外部位置，例如 Azure 儲存體。
 
-### <a name="restore"></a>還原
+### <a name="restore"></a>Restore
 可靠的狀態管理員能夠利用 `RestoreAsync` API，從備份還原。  
 僅可在 `OnDataLossAsync` 方法內部呼叫 `RestoreContext` 上的 `RestoreAsync` 方法。
 `OnDataLossAsync` 傳回的 Bool 表示服務是否從外部來源還原其狀態。

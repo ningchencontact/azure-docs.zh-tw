@@ -33,13 +33,13 @@ ms.lasthandoff: 10/11/2017
 | 自訂或應用程式計量 | 度量 | 使用 Application Insights 檢測的任何應用程式 | <ul><li>**REST API：**[Application Insights REST API (英文)](https://dev.applicationinsights.io/reference)</li></ul> |
 | 儲存體度量 | 度量 | Azure 儲存體 | <ul><li>**儲存體資料表：**[儲存體分析 (英文)](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | 帳單資料 | 度量 | 所有 Azure 服務 | <ul><li>**REST API：** [Azure 資源使用情況與 RateCard API](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| 活動記錄檔 | 事件 | 所有 Azure 服務 | <ul><li>**REST API：**[Azure 監視器事件 API (英文)](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**儲存體 Blob 或事件中樞︰**[記錄設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Azure 監視器診斷記錄檔 | 事件 | [請參閱此處的清單](monitoring-diagnostic-logs-schema.md) | <ul><li>**儲存體 Blob 或事件中樞：**[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
-| 計算客體 OS 記錄檔 (例如 IIS、ETW、syslog) | 事件 | [Windows](../virtual-machines-dotnet-diagnostics.md) 和 Linux 虛擬機器 (v2)、[雲端服務](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)、[Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**儲存體資料表或 Blob：**[Windows 或 Linux Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**事件中樞：**[Windows Azure 診斷](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
-| App Service 記錄檔 | 事件 | 應用程式服務 | <ul><li>**檔案、資料表或 Blob 儲存體：**[Web 應用程式診斷](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
-| 儲存體記錄 | 事件 | Azure 儲存體 | <ul><li>**儲存體資料表：**[儲存體分析 (英文)](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
-| 資訊安全中心警示 | 事件 | Azure 資訊安全中心 | <ul><li>**REST API：**[安全性警示 (英文)](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Active Directory 報告 | 事件 | Azure Active Directory | <ul><li>**REST API：**[Azure Active Directory 圖形 API](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
+| 活動記錄檔 | 活動 | 所有 Azure 服務 | <ul><li>**REST API：**[Azure 監視器事件 API (英文)](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**儲存體 Blob 或事件中樞︰**[記錄設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Azure 監視器診斷記錄檔 | 活動 | [請參閱此處的清單](monitoring-diagnostic-logs-schema.md) | <ul><li>**儲存體 Blob 或事件中樞：**[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
+| 計算客體 OS 記錄檔 (例如 IIS、ETW、syslog) | 活動 | [Windows](../virtual-machines-dotnet-diagnostics.md) 和 Linux 虛擬機器 (v2)、[雲端服務](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)、[Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**儲存體資料表或 Blob：**[Windows 或 Linux Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**事件中樞：**[Windows Azure 診斷](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
+| App Service 記錄檔 | 活動 | 應用程式服務 | <ul><li>**檔案、資料表或 Blob 儲存體：**[Web 應用程式診斷](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
+| 儲存體記錄 | 活動 | Azure 儲存體 | <ul><li>**儲存體資料表：**[儲存體分析 (英文)](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
+| 資訊安全中心警示 | 活動 | Azure 資訊安全中心 | <ul><li>**REST API：**[安全性警示 (英文)](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
+| Active Directory 報告 | 活動 | Azure Active Directory | <ul><li>**REST API：**[Azure Active Directory 圖形 API](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
 | 資訊安全中心資源狀態 | 狀態 | [所有支援的資源](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST API：**[安全性狀態 (英文)](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | 資源健全狀況 | 狀態 | 支援的服務 | <ul><li>**REST API：**[資源健康狀態 REST API (英文)](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Azure 監視器計量警示 | 通知 | [請參閱此處的清單](monitoring-supported-metrics.md) | <ul><li>**Webhook：**[Azure 計量警示](insights-webhooks-alerts.md)</li></ul> |

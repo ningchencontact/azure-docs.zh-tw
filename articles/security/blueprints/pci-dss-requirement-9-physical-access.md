@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **限制持卡人資料的實際存取**
 
 > [!NOTE]
-> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 如需每個需求之測試程序和指引的相關資訊，請參閱 PCI DSS。
+> 這些需求皆由[支付卡產業 (PCI) 安全標準委員會](https://www.pcisecuritystandards.org/pci_security/) \(英文\) 於 [PCI 資料安全標準 (DSS) 3.2 版](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss) \(英文\) 中所定義。 若要了解每個需求的測試程序和指導方針相關資訊，請參閱 PCI DSS。
 
 對任何資料或存有持卡人資料的系統進行實際存取，都會讓人有機會存取裝置或資料，以及移除系統或紙本文件，因此應適當地加以限制。 就需求 9 而言，「現場人員」是指實際出現在實體場所內的全職和兼職員工、臨時工、約聘員工與顧問。 「訪客」是指廠商、任何現場人員的賓客、服務業人員，或任何需要進入設施一小段時間的人員 (通常不會超過一天)。 「媒體」是指包含持卡人資料的所有紙本和電子媒體。
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.1** 在持卡人資料環境中，使用適當的設施進入控制項來限制和監視系統的實際存取。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 「敏感區域」是指裝載儲存、處理或傳輸持卡人資料系統的任何資料中心、伺服器機房或任何區域。 這不包括僅銷售點終端機存在的公開區域，例如零售商店的收銀區域。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/16/2017
 
 例如，可以停用位於公用區域和訪客可存取區的網路端子，並且只在網路存取已明確獲得授權後才能啟用。 或者，可以實作處理流程，以確保在網路端子作用中的區域內，訪客始終處於護送狀態。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.1.3** 限制無線存取點、閘道、手持式裝置、網路/通訊硬體和電信線路的實際存取。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -94,7 +94,7 @@ ms.lasthandoff: 11/16/2017
 - 存取需求的變更
 - 撤銷或終止現場人員及過期訪客的身分識別 (例如識別碼徽章)。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -109,7 +109,7 @@ ms.lasthandoff: 11/16/2017
 - 必須經過授權並且根據個人職責授予存取權。
 - 存取會在終止時遭到撤銷，並傳回或停用所有實際存取機制，例如金鑰和門禁卡等。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -122,7 +122,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.4** 實作程序以識別及授權訪客。 程序應該包括下列項目。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -136,7 +136,7 @@ ms.lasthandoff: 11/16/2017
 **9.4.1** 對於處理或保留持卡人資料的區域，訪客須經過授權才能進入，並且一律有人護送。
 
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -149,7 +149,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.4.2** 對於過期訪客和為了清楚分辨訪客和現場人員，訪客會被識別並得到徽章或其他身分識別。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.4.3** 訪客須在離開設施前或到期日已到時須交回徽章或身分識別。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -177,7 +177,7 @@ ms.lasthandoff: 11/16/2017
 記錄上會記錄訪客名稱、呈報公司和授權實際存取的現場人員。
 除非法律限制，否則請保留此記錄至少三個月。
 
-**職責：&nbsp;&nbsp;`Microsoft Azure Only`**
+**責任：&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.5** 實際保護所有媒體。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.5.1** 將媒體備份儲存在安全的位置，最好是場外設施，例如替代或備份站台，或是商業儲存設施。 至少每年檢閱位置的安全性。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.6** 對任何類型的內部或外部媒體分佈維持嚴格控管，包括下列項目。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -229,7 +229,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.6.1** 將媒體分類，如此一來便可判斷敏感資料。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -242,7 +242,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.6.2** 透過安全且可正確追蹤的快遞或其他方法傳送媒體。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.6.3** 請確定管理作業會核准任何和所有媒體從受保護的區域移出 (包括將媒體發佈到個人時)。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -268,7 +268,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.7** 維持嚴格控管儲存體和媒體協助工具。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -282,7 +282,7 @@ ms.lasthandoff: 11/16/2017
 **9.7.1** 適當地維護所有媒體記錄的庫存，並至少每年一次地整理媒體庫存。
 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -295,7 +295,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.8** 當媒體不再有商務或法務原因上的需求時，則銷毀該媒體，如下所示。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -308,7 +308,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.8.1** 撕毀、焚燒或攪碎紙本原料，使得持卡人資料無法重建。 保護好要銷毀原料所用的儲存體容器。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -321,7 +321,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.8.2** 使電子媒體上的持卡人資料無法復原，如此便無法重建持卡人資料。
 
-**職責：&nbsp;&nbsp;`Shared`**
+**責任：&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -337,12 +337,12 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 這些需求適用於在銷售點出示卡片進行交易 (也就是刷卡) 時所使用的卡片讀取裝置。 此需求不適用於手動金鑰輸入元件，例如電腦鍵盤和 POS 鍵台。 
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會使用 OMS 來記錄系統的所有變更。<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) 提供廣泛的變更記錄。 為確保正確性，您可以檢閱及驗證變更。 如需更具體的指引，請參閱 [PCI 指引 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會使用 OMS 來記錄系統的所有變更。<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) 能提供廣泛的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指引，請參閱 [PCI 指引 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
 
 
 
@@ -353,7 +353,7 @@ ms.lasthandoff: 11/16/2017
 - 裝置位置 (例如，裝置所在的站台或設施)
 - 裝置序號或其他作為唯一識別碼的方法
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -369,7 +369,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > 裝置可能遭到竄改或取代的徵象範例包括非預期的附加物或插入裝置的纜線、遺失或變更的安全標籤、損毀或不同顏色的外殼、序號變更或其他外部標示。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/16/2017
 - 請留意裝置附近的可疑行為 (例如，未知人員嘗試拔除或開啟裝置)。
 - 向適當人員 (例如經理或保全人員) 舉報可疑行為和裝置遭到竄改或替代的徵象。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/16/2017
 
 **9.10** 確定限制持卡人資料實際存取的安全性原則和作業程序已記錄、已使用且已讓相關單位了解。
 
-**職責：&nbsp;&nbsp;`Customer Only`**
+**責任：&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

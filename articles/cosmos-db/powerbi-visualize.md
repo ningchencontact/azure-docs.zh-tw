@@ -17,7 +17,7 @@ ms.date: 08/16/2017
 ms.author: mimig
 ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 > [!NOTE]
 > 若要使用 MongoDB API 將 Azure Cosmos DB 連線至 Power BI，您必須使用 [Simba MongoDB ODBC 驅動程式](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在依照本 Power BI 教學課程中的指示進行之前，請先確定您可以存取下列資源：
 
 * [最新版的 Power BI Desktop](https://powerbi.microsoft.com/desktop)

@@ -25,7 +25,7 @@ ms.lasthandoff: 10/31/2017
 您可以使用 bcp 命令列公用程式，將資料從 CSV 檔案匯入 Azure SQL Database。
 
 ## <a name="before-you-begin"></a>開始之前
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 若要完成本文中的步驟，您需要：
 
 * Azure SQL Database 邏輯伺服器和資料庫

@@ -25,8 +25,8 @@ ms.lasthandoff: 10/11/2017
 
 了解如何使用 WebHDFS REST API 和 Data Lake Analytics REST API 來管理 Data Lake Analytics 帳戶、作業和目錄。 
 
-## <a name="prerequisites"></a>必要條件
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+## <a name="prerequisites"></a>先決條件
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **建立 Azure Active Directory 應用程式**。 您必須使用 Azure AD 應用程式來向 Azure AD 驗證 Data Lake Analytics 應用程式。 有不同的方法可向 Azure AD 進行驗證：**使用者驗證**或**服務對服務驗證**。 如需如何驗證的指示和詳細資訊，請參閱 [使用 Azure Active Directory 向 Data Lake Analytics 進行驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
 * [cURL](http://curl.haxx.se/)。 本文使用 cURL 示範如何對 Data Lake Analytics 帳戶進行 REST API 呼叫。
 

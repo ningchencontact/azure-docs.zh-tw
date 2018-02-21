@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 中斷連線部署規劃決策
-在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-deployment-decisions.md)之後，即可接著完成您的 Azure Stack 部署決策。
+在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
 
 使用與 Azure 中斷連線的部署選項，您可以在沒有網際網路連線的情況下，部署和使用 Azure Stack。 不過，若使用已中斷連線的部署，您會受限於 AD FS 身分識別儲存和以容量為基礎的計費模型。 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/01/2018
 > [!TIP]
 > 有時候，這種環境類型也稱為「潛水艇案例」。
 
-已中斷連線的部署不完全表示您稍後無法在混合式租用戶 VM 案例中，將 Azure Stack 執行個體連線到 Azure。 這表示您無法在部署期間連線至 Azure，或您不想使用 Azure Active Directory 作為您的身分識別儲存。 不過，如果您想要在部署之後連線至 Azure，不論您要使用何者作為您的身分識別儲存，您都應該選擇 [連線到 Azure 部署] 選項。 
+已中斷連線的部署不完全表示您稍後無法在混合式租用戶 VM 案例中，將 Azure Stack 執行個體連線到 Azure。 這表示您無法在部署期間連線至 Azure，或您不想使用 Azure Active Directory 作為您的身分識別儲存。
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>中斷連線部署中受損或無法使用的功能 
 依照設計，Azure Stack 在連線至 Azure 時的效能最佳，所以請注意，有一些特性和功能在中斷連線模式下會受損或完全無法使用。 

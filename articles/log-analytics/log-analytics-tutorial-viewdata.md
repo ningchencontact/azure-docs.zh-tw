@@ -82,7 +82,7 @@ Event | where (EventLevelName == "Error")
 Syslog | where (SeverityLevel == "err")
 ```
 
-![篩選器](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
+![Filter](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
 從其中一個記錄的屬性功能表中選取 [新增至篩選器]，將屬性新增至篩選窗格。
 

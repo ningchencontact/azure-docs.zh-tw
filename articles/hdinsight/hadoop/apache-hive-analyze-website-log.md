@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 您必須已在 Azure HDInsight 上佈建 Hadoop 叢集。 如需指示，請參閱[佈建 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * 您必須已安裝 Microsoft Excel 2013 或 Excel 2010。
 * 您必須有 [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886) ，才能從 Hive 將資料匯入 Excel 中。

@@ -16,12 +16,12 @@ ms.date: 12/11/2017
 ms.author: maheshu
 ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
-您有現有的 Azure AD 網域服務受管理的網域。 當您瀏覽至 Azure 入口網站並檢視受管理的網域時，您會看到下列錯誤訊息：
+您有現有的 Azure AD 網域服務受控網域。 當您瀏覽至 Azure 入口網站並檢視受控網域時，您會看到下列錯誤訊息：
 
 ![不相符目錄錯誤](.\media\getting-started\mismatched-tenant-error.png)
 

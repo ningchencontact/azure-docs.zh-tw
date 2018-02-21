@@ -17,7 +17,7 @@ ms.author: kgremban
 robots: noindex
 ms.openlocfilehash: 1f25f5e750b705fda387fbaeed7d4e67710e0a18
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---

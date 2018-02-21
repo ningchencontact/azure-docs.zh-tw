@@ -30,7 +30,7 @@ ms.lasthandoff: 11/28/2017
 > [!NOTE]
 > 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。 如需此範例中使用的 HiveQL 的相關資訊，請參閱 [在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
 
-**必要條件**
+**先決條件**
 
 * **Azure HDInsight 叢集**︰不論叢集是 Windows 型或 Linux 型。
 
@@ -106,7 +106,7 @@ Get-AzureRmHDInsightJobOutput `
 
 這個 Cmdlet 會傳回作業處理期間寫入到 STDERR 的資訊。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 如您所見，Azure PowerShell 提供簡單的方法，在 HDInsight 叢集中執行 Hive 查詢、監視工作狀態，以及擷取輸出。
 

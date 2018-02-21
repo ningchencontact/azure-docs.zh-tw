@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 * **"custom"** – 自訂容器，該容器是以設定診斷監視器所監視的目錄為基礎。  將會在 WADDirectoriesTable 中指定此 Blob 容器的名稱。
 
 ## <a name="tools-to-view-diagnostic-data"></a>用來檢視診斷資料的工具
-有數個工具可用來檢視傳輸至儲存體後的資料。 例如：
+有數個工具可用來檢視傳輸至儲存體後的資料。 例如︰
 
 * Visual Studio 中的伺服器總管 - 如果您已安裝 Azure Tools for Microsoft Visual Studio，您可以在伺服器總管中使用 Azure 儲存體節點，從您的 Azure 儲存體帳戶檢視唯讀的 Blob 和資料表資料。 您可以從您的本機儲存體模擬器帳戶顯示資料，也可以從您為 Azure 建立的儲存體帳戶顯示資料。 如需詳細資訊，請參閱 [使用伺服器總管瀏覽和管理儲存體資源](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md)。
 * [Microsoft Azure 儲存體 Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、OSX 和 Linux 上輕鬆使用 Azure 儲存體資料。

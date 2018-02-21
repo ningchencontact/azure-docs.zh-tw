@@ -33,7 +33,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
 ## <a name="supported-azure-site-recovery-deployment-options"></a>支援的 Azure Site Recovery 部署選項
 客戶可以將檔案伺服器部署為在 Hyper-V 或 VMware 上執行的實體服務或虛擬機器 (VM)，然後從由 StorSimple 儲存體劃分出來的磁碟區建立檔案共用。 Azure Site Recovery 可以保護次要站台或 Azure 的實體與虛擬部署。 本文件涵蓋 DR 解決方案的詳細資料，該解決方案使用 Azure 做為 Hyper-V 上裝載之檔案伺服器 VM 的復原網站，並且在 StorSimple 儲存體上使用檔案共用。 檔案伺服器 VM 位於 VMware VM 或實體電腦上的其他案例也可以透過類似方式實作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 實作單鍵災害復原解決方案 (針對 StorSimple 儲存體上裝載的檔案共用使用 Azure Site Recovery) 時，有下列先決條件：
 
 * Hyper-V 或 VMware 或實體電腦上裝載的內部部署 Windows Server 2012 R2 檔案伺服器 VM
@@ -88,9 +88,9 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
       > 視版本不同，檔案名稱可能會改變。
       >
       >
-3. 按一下 [下一步] 。
+3. 按 [下一步] 。
 4. 接受 [合約條款] 然後按一下 [下一步]。
-5. 按一下 [完成]。
+5. 按一下 [完成] 。
 6. 使用從 StorSimple 儲存體劃分出來的磁碟區建立檔案共用。 如需詳細資訊，請參閱 [使用 StorSimple Manager 服務管理磁碟區](storsimple-manage-volumes.md)。
 
    1. 在您的內部部署 VM 上，按 Windows 鍵 +Q 並搜尋 **iSCSI**。
@@ -359,5 +359,5 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
   > 請在設備容錯移轉完成後重新執行復原計劃。
 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 使用 Azure Site Recovery 時，您可以為有檔案共用裝載於 StorSimple 儲存體上的檔案伺服器 VM 建立完整自動化的災害復原計劃。 當發生中斷時，您可以在幾秒鐘內從任何地方起始容錯移轉，並且在數分鐘內啟動並執行應用程式。

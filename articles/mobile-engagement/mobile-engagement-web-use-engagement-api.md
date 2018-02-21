@@ -42,7 +42,7 @@ Mobile Engagement API 是由 `engagement.agent` 物件提供。 預設 Azure Mob
 ### <a name="user-starts-a-new-activity"></a>使用者啟動新的活動
     engagement.agent.startActivity("MyUserActivity");
 
-每當使用者活動變更，您就需要呼叫 `startActivity()` 。 第一次呼叫此函數會啟動新的使用者工作階段。
+每當使用者活動變更，您就需要呼叫 `startActivity()` 。 第一次呼叫此函式會啟動新的使用者工作階段。
 
 ### <a name="user-ends-the-current-activity"></a>使用者結束目前的活動
     engagement.agent.endActivity();
@@ -172,7 +172,7 @@ Mobile Engagement API 是由 `engagement.agent` 物件提供。 預設 Azure Mob
 ### <a name="limits"></a>限制
 套用至額外參數的限制是在索引鍵、值類型和大小的規則運算式的領域。
 
-#### <a name="keys"></a>之間的信任
+#### <a name="keys"></a>金鑰
 物件中的每個索引鍵都必須符合下列規則運算式：
 
     ^[a-zA-Z][a-zA-Z_0-9]*
@@ -202,7 +202,7 @@ Mobile Engagement API 是由 `engagement.agent` 物件提供。 預設 Azure Mob
 ### <a name="limits"></a>限制
 套用至應用程式資訊的限制是在索引鍵和大小的規則運算式的領域。
 
-#### <a name="keys"></a>之間的信任
+#### <a name="keys"></a>金鑰
 物件中的每個索引鍵都必須符合下列規則運算式：
 
     ^[a-zA-Z][a-zA-Z_0-9]*

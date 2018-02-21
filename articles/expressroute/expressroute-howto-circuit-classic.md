@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: 457bb74fa15d31fecbf668038ac880cafb8a897d
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -129,7 +129,7 @@ Status                           : Enabled
 > 
 > 
 
-#### <a name="considerations"></a>注意事項
+#### <a name="considerations"></a>考量
 
 * 從高階降級為標準之前，請確定連結至線路的虛擬網路數目小於 10。 如果您不這樣做，更新要求就會失敗，且會被以進階費率計費。
 * 您必須取消連結其他地理政治區域中的所有虛擬網路。 如果您不這樣做，更新要求就會失敗，且會被以進階費率計費。
@@ -197,7 +197,7 @@ At line:1 char:1
 
 ## <a name="deprovision-and-delete-a-circuit"></a>取消佈建及刪除線路
 
-### <a name="considerations"></a>注意事項
+### <a name="considerations"></a>考量
 
 * 您必須取消連結 ExpressRoute 線路的所有虛擬網路，此作業才會成功。 如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 * 如果 ExpressRoute 線路服務提供者佈建狀態為 **Provisioning** 或 **Provisioned**，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。

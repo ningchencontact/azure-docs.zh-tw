@@ -155,7 +155,7 @@ Context 提供應用程式的執行環境。 每個 ISCPPlugin 執行個體 (ISC
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` 是由 Storm 定義的參數，`pluginConf` 是由 SCP 定義的參數。 例如：
+`stormConf` 是由 Storm 定義的參數，`pluginConf` 是由 SCP 定義的參數。 例如︰
 
     public class Constants
     {
@@ -364,8 +364,8 @@ SCP.NET 已增加下列函式來定義交易拓撲：
 | **scp-tx-batch-bolt** |exec-name<br />args<br />fields |定義交易式批次 Bolt。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />fields 是 bolt 的輸出欄位。 |
 | **scp-tx-commit-bolt** |exec-name<br />args<br />fields |定義交易式認可 Bolt。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 bolt 的輸出欄位 |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |以拓撲名稱、&nbsp;spout 定義對應和 bolt 定義對應來定義非交易式拓撲 |
-| **scp-spout** |exec-name<br />args<br />fields<br />參數 |定義非交易式 spout。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 spout 的輸出欄位<br /><br />***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。 |
-| **scp-bolt** |exec-name<br />args<br />fields<br />參數 |定義非交易式 Bolt。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 bolt 的輸出欄位<br /><br />***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。 |
+| **scp-spout** |exec-name<br />args<br />fields<br />parameters |定義非交易式 spout。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 spout 的輸出欄位<br /><br />***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。 |
+| **scp-bolt** |exec-name<br />args<br />fields<br />parameters |定義非交易式 Bolt。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 bolt 的輸出欄位<br /><br />***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。 |
 
 SCP.NET 已定義下列關鍵字：
 

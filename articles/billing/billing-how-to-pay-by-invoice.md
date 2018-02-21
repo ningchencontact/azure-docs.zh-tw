@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
     * 帳單地址
     * [帳戶管理員的電子郵件地址](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
 
-1. 確認您的連絡資訊和慣用的連絡方法，然後按一下建立。
+1. 確認您的連絡資訊和慣用的連絡方法，然後按一下 [建立]。
 
 如果我們因您所需要的信用額度而必須進行信用查核，我們會將信用查核應用程式傳送給您。 提交應用程式之後，可能需要 5-7 天來處理信用應用程式。
 

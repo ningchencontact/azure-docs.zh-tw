@@ -45,7 +45,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 不過，如果您未在伺服器上指定相依性，可能可以在部署伺服器之前啟動資料庫部署。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 若要解決這個錯誤，請包含相依性。
 

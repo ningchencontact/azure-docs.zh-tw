@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**15 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 6 課︰建立量值](../tutorials/aas-lesson-6-create-measures.md)。   
   
 ## <a name="create-key-performance-indicators"></a>建立關鍵效能指標  

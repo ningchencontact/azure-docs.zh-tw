@@ -48,7 +48,7 @@ Message: The subscription is not registered to use namespace {resource-provider-
 1. 此資源類型不支援 API 版本
 1. 此資源類型不支援位置
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 錯誤訊息應可提供給您支援的位置和 API 版本建議。 您可以將您的範本變更為其中一個建議的值。 Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但並非全部。 如果您未曾使用特定的資源提供者，您可能需要註冊該提供者。 您可以透過 PowerShell 或 Azure CLI，深入探索資源提供者。
 

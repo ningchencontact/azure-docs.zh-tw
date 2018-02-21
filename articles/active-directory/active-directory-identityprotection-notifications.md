@@ -18,7 +18,7 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,30 +26,30 @@ ms.lasthandoff: 12/11/2017
 
 Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助您管理使用者風險和風險事件：
 
-- 在偵測到的風險電子郵件的使用者
+- 「偵測到具有風險的使用者」電子郵件
 - 每週精選文章電子郵件
 
-本文章會提供您兩個通知電子郵件的概觀。
+本文同時提供您這兩種通知電子郵件的概觀。
 
 
-## <a name="users-at-risk-detected-email"></a>在偵測到的風險電子郵件的使用者
+## <a name="users-at-risk-detected-email"></a>「偵測到具有風險的使用者」電子郵件
 
-在偵測到的帳戶有風險的回應，Azure AD Identity Protection 會產生與電子郵件警示**使用者偵測到的風險**主旨為。 電子郵件中包含的連結**[使用者加上旗標的風險](active-directory-reporting-security-user-at-risk.md)**報表。 最佳做法，您應立即調查風險使用者。
+當偵測到具有風險的帳戶時，Azure AD Identity Protection 會產生主旨為**偵測到具有風險的使用者**的電子郵件警示來作為回應。 此電子郵件會包含**[標幟為有風險的使用者](active-directory-reporting-security-user-at-risk.md)**報告的連結。 最佳做法是應立即調查具有風險的使用者。
 
-![在偵測到的風險電子郵件的使用者](./media/active-directory-identityprotection-notifications/01.png)
+![「偵測到具有風險的使用者」電子郵件](./media/active-directory-identityprotection-notifications/01.png)
 
 
 ### <a name="configuration"></a>組態
 
-身為管理員，您可以設定：
+如果您是系統管理員，您可以設定：
 
-- **產生此電子郵件的觸發程序的風險層級**-根據預設，風險層級設定為 「 高 」 的風險。
-- **這封電子郵件的收件者**-根據預設，收件者會包含所有全域管理員。 全域系統管理員也可以加入其他的全域系統管理員，安全性系統管理員安全性讀取器為收件者。  
+- **觸發產生此電子郵件的風險層級** - 此風險層級預設為「高」風險。
+- **此電子郵件的收件者** - 收件者預設包含所有「全域管理員」。 「全域管理員」也可以新增其他「全域管理員」、「安全性管理員」、「安全性讀取者」作為收件者。  
 
 
-若要開啟相關的對話方塊，請按一下**警示**中**設定**區段**Identity Protection**頁面。
+若要開啟相關的對話方塊，請在 [Identity Protection] 頁面的 [設定] 區段中，按一下 [警示]。
 
-![在偵測到的風險電子郵件的使用者](./media/active-directory-identityprotection-notifications/05.png)
+![「偵測到具有風險的使用者」電子郵件](./media/active-directory-identityprotection-notifications/05.png)
 
 
 ## <a name="weekly-digest-email"></a>每週精選文章電子郵件
@@ -69,15 +69,15 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 
 ### <a name="configuration"></a>組態
 
-身為管理員，您可以切換每週摘要電子郵件傳送。
+如果您是系統管理員，您可以關閉每週摘要電子郵件的傳送。
 
 ![使用者風險](./media/active-directory-identityprotection-notifications/62.png "使用者風險")
 
-若要開啟相關的對話方塊，請按一下**每週摘要**中**設定**區段**Identity Protection**頁面。
+若要開啟相關的對話方塊，請在 [Identity Protection] 頁面的 [設定] 區段中，按一下 [每週摘要]。
 
-![在偵測到的風險電子郵件的使用者](./media/active-directory-identityprotection-notifications/04.png)
+![「偵測到具有風險的使用者」電子郵件](./media/active-directory-identityprotection-notifications/04.png)
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

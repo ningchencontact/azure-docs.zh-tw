@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 除了協助您保護 SQL Database 資源，資訊安全中心也提供 Azure 虛擬機器、雲端服務、應用程式服務、虛擬網路等的安全性監視和管理功能。 [在此](security-center-intro.md)深入了解資訊安全中心。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始使用資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。 您的訂用帳戶已經啟用資訊安全中心的免費層。 如需資訊安全中心的免費和標準層的詳細資訊，請參閱[安全性中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
 資訊安全中心支援角色型存取。 若要深入了解 Azure 中的角色型存取控制 (RBAC)，請參閱 [Azure Active Directory 角色型存取控制](../active-directory/role-based-access-control-configure.md)。 資訊安全中心常見問題集提供[在資訊安全中心處理權限的方式](security-center-faq.md#permissions)。

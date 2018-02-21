@@ -249,7 +249,7 @@ ms.lasthandoff: 10/13/2017
 } ]
 ```
 
-## <a name="dependencies"></a>相依項目
+## <a name="dependencies"></a>相依性
 
 大部分的資源相依於其他資源才能正確地運作。 虛擬機器必須與虛擬網路相關聯，且需要網路介面才能執行它。 [ependsOn](../../resource-group-define-dependencies.md) 項目用來確定網路介面在 VM 建立之前已備妥可供使用：
 

@@ -191,7 +191,7 @@ Windows Server 容錯移轉叢集是 Windows 中高可用性 SAP ASCS/SCS 安裝
 
 容錯移轉叢集是由 1+n 個獨立伺服器 (節點) 所組成的群組，這些伺服器會共同運作以提升應用程式和服務的可用性。 如果發生節點失敗，Windows Server 容錯移轉叢集會計算發生的失敗次數，以及仍然維持狀況良好的叢集，以提供應用程式和服務。 您可以從不同的仲裁模式選擇以達成容錯移轉叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始本文中的工作之前，請檢閱下列文章：
 
 * [SAP NetWeaver 的 Azure 虛擬機器高可用性架構和案例][sap-high-availability-architecture-scenarios]
@@ -224,10 +224,10 @@ SAP ASCS/SCS 執行個體包含下列元件：
 
 
 * SAP 全域主機檔案：
-    * 檔案結構：S:\usr\sap\\&lt;SID&gt;\SYS\...
+    * 檔案結構：S:\usr\sap\\&lt;SID&gt;\SYS\..
     * sapmnt 檔案共用，可利用下列 UNC 路徑，供存取這些全域 S:\usr\sap\\&lt;SID&gt;\SYS\... 檔案：
 
-     \\\\<ASCS/SCS 虛擬主機名稱>\sapmnt\\&lt;SID&gt;\SYS\...
+     \\\\&lt;ASCS/SCS 虛擬主機名稱&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 
 
 ![圖 2：SAP ASCS/SCS 執行個體的處理序、檔案結構和全域主機 sapmnt 檔案共用][sap-ha-guide-figure-8001]

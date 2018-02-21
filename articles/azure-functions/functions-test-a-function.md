@@ -185,10 +185,10 @@ function ProcessNewUserInformation(context, name, address) {
 ### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>使用儲存體總管測試 blob 觸發程序
 您可以使用 [Azure 儲存體總管](http://storageexplorer.com/)來測試 blob 觸發程序函式。
 
-1. 在您函式應用程式的 [Azure 入口網站]中，建立 C#、F# 或 JavaScript Blob 觸發程序函式。 將要監視的路徑設定為您的 blob 容器名稱。 例如：
+1. 在您函式應用程式的 [Azure 入口網站]中，建立 C#、F# 或 JavaScript Blob 觸發程序函式。 將要監視的路徑設定為您的 blob 容器名稱。 例如︰
 
         files
-2. 按一下 **+** 按鈕以選取或建立您想要使用的儲存體帳戶。 然後按一下 [ **建立**]。
+2. 按一下 **+** 按鈕以選取或建立您想要使用的儲存體帳戶。 接著，按一下 [建立]。
 3. 建立含有下列內容的文字檔，並儲存該檔案：
 
         A text file for blob trigger function testing.
@@ -251,7 +251,7 @@ Azure Functions 入口網站是為了讓您測試 HTTP 和計時器觸發的函�
 2. 輸入要使用佇列函式監視的佇列名稱：
 
         queue-newusers
-3. 按一下 **+** 按鈕以選取或建立您想要使用的儲存體帳戶。 然後按一下 [ **建立**]。
+3. 按一下 **+** 按鈕以選取或建立您想要使用的儲存體帳戶。 接著，按一下 [建立]。
 4. 將此入口網站瀏覽器視窗保持開啟，使得您可以監視預設的佇列函式範本程式碼的記錄項目。
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>建立要將訊息放在佇列中的計時器觸發程序
@@ -382,7 +382,7 @@ req.end(bodyString);
 若要在主控台應用程式中測試此程式碼，您必須︰
 
 * [在 app.config 檔案中設定儲存體連接字串](../storage/queues/storage-dotnet-how-to-use-queues.md)。
-* 傳遞 `name` 和 `address` 做為應用程式的參數。 例如， `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`。 (在執行階段期間，此程式碼會接受新使用者名稱和地址做為命令列引數。)
+* 傳遞 `name` 和 `address` 做為應用程式的參數。 例如： `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`。 (在執行階段期間，此程式碼會接受新使用者名稱和地址做為命令列引數。)
 
 範例 C# 程式碼︰
 

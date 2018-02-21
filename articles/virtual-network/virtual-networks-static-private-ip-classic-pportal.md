@@ -40,13 +40,13 @@ ms.lasthandoff: 10/11/2017
 若要在名為 TestVNet 之 VNet 的FrontEnd子網路中建立名為 DNS01 且其靜態私人 IP 為 192.168.1.101 的 VM，請遵循下列步驟：
 
 1. 透過瀏覽器瀏覽至 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
-2. 按一下 新增  >  計算  >  Windows Server 2012 R2 Datacenter，注意 選取部署模型 清單已經顯示 傳統，然後按一下建立。
+2. 按一下 [新增]  >  [計算]  >  [Windows Server 2012 R2 Datacenter]，注意 [選取部署模型] 清單已經顯示 [傳統]，然後按一下 [建立]。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 3. 在 [建立 VM]  刀鋒視窗中，輸入要建立之 VM 的名稱 (我們的案例中為*DNS01* )、本機系統管理員帳戶和密碼。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-4. 按一下 選擇性組態  >  網路  >  虛擬網路，然後按一下TestVNet。 如果不能使用 **TestVNet**，請確定您使用「美國中部」位置，並已建立本文開頭所描述的測試環境。
+4. 按一下 [選擇性組態]  >  [網路]  >  [虛擬網路]，然後按一下 [TestVNet]。 如果不能使用 **TestVNet**，請確定您使用「美國中部」位置，並已建立本文開頭所描述的測試環境。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. 在 [網路] 刀鋒視窗中，請確定目前選取的子網路是 FrontEnd，然後按一下 [IP 位址]，在 [IP 位址指派] 底下，按一下 [靜態]，然後 [IP 位址] 輸入 192.168.1.101，如下所示。
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>如何移除 VM 的靜態私人 IP 位址
 若要移除上方建立之 VM 的靜態私人 IP 位址，請遵循下列步驟。
 
-1. 從上方顯示的 IP 位址 刀鋒視窗按一下 IP 位址指派 右側的 動態，然後按一下儲存，再按一下 是。
+1. 從上方顯示的 [IP 位址] 刀鋒視窗按一下 [IP 位址指派] 右側的 [動態]，然後按一下 [儲存]，再按一下 [是]。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 若要將靜態私人 IP 位址新增至使用上述步驟建立之 VM，請遵循下列步驟：
 
 1. 從上方顯示的 [IP 位址] 刀鋒視窗按一下 [IP 位址指派] 右側的 [靜態]。
-2. IP 位址 輸入 192.168.1.101，然後按一下儲存，再按一下 是。
+2. [IP 位址] 輸入 192.168.1.101，然後按一下 [儲存]，再按一下 [是]。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [保留的公用 IP](virtual-networks-reserved-public-ip.md) 位址。

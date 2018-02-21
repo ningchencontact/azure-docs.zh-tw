@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>將 Azure 資源部署至多個訂用帳戶和資源群組
 
 一般而言，您要將範本中的所有資源都部署至單一[資源群組](resource-group-overview.md)。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 例如，建議您將 Azure Site Recovery 的備份虛擬機器部署至不同的資源群組和位置。 Resource Manager 可讓您使用巢狀的範本，將目標放在與父範本所使用之訂用帳戶和資源群組不同的訂用帳戶和資源群組。
+
+> [!NOTE]
+> 您只能在單一部署中部署至五個資源群組。
 
 ## <a name="specify-a-subscription-and-resource-group"></a>指定訂用帳戶和資源群組
 
@@ -163,7 +166,7 @@ ms.lasthandoff: 01/10/2018
 
 下列範本示範多個資源群組部署。 表格後面會顯示要部署範本的指令碼。
 
-|範本  |描述  |
+|範本  |說明  |
 |---------|---------|
 |[跨訂用帳戶範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |將一個儲存體帳戶部署至一個資源群組，並將一個儲存體帳戶部署至第二個資源群組。 第二個資源群組位於不同的訂用帳戶時，請包含訂用帳戶識別碼的值。 |
 |[跨資源群組內容範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |示範如何解析 `resourceGroup()` 函式。 它不會部署任何資源。 |

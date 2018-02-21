@@ -27,10 +27,10 @@ ms.lasthandoff: 10/11/2017
 
 在本教學課程中，您將開發 Java 主控台應用程式，其中包含一般管理作業，以及建立測試資料和提交作業的範例。  若要使用其他支援的工具進行同一個教學課程，請按一下此區段最上方的索引標籤。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Java Development Kit (JDK) 8 (使用 Java 1.8 版)。
 * IntelliJ 或其他合適的 Java 開發環境。 此為選用步驟，但建議執行。 以下指示使用 IntelliJ。
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 建立 Azure Active Directory (AAD) 應用程式，並擷取其**用戶端識別碼**、**租用戶識別碼**和**金鑰**。 如需了解 AAD 應用程式，以及如何取得用戶端識別碼的指示，請參閱 [使用入口網站建立 Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。 建立應用程式並產生金鑰後，也可從入口網站取得回覆 URI 和金鑰。
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>如何使用 Azure Active Directory 驗證？

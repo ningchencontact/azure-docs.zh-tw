@@ -57,8 +57,8 @@ ms.lasthandoff: 11/06/2017
     您可以在 Service Fabric Explorer 中監視升級進度。 或者，您也可以執行 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>使用 gMSA 將節點新增至已設定 Windows 安全性的叢集
-針對已設定「群組受管理的服務帳戶」(gMSA)(https://technet.microsoft.com/library/hh831782.aspx) 的叢集，可以使用組態升級來新增新的節點：
-1. 在任何現有的節點上執行 [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 來取得最新的組態檔，然後在 "Nodes" 區段中新增有關所要新增之新節點的詳細資料。 請確定新節點屬於相同的群組受管理帳戶。 此帳戶應該是所有機器上的「系統管理員」。
+針對已設定「群組受控服務帳戶」(gMSA)(https://technet.microsoft.com/library/hh831782.aspx) 的叢集，可以使用組態升級來新增新的節點：
+1. 在任何現有的節點上執行 [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 來取得最新的組態檔，然後在 "Nodes" 區段中新增有關所要新增之新節點的詳細資料。 請確定新節點屬於相同的群組受控帳戶。 此帳戶應該是所有機器上的「系統管理員」。
 
     ```
         {

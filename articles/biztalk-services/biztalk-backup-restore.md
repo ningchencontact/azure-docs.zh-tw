@@ -47,7 +47,7 @@ Azure BizTalk 服務包含備份與還原功能。
 ## <a name="create-a-backup"></a>建立備份
 您隨時都可以建立備份，完全決由掌控。 若要建立備份，請使用[用於管理 Azure 上之 BizTalk 服務的 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)。
 
-## <a name="restore"></a>還原
+## <a name="restore"></a>Restore
 若要還原備份，請使用[用於管理 Azure 上之 BizTalk 服務的 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)。
 
 ### <a name="postrestore"></a>還原備份之後
@@ -130,7 +130,7 @@ BizTalk 服務永遠還原成 **暫止** 狀態。 在此狀態下，您可以�
 </tr> 
 </table>
 
-## <a name="next"></a>下一步
+## <a name="next"></a>下一頁
 若要建立 Azure BizTalk 服務，請移至 [BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
 
 ## <a name="see-also"></a>另請參閱

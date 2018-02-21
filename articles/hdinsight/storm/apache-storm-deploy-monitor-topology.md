@@ -33,7 +33,7 @@ HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 
 >
 > 如需透過使用 Linux 的 HDInsight 叢集來部署和管理 Storm 拓撲的詳細資訊，請參閱[部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Apache Storm on HDInsight** - 請參閱[開始使用 Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)，以取得建立叢集的步驟。
 
@@ -134,7 +134,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
 3. 在 [新增專案] 對話方塊中，依序展開 [已安裝]  >  [範本]，然後選取 [HDInsight]。 從範本清單中，選取 [Storm 範例] 。 在對話方塊底部，輸入應用程式的名稱。
 
-    ![image](./media/apache-storm-deploy-monitor-topology/sample.png)
+    ![映像](./media/apache-storm-deploy-monitor-topology/sample.png)
 
 4. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 

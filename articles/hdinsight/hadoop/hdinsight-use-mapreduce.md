@@ -173,7 +173,7 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 若要深入了解如何處理 HDInsight 的資料，請參閱下列文件：
 

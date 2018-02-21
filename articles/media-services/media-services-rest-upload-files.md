@@ -39,14 +39,14 @@ ms.lasthandoff: 01/11/2018
 > * 使用上傳 URL 將檔案上傳至 blob 儲存體
 > * 針對您上傳的媒體檔案，在資產中建立中繼資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 - [使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 - 請先複習＜[使用 AAD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)＞一文。
 - 如＜[設定 Postman 以進行媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)＞中所述，設定 **Postman**。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 使用媒體服務 REST API 時，適用下列考量事項：
  
@@ -150,7 +150,7 @@ SAS URL 具有下列格式：
 
     {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
-### <a name="considerations"></a>注意事項
+### <a name="considerations"></a>考量
 
 適用一些考量事項：
 

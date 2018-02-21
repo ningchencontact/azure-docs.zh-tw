@@ -159,7 +159,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 文字字串會區分大小寫。 沒有大寫字的小寫寫法：`$filter=f eq 'Sunny day'` 將找不到 'sunny day'`。
 
 
-| 方法 | 描述 | 
+| 方法 | 說明 | 
 |----------|-------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | 針對指定的欄位提供以逗號分隔之字串清單的函式。 字串由篩選條件準則所組成，其會套用至查詢範圍中的每個欄位。 <br/><br/>`search.in(f, ‘a, b, c’)` 語意上相當於 `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`，只不過它在值清單太大時執行的速度更快。<br/><br/>我們建議針對[安全性篩選條件](search-security-trimming-for-azure-search.md)使用 **search.in** 函式，以及針對由要符合指定欄位之值的未經處理文字所組成的任何篩選條件使用該函式。 這個方法是基於速度而設計的。 傳回數百甚至數千個值只需要不到一秒的時間。 雖然對於您可以傳遞給函式的項目數並無明確的限制，但延遲會根據您提供的字串數目按比例增加。 | 
 | [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 它可以讓您在一個要求中使用多個查詢篩選條件組合。 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |  

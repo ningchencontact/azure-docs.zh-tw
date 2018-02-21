@@ -39,8 +39,8 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數、字串、陣列或物件 |要檢查是否相等的第一個值。 |
-| arg2 |是 |整數、字串、陣列或物件 |要檢查是否相等的第二個值。 |
+| arg1 |yes |整數、字串、陣列或物件 |要檢查是否相等的第一個值。 |
+| arg2 |yes |整數、字串、陣列或物件 |要檢查是否相等的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -130,9 +130,9 @@ equals 函式通常會搭配 `condition` 元素，用來測試是否已部署資
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -170,7 +170,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -195,8 +195,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數或字串 |用於大於比較的第一個值。 |
-| arg2 |是 |整數或字串 |用於大於比較的第二個值。 |
+| arg1 |yes |整數或字串 |用於大於比較的第一個值。 |
+| arg2 |yes |整數或字串 |用於大於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -243,9 +243,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -271,8 +271,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數或字串 |用於大於或等於比較的第一個值。 |
-| arg2 |是 |整數或字串 |用於大於或等於比較的第二個值。 |
+| arg1 |yes |整數或字串 |用於大於或等於比較的第一個值。 |
+| arg2 |yes |整數或字串 |用於大於或等於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -319,9 +319,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -347,8 +347,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數或字串 |用於小於比較的第一個值。 |
-| arg2 |是 |整數或字串 |用於小於比較的第二個值。 |
+| arg1 |yes |整數或字串 |用於小於比較的第一個值。 |
+| arg2 |yes |整數或字串 |用於小於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -395,9 +395,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -423,8 +423,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數或字串 |用於小於或等於比較的第一個值。 |
-| arg2 |是 |整數或字串 |用於小於或等於比較的第二個值。 |
+| arg1 |yes |整數或字串 |用於小於或等於比較的第一個值。 |
+| arg2 |yes |整數或字串 |用於小於或等於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -471,9 +471,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 }
 ```
 
-先前範例中具有預設值的輸出如下：
+上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |

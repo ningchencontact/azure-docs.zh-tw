@@ -35,7 +35,7 @@ ms.lasthandoff: 01/08/2018
 
 **以下是使用轉換的步驟**：
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * 建立整合帳戶，並加入對應  
 

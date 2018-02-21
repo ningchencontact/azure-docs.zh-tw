@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 在本文章中，我們將說明如何執行範例應用程式 (HelloKeyVault) 以取出 Azure Stack 中金鑰保存庫的金鑰和密碼。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 從[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或從 Windows 型外部用戶端 (如果您是[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn))，執行下列先決條件：
 

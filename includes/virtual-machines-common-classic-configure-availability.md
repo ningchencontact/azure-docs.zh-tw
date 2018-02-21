@@ -21,15 +21,15 @@
 使用 Azure 入口網站：
 
 1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com)，請先登入。
-2. 在 中樞 功能表上按一下 +新增，然後按一下虛擬機器。
+2. 在 [中樞] 功能表上按一下 [+新增]，然後按一下 [虛擬機器]。
    
     ![替代映像文字](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
 3. 選取您想要使用的 Marketplace 虛擬機器映像。 您可以選擇建立 Linux 或 Windows 虛擬機器。
-4. 確認所選虛擬機器的部署模型設為 傳統，然後按一下建立
+4. 確認所選虛擬機器的部署模型設為 [傳統]，然後按一下 [建立]
    
     ![替代映像文字](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
 5. 輸入虛擬機器名稱、使用者名稱和密碼 (Windows 機器) 或 SSH 公開金鑰 (Linux 機器)。 
-6. 選擇 VM 大小，然後按一下選取  以繼續。
+6. 選擇 VM 大小，然後按一下 [選取]  以繼續。
 7. 選擇 [選擇性組態] > [可用性設定組]，並選取您想要加入虛擬機器的可用性設定組。
    
     ![替代映像文字](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
@@ -52,7 +52,7 @@
 5. 選取您想要加入虛擬機器的可用性設定組。 虛擬機器必須和可用性設定組隸屬於相同的雲端服務。
    
     ![替代映像文字](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. 按一下 [儲存] 。
+6. 按一下 [檔案] 。
 
 若要使用 Azure PowerShell 命令，請開啟系統管理員層級的 Azure PowerShell 工作階段並執行下列命令。 在預留位置 (例如 &lt;VmCloudServiceName&gt;) 中，以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 

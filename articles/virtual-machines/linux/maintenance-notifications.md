@@ -87,7 +87,7 @@ az vm get-instance-view -g rgName -n vmName
 
 下列是 MaintenanceRedeployStatus 下傳回的值： 
 
-| 值 | 描述   |
+| 值 | 說明   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 ||
 | PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 ||

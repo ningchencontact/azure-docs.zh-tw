@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。 請參閱 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5 或 .NET Framework 4。
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="set-up-your-project"></a>設定專案
 在本節中，您會建立 C# Console Application 專案。
 
-1. 使用 Visual Studio 建立一個包含 C# Console Application 專案的新方案。 輸入 **HandleRedundancyForOnDemandStreaming** 做為名稱，然後按一下確定。
+1. 使用 Visual Studio 建立一個包含 C# Console Application 專案的新方案。 輸入 **HandleRedundancyForOnDemandStreaming** 做為名稱，然後按一下 [確定]。
 2. 在與 **HandleRedundancyForOnDemandStreaming.csproj** 專案檔案相同的層級上建立 **SupportFiles** 資料夾。 在 **SupportFiles** 資料夾下建立 **OutputFiles** 和 **MP4Files** 資料夾。 將 .mp4 檔案複製到 **MP4Files** 資料夾  (在此範例中，會使用 **BigBuckBunny.mp4** 檔案)。 
 3. 使用 **Nuget** 將參考新增至與媒體服務相關的 DLL。 在 **Visual Studio 主要功能表**中，選取 [工具] > [Library Package Manager] > [Package Manager Console]。 在主控台視窗中輸入 **Install-package windowsazure.mediaservices**，然後按下 Enter。
 4. 新增此專案所需的其他參考：System.Configuration、System.Runtime.Serialization 和 System.Web。

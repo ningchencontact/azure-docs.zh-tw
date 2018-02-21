@@ -16,7 +16,7 @@ ms.date: 08/16/2017
 ms.author: parakhj
 ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -71,7 +71,7 @@ CQhoFA
 
 請注意，ID 權杖中的宣告不依任何特定順序傳回。 此外，隨時都可以在 ID 權杖中加入新的宣告。 加入新的宣告時，您的應用程式不會損壞。 以下是 Azure AD B2C 所簽發的識別碼權杖和存取權杖中應該會有的宣告。 其他任何宣告都由原則決定。 練習時，請試著將範例識別碼權杖中的宣告貼入 [jwt.ms](https://jwt.ms) 中進行檢查。 在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到進一步的詳細資料。
 
-| 名稱 | 宣告 | 範例值 | 說明 |
+| Name | 宣告 | 範例值 | 說明 |
 | --- | --- | --- | --- |
 | 對象 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |對象宣告識別權杖的預定接收者。 在 Azure AD B2C 中，對象是在應用程式註冊入口網站中指派給您應用程式的應用程式識別碼。 您的應用程式應驗證此值並拒絕不相符的權杖。 |
 | 簽發者 |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |此宣告會識別負責建構並傳回權杖的 Security Token Service (STS)。 它也會識別用於驗證使用者的 Azure AD 目錄。 您的應用程式應該驗證簽發者宣告，以確保權杖來自 Azure Active Directory v2.0 端點。 |

@@ -35,7 +35,7 @@ ms.lasthandoff: 11/03/2017
 
 HDInsight 目前僅支援 Ambari 監視功能。 HDInsight  3.0 及 2.1 版叢集可支援 Ambari API 1.0。 本文涵蓋於 HDInsight 3.1 和 2.1 版叢集上存取 Ambari API。 兩者的主要差別在於某些元件已隨著新功能引進而變更 (例如工作歷程伺服器)。 
 
-**必要條件**
+**先決條件**
 
 開始進行本教學課程之前，您必須具備下列項目：
 

@@ -58,7 +58,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="zone-for-ip-address-and-managed-disk"></a>IP 位址和受控磁碟的區域
 
-在可用性區域中部署虛擬機器時，會在相同的可用性區域中部署 IP 位址和受管理磁碟的資源。 您可以使用 Azure PowerShell 來確認區域設定。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+在可用性區域中部署虛擬機器時，會在相同的可用性區域中部署 IP 位址和受控磁碟的資源。 您可以使用 Azure PowerShell 來確認區域設定。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 在下列範例中會取得名為 *myResourceGroup* 的資源群組中資源的相關資訊。 請取代您用來建立虛擬機器的資源群組名稱。
 
@@ -91,7 +91,7 @@ Zones                    : {2}
 ```
 
 
-也會在相同的可用性區域中建立 VM 的受管理磁碟資源。 您可使用 [Get AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk) 來確認這點：
+也會在相同的可用性區域中建立 VM 的受控磁碟資源。 您可使用 [Get AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk) 來確認這點：
 
 ```powershell
 Get-AzureRmDisk -ResourceGroupName myResourceGroup

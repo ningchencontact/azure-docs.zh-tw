@@ -33,7 +33,7 @@ Azure 預設會提供單一虛擬網路中所有虛擬機器的 DNS 名稱解析
 | **案例** | **方案** | **尾碼** |
 | --- | --- | --- |
 | 相同虛擬網路中的角色執行個體或虛擬機器之間的名稱解析 |[Azure 提供的名稱解析](#azure-provided-name-resolution) |主機名稱或完整網域名稱 (FQDN) |
-| 不同虛擬網路中的角色執行個體或虛擬機器之間的名稱解析 |客戶管理的 DNS 伺服器將虛擬網路之間的查詢轉送供 Azure (DNS Proxy) 解析。 請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)。 |僅 FQDN |
+| 不同虛擬網路中的角色執行個體或虛擬機器之間的名稱解析 |客戶受控的 DNS 伺服器將虛擬網路之間的查詢轉送供 Azure (DNS Proxy) 解析。 請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)。 |僅 FQDN |
 | 解析 Azure 中角色執行個體或虛擬機器的內部部署電腦及伺服器名稱 |客戶管理的 DNS 伺服器 (例如，內部部署的網域控制站、本機唯讀網域控制站或使用區域傳輸同步的次要 DNS)。 請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)。 |僅 FQDN |
 | 從內部部署電腦解析 Azure 主機名稱 |將查詢轉送到所對應虛擬網路中客戶管理的 DNS Proxy 伺服器。 Proxy 伺服器將查詢轉送給 Azure 進行解析。 請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)。 |僅 FQDN |
 | 內部 IP 的反向 DNS |[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) |n/a |

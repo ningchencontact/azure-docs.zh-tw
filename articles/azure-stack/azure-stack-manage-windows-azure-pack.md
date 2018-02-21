@@ -65,7 +65,7 @@ Windows Azure 套件租用戶 API 必須信任 Azure Stack 安全性權杖服務
 
 在開發套件環境中，Windows Azure 套件和 Azure Stack 具有獨立的識別提供者。 從 Azure Stack 入口網站存取這兩種環境的使用者，在這兩個識別提供者中使用者主體名稱 (UPN) 的名稱必須相同。 例如，帳戶 *azurestackadmin@azurestack.local* 在 Windows Azure 套件的 STS 中也應存在。 若 AD FS 未設定為支援連出的信任關係，您會從 Windows Azure 套件元件 (租用戶 API) 建立對 AD FS Azure Stack 執行個體的信任。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="download-the-windows-azure-pack-connector"></a>下載 Windows Azure 套件連接器
 在 [Microsoft 下載中心](https://aka.ms/wapconnectorazurestackdlc)下載 .exe 檔案，並將其解壓縮到本機電腦。 稍後，您要將內容複製到可以存取您 Windows Azure 套件環境的電腦。
@@ -134,7 +134,7 @@ Windows Azure 套件租用戶 API 必須信任 Azure Stack 安全性權杖服務
 
 4.  測試設定。
 
-    a. 開啟瀏覽器並登入 Azure Stack 使用者入口網站 (https://portal.local.azurestack.external/)。
+    a. 開啟瀏覽器並登入 Azure Stack 使用者入口網站 ( https://portal.local.azurestack.external/ )。
     
     b. 以租用戶身分登入且入口網站載入後，您將會看到無法從 Azure 套件雲端擷取訂用帳戶或擴充功能的錯誤訊息。 按一下 [確定] 以關閉訊息。 (在您設定 Windows Azure 套件後這些錯誤訊息就會消失。)
 

@@ -32,8 +32,8 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
-1. 在 Azure Stack 開發套件主機上，[登入](azure-stack-connect-azure-stack.md)系統管理員入口網站 (`https://adminportal.local.azurestack.external`)，然後按一下新增 > [計算] > [Windows Server 2016 Datacenter 評估版] > [建立]。  
-2. 在 [基本] 刀鋒視窗中，輸入 [名稱]、[使用者名稱] 與 [密碼]。 選擇 [訂用帳戶] 。 建立 資源群組，或選取現有的資源群組，然後按一下確定。  
+1. 在 Azure Stack 開發套件主機上，[登入](azure-stack-connect-azure-stack.md)系統管理員入口網站 (`https://adminportal.local.azurestack.external`)，然後按一下 [新增] > [計算] > [Windows Server 2016 Datacenter 評估版] > [建立]。  
+2. 在 [基本] 刀鋒視窗中，輸入 [名稱]、[使用者名稱] 與 [密碼]。 選擇 [訂用帳戶] 。 建立 [資源群組]，或選取現有的資源群組，然後按一下 [確定]。  
 3. 在 [選擇大小] 刀鋒視窗中，按一下 [A1 標準]，再按一下 [選取]。  
 4. 在 [設定] 刀鋒視窗中，接受預設值並按一下 [確定]
 5. 在 [摘要] 刀鋒視窗中，按一下 [確定]，以建立虛擬機器。  

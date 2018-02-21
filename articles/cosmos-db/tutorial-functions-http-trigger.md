@@ -34,7 +34,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
 > * 發佈 Azure Function
 > * 將 Azure Function 連線至 Azure Cosmos DB 資料庫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [Visual Studio 2017 15.3 版](https://www.visualstudio.com/vs/preview/)，包括 **Azure 開發**工作負載。
 
@@ -75,7 +75,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
 
 4. Azure Function 會回應 HTTP 要求，因此這裡適合使用 Http 觸發程序範本。
    
-   在 [新增 Azure Function] 方塊中，選取 [Http 觸發程序]。 我們也需要「公開」此 Azure Function，因此將 [存取權限] 設為 [匿名]，讓每個人都可以使用。 按一下 [確定] 。
+   在 [新增 Azure Function] 方塊中，選取 [Http 觸發程序]。 我們也需要「公開」此 Azure Function，因此將 [存取權限] 設為 [匿名]，讓每個人都可以使用。 按一下 [SERVICEPRINCIPAL] 。
 
    ![將存取權限設為匿名](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 

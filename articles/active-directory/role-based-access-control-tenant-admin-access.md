@@ -3,7 +3,7 @@ title: "租用戶管理員提高存取權限 - Azure AD | Microsoft Docs"
 description: "本主題說明角色型存取控制 (RBAC) 的內建角色。"
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>使用角色型存取控制以租用戶系統管理員提高存取權限
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>透過 Azure AD 系統管理中心使用 elevateAccess 來提供租用戶存取權
 
-1. 移至 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com)，然後使用您的認證來進行登入。
+1. 移至 [Azure Active Directory 管理中心](https://aad.portal.azure.com)，然後使用您的認證來進行登入。
 
 2. 從 Azure AD 左側功能表中選擇 [屬性]。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
     > 選擇 [否] 時，系統會針對您目前用來登入入口網站的使用者，在根 "/" (根範圍) 移除 [使用者存取系統管理員] 角色。
 
 > [!TIP] 
-> 在印象中，這是 Azure Active Directory 的全域屬性，但卻是依個別使用者而定，只對目前登入的使用者才有作用。 當您在 Azure Active Directory 中具有全域管理員權限時，對於您目前用來登入 Azure Active Directory 系統管理中心的使用者，您可以叫用 elevateAccess 功能。
+> 在印象中，這是 Azure Active Directory 的全域屬性，但卻是依個別使用者而定，只對目前登入的使用者才有作用。 當您在 Azure Active Directory 中具有全域管理員權限時，您可以為您目前用來登入「Azure Active Directory 管理中心」的使用者，叫用 elevateAccess 功能。
 
 ![Azure AD 系統管理中心 - 屬性 - Globaladmin 可以管理 Azure 訂用帳戶 - 螢幕擷取畫面](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
@@ -101,7 +101,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefiniti
 
 當您呼叫 elevateAccess 時，您建立自己的角色指派，因此您需要刪除作業才能撤銷這些權限。
 
-1.  呼叫 GET role definitions (其中 roleName = User Access Administrator)，以判斷「使用者存取系統管理員」角色的名稱 GUID。
+1.  呼叫 GET roleDefinitions，其中 roleName = User Access Administrator，以判斷「使用者存取系統管理員」角色的 GUID 名稱。
     1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
@@ -127,9 +127,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefiniti
     1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >租用戶管理員不應該有許多指派，如果上述查詢傳回太多指派，您也可以查詢只在租用戶範圍層級的所有指派，然後篩選結果：GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+        >租用戶管理員不應該有許多指派，如果先前的查詢傳回太多指派，您也可以查詢只在租用戶範圍層級的所有指派，然後篩選結果：GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
         
-    2. 上述呼叫會傳回角色指派清單。 請尋找 scope 是 "/"、RoleDefinitionId 結尾是您在步驟 1 中找到的角色名稱 GUID 且 PrincipalId 與「租用戶管理員」的 ObjectId 相符的角色指派。該角色指派看起來會像這樣︰
+    2. 先前的呼叫會傳回角色指派清單。 請尋找 scope 是 "/"、RoleDefinitionId 結尾是您在步驟 1 中找到的角色名稱 GUID 且 PrincipalId 與「租用戶管理員」的 ObjectId 相符的角色指派。該角色指派看起來會像這樣︰
 
         ```
         {"value":[{"properties":{

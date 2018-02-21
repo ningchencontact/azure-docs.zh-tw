@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="to-add-a-bandwidth-template"></a>新增頻寬範本
 
-1. 移至 StorSimple 裝置管理員服務，按一下 頻寬範本，然後按一下+ 新增頻寬範本。
+1. 移至 StorSimple 裝置管理員服務，按一下 [頻寬範本]，然後按一下 [+ 新增頻寬範本]。
 
     ![按一下 [+ 新增頻寬範本]](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
 

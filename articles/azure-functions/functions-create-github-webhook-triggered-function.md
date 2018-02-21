@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![Azure 入口網站中由 GitHub Webhook 所觸發的函式](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 一個 GitHub 帳戶至少要有一個專案。
 + Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。

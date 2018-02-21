@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
 |分頁|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
-|應用程式|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者可看見的應用程式。|  
+|[應用程式]|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者可看見的應用程式。|  
 |CategoryName|字串|應用程式的類別。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  

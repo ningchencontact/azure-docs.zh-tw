@@ -156,7 +156,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="set-password"></a>設定密碼
 1. 在 `Set up options` 頁面上，按一下 `Enable Security`。
-2. 您可以為 Intel® Edison 面板設定自訂名稱。 這是選擇性。
+2. 您可以為 Intel® Edison 面板設定自訂名稱。 這是選擇性的。
 3. 輸入面板的密碼，然後按一下 `Set password`。
 4. 記下密碼，以供稍後使用。
 

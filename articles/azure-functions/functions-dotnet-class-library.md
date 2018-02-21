@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -40,6 +40,9 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您需要[
 
 * [host.json](functions-host-json.md) - 儲存會影響在本機或 Azure 中執行之專案中所有函式的組態設定。
 * [local.settings.json](functions-run-local.md#local-settings-file) - 儲存在本機執行時所使用的應用程式設定和連接字串。
+
+> [!IMPORTANT]
+> 建置流程會為每個函式都建立 function.json 檔案。 這個 function.json 檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要停用函式，請使用[停用](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs)屬性。 例如，新增布林值應用程式設定 MY_TIMER_DISABLED，然後將 `[Disable("MY_TIMER_DISABLED")]` 套用至函式。 然後，您可以變更應用程式設定來啟用和停用。
 
 ### <a name="functionname-and-trigger-attributes"></a>FunctionName 和觸發程序屬性
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>轉換成 function.json
 
-建置流程在組建資料夾的函式資料夾中建立 *function.json* 檔案。 此檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 
+建置流程在組建資料夾的函式資料夾中建立 *function.json* 檔案。 如稍早所述，此檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 
 
 此檔案的目的是提供資訊給縮放控制器，以用於[使用情況方案的縮放決策](functions-scale.md#how-the-consumption-plan-works)。 因此，檔案只會有觸發程序資訊，而不會有輸入或輸出繫結。
 

@@ -3,7 +3,7 @@ title: "使用 Azure Log Analytics 追蹤變更 | Microsoft Docs"
 description: "Log Analytics 中的「變更追蹤」解決方案可協助您識別您環境中發生的軟體及 Windows 服務變更。"
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的軟體變更
 
@@ -115,12 +115,12 @@ ms.lasthandoff: 12/13/2017
 | **變更類型** | **頻率** | **代理程式****是否會傳送所找到的差異？** |
 | --- | --- | --- |
 | Windows 登錄 | 50 分鐘 | 否 |
-| Windows 檔案 | 30 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
-| Linux 檔案 | 15 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Windows 檔案 | 30 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Linux 檔案 | 15 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
 | Windows 服務 | 30 分鐘 | 是，找到變更時，每隔 30 分鐘傳送一次。 每隔 24 小時傳送一次快照集 (不論是否有變更)。 因此，即使沒有任何變更也會傳送快照集。 |
-| Linux 精靈 | 5 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Linux 精靈 | 5 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
 | Windows 軟體 | 30 分鐘 | 是，找到變更時，每隔 30 分鐘傳送一次。 每隔 24 小時傳送一次快照集 (不論是否有變更)。 因此，即使沒有任何變更也會傳送快照集。 |
-| Linux 軟體軟體 | 5 分鐘 | 可以。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
+| Linux 軟體軟體 | 5 分鐘 | 是。 如果 24 小時內沒有任何變更，則會傳送快照集。 |
 
 ### <a name="registry-key-change-tracking"></a>登錄機碼變更追蹤
 

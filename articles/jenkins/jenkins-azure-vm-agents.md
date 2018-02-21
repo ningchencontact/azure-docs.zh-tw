@@ -33,7 +33,7 @@ ms.lasthandoff: 10/26/2017
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶
 * Jenkins 主要伺服器。 如果沒有，請參閱[快速入門](install-jenkins-solution-template.md)，在 Azure 中設定一個。

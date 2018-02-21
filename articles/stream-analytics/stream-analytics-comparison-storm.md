@@ -55,7 +55,7 @@ Azure 提供多種解決方案來分析串流資料：[Azure 串流分析](https
             </td>
             <td width="204" valign="top">
                 <p>
-不可以。 Azure 串流分析 Microsoft 專屬服務。
+編號 Azure 串流分析 Microsoft 專屬服務。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -72,11 +72,11 @@ Azure 提供多種解決方案來分析串流資料：[Azure 串流分析](https
             </td>
             <td width="204" valign="top">
                 <p>
-是 </p>
+yes </p>
             </td>
             <td width="246" valign="top">
                 <p>
-是 </p>
+yes </p>
             </td>
         </tr>
         <tr>
@@ -172,7 +172,7 @@ Azure 提供多種解決方案來分析串流資料：[Azure 串流分析](https
             </td>
             <td width="246" valign="top">
                 <p>
-否。 使用者可用 Java 或 C# 來撰寫程式碼，或使用 Trident API。
+編號 使用者可用 Java 或 C# 來撰寫程式碼，或使用 Trident API。
                 </p>
             </td>
         </tr>

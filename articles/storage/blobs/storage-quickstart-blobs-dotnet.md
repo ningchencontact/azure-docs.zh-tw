@@ -23,7 +23,7 @@ ms.lasthandoff: 12/14/2017
 
 在本快速入門中，您會了解如何使用適用於 Azure 儲存體的 .NET 用戶端程式庫來上傳、下載及列出容器中的區塊 Blob。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門：
 

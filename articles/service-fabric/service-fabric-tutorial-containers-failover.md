@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > * 了解 Service Fabric 叢集中的容器容錯移轉  
 > * 在應用程式中調整 Web 前端容器
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [第 2 部分](service-fabric-tutorial-package-containers.md)的應用程式正在使用中的 Service Fabric 叢集中執行。
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>容錯移轉叢集中的容器

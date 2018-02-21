@@ -119,13 +119,13 @@ sqlContext <- sparkRSQL.init(sc)
 
 然後，我們加入與天氣觀測站相關聯的機場代碼，並將度量單位從當地時間轉換成 UTC。
 
-我們首先建立一個可將天氣觀測站 (WBAN) 資訊對應至機場代碼的檔案。 我們可以從天氣資料隨附的對應檔取得此關聯性。 將天氣資料檔案中的*呼號* (例如 LAX) 欄位對應至航班資料中的*出發地*。 不過，我們手邊剛好有另一個已儲存至 CSV 檔案 (“wban-to-airport-id-tz.CSV”) 的可用對應，它將 *WBAN* 對應至 *AirportID* (例如，12892 代表 LAX) ，並且包含 *TimeZone*。 例如：
+我們首先建立一個可將天氣觀測站 (WBAN) 資訊對應至機場代碼的檔案。 我們可以從天氣資料隨附的對應檔取得此關聯性。 將天氣資料檔案中的*呼號* (例如 LAX) 欄位對應至航班資料中的*出發地*。 不過，我們手邊剛好有另一個已儲存至 CSV 檔案 (“wban-to-airport-id-tz.CSV”) 的可用對應，它將 *WBAN* 對應至 *AirportID* (例如，12892 代表 LAX) ，並且包含 *TimeZone*。 例如︰
 
 | AirportID | WBAN | TimeZone
 |-----------|------|---------
 | 10685 | 54831 | -6
 | 14871 | 24232 | -8
-| .. | .. | ..
+| . | . | .
 
 下列程式碼會讀取每個每小時未經處理的天氣資料檔案、細分為我們所需的資料行、合併天氣觀測站對應檔案、將度量單位的日期時間調整為 UTC，然後將資料寫到新版的檔案：
 
@@ -542,7 +542,7 @@ elapsed <- (proc.time() - t0)[3]
 logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 ```
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 在本文中，我們已示範如何在 Hadoop Spark 中結合使用用於資料操作的 SparkR 和用於模型開發的 ScaleR。 此案例需要維護個別的 Spark 工作階段 (一次僅執行一個工作階段)，並透過 CSV 檔案交換資料。 雖然很簡單，但是當 SparkR 和 ScaleR 可以共用 Spark 工作階段和 Spark DataFrame 時，在後續發行的 R Server 中，此程序應會變得更加容易。
 

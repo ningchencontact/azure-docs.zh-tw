@@ -29,14 +29,14 @@ ms.lasthandoff: 10/21/2017
 
 | Windows 版本        | SMB 版本 | 可在 Azure VM 中掛接 | 可在內部部署環境掛接 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 半年度通道<sup>1</sup> | SMB 3.0 | 是 | 是 |
-| Windows 10<sup>2</sup>  | SMB 3.0 | 是 | 是 |
-| Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
-| Windows 8.1            | SMB 3.0     | 是                   | 是                  |
-| Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
-| Windows Server 2012    | SMB 3.0     | 是                   | 是                  |
-| Windows 7              | SMB 2.1     | 是                   | 否                   |
-| Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
+| Windows Server 半年度通道<sup>1</sup> | SMB 3.0 | yes | yes |
+| Windows 10<sup>2</sup>  | SMB 3.0 | yes | yes |
+| Windows Server 2016    | SMB 3.0     | yes                   | yes                  |
+| Windows 8.1            | SMB 3.0     | yes                   | yes                  |
+| Windows Server 2012 R2 | SMB 3.0     | yes                   | yes                  |
+| Windows Server 2012    | SMB 3.0     | yes                   | yes                  |
+| Windows 7              | SMB 2.1     | yes                   | 否                   |
+| Windows Server 2008 R2 | SMB 2.1     | yes                   | 否                   |
 
 <sup>1</sup>Windows Server 版本 1709。  
 <sup>2</sup>Windows 10 版本 1507、1607、1703 和 1709。
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/21/2017
 
 ### <a name="conceptual-articles-and-videos"></a>概念性文章和影片
 * [Azure 檔案服務：相容於 Windows 和 Linux 的雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [如何搭配使用 Azure 檔案服務與 Linux](../storage-how-to-use-files-linux.md)
+* [如何在 Linux 中使用 Azure 檔案服務](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-files"></a>Azure 檔案服務的工具支援
 * [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)

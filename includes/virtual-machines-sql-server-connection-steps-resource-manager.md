@@ -31,6 +31,6 @@
 
 1. 在 [密碼]  方塊中，輸入登入的密碼。
 
-1. 按一下 [連接] 。
+1. 按一下 [ **連接**]。
 
     ![SSMS 連線](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

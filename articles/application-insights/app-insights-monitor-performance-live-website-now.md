@@ -36,14 +36,14 @@ ms.lasthandoff: 11/01/2017
 
 |  | 建置階段 | 執行階段 |
 | --- | --- | --- |
-| 要求和例外狀況 |是 |是 |
-| [更詳細的例外狀況](app-insights-asp-net-exceptions.md) | |是 |
+| 要求和例外狀況 |yes |yes |
+| [更詳細的例外狀況](app-insights-asp-net-exceptions.md) | |yes |
 | [相依性診斷](app-insights-asp-net-dependencies.md) |在 .Net 4.6 + 上，但較少細節 |是，完整詳細資料︰結果碼、SQL 命令文字、HTTP 指令動詞|
-| [系統效能計數器](app-insights-performance-counters.md) |是 |是 |
-| [自訂遙測的 API][api] |是 |否 |
-| [追蹤記錄檔整合](app-insights-asp-net-trace-logs.md) |是 |否 |
-| [頁面檢視和使用者資料](app-insights-javascript.md) |是 |否 |
-| 需要重新建置程式碼 |是 | 否 |
+| [系統效能計數器](app-insights-performance-counters.md) |yes |yes |
+| [自訂遙測的 API][api] |yes |否 |
+| [追蹤記錄檔整合](app-insights-asp-net-trace-logs.md) |yes |否 |
+| [頁面檢視和使用者資料](app-insights-javascript.md) |yes |否 |
+| 需要重新建置程式碼 |yes | 否 |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>監視即時 Azure Web 應用程式
@@ -220,7 +220,7 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 
 * 下載 Application Insights 組件和 .config 檔案並且放置於 Web 應用程式的 binaries 資料夾中。
 * 修改 `web.config` 以新增 Application Insights HTTP 追蹤模組。
-* 啟用 CLR 剖析以收集相依性呼叫。
+* 啟用 CLR 分析以收集相依性呼叫。
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>每次更新應用程式時，是否需要執行狀態監視器？
 
@@ -249,7 +249,7 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 
 檢視遙測：
 

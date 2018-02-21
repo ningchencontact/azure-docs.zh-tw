@@ -52,7 +52,7 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
 
 下表描述刀鋒視窗中顯示的功能。
 
-| 課程名稱 | 說明 |
+| 標題 | 說明 |
 | --- | --- |
 | 同步處理狀態 |讓您知道已啟用或停用同步處理。 |
 | 上次同步處理 |上次成功完成同步處理。 |

@@ -35,7 +35,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 
 本文說明如何建立 **Azure AD 原生應用程式以進行使用者驗證**。 如需服務對服務驗證的 Azure AD 應用程式設定的指示，請參閱[使用 Azure Active Directory 以 Data Lake Store 進行服務對服務驗證](data-lake-store-authenticate-using-active-directory.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * 您的訂用帳戶識別碼。 您可以在 Azure 入口網站擷取。 例如，可從 [Data Lake Store] 帳戶刀鋒視窗取得。

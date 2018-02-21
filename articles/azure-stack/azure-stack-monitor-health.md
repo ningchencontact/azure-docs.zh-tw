@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中監視健康情況和警示
 
-適用於：Azure Stack 整合系統和 Azure Stack 開發套件
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 Azure Stack 包含基礎結構監視功能，可讓您檢視 Azure Stack 區域的健康情況和警示。 [區域管理] 圖格預設會釘選在「預設提供者訂用帳戶」的系統管理員入口網站上，當中會列出 Azure Stack 的所有已部署區域。 此圖格除了會顯示每個區域的作用中重大警示和警告警示數目之外，也是您到 Azure Stack 之健康情況和警示功能的進入點。
 

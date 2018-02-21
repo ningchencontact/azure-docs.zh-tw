@@ -20,7 +20,7 @@ ms.lasthandoff: 11/15/2017
 
 本快速入門會引導您將應用程式的 App Center 執行個體連線到 Application Insights。 Application Insights 提供查詢、分割、篩選及分析遙測資料的強大工具，遠勝於 App Center 的 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) \(英文\) 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門，您需要：
 
@@ -79,7 +79,7 @@ Analytics.trackEvent("Video clicked")
    | **資源群組**     | 新的資源群組或功能表中現有的資源群組 | 要在其中建立新 Application Insights 資源的資源群組 |
    | **位置** | 功能表中的位置 | 選擇您附近或接近應用程式裝載位置的地點 |
 
-3. 按一下 [建立] 。
+3. 按一下頁面底部的 [新增] 。
 
 如果您的應用程式支援多個平台 (iOS、Android 等等)，建議針對每個平台建立個別的 Application Insights 資源。
 

@@ -15,7 +15,7 @@ ms.date: 04/20/2017
 ms.author: jeedes
 ms.openlocfilehash: f83d817647a5339176260bfcf73005045f9ead54
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
 如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： 什麼是搭配 [Azure Active Directory](active-directory-appssoaccess-whatis.md) 的應用程式存取和單一登入？
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 ScaleX Enterprise 整合，您需要下列項目：
 

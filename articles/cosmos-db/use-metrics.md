@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: govindk
 ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -72,7 +72,7 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 
 ## <a name="debugging-why-queries-are-running-slow"></a>偵錯查詢執行速度很慢的原因
 
-在 SQL API Sdk Azure Cosmos DB 會提供查詢執行統計資料。 
+在 SQL API SDK 中，Azure Cosmos DB 會提供查詢執行的統計資料。 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

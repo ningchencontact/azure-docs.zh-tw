@@ -16,7 +16,7 @@ ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 * Windows 市集應用程式允許用戶端裝置指定語言，以及訂閱不同的即時新聞類別；
 * 後端使用 Azure 通知中樞的**標籤**和**範本**功能廣播通知。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須已完成 [使用通知中心傳送即時新聞] 教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 您也需要 Visual Studio 2012 或更新版本。

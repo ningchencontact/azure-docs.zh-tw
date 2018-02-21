@@ -25,7 +25,7 @@ ms.lasthandoff: 12/05/2017
 # <a name="back-up-windows-server-to-azure"></a>將 Windows Server 備份到 Azure
 
 
-您可以使用 Azure 備份來保護您的 Windows Server，使其免受損毀、攻擊以及災害的威脅。 Azure 備份提供了一種輕量型工具，稱為「Microsoft Azure 復原服務 (MARS) 代理程式」。 MARS 代理程式會安裝在 Windows Server 上，保護檔案及資料夾，並透過 Windows Server 系統狀態保護伺服器設定。 本教學會解釋如何使用 MARS 代理程式來將您的 Windows Server 備份到 Azure。 在本教學課程中，您了解如何： 
+您可以使用 Azure 備份來保護您的 Windows Server，使其免受損毀、攻擊以及災害的威脅。 Azure 備份提供了一種輕量型工具，稱為「Microsoft Azure 復原服務 (MARS) 代理程式」。 MARS 代理程式會安裝在 Windows Server 上，保護檔案及資料夾，並透過 Windows Server 系統狀態保護伺服器設定。 本教學會解釋如何使用 MARS 代理程式來將您的 Windows Server 備份到 Azure。 在本教學課程中，您將了解如何： 
 
 
 > [!div class="checklist"]
@@ -118,7 +118,7 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 4. 按一下 [新增項目]，並在開啟的對話方塊中，選取 [系統狀態] 及您要備份的檔案和資料夾。 然後按一下 [確定] 。
 
-5. 按一下 [下一步] 。
+5. 按 [下一步] 。
 
 6. 在 [指定備份排程 (系統狀態)] 頁面上，為系統狀態指定要觸發備份的一天或一週當中的時間，然後按一下 [下一步] 
 

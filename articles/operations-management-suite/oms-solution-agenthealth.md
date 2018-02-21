@@ -16,14 +16,14 @@ ms.date: 07/17/2017
 ms.author: magoedte
 ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS 中的代理程式健全狀況解決方案
 對於直接向 OMS 工作區或連線到 OMS 之 System Center Operations Manager 管理群組回報的所有代理程式，OMS 中的代理程式健全狀況解決方案可協助您了解哪些代理程式沒有回應且正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 部署這個解決方案之前，請確認您目前支援向 OMS 工作區回報或向與 OMS 工作區整合之 [Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)回報的 [Windows 代理程式](../log-analytics/log-analytics-windows-agent.md)。    
 
 ## <a name="solution-components"></a>方案元件
@@ -47,8 +47,8 @@ ms.lasthandoff: 01/03/2018
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| Windows 代理程式 | 是 | 系統會從直接 Windows 代理程式收集活動訊號事件。|
-| System Center Operations Manager 管理群組 | 是 | 系統會每隔 60 秒從向管理群組回報之代理程式收集活動訊號事件，然後轉送到 Log Analytics。 不需要直接從 Operations Manager 代理程式連線到 Log Analytics。 活動訊號事件資料會從管理群組轉送至 Log Analytics 存放庫。|
+| Windows 代理程式 | yes | 系統會從直接 Windows 代理程式收集活動訊號事件。|
+| System Center Operations Manager 管理群組 | yes | 系統會每隔 60 秒從向管理群組回報之代理程式收集活動訊號事件，然後轉送到 Log Analytics。 不需要直接從 Operations Manager 代理程式連線到 Log Analytics。 活動訊號事件資料會從管理群組轉送至 Log Analytics 存放庫。|
 
 ## <a name="using-the-solution"></a>使用解決方案
 當您將解決方案新增至 OMS 工作區時，[代理程式健全狀況]  圖格會新增至 OMS 儀表板。 此圖格會顯示過去 24 小時內的代理程式總數和沒有回應的代理程式數目。<br><br> ![儀表板上的代理程式健全狀況圖格](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)

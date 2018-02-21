@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="step-1-create-a-namespace"></a>步驟 1：建立命名空間
 
-若要開始在 Azure 中使用轉送功能，首先必須建立服務命名空間。 命名空間提供範圍容器，可在應用程式內進行 Azure 資源定址。 請依照[此處的指示](relay-create-namespace-portal.md)來建立轉送命名空間。
+若要開始在 Azure 中使用轉送功能，首先必須建立服務命名空間。 命名空間提供範圍容器，可在應用程式內進行 Azure 資源定址。 請依照[這裡的指示](relay-create-namespace-portal.md)來建立轉送命名空間。
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>步驟 2：定義 REST 架構的 WCF 服務合約以與 Azure 轉送搭配使用
 

@@ -21,7 +21,7 @@ ms.lasthandoff: 11/15/2017
 
 在本教學課程中，您將了解 Azure Functions 如何讓您建置可靈活調整的 API。 Azure Functions 隨附一組內建的 HTTP 觸發程序和繫結，可讓您以各種語言輕鬆撰寫端點，包括 Node.JS、C# 等。 在本教學課程中，您將自訂 HTTP 觸發程序來處理 API 設計中的特定動作。 您也會準備整合 API 與 Azure Functions Proxy，並設定模擬 API，以擴充您的 API。 這一切都在 Functions 無伺服器計算環境之上完成，因此，您不必擔心調整資源 - 只需要專注於您的 API 邏輯。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/15/2017
     > [!NOTE] 
     > 請注意，您並未在路由範本中包含 `/api` 基底路徑前置詞，因為這是由全域設定來處理。
 
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
 您可以在 [Azure Functions HTTP 和 webhook 繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint)中，進一步了解自訂 HTTP 函式。
 
@@ -92,7 +92,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     > [!NOTE] 
     > 建議使用應用程式設定作為主機設定，以避免 Proxy 依賴硬式編碼的環境。 使用應用程式設定表示您可以在不同環境之間移動 Proxy 設定，將會套用環境特定的應用程式設定。
 
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>在前端建立 Proxy
 
@@ -103,13 +103,13 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
     | 欄位 | 範例值 | 說明 |
     |---|---|---|
-    | 名稱 | HelloProxy | 僅用於管理的易記名稱 |
+    | Name | HelloProxy | 僅用於管理的易記名稱 |
     | 路由範本 | /api/hello | 決定使用什麼路由來叫用此 Proxy |
     | 後端 URL | https://%HELLO_HOST%/api/hello | 指定端點，而其要求應該透過代理 |
     
 1. 請注意，Proxy 不提供 `/api` 基底路徑前置詞，這必須加入路由範本中。
 1. `%HELLO_HOST%` 語法會參考您稍早建立的應用程式設定。 解析後的 URL 會指向您的原始函式。
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 1. 您可以複製 Proxy URL，然後在瀏覽器或您最愛的 HTTP 用戶端測試，以試驗新的 Proxy。
     1. 針對匿名函式使用：
         1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`

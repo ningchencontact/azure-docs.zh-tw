@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>設定、設定及執行串流分析作業
 
-### <a name="create-a-stream-analytics-job"></a>建立串流分析工作
+### <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
 1. 在 Azure 入口網站中，按一下 [新增] > [物聯網] > [串流分析作業]。
 1. 輸入作業的以下資訊。
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 
    ![在 Azure 中建立串流分析作業](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
    **來源**︰選取 [IoT 中樞]。
 
    **取用者群組**︰選取您剛建立的取用者群組。
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
    ![在 Azure 中將輸入新增至串流分析作業](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
    **資料集名稱**︰輸入資料集名稱。
 
    **資料表名稱**︰輸入資料表名稱。
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增] 。
 
    ![在 Azure 中將輸出新增至串流分析作業](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 [作業拓撲] 之下，按一下 [查詢]。
 1. 使用作業的輸入別名取代 `[YourInputAlias]`。
 1. 使用作業的輸出別名取代 `[YourOutputAlias]`。
-1. 按一下 [儲存] 。
+1. 按一下 [檔案] 。
 
    ![在 Azure 中將查詢新增至串流分析作業](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 按一下 [儲存] 以儲存報告。
 1. 按一下 [檔案] > [發佈到網站]。
-1. 按一下 建立內嵌程式碼，然後按一下發佈。
+1. 按一下 [建立內嵌程式碼]，然後按一下 [發佈]。
 
 您會取得可與任何人共用以供存取報告的報告連結，以及取得程式碼片段以將報告整合到您的部落格或網站。
 

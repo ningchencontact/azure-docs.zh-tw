@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 - [Azure CLI 1.0](#prerequisites) – 適用於傳統和資源管理部署模型的 CLI (本文章)
 - [Azure CLI 2.0](expand-disks.md) - 適用於資源管理部署模型的新一代 CLI
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您需要安裝[最新的 Azure CLI 1.0](../../cli-install-nodejs.md)，而且已使用 Resource Manager 模式登入 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)，如下所示：
 
 ```azurecli

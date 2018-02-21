@@ -20,7 +20,7 @@ ms.lasthandoff: 11/29/2017
 
 使用適用於 MySQL 的 Azure 資料庫將伺服器資料庫還原到 7 至 35 天前的日期。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本操作說明指南，您需要：
 - [適用於 MySQL 的 Azure 資料庫伺服器和資料庫](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -53,7 +53,7 @@ az mysql server restore --resource-group myResourceGroup --name myserver-restore
 | 設定 | 建議的值 | 說明  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  來源伺服器所在的資源群組。  |
-| 名稱 | myserver-restored | 還原命令所建立之新伺服器的名稱。 |
+| name | myserver-restored | 還原命令所建立之新伺服器的名稱。 |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 選取要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可以使用自己的當地時區，例如 `2017-04-13T05:59:00-08:00`。 您也可以使用 UTC Zulu 格式，例如 `2017-04-13T13:59:00Z`。 |
 | source-server | myserver4demo | 要進行還原的來源伺服器之名稱或識別碼。 |
 

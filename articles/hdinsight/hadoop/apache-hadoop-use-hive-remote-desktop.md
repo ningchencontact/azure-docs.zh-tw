@@ -33,7 +33,7 @@ ms.lasthandoff: 11/03/2017
 > 針對 HDInsight 3.4 或更新版本，請參閱[使用 Hive 搭配 HDInsight 和 Beeline](apache-hadoop-use-hive-beeline.md)，以了解如何從命令列直接在叢集上執行 Hive 查詢。
 
 ## <a id="prereq"></a>必要條件
-若要完成本文中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目：
 
 * Windows 型 HDInsight (HDInsight 上的 Hadoop) 叢集
 * 執行 Windows 10、Windows 8 或 Windows 7 的用戶端電腦
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/03/2017
 ## <a id="summary"></a>摘要
 如您所見，Hive 命令提供簡單的方法，以互動方式在 HDInsight 叢集上執行 Hive 查詢、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 如需 HDInsight 中 Hive 的一般資訊：
 
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
