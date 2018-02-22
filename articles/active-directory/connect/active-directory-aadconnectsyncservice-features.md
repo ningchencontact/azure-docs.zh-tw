@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
 Azure AD connect 同步處理功能有兩個元件：
@@ -28,7 +28,7 @@ Azure AD connect 同步處理功能有兩個元件：
 
 本主題說明 **Azure AD Connect 同步處理服務** 的下列功能如何運作，以及如何使用 Windows PowerShell 進行設定。
 
-這些設定是由 [適用於 Windows PowerShell 的 Azure Active Directory 模組](http://aka.ms/aadposh)所設定。 從 Azure AD Connect 個別進行下載和安裝。 本主題說明的 Cmdlet 已導入 [2016 年 3 月版本 (組建 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)。 如果您沒有本主題說明的 Cmdlet，或它們未產生相同的結果，請確認您執行的是最新版本。
+這些設定是由 [適用於 Windows PowerShell 的 Azure Active Directory 模組](https://aka.ms/aadposh)所設定。 從 Azure AD Connect 個別進行下載和安裝。 本主題說明的 Cmdlet 已導入 [2016 年 3 月版本 (組建 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)。 如果您沒有本主題說明的 Cmdlet，或它們未產生相同的結果，請確認您執行的是最新版本。
 
 若要查看 Azure AD 目錄中的組態，請執行 `Get-MsolDirSyncFeatures`。  
 ![Get-MsolDirSyncFeatures 結果](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)

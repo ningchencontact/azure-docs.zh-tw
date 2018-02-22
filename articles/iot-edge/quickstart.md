@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 3. 在 [Windows 上安裝 Python 2.7][lnk-python]，並確定您可以使用 pip 命令。
 4. 執行下列命令以下載 IoT Edge 控制指令碼。
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/18/2017
 >    * x64 型裝置上的 Windows IoT 核心版 (組建 16299)
 >
 > 針對 Windows IoT 核心版，請遵循[在 Windows IoT 核心版上安裝 IoT Edge 執行階段][lnk-install-iotcore]中的指示。 或是，直接[設定可使用 Windows 容器的 Docker][lnk-docker-containers]，並選擇性地使用下列 powershell 命令來驗證您的必要條件：
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其包含兩個模
 
 使用上一節中的 IoT Edge 裝置連接字串來設定執行階段。
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 啟動執行階段。
 
-```
+```cmd
 iotedgectl start
 ```
 
 檢查 Docker 以確認 IoT Edge 代理程式是否正作為模組執行中。
 
-```
+```cmd
 docker ps
 ```
 

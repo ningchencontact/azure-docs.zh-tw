@@ -49,7 +49,7 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令來取得受控磁碟屬性、將受控磁碟連結至新的 VM，以及建立 VM。 下表中的每個項目都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | 使用磁碟名稱和資源群組名稱取得受控磁碟屬性。 Id 屬性用來將受控磁碟連結至新的 VM |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立使用受控 OS 磁碟的 VM |

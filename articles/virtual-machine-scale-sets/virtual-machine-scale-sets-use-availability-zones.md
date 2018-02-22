@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>建立使用可用性區域的虛擬機器擴展集 (預覽)
 如要保護虛擬機器擴展集，使其免於資料中心層級的失敗，您可以建立跨可用性區域的擴展集。 支援可用性區域的 Azure 區域至少會有三個不同的區域，每個區域都有自己的獨立電源、網路和冷卻系統。 如需詳細資訊，請參閱[可用性區域概觀](../availability-zones/az-overview.md)。
@@ -30,13 +30,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>單一區域和區域備援擴展集
 在部署虛擬機器擴展集時，您可以選擇使用一個區域中的單一可用性區域，或是使用多個區域。
 
-當您在單一區域中建立擴展集時，您可以控制要在哪個區域執行所有 VM 執行個體，且擴展集只會在該區域內進行管理並自動調整。 下圖顯示的範例，說明如何使用會散發流量的區域備援負載平衡器，來建立多個單一區域擴展集：
-
-![使用區域備援負載平衡器進行單一區域擴展集部署](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-區域備援擴展集可讓您建立跨多個區域的單一擴展集。 當您建立 VM 執行個體時，系統預設會將它們平均分散到各個區域。 若其中一個區域發生中斷，擴展集不會自動相應放大來增加容量。 最佳做法是設定以 CPU 或記憶體使用量為基礎的自動調整規則。 自動調整規則可讓擴展集在該區域發生 VM 執行個體遺失時，於其餘運作中的區域相應放大新的執行個體，來作為回應。 下圖顯示的範例，是跨多個區域部署的單一擴展集：
-
-![區域備援擴展集部署和負載平衡器](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+當您在單一區域中建立擴展集時，您可以控制要在哪個區域執行所有 VM 執行個體，且擴展集只會在該區域內進行管理並自動調整。 區域備援擴展集可讓您建立跨多個區域的單一擴展集。 當您建立 VM 執行個體時，系統預設會將它們平均分散到各個區域。 若其中一個區域發生中斷，擴展集不會自動相應放大來增加容量。 最佳做法是設定以 CPU 或記憶體使用量為基礎的自動調整規則。 自動調整規則可讓擴展集在該區域發生 VM 執行個體遺失時，於其餘運作中的區域相應放大新的執行個體，來作為回應。
 
 若要使用可用性區域，您必須在[支援的 Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立擴展集。 您還必須[註冊可用性區域預覽](http://aka.ms/azenroll)。 您可以使用下列其中一個方法，來建立使用可用性區域的擴展集：
 

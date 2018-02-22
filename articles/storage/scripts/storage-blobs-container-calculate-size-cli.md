@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>計算 Blob 儲存體容器的大小
 
@@ -48,11 +48,11 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令來計算 Blob 儲存體容器的大小。 下表中的每個項目都會連結至特定命令的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az storage blob upload](/cli/azure/storage/account#create) | 將本機檔案上傳至 Azure Blob 儲存體容器。 |
-| [az storage blob list](/cli/azure/storage/account/keys#list) | 列出 Azure Blob 儲存體容器中的 Blob。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | 將本機檔案上傳至 Azure Blob 儲存體容器。 |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | 列出 Azure Blob 儲存體容器中的 Blob。 |
 
 ## <a name="next-steps"></a>後續步驟
 

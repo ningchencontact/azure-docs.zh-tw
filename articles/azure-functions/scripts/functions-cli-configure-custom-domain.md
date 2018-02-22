@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | 建立函式應用程式所需的儲存體帳戶。 |

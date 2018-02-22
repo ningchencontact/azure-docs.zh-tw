@@ -47,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 此指令碼會使用下列命令來建立部署。 下表中的每個項目都會連結至命令特定的文件。
 
 
-| 命令 | 注意事項 | 
+| 命令 | 注意 | 
 |---|---| 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 | 
 | [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | 建立復原服務保存庫來儲存備份。 | 

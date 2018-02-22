@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼範例 - 取得受管理的資源群組並調整 VM 的大小 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 取得受管理的資源群組並調整 VM 的大小"
+title: "Azure CLI 指令碼範例 - 取得受控資源群組並調整 VM 的大小 | Microsoft Docs"
+description: "Azure CLI 指令碼範例 - 取得受控資源群組並調整 VM 的大小"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -18,9 +18,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2017
 ---
-# <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>使用 Azure CLI 取得受管理資源群組中的資源並調整 VM 大小
+# <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>使用 Azure CLI 取得受控資源群組中的資源並調整 VM 大小
 
-此指令碼會從受管理的資源群組擷取資源，並調整該資源群組中 VM 的大小。
+此指令碼會從受控資源群組擷取資源，並調整該資源群組中 VM 的大小。
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -34,16 +34,16 @@ ms.lasthandoff: 10/30/2017
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令來部署受管理的應用程式。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令來部署受控應用程式。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | 列出受管理的應用程式。 提供查詢值以聚焦在結果上。 |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | 列出受控應用程式。 提供查詢值以聚焦在結果上。 |
 | [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | 列出資源。 提供用來聚焦結果的資源群組名稱。 |
 | [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | 更新虛擬機器的大小。 |
 
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需受管理應用程式的簡介，請參閱 [Azure 受管理的應用程式概觀](../overview.md)。
+* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](../overview.md)。
 * 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。

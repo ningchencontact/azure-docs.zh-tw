@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>建立儲存體帳戶並輪替其帳戶存取金鑰
 
@@ -45,12 +45,12 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令來建立儲存體帳戶，並擷取和輪替其存取金鑰。 下表中的每個項目都會連結至特定命令的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az storage account create](/cli/azure/storage/account#create) | 在指定的資源群組中建立 Azure 儲存體帳戶。 |
-| [az storage account keys list](/cli/azure/storage/account/keys#list) | 顯示指定帳戶的儲存體帳戶存取金鑰。 |
-| [az storage account keys renew](/cli/azure/storage/account/keys#renew) | 重新產生主要或次要的儲存體帳戶存取金鑰。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 在指定的資源群組中建立 Azure 儲存體帳戶。 |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | 顯示指定帳戶的儲存體帳戶存取金鑰。 |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | 重新產生主要或次要的儲存體帳戶存取金鑰。 |
 
 ## <a name="next-steps"></a>後續步驟
 

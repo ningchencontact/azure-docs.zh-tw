@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 
 此指令碼使用下列命令來建立儲存體帳戶，並擷取及輪替其中一個存取金鑰。 下表中的每個項目都會連結至特定命令的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | 取得所有位置和每個位置支援的資源提供者。 |
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立 Azure 資源群組。 |

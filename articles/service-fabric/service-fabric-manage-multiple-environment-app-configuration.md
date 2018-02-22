@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多個環境的應用程式
 
@@ -55,8 +55,8 @@ Azure Service Fabric 叢集可讓您使用任意數量的機器 (從一部至數
 ## <a name="next-steps"></a>後續步驟
 下列文章將示範如何使用此處所述的一些概念：
 
-- [如何在 Service Fabric 中指定服務的環境變數](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [如何使用 Service Fabric 中的參數指定服務的連接埠號碼](service-fabric-how-to-specify-environment-variables.md)
+- [如何在 Service Fabric 中指定服務的環境變數](service-fabric-how-to-specify-environment-variables.md)
+- [如何使用 Service Fabric 中的參數指定服務的連接埠號碼](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [如何參數化設定檔](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [環境變數參考](service-fabric-environment-variables-reference.md)

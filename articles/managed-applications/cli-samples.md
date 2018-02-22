@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 範例 - Azure 受管理的應用程式 | Microsoft Docs"
-description: "Azure CLI 範例 - Azure 受管理的應用程式"
+title: "Azure CLI 範例 - Azure 受控應用程式 | Microsoft Docs"
+description: "Azure CLI 範例 - Azure 受控應用程式"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -20,13 +20,18 @@ ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 範例
 
-下表包含 Azure 受管理應用程式的 Bash 指令碼 (使用 Azure CLI) 連結。
+下表包含 Azure 受控應用程式的 Bash 指令碼 (使用 Azure CLI) 連結。
 
 | | |
 |-|-|
-|**建立受管理的應用程式**||
-| [建立受管理的應用程式定義](scripts/managed-application-cli-sample-create-definition.md) | 在服務類別目錄中建立受管理的應用程式定義。  |
-| [部署受管理的應用程式](scripts/managed-application-cli-sample-create-application.md) | 從服務類別目錄部署受管理的應用程式。  |
+|
+            **建立受控應用程式**||
+| 
+            [建立受控應用程式定義](scripts/managed-application-cli-sample-create-definition.md) | 在服務類別目錄中建立受控應用程式定義。  |
+| 
+            [部署受控應用程式](scripts/managed-application-cli-sample-create-application.md) | 從服務類別目錄部署受控應用程式。  |
 | | |
-|**更新受管理的資源群組**||
-| [取得受管理資源群組中的資源，並且調整 VM 大小](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | 從受管理資源群組取得資源，並且調整 VM 大小。 |
+|
+            **更新受控資源群組**||
+| 
+            [取得受控資源群組中的資源，並且調整 VM 大小](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | 從受控資源群組取得資源，並且調整 VM 大小。 |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>保護 Azure AD 中的特殊權限存取
 保護特殊權限存取，是有助保護現代組織企業資產很重要的第一個步驟。 特殊權限帳戶是可管理 IT 系統的帳戶。 網路攻擊者會以這些帳戶為目標，來取得組織資料和系統的存取權。 為了保護特殊權限存取，您應該讓帳戶和系統遠離遭遇惡意使用者的風險。
@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 ## <a name="time-bound-privileges"></a>時間界限權限
 某些組織可能會發現它們有太多擁有高權限角色的使用者。 使用者可能因為某個特定活動，像是登入服務，而加入角色中，但之後卻不經常使用這些權限。
 
-若要減少權限的曝光時間並增加您對其用法的了解，將使用者的權限限制為只有「即時」(JIT)，或縮短指派這些角色的持續時間，隨後權限將會自動撤銷。 針對 Azure Active Directory、Azure 資源 (預覽) 與 Microsoft 線上服務，您可以使用 [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM)。
+若要減少權限的曝光時間並增加您對其用法的了解，將使用者的權限限制為只有「即時」(JIT)，或縮短指派這些角色的持續時間，隨後權限將會自動撤銷。 針對 Azure Active Directory、Azure 資源 (預覽) 與 Microsoft 線上服務，您可以使用 [Azure AD Privileged Identity Management (PIM)](https://aka.ms/AzurePIM)。
 
 ![PIM 儀表板][2]
 
@@ -68,7 +68,7 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 * 啟用 [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * 啟用[條件式存取控制](../active-directory-conditional-access-azure-portal.md)
 
-如需建置完整安全性藍圖的詳細資訊，請參閱 [Microsoft Cloud Security for Enterprise Architects (Microsoft 的企業架構雲端安全性)](http://aka.ms/securecustomer) 一文的＜Customer responsibilities and roadmap＞(客戶責任和藍圖) 一節。 如需吸引人的 Microsoft 服務詳細資訊，協助您使用任一這些主題，請連絡您的 Microsoft 代表或瀏覽我們的 [Cybersecurity solutions (網路安全性方案) 網頁](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)。
+如需建置完整安全性藍圖的詳細資訊，請參閱 [Microsoft Cloud Security for Enterprise Architects (Microsoft 的企業架構雲端安全性)](https://aka.ms/securecustomer) 一文的＜Customer responsibilities and roadmap＞(客戶責任和藍圖) 一節。 如需吸引人的 Microsoft 服務詳細資訊，協助您使用任一這些主題，請連絡您的 Microsoft 代表或瀏覽我們的 [Cybersecurity solutions (網路安全性方案) 網頁](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)。
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

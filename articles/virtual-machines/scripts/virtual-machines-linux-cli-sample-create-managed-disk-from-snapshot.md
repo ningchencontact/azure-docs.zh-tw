@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 此指令碼使用下列命令從快照集建立受控磁碟。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | 使用快照集的名稱和資源群組屬性，取得快照集的所有屬性。 使用 Id 屬性建立受控磁碟。  |
 | [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | 使用受管理快照集的快照集識別碼建立受控磁碟 |

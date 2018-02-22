@@ -21,13 +21,10 @@
 #### [Blob 儲存體和已連接的服務](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [佇列儲存體和已連接的服務](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [表格儲存體和已連接的服務](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### 設定連續建置和部署的套件
-#### [TFS 和 Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [設定角色的流量規則](cloud-services-enable-communication-role-instances.md)
 ### [處理雲端服務生命週期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [使用 Twilio 撥打電話 (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### 設定啟動工作
 #### [建立啟動工作](cloud-services-startup-tasks.md)
@@ -74,11 +71,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [在 Azure 儲存體中儲存和檢視診斷資料](cloud-services-dotnet-diagnostics-storage.md)
 ### [使用診斷追蹤雲端服務](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [將診斷資料傳送至 App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## 疑難排解
 ### 偵錯 
-#### [啟用內容傳遞的遠端偵錯](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [雲端服務的選項](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [使用 Visual Studio 的本機雲端服務](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [使用 Visual Studio 的已發佈雲端服務](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

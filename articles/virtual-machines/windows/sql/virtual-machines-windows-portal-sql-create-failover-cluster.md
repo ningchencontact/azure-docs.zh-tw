@@ -4,7 +4,7 @@ description: "本文說明如何在 Azure 虛擬機器上建立 SQL Server 容�
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -117,7 +117,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
       >[!IMPORTANT]
       >建立虛擬機器後，您無法設定或變更可用性設定組。
 
-   從 Azure Marketplace 中選擇映像。 您可以使用包含 Windows Server 與 SQL Server，或只包含 Windows Server 的 Marketplace 映像。 如需詳細資料，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   從 Azure Marketplace 中選擇映像。 您可以使用包含 Windows Server 與 SQL Server，或只包含 Windows Server 的 Marketplace 映像。 如需詳細資料，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Azure 資源庫中的官方 SQL Server 映像包含已安裝的 SQL Server 執行個體、SQL Server 安裝軟體與所需金鑰。
 

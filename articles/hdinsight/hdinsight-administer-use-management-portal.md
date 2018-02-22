@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/03/2017
 1. 登入 [https://portal.azure.com](https://portal.azure.com)。
 2. 開啟入口網站之後，您可以：
 
-   * 按一下左功能表中的 [新增]  以建立新的叢集：
+   * 按一下左側功能表中的 [建立資源] 以建立新的叢集：
 
        ![新的 HDInsight 叢集按鈕](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * 按一下左功能表中的 [HDInsight 叢集]  。

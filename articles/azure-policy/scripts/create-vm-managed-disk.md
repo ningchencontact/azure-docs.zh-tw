@@ -1,5 +1,5 @@
 ---
-title: "Azure 原則 JSON 範例 - 在 VM 不使用受管理磁碟時稽核 | Microsoft Docs"
+title: "Azure 原則 JSON 範例 - 在 VM 不使用受控磁碟時稽核 | Microsoft Docs"
 description: "此 JSON 範例會稽核所建立的虛擬機器是否未使用受控磁碟。"
 services: azure-policy
 documentationcenter: 
@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2017
 ---
-# <a name="audit-when-vm-does-not-use-managed-disk"></a>在 VM 不使用受管理磁碟時稽核
+# <a name="audit-when-vm-does-not-use-managed-disk"></a>在 VM 不使用受控磁碟時稽核
 
 稽核所建立的虛擬機器是否未使用受控磁碟。
 

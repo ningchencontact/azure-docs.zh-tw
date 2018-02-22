@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>受控服務識別 (MSI) (適用於 Azure 資源)
 
@@ -100,12 +100,12 @@ ms.lasthandoff: 01/29/2018
 
 | 服務 | 資源識別碼 | 狀態 | 日期 | 指派存取權 |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | 可用 | 2017 年 9 月 | [Azure 入口網站](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure 金鑰保存庫 | https://vault.azure.net/ | 可用 | 2017 年 9 月 | |
-| Azure Data Lake | https://datalake.azure.net/ | 可用 | 2017 年 9 月 | |
-| Azure SQL | https://database.windows.net/ | 可用 | 2017 年 10 月 | |
-| Azure 事件中心 | https://eventhubs.azure.net/ | 可用 | 2017 年 12 月 | |
-| Azure 服務匯流排 | https://servicebus.azure.net/ | 可用 | 2017 年 12 月 | |
+| Azure Resource Manager | https://management.azure.com | 可用 | 2017 年 9 月 | [Azure 入口網站](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure 金鑰保存庫 | https://vault.azure.net | 可用 | 2017 年 9 月 | |
+| Azure Data Lake | https://datalake.azure.net | 可用 | 2017 年 9 月 | |
+| Azure SQL | https://database.windows.net | 可用 | 2017 年 10 月 | |
+| Azure 事件中心 | https://eventhubs.azure.net | 可用 | 2017 年 12 月 | |
+| Azure 服務匯流排 | https://servicebus.azure.net | 可用 | 2017 年 12 月 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>「受控服務身分識別」的售價如何？
 
