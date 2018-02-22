@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 4edd3c49d620df6b335bc7ceb1bf1921e3b279a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cefb98d8ca192c865d4d646df82e8207bed6047
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 調整 Azure Cosmos DB 容器輸送量
 
@@ -46,9 +46,9 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | 更新 Azure Cosmos DB 帳戶。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 

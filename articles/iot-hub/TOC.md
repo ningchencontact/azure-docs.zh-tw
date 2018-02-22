@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### 開始使用攣生裝置
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python 後端/Python 裝置](iot-hub-python-python-twin-how-to-configure.md)
 ### 使用裝置作業更新裝置韌體
 #### [Node 後端/Node 裝置](iot-hub-node-node-firmware-update.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-firmware-update.md)
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-firmware-update.md)
+#### [Python 後端/Python 裝置](iot-hub-python-python-firmware-update.md)
 ### 排程及廣播作業
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java 後端/Java 裝置](iot-hub-java-java-schedule-jobs.md)
+#### [Python 後端/Python 裝置](iot-hub-python-python-schedule-jobs.md)
 
 ## 管理
 ### 建立 IoT 中樞 

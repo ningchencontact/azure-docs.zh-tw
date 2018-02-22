@@ -48,7 +48,7 @@ Remove-AzureRmResourceGroup -Name bloblisttestrg
 
 此指令碼會使用下列命令來計算 Blob 儲存體容器的大小。 下表中的每個項目都會連結至特定命令的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | 取得資源群組或訂用帳戶中的指定儲存體帳戶，或所有儲存體帳戶。 |
 | [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | 列出容器中的 Blob。 ||
