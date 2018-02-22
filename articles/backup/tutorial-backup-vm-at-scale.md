@@ -5,15 +5,15 @@ services: backup
 keywords: "虛擬機器備份; 虛擬機器備份; 備份 VM; 備份 VM; 備份 Azure VM; 備份與災害復原"
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/05/2017
 
 復原服務保存庫包含備份資料，以及套用至受保護虛擬機器的備份原則。 備份虛擬機器是本機的程序。 您無法將某個位置的虛擬機器備份到另一個位置的復原服務保存庫。 因此，對於每個具有要備份之虛擬機器的 Azure 位置，該位置至少必須有一個復原服務保存庫。
 
-1. 在左側功能表中選取 [More services] \(更多服務)，然後在 [服務] 清單中鍵入「復原服務」。 當您輸入時，會一邊篩選資源清單。 當您在清單中看到復原服務保存庫時，選取它以開啟 [復原服務保存庫] 功能表。
+1. 在左側功能表中，選取 [所有服務]，然後在服務清單中鍵入*復原服務*。 當您輸入時，會一邊篩選資源清單。 當您在清單中看到復原服務保存庫時，選取它以開啟 [復原服務保存庫] 功能表。
 
     ![開啟 [復原服務保存庫] 功能表](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 

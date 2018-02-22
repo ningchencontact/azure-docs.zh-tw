@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 此指令碼使用下列命令從快照集建立受控磁碟。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [Get-AzureRmSnapshot](/powershell/module/azurerm.compute/Get-AzureRmSnapshot) | 取得快照集屬性。  |
 | [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | 建立用於磁碟建立的磁碟組態。 其中包含父代快照集的資源識別碼、與父代快照集位置相同的位置和儲存體類型。  |

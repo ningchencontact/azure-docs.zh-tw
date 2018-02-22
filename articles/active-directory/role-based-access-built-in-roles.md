@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 角色型存取控制的內建角色
 Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派給使用者、群組與服務。 您無法修改內建角色定義。 不過，您可以建立 [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md) 以符合您組織的特定需求。
@@ -61,7 +61,6 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | [監視讀取器](#monitoring-reader) |可以讀取所有監視資料 |
 | [監視參與者](#monitoring-contributor) |可以讀取監視資料並編輯監視設定 |
 | [網路參與者](#network-contributor) |可以管理網路資源 |
-| [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) |可以管理 New Relic 應用程式效能管理帳戶和應用程式 |
 | [擁有者](#owner) |可以管理所有項目，包括存取 |
 | [讀取者](#reader) |可以檢視所有項目，但是無法進行變更 |
 | [Redis 快取參與者](#redis-cache-contributor) |可以管理 Redis 快取 |
@@ -440,19 +439,6 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |讀取資源群組 |
 | Microsoft.Support/* |建立和管理支援票證 |
-
-### <a name="new-relic-apm-account-contributor"></a>New Relic APM 帳戶參與者
-可以管理 New Relic 應用程式效能管理帳戶和應用程式
-
-| **動作** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |讀取角色和角色指派 |
-| Microsoft.Insights/alertRules/* |建立及管理警示規則 |
-| Microsoft.ResourceHealth/availabilityStatuses/read |讀取資源的健康狀態 |
-| Microsoft.Resources/deployments/* |建立和管理資源群組部署 |
-| Microsoft.Resources/subscriptions/resourceGroups/read |讀取資源群組 |
-| Microsoft.Support/* |建立和管理支援票證 |
-| NewRelic.APM/accounts/* |建立和管理 New Relic 應用程式效能管理帳戶 |
 
 ### <a name="owner"></a>擁有者
 可以管理所有項目，包括存取

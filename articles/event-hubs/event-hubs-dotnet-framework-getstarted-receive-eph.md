@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 從 Azure 事件中樞接收事件
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/03/2018
 
 若要使用[事件處理器主機][EventProcessorHost]，您必須擁有 [Azure 儲存體帳戶][Azure Storage account]：
 
-1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [新增]。
+1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [建立資源]。
 2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)

@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 此指令碼會使用下列命令，使用來源快照集的識別碼在目標訂用帳戶中建立快照集。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | 使用快照集的名稱和資源群組屬性，取得快照集的所有屬性。 使用 Id 屬性將快照集複製到不同的訂用帳戶。  |
 | [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_create) | 在使用父快照集識別碼和名稱的不同訂用帳戶中建立快照集，以複製快照集。  |

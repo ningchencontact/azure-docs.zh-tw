@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 此指令碼使用下列命令來建立資源群組、虛擬機器和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | 傳回虛擬機器清單。 此案例使用查詢選項來傳回虛擬機器的作業系統磁碟。 接著將此值新增至 'uri' 變數名稱。 |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | 刪除虛擬機器。 |

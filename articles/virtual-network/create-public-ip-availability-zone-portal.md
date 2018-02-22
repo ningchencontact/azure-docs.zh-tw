@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>使用 Azure 入口網站在可用性區域中建立公用 IP 位址
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-zonal-public-ip-address"></a>建立區域性公用 IP 位址
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure 入口網站左上角的 [建立資源]。
 2. 選取 [網路]，然後選取 [公用 IP 位址]。
 3. 輸入或選取下列設定值、選取訂用帳戶、接受其餘設定的預設值，然後按一下 [建立]：
 

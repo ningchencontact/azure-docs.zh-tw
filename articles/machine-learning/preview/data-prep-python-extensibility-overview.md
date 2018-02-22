@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>資料準備 Python 延伸模組
 資料準備可用來作為填補內建功能之間功能落差的方法，Azure Machine Learning 資料準備包含多個層級的擴充性。 在本文件中，我們將透過 Python 指令碼概述擴充性。 
@@ -101,7 +101,7 @@ import scipy as sp
 ### <a name="windows"></a>Windows 
 若要在 Windows 上尋找位置，請尋找應用程式專屬的 Python 安裝及其指令碼目錄。 預設位置為：  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 然後執行下列任一個命令： 
 
@@ -114,7 +114,7 @@ import scipy as sp
 ### <a name="mac"></a>Mac 
 若要在 Mac 上尋找位置，請尋找應用程式專屬的 Python 安裝及其指令碼目錄。 預設位置為： 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 然後執行下列任一個命令： 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼範例 - 部署受管理的應用程式 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 部署受管理的應用程式定義"
+title: "Azure CLI 指令碼範例 - 部署受控應用程式 | Microsoft Docs"
+description: "Azure CLI 指令碼範例 - 部署受控應用程式定義"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -18,9 +18,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2017
 ---
-# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>使用 Azure CLI 為服務類別目錄部署受管理的應用程式
+# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>使用 Azure CLI 為服務類別目錄部署受控應用程式
 
-此指令碼會從服務類別目錄部署受管理的應用程式定義。 
+此指令碼會從服務類別目錄部署受控應用程式定義。 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -34,14 +34,14 @@ ms.lasthandoff: 10/30/2017
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令來部署受管理的應用程式。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令來部署受控應用程式。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | 建立受管理的應用程式。 提供範本的定義識別碼和參數。 |
+| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | 建立受控應用程式。 提供範本的定義識別碼和參數。 |
 
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需受管理應用程式的簡介，請參閱 [Azure 受管理的應用程式概觀](../overview.md)。
+* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](../overview.md)。
 * 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。

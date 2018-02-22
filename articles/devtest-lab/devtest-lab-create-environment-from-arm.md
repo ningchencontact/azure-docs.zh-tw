@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/12/2018
 下列步驟將引導您使用 Azure 入口網站將儲存機制新增至您的實驗室。 
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 1. 從實驗室清單中，選取所需的實驗室。   
 1. 在實驗室的 [概觀] 窗格中，選取 [設定與原則]。
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 01/12/2018
 一旦在實驗室中設定 Azure Resource Manager 範本儲存機制之後，您實驗室的使用者可以使用 Azure 入口網站以下列步驟建立環境︰
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 1. 從實驗室清單中，選取所需的實驗室。   
 1. 在實驗室的窗格中，選取 [新增+]。
 1. [選擇基底] 窗格會顯示您可以與先列出的 Azure Resource Manager 範本搭配使用的基底映像。 選取所需的 Azure Resource Manager 範本。

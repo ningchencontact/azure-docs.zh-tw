@@ -23,7 +23,7 @@ ms.lasthandoff: 11/14/2017
 ---
 # <a name="no-network-peering-to-er-network"></a>禁止對 ER 網路進行網路對等互連
 
-此原則會禁止將網路對等互連與指定資源群組中的網路建立關聯。 用來防止與中央受管理網路基礎結構建立連線。 您需指定要防止建立關聯的資源群組名稱。
+此原則會禁止將網路對等互連與指定資源群組中的網路建立關聯。 用來防止與中央受控網路基礎結構建立連線。 您需指定要防止建立關聯的資源群組名稱。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

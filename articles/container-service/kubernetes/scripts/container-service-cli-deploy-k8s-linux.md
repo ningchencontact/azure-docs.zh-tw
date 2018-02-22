@@ -54,7 +54,7 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令來建立部署。 下表中的每個項目都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | 建立 ACS 叢集。 |

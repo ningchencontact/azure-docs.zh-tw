@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。
 
 > [!NOTE]
-> 若要查看相關的 Azure 限制，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
+> 若要查看相關的 Azure 限制，請參閱 ＜ [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
 >
 >
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/12/2018
 在 Azure 上有多個標準大小可選擇。 這些大小的一些考量事項包括：
 
 * D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。 D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。 如需詳細資訊，請參閱 Azure 部落格的公告， [新 D 系列的虛擬機器大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
-* Dv3 系列、 Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+* Dv3 系列、Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 * G 系列 VM 提供最大的記憶體，並且是在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 * A 系列 VM 可以部署在各種不同的硬體類型和處理器上。 根據硬體節流大小，為執行中的執行個體提供一致的處理器效能，不論硬體部署的位置。 若要判斷此大小部署所在的實體硬體，請從虛擬機器內查詢虛擬硬體。
 * A0 大小是在實體硬體上過度訂閱。 僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。 以下概述的相對效能為預期的基準，受限於近似變化性的 15%。
@@ -147,23 +147,23 @@ ms.lasthandoff: 01/12/2018
 
 | 大小            | CPU 核心 | 記憶體：GiB   | 本機 SSD: GiB       | 最大 NIC / 網路頻寬 |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2 / 中 |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / 高 |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / 高 |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / 極高 |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / 極高 |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / 極高 |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2 / 中 |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / 高 |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / 高 |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / 極高 |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / 極高 |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8 / 極高 |
 
 ## <a name="ev3-series"></a>Ev3 系列
 
 | 大小            | CPU 核心 | 記憶體：GiB   | 本機 SSD: GiB       | 最大 NIC / 網路頻寬 |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2 / 中 |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / 高 |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / 高 |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / 極高 |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / 極高 |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / 極高 |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2 / 中 |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / 高 |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / 高 |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / 極高 |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / 極高 |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8 / 極高 |
 
 
 ## <a name="g-series"></a>G 系列

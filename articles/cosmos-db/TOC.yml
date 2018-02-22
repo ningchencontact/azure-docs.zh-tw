@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Azure 資源管理員範本
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: 概念
   items:
     - name: 無伺服器資料庫
@@ -342,6 +344,8 @@
           href: logging.md
         - name: 管理金鑰和一致性
           href: manage-account.md
+        - name: 存取控制
+          href: access-control.md
         - name: Azure 儲存體總管
           href: storage-explorer.md
         - name: 安全性

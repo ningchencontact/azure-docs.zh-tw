@@ -35,7 +35,7 @@ Service Fabric 叢集中的每個節點類型都是一個虛擬機器擴展集�
 
 此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | 取得叢集節點類型 (虛擬機器擴展集) 的屬性。   |
 | [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| 在虛擬機器擴展集內新增擴充功能。|

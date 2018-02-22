@@ -35,7 +35,7 @@ ms.lasthandoff: 11/29/2017
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 取得 `Microsoft.Network/loadBalancers` 資源。 |
 |[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|更新 `Microsoft.Network/loadBalancers` 資源。|
