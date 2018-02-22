@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,10 +49,10 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對「Azure SQL 資料倉儲」已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為： **AzureSqlDW** | 是 |
-| connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 請將此欄位標示為 SecureString。 |是 |
+| type | 類型屬性必須設為： **AzureSqlDW** | yes |
+| connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 
@@ -86,10 +86,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從「Azure SQL 資料倉儲」複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **AzureSqlDWTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AzureSqlDWTable** | 是 |
-| tableName |「Azure SQL 資料倉儲」執行個體中已連結的服務所參考的資料表或檢視名稱。 | 是 |
+| type | 資料集的類型屬性必須設定為：**AzureSqlDWTable** | yes |
+| tableName |「Azure SQL 資料倉儲」執行個體中已連結的服務所參考的資料表或檢視名稱。 | yes |
 
 **範例：**
 
@@ -118,9 +118,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從「Azure SQL 資料倉儲」複製資料，請將複製活動中的來源類型設定為 **SqlDWSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**SqlDWSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**SqlDWSource** | yes |
 | SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
@@ -222,9 +222,9 @@ GO
 
 若要將資料複製到「Azure SQL 資料倉儲」，請將複製活動中的接收器類型設定為 **SqlDWSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的 type 屬性必須設定為：**SqlDWSink** | 是 |
+| type | 複製活動接收器的 type 屬性必須設定為：**SqlDWSink** | yes |
 | allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。<br/><br/>允許的值為：**True** (預設值) 和 **False**。  |否 |
 | polyBaseSettings |可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 |否 |
 | rejectValue |指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 **CREATE EXTERNAL TABLE (Transact-SQL)** 主題的 [引數](https://msdn.microsoft.com/library/dn935021.aspx) 一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為：0 (預設值)、1、2… |否 |
@@ -269,7 +269,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
 
 如果不符合需求，Azure Data Factory 會檢查設定，並自動切換回適用於資料移動的 BULKINSERT 機制。
 
-1. 「來源已連結服務」的類型為：**AzureStorage** 或 **AzureDataLakeStore**。
+1. 「來源連結的服務」類型為：AzureStorage 或具備服務主題驗證的 AzureDataLakeStore。
 2. 「輸入資料集」的類型為：**AzureBlob** 或 **AzureDataLakeStoreFile**，而 `type` 屬性底下的格式類型為 **OrcFormat**、**ParquetFormat** 或具備下列設定的 **TextFormat**：
 
    1. `rowDelimiter` 必須是 **\n**。

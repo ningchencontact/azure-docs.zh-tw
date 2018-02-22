@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="using-the-open-in-power-bi-button"></a>使用 [在 Power BI 中開啟] 按鈕
 使用 [在 Power BI 中開啟] 按鈕，是在 SQL 資料倉儲與 Power BI 之間移動的最簡單方式。 此按鈕可讓您順暢地開始在 Power BI 中建立新的儀表板。  
 
-1. 若要開始瀏覽至您在 Azure 入口網站的 SQL 資料倉儲執行個體。
+1. 若要開始進行，請瀏覽至 Azure 入口網站中的 SQL 資料倉儲執行個體。
 2. 按一下 [在 Power BI 中開啟] 按鈕。
 3. 如果我們無法直接將您登入，或者您沒有 Power BI 帳戶，您必須登入。  
 4. 您會被導向到 SQL 資料倉儲連線頁面，其中預先填入您的 SQL 資料倉儲中的資訊。

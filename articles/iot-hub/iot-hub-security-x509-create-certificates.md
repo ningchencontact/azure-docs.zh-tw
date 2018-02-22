@@ -15,7 +15,7 @@ ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/19/2017
 
 「IoT 中樞」中的 X.509 憑證型安全性會要求您從 [X.509 憑證鏈結](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification) \(英文\) 開始著手，此鏈結包含根憑證，以及向上包含任何中繼憑證，一直到分葉憑證為止。 這份「做法」指南將逐步引導您執行範例 PowerShell 指令碼，以使用 [OpenSSL](https://www.openssl.org/) 來建立和簽署 X.509 憑證。 建議您將本指南僅用於進行測試，因為這些步驟當中有許多會在實際的製造程序期間進行。 您可以藉由使用「X.509 憑證驗證」，利用這些憑證在您的 Azure IoT 中樞內模擬安全性。 本指南中的步驟會在您 Windows 電腦的本機建立憑證。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程假設您已取得 OpenSSL 二進位檔。 您可以
     - 下載 OpenSSL 原始程式碼並在您的電腦上組建二進位檔，或是 
     - 下載並安裝任何[協力廠商 OpenSSL 二進位檔](https://wiki.openssl.org/index.php/Binaries) \(英文\)，例如從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/) \(英文\) 下載並安裝。
@@ -223,7 +223,7 @@ ms.lasthandoff: 12/19/2017
    New-CAVerificationCert "<your verification code>"
    ```
 
-這段程式碼會建立具有給定的主體名稱，檔案名稱為由 CA 簽署的憑證*VerifyCert4.cer*工作目錄中。 此憑證會協助向您擁有此 CA 之簽署權限 (亦即私密金鑰) 的 IoT 中樞進行驗證。
+此程式碼會在您的工作目錄中建立憑證，此憑證會具有指定的主體名稱、由 CA 簽署且檔案名稱為 VerifyCert4.cer。 此憑證會協助向您擁有此 CA 之簽署權限 (亦即私密金鑰) 的 IoT 中樞進行驗證。
 
 
 <a id="createx509device"></a>
@@ -277,12 +277,12 @@ ms.lasthandoff: 12/19/2017
 
 然後，在您的 PowerShell 視窗中，使用您用來建立裝置的易記名稱來執行 `New-CADevice "<yourTestDevice>"`。 出現輸入 CA 私密金鑰的密碼提示時，輸入 "123"。 這會在您的工作目錄中建立一個 _<yourTestDevice>.pfx_ 檔案。
 
-## <a name="clean-up-certificates"></a>清除 憑證
+## <a name="clean-up-certificates"></a>清除憑證
 
-在您開始的列或**設定**應用程式中，搜尋並選取**管理的電腦憑證**。 移除發行的任何憑證**Azure IoT CA TestOnly***。 這些憑證應存在於下列三個位置： 
+在您的開始列或**設定**應用程式中，搜尋並選取 [管理電腦憑證]。 移除 **Azure IoT CA TestOnly*** 發行的任何憑證。 這些憑證應存在於下列三個位置： 
 
-* 憑證-本機電腦 > 個人 > 憑證
-* 憑證-本機電腦 > 受信任的根憑證授權單位 > 憑證
-* 憑證-本機電腦 > 中繼憑證授權單位 > 憑證
+* 憑證 - 本機電腦 > 個人 > 憑證
+* 憑證 - 本機電腦 > 受信任的根憑證授權單位 > 憑證
+* 憑證 - 本機電腦 > 中繼憑證授權單位 > 憑證
 
    ![移除 Azure IoT CA TestOnly 憑證](./media/iot-hub-security-x509-create-certificates/cleanup.png)

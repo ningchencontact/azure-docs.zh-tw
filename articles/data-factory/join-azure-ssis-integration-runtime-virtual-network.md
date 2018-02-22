@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路 (VNet)： 
@@ -31,7 +31,13 @@ ms.lasthandoff: 02/01/2018
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 ## <a name="access-on-premises-data-stores"></a>存取內部部署資料存放區
-如果 SSIS 套件只會存取公用雲端資料存放區，則您不需要將 Azure-SSIS IR 加入 VNet 中。 如果 SSIS 套件存取內部部署資料存放區，則您必須將 Azure-SSIS IR 加入連線至內部部署網路的 VNet 中。 如果在不在 VNet 的 Azure SQL Database 中裝載 SSIS 目錄，您需要開啟適當的連接埠。 如果在 Azure Resource Manager VNet 或傳統 VNet 的 Azure SQL 受控執行個體中裝載 SSIS 目錄，您可以將 Azure-SSIS IR 加入相同的 VNet 或不同的 VNet，而此 VNet 與包含 Azure SQL 受控執行個體的 VNet 之間有 VNet 對 VNet 連線。 下列各節提供更多詳細資料。
+如果 SSIS 套件只會存取公用雲端資料存放區，則您不需要將 Azure-SSIS IR 加入 VNet 中。 如果 SSIS 套件存取內部部署資料存放區，則您必須將 Azure-SSIS IR 加入連線至內部部署網路的 VNet 中。 
+
+如果在不在 VNet 的 Azure SQL Database 中裝載 SSIS 目錄，您需要開啟適當的連接埠。 
+
+如果在位於 VNet 的 Azure SQL 受控執行個體 (MI) 中裝載 SSIS 目錄，您可以將 Azure-SSIS IR 加入相同的 VNet 或不同的 VNet，而此 VNet 與包含 Azure SQL 受控執行個體的 VNet 之間有 VNet 對 VNet 連線。 VNet 可以是傳統 VNet 或 Azure 資源管理 VNet。 如果您計劃將 Azure-SSIS IR 加入到擁有 SQL MI 的**相同 VNet** 中，請確定 Azure-SSIS IR 位於**不同的子網路**，也就是並非擁有 SQL MI 的子網路。   
+
+下列各節提供更多詳細資料。
 
 以下是一些需要注意的重要事項： 
 
@@ -58,10 +64,11 @@ ms.lasthandoff: 02/01/2018
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>使用入口網站設定傳統 VNet
 您必須先設定 VNet，才可以將 Azure-SSIS 整合執行階段加入 VNet。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [更多服務]。 篩選並選取 [虛擬網路 (傳統)]。
-3. 篩選並選取清單中的 [虛擬網路]。 
-4. 在 [虛擬網路 (傳統)] 頁面中，選取 [屬性]。 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 登入 [Azure 入口網站](https://portal.azure.com)。
+3. 按一下 [更多服務]。 篩選並選取 [虛擬網路 (傳統)]。
+4. 篩選並選取清單中的 [虛擬網路]。 
+5. 在 [虛擬網路 (傳統)] 頁面中，選取 [屬性]。 
 
     ![傳統 VNet 資源識別碼](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. 按一下 [資源識別碼] 的 [複製] 按鈕，將傳統網路的資源識別碼複製至剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。
@@ -93,13 +100,14 @@ ms.lasthandoff: 02/01/2018
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>使用入口網站設定 Azure Resource Manager VNet
 您必須先設定 VNet，才可以將 Azure-SSIS 整合執行階段加入 VNet。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [更多服務]。 篩選並選取 [虛擬網路]。
-3. 篩選並選取清單中的 [虛擬網路]。 
-4. 在 [虛擬網路] 頁面中，選取 [屬性]。 
-5. 按一下 [資源識別碼] 的 [複製] 按鈕，將虛擬網路的資源識別碼複製至剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。
-6. 按一下左功能表上的 [子網路]，並確定 [可用的位址] 數目大於 Azure-SSIS 整合執行階段中的節點。
-5. 確認在具有 VNet 的 Azure 訂用帳戶中註冊 Azure Batch 提供者，或註冊 Azure Batch 提供者。 如果您的訂用帳戶中已經有 Azure Batch 帳戶，則會註冊 Azure Batch 的訂用帳戶。
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 登入 [Azure 入口網站](https://portal.azure.com)。
+3. 按一下 [更多服務]。 篩選並選取 [虛擬網路]。
+4. 篩選並選取清單中的 [虛擬網路]。 
+5. 在 [虛擬網路] 頁面中，選取 [屬性]。 
+6. 按一下 [資源識別碼] 的 [複製] 按鈕，將虛擬網路的資源識別碼複製至剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。
+7. 按一下左功能表上的 [子網路]，並確定 [可用的位址] 數目大於 Azure-SSIS 整合執行階段中的節點。
+8. 確認在具有 VNet 的 Azure 訂用帳戶中註冊 Azure Batch 提供者，或註冊 Azure Batch 提供者。 如果您的訂用帳戶中已經有 Azure Batch 帳戶，則會註冊 Azure Batch 的訂用帳戶。
     1. 在 Azure 入口網站中，按一下入口網站中，按一下左功能表上的 [訂用帳戶]。 
     2. 選取您的 **訂用帳戶**。 
     3. 按一下左邊的 [資源提供者]，並確認 `Microsoft.Batch` 是已註冊的提供者。 
@@ -111,7 +119,8 @@ ms.lasthandoff: 02/01/2018
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>將 Azure SSIS 整合執行階段加入 VNet
 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [資料處理站]。 如果在功能表上沒有看到 [資料處理站]，選取 [更多服務]，然後選取 [智慧 + 分析] 區段中的 [資料處理站]。 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [資料處理站]。 如果在功能表上沒有看到 [資料處理站]，選取 [更多服務]，然後選取 [智慧 + 分析] 區段中的 [資料處理站]。 
     
     ![資料處理站清單](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. 在清單中選取您的資料處理站與 Azure SSIS 整合執行階段。 您會看到資料處理站的首頁。 選取 [編寫與部署] 圖格。 您會在另一個索引標籤中看到 Data Factory 使用者介面 (UI)。 

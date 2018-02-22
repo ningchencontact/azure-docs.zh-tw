@@ -19,7 +19,7 @@ ms.date: 11/27/2017
 ms.author: jgao
 ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/04/2018
 
 * 使用 Power BI
 
-    請參閱[視覺化互動式查詢 hive 控制檔的資料，使用 Azure HDInsight 中的 Power BI](./apache-hadoop-connect-hive-power-bi-directquery.md)看到[視覺化使用 Azure HDInsight 中的 Power BI 巨量資料](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
+    請參閱[在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化](./apache-hadoop-connect-hive-power-bi-directquery.md) 請參閱[在 Azure HDInsight 中使用 Power BI 將巨量資料視覺化](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
  
 * 使用 Zeppelin
 

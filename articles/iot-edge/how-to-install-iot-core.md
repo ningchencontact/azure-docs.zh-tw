@@ -12,15 +12,15 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>在 Windows IoT 核心版上安裝 IoT Edge 執行階段 - 預覽
 
-Azure IoT 邊緣和[Windows IoT Core](https://docs.microsoft.com/windows/iot-core/)一起運作，以啟用計算甚至小型裝置上的邊緣。 Azure IoT Edge 執行階段即使在微型單板電腦 (SBC) 裝置上也能執行，這類裝置在 IoT 產業中非常普遍。 
+Azure IoT Edge 和 [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) 會一起運作，甚至可以在小型裝置上啟用邊緣計算。 Azure IoT Edge 執行階段即使在微型單板電腦 (SBC) 裝置上也能執行，這類裝置在 IoT 產業中非常普遍。 
 
-本文將逐步解說如何在執行 Windows IoT 核心版的 [MinnowBoard Turbot][lnk-minnow] \(英文\) 開發板上佈建執行階段。 Windows IoT 核心版支援只能在 Intel x64 型處理器上的 Azure IoT 邊緣。 
+本文將逐步解說如何在執行 Windows IoT 核心版的 [MinnowBoard Turbot][lnk-minnow] \(英文\) 開發板上佈建執行階段。 Windows IoT Core 只在 Intel x64 型處理器上支援 Azure IoT Edge。 
 
 ## <a name="install-the-runtime"></a>安裝執行階段
 

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
@@ -39,8 +39,9 @@ ms.lasthandoff: 02/03/2018
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 第一步是使用 Azure 入口網站建立資料處理站。 
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 
-2. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 
+3. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. 在 [新增資料處理站] 頁面中，輸入 **ADFTutorialDataFactory** 作為 [名稱]。 
@@ -75,7 +76,7 @@ ms.lasthandoff: 02/03/2018
 1. 在 [開始使用] 頁面中，按一下 [建立管線]： 
 
     ![開始使用頁面](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. 在 [活動] 工具箱中，展開 [SQL Database]，並將 [預存程序] 活動拖放至管線設計工具表面。 
+2. 在 [活動] 工具箱中，展開 [一般]，並將 [預存程序] 活動拖放至管線設計工具表面。 
 
     ![拖放功能預存程序活動](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. 在第二個程序活動的 [屬性] 視窗中，切換到 [SQL 帳戶] 索引標籤，並按一下 [+ 新增]。 您可對於主控 SSIS 目錄 (SSIDB 資料庫) 的 Azure SQL 資料庫建立連線。 
@@ -94,11 +95,12 @@ ms.lasthandoff: 02/03/2018
         ![Azure SQL Database 的連結服務](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. 在 [屬性] 視窗中，從 [SQL 帳戶] 索引標籤切換到 [預存程序] 索引標籤，並執行下列步驟： 
 
-    1. 對於 [預存程序名稱]，輸入 `sp_executesql`。 
-    2. 按一下 [預存程序參數] 區段中的 [+ 新增]。 
-    3. 對於參數的 [名稱]，輸入 **stmt**。 
-    4. 針對參數的 [類型]，輸入 [字串]。 
-    5. 針對參數的 [值]，輸入下列 SQL 查詢：
+    1. 選取 [編輯]。 
+    2. 對於 [預存程序名稱]，輸入 `sp_executesql`。 
+    3. 按一下 [預存程序參數] 區段中的 [+ 新增]。 
+    4. 對於參數的 [名稱]，輸入 **stmt**。 
+    5. 針對參數的 [類型]，輸入 [字串]。 
+    6. 針對參數的 [值]，輸入下列 SQL 查詢：
 
         在 SQL 查詢中，指定 **folder_name**、**project_name** 和 **package_name** 參數的正確值。 
 
@@ -120,7 +122,8 @@ ms.lasthandoff: 02/03/2018
 1. 若要觸發管線執行，按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 
 
     ![立即觸發](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. 切換至左側的 [監視] 索引標籤。 您會看到管線執行、其狀態，以及其他資訊 (例如執行開始時間)。 若要重新整理檢視，按一下 [重新整理]。
+2. 在 [管線執行] 視窗中，選取 [完成]。 
+3. 切換至左側的 [監視] 索引標籤。 您會看到管線執行、其狀態，以及其他資訊 (例如執行開始時間)。 若要重新整理檢視，按一下 [重新整理]。
 
     ![管線執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 管線只有一個活動 (預存程序活動) 時，您只會看到一個活動執行。

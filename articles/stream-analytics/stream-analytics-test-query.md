@@ -17,7 +17,7 @@ ms.date: 04/20/2017
 ms.author: samacha
 ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="test-the-input"></a>測試輸入
 
-1. 若要測試樣本輸入資料，以滑鼠右鍵按一下任何輸入，然後選取 [從檔案上傳樣本資料]。 目前您可以上傳僅限 JSON 格式資料。 如果您的資料位於不同的格式，例如 CSV，您應該將其轉換 JSON 之前上傳。 您可以使用任何都會轉換工具，例如[JSON 轉換程式的 CSV](http://www.convertcsv.com/csv-to-json.htm) ，將資料轉換為 JSON。
+1. 若要測試樣本輸入資料，以滑鼠右鍵按一下任何輸入，然後選取 [從檔案上傳樣本資料]。 目前您只能上傳 JSON 格式的資料。 如果您的資料採用不同格式 (例如 CSV)，請於上傳前先將其轉換為 JSON。 您可以使用任何開放原始碼轉換工具 (例如 [CSV 至 JSON 轉換器](http://www.convertcsv.com/csv-to-json.htm))，將資料轉換為 JSON。
 
     ![串流分析查詢編輯器的測試查詢](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

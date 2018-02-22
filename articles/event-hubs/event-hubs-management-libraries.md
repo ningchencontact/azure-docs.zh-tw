@@ -16,13 +16,13 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-management-libraries"></a>事件中樞管理程式庫
 
-事件中樞管理程式庫可以動態佈建事件中樞命名空間和實體。 此動態本質可讓複雜的部署和傳訊的案例，好讓您以程式設計的方式可以判斷哪些實體要佈建。 這些程式庫目前適用於 .NET。
+事件中樞管理程式庫可以動態佈建事件中樞命名空間和實體。 這個動態本質適合複雜的部署和傳訊案例，可讓您以程式設計方式決定要佈建的實體。 這些程式庫目前適用於 .NET。
 
 ## <a name="supported-functionality"></a>支援的功能
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/20/2017
 * 建立、更新、刪除事件中樞
 * 建立、更新、刪除取用者群組
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始使用事件中樞管理程式庫，您必須使用 Azure Active Directory (AAD) 來驗證。 AAD 會要求您以提供 Azure 資源存取權的服務主體來進行驗證。 如需建立服務主體的詳細資訊，請參閱以下其中一篇文章：  
 

@@ -17,12 +17,12 @@ ms.date: 12/14/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>將資料從 Azure Data Lake Store 載入到 SQL 資料倉儲
-這份文件可讓您將資料從 Azure 資料湖存放區 (ADLS) 載入到 SQL 資料倉儲所需的所有步驟使用 PolyBase。
+本文件說明使用 PolyBase 將資料從 Azure Data Lake Store (ADLS) 載入到 SQL 資料倉儲時需要執行的所有步驟。
 雖然您能夠使用外部資料表對 ADLS 中儲存的資料執行臨機操作查詢，但是我們建議的最佳做法是將資料匯入到 SQL 資料倉儲。
 
 在本教學課程中，您將了解如何：
@@ -42,9 +42,9 @@ ms.lasthandoff: 12/15/2017
 
 * SQL Server Management Studio 或 SQL Server Data Tools，用來下載 SSMS 和連接，請參閱[查詢 SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Azure SQL 資料倉儲，來建立一個後續： https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
+* 一個 Azure SQL 資料倉儲，若要建立，請依照下列連結中的指示執行：https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision_
 
-* Azure Data Lake Store，若要建立一個後續： https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Azure Data Lake Store，若要建立，請依照下列連結中的指示執行：https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>建立認證
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>建立外部資料來源
-使用此[CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE]命令來儲存資料的位置。 若要在 Azure 入口網站尋找 ADL URI，請瀏覽至您的 Azure Data Lake Store，然後查看「基本資訊」面板。
+使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置。 若要在 Azure 入口網站尋找 ADL URI，請瀏覽至您的 Azure Data Lake Store，然後查看「基本資訊」面板。
 
 ```sql
 -- C: Create an external data source
@@ -99,7 +99,7 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>設定資料格式
-若要從 ADLS，匯入資料，您需要指定外部檔案格式。 這個命令有特定的格式選項，用以描述您的資料。
+若要從 ADLS 匯入資料，您需要指定外部檔案格式。 這個命令有特定的格式選項，用以描述您的資料。
 請查閱我們的 T-SQL 文件，以取得 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 的完整清單
 
 ```sql
@@ -121,7 +121,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>建立外部資料表
-您在指定資料來源和檔案格式之後，便可以開始建立外部資料表。 外部資料表是您與外部資料進行互動的方式。 位置參數可以指定檔案或目錄。 如果指定的目錄，就會載入目錄中的所有檔案。
+您在指定資料來源和檔案格式之後，便可以開始建立外部資料表。 外部資料表是您與外部資料進行互動的方式。 位置參數可以指定檔案或目錄。 如果指定目錄，目錄中的所有檔案都會載入。
 
 ```sql
 -- D: Create an External Table
@@ -153,9 +153,9 @@ WITH
 建立外部資料表很簡單，但是有一些必須討論的細微差異。
 
 外部資料表是強型別。 這表示內嵌的每個資料列都必須滿足資料表結構描述定義。
-如果資料列不符合結構描述定義，資料列會拒絕從負載。
+如果資料列不符合結構描述定義，載入時就會拒絕該資料列。
 
-REJECT_TYPE 但 REJECT_VALUE 選項可讓您定義資料列數目或百分比的資料必須存在於最後的資料表。在載入期間，如果到達拒絕值時，載入就會失敗。 資料列遭拒最常見的原因是結構描述定義不相符。 例如，如果檔案中的資料是字串，卻對資料行指定不正確的整數結構描述，則會無法載入每個資料列。
+REJECT_TYPE 和 REJECT_VALUE 選項可讓您定義最終的資料表中必須出現多少資料列或多少百分比的資料。在載入期間，如果達到拒絕值，則載入會失敗。 資料列遭拒最常見的原因是結構描述定義不相符。 例如，如果檔案中的資料是字串，卻對資料行指定不正確的整數結構描述，則會無法載入每個資料列。
 
  Azure Data Lake Store 使用角色型存取控制 (RBAC) 來控制資料存取。 這表示服務主體必須具有在位置參數中所定義之目錄，以及最終目錄和檔案之子系的讀取權限。 這可讓 PolyBase 驗證及載入讀取該資料。 
 

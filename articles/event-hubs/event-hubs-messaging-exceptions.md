@@ -16,13 +16,13 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中樞傳訊例外狀況
 
-本文列出一些產生的例外狀況的 Azure 服務匯流排傳訊 API 程式庫，其中包含事件中心 Api。 此參考可能有所變更，請不定期查看更新。
+本文列出包括事件中樞 API 在內之 Azure 服務匯流排傳訊 API 程式庫產生的一些例外狀況。 此參考可能有所變更，請不定期查看更新。
 
 ## <a name="exception-categories"></a>例外狀況類別
 
@@ -80,13 +80,13 @@ ms.lasthandoff: 12/20/2017
 
 此錯誤會因為兩個原因其中之一而發生：
 
-1. 載入未平均分佈的所有資料分割上的事件中樞，和一個資料分割叫用的本機輸送量單位的限制。
+1. 負載未在事件中樞上的所有資料分割平均分佈，且其中一個資料分割達到本機輸送量單位限制。
     
     解決方式︰修改資料分割散發策略，或嘗試 [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_)，可能會有幫助。
 
-2. 事件中樞命名空間中沒有足夠的輸送量單位 (您可以檢查**度量**畫面在事件中樞命名空間中的視窗[Azure 入口網站](https://portal.azure.com)確認)。 請注意，入口網站會顯示彙總資訊 (1 分鐘)，但我們會即時測量輸送量 – 因此只是估計值。
+2. 事件中樞命名空間沒有足夠的輸送量單位 (您可以檢查 [Azure 入口網站](https://portal.azure.com)中 [事件中樞命名空間] 視窗上的 [度量] 畫面來確認)。 請注意，入口網站會顯示彙總資訊 (1 分鐘)，但我們會即時測量輸送量 – 因此只是估計值。
 
-    解決方式︰增加命名空間的輸送量單位可能會有幫助。 您可以在入口網站，在**標尺**事件中樞命名空間螢幕的視窗。
+    解決方式︰增加命名空間的輸送量單位可能會有幫助。 您可以在入口網站中 [事件中樞命名空間] 畫面的 [擴展] 視窗上執行此動作。
 
 ### <a name="error-code-50001"></a>錯誤碼 50001
 

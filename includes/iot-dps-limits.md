@@ -9,7 +9,7 @@
 | CA 數目上限 | 10 |
 
 > [!NOTE]
-> 這些限制適用於公開預覽版。 一旦服務正式推出，您即可連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)，以提高您訂用帳戶中的執行個體數目。
+> 您可以連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)，以提高您訂用帳戶中的執行個體數目。
 
 裝置佈建服務會在超過下列配額時開始對要求進行節流：
 

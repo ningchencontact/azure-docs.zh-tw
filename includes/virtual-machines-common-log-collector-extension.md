@@ -1,5 +1,5 @@
 
-診斷問題使用 Microsoft Azure 雲端服務需要問題發生時收集服務的虛擬機器上的記錄檔。 您可用來執行單次收集記錄檔從一或多個雲端服務 Vm （從 web 角色和背景工作角色） 和 Azure 儲存體帳戶 – 傳送收集到的檔案，而不需從遠端登入任何 AzureLogCollector 延伸隨Vm。
+要診斷 Microsoft Azure 雲端服務的問題，必須在問題發生時收集服務在虛擬機器上的記錄檔。 您可以視需要使用 AzureLogCollector 延伸模組，從一或多個雲端服務虛擬機器 (從 Web 角色和背景工作角色) 執行一次性的記錄收集作業，並將收集到的檔案傳輸到 Azure 儲存體帳戶，完全不必遠端登入任何虛擬機器。
 
 > [!NOTE]
 > 大部分的記錄資訊描述位於 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp。
@@ -8,8 +8,8 @@
 
 根據要收集的檔案類型，會有兩種收集模式。
 
-* **Azure 客體代理程式記錄檔唯一 (GA)**。 此收集模式包含所有與 Azure 客體代理程式和其他 Azure 元件相關的記錄。
-* **所有記錄檔 （全滿）**。 這個收集模式會收集加號 GA 模式中的所有檔案：
+* **僅限 Azure 客體代理程式記錄檔 (GA)**。 此收集模式包含所有與 Azure 客體代理程式和其他 Azure 元件相關的記錄。
+* **所有的記錄檔 (完整)**。 此收集模式會收集 GA 模式中的所有檔案，外加：
   
   * 系統和應用程式事件記錄檔
   * HTTP 錯誤記錄檔
@@ -19,14 +19,14 @@
 
 在這兩種收集模式中，都可以使用下列結構的集合來指定其他資料收集資料夾：
 
-* **名稱**: 集合的名稱，做為子資料夾內的收集檔案的 zip 檔案的名稱。
-* **位置**: 虛擬機器上收集的檔案所在資料夾的路徑。
-* **SearchPattern**：要收集之檔案的名稱模式。 預設值是"\*"
-* **遞迴**： 如果要收集的檔案找到以遞迴方式在指定的位置。
+* **名稱**：集合的名稱，作為具有所收集檔案之 ZIP 檔案內的子資料夾名稱。
+* **位置**：要收集之檔案所在虛擬機器資料夾的路徑。
+* **SearchPattern**：要收集之檔案的名稱模式。 預設值為 “\*”
+* **遞迴**：如果要收集的檔案以遞迴方式位於指定位置底下。
 
-## <a name="prerequisites"></a>必要條件
-* 具有副檔名來儲存產生的 zip 檔案的儲存體帳戶。
-* 使用 Azure PowerShell Cmdlet v0.8.0 或更新版本。 如需詳細資訊，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。
+## <a name="prerequisites"></a>先決條件
+* 擁有儲存體帳戶可進行擴充，以儲存產生的 ZIP 檔案。
+* 使用 Azure PowerShell Cmdlet 0.8.0 版或更新版本。 如需詳細資訊，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。
 
 ## <a name="add-the-extension"></a>新增延伸模組
 您可以使用 [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) Cmdlet 或[服務管理 REST API](https://msdn.microsoft.com/library/ee460799.aspx)，來新增 AzureLogCollector 延伸模組。
@@ -245,7 +245,7 @@ param (
 ```
 
 * **ServiceName**：您的雲端服務名稱。
-* **VMName**: VM 的名稱。
+* **VMName**：虛擬機器的名稱。
 * **Mode**：收集模式。 「完整」或「GA」。
 * **StorageAccountName**：用來儲存收集之資料的 Azure 儲存體帳戶名稱。
 * **StorageAccountKey**：Azure 儲存體帳戶金鑰的名稱。
@@ -512,5 +512,5 @@ else
 ```
 
 ## <a name="next-steps"></a>後續步驟
-現在您可以檢查，或從一個簡單的位置複製您的記錄檔。
+現在，您可以從一個簡單的位置檢查或複製您的記錄檔。
 

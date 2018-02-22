@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本主題將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -80,7 +80,7 @@ ms.lasthandoff: 01/09/2018
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>適用於現有 Windows 傳統型應用程式的漫遊設定選項有哪些？
 漫遊僅適用於通用 Windows 應用程式。 有兩個選項可用來在現有 Windows 傳統型應用程式上啟用漫遊：
 
-* [傳統型應用程式橋接器](http://aka.ms/desktopbridge) 可協助您輕鬆地將現有的 Windows 傳統型應用程式帶到「通用 Windows 平台」。 從這裡，只需進行最低限度的程式碼變更，即可利用 Azure AD 的應用程式資料漫遊功能。 桌面橋接器會為應用程式提供應用程式身分識別，需要有此身分識別才能為現有的傳統型應用程式啟用應用程式資料漫遊。
+* [傳統型應用程式橋接器](https://aka.ms/desktopbridge) 可協助您輕鬆地將現有的 Windows 傳統型應用程式帶到「通用 Windows 平台」。 從這裡，只需進行最低限度的程式碼變更，即可利用 Azure AD 的應用程式資料漫遊功能。 桌面橋接器會為應用程式提供應用程式身分識別，需要有此身分識別才能為現有的傳統型應用程式啟用應用程式資料漫遊。
 * [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) 可協助您為現有的 Windows 傳統型應用程式建立自訂設定範本，並為 Win32 應用程式啟用漫遊功能。 這個選項不需要應用程式開發人員變更應用程式的程式碼。 UE-V 僅限於已購買 Microsoft Desktop Optimization Pack 之客戶的內部部署 Active Directory 漫遊。
 
 系統管理員可以設定讓 UE-V 漫遊 Windows 傳統型應用程式資料，方法是透過 [UE-V 群組原則](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)變更 Windows OS 設定與通用應用程式資料的漫遊，包括：

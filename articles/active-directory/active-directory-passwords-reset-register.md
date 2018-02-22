@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user;seohack1
-ms.openlocfilehash: ffdffc0c471970e5a7e7a0bb291658cefe99ed71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbb82e125381a4307ed742294f880600612ffc52
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>註冊自助式密碼重設
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>使用 SSPR 註冊或確認驗證資料
 
-1. 開啟您裝置的 web 瀏覽器並移至[密碼重設註冊頁面](http://aka.ms/ssprsetup)。
+1. 開啟您裝置的 web 瀏覽器並移至[密碼重設註冊頁面](https://aka.ms/ssprsetup)。
 2. 輸入您的使用者名稱和您系統管理員所提供的密碼。
 3. 視您的 IT 人員如何設定而定，下列一或多個選項可供您進行設定及驗證。 如果您的系統管理員具有權限可使用您的資訊，他們可以填入一些您的資訊。
     * **辦公室電話**：只有您的系統管理員可以設定此選項。
@@ -56,12 +56,12 @@ ms.lasthandoff: 01/18/2018
 | --- | --- | --- |
 | 在輸入我的使用者 ID 後，出現了「請連絡您的系統管理員」頁面 | 請連絡您的系統管理員。 <br> <br> 我們偵測到您的使用者帳戶密碼未受到 Microsoft 管理。 因此，我們無法自動重設您的密碼。 <br> <br> 請連絡 IT 人員以尋求進一步的協助。 | 您之所以看到此訊息，是因為 IT 人員在內部部署環境中管理您的密碼，而不允許您從 [無法存取您的帳戶] 連結重設您的密碼。 <br> <br> 若要重設密碼，請直接連絡您的 IT 人員以取得協助。 讓它們知道您需要重設密碼，以便它們可以為您啟用此功能。|
 | 在輸入我的使用者 ID 後，出現了「您的帳戶未啟用密碼重設」錯誤 | 您的帳戶未啟用密碼重設功能。 <br> <br> 很抱歉，IT 人員還沒將您的帳戶設定用於此服務。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為 IT 人員尚未針對貴組織啟用從 [無法存取您的帳戶] 連結重設密碼的功能，或尚未授權您使用該功能。 <br> <br> 若要重設您的密碼，請選取 [連絡系統管理員] 連結。 系統會傳送電子郵件至貴公司的 IT 人員。 電子郵件會讓它們知道您需要重設密碼，以便它們可以為您啟用此功能。 |
-| 在輸入我的使用者 ID 後，出現了「我們無法驗證您的帳戶」錯誤 | 我們無法驗證您的帳戶。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為您已啟用密碼重設，但並未註冊使用此服務。 若要註冊密碼重設，請在重新取得帳戶存取權後移至[密碼重設註冊頁面](http://aka.ms/ssprsetup)。 <br> <br> 若要重設密碼，請選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的 IT 人員。 |
+| 在輸入我的使用者 ID 後，出現了「我們無法驗證您的帳戶」錯誤 | 我們無法驗證您的帳戶。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為您已啟用密碼重設，但並未註冊使用此服務。 若要註冊密碼重設，請在重新取得帳戶存取權後移至[密碼重設註冊頁面](https://aka.ms/ssprsetup)。 <br> <br> 若要重設密碼，請選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的 IT 人員。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 * [使用自助式密碼重設來變更您的密碼](active-directory-passwords-update-your-own-password.md)
-* [密碼重設註冊頁面](http://aka.ms/ssprsetup)
+* [密碼重設註冊頁面](https://aka.ms/ssprsetup)
 * [密碼重設入口網站](https://passwordreset.microsoftonline.com/)
 * [當您無法登入 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

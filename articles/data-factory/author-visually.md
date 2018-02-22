@@ -1,6 +1,6 @@
 ---
-title: "以視覺化方式撰寫 Azure Data Factory | Microsoft Docs"
-description: "了解如何以視覺化方式撰寫 Azure Data Factory"
+title: "Azure Data Factory 中的視覺化撰寫 | Microsoft Docs"
+description: "了解如何使用 Azure Data Factory 中的視覺化撰寫"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,98 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 3e67665facba78c4ca8e2317f0323b4c5c02a49c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="visually-author-data-factories"></a>以視覺化方式撰寫資料處理站
-在使用 Azure Data Factory UX 體驗的情況下，使用者可以透過視覺化方式在其資料處理站中撰寫及部署資源，而無須撰寫任何一行程式碼。 這個無程式碼介面可讓您將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監控管線回合。 您可以選擇以兩種方式使用 ADF UX 工具：
+# <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
+Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
 
-1. 直接與 Data Factory 服務搭配運作
-2. 設定「VSTS Git 整合」來進行共同作業、來源控制或版本設定
+- 直接使用 Data Factory 服務來撰寫。
+- 使用 Visual Studio Team Services (VSTS) Git 整合來撰寫，以便進行共同作業、原始檔控制或版本設定。
 
-## <a name="authoring-with-data-factory"></a>藉由 Data Factory 進行撰寫
-第一個選項是直接藉由 Data Factory 進行撰寫模式。 這個方法與透過「VSTS 程式碼存放庫」進行撰寫有所不同，就是它既沒有任何儲儲存您所做變更之 JSON 實體的存放庫，也未針對共同作業或版本控制進行最佳化。
+## <a name="author-directly-with-the-data-factory-service"></a>直接使用 Data Factory 服務來撰寫
+使用 Data Factory 服務的視覺化撰寫和使用 VSTS 的視覺化撰寫有兩個不同之處：
 
-![設定 Data Factory](media/author-visually/configure-data-factory.png)
+- Data Factory 服務未包含存放庫，此存放庫會用於儲存變更的 JSON 實體。
+- Data Factory 服務並未針對共同作業或版本控制進行最佳化。
 
-在 Data Factory 模式下，只有「發佈」模式。 您所做的任何變更都會直接發佈至 Data Factory 服務。
+![設定 Data Factory 服務 ](media/author-visually/configure-data-factory.png)
 
-![Data Factory 發佈](media/author-visually/data-factory-publish.png)
+當您使用 UX **撰寫畫布**以便利用 Data Factory 服務來直接撰寫時，只能使用**發佈**模式。 您所做的任何變更都會直接發佈至 Data Factory 服務。
 
-## <a name="authoring-with-vsts-git-integration"></a>藉由 VSTS Git 整合進行撰寫
-藉由 VSTS Git 整合進行撰寫可讓您在撰寫資料處理站管線時，進行來源控制和共同作業。 使用者可以選擇將資料處理站與「VSTS Git 帳戶」存放庫建立關聯，以進行來源控制、共同作業及版本設定等。一個 VSTS GIT 帳戶可以有多個存放庫。 不過，一個 VSTS Git 存放庫只能與一個資料處理站建立關聯。 如果您還沒有 VSTS 帳戶和存放庫，請從[這裡](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)建立一個。
+![發佈模式](media/author-visually/data-factory-publish.png)
 
-### <a name="configure-vsts-git-repo-with-azure-data-factory"></a>設定搭配 Azure Data Factory 的 VSTS Git 存放庫
-使用者可以透過兩種方法設定搭配資料處理站的 VSTS GIT 存放庫。
+## <a name="author-with-vsts-git-integration"></a>使用 VSTS Git 整合來撰寫
+使用 VSTS Git 整合所進行的視覺化撰寫，會對資料處理站管線上的工作支援原始檔控制和共同作業功能。 您可以將資料處理站與 VSTS Git 帳戶存放庫建立關聯，以進行原始檔控制、共同作業及版本設定等工作。 一個 VSTS Git 帳戶可以有多個存放庫，但一個 VSTS Git 存放庫只能與一個資料處理站建立關聯。 如果您沒有 VSTS 帳戶或存放庫，請遵循[這些指示](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)來建立您的資源。
 
-#### <a name="method-1-lets-get-started-page"></a>方法 1：[讓我們開始吧] 頁面
+### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>設定搭配 Azure Data Factory 的 VSTS Git 存放庫
+您可以透過兩種方法設定搭配資料處理站的 VSTS GIT 存放庫。
 
-移至 [讓我們開始吧] 頁面，然後按一下 [設定程式碼存放庫]
+<a name="method1"></a>
+#### <a name="configuration-method-1-lets-get-started-page"></a>設定方法 1：[現在就開始吧] 頁面
+在 Azure Data Factory 中，移至 [現在就開始吧] 頁面。 選取 [設定程式碼存放庫]：
 
-![設定程式碼存放庫](media/author-visually/configure-repo.png)
+![設定 VSTS 程式碼存放庫](media/author-visually/configure-repo.png)
 
-從該處會出現一個側邊面板，用於設定存放庫設定。
+[存放庫設定] 設定窗格會隨即出現：
 
-![設定存放庫設定](media/author-visually/repo-settings.png)
-* **存放庫類型**：Visual Studio Team Services Git (目前不支援 Github)。
-* **Visual Studio Team Services 帳戶**：可以從 https://{account name}.visualstudio.com 找出帳戶名稱。從[這裡](https://www.visualstudio.com/team-services/git/)登入您的 VSTS 帳戶，然後存取 Visual Studio 設定檔來查看您的存放庫和專案
-* **專案名稱**：可以從 https://{account name}.visualstudio.com/{project name} 找出專案名稱
-* **存放庫名稱**：存放庫名稱。 VSTS 專案包含 Git 存放庫，可隨著您的專案成長管理原始程式碼。 請建立新的存放庫，或使用專案中既有的存放庫。
-* **將現有的資料處理站資源匯入至存放庫**：藉由選取此方塊，您便可以將在 UX 畫布上撰寫的目前資料處理站資源，以 JSON 格式匯入至相關的 VSTS GIT 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。    如果將此核取方塊取消選取，現有的資源就不會匯入至 Git 存放庫。
+![設定程式碼存放庫設定](media/author-visually/repo-settings.png)
 
-#### <a name="method-2-from-authoring-canvas"></a>方法 2：從撰寫畫布
+此窗格會顯示下列 VSTS 程式碼存放庫設定：
 
-在「撰寫畫布」中，按一下您資料處理站名稱底下的 [資料處理站] 下拉式功能表。 然後，按一下 [設定程式碼存放庫]。 與**方法 1** 類似，會出現一個側邊面板，用於設定存放庫設定。 如需有關這些設定的資訊，請參閱先前的小節。
+| 設定 | 說明 | 值 |
+|:--- |:--- |:--- |
+| **存放庫類型** | VSTS 程式碼存放庫的類型。<br/>**注意**：目前不支援 GitHub。 | Visual Studio Team Services Git |
+| **Visual Studio Team Services 帳戶** | 您的 VSTS 帳戶名稱。 您可以在 `https://{account name}.visualstudio.com` 找到您的 VSTS 帳戶名稱。 您可以[登入您的 VSTS 帳戶](https://www.visualstudio.com/team-services/git/)，以存取 Visual Studio 設定檔和查看您的存放庫與專案。 | \<您的帳戶名稱> |
+| **ProjectName** | VSTS 專案名稱。 您可以在 `https://{account name}.visualstudio.com/{project name}` 找到您的 VSTS 專案名稱。 | \<您的 VSTS 專案名稱> |
+| **RepositoryName** | 您的 VSTS 程式碼存放庫名稱。 VSTS 專案包含 Git 存放庫，可隨著您的專案成長管理原始程式碼。 您可以建立新的存放庫，或使用專案中既有的存放庫。 | \<您的 VSTS 程式碼存放庫名稱> |
+| **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布**將現有的資料處理站資源匯入到 VSTS Git 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 
-![設定程式碼存放庫 2](media/author-visually/configure-repo-2.png)
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>設定方法 2：UX 撰寫畫布
+在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] 下拉式功能表，然後選取 [設定程式碼存放庫]。
 
-### <a name="version-control"></a>版本控制
-版本控制 (也稱為來源控制) 系統可讓開發人員在程式碼上共同作業，並追蹤對程式碼基底進行的變更。 來源控制是多開發人員專案的必要工具。
+隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱<a href="#method1">設定方法 1</a> 中的說明。
 
-每個 VSTS Git 存放庫在與一個資料處理站建立關聯之後，都會有一個主要分支。 從該處，每個能夠存取 VSTS Git 存放庫的使用者在進行變更時都會有兩個選項：同步和發佈。
+![設定用於 UX 撰寫的程式碼存放庫設定](media/author-visually/configure-repo-2.png)
 
-![同步和發佈](media/author-visually/sync-publish.png)
+### <a name="use-version-control"></a>使用版本控制
+版本控制系統 (也稱為_原始檔控制_) 可讓開發人員在程式碼上共同作業，並追蹤對程式碼基底所進行的變更。 來源控制是多開發人員專案的必要工具。
 
-#### <a name="sync"></a>同步
+每個與資料處理站建立關聯的 VSTS Git 存放庫都會有一個主要分支。 當您擁有 VSTS Git 存放庫的存取權時，您可以選擇 [同步] 或 [發佈] 來變更程式碼：
 
-按一下 [同步] 之後，您便可以從主要分支將變更提取至本機分支，或從本機分支將變更推送到主要分支。
+![藉由同步或發佈來變更程式碼](media/author-visually/sync-publish.png)
 
-![同步變更](media/author-visually/sync-change.png)
+#### <a name="sync-code-changes"></a>對程式碼變更進行同步處理
+在選取 [同步] 之後，您便可以將變更從主要分支提取至本機分支，或將變更從本機分支推送至主要分支。
 
-#### <a name="publish"></a>發佈
- 將主要分支中的變更發佈至 Data Factory 服務。
+![對程式碼變更進行同步處理](media/author-visually/sync-change.png)
 
-> [!NOTE]
-> **主要分支不代表在 Data Factory 服務中部署的內容。** 「必須」以手動方式將主要分支主發佈至 Data Factory 服務。
+#### <a name="publish-code-changes"></a>發佈程式碼變更
+選取 [發佈] 可將主要分支中的程式碼變更手動發佈至 Data Factory 服務。
 
+> [!IMPORTANT]
+> 主要分支不代表在 Data Factory 服務中部署的內容。 「必須」以手動方式將主要分支主發佈至 Data Factory 服務。
 
+## <a name="use-the-expression-language"></a>使用運算式語言
+您可以藉由使用 Azure Data Factory 所支援的運算式語言，來指定屬性值的運算式。 如需所支援運算式的相關資訊，請參閱 [Azure Data Factory 中的運算式和函式](control-flow-expression-language-functions.md)。
 
+使用 UX **撰寫畫布**來指定屬性值的運算式：
 
-## <a name="expression-language"></a>運算式語言
+![使用運算式語言](media/author-visually/expression-language.png)
 
-使用者可以藉由使用 Azure Data Factory 所支援的運算式語言，指定運算式來定義屬性值。 如需有關支援哪些運算式的詳細資訊，請參閱 [Azure Data Factory 中的運算式和函式](control-flow-expression-language-functions.md)。
+## <a name="specify-parameters"></a>指定參數
+您可以在 Azure Data Factory 的 [參數] 索引標籤中指定管線和資料集的參數。藉由選取 [新增動態內容]，即可輕鬆地在屬性中使用參數：
 
-在屬性值中指定運算式，如以下的 UX 所示。
+![新增動態內容](media/author-visually/dynamic-content.png)
 
-![運算式語言](media/author-visually/expression-language.png)
+您可以使用現有參數，也可以為屬性值指定新參數：
 
-## <a name="parameters"></a>參數
-使用者可以在 [參數] 索引標籤中，指定 [管線] 和 [資料集] 的參數。此外，只要按 [新增動態內容]，即可輕鬆在屬性中使用參數。
+![指定屬性值的參數](media/author-visually/parameters.png)
 
-![動態內容](media/author-visually/dynamic-content.png)
-
-從該處，您可以使用現有的參數，也可以在屬性值中指定新參數。
-
-![參數](media/author-visually/parameters.png)
-
-## <a name="feedback"></a>意見反應
-按一下 [意見反應] 圖示，即可針對各種功能或您可能遇到的任何問題，向我們 (Microsoft) 提供意見反應。
+## <a name="provide-feedback"></a>提供意見反應
+選取 [意見反應] 可為功能加上註解，也可以向 Microsoft 通報工具問題：
 
 ![意見反應](media/monitor-visually/feedback.png)
 
 ## <a name="next-steps"></a>後續步驟
-
-若要了解如何監視和管理管線，請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)一文
+若要深入了解如何監視和管理管線，請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)。

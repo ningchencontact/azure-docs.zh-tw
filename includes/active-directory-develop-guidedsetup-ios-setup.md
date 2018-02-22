@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>建立應用程式的 UI
 系統應會自動建立 Main.storyboard 檔案，作為專案範本的一部分。 請遵循下列指示以建立應用程式 UI：
 
-1.  控制並按一下滑鼠左鍵`Main.storyboard`以顯示內容功能表，然後按一下：`Open As` > `Source Code`
+1.  按住 Ctrl 鍵並按一下 `Main.storyboard` 以顯示內容功能表，然後按一下：`Open As` > `Source Code`
 2.  使用下列程式碼來取代 `<scenes>` 節點：
 
 ```xml

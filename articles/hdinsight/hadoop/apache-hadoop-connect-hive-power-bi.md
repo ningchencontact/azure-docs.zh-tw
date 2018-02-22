@@ -18,19 +18,19 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>使用 Microsoft Power BI 使用 Azure HDInsight 中的 ODBC 視覺化群組資料
+# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 ODBC 藉由 Microsoft Power BI 將 Hive 資料視覺化
 
-了解如何連接至 Azure HDInsight 使用 ODBC 的 Microsoft Power BI 與 Hive 資料視覺化。 在本教學課程中，您可將資料從 hivesampletable Hive 資料表載入至 Power BI。 Hive 資料表包含某些行動電話使用量資料。 然後您可在世界地圖上繪製使用量資料：
+了解如何使用 ODBC 將 Microsoft Power BI 連線至 Azure HDInsight，然後將 Hive 資料視覺化。 在本教學課程中，您可將資料從 hivesampletable Hive 資料表載入至 Power BI。 Hive 資料表包含某些行動電話使用量資料。 然後您可在世界地圖上繪製使用量資料：
 
 ![HDInsight Power BI 地圖報告](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-此資訊也適用於新的[互動式查詢](../interactive-query/apache-interactive-query-get-started.md)叢集類型。 如需瞭解如何連接到 HDInsight 使用直接查詢的互動式查詢，請參閱[視覺化互動式查詢 hive 控制檔的資料，使用 Microsoft Power BI 使用 Azure HDInsight 中直接查詢](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
+此資訊也適用於新的[互動式查詢](../interactive-query/apache-interactive-query-get-started.md)叢集類型。 若要了解如何使用直接查詢來連線到 HDInsight 互動式查詢，請參閱[在 Azure HDInsight 中使用直接查詢藉由 Microsoft Power BI 將互動式查詢 Hive 資料視覺化](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在閱讀本文之前，您必須有下列各項：
 
 * **HDInsight 叢集**。 此叢集可以是含有 Hive 的 HDInsight 叢集或新發行的互動式查詢叢集。 如需建立叢集，請參閱[建立叢集](apache-hadoop-linux-tutorial-get-started.md#create-cluster)。

@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: jeanb
 ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/14/2017
 如果您不熟悉 Cosmos DB，請參閱 [Azure Cosmos DB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)來開始著手。 
 
 > [!Note]
-> 此時，Azure Stream Analytics 僅支援連接到 CosmosDB 使用**SQL API**。
+> 此時 Azure 串流分析僅支援使用 **SQL API** 連線至 CosmosDB。
 > 尚不支援其他 Azure Cosmos DB API。 如果您將 Azure Stream Analytics 指向使用其他 API 建立的 Azure Cosmos DB 帳戶，可能無法正確儲存資料。 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>將 Cosmos DB 設定為輸出目標的基本概念

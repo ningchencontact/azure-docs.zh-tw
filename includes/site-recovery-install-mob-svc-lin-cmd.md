@@ -1,6 +1,7 @@
 1. 將安裝程式複製到您想要保護之伺服器上的本機資料夾 (例如 /tmp)。 在終端機中執行下列命令：
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. 若要安裝行動服務，請執行下列命令：
@@ -25,7 +26,7 @@ Usage:
 |-|-|-|-|
 |-r |強制|指定應該安裝行動服務 (MS) 或主要目標 (MT)|MS </br> MT|
 |-d |選用|將要安裝行動服務的位置|/usr/local/ASR|
-|-v|強制|指定要安裝行動服務的平台 </br> </br>- **VMware**︰如果您要在「VMware vSphere ESXi 主機」、「Hyper-V 主機」和「實體伺服器」上執行的 VM 上安裝行動服務，請使用此值 </br> - **Azure**︰如果您要在 Azure IaaS VM 上安裝代理程式，請使用此值| VMware </br> Azure|
+|-v|強制|指定要安裝行動服務的平台 </br> </br>- **VMware︰如果您要在「VMware vSphere ESXi 主機」、「Hyper-V 主機」和「實體伺服器」上執行的 VM 上安裝行動服務，請使用此值 </br> - **Azure︰如果您要在 Azure IaaS VM 上安裝代理程式，請使用此值| VMware </br> Azure|
 |-q|選用|指定要以無訊息模式執行安裝程式| N/A|
 
 

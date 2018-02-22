@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 ServiceNow 複製資料
 
@@ -48,12 +48,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | Type 屬性必須設定為：**ServiceNow** | yes |
-| endpoint | ServiceNow 伺服器的端點。 (也就是 http://ServiceNowData.com)  | yes |
+| endpoint | ServiceNow 伺服器的端點 (`http://ServiceNowData.com`)。  | yes |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | yes |
 | username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 否 |
-| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
+| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
-| clientSecret | 用於 OAuth2 驗證的用戶端祕密。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
+| clientSecret | 用於 OAuth2 驗證的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -103,14 +103,22 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 ServiceNow 來源所支援的屬性清單。
 
-### <a name="servicenowsource-as-source"></a>將 ServiceNowSource 作為來源
+### <a name="servicenow-as-source"></a>ServiceNow 作為來源
 
 若要從 ServiceNow 複製資料，請將複製活動中的來源類型設定為 **ServiceNowSource**。 複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM alm.asset"`。 | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Actual.alm_asset"`。 | yes |
+
+在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列事項：
+
+- **結構描述：**查詢 ServiceNow 時需要將結構描述指定為 `Actual` 或 `Display`，而在呼叫 [ServiceNow RESTful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) 時，您可以將它看待為 `sysparm_display_value` 的參數 (true 或 false)。 
+- **資料行：**實際值的資料行名稱為 `[columne name]_value`，而顯示值的資料行名稱為 `[columne name]_display_value`。
+
+**範例查詢：**
+`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` 或 `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **範例：**
 
@@ -134,7 +142,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

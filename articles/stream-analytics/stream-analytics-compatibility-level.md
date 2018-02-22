@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
  
@@ -57,7 +57,10 @@ ms.lasthandoff: 01/12/2018
   * **舊版：**由 Azure 串流分析引擎處理時，欄位名稱會變更為小寫。 
 
   * **目前的版本：**由 Azure 串流分析引擎處理欄位名稱時，欄位名稱可保持大小寫區分。 
- 
+
+  > [!NOTE] 
+  > 使用 Edge 環境所裝載的串流分析作業尚無法使用保持大小寫區分的功能。 因此，如果您的作業裝載在 Edge 上，所有欄位名稱都會轉換為小寫。 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **舊版：**CREATE TABLE 命令並未在「浮點數 (FLOAT)」資料行型別中篩選具 NaN (不是數字 (Not-a-Number)。 例如，Infinity, -Infinity) 的事件，因其不符合這些數字的記載範圍。

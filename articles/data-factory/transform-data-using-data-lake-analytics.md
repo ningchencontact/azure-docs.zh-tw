@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 ### <a name="service-principal-authentication"></a>服務主體驗證
 Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連接到 Azure Data Lake Analytics 服務。 若要使用服務主體驗證，請在 Azure Active Directory (Azure AD) 中註冊應用程式實體，並授與其使用之 Data Lake Analytics 和 Data Lake Store 存取權。 如需詳細的步驟，請參閱[服務對服務驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。 請記下以下的值，您可以使用這些值來定義連結服務：
+
 * 應用程式識別碼
 * 應用程式金鑰 
 * 租用戶識別碼
+
+使用[新增使用者精靈](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user)對您的 Azure Data Lake 分析授與服務主體權限。
 
 指定下列屬性以使用服務主體驗證：
 

@@ -18,7 +18,7 @@ ms.date: 12/01/2017
 ms.author: larryfr
 ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/11/2017
     * 以當您使用 SSH 存取叢集時所要使用的使用者名稱和密碼取代 `sshuser` 和 `sshuserpassword`。
 
     > [!IMPORTANT]
-    > 這個範例會建立兩個背景工作節點叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
+    > 此範例使用兩個背景工作角色節點建立叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
     >
     > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 

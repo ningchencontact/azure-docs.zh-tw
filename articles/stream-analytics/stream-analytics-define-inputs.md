@@ -17,7 +17,7 @@ ms.date: 12/11/2017
 ms.author: sngun
 ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -37,9 +37,9 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="compression"></a>壓縮
 
-Azure 串流分析支援跨所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 壓縮。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 目前支援參考類型都是為 None、 GZip、 Deflate 壓縮和。 無法使用參考資料壓縮的支援。
+Azure 串流分析支援跨所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 壓縮。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 目前支援的參考類型為：[無]、[GZip] 和 [Deflate] 壓縮。 支援壓縮無法用於參考資料。
 
-您不需要使用 Avro 序列化指定的壓縮類型。 如果輸入的 Avro 資料壓縮完成，它會以透明的方式處理。 
+您不需要使用 Avro 序列化來指定壓縮類型。 如果輸入 Avro 資料已壓縮，它會以透明的方式處理。 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>從事件中樞建立資料流輸入
 

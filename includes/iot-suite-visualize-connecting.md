@@ -16,7 +16,7 @@
 
 ## <a name="act-on-your-device"></a>在裝置上採取行動
 
-若要在您的裝置上叫用方法，請使用遠端監視解決方案中的 [裝置] 頁面。 例如，在遠端監視解決方案中，**Chiller** 裝置會實作 **Reboot** 方法。
+若要在您的裝置上叫用方法，請使用遠端監視解決方案中的 [裝置] 頁面。 例如，在遠端監視解決方案中，**Chiller** 裝置會實作 **FirmwareUpdate** 方法。
 
 1. 選擇 [裝置] 以瀏覽至解決方案中的 [裝置] 頁面。
 
@@ -26,11 +26,15 @@
 
 1. 若要顯示您可以在裝置上呼叫的方法清單，選擇 [排程]。 若要排程可在多個裝置上執行的方法，您可以在清單中選取多個裝置。 [排程] 面板會顯示所有您選取之裝置的通用方法。
 
-1. 選擇 [重新開機]，將作業名稱設定為 **RebootPhysicalChiller**，然後選擇 [套用]：
+1. 選擇 [FirmwareUpdate]，將作業名稱設定為 [UpdatePhysicalChiller]。 將 [韌體版本] 設定為 [2.0.0]，將 [韌體 URI] 設定為 [http://contoso.com/updates/firmware.bin]，然後選擇 [套用]：
 
-    ![排程重新開機](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![排程韌體更新](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. 當裝置處理該方法時，會在執行裝置程式碼的主控台中顯示訊息。
+1. 當模擬裝置處理該方法時，會在執行裝置程式碼的主控台中顯示一系列訊息。
+
+1. 更新完成時，新的韌體版本會顯示在 [裝置] 頁面上：
+
+    ![更新完成](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > 若要在解決方案中追蹤作業的狀態，請選擇 [檢視]。

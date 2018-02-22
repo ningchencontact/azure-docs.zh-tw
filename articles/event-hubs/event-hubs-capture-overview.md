@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: sethm;darosa
 ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -42,7 +42,7 @@ Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到�
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-請注意，日期值會以零填補。範例檔名可能是：
+請注意，日期值會以零填補；檔名範例可能是：
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro

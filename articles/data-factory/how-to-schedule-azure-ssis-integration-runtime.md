@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止 
 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 以下是本文說明的概要步驟：
@@ -44,8 +44,9 @@ ms.lasthandoff: 02/01/2018
 ### <a name="create-an-azure-automation-account"></a>建立 Azure 自動化帳戶
 如果您沒有 Azure 自動化帳戶，請依照此步驟中的指示建立帳戶。 如需詳細步驟，請參閱[建立 Azure 自動化帳戶](../automation/automation-quickstart-create-account.md)。 在此步驟中，您會建立 **Azure 執行身分**帳戶 (Azure Active Directory 中的服務主體)，並將其新增至您 Azure 訂用帳戶的**參與者**角色。 請確定這就是具有 Azure SSIS IR 的資料處理站所屬訂用帳戶。 Azure 自動化會使用此帳戶對 Azure Resource Manager 進行驗證，並對您的資源運作。 
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。    
-2. 在左側功能表上選取 [新增]，再選取 [監視 + 管理]，然後選取 [自動化]。 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 登入 [Azure 入口網站](https://portal.azure.com/)。    
+3. 在左側功能表上選取 [新增]，再選取 [監視 + 管理]，然後選取 [自動化]。 
 
     ![新增 -> 監視 + 管理 -> 自動化](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. 在 [新增自動化帳戶] 視窗中，執行下列步驟： 

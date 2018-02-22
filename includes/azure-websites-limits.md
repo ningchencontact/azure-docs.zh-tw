@@ -18,7 +18,7 @@
 | 自訂網域 [SSL 支援](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |無限制的 SNI SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |
 | 整合式負載平衡器 | |X |X |X |X |
 | [永遠開啟](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [排定的備份](../articles/app-service/web-sites-backup.md) | | | | 排定的備份每 2 小時、 12 備份每日 （手動 + 排程） 的最大值 | 排定的備份每個小時，上限為 50 的備份，每日 （手動 + 排程） |
+| [排定的備份](../articles/app-service/web-sites-backup.md) | | | | 排程每 2 小時備份，每天最多 12 次備份 (手動 + 排程) | 排程每小時備份，每天最多 50 次備份 (手動 + 排程) |
 | [自動調整](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Azure 排程器](https://azure.microsoft.com/services/scheduler/) 支援 | |X |X |X |X |
@@ -34,6 +34,6 @@
 <sup>5</sup>儲存體限制是跨相同 App Service 方案中所有應用程式的目前總大小。 [App Service 環境](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)中有多個儲存體選項  
 <sup>6</sup>這些資源都會受到專用執行個體 (執行個體大小和執行個體數目) 上的實體資源限制。  
 <sup>7</sup>如果您將基本層的一個應用程式調整為兩個執行個體，則其中每個執行個體有 350 個並行連線。  
-<sup>8</sup>需求，按照排程、 執行自訂的可執行檔和/或指令碼或持續為您的應用程式服務中的背景工作執行個體。 若要連續執行 WebJobs，「永遠開啟」是必要選項。 若是排程 WebJobs，則 Azure 排程器免費或標準版本是必要項目。 可在 App Service 執行個體中執行的 WebJob 數目沒有任何預先定義的限制，實際限制取決於應用程式程式碼嘗試執行的工作。   
-<sup>9</sup>提供使用多個執行個體搭配 Azure 流量管理員設定為容錯移轉部署的 99.95%的 SLA。  
+<sup>8</sup>在您的 App Service 執行個體中，以背景工作的方式隨選、依照排程或連續執行自訂可執行檔和/或指令碼。 若要連續執行 WebJobs，「永遠開啟」是必要選項。 若是排程 WebJobs，則 Azure 排程器免費或標準版本是必要項目。 可在 App Service 執行個體中執行的 WebJob 數目沒有任何預先定義的限制，實際限制取決於應用程式程式碼嘗試執行的工作。   
+<sup>9</sup>為部署提供的 99.95% 的 SLA，適用於使用專為容錯移轉設定 Azure 流量管理員的多個執行個體。  
 

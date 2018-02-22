@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -24,8 +24,8 @@ ms.lasthandoff: 12/20/2017
 
 本文將摘要列出一些主要事件中樞 .NET Standard 用戶端 API。 目前有兩個 .NET Standard 用戶端程式庫︰
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)： 提供基本的執行階段的所有作業。
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)： 加入其他功能，可讓追蹤的處理過的事件，而且是最簡單的方式讀取自事件中心。
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)：提供所有基本執行階段作業。
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)：新增可讓您記錄處理過之事件的額外功能，並且是從事件中樞讀取的最簡單方式。
 
 ## <a name="event-hubs-client"></a>事件中樞用戶端
 
@@ -65,11 +65,11 @@ await eventHubClient.SendAsync(data);
 
 ### <a name="receive-events"></a>接收事件
 
-若要從事件中心接收事件的建議的方式使用[事件處理器主機](#event-processor-host-apis)，這樣會提供自動追蹤的事件中樞的位移和資料分割資訊的功能。 不過，在某些情況中，您可能會想要使用核心事件中樞程式庫的彈性來接收事件。
+從事件中樞接收事件的建議方式是使用[事件處理器主機](#event-processor-host-apis)，它提供了自動追蹤事件中樞位移的功能，以及資料分割資訊。 不過，在某些情況中，您可能會想要使用核心事件中樞程式庫的彈性來接收事件。
 
 #### <a name="create-a-receiver"></a>建立接收者
 
-接收者會繫結至特定的資料分割，因此若要在事件中心接收所有的事件，您必須建立多個執行個體。 它是最好的作法是以程式設計的方式，而不是硬式編碼資料分割識別碼取得磁碟分割資訊。 若要這樣做，您可以使用 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
+接收者會繫結至特定的資料分割，因此為了要接收事件中樞中的所有事件，您必須建立多個執行個體。 最好以程式設計的方式取得資料分割資訊，而不是以硬式編碼資料分割識別碼的方式。 若要這樣做，您可以使用 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
 
 ```csharp
 // Create a list to keep track of the receivers
@@ -86,7 +86,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-因為事件會永遠不會從事件中心 （並僅到期），您必須指定適當的起始點。 下列範例示範可能的組合：
+由於事件一律不會從事件中樞內移除 (只會過期)，因此您必須指定適當的起始點。 下列範例顯示可能的組合：
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
