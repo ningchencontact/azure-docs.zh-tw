@@ -16,7 +16,7 @@ ms.date: 12/15/2017
 ms.author: maheshu
 ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/16/2017
 
 1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
 
-2. 在 **搜尋資源** 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 **Azure AD Domain Services**。 **Azure AD Domain Services** 頁面會列出受控網域。
+2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 頁面會列出受控網域。
 
     ![找出正在佈建的受控網域](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/16/2017
 * 確認 LDAP 用戶端 (例如 ldp.exe) 是使用 DNS 名稱來連線至安全 LDAP 端點，而不是使用 IP 位址。
 * 確認 LDAP 用戶端所連線的 DNS 名稱會解析成受控網域上安全 LDAP 的公用 IP 位址。
 * 確認受控網域之安全 LDAP 憑證的「主體」和「主體別名」屬性中有 DNS 名稱。
-* 如果您要透過安全 LDAP 連線透過網際網路，請確定虛擬網路的 NSG 設定從網際網路到連接埠為 636 允許的流量。
+* 如果您要透過網際網路的安全 LDAP 連線，請確定虛擬網路的 NSG 設定允許來自網際網路的流量傳至連接埠 636。
 
 如果您仍然無法使用安全 LDAP 來連線至受控網域，請[連絡產品小組](active-directory-ds-contact-us.md)以取得協助。 請包含下列資訊來協助進一步診斷問題：
 * ldp.exe 進行連線及失敗時的螢幕擷取畫面。
