@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c8edc6e3d3c8330824c767f1bb02668a44e670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到檔案系統或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/23/2018
 | type | 類型屬性必須設定為：**FileServer**。 | yes |
 | host | 指定想要複製之資料夾的根路徑。 針對字串中的特殊字元，請使用逸出字元 "\"。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 | yes |
 | userid | 指定具有伺服器存取權之使用者的識別碼。 | yes |
-| password | 指定使用者 (userid) 的密碼。 請將此欄位標示為 SecureString。 | yes |
+| password | 指定使用者 (userid) 的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>範例連結服務和資料集定義

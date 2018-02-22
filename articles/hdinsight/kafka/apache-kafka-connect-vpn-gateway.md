@@ -13,13 +13,13 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>透過 Azure 虛擬網路連線到 HDInsight 上的 Kafka
 
@@ -47,7 +47,7 @@ HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶
 * 使用 VPN 閘道與 VPN 用戶端，將個別機器連線至虛擬網路。 若要啟用此設定，請執行下列工作：
 
     1. 建立虛擬網路。
-    2. 建立 VPN 閘道以使用點對站設定。 此設定提供可安裝在 Windows 用戶端的 VPN 用戶端。
+    2. 建立 VPN 閘道以使用點對站設定。 此設定可與 Windows 及 MacOS 用戶端搭配使用。
     3. 將 HDInsight 上的 Kafka 安裝到虛擬網路中。
     4. 設定 Kafka 進行 IP 公告。 此設定可讓用戶端使用 IP 位址而不是網域名稱來連線。
     5. 下載 VPN 用戶端並在開發系統上使用。
@@ -57,7 +57,7 @@ HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶
     > [!WARNING]
     > 基於下列限制，建議僅將此設定用於開發用途：
     >
-    > * 每個用戶端必須使用 VPN 軟體用戶端進行連線。 Azure 只會提供以 Windows 為基礎的用戶端。
+    > * 每個用戶端必須使用 VPN 軟體用戶端進行連線。
     > * VPN 用戶端不會將名稱解析要求傳遞至虛擬網路，因此您必須使用 IP 位址來與 Kafka 通訊。 IP 通訊需要 Kafka 叢集上的其他設定。
 
 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路擴充 HDInsight](../hdinsight-extend-hadoop-virtual-network.md)。
@@ -232,22 +232,13 @@ HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶
         -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
+        -DisksPerWorkerNode 2 `
         -VirtualNetworkId $network.Id `
         -SubnetName $defaultSubnet.Id
     ```
 
   > [!WARNING]
   > 此程序大約需要 15 分鐘才能完成。
-
-8. 使用下列 Cmdlet 來擷取虛擬網路之 Windows VPN 用戶端的 URL：
-
-    ```powershell
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
-
-    若要下載 Windows VPN 用戶端，請使用網頁瀏覽器中傳回的 URI。
 
 ### <a name="configure-kafka-for-ip-advertising"></a>設定 Kafka 進行 IP 公告
 
@@ -299,7 +290,7 @@ Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 �
 
 ### <a name="connect-to-the-vpn-gateway"></a>連線到 VPN 閘道
 
-若要從 __Windows 用戶端__連線到 VPN 閘道，請使用[設定點對站連線](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate)文件的＜連線到 Azure＞一節。
+若要連線到 VPN 閘道，請使用[設定點對站連線](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect)文件的__連線到 Azure__ 一節。
 
 ## <a id="python-client"></a> 範例：Python 用戶端
 

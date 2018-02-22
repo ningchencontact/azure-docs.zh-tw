@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ce2d20a31db1fc5aaa21d9d26e9fb280ef1716f9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/23/2018
 | 資料庫 | PostgreSQL 資料庫的名稱。 |yes |
 | 結構描述 | 在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
 | username | 指定連線到 PostgreSQL 資料庫時所要使用的使用者名稱。 |yes |
-| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |yes |
+| password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |yes |
 
 **範例：**

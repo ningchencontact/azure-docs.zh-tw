@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ Azure 串流分析是完全受控的服務，可用來對雲端中的串流資�
 
 在本文中，您將學習如何使用 Azure SQL 資料倉儲資料庫做為串流分析工作的輸出接收器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 首先，執行[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程中的下列步驟。  
 
 1. 建立事件中樞輸入
@@ -53,7 +53,7 @@ Azure 串流分析是完全受控的服務，可用來對雲端中的串流資�
   * 如果 SQL 資料倉儲資料庫是在與此資料流分析工作相同的訂用帳戶中，則請選取 [使用目前訂用帳戶的 SQL Database]。
   * 如果您的資料庫是在不同的訂用帳戶中，請選取 [使用其他訂用帳戶的 SQL Database]。
 * 資料庫：指定目的地資料庫的名稱。
-* 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。 若要尋找此，您可以使用 Azure 入口網站。
+* 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。 您可以使用 Azure 入口網站進行搜尋。
 
 ![][server-name]
 

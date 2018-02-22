@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 同盟服務
 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 與 Azure AD 或 O365 同盟可讓使用者使用內部部署認證進行驗證，並存取雲端中的所有資源。 如此一來，就一定要有高可用性的 AD FS 基礎結構，以確保能夠存取內部部署和雲端中的資源。 在 Azure 中部署 AD FS 有助於達成執行最低限度的工作所需要的高可用性。
@@ -354,7 +354,7 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 * [網際網路對向負載平衡器](https://aka.ms/Azure/ILB/Internet)
 * [儲存體帳戶](https://aka.ms/Azure/Storage)
 * [Azure 虛擬網路](https://aka.ms/Azure/VNet)
-* [AD FS 和 Web 應用程式 Proxy 連結](http://aka.ms/ADFSLinks) 
+* [AD FS 和 Web 應用程式 Proxy 連結](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>後續步驟
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。
@@ -29,8 +29,9 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>監視資料處理站 v2 管線
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至 Azure 入口網站中的 [建立資料處理站] 刀鋒視窗，然後按一下 [監視及管理] 磚。 這將會啟動 ADF v2 視覺監視體驗。
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 登入 [Azure 入口網站](https://portal.azure.com/)。
+3. 瀏覽至 Azure 入口網站中的 [建立資料處理站] 刀鋒視窗，然後按一下 [監視及管理] 磚。 這將會啟動 ADF v2 視覺監視體驗。
 
 ## <a name="list-view-monitoring"></a>清單檢視監視
 

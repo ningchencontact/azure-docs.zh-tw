@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bc57e54b051ff8831ba38e91ed682b8f5d868d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>使用 Azure Data Factory 從 Cassandra 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/23/2018
 | 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
 | authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |yes |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
-| password |指定使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |是，如果 authenticationType 設定為 [基本]。 |
+| password |指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是，如果 authenticationType 設定為 [基本]。 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**

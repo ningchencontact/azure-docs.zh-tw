@@ -1,25 +1,25 @@
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>從 Windows 傳統型應用程式呼叫 Microsoft 圖形 API
 
-本指南示範如何取得存取權杖和 Microsoft Graph API 或其他需要從 Azure Active Directory v2 端點的存取權杖的 Api 呼叫原生的 Windows 桌面.NET (XAML) 應用程式。
+本指南示範原生 Windows Desktop .NET (XAML) 應用程式如何取得存取權杖，以及如何呼叫 Microsoft Graph API 或需要來自 Azure Active Directory v2 端點之存取權杖的其他 API。
 
-當您完成本指南後時，您的應用程式可以呼叫受保護的 API 所使用的個人帳戶 （包括 outlook.com、 live.com 和其他項目）。 應用程式也會使用的工作及學校帳戶，從任何的公司或組織使用 Azure Active Directory。  
+當您完成本指南之後，您的應用程式就可以呼叫受保護的 API (使用個人帳戶，包括 outlook.com、live.com 等等)。 應用程式也可以使用任何公司或組織 (使用 Azure Active Directory) 的公司和學校帳戶。  
 
 > [!NOTE] 
-> 本指南會需要 Visual Studio 2015 Update 3 或 Visual Studio 2017。  沒有任一版本嗎？ [免費下載 Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+> 本指南需要 Visual Studio 2015 Update 3 或 Visual Studio 2017。  沒有上述任一版本嗎？ [免費下載 Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="how-this-guide-works"></a>本指南使用方式
 
 ![本指南使用方式](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
 
-您使用本指南來建立範例應用程式可讓查詢 Microsoft Graph API 或 Web API 可接受來自 Azure Active Directory v2 端點的語彙基元的 Windows 桌面應用程式。 此案例中，將權杖加入透過授權標頭的 HTTP 要求。 Microsoft 驗證程式庫 (MSAL) 處理權杖取得和更新。
+本指南建立的範例應用程式可讓 Windows 傳統型應用程式查詢 Microsoft Graph API，或查詢可接受來自 Azure Active Directory v2 端點之權杖的 Web API。 針對這個案例，您會透過授權標頭將一個權杖新增到 HTTP 要求。 Microsoft Authentication Library (MSAL) 會處理權杖取得和更新作業。
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>處理權杖取得以存取受保護的 Web API
 
-使用者經過驗證之後，範例應用程式會收到可用於查詢 Microsoft Graph API 或 Azure Active Directory v2 受保護的 Web API 的語彙基元。
+使用者經過驗證之後，應用程式範例就會收到一個權杖，其可用來查詢 Microsoft Graph API 或由 Azure Active Directory v2 保護的 Web API。
 
-例如，Microsoft Graph Api 需要允許存取特定資源的語彙基元。 例如，權杖是需要讀取使用者的設定檔、 存取使用者的行事曆，或傳送電子郵件。 您的應用程式可以存取這些資源，藉由指定應用程式開發介面範圍使用 MSAL 要求存取權杖。 此存取權杖，接著會新增至每個呼叫，會對受保護資源的 HTTP 授權標頭。 
+例如，Microsoft Graph 需要可允許存取特定資源的權杖。 例如，需要權杖才能讀取使用者的設定檔、存取使用者的行事曆，或傳送電子郵件。 您的應用程式可以使用 MSAL 要求存取權杖，以透過指定 API 範圍來存取這些資源。 此存取權杖接著會新增到 HTTP 授權標頭，這是針對受保護資源進行之每個呼叫的授權標頭。 
 
-MSAL 管理快取，並為您重新整理存取權杖，以便在您的應用程式不需要。
+MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式不需要執行這些作業。
 
 ## <a name="nuget-packages"></a>NuGet 套件
 

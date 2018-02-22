@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | type |type 屬性必須設為 **Salesforce**。 |yes |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |yes |
-| password |指定使用者帳戶的密碼。<br/><br/>您可以將此欄位標示為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼儲存在 Azure Key Vault，當您執行資料複製時，讓複製活動從該處提取。 若要深入了解，請參閱[在 Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 |yes |
-| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設及取得安全性權杖的指示，請參閱[取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>您可以將此欄位標示為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將安全性權杖儲存在 Key Vault，當您執行資料複製時，讓複製活動從該處提取。 若要深入了解，請參閱[在 Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 |yes |
+| password |指定使用者帳戶的密碼。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設及取得安全性權杖的指示，請參閱[取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有整合執行階段，則對於來源而言為「否」；對於接收而言為「是」 |
 
 >[!IMPORTANT]
@@ -137,7 +137,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Salesforce 資料集所支援的屬性清單。
 
-若要從 Salesforce 複製資料以及將資料複製到 Salesforce，請將資料集的 type 屬性設定為 **SalesforceObject**。 支援以下屬性。
+若要從 Salesforce 複製資料以及將資料複製到 Salesforce，請將資料集的 type 屬性設定為 **SalesforceObject**。 以下是支援的屬性。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
@@ -181,7 +181,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce 作為來源類型
 
-若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 **source** 區段支援下列屬性。
+若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
@@ -230,7 +230,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce 作為接收類型
 
-若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 **sink** 區段支援下列屬性。
+若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收] 區段支援下列屬性。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
@@ -322,4 +322,4 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | URL |字串 |
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

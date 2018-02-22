@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer Standard 概觀 (預覽)
 
 Azure Load Balancer Standard SKU 和 Public IP Standard SKU 搭配使用，可讓您建置極為靈活可靠的架構。 使用 Load Balancer Standard 的應用程式將可利用新功能。 所有 TCP 和 UDP 應用程式的數百萬個流程都可享有低延遲、高輸送量及彈性規模的好處。
 
 >[!NOTE]
-> Load Balancer Standard SKU 目前為預覽版。 在預覽階段，功能可能沒有與正式運作版功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 針對您的生產環境服務，請使用正式運作版的 [Load Balancer Basic SKU](load-balancer-overview.md)。 與這個預覽版關聯的功能、[可用性區域](https://aka.ms/availabilityzones)及 [HA 連接埠](https://aka.ms/haports)目前需要個別註冊。 除了 Load Balancer [Standard 預覽版](#preview-sign-up)之外，請依照個別指示註冊這些功能。
+> Load Balancer Standard SKU 目前為預覽版。 在預覽階段，功能可能沒有與正式運作版功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 針對您的生產環境服務，請使用正式運作版的 [Load Balancer Basic SKU](load-balancer-overview.md)。 若要使用[可用性區域預覽](https://aka.ms/availabilityzones) 搭配此預覽，除了要註冊 Load Balancer [Standard 預覽](#preview-sign-up) 之外，還需要[另外註冊](https://aka.ms/availabilityzones)。
 
 ## <a name="why-use-load-balancer-standard"></a>為什麼要使用 Load Balancer Standard？
 
@@ -325,13 +325,11 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 ## <a name="region-availability"></a>區域可用性
 
-Load Balancer Standard 目前已在以下地區推出：
-- 美國東部 2
-- 美國中部
-- 北歐
-- 美國中西部
-- 西歐
-- 東南亞
+Load Balancer Standard 目前已在所有公用雲端地區推出。
+
+>[!IMPORTANT]
+> 在短暫的時間內，若要在初始推出地區 (美國東部 2、美國中部、北歐、美國中西部、西歐、東南亞) 以外的地區進行存取，需要註冊額外的訂用帳戶功能 (AllowLBPreviewWave2 與 AllowLBPreviewWave3)。  [請遵循下列步驟](#additionalpreviewregions)。 即使您先前已經註冊 AllowLBPreview，仍然請執行所有步驟。
+> 在未來幾週內將會移除此需求。
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU 服務限制與功能
 
@@ -369,7 +367,12 @@ Azure [網路服務的服務限制](https://docs.microsoft.com/azure/azure-subsc
 若要參與 Load Balancer Standard SKU 和所隨附 Public IP Standard SKU 的預覽，請註冊您的訂用帳戶。  註冊訂用帳戶將可讓您從 PowerShell 或 Azure CLI 2.0 存取。 若要註冊，請執行下列步驟：
 
 >[!NOTE]
->註冊 Load Balancer Standard 功能最多可能需要一小時的時間才會全面生效。 如果您想要將 Load Balancer Standard 與[可用性區域](https://aka.ms/availabilityzones)及 [HA 連接埠](https://aka.ms/haports)搭配使用，就必須針對這些預覽版功能個別註冊。 請依照這些功能的個別註冊指示來進行操作。
+>註冊 Load Balancer Standard 功能最多可能需要一小時的時間才會全面生效。 如果要使用 Load Balancer Standard 搭配[可用性區域](https://aka.ms/availabilityzones)，就必須為 AZ Preview [另外註冊](https://aka.ms/availabilityzones)。
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> 在短暫的時間內，若要在初始推出地區 (美國東部 2、美國中部、北歐、美國中西部、西歐、東南亞) 以外的地區進行存取，需要註冊額外的訂用帳戶功能 (AllowLBPreviewWave2 與 AllowLBPreviewWave3)。  下列步驟已經過修改，以便啟用額外的訂用帳戶功能。 即使您先前已經註冊 AllowLBPreview，仍然請執行所有步驟。 在未來幾週內將會移除此需求。
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>使用 Azure CLI 2.0 來進行註冊
 
@@ -377,15 +380,19 @@ Azure [網路服務的服務限制](https://docs.microsoft.com/azure/azure-subsc
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. 此作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    當功能註冊狀態傳回 'Registered' 時，請繼續進行下一步：
+    當功能註冊狀態針對上列每項訂用帳戶功能傳回 'Registered' 時，請繼續進行下一步。 範例：
    
     ```json
     {
@@ -398,28 +405,33 @@ Azure [網路服務的服務限制](https://docs.microsoft.com/azure/azure-subsc
     }
     ```
     
-3. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
+4. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>使用 PowerShell 來進行註冊
 
 1. 向提供者註冊功能：
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. 此作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    當功能註冊狀態傳回 'Registered' 時，請繼續進行下一步：
-   
+  當功能註冊狀態針對上列每項訂用帳戶功能傳回 'Registered' 時，請繼續進行下一步。 範例：
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ Load Balancer Standard SKU 是根據所設定的規則和處理的資料收費�
 - 不支援 IPv6。
 - 在「可用性區域」的內容中，前端不可從區域性變更為區域備援，反之亦然。 將前端建立為區域備援前端之後，它就會保持為區域備援前端。 將前端建立為區域性前端之後，它就會保持為區域性前端。
 - 在「可用性區域」的內容中，區域性「公用 IP」位址無法從一個區域移到另一個區域。
+- 目前不支援 [Azure 監視器警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
+- 入口網站尚未支援擴充的預覽區域。  請使用範本、Azure CLI 2.0 或 PowerShell 等用戶端工具來避開此問題。
 
 
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解 [Load Balancer Basic](load-balancer-overview.md)。
 - 深入了解[可用性區域](../availability-zones/az-overview.md)。
+- 深入了解[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。
-
+- 了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中[公開的計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)。

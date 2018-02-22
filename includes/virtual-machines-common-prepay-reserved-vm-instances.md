@@ -14,7 +14,7 @@
 
     | 欄位      | 說明|
     |:------------|:--------------|
-    |名稱        |此保留項目的名稱。| 
+    |Name        |此保留項目的名稱。| 
     |訂用帳戶|用來支付保留項目的訂用帳戶。 保留項目的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P) 或預付型方案 (供應項目號碼：MS-AZR-0003P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對預付型方案訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。|    
     |Scope       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>單一訂用帳戶 - 保留項目折扣會套用至此訂用帳戶中的 VM。 </li><li>共用 - 保留項目折扣會套用至計費內容內任何訂用帳戶中執行的 VM。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶 (開發/測試訂用帳戶除外)。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。</li></ul>|
     |位置    |保留項目所涵蓋的 Azure 區域。|    
@@ -30,8 +30,15 @@
 
     ![提交保留項目購買之前的螢幕擷取畫面](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>購買保留項目之後的後續步驟
+## <a name="next-steps"></a>後續步驟 
 保留項目折扣會自動套用到符合保留項目範圍和屬性之執行中虛擬機器的數目。 您可以透過 [Azure 入口網站](https://portal.azure.com)、PowerShell、CLI 或 API 來更新保留項目的範圍。 
 
 若要了解如何管理保留項目，請參閱[管理 Azure 保留的虛擬機器執行個體](../articles/billing/billing-manage-reserved-vm-instance.md)。
 
+若要深入了解保留的虛擬機器執行個體，請參閱下列文章。
+
+- [使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本](../articles/billing/billing-save-compute-costs-reservations.md)
+- [了解保留執行個體折扣如何套用](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [了解預付型方案的保留執行個體使用量](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留執行個體的使用方式](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows 軟體的成本不包括在保留執行個體內](../articles/billing/billing-reserved-instance-windows-software-costs.md)

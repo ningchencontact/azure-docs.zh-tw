@@ -148,7 +148,7 @@
    
         using Microsoft.Azure.NotificationHubs;
 
-6. 取代`Notifications`類別定義為下列程式碼，並取代為您的通知中樞和中樞名稱 （具有完整權限） 連接字串的兩個預留位置 (位於[Azure 入口網站](http://portal.azure.com)):
+6. 以下列程式碼取代 `Notifications` 類別定義，並以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 入口網站](http://portal.azure.com)取代) 取代兩個預留位置：
    
         public class Notifications
         {

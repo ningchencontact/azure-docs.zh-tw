@@ -19,7 +19,7 @@ ms.date: 01/04/2018
 ms.author: larryfr
 ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/05/2018
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * [Sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)公用程式
+> * [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) 公用程式
 
 ## <a name="create-the-table-in-sql-database"></a>在 SQL Database 中建立資料表
 

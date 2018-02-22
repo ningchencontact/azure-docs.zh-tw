@@ -17,7 +17,7 @@ ms.date: 06/19/2017
 ms.author: bradsev
 ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
@@ -43,25 +43,25 @@ HDInsight 上的 Microsoft R 伺服器有數種儲存體選項可用來保存資
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>搭配 R 伺服器使用 Azure Blob 儲存體帳戶
 
-如果您指定一個以上的儲存體帳戶建立您的 R 伺服器叢集時，下列指示說明如何進行資料存取及 R 伺服器上的作業使用次要帳戶。 假設下列儲存體帳戶和容器： **storage1**與預設容器呼叫**container1**，和**storage2**。
+如果您在建立 R Server 叢集時指定一個以上的儲存體帳戶，下列指示說明如何針對在 R Server 上的資料存取和作業使用次要帳戶。 假設下列儲存體帳戶和容器：**storage1** 和名為 **container1** 的預設容器，以及 **storage2**。
 
 > [!WARNING]
 > 基於效能目的，系統會在與您指定的主要儲存體帳戶相同資料中心內建立 HDInsight 叢集。 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。
 
-1. 使用 SSH 用戶端，連接到您叢集的邊緣節點為 remoteuser。  
+1. 使用 SSH 用戶端，以 remoteuser 的身分連線到您叢集的邊緣節點。  
 
-  + 在 Azure 入口網站中 > HDI 叢集服務] 頁面 > 概觀，按一下 [**安全殼層 (SSH)**。
-  + 在 主機名稱，選取 邊緣節點 (其中包括*ed ssh.azurehdinsight.net*名稱中)。
-  + 將複製的主機名稱。
-  + 開啟 PutTY 等 SmartTY 將 SSH 用戶端，並輸入主機名稱。
-  + 輸入使用者名稱，後面接著叢集密碼 remoteuser。
+  + 在 [Azure 入口網站] > [HDI 叢集服務分頁] > [概觀] 中，按一下 [安全殼層 (SSH)]。
+  + 在 [主機名稱] 中，選取邊緣節點 (它在名稱中包含 ed-ssh.azurehdinsight.net)。
+  + 複製主機名稱。
+  + 開啟像是 PutTY 或 SmartTY 的 SSH 用戶端，然後輸入主機名稱。
+  + 輸入 remoteuser 作為使用者名稱，後面接著叢集密碼。
   
 2. 將 mycsv.csv 檔案複製到 /share 目錄。 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-3. 切換至 R Studio 或其他 R 主控台，並撰寫 R 程式碼，將 [名稱] 節點設定為**預設**和您想要存取的檔案的位置。  
+3. 切換至 R Studio 或其他 R 主控台，然後撰寫 R 程式碼，將名稱節點設定為**預設**和您想要存取的檔案位置。  
 
         myNameNode <- "default"
         myPort <- 0

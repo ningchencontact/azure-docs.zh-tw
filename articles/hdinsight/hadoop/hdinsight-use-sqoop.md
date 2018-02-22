@@ -18,7 +18,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -94,7 +94,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
      
         變數區段中的下列值為硬式編碼︰
         
-        |名稱|值|
+        |Name|值|
         |----|-----|
         | 預設儲存體帳戶名稱 | &lt;CluterName>store |
         | Azure SQL Database 伺服器名稱 | &lt;ClusterName>dbserver |
@@ -221,7 +221,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
    > 除了連接字串資訊以外，本節中的步驟應該可運用在 Azure SQL Database 或 SQL Server 上。 這些步驟已使用下列組態進行測試：
    > 
    > * **Azure 虛擬網路點對站組態**：在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。 如需詳細資訊，請參閱 [使用管理入口網站設定點對站 VPN](../../vpn-gateway/vpn-gateway-point-to-site-create.md) 。
-   > * **Azure HDInsight**： 請參閱[中使用自訂選項的 HDInsight 叢集建立 Hadoop](../hdinsight-hadoop-provision-linux-clusters.md)如需有關建立虛擬網路上的叢集資訊。
+   > * **Azure HDInsight**：如需有關在虛擬網路上建立叢集的資訊，請參閱 [使用自訂選項在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
    > * **SQL Server 2014**：已設定成允許驗證，以及執行 VPN 用戶端組態套件以安全地連接到虛擬網路。
    > 
    > 

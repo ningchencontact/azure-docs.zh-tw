@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,13 +32,13 @@ ms.lasthandoff: 01/24/2018
 若要將資料移入/移出 Data Factory 不支援的資料存放區，或者以 Data Factory 不支援的方式轉換/處理資料，您可以利用自己的資料移動或轉換邏輯建立**自訂活動**，然後在管線中使用活動。 自訂活動會在虛擬機器的 **Azure Batch** 集區上執行自訂程式碼邏輯。
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱 [(自訂) 第 1 版的 DotNet 活動](v1/data-factory-use-custom-activities.md)。
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱 [Data Factory 第 1 版中的 (自訂) DotNet 活動](v1/data-factory-use-custom-activities.md)。
  
 
-如果您不熟悉 Azure Batch 服務，請參閱下列主題：
+如果您不熟悉 Azure Batch 服務，請參閱下列文章：
 
 * [Azure Batch 基本知識](../batch/batch-technical-overview.md) ，以取得 Azure Batch 服務的概觀。
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 入口網站建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱 [使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 主題。
+* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 入口網站建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)一文。
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 集區。
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務 
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="executing-commands"></a>執行命令
 
-您可以使用自訂活動直接執行命令。 在以下範例中，我們在目標 Azure Batch 集區的節點上執行 "echo hello world" 命令，並將輸出列印至 stdout。 
+您可以使用自訂活動直接執行命令。 下列範例會在目標 Azure Batch 集區的節點上執行 "echo hello world" 命令，並將輸出列印至 stdout。 
 
   ```json
   {
@@ -295,12 +295,12 @@ namespace SampleApp
 如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。 
 
   > [!IMPORTANT]
-  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Bath 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 和 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 路徑。 您必須視需要個別加以清除。 
+  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 和 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 路徑。 您必須視需要個別加以清除。 
   > - 針對已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段加密，以確保認證保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1"></a>Azure Data Factory V2 中的自訂活動和 (自訂) Azure Data Factory V1 中的 DotNet 活動之間的差異 
+## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Azure Data Factory 第 2 版中的自訂活動和 Azure Data Factory 第 1 版中的 (自訂) DotNet 活動之間的差異
 
-  在 Azure Data Factory V1 中，您必須實作 (自訂) DotNet 活動的程式碼，做法是建立一個 .NET 類別庫專案，其中有會實作 IDotNetActivity 介面 Execute 方法的類別。 (自訂) DotNet 活動 JSON 承載中的已連結的服務、資料集、擴充的屬性，會以強型別物件傳遞至執行方法。 如需詳細資訊，請參閱 [(自訂) 第 1 版的 DotNet](v1/data-factory-use-custom-activities.md)。 因此，您的自訂程式碼需要以 .Net Framework 4.5.2 撰寫，並在以 Windows 為基礎的 Azure Batch 集區節點上執行。 
+  在 Azure Data Factory 第 1 版中，您必須實作 (自訂) DotNet 活動的程式碼，做法是建立一個 .NET 類別庫專案，其中有會實作 IDotNetActivity 介面 Execute 方法的類別。 (自訂) DotNet 活動 JSON 承載中的已連結的服務、資料集、擴充的屬性，會以強型別物件傳遞至執行方法。 如需詳細資訊，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 因此，您的自訂程式碼需要以 .Net Framework 4.5.2 撰寫，並在以 Windows 為基礎的 Azure Batch 集區節點上執行。 
 
   在 Azure Data Factory V2 自訂活動中，您不需要實作 .Net 介面。 您現在可以直接執行命令、指令碼，以及執行您自己的自訂程式碼 (已編譯為可執行檔)。 做法是一併指定 Command 屬性與 folderPath 屬性。 自訂活動會在 folderpath 中上傳可執行檔和相依性，並為您執行命令。 
 
@@ -308,10 +308,10 @@ namespace SampleApp
 
   由於 Azure Data Factory V2 自訂活動中新引進的改變，您可以使用您慣用的語言自由撰寫自訂程式碼邏輯，然後在 Azure Batch 支援的 Windows 和 Linux 作業系統上執行。 
 
-  下表說明 Data Factory V2 自訂活動和 Data Factory V1 (自訂) DotNet 活動之間的差異： 
+  下表說明 Data Factory 第 2 版自訂活動和 Data Factory 第 1 版 (自訂) DotNet 活動之間的差異： 
 
 
-|差異      |ADFv2 自訂活動      |ADFv1 (自訂) DotNet 活動      |
+|差異      |第 2 版自訂活動      | 第 1 版 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
 |定義自訂邏輯的方式      |執行任何可執行檔 (現有的可執行檔或實作您自己的可執行檔)      |實作 .Net DLL      |
 |自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
@@ -322,7 +322,7 @@ namespace SampleApp
 |記錄      |直接寫入 STDOUT      |實作 .Net DLL 中的記錄器      |
 
 
-  如果您的現有 .Net 程式碼是針對 V1 (自訂) DotNet 活動撰寫，您需要依據下列的高階指導方針修改程式碼，才能將其用於 V2 自訂活動：  
+  如果您的現有 .Net 程式碼是針對第 1 版 (自訂) DotNet 活動撰寫，您需要依據下列的高階指導方針修改程式碼，才能將其用於第 2 版自訂活動：  
 
    - 將專案由 .Net 類別庫變更為主控台應用程式。 
    - 以 Main 方法啟動應用程式，不必再使用 IDotNetActivity 介面的 Execute 方法。 
@@ -331,7 +331,7 @@ namespace SampleApp
    - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。 
    - 編譯您的程式碼、將可執行檔和相依性上傳至 Azure 儲存體，並在 folderPath 屬性中定義路徑。 
 
-如需如何將 Data Factory V1 文件[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) \(機器翻譯\) 中所述的完整 DLL 和管線範例重新以 Data Factory V2 自訂活動樣式撰寫的完整範例。 請參閱 [Data Factory V2 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。 
+如需如何將 Data Factory 第 1 版文件[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的完整 DLL 和管線範例重新以 Data Factory 第 2 版自訂活動樣式撰寫的完整範例。 請參閱 [Data Factory 第 2 版自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) (英文)。 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 46efa4c3ce43af04485f383a3e88066aec79acfb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>使用 Azure Data Factory 從 Phoenix 複製資料 
 
@@ -50,7 +50,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | httpPath | 對應至 Phoenix 伺服器的部分 URL。 (也就是 /gateway/sandbox/phoenix/version)。 如果使用 WindowsAzureHDInsightService，預設值為 `hbasephoenix`。  | 否 |
 | authenticationType | 用來連線到 Phoenix 伺服器的驗證機制。 <br/>允許的值為：**Anonymous**、**UsernameAndPassword**、**WindowsAzureHDInsightService** | yes |
 | username | 用來連線到 Phoenix 伺服器的使用者名稱。  | 否 |
-| password | 對應到使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
+| password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有在自我裝載 IR 上使用 SSL 時，才能設定這個屬性。 預設值為隨 IR 安裝的 cacerts.pem 檔案。  | 否 |
 | useSystemTrustStore | 指定是否使用來自系統信任存放區或來自指定 PEM 檔案的 CA 憑證。 預設值為 False。  | 否 |

@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: e8170eefb2e359719684e08749180a4e7784f9b6
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/16/2017
 搭配使用 Visual Studio 和 SSDT 可讓您使用 SQL Server 物件總管，經由視覺化方式瀏覽資料表、檢視、預存程序和 SQL 資料倉儲中的其他許多物件，以及執行查詢。
 
 > [!NOTE]
-> SQL 資料倉儲尚未支援 Visual Studio 資料庫專案。  此功能將會加入未來的版本中。 若要接收這項功能的定期更新，請票選[UserVoice]。
+> SQL 資料倉儲尚未支援 Visual Studio 資料庫專案。  此功能將會加入未來的版本中。 若要定期接收這項功能的更新，請在 [UserVoice] 投票。
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/01/2018
 | 文章指南 |  |
 |:---:| --- |
 | 簡介同盟和其他類型的登入 |[使用 Azure AD 進行單一登入](active-directory-appssoaccess-whatis.md) |
-| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](http://aka.ms/aadfederatedapps)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](active-directory-app-gallery-listing.md) |
+| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](active-directory-saas-tutorial-list.md)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](active-directory-app-gallery-listing.md) |
 | 超過 150 個應用程式教學課程，教導您如何為 [Salesforce](active-directory-saas-salesforce-tutorial.md)、[ServiceNow](active-directory-saas-servicenow-tutorial.md)、[Google Apps](active-directory-saas-google-apps-tutorial.md)、[Workday](active-directory-saas-workday-tutorial.md) 等應用程式設定單一登入 |[如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md) |
 | 如何手動設定及自訂您的單一登入設定 |[如何設定對不在 Azure Active Directory 應用程式庫中之應用程式的同盟單一登入](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
 | 使用 SAML 通訊協定的同盟應用程式疑難排解指南 |[對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |

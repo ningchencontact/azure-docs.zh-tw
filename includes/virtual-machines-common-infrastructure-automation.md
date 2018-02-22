@@ -45,7 +45,7 @@
 
 Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 
- 我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映像可使雲端 init 部署和虛擬機器擴展集 Vm 與順暢地進行設定。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
+ 我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映像會讓您的 Cloud-init 部署和設定順暢地與 VM 和虛擬機器擴展集運作。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
 
 | 發行者 | 提供項目 | SKU | 版本 | cloud-init 就緒
 |:--- |:--- |:--- |:--- |:--- |:--- |

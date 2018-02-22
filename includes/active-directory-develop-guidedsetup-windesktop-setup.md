@@ -1,42 +1,42 @@
 
 ## <a name="set-up-your-project"></a>設定專案
 
-本節中您必須建立新的專案，以示範如何整合 Windows 桌面的.NET 應用程式 (XAML) 與*使用 Microsoft 登入*，讓應用程式可以查詢要求權杖的 Web Api。
+您會在本節中建立新的專案來示範如何整合 Windows Desktop .NET 應用程式 (XAML) 與使用 Microsoft 登入，以便應用程式可以查詢需要權杖的 Web API。
 
-您使用本指南所建立的應用程式會顯示用來呼叫圖表時，要顯示在畫面上，結果的按鈕和登出按鈕。
+您使用本指南所建立的應用程式會顯示用來呼叫圖表的按鈕、在畫面上顯示結果的區域，以及登出按鈕。
 
 > [!NOTE]
-> 想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)，然後跳到[組態步驟](#create-an-application-express)來設定程式碼範例，然後再執行它。
+> 想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)並跳至[設定步驟](#create-an-application-express)，以在執行之前先設定程式碼範例。
 >
 
-若要建立您的應用程式，執行下列作業：
-1. 在 Visual Studio 中，選取**檔案** > **新增** > **專案**。
-2. 在下**範本**，選取**Visual C#**。
-3. 選取**WPF 應用程式**或**WPF 應用程式**，視您所使用的 Visual Studio 版本的版本。
+若要建立應用程式，請執行下列動作：
+1. 在 Visual Studio 中，選取 [檔案]  >  [新增]  >  [專案]。
+2. 在 [範本] 底下，選取 [Visual C#]。
+3. 選取 [WPF App] 或 [WPF 應用程式]，視您所使用的 Visual Studio 版本而定。
 
-## <a name="add-msal-to-your-project"></a>將 MSAL 加入至專案
-1. 在 Visual Studio 中，選取**工具** > **NuGet 套件管理員**> **Package Manager Console**。
-2. 在 [封裝管理員主控台] 視窗中，貼上下列 Azure PowerShell 命令：
+## <a name="add-msal-to-your-project"></a>將 MSAL 新增至您的專案
+1. 在 Visual Studio 中，選取 [工具]  >  [NuGet 套件管理員] >  [套件管理員主控台]。
+2. 在 [套件管理器主控台] 視窗中，貼上下列 Azure PowerShell 命令：
 
     ```powershell
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
-    > 此命令會安裝 Microsoft 驗證程式庫。 MSAL 處理取得，快取和重新整理的使用者語彙基元，可用來存取 Azure Active Directory v2 所保護的 Api。
+    > 此命令會安裝 Microsoft 驗證程式庫。 MSAL 會處理使用者權杖的取得、快取及重新整理作業，而這些權杖用來存取受 Azure Active Directory v2 保護的 API。
     >
 
 ## <a name="add-the-code-to-initialize-msal"></a>新增程式碼以初始化 MSAL
-在此步驟中，您可以建立一個類別來處理互動 MSAL，例如處理語彙基元。
+在這個步驟中，您建立類別來處理和 MSAL 的互動，例如處理權杖。
 
-1. 開啟*App.xaml.cs*檔案，並再加入至類別 MSAL 的參考：
+1. 開啟 App.xaml.cs 檔案，然後將 MSAL 的參考新增至類別：
 
     ```csharp
     using Microsoft.Identity.Client;
     ```
 <!-- Workaround for Docs conversion bug -->
 
-2. 更新下列應用程式類別：
+2. 將應用程式類別更新至下面這樣：
 
     ```csharp
     public partial class App : Application
@@ -51,9 +51,9 @@
     ```
 
 ## <a name="create-the-application-ui"></a>建立應用程式 UI
-此區段會顯示如何應用程式可以查詢受保護的後端伺服器，例如 Microsoft Graph。 
+本節會說明應用程式如何查詢受保護的後端伺服器 (例如 Microsoft Graph)。 
 
-A *MainWindow.xaml*檔案應該會自動建立專案範本的一部分。 開啟此檔案，並取代您的應用程式*\<方格 >*節點為下列程式碼：
+系統應會自動建立 MainWindow.xaml 檔案，作為專案範本的一部分。 開啟此檔案，然後將應用程式的 \<Grid> 節點取代為下列程式碼：
 
 ```xml
 <Grid>

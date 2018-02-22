@@ -18,7 +18,7 @@ ms.date: 11/28/2017
 ms.author: larryfr
 ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 
 如需有關 Hive JDBC 介面的詳細資訊，請參閱 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight 叢集上的 Hadoop。 以 Linux 或 Windows 為基礎的叢集都可運作。
 
@@ -197,7 +197,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 現在您已學會如何搭配 Hive 使用 JDBC，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
 * [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](apache-hadoop-connect-hive-power-bi.md)。
-* [互動式查詢 Hive 與 Azure HDInsight 中的 Power BI 的資料視覺化](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
+* [在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
 * [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./../hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](apache-hadoop-connect-excel-hive-odbc-driver.md)。
 * [使用 Power Query 將 Excel 連線到 Hadoop](apache-hadoop-connect-excel-power-query.md)。

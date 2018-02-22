@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -100,13 +100,13 @@ IoT Edge 代理程式是另一個組成 Azure IoT Edge 執行階段的模組。 
    * Unhealthy：如果模組毀損或被視為狀況不良，Edge 代理程式就會重新啟動它。
    * Always：如果模組損毀、被視為狀況不良，或以任何方式關閉，Edge 代理程式就會重新啟動它。 
 
-IoT 邊緣代理程式執行階段將回應傳送到 IoT 中樞。 以下是可能回應的清單：
+IoT Edge 代理程式會將執行階段回應傳送到 IoT 中樞。 以下是可能回應的清單：
   * 200 - 確定
-  * 400-部署組態不正確或無效。
-  * 417-裝置沒有部署組態集內。
-  * 412-在部署組態中的結構描述版本無效。
-  * 406-邊緣裝置已離線或無法傳送狀態報表。
-  * 500-邊緣執行階段中發生錯誤。
+  * 400 - 部署設定不正確或無效。
+  * 417 - 裝置沒有部署組態集。
+  * 412 - 部署設定中的結構描述版本無效。
+  * 406 - 邊緣裝置已離線或無法傳送狀態報表。
+  * 500 - 邊緣執行階段中發生錯誤。
 
 ### <a name="security"></a>安全性
 

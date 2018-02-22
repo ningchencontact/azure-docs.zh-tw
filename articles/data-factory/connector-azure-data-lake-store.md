@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,15 +72,15 @@ ms.lasthandoff: 01/17/2018
 
 >[!IMPORTANT]
 > 請確定您將 Azure Data Lake Store 中適當的權限授與服務主體：
->- **作為來源**，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
->- **作為接收**，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯：
+>- **作為來源**，在 [資料總管] -> [存取] 中，至少授與 [讀取 + 執行] 權限來列出並複製資料夾/子資料夾中的檔案，或授與 [讀取] 權限來複製單一檔案，並選擇新增為**存取權限和預設權限項目**。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
+>- **作為接收**，在 [資料總管] -> [存取] 中，至少授與 [寫入 + 執行] 權限以在資料夾中建立子項目，並選擇新增為**存取權限和預設權限項目**。 如果您使用 Azure IR 來複製 (來源和接收都在雲端)，則在存取控制 (IAM) 中，至少授與**讀取者**角色，以便讓 Data Factory 偵測 Data Lake Store 的區域。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯。
 
 以下是支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | yes |
-| servicePrincipalKey | 指定應用程式的金鑰。 請將此欄位標示為 SecureString。 | yes |
+| servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 
 **範例：**
 
@@ -115,12 +115,12 @@ ms.lasthandoff: 01/17/2018
 使用受控服務識別 (MSI) 驗證：
 
 1. [擷取資料處理站服務識別](data-factory-service-identity.md#retrieve-service-identity)，做法是複製與資料處理站一起產生的 "SERVICE IDENTITY APPLICATION ID"。
-2. 將服務識別的存取權授與 Data Lake Store，授與方式和服務主體相同。 如需詳細步驟，請參閱[將 Azure AD 應用程式指派給 Azure Data Lake Store 帳戶檔案或資料夾](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder)。
+2. 將服務識別的存取權授與 Data Lake Store，授與方式和服務主體相同，請遵循下列附註。
 
 >[!IMPORTANT]
 > 請確定您在 Azure Data Lake Store 中授與資料處理站服務識別適當的權限：
->- **作為來源**，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
->- **作為接收**，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯：
+>- **作為來源**，在 [資料總管] -> [存取] 中，至少授與 [讀取 + 執行] 權限來列出並複製資料夾/子資料夾中的檔案，或授與 [讀取] 權限來複製單一檔案，並選擇新增為**存取權限和預設權限項目**。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
+>- **作為接收**，在 [資料總管] -> [存取] 中，至少授與 [寫入 + 執行] 權限以在資料夾中建立子項目，並選擇新增為**存取權限和預設權限項目**。 如果您使用 Azure IR 來複製 (來源和接收都在雲端)，則在存取控制 (IAM) 中，至少授與**讀取者**角色，以便讓 Data Factory 偵測 Data Lake Store 的區域。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯。
 
 在 Azure Data Factory 中，除了 Data Lake Store 的一般資訊，您不需要在連結服務中指定任何屬性。
 
@@ -198,7 +198,7 @@ ms.lasthandoff: 01/17/2018
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**AzureDataLakeStoreSource** |yes |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true 時，且接收端是檔案型存放區，則系統不會在接收端複製/建立空的資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**
 

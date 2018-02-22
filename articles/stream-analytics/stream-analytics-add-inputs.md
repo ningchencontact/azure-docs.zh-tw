@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,7 +38,7 @@ Azure 串流分析工作可以連線至一或多個資料輸入，且每個資�
 
 1. 在 Azure 入口網站中按一下 [輸入]，然後按一下串流分析工作的 [新增輸入]。
    
-    ![Azure 入口網站-將輸入。](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure 入口網站 - 新增輸入。](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     在 Azure 入口網站中，按一下串流分析工作的 [輸入]  磚。  
    

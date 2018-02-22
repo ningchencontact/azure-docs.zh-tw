@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/08/2017
 > 您可以使用此外掛程式僅針對 Linux 上的 HDInsight Spark 叢集建立並提交應用程式。
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - HDInsight Linux 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 - Oracle Java Development Kit。 您可以從 [Oracle 網站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下載。
@@ -68,6 +68,27 @@ ms.lasthandoff: 12/08/2017
 6. 若要檢視與叢集建立關聯的資源 (例如儲存體帳戶)，您可以進一步展開叢集名稱節點。
    
     ![展開的叢集名稱節點](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
+
+## <a name="link-a-cluster"></a>連結叢集
+您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。 
+1. 從 [Azure 總管] 中按一下 [連結叢集]。
+
+   ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. 輸入 [叢集名稱]、[儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器] 中的容器，最後輸入使用者名稱和密碼。 如果驗證失敗，您需要檢查使用者名稱和密碼。
+   
+   ![連結叢集對話方塊](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。 
+   
+3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
+
+   ![連結的叢集](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. 您也可以從 [Azure 總管] 取消連結叢集。
+   
+   ![取消連結的叢集](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 叢集上執行 Spark Scala 應用程式
 
@@ -164,12 +185,14 @@ ms.lasthandoff: 12/08/2017
 
    c. 視窗底部的 [Spark Submission (提交 Spark)]  索引標籤應會開始顯示進度。 您也可以選取 [提交 Spark] 視窗中的紅色按鈕，即可將應用程式停止。
       
-      ![[提交 Spark] 視窗](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![[提交 Spark] 視窗](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       若要了解如何存取作業輸出，請參閱本文稍後的＜使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集＞一節。
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯 
-我們也建議另一種將 Spark 應用程式提交至叢集的方式。 您也可以藉由在 [執行/偵錯設定] IDE 中設定參數來執行這項操作。 如需詳細資訊，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
+我們也建議另一種將 Spark 應用程式提交至叢集的方式。 做法是在 [執行/偵錯設定] IDE 中設定參數。 如需詳細資訊，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集
 您可以使用適用於 IntelliJ 的 Azure 工具組來執行各種作業。
@@ -182,6 +205,8 @@ ms.lasthandoff: 12/08/2017
 2. 在右窗格中，[Spark 作業檢視]  索引標籤會顯示已在叢集上執行的所有應用程式。 選取您想要查看更多詳細資料的應用程式名稱。
 
     ![應用程式詳細資料](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >附註
+    >
 
 3. 若要顯示基本的執行作業資訊，請將滑鼠停留在作業圖形上。 若要檢視每項作業產生的階段圖形和資訊，請選取作業圖形上的節點。
 

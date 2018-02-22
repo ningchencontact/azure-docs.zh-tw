@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
 了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具來建立、提交 Hive 批次作業、互動式 Hive 查詢和 pySpark 指令碼。 Azure HDInsight 工具可以安裝在 VS Code 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 您可以找到不同平台的必要條件。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目才能完成本文中的步驟：
 
@@ -101,6 +101,26 @@ ms.lasthandoff: 01/04/2018
     - 提交互動式 PySpark 查詢
     - 提交 PySpark 批次指令碼
     - 設定組態
+
+**連結叢集**
+
+您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
+1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a cluster**。
+
+   ![連結叢集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. 輸入 HDInsight 叢集 URL -> 輸入使用者名稱 -> 輸入密碼 -> 選取叢集類型 -> 如果通過驗證，它會顯示成功資訊。
+   
+   ![連結叢集對話方塊](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的使用者名稱和密碼。 
+   
+3. 您可以使用 **List cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
+
+   ![連結的叢集](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. 您也可以從命令選擇區輸入 **HDInsight: Unlink a cluster** 以取消連結叢集。
 
 ## <a name="list-hdinsight-clusters"></a>列出 HDInsight 叢集
 
@@ -258,6 +278,9 @@ ms.lasthandoff: 01/04/2018
 在提交 Python 作業後，提交記錄會出現在 VS Code 的 [輸出] 視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
 
 
+   
+
+
 ## <a name="additional-features"></a>其他功能
 
 HDInsight for VS Code 支援下列功能︰
@@ -286,7 +309,7 @@ HDInsight for VS Code 支援下列功能︰
 * [搭配 Jupyter Notebook 使用外部套件](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [互動式查詢 Hive 與 Azure HDInsight 中的 Power BI 的資料視覺化](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
+* [在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
 * [設定 Visual Studio Code 的 PySpark 互動式環境](set-up-pyspark-interactive-environment.md)
 * [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./hdinsight-connect-hive-zeppelin.md)
 

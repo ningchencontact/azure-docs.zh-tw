@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka 串流 API
 
@@ -100,6 +100,12 @@ ms.lasthandoff: 01/20/2018
     * 啟動會寫入 `test` 主題的產生者。
     * 啟動取用者，讓您可以查看寫入至 `wordcounts` 主題的輸出
 
+    > [!NOTE]
+    > 您需要確認 Kafka 訊息代理程式設定檔中的 `auto.create.topics.enable` 屬性已設定為 `true`。 您可以使用 Ambari Web UI 在進階 Kafka 訊息代理程式設定檔中檢視和修改這個屬性。 否則，您需要在使用下列命令執行此範例之前，先手動建立中繼主題 `RekeyedIntermediateTopic`：
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     您可以藉由開啟三個 SSH 工作階段來完成這些作業。 接著，您必須設定每個項目的 `$KAFKABROKERS` 和 `$KAFKAZKHOSTS`，方法是在每個 SSH 工作階段中執行此區段的步驟 4。 較簡單的解決方案是使用 `tmux` 公用程式，它可以將目前的 SSH 顯示分割成多個區段。 若要使用 `tmux` 來啟動串流、產生者和取用者，請使用下列命令：
 
     ```bash

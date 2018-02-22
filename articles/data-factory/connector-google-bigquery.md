@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料 (搶鮮版 (Beta))
 
@@ -51,12 +51,17 @@ ms.lasthandoff: 02/01/2018
 | project | 要據以查詢之預設 BigQuery 專案的專案識別碼。  | yes |
 | additionalProjects | 要存取之公開 BigQuery 專案的專案識別碼清單 (以逗號分隔)。  | 否 |
 | requestGoogleDriveScope | 是否要求存取 Google 雲端硬碟。 允許 Google 雲端硬碟存取能夠支援同盟資料表，其中結合了 BigQuery 資料與來自 Google 雲端硬碟的資料。 預設值為 **false**。  | 否 |
-| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 Integration Runtime 上使用。 <br/>允許的值為 **ServiceAuthentication** 和 **UserAuthentication**。 | yes |
-| refreshToken | 從 Google 取得的重新整理權杖，用來針對 UserAuthentication 授權存取 BigQuery。 您可以將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼儲存在 Azure Key Vault，當您執行資料複製時，讓複製活動從該處提取。 若要深入了解，請參閱[在 Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 | 否 |
-| 電子郵件 | 用於 ServiceAuthentication 的服務帳戶電子郵件識別碼。 它只能在自我裝載 Integration Runtime 上使用。  | 否 |
-| keyFilePath | .p12 金鑰檔的完整路徑，用來驗證服務帳戶電子郵件地址。 它只能在自我裝載 Integration Runtime 上使用。  | 否 |
-| trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有當您在自我裝載 Integration Runtime 使用 SSL 時，才能設定這個屬性。 預設值為隨整合執行階段安裝的 cacerts.pem 檔案。  | 否 |
-| useSystemTrustStore | 指定是否使用來自系統信任存放區或來自指定 .pem 檔案的 CA 憑證。 預設值為 **false**。  | 否 |
+| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 Integration Runtime 上使用。 <br/>允許的值為 **UserAuthentication** 和 **ServiceAuthentication**。 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
+
+### <a name="using-user-authentication"></a>使用使用者驗證
+
+將 "authenticationType" 屬性設定為 [UserAuthentication]，並連同上一節所述的一般屬性指定下列屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| clientId | 用來產生重新整理權杖之應用程式的識別碼。 | 否 |
+| clientSecret | 用來產生重新整理權杖之應用程式的祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
+| refreshToken | 從 Google 取得的重新整理權杖，用來授權存取 BigQuery。 了解如何從[取得 OAuth 2.0 存取權杖](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens)取得權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 
 **範例：**
 
@@ -70,6 +75,11 @@ ms.lasthandoff: 02/01/2018
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ ms.lasthandoff: 02/01/2018
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>使用服務驗證
+
+將 "authenticationType" 屬性設定為 [ServiceAuthentication]，並連同上一節所述的一般屬性指定下列屬性。 此驗證類型只能在自我裝載的 Integration Runtime 上使用。
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| 電子郵件 | 用於 ServiceAuthentication 的服務帳戶電子郵件識別碼。 它只能在自我裝載 Integration Runtime 上使用。  | 否 |
+| keyFilePath | .p12 金鑰檔的完整路徑，用來驗證服務帳戶電子郵件地址。 | 否 |
+| trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有當您在自我裝載 Integration Runtime 使用 SSL 時，才能設定這個屬性。 預設值為隨整合執行階段安裝的 cacerts.pem 檔案。  | 否 |
+| useSystemTrustStore | 指定是否使用來自系統信任存放區或來自指定 .pem 檔案的 CA 憑證。 預設值為 **false**。  | 否 |
+
+**範例：**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>資料集屬性

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d6e5b27493a786daa604124d4572f51bae4bcb20
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f46917731ef64290816870b6abd14679dd465211
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,9 +57,9 @@ ms.lasthandoff: 01/23/2018
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SqlServer** | yes |
-| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請將此欄位標示為 SecureString。 |yes |
+| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
 | userName |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
-| password |指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |否 |
+| password |指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例 1：使用 SQL 驗證**

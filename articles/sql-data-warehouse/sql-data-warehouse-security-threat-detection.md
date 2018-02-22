@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/18/2017
    
     ![瀏覽窗格][6]
 4. 在 [稽核記錄] 刀鋒視窗中，按一下 [在 Excel 中開啟] 開啟預先設定的 Excel 範本，以匯入可疑事件前後的稽核記錄，執行更深入的分析。<br/>
-   **注意：**在 Excel 2010 或更新版本、 電源查詢和**快速合併**是必要設定
+   **附註：**在 Excel 2010 或更新版本中，必須要有 Power Query 和 [快速合併] 設定
    
     ![瀏覽窗格][7]
 5. 若要設定 [快速合併] 設定 - 在 [POWER QUERY] 功能區索引標籤中，選取 [選項] 以顯示 [選項] 對話方塊。 選取 [隱私權] 區段，選擇第二個選項 - [忽略隱私權等級並可能改善效能]：

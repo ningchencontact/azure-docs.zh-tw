@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a389f4be625dd301b7210000555d71018b4cdec8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: af1da8c77ebe499cb413168b3234c02db941c3d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>使用 Azure Data Factory 從 Oracle Eloqua 複製資料 (搶鮮版 (Beta))
 
@@ -45,12 +45,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Oracle Eloqua 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**Eloqua** | 是 |
-| endpoint | Eloqua 伺服器的端點。 (也就是 eloqua.example.com)  | 是 |
-| username | 表單中 Eloqua 帳戶的使用者名稱與網站名稱：網站名稱/使用者名稱。 (也就是 Eloqua/Alice)  | 是 |
-| password | 對應到使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行資料複製時，讓複製活動從該處提取；若要深入了解，請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md)。 | 是 |
+| type | 類型屬性必須設為：**Eloqua** | yes |
+| endpoint | Eloqua 伺服器的端點。 (也就是 eloqua.example.com)  | yes |
+| username | 表單中 Eloqua 帳戶的使用者名稱與網站名稱：網站名稱/使用者名稱。 (也就是 Eloqua/Alice)  | yes |
+| password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -103,10 +103,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Oracle Eloqua複製資料，請將複製活動中的來源類型設定為 **EloquaSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**EloquaSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Accounts"`。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**EloquaSource** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Accounts"`。 | yes |
 
 **範例：**
 

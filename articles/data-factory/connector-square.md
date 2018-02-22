@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 65eab09a1fcf7e1c2411ee4b96d21ba22e3519b2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 Square 複製資料
 
@@ -50,7 +50,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | Type 屬性必須設定為：**Square** | yes |
 | host | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | yes |
 | clientId | 與您 Square 應用程式相關聯的用戶端識別碼。  | yes |
-| clientSecret | 與您 Square 應用程式相關聯的用戶端祕密。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | yes |
+| clientSecret | 與您 Square 應用程式相關聯的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | redirectUri | Square 應用程式儀表板中指派的重新導向 URL。 (亦即 http://localhost:2500)  | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |

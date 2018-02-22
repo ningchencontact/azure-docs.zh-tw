@@ -4,8 +4,8 @@ description: "深入了解串流分析資料輸出的選項 (包括使用於分�
 keywords: "資料轉換, 分析結果, 資料儲存體選項"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/18/2017
+ms.author: sngun
+ms.openlocfilehash: 6df9a3fafea97638d63c0dc4601c5ced357c410d
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>串流分析輸出︰儲存體、分析的選項
-當您在編寫串流分析工作時，請考慮產生資料的取用方式。 您要如何檢視串流分析工作的結果，並將儲存於何處？
+當您在編寫串流分析作業時，請考慮所產生資料的取用方式。 如何檢視串流分析作業的結果，並將儲存於何處？
 
-為了要啟用各種應用程式模式，Azure 串流分析針對儲存輸出及檢視分析結果提供了數種不同的選項。 這讓您能輕鬆地檢視工作輸出，還讓您對於資料倉儲和其他用途之工作輸出的取用及儲存方式更有彈性。 任何在工作中設定的輸出，都必須在工作開始之前，以及在事件開始運作之前就已經存在。 例如，如果您把 Blob 儲存體當做輸出來使用，工作就不會自動建立儲存體帳戶。 使用者必須在 Azure 串流分析工作開始之前建立儲存體帳戶。
+為了要啟用各種應用程式模式，Azure 串流分析針對儲存輸出及檢視分析結果提供了數種不同的選項。 這讓您能輕鬆地檢視工作輸出，還讓您對於資料倉儲和其他用途之工作輸出的取用及儲存方式更有彈性。 任何在工作中設定的輸出，都必須在工作開始之前，以及在事件開始運作之前就已經存在。 例如，如果您將 Blob 儲存體作為輸出使用，作業就不會自動建立儲存體帳戶。 在串流分析作業開始之前，建立儲存體帳戶。
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 串流分析支援 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 此儲存體可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。 此外，串流分析需要經過授權，才能存取 Data Lake Store。 如需有關授權，以及如何註冊 Data Lake Store (如有需要) 的詳細資料，請參閱 [Data Lake 輸出](stream-analytics-data-lake-output.md)文章。
@@ -52,11 +52,11 @@ ms.lasthandoff: 10/11/2017
 </tr>
 <tr>
 <td>帳戶名稱</td>
-<td>您傳送輸出的 Data Lake Storage 帳戶名稱。 您將看到 Data Lake Store 帳戶的下拉式清單，登入入口網站的使用者可存取該下拉式清單。</td>
+<td>您傳送輸出的 Data Lake Storage 帳戶名稱。 您會看到 Data Lake Store 帳戶的下拉式清單，登入入口網站的使用者可存取該下拉式清單。</td>
 </tr>
 <tr>
 <td>路徑前置詞模式</td>
-<td>檔案命名將遵循下列慣例： <BR>{路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR>範例輸出檔案︰<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>此外，以下是建立新檔案的情況：<BR>1. 輸出結構描述變更 <BR>2. 從外部或內部重新啟動作業<BR><BR>此外，如果檔案路徑模式不包含尾端的 "/"，則會將檔案路徑中的最後一個模式視為檔案名稱前置詞。<BR><BR>範例：<BR>路徑模式為 folder1/logs/HH 時，產生的檔案可能看起來像這樣：folder1/logs/02_134343_gguid_1.csv</td>
+<td>檔案命名會遵循下列慣例： <BR>{路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR>範例輸出檔案︰<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>此外，以下是建立新檔案的情況：<BR>1. 輸出結構描述變更 <BR>2. 從外部或內部重新啟動作業<BR><BR>此外，如果檔案路徑模式不包含尾端的 "/"，則會將檔案路徑中的最後一個模式視為檔案名稱前置詞。<BR><BR>範例：<BR>路徑模式為 folder1/logs/HH 時，產生的檔案可能看起來像這樣：folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>日期格式 [<I>選用</I>]</td>
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 </tr>
 <tr>
 <td>編碼</td>
-<td>若為 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。</td>
+<td>如果使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。</td>
 </tr>
 <tr>
 <td>分隔符號</td>
@@ -86,12 +86,12 @@ ms.lasthandoff: 10/11/2017
 </table>
 
 ### <a name="renew-data-lake-store-authorization"></a>更新 Data Lake Store 授權
-如果您在建立工作之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。
+如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。
 
 ![授權 Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。 串流分析工作會寫入至 Azure SQL Database 中的現有資料表。  請注意，資料表結構描述必須完全符合工作輸出的欄位及其類型。 您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 指定為輸出 (這是一個預覽功能)。 下表列出屬性名稱及其描述以建立 SQL Database 輸出。
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。 串流分析作業會寫入至 Azure SQL Database 中的現有資料表。  資料表結構描述必須完全符合作業輸出的欄位及其類型。 您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 指定為輸出 (這是一個預覽功能)。 下表列出屬性名稱及其描述以建立 SQL Database 輸出。
 
 | 屬性名稱 | 說明 |
 | --- | --- |
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 | 伺服器名稱 |SQL Database 伺服器名稱 |
 | 使用者名稱 |具有寫入資料庫存取權限的使用者名稱 |
 | 密碼 |連接到資料庫的密碼 |
-| 資料表 |將在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫，且資料表的結構描述應該完全符合工作輸出所產生的欄位數目和其類型。 |
+| 資料表 |要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫，且資料表的結構描述應該完全符合作業輸出所產生的欄位數目和其類型。 |
 
 > [!NOTE]
 > 目前「串流分析」中的工作輸出支援 Azure SQL Database 提供項目。 不過，不支援執行已連結資料庫之 SQL Server 的「Azure 虛擬機器」。 這在未來的版本中有可能變更。
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 <tbody>
 <tr>
 <td>屬性名稱</td>
-<td>說明</td>
+<td>描述</td>
 </tr>
 <tr>
 <td>輸出別名</td>
@@ -136,7 +136,7 @@ ms.lasthandoff: 10/11/2017
 </tr>
 <tr>
 <td>路徑前置詞模式 [選用]</td>
-<td>用來在指定容器中寫入 Blob 的檔案路徑模式。 <BR> 在該路徑模式內，您也可以選擇使用下列 2 個變數的一或多個執行個體來指定 blob 的寫入頻率： <BR> {date}、{time} <BR> 範例 1：cluster1/logs/{date}/{time} <BR> 範例 2：cluster1/logs/{date} <BR> <BR> 檔案命名將遵循下列慣例： <BR> {路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR> 範例輸出檔案︰ <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> 此外，以下是建立新檔案的情況： <BR> 1. 目前的檔案超過允許的區塊數目上限 (目前為 50,000 個) <BR> 2. 輸出結構描述變更 <BR> 3. 從外部或內部重新啟動作業  </td>
+<td>用來在指定容器中寫入 Blob 的檔案路徑模式。 <BR> 在該路徑模式內，您也可以選擇使用下列 2 個變數的一或多個執行個體來指定 blob 的寫入頻率： <BR> {date}、{time} <BR> 範例 1：cluster1/logs/{date}/{time} <BR> 範例 2：cluster1/logs/{date} <BR> <BR> 檔案命名會遵循下列慣例： <BR> {路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR> 範例輸出檔案︰ <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> 此外，以下是建立新檔案的情況： <BR> 1. 目前的檔案超過允許的區塊數目上限 (目前為 50,000 個) <BR> 2. 輸出結構描述變更 <BR> 3. 從外部或內部重新啟動作業  </td>
 </tr>
 <tr>
 <td>日期格式 [選用]</td>
@@ -152,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 </tr>
 <tr>
 <td>編碼</td>
-<td>若為 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。</td>
+<td>如果使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。</td>
 </tr>
 <tr>
 <td>分隔符號</td>
@@ -165,8 +165,17 @@ ms.lasthandoff: 10/11/2017
 </tbody>
 </table>
 
+使用 blob 儲存體作為輸出時，在下列情況下 blob 中會建立新檔案：
+
+* 如果檔案超過允許的區塊數目上限 (請注意，可能達到允許的區塊數目上限，但不會達到允許的 blob 大小上限。 比方說，如果輸出速率很高，您可看到每個區塊有更多位元組，且檔案大小更大。 如果輸出速率很低，每個區塊具有較少的資料且檔案大小更小。)  
+* 如果輸出中有結構描述變更，且輸出格式需要固定的結構描述 (CSV 與 Avro)。  
+* 如果重新啟動作業 (從外部或內部重新啟動作業)。  
+* 如果完全分割查詢，則系統會為每個輸出分割區建立新檔案。  
+* 如果使用者已刪除儲存體帳戶的檔案或容器。  
+* 如果使用路徑前置詞模式將輸出進行時間分割，則會在查詢移至下一個小時的時候使用新的 Blob。
+
 ## <a name="event-hub"></a>事件中樞
-[事件中樞](https://azure.microsoft.com/services/event-hubs/) 是具高延展性的發佈-訂閱事件擷取器。 它每秒可以收集數百萬個事件。  事件中樞做為輸出的其中一個使用時機，就是當串流分析工作的輸出將成為另一個串流工作的輸入時。
+[事件中樞](https://azure.microsoft.com/services/event-hubs/) 是具高延展性的發佈-訂閱事件擷取器。 它每秒可以收集數百萬個事件。 當串流分析作業成為另一個串流作業的輸入時，就會使用事件中樞作為輸出。
 
 設定事件中樞串流做為輸出時，需要幾個參數。
 
@@ -175,7 +184,7 @@ ms.lasthandoff: 10/11/2017
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個事件中樞。 |
 | 服務匯流排 命名空間 |服務匯流排命名空間是一個容器，包含一組訊息實體。 建立新的事件中樞時，也會建立服務匯流排命名空間 |
 | 事件中樞 |事件中樞輸出的名稱 |
-| 事件中樞原則名稱 |共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
+| 事件中樞原則名稱 |共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰 |
 | 事件中樞原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 資料分割索引鍵資料行 [選用] |這個資料行包含事件中樞輸出的資料分割索引鍵。 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
@@ -187,7 +196,7 @@ ms.lasthandoff: 10/11/2017
 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。 這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
 
 ### <a name="authorize-a-power-bi-account"></a>授權 Power BI 帳戶
-1. 在 Azure 入口網站中選取 Power BI 作為輸出時，您將會收到提示，要授權現有的 Power BI 使用者或建立新的 Power BI 帳戶。  
+1. 在 Azure 入口網站中選取 Power BI 作為輸出時，您會收到提示，要授權現有的 Power BI 使用者或建立新的 Power BI 帳戶。  
    
    ![授權 Power BI 使用者](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. 如果您尚未擁有帳戶，請建立新帳戶，然後按一下 [立即授權]。  會顯示類似下列的畫面：  
@@ -208,14 +217,14 @@ ms.lasthandoff: 10/11/2017
 如需設定 Power BI 輸出和儀表板的逐步解說，請參閱 [Azure 串流分析與 Power BI](stream-analytics-power-bi-dashboard.md) 文章。
 
 > [!NOTE]
-> 未在 Power BI 儀表板中明確建立資料集和資料表。 當工作開始並將輸出提取至 Power BI 時，就會自動填入資料集和資料表。 請注意，如果工作查詢沒有產生任何結果，將不會建立資料集和資料表。 也請注意，如果 Power BI 已經具有與串流分析工作中提供的名稱相同的資料集和資料表，可能會覆寫現有的資料。
+> 未在 Power BI 儀表板中明確建立資料集和資料表。 當作業開始並將輸出提取至 Power BI 時，就會自動填入資料集和資料表。 請注意，如果作業查詢沒有產生任何結果，則不會建立資料集和資料表。 請注意，如果 Power BI 已經具有與串流分析作業中提供的名稱相同的資料集和資料表，則會覆寫現有的資料。
 > 
 > 
 
 ### <a name="schema-creation"></a>建立結構描述
-如果 Power BI 資料集和資料表尚不存在，則 Azure 串流分析會代表使用者建立一個。 在其他情況下，則會以新的值更新資料表。目前的限制是一個資料集內只能存在一個資料表。
+如果 Power BI 資料集和資料表尚不存在，則 Azure 串流分析會代表使用者建立一個。 在其他情況下，則會以新的值更新資料表。 目前的限制是一個資料集內只能存在一個資料表。
 
-### <a name="data-type-conversion-from-asa-to-power-bi"></a>從 ASA 至 Power BI 的資料類型轉換
+### <a name="data-type-conversion-from-stream-analytics-to-power-bi"></a>從串流分析至 Power BI 的資料類型轉換
 如果輸出結構描述變更，則 Azure 串流分析會在執行階段動態更新資料模型。 所有資料行名稱變更、資料行類型變更以及資料行新增或移除都會加以追蹤。
 
 如果 POWER BI 資料集和資料表不存在，此資料表包含從[串流分析資料類型](https://msdn.microsoft.com/library/azure/dn835065.aspx)至 Power BI [實體資料模型 (EDM) 類型](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)的資料類型轉換。
@@ -224,8 +233,8 @@ ms.lasthandoff: 10/11/2017
 從串流分析 | 至 Power BI
 -----|-----|------------
 bigint | Int64
-nvarchar(max) | String
-datetime | DateTime
+nvarchar(max) | 字串
+Datetime | DateTime
 float | 兩倍
 記錄陣列 | 字串類型、常數值 “IRecord” 或 “IArray”
 
@@ -235,16 +244,16 @@ float | 兩倍
 應該避免 `SELECT *` 查詢，以防止跨越資料列的動態結構描述更新。 除了潛在的效能影響以外，也可能導致結果所花費的時間不定。 應選取必須顯示在 Power BI 儀表板上的確切欄位。 此外，資料值應該與所選的資料類型相符。
 
 
-先前/目前 | Int64 | String | DateTime | 兩倍
+先前/目前 | Int64 | 字串 | DateTime | 兩倍
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | 兩倍
-兩倍 | 兩倍 | String | String | 兩倍
-String | String | String | String |  | String | 
-DateTime | String | String |  DateTime | String
+Int64 | Int64 | 字串 | 字串 | 兩倍
+兩倍 | 兩倍 | 字串 | 字串 | 兩倍
+字串 | 字串 | 字串 | 字串 |  | 字串 | 
+DateTime | 字串 | 字串 |  DateTime | 字串
 
 
 ### <a name="renew-power-bi-authorization"></a>更新 Power BI 授權
-如果您在建立工作之後或上次驗證過後變更了密碼，則需要重新驗證您的 Power BI 帳戶。 如果您在 Azure Active Directory (AAD) 租用戶上設定 Multi-Factor Authentication (MFA)，則也需要每 2 週更新一次 Power BI 授權。 此問題發生時的徵兆就是沒有工作輸出，且作業記錄檔中出現「驗證使用者錯誤」：
+如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Power BI 帳戶。 如果您在 Azure Active Directory (AAD) 租用戶上設定 Multi-Factor Authentication (MFA)，則也需要每 2 週更新一次 Power BI 授權。 此問題發生時的徵兆就是沒有工作輸出，且作業記錄檔中出現「驗證使用者錯誤」：
 
   ![Power BI 重新整理權杖錯誤](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
@@ -262,7 +271,7 @@ DateTime | String | String |  DateTime | String
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個資料表儲存體。 |
 | 儲存體帳戶 |您傳送輸出的儲存體帳戶名稱。 |
 | 儲存體帳戶金鑰 |與儲存體帳戶相關聯的存取金鑰。 |
-| 資料表名稱 |資料表的名稱。 如果資料表不存在，將會建立資料表。 |
+| 資料表名稱 |資料表的名稱。 如果資料表不存在，則會建立資料表。 |
 | 資料分割索引鍵 |包含資料分割索引鍵的輸出資料行名稱。 在構成實體主索引鍵第一個部分的指定資料表內，資料分割索引鍵是資料分割的唯一識別碼。 大小最高為 1 KB 的字串值。 |
 | 列索引鍵 |包含資料列索引鍵的輸出資料行名稱。 資料列索引鍵是指定資料分割內實體的唯一識別碼。 它可構成實體主索引鍵的第二個部分。 資料列索引鍵是大小可能高達 1 KB 的字串值。 |
 | 批次大小 |批次作業的記錄數目。 預設值通常足以應付大部分的工作，如需修改此設定的詳細資訊，請參閱 [資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) 。 |
@@ -277,7 +286,7 @@ DateTime | String | String |  DateTime | String
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個服務匯流排佇列。 |
 | 服務匯流排 命名空間 |服務匯流排命名空間是一個容器，包含一組訊息實體。 |
 | 佇列名稱 |服務匯流排佇列的名稱。 |
-| 佇列原則名稱 |當您建立佇列時，您也可以在 [佇列設定] 索引標籤上建立共用的存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰。 |
+| 佇列原則名稱 |當您建立佇列時，您也可以在 [佇列設定] 索引標籤上建立共用的存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 |
 | 佇列原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
 | 編碼 |對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式 |
@@ -293,11 +302,11 @@ DateTime | String | String |  DateTime | String
 | --- | --- |
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個服務匯流排主題。 |
 | 服務匯流排 命名空間 |服務匯流排命名空間是一個容器，包含一組訊息實體。 建立新的事件中樞時，也會建立服務匯流排命名空間 |
-| 主題名稱 |主題為訊息實體，類似於事件中樞和佇列。 它們可以收集各種裝置和服務的事件資料流。 建立主題時也會給予其特定名稱。 除非已建立訂用帳戶，否則傳送至主題的訊息將無法使用，所以請確保該主題內有一或多個訂用帳戶 |
-| 主題原則名稱 |當您建立主題時，您也可以在 [主題設定] 索引標籤上建立共用的存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
+| 主題名稱 |主題為訊息實體，類似於事件中樞和佇列。 它們可以收集各種裝置和服務的事件資料流。 建立主題時也會給予其特定名稱。 除非已建立訂用帳戶，否則無法使用傳送至主題的訊息，所以請確保該主題內有一或多個訂用帳戶 |
+| 主題原則名稱 |當您建立主題時，您也可以在 [主題設定] 索引標籤上建立共用的存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰 |
 | 主題原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
- | 編碼 |若為 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
+ | 編碼 |如果使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -305,14 +314,14 @@ DateTime | String | String |  DateTime | String
 
 以下清單詳細說明用於建立 Azure Cosmos DB 輸出的屬性名稱及其描述。
 
-* **輸出別名**：在您的 ASA 查詢中參照此輸出時所用的別名。  
+* **輸出別名**：在您的串流分析查詢中參照此輸出時所用的別名  
 * **帳戶名稱**：Cosmos DB 帳戶的名稱或端點 URI。  
 * **帳戶金鑰**：Cosmos DB 帳戶的共用存取金鑰。  
 * **資料庫**：Cosmos DB 資料庫名稱。  
 * **集合名稱模式**：要使用之集合的集合名稱或其模式。 您可以使用選用的 {partition} 語彙基元來建構集合名稱的格式，其中的資料分割會從 0 開始。 以下是有效的範例輸入：  
   1\) MyCollection – 必須要有一個名為 “MyCollection” 的集合存在。  
   2\) MyCollection{partition} – 這些集合必須存在 – "MyCollection0”、“MyCollection1”、“MyCollection2” 等，依此類推。  
-* **資料分割索引鍵** - 選擇性。 只有當您在集合名稱模式中使用 {parition} 語彙基元時，才需要此索引鍵。 輸出事件中的欄位名稱會用來為跨集合的資料分割輸出指定索引鍵。 若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
+* **資料分割索引鍵** - 選擇性。 只有當您在集合名稱模式中使用 partition 語彙基元時，才需要此索引鍵。 輸出事件中的欄位名稱會用來為跨集合的資料分割輸出指定索引鍵。 若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
 * **文件識別碼** ：可省略。 輸出事件中的欄位名稱會用來指定主索引鍵，此為插入或更新作業的依據。  
 
 ## <a name="azure-functions-in-preview"></a>Azure Functions (處於預覽階段)
@@ -324,20 +333,20 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 | --- | --- |
 | 函式應用程式 |Azure Functions 應用程式的名稱 |
 | 函式 |Azure Functions 應用程式中函式的名稱 |
-| 批次大小上限 |此屬性可用來針對將會傳送到您 Azure Function 的每個輸出批次，設定大小上限。 根據預設，此值為 256 KB |
+| 批次大小上限 |此屬性可用來針對傳送到您 Azure Function 的每個輸出批次，設定大小上限。 根據預設，此值為 256 KB |
 | 批次計數上限  |正如其名稱所示，此屬性可讓您在傳送至 Azure Functions 的每個批次中，指定事件數目上限。 預設的最大批次計數值為 100 |
 | Key |如果您想要使用另一個訂用帳戶中的 Azure Function，可以藉由提供存取函式的金鑰來達到這個目的 |
 
 請注意，當 Azure 串流分析從 Azure 函式收到 413 (http 要求實體太大) 例外狀況時，它會縮減傳送至 Azure Functions 之批次的大小。 在 Azure 函式程式碼中，使用這個例外狀況可確保 Azure 串流分析不會傳送過大的批次。 此外，請確認函式中使用的最大批次計數和大小值都符合串流分析入口網站中輸入的值。 
 
-此外，如果在某個時間範圍內沒有登陸任何事件，則不會產生任何輸出。 如此一來，將不會呼叫 computeResult 函式。 此行為與內建的視窗型彙總函式一致。
+此外，如果在某個時間範圍內沒有登陸任何事件，則不會產生任何輸出。 如此一來，就不會呼叫 computeResult 函式。 此行為與內建的視窗型彙總函式一致。
 
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>後續步驟
-以上就是串流分析 (物聯網資料串流分析專用的受管理服務) 的簡介。 若要深入了解此服務，請參閱：
+以上就是串流分析 (物聯網資料串流分析專用的受控服務) 的簡介。 若要深入了解此服務，請參閱：
 
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)

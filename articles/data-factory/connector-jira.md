@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 74b5a792fcc94c4a9ae45b07604e1b392b8df7d1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 83d8c275e533c59f9380d9c44735912b9219a068
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 Jira 複製資料
 
@@ -51,7 +51,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | host | Jira 服務的 IP 位址或主機名稱。 (例如 jira.example.com)  | yes |
 | 連接埠 | Jira 伺服器用來接聽用戶端連線的 TCP 連接埠。 若透過 HTTPS 連線，預設值為 443，或者，若透過 HTTP 連線，則為 8080。  | 否 |
 | username | 您用來存取 Jira 服務的使用者名稱。  | yes |
-| password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | yes |
+| password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |

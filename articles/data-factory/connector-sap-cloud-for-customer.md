@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Cloud for Customer (C4C) 複製資料
 
@@ -42,12 +42,12 @@ ms.lasthandoff: 01/11/2018
 
 以下是針對 SAP Cloud for Customer 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**SapCloudForCustomer**。 | 是 |
-| url | SAP C4C OData 服務的 URL。 | 是 |
-| username | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
-| password | 指定您為 username 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | 是 |
+| type | type 屬性必須設定為：**SapCloudForCustomer**。 | yes |
+| url | SAP C4C OData 服務的 URL。 | yes |
+| username | 指定要連線到 SAP C4C 的使用者名稱。 | yes |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
@@ -82,10 +82,10 @@ ms.lasthandoff: 01/11/2018
 
 若要從 SAP Cloud for Customer 複製資料，請將資料集的 type 屬性設定為 **SapCloudForCustomerResource**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為：**SapCloudForCustomerResource** |是 |
-| path | 指定 SAP C4C OData 實體的路徑。 |是 |
+| type | 資料集的 type 屬性必須設定為：**SapCloudForCustomerResource** |yes |
+| path | 指定 SAP C4C OData 實體的路徑。 |yes |
 
 **範例：**
 
@@ -113,9 +113,9 @@ ms.lasthandoff: 01/11/2018
 
 若要從 SAP Cloud for Customer 複製資料，請將複製活動中的來源類型設定為 **SapCloudForCustomerSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**SapCloudForCustomerSource**  | 是 |
+| type | type 屬性必須設定為：**SapCloudForCustomerSource**  | yes |
 | query | 指定自訂 OData 查詢來讀取資料。 | 否 |
 
 取得特定日之資料的範例查詢：`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -156,9 +156,9 @@ ms.lasthandoff: 01/11/2018
 
 若要將資料複製到 SAP Cloud for Customer，請將複製活動中的接收類型設定為 **SapCloudForCustomerSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**SapCloudForCustomerSink**  | 是 |
+| type | type 屬性必須設定為：**SapCloudForCustomerSink**  | yes |
 | writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 編號 預設值為 “Insert”。 |
 | writeBatchSize | 寫入作業的批次大小。 要取得最佳效能的批次大小可能會隨著資料表或伺服器而有所不同。 | 編號 預設值為 10。 |
 

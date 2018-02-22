@@ -1,3 +1,26 @@
+---
+title: "用串流分析：即時詐騙偵測 | Microsoft Docs"
+description: "了解如何使用串流分析建立即時詐騙偵測解決方案。 使用事件中樞以即時處理事件。"
+keywords: "異常偵測, 詐騙偵測, 即時異常偵測"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐騙偵測
 
 本教學課程提供如何使用 Azure 串流分析的端對端實例。 您會了解如何： 
@@ -14,7 +37,7 @@
 
 電信公司有大量的資料都是來電。 該公司想要即時偵測詐騙電話，以便通知客戶或針對特定號碼停止服務。 有一種 SIM 詐騙牽涉到同一身分識別大約在同一時間從不同地理位置撥來很多通電話。 為了偵測這種詐騙，該公司需要檢查來電記錄並尋找特定模式。在此案例中，是檢查大約在同一時間從不同國家/地區的來電。 任何歸類到此類別的電話記錄會寫入儲存體，以進一步分析。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在本教學課程中，您會透過用戶端應用程式來產生範例通話中繼資料，以模擬通話資料。 該應用程式會產生一些很像是詐騙電話的記錄。 
 
