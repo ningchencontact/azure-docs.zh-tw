@@ -42,6 +42,8 @@
 #### [訊息傳輸、 鎖定和結算](message-transfers-locks-settlement.md)
 #### [訊息排序以及時間戳記](message-sequencing.md)
 #### [訊息到期 (存留時間)](message-expiration.md)
+#### [使用 Azure 事件格線處理訊息](service-bus-to-event-grid-integration-concept.md)
+#### [Azure 事件格線範例](service-bus-to-event-grid-integration-example.md)
 ### [驗證和授權](service-bus-authentication-and-authorization.md)
 #### [從 ACS 移轉至 SAS](service-bus-migrate-acs-sas.md)
 #### [使用共用存取簽章進行驗證](service-bus-sas.md)

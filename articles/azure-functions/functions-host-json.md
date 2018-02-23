@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 參考
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性 |預設值  | 說明 |
 |---------|---------|---------| 
 |batchSize|1000|要彙總的要求數目上限。| 
 |flushTimeout|00:00:30|要彙總的最長期間。| 
@@ -237,25 +237,7 @@ ms.lasthandoff: 02/01/2018
 
 [儲存體佇列觸發程序和繫結](functions-bindings-storage-queue.md)的組態設定。
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|屬性  |預設值 | 說明 |
-|---------|---------|---------| 
-|maxPollingInterval|60000|佇列輪詢之間的間隔上限 (毫秒)。| 
-|visibilityTimeout|0|處理訊息失敗時，重試之間的時間間隔。| 
-|batchSize|16|要平行取出和處理的佇列訊息數目。 最大值為 32。| 
-|maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。| 
-|newBatchThreshold|batchSize/2|提取新批次之訊息的臨界值。| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -268,6 +250,7 @@ ms.lasthandoff: 02/01/2018
 Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一支援的 GitHub 問題](https://github.com/Azure/azure-webjobs-sdk-script/issues/912)。
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

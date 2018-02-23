@@ -25,6 +25,7 @@
 ###### [模擬的資料](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [使用真實的感應器](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [實作韌體更新](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [連接您的 MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### 使用說明指南
 #### 連接模擬的裝置
@@ -76,7 +77,7 @@
 ## 連線的處理站
 ### [為連線的處理站部署閘道](iot-suite-connected-factory-gateway-deployment.md)
 ### [自訂已連線處理站](iot-suite-connected-factory-customize.md)
-### [針對連線的處理站使用 OPC 發行者](iot-suite-connected-factory-publisher.md)
+### [針對連線的處理站使用 OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [設定已連線處理站](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com 的權限](iot-suite-permissions.md)
 
@@ -98,5 +99,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [常見問題集](iot-suite-faq.md)
+## [遠端監視的常見問題集](iot-suite-faq-rm-v2.md)
 ## [連線的處理站常見問題](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT 套件的學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

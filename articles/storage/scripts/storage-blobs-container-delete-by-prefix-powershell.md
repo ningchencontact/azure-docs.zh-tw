@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -Name containerdeletetestrg
 
 此指令碼使用下列命令，根據容器名稱前置詞來刪除容器。 下表中的每個項目都會連結至特定命令的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | 取得資源群組中或訂用帳戶中指定的儲存體帳戶或所有儲存體帳戶。 |
 | [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | 列出與儲存體帳戶關聯的儲存體容器。 |

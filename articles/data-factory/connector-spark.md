@@ -49,7 +49,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | host | Spark 伺服器的 IP 位址或主機名稱  | yes |
 | 連接埠 | Spark 伺服器用來接聽用戶端連線的 TCP 連接埠。  | yes |
 | serverType | Spark 伺服器的類型。 <br/>允許的值為：**SharkServer**、**SharkServer2**、**SparkThriftServer** | 否 |
-| thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值為：**Binary**、**SASL****HTTP ** | 否 |
+| thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值為：**Binary**、**SASL**、 ** HTTP ** | 否 |
 | authenticationType | 用來存取 Spark 伺服器的驗證方法。 <br/>允許的值為：**Anonymous**、**Username****UsernameAndPassword****WindowsAzureHDInsightService** | yes |
 | username | 您用來存取 Spark 伺服器的使用者名稱。  | 否 |
 | password | 對應到使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |

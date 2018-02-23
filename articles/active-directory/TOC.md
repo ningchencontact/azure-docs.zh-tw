@@ -88,6 +88,7 @@
 #### [群組型授權的 Azure PowerShell 範例](active-directory-licensing-ps-examples.md)
 #### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
 ### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
+### [為群組強制執行命名原則](groups-naming-policy.md)
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
 ### [還原已刪除的 Office 365 群組](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [遠端桌面](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [疑難排解](active-directory-application-proxy-troubleshoot.md)
+
 
 ### 管理企業應用程式
 #### [指派使用者](active-directory-coreapps-assign-user-azure-portal.md)

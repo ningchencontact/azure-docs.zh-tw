@@ -43,6 +43,7 @@
 ## 建立和管理集區
 ### [自動調整計算節點](batch-automatic-scaling.md)
 ### [計算密集 VM](batch-pool-compute-intensive-sizes.md)
+### [設定計算節點的存取](pool-endpoint-configuration.md)
 ### [以自訂映像建立集區](batch-custom-images.md)
 ### [在虛擬網路中建立集區](batch-virtual-network.md)
 ### [Linux 計算節點](batch-linux-nodes.md)
@@ -107,7 +108,7 @@
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [部落格](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Azure 中的 HPC 解決方案](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [定價](https://azure.microsoft.com/pricing/details/batch/)
+## [價格](https://azure.microsoft.com/pricing/details/batch/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

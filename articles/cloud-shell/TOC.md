@@ -1,23 +1,22 @@
 # [概觀](overview.md)
 
 # 快速入門
-## [Bash 的快速入門](quickstart.md)
-## [PowerShell 的快速入門](quickstart-powershell.md)
+## [Bash - 快速入門](quickstart.md)
+## [PowerShell - 快速入門](quickstart-powershell.md)
 
 # 概念
-## [Bash 中的功能和工具](features.md)
-## [PowerShell 中的功能和工具](features-powershell.md)
+## [Bash - 功能和工具](features.md)
+## [PowerShell - 功能和工具](features-powershell.md)
 ## [限制](limitations.md)
 
 # 作法
-## [Bash 中的持續性儲存體](persisting-shell-storage.md)
-## [PowerShell 中的持續性儲存體](persisting-shell-storage-powershell.md)
+## [Bash - 持續性儲存體](persisting-shell-storage.md)
+## [PowerShell - 持續性儲存體](persisting-shell-storage-powershell.md)
 ## [使用時段](using-the-shell-window.md)
 
 # 範例
-## [在 Bash 中部署 Azure 資源與 Terraform](example-terraform-bash.md)
-
-## [Bash 中執行 Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash - 使用 Terraform 建立資源](example-terraform-bash.md)
+## [Bash - 執行 Ansible 腳本](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [內嵌 Cloud Shell](embed-cloud-shell.md)
 
