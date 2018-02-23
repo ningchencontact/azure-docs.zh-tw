@@ -31,6 +31,9 @@
 #### [進階自動調整](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [應用程式擴展集](virtual-machine-scale-sets-deploy-app.md)
 ### [使用資料磁碟搭配擴展集](virtual-machine-scale-sets-attached-disks.md)
+### 在擴展集中加密磁碟
+#### [使用 PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [使用 Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [使用大型擴展集](virtual-machine-scale-sets-placement-groups.md)
 ### [將擴展集範本轉換為使用受控磁碟](virtual-machine-scale-sets-convert-template-to-md.md)
 

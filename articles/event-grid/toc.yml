@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: 使用說明指南
   items:
+    - name: 接收 HTTP 端點的事件
+      href: receive-events.md
     - name: 將資料從事件中樞串流至資料倉儲
       href: event-grid-event-hubs-integration.md
     - name: 傳送關於 IoT 中樞事件的通知

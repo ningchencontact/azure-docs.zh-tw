@@ -23,6 +23,10 @@
       items:
         - name: 透過 Linux VM
           href: msi-tutorial-linux-vm-access-arm.md
+    - name: 使用虛擬機器 MSI 存取 Azure Cosmos DB
+      items:
+        - name: 透過 Linux VM
+          href: msi-tutorial-linux-vm-access-cosmosdb.md
     - name: 使用 VM MSI 存取 Azure 儲存體
       items:
         - name: 透過 Linux VM 使用存取金鑰

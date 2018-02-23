@@ -23,6 +23,7 @@
 ### [MPP 架構](massively-parallel-processing-mpp-architecture.md)
 ### [效能層級](performance-tiers.md)
 ### [資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [向外延展、暫停、繼續](sql-data-warehouse-manage-compute-overview.md)
 ### [資料倉儲備份](sql-data-warehouse-backups.md)
 ### [稽核](sql-data-warehouse-auditing-overview.md)
 ### [容量限制](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## 監視與微調
-### [指導方針](resource-classes-for-workload-management.md)
+### [工作負載管理](resource-classes-for-workload-management.md)
 ### [資料行存放區壓縮](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [監視](sql-data-warehouse-manage-monitor.md)
 ### [疑難排解](sql-data-warehouse-troubleshoot.md)

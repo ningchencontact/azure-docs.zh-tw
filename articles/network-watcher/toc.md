@@ -61,6 +61,7 @@
 # 作法
 ## [透過 Azure 自動化監控 VPN 閘道](network-watcher-monitor-with-azure-automation.md)
 ## [透過 VPN 閘道診斷內部部署連線能力](network-watcher-diagnose-on-premises-connectivity.md)
+## [監視網路連線](connection-monitor.md)
 ## [使用 PowerShell 在您的網路上執行合規性和稽核](network-watcher-nsg-auditing-powershell.md)
 ## [在 Azure Log Analytics 中分析應用程式閘道](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## 封包擷取

@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: 從 Azure 備份伺服器復原資料
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure 檔案共用
+      items:
+        - name: 備份 Azure 檔案共用
+          href: backup-azure-files.md
+        - name: 備份 Azure 檔案共用常見問題集
+          href: backup-azure-files-faq.md
+        - name: 針對 Azure 檔案共用備份進行移難排解
+          href: troubleshoot-azure-files.md
     - name: Azure VM
       items:
         - name: 準備 VM
@@ -183,7 +191,7 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: 針對 Azure 備份伺服器進行疑難排解
           href: backup-azure-mabs-troubleshoot.md
-        - name: 針對 System Center Data Protection Manager 的問題進行疑難排解
+        - name: 針對 System Center Data Protection Manager 疑難排解
           href: backup-azure-scdpm-troubleshooting.md
         - name: 針對 Azure 備份代理程式進行疑難排解
           href: backup-azure-mars-troubleshoot.md

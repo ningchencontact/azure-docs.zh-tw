@@ -41,7 +41,7 @@
               href: apache-hadoop-use-hive-ambari-view.md
             - name: 使用 BeeLine
               href: apache-hadoop-use-hive-beeline.md
-            - name: 使用 cURL
+            - name: 使用 REST API
               href: apache-hadoop-use-hive-curl.md
             - name: 使用 Azure PowerShell
               href: apache-hadoop-use-hive-powershell.md
@@ -288,6 +288,9 @@
               maintainContext: true
         - name: 縮放 HDInsight 叢集
           href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: 使用外部中繼資料存放區
+          href: ../hdinsight-use-external-metadata-stores.md
           maintainContext: true
         - name: 管理 HDInsight 叢集的記錄
           href: ../hdinsight-log-management.md
