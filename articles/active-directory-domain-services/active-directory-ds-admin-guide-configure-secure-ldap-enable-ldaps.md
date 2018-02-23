@@ -1,4 +1,4 @@
----
+﻿---
 title: "在 Azure AD Domain Services 中設定安全的 LDAP (LDAPS) | Microsoft Docs"
 description: "針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)"
 services: active-directory-ds
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/16/2017
 * 確認 LDAP 用戶端 (例如 ldp.exe) 是使用 DNS 名稱來連線至安全 LDAP 端點，而不是使用 IP 位址。
 * 確認 LDAP 用戶端所連線的 DNS 名稱會解析成受控網域上安全 LDAP 的公用 IP 位址。
 * 確認受控網域之安全 LDAP 憑證的「主體」和「主體別名」屬性中有 DNS 名稱。
-* 如果您要透過網際網路的安全 LDAP 連線，請確定虛擬網路的 NSG 設定允許來自網際網路的流量傳至連接埠 636。
+* 如果您是透過網際網路的安全 LDAP 來連線的，請確定虛擬網路的 NSG 設定允許流量從網際網路傳送至連接埠 636。
 
 如果您仍然無法使用安全 LDAP 來連線至受控網域，請[連絡產品小組](active-directory-ds-contact-us.md)以取得協助。 請包含下列資訊來協助進一步診斷問題：
 * ldp.exe 進行連線及失敗時的螢幕擷取畫面。
