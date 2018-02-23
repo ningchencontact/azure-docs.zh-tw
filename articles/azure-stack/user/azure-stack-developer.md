@@ -3,8 +3,8 @@ title: "開發適用於 Azure Stack 的應用程式 | Microsoft Docs"
 description: "了解在 Azure Stack 上建立原型應用程式的開發考量"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 062c17173f87eec8e0eaa3f74323cbf8a8f48571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 4b9e0f5a264296e59579539dd929f5d75a54b62a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="develop-for-azure-stack"></a>開發 Azure Stack
 即使您沒有 Azure Stack 環境的存取權，您也可以現在就開始開發應用程式。 因為 Azure Stack 會傳遞在您資料中心執行的 Microsoft Azure 服務，所以您可以使用類似工具和流程針對 Azure Stack 進行開發，就如同您為 Azure 進行開發一樣。  只需要跟隨下列主題的準備和指導，您就可以使用 Azure 來模擬 Azure Stack 環境：

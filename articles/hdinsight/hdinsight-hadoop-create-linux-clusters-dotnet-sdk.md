@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 8a48579d380784c2c653f8e4be26af51863db578
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
@@ -397,8 +397,6 @@ static void Main(string[] args)
 * [利用 Livy 在 Spark 叢集上遠端執行工作](spark/apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](spark/apache-spark-eventhub-streaming.md)
-
 ### <a name="run-jobs"></a>執行工作
 * [使用 .NET SDK 在 HDInsight 中執行 Hive 工作](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中執行 Pig 工作](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

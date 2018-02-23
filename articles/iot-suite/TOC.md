@@ -17,7 +17,6 @@
 #### [azureiotsuite.com 的權限](iot-suite-v1-permissions.md)
 #### [遠端監視解決方案的逐步解說](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [連接您的 Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [連接您的 MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### 使用 C
 ###### [模擬的資料](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [使用真實的感應器](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [模擬的資料](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [使用真實的感應器](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [實作韌體更新](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [連接您的 MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### 使用說明指南
 #### 連接模擬的裝置
@@ -99,5 +99,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [常見問題集](iot-suite-faq.md)
+## [遠端監視的常見問題集](iot-suite-faq-rm-v2.md)
 ## [連線的處理站常見問題](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT 套件的學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

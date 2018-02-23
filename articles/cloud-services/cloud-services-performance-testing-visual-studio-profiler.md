@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 各種工具和技術可用於測試雲端服務的效能。
@@ -44,31 +44,35 @@ ms.lasthandoff: 10/27/2017
 
 舉例來說，會在專案中新增某個程式碼，而這個程式碼耗用許多時間，並且示範某個明顯的效能問題。 例如，將下列程式碼新增至背景工作角色專案：
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 請在背景工作角色的 RoleEntryPoint 衍生類別中，從 RunAsync 方法呼叫此程式碼。 (忽略有關同步執行方法的警告。)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 在方案組態設定為 [發行] 的情況下，在本機建置和執行雲端服務，而不要進行偵錯 (Ctrl+F5)。 這確保建立在本機執行應用程式的所有檔案和資料夾，並確保已啟動所有模擬器。 從工作列啟動 Compute Emulator UI，以驗證您的背景工作角色執行中。
 
@@ -88,9 +92,11 @@ ms.lasthandoff: 10/27/2017
  您也可以藉由連結至 WaIISHost.exe 來連結至 Web 角色。
 如果您的應用程式中有多個背景工作角色程序，則需使用 processID 進行區別。 您可以存取 Process 物件，以透過程式設計方式查詢 processID。 例如，如果您將此程式碼新增至角色中 RoleEntryPoint 衍生類別的 Run 方法，則可以查看計算模擬器 UI 中的記錄，得知要連線的程序。
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 若要檢視記錄，請啟動計算模擬器 UI。
 
@@ -126,16 +132,18 @@ ms.lasthandoff: 10/27/2017
 ## <a name="4-make-changes-and-compare-performance"></a>4：進行變更與比較效能
 您也可以在變更程式碼之前和之後比較效能。  請停止執行中流程並編輯程式碼，以使用 StringBuilder 取代字串串連作業：
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 請進行另一個效能執行，然後比較效能。 在 [效能總管] 中，如果這些執行都位於相同的工作階段中，則只能選取兩份報告，並開啟捷徑功能表，然後選擇 [比較效能報告]。 如果您想要與另一個效能工作階段中的執行進行比較，請開啟 [分析] 功能表，然後選擇 [比較效能報告]。 請在顯示的對話方塊中指定兩個檔案。
 
