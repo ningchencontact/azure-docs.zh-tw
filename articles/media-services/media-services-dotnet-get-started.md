@@ -153,7 +153,7 @@ ms.lasthandoff: 01/05/2018
 
 下面所定義的 **UploadFile** 方法會呼叫 **CreateFromFile** (定義於 .NET SDK 延伸模組中)。 **CreateFromFile** 會建立要在其中上傳指定來源檔案的新資產。
 
-**CreateFromFile** 方法會採用 **AssetCreationOptions，以讓您指定下列其中一個資產建立選項：
+**CreateFromFile** 方法會採用 \**AssetCreationOptions，以讓您指定下列其中一個資產建立選項：
 
 * **None** - 不使用加密。 這是預設值。 請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
   如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。
