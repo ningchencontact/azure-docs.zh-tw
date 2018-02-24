@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [建立連接 Azure 的函式](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [在 Linux 上部署 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [在 Linux 上部署 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # 範例
 ## Azure CLI
