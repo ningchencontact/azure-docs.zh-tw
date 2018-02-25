@@ -373,8 +373,6 @@
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
         - name: 繫結至 Azure Functions
           href: ../azure-functions/functions-bindings-documentdb.md
-        - name: 以 Hadoop 分析資料
-          href: run-hadoop-with-hdinsight.md
         - name: 與 Azure 搜尋服務整合
           href: ../search/search-howto-index-documentdb.md
         - name: 使用 Azure Data Factory 移動資料
