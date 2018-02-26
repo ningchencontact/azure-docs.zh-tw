@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼範例的 web 應用程式，從備份還原 |Microsoft 文件"
-description: "Azure CLI 指令碼範例的 web 應用程式，從備份還原"
+title: "Azure CLI 指令碼範例 - 從備份還原 Web 應用程式 | Microsoft Docs"
+description: "Azure CLI 指令碼範例 - 從備份還原 Web 應用程式"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,7 +16,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: bec915f3e321cf2422f7cc2cad3ce1dfb6b3317a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/08/2017
 | 命令 | 注意 |
 |---|---|
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | 取得 Web 應用程式的備份清單。 |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | 從備份中還原 web 應用程式。 |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | 從備份還原 Web 應用程式。 |
 
 ## <a name="next-steps"></a>後續步驟
 

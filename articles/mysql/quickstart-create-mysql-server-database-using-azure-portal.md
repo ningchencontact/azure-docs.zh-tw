@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: f427b23ca4b48da79759584bdcc98c1002c054c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Database for MySQL 伺服器
 適用於 MySQL 的 Azure 資料庫是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 本快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立 Azure Database for MySQL 伺服器。  
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 請依照下列步驟來建立 Azure Database for MySQL 伺服器：
 
-1. 選取入口網站左上角的 [新增] 按鈕 (+)。
+1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。
 
 2. 選取 [資料庫] > [Azure Database for MySQL]。 您也可以在搜尋方塊中輸入 **MySQL** 以尋找此服務。
 

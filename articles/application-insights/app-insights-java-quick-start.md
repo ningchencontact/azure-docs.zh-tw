@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>開始監視 Java Web 應用程式
 
@@ -42,11 +42,11 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 Application Insights 可以從任何連上網際網路的應用程式收集遙測資料，而不論應用程式在內部部署或雲端中執行。 請使用下列步驟來開始檢視此資料。
 
-1. 選取 [新增] > **[監視 + 管理]** > **[Application Insights]**。
+1. 選取 [建立資源] > **[監視 + 管理]** > **[Application Insights]**。
 
    ![新增 Application Insights 資源](./media/app-insights-java-quick-start/001-j.png)
 
-   將會出現設定方塊，請根據下表來填寫輸入欄位。
+   設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
     | 設定        | 值           | 說明  |
    | ------------- |:-------------|:-----|

@@ -1,8 +1,8 @@
-您可在 [Azure 入口網站](https://portal.azure.com)中使用 [瀏覽] 刀鋒視窗來存取快取。
+您可以從 [Azure 入口網站](https://portal.azure.com)中的 [所有服務] 存取快取。
 
 ![Azure Redis 快取瀏覽刀鋒視窗](media/redis-cache-browse/redis-cache-browse.png)
 
-若要檢視您的快取，請按一下 [更多服務] > [Redis 快取]。 如果您最近曾瀏覽至 [Redis 快取]，您就可以直接從清單中按一下 [Redis 快取]，而不需按一下 [更多服務]。
+若要檢視您的快取，請按一下 [所有服務] 並搜尋 [Redis 快取]。 
 
 選取所需的快取，以檢視和設定該快取的設定。
 

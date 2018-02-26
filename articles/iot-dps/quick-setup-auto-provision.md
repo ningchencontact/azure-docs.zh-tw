@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 
 2. 選取 [物聯網]，選取 [IoT 中樞]，然後按一下 [建立] 按鈕。 
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>建立 IoT 中樞裝置佈建服務的新執行個體
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 
-2. 針對**裝置佈建服務***搜尋 Marketplace*。 選取 **IoT 裝置佈建服務**，然後按一下 [建立] 按鈕。 
+2. 針對**裝置佈建服務***搜尋 Marketplace*。 選取 [IoT 中樞裝置佈建服務]，然後按一下 [建立] 按鈕。 
 
 3. 輸入裝置佈建服務執行個體的 [名稱]。 選取要用於此執行個體的訂用帳戶，並且為新的或現有資源群組命名。 選取位置。 完成時，按一下 [建立]。
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虛擬機器擴展集和連結的資料磁碟
 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)現在支援具有連線資料磁碟的虛擬機器。 您可以在使用 Azure 受控磁碟建立的擴展集儲存體設定檔中定義資料磁碟。 先前擴展集中 VM 唯一可用的直接連結儲存體選項是作業系統磁碟機和暫存磁碟機。
@@ -61,6 +61,59 @@ az vmss create --help
 ```
 
 您可以在此看到完整、可立即部署並已定義連結磁碟的擴展集範例︰[https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data)。
+
+## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>使用連結的資料磁碟建立 Service Fabric 叢集
+在 Azure 中執行之 [Service Fabric](/azure/service-fabric) 叢集中的每個[節點類型](../service-fabric/service-fabric-cluster-nodetypes.md)都是由虛擬機器擴展集提供支援。  使用 Azure Resource Manager 範本，您可以將資料磁碟連結到構成 Service Fabric 叢集的擴展集。 您可使用[現有範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)作為起點。 在範本中，於 Microsoft.Compute/virtualMachineScaleSets 資源的 storageProfile 中包含 dataDisks 區段並部署範本。 下列範例會連結 128 GB 資料磁碟：
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+您可以在部署叢集時自動分割、格式化及掛接資料磁碟。  將自訂指令碼擴充新增至擴展集之 virtualMachineProfile的 extensionProfile。
+
+若要在 Windows 叢集中自動準備資料磁碟，請新增下列內容：
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+若要在 Linux 叢集中自動準備資料磁碟，請新增下列內容：
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>將資料磁碟新增至現有的擴展集
 > [!NOTE]

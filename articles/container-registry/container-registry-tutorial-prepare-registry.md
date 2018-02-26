@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>準備異地複寫的 Azure Container Registry
 
@@ -47,7 +47,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 登入 [Azure 入口網站](http://portal.azure.com)。
 
-選取 [新增] > [容器] > [Azure Container Registry]。
+選取 [建立資源] > [容器] > [Azure Container Registry]。
 
 ![在 Azure 入口網站中建立容器登錄][tut-portal-01]
 

@@ -18,7 +18,7 @@ ms.date: 12/14/2017
 ms.author: janeng
 ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/15/2017
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> 使用[Get AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)取得資料庫作業的狀態，並使用[停止 AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)來取消資料庫上的更新作業。
+> 使用 [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 來取得資料庫作業的狀態，已及使用 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) 來取消資料庫的更新作業。
 
 ## <a name="clean-up-deployment"></a>清除部署
 

@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>檢視或分析以 Log Analytics 記錄搜尋所收集的資料
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/24/2017
 ## <a name="open-the-log-search-portal"></a>開啟記錄搜尋入口網站 
 從開啟記錄搜尋入口網站開始。   
 
-1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後選取 [記錄搜尋] 圖格。<br> ![[記錄搜尋] 按鈕](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 您可能已在入口網站發現 Log Analytics 資源頁面頂端的橫幅邀請您升級。<br> ![Azure 入口網站中的 Log Analytics 升級注意事項](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
@@ -50,7 +50,7 @@ Log Analytics 最近引進新的查詢語言可讓您更輕鬆地建構查詢，
 
 升級很簡單。  按一下指出 [深入了解及升級] 的橫幅來開始程序。  閱讀升級資訊分頁上有關升級的其他資訊，然後按一下 [立即升級]。
 
-此程序需要幾分鐘才能完成，在這段期間內，您可以在功能表的 [通知] 底下追蹤其進度。 您可以深入了解[新查詢語言的優點](log-analytics-log-search-upgrade.md#why-the-new-language)。
+此程序需要幾分鐘的時間才能完成，在這段期間內，您可以在功能表的 [通知] 底下追蹤其進度。 您可以深入了解[新查詢語言的優點](log-analytics-log-search-upgrade.md#why-the-new-language)。
 
 ## <a name="create-a-simple-search"></a>建立簡單搜尋
 若要擷取某些資料來使用，最快的方式是使用會傳回資料表中所有記錄的簡單查詢。  如果有任何 Windows 或 Linux 用戶端連線到您的工作區，則您會擁有事件 (Windows) 或 Syslog (Linux) 資料表中的資料。

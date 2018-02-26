@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>開始監視 Node.js Web 應用程式
 
@@ -40,11 +40,11 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 Application Insights 可以從任何連上網際網路的應用程式收集遙測資料，而不論應用程式在內部部署或雲端中執行。 請使用下列步驟來開始檢視此資料。
 
-1. 選取 [新增] > **[監視 + 管理]** > **[Application Insights]**。
+1. 選取 [建立資源] > **[監視 + 管理]** > **[Application Insights]**。
 
    ![新增 Application Insights 資源](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   將會出現設定方塊，請根據下表來填寫輸入欄位。
+   設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
     | 設定        | 值           | 說明  |
    | ------------- |:-------------|:-----|

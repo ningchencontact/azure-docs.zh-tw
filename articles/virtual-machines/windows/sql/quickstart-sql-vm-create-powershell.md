@@ -4,24 +4,27 @@ description: "本教學課程會示範如何使用 Azure PowerShell 建立 Windo
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 9af08fd46314ff102eff95e0832f7ce96bc161d6
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 來建立 SQL Server Windows 虛擬機器
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 SQL Server Windows 虛擬機器
 
 本快速入門會逐步說明如何使用 Azure PowerShell 來建立 SQL Server 虛擬機器。
+
+> [!TIP]
+> 本快速入門提供快速佈建及連線到 SQL VM 的途徑。 如需其他用於建立 SQL VM 之 Azure PowerShell 選項的詳細資訊，請參閱[使用 Azure PowerShell 佈建 SQL Server VM 的指南](virtual-machines-windows-ps-sql-create.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

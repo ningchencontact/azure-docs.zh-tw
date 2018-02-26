@@ -17,13 +17,13 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: c643fc9e575a8e836a361893d78348bbd627a425
 ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/09/2017
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>在 Azure Load Balancer 中開啟應用程式連接埠
 
-在 Azure 中執行的 Service Fabric 應用程式位於 Azure Load Balancer 後方。 這個範例指令碼會在 Azure Load Balancer 中開啟連接埠，以便 Service Fabric 應用程式可以與外部用戶端通訊。 視需要自訂參數。 如果您的叢集網路安全性群組中，也會[新增傳入的網路安全性群組規則](service-fabric-powershell-add-nsg-rule.md)為允許輸入的流量。
+在 Azure 中執行的 Service Fabric 應用程式位於 Azure Load Balancer 後方。 這個範例指令碼會在 Azure Load Balancer 中開啟連接埠，以便 Service Fabric 應用程式可以與外部用戶端通訊。 視需要自訂參數。 如果您的叢集位於網路安全性群組中，也要[新增輸入網路安全性群組規則](service-fabric-powershell-add-nsg-rule.md)，以允許輸入流量。
 
 如有需要，可隨同 [Service Fabric SDK](../service-fabric-get-started.md) 一起安裝 Service Fabric PowerShell 模組。 
 

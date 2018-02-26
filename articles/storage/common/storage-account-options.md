@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure 儲存體帳戶選項
 
@@ -125,7 +125,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在 [中樞] 功能表上，選取 [新增] > [資料+儲存體] > [儲存體帳戶]。
+2. 在 [中樞] 功能表上，選取 [建立資源] > [資料+儲存體] > [儲存體帳戶]。
 
 3. 輸入儲存體帳戶的名稱。
 
@@ -159,7 +159,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 瀏覽至儲存體帳戶、選取 [所有資源]，然後選取您的儲存體帳戶。
+2. 若要瀏覽至儲存體帳戶，請選取 [所有資源]，然後選取您的儲存體帳戶。
 
 3. 在 [設定] 區段中，按一下 [組態]。
 
@@ -173,7 +173,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 瀏覽至儲存體帳戶、選取 [所有資源]，然後選取您的儲存體帳戶。
+2. 若要瀏覽至儲存體帳戶，請選取 [所有資源]，然後選取您的儲存體帳戶。
 
 3. 在 [設定] 刀鋒視窗中按一下 [組態]  ，以檢視和/或變更帳戶組態。
 

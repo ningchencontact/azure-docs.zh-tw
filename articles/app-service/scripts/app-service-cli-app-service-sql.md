@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: e85b405e61460c7cde8dd8a6001add736c53c713
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>將 Web 應用程式連接至 SQL Database
 
-這個範例指令碼會建立 Azure SQL database 和 Azure web 應用程式。 然後，它會連結 SQL 資料庫到 web 應用程式使用應用程式設定。
+此範例指令碼會建立 Azure SQL Database 和 Azure Web 應用程式。 然後使用應用程式設定，將 SQL Database 連結到 Web 應用程式。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令來建立資源群組、 web 應用程式、 SQL 資料庫和所有相關的資源。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼使用下列命令來建立資源群組、Web 應用程式、SQL Database 和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意 |
 |---|---|

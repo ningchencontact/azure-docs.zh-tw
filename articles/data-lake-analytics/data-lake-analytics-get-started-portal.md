@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 現在，您會同時建立 Data Lake Analytics 和 Data Lake Store 帳戶。  這個步驟很簡單，只需要大約 60 秒即可完成。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [新增] >  [資料 + 分析] > [Data Lake Analytics]。
+2. 按一下 [建立資源] >  [資料 + 分析] > [Data Lake Analytics]。
 3. 選取下列項目的值︰
    * **名稱**：替 Data Lake Analytics 帳戶命名 (只允許小寫字母和數字)。
    * **訂用帳戶**：選擇用於分析帳戶的 Azure 訂用帳戶。

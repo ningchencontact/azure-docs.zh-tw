@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/04/2017
 
 若要建立 ILB ASE：
 
-1. 在 Azure 入口網站中選取 [新增]  >  [Web + 行動]  >  [App Service Environment]。
+1. 在 Azure 入口網站中，選取 [建立資源] > [Web + 行動] > [App Service 環境]。
 
 2. 選取您的訂用帳戶。
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/04/2017
 
 在 ILB ASE 中建立應用程式的做法，與在 ASE 中建立應用程式相同。
 
-1. 在 Azure 入口網站選取 [新增]  >  [Web + 行動]  >  [Web] 或 [行動]，或者 [API 應用程式]。
+1. 在 Azure 入口網站中，選取 [建立資源] > [Web + 行動] > [Web] 或 [行動] 或 [API 應用程式]。
 
 2. 輸入應用程式的名稱。
 

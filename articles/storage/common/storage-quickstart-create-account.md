@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>建立儲存體帳戶
 
@@ -161,7 +161,7 @@ Azure 儲存體提供兩種類型的一般用途儲存體帳戶：
 
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
-1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [更多服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
+1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [所有服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 2. 輸入儲存體帳戶的名稱。
 3. 將 [帳戶類型] 欄位設定為 [StorageV2 (一般用途 v2)]。
 4. 將 [複寫] 欄位的設定保留為 [本地備援儲存體 (LRS)]。 或者，您可以選擇 [區域備援儲存體 (ZRS 預覽版)]、[異地備援儲存體 (GRS)] 或 [讀取權限異地備援儲存體 (RA-GRS)]。

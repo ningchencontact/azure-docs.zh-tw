@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1bf366d08ba9b8cf28c266aa4ac2d521465db44b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
@@ -26,7 +26,7 @@ AKS 叢集需要 [Azure Active Directory 服務主體][aad-service-principal]，
 
 若要建立 Azure AD 服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 如果您沒有必要的權限，您可能需要要求您的 Azure AD 或訂用帳戶管理員指派必要權限，或預先建立 Kubernetes 叢集的服務主體。
 
-您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您也必須安裝和設定 Azure CLI 版本 2.0.27 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-sp-with-aks-cluster"></a>建立 SP 與 AKS 叢集
 

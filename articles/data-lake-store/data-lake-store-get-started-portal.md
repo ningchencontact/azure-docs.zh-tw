@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Store
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/10/2018
 ## <a name="create-an-azure-data-lake-store-account"></a>建立 Azure Data Lake Store 帳戶
 
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [新增]，然後依序按一下 [資料 + 儲存體] 和 [Azure Data Lake Store]。 讀取 [Azure Data Lake Store] 刀鋒視窗中的資訊，然後按一下刀鋒視窗左上角的 [建立]。
+2. 依序按一下 [建立資源]、[資料 + 儲存體] 和 [Azure Data Lake Store]。 讀取 [Azure Data Lake Store] 刀鋒視窗中的資訊，然後按一下刀鋒視窗左上角的 [建立]。
 3. 在 [新增 Data Lake Store] 刀鋒視窗中，提供如以下螢幕擷取畫面所示的值：
    
     ![建立新的 Azure Data Lake Store 帳戶](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "建立新的 Azure Data Lake 帳戶")

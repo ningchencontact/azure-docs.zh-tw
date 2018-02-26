@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼範例-建立排定的備份 web 應用程式 |Microsoft 文件"
-description: "Azure CLI 指令碼範例-建立 web 應用程式的排程的備份"
+title: "Azure CLI 指令碼範例 - 建立 Web 應用程式的排程備份 | Microsoft Docs"
+description: "Azure CLI 指令碼範例 - 建立 Web 應用程式的排程備份"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,19 +16,19 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: fe5d2ca6fe5327f40adf134e94cf9b00ad98d243
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>為 Web 應用程式建立排程備份
 
-這個範例指令碼應用程式服務中建立 web 應用程式及其相關的資源，然後為它建立排定的備份。 
+此範例指令碼會在 App Service 中建立 Web 應用程式及其相關資源，然後為其建立排程備份。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 12/12/2017
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_generate_sas) | 產生 Azure 儲存體容器的 SAS 權杖。  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 建立 App Service 方案。 |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | 建立 Azure Web 應用程式。 |
-| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_update) | 設定 web 應用程式中新的備份排程。 |
-| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_show) | 顯示 web 應用程式中的備份排程。 |
+| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_update) | 為 Web 應用程式設定新的備份排程。 |
+| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_show) | 顯示 Web 應用程式的備份排程。 |
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | 取得 Web 應用程式的備份清單。 |
 
 ## <a name="next-steps"></a>後續步驟

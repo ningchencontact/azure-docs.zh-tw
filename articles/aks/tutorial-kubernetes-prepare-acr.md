@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0bef14a03c27feb07683f4805aa4264eb91eda6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>部署和使用 Azure Container Registry
 
@@ -30,7 +30,7 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 
 在[上一個教學課程][aks-tutorial-prepare-app]中，我們已針對簡單的 Azure Voting 應用程式建立容器映像。 如果您尚未建立 Azure Voting 應用程式映像，請回到[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。
 
-本教學課程需要您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+本教學課程需要您執行 Azure CLI 2.0.27 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure Container Registry
 

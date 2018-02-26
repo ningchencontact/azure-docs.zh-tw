@@ -1,6 +1,6 @@
 ---
 title: "Azure PowerShell 指令碼範例 - 建立 Service Fabric 叢集 | Microsoft Docs"
-description: "Azure PowerShell 指令碼範例-建立三個節點測試 Service Fabric 叢集。"
+description: "Azure PowerShell 指令碼範例 - 建立三節點測試 Service Fabric 叢集。"
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -12,20 +12,20 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 03348efa4ebdaed987df73756c6b57da0cc76fb5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-three-node-test-service-fabric-cluster"></a>建立三個節點測試 Service Fabric 叢集
+# <a name="create-a-three-node-test-service-fabric-cluster"></a>建立三節點測試 Service Fabric 叢集
 
-這個範例指令碼會建立三個節點測試 Service Fabric 叢集使用 X.509 憑證保護。 因為您可以安全地執行升級，並不受個別的節點失敗 （只要這些不會同時發生） 的開發/測試支援三個節點的叢集設定。 生產環境叢集需要五個或多個節點才能具有恢復功能，同時失敗。  
+此範例指令碼會建立一個使用 X.509 憑證保護的三節點測試 Service Fabric 叢集。 開發/測試可支援三節點叢集組態，因為您可以安全地執行更新，並且在個別節點失敗時倖存 (只要那些節點不要同時發生失敗)。 生產叢集需要五個或更多節點，才能在同時發生失敗時復原。  
 
-此命令會建立自我簽署的憑證，並將它上傳至新的金鑰保存庫，這是在與叢集相同的資源群組。 憑證也會複製到本機目錄。  設定 *-OS* 參數選擇在叢集節點執行的 Windows 或 Linux 版本。  視需要自訂參數。
+此命令會建立自我簽署的憑證，並將它上傳到新的金鑰保存庫 (其建立於與叢集相同的資源群組中)。 憑證也會複製到本機目錄。  設定 *-OS* 參數選擇在叢集節點執行的 Windows 或 Linux 版本。  視需要自訂參數。
 
 您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/overview) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 
 

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4c7f48c993d66dd79538fd73ccaed1355c2e8cdd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d2d317d6c66aa0fb81779c3a8a192b6a50571d1f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
 Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容器，不需要佈建虛擬機器或採用高階服務即可完成。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 只需要一個命令就能完成這項作業。 只在幾秒內，您就能在瀏覽器中看到下列結果：
@@ -40,41 +40,32 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>建立容器
 
-您可以向 [az container create][az-container-create] 命令提供名稱、Docker 映像和 Azure 資源群組來建立容器。 您可以選擇使用公用 IP 位址向網際網路公開容器。 在本快速入門中，您會部署一個裝載以 [Node.js][node-js] 撰寫之小型 Web 應用程式的容器。
+您可以向 [az container create][az-container-create] 命令提供名稱、Docker 映像和 Azure 資源群組來建立容器。 您可藉由指定 DNS 名稱標籤，選擇性地向網際網路公開容器。 在本快速入門中，您會部署一個裝載以 [Node.js][node-js] 撰寫之小型 Web 應用程式的容器。
+
+執行下列命令以啟動容器執行個體。 `--dns-name-label` 值必須是您建立執行個體的 Azure 區域中的唯一值，因此您可能需要修改這個值以確保唯一性。
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 在幾秒內，您就能取得要求的回應。 一開始，容器會處於**建立中**狀態，但應該會在幾秒鐘內啟動。 您可以使用 [az container show][az-container-show] 命令來檢查狀態：
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-在輸出的底部，您會看到容器的佈建狀態和其 IP 位址：
+當您執行命令時，就會顯示容器的完整網域名稱 (FQDN) 及其佈建狀態：
 
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    },
-    "location:": "eastus",
-    "name": "mycontainer",
-    "osType": "Linux",
-    "provisioningState": "Succeeded"
-...
+```console
+$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-一旦容器轉為**成功**狀態時，您就可以在瀏覽器中使用提供的 IP 位址來連線至容器。
+一旦容器轉為 [成功] 狀態，您就可以在瀏覽器中瀏覽至其 FQDN 來連線至容器：
 
-![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-app-browser]
+![顯示在 Azure 容器執行個體中執行之應用程式的瀏覽器螢幕擷取畫面][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>提取容器記錄
 

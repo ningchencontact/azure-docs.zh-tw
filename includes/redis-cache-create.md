@@ -1,4 +1,4 @@
-若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [新增] > [資料庫] > [Redis 快取]。
+若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [建立資源] > [資料庫] > [Redis 快取]。
 
 > [!NOTE]
 > 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以 [免費申請 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) 。
@@ -16,12 +16,12 @@
 > 
 > 
 
-在 [新增 Redis 快取]  分頁中，指定所需的快取組態。
+在 [新增 Redis 快取] 中，指定所需的快取組態。
 
 ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * 在 [DNS 名稱] 中，輸入要用於快取端點的唯一快取名稱。 快取名稱必須是介於 1 到 63 個字元的字串，而且只能包含數字、字母和 `-` 字元。 快取名稱的開頭或結尾不能是 `-` 字元，且連續的 `-` 字元無效。
-* 針對 [訂用帳戶] ，選取您要用於快取的 Azure 訂用帳戶。 如果您的帳戶僅有一個訂用帳戶，則會自動加以選取，而且不會顯示 [訂用帳戶]  下拉式清單。
+* 針對 [訂用帳戶] ，選取您要用於快取的 Azure 訂用帳戶。 如果您的帳戶僅有一個訂用帳戶，則會自動加以選取，而且不會顯示 [訂用帳戶] 下拉式清單。
 * 在 [資源群組] 中，選取或建立快取的資源群組。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../articles/azure-resource-manager/resource-group-overview.md)。 
 * 使用 [位置]  來指定管理快取所在的地理位置。 為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
 * 使用 [價格層] 來選取需要的快取大小和功能。

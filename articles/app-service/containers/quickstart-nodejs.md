@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0013b3b1e95d733191aeafcffcda078a352d034f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 33889e391d3060f08294f81b35f180c1318d9f4c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Node.js Web 應用程式
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/03/2018
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-nodejs/hello-world-in-browser.png)
 
-您可以使用 Mac、Windows 或 Linux 機器，依照本教學課程中的步驟操作。
+您可以使用 Mac、Windows 或 Linux 機器，依照本教學課程中的步驟操作。 您也可以依照涵蓋本文的[影片](#video)操作。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -180,6 +180,10 @@ git push azure master
 左側功能表提供不同的頁面來設定您的應用程式。 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="video"></a>影片
+
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## <a name="next-steps"></a>後續步驟
 

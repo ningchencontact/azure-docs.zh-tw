@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/03/2018
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶  
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 在入口網站的左方瀏覽窗格中，依序按一下 [新增]、[儲存體] 及 [儲存體帳戶]。  
+2. 在入口網站的左方瀏覽窗格中，依序按一下 [建立資源]、[儲存體] 及 [儲存體帳戶]。  
 3. 完成 [儲存體帳戶] 視窗中的欄位，然後按一下 [建立]。
 
     ![建立儲存體帳戶][1]

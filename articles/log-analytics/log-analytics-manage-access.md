@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/13/2017
 ## <a name="determine-the-number-of-workspaces-you-need"></a>判斷您需要的工作區數目
 工作區是一種 Azure 資源，也是 Azure 入口網站中收集、彙總、分析及呈現資料的容器。
 
-每個 Azure 訂用帳戶可以有多個工作區，而且您可以存取多個工作區。 由於無法跨多個工作區進行查詢，使用最少量的工作區可讓您查詢最多資料並讓資料相互關聯。 本節描述何時有利於建立多個工作區。
+每個 Azure 訂用帳戶可以有多個工作區，而且您可以存取多個工作區。 您先前只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。 現在，您可以[跨多個工作區執行查詢](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)，這提供了一個全系統的資料檢視。 本節描述何時有利於建立多個工作區。
 
 現今的工作區可提供︰
 
@@ -62,10 +62,10 @@ ms.lasthandoff: 12/13/2017
 #### <a name="view-workspace-information-in-the-azure-portal"></a>在 Azure 入口網站中檢視工作區資訊
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 Azure 入口網站左下角的 [更多服務]。  在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [Log Analytics]。  
-    ![Azure 中樞](./media/log-analytics-manage-access/hub.png)  
-3. 在 [Log Analytics 訂用帳戶] 刀鋒視窗中選取工作區。
-4. [工作區] 刀鋒視窗會顯示工作區的詳細資料和其他資訊的連結。  
+2. 按一下 [所有服務]。  在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [Log Analytics]。  
+    ![顯示 Azure 左側功能表的螢幕擷取畫面](./media/log-analytics-manage-access/hub.png)  
+3. 在 [Log Analytics 訂用帳戶] 頁面中選取工作區。
+4. [工作區] 頁面會顯示工作區的詳細資料和其他資訊的連結。  
     ![工作區詳細資料](./media/log-analytics-manage-access/workspace-details.png)  
 
 

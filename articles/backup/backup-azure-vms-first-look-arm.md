@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
@@ -50,9 +50,9 @@ ms.lasthandoff: 01/22/2018
 使用下列步驟在 Azure 入口網站的虛擬機器管理刀鋒視窗中，設定備份作業。 下列步驟僅適用於 Azure 入口網站中的虛擬機器。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 [中樞] 功能表上按一下 [更多服務]，然後在 [篩選] 對話方塊中輸入**虛擬機器**。 當您輸入時，會一邊篩選資源清單。 當您看到虛擬機器時，請選取它。
+2. 在 [中樞] 功能表上按一下 [所有服務]，然後在 [篩選] 對話方塊中輸入**虛擬機器**。 當您輸入時，會一邊篩選資源清單。 當您看到虛擬機器時，請選取它。
 
-  ![在 [中樞] 功能表上，按一下 [更多服務]，以開啟 [文字] 對話方塊中，然後輸入虛擬機器](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![顯示如何從所有服務瀏覽至虛擬機器的螢幕擷取畫面](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   訂用帳戶中的虛擬機器 (VM) 清單隨即出現。
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 01/22/2018
 若要建立復原服務保存庫：
 
 1. 如果您尚未這麼做，請使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 [中樞] 功能表上按一下 [更多服務]，然後在 [篩選] 對話方塊中輸入**復原服務**。 當您輸入時，會一邊篩選資源清單。 當您在清單中看到 [復原服務保存庫] 時，請按一下它。
+2. 在 [中樞] 功能表上按一下 [所有服務]，然後在 [篩選] 對話方塊中輸入**復原服務**。 當您輸入時，會一邊篩選資源清單。 當您在清單中看到 [復原服務保存庫] 時，請按一下它。
 
     ![建立復原服務保存庫的步驟 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ ms.lasthandoff: 01/22/2018
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>選取備份目標、設定原則及定義要保護的項目
 在向保存庫註冊 VM 前，請先執行探索程序，以確保能夠識別任何新增至訂用帳戶的新虛擬機器。 此程序會在 Azure 中查詢訂用帳戶中的虛擬機器清單，以及其他資訊，例如雲端服務名稱、區域等。 在 Azure 入口網站中，案例是指您要放入復原服務保存庫中的項目。 原則是復原點擷取頻率和時間的排程。 原則也會包含復原點的保留範圍。
 
-1. 如果您已開啟復原服務保存庫，請繼續步驟 2。 否則，請在 [中樞] 功能表上按一下 [更多服務]，在資源清單中輸入**復原服務**，然後按一下 [復原服務保存庫]。
+1. 如果您已開啟復原服務保存庫，請繼續步驟 2。 否則，請按一下 [所有服務]。 輸入**復原服務**，然後按一下 [復原服務保存庫]。
 
     ![建立復原服務保存庫的步驟 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

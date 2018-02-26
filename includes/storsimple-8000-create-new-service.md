@@ -5,7 +5,7 @@
 
 1. 使用您的 Microsoft 帳戶認證以登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 在 Azure 入口網站中，按一下 [+]，然後在 Marketplace 中按一下 [查看全部]。
+2. 在 Azure 入口網站中，按一下 [建立資源]，然後在 Marketplace 中按一下 [查看全部]。
 
     ![建立 StorSimple 裝置管理員](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

@@ -18,7 +18,7 @@ ms.date: 12/14/2017
 ms.author: janeng
 ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/15/2017
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> 使用[az sql db op 清單](/cli/azure/sql/db/op?#az_sql_db_op_list)取得的資料庫及使用上執行的作業清單[az sql db op 取消](/cli/azure/sql/db/op#az_sql_db_op_cancel)取消資料庫上的更新作業。
+> 使用 [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) 來取得在資料庫上執行的作業清單，以及使用 [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) 來取消資料庫的更新作業。
 
 ## <a name="clean-up-deployment"></a>清除部署
 

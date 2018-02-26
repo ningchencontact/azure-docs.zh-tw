@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼-建立 Azure Cosmos DB SQL API 帳戶、 資料庫與集合 |Microsoft 文件"
-description: "Azure CLI 指令碼範例-建立 Azure Cosmos DB SQL API 帳戶、 資料庫和集合"
+title: "Azure CLI 指令碼：建立 Azure Cosmos DB SQL API 帳戶、資料庫和集合 | Microsoft Docs"
+description: "Azure CLI 指令碼範例：建立 Azure Cosmos DB SQL API 帳戶、資料庫和集合"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 3e66515c88b5b2a24d72ff5f40cd822521a71bcf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB： 建立 SQL API 帳戶使用 CLI
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 建立 SQL API 帳戶
 
-這個範例 CLI 指令碼會建立 Azure Cosmos DB SQL API 帳戶、 資料庫和集合。  
+這個範例 CLI 指令碼會建立 Azure Cosmos DB SQL API 帳戶、資料庫和集合。  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -48,9 +48,9 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az cosmosdb create](/cli/azure/cosmosdb#create) | 建立 Azure Cosmos DB 帳戶。 |
-| [az group delete](/cli/azure/resource#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | 建立 Azure Cosmos DB 帳戶。 |
+| [az group delete](/cli/azure/resource#az_resource_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

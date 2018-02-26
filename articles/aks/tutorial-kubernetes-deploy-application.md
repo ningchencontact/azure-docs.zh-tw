@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e11ded2421d24b68116e8b25edc4a23e15a37a46
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>執行 Azure Container Service (AKS) 中的應用程式
 
@@ -104,6 +104,10 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 若要查看應用程式，請瀏覽至外部 IP 位址。
 
 ![Azure 上 Kubernetes 叢集的影像](media/container-service-kubernetes-tutorials/azure-vote.png)
+
+如果應用程式並未載入，可能是因為您的映像登錄發生授權問題。
+
+請依照下列步驟來[允許透過 Kubernetes 祕密存取](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)。
 
 ## <a name="next-steps"></a>後續步驟
 

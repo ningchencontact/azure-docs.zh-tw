@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 監視 Node.js 服務和應用程式
 
@@ -47,7 +47,7 @@ Node.js SDK 可以自動監視傳入和傳出 HTTP 要求、例外狀況、和�
 
 
 1. 登入 [Azure 入口網站][portal]。
-2. 選取 [新增] > [開發人員工具] > [Application Insights]。 此資源包含用於接收遙測資料的端點、此資料的儲存體、已儲存的報告和儀表板、規則和警示組態等等。
+2. 選取 [建立資源] > [開發人員工具] > [Application Insights]。 此資源包含用於接收遙測資料的端點、此資料的儲存體、已儲存的報告和儀表板、規則和警示組態等等。
 
   ![建立 Application Insights 資源](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

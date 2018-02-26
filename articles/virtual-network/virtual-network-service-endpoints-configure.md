@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>設定虛擬網路服務端點
 
@@ -62,8 +62,8 @@ ms.lasthandoff: 02/09/2018
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)。
 使用 Azure 帳戶登入 Azure。 如果您沒有 Azure 帳戶，您可以註冊免費試用。 該帳戶必須擁有必要的[權限](#provisioning)，以便建立虛擬網路和服務端點。
-2. 按一下 [+新增] > [網路] > [虛擬網路] > [+新增]。
-3. 在 [建立虛擬網路] 中輸入下列值，然後按一下 [建立]：
+2. 按一下 [建立資源] > [網路] > [虛擬網路] > [+新增]。
+3. 在 [建立虛擬網路] 上，輸入下列值，然後按一下 [建立]：
 
 設定 | 值
 ------- | -----

@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/05/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 開啟 Azure 搜尋服務的服務儀表板。 如果您並未將服務圖格釘選至儀表板，可以用以下方式找到您的服務︰ 
    
-   * 在 Jumpbar 中，按一下左側導覽窗格底部的 [更多服務]。
+   * 在導向列中，按一下左導覽窗格上的 [所有服務]。
    * 在搜尋方塊中，輸入 search 以取得訂用帳戶的搜尋服務清單。 您的服務應該會出現在清單中。 
 
 ## <a name="check-for-space"></a>檢查空間

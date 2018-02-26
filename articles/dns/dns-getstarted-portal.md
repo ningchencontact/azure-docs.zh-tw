@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>利用 Azure 入口網站開始使用 Azure DNS
 
@@ -34,8 +34,8 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
 
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
-1. 登入 Azure 入口網站
-2. [中樞] 功能表上，按一下 [新增] > [網路] >，再按一下 [DNS 區域] 以開啟 [建立 DNS 區域] 頁面。
+1. 登入 Azure 入口網站。
+2. 在 [中樞] 功能表上，按一下 [建立資源] > [網路]，然後按一下 [DNS 區域] 以開啟 [建立 DNS 區域] 頁面。
 
     ![DNS 區域](./media/dns-getstarted-portal/openzone650.png)
 

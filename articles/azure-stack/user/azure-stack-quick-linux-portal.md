@@ -3,18 +3,19 @@ title: "Azure Stack 快速入門 - 建立 VM 入口網站"
 description: "Azure Stack 快速入門 - 使用入口網站來建立 Linux VM"
 services: azure-stack
 cloud: azure-stack
-author: vhorne
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
-ms.author: victorh
+ms.date: 12/11/2017
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d4aef23e2de327fabb1f0304d8a3db1497d55827
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站來建立 Linux 虛擬機器
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="create-the-virtual-machine"></a>建立虛擬機器
 
-1. 按一下 Azure Stack 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure Stack 入口網站左上角的 [建立資源]。
 
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 按一下頁面底部的 [新增] 。

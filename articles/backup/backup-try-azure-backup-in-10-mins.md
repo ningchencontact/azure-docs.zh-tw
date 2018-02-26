@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中備份檔案和資料夾
 本文說明如何使用 Resource Manager 部署將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。 如果您想要開始使用 Azure 備份，請閱讀本文的內容。
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="to-create-a-recovery-services-vault"></a>建立復原服務保存庫
 1. 如果您尚未這麼做，請使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com/) 。
-2. 在 [中樞] 功能表上按一下 [更多服務]，在資源清單中輸入**復原服務**，然後按一下 [復原服務保存庫]。
+2. 在 [中樞] 功能表上按一下 [所有服務]，在資源清單中輸入**復原服務**，然後按一下 [復原服務保存庫]。
 
     ![建立復原服務保存庫的步驟 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

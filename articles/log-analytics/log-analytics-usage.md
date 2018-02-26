@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 Log Analytics 包含下列資訊：收集的資料量、傳送資料的系統，以及傳送的不同資料類型。  使用 [Log Analytics 使用量] 儀表板，查看傳送到 Log Analytics 服務的資料量。 此儀表板會顯示每個解決方案所收集的資料量，以及您的電腦正在傳送的資料量。
@@ -44,13 +44,17 @@ Log Analytics 包含下列資訊：收集的資料量、傳送資料的系統，
 ![使用量儀表板](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>處理使用量資料
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. 在 Log Analytics 工作區清單中，選取工作區。
-4. 從左窗格中的清單選取 [Log Analytics 使用量]。
-5. 在 [Log Analytics 使用量] 儀表板中，按一下 [時間︰過去 24 小時] 以變更時間間隔。<br><br> ![時間間隔](./media/log-analytics-usage/time.png)<br><br>
-6. 檢視顯示您感興趣之領域的使用量類別刀鋒視窗。 選擇刀鋒視窗，然後在其中按一下某個項目以在 [記錄檔搜尋](log-analytics-log-searches.md) 中檢視詳細資料。<br><br> ![範例資料使用量刀鋒視窗](./media/log-analytics-usage/blade.png)<br><br>
-7. 在 [記錄檔搜尋] 儀表板中，檢閱搜尋傳回的結果。<br><br> ![範例使用量記錄檔搜尋](./media/log-analytics-usage/usage-log-search.png)
+1. 如果您尚未這麼做，請使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下 [所有服務]，然後在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [Log Analytics]。  
+    ![Azure 中樞](./media/log-analytics-usage/hub.png)
+3. [Log Analytics] 儀表板會顯示您的工作區清單。 選取工作區。
+4. 在 [工作區] 儀表板中，按一下 [Log Analytics 使用量]。
+5. 在 [Log Analytics 使用量] 儀表板中，按一下 [時間︰過去 24 小時] 以變更時間間隔。  
+    ![時間間隔](./media/log-analytics-usage/time.png)
+6. 檢視顯示您感興趣之領域的使用量類別刀鋒視窗。 選擇刀鋒視窗，然後在其中按一下某個項目以在 [記錄檔搜尋](log-analytics-log-searches.md) 中檢視詳細資料。  
+    ![範例資料使用量刀鋒視窗](./media/log-analytics-usage/blade.png)
+7. 在 [記錄檔搜尋] 儀表板中，檢閱搜尋傳回的結果。  
+    ![範例使用量記錄檔搜尋](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>當資料收集高於預期時建立警示
 本節說明在下列情況下如何建立警示：

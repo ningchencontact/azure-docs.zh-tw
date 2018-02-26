@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>在雲端中監視內部部署身分識別基礎結構和同步處理服務。
 Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。 它提供重要身分識別元件 (例如 Active Directory Federation Services (AD FS) 伺服器、Azure AD Connect 伺服器 (也稱為同步處理引擎)、Active Directory 網域控制站等) 的監視功能，讓您維護可靠的 Office 365 或 Microsoft Online Services 連線。它也使這些元件的相關重要資料點變得容易存取，讓您取得使用情況和其他重要情資，以做出明智的決策。
@@ -110,7 +110,7 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情況分析。 https://aka.ms/aadconnecthealth URL 會帶您前往 Azure AD Connect Health 的主要刀鋒視窗。 您可以將刀鋒視窗視為視窗。 在主要刀鋒視窗上，您會看到 [快速啟動]、Azure AD Connect Health 中的服務以及其他設定選項。 請參閱下列螢幕擷取畫面，以及螢幕擷取畫面後面的簡短說明。 部署代理程式之後，健康狀態服務會自動識別 Azure AD Connect Health 所監視的服務。
 
 > [!NOTE]
-> 如需授權資訊，請參閱 [Azure AD Connect 常見問題集](active-directory-aadconnect-health-faq.md)或 [Azure AD 定價頁面](https://aka.ms/aadpricing)。
+> 如需授權資訊，請參閱 [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)或 [Azure AD 定價頁面](https://aka.ms/aadpricing)。
     
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portal4.png)
 

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/06/2017
 「適用於 PostgreSQL 的 Azure 資料庫」伺服器是以一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)所建立。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
 請依照下列步驟來建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器：
-1.  按一下 Azure 入口網站左上角的 [+ 新增] 按鈕。
+1.  按一下 Azure 入口網站左上角的 [建立資源]。
 2.  從 [新增] 頁面中選取 [資料庫]，然後從 [資料庫] 頁面中選取 [適用於 PostgreSQL 的 Azure 資料庫]。
  ![適用於 PostgreSQL 的 Azure 資料庫 - 建立資料庫](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 

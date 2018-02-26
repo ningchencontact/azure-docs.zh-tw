@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 462038d21ea061e7cff8322ab4ce12f45844dca7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>教學課程：使用 Data Factory 複製精靈建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
 在此步驟中，您會使用 Azure 入口網站來建立名為 **ADFTutorialDataFactory**的 Azure Data Factory。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左上角的 [+ 新增]，並按一下 [資料 + 分析]，然後按一下 [Data Factory]。 
+2. 按一下左上角的 [建立資源]，按一下 [資料 + 分析]，然後按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. 在 [ **新增 Data Factory** ] 刀鋒視窗中：

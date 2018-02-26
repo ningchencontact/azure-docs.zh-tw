@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>為 Web 應用程式建立排程備份
 
-這個範例指令碼應用程式服務中建立 web 應用程式及其相關的資源，然後為它建立排定的備份。 
+此範例指令碼會在 App Service 中建立 Web 應用程式及其相關資源，然後為其建立排程備份。 
 
 您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 
 

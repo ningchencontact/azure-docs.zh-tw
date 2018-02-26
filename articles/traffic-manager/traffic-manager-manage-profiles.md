@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理員設定檔
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 10/11/2017
 ### <a name="to-create-a-traffic-manager-profile"></a>若要建立流量管理員設定檔
 
 1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
-2. 在 [中樞] 功能表中，按一下 [新增] > [網路] > [查看全部]**，然後按一下 [流量管理員]****設定檔，以開啟 [建立流量管理員設定檔]** 刀鋒視窗。
-3. 在 [建立流量管理員設定檔] 刀鋒視窗上，如下所示操作：
+2. 按一下 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
+4. 在 [建立流量管理員設定檔] 中，如下所示操作：
     1. 在 [名稱]中，提供設定檔的名稱。 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 <name>, trafficmanager.net，用以存取您的流量管理員設定檔。
     2. 在 [路由方法] 中，選取 [優先順序]路由方法。
     3. 在 [訂用帳戶] 中，選取您要用來建立此設定檔的訂用帳戶
@@ -51,21 +51,23 @@ ms.lasthandoff: 10/11/2017
 2. 流量會停止導向至透過流量管理員設定檔設定的端點。
 3. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
-3. 在 [流量管理員設定檔] 刀鋒視窗中，按一下 [概觀]，在 [概觀] 刀鋒視窗中按一下 [停用]，然後確認停用流量管理員設定檔。
+3. 按一下 [概觀] > [停用]。
+4. 確認停用流量管理員設定檔。
 
 ### <a name="to-enable-a-profile"></a>啟用設定檔
 
 1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
-3. 在 [流量管理員設定檔] 刀鋒視窗中，按一下 [概觀]，然後在 [概觀] 刀鋒視窗中按一下 [啟用]。
-5. 如果您使用的是自訂網域名稱，請在網際網路 DNS 伺服器上建立 CNAME 資源記錄，以指向流量管理員設定檔的網域名稱。
-6. 流量會再次導向至各端點。
+3. 按一下 [概觀] > [啟用]。
+1. 如果您使用的是自訂網域名稱，請在網際網路 DNS 伺服器上建立 CNAME 資源記錄，以指向流量管理員設定檔的網域名稱。
+2. 流量會再次導向至各端點。
 
 ### <a name="to-delete-a-profile"></a>刪除設定檔
 
 1. 請確定網際網路 DNS 伺服器上的 DNS 資源記錄所使用的 CNAME 資源記錄，不再指向流量管理員設定檔的網域名稱。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
-3. 在 [流量管理員設定檔] 刀鋒視窗中，按一下 [概觀]，在 [概觀] 刀鋒視窗中按一下 [刪除]，然後確認刪除流量管理員設定檔。
+3. 按一下 [概觀] > [刪除]。
+4. 確認刪除流量管理員設定檔。
 
 ## <a name="next-steps"></a>後續步驟
 

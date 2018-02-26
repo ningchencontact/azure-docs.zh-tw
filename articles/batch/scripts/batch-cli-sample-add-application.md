@@ -3,58 +3,59 @@ title: "Azure CLI 指令碼範例 - 在 Batch 中加入應用程式 | Microsoft 
 description: "Azure CLI 指令碼範例 - 在 Batch 中加入應用程式"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: 348e94e745350173196aeb64df3a814a05dd9144
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>使用 Azure CLI 將應用程式加入 Azure Batch
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 範例：將應用程式新增到 Azure Batch 帳戶
 
-此指令碼示範如何設定應用程式，以搭配 Azure Batch 集區或作業使用。 設定應用程式，將可執行檔及任何相依性封裝到 .zip 檔案。 在此範例中，可執行的 zip 檔案稱為 'my-application-exe.zip'。
+此指令碼示範如何新增應用程式，以搭配 Azure Batch 集區或工作使用。 若要將應用程式設定為新增到 Batch 帳戶，請將可執行檔與任何相依項目封裝到 .zip 檔案中。 
 
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- 如果您尚未安裝 Azure CLI，請使用 [Azure CLI 安裝指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中所提供的指示來安裝 Azure CLI。
-- 建立 Batch 帳戶 (如果您還沒有帳戶的話)。 如需用以建立帳戶的指令碼範例，請參閱[使用 Azure CLI 建立 Batch 帳戶](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account)。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
-## <a name="sample-script"></a>範例指令碼
+## <a name="example-script"></a>範例指令碼
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
-## <a name="clean-up-application"></a>清除應用程式
+## <a name="clean-up-deployment"></a>清除部署
 
-執行上述範例指令碼之後，請執行下列命令以移除應用程式和其所有已上傳的應用程式封裝。
+執行下列命令來移除資源群組及其所有相關聯的資源。
 
-```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
 
-這個指令碼使用下列命令來建立應用程式和上傳應用程式封裝。
+此指令碼會使用下列命令。
 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | 建立應用程式。  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | 更新應用程式的屬性。  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | 將應用程式封裝加入指定的應用程式。  |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | 建立 Batch 帳戶。 |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
+| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | 建立應用程式。  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | 將應用程式封裝加入指定的應用程式。  |
+| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | 更新應用程式的屬性。  |
+| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
-
-您可以在 [Azure Batch CLI 文件](../batch-cli-samples.md)中找到其他的 Batch CLI 指令碼範例。

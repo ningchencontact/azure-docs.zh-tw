@@ -1,73 +1,60 @@
 ---
-title: "Azure CLI 指令碼範例 - 建立 Batch 帳戶 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 建立 Batch 帳戶"
+title: "Azure CLI 指令碼範例 - 建立 Batch 帳戶 - Batch 服務 | Microsoft Docs"
+description: "Azure CLI 指令碼範例 - 在 Batch 服務模式中建立 Batch 帳戶"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>使用 Azure CLI 建立 Batch 帳戶
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 範例 - 在 Batch 服務模式中建立 Batch 帳戶
 
-此指令碼會建立 Azure Batch 帳戶，並顯示各種可以查詢和更新的帳戶屬性。
+此指令碼會在 Batch 服務模式中建立 Azure Batch 帳戶，並顯示如何查詢或更新帳戶的各種屬性。 當您在預設 Batch 服務模式中建立 Batch 帳戶時，其計算節點是由 Batch 服務在內部指派。 配置的計算節點受個別的 vCPU (核心) 配額限制，帳戶可透過共用金鑰認證或 Azure Active Dirctory 權杖進行驗證。
 
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您尚未安裝 Azure CLI，請使用 [Azure CLI 安裝指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中所提供的指示來安裝 Azure CLI。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
-## <a name="batch-account-sample-script"></a>Batch 帳戶範例指令碼
+## <a name="example-script"></a>範例指令碼
 
-當您建立 Batch 帳戶時，根據預設，其計算節點是由 Batch 服務在內部指派。 配置的計算節點將受個別的核心配額限制，帳戶可透過共用金鑰認證或 Azure Active Dirctory 權杖驗證。
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>使用使用者訂閱範例指令碼的 Batch 帳戶
-
-您也可以選擇讓 Batch 在您自己的 Azure 訂用帳戶中建立其計算節點。
-將計算節點配置到您的訂用帳戶的帳戶必須透過 Azure Active Directory 權杖驗證，配置的計算節點將計入您的訂用帳戶配額。 若要在此模式建立帳戶，使用者必須在建立帳戶時指定 Key Vault 參考。
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-執行上述範例指令碼之後，請執行下列命令以移除資源群組和所有相關資源 (包括 Batch 帳戶、Azure 儲存體帳戶和 Azure Key Vault)。
+執行下列命令來移除資源群組及其所有相關聯的資源。
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼使用下列命令來建立資源群組、Batch 帳戶和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | 建立 Batch 帳戶。  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | 更新 Batch 帳戶的屬性。  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | 擷取指定的 Batch 帳戶的詳細資料。  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | 擷取指定的 Batch 帳戶的存取金鑰。  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | 建立金鑰保存庫。 |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | 更新指定的 Key Vault 的安全性原則。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | 建立 Batch 帳戶。 |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | 更新 Batch 帳戶的屬性。  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | 擷取指定的 Batch 帳戶的詳細資料。  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | 擷取指定的 Batch 帳戶的存取金鑰。  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
+| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
-
-您可以在 [Azure Batch CLI 文件](../batch-cli-samples.md)中找到其他的 Batch CLI 指令碼範例。
+如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure/overview)。

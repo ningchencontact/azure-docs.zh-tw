@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>建立 Azure Machine Learning 預覽帳戶，並安裝 Azure Machine Learning Workbench
 Azure Machine Learning 服務 (預覽) 是整合、端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
@@ -37,7 +37,7 @@ Azure Machine Learning 服務 (預覽) 是整合、端對端的資料科學和�
 
 ## <a name="create-azure-machine-learning-accounts"></a>建立 Azure Machine Learning 帳戶
 使用 Azure 入口網站來佈建 Azure Machine Learning 帳戶： 
-1. 選取入口網站左上角的 [新增] 按鈕 (+)。
+1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。
 
 2. 在搜尋列中輸入「Machine Learning」。 選取名為 **Machine Learning 測試 (預覽)** 的搜尋結果。  按一下星星圖示，讓此選取項目成為 Azure 入口網站中的我的最愛。
 

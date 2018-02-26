@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>使用 Azure 入口網站建立網際網路面向的負載平衡器
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/18/2017
 > 此範例假設您擁有稱為 **myVNet**的虛擬網路。 請參閱 [建立虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 以便進行此作業。 此範例也假設您有一個稱為 **LB-Subnet-BE** 的子網路 (位於 **myVNet** 內) 以及兩個分別稱為 **web1** 和 **web2** 的 VM (位於 **myVNet** 中稱為 **myAvailSet** 的相同可用性設定組內)。 請參閱 [此連結](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以建立 VM。
 
 1. 透過瀏覽器瀏覽至 Azure 入口網站 [http://portal.azure.com](http://portal.azure.com) ，並使用您的 Azure 帳戶登入。
-2. 在畫面左側選取 [新增] > [網路] > [負載平衡器]。
+2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
 3. 在 [建立負載平衡器] 刀鋒視窗中，輸入負載平衡器的名稱。 在此我們將其稱為 **myLoadBalancer**。
 4. 在 [類型] 底下選取 [公用]。
 5. 在 [公用 IP 位址] 底下建立稱為 **myPublicIP** 的新公用 IP。

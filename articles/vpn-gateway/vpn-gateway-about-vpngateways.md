@@ -1,10 +1,10 @@
 ---
 title: "VPN 閘道概觀︰對 Azure 虛擬網路建立跨單位 VPN 連接 | Microsoft Docs"
-description: "這篇「VPN 閘道概觀」說明使用 VPN 連接透過網際網路來連接至 Azure 虛擬網路的方式。 其中包含基本連接設定的圖表。"
+description: "本文說明何謂 VPN 閘道，以及示範如何透過網際網路使用 VPN 連線來連線至 Azure 虛擬網路。 其中包含基本連接設定的圖表。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
 
@@ -27,15 +27,11 @@ VPN 閘道是一種虛擬網路閘道，可透過內部部署位置的公用連�
 
 每個虛擬網路只可以有一個 VPN 閘道，不過，您可以對相同的 VPN 閘道建立多個連線。 例如，多站台連線設定。 當您對相同的 VPN 閘道建立多個連線時，所有 VPN 通道 (包括點對站 VPN) 都會共用此閘道可用的頻寬。
 
-### <a name="whatis"></a>什麼是虛擬網路閘道？
+## <a name="whatis"></a>什麼是虛擬網路閘道？
 
 虛擬網路閘道是由部署到特定子網路 (稱為 GatewaySubnet) 的兩部或多部虛擬機器所組成。 當您建立虛擬網路閘道時，會建立位於 GatewaySubnet 中的 VM。 虛擬網路閘道 VM 會設定為包含閘道特有的路由表和閘道服務。 您無法直接設定屬於虛擬網路閘道的 VM，您不該將額外的資源部署至 GatewaySubnet。
 
 當您使用閘道類型 'Vpn' 建立虛擬網路閘道時，它會建立特定類型的虛擬網路閘道來加密流量；VPN 閘道。 可能需要 45 分鐘的時間才能建立 VPN 閘道。 這是因為 VPN 閘道的 VM 正要部署到 GatewaySubnet，並以您指定的設定進行設定。 您選取的閘道 SKU 可決定 VM 有多強大。
-
-## <a name="gwsku"></a>閘道 SKU
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>設定 VPN 閘道
 
@@ -52,6 +48,10 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 ### <a name="models"></a>部署模型
 
 當您設定 VPN 閘道時，您採用的步驟取決於用來建立虛擬網路的部署模型。 例如，如果您使用傳統部署模型建立 VNet，您會使用傳統部署模型的指導方針和指示來建立和進行 VPN 閘道設定。 如需部署模型的詳細資訊，請參閱 [了解 Resource Manager 和傳統部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。
+
+## <a name="gwsku"></a>閘道 SKU
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>連線拓撲圖表
 

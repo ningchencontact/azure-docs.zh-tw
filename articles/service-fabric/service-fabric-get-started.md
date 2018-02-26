@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a24ca874abd29816a67f3bb7c83fb8b389d8435f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -88,6 +88,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [使用 Service Fabric 總管將叢集視覺化](service-fabric-visualizing-your-cluster.md)
 * [遵循 Service Fabric 學習路徑來取得廣泛的平台簡介](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * 了解 [Service Fabric 支援選項](service-fabric-support.md)
+* [在叢集上將作業系統修補自動化](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
