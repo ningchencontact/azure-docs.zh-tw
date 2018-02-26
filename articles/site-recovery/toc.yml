@@ -87,28 +87,28 @@
           href: site-recovery-migrate-to-azure.md
     - name: 角色型存取權限
       href: site-recovery-role-based-linked-access-control.md
+    - name: Azure 流量管理員搭配 Azure Site Recovery
+      href: concepts-traffic-manager-with-site-recovery.md
     - name: 常見問題集
       href: site-recovery-faq.md
 - name: 使用說明指南
   items:
     - name: 網路
       items:
-        - name: 設定 Azure VM 災害復原 (預覽) 的網路功能
+        - name: 管理 Azure VM 災害復原 (預覽) 的網路功能
           href: azure-to-azure-about-networking.md
-        - name: 設定 Azure VM 災害復原 (預覽) 的網路對應功能
+        - name: 準備 Azure VM 災害復原中的網路對應功能
           href: azure-to-azure-network-mapping.md
-        - name: 設定 VMM 中 Hyper-V 虛擬機器的網路對應複寫
-          href: hyper-v-vmm-network-mapping.md
-        - name: 保留 Azure VM 災害復原 (預覽) 的 IP
+        - name: 設定 Azure VM 容錯移轉之後的 IP 位址
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: 準備 Azure 之 Hyper-V VM 複寫的網路對應
-          href: site-recovery-network-mapping.md
-        - name: 設定 IP 定址以在容錯移轉之後存取 Azure
-          href: concepts-on-premises-to-azure-networking.md
-        - name: 設定 IP 定址以在容錯移轉之後存取次要站台
-          href: hyper-v-vmm-networking.md
-        - name: 內部部署至 Azure 的網路介面管理案例
+        - name: 管理內部部署至 Azure 災害復原的網路介面
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+        - name: 準備 Hyper-V VM 災害復原的網路對應功能
+          href: hyper-v-vmm-network-mapping.md
+        - name: 設定容錯移轉至 Azure 之後的 IP 位址
+          href: concepts-on-premises-to-azure-networking.md
+        - name: 設定容錯移轉至次要網站之後的 IP 位址
+          href: hyper-v-vmm-networking.md
     - name: 災害復原
       items:
         - name: 移轉至 Azure 之後的 Azure 虛擬機器災害復原

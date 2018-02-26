@@ -10,18 +10,20 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: d410516f807b7914e15bed1fb93ee58d3e340d1e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/05/2018
+ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>使用相同範例中的多個輸入來提交工作流程
 
-本快速入門示範如何在您的輸入檔案是**來自相同範例**的多個 FASTQ 或 BAM 檔案時，將工作流程提交至 Microsoft Genomics 服務。 不過，請記住，您**無法**在相同的提交中將 FASTQ 和 BAM 檔案混合。
+本快速入門示範如何在您的輸入檔案是**來自相同範例**的多個 FASTQ 或 BAM 檔案時，將工作流程提交至 Microsoft Genomics 服務。 例如，如果您已在排序器上的多個通道中執行**相同範例**，則排序器可能會為每個通道輸出一組 FASTQ 檔案。 比起在校對和識別變體之前串連 FASTQ 檔案，您可以直接將這些輸入全部提交到 `msgen` 用戶端。 `msgen` 用戶端的輸出會是**一組**檔案，包括 .bam、.bai 和 .vcf 檔案。 
 
-本主題假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已使用提供的範例資料成功地提交工作流程，即準備好繼續進行本快速入門。 
+不過，請記住，您**無法**在相同的提交中將 FASTQ 和 BAM 檔案混合。 此外，您**無法**提交多個個體的 FASTQ 或 BAM 檔案。 
+
+本文假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已使用提供的範例資料成功地提交工作流程，即準備好繼續進行本快速入門。 
 
 
 ## <a name="multiple-bam-files"></a>多個 BAM 檔案
@@ -32,7 +34,7 @@ ms.lasthandoff: 12/13/2017
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>將作業提交至 `msgen` 用戶端 
 
-您可以提交多個 BAM 檔案，方法是將其所有的名稱都傳遞給 --input-blob-name-1 引數。 請注意，所有檔案都必須來自相同的範例，但其順序並不重要。 以下是從 Windows 中、Unix 中的命令列，以及使用設定檔的範例提交。 為了清楚起見，已新增分行符號：
+您可以提交多個 BAM 檔案，方法是將其所有的名稱都傳遞給 --input-blob-name-1 引數。 請注意，所有檔案都必須來自相同的範例，但其順序並不重要。 下一節會詳細說明在 Windows 中、Unix 中及使用設定檔從命令列執行的範例提交。 為了清楚起見，已新增分行符號：
 
 
 若為 Windows：
@@ -97,7 +99,7 @@ output_storage_account_container: outputs
 
 配對的 FASTQ 檔案不只必須來自相同的範例，還需要一起進行處理。  作為引數傳遞至 --input-blob-name-1 和 --input-blob-name-2 時，檔案名稱的順序很重要。 
 
-以下是從 Windows 中、Unix 中的命令列，以及使用設定檔的範例提交。 為了清楚起見，已新增分行符號：
+下一節會詳細說明在 Windows 中、Unix 中及使用設定檔從命令列執行的範例提交。 為了清楚起見，已新增分行符號：
 
 
 若為 Windows：
@@ -155,4 +157,4 @@ output_storage_account_container: outputs
 使用這個引動過程來提交 `config.txt` 檔案：`msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已將多個 BAM 檔案或配對的 FASTQ 檔案上傳到 Azure 儲存體，並已透過 `msgen` python 用戶端將工作流程提交至 Microsoft Genomics 服務。 如需有關工作流程提交以及可與 Microsoft Genomics 服務搭配使用之其他命令的詳細資訊，請參閱我們的[常見問題集](frequently-asked-questions-genomics.md)。 
+在本文中，您已將多個 BAM 檔案或配對的 FASTQ 檔案上傳到 Azure 儲存體，並已透過 `msgen` python 用戶端將工作流程提交至 Microsoft Genomics 服務。 如需有關工作流程提交以及可與 Microsoft Genomics 服務搭配使用之其他命令的詳細資訊，請參閱[常見問題集](frequently-asked-questions-genomics.md)。 

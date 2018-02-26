@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Service Fabric 提供了在 Linux 上建置服務的 .NET Core 和 Java SDK。 在本教學課程中，我們會探討如何建立適用於 Linux 的應用程式以及在 NET Core 2.0 上使用 C# 建置服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始之前，請確定您已 [設定 Linux 開發環境](service-fabric-get-started-linux.md)。 如果您使用 Mac OS X，您可以 [使用 Vagrant 在虛擬機器中設定 Linux 一整體環境](service-fabric-get-started-mac.md)。
 
 您也要安裝 [Service Fabric CLI](service-fabric-cli.md)
@@ -40,10 +40,18 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 1. 在電腦上安裝 nodejs 和 NPM
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (Service Fabric 預覽支援)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. 在電腦上從 NPM 安裝 [Yeoman](http://yeoman.io/) 範本產生器
 
   ```bash
@@ -118,11 +126,6 @@ Service Fabric Yeoman 範本包含建置指令碼，可用來從終端機建置�
 若要將其他服務新增至已使用 `yo` 建立的應用程式，請執行下列步驟︰
 1. 將目錄變更為現有應用程式的根目錄。  例如，如果 `MyApplication` 是 Yeoman 所建立的應用程式，則為 `cd ~/YeomanSamples/MyApplication`。
 2. 執行 `yo azuresfcsharp:AddService`
-
-## <a name="migrating-from-projectjson-to-csproj"></a>從 project.json 移轉至 .csproj
-1. 在專案根目錄中執行 'dotnet migrate'，會將所有的 project.json 移轉至 csproj 格式。
-2. 根據專案檔案中的 csproj 檔案更新專案參考。
-3. 將專案檔案名稱更新為 build.sh 中的 csproj 檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

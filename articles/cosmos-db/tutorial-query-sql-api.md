@@ -1,6 +1,6 @@
 ---
 title: "如何在 Azure Cosmos DB 中使用 SQL 進行查詢？ | Microsoft Docs"
-description: "了解如何使用 Azure Cosmos DB 中的 SQL 查詢"
+description: "了解如何在 Azure Cosmos DB 中使用 SQL 進行查詢"
 services: cosmos-db
 documentationcenter: 
 author: rafats
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: rafats
 ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB [SQL API](documentdb-introduction.md)查詢使用 SQL 的文件的支援。 本文提供一個範例文件及兩個範例 SQL 查詢和結果。
+Azure Cosmos DB [SQL API](documentdb-introduction.md) 支援使用 SQL 來查詢文件。 本文提供一個範例文件及兩個範例 SQL 查詢和結果。
 
 本文涵蓋下列工作： 
 
@@ -72,7 +72,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md)查詢使用 SQL 的文件�
 如需有關 SQL 查詢的詳細資訊，請參閱：
 * [SQL 查詢和 SQL 語法](sql-api-sql-query.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程會假設您具備 Azure Cosmos DB 帳戶和集合。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](create-mongodb-nodejs.md)或[開發人員教學課程](tutorial-develop-mongodb.md)，以建立帳戶和集合。
 

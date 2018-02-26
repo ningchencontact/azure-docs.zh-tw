@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -101,7 +101,7 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 設定使用 SQL Api 的通用散發
+> * 使用 SQL API 來設定全域散發
 
 您現在可以繼續進行到下一個教學課程，以了解如何使用 Azure Cosmos DB 本機模擬器在本機進行開發。
 

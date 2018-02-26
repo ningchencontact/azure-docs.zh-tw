@@ -16,7 +16,7 @@ ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/22/2017
 
 ![新增的產品](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 + 同時也請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
@@ -48,10 +48,10 @@ ms.lasthandoff: 12/22/2017
 
     當您新增產品時，您需要提供下列資訊： 
 
-    |名稱|說明|
+    |Name|說明|
     |---|---|
     |顯示名稱|您想要其顯示在**開發人員入口網站**中的名稱。|
-    |名稱|產品的描述性名稱。|
+    |Name|產品的描述性名稱。|
     |說明|[說明] 欄位可讓您提供產品的詳細資訊，例如用途、產品可供其存取的 API 及其他有用的資訊。|
     |State|如果您想要發行產品，請按 [發行]。 產品必須發行，才能呼叫產品中的 API。 依預設不會發行新產品，且只有 [Administrators] 群組才能看見。|
     |需要核准|如果您希望管理員檢閱並接受或拒絕對此產品的訂閱嘗試，請核取 [Require subscription approval]  。 如果未核取方塊，將會自動核准訂閱嘗試。 |
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/22/2017
     |法律條款|您可以包含訂閱者必須接受才可使用產品的產品使用規定。|
     |API|產品是一或多個 API 的關聯。 您可以包括數個 API，並透過開發人員入口網站將它們提供給開發人員。 <br/> 在產品建立期間，您可以新增現有的 API。 您可以在之後將 API 新增至產品中，可以從產品的 [設定] 頁面或建立 API 時進行新增。|<br/>開發人員必須先訂閱產品，才能取得 API 的存取權。 當他們訂閱時，就能取得適用於該產品中任何 API 的中訂用帳戶金鑰。<br/> 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此根據預設，您已訂閱每一個產品。|
 
-3. 按一下**建立**來建立新的產品。
+3. 按一下 [建立] 來建立新產品。
 
 ### <a name="add-more-configurations"></a>新增更多設定
 

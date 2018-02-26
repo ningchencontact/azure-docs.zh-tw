@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: 從舊版程式設計語言轉換
           href: log-analytics-log-search-transition.md
-        - name: 跨工作區搜尋
+        - name: 跨資源搜尋
           href: log-analytics-cross-workspace-search.md
         - name: 從搜尋結果採取行動
           href: log-analytics-log-search-takeaction.md

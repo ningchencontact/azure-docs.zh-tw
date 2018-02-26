@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1a1fbac1eb4c529ea89f0f4c72b3317718ac45ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
 
@@ -62,6 +62,8 @@ Microsoft Windows 預設不會安裝任何 SSH 用戶端。 `ssh` 和 `scp` 用�
     > 如果啟用這項功能之後，無法在 PowerShell 中使用 `ssh` 和 `scp` 命令，請登出而後重新登入。
 
 * [位於 Windows 10 之 Ubuntu 上的 Bash](https://msdn.microsoft.com/commandline/wsl/about)：`ssh` 和`scp` 命令可透過 Windows 命令列上的 Bash 來取得。
+
+* [OpenSSH 用戶端 (搶鮮版 (Beta))](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：這是在 Windows 10 Fall Creators Update 中導入的選用功能。
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md)：Cloud Shell 在瀏覽器中提供 Bash 環境，並提供`ssh``scp` 和其他一般 Linux 命令。
 
@@ -158,7 +160,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
     ```
 
 > [!IMPORTANT]
-> 先前的範例假設您使用密碼驗證，或該憑證驗證自動發生。 如果您使用 SSH 金鑰組進行驗證，但未自動使用憑證，請使用 `-i` 參數來指定私密金鑰。 例如， `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`。
+> 先前的範例假設您使用密碼驗證，或該憑證驗證自動發生。 如果您使用 SSH 金鑰組進行驗證，但未自動使用憑證，請使用 `-i` 參數來指定私密金鑰。 例如： `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`。
 
 連線之後，字元會變更，以指示 SSH 使用者名稱和您所連線的節點。 例如，以 `sshuser` 身分連線到主要前端節點時，提示為 `sshuser@hn0-clustername:~$`。
 

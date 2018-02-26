@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的安全性健康情況監視
 本文可協助您使用 Azure 資訊安全中心內的監視功能，監視是否符合原則。
@@ -87,6 +87,13 @@ ms.lasthandoff: 01/04/2018
 > [!NOTE]
 > 這裡的安全性建議與 [建議] 選項中的建議相同。 如需如何處理建議的詳細資訊，請參閱[實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)。 這不只適用於虛擬機器和電腦，也適用於 [資源健康情況] 圖格中所有可用的資源。
 >
+
+#### <a name="unmonitored-vms"></a>未受監視的 VM
+如果 VM 未執行 Microsoft Monitoring Agent 擴充功能，則 VM 就不會由資訊安全中心監視。 VM 可能已安裝本機代理程式，例如 OMS 直接代理程式或 SCOM 代理程式。 具有這些代理程式的 VM 會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
+
+除了已安裝的本機代理程式，您還可以在未受監視的 VM 上安裝擴充功能。 以相同方式設定這兩種代理程式，並連線至相同工作區。 這可讓資訊安全中心與 Microsoft Monitoring Agent 擴充功能互動和收集資料。  請參閱[啟用 VM 擴充公能](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)，取得如何安裝 Microsoft Monitoring Agent 擴充功能的指示。
+
+請參閱[監視代理程式健康情況問題](security-center-troubleshooting-guide.md#monitoring-agent-health-issues)，深入了解資訊安全中心無法成功監視為了自動佈建而初始化之 VM 和電腦的原因。
 
 #### <a name="vms--computers-section"></a>VM 和電腦區段
 虛擬機器和電腦區段提供所有虛擬機器和電腦的建議概觀。 每個資料行代表一組建議，如下列螢幕擷取畫面所示：

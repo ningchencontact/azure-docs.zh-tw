@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ END
 3. 在管線之 [屬性] 視窗的 [一般] 頁面中，輸入 [IncrementalCopyPipeline] 名稱。 
 
    ![管線名稱](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. 讓我們新增第一個查閱活動來取得舊的浮水印值。 在 [活動] 工具箱中，展開 [SQL Database]，並將 [查閱] 活動拖放至管線設計工具表面。 將活動名稱變更為 **LookupOldWaterMarkActivity**。
+4. 讓我們新增第一個查閱活動來取得舊的浮水印值。 在 [活動] 工具箱中展開 [一般]，並將 [查閱] 活動拖放至管線設計工具介面。 將活動名稱變更為 **LookupOldWaterMarkActivity**。
 
    ![第一個查閱活動 - 名稱](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. 切換至 [設定] 索引標籤，然後按一下 [+ 新增] 以新增**來源資料集**。 在此步驟中，您會建立資料集來代表**浮水印資料表**中的資料。 此資料表包含先前複製作業中所使用的舊浮水印。 
@@ -224,7 +225,7 @@ END
 11. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到管線編輯器。 在 [查閱] 活動的 [屬性] 視窗中，確認已為 [來源資料集] 欄位選取 **WatermarkDataset**。 
 
     ![管線 - 舊的浮水印資料集](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. 在 [活動] 工具箱中，展開 [SQL Database]，並將另一個 [查閱] 活動拖放至管線設計工具表面，然後在 [屬性] 視窗的 [一般] 索引標籤中將名稱設定為 **LookupNewWaterMarkActivity**。 此查閱活動會從資料表取得新浮水印值，該資料表具備要複製到目的地的來源資料。 
+12. 在 [活動] 工具箱中展開 [一般]，並將另一個 [查閱] 活動拖放至管線設計工具介面，然後在 [屬性] 視窗的 [一般] 索引標籤中，將名稱設為 **LookupNewWaterMarkActivity**。 此查閱活動會從資料表取得新浮水印值，該資料表具備要複製到目的地的來源資料。 
 
     ![第二個查閱活動 - 名稱](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. 在第二個 [查閱] 活動的 [屬性] 視窗中，切換到 [設定] 索引標籤，然後按一下 [新增]。 您建立的資料集會指向來源資料表，其中包含新浮水印值 (LastModifyTime 最大值)。 
@@ -295,7 +296,7 @@ END
 
         ![接收資料集 - 連線設定](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到**管線**編輯器。 
-29. 在 [活動] 工具箱中，展開 [SQL Database]，並將 [預存程序] 活動自 [活動] 工具箱拖放至管線設計工具表面。 將 [複製] 活動的綠色 (成功) 輸出**連線**至 [預存程序] 活動。 
+29. 在 [活動] 工具箱中展開 [一般]，並將 [預存程序] 活動從 [活動] 工具箱拖放至管線設計工具介面。 將 [複製] 活動的綠色 (成功) 輸出**連線**至 [預存程序] 活動。 
     
     ![複製活動 - 來源](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. 選取管線設計工具中的 [預存程序活動]，將其名稱變更為 **StoredProceduretoWriteWatermarkActivity**。 
@@ -306,8 +307,8 @@ END
     ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. 切換至 [預存程序] 索引標籤，然後執行下列步驟： 
 
-    1. 為 [預存程序名稱] 輸入 **sp_write_watermark**。 
-    2. 若要指定預存程序參數的值，請按一下 [預存程序參數] 區段中的 [+ 新增]，然後輸入下列值： 
+    1. 針對 [預存程序名稱]，選取 **sp_write_watermark**。 
+    2. 若要指定預存程序參數的值，請按一下 [匯入參數]，然後輸入參數的下列值： 
 
         | Name | 類型 | 值 | 
         | ---- | ---- | ----- | 
@@ -318,14 +319,15 @@ END
 27. 若要驗證管線設定，請按一下工具列上的 [驗證]。 確認沒有任何驗證錯誤。 若要關閉 [管線驗證報告] 視窗，請按一下 [>>]。   
 
     ![驗證管線](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. 將實體 (連結的服務、資料集和管線) 發佈至 Azure Data Factory 服務，方法是按一下 [發佈] 按鈕。 請等候直至您看見成功發佈的訊息。 
+28. 選取 [全部發佈] 按鈕，將實體 (連結的服務、資料集和管線) 發佈至 Azure Data Factory 服務。 請等候直至您看見成功發佈的訊息。 
 
     ![發佈按鈕](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>觸發管線執行
-按一下工具列上 [觸發]，然後按一下 [立即觸發]。 
+1. 按一下工具列上 [觸發]，然後按一下 [立即觸發]。 
 
-![立即觸發按鈕](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![立即觸發按鈕](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. 在 [管線執行] 視窗中，選取 [完成]。 
 
 ## <a name="monitor-the-pipeline-run"></a>監視管道執行
 

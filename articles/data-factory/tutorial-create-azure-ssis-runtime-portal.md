@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>使用 Azure Data Factory UI 佈建 Azure-SSIS 整合執行階段
 本教學課程提供使用 Azure 入口網站在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段 (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools 或 SQL Server Management Studio，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。 如需 Azure-SSIS IR 的概念資訊，請參閱 [Azure-SSIS 整合執行階段概觀](concepts-integration-runtime.md#azure-ssis-integration-runtime)。
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 
 > [!div class="checklist"]
 > * 建立資料處理站。
-> * 建立及啟動 Azure-SSIS 整合執行階段。
+> * 佈建 Azure-SSIS 整合執行階段。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
@@ -35,14 +35,19 @@ ms.lasthandoff: 02/01/2018
 ## <a name="prerequisites"></a>先決條件
 - **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
 - **Azure SQL Database 伺服器**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 Azure Data Factory 會在此資料庫伺服器上建立 SSIS 目錄 (SSISDB 資料庫)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB 資料庫，而不需要跨 Azure 區域。 
-   - 確認資料庫伺服器的 [允許存取 Azure 服務] 設定已啟用。 如需詳細資訊，請參閱[保護 Azure SQL Database 資料庫](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。 若要使用 PowerShell 來啟用此設定，請參閱 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)。
-   - 新增用戶端電腦的 IP 位址，或新增 IP 位址範圍，其中包含資料庫伺服器之防火牆設定中用戶端電腦 IP 位址到用戶端 IP 位址清單。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](../sql-database/sql-database-firewall-configure.md)
-   - 確認您的 Azure SQL Database 伺服器沒有 SSIS 目錄 (SSISDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。
- 
+- 確認資料庫伺服器的 [允許存取 Azure 服務] 設定已啟用。 如需詳細資訊，請參閱[保護 Azure SQL Database 資料庫](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。 若要使用 PowerShell 來啟用此設定，請參閱 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)。
+- 新增用戶端電腦的 IP 位址，或新增 IP 位址範圍，其中包含資料庫伺服器之防火牆設定中用戶端電腦 IP 位址到用戶端 IP 位址清單。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](../sql-database/sql-database-firewall-configure.md)
+- 確認您的 Azure SQL Database 伺服器沒有 SSIS 目錄 (SSISDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。
+
+> [!NOTE]
+> - 您可以在下列區域中建立第 2 版的資料處理站：美國東部、美國東部 2 和西歐。 
+> - 您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、北歐、西歐和澳洲東部。 
+
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。    
-2. 選取左側功能表上的 [新增]、[資料 + 分析]，然後選取 [資料處理站]。 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
+2. 登入 [Azure 入口網站](https://portal.azure.com/)。    
+3. 選取左側功能表上的 [新增]、[資料 + 分析]，然後選取 [資料處理站]。 
    
    ![在 [新增] 窗格中選取資料處理站](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. 在 [新增資料處理站] 頁面上，於 [名稱] 之下輸入 **MyAzureSsisDataFactory**。 
@@ -69,7 +74,7 @@ ms.lasthandoff: 02/01/2018
 11. 建立完成之後，您會看到 [Data Factory] 頁面。
    
    ![資料處理站首頁](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. 按一下 [監視與管理]，以在另一個索引標籤上開啟 Data Factory 使用者介面 (UI)。 
+12. 選取 [編寫與監視]，以在個別索引標籤上開啟 Data Factory 使用者介面 (UI)。 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>佈建 Azure-SSIS 整合執行階段
 
@@ -160,7 +165,7 @@ ms.lasthandoff: 02/01/2018
 
 > [!div class="checklist"]
 > * 建立資料處理站。
-> * 建立及啟動 Azure-SSIS 整合執行階段。
+> * 佈建 Azure-SSIS 整合執行階段。
 
 若要了解如何將資料從內部部署環境複製到雲端，請進入下列教學課程： 
 

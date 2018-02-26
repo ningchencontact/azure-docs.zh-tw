@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 Azure App Service 是完全受控的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 產品，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
@@ -38,21 +38,21 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 ## <a name="mobile-apps-features"></a>Mobile Apps 功能
 下列功能對於具備雲端功能的行動開發十分重要︰
 
-* **驗證和授權**：從不斷成長的識別提供者 (包括適用於企業驗證的 Azure Active Directory，以及 Facebook、Google、Twitter 和 Microsoft 帳戶等社交提供者) 清單中選取。 Mobile Apps 為每個提供者提供 OAuth 2.0 服務。 您也可以為識別提供者整合 SDK，以取得提供者特定功能。
+* **驗證和授權**：支援識別提供者，包括適用於企業驗證的 Azure Active Directory，以及 Facebook、Google、Twitter 和 Microsoft 帳戶等社交提供者。 Mobile Apps 為每個提供者提供 OAuth 2.0 服務。 您也可以為識別提供者整合 SDK，以取得提供者特定功能。
 
-    深入探索我們的 [驗證功能]。
+    深入探索[驗證功能]。
 
 * **資料存取**：Mobile Apps 提供了已連結至 Azure SQL Database 或內部部署 SQL Server 且適合行動用途的 OData v3 資料來源。 因為這項服務以 Entity Framework 為基礎，您才可以輕鬆地與其他 NoSQL 和 SQL 資料提供者整合，包括 [Azure 資料表儲存體]、MongoDB、[Azure Cosmos DB] 和 SaaS API 提供者 (如 Office 365 和 Salesforce.com)。
 
-* **離線同步處理**：我們的用戶端 SDK 可讓您輕鬆地建置強大且回應靈敏的行動裝置應用程式 (利用離線資料集運作)。 您可以自動同步處理此資料集與後端資料，包括衝突解決支援。
+* **離線同步處理**：用戶端 SDK 可讓您輕鬆地建置強大且回應靈敏的行動裝置應用程式 (利用離線資料集運作)。 您可以自動同步處理此資料集與後端資料，包括衝突解決支援。
 
-  深入探索我們的 [資料功能]。
+  深入探索[資料功能]。
 
-* **推播通知**：我們的用戶端 SDK 與 Azure 通知中樞的註冊功能緊密整合，以便您將推播通知同時傳送給數百萬個使用者。
+* **推播通知**：用戶端 SDK 與 Azure 通知中樞的註冊功能緊密整合，以便您將推播通知同時傳送給數百萬個使用者。
 
-  深入探索我們的 [推播通知功能]。
+  深入探索[推播通知功能]。
 
-* **用戶端 SDK**：我們提供一組完整的用戶端 SDK，涵蓋原生開發 ([iOS]、[Android] 和 [Windows])、跨平台開發 ([Xamarin.iOS 和 Xamarin.Android]、[Xamarin.Forms]) 和混合式應用程式開發 ([Apache Cordova])。 每個用戶端 SDK 都是透過 MIT 授權提供並為開放原始碼。
+* **用戶端 SDK**：提供一組完整的用戶端 SDK，涵蓋原生開發 ([iOS]、[Android] 和 [Windows])、跨平台開發 ([Xamarin.iOS 和 Xamarin.Android]、[Xamarin.Forms]) 和混合式應用程式開發 ([Apache Cordova])。 每個用戶端 SDK 都是透過 MIT 授權提供並為開放原始碼。
 
 ## <a name="azure-app-service-features"></a>Azure App Service 功能
 下列平台功能適合用於行動生產網站：
@@ -65,7 +65,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
   深入探索 [預備環境]。
 
-* **持續部署**：App Service 可與常見原始檔控制管理 (SCM) 系統整合，您便可將新版的後端發送至 SCM 系統的分支進行自動部署。
+* **持續部署**：App Service 可與常見原始檔控制管理 (SCM) 系統整合，讓您輕鬆部署新版的後端。
 
   深入探索 [部署選項](../app-service/app-service-deploy-local-git.md)。
 
@@ -73,7 +73,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
   深入探索[混合式連線]、[虛擬網路]和 [ExpressRoute]。
 
-* **隔離和專用的環境**：您可以在一個完全隔離且專用的環境中執行 App Service，以高規格的方式安全地執行 Azure App Service 應用程式。 此環境很適合於需要高規格、隔離或安全網路存取的應用程式工作負載。
+* **隔離和專用的環境**：為了安全地執行 Azure App Service 應用程式，您可以在一個完全隔離且專用的環境中執行 App Service。 此環境很適合於需要高規格、隔離或安全網路存取的應用程式工作負載。
 
   深入探索 [App Service 環境]。
 

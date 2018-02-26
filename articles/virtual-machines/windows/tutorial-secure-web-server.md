@@ -4,23 +4,23 @@ description: "了解如何在 Azure 中的 Windows VM 上使用 SSL 憑證來保
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/14/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>在 Azure 中的 Windows 虛擬機器上使用 SSL 憑證來保護 IIS 網頁伺服器
 若要保護網頁伺服器，您可以使用安全通訊端層 (SSL) 憑證將 Web 流量加密。 這些 SSL 憑證可儲存在 Azure Key Vault，並且能夠讓您將憑證安全地部署到 Azure 中的 Windows 虛擬機器 (VM)。 在本教學課程中，您將了解如何：
@@ -31,7 +31,9 @@ ms.lasthandoff: 01/17/2018
 > * 建立 VM 並安裝 IIS 網頁伺服器
 > * 將憑證插入 VM 並使用 SSL 繫結來設定 IIS
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.3 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 
 
 ## <a name="overview"></a>概觀
@@ -43,16 +45,16 @@ Azure Key Vault 會保護密碼編譯金鑰和祕密，這類憑證或密碼。 
 ## <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
 建立 Key Vault 和憑證之前，請先使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 來建立資源群組。 下列範例會在「美國東部」位置建立名為 myResourceGroupSecureWeb 的資源群組：
 
-```powershell
+```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
 $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-接著，使用 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) 建立 Key Vault。 每個 Key Vault 需要唯一的名稱，而且應該全部小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 `<mykeyvault>`：
+接著，使用 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) 建立 Key Vault。 每個 Key Vault 需要唯一的名稱，而且應該全部小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 `mykeyvault`：
 
-```powershell
-$keyvaultName="<mykeyvault>"
+```azurepowershell-interactive
+$keyvaultName="mykeyvault"
 New-AzureRmKeyVault -VaultName $keyvaultName `
     -ResourceGroup $resourceGroup `
     -Location $location `
@@ -62,7 +64,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>產生憑證並儲存於 Key Vault
 若要在生產環境中使用，您應該使用 [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何使用 [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) 來產生自我簽署憑證，而且該憑證會使用透過 [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy) 所得到的預設憑證原則。 
 
-```powershell
+```azurepowershell-interactive
 $policy = New-AzureKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
@@ -79,83 +81,24 @@ Add-AzureKeyVaultCertificate `
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 使用 [Get-credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 來設定 VM 的系統管理員使用者名稱和密碼：
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-現在您可以使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立 VM。 下列範例會建立必要的虛擬網路元件、作業系統設定，然後建立名為 myVM 的 VM：
+現在您可以使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立 VM。 下列範例會在 *EastUS* 位置中建立名為 *myVM* 的 VM。 如果它們尚不存在，則會建立支援網路資源。 為了允許安全 Web 流量，此 Cmdlet 也會開啟連接埠 *443*。
 
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+```azurepowershell-interactive
+# Create a VM
+New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
+    -Name "myVM" `
     -Location $location `
-    -Name "myVnet" `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleRDP"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 443
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleWWW"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -Name "myNetworkSecurityGroup" `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name "myNic" `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2" | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName "myVM" -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest" | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -OpenPorts 443
 
 # Use the Custom Script Extension to install IIS
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
@@ -174,7 +117,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>將憑證從 Key Vault 新增至 VM
 若要將憑證從 Key Vault 新增至 VM，請使用 [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret) 來取得憑證的識別碼。 使用 [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret) 將憑證新增至 VM：
 
-```powershell
+```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
@@ -188,9 +131,9 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ## <a name="configure-iis-to-use-the-certificate"></a>設定 IIS 以使用憑證
 再次搭配 [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) 來使用自訂指令碼擴充功能，以更新 IIS 組態。 這次的更新會套用從 Key Vault 插入到 IIS 的憑證，並設定 Web 繫結：
 
-```powershell
+```azurepowershell-interactive
 $PublicSettings = '{
-    "fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/secure-iis.ps1"],
+    "fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/secure-iis.ps1"],
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
 }'
 
@@ -208,8 +151,8 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ### <a name="test-the-secure-web-app"></a>測試安全的 Web 應用程式
 使用 [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress) 取得 VM 的公用 IP 位址。 下列範例會取得稍早建立之 `myPublicIP` 的 IP 位址︰
 
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
 現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `https://<myPublicIP>`。 若要在使用自我簽署憑證時接受安全性警告，請依序按一下 [詳細資料] 與 [繼續瀏覽網頁]：
@@ -222,7 +165,6 @@ Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" 
 
 
 ## <a name="next-steps"></a>後續步驟
-
 在本教學課程中，您已使用儲存在 Azure Key Vault 中的 SSL 憑證來保護 IIS 網頁伺服器。 您已了解如何︰
 
 > [!div class="checklist"]

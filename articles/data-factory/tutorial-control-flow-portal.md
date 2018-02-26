@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，管線會在成功電子郵件中傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，管線會在失敗電子郵件中傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         - 資料處理站名稱 – 傳遞 `@{pipeline().DataFactory}` 的值。這是系統變數，可讓您存取對應的資料處理站名稱。 如需系統變數的清單，請參閱[系統變數](control-flow-system-variables.md)一文。
         - 管道名稱 - 傳遞 `@{pipeline().Pipeline}` 的值。 這也是系統變數，可讓您存取對應的管道名稱。 
         - 接收者 – 傳遞 "@pipeline().parameters.receiver") 的值。 存取管道參數。
-    6. [設定] 應該與下圖類似︰ 
-
+    
         ![第一個 Web 活動的設定](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. 將 [複製] 活動連線至 [Web] 活動，方法是將複製活動旁的綠色按鈕拖放在 Web 活動上。 
 
@@ -266,8 +266,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. [設定] 應該與下圖類似︰ 
-    
+
         ![第二個 Web 活動的設定](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. 在管線設計工具中選取 [複製] 活動，按一下 +-> 按鈕，然後選取 [錯誤]。  
 
@@ -278,7 +277,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 24. 若要驗證管線，按一下工具列上的 [驗證] 按鈕。 按一下 >> 按鈕，來關閉 [管線驗證輸出] 視窗。
 
     ![驗證管線](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，按一下 [發佈]。 請靜待 [發佈成功] 訊息顯示。
+24. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，請選取 [全部發佈]。 請靜待 [發佈成功] 訊息顯示。
 
     ![發佈](./media/tutorial-control-flow-portal/publish-button.png)
  

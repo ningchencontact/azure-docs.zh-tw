@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -20,7 +20,7 @@ Azure Service Fabric 命令列介面 (CLI) 是一個命令列公用程式，用�
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 安裝之前，請確定您的環境已安裝 Python 和 pip。 如需詳細資訊，請參閱 [pip 快速入門文件](https://pip.pypa.io/en/latest/quickstart/)和正式的 [Python 安裝文件](https://wiki.python.org/moin/BeginnersGuide/Download)。
 
@@ -107,6 +107,19 @@ echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```bash
 sudo pip3 install sfctl
 ```
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (Service Fabric 預覽支援)
+
+若要在 Redhat 上安裝 Service Fabric CLI，請執行下列命令：
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+若要測試安裝，您可以參考**適用於 Linux 的 Ubuntu 和 Windows 子系統**一節中所述的步驟
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS

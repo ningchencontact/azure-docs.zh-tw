@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 2d8fc892a91f0dfd4ba7a5c8561bcb222bf81965
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24366df54fa4fc32ebbff7c1303183707dea17c6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>使用 Azure PowerShell 和 事件格線建立和路由傳送自訂事件
 
@@ -51,7 +51,7 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>建立訊息端點
 
-訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/)，然後按一下 [建立 RequestBin]，或移至 [Hookbin](https://hookbin.com/) 並按一下 [建立新端點]。  複製 bin URL，因為您在訂閱主題時需要用到它。
+訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/) \(英文\)，然後按一下 [Create a RequestBin] \(建立 RequestBin\)，或移至 [Hookbin](https://hookbin.com/) \(英文\)，然後按一下 [Create New Endpoint] \(建立新端點\)。  複製 bin URL，因為您在訂閱主題時需要用到它。
 
 ## <a name="subscribe-to-a-topic"></a>訂閱主題
 
@@ -70,13 +70,30 @@ $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Nam
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 ```
 
-為了簡化這篇文章，我們已設定要傳送至主題的範例事件資料。 一般而言，應用程式或 Azure 服務就會傳送事件資料。 下列範例可取得事件資料：
+為了簡化這篇文章，我們已設定要傳送至主題的範例事件資料。 一般而言，應用程式或 Azure 服務就會傳送事件資料。 下列範例會使用雜湊表來建構事件的資料 `htbody`，然後將其轉換成語式正確的 JSON 承載物件`$body`：
 
 ```powershell
 $eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
 $eventDate = Get-Date -Format s
 
-$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"},`"dataVersion`": `"1.0`"}]"
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
 ```
 
 如果您檢視 `$body`，您可以看到完整事件。 JSON 的 `data` 元素是您的事件承載。 任何語式正確的 JSON 都可以進入這個欄位。 您也可以使用主體欄位進行進階路由傳送或篩選。

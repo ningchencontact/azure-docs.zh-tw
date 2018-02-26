@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: 使用 SQL API 在.NET 開發 |Microsoft 文件"
-description: "了解如何使用適用於.NET 的 Azure Cosmos DB 的 SQL API 以開發"
+title: "Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發 | Microsoft Docs"
+description: "了解如何使用 .NET 搭配 Azure Cosmos DB 的 SQL API 進行開發"
 services: cosmos-db
 documentationcenter: 
 author: rafats
@@ -18,19 +18,19 @@ ms.author: rafats
 ms.custom: mvc
 ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>使用 SQL API 在.NET 開發 azure CosmosDB:
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本教學課程示範如何建立 Azure Cosmos DB 帳戶使用 Azure 入口網站，然後再建立文件資料庫以及與集合[資料分割索引鍵](sql-api-partition-data.md#partition-keys)使用[SQL.NET API](sql-api-introduction.md)。 透過在建立集合時定義分割區索引鍵，您的應用程式便已做好準備，可隨著資料成長毫不費力地進行調整。 
+本教學課程示範如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，然後使用 [SQL .NET API](sql-api-introduction.md) 來建立具有[分割區索引鍵](sql-api-partition-data.md#partition-keys)的文件資料庫和集合。 透過在建立集合時定義分割區索引鍵，您的應用程式便已做好準備，可隨著資料成長毫不費力地進行調整。 
 
-本教學課程涵蓋下列工作使用[SQL.NET API](sql-api-sdk-dotnet.md):
+本教學課程使用 [SQL .NET API](sql-api-sdk-dotnet.md)來涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 建立 Azure Cosmos DB 帳戶
@@ -42,7 +42,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 > * 刪除文件
 > * 刪除資料庫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 請確定您具有下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
@@ -81,7 +81,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     如果您收到關於檢閱方案變更的訊息，請按一下 [確定]。 如果您收到關於接受授權的訊息，請按一下 [我接受]。
 
 ## <a id="Connect"></a>將參考新增到您的專案
-在本教學課程的其餘步驟提供建立及更新您的專案中的 Azure Cosmos DB 資源所需的 SQL 應用程式開發介面程式碼片段。
+本教學課程中的剩餘步驟會提供在您的專案中建立和更新 Azure Cosmos DB 資源所需的 SQL API 程式碼片段。
 
 首先，請將下列參考新增到您的應用程式。
 <!---These aren't added by default when you install the pkg?--->
@@ -121,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>建立資料庫
 
-接下來，建立 Azure Cosmos DB[資料庫](sql-api-resources.md#databases)使用[CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx)方法或[CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx)方法**DocumentClient**類別從[SQL.NET SDK](sql-api-sdk-dotnet.md)。 資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。
+接著，使用來自 [SQL .NET SDK](sql-api-sdk-dotnet.md) 之 **DocumentClient** 類別的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法或 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 方法，來建立 Azure Cosmos DB [資料庫](sql-api-resources.md#databases)。 資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -261,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>平行查詢執行
-Azure Cosmos DB SQL Sdk 1.9.0 和上方支援平行查詢執行選項，可讓您執行低度延遲查詢針對資料分割的集合，即使它們需要接觸大量的資料分割。 例如，下列查詢設定為跨資料分割平行執行。
+Azure Cosmos DB SQL SDK 1.9.0 和更新版本支援平行查詢執行選項，可讓您對已分割的集合執行低延遲查詢 (即使它們需要觸及大量的分割區也一樣)。 例如，下列查詢設定為跨資料分割平行執行。
 
 ```csharp
 // Cross-partition Order By queries
@@ -277,7 +277,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * 藉由設定 `MaxDegreeOfParallelism`，您可以控制平行處理原則的程度，亦即與集合的資料分割同時的網路連線數上限。 如果您將此設定為 -1，平行處理原則的程度是由 SDK 管理。 如果 `MaxDegreeOfParallelism` 未指定或設為 0 (這是預設值)，將會有連往集合資料分割的單一網路連線。
 * 您可藉由設定 `MaxBufferedItemCount`，來權衡取捨查詢延遲和用戶端記憶體使用量。 如果您省略這個參數或將此設定為 -1，平行查詢執行期間緩衝處理的項目數是由 SDK 管理。
 
-在相同的集合狀態下，平行查詢會以和序列執行相同的順序傳回結果。 執行跨資料分割查詢，其中包含排序 （ORDER BY 和/或頂端），SQL SDK 發出查詢，以平行方式跨資料分割，並將部分已排序的結果，在用戶端來產生全域排序的結果。
+在相同的集合狀態下，平行查詢會以和序列執行相同的順序傳回結果。 執行包含排序 (ORDER BY 和/或 TOP) 的跨資料分割查詢時，SQL SDK 會跨資料分割發出平行查詢，並合併用戶端中已部分排序的結果來產生全域排序的結果。
 
 ## <a name="execute-stored-procedures"></a>執行預存程序
 最後，您可以透過將下列程式碼新增到專案中，對具有相同裝置識別碼的文件執行不可部分完成的交易，例如，如果您正在維護單一文件中的彙總或裝置最新狀態。

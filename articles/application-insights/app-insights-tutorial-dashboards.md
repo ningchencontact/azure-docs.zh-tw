@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 建立自訂 KPI 儀表板
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/01/2017
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/01/2017
 
 3. 在畫面頂端，按一下 [檢視儀表板] 以返回儀表板。
 
-4. [概觀時間軸] 現在已新增至儀表板。  按一下並將它拖曳到適當的位置，然後依序按一下 [完成自訂] 和 [發行變更]。 
+4. 時間軸計量圖表現在已新增至儀表板。 按一下並將它拖曳到適當的位置，然後依序按一下 [完成自訂] 和 [發行變更]。 
 
     ![含有計量的儀表板](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
@@ -120,7 +120,7 @@ Azure Applications Insights Analytics 是分開的服務，因此您必須共用
 
     ![發佈儀表板](media/app-insights-tutorial-dashboards/publish-dashboard.png)
 
-2. 將 [儀表板名稱] 維持不變，然後選取 [訂用帳戶名稱] 以共用儀表板。  按一下 [發行] 。  儀表板現在已可供其他服務和訂用帳戶使用。  您也可以定義應具有儀表板存取權的特定使用者。
+2. 將 [儀表板名稱] 維持不變，然後選取 [訂用帳戶名稱] 以共用儀表板。  按一下 [發佈] 。  儀表板現在已可供其他服務和訂用帳戶使用。  您也可以定義應具有儀表板存取權的特定使用者。
 1. 在 Azure 功能表中選取 [Application Insights] ，然後選取您的應用程式。
 2. 按一下畫面頂端的 [Analytics] 以開啟分析入口網站。
 

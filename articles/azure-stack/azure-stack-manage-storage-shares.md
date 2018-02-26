@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 本文中的資訊可協助 Azure Stack 雲端操作員監視和管理其 Azure Stack 部署的儲存容量。 Azure Stack 儲存體基礎結構會配置 Azure Stack 部署的總儲存容量子集，以便用於**儲存體服務**。 儲存體服務會將租用戶的資料儲存在磁碟區上對應到部署節點的共用中。
 
@@ -130,7 +130,7 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 - 如果您缺少資源群組的權限，且無法使用 PowerShell 來查詢溢位資料的其他磁碟區，請與這些資源群組和容器的擁有者合作，以在移轉該資料之前了解要移轉的資料大小總計。  
 
 > [!IMPORTANT]
-> 容器的 blob 移轉是需要使用 PowerShell 的離線作業。 在移轉完成前，您正在移轉之容器的所有 blob 會保持離線狀態且無法使用。
+> 容器的 blob 移轉是需要使用 PowerShell 的離線作業。 在移轉完成前，您正在移轉之容器的所有 blob 會保持離線狀態且無法使用。 您也應該避免在所有進行中的移轉完成之前升級 Azure Stack。
 
 #### <a name="to-migrate-containers-using-powershell"></a>使用 PowerShell 來移轉容器
 1. 確認您[已安裝並設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 如需詳細資訊，請參閱 [將 Azure PowerShell 與 Azure 資源管理員搭配使用](http://go.microsoft.com/fwlink/?LinkId=394767)。

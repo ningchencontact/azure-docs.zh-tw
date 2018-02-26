@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
@@ -74,7 +74,7 @@ Application Insights 會收集您應用程式中不同作業的效能詳細資�
 
 6.  您目前所收集到的資訊只確認了效能緩慢，卻無法得知根本原因。  透過顯示針對作業執行的實際程式碼和每個步驟需要的時間，[Profiler] 可協助解決此問題。 因為 Profiler 是定期執行，某些作業可能不具有追蹤。  隨著時間累積，將會有更多作業具有追蹤。  若要針對作業啟動 Profiler，請按一下 [Profiler 追蹤]。
 5.  追蹤會顯示每個作業的個別事件，讓您可以診斷整體作業持續時間的根本原因。  按一下持續時間最長之前幾個範例的其中一個。
-6.  按一下 [顯示最忙碌路徑] 來反白顯示對於作業的總持續時間影響最深之事件的特定路徑。  在此範例中，您可以看到最慢的呼叫是來自 FabrikamFiberAzureStorage.GetStorageTableData 方法。 花費最多時間的部分是 CloudTable.CreateIfNotExist 方法。 如果每次呼叫函式時都會執行此程式碼，就會使用不必要的網路呼叫和 CPU 資源。 修正程式碼的最佳方式，是將這一行放在只能執行一次的某些啟動方法。 
+6.  按一下 [顯示最忙碌路徑] 來反白顯示對於作業的總持續時間影響最深之事件的特定路徑。  在此範例中，您可以看到最慢的呼叫是來自 FabrikamFiberAzureStorage.GetStorageTableData 方法。 花費最多時間的部分是 CloudTable.CreateIfNotExist 方法。 如果每次呼叫函式時都會執行此程式碼，就會使用不必要的網路呼叫和 CPU 資源。 修正程式碼的最佳方式，是將這一行放在只執行一次的某些啟動方法中。 
 
     ![Profiler 詳細資料](media/app-insights-tutorial-performance/profiler-details.png)
 

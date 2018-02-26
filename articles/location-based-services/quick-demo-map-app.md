@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>使用 Azure 位置服務 (預覽版) 啟動示範互動式地圖搜尋
 
-本文會使用 Azure Map 來示範 Azure LBS (預覽版，簡稱 LBS) 的功能。 也會引導您完成建立自己 LBS 帳戶的基本步驟，並取得用於示範 Web 應用程式中的帳戶金鑰。 
+本文會使用 Azure Map 來示範 Azure LBS 執行互動式搜尋的功能。 也會引導您完成建立自己 LBS 帳戶的基本步驟，並取得用於示範 Web 應用程式中的帳戶金鑰。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/24/2018
 ## <a name="launch-the-demo-application-for-azure-maps"></a>啟動 Azure Map 示範應用程式
 
 1. 在您選擇的瀏覽器中開啟 **AzureMapDemo.html** 檔案。
-2. 查看地圖所顯示的洛杉磯市。 顯示的城市是由 *AzureMapDemo.html* 中，提供給名為 **center** 的 JavaScript 變數 `[longitude, latitude]` 配對值所決定。 您可以將這些座標變更為您選擇的任何其他城市。 例如，紐約市的座標是 *[-74.0060，40.7128]*。
+2. 查看地圖所顯示的洛杉磯市。 顯示的城市是由 `[longitude, latitude]` 配對值所決定，其會提供給 AzureMapDemo.html 中名為 **center** 的 JavaScript 變數。 您可以將這些座標變更為您選擇的任何其他城市。 例如，紐約市的座標是 *[-74.0060，40.7128]*。
 3. 請在示範 Web 應用程式左上角的搜尋方塊中，輸入您想要搜尋的任何位置類型或地址。 
 4. 將滑鼠移到搜尋方塊下方顯示的地址/地點清單上，便可注意到地圖上對應的圖釘會彈出該地點的相關資訊。 例如，此 Web 應用程式的範例啟動會搜尋 [餐廳] 並得到下列結果。 請注意，為了保護私人公司的隱私權，在此顯示的是虛構的名稱和地址。 
 

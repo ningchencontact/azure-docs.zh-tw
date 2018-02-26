@@ -1,6 +1,6 @@
 ---
-title: "疑難排解 Azure IoT 邊緣 |Microsoft 文件"
-description: "解決一般問題和了解 Azure IoT 邊緣的疑難排解技術"
+title: "對 Azure IoT Edge 進行移難排解 | Microsoft Docs"
+description: "解決 Azure IoT Edge 的常見問題及了解其疑難排解技術"
 services: iot-edge
 keywords: 
 author: kgremban
@@ -12,25 +12,25 @@ ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
-# <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>常見問題和解決方式的 Azure IoT 邊緣
+# <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
-如果您遇到您環境中執行 Azure IoT 邊緣的問題，使用做為指南這篇文章的疑難排解和解決方式。 
+如果您在您的環境中執行 Azure IoT Edge 時遇到問題，請使用本文作為疑難排解和解決方案的指引。 
 
 ## <a name="standard-diagnostic-steps"></a>標準的診斷步驟 
 
-當您遇到問題時，深入了解 IoT 邊緣裝置的狀態檢閱容器的記錄檔與所傳遞的訊息與裝置。 這一節中使用的命令與工具來收集資訊。 
+當您遇到問題時，可透過檢閱容器記錄與裝置的往來訊息，深入了解 IoT Edge 裝置的狀態。 可使用這一節中的命令與工具來收集資訊。 
 
-* 查看 docker 容器來偵測問題的記錄檔。 開始使用您已部署的容器，然後查看構成 IoT 邊緣執行階段的容器： 邊緣代理程式和邊緣中樞。 邊緣代理程式記錄檔通常會提供在每個容器的生命週期的資訊。 邊緣中樞記錄檔提供傳訊和路由的資訊。 
+* 查看 Docker 容器的記錄來偵測問題。 從您已部署的容器開始著手，然後查看構成 IoT Edge 執行階段的容器：IoT 代理程式和 IoT 中樞。 IoT 代理程式記錄通常會提供每個容器的生命週期相關資訊。 IoT 中樞記錄會提供傳訊和路由的相關資訊。 
 
    ```cmd
    docker logs <container name>
    ```
 
-* 檢視通過邊緣集線器的訊息和裝置屬性更新的詳細資訊記錄檔收集 insights 從執行階段容器。
+* 檢視通過 Edge 中樞的訊息，以及透過執行階段容器的詳細記錄來收集裝置屬性更新的見解。
 
    ```cmd
    iotedgectl setup --runtime-log-level DEBUG
@@ -42,19 +42,19 @@ ms.lasthandoff: 12/21/2017
    docker exec edgeAgent printenv
    ```
 
-您也可以檢查 IoT 中樞與邊緣 IoT 裝置之間傳送的訊息。 使用檢視這些訊息[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) Visual Studio Code 擴充功能。 如需詳細指引，請參閱[便利的工具，當您開發與 Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
+您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 您可以使用 Visual Studio Code 的 [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)擴充功能來檢視這些訊息。 如需詳細指引，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
 
-之後調查記錄檔和資訊的訊息中，您也可以嘗試重新啟動 Azure IoT 邊緣執行階段：
+檢查過記錄和訊息並取得資訊後，您也可以嘗試重新啟動 Azure IoT Edge 執行階段：
 
    ```cmd
    iotedgectl restart
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>邊緣代理程式後，停止約一分鐘
+## <a name="edge-agent-stops-after-about-a-minute"></a>Edge 代理程式會在大約一分鐘後停止
 
-邊緣代理程式啟動並執行成功約一分鐘，然後停止。 記錄檔表示邊緣代理程式正在嘗試透過 AMQP 連線到 IoT 中樞，則大約 30 秒之後嘗試使用 AMQP 透過 websocket 連線。 時失敗，就會結束邊緣代理程式。 
+Edge 代理程式會啟動並成功執行約一分鐘，然後停止。 記錄指出 Edge 代理程式會嘗試透過 AMQP 連線到 IoT 中樞，然後大約 30 秒之後嘗試使用 AMQP 透過 WebSocket 連線。 當這些作業失敗後，Edge 代理程式就會退出。 
 
-範例邊緣代理程式記錄檔：
+Edge 代理程式記錄的範例：
 
 ```
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -64,16 +64,16 @@ ms.lasthandoff: 12/21/2017
 ```
 
 ### <a name="root-cause"></a>根本原因
-主機網路的網路設定會使得邊緣代理程式無法接近網路。 代理程式將嘗試透過 AMQP （連接埠 5671） 連接的第一次。 如果這個作業失敗，它會嘗試 websockets （連接埠 443）。
+主機網路上的網路組態阻止了 Edge 代理程式觸達該網路。 代理程式首先嘗試透過 AMQP (連接埠 5671) 進行連線。 如果此作業失敗，代理程式會嘗試 Websocket (連接埠 443)。
 
-IoT 邊緣執行階段會設定每個模組的網路上通訊。 On Linux，此網路是網路橋接器。 在 Windows 中，它會使用 nat。 這個問題是較常見的 Windows 裝置使用 Windows 容器使用 NAT 網路上。 
+IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 Linux 上，此網路是橋接網路。 在 Windows 上則是使用 NAT。 此問題較常見於使用 Windows 容器 (使用 NAT 網路) 的 Windows 裝置。 
 
 ### <a name="resolution"></a>解決方案
-確定網際網路的 IP 位址指派給此橋接器/NAT 網路的路由。 有時在主機上的 VPN 組態會覆寫 IoT 邊緣網路。 
+確認指派給此橋接器/NAT 網路的 IP 位址能路由至網際網路。 有時候主機上的 VPN 組態會覆寫 IoT Edge 網路。 
 
-## <a name="edge-hub-fails-to-start"></a>邊緣中樞無法啟動
+## <a name="edge-hub-fails-to-start"></a>Edge 中樞無法啟動
 
-邊緣中樞無法啟動，並列印至記錄檔的下列訊息： 
+Edge 中樞無法啟動，且將下列訊息輸出至記錄： 
 
 ```
 One or more errors occurred. 
@@ -83,19 +83,19 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>根本原因
-在主機上的某些其他處理序已經繫結連接埠 443。 邊緣中樞對應連接埠 5671 與在閘道案例中使用 443。 如果另一個處理序已經繫結此連接埠，此連接埠對應將會失敗。 
+在主機機器上的某些其他程序已繫結連接埠 443。 Edge 中樞會對應連接埠 5671 和 443，以在閘道案例中使用。 如果另一個程序已繫結此連接埠，則此連接埠對應會失敗。 
 
 ### <a name="resolution"></a>解決方案
-尋找並停止處理序正在使用連接埠 443。 此程序通常是網頁伺服器。
+尋找並停止正在使用連接埠 443 的程序。 此程序通常是網頁伺服器。
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>邊緣代理程式無法存取模組的映像 (403)
-容器無法執行，而且邊緣代理程式記錄檔顯示 403 錯誤。 
+## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge 代理程式無法存取模組的映像 (403)
+容器無法執行，而且 Edge 代理程式記錄顯示 403 錯誤。 
 
 ### <a name="root-cause"></a>根本原因
-邊緣代理程式沒有存取模組的映像的權限。 
+Edge 代理程式沒有存取模組映像的權限。 
 
 ### <a name="resolution"></a>解決方案
-請嘗試執行`iotedgectl login`命令一次。
+再次嘗試執行 `iotedgectl login` 命令。
 
 ## <a name="next-steps"></a>後續步驟
-您認為您在 IoT 邊緣平台找到 bug？ 請[提出議題](https://github.com/Azure/iot-edge/issues)，讓我們可以持續改善。 
+您在 IoT Edge 平台中發現到錯誤嗎？ 請[提交問題](https://github.com/Azure/iot-edge/issues)，讓我們可以持續進行改善。 

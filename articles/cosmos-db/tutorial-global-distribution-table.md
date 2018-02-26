@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: 40c0bfe913e1396194de00cf6fa1d1ff823b1d0e
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -35,15 +35,15 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>使用資料表 API 來連線到慣用的區域
 
-為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 這可藉由設定[TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations)屬性。 Azure Cosmos DB 資料表 API SDK 會挑選最佳的端點來與通訊的帳戶設定、 目前區域的可用性和喜好設定提供的清單。
+為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 這可藉由設定 [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations) 屬性來完成。 Azure Cosmos DB 資料表 API SDK 會根據帳戶組態、目前的區域可用性及所指定的喜好設定清單，挑選最適合通訊的端點。
 
-PreferredLocations 應包含以逗號分隔清單的慣用 （多路連接） 的位置，供讀取。 每個用戶端執行個體可以依慣用順序指定這些區域的子集，供低延遲讀取使用。 指定這些區域時，必須使用其[顯示名稱](https://msdn.microsoft.com/library/azure/gg441293.aspx)，例如 `West US`。
+PreferredLocations 應該包含一個供讀取使用的慣用 (多路連接) 位置逗號分隔清單。 每個用戶端執行個體可以依慣用順序指定這些區域的子集，供低延遲讀取使用。 指定這些區域時，必須使用其[顯示名稱](https://msdn.microsoft.com/library/azure/gg441293.aspx)，例如 `West US`。
 
-所有的讀取會傳送至 PreferredLocations 清單中第一個可用的地區。 如果要求失敗，用戶端將無法往下到清單中的下一個區域，依此類推。
+所有讀取都會傳送至 PreferredLocations 清單中的第一個可用區域。 如果要求失敗，用戶端將無法往下到清單中的下一個區域，依此類推。
 
-讀取區域 中所指定的 PreferredLocations 嘗試 SDK。 因此，比方說，如果資料庫帳戶可供三個區域使用，但用戶端只針對 PreferredLocations 指定其中兩個非寫入區域，則將不會在該寫入區域以外的地方提供讀取服務，即使發生容錯移轉也一樣。
+SDK 會嘗試從 PreferredLocations 中指定的區域讀取。 因此，比方說，如果資料庫帳戶可供三個區域使用，但用戶端只針對 PreferredLocations 指定其中兩個非寫入區域，則將不會在該寫入區域以外的地方提供讀取服務，即使發生容錯移轉也一樣。
 
-SDK 會自動傳送所有寫入至目前的寫入區域。
+SDK 會自動將所有寫入傳送至目前的寫入區域。
 
 如果未設定 PreferredLocations 屬性，將會從目前的寫入區域為所有要求提供服務。
 

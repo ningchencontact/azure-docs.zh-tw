@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -74,6 +74,7 @@ ms.lasthandoff: 01/23/2018
 3. 在 [防火牆設定] 頁面中，對 [允許存取 Azure 服務] 按一下 [開啟]。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ ms.lasthandoff: 01/23/2018
 2. 在 [屬性] 視窗中，將管線的名稱變更為 **GetTableListAndTriggerCopyData**。 
 
     ![管線名稱](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. 在 [活動] 工具箱中，展開 [SQL Database]，並將 [查閱] 活動拖放至管線設計工具介面，然後執行下列步驟：
+3. 在 [活動] 工具箱中展開 [一般]，並將 [查閱] 活動拖放至管線設計工具介面，然後執行下列步驟：
 
     1. 輸入 [LookupTableList] 作為 [名稱]。 
     2. 在 [描述] 中輸入**從 Azure SQL 資料庫擷取資料表清單**。
@@ -322,7 +323,7 @@ ms.lasthandoff: 01/23/2018
 8. 若要驗證管線，按一下工具列上的 [驗證]。 確認沒有任何驗證錯誤。 若要關閉 [管線驗證報告]，按一下 **>>**。
 
     ![第二個管線 - 驗證報告](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，按一下 [發佈]。 等待發佈成功。 
+9. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，請按一下 [全部發佈]。 等待發佈成功。 
 
     ![發佈按鈕](./media/tutorial-bulk-copy-portal/publish.png)
 

@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: mvc
 ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -194,7 +194,7 @@ table.CreateIfNotExists(throughput: 800);
 
 在資料表的建立方式方面有重大的差異。 Azure Cosmos DB 會保留輸送量，而不像 Azure 儲存體針對交易是採用以耗用量為基礎的模型。 您的輸送量是專用/已保留的，因此當您的要求率正好在或低於所佈建的輸送量時，一律不會進行節流。
 
-您可以設定預設輸送量包括為 CreateIfNotExists 的參數。
+您可以藉由將預設輸送量納入 CreateIfNotExists 的參數，來對其進行設定。
 
 讀值為 1-KB 的實體會標準化為 1 RU，其他作業則會根據其 CPU、記憶體及 IOPS 耗用量來標準化為固定的 RU 值。 深入了解 [Azure Cosmos DB 中的要求單位](request-units.md)，尤其是[索引鍵值存放區](key-value-store-cost.md)。
 

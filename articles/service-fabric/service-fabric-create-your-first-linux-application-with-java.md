@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
 > [!div class="op_single_selector"]
@@ -31,24 +31,12 @@ ms.lasthandoff: 01/20/2018
 本快速入門可協助您在短短幾分鐘內在 Linux 開發環境中建立第一個 Azure Service Fabric Java 應用程式。  當您完成時，您會有一個在本機開發叢集上執行的簡單 Java 單一服務應用程式。  
 
 ## <a name="prerequisites"></a>先決條件
-開始之前，請在 [Linux 開發環境](service-fabric-get-started-linux.md)中安裝 Service Fabric SDK、Service Fabric CLI，以及設定開發叢集。 如果您使用 Mac OS X，您可以[使用 Vagrant 在虛擬機器中設定 Linux 開發環境](service-fabric-get-started-mac.md)。
+開始之前，請在 [Linux 開發環境](service-fabric-get-started-linux.md)中安裝 Service Fabric SDK、Service Fabric CLI、Yeoman，然後設定 Java 開發環境，並設定開發叢集。 如果您使用 Mac OS X，您可以[使用 Docker 在 Mac 上設定開發環境](service-fabric-get-started-mac.md)。
 
 另請安裝 [Service Fabric CLI](service-fabric-cli.md)。
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>安裝及設定 Java 的產生器
-Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman 範本產生器建立 Service Fabric Java 應用程式。 請遵循下列步驟來確保您有適用於 Java 的 Service Fabric yeoman 範本產生器，可在您的電腦上運作。
-1. 在電腦上安裝 nodejs 和 NPM
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. 在電腦上從 NPM 安裝 [Yeoman](http://yeoman.io/) 範本產生器
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. 從 NPM 安裝 Service Fabric Yeoman Java 應用程式產生器
+Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman 範本產生器建立 Service Fabric Java 應用程式。  如果尚未安裝 Yeoman，請參閱[在 Linux 上開始使用 Service Fabric](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)，以取得設定 Yeoman 的指示。 執行下列命令，以安裝 Java 的 Service Fabric Yeoman 範本產生器。
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -199,12 +187,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="build-the-application"></a>建置應用程式
 Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令碼，可用來從終端機建置應用程式。
-從 Maven 擷取的 Service Fabric Java 相依性。 若要建置和處理 Service Fabric Java 應用程式，您必須確定已安裝 JDK 和 Gradle。 如果尚未安裝，您可以執行下列命令來安裝 JDK (openjdk-8-jdk) 和 Gradle -
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+從 Maven 擷取的 Service Fabric Java 相依性。 若要建置和處理 Service Fabric Java 應用程式，您必須確定已安裝 JDK 和 Gradle。 如果尚未加以安裝，請參閱[在 Linux 上開始使用 Service Fabric](service-fabric-get-started-linux.md#set-up-java-development)，以取得安裝 JDK 和 Gradle 的指示。
 
 若要建置和封裝應用程式，請執行下列指令碼：
 
@@ -347,9 +330,6 @@ Service Fabric 的系統層級支援，其可與原生 Service Fabric 執行階�
       compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
-
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>移轉要搭配 Maven 使用的舊版 Service Fabric Java 應用程式
-我們最近已將 Service Fabric Java 程式庫從 Service Fabric Java SDK 移至 Maven 存放庫。 雖然您使用 Yeoman 或 Eclipse 產生的新應用程式將產生最新的專案 (能夠搭配 Maven 運作)，但您可以更新現有的 Service Fabric 無狀態或動作項目 Java 應用程式 (先前使用 Service Fabric Java SDK)，以使用 Maven 提供的 Service Fabric Java 相依性。 請遵循[這裡](service-fabric-migrate-old-javaapp-to-use-maven.md)所述的步驟，確保舊版應用程式能搭配 Maven 運作。
 
 ## <a name="next-steps"></a>後續步驟
 

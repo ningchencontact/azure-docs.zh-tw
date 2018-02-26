@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7780a29f6633b444608d96012fabe67b9b6d924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 504c4a666d1abd7a495d6759d62815f53f0b54fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性設定組
 
 
 在本教學課程中，您會學到如何使用稱為「可用性設定組」的功能，增加 Azure 虛擬機器解決方案的可用性和可靠性。 可用性設定組可確保您在 Azure 上部署的 VM 會分散到多個各自獨立的硬體叢集中。 這麼做可以確保當 Azure 發生硬體或軟體故障時，受到影響的只會是一部分的 VM 子集，您整體的解決方案則會維持可用且正常運作。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立可用性設定組
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-an-availability-set"></a>建立可用性設定組
 
-您可以使用 [az vm availability-set create](/cli/azure/vm/availability-set#create) 來建立可用性設定組。 在此範例中，我們將針對 *myResourceGroupAvailability* 資源群組中名為 *myAvailabilitySet* 的可用性設定組，同時將更新數目和容錯網域數目設為 *2*。
+您可以使用 [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) 來建立可用性設定組。 在此範例中，我們將針對 *myResourceGroupAvailability* 資源群組中名為 *myAvailabilitySet* 的可用性設定組，同時將更新數目和容錯網域數目設為 *2*。
 
 建立資源群組。
 
@@ -74,7 +74,7 @@ az vm availability-set create \
 
 您必須將 VM 建立於可用性設定組內，才能確保 VM 會在硬體中正確地分散。 您無法在建立可用性設定組之後，將現有的 VM 加入至其中。 
 
-當您使用 [az vm create](/cli/azure/vm#create) 建立 VM 時，會使用 `--availability-set` 參數來指定可用性設定組，以指定可用性設定組的名稱。
+當您使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM 時，會使用 `--availability-set` 參數來指定可用性設定組，以指定可用性設定組的名稱。
 
 ```azurecli-interactive 
 for i in `seq 1 2`; do
@@ -98,7 +98,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>檢查可用的 VM 大小 
 
-您稍後可以將更多 VM 加入至可用性設定組，但是需要知道硬體上有哪些可用的 VM 大小。  針對可用性設定組，使用 [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) 來列出硬體叢集上所有可用的大小。
+您稍後可以將更多 VM 加入至可用性設定組，但是需要知道硬體上有哪些可用的 VM 大小。  針對可用性設定組，使用 [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) 來列出硬體叢集上所有可用的大小。
 
 ```azurecli-interactive 
 az vm availability-set list-sizes \
@@ -119,5 +119,5 @@ az vm availability-set list-sizes \
 請前進到下一個教學課程，以了解虛擬機器擴展集。
 
 > [!div class="nextstepaction"]
-> [建立 VM 擴展集](tutorial-create-vmss.md)
+> [建立虛擬機器擴展集](tutorial-create-vmss.md)
 

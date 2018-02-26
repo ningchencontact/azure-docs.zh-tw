@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>建立和部署容器作為 Service Fabric 應用程式
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/11/2018
 > * 部署和執行應用程式 
 > * 清除應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 使用推送到在本教學課程系列的[第 1 部分](service-fabric-tutorial-create-container-images.md)中建立之 Azure Container Registry 的容器映像。
 - 已[設定](service-fabric-tutorial-create-container-images.md) Linux 開發環境。
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 在本教學課程中，現在可以使用適用於服務封裝應用程式的範本來部署到叢集。 在後續的教學課程中，此應用程式會部署並執行於 Service Fabric 叢集中。
 
 ## <a name="create-a-service-fabric-cluster"></a>建立 Service Fabric 叢集
-若要將應用程式部署到 Azure 中的叢集，請使用您自己的叢集，或使用合作對象叢集。
+若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集。
 
-合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由 Service Fabric 小組所維護，任何人皆可在其中部署應用程式並了解平台。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+
+如需在安全的合作對象叢集上執行管理作業，您可以使用 Service Fabric Explorer、CLI 或 Powershell。 若要使用 Service Fabric Explorer，您必須從合作對象叢集網站下載 PFX 檔案，並將憑證匯入憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 合作對象叢集中的自我簽署憑證沒有任何密碼。 
+
+若要使用 Powershell 或 CLI 執行管理作業，您需要 PFX (Powershell) 或 PEM (CLI)。 若要將 PFX 轉換成 PEM 檔案，請執行下列命令：  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
@@ -230,7 +238,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 連線到 Azure 中的 Service Fabric 叢集。 以您自己的端點取代預留位置端點。 端點必須是類似以下的完整 URL。
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 使用 **TestContainer** 目錄中所提供的安裝指令碼，將應用程式封裝複製到叢集的映像存放區、註冊應用程式類型，以及建立應用程式的執行個體。

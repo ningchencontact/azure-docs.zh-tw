@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 0daf8b48f9cc767b0e6cf5339eff2e4e371c23fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 057a3bdb9a70c09fdd95cc02cc664db29e6c2f69
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Python 連線和查詢資料
-本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
+本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。 如需 SDK 的詳細資訊，請參閱[適用於 Python SDK 參考的 Azure MySQL 程式庫](/python/api/overview/azure/mysql)文件和 [MySQL 連接器範例](https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html)。
 
 ## <a name="prerequisites"></a>先決條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰

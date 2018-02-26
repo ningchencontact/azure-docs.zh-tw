@@ -12,25 +12,25 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>使用 Azure LBS 來搜尋附近景點
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>使用 Azure LBS 來搜尋附近景點
 
 本教學課程說明如何使用 Azure LBS 來設定帳戶，然後使用所提供的 API 來搜尋景點。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure LBS 建立帳戶
 > * 得知您 Azure 位置服務帳戶的主要金鑰
-> * 使用地圖控制項 API 建立新網頁
+> * 使用地圖控制項 API 在網頁中建立新網頁
 > * 使用搜尋服務來尋找附近景點
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
-# <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 登入 [Azure 入口網站](https://portal.azure.com)。
 
 <a id="createaccount"></a>

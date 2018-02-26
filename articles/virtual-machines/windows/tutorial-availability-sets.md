@@ -12,21 +12,21 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2017
+ms.topic: tutorial
+ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性設定組
 
 在本教學課程中，您會學到如何使用稱為「可用性設定組」的功能，增加 Azure 虛擬機器解決方案的可用性和可靠性。 可用性設定組可確保您在 Azure 上部署的 VM 會分散到叢集中多個各自獨立的硬體節點。 這麼做可以確保當 Azure 發生硬體或軟體故障時，受到影響的只會是一部分的 VM 子集，您整體的解決方案則會維持可用且正常運作。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立可用性設定組
@@ -34,7 +34,9 @@ ms.lasthandoff: 11/22/2017
 > * 檢查可用的 VM 大小
 > * 檢查 Azure Advisor
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.3 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 
 ## <a name="availability-set-overview"></a>可用性設定組概觀
 
@@ -54,124 +56,50 @@ ms.lasthandoff: 11/22/2017
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-使用 [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) 搭配 **-sku aligned** 參數建立受管理的可用性設定組。
+使用 [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) 搭配 `-sku aligned` 參數建立受控的可用性設定組。
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
-   -Location EastUS `
-   -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability `
-   -sku aligned `
+   -Location "EastUS" `
+   -Name "myAvailabilitySet" `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>建立位於可用性設定組內的 VM
-
 您必須將 VM 建立於可用性設定組內，才能確保 VM 會在硬體中正確地分散。 您無法在建立可用性設定組之後，將現有的 VM 加入至其中。 
 
 位置中的硬體已分為多個更新網域和容錯網域。 **更新網域**是一組虛擬機器和可同時重新啟動的基礎實體硬體。 相同**容錯網域**中的 VM 會共用一般儲存體以及通用電源和網路交換器。 
 
-當您使用 [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) 建立 VM 組態時，會使用 `-AvailabilitySetId` 參數來指定可用性設定組的識別碼。
+您在透過 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立 VM 時，會使用 `-AvailabilitySetName` 參數來指定可用性設定組的名稱。
 
-在可用性設定組中使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立兩部 VM。
+首先，使用 [Get-credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 設定 VM 的系統管理員使用者名稱和密碼：
 
 ```azurepowershell-interactive
-$availabilitySet = Get-AzureRmAvailabilitySet `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Name myAvailabilitySet
-
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-    
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -Location eastus `
-    -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -SecurityRules $nsgRuleRDP
-    
-# Apply the network security group to a subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name mySubnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-
-# Update the virtual network
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
-for ($i=1; $i -le 2; $i++)
-{
-   $pip = New-AzureRmPublicIpAddress `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name "mypublicdns$(Get-Random)" `
-        -AllocationMethod Static `
-        -IdleTimeoutInMinutes 4
-
-   $nic = New-AzureRmNetworkInterface `
-        -Name myNic$i `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -SubnetId $vnet.Subnets[0].Id `
-        -PublicIpAddressId $pip.Id `
-        -NetworkSecurityGroupId $nsg.Id
-
-   # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig `
-        -VMName myVM$i `
-        -VMSize Standard_D1 `
-        -AvailabilitySetId $availabilitySet.Id
-
-   $vm = Set-AzureRmVMOperatingSystem `
-        -ComputerName myVM$i `
-        -Credential $cred `
-        -VM $vm `
-        -Windows `
-        -EnableAutoUpdate `
-        -ProvisionVMAgent
-   $vm = Set-AzureRmVMSourceImage `
-        -VM $vm `
-        -PublisherName MicrosoftWindowsServer `
-        -Offer WindowsServer `
-        -Skus 2016-Datacenter `
-        -Version latest
-   $vm = Set-AzureRmVMOSDisk `
-        -VM $vm `
-        -Name myOsDisk$i `
-        -DiskSizeInGB 128 `
-        -CreateOption FromImage `
-        -Caching ReadWrite
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -VM $vm
-}
-
+$cred = Get-Credential
 ```
 
-建立及設定這兩部 VM 需要幾分鐘的時間。 完成後，您將有兩部分散於基礎硬體上的虛擬機器。 
+現在，請使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 在可用性設定組中建立兩個 VM。
+
+```azurepowershell-interactive
+for ($i=1; $i -le 2; $i++)
+{
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupAvailability" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -PublicIpAddressName "myPublicIpAddress$i" `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred
+}
+```
+
+`-AsJob` 參數會以背景工作建立 VM，因此會傳回 PowerShell 提示。 您可以使用 `Job` Cmdlet 檢視背景作業的詳細資料。 建立及設定這兩部 VM 需要幾分鐘的時間。 完成後，您會有兩個分散於基礎硬體上的虛擬機器。 
 
 如果您在入口網站中移至 [資源群組] > [myResourceGroupAvailability] > [myAvailabilitySet] 來查看可用性設定組，您應會看到 VM 分散在 2 個容錯和更新網域上。
 
@@ -183,8 +111,8 @@ for ($i=1; $i -le 2; $i++)
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize `
-   -AvailabilitySetName myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability  
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -AvailabilitySetName "myAvailabilitySet"
 ```
 
 ## <a name="check-azure-advisor"></a>檢查 Azure Advisor 

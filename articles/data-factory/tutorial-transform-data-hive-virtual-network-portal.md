@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: c1dfa969f8665fc06d365bdb91d57382ee04c315
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -70,6 +70,8 @@ ms.lasthandoff: 02/01/2018
 4. 將 **hivescript.hql** 檔案上傳至 **hivescripts** 子資料夾。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
+
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。    
 2. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
@@ -234,7 +236,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="trigger-a-pipeline-run"></a>觸發管線執行
 
-1. 首先，按一下工具列上的 [驗證] 按鈕驗證管線。 按一下[>>] \(右箭頭) 關閉 [管線驗證輸出] 視窗。 
+1. 首先，按一下工具列上的 [驗證] 按鈕驗證管線。 按一下[>>] (右箭頭) 關閉 [管線驗證輸出] 視窗。 
 
     ![驗證管線](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. 若要觸發管線執行，按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 

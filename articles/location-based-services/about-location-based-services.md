@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure LBS (預覽) 簡介
 Azure LBS 是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 符合 Azure OneAPI 規範的服務組合可讓您使用熟悉的開發人員工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure LBS 可提供各產業的開發人員強大的地理空間功能，另納入最新的地圖資料，可提供 Web 和行動裝置應用程式的地理空間內容。 Azure LBS 是符合 Azure One API 規範的 REST API 集合，附有網頁型 JavaScript 控制項可讓開發作業變得超級容易、有彈性且可在多個媒介中轉移。 
@@ -65,11 +65,12 @@ Azure LBS 是為了行動性而建置，可以增強跨平台應用程式的功�
 
 Azure LBS 使用以金鑰為基礎的驗證配置，所以存取服務時需瀏覽至 [Azure 入口網站](http://portal.azure.com)並建立 Azure LBS 帳戶。 您的帳戶隨附預先為您產生的兩個金鑰。 在 Azure LBS 的要求中使用任一個金鑰，開始將這些位置功能直接整合到您的應用程式中。
 
-**與 Bing 地圖的關聯性** - 請注意，本文件中描述的 Azure 位置服務與 Bing 地圖提供的服務有所不同。  雖然兩者共用許多相同的功能，但是這兩項服務不同而且也不相關。  Azure 內這項新服務的可用性不會對 Bing 地圖產品供應項目或藍圖造成影響，它們是個別管理的。
+## <a name="relationship-with-bing-maps"></a>與 Bing 地圖的關聯性
+本文件中描述的 Azure LBS 與 Bing 地圖提供的服務有所不同。  雖然兩者共用許多相同的功能，但是這兩項服務不同而且也不相關。  Azure 內這項新服務的可用性不會對 Bing 地圖產品供應項目或藍圖造成影響，它們是個別管理的。
 
 Microsoft 的目標是為開發人員社群提供位置服務供應項目的選擇。  開發人員可以參考下列快速指引，針對各種使用案例和客戶情況決定要使用何種服務。  請注意，此指引目前適用於 Azure LBS，因為它處於公開預覽階段，當它在 2018 年正式運作之後即會更新。
 
-| 客戶準則 | 使用 Azure 位置服務的時機： | 使用 Bing 地圖的時機： |
+| 客戶準則 | 使用 Azure LBS的時機： | 使用 Bing 地圖的時機： |
 | ------------- | ------------- | ------------- |
 | 開發環境 | 建置或利用其他 Azure 服務 | 使用協力廠商雲端或其他開發人員環境 |
 | 開發階段  | 因為 Azure LBS 目前正在公開預覽，它會針對早期階段測試和概念證明開發最佳化 | 生產環境需要企業等級 SLA |
@@ -79,7 +80,7 @@ Microsoft 的目標是為開發人員社群提供位置服務供應項目的選�
 | 地圖內容 | 標準表面地圖就已足夠 | 衛星、鳥瞰和街景圖是必要項 |
 | 基礎地圖來源 | 偏好 TomTom 地圖資料 | 偏好 HERE 地圖資料 |
 
-立即註冊 [Azure LBS 帳戶！](http://aka.ms/azurelbsportal)
+立即註冊 [Azure LBS 帳戶](http://aka.ms/azurelbsportal)。
 
 ## <a name="next-steps"></a>後續步驟
 
