@@ -1,4 +1,4 @@
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕，然後選取 [計算] > [函式應用程式]。 
+1. 按一下 Azure 入口網站左上角的 [建立資源]，然後選取 [計算] > [函式應用程式]。 
 
     ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-function-app-portal/function-app-create-flow.png)
 

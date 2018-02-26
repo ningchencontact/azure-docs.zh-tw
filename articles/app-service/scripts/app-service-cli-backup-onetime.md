@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼範例層備份 web 應用程式 |Microsoft 文件"
-description: "Azure CLI 指令碼範例層備份 web 應用程式"
+title: "Azure CLI 指令碼範例 - 備份 Web 應用程式 | Microsoft Docs"
+description: "Azure CLI 指令碼範例 - 備份 Web 應用程式"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,7 +16,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: e585c9b203145dcdaf2b63a6044ba2e3bded9572
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 

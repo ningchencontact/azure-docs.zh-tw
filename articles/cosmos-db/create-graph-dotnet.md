@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 38869444d43a3fb5c37a222ef58d30fc607106aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 .NET Framework 或 Core 應用程式
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本快速入門會示範如何使用 Azure 入口網站建立 Azure Cosmos DB 帳戶、資料庫和圖形 (容器)。 您會接著建置和執行以[圖形 API](graph-sdk-dotnet.md) 為基礎的主控台應用程式。  
+本快速入門會示範如何使用 Azure 入口網站建立 Azure Cosmos DB 帳戶、資料庫和圖形 (容器)。 您會接著使用開放原始碼 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 來建置和執行主控台應用程式。  
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -45,63 +45,98 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
-現在，我們將從 Github 複製圖形 API 應用程式、設定連接字串，然後執行它。 您會看到，以程式設計方式來處理資料有多麼的容易。 
+現在，我們將從 Github 複製圖形 API 應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。 
 
-這個範例專案是使用 .NET Core 專案格式，並已設定為將下列架構作為目標：
- - netcoreapp2.0
- - net461
-
-1. 開啟 Git 終端機視窗 (例如 Git Bash)，然後使用 `cd` 來切換到工作目錄。  
+1. 開啟 Git 終端機視窗 (例如 Git Bash)，然後使用 `cd` 切換到您的工作目錄。  
 
 2. 執行下列命令來複製範例存放庫。 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. 然後開啟 Visual Studio 並開啟方案檔案。 
+3. 然後開啟 Visual Studio 並開啟方案檔案。
+
+4. 在專案中還原 NuGet 套件。 這應該包含 Gremlin.Net 驅動程式，以及 Newtonsoft.Json 套件。
+
+5. 您也可以使用 Nuget 套件管理員或 [nuget 命令列公用程式](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools)，手動安裝 Gremlin.Net 驅動程式 3.2.7 版： 
+
+    ```bash
+    nuget install Gremlin.Net -Version 3.2.7
+    ```
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
 讓我們快速檢閱應用程式中發生了什麼。 請開啟 Program.cs 檔案，您會發現這些程式碼行建立 Azure Cosmos DB 資源。 
 
-* 已初始化 DocumentClient。 
+* 根據以上 (第 19 行) 建立的帳戶，設定您的連線參數： 
 
     ```csharp
-    using (DocumentClient client = new DocumentClient(
-        new Uri(endpoint),
-        authKey,
-        new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
+    private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";
+    private static int port = 443;
+    private static string authKey = "your-authentication-key";
+    private static string database = "your-database";
+    private static string collection = "your-collection-or-graph";
     ```
 
-* 已建立新資料庫。
+* 要執行的 Gremlin 命令會列於字典 (第 26 行) 中：
 
     ```csharp
-    Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
-    ```
-
-* 已建立新圖形。
-
-    ```csharp
-    DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
-        UriFactory.CreateDatabaseUri("graphdb"),
-        new DocumentCollection { Id = "graph" },
-        new RequestOptions { OfferThroughput = 1000 });
-    ```
-* 已使用 `CreateGremlinQuery` 方法執行一系列的 Gremlin 步驟。
-
-    ```csharp
-    // The CreateGremlinQuery method extensions allow you to execute Gremlin queries and iterate
-    // results asychronously
-    IDocumentQuery<dynamic> query = client.CreateGremlinQuery<dynamic>(graph, "g.V().count()");
-    while (query.HasMoreResults)
+    private static Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
     {
-        foreach (dynamic result in await query.ExecuteNextAsync())
-        {
-            Console.WriteLine($"\t {JsonConvert.SerializeObject(result)}");
-        }
-    }
+        { "Cleanup",        "g.V().drop()" },
+        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
+        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
+        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
+        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" },
+        { "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
+        { "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
+        { "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" },
+        { "UpdateVertex",   "g.V('thomas').property('age', 44)" },
+        { "CountVertices",  "g.V().count()" },
+        { "Filter Range",   "g.V().hasLabel('person').has('age', gt(40))" },
+        { "Project",        "g.V().hasLabel('person').values('firstName')" },
+        { "Sort",           "g.V().hasLabel('person').order().by('firstName', decr)" },
+        { "Traverse",       "g.V('thomas').out('knows').hasLabel('person')" },
+        { "Traverse 2x",    "g.V('thomas').out('knows').hasLabel('person').out('knows').hasLabel('person')" },
+        { "Loop",           "g.V('thomas').repeat(out()).until(has('id', 'robin')).path()" },
+        { "DropEdge",       "g.V('thomas').outE('knows').where(inV().has('id', 'mary')).drop()" },
+        { "CountEdges",     "g.E().count()" },
+        { "DropVertex",     "g.V('thomas').drop()" },
+    };
+    ```
 
+
+* 使用以上 (第 52 行) 提供的參數，建立 `GremlinServer` 連線物件：
+
+    ```csharp
+    var gremlinServer = new GremlinServer(hostname, port, enableSsl: true, 
+                                                    username: "/dbs/" + database + "/colls/" + collection, 
+                                                    password: authKey);
+    ```
+
+* 建立新的 `GremlinClient` 物件 (第 56 行)：
+
+    ```csharp
+    var gremlinClient = new GremlinClient(gremlinServer);
+    ```
+
+* 使用 `GremlinClient` 物件搭配非同步工作 (第 63 行)，執行每個 Gremlin 查詢。 這將從以上 (第 26 行) 定義的字典讀取 Gremlin 查詢：
+
+    ```csharp
+    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
+    task.Wait();
+    ```
+
+* 使用 Newtonsoft.Json 中的 `JsonSerializer` 類別，擷取結果並讀取已格式化為字典的值：
+
+    ```csharp
+    foreach (var result in task.Result)
+    {
+        // The vertex results are formed as dictionaries with a nested dictionary for their properties
+        string output = JsonConvert.SerializeObject(result);
+        Console.WriteLine(String.Format("\tResult:\n\t{0}", output));
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>更新您的連接字串
@@ -114,43 +149,41 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ![在 Azure 入口網站的 [金鑰] 頁面中，檢視並複製存取金鑰](./media/create-graph-dotnet/keys.png)
 
-2. 在 Visual Studio 2017 中開啟 appsettings.json 檔案，並將值貼到 `endpoint` 中的 `FILLME`。 
+2. 在 Program.cs 中，將此值貼在第 19 行 `hostname` 變數中的 `your-endpoint` 上。 
 
-    `"endpoint": "https://FILLME.documents.azure.com:443/",`
+    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
 
     端點值現在看起來應該像這樣：
 
-    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+    `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. 從入口網站複製您的**主要金鑰**，並使它成為 App.config 中的 AuthKey 金鑰值，然後儲存變更。 
+3. 從入口網站複製您的 [主索引鍵] 值，並將它貼在 `authkey` 變數中，並取代第 21 行的 `"your-authentication-key"` 預留位置。 
 
-    `"authkey": "FILLME"`
+    `private static string authKey = "your-authentication-key";`
 
-4. 儲存 appsettings.json 檔案。 
+4. 使用以上建立的資料庫資訊，將資料庫名稱貼在第 22 行的 `database` 變數內。 
+
+    `private static string database = "your-database";`
+
+5. 同樣地，使用以上建立的集合資訊，將集合 (也是圖形名稱) 貼在第 23 行的 `collection` 變數內。 
+
+    `private static string collection = "your-collection-or-graph";`
+
+6. 儲存 Program.cs 檔案。 
 
 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
 
 ## <a name="run-the-console-app"></a>執行主控台應用程式
 
-在執行應用程式之前，建議您將 Microsoft.Azure.Graphs 套件更新為最新版本。
+按 CTRL + F5 來執行應用程式。 此應用程式會在主控台中列印 Gremlin 查詢命令和結果。
 
-1. 在 Visual Studio 中，於 [方案總管] 中的 [GraphGetStarted] 專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。 
-
-2. 在 NuGet 套件管理員的 [更新] 索引標籤中，輸入 Microsoft.Azure.Graphs，並勾選 [包括發行前版本] 方塊。 
-
-3. 從結果中，將 **Microsoft.Azure.Graphs** 文件庫更新為最新版本的套件。 這會安裝 Azure Cosmos DB 圖形擴充程式庫套件以及所有相依性。
-
-    如果您收到關於檢閱方案變更的訊息，請按一下 [確定]。 如果您收到關於接受授權的訊息，請按一下 [我接受]。
-
-4. 按 CTRL + F5 來執行應用程式。
-
-   主控台視窗會顯示將要新增至圖形的頂點和邊緣。 當指令碼完成時，請按兩次 ENTER 以關閉主控台視窗。
+   主控台視窗會顯示將要新增至圖形的頂點和邊緣。 當指令碼完成時，請按 ENTER 以關閉主控台視窗。
 
 ## <a name="browse-using-the-data-explorer"></a>使用資料總管進行瀏覽
 
 您現在可以回到 Azure 入口網站中的 [資料總管]，瀏覽及查詢新的圖形資料。
 
-1. 在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開 [graphdb]、[graphcollz]，然後按一下 [圖形]。
+1. 在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開資料庫和集合節點，然後按一下 [圖形]。
 
 2. 按一下 [套用篩選條件] 按鈕，以使用預設查詢來檢視圖形中的所有頂點。 範例應用程式所產生的資料會顯示在 [圖形] 窗格中。
 

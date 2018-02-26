@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 這篇文章集合許多讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。
@@ -29,14 +29,8 @@ ms.lasthandoff: 12/14/2017
 如需載入指引，請參閱[載入資料的指引](guidance-for-loading-data.md)。
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>利用暫停和調整來降低成本
-SQL 資料倉儲的一個重要功能，是能夠在您不使用它時予以暫停，這會停止計算資源的計費。  另一個重要功能是能夠調整資源。  暫停和調整可以透過 Azure 入口網站或透過 PowerShell 命令執行。  請熟悉這些功能，因為這些功能可以在資料倉儲不使用時大幅降低成本。  如果您希望隨時可存取資料倉儲，建議您將其調整到最小的大小 (DW100)，而不是暫停。
+如需透過暫停和調整來降低成本的詳細資訊，請參閱[管理計算](sql-data-warehouse-manage-compute-overview.md)。 
 
-另請參閱[暫停計算資源][Pause compute resources]、[繼續計算資源][Resume compute resources]、[調整計算資源]。
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>暫停或調整之前先清空交易
-當您暫停或調整您的 SQL 資料倉儲時，您的查詢在您起始暫停或調整要求時會於幕後取消。  取消簡單的 SELECT 查詢是很快的作業，對於暫停或調整執行個體所花費的時間幾乎沒有什麼影響。  不過，交易性查詢 (會修改您的資料或結構) 可能無法快速地停止。  **顧名思義，交易性查詢必須完全完成或回復變更。**  回復交易性查詢已完成的工作可能需要很長時間，甚至比查詢套用原始變更更久。  例如，如果您取消的刪除資料列查詢已經執行一小時，系統可能需要一個小時將已刪除的資料列回復插入。  如果您在交易執行中執行暫停或調整，暫停或調整作業可能需要一些時間，因為暫停和調整必須等回復完成才能繼續。
-
-另請參閱[了解交易][Understanding transactions]、[最佳化交易][Optimizing transactions]
 
 ## <a name="maintain-statistics"></a>維護統計資料
 不同於 SQL Server (會自動偵測資料行並建立或更新資料行上的統計資料)，SQL 資料倉儲需要手動維護統計資料。  我們計劃在未來改進這一點，但現在您仍需要維護您的統計資料，以確保 SQL 資料倉儲的計劃最佳化。  最佳化工具建立的計劃只能利用可用的統計資料。  **建立每個資料行的範本統計資料是開始使用統計資料的簡單方式。**  更新統計資料和對您的資料做重大變更一樣重要。  保守的作法是每天或每次載入之後更新統計資料。  建立和更新統計資料的效能與成本之間總有一些取捨。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇哪些資料行要加以統計資料、哪些資料行需要頻繁更新。  例如，您可能想要更新您每天都要加入新值的日期資料行。 **對牽涉聯結的資料行、WHERE 子句中使用的資料行、在 GROUP BY 中找到的資料行加以統計資料，可以獲得最大效益。**
@@ -138,7 +132,7 @@ SQL 資料倉儲有數個 DMV 可用來監視查詢的執行。  下列的監視
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[調整計算資源]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

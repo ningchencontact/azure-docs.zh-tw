@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure 入口網站建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/23/2018
 
 資料處理站可以有一或多個管線。 其中的管線可以有一或多個活動。 例如，「複製活動」會從來源將資料複製到目的地資料存放區，HDInsight Hive 活動則是執行 Hive 指令碼來轉換輸入資料，以產生輸出資料。 讓我們在這個步驟中開始建立 Data Factory。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)之後，按一下左功能表上的 [新增]，按一下 [資料 + 分析]，然後按一下 [Data Factory]。 
+1. 登入 [Azure 入口網站](https://portal.azure.com/)後，按一下左功能表上的 [建立資源]，按一下 [資料 + 分析]，然後按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. 在 [ **新增 Data Factory** ] 刀鋒視窗中：

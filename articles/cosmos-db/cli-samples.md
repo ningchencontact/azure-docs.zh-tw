@@ -17,7 +17,7 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 | |  |
 |---|---|
 |**建立 Azure Cosmos DB 帳戶、資料庫和容器**||
-|[建立 SQL API 帳戶](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| SQL API 以建立單一 Azure Cosmos DB API 帳戶、 資料庫和使用的容器。 |
+|[建立 SQL API 帳戶](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| 建立單一 Azure Cosmos DB API 帳戶、資料庫及容器，以便搭配 SQL API 使用。 |
 | [建立 MongoDB API 帳戶](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 建立單一 Azure Cosmos DB MongoDB API 帳戶、資料庫和集合。 |
 |**調整 Azure Cosmos DB**||
 | [調整容器輸送量](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 變更容器的已佈建輸送量。|

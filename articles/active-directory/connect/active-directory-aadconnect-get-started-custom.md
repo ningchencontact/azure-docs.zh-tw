@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2018
+ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/03/2018
 | 選用組態 | 說明 |
 | --- | --- |
 | 使用現有的 SQL Server |可讓您指定 SQL Server 名稱和執行個體名稱。 如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。 如果您的 SQL Server 未啟用瀏覽，請在 [執行個體名稱]  中輸入執行個體名稱加上逗號及連接埠號碼。 |
-| 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受控服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。 請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
+| 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受控服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。  請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 </br></br>使用最新的組建，SQL 管理員即可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需詳細資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)。|
 | 指定自訂同步群組 |Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。 這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。 您可以在此指定自己的群組。 群組必須位於伺服器本機上，不能位於網域中。 |
 
 ### <a name="user-sign-in"></a>使用者登入
@@ -96,7 +96,7 @@ ms.lasthandoff: 01/03/2018
 > 當您啟用傳遞驗證時，您必須至少有一個已驗證網域才能繼續執行精靈。
 
 > [!WARNING]
-> 使用替代 ID 會與所有 Office 365 工作負載不相容。 如需詳細資訊，請參閱 [設定替代的登入 ID](https://technet.microsoft.com/library/dn659436.aspx)。
+> 使用替代 ID 會與所有 Office 365 工作負載不相容。 如需詳細資訊，請參閱 [設定替代的登入 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。
 >
 >
 

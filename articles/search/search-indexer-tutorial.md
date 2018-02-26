@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>如何使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 01/09/2018
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。 
 
-2. 按一下 [新增] > [SQL Database]，以建立資料庫、伺服器和資源群組。 您可以使用預設值和最低層級的定價層。 建立伺服器的優點之一是您可以指定系統管理員使用者名稱和密碼，以便在稍後步驟中建立和載入資料表。
+2. 按一下 [建立資源] > [SQL Database]，以建立資料庫、伺服器和資源群組。 您可以使用預設值和最低層級的定價層。 建立伺服器的優點之一是您可以指定系統管理員使用者名稱和密碼，以便在稍後步驟中建立和載入資料表。
 
    ![新增資料庫頁面](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

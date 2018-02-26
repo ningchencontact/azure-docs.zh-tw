@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>使用入口網站將資料匯入至 Azure 搜尋服務
 Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈來將資料載入至索引。 
@@ -49,7 +49,7 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 必須輸入扁平化資料集。 您可以只從單一資料表、資料庫檢視或對等的資料結構匯入。 您應在執行精靈之前建立此資料結構。
 
 ## <a name="connect-to-your-data"></a>連接到您的資料
-1. 登入 [Azure 入口網站](https://portal.azure.com)並開啟服務儀表板。 您可以按一下導向列中的 [更多服務] 以搜尋目前訂用帳戶中的現有「搜尋服務」。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)並開啟服務儀表板。 您可以按一下導向列中的 [所有服務] 以搜尋目前訂用帳戶中的現有「搜尋服務」。 
 2. 按一下命令列上的 [匯入資料]  即可滑動開啟 [匯入資料] 刀鋒視窗。  
 3. 按一下 [連接到您的資料]  可指定索引子所使用的資料來源定義。 對於訂用帳戶內的資料來源，精靈通常可以偵測並讀取連線資訊，將整體的設定需求降至最低。
 

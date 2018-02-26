@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
 
-選取 [新增] > [容器] > [Azure Container Service - AKS (預覽)]。
+選取 [建立資源] > [容器] > [Azure Container Service - AKS (預覽)]。
 
 為叢集提供叢集名稱、DNS 前置詞、資源群組名稱、位置和 Kubernetes 版本。 記下叢集名稱和資源群組名稱，連線到叢集時會需要這些資訊。
 

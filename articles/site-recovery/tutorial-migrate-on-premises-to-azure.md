@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/10/2018
 開始之前，最好先針對災害復原檢閱 [VMware](concepts-vmware-to-azure-architecture.md) 或 [Hyper-V](concepts-hyper-v-to-azure-architecture.md) 架構。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 不支援並行虛擬驅動程式所匯出的裝置。
 
@@ -45,8 +45,8 @@ ms.lasthandoff: 01/10/2018
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
-2. 按一下 [新增] > [監視和管理] > [備份和 Site Recovery]。
-3. 在 [名稱] 中，指定易記名稱 **ContosoVMVault**。 如果您有多個訂用帳戶，請選取適當的一個。
+2. 按一下 [建立群組] > [監視和管理] > [備份和 Site Recovery]。
+3. 在 [名稱] 中，指定易記名稱 [ContosoVMVault]。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組 **ContosoRG**。
 5. 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
 6. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/10/2018
 
 - [設定](tutorial-vmware-to-azure.md#set-up-the-source-environment) VMware VM 的來源環境。
 - [設定](tutorial-physical-to-azure.md#set-up-the-source-environment)實體伺服器的來源環境。
-- [設定](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) Hyper-V VM 的來源環境。
+- [設定](hyper-v-azure-tutorial.md#set-up-the-source-environment) Hyper-V VM 的來源環境。
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境
 
@@ -86,14 +86,14 @@ ms.lasthandoff: 01/10/2018
 
 - [設定 VMware VM 的複寫原則](tutorial-vmware-to-azure.md#create-a-replication-policy)。
 - [設定實體伺服器的複寫原則](tutorial-physical-to-azure.md#create-a-replication-policy)。
-- [設定 Hyper-V VM 的複寫原則](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy)。
+- [設定 Hyper-V VM 的複寫原則](hyper-v-azure-tutorial.md#set-up-a-replication-policy)。
 
 
 ## <a name="enable-replication"></a>啟用複寫
 
 - [啟用 VMware VM 的複寫](tutorial-vmware-to-azure.md#enable-replication)。
 - [啟用實體伺服器的複寫功能](tutorial-physical-to-azure.md#enable-replication)。
-- [啟用 Hyper-V VM 的複寫](tutorial-hyper-v-to-azure.md#enable-replication)。
+- [啟用 Hyper-V VM 的複寫](hyper-v-azure-tutorial.md#enable-replication)。
 
 
 ## <a name="run-a-test-migration"></a>執行測試移轉
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/10/2018
 1. 在 [設定] > [複寫的項目] 中，按一下機器 > [容錯移轉]。
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
 3. 加密金鑰設定不適用於此案例。
-4. 選取 [先將機器關機再開始容錯移轉]。 Site Recovery 在觸發容錯移轉之前，會嘗試將來源虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
+4. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 在觸發容錯移轉之前，會嘗試將來源虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 5. 確認 Azure VM 如預期般出現在 Azure 中。
 6. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會完成移轉程序、停止 VM 的複寫功能，並停止 VM 的 Site Recovery 計費。
 

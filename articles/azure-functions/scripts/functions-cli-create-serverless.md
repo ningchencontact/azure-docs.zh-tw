@@ -16,15 +16,17 @@ ms.workload: web
 ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9436cafa775f2ad658c0c9901f7f8eae769c7052
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3e4ce63a8b418b68494262df8a771ac553ad22d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-app-for-serverless-execution"></a>建立無伺服器也可執行的函式應用程式
+# <a name="create-a-function-app-for-serverless-code-execution"></a>建立無伺服器程式碼也可執行的函式應用程式
 
-此範例指令碼會建立 Azure 函式應用程式，這是您的函式容器。 將會使用[取用方案](../functions-scale.md#consumption-plan)建立函數應用程式，這適用於事件驅動的無伺服器工作負載。
+這個 Azure Functions 範例指令碼會建立函式應用程式，這是您的函式容器。 系統會使用[取用方案](../functions-scale.md#consumption-plan)建立函式應用程式，這適用於事件驅動的無伺服器工作負載。
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 下表中的每個命令都會連結至命令特定的文件。 此指令碼會使用下列命令：
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 建立 Azure 儲存體帳戶。 |

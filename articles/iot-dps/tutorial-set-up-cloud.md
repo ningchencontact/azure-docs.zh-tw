@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 請遵循下列步驟來建立新的裝置佈建服務執行個體。
 
-1. 按一下 Azure 入口網站左上角的 [新增]。
+1. 按一下 Azure 入口網站左上角的 [建立資源]。
 2. 在搜尋方塊中輸入**裝置佈建**。 
 3. 按一下 [IoT 中樞裝置佈建服務]。
 4. 在 [IoT 中樞裝置佈建服務] 表單中填寫下列資訊：

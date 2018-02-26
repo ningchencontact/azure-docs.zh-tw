@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>使用 Azure 入口網站建立容器登錄庫
 
@@ -27,7 +27,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-選取 [新增] > [容器] > [Azure Container Registry]。
+選取 [建立資源] > [容器] > [Azure Container Registry]。
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-01]
 

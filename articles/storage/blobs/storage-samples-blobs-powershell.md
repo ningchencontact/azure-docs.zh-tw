@@ -17,7 +17,7 @@ ms.date: 11/07/2017
 ms.author: tamram
 ms.openlocfilehash: d07161cb5bc08410b0db552f7645e2af776c37df
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/23/2017
 |---|---|
 |**儲存體帳戶**||
 | [建立儲存體帳戶並擷取/輪替存取金鑰](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立 Azure 儲存體帳戶並擷取和輪替其中一個存取金鑰。 |
-| [使用 AzCopy，在 Windows 上的儲存體帳戶間遷移 Blob](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 使用 AzCopy 上 Windows Azure 儲存體帳戶間遷移 blob。 |
+| [在 Windows 上使用 AzCopy 在儲存體帳戶間移轉 Blob](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 在 Windows 上使用 AzCopy 在 Azure 儲存體帳戶間移轉 Blob。 |
 |**Blob 儲存體**||
 | [計算 Blob 儲存體容器的大小總計](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 計算容器中所有 Blob 的大小總計。 |
 | [計算 Blob 儲存體容器的大小以供計費](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 計算 Azure Blob 儲存體中的容器大小，以便估算計費成本。 |

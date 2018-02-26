@@ -10,15 +10,19 @@ ms.author: cfowler
 ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 9ad38a7ff00e5cea2cf958b4cb69679a27f84d4a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>在 Azure 中建立從 GitHub 部署的函式
+# <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>在 Azure 中建立從 GitHub 部署的函式應用程式
 
-此範例指令碼會使用[取用方案](../functions-scale.md#consumption-plan)建立函式應用程式及其相關資源，然後從 GitHub 存放庫持續部署您的函式程式碼。 在此範例中，您需要：
+此 Azure Functions 範例指令碼會使用[取用方案](../functions-scale.md#consumption-plan)建立函式應用程式及其相關資源。 此指令碼也會您的函式程式碼，以便從 GitHub 存放庫持續進行部署。 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+在此範例中，您需要：
 
 * 一個含有函式程式碼的 GitHub 存放庫 (您必須有此存放庫的系統管理權限)。
 * 您 GitHub 帳戶的[個人存取權杖 (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use)。

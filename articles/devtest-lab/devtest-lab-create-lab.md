@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a2148f8891c94f457a95282b8a3b7067c86c62ed
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>在 Azure 研測實驗室中建立實驗室
 Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)) 的基礎結構，可讓您藉由指定限制和配額更好地管理這些資源。 本文將逐步引導您完成使用 Azure 入口網站來建立實驗室的程序。
@@ -32,9 +32,9 @@ Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)
 下列步驟說明如何使用 Azure 入口網站在 Azure DevTest Labs 中建立實驗室。 
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 從左側的主要功能表中，選取 [更多服務] \(位於清單底部)。
+1. 從左側的主要功能表中，選取 [所有服務] (位於清單頂端)。
 
-    ![[更多服務] 功能表選項](./media/devtest-lab-create-lab/more-services-menu-option.png)
+    ![所有服務功能表選項](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. 從可用服務清單中，選取 [DevTest Labs]。
 1. 在 [DevTest Labs] 區域中，選取 [新增]。

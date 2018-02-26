@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/03/2018
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2.使用 Azure 入口網站建立主題
 
 1. 登入 [Azure 入口網站][azure-portal]。
-2. 在入口網站的左方瀏覽窗格中，按一下 [服務匯流排] \(如果您未看見 [服務匯流排]，請按一下 [更多服務]，或按一下 [所有資源])。 按一下要在其中建立主題的命名空間。 
+2. 在入口網站的左方瀏覽窗格中，按一下 [服務匯流排] (如果您未看見 [服務匯流排]，請按一下 [所有服務]，或按一下 [所有資源])。 按一下要在其中建立主題的命名空間。 
 3. 命名空間概觀視窗隨即開啟。 按一下 [主題]：
    
     ![建立主題][createtopic1]

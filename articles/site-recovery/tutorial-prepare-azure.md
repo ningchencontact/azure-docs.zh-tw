@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署機器的複寫
 
@@ -60,8 +60,7 @@ ms.lasthandoff: 01/17/2018
 
 ## <a name="create-a-vault"></a>建立保存庫
 
-1. 在 Azure 入口網站功能表中，按一下 **[新增]** > **[監視和管理]** >
-   **[備份與復原]**。
+1. 在 Azure 入口網站中，按一下 [建立群組] > [監視 + 管理] > [備份和 Site Recovery]。
 2. 在 [名稱] 中，指定保存庫的易記識別名稱。 在此教學課程中，我們使用 **ContosoVMVault**。
 3. 選取名為 **contosoRG** 的現有資源群組。
 4. 指定我們要在這套教學課程中使用的 Azure 區域 [西歐]。
@@ -75,8 +74,7 @@ ms.lasthandoff: 01/17/2018
 
 當 Azure VM 在容錯移轉後從儲存體建立時，會加入此網路。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)功能表中，按一下 **[新增]** > **[網路]** >
-   **[虛擬網路]**
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源] > [網路] > [虛擬網路]。
 2. 保持選取 [Resource Manager] 作為部署模型。 Resource Manager 是慣用的部署模型。
    - 指定網路名稱。 此名稱必須是 Azure 資源群組中的唯一名稱。 我們將使用名稱 **ContosoASRnet**
    - 使用現有的資源群組 **contosoRG**。

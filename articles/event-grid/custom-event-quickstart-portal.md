@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和事件格線建立和路由傳送自訂事件
 
@@ -43,7 +43,7 @@ Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組
 
 主題會提供您張貼事件之使用者定義的端點。 
 
-1. 若要在資源群組中建立主題，請選取 [更多服務]，並搜尋事件格線。 從可用的選項選取 [事件格線主題]。
+1. 若要在資源群組中建立主題，請選取 [所有服務]，並搜尋「事件格線」。 從可用的選項選取 [事件格線主題]。
 
    ![建立事件格線主題](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -61,13 +61,13 @@ Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組
 
 ## <a name="create-a-message-endpoint"></a>建立訊息端點
 
-訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/)，然後按一下 [建立 RequestBin]，或移至 [Hookbin](https://hookbin.com/) 並按一下 [建立新端點]。  複製 bin URL，因為您在訂閱主題時需要用到它。
+訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/) \(英文\)，然後按一下 [Create a RequestBin] \(建立 RequestBin\)，或移至 [Hookbin](https://hookbin.com/) \(英文\)，然後按一下 [Create New Endpoint] \(建立新端點\)。  複製 bin URL，因為您在訂閱主題時需要用到它。
 
 ## <a name="subscribe-to-a-topic"></a>訂閱主題
 
 您可訂閱主題，告知 Event Grid 您想要追蹤的事件。 
 
-1. 若要建立事件格線訂用帳戶，再次選取 [更多服務]，並搜尋事件格線。 從可用的選項選取 [事件格線訂用帳戶]。
+1. 若要建立事件格線訂用帳戶，再次選取 [所有服務]，並搜尋「事件格線」。 從可用的選項選取 [事件格線訂用帳戶]。
 
    ![建立事件格線訂用帳戶](./media/custom-event-quickstart-portal/create-subscription.png)
 

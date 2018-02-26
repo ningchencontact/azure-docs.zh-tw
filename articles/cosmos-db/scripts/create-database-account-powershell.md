@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 指令碼-建立 Azure Cosmos DB SQL API 帳戶 |Microsoft 文件"
-description: "Azure PowerShell 指令碼範例-建立 Azure Cosmos DB SQL API 帳戶"
+title: "Azure PowerShell 指令碼：建立 Azure Cosmos DB SQL API 帳戶 | Microsoft Docs"
+description: "Azure PowerShell 指令碼範例：建立 Azure Cosmos DB SQL API 帳戶"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -18,11 +18,11 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB： 建立 SQL API 帳戶使用 PowerShell
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 建立 SQL API 帳戶
 
 這個範例 PowerShell 指令碼會建立 Azure Cosmos DB API 帳戶。 
 

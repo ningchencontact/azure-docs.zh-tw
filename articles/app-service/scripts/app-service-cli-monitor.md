@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 5e66b89332ce120133b660b931ba56eaca2a36ae
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>使用 Web 伺服器記錄監視 Web 應用程式
 
-這個範例指令碼會建立資源群組、 應用程式服務方案，以及 web 應用程式，並設定 web 應用程式啟用 web 伺服器記錄檔。 然後，它會下載記錄檔，以便檢閱。
+此範例指令碼會建立資源群組、App Service 方案和 Web 應用程式，並設定 Web 應用程式來啟用 Web 伺服器記錄。 然後下載記錄檔來進行檢閱。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -47,8 +47,8 @@ ms.lasthandoff: 12/12/2017
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 建立 App Service 方案。 |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | 建立 Azure Web 應用程式。 |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_config) | 設定 Azure web 應用程式持續發生的記錄檔。 |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_download) | 可將 Azure web 應用程式的記錄下載到本機電腦。 |
+| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_config) | 設定 Azure Web 應用程式會保存的記錄。 |
+| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_download) | 將 Azure Web 應用程式的記錄下載到本機電腦。 |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/17/2018
 很多客戶都選擇裝載網頁並建立 DNS 根項目，例如 https://passwords.contoso.com。它們會使用下列資訊的連結填入此頁面：
 
 * [Azure AD 密碼重設入口網站 - https://aka.ms/sspr](https://aka.ms/sspr)
-* [Azure AD 密碼重設註冊入口網站 - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD 密碼重設註冊入口網站 - https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Azure AD 密碼變更入口網站 - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * 其他組織特定資訊
 

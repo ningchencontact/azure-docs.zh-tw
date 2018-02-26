@@ -18,19 +18,19 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: d5a783d803de78577b89942cf4994f7a10de8d9f
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>建立可從 GitHub 部署的 Web 應用程式
 
-這個範例指令碼應用程式服務中建立 web 應用程式及其相關資源。 然後，它會部署 web 應用程式程式碼 （而不連續的部署） 的公用 GitHub 儲存機制中。 如需進行使用連續部署的 GitHub 部署，請參閱[建立可從 GitHub 連續部署的 Web 應用程式](app-service-cli-continuous-deployment-github.md)。
+此範例指令碼會在 App Service 中建立 Web 應用程式及其相關資源。 然後從公用 GitHub 存放庫部署 Web 應用程式程式碼 (不使用連續部署)。 如需進行使用連續部署的 GitHub 部署，請參閱[建立可從 GitHub 連續部署的 Web 應用程式](app-service-cli-continuous-deployment-github.md)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 

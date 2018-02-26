@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
@@ -30,11 +30,11 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 
-2. 搜尋並選取**邏輯應用程式**。 建立新的資源群組，名為 **myResourceGroup**。使用預設位置。 按一下 [ **建立** ] 按鈕。
+2. 搜尋並選取**邏輯應用程式**。 按一下 [ **建立** ] 按鈕。
 
-3. 輸入邏輯應用程式資訊，並勾選 [釘選到儀表板] 選項。 完成時，按一下 [建立]。
+3. 輸入下圖中所示的邏輯應用程式資訊。  使用預設位置。 核取 [釘選到儀表板] 選項。  完成時，按一下 [建立]。 
 
     ![在入口網站中，輸入邏輯應用程式的基本資訊](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 12. 按一下 [檔案] 。
 
+13. 最多可能需要 5 分鐘才會發生邏輯應用程式執行動作。  
+
 ## <a name="view-metrics-for-your-logic-app"></a>檢視邏輯應用程式的計量
 
 1. 在左側瀏覽窗格中，按一下 [監視器] 選項。
@@ -71,7 +73,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 4. 修改圖表的 [時間範圍] 以顯示過去一小時的資料。
 
-5. 您現在應該會看到圖表繪出邏輯應用程式在過去一小時啟動執行的總次數。
+5. 您現在應該會看到圖表繪出邏輯應用程式在過去一小時啟動執行的總次數。 如未看到任何內容，請確定從上一個步驟算起，您已等候至少 5 分鐘。 然後重新整理您的瀏覽器。 
 
     ![繪製邏輯應用程式資源的計量圖表](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

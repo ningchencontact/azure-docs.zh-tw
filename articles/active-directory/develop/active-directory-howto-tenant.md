@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>如何取得 Azure Active Directory 租用戶
 在 Azure Active Directory (Azure AD) 中， [租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) 代表組織。  它是組織在註冊 Microsoft 雲端服務 (例如 Azure、Microsoft Intune 或 Office 365) 時所收到和擁有的專屬 Azure AD 服務執行個體。  每個 Azure AD 租用戶都不同，並與其他 Azure AD 租用戶分開。  
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/16/2017
 若要這樣做，請遵循下列步驟。  或者，您可能會想要建立新的租用戶，並按照類似的程序在該租用戶中建立系統管理員。
 
 1. 使用您的個別帳戶登入 [Azure 入口網站](https://portal.azure.com)
-2. 瀏覽至入口網站的 [Azure Active Directory] 區段 (您可在左側瀏覽列的**更多服務**下找到)
+2. 瀏覽至入口網站的 [Azure Active Directory] 區段 (您可在左側瀏覽列的 [所有服務] 下找到)
 3. 您應該會自動登入「預設目錄」，如果未自動登入，您可以按一下右上角的帳戶名稱切換目錄。
 4. 從 [快速工作] 區段中，選擇 [新增使用者]。
 5. 在 [新增使用者表單] 中，請提供下列詳細資料：
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/16/2017
 8. 若要變更暫時密碼，請使用這個新使用者帳戶登入 [https://login.microsoftonline.com](https://login.microsoftonline.com)變更密碼。
 
 ## <a name="use-an-organizational-azure-subscription"></a>使用組織的 Azure 訂用帳戶
-如果您先前已使用組織帳戶註冊 Azure 訂用帳戶，則您已經有一個租用戶！  在 [Azure 入口網站](https://portal.azure.com)中，當您瀏覽至 [更多服務] 和 [Azure Active Directory] 時應該會找到租用戶。  您可以視需要任意使用此租用戶。
+如果您先前已使用組織帳戶註冊 Azure 訂用帳戶，則您已經有一個租用戶！  在 [Azure 入口網站](https://portal.azure.com)中，當您瀏覽至 [所有服務] 和 [Azure Active Directory] 時應該會找到租用戶。  您可以視需要任意使用此租用戶。
 
 ## <a name="start-from-scratch"></a>從頭開始
 如果上述對您沒有太大的意義，別擔心。 只要造訪 [ Azure 入口網站](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)以建立新的 Azure AD 目錄。 完成此程序後，您會取得自己的 Azure AD 租用戶 (具有您在註冊時選擇的網域名稱)。  在 [Azure 入口網站](https://portal.azure.com)中，您可以透過瀏覽至左側導覽中的 [Azure Active Directory] 找到租用戶。

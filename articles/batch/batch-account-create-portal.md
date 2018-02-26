@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/01/2018
 > 建立 Batch 帳戶時，您通常應該選擇預設的 **Batch 服務**模式，可指定在幕後將集區配置在 Azure 管理的訂用帳戶中。 在其他**使用者訂用帳戶**模式中 (大部分情節中不再建議使用) 建立集區時，Batch VM 和其他資源會直接建立在您的訂用帳戶中。 若要在使用者訂用帳戶模式中建立 Batch 帳戶，您也必須向 Azure Batch 註冊訂用帳戶，並與 Azure Key Vault 中的帳戶建立關聯。
 
 1. 登入 [Azure 入口網站][azure_portal]。
-2. 按一下 [新增]，並搜尋 Marketplace 取得 [Batch 服務]。
+2. 按一下 [建立資源]，並搜尋 Marketplace 中的 [Batch 服務]。
 
     ![Marketplace 中的批次][marketplace_portal]
 3. 選取 [Batch 服務]，按一下 [建立]，並輸入 [新增 Batch 帳戶] 設定。 請參閱下列詳細資料。

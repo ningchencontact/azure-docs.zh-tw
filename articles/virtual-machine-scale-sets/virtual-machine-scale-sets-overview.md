@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
 虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、大量資料和容器化工作負載，建置大規模服務。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/18/2018
 * [Guy Bowerman 與虛擬機器擴展集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>建立和管理擴展集
-您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。 若要管理您的擴展集，您可以使用 Azure 入口網站、[Azure PowerShell Cmdlet](virtual-machine-scale-sets-windows-manage.md) 或 Azure CLI 2.0。
+您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [建立資源]，並在搜尋列中輸入**調整**來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。 若要管理您的擴展集，您可以使用 Azure 入口網站、[Azure PowerShell Cmdlet](virtual-machine-scale-sets-windows-manage.md) 或 Azure CLI 2.0。
 
 擴展集可以部署於[可用性區域](virtual-machine-scale-sets-use-availability-zones.md)。
 

@@ -1,10 +1,10 @@
 ---
 title: "使用 VNet 對 VNet 連線將虛擬網路連線至另一個 VNet︰Azure CLI | Microsoft Docs"
-description: "本文將逐步引導您使用 VNet 對 VNet 連線和 Azure CLI，將虛擬網路連線在一起。"
+description: "使用 VNet 對 VNet 連線和 Azure CLI，將虛擬網路連在一起。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 663e3cb35308b354c7221e34ac6fcfc8eda15f2a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 32afd5bd3f972aa1cb1d90e0b10ebff4a761f2e3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
 
-本文說明如何使用 VNet 對 VNet 連線類型來連線虛擬網路。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 連線來自不同訂用帳戶的 VNet 時，訂用帳戶不需與相同的 Active Directory 租用戶相關聯。
+本文協助您使用 VNet 對 VNet 連線類型來連線虛擬網路。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 連線來自不同訂用帳戶的 VNet 時，訂用帳戶不需與相同的 Active Directory 租用戶相關聯。
 
 本文中的步驟適用於 Resource Manager 部署模型並使用 Azure CLI。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
 

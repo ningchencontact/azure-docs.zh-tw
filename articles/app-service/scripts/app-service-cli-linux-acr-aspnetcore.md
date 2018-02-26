@@ -18,20 +18,20 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 9412b7175cc8e6879779bc923aa6b40d01125df7
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>在來自 Azure Container Registry 的 Docker 容器中建立 ASP.NET Core Web 應用程式
 
-這個範例指令碼會建立資源群組、 Linux 應用程式服務方案和 web 應用程式。 接著將部署從 Azure 容器登錄中使用 Docker 容器的 ASP.NET Core 應用程式。
+此範例指令碼會建立資源群組、Linux App Service 方案和 Web 應用程式。 然後使用來自 Azure Container Registry 的 Docker 容器，部署 ASP.NET Core 應用程式。
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，您需要 Azure CLI 版本 2.0 或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，需要 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 

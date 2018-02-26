@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 入口網站中佈建 Linux SQL Server 虛擬機器
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 12/18/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 在左側窗格中按一下 [新增]。
+1. 在左窗格中，按一下 [建立資源]。
 
-1. 在 [新增] 窗格中，按一下 [計算]。
+1. 在 [建立資源] 窗格中，按一下 [計算]。
 
 1. 按一下 [精選] 標題旁的 [查看全部]。
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>部署
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/09/2018
 這堂課的預估完成時間：**5 分鐘**  
   
 ## <a name="prerequisites"></a>先決條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 12 課︰在 Excel 中進行分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。  
+本文是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 12 課︰在 Excel 中進行分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。  
 
 > [!IMPORTANT]  
 > 您在遠端 Analysis Services 伺服器上必須具有[系統管理員權限](../analysis-services-server-admins.md)，才能部署到它。  
@@ -67,6 +67,9 @@ ms.lasthandoff: 01/09/2018
   
 3. 當部署順利完成時，請繼續並按一下 [關閉]。  
   
+
+這堂課說明從 SSDT 部署表格式模型的最常見且最簡單的方法。 進階部署選項 (例如「部署精靈」或使用 XMLA 和 AMO 達成自動化) 會提供更大的彈性、一致性和已排程的部署。 若要深入了解，請參閱[表格式模型解決方案部署](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular)。
+
 ## <a name="conclusion"></a>結論  
 恭喜！ 您已完成製作和部署第一個 Analysis Services 表格式模型。 本教學課程協助引導您完成建立表格式模型的常見工作。 現在已部署 Adventure Works 網際網路銷售模型，接下來，您可以使用 SQL Server Management Studio 管理模型，並建立處理指令碼和備份計劃。 使用者現在也可以使用報告用戶端應用程式來連線至模型，例如 Microsoft Excel 或 Power BI。  
 

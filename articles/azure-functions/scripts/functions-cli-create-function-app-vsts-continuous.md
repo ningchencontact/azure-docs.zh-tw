@@ -9,15 +9,19 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>在 Azure 中建立從 Visual Studio Team Services 部署的函式
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>建立函式應用程式並從 Visual Studio Team Services 部署函式程式碼
 
-本主題示範如何使用 Azure Functions，以使用[使用情況方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函數應用程式。 函數應用程式 (即您函式的容器) 是從 Visual Studio Team Services (VSTS) 存放庫持續部署。 若要完成本主題，您必須具備：
+本主題示範如何使用 Azure Functions，以使用[使用情況方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函數應用程式。 函數應用程式 (即您函式的容器) 是從 Visual Studio Team Services (VSTS) 存放庫持續部署。 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+若要完成本主題，您必須具備：
 
 * 包含您函數應用程式專案且您具有系統管理權限的 VSTS 存放庫。
 * 存取 VSTS 存放庫的[個人存取權杖 (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)。

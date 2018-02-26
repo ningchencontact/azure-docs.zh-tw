@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 入口網站中建立 SQL Server Windows VM | Microsoft Docs"
+title: "在入口網站中建立 SQL Server Windows VM | Microsoft Docs"
 description: "本教學課程會示範如何在 Azure 入口網站中建立 Windows SQL Server 2017 虛擬機器。"
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 本快速入門會逐步說明如何在 Azure 入口網站中建立 SQL Server 虛擬機器。
 
+> [!TIP]
+> 本快速入門提供快速佈建及連線到 SQL VM 的途徑。 如需其他 SQL VM 佈建選項的詳細資訊，請參閱[在 Azure 入口網站中佈建 Windows SQL Server VM 的指南](virtual-machines-windows-portal-sql-server-provision.md)。
+
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a id="select"></a> 選取 SQL Server VM 映像
 
 1. 使用您的帳戶登入 [Azure 入口網站](https://portal.azure.com) 。
 
-1. 在 Azure 入口網站上，按一下 [新增] 。 入口網站會開啟 [新增] 視窗。
+1. 在 Azure 入口網站中，按一下 [建立資源]。 
 
 1. 在搜尋方塊中輸入 **Windows Server 2016 上的 SQL Server 2017 Developer**，然後按 ENTER。
 

@@ -17,7 +17,7 @@ ms.date: 10/16/2017
 ms.author: mimig
 ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 | |  |
 |---|---|
 |**建立 Azure Cosmos DB 帳戶**||
-|[建立 SQL API 帳戶](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶以搭配 SQL API。 |
+|[建立 SQL API 帳戶](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶，以便搭配 SQL API 使用。 |
 |**調整 Azure Cosmos DB**||
 |[複寫多個區域中的 Azure Cosmos DB 帳戶和設定容錯移轉優先順序](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|使用指定的容錯移轉優先順序，將帳戶資料複寫到全球多個區域中。|
 |**保護 Azure Cosmos DB**||

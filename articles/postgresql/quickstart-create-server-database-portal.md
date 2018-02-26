@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: de35254183798dd0aea32b63eb0689d33ae5b247
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure Database for PostgreSQL 伺服器
 
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL 是一種受控服務，您用來在雲端執行�
 「適用於 PostgreSQL 的 Azure 資料庫」伺服器是以一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)所建立。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
 若要建立 Azure Database for PostgreSQL 伺服器，請採取下列步驟：
-1. 選取入口網站左上角的 [新增] 按鈕 (+)。
+1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。
 
 2. 選取 [資料庫] > [Azure Database for PostgreSQL]。
 

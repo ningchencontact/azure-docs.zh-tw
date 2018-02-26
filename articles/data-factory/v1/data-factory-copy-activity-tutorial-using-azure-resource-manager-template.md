@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure Resource Manager 範本建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="monitor-pipeline"></a>監視管線
 
 1. 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左功能表的 [Data Factory] \(或) 按一下 [更多服務] 然後按一下 [智慧 + 分析] 類別下的 [Data Factory]。
+2. 按一下左功能表上的 [資料處理站]，或按一下 [所有服務]，然後按一下 [智慧 + 分析] 類別下的 [資料處理站]。
    
     ![Data Factory 功能表](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. 在 [資料處理站] 頁面上，搜尋並尋找您的資料處理站 (AzureBlobToAzureSQLDatabaseDF)。 

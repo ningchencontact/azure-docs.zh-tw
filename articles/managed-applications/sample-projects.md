@@ -15,7 +15,7 @@ ms.date: 12/15/2017
 ms.author: tomfitz
 ms.openlocfilehash: 9acc769355b44628ca617550e44c9ed9724cfdcb
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 |  |  |
 | --- | --- |
 | **範例** | |
-| [將新的或現有的虛擬網路管理應用程式 （試用或生產環境）](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-app-using-existing-vnet) | 示範如何建立彈性的部署選項的客戶。 此受管理的應用程式可以部署到新的虛擬網路或現有的虛擬網路。 客戶可以指定受管理的應用程式的試用版或實際執行的版本。 |
+| [將受控應用程式 (試用或生產) 插入新的或現有虛擬網路](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-app-using-existing-vnet) | 示範如何為客戶建立彈性部署選項。 此受控應用程式可部署至新的虛擬網路或現有虛擬網路。 客戶可以指定受控應用程式的試用或生產版本。 |
 | 
             [受控 Azure 儲存體帳戶](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-storage-account) | 部署單一儲存體帳戶。 使用這個範例專案作為建立受控應用程式之簡介。 |
 | 

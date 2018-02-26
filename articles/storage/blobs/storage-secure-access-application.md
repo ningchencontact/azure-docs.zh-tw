@@ -2,23 +2,20 @@
 title: "使用 Azure 儲存體安全存取雲端中的應用程式資料 | Microsoft Docs"
 description: "使用 SAS 權杖、加密和 HTTPS 保護雲端中的應用程式資料"
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>安全存取雲端中的應用程式資料
 
@@ -53,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>設定縮圖的 SAS 權杖
 
-在此教學課程系列的第一部分中，Web 應用程式會顯示公用容器中的影像。 在系列的這個部分中，您會使用[安全存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 權杖來擷取縮圖影像。 SAS 權杖可讓您根據 IP、通訊協定、時間間隔或允許的權限，來限制存取容器或 Blob。
+在此教學課程系列的第一部分中，Web 應用程式會顯示公用容器中的影像。 在系列的這個部分中，您會使用[共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 權杖來擷取縮圖影像。 SAS 權杖可讓您根據 IP、通訊協定、時間間隔或允許的權限，來限制存取容器或 Blob。
 
 在此範例中，原始程式碼存放庫使用具有已更新程式碼範例的 `sasTokens` 分支。 使用 [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete) 刪除現有的 GitHub 部署。 接著，使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 命令設定 Web 應用程式的 GitHub 部署。  
 

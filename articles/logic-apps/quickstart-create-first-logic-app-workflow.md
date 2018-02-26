@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9b6b9df01f0e56cac3fe45bd0ef8290ca1587a1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>快速入門：建立第一個邏輯應用程式工作流程 - Azure 入口網站
 
@@ -38,11 +38,11 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="create-your-logic-app"></a>建立邏輯應用程式 
 
-1. 從 Azure 主要功能表中，選擇 [新增] > [企業整合] > [邏輯應用程式]。
+1. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
 
    ![建立邏輯應用程式](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. 在 [建立邏輯應用程式] 之下，提供有關邏輯應用程式的詳細資訊，如下所示。 完成之後，請選擇 [釘選到儀表板] > [建立]。
+3. 在 [建立邏輯應用程式] 底下，提供有關邏輯應用程式的詳細資訊，如下所示。 完成之後，請選擇 [釘選到儀表板] > [建立]。
 
    ![提供邏輯應用程式詳細資料](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/19/2018
 
    ![新增動作](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. 在 [選擇動作] 下方，搜尋 [傳送電子郵件]，然後為您想要的電子郵件提供者選取 [傳送電子郵件] 動作。 若要將動作清單篩選成特定服務，您可以選取 [連接器] 之下的第一個連接器。
+2. 在 [選擇動作] 下搜尋 [傳送電子郵件]，然後為您想要的電子郵件提供者選取 [傳送電子郵件] 動作。 若要篩選特定服務的動作清單，您可以選取 [連接器] 下的第一個連接器。
 
    ![選取此動作：Office 365 Outlook - 傳送電子郵件](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 

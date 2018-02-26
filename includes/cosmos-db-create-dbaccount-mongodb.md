@@ -1,17 +1,17 @@
 1. 在新的視窗中，登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在左側功能表中，依序按一下 [新增]、[資料庫]，並在 [Azure Cosmos DB] 下按一下 [建立]。
+2. 在左側功能表中，依序按一下 [建立資源]、[資料庫]，然後在 [Azure Cosmos DB] 下按一下 [建立]。
    
    ![Azure 入口網站的螢幕擷取畫面，其中反白顯示 [其他服務] 和 Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
-3. 在 [新增帳戶] 刀鋒視窗中，指定想要的 Azure Cosmos DB 帳戶組態。 
+3. 在 [新增帳戶] 窗格中，指定想要的 Azure Cosmos DB 帳戶組態。 
 
     在使用 Azure Cosmos DB 時，您可以選擇下列四種程式設計模型的其中一種︰Gremlin (圖形)、MongoDB、SQL 和資料表 (索引鍵-值)。 
        
     在本快速入門中，我們會針對 MongoDB API 進行程式設計，因此您會在填寫表單時選擇 [MongoDB]。 但是，如果您有用於社交媒體應用程式的圖形資料、來自目錄應用程式的文件資料，或索引鍵/值 (資料表) 資料，請了解 Azure Cosmos DB 可以提供高度可用、全域分散式的資料庫服務平台來供您所有的任務關鍵性應用程式使用。
 
-    使用表格中的資訊作為指南來填寫 [新增帳戶] 刀鋒視窗。
+    使用表格中的資訊作為指南來填寫 [新增帳戶] 窗格。
  
-    ![[新增 Azure Cosmos DB] 刀鋒視窗的螢幕擷取畫面](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
+    ![[新增 Azure Cosmos DB] 窗格的螢幕擷取畫面](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
    
     設定|建議的值|說明
     ---|---|---

@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>建立新的 Azure API 管理服務執行個體
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="create-a-new-service"></a>建立新的服務
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [新增] > [企業整合] > [API 管理]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [建立資源] > [企業整合] > [API 管理]。
 
     或者，選擇 [新增]，在搜尋方塊中輸入 `API management`，然後按 Enter 鍵。 按一下頁面底部的 [新增] 。
 

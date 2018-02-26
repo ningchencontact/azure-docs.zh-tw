@@ -16,15 +16,17 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>將函式應用程式整合到 Azure 儲存體帳戶
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>建立可連線至 Azure 儲存體帳戶的函式應用程式
 
-此範例指令碼會建立函數應用程式和儲存體帳戶。
+這個 Azure Functions 範例指令碼會建立函式應用程式，並將函式連線至 Azure 儲存體帳戶。 包含連線的所建立應用程式設定可以搭配[儲存體觸發程序或繫結](..\functions-bindings-storage-blob.md)使用。 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,9 +51,9 @@ ms.lasthandoff: 11/29/2017
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| 命令 | 注意 |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | 登入 Azure。 |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | 登入 Azure。 |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 指定位置建立資源群組 |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | 建立儲存體帳戶 |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 建立新的函式應用程式 |

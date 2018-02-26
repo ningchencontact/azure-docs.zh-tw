@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be43701f96a71ad5cd9239c4ec7b3eea7fd6db21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](log-analytics-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
 
 ## <a name="create-a-workspace"></a>建立工作區
-1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. 按一下 [建立]，然後選取下列項目的選項：
 
   * 為新的 [OMS 工作區] 提供名稱，例如，*DefaultLAWorkspace*。 

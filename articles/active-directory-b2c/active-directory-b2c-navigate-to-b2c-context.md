@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c1fd08c52f33a062d06e0593cbbe00346bb44f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9b9f71d0c11aee238661d57fd2e5246f1bf0842
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>切換至您的 Azure AD B2C 租用戶
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/11/2017
 
 Azure 入口網站會重新整理。  現在您已在您的 Azure AD B2C 租用戶環境中登入 Azure 入口網站。
 
-## <a name="navigate-to-the-b2c-features-blade"></a>瀏覽至 B2C 功能刀鋒視窗
+## <a name="navigate-to-the-b2c-features-pane"></a>瀏覽至 B2C 功能窗格
 
-1. 在左側導覽中按一下 [瀏覽]  。
-1. 按一下 [>更多服務]，然後在左導覽窗格中搜尋 `Azure AD B2C`。  (若要釘選到左側的「開始面板」，請按一下 Azure AD B2C 左邊的星形)
-1. 按一下 [Azure AD B2C]  以存取 B2C 功能刀鋒視窗。
+1. 在左側導覽中按一下 [瀏覽]。
+1. 按一下 [所有服務]，然後在左導覽窗格中搜尋 `Azure AD B2C`。  (若要釘選到左側的「開始面板」，請按一下 Azure AD B2C 左邊的星形)
+1. 按一下 [Azure AD B2C]  以存取 B2C 功能窗格。
    
-    ![瀏覽至 B2C 功能刀鋒視窗的螢幕擷取畫面](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![瀏覽至 B2C 功能窗格的螢幕擷取畫面](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> 您必須是 B2C 租用戶的全域管理員，才能存取 B2C 功能刀鋒視窗。 其他租用戶的全域管理員或所有租用戶的使用者均無法存取。  您可以使用 Azure 入口網站右上角中的租用戶切換器來切換至 B2C 租用戶。
+> 您必須是 B2C 租用戶的全域管理員，才能存取 B2C 功能窗格。 其他租用戶的全域管理員或所有租用戶的使用者均無法存取。  您可以使用 Azure 入口網站右上角中的租用戶切換器來切換至 B2C 租用戶。
