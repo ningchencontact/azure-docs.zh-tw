@@ -127,11 +127,15 @@
       href: /azure/azure-stack/
 - name: 資源
   items:
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 論壇
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Azure Stack 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack MSDN 論壇
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure Stack 文件意見
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定價資訊
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: 堆疊溢位
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: 訓練與憑證
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

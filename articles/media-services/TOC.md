@@ -37,11 +37,9 @@
 #### [管理跨多個儲存體帳戶的資產](meda-services-managing-multiple-storage-accounts.md)
 ### [配額和限制](media-services-quotas-and-limitations.md)
 ## [設定 Postman](media-rest-apis-with-postman.md)
-### 隨選資料流處理
-#### [環境](postman-environment.md)
-#### [集合](postman-collection.md)
-### 即時串流
-#### [集合](postman-live-streaming-collection.md)
+### [隨選串流集合](postman-collection.md)
+### [即時串流集合](postman-live-streaming-collection.md)
+### [環境](postman-environment.md)
 ## 上傳內容
 ### 將檔案上傳至帳戶
 #### [Azure 入口網站](media-services-portal-upload-files.md)
@@ -239,7 +237,7 @@
 # 資源
 ## [Azure 媒體服務社群](media-services-community.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=web-mobile)
-## [定價](https://azure.microsoft.com/pricing/details/media-services/)
+## [價格](https://azure.microsoft.com/pricing/details/media-services/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [版本資訊](media-services-release-notes.md)
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=media-services)

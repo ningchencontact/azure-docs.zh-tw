@@ -5,11 +5,11 @@ title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9f2b958d4a5d7869999d0cbaccaeed69672d6b0b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8179149046ac8f1240dd547edc0442d0543f4be0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -593,7 +593,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>認知服務</h3>
+                                    <h3>AI + 機器學習服務</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -849,7 +849,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>資料及分析</h3>
+                                    <h3>分析</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1160,7 +1160,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>監視 + 管理</h3>
+                                    <h3>管理工具</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -2308,7 +2308,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">資料及分析</a>
+                        <a href="#analytics">分析</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2541,8 +2541,8 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI 及認知服務</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">AI + 機器學習服務</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>人工智慧</h2>
                             </li>
@@ -3486,7 +3486,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">監視 + 管理</a>
+                        <a href="#mgmt">管理工具</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">

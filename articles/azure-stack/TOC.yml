@@ -57,8 +57,12 @@
         - name: Azure Stack 部署 PKI 先決條件
           href: azure-stack-pki-certs.md
           items:
-            - name: 取得適用於 Azure Stack 部署的 PKI 憑證
+            - name: 取得 Azure Stack PKI 憑證
               href: azure-stack-get-pki-certs.md
+            - name: 準備 Azure Stack PKI 憑證
+              href: prepare-pki-certs.md
+            - name: 驗證 Azure Stack PKI 憑證
+              href: validate-pki-certs.md
         - name: 身分識別整合
           href: azure-stack-integrate-identity.md
         - name: 註冊 Azure Stack
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: 身分識別
           items:
+            - name: 身分識別概觀
+              href: azure-stack-identity-overview.md
+            - name: 身分識別架構
+              href: azure-stack-identity-architecture.md
             - name: 管理 RBAC
               href: azure-stack-manage-permissions.md
             - name: 為 Azure AD 新增使用者
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: 資源
   items:
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 論壇
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Azure Stack 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack MSDN 論壇
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure Stack 文件意見
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定價資訊
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: 堆疊溢位
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: 訓練與憑證
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

@@ -156,7 +156,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 在本節中，您會了解如何使用 AdlCopy 將來源 (在我們使用 Azure 儲存體 Blob 的下列範例中) 的資料複製到使用模式比對的目的地 Data Lake Store 帳戶。 例如，您可以使用下列步驟將所有副檔名為 .csv 的檔案從來源 Blob 複製到目的地。
 
 1. 開啟命令提示字元，並瀏覽至安裝 AdlCopy 的目錄，通常是 `%HOMEPATH%\Documents\adlcopy`。
-2. 執行下列命令，將所有副檔名為 .csv 的檔案從來源容器的特定 Blob 複製到 Data Lake Store：
+2. 執行下列命令，將所有副檔名為 \*.csv 的檔案從來源容器的特定 Blob 複製到 Data Lake Store：
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 

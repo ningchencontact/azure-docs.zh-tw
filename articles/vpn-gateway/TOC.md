@@ -20,6 +20,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure 入口網站 (傳統)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [下載 VPN 裝置組態指令碼](vpn-gateway-download-vpndevicescript.md)
+
 ## 設定點對站連線 - 原生 Azure 憑證驗證
 ### 設定 P2S VPN
 #### [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

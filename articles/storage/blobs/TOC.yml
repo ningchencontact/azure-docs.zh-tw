@@ -44,9 +44,9 @@
           href: storage-monitor-troubleshoot-storage-application.md
     - name: 雲端儲存體中適用於高可用性的設計
       items:
-        - name: 讓您的應用程式保持高可用性
+        - name: 1 - 讓您的應用程式保持高可用性
           href: storage-create-geo-redundant-storage.md
-        - name: 模擬 RA-GRS 儲存體失敗
+        - name: 2 - 模擬 RA-GRS 儲存體失敗
           href: storage-simulate-failure-ragrs-account-app.md
     - name: 使用 AzCopy 將內部部署資料移轉至雲端
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -54,13 +54,13 @@
       href: storage-unstructured-search.md
     - name: 最佳化儲存體應用程式效能和延展性
       items:
-        - name: 建立虛擬機器和儲存體帳戶
+        - name: 1 - 建立虛擬機器和儲存體帳戶
           href: storage-blob-scalable-app-create-vm.md
-        - name: 將大量資料上傳至 Azure 儲存體帳戶
+        - name: 2 - 將大量資料上傳至 Azure 儲存體帳戶
           href: storage-blob-scalable-app-upload-files.md
-        - name: 從 Azure 儲存體帳戶下載大量資料
+        - name: 3 - 從 Azure 儲存體帳戶下載大量資料
           href: storage-blob-scalable-app-download-files.md
-        - name: 驗證輸送量和延遲計量
+        - name: 4 - 驗證輸送量和延遲計量
           href: storage-blob-scalable-app-verify-metrics.md
 - name: 範例
   items:
