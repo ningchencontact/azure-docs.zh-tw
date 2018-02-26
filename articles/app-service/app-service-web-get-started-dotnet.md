@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中建立 ASP.NET Core Web 應用程式 | Microsoft Docs"
-description: "藉由部署預設 ASP.NET Web 應用程式，了解如何在 Azure App Service 中執行 Web 應用程式。"
+description: "了解如何藉由部署預設 ASP.NET Core Web 應用程式，在 Azure App Service 中執行 Web 應用程式。"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,26 +12,24 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 02/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a7f098b6c66109cb5cafbcb19e463daa15a65b59
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 
 > [!NOTE]
 > 本文會將應用程式部署至 Windows 上的 App Service。 若要部署至 _Linux_ 上的 App Service，請參閱[在 Linux 上的 App Service 中建立 NET Core Web 應用程式](./containers/quickstart-dotnetcore.md)。
 >
+> 如果您要尋找 ASP.NET Framework 應用程式的步驟，請參閱[在 Azure 中建立 ASP.NET Framework Web 應用程式](app-service-web-get-started-dotnet-framework.md)。 
+>
 
 [Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。  本快速入門會顯示如何將第一個 ASP.NET Core Web 應用程式部署至 Azure Web Apps。 當您完成時，您會有已部署 Web 應用程式的資源群，其中包含 App Service 方案和 Azure Web 應用程式。
-
-> [!NOTE]
-> 如果您要了解如何建置及部署 ASP.NET Framework Web 應用程式，可從[這裡](app-service-web-get-started-dotnet-framework.md)取得該文章。 
->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +49,7 @@ ms.lasthandoff: 02/01/2018
 
 在 [新增專案] 對話方塊中，選取 [Visual C#] > [Web] > [ASP.NET Core Web 應用程式]。
 
-將應用程式命名為 _myFirstAzureWebApp_，然後選取 [確定]。
+將應用程式命名為 _myFirstAzureWebApp_、選取 [建立新的 Git 存放庫]，然後選取 [確定]。
    
 ![New Project dialog box](./media/app-service-web-get-started-dotnet/new-project.png)
 
@@ -61,7 +59,7 @@ ms.lasthandoff: 02/01/2018
 
 ![[新增 ASP.NET 專案] 對話方塊](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
 
-一旦建立了 ASP.NET Core 專案，ASP.NET Core 的歡迎頁面會隨即顯示，並提供許多可協助您開始使用的資源連結。 
+ASP.NET Core 專案建立之後，ASP.NET Core 的歡迎頁面會隨即顯示，並提供許多可協助您開始使用的資源連結。 
 
 ![歡迎頁面](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
@@ -69,68 +67,82 @@ ms.lasthandoff: 02/01/2018
 
 ![在本機執行應用程式](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>發佈至 Azure
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-在 [方案總管] 中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]。
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-![從方案總管發佈](./media/app-service-web-get-started-dotnet/right-click-publish.png)
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-確定已選取 [Microsoft Azure App Service]，然後選取 [發佈]。
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-![從專案概觀頁面發佈](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-這會開啟 [建立 App Service] 對話方塊，協助您建立在 Azure 中執行 ASP.NET Core Web 應用程式所需的 Azure 資源。
+![空的 Web 應用程式頁面](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-## <a name="sign-in-to-azure"></a>登入 Azure
+## <a name="push-to-azure-from-visual-studio"></a>從 Visual Studio 推送至 Azure
 
-在 [建立 App Service] 對話方塊中，選取 [新增帳戶]，然後登入您的 Azure 訂用帳戶。 如果您已登入，請從下拉式清單中選取包含所需訂用帳戶的帳戶。
+回到 Visual Studio，在 [檢視] 功能表中按一下 [Team Explorer]。 **Team Explorer** 隨即顯示。
 
-> [!NOTE]
-> 如果您已經登入，請勿選取 [建立]。
->
->
-   
-![登入 Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
+在 [首頁] 檢視中，按一下 [設定] > [存放庫設定]。
 
-## <a name="create-a-resource-group"></a>建立資源群組
+![Team Explorer 首頁檢視](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
-[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+在 [存放庫設定] 的 [遠端] 區段中，選取 [新增]。 [新增遠端] 對話方塊隨即顯示。
 
-選取 [資源群組] 旁邊的 [新增]。
+將 [名稱] 欄位設為 _Azure_，然後將 [提取] 欄位設為您從 [建立 Web 應用程式](#create-a-web-app) 儲存的 URL。 按一下 [檔案] 。
 
-將資源群組命名為 **myResourceGroup**，然後選取 [確定]。
+![Team Explorer 首頁檢視](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
 
-## <a name="create-an-app-service-plan"></a>建立應用程式服務方案
+此設定相當於 Git 命令 `git remote add Azure <URL>`。
 
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+按一下位於頂端的 [首頁] 按鈕。
 
-選取 [App Service 方案] 旁邊的 [新增]。 
+選取 [設定] > [全域設定]。 確認名稱和電子郵件地址皆已設定。 如有需要，請選取 [更新]。
 
-在 [設定 App Service 方案] 對話方塊中，使用螢幕擷取畫面之後表格中的設定。
+Visual Studio 在建立專案時，所有檔案都已認可到 Git 存放庫中。 此時您只需要將檔案推送至 Azure 即可。
 
-![建立 App Service 方案](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+按一下位於頂端的 [首頁] 按鈕。 選取 [同步] > [動作] > [開啟命令提示字元]。 
 
-| 設定 | 建議的值 | 說明 |
-|-|-|-|
-|App Service 方案| myAppServicePlan | App Service 方案的名稱。 |
-| 位置 | 西歐 | 裝載 Web 應用程式的資料中心。 |
-| 大小 | 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)可決定裝載功能。 |
+在命令視窗中輸入下列命令，並在出現提示時輸入部署密碼：
 
-選取 [確定] 。
+```
+git push Azure master
+```
 
-## <a name="create-and-publish-the-web-app"></a>建立和發佈 Web 應用程式
+此命令可能會花數分鐘執行。 執行上述命令時，會顯示類似下列範例的資訊：
 
-在 [Web 應用程式名稱] 中，輸入唯一的應用程式名稱 (有效字元為 `a-z`、`0-9` 和 `-`)，或接受自動產生的唯一名稱。 Web 應用程式的 URL 是 `http://<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的 Web 應用程式名稱。
+```
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 349 bytes | 349.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '9e20345e9c'.
+remote: Generating deployment script.
+remote: Project file path: .\myFirstAzureWebApp\myFirstAzureWebApp.csproj
+remote: Solution file path: .\myFirstAzureWebApp.sln
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+...
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-選取 [建立] 開始建立 Azure 資源。
+## <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-![設定 Web 應用程式名稱](./media/app-service-web-get-started-dotnet/web-app-name.png)
+在瀏覽器中，瀏覽至 Azure Web 應用程式 URL：`http://<app_name>.azurewebsites.net`。
 
-精靈完成後，它會將 ASP.NET Core Web 應用程式發佈至 Azure，然後在預設瀏覽器中啟動該應用程式。
+此頁面目前作為 Azure App Service Web 應用程式執行。
 
 ![Azure 中已發佈的 ASP.NET Web 應用程式](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
-
-在[建立及發佈步驟](#create-and-publish-the-web-app)中指定的 Web 應用程式名稱會作為 URL 首碼，其格式為 `http://<app_name>.azurewebsites.net`。
 
 恭喜您，您的 ASP.NET Core Web 應用程式在 Azure App Service 中即時執行。
 
@@ -147,11 +159,15 @@ ms.lasthandoff: 02/01/2018
 </div>
 ```
 
-若要重新部署至 Azure，請在 [方案總管] 中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]。
+在 [方案總管] 中，以滑鼠右鍵按一下 _Pages/Index.cshtml_，然後按一下 [認可]。 輸入變更的認可訊息，然後按一下 [全部認可]。
 
-在發佈頁面中，選取 [發佈]。
+回到命令提示字元視窗，將程式碼變更推送至 Azure。
 
-發佈完成時，Visual Studio 會啟動瀏覽器以前往 Web 應用程式的 URL。
+```bash
+git push Azure master
+```
+
+當部署完成後，請重新瀏覽至 `http://<app_name>.azurewebsites.net`。
 
 ![Azure 中已更新的 ASP.NET Web 應用程式](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
@@ -165,7 +181,7 @@ ms.lasthandoff: 02/01/2018
 
 您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 
 
-![Azure 入口網站中的 App Service 刀鋒視窗](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Azure 入口網站中的 App Service 頁面](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 左側功能表提供不同的頁面來設定您的應用程式。 
 
