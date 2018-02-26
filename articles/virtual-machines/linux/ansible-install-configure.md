@@ -144,7 +144,7 @@ Ansible 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊�
 建立與主機電腦上的服務主體[az ad 預存程序建立-如-rbac](/cli/azure/ad/sp#create-for-rbac)和輸出 Ansible 需要的認證：
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az  ad  sp  create-for-rbac --query  '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 上述命令的輸出範例如下所示：
