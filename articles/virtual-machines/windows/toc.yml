@@ -33,15 +33,17 @@
       href: tutorial-virtual-network.md
     - name: 9 - 備份虛擬機器
       href: tutorial-backup-vms.md
-    - name: 10 - 監視及更新 VM
+    - name: 10 - 管理 VM
+      href: tutorial-govern-resources.md
+    - name: 11 - 監視及更新 VM
       href: tutorial-monitoring.md
-    - name: 11 - 管理 VM 安全性
+    - name: 12 - 管理 VM 安全性
       href: tutorial-azure-security.md
-    - name: 12 - Team Services CI/CD
+    - name: 13 - Team Services CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - 安裝 SQL\IIS\.NET 堆疊
+    - name: 14 - 安裝 SQL\IIS\.NET 堆疊
       href: tutorial-iis-sql.md
-    - name: 14 - 使用 SSL 保護網路伺服器
+    - name: 15 - 使用 SSL 保護網路伺服器
       href: tutorial-secure-web-server.md
 - name: 範例
   items:

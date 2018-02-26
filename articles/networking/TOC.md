@@ -23,6 +23,7 @@
 ### [連接內部部署 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [連線內部部署 - 專用](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # 開始使用
 ## [建立您的第一個虛擬網路](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [管理封包擷取](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [決定路由的下一個躍點](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [確認 VM 的 IP 流量](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [網路監視概觀](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## 範例指令碼
 ### [Azure CLI](cli-samples.md)

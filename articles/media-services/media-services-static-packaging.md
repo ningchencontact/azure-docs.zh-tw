@@ -701,7 +701,7 @@ ms.lasthandoff: 12/07/2017
 > [!NOTE]
 > 若要將您的內容轉換為 HLS，必須先將其轉換/編碼為 Smooth Streaming。
 > 此外，針對使用 AES 加密的 HLS，請務必設定 MediaPackager_SmoothToHLS.xml 檔案中的下列屬性：將加密屬性設為 true、設定金鑰值和指向驗證/授權伺服器的 KeyURI 值。
-> 媒體服務會建立金鑰檔案，並將其放置於資產容器中。 您應該將 /asset-containerguid/*.key 檔案複製到伺服器中 (或自行建立金鑰檔案)，然後從資產容器中刪除 *.key 檔案。
+> 媒體服務會建立金鑰檔案，並將其放置於資產容器中。 您應該將 /asset-containerguid/\*.key 檔案複製到伺服器中 (或自行建立金鑰檔案)，然後從資產容器中刪除 \*.key 檔案。
 > 
 > 
 

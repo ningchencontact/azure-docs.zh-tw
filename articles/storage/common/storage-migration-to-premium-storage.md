@@ -184,11 +184,11 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
 
     以下是有關用於 AzCopy 命令中之參數的描述：
 
-   * **/Source: *&lt;source&gt;：***包含 VHD 的資料夾或儲存體容器 URL 的位置。
-   * **/SourceKey: *&lt;source-account-key&gt;：***來源儲存體帳戶的儲存體帳戶金鑰。
-   * **/Dest: *&lt;destination&gt;：***要複製 VHD 的目的地儲存體容器 URL。
-   * **/DestKey: *&lt;dest-account-key&gt;：***目的地儲存體帳戶的儲存體帳戶金鑰。
-   * **/Pattern: *&lt;file-name&gt;：***指定要複製 VHD 的目標檔案名稱。
+   * **/Source: *&lt;source&gt;：*\**包含 VHD 的資料夾或儲存體容器 URL 的位置。
+   * **/SourceKey: *&lt;source-account-key&gt;：*\**來源儲存體帳戶的儲存體帳戶金鑰。
+   * **/Dest: *&lt;destination&gt;：*\**要複製 VHD 的目的地儲存體容器 URL。
+   * **/DestKey: *&lt;dest-account-key&gt;：*\**目的地儲存體帳戶的儲存體帳戶金鑰。
+   * **/Pattern: *&lt;file-name&gt;：*\**指定要複製 VHD 的目標檔案名稱。
 
 如需使用 AzCopy 工具的詳細資訊，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)》\。
 
@@ -278,12 +278,12 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
     以下是有關用於 AzCopy 命令中之參數的描述：
 
-   * **/Source: *&lt;source&gt;：***包含 VHD 的資料夾或儲存體容器 URL 的位置。
-   * **/SourceKey: *&lt;source-account-key&gt;：***來源儲存體帳戶的儲存體帳戶金鑰。
-   * **/Dest: *&lt;destination&gt;：***要複製 VHD 的目的地儲存體容器 URL。
-   * **/DestKey: *&lt;dest-account-key&gt;：***目的地儲存體帳戶的儲存體帳戶金鑰。
+   * **/Source: *&lt;source&gt;：*\**包含 VHD 的資料夾或儲存體容器 URL 的位置。
+   * **/SourceKey: *&lt;source-account-key&gt;：*\**來源儲存體帳戶的儲存體帳戶金鑰。
+   * **/Dest: *&lt;destination&gt;：*\**要複製 VHD 的目的地儲存體容器 URL。
+   * **/DestKey: *&lt;dest-account-key&gt;：*\**目的地儲存體帳戶的儲存體帳戶金鑰。
    * **/BlobType: page:** 將目的地指定為分頁 Blob。
-   * **/Pattern: *&lt;file-name&gt;：***指定要複製 VHD 的目標檔案名稱。
+   * **/Pattern: *&lt;file-name&gt;：*\**指定要複製 VHD 的目標檔案名稱。
 
 如需使用 AzCopy 工具的詳細資訊，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)》\。
 

@@ -197,7 +197,7 @@
           items:
             - name: 從 VMware 到 Azure 的來源環境
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: 為 VMware 和實體伺服器部署組態伺服器
+            - name: 部署 VMware 災害復原的設定伺服器
               href: how-to-deploy-configuration-server.md
             - name: 從實體到 Azure 的來源環境
               href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
       items:
         - name: 管理 Azure 中的處理序伺服器
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: 管理組態伺服器
+        - name: 管理 VMware 災害復原的設定伺服器
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: 管理實體機器災害復原的設定伺服器
+          href: physical-manage-configuration-server.md
         - name: 管理 vCenter 伺服器
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: 透過 CSP 管理多租用戶

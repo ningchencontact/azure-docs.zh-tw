@@ -3,6 +3,7 @@
 ## [資源提供者和類型](resource-manager-supported-services.md)
 ## [Resource Manager 與傳統部署](resource-manager-deployment-model.md)
 ## [訂用帳戶治理](resource-manager-subscription-governance.md)
+## [利用管理群組組織資源](management-groups-overview.md)
 
 # 開始使用
 ## [建立和部署範本](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [使用標籤來整理資源](resource-group-using-tags.md)
 ### [將資源移至新群組或訂用帳戶](resource-group-move-resources.md)
-### [利用管理群組組織訂用帳戶](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [建立管理群組](management-groups-create.md)
+### [管理您的管理群組](management-groups-manage.md)
 ### [治理範例](resource-manager-subscription-examples.md)
 ### [受控應用程式](../managed-applications/overview.md)
 

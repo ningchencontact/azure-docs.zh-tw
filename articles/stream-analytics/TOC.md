@@ -62,6 +62,7 @@
 ### [事件順序的考量](stream-analytics-out-of-order-and-late-events.md)
 ### [事件中樞讀取器限制](stream-analytics-event-hub-consumer-groups.md)
 ### [診斷記錄](stream-analytics-job-diagnostic-logs.md)
+### [取得格式不正確的事件](stream-analytics-malformed-events.md)
 
 ## 自動化
 ### [使用 Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
