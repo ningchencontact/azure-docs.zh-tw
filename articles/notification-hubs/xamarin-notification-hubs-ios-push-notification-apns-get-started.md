@@ -205,7 +205,7 @@ ms.lasthandoff: 01/02/2018
 12. 在您的裝置上執行應用程式。
 
 ## <a name="sending-test-push-notifications"></a>傳送測試用的推播通知
-您可以在 [Azure 入口網站]中，使用 [測試傳送] 選項測試應用程式能否接收通知。 此測試會對裝置傳送測試用的推播通知。
+您可以在 [Azure 入口網站] 中，使用 [測試傳送] 選項測試應用程式能否接收通知。 此測試會對裝置傳送測試用的推播通知。
 
 ![Azure 入口網站 - 測試傳送][30]
 
@@ -255,4 +255,4 @@ ms.lasthandoff: 01/02/2018
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[HttpTrigger Nodejs 函數]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com
