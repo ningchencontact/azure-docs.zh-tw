@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>將資料載入 Azure SQL 資料倉儲的最佳做法
 將資料載入 Azure SQL 資料倉儲的建議和效能最佳化。 
@@ -120,15 +120,19 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 若要輪替 Azure 儲存體帳戶金鑰：
 
-1. 建立以次要儲存體存取金鑰為基礎的第二個資料庫範圍認證。
-2. 建立以新的認證為基礎的第二個外部資料來源。
-3. 卸除並建立外部資料表，使其指向新的外部資料來源。 
+對於金鑰已變更的每個儲存體帳戶，發出 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md)。
 
-將外部資料表移轉到新的資料來源之後，請執行下列清除工作：
+範例：
 
-1. 卸除第一個外部資料來源。
-2. 卸除以主要儲存體存取金鑰為基礎的第一個資料庫範圍認證。
-3. 登入 Azure 並重新產生主要存取金鑰，以供下一次輪替。
+建立原始金鑰
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+將金鑰從 key 1 輪替為 key 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+不需要對基礎外部資料來源進行其他變更。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -151,6 +151,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 2. 您會看到用於設定管線的新索引標籤。 你也會在樹狀檢視中看到該管線。 在 [屬性] 視窗中，將管線的名稱變更為 **IncrementalCopyPipeline**。
 
     ![管線名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. 在 [活動] 工具箱中，展開 [SQL Database]，並將 [查閱] 活動拖放至管線設計工具介面。 將活動的名稱設定為 **LookupLastChangeTrackingVersionActivity**。 此活動會取得在上次複製作業中使用的變更追蹤版本，這項資訊儲存在 **table_store_ChangeTracking_version** 資料表中。
+3. 在 [活動] 工具箱中展開 [一般]，並將 [查閱] 活動拖放至管線設計工具介面。 將活動的名稱設定為 **LookupLastChangeTrackingVersionActivity**。 此活動會取得在上次複製作業中使用的變更追蹤版本，這項資訊儲存在 **table_store_ChangeTracking_version** 資料表中。
 
     ![查閱活動 - 名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. 切換至 [屬性] 視窗中的 [設定]，在 [來源資料集] 欄位選取 [ChangeTrackingDataset]。 
@@ -406,14 +407,15 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 12. 切換至 [SQL 帳戶]* 索引標籤，選取 [AzureSqlDatabaseLinkedService] 作為 [連結服務]。 
 
     ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
-13. 切換至 [預存程序] 索引標籤，執行下列步驟： 
+13. 切換至 [預存程序] 索引標籤，然後執行下列步驟： 
 
-    1. 輸入 **Update_ChangeTracking_Version** 作為 [預存程序名稱]。  
-    2. 在 [預存程序參數] 區段中，使用 [+ 新增] 按鈕新增下列兩個參數：
+    1. 針對 [預存程序名稱]，選取 **Update_ChangeTracking_Version**。  
+    2. 選取 [匯入參數]。 
+    3. 在 [預存程序參數] 區段中，指定參數的下列值： 
 
         | Name | 類型 | 值 | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 字串 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![預存程序活動 - 參數](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 15. 按一下工具列上的 [驗證]。 確認沒有任何驗證錯誤。 按一下 **>>** 關閉 [管線驗證報告] 視窗。 
 
     ![驗證按鈕](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  按一下 [發佈] 按鈕將實體 (連結的服務、資料集、管線) 發佈至 Data Factory 服務。 請靜待 [發佈成功] 訊息顯示。 
+16.  按一下 [全部發佈] 按鈕，將實體 (連結的服務、資料集、管線) 發佈至 Data Factory 服務。 請靜待 [發佈成功] 訊息顯示。 
 
         ![發佈按鈕](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>執行累加複製管線
-按一下管線工具列上的 [觸發]，然後按一下 [立即觸發]。 
+1. 按一下管線工具列上的 [觸發]，然後按一下 [立即觸發]。 
 
-![立即觸發功能表](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![立即觸發功能表](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. 在 [管線執行] 視窗中，選取 [完成]。
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>監視累加複製管線
 1. 按一下左側的 [監視] 索引標籤。 您會在清單中看到管線執行和其狀態。 若要重新整理清單，按一下 [重新整理]。 [動作] 資料行中的連結可讓您檢視與此管線執行相關聯的活動執行，以及重新執行管線。 

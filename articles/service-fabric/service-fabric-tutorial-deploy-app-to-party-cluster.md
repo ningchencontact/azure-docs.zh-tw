@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>將應用程式部署到 Azure 中的合作對象叢集
 本教學課程是系列中的第二部分，示範如何部署 Azure Service Fabric 應用程式到 Azure 中的合作對象叢集。
@@ -59,14 +59,33 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 > [!NOTE]
 > 合作對象叢集不安全，因為其他人都會看見應用程式以及您在其中輸入的任何資料。 請勿部署不想讓其他人看見的任何項目。 務必閱讀我們的使用條款，以便瞭解所有的詳細資料。
 
+登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 後續步驟中會使用該憑證和 [連線端點] 值。
+
+![PFX 和連線端點](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+在 Windows 電腦上，將 PFX 安裝在 *CurrentUser\My* 憑證存放區中。
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>將應用程式部署至 Azure
 應用程式備妥後，即可直接從 Visual Studio 將其部署到合作對象叢集。
 
-1. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。
+1. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。 
 
-    ![[發佈] 對話方塊](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![[發佈] 對話方塊](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. 在 [連接端點] 欄位中輸入合作對象叢集的連接端點，並按一下 [發行]。
+2. 將合作對象叢集頁面上的 [連線端點] 複製到 [連線端點] 欄位。 例如： `zwin7fh14scd.westus.cloudapp.azure.com:19000`。 按一下 [進階連線參數] 並填入下列資訊。  *FindValue* 和 *ServerCertThumbprint* 值必須符合前一個步驟中安裝的憑證指紋。 按一下 [發佈] 。 
 
     發佈完成後，您應該能夠透過瀏覽器將要求傳送到應用程式。
 
@@ -81,9 +100,9 @@ Service Fabric Explorer 是圖形化使用者介面，可用來瀏覽和管理 S
 
 若要從合作對象叢集移除應用程式：
 
-1. 使用合作對象叢集註冊頁面提供的連結，瀏覽到 Service Fabric Explorer。 例如，http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html。
+1. 使用合作對象叢集註冊頁面提供的連結，瀏覽到 Service Fabric Explorer。 例如 https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html。
 
-2. 在 Service Fabric Explorer 中，瀏覽到左側樹狀檢視中的 **fabric://Voting** 節點。
+2. 在 Service Fabric Explorer 中，瀏覽到左側樹狀檢視中的 **fabric:/Voting** 節點。
 
 3. 按一下右側 [Essentials] 窗格中的 [動作] 按鈕，並選擇 [刪除應用程式]。 確認刪除應用程式執行個體，這將移除在叢集中執行的應用程式執行個體。
 

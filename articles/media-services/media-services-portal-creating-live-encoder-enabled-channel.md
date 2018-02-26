@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用 Azure 媒體服務執行即時串流，以使用 Azure 入口網站建立多位元速率串流
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 下列是建立常見即時串流應用程式所含的一般步驟。
 
 > [!NOTE]
-> 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
+> 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
 > 
 > 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/18/2017
 5. 播放您的內容。
 6. 清除。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要有下列項目，才能完成教學課程。
 
 * 若要完成此教學課程，您需要 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 
@@ -125,10 +125,10 @@ ms.lasthandoff: 12/18/2017
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>建立和管理事件
-### <a name="overview"></a>Overview
+### <a name="overview"></a>概觀
 通道是與事件/程式相關聯，而程式可讓您控制即時串流中區段的發佈和儲存。 通道會管理事件/程式。 通道和程式的關聯性非常類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。
 
-設定 [封存時間範圍]  長度，即可指定您想要保留事件之錄製內容的時數。 此值可以設為最少 5 分鐘到最多 25 個小時。 封存時間範圍長度也會指出用戶端可以從目前即時位置及時往回搜尋的最大時間量。 事件在超過指定的時間量後還是可以執行，但是會持續捨棄落後時間範圍長度的內容。 此屬性的這個值也會決定用戶端資訊清單可以成長多長的時間。
+設定 [封存時間範圍]  長度，即可指定您想要保留事件之錄製內容的時數。 此值可以設為最少 5 分鐘到最多 25 個小時。 封存時間範圍長度也會指出用戶端可以從目前即時位置及時往回搜尋的最大時間量。 事件在超過指定的時間量後還是可以執行，但是會持續捨棄落後時間範圍長度的內容。 此屬性的這個值也會決定用戶端資訊清單可以成長為多長的時間。
 
 每個事件都是與資產相關聯。 若要發佈事件，您必須建立相關聯資產的 OnDemand 定位器。 擁有此定位器，可讓您建置可提供給用戶端的串流 URL。
 
@@ -190,10 +190,10 @@ ms.lasthandoff: 12/18/2017
 
 若要管理您的資產，請選取 [設定]，然後按一下 [資產]。
 
-![資產](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>考量
-* 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
+* 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
 * 確定您想要串流內容的串流端點已處於 [執行中] 狀態。
 
 ## <a name="next-step"></a>後續步驟

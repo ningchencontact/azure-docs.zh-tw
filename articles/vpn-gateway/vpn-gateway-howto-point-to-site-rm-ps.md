@@ -1,10 +1,10 @@
 ---
 title: "使用點對站和原生 Azure 憑證驗證將電腦連線至 Azure 虛擬網路︰PowerShell | Microsoft Docs"
-description: "使用 VPN 閘道原生 Azure 憑證驗證建立點對站 VPN 閘道連線，進而將電腦安全地連線到您的虛擬網路。 本文適用於 Resource Manager 部署模型並使用 PowerShell。"
+description: "使用 P2S 和自我簽署或 CA 核發的憑證，將 Windows 和 Mac OS X 用戶端安全地連線至 Azure 虛擬網路。 本文使用 PowerShell。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,55 +13,34 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6c0e26b25db4ac92d30f89aac52990d4856e8c96
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
 
-本文顯示如何使用 PowerShell，在 Resource Manager 部署模型中建立具有點對站連線的 VNet。 此組態會使用憑證來進行驗證。 此組態會由 Azure VPN 閘道執行憑證驗證，而不是由 RADIUS 伺服器來執行。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
+本文可協助您將執行 Windows 或 Mac OS X 的個別用戶端安全地連線至 Azure VNet。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 如果您只有少數用戶端必須連線至 VNet，您也可以使用 P2S，而不使用站對站 VPN。 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。 如需點對站 VPN 的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure 入口網站 (傳統)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
+![將電腦連接至 Azure VNet - 點對站連線圖表](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。 P2S VPN 連線會從 Windows 和 Mac 裝置啟動。 
 
-您可使用下列驗證方法來與用戶端連線：
+## <a name="architecture"></a>架構
 
-* RADIUS 伺服器
-* VPN 閘道原生 Azure 憑證驗證
-
-本文會協助您設定使用原生 Azure 憑證驗證來進行驗證的 P2S 組態。 如果您想要使用 RADIUS 來驗證要連線的使用者，請參閱[使用 RADIUS 驗證的 P2S](point-to-site-how-to-radius-ps.md)。
-
-![將電腦連接至 Azure VNet - 點對站連線圖表](./media/vpn-gateway-howto-point-to-site-rm-ps/p2snativeps.png)
-
-點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。
-
-* SSTP 是僅在 Windows 用戶端平台上支援的 SSL 型 VPN 通道。 它可以穿透防火牆，這是從任何地方連線到 Azure 的理想選項。 伺服器端支援 SSTP 1.0、1.1 和 1.2 版。 用戶端會決定要使用的版本。 若為 Windows 8.1 和更新版本，SSTP 預設使用 1.2。
-
-* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。
-
-點對站原生 Azure 憑證驗證連線需要下列各項：
+點對站原生 Azure 憑證驗證連線須使用下列項目 (您可以在此練習中設定)：
 
 * RouteBased VPN 閘道。
 * 已上傳至 Azure 之根憑證的公開金鑰 (.cer 檔案)。 一旦上傳憑證，憑證就會被視為受信任的憑證並且用於驗證。
-* 用戶端憑證是從根憑證產生，並安裝在每部即將連線到 VNet 的用戶端電腦上。 此憑證使用於用戶端憑證。
+* 從根憑證產生的用戶端憑證。 此用戶端憑證須安裝在每部將連線至 VNet 的用戶端電腦上。 此憑證使用於用戶端憑證。
 * VPN 用戶端組態。 VPN 用戶端組態檔包含要讓用戶端連線到 VNet 所需的資訊。 此檔案會設定作業系統原生的現有 VPN 用戶端。 您必須使用組態檔中的設定來設定每個進行連線的用戶端。
-
-如需點對站連線的詳細資訊，請參閱[關於點對站連線](point-to-site-about.md)。
 
 ## <a name="before-you-begin"></a>開始之前
 
 * 請確認您有 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial)。
-* 安裝最新版的 Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
+* 安裝最新版的 Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 這一點很重要，因為較早版本的 Cmdlet 未包含您在此練習中所需的現行值。
 
 ### <a name="example"></a>範例值
 
@@ -164,7 +143,7 @@ ms.lasthandoff: 01/18/2018
 設定和建立 VNet 的虛擬網路閘道。
 
 * -GatewayType 必須是 **Vpn**，而 -VpnType 必須是 **RouteBased**。
-* 使用 -VpnClientProtocol 可指定您想要啟用的通道類型。 通道有 **SSTP** 和 **IKEv2** 這兩個選項。 您可以選擇啟用其中一個或兩個都啟用。 如果您想要將兩個選項都啟用，請同時指定這兩個名稱並以逗號隔開。 Android 和 Linux 上的 Strongswan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。
+* 使用 -VpnClientProtocol 可指定您想要啟用的通道類型。 通道有 **SSTP** 和 **IKEv2** 這兩個選項。 您可以選擇啟用其中一個或兩個都啟用。 如果您想要將兩個選項都啟用，請同時指定這兩個名稱並以逗號隔開。 Android 和 Linux 上的 strongSwan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。
 * 視您選取的[閘道 sku](vpn-gateway-about-vpn-gateway-settings.md) 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。 此範例使用 IKEv2。
 
 ```powershell
@@ -428,3 +407,5 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。
+
+如需 P2S 疑難排解詳細資訊，請參閱[疑難排解：Azure 點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

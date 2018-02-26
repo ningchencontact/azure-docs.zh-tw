@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
   
 這堂課的預估完成時間：**10 分鐘**  
   
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 3 課：標記為日期資料表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>檢閱現有的關聯性和新增關聯性  
@@ -60,11 +60,11 @@ ms.lasthandoff: 01/09/2018
   
     |Active|資料表|相關的查閱資料表|  
     |----------|---------|------------------------|  
-    |是|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |是|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |是|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |是|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |是|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |yes|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |yes|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |yes|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |yes|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |yes|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     如果遺漏任何關聯性，請確認您的模型包含下列資料表：DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory 和 FactInternetSales。 如果是在不同時間從相同的資料來源連線匯入資料表，則不會建立這些資料表之間的關聯性，必須手動建立。 如果沒有出現任何關聯性，表示資料來源沒有任何關聯性。 您可以手動在資料模型中加以建立。
 

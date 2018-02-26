@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -28,7 +28,8 @@ ms.lasthandoff: 02/01/2018
 這項功能會在下列 Azure 服務和區域中提供：
 
 - **Azure 儲存體**：正式推出。 Azure 公用雲端和 Azure Government 中的所有區域。
-- **Azure SQL**：預覽。 Azure 公用雲端中的所有區域。
+- **Azure SQL Database**：已在所有 Azure 區域正式推出。 
+- **Azure SQL 資料倉儲**：預覽 Azure 公用雲端中的所有區域。
 
 如需此預覽的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 

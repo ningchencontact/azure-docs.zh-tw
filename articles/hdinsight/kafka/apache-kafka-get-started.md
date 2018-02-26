@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>開始使用 Apache Kafka on HDInsight
 
@@ -233,3 +233,5 @@ Kafka 不知道容錯網域。 為主題建立副本時，可能無法正確發�
 * [使用 Apache Spark 結構化串流將資料從 HDInsight 上的 Kafka 移至 Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [使用 Apache Storm 搭配 HDInsight 上的 Kafka](../hdinsight-apache-storm-with-kafka.md)
 * [透過 Azure 虛擬網路連線到 Kafka](apache-kafka-connect-vpn-gateway.md)
+* [使用 Kafka 搭配 Azure Container Service](apache-kafka-azure-container-services.md)
+* [使用 Kafka 搭配 Azure 函式應用程式](apache-kafka-azure-functions.md)

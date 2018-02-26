@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -135,7 +135,7 @@ ms.lasthandoff: 01/23/2018
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>在 SQL 資料庫中建立另一個資料表來儲存高水位線值
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>在 Azure SQL Database 中建立另一個資料表來儲存高水位線值
 1. 對 SQL 資料庫執行下列 SQL 命令，以建立名為 `watermarktable` 的資料表來儲存水位線值： 
     
     ```sql
@@ -157,7 +157,7 @@ ms.lasthandoff: 01/23/2018
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>在 SQL 資料庫中建立預存程序 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>在 Azure SQL 資料庫中建立預存程序 
 
 執行下列命令，在您的 SQL 資料庫中建立預存程序。 這個預存程序會在每次管線執行之後更新水位線值。 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>建立資料類型和其他預存程序
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>在 Azure SQL 資料庫中建立資料類型和其他預存程序
 執行下列查詢，在您的 SQL 資料庫中建立兩個預存程序和兩個資料類型。 它們用來將來源資料表的資料合併到目的地資料表。
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
    
    ![新增->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ END
     3. 選取 [物件] 作為參數**類型**。
 
     ![管線參數](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. 將 [活動] 工具箱中的 **ForEach** 活動拖放至管線設計工具介面。 在 [屬性] 視窗的 [一般] 索引標籤中，輸入 **IterateSQLTables**。 
+4. 在 [活動] 工具箱中展開 [反覆項目與條件]，並將 [ForEach] 活動拖放至管線設計工具介面。 在 [屬性] 視窗的 [一般] 索引標籤中，輸入 **IterateSQLTables**。 
 
     ![ForEach 活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. 在 [屬性] 視窗中切換至 [設定] 索引標籤，然後針對 [項目] 輸入 `@pipeline().parameters.tableList`。 ForEach 活動會逐一查看資料表清單，並執行累加式複製作業。 
@@ -431,7 +432,7 @@ END
 6. 在管線中選取 **ForEach** 活動 (如果尚未選取)。 按一下 [編輯 (鉛筆圖示)] 按鈕。
 
     ![ForEach 活動 - 編輯](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. 拖放 [活動] 工具箱中的 [查閱] 活動，並輸入 **LookupOldWaterMarkActivity** 作為 [名稱]。
+7. 在 [活動] 工具箱中展開 [一般]，並將 [查閱] 活動拖放至管線設計工具介面，然後輸入 **LookupOldWaterMarkActivity** 作為 [名稱]。
 
     ![第一個查閱活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. 切換 [屬性] 視窗中的 [設定] 索引標籤，並執行下列步驟： 
@@ -497,8 +498,9 @@ END
     ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. 切換至 [預存程序] 索引標籤，然後執行下列步驟：
 
-    1. 輸入 `sp_write_watermark` 作為 [預存程序名稱]。 
-    2. 使用 [新增] 按鈕新增下列參數︰ 
+    1. 針對 [預存程序名稱]，選取 `sp_write_watermark`。 
+    2. 選取 [匯入參數]。 
+    3. 指定參數的下列值︰ 
 
         | Name | 類型 | 值 | 
         | ---- | ---- | ----- |
@@ -545,7 +547,7 @@ END
 1. 切換至左側的 [監視] 索引標籤。 您會看到**手動觸發程序**所觸發的管線執行。 按一下 [重新整理] 按鈕即可重新整理清單。 [動作] 資料行中的連結可讓您檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
 
     ![管線執行](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. 按一下 [動作] 資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
+2. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
 
     ![活動執行](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png)
 
@@ -647,7 +649,7 @@ VALUES
 1. 切換至左側的 [監視] 索引標籤。 您會看到**手動觸發程序**所觸發的管線執行。 按一下 [重新整理] 按鈕即可重新整理清單。 [動作] 資料行中的連結可讓您檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
 
     ![管線執行](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. 按一下 [動作] 資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
+2. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
 
     ![活動執行](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 

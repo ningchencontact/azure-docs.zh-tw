@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>調整 Service Fabric 叢集
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/07/2017
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前：
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](/cli/azure/install-azure-cli)。
@@ -85,7 +85,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-完成連線後，您可以使用命令取得叢集中每個節點的狀態。 對於 PowerShell，使用 `Get-ServiceFabricClusterHealth` 命令，對於 **sfctl**，使用 `` 命令。
+完成連線後，您可以使用命令取得叢集中每個節點的狀態。 對於 PowerShell，使用 `Get-ServiceFabricClusterHealth` 命令，對於 **sfctl** 請使用 `sfctl cluster select` 命令。
 
 ## <a name="scale-out"></a>相應放大
 
@@ -95,7 +95,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 這段程式碼將容量設定為 6。
@@ -120,11 +120,11 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 您相應縮小虛擬機器擴展集時，擴展集 (在大部分情況下) 會移除最後建立的虛擬機器執行個體。 因此，您需要尋找相符的最後建立 Service Fabric 節點。 您可以檢查 Service Fabric 節點上的最大 `NodeInstanceId` 屬性值，找出這個最後節點。 下列程式碼範例依照節點執行個體排序，並傳回最大識別碼值的執行個體有關的詳細資料。 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 Service Fabric 叢集必須知道將移除此節點。 您需要採取三個步驟：
@@ -146,8 +146,9 @@ sfcli：`sfctl node remove-state`
 下列程式碼區塊會取得、停用、停止最後建立的節點，並從叢集移除該節點。
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-在下列的 **sfctl** 程式碼中，下列命令用來取得最後建立節點的 **node-name** 和 **node-instance-id** 值：`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+在下方的 **sfctl** 程式碼中，會使用下列命令來取得最後建立節點的 **node-name** 值：`sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -219,10 +220,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > 使用下列 **sfctl** 查詢，檢查每個步驟的狀態
 >
 > **檢查停用狀態**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **檢查停止狀態**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 

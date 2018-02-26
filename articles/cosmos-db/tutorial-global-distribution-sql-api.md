@@ -1,8 +1,8 @@
 ---
-title: "Azure SQL API 的 Cosmos DB 全域發佈教學課程 |Microsoft 文件"
-description: "了解如何設定 Azure Cosmos DB 全域通訊使用 SQL API。"
+title: "適用於 SQL API 的 Azure Cosmos DB 全域散發教學課程 | Microsoft Docs"
+description: "了解如何使用 SQL API 來設定 Azure Cosmos DB 全域散發。"
 services: cosmos-db
-keywords: "全域發佈"
+keywords: "全域散發"
 documentationcenter: 
 author: rafats
 manager: jhubbard
@@ -17,31 +17,31 @@ ms.author: rafats
 ms.custom: mvc
 ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>如何設定 Azure Cosmos DB 全域通訊使用 SQL API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>如何使用 SQL API 來設定 Azure Cosmos DB 全域散發
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-在本文中，我們會示範如何使用 Azure 入口網站設定 Azure Cosmos DB 全域發佈，然後使用 SQL API 連接。
+在本文中，我們會說明如何使用 Azure 入口網站來設定 Azure Cosmos DB 全域散發，然後使用 SQL API 來進行連線。
 
 本文涵蓋下列工作： 
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 設定全域發佈使用[SQL 應用程式開發介面](sql-api-introduction.md)
+> * [使用 SQL API 來設定全域散發](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>連接到使用 SQL API 的慣用區域
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>使用 SQL API 來連線到慣用的區域
 
-為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 這可透過設定連接原則來完成。 根據 Azure Cosmos DB 帳戶組態、 目前的地區可用性和指定的喜好設定清單，將由 SQL SDK 執行寫入和讀取作業選擇最佳的端點。
+為了充分運用 [全球發佈](distribute-data-globally.md)，用戶端應用程式可以指定已排序的區域喜好設定清單，以用來執行文件作業。 這可透過設定連接原則來完成。 SQL SDK 將會根據 Azure Cosmos DB 帳戶組態、目前的區域可用性及所指定的喜好設定清單，選擇最適合的端點來執行寫入和讀取作業。
 
-使用 SQL Sdk 初始化連線時指定此喜好設定清單。 SDK 會接受選擇性參數 "PreferredLocations"，也就是已排序的 Azure 區域清單。
+這份喜好設定清單是在使用 SQL SDK 將連線初始化時即已指定。 SDK 會接受選擇性參數 "PreferredLocations"，也就是已排序的 Azure 區域清單。
 
 SDK 會自動將所有寫入傳送至目前的寫入區域。
 
@@ -170,7 +170,7 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 設定使用 SQL Api 的通用散發
+> * 使用 SQL API 來設定全域散發
 
 您現在可以繼續進行到下一個教學課程，以了解如何使用 Azure Cosmos DB 本機模擬器在本機進行開發。
 

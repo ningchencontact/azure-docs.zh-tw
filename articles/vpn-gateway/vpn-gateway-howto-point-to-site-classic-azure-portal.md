@@ -1,10 +1,10 @@
 ---
 title: "使用點對站將電腦連線至 Azure 虛擬網路︰Azure 入口網站傳統 | Microsoft Docs"
-description: "使用 Azure 入口網站建立點對站 VPN 閘道連接，以安全地連接至您的傳統 Azure 虛擬網路。"
+description: "使用 Azure 入口網站建立傳統的點對站 VPN 閘道連線。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線 (傳統)：Azure 入口網站
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-本文顯示如何使用 Azure 入口網站，在傳統部署模型中建立具有點對站連線的 VNet。 這項設定使用憑證來驗證連線用戶端。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
+本文顯示如何使用 Azure 入口網站，在傳統部署模型中建立具有點對站連線的 VNet。 此組態會使用自我簽署或 CA 核發的憑證來驗證連線用戶端。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -262,3 +262,5 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。
+
+如需 P2S 疑難排解的相關資訊，請參閱[針對 Azure 點對站連線進行疑難排解](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

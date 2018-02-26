@@ -11,16 +11,16 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Python 連線及查詢資料
-本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。
+本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。 如需 SDK 的詳細資訊，請參閱[適用於 Python SDK 參考的 Azure PostgreSQL 程式庫](/python/api/overview/azure/postgresql)文件和 [psycopg 範例](http://initd.org/psycopg/docs/usage.html)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [建立 DB - 入口網站](quickstart-create-server-database-portal.md)
 - [建立 DB - CLI](quickstart-create-server-database-azure-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中建立可擴充的應用程式的 VM 和儲存體帳戶 |Microsoft 文件"
-description: "了解如何部署的 VM 與用來執行擴充的應用程式使用 Azure blob 儲存體"
+title: "在 Azure 中為可擴充的應用程式建立 VM 和儲存體帳戶 | Microsoft Docs"
+description: "了解如何部署 VM，以用來執行使用 Azure Blob 儲存體的可擴充應用程式"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -16,20 +16,20 @@ ms.author: gwallace
 ms.custom: mvc
 ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>建立虛擬機器和可擴充的應用程式的儲存體帳戶
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>為可擴充的應用程式建立虛擬機器和儲存體帳戶
 
-本教學課程是一個系列的第一部分。 本教學課程告訴您部署的應用程式上傳和下載大量的隨機資料與 Azure 儲存體帳戶。 當您完成時，您會有您上傳和下載大量資料的儲存體帳戶的虛擬機器上執行的主控台應用程式。
+本教學課程是一個系列的第一部分。 本教學課程會示範如何部署應用程式，以透過 Azure 儲存體帳戶上傳和下載大量隨機資料。 當您完成後，您就有可在虛擬機器上執行的主控台應用程式，並可將大量資料上傳和下載到儲存體帳戶。
 
 在系列的第一部分中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立儲存體帳戶
 > * 建立虛擬機器
-> * 設定自訂指令碼延伸模組
+> * 設定自訂指令碼擴充功能
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -47,7 +47,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
  
-範例會將 50 個大型檔案上傳到 Azure 儲存體帳戶中的 blob 容器。 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 在您建立使用的資源群組中建立儲存體帳戶[新增 AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount)命令。
+此範例會將 50 個大型檔案上傳至 Azure 儲存體帳戶的 Blob 容器。 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 在使用 [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) 命令所建立的資源群組中建立儲存體帳戶。
 
 在下列命令中，使用您自己的全域唯一名稱來替代見到 `<blob_storage_account>` 預留位置的 Blob 儲存體帳戶。
 
@@ -104,17 +104,17 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 
 ## <a name="deploy-configuration"></a>部署組態
 
-本教學課程中，有一些必須在虛擬機器安裝的必要元件。 自訂指令碼延伸模組用來執行 PowerShell 指令碼完成下列工作：
+針對本教學課程，有一些必要的元件必須安裝在虛擬機器上。 自訂指令碼擴充功能會用來執行可完成下列工作的 PowerShell 指令碼：
 
 > [!div class="checklist"]
-> * 安裝.NET core 2.0
+> * 安裝 .NET core 2.0
 > * 安裝 chocolatey
 > * 安裝 GIT
-> * 複製範例儲存機制
-> * 還原 NuGet 封裝
-> * 使用隨機的資料來建立 50 個 1 GB 的檔案
+> * 複製範例存放庫
+> * 還原 NuGet 套件
+> * 建立 50 個包含隨機資料的 1GB 檔案
 
-執行下列 cmdlet 來完成虛擬機器的組態。 這個步驟會採用 5-15 分鐘才能完成。
+執行下列 Cmdlet 來完成虛擬機器的組態。 完成此步驟需要 5-15 分鐘。
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -128,14 +128,14 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 
 ## <a name="next-steps"></a>後續步驟
 
-在一個序列的一部分，您學會了有關建立儲存體帳戶、 虛擬機器部署及使用所需的必要元件，例如如何設定虛擬機器：
+在此系列的第一部分，您已了解如何建立儲存體帳戶、部署虛擬機器，以及為虛擬機器設定必要條件，例如如何：
 
 > [!div class="checklist"]
 > * 建立儲存體帳戶
 > * 建立虛擬機器
-> * 設定自訂指令碼延伸模組
+> * 設定自訂指令碼擴充功能
 
-前進到第二個部分，將大量的資料上傳至儲存體帳戶使用指數重試和平行處理原則的數列。
+接著請前往此系列的第二個部分，使用指數式重試和平行處理原則來將大量資料上傳至儲存體帳戶。
 
 > [!div class="nextstepaction"]
-> [上傳大量的大型檔案，以平行方式來儲存體帳戶](storage-blob-scalable-app-upload-files.md)
+> [將大量大型檔案平行上傳至儲存體帳戶](storage-blob-scalable-app-upload-files.md)

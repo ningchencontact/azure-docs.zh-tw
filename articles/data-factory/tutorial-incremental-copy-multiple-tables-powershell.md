@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -110,7 +110,7 @@ ms.lasthandoff: 01/23/2018
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>在 SQL 資料庫中建立目的地資料表
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>在 Azure SQL 資料庫中建立目的地資料表
 1. 開啟 SQL Server Management Studio，然後連線到 SQL Server 資料庫。
 
 2. 在**伺服器總管**中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/23/2018
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>在 SQL 資料庫中建立另一個資料表來儲存高水位線值
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>在 Azure SQL Database 中建立另一個資料表來儲存高水位線值
 1. 對 SQL 資料庫執行下列 SQL 命令，以建立名為 `watermarktable` 的資料表來儲存水位線值： 
     
     ```sql
@@ -155,7 +155,7 @@ ms.lasthandoff: 01/23/2018
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>在 SQL 資料庫中建立預存程序 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>在 Azure SQL 資料庫中建立預存程序 
 
 執行下列命令，在您的 SQL 資料庫中建立預存程序。 這個預存程序會在每次管線執行之後更新水位線值。 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>建立資料類型和其他預存程序
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>在 Azure SQL 資料庫中建立資料類型和其他預存程序
 執行下列查詢，在您的 SQL 資料庫中建立兩個預存程序和兩個資料類型。 它們用來將來源資料表的資料合併到目的地資料表。
 
 ```sql

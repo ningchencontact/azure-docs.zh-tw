@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>部署 Spring Boot 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
@@ -102,6 +102,14 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集。
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+
+如需在安全的合作對象叢集上執行管理作業，您可以使用 Service Fabric Explorer、CLI 或 Powershell。 若要使用 Service Fabric Explorer，您必須從合作對象叢集網站下載 PFX 檔案，並將憑證匯入憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 合作對象叢集中的自我簽署憑證沒有任何密碼。 
+
+若要使用 Powershell 或 CLI 執行管理作業，您需要 PFX (Powershell) 或 PEM (CLI)。 若要將 PFX 轉換成 PEM 檔案，請執行下列命令：  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 

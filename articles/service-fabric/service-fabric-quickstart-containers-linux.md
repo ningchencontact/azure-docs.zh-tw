@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -34,31 +34,34 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 > * 在 Service Fabric 中縮放和容錯移轉容器
 
 ## <a name="prerequisite"></a>必要條件
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
-如果您選擇在本機安裝和使用命令列介面 (CLI)，則可確保您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 az --version。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+2. 如果您選擇在本機安裝和使用命令列介面 (CLI)，則可確保您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 az --version。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ## <a name="get-application-package"></a>取得應用程式套件
 若要將容器部署至 Service Fabric，您需要一組可描述個別容器和應用程式的資訊清單檔案 (應用程式定義)。
 
 在雲端殼層中，使用 git 來複製一份應用程式定義。
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>將容器部署到 Azure 中的 Service Fabric 叢集
-若要將應用程式部署到 Azure 中的叢集，請使用您自己的叢集，或使用合作對象叢集。
+### <a name="set-up-your-azure-service-fabric-cluster"></a>設定 Azure Service Fabric 叢集
+若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集。
 
-> [!Note]
-> 應用程式必須部署到 Azure 中的叢集，而不是本機部署機器上的 Service Fabric 叢集。 
->
+合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 
-合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所維護。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+如需在安全的合作對象叢集上執行管理作業，您可以使用 Service Fabric Explorer、CLI 或 Powershell。 若要使用 Service Fabric Explorer，您必須從合作對象叢集網站下載 PFX 檔案，並將憑證匯入憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 合作對象叢集中的自我簽署憑證沒有任何密碼。 
+
+若要使用 Powershell 或 CLI 執行管理作業，您需要 PFX (Powershell) 或 PEM (CLI)。 若要將 PFX 轉換成 PEM 檔案，請執行下列命令：  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
@@ -67,17 +70,11 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>安裝 Service Fabric 命令列介面並且連線至您的叢集
-在 CLI 環境中安裝 [Service Fabric CLI (sfctl)](service-fabric-cli.md)
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+使用 Azure CLI 連線到 Azure 中的 Service Fabric 叢集。 此端點是叢集的管理端點，例如 `https://linh1x87d1d.westus.cloudapp.azure.com:19080`。
 
-使用 Azure CLI 連線到 Azure 中的 Service Fabric 叢集。 此端點是叢集的管理端點，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080`。
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>部署 Service Fabric 應用程式 
@@ -86,13 +83,13 @@ Service Fabric 容器應用程式可以使用描述的 Service Fabric 應用程�
 #### <a name="deploy-using-service-fabric-application-package"></a>使用 Service Fabric 應用程式套件進行部署
 使用所提供的安裝指令碼將投票應用程式定義複製到叢集、註冊應用程式類型，以及建立應用程式的執行個體。
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>使用 Docker Compose 部署應用程式
 在 Service Fabric 叢集上使用 Docker Compose 並且搭配下列命令，部署及安裝應用程式。
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

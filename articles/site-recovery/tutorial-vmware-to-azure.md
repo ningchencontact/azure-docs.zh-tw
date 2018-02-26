@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3d9248d2501c7fea0492bad2687b6bdfb0b903e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/17/2018
 4. 在 [檢閱詳細資料] 中，按 [下一步]。
 5. 在 [選取名稱和資料夾] 和 [選取組態] 中，接受預設設定。
 6. 在 [選取儲存體] 中，於 [選取虛擬磁碟格式] 中選取 [Thick Provision Eager Zeroed]，以達到最佳效能。
-4. 在其餘精靈的頁面中，接受所有的預設設定。
+4. 在精靈的其餘頁面中，接受所有的預設設定。
 5. 在 [準備要完成] 中：
   - 若要使用預設設定來設定 VM，請選取 [在部署後開啟電源] > [完成]。
   - 如果您想要新增額外的網路介面，請清除 [在部署後開啟電源]，然後選取 [完成]。 預設會使用單一 NIC 部署組態伺服器範本，但您可以在部署後新增其他 NIC。
@@ -101,14 +101,14 @@ ms.lasthandoff: 01/17/2018
 
 ### <a name="configure-settings-and-connect-to-vmware"></a>進行設定並連線到 VMware
 
-1. 在組態伺服器管理精靈的 [設定連線] 中，選取將要接收複寫流量的 NIC。 然後按一下 [儲存] 。 您之後無法變更此設定。
+1. 在組態伺服器管理精靈的 [設定連線] 中，選取將要接收複寫流量的 NIC。 然後按一下 [儲存] 。 您在設定後便無法變更此設定。
 2. 在 [選取復原服務保存庫] 中，選取您的 Azure 訂用帳戶及相關的資源群組和保存庫。
 3. 在 [安裝第三方軟體] 中，接受授權合約，然後按一下 [下載並安裝] 來安裝 MySQL Server。
-4. 按一下 [安裝 VMware PowerLCI]。 在您執行這項作業之前，確定所有瀏覽器視窗都已關閉。 然後按一下 [繼續]
-5. 在 [驗證設備設定] 中，系統會在您繼續之前驗證必要條件。
+4. 按一下 [安裝 VMware PowerCLI]。 在您執行這項作業之前，確定所有瀏覽器視窗都已關閉。 然後按一下 [繼續]
+5. 在 [驗證設備組態] 中，必要條件會在您繼續之前進行驗證。
 6. 在 [設定 vCenter 伺服器/vSphere ESXi 伺服器] 中，指定 vCenter 伺服器或 vSphere 主機 (您要複寫的 VM 位於其上) 的 FQDN 或 IP 位址。 指定伺服器正在接聽的連接埠，以及要用於保存庫中 VMware 伺服器的易記名稱。
 7. 指定組態伺服器將用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 按一下 [新增]，然後按一下 [繼續]。
-8. 在 [設定虛擬機器認證] 中，指定將用於在電腦上自動安裝行動服務的使用者名稱和密碼 (已啟用複寫時)。 若為 Windows 電腦，此帳戶需具備您要複寫之電腦的本機系統管理員權限。 若為 Linux，請提供根帳戶的詳細資料。
+8. 在 [設定虛擬機器認證] 中，指定將用於在電腦上自動安裝行動服務的使用者名稱和密碼 (已啟用複寫時)。 若為 Windows 電腦，此帳戶需具備您要複寫之機器的本機系統管理員權限。 若為 Linux，請提供根帳戶的詳細資料。
 9. 按一下 [完成設定] 以完成註冊。 
 10. 註冊完成後，在 Azure 入口網站中確認組態伺服器和 VMware 伺服器都已列在保存庫中的 [來源] 頁面上。 然後按一下 [確定] 以設定目標設定。
 

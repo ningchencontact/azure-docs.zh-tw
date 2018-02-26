@@ -2,28 +2,22 @@
 title: "使用 Azure Site Recovery 將 VM 從 AWS 移轉至 Azure | Microsoft Docs"
 description: "本文說明如何使用 Azure Site Recovery 將 Amazon Web Services (AWS) 中執行的 VM 移轉至 Azure。"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4acdc540ca1a87a4545130eb5fbc096633b0605c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
-本教學課程將教導您如何使用 Site Recovery 將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 當移轉 EC2 執行個體至 Azure 時，Vm 會被視為如同它們是實體，在內部部署電腦。 在本教學課程中，您了解如何：
+本教學課程將教導您如何使用 Site Recovery 將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 將 EC2 執行個體移轉至 Azure 時，VM 會被視為實體的內部部署電腦。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 準備 Azure 資源

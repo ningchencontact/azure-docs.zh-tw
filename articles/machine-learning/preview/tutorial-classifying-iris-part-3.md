@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -198,7 +198,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    * `-n`：應用程式名稱，必須全部為小寫。
    * `-f`：評分指令碼檔案名稱。
    * `--model-file`：模型檔案。 在此情況下，它是 pickle 的 model.pkl 檔案。
-   * `-r`：模型的類型。 在此情況下，它是 Python 模型。
+   * `-r`：模型的執行階段。 在此情況下，它是 Python 模型。 有效的執行階段為 `python` 和 `spark-py`。
    * `--collect-model-data true`：這可進行資料收集。
    * `-c`：conda 相依性檔案 (其中指定其他套件) 的路徑。
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁碟
 
@@ -108,7 +108,7 @@ Azure 提供兩種類型的磁碟。
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-使用 [az vm create]( /cli/azure/vm#create) 命令來建立 VM。 `--datadisk-sizes-gb` 引數用來指定應該建立一個額外的磁碟並連結至虛擬機器。 若要建立並連結多個磁碟，請使用以空格分隔的磁碟大小值清單。 在下列範例中，會建立具有兩個資料磁碟 (均為 128 GB) 的 VM。 因為磁碟大小是 128 GB，所以這些磁碟都會設為 P10，其可提供每個磁碟最高 500 IOPS。
+使用 [az vm create]( /cli/azure/vm#az_vm_create) 命令來建立 VM。 `--datadisk-sizes-gb` 引數用來指定應該建立一個額外的磁碟並連結至虛擬機器。 若要建立並連結多個磁碟，請使用以空格分隔的磁碟大小值清單。 在下列範例中，會建立具有兩個資料磁碟 (均為 128 GB) 的 VM。 因為磁碟大小是 128 GB，所以這些磁碟都會設為 P10，其可提供每個磁碟最高 500 IOPS。
 
 ```azurecli-interactive 
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>將磁碟連結至現有的 VM
 
-若要建立新的磁碟並將它連結至現有的虛擬機器，請使用 [az vm disk attach](/cli/azure/vm/disk#attach) 命令。 下列範例會建立進階磁碟 (大小為 128 GB)，並將它連結至最後一個步驟中建立的 VM。
+若要建立新的磁碟並將它連結至現有的虛擬機器，請使用 [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) 命令。 下列範例會建立進階磁碟 (大小為 128 GB)，並將它連結至最後一個步驟中建立的 VM。
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -207,13 +207,13 @@ exit
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-此外，也必須將 VM 解除配置。 使用 [az vm deallocate]( /cli/azure/vm#deallocate) 命令來停止並解除配置 VM。
+此外，也必須將 VM 解除配置。 使用 [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 命令來停止並解除配置 VM。
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-使用 [az disk update](/cli/azure/vm/disk#update) 命令來調整磁碟的大小。 這個範例會將名為 myDataDisk 的磁碟大小調整為 1 TB。
+使用 [az disk update](/cli/azure/vm/disk#az_vm_disk_update) 命令來調整磁碟的大小。 這個範例會將名為 myDataDisk 的磁碟大小調整為 1 TB。
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -225,7 +225,7 @@ az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-如果作業系統磁碟重新調整大小的分割區會自動展開。 如果您已調整資料磁碟的大小，則必須在 VM 作業系統中擴充所有目前的資料分割。
+如果您已調整作業系統磁碟的大小，則會自動擴充分割區。 如果您已調整資料磁碟的大小，則必須在 VM 作業系統中擴充所有目前的資料分割。
 
 ## <a name="snapshot-azure-disks"></a>建立 Azure 磁碟快照集
 

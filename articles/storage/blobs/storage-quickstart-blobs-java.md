@@ -2,24 +2,24 @@
 title: "Azure 快速入門 - 使用 Java 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
 description: "快速了解使用 Java 在 Azure Blob 儲存體之間傳送物件"
 author: roygara
-manager: timlt
+manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.author: v-rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>使用 Java 在 Azure Blob 儲存體之間傳送物件
 
 在本快速入門中，您會了解如何使用 Java 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門：
 
@@ -96,7 +96,7 @@ Deleting the source, and downloaded files
 
 第一件事是建立用來存取和管理 Blob 儲存體的物件參考。 這些物件是互為建置基礎，各自都為清單中的下一個物件所使用。
 
-* 建立指向[儲存體帳戶](/java/api/com.microsoft.azure.management.storage._storage_account)之 **CloudStorageAccount** 物件的執行個體。
+* 建立指向儲存體帳戶之 [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) 物件的執行個體。
 
     **CloudStorageAccount** 物件是您儲存體帳戶的表示法，它可讓您以程式設計方式來設定和存取儲存體帳戶屬性。 使用 **CloudStorageAccount** 物件，您可以建立 **CloudBlobClient** 的執行個體，這是存取 Blob 服務的必要條件。
 
@@ -104,9 +104,9 @@ Deleting the source, and downloaded files
 
     **CloudBlobClient** 能為您提供 Blob 服務的存取點，可讓您以程式設計方式來設定和存取 Blob 儲存體屬性。 使用 **CloudBlobClient**，您可以建立 **CloudBlobContainer** 物件的執行個體，這是建立容器的必要條件。
 
-* 建立 **CloudBlobContainer** 物件的執行個體，代表您要存取的[容器](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container)。 容器是用來組織 Blob，就像在電腦上用資料夾組織檔案一樣。    
+* 建立 [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) 物件的執行個體，它代表您要存取的容器。 容器是用來組織 Blob，就像在電腦上用資料夾組織檔案一樣。    
 
-    只要您有 **CloudBlobContainer**，就可以建立 **CloudBlockBlob** 物件的執行個體，指向您感興趣的特定 [Blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) 並執行上傳、下載、複製等等作業。
+    只要您有 **CloudBlobContainer**，就可以建立 [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) 物件的執行個體，指向您感興趣的特定 Blob 並執行上傳、下載、複製等等作業。
 
 > [!IMPORTANT]
 > 容器名稱必須是小寫字母。 如需有關容器和 Blob 名稱的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
@@ -115,7 +115,7 @@ Deleting the source, and downloaded files
 
 在本節中，您要建立物件的執行個體、建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器名為 **quickstartblobs**。 
 
-因為我們需要在每次執行範例時建立新的容器，所以此範例會使用 **CreateIfNotExists**。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，您可以事先建立容器，就不需要在程式碼中建立。
+因為我們需要在每次執行範例時建立新的容器，所以此範例會使用 [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，您可以事先建立容器，就不需要在程式碼中建立。
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -152,7 +152,7 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-有數個[上傳方法](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob)可以搭配 Blob 儲存體使用。 例如，如果您有一個字串，便可以使用 UploadText 方法來取代 Upload 方法。 
+上傳方法有很多種，包括 [upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload)、[uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock)、[uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob)、[uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) 和 [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)，這些都可以與 Blob 儲存體搭配使用。 例如，如果您有一個字串，便可以使用 UploadText 方法來取代 Upload 方法。 
 
 區塊 Blob 可以是任何類型的文字或二進位檔案。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
 
@@ -211,3 +211,5 @@ sourceFile.deleteOnExit();
 > [Blob 儲存體作業的使用說明](storage-java-how-to-use-blob-storage.md)
 
 如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md)。
+
+如需更多的 Java 範例，請參閱[使用 Java 的 Azure 儲存體範例](../common/storage-samples-java.md)。

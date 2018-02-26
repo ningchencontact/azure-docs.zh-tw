@@ -2,30 +2,24 @@
 title: "Azure 快速入門 - 使用 Node.js 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
 description: "快速了解使用 Node.js 在 Azure Blob 儲存體之間傳送物件"
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>使用 Node.js 在 Azure Blob 儲存體之間傳送物件
 
 在本快速入門中，您會了解如何使用 Node.js 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門：
 
@@ -109,9 +103,9 @@ Sample finished running. When you hit <ENTER> key, the temporary files will be d
 
 ### <a name="get-references-to-the-storage-objects"></a>取得儲存體物件的參考
 
-第一件事是建立用來存取和管理 Blob 儲存體的 `BlobService` 參考。 這些物件是互為建置基礎，各自都為清單中的下一個物件所使用。
+第一件事是要建立用來存取和管理 Blob 儲存體的 **BlobService** 物件的參考。 這些物件是互為建置基礎，各自都為清單中的下一個物件所使用。
 
-* 建立 **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** 物件的執行個體，指向您儲存體帳戶中的 Blob 服務。
+* 建立 [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) 物件的執行個體，指向您儲存體帳戶中的 Blob 服務。
 
 * 建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器以 **quickstartcontainer-** 為開頭。
 
@@ -197,6 +191,6 @@ console.log('6. Deleting block Blob\n');
 在此快速入門中，您已了解如何使用 Node.js 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入了解 Blob 儲存體的用法，請繼續閱讀 Blob 儲存體操作說明。
 
 > [!div class="nextstepaction"]
-> [Blob 儲存體作業的使用說明](storage-nodejs-how-to-use-blob-storage.md)
+> [Blob 儲存體作業操作說明](storage-nodejs-how-to-use-blob-storage.md)
 
-如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+如需 Azure 儲存體的 Node.js 參考，請參閱 [azure-storage 套件](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest)。

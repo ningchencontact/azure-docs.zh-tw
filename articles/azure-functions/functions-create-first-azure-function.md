@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
 
@@ -30,9 +31,9 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>登入 Azure
+## <a name="log-in-to-azure"></a>登入 Azure
 
-開啟 Azure 入口網站。 若要這樣做，請使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
+以您的 Azure 帳戶登入 Azure 入口網站 (位於 <http://portal.azure.com>)。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
@@ -64,7 +65,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 
 2. 將函式 URL 貼入瀏覽器的網址列中。 將查詢字串值 `&name=<yourname>` 新增至此 URL 的結尾，並按鍵盤上的 `Enter` 鍵執行要求。 您應該會看到函式傳回的回應顯示在瀏覽器中。  
 
-    以下是 Edge 瀏覽器中回應的範例 (其他瀏覽器可能會包含顯示的 XML)：
+    以下範例會顯示 Edge 瀏覽器中的回應 (其他瀏覽器可能會包含顯示的 XML)：
 
     ![瀏覽器中的函式回應。](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -76,7 +77,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

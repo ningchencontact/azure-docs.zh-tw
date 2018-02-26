@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2018
 ms.author: jgao
-ms.openlocfilehash: e517edecce92acdadde5497558055c59fa819976
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教學課程：開始在 HDInsight 中使用 Hadoop
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/18/2018
     * **資源群組**：建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 
     * **位置**：選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 
     * **叢集類型**：請為本教學課程選取 [hadoop]。
-    * **叢集名稱**：請輸入 Hadoop 叢集的名稱。
+    * **叢集名稱**：請輸入 Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 請注意，名稱的第一個和最後一個字元不可以是連字號。
     * **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
     * **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。  您可以將它重新命名。 
      

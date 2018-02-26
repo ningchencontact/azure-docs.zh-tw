@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: abefbf94c9e28b21def15e6179b7dbd464c43644
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -63,10 +63,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
 
-下列範例會建立名為 myK8sCluster 並包含一個節點的叢集。
+下列範例會建立名為 myAKSCluster 並包含一個節點的叢集。
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
@@ -85,7 +85,7 @@ az aks install-cli
 若要設定 kubectl 來連線到 Kubernetes 叢集，請執行下列命令。 此步驟會下載憑證並設定 Kubernetes CLI 以供使用。
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
@@ -98,7 +98,7 @@ kubectl get nodes
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
 
 ## <a name="run-the-application"></a>執行應用程式
@@ -210,7 +210,20 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="open-kubernetes-dashboard"></a>開啟 Kubernetes 儀表板
+
+也可以使用 Azure CLI 來設定與 Kubernetes 儀表板的連線。 若要這樣做，請使用 [az aks browse][az-aks-browse] 命令。
+
+```azurecli-interactive
+az aks browse --resource-group myResourceGroup --name myAKSCluster
+```
+
+執行之後，瀏覽器會開啟 Kubernetes 儀表板。
+
+![Kubernetes 儀表板](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
+
 ## <a name="delete-cluster"></a>刪除叢集
+
 若不再需要叢集，您可以使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
 
 ```azurecli-interactive
@@ -241,6 +254,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete

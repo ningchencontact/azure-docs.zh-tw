@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-java-application"></a>建立 Java 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
@@ -36,7 +36,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 > * 將應用程式部署到 Azure 中的叢集
 > * 跨多個節點相應放大應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本快速入門：
 1. [安裝 Service Fabric SDK 和 Service Fabric 命令列介面 (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [安裝 Git](https://git-scm.com/)
@@ -79,16 +79,42 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>設定 Azure Service Fabric 叢集
-若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集，或使用合作對象叢集。
+若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集。
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+
+如需在安全的合作對象叢集上執行管理作業，您可以使用 Service Fabric Explorer、CLI 或 Powershell。 若要使用 Service Fabric Explorer，您必須從合作對象叢集網站下載 PFX 檔案，並將憑證匯入憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 合作對象叢集中的自我簽署憑證沒有任何密碼。 
+
+若要使用 Powershell 或 CLI 執行管理作業，您需要 PFX (Powershell) 或 PEM (CLI)。 若要將 PFX 轉換成 PEM 檔案，請執行下列命令：  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 > [!Note]
-> Web 前端服務設定為在連接埠 8080 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
+> Spring Boot 服務設定為在連接埠 8080 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
 >
 
+### <a name="add-certificate-information-to-your-application"></a>將憑證資訊新增至應用程式
+
+您必須將憑證指紋新增至應用程式，因為應用程式使用的是 Service Fabric 程式設計模型。 
+
+1. 在安全的叢集上執行時，您需要 ```Voting/VotingApplication/ApplicationManiest.xml``` 檔案中的憑證指紋。 執行下列命令以擷取憑證的指紋。
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. 在 ```Voting/VotingApplication/ApplicationManiest.xml``` 中的 **Secretscertificate** 標記下，新增下列程式碼片段。 **X509FindValue** 應該是上一個步驟的指紋 (沒有分號)。 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### <a name="deploy-the-application-using-eclipse"></a>使用 Eclipse 部署應用程式
 應用程式和叢集備妥後，即可直接從 Eclipse 將應用程式部署到叢集。
 
@@ -100,8 +126,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -121,7 +147,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 
 若要調整 Web 前端服務，請執行下列步驟：
 
-1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`。
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`。
 2. 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
 
     ![Service Fabric Explorer 的 [調整服務]](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)

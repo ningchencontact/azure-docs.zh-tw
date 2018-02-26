@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: e3b8fe37d573f537e6524438acc385220053d681
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 1a6e58b775270fd23331748edae64e73d6e7f9da
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
@@ -80,6 +80,7 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
+1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
 1. 選取左側功能表上的 [新增]、[資料 + 分析]，然後選取 [資料處理站]。 
    
    ![在 [新增] 窗格中選取資料處理站](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)

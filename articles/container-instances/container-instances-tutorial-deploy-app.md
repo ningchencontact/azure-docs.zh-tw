@@ -1,6 +1,6 @@
 ---
 title: "Azure 容器執行個體教學課程 - 部署應用程式"
-description: "Azure 容器執行個體教學課程第 3 之 3-部署的應用程式"
+description: "Azure 容器執行個體教學課程第 3 部分 (共 3 部分) - 部署應用程式"
 services: container-instances
 author: seanmck
 manager: timlt
@@ -11,32 +11,32 @@ ms.author: seanmck
 ms.custom: mvc
 ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>將容器部署至 Azure 容器執行個體
 
-這是三部分系列的最後一個教學課程。 先前的數列，[建立容器映像來源](container-instances-tutorial-prepare-app.md)和[推送至 Azure 容器登錄中](container-instances-tutorial-prepare-acr.md)。 這篇文章完成教學課程系列 Azure 容器執行個體來部署容器。
+這是三部分系列的最後一個教學課程。 在系列的較前段，我們[已建立容器映像](container-instances-tutorial-prepare-app.md)並[推送至 Azure Container Registry](container-instances-tutorial-prepare-acr.md)。 本文會將容器部署至 Azure 容器執行個體，以完成教學課程系列。
 
 在本教學課程中，您：
 
 > [!div class="checklist"]
-> * 部署 Azure 容器登錄中使用 Azure CLI 從容器
+> * 使用 Azure CLI 從 Azure Container Registry 部署容器
 > * 在瀏覽器中檢視應用程式
-> * 檢視容器的記錄檔
+> * 檢視容器記錄
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程需要您執行 Azure CLI 版本 2.0.23 或更新版本。 執行 `az --version` 以尋找版本。 如果您要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
+本教學課程需要您執行 Azure CLI 2.0.23 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
 
-若要完成本教學課程中，您必須安裝在本機上的 Docker 開發環境。 Docker 提供套件，輕鬆地在任何設定 Docker [Mac][docker-mac]， [Windows][docker-windows]，或[Linux] [ docker-linux]系統。
+若要完成本教學課程，您需要在本機安裝 Docker 開發環境。 Docker 提供可輕鬆在 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
-Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 您必須完成本教學課程在本機電腦上安裝 Azure CLI 和 Docker 的開發環境。
+Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 您必須在本機電腦上安裝 Azure CLI 和 Docker 開發環境，才能完成本教學課程。
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>使用 Azure CLI 來部署容器
 
-Azure CLI 能夠透過單一命令將容器部署至 Azure 容器執行個體。 由於容器映像裝載在私人 Azure Container Registry 中，因此您必須納入所需的認證才能存取該映像。 取得使用下列 Azure CLI 命令的認證。
+Azure CLI 能夠透過單一命令將容器部署至 Azure 容器執行個體。 由於容器映像裝載在私人 Azure Container Registry 中，因此您必須納入所需的認證才能存取該映像。 使用下列 Azure CLI 命令取得認證。
 
 容器登錄的登入伺服器 (以登錄名稱來更新)：
 
@@ -56,17 +56,17 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
 ```
 
-在幾秒內，您應該就會從 Azure Resource Manager 收到首次的回應。 若要檢視部署的狀態，請使用[az 容器顯示][az-container-show]:
+在幾秒內，您應該就會從 Azure Resource Manager 收到首次的回應。 若要檢視部署的狀態，請使用 [az container show][az-container-show]：
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-重複[az 容器顯示][ az-container-show]命令之前的狀態變更從*暫止*至*執行*，這應該一些一分鐘才能完成。 當容器狀態為 *Running* (執行中) 時，請繼續進行下一個步驟。
+重複執行 [az container show][az-container-show] 命令，直到狀態從 Pending (暫止) 變更為 Running (執行中) 為止，這應該會在一分鐘內完成。 當容器狀態為 *Running* (執行中) 時，請繼續進行下一個步驟。
 
 ## <a name="view-the-application-and-container-logs"></a>檢視應用程式和容器記錄
 
-部署成功後，顯示容器的公用 IP 位址與[az 容器顯示][ az-container-show]命令：
+部署成功之後，請使用 [az container show][az-container-show] 命令來顯示容器的公用 IP 位址：
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
@@ -94,7 +94,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要的任何您在此教學課程中建立的資源，您可以執行[az 群組刪除][ az-group-delete]命令以移除資源群組和它所包含的所有資源。 此命令除了會刪除執行中的容器和所有相關資源之外，也會刪除您所建立的容器登錄。
+如果您已不再需要這個教學課程系列中建立的任何資源，便可以執行 [az group delete][az-group-delete] 命令來移除資源群組及其包含的所有資源。 此命令除了會刪除執行中的容器和所有相關資源之外，也會刪除您所建立的容器登錄。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -105,9 +105,9 @@ az group delete --name myResourceGroup
 在本教學課程中，您已完成將容器部署至 Azure 容器執行個體的程序。 已完成下列步驟：
 
 > [!div class="checklist"]
-> * 部署 Azure 容器登錄中使用 Azure CLI 從容器
+> * 使用 Azure CLI 從 Azure Container Registry 部署容器
 > * 在瀏覽器中檢視應用程式
-> * 檢視容器的記錄檔
+> * 檢視容器記錄
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

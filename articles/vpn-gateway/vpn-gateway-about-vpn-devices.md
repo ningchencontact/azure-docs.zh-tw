@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: yushwang
-ms.openlocfilehash: bb6f9f4df9afa9d0c1a75fbb1166798a2aef4bb4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -54,9 +54,10 @@ ms.lasthandoff: 12/19/2017
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[設定指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不相容 |
 | Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[設定指南](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |不相容 |
 | Check Point |Security Gateway |R77.30 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[設定指南*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2\*) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[設定指南\*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |原則式：IOS 15.1<br>路由式：IOS 15.2 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |原則式：IOS 15.0<br>路由式*：IOS 15.1 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[設定範例**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |原則式：IOS 15.0<br>路由式\*：IOS 15.1 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[設定範例\**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/A |不相容 |不相容 |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -75,9 +76,9 @@ ms.lasthandoff: 12/19/2017
 
 > [!NOTE]
 >
-> (*) Cisco ASA 8.4 版以上新增了 IKEv2 支援，可使用自訂 IPsec/IKE 原則並搭配 "UsePolicyBasedTrafficSelectors" 選項來連線到 Azure VPN 閘道。 請參閱這篇[操作說明文章](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
+> (\*) Cisco ASA 8.4 版以上新增了 IKEv2 支援，可使用自訂 IPsec/IKE 原則並搭配 "UsePolicyBasedTrafficSelectors" 選項來連線到 Azure VPN 閘道。 請參閱這篇[操作說明文章](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 >
-> (**) ISR 7200 系列路由器僅支援原則式 VPN。
+> (\*\*) ISR 7200 系列路由器僅支援原則式 VPN。
 
 ## <a name="additionaldevices"></a>未經驗證的 VPN 裝置
 

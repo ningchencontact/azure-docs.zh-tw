@@ -14,7 +14,7 @@ ms.devlang: na
 ms.custom: mvc
 ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/15/2017
 > * 擷取安全構件
 > * 在裝置上設定裝置佈建服務組態
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在繼續之前，請先使用[為雲端設定裝置佈建功能](./tutorial-set-up-cloud.md)教學課程中所提到的指示，建立裝置佈建服務執行個體和 IoT 中樞。
 
@@ -76,13 +76,13 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="develop-your-custom-repository"></a>開發自訂存放庫
 
-1. 開發程式庫來存取您的 HSM。 此專案必須產生靜態程式庫以供裝置佈建 SDK 取用。
-1. 程式庫必須實作下列標頭檔所定義的函式：a. 實作自訂的 TPM 中定義的函式[自訂的 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api)。
-    b. 實作自訂的 X.509 中定義的函式[自訂的 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api)。 
+1. 開發程式庫以存取您的硬體安全模組 (HSM)。 此專案必須產生靜態程式庫以供裝置佈建 SDK 取用。
+1. 程式庫必須實作下列標頭檔所定義的函式：a. 若為自訂 TPM，請實作[自訂 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) 中所定義的函式。
+    b. 若為自訂 X.509，請實作[自訂 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) 中所定義的函式。 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>與裝置佈建服務用戶端整合
 
-一旦您的程式庫已成功建置它自己，您可以移動到 iot 中樞 C-SDK，並針對您的程式庫連結：
+程式庫自行建置成功後，您就可以移到 IoThub C-SDK 並對連結至您的程式庫：
 
 1. 在下列 cmake 命令中提供自訂的 HSM GitHub 存放庫、程式庫路徑和其名稱：
     ```cmd/sh
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/15/2017
    
 1. 在 Visual Studio 中開啟 SDK 並加以建置。 
 
-    - 在建置程序將會編譯 SDK 程式庫。
+    - 建置程序將會組建 SDK 程式庫。
     - SDK 會嘗試與 cmake 命令中所定義的自訂 HSM 進行連結。
 
 1. 執行 `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` 範例，以確認 HSM 是否有正確地實作。
