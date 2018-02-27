@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>將容器部署至 Azure 容器執行個體
 
@@ -50,13 +50,15 @@ az acr show --name <acrName> --query loginServer
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-若要從容器登錄中部署要求 1 個 CPU 核心和 1 GB 記憶體資源的容器映像，請執行下列命令。 以您從先前兩個命令取得的值取代 `<acrLoginServer>` 和 `<acrPassword>`。
+若要從容器登錄中部署要求 1 個 CPU 核心和 1 GB 記憶體資源的容器映像，請執行下列命令。 以您從先前兩個命令取得的值取代 `<acrLoginServer>` 和 `<acrPassword>`。 以您的容器登錄名稱取代 `<acrName>`。
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-在幾秒內，您應該就會從 Azure Resource Manager 收到首次的回應。 若要檢視部署的狀態，請使用 [az container show][az-container-show]：
+在幾秒內，您應該就會從 Azure Resource Manager 收到首次的回應。 `--dns-name-label` 值在您建立容器執行個體的 Azure 區域中必須是唯一的。 如果您在執行命令時收到 **DNS 名稱標籤**錯誤訊息，請更新上述範例中的值。
+
+若要檢視部署的狀態，請使用 [az container show][az-container-show]：
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
@@ -66,15 +68,15 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 ## <a name="view-the-application-and-container-logs"></a>檢視應用程式和容器記錄
 
-部署成功之後，請使用 [az container show][az-container-show] 命令來顯示容器的公用 IP 位址：
+部署成功之後，請使用 [az container show][az-container-show] 命令來顯示容器的完整網域名稱 (FQDN)：
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-範例輸出：`"13.88.176.27"`
+範例輸出：`"aci-demo.eastus.azurecontainer.io"`
 
-若要查看執行中的應用程式，請在您慣用的瀏覽器中瀏覽至該公用 IP 位址。
+若要查看執行中的應用程式，在您慣用的瀏覽器中瀏覽至顯示的 DNS 名稱：
 
 ![瀏覽器中的 Hello World 應用程式][aci-app-browser]
 

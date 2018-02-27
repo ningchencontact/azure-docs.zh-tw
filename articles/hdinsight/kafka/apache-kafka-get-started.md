@@ -13,26 +13,23 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/18/2018
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>開始使用 Apache Kafka on HDInsight
 
-了解如何在 Azure HDInsight 上建立和使用 [Apache Kafka](https://kafka.apache.org) 叢集。 Kafka 是 HDInsight 提供的開放原始碼分散式串流平台。 它通常作為訊息代理程式，因為它提供了類似於發佈-訂閱訊息佇列的功能。 Kafka 通常搭配 Apache Spark 和 Apache Storm 使用。
-
-> [!NOTE]
-> HDInsight 目前提供兩個 Kafka 版本：0.9.0 (HDInsight 3.4) 和 0.10.0 (HDInsight 3.5 和 3.6)。 本文件中的步驟假設您使用 Kafka on HDInsight 3.6。
+了解如何在 Azure HDInsight 上建立和使用 [Apache Kafka](https://kafka.apache.org) 叢集。 Kafka 是 HDInsight 提供的開放原始碼分散式串流平台。 它通常作為訊息代理程式，因為它提供了類似於發佈-訂閱訊息佇列的功能。 Kafka 通常會搭配 Apache Spark 和 Apache Storm 使用，可進行傳訊、活動追蹤、串流彙總或資料轉換。
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="create-a-kafka-cluster"></a>建立 Kafka 叢集
 
-請使用下列步驟建立 Kafka on HDInsight：
+若要在 HDInsight 叢集上建立 Kafka，請使用下列步驟：
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [+ 建立資源]、[資料 + 分析]，然後選取 [HDInsight]。
    
@@ -40,7 +37,7 @@ ms.lasthandoff: 02/13/2018
 
 2. 從 [基本概念]，輸入以下資訊：
 
-    * **叢集名稱**︰HDInsight 叢集的名稱。
+    * **叢集名稱**︰HDInsight 叢集的名稱。 此名稱必須是唯一的。
     * **訂用帳戶**：選取要使用的訂用帳戶。
     * **叢集登入使用者名稱**和**叢集登入密碼**：透過 HTTPS 存取叢集時使用的登入資訊。 您會使用這些認證來存取例如 Ambari Web UI 或 REST API 等服務。
     * **安全殼層 (SSH) 使用者名稱**：透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。
@@ -77,7 +74,7 @@ ms.lasthandoff: 02/13/2018
     ![設定 Kafka 叢集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!IMPORTANT]
-    > [每個背景工作角色節點的磁碟數] 項目會控制 Kafka on HDInsight 的延展性。 HDInsight 上的 Kafka 會在叢集中使用虛擬機器的本機磁碟。 Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並提供每個節點更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 進階磁碟會與 DS 和 GS 系列搭配使用。 所有其他的 VM 類型是使用標準磁碟。
+    > [每個背景工作角色節點的磁碟數] 項目會設定 HDInsight 上 Kafka 的延展性。 HDInsight 上的 Kafka 會在叢集中使用虛擬機器的本機磁碟。 Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並提供每個節點更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 進階磁碟會與 DS 和 GS 系列搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
 8. 從 [進階設定]，選取 [下一步] 以繼續。
 
@@ -93,11 +90,9 @@ ms.lasthandoff: 02/13/2018
 > [!IMPORTANT]
 > 執行下列步驟時，您必須使用 SSH 用戶端。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
-從您的用戶端，使用 SSH 連線到叢集：
+若要使用 SSH 連線到叢集，您必須提供 SSH 使用者帳戶名稱和叢集名稱。 在下列範例中，使用帳戶名稱和叢集名稱來取代 `sshuser` 和 `clustername`：
 
-```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
-
-將 **SSHUSER** 取代為您在叢集建立期間提供的 SSH 使用者名稱。 將 **CLUSTERNAME** 取代為叢集的名稱。
+```ssh sshuser@clustername-ssh.azurehdinsight.net```
 
 出現提示時，輸入您用於 SSH 帳戶的密碼。
 
@@ -105,9 +100,9 @@ ms.lasthandoff: 02/13/2018
 
 ## <a id="getkafkainfo"></a>取得 Zookeeper 和訊息代理程式主機資訊
 
-使用 Kafka 時，您必須知道兩個主機值；Zookeeper 主機和訊息代理程式主機。 這些主機可搭配 Kafka API 以及 Kafka 隨附的許多公用程式使用。
+使用 Kafka 時，您必須知道 Zookeeper 主機和訊息代理程式主機。 這些主機可搭配 Kafka API 以及 Kafka 隨附的許多公用程式使用。
 
-使用下列步驟來建立包含主機資訊的環境變數。 這些環境變數使用於本文件中的步驟。
+使用下列步驟來建立包含主機資訊的環境變數：
 
 1. 在連往叢集的 SSH 連線中，使用下列命令來安裝 `jq` 公用程式。 此公用程式用來剖析 JSON 文件，而且在擷取訊息代理程式主機資訊時很有用︰
    
@@ -115,36 +110,52 @@ ms.lasthandoff: 02/13/2018
     sudo apt -y install jq
     ```
 
-2. 若要以擷取自 Ambari 的資訊設定環境變數，請使用下列命令：
+2. 若要將環境變數設為叢集名稱，請使用下列命令：
 
     ```bash
-    CLUSTERNAME='your cluster name'
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+3. 若要使用 Zookeeper 主機資訊設定環境變數，請使用下列命令：
+
+    ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
+    出現提示時，輸入叢集登入帳戶的密碼 (管理員)。
+
+4. 若要確認是否已正確設定環境變數，請使用下列命令：
+
+    ```bash
+     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    ```
+
+    此命令會傳回類似以下文字的資訊：
+
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+
+5. 若要使用 Kafka 訊息代理程式主機資訊來設定環境變數，請使用下列命令：
+
+    ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    出現提示時，輸入叢集登入帳戶的密碼 (管理員)。
+
+6. 若要確認是否已正確設定環境變數，請使用下列命令：
+
+    ```bash   
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
-    > [!IMPORTANT]
-    > 將 `CLUSTERNAME=` 設定為 Kafka 叢集的名稱。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。
-
-    以下文字是 `$KAFKAZKHOSTS` 的內容範例：
-   
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
-   
-    以下文字是 `$KAFKABROKERS` 的內容範例：
+    此命令會傳回類似以下文字的資訊：
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
-
-    > [!NOTE]
-    > `cut` 命令用於將主機清單修剪為兩個主機項目。 建立 Kafka 取用者或產生者時，您不需要提供完整的主機清單。
    
-    > [!WARNING]
-    > 請勿認為從此工作階段傳回的資訊永遠都正確無誤。 如果您調整叢集，則會新增或移除新的訊息代理程式。 如果發生失敗且節點被更換，則節點的主機名稱可能會變更。
-    >
-    > 您應在使用 Zookeeper 和訊息代理程式主機資訊不久前擷取該資訊，以確保您具備有效的資訊。
+> [!WARNING]
+> 請勿認為從此工作階段傳回的資訊永遠都正確無誤。 調整叢集時，會新增或移除新的訊息代理程式。 如果發生失敗且節點被更換，則節點的主機名稱可能會變更。
+>
+> 您應在使用 Zookeeper 和訊息代理程式主機資訊不久前擷取該資訊，以確保您具備有效的資訊。
 
 ## <a name="create-a-topic"></a>建立主題
 
@@ -154,19 +165,19 @@ Kafka 會將資料串流儲存在名為 *topics* 的類別中。 在連往叢集
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
-此命令會使用 `$KAFKAZKHOSTS` 中儲存的主機資訊連接到 Zookeeper，然後建立名為 **test** 的 Kafka 主題。 您可以確認使用下列指令碼建立的主題可列出主題︰
+此命令會使用 `$KAFKAZKHOSTS` 中儲存的主機資訊連線到 Zookeeper。 然後建立名為 **test** 的 Kafka 主題。 您可以確認使用下列指令碼建立的主題可列出主題︰
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
 ```
 
-此命令的輸出會列出 Kafka 主題，其中包含 **test** 主題。
+此命令的輸出會在叢集上列出 Kafka 主題。
 
 ## <a name="produce-and-consume-records"></a>產生和取用記錄
 
 Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，並由「取用者」取用。 產生者會在 Kafka「訊息代理程式」中產生記錄。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。
 
-使用下列步驟，將記錄儲存至您稍早建立的 test 主題，然後利用取用者進行讀取︰
+若要將記錄儲存至您稍早建立的 test 主題，然後利用取用者進行讀取，請使用下列步驟：
 
 1. 在 SSH 工作階段中，使用 Kafka 提供的指令碼將記錄寫入主題︰
    
@@ -174,9 +185,11 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
    
-    您不會在此命令後返回提示字元。 反而，輸入一些文字訊息，然後使用 **Ctrl + C** 停止傳送至主題。 每一行都會以個別的記錄傳送。
+    在此命令之後，您會抵達空白行。
 
-2. 使用 Kafka 提供的指令碼來讀取主題中的記錄︰
+2. 在空白行中輸入文字訊息並按一下 enter 鍵。 如此輸入幾個訊息，然後使用 **Ctrl + C** 返回一般提示。 每一行都會以個別記錄傳送至 Kafka 主題。
+
+3. 使用 Kafka 提供的指令碼來讀取主題中的記錄︰
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -185,9 +198,9 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
     此命令會擷取主題中的記錄並加以顯示。 使用 `--from-beginning` 告知取用者從串流的開頭開始，所以會擷取所有的記錄。
 
     > [!NOTE]
-    > 如果您使用舊版 Kafka，則必須以 `--zookeeper $KAFKAZKHOSTS` 取代 `--bootstrap-server $KAFKABROKERS`。
+    > 如果您使用舊版 Kafka，請以 `--zookeeper $KAFKAZKHOSTS` 取代 `--bootstrap-server $KAFKABROKERS`。
 
-3. 使用 __Ctrl + C__ 來停止取用者。
+4. 使用 __Ctrl + C__ 來停止取用者。
 
 您也可以利用程式設計方式建立產生者和取用者。 如需使用此 API 的範例，請參閱[採用 HDInsight 的 Kafka 產生者和取用者 API](apache-kafka-producer-consumer-api.md) 文件。
 
@@ -198,19 +211,19 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
 
 > [!IMPORTANT]
-> 我們建議使用包含三個容錯網域的 Azure 地區，以及使用複寫因子 3。
+> 可能的話，請使用包含三個容錯網域的 Azure 區域，並使用複寫因子 3 建立主題。
 
-如果您必須使用只包含兩個容錯網域的區域，請使用複寫因子 4 將複本平均分散於兩個容錯網域。
+如果您使用只包含兩個容錯網域的區域，則請使用複寫因子 4 將複本平均分散於兩個容錯網域。
 
 ### <a name="kafka-and-fault-domains"></a>Kafka 和容錯網域
 
 Kafka 不知道容錯網域。 為主題建立副本時，可能無法正確發散副本以實現高可用性。 若要確保高可用性，請使用[Kafka 分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必須從 Kafka 叢集前端節點的 SSH 工作階段執行此工具。
 
-若要確保 Kafka 資料的最高的可用性，您應該在下列時間重新平衡您主題的磁碟分割複本：
+若要確保 Kafka 資料的最高可用性，您應該在下列時間重新平衡您主題的磁碟分割複本：
 
 * 建立新主題或磁碟分割時
 
-* 當您相應增加叢集時
+* 相應增加叢集時
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 

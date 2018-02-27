@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"> </a>我使用行動服務，App Service 有何幫助？
 ## <a name="overview"></a>概觀
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/09/2018
 * 新的主機功能包括 Web 工作、自訂 CName、更完善的監視
 * 與流量管理員整合
 * 除了混合式連線以外，還會使用 VNet 連線至內部部署資源和 VPN
-* 使用 NewRelic 或 AppInsights 針對您的應用程式進行監視、警示和疑難排解
+* 使用 AppInsights 針對您的應用程式進行監視、警示和疑難排解
 * 更廣泛的基礎計算資源與定價
 * 內建自動調整、負載平衡，以及效能監視。
 * 內建預備、備份、回復和實際環境測試功能
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/09/2018
 有了行動服務，後端程式碼的所有執行個體都已在小型 VM 上執行。 *Azure App Service* 可讓您從更豐富的選項中選取 VM 的大小。 您可以根據各種效能計量，快速相應增加或相應放大，以處理任何傳入的客戶負載。
 
 ## <a name="be-in-the-know"></a>處於「知情」狀態
-利用監視及警示即時對問題做出反應，以自動通知您和您的團隊。 整合 New Relic 和 AppInsights 的進階應用程式分析和監視功能，更深入了解如何執行您的行動應用程式。 使用 Azure App Service ，您現在可以根據多種效能計量 (以程式設計方式或透過 Azure 入口網站) 設定警示。
+利用監視及警示即時對問題做出反應，以自動通知您和您的團隊。 整合 AppInsights 的進階應用程式分析和監視功能，更深入了解如何執行您的行動應用程式。 使用 Azure App Service ，您現在可以根據多種效能計量 (以程式設計方式或透過 Azure 入口網站) 設定警示。
 
 ## <a name="keep-your-assets-safe"></a>讓您的資產安全無虞
 自動備份您的後端和資料庫。 您的程式碼和資料可免於遭受災害並可輕鬆還原，讓您有信心地執行您的業務。

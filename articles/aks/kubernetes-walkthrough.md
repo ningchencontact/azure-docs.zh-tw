@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 03/20/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.27 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>啟用您 Azure 訂用帳戶的 AKS 預覽
 雖然 AKS 處於預覽狀態，但是建立新叢集需要訂用帳戶的功能旗標。 您可以為您想要使用之任意數量的訂用帳戶要求這項功能。 使用 `az provider register` 命令來註冊 AKS 提供者：
@@ -209,18 +209,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 您現在可以瀏覽至外部 IP 位址來查看 Azure 投票應用程式。
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
-
-## <a name="open-kubernetes-dashboard"></a>開啟 Kubernetes 儀表板
-
-也可以使用 Azure CLI 來設定與 Kubernetes 儀表板的連線。 若要這樣做，請使用 [az aks browse][az-aks-browse] 命令。
-
-```azurecli-interactive
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-執行之後，瀏覽器會開啟 Kubernetes 儀表板。
-
-![Kubernetes 儀表板](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
 
 ## <a name="delete-cluster"></a>刪除叢集
 
