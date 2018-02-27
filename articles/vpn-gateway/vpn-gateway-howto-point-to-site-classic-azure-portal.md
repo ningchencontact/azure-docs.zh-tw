@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: fe460113441933d655b183e87cceefee4dd24d24
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線 (傳統)：Azure 入口網站
 
@@ -80,9 +80,7 @@ ms.lasthandoff: 02/14/2018
 如果您還沒有虛擬網路，請建立一個。 已提供螢幕擷取畫面做為範例。 請務必將值取代為您自己的值。 若要使用 Azure 入口網站建立 VNet，請使用下列步驟：
 
 1. 透過瀏覽器瀏覽至 [Azure 入口網站](http://portal.azure.com) ，並視需要使用您的 Azure 帳戶登入。
-2. 按一下 [新增] 。 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 在傳回的清單中找到 [虛擬網路]，並按一下以開啟 [虛擬網路] 頁面。
-
-  ![搜尋虛擬網路頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+2. 按一下 [建立資源] > [網路] > [虛擬網路]。 
 3. 從接近 [虛擬網路] 頁面底部的 [選取部署模型] 清單中，選取 [傳統]，然後按一下 [建立]。
 
   ![選取部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
@@ -184,6 +182,11 @@ ms.lasthandoff: 02/14/2018
 ## <a name="connect"></a>5.連接到 Azure
 
 ### <a name="connect-to-your-vnet"></a>連接到您的 VNet
+
+>[!NOTE]
+>您必須在您所連線的用戶端電腦上具有系統管理員權限。
+>
+>
 
 1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 如果出現，按一下 [繼續]  以使用較高的權限。
 2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下 [確定] 。

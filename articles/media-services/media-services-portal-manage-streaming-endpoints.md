@@ -96,7 +96,7 @@ ms.lasthandoff: 01/08/2018
 
 中國和聯邦政府區域除外，其他所有 Azure 資料中心都啟用 CDN 整合。
 
-啟用後，[存取控制]、[自訂主機名稱]和 [Akamai 簽章驗證] 設定就會停用。
+啟用後，[存取控制]、 ** [自訂主機名稱]和 [Akamai 簽章驗證] 設定就會停用。
  
 > [!IMPORTANT]
 > 如果是標準串流端點，Azure 媒體服務與 Azure CDN 的整合是在**來自 Verizon 的 Azure CDN** 上實作。 您可以使用所有 **Azure CDN 定價層和提供者**來設定進階串流端點。 如需 Azure CDN 功能的詳細資訊，請參閱 [CDN 概觀](../cdn/cdn-overview.md)。

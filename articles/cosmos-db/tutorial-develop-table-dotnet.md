@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 - 單一區域內可達 99.99% 的可用性，並且能夠新增更多區域來提高可用性，以及在一般可用性上達到[業界頂尖的全面性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - 可與現有的 Azure 儲存體 .NET SDK 搭配運作，不需對您的應用程式進行任何程式碼變更
 
-本教學課程涵蓋使用 .NET SDK 的 Azure Cosmos DB 資料表 API。 您可以從 NuGe上的 [Azure Microsoft Azure 儲存體預覽 SDK](https://aka.ms/tableapinuget)下載。
+本教學課程涵蓋使用 .NET SDK 的 Azure Cosmos DB 資料表 API。 您可以從 NuGet 下載 [Azure Cosmos DB 表格 API .NET SDK](https://aka.ms/tableapinuget)。
 
 若要深入了解複雜的 Azure 資料表儲存體工作，請參閱：
 

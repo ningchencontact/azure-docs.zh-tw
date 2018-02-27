@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
 本教學課程是一個系列的第一部分。 您將會了解如何使用 PowerShell 和範本將執行 Windows 的 Service Fabric 叢集部署到 [Azure 虛擬網路 (VNET)](../virtual-network/virtual-networks-overview.md) 和[網路安全性群組](../virtual-network/virtual-networks-nsg.md)中。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。  若要使用 Azure CLI 建立 Linux 叢集，請參閱[在 Azure 上建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/09/2018
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 在 Azure 上建立安全叢集
-> * [將叢集相應縮小或相應放大](/service-fabric-tutorial-scale-cluster.md)
+> * [將叢集相應縮小或相應放大](service-fabric-tutorial-scale-cluster.md)
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/09/2018
 
 Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。  在 Azure 中部署叢集時，負責建立 Service Fabric 叢集的 Azure 資源提供者會從金鑰保存庫提取憑證，並將它們安裝在叢集 VM 上。
 
-此教學課程將部署由單一節點類型中五個節點組成的叢集。 不過，對於任何生產環境叢集部署，[容量規劃](service-fabric-cluster-capacity.md)都是一個很重要的步驟。 以下是一些您在該程序中必須考量的事情。
+本教學課程會顯示單一節點類型中五個節點組成的叢集。 不過，對於任何生產環境叢集部署，[容量規劃](service-fabric-cluster-capacity.md)都是一個很重要的步驟。 以下是一些您在該程序中必須考量的事情。
 
 - 您的叢集所需的節點數目和節點類型 
 - 每個節點類型的屬性 (例如大小、主要、網際網路面向、VM 數目等)

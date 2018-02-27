@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 247f86dafe35d69dd742583d246862b739d9fe90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性設定組
 
@@ -119,7 +119,7 @@ Get-AzureRmVMSize `
 
 您也可以使用 Azure Advisor，以取得改善 VM 可用性方式的詳細資訊。 Azure Advisor 可協助您遵循最佳做法來最佳化 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
 
-登入 [Azure 入口網站](https://portal.azure.com)，並選取 [更多服務]，然後鍵入 **Advisor**。 Advisor 儀表板會顯示所選取訂用帳戶的個人化建議。 如需詳細資訊，請參閱[開始使用 Azure Advisor](../../advisor/advisor-get-started.md)。
+登入 [Azure 入口網站](https://portal.azure.com)，選取 [所有服務]，然後輸入 **Advisor**。 Advisor 儀表板會顯示所選取訂用帳戶的個人化建議。 如需詳細資訊，請參閱[開始使用 Azure Advisor](../../advisor/advisor-get-started.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

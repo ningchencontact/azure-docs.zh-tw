@@ -2,23 +2,19 @@
 title: "讓應用程式資料在 Azure 中具有高可用性 | Microsoft Docs"
 description: "使用讀取權限異地備援儲存體讓應用程式資料具有高可用性"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使用 Azure 儲存體讓應用程式資料具有高可用性
 
@@ -64,7 +60,7 @@ ms.lasthandoff: 02/13/2018
 
 請遵循下列步驟來建立讀取權限異地備援儲存體帳戶：
 
-1. 選取 Azure 入口網站左上角的 [新增] 按鈕。
+1. 選取 Azure 入口網站左上角的 [建立資源] 按鈕。
 
 2. 選取 [新增] 頁面上的 [儲存體]，然後選取 [精選] 下的 [儲存體帳戶 - Blob、檔案、資料表、佇列]。
 3. 在儲存體帳戶表單中填寫下列資訊 (如下圖所示)，然後選取 [建立]：

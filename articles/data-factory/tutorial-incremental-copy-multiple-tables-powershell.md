@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0a6bcf78561ef4f57d788ef19e132d1a855b8c2a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -704,7 +704,7 @@ END
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [更多服務]，以關鍵字 Data factories 進行搜尋，然後選取 [Data Factory]。 
+2. 選取 [所有服務]，以關鍵字「資料處理站」進行搜尋，然後選取 [資料處理站]。 
 
     ![Data Factory 功能表](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 

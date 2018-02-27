@@ -17,11 +17,11 @@ ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
 
@@ -47,7 +47,7 @@ SQL Database 提供多個服務等級的可預測效能，這可提供無停機�
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>無須停機即可調整效能和規模
 
-SQL Database 提供四個服務層來支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 您可以在一個小型單一資料庫中建置第一個應用程式，每個月所需的成本很低。接著隨時以手動或程式設計方式變更其服務層，以符合您的方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
+SQL Database 提供三個服務層來支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 您可以在一個小型單一資料庫中建置第一個應用程式，每個月所需的成本很低。接著隨時以手動或程式設計方式變更其服務層，以符合您的方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
    ![調整大小](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

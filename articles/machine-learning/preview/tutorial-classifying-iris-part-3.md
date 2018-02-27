@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -285,7 +285,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 找出您的儲存體帳戶。 若要這麼做，選取 [更多服務]。
+2. 找出您的儲存體帳戶。 若要這麼做，請選取 [所有服務]。
 
 3. 在 [搜尋] 方塊中，輸入**儲存體帳戶**，然後選取 **Enter**。
 
