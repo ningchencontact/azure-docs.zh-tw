@@ -1,4 +1,4 @@
----
+﻿---
 title: "在 Azure AD Domain Services 中設定安全的 LDAP (LDAPS) | Microsoft Docs"
 description: "針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)"
 services: active-directory-ds
