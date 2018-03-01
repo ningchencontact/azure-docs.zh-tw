@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務
 API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 本指南將示範如何在 API 發行者入口網站內管理憑證，以及如何設定 API 以使用憑證來存取其後端服務。
@@ -114,13 +114,6 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 �
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>後續步驟
-如需其他用來保護您後端服務方式的詳細資訊，例如 HTTP Basic 或共用密碼驗證，請參閱下列影片。
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

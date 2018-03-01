@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>追蹤非同步 Azure 作業
 某些 Azure REST 作業因為無法快速完成，而以非同步方式執行。 本主題說明如何透過回應中傳回的值，以追蹤非同步作業的狀態。  
@@ -194,5 +194,4 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 ## <a name="next-steps"></a>後續步驟
 
 * 如需每個 REST 作業的相關文件，請參閱 [REST API 文件](/rest/api/)。
-* 如需透過 Resource Manager REST API 管理資源的相關資訊，請參閱[使用 Resource Manager REST API](resource-manager-rest-api.md)。
 * 如需透過 Resource Manager REST API 部署範本的相關資訊，請參閱[使用 Resource Manager 範本和 Resource Manager REST API 部署資源](resource-group-template-deploy-rest.md)。

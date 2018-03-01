@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b83e096cbb677653db8a13b6b7c04e6c705fd2f3
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="step-3-modify-the-python-flask-web-application"></a>步驟 3：修改 Python Flask Web 應用程式
 ### <a name="add-the-python-flask-packages-to-your-project"></a>將 Python Flask 封裝加入專案
-您的專案設定之後，您必須將必要的酒瓶封裝加入您的專案，包括 pydocumentdb，Azure Cosmos DB SQL api Python 封裝。
+專案設定好之後，您需要加入專案所需的特定 Flask 套件，包括 pydocumentdb (Azure Cosmos DB SQL API 的 Python 套件)。
 
 1. 在「方案總管」中開啟名為 **requirements.txt** 的檔案，並將其內容取代為下列內容：
    
@@ -317,7 +317,7 @@ def vote():
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>新增組態檔並變更 \_\_init\_\_.py
 1. 在「方案總管」中，以滑鼠右鍵按一下 [教學課程] 專案，再依序按一下 [加入]、[新增項目]，接著選取 [空白 Python 檔案]，並為 **config.py** 檔案命名。 Flask 中的表單需要使用此組態檔案。 您也可以用它來提供秘密金鑰。 但本教學課程不需要用到此金鑰。
-2. 將下列程式碼加入至 config.py，您需要變更的值**COSMOSDB\_主機**和**COSMOSDB\_金鑰**下一個步驟中。
+2. 要在 config.py 中新增下列程式碼，您需要在下個步驟中變更 **COSMOSDB\_HOST** 和 **COSMOSDB\_KEY** 的值。
    
     ```python
     CSRF_ENABLED = True
@@ -330,8 +330,8 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]、[Azure Cosmos DB 帳戶]，按兩下要使用的帳戶名稱，再按一下 [基本功能] 區域中的 [金鑰] 按鈕，可瀏覽至 [金鑰] 頁面。 在**金鑰**頁面上，複製**URI**值，並將它貼入**config.py**檔案，做為值**COSMOSDB\_主機**屬性。 
-4. 在 Azure 入口網站中，備份上**金鑰**頁面上，複製的值**主索引鍵**或**次要金鑰**，並將它貼入**config.py**檔案，做為值**COSMOSDB\_金鑰**屬性。
+3. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]、[Azure Cosmos DB 帳戶]，按兩下要使用的帳戶名稱，再按一下 [基本功能] 區域中的 [金鑰] 按鈕，可瀏覽至 [金鑰] 頁面。 在 [金鑰] 頁面中複製 **URI** 值並貼到 **config.py** 檔案中，作為 **COSMOSDB\_HOST** 屬性的值。 
+4. 回到 Azure 入口網站，在 [金鑰] 頁面中複製「主要金鑰」或「次要金鑰」值，貼到 **config.py** 檔案中，作為 **COSMOSDB\_KEY** 屬性的值。
 5. 在 **\_\_init\_\_.py** 檔案中，加入以下這一行： 
    
         app.config.from_object('config')

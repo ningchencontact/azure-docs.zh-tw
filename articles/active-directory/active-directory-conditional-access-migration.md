@@ -1,6 +1,6 @@
 ---
 title: "Azure 入口網站中的 Migrate 傳統原則 | Microsoft Docs"
-description: "了解您需要知道要在 Azure 入口網站的傳統原則移轉。"
+description: "了解如何在 Azure 入口網站中移轉傳統原則中。"
 services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
@@ -18,135 +18,135 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure 入口網站中的 Migrate 傳統原則 
 
 
-[條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者如何存取您的雲端應用程式。 目的仍然是相同，而新的 Azure 入口網站的發行版本導入了解條件式存取如何運作的重大增強功能。
+[條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者如何存取您的雲端應用程式。 雖然目的仍相同，但新版的 Azure 入口網站導入了條件式存取如何運作的重大改善。
 
-您應該考慮將移轉因為時，您已不在 Azure 入口網站中建立的原則：
+您應該考慮移轉尚未在 Azure 入口網站中建立的原則，因為：
 
-- 您現在可以解決無法處理之前的案例。
+- 您現在可以處理之前無法處理的案例。
 
 - 您可以合併它們以減少必須管理的原則數目。   
 
-- 您可以管理您所有單一中央位置的條件式存取原則。
+- 您可以在一個集中位置管理您的所有條件存取原則。
 
-- Azure 傳統入口網站將會停用。   
+- Azure 傳統入口網站將被淘汰。   
 
-這篇文章會說明您需要知道要將現有的條件式存取原則移轉到新的架構。
+本文說明如何將現有的條件式存取原則移轉到新的架構。
  
 ## <a name="classic-policies"></a>傳統原則
 
-在[Azure 入口網站](https://portal.azure.com)、[條件式存取-原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)頁面是您進入點，您的條件式存取原則。 不過，在您環境中，您可能也有您不建立使用此頁面的條件式存取原則。 這些原則稱為*傳統原則*。 傳統的原則是條件式存取原則，您已建立在：
+在 [Azure 入口網站](https://portal.azure.com)中，[條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)頁面是您的條件式存取原則的進入點。 不過，您的環境中可能也有不是使用此頁面建立的條件式存取原則。 這些原則也稱為「傳統原則」。 傳統原則是條件式存取原則，您已建立於：
 
 - Azure 傳統入口網站
 - Intune 傳統入口網站
-- Intune 應用程式保護入口網站
+- Intune 應用程式防護入口網站
 
 
-在**條件式存取**頁面，即可存取您的傳統原則[**傳統原則 （預覽）** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)中**管理**一節。 
+在 [條件式存取] 頁面中，按一下 [管理] 區段中的 [傳統原則 (預覽)][](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) 即可存取您的傳統原則。 
 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
 
-**傳統原則**檢視為您提供的選項：
+**傳統原則**檢視會提供選項以便：
 
 - 篩選傳統原則。
  
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-- 停用傳統的原則。
+- 停用傳統原則。
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
    
-- 檢閱設定的傳統的原則 （和將其停用）。
+- 檢閱傳統原則的設定 (並將其停用)。
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
 
 
-如果您已停用傳統的原則，您也無法再還原此步驟。 這就是為什麼您可以修改在傳統的原則使用的群組成員資格**詳細資料**檢視。 
+如果您已停用傳統原則，再也無法還原此步驟。 這就是為什麼您可以使用 [詳細資料] 檢視來修改傳統原則中的群組成員資格。 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
 
-藉由變更所選的群組或排除特定群組，您可以測試一些測試使用者的已停用傳統原則的效果，然後再停用所有包含的使用者和群組原則。 
+藉由變更所選的群組或排除特定群組，即可先測試一些測試使用者的已停用傳統原則效果，然後再針對所有包含的使用者和群組停用此原則。 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Azure AD 條件式存取原則
 
-您可以使用 Azure 入口網站中的條件式存取，來管理您的所有原則在單一中央位置。 因為解條件式存取的實作已經大幅變更，您應該熟悉基本概念移轉您的傳統原則之前。
+在 Azure 入口網站中使用條件式存取，即可在單一中央位置管理所有的原則。 因為條件式存取的實作方式已大幅改變，所以您應該先熟悉基本概念，再移轉您的傳統原則。
 
 請參閱：
 
-- [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)深入了解基本概念與術語。
+- [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)，以了解基本概念與術語。
 
-- [Azure Active Directory 中的條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)取得部署條件式存取您組織中的一些指引。
+- [Azure Active Directory 中的條件式存取最佳做法](active-directory-conditional-access-best-practices.md)，以取得在您的組織中部署條件式存取的一些指引。
 
-- [開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)讓自己熟悉如何使用 Azure 入口網站中的使用者介面。
+- [開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)，以熟悉 Azure 入口網站的使用者介面。
 
 
  
 ## <a name="migration-considerations"></a>移轉考量
 
-在本文中，Azure AD 條件式存取原則也稱為*新原則*。
-傳統原則繼續與新的原則並存運作，直到您停用或刪除它們。 
+在本文中，Azure AD 條件式存取原則也稱為「新原則」。
+您的傳統原則會繼續與新原則並存運作，直到您停用或刪除它們為止。 
 
-在下列方面是重要原則彙總的內容中：
+下列是原則彙總內容中的重要層面：
 
-- 雖然傳統的原則所繫結到特定雲端應用程式，您可以選取當您需要在新的原則中的雲端應用程式數目。
+- 雖然傳統原則會繫結至特定雲端應用程式，但您可以在一個新原則中選取您所需要數量的雲端應用程式。
 
-- 傳統的原則與雲端應用程式的新原則的控制項需要所有的控制項 (*AND*) 來完成。 
+- 雲端應用程式的傳統原則與新原則的控制項要求滿足所有的控制項 (*AND*)。 
 
 
-- 在新的原則，您可以：
+- 在新原則中，您可以：
  
-    - 如果您的案例需要，結合多個條件。 
+    - 結合多個條件 (如果您的案例所需)。 
 
-    - 選取數個授與需求與存取控制，並將它們結合使用邏輯*OR* （需要其中一個選取的控制項） 或邏輯*AND* （需要所有選取的控制項）。
+    - 選取數個授與需求作為存取控制，並將它們與邏輯 *OR* (需要其中一個選取的控制項) 或與邏輯*AND* (需要所有選取的控制項)結合。
 
         ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
-### <a name="office-365-exchange-online"></a>Office 365 的 Exchange online
+### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
-如果您想要移轉的傳統原則**Office 365 Exchange online**包括**Exchange Active Sync**做為用戶端應用程式的條件，您可能無法將其合併成一個新的原則。 
+如果您想要移轉的 **Office 365 Exchange Online** 傳統原則將 **Exchange Active Sync** 納入為用戶端應用程式條件，您可能無法將其彙總成一個新原則。 
 
-看到這個憑證，例如，如果您想要支援所有的用戶端應用程式類型。 在新的原則具有**Exchange Active Sync**做為用戶端應用程式的條件，您無法選取其他用戶端應用程式。
+例如，如果您想要支援所有的用戶端應用程式類型，就是這種情況。 在以 **Exchange Active Sync** 作為用戶端應用程式條件的新原則中，您無法選取其他用戶端應用程式。
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
-彙總成一個新的原則，也不可以如果傳統原則包含數個條件。 新的原則具有**Exchange Active Sync**成用戶端應用程式設定的條件不支援其他條件：   
+如果傳統原則包含數個條件，也不可能彙總成一個新的原則。 以 **Exchange Active Sync** 作為用戶端應用程式條件的新原則不支援其他條件：   
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-如果您有新的原則具有**Exchange Active Sync**成用戶端應用程式設定的條件，您必須確定所有其他條件未設定。 
+如果您已設定以 **Exchange Active Sync** 作為用戶端應用程式條件的新原則，您必須確定並未設定其他條件。 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
  
 
-[應用程式為基礎](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)傳統 Office 365 Exchange Online 的原則包含**Exchange Active Sync**做為用戶端應用程式條件允許**支援**和**不受支援**[裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 雖然您無法設定個別的裝置平台相關的新原則中，您可以限制來支援[支援裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)只。 
+Office 365 Exchange Online [以應用程式為基礎](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)並將 **Exchange Active Sync** 納入為用戶端應用程式條件的傳統原則可允許**支援**和**不支援**[的裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 雖然您無法在相關的新原則中設定個別裝置平台，但您可以讓支援僅限於[支援的裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-您可以合併多個包含的傳統原則**Exchange Active Sync**做為用戶端應用程式條件有：
+您可以彙總多個將 **Exchange Active Sync** 納入為用戶端應用程式條件的傳統原則，前提是您：
 
-- 只有**Exchange Active Sync**做為條件 
+- 只有 **Exchange Active Sync** 作為條件 
 
-- 授與存取設定的幾項需求
+- 已設定授與存取的幾項需求
 
-常見的案例之一是彙總：
+常見的案例之一：
 
-- 從 Azure 傳統入口網站，以裝置為基礎的傳統原則 
-- Intune 應用程式保護入口網站中，應用程式為基礎的傳統原則 
+- 從 Azure 傳統入口網站彙總以裝置為基礎的傳統原則 
+- 在 Intune 應用程式防護入口網站中彙總以應用程式為基礎的傳統原則 
  
-在此情況下，您可以將傳統原則合併成一個新的原則有兩個選取的需求。
+在此情況下，您可以將傳統原則彙總成一個已選取兩項需求的新原則。
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
@@ -154,9 +154,9 @@ ms.lasthandoff: 12/12/2017
 
 ### <a name="device-platforms"></a>裝置平台
 
-與傳統原則[應用程式為基礎的控制項](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)會預先設定 iOS 和 Android 為[裝置平台條件](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 
+具有[以應用程式為基礎的控制項](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)的傳統原則會將 iOS 和 Android 預先設定為[裝置平台條件](active-directory-conditional-access-technical-reference.md#device-platform-condition)。 
 
-在新的原則中，您必須選取[裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)您想要個別支援。
+在新的原則中，您必須選取想要個別支援的[裝置平台](active-directory-conditional-access-technical-reference.md#device-platform-condition)。
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 

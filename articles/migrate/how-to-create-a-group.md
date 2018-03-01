@@ -9,7 +9,7 @@ ms.date: 12/19/2017
 ms.author: raynew
 ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="create-a-group"></a>建立群組
 
-1. 在**概觀**Azure 移轉專案，在 [管理] 下按一下 **群組** > **+ 群組**，並指定群組名稱。
+1. 在 Azure Migrate 專案的 [概觀] 中，在 [管理] 下按一下 [群組] **** >[+ 群組] ****，並指定群組名稱。
 2. 將一台或多台機器新增至群組，並按一下 [建立] ****。 
 3. 您可以選擇性地選取此項目，為群組執行新的評量。 
 
@@ -30,5 +30,5 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何使用[機器相依性對應](how-to-create-group-machine-dependencies.md)建立高信心群組。
+- 了解如何使用[機器相依性對應](how-to-create-group-machine-dependencies.md)建立高度信賴群組。
 - [深入了解](concepts-assessment-calculation.md)評定的計算方式。

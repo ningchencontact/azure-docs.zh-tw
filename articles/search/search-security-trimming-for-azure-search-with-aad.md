@@ -1,6 +1,6 @@
 ---
-title: "調整 Azure 搜尋結果使用 Active Directory 身分識別的安全性篩選器 |Microsoft 文件"
-description: "使用安全性篩選器和 Active Directory 身分識別的 Azure 搜尋內容的存取控制。"
+title: "使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果 | Microsoft Docs"
+description: "在 Azure 搜尋服務內容上使用安全性篩選和 Active Directory 身分 識別進行存取控制。"
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -10,13 +10,13 @@ ms.date: 11/07/2017
 ms.author: revitalb
 ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>修剪使用 Active Directory 身分識別的 Azure 搜尋結果之安全性篩選
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果
 
-本文示範如何在 Azure 搜尋中使用 Azure Active Directory (AAD) 安全性身分識別，以及篩選，修剪根據使用者群組成員資格的搜尋結果。
+本文示範如何使用 Azure Active Directory (AAD) 安全性身分識別與 Azure 搜尋服務中的篩選，依據使用者群組成員身分調整搜尋結果。
 
 本文涵蓋下列工作：
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/15/2017
 >[!NOTE]
 > 本文中的範例程式碼片段是以 C# 撰寫。 您可以 [在 GitHub](http://aka.ms/search-dotnet-howto)找到完整的原始程式碼。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您在 Azure 搜尋服務中的索引必須有[安全性欄位](search-security-trimming-for-azure-search.md)，才能儲存具有文件讀取權限的群組識別清單。 此使用案例會假設安全性實體項目 (例如個人的大學應用程式) 與指定可存取該項目之人員 (許可人員) 的安全性欄位之間的一對一對應。
 
@@ -185,8 +185,8 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 在本逐步解說中，您已了解使用 AAD 登入來篩選 Azure 搜尋服務結果中文件的技術，從而調整文件不符合要求中提供之篩選條件的結果。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
-+ [使用 Azure 搜尋篩選器的身分識別為基礎的存取控制](search-security-trimming-for-azure-search.md)
++ [使用 Azure 搜尋服務篩選來進行身分識別型存取控制](search-security-trimming-for-azure-search.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
-+ [在 Azure 搜尋操作中的資料安全性和存取控制](search-security-overview.md)
++ [Azure 搜尋服務作業中的資料安全性和存取控制](search-security-overview.md)

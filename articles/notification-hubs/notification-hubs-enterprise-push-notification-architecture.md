@@ -16,7 +16,7 @@ ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/12/2017
 2. 含有多個行動應用程式的案例也能藉此接收來自一或多個後端系統的事件。  
 
 ## <a name="sample"></a>範例：
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 您應該先完成下列教學課程以熟悉概念，以及常用的建立和組態步驟：
 
 1. [服務匯流排發佈/訂用帳戶程式撰寫] - 這說明使用服務匯流排主題/訂用帳戶的詳細資料、如何建立命名空間來包含主題/訂用帳戶、如何傳送和接收來自它們的訊息。
@@ -212,7 +212,7 @@ ms.lasthandoff: 12/12/2017
    
     ![][3]
    
-    g. 設定工作是 「 持續執行 」，如此當您登入[Azure 入口網站]您應該會看到類似下列：
+    g. 將作業設定為 [連續執行]，如此一來，當您登入 [Azure 入口網站]時，應能看見與以下範例相似的內容：
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ ms.lasthandoff: 12/12/2017
 3. 執行 **EnterprisePushBackendSystem** 主控台應用程式以模擬 LoB 後端。它會開始傳送訊息，因此您應該會看見與以下範例相似的快顯通知：
    
     ![][5]
-4. 這些訊息最初是傳送給受到 WebJob 中服務匯流排訂閱監視的服務匯流排主題。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 您可以查看 WebJob 記錄檔，以確認處理程序，當您移到中的記錄檔連結[Azure 入口網站]Web 工作：
+4. 這些訊息最初是傳送給受到 WebJob 中服務匯流排訂閱監視的服務匯流排主題。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 在 [Azure 入口網站]中，當您前往 WebJob 的 [記錄] 連結時，可以瀏覽 WebJob 記錄來確認處理狀態：
    
     ![][6]
 

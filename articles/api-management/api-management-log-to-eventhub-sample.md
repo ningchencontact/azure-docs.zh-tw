@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>利用 Azure API 管理、事件中樞及 Runscope 監視您的 API
-[API 管理服務](api-management-key-concepts.md) 提供許多功能，以增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些重要的 API 相關統計資料，以顯示在發佈者入口網站儀表板上，但除此之外，詳細資料會消失。
+[API 管理服務](api-management-key-concepts.md) 提供許多功能，以增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些有關 API 的重要統計資料，以顯示在 Azure 入口網站儀表板上，但除此之外，詳細資料會消失。
 
 藉由在「API 管理」服務中使用 log-to-eventhub 原則，您便可以將任何來自要求和回應的詳細資料傳送到 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)。 您想要從傳送到您的 API 的 HTTP 訊息產生事件的原因包羅萬象。 範例包括更新稽核線索、使用量分析、例外狀況警示和第三方整合。   
 

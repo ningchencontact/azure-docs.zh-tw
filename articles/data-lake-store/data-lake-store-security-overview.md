@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store 安全性
 許多企業會運用巨量資料分析來獲得商業見解，以利他們做出明智的決策。 但企業的環境可能既複雜又受到規範，並且還有數目日益增加的各類使用者。 因此，企業必須確定重要的商業資料有受到更妥善的保存，並授與正確層級的存取權給個別使用者。 Azure Data Lake Store 的設計便是要協助企業符合這些安全性需求。 請透過本文了解 Data Lake Store 的安全性功能，包括︰

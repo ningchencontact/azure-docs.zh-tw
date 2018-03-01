@@ -1,6 +1,6 @@
 ---
 title: "Azure 保留執行個體的 Windows 軟體成本 | Microsoft Docs"
-description: "了解 Windows 軟體在有保留執行個體資格的 Windows 虛擬機器中，會使用哪些計量。"
+description: "了解哪些 Windows 軟體計量不包含在保留虛擬機器執行個體成本中。"
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Windows 軟體的成本不包括在保留執行個體內
 
-如果您的保留執行個體虛擬機器上沒有 Azure Hybrid Use Benefit，則您須為下表所列的 Windows 軟體計量支付費用：
+如果您的保留執行個體虛擬機器上沒有 Azure Hybrid Use Benefit，則您須為下列區段所列的 Windows 軟體計量支付費用。
+
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Windows 軟體計量不包括在保留執行個體成本中
 
 | 計量識別碼 | 使用量檔案中的計量名稱 | 適用的虛擬機器 |
 | ------- | ------------------------| --- |
@@ -48,3 +50,13 @@ ms.lasthandoff: 11/16/2017
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 核心) | B 系列以外皆適用 |
 
 您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](https://msdn.microsoft.com/library/azure/mt219004)。
+
+## <a name="next-steps"></a>後續步驟
+若要深入了解保留的虛擬機器執行個體，請參閱下列文章。
+
+- [預付具有保留的 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [管理保留的虛擬機器執行個體](billing-manage-reserved-vm-instance.md)
+- [使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本](billing-save-compute-costs-reservations.md)
+- [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)

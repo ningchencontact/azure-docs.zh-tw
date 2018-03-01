@@ -5,15 +5,15 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="manage-the-configuration-server"></a>管理設定伺服器
+# <a name="manage-the-configuration-server"></a>管理組態伺服器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 VMware VM 和實體伺服器災害復原到 Azure 時，便會設定內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊，以及管理資料複寫。 本文摘要說明部署設定伺服器之後，管理設定伺服器的一般工作。
 
@@ -61,7 +61,7 @@ OVF 範本會部署包含單一網路介面卡的設定伺服器 VM。 您可以
   1. 在保存庫中，開啟 [管理] > [Site Recovery 基礎結構] > [設定伺服器]。
   2. 在 [伺服器] 中，按一下 [下載註冊金鑰]。 這會下載保存庫認證檔案。
   3. 登入設定伺服器電腦。
-  4. 在 **%ProgramData%\ASR\home\svagent\bin** 中，開啟 [cspsconfigtool.exe]****。
+  4. 在 **%ProgramData%\ASR\home\svagent\bin** 中，開啟 [cspsconfigtool.exe]。
   5. 在 [保存庫註冊] 索引標籤上，按一下 [瀏覽] 並找出您下載的保存庫認證檔。
   6. 如果需要，請提供 Proxy 伺服器詳細資料。 然後按一下 [註冊]。
   7. 開啟系統管理 PowerShell 命令視窗並執行下列命令：
@@ -72,6 +72,22 @@ OVF 範本會部署包含單一網路介面卡的設定伺服器 VM。 您可以
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
+
+您執行更新彙總來更新設定伺服器。 更新最多可以套用到 N-4 版本。 例如︰
+
+- 如果您執行 9.7、9.8、9.9 或 9.10 - 您可以直接升級至 9.11。
+- 如果您執行 9.6 或更早版本，而且想要升級至 9.11，在升級到 9.11 之前，您必須先升級到 版本 9.7。
+
+用來升級至設定伺服器所有版本的更新彙總連結，可以在 [wiki 更新分頁](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)取得。
+
+升級伺服器，如下所示：
+
+1. 將更新安裝程式下載到設定伺服器上。
+2. 按兩下安裝程式以執行。
+3. 安裝程式會偵測電腦上執行的目前版本。
+4. 按一下 [確定] 以確認，並執行升級。 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>將設定伺服器刪除或取消註冊
 

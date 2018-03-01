@@ -1,6 +1,6 @@
 ---
-title: "適用於 PCI DSS 相容環境的付款處理藍圖"
-description: "PCI DSS 需求"
+title: "Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境"
+description: "Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint (藍圖) 自動化：適用於 PCI DSS 相容環境的付款處理
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 
 ## <a name="overview"></a>概觀
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/30/2017
 - 若要與 PCI DSS 相容，實際客戶解決方案需要由公認的合格安全性評估機構 (QSA) 加以證明。
 - 客戶須負責為任何使用基礎結構建置的解決方案安置適當的安全性與合規性檢閱，因為客戶的實作和所在地區可能有不同特性，因此可能會有不同需求。  
 
-如需快速了解此解決方案的運作方式，請觀賞說明和示範其部署的此[影片](https://aka.ms/pciblueprintvideo)。
+如需此解決方案運作方式簡短概觀，請觀賞說明及示範其部署的此[影片](https://aka.ms/pciblueprintvideo) \(英文\)。
 
 ## <a name="solution-components"></a>方案元件
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/30/2017
 - **部署範本**。 在此部署中，透過在安裝期間指定設定參數，系統會使用 [Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-overview#template-deployment)來將架構的元件自動部署至 Microsoft Azure。
 - **自動化部署指令碼**。 這些指令碼可協助您部署端對端解決方案。 指令碼包括：
     - 模組安裝和[全域管理員](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)安裝指令碼會用來進行安裝，以及確認必要的 PowerShell 模組和全域管理員角色已正確設定。
-    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在[付款處理藍圖代碼存放庫][code-repo]檢閱此解決方案的原始程式碼。 
+    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在[藍圖程式碼存放庫][code-repo]檢閱此解決方案的原始程式碼。 
 
 ## <a name="architectural-diagram"></a>架構圖
 
@@ -111,8 +111,6 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 - Edna 可以修改客戶資訊。
 - Edna 可以覆寫或取代信用卡號碼、到期日和 CVV 資訊。
 
-> 在 Contoso Webstore 中，使用者會自動設定為 **Edna** 使用者，以便測試已部署的環境功能。
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - 估算價格
 
 此基本架構和範例 Web 應用程式使用每月計費結構，而使用量的費用為每小時計費，這些都是決定解決方案大小時須考慮的項目。 您可以使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)來估算這些成本。 從 2017年 9 月開始，此解決方案的每月費用預估為 ~ $2500，這包含 ASE v2 每月 $1000 的使用費。 這些費用會因為使用量不同而有所差異，而且可能會有所變更。 客戶應在部署時估算每月費用，可取得更準確的估計值。 
@@ -152,9 +150,9 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 透過使用已啟用 Web 應用程式防火牆 (WAF) 和 OWASP 規則集的應用程式閘道，基礎架構可減少安全性弱點帶來的風險。 其他功能包括：
 
 - [端對端 SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- 啟用[ SSL 卸載](/azure/application-gateway/application-gateway-ssl-portal)
+- 啟用 [SSL 卸載](/azure/application-gateway/application-gateway-ssl-portal)
 - 停用 [TLS v1.0 和 v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [Web 應用程式防火牆](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF)
+- [Web 應用程式防火牆](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) \(WAF 模式\)
 - 使用 OWASP 3.0 規則集的[預防模式](/azure/application-gateway/application-gateway-web-application-firewall-portal)
 - 啟用[診斷記錄](/azure/application-gateway/application-gateway-diagnostics)
 - [自訂健康情況探查](/azure/application-gateway/application-gateway-create-gateway-portal)
@@ -191,7 +189,7 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 
 為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](/azure/storage/storage-service-encryption)。
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>連接字串
 
 Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 
@@ -222,7 +220,7 @@ Contoso Webstore 會將所有信用卡資料加密，並使用 Azure Key Vault �
 
 ### <a name="identity-management"></a>身分識別管理
 
-下列技術可在 Azure 環境中提供身分識別管理功。
+下列技術可在 Azure 環境中提供身分識別管理功能。
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
 - 應用程式的驗證是使用 Azure AD 執行。 如需詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications)。 此外，資料庫資料行加密也會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的敏感性資料](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) 會偵測影響您組織身分識別的潛在弱點，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
@@ -234,7 +232,8 @@ Contoso Webstore 會將所有信用卡資料加密，並使用 Azure Key Vault �
 
 #### <a name="app-service-environment"></a>App Service 環境
 
-[Azure App Service](/azure/app-service/) 是受管理的服務，適用於部署 Web 應用程式。 Contoso Webstore 應用程式會部署為 [App Service Web 應用程式](/azure/app-service-web/app-service-web-overview)。
+
+            [Azure App Service](/azure/app-service/) 是受控服務，適用於部署 Web 應用程式。 Contoso Webstore 應用程式會部署為 [App Service Web 應用程式](/azure/app-service-web/app-service-web-overview)。
 
 [Azure App Service Environment (ASE v2)](/azure/app-service/app-service-environment/intro) 是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此基礎結構會使用此進階服務方案來符合 PCI DSS 的規範。
 
@@ -266,13 +265,13 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 ### <a name="security-and-malware-protection"></a>安全性和惡意程式碼防護
 
-[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可提供所有 Azure 資源安全性狀態的集中檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，以及快速找出任何需要注意的資源。  
+[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可提供所有 Azure 資源安全性狀態的集中檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，且可以快速找出任何需要注意的資源。  
 
 [Azure Advisor](/azure/advisor/advisor-overview) 是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
 
 適用於 Azure 雲端服務和虛擬機器的 [Microsoft Antimalware](/azure/security/azure-security-antimalware) 是一項即時保護功能，能夠協助識別並移除病毒、間諜軟體及其他惡意軟體，且具有可設定的警示，可在已知的惡意或垃圾軟體嘗試在您的 Azure 系統上安裝或執行時發出警示。
 
-### <a name="operations-management"></a>作業管理
+### <a name="operations-management"></a>Operations Management
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -357,13 +356,13 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
     
 ## <a name="threat-model"></a>威脅模型
 
-適用於 Contoso Webstore 的資料流程圖 (DFD) 和範例威脅模型[付款處理藍圖威脅模型](https://aka.ms/pciblueprintthreatmodel)。
+適用於 Contoso Webstore [藍圖威脅模型](https://aka.ms/pciblueprintthreatmodel) \(英文\) 的資料流程圖 (DFD) 和範例威脅模型。
 
 ![](images/pci-threat-model.png)
 
 
 
-## <a name="customer-responsibility-matrix"></a>客戶責任矩陣
+## <a name="customer-responsibility-matrix"></a>客戶責任對照表
 
 客戶須保留一份[責任摘要矩陣](https://aka.ms/pciblueprintcrm32)，其中會概述屬於客戶責任的 PCI DSS 需求與屬於 Microsoft Azure 責任的 PCI DSS 需求。
 
@@ -375,7 +374,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 *2017 年 9 月*
 
-- 此文件僅供參考之用。 Microsoft 和 AVYAN 對本文件中的資訊不做任何明示、暗示或成文之擔保 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 讀取這份文件的客戶須自行承擔使用風險。  
+- 此文件僅供參考之用。 Microsoft 和 AVYAN 對本文件中的資訊不做任何明示、暗示或成文之擔保 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 閱讀這份文件的客戶須自行承擔使用風險。  
 - 本文件未提供給客戶任何 Microsoft 或 Avyan 產品或解決方案中任何智慧財產的任何法定權利。  
 - 客戶可以複製並使用這份文件，供內部參考之用。  
 

@@ -16,7 +16,7 @@ ms.date: 12/06/2016
 ms.author: roastala
 ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/06/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/06/2018
 
 在此教學課程中，當我們使用「Amazon 書籍評論」資料集逐步解說情緒分析模型時，您會學到這些步驟 (請參閱研究報告 “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification”，作者：Association of Computational Linguistics (ACL) 的 John Blitzer、Mark Dredze 和 Fernando Pereira，2007 年)。此資料集是由評論分數 (1-2 或 4-5) 和自由格式文字所組成。 目標是要預測評論分數︰低 (1-2) 或高 (4-5)。
 
-您可以找到涵蓋在本教學課程中，於 Azure AI 庫實驗：
+您可以在 Azure AI 資源庫找到本教學課程中涵蓋的實驗︰
 
 [預測書籍評論](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

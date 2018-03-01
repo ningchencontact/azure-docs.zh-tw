@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>開始使用適用於 Node.js 的 Batch SDK
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-了解如何使用 [Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) 在 Node.js 中建置 Batch 用戶端的基本概念。 我們會逐步了解批次應用程式的案例，然後使用 Node.js 用戶端加以設定。  
+了解如何使用 [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch) 在 Node.js 中建置 Batch 用戶端的基本概念。 我們會逐步了解批次應用程式的案例，然後使用 Node.js 用戶端加以設定。  
 
 ## <a name="prerequisites"></a>先決條件
 本文假設您已具備 Node.js 的使用知識並熟悉 Linux。 同時假設您的 Azure 帳戶設有存取權限，可建立 Batch 和儲存體服務。
@@ -73,7 +73,7 @@ Node.js 用戶端會使用準備工作部署批次作業 (稍後詳細說明) �
 
 ### <a name="step-2-create-an-azure-batch-account"></a>步驟 2：建立 Azure Batch 帳戶
 
-您可以從 [Azure 入口網站](batch-account-create-portal.md)或從命令列 ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)) 加以建立。
+您可以從 [Azure 入口網站](batch-account-create-portal.md)或從命令列 ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview)) 加以建立。
 
 以下是透過 Azure CLI 命令建立 Batch 帳戶的命令。
 
@@ -360,5 +360,5 @@ var container_list = ["con1","con2","con3","con4"]
 ## <a name="next-steps"></a>後續步驟
 
 - 如果您不熟悉這項服務，我們建議檢閱 [Azure Batch 功能概觀](batch-api-basics.md) 一文。
-- 請參閱 [Batch Node.js 參考](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)以探索 Batch API。
+- 請參閱 [Batch Node.js 參考](/javascript/api/overview/azure/batch)以探索 Batch API。
 

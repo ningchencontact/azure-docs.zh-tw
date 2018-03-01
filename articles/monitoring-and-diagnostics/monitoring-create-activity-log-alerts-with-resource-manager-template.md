@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立活動記錄警示
 本文章將說明如何使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)設定活動記錄警示。 您可以使用範本輕鬆地設定許多警示，會以您自動部署程序中特定的活動記錄事件條件作為基礎加以啟動。
@@ -82,10 +82,10 @@ ms.lasthandoff: 12/08/2017
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -99,6 +99,10 @@ ms.lasthandoff: 12/08/2017
 ```
 
 請瀏覽我們的 [Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights)，取得活動記錄警示範本的一些範例。
+
+> [!NOTE]
+
+> 您也可以使用增強的使用者體驗，在 [監視] >[警示 (預覽)](monitoring-overview-unified-alerts.md) 中建立活動記錄警示規則。 如需有關如何建立這些規則的詳細資訊，請參閱[本文](monitoring-activity-log-alerts-new-experience.md)。
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解[警示](monitoring-overview-alerts.md)。

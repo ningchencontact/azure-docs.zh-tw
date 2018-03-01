@@ -1,6 +1,6 @@
 ---
 title: "在傳統 Linux VM 上設定端點 | Microsoft Docs"
-description: "了解如何設定適用於 Linux VM 在 Azure 入口網站的端點，以便在 Azure 中 Linux 虛擬機器的通訊"
+description: "了解如何在 Azure 入口網站中設定 Linux VM 的端點，以允許與 Azure 中的 Linux 虛擬機器進行通訊"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -17,7 +17,7 @@ ms.date: 06/09/2017
 ms.author: cynthn
 ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---

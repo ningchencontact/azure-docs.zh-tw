@@ -1,6 +1,6 @@
 ---
-title: "升級傳統 Azure 容器登錄中"
-description: "利用擴充功能集的 Basic、 Standard 和 Premium 受容器登錄升級您 unmanaged 的傳統容器登錄中。"
+title: "將傳統的 Azure 容器登錄升級"
+description: "將非受控的傳統容器登錄升級，以利用基本、標準和進階受控容器登錄的擴充功能集。"
 services: container-registry
 author: mmacy
 manager: timlt
@@ -10,60 +10,60 @@ ms.date: 12/20/2017
 ms.author: marsma
 ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
-# <a name="upgrade-a-classic-container-registry"></a>升級傳統容器登錄中
+# <a name="upgrade-a-classic-container-registry"></a>將傳統的容器登錄升級
 
-Azure 容器登錄 (ACR) 是適用於數個服務層，[稱為 Sku](container-registry-skus.md)。 初始版本的 ACR 提供單一的 SKU，傳統缺少於 Basic、 Standard 和 Premium Sku 固有的數種功能 (通稱為*管理*登錄)。 這篇文章說明如何將未受管理的傳統登錄移轉至受管理的 Sku 的其中一個，以便您可以利用其增強的功能集。
+有好幾個服務層 ([也就是所謂的 SKU](container-registry-skus.md)) 會提供 Azure Container Registry (ACR)。 初始的 ACR 版本提供了單一 SKU (傳統)，該 SKU 缺少基本、標準和進階 SKU (統稱為「受控」登錄) 固有的數種功能。 本文將詳細說明如何將非受控的傳統登錄移轉至其中一個受控 SKU，以便利用其經過強化的功能集。
 
 ## <a name="why-upgrade"></a>為何要升級？
 
-因為不受管理的傳統登錄功能有限，我們建議所有傳統登錄都應該升級至基本、 標準或進階的受管理的登錄。 這些較高層級的 SKU 會將登錄更深入整合到 Azure 功能。
+因為傳統的非受控登錄功能有限，建議您將所有傳統登錄升級為基本、標準或進階受控登錄。 這些較高層級的 SKU 會將登錄更深入整合到 Azure 功能。
 
-提供受管理的登錄：
+受控登錄可提供：
 
-* Azure Active Directory 整合[個別登入](container-registry-authentication.md#individual-login-with-azure-ad)
+* Azure Active Directory 整合以便能夠[個別登入](container-registry-authentication.md#individual-login-with-azure-ad)
 * 映像和標記刪除支援
 * [異地複寫](container-registry-geo-replication.md)
 * [Webhook](container-registry-webhook.md)
 
 「傳統」登錄大部分取決於您在建立登錄時，Azure 自動佈建在您 Azure 訂用帳戶中的儲存體帳戶。 相反地，「基本」、「標準」和「進階」SKU 會利用 *受控儲存體*。 也就是說，Azure 會明確地管理映像儲存體；在您自己的訂用帳戶中，不會建立不同的儲存體帳戶。
 
-受管理的登錄儲存體有下列優點：
+受控登錄儲存體可提供下列優點：
 
 * 容器映像是進行[待用加密](../storage/common/storage-service-encryption.md)。
 * 映像是使用[異地備援儲存體](../storage/common/storage-redundancy.md#geo-redundant-storage)所儲存，並確保使用多區域複寫來備份映像。
-* 能夠自由地[Sku 之間移動](container-registry-skus.md#changing-skus)，當您選擇較高層級的 SKU 啟用更高的輸送量。 運用每個 SKU，ACR 即可在您的需求增加時滿足輸送量需求。
-* 登錄和其儲存體的整合的安全性模型會提供簡化的權限管理。 您管理的權限只容器登錄中，而不需要也管理不同的儲存體帳戶的權限。
+* 自由地[在 SKU 之間移動](container-registry-skus.md#changing-skus)的能力，讓您在選擇較高層級的 SKU 時獲得較高的輸送量。 運用每個 SKU，ACR 即可在您的需求增加時滿足輸送量需求。
+* 適用於登錄和其儲存體的整合安全性模型能提供簡化的權限管理功能。 您只負責管理容器登錄的權限，而不必還要管理不同儲存體帳戶的權限。
 
 ## <a name="migration-considerations"></a>移轉考量
 
-當您變更傳統登錄到受管理的登錄時，Azure 必須複製所有現有的容器映像從您的訂用帳戶中的 ACR 建立儲存體帳戶到受 Azure 儲存體帳戶。 根據您的登錄的大小，此程序可能需要幾分鐘的時間，到數小時。
+當您將傳統登錄變更為受控登錄時，Azure 必須將所有現有容器映像從您訂用帳戶中的 ACR 所建儲存體帳戶，複製至 Azure 所管理的儲存體帳戶。 視登錄大小而定，此程序所需時間從數分鐘到數小時不等。
 
-在轉換過程中，所有`docker push`會封鎖作業，而`docker pull`仍持續運作。
+在轉換過程中，系統會封鎖所有 `docker push` 作業，但 `docker pull` 卻會持續運作。
 
-請勿刪除或修改備份傳統登錄在轉換過程中的儲存體帳戶的內容。 如此一來，可能會導致您的容器映像損毀。
+在轉換過程中，請勿刪除或修改支援傳統登錄之儲存體帳戶的內容。 如果您這麼做，可能會導致容器映像損毀。
 
-移轉完成之後，ACR 會再使用原本支援傳統登錄您訂用帳戶的儲存體帳戶。 我們已經確認移轉成功之後，請考慮刪除儲存體帳戶，以協助將成本降至最低。
+移轉完成之後，ACR 就不會再使用訂用帳戶中原本支援傳統登錄的儲存體帳戶。 在確認移轉成功之後，請考慮刪除該儲存體帳戶，以協助將成本降至最低。
 
 >[!IMPORTANT]
-> 從傳統升級至其中一個受管理的 Sku 是**單向的程序**。 一旦在您轉換傳統登錄為 Basic、 Standard 或 Premium，您也無法還原成 傳統。 您可以不過，自由地之間移動 managed Sku 登錄足夠的容量。
+> 從傳統升級為其中一個受控 SKU 是**單向程序**。 傳統登錄一旦轉換為基本、標準或進階，就無法還原為傳統。 不過，您可以在容量足供登錄使用的受控 SKU 之間自由地移動。
 
 ## <a name="how-to-upgrade"></a>如何升級
 
-您可以為其中一個受管理的 Sku 數種方式升級未受管理的傳統登錄。 在下列章節中，我們說明使用的程序[Azure CLI] [ azure-cli]和[Azure 入口網站][azure-portal]。
+您可以透過數種方式將非受控的傳統登錄升級為其中一個受控 SKU。 在下列幾節中，我們會說明使用 [Azure CLI][azure-cli] 和 [Azure 入口網站][azure-portal]的程序。
 
-## <a name="upgrade-in-azure-cli"></a>在 Azure CLI 升級
+## <a name="upgrade-in-azure-cli"></a>在 Azure CLI 中升級
 
-若要升級的傳統登錄 Azure CLI 中，執行[az acr 更新][ az-acr-update]命令，並指定登錄新的 SKU。 在下列範例中，傳統登錄名為*myclassicregistry*升級至 Premium SKU:
+若要在 Azure CLI 中將傳統登錄升級，請執行 [az acr update][az-acr-update] 命令，並為登錄指定新的 SKU。 在下列範例中，名為 myclassicregistry 的傳統登錄會升級為進階 SKU：
 
 ```azurecli-interactive
 az acr update --name myclassicregistry --sku Premium
 ```
 
-完成移轉時，您應該會看到類似下列的輸出。 請注意，`sku`是 「 高階 」 和`storageAccount`是"null"，表示 Azure 現在管理此登錄的映像儲存體。
+當移轉完成時，您應該會看到類似下面的輸出。 請注意 `sku` 是 "Premium" 且 `storageAccount` 是 "null"，這表示 Azure 現在管理此登錄的映像儲存體。
 
 ```JSON
 {
@@ -86,35 +86,35 @@ az acr update --name myclassicregistry --sku Premium
 }
 ```
 
-如果您指定的受管理的登錄 SKU 的最大容量小於傳統系統登錄的大小，您會收到類似下面的錯誤訊息。
+如果您指定之受控登錄 SKU 的最大容量小於傳統登錄的大小，您會收到類似下面的錯誤訊息。
 
 `Cannot update the registry SKU due to reason: Registry size 12936251113 bytes exceeds the quota value 10737418240 bytes for SKU Basic. The suggested SKU is Standard.`
 
-如果您收到類似的錯誤，請執行[az acr 更新][ az-acr-update]命令一次，並指定建議的 SKU，也就是下一個最高等級可容納您的映像的 SKU。
+如果您收到類似錯誤，請再次執行 [az acr update][az-acr-update] 命令並指定所建議的 SKU (也就是可容納映像的下一個最高等級 SKU)。
 
-## <a name="upgrade-in-azure-portal"></a>Azure 入口網站中的 < 升級
+## <a name="upgrade-in-azure-portal"></a>在 Azure 入口網站中升級
 
-當您升級使用 Azure 入口網站的傳統登錄時，Azure 會自動選取最低層級 SKU 可容納您的映像。 例如，如果您的登錄包含 12 GiB 映像中的，Azure 自動選取，並將轉換為標準的傳統登錄 （100 GiB 上限）。
+當您使用 Azure 入口網站來為傳統登錄升級時，Azure 會自動選取可容納映像的最低等級 SKU。 例如，如果您的登錄在映像中包含 12 GiB，Azure 便會自動選取將傳統登錄轉換為標準 (最大 100 GiB)。
 
-若要升級使用 Azure 入口網站的傳統登錄，瀏覽至容器登錄**概觀**選取**升級到受管理的登錄**。
+若要使用 Azure 入口網站來為傳統登錄升級，請瀏覽至容器登錄 [概觀]，然後選取 [升級為受控登錄]。
 
-![傳統登錄升級 Azure 入口網站 UI 中的按鈕][update-classic-01-upgrade]
+![Azure 入口網站 UI 中的傳統登錄升級按鈕][update-classic-01-upgrade]
 
-選取**確定**以確認您想要升級到受管理的登錄。
+選取 [確定] 以確認您要升級為受控登錄。
 
-![傳統登錄升級確認在 Azure 入口網站 UI][update-classic-02-confirm]
+![Azure 入口網站 UI 中的傳統登錄升級確認][update-classic-02-confirm]
 
-在移轉期間，入口網站表示登錄**佈建狀態**是*更新*。 如先前所述，`docker push`作業會移轉期間，請停用和絕對不能刪除或更新由傳統登錄移轉正在進行-執行這項作業時使用的儲存體帳戶可能會導致影像損毀。
+在移轉期間，入口網站會指出登錄的 [佈建狀態] 是 [更新中]。 如先前所述，移轉期間會停用 `docker push` 作業，而且您不得在移轉進行時刪除或更新傳統登錄所使用的儲存體帳戶；如果您這麼做，可能會導致映像損毀。
 
-![傳統登錄升級 Azure 入口網站 UI 中的進度][update-classic-03-updating]
+![Azure 入口網站 UI 中的傳統登錄升級進度][update-classic-03-updating]
 
-移轉完成時，**佈建狀態**指出*Succeeded*，您可以再次`docker push`登錄檔。
+當移轉完成時，[佈建狀態] 會指出 [已成功]，然後您就可以再次對登錄進行 `docker push`。
 
-![傳統登錄升級 Azure 入口網站 UI 中的完成狀態][update-classic-04-updated]
+![Azure 入口網站 UI 中的傳統登錄升級完成狀態][update-classic-04-updated]
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦您已升級傳統登錄為 Basic、 Standard 或 Premium，Azure 將不會再使用原本支援傳統登錄儲存體帳戶。 若要減少成本，請考慮刪除儲存體帳戶或帳戶，其中包含舊的容器映像中的 Blob 容器。
+在將傳統登錄升級為基本、標準或進階後，Azure 就不會再使用原本支援傳統登錄的儲存體帳戶。 若要降低成本，請考慮刪除儲存體帳戶或帳戶內包含舊容器映像的 Blob 容器。
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png

@@ -1,10 +1,10 @@
 ---
 title: "產生並匯出點對站的憑證：MakeCert：Azure | Microsoft Docs"
-description: "本文包含的步驟可用來建立自我簽署的根憑證、匯出公開金鑰，以及使用 MakeCert 來產生用戶端憑證。"
+description: "建立自我簽署的根憑證、匯出公開金鑰，以及使用 MakeCert 產生用戶端憑證。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2beacc461370f268e54e1eedcb32939f7c606b14
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 來產生並匯出點對站連線的憑證
 
@@ -99,3 +99,5 @@ ms.lasthandoff: 12/21/2017
 
 * 如需 **Resource Manager** 部署模型的步驟，請參閱[使用原生 Azure 憑證驗證來設定 P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 * 如需**傳統**部署模型步驟，請參閱[設定 VNet 的點對站 VPN 連線 (傳統)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)。
+
+如需 P2S 疑難排解詳細資訊，請參閱[針對 Azure 點對站連線進行疑難排解](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

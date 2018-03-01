@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: pratshar
 ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -47,10 +47,10 @@ ms.lasthandoff: 12/21/2017
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | 是 | 是
-**VMware** | 是 | 是
-**實體伺服器** | 是 | 是
-**Azure**|NA| 是
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**實體伺服器** | yes | yes
+**Azure**|NA| yes
 
 ### <a name="supported-sql-server-versions"></a>支援的 SQL Server 版本
 在支援的案例中，支援這些 SQL Server 版本：
@@ -66,7 +66,7 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
 **功能** | **詳細資料** | **SQL Server** |
 --- | --- | ---
-**Always On 可用性群組** | 多個 SQL Server 獨立執行個體中，每個都在含有多個節點的容錯移轉叢集中執行。<br/><br/>資料庫可以分組到可以在 SQL Server 執行個體上複製 (鏡像) 的容錯移轉群組，因此不需要任何共用儲存體。<br/><br/>在主要站台與一或多個次要站台之間提供災害復原功能。 使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個節點。 | SQL Server 2016、 SQL Server 2014 和 SQL Server 2012 Enterprise edition
+**Always On 可用性群組** | 多個 SQL Server 獨立執行個體中，每個都在含有多個節點的容錯移轉叢集中執行。<br/><br/>資料庫可以分組到可以在 SQL Server 執行個體上複製 (鏡像) 的容錯移轉群組，因此不需要任何共用儲存體。<br/><br/>在主要站台與一或多個次要站台之間提供災害復原功能。 使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個節點。 | SQL Server 2016、SQL Server 2014 和 SQL Server 2012 Enterprise Edition
 **容錯移轉叢集 (Always On FCI)** | SQL Server 會針對內部部署 SQL Server 工作負載的高可用性，運用 Windows 容錯移轉叢集。<br/><br/>使用共用磁碟執行 SQL Server 執行個體的節點是在容錯移轉叢集中設定。 如果執行個體關閉，叢集會容錯移轉至另一個節點。<br/><br/>叢集無法防止共用儲存體失敗或中斷。 共用磁碟可以使用 iSCSI、光纖通道或共用 VHDX 實作。 | SQL Server Enterprise Edition<br/><br/>SQL Server Standard 版本 (僅限兩個節點)
 **資料庫鏡像 (高安全性模式)** | 將單一資料庫保護為單一次要複本。 提供高安全性 (同步) 和高效能 (非同步) 複寫模式。 不需要容錯移轉叢集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 所有版本
 **獨立式 SQL Server** | SQL Server 和資料庫裝載在單一伺服器 (實體或虛擬) 上。 如果是虛擬伺服器，則主機叢集用於高可用性。 沒有來賓層級的高可用性。 | Enterprise 或 Standard Edition

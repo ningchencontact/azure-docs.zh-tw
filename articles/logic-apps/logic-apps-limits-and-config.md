@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 限制和設定
 
-本主題說明 Azure Logic Apps 目前的限制和設定詳細資料。
+本文說明 Azure Logic Apps 目前的限制和設定詳細資料。
 
 ## <a name="limits"></a>限制
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/29/2018
 | 最大循環間隔 | 500 天 | 
 ||| 
 
-若要在您的正常處理流程中超出執行持續時間或儲存體保留期的限制，請[與我們連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
+若要在您的正常處理流程中超出執行持續時間或儲存體保留期的限制，請[與產品小組連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
 
 ### <a name="looping-and-debatching-limits"></a>迴圈和解除批次處理限制
 
@@ -82,18 +82,18 @@ ms.lasthandoff: 01/29/2018
 
 ### <a name="throughput-limits"></a>輸送量限制
 
-這些限制適用於單一邏輯應用程式執行個體。
+這些限制適用於單一邏輯應用程式資源。
 
 | Name | 限制 | 注意 | 
 | ----- | ----- | ----- | 
-| 每 5 分鐘的動作執行 | 100,000 |<p>限制可以透過以 `High Througput` 模式執行邏輯應用程式而提高到最高 300,000，而此動作可以透過將工作流程資源之 `runtimeConfiguration` 下的 `operationOptions` 屬性設定為 `OptimizedForHighThroughput` 來完成。 <p>請注意，高輸送量模式為預覽狀態。 此外，工作負載也可以視需要分配到多個應用程式。 | 
+| 每 5 分鐘的動作執行 | 100,000 |<p>限制可以藉由在 `High Througput` 模式中執行邏輯應用程式，增加到 300000。 可以藉由將工作流程資源之 `runtimeConfiguration` 底下的 `operationOptions` 屬性設為 `OptimizedForHighThroughput`，來設定高輸送量模式。 <p>請注意，高輸送量模式為預覽狀態。 此外，工作負載也可以視需要分配到多個應用程式。 | 
 | 動作並行撥出電話 | ~2,500 | 視需要減少並行要求數目或縮短持續時間。 | 
 | 執行階段端點：並行連入呼叫 |~1,000 | 視需要減少並行要求數目或縮短持續時間。 | 
 | 執行階段端點：每隔 5 分鐘讀取一次呼叫  | 60,000 | 可以視需要將工作負載分散到多個應用程式。 | 
 | 執行階段端點：每隔 5 分鐘叫用一次呼叫| 45,000 |可以視需要將工作負載分散到多個應用程式。 | 
 |||| 
 
-若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與我們連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
+若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與產品小組連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
 
 ### <a name="logic-app-definition-limits"></a>邏輯應用程式定義限制
 

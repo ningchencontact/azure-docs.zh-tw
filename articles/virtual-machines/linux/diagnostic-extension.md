@@ -11,7 +11,7 @@ ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -50,7 +50,7 @@ Azure 入口網站無法用於啟用或設定 LAD 3.0。 相反地，它會安�
 
 可下載組態只是範例，可修改以符合您的需求。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您電腦上[設定 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
@@ -127,7 +127,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-名稱 | 值
+Name | 值
 ---- | -----
 storageAccountName | 擴充功能寫入資料的儲存體帳戶名稱。
 storageAccountEndPoint | (選擇性) 可識別儲存體帳戶所在雲端的端點。 如果沒有此設定，LAD 會預設為 Azure 公用雲端，`https://core.windows.net`。 若要使用 Azure 德國、Azure Government 或 Azure 中國中的儲存體帳戶，請相應地設定此值。
@@ -137,7 +137,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 
 
 > [!NOTE]
-> 在部署 Azure 部署範本的擴充功能時，儲存體帳戶和 SAS 權杖必須是事先建立，而且再傳遞至範本。 您無法部署的 VM、 儲存體帳戶，並在單一範本中設定擴充功能。 目前不支援建立範本內的 SAS 權杖。
+> 使用 Azure 部署範本部署擴充功能時，必須事先建立儲存體帳戶和 SAS 權杖，然後再傳遞至範本。 您無法在單一範本中部署 VM、儲存體帳戶並設定擴充功能。 目前不支援在範本內建立 SAS 權杖。
 
 您可以輕鬆地透過 Azure 入口網站建構所需的 SAS 權杖。
 

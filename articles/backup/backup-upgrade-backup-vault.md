@@ -17,7 +17,7 @@ ms.date: 02/10/2017
 ms.author: trinadhk, sogup
 ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/19/2017
 編號 在升級期間和升級之後，進行中的備份持續不受干擾。
 
 **對於我現有的工具來說，此升級有何意義？**</br>
-您必須將現有自動化功能或工具更新為 Resource Manager 部署模型，以確保它在移轉之後仍可繼續運作。 請參閱 PowerShell cmdlet 參考[Resource Manager 部署模型](backup-client-automation.md)。
+您必須將現有自動化功能或工具更新為 Resource Manager 部署模型，以確保它在移轉之後仍可繼續運作。 如需了解 [Resource Manager 部署模型](backup-client-automation.md)，請參閱 PowerShell Cmdlet 參考。
 
 **升級之後可以復原嗎？**</br>
 編號 將資源成功升級之後，即不支援復原。

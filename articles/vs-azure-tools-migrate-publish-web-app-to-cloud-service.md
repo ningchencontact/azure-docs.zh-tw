@@ -16,7 +16,7 @@ ms.date: 11/10/2017
 ms.author: kraigb
 ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="migrate-a-project-to-cloud-services"></a>將專案移轉至雲端服務
 
-1. 以滑鼠右鍵按一下 Web 應用程式專案，並選取 [轉換] > **轉換成 Microsoft Azure 雲端服務專案**。 （請注意，此命令不會顯示您在方案中已經有 web 角色專案）。
+1. 以滑鼠右鍵按一下 Web 應用程式專案，並選取 [轉換] > **轉換成 Microsoft Azure 雲端服務專案**。 (請注意，如果您在解決方案中已經有 Web 角色專案，此命令不會顯示。)
 1. Visual Studio 會在包含必要 Web 角色的解決方案中建立雲端服務專案。 此專案的名稱與您的應用程式專案相同，後面加上尾碼 `.Azure`。
 1. 對於 MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件，Visual Studio 也會將 [複製到本機] 屬性設定為 true。 此屬性會將這些組件新增到用於部署的服務封裝中。
 

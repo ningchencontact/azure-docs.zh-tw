@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: dobett
 ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
 ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -47,11 +47,11 @@ ms.lasthandoff: 01/03/2018
 
 ### <a name="required-raspberry-pi-software"></a>必要的 Raspberry Pi 軟體
 
-本文假設您已安裝最新版[覆盆子 pi Raspbian OS](https://www.raspberrypi.org/learning/software-guide/quickstart/)。
+本文假設您已將最新版的 [Raspbian OS 安裝在 Raspberry Pi 上](https://www.raspberrypi.org/learning/software-guide/quickstart/)。
 
 下列步驟說明如何準備 Raspberry Pi 以建置連線到預先設定方案的 C 應用程式：
 
-1. 連接到您的覆盆子 Pi 使用**ssh**。 如需詳細資訊，請參閱 [Raspberry Pi 網站](https://www.raspberrypi.org/)上的 [SSH (安全殼層)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)。
+1. 使用 **ssh** 連線至您的 Raspberry Pi。 如需詳細資訊，請參閱 [Raspberry Pi 網站](https://www.raspberrypi.org/)上的 [SSH (安全殼層)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)。
 
 1. 若要更新 Raspberry Pi，請使用下列命令︰
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/03/2018
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. 使用下列命令來下載、 建置和安裝覆盆子 pi 的 IoT 中樞的用戶端程式庫：
+1. 使用下列命令下載、建置，並將 IoT 中樞用戶端程式庫安裝在您的 Raspberry Pi 上：
 
     ```sh
     cd ~
@@ -80,9 +80,9 @@ ms.lasthandoff: 01/03/2018
 
 ## <a name="create-a-project"></a>建立專案
 
-完成下列步驟使用**ssh**覆盆子 Pi 的連線：
+使用 **ssh** 與 Raspberry Pi 的連線完成下列步驟：
 
-1. 在 Raspberry Pi 的主資料夾中，建立名為 `remote_monitoring` 的資料夾。 瀏覽至您的 shell 中的此資料夾：
+1. 在 Raspberry Pi 的主資料夾中，建立名為 `remote_monitoring` 的資料夾。 在殼層中瀏覽至此資料夾：
 
     ```sh
     cd ~
@@ -90,9 +90,9 @@ ms.lasthandoff: 01/03/2018
     cd remote_monitoring
     ```
 
-1. 建立四個檔案**main.c**， **remote_monitoring.c**， **remote_monitoring.h**，和**CMakeLists.txt**中`remote_monitoring`資料夾。
+1. 在 `remote_monitoring` 資料夾中建立四個檔案︰**main.c**、**remote_monitoring.c**、**remote_monitoring.h** 和 **CMakeLists.txt**。
 
-1. 在文字編輯器中，開啟**remote_monitoring.c**檔案。 在覆盆子 Pi 中，您可以使用**nano**或**vi**文字編輯器。 新增下列 `#include` 陳述式：
+1. 在文字編輯器中，開啟 **remote_monitoring.c** 檔案。 在 Raspberry Pi 上，您可以使用 **nano** 或 **vi** 文字編輯器。 新增下列 `#include` 陳述式：
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/03/2018
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-儲存**remote_monitoring.c**檔案並結束編輯器。
+儲存 **remote_monitoring.c** 檔案，並結束編輯器。
 
 ## <a name="add-code-to-run-the-app"></a>新增程式碼以執行應用程式
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 01/03/2018
 void remote_monitoring_run(void);
 ```
 
-儲存**remote_monitoring.h**檔案並結束編輯器。
+儲存 **remote_monitoring.h** 檔案，並結束編輯器。
 
 在文字編輯器中，開啟 **main.c** 檔案。 新增下列程式碼：
 
@@ -132,7 +132,7 @@ int main(void)
 }
 ```
 
-儲存**main.c**檔案並結束編輯器。
+儲存 **main.c** 檔案，並結束編輯器。
 
 ## <a name="build-and-run-the-application"></a>建置並執行應用程式
 
@@ -187,7 +187,7 @@ int main(void)
     )
     ```
 
-1. 儲存**CMakeLists.txt**檔案並結束編輯器。
+1. 儲存 **CMakeLists.txt** 檔案，並結束編輯器。
 
 1. 在 `remote_monitoring` 資料夾中，建立資料夾來儲存 CMake 產生的 make 檔案。 然後執行 **cmake** 和 **make** 命令，如下所示：
 

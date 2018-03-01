@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: adsolank;juliako;
 ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -25,18 +25,18 @@ ms.lasthandoff: 12/11/2017
 
 **Azure Media Indexer 2 Preview** MP 目前為預覽功能。
 
-本文將說明如何建立索引的工作，與**Azure Media Indexer 2 預覽**。
+本文章說明如何使用 **Azure Media Indexer 2 Preview** 建立索引工作。
 
 > [!NOTE]
 > 您必須考量下列事項：
 > 
 > Azure China 和 Azure Government 不支援 Indexer 2。
 > 
-> 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當的內容的某些範例包括： 記錄會議、 演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
+> 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 > 
 > 
 
-這篇文章詳細說明有關**Azure Media Indexer 2 預覽**並示範如何使用它使用 Media Services SDK for.NET
+本文章提供有關 **Azure Media Indexer 2 Preview** 的詳細資訊，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它
 
 ## <a name="input-and-output-files"></a>輸入和輸出檔案
 ### <a name="input-files"></a>輸入檔案
@@ -95,7 +95,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 下列程式將示範如何：
 
 1. 建立資產並將媒體檔案上傳到資產。
-2. 使用 「 索引 」 工作包含下列 json 的預設組態檔為基礎建立作業：
+2. 根據包含下列 JSON 預設值的設定檔，建立具有索引編製工作的作業：
    
         {
           "version":"1.0",

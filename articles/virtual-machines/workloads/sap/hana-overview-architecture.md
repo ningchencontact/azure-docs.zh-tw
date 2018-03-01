@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 4246ecfa50176400c54cd80857e25675290e7170
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure 上的 SAP HANA (大型執行個體) 概觀和架構
 
@@ -36,18 +36,18 @@ SAP HANA on Azure (大型執行個體) 是 Azure 獨有的解決方案。 除了
 
 這些裸機伺服器單位只支援用來執行 SAP HANA。 SAP 應用程式層或工作負載中介軟體層會在 Microsoft Azure 虛擬機器中執行。 執行 SAP HANA on Azure (大型執行個體) 單位的基礎結構戳記會連線到 Azure 網路骨幹，因此能在 SAP HANA on Azure (大型執行個體) 單位與 Azure 虛擬機器之間提供低延遲的連線。
 
-這份文件是涵蓋 Azure （大型執行個體） 上的 SAP HANA 的多個文件。 在本文件中，我們會講述基本架構、責任、所提供的服務，並概述解決方案的各項功能。 其他四份文件會詳述並深入探討大多數層面，例如網路和連線。 SAP HANA on Azure (大型執行個體) 的文件並未說明 SAP NetWeaver 安裝方面或在 Azure VM 中部署 SAP NetWeaver 方面的內容。 在相同的 Azure 文件容器中找到的個別文件涵蓋 Azure 上的 SAP NetWeaver。 
+本文件是多份文件的其中一份，將會說明 Azure 上的 SAP HANA (大型執行個體)。 在本文件中，我們會講述基本架構、責任、所提供的服務，並概述解決方案的各項功能。 其他四份文件會詳述並深入探討大多數層面，例如網路和連線。 SAP HANA on Azure (大型執行個體) 的文件並未說明 SAP NetWeaver 安裝方面或在 Azure VM 中部署 SAP NetWeaver 方面的內容。 Azure 上的 SAP NetWeaver 可在相同 Azure 說明文件容器中的個別文件中找到。 
 
 
-不同的文件 HANA 大型執行個體本指南涵蓋下列區域：
+HANA 大型執行個體指南的不同文件涵蓋下列領域：
 
 - [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 上 SAP HANA (大型執行個體) 疑難排解和監視](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [在使用 STONITH SUSE 中設定的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [型別 II Sku 的 OS 備份與還原](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [使用 STONITH 在 SUSE 中進行高可用性設定](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [類型 II SKU 的 OS 備份和還原](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>定義
 
@@ -69,7 +69,7 @@ SAP HANA on Azure (大型執行個體) 是 Azure 獨有的解決方案。 除了
     - **類型 II 類別：**S384、S384m、S384xm、S576、S768 和 S960
 
 
-有各種不同的部署 Microsoft Azure 公用雲端上的 SAP 工作負載已發行的其他資源。 強烈建議所有在 Azure 中規劃和執行 SAP HANA 部署的人都需有經驗，並且熟悉 Azure IaaS 的主體及 Azure IaaS 上的 SAP 工作負載部署。 下列資源提供詳細資訊，應在繼續進行之前先參考：
+已針對在 Microsoft Azure 公用雲端上部署的 SAP 工作負載，發佈了各種不同的額外資源。 強烈建議所有在 Azure 中規劃和執行 SAP HANA 部署的人都需有經驗，並且熟悉 Azure IaaS 的主體及 Azure IaaS 上的 SAP 工作負載部署。 下列資源提供詳細資訊，應在繼續進行之前先參考：
 
 
 - [在 Microsoft Azure 虛擬機器上使用 SAP 解決方案](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -137,21 +137,19 @@ SAP HANA on Azure (大型執行個體) 的整體架構不僅提供一個經 SAP 
 | 已針對 OLAP 最佳化：SAP BW、BW/4HANA<br /> 或 SAP HANA (一般 OLAP 工作負載) | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 個 CPU 核心和 72 個 CPU 執行緒 |  768 GB |  3 TB | 可用 |
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 個 CPU 核心和 144 個 CPU 執行緒 |  1.5 TB |  6 TB | 不再提供 |
 | --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒 |  2.0 TB |  8 TB | 可用 |
-| --- | SAP HANA on Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  4.0 TB |  16 TB | 準備好接受訂購 |
+| --- | SAP HANA on Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  4.0 TB |  16 TB | 可用 |
 | 已針對 OLTP 最佳化：SAP Business Suite<br /> on SAP HANA 或 S/4HANA (OLTP)<br /> (一般 OLTP) | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 個 CPU 核心和 72 個 CPU 執行緒 |  1.5 TB |  6 TB | 可用 |
 |---| SAP HANA on Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 個 CPU 核心和 144 個 CPU 執行緒 |  3.0 TB |  12 TB | 不再提供 |
 |---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒  |  4.0 TB |  16 TB | 可用 |
-|---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  6.0 TB |  18 TB | 準備好接受訂購 |
-|---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  8.0 TB |  22 TB |  準備好接受訂購 |
-|---| SAP HANA on Azure S576<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  12.0 TB |  28 TB | 準備好接受訂購 |
-|---| SAP HANA on Azure S768<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  16.0 TB |  36 TB | 準備好接受訂購 |
-|---| SAP HANA on Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 個 CPU 核心和 960 個 CPU 執行緒 |  20.0 TB |  46 TB | 準備好接受訂購 |
+|---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  6.0 TB |  18 TB | 可用 |
+|---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  8.0 TB |  22 TB |  可用 |
+|---| SAP HANA on Azure S576<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  12.0 TB |  28 TB | 可用 |
+|---| SAP HANA on Azure S768<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  16.0 TB |  36 TB | 可用 |
+|---| SAP HANA on Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 個 CPU 核心和 960 個 CPU 執行緒 |  20.0 TB |  46 TB | 可用 |
 
 - CPU 核心 = 伺服器單位處理器總和的非超執行緒 CPU 核心總和。
 - CPU 執行緒 = 伺服器單位處理器總和的超執行緒 CPU 核心所提供之計算執行緒的總和。 預設會將所有單位設定為使用超執行緒。
 
-
-上述為「可用」或「不再提供」的各種不同設定在 [SAP 支援附註 #2316233 - SAP HANA on Microsoft Azure (大型執行個體)](https://launchpad.support.sap.com/#/notes/2316233/E) \(英文\) 中均有提到。 標示為「準備好接受訂購」的設定，很快就能在 SAP 附註中找到它們的項目。 不過，對於這六個可使用 HANA 大型執行個體服務的不同 Azure 區域來說，已經可以訂購那些執行個體 SKU。
 
 選擇的特定組態取決於工作負載、CPU 資源及所需的記憶體。 OLTP 工作負載可以使用已針對 OLAP 工作負載最佳化的 SKU。 
 
@@ -359,7 +357,7 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由 SAP HANA on Azur
 
 身為客戶的您可能需要更多儲存空間，而您可以選擇購買以 1 TB 為單位的額外儲存體來新增儲存空間。 這個額外的儲存體可以新增為額外的磁碟區，或者可用來擴充一或多個現有的磁碟區。 您無法將磁碟區的大小降低為原始部署的大小以及上述表格中多數記載的大小。 您也無法變更磁碟區的名稱或掛接的名稱。 上述的存放磁碟區已連接至 HANA 大型執行個體單位以作為 NFS4 磁碟區。
 
-身為客戶的您可以選擇使用儲存體快照集來進行備份/還原及災害復原。 更多詳細資料的詳細[SAP HANA （大型執行個體） 的高可用性和災害復原，在 Azure 上](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+身為客戶的您可以選擇使用儲存體快照集來進行備份/還原及災害復原。 如需更多詳細資料，請參閱 [Azure 上 SAP HANA (大型執行個體) 的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ### <a name="encryption-of-data-at-rest"></a>待用資料加密
 用於「HANA 大型執行個體」的儲存體可允許在資料儲存於磁碟上時，對其進行透明加密。 部署 HANA 大型執行個體單位時，您可以選擇啟用這類加密。 您也可以在已部署完成之後，選擇變更成已加密的磁碟區。 從非加密到已加密磁碟區的轉移過程是透明的，並不需要停機。 
@@ -466,18 +464,18 @@ Azure VM (裝載 SAP 應用程式執行個體) 的 VNet 閘道會連接到該 Ex
 
 ### <a name="routing-in-azure"></a>Azure 中的路由
 
-有三個重要的網路路由的考量 Azure （大型執行個體） 上的 SAP HANA:
+Azure 上的 SAP HANA (大型執行個體) 有三個重要的網路路由考量：
 
-1. 在 Azure （大型執行個體） 上的 SAP HANA 只能存取，透過 Azure Vm 和專用的 ExpressRoute 連線;不是直接從內部部署。 HANA 大型執行個體單位，從內部直接存取由 Microsoft 提供，不可能會立即因為目前的 Azure 網路架構 SAP HANA 大型執行個體所用的可轉移的路由限制。 有些系統管理用戶端及所有需要直接存取權的應用程式 (例如在內部部署環境中執行的 SAP Solution Manager) 會無法連接到 SAP HANA 資料庫。
+1. Azure 上的 SAP HANA (大型執行個體) 僅供 Azure VM 以專用 ExpressRoute 連線存取，無法從內部部署環境直接存取。 由於目前用於 SAP HANA 大型執行個體之 Azure 網路架構的傳遞路由限制，故無法立刻透過內部部署直接存取 Microsoft 提供的 HANA 大型執行個體單位。 有些系統管理用戶端及所有需要直接存取權的應用程式 (例如在內部部署環境中執行的 SAP Solution Manager) 會無法連接到 SAP HANA 資料庫。
 
-2. 如果您有 HANA 大型執行個體部署在兩個不同的 Azure 地區，為了災害復原的單位，就會套用相同的暫時性路由限制。 或者，換句話說，HANA 大型執行個體單位在一個區域 （例如 「 美國西部 」） 中的 IP 位址將不會路由至另一個區域 （例如美國東部） 中，為您部署一個 HANA 大型執行個體單位。 這是獨立的 Azure 網路對等互連，跨區域或跨連接到 Azure Vnet 連接 HANA 大型執行個體單位 ExpressRoute 電路的使用方式。 如下所示的位元進一步向下這份文件。 這項限制所隨附的已部署的架構，將不會立即使用 HANA 系統複寫為災害復原功能。
+2. 如果您在兩個不同 Azure 區域中部署了 HANA 大型執行個體單位以供災害復原用途，則系統將會套用相同的暫時性路由限制。 或者換句話說，HANA 大型執行個體單位在一個區域 (例如美國西部) 內的 IP 位址不會路由至在另一個地區 (例如美國東部) 部署的HANA 大型執行個體單位。 這與跨區域使用 Azure 網路對等互連或交叉連接 ExpressRoute 線路 (將 HANA 大型執行個體單位連線至 Azure VNets) 無關。 如本說明文件中進一步所示。 部署架構所隨附的這項限制將禁止立即使用 HANA 系統複寫做為災害恢復功能。
 
 3. SAP HANA on Azure (大型執行個體) 單位有一個指派的 IP 位址，此位址來自身為客戶的您所提交的「伺服器 IP 集區」位址範圍 (如需詳細資料，請參閱 [Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))。  透過 Azure 訂用帳戶和將 Azure VNet 連線到 HANA on Azure (大型執行個體) 的 ExpressRoute，即可存取此 IP 位址。 從該「伺服器 IP 集區」位址範圍指派的 IP 位址會直接指派給硬體單位，且「不再」經過 NAT 處理，因為這是此解決方案的第一次部署才會有的情況。 
 
 > [!NOTE] 
-> 如果您需要克服中暫時性路由的限制，上述的第一個兩個清單項目中所述，您需要使用額外的元件進行路由。 可以用來克服這項限制的元件可以是： 將資料路由，與反向 proxy。 例如，搭配部署在 Azure 中作為虛擬防火牆/流量路由解決方案之「流量管理員」的 F5 BIG-IP、NGINX。
-> 使用[IPTables 規則](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)在 Linux VM，以啟用在內部部署位置和 HANA 大型執行個體單位或不同地區 HANA 大型執行個體單位之間的路由。
-> 請注意，實作和支援與協力廠商的網路裝置或 IPTables 相關的自訂解決方案不由 Microsoft 所提供。 支援必須使用元件的廠商或積分器所提供。 
+> 如果您需要克服前兩個清單項目中所述之暫時性路由的限制，您就需要使用其他元件進行路由。 可用來克服這項限制的元件可能為：路由資料的反向 Proxy，往返方向皆有可能。 例如，搭配部署在 Azure 中作為虛擬防火牆/流量路由解決方案之「流量管理員」的 F5 BIG-IP、NGINX。
+> 在 Linux VM 中使用 [IPTables 規則](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)，以啟用在內部部署位置和 HANA 大型執行個體單位之間的路由，或不同區域中 HANA 大型執行個體單位之間的路由。
+> 請注意，Microsoft 並不提供與協力廠商網路設備或 IPTables 相關自定義解決方案的實作和支援。 必須由所使用元件的廠商或整合者提供支援。 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>HANA 大型執行個體的網際網路連線
 「HANA 大型執行個體」無法直接連線到網際網路。 這會限制您的一些能力，例如直接向 OS 廠商註冊 OS 映像。 因此，您可能需要與本機 SLES SMT 伺服器或 RHEL Subscription Manager 搭配運作

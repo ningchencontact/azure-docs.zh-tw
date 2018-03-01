@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>包含 Azure 檔案的永續性磁碟區 - 動態佈建
+# <a name="persistent-volumes-with-azure-files"></a>包含 Azure 檔案的永續性磁碟區
 
 永續性磁碟區代表一塊已佈建而可在 Kubernetes 叢集中使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 本文件詳述在 AKS 叢集中作為 Kubernetes 永續性磁碟區的 Azure 檔案共用動態佈建。 
 
 如需有關 Kubernetes 永續性磁碟區的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][kubernetes-volumes]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在以動態方式將 Azure 檔案共用佈建為 Kubernetes 磁碟區時，您可以使用任何儲存體帳戶，只要該帳戶包含在與 AKS 叢集相同的資源群組中即可。 如有需要，請在與 AKS 叢集相同的資源群組中建立儲存體帳戶。 
 

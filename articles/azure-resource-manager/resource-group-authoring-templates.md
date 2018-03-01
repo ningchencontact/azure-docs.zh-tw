@@ -16,7 +16,7 @@ ms.date: 12/14/2017
 ms.author: tomfitz
 ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -39,11 +39,11 @@ ms.lasthandoff: 12/15/2017
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。 使用上述範例所示的 URL。 |
-| contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
+| $schema |yes |JSON 結構描述檔案的位置，說明範本語言的版本。 使用上述範例所示的 URL。 |
+| contentVersion |yes |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
-| resources |是 |在資源群組中部署或更新的資源類型。 |
+| resources |yes |在資源群組中部署或更新的資源類型。 |
 | outputs |否 |部署後傳回的值。 |
 
 每個元素都包含可以設定的屬性。 下列範例包含範本的完整語法：
@@ -144,7 +144,7 @@ ms.lasthandoff: 12/15/2017
 
 一般而言，您可以將運算式搭配函數使用，以執行可設定部署的作業。 和在 JavaScript 中相同，函式呼叫的格式為 `functionName(arg1,arg2,arg3)`。 您可以使用點與 [index] 運算子來參考屬性。
 
-下列範例會示範如何建構值時，使用幾個函式：
+下列範例示範如何在建構值時使用數個函數：
 
 ```json
 "variables": {
@@ -170,7 +170,7 @@ ms.lasthandoff: 12/15/2017
 },
 ```
 
-定義參數的相關資訊，請參閱[的 Azure Resource Manager 範本的參數區段](resource-manager-templates-parameters.md)。
+如需定義參數的詳細資訊，請參閱 [Azure Resource Manager 範本的 Parameters 區段](resource-manager-templates-parameters.md)。
 
 ## <a name="variables"></a>變數
 在 variables 區段中，您會建構可用於整個範本中的值。 您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
@@ -183,7 +183,7 @@ ms.lasthandoff: 12/15/2017
 },
 ```
 
-定義變數的相關資訊，請參閱[的 Azure Resource Manager 範本變數區段](resource-manager-templates-variables.md)。
+如需定義變數的詳細資訊，請參閱 [Azure Resource Manager 範本的 Variables 區段](resource-manager-templates-variables.md)。
 
 ## <a name="resources"></a>資源
 在資源區段中，您會定義要部署或更新的資源。 此區段會變得複雜，因為您必須了解您要部署的類型才能提供正確的值。
@@ -202,7 +202,7 @@ ms.lasthandoff: 12/15/2017
 ],
 ```
 
-如需詳細資訊，請參閱[資源 > 一節的 Azure 資源管理員範本](resource-manager-templates-resources.md)。
+如需詳細資訊，請參閱 [Azure Resource Manager 範本的 Resources 區段](resource-manager-templates-resources.md)。
 
 ## <a name="outputs"></a>輸出
 在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。
@@ -216,7 +216,7 @@ ms.lasthandoff: 12/15/2017
 }
 ```
 
-如需詳細資訊，請參閱[輸出的 Azure Resource Manager 範本區段](resource-manager-templates-outputs.md)。
+如需詳細資訊，請參閱 [Azure Resource Manager 範本的 Outputs 區段](resource-manager-templates-outputs.md)。
 
 ## <a name="template-limits"></a>範本限制
 

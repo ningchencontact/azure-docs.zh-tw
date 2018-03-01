@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/18/2017
 > 
 
 ## <a name="overview"></a>概觀
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。 [編碼資產](media-services-rest-encode-asset.md)文章會示範如何編碼為彈性位元速率 MP4 集。 如果您的內容已加密，設定資產遞送原則 (如所述[這](media-services-rest-configure-asset-delivery-policy.md)發行項) 之前建立定位器。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。 [為資產編碼](media-services-rest-encode-asset.md)文章說明如何編碼為調適性位元速率 MP4 集。 如果您的內容已加密，請在建立定位器之前設定資產傳遞原則 (如[這個](media-services-rest-configure-asset-delivery-policy.md)文章中所述)。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 
-本文示範如何建立 OnDemand 定位器以發佈您的資產及建置 Smooth、 MPEG DASH 和 HLS 資料流 Url 的資料流。 它也會示範如何建置漸進式下載 URL。
+本文章說明如何建立隨選串流定位器以發佈資產及建置 Smooth、MPEG DASH 和 HLS 串流 URL。 它也會示範如何建置漸進式下載 URL。
 
 [下列章節](#types) 說明列舉類型，REST 呼叫中會使用這些類型的值。   
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/18/2017
 >順利連線到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
 
 ## <a name="create-an-ondemand-streaming-locator"></a>建立隨選串流定位器
-若要建立 OnDemand 定位器串流處理，並取得 Url，您需要執行下列作業：
+若要建立隨選串流定位器並取得 URL，您需要執行下列動作：
 
 1. 如果內容已加密，請定義存取原則。
 2. 建立隨選串流定位器。
@@ -57,12 +57,12 @@ ms.lasthandoff: 12/18/2017
    
    如果您想要漸進式地下載，請取得資產中的 MP4 檔案名稱。 
 4. 建置資訊清單檔或 MP4 檔案的 URL。 
-5. 您無法建立串流定位器，使用 AccessPolicy，其中包含寫入或刪除權限。
+5. 您無法使用包含寫入或刪除權限的 AccessPolicy 建立串流訂位器。
 
 ### <a name="create-an-access-policy"></a>建立存取原則
 
 >[!NOTE]
->對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您使用相同的日期 / 存取權限，例如，維持備妥要很長的時間 （非上載原則） 給定位器的原則，請使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
+>對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期/存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 要求：
 
@@ -193,7 +193,7 @@ URL： **Path** + 資產檔案 MP4 名稱
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [媒體服務作業 REST API 概觀](media-services-rest-how-to-use.md)
 
 [設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)

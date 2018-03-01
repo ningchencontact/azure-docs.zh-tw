@@ -16,7 +16,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,12 +24,12 @@ ms.lasthandoff: 12/08/2017
 
 預設設定已設定好，以便在許多不同的使用案例中提供良好的效能。  針對 I/O 密集的查詢，Hive 可進行微調，以在 ADLS 取得更好的效能。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure 資料湖儲存區帳戶**。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight 叢集** 。 請參閱 [建立具有 Data Lake Store 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。 請確實為叢集啟用遠端桌面。
-* **在 HDInsight 上執行 Hive**。  若要深入了解 HDInsight 上執行的 Hive 工作，請參閱 [使用 HDInsight 上的登錄區] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **在 HDInsight 上執行 Hive**。  若要了解如何在 HDInsight 上執行 Hive 作業，請參閱 [使用 HDInsight 上的 Hive] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **ADLS 的效能微調指導方針**。  如需一般的效能概念，請參閱 [Data Lake Store 效能微調指導方針](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>參數

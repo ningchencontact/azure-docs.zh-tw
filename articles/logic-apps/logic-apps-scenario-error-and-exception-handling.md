@@ -18,7 +18,7 @@ ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
 ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/11/2017
    來自 CRM 的觸發程序會提供我們 **CRM PatentId**、**記錄類型**、**新的或更新的記錄** (新增或更新布林值) 和 **SalesforceId**。 **SalesforceId** 可以是 null，因為它只會用於更新。
    我們使用 CRM **PatientID** 和 [記錄類型] 來取得 CRM 記錄。
 
-2. 接下來，我們需要加入我們 Azure Cosmos DB SQL API 的應用程式**InsertLogEntry**如下所示，在邏輯應用程式的設計工具中的作業。
+2. 接下來，必須新增 Azure Cosmos DB SQL API 應用程式 **InsertLogEntry** 作業，如以下「邏輯應用程式設計工具」所示。
 
    **插入記錄檔項目**
 
@@ -400,7 +400,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB 存放庫和入口網站
 
-我們的解決方案加入功能，而且具備[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)。
+我們的解決方案藉由 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)新增了功能。
 
 ### <a name="error-management-portal"></a>錯誤管理入口網站
 
@@ -430,14 +430,14 @@ ms.lasthandoff: 12/11/2017
 
 我們的開放原始碼 Azure Logic Apps 例外狀況管理 API 應用程式提供了這裡所說的功能，其中有兩個控制器：
 
-* **ErrorController** Azure Cosmos DB 集合中插入記錄時發生錯誤 （文件）。
-* **LogController** Azure Cosmos DB 集合中插入記錄檔記錄 （文件）。
+* **ErrorController** 會在 Azure Cosmos DB 集合中插入錯誤記錄 (文件)。
+* **LogController** 會在 Azure Cosmos DB 集合中插入記錄檔記錄 (文件)。
 
 > [!TIP]
-> 兩個控制器使用`async Task<dynamic>`作業，讓作業在執行階段，解決，因此我們可以建立 Azure Cosmos DB 結構描述作業的主體中。 
+> 這兩個控制器都使用 `async Task<dynamic>` 作業，可允許作業在執行階段進行解析，因此我們可以在作業的主體中建立 Azure Cosmos DB 結構描述。 
 > 
 
-Azure Cosmos DB 中的每個文件必須具有唯一的識別碼。 我們將會使用 `PatientId` ，並加入轉換為 Unix 時間戳記值 (雙精確度) 的時間戳記。 我們會將值截斷以移除小數值。
+Azure Cosmos DB 中的每個文件都必須具有唯一識別碼。 我們將會使用 `PatientId` ，並加入轉換為 Unix 時間戳記值 (雙精確度) 的時間戳記。 我們會將值截斷以移除小數值。
 
 您可以[從 GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)檢視我們的錯誤控制器 API 的原始程式碼。
 
@@ -479,7 +479,7 @@ Azure Cosmos DB 中的每個文件必須具有唯一的識別碼。 我們將會
 ## <a name="summary"></a>總結
 
 * 您可以在邏輯應用程式中輕鬆地實作記錄和錯誤處理。
-* 您可以使用做為儲存機制的 Azure Cosmos DB 記錄和錯誤記錄 （文件）。
+* 您可以使用 Azure Cosmos DB 作為記錄檔和錯誤記錄 (文件) 的存放庫。
 * 您可以使用 MVC 建立入口網站，以顯示記錄檔和錯誤記錄。
 
 ### <a name="source-code"></a>原始程式碼

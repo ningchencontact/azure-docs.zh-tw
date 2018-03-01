@@ -15,15 +15,15 @@ ms.date: 12/13/2017
 ms.author: tomfitz
 ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="resources-section-of-azure-resource-manager-templates"></a>資源 > 一節的 Azure 資源管理員範本
+# <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Resources 區段
 
 在資源區段中，您會定義要部署或更新的資源。 此區段會變得複雜，因為您必須了解您要部署的類型才能提供正確的值。
 
-## <a name="available-properties"></a>可用的屬性
+## <a name="available-properties"></a>可用屬性
 
 您會定義結構如下的資源：
 
@@ -69,26 +69,26 @@ ms.lasthandoff: 12/14/2017
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
 | condition | 否 | 布林值，表示是否已部署資源。 |
-| apiVersion |是 |要用來建立資源的 REST API 版本。 |
-| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
-| name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定不是有人嘗試詐騙其他身分識別。 |
+| apiVersion |yes |要用來建立資源的 REST API 版本。 |
+| type |yes |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
+| name |yes |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定不是有人嘗試詐騙其他身分識別。 |
 | location |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 |
-| tags |否 |與資源相關聯的標記。 適用於標記以邏輯方式組織您的訂用帳戶的資源。 |
+| tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
 | comments |否 |您在範本中記錄資源的註解 |
 | copy |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)。 |
 | dependsOn |否 |在部署這項資源之前必須部署的資源。 Resource Manager 會評估資源之間的相依性，並依正確的順序進行部署。 資源若不互相依賴，則會平行部署資源。 值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。 只會列出此範本中已部署的資源。 此範本中未定義的資源必須已經存在。 避免加入不必要的相依性，因為可能會降低部署速度並產生循環相依性。 如需設定相依性的指引，請參閱[定義 Azure Resource Manager 範本中的相依性](resource-group-define-dependencies.md)。 |
 | properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的多個執行個體。 |
 | resources |否 |與正在定義的資源相依的下層資源。 只提供父資源的結構描述允許的資源類型。 子資源的完整類型包含父資源類型，例如 **Microsoft.Web/sites/extensions**。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 |
 
-## <a name="resource-specific-values"></a>資源的特定值
+## <a name="resource-specific-values"></a>資源特定的值
 
-**Microsoft.authorization**，**類型**，和**屬性**的每個資源類型不相同。 若要判斷這些屬性的值，請參閱[範本參考](/azure/templates/)。
+每個資源類型的 **apiVersion**、**type** 和 **properties** 都不同。 若要判斷這些屬性的值，請參閱[範本參考](/azure/templates/)。
 
 ## <a name="resource-names"></a>資源名稱
 通常，您會使用 Resource Manager 中的三種資源名稱︰
 
 * 必須是唯一的資源名稱。
-* 資源名稱，不需要是唯一的但是您選擇提供可協助您識別資源的名稱。
+* 不需要是唯一的資源名稱，但是您選擇提供的名稱可協助您識別資源。
 * 可以是一般的資源名稱。
 
 ### <a name="unique-resource-names"></a>唯一的資源名稱
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/14/2017
 
 <sup>1</sup> 儲存體帳戶名稱也必須是小寫、長度不超過 24 個字元，而且沒有任何連字號。
 
-當設定的名稱，您可以手動建立唯一的名稱或使用[uniqueString()](resource-group-template-functions-string.md#uniquestring)函式產生的名稱。 您也可能想要將首碼或尾碼新增至 **uniqueString** 結果。 修改唯一的名稱可協助您更輕鬆地識別名稱的資源類型。 例如，您可以使用下列變數來產生儲存體帳戶的唯一名稱：
+設定名稱時，您可以手動建立唯一的名稱或使用 [uniqueString()](resource-group-template-functions-string.md#uniquestring) 函式來產生名稱。 您也可能想要將首碼或尾碼新增至 **uniqueString** 結果。 修改唯一的名稱可協助您更輕鬆地識別名稱的資源類型。 例如，您可以使用下列變數來產生儲存體帳戶的唯一名稱：
 
 ```json
 "variables": {
@@ -141,7 +141,7 @@ ms.lasthandoff: 12/14/2017
 ```
 
 ## <a name="location"></a>位置
-在部署範本時，您必須為每個資源提供一個位置。 支援不同的資源類型在不同的位置。 若要查看可用的特定資源類型的訂用帳戶的位置清單，請使用 Azure PowerShell 或 Azure CLI。 
+在部署範本時，您必須為每個資源提供一個位置。 不同的位置支援不同的資源類型。 若要查看特定資源類型可供您的訂用帳戶使用的位置清單，請使用 Azure PowerShell 或 Azure CLI。 
 
 下列範例使用 PowerShell 來取得 `Microsoft.Web\sites` 資源類型的位置︰
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/14/2017
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-決定支援的位置，為您的資源之後, 請在範本中設定該位置。 設定此值最簡單的方式是在支援資源類型的位置建立一個資源群組，而且將每個位置設定為 `[resourceGroup().location]`。 您可以將範本重新部署到不同位置的資源群組，而且無需變更範本中的任何值或參數。 
+決定支援資源的位置之後，您可在範本中設定該位置。 設定此值最簡單的方式是在支援資源類型的位置建立一個資源群組，而且將每個位置設定為 `[resourceGroup().location]`。 您可以將範本重新部署到不同位置的資源群組，而且無需變更範本中的任何值或參數。 
 
 下列範例顯示部署到與資源群組相同位置的儲存體帳戶：
 
@@ -221,7 +221,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## <a name="child-resources"></a>子資源
 
-在某些資源類型，您也可以定義一系列的子資源。 子資源是只存在於另一個資源的內容中的資源。 例如，SQL database 無法存在未搭配 SQL server 資料庫是伺服器的子系。 您可以定義內的伺服器定義的資料庫。
+在某些資源類型內，您也可以定義子資源陣列。 子資源是只存在於另一個資源內容中的資源。 例如，若沒有 SQL Server，SQL 資料庫就無法存在，所以資料庫是伺服器的子系。 您可以在伺服器的定義中定義資料庫。
 
 ```json
 {
@@ -240,13 +240,13 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 }
 ```
 
-當巢狀的則型別會設定為`databases`完整資源類型，而`Microsoft.Sql/servers/databases`。 您未提供 `Microsoft.Sql/servers/`，因為它被認為是來自父資源類型。 子資源名稱會設為 `exampledatabase`，但是完整名稱包含父系名稱。 您未提供 `exampleserver`，因為它被認為是來自父資源。
+形成巢狀後，類型會設為 `databases`，但是其完整資源類型為 `Microsoft.Sql/servers/databases`。 您未提供 `Microsoft.Sql/servers/`，因為它被認為是來自父資源類型。 子資源名稱會設為 `exampledatabase`，但是完整名稱包含父系名稱。 您未提供 `exampleserver`，因為它被認為是來自父資源。
 
 子資源類型的格式如下︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
 子資源名稱的格式如下︰`{parent-resource-name}/{child-resource-name}`
 
-但是，您不需要定義在伺服器中的資料庫。 您可以定義最上層的子資源。 如果父資源並未部署在相同範本中，或者想要使用 `copy` 來建立多個子資源，您可以使用此方法。 使用這個方法，您必須提供完整資源類型，並將父資源名稱納入子資源名稱中。
+但是，您不必在伺服器內定義資料庫。 您可以定義最上層的子資源。 如果父資源並未部署在相同範本中，或者想要使用 `copy` 來建立多個子資源，您可以使用此方法。 使用這個方法，您必須提供完整資源類型，並將父資源名稱納入子資源名稱中。
 
 ```json
 {
@@ -304,7 +304,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
    }
    ```
    
-   如果將該儲存體帳戶部署在您要建立的相同範本中，當您參考資源時，即不需要指定提供者命名空間。 下列範例示範簡化的語法：
+   如果將該儲存體帳戶部署在您要建立的相同範本中，當您參考資源時，即不需要指定提供者命名空間。 下列範例顯示簡化的語法：
    
    ```json
    "osDisk": {

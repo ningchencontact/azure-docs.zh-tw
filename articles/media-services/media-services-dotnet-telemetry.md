@@ -16,24 +16,24 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 設定 Azure 媒體服務遙測
 
-本文說明您可能需要設定使用.NET SDK 的 Azure 媒體服務 (AMS) 遙測時的一般步驟。 
+本文章說明您使用 .NET SDK 設定 Azure 媒體服務 (AMS) 遙測時可能採取的一般步驟。 
 
 >[!NOTE]
->功能的詳細的說明為 AMS 遙測，以及如何使用它，請參閱[概觀](media-services-telemetry-overview.md)發行項。
+>如需什麼是 AMS 遙測及如何取用的詳細說明，請參閱[概觀](media-services-telemetry-overview.md)文章。
 
 您可以使用下列其中一個方法取用遙測資料︰
 
-- 直接從 Azure 資料表儲存體 （例如，使用儲存體 SDK） 中讀取資料。 遙測的儲存體資料表的描述，請參閱**取用遙測資訊**中[這](https://msdn.microsoft.com/library/mt742089.aspx)發行項。
+- 直接從 Azure 表格儲存體 (例如使用儲存體 SDK) 中讀取資料。 如需遙測儲存體資料表的說明，請參閱[這個](https://msdn.microsoft.com/library/mt742089.aspx)文章中的**取用遙測資訊**。
 
 或
 
-- 使用媒體服務 .NET SDK 中的支援讀取儲存體資料。 本文將說明如何啟用遙測 AMS 所指定帳戶，以及如何查詢使用 Azure Media Services.NET SDK 的度量。  
+- 使用媒體服務 .NET SDK 中的支援讀取儲存體資料。 本文章示範如何為指定的 AMS 帳戶啟用遙測，以及如何使用 Azure 媒體服務 .NET SDK 查詢度量。  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>設定媒體服務帳戶的遙測
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/11/2017
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
-- 建立您想要監視的服務設定監視設定。 允許有一個以上的監視組態設定。 
+- 針對要監視的服務建立監視組態設定。 系統最多只允許一個監視組態設定。 
   
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="consuming-telemetry-information"></a>取用遙測資訊
 
-如需有關取用遙測資訊，請參閱[這](media-services-telemetry-overview.md)發行項。
+如需取用遙測資訊的相關資訊，請參閱[這個](media-services-telemetry-overview.md)文章。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 

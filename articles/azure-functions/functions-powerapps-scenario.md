@@ -18,7 +18,7 @@ ms.author: mblythe
 ms.custom: 
 ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -42,10 +42,10 @@ ms.lasthandoff: 12/18/2017
 > * 新增控制項以呼叫函式並顯示資料。
 > * 執行應用程式以判斷修復是否符合成本效益。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 使用中的 [PowerApps 帳戶](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md)，其登入認證與您的 Azure 帳戶相同。 
-+ Excel 和[Excel 範例檔案](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)將在您的應用程式做為資料來源使用。
++ Excel 以及要作為應用程式資料來源的 [Excel 範例檔案](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)。
 + 完成[為函式建立 OpenAPI 定義](functions-openapi-definition.md)教學課程。
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
@@ -71,35 +71,35 @@ ms.lasthandoff: 12/18/2017
 ## <a name="create-an-app-and-add-data-sources"></a>建立應用程式並新增資料來源
 現在，您已準備好在 PowerApps 中建立應用程式，並新增 Excel 資料和自訂 API 作為應用程式的資料來源。
 
-1. 在[web.powerapps.com](https://web.powerapps.com)，選擇**開始從空白** > ![電話應用程式圖示](media/functions-powerapps-scenario/icon-phone-app.png)(phone) > **，讓此應用程式**。
+1. 在 [web.powerapps.com](https://web.powerapps.com) 中，選擇 [從空白開始] > ![手機應用程式圖示](media/functions-powerapps-scenario/icon-phone-app.png) (手機) > [製作此應用程式]。
 
-    ![從空白-phone 應用程式啟動](media/functions-powerapps-scenario/create-phone-app.png)
+    ![從空白開始 - 手機應用程式](media/functions-powerapps-scenario/create-phone-app.png)
 
     此應用程式會在適用於 Web 的 PowerApps Studio 中開啟。 下圖顯示 PowerApps Studio 的不同部分。
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **（A） 左側導覽列**，按照每個螢幕上的所有控制項的階層式檢視
+    **(A) 左導覽列**，您會在其中看到每個畫面上所有控制項的階層檢視
 
-    **（B） 中間窗格**，其中顯示您正在使用畫面
+    **(B) 中間窗格**，顯示您正在工作的畫面
 
-    **（C） 右邊窗格**，例如版面配置和資料來源，設定選項
+    **(C) 右窗格**，您可以在其中設定版面配置和資料來源等選項
 
-    **（D） 屬性**下拉式清單中，您在其中選取公式套用至屬性
+    **(D) [屬性]** 下拉式清單，您可以在其中選取要套用公式的屬性
 
-    **（E） 公式列**，您將加入可定義應用程式行為 （與在 Excel) 公式
+    **(E) 公式列**，您可以在其中新增定義應用程式行為的公式 (如 Excel 所示)
     
-    **（F） 功能區**，其中您將控制項加入和自訂設計元素
+    **(F) 功能區**，您可以在其中新增控制項並自訂設計項目
 
 1. 新增 Excel 檔案作為資料來源。
 
-    您將匯入的資料看起來如下：
+    您會匯入的資料如下所示：
 
-    ![若要匯入 Excel 資料](media/functions-powerapps-scenario/excel-table.png)
+    ![要匯入的 Excel 資料](media/functions-powerapps-scenario/excel-table.png)
 
-    1. 應用程式在畫布上，選擇 **連接到資料**。
+    1. 在應用程式畫布上，選擇 [連線到資料]。
 
-    1. 在**資料**] 面板中，按一下 [**將靜態資料加入至您的應用程式**。
+    1. 在 [資料] 面板中，按一下 [對應用程式新增靜態資料]。
 
         ![新增資料來源](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/18/2017
 
 1. 新增自訂 API 作為資料來源。
 
-    1. 在**資料**] 面板中，按一下 [**加入資料來源**。
+    1. 在 [資料] 面板上，按一下 [新增資料來源]。
 
     1. 按一下 [渦輪機修復]。
 
@@ -131,21 +131,21 @@ ms.lasthandoff: 12/18/2017
 
     ![變更標題並調整資源庫大小](media/functions-powerapps-scenario/gallery-title.png)
 
-1. 使用選取，請在右窗格中，在資源庫**屬性**，按一下  **CustomGallerySample**。
+1. 在已選取資源庫的情況下，於右窗格的 [屬性] 底下，按一下 [CustomGallerySample]。
 
     ![變更資料來源](media/functions-powerapps-scenario/change-data-source.png)
 
-1. 在**資料**面板中，選取**渦輪機**從清單中。
+1. 在 [資料] 面板中，從清單選取 [渦輪機]。
 
     ![選取資料來源](media/functions-powerapps-scenario/select-data-source.png)
 
     資料集未包含影像，因此接下來您要變更為更適合資料的版面配置。 
 
-1. 仍在**資料** 面板中，變更**配置**至**Title、 subtitle 和主體**。
+1. 仍在 [資料] 窗格中，將 [版面配置] 變更為 [標題、子標題與本文]。
 
     ![變更資源庫版面配置](media/functions-powerapps-scenario/change-layout.png)
 
-1. 中的最後一個步驟**資料** 面板中，變更會顯示在圖庫中的欄位。
+1. 最後一個步驟是在 [資料] 面板中，變更資源庫中所顯示的欄位。
 
     ![變更資源庫欄位](media/functions-powerapps-scenario/change-fields.png)
     
@@ -165,7 +165,7 @@ ms.lasthandoff: 12/18/2017
 
     ![刪除畫面](media/functions-powerapps-scenario/delete-screen.png)
 
-1. 按一下**檔案**，並命名應用程式。 按一下**儲存**左窗格中，然後按一下 **儲存**在右下角。
+1. 按一下 [檔案]，並為應用程式命名。 按一下左側功能表上的 [儲存]，然後按一下右下角的 [儲存]。
 
 您通常會在生產環境應用程式中執行許多其他格式化工作，但我們將前往此案例的重要部分，那就是呼叫函式。
 

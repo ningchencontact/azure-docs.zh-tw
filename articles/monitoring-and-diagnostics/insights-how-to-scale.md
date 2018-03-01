@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手動或自動調整執行個體計數
 在 [Azure 入口網站](https://portal.azure.com/)中，您可以手動設定服務的執行個體計數，或是藉由參數設定根據需求自行調整。 這通常稱為「相應放大」或「相應縮小」。
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="scaling-manually"></a>手動調整
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]，然後瀏覽至您想要調整的資源，例如 [App Service 方案]。
 2. 按一下 [設定] > [相應放大 (App Service 方案)]。
-3. 您可以在 [級別] 刀鋒視窗的頂端，查看服務的自動調整動作歷程記錄。
+3. 您可以在 [級別] 刀鋒視窗頂端的 [執行歷程記錄] 索引標籤中，查看服務的自動調整動作歷程記錄。
    
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/14/2017
    > 這個圖表僅會顯示自動調整所執行的動作。 如果您手動調整執行個體計數，則此變更將不會反映在該圖表中。
    > 
    > 
-4. 您可以使用滑桿手動調整 [ **執行個體** ] 數目。
+4. 您可以在 [設定] 索引標籤中調整**執行個體**數目。
 5. 按一下 [ **儲存** ] 命令，您的執行個體便會立即被調整到該數目。
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>根據預先設定的計量進行調整

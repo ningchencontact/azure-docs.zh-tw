@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填入
 
@@ -67,9 +67,10 @@ Azure AD Connect 會同步處理屬性。  在安裝期間，您可以檢視已�
 使用者物件在第一次同步處理至 Azure AD 租用戶時，Azure AD 會以給定的順序檢查下列項目，然後將 MailNickName 屬性值設定為現有的第一個項目：
 
 - 內部部署 mailNickName 屬性
+- 主要 SMTP 位址的首碼
 - 內部部署 mail 屬性的前置詞
-- 主要 SMTP 位址的前置詞
 - 內部部署 UserPrincipalName 屬性/替代登入識別碼的前置詞
+- 次要 SMTP 位址的首碼
 
 當使用者物件更新同步處理至 Azure AD 租用戶時，Azure AD 只會在有內部部署 mailNickName 屬性值更新的情況下才會更新 MailNickName 屬性值。
 
@@ -85,12 +86,12 @@ Azure AD Connect 會同步處理屬性。  在安裝期間，您可以檢視已�
 
 內部部署使用者物件：
 - mailNickName：&lt;未設定&gt;
-- mail：us1@contoso.com
-- proxyAddresses：{SMTP:us2@contoso.com}
+- proxyAddresses：{SMTP:us1@contoso.com}
+- mail：us2@contoso.com
 - userPrincipalName：us3@contoso.com
 
 第一次將使用者物件同步處理至 Azure AD 租用戶
-- 將 Azure AD MailNickName 屬性設定為內部部署 mail 屬性前置詞。
+- 將 Azure AD MailNickName 屬性設定為主要 SMTP 位址首碼。
 - 將 MOERA 設定為 &lt;MailNickName&gt;&#64;&lt;初始網域&gt;。
 - 將 Azure AD UserPrincipalName 屬性設定為 MOERA。
 
@@ -103,8 +104,8 @@ Azure AD 租用戶使用者物件：
 
 內部部署使用者物件：
 - mailNickName：us4
-- mail：us1@contoso.com
-- proxyAddresses：{SMTP:us2@contoso.com}
+- proxyAddresses：{SMTP:us1@contoso.com}
+- mail：us2@contoso.com
 - userPrincipalName：us3@contoso.com
 
 將內部部署 mailNickName 屬性的更新同步處理至 Azure AD 租用戶
@@ -119,8 +120,8 @@ Azure AD 租用戶使用者物件：
 
 內部部署使用者物件：
 - mailNickName：us4
-- mail：us1@contoso.com
-- proxyAddresses：{SMTP:us2@contoso.com}
+- proxyAddresses：{SMTP:us1@contoso.com}
+- mail：us2@contoso.com
 - userPrincipalName：us5@contoso.com
 
 將內部部署 userPrincipalName 屬性的更新同步處理至 Azure AD 租用戶
@@ -132,16 +133,16 @@ Azure AD 租用戶使用者物件：
 - MailNickName：us4
 - UserPrincipalName：us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>案例 4：未驗證的 UPN 尾碼 – 更新內部部署 mail 屬性和主要 SMTP 位址
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>案例 4：未驗證的 UPN 尾碼 – 更新主要 SMTP 位址和內部部署 mail 屬性
 
 內部部署使用者物件：
 - mailNickName：us4
-- mail：us6@contoso.com
-- proxyAddresses：{SMTP:us7@contoso.com}
+- proxyAddresses：{SMTP:us6@contoso.com}
+- mail：us7@contoso.com
 - userPrincipalName：us5@contoso.com
 
 將內部部署 mail 屬性和主要 SMTP 位址的更新同步處理至 Azure AD 租用戶
-- 使用者物件進行過首次同步處理後，內部部署 mail 屬性和主要 SMTP 位址的更新就不會影響 Azure AD MailNickName 和 UserPrincipalName 屬性。
+- 進行過使用者物件的初始同步處理之後，對內部部署 mail 屬性和主要 SMTP 位址所做的更新便不會影響 Azure AD MailNickName 和 UserPrincipalName 屬性。
 
 Azure AD 租用戶使用者物件：
 - MailNickName：us4
@@ -151,8 +152,8 @@ Azure AD 租用戶使用者物件：
 
 內部部署使用者物件：
 - mailNickName：us4
-- mail：us6@contoso.com
-- proxyAddresses：{SMTP:us7@contoso.com}
+- proxyAddresses：{SMTP:us6@contoso.com}
+- mail：us7@contoso.com
 - serPrincipalName：us5@verified.contoso.com
 
 將內部部署 userPrincipalName 屬性的更新同步處理至 Azure AD 租用戶

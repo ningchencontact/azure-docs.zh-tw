@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: v-shysun
 ms.openlocfilehash: 141dd1fe9e727f430b7c45dbb798f5471167c355
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,26 +27,26 @@ ms.lasthandoff: 12/21/2017
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-本文章提供有關執行的最常見的問題的解答[SQL Server 在 Windows Azure 虛擬機器](https://azure.microsoft.com/services/virtual-machines/sql-server/)。
+本文提供關於 [Windows Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 一些最常見的執行問題解答。
 
 > [!NOTE]
-> 本文著重在 Windows Vm 上的 SQL Server 的特定問題。 如果您在 Linux VM 上執行 SQL Server，請參閱 [Linux 常見問題集](../../linux/sql/sql-server-linux-faq.md)。
+> 本文將重點放在 Windows VM 上 SQL Server 的特定問題。 如果您在 Linux VM 上執行 SQL Server，請參閱 [Linux 常見問題集](../../linux/sql/sql-server-linux-faq.md)。
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>映像
+## <a id="images"></a> 映像
 
-1. **哪些 SQL Server 虛擬機器圖庫映像可供使用？**
+1. **可用的 SQL Server 虛擬機器資源庫映像有哪些？**
 
-   Azure 會針對 Windows 和 Linux 維護所有支援的主要版本的 SQL Server 所有版本上的虛擬機器映像。 如需詳細資訊，請參閱的完整清單[Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)和[Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)。
+   Azure 會針對所有 Windows 和 Linux 版本上所有支援的 SQL Server 主要版本維護虛擬機器映像。 如需詳細資訊，請參閱完整的 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)和 [Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)清單。
 
-1. **更新現有的 SQL Server 虛擬機器圖庫映像嗎？**
+1. **現有的 SQL Server 虛擬機器資源庫映像是否已更新？**
 
-   每隔兩個月，使用最新的 Windows 更新虛擬機器庫中的 SQL Server 映像，並 Linux 更新。 針對 Windows 映像，這包括標示為重要 Windows 更新，包括重要的 SQL Server 安全性更新和 service pack 中的任何更新。 針對 Linux 映像，這包括最新的系統更新。 SQL Server 累計更新適用於 Linux 和 Windows 的處理方式不同。 適用於 Linux，SQL Server 累計更新也會包含在重新整理。 但在這個階段中，Windows Vm 不會更新 SQL Server 或 Windows Server 的累計更新。
+   每隔兩個月，系統會以最新的 Windows 和 Linux 更新來更新虛擬機器資源庫中的 SQL Server 映像。 若為 Windows 映像，這包括 Windows Update 中標示為重要的任何更新，其中包含重要的 SQL Server 安全性更新和 Service Pack。 若為 Linux 映像，這包括最新的系統更新。 適用於 Linux 和 Windows 的 SQL Server 累計更新會以不同的方式處理。 針對 Linux，SQL Server 累計更新也會包含在重新整理中。 但此時，系統不會以 SQL Server 或 Windows Server 累計更新來更新 Windows VM。
 
-1. **可以從資源庫移除 SQL Server 虛擬機器映像嗎？**
+1. **是否可以從資源庫中移除 SQL Server 虛擬機器映像？**
 
-   可以。 Azure 只會維護每個主要版本和版的一個映像。 比方說，新的 SQL Server service pack 發行時，Azure 會將新的映像加入至該服務的組件庫。 Azure 入口網站會立即移除前一個 service pack 的 SQL Server 映像。 不過，它是仍能從 PowerShell 佈建在下一步的三個月。 三個月之後，已無法再使用先前的服務組件映像。 如果 SQL Server 版本不支援它達到其生命週期結束時，也會適用於此移除原則。
+   是。 Azure 只會為每個主要版本維護一個映像。 例如，發行新的 SQL Server Service Pack 後，Azure 會將新的映像新增至該 Service Pack 的資源庫。 前一個 Service Pack 的 SQL Server 映像會立即從 Azure 入口網站中移除。 不過，在接下來三個月仍可用於從 PowerShell 佈建。 三個月之後，便無法再使用前一個 Service Pack 映像。 如果 SQL Server 版本在達到其生命週期結尾時就不提供支援，也適用此移除原則。
 
 1. **是否可以設定虛擬機器資源庫中未顯示的組態 (例如 Windows 2008 R2 + SQL Server 2012)？**
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/21/2017
 
 1. **如何使用 SQL Server 建立 Azure 虛擬機器？**
 
-   最簡單的解決方法是建立包含 SQL Server 的虛擬機器。 如需註冊 Azure，並建立從入口網站的 SQL VM 的教學課程，請參閱[佈建 Azure 入口網站中的 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。 您可以選取使用以分鐘計費 SQL Server 授權的虛擬機器映像，或者您可以使用映像，讓您自備自己的 SQL Server 授權。 您也可以選擇使用免費授權版本 (Developer 或 Express) 或重複使用內部部署授權，在 VM 上手動安裝 SQL Server。 如果您自備授權，必須具備 [Azure 上透過軟體保證的授權流動性](https://azure.microsoft.com/pricing/license-mobility/)。 如需詳細資訊，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
+   最簡單的解決方法是建立包含 SQL Server 的虛擬機器。 如需註冊 Azure 並從入口網站建立 SQL VM 的教學課程，請參閱[在 Azure 入口網站中佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。 您可以選取使用以分鐘計費 SQL Server 授權的虛擬機器映像，或者您可以使用映像，讓您自備自己的 SQL Server 授權。 您也可以選擇使用免費授權版本 (Developer 或 Express) 或重複使用內部部署授權，在 VM 上手動安裝 SQL Server。 如果您自備授權，必須具備 [Azure 上透過軟體保證的授權流動性](https://azure.microsoft.com/pricing/license-mobility/)。 如需詳細資訊，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
 1. **如何將內部部署 SQL Server 資料庫移轉至雲端？**
 
@@ -81,11 +81,11 @@ ms.lasthandoff: 12/21/2017
 
 1. **是否可以在相同的 VM 上安裝第二個 SQL Server 執行個體？是否可以變更預設執行個體的已安裝功能？**
 
-   可以。 SQL Server 安裝媒體位於 **C** 磁碟機的資料夾中。 您可從該位置執行 **Setup.exe** 來新增新的 SQL Server 執行個體，或變更機器上 SQL Server 的其他已安裝功能。 請注意，某些功能 (例如自動備份、自動修補和 Azure Key Vault 整合) 只能在預設執行個體上運作。
+   是。 SQL Server 安裝媒體位於 **C** 磁碟機的資料夾中。 您可從該位置執行 **Setup.exe** 來新增新的 SQL Server 執行個體，或變更機器上 SQL Server 的其他已安裝功能。 請注意，某些功能 (例如自動備份、自動修補和 Azure Key Vault 整合) 只能在預設執行個體上運作。
 
 1. **是否可以將 SQL Server 的預設執行個體解除安裝**
 
-   可以。 但有一些考量。 如前一個回應所述，依賴 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)的功能只能在預設執行個體上運作。 如果您將預設執行個體解除安裝，擴充功能會繼續尋找它，而且可能會產生事件記錄錯誤。 這些錯誤來自下列兩個來源：**Microsoft SQL Server 認證管理**和 **Microsoft SQL Server IaaS 代理程式**。 其中一個錯誤應如下所示：
+   是。 但有一些考量。 如前一個回應所述，依賴 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)的功能只能在預設執行個體上運作。 如果您將預設執行個體解除安裝，擴充功能會繼續尋找它，而且可能會產生事件記錄錯誤。 這些錯誤來自下列兩個來源：**Microsoft SQL Server 認證管理**和 **Microsoft SQL Server IaaS 代理程式**。 其中一個錯誤應如下所示：
 
       和 SQL Server 建立連線時，發生與網路相關或執行個體特定的錯誤。 找不到或無法存取伺服器。
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 12/21/2017
    >[!NOTE]
    >[SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)說明 SQL Server Azure 虛擬機器的計費方式。 如果您移除 SQL Server，我們會繼續收取使用費。 如果您不再需要 SQL Server，則可以部署新的虛擬機器，並將資料和應用程式移轉到新的虛擬機器。 接著，您可以移除 SQL Server 虛擬機器。
 
-## <a name="updating-and-patching"></a>更新和修補程式
+## <a name="updating-and-patching"></a>更新和修補
 
 1. **如何將 Azure VM 中的 SQL Server 升級至新版本？**
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/21/2017
 
 1. **Azure VM 上是否支援 SQL Server 容錯移轉叢集執行個體 (FCI)？**
 
-   可以。 您可以[在 Windows Server 2016 上建立 Windows 容錯移轉叢集](virtual-machines-windows-portal-sql-create-failover-cluster.md)，並使用儲存空間直接存取 (S2D) 來連結叢集儲存體。 或者，您可以使用 [Azure 虛擬機器中的 SQL Server 的高可用性和災害復原](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)中所述的協力廠商叢集或儲存體解決方案。
+   是。 您可以[在 Windows Server 2016 上建立 Windows 容錯移轉叢集](virtual-machines-windows-portal-sql-create-failover-cluster.md)，並使用儲存空間直接存取 (S2D) 來連結叢集儲存體。 或者，您可以使用 [Azure 虛擬機器中的 SQL Server 的高可用性和災害復原](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)中所述的協力廠商叢集或儲存體解決方案。
 
 1. **SQL VM 和 SQL Database 服務之間的差異為何？**
 

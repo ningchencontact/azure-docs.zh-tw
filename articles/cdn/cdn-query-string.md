@@ -16,7 +16,7 @@ ms.date: 11/09/2017
 ms.author: mazha
 ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -43,9 +43,9 @@ ms.lasthandoff: 12/18/2017
    
    ![CDN 設定檔端點](./media/cdn-query-string/cdn-endpoints.png)
    
-2. 在 [設定] 下的左窗格中按一下**快取規則**。
+2. 在左窗格的 [設定] 下方，按一下 [快取規則]。
    
-    ![CDN 快取規則 按鈕](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![CDN 快取規則按鈕](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. 在 [查詢字串快取行為] 清單中，選取查詢字串模式，然後按一下 [儲存]。
    

@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/18/2017
 
 如果您的輸出資產是已加密的儲存體，就必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/18/2017
 >
 > 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 >
-> 當使用 JSON，並指定要使用**__metadata**關鍵字在要求中 （例如，若要參考連結物件），您必須設定**接受**標頭[詳細資訊 JSON 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)： 接受： 應用程式/json; odata = 詳細資訊。
+> 使用 JSON 並指定在要求中使用 **__metadata** 關鍵字時 (例如，為了參考連結的物件)，您必須將 **Accept** 標頭設為 [JSON Verbose 格式 (英文)](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
 >
 >
 
@@ -89,14 +89,14 @@ ms.lasthandoff: 12/18/2017
 
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
-## <a name="considerations"></a>注意事項
-* TaskBody 屬性必須使用 XML 常值，來定義工作所使用的輸入或輸出資產數目。 工作本文會包含 XML 結構描述定義的 xml。
+## <a name="considerations"></a>考量
+* TaskBody 屬性必須使用 XML 常值，來定義工作所使用的輸入或輸出資產數目。 工作文章包含 XML 的 XML 結構描述定義。
 * 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 每個工作可以有多個輸出資產。 一個 JobOutputAsset(x) 只能使用一次做為工作中的工作輸出。
 * 您可以指定 JobInputAsset 或 JobOutputAsset 做為工作的輸入資產。
 * 工作不能形成循環。
 * 您傳遞至 JobInputAsset 或 JobOutputAsset 的 value 參數代表資產的索引值。 實際的資產定義於作業實體定義上的 InputMediaAsset 與 OutputMediaAsset 導覽屬性中。
-* 因為 Media Services 內建於 OData v3，因此 Inputmediaasset 與 Outputmediaasset 導覽屬性集合中的個別資產參考透過"__metadata: uri"名稱 / 值組。
+* 由於媒體服務建置在 OData v3 之上，因此，會透過 "__metadata: uri" 名稱/值組來參考 InputMediaAsset 與 OutputMediaAsset 導覽屬性集合中的個別資產。
 * InputMediaAsset 對應至您在媒體服務中建立的一或多個資產。 OutputMediaAsset 由系統建立。 它們不會參考現有的資產。
 * OutputMediaAsset 可以使用 assetName 屬性來命名。 如果這個屬性不存在，則 OutputMediaAsset 的名稱是 <outputAsset> 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。 例如，如果您將 assetName 的值設為 "Sample"，則會將 OutputMediaAsset Name 屬性設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將作業名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 12/18/2017
     }
 
 
-### <a name="considerations"></a>注意事項
+### <a name="considerations"></a>考量
 啟用工作鏈結：
 
 * 一個作業至少必須有 2 個工作。
@@ -276,5 +276,5 @@ ms.lasthandoff: 12/18/2017
 ## <a name="next-steps"></a>後續步驟
 現在您已了解如何建立作業來為資產編碼，請參閱[如何使用媒體服務檢查作業進度](media-services-rest-check-job-progress.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [取得媒體處理器](media-services-rest-get-media-processor.md)

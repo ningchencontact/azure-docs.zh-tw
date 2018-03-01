@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 處理並分析 JSON 文件
 
@@ -151,7 +151,6 @@ SerDe 是剖析巢狀 JSON 文件的最佳選擇。 它可讓您定義的 JSON �
 * [搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案](../hdinsight-use-hive.md)
 * [在 HDInsight 中使用 Hive 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)
 * [在 HDInsight 中使用 Hive 分析 Twitter 資料](../hdinsight-analyze-twitter-data.md)
-* [使用 Azure Cosmos DB 和 HDInsight 執行 Hadoop 工作](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

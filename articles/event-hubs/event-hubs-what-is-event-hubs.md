@@ -12,25 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 08b78f59dc758f12556f332546ccb6043bef2812
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-event-hubs"></a>何謂事件中樞？
 
 Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠接收和處理數百萬個事件的事件內嵌服務。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 藉由提供大規模的低延遲[發佈訂閱功能](/biztalk/core/publish-and-subscribe-architecture)，事件中樞能成為引進巨量資料的途徑。
-
-## <a name="why-use-event-hubs"></a>為何使用事件中樞？
-
-事件中樞的事件和遙測處理功能特別適用於︰
-
-* 應用程式檢測
-* 使用者經驗或工作流程處理
-* 物聯網 (IoT) 案例
 
 例如，事件中樞能追蹤行動應用程式中的行為、接收 Web 伺服陣列的流量資訊、擷取遊戲機遊戲中的遊戲內部事件，或是從產業用機器、連接的車輛或其他裝置收集遙測。
 

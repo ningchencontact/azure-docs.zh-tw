@@ -15,14 +15,14 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>將現有的 blob 複製到媒體服務資產
-本文將說明如何將 blob 儲存體帳戶複製到新的 Azure 媒體服務 (AMS) 資產使用[Azure Media Services.NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/)。
+本文章說明如何使用 [Azure 媒體服務 .NET SDK 延伸模組](https://github.com/Azure/azure-sdk-for-media-services-extensions/)將 Blob 從儲存體帳戶複製到新的 Azure 媒體服務 (AMS) 資產。
 
-使用擴充方法：
+此擴充方法適用於：
 
 - 一般資產。
 - 即時封存資產 (FragBlob 格式)。
@@ -32,16 +32,16 @@ ms.lasthandoff: 12/11/2017
 > 請勿在不使用媒體服務 API 的情況下，嘗試變更由媒體服務所產生的 blob 容器內容。
 > 
 
-發行項會顯示兩個程式碼範例：
+此文章顯示兩個程式碼範例：
 
 1. 將 Blob 從一個 AMS 帳戶中的資產複製到另一個 AMS 帳戶中的新資產。
 2. 將 Blob 從某些儲存體帳戶複製到 AMS 帳戶中的新資產。
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>在兩個 AMS 帳戶之間複製 Blob  
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
-兩個媒體服務帳戶。 請參閱文章[如何建立 Media Services 帳戶](media-services-portal-create-account.md)。
+兩個媒體服務帳戶。 請參閱文章[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 
 ### <a name="download-sample"></a>下載範例
 您可以遵循本文中的步驟，或者您可以從[這裡](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)下載包含本文所述的程式碼範例。
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="set-up-your-project"></a>設定專案
 
 1. 設定您的開發環境，如[使用 .NET 進行媒體服務開發](media-services-dotnet-how-to-use.md)中所述。 
-2. 加入.config 檔案中的 appSettings 區段和更新的值，根據您的 Media Services 帳戶、 目的地儲存體帳戶和來源資產識別碼。  
+2. 將 appSettings 區段新增至 .config 檔中，並根據媒體服務帳戶、目的地儲存體帳戶及來源資產識別碼將值更新。  
 
 ```   
 <appSettings>
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>從儲存體帳戶將 Blob 複製到 AMS 帳戶 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 - 您從中複製 Blob 的來源儲存體帳戶。
 - 您要將 Blob 複製到其中的 AMS 帳戶。
@@ -182,7 +182,7 @@ namespace CopyExistingBlobsIntoAsset
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>從某些儲存體帳戶複製 blob 至新的資產，AMS 帳戶
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>將 Blob 從某些儲存體帳戶複製到 AMS 帳戶中的新資產
 
 下列程式碼會將 Blob 從儲存體帳戶複製到媒體服務資產。 
 

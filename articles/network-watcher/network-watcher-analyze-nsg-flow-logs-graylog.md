@@ -17,7 +17,7 @@ ms.date: 09/19/2017
 ms.author: mareat
 ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -153,7 +153,7 @@ ms.lasthandoff: 12/11/2017
 最後，輸出區段會將每個 Logstash 事件轉送到 Graylog 伺服器。 若要符合您的特定需求，請視需要修改 Logstash 設定檔。
 
    > [!NOTE]
-   > 先前的組態檔會假設 Graylog 伺服器已設定本機主機回送 IP 位址 127.0.0.1。 如果沒有，請務必將輸出區段中的主機參數變更為正確的 IP 位址。
+   > 先前的組態檔假設 Graylog 伺服器已經在本機主機回送 IP 位址 127.0.0.1 上設定。 如果沒有，請務必將輸出區段中的主機參數變更為正確的 IP 位址。
 
 如需 Logstash 的進一步安裝指示，請參閱 Logstash [文件](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)。
 

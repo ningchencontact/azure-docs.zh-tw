@@ -1,19 +1,19 @@
 ---
-title: "在適用於 MySQL 的 Azure 資料庫伺服器中建立使用者 | Microsoft Docs"
+title: "在適用於 MySQL 的 Azure 資料庫伺服器中建立使用者"
 description: "本文說明如何建立新的使用者帳戶，來與「適用於 MySQL 的 Azure 資料庫」伺服器互動。"
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 8adb74e11570ac60ad3b898b737cff4699f2bbf1
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>在適用於 MySQL 的 Azure 資料庫伺服器中建立使用者 
 本主題說明如在「適用於 MySQL 的 Azure 資料庫」伺服器中建立使用者。
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/28/2017
 5. 指定委派的資料庫，使用新的使用者名稱和密碼來登入伺服器。 此範例會顯示 mysql 命令列。 執行此命令時，系統會提示您輸入使用者名稱的密碼。 取代您自己的伺服器名稱、資料庫名稱和使用者名稱。
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>後續步驟

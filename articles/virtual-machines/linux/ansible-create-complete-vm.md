@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>使用 Ansible 在 Azure 中建立完整的 Linux 虛擬機器環境
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器 (VM)，就像是任何其他資源一樣。 本文說明如何使用 Ansible 建立完整的 Linux 環境與支援的資源。 您也可以了解如何[使用 Ansible 建立基本 VM](ansible-create-vm.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 Ansible 管理 Azure 資源，您需要下列各項：
 
 - 在您的主機系統上安裝 Ansible 和 Azure Python SDK 模組。
@@ -105,7 +105,7 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
 
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-最後一個步驟是建立 VM，然後使用建立的所有資源。 Ansible 腳本中的以下區段會建立名為 *myVM* 的 VM，並附加名為 *myNIC* 的虛擬 NIC。 輸入您自己完整公開金鑰資料中的*key_data*配對，如下所示：
+最後一個步驟是建立 VM，然後使用建立的所有資源。 Ansible 腳本中的以下區段會建立名為 *myVM* 的 VM，並附加名為 *myNIC* 的虛擬 NIC。 在 key_data 配對中輸入您自己的完整公開金鑰資料，如下所示：
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
 ```
 
 ## <a name="complete-ansible-playbook"></a>完整 Ansible 腳本
-若要將所有這些章節結合在一起，建立名為 Ansible 腳本*azure_create_complete_vm.yml*並貼上下列內容。 輸入您自己完整公開金鑰資料中的*key_data*組：
+若要這些區段全部整合在一起，請建立名為 *azure_create_complete_vm.yml* 的 Ansible 腳本，然後貼上下列內容。 在 key_data 配對中輸入您自己的完整公開金鑰資料：
 
 ```yaml
 - name: Create Azure VM
@@ -187,7 +187,7 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
         version: latest
 ```
 
-Ansible 需要一個資源群組，以將所有的資源部署至該群組。 使用 [az group create](/cli/azure/vm#create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+Ansible 需要一個資源群組，以將所有的資源部署至該群組。 使用 [az group create](/cli/azure/vm#az_vm_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

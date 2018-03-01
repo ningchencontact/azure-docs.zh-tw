@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell 中 Bash 的快速入門
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/15/2017
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Azure CLI 2.0 預設會將用來驗證 VM 的公開金鑰和私密金鑰置於 `/User/.ssh/id_rsa` 和 `/User/.ssh/id_rsa.pub`。 您的 .ssh 資料夾會保存在所附加之 Azure 檔案共用的 5-GB 映像中。
+> Azure CLI 2.0 預設會將用來驗證 VM 的公開金鑰和私密金鑰置於 `/home/<user>/.ssh/id_rsa` 和 `/home/<user>/.ssh/id_rsa.pub`。 您的 .ssh 資料夾會保存在所附加之 Azure 檔案共用的 5-GB 映像中。
 
 您在此 VM 上的使用者名稱，將會是用於 Cloud Shell 中的使用者名稱 ($User@Azure:)。
 
@@ -78,5 +78,5 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>後續步驟
 [了解保存 Cloud Shell 中 Bash 的檔案](persisting-shell-storage.md) <br>
-[了解 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) \(英文\) <br>
+[了解 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [了解 Azure 檔案儲存體](../storage/files/storage-files-introduction.md) <br>

@@ -1,6 +1,6 @@
 ---
-title: "Azure Blueprint (藍圖) 自動化 - 適用於 FedRAMP 的 Web 應用程式"
-description: "Azure Blueprint (藍圖) 自動化 - 適用於 FedRAMP 的 Web 應用程式"
+title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化"
+description: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Azure Blueprint (藍圖) 自動化 - 適用於 FedRAMP 的 Web 應用程式
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化
 
 ## <a name="overview"></a>概觀
 
-[聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov) \(英文\) 為美國政府層面的計劃，提供雲端產品與服務的安全評估、授權及持續監視的標準方法。 此＜Azure Blueprint (藍圖) 自動化 - 適用於 FedRAMP 的 Web 應用程式＞提供的指導方針可用來部署符合 FedRAMP 規範的基礎結構即服務 (IaaS) 環境，且此環境適合網際網路面向的簡易 Web 應用程式。 此解決方案將一般參考架構的 Azure 資源部署和設定自動化，其中示範的方式讓客戶能符合特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定他們自己的解決方案之基礎。 此解決方案會根據 NIST SP 800-53 實作 FedRAMP 高標準基準的控制措施子集。 如需 FedRAMP 高標準需求和此解決方案的詳細資訊，請參閱 [FedRAMP 高標準需求 - 高層級概觀](fedramp-controls-overview.md)。 ***注意：此解決方案是部署到 Azure Government。***
+[聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov) \(英文\) 為美國政府層面的計劃，提供雲端產品與服務的安全評估、授權及持續監視的標準方法。 此「Azure 安全性與合規性藍圖自動化」所提供的指引可用來部署符合 FedRAMP 規範的基礎結構即服務 (IaaS) 環境，且此環境適合網際網路面向的簡易 Web 應用程式。 此解決方案將一般參考架構的 Azure 資源部署和設定自動化，其中示範的方式讓客戶能符合特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定他們自己的解決方案之基礎。 此解決方案會根據 NIST SP 800-53 實作 FedRAMP 高標準基準的控制措施子集。 如需 FedRAMP 高標準需求和此解決方案的詳細資訊，請參閱 [FedRAMP 高標準需求 - 高層級概觀](fedramp-controls-overview.md)。 ***注意：此解決方案是部署到 Azure Government。***
 
 此架構的目的是作為基礎，讓客戶進行調整以符合其特定需求，不應完全未經修改就用於生產環境中。 未經修改即將應用程式部署至此環境，會無法完全符合 FedRAMP 高標準基準的需求。 請注意：
 - 此架構提供了一個基準，可協助客戶以符合 FedRAMP 規範的方式來使用 Azure。
@@ -36,13 +36,13 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="solution-components"></a>方案元件
 
-此「Azure Blueprint (藍圖) 自動化」使用預先設定的安全性措施，自動部署 IaaS Web 應用程式參考架構，以協助客戶符合 FedRAMP 需求的規範。 解決方案包含引導資源部署與設定的 Azure Resource Manager 範本和 PowerShell 指令碼。 已附上 Azure Blueprint (藍圖) [合規性文件](#compliance-documentation)，指出繼承自 Azure 安全性措施及已部署且符合 NIST SP 800-53 安全性措施的資源與設定，因此可讓組織快速追蹤合規性義務。
+此「Azure 安全性與合規性藍圖自動化」會使用預先設定的安全性措施，自動部署 IaaS Web 應用程式參考架構，以協助客戶符合 FedRAMP 需求的規範。 解決方案包含引導資源部署與設定的 Azure Resource Manager 範本和 PowerShell 指令碼。 已附上[合規性文件](#compliance-documentation)，指出繼承自 Azure 安全性控制措施及已部署且符合 NIST SP 800-53 安全性控制措施的資源與設定，因此可讓組織快速追蹤合規性義務。
 
 ## <a name="architecture-diagram"></a>架構圖表
 
 此解決方案會部署具有資料庫後端之 IaaS Web 應用程式的參考架構。 架構包含 Web 層、資料層、Active Directory 基礎結構、應用程式閘道及負載平衡器。 部署到 Web 層和資料層的虛擬機器是設定在可用性設定組中，而 SQL Server 是設定在適用於高可用性的 AlwaysOn 可用性群組中。 虛擬機器已加入網域，而且使用 Active Directory 群組原則來強化作業系統層級的安全性與合規性設定。 管理 Jumpbox (防禦主機) 提供可讓系統管理員存取部署資源的安全連線。
 
-![替代文字](images/fedramp-architectural-diagram.png?raw=true " 適用於符合 FedRAMP 規範之環境的 IaaS Web 應用程式藍圖自動化")
+![alt text](images/fedramp-architectural-diagram.png?raw=true "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化")
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
@@ -139,7 +139,7 @@ SQL Database 設定成使用[透明資料加密 (TDE)](https://docs.microsoft.co
 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 提供系統、使用者活動及系統健康情況的廣泛記錄。 
 
 - **活動記錄：**  [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。
-- **診斷記錄：**  [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
+- **診斷記錄：**[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
 - **記錄封存：**Azure 活動記錄和診斷記錄可以連線到 Azure Log Analytics 進行處理、儲存及顯示在儀表板。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
 ### <a name="secrets-management"></a>祕密管理
@@ -182,7 +182,7 @@ SQL Database 設定成使用[透明資料加密 (TDE)](https://docs.microsoft.co
 
 ### <a name="patch-management"></a>修補程式管理
 
-根據預設，這個藍圖自動化所部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 這個解決方案也會部署 OMS Azure 自動化解決方案，可透過此解決方案來建立更新部署，以在需要時將修補程式部署到 Windows 伺服器。
+根據預設，此「Azure 安全性與合規性藍圖自動化」所部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 這個解決方案也會部署 OMS Azure 自動化解決方案，可透過此解決方案來建立更新部署，以在需要時將修補程式部署到 Windows 伺服器。
 
 ### <a name="operations-management"></a>Operations Management
 
@@ -211,11 +211,11 @@ Log Analytics 是 [Operations Management Suite (OMS)](https://azure.microsoft.co
 
 ### <a name="control-implementation-matrix"></a>措施實作對照表
 
-[措施實作對照表](https://aka.ms/blueprintwacim) (Excel 活頁簿) 列出 FedRAMP 高標準基準要求的所有安全性措施。 對照表中針對客戶責任對照表中指定為客戶責任的每個措施 (或措施的子項目)，指出 1) 藍圖自動化是否實作該措施，以及 2) 該實作如何符合措施需求的說明。 此內容也可以在[這裡](fedramp-controls-overview.md)取得。
+[措施實作對照表](https://aka.ms/blueprintwacim) (Excel 活頁簿) 列出 FedRAMP 高標準基準要求的所有安全性措施。 對照表會針對客戶責任對照表中指定為客戶責任的每個控制措施 (或控制措施的子項目)，指出 1) 藍圖自動化是否會實作該控制措施，以及 2) 該實作如何符合控制措施需求的說明。 此內容也可以在[這裡](fedramp-controls-overview.md) \(英文\) 取得。
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-此 Azure Blueprint (藍圖) 解決方案包含 JSON 設定檔和 PowerShell 指令碼，它們由 Azure Resource Manager 的 API 服務處理以在 Azure 中部署資源。 詳細的部署指示可於[這裡](https://aka.ms/fedrampblueprintrepo) \(英文\) 取得。 ***注意：此解決方案是部署到 Azure Government。***
+此「Azure 安全性與合規性藍圖自動化」包含 JSON 設定檔和 PowerShell 指令碼，它們會由 Azure Resource Manager 的 API 服務來處理，以在 Azure 中部署資源。 詳細的部署指示可於[這裡](https://aka.ms/fedrampblueprintrepo) \(英文\) 取得。 ***注意：此解決方案是部署到 Azure Government。***
 
 #### <a name="quickstart"></a>快速入門
 1. 將[這個](https://aka.ms/fedrampblueprintrepo) GitHub 存放庫複製或下載到您的本機工作站。

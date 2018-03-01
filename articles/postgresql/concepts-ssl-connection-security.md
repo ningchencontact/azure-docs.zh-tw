@@ -1,20 +1,20 @@
 ---
-title: "在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力 | Microsoft Docs"
+title: "在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力"
 description: "用以設定適用於 PostgreSQL 之 Azure 資料庫及相關聯應用程式以適當使用 SSL 連接的指示與資訊。"
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力
 適用於 PostgreSQL 的 Azure 資料庫偏好使用安全通訊端層 (SSL)，來將用戶端應用程式連接到 PostgreSQL 服務。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 您可以在 Azure CLI 中分別使用 `Enabled` 或 `Disabled` 值，來啟用或停用 **sssl-enforcement** 參數。
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>確定您的應用程式或架構支援 SSL 連線
@@ -116,11 +116,11 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 使用 PostgreSQL 命令列介面，執行下列命令：
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 如果成功，您應該會收到下列輸出：
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

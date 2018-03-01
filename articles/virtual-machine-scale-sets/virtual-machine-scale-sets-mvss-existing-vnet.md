@@ -17,7 +17,7 @@ ms.date: 06/27/2017
 ms.author: negat
 ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="change-the-template-definition"></a>變更範本定義
 
-可行的最小小數位數組範本可以看到[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)，而且可以看到的範本部署到現有的虛擬網路設定標尺[這裡](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set existing-vnet`) 的差異：
+您可以在[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)看到最基本的可行擴展集範本，並在[這裡](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)看到用於將擴展集部署至現有虛擬網路的範本。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set existing-vnet`) 的差異：
 
-首先，新增`subnetId`參數。 這個字串會傳遞至小數位數組設定中，讓標尺集中找出預先建立的子網路來部署到虛擬機器。 這個字串的格式必須是︰`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`。 例如，若要將擴展集部署到名稱為 `myvnet`、子網路為 `mysubnet`、資源群組為 `myrg` 和訂用帳戶為 `00000000-0000-0000-0000-000000000000` 的現有虛擬網路，subnetId 會是：`/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`。
+首先，新增 `subnetId` 參數。 這個字串會傳遞至擴展集組態，讓擴展集可識別要將虛擬機器部署到的預建子網路。 這個字串的格式必須是︰`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`。 例如，若要將擴展集部署到名稱為 `myvnet`、子網路為 `mysubnet`、資源群組為 `myrg` 和訂用帳戶為 `00000000-0000-0000-0000-000000000000` 的現有虛擬網路，subnetId 會是：`/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`。
 
 ```diff
      },
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/20/2017
    },
 ```
 
-接下來，刪除從虛擬網路資源`resources`陣列，當您使用現有的虛擬網路，並不需要部署新的連線。
+接下來，從 `resources` 陣列刪除虛擬網路資源，因為您使用現有虛擬網路，因此不需要部署新的資源。
 
 ```diff
    "variables": {},
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/20/2017
          "capacity": 2
 ```
 
-最後，傳入`subnetId`使用者所設定的參數 (而不是使用`resourceId`相同部署中取得的 vnet 的識別碼，這是可行的最小比例設定範本沒有)。
+最後，傳入使用者所設定的 `subnetId` 參數 (而不是使用 `resourceId` 來取得相同部署中的 vnet 識別碼，這是最基本的可行擴展集範本的作法)。
 
 ```diff
                        "name": "myIpConfig",

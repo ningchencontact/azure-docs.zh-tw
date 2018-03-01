@@ -1,6 +1,6 @@
 ---
-title: "Azure 資源管理員範本變數 |Microsoft 文件"
-description: "描述如何使用宣告式 JSON 語法 Azure Resource Manager 範本中定義的變數。"
+title: "Azure Resource Manager 範本變數 | Microsoft Docs"
+description: "描述如何使用宣告式 JSON 語法在 Azure Resource Manager 範本中定義變數。"
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,16 +15,16 @@ ms.date: 12/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 8d9f227ad1f450cf6cdfca1dafb1b51bc6f6c9f9
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本變數區段
+# <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Variables 區段
 在 variables 區段中，您會建構可用於整個範本中的值。 您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
 
-## <a name="define-and-use-a-variable"></a>定義和使用變數
+## <a name="define-and-use-a-variable"></a>定義及使用變數
 
-下列範例會顯示變數的定義。 它會建立儲存體帳戶名稱的字串值。 它會使用數個樣板函式取得參數值時，處理並串連的唯一字串。
+下列範例顯示變數定義。 它會建立儲存體帳戶名稱的字串值。 而且使用數個範本函式來取得一個參數值，並將該值串連至唯一字串。
 
 ```json
 "variables": {
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/13/2017
 },
 ```
 
-定義資源時，您可以使用變數。
+您可在定義資源時使用此變數。
 
 ```json
 "resources": [
@@ -42,9 +42,9 @@ ms.lasthandoff: 12/13/2017
     ...
 ```
 
-## <a name="available-definitions"></a>可用的定義
+## <a name="available-definitions"></a>可用定義
 
-上述範例會示範一個方式來定義變數。 您可以使用任何下列定義：
+上述範例示範了定義變數的一種方式。 您也可以使用下列任何定義：
 
 ```json
 "variables": {
@@ -75,9 +75,9 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-## <a name="configuration-variables"></a>組態變數
+## <a name="configuration-variables"></a>設定變數
 
-您可以使用 JSON 的複雜型別定義的環境相關的值。 
+您可以使用複雜 JSON 類型來定義環境的相關值。 
 
 ```json
 "variables": {
@@ -94,7 +94,7 @@ ms.lasthandoff: 12/13/2017
 },
 ```
 
-在參數中，您可以建立值，指出使用的組態值。
+在 parameters 中，您可建立一個值來表示所要使用的組態值。
 
 ```json
 "parameters": {
@@ -108,15 +108,15 @@ ms.lasthandoff: 12/13/2017
 },
 ```
 
-您會擷取與目前的設定：
+您可利用下列方式來擷取目前的設定：
 
 ```json
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-## <a name="use-copy-element-in-variable-definition"></a>變數定義中使用複製項目
+## <a name="use-copy-element-in-variable-definition"></a>在變數定義中使用 copy 元素
 
-您可以使用 **copy** 語法來建立具有多個項目陣列的變數。 您提供項目數目的計數。 每個項目在 **input** 物件內包含屬性。 您可以在變數內使用 copy，或使用 copy 建立變數。 當您定義的變數，並使用**複製**內該變數中，您會建立具有陣列屬性的物件。 當您使用**複製**艟鷁並定義一個或更多內的變數，建立一或多個陣列。 下列範例中會展示這兩種方法：
+您可以使用 **copy** 語法來建立具有多個項目陣列的變數。 您提供項目數目的計數。 每個項目在 **input** 物件內包含屬性。 您可以在變數內使用 copy，或使用 copy 建立變數。 當您定義變數並在該變數內使用 **copy** 時，您會建立具有 array 屬性的物件。 當您在最頂層使用 **copy** 並在其中定義一個或多個變數時，您會建立一或多個陣列。 下列範例中會展示這兩種方法：
 
 ```json
 "variables": {
@@ -147,7 +147,7 @@ ms.lasthandoff: 12/13/2017
 },
 ```
 
-變數**磁碟式陣列上的物件**包含下列物件的陣列，名為**磁碟**:
+**disk-array-on-object** 變數包含下列物件，其具有名為 **disks** 的陣列：
 
 ```json
 {
@@ -171,7 +171,7 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-變數**磁碟上的層級陣列**包含下列陣列：
+**disks-top-level-array** 變數包含下列陣列：
 
 ```json
 [
@@ -220,7 +220,7 @@ ms.lasthandoff: 12/13/2017
 },
 ```
 
-這個方法適用於需要參數值，請確定它們處於正確的格式範本值時。 下列範例會格式化定義安全性規則所使用的參數值：
+當您需要取得參數值並確定這些值為正確的範本值格式時，很適合使用此方法。 下列範例會將參數值格式化，以便用於定義安全性規則：
 
 ```json
 {
@@ -273,17 +273,17 @@ ms.lasthandoff: 12/13/2017
 
 * 您需要在範本中使用一次以上的值，才使用變數。 如果值只會使用一次，硬式編碼值會讓您的範本較容易看懂。
 * 您不能使用範本之 **variables** 區段中的 [reference](resource-group-template-functions-resource.md#reference) 函式。 **reference** 函式的值是從資源的執行階段狀態所衍生。 不過，將範本初始剖析時，會將變數加以解析。 請直接在範本的 **resources** 或 **outputs** 區段中，建構需要 **reference** 函式的值。
-* 包含必須是唯一的資源名稱的變數。
+* 包含變數以用於必須是唯一的資源名稱。
 
 ## <a name="example-templates"></a>範本的範例
 
-這些範例範本示範某些案例中使用變數。 將其部署到測試變數在不同案例中的處理方式。 
+這些範例範本會示範使用變數的一些情況。 部署這些範本以測試如何在不同的情況下處理變數。 
 
 |範本  |說明  |
 |---------|---------|
-| [變數定義](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 示範不同類型的變數。 範本不會部署任何資源。 它會建構變數值，並傳回這些值。 |
-| [組態變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 示範如何使用定義的組態值的變數。 範本不會部署任何資源。 它會建構變數值，並傳回這些值。 |
-| [網路安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json)和[參數檔案](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | 建構陣列中的指派到的網路安全性群組安全性規則的正確格式。 |
+| [變數定義](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 示範不同類型的變數。 範本不會部署任何資源。 它會建構變數值並傳回這些值。 |
+| [組態變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 示範如何使用可定義組態值的變數。 範本不會部署任何資源。 它會建構變數值並傳回這些值。 |
+| [網路安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json)和[參數檔案](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | 建構正確格式的陣列，以便將安全性規則指派給網路安全性群組。 |
 
 
 ## <a name="next-steps"></a>後續步驟

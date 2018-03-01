@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Azure Cosmos DB 繫結
 
@@ -745,6 +745,12 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 
 > [!Note]  
 > 當您指定現有文件的識別碼時，新的輸出文件會覆寫現有文件。 
+
+## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
+
+| 繫結 | 參考 |
+|---|---|
+| DocumentDB | [DocumentDB 錯誤碼](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>後續步驟
 

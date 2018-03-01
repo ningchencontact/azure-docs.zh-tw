@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-diagnostic-logs"></a>服務匯流排診斷記錄
 
 您可以檢視「Azure 服務匯流排」的兩種記錄：
-* **[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
+* **[活動記錄檔](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
 * **[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**。 您可以設定診斷記錄，以取得在工作內所發生之所有事件的更詳細資訊。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="turn-on-diagnostic-logs"></a>開啟診斷記錄
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/17/2017
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-名稱 | 說明
+Name | 說明
 ------- | -------
 ActivityId | 用於追蹤的內部識別碼
 EventName | 作業名稱           
-resourceId | Azure Resource Manager 資源識別碼
+ResourceId | Azure Resource Manager 資源識別碼
 SubscriptionId | 訂用帳戶識別碼
 EventTimeString | 作業時間
 EventProperties | 作業屬性
@@ -93,7 +93,7 @@ category | OperationalLogs
 
 ## <a name="next-steps"></a>後續步驟
 
-請造訪下列連結以深入了解服務匯流排：
+請參閱下列連結以深入了解服務匯流排：
 
 * [服務匯流排簡介](service-bus-messaging-overview.md)
 * [開始使用服務匯流排](service-bus-dotnet-get-started-with-queues.md)

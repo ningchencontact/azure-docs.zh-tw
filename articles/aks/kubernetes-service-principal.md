@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1bf366d08ba9b8cf28c266aa4ac2d521465db44b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
@@ -83,7 +83,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --service-pri
 * 指定服務主體的 [用戶端識別碼] 時，您可以使用 `appId` 的值 (如本文所示) 或對應的服務主體`name` (例如，`https://www.contoso.org/example`)。
 * 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
 * 當您使用 `az aks create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/acsServicePrincipal.json` 檔案。
-* 當您使用 `az aks create` 命令自動產生服務主體時，服務主體也可以向在訂用帳戶中建立的 [Azure Container Registry][acr-intro] 進行驗證。
 * 刪除 `az aks create` 所建立的 AKS 叢集時，將不會刪除自動建立的服務主體。 您可以使用 `az ad sp delete --id $clientID` 將它刪除。
 
 ## <a name="next-steps"></a>後續步驟

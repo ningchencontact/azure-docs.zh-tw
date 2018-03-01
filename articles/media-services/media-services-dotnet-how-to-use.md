@@ -23,14 +23,14 @@ ms.lasthandoff: 12/11/2017
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-這篇文章會討論如何開始開發使用.NET 的 Media Services 應用程式。
+本文章討論如何使用 .NET 開始開發媒體服務應用程式。
 
 **Azure Media Services .NET SDK 程式庫** 可讓您使用 .NET 對媒體服務進行程式設計。 為了讓使用 .NET 進行開發更為簡單，會提供 **Azure Media Services .NET SDK 延伸模組** 程式庫。 此程式庫包含一組延伸方法和協助程式函數，以簡化 .NET 程式碼。 這兩個程式庫都是透過 **NuGet** 和 **GitHub** 取得。
 
-## <a name="prerequisites"></a>必要條件
-* 新的或現有 Azure 訂用帳戶中的媒體服務帳戶。 請參閱文章[如何建立 Media Services 帳戶](media-services-portal-create-account.md)。
+## <a name="prerequisites"></a>先決條件
+* 新的或現有 Azure 訂用帳戶中的媒體服務帳戶。 請參閱文章[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
-* .NET framework 4.5 或更新版本。
+* .NET Framework 4.5 或更新版本。
 * Visual Studio。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/11/2017
     3. 在 .NET Framework 組件底下，尋找並選取 System.Configuration 組件，然後按 [確定]。
 6. 開啟 App.config 檔案並將 **appSettings** 區段新增至檔案。 設定連接媒體服務 API 時所需的值。 如需詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-設定使用的連接時所需的值**服務主體**驗證方法。  
+設定使用**服務主體**驗證方法連接時所需的值。  
 
         <configuration>
         ...
@@ -73,8 +73,8 @@ ms.lasthandoff: 12/11/2017
                 <add key="AMSClientSecret" value="secret"/>
             </appSettings>
         </configuration>
-7. 新增**System.Configuration**參考加入專案。
-7. 覆寫現有**使用**為下列程式碼的 Program.cs 檔案開頭的陳述式：
+7. 將 **System.Configuration** 參考新增至專案。
+7. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 **using** 陳述式：
            
         using System;
         using System.Configuration;

@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 844e6756316aad13918c2a16391f33b2941de7dc
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 
 本快速入門將逐步引導您使用 REST API 完成利用 Azure 媒體服務 (AMS) 來實作點播視訊 (VoD) 內容傳遞應用程式。
 
-教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。 完成本教學課程時，您就能夠串流處理或漸進式下載範例媒體檔案，您可以上傳、 編碼，以及下載項目。
+教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。 完成本教學課程時，您將能夠串流或以漸進方式下載您已上傳、編碼和下載的範例媒體檔案。
 
 下列影像顯示針對媒體服務 OData 模型開發 VoD 應用程式時一些最常用的物件。
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/08/2017
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要下列必要條件，才能開始使用 REST API 用媒體服務進行開發。
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -51,16 +51,16 @@ ms.lasthandoff: 12/08/2017
 6. 播放您的內容。
 
 >[!NOTE]
->對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您使用相同的日期 / 存取權限，例如，維持備妥要很長的時間 （非上載原則） 給定位器的原則，請使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
+>對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限 (例如要長時間維持就地的定位器原則 (非上載原則))，請使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
-如需本文章中所用的 AMS REST 實體的詳細資訊，請參閱[Azure 媒體服務 REST API 參考](/rest/api/media/services/azure-media-services-rest-api-reference)。 此外，請參閱 [Azure 媒體服務概念](media-services-concepts.md)。
+如需本文章中所用之 AMS REST 實體的詳細資訊，請參閱 [Azure 媒體服務 REST API 參考](/rest/api/media/services/azure-media-services-rest-api-reference)。 此外，請參閱 [Azure 媒體服務概念](media-services-concepts.md)。
 
 >[!NOTE]
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>使用 Azure 入口網站開始串流端點
 
-當使用 Azure Media Services，其中一個最常見的案例會將視訊透過串流處理彈性位元速率。 媒體服務提供動態封裝，這讓您以媒體服務即時支援的串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供自適性 MP4 編碼內容，而不必儲存這些串流格式個別的預先封裝版本。
+使用 Azure 媒體服務時，其中一個最常見的案例是透過自適性串流提供影片。 媒體服務提供動態封裝，這讓您以媒體服務即時支援的串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供自適性 MP4 編碼內容，而不必儲存這些串流格式個別的預先封裝版本。
 
 >[!NOTE]
 >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。
@@ -459,7 +459,7 @@ SAS URL 具有下列格式：
     }
 
 ### <a name="create-a-job"></a>建立工作
-每個工作可以有一或多個工作，視您想要完成的處理類型而定。 您可以透過 REST API 以兩種方式的其中之一建立工作和其相關工作：工作可以透過 Job 實體上的 Tasks 導覽屬性，或透過 OData 批次處理進行內嵌定義。 媒體服務 SDK 使用批次處理。 不過，本文章中的程式碼範例的可讀性，工作會以內嵌方式定義。 如需批次處理的資訊，請參閱 [開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
+每個工作可以有一或多個工作，視您想要完成的處理類型而定。 您可以透過 REST API 以兩種方式的其中之一建立工作和其相關工作：工作可以透過 Job 實體上的 Tasks 導覽屬性，或透過 OData 批次處理進行內嵌定義。 媒體服務 SDK 使用批次處理。 不過，為了本文章中程式碼範例的可讀性，工作都是以內嵌定義。 如需批次處理的資訊，請參閱 [開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
 
 下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。 下列文件區段包含媒體編碼器標準處理器支援的所有 [工作預設](http://msdn.microsoft.com/library/mt269960) 清單。  
 
@@ -559,7 +559,7 @@ SAS URL 具有下列格式：
 
 有任何工作要求中有一些重要事項要注意：
 
-* TaskBody 屬性必須使用 XML 常值來定義工作所使用的輸入或輸出資產數目。 工作本文會包含 XML 結構描述定義的 xml。
+* TaskBody 屬性必須使用 XML 常值來定義工作所使用的輸入或輸出資產數目。 工作文章包含 XML 的 XML 結構描述定義。
 * 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 每個工作可以有多個輸出資產。 一個 JobOutputAsset(x) 只能使用一次做為工作中的工作輸出。
 * 您可以指定 JobInputAsset 或 JobOutputAsset 做為工作的輸入資產。
@@ -585,7 +585,7 @@ SAS URL 具有下列格式：
 如需詳細資訊，請參閱 [使用媒體服務 REST API 建立編碼工作](media-services-rest-encode-asset.md)。
 
 ### <a name="monitor-processing-progress"></a>監看處理進度
-在下列範例所示，您可以使用 [狀態] 屬性中，擷取作業狀態：
+您可以使用 State 屬性擷取工作狀態，如下列範例所示：
 
 **HTTP 要求**
 

@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C：針對具有 Twitter 帳戶的取用者提供註冊和登入
-
-> [!NOTE]
-> 這項功能處於預覽狀態。
-> 
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 若要在 Azure Active Directory (Azure AD) B2C 中使用 Twitter 作為識別提供者，您必須建立 Twitter 應用程式，並對其提供正確參數。 您需要 Twitter 開發人員帳戶才能執行這項操作。 如果您沒有該帳戶，您可以在 [https://dev.twitter.com/](https://dev.twitter.com/) 上申請。
@@ -46,3 +42,6 @@ ms.lasthandoff: 12/11/2017
 6. 按一下 [設定此識別提供者]，然後輸入 Twitter 的**取用者金鑰**來作為**用戶端識別碼**，以及輸入 Twitter 的**取用者祕密**來作為**用戶端祕密**。
 7. 依序按一下 [確定] 和 [建立]，儲存您的 Twitter 設定。
 
+## <a name="next-steps"></a>後續步驟
+
+建立或編輯[內建原則](active-directory-b2c-reference-policies.md)，然後將 Twitter 新增為身分識別提供者。

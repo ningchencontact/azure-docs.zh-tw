@@ -65,5 +65,5 @@ Cloud Foundry 非常適合敏捷式軟體開發，包括使用持續整合 (CI) 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [從 Azure Marketplace 部署 Pivotal Cloud Foundry (英文)](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [從 Azure Marketplace 部署 Pivotal Cloud Foundry](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
 - [在 Azure 將應用程式部署至 Cloud Foundry](./cloudfoundry-deploy-your-first-app.md)

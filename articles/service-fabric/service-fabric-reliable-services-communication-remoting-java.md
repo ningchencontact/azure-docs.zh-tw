@@ -15,7 +15,7 @@ ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -101,7 +101,7 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ServiceProxy 會處理服務分割區 (ServiceProxy 即是為其建立) 的所有容錯移轉列外狀況。 發生容錯移轉例外狀況 (非暫時性例外狀況) 時，ServiceProxy 會重新解析端點，然後以正確的端點再次嘗試呼叫。 容錯移轉例外狀況的重試次數並無限制。
 若是發生 TransientExceptions，ServiceProxy 僅會重試呼叫。
 
-預設的重試參數會由 [OperationRetrySettings] 提供。 (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings)使用者可以設定這些值將 OperationRetrySettings 物件傳遞給 ServiceProxyFactory 建構函式。
+預設的重試參數會由 [OperationRetrySettings] 提供。 (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) 使用者可透過將 OperationRetrySettings 物件傳遞給 ServiceProxyFactory 建構函式來設定這些值。
 
 ## <a name="next-steps"></a>後續步驟
 * [Reliable Services 的安全通訊](service-fabric-reliable-services-secure-communication.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL.NET API、 SDK 與資源 |Microsoft 文件"
-description: "深入了解 SQL.NET API 和 SDK 包括發行日期、 停用日期，以及每個 Azure Cosmos DB.NET SDK 版本之間所做的變更。"
+title: "Azure Cosmos DB：SQL .NET API、SDK 和資源 | Microsoft Docs"
+description: "全面了解 SQL .NET API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET SDK 每個版本之間的變更。"
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API 的 azure Cosmos DB.NET SDK： 下載和版本資訊
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API：下載和版本資訊
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**範例**</td><td>[.NET 程式碼範例](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**快速入門**</td><td>[開始使用 Azure Cosmos DB .NET SDK 教學課程](sql-api-get-started.md)</td></tr>
+<tr><td>**開始使用**</td><td>[開始使用 Azure Cosmos DB .NET SDK 教學課程](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Web 應用程式教學課程**</td><td>[使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* 修正 FeedOptions.MaxItemCount = -1 擲回 System.ArithmeticException 的迴歸：頁面大小為負數。
+* 在 QueryMetrics 加入了新的 ToString() 函式。
+* 公開關於讀取收集的分割區統計資料。
+* 在 ChangeFeedOptions 加入了 PartitionKey 屬性。
+* 次要錯誤修正。
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * 新增能力以使用 DocumentCollection 上的 UniqueKeyPolicy 屬性，指定文件的唯一索引。
@@ -88,7 +96,7 @@ ms.lasthandoff: 12/18/2017
 *   已新增對 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) 具現化時指定自訂 JsonSerializerSettings 的支援。
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   已修正的問題影響 x64 機器，不支援 SSE4 指令並執行 Azure Cosmos DB SQL 查詢時，會擲回 SEHException。
+*   已修正當執行 Azure Cosmos DB SQL 查詢時，受影響的 x64 機器不支援 SSE4 指令並且擲回 SEHException 的問題。
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   已新增對名為 ConsistentPrefix 的新一致性層級的支援。
@@ -277,6 +285,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |2018 年 2 月 5 日 |--- |
 | [1.19.1](#1.19.1) |2017 年 11 月 16 日 |--- |
 | [1.19.0](#1.19.0) |2017 年 11 月 10 日 |--- |
 | [1.18.1](#1.18.1) |2017 年 11 月 7 日 |--- |
@@ -324,6 +333,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 

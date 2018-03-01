@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 447f9119ea379e278be77d8699c7dcb751ea3085
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: cc9a61314de7e10afe370c3b1307d03544a379d5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-ad-domain-services---troubleshooting-network-security-group-configuration"></a>Azure AD Domain Services - 針對網路安全性群組設定進行疑難排解
+# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
+本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：
 
-
-
-## <a name="aadds104-network-error"></a>AADDS104：網路錯誤
-
+## <a name="alert-aadds104-network-error"></a>警示 AADDS104：網路錯誤
 **警示訊息：***Microsoft 無法觸達此受控網域的網域控制站。如果虛擬網路上設定的網路安全性群組 (NSG) 封鎖受控網域的存取，就可能發生這種情況。另一個可能的原因，是使用者定義的路由封鎖了來自網際網路的連入流量。*
 
-Azure AD Domain Services 網路錯誤最常見的原因可歸咎於 NSG 設定不正確。 若要確保 Microsoft 能夠服務並維護受控網域，您必須使用網路安全性群組 (NSG) 來允許子網路內[特定連接埠](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)的存取。 如果這些連接埠遭到封鎖，Microsoft 就無法存取其所需的資源，而可能對您的服務有所危害。 在建立 NSG 時，請將這些連接埠保持開啟，以確保服務不中斷。
+Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 為您虛擬網路設定的「網路安全性群組」(NSG) 必須允許存取[特定連接埠](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)。 如果這些連接埠遭到封鎖，Microsoft 便無法監視或更新您的受控網域。 此外，也會影響到 Azure AD 目錄與受控網域之間的同步處理。 建立 NSG 時，請將這些連接埠保持開啟，以避免服務中斷。
+
 
 ## <a name="sample-nsg"></a>NSG 範例
 下表描述的 NSG 範例，能讓受控網域保持安全，同時允許 Microsoft 監視、管理及更新資訊。
@@ -36,119 +35,136 @@ Azure AD Domain Services 網路錯誤最常見的原因可歸咎於 NSG 設定�
 ![NSG 範例](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 >[!NOTE]
-> Azure AD Domain Services 需要不受限制的輸出存取。 建議您不要對 NSG 建立任何其他輸出規則。
+> Azure AD Domain Services 會要求來自虛擬網路的對外存取不受限制。 建議您不要建立任何額外的 NSG 規則來限制虛擬網路的對外存取。
 
-## <a name="adding-a-rule-to-a-network-security-group-using-the-azure-portal"></a>使用 Azure 入口網站對網路安全性群組新增規則
-如果您不想使用 PowerShell，則可使用 Azure 入口網站，手動對 NSG 新增單一規則。 請遵循下列步驟，在網路安全性群組中建立規則。
+## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>使用 Azure 入口網站將規則新增至網路安全性群組
+如果您不想使用 PowerShell，則可使用 Azure 入口網站，手動對 NSG 新增單一規則。 若要在網路安全性群組中建立規則，請完成下列步驟：
 
 1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面
-2. 從資料表選擇與網域相關聯的 NSG。
-3. 在左側導覽的 [設定] 下，按一下 [輸入安全性規則] 或 [輸出安全性規則]。
+2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
+3. 在左側面板的 [設定] 底下，按一下 [輸入安全性規則] 或 [輸出安全性規則]。
 4. 按一下 [新增] 並填入資訊來建立規則。 按一下 [SERVICEPRINCIPAL] 。
 5. 在規則資料表中尋找您的規則，確認規則已建立。
 
 
-## <a name="create-a-default-nsg-using-powershell"></a>使用 PowerShell 來建立預設 NSG
+## <a name="create-an-nsg-for-azure-ad-domain-services-using-powershell"></a>使用 PowerShell 來為 Azure AD Domain Services 建立 NSG
+此 NSG 會設定成允許對 Azure AD Domain Services 所需連接埠的輸入流量，但拒絕任何其他不需要的對內存取。
 
-前述步驟可讓您使用 PowerShell 建立新的 NSG，以將執行 Azure AD Domain Services 所需的所有連接埠保持開啟，同時拒絕任何其他不必要的存取。
+**先決條件：安裝並設定 Azure PowerShell。**請依照指示來[安裝 Azure PowerShell 模組並連線至您的 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json) \(英文\)。
 
+>[!TIP]
+> 建議您使用最新版的 Azure PowerShell 模組。 如果您已經安裝舊版的 Azure PowerShell 模組，則請更新至最新版本。
+>
 
-這個解決方案需要您安裝及執行 [Azure AD Powershell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0)。
-
-1. 連線到 Azure AD 目錄。
-
-  ```PowerShell
-  # Connect to your Azure AD directory.
-  Connect-AzureAD
-  ```
-2. 登入 Azure 訂用帳戶。
+依下列步驟使用 PowerShell 來建立新的 NSG。 
+1. 登入 Azure 訂用帳戶。
 
   ```PowerShell
   # Log in to your Azure subscription.
   Login-AzureRmAccount
   ```
 
-3. 建立具有三個規則的 NSG。 下列指令碼會定義 NSG 的三個規則，從而允許系統存取要執行 Azure AD Domain Services 所需使用的連接埠。 接著，此指令碼會建立包含這些規則的新 NSG。 您可以使用相同的格式，適當地新增其他規則。
+2. 建立具有三個規則的 NSG。 下列指令碼會定義 NSG 的三個規則，從而允許系統存取要執行 Azure AD Domain Services 所需使用的連接埠。 接著，此指令碼會建立包含這些規則的新 NSG。 如果在虛擬網路中部署的工作負載需要，請使用相同的格式來新增允許其他輸入流量的額外規則。
 
   ```PowerShell
-  # Create the rules needed
-  $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
+  # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
+  $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
+  -Description "Allow synchronization with Azure AD" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 443
-  $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
+
+  # Allow management of your domain over port 5986 (PowerShell Remoting)
+  $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
+  -Description "Allow management of domain through port 5986" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
+  -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, `
+  13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, `
+  52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, `
+  52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 `
+  -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 5986
+
+  # Allow management of your domain over port 3389 (remote desktop).
+  $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
+  -Description "Allow management of domain through port 3389" `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389
-  $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
-  -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
-  -SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 5986
+
   # Create the NSG with the 3 rules above
-  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
-  -Name "AADDS-NSG" -SecurityRules $rule1,$rule2,$rule3
+  $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
+  -Name "AAD-DomainServices-NSG" -SecurityRules $SyncRule,$PSRemotingRule,$RemoteDesktopRule
   ```
 
-4. 最後，此指令碼會將 NSG 與您選擇的 VNet 和子網路建立關聯。
+3. 最後，將 NSG 與所選擇的 VNet 和子網路建立關聯。
 
   ```PowerShell
   # Find vnet and subnet
-  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
+  $Vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroup -Name $VnetName
+  $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $Vnet -Name $SubnetName
+
   # Set the nsg to the subnet and save the changes
-  $subnet.NetworkSecurityGroup = $nsg
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  $Subnet.NetworkSecurityGroup = $Nsg
+  Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
   ```
 
-### <a name="full-script"></a>完整指令碼
+## <a name="full-script-to-create-and-apply-an-nsg-for-azure-ad-domain-services"></a>用以建立及套用 Azure AD Domain Services 之 NSG 的完整指令碼
+>[!TIP]
+> 建議您使用最新版的 Azure PowerShell 模組。 如果您已經安裝舊版的 Azure PowerShell 模組，則請更新至最新版本。
+>
 
 ```PowerShell
-#Change the following values to match your deployment
-$resourceGroup = "ResourceGroupName"
-$vnetName = "exampleVnet"
-$subnetName = "exampleSubnet"
-
-$serviceIPs = "52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161"
-
-# Create the rules needed
-$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 443
-
-$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389
-
-$rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
--SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389
-
-
-# Connect to your Azure AD directory.
-Connect-AzureAD
+# Change the following values to match your deployment
+$ResourceGroup = "ResourceGroupName"
+$Location = "westus"
+$VnetName = "exampleVnet"
+$SubnetName = "exampleSubnet"
 
 # Log in to your Azure subscription.
 Login-AzureRmAccount
 
+# Allow inbound HTTPS traffic to enable synchronization to your managed domain.
+$SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
+-Description "Allow synchronization with Azure AD" `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+-SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 443
+
+# Allow management of your domain over port 5986 (PowerShell Remoting)
+$PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
+-Description "Allow management of domain through port 5986" `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
+-SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, `
+13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, `
+52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, `
+52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 `
+-SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 5986
+
+# Allow management of your domain over port 3389 (remote desktop).
+$RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
+-Description "Allow management of domain through port 3389" `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
+-SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 3389
+
 # Create the NSG with the 3 rules above
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
--Name "NSG-Default" -SecurityRules $rule1,$rule2,$rule3
+$Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
+-Name "AAD-DomainServices-NSG" -SecurityRules $SyncRule,$PSRemotingRule,$RemoteDesktopRule
 
 # Find vnet and subnet
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
+$Vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroup -Name $VnetName
+$Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $Vnet -Name $SubnetName
 
 # Set the nsg to the subnet and save the changes
-$subnet.NetworkSecurityGroup = $nsg
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+$Subnet.NetworkSecurityGroup = $Nsg
+Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
 ```
 
 > [!NOTE]
->此預設 NSG 不會鎖定對於安全 LDAP 所用之連接埠的存取。 若要了解如何建立此連接埠的規則，請瀏覽[這篇文章](active-directory-ds-troubleshoot-ldaps.md)。
+> 此預設 NSG 不會鎖定對於安全 LDAP 所用之連接埠的存取。 若要將透過網際網路進行安全 LDAP 存取的功能鎖定，請參閱[這篇文章](active-directory-ds-troubleshoot-ldaps.md)。
 >
 
-## <a name="contact-us"></a>與我們連絡
+## <a name="need-help"></a>需要協助嗎？
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](active-directory-ds-contact-us.md)。

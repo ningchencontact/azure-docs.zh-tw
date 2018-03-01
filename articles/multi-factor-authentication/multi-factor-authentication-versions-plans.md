@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 67456fa865a7bc1057194d577cd79ce6378a7ac9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/08/2018
 
 下表說明三種 Multi-Factor Authentication 版本之間的差異︰
 
-| 版本 | 描述 |
+| 版本 | 說明 |
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 入口網站管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本隨附於 Office 365 訂用帳戶。 |
 | 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 Azure AD 全域系統管理員帳戶啟用雙步驟驗證，而不需要額外收費。|
@@ -67,6 +67,9 @@ ms.lasthandoff: 01/08/2018
 | 記住受信任裝置的 MFA |● |● |● |
 | MFA SDK | | |● (已過時) | 
 | 內部部署應用程式的 MFA | | |● |
+
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>如何開啟 Azure AD 系統管理員適用的 Azure Multi-Factor Authentication
+Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 Azure AD 全域系統管理員帳戶啟用雙步驟驗證，而不需要額外收費。 如果您使用 Microsoft 帳戶，您可以在[這裡](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification)註冊多重要素驗證。 如果您不是使用 Microsoft 帳戶，請在[這裡](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)開啟全域系統管理員的多重要素驗證。
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，有數個選項︰

@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 來建立完整的 Linux 虛擬機器
 若要在 Azure 中快速建立虛擬機器 (VM)，您可以使用單一的 Azure CLI 命令，此命令會使用預設值來建立任何必要的支援資源。 系統會自動建立虛擬網路、公用 IP 位址及網路安全性群組規則等資源。 若要在生產環境使用案例中對您的環境進行更多控制，您可以預先建立這些資源，然後再將 VM 新增到這些資源中。 本文將引導您了解如何建立 VM 及逐一建立每個支援資源。
 
-請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
+請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 ## <a name="create-resource-group"></a>建立資源群組
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 您必須在建立虛擬機器和支援虛擬網路支援之前，先建立資源群組。 使用 [az group create](/cli/azure/group#create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 您必須在建立虛擬機器和支援虛擬網路支援之前，先建立資源群組。 使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Azure CLI 命令的輸出預設是採用 JSON (JavaScript 物件標記法) 格式。 舉例來說，若要將預設輸出變更為清單或資料表，請使用 [az configure --output](/cli/azure/#configure)。 您也可以將 `--output` 新增到任何命令，以輸出格式進行一次變更。 下列範例顯示來自 `az group create` 命令的 JSON 輸出：
+Azure CLI 命令的輸出預設是採用 JSON (JavaScript 物件標記法) 格式。 舉例來說，若要將預設輸出變更為清單或資料表，請使用 [az configure --output](/cli/azure/#az_configure)。 您也可以將 `--output` 新增到任何命令，以輸出格式進行一次變更。 下列範例顯示來自 `az group create` 命令的 JSON 輸出：
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Azure CLI 命令的輸出預設是採用 JSON (JavaScript 物件標記法) 格�
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>建立虛擬網路和子網路
-接著，您需在 Azure 中建立一個虛擬網路，以及一個可供您建立 VM 的子網路。 請使用 [az network vnet create](/cli/azure/network/vnet#create) 來建立一個名為 *myVnet* 且位址首碼為 *192.168.0.0/16* 的虛擬網路。 您還需新增一個名為 *mySubnet* 且位址首碼為 *192.168.1.0/24* 的子網路：
+接著，您需在 Azure 中建立一個虛擬網路，以及一個可供您建立 VM 的子網路。 請使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 來建立一個名為 *myVnet* 且位址首碼為 *192.168.0.0/16* 的虛擬網路。 您還需新增一個名為 *mySubnet* 且位址首碼為 *192.168.1.0/24* 的子網路：
 
 ```azurecli
 az network vnet create \
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-輸出會顯示虛擬網路內以邏輯方式建立子網路：
+輸出會將子網路顯示為以邏輯方式建立在虛擬網路內︰
 
 ```json
 {
@@ -102,7 +102,7 @@ az network vnet create \
 
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
-現在，讓我們使用 [az network public-ip create](/cli/azure/network/public-ip#create) 來建立公用 IP 位址。 此公用 IP 位址可讓您從網際網路連線至 VM。 預設的位址是動態的因為建立具名的 DNS 項目與`--domain-name-label`參數。 下列範例會建立名為 *myPublicIP* 的公用 IP，其 DNS 名稱為 *mypublicdns*。 由於 DNS 名稱必須是唯一的，因此請提供您自己的唯一 DNS 名稱︰
+現在，讓我們使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 來建立公用 IP 位址。 此公用 IP 位址可讓您從網際網路連線至 VM。 由於預設位址是動態位址，請使用 `--domain-name-label` 參數來建立具名的 DNS 項目。 下列範例會建立名為 *myPublicIP* 的公用 IP，其 DNS 名稱為 *mypublicdns*。 由於 DNS 名稱必須是唯一的，因此請提供您自己的唯一 DNS 名稱︰
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ az network public-ip create \
 
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
-若要控制流量傳送出您的 Vm，您可以套用網路安全性群組虛擬 NIC，還是子網路。 下列範例會使用 [az network nsg create](/cli/azure/network/nsg#create) 來建立名為 *myNetworkSecurityGroup* 的網路安全性群組：
+若要控制進出 VM 的流量，請將網路安全性群組套用至虛擬 NIC 或子網路。 下列範例會使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 來建立名為 *myNetworkSecurityGroup* 的網路安全性群組：
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-您定義規則，允許或拒絕特定的流量。 若要允許連接埠 22 （若要啟用 SSH 存取） 上的傳入的連接，建立 輸入的規則與[az 網路 nsg 規則建立](/cli/azure/network/nsg/rule#create)。 下列範例會建立名為 myNetworkSecurityGroupRuleSSH 的規則：
+您需定義允許或拒絕特定流量的規則。 若要允許連接埠 22 上的輸入連線 (以支援 SSH 存取)，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 建立輸入規則。 下列範例會建立名為 myNetworkSecurityGroupRuleSSH 的規則：
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-若要允許連接埠 80 （適用於 web 流量） 上的傳入的連接，請加入另一個網路安全性群組規則。 下列範例會建立一個名為 *myNetworkSecurityGroupRuleHTTP* 的規則：
+若要允許連接埠 80 上的輸入連線 (Web 流量)，請新增另一個網路安全性群組規則。 下列範例會建立一個名為 *myNetworkSecurityGroupRuleHTTP* 的規則：
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-使用 [az network nsg show](/cli/azure/network/nsg#show) 檢查網路安全性群組及規則：
+使用 [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) 檢查網路安全性群組及規則：
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 ```
 
 ## <a name="create-a-virtual-nic"></a>建立虛擬 NIC
-虛擬網路介面卡 (NIC) 可透過程式設計方式供您使用，因為您可以將規則套用到 NIC 的使用上。 取決於[VM 大小](sizes.md)，您可以將多個虛擬 Nic 附加至 VM。 在下列[az 網路 nic 建立](/cli/azure/network/nic#create)命令時，建立名為的 NIC *myNic*並將它與您的網路安全性群組關聯。 公用 IP 位址 *myPublicIP* 也會與虛擬 NIC 建立關聯。
+虛擬網路介面卡 (NIC) 可透過程式設計方式供您使用，因為您可以將規則套用到 NIC 的使用上。 視 [VM 大小](sizes.md)而定，您可以將多個虛擬 NIC 附加至 VM。 在下列 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 命令中，您會建立一個名為 *myNic* 的 NIC，並將它與網路安全性群組建立關聯。 公用 IP 位址 *myPublicIP* 也會與虛擬 NIC 建立關聯。
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ az network nic create \
 
 將多個 VM 放在一個可用性設定組中時，Azure 會自動將它們分散到容錯和更新網域。 如需詳細資訊，請參閱[管理 VM 的可用性](manage-availability.md)。
 
-請使用 [az vm availability-set create](/cli/azure/vm/availability-set#create) 來建立 VM 的可用性設定組。 下列範例會建立名為 myAvailabilitySet 的可用性設定組：
+請使用 [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) 來建立 VM 的可用性設定組。 下列範例會建立名為 myAvailabilitySet 的可用性設定組：
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ az vm availability-set create \
 
 
 ## <a name="create-a-vm"></a>建立 VM
-您已建立網路資源來支援可存取網際網路的 VM。 現在，請建立 VM 並使用 SSH 金鑰來保護它。 在此範例中，我們來建立 VM，根據最近 LTS Ubuntu。 您可以使用 [az vm image list](/cli/azure/vm/image#list) 來找出其他映像，如[尋找 Azure VM 映像](cli-ps-findimage.md)所述。
+您已建立網路資源來支援可存取網際網路的 VM。 現在，請建立 VM 並使用 SSH 金鑰來保護它。 在此範例中，我們根據最新的 LTS 建立 Ubuntu VM。 您可以使用 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 來找出其他映像，如[尋找 Azure VM 映像](cli-ps-findimage.md)所述。
 
-指定要用於驗證 SSH 金鑰。 如果您沒有 SSH 公開金鑰組，則可以[建立 SSH 公開金鑰組](mac-create-ssh-keys.md)，或使用 `--generate-ssh-keys` 參數來為您建立這些金鑰組。 如果您已經有金鑰組，此參數會使用現有的索引鍵中`~/.ssh`。
+指定要用於驗證的 SSH 金鑰。 如果您沒有 SSH 公開金鑰組，則可以[建立 SSH 公開金鑰組](mac-create-ssh-keys.md)，或使用 `--generate-ssh-keys` 參數來為您建立這些金鑰組。 如果您已經有金鑰組，此參數就會使用 `~/.ssh` 中的現有金鑰。
 
-將所有的資源和搭配的資訊來建立 VM [az vm 建立](/cli/azure/vm#create)命令。 下列範例會建立名為 myVM 的 VM。
+請使用 [az vm create](/cli/azure/vm#az_vm_create) 命令將我們的所有資源和資訊結合在一起來建立 VM。 下列範例會建立名為 myVM 的 VM。
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ sudo apt-get install -y nginx
 ![您 VM 上的預設 NGINX 站台](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>以範本形式匯出
-如果您現在想要使用相同的參數來建立其他開發環境，或想要建立與其相符的生產環境，該怎麼辦？ Resource Manager 可使用定義了所有環境參數的 JSON 範本。 您可以藉由參考此 JSON 範本來建置整個環境。 您可以[手動建立 JSON 範本](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，或將現有的環境匯出來為您建立 JSON 範本。 使用 [az group export](/cli/azure/group#export) 來匯出您的資源群組，如下所示︰
+如果您現在想要使用相同的參數來建立其他開發環境，或想要建立與其相符的生產環境，該怎麼辦？ Resource Manager 可使用定義了所有環境參數的 JSON 範本。 您可以藉由參考此 JSON 範本來建置整個環境。 您可以[手動建立 JSON 範本](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，或將現有的環境匯出來為您建立 JSON 範本。 使用 [az group export](/cli/azure/group#az_group_export) 來匯出您的資源群組，如下所示︰
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 此命令會在您目前的工作目錄中建立 `myResourceGroup.json` 檔案。 當您從這個範本建立環境時，系統會提示您輸入所有資源名稱。 您可以藉由將 `--include-parameter-default-value` 參數新增到 `az group export` 命令中，在您的範本檔案中填入這些名稱。 請編輯您的 JSON 範本以指定資源名稱，或 [建立 parameters.json 檔案](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來指定資源名稱。
 
-若要從您的範本建立環境，請使用 [az group deployment create](/cli/azure/group/deployment#create)，如下所示︰
+若要從您的範本建立環境，請使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)，如下所示︰
 
 ```azurecli
 az group deployment create \

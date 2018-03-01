@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 
 ## <a name="overview"></a>概觀
-媒體處理器是元件，可處理特定的視訊或音訊處理工作，例如編碼、 格式轉換、 加密，或解密媒體內容。 送出至 Media Services 的所有工作都需要編碼、 加密或轉換的視訊或音訊內容的媒體處理器。 
+媒體處理器是一項元件，可處理特定處理視訊或音訊工作，例如編碼、格式轉換、加密或解密媒體內容。 提交至媒體服務的所有工作都需要媒體處理器，才能編碼、加密或轉換視訊或音訊內容。 
 
 ## <a name="azure-media-processors"></a>Azure 媒體處理器 
 
@@ -87,5 +87,5 @@ ms.lasthandoff: 12/18/2017
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
-您現在知道如何取得媒體處理器執行個體，請移至[如何編碼資產](media-services-rest-get-started.md)其中會示範如何將資產編碼使用的媒體編碼器標準發行項。
+既然您已了解如何取得媒體處理器執行個體，請移至[如何為資產編碼](media-services-rest-get-started.md)文章，其示範如何使用媒體編碼器標準將資產編碼。
 

@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>預測性維護實際案例。
 
-對所有企業來說，設備在非排程的時間停機將會造成不利影響。 因此，務必要讓現場設備保持運作，並減少代價很高的非排程停機時間，才能達到最大使用率和效能。 及早發現問題有助於以更符合成本效益的方式配置為數不多的維護資源，並增強品質和供應鏈流程。 
+對所有企業來說，設備在非排程的時間停機將會造成不利影響。 務必讓現場設備保持運作，並減少代價很高的非排程停機時間，才能達到最大使用率和效能。 及早發現問題有助於以更符合成本效益的方式配置為數不多的維護資源，並增強品質和供應鏈流程。 
 
 此案例探索相對[大規模模擬資料集](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data)，以從資料擷取、功能工程、模型建置以及模型運作和部署來逐步解說預測性維護資料科學專案。 整個程序的程式碼是在 Azure ML Workbench 內利用 PySpark 以 Jupyter Notebooks 撰寫的。 最終的模型會使用 Azure Machine Learning 模型管理部署，以進行即時設備故障預測。   
 
 ## <a name="link-to-the-gallery-github-repository"></a>連結至資源庫 GitHub 存放庫
 
-以下是公用 GitHub 存放庫的連結：[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+以下是問題報告與解答的公用 GitHub 存放庫的連結：[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>使用案例概觀
@@ -36,11 +36,11 @@ ms.lasthandoff: 01/12/2018
 
 此模擬資料的企業問題是要預測元件故障所造成的問題。 因此，企業問題是「機器因為元件故障而當機的機率有多高？」 這個問題會格式化為多級分類問題 (每個機器的多個元件)，並使用機器學習演算法來建立預測性模型。 我們會使用從機器收集到的歷史資料來訓練模型。 在此案例中，使用者會經歷各種步驟，以在 Azure Machine Learning Workbench 環境中實作這類模型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Azure 帳戶](https://azure.microsoft.com/en-us/free/) (有提供免費試用)。
 * 遵循[快速入門安裝指南](./quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
-* 「Azure Machine Learning 操作化」需要一個本機部署環境，以及一個[模型管理帳戶](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* 「Azure Machine Learning 操作化」需要一個本機部署環境，以及一個[模型管理帳戶](model-management-overview.md)
 
 此範例可在任何 AML Workbench 計算環境中執行。 不過，建議至少以 16 GB 的記憶體來執行它。 此案例是在執行遠端 DS4_V2 標準[適用於 Linux (Ubuntu) 的資料科學虛擬機器](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)的 Windows 10 電腦上建置並測試的。
 
@@ -52,8 +52,8 @@ ms.lasthandoff: 01/12/2018
 1.  開啟 Azure Machine Learning Workbench
 2.  在 [專案] 頁面上，按一下 **+** 符號，然後選取 [新增專案]
 3.  在 [建立新專案] 窗格中，填入新專案的資訊
-4.  在 [搜尋專案範本] 搜尋方塊中輸入「預測性維護」並選取範本
-5.  按一下 [建立] 
+4.  在 [搜尋專案範本] 搜尋方塊中輸入「預測性維護」並選取 [預測性維護] 範本
+5.  按一下 [建立] 按鈕
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>準備筆記本伺服器計算目標
 
@@ -125,13 +125,15 @@ az ml notebook start
 
 ## <a name="references"></a>參考
 
-此使用案例先前已在多個平台上開發過：
+許多不同的平台上也提供了其他預測性維護使用案例：
 
 * [預測性維護解決方案範本](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [預測性維護建模指南](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [使用 SQL R 服務的預測性維護建模指南](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [預測性維護建模指南 Python 筆記本](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [使用 PySpark 的預測性維護](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [深入學習預測性維護](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>後續步驟
 

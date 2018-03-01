@@ -6,19 +6,19 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 59dceded1e72e6e0e3d1a2bb25ca63bd023a9d21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>關於 Azure Container Service (AKS) 的常見問題集
 
 本文將說明關於 Azure Container Service (AKS) 的常見問題。
 
-## <a name="which-azure-regions-will-have-azure-container-service-aks"></a>哪些 Azure 區域會有 Azure Container Service (AKS)？ 
+## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>目前，哪些 Azure 區域提供 Azure Container Service (AKS)？
 
 - 加拿大中部 
 - 加拿大東部 
@@ -32,13 +32,17 @@ ms.lasthandoff: 02/03/2018
 
 需求增加時，便會新增其他區域。
 
-## <a name="are-security-updates-applied-to-aks-nodes"></a>是否會將安全性更新套用至 AKS 節點？ 
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>安全性更新是否會套用至 AKS 代理程式節點？ 
 
-我們會排程在夜間將 OS 安全性修補程式套用至叢集中的節點，但不會執行重新啟動。 如有需要，您可以透過入口網站或 Azure CLI 重新啟動節點。 升級叢集時會使用最新的 Ubuntu 映像，並套用所有安全性修補程式 (而且會重新啟動)。
+Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的節點。 不過，您有責任確保節點已視需要重新啟動。 您有多個執行節點重新啟動的選項：
 
-## <a name="do-you-recommend-customers-use-acs-or-akss"></a>是否建議客戶使用 ACS 或 AKS？ 
+- 手動、透過 Azure 入口網站，或透過 Azure CLI。 
+- 藉由升級 AKS 叢集。 叢集會自動升級 [cordon 和 drain 節點](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)，然後使用最新的 Ubuntu 映像加以備份。 您可以在節點上更新作業系統映像，無需透過在 `az aks upgrade` 指定目前叢集版本以變更 Kubernetes 版本。
+- 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 然後按照先前所述的相同的 cordon 和 drain 程序，在整個叢集中協調這些重新啟動作業。
 
-有鑑於 Azure Container Service (AKS) 將會在日後正式運作，建議您在 AKS 建置 PoC、開發和測試叢集，但在 ACS-Kubernetes 建置生產叢集。  
+## <a name="do-you-recommend-customers-use-acs-or-aks"></a>是否建議客戶使用 ACS 或 AKS？ 
+
+雖然 AKS 仍處於預覽狀態，但我們建議使用 ACS-Kubernetes 或 [acs-engine](https://github.com/azure/acs-engine) 建立生產叢集。 您可以使用 AKS 進行概念證明部署，和開發/測試環境。
 
 ## <a name="when-will-acs-be-deprecated"></a>何時會取代 ACS？ 
 
@@ -48,13 +52,27 @@ ms.lasthandoff: 02/03/2018
 
 不支援節點自動調整，但目前正在規劃。 您可以看一下這個開放原始碼架構的[自動調整實作][auto-scaler]。
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？ 
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS 是否支援 Kubernetes 角色型存取控制 (RBAC)？
 
-第二個資源群組是系統自動建立的，以方便您刪除所有與 AKS 部署相關聯的資源。
+否，AKS 中目前不支援 RBAC，但即將可行。   
+
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>可以將 AKS 部署到我現有的虛擬網路嗎？
+
+無法，這項功能尚無法使用，但即將可行。
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否會與 AKS 整合？ 
 
 不會，但已在規劃這項整合。 於此同時，您可以嘗試 [Hexadite][hexadite] 所提供的下列解決方案。 
+
+## <a name="can-i-run-windows-server-containers-on-aks"></a>我是否可以在 AKS 上執行 Windows Server 容器？
+
+不可以，AKS 目前未提供以 Windows Server 為基礎的代理程式節點，因此您無法執行 Windows Server 容器。 如果您需要在 Azure 中的 Kubernetes 上執行 Windows Server 容器，請參閱 [acs 引擎的說明文件](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)。
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？ 
+
+每個 AKS 部署皆跨越兩個資源群組。 第一個是您所建立的資源群組，僅包含 AKS 資源。 AKS 資源提供者會在部署期間自動建立第二個資源群組，例如 *MC_myResourceGRoup_myAKSCluster_eastus*。 第二個資源群組包含所有與該叢集相關聯的基礎結構資源，例如虛擬機器、網路功能，以及儲存體。 建立該資源群組是為了簡化資源清除。 
+
+如果您想建立與 AKS 叢集搭配使用的資源，例如儲存體帳戶或保留的公用 IP 位址，您應該將這些資源置於自動產生的資源群組中。
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

@@ -16,7 +16,7 @@ ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -150,7 +150,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
     其中一個串流分析作業會將原始內送資料寫入 blob 儲存體。 如果您從成功部署解決方案的畫面按一下解決方案的 [Azure Blob 儲存體]元件，然後在右窗格中按一下 [開啟]，系統會帶您前往 [Azure 入口網站](https://portal.azure.com)。 到達那裡之後，按一下 [Blob]。 在接下來的面板中，您會看到容器的清單。 按一下 [energysadata]。 在接下來的面板中，您會看到 [demandongoing] 資料夾。 在 rawdata 資料夾內，您會看到具有如 date=2016-01-28 等名稱的資料夾。如果您看到這些資料夾，則表示原始資料已經成功在您的電腦上產生並儲存在 blob 儲存體。 您應該會在這些資料夾中看到具有有限大小 (MB) 的檔案。
 2. 檢查 Azure SQL Database 中的資料。
 
-    管線的最後一個步驟是將資料 (例如從機器學習的預測) 寫入至 SQL Database。 您可能必須等候兩個小時，才會出現在 SQL 資料庫資料的最大值。 監視您的 SQL Database 中有多少資料可用的其中一個方法是透過 [Azure 入口網站](https://portal.azure.com/)。 在左窗格中，找到 SQL 資料庫![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)，然後按一下它。 然後找到您的資料庫 (亦即 demo123456db) 並且按一下它。 在下一個頁面的 [連接至您的資料庫] 區段下方，按一下 [對您的 SQL Database 執行 Transact-SQL 查詢]。
+    管線的最後一個步驟是將資料 (例如從機器學習的預測) 寫入至 SQL Database。 您可能必須等候最多兩個小時，資料才會出現在 SQL Database。 監視您的 SQL Database 中有多少資料可用的其中一個方法是透過 [Azure 入口網站](https://portal.azure.com/)。 在左側面板找到並按一下 SQL DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)。 然後找到您的資料庫 (亦即 demo123456db) 並且按一下它。 在下一個頁面的 [連接至您的資料庫] 區段下方，按一下 [對您的 SQL Database 執行 Transact-SQL 查詢]。
 
     在這裡，您可以按一下 [新增查詢] 並查詢資料列數目 (例如，從 DemandRealHourly 選取 count(*)。隨著資料庫成長，資料表中的資料列數目應該會增加)。
 3. 檢查 Power BI 儀表板中的資料。

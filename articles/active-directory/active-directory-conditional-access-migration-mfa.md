@@ -1,6 +1,6 @@
 ---
-title: "移轉需要多重要素驗證在 Azure 入口網站的傳統原則 |Microsoft 文件"
-description: "本文將說明如何遷移傳統的原則，要求在 Azure 入口網站的多重要素驗證。"
+title: "在 Azure 入口網站中移轉要求多重要素驗證的傳統原則 | Microsoft Docs"
+description: "本文示範在 Azure 入口網站中移轉要求多重要素驗證的傳統原則。"
 services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
@@ -18,19 +18,19 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 77484dc3773736ea15c39ede5f9d49b6b694d960
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>遷移傳統的原則，要求在 Azure 入口網站的多重要素驗證 
+# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>在 Azure 入口網站中移轉要求多重要素驗證的傳統原則 
 
-本文將說明如何遷移傳統的原則，要求**多重要素驗證**雲端應用程式。 雖然它不是必要條件，我們建議您先閱讀[移轉 Azure 入口網站中的傳統原則](active-directory-conditional-access-migration.md)開始移轉您的傳統原則之前。
+本文示範如何移轉要求雲端應用程式進行**多重要素驗證**的傳統原則。 雖然這不是必要條件，但我們建議您先閱讀[在 Azure 入口網站中移轉傳統原則](active-directory-conditional-access-migration.md)，再開始移轉傳統原則。
 
 
  
 ## <a name="overview"></a>概觀 
 
-這篇文章中的案例示範如何移轉傳統的原則，要求**多重要素驗證**雲端應用程式。 
+本文中的案例示範如何移轉要求雲端應用程式進行**多重要素驗證**的傳統原則。 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 
@@ -53,11 +53,11 @@ ms.lasthandoff: 12/12/2017
 
     ![條件式存取](./media/active-directory-conditional-access-migration-mfa/02.png)
 
-3. 在**管理**區段中，按一下**傳統原則 （預覽）**。
+3. 在 [管理] 區段中，按一下 [傳統原則 (預覽)]。
 
     ![傳統原則](./media/active-directory-conditional-access-migration-mfa/12.png)
 
-4. 在傳統的原則清單中，按一下 原則，要求**多重要素驗證**雲端應用程式。
+4. 在傳統原則清單中，按一下要求雲端應用程式進行**多重要素驗證**的原則。
 
     ![傳統原則](./media/active-directory-conditional-access-migration-mfa/13.png)
 
@@ -136,9 +136,9 @@ ms.lasthandoff: 12/12/2017
 
 
 
-## <a name="disable-the-classic-policy"></a>停用傳統的原則
+## <a name="disable-the-classic-policy"></a>停用傳統原則
 
-若要停用您傳統的原則，請按一下**停用**中**詳細資料**檢視。
+若要停用傳統原則，請在 [詳細資料] 檢視中按一下 [停用]。
 
 ![傳統原則](./media/active-directory-conditional-access-migration-mfa/14.png)
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需傳統原則移轉的詳細資訊，請參閱[移轉 Azure 入口網站中的傳統原則](active-directory-conditional-access-migration.md)。
+- 如需傳統原則移轉的詳細資訊，請參閱[在 Azure 入口網站中移轉傳統原則](active-directory-conditional-access-migration.md)。
 
 
 - 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。

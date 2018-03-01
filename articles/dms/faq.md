@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的相關常見問題集
 本文列出使用 Azure 資料庫移轉服務的相關常見問題集以及相關解答。
@@ -81,6 +81,9 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>問： 如何設定 Azure 虛擬網路？
 有多個 Microsoft 教學課程可逐步引導您完成 Azure VNET 的設定程序，至於官方文件，則會在 [Azure 虛擬網路](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)一文中出現。
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>問： 為什麼我的 Azure 資料庫移轉服務無法使用或已停止？
+如果使用者明確地停止 Azure 資料庫移轉服務 (DMS) 或服務未使用達 24 小時，服務將會處於停止或自動暫停的狀態。 在每個情況下，服務都將無法使用並處於停止的狀態。  若要繼續使用中的移轉，請重新啟動服務。
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>問： 我可以在哪裡留下有關 Azure 資料庫移轉服務的意見反應？
 我們很樂於聽取您的意見。 請透過 User Voice ([這裡](https://feedback.azure.com/forums/906100-azure-database-migration-service)) 傳送有關於 Azure 資料庫移轉服務的意見反應和想法。

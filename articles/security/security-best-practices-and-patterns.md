@@ -1,6 +1,6 @@
 ---
 title: "Azure 安全性最佳作法與模式 | Microsoft Docs"
-description: "本文提供有關 Azure 安全性最佳作法和模式，以及策劃好的不同 Azure 資源安全性最佳作法清單的簡介。"
+description: "本文提供一系列適合不同 Azure 資源的 Azure 安全性最佳做法與模式。"
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -12,38 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: terrylan
-ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.date: 2/16/2018
+ms.author: 
+ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 安全性最佳作法與模式
-我們目前有下列的 Azure 安全性最佳作法和模式文章。 請務必定期瀏覽此網站，以查看日益增加的 Azure 安全性最佳作法和模式的清單是否有更新︰  
 
-* [Azure 網路安全性最佳作法](azure-security-network-security-best-practices.md)
-* [Azure 資料安全性和加密最佳作法](azure-security-data-encryption-best-practices.md)
-* [身分識別管理和存取控制安全性最佳作法](azure-security-identity-management-best-practices.md)
-* [物聯網安全性最佳做法](azure-security-iot-best-practices.md)
-* [Azure IaaS 安全性最佳做法] (azure-security-iaas.md)
 * [Azure 界限安全性最佳作法](../best-practices-network-security.md)
+* [Azure 資料庫安全性最佳做法](azure-database-security-best-practices.md)
+* [Azure 資料安全性和加密最佳作法](azure-security-data-encryption-best-practices.md)
+* [Azure 身分識別管理和存取控制安全性最佳做法](azure-security-identity-management-best-practices.md)
+* [Azure 網路安全性最佳作法](azure-security-network-security-best-practices.md)
+* [Azure 作業安全性最佳做法](azure-operational-security-best-practices.md)
+* [Azure PaaS 最佳做法](https://docs.microsoft.com/azure/security/security-paas-deployments) 
+* [Azure Service Fabric 安全性最佳做法](security-best-practices-and-patterns.md)
+* [Azure VM 安全性最佳做法](azure-service-fabric-security-best-practices.md)
 * [在 Azure 中實作安全的混合式網路架構](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS 最佳做法](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [物聯網安全性最佳做法](azure-security-iot-best-practices.md)* [保護 Azure 中的 PaaS 資料庫](security-paas-applications-using-sql.md)
+* [使用 Azure App Service 來保護 PaaS Web 與行動應用程式](security-paas-applications-using-app-services.md)
+* [使用 Azure 儲存體來保護 PaaS Web 與行動應用程式](security-paas-applications-using-storage.md)
+* [Azure 中 IaaS 工作負載的安全性最佳做法](azure-security-iaas.md)
 
-Azure 提供安全的平台，您可以在其中建立您的解決方案。 我們也提供服務和技術，可讓您的解決方案在 Azure 上更安全。 由於有許多選項可供使用，因此對 Microsoft 針對改善安全性所建議作為最佳做法與模式的內容，許多人都表示感興趣。
 
-我們了解您的興趣所在，因此我們建立了一組文件，當中說明在適當的背景環境下您可以執行以改善 Azure 部署安全性的動作。
 
-在這些最佳做法和模式的文章中，我們針對特定的主題討論了一組最佳做法和實用模式。 這些最佳作法和模式衍生自我們這些技術的經驗和客戶的經驗。
-
-對於每個最佳作法，我們會說明︰
-
-* 最佳作法是什麼
-* 您為何想要啟用該最佳作法
-* 如果無法啟用最佳作法，結果可能為何
-* 最佳作法的可能替代方案
-* 如何學習啟用最佳作法
-
-我們希望在 Azure 安全性架構和最佳作法中納入更多文章。 如果您有希望我們納入的主題，請在本頁面底部的討論區中讓我們知道。

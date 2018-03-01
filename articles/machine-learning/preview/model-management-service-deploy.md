@@ -4,17 +4,17 @@ description: "本文件說明與使用 Azure Machine Learning 模型管理來部
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>將機器學習服務模型部署為 Web 服務
 
@@ -30,7 +30,7 @@ Azure Machine Learning 模型管理會提供介面供您將模型部署為容器
 部署步驟如下：
 1. 使用已儲存且經過訓練的機器學習服務模型
 2. 為 Web 服務的輸入和輸出資料建立結構描述
-3. 建立 Docker 基礎容器映像
+3. 建立 Docker 型容器映像
 4. 建立及部署 Web 服務
 
 ### <a name="1-save-your-model"></a>1.儲存模型
@@ -144,7 +144,7 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to code 
 您可以選擇先建立映像的資訊清單，然後再建立映像。 
 
 ```
-az ml image create -n [image name] -manifest-id [the manifest ID]
+az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
 或者，您也可以使用單一命令同時建立資訊清單和映像。 

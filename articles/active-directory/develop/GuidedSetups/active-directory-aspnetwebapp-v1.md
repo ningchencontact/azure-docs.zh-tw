@@ -1,5 +1,5 @@
 ---
-title: "開始使用 azure AD v1 ASP.NET Web 伺服器 |Microsoft 文件"
+title: "Azure AD v1 ASP.NET Web 伺服器快速入門 | Microsoft Docs"
 description: "使用 OpenID Connect 標準，搭配傳統網頁瀏覽器型應用程式，在 ASP.NET 方案上實作 Microsoft 登入"
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,7 +16,7 @@ ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -25,10 +25,10 @@ ms.lasthandoff: 01/03/2018
 
 本指南示範如何使用 ASP.NET MVC 方案實作「使用 Microsoft 登入」，解決方案中包含使用 OpenID Connect 的傳統網頁瀏覽器型應用程式。 
 
-在本指南最後，將會接受您的應用程式的登入的公司及學校帳戶，來自已整合與 Azure Active Directory 的組織。
+在本指南結尾，您的應用程式將會接受使用已與 Azure Active Directory 整合之組織的公司和學校帳戶登入。
 
 > [!NOTE]
-> 此 「 引導式的安裝程式可協助您讓從 ASP.NET 應用程式中的公司及學校帳戶登入。 如果您有興趣讓個人的帳戶，除了公司及學校帳戶登入，您可以使用[v2 端點](../active-directory-v2-compare.md)。 請參閱[此 ASP.NET 指引安裝 v2 端點](./active-directory-aspnetwebapp.md)以及[這份文件](../active-directory-v2-limitations.md)解釋 v2 端點目前的限制。
+> 此引導式設定將協助您在 ASP.NET 應用程式中，啟用從公司和學校帳戶登入的功能。 如果除了公司和學校帳戶之外，您也對為個人帳戶啟用登入感興趣，則您可以使用 [v2 端點](../active-directory-v2-compare.md)。 請參閱[這份適用於 v2 端點的 ASP.NET 引導式設定](./active-directory-aspnetwebapp.md)，以及[這份文件](../active-directory-v2-limitations.md)，以了解 v2 端點的目前限制。
 <br/><br/>
 
 <!--separator-->
@@ -42,11 +42,11 @@ ms.lasthandoff: 01/03/2018
 本指南是以透過瀏覽器存取 ASP.NET 網站，並要求使用者透過登入按鈕進行驗證的案例為基礎。 在這個案例中，大部分轉譯網頁的工作會在伺服器端執行。
 
 > [!NOTE]
-> 此 「 引導式的安裝程式會示範如何登入上的空白範本，請從開始將 ASP.NET Web 應用程式的使用者，並加入步驟，例如按鈕和每個控制站和方法，加入符號，同時也說明一些概念。 或者，您也可以建立登入 Azure Active Directory 的專案使用的使用者 （公司及學校帳戶） [Visual Studio web 範本](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)，然後選取*組織帳戶*然後其中一個的雲端選項-此選項會更豐富的範本，請使用具有額外的控制站、 方法和檢視。
+> 這份引導式設定示範如何在 ASP.NET Web 應用程式上登入使用者，其中是從空白範本開始著手，並包含步驟 (例如新增登入按鈕) 及每個控制器和方法，同時也說明一些概念。 或者，您也可以建立專案來登入 Azure Active Directory 使用者 (公司和學校帳戶)，方法是使用 [Visual Studio Web 範本](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) 並選取 [組織帳戶]，然後選取其中一個雲端選項 - 此選項使用更豐富的範本，含有額外的控制器、方法及檢視。
 
 ## <a name="libraries"></a>程式庫
 
-本指南會使用下列套件：
+本指南使用下列套件：
 
 |程式庫|說明|
 |---|---|
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/03/2018
 1. 在 Visual Studio 中：`File` > `New` > `Project`<br/>
 2. 在 *Visual C#\Web* 底下，選取 `ASP.NET Web Application (.NET Framework)`。
 3. 為您的應用程式命名並按一下 [確定]
-4. 選取`Empty`，然後選取核取方塊，以新增`MVC`參考
+4. 選取 `Empty`，然後選取核取方塊來新增 `MVC` 參考
 
 ## <a name="add-authentication-components"></a>新增驗證元件
 
@@ -83,32 +83,32 @@ ms.lasthandoff: 01/03/2018
     ```
 
 <!--start-collapse-->
-> ### <a name="about-these-packages"></a>關於這些封裝
->上面的程式庫可透過 Cookie 型驗證，使用 OpenID Connect 啟用單一登入 (SSO)。 完成驗證並將代表使用者的權杖傳送至您的應用程式之後，OWIN 中介軟體就會建立工作階段 Cookie。 使用者不需要重新驗證，因此沒有額外的驗證需要瀏覽器然後在後續要求中使用此 cookie。
+> ### <a name="about-these-packages"></a>關於這些套件
+>上面的程式庫可透過 Cookie 型驗證，使用 OpenID Connect 啟用單一登入 (SSO)。 完成驗證並將代表使用者的權杖傳送至您的應用程式之後，OWIN 中介軟體就會建立工作階段 Cookie。 接著，瀏覽器會在後續要求中使用此 Cookie，因此使用者不需要重新驗證，也不需要進行任何額外的驗證。
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>設定驗證管線
-下列步驟可用來建立 OWIN 中介軟體*啟動類別*來設定 OpenID Connect 驗證。 這個類別時會自動執行。
+下列步驟可用來建立 OWIN 中介軟體「Startup 類別」，以設定 OpenID Connect 驗證。 系統會自動執行此類別。
 
 > [!TIP]
 > 如果您專案的根資料夾中沒有 `Startup.cs` 檔案：<br/>
-> 1. 以滑鼠右鍵按一下專案的根資料夾： >`Add` > `New Item...` > `OWIN Startup class`<br/>
+> 1. 在專案的根資料夾上按一下滑鼠右鍵：>    `Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. 將它命名為 `Startup.cs`<br/>
 >
 >> 確定選取的類別是 OWIN 啟動類別，而非標準 C# 類別。 如果命名空間上方顯示 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]`，請勾選以確認此項目。
 
 
-1. 新增*OWIN*和*Microsoft.IdentityModel*的命名空間`Startup.cs`:
+1. 將 *OWIN* 和 *Microsoft.IdentityModel* 命名空間新增至 `Startup.cs`：
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
-2. 啟動類別取代為下列程式碼：
+2. 以下列程式碼取代 Startup 類別：
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
     
 <!--start-collapse-->
 > [!NOTE]
-> 您在 *OpenIDConnectAuthenticationOptions* 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。 由於 OpenID Connect 的中介軟體會使用 cookie，您也需要設定的 cookie 驗證上述程式碼所示。 *ValidateIssuer* 值會告知 OpenIdConnect 不要針對某一特定組織限制存取。
+> 您在 *OpenIDConnectAuthenticationOptions* 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。 由於 OpenID Connect 中介軟體會使用 Cookie，因此您也必須設定 Cookie 驗證，如前述程式碼所示。 *ValidateIssuer* 值會告知 OpenIdConnect 不要針對某一特定組織限制存取。
 <!--end-collapse-->
 
 <!--end-setup-->
@@ -119,15 +119,15 @@ ms.lasthandoff: 01/03/2018
 
 這個步驟說明如何建立新的控制器來公開登入和登出方法。
 
-1.  以滑鼠右鍵按一下`Controllers`資料夾，然後選取`Add` > `Controller`
+1.  在 `Controllers` 資料夾上按一下滑鼠右鍵，然後選取 `Add` > `Controller`
 2.  選取 `MVC (.NET version) Controller – Empty`。
 3.  按一下 [新增]
 4.  將它命名為 `HomeController`，然後按一下 [新增]
-5.  新增*OWIN*類別的命名空間：
+5.  將 *OWIN* 命名空間新增至類別：
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
-6. 加入下列方法來處理登入和登出才能將控制器起始程式碼透過將驗證挑戰：
+6. 新增下列方法，以透過經由程式碼起始驗證挑戰的方式，處理對控制器的登入和登出：
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
     
@@ -135,7 +135,7 @@ ms.lasthandoff: 01/03/2018
 
 在 Visual Studio 中建立新的檢視來新增登入按鈕，並在驗證之後顯示使用者資訊：
 
-1.  以滑鼠右鍵按一下`Views\Home`資料夾，然後選取`Add View`
+1.  在 `Views\Home` 資料夾上按一下滑鼠右鍵，然後選取 `Add View`
 2.  將它命名為 `Index`
 3.  在以下檔案中新增下列 HTML (包括登入按鈕)：
 
@@ -143,30 +143,30 @@ ms.lasthandoff: 01/03/2018
 
 <!--start-collapse-->
 > [!NOTE]
-> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> 如需登入按鈕，請移至[本頁](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "的商標指導")。
+> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> 如需了解更多登入按鈕，請前往[此頁面](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "商標指導方針")。
 <!--end-collapse-->
 
-## <a name="display-users-claims-by-adding-a-controller"></a>顯示使用者的宣告加入控制器
-此控制器示範如何使用 `[Authorize]` 屬性來保護控制器。 此屬性會設定限制，只允許經過驗證的使用者存取控制器。 下列程式碼會顯示登入過程中所擷取的使用者宣告的屬性使用。
+## <a name="display-users-claims-by-adding-a-controller"></a>新增控制器來顯示使用者的宣告
+此控制器示範如何使用 `[Authorize]` 屬性來保護控制器。 此屬性會設定限制，只允許經過驗證的使用者存取控制器。 下列程式碼會利用屬性來顯示在登入過程中擷取的使用者宣告。
 
-1.  以滑鼠右鍵按一下`Controllers`資料夾：`Add` > `Controller`
+1.  在 `Controllers` 資料夾上按一下滑鼠右鍵：`Add` > `Controller`
 2.  選取 `MVC {version} Controller – Empty`。
 3.  按一下 [新增]
 4.  將它命名為 `ClaimsController`
-5.  控制器類別的程式碼取代為下列程式碼-這會將`[Authorize]`屬性加入該類別：
+5.  以下列程式碼取代您控制器類別的程式碼 - 這會將 `[Authorize]` 屬性新增至類別：
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> 因為使用了 `[Authorize]` 屬性，所以此控制器的所有方法都只能在使用者已通過驗證的情況下才能執行。 如果使用者未經過驗證，並嘗試存取控制站，OWIN 初始驗證要求，並強制使用者進行驗證。 上述程式碼會查看使用者輸入使用者的權杖中包含的特定屬性的宣告集合。 這些屬性包括使用者的完整名稱和使用者名稱，以及全域使用者識別元主體。 它也包含「租用戶識別碼」，這代表使用者所屬組織的識別碼。 
+> 因為使用了 `[Authorize]` 屬性，所以此控制器的所有方法都只能在使用者已通過驗證的情況下才能執行。 如果使用者未通過驗證而嘗試存取控制器，OWIN 就會起始驗證挑戰並強制使用者進行驗證。 上述程式碼會查看使用者的宣告集合，以尋找使用者權杖中所包含的特定屬性。 這些屬性包括使用者的完整名稱和使用者名稱，以及全域使用者識別元主體。 它也包含「租用戶識別碼」，這代表使用者所屬組織的識別碼。 
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>建立檢視來顯示使用者的宣告
 
 在 Visual Studio 中，建立新的檢視以在網頁中顯示使用者的宣告：
 
-1.  以滑鼠右鍵按一下`Views\Claims`資料夾和：`Add View`
+1.  在 `Views\Claims` 資料夾上按一下滑鼠右鍵，然後：`Add View`
 2.  將它命名為 `Index`
 3.  將下列 HTML 新增至檔案：
 
@@ -175,9 +175,9 @@ ms.lasthandoff: 01/03/2018
 <!--end-use-->
 
 <!--start-configure-->
-## <a name="configure-your-webconfig-and-register-an-application"></a>設定您*web.config*和註冊應用程式
+## <a name="configure-your-webconfig-and-register-an-application"></a>設定您的 *web.config* 並註冊應用程式
 
-1. 在 Visual Studio 中，將下列內容加入`web.config`（位於根資料夾） 的區段底下`configuration\appSettings`:
+1. 在 Visual Studio 中，於 `web.config` (位於根資料夾中) 的 `configuration\appSettings` 區段底下新增下列內容：
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -185,46 +185,46 @@ ms.lasthandoff: 01/03/2018
     <add key="Tenant" value="common" />
     <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
     ```
-2. 在 [方案總管] 中選取專案，並查看<i>屬性</i>視窗 （如果您沒有看到 [屬性] 視窗中，按 F4）
+2. 在 [方案總管] 中，選取專案並查看 [屬性]<i></i> 視窗 (如果您沒有看到 [屬性] 視窗，請按 F4)
 3. 將 [SSL 已啟用] 變更為 <code>True</code>
 4. 將專案的 SSL URL 複製到剪貼簿：<br/><br/>![專案屬性](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
-5. 在<code>web.config</code>，取代<code>Enter_the_Redirect_URL_here</code>專案的 SSL url 
+5. 在 <code>web.config</code> 中，以您專案的 SSL URL 取代 <code>Enter_the_Redirect_URL_here</code> 
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在 Azure 入口網站中註冊您的應用程式，然後將其資訊加入*web.config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在「Azure 入口網站」中註冊您的應用程式，然後將其資訊新增至 *web.config*
 
-1. 移至[Microsoft Azure 入口網站的應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)註冊應用程式
+1. 前往 [Microsoft Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)來註冊應用程式
 2. 選取 `New application registration`
-3. 輸入您的應用程式的名稱
-4. 貼上的 Visual Studio 專案*SSL URL*中`Sign-on URL`（此 URL 也會加入自動為您註冊應用程式回覆 Url 的清單）
-5. 按一下`Create`註冊應用程式。 這個動作可讓您回到應用程式清單
-6. 現在，搜尋和/或選取您剛開啟其內容的應用程式
-7. 複製下的 guid`Application ID`到剪貼簿
-8. 返回 Visual studio，並在`web.config`，取代`Enter_the_Application_Id_here`您剛登錄的應用程式從應用程式識別碼
+3. 輸入應用程式的名稱
+4. 在 `Sign-on URL` 中貼上 Visual Studio 專案的 *SSL URL* (此 URL 也會自動新增至您要註冊之應用程式的 [回覆 URL] 清單中)
+5. 按一下 `Create` 以註冊應用程式。 此動作會帶您回到應用程式清單
+6. 現在，搜尋和/或選取您剛才建立的應用程式以開啟其屬性
+7. 將 `Application ID` 底下的 GUID 複製到剪貼簿
+8. 返回 Visual Studio，然後在 `web.config` 中，以您剛才註冊之應用程式的「應用程式識別碼」取代 `Enter_the_Application_Id_here`
 
 > [!TIP]
-> 如果您的帳戶設定存取多個目錄，請確定您已選取正確的目錄，組織您想要註冊您的帳戶名稱，在頂端按一下應用程式在 Azure 入口網站，以滑鼠右鍵，然後驗證選取為指定的目錄：<br/>![選取正確的目錄](media/active-directory-aspnetwebapp-v1/tenantselector.png)
+> 如果您的帳戶已設定為可存取多個目錄，請確定您已針對要為其註冊應用程式的組織選取正確的目錄，方法是在「Azure 入口網站」中按一下右上角您的帳戶名稱，然後確認所選取的目錄，如下所示：<br/>![選取正確的目錄](media/active-directory-aspnetwebapp-v1/tenantselector.png)
 
 ## <a name="configure-sign-in-options"></a>設定登入選項
 
-您可以設定您的應用程式，只允許使用者隸屬於一個組織的 Azure Active Directory 執行個體，登入，或接受來自屬於任何組織的使用者登入。 請依照下列選項的其中一個的指示進行：
+您可以將應用程式設定成只允許某個組織之 Azure Active Directory 執行個體的成員使用者登入，或接受任何組織的成員使用者登入。 請依照下列其中一個選擇的指示進行操作：
 
-### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>設定以允許應用程式的登入的任何公司或組織 （多租用戶） 從公司及學校帳戶
+### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>將應用程式設定成允許任何公司或組織 (多租用戶) 的公司和學校帳戶登入
 
-遵循下列步驟，如果您想要接受的登入的任何公司或組織與 Azure Active Directory 整合的公司及學校帳戶的次數。 這是常見的案例*SaaS 應用程式*:
+如果您想要接受已與 Azure Active Directory 整合之公司或組織的公司和學校帳戶登入，請依照下列步驟進行操作。 這是「SaaS 應用程式」的常見案例：
 
-1. 請返回[Microsoft Azure 入口網站的應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)並找出您剛登錄的應用程式
-2. 在下`All Settings`選取`Properties`
-3. 變更`Multi-tenanted`屬性`Yes`按一下`Save`
+1. 返回 [Microsoft Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，然後找出您剛才註冊的應用程式
+2. 在 `All Settings` 底下，選取 `Properties`
+3. 將 `Multi-tenanted` 屬性變更為 `Yes`，然後按一下 `Save`
 
-如需有關此設定，且多租用戶應用程式概念的詳細資訊，請參閱[本文](../active-directory-devhowto-multi-tenant-overview.md "多租用戶概觀")。
+如需有關此設定的詳細資訊及多租用戶應用程式的概念，請參閱[這篇文章](../active-directory-devhowto-multi-tenant-overview.md "多租用戶概觀")。
 
-### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>限制使用者只能有一個組織的 Active Directory 執行個體，來登入您的應用程式 （單一租用戶）
+### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>註冊只來自一個組織之 Active Directory 執行個體的使用者以登入您的應用程式 (單一租用戶)
 
-這個選項是常見的案例*LOB 應用程式*： 如果您想要接受只會從屬於特定的 Azure Active Directory 執行個體的帳戶登入您的應用程式 (包括*來賓帳戶*該執行個體的)，取代`Tenant`中的參數*web.config*從`Common`與租用戶的組織名稱-例如*contoso.onmicrosoft.com*。在這之後，變更`ValidateIssuer`引數中的您[ *OWIN 啟動 「 類別*](#configure-the-authentication-pipeline)至`true`。
+這個選項是「LOB 應用程式」的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶登入 (包括該執行個體的「來賓帳戶」)，請從 `Common` 將 *web.config* 中的 `Tenant` 參數取代為該組織的租用戶名稱 – 例如 *contoso.onmicrosoft.com*。完成之後，請將您 [OWIN 啟動類別](#configure-the-authentication-pipeline)中的 `ValidateIssuer` 引數變更為 `true`。
 
 若只要允許來自某一特定組織清單的使用者登入，請將 `ValidateIssuer` 設定為 true 並使用 `ValidIssuers` 參數指定組織清單。
 
-若要實作自訂的方法，以驗證使用的簽發者的另一個選項是*IssuerValidator*參數。 如需有關`TokenValidationParameters`，請參閱[MSDN 本文](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 文章")。
+另一個選項是使用 *IssuerValidator* 參數來實作自訂方法以驗證簽發者。 如需有關 `TokenValidationParameters` 的詳細資訊，請參閱[這篇 MSDN 文章](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 文章")。
 
 <!--end-configure-->
 
@@ -250,37 +250,37 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>測試您的程式碼
 
-按 `F5` 以在 Visual Studio 中執行您的專案。 瀏覽器會開啟並引導您至*http://localhost: {port}*了解*使用 Microsoft 登入* 按鈕。 接著請按一下該按鈕來登入。
+按 `F5` 以在 Visual Studio 中執行您的專案。 瀏覽器將會開啟並將您導向至 *http://localhost:{port}*，其中會顯示 [使用 Microsoft 帳戶登入] 按鈕。 接著請按一下該按鈕來登入。
 
-當您準備要測試，請使用工作帳戶 (Azure Active Directory) 登入。 
+當您準備好進行測試時，請使用公司帳戶 (Azure Active Directory) 來登入。 
 
-![使用 Microsoft 瀏覽器視窗中登入](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin.png)
+![[使用 Microsoft 帳戶登入] 瀏覽器視窗](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin.png)
 
-![使用 Microsoft 瀏覽器視窗中登入](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin2.png)
+![[使用 Microsoft 帳戶登入] 瀏覽器視窗](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin2.png)
 
 #### <a name="expected-results"></a>預期的結果
-登入之後，使用者會重新導向至首頁上，您的網站，也就是指定於應用程式的登錄資訊中 Microsoft 應用程式註冊入口網站的 HTTPS URL。 此頁面現在會顯示*Hello {User}*和登出，以及連結以查看使用者的宣告-也就是授權控制器連結之前建立。
+登入之後，系統會將使用者重新導向至您網站的首頁，也就是您在「Microsoft 應用程式註冊入口網站」之應用程式註冊資訊中指定的 HTTPS URL。 此網頁現在會顯示「{使用者} 您好」 和一個登出連結，以及一個用於查看使用者宣告的連結 (這是之前所建立之「授權」控制器的連結)。
 
 ### <a name="see-users-claims"></a>查看使用者的宣告
-選取超連結來查看使用者的宣告。 這個動作會引導您至控制器和檢視，只可驗證的使用者。
+選取超連結來查看使用者的宣告。 此動作會將您帶往只提供給已驗證使用者的控制器和檢視。
 
 #### <a name="expected-results"></a>預期的結果
  您應該會看到一個表格，其中包含已登入使用者的基本屬性：
 
 | 屬性 | 值 | 說明|
 |---|---|---|
-| 名稱 | {使用者完整名稱} | 使用者的名字和姓氏
+| Name | {使用者完整名稱} | 使用者的名字和姓氏
 |使用者名稱 | <span>user@domain.com</span>| 用來識別已登入使用者的使用者名稱
 | 主體| {主體}|用來跨網站唯一識別使用者登入的字串|
 | 租用戶識別碼| {Guid}| 唯一代表使用者之 Azure Active Directory 組織的 *guid*。|
 
-此外，您會看到資料表，包括驗證要求中包含的所有使用者宣告。 如需 ID 權杖和其說明中的所有宣告的清單，請參閱此[文章](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "中的 ID 語彙基元--宣告")。
+此外，您也會看到一個表格，其中包含驗證要求中所包括的所有使用者宣告。 如需「識別碼權杖」中所有宣告的清單及其說明，請參閱[這篇文章](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "識別碼權杖的宣告清單")。
 
 
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>對具有 *[Authorize]* 屬性 (選用) 的方法進行存取測試
-在此步驟中，您可以測試存取為匿名使用者的宣告控制站：<br/>
+在這個步驟中，您會以匿名使用者身分，進行「宣告」控制器存取測試：<br/>
 選取連結以將使用者登出，並完成登出程序。<br/>
-現在您的瀏覽器中輸入 http://localhost: {port} / 宣告來存取您受保護的控制器`[Authorize]`屬性
+現在，在您的瀏覽器中輸入 http://localhost:{port}/claims，來存取以 `[Authorize]` 屬性保護的控制器
 
 #### <a name="expected-results"></a>預期的結果
 您應該會收到提示，要求您進行驗證以查看檢視。

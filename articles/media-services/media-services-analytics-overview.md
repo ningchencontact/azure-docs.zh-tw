@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析
 ## <a name="overview"></a>概觀
@@ -50,6 +50,8 @@ Microsoft Hyperlapse 將影像防震與縮時攝影功能結合在一起，能�
 Azure 媒體 OCR (光學字元辨識) 可讓您將影片檔中的文字內容轉換成可編輯、可搜尋的數位文字。 接著您便可從媒體的影片訊號中自動擷取出有意義的中繼資料。
 ### <a name="scalable-face-redaction"></a>可調整式臉部修訂
 Azure 媒體修訂器是媒體分析媒體處理器，可在雲端提供可調整式臉部修訂。 您可以使用臉部修訂功能修改影片，將所選人物的臉部變得模糊。 您可能會想要在新聞媒體中或涉及公共安全時，使用臉部修訂服務。 當要手動修訂多個臉部時，即使片長只有數分鐘，也會花上數小時修訂，但若使用此服務，則只需要幾個簡單的步驟就能完成臉部修訂。 如需詳細資訊，請參閱[使用 Azure 媒體分析修訂臉部](media-services-face-redaction.md)一文。
+### <a name="content-moderation"></a>內容仲裁
+Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您可能想偵測影片中潛在的成人和辛辣內容，並由您的人力仲裁小組檢閱加上旗標的內容。 但手動仲裁不需要的影片內容是很耗費時間和成本的工作。 透過此服務和相關聯的檢閱工具，您可以結合機器輔助仲裁和人機互動 (human-in-the-loop) 功能，以有效率且符合成本效益的方式獲得最佳結果。 若要進一步了解，請參閱[使用 Azure 內容仲裁處理您的視訊](media-services-content-moderation.md)一文。
 
 ## <a name="common-scenarios"></a>常見案例
 媒體分析可協助組織和企業從影片中得到新的見解，並更有效地管理大量的影片內容。 以下是幾個案例︰
@@ -69,6 +71,7 @@ Azure 媒體修訂器是媒體分析媒體處理器，可在雲端提供可調�
 * Azure 媒體動作偵測器
 * Azure 媒體視訊縮圖
 * Azure 媒體 OCR
+* Azure 媒體內容仲裁
 
 ### <a name="net"></a>.NET
 下列函數會採用其中一個指定的 MP 名稱，並傳回 MP 物件。
@@ -123,11 +126,6 @@ Azure 媒體修訂器是媒體分析媒體處理器，可在雲端提供可調�
 ## <a name="demos"></a>示範
 請參閱 [Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)。
 
-## <a name="next-steps"></a>後續步驟
-檢閱媒體服務學習路徑。
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Azure 媒體修訂器是媒體分析媒體處理器，可在雲端提供可調�
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>後續步驟
+檢閱媒體服務學習路徑。
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

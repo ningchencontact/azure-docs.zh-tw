@@ -17,7 +17,7 @@ ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="prerequisites-and-assumptions"></a>必要條件與假設
 * **Azure 訂用帳戶**：確認您的 Azure 訂用帳戶中可用的核心數量。 若要建立建議的 VM 大小 **A3**，將需要 **4** 個可用的核心。 若您採用 **A2** 的 VM 大小，則需要 **2** 個可用的核心。
   
-  * 若要確認您的訂閱，在 Azure 入口網站中的核心限制按一下左的窗格，然後按一下 [使用方式設定] 上方功能表中。
+  * 若要確認訂用帳戶的核心限制，請在 Azure 入口網站中按一下左窗格中的 [設定]，然後按一下上層功能表中的 [使用方式]。
   * 若要增加核心配額，請連絡 [Azure 支援](https://azure.microsoft.com/support/options/)。 如需 VM 大小的資訊，請參閱 [Azure 的虛擬機器大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * **Windows PowerShell 指令碼**：本主題假設您對 Windows PowerShell 已有基本的技術知識。 如需有關如何使用 Windows PowerShell 的詳細資訊，請參閱下列文章：
   
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/11/2017
 
 1. 若要信任本機 VM 的憑證根 CA，請將憑證新增至 [信任的根憑證授權單位] 。 以下是所需步驟的摘要。 如需有關如何信任 CA 的詳細步驟，請參閱 [安裝伺服器憑證](https://technet.microsoft.com/library/cc740068)。
    
-   1. 從 Azure 入口網站中，選取 VM，然後按一下 [連線]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
+   1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
       
        ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
       
@@ -153,7 +153,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>使用指令碼設定報表伺服器和 HTTP
 若要使用 Windows PowerShell 指令碼設定報表伺服器，請完成下列步驟。 設定包括 HTTP 而非 HTTPS：
 
-1. 從 Azure 入口網站中，選取 VM，然後按一下 [連線]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
+1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
    
     ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
    
@@ -287,7 +287,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>使用指令碼設定報表伺服器和 HTTPS
 若要使用 Windows PowerShell 設定報表伺服器，請完成下列步驟。 設定包括 HTTP 而非 HTTPS。
 
-1. 從 Azure 入口網站中，選取 VM，然後按一下 [連線]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
+1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
    
     ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
    
@@ -495,10 +495,10 @@ ms.lasthandoff: 12/11/2017
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>使用組態管理員設定報表伺服器
 如果您不想執行 PowerShell 指令碼設定報表伺服器，請遵循本節的步驟，使用 Reporting Services 原生模式組態管理員設定報表伺服器。
 
-1. 從 Azure 入口網站中，選取 VM，然後按一下 [連線]。 請使用您建立 VM 時所設定的使用者名稱和密碼。
+1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 請使用您建立 VM 時所設定的使用者名稱和密碼。
    
     ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. 執行 Windows Update 並安裝 VM 的更新。 如果需要重新啟動 VM，重新啟動 VM，並從 Azure 入口網站重新連線至 VM。
+2. 執行 Windows Update 並安裝 VM 的更新。 如果需要重新啟動 VM，請重新啟動 VM，並從 Azure 入口網站重新連接到 VM。
 3. 在 VM 的 [開始] 功能表中，鍵入 **Reporting Services**，並開啟 [Reporting Services 組態管理員]。
 4. 保留 [伺服器名稱] 和 [報表伺服器執行個體] 的預設值。 按一下 [ **連接**]。
 5. 按一下左窗格中的 [Web 服務 URL] 。
@@ -593,7 +593,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>在不使用 VM 時將成本降至最低
 > [!NOTE]
-> 若要降低費用的 Azure 虛擬機器在不使用時，關閉 VM 從 Azure 入口網站。 如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。 若要降低費用，您需要關閉 VM 在 Azure 入口網站。 如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)的＜常見問題集＞一節。
+> 若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 入口網站關閉 VM。 如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。 若要降低費用，您必須在 Azure 入口網站關閉 VM。 如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)的＜常見問題集＞一節。
 
 ## <a name="more-information"></a>相關資訊
 ### <a name="resources"></a>資源

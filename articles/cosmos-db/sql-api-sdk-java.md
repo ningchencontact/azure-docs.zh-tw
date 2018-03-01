@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL Java 應用程式開發介面、 SDK 與資源 |Microsoft 文件"
-description: "深入了解 SQL Java API 和 SDK 包括發行日期、 停用日期和 Azure Cosmos DB SQL Java SDK 的每個版本之間所做的變更。"
+title: "Azure Cosmos DB：SQL Java API、SDK 和資源 | Microsoft Docs"
+description: "了解所有 SQL Java API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB SQL Java SDK 每個版本之間所做的變更。"
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API 的 azure Cosmos DB Java SDK： 版本資訊和資源
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**參與 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**快速入門**</td><td>[開始使用 Java SDK](sql-api-java-get-started.md)</td></tr>
+<tr><td>**開始使用**</td><td>[開始使用 Java SDK](sql-api-java-get-started.md)</td></tr>
 
 <tr><td>**Web 應用程式教學課程**</td><td>[使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-java-application.md)</td></tr>
 
@@ -175,7 +175,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 服務將會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
 > [!WARNING]
-> 之前的版本中的所有版本的 SQL SDK for Java **1.0.0**上已淘汰**2016 年 2 月 29 日**。
+> 所有 **1.0.0** 版之前的 SQL SDK 版本都將於「2016 年 2 月 29 日」淘汰。
 > 
 > 
 

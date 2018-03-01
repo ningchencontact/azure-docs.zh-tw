@@ -18,7 +18,7 @@ ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -87,11 +87,11 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 
 ## <a name="how-to-use-the-certificate-in-python"></a>如何在 Python 中使用憑證
 
-根據預設[Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) SQL API 不會再試一次，並連接到本機模擬器時使用的 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Python 通訊端包裝函式](https://docs.python.org/2/library/ssl.html) (英文) 文件中的範例。
+適用於 SQL API 的 [Python SDK (2.0.0 版或更新版本)](sql-api-sdk-python.md) 在連線到本機模擬器時，預設不會嘗試和使用 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Python 通訊端包裝函式](https://docs.python.org/2/library/ssl.html) (英文) 文件中的範例。
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>如何在 Node.js 中使用憑證
 
-根據預設[Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) SQL API 不會再試一次，並連接到本機模擬器時使用的 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Node.js 文件 (Node.js documentation)](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) 文件中的範例。
+適用於 SQL API 的 [Node.js SDK (1.10.1 版或更新版本)](sql-api-sdk-node.md) 在連線到本機模擬器時，預設不會嘗試和使用 SSL 憑證。 不過如果您想要使用 SSL 驗證，可以依照 [Node.js 文件 (Node.js documentation)](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) 文件中的範例。
 
 ## <a name="next-steps"></a>後續步驟
 

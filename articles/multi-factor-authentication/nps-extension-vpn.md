@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -84,7 +84,7 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓組織使用以雲端為�
 
 8. 使用者會獲得 VPN 伺服器上之虛擬連接埠的存取權，並建立加密的 VPN 通道。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本節會詳述在整合 MFA 與遠端桌面閘道之前必須完成的必要條件。 開始之前，您必須先具備下列必要條件：
 
 * VPN 基礎結構
@@ -300,7 +300,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
     ![[事件屬性] 視窗](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-radius"></a>疑難排解 RADIUS
+## <a name="troubleshooting-radius"></a>針對 RADIUS 進行疑難排解
 
 假設在您將 VPN 伺服器設定為使用集中式的 RADIUS 伺服器來進行驗證和授權之前，您的 VPN 設定就已在運作。 若設定未運作，問題很可能是 RADIUS 伺服器的設定不正確或使用了無效的使用者名稱或密碼所導致。 例如，如果您的使用者名稱中使用替代的 UPN 尾碼，登入嘗試可能會失敗。 使用相同的帳戶名稱可獲得最佳結果。 
 
@@ -310,7 +310,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
  
 ## <a name="configure-multi-factor-authentication"></a>設定 Multi-Factor Authentication
 
-如需協助設定 Multi-factor Authentication 使用者，請參閱文章[如何要求使用者或群組的雙步驟驗證](multi-factor-authentication-get-started-user-states.md)和[設定進行兩步驟驗證我的帳戶](multi-factor-authentication-end-user-first-time.md)
+如需設定 Multi-Factor Authentication 之使用者的協助，請參閱[如何要求使用者或群組使用雙步驟驗證](multi-factor-authentication-get-started-user-states.md)和[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)文章
 
 ## <a name="install-and-configure-the-nps-extension"></a>安裝和設定 NPS 擴充功能
 
@@ -376,7 +376,7 @@ NPS 擴充功能必須安裝於已安裝「網路原則與存取服務」角色�
 
 1. 以系統管理理員身分執行 Windows PowerShell。
 
-2. 在 PowerShell 命令提示字元中輸入 **cd c:\Program Files\Microsoft\AzureMfa\Config**，然後選取 ENTER。
+2. 在 PowerShell 命令提示字元中輸入 **cd "c:\Program Files\Microsoft\AzureMfa\Config"**，然後選取 ENTER 鍵。
 
 3. 在下一個命令提示字元中輸入**.\AzureMfsNpsExtnConfigSetup.ps1**，然後選取 Enter。 此指令碼會檢查您是否已安裝 Azure AD PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
  

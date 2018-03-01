@@ -16,14 +16,14 @@ ms.date: 09/26/2017
 ms.author: iainfou
 ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>建立及管理具有多個 NIC 的 Windows 虛擬機器
 Azure 中的虛擬機器 (VM) 可以連結多個虛擬網路介面卡 (NIC)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文詳述如何建立已連結多個 NIC 的 VM。 您也了解如何新增或移除現有 VM 中的 NIC。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 確定您已[安裝和設定最新的 Azure PowerShell 版本](/powershell/azure/overview)。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
@@ -237,7 +237,7 @@ Azure Resource Manager 範本提供一種方式，可在部署期間建立資源
 
 Azure 將預設閘道指派給連接至虛擬機器的第一個 (主要) 網路介面。 Azure 不會將預設閘道指派給連接至虛擬機器的其他 (次要) 網路介面。 因此依預設，您無法與次要網路介面中子網路之外的資源進行通訊。 不過，次要網路介面可與其子網路進行通訊，但不同的作業系統有不同的通訊啟用步驟。
 
-1. 從 Windows 命令提示字元中，執行`route print`命令，輸出會傳回類似下列虛擬機器具有兩個連接的網路介面的輸出：
+1. 從 Windows 命令提示字元中，執行 `route print` 命令，針對有兩個連接之網路介面的虛擬機器傳回下列的類似輸出：
 
     ```
     ===========================================================================

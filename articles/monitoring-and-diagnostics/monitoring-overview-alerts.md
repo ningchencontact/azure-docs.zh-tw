@@ -17,7 +17,7 @@ ms.author: robb
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -34,7 +34,7 @@ Azure 使用下列詞彙來描述警示及其功能：
 * **動作** - 傳送給通知接收者的特定呼叫 (例如以電子郵件傳送位址或張貼到 Webhook URL)。 通知通常可觸發多個動作。
 
     > [!NOTE]
-    > 在 Azure 中的警示演進，新的統一的體驗適用於預覽。 新警示 （預覽） 體驗使用不同的分類。 深入了解[警示 （預覽）](monitoring-overview-unified-alerts.md)。 
+    > 隨著 Azure 中警示功能的演進，新的一致體驗已可供預覽。 新的警示 (預覽) 體驗使用不同的分類法。 深入了解[警示 (預覽)](monitoring-overview-unified-alerts.md)。 
     >
 
 ## <a name="alerts-in-different-azure-services"></a>不同 Azure 服務中的警示
@@ -97,4 +97,4 @@ Azure 監視器中可用資料的警示類型有三種：計量警示、近乎�
 * 深入了解[近乎即時計量警示](monitoring-near-real-time-metric-alerts.md)
 * 深入了解[服務通知](monitoring-service-notifications.md)
 * 深入了解[動作群組](monitoring-action-groups.md)
-* 設定[警示透過警示 （預覽）](monitor-alerts-unified-usage.md)
+* 設定[透過警示 (預覽) 來發出警示](monitor-alerts-unified-usage.md)

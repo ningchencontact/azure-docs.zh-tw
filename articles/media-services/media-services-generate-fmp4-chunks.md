@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>概觀
 
-本文將說明如何建立編碼工作，會產生分散的 MP4 (fMP4) 區塊，而不是 ISO MP4 檔案。 若要產生 fMP4 區塊，請使用**媒體編碼器標準**或**媒體編碼器高階工作流程**編碼器來建立編碼工作，並且指定 **AssetFormatOption.AdaptiveStreaming** 選項，如本程式碼片段所示︰  
+本文章說明如何建立會產生分散的 MP4 (fMP4) 區塊，而不是 ISO MP4 檔案的編碼工作。 若要產生 fMP4 區塊，請使用**媒體編碼器標準**或**媒體編碼器高階工作流程**編碼器來建立編碼工作，並且指定 **AssetFormatOption.AdaptiveStreaming** 選項，如本程式碼片段所示︰  
     
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 

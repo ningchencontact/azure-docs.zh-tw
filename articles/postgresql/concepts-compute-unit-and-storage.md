@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>說明適用於 PostgreSQL 的 Azure 資料庫中的計算單位
 本主題說明計算單位的概念，以及當您的工作負載到達計算單位的最高等級時會發生什麼狀況。

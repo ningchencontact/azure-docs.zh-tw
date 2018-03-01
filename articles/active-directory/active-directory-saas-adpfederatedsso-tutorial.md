@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 9ffac9ea033c1df462297fdb134bf0ead185b09f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>教學課程：Azure Active Directory 與 ADP Federated SSO 整合
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 02/03/2018
 
     ![設定單一登入連結][4]
 
-7. 在 [單一登入] 對話方塊中，選取 [連結的登入] 作為 [模式]。 以將您的應用程式連結至 **ADP Federated SSO**。
+7. 在 [單一登入] 對話方塊中，選取 [連結的登入] 作為 [模式]，以將應用程式連結至 **ADP 同盟 SSO**。
 
     ![已連結的單一登入](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 

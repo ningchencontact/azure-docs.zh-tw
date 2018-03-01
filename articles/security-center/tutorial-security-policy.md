@@ -9,17 +9,17 @@ editor:
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 102e160b706ad8fb8ee12ae4cac8cda51b06a991
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>教學課程：定義和評估安全性原則
 資訊安全中心可讓您使用安全性原則來定義工作負載所需的設定，協助確保符合公司或法規安全性需求。 您為 Azure 訂用帳戶定義原則，並針對工作負載類型或資料敏感性進行調整後，資訊安全中心即可對您的計算、網路、SQL 和儲存體及應用程式資源提供安全性建議。 在本教學課程中，您將了解如何：

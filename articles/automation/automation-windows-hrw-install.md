@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>如何部署 Windows 混合式 Runbook 背景工作角色
 
@@ -50,14 +50,14 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 
 執行下列步驟，以將 Windows 混合式背景工作角色的安裝和設定自動化。  
 
-1. 直接在執行 Hybrid Runbook Worker 角色的電腦上，從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript)下載 *New-OnPremiseHybridWorker.ps1* 指令碼，或從環境中的另一部電腦下載，再複製到背景工作角色。  
+1. 直接在執行 Hybrid Runbook Worker 角色的電腦上，從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/)下載 *New-OnPremiseHybridWorker.ps1* 指令碼，或從環境中的另一部電腦下載，再複製到背景工作角色。  
 
     *New-OnPremiseHybridWorker.ps1* 指令碼在執行期間需要下列參數：
 
   * *AutomationAccountName* (必要) - 您的自動化帳戶名稱。  
   * *ResourceGroupName* (必要) - 與您的自動化帳戶相關聯的資源群組名稱。  
   * *HybridGroupName* (必要) - 針對支援此案例的 Runbook，您指定作為目標的 Hybrid Runbook Worker 群組名稱。 
-  *  *SubscriptionID* (必要) - 您的自動化帳戶所在的 Azure 訂用帳戶識別碼。
+  *  *SubscriptionID* (必要) - 您「自動化」帳戶所在的「Azure 訂用帳戶 ID」。
   *  *WorkspaceName* (選擇性) - OMS 工作區名稱。  如果您沒有 OMS 工作區，此指令碼會建立並設定一個 OMS 工作區。  
 
      > [!NOTE]
@@ -76,7 +76,7 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 
 4. 系統會提示您同意安裝 **NuGet**，也會提示使用您的 Azure 認證進行驗證。<br><br> ![Execution of New-OnPremiseHybridWorker script](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. 指令碼完成之後，[混合式背景工作角色群組] 刀鋒視窗會顯示新的群組和成員數目，或者，如果是現有的群組，則成員數目會遞增。  您可以在 [Hybrid Worker 群組] 刀鋒視窗從清單中選取群組，然後選取 [Hybrid Worker] 圖格。  在 [Hybrid Worker] 刀鋒視窗上，您會看到列出群組的每個成員。  
+5. 指令碼完成之後，[Hybrid Worker 群組] 頁面會顯示新的群組和成員數目，或如果是現有的群組，則成員數目會遞增。  您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。  在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。  
 
 ### <a name="manual-deployment"></a>手動部署 
 
@@ -113,13 +113,13 @@ Microsoft Monitoring Agent 可將電腦連線至 Operations Management Suite。 
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-您可以從 Azure 入口網站的 [管理金鑰]  刀鋒視窗取得這個 Cmdlet 所需的資訊。  在您的自動化帳戶中，從 [設定] 刀鋒視窗選取 [金鑰]，以開啟此刀鋒視窗。
+您可以從 Azure 入口網站的 [管理金鑰] 頁面取得這個 Cmdlet 所需的資訊。  從您「自動化」帳戶的 [設定] 頁面中選取 [金鑰]，以開啟此頁面。
 
 ![混合式 Runbook 背景工作概觀](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** 是混合式 Runbook 背景工作角色群組的名稱。 如果自動化帳戶中已有這個群組，那麼會將目前的電腦加入。  如果尚不存在，則會加入。
-* **EndPoint** 是 [管理金鑰] 刀鋒視窗中的 [URL] 欄位。
-* **Token** 是 [管理金鑰] 刀鋒視窗中的 [主要存取金鑰]。  
+* **EndPoint** 是 [管理金鑰] 頁面中的 [URL] 欄位。
+* **Token** 是 [管理金鑰] 頁面中的 [主要存取金鑰]。  
 
 在 **Add-HybridRunbookWorker** 中新增 **-Verbose** 參數可接收安裝的詳細資訊。
 
@@ -143,7 +143,7 @@ Runbook 可以使用 Azure 自動化環境中安裝的模組中定義的任何�
 3. Microsoft Monitoring Agent 服務未執行。  
     如果 Microsoft Monitoring Agent Windows 服務並未執行，這可避免混合式 Runbook 背景工作角色與 Azure 自動化進行通訊。  在 PowerShell 中輸入下列命令，確認代理程式正在執行：`get-service healthservice`。  如果服務已停止，在 PowerShell 中輸入下列命令可啟動服務：`start-service healthservice`。  
 
-4. 在 **Application and Services Logs\Operations Manager** 事件記錄中，您會看到事件 4502 和 EventMessage 包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**，並具有如下描述：*<wsid>.oms.opinsights.azure.com 服務所提供的憑證並非由 Microsoft 服務所使用的憑證授權單位發行。請連絡網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的 Proxy。文章 KB3126513 內提供針對連線能力問題的其他疑難排解資訊。*
+4. 在 [應用程式及服務記錄檔]\[Operations Manager] 事件記錄中，您會看到事件 4502 和 EventMessage 包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**，並具有以下描述：*\<wsid\>.oms.opinsights.azure.com 服務所提供的憑證並非是由 Microsoft 服務所採用之憑證授權單位所產生。請連絡網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的 Proxy。文章 KB3126513 內提供針對連線能力問題的其他疑難排解資訊。*
     這可能是因 Proxy 或網路防火牆封鎖 Microsoft Azure 的通訊所引起。  確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。
 
 記錄檔儲存每一個混合式背景工作角色本機的 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes 中。  您可以檢查是否有任何警告或錯誤事件寫入 **Application and Services Logs\Microsoft-SMA\Operations** 和 **Application and Services Logs\Operations Manager** 事件記錄，可能表示有連線能力或其他會影響角色上架到 Azure 自動化的問題，或執行正常作業時的問題。  

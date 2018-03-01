@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>使用 Spark 資料探索和模型化
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/08/2017
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您需要 Azure 帳戶和 Spark 1.6 (或 Spark 2.0) HDInsight 叢集，才能完成此逐步解說。 請參閱[使用 Azure HDInsight 上的 Spark 的資料科學概觀](spark-overview.md)以取得這些需求。 此主題也包括這裡使用的 NYC 2013 計程車資料的描述，以及如何從 Spark 叢集的 Jupyter Notebook 執行程式碼的指示。 
 
 ## <a name="spark-clusters-and-notebooks"></a>Spark 叢集和 Notebook
@@ -969,7 +969,7 @@ R-sqr = 0.759661334921
 ### <a name="gradient-boosting-trees-regression"></a>漸層停駐提升樹狀結構迴歸
 本節的程式碼顯示如何訓練評估及儲存漸層停駐提升樹狀結構模型，可預測 NYC 計程車車程資料的小費金額。
 
-**訓練及評估 **
+**訓練及評估**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

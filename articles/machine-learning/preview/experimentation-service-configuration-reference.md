@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 測試服務組態檔
 
@@ -166,8 +166,8 @@ _"az ml experiment submit foo.runconfig"_ 會使用傳入 234 作為參數的 _m
 **環境變數**：這個區段會讓使用者將環境變數設定為其執行的一部分。 使用者可以使用成對的名稱和數值來指定環境變數，格式如下：
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 可以在使用者的程式碼中存取這些環境變數。 例如，此 Phyton 程式碼會列印名為 "EXAMPLE_ENV_VAR" 的環境變數

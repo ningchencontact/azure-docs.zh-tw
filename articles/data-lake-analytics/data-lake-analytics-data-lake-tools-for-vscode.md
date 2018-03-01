@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>使用 Azure Data Lake Tools for Visual Studio Code
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 12/21/2017
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-VSCode 的 azure 資料湖工具支援 Windows、 Linux 及 MacOS。  
+Azure Data Lake Tools for VSCode 支援 Windows、Linux 及 MacOS。  
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)。
 
@@ -86,48 +86,64 @@ VSCode 的 azure 資料湖工具支援 Windows、 Linux 及 MacOS。
 
     這個指令碼會在 /output 資料夾中建立 departments.csv 檔案並納入一些資料。
 
-5. 在開啟的資料夾中，將檔案儲存為 **myUSQL.usql**。 xxx_settings.json 組態檔也會新增到資料夾。
-6. 開啟 xxx_settings.json 並使用下列屬性設定：
-
-    - 帳戶：編譯及執行 U-SQL 作業時需使用的 Azure 訂用帳戶下之 Data Lake Analytics 帳戶，因此需要先設定電腦帳戶，然後再編譯及執行 U-SQL 作業。
-    - 資料庫：您帳戶底下的資料庫。 預設值為 **master**。
-    - 結構描述：您資料庫底下的結構描述。 預設值為 **dbo**。
-    - 選擇性設定︰
-        - 優先順序︰優先順序範圍是從 1 到 1000，1 是最高的優先順序。 預設值為 **1000**。
-        - 平行處理原則︰平行處理原則的範圍是從 1 到 150。 預設值為您 Azure Data Lake Analytics 帳戶中允許的平行處理原則上限。 
-        
-        ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-      
-        > [!NOTE] 
-        > 在儲存組態後，帳戶、資料庫和結構描述資訊就會出現在對應之 .usql 檔案左下角的狀態列上。
+5. 在開啟的資料夾中，將檔案儲存為 **myUSQL.usql**。
 
 **編譯 U-SQL 指令碼**
 
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。 
 2. 輸入 **ADL: Compile Script**。 編譯結果會出現在 [輸出] 視窗中。 您可以也在指令碼檔案上按一下滑鼠右鍵，然後選取 [ADL: Compile Script] 來編譯 U-SQL 作業。 編譯結果會出現在 [輸出] 窗格中。
  
-
 **提交 U-SQL 指令碼**
 
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。 
 2. 輸入 **ADL: Submit Job**。  您也可以在指令碼檔案上按一下滑鼠右鍵，然後選取 [ADL: Submit Job]。 
 
-在提交 U-SQL 作業後，提交記錄會出現在 VS Code 的 [輸出] 視窗中。 如果提交成功，則作業 URL 也會出現。 您可以在網頁瀏覽器中開啟作業 URL 來追蹤即時的作業狀態。
+ 在提交 U-SQL 作業後，提交記錄會出現在 VS Code 的 [輸出] 視窗中。 作業檢視會顯示在右窗格。 如果提交成功，則作業 URL 也會出現。 您可以在網頁瀏覽器中開啟作業 URL 來追蹤即時的作業狀態。 在 [作業檢視摘要] 索引標籤上，您可以查看作業詳細資料。 Main 函式包含重新提交指令碼、複製指令碼、在入口網站中開啟。 在 [作業檢視資料] 索引標籤上，您可以參照輸入檔案、輸出檔案、資源。 檔案可以下載到本機電腦。
 
-若要能夠輸出作業詳細資料，請在 **vs code for the u-sql_settings.json** 檔案中設定 **jobInformationOutputPath**。
- 
-**忽略設定 Git**
+   ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-summary.png)
+
+   ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-data.png)
+
+**Set Default Context**
+
+ 如果您尚未分別設定檔案的參數，您可以設定預設內容以將此設定套用至所有指令碼檔案。
 
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。 
-2. 輸入**ADL： 設定 Git 忽略**。
+2. 輸入 **ADL: Set Default Context**。
+3. 或者以滑鼠右鍵按一下指令碼編輯器並且選取 [ADL: Set Default Context]，然後選擇您想要的帳戶、資料庫及結構描述。 此設定會儲存到 xxx_settings.json 組態檔。
 
-    - 如果您沒有**.gitIgnore** VSCode 工作資料夾，名為的檔案中的檔案**.gitIgnor**建立您的資料夾中。 四個項目 (**usqlCodeBehindReference**， **usqlCodeBehindGenerated**， **.cache**， **obj**) 依預設會加入至檔案。 如有需要您可以進一步進行更新。
-    - 如果您已經有**.gitIgnore** VSCode 工作資料夾，此工具中的檔案將加入四個項目 (**usqlCodeBehindReference**， **usqlCodeBehindGenerated**， **.cache**， **obj**) 到您**.gitIgnore**檔案若檔案中未包含四個項目。
+    ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
 
-  ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+**Set Script Parameters**
+
+1. 選取 Ctrl+Shift+P 以開啟命令選擇區。 
+2. 輸入 **ADL: Set Script Parameters**。
+3. xxx_settings.json 檔案隨即開啟，具有下列屬性：
+
+  - 帳戶：編譯及執行 U-SQL 作業時需使用的 Azure 訂用帳戶下之 Data Lake Analytics 帳戶，因此需要先設定電腦帳戶，然後再編譯及執行 U-SQL 作業。
+    - 資料庫：您帳戶底下的資料庫。 預設值為 **master**。
+    - 結構描述：您資料庫底下的結構描述。 預設值為 **dbo**。
+    - 選擇性設定︰
+        - 優先順序︰優先順序範圍是從 1 到 1000，1 是最高的優先順序。 預設值為 **1000**。
+        - 平行處理原則︰平行處理原則的範圍是從 1 到 150。 預設值為您 Azure Data Lake Analytics 帳戶中允許的平行處理原則上限。 
+
+        ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
+      
+        > [!NOTE] 
+        > 在儲存設定後，如果您尚未設定預設內容，帳戶、資料庫和結構描述資訊就會出現在對應之 .usql 檔案左下角的狀態列上。
+
+**Set Git Ignore**
+
+1. 選取 Ctrl+Shift+P 以開啟命令選擇區。 
+2. 輸入 **ADL: Set Git Ignore**。
+
+    - 如果您在 VSCode 工作資料夾中沒有 **.gitIgnore** 檔案，就會在您的資料夾中建立名為 **.gitIgnor** 的檔案。 四個項目 (**usqlCodeBehindReference**、**usqlCodeBehindGenerated**、**.cache**、**obj**) 預設會新增至檔案。 您可以視需要進一步進行更新。
+    - 如果您在 VSCode 工作資料夾中已經有 **.gitIgnore** 檔案，且檔案中未包含四個項目 (**usqlCodeBehindReference**、**usqlCodeBehindGenerated**、**.cache**、**obj**)，則工具會將這四個項目新增至您的 **.gitIgnore** 檔案。
+
+    ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>使用 Python、R 和 CSharp 程式碼後置檔案
-Azure 資料湖工具支援多個自訂的程式碼的指示，請參閱[開發 U-SQL Python、 R、 與 Azure Data Lake Analytics 中 VSCode 的 CSharp](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)。
+Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針對 VSCode 中的 Azure Data Lake Analytics 使用 Python、R、CSharp 開發 U-SQL](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)。
 
 ## <a name="use-assemblies"></a>使用組件
 
@@ -137,7 +153,7 @@ Azure 資料湖工具支援多個自訂的程式碼的指示，請參閱[開發 
 
 **註冊組件**
 
-您可以透過 **ADL: Register Assembly** 或 **ADL: Register Assembly through Configuration** 命令來註冊組件。
+您可以透過 **ADL: Register Assembly** 或 **ADL: Register Assembly (Advanced)** 命令來註冊組件。
 
 **透過 ADL: Register Assembly 命令來進行註冊**
 1.  選取 Ctrl+Shift+P 以開啟命令選擇區。
@@ -150,51 +166,52 @@ Azure 資料湖工具支援多個自訂的程式碼的指示，請參閱[開發 
 
 另一個可供觸發 **ADL: Register Assembly** 命令的便利方式，是對檔案總管中的 .dll 檔案按一下滑鼠右鍵。 
 
-**透過 ADL: Register Assembly through Configuration 命令來進行註冊**
+**透過 ADL: Register Assembly (Advanced) 命令來進行註冊**
 1.  選取 Ctrl+Shift+P 以開啟命令選擇區。
-2.  輸入 **ADL: Register Assembly through Configuration**。 
+2.  輸入 **ADL: Register Assembly (Advanced)**。 
 3.  指定本機組件路徑。 
 4.  隨即會顯示 JSON 檔案。 請視需要檢閱並編輯組件相依性及資源參數。 指示會顯示在 [輸出] 視窗中。 若要繼續進行組件註冊，請儲存 (Ctrl + S) JSON 檔案。
 
-![Data Lake Tools for Visual Studio Code 程式碼後置](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
->[!NOTE]
->- 組件相依性：Azure Data Lake Tools 會自動偵測 DLL 是否有任何相依項目。 系統偵測到相依項目後，就會將其顯示在 JSON 檔案中。 
->- 資源： 您可以將上傳 DLL 資源 （例如.txt、.png 和.csv） 做為組件註冊的一部分。 
+    ![Data Lake Tools for Visual Studio Code 程式碼後置](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
+    
+   >[!NOTE]
+   >- 組件相依性：Azure Data Lake Tools 會自動偵測 DLL 是否有任何相依項目。 系統偵測到相依項目後，就會將其顯示在 JSON 檔案中。 
+   >- 資源：您可以在註冊組件時上傳 DLL 資源 (例如 .txt、.png 和 .csv)。 
 
-另一個可供觸發 **ADL: Register Assembly through Configuration** 命令的方式，是對檔案總管中的 .dll 檔案按一下滑鼠右鍵。 
+另一個可供觸發 **ADL: Register Assembly (Advanced)** 命令的方式，是對檔案總管中的 .dll 檔案按一下滑鼠右鍵。 
 
 下列 U-SQL 程式碼示範如何呼叫組件。 在此範例中，組件名稱是 *test*。
 
-```
-REFERENCE ASSEMBLY [test];
 
-@a = 
-    EXTRACT 
-        Iid int,
-    Starts DateTime,
-    Region string,
-    Query string,
-    DwellTime int,
-    Results string,
-    ClickedUrls string 
-    FROM @"Sample/SearchLog.txt" 
-    USING Extractors.Tsv();
+        REFERENCE ASSEMBLY [test];
 
-@d =
-    SELECT DISTINCT Region 
-    FROM @a;
+        @a = 
+            EXTRACT 
+                Iid int,
+            Starts DateTime,
+            Region string,
+            Query string,
+            DwellTime int,
+            Results string,
+            ClickedUrls string 
+            FROM @"Sample/SearchLog.txt" 
+            USING Extractors.Tsv();
 
-@d1 = 
-    PROCESS @d
-    PRODUCE 
-        Region string,
-    Mkt string
-    USING new USQLApplication_codebehind.MyProcessor();
+        @d =
+            SELECT DISTINCT Region 
+            FROM @a;
 
-OUTPUT @d1 
-    TO @"Sample/SearchLogtest.txt" 
-    USING Outputters.Tsv();
-```
+        @d1 = 
+            PROCESS @d
+            PRODUCE 
+                Region string,
+            Mkt string
+            USING new USQLApplication_codebehind.MyProcessor();
+
+        OUTPUT @d1 
+            TO @"Sample/SearchLogtest.txt" 
+            USING Outputters.Tsv();
+
 
 ## <a name="connect-to-azure"></a>連接到 Azure
 
@@ -203,17 +220,17 @@ OUTPUT @d1
 **連接到 Azure**
 
 1.  選取 Ctrl+Shift+P 以開啟命令選擇區。 
-2.  輸入 **ADL: Login**。 登入資訊會出現在最上層的區域。
+2.  輸入 **ADL: Login**。 登入資訊便會出現在最上方區域。
 
     ![Data Lake Tools for Visual Studio Code 命令選擇區](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Data Lake Tools for Visual Studio Code 裝置登入資訊](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3.  按一下**複製 （& s) 開啟**URL 以開啟登入網頁： https://aka.ms/devicelogin。 貼上程式碼**G567LX42V**到文字方塊中，然後選取**繼續**。
+3.  按一下 [複製及開啟] 以開啟 URL 為 https://aka.ms/devicelogin 的登入網頁。 在文字方塊中貼上代碼 **G567LX42V**，然後選取 [繼續]。
 
    ![Data Lake Tools for Visual Studio Code 登入貼上代碼](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  依照網頁上的指示登入。 當您連線時，您的 Azure 帳戶名稱會出現在 [VS Code] 視窗左下角的狀態列中。 
 
     > [!NOTE] 
-    >- 如果您在登入之前，但您已登出尚未資料湖工具自動登入所下一次。
+    >- 如果您以前曾經登入，但是尚未登出，則 Data Lake Tool 會在下一次自動登入。
     >- 如果您的帳戶已啟用雙因素驗證，建議您使用電話驗證而非使用 PIN 碼。
 
 
@@ -246,7 +263,7 @@ OUTPUT @d1
 1.  開啟命令選擇區 (Ctrl+Shift+P)，然後選取 [ADL: Show Job]。 
 2.  選取 Data Lake Analytics 帳戶或本機帳戶。 
 3.  等候帳戶的作業清單出現。
-4.  從作業清單中選取一個作業，Data Lake Tools 就會在 Azure 入口網站中開啟作業的詳細資料，並在 VS Code 中顯示 JobInfo 檔案。
+4.  從作業清單選取作業，Data Lake Tools 會在右窗格開啟作業檢視，並且在 VS Code **輸出**中顯示一些資訊。
 
     ![Data Lake Tools for Visual Studio Code IntelliSense 物件類型](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
@@ -258,7 +275,7 @@ OUTPUT @d1
  - 在 VS Code 中直接將檔案上傳至 Azure Data Lake Storage。 [上傳檔案或資料夾](#upload-file-or-folder)。
  - 在 VS Code 中直接從 Azure Data Lake Storage 下載檔案。 [下載檔案](#download-file)。
 
-## <a name="list-the-storage-path"></a>列出儲存體路徑 
+### <a name="list-the-storage-path"></a>列出儲存體路徑 
 
 **透過命令選擇區來列出儲存體路徑**
 
@@ -277,7 +294,7 @@ OUTPUT @d1
 ![Data Lake Tools for Visual Studio Code 右鍵快顯功能表](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
-## <a name="preview-the-storage-file"></a>預覽儲存體檔案
+### <a name="preview-the-storage-file"></a>預覽儲存體檔案
 
 以滑鼠右鍵按一下指令碼編輯器，然後選取 [ADL: Preview File]。
 
@@ -287,7 +304,7 @@ OUTPUT @d1
 
 還有另一個預覽檔案的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來進行。 
 
-## <a name="upload-file-or-folder"></a>上傳檔案或資料夾
+### <a name="upload-file-or-folder"></a>上傳檔案或資料夾
 
 1. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [上傳檔案] 或 [上傳資料夾]。
 
@@ -301,7 +318,7 @@ OUTPUT @d1
 同時，您可以監視[上傳狀態](#check-storage-tasks-status)。
 
 
-## <a name="download-file"></a>下載檔案 
+### <a name="download-file"></a>下載檔案 
 您可以輸入 **ADL: Download File** 或 **ADL: Download File (Advanced)** 命令來下載檔案。
 
 **透過 ADL: Download File (Advanced) 下載檔案**
@@ -329,7 +346,7 @@ OUTPUT @d1
 
 同時，您可以監視[下載狀態](#check-storage-tasks-status)。
 
-## <a name="check-storage-tasks-status"></a>檢查儲存體工作的狀態
+### <a name="check-storage-tasks-status"></a>檢查儲存體工作的狀態
 在下載和上傳完成時，狀態會顯示在狀態列底部。
 1. 按一下下方的狀態列，然後下載和上傳狀態就會顯示在 [輸出] 面板中。
 
@@ -337,9 +354,9 @@ OUTPUT @d1
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>VSCode Explorer 與 Azure Data Lake 整合
 
-**Azure 的整合** 
+**Azure 整合** 
 
-- 之前登入至 Azure，您可以永遠展開**DATALAKE 總管**，然後按一下 **登入 Azur**登入 Azure。 登入之後，您會看到您的 Azure 帳戶底下的所有訂用帳戶所述的左面板**DATALAKE 總管**。 
+- 登入 Azure 之前，您一律可以展開 **DataLake 總管**，然後按一下 [登入 Azure] 以登入 Azure。 登入之後，您會看到 Azure 帳戶下的所有訂用帳戶都列在 **DataLake 總管**的左側面板中。 
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
@@ -347,25 +364,25 @@ OUTPUT @d1
 
 **ADLA 中繼資料瀏覽** 
 
-- 展開您的 Azure 訂用帳戶，您可以瀏覽 U SQL database，檢視**結構描述**，**認證**，**組件**，**資料表**，**索引**，依此類推，[U-SQL Database] 節點底下。
+- 展開您的 Azure 訂用帳戶，您可以瀏覽 U-SQL 資料庫，在 U-SQL 資料庫節點底下檢視**結構描述**、**認證**、**組件**、**資料表**、**索引**等等。
 
 **ADLA 中繼資料實體管理**
 
-- 展開**U-SQL 資料庫**，您可以建立新的資料庫、 結構描述、 資料表、 資料表類型、 索引、 統計資料，以滑鼠右鍵按一下**指令碼，以建立**對應的節點底下的內容功能表。 在開啟的指令碼 頁面上，編輯指令碼，根據您的需求，然後提交作業，以滑鼠右鍵按一下內容功能表**ADL： 送出工作**。 完成之後建立它，按一下 內容功能表**重新整理**才能顯示新建立的項目。 您也可以刪除項目，以滑鼠右鍵按一下內容功能表**刪除**。
+- 展開 **U-SQL 資料庫**，您可以建立新的資料庫、結構描述、資料表、資料表類型、索引、統計資料，方法是在對應節點底下以滑鼠右鍵按一下 [要建立的指令碼] 內容功能表。 在開啟的指令碼分頁上，根據您的需求編輯指令碼，然後提交作業，方法是以滑鼠右鍵按一下 [ADL：提交作業] 內容功能表。 完成建立之後，按一下 [重新整理] 內容功能表以顯示新建立的項目。 您也可以刪除項目，方法是以滑鼠右鍵按一下 [刪除] 內容功能表。
 
-   ![DataLake 總管建立新的項目功能表](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+   ![DataLake 總管會建立新的項目功能表](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
 
-   ![DataLake 總管建立新的項目指令碼](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+   ![DataLake 總管會建立新的項目指令碼](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
 
 **ADLA 組件註冊**
 
- - 您可以**註冊組件**到對應的資料庫，以滑鼠右鍵按一下**組件**節點。
+ - 您可以**註冊組件**到對應的資料庫，方法是以滑鼠右鍵按一下 [組件] 節點。
 
     ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
 **ADLS 整合** 
 
- - 瀏覽至**儲存體帳戶**，您可以**預覽**，**下載**，**刪除**，**複製相對路徑**，**複製完整路徑**檔案節點上的操作功能表。 您可以**重新整理**，**上傳**，**上傳資料夾**，**刪除**以滑鼠右鍵按一下 [資料夾] 節點的內容功能表。
+ - 瀏覽至**儲存體帳戶**，您可以根據檔案節點上的內容功能表**預覽**、**下載**、**刪除**、**複製相對路就**、**複製完整路徑**。 您可以藉由以滑鼠右鍵按一下資料夾節點上的內容功能表，**重新整理**、**上傳**、**上傳資料夾**、**刪除**。
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
@@ -379,7 +396,7 @@ OUTPUT @d1
 Data Lake Tools 會在 Azure 入口網站中開啟 Azure 儲存體路徑。 您可以找到該路徑，並從網路預覽檔案。
 
 ## <a name="local-run-and-local-debug-for-windows-users"></a>Windows 使用者的本機執行和本機偵錯
-U-SQL 本機執行測試您的本機資料，並在本機驗證指令碼，您的程式碼發行至 Data Lake Analytics 之前。 本機偵錯功能可讓您先完成下列工作，再將您的程式碼提交給 Data Lake Analytics： 
+U-SQL 本機執行會先測試您的本機資料並在本機驗證您的指令碼，然後才將您的程式碼發行至 Data Lake Analytics。 本機偵錯功能可讓您先完成下列工作，再將您的程式碼提交給 Data Lake Analytics： 
 - 偵錯您的 C# 程式碼後置。 
 - 逐步執行程式碼。 
 - 在本機驗證您的指令碼。

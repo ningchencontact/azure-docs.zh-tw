@@ -16,11 +16,11 @@ ms.date: 12/25/2016
 ms.author: aasthan
 ms.openlocfilehash: da969e3f619c9703ea0c02a148f11a9509d6e988
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: C + + 主控台應用程式的教學課程 SQL API
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB：適用於 SQL API 的 C++ 主控台應用程式教學課程
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-歡迎使用 c + + 教學課程的 Azure Cosmos DB SQL API 背書 SDK for c + + ！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源，包括 C++ 資料庫。
+歡迎使用 Azure Cosmos DB SQL API 背書、適用於 C++ SDK 的 C++ 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源，包括 C++ 資料庫。
 
 本快速入門涵蓋：
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/18/2017
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    既然您已初始化用戶端程式碼，讓我們看看使用 Azure Cosmos DB 資源。
+    您現在具有程式碼，可將用戶端初始化，讓我們看看如何使用 Azure Cosmos DB 資源。
 
 ## <a id="CreateDBColl"></a>步驟 5︰建立 C++ 資料庫和集合
 在執行此步驟之前，有人可能不熟悉 Azure Cosmos DB，因此我們先了解一下資料庫、集合和文件的互動方式。 [資料庫](sql-api-resources.md#databases)是分配到多個集合之文件儲存體的邏輯容器。 [集合](sql-api-resources.md#collections)是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。 您可以在 [Azure Cosmos DB 階層式資源模型和概念](sql-api-resources.md)中，深入了解 Azure Cosmos DB 階層式資源模型和概念。

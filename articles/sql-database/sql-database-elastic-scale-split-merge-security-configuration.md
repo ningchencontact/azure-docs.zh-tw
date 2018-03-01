@@ -17,7 +17,7 @@ ms.date: 05/27/2016
 ms.author: torsteng
 ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -434,7 +434,7 @@ ms.lasthandoff: 12/14/2017
 9. 在所有對話方塊視窗上，按一下 [ **確定** ]。
 
 ## <a name="upload-certificate"></a>Upload certificate
-在[Azure 入口網站](https://portal.azure.com/)
+在 [Azure 入口網站](https://portal.azure.com/)中
 
 1. 選取 [雲端服務] 。
 2. 選取雲端服務。

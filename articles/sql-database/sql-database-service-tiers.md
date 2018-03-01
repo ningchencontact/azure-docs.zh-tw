@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層
+# <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層？
 
-[Azure SQL Database](sql-database-technical-overview.md) 為[單一資料庫](sql-database-single-database-resources.md)與[彈性集區](sql-database-elastic-pool.md)提供**基本**、**標準**、**進階**和**進階 RS** 服務層。 服務層主要是以一系列的效能層級和儲存體大小選項以及價格區分。  所有服務層皆提供變更效能層級和儲存體大小的彈性。  單一資料庫和彈性集區會根據服務層、效能層級和儲存體大小，以每小時的方式計費。   
+[Azure SQL Database](sql-database-technical-overview.md) 為[單一資料庫](sql-database-single-database-resources.md)與[彈性集區](sql-database-elastic-pool.md)提供**基本**、**標準**和**進階**服務層。 服務層主要是以一系列的效能層級和儲存體大小選項以及價格區分。  所有服務層皆提供變更效能層級和儲存體大小的彈性。  單一資料庫和彈性集區會根據服務層、效能層級和儲存體大小，以每小時的方式計費。   
 
 ## <a name="choosing-a-service-tier"></a>選擇服務層
 
 服務層的選擇主要視業務持續性、儲存體和效能需求而定。
-| | **基本** | **標準** |**高級** |**進階 RS** |
+| | **基本** | **標準** |**高級**  |
 | :-- | --: |--:| --:| --:| 
-|目標工作負載|開發與生產|開發與生產|開發與生產|工作負載可以容許由於服務失敗而造成的資料遺失最多 5 分鐘|
+|目標工作負載|開發與生產|開發與生產|開發與生產||
 |執行時間 SLA|99.99%|99.99%|99.99%|預覽時，N/A|
-|備份保留期|7 天|35 天|35 天|35 天|
-|CPU|低|低、中、高|中、高|中|
-|IO 輸送量|低  | 中 | 量級高於標準|與進階相同|
-|IO 延遲|高於進階|高於進階|低於基本和標準|與進階相同|
-|資料行存放區索引和記憶體內部 OLTP|N/A|N/A|支援|支援|
+|備份保留期|7 天|35 天|35 天|
+|CPU|低|低、中、高|中、高|
+|IO 輸送量|低  | 中 | 量級高於標準|
+|IO 延遲|高於進階|高於進階|低於基本和標準|
+|資料行存放區索引和記憶體內部 OLTP|N/A|N/A|支援|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>效能層級和儲存體大小限制
 
-單一資料庫的效能層級會以資料庫交易單位 (DTU) 表示，而彈性集區的效能層級則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-what-is-a-dtu.md)。
+單一資料庫的效能層級會以資料庫交易單位 (DTU) 表示，而彈性集區的效能層級則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>單一資料庫
 
-|  | **基本** | **標準** | **高級** | **進階 RS**|
+|  | **基本** | **標準** | **高級** | 
 | :-- | --: | --: | --: | --: |
-| 儲存體大小上限* | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| DTU 上限 | 5 | 3000 | 4000 | 1000 |
+| 儲存體大小上限* | 2 GB | 1 TB | 4 TB  | 
+| DTU 上限 | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>彈性集區
 
-| | **基本** | **標準** | **高級** | **進階 RS**|
+| | **基本** | **標準** | **高級** | 
 | :-- | --: | --: | --: | --: |
-| 每個資料庫的儲存體大小上限*  | 2 GB | 1 TB | 1 TB | 1 TB |
-| 每個集區的儲存體大小上限* | 156 GB | 4 TB | 4 TB | 1 TB |
-| 每個資料庫的 eDTU 上限 | 5 | 3000 | 4000 | 1000 |
-| 每個集區的 eDTU 上限 | 1600 | 3000 | 4000 | 1000 |
-| 每個集區的資料庫數目上限 | 500  | 500 | 100 | 100 |
+| 每個資料庫的儲存體大小上限*  | 2 GB | 1 TB | 1 TB | 
+| 每個集區的儲存體大小上限* | 156 GB | 4 TB | 4 TB | 
+| 每個資料庫的 eDTU 上限 | 5 | 3000 | 4000 | 
+| 每個集區的 eDTU 上限 | 1600 | 3000 | 4000 | 
+| 每個集區的資料庫數目上限 | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
-title: "部署 Azure 裝置模擬方案 |Microsoft 文件"
-description: "本教學課程會示範如何佈建裝置模擬從方案 azureiotsuite.com。"
+title: "部署裝置模擬解決方案 - Azure | Microsoft Docs"
+description: "本教學課程示範如何從 azureiotsuite.com 佈建裝置模擬解決方案。"
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="deploy-the-azure-iot-device-simulation-solution"></a>部署 Azure IoT 裝置模擬方案
+# <a name="deploy-the-azure-iot-device-simulation-solution"></a>部署 Azure IoT 裝置模擬解決方案
 
-本教學課程會示範如何佈建裝置模擬方案。 您要從 azureiotsuite.com 部署解決方案。
+本教學課程示範如何佈建裝置模擬解決方案。 您要從 azureiotsuite.com 部署解決方案。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定裝置模擬解決方案
-> * 裝置模擬方案部署
-> * 登入裝置模擬方案
+> * 部署裝置模擬解決方案
+> * 登入裝置模擬解決方案
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，您需要一個有效的 Azure 訂用帳戶。
 
@@ -37,42 +37,42 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-您將方案部署到您的 Azure 訂閱之前，您必須選擇一些組態選項：
+您必須先選擇一些設定選項，才能將解決方案部署到 Azure 訂用帳戶：
 
-1. 登入[azureiotsuite.com](https://www.azureiotsuite.com)使用您的 Azure 帳戶的認證，再按一下 **+** 來建立新的方案：
+1. 使用 Azure 帳戶認證登入 [azureiotsuite.com](https://www.azureiotsuite.com)，然後按一下 **+** 以建立新的解決方案：
 
     ![建立新解決方案](media/iot-suite-device-simulation-deploy/createnewsolution.png)
 
-1. 按一下**選取**上**裝置模擬**磚：
+1. 按一下 [裝置模擬] 圖格上的 [選取]：
 
     ![選擇裝置模擬](media/iot-suite-device-simulation-deploy/select.png)
 
-1. 在**建立裝置模擬解決方案**頁面上，輸入**方案名稱**裝置模擬方案。
+1. 在 [建立裝置模擬解決方案] 頁面上，輸入裝置模擬解決方案的 [解決方案名稱]。
 
 1. 選取您要用來佈建解決方案的 [訂用帳戶] 和 [區域]。
 
-1. 指定是否要與裝置模擬解決方案部署新的 IoT 中樞。 如果您核取此方塊時，新的 IoT 中樞被部署到您的訂用帳戶。 無論選擇，您可以一律指向您的模擬任何 IoT 中樞。
+1. 指定是否要隨裝置模擬解決方案部署新的 IoT 中樞。 如果您核取此方塊，系統便會在訂用帳戶中部署新的 IoT 中樞。 無論您做何選擇，都一律可將模擬指向任何 IoT 中樞。
 
 1. 按一下 [建立解決方案]  開始佈建程序。 此程序通常需要數分鐘的執行時間：
 
-    ![裝置模擬方案詳細資料](media/iot-suite-device-simulation-deploy/createsolution.png)
+    ![裝置模擬解決方案詳細資料](media/iot-suite-device-simulation-deploy/createsolution.png)
 
-## <a name="sign-in-to-the-solution"></a>登入方案
+## <a name="sign-in-to-the-solution"></a>登入解決方案
 
-佈建程序完成時，您可以登入您的裝置模擬方案。
+佈建程序完成時，您可以登入裝置模擬解決方案。
 
-1. 在**佈建解決方案**頁面上，按一下**啟動**下新的裝置模擬方案：
+1. 在 [已佈建的解決方案] 頁面上，按一下新的裝置模擬解決方案底下的 [啟動]：
 
     ![選擇新的解決方案](media/iot-suite-device-simulation-deploy/newsolution.png)
 
-1. 您可以檢視裝置模擬方案中的面板會顯示的資訊。 選擇**方案儀表板**連接裝置模擬解決方案。
+1. 您可以在出現的面板中檢視有關裝置模擬解決方案的資訊。 選擇 [解決方案儀表板] 以連線到裝置模擬解決方案。
 
     > [!NOTE]
-    > 當您完成時，您可以從這個面板刪除裝置模擬方案。
+    > 當您完成時，可以從此面板刪除裝置模擬解決方案。
 
     ![解決方案面板](media/iot-suite-device-simulation-deploy/properties.png)
 
-1. 裝置模擬方案儀表板會顯示您的瀏覽器中。
+1. 裝置模擬解決方案儀表板會顯示在您的瀏覽器中。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -81,8 +81,8 @@ ms.lasthandoff: 12/20/2017
 > [!div class="checklist"]
 > * 設定方案
 > * 部署解決方案
-> * 登入方案
+> * 登入解決方案
 
-既然您已部署的裝置模擬解決方案，下一個步驟是[探索裝置模擬解決方案的功能](./iot-suite-device-simulation-explore.md)。
+既然您已部署裝置模擬解決方案，下一步便是[探索裝置模擬解決方案的功能](./iot-suite-device-simulation-explore.md)。
 
 <!-- Next tutorials in the sequence -->

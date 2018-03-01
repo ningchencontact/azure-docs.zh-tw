@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 入口網站設定內容金鑰授權原則 |Microsoft 文件"
+title: "使用 Azure 入口網站設定內容金鑰授權原則 | Microsoft Docs"
 description: "了解如何設定內容金鑰的授權原則。"
 services: media-services
 documentationcenter: 
@@ -24,46 +24,46 @@ ms.lasthandoff: 01/05/2018
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概觀
- 您可以使用 Azure Media Services 來傳遞使用 128 位元加密金鑰來保護使用進階加密標準 (AES) 的 MPEG DASH、 Smooth Streaming 和 HTTP Live Streaming (HLS) 資料流或[PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/). 使用 Media Services 中，您也可以傳遞 Widevine DRM 以加密的 DASH 資料流。 PlayReady 和 Widevine 會加密依據一般加密 (ISO/IEC 23001-7 CENC) 規格中。
+ 您可以使用 Azure 媒體服務來傳遞受到進階加密標準 (AES) 保護的 MPEG DASH、Smooth Streaming 和 HTTP Live Streaming (HLS) 串流，方法是使用 128 位元加密金鑰或 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/)。 使用媒體服務，您還可以傳遞使用 Widevine DRM 加密的 DASH 串流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。
 
-Media Services 也提供用戶端可從其中取得 AES 金鑰或 PlayReady/Widevine 授權才能播放加密的內容金鑰/授權傳遞服務。
+媒體服務也提供金鑰/授權傳遞服務，用戶端可以從該處取得 AES 金鑰或 PlayReady/Widevine 授權，以便播放加密的內容。
 
-本文示範如何使用 Azure 入口網站設定內容金鑰授權原則。 金鑰稍後可以用來動態加密您的內容。 目前，您可以加密 HLS、 MPEG-DASH 以及 Smooth Streaming 格式。 您無法加密的漸進式下載。
+本文示範如何使用 Azure 入口網站設定內容金鑰授權原則。 金鑰稍後可以用來動態加密您的內容。 您目前可以加密 HLS、MPEG-DASH 和 Smooth Streaming 格式。 您無法加密漸進式下載。
 
-當播放程式要求設定為動態加密的資料流時，Media Services 會使用動態加密您的內容使用 AES 或 DRM 加密設定的金鑰。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 若要判斷是否授權使用者取得的金鑰，服務會評估您指定的索引鍵的授權原則。
+當播放器要求設定為動態加密的串流時，媒體服務會使用設定的金鑰，以 AES 或 DRM 加密將您的內容動態加密。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-如果您計劃有多個內容的索引鍵或想要指定 Media Services 金鑰傳遞服務以外的金鑰/授權傳遞服務 URL，請使用媒體服務.NET SDK 或 REST Api。 如需詳細資訊，請參閱
+如果您預計有多個內容金鑰，或需要指定金鑰/授權傳遞服務 URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。 如需詳細資訊，請參閱
 
-* [使用 Media Services.NET SDK 設定內容金鑰授權原則](media-services-dotnet-configure-content-key-auth-policy.md)
+* [使用媒體服務 .NET SDK 設定內容金鑰授權原則](media-services-dotnet-configure-content-key-auth-policy.md)
 * [使用媒體服務 REST API 設定內容金鑰授權原則](media-services-rest-configure-content-key-auth-policy.md)
 
-### <a name="some-considerations-apply"></a>某些考量適用於
-* 建立 Media Services 帳戶時，串流端點的預設值會加入至您的帳戶處於 「 已停止 」 狀態。 若要開始將內容串流，並利用動態封裝和動態加密，您的串流端點必須處於 「 執行中 」 狀態。 
+### <a name="some-considerations-apply"></a>適用一些考量事項
+* 建立媒體服務帳戶時，預設串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流處理您的內容，並利用動態封裝和動態加密功能，您的串流端點必須處於 [執行中] 狀態。 
 * 您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。 如需詳細資訊，請參閱 [為資產編碼](media-services-encode-asset.md)。
-* 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 及其相關的物件 （原則選項和限制） 15 分鐘。 您可以建立 ContentKeyAuthorizationPolicy 並指定若要使用權杖限制，測試它，然後將原則更新為開放的限制。 這個程序需要大約 15 分鐘，原則切換到開啟的版本。
-* 媒體服務串流端點設定 CORS 存取控制-允許的原始標頭的值做為萬用字元事前回應中 」\*"。 這個值適用於大部分的播放程式，包括 Azure Media Player、 Roku 和 JWPlayer，以及其他等等。 不過，有些播放程式使用 dash.js 不適因為認證設定為"include"模式中，在其 dash.js XMLHttpRequest 不允許萬用字元"\*"做為存取控制-允許的原始值。 因應措施 dash.js 中這項限制，如果您裝載您的用戶端，從單一網域，Media Services 可以指定該網域預檢回應標頭中。 如需協助，請開啟支援票證，透過 Azure 入口網站。
+* 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。 您可以建立 ContentKeyAuthorizationPolicy 並指定要使用權杖限制、對其進行測試，然後將原則更新為開放的限制。 此程序需要大約 15 分鐘，然後原則才能切換為開放版本。
+* 媒體服務串流端點會在預檢回應中，將 CORS Access-Control-Allow-Origin 標頭的值設定為萬用字元 "\*"。 此值適用於大多數的播放程式，包括 Azure 媒體播放器、Roku 和 JWPlayer 等其他播放程式。 不過，有些利用 dash.js 的播放器則不適用，因為，如果將認證模式設定為 "include"，其 dash.js 中的 XMLHttpRequest 就不允許萬用字元 "\*" 作為 Access-Control-Allow-Origin 的值。 對於 dash.js 中此一限制的因應措施是，如果您從單一網域裝載用戶端，媒體服務就能在預檢回應標頭中指定該網域。 如需協助，請透過 Azure 入口網站開啟支援票證。
 
 ## <a name="configure-the-key-authorization-policy"></a>設定金鑰授權原則
 若要設定金鑰授權原則，請選取 [ **內容保護** ] 頁面。
 
-Media Services 支援多個方法來驗證提出金鑰要求的使用者。 內容金鑰授權原則能開啟、 語彙基元或 IP 授權限制。 （IP 可以設定與 REST 或.NET SDK）。
+媒體服務支援多種方式來驗證提出金鑰要求的使用者。 內容金鑰授權原則可以有 open、token 或 IP 授權限制。 (可以使用 REST 或 .NET SDK 來設定 IP。)
 
 ### <a name="open-restriction"></a>Open 限制
-開放限制表示系統傳遞給任何提出金鑰要求的任何人的索引鍵。 這項限制可用於測試用途。
+Open 限制表示系統會傳送金鑰給提出金鑰要求的任何人。 這項限制可用於測試用途。
 
 ![OpenPolicy][open_policy]
 
 ### <a name="token-restriction"></a>權杖限制
-選擇權杖限制的原則，請選取**語彙基元** 按鈕。
+若要選擇權杖限制原則，請選取 [權杖] 按鈕。
 
-權杖限制的原則必須隨附由安全性權杖服務 (STS) 所簽發的權杖。 Media Services 支援簡單 web 權杖中的語彙基元 ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 和 JSON Web Token (JWT) 格式。 如需詳細資訊，請參閱[JWT 驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
+權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援使用簡單 Web 權杖 ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 和 JSON Web 權杖 (JWT) 格式的權杖。 如需詳細資訊，請參閱 [JWT 驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
 
-Media Services 不提供 STS。 您可以建立自訂的 STS，或使用 Azure 存取控制服務，以簽發權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖是有效的權杖中的宣告符合為內容金鑰設定，Media Services 金鑰傳遞服務會傳回給用戶端的加密金鑰。 如需詳細資訊，請參閱[使用 Azure 存取控制服務以簽發權杖](http://mingfeiy.com/acs-with-key-services)。
+媒體服務不提供 STS。 您可以建立自訂 STS，或使用 Azure 存取控制服務來發行權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。 如需詳細資訊，請參閱[使用 Azure 存取控制服務來發行權杖](http://mingfeiy.com/acs-with-key-services)。
 
-當您設定權杖限制原則時，您必須指定主要驗證金鑰、 簽發者和對象的參數。 主要驗證金鑰包含簽署權杖的金鑰。 發行者為發行權杖的 STS。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
+設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的 STS。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
 ### <a name="playready"></a>PlayReady
-當您保護使用 PlayReady 時，其中一項操作，您必須在您的授權原則中指定為 XML 字串定義 PlayReady 授權範本。 依預設，會設定下列原則：
+當您使用 PlayReady 保護內容時，必須在驗證原則中指定的其中一件事，是定義 PlayReady 授權範本的 XML 字串。 依預設，會設定下列原則：
 
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
           <LicenseTemplates>
@@ -77,7 +77,7 @@ Media Services 不提供 STS。 您可以建立自訂的 STS，或使用 Azure �
           </LicenseTemplates>
         </PlayReadyLicenseResponseTemplate>
 
-您可以選取**匯入原則的 xml**按鈕，並提供不同的 XML 定義中的 XML 結構描述符合[Media Services PlayReady 授權範本概觀](media-services-playready-license-template-overview.md)。
+您可以選取 [匯入原則 xml] 按鈕，並提供與[媒體服務 PlayReady 授權範本概觀](media-services-playready-license-template-overview.md)中定義之 XML 結構描述符合的不同 XML。
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

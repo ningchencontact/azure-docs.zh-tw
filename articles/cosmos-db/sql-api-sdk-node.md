@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL Node.js 應用程式開發介面、 SDK 與資源 |Microsoft 文件"
-description: "深入了解 SQL Node.js API 和 SDK 包括發行日期、 停用日期，以及每個版本的 Azure Cosmos DB Node.js sdk 之間所做的變更。"
+title: "Azure Cosmos DB：SQL Node.js API、SDK 和資源 | Microsoft Docs"
+description: "了解所有 SQL Node.js API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB Node.js SDK 每個版本之間所做的變更。"
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API 的 azure Cosmos DB Node.js SDK： 版本資訊和資源
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -64,11 +64,11 @@ ms.lasthandoff: 01/05/2018
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="1.14.2"/>1.14.2</a>
-* 更新參考 Azure Cosmos DB，而不是 Azure DocumentDB 的文件。
-* 已新增的支援 ConnectionPolicy proxyUrl 設定。
+* 更新參考 Azure Cosmos DB 而非 Azure DocumentDB 的文件。
+* 在 ConnectionPolicy 加入對 proxyUrl 設定的支援。
 
 ### <a name="1.14.1"/>1.14.1</a>
-* 如果是區分大小寫的檔案系統的次要修正。
+* 區分大小寫的檔案系統的次要修正。
 
 ### <a name="1.14.0"/>1.14.0</a>
 * 新增工作階段一致性的支援。
@@ -230,6 +230,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

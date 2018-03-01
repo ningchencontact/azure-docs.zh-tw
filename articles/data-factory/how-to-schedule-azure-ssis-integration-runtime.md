@@ -3,7 +3,7 @@ title: "如何排程 Azure SSIS 整合執行階段 | Microsoft Docs"
 description: "本文說明如何使用 Azure 自動化及 Data Factory 來排程 Azure SSIS 整合執行階段的啟動和停止。"
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止 
 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 以下是本文說明的概要步驟：

@@ -4,7 +4,7 @@ description: "本教學課程將說明如何使用 Azure Resource Manager 模式
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>在 Azure 虛擬機器中自動設定 Always On 可用性群組：Resource Manager
 
@@ -63,8 +63,8 @@ ms.lasthandoff: 10/11/2017
 Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執行下列動作：
 
 1. 使用您的帳戶登入 Azure 入口網站。
-2. 在 Azure 入口網站中，按一下 [+新增] 以開啟 [新增] 刀鋒視窗。
-3. 在 [新增] 刀鋒視窗上，搜尋 **AlwaysOn**。
+2. 在 Azure 入口網站中，按一下 [建立資源]，以開啟 [新增] 窗格。
+3. 在 [新增] 窗格上，搜尋 **AlwaysOn**。
    ![尋找 AlwaysOn 範本](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. 在搜尋結果中，找出「SQL Server AlwaysOn 叢集」。
    ![AlwaysOn 範本](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -83,7 +83,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 ![基本概念](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
-按一下 [確定] 。
+按一下 [SERVICEPRINCIPAL] 。
 
 ### <a name="domain-and-network-settings"></a>網域和網路設定
 此 Azure 資源庫範本會建立網域與網域控制站。 它也會建立一個網路和兩個子網路。 此範本無法在現有的網域或虛擬網路中建立伺服器。 下一步是設定網域和網路設定。
@@ -103,7 +103,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 如有必要，您可以變更這些值。 本教學課程使用預設值。
 
-檢閱設定，然後按一下確定。
+檢閱設定，然後按一下 [確定]。
 
 ### <a name="availability-group-settings"></a>可用性群組設定
 在 [可用性群組設定] 上，檢閱可用性群組和接聽程式的預設值。
@@ -116,7 +116,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 ![可用性群組設定](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
-按一下 [確定] 。
+按一下 [SERVICEPRINCIPAL] 。
 
 ### <a name="virtual-machine-size-storage-settings"></a>虛擬機器大小，儲存體設定
 在 [VM 大小，儲存體設定] 上，選擇 SQL Server 虛擬機器大小，並檢閱其他設定。
@@ -143,7 +143,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 ![VM 大小儲存體設定](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
 
-檢閱設定，然後按一下確定。
+檢閱設定，然後按一下 [確定]。
 
 #### <a name="a-note-about-storage"></a>儲存體注意事項
 其他最佳化視 SQL Server 資料磁碟大小而定。 Azure 會針對資料磁碟的每一 TB，額外新增 1 TB 進階儲存體。 當伺服器需要 2 TB 以上的空間時，該範本會在每個 SQL Server 虛擬機器上建立儲存體集區。 存放集區是一種儲存虛擬化，經由設定多張光碟來提供更高的容量、備援及效能。  然後，此範本會在儲存體集區上建立儲存空間，然後向作業系統顯示單一資料磁碟。 此範本會將此磁碟指定為 SQL Server 的資料磁碟。 此範本會使用下列設定來調整 SQL Server 的儲存體集區：
@@ -182,10 +182,10 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 ![SQL Server 設定](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
 
-檢閱設定，然後按一下確定。
+檢閱設定，然後按一下 [確定]。
 
-### <a name="summary"></a>摘要
-在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [確定] 。
+### <a name="summary"></a>總結
+在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [SERVICEPRINCIPAL] 。
 
 ### <a name="buy"></a>購買
 這個最終的刀鋒視窗包含 [使用條款] 和 [隱私權原則]。 檢閱此資訊。 當您準備好讓 Azure 開始建立虛擬機器及可用性群組的所有其他必要資源時，請按一下 [建立]。
@@ -206,8 +206,8 @@ SQL Server 的新執行個體會在具有已連線網際網路之 IP 位址的�
 2. 按一下 [資源] 。
 3. 在 [資源] 刀鋒視窗中，按一下 [sqlserver-0]，這是執行 SQL Server 之其中一部虛擬機器的電腦名稱。
 4. 在 [sqlserver-0] 的刀鋒視窗上，按一下 [連線]。 瀏覽器會詢問您是否要開啟或儲存遠端連接物件。 按一下 [開啟] 。
-5. [遠端桌面連線] 可能會警告您無法識別這個遠端連線的發行者。 按一下 [連接]。
+5. [遠端桌面連線] 可能會警告您無法識別這個遠端連線的發行者。 按一下 [ **連接**]。
 6. Windows 安全性會提示您輸入認證，以連接到主要網域控制站的 IP 位址。 按一下 [使用其他帳戶]。 在 [使用者名稱] 中，輸入 **contoso\DomainAdmin**。 當您在範本中設定系統管理員使用者名稱時，您可以設定此帳戶。 使用您設定範本時選擇的複雜密碼。
-7. [遠端桌面] 可能會警告您因為安全性憑證有問題，無法驗證遠端電腦。 它會顯示安全性憑證名稱。 如果您依照本教學課程進行，此名稱會是 **sqlserver-0.contoso.com**。按一下 [是] 。
+7. [遠端桌面] 可能會警告您因為安全性憑證有問題，無法驗證遠端電腦。 它會顯示安全性憑證名稱。 如果您依照本教學課程進行，此名稱會是 **sqlserver-0.contoso.com**。按一下 [是]。
 
 您現在已使用 RDP 連線至 SQL Server 虛擬機器。 您可以開啟 SQL Server Management Studio、連線到 SQL Server 的預設執行個體，並確認已設定可用性群組。

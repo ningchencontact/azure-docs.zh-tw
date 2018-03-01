@@ -14,26 +14,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 90c11b09351f019c45f5f1b025d67947b69b3b0a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 57deec4acffc1387fcb5c42c17085bb363dfdbc1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Azure Mobile Apps 中的驗證與授權
 ## <a name="what-is-app-service-authentication--authorization"></a>什麼是 App Service 驗證 / 授權？
 > [!NOTE]
-> 本主題將移轉至合併的 [App Service 驗證/授權](../app-service/app-service-authentication-overview.md) 主題，其中涵蓋 Web、Mobile 和 API Apps。
+> 本文將移轉至合併的 [App Service 驗證/授權](../app-service/app-service-authentication-overview.md)文章，其中涵蓋 Web、Mobile 和 API Apps。
 > 
 > 
 
-App Service 驗證 / 授權是一項功能，可讓您的應用程式登入使用者，而不需在 app 後端進行任何程式碼變更。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。
+App Service 驗證/授權是一項功能，可讓您的應用程式登入使用者，而不需在應用程式後端進行任何程式碼變更。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。
 
-App Service 會使用同盟身分識別，第 3 方 **身分識別提供者** ("IDP") 會在其中儲存帳戶和驗證使用者，而應用程式會使用這個身分識別，而不是它自己的身分識別。 App Service 支援五個現成的識別提供者：Azure Active Directory、Facebook、Google、Microsoft 帳戶及 Twitter。 您也可以藉由整合其他身分識別提供者或您自己自訂的身分識別解決方案，針對您的 app 延伸此支援。
+App Service 使用同盟身分識別，由第三方**識別提供者** ("IDP") 儲存帳戶並驗證使用者。 應用程式使用此身分識別，而非本身的身分識別。 App Service 支援五個現成的識別提供者：Azure Active Directory、Facebook、Google、Microsoft 帳戶及 Twitter。 您也可以藉由整合其他身分識別提供者或您自己自訂的身分識別解決方案，針對您的 app 延伸此支援。
 
-您的 app 可以利用任意數目的這類身分識別提供者，因此可為您的使用者提供登入選項。
+您的應用程式可以使用任意數目的這類身分識別提供者，因此可為您的使用者提供登入選項。
 
-如果您希望立即開始，請參閱下列其中一個教學課程：
+如果您想要立即開始，請參閱下列其中一個教學課程︰
 
 * [將驗證新增至您的 iOS 應用程式]
 * [將驗證新增至 Xamarin.iOS 應用程式]
@@ -54,7 +54,7 @@ App Service 會使用同盟身分識別，第 3 方 **身分識別提供者** ("
 在後端將一切設定就緒之後，您就可以修改用來登入的用戶端。 有以下兩種方法：
 
 * 使用單一行程式碼，讓 Mobile Apps 用戶端 SDK 登入使用者。
-* 利用指定的身分識別提供者發佈的 SDK 來建立身分識別，然後取得 App Service 的存取權。
+* 使用指定的身分識別提供者發佈的 SDK 來建立身分識別，然後取得 App Service 的存取權。
 
 > [!TIP]
 > 大部分的應用程式都應該使用提供者 SDK 來獲得更自然的登入體驗，以及利用重新整理支援和其他提供者專屬的權益。
@@ -62,19 +62,19 @@ App Service 會使用同盟身分識別，第 3 方 **身分識別提供者** ("
 > 
 
 ### <a name="how-authentication-without-a-provider-sdk-works"></a>不使用提供者 SDK 進行驗證的運作方式
-如果您不想設定提供者 SDK，則可允許 Mobile Apps 來為您執行登入。 Mobile Apps 用戶端 SDK 將為您選擇的提供者開啟網頁檢視，然後完成登入。 您有時會在部落格和論壇上看到這稱為「伺服器流程」或「伺服器導向流程」。因為伺服器正在管理登入，而用戶端 SDK 永遠都不會收到提供者權杖。
+如果您不想設定提供者 SDK，則可允許 Mobile Apps 來為您執行登入。 Mobile Apps 用戶端 SDK 將為您選擇的提供者開啟網頁檢視，然後完成登入。 您有時會看到此工作流程稱為「伺服器流程」或「伺服器導向流程」。因為伺服器正在管理登入，而用戶端 SDK 永遠都不會收到提供者權杖。
 
 啟動此流程所需的程式碼會包含於適用於每個平台的驗證教學課程中。 在流程結束時，用戶端 SDK 會擁有一個 App Service 權杖，而該權杖會自動附加至對後端的所有要求。
 
 ### <a name="how-authentication-with-a-provider-sdk-works"></a>使用提供者 SDK 進行驗證的運作方式
-使用提供者 SDK 可讓登入體驗與 app 執行所在的平台作業系統更緊密地進行互動。 這也會提供您一個提供者權杖以及用戶端上的一些使用者資訊，讓它更容易取用圖表 API 和自訂使用者體驗。 您有時會在部落格和論壇上看到這稱為「用戶端流程」或「用戶端導向的流程」，因為用戶端上的程式碼正在處理登入，而且用戶端程式碼可以存取提供者權杖。
+使用提供者 SDK 可讓登入體驗與 app 執行所在的平台作業系統更緊密地進行互動。 提供者 SDK 也會 提供您提供者權杖以及用戶端上的一些使用者資訊，讓它更容易取用圖形 API 和自訂使用者體驗。 您有時會看到此工作流程稱為「用戶端流程」或「用戶端導向的流程」，因為用戶端上的程式碼正在處理登入，而且用戶端程式碼可以存取提供者權杖。
 
 一旦取得提供者權杖之後，它需要傳送給 App Service 以進行驗證。 在流程結束時，用戶端 SDK 會擁有一個 App Service 權杖，而該權杖會自動附加至對後端的所有要求。 如果開發人員選擇這樣做，他們也可以保留對提供者權杖的參考。
 
 ## <a name="how-authorization-works"></a>授權的運作方式
 App Service 驗證 / 授權會公開 **未驗證要求時要採取的動作**的數個選項。 在您的程式碼收到指定的要求之前，您可以進行 App Service 檢查來查看是否會驗證要求，如果沒有，請加以拒絕，並先嘗試讓使用者登入，然後再試一次。
 
-其中一個選項是讓未經驗證的要求重新導向至其中一個身分識別提供者。 在 Web 瀏覽器中，這實際上會將使用者帶到新頁面。 不過，如此一來，您的行動用戶端就無法重新導向，而且未經驗證的回應將會收到 HTTP「401 未經授權」回應。 考慮到這一點，您的用戶端所提出的第一個要求應一律為登入端點，而您接著可對任何其他 API 進行呼叫。 如果您嘗試在登入之前呼叫另一個 API，您的用戶端將會收到錯誤。
+其中一個選項是讓未經驗證的要求重新導向至其中一個身分識別提供者。 在網頁瀏覽器中，此重新導向實際上會將使用者帶到新頁面。 不過，如此一來，您的行動用戶端就無法重新導向，而且未經驗證的回應將會收到 HTTP「401 未經授權」回應。 考慮到這一點，您的用戶端所提出的第一個要求應一律為登入端點，而您接著可對任何其他 API 進行呼叫。 如果您嘗試在登入之前呼叫另一個 API，您的用戶端將會收到錯誤。
 
 如果您想要更細微地控制哪些端點需要驗證，您也可以針對未經驗證的要求挑選「沒有動作 (允許要求)」。 在此情況下，所有驗證決策都會延後至您的應用程式程式碼。 這也可以讓您根據自訂的授權規則來允許存取特定的使用者。
 
@@ -86,7 +86,7 @@ App Service 驗證 / 授權會公開 **未驗證要求時要採取的動作**的
 * [將驗證新增至 Xamarin.Android 應用程式]
 * [將驗證新增至您的 Windows App]
 
-下列教學課程示範如何設定 App Service 來運用不同的驗證提供者：
+下列教學課程示範如何設定 App Service 來使用不同的驗證提供者：
 
 * [如何設定您的 App 以使用 Azure Active Directory 登入]
 * [如何設定 App 以使用 Facebook 登入]
@@ -94,7 +94,7 @@ App Service 驗證 / 授權會公開 **未驗證要求時要採取的動作**的
 * [如何設定 App 以使用 Microsoft 帳戶登入]
 * [如何設定 App 以使用 Twitter 登入]
 
-如果您想要使用此處提供之身分識別系統以外的身分識別系統，也可以利用 [預覽 .NET 伺服器 SDK 中的自訂驗證支援](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth)。
+如果您想要使用此處提供之身分識別系統以外的身分識別系統，也可以使用[預覽 .NET 伺服器 SDK 中的自訂驗證支援](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth)。
 
 [將驗證新增至您的 iOS 應用程式]: app-service-mobile-ios-get-started-users.md
 [將驗證新增至 Xamarin.iOS 應用程式]: app-service-mobile-xamarin-ios-get-started-users.md

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 
@@ -114,7 +114,6 @@ ms.lasthandoff: 12/16/2017
 ## <a name="troubleshooting"></a>疑難排解
 如果您無法使用安全 LDAP 來連線到受控網域，請執行下列疑難排解步驟：
 * 確定安全 LDAP 憑證的簽發者鏈結在用戶端上受到信任。 您可以選擇將根憑證授權單位新增到用戶端上受信任的根憑證存放區，以建立信任。
-* 確認安全 LDAP 憑證的簽發者不是全新 Windows 電腦上預設即不信任的中繼憑證受權單位。
 * 確認 LDAP 用戶端 (例如 ldp.exe) 是使用 DNS 名稱來連線至安全 LDAP 端點，而不是使用 IP 位址。
 * 確認 LDAP 用戶端所連線的 DNS 名稱會解析成受控網域上安全 LDAP 的公用 IP 位址。
 * 確認受控網域之安全 LDAP 憑證的「主體」和「主體別名」屬性中有 DNS 名稱。

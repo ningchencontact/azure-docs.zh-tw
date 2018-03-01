@@ -16,13 +16,13 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>服務匯流排定價與計費
 
-Azure 服務匯流排提供標準和[Premium](service-bus-premium-messaging.md)層。 您可以針對建立的每個服務匯流排服務命名空間選擇一個服務層，此選取層會套用至該命名空間內建立的所有實體。
+Azure 服務匯流排提供標準和[進階](service-bus-premium-messaging.md)層。 您可以針對建立的每個服務匯流排服務命名空間選擇一個服務層，此選取層會套用至該命名空間內建立的所有實體。
 
 > [!NOTE]
 > 如需目前服務匯流排的價格詳細資訊，請參閱 [Azure 服務匯流排價格頁面](https://azure.microsoft.com/pricing/details/service-bus/)和[服務匯流排常見問題集](service-bus-faq.md#pricing)。
@@ -44,19 +44,19 @@ Azure 服務匯流排提供標準和[Premium](service-bus-premium-messaging.md)�
 
 ## <a name="messaging-operations"></a>傳訊作業
 
-不在每個訊息，會將佇列和主題/訂閱計費每個 「 作業 」。 作業是指對佇列或主題/訂閱服務端點所做的任何 API 呼叫。 這包括管理、傳送/接收和工作階段狀態的作業。
+佇列和主題/訂用帳戶會依據每一「作業」來收費，而非依據每一訊息。 作業指的是針對佇列或主題/訂用帳戶服務端點所建立的任何 API 呼叫。 這包括管理、傳送/接收和工作階段狀態的作業。
 
 | 作業類型 | 說明 |
 | --- | --- |
 | 管理 |對佇列或主題/訂用帳戶執行的建立、讀取、更新、刪除 (CRUD)。 |
-| 訊息 |傳送和接收佇列或主題/訂閱訊息。 |
-| 工作階段狀態 |取得或設定佇列或主題/訂閱的工作階段狀態。 |
+| 訊息 |用佇列或主題/訂用帳戶傳送和接收訊息。 |
+| 工作階段狀態 |取得或設定佇列或主題/訂用帳戶上的工作階段狀態。 |
 
 如需成本的詳細資訊，請參閱[服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)頁面列出的價格。
 
 ## <a name="brokered-connections"></a>代理連線
 
-*代理連線*容納涉及大量 「 持續連線 」 傳送者/接收者針對佇列、 主題或訂用帳戶的使用模式。 持續連線的傳送者/接收者是指使用 AMQP 或 HTTP 進行連線，且接收逾時為非零值 (例如 HTTP 長時間輪詢) 的對象。 具有立即逾時的 HTTP 傳送者和接收者並不會產生代理連線。
+*Brokered connections* 內含的使用量模式，牽涉到針對佇列、主題或訂用帳戶而「持續連線」的大量傳送者/接收者。 持續連線的傳送者/接收者是指使用 AMQP 或 HTTP 進行連線，且接收逾時為非零值 (例如 HTTP 長時間輪詢) 的對象。 具有立即逾時的 HTTP 傳送者和接收者並不會產生代理連線。
 
 關於連線配額和其他服務限制，請參閱[服務匯流排配額](service-bus-quotas.md)一文。 如需關於代理連線的詳細資訊，請參閱本文稍後的[常見問題集](#faq)一節。
 
@@ -96,7 +96,7 @@ Azure 服務匯流排提供標準和[Premium](service-bus-premium-messaging.md)�
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>佇列和主題/訂用帳戶需要代理連線費用嗎？
 
-可以。 不論傳送系統或裝置的數目多寡，使用 HTTP 來傳送事件不需要支付連線費用。 使用逾時大於零的 HTTP 來接收事件，有時也稱為「長時間輪詢」，會產生代理連線的費用。 AMQP 連線均會產生代理連線費用，不論連線是用於傳送或接收皆然。 在 Azure 訂用帳戶中，所有標準層命名空間內的前 1,000 個代理連線，除了基本費用外，均不需額外費用。 因為這些額度便足以涵蓋許多服務對服務的傳訊案例，通常只在您打算使用 AMQP 或 HTTP 的長時間輪詢加上大量用戶端時，才可能會有相應的代理連線費用。例如，想要達到更有效率的事件資料流，或啟用與許多裝置或應用程式執行個體間的雙向通訊。
+是。 不論傳送系統或裝置的數目多寡，使用 HTTP 來傳送事件不需要支付連線費用。 使用逾時大於零的 HTTP 來接收事件，有時也稱為「長時間輪詢」，會產生代理連線的費用。 AMQP 連線均會產生代理連線費用，不論連線是用於傳送或接收皆然。 在 Azure 訂用帳戶中，所有標準層命名空間內的前 1,000 個代理連線，除了基本費用外，均不需額外費用。 因為這些額度便足以涵蓋許多服務對服務的傳訊案例，通常只在您打算使用 AMQP 或 HTTP 的長時間輪詢加上大量用戶端時，才可能會有相應的代理連線費用。例如，想要達到更有效率的事件資料流，或啟用與許多裝置或應用程式執行個體間的雙向通訊。
 
 ## <a name="next-steps"></a>後續步驟
 

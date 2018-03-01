@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本 
 保留的虛擬機器執行個體可讓您預先支付一年或三年的計算容量，以獲得所使用之虛擬機器的折扣。 這樣可以大幅降低虛擬機器成本，一年或三年預先承諾最高可達隨用隨付價格的 72%。 保留的虛擬機器執行個體會以折扣價格計費，而且不會影響虛擬機器的執行階段狀態。
@@ -60,5 +60,14 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 購買[保留的虛擬機器執行個體](https://go.microsoft.com/fwlink/?linkid=861721)，開始節省虛擬機器的成本。 
+
+若要深入了解保留的虛擬機器執行個體，請參閱下列文章。
+
+- [預付具有保留的 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [管理保留的虛擬機器執行個體](billing-manage-reserved-vm-instance.md)
+- [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [Windows 軟體的成本不包括在保留執行個體內](billing-reserved-instance-windows-software-costs.md)
 
 如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

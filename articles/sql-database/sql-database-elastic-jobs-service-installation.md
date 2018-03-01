@@ -17,16 +17,16 @@ ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>安裝彈性資料庫工作概觀
-[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)可透過 PowerShell 或透過 Azure 入口網站安裝。您可以存取建立並安裝 PowerShell 封裝時才使用 PowerShell API 來管理工作。 此外，PowerShell API 目前比入口網站提供更多的功能。
+您可以經由 PowerShell 或透過 Azure 入口網站安裝[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)。只有在安裝 PowerShell 套件的情況下，您才能取得可使用 PowerShell API 來建立和管理工作的存取權。 此外，PowerShell API 目前比入口網站提供更多的功能。
 
 如果您已透過「入口網站」從現有的「彈性集區」安裝「彈性資料庫工作」，最新的 Powershell 預覽版包含可升級現有安裝的指令碼。 強烈建議將安裝升級至最新的 **彈性資料庫工作** 元件，以利用透過 PowerShell API 公開的新功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶。 如需免費試用版，請參閱 [免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
 * Azure PowerShell。 使用 [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376)安裝最新版本。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 * [NuGet 命令列公用程式](https://nuget.org/nuget.exe) 可用來安裝彈性資料庫工作封裝。 如需詳細資訊，請參閱 http://docs.nuget.org/docs/start-here/installing-nuget。
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/14/2017
 
 **預估完成時間：** 10 分鐘。
 
-1. 從透過彈性集區的儀表板檢視[Azure 入口網站](https://portal.azure.com/#)，按一下 **建立工作**。
+1. 透過 [Azure 入口網站](https://portal.azure.com/#)，從彈性集區的儀表板檢視按一下 [建立工作]。
 2. 如果您是第一次建立工作，則必須按一下 [預覽條款] 來安裝「彈性資料庫工作」。
 3. 然後按一下核取方塊接受條款。
 4. 在 [安裝服務] 檢視中，按一下 [工作認證] 。

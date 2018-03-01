@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: a235261dc477ab29dc17fe1e680e4e91ae2f4ede
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>高效能運算的虛擬機器大小
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="rdma-capable-instances"></a>支援 RDMA 的執行個體
-計算密集型執行個體 (H16r、H16mr、A8 與 A9) 的子集，包含用於遠端直接記憶體存取 (RDMA) 連線的網路介面。 這是可供其他 VM 大小使用之標準 Azure 網路介面的額外界面。 
+計算密集型執行個體 (H16r、H16mr、NC24r、A8 與 A9) 的子集，包含用於遠端直接記憶體存取 (RDMA) 連線的網路介面。 這是可供其他 VM 大小使用之標準 Azure 網路介面的額外界面。 
   
-這個介面允許支援 RDMA 的執行個體透過 InfiniBand 網路進行通訊，針對 H16r 與 H16mr 虛擬機器以 FDR 速率運作，以及針對 A8 與 A9 虛擬機器以 QDR 速率運作。 這些 RDMA 功能可以提高在 Intel MPI 5.x 或更新版本下執行之訊息傳遞介面 (MPI) 應用程式的延展性和效能。
+這個介面允許支援 RDMA 的執行個體透過 InfiniBand 網路進行通訊，針對 H16r、H16mr 與 NC24r 虛擬機器以 FDR 速率運作，以及針對 A8 與 A9 虛擬機器以 QDR 速率運作。 這些 RDMA 功能只能可以提高在 Intel MPI 5.x 下執行之訊息傳遞介面 (MPI) 應用程式的延展性和效能。 Intel MPI 執行階段程式庫的較新版本 (2017 和 2018) 與 Azure RDMA 驅動程式不相容。
 
 在相同的可用性設定組 (如果您使用 Azure Resource Manager 部署模型) 或相同的雲端服務 (如果您使用傳統部署模型) 中部署支援 RDMA 的 VM。 使支援 RDMA 的 Linux VM 得以存取 Azure RDMA 網路的其他需求如下。
 

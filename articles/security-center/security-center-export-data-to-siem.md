@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: aef623f047bd7e14cb5bd17fb2a2c18e3c5d42b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>將 Azure 安全性資料匯出至 SIEM - 管線設定 [預覽]
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/01/2018
 | **查詢描述**                                | **查詢**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | 所有警示                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
-| 依作業名稱對作業計數進行總結             | **Alerts** index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
+| 依作業名稱對作業計數進行總結             | index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
 | 取得警示資訊：時間、名稱、狀態、識別碼和訂用帳戶 | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 

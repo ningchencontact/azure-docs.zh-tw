@@ -1,6 +1,6 @@
 ---
 title: "Azure 轉送例外狀況以及解決方式 | Microsoft Docs"
-description: "Azure 轉送例外狀況和建議的動作可協助解決問題的清單。"
+description: "Azure 轉送例外狀況以及您可以採取來協助解決這些例外狀況之建議動作的清單。"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -16,7 +16,7 @@ ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) 表示使用者啟始作業所用的時間長過作業逾時。 
 
-檢查 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) 屬性的值。 達到此限制也可能會導致[TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)。
+檢查 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) 屬性的值。 觸達此限制也會導致 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)。
 
 若為轉送，您可能會在第一次開啟轉送傳送者連線時收到逾時例外狀況。 這個例外狀況有兩個常見的原因︰
 

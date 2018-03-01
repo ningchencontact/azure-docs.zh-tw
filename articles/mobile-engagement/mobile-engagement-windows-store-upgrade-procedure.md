@@ -16,7 +16,7 @@ ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
@@ -294,7 +294,7 @@ Engagement 使用連接字串。 您不需要為 Mobile Engagement 指定應用�
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-您的應用程式的連接字串會顯示在 Azure 入口網站。
+您應用程式的連接字串會顯示在 Azure 入口網站中。
 
 ### <a name="items-name-change"></a>項目名稱變更
 所有名為 capptain 的項目已命名為 engagement。 同樣地，Capptain 也已命名為 Engagement。

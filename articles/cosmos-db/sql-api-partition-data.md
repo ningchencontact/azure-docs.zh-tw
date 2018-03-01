@@ -16,17 +16,17 @@ ms.author: rafats
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>使用 SQL API 的 Azure Cosmos DB 中的資料分割
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>使用 SQL API 在 Azure Cosmos DB 進行資料分割
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) 是全域分散的多重模型資料庫服務，其設計可協助您達成快速且可預測的效能，並順暢地隨著應用程式的成長而調整規模。 
 
-本文章提供如何使用資料分割的 Cosmos DB 容器與 SQL API 的概觀。 如需使用任一 Azure Cosmos DB API 進行資料分割之概念和最佳做法的概觀，請參閱[資料分割與水平調整](../cosmos-db/partition-data.md)。 
+本文提供如何透過 SQL API 使用 Cosmos DB 容器資料分割的概觀。 如需使用任一 Azure Cosmos DB API 進行資料分割之概念和最佳做法的概觀，請參閱[資料分割與水平調整](../cosmos-db/partition-data.md)。 
 
 若要開始使用程式碼，請從 [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark) 下載專案。 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="partition-keys"></a>資料分割索引鍵
 
-在 SQL API 中，您可以指定資料分割索引鍵定義中的 JSON 路徑格式。 下表顯示資料分割索引鍵定義及各個對應值的範例。 資料分割索引鍵會以路徑的形式指定，例如 `/department` 代表 department 屬性。 
+在 SQL API 中，您要以 JSON 路徑的形式來指定分割區索引鍵定義。 下表顯示資料分割索引鍵定義及各個對應值的範例。 資料分割索引鍵會以路徑的形式指定，例如 `/department` 代表 department 屬性。 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -107,7 +107,7 @@ await client.CreateDocumentCollectionAsync(
 此方法會對 Cosmos DB 進行 REST API 呼叫，且服務會根據要求的輸送量來佈建許多資料分割。 您可以隨著效能需求的發展變更容器的輸送量。 
 
 ### <a name="reading-and-writing-items"></a>讀取和寫入項目
-現在，我們將資料插入 Cosmos DB 中。 以下是包含裝置讀取的範例類別，以及呼叫 CreateDocumentAsync 將新的裝置讀取插入容器中。 這是利用 SQL API 的範例：
+現在，我們將資料插入 Cosmos DB 中。 以下是包含裝置讀取的範例類別，以及呼叫 CreateDocumentAsync 將新的裝置讀取插入容器中。 這是運用 SQL API 的範例︰
 
 ```csharp
 public class DeviceReading
@@ -224,7 +224,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 在下一節中，我們會探討如何從單一資料分割容器改為資料分割的容器。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，我們會提供如何使用資料分割的 SQL API 與 Azure Cosmos DB 容器的概觀。 如需使用任一 Azure Cosmos DB API 進行資料分割之概念和最佳做法的概觀，另請參閱[資料分割與水平調整](../cosmos-db/partition-data.md)。 
+在本文中，我們提供如何透過 SQL API 使用 Azure Cosmos DB 容器資料分割的概觀。 如需使用任一 Azure Cosmos DB API 進行資料分割之概念和最佳做法的概觀，另請參閱[資料分割與水平調整](../cosmos-db/partition-data.md)。 
 
 * 使用 Azure Cosmos DB 執行規模和效能測試。 如需範例，請參閱 [Azure Cosmos DB 的效能和規模測試](performance-testing.md)。
 * 使用 [SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/documentdb/) 開始撰寫程式碼

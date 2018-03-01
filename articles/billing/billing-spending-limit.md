@@ -16,7 +16,7 @@ ms.date: 12/22/2017
 ms.author: genli
 ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
@@ -51,7 +51,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 . 如果訂用帳戶因為達到消費限制而遭到停用，請按一下此通知：[訂用帳戶已達到消費限制，為防止產生費用已被停用。] 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
 1. 選取適合您的選項。
 
-![選取以移除消費限制選項](./media/billing-spending-limit/remove-spending-limit.PNG)
+![選取用於移除消費限制的選項](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |選項|效果|
 |-------|-----|
@@ -82,7 +82,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>消費限制會阻擋 Azure 中產生的所有費用嗎？
 
-[某些外部的服務在 Azure Marketplace 中發佈](billing-understand-your-azure-marketplace-charges.md)不能與您的訂用帳戶信用額度，並可以產生個別的費用，即使您的消費限制設定。 範例包括 Visual Studio 授權、 Azure Active Directory premium、 支援計劃，以及大部分第三方品牌服務。 當您佈建為新的外部服務時，會顯示警告，讓您知道服務會分開計費：
+[某些在 Azure Marketplace 中發佈的外部服務](billing-understand-your-azure-marketplace-charges.md)無法透過訂用帳戶點數來使用，並會產生另外的費用，即使您已設定消費限制亦然。 範例包括 Visual Studio 授權、Azure Active Directory Premium、支援方案，以及大部分的第三方品牌服務。 當您佈建新的外部服務時，系統會顯示警告，讓您知道服務會另外收費︰
 
 ![Marketplace 購買警告](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 

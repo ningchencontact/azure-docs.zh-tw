@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -66,14 +66,11 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="mode"></a>Mode
 
-建議您將 `mode` 設定為 `all`，以便讓原則指派評估所有資源群組和類型。 若要查看對資源群組強制執行標籤的原則定義範例，請參閱[允許來自某個資源群組的自訂 VM 映像](scripts/allow-custom-vm-image.md)。
+**Mode** 決定原則要評估哪些資源類型。 支援的模式如下：
+* `all`：評估資源群組和所有資源類型 
+* `indexed`：只評估支援標記和位置的資源類型
 
-當您將它設定為 [所有] 時，會針對原則評估資源群組和所有資源類型。 入口網站會針對原則使用 [所有]。 如果您使用 PowerShell 或 Azure CLI，您需要指定 `mode` 參數，並將它設定為 [所有]。
-
-所有使用入口網站來建立的原則定義都會使用 `all` 模式，不過，如果您想要使用 PowerShell 或 Azure CLI，就必須指定 `mode` 參數並將其設定為 `all`。
-
-如果您將 mode 設定為 `indexed`，則只有在支援標籤和位置的資源類型上才會評估原則指派。
-
+建議您將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您使用 PowerShell 或 Azure CLI，您需要指定 **mode** 參數，並將它設定為 `all`。 
 
 ## <a name="parameters"></a>參數
 
@@ -265,6 +262,7 @@ ms.lasthandoff: 01/18/2018
 | Microsoft.Compute/virtualMachines/imageVersion | 設定用來建立虛擬機器的平台映像或 Marketplace 映像版本。 |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | 設定 vhd URI。 |
 | Microsoft.Compute/virtualMachines/sku.name | 設定虛擬機器的大小。 |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | 設定虛擬機器的可用性設定組識別碼。 |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ ms.lasthandoff: 01/18/2018
 | Microsoft.Storage/storageAccounts/enableFileEncryption | 設定服務是否對儲存在檔案儲存體服務中的資料進行加密。 |
 | Microsoft.Storage/storageAccounts/sku.name | 設定 SKU 名稱。 |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | 設定對於儲存體服務僅允許 HTTPS 流量。 |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | 檢查是否已啟用虛擬網路服務端點。 |
 
 ## <a name="initiatives"></a>計畫
 

@@ -17,7 +17,7 @@ ms.date: 04/14/2015
 ms.author: jparrel
 ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/11/2017
   * Corosync 和 Pacemaker
 
 ### <a name="affinity-group"></a>同質群組
-解決方案的同質群組建立登入 Azure 入口網站中，選取**設定**，以及建立同質群組。 並將稍後建立的配置資源指派給此同質群組。
+建立解決方案的同質群組，方法是登入 Azure 入口網站，選取 [設定]，然後建立同質群組。 並將稍後建立的配置資源指派給此同質群組。
 
 ### <a name="networks"></a>網路
 建立新網路，並在該網路內建立一個子網路。 此範例使用內部只有一個 /24 子網路的 10.10.10.0/24 網路。

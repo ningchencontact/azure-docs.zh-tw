@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 ms.author: jonbeck
 ms.openlocfilehash: 568048c6117d81ec351d5057505dafeec58d7b5a
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/16/2017
 | [計算最佳化](sizes-compute.md)        | Fsv2、Fs、F             | CPU 與記憶體的比例高。 適用於中流量 Web 伺服器、網路設備、批次處理，以及應用程式伺服器。        |
 | [記憶體最佳化](sizes-memory.md)         | Esv3、Ev3、M、GS、G、DSv2、DS、Dv2、D   | 記憶體與 CPU 的比例高。 適用於關聯式資料庫伺服器、中型至大型快取，以及記憶體內部分析。                 |
 | [儲存體最佳化](sizes-storage.md)        | Ls                | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
-| [GPU](sizes-gpu.md)            | NV，NC NCv2 ND            | 以大量圖形轉譯和視訊編輯為目標的特製化虛擬機器。 有單一或多個 GPU 可供使用。       |
+| [GPU](sizes-gpu.md)            | NV、NC、NCv2、ND            | 以大量圖形轉譯和視訊編輯為目標的特製化虛擬機器。 有單一或多個 GPU 可供使用。       |
 | [高效能計算](sizes-hpc.md) | H、A8-11          | 速度最快、功能最強的 CPU 虛擬機器，搭載選配的高輸送量網路介面 (RDMA)。 
 
 <br>

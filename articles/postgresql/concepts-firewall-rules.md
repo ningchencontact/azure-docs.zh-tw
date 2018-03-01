@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 7fec71f621ffeff2fc42a5a9464ae9011b2e2fee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 2/12/2018
+ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆規則
 「適用於 PostgreSQL 的 Azure 資料庫」伺服器防火牆會防止對您資料庫伺服器進行的所有存取，直到您指定哪些電腦擁有權限為止。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
@@ -32,6 +32,15 @@ ms.lasthandoff: 11/06/2017
 如果要求的 IP 位址不在任何伺服器層級防火牆規則中指定的範圍內，連線要求就會失敗。
 例如，如果您的應用程式透過適用於 PostgreSQL 的 JDBC 驅動程式來連接，若您在防火牆封鎖連接期間嘗試進行連接，則可能會遇到此錯誤。
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
+
+## <a name="connecting-from-azure"></a>從 Azure 連線
+若要允許應用程式從 Azure 連線到您適用於 PostgreSQL 的 Azure 資料庫伺服器，必須啟用 Azure 連線。 例如，裝載 Azure Web Apps 應用程式或在 Azure VM 中執行的應用程式，或是從 Azure Data Factory 資料管理閘道連線。 資源不需要在相同虛擬網路 (VNet) 或資源群組，防火牆規則就可以啟用這些連線。 當 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會確認是否允許 Azure 連線。 有幾種方法可以啟用這些類型的連線。 開始和結束位址等於 0.0.0.0 的防火牆設定表示允許這些連線。 或者，您可以在入口網站中從 [連線安全性] 窗格將 [允許存取 Azure 服務] 選項設為 [開啟]，然後點擊 [儲存]。 如果不允許連線嘗試，要求就不會到達適用於 PostgreSQL 的 Azure 資料庫伺服器。
+
+> [!IMPORTANT]
+> 這個選項會設定防火牆，以允許所有來自 Azure 的連線，包括來自其他客戶訂用帳戶的連線。 選取這個選項時，請確定您的登入和使用者權限會限制為只有授權的使用者才能存取。
+> 
+
+![在入口網站中設定 [允許存取 Azure 服務]](media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>以程式設計方式管理防火牆規則
 除了 Azure 入口網站之外，防火牆規則還可以程式設計方式使用 Azure CLI 來管理。
@@ -54,6 +63,6 @@ ms.lasthandoff: 11/06/2017
 * 改為針對您的用戶端電腦取得靜態 IP 位址，然後將該靜態 IP 位址新增為防火牆規則。
 
 ## <a name="next-steps"></a>後續步驟
-如需有關建立伺服器層級防火牆規則的文章，請參閱：
-* [使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-portal.md)。
-* [使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-cli.md).
+如需有關建立伺服器層級和資料庫層級防火牆規則的文章，請參閱：
+* [使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-portal.md)
+* [使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-cli.md)

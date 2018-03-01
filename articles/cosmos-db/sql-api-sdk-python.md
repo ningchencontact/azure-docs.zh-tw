@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL Python 應用程式開發介面、 SDK 與資源 |Microsoft 文件"
-description: "深入了解 SQL Python API 和 SDK 包括發行日期、 停用日期，以及每個版本的 Azure Cosmos DB Python sdk 之間所做的變更。"
+title: "Azure Cosmos DB：SQL Python API、SDK 和資源 | Microsoft Docs"
+description: "了解所有 SQL Python API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB Python SDK 每個版本之間所做的變更。"
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6801c5b62be08e4dcb32ad342b15e9ad3f3e20a8
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API 的 azure Cosmos DB Python SDK： 版本資訊和資源
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="release-notes"></a>版本資訊
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
-* 更新參考 Azure Cosmos DB，而不是 Azure DocumentDB 的文件。
+* 更新參考 Azure Cosmos DB 而非 Azure DocumentDB 的文件。
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * 此 SDK 版本需要使用從 https://aka.ms/cosmosdb-emulator 下載之最新版本的 Azure Cosmos DB 模擬器。
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/05/2018
 * 新加入文件的存留時間 (TTL) 功能支援。
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* 伺服器端資料分割的磁碟分割金鑰的路徑中允許的特殊字元與相關的 bug 修正。
+* 伺服器端資料分割相關錯誤修正，允許在分割區索引鍵路徑中使用特殊字元。
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * 實作[已分割的集合](partition-data.md)和[使用者定義的效能等級](performance-levels.md)。 
@@ -128,10 +128,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。 
 
-使用已停用的 SDK 的 Cosmos DB 任何提出要求會遭到拒絕服務。
+服務會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
 > [!WARNING]
-> 之前的版本中的所有版本的 Azure SQL SDK for Python **1.0.0**上已淘汰**2016 年 2 月 29 日**。 
+> 所有 **1.0.0** 版之前的 Azure SQL SDK for Python 版本都將於「2016 年 2 月 29 日」淘汰。 
 > 
 > 
 
@@ -167,6 +167,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 

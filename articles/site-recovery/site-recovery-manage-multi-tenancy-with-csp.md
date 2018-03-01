@@ -1,6 +1,6 @@
 ---
-title: "管理雲端方案提供者 (CSP) 程式在 Azure Site Recovery 中的多租用戶 |Microsoft 文件"
-description: "描述如何建立及管理透過 CSP 的租用戶訂用帳戶和 Azure Site Recovery 部署在多租用戶設定"
+title: "在 Azure Site Recovery 中使用雲端解決方案提供者 (CSP) 計畫管理多租用戶 | Microsoft Docs"
+description: "說明如何透過 CSP 建立和管理租用戶訂用帳戶，並在多租用戶設定中部署 Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
@@ -12,27 +12,27 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>管理雲端方案提供者 (CSP) 程式的多租用戶
+# <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>使用雲端解決方案提供者 (CSP) 計畫管理多租用戶
 
-[CSP 程式](https://partner.microsoft.com/en-US/cloud-solution-provider)字元，有助於 Microsoft 雲端服務，包括 Office 365、 Enterprise Mobility Suite 和 Microsoft Azure 的好一起劇本。 CSP，協力廠商與客戶擁有的端對端關係，成為主要的關聯性的連絡點。 合作夥伴可以為客戶部署 Azure 訂用帳戶，並將這些訂用帳戶與他們自己的加值自訂優惠結合。
+[CSP 計畫](https://partner.microsoft.com/en-US/cloud-solution-provider)會針對 Microsoft 雲端服務 (包括 Office 365、Enterprise Mobility Suite 和 Microsoft Azure) 樹立雙贏的案例。 藉由 CSP，合作夥伴全面掌握與客戶的端對端關係，並且成為主要的關係連絡窗口。 合作夥伴可以為客戶部署 Azure 訂用帳戶，並將這些訂用帳戶與他們自己的加值自訂優惠結合。
 
 藉由 Azure Site Recovery，合作夥伴可以直接透過 CSP 管理客戶的完整災害復原解決方案。 或者，也可以使用 CSP 設定 Site Recovery 環境，並讓客戶藉由自助服務的方式管理自己的災害復原需求。 在這兩種情況下，合作夥伴是 Site Recovery 與客戶之間的連絡窗口。 合作夥伴負責維護客戶關係，以及向客戶收取 Site Recovery 使用量的費用。
 
-本文說明如何建立和管理租用戶訂用帳戶的 CSP，透過多租用戶 VMware 安裝程式的夥伴。
+本文說明合作夥伴如何針對租用戶 VMware 設定，透過 CSP 建立和管理租用戶訂用帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [準備](tutorial-prepare-azure.md) Azure 資源，包括 Azure 訂用帳戶、Azure 虛擬網路和儲存體帳戶。
 - [準備](tutorial-prepare-on-premises-vmware.md) VMware 內部部署 VMware 伺服器和 VM。
-- 針對每個租用戶建立可以和租用戶虛擬機器及合作夥伴的 vCenter 通訊的個別「管理伺服器」。 只有合作夥伴有此伺服器的存取權限。 如需不同的多租用戶環境的詳細資訊，請參閱[多租用戶 VMware](site-recovery-multi-tenant-support-vmware-using-csp.md)指引。
+- 針對每個租用戶建立可以和租用戶虛擬機器及合作夥伴的 vCenter 通訊的個別「管理伺服器」。 只有合作夥伴有此伺服器的存取權限。 如需不同多租用戶環境的詳細資訊，請參閱[多租用戶 VMware](site-recovery-multi-tenant-support-vmware-using-csp.md) 指引。
 
 ## <a name="create-a-tenant-account"></a>建立租用戶帳戶
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/15/2017
 
     您可以與租用戶共用這些既有的資訊，也可以視需要建立和共用不同的帳戶。
 
-## <a name="access-the-tenant-account"></a>存取的租用戶帳戶。
+## <a name="access-the-tenant-account"></a>存取租用戶帳戶
 
 如「步驟 1：建立租用戶帳戶」所述，您可以透過 Microsoft 夥伴中心儀表板存取租用戶的訂用帳戶。
 
@@ -91,14 +91,14 @@ ms.lasthandoff: 12/15/2017
 
     ![管理員設定伺服器帳戶](./media/site-recovery-manage-multi-tenancy-with-csp/config-server-account-display.png)
 
-## <a name="register-site-recovery-infrastructure-to-the-recovery-services-vault"></a>復原服務保存庫註冊 Site Recovery 基礎結構
+## <a name="register-site-recovery-infrastructure-to-the-recovery-services-vault"></a>向復原服務保存庫註冊 Site Recovery 基礎結構
 1. 在 Azure 入口網站中，對於稍早建立的保存庫，將 vCenter 伺服器註冊到您在「步驟 3：將資源部署到租用戶訂用帳戶」中註冊的 CS。 將 vCenter 存取帳戶用於此目的。
 2. 針對每個一般程序的 Site Recovery 完成「準備基礎結構」程序。
 3. 現在可以開始複寫 VM。 確認 [複寫] 選項下的 [選取虛擬機器] 刀鋒視窗僅顯示租用戶的虛擬機器。
 
     ![[選取虛擬機器] 刀鋒視窗上的租用戶虛擬機器清單](./media/site-recovery-manage-multi-tenancy-with-csp/tenant-vm-display.png)
 
-## <a name="assign-tenant-access-to-the-subscription"></a>將租用戶存取指派給訂用帳戶
+## <a name="assign-tenant-access-to-the-subscription"></a>為租用戶指派訂用帳戶的存取權
 
 對於自助災害復原，向租用戶提供帳戶詳細資料，如「步驟 1：建立租用戶帳戶」一節的步驟 6 所述。 合作夥伴設定災害復原基礎結構之後，請執行此動作。 無論災害復原類型是否為受控或自助，合作夥伴都必須透過 CSP 入口網站存取租用戶訂用帳戶。 合作夥伴可設定合作夥伴擁有的保存庫，並將基礎結構註冊到租用戶訂用帳戶。
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/15/2017
 
     ![租用戶的 CSP 訂用帳戶頁面](./media/site-recovery-manage-multi-tenancy-with-csp/users-and-licences.png)
 
-    您現在可以建立新的使用者輸入的相關詳細資料，並選取 權限，或是上傳的 CSV 檔案中的使用者清單。
+    您現在可以藉由輸入相關詳細資料並選取權限，或是使用 CSV 檔案上傳使用者清單，來建立新的使用者。
 
 2. 建立新的使用者之後，返回 Azure 入口網站，並在 [訂用帳戶] 刀鋒視窗選取相關訂用帳戶。
 
@@ -119,9 +119,9 @@ ms.lasthandoff: 12/15/2017
 
     *參與者*角色就足以執行大多數的管理作業。 除了變更存取層級 (必須具有「擁有者」存取層級) 之外，具有此存取層級的使用者可以在訂用帳戶上執行任何作業。
 
-  Azure Site Recovery 也有三個[預先定義的使用者角色](site-recovery-role-based-linked-access-control.md)，可用來進一步限制所需的存取層級。
+  Azure Site Recovery 也有三個[預先定義的使用者角色](site-recovery-role-based-linked-access-control.md)，可視需要用來進一步限制存取層級。
 
 ## <a name="next-steps"></a>後續步驟
-  [進一步了解](site-recovery-role-based-linked-access-control.md)關於以角色為基礎的存取控制，來管理 Azure Site Recovery 部署。
+  [深入了解](site-recovery-role-based-linked-access-control.md)如何使用角色型存取控制來管理 Azure Site Recovery 部署。
 
-  [管理 VMware 環境中多租用戶](site-recovery-multi-tenant-support-vmware-using-csp.md)
+  [管理多租用戶 VMware 環境](site-recovery-multi-tenant-support-vmware-using-csp.md)

@@ -16,7 +16,7 @@ ms.date: 05/23/2017
 ms.author: v-craic
 ms.openlocfilehash: f99776a718c03e8af36d45d7006be8ce29208615
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---

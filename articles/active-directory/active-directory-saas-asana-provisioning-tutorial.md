@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>教學課程︰設定 Asana 來自動佈建使用者
 
@@ -93,7 +93,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應接�
 
 12. 選取 [ **儲存**]。 
 
-現在首次同步處理會針對在 [使用者] 區段中指派給 Asana 的任何使用者啟動。 初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，大約每 20 分鐘便會發生一次。 使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告。 這些報告會描述在 Asana 應用程式上佈建服務執行的所有動作。
+現在首次同步處理會針對在 [使用者] 區段中指派給 Asana 的任何使用者啟動。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 請使用 [同步處理詳細資料] 區段來監視進度，並依循連結來佈建活動記錄。 稽核記錄會描述在 Asana 應用程式上佈建服務執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](active-directory-saas-provisioning-reporting.md)。
 

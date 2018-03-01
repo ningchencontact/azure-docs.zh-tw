@@ -16,7 +16,7 @@ ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
 ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/05/2018
 > 如果您要使用「立即還原」來還原資料，必須要有 [2017 年 1 月 Azure 備份更新](https://support.microsoft.com/en-us/help/3216528?preview)。 另外，您也必須在支援文章列出之地區設定的保存庫中，保護備份資料。 請參閱 [2017 年 1 月 Azure 備份更新](https://support.microsoft.com/en-us/help/3216528?preview)，了解支援「立即還原」的最新地區設定清單。 「立即還原」目前**無法**在所有地區設定中使用。
 >
 
-使用 立即還原與復原服務保存庫在 Azure 入口網站。 如果您在備份保存庫中儲存資料，它們已轉換成復原服務保存庫。 如果您想要使用「立即還原」，請下載 MARS 更新，並依照提及「立即還原」部分中的程序進行操作。
+在 Azure 入口網站中搭配復原服務保存庫使用立即還原。 如果您已在備份保存庫中儲存資料，則已將它們轉換至復原服務保存庫。 如果您想要使用「立即還原」，請下載 MARS 更新，並依照提及「立即還原」部分中的程序進行操作。
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

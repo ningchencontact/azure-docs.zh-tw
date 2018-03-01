@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 如果您在啟用從自訂映像建立的 Azure Windows 虛擬機器 (VM) 時遇到問題，您可以使用本文件中提供的資訊來針對問題進行疑難排解。 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>了解 Azure 虛擬機器的 Windows 產品啟用適用的 Azure KMS 端點
+Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 使用此疑難排解指南時，請使用適用於您的區域的適當 KMS 端點。
+
+* Azure 公用雲端區域： kms.core.windows.net:1688
+* Azure 中國國家雲端區域： kms.core.chinacloudapi.cn:1688
+* Azure 德國國家雲端區域： kms.core.chinacloudapi.cn:1688
+* Azure 美國政府國家雲端區域： kms.core.chinacloudapi.cn:1688
 
 ## <a name="symptom"></a>徵狀
 

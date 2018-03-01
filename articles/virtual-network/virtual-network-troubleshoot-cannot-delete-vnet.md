@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: genli
 ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/12/2017
 
 ![檢查連線的裝置](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-若要停用服務，請參閱[停用 Azure Active Directory 網域服務使用 Azure 入口網站](../active-directory-domain-services/active-directory-ds-disable-aadds.md)。
+若要停用服務，請參閱[使用 Azure 入口網站停用 Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-disable-aadds.md)。
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>檢查虛擬網路是否已連線到其他資源
 

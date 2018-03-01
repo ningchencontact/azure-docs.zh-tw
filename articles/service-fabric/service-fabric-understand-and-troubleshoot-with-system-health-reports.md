@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系統健康狀態報告進行疑難排解
 Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系統健康情況報告。 [健康狀態資料存放區](service-fabric-health-introduction.md#health-store) 會根據系統報告來建立和刪除實體。 它也會將這些實體組織為階層以擷取實體的互動。
@@ -637,6 +637,21 @@ HealthEvents          :
 - **IReplicator.CatchupReplicaSet**：此警告表示下列其中一種情況。 複本數目不足 (可藉由查看分割區中複本的複本狀態，或已停滯重新設定的 System.FM 健康情況報告來判斷)。 或者複本未認可作業。 PowerShell Cmdlet `Get-ServiceFabricDeployedReplicaDetail` 可用來判斷所有複本的進度。 問題出在其 `LastAppliedReplicationSequenceNumber` 位於主要複本之 `CommittedSequenceNumber` 後面的複本。
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**：此警告表示在建置程序發生問題。 如需詳細資訊，請參閱[複本生命週期](service-fabric-concepts-replica-lifecycle.md)。 可能是因為複寫器位址的設定不正確而造成。 如需詳細資訊，請參閱[設定具狀態可靠服務](service-fabric-reliable-services-configuration.md)和[在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)。 也可能是遠端節點上的問題。
+
+### <a name="replicator-system-health-reports"></a>複寫器系統健康情況報告
+**複寫佇列已滿：**
+**System.Replicator** 會在複寫佇列已滿時回報警告。 在主要資料庫上，複寫佇列通常會因為一或多個次要複本太慢認可作業而排滿。 在次要複本上，這通常是因為服務緩慢而無法套用作業所造成。 當佇列有空間時，警告就會被清除。
+
+* **SourceId**：System.Replicator
+* **Property**：**PrimaryReplicationQueueStatus** 或 **SecondaryReplicationQueueStatus** (根據複本角色而定)。
+* **後續步驟**：如果報表是在主要複本上，檢查叢集中節點之間的連線。 如果所有連線狀況良好，可能是至少一個具有高磁碟延遲時間的緩慢次要複本要套用作業。 如果報表是在次要複本上，請先檢查磁碟使用量和節點效能，然後再將緩慢節點的連線連出到主要複本。
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** 在主要複本上與次要 (遠端) 複寫器連線狀況不良時回報警告。 遠端複寫器的位址會顯示在報表的訊息中，讓您更方便地偵測是否有錯誤設定傳入或者複寫器之間是否有網路問題。
+
+* **SourceId**：System.Replicator
+* **Property**：**RemoteReplicatorConnectionStatus**
+* **後續步驟**：查看錯誤訊息，並確定已正確設定遠端複寫器位址 (例如，如果以 "localhost" 接聽位址開啟遠端複寫器，就無法從外部連線)。 如果位址看來正確無誤，請檢查主要節點與遠端位址之間的連線，以尋找任何可能的網路問題。
 
 ### <a name="replication-queue-full"></a>複寫佇列已滿
 **System.Replicator** 會在複寫佇列已滿時回報警告。 在主要資料庫上，複寫佇列通常會因為一或多個次要複本太慢認可作業而排滿。 在次要複本上，這通常是因為服務緩慢而無法套用作業所造成。 當佇列有空間時，警告就會被清除。

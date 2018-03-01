@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用 Jupyter Notebook
 
 Azure Machine Learning Workbench 透過它與 Jupyter Notebook 的整合，來支援互動式資料科學實驗。 本文說明如何有效地運用此功能，來增加互動式資料科學實驗的速率及品質。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - [安裝與建立 Azure Machine Learning](quickstart-installation.md)。
 - 熟悉 [Jupyter Notebook](http://jupyter.org/) \(英文\)，因為本文不會教導如何使用 Jupyter。
 
@@ -42,15 +42,15 @@ Azure Machine Learning Workbench 透過它與 Jupyter Notebook 的整合，來�
 >如需更多執行組態與計算目標的詳細資料，請檢閱[設定執行](experimentation-service-configuration.md)。
 
 ### <a name="kernel-naming-convention"></a>核心命名慣例
-核心通常會以 "\<專案名稱> \<執行組態名稱>" 格式來命名。 例如，如果您在名為 _myIris_ 的專案中擁有名為 _docker-python_ 的執行組態，則當您開啟 Jupyter Notebook 時，就能在核心清單中找到名為 "myIris docker-python" 的核心。
-
+Azure ML Workbench 會產生自訂 Jupyter 核心。  這些都命名為 "\<專案名稱> \<執行組態名稱>"。 例如，如果您在名為 _myIris_ 的專案中擁有名為 _docker-python_ 的執行組態，則 Azure ML 會有名為 "myIris docker-python" 的核心。  您會在 Jupyter Notebook「核心」功能表的 [變更核心] 子功能表中設定執行的核心。 執行核心的名稱會出現在最右側的功能表列上。
+ 
 Workbench 目前支援下列類型的核心。
 
 ### <a name="local-python-kernel"></a>本機 Python 核心
 此 Python 核心支援在本機電腦上執行。 它會與 Azure Machine Learning 的執行歷程記錄支援整合。 核心名稱通常是 "my_project_name local"。
 
 >[!NOTE]
->請勿使用「Python 3 」核心。 它是 Jupyter 預設提供的獨立核心。 它不會與 Azure Machine Learning 的功能整合。
+>請勿使用「Python 3 」核心。 它是 Jupyter 預設提供的獨立核心。 它不會與 Azure Machine Learning 的功能整合。 例如，_%azureml_ Jupyter magic 函式會傳回「找不到」的錯誤。 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Docker (本機或遠端) 中的 Python 核心
 此 Python 核心會在您本機電腦上或遠端 Linux VM 上的 Docker 容器中執行。 核心名稱通常是 "my_project docker"。 相關聯的 `docker.runconfig` 檔案具有已設為 `Python` 的 `Framework` 欄位。

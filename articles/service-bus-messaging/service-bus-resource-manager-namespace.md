@@ -1,6 +1,6 @@
 ---
-title: "建立 Service Bus 訊息的命名空間使用 Azure Resource Manager 範本 |Microsoft 文件"
-description: "使用 Azure Resource Manager 範本來建立 Service Bus 訊息的命名空間"
+title: "使用 Azure Resource Manager 範本建立服務匯流排傳訊命名空間 | Microsoft Docs"
+description: "使用 Azure Resource Manager 範本來建立服務匯流排傳訊命名空間"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm;shvija
 ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---

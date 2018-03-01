@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 
@@ -57,8 +57,11 @@ Azure 包含多個服務，這些服務個別在監視領域中執行特定角�
 [服務對應](../operations-management-suite/operations-management-suite-service-map.md)可透過以虛擬機器的各種不同程序，以及與其他電腦和外部程序的相依性，來分析虛擬機器，為您提供 IaaS 環境的深入解析。  它會將事件、效能資料及管理解決方案整合在 Log Analytics 中，讓您能夠在每部電腦的內容及它與環境其餘部分的關聯中檢視此資料。  「服務對應」與 [Application Insights 中的應用程式對應](../application-insights/app-insights-app-map.md)類似，但著重在支援您應用程式的基礎結構元件。
 
 ### <a name="network-watcher"></a>網路監看員
-[網路監看員](../network-watcher/network-watcher-monitoring-overview.md)可針對 Azure 中的各種不同網路案例，提供案例型監視和診斷。  它會將資料儲存在 Azure 計量和診斷中，以供進一步分析及與 [Log Analytics 中的管理解決方案](../log-analytics/log-analytics-azure-networking-analytics.md)搭配運作，來提供完整的網路資源監視。
-
+[網路監看員](../network-watcher/network-watcher-monitoring-overview.md)可針對 Azure 中的各種不同網路案例，提供案例型監視和診斷。  它會將資料儲存在 Azure 計量和診斷中，以供進一步分析及與下列網路監視解決方案搭配運作，來監視您網路的各個方面：
+* [網路效能監控 (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - 雲端式網路監視解決方案，可監視跨公用雲端、資料中心和內部部署環境的連線
+* [ExpressRoute 監視](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) - 可透過 ExpressRoute 線路監視端對端連線能力和效能的 NPM 功能。
+* 流量分析 - 雲端式解決方案，可顯示雲端網路上的使用者和應用程式活動。
+* [DNS 分析](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) - 根據您的 DNS 伺服器來提供安全性、效能和作業相關的深入資訊。
 
 ### <a name="management-solutions"></a>管理解決方案
 [管理解決方案](../log-analytics/log-analytics-add-solutions.md)是幾組封裝的邏輯，可提供特定應用程式或服務的深入解析。  它們倚賴 Log Analytics 來儲存和分析所收集的監視資料。  您可以從 Microsoft 以及為各種 Azure 和協力廠商服務提供監視功能的合作夥伴取得管理解決方案。 監視解決方案的範例包括可協助您檢視和管理容器主機的[容器監視](../log-analytics/log-analytics-containers.md)，以及可為 SQL Azure 資料庫收集效能計量並以視覺化方式呈現的 [Azure SQL 分析](../log-analytics/log-analytics-azure-sql.md)。

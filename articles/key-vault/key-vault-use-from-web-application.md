@@ -13,7 +13,7 @@ ms.date: 09/15/2017
 ms.author: adhurwit
 ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 
 如需 Azure 金鑰保存庫的概觀資訊，請參閱 [什麼是 Azure 金鑰保存庫？](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您必須具備下列項目：
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/08/2017
 * Web 應用程式。 我們將會說明 ASP.NET MVC 應用程式在 Azure 中做為 Web 應用程式部署的步驟。
 
 >[!IMPORTANT]
->* 此範例端需使用手動佈建 AAD 身分識別的舊方式。 目前，有一個稱為[受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) 的預覽版新功能，可用來自動佈建 AAD 身分識別。 請參閱下列範例在[GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)以取得詳細資料。
+>* 此範例端需使用手動佈建 AAD 身分識別的舊方式。 目前，有一個稱為[受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) 的預覽版新功能，可用來自動佈建 AAD 身分識別。 如需進一步的詳細資料，請參考以下在 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 上的範例。
 
 > [!NOTE]
 >* 在本教學課程中，完成在 [開始使用 Azure 金鑰保存庫](key-vault-get-started.md) 中所列步驟是很重要的，這樣您才會有 Web 應用程式的密碼 URI 和用戶端識別碼和用戶端密碼。
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-請記下的結束日期和.pfx 的密碼 (在此範例中： 07/31/2017年和 test123)。 您將需要在下面使用這些資訊。
+記下 .pfx 的結束日期和密碼 (在此範例中為：07/31/2017 和 test123)。 您將需要在下面使用這些資訊。
 
 如需如何建立測試憑證的詳細資訊，請參閱 [做法：自行建立測試憑證](https://msdn.microsoft.com/library/ff699202.aspx)
 

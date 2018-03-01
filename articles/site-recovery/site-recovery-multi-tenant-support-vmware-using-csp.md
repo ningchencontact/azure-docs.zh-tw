@@ -12,26 +12,26 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 532dd399d2d5fcbab616744dd02f4a95078cbb1b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Azure Site Recovery 中的多租用戶支援，適用於透過 CSP 將 VMware 虛擬機器複寫到 Azure
 
-Azure Site Recovery 支援租用戶訂用帳戶的多租用戶環境。 對於透過 Microsoft Cloud 解決方案提供者 (CSP) 方案建立及管理的租用戶訂用帳戶，它也支援多租用戶。 本文中詳述實作及管理多租用戶 VMware 到 Azure 案例的指南。 如需建立及管理租用戶訂用帳戶的詳細資訊，請參閱[管理與 CSP 的多租用戶](site-recovery-manage-multi-tenancy-with-csp.md)。
+Azure Site Recovery 支援租用戶訂用帳戶的多租用戶環境。 對於透過 Microsoft Cloud 解決方案提供者 (CSP) 方案建立及管理的租用戶訂用帳戶，它也支援多租用戶。 本文中詳述實作及管理多租用戶 VMware 到 Azure 案例的指南。 如需建立及管理租用戶訂用帳戶的詳細資訊，請參閱[使用 CSP 管理多租用戶](site-recovery-manage-multi-tenancy-with-csp.md)。
 
 本指南與複寫 VMware 虛擬機器到 Azure 的現有文件密切相關。 如需詳細資訊，請參閱[使用 Site Recovery 將 VMware 虛擬機器複寫至 Azure](site-recovery-vmware-to-azure.md)。
 
 ## <a name="multi-tenant-environments"></a>多租用戶環境
 多租用戶模型主要有三種：
 
-* **共用裝載服務提供者 (HSP)**: 夥伴可擁有實體的基礎結構，而且會使用相同的基礎結構上的共用資源 （vCenter、 資料中心、 實體儲存體，等等） 來裝載多個租用戶 Vm。 合作夥伴可提供災害復原管理做為受控服務，租用戶也可以擁有災害復原做為自助服務方案。
+* **共用主機服務提供者 (HSP)**：合作夥伴擁有實體基礎結構，而使用者則共用資源 (如 vCenter、資料中心、實體儲存體等) 以將多租用戶的虛擬機器裝載在同一個基礎結構。 合作夥伴可提供災害復原管理做為受控服務，租用戶也可以擁有災害復原做為自助服務方案。
 
-* **專用主控的服務提供者**： 夥伴擁有實體的基礎結構，但會使用專用的資源 （多部 Vcenter、 實體 datastores，等等） 來裝載在不同的基礎結構上的每個租用戶 Vm。 合作夥伴可提供災害復原管理做為受控服務，租用戶也可以擁有災害復原做為自助服務方案。
+* **專用主機服務提供者**：合作夥伴擁有實體基礎結構，但使用專用資源 (如多個 vCenters、實體資料存放區等) 在個別的基礎結構上裝載每個租用戶的虛擬機器。 合作夥伴可提供災害復原管理做為受控服務，租用戶也可以擁有災害復原做為自助服務方案。
 
 * 
             **受控服務提供者 (MSP)** – 客戶擁有裝載虛擬機器的實體基礎結構，而合作夥伴則提供災害復原支援及管理。
@@ -46,9 +46,9 @@ Azure Site Recovery 支援租用戶訂用帳戶的多租用戶環境。 對於�
 ![含一個 vCenter 的共用 HSP](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
 **含一個 vCenter 的共用主機案例**
 
-如上圖所示，每個客戶都有個別的管理伺服器。 這個設定可以將租用戶限制於只能存取租用戶特定虛擬機器，以達到租用戶隔離的目的。 VMware 虛擬機器複寫案例會使用組態伺服器來管理帳戶以探索虛擬機器及安裝代理程式。 相同原則適用於多租用戶環境中，加上的限制 VM 探索透過 vCenter 存取控制。
+如上圖所示，每個客戶都有個別的管理伺服器。 這個設定可以將租用戶限制於只能存取租用戶特定虛擬機器，以達到租用戶隔離的目的。 VMware 虛擬機器複寫案例會使用組態伺服器來管理帳戶以探索虛擬機器及安裝代理程式。 相同的原則適用於多租用戶環境，但是另外透過 vCenter 存取控制來限制 VM 探索。
 
-資料隔離需求需要所有的機密的基礎結構資訊 （例如存取認證） 會保持不公開給租用戶。 基於這個理由，建議所有管理伺服器的元件都維持在合作夥伴的獨佔控制之下。 管理伺服器元件包括：
+資料隔離的需求會使得基礎結構機密資訊 (如存取認證) 對租用戶保持公開。 基於這個理由，建議所有管理伺服器的元件都維持在合作夥伴的獨佔控制之下。 管理伺服器元件包括：
 * 組態伺服器 (CS)
 * 處理序伺服器 (PS)
 * 主要目標伺服器 (MT)
@@ -59,7 +59,7 @@ Azure Site Recovery 支援租用戶訂用帳戶的多租用戶環境。 對於�
 
 - **vCenter 存取帳戶**：此帳戶可用來探索租用戶虛擬機器。 帳戶有獲得指派的 vCenter 存取權限 (如下一節所述)。 為了避免意外的存取權限洩漏，建議夥伴自行在設定工具中輸入這些認證。
 
-- **虛擬機器存取帳戶**：此帳戶是用來在租用戶上，透過自動推送安裝行動代理程式。 這通常是租用戶可能會提供給夥伴，或其中一個夥伴可能直接管理的網域帳戶。 如果租用戶不想要直接與夥伴共用的詳細資料，它們可以允許輸入 CS 透過時間有限存取的認證，或與夥伴的協助行動手動安裝代理程式。
+- **虛擬機器存取帳戶**：此帳戶是用來在租用戶上，透過自動推送安裝行動代理程式。 這通常是租用戶可能會提供給合作夥伴的網域帳戶，或可能由合作夥伴直接管理的網域帳戶。 如果租用戶不想直接與合作夥伴分享詳細資料，他們可以透過限時的 CS 存取權來輸入認證，也可以在合作夥伴的協助下手動安裝行動代理程式。
 
 ### <a name="requirements-for-a-vcenter-access-account"></a>vCenter 存取帳戶的需求
 
@@ -101,7 +101,7 @@ vCenter 帳戶存取程序如下：
 >| 主機和主機叢集 | Azure_Site_Recovery | 再次確認存取權在物件層級，以限制只有可存取的主機在容錯移轉前和容錯回復後有租用戶虛擬機器。 |
 >| 資料存放區和資料存放區叢集 | Azure_Site_Recovery | 同上。 |
 >| 網路 | Azure_Site_Recovery |  |
->| 管理伺服器 | Azure_Site_Recovery | 包含存取 CS 機器之外的所有元件 （CS、 PS 和 MT）。 |
+>| 管理伺服器 | Azure_Site_Recovery | 包含 CS 以外所有元件 (CS、PS 及 MT) 的存取權。 |
 >| 租用戶 VM | Azure_Site_Recovery | 確保特定租用戶的任何新租用戶虛擬機器也會有此存取權，否則將無法透過 Azure 入口網站探索它們。 |
 
 現在已經完成 vCenter 帳戶存取權。 這個步驟可以滿足完成容錯回復作業的最小權限需求。 也可以搭配現有的原則使用這些存取權限。 只要將現有的權限集修改成包含上面步驟 2 詳述的角色權限即可。
@@ -128,6 +128,6 @@ vCenter 帳戶存取程序如下：
             **含多個 vCenters 的受控服務案例**
 
 ## <a name="next-steps"></a>後續步驟
-[進一步了解](site-recovery-role-based-linked-access-control.md)關於以角色為基礎的存取控制，來管理 Azure Site Recovery 部署。
+[深入了解](site-recovery-role-based-linked-access-control.md)如何使用角色型存取控制來管理 Azure Site Recovery 部署。
 
-[管理與 CSP 的多租用戶](site-recovery-manage-multi-tenancy-with-csp.md)
+[透過 CSP 管理多租用戶](site-recovery-manage-multi-tenancy-with-csp.md)

@@ -17,7 +17,7 @@ ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 > 本文適用於 Azure 中使用傳統部署模型建立的 HPC Pack 2012 R2 叢集。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 > 此外，本文中所述的 PowerShell 指令碼不適用於 HPC Pack 2016。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure VM 中的 HPC Pack 2012 R2 叢集**：在傳統部署模型中建立 HPC Pack 2012 R2 叢集。 例如，您可以使用 Azure Marketplace 中的 HPC Pack 2012 R2 VM 映像和 Azure PowerShell 指令碼，將部署自動化。 如需相關資訊和必要條件，請參閱[使用 HPC Pack IaaS 部署指令碼建立 HPC 叢集](hpcpack-cluster-powershell-script.md)。
   
     部署之後，會在前端節點的 %CCP\_HOME%bin 資料夾中發現節點管理指令碼。 以系統管理員身分執行每個指令碼。
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>參數
 * **ServiceName**：會新增計算節點 VM 之雲端服務的名稱。
-* **ImageName**: Azure VM 映像名稱，可透過 Azure 入口網站或 Azure PowerShell cmdlet 取得**Get-azurevmimage**。 這些映像必須符合下列需求：
+* **ImageName**：Azure VM 映像名稱，透過 Azure 入口網站或 Azure PowerShell Cmdlet **Get-AzureVMImage** 可以取得此名稱。 這些映像必須符合下列需求：
   
   1. 必須安裝 Windows 作業系統。
   2. 必須在計算節點角色中安裝 HPC Pack。
