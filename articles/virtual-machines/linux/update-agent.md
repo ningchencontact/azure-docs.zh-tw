@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新虛擬機器上的 Azure Linux 代理程式
 
@@ -29,6 +29,9 @@ ms.lasthandoff: 10/11/2017
 - 對該 Linux VM 的 SSH 連線。
 
 需一律先檢查 Linux 散發版本儲存機制中的封裝。 可用的封裝有可能不是最新的版本，啟用自動更新可確保 Linux 代理程式一律更新為最新版本。 如果使用封裝管理員安裝時碰到問題，請向散發版本廠商尋求支援。
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>在 Azure 中支援的最小虛擬機器代理程式
+在繼續之前，確認[在 Azure 中針對虛擬機器代理程式的最小版本支援](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。
 
 ## <a name="updating-the-azure-linux-agent"></a>更新 Azure Linux 代理程式
 

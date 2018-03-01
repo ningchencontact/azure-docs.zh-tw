@@ -16,7 +16,7 @@ ms.date: 03/14/2017
 ms.author: fboylu
 ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
@@ -165,7 +165,7 @@ ms.lasthandoff: 12/07/2017
 
 上述使用案例中的某些資料元素範例包括：
 
-失敗記錄： 飛行延遲日期、 飛機元件失敗的日期和類型、 ATM 現金提款交易失敗、 訓練/電梯門失敗、 剎車組磁碟取代訂單日期、 wind 渦輪機失敗的日期和斷路器命令失敗。
+故障歷程記錄：航班延誤日期、飛機零組件故障日期和類型、ATM 現金提款交易失敗、列車/電梯門故障、煞車碟盤更換訂單日期、風力渦輪機故障日期和斷路器命令失敗。
 
 維護歷程記錄：航班錯誤記錄檔、ATM 交易錯誤記錄檔、列車維護記錄 (包括維護類型、簡短描述等) 和斷路器維護記錄。
 

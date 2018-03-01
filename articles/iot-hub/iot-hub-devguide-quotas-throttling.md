@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -31,6 +31,8 @@ SKU 也會決定 IoT 中樞在所有作業上強制執行的節流限制。
 
 ## <a name="operation-throttles"></a>作業節流
 作業節流是在分鐘範圍內套用的速率限制，用來防止不當使用。 「IoT 中樞」會試著儘可能避免傳回錯誤，但如果違反節流太久，就會開始傳回例外狀況。
+
+您可以隨時增加 IoT 中樞中佈建的單位數來提高配額或節流限制。
 
 下表顯示強制執行的節流。 個別中心的值如下。
 
@@ -50,15 +52,11 @@ SKU 也會決定 IoT 中樞在所有作業上強制執行的節流限制。
 
 <sup>1</sup>節流計量大小為 8 KB
 
-> [!IMPORTANT]
-> 「裝置連線」節流會控制新裝置可與 IoT 中樞建立連線的速率。 「裝置連線」節流不會控制同時連線裝置的數目上限。 節流受制於為 IoT 中樞佈建的單位數。
+「裝置連線」節流會控制新裝置可與 IoT 中樞建立連線的速率。 「裝置連線」節流不會控制同時連線裝置的數目上限。 節流受制於為 IoT 中樞佈建的單位數。
 
 例如，若您購買單一 S1 單位，則得到每秒 100 個連線的節流。 因此，要連線到 100,000 個裝置，至少需要 1000 秒 (約 16 分鐘)。 不過，若您已將裝置登錄在您的身分識別登錄中，則可以有任意數量的同時連線裝置。
 
 如需有關 IoT 中樞節流行為的深入討論，請參閱 [IoT Hub throttling and you (IoT 中樞節流和您)][lnk-throttle-blog] 部落格文章。
-
-> [!NOTE]
-> 您可以隨時增加 IoT 中樞中佈建的單位數來提高配額或節流限制。
 
 > [!IMPORTANT]
 > 身分識別登錄作業是用於裝置管理與佈建案例中的執行階段用途。 透過[匯入和匯出作業][lnk-importexport]，即可支援讀取或更新大量的裝置身分識別。

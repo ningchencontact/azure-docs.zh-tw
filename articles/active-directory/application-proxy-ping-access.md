@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -75,7 +75,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
    - **內部 URL**︰當您在公司網路上時，通常會提供此 URL 以帶您前往應用程式登入頁面。 針對此情節，連接器需要將 PingAccess Proxy 視為應用程式的首頁。 使用此格式︰`https://<host name of your PA server>:<port>`。 連接埠預設為 3000，但您可以在 PingAccess 中設定它。
 
     > [!WARNING]
-    > 這種 SSO，內部 URL 必須使用 https，而且不能使用 http。
+    > 針對此類型的 SSO，內部 URL 必須使用 https，而無法使用 http。
 
    - **預先驗證方法**︰Azure Active Directory
    - **轉譯標頭中的 URL**：否
@@ -139,7 +139,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>選擇性 - 更新 GraphAPI 以傳送自訂欄位
 
-如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要傳送其他語彙基元的自訂宣告，請使用圖表總管或資訊清單應用程式在 Azure 入口網站中設定應用程式欄位*acceptMappedClaims*至**True**。    
+如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 Graph Explorer 或「Azure 入口網站」中的應用程式資訊清單，將應用程式欄位 *acceptMappedClaims* 設定為 **True**。    
 
 此範例使用 Graph Explorer：
 
@@ -150,11 +150,11 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-這個範例會使用[Azure 入口網站](https://portal.azure.com)至 udpate *acceptedMappedClaims*欄位：
+此範例使用 [Azure 入口網站](https://portal.azure.com)來更新 *acceptedMappedClaims* 欄位：
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取**Azure Active Directory** > **應用程式註冊**。
-3. 選取您的應用程式 >**資訊清單**。
-4. 選取**編輯**，搜尋*acceptedMappedClaims*欄位，然後將值變更為**true**。
+2. 選取 [Azure Active Directory] > [應用程式註冊]。
+3. 選取您的應用程式 > [資訊清單]。
+4. 選取 [編輯]，搜尋 *acceptedMappedClaims* 欄位，然後將其值變更為 **true**。
 ![應用程式資訊清單](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
 1. 選取 [ **儲存**]。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 的事件彙總與集合
 
@@ -43,6 +43,9 @@ EventFlow 二進位檔是以一組 NuGet 套件的形式提供。 若要將 Even
 
 ## <a name="configure-and-enable-log-collection"></a>設定和啟用記錄集合
 EventFlow 管線 (負責傳送記錄檔) 是從儲存在組態檔中的規格建立的。 `Microsoft.Diagnostics.EventFlow.ServiceFabric` 套件會在 `PackageRoot\Config` 方案資料夾底下安裝一個起始的 EventFlow 組態檔，名為 `eventFlowConfig.json`。 此組態檔必須經過修改，才能從預設服務 `EventSource` 類別和任何其他您想設定的輸入擷取資料，然後將資料傳送到適當的位置。
+
+>[!NOTE]
+>如果您的專案檔案具有 VisualStudio 2017 格式，則 `eventFlowConfig.json` 檔案不會自動新增。 若要修正這個問題，在 `Config` 資料夾中建立檔案，並且將建置動作設為 `Copy if newer`。 
 
 以下是以前述 NuGet 套件為基礎的範例 *eventFlowConfig.json*：
 ```json

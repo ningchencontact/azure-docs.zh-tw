@@ -14,7 +14,7 @@ ms.date: 05/29/2017
 ms.author: jonatul
 ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/02/2018
 
 例如，DNS 記錄 'www.contoso.com' 是使用 DNS 'A' 記錄名稱 'www' 在區域 'contoso.com' 中實作的。  此 A 記錄會指向對應的 IP 位址，在此情況下為 64.4.6.100。  反向對應會在區域 '6.4.64.in-addr.arpa' 中使用名為 '100' 的 'PTR' 記錄分別實作 (請注意，IP 位址會在 ARPA 區域中反轉)。此 PTR 記錄 (如果它已正確設定) 會指向名稱 'www.contoso.com'。
 
-當組織獲指派 IP 位址區塊時，也會取得管理對應的 ARPA 區域的權限。 對應至 Azure 所使用 IP 位址區塊的 ARPA 區域會由 Microsoft 託管並管理。 您的 ISP 可能裝載您自己的 IP 位址的 ARPA 區域，或可能會允許您裝載您的選擇，例如 Azure DNS 的 DNS 服務的 ARPA 區域。
+當組織獲指派 IP 位址區塊時，也會取得管理對應的 ARPA 區域的權限。 對應至 Azure 所使用 IP 位址區塊的 ARPA 區域會由 Microsoft 託管並管理。 您的 ISP 可能會為您裝載您自己 IP 位址的 ARPA 區域，或可能讓您在所選的 DNS 服務 (例如，Azure DNS) 中裝載 ARPA 區域。
 
 > [!NOTE]
 > 正向 DNS 對應與反向 DNS 對應會在個別的平行 DNS 階層中實作。 'www.contoso.com' 的反向對應**不是**在區域 'contoso.com' 中託管，而是在對應的 IP 位址區塊的 ARPA 區域中託管。 IPv4 和 IPv6 位址區塊使用不同的區域。

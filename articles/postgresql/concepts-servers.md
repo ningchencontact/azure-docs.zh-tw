@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/02/2017
 ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/03/2018
 在適用於 PostgreSQL 的 Azure 資料庫內，您可以建立一個或多個資料庫。 您可以選擇在每個伺服器建立單一資料庫以利用所有資源，或建立多個資料庫來共用資源。 定價結構是依據每一伺服器，以定價層、計算單位及儲存體 (GB) 的設定為基礎來形成的。 如需詳細資訊，請參閱[定價層](./concepts-service-tiers.md)。
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>如何連接及驗證適用於 PostgreSQL 的 Azure 資料庫伺服器？
-下列項目有助於確保資料庫的安全存取：
+下列項目有助於確保對資料庫的安全存取：
 
 |||
 |:--|:--|
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/03/2018
 您可以使用 [Azure 入口網站](https://portal.azure.com)或 [Azure CLI](/cli/azure/postgres)，來管理適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
 ## <a name="server-parameters"></a>伺服器參數
-PostgreSQL 伺服器參數會判斷伺服器的設定。 Azure PostgreSQL 資料庫中的參數清單可以檢視和使用 Azure 入口網站或 Azure CLI 編輯。 
+PostgreSQL 伺服器參數會判斷伺服器的設定。 在適用於 PostgreSQL 的 Azure 資料庫中，可以使用 Azure 入口網站或 Azure CLI 檢視和編輯參數清單。 
 
 適用於 PostgreSQL 的 Azure 資料庫是 Postgres 的受控服務，其中的可設定參數是本機 Postgres 執行個體中參數的子集 (如需有關 Postgres 參數的詳細資訊，請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/9.6/static/runtime-config.html))。 適用於 PostgreSQL 的 Azure 資料庫伺服器會在建立時為每個參數啟用預設值。 需要伺服器重新啟動或是需要 superuser 存取之後變更才會生效的參數，無法由使用者設定。
 

@@ -16,15 +16,15 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
-# <a name="use-service-bus-from-net-with-amqp-10"></a>使用來自.NET 的服務匯流排與 AMQP 1.0 搭配
+# <a name="use-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
 
-AMQP 1.0 支援適用於服務匯流排封裝版本 2.1 或更新版本。 您可以從 [NuGet][NuGet] 下載「服務匯流排」軟體，以確保您擁有最新版本。
+服務匯流排套件 2.1 版或更新版本提供 AMQP 1.0 支援。 您可以從 [NuGet][NuGet] 下載「服務匯流排」軟體，以確保您擁有最新版本。
 
-## <a name="configure-net-applications-to-use-amqp-10"></a>設定.NET 應用程式以使用 AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>設定 .NET 應用程式以使用 AMQP 1.0
 
 依預設，服務匯流排 .NET 用戶端程式庫能使用專屬的 SOAP 型通訊協定與服務匯流排服務通訊。 若要使用 AMQP 1.0 (而非預設的通訊協定)，您需要明確地設定服務匯流排連接字串，如下節內容所述。 除了這項變更之外，在使用 AMQP 1.0 時，應用程式程式碼會維持不變。
 
@@ -32,7 +32,7 @@ AMQP 1.0 支援適用於服務匯流排封裝版本 2.1 或更新版本。 您�
 
 ### <a name="configuration-using-appconfig"></a>使用 App.config 進行設定
 
-它是最好的作法是應用程式可以使用組態檔 App.config 來儲存設定。 對於服務匯流排應用程式，您可以使用 App.config 來儲存服務匯流排連接字串。 範例 App.config 檔案如下所示：
+讓應用程式使用 App.config 組態檔案來儲存設定是不錯的作法。 對於服務匯流排應用程式，您可以使用 App.config 來儲存服務匯流排連接字串。 範例 App.config 檔案如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

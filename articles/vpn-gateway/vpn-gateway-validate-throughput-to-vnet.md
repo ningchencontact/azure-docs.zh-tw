@@ -17,7 +17,7 @@ ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -122,7 +122,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 使用 Windows 檔案總管或透過 RDP 工作階段拖放時，您可能會遇到檔案複製變慢的問題。 此問題一般是因為下列一個或多個因素造成︰
 
 - 如 Windows 檔案總管與 RDP 的檔案應用程式，並未在複製檔案時使用多執行緒。 為了提升效能，請使用如 [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) 等多執行緒的檔案複製應用程式，以 16 或 32 條執行緒複製檔案。 如果要在 Richcopy 內變更用於檔案複製的執行緒數量，請按一下 [動作]  >  [複製選項]  >  [檔案複製] 。<br><br>
-![慢速檔案複本的問題](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+![檔案複製變慢的問題](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - VM 磁碟讀取/寫入速度不足。 如需詳細資訊，請參閱 [Azure 儲存體疑難排解](../storage/common/storage-e2e-troubleshooting.md)。
 
 ## <a name="on-premises-device-external-facing-interface"></a>內部部署裝置的外部對應介面

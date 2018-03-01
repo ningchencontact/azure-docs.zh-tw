@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式
 
-初始部署 Log Analytics 的 Windows 或 Linux 代理程式後，您可能需要視情況重新設定代理程式，或是在代理程式達到生命週期的淘汰階段時從電腦中移除它。  您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
+初始部署 Log Analytics 的 Windows 或 Linux 代理程式後，您可能需要重新設定代理程式，或是在代理程式達到生命週期的淘汰階段時從電腦中移除它。  您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
 
 ## <a name="adding-or-removing-a-workspace"></a>新增或移除工作區 
 
@@ -148,12 +148,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 3. 在出現提示時輸入 `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`。  
 
 ### <a name="linux-agent"></a>Linux 代理程式
-若要移除代理程式，請執行下列步驟。
+若要移除代理程式，請在 Linux 電腦上執行下列命令。  *--purge* 引數可將代理程式及其組態完全移除。
 
-1. 將 Linux 代理程式[通用指令碼](https://github.com/Microsoft/OMS-Agent-for-Linux/releases)下載到電腦。
-2. 在電腦上使用 *--purge* 引數執行搭售的 .sh 檔案，如此可將代理程式及其組態完全移除。
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>將代理程式設定為向 Operations Manager 管理群組報告
 

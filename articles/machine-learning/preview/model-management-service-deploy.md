@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ Azure Machine Learning 模型管理會提供介面供您將模型部署為容器
 部署步驟如下：
 1. 使用已儲存且經過訓練的機器學習服務模型
 2. 為 Web 服務的輸入和輸出資料建立結構描述
-3. 建立 Docker 基礎容器映像
+3. 建立 Docker 型容器映像
 4. 建立及部署 Web 服務
 
 ### <a name="1-save-your-model"></a>1.儲存模型

@@ -596,7 +596,7 @@ IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據�
 > [!Note]
 > 請參閱[應用程式閘道診斷](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)，以檢視如何使用計量來建立警示。
 
-#### <a name="diagnostic-logs"></a>診斷記錄
+#### <a name="diagnostic-logs"></a>診斷記錄檔
 
 網路資源會定期和自發地建立事件，並記錄到儲存體帳戶、傳送到事件中樞或 Log Analytics。 這些記錄可讓您深入了解資源的健全狀況。 您可以在 Power BI 和 Log Analytics 等工具中檢視這些記錄。 若要了解如何檢視診斷記錄，請瀏覽 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)。
 

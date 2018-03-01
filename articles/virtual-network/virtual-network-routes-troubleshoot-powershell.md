@@ -17,7 +17,7 @@ ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/21/2017
 ### <a name="view-effective-routes-for-a-network-interface"></a>檢視網路介面的有效路由
 若要查看套用到網路介面的彙總路由，請完成下列步驟︰
 
-1. 啟動 Azure PowerShell 工作階段並登入 Azure。 如果您不熟悉 Azure PowerShell，請閱讀 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 文章。 您的帳戶必須指派*Microsoft.Network/networkInterfaces/effectiveRouteTable/action*網路介面的作業。 若要了解如何將作業指派給帳戶，請參閱[建立自訂角色的所有存取控制](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+1. 啟動 Azure PowerShell 工作階段並登入 Azure。 如果您不熟悉 Azure PowerShell，請閱讀 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 文章。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
 2. 下列命令會傳回套用到資源群組 *RG1* 中名為 *VM1-NIC1* 之網路介面的所有路由。
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/21/2017
    
         Get-Help *-AzureRmRouteConfig
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 檢閱傳回的路由清單時，請記住下列幾點事項︰
 
 * 路由是根據 UDR、BGP 和系統路由之間的最長首碼比對 (LPM)。 如果有多個符合相同 LPM 的路由，則會根據其來源，以下列順序選取路由：

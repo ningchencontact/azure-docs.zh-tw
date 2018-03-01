@@ -17,7 +17,7 @@ ms.date: 08/29/2017
 ms.author: arramac
 ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -150,10 +150,10 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
     await client.ReplaceDocumentCollectionAsync(collection);
 
 <a id="ttl-and-index-interaction"></a> 
-## <a name="ttl-and-index-interaction"></a>TTL 和索引的互動
-新增或變更 TTL 上的設定集合變更基礎的索引。 TTL 值從 Off 變更為 On，當集合是重新建立索引。 進行變更時要編製索引原則一致檢索模式時，使用者將不會注意到索引的變更。 檢索模式時設定為延遲，索引一律趕上，並且如果 TTL 值變更時，從頭重新建立索引。 當 TTL 值會變更索引模式設定為延遲，在索引重建期間完成的查詢不會傳回完整或不正確的結果。
+## <a name="ttl-and-index-interaction"></a>TTL 和索引互動
+新增或變更集合上的 TTL 設定會變更基礎索引。 當 TTL 值從 Off 變更為 On，集合會重新建立索引。 在索引模式保持一致的情況下對索引原則進行變更時，使用者不會注意到索引的變更。 當索引模式設定為緩慢時，索引永遠能夠跟上，如果 TTL 值變更，則會從頭開始重新建立索引。 當 TTL 值變更且索引模式設定為緩慢時，在索引重建期間所執行的查詢不會傳回完整或正確的結果。
 
-如果您需要傳回精確的資料時，請勿變更 TTL 值，當檢索模式設定為延遲。 在理想情況下應該選擇一致的索引，以確保一致的查詢結果。 
+如果您需要傳回精確的資料，則請勿在索引模式設定為緩慢時變更 TTL 值。 在理想情況下，請選擇一致的索引以確保查詢結果保持一致。 
 
 ## <a name="faq"></a>常見問題集
 **TTL 的費用為何？**
@@ -174,7 +174,7 @@ TTL 會套用到整份文件。 如果您只想要讓文件的一部分過期，
 
 **TTL 功能是否有任何特定的編製索索引需求？**
 
-可以。 集合的[編製索引原則](indexing-policies.md)必須設定為 [延遲] 或 [一致]。 嘗試在編製索引設為 [無] 的集合上設定 DefaultTTL 會造成錯誤，而嘗試在已設定 DefaultTTL 的集合上關閉索引編製也會造成錯誤。
+是。 集合的[編製索引原則](indexing-policies.md)必須設定為 [延遲] 或 [一致]。 嘗試在編製索引設為 [無] 的集合上設定 DefaultTTL 會造成錯誤，而嘗試在已設定 DefaultTTL 的集合上關閉索引編製也會造成錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure Cosmos DB，請參閱服務的[*文件 (英文)*](https://azure.microsoft.com/documentation/services/cosmos-db/) 頁面。

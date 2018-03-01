@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint (藍圖) 自動化 - 風險評估"
-description: "FedRAMP 的 Web 應用程式- 風險評估"
+title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 風險評估"
+description: "FedRAMP Web 應用程式自動化 - 風險評估"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>風險評估 (RA)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「OMS 安全性與稽核」解決方案。 這個解決方案可提供安全性狀態的全面性檢視。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 「基準評估」會評估一組登錄機碼、稽核原則設定和安全性原則設定，以及 Microsoft 針對這些設定的建議值。 「更新評估」會評估所有已部署虛擬機器上可用更新的狀態。 |
+| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 這個解決方案可提供安全性狀態的全面性檢視。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 「基準評估」會評估一組登錄機碼、稽核原則設定和安全性原則設定，以及 Microsoft 針對這些設定的建議值。 「更新評估」會評估所有已部署虛擬機器上可用更新的狀態。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「OMS 安全性與稽核」解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 系統會為已識別的問題指派一個嚴重性等級。 針對「基準評估」規則，會提供「通用組態列舉」(Common Configuration Enumeration, CCE) 識別碼。  |
+| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 系統會為已識別的問題指派一個嚴重性等級。 針對「基準評估」規則，會提供「通用組態列舉」(Common Configuration Enumeration, CCE) 識別碼。  |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「OMS 安全性與稽核」解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 作為這些解決方案評估依據的準則會自動更新。 |
+| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 作為這些解決方案評估依據的準則會自動更新。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「OMS 安全性與稽核」解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 作為這些解決方案評估依據的準則會自動更新。 |
+| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 作為這些解決方案評估依據的準則會自動更新。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「OMS 安全性與稽核」解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 更新評估會同時對 Windows 和 Linux 虛擬機器執行評估。 基準評估會根據業界最佳做法，使用 Microsoft 所開發的基準，對 Windows 虛擬機器執行評估。 |
+| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 此解決方案提供兩個安全性網域，亦即「更新評估」和「基準評估」。 更新評估會同時對 Windows 和 Linux 虛擬機器執行評估。 基準評估會根據業界最佳做法，使用 Microsoft 所開發的基準，對 Windows 虛擬機器執行評估。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | Microsoft Monitoring Agent 服務 (在這個 Azure Blueprint (藍圖) 所部署的虛擬機器上設定) 會設定為具備評估活動必要權限的自動服務。 |
+| **客戶** | Microsoft Monitoring Agent 服務 (設定於這個藍圖所部署的虛擬機器上) 會設定為具備評估活動必要權限的自動服務。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5 (6)** 組織會採用自動化機制來比較一段時間的弱點掃描結果，以判斷資訊系統弱點趨勢。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「OMS 安全性與稽核」解決方案。 這個解決方案可提供安全性狀態的全面性檢視。 [安全性與稽核] 儀表板會使用所有已部署 OMS 解決方案提供的資料，以提供已部署資源之安全性狀態的概要深入解析。 |
+| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 這個解決方案可提供安全性狀態的全面性檢視。 [安全性與稽核] 儀表板會使用所有已部署 OMS 解決方案提供的資料，以提供已部署資源之安全性狀態的概要深入解析。 |
 | **提供者 (Microsoft Azure)** | 不適用 |

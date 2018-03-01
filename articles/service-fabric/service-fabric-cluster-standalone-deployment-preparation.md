@@ -15,7 +15,7 @@ ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="modify-cluster-configuration"></a>修改叢集組態
 若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 您可以根據可在下面連結找到的範本來建立組態檔。 <br>
-[獨立的叢集設定](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[獨立叢集組態](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 如需此檔案中各個區段的詳細資訊，請參閱[獨立 Windows 叢集的組態設定](service-fabric-cluster-manifest.md)。
 

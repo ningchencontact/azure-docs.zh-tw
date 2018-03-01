@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 本文探討時間序列深入解析總管 Web 應用程式中的各種功能和可用的選項。 在網頁瀏覽器中使用時間序列深入解析總管來建立資料的視覺效果。
  
-Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
+Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在使用時間序列深入解析總管之前，您必須先：
 - 建立時間序列深入解析環境
@@ -37,7 +37,7 @@ Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效�
 
 2. 一旦您選取環境後，請使用頂端的 **FROM** 和 **TO** 組態，或按一下並拖曳您所需的時間範圍。  按一下右上方的放大鏡，或以滑鼠右鍵按一下選取的範圍，然後選取 [搜尋]。  
 
-3. 您也可以每隔一分鐘自動重新整理可用性，方法為選取 [自動開啟] 按鈕。
+3. 您也可以每隔一分鐘自動重新整理可用性，方法為選取 [自動開啟] 按鈕。  請注意，[自動開啟] 按鈕只適用於可用性圖表，不適用於主要視覺效果的內容。
 
 4. 請注意，Azure 雲端圖示會帶您前往 Azure 入口網站中的環境。
 
@@ -55,12 +55,12 @@ Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效�
 
       - **述詞**：述詞可讓您使用下面所列的運算元集合來快速篩選事件。 如果您選取/按一下以進行搜尋，述詞會以該搜尋作為基礎自動更新。      支援的運算元類型包括：
 
-         |作業  |支援的類型  |注意事項  |
+         |作業  |支援的類型  |注意  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Double、DateTime、TimeSpan       |         |
          |=, !=, <>     | String、Bool、Double、DateTime、TimeSpan、NULL        |         |
          |IN     | String、Bool、Double、DateTime、TimeSpan、NULL        |  所有的運算元都應該是相同的類型或是 NULL 常數。        |
-         |HAS     | String        |  右側只允許常數字串常值。 不允許空字串和 NULL。       |
+         |HAS     | 字串        |  右側只允許常數字串常值。 不允許空字串和 NULL。       |
 
       - **查詢的範例**
       
@@ -94,7 +94,7 @@ Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效�
 
 12. **事件**：當您在上方選取或以滑鼠右鍵按一下來選擇探索事件時，事件面板可供使用。  在這裡，您可以看到所有未經處理的事件，並將您的事件匯出為 JSON 或 CSV 檔案。 請注意，時間序列深入解析會儲存所有未經處理的資料。
 
-   ![事件](media/time-series-insights-explorer/explorer7.png)
+   ![活動](media/time-series-insights-explorer/explorer7.png)
 
 13. 探索事件之後請按一下 [STATS] 索引標籤，以公開模式和資料行統計資料。  
 

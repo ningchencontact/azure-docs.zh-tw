@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: juliako
 ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/05/2018
 若要要求變更所提供的預設配額，您可以開啟支援票證。 請在要求中包含所需的配額變更、使用案例情況及所需區域的詳細資訊。
 
 ### <a name="how-to-open-a-support-ticket"></a>如何開啟支援票證
-在 Azure 入口網站中，移至[說明 + 支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 如果您未登入 Azure，系統會提示您輸入您的認證。
+在 Azure 入口網站中，移至[說明 + 支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 如果您未登入 Azure，系統會提示您輸入認證。
 
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑

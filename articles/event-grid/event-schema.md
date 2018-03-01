@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/01/2018
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/01/2018
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>事件屬性
 
 所有事件皆包含下列相同的最高層級資料：
@@ -93,6 +93,8 @@ ms.lasthandoff: 02/01/2018
 * [Azure 訂用帳戶 (管理作業)](event-schema-subscriptions.md)
 * [Blob 儲存體](event-schema-blob-storage.md)
 * [事件中樞](event-schema-event-hubs.md)
+* [服務匯流排](event-schema-service-bus.md)
+* [IoT 中心](event-schema-iot-hub.md)
 * [資源群組 (管理作業)](event-schema-resource-groups.md)
 
 針對自訂主題，事件發行者會決定資料物件。 最高層級的資料應包含與標準資源定義事件相同的欄位。 在發佈事件至自訂主題時，您應考慮以幫助路由與篩選為目標建立事件的主體。

@@ -16,7 +16,7 @@ ms.date: 05/25/2017
 ms.author: arramac
 ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -75,7 +75,7 @@ DateTime 值常用於範圍查詢。 例如，如果您需要尋找昨天之後�
 您可以參閱 [Azure Cosmos DB 索引編製原則](indexing-policies.md)，來深入了解如何設定索引編製原則。
 
 ## <a name="querying-datetimes-in-linq"></a>用 LINQ 查詢 DateTime
-SQL.NET SDK 會自動支援查詢儲存在 Azure Cosmos DB 透過 LINQ 中的資料。 例如，下列程式碼片段中的 LINQ 查詢會篩選在過去三天出貨的訂單。
+SQL .NET SDK 會自動支援透過 LINQ 查詢儲存在 Azure Cosmos DB 中的資料。 例如，下列程式碼片段中的 LINQ 查詢會篩選在過去三天出貨的訂單。
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ SQL.NET SDK 會自動支援查詢儲存在 Azure Cosmos DB 透過 LINQ 中的資
 
 ## <a name="next-steps"></a>後續步驟
 * 下載並執行 [GitHub 上的程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* 深入了解[SQL 查詢](sql-api-sql-query.md)
+* 深入了解 [SQL 查詢](sql-api-sql-query.md)
 * 深入了解 [Azure Cosmos DB 編製索引原則](indexing-policies.md)

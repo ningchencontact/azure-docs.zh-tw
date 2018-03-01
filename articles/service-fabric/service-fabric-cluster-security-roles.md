@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>角色型存取控制 (適用於 Service Fabric 用戶端)
 Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援兩種不同的存取控制類型：系統管理員和使用者。 存取控制可讓叢集系統管理員針對不同的使用者群組限制特定叢集作業的存取權，讓叢集更加安全。  

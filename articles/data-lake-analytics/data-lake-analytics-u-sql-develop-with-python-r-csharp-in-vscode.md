@@ -1,6 +1,6 @@
 ---
-title: "開發程式碼的 Visual Studio 中的 Azure Data Lake Analytics U-SQL Python、 R、 和 C# |Microsoft 文件"
-description: "了解如何使用 Python，R 和 C# 程式碼後置提交 Azure Data Lake 中的工作。"
+title: "針對 Visual Studio Code 中的 Azure Data Lake Analytics 使用 Python、R 和 C# 開發 U-SQL | Microsoft Docs"
+description: "了解如何將程式碼後置與 Python、R 和 C# 搭配使用，以在 Azure Data Lake 中提交作業。"
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -15,12 +15,12 @@ ms.date: 11/22/2017
 ms.author: jejiang
 ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>開發使用 Python，R 和 C# 的 Visual Studio 程式碼中的 Azure Data Lake Analytics U-SQL
-了解如何使用 Visual Studio 程式碼 (VSCode) 撰寫 Python，R 和 C# 程式碼後置以 U-SQL 和提交工作至 Azure 資料湖服務。 如需關於 Azure Data Lake Tools for VSCode 的詳細資訊，請參閱[使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)。
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>針對 Visual Studio Code 中的 Azure Data Lake Analytics 使用 Python、R 和 C# 開發 U-SQL
+了解如何使用 Visual Studio Code (VSCode) 以透過 U-SQL 撰寫 Python、R 和 C# 的程式碼後置，並將作業提交至 Azure Data Lake 服務。 如需關於 Azure Data Lake Tools for VSCode 的詳細資訊，請參閱[使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)。
 
 撰寫程式碼後置自訂程式碼之前，您需要在 VSCode 中開啟資料夾或工作區。
 

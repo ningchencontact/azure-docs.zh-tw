@@ -14,32 +14,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 91908b03522788d470fdb93121f620bfcdef9085
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 針對 Linux VM 開啟連接埠和端點
 您可以透過在子網路或 VM 網路介面上建立網路篩選，對 Azure 中的虛擬機器 (VM) 開啟連接埠或建立端點。 您可將控制輸入和輸出流量的這些篩選器放在可接收流量的資源所附加的網路安全性群組上。 讓我們使用連接埠 80 上的 Web 流量的常見範例。 這篇文章說明如何使用 Azure CLI 2.0 來開啟連接埠至 VM。 您也可以使用 [Azure CLI 1.0](nsg-quickstart-nodejs.md) 來執行這些步驟。
 
-若要建立網路安全性群組和規則，您需要安裝 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
+若要建立網路安全性群組和規則，您需要安裝 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包括 myResourceGroup、myNetworkSecurityGroup 和 myVnet。
 
 
-## <a name="quickly-open-a-port-for-a-vm"></a>快速開啟 vm 的 連接埠
-如果您需要快速開發/測試案例中的 VM 的開啟連接埠，您可以使用[az vm 開啟通訊埠](/cli/azure/vm#az_vm_open_port)命令。 此命令會建立網路安全性群組、 加入規則，並將其套用到 VM 或子網路。 下列範例會開啟連接埠*80*上名為 VM *myVM*資源群組中名為*myResourceGroup*。
+## <a name="quickly-open-a-port-for-a-vm"></a>快速開啟 VM 的連接埠
+如果您需要在開發/測試案例中快速開啟 VM 的連接埠，您可以使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 命令。 此命令會建立網路安全性群組、新增規則，並將其套用到 VM 或子網路。 下列範例會在名為 myResourceGroup 資源群組中名為 myVM 的 VM 上開啟連接埠 80。
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
-更多控制的規則，例如定義來源 IP 位址範圍，繼續進行本文章中的其他步驟。
+若要更深入地控制規則，例如定義來源 IP 位址範圍，請繼續進行本文中的其他步驟。
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>建立網路安全性群組和規則
-使用 [az network nsg create](/cli/azure/network/nsg#create) 建立網路安全性群組。 下列範例會在 eastus 位置中建立名為 myNetworkSecurityGroup 的網路安全性群組：
+使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 建立網路安全性群組。 下列範例會在 eastus 位置中建立名為 myNetworkSecurityGroup 的網路安全性群組：
 
 ```azurecli
 az network nsg create \
@@ -48,7 +48,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#create)新增規則以允許流向您 Web 伺服器的 HTTP 流量 (或針對自己的案例 (例如 SSH 存取或資料庫連接) 進行調整)。 下列範例會建立名為 myNetworkSecurityGroupRule 的規則以允許連接埠 80 上的 TCP 流量︰
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)新增規則以允許流向您 Web 伺服器的 HTTP 流量 (或針對自己的案例 (例如 SSH 存取或資料庫連接) 進行調整)。 下列範例會建立名為 myNetworkSecurityGroupRule 的規則以允許連接埠 80 上的 TCP 流量︰
 
 ```azurecli
 az network nsg rule create \
@@ -61,8 +61,8 @@ az network nsg rule create \
 ```
 
 
-## <a name="apply-network-security-group-to-vm"></a>套用至 VM 的網路安全性群組
-使用 [az network nic update](/cli/azure/network/nic#update)將「網路安全性群組」與 VM 的網路介面 (NIC) 建立關聯。 下列範例將名為 myNic 的現有 NIC 與名為 myNetworkSecurityGroup 的網路安全性群組建立關聯：
+## <a name="apply-network-security-group-to-vm"></a>將網路安全性群組套用至 VM
+使用 [az network nic update](/cli/azure/network/nic#az_network_nic_update)將「網路安全性群組」與 VM 的網路介面 (NIC) 建立關聯。 下列範例將名為 myNic 的現有 NIC 與名為 myNetworkSecurityGroup 的網路安全性群組建立關聯：
 
 ```azurecli
 az network nic update \
@@ -71,7 +71,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-或者，您也可以使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#update)將「網路安全性群組」與虛擬網路的子網路建立關聯，而不是只與單一 VM 上的網路介面建立關聯。 下列範例將 myVnet 虛擬網路中名為 mySubnet 的現有子網路，與名為 myNetworkSecurityGroup 的網路安全性群組建立關聯：
+或者，您也可以使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)將「網路安全性群組」與虛擬網路的子網路建立關聯，而不是只與單一 VM 上的網路介面建立關聯。 下列範例將 myVnet 虛擬網路中名為 mySubnet 的現有子網路，與名為 myNetworkSecurityGroup 的網路安全性群組建立關聯：
 
 ```azurecli
 az network vnet subnet update \

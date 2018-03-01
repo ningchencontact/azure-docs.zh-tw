@@ -15,13 +15,13 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權
 
-服務匯流排應用程式有先前已選擇使用兩個不同的授權模型：[共用存取簽章 (SAS)](service-bus-sas.md)語彙基元的模型提供直接的服務匯流排和同盟的模型所在的管理授權規則由管理內[Azure Active Directory](/azure/active-directory/)存取控制服務 (ACS) 與從 ACS 取得權杖會傳遞至服務匯流排授權存取所需的功能。
+服務匯流排應用程式在過去可選擇使用兩個不同的授權模型：由服務匯流排直接提供的[共用存取簽章 (SAS)](service-bus-sas.md) 權杖模型，以及同盟模型，其中授權規則的管理是由 [Azure Active Directory](/azure/active-directory/) 存取控制服務 (ACS) 內部管理，而從 ACS 取得的權杖會傳遞至服務匯流排，以授權存取所需的功能。
 
 ACS 授權模型長期以來已被 [SAS 授權](service-bus-authentication-and-authorization.md)取代為首選模型，而且今日所有文件、指南和範例皆僅使用 SAS。 此外，無法再建立與 ACS 配對的新服務匯流排命名空間。
 

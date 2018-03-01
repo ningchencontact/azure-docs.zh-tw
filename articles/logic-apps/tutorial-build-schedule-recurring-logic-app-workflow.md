@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>使用以排程為基礎的邏輯應用程式來檢查流量
 
@@ -53,7 +53,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 ## <a name="create-your-logic-app"></a>建立邏輯應用程式
 
-1. 從 Azure 主要功能表中，選擇 [新增] > [企業整合] > [邏輯應用程式]。
+1. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
 
    ![建立邏輯應用程式](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 

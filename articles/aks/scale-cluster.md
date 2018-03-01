@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>調整 Azure Container Service (AKS) 叢集
 
-將 AKS 叢集調整為不同數目的節點很簡單。  選取想要的節點數目，然後執行 `az aks scale` 命令。  節點就會向下擴充時仔細[cordoned 和清空][ kubernetes-drain]執行應用程式的中斷情況降到最低。  相應增加時，`az` 命令會一直等待，直到 Kubernetes 叢集將節點標示 `Ready` 為止。
+將 AKS 叢集調整為不同數目的節點很簡單。  選取想要的節點數目，然後執行 `az aks scale` 命令。  縮減規模時，會將節點仔細地[隔離並清空][kubernetes-drain] \(英文\)，以將對執行中應用程式造成的中斷情況降到最低。  擴大規模時，`az` 命令會一直等待，直到 Kubernetes 叢集將節點標示 `Ready` 為止。
 
 ## <a name="scale-the-cluster-nodes"></a>調整叢集節點
 
-使用 `az aks scale` 命令調整叢集節點。 下列範例會將名為 *myK8SCluster* 的叢集調整為一個節點。
+使用 `az aks scale` 命令調整叢集節點。 下列範例會將名為 *myAKSCluster* 的叢集調整成單一節點。
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
+az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
 輸出：
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -48,7 +48,7 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,

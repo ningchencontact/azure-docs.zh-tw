@@ -1,7 +1,7 @@
 ---
 title: "使用 Azure Cosmos DB 進行 Java 應用程式開發教學課程 | Microsoft Docs"
-description: "此 Java web 應用程式教學課程會示範如何使用 Azure Cosmos DB 和 SQL API 以儲存並從裝載於 Azure 網站上的 Java 應用程式存取資料。"
-keywords: "應用程式開發、 database 教學課程、 java 應用程式、 java web 應用程式教學課程、 azure、 Microsoft azure"
+description: "本 Java Web 應用程式教學課程示範如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Java 應用程式資料。"
+keywords: "應用程式開發, 資料庫教學課程, java 應用程式, java web 應用程式教學課程, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -17,11 +17,11 @@ ms.date: 08/22/2017
 ms.author: denlee
 ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>建立使用 Azure Cosmos DB 和 SQL API 的 Java web 應用程式
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -88,8 +88,8 @@ ms.lasthandoff: 12/18/2017
    
     ![Hello World – Java 應用程式教學課程](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>步驟 3： 安裝 SQL Java SDK
-提取 SQL Java SDK 和其相依性最簡單的方式是透過[Apache Maven](http://maven.apache.org/)。
+## <a id="InstallSDK"></a>步驟 3：安裝 SQL Java SDK
+導入 SQL Java SDK 及其相依性的最簡單方式就是透過 [Apache Maven](http://maven.apache.org/)。
 
 若要這樣做，您必須完成下列步驟以將專案轉換成 maven 專案：
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/18/2017
    * 或透過文字編輯器，將群組識別碼和構件識別碼的相依性 XML 直接新增至 pom.xml：
      
         <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
-6. 按一下**確定**Maven 安裝 SQL Java SDK。
+6. 按一下 [確定]，Maven 便會開始安裝 SQL Java SDK。
 7. 儲存 pom.xml 檔案。
 
 ## <a id="UseService"></a>步驟 4：在 Java 應用程式中使用 Azure Cosmos DB 服務
@@ -281,7 +281,7 @@ ms.lasthandoff: 12/18/2017
                 return null;
             }
         }
-7. 我們也可以使用 DocumentClient 取得的集合或使用 SQL TodoItems 清單：
+7. 我們也可以使用 SQL，以 DocumentClient 取得集合或 TodoItems 的清單：
    
         @Override
         public List<TodoItem> readTodoItems() {

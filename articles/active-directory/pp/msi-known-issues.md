@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b0b5b991b7d2baaa40ebedbd19247717e91aa027
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
@@ -128,5 +128,4 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
 - Windows 上的 VMAgent 目前不支援使用者指派的 MSI。 
-- 將角色指派給 MSI 以存取資源目前並不需要特殊權限。 
 - 當 VM 具有使用者指派的 MSI，但是沒有系統指派的 MSI 時，入口網站 UI 會顯示 MSI 為已啟用狀態。 若要啟用系統指派的 MSI，請使用 Azure Resource Manager 範本、Azure CLI 或 SDK。

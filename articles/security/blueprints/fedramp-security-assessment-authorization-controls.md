@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint (藍圖) 自動化 - 安全性評定和授權"
-description: "適用於 FedRAMP 的 Web 應用程式 - 安全性評定和授權"
+title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 安全性評定和授權"
+description: "FedRAMP Web 應用程式自動化 - 安全性評定和授權"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>安全性評定和授權 (CA)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 系統會部署 Azure 應用程式閘道和網路安全性群組，以限制外部位置連線至由此 Azure Blueprint (藍圖) 所部署的資源。 針對套用至網路安全性群組的規則集，系統會設定為使用 deny-by-default 配置。 |
+| **客戶** | 系統會部署 Azure 應用程式閘道和網路安全性群組，以限制外部位置連線至由此藍圖所部署的資源。 針對套用至網路安全性群組的規則集，系統會設定為使用 deny-by-default 配置。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -241,7 +241,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-6.a** 組織會將高階主管或經理指派為資訊系統的授權官方人員。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-7.g** 組織會開發連續監視策略，並實作連續監視計畫，其中包含向 [指派：組織定義的個人或角色] 報告組織和資訊系統之安全性狀態的 [指派：組織定義的頻率]。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|

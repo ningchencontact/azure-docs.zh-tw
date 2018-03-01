@@ -1,5 +1,5 @@
 ---
-title: "外部資料表繫結，如 Azure 函式 （實驗）"
+title: "Azure Functions 的外部資料表繫結 (實驗性)"
 description: "使用 Azure Functions 中的外部資料表繫結"
 services: functions
 documentationcenter: 
@@ -16,26 +16,26 @@ ms.date: 04/12/2017
 ms.author: alkarche
 ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="external-table-binding-for-azure-functions-experimental"></a>外部資料表繫結，如 Azure 函式 （實驗）
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Azure Functions 的外部資料表繫結 (實驗性)
 
-本文說明如何使用 SaaS 提供者，例如 Sharepoint 和 Dynamics，在 Azure 函式上的表格式資料。 Azure 函數支援輸入和輸出的外部資料表繫結。
+本文說明如何在 Azure Functions 中使用 SaaS 提供者上的表格式資料，例如 Sharepoint 和 Dynamics。 Azure Functions 支援外部資料表的輸入和輸出繫結。
 
 > [!IMPORTANT]
-> 外部資料表繫結屬實驗性質，並可能永遠無法抵達通常可用 (GA) 狀態。 它包含只在 Azure 中的函式 1.x 和沒有計劃將其新增至 Azure 函式 2.x。 需要 SaaS 提供者中的資料存取的情況下，請考慮使用[函式呼叫的 logic apps](functions-twitter-email.md)。
+> 外部資料表繫結是實驗性質，且可能永遠無法觸達正式上市 (GA) 狀態。 它只包含在 Azure Functions 1.x 中，且並未計劃將它新增至 Azure Functions 2.x。 針對要求存取 SaaS 提供者中資料的情況，請考量使用[呼叫函式的邏輯應用程式](functions-twitter-email.md)。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>應用程式開發介面的連線
+## <a name="api-connections"></a>API 連線
 
-資料表繫結利用外部的應用程式開發介面連接向協力廠商 SaaS 提供者。 
+資料表繫結會運用外部 API 連線以向第三方 SaaS 提供者進行驗證。 
 
-指派的繫結時您可以建立新的應用程式開發介面連接或使用現有的應用程式開發介面連接相同的資源群組中。
+指派繫結時，您可以建立新的 API 連線，或是使用相同資源群組內的現有 API 連線。
 
-### <a name="available-api-connections-tables"></a>可用的 API 連線 （資料表）
+### <a name="available-api-connections-tables"></a>可用的 API 連線 (資料表)
 
 |連接器|觸發程序|輸入|輸出|
 |:-----|:---:|:---:|:---:|
@@ -57,27 +57,27 @@ ms.lasthandoff: 01/05/2018
 |Zendesk||x|x
 
 > [!NOTE]
-> 資料表的外部連接也可用在[Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)。
+> 外部資料表連線也可以用在 [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list) 中。
 
 ## <a name="creating-an-api-connection-step-by-step"></a>建立 API 連線：逐步解說
 
-1. 在您的函式應用程式 Azure 入口網站頁面上，選取加號 (**+**) 建立函式。
+1. 在您函式應用程式的 Azure 入口網站頁面上，選取加號 (**+**) 以建立函式。
 
-1. 在**案例**方塊中，選取**實驗**。
+1. 在 [案例] 方塊中，選取 [實驗性]。
 
-1. 選取**External table**。
+1. 選取 [外部資料表]。
 
-1. 選取的語言。
+1. 選取語言。
 
-2. 在下**外部資料表連接**，選取現有的連接，或選取**新**。
+2. 在 [外部資料表連線] 下，選取現有的連線或選取 [新增]。
 
-1. 新的連接設定的設定，然後選取**授權**。
+1. 如需新的連線，請設定設定，然後選取 [授權]。
 
-1. 選取**建立**建立函式。
+1. 選取 [建立] 以建立函式。
 
-1. 選取**整合 > External Table**。
+1. 選取 [整合] > [外部資料表]。
 
-1. 設定連線以使用目標資料表。 這些設定之間 SaaS 提供者而異。 範例會包含在下一節。
+1. 設定連線以使用目標資料表。 這些設定會依 SaaS 提供者不同而有所差異。 下一節中包含範例。
 
 ## <a name="example"></a>範例
 
@@ -148,7 +148,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 
 ### <a name="sql-server-data-source"></a>SQL Server 資料來源
 
-若要建立資料表以搭配此範例中的 SQL Server 中，以下是指令碼。 `dataSetName`為"default"。
+若要在 SQL Server 中建立資料表來與此範例搭配使用，請使用以下指令碼。 `dataSetName` 是預設值。
 
 ```sql
 CREATE TABLE Contact
@@ -167,13 +167,13 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets-data-source"></a>Google 工作表的資料來源
+### <a name="google-sheets-data-source"></a>Google 試算表資料來源
 
-若要建立用於 Google 的文件中的這個範例的資料表，建立名為工作表的試算表`Contact`。 連接器不能使用試算表顯示名稱。 內部名稱 (以粗體顯示) 必須做為 dataSetName 使用，例如：`docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** 將資料行名稱 `Id`, `LastName`, `FirstName` 新增至第一個資料列，然後將資料填入後續資料列。
+若要建立資料表以在 Google 文件中與這個範例搭配使用，請以名為 `Contact` 的工作表建立試算表。 連接器不能使用試算表顯示名稱。 內部名稱 (以粗體顯示) 必須做為 dataSetName 使用，例如：`docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** 將資料行名稱 `Id`, `LastName`, `FirstName` 新增至第一個資料列，然後將資料填入後續資料列。
 
 ### <a name="salesforce"></a>Salesforce
 
-若要使用此範例與 Salesforce，`dataSetName`為"default"。
+若要將此範例與 Salesforce 搭配使用，`dataSetName` 是預設值。
 
 ## <a name="configuration"></a>組態
 
@@ -184,10 +184,10 @@ GO
 |**type** | 必須設為 `apiHubTable`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | 代表函式程式碼中事件項目的變數名稱。 | 
-|**連接**| 識別儲存在應用程式開發介面的連接字串的應用程式設定。 應用程式設定會在您於整合 UI 中新增 API 連線時自動建立。|
-|**dataSetName**|包含要讀取之資料表的資料集的名稱。|
+|**連接**| 會識別儲存 API 連接字串的應用程式設定。 應用程式設定會在您於整合 UI 中新增 API 連線時自動建立。|
+|**dataSetName**|包含要讀取之資料表的資料集名稱。|
 |**tableName**|資料表的名稱|
-|**entityId**|必須是空的資料表繫結。
+|**entityId**|針對資料表繫結必須為空白。
 
 表格式連接器會提供資料集，每個資料集皆包含資料表。 預設資料集的名稱為 "default"。 以下列出各種 SaaS 提供者的資料集和資料表標題：
 

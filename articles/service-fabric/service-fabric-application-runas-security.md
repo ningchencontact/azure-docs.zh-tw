@@ -16,7 +16,7 @@ ms.date: 06/30/2017
 ms.author: mfussell
 ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 您可以定義和建立使用者群組，以便將一或多個使用者新增至每個群組一起管理。 當不同的服務進入點有多個使用者，而且他們需要具備可在群組層級取得的某些常見權限時，這會很有用。
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>設定服務安裝程式進入點的原則
-中所述[應用程式和服務資訊清單](service-fabric-application-and-service-manifests.md)，安裝程式的進入點， **SetupEntryPoint**，是以 Service Fabric 與相同的認證執行特殊權限的進入點 (通常*NetworkService*帳戶) 之前的任何其他的進入點。 **EntryPoint** 指定的可執行檔通常是長時間執行的服務主機。 因此有個別安裝程式的進入點，就不需要使用較高權限來長時間執行服務主機可執行檔。 **EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。 產生的程序會受到監視，萬一終止或當機，則會同樣從 **SetupEntryPoint** 開始來重新啟動。
+如[應用程式和服務資訊清單](service-fabric-application-and-service-manifests.md)所述，安裝程式進入點 **SetupEntryPoint** 是以與 Service Fabric 相同的認證執行的特殊權限進入點 (通常為 *NetworkService* 帳戶)，優先於其他任何進入點。 **EntryPoint** 指定的可執行檔通常是長時間執行的服務主機。 因此有個別安裝程式的進入點，就不需要使用較高權限來長時間執行服務主機可執行檔。 **EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。 產生的程序會受到監視，萬一終止或當機，則會同樣從 **SetupEntryPoint** 開始來重新啟動。
 
 以下簡單的服務資訊清單範例會顯示服務的 SetupEntryPoint 和主要的 EntryPoint。
 

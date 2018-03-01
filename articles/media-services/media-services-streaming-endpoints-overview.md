@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>串流端點概觀 
 
@@ -68,33 +68,33 @@ ms.lasthandoff: 10/11/2017
 |類型|StreamingEndpointVersion|ScaleUnits|CDN|計費|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |傳統|1.0|0|NA|免費|NA|
-|標準串流端點|2.0|0|是|付費|是|
-|進階串流單位|1.0|>0|是|付費|是|
-|進階串流單位|2.0|>0|是|付費|是|
+|標準串流端點|2.0|0|yes|付費|yes|
+|進階串流單位|1.0|>0|yes|付費|yes|
+|進階串流單位|2.0|>0|yes|付費|yes|
 
 ### <a name="features"></a>特性
 
-功能|標準|高級
+功能|標準|進階
 ---|---|---
-前 15 天免費| 是 |否
-輸送量 |未使用 Azure CDN 時最多 600 Mbps。 隨著 CDN 調整。|每個串流單位 (SU) 200 Mbps。 隨著 CDN 調整。
+前 15 天免費| yes |否
+Throughput |未使用 Azure CDN 時最多 600 Mbps。 隨著 CDN 調整。|每個串流單位 (SU) 200 Mbps。 隨著 CDN 調整。
 SLA | 99.9|99.9 (每個 SU 200 Mbps)。
 CDN|Azure CDN、協力廠商 CDN 或沒有 CDN。|Azure CDN、協力廠商 CDN 或沒有 CDN。
 按比例計費| 每日|每日
-動態加密|是|是
-動態封裝|是|是
+動態加密|yes|yes
+動態封裝|yes|yes
 調整|自動相應增加至目標輸送量。|其他串流單位
-IP 篩選/G20/自訂主機|是|是
-漸進式下載|是|是
-建議用法 |建議用於絕大多數的串流案例。|專業用法。<br/>如果認為您的需求已超過「標準」。 如果您預期有 50,000 位以上的觀眾同時觀看，請連絡我們 (amsstreaming at microsoft.com)。
+IP 篩選/G20/自訂主機|yes|yes
+漸進式下載|yes|yes
+建議用法 |建議用於絕大多數的串流案例。|專業用法。<br/>如果認為您的需求已超過「標準」。 如果您預期有 50,000 位以上的觀眾同時觀看，請連絡我們 (amsstreaming@microsoft.com)。
 
 
 ## <a name="migration-between-types"></a>在類型之間移轉
 
-從 | 收件人 | 動作
+從 | 至 | 動作
 ---|---|---
 傳統|標準|需要選擇加入
-傳統|高級| 調整 (其他串流單位)
+傳統|進階| 調整 (其他串流單位)
 標準/高階|傳統|無法使用 (如果串流端點版本為 1.0。 允許變更為傳統並將 scaleunits 設為 "0")
 標準 (含/不含 CDN)|進階搭配相同的設定|在**已啟動**狀態下允許。 (透過 Azure 入口網站)
 進階 (含/不含 CDN)|標準搭配相同的設定|在**已啟動**狀態下允許 (透過 Azure 入口網站)

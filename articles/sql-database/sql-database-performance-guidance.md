@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>微調 Azure SQL Database 中的資料庫效能
 
@@ -34,7 +34,7 @@ Azure SQL Database 提供您可以用來改善資料庫效能的[建議](sql-dat
 
 ## <a name="increasing-performance-tier-of-your-database"></a>增加資料庫的效能層級
 
-Azure SQL Database 提供四個[服務層](sql-database-service-tiers.md)供您選擇：基本、標準、進階及進階 RS (以資料庫輸送量單位 (簡稱 [DTU](sql-database-what-is-a-dtu.md)) 測量效能)。 每個服務層會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以微調應用程式以充分利用 Azure SQL Database 的方式。
+Azure SQL Database 提供四個[服務層](sql-database-service-tiers.md)供您選擇：基本、標準和進階 (以資料庫輸送量單位 (簡稱 [DTU](sql-database-what-is-a-dtu.md)) 測量效能)。 每個服務層會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以微調應用程式以充分利用 Azure SQL Database 的方式。
 
 > [!NOTE]
 > 本文著重在 Azure SQL Database 中單一資料庫的效能指引。 如需彈性集區的相關效能指引，請參閱[彈性集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。 但請注意，您可以將本文的諸多微調建議套用到彈性集區中的資料庫，並獲得類似的效能優點。
@@ -49,7 +49,6 @@ Azure SQL Database 提供四個[服務層](sql-database-service-tiers.md)供您�
   * **高尖峰負載**。 需要大量 CPU、記憶體或輸入/輸出 (I/O) 以完成其作業的應用程式，需要的是專用、高效能的等級。 例如，已知會長時間取用數個 CPU 核心的資料庫作業，就適合使用進階服務層。
   * **許多並行要求**。 某些資料庫應用程式會為許多並行要求提供服務，例如，在為具有高流量的網站提供服務時。 基本和標準服務層會限制每個資料庫的並行要求數目。 需要更多連線的應用程式必須選擇適當的預留大小才能處理最大數目的所需要求。
   * **低延遲**。 某些應用程式必須保證在最短的時間內傳回資料庫回應。 如果呼叫特定的預存程序做為更廣泛客戶作業的一部分，您可能需要該呼叫在 20 毫秒 (也就是 99% 的時間) 內傳回回應。 這類應用程式會受益於高階資料庫，以確定所需的運算能力可供使用。
-* **進階 RS**：進階 RS 專為需要大量 IO 但不需要高可用性保證的工作負載所設計。 範例包括測試高效能工作負載，或資料庫不是記錄系統的分析工作負載。
 
 您需要的 SQL Database 服務等級取決於每個資源維度的尖峰負載需求。 有些應用程式雖使用少量的某一資源，但卻對其他資源有大量需求。
 

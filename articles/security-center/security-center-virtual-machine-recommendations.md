@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: terrylan
 ms.openlocfilehash: 54375f6f98b4989a7af8bcde649d967f77c6c862
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/08/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/08/2018
 | --- | --- |
 | [啟用訂用帳戶的資料收集](security-center-enable-data-collection.md) |建議您為每個訂用帳戶和訂用帳戶中的所有虛擬機器 (VM) 開啟安全性原則中的 [資料收集]。 |
 | [為 Azure 儲存體帳戶啟用加密](security-center-enable-encryption-for-storage-account.md) | 建議您為待用資料啟用「Azure 儲存體服務加密」。 「儲存體服務加密」(SSE) 會在資料被寫入 Azure 儲存體時加密資料，並於擷取資料之前將其解密。 SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。 若要深入了解，請參閱[待用資料的儲存體服務加密](../storage/common/storage-service-encryption.md)。</br>只有在 Resource Manager 儲存體帳戶上才支援 SSE。 目前不支援傳統儲存體帳戶。 若要了解傳統和 Resource Manager 部署模型，請參閱 [Azure 部署模型](../azure-classic-rm.md)。 |
-| [修復安全性設定](security-center-remediate-os-vulnerabilities.md) |建議您讓您作業系統的組態建議的安全性設定的規則，例如不允許儲存密碼。 |
+| [修復安全性設定](security-center-remediate-os-vulnerabilities.md) |建議您讓作業系統組態符合建議的安全性設定規則，例如不允許儲存密碼。 |
 | [套用系統更新](security-center-apply-system-updates.md) |建議您將遺漏的系統安全性與重大更新部署到 VM。 |
 | [套用 Just-in-Time 網路存取控制](security-center-just-in-time.md) | 建議您套用 Just-in-Time 虛擬機器存取。 Just-in-Time 為預覽功能，由資訊安全中心的標準層提供。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 |
 | [在系統更新之後重新開機](security-center-apply-system-updates.md#reboot-after-system-updates) |建議您重新啟動 VM 以完成套用系統更新的程序。 |
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/08/2018
 | [未安裝弱點評估](security-center-vulnerability-assessment-recommendations.md) |建議在 VM 上安裝弱點評估解決方案。 |
 | [修復弱點](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |可讓您查看 VM 上安裝的弱點評估解決方案所偵測到的系統和應用程式弱點。 |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰
 
 * [保護 Azure 資訊安全中心內的應用程式](security-center-application-recommendations.md)

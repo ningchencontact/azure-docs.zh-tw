@@ -1,25 +1,25 @@
 ---
-title: "在 Azure 搜尋中的調整結果之安全性篩選 |Microsoft 文件"
-description: "使用安全性篩選器和使用者身分識別的 Azure 搜尋內容的存取控制。"
+title: "在 Azure 搜尋服務中進行安全性篩選以調整結果 | Microsoft Docs"
+description: "在 Azure 搜尋服務內容上使用安全性篩選和使用者身分識別進行存取控制。"
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+caps.latest.revision: 
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
 ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-filters-for-trimming-results-in-azure-search"></a>在 Azure 搜尋中的調整結果之安全性篩選
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>在 Azure 搜尋服務中進行安全性篩選以調整結果
 
-您可以套用安全性篩選来修剪根據使用者識別的 Azure 搜尋中的搜尋結果。 在此種搜尋體驗中，通常需要將要求搜尋之人員的身分識別與含有具文件權限主體的欄位互相比較。 找到相符結果時，使用者或主體 (例如群組或角色) 即具有該文件的存取權。
+您可以在 Azure 搜尋服務中，依據使用者身分識別套用安全性篩選以調整搜尋結果。 在此種搜尋體驗中，通常需要將要求搜尋之人員的身分識別與含有具文件權限主體的欄位互相比較。 找到相符結果時，使用者或主體 (例如群組或角色) 即具有該文件的存取權。
 
 達成安全性篩選的其中一種方式，是透過等號比較運算式的負責分離執行：例如 `Id eq 'id1' or Id eq 'id2'` 等等。 此作法很容易發生錯誤且難以維護，若清單包含數以百計或千計的值，則會使查詢回應時間慢上數秒鐘。 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/15/2017
 >[!NOTE]
 > 本文件未多加說明擷取主體識別碼的流程。 您應從身分識別服務提供者處取得主體識別碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假定您已具有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)、[Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-create-service-portal)和 [Azure 搜尋索引](https://docs.microsoft.com/azure/search/search-create-index-portal)。  
 
@@ -155,8 +155,8 @@ api-key: [admin or query key]
 
 以此作法，可根據使用者身分識別與 Azure 搜尋服務 `search.in()` 函式來篩選結果。 您可使用此函式傳入要求使用者的主體識別碼，向每個目標文件比對關聯的主體識別碼。 處理搜尋要求時，`search.in` 函式會篩選出沒有任何使用者主體具備讀取權限的搜尋結果。 主體識別碼可代表安全性群組、角色等等，甚至可代表使用者的專屬身分識別。
  
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
-+ [使用 Azure 搜尋篩選器的 active Directory 身分識別為基礎的存取控制](search-security-trimming-for-azure-search-with-aad.md)
++ [使用 Azure 搜尋服務篩選來進行 Active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
-+ [在 Azure 搜尋操作中的資料安全性和存取控制](search-security-overview.md)
++ [Azure 搜尋服務作業中的資料安全性和存取控制](search-security-overview.md)

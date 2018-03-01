@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>使用 Azure 入口網站對路由進行疑難排解
 > [!div class="op_single_selector"]
@@ -54,8 +54,8 @@ ms.lasthandoff: 12/21/2017
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>檢視虛擬機器的有效路由
 若要查看套用到 VM 的彙總路由，請完成下列步驟︰
 
-1. 登入 Azure 入口網站，位址是 https://portal.azure.com。您的帳戶必須指派*Microsoft.Network/networkInterfaces/effectiveRouteTable/action*網路介面的作業。 若要了解如何將作業指派給帳戶，請參閱[建立自訂角色的所有存取控制](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
-2. 按一下 [更多服務]，然後在出現的清單中按一下 [虛擬機器]。
+1. 登入 Azure 入口網站，位址是 https://portal.azure.com。您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[為 Azure 角色型存取控制建立自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+2. 按一下 [所有服務]，然後在出現的清單中按一下 [虛擬機器]。
 3. 從出現的清單中選取要進行疑難排解的 VM，此時會出現一個有選項的 VM 刀鋒視窗。
 4. 按一下 [診斷並解決問題]，然後選取常見的問題。 例如選取了 [我無法連接到我的 Windows VM]  。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/21/2017
 如果網路流量流程受到特定網路介面 (NIC) 影響，您可以直接在 NIC 上檢視有效路由的完整清單。 若要查看套用到 NIC 的彙總路由，請完成下列步驟︰
 
 1. 登入 Azure 入口網站，位址是 https://portal.azure.com。
-2. 按一下 [更多服務]，然後按一下 [網路介面]
+2. 按一下 [所有服務]，然後按一下 [網路介面]
 3. 搜尋清單找出 NIC 的名稱，或從出現的清單中選取。 在此範例中選取了 [VM1-NIC1]  。
 4. 在 [網路介面] 刀鋒視窗中選取 [有效路由]，如下圖所示︰
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/21/2017
 若要查看路由表的彙總路由，請完成下列步驟︰
 
 1. 登入 Azure 入口網站，位址是 https://portal.azure.com。
-2. 按一下 [更多服務]，然後按一下 [路由表]
+2. 按一下 [所有服務]，然後按一下 [路由表]
 3. 搜尋清單找出您想要查看彙總路由的路由表，然後選取它。 在此範例中選取了 **UDRouteTable** 。 選取路由表的刀鋒視窗會隨即出現，如下圖所示︰
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)
@@ -132,7 +132,7 @@ ms.lasthandoff: 12/21/2017
    >
    >
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 檢閱傳回的路由清單時，請記住下列幾點事項︰
 
 * 路由是根據 UDR、BGP 和系統路由之間的最長首碼比對 (LPM)。 如果有多個符合相同 LPM 的路由，則會根據其來源，以下列順序選取路由：

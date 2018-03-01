@@ -17,7 +17,7 @@ ms.date: 09/15/2017
 ms.author: anta
 ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -52,7 +52,7 @@ Azure Machine Learning Workbench 有助於每個步驟的模型化程序：
 
 此案例詳述機器學習能源需求預測解決方案的建構。 此解決方案是在 [New York Independent System Operator (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument) 的公用資料集進行訓練，該公司負責經營紐約州的電力網格。 此資料集包含紐約市過去五年的每小時電力需求資料。 另外包含紐約市同期每小時天氣狀況的資料集是取自 [darksky.net](https://darksky.net)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 - 遵循[快速入門安裝指南](./quickstart-installation.md)所安裝的 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 版本，以便安裝程式並建立 Workbench。
@@ -76,7 +76,7 @@ Azure Machine Learning Workbench 有助於每個步驟的模型化程序：
 
 ## <a name="data-description"></a>資料說明
 
-兩個資料集所提供的這個範例，並使用下載`1-data-preparation.ipynb`筆記本：`nyc_demand.csv`和`nyc_weather.csv`。
+我們透過這個範例提供了兩個資料集，並且使用 `1-data-preparation.ipynb` 筆記型電腦下載：`nyc_demand.csv` 和 `nyc_weather.csv`。
 
 **nyc_demand.csv** 包含紐約市 2012-2017 年的能源需求值。 此資料具有下列簡單的結構：
 
@@ -181,7 +181,7 @@ python evaluate-all-models.py
 
 在評估預測模型時，它很適合用來將輸出預測視覺化。 這可協助資料科學家判斷所產生的預測是否切合實際。 它也有助於識別預測的問題，例如，預測在某些時間週期中效能不佳。 `9-forecast-output-exploration.ipynb` Notebook 會製作針對測試資料集產生之預測的視覺效果。
 
-### <a name="4-deployment"></a>4.Deployment
+### <a name="4-deployment"></a>4.部署
 
 將最佳模型部署為即時 Web 服務，即可將該模型運算化。 然後可叫用此 Web 服務，以便在有新資料可用時產生隨選預測。 在此案例中，必須每小時產生新的預測，才能預測後續一小時的能源需求。 若要執行這項工作，可以部署 Web 服務，該服務會以指定小時時間週期的特徵陣列作為輸入，並傳回預測的需求作為輸出。
 

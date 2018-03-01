@@ -17,7 +17,7 @@ ms.date: 11/16/2017
 ms.author: jodebrui
 ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---

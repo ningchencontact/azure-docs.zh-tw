@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -39,8 +39,11 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 
 您可以依照[設定資料庫的稽核](#subheading-2)一節中的說明，針對不同類型的事件類別設定稽核。
 
-系統會將稽核記錄檔寫入 Azure 訂用帳戶的 Azure Blob 儲存體。
-
+> [!IMPORTANT]
+> 系統會將稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。
+>
+> * 附加 Blob 目前**不支援****進階儲存體**。
+> * 目前**不支援****VNet 中的儲存體**。
 
 ## <a id="subheading-8"></a>定義伺服器層級與資料庫層級的稽核原則
 
@@ -80,7 +83,7 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
    >若要充分利用稽核報告範本，請讓所有稽核的資料庫都使用相同的儲存體帳戶。
 
     <a id="storage-screenshot"></a> ![導覽窗格][4]
-6. 如果您想要自訂稽核的事件，您可以透過 PowerShell 或 REST API 來自訂。 
+6. 如果您想要自訂稽核的事件，您可以透過 PowerShell 或 REST API 來自訂。
 7. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
 8. 按一下 [檔案] 。
 

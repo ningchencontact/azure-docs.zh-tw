@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
 
@@ -44,7 +44,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 雖然不需要使用機器學習和 CNTK 的先前經驗，但其有助於了解基本準則。 教學課程中報告的精確數字、訓練時間等僅供參考，執行程式碼時的實際值幾乎不一樣。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 要執行此範例所需符合的必要條件如下：
 
@@ -63,9 +63,9 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 ### <a name="troubleshooting--known-bugs"></a>疑難排解/已知錯誤
 - 第 2 部分需要 GPU，否則在嘗試調整 DNN 時會擲回錯誤「尚未實作 CPU 上的批次正規化訓練」。
 - 透過降低迷你批次的大小 (`PARAMETERS.py`中的變數 `cntk_mb_size`)，即可避免在 DNN 訓練期間發生記憶體不足錯誤。
-- 使用 CNTK 2.2 測試的程式碼，並應該在較舊 （最多 v2.0） 上執行也和較新版本，不含任何或僅有些微變更。
+- 此程式碼已使用 CNTK 2.2 進行測試，並且也應該在沒有任何微幅變更的情況下，在較舊 (最高到 v2.0) 和較新版本上執行。
 - 在撰寫本文時，Azure Machine Learning Workbench 出現筆記本大於 5 MB 的問題。 如果在顯示所有儲存格輸出的情況下儲存筆記本，便可能會出現這種大型的筆記本。 如果您遇到這個錯誤，則從 Workbench 內部的 [檔案] 功能表開啟命令提示字元、執行 `jupyter notebook`、開啟筆記本、清除所有輸出，然後儲存筆記本。 執行這些步驟之後，筆記本會在 Azure Machine Learning Workbench 內部再次正確開啟。
-- 此範例中所提供的所有指令碼必須是在本機執行，而不是在例如 docker 遠端環境。 所有筆記本都必須設定為本機專案核心具有名稱"PROJECTNAME 本機"(例如"myImgClassUsingCNTK 本機 」) 的核心使用來執行。
+- 此範例中提供的所有指令碼必須在本機執行，而不是在像 Docker 這樣的遠端環境中執行。 所有筆記本都必須使用設定為本機專案核心的核心來執行，該核心名為 "PROJECTNAME local" (例如 "myImgClassUsingCNTK local")。
 
     
 ## <a name="create-a-new-workbench-project"></a>建立新的 Workbench 專案
@@ -94,7 +94,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 
 本教學課程使用最多由 428 個影像所組成的上衣紋理資料集作為執行範例。 每個影像都會標註為三種不同紋理 (圖點、條紋、豹紋) 的其中一個。 我們將影像數目保持在少量，以便可以快速執行本教學課程。 不過，程式碼已經過完整測試，可處理數以萬計的影像或更多影像。 所有影像已依照[第 3 部分](#using-a-custom-dataset)的說明，使用 Bing 圖片搜尋擷取並手動標註。 影像 URL 及其各自屬性都列在 */resources/fashionTextureUrls.tsv* 檔案中。
 
-指令碼 `0_downloadData.py` 會將所有影像下載到 *DATA_DIR/images/fashionTexture/* 目錄。 428 個 URL 中可能有某些 URL 已中斷。 這不構成問題，而只表示我們進行訓練和測試的影像稍微較少。 此範例中所提供的所有指令碼必須是在本機執行，而不是在例如 docker 遠端環境。
+指令碼 `0_downloadData.py` 會將所有影像下載到 *DATA_DIR/images/fashionTexture/* 目錄。 428 個 URL 中可能有某些 URL 已中斷。 這不構成問題，而只表示我們進行訓練和測試的影像稍微較少。 此範例中提供的所有指令碼必須在本機執行，而不是在像 Docker 這樣的遠端環境中執行。
 
 下圖顯示圓點 (左側)、條紋 (中間) 和豹紋 (右側) 特徵的範例。 會根據上衣項目完成註解。
 
@@ -117,7 +117,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 ### <a name="step-1-data-preparation"></a>步驟 1：資料準備
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-`showImages.ipynb` 筆記本可用來將影像視覺化，並視需要修正其註解。 若要執行筆記本中 Azure 機器學習工作，在 「 開始筆記本伺服器 」 則顯示這個選項，如果變更本機專案核心，具有名稱"PROJECTNAME 本機"（例如 「 myImgClassUsingCNTK 區域 」），按一下 , 開啟和執行的所有資料格筆記型電腦。 如果您收到提報筆記本太大而無法顯示的錯誤，請參閱本文件中的＜疑難排解＞一節。
+`showImages.ipynb` 筆記本可用來將影像視覺化，並視需要修正其註解。 若要執行筆記本，請在 Azure Machine Learning Workbench 中開啟它，在 [啟動筆記本伺服器] 顯示時按一下此選項，變更為名為 "PROJECTNAME local" (例如 "myImgClassUsingCNTK local") 的本機專案核心，然後執行筆記本中的所有儲存格。 如果您收到提報筆記本太大而無法顯示的錯誤，請參閱本文件中的＜疑難排解＞一節。
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -181,7 +181,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-最後，筆記本`showResults.py`提供捲動測試映像，並以視覺化方式檢視其各自的分類分數。 步驟 1 所述，在此範例中的每個筆記本需要使用本機專案核心具有名稱"PROJECTNAME 本機":
+最後，提供 `showResults.py` 筆記本來捲動瀏覽測試影像，並將其各自的分類分數視覺化。 依據步驟 1 中的說明，此範例中的每個筆記本都需要使用名為 "PROJECTNAME local" 的本機專案核心：
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -193,7 +193,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 ### <a name="step-6-deployment"></a>步驟 6：部署
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-定型的系統現在可以為 REST API 發行。 筆記本中會說明部署`deploy.ipynb`，並根據 Azure 機器學習工作臺內的功能 （請記住要設為核心本機專案核心具有名稱"PROJECTNAME 區域 」）。 另請參閱的絕佳部署區段[光圈教學課程](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3)多個部署的相關資訊。
+訓練的系統現在可以發行為 REST API。 筆記本 `deploy.ipynb` 中會說明部署，並以 Azure Machine Learning Workbench (請記得設為名為 "PROJECTNAME local" 的本機專案核心) 內的功能為基礎。 另請參閱[鳶尾花教學課程](tutorial-classifying-iris-part-3.md)中的絕佳部署一節，以了解更多部署相關資訊。
 
 一旦部署之後，就可以使用 `6_callWebservice.py` 指令碼來呼叫 Web 服務。 請注意，必須先在指令碼中設定 Web 服務的 IP 位址 (本機或雲端上)。 `deploy.ipynb` 筆記本說明如何尋找此 IP 位址。
 
@@ -228,7 +228,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 
 ### <a name="run-history-tracking"></a>執行歷程記錄追蹤
 
-Azure Machine Learning Workbench 會儲存 Azure上每次執行的歷程記錄，以允許比較甚至相隔幾週的兩個或多個執行。 這在[光圈教學課程](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2)中有詳細說明。 下列螢幕擷取畫面也會說明此項，我們在該畫面中會使用 DNN 調整即 `classifier = "dnn"`(執行編號 148) 或 SVM 訓練即 `classifier = "svm"` (執行編號 150) 來比較 `5_evaluate.py` 指令碼的兩個執行。
+Azure Machine Learning Workbench 會儲存 Azure上每次執行的歷程記錄，以允許比較甚至相隔幾週的兩個或多個執行。 這在[光圈教學課程](tutorial-classifying-iris-part-2.md)中有詳細說明。 下列螢幕擷取畫面也會說明此項，我們在該畫面中會使用 DNN 調整即 `classifier = "dnn"`(執行編號 148) 或 SVM 訓練即 `classifier = "svm"` (執行編號 150) 來比較 `5_evaluate.py` 指令碼的兩個執行。
 
 在第一個螢幕擷取畫面中，DNN 調整會針對所有類別，產生比 SVM 訓練更佳的精確度。 第二個螢幕擷取畫面會顯示所要追蹤的所有度量，包括分類器為何。 這項追蹤會藉由呼叫 Azure Machine Learning Workbench 記錄器，在指令碼 `5_evaluate.py` 中完成。 此外，指令碼也會將 ROC 曲線和混淆矩陣儲存到 *outputs* 資料夾。 這個 *outputs* 資料夾的特殊之處，在於其內容也是由 Workbench 歷程記錄功能進行追蹤，因此不論本機複本是否已被覆寫，都可以隨時存取輸出檔案。
 

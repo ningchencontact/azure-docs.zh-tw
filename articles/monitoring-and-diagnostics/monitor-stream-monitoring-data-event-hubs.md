@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -93,7 +93,9 @@ Azure 資源會發出兩種監視資料：
 使用 Azure 監視器將監視資料路由至事件中樞，可讓您輕鬆與夥伴 SIEM 和監視工具整合。 大部分工具皆需要事件中樞連接字串和 Azure 訂用帳戶的特定權限，才能讀取事件中樞的資料。 可與 Azure 監視器整合的部分工具清單如下：
 
 * **IBM QRadar** - Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](http://www.ibm.com/support) \(英文\) 下載。 您可以[從這裡深入了解與 Azure 的整合](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) \(英文\)。
-* **Splunk** - [適用於 Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\) 可從 Splunkbase 和開放原始碼專案中取得。 [文件在此](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk) \(英文\)。
+* **Splunk** -根據您的 Splunk 安裝程式而定，共有兩種方法：
+    1. [適用於 Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\) 可從 Splunkbase 和開放原始碼專案中取得。 [文件在此](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk) \(英文\)。
+    2. 如果您無法在 Splunk 執行個體中安裝附加元件 (例如， 如果使用 Proxy 或在 Splunk Cloud 上執行)，您可以使用[由事件中樞中的新訊息觸發的這個功能](https://github.com/sebastus/AzureFunctionForSplunkVS)，將這些事件轉寄給 Splunk HTTP Event Collector。
 * **SumoLogic** - 設定 SumoLogic 以從事件中樞取用資料的指示[可從這裡取得](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟

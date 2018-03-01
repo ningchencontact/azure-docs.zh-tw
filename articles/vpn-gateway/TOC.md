@@ -1,3 +1,5 @@
+# [VPN 閘道文件](index.md)
+
 # 概觀
 ## [關於 VPN 閘道](vpn-gateway-about-vpngateways.md)
 ## [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)
@@ -107,7 +109,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [部落格](https://azure.microsoft.com/blog/topics/networking)
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [定價](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

@@ -1,5 +1,5 @@
 ---
-title: "管理 Azure 時間數列 Insights 環境中使用 C# 中的參考資料 |Microsoft 文件"
+title: "使用 C# 來管理 Azure 時間序列深入解析環境中的參考資料 | Microsoft Docs"
 description: "本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。"
 services: time-series-insights
 ms.service: time-series-insights
@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---

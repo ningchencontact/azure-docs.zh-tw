@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB SQL API 的 SQL 查詢度量 |Microsoft 文件"
+title: "適用於 Azure Cosmos DB SQL API 的 SQL 查詢計量 | Microsoft Docs"
 description: "了解如何檢測和偵錯 Azure Cosmos DB 要求的 SQL 查詢效能。"
 keywords: "sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢, 彙總函式"
 services: cosmos-db
@@ -17,7 +17,7 @@ ms.date: 11/02/2017
 ms.author: arramac
 ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -34,7 +34,7 @@ Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](sql-api-sql-query
 
 ## <a name="about-sql-query-execution"></a>關於 SQL 查詢執行
 
-在 Azure Cosmos DB 中，您會將資料儲存於容器中，其可擴張到任何的[儲存體大小或要求輸送量](partition-data.md)。 Azure Cosmos DB 會在涵蓋範圍內，於實體分割區之間順暢地調整資料，以處理資料成長或提高佈建的輸送量。 您可以發出 SQL 查詢使用 REST API 或其中一個支援的任何容器[SQL Sdk](sql-api-sdk-dotnet.md)。
+在 Azure Cosmos DB 中，您會將資料儲存於容器中，其可擴張到任何的[儲存體大小或要求輸送量](partition-data.md)。 Azure Cosmos DB 會在涵蓋範圍內，於實體分割區之間順暢地調整資料，以處理資料成長或提高佈建的輸送量。 您可以使用 REST API 或其中一個支援的 [SQL SDK](sql-api-sdk-dotnet.md)，向任何容器發出 SQL 查詢。
 
 分割的簡短概觀：您定義分割區索引鍵 (例如 "city")，以決定在實體分割區之間分割資料的方式。 屬於單一分割區索引鍵的資料 (例如，"city" == "Seattle") 會儲存於一個實體分割區內，但通常單一實體分割區會具有多個分割區索引鍵。 當分割區達到其儲存體大小時，服務會順暢地將該分割區分割為兩個新的分割區，並在這些分割區之間將分割區索引鍵平均分割。 由於分割區是暫時性的，因此，API 會使用「分割區索引鍵範圍」的抽象概念，來代表分割區索引鍵雜湊的範圍。 
 
@@ -53,7 +53,7 @@ SDK 提供適用於查詢執行的各種選項。 例如，在 .NET 中，下列
 | `EnableScanInQuery` | 如果您已選擇不編製索引，但仍想透過掃描繼續執行查詢，就必須設定為 true。 只有在已停用針對所要求篩選路徑編製索引的功能時才適用。 | 
 | `MaxItemCount` | 在每次到伺服器的來回行程中要傳回的項目數上限。 設定為 -1，您就能讓伺服器管理項目數。 或者，您可以降低此值，以便在每次來回行程中只擷取少數項目。 
 | `MaxBufferedItemCount` | 這是用戶端選項，可在執行跨分割區 ORDER BY 時，用來限制記憶體耗用量。 較高的值有助於降低跨分割區排序的延遲。 |
-| `MaxDegreeOfParallelism` | 取得或設定用戶端執行 Azure Cosmos DB database 服務中的平行查詢執行期間的並行作業數目。 正值的屬性值會將並行操作次數限制為設定的值。 如果將它設為小於 0，系統就會自動決定要執行的並行操作次數。 |
+| `MaxDegreeOfParallelism` | 取得或設定在 Azure Cosmos DB 資料庫服務中平行查詢執行期間，在用戶端執行的並行操作次數。 正值的屬性值會將並行操作次數限制為設定的值。 如果將它設為小於 0，系統就會自動決定要執行的並行操作次數。 |
 | `PopulateQueryMetrics` | 啟用在查詢執行的各種階段 (例如，編譯時間、索引迴圈時間及文件載入時間) 所花費時間的統計資料詳細記錄。 您可以與 Azure 支援人員分享來自查詢統計資料的輸出，以診斷查詢效能問題。 |
 | `RequestContinuation` | 您可以藉由傳入任何查詢所傳回的不透明接續 Token，繼續進行查詢執行。 接續 Token 會封裝查詢執行所需的所有狀態。 |
 | `ResponseContinuationTokenLimitInKb` | 您可以限制伺服器所傳回之接續 Token 的大小上限。 如果您的應用程式主機有回應標頭大小的限制，則您可能需要設定此項。 設定此項，可能會增加整體持續時間以及針對查詢所取用的 RU。  |
@@ -140,7 +140,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | `x-ms-documentdb-query-metrics` | 執行的查詢統計資料。 這是一個分隔的字串，包含在查詢執行的各個不同階段所花費時間的統計資料。 如果將 `x-ms-documentdb-populatequerymetrics` 設為 `True`，即會傳回。 | 
 | `x-ms-request-charge` | 查詢取用的[要求單位](request-units.md)數目。 | 
 
-如需 REST API 的要求標頭和選項的詳細資訊，請參閱[查詢使用 REST API 資源](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api)。
+如需 REST API 要求標頭和選項的詳細資訊，請參閱[使用 REST API 查詢資源](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api)。
 
 ## <a name="best-practices-for-query-performance"></a>查詢效能的最佳作法
 以下是影響 Azure Cosmos DB 查詢效能的最常見因素。 我們將在本文中更深入探討下列每個主題。
@@ -215,7 +215,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 * (P > 1) => 平行工作的最小值 (P, N) 
 * (P < 1) => 平行工作的最小值 (N, D)
 
-SDK 版本資訊，並實作的類別和方法的詳細資訊請參閱[SQL Sdk](sql-api-sdk-dotnet.md)
+如需 SDK 版本資訊，以及所實作類別和方法的詳細資訊，請參閱 [SQL SDK](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>網路延遲
 若要了解如何設定全域散發，並連線到最接近的區域，請參閱 [Azure Cosmos DB 全域散發](tutorial-global-distribution-sql-api.md)。 當您需要進行多次來回行程或從查詢擷取大型結果集時，網路延遲會對查詢效能產生顯著影響。 

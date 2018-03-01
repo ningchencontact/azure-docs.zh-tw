@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 **Azure 媒體 OCR** 媒體處理器目前為預覽版。
 
-這篇文章詳細說明有關**Azure 媒體 OCR**並示範如何使用 Media Services SDK for.NET 使用它。 如需詳細資訊和範例，請參閱[這篇部落格](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)。
+本文章提供有關 **Azure 媒體 OCR** 的詳細資料，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。 如需詳細資訊和範例，請參閱[此部落格](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)。
 
 ## <a name="ocr-input-files"></a>OCR 輸入檔案
 影片檔案。 目前支援下列格式：MP4、MOV 及 WMV。
@@ -116,7 +116,7 @@ OCR 媒體處理器的輸出是 JSON 檔案。
 | text |實際的文字 |
 
 ### <a name="json-output-example"></a>JSON 輸出範例
-下列輸出範例包含一般視訊資訊和數個視訊片段。 在每個視訊片段，它會包含每個區域，OCR MP 所偵測到的語言，以及其文字方向。 區域也包含在此區域的一行文字、 線條的位置，與每個 word 中的資訊 （word 內容、 位置及信心） 這一行每個字行。 以下是範例，而我在其中放入了一些註解。
+下列輸出範例包含一般視訊資訊和數個視訊片段。 每個視訊片段都包含 OCR MP 使用語言及其文字方向偵測到的每個區域。 區域也包含這個區域中的每個文字行，以及該行的文字、該行的位置和該行中每個單字的資訊 (單字內容、位置和信賴度)。 以下是範例，而我在其中放入了一些註解。
 
     {
         "version": 1, 

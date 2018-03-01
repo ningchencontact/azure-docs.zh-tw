@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 連線部署規劃決策
-在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-deployment-decisions.md)之後，即可接著完成您的 Azure Stack 部署決策。
+在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
 
 部署已連線到 Azure 的 Azure Stack，表示您可使用 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 進行身分識別儲存。 您也可以選擇任一種計費模型：使用時付費或以容量為基礎。 已連線的部署是預設選項，因為可讓客戶充分發揮 Azure Stack 的價值，特別適用於牽涉 Azure 與 Azure Stack 的混合式雲端案例。 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/01/2018
 如果您要將自己的身分識別儲存 (例如公司的 Active Directory) 用於您的服務管理員帳戶，請選擇此選項。  
 
 ## <a name="choose-a-billing-model"></a>選擇計費模型
-您可以選擇**使用時付費**或**容量**計費模型。 使用時付費計費模型部署必須能夠透過 Azure 連線報告使用量 (至少每 30 天一次)，因此，如果無法進行連線，容量計費模型則是唯一的選項。 
+您可以選擇**使用時付費**或**容量**計費模型。 使用時付費計費模型部署必須能夠至少每 30 天與 Azure 連線一次以回報使用量。 因此使用時付費計費模型僅適用於已連線部署。  
 
 ### <a name="pay-as-you-use"></a>使用時付費
 若採用使用時付費計費模型，則會向 Azure 訂用帳戶收取使用量的費用。 只有在您使用 Azure Stack 服務時，才需要付費。 如果這是您決定的模型，您就需要 Azure 訂用帳戶以及與該訂用帳戶相關聯的帳戶識別碼 (例如 serviceadmin@contoso.onmicrosoft.com)。 支援 EA、CSP 和 CSL 訂用帳戶。 使用量報告設定於 [Azure Stack 註冊](azure-stack-registration.md)期間。

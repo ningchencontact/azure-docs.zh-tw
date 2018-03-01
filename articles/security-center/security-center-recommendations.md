@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: terrylan
 ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/08/2018
 ---
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/08/2018
 | 建議 | 說明 |
 | --- | --- |
 | [啟用訂用帳戶的資料收集](security-center-enable-data-collection.md) |建議您為每個訂用帳戶以及所有 Azure 虛擬機器 (VM) 和非 Azure 電腦開啟安全性原則中的資料收集。 |
-| [修復安全性設定](security-center-remediate-os-vulnerabilities.md) |建議您對齊您作業系統的組態建議的安全性設定的規則，例如，不允許儲存密碼。 |
+| [修復安全性設定](security-center-remediate-os-vulnerabilities.md) |建議您讓作業系統設定符合建議的安全性設定規則，例如不允許儲存密碼。 |
 | [套用系統更新](security-center-apply-system-updates.md) |建議您將遺漏的系統安全性與重大更新部署到您的 Windows 與 Linux VM 和電腦。 |
 | [套用 Just-in-Time 網路存取控制](security-center-just-in-time.md) | 建議您套用 Just-in-Time 虛擬機器存取。 Just-in-Time 為預覽功能，由資訊安全中心的標準層提供。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 |
 | [在系統更新之後重新開機](security-center-apply-system-updates.md#reboot-after-system-updates) |建議您重新啟動 VM 以完成套用系統更新的程序。 |

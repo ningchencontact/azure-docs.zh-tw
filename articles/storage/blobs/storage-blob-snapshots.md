@@ -2,23 +2,17 @@
 title: "在 Azure 儲存體中建立 Blob 的唯讀快照集 | Microsoft Docs"
 description: "了解如何建立 Blob 的快照集以便在給定的時間點備份 Blob 資料。 了解快照集計費的方式，以及如何使用它們將容量費用降至最低。"
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
-ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-blob-snapshot"></a>建立 Blob 快照集
 

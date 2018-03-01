@@ -15,7 +15,7 @@ ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,15 +23,15 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>概觀
 
-本文示範如何使用自動產生的位元速率階梯 （位元速率高解析度組） 的輸入的解析度及位元速率為基礎的媒體編碼器標準 (MES)。 自動產生的預設值絕對不會超過輸入解析度和位元速率。 比方說，如果輸入是以 3 Mbps 720p，輸出仍然 720p 在最佳情況下，會開始的速率低於 3 Mbps。
+本文章說明如何使用媒體編碼器標準 (MES) 根據解析度和位元速率自動產生輸入位元速率階梯 (位元速率解析組)。 自動產生的預設值絕對不會超過輸入解析度和位元速率。 例如，如果輸入是 720p 3 Mbps，則輸出會維持在最多 720p，且速率啟動低於 3 Mbps。
 
 ### <a name="encoding-for-streaming-only"></a>只針對串流編碼
 
-如果您的目的是要進行資料流的來源視訊編碼，您應該使用 「 自動調整 Streaming 」 預設建立編碼工作時。 當使用 **Adaptive Streaming** (彈性資料流) 預設值時，MES 編碼器會智慧地覆蓋位元速率階梯。 不過，您將無法控制編碼成本，因為服務會決定要使用多少層以及哪種解析度。 您可以看到 MES 所產生的結果與編碼的輸出層的範例**彈性資料流**預設在本文結尾處。 輸出資產包含 MP4 檔案，其中音訊和視訊非交錯式。
+如果您打算只針對串流編碼來源視訊，則您在建立編碼工作時，應該使用 "Adaptive Streaming" (彈性資料流) 預設值。 當使用 **Adaptive Streaming** (彈性資料流) 預設值時，MES 編碼器會智慧地覆蓋位元速率階梯。 不過，您將無法控制編碼成本，因為服務會決定要使用多少層以及哪種解析度。 由於本文章結尾使用 **Adaptive Streaming** (彈性資料流) 進行編碼的結果，您可以看到 MES 產生的輸出層範例。 輸出資產包含 MP4 檔案，其中的音訊和視訊為非交錯格式。
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>針對串流和漸進式下載編碼
 
-如果您的意圖是進行資料流的來源視訊編碼，以及產生漸進式下載 MP4 檔案，您應該使用"內容自動調整多個位元速率 MP4 」 預設建立編碼工作時。 當使用**內容自動調整的多個位元速率 MP4**預設，MES 編碼器套用的編碼方式的相同邏輯，如前所述，但現在輸出資產包含 MP4 檔案的音訊和影音交錯技術。 您可以使用這些 MP4 檔案的其中一個 (例如最高位元速率的版本) 作為漸進式下載檔案。
+如果您打算針對串流以及漸進式下載要產生的 MP4 檔案編碼，則您在建立編碼工作時，應該使用 "Content Adaptive Multiple Bitrate MP4" (內容自適性多位元速率 MP4) 預設值。 使用 **Content Adaptive Multiple Bitrate MP4** (內容自適性多位元速率 MP4) 預設值時，MES 編碼器會套用與先前相同的編碼邏輯，但現在輸出資產會包含 MP4 檔案，其中的音訊和視訊為交錯格式。 您可以使用這些 MP4 檔案的其中一個 (例如最高位元速率的版本) 作為漸進式下載檔案。
 
 ## <a id="encoding_with_dotnet"></a>使用媒體服務 .NET SDK 進行編碼
 

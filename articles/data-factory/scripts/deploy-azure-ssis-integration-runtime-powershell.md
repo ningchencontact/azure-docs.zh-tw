@@ -2,7 +2,7 @@
 title: "PowerShell 指令碼 - 部署 Azure-SSIS 整合執行階段 | Microsoft Docs"
 description: "這個 PowerShell 指令碼會建立可在雲端中執行 SSIS 封裝的 Azure-SSIS 整合執行階段。"
 services: data-factory
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: spelluru
-ms.openlocfilehash: 94839decb082121e3e11d7c6041422ca1bea8861
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: douglasl
+ms.openlocfilehash: 959432378d49e18fbb567ea164c2608bfa02956d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell 指令碼 - 部署 Azure-SSIS 整合執行階段
 

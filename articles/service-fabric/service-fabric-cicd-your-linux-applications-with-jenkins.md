@@ -16,7 +16,7 @@ ms.date: 11/27/2017
 ms.author: saysa
 ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -30,7 +30,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 您可以在 Service Fabric 叢集內部或外部設定 Jenkins。 下列小節說明如何在叢集內設定它，同時又使用 Azure 儲存體帳戶來儲存容器執行個體的狀態。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 1. 讓 Service Fabric Linux 叢集準備就緒。 從 Azure 入口網站建立的 Service Fabric 叢集已安裝 Docker。 如果您在本機執行叢集，請使用命令 ``docker info``來檢查是否已安裝 Docker。 如果未安裝，使用下列命令據以安裝︰
 
   ```sh
@@ -117,7 +117,7 @@ ssh user@PublicIPorFQDN -p [port]
 
 您可以在 Service Fabric 叢集內部或外部設定 Jenkins。 下列各節顯示如何在叢集外設定。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 您必須安裝 Docker。 使用下列命令可從終端機安裝 Docker︰
 
   ```sh
@@ -128,7 +128,7 @@ ssh user@PublicIPorFQDN -p [port]
 現在，當您在終端機執行 ``docker info``，您應該會在輸出中看到 Docker 服務正在執行。
 
 ### <a name="steps"></a>步驟
-  1. 提取服務的網狀架構 Jenkins 容器映像： ``docker pull rapatchi/jenkins:v10``。 此映像隨附預先安裝的 Service Fabric Jenkins 外掛程式。
+  1. 提取 Service Fabric Jenkins 容器映像︰``docker pull rapatchi/jenkins:v10``。 此映像隨附於預先安裝的 Service Fabric Jenkins 外掛程式。
   2. 執行容器映像︰``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. 取得容器映像執行個體的識別碼。 您可以使用命令 ``docker ps –a`` 列出所有 Docker 容器
   4. 使用下列步驟登入 Jenkins 入口網站︰

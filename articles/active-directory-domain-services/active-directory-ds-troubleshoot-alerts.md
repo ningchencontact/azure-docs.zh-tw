@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -75,6 +75,11 @@ ms.lasthandoff: 01/18/2018
 
 開始之前，請先閱讀[這篇文章](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)中的**私人 IP v4 位址空間**一節。
 
+在虛擬網路內，電腦可以針對所在 IP 位址範圍與為子網路設定之 IP 位址範圍相同的 Azure 資源提出要求。 不過，由於虛擬網路已針對此範圍做設定，因此將會在虛擬網路內路由傳送這些要求，而不會抵達所要的 Web 資源。 這可能導致 Azure AD Domain Services 發生無法預設測的錯誤。
+
+**如果您擁有虛擬網路中所設定的網際網路 IP 位址範圍，便可以忽略此警示。不過，在有此設定的情況下，Azure AD Domain Services 無法承諾達成 [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)]，因為這會導致無法預測的錯誤。**
+
+
 1. 從目錄中[刪除受控網域](active-directory-ds-disable-aadds.md)。
 2. 修正子網路的 IP 位址範圍
   1. 瀏覽至 [Azure 入口網站上的虛擬網路頁面](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)。
@@ -86,7 +91,7 @@ ms.lasthandoff: 01/18/2018
   7. 更新位址範圍，並儲存變更。
 3. 遵循[開始使用 Azure AD Domain Services 指南](active-directory-ds-getting-started.md)，以重新建立受控網域。 請確定您挑選的是具有私人 IP 位址範圍的虛擬網路。
 4. 若要將虛擬機器的網域加入新的網域，請遵循[本指南](active-directory-ds-admin-guide-join-windows-vm-portal.md)。
-8. 請檢查網域在兩個小時內的健康情況，以確保您已正確完成所有步驟。
+8. 若要確保解決警示，請在兩小時內檢查您網域的健康情況。
 
 
 ## <a name="contact-us"></a>與我們連絡

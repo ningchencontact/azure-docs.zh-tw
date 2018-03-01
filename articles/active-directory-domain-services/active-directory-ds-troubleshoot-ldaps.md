@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: ad98f3fb1ddb753976be627764d34864e5bf3d50
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
 
@@ -48,6 +48,9 @@ ms.lasthandoff: 01/18/2018
 5. 確認規則已建立。
 6. 請在兩個小時後檢查網域的健康情況，以確保您已正確完成所有步驟。
 
+> [!TIP]
+> 連接埠 636 不是 Azure AD Domain Services 順暢執行所需的唯一規則。 若要深入了解，請瀏覽[網路指導方針](active-directory-ds-networking.md)或[針對 NSG 設定進行疑難排解](active-directory-ds-troubleshoot-nsg.md)文章。
+>
 
 ## <a name="contact-us"></a>與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](active-directory-ds-contact-us.md)。

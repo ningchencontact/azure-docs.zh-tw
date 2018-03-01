@@ -15,7 +15,7 @@ ms.date: 12/11/2017
 ms.author: alkohli
 ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -73,12 +73,12 @@ ms.lasthandoff: 12/11/2017
     > [!IMPORTANT]
     > 建議您在整個移轉流程中，對此裝置進行序列存取。 若出現任何裝置問題，序列存取有助於進行疑難排解。
 
-* 5000 或 7000 系列來源裝置正在執行軟體版本 v2.1.1.518 或更新版本。 不支援舊版。
+* 5000 或 7000 系列來源裝置目前執行的軟體版本為 v2.1.1.518 或更新版本。 不支援舊版。
 * 若要確認 5000 或 7000 系列目前執行的版本，請看 Web UI 的右上角。 該處應會顯示您的裝置目前執行的軟體版本。 若要移轉，5000 或 7000 系列應該執行 v2.1.1.518。
 
     ![請檢查繼承裝置上的軟體版本](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * 如果您即時裝置未執行 v2.1.1.518 或更新版本中，請升級您的系統到所需的最小版本。 如需詳細說明，請參閱[將系統升級至 v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)。
+    * 如果您使用中的裝置並非執行 v2.1.1.518 或更新版本，請將系統升級到所要求的最低版本。 如需詳細說明，請參閱[將系統升級至 v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)。
     * 如果您執行的是 v2.1.1.518，請移至 Web UI，查看是否有任何登錄還原失敗的通知。 如果登錄還原失敗，請執行登錄還原。 如需詳細資訊，請移至[執行登錄還原](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry)。
     * 如果關閉的裝置並非執行 v2.1.1.518，請容錯移轉至執行 v2.1.1.518 的備用裝置。 如需詳細說明，請參閱 5000/7000 系列 StorSimple 裝置的 DR。
     * 製作雲端快照集來備份裝置的資料。

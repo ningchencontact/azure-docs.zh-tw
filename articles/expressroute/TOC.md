@@ -1,3 +1,5 @@
+# [ExpressRoute 文件](index.md)
+
 # 概觀
 ## [什麼是 ExpressRoute？](expressroute-introduction.md)
 ## [ExpressRoute 常見問題集](expressroute-faqs.md)
@@ -82,7 +84,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [個案研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [網路部落格](https://azure.microsoft.com/blog/topics/networking/)
-## [定價](https://azure.microsoft.com/pricing/details/expressroute/)
+## [價格](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

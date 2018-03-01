@@ -4,7 +4,7 @@ description: "將子網路標示為虛擬網路服務端點。 然後將端點�
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/20/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -127,9 +128,6 @@ RBAC 替代方案：
 
 對於 Azure SQL Database，虛擬網路規則功能具有下列限制：
 
-- 目前，位於已開啟**服務端點**之子網路中的 Azure Web 應用程式尚未如預期般運作。 我們正努力讓這項功能啟用。
-    - 直到完整實作這項功能為止，我們建議您將 Web 應用程式移至不同的子網路，該子網路沒有針對 SQL 開啟的服務端點。
-
 - 在針對 SQL Database 的防火牆中，每個虛擬網路規則都會參考一個子網路。 裝載所有這些參考子網路的地理區域，必須和裝載 SQL Database 的地理區域相同。
 
 - 在任何給定的虛擬網路中，每個 Azure SQL Database 伺服器最多只能有 128 個 ACL 項目。
@@ -142,6 +140,12 @@ RBAC 替代方案：
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
     - [站對站 (S2S) 虛擬私人網路 (VPN)][vpn-gateway-indexmd-608y]
     - 透過 [ExpressRoute][expressroute-indexmd-744v] 的內部部署
+
+#### <a name="considerations-when-using-service-endpoints"></a>使用服務端點時的注意事項
+使用 Azure SQL Database 的服務端點時，請檢閱下列注意事項：
+
+- **輸出至 Azure SQL Database 公用 IP 是必需的**：必須針對 Azure SQL Database IP 開啟網路安全性群組 (NSG)，才能夠進行連線。 為了完成此操作，您可以使用適用於 Azure SQL Database 的 NSG [服務標籤](../virtual-network/security-overview.md#service-tags)。
+- **不支援適用於 PostgreSQL 和 MySQL 的 Azure 資料庫**：不支援適用於 PostgreSQL 和 MySQL 之 Azure 資料庫的服務端點。 啟用 SQL Database 的服務端點會中斷這些服務的連線。 我們有方法可降低這種情況的風險，請連絡 *dmalik@microsoft.com*。
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -170,6 +174,8 @@ Azure SQL Database 的查詢編輯器會部署在 Azure 中的 VM 上。 這些 
 #### <a name="table-auditing"></a>資料表稽核
 目前有兩種做法可以啟用 SQL Database 的稽核。 當您在您的 Azure SQL Server 上啟用服務端點之後，資料表稽核會失敗。 這裡的解決之道是改用 Blob 稽核。
 
+#### <a name="impact-on-data-sync"></a>資料同步的影響
+Azure SQLDB 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您可能會關閉**允許所有 Azure 服務**存取您的邏輯伺服器。 這項動作將會中斷資料同步功能。
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>使用 VNet 服務端點搭配 Azure 儲存體的影響
 
@@ -177,7 +183,7 @@ Azure 儲存體已實作功能，可讓您限制連線至儲存體帳戶的連�
 如果您選擇使用這項功能，並使用 Azure SQL Server 正在使用的儲存體帳戶，可能會遇到問題。 接下來是受此影響的 Azure SQLDB 功能的清單和討論。
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。
+PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 沒有方法可降低這種情況的風險，請連絡 *dmalik@microsoft.com* 以了解詳細資訊。
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 稽核
 Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這個儲存體帳戶使用 VENT 服務端點功能，則 Azure SQLDB 與儲存體帳戶的連線將會中斷。

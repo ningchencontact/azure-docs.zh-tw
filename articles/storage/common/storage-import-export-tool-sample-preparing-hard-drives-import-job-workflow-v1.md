@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>複製工作階段完成
 
-當複製工作階段完成後，您可以將兩個磁碟和複製電腦中斷連線，並將它們寄送到適當的 Microsoft Azure 資料中心。 上傳兩個日誌檔中，`FirstDrive.jrn`和`SecondDrive.jrn`，當您建立的匯入作業中[Azure 入口網站](https://portal.azure.com)。  
+當複製工作階段完成後，您可以將兩個磁碟和複製電腦中斷連線，並將它們寄送到適當的 Microsoft Azure 資料中心。 當您在 [Azure 入口網站](https://portal.azure.com)建立匯入作業時，請上傳兩個日誌檔案 (`FirstDrive.jrn` 和 `SecondDrive.jrn`)。  
   
 ## <a name="next-steps"></a>後續步驟
 

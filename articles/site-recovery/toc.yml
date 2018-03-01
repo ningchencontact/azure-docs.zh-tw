@@ -24,13 +24,13 @@
         - name: 準備 Azure
           href: tutorial-prepare-azure.md
         - name: 準備內部部署 VMware
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: 設定災害復原
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: 執行災害復原演練
           href: tutorial-dr-drill-azure.md
         - name: 執行容錯移轉和容錯回復
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Hyper-V VM
       items:
         - name: 準備 Azure
@@ -50,9 +50,9 @@
         - name: 準備 Azure 以進行內部部署複寫
           href: tutorial-prepare-azure.md
         - name: 將內部部署機器移轉至 Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: 將 AWS 執行個體移轉至 Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: 將 Azure VM 移轉到另一個區域
           href: azure-to-azure-tutorial-migrate.md
 - name: 概念
@@ -62,11 +62,11 @@
         - name: Azure 至 Azure 架構
           href: azure-to-azure-architecture.md
         - name: VMware 至 Azure 架構
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Hyper-V 至 Azure 架構
           href: hyper-v-azure-architecture.md
         - name: 實體至 Azure 架構
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Hyper-V 至次要網站架構
           href: hyper-v-vmm-architecture.md
     - name: 支援需求矩陣
@@ -114,11 +114,11 @@
         - name: 移轉至 Azure 之後的 Azure 虛擬機器災害復原
           href: azure-to-azure-replicate-after-migration.md
         - name: Azure 實體伺服器的災害復原
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: 將 Hyper-V 虛擬機器災害復原至次要網站
           href: hyper-v-vmm-disaster-recovery.md
         - name: 將 VMWare 虛擬機器和實體伺服器災害復原至次要網站
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: 執行 Azure 的災害復原演練
           href: site-recovery-test-failover-to-azure.md
         - name: 執行 Hyper-V 虛擬機器至次要網站的災害復原演練
@@ -236,7 +236,7 @@
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (不使用 VMM)
           href: hyper-v-azure-powershell-resource-manager.md
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (使用 VMM)
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: 使用 PowerShell 設定 Hyper-V 至次要 VMM 網站的複寫
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: 工作負載
@@ -290,7 +290,7 @@
         - name: 容錯移轉至 Azure 問題
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: 重新保護並針對問題進行容錯回復
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: 監視 Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: 參考

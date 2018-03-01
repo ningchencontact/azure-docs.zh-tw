@@ -3,21 +3,22 @@ title: "新增適用於 Azure Stack ADFS 的使用者 | Microsoft Docs"
 description: "了解如何新增適用於 Azure Stack 之 ADFS 部署的使用者"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 5774750edc5b7380275d4f20aee3be47f2f62b4d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>在 Azure Stack 開發套件中新增使用者
 

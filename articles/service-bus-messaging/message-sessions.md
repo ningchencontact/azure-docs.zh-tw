@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段： 第一次先進先出 (FIFO) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
-Microsoft Azure 服務匯流排工作階段讓聯合和已排序的未繫結的相關訊息序列的處理。 若要實現 FIFO 保證 Service Bus 中的，使用工作階段。 服務匯流排對於訊息之間關係的本質並無任何規範，而且也不會定義特殊的模型來判斷訊息序列開頭或結尾的位置。
+Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結的相關訊息序列。 若要實現服務匯流排中的 FIFO 保證，使用工作階段。 服務匯流排對於訊息之間關係的本質並無任何規範，而且也不會定義特殊的模型來判斷訊息序列開頭或結尾的位置。
 
-任何寄件者可以建立當提交訊息至佇列或主題藉由設定工作階段[SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)某些應用程式定義的識別項的唯一工作階段的屬性。 在 AMQP 1.0 通訊協定層級，這個值會對應至「群組識別碼」屬性。
+所有傳送者均可在將訊息提交至佇列或主題時建立工作階段，方法是將 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 屬性設定為某個應用程式定義的識別碼，此識別碼對該工作階段而言是唯一的。 在 AMQP 1.0 通訊協定層級，這個值會對應至「群組識別碼」屬性。
 
 在工作階段感知的佇列或訂用帳戶中，工作階段會在至少有一個訊息具備工作階段的 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 時變成存在。 一旦工作階段存在之後，就不會有針對工作階段到期或消失時定義的時間或 API。 理論上，今日可接收工作階段的訊息，一年內的下一個訊息，而且如果 **SessionId** 相符，則從服務匯流排的觀點來看，工作階段是一樣。
 
-一般而言，不過，應用程式的其中一組相關的訊息開始和結束清除概念。 服務匯流排未設定任何特定的規則。
+不過，一般而言，應用程式會對一組相關訊息開頭與結尾位置具有清楚的概念。 服務匯流排不會設定任何特定的規則。
 
-如何描述傳輸檔案的序列範例是將第一個訊息的 **Label** 屬性設為 **start**、針對中繼訊息設為 **content**，然後針對最後一個訊息設為 **end**。 計算內容訊息的相對位置與目前訊息*SequenceNumber*從差異**啟動**訊息*SequenceNumber*。
+如何描述傳輸檔案的序列範例是將第一個訊息的 **Label** 屬性設為 **start**、針對中繼訊息設為 **content**，然後針對最後一個訊息設為 **end**。 內容訊息的相對位置可從 **start** 訊息的 SequenceNumber 計算成為目前訊息的 SequenceNumber 差異。
 
 服務匯流排中的工作階段功能會啟用特定的接收作業，在 C# 和 Java API 中的形式為 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession)。 您可以透過 Azure Resource Manager 來設定佇列或訂用帳戶上的 [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 屬性，或者在入口網站中設定旗標，藉以啟用此功能。 在您嘗試使用相關的 API 作業之前，必須先執行此動作。
 
-在入口網站中，設定以下的核取方塊的旗標：
+在入口網站中，使用下列核取方塊來設定旗標：
 
 ![][2]
 
-適用於工作階段的 API 會存在於佇列和訂用帳戶用戶端上。 沒有命令式模型，可控制何時收到工作階段和訊息，並處理常式為基礎的模型，類似於*OnMessage*，會隱藏複雜度管理接收迴圈。
+適用於工作階段的 API 會存在於佇列和訂用帳戶用戶端上。 有一個命令式模型可讓您控制接收工作階段與訊息的時間，還有一個以處理常式為基礎的模型，類似於 OnMessage，會隱藏管理接收迴圈的複雜度。
 
 ## <a name="session-features"></a>工作階段功能
 
-工作階段提供並行分離的交錯的訊息資料流時保留，並保證排序的傳遞。
+工作階段會提供交錯式訊息資料流的並行分離信號，同時保留並保證會依序傳遞。
 
 ![][1]
 
-[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 接收者會由接受工作階段的用戶端所建立。 用戶端呼叫[QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession)或[QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C# 中。 在回應式回呼模型中，它會註冊工作階段處理常式，如稍後所討論。
+[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 接收者會由接受工作階段的用戶端所建立。 用戶端會在 C# 中呼叫 [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) 或 [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync)。 在回應式回呼模型中，它會註冊工作階段處理常式。
 
-當[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession)物件會接受並時它由用戶端，該用戶端會保留與該工作階段的所有訊息上的獨佔鎖定[SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId)存在於佇列或訂閱，並也在與所有訊息上**SessionId** ，仍會到達持有工作階段。
+接受 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 物件且由用戶端加以保留時，該用戶端就會在具有該工作階段之 [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) (存在於佇列或訂用帳戶中) 的所有訊息上保留獨佔鎖定，同時也會在具有保留工作階段時仍會送達之 **SessionId** 的所有訊息上保留獨佔鎖定。
 
-釋放鎖定時**關閉**或**CloseAsync**呼叫時，或在應用程式是無法執行關閉作業的情況下則鎖定會逾時。 工作階段鎖定應被視為類似檔案上的獨佔鎖定，這表示只要應用程式不再需要工作階段和 (或) 不預期會有任何後續訊息時，就應儘速關閉該工作階段。
+鎖定會在呼叫 **Close** 或 **CloseAsync** 時釋放，或者當鎖定在應用程式無法執行關閉作業而到期時加以釋放。 工作階段鎖定應被視為類似檔案上的獨佔鎖定，這表示只要應用程式不再需要工作階段和 (或) 不預期會有任何後續訊息時，就應儘速關閉該工作階段。
 
 當多個並行接收者從佇列提取時，就會將屬於特殊工作階段的訊息分派給目前保有該工作階段之鎖定的特定接收者。 透過該作業，位於一個佇列或訂用帳戶中的交錯式訊息資料流就會被完全分離信號到不同的接收者，而那些接收者也可以存留於不同的用戶端機器上，因為鎖定管理會發生於服務匯流排內部的服務端。
 
 不過，佇列仍然是佇列：不會有隨機存取。 如果多個並行接收者會等候接受特定的工作階段，或是等候來自特定工作階段的訊息，而且屬於尚未宣告任何接收者之工作階段的佇列頂端有一個訊息，則會保留傳遞，直到工作階段接收者宣告該工作階段為止。
 
-上圖顯示三個並行工作階段接收者，它們全都必須針對每個接收者主動從佇列中獲取訊息以取得進展。 與先前的工作階段`SessionId`= 4 有沒有作用中主控的用戶端，這表示任何訊息會傳送給任何人，直到該訊息已由新的建立，主控工作階段接收者。
+上圖顯示三個並行工作階段接收者，它們全都必須針對每個接收者主動從佇列中獲取訊息以取得進展。 前一個 `SessionId` = 4 的工作階段不具任何作用中的擁有用戶端，這表示在新建立的擁有工作階段接收者取得該訊息之前，不會將任何訊息傳遞給任何人。
 
 儘管那樣似乎會變成限制，但是，單一接收者處理序可以輕鬆地處理許多並行工作階段，特別當它們是以完全非同步的程式碼撰寫的；同時應付數十個並行工作階段，可利用回呼模型有效地自動執行。
 
@@ -72,6 +72,8 @@ Microsoft Azure 服務匯流排工作階段讓聯合和已排序的未繫結的�
 從服務匯流排的觀點而言，訊息工作階段狀態是一個不透明的二進位物件，其可保存一個訊息大小的資料，針對服務匯流排標準為 256 KB，針對服務匯流排進階則是 1 MB。 相對於工作階段的處理狀態可以保留在工作階段狀態內部，或者工作階段狀態可以指向某個保留這類資訊的儲存體位置或資料庫記錄。
 
 管理工作階段狀態的 API ([SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 和 [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)) 可在 C# 和 Java API 中的 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 物件上找到。 先前未設定任何工作階段狀態的工作階段會針對 **GetState** 傳回 **null** 參考。 使用 [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 來完成清除先前設定的工作階段狀態。
+
+請注意，只要未清除 (傳回**null**) 工作階段狀態就會維持，即使取用工作階段中的所有訊息。
 
 佇列或訂用帳戶中所有現有的工作階段都可使用 Java API 中的 **SessionBrowser** 方法，以及 .NET 用戶端中 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 和 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) 上的 [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) 來列舉。
 

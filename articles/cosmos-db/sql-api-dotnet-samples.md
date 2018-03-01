@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL API 的.NET 範例 |Microsoft 文件"
-description: "Github 上找到.NET C# 範例，使用 Azure Cosmos DB SQL API，包括 CRUD 作業的一般工作。"
+title: "Azure Cosmos DB：適用於 SQL API 的 .NET 範例 | Microsoft Docs"
+description: "在 GitHub 上尋找適合使用 Azure Cosmos DB SQL API 執行之一般工作 (包括 CRUD 作業) 的 C# .NET 範例。"
 keywords: "NoSQL 範例"
 services: cosmos-db
 author: rnagpal
@@ -17,11 +17,11 @@ ms.date: 02/22/2017
 ms.author: rnagpal
 ms.openlocfilehash: 42cdb21276886c9b728a2bf23ece946fa025a87d
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API 的.NET 範例
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB：適用於 SQL API 的 .NET 範例
 > [!div class="op_single_selector"]
 > * [.NET 範例](sql-api-dotnet-samples.md)
 > * [Node.js 範例](sql-api-nodejs-samples.md)

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: a7c346b259f6635589f80a9c52c748fc0c05eef1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>如何使用 Docker 電腦在 Azure 中建立主機
 這篇文章說明如何使用 [Docker 電腦](https://docs.docker.com/machine/)在 Azure 中建立主機。 `docker-machine` 命令會在 Azure 中建立 Linux 虛擬機器 (VM)，然後安裝 Docker。 接著，您可以使用相同本機工具和工作流程，在 Azure 中管理您的 Docker 主機。 若要在 Windows 10 中使用 docker-machine，您必須使用 Linux bash。
 
 ## <a name="create-vms-with-docker-machine"></a>使用 Docker 電腦建立 VM
-首先，使用 [az account show](/cli/azure/account#show) 取得您的 Azure 訂用帳戶識別碼，如下所示：
+首先，使用 [az account show](/cli/azure/account#az_account_show) 取得您的 Azure 訂用帳戶識別碼，如下所示：
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -94,7 +94,7 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-若要定義的連接設定，您可以執行建議的組態命令 (`eval $(docker-machine env myvm)`)，或您可以手動設定環境變數。 
+若要定義連線設定，您可以執行建議的設定命令 (`eval $(docker-machine env myvm)`)，或手動設定環境變數。 
 
 ## <a name="run-a-container"></a>執行容器
 為了查看作用中的容器，讓我們執行基本 NGINX 網頁伺服器。 使用 `docker run` 建立容器，並且為 Web 流量公開連接埠 80，如下所示：

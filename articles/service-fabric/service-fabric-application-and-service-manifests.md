@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 應用程式和服務描述 |Microsoft 文件"
-description: "描述如何使用資訊清單來描述 Service Fabric 應用程式和服務。"
+title: "說明 Azure Service Fabric 應用程式和服務 | Microsoft Docs"
+description: "說明如何使用資訊清單來描述 Service Fabric 應用程式和服務。"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
-本文說明 Service Fabric 應用程式和服務的方式定義和建立使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案版本。  這些資訊清單檔案的 XML 結構描述會記載在[ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)。
+本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>描述在 ServiceManifest.xml 的服務
-服務資訊清單以宣告方式定義服務類型和版本。 它會指定如服務類型的服務中繼資料、健康狀態屬性、負載平衡度量、服務二進位檔和組態檔。  換句話說，它會描述組成服務封裝的程式碼、組態和資料封裝，以支援一或多個服務類型。 服務資訊清單可以包含多個程式碼、 組態和資料封裝，可獨立版本設定。 以下是 ASP.NET Core web 前端服務的服務資訊清單[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+## <a name="describe-a-service-in-servicemanifestxml"></a>在 ServiceManifest.xml 中描述服務
+服務資訊清單以宣告方式定義服務類型和版本。 它會指定如服務類型的服務中繼資料、健康狀態屬性、負載平衡度量、服務二進位檔和組態檔。  換句話說，它會描述組成服務封裝的程式碼、組態和資料封裝，以支援一或多個服務類型。 服務資訊清單可以包含多個程式碼、組態和資料套件，而這些套件可以獨立設定版本。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)之 ASP.NET Core Web 前端服務的服務資訊清單：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -77,9 +77,9 @@ ms.lasthandoff: 12/11/2017
 
 如需有關如何設定 **SetupEntryPoint** 的詳細資訊，請參閱[設定服務安裝程式進入點的原則](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** （不在上述範例中的設定） 提供設定此程式碼封裝的環境變數的清單。 環境變數會覆寫中`ApplicationManifest.xml`以不同的值提供不同服務執行個體。 
+**EnvironmentVariables** (未設定於前一個範例中) 提供針對此程式碼套件設定的環境變數清單。 您可以在 `ApplicationManifest.xml` 中覆寫環境變數，以針對不同的服務執行個體提供不同的值。 
 
-**DataPackage** （不在上述範例中的設定） 會宣告一個資料夾，名為**名稱**屬性包含任意的靜態資料，以供在執行階段程序。
+**DataPackage** (未設定於前一個範例中) 會宣告 **Name** 屬性所命名的資料夾，包含由程序在執行階段使用的任意靜態資料。
 
 **ConfigPackage** 宣告 **Name** 屬性所命名的資料夾，其中包含 *Settings.xml* 檔案。 設定檔案包含程序在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 在升級期間，如果只有 **ConfigPackage** **版本**已變更，則不會重新啟動執行中程序。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 以下是 *Settings.xml* 檔案的範例：
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 12/11/2017
 </Settings>
 ```
 
-**資源**，例如端點使用的服務所要宣告/變更而不需要變更已編譯的程式碼。  服務資訊清單中指定的資源的存取權可以透過控制**SecurityGroup**應用程式資訊清單中。  當**端點**資源已定義服務資訊清單中，Service Fabric 會指派連接埠從保留的應用程式連接埠範圍時未明確指定連接埠。  深入了解[指定或覆寫 endpoint 資源](service-fabric-service-manifest-resources.md)。
+可宣告/變更服務 (不需變更已編譯的程式碼) 所使用的 **Resources** (例如端點)。  透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中的指定資源。  在服務資訊清單中定義 **Endpoint** 資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。  深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
 
 
 <!--
@@ -104,10 +104,10 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>描述在 ApplicationManifest.xml 中的應用程式
+## <a name="describe-an-application-in-applicationmanifestxml"></a>在 ApplicationManifest.xml 中描述應用程式
 應用程式資訊清單以宣告方式描述應用程式類型和版本。 它指定服務組成中繼資料，例如穩定的名稱、分割配置、執行個體計數/複寫因數、安全性/隔離原則、安置限制、組態覆寫和組成服務類型。 也說明要放置應用程式的負載平衡網域。
 
-因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。 以下是應用程式資訊清單[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)的應用程式資訊清單：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -151,17 +151,17 @@ For more information about other features supported by service manifests, refer 
 
 如同服務資訊清單， **版本** 屬性為非結構化字串，不是由系統剖析。 版本屬性也用於設定每個元件的版本以進行升級。
 
-**參數**定義整個應用程式資訊清單所使用的參數。 應用程式是 instatiated，和應用程式或服務組態設定可以覆寫時，就可以提供這些參數的值。  如果應用程式具現化期間將不會變更值，會使用預設參數值。 若要了解如何針對個別環境維護不同的應用程式和服務參數，請參閱 [管理多個環境的應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)
+**Parameters** 定義整個應用程式資訊清單使用的參數。 這些參數的值可在具現化應用程式時予以提供，而且可覆寫應用程式或服務的組態設定。  如果未在應用程式具現化期間變更預設參數值，則會使用此值。 若要了解如何針對個別環境維護不同的應用程式和服務參數，請參閱 [管理多個環境的應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)
 
-**ServiceManifestImport** 包含組成此應用程式類型之服務資訊清單的參考。 應用程式資訊清單可以包含多個服務資訊清單匯入、 每個獨立可以進行版本設定。 匯入的服務資訊清單會決定此應用程式類型中哪些服務類型有效。 在 ServiceManifestImport 內，您可覆寫 Settings.xml 中的組態值和 ServiceManifest.xml 檔案中的環境變數。 **原則**（在上述範例中未設定） 的端點繫結、 安全性和存取和封裝共用可以將已匯入的服務資訊清單上。  如需詳細資訊，請參閱[設定您的應用程式的安全性原則](service-fabric-application-runas-security.md)。
+**ServiceManifestImport** 包含組成此應用程式類型之服務資訊清單的參考。 應用程式資訊清單可以包含多個服務資訊清單匯入，而且可以獨立設定每個匯入的版本。 匯入的服務資訊清單會決定此應用程式類型中哪些服務類型有效。 在 ServiceManifestImport 內，您可覆寫 Settings.xml 中的組態值和 ServiceManifest.xml 檔案中的環境變數。 可以在已匯入的服務資訊清單上設定端點繫結、安全性和存取以及套件共用的 **Policies** (未設定於前一個範例中)。  如需詳細資訊，請參閱[設定應用程式的安全性原則](service-fabric-application-runas-security.md)。
 
-**DefaultServices** 宣告服務執行個體，該執行個體會在每次應用程式針對此應用程式類型具現化時建立。 預設服務只是為了方便起見，在建立之後，其行為在每個方面就像正常的服務。 它們會與應用程式執行個體中的其他任何服務一起升級，也可以一起移除。 應用程式資訊清單可以包含多個預設的服務。
+**DefaultServices** 宣告服務執行個體，該執行個體會在每次應用程式針對此應用程式類型具現化時建立。 預設服務只是為了方便起見，在建立之後，其行為在每個方面就像正常的服務。 它們會與應用程式執行個體中的其他任何服務一起升級，也可以一起移除。 應用程式資訊清單可以包含多個預設服務。
 
-**憑證**（不在上述範例中的設定） 會宣告用來的憑證[設定 HTTPS 端點](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)或[加密應用程式資訊清單中的機密](service-fabric-application-secret-management.md)。
+**Certificates** (未設定於前一個範例中) 會宣告用來[設定 HTTPS 端點](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)或[在應用程式資訊清單中加密密碼](service-fabric-application-secret-management.md)。
 
-**原則**（不在上述範例中的設定） 描述記錄檔集合，[預設執行身分](service-fabric-application-runas-security.md)，[健全狀況](service-fabric-health-introduction.md#health-policies)，和[安全性存取](service-fabric-application-runas-security.md)在設定原則應用程式層級。
+**Policies** (未設定於前一個範例中) 說明要在應用程式層級設定的記錄集合、[預設執行身分](service-fabric-application-runas-security.md)、[健康情況](service-fabric-health-introduction.md#health-policies)和[安全性存取](service-fabric-application-runas-security.md)原則。
 
-**主體**（在上述範例中未設定） 描述所需的安全性主體 （使用者或群組）[執行的服務和安全服務資源](service-fabric-application-runas-security.md)。  中所參考的主體**原則**區段。
+**Principals** (未設定於前一個範例中) 說明[執行服務和保護服務資源](service-fabric-application-runas-security.md)所需的安全性主體 (使用者或群組)。  主體會在 **Policies** 區段中參考。
 
 
 
@@ -178,11 +178,11 @@ For more information about other features supported by application manifests, re
 
 ## <a name="next-steps"></a>後續步驟
 - [封裝應用程式](service-fabric-package-apps.md)並讓它準備好進行部署。
-- [部署和移除應用程式](service-fabric-deploy-remove-applications.md)。
-- [設定參數和環境變數不同的應用程式執行個體](service-fabric-manage-multiple-environment-app-configuration.md)。
-- [設定您的應用程式的安全性原則](service-fabric-application-runas-security.md)。
+- [部署與移除應用程式](service-fabric-deploy-remove-applications.md)。
+- [為不同的應用程式執行個體設定參數和環境變數](service-fabric-manage-multiple-environment-app-configuration.md)。
+- [設定應用程式的安全性原則](service-fabric-application-runas-security.md)。
 - [設定 HTTPS 端點](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)。
-- [加密應用程式資訊清單中的機密](service-fabric-application-secret-management.md)
+- [在 Service Fabric 應用程式中加密密碼](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

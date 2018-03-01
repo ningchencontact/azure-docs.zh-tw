@@ -11,31 +11,31 @@ ms.author: seanmck
 ms.custom: mvc
 ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="container-groups-in-azure-container-instances"></a>Azure 容器執行個體中的容器群組
+# <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
-Azure 容器執行個體的最上層資源*容器群組*。 本文說明的案例，可以讓型別與容器群組為何。
+在 Azure Container Instances 中，最上層的資源就是容器群組。 本文說明容器群組為何，以及這些群組能夠實現的案例類型。
 
 ## <a name="how-a-container-group-works"></a>容器群組的運作方式
 
-容器群組是取得排定在同一部主機機器的容器的集合。 容器群組中的容器共用的生命週期、 區域網路和存放磁碟區。 類似於的概念*pod*中[Kubernetes] [ kubernetes-pod]和[DC/OS][dcos-pod]。
+容器群組是容器的集合，這些容器會排程在相同的主機電腦上。 容器群組中的容器會共用生命週期、區域網路和存放磁碟區。 容器群組類似於 [Kubernetes][kubernetes-pod] 和 [DC/OS][dcos-pod] 中的 pod 概念。
 
 下圖舉例說明包含多個容器的容器群組。
 
 ![容器群組圖表][container-groups-example]
 
-此群組的範例容器：
+此範例群組容器：
 
-* 會排定在單一主機上。
-* 會公開單一公用 IP 位址，與一個公開的連接埠。
-* 包含兩個容器。 一個容器接聽連接埠 80，另一個容器接聽連接埠 5000。
-* 包含兩個 Azure 檔案共用做為磁碟區掛接和每個容器裝載其中一個在本機的共用資料夾。
+* 已排程在單一主機電腦上。
+* 會公開單一的公用 IP 位址，以及一個公開的連接埠。
+* 包括兩個容器。 一個容器接聽連接埠 80，另一個容器接聽連接埠 5000。
+* 包含兩個 Azure 檔案共用作為磁碟區掛接，且每個容器會在本機掛接其中一個共用。
 
 > [!NOTE]
-> 多個容器群組僅限於目前 Linux 容器。 雖然我們正在將 Windows 容器中的所有功能，您可以找到目前平台差異[配額和 Azure 容器執行個體的區域可用性](container-instances-quotas.md)。
+> 多容器群組目前僅限於 Linux 容器。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
 
 ### <a name="networking"></a>網路
 
@@ -52,7 +52,7 @@ Azure 容器執行個體的最上層資源*容器群組*。 本文說明的案�
 使用範例可能包括：
 
 * 一個應用程式容器和一個記錄容器。 記錄容器收集主應用程式所輸出的記錄和計量，並將這些資料寫入到長期存放區。
-* 一個應用程式和一個監視容器。 定期監視容器會以確保它正在執行，並正確地回應，並引發警示，如果不是應用程式提出要求。
+* 一個應用程式和一個監視容器。 監視容器會定期向應用程式發出要求，以確保它會保持執行狀態並正確回應，如果沒有正確回應則引發警示。
 * 一個容器提供 Web 應用程式，一個容器從原始檔控制提取最新內容。
 
 ## <a name="next-steps"></a>後續步驟

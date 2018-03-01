@@ -8,13 +8,13 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: aa89cf9fe4e2cd5b63017558e89401de86effdc9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>包含 Azure 磁碟的永續性磁碟區 - 動態佈建
+# <a name="persistent-volumes-with-azure-disks"></a>包含 Azure 磁碟的永續性磁碟區
 
 永續性磁碟區代表一塊已佈建而可在 Kubernetes 叢集中使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 本文件詳述如何以動態方式將 Azure 磁碟佈建為 AKS 叢集中的 Kubernetes 永續性磁碟區。 
 

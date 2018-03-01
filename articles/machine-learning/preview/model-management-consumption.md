@@ -4,22 +4,22 @@ description: "本文件說明在 Azure Machine Learning 中取用以模型管理
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>取用 Web 服務
 將模型部署為即時 Web 服務後，您就可以對它傳送資料，並從各種不同的平台和應用程式取得預測。 即時 Web 服務會公開用來取得預測的 REST API。 您可以透過單一資料列或多重資料列格式將資料傳送給 Web 服務，以便一次取得一或多個預測。
 
-使用 [Azure Machine Learning Web 服務](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)，外部應用程式會藉由對服務 URL 發出 HTTP POST 呼叫，來與預測模型進行同步通訊。 若要發出 Web 服務呼叫，用戶端應用程式必須指定您在部署預測時所建立的 API 金鑰，並將要求資料放入 POST 要求本文。
+使用 [Azure Machine Learning Web 服務](model-management-service-deploy.md)，外部應用程式會藉由對服務 URL 發出 HTTP POST 呼叫，來與預測模型進行同步通訊。 若要發出 Web 服務呼叫，用戶端應用程式必須指定您在部署預測時所建立的 API 金鑰，並將要求資料放入 POST 要求本文。
 
 請注意，叢集部署模式才會有 API 金鑰。 本機 Web 服務不會有金鑰。
 
@@ -29,13 +29,13 @@ Azure Machine Learning Web 服務可以部署到雲端式叢集以供生產和�
 Azure Machine Learning CLI 和 API 提供了方便的命令，讓您使用 ```az ml env``` 選項來建立及管理計算環境以供部署服務。 
 
 ## <a name="list-deployed-services-and-images"></a>列出已部署的服務和映像
-您可以使用 CLI 命令 ```az ml service list realtime -o table``` 來列出目前已部署的服務和 Docker 映像。 請注意，此命令一律會在目前的計算環境內容中運作，而不會顯示並非設為目前使用之環境中所部署的服務。 若要設定環境，請使用 ```az ml env set```。 
+您可以使用 CLI 命令 ```az ml service list realtime -o table``` 來列出目前已部署的服務和 Docker 映像。 請注意，此命令永遠都可以在目前計算環境的內容中運作。 它不會顯示在未設為目前環境的環境中部署的服務。 若要設定環境，請使用 ```az ml env set```。 
 
 ## <a name="get-service-information"></a>取得服務資訊
 成功部署 Web 服務後，請使用下列命令來取得服務 URL 和其他詳細資料以便呼叫服務端點。 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 如果在部署時提供了服務 API 結構描述，此命令便會印出可用來呼叫服務的服務 URL、必要的要求標頭、Swagger URL 和資料範例。
@@ -43,7 +43,7 @@ az ml service usage realtime -i <service name>
 只要輸入 CLI 命令範例和輸入資料，您就可以直接從 CLI 測試服務，而不必撰寫 HTTP 要求：
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>取得服務的 API 金鑰

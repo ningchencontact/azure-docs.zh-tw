@@ -16,7 +16,7 @@ ms.date: 12/05/2016
 ms.author: edmaca
 ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -129,6 +129,6 @@ ms.lasthandoff: 12/11/2017
 1. 從 [伺服器總管] 依序展開 [Azure]、[Data Lake Analytics]、您的 Data Lake Analytics 帳戶、[儲存體帳戶]，以滑鼠右鍵按一下 [預設儲存體]，然後按一下 [總管]。
 2. 展開範例、展開輸出，然後按兩下 [Drivers.csv] 。
 
-## <a name="see-also"></a>請參閱
-* [與使用者程式碼擴充的 U-SQL 運算式](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+## <a name="see-also"></a>另請參閱
+* [使用使用者程式碼延伸 U-SQL 運算式](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 應用程式](data-lake-analytics-data-lake-tools-get-started.md)

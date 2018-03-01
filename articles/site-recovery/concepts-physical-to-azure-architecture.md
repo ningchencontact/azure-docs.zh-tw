@@ -1,5 +1,5 @@
 ---
-title: "在 Azure Site Recovery 的 Azure 複寫架構的實體伺服器 |Microsoft 文件"
+title: "Azure Site Recovery 中的實體伺服器至 Azure 複寫架構 | Microsoft Docs"
 description: "本文概述使用 Azure Site Recovery 服務將內部部署實體伺服器複寫至 Azure 時，所使用的元件和架構"
 author: rayne-wiselman
 ms.service: site-recovery
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: raynew
 ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>實體伺服器至 Azure 複寫架構
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/19/2017
 設定複寫並已執行災害復原演練 (測試容錯移轉) 來檢查一切如預期般運作之後，您可以視需要執行容錯移轉和容錯回復。 請注意：
 
 - 不支援有計劃的容錯移轉。
-- 您必須容錯回復到內部部署 VMware VM。 這表示您需要在內部部署 VMware 基礎結構中，即使您將在內部部署實體伺服器複寫至 Azure。
+- 您必須容錯回復到內部部署 VMware VM。 這表示您需要內部部署 VMware 基礎結構，即使是在將內部部署實體伺服器複寫到 Azure 時。
 - 您可容錯移轉單一機器，或建立復原方案，同時容錯移轉多部機器。
 - 當您執行容錯移轉時，系統會從 Azure 儲存體中複寫的資料建立 Azure VM。
 - 觸發初始容錯移轉之後，您要認可讓它開始從 Azure VM 存取工作負載。
@@ -78,4 +78,4 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-請遵循[本教學課程](tutorial-physical-to-azure.md)啟用實體伺服器到 Azure 的複寫。
+請遵循[此教學課程](tutorial-physical-to-azure.md)，以啟用實體伺服器至 Azure 的複寫。

@@ -17,7 +17,7 @@ ms.author: robb
 ms.custom: mvc
 ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -43,7 +43,7 @@ Azure 監視器具有登陸頁面，可協助使用者：
 
 當您開啟該頁面時，您可以選取您有讀取存取權的訂用帳戶。 針對選取的訂用帳戶，您可以看到：
 
-- **已觸發的警示與警示來源** - 此表格顯示摘要計數、警示來源，以及警示在選取的時間範圍內觸發的次數。 它同時適用於計量與活動記錄警示。 *< 編輯： 具有一致的體驗也會顯示所有警示的事件、 度量和記錄檔的警示 （預覽） >*
+- **已觸發的警示與警示來源** - 此表格顯示摘要計數、警示來源，以及警示在選取的時間範圍內觸發的次數。 它同時適用於計量與活動記錄警示。 <編輯：具有一致體驗的警示 (預覽) 也會針對所有警示來顯示 - 事件、度量和記錄>
 - **活動記錄錯誤** - 若您的任何 Azure 資源記錄具有嚴重性錯誤層級的事件，您可以檢視高階計數並點擊到活動記錄頁面以調查每個事件。
 - **Azure 服務健康情況** - 您可以看到「服務健康情況」服務問題、已規劃的維護事件與健康情況建議的計數。 當 Azure 基礎結構的問題影響您的服務時，Azure 服務健康情況將提供個人化資訊。  如需詳細資訊，請參閱 [Azure 服務健康情況](../service-health/service-health-overview.md)。  
 - **Application Insights** - 查看目前訂用帳戶中每個 AppInsights 資源的 KPI。 KPI 已針對伺服器端應用程式 (包括 ASP.NET Web 應用程式、Java、Node 與一般應用程式類型) 監視最佳化。 KPI 包括要求速率、回應期間、失敗率與可用性百分比的計量。 
@@ -143,9 +143,9 @@ Azure 監視器具有登陸頁面，可協助使用者：
 
 ### <a name="automate"></a>自動化
 > [!NOTE]
-> 在 Microsoft Azure 上的警示的持續發展，現在一致的體驗，警示正在預覽。 詳細[Azure 警示 （預覽）](monitoring-overview-unified-alerts.md)
+> 隨著 Microsoft Azure 上警示功能的持續發展，警示的一致體驗現在正開放預覽。 有關 [Azure 警示 (預覽)](monitoring-overview-unified-alerts.md) 的詳細資訊
 
-在標準 Azure 警示，您可以使用觸發程序警示或甚至是整個程序的監視資料。 範例包括：
+在標準的 Azure 警示中，您可以使用監視資料來觸發警示或甚至觸發整個程序。 範例包括：
 
 * 使用資料來根據應用程式負載，自動向上或向下調整計算執行個體。
 * 在某個計量超過預先定義的臨界值時傳送電子郵件。

@@ -16,103 +16,103 @@ ms.date: 12/11/2017
 ms.author: eamono
 ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
 ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤在本機電腦上的檔案變更
+# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
-Azure 自動化會使用監看員工作監看事件和觸發的動作。 本教學課程會帶領您建立新的檔案新增至目錄時所要監視的監看員工作。
+Azure 自動化會使用監看員工作來監看事件和觸發動作。 本教學課程將逐步引導您建立監看員工作，以監視目錄中何時新增了檔案。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 匯入 runbook 監看員
+> * 匯入監看員 Runbook
 > * 建立自動化變數
-> * 建立動作的 runbook
+> * 建立動作 Runbook
 > * 建立監看員工作
-> * 觸發程序監看員
+> * 觸發監看員
 > * 檢查輸出
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程中，需要下列條件：
+若要完成此教學課程，需要有下列項目：
 
 * Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [自動化帳戶](automation-offering-get-started.md)以保存監看員和動作 Runbook，以及監看員工作。
 * 執行監看員工作的[混合式 Runbook 背景工作角色](automation-hybrid-runbook-worker.md)。
 
-## <a name="import-a-watcher-runbook"></a>匯入 runbook 監看員
+## <a name="import-a-watcher-runbook"></a>匯入監看員 Runbook
 
-本教學課程會使用監看員 runbook 呼叫**監看式 NewFile**尋找目錄中的新檔案。 監看員 runbook 擷取資料夾中檔案的上次已知的寫入時間，並查看該浮水印比更新的任何檔案。 在此步驟中，您匯入此 runbook 自動化帳戶。
+本教學課程會使用名為 **Watch-NewFile** 的監看員 Runbook 來尋找目錄中的新檔案。 監看員 Runbook 會擷取資料夾檔案的最後已知寫入時間，並查看比該浮水印還新的任何檔案。 在此步驟中，您會將此 Runbook 匯入自動化帳戶。
 
-1. 開啟您的自動化帳戶，然後按一下**Runbook**頁面。
-1. 按一下**瀏覽圖庫** 按鈕。
-1. 「 監看員 runbook 」，選取搜尋**尋找目錄中的新檔案的監看員 runbook**選取**匯入**。
-  ![從 UI 匯入自動化 runbook](media/automation-watchers-tutorial/importsourcewatcher.png)
-1. 授與 runbook 名稱、 描述和選取**確定**將 runbook 匯入您的自動化帳戶。
-1. 選取**編輯**，然後按一下 **發行**。 當系統提示您選取**是**發佈的 runbook。
+1. 開啟自動化帳戶，然後按一下 [Runbook] 頁面。
+1. 按一下 [瀏覽資源庫] 按鈕。
+1. 搜尋「監看員 Runbook」，選取 [會尋找目錄中新檔案的監看員 Runbook]，然後選取 [匯入]。
+  ![從 UI 匯入自動化 Runbook](media/automation-watchers-tutorial/importsourcewatcher.png)
+1. 提供 Runbook 的名稱和描述，然後選取 [確定]，以將 Runbook 匯入自動化帳戶。
+1. 選取 [編輯]，然後按一下 [發佈]。 出現提示時，選取 [是] 以發佈 Runbook。
 
 ## <a name="create-an-automation-variable"></a>建立自動化變數
 
-[自動化變數](automation-variables.md)用來儲存上述 runbook 讀取，並從每個檔案所儲存的時間戳記。 
+[自動化變數](automation-variables.md)可用來儲存先前之 Runbook 從每個檔案所讀取並儲存的時間戳記。 
 
-1. 選取**變數**下**共用資源**選取**+ 加入變數**。
-1. 請輸入"監看式 NewFileTimestamp 」 名稱
-1. 選取日期時間類型。
-1. 按一下**建立** 按鈕。 這會建立的自動化變數。
+1. 選取 [共用資源] 底下的 [變數]，然後選取 [+ 新增變數]。
+1. 輸入 "Watch-NewFileTimestamp" 作為 [名稱]
+1. 選取 [日期時間] 作為 [類型]。
+1. 按一下 [建立] 按鈕。 這會建立自動化變數。
 
-## <a name="create-an-action-runbook"></a>建立動作的 runbook
+## <a name="create-an-action-runbook"></a>建立動作 Runbook
 
-動作 runbook 中監看員工作用於處理資料傳遞給它，從監看員 runbook。 在此步驟中，您可以更新匯入預先定義的動作 runbook 呼叫 」 程序 NewFile"。
+在監看員工作中，動作 Runbook 會用來處理從監看員 Runbook 傳來的資料。 在此步驟中，您要更新匯入預先定義的動作 Runbook，其名稱為 "Process-NewFile"。
 
-1. 瀏覽至您的自動化帳戶，然後選取**Runbook**下**程序自動化**類別目錄。
-1. 按一下**瀏覽圖庫** 按鈕。
-1. 「 監看員動作 」 搜尋並選取**監看員 runbook 所觸發的事件處理的監看員動作**選取**匯入**。
-  ![從 UI 匯入動作 runbook](media/automation-watchers-tutorial/importsourceaction.png)
-1. 授與 runbook 名稱、 描述和選取**確定**將 runbook 匯入您的自動化帳戶。
-1. 選取**編輯**，然後按一下 **發行**。 當系統提示您選取**是**發佈的 runbook。
+1. 瀏覽至自動化帳戶，然後選取 [程序自動化] 分類下的 [Runbook]。
+1. 按一下 [瀏覽資源庫] 按鈕。
+1. 搜尋「監看員動作」並選取 [處理監看員 Runbook 所觸發之事件的監看員動作]，然後選取 [匯入]。
+  ![從 UI 匯入動作 Runbook](media/automation-watchers-tutorial/importsourceaction.png)
+1. 提供 Runbook 的名稱和描述，然後選取 [確定]，以將 Runbook 匯入自動化帳戶。
+1. 選取 [編輯]，然後按一下 [發佈]。 出現提示時，選取 [是] 以發佈 Runbook。
 
 ## <a name="create-a-watcher-task"></a>建立監看員工作
 
-監看員工作包含兩個部分。 監看員和動作。 監看員會監看員工作中定義的間隔執行。 從監看員 runbook 的資料會傳遞至動作 runbook。 在此步驟中，您可以設定參考上述步驟中所定義的監看員與動作 runbook 監看員工作。
+監看員工作包含兩個部分。 監看員和動作。 監看員會依據監看員工作中所定義的間隔來執行。 來自監看員 Runbook 的資料會傳遞至動作 Runbook。 在此步驟中，您要將監看員工作設定為參考前面步驟中所定義的監看員和動作 Runbook。
 
-1. 瀏覽至您的自動化帳戶，然後選取**監看員工作**下**程序自動化**類別目錄。
-1. 選取 監看員工作 頁面，然後按一下**+ 加入監看員工作** 按鈕。
-1. 請輸入"WatchMyFolder"做為名稱。
+1. 瀏覽至自動化帳戶，然後選取 [程序自動化] 分類下的 [監看員工作]。
+1. 選取 [監看員工作] 頁面，然後按一下 [+ 新增監看員工作] 按鈕。
+1. 輸入 "WatchMyFolder" 作為名稱。
 
-1. 選取**設定監看員**選取**監看式 NewFile** runbook。
+1. 選取 [設定監看員]，然後選取 [Watch-NewFile] Runbook。
 
 1. 為各個參數輸入下列值︰
 
-   * **FOLDERPATH** -混合式背景工作上取得建立新檔案的資料夾。 d:\examplefiles
-   * **延伸模組**-保留空白可處理所有副檔名。
-   * **RECURSE** -保留為預設值，這個值。
-   * **回合設定**-挑選混合式背景工作。
+   * **FOLDERPATH** - 混合式背景工作角色上的資料夾，會於其中建立新檔案。 d:\examplefiles
+   * **EXTENSION** - 保留空白以處理所有副檔名。
+   * **RECURSE** - 請讓此值保持使用預設值。
+   * **RUN SETTINGS** - 挑選混合式背景工作角色。
 
 1. 按一下 [確定]，然後按一下 [選取] 以返回監看員頁面。
-1. 選取**設定動作**選取 「 處理程序 NewFile 」 runbook。
+1. 選取 [設定動作]，然後選取 [Process-NewFile] Runbook。
 1. 針對參數輸入下列值︰
 
-   *    **EVENTDATA** -保留空白。 資料會從監看員 Runbook 傳入。  
-   *    **回合設定**-保留為 Azure 自動化服務中執行此 runbook。
+   *    **EVENTDATA** - 保留為空白。 資料會從監看員 Runbook 傳入。  
+   *    **回合設定** - 保留為 [Azure]，因為此 Runbook 是在自動化服務中執行。
 
-1. 按一下**確定**，然後選取以返回 監看員頁面。
-1. 按一下**確定**建立監看員工作。
+1. 按一下 [確定]，然後按一下 [選取] 以返回監看員頁面。
+1. 按一下 [確定] 以建立監看員工作。
 
-![設定從 UI 監看員動作](media/automation-watchers-tutorial/watchertaskcreation.png)
+![從 UI 設定監看員動作](media/automation-watchers-tutorial/watchertaskcreation.png)
 
-## <a name="trigger-a-watcher"></a>觸發程序監看員
+## <a name="trigger-a-watcher"></a>觸發監看員
 
-若要測試監看員會如預期般運作，您需要建立測試檔案。
+為了測試監看員是否會如預期般運作，您需要建立測試檔案。
 
-遠端登入的混合式背景工作。 開啟**PowerShell**並建立測試檔案的資料夾中。
+遠端連線至混合式背景工作角色。 開啟 **PowerShell** 並在資料夾中建立測試檔案。
   
    ```PowerShell-interactive
    New-Item -Name ExampleFile1.txt
    ```
 
-下列範例顯示預期的輸出。
+下列範例會顯示預期的輸出。
 
 ```
     Directory: D:\examplefiles
@@ -125,14 +125,14 @@ Mode                LastWriteTime         Length Name
 
 ## <a name="inspect-the-output"></a>檢查輸出
 
-1. 瀏覽至您的自動化帳戶，然後選取**監看員工作**下**程序自動化**類別目錄。
-1. 選取的監看員工作 」 WatchMyFolder"。
-1. 按一下**檢視監看員的資料流**下**資料流**監看員找到新的檔案，而且啟動動作 runbook。
-1. 若要查看執行 runbook 作業，請按一下**檢視監看員動作工作**。 每個工作可以是選取檢視作業詳細資料。
+1. 瀏覽至自動化帳戶，然後選取 [程序自動化] 分類下的 [監看員工作]。
+1. 選取 "WatchMyFolder" 監看員工作。
+1. 按一下 [串流] 底下的 [檢視監看員串流]，確認監看員已找到新檔案並已啟動動作 Runbook。
+1. 若要查看動作 Runbook 作業，請按一下 [檢視監看員動作作業]。 您可以選取各個作業以檢視作業的詳細資料。
 
-   ![從 UI 監看員動作工作](media/automation-watchers-tutorial/WatcherActionJobs.png)
+   ![UI 中的監看員動作作業](media/automation-watchers-tutorial/WatcherActionJobs.png)
 
-下列範例中，就可以看到找到新的檔案時的預期的輸出：
+您可以在下列範例中看到系統找到新檔案時的預期輸出：
 
 ```
 Message is Process new file...
@@ -147,14 +147,14 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 匯入 runbook 監看員
+> * 匯入監看員 Runbook
 > * 建立自動化變數
-> * 建立動作的 runbook
+> * 建立動作 Runbook
 > * 建立監看員工作
-> * 觸發程序監看員
+> * 觸發監看員
 > * 檢查輸出
 
-跟隨此連結以深入了解撰寫您自己的 runbook。
+遵循此連結以深入了解如何編寫自己的 Runbook。
 
 > [!div class="nextstepaction"]
-> [我的第一個 PowerShell runbook](automation-first-runbook-textual-powershell.md)。
+> [我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。

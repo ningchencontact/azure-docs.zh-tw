@@ -1,5 +1,5 @@
 ---
-title: "建立機器學習 Studio 工作區 |Microsoft 文件"
+title: "建立 Machine Learning Studio 工作區 | Microsoft Docs"
 description: "如何建立 Azure Machine Learning Studio 的工作區"
 services: machine-learning
 author: garyericson
@@ -14,7 +14,7 @@ ms.author: garye
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -37,9 +37,9 @@ ms.lasthandoff: 12/08/2017
 
 2. 按一下 [+ 新增]
 
-3. 在 [搜尋] 方塊中，輸入**Machine Learning Studio 工作區**選取相符的項目。 然後按一下 選取**建立**頁面的底部。
+3. 在搜尋方塊中，輸入 **Machine Learning Studio 工作區**，並選取相符的項目。 然後按一下頁面底部的 [建立]。
 
-4. 輸入您工作區中的資訊：
+4. 輸入您的工作區資訊：
 
     - 工作區名稱可能最多 260 個字元，結尾不可為空格。 名稱不能包含下列字元︰`< > * % & : \ ? + /`
     - 會使用您選擇 (或建立) 的 Web 服務方案，以及您選取的相關聯定價層，如果您從此工作區中部署 web 服務。

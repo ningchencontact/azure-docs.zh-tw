@@ -83,9 +83,9 @@
 
 ## [Azure CLI](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.js](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Batch 服務](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [工作完成事件](batch-task-complete-event.md)
 ### [工作失敗事件](batch-task-fail-event.md)
 ## [Batch 計算節點環境變數](batch-compute-node-environment-variables.md)
-### [Resource Manager 範本](/templates/microsoft.batch/batchaccounts)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
@@ -108,8 +107,9 @@
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [部落格](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Azure 中的 HPC 解決方案](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [價格](https://azure.microsoft.com/pricing/details/batch/)
+## [定價](https://azure.microsoft.com/pricing/details/batch/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
+## [Resource Manager 範本](/azure/templates/microsoft.batch/batchaccounts)
 ## [服務更新](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=batch)

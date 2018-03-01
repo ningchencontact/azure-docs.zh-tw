@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: milanga;juliako;
 ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 **Azure 媒體視訊縮圖** MP 目前為預覽功能。
 
-這篇文章詳細說明有關**Azure Media 視訊縮圖**並示範如何使用 Media Services SDK for.NET 使用它。
+本文章提供有關 **Azure 媒體視訊縮圖**的詳細資訊，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
 
 ## <a name="limitations"></a>限制
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 下列程式將示範如何：
 
 1. 建立資產並將媒體檔案上傳到資產。
-2. 建立視訊縮圖工作包含下列 json 的預設組態檔為基礎的作業： 
+2. 根據包含下列 JSON 預設值的組態檔案，建立執行視訊縮圖工作的工作： 
    
         {                
             "version": "1.0",

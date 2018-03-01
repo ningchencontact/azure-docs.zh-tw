@@ -1,7 +1,7 @@
 ---
 title: "透過 Azure 入口網站管理 Azure Cosmos DB 帳戶 | Microsoft Docs"
 description: "了解如何透過 Azure 入口網站管理 Azure Cosmos DB 帳戶。 尋找使用 Azure 入口網站來檢視、複製、刪除和存取帳戶的指南。"
-keywords: "Azure 入口網站、 azure、 Microsoft azure"
+keywords: "Azure 入口網站, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -17,7 +17,7 @@ ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
 本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -49,7 +49,7 @@ Log Analytics 儲存機制中的所有資料都會以具有特定記錄類型的
 ### <a name="request-uri-parameters"></a>要求 URI 參數
 | 參數 | 說明 |
 |:--- |:--- |
-| CustomerID |Microsoft Operations Management Suite 工作區的唯一識別碼。 |
+| CustomerID |Log Analytics 工作區的唯一識別碼。 |
 | 資源 |API 資源名稱︰/api/logs。 |
 | API 版本 |要使用於這個要求的 API 版本。 目前是 2016-04-01。 |
 
@@ -70,7 +70,7 @@ Log Analytics 儲存機制中的所有資料都會以具有特定記錄類型的
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-WorkspaceID是 Microsoft Operations Management Suite 工作區的唯一識別碼。 Signature 是[雜湊式訊息驗證碼 (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx)，該驗證碼從要求建構而來，而後使用 [SHA256 演算法](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)進行計算。 接下來，您可使用 Base64 編碼方式進行編碼。
+WorkspaceID 是 Log Analytics 工作區的唯一識別碼。 Signature 是[雜湊式訊息驗證碼 (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx)，該驗證碼從要求建構而來，而後使用 [SHA256 演算法](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)進行計算。 接下來，您可使用 Base64 編碼方式進行編碼。
 
 使用此格式來進行 **SharedKey** 簽章字串的編碼︰
 
@@ -204,7 +204,8 @@ HTTP 狀態碼 200 表示已經接受要求且正在處理。 這表示作業已
 
 在每個範例中，執行下列步驟來設定授權標頭的變數︰
 
-1. 在 Operations Management Suite 入口網站中，選取 [設定] 圖格，然後選取 [連接的來源] 索引標籤。
+1. 在 Azure 入口網站中，找出 Log Analytics 工作區。
+2. 依序選取 [進階設定] 和 [連接的來源]。
 2. 選取 [工作區識別碼] 右邊的複製圖示，然後貼上識別碼做為 [客戶識別碼] 變數值。
 3. 選取 [主要金鑰] 右邊的複製圖示，然後貼上識別碼做為 [共用金鑰] 變數值。
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

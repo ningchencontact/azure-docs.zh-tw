@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -87,7 +87,7 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 在本節中，我們列出了使用此服務所需的必要條件。 請先仔細檢閱，再運送您的磁碟機。
 
 ### <a name="storage-account"></a>儲存體帳戶
-您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。 每項工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
+您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。 Azure 匯入/匯出功能僅支援傳統、Blob 儲存體帳戶，和一般用途 v1 儲存體帳戶。 每項工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
 
 ### <a name="data-types"></a>資料類型
 您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob、**分頁** Blob 或**檔案**。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。 服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 目前不支援匯出 Azure 檔案服務。
@@ -299,7 +299,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 
 **交易成本**
 
-將資料匯入到 Azure 儲存體時，沒有交易成本。 從 Blob 儲存體匯出資料時，適用標準輸出費用。 如需交易成本的更多詳細資料，請參閱 [資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)
+將資料匯入 Azure 儲存體時，除了標準儲存體交易成本之外，無需支付其他的交易成本。 從 Blob 儲存體匯出資料時，適用標準輸出費用。 如需交易成本的更多詳細資料，請參閱 [資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 

@@ -16,7 +16,7 @@ ms.date: 12/10/2017
 ms.author: mcoskun
 ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 * 請不要在另一個交易的 `using` 陳述式內建立交易，因為它會造成死結。
 * 務必確保 `IComparable<TKey>` 實作是正確的。 系統會對 `IComparable<TKey>` 採取相依性以合併檢查點與資料列。
 * 請不要在讀取需更新的項目時使用更新鎖定，以避免發生特定類別的死結。
-* 請考慮可靠集合的每個磁碟分割設為少於 1000年的保留數目。 而不用可靠的集合包含多個項目的更多可靠的集合，使用較少的項目。
+* 請考慮將每個分割區可靠的集合數目保持小於 1000。 偏好具有較多項目可靠集合，勝過於具有較少項目的可靠集合。
 * 請考慮將項目 (例如「可靠的字典」的 Tkey 和 TValue) 保持低於 80 KB (越小越好)。 這會減少大型物件堆積的使用量，並降低磁碟和網路 IO 需求。 通常這會在只更新一小部分的值時，減少重複資料的複寫次數。 在「可靠的字典」中達成此目的的常用方式，是將資料列分成多個資料列。
 * 請考慮使用備份和還原功能以擁有災害復原。
 * 避免在同一個交易中因為不同的隔離等級混用單一實體作業和多實體作業 (例如 `GetCountAsync`、`CreateEnumerableAsync`)。

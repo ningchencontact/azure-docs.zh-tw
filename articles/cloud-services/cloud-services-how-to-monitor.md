@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
@@ -39,9 +39,9 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-進階監視包含對您想要監視的角色使用 **Azure 診斷**延伸模組 (和選擇性的 Application Insights SDK)。 診斷延伸模組會使用名為 **diagnostics.wadcfgx** 的設定檔 (每個角色)，來設定所監視的診斷計量。 Azure 診斷延伸模組所收集的資料會儲存在 Azure 儲存體帳戶中，而 Azure 儲存體帳戶設定於 **.wadcfgx**、[.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 檔案中。 這表示會有與進階監視建立關聯的額外成本。
+進階監視包含對您想要監視的角色使用 **Azure 診斷**延伸模組 (和選擇性的 Application Insights SDK)。 診斷延伸模組會使用名為 **diagnostics.wadcfgx** 的設定檔 (每個角色)，來設定所監視的診斷計量。 Azure 診斷延伸模組會收集資料並且儲存在 Azure 儲存體帳戶。 這些設定是在 **.wadcfgx**、[.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 檔案中設定。 這表示會有與進階監視建立關聯的額外成本。
 
-建立每個角色時，Visual Studio 會在其中新增 Azure 診斷延伸模組。 此延伸模組可以收集下列類型的資訊：
+建立每個角色時，Visual Studio 會在其中新增 Azure 診斷延伸模組。 此診斷延伸模組可以收集下列類型的資訊：
 
 * 自訂效能計數器
 * 應用程式記錄檔
@@ -54,12 +54,6 @@ ms.lasthandoff: 01/24/2018
 
 > [!IMPORTANT]
 > 雖然此資料全都會彙總至儲存體帳戶，但是入口網站**不會**提供製作資料圖表的原生方法。 強烈建議您將其他像是 Application Insights 的服務整合到您的應用程式。
-
-### <a name="use-application-insights"></a>使用 Application Insights
-
-當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights Azure 資源，或將資料傳送至現有的 Azure 資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)。
-
-請注意，雖然您可以使用 Application Insights 來顯示透過 Windows Azure 診斷延伸模組所指定的效能計數器 (和其他設定)，但是只有將 Application Insights SDK 整合到背景工作和 Web 角色，才能獲得較豐富的體驗。
 
 ## <a name="setup-diagnostics-extension"></a>設定診斷延伸模組
 
@@ -96,7 +90,15 @@ ms.lasthandoff: 01/24/2018
       -->
 ```
 
+## <a name="use-application-insights"></a>使用 Application Insights
+
+當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights Azure 資源，或將資料傳送至現有的 Azure 資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)。
+
+請注意，雖然您可以使用 Application Insights 來顯示透過 Windows Azure 診斷延伸模組所指定的效能計數器 (和其他設定)，但是只有將 Application Insights SDK 整合到背景工作和 Web 角色，才能獲得較豐富的體驗。
+
+
 ## <a name="next-steps"></a>後續步驟
 
-- [深入了解含雲端服務的 Application Insights。](../application-insights/app-insights-cloudservices.md)
+- [深入了解含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)
+- [設定效能計數器](diagnostics-performance-counters.md)
 

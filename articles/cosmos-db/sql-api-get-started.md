@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL API 快速入門教學課程 |Microsoft 文件"
-description: "建立線上資料庫以及 C# 主控台應用程式使用 SQL API 教學課程。"
+title: "Azure Cosmos DB：SQL API 入門教學課程 | Microsoft Docs"
+description: "本教學課程將使用 SQL API 來建立線上資料庫，以及 C# 主控台應用程式。"
 keywords: "nosql 教學課程, 線上資料庫, c# 主控台應用程式"
 services: cosmos-db
 documentationcenter: .net
@@ -17,11 +17,11 @@ ms.date: 08/16/2017
 ms.author: anhoh
 ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API 快速入門教學課程
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入門教學課程
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-歡迎使用 Azure Cosmos DB SQL API 的快速入門教學課程 ！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
+歡迎使用 Azure Cosmos DB SQL API 入門教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
 本教學課程涵蓋下列項目：
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/18/2017
 
 讓我們開始吧！
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/18/2017
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步驟 1：建立 Azure Cosmos DB 帳戶
-讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以跳到 [設定您的 Visual Studio 方案](#SetupVS)。 如果您使用 Azure Cosmos DB 模擬器，請遵循的步驟[Azure Cosmos DB 模擬器](local-emulator.md)設定模擬器並跳到[安裝 Visual Studio 方案](#SetupVS)。
+讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以跳到 [設定您的 Visual Studio 方案](#SetupVS)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 方案](#SetupVS)。
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -73,9 +73,9 @@ ms.lasthandoff: 12/18/2017
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式，然後按一下 [管理 NuGet 套件...]
     
     ![專案的滑鼠右鍵功能表的螢幕擷取畫面](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. 在**NuGet**索引標籤上，按一下 **瀏覽**，然後輸入**azure documentdb** 搜尋 方塊中。
+5. 在 [NuGet] 索引標籤中按一下 [瀏覽]，然後在搜尋方塊中輸入 **azure documentdb**。
 6. 在結果中尋找 [Microsoft.Azure.DocumentDB]，然後按一下 [安裝]。
-   Azure Cosmos DB SQL API 用戶端程式庫的封裝識別碼是[Microsoft Azure Cosmos DB 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)。
+   「Azure Cosmos DB SQL API 用戶端程式庫」的套件識別碼是 [Microsoft Azure Cosmos DB 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) \(英文\)。
    ![用於尋找「Azure Cosmos DB 用戶端 SDK」之「NuGet 功能表」的螢幕擷取畫面](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     如果您收到關於檢閱方案變更的訊息，請按一下 [確定]。 如果您收到關於接受授權的訊息，請按一下 [我接受]。
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/18/2017
 
 從入口網站複製 URI，並將它貼到 program.cs 檔案的 `<your endpoint URL>` 中。 然後從入口網站複製主要金鑰，並將它貼到 `<your primary key>`中。
 
-![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，活躍反白顯示、 在 [Azure Cosmos DB 帳戶] 頁面中，反白顯示的 [金鑰] 按鈕與 [金鑰] 頁面上反白顯示的 URI、 主索引鍵和次要金鑰值][keys]
+![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，內含反白顯示的 [主動式] 中樞、[Azure Cosmos DB 帳戶] 頁面上反白顯示的 [金鑰] 按鈕、[金鑰] 頁面上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
 接下來，我們會建立 **DocumentClient** 的新執行個體，以啟動應用程式。
 

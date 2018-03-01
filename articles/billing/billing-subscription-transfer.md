@@ -19,13 +19,13 @@ ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
-將您的訂用帳戶轉移到另一位使用者在帳戶中心變更帳戶管理員，並手動透過訂用帳戶的帳單擁有權。 若要將您的訂用帳戶變更至不同的優惠，請參閱[切換至不同的 Azure 訂用帳戶優惠](billing-how-to-switch-azure-offer.md)。
+將您的訂用帳戶轉移給帳戶中心的另一位使用者，可變更帳戶管理員，並交出訂用帳戶的帳單擁有權。 若要將您的訂用帳戶變更至不同的優惠，請參閱[切換至不同的 Azure 訂用帳戶優惠](billing-how-to-switch-azure-offer.md)。
 
 > [!IMPORTANT]
 > 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/22/2017
 >
 >
 
-1. 登入[Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)為帳戶管理員。若要了解誰是帳戶管理員的訂用帳戶，請參閱[常見問題集](#faq)。
+1. 以帳戶管理員身分登入 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)。若要找出誰是訂用帳戶的帳戶管理員，請參閱[常見問題集](#faq)。
 
 1. 選取要移轉的訂用帳戶。
 
@@ -68,13 +68,13 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>接受訂用帳戶擁有權後的後續步驟
 
-1. 您現在是帳戶管理員。檢閱並更新服務管理、 共同管理員，以及其他 RBAC 角色。 若要進一步了解，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
+1. 您現在是帳戶管理員。請檢閱並更新服務管理員、共同管理員和其他 RBAC 角色。 若要深入了解，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
 1. 更新與此訂用帳戶服務相關聯的認證，包括：
    1. 可將使用者管理權限授與給訂用帳戶資源的管理憑證。 如需詳細資訊，請參閱 [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. 服務 (例如儲存體) 的存取金鑰。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
    1. 服務 (例如 Azure 虛擬機器) 的遠端存取認證。 
 1. 若要[更新此訂用帳戶的計費警示](https://account.windowsazure.com/Subscriptions)，請至 [Azure 帳戶中心](billing-set-up-alerts.md)。 
-1. 如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。 您可以更新中的夥伴識別碼[Azure 入口網站](https://portal.azure.com)。
+1. 如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。 您可以在 [Azure 入口網站](https://portal.azure.com)更新合作夥伴識別碼。
 
 <a id="supported"></a>
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
-### <a name="whoisaa"></a>帳戶系統管理員的訂用帳戶是誰？
+### <a name="whoisaa"></a> 訂用帳戶的帳戶管理員是誰？
 
 帳戶管理員就是註冊或購買 Azure 訂閱的人員。 他們已獲得授權存取[帳戶中心](https://account.azure.com/Subscriptions)並可執行各種管理工作，像是建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式，或變更服務管理員。 如果您不確定誰是訂用帳戶的帳戶管理員，請使用下列步驟來找出帳戶管理員。
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>所有項目都會移轉嗎？ 包括資源群組、VM、磁碟和其他執行中的服務？
 
-您所有的資源，例如 Vm、 磁碟和網站傳輸到新的擁有者。 不過，不會跨不同目錄轉送您所設定的任何[系統管理員角色](billing-add-change-azure-subscription-administrator.md)和[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 原則。 此外，[應用程式註冊](../active-directory//develop/active-directory-integrating-applications.md)並沿著不傳輸的其他租用戶特定服務。
+VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，不會跨不同目錄轉送您所設定的任何[系統管理員角色](billing-add-change-azure-subscription-administrator.md)和[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 原則。 此外，[應用程式註冊](../active-directory//develop/active-directory-integrating-applications.md)和其他租用戶特定服務並不會隨之轉移。
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 
@@ -157,7 +157,7 @@ Azure 訂用帳戶建立在帳戶管理員所屬的目錄中。 若要變更目�
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>接受者可以使用與該訂閱不同的付款方式嗎？
 
-可以。 但訂用帳戶帳單記錄會拆成兩個帳戶。  
+是。 但訂用帳戶帳單記錄會拆成兩個帳戶。  
 
 ### <a name="is-the-payment-method-impacted-after-i-transferred-an-azure-subscription"></a>移轉 Azure 訂閱會影響付款方式嗎？
 

@@ -16,7 +16,7 @@ ms.date: 10/09/2017
 ms.author: BernardoAMunoz
 ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |執行的檢查|
 |---|
-|<ul><li>有已無法使用的 Azure Cosmos DB 服務因為未提供任何資料庫或集合要求嗎？</li><li>有已無法使用的 Azure Cosmos DB 服務因為未提供任何文件要求嗎？</li></ul>|
+|<ul><li>是否有因 Azure Cosmos DB 服務無法使用而不提供的任何資料庫或集合要求？</li><li>是否有因 Azure Cosmos DB 服務無法使用而不提供的任何文件要求？</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |執行的檢查|

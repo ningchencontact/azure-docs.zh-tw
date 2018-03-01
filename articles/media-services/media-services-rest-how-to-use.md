@@ -16,25 +16,25 @@ ms.date: 12/05/2017
 ms.author: juliako;johndeu
 ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒體服務作業 REST API 概觀
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-**媒體服務作業的 REST** API 用來建立 Media Services 帳戶中的工作、 資產、 即時通道和其他資源。 如需詳細資訊，請參閱[媒體服務作業 REST API 參考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。
+**媒體服務作業 REST** API 用於在媒體服務帳戶中建立作業、資產、直播頻道和其他資源。 如需詳細資訊，請參閱[媒體服務作業 REST API 參考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。
 
-Media Services 提供 REST API 可接受 JSON 或 atom + pub XML 格式。 媒體服務 REST API 需要連接到 Media Services，以及一組選擇性標頭時，每個用戶端必須傳送的特定 HTTP 標頭。 下列章節描述建立要求及接收來自媒體服務的回應時可以使用的標頭和 HTTP 指令動詞。
+媒體服務提供的 REST API 可同時接受 JSON 或 atom+pub XML 格式。 媒體服務 REST API 需要每個用戶端連接到 媒體服務時必須傳送的特定 HTTP 標頭，以及一組選擇性標頭。 下列章節描述建立要求及接收來自媒體服務的回應時可以使用的標頭和 HTTP 指令動詞。
 
-媒體 serivces 為 REST API 的驗證透過 Azure Active Directory 驗證文件中所述[存取 Azure Media Services API，與其他使用 Azure AD 驗證](media-services-rest-connect-with-aad.md)
+對媒體服務 REST API 的驗證是透過 Azure Active Directory 驗證來進行，如[使用 Azure AD 驗證存取 Azure 媒體服務 REST API](media-services-rest-connect-with-aad.md) 文件中所述
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 使用 REST 時須考量下列事項：
 
 * 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 您需要使用 **Skip** 和 **Take** (.NET)/ **top** (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
-* 當使用 JSON，並指定要使用**__metadata**關鍵字 （例如，若要參考連結物件） 要求中，您必須設定**接受**標頭[詳細資訊 JSON 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)（請參閱下列範例）。 Odata 並不了解要求中的 **__metadata** 屬性，除非您將它設為 verbose。  
+* 使用 JSON 並指定在要求中使用 **__metadata** 關鍵字時 (例如，為了參考連結的物件)，您「必須」將 **Accept** 標頭設為 [JSON Verbose 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (請參閱下列範例)。 Odata 並不了解要求中的 **__metadata** 屬性，除非您將它設為 verbose。  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
@@ -57,12 +57,12 @@ Media Services 提供 REST API 可接受 JSON 或 atom + pub XML 格式。 媒�
 | 頁首 | 類型 | 值 |
 | --- | --- | --- |
 | Authorization |Bearer |Bearer 是唯一接受的授權機制。 此值也必須包含 Azure Active Directory 所提供的存取權杖。 |
-| x-ms-version |十進位 |2.17 （或最新版本）|
+| x-ms-version |十進位 |2.17 (或最新版本)|
 | DataServiceVersion |十進位 |3.0 |
 | MaxDataServiceVersion |十進位 |3.0 |
 
 > [!NOTE]
-> Media Services 會使用 OData 來公開其 REST Api，因為 DataServiceVersion 與 MaxDataServiceVersion 標頭應該包含在所有的要求。不過，如果沒有，然後目前 Media Services 會假設使用中的 DataServiceVersion 值為 3.0。
+> 因為媒體服務使用 OData 來公開其 REST API，因此 DataServiceVersion 和 MaxDataServiceVersion 標頭應該包含在所有要求中。不過，如果沒有，則目前媒體服務會假設使用的 DataServiceVersion 值是 3.0。
 > 
 > 
 
@@ -71,7 +71,7 @@ Media Services 提供 REST API 可接受 JSON 或 atom + pub XML 格式。 媒�
 | 頁首 | 類型 | 值 |
 | --- | --- | --- |
 | 日期 |RFC 1123 日期 |要求的時間戳記 |
-| Accept |內容類型 |如下所示的回應要求內容類型：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 回應可能會有不同的內容類型，如 blob 擷取，成功的回應包含 blob 資料流，做為裝載的位置。 |
+| Accept |內容類型 |如下所示的回應要求內容類型：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 回應可能會有不同的內容類型，例如 Blob 擷取，成功的回應會在其中包含 Blob 資料流做為裝載。 |
 | Accept-Encoding |Gzip、deflate |GZIP 和 DEFLATE 編碼 (適用時)。 注意：若是大型資源，媒體服務可能會忽略此標頭，並傳回未壓縮的資料。 |
 | Accept-Language |"en"、"es" 等。 |指定回應的慣用語言。 |
 | Accept-Charset |字元集類型，如 "UTF-8" |預設值為 UTF-8。 |
@@ -86,7 +86,7 @@ Media Services 提供 REST API 可接受 JSON 或 atom + pub XML 格式。 媒�
 | --- | --- | --- |
 | request-id |字串 |目前作業的唯一識別碼，由服務產生。 |
 | client-request-id |字串 |在原始要求中，呼叫者所指定的識別碼 (如果有的話)。 |
-| 日期 |RFC 1123 日期 |日期/時間處理要求。 |
+| 日期 |RFC 1123 日期 |處理要求的日期/時間。 |
 | Content-Type |視情況而異 |回應主體的內容類型。 |
 | Content-Encoding |視情況而異 |Gzip 或 deflate (視情況)。 |
 
@@ -103,21 +103,21 @@ Media Services 提供 REST API 可接受 JSON 或 atom + pub XML 格式。 媒�
 | HEAD |傳回 GET 回應的物件中繼資料。 |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>探索並瀏覽媒體服務實體模型
-若要讓使用者更容易找到媒體服務實體，可以使用 $metadata 作業。 它可讓您擷取所有有效的實體類型、實體屬性、關聯、函式、動作等等。 將 $metadata 作業加入至您的媒體服務 REST API 端點的結尾，您可以存取這項探索服務。
+若要讓使用者更容易找到媒體服務實體，可以使用 $metadata 作業。 它可讓您擷取所有有效的實體類型、實體屬性、關聯、函式、動作等等。 將 $metadata 作業新增至您的媒體服務 REST API 端點的結尾，即可以存取此探索服務。
 
- /api/$ 中繼資料。
+ /api/$metadata。
 
 如果您想要在瀏覽器檢視中繼資料，或是未在要求中包含 x-ms-version 標頭，您應該將 "?api-version=2.x" 附加到 URI 的結尾。
 
-## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>使用媒體服務 REST 使用 Azure Active Directory 進行驗證
+## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>使用 Azure Active Directory 向媒體服務 REST 進行驗證
 
-REST API 上的驗證是透過 Azure Active Directory(AAD)。
-如需有關如何為您的 Media Services 帳戶取得必要的驗證詳細資料，從 Azure 入口網站的詳細資訊，請參閱[存取 Azure 媒體服務 API 與 Azure AD 驗證](media-services-use-aad-auth-to-access-ams-api.md)。
+REST API 上的驗證是透過 Azure Active Directory (AAD) 來進行。
+如需如何從 Azure 入口網站為您的媒體服務 帳戶取得必要驗證詳細資料的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。
 
-如需撰寫程式碼連接至使用 Azure AD 驗證的 REST API 的詳細資訊，請參閱發行項[存取 Azure Media Services API，與其他使用 Azure AD 驗證](media-services-rest-connect-with-aad.md)。
+如需撰寫使用 Azure AD 驗證連接至 REST API 的程式碼的詳細資訊，請參閱文章[使用 Azure AD 驗證存取 Azure 媒體服務 REST API](media-services-rest-connect-with-aad.md)。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解如何使用媒體服務 REST API 與 Azure AD 驗證，請參閱[存取 Azure Media Services API，與其他使用 Azure AD 驗證](media-services-rest-connect-with-aad.md)。
+若要深入了解如何對媒體服務 REST API 使用 Azure AD 驗證，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 REST API](media-services-rest-connect-with-aad.md)。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

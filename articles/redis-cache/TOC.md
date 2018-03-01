@@ -1,3 +1,5 @@
+# [Redis 快取文件](index.md)
+
 # 概觀
 ##[為何使用 Redis 快取](https://azure.microsoft.com/services/cache/)
 ##[探索進階層功能](cache-premium-tier-intro.md)

@@ -1,6 +1,6 @@
 ---
-title: "建立 Windows VM 在 Azure 雲端介面中使用簡化的新 AzureRMVM cmdlet |Microsoft 文件"
-description: "快速了解如何使用簡化新增 AzureRMVM cmdlet 在 Azure 雲端介面中建立 Windows 虛擬機器。"
+title: "使用 Azure Cloud Shell 中簡化的 New-AzureRMVM Cmdlet 建立 Windows VM | Microsoft Docs"
+description: "快速了解如何在 Azure Cloud Shell 中使用簡化的 New-AzureRMVM Cmdlet 來建立 Windows 虛擬機器。"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -18,13 +18,13 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 94eb6232cf59d502a9d70545785c3788398f4d27
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>使用簡化的新 AzureRMVM cmdlet 在雲端介面中建立 Windows 虛擬機器 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>在 Cloud Shell 中使用簡化的 New-AzureRMVM Cmdlet 來建立 Windows 虛擬機器 
 
-[新增 AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm)新增一組精簡的參數建立新的 VM 使用 PowerShell cmdlet。 本主題說明如何使用 PowerShell 在 Azure 雲端命令介面中，以預先安裝，來建立新的 VM New-azurevm cmdlet 的最新版本。 我們將使用簡化的參數集，會自動建立所有必要的資源使用智慧型預設值。 
+[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) Cmdlet 已新增一組簡化的參數，用於使用 PowerShell 建立新的 VM。 本主題說明如何在 Azure Cloud Shell 中使用 PowerShell 搭配預先安裝的最新版本 New-AzureVM Cmdlet 來建立新的 VM。 我們將使用會使用智慧型預設值來自動建立所有必要資源的簡化參數集。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="create-the-vm"></a>建立 VM
 
-您可以使用[新增 AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm)指令程式來建立 VM 」 包含如何使用 Windows Server 2016 資料中心映像從 Azure Marketplace 的智慧型預設值。 您可以使用 新增-AzureRMVM 與只**-名稱**參數，並且將會使用該值做為所有資源名稱。 在此範例中，我們將 **-Name** 參數設為 *myVM*。 
+您可以使用 [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) Cmdlet 來建立虛擬機器，其中包括使用來自於 Azure Marketplace 的 Windows Server 2016 Datacenter 映像等智慧型預設值。 您可以使用 New-AzureRMVM 僅搭配 **-Name** 參數，它將會使用該值做為所有資源名稱。 在此範例中，我們將 **-Name** 參數設為 *myVM*。 
 
 請確定已在 Cloud Shell 中選取了 **PowerShell**，然後鍵入：
 
@@ -63,14 +63,14 @@ Get-AzureRmPublicIpAddress `
     -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-在您的本機電腦上開啟命令提示字元，並使用**mstsc**命令以啟動遠端桌面工作階段與新的 VM。 以虛擬機器的 IP 位址取代 &lt;publicIPAddress&gt;。 出現提示時，請輸入建立 VM 時指定的使用者名稱和密碼。
+在您的本機電腦上開啟命令提示字元，並使用 **mstsc** 命令以啟動遠端桌面工作階段與新的虛擬機器。 以虛擬機器的 IP 位址取代 &lt;publicIPAddress&gt;。 出現提示時，請輸入建立 VM 時指定的使用者名稱和密碼。
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 ## <a name="specify-different-resource-names"></a>指定不同的資源名稱
 
-您可以也提供更具描述性的名稱資源，仍會自動建立。 以下是範例，我們已命名多個資源為新的 VM，包括新的資源群組。
+您也可以為資源提供更具描述性的名稱，並且仍自動建立。 以下是我們為新 VM 命名多個資源的範例，包括新的資源群組。
 
 ```azurepowershell-interactive
 New-AzureRmVm `

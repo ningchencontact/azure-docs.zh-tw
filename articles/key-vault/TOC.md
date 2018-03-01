@@ -1,3 +1,5 @@
+# [Key Vault 文件](index.md)
+
 # 概觀
 ## [什麼是金鑰保存庫？](key-vault-whatis.md)
 ## [服務概觀](https://azure.microsoft.com/services/key-vault/)
@@ -60,5 +62,5 @@
 ## [部落格](http://blogs.technet.com/b/kv/)
 ## [程式碼範例](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [論壇](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
-## [定價](https://azure.microsoft.com/pricing/details/key-vault/)
+## [價格](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

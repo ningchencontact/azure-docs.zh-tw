@@ -1,6 +1,6 @@
 ---
-title: "建置和 Node.js Express 應用程式部署至 Azure 雲端服務"
-description: "建置並部署至 Azure 雲端服務的 node.js Express.js 應用程式"
+title: "建立 Node.js Express 應用程式並部署到 Azure 雲端服務"
+description: "在 Node.js 中建立 Express.js 應用程式並部署到 Azure 雲端服務"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -16,14 +16,14 @@ ms.date: 08/17/2017
 ms.author: cshoe
 ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>建置和部署 Azure 雲端服務上使用快速 Node.js web 應用程式
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>在 Azure 雲端服務上使用 Express 建置和部署 Node.js Web 應用程式
 
 Node.js 包含核心執行時期的一組最低功能。
-開發人員在開發 Node.js 應用程式時，通常會使用協力廠商模組來提供更多功能。 在本教學課程中您將建立新的應用程式使用[Express](https://github.com/expressjs/express)模組，可讓 MVC 架構建立 Node.js web 應用程式。
+開發人員在開發 Node.js 應用程式時，通常會使用協力廠商模組來提供更多功能。 在本教學課程中，您將使用 [Express](https://github.com/expressjs/express) 模組來建立新的應用程式，此模組提供用於建立 Node.js Web 應用程式的 MVC 架構。
 
 完成之應用程式的螢幕擷取畫面如下：
 

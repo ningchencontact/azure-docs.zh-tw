@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
@@ -111,7 +111,12 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 ## <a name="batching-store-access"></a>批次處理存放區存取
 
-為了提高佇列、主題或訂用帳戶的輸送量，服務匯流排會在寫入至其內部存放區時批次處理多個訊息。 如果在佇列或主題上啟用，將會批次處理訊息寫入至存放區。 如果在佇列或訂用帳戶上啟用，將會批次處理從存放區刪除訊息。 如果某個實體啟用批次處理的存放區存取，服務匯流排會延遲與該實體有關的存放區寫入作業，最多 20 毫秒。 在此間隔期間進行的其他存放區作業都會加入至批次。 批次處理的存放區存取只會影響**傳送**和**完成**作業；接收作業不會受到影響。 批次處理的存放區存取是實體上的屬性。 批次處理會在啟用批次處理存放區存取的所有實體進行。
+為了提高佇列、主題或訂用帳戶的輸送量，服務匯流排會在寫入至其內部存放區時批次處理多個訊息。 如果在佇列或主題上啟用，將會批次處理訊息寫入至存放區。 如果在佇列或訂用帳戶上啟用，將會批次處理從存放區刪除訊息。 如果某個實體啟用批次處理的存放區存取，服務匯流排會延遲與該實體有關的存放區寫入作業，最多 20 毫秒。 
+
+> [!NOTE]
+> 批次處理時沒有遺失訊息的風險，即使在 20ms 批次處理間隔結尾有服務匯流排失敗。 
+
+在此間隔期間進行的其他存放區作業都會加入至批次。 批次處理的存放區存取只會影響**傳送**和**完成**作業；接收作業不會受到影響。 批次處理的存放區存取是實體上的屬性。 批次處理會在啟用批次處理存放區存取的所有實體進行。
 
 建立新佇列、主題或訂用帳戶時，預設會啟用批次處理的存放區存取。 若要停用批次處理的存放區存取，請在建立實體之前將 [EnableBatchedOperations][EnableBatchedOperations] 屬性設為 **false**。 例如︰
 

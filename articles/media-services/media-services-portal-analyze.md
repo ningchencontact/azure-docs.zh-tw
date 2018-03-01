@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 入口網站分析您的媒體
 > [!NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
+> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相容性、安全性和遍及全球的觸角)，讓組織和企業從其影片檔輕鬆製作出能採取行動的深入見解內容。 如需更為詳細的 Azure 媒體服務分析概觀，請參閱[此主題](media-services-analytics-overview.md)。 
 
 本主題討論如何使用 Azure 入口網站，以媒體分析媒體處理器 (MP) 處理您的媒體。 媒體分析 MP 會產生 MP4 檔案或 JSON 檔案。 如果媒體處理器產生了 MP4 檔案，您可以漸進式下載檔案。 如果媒體處理器產生了 JSON 檔案，您可以從 Azure Blob 儲存體下載檔案。 
@@ -34,7 +34,7 @@ Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>選擇您要分析的資產
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
 2. 在 [設定] 視窗中，選取 [資產]。  
-   。
+   .
     ![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. 選取您要分析的資產，並按下 [分析] 按鈕。
    
@@ -135,6 +135,17 @@ Azure Media Hyperlapse 是能夠利用第一人稱視角或運動攝影的內容
 ### <a name="output-file"></a>輸出檔案
 可讓您識別輸出內容的易記名稱。 
 
+## <a name="azure-media-content-moderator"></a>Azure 媒體內容仲裁
+此處理器可協助您偵測影片中潛在的成人和猥褻內容。 處理器會自動偵測影片中的畫面和主要畫面格。 它會對主要畫面格是否有成人或猥褻內容評分，並且根據預設閾值建議檢閱。 如需詳細資訊和範例，請參閱[使用 Azure 媒體內容仲裁以仲裁影片](media-services-content-moderation.md)
+
+![仲裁影片](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>版本 
+使用 "2.0"。
+
+### <a name="mode"></a>Mode
+2.0 版忽略 `Mode` 設定。
+
 ## <a name="next-steps"></a>後續步驟
 檢視媒體服務學習路徑。
 
@@ -142,4 +153,3 @@ Azure Media Hyperlapse 是能夠利用第一人稱視角或運動攝影的內容
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

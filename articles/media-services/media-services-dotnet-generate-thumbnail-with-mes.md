@@ -16,13 +16,13 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何搭配 .NET 使用 Media Encoder Standard 產生縮圖
 
-您可以使用媒體編碼器標準，以 [JPEG](https://en.wikipedia.org/wiki/JPEG)、[PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 或 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 影像檔案格式，從您的輸入視訊中產生一或多個縮圖。 您可以送出只產生影像的工作，或是結合縮圖產生與編碼。 本文章提供幾個範例 XML 和 JSON 縮圖預設對於這類情況。 在本文結尾沒有[範例程式碼](#code_sample)，示範如何使用 Media Services.NET SDK，以完成編碼工作。
+您可以使用媒體編碼器標準，以 [JPEG](https://en.wikipedia.org/wiki/JPEG)、[PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 或 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 影像檔案格式，從您的輸入視訊中產生一或多個縮圖。 您可以送出只產生影像的工作，或是結合縮圖產生與編碼。 本文章提供幾個對於這類情況的範例 XML 和 JSON 縮圖預設。 在文章的結尾有[範例程式碼](#code_sample)，示範如何使用 Media Services .NET SDK，以完成編碼工作。
 
 如需用於範例預設中項目的詳細資料，您應該檢閱 [Media Encoder Standard 結構描述](media-services-mes-schema.md)。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
     
 ## <a name="example-of-a-single-png-file-preset"></a>「單一 PNG 檔」預設值範例
 
-下列 JSON 和 XML 預設值可以用來從輸入視訊的前幾秒產生單一輸出 PNG 檔，在這前幾秒，編碼器會進行最佳嘗試，尋找「有趣」的畫面。 請注意輸出影像尺寸，已設定為 100%，表示這些比對輸入視訊的維度。 另外也請注意，"Outputs" 中的 “Format” 設定必須如何符合 “Codecs” 區段中的 "PngLayers" 使用。 
+下列 JSON 和 XML 預設值可以用來從輸入視訊的前幾秒產生單一輸出 PNG 檔，在這前幾秒，編碼器會進行最佳嘗試，尋找「有趣」的畫面。 請注意，輸出影像大小已設定為 100%，表示這些會符合輸入視訊的大小。 另外也請注意，"Outputs" 中的 “Format” 設定必須如何符合 “Codecs” 區段中的 "PngLayers" 使用。 
 
 ### <a name="json-preset"></a>JSON 預設值
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>「特定時間戳記的一個影像」預設值範例
 
-下列 JSON 和 XML 預設可以用來產生單一的 JPEG 影像的視訊輸入 30 秒標記處。 此預設值必須為 30 秒以上的持續時間輸入的視訊 （其他作業失敗時）。
+下列 JSON 和 XML 預設可以用來在輸入視訊的 30 秒標記處產生單一 JPEG 影像。 此預設值會預期輸入視訊的持續時間為 30 秒以上 (否則作業會失敗)。
 
 ### <a name="json-preset"></a>JSON 預設值
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 12/11/2017
     
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>「不同解析度縮圖」的預設值範例
 
-您可以使用下列預設值，在一個工作中產生不同解析度的縮圖。 在範例中，在位置 5%，15%，95%的輸入時間軸，編碼器會產生兩個映像 – 其中一個輸入視訊的解析度，而另一個在 50%的 100%。
+您可以使用下列預設值，在一個工作中產生不同解析度的縮圖。 在範例中，編碼器會在輸入時間軸的 5%、15%、…、95% 等位置產生兩個影像，一個在輸入視訊解析度的 100% 位置，另一個在 50%。
 
 請注意 FileName 中的 {Resolution} 巨集用法；該巨集會指示編碼器使用的寬度與高度，是產生輸出影像的檔案名稱時，您在預設值編碼區段所指定的。 這也有助於您輕鬆區別不同影像
 
@@ -267,7 +267,7 @@ ms.lasthandoff: 12/11/2017
 上述範例已討論如何提交產生影像的編碼工作，但您也可以在縮圖產生時結合視訊/音訊編碼。 下列 JSON 和 XML 預設值會告知**媒體編碼器標準**在編碼期間產生縮圖。
 
 ### <a id="json"></a>JSON 預設值
-如需結構描述資訊，請參閱[這](https://msdn.microsoft.com/library/mt269962.aspx)發行項。
+如需結構描述的資訊，請參閱[這個](https://msdn.microsoft.com/library/mt269962.aspx)文章。
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ ms.lasthandoff: 12/11/2017
     }
 
 ### <a id="xml"></a>XML 預設值
-如需結構描述資訊，請參閱[這](https://msdn.microsoft.com/library/mt269962.aspx)發行項。
+如需結構描述的資訊，請參閱[這個](https://msdn.microsoft.com/library/mt269962.aspx)文章。
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -398,7 +398,7 @@ ms.lasthandoff: 12/11/2017
 * 加入事件處理常式來檢查工作進度。
 * 提交作業。
 
-請參閱[與.NET 的 Media Services 開發](media-services-dotnet-how-to-use.md)文件以取得有關如何設定開發環境的指示。
+請參閱[使用 .NET 的 Media Services 開發](media-services-dotnet-how-to-use.md)文章，以取得如何設定開發環境的指示。
 
 ```
 using System;
@@ -526,7 +526,7 @@ namespace EncodeAndGenerateThumbnails
 }
 ```
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 您必須考量下列事項：
 
 * 為 Start/Step/Range 使用明確的時間戳記會假設輸入來源至少為 1 分鐘的長度。
@@ -534,7 +534,7 @@ namespace EncodeAndGenerateThumbnails
   
   * 畫面格數目 (如果是非負整數)，例如 "Start": "120"、
   * 相對於持續時間 (如果以 % 尾碼表示)，例如 "Start": "15%"，或
-  * 時間戳記 (如果以 HH:MM:SS... format。 例如"Start":"00: 01:00"
+  * 時間戳記 (如果以 HH:MM:SS... format。 例如 "Start" : "00:01:00"
     
     您可以隨意混合使用標記法。
     

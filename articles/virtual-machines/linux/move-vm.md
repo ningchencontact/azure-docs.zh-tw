@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>使用 Azure CLI 移動 VM
 
 
-您可以移動您使用 CLI 的 VM 之前，您需要確定來源和目的地訂用帳戶存在於相同的租用戶。 若要檢查這兩個訂閱都有相同的租用戶識別碼，請使用[az 帳戶顯示](/cli/azure/account#az_account_show)。
+在使用 CLI 移動 VM 之前，您需要確定來源和目的地訂用帳戶存在於相同的租用戶。 若要檢查這兩個訂用帳戶是否有相同的租用戶識別碼，請使用 [az account show](/cli/azure/account#az_account_show)。
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -42,13 +42,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 如果來源和目的地訂用帳戶的租用戶識別碼不相同，您必須連絡[支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)以將資源移至新的租用戶。
 
-若要成功移動 VM，您需要移動 VM 及其所有支援的資源。 使用[az 資源清單](/cli/azure/resource#az_resource_list)命令，列出資源群組和其識別碼中的所有資源。 它有助於將此命令的輸出透過管線送至檔案，以便您將識別碼複製並貼到稍後的命令中。
+若要成功移動 VM，您需要移動 VM 及其所有支援的資源。 使用 [az resource list](/cli/azure/resource#az_resource_list) 命令來列出資源群組中的所有資源及其識別碼。 它有助於將此命令的輸出透過管線送至檔案，以便您將識別碼複製並貼到稍後的命令中。
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-若要將 VM 和其資源移至另一個資源群組中，使用[az 資源移動](/cli/azure/resource#az_resource_move)。 下列範例說明如何移動 VM 與其所需的大多數常見資源。 使用**-id**參數並以逗號分隔清單 （不含空格） 若要移動的資源識別碼的傳入。
+若要將 VM 與其資源移到另一個資源群組，請使用 [az resource move](/cli/azure/resource#az_resource_move)。 下列範例說明如何移動 VM 與其所需的大多數常見資源。 使用 **-ids** 參數，並針對要移動的資源傳入以逗號分隔的識別碼清單 (不含空格)。
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
@@ -64,9 +64,9 @@ az resource move \
     --destination-group "myDestinationResourceGroup"
 ```
 
-如果您想要將 VM 和其資源移至不同的訂用帳戶，新增**-目的地 subscriptionId**參數來指定目的地訂用帳戶。
+如果您想要將 VM 及其資源移至不同的訂用帳戶，請加入 **--destination-subscriptionId** 參數以指定目的地訂用帳戶。
 
-如果系統要求您確認您想要移動指定的資源。 輸入 **Y** 確認您要移除資源。
+如果系統要求您確認是否要移動指定的資源， 輸入 **Y** 確認您要移除資源。
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

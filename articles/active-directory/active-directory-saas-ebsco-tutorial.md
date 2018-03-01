@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>教學課程：Azure Active Directory 與 EBSCO 整合
 
 在本教學課程中，您將了解如何整合 EBSCO 與 Azure Active Directory (Azure AD)。
 
-整合 EBSCO 與 Azure AD 將會有下列優點：
+將 EBSCO 與 Azure AD 整合可提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 EBSCO 的人員。
-- 您可以讓使用者透過其 Azure AD 帳戶自動登入 EBSCO (單一登入)。
+- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 EBSCO (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
-若要設定 Azure AD 與 EBSCO 的整合，您需要下列項目：
+若要設定 Azure AD 與 EBSCO 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 EBSCO 單一登入功能的訂用帳戶
+- 已啟用 EBSCO 單一登入的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/01/2018
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-ebsco-from-the-gallery"></a>從資源庫新增 EBSCO
-若要設定將 EBSCO 整合到 Azure AD 中，您必須從資源庫將 EBSCO 新增至受控 SaaS 應用程式清單。
+若要設定將 EBSCO 整合到 Azure AD 中，您需要將 EBSCO 從資源庫新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 EBSCO，請執行下列步驟：**
 
@@ -76,11 +76,11 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者身分，設定及測試 EBSCO 的 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 EBSCO 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入順利運作，Azure AD 必須知道 EBSCO 與 Azure AD 中互相對應的使用者。 換句話說，必須建立 Azure AD 使用者和 EBSCO 中相關使用者之間的連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 EBSCO 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 EBSCO 中的相關使用者之間建立連結關聯性。
 
-若要設定及測試 EBSCO 的 Azure AD 單一登入，您必須完成下列建置區塊：
+若要設定及測試與 EBSCO 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -92,7 +92,7 @@ ms.lasthandoff: 02/01/2018
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 EBSCO 應用程式中設定單一登入。
 
-**若要使用 EBSCO 設定 Azure AD 單一登入，請執行下列步驟：**
+**若要設定與 EBSCO 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [EBSCO] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -104,24 +104,24 @@ ms.lasthandoff: 02/01/2018
 
 3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [EBSCO 網域和 URL] 區段上執行下列步驟：
 
-    ![EBSCO 網域和 URL 單一登入資訊](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
+    ![EBSCO 網域及 URL 單一登入資訊](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
 
     在 [識別碼] 文字方塊中，輸入 URL：`pingsso.ebscohost.com`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
-    ![EBSCO 網域和 URL 單一登入資訊](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
+    ![EBSCO 網域及 URL 單一登入資訊](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
      
     > [!NOTE] 
-    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [EBSCO 客戶支援小組](mailto:sso@ebsco.com)以取得此值。 
+    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [EBSCO 用戶端支援小組](mailto:sso@ebsco.com)以取得此值。 
 
     o   **唯一元素：**  
 
-       **Custid** = 輸入唯一的 EBSCO 客戶識別碼 
+    o   **Custid** = 輸入唯一的 EBSCO 客戶識別碼 
 
-       **Profile** = 客戶可以自訂連結，將使用者導向至特定的設定檔 (視他們向 EBSCO 購買的產品而定)。 他們可以輸入特定的設定檔識別碼。 主要識別碼是 eds (EBSCO 探索服務) 和 ehost (EBSOCOhost 資料庫)。 相同項目的指示提供於[這裡](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)。
+    o   **Profile** = 客戶可以自訂連結，將使用者導向至特定的設定檔 (視他們向 EBSCO 購買的產品而定)。 他們可以輸入特定的設定檔識別碼。 主要識別碼是 eds (EBSCO 探索服務) 和 ehost (EBSOCOhost 資料庫)。 相同項目的指示提供於[這裡](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)。
 
 5. EBSCO 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
     
@@ -208,7 +208,7 @@ Azure AD 會將所需的資料傳遞至 EBSCO 應用程式。 EBSCO 的使用者
  
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 EBSCO 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 EBSCO 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 ![指派使用者角色][200] 
 
@@ -240,7 +240,7 @@ Azure AD 會將所需的資料傳遞至 EBSCO 應用程式。 EBSCO 的使用者
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-1. 當您在存取面板中按一下 EBSCO 圖格時，應該會自動登入您的 EBSCO 應用程式。
+1. 當您在「存取面板」中按一下 [EBSCO] 圖格時，應該會自動登入您的 EBSCO 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 2. 登入應用程式後，請按一下右上角的 [登入] 按鈕。

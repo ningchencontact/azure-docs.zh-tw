@@ -14,11 +14,11 @@ ms.devlang: na
 ms.custom: mvc
 ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>佈建裝置與 Azure IoT 中樞裝置佈建的服務
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置佈建服務來佈建裝置
 Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所有的 IoT 方案需求。 IoT 中樞裝置佈建服務是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。
 
 ## <a name="when-to-use-device-provisioning-service"></a>何時要使用裝置佈建服務

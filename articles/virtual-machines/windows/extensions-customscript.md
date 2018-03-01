@@ -17,7 +17,7 @@ ms.date: 07/16/2017
 ms.author: danis
 ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -27,10 +27,10 @@ ms.lasthandoff: 01/04/2018
 
 本文件詳細說明如何透過 Azure PowerShell 模組、Azure Resource Manager 範本使用自訂指令碼擴充功能，同時也詳細說明 Windows 系統上的疑難排解步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!NOTE]  
-> 請勿使用相同的 VM 做為其參數，以執行更新 AzureRmVM，因為它將會等候上本身的自訂指令碼擴充。  
+> 請勿使用自訂指令碼擴充功能以相同的 VM 執行 Update-AzureRmVM 作為其參數，因為它會等候其本身。  
 >   
 > 
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/04/2018
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |

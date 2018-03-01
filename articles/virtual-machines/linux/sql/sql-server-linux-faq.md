@@ -14,7 +14,7 @@ ms.date: 12/13/2017
 ms.author: jroth
 ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -24,30 +24,30 @@ ms.lasthandoff: 12/21/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](sql-server-linux-faq.md)
 
-本文章提供有關執行的最常見的問題的解答[Linux Azure 虛擬機器上的 SQL Server](sql-server-linux-virtual-machines-overview.md)。
+本文提供關於 [Linux Azure 虛擬機器上的 SQL Server](sql-server-linux-virtual-machines-overview.md) 一些最常見執行問題解答。
 
 > [!NOTE]
-> 本文著重在 Linux Vm 上的 SQL Server 的特定問題。 如果您在 Windows VM 上執行 SQL Server，請參閱 [Windows 常見問題集](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)。
+> 本文將重點放在 Linux VM 上 SQL Server 的特定問題。 如果您在 Windows VM 上執行 SQL Server，請參閱 [Windows 常見問題集](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)。
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>映像
+## <a id="images"></a> 映像
 
-1. **哪些 SQL Server 虛擬機器圖庫映像可供使用？**
+1. **可用的 SQL Server 虛擬機器資源庫映像有哪些？**
 
-   Azure 會在所有版本上的 SQL Server 支援所有主要版本的虛擬機器映像維護適用於 Linux 和 Windows。 如需詳細資訊，請參閱的完整清單[Linux VM 映像](sql-server-linux-virtual-machines-overview.md#create)和[Windows VM 映像](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)。
+   Azure 會針對所有 Linux 和 Windows 版本上所有支援的 SQL Server 主要版本維護虛擬機器映像。 如需詳細資訊，請參閱完整的 [Linux VM 映像](sql-server-linux-virtual-machines-overview.md#create)和 [Windows VM 映像](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)清單。
 
-1. **更新現有的 SQL Server 虛擬機器圖庫映像嗎？**
+1. **現有的 SQL Server 虛擬機器資源庫映像是否已更新？**
 
-   每隔兩個月，虛擬機器庫中的 SQL Server 映像會更新最新的 Linux 和 Windows 更新。 針對 Linux 映像，這包括最新的系統更新。 針對 Windows 映像，這包括標示為重要 Windows 更新，包括重要的 SQL Server 安全性更新和 service pack 中的任何更新。 SQL Server 累計更新適用於 Linux 和 Windows 的處理方式不同。 適用於 Linux，SQL Server 累計更新也會包含在重新整理。 但在這個階段中，Windows Vm 不會更新 SQL Server 或 Windows Server 的累計更新。
+   每隔兩個月，系統會以最新的 Linux 和 Windows 更新來更新虛擬機器資源庫中的 SQL Server 映像。 若為 Linux 映像，這包括最新的系統更新。 若為 Windows 映像，這包括 Windows Update 中標示為重要的任何更新，其中包含重要的 SQL Server 安全性更新和 Service Pack。 適用於 Linux 和 Windows 的 SQL Server 累計更新會以不同的方式處理。 針對 Linux，SQL Server 累計更新也會包含在重新整理中。 但此時，系統不會以 SQL Server 或 Windows Server 累計更新來更新 Windows VM。
 
 1. **還安裝了哪些相關的 SQL Server 套件？**
 
    若要查看預設安裝在 SQL Server Linux VM 上的 SQL Server 套件，請參閱[已安裝的套件](sql-server-linux-virtual-machines-overview.md#packages)。
 
-1. **可以從資源庫移除 SQL Server 虛擬機器映像嗎？**
+1. **是否可以從資源庫中移除 SQL Server 虛擬機器映像？**
 
-   可以。 Azure 只會維護每個主要版本和版的一個映像。 比方說，新的 SQL Server service pack 發行時，Azure 會將新的映像加入至該服務的組件庫。 Azure 入口網站會立即移除前一個 service pack 的 SQL Server 映像。 不過，它是仍能從 PowerShell 佈建在下一步的三個月。 三個月之後，已無法再使用先前的服務組件映像。 如果 SQL Server 版本不支援它達到其生命週期結束時，也會適用於此移除原則。
+   是。 Azure 只會為每個主要版本維護一個映像。 例如，發行新的 SQL Server Service Pack 後，Azure 會將新的映像新增至該 Service Pack 的資源庫。 前一個 Service Pack 的 SQL Server 映像會立即從 Azure 入口網站中移除。 不過，在接下來三個月仍可用於從 PowerShell 佈建。 三個月之後，便無法再使用前一個 Service Pack 映像。 如果 SQL Server 版本在達到其生命週期結尾時就不提供支援，也適用此移除原則。
 
 ## <a name="creation"></a>建立
 
@@ -75,11 +75,11 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="administration"></a>系統管理
 
-1. **可以管理 Linux SQL Server 虛擬機器與 SQL Server Management Studio (SSMS) 嗎？**
+1. **我可以使用 SQL Server Management Studio (SSMS) 管理 Linux SQL Server 虛擬機器嗎？**
 
-   是，但 SSMS 目前僅限 Windows 的工具。 您必須從 Windows 電腦使用 Linux 的 SQL Server Vm 的 SSMS 從遠端連接。 Linux 上的本機新[mssql conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf)工具可以執行許多管理工作。 若要預覽的跨平台的資料庫管理工具，請參閱[SQL Server 作業 Studio （預覽）](https://docs.microsoft.com/sql/sql-operations-studio/what-is)。
+   是，但 SSMS 目前為僅限 Windows 的工具。 您必須從 Windows 電腦進行遠端連線，才能使用 SSMS 搭配 Linux SQL Server VM。 在 Linux 本機上，新的 [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) 工具可以執行許多管理工作。 若要預覽跨平台的資料庫管理工具，請參閱 [SQL Server Operations Studio (預覽)](https://docs.microsoft.com/sql/sql-operations-studio/what-is)。
 
-## <a name="updating-and-patching"></a>更新和修補程式
+## <a name="updating-and-patching"></a>更新和修補
 
 1. **如何將 Azure VM 中的 SQL Server 升級至新版本？**
 

@@ -1,5 +1,5 @@
 ---
-title: "對於 Azure 函式 （實驗） 的外部檔案繫結"
+title: "Azure Functions 的外部檔案繫結 (實驗性)"
 description: "使用 Azure Functions 中的外部檔案繫結"
 services: functions
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.date: 11/27/2017
 ms.author: alkarche
 ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-file-bindings-experimental"></a>Azure 函式的外部檔案繫結 （實驗）
-本文示範如何操作不同 SaaS 提供者 （例如 Dropbox 或 google 雲端硬碟） Azure 函式中的檔案。 Azure 函式支援觸發程序、 輸入和輸出的外部檔案的繫結。 這些繫結建立 SaaS 提供者，應用程式開發介面連接，或使用現有的應用程式開發介面連接從函式應用程式的資源群組。
+# <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 外部檔案繫結 (實驗性)
+本文示範如何在 Azure Functions 中操作不同 SaaS 提供者 (例如 Dropbox 或 Google Drive) 的檔案。 Azure Functions 支援適用於外部檔案的觸發程序、輸入和輸出繫結。 這些繫結會建立與 SaaS 提供者的 API 連線，或使用函式應用程式之資源群組的現有 API 連線。
 
 > [!IMPORTANT]
-> 外部檔案繫結是實驗性質，而可能永遠無法抵達通常可用 (GA) 狀態。 它們包含只在 Azure 中的函式 1.x 和沒有將它們加入至 Azure 函式計劃 2.x。 需要 SaaS 提供者中的資料存取的情況下，請考慮使用[函式呼叫的 logic apps](functions-twitter-email.md)。 請參閱[邏輯應用程式檔案系統連接器](../logic-apps/logic-apps-using-file-connector.md)。
+> 外部檔案繫結是實驗性質，且可能永遠無法觸達正式上市 (GA) 狀態。 它們只包含在 Azure Functions 1.x 中，且並未計劃將它們新增至 Azure Functions 2.x。 針對要求存取 SaaS 提供者中資料的情況，請考量使用[呼叫函式的邏輯應用程式](functions-twitter-email.md)。 請參閱 [Logic Apps 檔案系統連接器](../logic-apps/logic-apps-using-file-connector.md)。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="available-file-connections"></a>可用的檔案連接
+## <a name="available-file-connections"></a>可用檔案連線
 
 |連接器|觸發程序|輸入|輸出|
 |:-----|:---:|:---:|:---:|
@@ -41,11 +41,11 @@ ms.lasthandoff: 01/05/2018
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
-> 外部檔案的連接也可用在[Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)。
+> 外部檔案連線也可以用在 [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list) 中。
 
 ## <a name="trigger"></a>觸發程序
 
-外部檔案的觸發程序可讓您監視遠端資料夾，並執行您的函式程式碼，偵測到變更時。
+外部檔案觸發程序可讓您監視遠端資料夾，並且在偵測到變更時執行您的函式程式碼。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例顯示繫結中的外部檔案觸發程序*function.json*檔案和[C# 指令碼函式](functions-reference-csharp.md)所使用之繫結。 此函式會記錄受監視的資料夾中新增每個檔案的內容。
+下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會記錄每個新增到受監視資料夾的檔案內容。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -86,7 +86,7 @@ public static void Run(string myFile, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例顯示繫結中的外部檔案觸發程序*function.json*檔案和[JavaScript 函式](functions-reference-node.md)所使用之繫結。 此函式會記錄受監視的資料夾中新增每個檔案的內容。
+下列範例示範 function.json 檔案中的外部檔案觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 函式會記錄每個新增到受監視資料夾的檔案內容。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -123,8 +123,8 @@ module.exports = function(context) {
 |**type** | 必須設為 `apiHubFileTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | 代表函式程式碼中事件項目的變數名稱。 | 
-|**連接**| 識別儲存連接字串的應用程式設定。 當您在 Azure 入口網站中整合 UI 新增連線時，會自動建立的應用程式設定。|
-|**路徑** | 若要監視，資料夾和選擇性名稱模式。|
+|**連接**| 會識別儲存連接字串的應用程式設定。 應用程式設定會在您於 Azure 入口網站的整合 UI 中新增 API 連線時自動建立。|
+|**路徑** | 要監視的資料夾和選擇性的名稱模式。|
 
 ### <a name="name-patterns"></a>名稱模式
 
@@ -198,7 +198,7 @@ File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure st
 To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
 --->
 
-## <a name="trigger---poison-files"></a>觸發程序-有害的檔案
+## <a name="trigger---poison-files"></a>觸發程序 - 有害的檔案
 
 當外部檔案觸發程序函數失敗時，Azure Functions 依預設會針對指定的檔案重試該函數最多 5 次 (包括第一次嘗試)。
 如果 5 次嘗試全都失敗，函數會將訊息新增至名為 *webjobs-apihubtrigger-poison* 的儲存體佇列。 有害檔案的佇列訊息是包含下列屬性的 JSON 物件：
@@ -222,7 +222,7 @@ Azure 外部檔案輸入繫結可讓您在函數中使用來自外部資料夾�
 
 ### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
 
-下列範例示範外部檔案中的輸入和輸出繫結*function.json*檔案和[C# 指令碼函式](functions-reference-csharp.md)所使用之繫結。 函式會將輸入的檔案複製到輸出檔。
+下列範例說明 function.json 檔案中的外部檔案輸入和輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會將輸入檔案複製到輸出檔。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -267,7 +267,7 @@ public static void Run(string myQueueItem, string myInputFile, out string myOutp
 
 ### <a name="input---javascript-example"></a>輸入 - JavaScript 範例
 
-下列範例示範外部檔案中的輸入和輸出繫結*function.json*檔案和[JavaScript 函式](functions-reference-node.md)所使用之繫結。 函式會將輸入的檔案複製到輸出檔。
+下列範例說明 function.json 檔案中的外部檔案輸入和輸出繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會將輸入檔案複製到輸出檔。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -319,12 +319,12 @@ module.exports = function(context) {
 |**type** | 必須設為 `apiHubFile`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | 代表函式程式碼中事件項目的變數名稱。 | 
-|**連接**| 識別儲存連接字串的應用程式設定。 當您在 Azure 入口網站中整合 UI 新增連線時，會自動建立的應用程式設定。|
+|**連接**| 會識別儲存連接字串的應用程式設定。 應用程式設定會在您於 Azure 入口網站的整合 UI 中新增 API 連線時自動建立。|
 |**路徑** | 必須包含資料夾名稱和檔案名稱。 例如，如果您的函數中有[佇列觸發程序](functions-bindings-storage-queue.md)，您可以使用 `"path": "samples-workitems/{queueTrigger}"` 以指向 `samples-workitems` 資料夾中具有與觸發程序訊息中指定之檔案名稱相符之名稱的檔案。   
 
 ## <a name="input---usage"></a>輸入 - 使用方式
 
-在 C# 函數中，您使用函數簽章中的具名參數 (例如 `<T> <name>`) 繫結至輸入檔案資料。 `T`是您想要的資料分割，還原序列化的資料型別和`name`是您輸入的繫結中指定的名稱。 在 Node.js 函數中，您使用 `context.bindings.<name>` 存取輸入檔案資料。
+在 C# 函數中，您使用函數簽章中的具名參數 (例如 `<T> <name>`) 繫結至輸入檔案資料。 `T` 是您要用來還原序列化資料的資料類型，而 `name` 是您在輸入繫結中指定的名稱。 在 Node.js 函數中，您使用 `context.bindings.<name>` 存取輸入檔案資料。
 
 檔案可以還原序列化為下列任何一種類型︰
 
@@ -357,12 +357,12 @@ Azure 外部檔案輸出繫結可讓您在函數中將檔案寫入到外部資�
 |**type** | 必須設為 `apiHubFile`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | 必須設為 `out`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | 代表函式程式碼中事件項目的變數名稱。 | 
-|**連接**| 識別儲存連接字串的應用程式設定。 當您在 Azure 入口網站中整合 UI 新增連線時，會自動建立的應用程式設定。|
+|**連接**| 會識別儲存連接字串的應用程式設定。 應用程式設定會在您於 Azure 入口網站的整合 UI 中新增 API 連線時自動建立。|
 |**路徑** | 必須包含資料夾名稱和檔案名稱。 例如，如果您的函數中有[佇列觸發程序](functions-bindings-storage-queue.md)，您可以使用 `"path": "samples-workitems/{queueTrigger}"` 以指向 `samples-workitems` 資料夾中具有與觸發程序訊息中指定之檔案名稱相符之名稱的檔案。   
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 函數中，您使用繫結至輸出檔的具名`out`函式簽章中的參數喜歡`out <T> <name>`，其中`T`是您想要序列化的資料分割的資料型別和`name`是您在中指定的名稱輸出繫結。 在 Node.js 函數中，您會使用 `context.bindings.<name>` 存取輸出檔案。
+在 C# 函式中，您會使用函式簽章中名為 `out` 的參數 (例如 `out <T> <name>`) 繫結至輸出檔案，其中 `T` 是您需要用來將資料序列化的資料類型，而 `name` 是您在輸出繫結中指定的名稱。 在 Node.js 函數中，您會使用 `context.bindings.<name>` 存取輸出檔案。
 
 您可以使用下列任何類型來寫入到輸出檔案︰
 

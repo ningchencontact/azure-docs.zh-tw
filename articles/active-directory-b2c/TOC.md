@@ -1,3 +1,5 @@
+# [Azure AD B2C 文件](index.md)
+
 # [概觀](active-directory-b2c-overview.md)
 
 # 開始使用

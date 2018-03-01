@@ -40,9 +40,9 @@ Azure 內容傳遞網路提供兩種方式來控制檔案的快取方式：
 如何設定 CDN 快取規則：
 
 1. 開啟 Azure 入口網站，選取 CDN 設定檔，然後選取端點。
-2. 在 [設定] 下的左窗格中按一下**快取規則**。
+2. 在左側窗格的 [設定] 下方，按一下 [快取規則]。
 
-   ![CDN 快取規則 按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+   ![CDN [快取規則] 按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
 1. 建立全域快取規則，如下所示：
    1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]。

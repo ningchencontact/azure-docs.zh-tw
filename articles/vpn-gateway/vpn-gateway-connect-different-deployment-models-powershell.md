@@ -1,10 +1,10 @@
 ---
 title: "將傳統虛擬網路連接到 Azure Resource Manager VNet：PowerShell | Microsoft Docs"
-description: "了解如何使用 VPN 閘道和 PowerShell 在傳統 VNet 和 Resource Manager VNet 之間建立 VPN 連線"
+description: "使用 VPN 閘道和 PowerShell 在傳統 VNet 和 Resource Manager VNet 之間建立 VPN 連線。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 從不同的部署模型連接虛擬網路
 
-
-
-本文說明如何將傳統 VNet 連線到 Resource Manager VNet，以允許位於不同部署模型中的資源彼此通訊。 本文中的步驟使用 PowerShell，但您也可以選取這份清單中的文章，進而使用 Azure 入口網站建立此組態。
+本文可協助您將傳統 VNet 連線到 Resource Manager VNet，以允許位於不同部署模型中的資源彼此通訊。 本文中的步驟使用 PowerShell，但您也可以選取這份清單中的文章，進而使用 Azure 入口網站建立此組態。
 
 > [!div class="op_single_selector"]
 > * [入口網站](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -35,7 +33,7 @@ ms.lasthandoff: 12/21/2017
 
 將傳統 VNet 連線至 Resource Manager VNet，類似於將 VNet 連線至內部部署網站位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。 您可以在不同訂用帳戶和不同區域中的 VNet 之間建立連線。 只要設定的閘道是動態或路由式，您也可以連接已連線到內部部署網路的 Vnet。 如需 VNet 對 VNet 連線的詳細資訊，請參閱本文結尾處的 [VNet 對 VNet 常見問題集](#faq) 。 
 
-如果您的 VNet 位在相同區域，可以會改為考慮使用 VNet 對等互連進行連線。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。 
+如果您還沒有虛擬網路閘道，而且不想建立閘道，可能要考慮改為使用 VNet 對等互連連線您的 VNet。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
 ## <a name="before"></a>開始之前
 
@@ -76,10 +74,22 @@ GatewaySubnet = 192.168.0.0/26 <br>
 
 ## <a name="createsmgw"></a>區段 1 - 設定傳統 VNet
 ### <a name="1-download-your-network-configuration-file"></a>1.下載您的網路組態檔
-1. 在 PowerShell 主控台中以提高的權限登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。 您可以使用 SM PowerShell Cmdlet 來完成這個部分的設定。
+1. 在 PowerShell 主控台中以提高的權限登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。 本節中會使用傳統服務管理 (SM) Azure PowerShell Cmdlet。
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  取得您的 Azure 訂用帳戶。
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. 執行下列命令以匯出 Azure 網路組態檔。 您可以視需要變更此檔案的位置，以匯出至不同的位置。
 
@@ -169,13 +179,13 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   Login-AzureRmAccount
   ``` 
    
-  如果您有多個訂用帳戶，請取得 Azure 訂用帳戶的清單。
+  取得您的 Azure 訂用帳戶清單。
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  指定您要使用的訂用帳戶。
+  如果您有多個訂用帳戶，請指定您要使用的訂用帳戶。
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -183,8 +193,8 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 2. 建立區域網路閘道。 在虛擬網路中，區域網路閘道通常是指您的內部部署位置。 在此例中，區域網路閘道會參考您的傳統 VNet。 賦予它一個可供 Azure 參考的名稱，並且指定位址空間前置詞。 Azure 會使用您指定的 IP 位址前置詞來識別要傳送至內部部署位置的流量。 如果您稍後需要先在此調整資訊，再建立您的閘道，您可以修改下列值並再次執行範例。
    
    **-Name** 是您要指派給區域網路閘道的參考名稱。<br>
-   **-AddressPrefix**是傳統 VNet 位址空間。<br>
-   **-GatewayIpAddress**是傳統的 VNet 閘道的公用 IP 位址。 請務必變更下列範例，以反映正確的 IP 位址。<br>
+   **-AddressPrefix**是傳統 VNet 的位址空間。<br>
+   **-GatewayIpAddress** 是傳統 VNet 閘道的公用 IP 位址。 請務必變更下列範例，以反映正確的 IP 位址。<br>
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
@@ -205,7 +215,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 5. 擷取用於閘道的子網路。 在此步驟中，我們也會設定要用於下一個步驟中的變數。
    
    **-Name** 是 Resource Manager VNet 的名稱。<br>
-   **-ResourceGroupName**是 VNet 相關聯的資源群組。 此閘道子網路必須已為此 VNet 存在且命名為 GatewaySubnet  ，才能正常運作。<br>
+   **-ResourceGroupName** 是與 VNet 相關聯的資源群組。 此閘道子網路必須已為此 VNet 存在且命名為 GatewaySubnet  ，才能正常運作。<br>
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
@@ -308,4 +318,3 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ## <a name="faq"></a>VNet 對 VNet 常見問題集
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

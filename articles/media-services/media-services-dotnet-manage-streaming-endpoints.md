@@ -1,6 +1,6 @@
 ---
 title: "使用 .NET SDK 來管理串流端點。 | Microsoft Docs"
-description: "本文將說明如何管理與 Azure 入口網站的串流端點。"
+description: "本文章說明如何透過 Azure 入口網站管理串流端點。"
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -17,16 +17,16 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>使用 .NET SDK 來管理串流端點
 
 >[!NOTE]
->請務必檢閱[概觀](media-services-streaming-endpoints-overview.md)發行項。 此外，也請檢閱 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。
+>請務必檢閱[概觀](media-services-streaming-endpoints-overview.md)一文。 此外，也請檢閱 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。
 
-這篇文章中的程式碼顯示如何使用 Azure Media Services.NET SDK 的下列工作：
+本文章中的程式碼示範如何使用「Azure 媒體服務 .NET SDK」來執行下列工作：
 
 - 檢查預設串流端點。
 - 建立/新增新的串流端點。
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/11/2017
     >[!NOTE]
     >預設串流端點不可刪除。
 
-如需如何調整串流端點資訊，請參閱[這](media-services-portal-scale-streaming-endpoints.md)發行項。
+如需調整串流端點的相關資訊，請參閱[這篇](media-services-portal-scale-streaming-endpoints.md)文章。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 

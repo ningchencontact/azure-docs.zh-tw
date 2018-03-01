@@ -16,12 +16,12 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知
-執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本文示範如何使用 webhook。
+執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本文說明如何使用 Webhook。
 
 本文將說明如何
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 12/11/2017
     >繼續之前，請確定您了解 [Azure Functions HTTP 和 Webhook 繫結](../azure-functions/functions-bindings-http-webhook.md)的運作方式。
     >
     
-* 將 Webhook 新增至您的編碼工作，並指定這個 Webhook 所回應的 Webhook URL 和秘密金鑰。 您會發現將 webhook 加入至您在本文結尾處的編碼工作的範例。  
+* 將 Webhook 新增至您的編碼工作，並指定這個 Webhook 所回應的 Webhook URL 和秘密金鑰。 您將在本文結尾處找到有關將 Webhook 新增至編碼工作的範例。  
 
-您可以找到的各種媒體服務.NET Azure 函式定義 （包括這篇文章中所示）[這裡](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)。
+您可以在[這裡](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) \(英文\) 找到各種媒體服務 .NET Azure Functions 的定義 (包括本文所示的定義)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目，才能完成教學課程：
 
@@ -54,9 +54,9 @@ ms.lasthandoff: 12/11/2017
 
 開發媒體服務函式時，您可以很方便地新增要在整個函式中使用的環境變數。 若要設定應用程式設定，請按一下 [設定應用程式設定] 連結。 
 
-[應用程式設定](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings)區段會定義使用參數在此發行項中定義此 webhook。 另外，請將下列參數新增至應用程式設定。 
+[應用程式設定](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings)區段會定義用於本文所定義之 Webhook 的參數。 另外，請將下列參數新增至應用程式設定。 
 
-|名稱|定義|範例| 
+|Name|定義|範例| 
 |---|---|---|
 |SigningKey |簽署金鑰。| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==。|
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="files"></a>檔案
 
-您的 Azure 函式會與本節所述的程式碼檔案和其他檔案建立關聯。 根據預設，函式會與 **function.json** 和 **run.csx** (C#) 檔案相關聯。 您需要加入**project.json**檔案。 本節其餘部分會說明這些檔案的定義。
+您的 Azure 函式會與本節所述的程式碼檔案和其他檔案建立關聯。 根據預設，函式會與 **function.json** 和 **run.csx** (C#) 檔案相關聯。 您必須新增 **project.json** 檔案。 本節其餘部分會說明這些檔案的定義。
 
 ![檔案](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

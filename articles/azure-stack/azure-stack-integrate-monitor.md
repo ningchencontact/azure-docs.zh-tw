@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
-「適用於：Azure Stack 整合系統」
+針對外部監視 Azure Stack 基礎結構，您需要監視 Azure Stack 軟體、實體電腦和實體網路交換器。 每個區域都會提供方法來擷取健康情況和警示資訊：
 
-針對外部監視 Azure Stack 基礎結構，您需要監視 Azure Stack 軟體、實體電腦和實體網路交換器。 每個區域都會提供方法來擷取健康情況和警示資訊。
-
-- Azure Stack 軟體提供以 REST 為基礎的 API 來擷取健康情況和警示。 (藉由使用儲存空間直接存取之類的軟體定義技術，儲存裝置健康情況和警示是軟體監視的一部分。)
+- Azure Stack 軟體提供以 REST 為基礎的 API 來擷取健康情況和警示。 (藉由使用儲存空間直接存取之類的軟體定義技術，儲存裝置健康情況和警示是軟體監視的一部分。)。
 - 實體電腦可讓健康情況和警示資訊透過基礎板管理控制器 (BMC) 提供。
 - 實體網路裝置可讓健康情況和警示資訊透過 SNMP 通訊協定提供。
 
@@ -48,16 +46,16 @@ ms.lasthandoff: 02/01/2018
 
 Azure Stack 的管理組件提供下列功能：
 
-- 您可以管理多個 Azure Stack 部署。
-- 支援 Azure Active Directory (Azure AD) 和 Active Directory 同盟服務 (AD FS)。
-- 您可以擷取和關閉警示。
-- 提供健康情況和容量儀表板。
-- 包含當修補和更新 (P&U) 進行時的自動維護模式偵測。
-- 包含針對部署和區域的強制更新工作。
-- 您可以將自訂資訊新增至區域。
-- 支援通知與報告。
+- 您可以管理多個 Azure Stack 部署
+- 支援 Azure Active Directory (Azure AD) 和 Active Directory 同盟服務 (AD FS)
+- 您可以擷取和關閉警示
+- 提供健康情況和容量儀表板
+- 包含當修補和更新 (P&U) 進行時的自動維護模式偵測
+- 包含針對部署和區域的強制更新工作
+- 您可以將自訂資訊新增至區域
+- 支援通知與報告
 
-您可以在[這裡](https://www.microsoft.com/en-us/download/details.aspx?id=55184)或直接從 Operations Manager 下載 Microsoft Azure Stack 適用的 System Center 管理組件和相關聯的使用者指南。
+您可以下載 Microsoft Azure Stack 適用的 System Center 管理組件和相關聯的[使用者指南](https://www.microsoft.com/en-us/download/details.aspx?id=55184)，或直接從 Operations Manager 使用。
 
 如需票證解決方案，您可以將 Operations Manager 與 System Center Service Manager 整合。 整合的產品連接器會啟用雙向通訊，可讓您在解決 Service Manager 中的服務要求之後關閉 Azure Stack 和 Operations Manager 中的警示。
 

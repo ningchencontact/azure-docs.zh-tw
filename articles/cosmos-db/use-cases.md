@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: mimig
 ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="introduction"></a>簡介
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 的全域分散式資料庫服務。 此服務的設計目的，是要讓客戶在任意數目的地理區域彈性地 (且獨立地) 調整輸送量和儲存空間。 Azure Cosmos DB 是現今市場中第一個提供涵蓋輸送量、延遲、可用性及一致性之全方位[服務等級協定](https://azure.microsoft.com/support/legal/sla/cosmos-db/)的全域分散式資料庫服務。 
 
-Azure Cosmos DB 是一種全域分散式、多模型資料庫，廣泛用於各種應用程式和使用案例。 對於任何需要低毫秒級回應時間及需要快速且全域調整的[無伺服器](http://azure.com/serverless)應用程式來說，它是一個理想的選擇。 它支援多個資料模型 (索引鍵-值、 文件、 圖形和單欄式) 和資料的許多應用程式開發介面存取包括[MongoDB API](mongodb-introduction.md)， [SQL API](documentdb-introduction.md)， [Graph API (Gremlin)](graph-introduction.md)，和[資料表 API](table-introduction.md)原生的和可延伸的方式。 
+Azure Cosmos DB 是一種全域分散式、多模型資料庫，廣泛用於各種應用程式和使用案例。 對於任何需要低毫秒級回應時間及需要快速且全域調整的[無伺服器](http://azure.com/serverless)應用程式來說，它是一個理想的選擇。 它以原生方式和可延伸的方式支援多個資料模型 (索引鍵-值、文件、圖形及單欄式) 和許多 API (包括 [MongoDB API](mongodb-introduction.md)、[SQL API](documentdb-introduction.md)、[圖形 API (Gremlin)](graph-introduction.md) 及[資料表 API](table-introduction.md)) 來進行資料存取。 
 
 以下是 Azure Cosmos DB 的一些特性，可讓 Cosmos DB 非常適合用於有全域發展企圖的高效能應用程式。
 

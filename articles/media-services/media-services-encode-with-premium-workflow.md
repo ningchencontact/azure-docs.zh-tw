@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 0cb7c7c33866ea078ab597e71cb56a601929f8f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c5c9571b0a94fe353e37d27303cc1cd7c5373abc
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>使用 Media Encoder Premium Workflow 進行進階編碼
 > [!NOTE]
-> 無法在中國使用本文所討論的媒體編碼器高階工作流程媒體處理器。
+> 本文中討論的媒體編碼器高階工作流程媒體處理器無法在中國使用。
 >
 >
 
-如有進階編碼器的問題，請傳送電子郵件到 mepd@Microsoft.com。
+如有進階編碼器的問題，請傳送電子郵件到 mepd@microsoft.com。
 
 ## <a name="overview"></a>概觀
 Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處理器。 此處理器為高階隨選工作流程提供先進的編碼功能。
@@ -33,9 +33,9 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 以下主題說明 **Media Encoder Premium Workflow**的相關詳細資料：
 
 * [Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) – 討論 **Media Encoder Premium Workflow**支援的檔案格式和轉碼器。
-* [概觀與比較 Azure 隨 media 編碼器](media-services-encode-asset.md)比較的編碼功能**媒體編碼器高階工作流程**和**媒體編碼器標準**。
+* [Azure 隨選媒體編碼器的概觀和比較](media-services-encode-asset.md)比較**媒體編碼器高階工作流程**和**媒體編碼器標準**的編碼功能。
 
-本文示範如何使用**媒體編碼器高階工作流程**使用.NET。
+本文示範如何使用 .NET 以**媒體編碼器高階工作流程**進行編碼。
 
 **Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。 這些檔案具有 .workflow 副檔名，並且使用 [工作流程設計工具](media-services-workflow-designer.md) 工具建立。
 
@@ -58,7 +58,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 3. 取得 “Media Encoder Premium Workflow” 媒體處理器。
 4. 建立工作 (Job) 和工作 (Task)。
 
-    在大部分情況下，工作的組態字串是空的 (如下列範例)。 有一些進階的案例 （這需要您以動態方式設定執行階段屬性） 在此情況下，您會提供 XML 字串編碼工作。 這類案例的範例包括：建立疊加、平行或循序的媒體編結、顯示字幕。
+    在大部分情況下，工作的組態字串是空的 (如下列範例)。 在一些進階的案例 (會要求您動態設定執行階段屬性) 情況下，您可以提供 XML 字串給編碼工作。 這類案例的範例包括：建立疊加、平行或循序的媒體編結、顯示字幕。
 5. 將兩個輸入資產加入工作 (Task)。
 
     1. 第一個 – 工作流程資產。
@@ -230,7 +230,7 @@ namespace MediaEncoderPremiumWorkflowSample
 }
 ```
 
-如有進階編碼器的問題，請傳送電子郵件到 mepd@Microsoft.com。
+如有進階編碼器的問題，請傳送電子郵件到 mepd@microsoft.com。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

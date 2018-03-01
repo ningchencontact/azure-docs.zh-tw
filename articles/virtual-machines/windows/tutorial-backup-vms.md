@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
@@ -78,7 +78,7 @@ Azure 備份服務開始備份作業時，會觸發備份擴充功能以建立�
     ![預設的 IIS 網頁](./media/tutorial-backup-vms/iis-broken.png)
 
 5. 在您的本機電腦上，開啟新的索引標籤並前往 [Azure 入口網站](https://portal.azure.com)。
-6. 在左側功能表中選取**虛擬機器**並從清單中選取 VM。
+6. 在左邊的功能表上，選取 [虛擬機器]，然後從清單中選取虛擬機器。
 8. 在 VM 刀鋒視窗的 [設定] 區段中，按一下 [備份]。 [備份] 刀鋒視窗隨即開啟。 
 9. 在刀鋒視窗頂端的功能表中，選取 [檔案復原]。 [檔案復原] 刀鋒視窗隨即開啟。
 10. 在 [步驟 1︰選取復原點] 中，從下拉式清單選取復原點。

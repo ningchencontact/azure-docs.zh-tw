@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -482,17 +482,32 @@ ms.lasthandoff: 01/11/2018
 ### <a name="section-name-securityclientx509names"></a>區段名稱：Security/ClientX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態| |
 
 ### <a name="section-name-securityclusterx509names"></a>區段名稱：Security/ClusterX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態| |
 
 ### <a name="section-name-securityserverx509names"></a>區段名稱：Security/ServerX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>區段名稱：Security/ClientCertificateIssuerStores
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap，預設值為 [無] |動態|用戶端憑證的 X509 簽發者憑證存放區；名稱 = clientIssuerCN；值 = 存放區的以逗號分隔清單 |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>區段名稱：Security/ClusterCertificateIssuerStores
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap，預設值為 [無] |動態|叢集憑證的 X509 簽發者憑證存放區；名稱 = clusterIssuerCN；值 = 存放區的以逗號分隔清單 |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>區段名稱：Security/ServerCertificateIssuerStores
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap，預設值為 [無] |動態|伺服器憑證的 X509 簽發者憑證存放區；名稱 = serverIssuerCN；值 = 存放區的以逗號分隔清單 |
 
 ### <a name="section-name-securityclientaccess"></a>區段名稱︰Security/ClientAccess
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -583,7 +598,7 @@ PropertyGroup|X509NameMap，預設值為 None|動態| |
 |CreateComposeDeployment|字串，預設值為 L"Admin"| 動態|建立撰寫檔案所描述的撰寫部署 |
 |DeleteComposeDeployment|字串，預設值為 L"Admin"| 動態|刪除撰寫部署 |
 |UpgradeComposeDeployment|字串，預設值為 L"Admin"| 動態|升級撰寫部署 |
-|ResolveSystemService|字串，預設值為 L"Admin\|\|User"|動態| 用於解析系統服務的安全性組態 |
+|ResolveSystemService|字串，預設值為 "Admin\|\|User"|動態| 用於解析系統服務的安全性組態 |
 |GetUpgradeOrchestrationServiceState|字串，預設值為 L"Admin"| 動態|在資料分割上引發 GetUpgradeOrchestrationServiceState |
 |SetUpgradeOrchestrationServiceState|字串，預設值為 L"Admin"| 動態|在資料分割上引發 SetUpgradeOrchestrationServiceState |
 
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap，預設值為 None|動態| |
 |MaxDataMigrationTimeout |時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 在網狀架構升級之後，資料移轉復原作業的逾時上限。 |
 |MaxOperationRetryDelay |時間 (秒)，預設值為 5|動態| 以秒為單位指定時間範圍。 發生失敗時的內部重試延遲上限。 |
 |ReplicaSetCheckTimeoutRollbackOverride |時間 (秒)，預設值為 1200 |動態| 以秒為單位指定時間範圍。 如果 ReplicaSetCheckTimeout 設為 DWORD 的最大值，則會以此組態的值加以覆寫以便進行復原。 向前復原所使用的值絕不會遭到覆寫。 |
-|ImageBuilderJobQueueThrottle |整數，預設值為 10 |動態|Image Builder Proxy 作業佇列對於應用程式要求的執行緒計數節流。 |
-|MaxExponentialOperationRetryDelay|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|動態|以秒為單位指定時間範圍。 重複發生失敗時的內部重試指數延遲上限 |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>區段名稱：DefragmentationEmptyNodeDistributionPolicy
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
