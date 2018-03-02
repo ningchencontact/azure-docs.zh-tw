@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
 如果物件未如預期般同步至 Azure AD，則可能是數個原因所造成。 如果您從 Azure AD 收到錯誤電子郵件，或是在 Azure AD Connect Health 中看到錯誤，則請改為閱讀[針對匯出錯誤進行疑難排解](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果您要針對物件不在 Azure AD 中的問題進行疑難排解，則本主題正適合您。 它說明如何尋找內部部署元件 Azure AD Connect 同步中的錯誤。
+
+>[!IMPORTANT]
+>對於 <verison> 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用[疑難排解工作](active-directory-aadconnect-troubleshoot-objectsync.md)，針對物件同步處理問題進行疑難排解。 
 
 為了尋找錯誤，您將依下列順序查看幾個不同的地方：
 
@@ -36,7 +39,7 @@ ms.lasthandoff: 01/18/2018
 Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始進行疑難排解的地方。 [作業] 索引標籤顯示最新作業的結果。  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-上半部會以紀事輯順序來顯示所有執行。 根據預設，作業記錄會保留最後 7 天的相關資訊，但是您可以利用 [排程器](active-directory-aadconnectsync-feature-scheduler.md)來變更此設定。 若您想要尋找任何未顯示成功狀態的執行。 您可以按一下標頭來變更排序。
+上半部會依時間順序顯示所有執行。 根據預設，作業記錄會保留最後 7 天的相關資訊，但是您可以利用 [排程器](active-directory-aadconnectsync-feature-scheduler.md)來變更此設定。 若您想要尋找任何未顯示成功狀態的執行。 您可以按一下標頭來變更排序。
 
 [狀態]  欄位是最重要的資訊，並顯示最嚴重的執行問題。 以下快速摘要依照優先順序來調查的最常見狀態 (其中 * 表示數個可能的錯誤字串)。
 
@@ -78,7 +81,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 
 另一個實用的搜尋是選取 [Azure AD 連接器]，然後在 [範圍] 中選取 [擱置匯入]，接著選取 [新增] 核取方塊。 此搜尋會提供您 Azure AD 中無法與內部部署物件建立關聯的所有已同步處理物件。  
 ![連接器空間搜尋孤立物件](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-這些物件是由另一個同步引擎所建立，或是由具有不同篩選組態的同步引擎所建立。 此檢視是一個由不再受控「孤立」物件所組成的清單。 您應該檢閱此清單，然後考慮使用 [Azure AD PowerShell](http://aka.ms/aadposh) Cmdlet 來移除這些物件。
+這些物件是由另一個同步引擎所建立，或是由具有不同篩選組態的同步引擎所建立。 此檢視是一個由不再受控「孤立」物件所組成的清單。 您應該檢閱此清單，然後考慮使用 [Azure AD PowerShell](https://aka.ms/aadposh) Cmdlet 來移除這些物件。
 
 ### <a name="cs-import"></a>CS 匯入
 當您開啟 cs 物件時，頂端會出現數個索引標籤。 [匯入]  索引標籤會顯示匯入後暫存的資料。  

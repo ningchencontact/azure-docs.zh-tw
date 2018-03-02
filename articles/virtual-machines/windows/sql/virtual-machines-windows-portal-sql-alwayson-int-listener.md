@@ -4,7 +4,7 @@ description: "在 Azure 虛擬機器中建立 SQL Server 的 AlwaysOn 可用性�
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中設定 Always On 可用性群組的負載平衡器
 本文說明如何在使用 Azure Resource Manager 執行的 Azure 虛擬機器中建立 SQL Server AlwaysOn 可用性群組的負載平衡器。 當 SQL Server 執行個體位於 Azure 虛擬機器時，可用性群組需要負載平衡器。 負載平衡器會儲存可用性群組接聽程式的 IP 位址。 如果可用性群組跨越多個區域，則每個區域都需要負載平衡器。
 
 若要完成這項工作，您必須在使用 Resource Manager 執行的 Azure 虛擬機器上部署 SQL Server 可用性群組。 這兩部 SQL Server 虛擬機器必須屬於相同的可用性設定組。 您可以使用 [Microsoft 範本](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)在 Resource Manager 中自動建立可用性群組。 此範本會自動為您建立內部負載平衡器。 
 
-如果您想要的話，也可以 [手動設定可用性群組](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
+如果您想要的話，也可以 [手動設定可用性群組](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
 
 本文會要求您已經設定可用性群組。  
 
 相關主題包括：
 
-* [在 Azure VM (GUI) 中設定 Always On 可用性群組](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [在 Azure VM (GUI) 中設定 Always On 可用性群組](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [使用 Azure Resource Manager 和 PowerShell 來設定 VNet 對 VNet 連線](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 依照本文逐步執行，在 Azure 入口網站中建立和設定負載平衡器。 此程序完成之後，您會設定叢集，以將來自負載平衡器的 IP 位址使用於可用性群組接聽程式。
@@ -269,6 +269,34 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 6. [在 PowerShell 中設定叢集參數](#setparam)。
 
 當您設定可用性群組以使用新的 IP 位址之後，請設定與接聽程式間的連線。 
+
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>為分散式可用性群組新增負載平衡規則
+
+如果可用性群組加入分散式可用性群組中，負載平衡器會需要額外的規則。 此規則會儲存分散式可用性群組接聽程式所使用的連接埠。
+
+>[!IMPORTANT]
+>只有在可用性群組加入[分散式可用性群組](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)時，才適用此步驟。 
+
+1. 在加入分散式可用性群組的每個伺服器上，對分散式可用性群組接聽程式的 TCP 連接埠建立輸入規則。 在許多範例中，文件會使用 5022。 
+
+1. 在 Azure 入口網站中，按一下負載平衡器，按一下 [負載平衡器規則]，然後按一下 [+新增]。 
+
+1. 使用下列設定來建立負載平衡規則：
+
+   |設定 |值
+   |:-----|:----
+   |**名稱** |用來識別分散式可用性群組之負載平衡規則的名稱。 
+   |**前端 IP 位址** |使用和可用性群組相同的前端 IP 位址。
+   |**通訊協定** |TCP
+   |**連接埠** |5022 - [分散式可用性群組端點接聽程式](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)的連接埠。</br> 可以是任何可用連接埠。  
+   |**後端連接埠** | 5022 - 使用和 [連接埠] 相同的值。
+   |**後端集區** |包含虛擬機器和 SQL Server 執行個體的集區。 
+   |**健康狀態探查** |選擇您所建立的探查。
+   |**工作階段持續性** |None
+   |**閒置逾時 (分鐘)** |預設值 (4)
+   |**浮動 IP (伺服器直接回傳)** | 已啟用
+
+針對其他加入分散式可用性群組之可用性群組上的負載平衡器重複這些步驟。
 
 ## <a name="next-steps"></a>後續步驟
 

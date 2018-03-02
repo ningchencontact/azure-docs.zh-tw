@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -500,7 +500,7 @@ ms.lasthandoff: 02/14/2018
 |clock-skew|時間範圍。 用來指定權杖簽發者和 API 管理執行個體的系統時鐘之間最大預期時間差異。|否|0 秒|  
 |failed-validation-error-message|如果 JWT 未通過驗證，在 HTTP 回應主體中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。|否|預設錯誤訊息視驗證問題而定，例如「JWT 不存在」。|  
 |failed-validation-httpcode|JWT 未通過驗證時所要傳回的 HTTP 狀態碼。|否|401|  
-|header-name|保留權杖的 HTTP 標頭名稱。|必須指定 `header-name` 或 `query-paremeter-name`；但不能同時指定。|N/A|  
+|header-name|保留權杖的 HTTP 標頭名稱。|必須指定 `header-name` 或 `query-parameter-name`；但不能同時指定。|N/A|  
 |id|`key` 元素的 `id` 屬性可讓您指定要與權杖中的 `kid` 宣告 (如果存在) 進行比對的字串，以找出適合用於簽章驗證的金鑰。|否|N/A|  
 |match|`claim` 元素的 `match` 屬性可指定原則中的每個宣告值是否都必須存在於權杖，才能驗證成功。 可能的值包括：<br /><br /> -                          `all` - 原則中的每個宣告值都必須存在於權杖，才能驗證成功。<br /><br /> -                          `any` - 至少一個宣告必須存在於權杖，才能驗證成功。|否|所有|  
 |query-paremeter-name|保留權杖的查詢參數名稱。|必須指定 `header-name` 或 `query-paremeter-name`；但不能同時指定。|N/A|  
@@ -508,7 +508,7 @@ ms.lasthandoff: 02/14/2018
 |require-scheme|權杖結構描述的名稱，例如"Bearer"。 當已設定此屬性時，原則將會確定指定的結構描述存在於授權標頭值中。|否|N/A|
 |require-signed-tokens|布林值。 指定是否需要簽署權杖。|否|true|  
 |分隔符號|字串。 指定用於從多重值宣告中擷取一組值的分隔符號 (例如 ",")。|否|N/A| 
-|url|可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。|yes|N/A|  
+|url|可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。  對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。|yes|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure 串流分析事件的順序考量
 
@@ -70,6 +70,9 @@ Azure 串流分析會依時間戳記順序產生輸出，並提供處理順序�
 * **捨棄**︰放棄。
 
 當串流分析重新排序順序錯亂容錯時間內收到的事件時，查詢的輸出將受到順序錯亂容錯時間所延遲。
+
+### <a name="early-events"></a>早期事件
+按照應用時間處理時，系統會根據選取的組態選項，捨棄或調整其應用時間領先其抵達時間 5 分鐘以上的事件。
 
 ### <a name="example"></a>範例
 

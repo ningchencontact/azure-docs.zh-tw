@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>管理 Azure DevTest Labs 公式
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/02/2018
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 
 3. 從實驗室清單中，選取所需的實驗室。  
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/02/2018
     * **密碼** - 從下拉式清單中輸入或選取一個值，該值與您想用於指定使用者的密碼相關聯。 如需密碼的詳細資訊，請參閱 [Azure DevTest Labs︰個人密碼存放區](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/)。
     * **虛擬機器磁碟類型** - 指定 HDD (硬碟) 或 SSD (固態硬碟)，以表示使用此基本映像佈建的虛擬機器可使用哪種儲存磁碟類型。
     * **虛擬機器大小** - 選取其中一個預先定義的項目，以指定要建立之 VM 的處理器核心、RAM 大小和硬碟大小。 
-    * **構件** - 選取以開啟 [新增構件] 刀鋒視窗，以選取並設定您想要新增至基本映像的構件。 如需成品的詳細資訊，請參閱[建立 Azure DevTest Labs 虛擬機器的自訂成品](devtest-lab-artifact-author.md)。
+    * **構件** - 選取以開啟 [新增構件] 刀鋒視窗，以選取並設定您想要新增至基本映像的構件。 如需構件的詳細資訊，請參閱[建立 Azure DevTest Labs 虛擬機器的自訂構件](devtest-lab-artifact-author.md)。
     * **進階設定** - 選取以開啟 [進階] 刀鋒視窗，以進行下列設定︰
         * **虛擬網路** - 指定所需的虛擬網路。
         * **子網路** - 指定所需的子網路。    
@@ -87,7 +87,7 @@ ms.lasthandoff: 01/02/2018
 > 
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
 4. 在實驗室的 [概觀]  刀鋒視窗中，選取要從中建立公式的 VM。
    
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/02/2018
 若要修改公式，請遵循下列步驟︰
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
 4. 在實驗室的刀鋒視窗上，選取 [公式 (可重複使用的基底)] 。
    
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/02/2018
 若要刪除公式，請遵循下列步驟︰
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
 4. 在實驗室的 [設定] 刀鋒視窗上，選取 [公式]。
    

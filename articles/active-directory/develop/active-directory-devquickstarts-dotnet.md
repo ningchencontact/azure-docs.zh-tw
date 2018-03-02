@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET 桌面 (WPF) 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/24/2018
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列上按一下您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側瀏覽區中的 [更多服務]，然後選擇 [Azure Active Directory]。
+3. 按一下左側瀏覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選擇 [新增]。
 5. 遵照提示進行，並建立新的 **原生用戶端應用程式**。
   * 應用程式的 [ **名稱** ] 將對使用者說明您的應用程式

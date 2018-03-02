@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 554c5e6e3e3cfa2742ef27a3c1510176184b6bd0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ed2bb2fe159db146ee520fc600c8b11f2dd4f761
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 的高可用性
 本文說明如何確保 Azure Analysis Services 伺服器的高可用性。 
@@ -29,13 +29,14 @@ ms.lasthandoff: 11/02/2017
 
 * 將模型部署到其他區域的備援伺服器。 此方法需要平行處理主要伺服器和備援伺服器的資料，以確保所有伺服器保持同步。
 
-* 從主要伺服器備份資料庫並還原到備援伺服器上。 例如，您可以讓目標為 Azure 儲存體的夜間備份作業自動進行，並還原到其他區域的其他備援伺服器。 
+* 從主要伺服器[備份](analysis-services-backup.md)資料庫，並還原到備援伺服器上。 例如，您可以讓目標為 Azure 儲存體的夜間備份作業自動進行，並還原到其他區域的其他備援伺服器。 
 
 不論是哪一種情況，如果您的主要伺服器發生中斷，您都必須將報告用戶端中的連接字串，變更為連線到不同區域資料中心的伺服器。 此變更作業應視為最後手段，只有在發生重大的區域資料中心中斷時才應考慮使用。 比較常見的情況是，您可能還未更新所有用戶端上的連線，裝載主要伺服器的資料中心就已從中斷狀態恢復為上線狀態。 
 
-
+若要避免需要變更報告用戶端上的連接字串，您可以為主要伺服器建立伺服器[別名](analysis-services-server-alias.md)。 當主要伺服器關閉時，您可以變更別名以指向其他區域中的備援伺服器。 您可以藉由編碼主要伺服器上的端點健康情況檢查，以自動設定伺服器名稱的別名。 如果健康情況檢查失敗，相同的端點即可導向至其他區域中的備援伺服器。 
 
 ## <a name="related-information"></a>相關資訊
 [備份與還原](analysis-services-backup.md)   
-[管理 Azure Analysis Services](analysis-services-manage.md) 
+[管理 Azure Analysis Services](analysis-services-manage.md)   
+[伺服器名稱別名](analysis-services-server-alias.md) 
 

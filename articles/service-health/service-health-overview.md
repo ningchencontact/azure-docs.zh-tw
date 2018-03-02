@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure 服務健康情況
 Azure 服務的問題影響您的服務時，Azure 服務健康情況將提供適時的個人化資訊。  它也可協助您準備好後續的預定維修。
@@ -32,8 +32,13 @@ Azure 服務的問題影響您的服務時，Azure 服務健康情況將提供�
     ![服務健康情況事件](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>開始使用服務健康情況
-若要啟動服務健康情況儀表板，請選取入口網站儀表板上的 [服務健康情況] 圖格。 如果您先前已移除圖格，或您正在使用自訂的儀表板，搜尋「更多服務」(儀表板的左下方) 中的服務健康情況服務。
+若要啟動服務健康情況儀表板，請選取入口網站儀表板上的 [服務健康情況] 圖格。 
+
 ![開始使用服務健康情況](./media/service-health-overview/azure-service-health-overview-1.png)
+
+如果您先前已移除圖格，或您正在使用自訂的儀表板，搜尋 [所有服務] (儀表板的左上方) 中的服務健康情況服務。
+
+![開始使用服務健康情況](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>查看影響服務的目前問題
 **服務問題**檢視會顯示 Azure 服務中任何正在發生並影響資源的問題。 您可以了解問題開始發生的時間，以及受影響的服務和區域。 您也可以參閱最新的更新，以了解 Azure 如何解決問題。 

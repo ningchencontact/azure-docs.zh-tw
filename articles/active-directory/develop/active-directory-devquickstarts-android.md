@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Android 入門 | Microsoft Docs"
-description: "如何建置 Android 應用程式，可以整合 Azure AD 進行登入並呼叫 Azure AD 與受保護的應用程式開發介面使用 OAuth2.0。"
+description: "如何建置 Android 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 2.0 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-android-getting-started"></a>開始使用 azure AD Android
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 如果您正在開發桌面應用程式，Azure Active Directory (Azure AD) 讓您可以更簡單直接地用使用者的內部部署 Active Directory 帳戶來驗證他們。 它也可讓您的應用程式安全地使用任何受 Azure AD 保護的 Web API，例如 Office 365 API 或 Azure API。
@@ -52,7 +52,7 @@ Active Directory 支援加入兩種類型的應用程式：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 在 [目錄] 清單中，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [更多服務]，然後選取 [Azure Active Directory]。
+3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 輸入應用程式的易記名稱，例如 **TodoListService**)，選取 [Web 應用程式和/或 Web API]，然後按 [下一步]。
 6. 在 [登入 URL] 中，輸入範例的基礎 URL。 依預設，這會是 `https://localhost:8080`。
@@ -70,7 +70,7 @@ Active Directory 支援加入兩種類型的應用程式：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 在 [目錄] 清單中，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [更多服務]，然後選取 [Azure Active Directory]。
+3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 輸入應用程式的易記名稱，例如 **TodoListClient-Android**，選取 [原生用戶端應用程式]，然後按 [下一步]。
 6. 在 [重新導向 URI] 中，輸入 `http://TodoListClient`。 按一下 [完成] 。

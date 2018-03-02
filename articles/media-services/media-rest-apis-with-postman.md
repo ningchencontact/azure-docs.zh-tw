@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>設定 Postman 以進行媒體服務 REST API 呼叫
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="configure-the-environment"></a>建立環境 
 
-1. 建立包含用於 AMS 教學課程中之環境變數的 .json 檔案。 將檔案命名為 **AzureMediaServices.postman_environment.json**。 開啟該檔案，並將[此程式碼清單](postman-environment.md)中定義 Postman 環境的程式碼貼上。 
+1. 建立包含用於 AMS 教學課程中之環境變數的 .json 檔案。 命名檔案 (例如，**AzureMediaServices.postman_environment.json**)。 開啟該檔案，並將[此程式碼清單](postman-environment.md)中定義 Postman 環境的程式碼貼上。 
 2. 開啟 **Postman**。
 3. 選取畫面右側的 [管理環境] 選項。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="configure-the-collection"></a>設定集合
 
-1. 建立包含 **Postman** 集合的 .json 檔案，該集合具有將檔案上傳至媒體服務所需的所有作業。 將檔案命名為 **AzureMediaServicesOperations.postman_collection.json**。 開啟該檔案，並將[此程式碼清單](postman-collection.md)中定義 **Postman** 集合的程式碼貼上。
+1. 建立包含 **Postman** 集合的 .json 檔案，該集合具有將檔案上傳至媒體服務所需的所有作業。 命名檔案 (例如，**AzureMediaServicesOperations.postman_collection.json**)。 開啟該檔案，並將[此程式碼清單](postman-collection.md)中定義 **Postman** 集合的程式碼貼上。
 2. 按一下 [匯入] 來匯入集合檔案。
 3. 選擇 **AzureMediaServicesOperations.postman_collection.json** 檔案。
 

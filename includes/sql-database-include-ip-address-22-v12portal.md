@@ -17,13 +17,11 @@ articles/sql-database/sql-database-connect-query.md
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 在左側的清單中選取 [瀏覽]。 
+2. 在左側的清單中，選取 [所有服務]。 
 
 3. 捲動並選取 [SQL Server]。 
    
     ![在入口網站中尋找您的 Azure SQL Database 伺服器][b21-FindServerInPortal]
-4. 為了方便起見，將 [瀏覽] 刀鋒視窗最小化。
-
 5. 在篩選文字方塊中開始輸入您的伺服器名稱。 即會顯示您的資料列。
 
 6. 選取伺服器的資料列。 即會顯示您伺服器的刀鋒視窗。

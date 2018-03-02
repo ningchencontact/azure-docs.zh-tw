@@ -1,4 +1,4 @@
-按一下 [新增] 按鈕。 在 [搜尋 Marketplace] 欄位中，輸入 `Azure Active Directory B2C`。
+按一下 [建立資源] 按鈕。 在 [搜尋 Marketplace] 欄位中，輸入 `Azure Active Directory B2C`。
 
 ![在 [搜尋 Marketplace]欄位中新增醒目提示的按鈕和 Azure Active Directory B2C 文字](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

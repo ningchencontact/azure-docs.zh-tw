@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/09/2018
 使用下列步驟在 Azure 入口網站上尋找效能建議：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 移至 [更多服務] > [SQL Database]，然後選取您的資料庫。
+2. 移至 [所有服務] > [SQL Database]，然後選取您的資料庫。
 3. 瀏覽至 [效能建議] 來檢視適用於所選資料庫的可用建議。
 
 資料表中顯示的效能建議類似於下圖：

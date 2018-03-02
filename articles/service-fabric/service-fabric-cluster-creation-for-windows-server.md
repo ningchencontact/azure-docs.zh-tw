@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>建立在 Windows Server 上執行的獨立叢集
 您可以使用 Azure Service Fabric 在執行 Windows Server 的任何虛擬機器或電腦上建立 Service Fabric 叢集。 這表示您能夠在包含一組互連式 Windows Server 電腦的任何環境中部署和執行 Service Fabric 應用程式，不論該環境是內部部署或是透過任何雲端提供者來提供。 Service Fabric 會提供一個安裝封裝來建立稱為獨立 Windows Server 封裝的 Service Fabric 叢集。
@@ -43,12 +43,12 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下載 Windows Server 套件的 Service Fabric
 若要建立叢集，請使用適用於 Windows Server 套件 (Windows Server 2012 R2 及更新版本) 的 Service Fabric，可在這裡找到︰ <br>
-[下載連結的 Service Fabric 獨立封裝的 Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[下載連結 - Service Fabric 獨立封裝 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 可在[這裡](service-fabric-cluster-standalone-package-contents.md)找到封裝內容的詳細資訊。
 
 叢集建立時會自動下載 Service Fabric 執行階段封裝。 如果從未連線到網際網路的機器部署，請從這裡下載頻外執行階段封裝︰ <br>
-[下載連結的 Service Fabric 執行階段的 Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
+[下載連結 - Service Fabric 執行階段 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
 
 獨立叢集組態範例在此︰ <br>
 [獨立叢集組態範例](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
@@ -70,7 +70,7 @@ Service Fabric 可以使用[範例](https://github.com/Azure-Samples/service-fab
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>步驟 1B︰ 建立多部電腦的叢集
 在您完成規劃和準備下面連結詳細列出的步驟之後，就可以開始使用您的叢集組態檔，建立生產叢集。 <br>
-[規劃並準備您的叢集部署](service-fabric-cluster-standalone-deployment-preparation.md)
+[規劃及準備叢集部署](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. 從獨立封裝資料夾執行 *TestConfiguration.ps1* 指令碼，驗證您所撰寫的組態檔︰  
 

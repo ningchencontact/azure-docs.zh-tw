@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
 
@@ -48,7 +48,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
 若要在 ASE 中建立 Web 應用程式：
 
-1. 選取 [新增] > [Web + 行動] > [Web 應用程式]。
+1. 選取 [建立資源]  >  [Web + 行動]  >  [Web 應用程式]。
 
 2. 輸入 Web 應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
 

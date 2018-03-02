@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>了解如何使用、設定以及重複使用 IoT Edge 模組 - 預覽
 
@@ -28,7 +28,7 @@ Azure IoT Edge 可讓您在將多個 IoT Edge 模組部署至 IoT Edge 裝置之
 
 在 Azure IoT Edge 教學課程中，您會藉由完成 Azure IoT Edge 入口網站中的精靈，來建置部署資訊清單。 您也可以程式設計方式使用 REST 或 IoT 中樞服務 SDK，套用部署資訊清單。 請參閱[部署與監視][lnk-deploy]以取得 IoT Edge 部署的詳細資訊。
 
-概括而言，部署資訊清單會設定在 IoT Edge 裝置上部署之 IoT Edge 模組預期屬性。 這兩個模組永遠存在：Edge 代理程式和 Edge 中樞。
+概括而言，部署資訊清單會為 IoT Edge 裝置上部署之 IoT Edge 模組設定模組對應項的所需屬性。 這兩個模組永遠存在：Edge 代理程式和 Edge 中樞。
 
 資訊清單會遵循此結構：
 
@@ -112,6 +112,8 @@ Edge 中樞會儲存訊息最多到 Edge 中樞預期屬性的 `storeAndForwardC
 在部署資訊清單中指定預期屬性時，它們會覆寫目前在模組對應項中任何預期屬性。
 
 如果您未在部署資訊清單中指定模組對應項的預期屬性，IoT 中樞就不會修改模組對應項，您將無法以程式設計方式設定預期屬性。
+
+您可以使用與修改裝置對應項相同的機制來修改模組對應項。 如需進一步資訊，請參閱[裝置對應項開發人員指南](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)。   
 
 ### <a name="deployment-manifest-example"></a>部署資訊清單範例
 
@@ -277,7 +279,7 @@ Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 IoT �
 | lastDesiredVersion | 此 int 代表 Edge 中樞處理之預期屬性的最後版本。 |
 | lastDesiredStatus.code | 這是狀態代碼，代表 Edge 中樞看到的最後預期屬性。 允許的值：`200` 成功、`400` 無效的設定、`500` 失敗 |
 | lastDesiredStatus.description | 狀態的文字描述 |
-| clients.{device or module identity}.status | 此裝置或模組的連線狀態。 可能的值 {"connected" \| "disconnected"}. 只有模組身分識別可以處於中斷連線狀態。 連線到 Edge 中樞的下游裝置只會在連線時顯示。 |
+| clients.{device or module identity}.status | 此裝置或模組的連線狀態。 可能的值 {"connected" \| "disconnected"}。 只有模組身分識別可以處於中斷連線狀態。 連線到 Edge 中樞的下游裝置只會在連線時顯示。 |
 | clients.{device or module identity}.lastConnectTime | 上一次裝置或模組連線時 |
 | clients.{device or module identity}.lastDisconnectTime | 上一次裝置或模組中斷連線時 |
 

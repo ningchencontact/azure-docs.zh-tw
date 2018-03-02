@@ -1,6 +1,6 @@
 ---
-title: "管理 Azure SQL 資料倉儲中的計算能力 (概觀) | Microsoft Docs"
-description: "Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 以相應放大或暫停和繼續計算資源來節省成本。"
+title: "管理 Azure SQL 資料倉儲中的計算資源 | Microsoft Docs"
+description: "了解 Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 來相應放大，或藉由暫停資料倉儲來降低成本。"
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -13,36 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 3/23/2017
+ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>管理 Azure SQL 資料倉儲中的計算能力 (概觀)
-> [!div class="op_single_selector"]
-> * [概觀](sql-data-warehouse-manage-compute-overview.md)
-> * [入口網站](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
+# <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
+了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 
 
-SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整。 如此一來，可以調整計算以符合與資料量無關的效能需求。 這個架構的自然結果為計算[計費][billed]和儲存體無關。 
+## <a name="what-is-compute-management"></a>什麼是計算管理？
+SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整。 因此，您可以調整計算規模以符合與資料儲存體無關的效能需求。 您也可以暫停和繼續計算資源。 這個架構的自然結果為計算[計費](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)與儲存體無關。 如果您有一段時間不需要使用資料倉儲，您可暫停計算以節省計算成本。 
 
-本概觀說明擴充如何與 SQL 資料倉儲搭配使用，以及如何運用暫停、繼續和調整 SQL 資料倉儲的功能。 
+## <a name="scaling-compute"></a>調整計算規模
+您可藉由調整資料倉儲的[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)設定，來相應放大或縮小計算。 當您新增更多資料倉儲單位時，載入和查詢效能可以呈線性增加。 SQL 資料倉儲為資料倉儲單位提供的[服務等級](performance-tiers.md#service-levels)，可確保當您相應放大或縮小時，效能會有明顯改變。 
 
-## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>計算管理作業如何在 SQL 資料倉儲中運作
-SQL 資料倉儲架構是由控制節點、計算節點及分散到 60 個散發套件的儲存層所組成。 
+如需相應放大步驟，請參閱 [Azure 入口網站](quickstart-scale-compute-portal.md)、[PowerShell](quickstart-scale-compute-powershell.md) 或 [T-SQL](quickstart-scale-compute-tsql.md) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute) 來執行相應放大作業。
 
-在 SQL 資料倉儲中的正常作用中工作階段期間，您系統的前端節點會管理中繼資料並包含分散式查詢最佳化工具。 此前端節點以下為計算節點和儲存層。 針對 DWU 400，您的系統有一個前端節點、四個計算節點和儲存層，其中包含 60 個散發套件。 
+若要執行調整規模作業，SQL 資料倉儲會先刪除所有傳入的查詢，然後復原交易，以確保一致的狀態。 只有在交易復原完成後，才會發生調整。 在調整規模作業中，系統會使儲存層與計算節點中斷連結，新增計算節點，然後將儲存層重新連結至計算層。 每個資料倉儲會儲存為 60 個散發，其平均分散於各計算節點。 新增更多計算節點可增加更多計算能力。 當計算節點數目增加時，每個計算節點的發佈數目也會隨之增加，進而為您的查詢提供計算能力。 同樣地，減少資料倉儲單位可減少計算節點數目，進而減少查詢的計算資源。
 
-在進行調整或暫停作業時，系統會先刪除所有傳入的查詢，並會復原交易，以確保一致的狀態。 針對調整作業，僅在這個交易回復完成後調整才會發生。 相應增加作業中，系統會佈建計算節點的額外所需數目，然後開始將計算節點重新附加至儲存層。 相應減少作業中，會釋放不需要的節點，其餘的計算節點會將其本身重新附加至適當數目的散發套件。 暫停作業中，會釋放所有的計算節點，而且您的系統會經歷各種中繼資料作業以將最後系統保持在穩定的狀態。
+下表顯示當資料倉儲單位變更時，每個計算節點的發佈數目如何隨之變更。  DWU6000 會提供 60 個計算節點，並達到比 DWU100 更高的查詢效能。 
 
-| DWU  | \# 個計算節點 | 每節點 \# 個散發 |
+| 資料倉儲單位  | \# 個計算節點 | 每節點 \# 個散發 |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -57,163 +51,72 @@ SQL 資料倉儲架構是由控制節點、計算節點及分散到 60 個散發
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-管理計算所需的三個主要功能如下︰
 
-1. 暫停
-2. 繼續
-3. 調整
+## <a name="finding-the-right-size-of-data-warehouse-units"></a>尋找適當大小的資料倉儲單位
 
-每個這些作業可能需要幾分鐘的時間才能完成。 如果您是自動調整/暫停/繼續，可能想要實作邏輯以確保在進行其他動作之前，先確認特定作業已完成。 
+若要查看相應放大的效能優勢 (尤其是針對較大的資料倉儲單位)，您可使用至少 1-TB 的資料集。 若要尋找資料倉儲的最佳資料倉儲單位數目，請嘗試相應放大和相應縮小。 在載入您的資料之後，使用不同的資料倉儲單位數目來執行一些查詢。 由於調整很快速，您可以在一小時內嘗各種效能層級。 
 
-透過各種端點檢查資料庫狀態可讓您正確地實作這類作業的自動化。 入口網站會在作業完成時提供通知和資料庫的目前狀態，但不允許以程式設計方式檢查狀態。 
+尋找最佳資料倉儲單位數目的建議︰
 
->  [!NOTE]
->
->  計算管理功能並未跨所有端點存在。
->
->  
+- 若是開發過程中的資料倉儲，可從選取少量的資料倉儲單位開始。  DW400 或 DW200 是不錯的起點。
+- 監視應用程式效能，觀察比較所選資料倉儲單位數目與您觀察到的效能。
+- 假設線性尺度，並判斷您需要增加或減少多少資料倉儲單位。 
+- 繼續進行調整，直到達到您業務需求的最佳效能為止。
 
-|              | 暫停/繼續 | 調整 | 檢查資料庫狀態 |
-| ------------ | ------------ | ----- | -------------------- |
-| Azure 入口網站 | yes          | yes   | **否**               |
-| PowerShell   | yes          | yes   | yes                  |
-| REST API     | yes          | yes   | yes                  |
-| T-SQL        | **否**       | yes   | yes                  |
+## <a name="when-to-scale-out"></a>相應放大時機
+相應放大資料倉儲單位會影響效能的下列層面：
 
+- 以線性方式改善掃描、彙總和 CTAS 陳述式的系統效能。
+- 針對載入作業增加讀取器和寫入器的數目。
+- 並行查詢和並行存取插槽數目上限。
 
+相應放大資料倉儲單位時機的建議︰
 
-<a name="scale-compute-bk"></a>
+- 執行大量資料載入或轉換作業之前，相應放大進而讓資料更快速可供使用。
+- 在尖峰營業時間內，相應放大以適應大量的並行查詢。 
 
-## <a name="scale-compute"></a>調整計算
+## <a name="what-if-scaling-out-does-not-improve-performance"></a>如果相應放大並未改善效能，該怎麼辦？
 
-SQL 資料倉儲中的效能測量單位為[資料倉儲單位 (DWU)][資料倉儲單位 (DWU)]，這是計算資源的抽象量值，例如 CPU、記憶體和 I/O 頻寬。 想要調整其系統效能的使用者可透過各種方式來完成，例如透過入口網站、T-SQL 和 REST API。 
+新增資料倉儲單位可提供平行處理能力。 如果工作平均分割於計算節點之間，額外的平行處理能力可改善查詢效能。 如果相應放大並未改變效能，有一些原因致使發生這種情形。 您的資料可能會呈現偏態分佈，或查詢可能會引進大量的資料移動。 若要調查查詢效能問題，請參閱[效能疑難排解](sql-data-warehouse-troubleshoot.md#performance)。 
 
-### <a name="how-do-i-scale-compute"></a>如何調整計算？
-計算電源會藉由變更 DWU 設定來管理您的 SQL 資料倉儲。 隨著您針對特定作業新增更多的 DWU，效能會以線性方式提升。  當您將系統相應增加或減少時，我們提供的 DWU 供應項目可確保您的效能會明顯變更。 
+## <a name="pausing-and-resuming-compute"></a>暫停和繼續計算
+暫停計算會導致儲存層與計算節點中斷連結。 系統會從您的帳戶釋出計算資源。 當計算暫停時，您就不需支付計算費用。 繼續計算會將儲存體重新連結至計算節點，並繼續收取計算費用。 當您暫停資料倉儲時︰
 
-若要調整 DWU，您可以使用任何一種個別的方法。
+* 計算和記憶體資源會傳回資料中心內的可用資源集區
+* 暫停期間的資料倉儲單位成本是零。
+* 不會影響資料儲存體，您的資料保持不變。 
+* SQL 資料倉儲會取消所有執行中或已排入佇列的作業。
 
-* [使用 Azure 入口網站調整計算能力][Scale compute power with Azure portal]
-* [使用 PowerShell 調整計算能力][Scale compute power with PowerShell]
-* [使用 REST API 調整計算能力][Scale compute power with REST APIs]
-* [使用 TSQL 調整計算能力][Scale compute power with TSQL]
+當您處理資料倉儲時︰
 
-### <a name="how-many-dwus-should-i-use"></a>應該使用多少 DWU 呢？
+* SQL 資料倉儲會取得資料倉儲設定的計算和記憶體資源。
+* 繼續資料倉儲單位的計算費用。
+* 您的資料變為可供使用。
+* 在資料倉儲上線後，您需要重新啟動工作負載查詢。
 
-為了要了解您理想的 DWU 值，嘗試在載入您的資料之後相應增加和相應減少並執行幾個查詢。 由於調整很快速，您可以在一小時內嘗各種效能層級。 
+如果您希望隨時可存取資料倉儲，請考慮將其調整到最小的大小，而不是暫停。 
 
-> [!Note] 
-> SQL 資料倉儲是專為處理大量資料所設計。 若要查看其進行調整的實際能力，尤其是在較大的 DWU，您想要使用接近或超過 1 TB 的大型資料集。
+如需暫停和繼續步驟，請參閱 [Azure 入口網站](pause-and-resume-compute-portal.md) 或 [PowerShell](pause-and-resume-compute-powershell.md) 快速入門。 您也可以使用[暫停 REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) 或[繼續 REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute)。
 
-尋找您的工作負載的最佳 DWU 的建議事項︰
+## <a name="drain-transactions-before-pausing-or-scaling"></a>暫停或調整之前先清空交易
+我們建議在起始暫停或調整規模作業之前，讓現有的交易先完成。
 
-1. 若是開發過程中的資料倉儲，可選取較少的 DWU 效能等級。  DW400 或 DW200 是不錯的起點。
-2. 監視應用程式效能，觀察比較所選 DWU 數目與您觀察到的效能。
-3. 透過假設線性標尺，判斷需要將效能加快或減慢多少才能達到您需求的最佳效能等級。
-4. 增加或減少 DWU 數目與您想要讓您的工作負載更快或更慢執行成正比。 
-5. 繼續進行調整，直到達到您業務需求的最佳效能為止。
+當您暫停或調整您的 SQL 資料倉儲時，您的查詢在您起始暫停或調整要求時會於幕後取消。  取消簡單的 SELECT 查詢是很快的作業，對於暫停或調整執行個體所花費的時間幾乎沒有什麼影響。  不過，交易性查詢 (會修改您的資料或結構) 可能無法快速地停止。  **顧名思義，交易性查詢必須完全完成或回復變更。**  回復交易性查詢已完成的工作可能需要很長時間，甚至比查詢套用原始變更更久。  例如，如果您取消的刪除資料列查詢已經執行一小時，系統可能需要一個小時將已刪除的資料列回復插入。  如果您在交易執行中執行暫停或調整，暫停或調整作業可能需要一些時間，因為暫停和調整必須等回復完成才能繼續。
 
-> [!NOTE]
->
-> 如果工作可以在計算節點之間分割，則查詢效能只會隨更多的平行處理增加。 如果您發現縮放比例不會變更您的效能，請造訪我們的效能微調文章，以檢查您的資料是否平均地分散，或是您是否進行大量的資料移動。 
+另請參閱[了解交易](sql-data-warehouse-develop-transactions.md)，以及 [最佳化交易] [最佳化交易](sql-data-warehouse-develop-best-practices-transactions.md)。
 
-### <a name="when-should-i-scale-dwus"></a>何時調整 DWU？
-調整 DWU 會改變下列重要案例︰
+## <a name="automating-compute-management"></a>自動進行計算管理
+若要自動執行計算管理作業，請參閱[使用 Azure 函式管理計算](manage-compute-with-azure-functions.md)。
 
-1. 以線性方式變更掃描、彙總和 CTAS 陳述式的系統效能
-2. 使用 PolyBase 載入時，增加讀取器和寫入的數目
-3. 並行查詢和並行存取插槽數目上限
+相應放大、暫停和繼續作業可能需要幾分鐘的時間才能完成。 如果您要自動調整/暫停/繼續，建議實作邏輯以確保在進行其他動作之前，先確認特定作業已完成。 透過各種端點檢查資料倉儲狀態可讓您正確地實作這類作業的自動化。 
 
-DWU 調整時機的建議︰
+若要檢查資料倉儲狀態，請參閱 [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 來查看資料倉儲狀態。
 
-1. 執行大量資料載入或轉換作業之前，相應增加 DWU 以使您的資料更快速可供使用。
-2. 在尖峰營業時間內，調整以適應大量的並行查詢。 
-
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>暫停計算
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-若要暫停資料庫，您可以使用任何一種個別的方法。
-
-* [使用 Azure 入口網站暫停計算][Pause compute with Azure portal]
-* [使用 PowerShell 暫停計算][Pause compute with PowerShell]
-* [使用 REST API 暫停計算][Pause compute with REST APIs]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>繼續計算
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-若要繼續資料庫，您可以使用任何一種個別的方法。
-
-* [使用 Azure 入口網站繼續計算][Resume compute with Azure portal]
-* [使用 PowerShell 繼續計算][Resume compute with PowerShell]
-* [使用 REST API 繼續計算][Resume compute with REST APIs]
-
-<a name="check-compute-bk"></a>
-
-## <a name="check-database-state"></a>檢查資料庫狀態 
-
-若要繼續資料庫，您可以使用任何一種個別的方法。
-
-- [使用 T-SQL 檢查資料庫狀態][Check database state with T-SQL]
-- [使用 PowerShell 檢查資料庫狀態][Check database state with PowerShell]
-- [使用 REST API 檢查資料庫狀態][Check database state with REST APIs]
 
 ## <a name="permissions"></a>權限
 
-調整資料庫需要 [ALTER DATABASE][ALTER DATABASE] 中所述的權限。  暫停和繼續需要 [SQL DB 參與者][SQL DB Contributor]權限，特別是 Microsoft.Sql/servers/databases/action。
+調整資料倉儲時需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md) 中所述的權限。  暫停和繼續則需要 [SQL DB 參與者](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor)權限，特別是 Microsoft.Sql/servers/databases/action。
 
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章，以瞭解其他一些關鍵效能概念：
-
-* [工作負載和並行管理][Workload and concurrency management]
-* [資料表設計概觀][Table design overview]
-* [資料表散發][Table distribution]
-* [索引資料表的編製][Table indexing]
-* [資料表分割][Table partitioning]
-* [資料表統計資料][Table statistics]
-* [最佳作法][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
-
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/
+管理計算資源的另一個層面就是針對個別查詢配置不同的計算資源。 如需詳細資訊，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。

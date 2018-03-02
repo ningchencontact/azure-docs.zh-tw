@@ -3,7 +3,7 @@ title: "使用 RBAC 管理存取權與權限 - Azure RBAC | Microsoft Docs"
 description: "在 Azure 入口網站中使用 Azure 角色型存取控制開始進行存取管理。 使用角色指派在您的目錄中指派權限。"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/02/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>在 Azure 入口網站中開始使用角色型存取控制
 安全性導向公司應該將焦點放在提供員工所需的確切權限。 權限太多可能會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 Azure「角色型存取控制」(RBAC) 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。
@@ -56,9 +56,9 @@ Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，「虛
 * 您可將參與者角色指派給資源群組範圍內的應用程式。 它可以管理該資源群組中所有類型的資源，但是無法管理訂用帳戶中的其他資源群組。
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC 與傳統訂用帳戶系統管理員
-[傳統的訂用帳戶管理員和共同管理員](../billing/billing-add-change-azure-subscription-administrator.md)擁有完整存取權的 Azure 訂用帳戶。 他們可以管理使用的資源[Azure 入口網站](https://portal.azure.com)，Azure 資源管理員 Api 和傳統部署模型的 Api。 在 RBAC 模型中，傳統系統管理員會獲指派訂用帳戶範圍的擁有者角色。
+[傳統訂用帳戶管理員和共同管理員](../billing/billing-add-change-azure-subscription-administrator.md)具有 Azure 訂用帳戶的完整存取權。 他們可以使用 [Azure 入口網站](https://portal.azure.com)、Azure Resource Manager API 和傳統部署模型 API 來管理資源。 在 RBAC 模型中，傳統系統管理員會獲指派訂用帳戶範圍的擁有者角色。
 
-只有 Azure 入口網站和新的 Azure Resource Manager API 支援 Azure RBAC。 使用者和指派 RBAC 角色的應用程式不能使用 Azure 傳統部署模型的 Api。
+只有 Azure 入口網站和新的 Azure Resource Manager API 支援 Azure RBAC。 獲指派 RBAC 角色的使用者和應用程式無法使用 Azure 傳統部署模型 API。
 
 ## <a name="authorization-for-management-vs-data-operations"></a>管理與資料作業的授權
 Azure RBAC 僅支援在 Azure 入口網站和 Azure Resource Manager API 中的 Azure 資源管理作業。 它無法授權 Azure 資源的所有資料層級作業。 例如，您可以授權某個人管理「儲存體帳戶」，但無法授權他管理「儲存體帳戶」內的 blob 或資料表。 同樣地，可以管理 SQL Database，但無法管理其中的資料表。

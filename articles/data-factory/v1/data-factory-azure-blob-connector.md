@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f66ddecd6b999400b05a4b00aa781ffef3f7887d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>使用 Azure Data Factory 在 Azure Blob 儲存體來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,8 +184,8 @@ Data Factory 支援使用下列符合 CLS 規範的 .NET 型類型值，在 “s
     ```
 ### <a name="create-the-data-factory"></a>建立 Data Factory
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左上角的 [+ 新增]，並按一下 [智慧 + 分析]，然後按一下 [Data Factory]。
-3. 在 [ **新增 Data Factory** ] 刀鋒視窗中：   
+2. 按一下左上角的 [建立資源]，按一下 [智慧 + 分析]，然後按一下 [Data Factory]。
+3. 在 [新增 Data Factory] 窗格中：   
     1. 針對 [名稱]，輸入 **ADFBlobConnectorDF**。 Azure Data Factory 的名稱在全域必須是唯一的。 如果您收到錯誤：`*Data factory name “ADFBlobConnectorDF” is not available`，請變更 Data Factory 的名稱 (例如 yournameADFBlobConnectorDF)，然後嘗試重新建立。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。
     2. 選取您的 Azure **訂用帳戶**。
     3. 針對「資源群組」，選取 [使用現有的] 來選取現有的資源群組 (或) 選取 [建立新項目] 來輸入資源群組的名稱。

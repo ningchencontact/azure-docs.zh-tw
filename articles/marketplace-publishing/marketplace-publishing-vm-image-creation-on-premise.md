@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>開發 Azure Marketplace 的內部部署虛擬機器映像
 強烈建議您使用遠端桌面通訊協定，在雲端中直接開發您的 Azure 虛擬硬碟 (VHD)。 不過如果需要，可以使用內部部署基礎結構來下載 VHD 並進行開發。  
@@ -92,12 +92,12 @@ ms.lasthandoff: 10/11/2017
 
 **從 Microsoft Azure 入口網站建立儲存體帳戶**
 
-1. 按一下 [新增] 。
+1. 按一下 [建立資源]。
 2. 選取 [儲存體] 。
 3. 填入儲存體帳戶名稱，然後選取位置。
    
    ![繪圖](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
-4. 按一下 [建立] 。
+4. 按一下頁面底部的 [新增] 。
 5. 此時應該會開啟已建立的儲存體帳戶的刀鋒視窗。 如果沒有，請選取 [瀏覽] > [儲存體帳戶]。 在 [儲存體帳戶] 刀鋒視窗中，選取先前建立的儲存體帳戶。
 6. 選取 [容器] 。
    

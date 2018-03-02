@@ -1,5 +1,5 @@
 ---
-title: "針對資料庫執行分析查詢 | Microsoft Docs"
+title: "使用擷取的資料執行跨租用戶分析 | Microsoft Docs"
 description: "使用從多個 Azure SQL Database 資料庫擷取的資料執行跨租用戶分析查詢。"
 keywords: SQL Database Azure
 services: sql-database
@@ -15,18 +15,18 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>使用擷取的資料執行跨租用戶分析
 
-在此教學課程中，您會逐步完成整個分析案例。 案例會示範分析如何讓企業做出智慧的決策。 使用從每個租用戶資料庫擷取的資料，您使用分析來取得租用戶行為的深入解析，包括他們對於範例 Wingtip Tickets SaaS 應用程式的使用。 這個案例牽涉到三個步驟： 
+在此教學課程中，您會逐步完成整個分析案例。 案例會示範分析如何讓企業做出智慧的決策。 使用從每個租用戶資料庫擷取的資料，您使用分析來取得租用戶行為和應用程式使用方式的深入解析。 這個案例牽涉到三個步驟： 
 
-1.  從每個租用戶資料庫**擷取資料**至分析存放區。
-2.  針對分析處理**最佳化擷取的資料**。
+1.  從每個租用戶資料庫**擷取**資料並**載入**至分析存放區。
+2.  針對分析處理**轉換擷取的資料**。
 3.  使用**商業智慧**工具來繪製出有用的深入解析，可以引導決策進行。 
 
 在本教學課程中，您將了解如何：
@@ -42,29 +42,28 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="offline-tenant-analytics-pattern"></a>離線租用戶分析模式
 
-您開發的 SaaS 應用程式具有儲存在雲端中大量租用戶資料的存取權。 資料提供應用程式之作業和使用方式以及租用戶行為之深入解析的豐富來源。 這些深入解析可以引導應用程式和平台中的功能開發、使用性改進及其他投資。
+多租用戶 SaaS 應用程式通常具有儲存在雲端中的大量租用戶資料。 此資料提供應用程式之作業和使用方式以及租用戶行為之深入解析的豐富來源。 這些深入解析可以引導應用程式和平台中的功能開發、使用性改進及其他投資。
 
-當所有資料都在一個多租用戶資料庫時，存取所有租用戶的資料就相當簡單。 但是當資料散佈在上千個資料庫時，存取就更加複雜。 有效駕馭複雜度的一種方法是將資料擷取至分析資料庫或資料倉儲。 然後，您查詢分析存放區以從所有租用戶的票證資料蒐集深入解析。
+當所有資料都在一個多租用戶資料庫時，存取所有租用戶的資料就相當簡單。 但是當資料散佈在可能是上千個資料庫時，存取就更加複雜。 駕馭複雜性並且將對於交易資料之分析查詢影響降到最低的一個方法是，將資料擷取至專門設計的分析資料庫或資料倉儲。
 
-此教學課程會呈現此範例 SaaS 應用程式的完整分析案例。 首先，會使用彈性作業來排程從每個租用戶資料庫擷取資料。 資料會傳送至分析存放區。 分析存放區可以是 SQL Database 或 SQL 資料倉儲。 針對大規模資料擷取，建議使用 [Azure Data Factory](../data-factory/introduction.md)。
+此教學課程會呈現 Wingtip Tickets SaaS 應用程式的完整分析案例。 首先，彈性作業是用來從每個租用戶資料庫擷取資料，並將其載入至分析存放區中的暫存表格。 分析存放區可以是 SQL Database 或 SQL 資料倉儲。 針對大規模資料擷取，建議使用 [Azure Data Factory](../data-factory/introduction.md)。
 
-接下來，彙總的資料會切割成一組[星狀結構描述](https://www.wikipedia.org/wiki/Star_schema)資料表。 資料表是由一個中央的事實資料表，再加上相關的維度資料表所組成：
+接下來，彙總的資料會轉換成一組[星狀結構描述](https://www.wikipedia.org/wiki/Star_schema)資料表。 資料表是由一個中央的事實資料表，再加上相關的維度資料表所組成。  針對 Wingtip Tickets：
 
 - 星狀結構描述中的中央事實資料表包含票證資料。
-- 維度資料表包含有關地點、事件、客戶和購買日期的資料。
+- 維度資料表說明場地、事件、客戶和購買日期。
 
-中央和維度資料表一起可以促成有效分析處理。 本教學課程中使用的星狀結構描述會顯示在下列映像中：
+中央事實和維度資料表一起可以促成有效分析處理。 本教學課程中使用的星狀結構描述會顯示在下列映像中：
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-最後，會查詢星狀結構描述資料表。 查詢結果會以視覺化方式顯示，以反白顯示租用戶行為的深入解析以及其對於應用程式的使用。 您可以使用這個星狀結構描述執行查詢，協助探索如下所示的項目：
+最後，使用 **PowerBI** 來查詢分析存放區，以反白顯示對於租用戶行為及其使用 Wingtip Tickets 應用程式的深入解析。 您執行的查詢：
+ 
+- 顯示每個場地的相對熱門程度
+- 反白顯示不同活動票證銷售的模式
+- 顯示不同場地在售出其活動方面的相對成功程度
 
-- 誰購買票證、從哪個地點購買。
-- 在下列區域隱藏模式和趨勢：
-    - 票證的銷售。
-    - 每個地點的相對熱門程度。
-
-了解每個租用戶使用服務的一致性，會提供機會得以建立符合其需求的服務方案。 本教學課程提供可以從租用戶資料收集之深入解析的基本範例。
+了解每個租用戶如何使用服務來探索選項，讓服務創造營收並且改善服務以協助租用戶更成功。 本教學課程提供可以從租用戶資料收集之深入解析種類的基本範例。
 
 ## <a name="setup"></a>設定
 
@@ -76,7 +75,7 @@ ms.lasthandoff: 11/28/2017
 - Wingtip Tickets SaaS Database Per Tenant 指令碼和應用程式[原始程式碼](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)是從 GitHub 下載。 請參閱下載指示。 請務必在擷取檔案內容之前解除封鎖 zip 檔案。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 - Power BI Desktop 已安裝。 [下載 Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - 已佈建額外租用戶的批次，請參閱[**佈建租用戶教學課程**](saas-dbpertenant-provision-and-catalog.md)。
-- 已建立作業帳戶和作業帳戶資料庫。 請參閱[**結構描述管理教學課程**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account)中的適當步驟。
+- 已建立作業帳戶和作業帳戶資料庫。 請參閱[**結構描述管理教學課程**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)中的適當步驟。
 
 ### <a name="create-data-for-the-demo"></a>建立資料以供示範
 

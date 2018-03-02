@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>將包含感應器資料的 IoT 中樞訊息儲存至 Azure Blob 儲存體
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [儲存體] > [儲存體帳戶] > [建立]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [儲存體] > [儲存體帳戶] > [建立]。
 
 2. 輸入儲存體帳戶的必要資訊︰
 

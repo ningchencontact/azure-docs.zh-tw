@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>SQL Database 多租用戶 SaaS 應用程式範例的簡介
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>使用 SQL Database 及每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式簡介
 
-Wingtip SaaS 應用程式是一個多租用戶應用程式範例，可示範 SQL Database 的獨特優點。 此應用程式使用租用戶各有資料庫的 SaaS 應用程式模式來維護多租用戶。 此應用程式是設計成用來展示支援 SaaS 案例 (包括數個 SaaS 設計和管理模式) 的 Azure SQL Database 功能。 為了快速啟動並執行，五分鐘內就會部署 Wingtip SaaS 應用程式！
+Wingtip SaaS 應用程式是多租用戶應用程式的範例。 此應用程式使用每一租用戶一個資料庫的 SaaS 應用程式模式來維護多租用戶。 此應用程式用來展示支援 SaaS 案例 (使用數個 SaaS 設計和管理模式) 的 Azure SQL Database 功能。 為了快速啟動並執行，五分鐘內就會部署 Wingtip SaaS 應用程式！
 
-在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫可取得應用程式原始程式碼和管理指令碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
+在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫可取得應用程式原始程式碼和管理指令碼。 開始之前，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)，了解關於下載和解除封鎖 Wingtip Tickets 管理指令碼的步驟。
 
 ## <a name="application-architecture"></a>應用程式架構
 
@@ -48,13 +48,13 @@ Wingtip SaaS 應用程式會使用「各租用戶資料庫」模型，並使用 
 |[監視及管理效能](saas-dbpertenant-performance-monitoring.md)| 了解如何使用 SQL Database 的監視功能，以及如何設定超過效能閾值時的警示。 |
 |[透過 Log Analytics (OMS) 監視](saas-dbpertenant-log-analytics.md) | 了解如何使用 [Log Analytics](../log-analytics/log-analytics-overview.md) 來監視跨多個集區的大量資源。 |
 |[還原單一租用戶](saas-dbpertenant-restore-single-tenant.md)| 了解如何將租用戶資料庫還原到先前的時間點。 同時包含還原到平行資料庫 (讓現有的租用戶資料庫留在線上) 的步驟。 |
-|[管理租用結構描述](saas-tenancy-schema-management.md)| 了解如何更新結構描述，以及更新跨所有 Wingtip SaaS 租用戶的參考資料。 |
-|[執行臨機操作分析](saas-tenancy-adhoc-analytics.md) | 建立臨機操作分析資料庫並對所有租用戶執行即時分散式查詢。  |
-|[執行租用戶分析](saas-tenancy-tenant-analytics.md) | 將租用戶資料擷取到分析資料庫或資料倉儲中，以便執行離線分析查詢。 |
+|[管理租用戶資料庫結構描述](saas-tenancy-schema-management.md)| 了解如何更新結構描述，以及更新跨所有租用戶資料庫的參考資料。 |
+|[執行跨租用戶分散式查詢](saas-tenancy-cross-tenant-reporting.md) | 建立臨機操作分析資料庫並對所有租用戶執行即時分散式查詢。  |
+|[根據擷取的租用戶資料執行分析](saas-tenancy-tenant-analytics.md) | 將租用戶資料擷取到分析資料庫或資料倉儲中，以便執行離線分析查詢。 |
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure SQL Database 多租用戶 SaaS 應用程式範例的指引和祕訣](saas-tenancy-wingtip-app-guidance-tips.md)
+- [部署和使用 Wingtip Tickets SaaS 應用程式範例時的一般指引和秘訣](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [部署 Wingtip SaaS 應用程式](saas-dbpertenant-get-started-deploy.md)

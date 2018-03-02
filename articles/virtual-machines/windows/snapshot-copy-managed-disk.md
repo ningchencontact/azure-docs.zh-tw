@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9f773a8dfe772864fc9fc437052ac766a87623d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>建立快照集
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>使用 Azure 入口網站建立快照集 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左上方開始，按一下 [新增]，搜尋**快照集**。
+2. 從左上方開始，按一下 [建立資源] 並搜尋**快照集**。
 3. 在 [快照集] 刀鋒視窗中，按一下 [建立]。
 4. 輸入快照集的 [名稱]。
 5. 選取現有的[資源群組](../../azure-resource-manager/resource-group-overview.md#resource-groups)，或輸入新群組的名稱。 

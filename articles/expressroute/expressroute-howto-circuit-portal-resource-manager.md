@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: a21fdfbc4396f2b7aff50fae4ca796d8ea6a733b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/21/2017
 > 
 > 
 
-1. 您可以選取建立新資源的選項來建立 ExpressRoute 線路。 按一下 [新增] > [網路] > [ExpressRoute]，如下圖所示：
+1. 您可以選取建立新資源的選項來建立 ExpressRoute 線路。 按一下 [建立資源] > [網路] > [ExpressRoute]，如下圖所示：
 
   ![建立 ExpressRoute 線路](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. 按一下 [ExpressRoute] 之後，將會看到 [建立 ExpressRoute 線路] 頁面。 在此頁面中填入值時，請確認所指定的 SKU 層 ([標準] 或 [進階]) 以及資料計量計費模型 ([無限制] 或 [計量付費]) 正確無誤。
@@ -130,7 +130,7 @@ ms.lasthandoff: 12/21/2017
 > [!IMPORTANT]
 > 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果該位置已無額外的容量，您無法升級線路。
 >
-> 降低 ExpressRoute 線路的頻寬時必須中斷運作。 頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
+> 雖然您可以順暢升級頻寬，但降低 ExpressRoute 線路的頻寬時必須中斷運作。 頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 > 
 > 若您使用的資源超出標準線路所允許的數量，可能會無法停用進階附加元件作業。
 > 

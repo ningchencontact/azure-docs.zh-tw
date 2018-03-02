@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>自訂來源連線的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。
@@ -45,7 +45,7 @@ API token (obtained at: https://data.world/settings/advanced): <enter API token 
 
 #### <a name="load-data-into-data-preparation"></a>將資料載入資料準備
 
-建立新的指令碼型資料流程。 然後使用下列指令碼從 data.world 載入資料。
+建立轉換資料流程 (指令碼) 轉換。 然後使用下列指令碼從 data.world 載入資料。
 
 ```python
 #paths = df['Path'].tolist()

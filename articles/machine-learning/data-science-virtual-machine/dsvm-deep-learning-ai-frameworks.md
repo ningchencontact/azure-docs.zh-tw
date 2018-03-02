@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
@@ -67,7 +67,7 @@ ms.lasthandoff: 01/24/2018
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Caffe 是安裝在 `/opt/caffe` 中。    |
 | 範例的連結      | 範例會包含在 `/opt/caffe/examples`中。      |
 | DSVM 上的相關工具      | Caffe2      |
@@ -87,7 +87,7 @@ jupyter notebook
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Caffe2 是安裝在 `/opt/caffe2` 中。 它也針對 Python 2.7(_root_) Conda 環境提供。     |
 | 範例的連結      | 已包含範例 Jupyter 筆記本     |
 | DSVM 上的相關工具      | Caffe      |
@@ -114,7 +114,7 @@ jupyter notebook
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 適用於 H2O 的深度學習架構      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Deep Water 是安裝在 `/dsvm/tools/deep_water` 中。   |
 | 範例的連結      | 範例可透過 Deep Water 伺服器取得。      |
 | DSVM 上的相關工具      | H2O、Sparkling Water      |
@@ -145,7 +145,7 @@ jupyter notebook
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 來自 NVIDIA 的深度學習系統，可用來快速訓練深度學習模型      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | DIGITS 是安裝在 `/dsvm/tools/DIGITS` 中，並以稱為 _digits_ 之服務的形式提供。   |
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？  
 
@@ -173,7 +173,7 @@ jupyter notebook
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Theano 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
 | DSVM 上的相關工具      | Keras      |
 | 如何使用/執行它？    | 在終端機中，啟動所需的 Python 版本 (root 或 py35)，執行 Python，然後匯入 Theano。 在 Jupyter 中，選取 [Python 2.7] 或 [Python 3.5] 核心，然後匯入 Theano。  |
@@ -185,7 +185,42 @@ jupyter notebook
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Torch 是安裝在 `/dsvm/tools/torch` 中。 PyTorch 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
 | 範例的連結      | Torch 範例位於 `/dsvm/samples/torch`。 PyTorch 範例位於 `/dsvm/samples/pytorch`。      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | 深度學習架構      |
+| 支援的 DSVM 版本      | Linux     |
+| 它是如何在 DSVM 上設定/安裝的？  | PyTorch 是安裝在 Python 3.5 (_py35_) 環境中。   |
+| 範例的連結      | 隨附 Jupyter 筆記本範例，也可以在 /dsvm/samples/pytorch 中找到範例。      |
+| DSVM 上的相關工具      | Torch      |
+
+### <a name="how-to-use--run-it"></a>如何使用/執行它？  
+
+在終端機中執行 _python_，然後匯入 Torch。 在 Jupyter 中，選取 [Python 3.5] 核心，然後匯入 Torch。
+
+
+## <a name="mxnet-model-server"></a>MXNet 模型伺服器
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | 建立 MXNet 和 ONNX 模型 HTTP 端點的伺服器      |
+| 支援的 DSVM 版本      | Linux     |
+| 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _mxnet-model-server_。   |
+| 範例的連結      | 在 [MXNet 模型伺服器頁面](https://github.com/awslabs/mxnet-model-server)上尋找最新的範例。    |
+| DSVM 上的相關工具      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow 服務
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | 要在 TensorFlow 模型上執行推斷的伺服器      |
+| 支援的 DSVM 版本      | Linux     |
+| 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _tensorflow_model_server_。   |
+| 範例的連結      | 可從[線上](https://www.tensorflow.org/serving/)取得範例。      |
+| DSVM 上的相關工具      | TensorFlow      |

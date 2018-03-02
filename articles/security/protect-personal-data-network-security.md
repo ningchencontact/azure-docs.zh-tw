@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>使用網路安全性功能來保護個人資料：Azure 應用程式閘道和網路安全性群組
 
@@ -59,18 +59,9 @@ Azure WAF 可處理各種攻擊類別，包括 SQL 插入、跨網站指令碼�
 
 若要建立已啟用 WAF 的新應用程式閘道，請執行下列動作：
 
-1. 登入 Azure 入口網站，並且在入口網站的 [我的最愛] 窗格中，按一下 [新增]
-
-2. 在 [新增] 刀鋒視窗中，按一下 [網路]。
-
-3. 按一下 [應用程式閘道]。
-
-4. 瀏覽至 Azure 入口網站，按一下 [新增]\> [網路] \> [應用程式閘道]。
-
-   ![建立應用程式閘道](media/protect-netsec/app-gateway-01.png)
-
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取 [建立資源] > [網路] > [應用程式閘道]。
 5. 在出現的 [基本概念] 刀鋒視窗中，輸入下列欄位的值：名稱、層 (標準或 WAF)、SKU 大小 (小、中或大)、執行個體計數 (2 代表高可用性)、訂用帳戶、資源群組及位置。
-
 6. 在 [虛擬網路] 底下顯示的 [設定] 刀鋒視窗中，按一下 [選擇虛擬網路]。 此步驟會開啟 [選擇虛擬網路] 刀鋒視窗。
 
 7. 按一下 [建立新項目] 以開啟 [建立虛擬網路] 刀鋒視窗。
@@ -126,7 +117,7 @@ NSG 規則包含 9 個屬性：名稱、通訊協定 (TCP、UDP 或 \*，其中�
 
 若要在現有 NSG 中建立輸入規則，請執行下列作業：
 
-1. 依序按一下 [瀏覽] 和 [網路安全性群組]。
+1. 按一下 [所有服務]，然後按一下 [網路安全性群組]。
 
 2. 在 NSG 清單中按一下 [NSG-FrontEnd]，然後按一下 [輸入安全性規則]。
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 317adaac1551cf00e25640f1d99429ad76d598a2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>以 .NET 開始使用 Azure 表格儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -85,7 +85,7 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 ### <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
 您必須在您的專案中參考下列三個套件，才能完成本教學課程︰
 
-* [適用於 .NET 的 Azure 儲存體通用程式庫 (預覽)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 
+* [適用於 .NET 的 Azure 儲存體通用程式庫 (8.6.0 預覽)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview)。 
 * [適用於 .NET 的 Microsoft Azure CosmosDB 表格文件庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 此套件可供以程式設計方式存取 Azure 表格儲存體帳戶或 Azure Cosmos DB 表格 API 帳戶中的資料資源。
 * [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)︰此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
 

@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>在 Azure Active Directory 中檢視或搜尋使用者群組
 本文說明如何在 Azure Active Directory (Azure AD) 中檢視所有群組。 Azure AD 使用者管理的其中一項功能就是您可以使用群組來執行管理工作，例如一次指派授權或權限給多名使用者。
 
 ## <a name="how-do-i-see-all-the-groups"></a>如何查看所有群組？
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 選取 [更多服務]，在文字方塊中輸入「使用者和群組」，然後選取 **Enter**。
+2. 選取 [所有服務]，在文字方塊中輸入**使用者和群組**，然後選取 **Enter** 鍵。
 
    ![開啟使用者和群組](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. 在 [使用者和群組] 刀鋒視窗上，選取 [所有群組]。

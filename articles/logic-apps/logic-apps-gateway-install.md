@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -54,18 +54,18 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="requirements"></a>需求
 
-**最低**：
+**最低**
 
 * .NET 4.5 Framework
 * 64 位元版本的 Windows 7 或 Windows Server 2008 R2 (或更新版本)
 
-**建議**：
+**建議使用**
 
 * 8 核心 CPU
 * 8 GB 記憶體
 * 64 位元版本的 Windows 2012 R2 (或更新版本)
 
-**重要考量**︰
+**重要考量**
 
 * 請只在本機電腦上安裝內部部署資料閘道。
 您不能在網域控制站上安裝閘道。
@@ -75,12 +75,12 @@ ms.lasthandoff: 10/11/2017
 
 * 請勿將閘道安裝在關閉、進入睡眠狀態，或未連線到網際網路的電腦上，因為閘道無法在這些情況下執行。 此外，透過無線網路的閘道效能可能會受到影響。
 
-* 在安裝期間，您必須登入[公司或學校帳戶](https://docs.microsoft.com/azure/active-directory/sign-up-organization)，該帳戶是由 Azure Active Directory (Azure AD) 所管理，而非 Microsoft 帳戶。
+* 在安裝期間，您必須以[公司或學校帳戶](https://docs.microsoft.com/azure/active-directory/sign-up-organization)登入，且該帳戶必須是由 Azure Active Directory (Azure AD) 所管理，而非 Microsoft 帳戶。
 
   > [!TIP]
   > 如果您想要將擁有 Visual Studio 的 Microsoft 帳戶與 MSDN 訂用帳戶搭配使用，請先使用您的 Microsoft 帳戶[在 Azure Active Directory 中建立一個目錄 (租用戶)](../active-directory/develop/active-directory-howto-tenant.md) 或使用預設目錄。 請將使用者和密碼新增至目錄，然後將您訂用帳戶的存取權授與該使用者。 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
 
-  稍後在 Azure 入口網站中，當您建立閘道資源並將其與閘道安裝建立關聯時，必須使用此相同的公司或學校帳戶。 接著，在建立邏輯應用程式與內部部署資料來源間的連線時，選取該閘道資源。 [為何必須使用公司或學校的 Azure AD 帳戶？](#why-azure-work-school-account)
+  稍後在建立並將閘道資源關聯至閘道安裝時，您必須在 Azure 入口網站中使用同一個公司或學校帳戶。 接著，在建立邏輯應用程式與內部部署資料來源間的連線時，選取該閘道資源。 [為何必須使用公司或學校的 Azure AD 帳戶？](#why-azure-work-school-account)
 
   > [!TIP]
   > 如果您註冊 Office 365 供應項目，但是未提供實際的公司電子郵件，您的登入位址看起來可能會像 jeff@contoso.onmicrosoft.com。 
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="install-the-data-gateway"></a>安裝資料閘道
 
-1.  [在本機電腦上下載並執行閘道安裝程式](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409)。
+1. [在本機電腦上下載並執行閘道安裝程式](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409)。
 
 2. 檢閱並接受使用規定和隱私權聲明。
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-如果 **TcpTestSucceeded** 未設為 **True**，防火牆可能會封鎖連線。 如果您想要更詳細的資訊，請將 **ComputerName** 和 **Port** 值取代為本主題的[設定連接埠](#configure-ports)之下所列的值。
+如果 **TcpTestSucceeded** 未設為 **True**，防火牆可能會封鎖連線。 如果您想要更詳細的資訊，請將 **ComputerName** 和 **Port** 值取代為本文的[設定連接埠](#configure-ports)之下所列的值。
 
 防火牆也可能會封鎖 Azure 服務匯流排到 Azure 資料中心的連線。 若發生此情況，請核准 (解除封鎖) 您所在區域之資料中心的所有 IP 位址。 如需這些 IP 位址，您可以[在此取得 Azure IP 位址清單](https://www.microsoft.com/download/details.aspx?id=41653)。
 
@@ -205,8 +205,8 @@ TcpTestSucceeded       : True
 
 閘道會建立對 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)的輸出連線，並與下列輸出連接埠進行通訊︰TCP 443 (預設)、5671、5672 和 9350 到 9354。 閘道不需要輸入連接埠。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)。
 
-| 網域名稱 | 輸出連接埠 | 描述 |
-| --- | --- | --- |
+| 網域名稱 | 輸出連接埠 | 說明 |
+| ------------ | -------------- | ----------- |
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
 | *.servicebus.windows.net | 5671-5672 | 進階訊息佇列通訊協定 (AMQP) | 
@@ -215,10 +215,12 @@ TcpTestSucceeded       : True
 | *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
 | *.msftncsi.com | 443 | 當 Power BI 服務無法連線至閘道時，用來測試網際網路連線能力。 | 
+||||
 
 如果您必須核准 IP 位址而非網域，您可以下載並使用 [Microsoft Azure 資料中心 IP 範圍清單](https://www.microsoft.com/download/details.aspx?id=41653)。 在某些情況下，Azure 服務匯流排連線會使用 IP 位址而非完整網域名稱來建立。
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>資料閘道如何運作？
 
 資料閘道可讓邏輯應用程式、閘道雲端服務和內部部署資料來源之間，快速且安全地進行通訊。 
@@ -240,6 +242,7 @@ TcpTestSucceeded       : True
 6. 結果會從資料來源傳送回閘道，然後再到閘道雲端服務。 閘道雲端服務接著就會使用結果。
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="general"></a>一般
@@ -252,7 +255,7 @@ TcpTestSucceeded       : True
 
 <a name="why-azure-work-school-account"></a>
 
-**問︰**︰為何必須使用公司或學校的 Azure 帳戶來登入？ <br/>
+**問**︰為何必須使用公司或學校的 Azure 帳戶登入？ <br/>
 **答**︰安裝內部部署資料閘道時，您只能使用公司或學校的 Azure 帳戶。 登入帳戶會儲存在由 Azure Active Directory (Azure AD) 所管理的租用戶中。 Azure AD 帳戶的使用者主體名稱 (UPN) 通常會與電子郵件地址相符。
 
 **問**︰我的認證儲存在哪裡？ <br/>
@@ -289,7 +292,7 @@ TcpTestSucceeded       : True
 **答**：修復金鑰可在災害發生後讓您有辦法移轉或復原閘道設定。
 
 **問**︰有計劃針對閘道啟用高可用性案例嗎？ <br/>
-**答**：這些案例正在規劃中，但是還沒有時間表。
+**答**：某些連接器支援高可用性案例，例如檔案系統連接器，和其他同類的連接器。 如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -301,7 +304,7 @@ TcpTestSucceeded       : True
 您也可以查看資料來源具備的工具是否有追蹤查詢。 例如，您可以使用 SQL Server 和 Analysis Services 的擴充事件或 SQL Profiler。
 
 **問**︰閘道記錄在哪裡？ <br/>
-**答**：請參閱本主題稍後的「工具」。
+**答**：請參閱本文稍後的「工具」。
 
 ### <a name="update-to-the-latest-version"></a>更新為最新版本
 

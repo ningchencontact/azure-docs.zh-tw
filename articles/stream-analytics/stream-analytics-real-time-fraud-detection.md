@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐騙偵測
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/14/2018
 ### <a name="create-a-namespace-and-event-hub"></a>建立命名空間和事件中樞
 在此程序中，您需要先建立事件中樞命名空間，再將事件中樞新增至該命名空間。 事件中樞命名空間可在邏輯上將相關的事件匯流排執行個體分組。 
 
-1. 登入 Azure 入口網站，按一下 [新增] > [物聯網] > [事件中樞]。 
+1. 登入 Azure 入口網站，按一下 [建立資源] > [物聯網] > [事件中樞]。 
 
 2. 在 [建立命名空間] 窗格中，輸入命名空間名稱，例如 `<yourname>-eh-ns-demo`。 您可以使用任何名稱作為命名空間，但名稱在 URL 中必須有效，而且在整個 Azure 內必須唯一的。 
     
@@ -163,9 +163,9 @@ ms.lasthandoff: 02/14/2018
 
 既然已取得通話事件的資料流，您可以開始設定串流分析作業。 此作業會從您設定的事件中樞讀取資料。 
 
-### <a name="create-the-job"></a>建立作業 
+### <a name="create-the-job"></a>建立工作 
 
-1. 在 Azure 入口網站中，按一下 [新增] > [物聯網] > [串流分析作業]。
+1. 在 Azure 入口網站中，按一下 [建立資源] > [物聯網] > [串流分析作業]。
 
 2. 將作業命名為 `sa_frauddetection_job_demo`，並指定訂用帳戶、資源群組和位置。
 

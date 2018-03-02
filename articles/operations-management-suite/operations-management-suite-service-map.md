@@ -1,6 +1,6 @@
 ---
-title: "在 Operations Management Suite 中使用服務對應解決方案 | Microsoft Docs"
-description: "服務對應是一個 Operations Management Suite 解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。"
+title: "在 Azure 中使用服務對應解決方案 | Microsoft Docs"
+description: "服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。"
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>在 Operations Management Suite 中使用服務對應解決方案
+# <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
 
-本文說明使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Operations Management Suite 中設定服務對應解決方案](operations-management-suite-service-map-configure.md)。
+本文說明使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案](operations-management-suite-service-map-configure.md)。
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>使用案例︰讓 IT 處理序可以感知相依性
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/11/2018
 服務對應會自動建置跨伺服器、處理程序和協力廠商服務的一般相依性參考對應。 它會探索並對應所有 TCP 相依性，其中會識別非預期的連線、您倚賴的遠端協力廠商系統，以及與傳統網路暗區 (例如 Active Directory) 的相依性。 服務對應可探索到受控系統嘗試進行的失敗網路連線，幫助您識別潛在的伺服器錯誤設定、服務中斷和網路問題。
 
 ### <a name="incident-management"></a>事件管理
-服務對應可藉由顯示系統的連線方式及其如何互相影響，協助您免去推敲問題所在的工作。 除了識別失敗的連線，服務對應還可協助識別設定錯誤的負載平衡器、非預期或過度負載的重要服務，以及與生產系統通訊的開發人員機器等惡意用戶端。 您也可以使用整合 Operations Management Suite 變更追蹤的工作流程，以查看後端機器或服務上的變更事件是否能夠說明事件的根本原因。
+服務對應可藉由顯示系統的連線方式及其如何互相影響，協助您免去推敲問題所在的工作。 除了識別失敗的連線，服務對應還可協助識別設定錯誤的負載平衡器、非預期或過度負載的重要服務，以及與生產系統通訊的開發人員機器等惡意用戶端。 您也可以使用整合變更追蹤的工作流程，以查看後端機器或服務上的變更事件是否能夠說明事件的根本原因。
 
 ### <a name="migration-assurance"></a>移轉保證
 您可以使用服務對應，有效地規劃、加速和驗證 Azure 移轉，以確保沒有遺漏任何項目，且不會發生意外的中斷。 您可以探索所有需要一起移轉的交互相依系統、評估系統組態和容量，以及識別執行中的系統是否仍為使用者提供服務或是應該解除委任而非移轉。 移動完成之後，您可以檢查用戶端負載和身分識別，以確認測試系統和客戶之間的連線。 如果子網路規劃和防火牆定義有問題，「服務對應」對應中的失敗連線會向您指出需要連線的系統。
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 如果您使用 Azure Site Recovery，且需要協助以定義應用程式環境的復原順序，服務對應可以自動向您顯示系統彼此間的相依情形，以確保復原計畫可靠。 藉由選擇重要伺服器或群組並檢視其用戶端，可以識別在伺服器還原並可用之後要復原的前端系統。 相反地，藉由查看重要伺服器的後端相依性，可以識別在焦點系統還原之前要復原的系統。
 
 ### <a name="patch-management"></a>修補程式管理
-服務對應可以指出其他哪些小組和伺服器依賴您的服務，因此您可以事先通知他們，然後才關閉系統進行修補，如此可加強 Operations Management Suite 系統更新評估的使用。 服務對應也可以顯示您的服務在修補並重新啟動之後是否可用且正確連線，藉此加強 Operations Management Suite 中的修補程式管理。
+服務對應藉由向您指出其他哪些小組和伺服器依賴您的服務，增強了系統更新評量的使用性，因此您可以事先通知他們，然後才關閉系統進行修補。 服務對應更藉由向您指出服務在修補並重新啟動之後是否可用並已正確連線，增強了修補程式管理。
 
 
 ## <a name="mapping-overview"></a>對應概觀
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/11/2018
 根據預設，「服務對應」對應會顯示過去 30 分鐘的相依性資訊。 使用左上角的時間控制項，可查詢過往時間範圍的對應 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。 付費工作區的服務對應資料會儲存 30 天，免費工作區的服務對應資料則會儲存 7 天。
 
 ## <a name="status-badges-and-border-coloring"></a>狀態徽章和框線色彩
-在對應中每一部伺服器的底部，可以是一串狀態徽章，傳達伺服器的相關狀態資訊。 徽章表示在其中一個 Operations Management Suite 解決方案整合中，有某些伺服器的相關資訊。 按一下徽章，即會在右窗格中直接顯示狀態的詳細資料。 目前可使用的狀態徽章包括警示、服務台、變更、安全性和更新。
+在對應中每一部伺服器的底部，可以是一串狀態徽章，傳達伺服器的相關狀態資訊。 徽章表示在其中一個解決方案整合中，有某些伺服器的相關資訊。 按一下徽章，即會在右窗格中直接顯示狀態的詳細資料。 目前可使用的狀態徽章包括警示、服務台、變更、安全性和更新。
 
 根據狀態徽章的嚴重性，機器節點框線會呈現紅色 (重大)、黃色 (警告) 或藍色 (資訊)。 色彩可代表任何狀態徽章最嚴重的狀態。 灰色框線代表沒有狀態指標的節點。
 
@@ -124,7 +124,7 @@ ms.lasthandoff: 01/11/2018
 ## <a name="role-icons"></a>角色圖示
 某些處理序在機器上扮演特殊角色︰Web 伺服器、應用程式伺服器及資料庫等。 服務對應會為程序和機器方塊加上角色圖示註解，以協助您一下就識別出程序或伺服器所扮演的角色。
 
-| 角色圖示 | 描述 |
+| 角色圖示 | 說明 |
 |:--|:--|
 | ![Web 伺服器](media/oms-service-map/role-web-server.png) | Web 伺服器 |
 | ![應用程式伺服器](media/oms-service-map/role-application-server.png) | 應用程式伺服器 |
@@ -168,12 +168,12 @@ ms.lasthandoff: 01/11/2018
 按一下 [顯示自我連結] 將會重繪包括任何自我連結的伺服器節點。自我連結即是以伺服器內處理序做為開始和結束的 TCP 連線。 如果顯示了自我連結，功能表命令會變更為 [隱藏自我連結]，就可以將它們關閉。
 
 ## <a name="computer-summary"></a>電腦摘要
-[機器摘要] 窗格包含伺服器作業系統的概觀、相依性計數，以及其他 Operations Management Suite 解決方案的資料。 這些資料包括效能計量、服務台票證、變更追蹤、安全性和更新。
+[機器摘要] 窗格包含伺服器作業系統的概觀、相依性計數，以及其他解決方案的資料。 這些資料包括效能計量、服務台票證、變更追蹤、安全性和更新。
 
 ![[機器摘要] 窗格](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>電腦和處理序屬性
-在瀏覽「服務對應」對應時，可以選取機器和處理序來取得其他有關其屬性的內容。 機器會提供下列相關資訊：DNS 名稱、IPv4 位址、CPU 和記憶體容量、VM 類型、作業系統和版本、上次重新開機時間，以及其 Operations Management Suite 和服務對應代理程式識別碼。
+在瀏覽「服務對應」對應時，可以選取機器和處理序來取得其他有關其屬性的內容。 機器會提供有關 DNS 名稱、IPv4 位址、CPU 和記憶體容量、VM 類型、作業系統和版本、上次重新開機時間，以及其 OMS 和服務對應代理程式識別碼的資訊。
 
 ![[機器屬性] 窗格](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ ms.lasthandoff: 01/11/2018
 
 ![[處理序摘要] 窗格](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Operations Management Suite 警示整合
-服務對應會與 Operations Management Suite 警示整合，以顯示所選時間範圍內針對所選伺服器觸發的警示。 如果有最新警示，伺服器會顯示圖示，且 [機器警示] 窗格會列出警示。
+## <a name="alerts-integration"></a>警示整合
+服務對應會與 Log Analytics 中的警示整合，以顯示所選時間範圍內針對所選伺服器觸發的警示。 如果有最新警示，伺服器會顯示圖示，且 [機器警示] 窗格會列出警示。
 
 ![[機器警示] 窗格](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ ms.lasthandoff: 01/11/2018
 ![警示組態](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Operations Management Suite 記錄事件整合
+## <a name="log-events-integration"></a>記錄事件整合
 服務對應會與記錄搜尋整合，以顯示所選時間範圍期間，適用於所選伺服器的所有可用記錄事件計數。 您可以按一下事件計數清單中的任一列，以移至記錄搜尋並查看個別的記錄事件。
 
 ![[機器記錄事件] 窗格](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Operations Management Suite 服務台整合
-當「服務對應」和「IT 服務管理連接器」這兩個解決方案皆已在 Operations Management Suite 工作區中啟用並設定時，便會自動進行整合。 服務對應中的整合會標示為「服務台」。 如需詳細資訊，請參閱[使用 IT 服務管理連接器將 ITSM 工作項目集中管理](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)。
+## <a name="service-desk-integration"></a>服務台整合
+當「服務對應」和「IT 服務管理連接器」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。 服務對應中的整合會標示為「服務台」。 如需詳細資訊，請參閱[使用 IT 服務管理連接器將 ITSM 工作項目集中管理](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)。
 
 [機器服務台] 窗格會列出所選時間範圍內所選伺服器的所有 IT 服務管理事件。 如果有最新項目，伺服器會顯示圖示，且 [機器服務台] 窗格會列出這些項目。
 
@@ -214,8 +214,8 @@ ms.lasthandoff: 01/11/2018
 若要檢視記錄搜尋中項目的詳細資料，請按一下 [在記錄搜尋中顯示]。
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Operations Management Suite 變更追蹤整合
-當「服務對應」和「變更追蹤」這兩個解決方案皆已在 Operations Management Suite 工作區中啟用並設定時，便會自動進行整合。
+## <a name="change-tracking-integration"></a>變更追蹤整合
+當「服務對應」和「變更追蹤」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
 
 [機器變更追蹤] 窗格會列出所有變更，從最新排到最舊，並有連結可供向下鑽研記錄搜尋，以取得其他詳細資料。
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 01/11/2018
 ![ConfigurationChange 事件](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite 效能整合
+## <a name="performance-integration"></a>效能整合
 [機器效能] 窗格會顯示所選伺服器的標準效能計量。 這些計量包含 CPU 使用率、記憶體使用率、傳送和接收的網路位元組，以及按照傳送和接收的網路位元組排序的前幾個處理序清單。
 
 ![[機器效能] 窗格](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux：
 - Network Adapter(*)\\Bytes Sent/sec
 - Network Adapter(*)\\Bytes Received/sec
 
-若要取得網路效能資料，您也必須在 Operations Management Suite 中啟用 Wire Data 2.0 解決方案。
+若要取得網路效能資料，您也必須在工作區中啟用 Wire Data 2.0 解決方案。
  
-## <a name="operations-management-suite-security-integration"></a>Operations Management Suite 安全性整合
-當「服務對應」和「安全性與稽核」這兩個解決方案皆已在 Operations Management Suite 工作區中啟用並設定時，便會自動進行整合。
+## <a name="security-integration"></a>安全性整合
+當「服務對應」和「安全性與稽核」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
 
-[機器安全性] 窗格會顯示 Operations Management Suite 安全性與稽核解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器任何未處理之安全性問題的摘要。 按一下任一安全性問題會向下鑽研到記錄搜尋，以顯示關於安全性問題的詳細資料。
+[機器安全性] 面板會顯示安全性與稽核解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器任何未處理之安全性問題的摘要。 按一下任一安全性問題會向下鑽研到記錄搜尋，以顯示關於安全性問題的詳細資料。
 
 ![[機器安全性] 窗格](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Operations Management Suite 更新整合
-當「服務對應」和「更新管理」這兩個解決方案皆已在 Operations Management Suite 工作區中啟用並設定時，便會自動進行整合。
+## <a name="updates-integration"></a>更新整合
+當「服務對應」和「更新管理」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
 
-[機器更新] 窗格會顯示 Operations Management Suite 更新管理解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器所缺少之任何更新的摘要。
+[機器更新] 面板會顯示更新管理解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器所缺少之任何更新的摘要。
 
 ![[機器變更追蹤] 窗格](media/oms-service-map/machine-updates.png)
 
@@ -272,15 +272,15 @@ Linux：
 
 有可用來識別唯一處理程序和電腦的內部產生屬性︰
 
-- 電腦：使用 ResourceId 或 ResourceName_s 來唯一識別 Operations Management Suite 工作區中的電腦。
-- 處理序：使用 ResourceId 來唯一識別 Operations Management Suite 工作區中的處理序。 ResourceName_s 在執行處理序的機器 (MachineResourceName_s) 的環境中是唯一的 
+- 電腦 - 使用 ResourceId 或 ResourceName_s 來唯一識別 Log Analytics 工作區中的電腦。
+- 處理序：使用 ResourceId 來唯一識別 Log Analytics 工作區中的處理序。 ResourceName_s 在執行處理序的機器 (MachineResourceName_s) 的環境中是唯一的 
 
 因為在指定時間範圍內可以有多筆指定處理序和電腦的記錄，針對相同電腦或處理序的查詢可能會傳回多筆記錄。 若只要包含最新的記錄，請在查詢中加入 "| dedup ResourceId"。
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有服務對應代理程式) 的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | 類型 | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -307,7 +307,7 @@ Linux：
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有服務對應代理程式) 上 TCP 連線處理程序的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | 類型 | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

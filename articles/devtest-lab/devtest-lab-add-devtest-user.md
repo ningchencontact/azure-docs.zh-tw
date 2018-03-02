@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增擁有者和使用者
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ac
 下列步驟會引導您進行在 Azure DevTest Labs 新增擁有者或使用者至實驗室的程序︰
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。
 4. 在實驗室的刀鋒視窗上，選取 [組態] 。 
 5. 在 [組態] 刀鋒視窗上，選取 [使用者]。
@@ -118,7 +118,7 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ac
 若要對 Azure 訂用帳戶新增擁有者，請遵循下列步驟︰
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [更多服務]，然後從清單中選取 [訂用帳戶]。
+2. 選取 [所有服務]，然後從清單中選取 [訂用帳戶]。
 3. 選取所需的訂用帳戶。
 4. 選取 [存取]  圖示。 
    

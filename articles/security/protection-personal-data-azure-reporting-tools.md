@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>使用 Azure 報告工具記載個人資料的保護
 
@@ -144,7 +144,7 @@ Log Analytics 中的分析工具 (例如記錄搜尋、檢視和解決方案) �
 
 - 您可以使用 Azure 監視器 REST API、CLI 命令、[PowerShell](https://docs.microsoft.com/powershell/) cmdlet 或 .NET SDK 來查詢資料。
 
-若要開始使用 Azure 監視器，請在 Azure 入口網站中選取 [更多服務]。
+若要開始使用 Azure 監視器，請在 Azure 入口網站中選取 [所有服務]。
 
 1. 向下捲動至 [監視與管理] 區段中的 [監視器]。
 

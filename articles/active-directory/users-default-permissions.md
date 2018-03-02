@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/01/2018
 系統管理員與具備「來賓邀請者角色」的使用者可邀請來賓 | 將此選項設為 [否] 可防止所有使用者邀請來賓。 請參閱「設定成員使用者的預設權限」。 如需詳細資訊，請參閱 [Azure Active Directory 中的應用程式、權限及同意](active-directory-apps-permissions-consent.md)。
 成員可邀請來賓 | 將此選項設為 [否] 可防止使用者邀請來賓。 全域管理員、使用者帳戶管理員及來賓邀請者仍可邀請來賓。 如需詳細資訊，請參閱 [Azure Active Directory 中的應用程式、權限及同意](active-directory-apps-permissions-consent.md)。
 限制 Azure AD 系統管理入口網站的存取 | 將此選項設定為 [否] 可防止使用者存取 Azure Active Directory 入口網站。
-讀取其他使用者的能力 | 如需詳細資訊，請參閱 [Azure Active Directory 中的應用程式、權限及同意](active-directory-apps-permissions-consent.md)。
+讀取其他使用者的能力 | 此設定僅在 PowerShell 中可用。 將此項目設為 $false，可防止所有不是管理員的人員從目錄讀取使用者資訊。 但這樣做無法防止讀取其他 Microsoft 服務 (例如 Exchange Online) 中的使用者資訊。 這項設定適用於特殊情況，並不建議將此項目設定為 $false。
 
 ## <a name="object-ownership"></a>物件擁有權
 

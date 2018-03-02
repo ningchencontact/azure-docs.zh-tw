@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
-一旦您開始使用一或多個 Azure Cosmos DB 資料庫，您可能想要監視資料庫的存取方式和時間。 Azure Cosmos DB 中的診斷記錄，可讓您執行這項監視。 藉由啟用診斷記錄，您可以將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將它們串流處理至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，及/或將它們匯出到 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) 的一部份)。
+一旦您開始使用一或多個 Azure Cosmos DB 資料庫，您可能想要監視資料庫的存取方式和時間。 這篇文章提供 Azure 平台上所有可用記錄的概觀，然後說明如何針對監視目的啟用診斷記錄以將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將它們串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，及/或將它們匯出至 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)，這是 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) 的一部分。
+
+## <a name="logs-available-in-azure"></a>Azure 中可用的記錄
+
+在我們監視您的 Azure Cosmos DB 帳戶之前，讓我們釐清關於記錄和監視的一些事項。 Azure 平台上有不同類型的記錄。 有 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)、[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)、[計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)、事件、活動訊號監視、作業記錄等。記錄過多。 您可以在 Azure 入口網站的 [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) 中查看完整記錄清單。 
+
+下圖顯示可用的不同種類 Azure 記錄。
+
+![不同種類的 Azure 記錄](./media/logging/azurelogging.png)
+
+針對我們的討論，著重於 Azure 活動、Azure 診斷和計量。 那麼這三個記錄之間的差異為何？ 
+
+### <a name="azure-activity-log"></a>Azure 活動記錄檔
+
+「Azure 活動記錄」是訂用帳戶記錄，可讓您深入探索 Azure 中發生的訂用帳戶層級事件。 活動記錄會報告系統管理類別下您的訂用帳戶的控制平面事件。 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「內容、對象和時間」。 您也可以了解作業的狀態和其他相關屬性。 
+
+活動記錄不同於診斷記錄。 活動記錄會提供有關外部資源作業的資料 (控制層面)。 在 Azure Cosmos DB 內容中，部分控制平面作業包括建立集合、列出金鑰、刪除金鑰、列出資料庫等。診斷記錄是由資源所發出，會提供該資源作業的相關資訊 (資料層面)。 部分資料平面診斷記錄範例是 delete、insert、readfeed 作業等等。
+
+活動記錄 (控制平面作業) 在本質上可能更豐富，它們可能會包含呼叫端的完整電子郵件地址、呼叫端 IP 位址、資源名稱、作業名稱和 TenantId 等等。活動記錄包含數個資料[類別](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 如需這些類別結構描述的完整詳細資料，請參閱 [Azure 活動記錄事件結構描述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。  不過，診斷記錄在本質上有所限制，因為 PII 資料通常會從中移除。 因此，您可能有呼叫端的 IP 位址，但是移除最後一個 octent。
+
+### <a name="azure-metrics"></a>Azure 計量
+
+[Azure 計量](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics)，具有由大多數 Azure 資源所發出的最重要類型 Azure 遙測資料 (也稱為效能計數器)。 計量可讓您檢視有關輸送量、儲存體、一致性、可用性和 Azure Cosmos DB 資源延遲的資訊。 如需詳細資訊，請參閱[使用 Azure Cosmos DB 中的計量監控及偵錯](use-metrics.md)。
+
+### <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
+
+「Azure 診斷記錄」是由資源所發出，提供有關該資源之作業的豐富、經常性資料。 這些記錄的內容會依資源類型而有所不同。 資源層級診斷記錄也與客體 OS 層級診斷記錄不同。 客體 OS 診斷記錄是由虛擬機器內執行的代理程式或其他支援的資源類型所收集的記錄。 資源層級診斷記錄不需要代理程式，且會從 Azure 平台本身擷取資源特定的資料，而客體 OS 層級診斷記錄會從虛擬機器上執行的作業系統和應用程式擷取資料。
 
 ![透過 Log Analytics 將診斷記錄送至儲存體、事件中樞或 Operations Management Suite](./media/logging/azure-cosmos-db-logging-overview.png)
 
-使用本教學課程，透過 Azure 入口網站、CLI 或 PowerShell 開始使用 Azure Cosmos DB 記錄。
-
-## <a name="what-is-logged"></a>會記錄什麼內容？
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Azure 診斷記錄記錄哪些項目？
 
 * 會跨所有 API 記錄所有已驗證的後端要求 (TCP/REST)，包括因為存取權限、系統錯誤或要求錯誤而發生的失敗要求。 目前不支援使用者起始的 Graph、Cassandra 和資料表 API 要求。
 * 對資料庫本身的作業，包括對所有文件、容器和資料庫的 CRUD 作業。
 * 對帳戶金鑰的作業，包括建立、修改或刪除這些金鑰。
 * 產生 401 回應的未經驗證要求。 例如，沒有持有人權杖的要求，或格式不正確或已過期的要求，或具有無效權杖的要求。
 
-## <a name="prerequisites"></a>先決條件
-若要完成本教學課程，您必須具備下列資源：
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>在 Azure 入口網站中開啟記錄
+
+若要啟用診斷記錄，您必須擁有下列資源：
 
 * 現有的 Azure Cosmos DB 帳戶、資料庫和容器。 如需建立這些資源的指示，請參閱[使用 Azure 入口網站建立資料庫帳戶](create-sql-api-dotnet.md#create-a-database-account)、[CLI 範例](cli-samples.md)或 [PowerShell 範例](powershell-samples.md)。
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>在 Azure 入口網站中開啟記錄
+若要在 Azure 入口網站中啟用診斷記錄，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，於您的 Azure Cosmos DB 帳戶左側瀏覽區中按一下 [診斷記錄]，然後按一下 [開啟診斷]。
 
@@ -98,7 +123,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="turn-on-logging-using-powershell"></a>使用 PowerShell 開啟記錄
 
-若要使用 PowerShell 開啟記錄，您需要最低版本為 1.0.1 的 Azure Powershell。
+若要使用 PowerShell 開啟診斷記錄，您需要最低版本為 1.0.1 的 Azure Powershell。
 
 若要安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
@@ -315,7 +340,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 ## <a name="managing-your-logs"></a>管理記錄
 
-Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用記錄。 儲存體帳戶中的記錄由您全權管理：
+Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用診斷記錄。 儲存體帳戶中的記錄由您全權管理：
 
 * 請使用標準的 Azure 存取控制方法限制可存取記錄的人員，藉此來保護記錄。
 * 刪除不想繼續保留在儲存體帳戶中的記錄。
@@ -325,7 +350,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
 
-如果您開啟記錄時選取 [傳送至 Log Analytics] 選項，集合中的診斷資料會在兩個小時內轉送到 Log Analytics。 這表示如果您開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
+如果您開啟診斷記錄時選取 [傳送至 Log Analytics] 選項，集合中的診斷資料會在兩個小時內轉送到 Log Analytics。 這表示如果您開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
 
 檢視記錄前，您應檢查確認您的 Log Analytics 工作區是否已升級為使用新的 Log Analytics 查詢語言。 若要檢查此升級，開啟 [Azure 入口網站](https://portal.azure.com)，按一下最左邊的 [Log Analytics]，然後選取工作區名稱，如下圖所示。 即會顯示如下圖中的 [OMS 工作區] 頁面。
 

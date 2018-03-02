@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4cad3343461a6c7eda78566b3d2552b1e3591960
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 203c8399153d2bc2d855fc2602b01ed074852687
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>目的地連線的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/03/2018
 
 寫入至 Excel 之前，可能需要一些其他變更。 資料準備中使用的某些資料類型在部分目的地格式中不支援。 例如，如果 "Error" 物件存在，就無法將這些內容正確序列化至 Excel。 因此在嘗試寫入至 Excel 之前，需要「取代錯誤值」轉換，它會從任何資料行移除錯誤。
 
-如果上述所有工作皆已完成，後續行會將資料資料表寫入 Excel 文件中的單一工作表。 新增寫入資料流程 (指令碼) 轉換。 然後在運算式區段中輸入下列程式碼。
+如果上述所有工作皆已完成，後續行會將資料資料表寫入 Excel 文件中的單一工作表。 新增轉換資料流程 (指令碼) 轉換。 然後在運算式區段中輸入下列程式碼。
 
 
 ### <a name="on-windows"></a>在 Windows 上 

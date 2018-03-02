@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 原始檔控制整合可讓您將自動化帳戶中的 Runbook 關聯至 GitHub 原始檔控制儲存機制。 原始檔控制可讓您輕鬆地與小組共同作業、追蹤變更，以及回復至舊版的 Runbook。 例如，原始檔控制可讓您將原始檔控制中的不同分支同步處理至您的開發、測試或生產自動化帳戶，以輕鬆地將已在開發環境中測試過的程式碼提升至生產自動化帳戶。
@@ -36,10 +36,9 @@ ms.lasthandoff: 12/14/2017
 如果您已經有想要連結到 Azure 自動化的 GitHub 帳戶和存放庫，則登入您現有的帳戶並從下面的步驟 2 開始執行。 否則，瀏覽至 [GitHub](https://github.com/)，註冊新的帳戶以及[建立新的儲存機制](https://help.github.com/articles/create-a-repo/)。
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>步驟 2 – 設定 Azure 自動化中的原始檔控制
-1. 從 Azure 入口網站中的 [自動化帳戶] 分頁，按一下 [設定原始檔控制]。 
+1. 在 Azure 入口網站的 [自動化帳戶] 頁面中，於 [帳戶設定] 下按一下 [原始檔控制]。 
    
-    ![設定原始檔控制](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. [原始檔控制] 分頁隨即開啟，您可以在其中設定您的 GitHub 帳戶詳細資料。 以下是要設定的參數清單：  
+1. [原始檔控制] 分頁隨即開啟，您可以在其中設定您的 GitHub 帳戶詳細資料。 以下是要設定的參數清單：  
    
    | **參數** | **說明** |
    |:--- |:--- |

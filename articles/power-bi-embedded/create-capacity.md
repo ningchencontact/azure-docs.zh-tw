@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 入口網站中建立 Power BI Embedded 容量
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [+ (新增)] > [資料 + 分析]。
+2. 選取 [建立資源]  >  [資料 + 分析]。
 
 3. 在搜尋方塊中，搜尋 *Power BI Embedded*。
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 6. 選取 [建立] 。
 
-建立通常不到一分鐘即可完成；往往在數秒內。 如果您選取 [釘選到儀表板]，請瀏覽至您的儀表板以查看新容量。 或者，瀏覽至 [更多服務] > [Power BI Embedded] 以查看您的容量是否已就緒。
+建立通常不到一分鐘即可完成；往往在數秒內。 如果您選取 [釘選到儀表板]，請瀏覽至您的儀表板以查看新容量。 或者，瀏覽至 [所有服務]  >  [Power BI Embedded] 以查看您的容量是否已就緒。
 
 ![含 Power BI Embedded 容量的 Azure 入口網站儀表板](media/create-capacity/azure-portal-dashboard.png)
 

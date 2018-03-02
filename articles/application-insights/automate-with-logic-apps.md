@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 
 ### <a name="step-1-create-a-logic-app"></a>步驟 1：建立邏輯應用程式
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [新增] 窗格中，依序選取 [Web + 行動] 和 [邏輯應用程式]。
+2. 按一下 [建立資源]，選取 [Web + 行動]，然後選取 [邏輯應用程式]。
 
     ![新增邏輯應用程式視窗](./media/automate-with-logic-apps/logicapp1.png)
 

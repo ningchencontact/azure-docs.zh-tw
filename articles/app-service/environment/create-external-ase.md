@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
@@ -59,7 +59,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 若要在建立 App Service 方案時建立 ASE：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [新增] > [Web + 行動] > [Web 應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [建立資源]  >  [Web + 行動]  > [Web 應用程式]。
 
     ![建立 Web 應用程式][1]
 
@@ -97,7 +97,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 如果您建立 ASE 獨立，它就不會包含任何項目。 空白 ASE 仍會產生基礎結構的每月費用。 請遵循下列步驟來建立具有 ILB 的 ASE，或是在它自己的資源群組中建立 ASE。 建立 ASE 之後，您可以使用一般流程在其中建立應用程式。 選取您新的 ASE 作為位置。
 
-1. 搜尋 Azure Marketplace 的**App Service 環境**，或選取 [新增] > [Web 行動] > [App Service 環境]。 
+1. 在 Azure Marketplace 中搜尋「App Service 環境」，或選取 [建立資源]  >  [Web + 行動]  >  [App Service 環境]。 
 
 2. 輸入您的 ASE 名稱。 這個名稱會用於 ASE 中建立的應用程式。 如果名稱是 mynewdemoase，子網域名稱就是 .mynewdemoase.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.mynewdemoase.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。 如果您是使用 ILB，ASE 名稱就不會用於您的子網域中，但是會在 ASE 建立期間明確指定。
 

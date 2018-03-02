@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>使用 Azure VM 代理程式調整 Jenkins 部署以滿足需求
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/26/2017
             }
      ```
 
-    完成的服務主體應將 `id` 欄位用於 [訂用帳戶識別碼]、`appId` 值用於 [用戶端識別碼]、`password` 用於 [用戶端密碼]，然後將 URL 用於 `https://login.windows.net/<tenant_value>` 的 [OAuth 2.0 權杖端點]。 選取 [新增] 新增服務主體，然後設定外掛程式以使用新建立的認證。
+    完成的服務主體應將 `id` 欄位用於 [訂用帳戶識別碼]、`appId` 值用於 [用戶端識別碼]、`password` 用於 [用戶端密碼] 以及 `tenant` 用於 [租用戶識別碼]。 選取 [新增] 新增服務主體，然後設定外掛程式以使用新建立的認證。
 
     ![設定 Azure 服務主體](./media/jenkins-azure-vm-agents/new-service-principal.png)
 

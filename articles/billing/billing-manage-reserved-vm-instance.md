@@ -1,6 +1,6 @@
 ---
-title: "管理 Azure 保留執行個體 | Microsoft Docs"
-description: "了解如何變更訂用帳戶範圍，以及針對 Azure 保留執行個體管理存取權。"
+title: "管理 Azure 保留的虛擬機器執行個體 | Microsoft Docs"
+description: "了解如何變更訂用帳戶範圍，以及針對 Azure 保留的 VM 執行個體管理存取權。"
 services: billing
 documentationcenter: 
 author: vikramdesai01
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>管理 Azure 保留執行個體
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/16/2017
 
 更新保留範圍： 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [更多服務] > [保留]。
+2. 選取 [所有服務]  >  [保留]。
 3. 選取保留。
 4. 選取 [設定] > [組態]。
 5. 變更範圍。 如果您從共用變更為單一範圍，您只能選取擁有者是您的訂用帳戶。 只能選取與保留屬於相同計費內容的訂用帳戶。 計費內容取決於您購買保留時選取的訂用帳戶。 該範圍僅適用於預付型方案優惠的 MS-AZR-0003P 訂用帳戶與企業優惠的 MS-AZR-0017P 訂用帳戶。 對於企業合約，開發/測試訂用帳戶沒有取得保留折扣的資格。
@@ -69,12 +69,22 @@ ms.lasthandoff: 11/16/2017
  
 委派保留的存取管理： 
 1.  登入 [Azure 入口網站](https://portal.azure.com)。
-2.  選取 [更多服務] > [保留] 來列出您具有存取權的保留。
+2.  選取 [所有服務]  >  [保留] 來列出您具有存取權的保留。
 3.  選取您想要將存取權委派給其他使用者的保留。
 4.  在功能表中選取 [存取控制 (IAM)]。
 5.  選取 [新增] > [角色] > [擁有者] (如果您想要給予有限的存取權，可選取不同角色)。 
 6. 輸入要新增為擁有者之使用者的電子郵件地址。 
 7. 選取使用者，然後選取 [儲存]。
+
+## <a name="next-steps"></a>後續步驟
+若要深入了解保留的虛擬機器執行個體，請參閱下列文章。
+
+- [預付具有保留的 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本](billing-save-compute-costs-reservations.md)
+- [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [Windows 軟體的成本不包括在保留執行個體內](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

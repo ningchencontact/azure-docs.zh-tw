@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 叢集
 
@@ -86,7 +86,7 @@ New-AzureRmHDInsightCluster `
 **若要確認變更：**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左功能表中按一下 [HDInsight 叢集]。 如果您沒有看到，可先按一下 [更多服務]。
+2. 從左功能表中按一下 [HDInsight 叢集]。 如果沒有看到，按一下 [所有服務]。
 3. 按一下您剛才使用 PowerShell 指令碼建立的叢集。
 4. 在刀鋒視窗頂端按一下 [儀表板]  ，以開啟 Ambari UI。
 5. 按一下左側功能表中的 [Hive]  。

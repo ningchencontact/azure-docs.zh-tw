@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 將 IaaS 資源從傳統移轉至 Azure Resource Manager
 以下步驟說明如何使用 Azure PowerShell 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。
@@ -59,7 +59,7 @@ Azure PowerShell 的主要安裝選項有兩個：[PowerShell 資源庫](https:/
 若要執行此移轉，必須在 [Azure 入口網站](https://portal.azure.com)中將您新增為訂用帳戶的共同管理員。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [中樞] 功能表中，選取 [訂用帳戶] 。 如果您沒有看到，請選取 [更多服務]。
+2. 在 [中樞] 功能表中，選取 [訂用帳戶] 。 如果您沒有看到，請選取 [所有服務]。
 3. 尋找適當的訂用帳戶項目，然後查看 [我的角色] 欄位。 對於共同管理員而言，這個值應該是 [帳戶管理員]。
 
 如果您無法新增共同管理員，請連絡服務管理員或訂用帳戶的共同管理員，以將您新增為共同管理員。   

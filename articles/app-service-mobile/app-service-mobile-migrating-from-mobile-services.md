@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/04/2018
 Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的各項功能，其中包括：
 
 * 新的主機功能，包括 [WebJobs] 和[自訂網域名稱]。
-* 使用 New Relic 或 [Application Insights]進行監視和疑難排解作業。
+* 使用 [Application Insights] 進行監視和疑難排解作業。
 * 內建的 DevOps 工具，包括[預備位置]、回復和生產環境測試。
 * [自動調整]、負載平衡，以及[效能監視]。
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 ### <a name="step-1-create-the-data-factory"></a>步驟 1：建立 Data Factory
 1. 登入 Azure 入口網站之後，執行下列步驟：
-   1. 按一下左側功能表上的 [新增]  。
+   1. 在左功能表中，按一下 [建立資源]。
    2. 按一下 [新增] 刀鋒視窗中的 [資料 + 分析]。
    3. 按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
    

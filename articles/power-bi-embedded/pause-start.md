@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 入口網站中暫停並啟動您的 Power BI Embedded 容量
 
@@ -35,9 +35,9 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [更多服務] > [Power BI Embedded] 以查看您的容量。
+2. 選取 [所有服務] > [Power BI Embedded] 以查看您的容量。
 
-    ![Azure 入口網站內的 [更多服務]](media/pause-start/azure-portal-more-services.png)
+    ![Azure 入口網站內的所有服務](media/pause-start/azure-portal-more-services.png)
 
 3. 選取您需要暫停的容量。
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [更多服務] > [Power BI Embedded] 以查看您的容量。
+2. 選取 [所有服務] > [Power BI Embedded] 以查看您的容量。
 
-    ![Azure 入口網站內的 [更多服務]](media/pause-start/azure-portal-more-services.png)
+    ![Azure 入口網站內的所有服務](media/pause-start/azure-portal-more-services.png)
 
 3. 選取您需要啟動的容量。
 

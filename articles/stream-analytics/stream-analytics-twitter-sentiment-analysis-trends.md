@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>建立事件中樞命名空間和事件中樞
 在此程序中，您需要先建立事件中樞命名空間，再將事件中樞新增至該命名空間。 事件中樞命名空間可在邏輯上將相關的事件匯流排執行個體分組。 
 
-1. 登入 Azure 入口網站，按一下 [新增] > [物聯網] > [事件中樞]。 
+1. 登入 Azure 入口網站，按一下 [建立資源] > [物聯網] > [事件中樞]。 
 
 2. 在 [建立命名空間] 刀鋒視窗中，輸入命名空間名稱，例如 `<yourname>-socialtwitter-eh-ns`。 您可以使用任何名稱作為命名空間，但名稱在 URL 中必須有效，而且在整個 Azure 內必須唯一的。 
     
@@ -200,7 +200,7 @@ ms.lasthandoff: 10/11/2017
 
 既然正在從 Twitter 即時串流推文事件，您可以設定串流分析作業來即時分析這些事件。
 
-1. 在 Azure 入口網站中，按一下 [新增] > [物聯網] > [串流分析作業]。
+1. 在 Azure 入口網站中，按一下 [建立資源] > [物聯網] > [串流分析作業]。
 
 2. 將作業命名為 `socialtwitter-sa-job`，並指定訂用帳戶、資源群組和位置。
 

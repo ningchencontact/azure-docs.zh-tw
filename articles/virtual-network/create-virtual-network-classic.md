@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
@@ -39,10 +39,10 @@ ms.lasthandoff: 01/19/2018
 ## <a name="portal"></a>入口網站
 
 1. 在網際網路瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)。 使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。
-2. 按一下入口網站中的 [+ 新增]。
-3. 在出現的 [新增] 刀鋒視窗頂端的 [搜尋市集] 方塊中，輸入 [虛擬網路]。  當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
-4. 在出現的 [虛擬網路] 刀鋒視窗中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。 
-5. 在 [建立虛擬網路 (傳統)] 刀鋒視窗中輸入下列值，然後按一下 [建立]：
+2. 在 Azure 入口網站中按一下 [建立資源]。
+3. 在出現的 [新增] 窗格頂端的 [搜尋市集] 方塊中，輸入 [虛擬網路]。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
+4. 在出現的 [虛擬網路] 窗格中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。 
+5. 在 [建立虛擬網路 (傳統)] 窗格中輸入下列值，然後按一下 [建立]：
 
     |設定|值|
     |---|---|
@@ -55,13 +55,13 @@ ms.lasthandoff: 01/19/2018
 
     如果您不熟悉 Azure，請深入了解[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)、[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions) (也稱為「區域」)。
 4. 當您在入口網站中建立虛擬網路時，您只能建立一個子網路。 在本教學課程中，您會在建立虛擬網路後建立第二個子網路。 稍後您可能會在**公用**子網路中建立可從網際網路存取的資源。 您也可能會在**私人**子網路中建立無法從網際網路存取的資源。 若要建立第二個子網路，在入口網站頂端的 [搜尋資源] 方塊中輸入 **myVnet**。 當 myVnet 出現在搜尋結果中時，按一下 [myVnet]。
-5. 在出現的 [建立虛擬網路 (傳統)] 刀鋒視窗中，按一下 [設定] 區段中的 [子網路]。
-6. 在出現的 [myVnet - 子網路] 刀鋒視窗中，按一下 [+ 新增]。
-7. 在 [新增子網路] 刀鋒視窗中的 [名稱] 輸入**私人**。 在 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [SERVICEPRINCIPAL] 。
-8. 您就會在 [myVnet - 子網路] 中看到您建立的 [公用] 和 [私人] 子網路。
+5. 在出現的 [建立虛擬網路 (傳統)] 窗格中，按一下 [設定] 區段中的 [子網路]。
+6. 在出現的 [myVnet - 子網路] 窗格中，按一下 [+ 新增]。
+7. 在 [新增子網路] 窗格中的 [名稱] 輸入**私人**。 在 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [SERVICEPRINCIPAL] 。
+8. 您就會在 [myVnet - 子網路] 窗格中看到您建立的 [公用] 和 [私人] 子網路。
 9. **選用**：當您完成本教學課程後，可能會想刪除您所建立的資源，以免產生使用費：
-    - 按一下 [myVnet] 刀鋒視窗上的 [概觀]。
-    - 按一下 [myVnet] 刀鋒視窗上的 **刪除**圖示。
+    - 按一下 [myVnet] 窗格上的 [概觀]。
+    - 按一下 [myVnet] 窗格上的 [刪除] 圖示。
     - 若要確認刪除，請在 [刪除虛擬網路] 方塊中，按一下 [是]。
 
 ## <a name="azure-cli"></a>Azure CLI

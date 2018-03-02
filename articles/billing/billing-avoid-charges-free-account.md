@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 0efea55d0e1329ddf4ada35aa0dd6164f0951a70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 527e77d7ab8c67ea538d2452357f31a698b2b6ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>避免產生 Azure 免費帳戶的費用
 
@@ -48,7 +48,7 @@ Azure 免費帳戶提供使用量有限的每個月免費服務。 免費使用�
 
 1.  登入 [Azure 入口網站](http://portal.azure.com)。
 
-2.  從左側導覽的底部，選取 [More services]\(更多服務\)。
+2.  在左側導覽區域中，選取 [所有服務]。
 
 3.  選取 [訂用帳戶]。
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 880be5f27ca4198004511e01e63cdb3d72f107d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -111,11 +111,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>檢查 Azure Active Directory 中是否存在使用者帳戶
 
-若要檢查使用者的帳戶是否存在，請依照下列步驟執行：
+若要檢查使用者的帳戶是否存在，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -129,11 +129,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-users-account-status"></a>檢查使用者帳戶的狀態
 
-若要檢查使用者帳戶的狀態，請依照下列步驟執行：
+若要檢查使用者的帳戶狀態，請遵循下列步驟：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -149,11 +149,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="reset-a-users-password"></a>重設使用者的密碼
 
-若要重設使用者的密碼，請依照下列步驟執行：
+若要重設使用者的密碼，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -163,9 +163,9 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 6.  **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
 
-7.  按一下使用者刀鋒視窗頂端的 [重設密碼]按鈕。
+7.  按一下使用者窗格頂端的 [重設密碼] 按鈕。
 
-8.  在出現的 [重設密碼] 刀鋒視窗上，按一下 [重設密碼] 按鈕。
+8.  在出現的 [重設密碼] 窗格中，按一下 [重設密碼] 按鈕。
 
 9.  為使用者複製**暫時密碼**或**輸入新密碼**。
 
@@ -181,11 +181,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>檢查使用者的多重要素驗證狀態
 
-若要檢查使用者的多重要素驗證狀態，請依照下列步驟執行：
+若要檢查使用者的多重要素驗證狀態，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -193,7 +193,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 5.  按一下 [所有使用者]。
 
-6.  按一下刀鋒視窗頂端的 [Multi-Factor Authentication] 按鈕。
+6.  按一下窗格頂端的 [Multi-Factor Authentication] 按鈕。
 
 7.  當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
 
@@ -205,11 +205,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-users-authentication-contact-info"></a>檢查使用者的驗證連絡資訊
 
-若要檢查用於多重要素驗證、條件式存取、身分識別保護和密碼重設的使用者驗證連絡資訊，請依照下列步驟執行︰
+若要檢查用於多重要素驗證、條件式存取、身分識別保護和密碼重設的使用者驗證連絡資訊，請遵循下列步驟︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -227,11 +227,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-users-group-memberships"></a>檢查使用者的群組成員資格
 
-若要檢查使用者的群組成員資格，請依照下列步驟執行：
+若要檢查使用者的群組成員資格，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -245,11 +245,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-users-assigned-licenses"></a>檢查使用者獲指派的授權
 
-若要檢查使用者獲指派的授權，請依照下列步驟執行：
+若要檢查使用者獲指派的授權，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -263,11 +263,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="assign-a-user-a-license"></a>指派授權至使用者 
 
-若要指派授權至使用者，請依照下列步驟執行︰
+若要指派授權至使用者，請依遵循下列步驟︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -289,7 +289,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ## <a name="problems-with-groups"></a>群組的問題
 
-當指派至應用程式的群組有問題時，可封鎖應用程式存取權。 以下是為群組和群組成員資格問題疑難排解的一些方法︰
+當指派至應用程式的群組有問題時，可封鎖應用程式存取權。 以下是針對群組和群組成員資格問題疑難排解的一些方法︰
 
 -   [檢查群組成員資格](#check-a-groups-membership)
 
@@ -303,11 +303,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-groups-membership"></a>檢查群組成員資格
 
-若要檢查群組的成員資格，請依照下列步驟執行：
+若要檢查群組的成員資格，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -321,11 +321,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-dynamic-groups-membership-criteria"></a>檢查動態群組成員資格準則 
 
-若要檢查動態群組的成員資格準則，請依照下列步驟執行：
+若要檢查動態群組的成員資格準則，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -341,11 +341,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="check-a-groups-assigned-licenses"></a>檢查群組獲指派的授權
 
-若要檢查群組獲指派的授權，請依照下列步驟執行：
+若要檢查群組獲指派的授權，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -359,11 +359,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="reprocess-a-groups-licenses"></a>重新處理群組的授權
 
-若要重新處理群組獲指派的授權，請依照下列步驟執行：
+若要重新處理群組獲指派的授權，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -384,11 +384,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="assign-a-group-a-license"></a>指派授權至群組
 
-若要將授權指派至群組，請依照下列步驟執行：
+若要將授權指派給群組，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -421,7 +421,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -444,7 +444,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -476,7 +476,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -514,13 +514,13 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>為單一租用戶應用程式執行系統管理員層級同意
 
--   適用於要求權限的**單一租用戶應用程式** (例如您正在開發或您在組織中擁有的應用程式)：您可以代表所有的使用者執行**系統管理員層級同意**作業，做法是以全域管理員身分登入，然後按一下 [應用程式登錄] -&gt; [所有應用程式] -&gt; [選取應用程式] -&gt; [必要權限] 刀鋒視窗頂端的 [授與權限] 按鈕。
+-   適用於要求權限的**單一租用戶應用程式** (例如您正在開發或您在組織中擁有的應用程式)：您可以代表所有的使用者執行**系統管理員層級同意**作業，做法是以全域管理員身分登入，然後按一下 [應用程式登錄] -&gt; [所有應用程式] -&gt; [選取應用程式] -&gt; [必要權限] 窗格頂端的 [授與權限] 按鈕。
 
 -   **適用於任何使用 V1 或 V2 應用程式模型開發的應用程式**：您可以依照[使用系統管理員同意端點](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)中**向目錄管理員要求權限**一節的指示，強制進行此系統管理員層級同意。
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>為多租用戶應用程式執行系統管理員層級同意
 
--   適用於要求權限的**多租用戶應用程式** (例如第三方或 Microsoft 開發的應用程式)：您可以執行**系統管理員層級同意**作業。 以全域管理員身分登入，然後按一下 [企業應用程式] -&gt; [所有應用程式] -&gt; [選取應用程式] -&gt; [權限] 刀鋒視窗 (即將推出) 下方的 [授與權限] 按鈕。
+-   適用於要求權限的**多租用戶應用程式** (例如第三方或 Microsoft 開發的應用程式)：您可以執行**系統管理員層級同意**作業。 以全域管理員身分登入，然後按一下 [企業應用程式] -&gt; [所有應用程式] -&gt; [選取應用程式] -&gt; [權限] 窗格 (即將推出) 下方的 [授與權限] 按鈕。
 
 -   您也可以依照[使用系統管理員同意端點](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)中**向目錄管理員要求權限**一節的指示，強制進行系統管理員層級同意。
 

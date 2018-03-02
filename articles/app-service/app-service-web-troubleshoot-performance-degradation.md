@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中 Web 應用程式效能變慢的問題進行疑難排解
 本文可協助您針對 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)中 Web 應用程式效能變慢的問題進行疑難排解。
@@ -83,18 +83,14 @@ ms.lasthandoff: 10/11/2017
 同時，亦請參閱 [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 的端點監視影片。
 
 #### <a name="application-performance-monitoring-using-extensions"></a>使用擴充功能的應用程式效能監視
-您也可以利用*網站擴充功能*監視應用程式的效能。
+您也可以利用「網站擴充功能」監視應用程式的效能。
 
 每個 App Service Web 應用程式都提供可擴充的管理端點，讓您得以運用一套以網站擴充功能形式部署的強大工具。 擴充功能包括： 
 
 - 原始程式碼編輯器，例如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)。 
 - 適用於已連線的資源的管理工具，例如連線到 Web 應用程式的 MySQL 資料庫。
 
-[Azure Application Insights](/services/application-insights/) 和 [New Relic](/marketplace/partners/newrelic/newrelic/) 是兩個可用的效能監視網站擴充功能。 若要使用 New Relic，您需要在執行階段安裝代理程式。 若要使用 Azure Application Insights，請透過 SDK 重建程式碼，您也可以安裝可存取其他資料的擴充功能。 SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。
-
-若要使用 Application Insights，請參閱 [監視 Web 應用程式的效能](../application-insights/app-insights-web-monitor-performance.md)。
-
-若要使用 New Relic，請參閱 [Azure 上的 New Relic 應用程式效能管理](../store-new-relic-cloud-services-dotnet-application-performance-management.md)。
+[Azure Application Insights](/services/application-insights/) 也是可使用的效能監視網站擴充功能。 若要使用 Application Insights，您可以使用 SDK 重建您的程式碼。 您也可以安裝擴充功能來存取供其他資料。 SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。 如需詳細資訊，請參閱[監視 Web 應用程式中的效能](../application-insights/app-insights-web-monitor-performance.md)。
 
 <a name="collect" />
 

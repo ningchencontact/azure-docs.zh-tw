@@ -1,6 +1,6 @@
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 從左上角開始，依序按一下 [新增] > [計算] > [Windows Server 2016 Datacenter]。
+2. 從左上角開始，按一下 [建立資源] > **[計算]** > [Windows Server 2016 Datacenter]。
 
     ![瀏覽至入口網站中的 Azure VM 映像](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

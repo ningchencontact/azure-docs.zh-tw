@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>使用擷取的資料執行跨租用戶分析
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/28/2017
 - Wingtip SaaS 指令碼和應用程式[原始程式碼](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB)是從 GitHub 下載。 請務必在擷取檔案內容之前解除封鎖 zip 檔案。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 - Power BI Desktop 已安裝。 [下載 Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - 已佈建額外租用戶的批次，請參閱[**佈建租用戶教學課程**](saas-multitenantdb-provision-and-catalog.md)。
-- 已建立作業帳戶和作業帳戶資料庫。 請參閱[**結構描述管理教學課程**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account)中的適當步驟。
+- 已建立作業代理程式和作業代理程式資料庫。 請參閱[**結構描述管理教學課程**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent)中的適當步驟。
 
 ### <a name="create-data-for-the-demo"></a>建立資料以供示範
 

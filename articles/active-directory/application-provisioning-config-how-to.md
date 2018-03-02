@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>如何設定 Azure AD 資源庫應用程式的使用者佈建
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 
 如果「手動」是唯一針對指定應用程式所顯示的模式，這表示尚未針對該應用程式建立任何自動的 Azure AD 佈建連接器。 或者，這表示應用程式不支援必要條件的使用者管理 API，而您要在該 API 上建置自動化佈建連接器。
 
-如果您想要求支援自動佈建指定的應用程式，可在 <http://aka.ms/aadapprequest> 上填寫要求。
+如果您想要求支援自動佈建指定的應用程式，可以使用 [Azure Active Directory 應用程式要求](https://aka.ms/aadapprequest)來填寫要求。
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>設定應用程式以進行自動佈建
 

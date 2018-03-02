@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 入口網站的鍵盤快速鍵
 本文示範在整個 Azure 入口網站中運作的鍵盤快速鍵。 個別的服務可能會擁有各自的鍵盤快速鍵。
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 |作法 |按 |
 | --- | --- |
 |建立新的資源|G+N|
-|開啟 [更多服務] 窗格|G+B|
+|開啟 [所有服務] 窗格|G+B|
 |搜尋資源|G+/| 
 |搜尋資源功能表項目|CTRL+/ |
 |將選取的左窗格項目上移 |ALT+Shift+向上鍵|

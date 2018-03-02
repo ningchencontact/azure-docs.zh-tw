@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
 在 API 管理中，群組的作用是管理產品對於開發人員的可見度。 產品是先設為可讓群組看見，然後群組中的開發人員就能檢視和訂閱與群組相關聯的產品。 
@@ -49,7 +49,7 @@ API 管理具有下列不可變的系統群組：
 3. 輸入群組的唯一名稱和選用的描述。
 4. 按下 [建立] 。
 
-    ![Add new group](./media/api-management-howto-create-groups/groups001.png)
+    ![新增群組](./media/api-management-howto-create-groups/groups001.png)
 
 一旦建立群組，它就會新增至 [群組] 清單。 <br/>若要編輯群組的 [名稱] 或 [說明]，請按一下群組名稱和 [設定]。<br/>若要刪除群組，按一下群組名稱，然後按下 [刪除]。
 
@@ -62,10 +62,10 @@ API 管理具有下列不可變的系統群組：
 3. 按下 [存取控制]。
 4. 按一下 [+ 新增群組]。
 
-    ![Add new group](./media/api-management-howto-create-groups/groups002.png)
+    ![建立群組與產品的關聯](./media/api-management-howto-create-groups/groups002.png)
 5. 選取您想要新增的群組。
 
-    ![Add new group](./media/api-management-howto-create-groups/groups003.png)
+    ![建立群組與產品的關聯](./media/api-management-howto-create-groups/groups003.png)
 
     若要從產品中移除群組，按一下 [刪除]。
 
@@ -87,12 +87,12 @@ API 管理具有下列不可變的系統群組：
 3. 按下 [+新增] 然後選取成員。
 
     ![新增成員](./media/api-management-howto-create-groups/groups006.png)
-4. 按下 [選取]。
-
+4. 按 [選取]。
 
 在開發人員與群組之間加入關聯之後，您可以在 [ **使用者** ] 索引標籤中檢視此關聯。
 
 ## <a name="next-steps"> </a>後續步驟
+
 * 當開發人員加入至群組之後，他們就可以檢視和訂閱與該群組相關聯的產品。 如需詳細資訊，請參閱 [如何在 Azure API 管理中建立和發佈產品][How create and publish a product in Azure API Management]。
 * 除了在發佈者入口網站中建立和管理群組，您還可以使用 API 管理 REST API [群組](https://msdn.microsoft.com/library/azure/dn776329.aspx) 實體，建立和管理您的群組。
 

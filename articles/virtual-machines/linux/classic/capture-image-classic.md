@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何將傳統 Linux 虛擬機器擷取成映像
 > [!IMPORTANT]
@@ -98,7 +98,7 @@ Azure 會將映像儲存在 [映像] 底下，連同您已上傳的任何映像�
    azure vm image list
    ```
 
-   在 [Azure 入口網站](http://portal.azure.com) 上，新的映像會出現在屬於 [計算] 服務的 [VM 映像 (傳統)] 中。 您可以按一下 Azure 服務清單底部的 [更多服務]，接著查看 [計算] 服務，來存取 [VM 映像 (傳統)]。   
+   在 [Azure 入口網站](http://portal.azure.com) 上，新的映像會出現在屬於 [計算] 服務的 [VM 映像 (傳統)] 中。 按一下 Azure 服務清單底部的 [所有服務]，接著查看 [計算] 服務，即可存取 [VM 映像 (傳統)]。   
 
    ![成功擷取映像](./media/capture-image/VMCapturedImageAvailable.png)
 

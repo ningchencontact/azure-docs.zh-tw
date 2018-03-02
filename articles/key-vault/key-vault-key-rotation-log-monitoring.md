@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫
 ## <a name="introduction"></a>簡介
@@ -255,12 +255,12 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 1. 建立服務匯流排命名空間 (如果您已經有一個想要用於此作業的命名空間，請跳至步驟 2)。
 2. 在 Azure 入口網站中瀏覽至服務匯流排，然後選取要在其中建立佇列的命名空間。
-3. 選取 [新增]，然後選擇 [服務匯流排] -> [佇列]，並輸入必要詳細資料。
+3. 選取 [建立資源]、[企業整合]、[服務匯流排]，然後輸入必要的詳細資料。
 4. 選擇命名空間，然後按一下 [連接資訊]，以選取服務匯流排連接資訊。 下一個區段需要此資訊。
 
 接下來，[建立 Azure 函式](../azure-functions/functions-create-first-azure-function.md) 以輪詢儲存體帳戶中的金鑰保存庫記錄，並挑選新的事件。 這是會依排程觸發的函式。
 
-若要建立 Azure 函式，請在 Azure 入口網站中選擇 [新增] -> [函式應用程式]。 在建立期間，您可以使用現有的主控方案，或建立新的方案。 您也可以選擇動態主控。 如需函式主控選項的詳細資訊，請參閱[如何調整 Azure Functions](../azure-functions/functions-scale.md)。
+若要建立 Azure 函式，請選擇 [建立資源]，在市集中搜尋 [函式應用程式]，然後按一下 [建立]。 在建立期間，您可以使用現有的主控方案，或建立新的方案。 您也可以選擇動態主控。 如需函式主控選項的詳細資訊，請參閱[如何調整 Azure Functions](../azure-functions/functions-scale.md)。
 
 建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。 然後按一下 [建立此函式]。
 

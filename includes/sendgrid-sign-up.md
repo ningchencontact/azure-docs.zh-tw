@@ -2,7 +2,7 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。 這些每�
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>註冊 SendGrid 帳戶
 1. 登入 [Azure 入口網站][Azure portal]。
-2. 在左側功能表中，按一下 [新增]。
+2. 在左側功能表中，按一下 [建立資源]。
 
     ![command-bar-new][command-bar-new]
 3. 依序按一下 [附加元件] 和 [SendGrid 電子郵件傳遞]。
@@ -45,7 +45,7 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。 這些每�
 
     ![api-keys][api-keys]
 
-3. 按一下 [建立 API 金鑰] 下拉式清單，然後選取 [一般 API 金鑰]。
+3. 按一下 [建立 API 金鑰]。
 
     ![general-api-key][general-api-key]
 4. 至少需要提供**這個金鑰的名稱**，並提供**郵件傳送**的完整存取權，然後選取 [儲存]。

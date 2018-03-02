@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/21/2017
 
 1. 瀏覽至 Azure 入口網站：http://portal.azure.com。使用您的 Azure 帳戶進行登入。
 
-2. 在畫面的左上方，選取 [新增] > [網路] > [負載平衡器]。 接下來，選取 [建立]。
+2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。 接下來，選取 [建立]。
 
 3. 在 [建立負載平衡器] 之下，輸入負載平衡器的名稱。 在此案例中，我們會使用名稱 **mylb**。
 

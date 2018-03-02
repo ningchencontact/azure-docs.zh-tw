@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 建立資源群組之後，您可以將資源從 Marketplace 部署至該群組。 Marketplace 針對常見的案例提供預先定義的解決方案。
 
-1. 若要開始部署，請選取 [新增]。
+1. 若要開始部署，請選取 [建立資源]。
 
    ![新增資源](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 如果您想要執行部署，但不使用 Marketplace 中的任何範本，您可建立自訂範本以定義您的解決方案的基礎結構。 若要了解如何建立範本，請參閱[了解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
 
-1. 若要透過入口網站來部署自訂的範本，請選取 [新增]，並搜尋 [範本部署]，直到您可以從選項中選取它為止。
+1. 若要透過入口網站來部署自訂的範本，請選取 [建立資源]，並搜尋 [範本部署]，直到您可以從選項中選取它為止。
 
    ![搜尋範本部署](./media/resource-group-template-deploy-portal/search-template.png)
 

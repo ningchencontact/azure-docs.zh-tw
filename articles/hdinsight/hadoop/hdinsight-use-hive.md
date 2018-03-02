@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -41,20 +41,19 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 
 ## <a name="how-to-use-hive"></a>如何使用 Hive
 
-使用下表了解如何使用 Hive 搭配 HDInsight︰
+使用下表了解搭配使用 Hive 與 HDInsight 的各種方式︰
 
-| **使用此方法**，如果您想要... | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
+| **使用此方法**，如果您想要... | ...**互動式**查詢 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |任何 (以瀏覽器為基礎) |
 | [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux 或 Windows* |Linux、Unix、Mac OS X 或 Windows |
+| [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux、Unix、Mac OS X 或 Windows |
 | [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux 或 Windows* |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 或 Windows* |Windows |
 
 > [!IMPORTANT]
 > \* Linux 是 HDInsight 3.4 版或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
->
-> 如果您使用以 Windows 為基礎的 HDInsight 叢集，您可以從瀏覽器或[遠端桌面](../hadoop/apache-hadoop-use-hive-remote-desktop.md)使用[查詢主控台](../hadoop/apache-hadoop-use-hive-query-console.md)來執行 Hive 查詢。
 
 ## <a name="hiveql-language-reference"></a>HiveQL 語言參考
 
@@ -65,7 +64,14 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 Hive 了解如何使用結構化和半結構化資料。 例如，以特定字元分隔欄位的文字檔案。 下列 HiveQL 陳述式會使用以空格分隔的資料建立資料表︰
 
 ```hiveql
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
@@ -74,20 +80,20 @@ Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列�
 
 如需 Hive 所支援檔案格式的詳細資訊，請參閱[語言手冊 (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
-## <a name="hive-internal-tables-vs-external-tables"></a>Hive 內部和外部資料表比較。
+### <a name="hive-internal-tables-vs-external-tables"></a>Hive 內部和外部資料表比較。
 
 您可以使用 Hive 建立兩種類型的資料表：
 
 * __內部__︰資料會儲存在 Hive 資料倉儲中。 資料倉儲位於叢集之預設儲存體上的 `/hive/warehouse/`。
 
-    使用內部資料表的時機︰
+    符合下列其中一項條件時，請使用內部資料表：
 
     * 資料是暫存的。
     * 您想要 Hive 管理資料表和資料的生命週期。
 
 * __外部__︰資料會儲存在資料倉儲之外。 資料可以儲存在叢集可存取的任何儲存體上。
 
-    使用外部資料表的時機︰
+    符合下列其中一項條件時，請使用外部資料表：
 
     * 資料也使用於 Hive 之外。 例如，資料檔案由其他程序所更新 (不會鎖定檔案)。
     * 即使在刪除資料表後，資料都必須保留在基礎位置。
@@ -102,9 +108,9 @@ Hive 也可透過 **使用者定義函數 (UDF)**延伸。 UDF 可讓您在 Hive
 
 * [將 Java 使用者定義的函式與 Hive 搭配使用](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [使用 Python 使用者定義的函式搭配 Hive 和 Pig](../hadoop/python-udf-hdinsight.md)
+* [搭配使用 Python 使用者定義函式與 Hive](../hadoop/python-udf-hdinsight.md)
 
-* [使用 C# 使用者定義的函式搭配 Hive 和 Pig](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [搭配使用 C# 使用者定義函式與 Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [如何將自訂 Hive 使用者定義的函式新增至 HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -118,16 +124,27 @@ HDInsight 上的 Hive 已預先載入名為 `hivesampletable` 的內部資料表
 
 下列 HiveQL 陳述式將資料行投影在 `/example/data/sample.log` 檔案︰
 
-    set hive.execution.engine=tez;
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+```hiveql
+set hive.execution.engine=tez;
+DROP TABLE log4jLogs;
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE LOCATION '/example/data/';
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    GROUP BY t4;
+```
 
 在上一個範例中，HiveQL 陳述式會執行下列動作：
 
-* `set hive.execution.engine=tez;`：設定執行引擎以使用 Tez。 使用 Tez 而非 MapReduce，可以提升查詢效能。 如需 Tez 的詳細資訊，請參閱 [使用 Apache Tez 以提升效能](#usetez) 一節。
+* `set hive.execution.engine=tez;`：設定執行引擎以使用 Tez。 使用 Tez 可提升查詢效能。 如需 Tez 的詳細資訊，請參閱 [使用 Apache Tez 以提升效能](#usetez) 一節。
 
     > [!NOTE]
     > 只有在使用以 Windows 為基礎的 HDInsight 叢集時，才需要此陳述式。 Tez 是以 Linux 為基礎的 HDInsight 預設的執行引擎。
@@ -151,11 +168,21 @@ HDInsight 上的 Hive 已預先載入名為 `hivesampletable` 的內部資料表
 
 若要建立**內部**資料表，而不是外部資料表，請使用下列 HiveQL：
 
-    set hive.execution.engine=tez;
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs
-    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+```hiveql
+set hive.execution.engine=tez;
+CREATE TABLE IF NOT EXISTS errorLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+STORED AS ORC;
+INSERT OVERWRITE TABLE errorLogs
+SELECT t1, t2, t3, t4, t5, t6, t7 
+    FROM log4jLogs WHERE t4 = '[ERROR]';
+```
 
 這些陳述式會執行下列動作：
 
@@ -195,7 +222,15 @@ HDInsight 上的 Hive 已預先載入名為 `hivesampletable` 的內部資料表
 
 HDInsight 可提供互動式查詢叢集類型的 LLAP。 如需詳細資訊，請參閱[開始使用互動式查詢](../interactive-query/apache-interactive-query-get-started.md)文件。
 
-## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 工作和 SQL Server 整合服務
+## <a name="scheduling-hive-queries"></a>排程 Hive 查詢
+
+有數項服務可讓您使用排程或隨需的工作流程來執行 Hive 查詢。
+
+### <a name="azure-data-factory"></a>Azure Data Factory
+
+Azure Data Factory 可讓您使用 HDInsight 作為 Data Factory 管線的一部分。 若想進一步了解如何使用管線中的 Hive，請參閱[使用 Azure Data Factory 中的 Hive 活動轉換資料](/data-factory/transform-data-using-hadoop-hive.md)文件。
+
+### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 工作和 SQL Server 整合服務
 
 您可以使用 SQL Server Integration Services (SSIS) 來執行 Hive 作業。 適用於 SSIS 的 Azure Feature Pack 中提供下列元件可搭配 HDInsight 上的 Hive 工作使用。
 
@@ -203,7 +238,11 @@ HDInsight 可提供互動式查詢叢集類型的 LLAP。 如需詳細資訊，�
 
 * [Azure 訂用帳戶連接管理員][connectionmanager]
 
-在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
+如需詳細資訊，請參閱 [Azure Feature Pack][ssispack] 文件。
+
+### <a name="apache-oozie"></a>Apache Oozie
+
+Apache Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 如需搭配使用 Oozie 與 Hive 的詳細資訊，請參閱[使用 Oozie 定義和執行工作流程](../hdinsight-use-oozie-linux-mac.md)文件。
 
 ## <a id="nextsteps"></a>後續步驟
 

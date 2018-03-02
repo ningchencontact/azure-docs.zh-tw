@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 應用程式
 此教學課程說明如何在 Azure 上使用 Linux 虛擬機器，於 Rails 網站裝載 Ruby。  
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="azure-portal"></a>Azure 入口網站
 1. 登入 [Azure 入口網站](https://portal.azure.com)
-2. 按一下 [新增]，然後在搜尋方塊中輸入 "Ubuntu Server 14.04"。 按一下由搜尋傳回的項目。 針對部署模型，選取 [傳統]，然後按一下 [建立]。
+2. 按一下 [建立資源]，然後在搜尋方塊中輸入 "Ubuntu Server 14.04"。 按一下由搜尋傳回的項目。 針對部署模型，選取 [傳統]，然後按一下 [建立]。
 3. 在 [基本] 刀鋒視窗中，提供必要欄位的值：名稱 (適用於 VM)、使用者名稱、驗證類型和對應的認證、Azure 訂用帳戶、資源群組及位置。
 
    ![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

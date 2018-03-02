@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>資源提供者和類型
 
@@ -263,9 +263,9 @@ West US
 
 當訂用帳戶中仍有資源提供者的資源類型時，您無法取消註冊該資源提供者。
 
-若要查看特定資源提供者的資訊，請選取 [更多服務]。
+若要查看特定資源提供者的資訊，請選取 [所有服務]。
 
-![選取 [更多服務]](./media/resource-manager-supported-services/more-services.png)
+![選取所有服務](./media/resource-manager-supported-services/more-services.png)
 
 搜尋**資源總管**並從可用的選項加以選取。
 

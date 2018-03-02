@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>建立快照集 
 
@@ -65,7 +65,7 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>使用 Azure 入口網站建立快照集 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左上方開始，按一下 [新增]並搜尋**快照集**。
+2. 從左上方開始，按一下 [建立資源] 並搜尋**快照集**。
 3. 在 [快照集] 刀鋒視窗中，按一下 [建立]。
 4. 輸入快照集的 [名稱]。
 5. 選取現有的[資源群組](../../azure-resource-manager/resource-group-overview.md#resource-groups)，或輸入新群組的名稱。 
