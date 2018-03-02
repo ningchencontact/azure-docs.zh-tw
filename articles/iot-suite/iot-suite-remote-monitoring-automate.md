@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用臨界值型規則來偵測問題
 
@@ -32,7 +32,7 @@ Contoso 有一個會在 **Chiller** 裝置回報的壓力超出 250 PSI 時產�
 > * 編輯現有的規則
 > * 刪除規則
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
@@ -40,7 +40,7 @@ Contoso 有一個會在 **Chiller** 裝置回報的壓力超出 250 PSI 時產�
 
 ## <a name="view-the-rules-in-your-solution"></a>檢視您解決方案中的規則
 
-**規則和動作**方案中的頁面會顯示一份所有目前的規則：
+解決方案中的 [規則和動作] 頁面會顯示所有目前規則的清單：
 
 ![[規則和動作] 頁面](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -66,8 +66,8 @@ Contoso 有一個會在 **Chiller** 裝置回報的壓力超出 250 PSI 時產�
 
 | 設定          | 值                                 |
 | ---------------- | ------------------------------------- |
-| 名稱             | Chiller 警告                       |
-| 來源           | **Chillers**裝置群組             |
+| Name             | Chiller 警告                       |
+| 來源           | **Chillers** 裝置群組             |
 | 觸發欄位    | pressure                              |
 | 觸發運算子 | 大於                          |
 | 觸發值    | 150                                   |
@@ -76,7 +76,7 @@ Contoso 有一個會在 **Chiller** 裝置回報的壓力超出 250 PSI 時產�
 
 若要儲存新規則，請選擇 [套用]。
 
-您可以檢視在觸發規則時將要**規則和動作**頁面或在**儀表板**頁面。
+您可以在 [規則和動作] 頁面或在 [儀表板] 頁面上，檢視規則的觸發時間。
 
 ## <a name="edit-an-existing-rule"></a>編輯現有的規則
 

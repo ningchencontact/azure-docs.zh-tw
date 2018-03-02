@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>了解預付型方案的保留執行個體使用量
 
@@ -56,6 +56,16 @@ Reservation-Base VM 行有保留涵蓋的小時總數。 這一行為 $0.00，�
 3. Reservation-Base VM 計量子類別行在說明區段的行中代表 $0 成本。 執行此虛擬機器的成本是已由保留支付。
 4. 這是保留的計量識別碼。 此計量的成本為 $0。 任何符合保留執行個體資格的虛擬機器在 CSV 中都有此 MeterId，用來說明成本。 
 5. Standard_DS1_v2 是一種 vCPU 虛擬機器，且是在沒有 Azure Hybrid Benefit 的情況下部署的虛擬機器。 因此，這個計量涵蓋 Windows 軟體的額外費用。 請參閱 [Azure 保留執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)， 以尋找與 D 系列 1 核心 VM 相對應的計量。 如果使用 Azure Hybrid Benefit，就不會產生此額外費用。 
+
+## <a name="next-steps"></a>後續步驟
+若要深入了解保留的虛擬機器執行個體，請參閱下列文章。
+
+- [預付具有保留的 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [管理保留的虛擬機器執行個體](billing-manage-reserved-vm-instance.md)
+- [使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本](billing-save-compute-costs-reservations.md)
+- [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
+- [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [Windows 軟體的成本不包括在保留的執行個體內](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

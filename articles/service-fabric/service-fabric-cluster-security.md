@@ -16,12 +16,12 @@ ms.date: 12/07/2017
 ms.author: chackdan
 ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 叢集安全性案例
-Azure Service Fabric 叢集是您擁有的資源。 您必須負責保護您的叢集，以協助防止未經授權的使用者連線到它們。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援生產工作負載的不安全的叢集。 
+Azure Service Fabric 叢集是您擁有的資源。 保護叢集是您的責任，從而協助避免未經授權的使用者與它們連線。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援將不安全的叢集用作生產工作負載。 
 
 本文是 Azure 叢集和獨立式叢集的安全性情節的概觀，以及可用來實作它們的各種技術：
 
@@ -58,7 +58,7 @@ Service Fabric 會使用您建立叢集時，在節點類型組態中指定的 X
 ### <a name="client-to-node-certificate-security"></a>用戶端對節點憑證安全性
 建立叢集時，可在 Azure 入口網站中，使用 Resource Manager 範本或使用獨立 JSON 範本來設定用戶端對節點憑證安全性。 若要建立憑證，請指定管理員用戶端憑證或使用者用戶端憑證。 您指定的系統管理用戶端憑證和使用者用戶端憑證，應不同於您針對[節點對節點安全性](#node-to-node-security)指定的主要和次要憑證，以作為最佳做法。 節點對節點安全性的叢集憑證預設會新增到允許的用戶端系統管理員憑證清單中。
 
-用戶端如果是使用系統管理憑證來連接到叢集，就會擁有管理功能的完整存取權。 用戶端如果是使用唯讀使用者用戶端憑證來連接到叢集，則只會擁有管理功能的唯讀存取權。 這些憑證用來說明本文中稍後 RBAC。
+用戶端如果是使用系統管理憑證來連接到叢集，就會擁有管理功能的完整存取權。 用戶端如果是使用唯讀使用者用戶端憑證來連接到叢集，則只會擁有管理功能的唯讀存取權。 這些憑證是用於我們在本文稍後所述的 RBAC。
 
 若要了解如何在適用於 Azure 的叢集中設定憑證安全性，請參閱[使用 Azure Resource Manager 範本來設定叢集](service-fabric-cluster-creation-via-arm.md)。
 

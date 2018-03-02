@@ -1,19 +1,19 @@
 ---
-title: "適用於 PostgreSQL 的 Azure 資料庫的連線庫 | Microsoft Docs"
+title: "適用於 PostgreSQL 的 Azure 資料庫的連線庫"
 description: "本文描述幾個連線庫和驅動程式，開發人員可以在撰寫應用程式的程式碼，以連線及查詢適用於 PostgreSQL 的 Azure 資料庫時，使用這些連線庫和驅動程式。"
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/28/2018
+ms.openlocfilehash: 7f0dd217a124f530ba009c9a5588691f604827e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫的連線庫
 本文所列出開發人員可用來開發應用程式的程式庫和驅動程式，以連線及查詢適用於 PostgreSQL 的 Azure 資料庫。

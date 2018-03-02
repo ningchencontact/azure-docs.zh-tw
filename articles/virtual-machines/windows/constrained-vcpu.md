@@ -1,6 +1,6 @@
 ---
-title: "Azure 限制 vCPU 大小-Windows |Microsoft 文件"
-description: "列出可擁有的受條件約束的 vCPU 計數的 Vm 大小。"
+title: "Azure 限制的 vCPU 大小 - Windows | Microsoft Docs"
+description: "列出具有受限 vCPU 計數的 VM 大小。"
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -16,11 +16,11 @@ ms.date: 12/07/2017
 ms.author: jonbeck
 ms.openlocfilehash: c0f2d4797b2f9a3854c1a59a8f6cf3410e6c8b05
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
-# <a name="constrained-vcpu-capable-vm-sizes"></a>受條件約束的 vCPU 能夠 VM 大小
+# <a name="constrained-vcpu-capable-vm-sizes"></a>具有受限 vCPU 的 VM 大小
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-constrained-vcpu.md)]

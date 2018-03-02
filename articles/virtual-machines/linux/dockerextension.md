@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ce44a5e4db080822aaec0b50a265b863059bd45a
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 2fd7be23c4146051197c4b6d7db6deb06dfa416d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>使用 Docker VM 延伸模組在 Azure 中建立 Docker 環境
 Docker 是常用的容器管理和映像處理平台，它能讓您在 Linux 上快速地操作容器。 在 Azure 中，您可以根據您的需求使用幾個方式來部署 Docker。 本文著重於搭配 Azure CLI 2.0 使用 Docker VM 延伸模組與 Azure Resource Manager 範本。 您也可以使用 [Azure CLI 1.0](dockerextension-nodejs.md) 來執行這些步驟。
@@ -29,19 +29,19 @@ Azure Docker VM 擴充功能會在您的 Linux 虛擬機器 (VM) 中安裝並設
 如需不同部署方法的詳細資訊，包括使用 Docker 電腦和 Azure Container Service，請參閱下列文章︰
 
 * 如需快速應用程式原型，您可以使用 [Docker 電腦](docker-machine.md)建立單一 Docker 主機。
-* 若要建置可實際執行、 可調整提供額外的排程和管理工具的環境，您可以部署[Kubernetes](../../container-service/kubernetes/index.yml)或[Docker Swarm](../../container-service/dcos-swarm/index.yml) Azure 容器服務上的叢集。
+* 如需建置提供其他排程和管理工具的生產就緒、可調整環境，您可以在 Azure Container Service 上部署 [Kubernetes](../../container-service/kubernetes/index.yml) 或 [Docker Swarm](../../container-service/dcos-swarm/index.yml) 叢集。
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>使用 Azure Docker VM 擴充功能部署範本
-使用現有的快速入門範本建立使用 Azure Docker VM 延伸模組的 Ubuntu VM，以安裝及設定 Docker 主機。 您可以在這裡檢視範本︰ [使用 Docker 簡易部署 Ubuntu VM](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)。 您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。
+使用現有的快速入門範本建立使用 Azure Docker VM 延伸模組的 Ubuntu VM，以安裝及設定 Docker 主機。 您可以在這裡檢視範本︰ [使用 Docker 簡易部署 Ubuntu VM](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)。 您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。
 
-首先，使用 [az group create](/cli/azure/group#create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+首先，使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-接下來，使用 [az group deployment create](/cli/azure/group/deployment#create) 來部署 VM，其中包含來自 [GitHub 上此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)的 Azure Docker VM 擴充功能。 出現提示時，提供您自己的唯一值*newStorageAccountName*， *adminUsername*， *adminPassword*，和*dnsNameForPublicIP*:
+接下來，使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 來部署 VM，其中包含來自 [GitHub 上此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)的 Azure Docker VM 擴充功能。 出現提示時，針對 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供您自己唯一的值：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -52,7 +52,7 @@ az group deployment create --resource-group myResourceGroup \
 
 
 ## <a name="deploy-your-first-nginx-container"></a>部署您的第一個 NGINX 容器
-若要檢視 VM 的詳細資料，包括 DNS 名稱，請使用 [az vm show](/cli/azure/vm#show)：
+若要檢視 VM 的詳細資料，包括 DNS 名稱，請使用 [az vm show](/cli/azure/vm#az_vm_show)：
 
 ```azurecli
 az vm show \
@@ -63,7 +63,7 @@ az vm show \
     --output tsv
 ```
 
-以 SSH 連線到新的 Docker 主機。 提供您自己的使用者名稱和 DNS 名稱，從先前的步驟：
+以 SSH 連線到新的 Docker 主機。 提供先前步驟中您自己的使用者名稱和 DNS 名稱：
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

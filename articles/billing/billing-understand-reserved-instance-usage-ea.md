@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>了解 Enterprise 註冊之保留執行個體的使用方式
 從[保留頁面](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade )使用 ReservationId，以及從 [EA入口網站](https://ea.azure.com) \(英文\) 使用使用方式檔案，了解保留執行個體的使用情況。 您也可以在 [EA 入口網站 ](https://ea.azure.com) \(英文\) 的使用情況摘要區段中查看保留使用情況。
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/16/2017
 1. [其他資訊] 欄位中的 ReservationId 代表用來將權益套用至 VM 的保留。
 2. ConsumptionMeter 是 VM 的 MeterId。
 3. 這是成本為 $0 的 ReservationMeter，因為執行中 VM 的成本已經由保留支付。 
-4. Standard_D1 是一種 vCPU VM，且是在沒有 Azure Hybrid Benefit 的情況下部署的 VM。 因此，這個計量涵蓋 Windows 軟體的額外費用。 請參閱 [Azure 保留 VM 執行個體 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md) 以尋找與 D 系列 1 核心 VM 相對應的計量。 如果使用 Azure Hybrid Benefit，將不會產生此額外費用。
+4. Standard_D1 是一種 vCPU VM，且是在沒有 Azure Hybrid Benefit 的情況下部署的 VM。 因此，這個計量涵蓋 Windows 軟體的額外費用。 請參閱 [Azure 保留執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)， 以尋找與 D 系列 1 核心 VM 相對應的計量。 如果使用 Azure Hybrid Benefit，將不會產生此額外費用。
 
 ### <a name="reservation-usage-in-usage-summary-page-in-ea-portal"></a>EA 入口網站中使用情況摘要頁面中的保留使用情況
 
@@ -56,6 +56,16 @@ EA 入口網站的使用情況摘要區段 (![EA 使用情況摘要](./media/bil
 
 1. 您不需要針對 VM 的硬體元件付費，因為保留執行個體中已涵蓋該費用。 
 2. 但您需要針對 Windows 軟體付費，因為沒有使用 Azure Hybrid Benefit。 
+
+## <a name="next-steps"></a>後續步驟
+若要深入了解保留的虛擬機器執行個體，請參閱下列文章。
+
+- [預付具有保留的 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [管理保留的虛擬機器執行個體](billing-manage-reserved-vm-instance.md)
+- [使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本](billing-save-compute-costs-reservations.md)
+- [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
+- [Windows 軟體的成本不包括在保留執行個體內](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

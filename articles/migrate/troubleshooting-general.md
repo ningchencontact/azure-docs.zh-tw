@@ -8,7 +8,7 @@ ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -21,13 +21,13 @@ ms.lasthandoff: 12/12/2017
 
 **收集器不能連線到網際網路**
 
-當您使用的電腦位於 proxy 後方時，也可能會發生。 請確定您提供的授權認證，如果 proxy 需要其中一個。
-如果您使用任何以 URL 為基礎來控制輸出連線，才能確定白名單這些防火牆 proxy 所需的 Url:
+當您使用的電腦位於 Proxy 後方時，可能會發生此問題。 如果 Proxy 需要授權認證，請務必提供授權認證。
+如果您使用任何 URL 型防火牆 Proxy 控制輸出連線能力，務必將這些必要的 URL 列入白名單：
 
 **URL** | **用途**  
 --- | ---
-*。 portal.azure.com | 需要若要檢查的 Azure 服務的連線，並驗證時間同步處理問題。
-*。 oneget.org | 所需下載 powershell 基礎 vCenter PowerCLI 模組。
+*.portal.azure.com | 檢查與 Azure 服務的連線能力及驗證時間同步問題時所需。
+*.oneget.org | 下載以 Powershell 為基礎的 vCenter PowerCLI 模組時所需。
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 入口網站中的導覽與儀表板
 [在您的專案上設定 Application Insights](app-insights-overview.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
@@ -117,7 +117,6 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="essentials-tab"></a>Essentials 索引標籤
 * [檢測金鑰](app-insights-create-new-resource.md#copy-the-instrumentation-key) - 識別此應用程式資源。
-* 價格 - 提供功能並設定磁碟區上限。
 
 ### <a name="app-navigation-bar"></a>應用程式導覽列
 ![左導覽列](./media/app-insights-dashboards/app-left-nav-bar.png)

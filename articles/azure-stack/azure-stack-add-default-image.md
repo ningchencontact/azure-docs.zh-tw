@@ -1,4 +1,4 @@
-﻿---
+---
 title: "將預設 VM 映像新增到 Azure Stack Marketplace | Microsoft Docs"
 description: "將 Windows Server 2016 VM 預設映像新增到 Azure Stack Marketplace。"
 services: azure-stack
@@ -20,9 +20,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
 ---
-# <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>將 Windows Server 2016 VM 映像新增到 Azure Stack Marketplace 
+# <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>將 Windows Server 2016 VM 映像新增到 Azure Stack Marketplace
 
-預設情況下，Azure Stack Marketplace 並未提供任何虛擬機器映像。Azure Stack 操作員必須先將映像新增至 Marketplace，使用者才能存取。您可以使用下列其中一種方法，將 Windows Server 2016 映像新增至 Azure Stack Marketplace：
+預設情況下，Azure Stack Marketplace 並未提供任何虛擬機器映像。 Azure Stack 操作員必須先將映像新增至 Marketplace，使用者才能存取。 您可以使用下列其中一種方法，將 Windows Server 2016 映像新增至 Azure Stack Marketplace：
 
 * [從 Azure Marketplace 下載映像](#add-the-image-by-downloading-it-from-the-azure-marketplace)。 如果您是在已連線的情況下進行操作，並且已向 Azure 註冊 Azure Stack 執行個體，請使用此選項。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/09/2018
 
    ![從 Azure 下載映像](media/azure-stack-add-default-image/download-image.png)
 
-下載完成後，即可在 [Marketplace 管理] 下使用映像，該映像也可以在 [計算] 中取得，並用來建立新的虛擬機器。
+下載完成後，即可在 [Marketplace 管理] 下使用映像。 該映像也可以在 [計算] 中取得，並用來建立新的虛擬機器。
 
 ## <a name="add-the-image-by-using-powershell"></a>使用 PowerShell 來新增映像
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 02/09/2018
 
 3. 在 Windows Server 評估版頁面上，[下載 Windows Server 2016 評估版](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016)。 出現提示時，選取下載項的 ISO 版本。 記錄下載位置的路徑，該路徑稍後會使用於本文描述的這些步驟中。 此步驟需要網際網路連線能力。  
 
-### <a name="add-the-image-to-the-azure-stack-marketplace"></a>將映像新增至 Azure Stack Marketplace 
+### <a name="add-the-image-to-the-azure-stack-marketplace"></a>將映像新增至 Azure Stack Marketplace
    
 1. 使用下列命令來匯入 Azure Stack 的 Connect 和 ComputeAdmin 模組：
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 02/09/2018
 
    ```
 
-2. 登入您的 Azure Stack 環境。 執行下列其中一個指令碼，取決於您是使用 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 來部署您的 Azure Stack 環境。 (取代 Azure AD `tenantName`、`GraphAudience` 端點，以及 `ArmEndpoint` 值，以反映您的環境設定。)   
+2. 登入您的 Azure Stack 環境。 執行下列其中一個指令碼，取決於您是使用 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 來部署您的 Azure Stack 環境。 (取代 Azure AD `tenantName`、`GraphAudience` 端點，以及 `ArmEndpoint` 值，以反映您的環境設定。)  
 
    * **Azure Active Directory**。 使用下列 Cmdlet：
 
@@ -148,8 +148,8 @@ ms.lasthandoff: 02/09/2018
 |版本|否| 完整 |  指定 [核心]、[完整]，或 [兩者] 的 Windows Server 2016 映像。 此值預設會設定為 **Full**。|
 |VHDSizeInMB|否| 40,960 | 設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40,960 MB。|
 |CreateGalleryItem|否| True | 指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 **true**。|
-|location |否 | D:\ | 指定應作為 Windows Server 2016 映像發行目的地的位置。|
-|IncludeLatestCU|否| False | 將最新的 Windows Server 2016 累積更新套用到新的 VHD。 檢查指令碼，以確定它指向最新的更新，或使用以下兩個選項之一。 |
+|location |否 | D:\ | 指定 Windows Server 2016 映像檔發行目的地的位置。|
+|IncludeLatestCU|否| False | 將最新 Windows Server 2016 累積更新套用至新的 VHD 虛擬硬碟當中。 請檢查指令碼，以確保它是指向最新的更新，或使用下面兩個選項其中之一。 |
 |CUUri |否 | https://yourupdateserver/winservupdate2016 | 設定從特定的 URI 執行 Windows Server 2016 累積更新。 |
 |CUPath |否 | C:\winservupdate2016 | 設定從本機路徑執行 Windows Server 2016 累積更新。 如果您是在已中斷連線的環境中部署 Azure Stack 執行個體，此選項會相當有用。|
 

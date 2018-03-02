@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 Linux 虛擬機器
 本文示範如何使用 Azure Resource Manager 範本和 Azure CLI 2.0，快速部署 Linux 虛擬機器 (VM)。 您也可以使用 [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) 來執行這些步驟。
@@ -38,18 +38,18 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
-以下範例使用 [az group deployment create](/cli/azure/group/deployment#create)，從[這個 Azure Resource Manager 範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)建立 VM︰ 允許只 SSH 驗證。 出現提示時，提供您自己 SSH 公開金鑰，例如內容值*~/.ssh/id_rsa.pub*。 如果您需要建立 SSH 金鑰組，請參閱[如何為 Azure 中的 Linux VM 建立和使用的 SSH 金鑰組](mac-create-ssh-keys.md)。
+以下範例使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)，從[這個 Azure Resource Manager 範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)建立 VM︰ 只允許 SSH 驗證。 出現提示時，提供您自己 SSH 公開金鑰的值，例如 ~/.ssh/id_rsa.pub 的內容。 如果您需要建立 SSH 金鑰組，請參閱[如何為 Azure 中的 Linux VM 建立和使用的 SSH 金鑰組](mac-create-ssh-keys.md)。
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-在上述範例中，您可以指定在 GitHub 中存放的範本。 您也可以下載或建立範本及指定的本機路徑與`--template-file`參數。
+在先前範例中，您已指定存放在 GitHub 中的範本。 您也可以下載或建立範本，並用 `--template-file` 參數指定本機路徑。
 
 
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
-Ssh 連線到您的 VM，以取得公用 IP 位址與[az vm 顯示](/cli/azure/vm#show):
+若要透過 SSH 連線至您的 VM，使用 [az vm show](/cli/azure/vm#az_vm_show) 取公用 IP 位址：
 
 ```azurecli
 az vm show \

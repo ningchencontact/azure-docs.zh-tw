@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -19,7 +19,7 @@ ms.lasthandoff: 01/04/2018
 
 您可以從 Azure 入口網站設定、列出及下載[適用於 PostgreSQL 的 Azure 資料庫伺服器記錄](concepts-server-logs.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)
 
@@ -75,5 +75,5 @@ ms.lasthandoff: 01/04/2018
 ## <a name="next-steps"></a>後續步驟
 - 請參閱[存取 CLI 中的伺服器記錄](howto-configure-server-logs-using-cli.md)，以了解如何透過程式下載記錄。
 - 深入了解適用於 PostgreSQL 的 Azure DB 中的[伺服器記錄](concepts-server-logs.md)。 
-- 如需參數定義和 PostgreSQL 記錄的詳細資訊，請參閱 PostgreSQL 文件[錯誤報告和記錄](https://www.postgresql.org/docs/current/static/runtime-config-logging.html)。
+- 如需參數定義和 PostgreSQL 記錄的相關詳細資訊，請參閱[錯誤報告和記錄](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) \(英文\) 中的 PostgreSQL 文件。
 

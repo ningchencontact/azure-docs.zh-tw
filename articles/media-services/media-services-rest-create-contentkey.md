@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: b9673376d0b2d2fab9254ab4e9f20484a46adc4b
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/05/2018
 > 
 > 
 
-Media Services 可讓您傳遞已加密的資產。 **ContentKey** 提供**資產**的安全存取。 
+媒體服務可讓您傳遞已加密的資產。 **ContentKey** 提供**資產**的安全存取。 
 
 當您建立新的資產時 (例如，[將檔案上傳](media-services-rest-upload-files.md)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
@@ -35,11 +35,11 @@ Media Services 可讓您傳遞已加密的資產。 **ContentKey** 提供**資�
 
 加密的資產必須與 **ContentKey**相關聯。 本文說明如何建立內容金鑰。
 
-以下是產生內容金鑰與您想要加密的資產相關聯的一般步驟。 
+以下是產生要與要加密資產相關聯之內容金鑰的一般步驟。 
 
 1. 隨機產生 16 位元組 AES 金鑰 (適用於一般加密以及信封加密) 或 32 位元組 AES 金鑰 (適用於儲存體加密)。 
    
-    這是您的資產，這表示，資產需要在解密時使用相同的內容金鑰相關聯的所有檔案的內容金鑰。 
+    這是您資產的內容金鑰，這表示與該資產相關聯的所有檔案都必須在解密期間使用相同的內容金鑰。 
 2. 呼叫 [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) 和 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 方法，以取得用來將內容金鑰加密時必須使用的正確 X.509 憑證。
 3. 使用 X.509 憑證的公開金鑰將您的內容金鑰加密。 
    
@@ -68,7 +68,7 @@ Media Services 可讓您傳遞已加密的資產。 **ContentKey** 提供**資�
 5. 用您在先前步驟中收到的 **EncryptedContentKey** (轉換為 base64 編碼的字串)、**ProtectionKeyId**、**ProtectionKeyType**、**ContentKeyType** 和 **Checksum** 值建立內容金鑰。
 6. 透過 $links 作業建立 **ContentKey** 實體與您 **Asset** 實體的關聯。
 
-這篇文章不會顯示如何產生 AES 金鑰、 加密金鑰，並計算總和檢查碼。 
+本文不會示範如何產生 AES 金鑰、加密金鑰，以及計算總和檢查碼。 
 
 >[!NOTE]
 
@@ -149,7 +149,7 @@ Media Services 可讓您傳遞已加密的資產。 **ContentKey** 提供**資�
 ## <a name="create-the-contentkey"></a>建立 ContentKey
 在擷取 X.509 憑證並使用其公開金鑰將內容金鑰加密之後，建立 **ContentKey** 實體並據以設定其屬性值。
 
-建立內容金鑰時必須設定的其中一個值是類型。 選擇下列值之一：
+建立內容金鑰時必須設定的其中一個值是類型。 選擇下列其中一個值：
 
     public enum ContentKeyType
     {
@@ -176,7 +176,7 @@ Media Services 可讓您傳遞已加密的資產。 **ContentKey** 提供**資�
     }
 
 
-下列範例示範如何建立**ContentKey**與**ContentKeyType**設定儲存體加密 ("1") 和**ProtectionKeyType** ，表示設定為"0"保護金鑰識別碼是 X.509 憑證指紋。  
+下列範例示範如何建立 **ContentKey** 且針對儲存體加密設定 **ContentKeyType** ("1")，並將 **ProtectionKeyType** 設定為 "0"，以表示保護金鑰識別碼是 X.509 憑證指紋。  
 
 要求
 

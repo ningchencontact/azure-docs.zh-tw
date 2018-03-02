@@ -1,6 +1,6 @@
 ---
-title: "教學課程： Azure Active Directory 與 OneTrust 隱私權管理軟體的整合 |Microsoft 文件"
-description: "了解如何設定單一登入 Azure Active Directory 與 OneTrust 隱私權管理軟體之間。"
+title: "教學課程：Azure Active Directory 與 OneTrust Privacy Management Software 整合 | Microsoft Docs"
+description: "了解如何設定 Azure Active Directory 與 OneTrust Privacy Management Software 之間的單一登入。"
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 12/15/2017
 ms.author: jeedes
 ms.openlocfilehash: 89d657e754f6908a3afbb615a2158c9d7f3380f9
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>教學課程： Azure Active Directory 與 OneTrust 隱私權管理軟體的整合
+# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>教學課程：Azure Active Directory 與 OneTrust Privacy Management Software 整合
 
-在本教學課程中，您可以了解如何與 Azure Active Directory (Azure AD) 整合 OneTrust 隱私權管理軟體。
+在本教學課程中，您將了解如何整合 OneTrust Privacy Management Software 與 Azure Active Directory (Azure AD)。
 
-使用 Azure AD 整合 OneTrust 隱私權管理軟體可以提供下列優點：
+OneTrust Privacy Management Software 與 Azure AD 整合提供下列優點：
 
-- 您可以控制可以存取 OneTrust 隱私權管理軟體的 Azure AD 中。
-- 您可以啟用自動取得登入 OneTrust 隱私權管理軟體 （單一登入） 讓使用者使用其 Azure AD 帳戶。
+- 您可以在 Azure AD 中控制誰有 OneTrust Privacy Management Software 的存取權。
+- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 OneTrust Privacy Management Software (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要設定 Azure AD 整合與 OneTrust 隱私權管理軟體，您需要下列項目：
+若要設定 Azure AD 與 OneTrust Privacy Management Software 整合，您需要以下項目：
 
 - Azure AD 訂用帳戶
-- OneTrust 隱私權管理軟體單一登入啟用訂用帳戶
+- 已啟用 OneTrust Privacy Management Software 單一登入的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -50,13 +50,13 @@ ms.lasthandoff: 12/16/2017
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
-1. 從資源庫加入 OneTrust 隱私權管理軟體
+1. 從資源庫新增 OneTrust Privacy Management Software
 2. 設定並測試 Azure AD 單一登入
 
-## <a name="adding-onetrust-privacy-management-software-from-the-gallery"></a>從資源庫加入 OneTrust 隱私權管理軟體
-若要設定 OneTrust 隱私權管理軟體整合 Azure AD，您需要從資源庫加入 OneTrust 隱私權管理軟體，您的受管理的 SaaS 應用程式清單。
+## <a name="adding-onetrust-privacy-management-software-from-the-gallery"></a>從資源庫新增 OneTrust Privacy Management Software
+若要設定 OneTrust Privacy Management Software 與 Azure AD 整合，您需要從資源庫將 OneTrust Privacy Management Software 新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 OneTrust 隱私權管理軟體，執行下列步驟：**
+**若要從資源庫新增 OneTrust Privacy Management Software，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
@@ -70,33 +70,33 @@ ms.lasthandoff: 12/16/2017
 
     ![新增應用程式按鈕][3]
 
-4. 在 搜尋 方塊中，輸入**OneTrust 隱私權管理軟體**，選取**OneTrust 隱私權管理軟體**然後按一下 從結果面板**新增**按鈕即可加入應用程式。
+4. 在搜尋方塊中，輸入 **OneTrust Privacy Management Software**，從結果面板中選取 [OneTrust Privacy Management Software]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![在 [結果] 清單中的 OneTrust 隱私權管理軟體](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_addfromgallery.png)
+    ![結果清單中的 OneTrust Privacy Management Software](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，設定，並根據測試使用者稱為 「 許 Simon"OneTrust 隱私權管理軟體與測試 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 OneTrust Privacy Management Software 搭配運作的 Azure AD 單一登入。
 
-單一登入工作，如 Azure AD 需要知道 OneTrust 隱私權管理軟體的對等項目的使用者是使用者在 Azure AD 中。 換句話說，必須建立 Azure AD 使用者和相關的使用者在 OneTrust 隱私權管理軟體之間的連結關聯性。
+若要讓單一登入運作，Azure AD 必須知道 OneTrust Privacy Management Software 與 Azure AD 中互相對應的使用者。 換句話說，Azure AD 使用者和 OneTrust Privacy Management Software 中的相關使用者之間必須建立連結關聯性。
 
-OneTrust 隱私權管理軟體，在指定的值**使用者名**做為值的 Azure AD 中**Username**建立的連結關聯性。
+在 OneTrust Privacy Management Software 中，將 Azure AD 中**使用者名稱**的值，指派為 **Username** 的值，以建立連結關聯性。
 
-若要設定和測試 Azure AD 單一登入與 OneTrust 隱私權管理軟體，您需要完成下列的建置組塊：
+若要使用 OneTrust Privacy Management Software 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 OneTrust 隱私權管理軟體測試使用者](#create-a-onetrust-privacy-management-software-test-user)** -若要在連結至使用者的 Azure AD 表示 OneTrust 隱私權管理軟體許 Simon 對應項目。
+3. **[建立 OneTrust Privacy Management Software 測試使用者](#create-a-onetrust-privacy-management-software-test-user)** - 使 OneTrust Privacy Management Software 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您可以啟用 Azure AD 單一登入 Azure 入口網站中，並 OneTrust 隱私權管理軟體應用程式中設定單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 OneTrust Privacy Management Software 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與 OneTrust 隱私權管理軟體，執行下列步驟：**
+**若要使用 OneTrust Privacy Management Software 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站上**OneTrust 隱私權管理軟體**應用程式整合頁面上，按一下 **單一登入**。
+1. 在 Azure 入口網站的 [OneTrust Privacy Management Software] 應用程式整合頁面上，按一下 [單一登入]。
 
     ![設定單一登入連結][4]
 
@@ -104,9 +104,9 @@ OneTrust 隱私權管理軟體，在指定的值**使用者名**做為值的 Azu
  
     ![單一登入對話方塊](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_samlbase.png)
 
-3. 在**OneTrust 隱私權管理軟體網域和 Url**區段中，如果您想要設定應用程式中的執行下列步驟**IDP**初始模式：
+3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [OneTrust Privacy Management Software 網域和 URL] 區段上執行下列步驟：
 
-    ![OneTrust 隱私權管理軟體網域和 Url 的單一登入資訊](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url.png)
+    ![OneTrust Privacy Management Software 網域與 URL 單一登入資訊](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url.png)
 
     a. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.onetrust.com/saml2`
 
@@ -114,12 +114,12 @@ OneTrust 隱私權管理軟體，在指定的值**使用者名**做為值的 Azu
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
-    ![OneTrust 隱私權管理軟體網域和 Url 的單一登入資訊](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url1.png)
+    ![OneTrust Privacy Management Software 網域與 URL 單一登入資訊](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url1.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.onetrust.com/auth/login`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 更新這些值與實際的回覆 URL 和登入 URL。 請連絡[OneTrust 隱私權管理軟體的用戶端支援小組](mailto:support@onetrust.com)取得這些值。 
+    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「登入 URL」更新這些值。 請連絡 [OneTrust Privacy Management Software 用戶端支援小組](mailto:support@onetrust.com)以取得這些值。 
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -129,7 +129,7 @@ OneTrust 隱私權管理軟體，在指定的值**使用者名**做為值的 Azu
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-onetrust-tutorial/tutorial_general_400.png)
 
-7. 若要設定單一登入上**OneTrust 隱私權管理軟體**端，您需要傳送下載**中繼資料 XML**來[OneTrust 隱私權管理軟體的支援團隊](mailto:support@onetrust.com). 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+7. 若要在 **OneTrust Privacy Management Software**  端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [OneTrust Privacy Management Software 支援小組](mailto:support@onetrust.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,28 +166,28 @@ OneTrust 隱私權管理軟體，在指定的值**使用者名**做為值的 Azu
 
     d. 按一下頁面底部的 [新增] 。
  
-### <a name="create-a-onetrust-privacy-management-software-test-user"></a>建立 OneTrust 隱私權管理軟體測試使用者
+### <a name="create-a-onetrust-privacy-management-software-test-user"></a>建立 OneTrust Privacy Management Software 測試使用者
 
-本節的目標是建立呼叫許 Simon OneTrust 隱私權管理軟體的使用者。 OneTrust 隱私權管理軟體可支援在 just-in-time 佈建，這是預設啟用。 在這一節沒有您需要進行的動作項目。 嘗試存取 OneTrust 隱私權管理軟體，如果尚未存在期間，會建立新的使用者。
+本節目標是在 OneTrust Privacy Management Software 中建立名為 Britta Simon 的使用者。 OneTrust Privacy Management Software 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 OneTrust Privacy Management Software 時，如果使用者還不存在，就會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡[OneTrust 隱私權管理軟體的支援團隊](mailto:support@onetrust.com)。
+>如果您需要手動建立使用者，請連絡 [OneTrust Privacy Management Software 支援小組](mailto:support@onetrust.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您可以啟用許 Simon 使用 Azure 單一登入授與存取權 OneTrust 隱私權管理軟體。
+在本節中，您會將 OneTrust Privacy Management Software 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 ![指派使用者角色][200] 
 
-**若要指定許 Simon OneTrust 隱私權管理軟體，執行下列步驟：**
+**若要將 Britta Simon 指派到 OneTrust Privacy Management Software，請執行以下步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取**OneTrust 隱私權管理軟體**。
+2. 在應用程式清單中，選取 [OneTrust Privacy Management Software]。
 
-    ![應用程式清單中的 [OneTrust 隱私權管理軟體] 連結](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_app.png)  
+    ![應用程式清單中的 [OneTrust Privacy Management Software] 連結](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_app.png)  
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
@@ -207,7 +207,7 @@ OneTrust 隱私權管理軟體，在指定的值**使用者名**做為值的 Azu
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下 OneTrust 隱私權管理軟體磚，在存取面板時，您應該取得自動登入 OneTrust 隱私權管理軟體應用程式。
+當您在 [存取面板] 中按一下 [OneTrust Privacy Management Software] 圖格時，您應該會自動登入您的 OneTrust Privacy Management Software 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源

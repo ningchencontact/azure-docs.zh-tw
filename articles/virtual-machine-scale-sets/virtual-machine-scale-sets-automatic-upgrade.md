@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 虛擬機器擴展集的作業系統自動升級
 
@@ -39,10 +39,8 @@ ms.lasthandoff: 01/06/2018
 ## <a name="preview-notes"></a>預覽注意事項 
 在預覽時，適用下列限制和約束：
 
-- 自動的作業系統升級僅支援[四個 OS Sku](#supported-os-images)。 沒有任何 SLA 或保證。 建議您不要在預覽期間，對實際執行的重要工作負載使用自動升級。
-- 即將推出 Service Fabric 叢集中的擴展集支援。
+- 自動 OS 升級僅支援[四個 OS SKU](#supported-os-images)。 沒有任何 SLA 或保證。 建議您不要在預覽期間，對實際執行的重要工作負載使用自動升級。
 - 虛擬機器擴展集的作業系統自動升級目前**不**支援 Azure 磁碟加密 (目前處於預覽狀態)。
-- 即將推出入口網站的體驗。
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>註冊使用作業系統自動升級
@@ -58,17 +56,23 @@ Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureNam
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-建議您的應用程式使用健康情況探查。 若要註冊健康情況探查的提供者功能，請使用 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)，如下所示：
+> [!NOTE]
+> Service Fabric 叢集有自己的應用程式健全狀況概念，但不含 Service Fabric 的擴展集則使用負載平衡器健全狀況探查來監視應用程式健全狀況。 若要註冊健康情況探查的提供者功能，請使用 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)，如下所示：
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> 再次提醒，將註冊狀態回報為*已註冊*大約需要 10 分鐘的時間。 您可以使用 [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 檢查目前的註冊狀態。 一旦註冊之後，請確認已向 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 註冊 *Microsoft.Network* 提供者，如下所示：
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>入口網站體驗
+一旦您遵循上述的註冊步驟，您可以移至 [Azure 入口網站](https://aka.ms/managed-compute)以在您的擴展集啟用自動 OS 升級，並查看升級的進度：
 
-再次提醒，將註冊狀態回報為*已註冊*大約需要 10 分鐘的時間。 您可以使用 [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 檢查目前的註冊狀態。 一旦註冊之後，請確認已向 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 註冊 *Microsoft.Network* 提供者，如下所示：
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>支援的作業系統映像
@@ -76,7 +80,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 目前支援下列的 SKU (之後將會新增更多)：
     
-| 發行者               | 優惠         |  SKU               | 版本  |
+| 發行者               | 提供項目         |  SKU               | 版本  |
 |-------------------------|---------------|--------------------|----------|
 | Canonical               | UbuntuServer  | 16.04-LTS          | 最新   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | 最新   |
@@ -85,22 +89,25 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
-## <a name="application-health"></a>應用程式健康情況
+## <a name="application-health-without-service-fabric"></a>不含 Service Fabric 的應用程式健全狀況
+> [!NOTE]
+> 本節僅適用於不含 Service Fabric 的擴展集。 Service Fabric 有自己的應用程式健全狀況概念。 搭配 Service Fabric 使用自動 OS 升級時，新的 OS 映像將以更新網域對更新網域的方式推出，以維持在 Service Fabric 中執行之服務的高可用性。 如需 Service Fabric 叢集持久性特性的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)。
+
 在作業系統升級期間，擴展集中的 VM 執行個體一次升級一個批次。 只有客戶應用程式在已升級的 VM 執行個體上狀況良好時，升級才應該繼續。 建議應用程式向擴展集的作業系統升級引擎提供健康情況訊號。 根據預設，平台在作業系統升級期間會考慮 VM 電源狀態和延伸模組佈建狀態，以判斷 VM 執行個體在升級之後是否狀況良好。 在 VM 執行個體的作業系統升級期間，VM 執行個體上的作業系統磁碟會根據最新的映像版本，取代為新的磁碟。 作業系統升級完成後，已設定的延伸模組便會在這些 VM 上執行。 只有在 VM 上成功佈建所有擴充功能之後，才會將應用程式視為狀況良好。 
 
 您可以使用應用程式健康情況探查選擇性地設定擴展集，以便為平台提供精確的應用程式持續狀態的相關資訊。 應用程式健康情況探查是當作健康情況訊號使用的自訂負載平衡器探查。 在擴展集 VM 執行個體上執行的應用程式可以回應外部 HTTP 或 TCP 要求，以指出它是否狀況良好。 如需有關自訂負載平衡器探查運作方式的詳細資訊，請參閱[了解負載平衡器探查](../load-balancer/load-balancer-custom-probe-overview.md)。 作業系統自動升級並不需要但強烈建議使用應用程式健康情況探查。
 
 如果擴展集設定為使用多個放置群組，則需要用到使用[標準負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)的探查。
 
-### <a name="important-keep-credentials-up-to-date"></a>重要事項： 保持認證
-如果規模集使用任何認證來存取外部資源，例如如果已設定的 VM 延伸模組使用 SAS 權杖的儲存體帳戶，您必須確定憑證維持最新狀態。 如果任何認證，包括憑證和權杖已過期，升級會失敗，而且第一個批次的 Vm 會處於失敗狀態。
+### <a name="important-keep-credentials-up-to-date"></a>重要：將認證維持在最新狀態
+如果您的擴展集使用任一認證來存取外部資源，例如如果已設定的 VM 擴充功能針對儲存體帳戶使用 SAS 權杖，您必須確定認證是最新狀態。 如果有任何認證 (包括憑證和權杖) 已過期，升級將會失敗，第一批的 VM 將會是失敗狀態。
 
-復原 Vm，並重新啟用自動作業系統升級，資源驗證失敗時的建議的步驟如下：
+資源驗證失敗時，復原 VM 並重新啟用自動 OS 升級的建議步驟如下：
 
-* 重新產生語彙基元 （或任何其他認證） 傳遞至您的延伸模組。
-* 請從 VM 內用來向外部實體的任何認證為最新狀態。
-* 小數位數組模型中的擴充功能更新任何新的權杖。
-* 部署更新的小數位數組，這會更新包括失敗的所有 VM 執行個體。 
+* 重新產生傳遞至擴充功能的權杖 (或任何其他認證)。
+* 請確認從 VM 內用來向外部實體通訊的任何認證是最新狀態。
+* 將擴展集模型中的擴充功能更新為任一新權杖。
+* 部署更新的擴展集，這會更新所有 VM 執行個體，包括失敗的 VM 執行個體。 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>將自訂負載平衡器探查設定為擴展集上的應用程式健康情況探查
 最佳作法是，針對擴展集健康情況明確地建立負載平衡器探查。 系統可能會針對現有的 HTTP 探查或 TCP 探查使用相同的端點，但健康情況探查可能會需要不同於傳統負載平衡器探查的行為。 例如，如果執行個體的負載太高，傳統負載平衡器探查可能會傳回狀況不良，因而可能不適用於判斷作業系統自動升級期間的執行個體健康情況。 將探查設定為具有不到兩分鐘的高探查率。

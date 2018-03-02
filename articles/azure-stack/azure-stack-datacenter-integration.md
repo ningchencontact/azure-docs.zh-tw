@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -45,7 +45,7 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 您的識別提供者選項與租用戶虛擬機器、識別系統、其使用的帳戶、它們是否能加入 Active Directory 網域等等無關。這是分開的。
 
-您可以在 [Azure Stack 整合式系統的部署決策](.\azure-stack-deployment-decisions.md)一文中深入了解如何選擇識別提供者。
+您可以在 [Azure Stack 整合式系統連線模型](.\azure-stack-connection-models.md) 一文中深入了解如何選擇識別提供者。
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS 和 Graph 整合
 如果您選擇將 AD FS 作為識別提供者來部署 Azure Stack，您必須透過同盟信任來整合 Azure Stack 上的 AD FS 執行個體與現有的 AD FS 執行個體。 這可讓現有 Active Directory 樹系中的身分識別來驗證 Azure Stack 中的資源。
@@ -53,18 +53,25 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 您也可以整合 Azure Stack 中的 Graph 服務與現有的 Active Directory。 這可讓您在 Azure Stack 中管理角色型存取控制 (RBAC)。 委派資源的存取權後，Graph 元件會使用 LDAP 通訊協定來查閱現有 Active Directory 樹系中的使用者帳戶。
 
 下圖顯示整合的 AD FS 和 Graph 流量。
-![顯示 AD FS 與 Graph 流量的圖表](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![顯示 AD FS 與 Graph 流量的圖表](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>授權模型
+您必須決定要使用哪個授權模型。 可用選項需視您是否部署已連線至網際網路的 Azure Stack：
+- 針對[已連線的部署](azure-stack-connected-deployment.md)，您可以選擇使用時付費或以容量為基礎的授權。 使用時付費需要連線至 Azure 來報告使用量，然後透過 Azure 商務計費。 
+- 如果您[部署與網際網路中斷連線的 Azure Stack](azure-stack-disconnected-deployment.md)，只能使用以容量為基礎的授權。 
 
-您必須決定要使用哪個授權模型。 針對已連線的部署，您可以選擇使用時付費或以容量為基礎的授權。 使用時付費需要連線至 Azure 來報告使用量，然後透過 Azure 商務計費。 如果您的部署中斷與網際網路的連線，只能使用以容量為基礎的授權。 如需授權模式的詳細資訊，請參閱 [Microsoft Azure Stack 封裝和定價](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
+如需授權模式的詳細資訊，請參閱 [Microsoft Azure Stack 封裝和定價](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
+
 
 ## <a name="naming-decisions"></a>命名決策
 
-您將需要思考如何規劃 Azure Stack 命名空間，尤其是區域名稱和外部網域名稱。 公開端點之 Azure Stack 部署的完整網域名稱 (FQDN) 是這兩個名稱的組合 ( &lt;*region*&gt;&lt;*external_FQDN*&gt;)，例如 *east.cloud.fabrikam.com*。在此範例中，Azure Stack 入口網站將位於下列 URL：
+您將需要思考如何規劃 Azure Stack 命名空間，尤其是區域名稱和外部網域名稱。 公開端點之 Azure Stack 部署的外部完整網域名稱 (FQDN) 以下兩個名稱的組合：&lt;*region*&gt;.&lt;*fqdn*&gt;。 例如，*east.cloud.fabrikam.com*。在此範例中，Azure Stack 入口網站將位於下列 URL：
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> 您為 Azure Stack 部署選擇的區域名稱必須是唯一的，且將會在入口網站位址中顯示。 
 
 下表摘要這些網域命名決策。
 
@@ -128,14 +135,14 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 下圖顯示單一租用戶情節的 ExpressRoute (其中「客戶的連線」是 ExpressRoute 電路)。
 
-![顯示單一租用戶 ExpressRoute 情節的圖表](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![顯示單一租用戶 ExpressRoute 情節的圖表](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 下圖顯示多租用戶情節的 ExpressRoute。
 
-![顯示多租用戶 ExpressRoute 情節的圖表](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![顯示多租用戶 ExpressRoute 情節的圖表](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>外部監視
-若要從您的 Azure Stack 部署和裝置取得所有警示的單一檢視，並針對票證將警示整合至現有的 IT 服務管理工作流程，您可以整合 Azure Stack 與外部的資料中心監視解決方案。
+若要從您的 Azure Stack 部署和裝置取得所有警示的單一檢視，並針對票證將警示整合至現有的 IT 服務管理工作流程，您可以[整合 Azure Stack 與外部的資料中心監視解決方案](azure-stack-integrate-monitor.md)。
 
 Azure Stack 解決方案隨附的硬體生命週期主機是 Azure Stack 外部的電腦，其執行 OEM 硬體廠商為硬體提供的管理工具。 您可以使用這些工具，或與資料中心內的現有監視解決方案直接整合的其他解決方案。
 
@@ -143,15 +150,15 @@ Azure Stack 解決方案隨附的硬體生命週期主機是 Azure Stack 外部�
 
 | 領域 | 外部監視解決方案 |
 | -- | -- |
-| Azure Stack 軟體 | - [Operations Manager 的 Azure Stack 管理組件](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios 外掛程式](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>- REST 型 API 呼叫 | 
-| 實體伺服器 (透過 IPMI 的 BMC) | - Operations Manager 廠商管理組件<br>- OEM 硬體廠商提供的解決方案<br>- 硬體廠商 Nagios 外掛程式 | OEM 合作夥伴支援的監視解決方案 (包含) | 
-| 網路裝置 (SNMP) | - Operations Manager 網路裝置探索<br>- OEM 硬體廠商提供的解決方案<br>- Nagios 交換器外掛程式 |
-| 租用戶訂用帳戶健康情況監視 | - [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure Stack 軟體 | [Operations Manager 的 Azure Stack 管理組件](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/) \(英文\)<br>[Nagios 外掛程式](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details) \(英文\)<br>REST 型 API 呼叫 | 
+| 實體伺服器 (透過 IPMI 的 BMC) | OEM 硬體 - Operations Manager 廠商管理組件<br>OEM 硬體廠商提供的解決方案<br>硬體廠商 Nagios 外掛程式 | OEM 合作夥伴支援的監視解決方案 (包含) | 
+| 網路裝置 (SNMP) | Operations Manager 網路裝置探索<br>OEM 硬體廠商提供的解決方案<br>Nagios 交換器外掛程式 |
+| 租用戶訂用帳戶健康情況監視 | [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 請注意下列需求：
 - 您使用的解決方案必須是無代理程式。 您無法在 Azure Stack 元件內部安裝協力廠商代理程式。 
-- 如果您想要使用 System Center Operations Manager，這需要 Operations Manager 2012 R2 或 Operations Manager 2016。
+- 如果您想要使用 System Center Operations Manager，需要 Operations Manager 2012 R2 或 Operations Manager 2016。
 
 ## <a name="backup-and-disaster-recovery"></a>備份和災害復原
 
@@ -159,7 +166,7 @@ Azure Stack 解決方案隨附的硬體生命週期主機是 Azure Stack 外部�
 
 ### <a name="protect-infrastructure-components"></a>保護基礎結構元件
 
-Azure Stack 會將基礎結構元件備份到您指定的共用。
+您可以[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)基礎結構元件到您指定的 SMB 共用：
 
 - 您在現有的 Windows 型檔案伺服器或協力廠商裝置上需要有外部 SMB 檔案共用。
 - 您應該將這個相同的共用使用於網路交換器與硬體生命週期主機的備份。 OEM 硬體廠商將協助提供這些元件的備份和還原指引，因為這些是 Azure Stack 外部的作業。 您負責根據 OEM 廠商的建議來執行備份工作流程。

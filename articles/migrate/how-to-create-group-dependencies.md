@@ -8,27 +8,27 @@ ms.date: 12/22/2017
 ms.author: raynew
 ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
-本文說明如何微調一組視覺化群組中的所有機器的相依性。 當您想要精簡為現有的群組成員資格交叉檢查群組相依性，然後再執行評估，通常會使用這個方法。 調整使用相依性的視覺效果的群組可以可協助您有效地規劃移轉至 Azure.You 可以找出所有需要一起移轉的交互相依系統。 它可協助您確保執行任何動作就會遺留，與您要移轉至 Azure 時不會發生意外的中斷。 
+本文描述如何藉由將群組中所有機器的相依性視覺化來調整群組。 當您想要為現有群組調整成員資格時，通常會使用此方法，先交叉檢查群組相依性，然後再進行評量。 使用相依性視覺效果來調整群組，可協助您有效地規劃移到 Azure 的移轉。您可以探索需要一起移轉的所有相依系統。 它可協助您確保不會遺留任何項目，且當您在移轉至 Azure 時，不會發生意外的中斷。 
 
 
 > [!NOTE]
-> 您想要以視覺化方式檢視相依性群組不應該包含 10 個以上的機器。 如果您有 10 個以上的電腦群組中，我們建議您將分割成較小的群組，以利用相依性的視覺效果功能。
+> 您想要將相依性視覺化的群組不應該包含超過 10 部的機器。 如果群組中有超過 10 部的機器，我們建議您將它分割成較小的群組，以利用相依性視覺效果功能。
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>準備群組相依性的視覺效果
-若要檢視群組的相依性，您需要下載並安裝在屬於群組的每個內部部署機器上的代理程式。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。
+# <a name="prepare-the-group-for-dependency-visualization"></a>為相依性視覺效果準備群組
+若要檢視群組的相依性，您需要下載代理程式，並將它安裝在屬於群組的每個內部部署機器上。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。
 
 ### <a name="download-and-install-the-vm-agents"></a>下載並安裝虛擬機器代理程式
-1. 在**概觀**，按一下 **管理** > **群組**，請移至必要的群組。
-2. 在清單中的機器，在**相依性代理程式**資料行中，按一下 **需要安裝**以參閱有關如何下載並安裝代理程式的指示。
-3. 在**相依性**頁面上，請下載並安裝 Microsoft Monitoring Agent (MMA)，與相依性代理程式群組的一部分的每個 VM 上。
-4. 複製工作區識別碼與金鑰。 您需要這些內部部署機器上安裝 MMA 時。
+1. 在 [概觀] 中，按一下 [管理] > [群組]，移至必要的群組。
+2. 在機器清單中，在 [相依性代理程式] 欄中，按一下 [需要安裝] 以查看有關如何下載並安裝代理程式的指示。
+3. 在 [相依性] 頁面上，下載 Microsoft Monitoring Agent (MMA) 和相依性代理程式，並安裝在屬於群組的每部 VM 上。
+4. 複製工作區識別碼與金鑰。 在內部部署機器上安裝 MMA 時，需要用到這些識別碼與金鑰。
 
 ### <a name="install-the-mma"></a>安裝 MMA
 
@@ -57,29 +57,29 @@ ms.lasthandoff: 01/02/2018
 
 [深入了解](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)相依性代理程式支援的作業系統。 
 
-## <a name="refine-the-group-based-on-dependency-visualization"></a>精簡基礎相依性的視覺效果的群組
-一旦您已在群組的所有電腦上安裝代理程式，您可以視覺化群組的相依性，並精簡遵循下列步驟。
+## <a name="refine-the-group-based-on-dependency-visualization"></a>根據相依性視覺效果調整群組
+一旦您已在群組的所有機器上安裝代理程式，您可以將群組的相依性視覺化，並按照下列步驟進行調整。
 
 1. 在 Azure Migrate 專案中的 [管理] 下方，按一下 [群組] ****，然後選取群組。
 2. 在群組頁面中，按一下 [檢視相依性] ****，即會開啟群組相依性對應。
-3. 相依性對應的群組會顯示下列詳細資料：
-    - 輸入 （用戶端） 和輸出 （伺服器） TCP 連線至 azure 或從群組一部分的所有機器
-        - 不需要安裝 MMA 和相依性代理程式的相依機器乃依連接埠號碼
-        - 具有 MMA 和相依性代理程式安裝的 dependenct 機器會顯示為不同的箱子 
-    - 機器內執行的處理程序，您可以展開每個機器方塊，以檢視處理程序
-    - 屬性，例如完整網域名稱、 作業系統、 每部機器的 MAC 位址等，您可以按一下每個機器方塊，以檢視這些詳細資料
+3. 群組的相依性對應會顯示下列詳細資料：
+    - 至/從屬於群組的所有機器之輸入 (用戶端) 和輸出 (伺服器) TCP 連線
+        - 未安裝 MMA 和相依性代理程式的相依機器會依連接埠號碼分組
+        - 已安裝 MMA 和相依性代理程式的相依機器會以不同的方塊顯示 
+    - 在機器內執行的處理序，您可以展開每個機器方塊，以檢視處理序
+    - 每部機器的完整網域名稱、作業系統、MAC 位址等屬性，您可以按一下每個機器方塊來檢視這些詳細資料
 
-     ![檢視群組的相依性](./media/how-to-create-group-dependencies/view-group-dependencies.png)
+     ![檢視群組相依性](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. 若要檢視更細微的相依性，請按一下時間範圍以進行修改。 根據預設，範圍是一小時。 您可以修改時間範圍，或指定開始和結束日期，以及持續時間。
-4. 確認相依的機器，每個機器內部執行的程序，並識別應該加入或從群組中移除機器。
-5. 使用 Ctrl + 按一下以選取要新增或移除群組的對應上的電腦。
+4. 確認相依機器、在每部機器內部執行的處理序，並識別應該新增到群組或從中移除的機器。
+5. 使用「Ctrl+按一下」選取對應上的多部機器，以將它們新增到群組或從中移除。
     - 您只能新增已探索到的機器。
     - 新增和移除群組中的機器會讓先前所做的評量失效。
     - 修改群組時，可以選擇性地建立新評量。
 5. 按一下 [確定] 以儲存群組。
 
-    ![新增或移除電腦](./media/how-to-create-group-dependencies/add-remove.png)
+    ![新增或移除機器](./media/how-to-create-group-dependencies/add-remove.png)
 
 如果您要檢查群組相依性對應中顯示之特定機器的相依性，[請設定機器相依性對應](how-to-create-group-machine-dependencies.md)。
 

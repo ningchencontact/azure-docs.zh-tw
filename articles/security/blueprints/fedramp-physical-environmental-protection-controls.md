@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint (藍圖) 自動化 - 實際與環境保護"
-description: "適用於 FedRAMP 的 Web 應用程式 - 實際與環境保護"
+title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 實際與環境保護"
+description: "FedRAMP Web 應用程式自動化 - 實際與環境保護"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>實際與環境保護 (PE)
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-2.d** 不再需要存取時，組織就會從設施存取清單中移除個人。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-3.b** 組織會針對 [指派：組織定義的進入/結束點] 維護實際存取稽核記錄。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-3.f** 組織每隔 [指派：組織定義的頻率] 就會清查 [指派：組織定義的實體存取裝置]。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **客戶** | 客戶無法實際存取 Azure 資料中心內的任何系統資源。 |
-| **提供者 (Microsoft Azure)** | Microsoft Azure 會代表客戶實作此需求。 除了全天候維持現場安全性，Microsoft Azure 資料中心 (已租用且完全管理) 也會利用警報監視系統和 CCTV。 警報會由 SOC 中全天候配置的控制室監督員來監視與回應。 發生回應情況時，控制室監督員會利用要調查之事件區域中的攝影機，來為回應者提供即時資訊。 |
+| **提供者 (Microsoft Azure)** | Microsoft Azure 會代表客戶實作此需求。 除了全天候維持現場安全性，Microsoft Azure 資料中心 (已租用且完全受控) 也會利用警報監視系統和 CCTV。 警報會由 SOC 中全天候配置的控制室監督員來監視與回應。 發生回應情況時，控制室監督員會利用要調查之事件區域中的攝影機，來為回應者提供即時資訊。 |
 
 
  ### <a name="nist-800-53-control-pe-6-4"></a>NIST 800-53 控制措施 PE-6 (4)
@@ -297,7 +297,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-6 (4)** 除了對於作為 [指派：包含資訊系統一或多個元件之組織定義的實體空間] 之設施的實際存取監視之外，組織還會監視對資訊系統的實際存取。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-8 (1)** 組織採用自動化機制，以協助維護與檢閱訪客存取記錄。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **客戶** | 客戶無法實際存取 Azure 資料中心內的任何系統資源。 |
-| **提供者 (Microsoft Azure)** | Microsoft Azure 會代表客戶實作此需求。 Microsoft Azure 已依當地消防法規，在資訊中心內的數個位置安裝了緊急電源關閉 (EPO) 按鈕。 在某些 Microsoft Azure 管理的資料中心，資料中心設計不再需要 EPO 按鈕。 |
+| **提供者 (Microsoft Azure)** | Microsoft Azure 會代表客戶實作此需求。 Microsoft Azure 已依當地消防法規，在資訊中心內的數個位置安裝了緊急電源關閉 (EPO) 按鈕。 在某些 Microsoft Azure 受控的資料中心，資料中心設計不再需要 EPO 按鈕。 |
 
 
  ## <a name="nist-800-53-control-pe-10b"></a>NIST 800-53 控制措施 PE-10.b
@@ -381,7 +381,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-10.b** 組織將緊急關閉開關或裝置設置於 [指派：組織依資訊系統或系統元件定義的位置]，以方便人員透過安全又簡單的方式來存取。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **客戶** | 客戶無法實際存取 Azure 資料中心內的任何系統資源。 |
-| **提供者 (Microsoft Azure)** | Microsoft Azure 會代表客戶實作此需求。 Microsoft Azure 資料中心 (已租用且完全管理) 會在透過 UPS 和發電機系統進行備用 (請參閱 PE-11) 的專用線路上，以高架的緊急照明形式來提供緊急照明。 根據美國消防協會 (NFPA) 的生命安全法規，需沿著所有撤離線路、緊急出口及主機託管場所內部實施自動緊急照明。 如果公用電源斷電，緊急照明將自動切換到由 UPS 和發電機系統所提供的電源。 Microsoft Azure 資料中心內的緊急照明系統均會進行例行性維護工作，以確保它們處於正常運作狀態。 |
+| **提供者 (Microsoft Azure)** | Microsoft Azure 會代表客戶實作此需求。 Microsoft Azure 資料中心 (已租用且完全受控) 會在透過 UPS 和發電機系統進行備用 (請參閱 PE-11) 的專用線路上，以高架的緊急照明形式來提供緊急照明。 根據美國消防協會 (NFPA) 的生命安全法規，需沿著所有撤離線路、緊急出口及主機託管場所內部實施自動緊急照明。 如果公用電源斷電，緊急照明將自動切換到由 UPS 和發電機系統所提供的電源。 Microsoft Azure 資料中心內的緊急照明系統均會進行例行性維護工作，以確保它們處於正常運作狀態。 |
 
 
  ## <a name="nist-800-53-control-pe-13"></a>NIST 800-53 控制措施 PE-13
@@ -451,7 +451,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-13** 組織會針對資訊系統，採用並維護由獨立能源所支援的滅火和火警探測裝置/系統。
 
-**責任：**`Azure Only`
+**職責：**`Azure Only`
 
 |||
 |---|---|

@@ -18,7 +18,7 @@ ms.author: anhoh
 ms.custom: mvc
 ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,12 +26,12 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-本教學課程提供使用 Azure Cosmos DB 資料移轉工具的相關指示，可將資料從各種來源匯入到 Azure Cosmos DB 集合和資料表。 您可以從 JSON 檔案、 CSV 檔案、 SQL、 MongoDB、 Azure 資料表儲存體、 Amazon DynamoDB 以及甚至 Azure Cosmos DB SQL API 的集合，匯入和使用的 Azure Cosmos DB 集合和資料表的資料移轉。 從單一資料分割集合移轉到多個資料分割集合 SQL api 時，也可以使用資料移轉工具。
+本教學課程提供使用 Azure Cosmos DB 資料移轉工具的相關指示，可將資料從各種來源匯入到 Azure Cosmos DB 集合和資料表。 您可以從 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 以及甚至 Azure Cosmos DB SQL API 集合來匯入，並將該資料移轉到集合和資料表以供用於 Azure Cosmos DB。 針對 SQL API 從單一分割區集合移轉到多重分割區集合時，也可以使用資料移轉工具。
 
 您要將哪個 API 用於 Azure Cosmos DB？ 
-* **[SQL API](documentdb-introduction.md)**  -您可以使用任何資料移轉工具中提供的來源選項匯入資料。
+* **[SQL API](documentdb-introduction.md)** - 您可以使用資料移轉工具中所提供的任何來源選項來匯入資料。
 * **[資料表 API](table-introduction.md)** - 您可以使用資料移轉工具或 AzCopy 來匯入資料。 如需詳細資訊，請參閱[匯入資料以用於 Azure Cosmos DB 資料表 API](table-import.md)。
-* **[MongoDB API](mongodb-introduction.md)**  -資料移轉工具目前不支援 Azure Cosmos DB MongoDB API 做為來源或目標。 如果您想要移轉中，或超出 Azure Cosmos DB 中的 MongoDB API 集合的資料，請參閱[Azure Cosmos DB： 如何將資料移轉 MongoDB api](mongodb-migrate.md)如需相關指示。 您仍然可以使用 「 資料移轉工具，將資料從 MongoDB 匯出到 Azure Cosmos DB SQL API 搭配 SQL API 的集合。 
+* **[MongoDB API](mongodb-introduction.md)** - 資料移轉工具目前不支援 Azure Cosmos DB MongoDB API 作為來源或目標。 如果您想要在 Azure Cosmos DB 的 MongoDB API 集合中移入或移出資料，請參閱 [Azure Cosmos DB：如何針對 MongoDB API 移轉資料](mongodb-migrate.md)以取得相關指示。 您仍可使用資料移轉工具，將資料從 MongoDB 匯出到 Azure Cosmos DB SQL API 集合，以便使用於 SQL API。 
 * **[圖形 API](graph-introduction.md)** - 資料移轉工具目前仍不是圖形 API 帳戶所支援的匯入工具。 
 
 本教學課程涵蓋下列工作：
@@ -212,7 +212,7 @@ CSV 檔案來源匯入工具選項可讓您匯入一或多個 CSV 檔案。 新�
 ## <a id="AzureTableSource"></a>從 Azure 資料表儲存體匯入
 Azure 資料表儲存體來源匯入工具選項可讓您從個別的 Azure 資料表儲存體資料表匯入。 您可以選擇性地篩選要匯入的資料表實體。 
 
-從 Azure 資料表儲存體匯入的資料可以是輸出到 Azure Cosmos DB 資料表和實體，在資料表 API 中搭配使用，或是集合及文件，SQL API 搭配使用。 不過，在命令列公用程式中，資料表 API 只可做為目標，您無法使用資料移轉工具使用者介面來匯出到資料表 API。 如需詳細資訊，請參閱[匯入資料以用於 Azure Cosmos DB 資料表 API](table-import.md)。 
+從 Azure 資料表儲存體匯入的資料，可以輸出到 Azure Cosmos DB 資料表和實體以用於資料表 API，或是輸出到集合和文件以用於 SQL API。 不過，在命令列公用程式中，資料表 API 只可做為目標，您無法使用資料移轉工具使用者介面來匯出到資料表 API。 如需詳細資訊，請參閱[匯入資料以用於 Azure Cosmos DB 資料表 API](table-import.md)。 
 
 ![Azure 資料表儲存體來源選項的螢幕擷取畫面](./media/import-data/azuretablesource.png)
 
@@ -344,7 +344,7 @@ HBase Stargate 連接字串的格式如下：
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="SQLBulkTarget"></a>匯入 SQL 應用程式開發介面 （大量匯入）
+## <a id="SQLBulkTarget"></a>匯入 SQL API (大量匯入)
 為了提高效率，Azure Cosmos DB 大量匯入工具可讓您使用 Azure Cosmos DB 預存程序，從任何可用的來源選項匯入。 此工具支援匯入到一個單一分割的 Azure Cosmos DB 集合，以及跨多個單一分割 Azure Cosmos DB 集合分割資料的分區化匯入。 如需分割資料的詳細資訊，請參閱 [Azure Cosmos DB 的資料分割與調整規模](partition-data.md)。 此工具會建立並執行預存程序，然後從目標集合中將它刪除。  
 
 ![Azure Cosmos DB 大量選項的螢幕擷取畫面](./media/import-data/documentdbbulk.png)
@@ -408,7 +408,7 @@ Azure Cosmos DB 大量匯入工具含有下列其他進階選項：
 > 
 > 
 
-## <a id="SQLSeqTarget"></a>匯入 SQL 應用程式開發介面 （循序記錄匯入）
+## <a id="SQLSeqTarget"></a>匯入 SQL API (循序記錄匯入)
 Azure Cosmos DB 循序記錄匯入工具可讓您從任何可用的來源選項逐筆匯入記錄。 如果您打算匯入至已達到預存程序配額的現有集合，您可以選擇此選項。 此工具支援匯入到單一 (單一分割區和多重分割區兩者) 的 Azure Cosmos DB 集合，以及跨多個單一分割區和/或多重分割區 Azure Cosmos DB 集合分割資料的分區化匯入。 如需分割資料的詳細資訊，請參閱 [Azure Cosmos DB 的資料分割與調整規模](partition-data.md)。
 
 ![Azure Cosmos DB 循序記錄匯入選項的螢幕擷取畫面](./media/import-data/documentdbsequential.png)
@@ -468,7 +468,7 @@ Azure Cosmos DB 循序記錄匯入工具含有下列其他進階選項：
 > 
 
 ## <a id="IndexingPolicy"></a>指定索引編製原則
-當您允許移轉工具，以建立 Azure Cosmos DB SQL API 集合匯入期間時，您可以指定集合的編製索引原則。 在 Azure Cosmos DB 大量匯入和 Azure Cosmos DB 循序記錄選項的進階選項區段中，瀏覽至 [編製索引原則] 區段。
+當您允許移轉工具在匯入期間建立 Azure Cosmos DB SQL API 集合時，您可以指定集合的索引編製原則。 在 Azure Cosmos DB 大量匯入和 Azure Cosmos DB 循序記錄選項的進階選項區段中，瀏覽至 [編製索引原則] 區段。
 
 ![Azure Cosmos DB 編製索引原則進階選項的螢幕擷取畫面](./media/import-data/indexingpolicy1.png)
 

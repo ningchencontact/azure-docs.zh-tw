@@ -17,7 +17,7 @@ ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -26,7 +26,7 @@ Azure Cosmos DB 支援 [Gremlin](http://tinkerpop.apache.org/docs/current/refere
 
 Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 包括跨越兩個以上 Azure 區域之資料庫的全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引、SLA、讀取可用性。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個圖表資料庫撰寫的應用程式，而不必變更程式碼。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](http://spark.apache.org/graphx/)。 
 
-在本文中，我們提供快速的 Gremlin，逐步解說，並列舉 Gremlin 功能和 Graph API 所支援的步驟。
+在本文中，我們提供 Gremlin 的快速逐步解說，並列舉圖形 API 所支援的 Gremlin 功能和步驟。
 
 ## <a name="gremlin-by-example"></a>Gremlin 範例
 讓我們利用一個範例圖表了解如何以 Gremlin 表達查詢。 下圖顯示的商務應用程式以圖表形式管理使用者、興趣和裝置的相關資料。  
@@ -80,7 +80,7 @@ TinkerPop 是一套涵蓋各種圖表技術的標準。 因此，它採用標準
 
 | 類別 | Azure Cosmos DB 實作 |  注意 | 
 | --- | --- | --- |
-| Graph 功能 | 提供持續性和 ConcurrentAccess。 設計為支援交易 | 可以透過 Spark 連接器實作電腦方法。 |
+| Graph 功能 | 提供 Persistence 和 ConcurrentAccess。 設計為支援交易 | 可以透過 Spark 連接器實作電腦方法。 |
 | 變數功能 | 支援布林值、整數、位元組、Double、Float、整數、Long、字串 | 支援基本類型、透過資料模型而與複雜類型相容 |
 | 頂點功能 | 支援 RemoveVertices、MetaProperties、AddVertices、MultiProperties、StringIds、UserSuppliedIds、AddProperty、RemoveProperty  | 支援建立、修改和刪除端點 |
 | 頂點屬性功能 | StringIds、UserSuppliedIds、AddProperty、RemoveProperty、BooleanValues、ByteValues、DoubleValues、FloatValues、IntegerValues、LongValues、StringValues | 支援建立、修改和刪除頂點屬性 |

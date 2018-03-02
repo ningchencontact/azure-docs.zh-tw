@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>建立活動記錄警示
 
 ## <a name="overview"></a>概觀
 活動記錄警示是發生符合警示中指定條件的新活動記錄事件時所啟動的警示。 它們是 Azure 資源，因此可以使用 Azure Resource Manager 範本來加以建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 然後將說明如何使用 Azure 入口網站來設定活動記錄事件的警示。
+
+> [!NOTE]
+
+>  [警示 (預覽)](monitoring-overview-unified-alerts.md) 目前在建立和管理活動記錄方面，提供加強的體驗。  [深入了解](monitoring-activity-log-alerts-new-experience.md)。
 
 通常，您在下列情況要建立活動記錄警示來接收通知：
 
@@ -43,15 +47,13 @@ ms.lasthandoff: 10/11/2017
 - **狀態**：事件的狀態，通常為「已啟動」、「失敗」或「成功」。
 - **事件起始者**：也稱為「呼叫者」。 執行作業之使用者的電子郵件地址或 Azure Active Directory 識別碼。
 
->[!NOTE]
->您必須在您的警示中指定至少兩個上述準則，其中一個是類別。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
->
->
+> [!NOTE]
+> 當類別為「系統管理」時，您必須在警示中指定至少一個上述準則。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
 
 當活動記錄警示啟動時，會使用動作群組來產生動作或通知。 動作群組是一組可重複使用的通知接收者，例如電子郵件地址、Webhook URL 或 SMS 電話號碼。 可以從多個警示參考接收者，將通知通道集中管理並群組。 當您定義活動記錄警示時，會有兩個選項。 您可以：
 
-* 在您的活動記錄警示中使用現有的動作群組。 
-* 建立新的動作群組。 
+* 在您的活動記錄警示中使用現有的動作群組。
+* 建立新的動作群組。
 
 若要深入了解動作群組，請參閱[在 Azure 入口網站中建立和管理動作群組](monitoring-action-groups.md)。
 

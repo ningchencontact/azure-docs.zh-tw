@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: iainfou
 ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -38,9 +38,9 @@ ms.lasthandoff: 12/14/2017
 
 ![新增輸入規則](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-若要建立規則，允許流量：
+若要建立允許流量的規則：
 
-- 選取**基本** 按鈕。 根據預設，**進階**視窗，提供一些其他組態選項，例如定義特定來源 IP 區塊或連接埠範圍。
+- 選取 [基本] 按鈕。 根據預設，[進階] 視窗會提供一些其他組態選項，例如定義特定來源 IP 區塊或連接埠範圍。
 - 從下拉式功能表中選擇常見的**服務**，例如 *HTTP*。 您也可以選取 [自訂] 以提供特定連接埠供使用者使用。 
 - 如有需要，請變更優先順序或名稱。 優先順序會影響規則的套用順序，數值越低會越早套用規則。
 - 當您準備好時，選取 [確定] 以建立規則：

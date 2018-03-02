@@ -11,15 +11,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
-您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [URL 路徑型路由規則](application-gateway-url-route-overview.md)。 在本教學課程中，您可以使用虛擬機器建立後端集區。 然後，您可以建立路由規則，確保網路流量抵達集區中適當的伺服器。
+您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [URL 路徑型路由規則](application-gateway-url-route-overview.md)。 在本教學課程中，您可以使用虛擬機器建立後端集區。 然後，您可以建立路由規則，確保 Web 流量會抵達集區中的適當伺服器。
 
 在本文中，您將了解：
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 01/29/2018
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個是適用於應用程式閘道，另一個則是適用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
+需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
 
 1. 按一下 Azure 入口網站左上角的 [新增]。
-2. 在「精選」清單中選取 [網路]，然後選取 [應用程式閘道]。
+2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
 3. 針對應用程式閘道輸入這些值：
 
     - myAppGateway - 作為應用程式閘道的名稱。
-    - myResourceGroupAG - 作為新的資源群組。
+    - myResourceGroupAG - 作為新資源群組。
 
     ![建立新的應用程式閘道](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 01/29/2018
 在此範例中，您要建立三個虛擬機器，作為應用程式閘道的後端伺服器。 您也可以在虛擬機器上安裝 IIS，以確認成功建立應用程式閘道。
 
 1. 按一下 [新增] 。
-2. 按一下 [計算]，然後選取「精選」清單中的 [Windows Server 2016 Datacenter]。
+2. 按一下 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。
 3. 針對虛擬機器，請輸入這些值：
 
     - myVM1 - 作為虛擬機器的名稱。
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/29/2018
 
 4. 按一下 [SERVICEPRINCIPAL] 。
 5. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
-6. 請確定您已選取 [myVNet] 作為虛擬網路，及選取 [myBackendSubnet] 作為子網路。 
+6. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。 
 7. 按一下 [停用] 來停用開機診斷。
 8. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 01/29/2018
 
 1. 開啟互動式殼層，並確定它是設定為 **PowerShell**。
 
-    ![安裝自訂擴充功能](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+    ![安裝自訂延伸模組](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
 
 2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
 1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
-2. 按一下 [後端集區]。 已使用應用程式閘道自動建立預設集區。 按一下 [appGateayBackendPool]。
+2. 按一下 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 按一下 [appGatewayBackendPool]。
 3. 按一下 [新增目標] 將 myVM1 新增至 appGatewayBackendPool。
 
     ![新增後端伺服器](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

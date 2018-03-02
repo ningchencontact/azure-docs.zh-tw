@@ -17,7 +17,7 @@ ms.date: 05/30/2017
 ms.author: gunegatybo
 ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/20/2017
 * 變更使用 Azure 受控磁碟所建立之擴展集的映像參考。
 * 從虛擬機器內修補 OS (範例包括安裝安全性修補程式並執行 Windows Update)。 支援此案例，但本文並未涵蓋此案例。
 
-這裡未涵蓋隨 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) 一起部署的虛擬機器擴展集。 如需修補 Service Fabric 的詳細資訊，請參閱[修補程式的 Windows 作業系統中 Service Fabric 叢集](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
+這裡未涵蓋隨 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) 一起部署的虛擬機器擴展集。 如需修補 Service Fabric 的詳細資訊，請參閱[修補 Service Fabric 叢集中的 Windows 作業系統](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)。
 
 變更平台映像 OS 版本/SKU 或自訂映像 URI 的基本順序看起來如下：
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-如果您要更新的自訂映像，而不是變更平台映像版本的 URI，在 「 設定新的版本 」 列取代更新的來源映像 URI 的命令。 例如，如果擴展集不是使用 Azure 受控磁碟所建立，更新會如下所示：
+如果您更新的是自訂映像的 URI，而不是變更平台映像版本，請以更新來源映像 URI 的命令取代 “set the new version” 行。 例如，如果擴展集不是使用 Azure 受控磁碟所建立，更新會如下所示：
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-如果建立自訂映像為基礎的小數位數組，使用 Azure 受管理的磁碟，則會更新的影像參考。 例如︰
+如果使用 Azure 受控磁碟建立了以自訂映像為基礎的擴展集，則會更新映像參考。 例如︰
 
 ```powershell
 # set the new version in the model data

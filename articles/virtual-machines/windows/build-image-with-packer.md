@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: iainfou
 ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
 ---
@@ -207,7 +207,7 @@ Packer 需要幾分鐘的時間來建置 VM、執行佈建程式並清除部署�
 
 
 ## <a name="create-vm-from-azure-image"></a>從 Azure 映像建立 VM
-您現在可以使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 從您的映像建立 VM。 首先，系統管理員使用者名稱和密碼為 VM 設定與[Get-credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)。
+您現在可以使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 從您的映像建立 VM。 首先，使用 [Get-credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 設定 VM 的系統管理員使用者名稱和密碼。
 
 ```powershell
 $cred = Get-Credential
@@ -277,7 +277,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-花幾分鐘的時間從您的 Packer 映像建立 VM。
+從 Packer 映像建立虛擬機器需要幾分鐘的時間。
 
 
 ## <a name="test-vm-and-iis"></a>測試 VM 和 IIS

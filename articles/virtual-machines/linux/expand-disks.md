@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: ded90be3da52770a88dd1746fae2bd3584ba9280
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
 在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您也可能想要擴充既有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 您也可以使用 [Azure CLI 1.0](expand-disks-nodejs.md) 來擴充非受控的 OS 磁碟。
@@ -26,14 +26,14 @@ ms.lasthandoff: 12/14/2017
 > [!WARNING]
 > 在執行磁碟調整大小作業前，務必備份資料。 如需詳細資訊，請參閱[在 Azure 中備份 Linux 虛擬機器](tutorial-backup-vms.md)。
 
-## <a name="expand-azure-managed-disk"></a>展開 Azure 受管理的磁碟
-請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
+## <a name="expand-azure-managed-disk"></a>展開 Azure 受控磁碟
+請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
 
 本文需要 Azure 中存有一個虛擬機器，且該虛擬機器至少掛載一個已備妥使用的資料磁碟。 如果您還沒有可使用的虛擬機器，請參閱[建立並準備掛載有資料磁碟的虛擬機器](tutorial-manage-disks.md#create-and-attach-disks)。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 myResourceGroup 與 myVM。
 
-1. 當 VM 正在執行時，無法對虛擬硬碟執行作業。 使用 [az vm deallocate](/cli/azure/vm#deallocate) 解除配置您的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM：
+1. 當 VM 正在執行時，無法對虛擬硬碟執行作業。 使用 [az vm deallocate](/cli/azure/vm#az_vm_deallocate) 解除配置您的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM：
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/14/2017
     > [!NOTE]
     > 必須解除配置 VM，才能擴充虛擬硬碟。 `az vm stop` 不會釋放計算資源。 若要釋放計算資源，請使用 `az vm deallocate`。
 
-2. 使用 [az disk list](/cli/azure/disk#list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup 之資源群組中的受控磁碟清單：
+2. 使用 [az disk list](/cli/azure/disk#az_disk_list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup 之資源群組中的受控磁碟清單：
 
     ```azurecli
     az disk list \
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/14/2017
         --output table
     ```
 
-    使用 [az disk update](/cli/azure/disk#update) 擴充所需的磁碟。 下列範例會將名為 myDataDisk 的受控磁碟大小擴充為 200 GB：
+    使用 [az disk update](/cli/azure/disk#az_disk_update) 擴充所需的磁碟。 下列範例會將名為 myDataDisk 的受控磁碟大小擴充為 200 GB：
 
     ```azurecli
     az disk update \
@@ -63,17 +63,17 @@ ms.lasthandoff: 12/14/2017
     > [!NOTE]
     > 當您擴充受控磁碟時，更新的大小會對應至最接近的受控磁碟大小。 如需可用受控磁碟大小和階層的表格，請參閱 [Azure 受控磁碟概觀 - 價格和計費](../windows/managed-disks-overview.md#pricing-and-billing)。
 
-3. 使用 [az vm create](/cli/azure/vm#start) 啟動 VM。 下列範例會啟動名為 myResourceGroup 資源群組中名為 myVM 的 VM：
+3. 使用 [az vm create](/cli/azure/vm#az_vm_start) 啟動 VM。 下列範例會啟動名為 myResourceGroup 資源群組中名為 myVM 的 VM：
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 
-## <a name="expand-disk-partition-and-filesystem"></a>展開 磁碟分割及檔案系統
+## <a name="expand-disk-partition-and-filesystem"></a>展開磁碟分割及檔案系統
 若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
 
-1. 使用適當的認證以 SSH 登入 VM。 您可以使用 [az vm show](/cli/azure/vm#show) 取得虛擬機器的 IP 位址：
+1. 使用適當的認證以 SSH 登入 VM。 您可以使用 [az vm show](/cli/azure/vm#az_vm_show) 取得虛擬機器的 IP 位址：
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

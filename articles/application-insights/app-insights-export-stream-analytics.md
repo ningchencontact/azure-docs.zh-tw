@@ -15,7 +15,7 @@ ms.date: 01/04/2018
 ms.author: mbullwin
 ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -76,13 +76,13 @@ ms.lasthandoff: 01/05/2018
 事件會以 JSON 格式寫入至 Blob 檔案。 每個檔案可能會包含一或多個事件。 因此我們想要讀取事件資料，並篩選出需要的欄位。 該處有用這些資料所能做到的所有事情種類，但我們現在計劃要使用串流分析將資料傳送至 Power BI。
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>建立 Azure 串流分析執行個體
-從[Azure 入口網站](https://portal.azure.com/)、 選取 Azure Stream Analytics 服務，並建立新的資料流分析工作：
+在 [Azure 入口網站](https://portal.azure.com/)中，選取 Azure 串流分析服務，然後建立新的串流分析工作：
 
 ![](./media/app-insights-export-stream-analytics/SA001.png)
 
 ![](./media/app-insights-export-stream-analytics/SA002.png)
 
-建立新的工作時，選取**資源移**。
+建立新的工作之後，選取 [前往資源]。
 
 ![](./media/app-insights-export-stream-analytics/SA003.png)
 
@@ -115,8 +115,8 @@ ms.lasthandoff: 01/05/2018
 > 檢查儲存區以確定您取得正確的路徑。
 > 
 
-## <a name="add-new-output"></a>加入新的輸出
-現在，選取您的工作 >**輸出** > **新增**。
+## <a name="add-new-output"></a>新增輸出
+現在請依序選取您的工作 > [輸出] > [新增]。
 
 ![](./media/app-insights-export-stream-analytics/SA006.png)
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 01/05/2018
 
 * export-input 是我們提供給串流輸入的別名
 * pbi-output 是我們所定義的輸出別名
-* 我們使用[外部套用 GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx)因為事件名稱的巢狀的 JSON 陣列中。 然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。 [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx)子句分組到一分鐘的時間週期的項目。
+* 我們會使用 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) \(英文\)，因為事件名稱是在巢狀 JSON 陣列中。 然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。 [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 子句會依照一分鐘的時間間隔來將元素分組。
 
 ### <a name="query-to-display-metric-values"></a>顯示度量值的查詢
 ```SQL

@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 開發 
 
@@ -42,7 +42,7 @@ provider "azurerm" {
 
 檔案和殼層狀態會保存在 Cloud Shell 工作階段之間的 Azure 儲存體中。 使用 [Azure 儲存體總管](/azure/vs-azure-tools-storage-manage-with-storage-explorer)，將檔案從本機電腦複製並上傳至 Cloud Shell。
 
-Azure CLI 2.0 隨附於 Cloud Shell，是在完成 `terraform apply` 或 `terraform destroy` 後測試設定和檢查工作的適用工具。
+Azure CLI 2.0 隨附於 Cloud Shell，是在完成 `terraform apply` 或 `terraform destroy` 後測試組態和檢查工作的適用工具。
 
 
 ## <a name="next-steps"></a>後續步驟

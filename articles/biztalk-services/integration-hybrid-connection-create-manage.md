@@ -16,7 +16,7 @@ ms.date: 10/18/2016
 ms.author: ccompy
 ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/11/2017
 > 
 
 ## <a name="CreateHybridConnection"></a>建立混合式連線
-可以在中建立混合式連接[Azure 應用程式服務的混合式連線](../app-service/app-service-hybrid-connections.md)**或**使用[BizTalk 服務 REST Api](https://msdn.microsoft.com/library/azure/dn232347.aspx)。 
+您可以 [Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)中建立混合式連線**或**使用 [BizTalk 服務 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)。 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/11/2017
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
  
-[Azure 應用程式服務的混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
+[Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -95,13 +95,13 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Azure 應用程式服務的混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
+[Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
 
 #### <a name="copyregenerate-the-hybrid-connection-strings"></a>複製/重新產生混合式連線字串
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Azure 應用程式服務的混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
+[Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>使用群組原則來控制混合式連線使用的內部部署資源
 1. 下載 [混合式連線管理員的系統管理範本](http://www.microsoft.com/download/details.aspx?id=42963)。

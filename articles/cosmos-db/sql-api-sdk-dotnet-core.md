@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL.NET Core API、 SDK 與資源 |Microsoft 文件"
-description: "深入了解 SQL.NET Core API 和 SDK 包括發行日期、 停用日期和 Azure Cosmos DB.NET Core SDK 的每個版本之間所做的變更。"
+title: "Azure Cosmos DB：SQL .NET Core API、SDK 和資源 | Microsoft Docs"
+description: "全面了解 SQL .NET Core API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET Core SDK 每個版本之間的變更。"
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB.NET Core SDK SQL api： 版本資訊和資源
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**範例**</td><td>[.NET 程式碼範例](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**快速入門**</td><td>[開始使用 Azure Cosmos DB .NET Core SDK 教學課程](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**開始使用**</td><td>[開始使用 Azure Cosmos DB .NET Core SDK 教學課程](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Web 應用程式教學課程**</td><td>[使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-dotnet-application.md)</td></tr>
 
@@ -58,6 +58,14 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK 與「通用 Windows 平台」(UWP) 應用程式尚未相容。 如果您有興趣了解可支援 UWP 應用程式的 .NET Core SDK，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* 修正 FeedOptions.MaxItemCount = -1 擲回 System.ArithmeticException 的迴歸：頁面大小為負數。
+* 在 QueryMetrics 加入了新的 ToString() 函式。
+* 公開關於讀取收集的分割區統計資料。
+* 在 ChangeFeedOptions 加入了 PartitionKey 屬性。
+* 次要錯誤修正。
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |2018 年 2 月 5 日 |--- |
 | [1.7.1](#1.7.1) |2017 年 11 月 16 日 |--- |
 | [1.7.0](#1.7.0) |2017 年 11 月 10 日 |--- |
 | [1.6.0](#1.6.0) |2017 年 10 月 17 日 |--- |

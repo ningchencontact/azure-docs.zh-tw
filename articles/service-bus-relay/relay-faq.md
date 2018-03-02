@@ -16,7 +16,7 @@ ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/21/2017
 [命名空間](relay-create-namespace-portal.md)是範圍容器，您可以用來在應用程式內定址轉送資源。 您必須建立命名空間，才能使用轉送。 這是開始使用的第一個步驟其中之一。
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>服務匯流排轉送服務發生什麼事？
-先前指定的服務匯流排轉送服務現在稱為[WCF 轉送](relay-wcf-dotnet-get-started.md)。 您可以繼續如常使用這項服務。 混合式連線功能是服務的更新版本，從 Azure BizTalk 服務移植。 會繼續支援「WCF 轉送」和「混合式連線」。
+先前稱為「服務匯流排轉送」的服務現在稱為 [WCF 轉送](relay-wcf-dotnet-get-started.md)。 您可以繼續如常使用這項服務。 混合式連線功能是服務的更新版本，從 Azure BizTalk 服務移植。 會繼續支援「WCF 轉送」和「混合式連線」。
 
 ## <a name="pricing"></a>價格
 本節提供轉送價格結構的一些常見問題解答。 如需一般的 Azure 價格資訊，也可以參閱 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)。 如需轉送價格的完整資訊，請參閱[服務匯流排價格詳細資料][Pricing overview]。
@@ -128,7 +128,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何以 Node、PHP、Java、C 和 C# 產生自有簽章的相關資訊，請參閱[具有共用存取簽章的服務匯流排驗證][Shared Access Signatures]。
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>可以將轉送端點列入白名單嗎？
-可以。 轉送用戶端會使用完整的網域名稱連線至 Azure 轉送服務。 客戶可以在防火牆上新增 `*.servicebus.windows.net` 項目以支援 DNS 白名單。
+是。 轉送用戶端會使用完整的網域名稱連線至 Azure 轉送服務。 客戶可以在防火牆上新增 `*.servicebus.windows.net` 項目以支援 DNS 白名單。
 
 ## <a name="next-steps"></a>後續步驟
 * [建立命名空間](relay-create-namespace-portal.md)

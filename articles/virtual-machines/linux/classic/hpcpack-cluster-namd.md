@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 * **NAMD** (適用於奈米分子動力程式) 是專為高效能模擬大型生物分子系統而設計的平行分子動力套件，包含多達數百萬個原子。 這些系統的範例包括病毒、儲存格結構和大型蛋白質。 NAMD 會針對典型模擬縮放到數百個核心，以及針對最大型的模擬縮放至超過 500,000 個核心。
 * **Microsoft HPC Pack** 提供在內部部署電腦或 Azure 虛擬機器的叢集中執行大規模 HPC 和平行應用程式 (包括的 MPI 應用程式) 的功能。 HPC Pack 的開發前身為 Windows HPC 工作負載的解決方案，其現已支援於部署在 HPC Pack 叢集中的 Linux 計算節點 VM 上，執行 Linux HPC 應用程式。 如需簡介，請參閱 [在 Azure 的 HPC Pack 叢集中開始使用 Linux 運算節點](hpcpack-cluster.md) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **具備 Linux 計算節點的 HPC Pack 叢集** - 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)或 [Azure PowerShell 指令碼](hpcpack-cluster-powershell-script.md)，在 Azure 上部署具備 Linux 計算節點的 HPC Pack 叢集。 如需了解任一選項的必要條件與步驟，請參閱 [開始使用 Azure 中 HPC Pack 叢集內的 Linux 計算節點](hpcpack-cluster.md) 。 如果您選擇 PowerShell 指令碼部署選項，請參閱本文結尾範例檔案中的範例組態檔。 此檔案會設定 Windows Server 2012 R2 的前端節點和四個大型 CentOS 6.6 計算節點組成之以 Azure 為基礎的 HPC Pack 叢集。 請視環境需要自訂此檔案。
 * **NAMD 軟體與教學課程檔案** - 從 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 網站下載 Linux 的 NAMD 軟體 (需要註冊)。 本文是以 NAMD 2.10 版為基礎，並使用 [Linux-x86_64 (64 位元 Intel/AMD 乙太網路)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) 封存。 另請下載 [NAMD 教學課程檔案](http://www.ks.uiuc.edu/Training/Tutorials/#namd)。 下載的是 .tar 檔案，而您需要 Windows 工具以解壓縮叢集前端節點上的檔案。 若要解壓縮檔案，請遵循本文稍後的指示。 
 * **VMD** (選擇性) - 若要查看 NAMD 工作的結果，請在您選擇的電腦上，下載和安裝分子視覺化程式 [VMD](http://www.ks.uiuc.edu/Research/vmd/) 。 目前版本為 1.9.2。 請參閱 VMD 下載網站以開始作業。  
@@ -208,7 +208,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-例如：
+例如︰
 
 ```
 group main
@@ -229,7 +229,7 @@ host CENTOS66LN-03 ++cpus 2
 5. 在 [工作詳細資料] 頁面的 [工作資源] 底下，選取 [節點] 做為資源類型，並且將 [最小值] 設為 3。 ，我們在三個 Linux 節點上執行工作，且每個節點都有四個核心。
    
    ![工作資源][job_resources]
-6. 按一下左導覽窗格中的 編輯工作，然後按一下加入 來將工作加入到作業中。    
+6. 按一下左導覽窗格中的 [編輯工作]，然後按一下 [加入] 來將工作加入到作業中。    
 7. 在 [工作詳細資料和 I/O 重新導向] 頁面上，設定下列值：
    
    * **命令列** -
@@ -248,7 +248,7 @@ host CENTOS66LN-03 ++cpus 2
      > 您在這裡設定工作目錄，因為 **charmrun** 嘗試瀏覽至每個節點上相同的工作目錄。 如果未設定工作目錄，HPC Pack 會在其中一個 Linux 節點上建立的隨機命名資料夾中啟動命令。 這會在其他節點上導致下列錯誤：`/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` 若要避免這個問題，指定所有節點可存取為工作目錄的資料夾路徑。
      > 
      > 
-8. 按一下 確定，然後按一下提交 以執行此作業。
+8. 按一下 [確定]，然後按一下 [提交] 以執行此作業。
    
    根據預設，HPC Pack 會以您目前登入的使用者帳戶提交工作。 對話方塊可能會在您按一下 [提交] 之後提示您輸入使用者名稱和密碼。
    

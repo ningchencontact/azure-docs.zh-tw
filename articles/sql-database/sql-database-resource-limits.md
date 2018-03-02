@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 資源限制
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/01/2018
 
 * 如果您要升級到較高服務層或效能層級，除非您明確指定較大的大小 (大小上限)，否則資料庫大小上限不會增加。
 * 若要將資料庫降級，資料庫已用的空間必須小於目標服務層和效能層級允許的大小上限。 
-* 從**進階**或**進階 RS** 降級至**標準**層時，如果發生下列情況，會產生額外的儲存體成本：(1) 目標效能層級可支援資料庫的大小上限，而且 (2) 大小上限超過目標效能層級的內含儲存體數量。 例如，如果大小上限為 500 GB 的 P1 資料庫縮減為 S3，即會產生額外的儲存體成本，因為 S3 可支援 500 GB 的大小上限，而且其內含儲存體數量只有 250 GB。 因此，額外的儲存體數量為 500 GB – 250 GB = 250 GB。 如需額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。 
+* 從**進階**降級至**標準**層時，如果發生下列情況，將會產生額外的儲存體成本：(1) 在目標效能層級中以資料庫的大小上限進行支援作業，而且 (2) 大小上限超過目標效能層級的內含儲存體數量。 例如，如果大小上限為 500 GB 的 P1 資料庫縮減為 S3，即會產生額外的儲存體成本，因為 S3 可支援 500 GB 的大小上限，而且其內含儲存體數量只有 250 GB。 因此，額外的儲存體數量為 500 GB – 250 GB = 250 GB。 如需額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。 
 * 升級資料庫時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其次要資料庫升級為所需的效能層，然後再升級主要資料庫 (一般指引)。 升級至不同的版本時，必須先升級次要資料庫。
 * 將資料庫降級時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其主要資料庫降級為所需的效能層，然後再降級次要資料庫 (一般指引)。 降級至不同的版本時，必須先降級主要資料庫。
 * 還原服務會針對各種服務層提供不同的選項。 如果降級至**基本**層，會有較短的備份保留期 - 請參閱 [Azure SQL Database 備份](sql-database-automated-backups.md)。
@@ -111,6 +111,19 @@ ms.lasthandoff: 02/01/2018
 - 一般而言，變更每個資料庫之 eDTU 下限或每個資料庫的 eDTU 上限的持續時間會在五分鐘內。
 - 縮減集區 eDTU 的大小時，集區使用的空間必須小於目標服務層和集區 eDTU 允許的大小上限。
 - 調整集區 eDTU 時，如果發生下列情況，會產生額外的儲存體成本：(1) 目標集區可支援集區的儲存體大小上限，而且 (2) 儲存體大小上限超過目標集區的內含儲存體數量。 例如，如果大小上限為 100 GB 的 100 eDTU 標準集區縮減為 50 eDTU 標準集區，則會產生額外的儲存體成本，因為目標集區可支援 100 GB 的大小上限，而且其內含儲存體數量只有 50 GB。 因此，額外的儲存體數量為 100 GB – 50 GB = 50 GB。 如需額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>伺服器和資料庫的最大數量是多少？
+
+| 最大值 | 值 |
+| :--- | :--- |
+| 每一伺服器的資料庫 | 5000 |
+| 每個區域中每個訂用帳戶的伺服器數目 | 21 |
+|||
+
+> [!IMPORTANT]
+> 每當資料庫數量接近每台伺服器的限制時，可能會出現下列情況：
+> <br> •    使用 master 資料庫執行查詢時，延遲狀況增加。  這包含資源使用率統計資料的檢視，例如 sys.resource_stats。
+> <br> •    管理作業以及涉及列舉伺服器中資料庫入口網站檢視點的轉譯作業，皆增加延遲狀況。
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>達到資料庫和彈性集區資源限制時，會發生什麼事？
 

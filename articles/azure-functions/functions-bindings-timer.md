@@ -19,7 +19,7 @@ ms.author: tdykstra
 ms.custom: 
 ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)執行每隔五分鐘：
+下列範例示範每五分鐘執行一次的 [C# 函式](functions-dotnet-class-library.md)：
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)，NuGet 封裝中已定義[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)。
 
 該屬性的建構函式會採用 CRON 運算式，如下列範例所示：
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 如果您的函式應用程式在 App Service 方案 (非取用量方案) 上執行，您可以指定 `TimeSpan` 而不是 CRON 運算式。
 
-如需完整範例，請參閱[C# 範例](#c-example)。
+如需完整範例，請參閱 [C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 

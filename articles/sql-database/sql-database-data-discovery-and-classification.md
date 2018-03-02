@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
-資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於探索、分類、標記和保護您資料庫中的敏感性資料。
-探索與分類您最具敏感性的資料 (商業/財務、醫療保健及 PII 等)，可在您組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
+資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
+對於最具敏感性的資料 (商業/財務、醫療保健及 PII 等) 進行探索與分類，可在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
+* 協助符合資料隱私標準和法規合規性需求，例如 GDPR。
 * 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 * 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
-* 協助符合資料隱私標準和法規合規性需求，例如 GDPR。
 
 ## <a id="subheading-1"></a>概觀
 資料探索與分類導入一組進階服務和新的 SQL 功能，構成目標是保護資料而不只是資料庫的全新 SQL 資訊保護典範：
@@ -93,7 +93,9 @@ ms.lasthandoff: 02/01/2018
 
 ## <a id="subheading-3"></a>對敏感性資料的存取進行稽核
 
-我們已對[Azure SQL Database 稽核](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)做出加強，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
+資訊保護範例的重要層面是能夠監視對敏感性資料的存取。
+
+我們已強化 [Azure SQL Database 稽核](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
 
 ![瀏覽窗格][11]
 

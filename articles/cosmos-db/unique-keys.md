@@ -17,7 +17,7 @@ ms.date: 11/27/2017
 ms.author: rafats
 ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 唯一索引鍵提供開發人員對其資料庫新增一層資料完整性的能力。 您可在建立容器時建立唯一索引鍵原則，以確保每個[資料分割索引鍵](partition-data.md)一或多個值的唯一性。 一旦使用唯一索引鍵原則建立容器，即可防止使用與唯一索引鍵條件約束所指定值重複的值，建立任何新的或已更新的項目。   
 
 > [!NOTE]
-> 支援的最新版本的唯一索引鍵[.NET](sql-api-sdk-dotnet.md)和[.NET Core](sql-api-sdk-dotnet-core.md) SQL Sdk 和[MongoDB API](mongodb-feature-support.md#unique-indexes)。 資料表 API 和圖形 API 此時不支援唯一索引鍵。 
+> 唯一索引鍵是由最新版的 [.NET](sql-api-sdk-dotnet.md) 和 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK 和 [MongoDB API](mongodb-feature-support.md#unique-indexes) 支援。 資料表 API 和圖形 API 此時不支援唯一索引鍵。 
 > 
 >
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/14/2017
 
 無法將現有的容器更新為使用唯一索引鍵。
 
-一旦使用唯一索引鍵原則建立容器，便無法變更此原則，除非您重新建立容器。 如果您有想要實作唯一索引鍵的現有資料，請建立新的容器，然後使用適當的資料移轉工具將資料移至新的容器。 SQL 容器使用[資料移轉工具](import-data.md)。 對於 MongoDB 容器，使用 [mongoimport.exe 或 mongorestore.exe](mongodb-migrate.md)。
+一旦使用唯一索引鍵原則建立容器，便無法變更此原則，除非您重新建立容器。 如果您有想要實作唯一索引鍵的現有資料，請建立新的容器，然後使用適當的資料移轉工具將資料移至新的容器。 對於 SQL 容器，使用[資料移轉工具](import-data.md)。 對於 MongoDB 容器，使用 [mongoimport.exe 或 mongorestore.exe](mongodb-migrate.md)。
 
 每個唯一索引鍵最多可以包含 16 個路徑值 (例如 /firstName、/lastName、/address/zipCode 等)。 
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="sql-api-sample"></a>SQL API 範例
 
-下列程式碼範例示範如何建立新的 SQL 容器具有兩個唯一的索引鍵條件約束。 第一個條件約束是先前範例中所述的 firstName、lastName、email 條件約束。 第二個條件約束是使用者地址/郵遞區號。 使用此唯一索引鍵原則中路徑的範例 JSON 檔案會遵循此程式碼範例。 
+下列程式碼範例示範如何使用兩個唯一索引鍵條件約束來建立新的 SQL 容器。 第一個條件約束是先前範例中所述的 firstName、lastName、email 條件約束。 第二個條件約束是使用者地址/郵遞區號。 使用此唯一索引鍵原則中路徑的範例 JSON 檔案會遵循此程式碼範例。 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

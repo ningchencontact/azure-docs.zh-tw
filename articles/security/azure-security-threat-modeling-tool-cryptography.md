@@ -33,18 +33,18 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="cipher-length"></a>只使用核准的對稱區塊編碼器和金鑰長度
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>產品只能使用組織的密碼編譯顧問已明確核准的對稱區塊編碼器和相關聯的金鑰長度。 Microsoft 核准的對稱演算法包括下列區塊編碼器︰</p><ul><li>對於新的程式碼，可接受 AES-128、AES-192 和 AES-256</li><li>對於現有程式碼的回溯相容性，可接受三金鑰 3DES</li><li>對於使用對稱區塊編碼器的產品︰<ul><li>新的程式碼需要進階加密標準 (AES)</li><li>為了回溯相容性，現有程式碼允許三金鑰三重資料加密標準 (3DES)</li><li>其他所有區塊編碼器 (包括 RC2、DES、兩金鑰 3DES、DESX 和 Skipjack) 只能用於解密舊資料，若用於加密，則必須加以取代</li></ul></li><li>對稱區塊加密演算法需要至少 128 位元的金鑰長度。 新程式碼唯一建議使用的區塊加密演算法是 AES (AES-128、AES-192 和 AES-256 均可接受)</li><li>如果現有程式碼已使用三金鑰 3DES，則目前仍可接受；但建議您轉換為 AES。 DES、DESX、RC2 和 Skipjack 不再被視為是安全的。 這些演算法只能用於解密現有資料以便實現回溯相容性，並且應該使用建議的區塊編碼器重新加密資料</li></ul><p>請注意，所有的對稱區塊編碼器都必須搭配核准的編碼器模式使用，此模式需要使用適當的初始化向量 (IV)。 適當的 IV 通常是亂數，而絕不會是常數值</p><p>在經過貴組織的密碼編譯委員會審核之後，或許也會允許您使用舊版或其他未經核准的密碼編譯演算法和較短的金鑰長度來讀取現有資料 (而不是撰寫新的資料)。 不過，您必須針對這項需求申請例外狀況。 此外，在企業部署中，產品應考慮在有人使用弱式密碼編譯讀取資料時警告系統管理員。 此類警告應清楚說明原因並提供可採取的動作。 在某些情況下，讓群組原則控制弱式密碼編譯的使用可能是適當措施</p><p>為了實現受管理的密碼編譯靈活性所允許的 .NET 演算法 (依偏好順序)</p><ul><li>AesCng (符合 FIPS 規範)</li><li>AuthenticatedAesCng (符合 FIPS 規範)</li><li>AESCryptoServiceProvider (符合 FIPS 規範)</li><li>AESManaged (不符合 FIPS 規範)</li></ul><p>請注意，若要透過 `SymmetricAlgorithm.Create` 或 `CryptoConfig.CreateFromName` 方法指定上述演算法，就一定要變更 machine.config 檔案。 另請注意，在 .NET 3.5 之前的 .NET 版本中，AES 是命名為 `RijndaelManaged`，而 `AesCng` 和 `AuthenticatedAesCng` 則可透過 CodePlex 來使用，並且需要基礎作業系統中的 CNG</p>
+| **步驟** | <p>產品只能使用組織的密碼編譯顧問已明確核准的對稱區塊編碼器和相關聯的金鑰長度。 Microsoft 核准的對稱演算法包括下列區塊編碼器︰</p><ul><li>對於新的程式碼，可接受 AES-128、AES-192 和 AES-256</li><li>對於現有程式碼的回溯相容性，可接受三金鑰 3DES</li><li>對於使用對稱區塊編碼器的產品︰<ul><li>新的程式碼需要進階加密標準 (AES)</li><li>為了回溯相容性，現有程式碼允許三金鑰三重資料加密標準 (3DES)</li><li>其他所有區塊編碼器 (包括 RC2、DES、兩金鑰 3DES、DESX 和 Skipjack) 只能用於解密舊資料，若用於加密，則必須加以取代</li></ul></li><li>對稱區塊加密演算法需要至少 128 位元的金鑰長度。 新程式碼唯一建議使用的區塊加密演算法是 AES (AES-128、AES-192 和 AES-256 均可接受)</li><li>如果現有程式碼已使用三金鑰 3DES，則目前仍可接受；但建議您轉換為 AES。 DES、DESX、RC2 和 Skipjack 不再被視為是安全的。 這些演算法只能用於解密現有資料以便實現回溯相容性，並且應該使用建議的區塊編碼器重新加密資料</li></ul><p>請注意，所有的對稱區塊編碼器都必須搭配核准的編碼器模式使用，此模式需要使用適當的初始化向量 (IV)。 適當的 IV 通常是亂數，而絕不會是常數值</p><p>在經過貴組織的密碼編譯委員會審核之後，或許也會允許您使用舊版或其他未經核准的密碼編譯演算法和較短的金鑰長度來讀取現有資料 (而不是撰寫新的資料)。 不過，您必須針對這項需求申請例外狀況。 此外，在企業部署中，產品應考慮在有人使用弱式密碼編譯讀取資料時警告系統管理員。 此類警告應清楚說明原因並提供可採取的動作。 在某些情況下，讓群組原則控制弱式密碼編譯的使用可能是適當措施</p><p>為了實現受控密碼編譯靈活性所允許的 .NET 演算法 (依偏好順序)</p><ul><li>AesCng (符合 FIPS 規範)</li><li>AuthenticatedAesCng (符合 FIPS 規範)</li><li>AESCryptoServiceProvider (符合 FIPS 規範)</li><li>AESManaged (不符合 FIPS 規範)</li></ul><p>請注意，若要透過 `SymmetricAlgorithm.Create` 或 `CryptoConfig.CreateFromName` 方法指定上述演算法，就一定要變更 machine.config 檔案。 另請注意，在 .NET 3.5 之前的 .NET 版本中，AES 是命名為 `RijndaelManaged`，而 `AesCng` 和 `AuthenticatedAesCng` 則可透過 CodePlex 來使用，並且需要基礎作業系統中的 CNG</p>
 
 ## <a id="vector-ciphers"></a>針對對稱編碼器使用核准的區塊編碼器模式和初始化向量
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="padding"></a>使用核准的非對稱演算法、金鑰長度和填補
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="numgen"></a>使用核准的亂數產生器
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="stream-ciphers"></a>請勿使用對稱串流編碼器
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="mac-hash"></a>使用核准的 MAC/HMAC/索引雜湊演算法
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
@@ -99,18 +99,18 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="hash-functions"></a>只使用核准的密碼編譯雜湊函式
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>產品必須使用 SHA-2 系列的雜湊演算法 (SHA256、SHA384 及 SHA512)。 如果需要較短的雜湊，例如 128 位元的輸出長度，以配合設計時預設使用較短 MD5 雜湊的資料結構，產品小組可截斷其中一個 SHA2 雜湊 (通常是 SHA256)。 請注意，SHA384 是 SHA512 的截斷版本。 不允許基於安全性考量而將密碼編譯雜湊截斷為少於 128 位元。 新的程式碼不得使用 MD2、MD4、MD5、SHA-0、SHA-1 或 RIPEMD 雜湊演算法。 這些演算法在計算時可能會發生雜湊衝突，而結果便是打斷演算法。</p><p>為了實現受管理的密碼編譯靈活性所允許的 .NET 雜湊演算法 (依偏好順序)：</p><ul><li>SHA512Cng (符合 FIPS 規範)</li><li>SHA384Cng (符合 FIPS 規範)</li><li>SHA256Cng (符合 FIPS 規範)</li><li>SHA512Managed (不符合 FIPS 規範) (使用 SHA512 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA384Managed (不符合 FIPS 規範) (使用 SHA384 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA256Managed (不符合 FIPS 規範) (使用 SHA256 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA512CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA256CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA384CryptoServiceProvider (符合 FIPS 規範)</li></ul>| 
+| **步驟** | <p>產品必須使用 SHA-2 系列的雜湊演算法 (SHA256、SHA384 及 SHA512)。 如果需要較短的雜湊，例如 128 位元的輸出長度，以配合設計時預設使用較短 MD5 雜湊的資料結構，產品小組可截斷其中一個 SHA2 雜湊 (通常是 SHA256)。 請注意，SHA384 是 SHA512 的截斷版本。 不允許基於安全性考量而將密碼編譯雜湊截斷為少於 128 位元。 新的程式碼不得使用 MD2、MD4、MD5、SHA-0、SHA-1 或 RIPEMD 雜湊演算法。 這些演算法在計算時可能會發生雜湊衝突，而結果便是打斷演算法。</p><p>為了實現受控密碼編譯靈活性所允許的 .NET 雜湊演算法 (依偏好順序)：</p><ul><li>SHA512Cng (符合 FIPS 規範)</li><li>SHA384Cng (符合 FIPS 規範)</li><li>SHA256Cng (符合 FIPS 規範)</li><li>SHA512Managed (不符合 FIPS 規範) (使用 SHA512 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA384Managed (不符合 FIPS 規範) (使用 SHA384 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA256Managed (不符合 FIPS 規範) (使用 SHA256 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA512CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA256CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA384CryptoServiceProvider (符合 FIPS 規範)</li></ul>| 
 
 ## <a id="strong-db"></a>使用增強式加密演算法來加密資料庫中的資料
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="ssis-signed"></a>SSIS 套件應予以加密和數位簽章
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="securables-db"></a>在重要的資料庫安全性實體中新增數位簽章
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -143,7 +143,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="ekm-keys"></a>使用 SQL Server EKM 來保護加密金鑰
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -154,7 +154,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="keys-engine"></a>如果不應對資料庫引擎顯示加密金鑰，請使用 AlwaysEncrypted 功能
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 資料庫 | 
 | **SDL 階段**               | 建置 |  
@@ -165,7 +165,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="keys-iot"></a>在 IoT 裝置上安全地儲存密碼編譯金鑰
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 裝置 | 
 | **SDL 階段**               | 建置 |  
@@ -188,7 +188,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 
 ## <a id="random-hub"></a>產生長度足夠的隨機對稱金鑰以向 IoT 中樞進行驗證
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | IoT 雲端閘道 | 
 | **SDL 階段**               | 建置 |  
@@ -199,7 +199,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 
 ## <a id="pin-remote"></a>確定已備妥需要使用 PIN 並允許遠端抹除的裝置管理原則
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM 行動用戶端 | 
 | **SDL 階段**               | 部署 |  
@@ -210,7 +210,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 
 ## <a id="bitlocker"></a>確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 Bitlocker)
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM Outlook 用戶端 | 
 | **SDL 階段**               | 建置 |  
@@ -221,7 +221,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 
 ## <a id="rolled-server"></a>確定在使用 Identity Server 時會變換簽署金鑰
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
 | **SDL 階段**               | 部署 |  
@@ -232,7 +232,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 
 ## <a id="client-server"></a>確定 Identity Server 會使用密碼編譯增強式用戶端識別碼和用戶端祕密
 
-| Title                   | 詳細資料      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
 | **SDL 階段**               | 建置 |  

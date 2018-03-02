@@ -1,6 +1,6 @@
 ---
-title: "將驗證語彙基元傳遞給 Azure Media Services |Microsoft 文件"
-description: "了解如何從用戶端的驗證權杖傳送到 Azure Media Services 金鑰傳遞服務"
+title: "將驗證權杖傳遞到 Azure 媒體服務 | Microsoft Docs"
+description: "了解如何將驗證權杖從用戶端傳送到 Azure 媒體服務金鑰傳遞服務"
 services: media-services
 keywords: "content protection, DRM, token authentication, 內容保護, 權杖驗證"
 documentationcenter: 
@@ -17,22 +17,22 @@ ms.date: 12/01/2017
 ms.author: dwgeo
 ms.openlocfilehash: 7d143242231444b8557a303d1b504d5311693f1a
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
-# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>了解如何用戶端將權杖傳遞至 Azure Media Services 金鑰傳遞服務
-客戶的常常詢問如何播放程式傳遞語彙基元給 Azure Media Services 金鑰傳遞服務進行驗證以便播放程式可以取得金鑰。 Media Services 支援簡單 web 權杖 (SWT) 和 JSON Web Token (JWT) 格式。 權杖驗證會套用至任何類型的索引鍵，不論您是使用一般加密或進階加密標準 (AES) 信封加密系統中。
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>了解用戶端如何將權杖傳遞到 Azure 媒體服務金鑰傳遞服務
+客戶常常詢問播放程式如何將權杖傳遞至 Azure 媒體服務金鑰傳遞服務以進行認證，讓播放器能夠取得金鑰。 媒體服務支援簡單 Web 權杖 (SWT) 和 JSON Web 權杖 (JWT) 格式。 不論您在系統中使用的是一般加密或進階加密標準 (AES) 信封加密，權杖驗證都會套用至任何類型的金鑰。
 
- 根據播放程式和您的目標平台，您可以以下列方式與您的播放程式傳遞語彙基元：
+ 您可以根據設定為目標的播放程式和平台，透過以下方式利用播放程式傳遞權杖：
 
 - 透過 HTTP 授權標頭。
     > [!NOTE]
-    > 每個 OAuth 2.0 規格必須是"Bearer"前置詞。 使用語彙基元的組態範例播放程式裝載於 Azure Media Player[示範頁面](http://ampdemo.azureedge.net/)。 若要設定視訊來源，請選擇**AES （JWT 權杖）**或**AES （SWT 權杖）**。 權杖會傳遞透過授權標頭。
+    > 根據 OAuth 2.0 規格，系統會預期 "Bearer" 前置詞。 某個範例播放程式的權杖設定已裝載於 Azure 媒體播放器[示範頁面](http://ampdemo.azureedge.net/) \(英文\) 上。 若要設定影片來源，請選擇 [AES (JWT 權杖)] 或 [AES (SWT 權杖)]。 權杖會透過授權標頭來傳遞。
 
-- 透過 URL 加入查詢參數 「 語彙基元 = tokenvalue。 」  
+- 透過新增含有 “token=tokenvalue” 的 URL 查詢參數。  
     > [!NOTE]
-    > 不應該有"Bearer"前置詞。 因為權杖會傳送到 URL，您需要防護語彙基元字串。 以下是 C# 程式碼範例示範如何執行：
+    > 不應該使用 "Bearer" 前置碼。 因為權杖已透過 URL 傳送，所以您需要為權杖字串提供防禦。 以下是示範如何執行此動作的 C# 範例程式碼：
 
     ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
@@ -40,8 +40,8 @@ ms.lasthandoff: 12/21/2017
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
     ```
 
-- 透過 CustomData 欄位中。
-透過 PlayReady 授權取得挑戰的 CustomData 欄位的 PlayReady 授權取得，使用這個選項。 在此情況下，語彙基元必須是 XML 文件內，如下所示：
+- 透過 CustomData 欄位。
+此選項僅適用於取得 PlayReady 授權，透過 PlayReady 授權取得查問的 CustomData 欄位。 在此案例中，權杖必須位於 XML 文件中，如下所述：
 
     ```xml
     <?xml version="1.0"?>
@@ -49,9 +49,9 @@ ms.lasthandoff: 12/21/2017
         <Token></Token> 
     </CustomData>
     ```
-    將驗證權杖放在語彙基元的項目。
+    將您的驗證權杖放置於 Token 元素中。
 
-- 透過替代的 HTTP Live Streaming (HLS) 播放清單。 如果您需要設定權杖驗證 AES + HLS 播放 iOS/Safari 上, 沒有您可以直接傳送語彙基元的方法。 如需有關如何替代播放清單，以實現此案例的詳細資訊，請參閱此[部落格文章](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。
+- 透過替代的 HTTP 即時串流 (HLS) 播放清單。 如果您需要針對 iOS/Safari 上的 AES + HLS 播放設定權杖驗證，則沒有任何方式可讓您直接傳送權杖。 如需如何替代播放清單來實現此案例的詳細資訊，請參閱這篇[部落格文章](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>使用 Azure CLI 在可用性區域中建立 Linux 虛擬機器
 
@@ -28,19 +28,19 @@ ms.lasthandoff: 01/05/2018
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
+請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
 
 
 ## <a name="check-vm-sku-availability"></a>檢查 VM SKU 可用性
-VM 大小或 Sku 的可用性可能會因區域和區域。 為了協助您規劃可用性區域使用，您可以列出可用的 VM Sku 的 Azure 區域和區域。 這項功能可確保您選擇適當的 VM 大小，並在區域之間取得所需的復原。 如需有關不同 VM 類型和大小的詳細資訊，請參閱[VM 大小概觀](sizes.md)。
+VM 大小或 SKU 的可用性可能因地區和區域而有所不同。 為了協助您規劃如何利用可用性區域，您可以依照 Azure 地區和區域列出可用的 VM SKU。 這項功能可確保您選擇適當的 VM 大小，並取得所需的跨區域復原功能。 如需有關不同 VM 類型和大小的詳細資訊，請參閱 [VM 大小概觀](sizes.md)。
 
-您可以檢視與可用的 VM Sku [az vm 清單 sku](/cli/azure/vm#az_vm_list_skus)命令。 下列範例會列出可用的 VM Sku 中*eastus2*區域：
+您可以使用 [az vm list-skus](/cli/azure/vm#az_vm_list_skus) 命令檢視可用的 VM SKU。 下列範例會列出 eastus2 地區中可用的 VM SKU：
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-輸出是類似於下列的扼要範例，顯示每個 VM 的大小可可用性區域：
+其輸出類似下列扼要的範例，會顯示每個 VM 大小適用的可用性區域：
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

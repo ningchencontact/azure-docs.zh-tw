@@ -16,7 +16,7 @@ ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
 ---
@@ -198,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> 一旦設定，就請保管好此複雜密碼。 從 Azure 中沒有此複雜密碼，將無法還原資料。
+> 一旦設定，就請保管好此複雜密碼。 若沒有此複雜密碼，您將無法從 Azure 還原資料。
 >
 >
 
@@ -419,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-您可以使用 [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) Cmdlet 來檢視現有備份原則的詳細資料。 您可以使用進一步向下鑽研[Get OBSchedule](https://technet.microsoft.com/library/hh770423)備份排程的 cmdlet 和[Get OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet 以供保留原則
+您可以使用 [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) Cmdlet 來檢視現有備份原則的詳細資料。 您可以使用 [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) Cmdlet (適用於備份排程) 和 [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) Cmdlet (適用於保留原則) 進一步向下鑽研
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -459,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>執行隨選備份
-設定備份原則之後，即會根據排程進行備份。 觸發臨機操作備份正在也可能使用[開始 OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+### <a name="performing-an-ad-hoc-backup"></a>執行臨機操作備份
+設定備份原則之後，即會根據排程進行備份。 您也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) Cmdlet 來觸發臨機操作備份：
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -500,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>選擇要從中還原的備份點
-執行擷取的備份點清單[Get-obrecoverableitem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet 搭配適當的參數。 範例中，我們會選擇來源磁碟區 *D:* 的最新備份點並加以使用來還原特定檔案。
+您可以執行 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) Cmdlet 並搭配適當參數來擷取備份點清單。 範例中，我們會選擇來源磁碟區 *D:* 的最新備份點並加以使用來還原特定檔案。
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]

@@ -16,13 +16,13 @@ ms.date: 12/11/2017
 ms.author: seguler
 ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
 
-AzCopy 是設計用來複製資料，從 Microsoft Azure Blob、 檔案和資料表儲存體的命令列公用程式，使用簡單的命令，以獲得最佳效能所設計。 您可以複製的檔案系統和儲存體帳戶，或儲存體帳戶之間的資料。  
+AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
 
 有兩個 AzCopy 版本可供您下載。 AzCopy on Linux 內建有 .NET Core Framework，其以提供 POSIX 樣式命令列選項的 Linux 平台為目標。 [AzCopy on Windows](../storage-use-azcopy.md) 內建有 .NET Framework，並且提供 Windows 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Linux。
 
@@ -31,7 +31,7 @@ AzCopy 是設計用來複製資料，從 Microsoft Azure Blob、 檔案和資料
 
 文章包含用於多種不同版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令來確認您的發行版本和 codename。 
 
-在 Linux 上的 AzCopy 需要平台上的.NET Core framework （2.0 版）。 請參閱 [.NET Core](https://www.microsoft.com/net/download/linux) \(英文\) 頁面上的安裝指示。
+AzCopy on Linux 要求平台具有 .NET Core Framework (2.0 版)。 請參閱 [.NET Core](https://www.microsoft.com/net/download/linux) \(英文\) 頁面上的安裝指示。
 
 作為範例，讓我們在 Ubuntu 16.04 上安裝 .NET Core。 如需最新安裝指南，請造訪 [.NET Core on Linux](https://www.microsoft.com/net/download/linux) \(英文\) 安裝頁面。
 
@@ -602,8 +602,8 @@ azcopy \
 >若要檢視 AzCopy 參數的完整清單，請參閱 [azcopy --說明] 功能表。
 
 ## <a name="known-issues-and-best-practices"></a>已知問題和最佳作法
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>錯誤： 系統中找不到.NET SDK 2.0。
-AzCopy 取決於.NET SDK 2.0 版本 AzCopy 7.0 中啟動。 在此版本之前 AzCopy 會使用.NET 核心 1.1。 如果您遇到錯誤，指出系統中，未安裝.NET Core 2.0，您可能需要安裝或升級使用[.NET Core 的安裝指示](https://www.microsoft.com/net/learn/get-started/linuxredhat)。
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>錯誤：在系統中找不到 .NET SDK 2.0。
+AzCopy 相依於在 AzCopy 7.0 版中開始使用的 .NET SDK 2.0。 早於此版本的 AzCopy 使用 .NET Core 1.1。 如果您遇到指出系統中未安裝 .NET Core 2.0 的錯誤，可使用 [.NET Core 安裝指示](https://www.microsoft.com/net/learn/get-started/linuxredhat) \(英文\) 加以安裝或升級。
 
 ### <a name="error-installing-azcopy"></a>安裝 AzCopy 時發生錯誤
 如果您遇到 AzCopy 安裝的問題，可以嘗試使用解壓縮 `azcopy` 資料夾中的 bash 指令碼執行 AzCopy。

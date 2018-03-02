@@ -3,7 +3,7 @@ title: "將您的應用程式部署至 Azure 和 Azure Stack | Microsoft Docs"
 description: "了解如何使用混合式 CI/CD 管線將應用程式部署至 Azure 和 Azure Stack。"
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: 
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>將應用程式部署至 Azure 和 Azure Stack
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*

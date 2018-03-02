@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: chackdan
 ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
 ---
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/05/2018
 
 此權限會以下列值表示︰
 
-* Gold - 每個 UD 可持續暫停基礎結構工作兩小時。 只有在完整節點類似 L32s、 GS5、 G5、 DS15_v2 等 D15_v2 （一般情況下所有 VM 大小都列示於 http://aka.ms/vmspecs 標記為 '執行個體是專用於單一客戶的硬體隔離' 附註中的 VM sku 上可以啟用金級持久性完整節點 vm)
+* Gold - 每個 UD 可持續暫停基礎結構工作兩小時。 金級持久性只能在諸如 L32s、GS5、G5、DS15_v2、D15_v2 等完整節點 VM SKU 上啟用 (一般情況下，http://aka.ms/vmspecs 上所列的所有 VM 大小會在附註中標記為「執行個體會隔離至單一客戶專用的硬體」，皆為完整節點 VM)
 * Silver -每個 UD 可持續暫停基礎結構工作 10 分鐘，並於所有單核心 (或更多核心) 的標準 VM 上提供。
 * Bronze - 無權限。 這是預設值。 針對_僅_執行無狀態工作負載的節點類型，只能使用這個持久性等級。 
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/05/2018
 
 
 > [!WARNING]
-> VM SKU 大小的 VM 規模集不在執行至少銀級持久性不建議變更。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 沒有延遲，或是監視這項變更至少部分功能，就可能作業可能會導致資料遺失，可設定狀態的服務，或導致其他不可預見的操作問題、 甚至的無狀態工作負載。 
+> 不建議對未至少執行 Silver 持久性的 VM 擴展集變更 VM SKU 大小。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有至少延遲或監視此變更的某些能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 
 > 
     
 3. 針對所有啟用 Gold 或 Silver 持久性 的虛擬機器擴展集維持至少五個節點

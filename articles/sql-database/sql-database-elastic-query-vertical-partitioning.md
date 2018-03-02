@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: mlandzic
 ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 垂直資料分割資料庫使用在不同資料庫的不同資料表集。 這表示不同資料庫的結構描述不同。 比方說，庫存的所有資料表都位於一個資料庫上，而所有會計相關資料表則位於另一個資料庫上。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。
 * 需有 ALTER ANY EXTERNAL DATA SOURCE 權限，才能參考基礎資料來源。
 
@@ -155,14 +155,14 @@ SCHEMA_NAME 和 OBJECT_NAME 子句提供的功能可將外部資料表定義分�
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>用於遠端 T-SQL 執行的預存程序：sp\_execute_remote
-彈性查詢也會介紹可直接存取遠端資料庫的預存程序。 預存程序稱為[sp\_執行\_遠端](https://msdn.microsoft.com/library/mt703714)而且可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數： 
+彈性查詢也會介紹可供直接存取遠端資料庫的預存程序。 預存程序稱為 [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)，可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數： 
 
 * 資料來源名稱 (nvarchar)：RDBMS 類型的外部資料來源名稱。 
-* 查詢 (nvarchar): 若要在遠端資料庫上執行的 T-SQL 查詢。 
+* 查詢 (nvarchar)：要在遠端資料庫上執行的 T-SQL 查詢。 
 * 參數宣告 (nvarchar) - 選用：含有查詢參數 (如 sp_executesql) 中所用參數的資料類型定義的字串。 
 * 參數值清單 - 選用：以逗號分隔的參數值清單 (如 sp_executesql)。
 
-Sp\_執行\_遠端使用叫用參數中提供的外部資料來源遠端資料庫上執行給定的 T-SQL 陳述式。 它會使用外部資料來源的認證連接到遠端資料庫。  
+sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠端資料庫上執行指定的 T-SQL 陳述式。 它會使用外部資料來源的認證來連線至遠端資料庫。  
 
 範例： 
 

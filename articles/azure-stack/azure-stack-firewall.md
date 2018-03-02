@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火牆整合
 建議您使用防火牆裝置來協助保護 Azure Stack 安全。 雖然防火牆有助於防堵分散式阻斷服務 (DDOS) 攻擊、入侵偵測及內容檢查等，但也會成為 Azure 儲存體服務 (例如 Blob、資料表及佇列) 的輸送量瓶頸。
@@ -41,7 +41,7 @@ NAT 也可以是外部網路上公用 IP 位址或公用 VIP 的替代方案。 
 - 針對與 Azure 搭配的混合式雲端案例，請考量 Azure 不支援使用 NAT 來設定端點 VPN 通道。
 
 ### <a name="ssl-decryption"></a>SSL 解密
-目前針對「SSL 解密」，我們的建議是在所有 Azure Stack 流量上停用它，未來我們將提供有關如何針對 Azure Stack 啟用「SSL 解密」的指引。
+目前建議在所有 Azure Stack 流量上停用 SSL 解密。 如果未來更新支援該功能，指引中將會提供如何為 Azure Stack 啟用 SSL 解密的相關資訊。
 
 ## <a name="edge-firewall-scenario"></a>邊緣防火牆案例
 在邊緣部署中，Azure Stack 會直接部署在邊緣路由器或防火牆後面。 在這些案例中，支援讓防火牆位於邊界之上，或如果防火牆可藉由 BGP 或靜態路由支援「等價多路徑」(ECMP)，則也支援讓防火牆作為邊界裝置。

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -50,13 +50,13 @@ Azure Functions Proxy 可讓您修改針對後端的要求及來自後端的回�
 
 根據預設，後端要求會初始化為原始要求的複本。 除了設定後端 URL 之外，您也可以變更 HTTP 方法、標頭及查詢字串參數。 修改過的值可以參考[應用程式設定]和[來自原始用戶端要求的參數]。
 
-目前，尚無修改後端要求的入口網站體驗。 若要了解如何從 proxies.json 套用此功能，請參閱[定義 requestOverrides 物件]。
+後端要求可以藉由展開 Proxy 詳細資料分頁的要求覆寫區段，在入口網站中修改。 
 
 ### <a name="modify-response"></a>修改回應
 
 根據預設，用戶端回應會初始化為後端回應的複本。 您可以對回應的狀態碼、原因說明、標頭及本文做出變更。 修改過的值可以參考[應用程式設定]、[來自原始用戶端要求的參數]，以及[來自後端回應的參數]。
 
-目前，尚無修改回應的入口網站體驗。 若要了解如何從 proxies.json 套用此功能，請參閱[定義 responseOverrides 物件]。
+後端要求可以藉由展開 Proxy 詳細資料分頁的回應覆寫區段，在入口網站中修改。 
 
 ## <a name="using-variables"></a>使用變數
 
@@ -65,7 +65,11 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 ### <a name="reference-localhost"></a>參考本機函式
 您無需往返的 proxy 要求，而可以使用 `localhost` 直接參考相同函式應用程式內的函式。
 
-`"backendurl": "localhost/api/httptriggerC#1"` 會參考 `/api/httptriggerC#1` 路由中的本機 HTTP 觸發函式
+`"backendurl": "https://localhost/api/httptriggerC#1"` 會參考 `/api/httptriggerC#1` 路由中的本機 HTTP 觸發函式
+
+ 
+>[!Note]  
+>如果您的函式使用*函式、系統管理員或 sys* 授權層級，您必須針對每個原始的函式 URL 提供程式碼和 clientId。 在此情況下，參考應該像這樣：`"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>參考要求參數
 
@@ -114,7 +118,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 ## <a name="advanced-configuration"></a>進階組態
 
-您設定的 Proxy 會儲存在 proxies.json 檔案中 (位於函式應用程式目錄的根目錄中)。 當您使用Functions 支援的任何[部署方法](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)時，您可以手動編輯此檔案，並部署為應用程式的一部分。 對於要處理的檔案，必須[啟用](#enable) Azure Functions Proxy 功能。 
+您設定的 Proxy 會儲存在 proxies.json 檔案中 (位於函式應用程式目錄的根目錄中)。 當您使用Functions 支援的任何[部署方法](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)時，您可以手動編輯此檔案，並部署為應用程式的一部分。 
 
 > [!TIP] 
 > 如果您尚未設定其中一個部署方法，也可以使用入口網站中的 proxies.json 檔案。 移至您的函式應用程式，選取 [平台功能]，然後選取 [App Service 編輯器]。 如此一來，您可以查看函式應用程式的整個檔案結構，然後做出變更。
@@ -229,16 +233,6 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 ```
 > [!NOTE] 
 > 此範例會直接設定回應本文，因此不需要 `backendUri` 屬性。 此範例示範如何使用 Azure Functions Proxy 來模擬 API。
-
-## <a name="enable"></a>啟用 Azure Functions Proxy
-
-現在預設會啟用 Proxy！ 如果您使用較舊的 Proxy 預覽版本並已停用 Proxy，您必須手動啟用 Proxy 一次，這些 Proxy 才會執行。
-
-1. 開啟 [Azure 入口網站]，然後移至您的函式應用程式。
-2. 選取 [函式應用程式設定]。
-3. 將 [啟用 Azure Functions Proxy (預覽)] 切換為 [開啟]。
-
-您也可以在新功能可供使用時，返回這裡以更新 Proxy 執行階段。
 
 [Azure 入口網站]: https://portal.azure.com
 [HTTP 觸發程序]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

@@ -18,7 +18,7 @@ ms.author: wesmc
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)，傳送文字訊息觸發的佇列訊息時。
+下列範例顯示可在受到佇列訊息觸發時傳送文字簡訊的 [C# 函式](functions-dotnet-class-library.md)。
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用在 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) 中定義的 [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) 屬性。
 
 如需可設定的屬性內容相關資訊，請參閱[設定](#configuration)。 以下是方法簽章中的 `TwilioSms` 屬性範例：
 
@@ -213,7 +213,7 @@ public static SMSMessage Run(
 }
  ```
 
-如需完整範例，請參閱[C# 範例](#c-example)。
+如需完整範例，請參閱 [C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 

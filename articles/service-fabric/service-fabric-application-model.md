@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: ryanwi
 ms.openlocfilehash: d5f6fbb9d9c0bc0d9762f8d6b4b4eb3b02d29adc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 
 應用程式類型是應用程式的分類，由服務類型的組合所組成。 服務類型是一項服務分類。 分類可以有不同的設定和組態，但是核心功能保持不變。 服務的執行個體是相同服務類型的不同服務組態變形。  
 
-應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明。  資訊清單會描述應用程式和服務，並會依據應用程式可以具現化從叢集的映像存放區的範本。  資訊清單會詳細涵蓋[應用程式和服務資訊清單](service-fabric-application-and-service-manifests.md)。 ServiceManifest.xml 和 ApplicationManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd。 XML 結構描述會記載在[ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)。
+應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明。  資訊清單可描述應用程式與服務，並且是應用程式可以從叢集的映像存放區具現化的範本。  [應用程式及服務資訊清單](service-fabric-application-and-service-manifests.md)中詳細說明資訊清單。 ServiceManifest.xml 和 ApplicationManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd。 XML 結構描述則記載在 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
 
 不同應用程式執行個體的程式碼會以個別程序的形式執行，即使是由相同的 Service Fabric 節點所裝載。 此外，每個應用程式執行個體的生命週期可以獨立進行管理 (例如，升級)。 下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和資料套件的組成。 為了簡化此圖，只會顯示 `ServiceType4` 的程式碼/組態/資料套件，但每個服務類型都包含這其中部分或所有的套件類型。
 
@@ -49,10 +49,10 @@ ms.lasthandoff: 12/11/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[應用程式的延展性](service-fabric-concepts-scalability.md)。
-- 深入了解服務[狀態](service-fabric-concepts-state.md)，[分割](service-fabric-concepts-partitioning.md)，和[可用性](service-fabric-availability-services.md)。
-- 了解應用程式和服務中的定義方式[應用程式和服務資訊清單](service-fabric-application-and-service-manifests.md)。
-- [應用程式裝載模型](service-fabric-hosting-model.md)描述已部署的服務和服務主機處理序的複本 （或執行個體） 之間的關聯性。
+- 深入了解[應用程式延展性](service-fabric-concepts-scalability.md)。
+- 了解服務[狀態](service-fabric-concepts-state.md)、[分割](service-fabric-concepts-partitioning.md)和[可用性](service-fabric-availability-services.md)。
+- 閱讀[應用程式及服務資訊清單](service-fabric-application-and-service-manifests.md)，以了解應用程式和服務的定義方式。
+- [應用程式主控模型](service-fabric-hosting-model.md)說明已部署之服務的複本 (或執行個體) 與服務主機處理序之間的關聯性。
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

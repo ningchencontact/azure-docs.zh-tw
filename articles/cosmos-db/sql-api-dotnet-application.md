@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: devcenter
 ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/18/2017
 本文中的所有螢幕擷取畫面都是使用 Microsoft Visual Studio Community 2017 所擷取的。 如果您的系統是設定使用不同的版本，則您的畫面和選項可能不會完全相符，但只要您符合上述必要條件，本方案應該還是有效。
 
 ## <a name="_Toc395637761"></a>步驟 1：建立 Azure Cosmos DB 資料庫帳戶
-我們將從建立 Azure Cosmos DB 帳戶開始著手。 如果您已經有 Azure Cosmos 資料庫的 SQL 帳戶，或如果您在本教學課程使用 Azure Cosmos DB 模擬器，您可以跳到[建立新的 ASP.NET MVC 應用程式](#_Toc395637762)。
+我們將從建立 Azure Cosmos DB 帳戶開始著手。 如果您已經擁有 Azure Cosmos DB 的 SQL 帳戶，或如果您正在使用 Azure Cosmos DB 模擬器來進行本教學課程，可以跳到[建立新的 ASP.NET MVC 應用程式](#_Toc395637762)。
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

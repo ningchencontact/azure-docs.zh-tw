@@ -11,27 +11,27 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>使用 Draft 搭配 Azure Container Service (AKS)
 
-Draft 是一個開放原始碼工具，可協助在 Kubernetes 叢集中封裝和執行程式碼。 Draft 特別適用於開發反覆週期中的開發程式碼期間，但是在認可版本控制之前。 當程式碼變更時，您可以使用 Draft 將應用程式快速地重新部署到 Kubernetes。 如需有關草稿的詳細資訊，請參閱[草稿 Github 上的文件][draft-documentation]。
+Draft 是一個開放原始碼工具，可協助在 Kubernetes 叢集中封裝和執行程式碼。 Draft 特別適用於開發反覆週期中的開發程式碼期間，但是在認可版本控制之前。 當程式碼變更時，您可以使用 Draft 將應用程式快速地重新部署到 Kubernetes。 如需有關 Draft 的詳細資訊，請參閱 [Github 上的 Draft 文件][draft-documentation]。
 
 本文件會詳細說明如何在 AKS 上使用 Draft 搭配 Kubernetes 叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請參閱[AKS 快速入門][aks-quickstart]。
+本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請參閱 [AKS 快速入門][aks-quickstart]。
 
-您在 Azure Container Registry (ACR) 中也需要私人 Docker 登錄。 如需部署 ACR 執行個體的指示，請參閱[Azure 容器登錄快速入門][acr-quickstart]。
+您在 Azure Container Registry (ACR) 中也需要私人 Docker 登錄。 如需有關部署 ACR 執行個體的指示，請參閱 [Azure Container Registry 快速入門][acr-quickstart]。
 
 ## <a name="install-helm"></a>安裝 Helm
 
 Helm CLI 是在開發系統上執行的用戶端，可讓您啟動、停止和管理具 Helm 圖表的應用程式。
 
-若要在 Mac 上安裝 Helm CLI，請使用 `brew`。 如需其他安裝選項，請參閱[安裝頭盔][install-helm]。
+若要在 Mac 上安裝 Helm CLI，請使用 `brew`。 如需其他安裝選項，請參閱[安裝 Helm][install-helm] \(英文\)。
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 Draft CLI 是在開發系統上執行的用戶端，可讓您將程式碼快速部署到 Kubernetes 叢集。
 
-若要在 Mac 上安裝 Draft CLI，請使用 `brew`。 如需其他安裝選項，請參閱、[草稿安裝指南][install-draft]。
+若要在 Mac 上安裝 Draft CLI，請使用 `brew`。 如需其他安裝選項，請參閱 [Draft 安裝指南][install-draft] \(英文\)。
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 ## <a name="expose-application"></a>公開應用程式
 
-在 Kubernetes 中測試應用程式時，您可以讓應用程式在網際網路上供人使用。 這可以使用 Kubernetes 服務類型為[LoadBalancer] [ kubernetes-service-loadbalancer]或[輸入控制器][kubernetes-ingress]。 本文件詳細說明如何使用 Kubernetes 服務。
+在 Kubernetes 中測試應用程式時，您可以讓應用程式在網際網路上供人使用。 使用 [LoadBalancer][kubernetes-service-loadbalancer] \(英文\) 類型的 Kubernetes 服務或[輸入控制器][kubernetes-ingress] \(英文\)，即可達到此目的。 本文件詳細說明如何使用 Kubernetes 服務。
 
 
 首先，必須更新 Draft 套件，以指定應建立 `LoadBalancer` 類型的服務。 若要進行，請更新 `values.yaml` 檔案中的服務類型。
@@ -302,7 +302,7 @@ Hello World, I'm Java - Draft Rocks!
 如需有關使用 Draft 的詳細資訊，請參閱 GitHub 上的 Draft 文件。
 
 > [!div class="nextstepaction"]
-> [草稿文件][draft-documentation]
+> [Draft 文件][draft-documentation]
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs

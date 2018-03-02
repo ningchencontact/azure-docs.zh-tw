@@ -17,7 +17,7 @@ ms.date: 5/10/2017
 ms.author: negat
 ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="change-the-template-definition"></a>變更範本定義
 
-可行的最小小數位數組範本可以看到[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)，而且在範本部署小數位數設定從自訂映像可以看到[這裡](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set custom-image`) 的差異：
+您可以在[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)看到最基本的可行擴展集範本，並在[這裡](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)看到用於從自訂映像部署擴展集的範本。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set custom-image`) 的差異：
 
 ### <a name="creating-a-managed-disk-image"></a>建立受控磁碟映像
 
 如果您已有自訂的受控磁碟映像 (類型為 `Microsoft.Compute/images` 的資源)，則可略過此節。
 
-首先，新增`sourceImageVhdUri`參數，其為一般化，其中包含自訂映像，從 Azure 儲存體中 blob 的 URI。
+首先，新增 `sourceImageVhdUri` 參數，這是 Azure 儲存體中包含所要部署自訂映像的一般化 blob 其 URI。
 
 
 ```diff
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/20/2017
    "variables": {},
 ```
 
-接下來，加入類型的資源`Microsoft.Compute/images`，這是受管理的磁碟映像一般化 blob 位於 URI 為基礎`sourceImageVhdUri`。 此映像必須位在與使用它的擴展集相同的區域中。 在映像的內容中，指定作業系統類型，而 blob 的位置 (從`sourceImageVhdUri`參數)，和儲存體帳戶類型：
+接著，新增類型為 `Microsoft.Compute/images` 的資源，這是以位在 URI `sourceImageVhdUri` 的一般化 blob 為基礎的受控磁碟映像。 此映像必須位在與使用它的擴展集相同的區域中。 在映像的屬性中，指定作業系統類型、blob 的位置 (從 `sourceImageVhdUri` 參數) 及儲存體帳戶類型：
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/20/2017
 
 ```
 
-在標尺設定資源、 加入`dependsOn`小數位數設定嘗試從該映像進行部署之前，便會建立指向自訂映像，以確定映像的子句：
+在擴展集資源中，新增參照自訂映像的 `dependsOn` 子句，以確定會先建立映像，擴展集才會嘗試從該映像部署：
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/20/2017
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>變更擴展集屬性以使用受控磁碟映像
 
-在`imageReference`標尺設定`storageProfile`，而不是指定 「 發行者 」，提供，sku，而且平台映像的版本指定`id`的`Microsoft.Compute/images`資源：
+在擴展集 `storageProfile` 的 `imageReference` 中，不是指定發行者、提供項目、sku 及平台映像版本，而是指定 `Microsoft.Compute/images` 資源的 `id`：
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ ms.lasthandoff: 12/20/2017
            "osProfile": {
 ```
 
-在此範例中，使用`resourceId`函式可取得相同的範本中建立的映像的資源識別碼。 如果您事先建立之受管理的磁碟映像，您應該改為提供該映像的識別碼。 這個識別碼的格式必須是： `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`。
+在此範例中，使用 `resourceId` 函式取得以相同範本所建立映像的資源識別碼。 如果您已事先建立受控磁碟映像，您應改為提供該映像的識別碼。 此識別碼的格式必須是：`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`。
 
 
 ## <a name="next-steps"></a>後續步驟

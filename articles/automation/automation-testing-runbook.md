@@ -16,7 +16,7 @@ ms.date: 09/12/2016
 ms.author: magoedte;bwren
 ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -42,5 +42,5 @@ ms.lasthandoff: 01/03/2018
 * 若要了解如何建立或匯入 Runbook，請參閱 [建立或匯入 Azure 自動化中的 Runbook](automation-creating-importing-runbook.md)
 * 若要深入了解圖形化編寫，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
-* 若要深入瞭解如何設定 runbook 要傳回的狀態訊息和錯誤，包括建議的作法，請參閱[Runbook 輸出和在 Azure 自動化中的訊息](automation-runbook-output-and-messages.md)
+* 若要深入了解設定 Runbook 以傳回狀態訊息和錯誤，包括建議的做法，請參閱 [Azure 自動化中的 Runbook 輸出和訊息](automation-runbook-output-and-messages.md)
 

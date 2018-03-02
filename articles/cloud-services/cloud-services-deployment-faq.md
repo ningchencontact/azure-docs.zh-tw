@@ -17,7 +17,7 @@ ms.date: 12/12/2017
 ms.author: genli
 ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -75,8 +75,8 @@ ms.lasthandoff: 12/12/2017
 
     這可從 [Azure 入口網站](https://portal.azure.com)運作，因為呼叫會通過 proxy/shim，從而允許 Azure Resource Manager 和傳統資源之間的通訊。 
  
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>為什麼 Azure 入口網站需要才能我提供部署的儲存體帳戶？ 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>為何 Azure 入口網站要求我提供儲存體帳戶進行部署？ 
 
-在傳統入口網站，封裝上傳到管理應用程式開發介面層，並再 API 層會暫時將封裝到內部儲存體帳戶。  此程序會導致效能和延展性的問題，因為應用程式開發介面層不被設計為檔案上傳服務。  在 Azure 入口網站 （Resource Manager 部署模型），我們已略過的暫時步驟的第一次上傳到應用程式開發介面層，導致更快速且更可靠的部署。 
+在傳統入口網站中，套件已直接上傳到管理 API 層，然而 API 層會將套件暫時放入內部儲存體帳戶中。  此程序會造成效能和延展性問題，因為 API 層並未設計成檔案上傳服務。  在 Azure 入口網站 (Resource Manager 部署模型) 中，我們已略過新上傳到 API 層的暫時步驟，而造成更快速且更可靠的部署。 
 
-與成本，所以非常小，您可以在所有部署之間重複使用相同的儲存體帳戶。 您可以使用[儲存體的成本計算機](https://azure.microsoft.com/en-us/pricing/calculator/#storage1)來判斷要上傳服務套件 (CSPKG) 的成本，下載 CSPKG，然後再刪除 CSPKG。 
+其成本非常低，您可以在所有部署中重複使用相同的儲存體帳戶。 您可以使用[儲存體成本計算機](https://azure.microsoft.com/en-us/pricing/calculator/#storage1)來判斷上傳服務套件 (CSPKG)、下載 CSPKG，然後刪除 CSPKG 的成本。 

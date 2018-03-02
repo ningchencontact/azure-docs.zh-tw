@@ -17,7 +17,7 @@ ms.date: 04/10/2017
 ms.author: carlrab
 ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/04/2018
    ![定義保留原則](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
    
    >[!NOTE]
-   >保留原則的名稱不允許某些字元，包括空格。
+   >保留原則名稱不允許某些字元，包括空格。
 
 13. 在伺服器的 [長期備份保留] 頁面上，按一下 [儲存]，然後按一下 [確定]，將長期備份保留原則套用到所有選取的資料庫。
 

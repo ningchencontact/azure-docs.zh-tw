@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的容錯移轉
 本文說明如何容錯移轉 Site Recovery 所保護的虛擬機器和實體伺服器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. 執行容錯移轉之前，請執行[測試容錯移轉](site-recovery-test-failover-to-azure.md)，以確保一切運作正常。
 1. 執行容錯移轉之前，在目標位置[準備網路](site-recovery-network-design.md)。  
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/28/2017
 
 | 案例 | 應用程式復原需求 | 適用於 Hyper-V 的工作流程 | 適用於 VMware 的工作流程
 |---|--|--|--|
-|由於即將發生的資料中心停機時間而產生的計劃容錯移轉| 執行計劃性活動時應用程式零資料流失| 若為 Hyper-V，ASR 會以使用者指定的複製頻率複寫資料。 計劃性容錯移轉是用來覆寫頻率，並在起始容錯移轉之前複寫最後的變更。 <br/> <br/> 1.  根據您的業務變更管理程序計劃維護期間。 <br/><br/> 2. 將即將發生的停機時間通知使用者。 <br/><br/> 3.讓與使用者互動的應用程式離線。<br/><br/>4. 使用 ASR 入口網站起始計劃性容錯移轉。 內部部署虛擬機器會自動關閉。<br/><br/>有效的應用程式資料流失 = 0 <br/><br/>也會在保留視窗中，為想要使用較舊復原點的使用者提供復原點的日誌。 (若為 Hyper-V，保留 24 小時)。| 若為 VMware，ASR 會使用 CDP 持續複寫資料。 容錯移轉會提供選項，讓使用者容錯移轉至最新的資料 (包括公佈應用程式關閉)<br/><br/> 1.根據變更管理程序計劃維護期間 <br/><br/>2. 將即將發生的停機時間通知使用者 <br/><br/>3.讓與使用者互動的應用程式離線。 <br/><br/>4.在應用程式離線之後，使用 ASR 入口網站將計劃性容錯移轉起始至最新點。 使用入口網站上的 [未計劃性容錯移轉] 選項，然後選取要容錯移轉的最新點。 內部部署虛擬機器會自動關閉。<br/><br/>有效的應用程式資料流失 = 0 <br/><br/>保留視窗中復原點的日誌是針對想要使用較舊復原點的客戶而提供的。 (若為 VMware，保留 72 小時)。
+|由於即將發生的資料中心停機時間而產生的計劃容錯移轉| 執行計劃性活動時應用程式零資料流失| 若為 Hyper-V，ASR 會以使用者指定的複製頻率複寫資料。 計劃性容錯移轉是用來覆寫頻率，並在起始容錯移轉之前複寫最後的變更。 <br/> <br/> 1.  根據您的業務變更管理程序計劃維護期間。 <br/><br/> 2. 將即將發生的停機時間通知使用者。 <br/><br/> 3.讓與使用者互動的應用程式離線。<br/><br/>4. 使用 ASR 入口網站起始計劃性容錯移轉。 內部部署虛擬機器會自動關閉。<br/><br/>有效的應用程式資料流失 = 0 <br/><br/>也會在保留視窗中，為想要使用較舊復原點的使用者提供復原點的日誌。 (若為 Hyper-V，保留 24 小時)。| 若為 VMware，ASR 會使用 CDP 持續複寫資料。 容錯移轉會提供選項，讓使用者容錯移轉至最新的資料 (包括公佈應用程式關閉)<br/><br/> 1.根據變更管理程序計劃維護期間 <br/><br/>2. 將即將發生的停機時間通知使用者 <br/><br/>3.  讓與使用者互動的應用程式離線。 <br/><br/>4.在應用程式離線之後，使用 ASR 入口網站將計劃性容錯移轉起始至最新點。 使用入口網站上的 [未計劃性容錯移轉] 選項，然後選取要容錯移轉的最新點。 內部部署虛擬機器會自動關閉。<br/><br/>有效的應用程式資料流失 = 0 <br/><br/>保留視窗中復原點的日誌是針對想要使用較舊復原點的客戶而提供的。 (若為 VMware，保留 72 小時)。
 |由於未計劃的資料中心停機時間 (自然或 IT 災害) 而產生的容錯移轉 | 應用程式流失最少資料 | 1. 起始組織的 BCP 計劃 <br/><br/>2.使用 ASR 入口網站，將未計劃性容錯移轉起始至來自保留期間 (日誌) 的最新點或某一點。| 1.起始組織的 BCP 計劃。 <br/><br/>2.使用 ASR 入口網站，將未計劃性容錯移轉起始至來自保留期間 (日誌) 的最新點或某一點。
 
 
@@ -66,17 +66,16 @@ ms.lasthandoff: 11/28/2017
     >
 
 1. 您可以 [作業] 頁面上追蹤容錯移轉進度。 即使在非計劃性容錯移轉期間發生錯誤，復原方案還是會執行到完成為止。
-1. 容錯移轉之後，登入虛擬機器進行驗證。 如果您想要前往虛擬機器的另一個復原點，您可以使用 [變更復原點] 選項。
-1. 一旦您滿意容錯移轉的虛擬機器，您可以 [認可] 容錯移轉。 [認可] 會刪除服務可用的所有復原點，而且無法再使用 [變更復原點] 選項。
+1. 容錯移轉之後，登入虛擬機器進行驗證。 如果您想要切換至虛擬機器的另一個復原點，則可使用 [變更復原點] 選項。
+1. 一旦您滿意容錯移轉的虛擬機器，您可以 [認可] 容錯移轉。 **[認可] 會刪除服務可用的所有復原點**，而且無法再使用 [變更復原點] 選項。
 
 ## <a name="planned-failover"></a>計劃性容錯移轉
-使用 Site Recovery 保護的虛擬機器/實體伺服器也支援**計劃性容錯移轉**。 計劃性容錯移轉是完全不會遺失資料的容錯移轉選項。 觸發計劃性容錯移轉時，首先，來源虛擬機器會關機，最新的資料會同步處理，然後觸發容錯移轉。
+使用 Site Recovery 保護的虛擬機器/實體伺服器也支援**計劃性容錯移轉**。 計劃性容錯移轉是完全不會遺失資料的容錯移轉選項。 觸發計劃性容錯移轉時，首先會將來源虛擬機器關機、將最新的資料進行同步處理，然後觸發容錯移轉。
 
 > [!NOTE]
-> 當您在兩個內部部署網站之間容錯移轉 Hyper-v 虛擬機器時，若要回到主要內部部署網站，您必須先將虛擬機器**反向複寫**回主要網站，然後再觸發容錯移轉。 如果主要虛擬機器無法使用，則開始**反向複寫**之前，您必須從備份還原虛擬機器。   
+> 在兩個內部部署網站之間容錯移轉 Hyper-v 虛擬機器期間，若要回到主要內部部署網站，您必須先將虛擬機器**反向複寫**回主要網站，然後再觸發容錯移轉。 如果主要虛擬機器無法使用，則開始**反向複寫**之前，您必須從備份還原虛擬機器。   
 >
 >
-
 ## <a name="failover-job"></a>容錯移轉作業
 
 ![容錯移轉](./media/site-recovery-failover/FailoverJob.png)
@@ -108,7 +107,7 @@ ms.lasthandoff: 11/28/2017
     * atapi
 * 沒有啟用 DHCP 服務的 VMware 虛擬機器，無論其是否正在使用 DHCP 或靜態 IP 位址
 
-在其他所有情況下則不需要此中繼步驟，且容錯移轉所花費的時間非常少。 
+在其他所有情況下則不需要此中繼步驟，且容錯移轉所花費的時間較少。 
 
 
 
@@ -117,8 +116,10 @@ ms.lasthandoff: 11/28/2017
 ## <a name="using-scripts-in-failover"></a>在容錯移轉中使用指令碼
 您可能想要在容錯移轉時自動執行特定動作。 若要這樣做，您可以在[復原方案](site-recovery-create-recovery-plans.md)中使用指令碼或 [Azure 自動化 Runbook](site-recovery-runbook-automation.md)。
 
-## <a name="other-considerations"></a>其他考量
-* **磁碟機代號** - 若要在容錯移轉後保留虛擬機器上的磁碟機代號，您可以將虛擬機器的 [SAN 原則] 設定為 [OnlineAll]。 [閱讀更多資訊](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
+## <a name="post-failover-considerations"></a>容錯移轉後的考量
+容錯移轉之後，您可能要考慮下列建議：
+### <a name="retaining-drive-letter-after-failover"></a>在容錯移轉之後保留磁碟機代號 
+若要在容錯移轉後保留虛擬機器上的磁碟機代號，您可以將虛擬機器的 [SAN 原則] 設定為 [OnlineAll]。 [閱讀更多資訊](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
 
 

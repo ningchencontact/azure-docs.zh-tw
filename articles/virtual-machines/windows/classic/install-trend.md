@@ -17,7 +17,7 @@ ms.date: 03/30/2017
 ms.author: iainfou
 ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 
 透過 VM 代理程式，用戶端會安裝為安全性延伸模組。 在新的虛擬機器上，您將安裝 Deep Security Agent，因為 Azure 入口網站會自動建立 VM 代理程式。
 
-使用 Azure 入口網站，Azure CLI 或 PowerShell 建立的現有 VM 可能沒有 VM 代理程式。 對於沒有 VM 代理程式的現有虛擬機器，您必須先下載與安裝 VM 代理程式。 本文將探討這兩種狀況。
+使用 Azure 傳統入口網站、Azure CLI 或 PowerShell 建立的現有 VM 可能沒有 VM 代理程式。 對於沒有 VM 代理程式的現有虛擬機器，您必須先下載與安裝 VM 代理程式。 本文將探討這兩種狀況。
 
 如果您已有 Trend Micro 的內部部署解決方案的目前訂用帳戶，您可以用它來協助保護 Azure 虛擬機器的安全。 如果您還不是 Symantec 客戶，您可以註冊試用訂用帳戶。 如需有關此解決方案的詳細資訊，請參閱 Trend Micro 部落格文章 [適用於 Deep Security 的 Microsoft Azure VM 代理程式延伸模組](http://go.microsoft.com/fwlink/p/?LinkId=403945)。
 

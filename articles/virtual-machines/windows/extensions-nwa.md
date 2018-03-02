@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -25,12 +25,12 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="overview"></a>概觀
 
-[Azure 網路監看員](../../network-watcher/network-watcher-monitoring-overview.md)是網路效能監視、 診斷，以及分析服務，可讓您監視 Azure 網路。 擷取，視網路流量，以及其他進階的功能在 Azure 虛擬機器上需要網路監看員的代理程式的虛擬機器擴充功能。
+[Azure 網路監看員](../../network-watcher/network-watcher-monitoring-overview.md)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 依需求擷取網路流量及 Azure 虛擬機器上的其他進階功能，都需要網路監看員代理程式虛擬機器擴充功能。
 
 
 本文件會詳述適用於 Windows 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -38,11 +38,11 @@ ms.lasthandoff: 12/20/2017
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
-網路監看員代理程式的某些功能需要目標虛擬機器連線到網際網路。 沒有建立傳出連線能力，網路監看員的代理程式將無法上傳至儲存體帳戶的封包擷取。 如需詳細資訊，請參閱[網路監看員文件](../../network-watcher/network-watcher-monitoring-overview.md)。
+網路監看員代理程式的某些功能需要目標虛擬機器連線到網際網路。 若無法建立傳出連線，網路監看員代理程式將無法上傳封包擷取到您的儲存體帳戶。 如需詳細資訊，請參閱[網路監看員文件](../../network-watcher/network-watcher-monitoring-overview.md)。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示網路監看員代理程式擴充功能的結構描述。 擴充功能都不需要，也不支援任何使用者提供的設定，以及依賴其預設設定。
+下列 JSON 顯示網路監看員代理程式擴充功能的結構描述。 擴充功能不需要也不支援任何使用者提供的設定，而是依賴其預設組態。
 
 ```json
 {
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/20/2017
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -74,11 +74,11 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="template-deployment"></a>範本部署
 
-您可以部署與 Azure 資源管理員範本的 Azure VM 擴充功能。 若要執行網路監看員的代理程式延伸模組的 Azure Resource Manager 範本部署期間，您可以使用 Azure Resource Manager 範本的前一章節中詳述的 JSON 結構描述。
+您可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 在部署 Azure Resource Manager 範本時，您可以使用上一節中詳述的 JSON 結構描述，在 Azure Resource Manager 範本中用來執行網路監看員代理程式擴充功能。
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-使用`Set-AzureRmVMExtension`命令，將網路監看員的代理程式的虛擬機器擴充功能部署到現有的虛擬機器：
+`Set-AzureRmVMExtension` 命令可以用來將網路監看員代理程式虛擬機器擴充功能部署到現有的虛擬機器：
 
 ```powershell
 Set-AzureRmVMExtension `
@@ -95,7 +95,7 @@ Set-AzureRmVMExtension `
 
 ### <a name="troubleshooting"></a>疑難排解
 
-您可以從 Azure 入口網站和 PowerShell 來擷取的延伸模組部署狀態的相關資料。 若要為指定的 vm，請參閱部署狀態的延伸模組，執行下列命令使用 Azure PowerShell 模組：
+您可以從 Azure 入口網站和 PowerShell 擷取有關擴充功能部署狀態的資料。 若要查看所指定 VM 的擴充功能部署狀態，請使用 Azure PowerShell 模組來執行下列命令：
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

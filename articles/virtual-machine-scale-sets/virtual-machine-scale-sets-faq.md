@@ -18,7 +18,7 @@ ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/20/2017
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>是否有任何根據 Azure 服務匯流排主題和佇列長度自動調整的範例？
 
-可以。 如需根據 Azure 服務匯流排主題和佇列長度自動調整的範例，請參閱 [Azure 監視器的自動調整常用計量](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)。
+是。 如需根據 Azure 服務匯流排主題和佇列長度自動調整的範例，請參閱 [Azure 監視器的自動調整常用計量](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)。
 
 如需服務匯流排佇列，請使用下列 JSON：
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/20/2017
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>如何設定虛擬機器擴展集的警示規則？
 
-您可以透過 PowerShell 或 Azure CLI，建立虛擬機器擴展集計量的警示。 如需詳細資訊，請參閱[Azure 監視 PowerShell 快速入門範例](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules)和[Azure 監視跨平台 CLI 快速入門範例](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts)。
+您可以透過 PowerShell 或 Azure CLI，建立虛擬機器擴展集計量的警示。 如需詳細資訊，請參閱 [Azure 監視器 PowerShell 快速入門範例](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules)和 [Azure 監視器跨平台 CLI 快速入門範例](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts)。
 
 虛擬機器擴展集的 TargetResourceId 如下所示： 
 
@@ -163,7 +163,7 @@ ms.lasthandoff: 12/20/2017
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>是否可指定 SSH 金鑰組以便透過 Resource Manager 範本中的 Linux 虛擬機器擴展集來進行 SSH 驗證？  
 
-可以。 **osProfile** 的 REST API 類似於標準 VM REST API。 
+是。 **osProfile** 的 REST API 類似於標準 VM REST API。 
 
 在您的範本中包含 **osProfile**︰
 
@@ -185,9 +185,9 @@ ms.lasthandoff: 12/20/2017
 }
 ```
  
-在中使用此 JSON 區塊[101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
+此 JSON 區塊使用於 [101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
  
-OS 設定檔也用於[grelayhost.json GitHub 快速入門範本](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json)。
+OS 設定檔也會使用於 [grelayhost.json GitHub 快速入門範本](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json)。
 
 如需詳細資訊，請參閱[建立或更新虛擬機器擴展集](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration)。
   
@@ -219,10 +219,10 @@ OS 設定檔也用於[grelayhost.json GitHub 快速入門範本](https://github.
 linuxConfiguration 元素名稱 | 必要 | 類型 | 說明
 --- | --- | --- | --- |  ---
 ssh | 否 | 集合 | 指定 Linux OS 的 SSH 金鑰組態
-path | 是 | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
-keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
+path | yes | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
+keyData | yes | 字串 | 指定 base64 編碼的 SSH 公開金鑰
 
-如需範例，請參閱[101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
+如需範例，請參閱 [101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
 
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>當我在從相同金鑰保存庫新增一個以上的憑證之後執行 `Update-AzureRmVmss` 時，我會看到下列錯誤︰
@@ -257,7 +257,7 @@ keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
  
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>如果我將密碼新增至現有虛擬機器擴展集，則新的密碼會插入現有的 VM，或只會插入新的 VM？ 
 
-憑證會加入至您的所有 Vm，即使已存在的。 如果虛擬機器擴展集 upgradePolicy 屬性設定為 **manual**，當您在 VM 上執行手動更新時，憑證會新增至 VM。
+憑證會新增至所有 VM，甚至是既有的 VM。 如果虛擬機器擴展集 upgradePolicy 屬性設定為 **manual**，當您在 VM 上執行手動更新時，憑證會新增至 VM。
  
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>將 Linux VM 的憑證放在哪裡？
 
@@ -281,7 +281,7 @@ Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssN
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>如果您從 Key Vault 中刪除憑證會發生什麼事？
 
-如果密碼會從金鑰保存庫中，刪除，然後執行`stop deallocate`為您的 Vm，然後再次啟動，您會遇到失敗。 發生失敗的原因是 CRP 需要從金鑰保存庫擷取密碼，但無法這麼做。 在此案例中，您可以從虛擬機器擴展集模型刪除憑證。 
+如果從金鑰保存庫中刪除密碼，然後您對所有 VM 執行 `stop deallocate` 而後再次啟動它們，您會發生失敗。 發生失敗的原因是 CRP 需要從金鑰保存庫擷取密碼，但無法這麼做。 在此案例中，您可以從虛擬機器擴展集模型刪除憑證。 
 
 CRP 元件不會保存客戶密碼。 如果您對虛擬機器擴展集中的所有 VM 執行 `stop deallocate`，則會刪除快取。 在此案例中會從金鑰保存庫中擷取密碼。
 
@@ -337,9 +337,9 @@ GET | https://mykeyvault.vault.azure.net/secrets/{密碼-名稱}/{密碼-版本}
 
 如需詳細資訊，請參閱 [Microsoft 信任中心](https://www.microsoft.com/TrustCenter/Compliance/PCI)。
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>沒有[Azure 受管理的服務識別](https://docs.microsoft.com/azure/active-directory/msi-overview)使用虛擬機器擴展集嗎？
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 受控服務識別](https://docs.microsoft.com/azure/active-directory/msi-overview)是否可以與虛擬機器擴展集搭配運作？
 
-可以。 您可以在 Azure 快速入門範本中看到某些範例 MSI 範本。 Linux：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux)。 Windows：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows)。
+是。 您可以在 Azure 快速入門範本中看到某些範例 MSI 範本。 Linux：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux)。 Windows：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows)。
 
 
 ## <a name="extensions"></a>擴充功能
@@ -369,13 +369,13 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>如何重設虛擬機器擴展集中 VM 的密碼？
 
-有兩種主要的方式變更在擴展集 Vm 的密碼。
+變更擴展集內虛擬機器密碼的方式主要有兩種。
 
-- 直接變更虛擬機器擴充集模型。 可與計算 API 2017-12-01 及更新版本。
+- 直接變更虛擬機器擴展集模型。 適用於計算 API 2017-12-01 版和更新版本。
 
-    更新 （例如使用 Azure 資源總管、 PowerShell 或 CLI） 的擴充組模型直接在系統管理員認證。 之後規模集更新的所有新的 Vm 會有新的認證。 如果它們在重新安裝映像，現有的 Vm 只能有新的認證。 
+    直接在擴展集模型中更新系統管理員認證 (例如，使用 Azure 資源總管、PowerShell 或 CLI)。 擴展集更新之後，所有的新虛擬機器就會有新的認證。 現有的虛擬機器則要在重新安裝映像後，才會擁有新的認證。 
 
-- 重設密碼使用 VM 存取擴充功能。
+- 使用虛擬機器存取延伸模組來重設密碼。
 
     使用下列 PowerShell 範例：
     
@@ -467,9 +467,9 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ## <a name="networking"></a>網路
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否能夠將網路安全性群組 (NSG) 指派給一小數位數，讓它套用到集合中的所有 VM Nic？
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否可以將「網路安全性群組」(NSG) 指派給擴展集，以便將它套用至擴展集中的所有 VM NIC？
 
-可以。 您可以透過在網路設定檔的 networkInterfaceConfigurations 區段中參考「網路安全性群組」，將它直接套用至擴展集。 範例：
+是。 您可以透過在網路設定檔的 networkInterfaceConfigurations 區段中參考「網路安全性群組」，將它直接套用至擴展集。 範例：
 
 ```json
 "networkProfile": {
@@ -523,11 +523,11 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>如何將虛擬機器擴展集中第一個 VM 的 IP 位址新增至範本的輸出？
 
-若要加入的虛擬機器擴展集的範本輸出中的第一個 VM 的 IP 位址，請參閱[Azure 資源管理員： 取得虛擬機器規模設定的私人 Ip](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
+若要將虛擬機器擴展集中第一個 VM 的 IP 位址新增至範本的輸出，請參閱 [Azure Resource Manager︰取得虛擬機器擴展集私人 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>我可以搭配加速的網路使用擴展集嗎？
 
-可以。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如
+是。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -549,7 +549,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何設定擴展集所使用的 DNS 伺服器？
 
-若要建立的虛擬機器擴展集與自訂 DNS 設定，請 dnsSettings JSON 封包加入標尺組 networkInterfaceConfigurations > 一節。 範例：
+若要建立含自訂 DNS 設定的虛擬機器擴展集，請將 dnsSettings JSON 封包加入至擴展集 networkInterfaceConfigurations 區段。 範例：
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -558,7 +558,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何設定擴展集以將公用 IP 位址指派給每部 VM？
 
-若要建立的公用 IP 位址給每個 VM 的虛擬機器規模集，請確定 Microsoft.Compute/virtualMAchineScaleSets 資源的 API 版本 2017年-03-30，並新增_publicipaddressconfiguration_ JSON在標尺的封包設定 ipConfigurations > 一節。 範例：
+若要建立虛擬機器擴展集以將公用 IP 位址指派給每部虛擬機器，請確定 Microsoft.Compute/virtualMAchineScaleSets 資源的 API 版本為 2017-03-30，並將 _publicipaddressconfiguration_ JSON 封包加入至擴展集 ipConfigurations 區段。 範例：
 
 ```json
     "publicipaddressconfiguration": {
@@ -571,7 +571,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>我可以設定擴展集以搭配多個應用程式閘道使用嗎？
 
-可以。 您可以將多個應用程式閘道後端位址集區的資源識別碼新增至擴展集網路設定檔之 _ipConfigurations_ 區段中的 _applicationGatewayBackendAddressPools_ 清單。
+是。 您可以將多個應用程式閘道後端位址集區的資源識別碼新增至擴展集網路設定檔之 _ipConfigurations_ 區段中的 _applicationGatewayBackendAddressPools_ 清單。
 
 ## <a name="scale"></a>調整
 
@@ -583,7 +583,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>如何變更虛擬機器擴展集中的 VM 數目？
 
-若要變更的虛擬機器擴展集在 Azure 入口網站中的 Vm 數目，從虛擬機器擴展集區段屬性、 「 調整 」 刀鋒視窗上按一下和使用滑桿。 如需變更執行個體數目的做法，請參閱[變更虛擬機器擴展集的執行個體計數](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/)。
+若要在 Azure 入口網站中變更虛擬機器擴展集中的虛擬機器數目，請在虛擬機器擴展集屬性區段中，按一下 [調整] 刀鋒視窗並使用滑動軸。 如需變更執行個體數目的做法，請參閱[變更虛擬機器擴展集的執行個體計數](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/)。
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>如何定義觸達特定臨界值時的自訂警示？
 
@@ -657,7 +657,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 您可以在 OMS 入口網站中找到所需的 workspaceId 和 workspaceKey。 在 [概觀] 頁面中，按一下 [設定] 圖格。 按一下頂端的 [連接的來源] 索引標籤。
 
-注意： 如果您的標尺設定_upgradePolicy_設為 Manual，您需要在其上呼叫升級，將擴充功能套用至集合中的所有 Vm。 在 CLI 中，這會是 _az vmss update-instances_。
+注意：如果您的擴展集 _upgradePolicy_ 設為 Manual，您必須透過呼叫升級，將擴充功能套用至集合中的所有虛擬機器。 在 CLI 中，這會是 _az vmss update-instances_。
 
 ## <a name="troubleshooting"></a>疑難排解
 

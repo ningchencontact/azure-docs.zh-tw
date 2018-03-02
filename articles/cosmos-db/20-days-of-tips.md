@@ -15,7 +15,7 @@ ms.author: mimig
 ms.custom: cda
 ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -177,7 +177,7 @@ ms.lasthandoff: 12/11/2017
 
 提示 20：人人都愛良好的舊速查表。 Azure #CosmosDB 也有。 可在 [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl) 中查看
 
-速查表： [Azure Cosmos DB: SQL 查詢小祕技 PDF](https://aka.ms/Nt01nl)
+速查表：[Azure Cosmos DB SQL 查詢速查表 PDF](https://aka.ms/Nt01nl)
 
 [![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

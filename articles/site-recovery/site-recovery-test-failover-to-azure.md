@@ -1,27 +1,20 @@
 ---
-title: "在 Site Recovery 中測試容錯移轉到 Azure | Microsoft Docs"
-description: "了解執行從內部部署到 Azure 的測試容錯移轉"
+title: "在 Azure Site Recovery 中測試容錯移轉到 Azure | Microsoft Docs"
+description: "了解如何使用 Azure Site Recovery 服務執行從內部部署到 Azure 的測試容錯移轉。"
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/16/2017
-ms.author: pratshar
-ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/08/2018
+ms.author: raynew
+ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test--failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
-
+# <a name="test-failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
 
 
 本文說明如何使用 Site Recovery 測試容錯移轉，將災害復原深入執行至 Azure。  
@@ -50,7 +43,7 @@ ms.lasthandoff: 01/23/2018
     - 如果在子網路中無法使用相同的 IP 位址，則 VM 會接收子網路中另一個可用的 IP 位址。 [深入了解](#creating-a-network-for-test-failover)。
 4. 如果您正在容錯移轉到 Azure 且已啟用資料加密，請在 [加密金鑰] 中，選取當您在提供者安裝期間啟用加密時所發出的憑證。 您可以忽略這個步驟加密未啟用的情況。
 5. 在 [工作]  索引標籤上追蹤容錯移轉進度。您應該可以在 Azure 入口網站中看到測試複本機器。
-6. 若要在 Azure VM 上初始化 RDP 連線，您必須在容錯移轉之 VM 的網路介面上[新增公用 IP 位址](site-recovery-monitoring-and-troubleshooting.md)。 
+6. 若要在 Azure VM 上初始化 RDP 連線，您必須在容錯移轉之 VM 的網路介面上[新增公用 IP 位址](https://aka.ms/addpublicip)。 
 7. 當一切都如預期般運作時，請按一下 [清除測試容錯移轉]。 這樣會刪除在測試容錯移轉期間所建立的 VM。
 8. 在 [記事] 中，記錄並儲存關於測試容錯移轉的任何觀察。 
 
@@ -113,9 +106,9 @@ ms.lasthandoff: 01/23/2018
 **容錯移轉** | **位置** | **動作**
 --- | --- | ---
 **執行 Windows 的 Azure VM** | 在容錯移轉前的內部部署機器 | 若要透過網際網路存取 Azure VM，請啟用 RDP，並確定已針對 [公用] 新增 TCP 和 UDP 規則，且在 [Windows 防火牆] > [允許的應用程式] 中已針對所有設定檔允許 RDP。<br/><br/> 若要透過站對站連線存取 Azure VM，請在機器上啟用 RDP，並確定在 [Windows 防火牆]  ->  [允許的應用程式和功能] 中已針對 [網域] 和 [私人] 網路允許 RDP。<br/><br/>  確定作業系統的 SAN 原則已設為 **OnlineAll**。 [深入了解](https://support.microsoft.com/kb/3031135)。<br/><br/> 觸發容錯移轉時，請確定 VM 上沒有任何暫止的 Windows 更新。 容錯移轉時，可能會啟動 Windows 更新，必須等到更新完成，才能登入 VM。 
-**執行 Windows 的 Azure VM** | 容錯移轉後的 Azure VM |  [新增 VM 的公用 IP 位址](site-recovery-monitoring-and-troubleshooting.md)。<br/><br/> 已容錯移轉的 VM 上的網路安全性群組規則 (以及它所連線的 Azure 子網路) 必須允許 RDP 連接埠的連入連線。<br/><br/> 勾選 [開機診斷] 以確認 VM 的螢幕擷取畫面。<br/><br/> 如果您無法連線，請檢查 VM 是否正在執行，並檢閱這些[疑難排解祕訣](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
+**執行 Windows 的 Azure VM** | 容錯移轉後的 Azure VM |  [新增 VM 的公用 IP 位址](https://aka.ms/addpublicip)。<br/><br/> 已容錯移轉的 VM 上的網路安全性群組規則 (以及它所連線的 Azure 子網路) 必須允許 RDP 連接埠的連入連線。<br/><br/> 勾選 [開機診斷] 以確認 VM 的螢幕擷取畫面。<br/><br/> 如果您無法連線，請檢查 VM 是否正在執行，並檢閱這些[疑難排解祕訣](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
 **執行 Linux 的 Azure VM** | 在容錯移轉前的內部部署機器 | 確定 VM 上的安全殼層服務已設定為在系統開機時自動啟動。<br/><br/> 請檢查防火牆規則是否允許 SSH 連線。
-**執行 Linux 的 Azure VM** | 容錯移轉後的 Azure VM | 已容錯移轉的 VM 上的網路安全性群組規則 (以及它所連線的 Azure 子網路) 必須允許 SSH 連接埠的連入連線。<br/><br/> [新增 VM 的公用 IP 位址](site-recovery-monitoring-and-troubleshooting.md)。<br/><br/> 勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。<br/><br/>
+**執行 Linux 的 Azure VM** | 容錯移轉後的 Azure VM | 已容錯移轉的 VM 上的網路安全性群組規則 (以及它所連線的 Azure 子網路) 必須允許 SSH 連接埠的連入連線。<br/><br/> [新增 VM 的公用 IP 位址](https://aka.ms/addpublicip)。<br/><br/> 勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。<br/><br/>
 
 
 

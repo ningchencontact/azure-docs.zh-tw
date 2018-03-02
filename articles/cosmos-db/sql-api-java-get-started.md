@@ -1,6 +1,6 @@
 ---
-title: "NoSQL 教學課程： SQL Azure Cosmos DB Java sdk 的 API |Microsoft 文件"
-description: "NoSQL 教學課程所建立的線上資料庫和使用 Azure Cosmos DB SQL API 的 Java 主控台應用程式。 Azure SQL 是 JSON 的 NoSQL 資料庫。"
+title: "NoSQL 教學課程：適用於 Azure Cosmos DB Java SDK 的 SQL API | Microsoft Docs"
+description: "NoSQL 教學課程，將使用適用於 Azure Cosmos DB 的 SQL API 來建立線上資料庫以及 Java 主控台應用程式。 Azure SQL 是 JSON 的 NoSQL 資料庫。"
 keywords: "nosql 教學課程, 線上資料庫, java 主控台應用程式"
 services: cosmos-db
 documentationcenter: Java
@@ -17,11 +17,11 @@ ms.date: 05/22/2017
 ms.author: arramac
 ms.openlocfilehash: 9714234411e96074daae17b4711a52991768bd7b
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教學課程： 建立 SQL API 的 Java 主控台應用程式
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教學課程：建置 SQL API Java 主控台應用程式
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-歡迎使用 NoSQL 教學課程 SQL API 的 Azure Cosmos DB Java sdk ！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
+歡迎使用適用於 Azure Cosmos DB Java SDK 之 SQL API 的 NoSQL 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
 我們會說明︰
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/18/2017
 
 讓我們開始吧！
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 請確定您具有下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/18/2017
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-目錄中包含專案的 `pom.xml` 和 `src` 資料夾，此資料夾中所含的 Java 原始程式碼包括 `Program.java`)，它會顯示如何使用 Azure Cosmos DB 執行簡單的作業，例如建立文件和查詢集合內的資料。 `pom.xml`上包含相依性[Azure Cosmos DB Java SDK 上 Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)。
+目錄中包含專案的 `pom.xml` 和 `src` 資料夾，此資料夾中所含的 Java 原始程式碼包括 `Program.java`)，它會顯示如何使用 Azure Cosmos DB 執行簡單的作業，例如建立文件和查詢集合內的資料。 `pom.xml` 包含 [Maven 上的 Azure Cosmos DB Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) 上的相依性。
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>

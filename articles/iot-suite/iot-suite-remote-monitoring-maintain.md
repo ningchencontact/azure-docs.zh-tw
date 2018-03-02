@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
@@ -30,7 +30,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 > * 使用 [維護] 頁面來調查警示
 > * 呼叫裝置方法以補救問題
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
@@ -46,7 +46,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 ![從儀表板探索警示](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-顯示警示的詳細資料檢視：
+警報的詳細資料檢視會顯示：
 
 * 當觸發警示時
 * 與警示相關聯之裝置的狀態資訊
@@ -66,7 +66,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 若要使用**原型**裝置補救問題，您必須在裝置上呼叫 **DecreaseTemperature** 方法。
 
-若要在裝置上採取行動，請在裝置清單中選取它，然後選擇 [排程]。 **原型**裝置型號指定裝置必須支援的四種方法：
+若要在裝置上採取行動，請在裝置清單中選取它，然後選擇 [排程]。 **原型**裝置型號會指定裝置必須支援的四種方法：
 
 ![檢視裝置支援的方法](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -74,11 +74,11 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 ![建立作業以降低溫度](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-若要追蹤工作的狀態上**維護**頁面上，選擇**作業**。 使用**作業**檢視追蹤的所有工作和方案中呼叫的方法：
+若要在 [維護] 頁面上追蹤作業的狀態，請選擇 [作業]。 使用 [作業] 檢視可追蹤解決方案中的所有作業和呼叫方法：
 
 ![監視作業以降低溫度](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-若要檢視或方法呼叫的特定作業的詳細資訊，請選擇它在清單中**作業**檢視：
+若要檢視特定作業或方法呼叫的詳細資料，請在 [作業] 檢視的清單中加以選擇：
 
 ![檢視工作詳細資料](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
@@ -106,9 +106,9 @@ ms.lasthandoff: 12/23/2017
 
 如需其他協助，請透過 [Azure Multi-Factor Authentication Server 支援](https://support.microsoft.com/oas/default.aspx?prid=14947)連絡支援專業人員。 連絡我們時，請盡量包含有關問題的最多資訊，這樣會十分有幫助。 您可以提供的資訊包含您看到錯誤的頁面、特定錯誤碼、特定工作階段 ID、使用者 (看到錯誤者) 識別碼，以及偵錯記錄。
 
-若要收集偵錯記錄檔，以支援的診斷資訊，請在 NPS 伺服器上使用下列步驟：
+若要收集偵錯記錄以支援診斷，請在 NPS 伺服器上使用下列步驟︰
 
-1. 開啟登錄編輯器並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 組**VERBOSE_LOG**至**，則為 TRUE**
+1. 開啟登錄編輯程式，並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa，將 **VERBOSE_LOG** 設定為 **TRUE**
 2. 開啟系統管理員命令提示字元並執行下列命令︰
 
    ```
@@ -132,7 +132,7 @@ ms.lasthandoff: 12/23/2017
    Start .
    ```
 
-5. 開啟登錄編輯器並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 組**VERBOSE_LOG**至**FALSE**
+5. 開啟登錄編輯程式，並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa，將 **VERBOSE_LOG** 設定為 **FALSE**
 6. 壓縮 C:\NPS 資料夾的內容，並將壓縮的檔案附加到支援案例。
 
 

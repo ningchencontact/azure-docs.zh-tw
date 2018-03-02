@@ -19,7 +19,7 @@ ms.date: 10/11/2017
 ms.author: carlrab
 ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
 ---
@@ -207,7 +207,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
   此選項取決於您的需求和環境。 伺服器層級防火牆規則可能會比較容易設定，但是指令碼可以設定資料庫層級的規則。 即使您使用伺服器層級防火牆規則，您可能需要稽核資料庫防火牆規則，以查看具備資料庫 `CONTROL` 權限的使用者是否已建立資料庫層級防火牆規則。   
 
 問： 我是否可以混合使用伺服器層級和資料庫層級防火牆規則？   
-  可以。 部分使用者 (例如系統管理員) 可能需要伺服器層級防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級防火牆規則。   
+  是。 部分使用者 (例如系統管理員) 可能需要伺服器層級防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級防火牆規則。   
 
 ## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
 當對於 Microsoft Azure SQL Database 服務的存取未如預期運作時，請考慮下列幾點：

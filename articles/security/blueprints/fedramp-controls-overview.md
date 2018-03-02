@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint (藍圖) 自動化 - 概觀"
-description: "FedRAMP 概觀"
+title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 概觀"
+description: "FedRAMP Web 應用程式自動化 - 概觀"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 505a2fdc90abfcdd269b5e30537ea338b8c3774b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 968f9013dcf438ccb3a97f0bbc291b1c58a392ea
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="fedramp-overview"></a>FedRAMP 概觀
 
-[聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov) \(英文\) 為美國政府層面的計劃，提供雲端產品與服務的安全評估、授權及持續監視的標準方法。 FedRAMP 會根據衍生自 [National Institute of Standards and Technology (美國國家標準與技術局，NIST) 特殊出版品 SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) 安全性控制項的一組標準化需求，定義安全性評估流程。
+[聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov) \(英文\) 為美國政府層面的計劃，提供雲端產品與服務的安全評估、授權及持續監視的標準方法。 FedRAMP 會根據衍生自 [National Institute of Standards and Technology (美國國家標準與技術局，NIST) 特殊出版品 SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) \(英文\) 安全性控制措施的一組標準化需求，定義安全性評估流程。
 
-瀏覽以下控制系列，以查看此藍圖自動化如何與控制需求保持一致。
+瀏覽以下各個控制措施系列，以查看此「Azure安全性與合規性藍圖自動化」如何與控制措施需求保持一致。
 
 | | |
 |---|---|

@@ -16,7 +16,7 @@ ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/12/2017
 
 在通知中樞內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。 當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。 由於標籤只是簡單的字串而已，您無需預先佈建標籤。 如需標籤的詳細資訊，請參閱 [通知中樞路由與標記運算式](notification-hubs-tags-segment-push-message.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本主題會以您在[開始使用通知中樞][get-started]中所建立的應用程式為基礎。 開始本教學課程之前，您必須已完成[開始使用通知中樞][get-started]。
 
 ## <a name="add-category-selection-to-the-app"></a>在應用程式中新增類別選項
@@ -207,7 +207,7 @@ ms.lasthandoff: 12/12/2017
 應用程式現在可以在裝置本機儲存體中儲存一組類別，以用來在每次應用程式啟動時於通知中樞註冊。  使用者可以在執行階段變更選取的類別，然後按一下 [訂閱]  方法來更新裝置的註冊。 接下來，您將更新應用程式，以直接在應用程式本身傳送即時新聞通知。
 
 ## <a name="optional-sending-tagged-notifications"></a>(選擇性) 傳送加註標記的通知
-如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以傳送來自的適當範本通知[Azure 入口網站]使用通知中樞的 [偵錯] 索引標籤。 
+如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 入口網站] 傳送正確的範本通知。 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 

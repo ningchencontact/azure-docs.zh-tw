@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 建立、刪除和管理 Docker Compose 部署。
@@ -160,10 +160,9 @@ ms.lasthandoff: 01/18/2018
 | --- | --- |
 |   --debug                      | 增加記錄詳細程度以顯示所有偵錯記錄。|
 |    --help -h                    | 顯示此說明訊息並結束。|
- |   --output -o                  | 輸出格式。  允許的值：json、jsonc、table、tsv。
-                                   預設值：json。|
- |   --query                      | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
- |   --verbose                    | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
+|   --output -o                  | 輸出格式。  允許的值：json、jsonc、table、tsv。 預設值：json。|
+|   --query                      | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+|   --verbose                    | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

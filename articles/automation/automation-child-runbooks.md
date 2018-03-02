@@ -16,7 +16,7 @@ ms.date: 02/02/2017
 ms.author: magoedte;bwren
 ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/06/2018
 ---
@@ -30,7 +30,7 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 
 發佈 Runbook 時，其呼叫的所有子 Runbook 都必須是已發佈的。 這是因為在編譯 Runbook 時，Azure 自動化會建置與任何子 Runbook 的關聯。 如果沒有，父 Runbook 會顯示正常發佈，但在啟動時會產生例外狀況。 如果發生這種情況，您可以重新發佈父 Runbook 以正確參照子 Runbook。 因為已經建立關聯，所以如果任何子 Runbook 有變更，您都不需要重新發佈父 Runbook。
 
-內嵌呼叫子 runbook 參數可以是任何資料類型，包括複雜的物件，而且沒有任何[JSON 序列化](automation-starting-a-runbook.md#runbook-parameters)因為，所以當您開始使用 Azure 入口網站的 runbook，或使用開始 AzureRmAutomationRunbook cmdlet。
+以內嵌方式呼叫的子 Runbook 之參數可以是任何資料類型 (包括複雜物件)，而且沒有您使用 Azure 入口網站或使用 Start-AzureRmAutomationRunbook Cmdlet 啟動 Runbook 時的 [JSON 序列化](automation-starting-a-runbook.md#runbook-parameters)。
 
 ### <a name="runbook-types"></a>Runbook 類型
 哪些類型可以彼此呼叫：
@@ -76,12 +76,12 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 
 |  | 內嵌 | Cmdlet |
 |:--- |:--- |:--- |
-| 工作。 |與父代在相同的工作中執行的子 Runbook。 |會為子 Runbook 建立個別的工作。 |
+| 工作 (Job) |與父代在相同的工作中執行的子 Runbook。 |會為子 Runbook 建立個別的工作。 |
 | 執行 |父 Runbook 會等待子 Runbook 完成後再繼續執行。 |父 Runbook 會在子 Runbook 啟動後立刻繼續執行，或  父 Runbook 會等候子作業完成。 |
 | 輸出 |父 Runbook 可以直接從子 Runbook 取得輸出。 |父 Runbook 必須擷取子 Runbook 作業的輸出，或  父 Runbook 可以直接從子 Runbook 取得輸出。 |
 | 參數 |子 Runbook 參數的值是個別指定，而且可以使用任何資料類型。 |子 Runbook 參數的值必須結合成單一雜湊表，且只能包含簡單、陣列，以及運用 JSON 序列化的物件資料類型。 |
 | 自動化帳戶 |父 Runbook 只能使用相同自動化帳戶中的子 Runbook。 |父 Runbook 可以使用來自相同 Azure 訂用帳戶，甚至是不同訂用帳戶 (如果您已連接) 之任何自動化帳戶的子 Runbook。 |
-| 正在發佈 |發佈父 Runbook 之前必須先發佈子 Runbook。 |啟動父 Runbook 之前必須先發佈子 Runbook。 |
+| 發佈 |發佈父 Runbook 之前必須先發佈子 Runbook。 |啟動父 Runbook 之前必須先發佈子 Runbook。 |
 
 ## <a name="next-steps"></a>後續步驟
 * [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)

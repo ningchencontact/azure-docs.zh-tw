@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: eugenesh
 ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -52,12 +52,12 @@ ms.lasthandoff: 01/02/2018
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-您可以自訂分隔符號字元使用`delimitedTextDelimiter`組態設定。 例如︰
+您可以使用 `delimitedTextDelimiter` 組態集來自訂分隔符號字元。 例如︰
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> 目前，只支援 UTF-8 編碼。 如果您需要支援其他編碼方式，請讓我們知道上[我們的 UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)。
+> 目前，只支援 UTF-8 編碼。 如果您需要支援其他編碼，請在 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)讓我們知道。
 
 > [!IMPORTANT]
 > 當您使用分隔符號文字剖析模式時，Azure 搜尋服務會假設您的資料來源中所有 Blob 都為 CSV。 如果您需要支援在相同的資料來源中混用 CSV 和非 CSV Blob，請在 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)讓我們知道。

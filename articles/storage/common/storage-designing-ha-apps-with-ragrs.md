@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: tamram
 ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/02/2018
 
 Azure 儲存體為儲存體帳戶中的資料備援提供四個選項：
 
-- LRS （本機備援儲存體）
+- LRS (本地備援儲存體)
 - ZRS (區域備援儲存體) 
 - GRS (異地備援儲存體)
 - RA-GRS (讀取權限異地備援儲存體) 

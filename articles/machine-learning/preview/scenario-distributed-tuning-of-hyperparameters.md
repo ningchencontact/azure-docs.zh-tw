@@ -12,7 +12,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---
@@ -33,18 +33,18 @@ ms.lasthandoff: 12/20/2017
 
 使用交叉驗證的網格搜尋可能很費時。 如果演算法有五個超參數，每個超參數有五個候選值，我們會使用 K=5 個折。 然後我們會透過訓練 5<sup>6</sup>=15625 個模型，以完成網格搜尋。 幸運的是，使用交叉驗證的網格搜尋是窘迫平行程序，而這些模型全都可以平行訓練。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
 * 已安裝的 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](./quickstart-installation.md)安裝 Workbench 並建立帳戶。
 * 此案例假設您在 Windows 10 或 MacOS (已於本機安裝 Docker 引擎) 上執行 Azure ML Workbench。 
 * 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
 * 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 Azure HDInsight 叢集。   
-我們建議您至少需要的叢集：
+我們建議使用至少具備以下條件的叢集：
     - 六個背景工作節點
     - 八個核心
     - 標頭和背景工作節點皆具備 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。       
-    - 我們建議您變更將在叢集的效能最大化的下列參數：
+    - 我們建議變更下列參數，來使叢集發揮最高效能：
         - spark.executor.instances
         - spark.executor.cores
         - spark.executor.memory 

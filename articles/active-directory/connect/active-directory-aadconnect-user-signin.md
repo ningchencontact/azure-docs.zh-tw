@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 * [同盟 SSO (搭配 Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 > [!NOTE] 
-> 請務必記得，藉由設定 Azure AD 的同盟，您建立信任 Azure AD 租用戶與您的同盟的網域之間。 與此信任的同盟網域的使用者必須在租用戶的 Azure AD 雲端資源的存取權。  
+> 請務必記住，藉由為 Azure AD 設定同盟，您會在 Azure AD 租用戶與同盟網域之間建立信任。 有了這個信任同盟網域，使用者便能夠存取租用戶內的 Azure AD 雲端資源。  
 >
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>為您的組織選擇使用者登入方法

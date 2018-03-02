@@ -1,10 +1,11 @@
-- name: Azure 受控應用程式
+- name: Azure 受控應用程式文件
   href: index.yml
 - name: 概觀
   items:
     - name: Azure 受控應用程式
       href: overview.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 建立受控應用程式
       href: managed-apps-quickstart-cli.md

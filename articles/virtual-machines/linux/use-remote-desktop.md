@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](http://www.xrdp.org))。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 這篇文章需要在 Azure 中有現有的 Linux VM。 如果您需要建立 VM，請使用下列其中一個方法︰
 
 - [Azure CLI 2.0](quick-create-cli.md)
@@ -85,7 +85,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>建立遠端桌面流量的網路安全性群組規則
 若要允許遠端桌面流量觸達您的 Linux VM，必須建立網路安全性群組規則，允許連接埠 3389 上的 TCP 觸達您的 VM。 如需有關網路安全性群組規則的詳細資訊，請參閱[什麼是網路安全性群組？](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 您也可以[使用 Azure 入口網站建立網路安全性群組規則](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-下列範例會建立網路安全性群組規則與[az vm 開啟通訊埠](/cli/azure/vm#open-port)連接埠上*3389*。
+下列範例會使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 在連接埠 3389 上建立網路安全性群組規則。
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -103,7 +103,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="troubleshoot"></a>疑難排解
-如果您無法連線到您使用遠端桌面用戶端的 Linux VM，使用`netstat`上您的 Linux VM，若要確認，您的 VM 會接聽的 RDP 連線，如下所示：
+如果無法使用遠端桌面用戶端連線至 Linux VM，請在 Linux VM 上使用 `netstat`，以檢查您的 VM 是否正在接聽 RDP 連線，如下所示︰
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -116,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-如果*xrdp sesman*服務不在聽候、 Ubuntu 虛擬機器上重新啟動服務，如下所示：
+如果未接聽 xrdp-sesman 服務，在 Ubuntu VM 上重新啟動服務，如下所示︰
 
 ```bash
 sudo service xrdp restart
 ```
 
-檢閱記錄檔*/var/記錄*事由指示 Ubuntu VM 上的服務可能沒有回應。 您也可以在遠端桌面連線嘗試期間監視 syslog，以檢視任何錯誤：
+在您的 Ubuntu VM 上檢閱 /var/log 中的記錄，以取得為何服務沒有回應的指示。 您也可以在遠端桌面連線嘗試期間監視 syslog，以檢視任何錯誤：
 
 ```bash
 tail -f /var/log/syslog

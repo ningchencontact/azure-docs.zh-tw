@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL API 開始使用.NET Core 教學課程 |Microsoft 文件"
-description: "建立線上資料庫以及 C# 主控台應用程式使用 Azure Cosmos DB SQL API.NET Core SDK 教學課程。"
+title: "Azure Cosmos DB：開始使用 SQL API .NET Core 教學課程 | Microsoft Docs"
+description: "本教學課程將使用 Azure Cosmos DB SQL API .NET Core SDK，建立線上資料庫以及 C# 主控台應用程式。"
 services: cosmos-db
 documentationcenter: .net
 author: arramac
@@ -17,11 +17,11 @@ ms.author: arramac
 ms.custom: devcenter
 ms.openlocfilehash: 0b19071bf871029b488b26d3f125d08d7d2a2dd4
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB： 開始使用 SQL API 和.NET 核心
+# <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB︰開始使用 SQL API 與 .NET Core
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-歡迎使用開始使用.NET Core 教學課程的 Azure Cosmos db SQL API ！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
+歡迎使用 .NET Core 入門之適用於 Azure Cosmos DB 的 SQL API 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
 本教學課程涵蓋下列項目：
 
@@ -50,26 +50,26 @@ ms.lasthandoff: 12/18/2017
 
 沒有時間嗎？ 別擔心！ 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)上找到完整的方案。 請跳至 [取得完整的解決方案](#GetSolution) 一節，以取得簡要指示。
 
-要建置 Xamarin iOS、 Android 或表單使用 SQL API 和.NET Core SDK 的應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
+想要使用 SQL API 和 .NET Core SDK 建置 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
 
 > [!NOTE]
 > 本教學課程中使用的 Azure Cosmos DB .NET Core SDK 尚未與通用 Windows 平台 (UWP) 應用程式相容。 如需可支援 UWP 應用程式的 .NET Core SDK 預覽版本，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
 讓我們開始吧！
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
-    * 如果您使用在 MacOS 或 Lunix 上，您可以開發.NET Core 應用程式，從命令列安裝[.NET Core SDK](https://www.microsoft.com/net/core#macos)您選擇的平台。 
-    * 如果您使用 Windows 上，您可以開發.NET Core 應用程式，從命令列安裝[.NET Core SDK](https://www.microsoft.com/net/core#windows)。 
-    * 您可以使用您自己的編輯器，或下載[Visual Studio Code](https://code.visualstudio.com/)，其為可用，而且適用於 Windows、 Linux 及 MacOS。 
+    * 如果您正在操作 MacOS 或 Linux，可以針對選定平台安裝 [.NET Core SDK](https://www.microsoft.com/net/core#macos)，以從命令列開發 .NET Core 應用程式。 
+    * 如果您正在操作 Windows，可以安裝 [.NET Core SDK](https://www.microsoft.com/net/core#windows) 以從命令列開發 .NET Core 應用程式。 
+    * 您可以使用自己的編輯器，也可以下載適用於 Windows、Linux 和 MacOS 的免費 [Visual Studio Code](https://code.visualstudio.com/)。 
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步驟 1：建立 Azure Cosmos DB 帳戶
-讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以跳到 [設定您的 Visual Studio 方案](#SetupVS)。 如果您使用 Azure Cosmos DB 模擬器，請遵循的步驟[Azure Cosmos DB 模擬器](local-emulator.md)設定模擬器並跳到[安裝 Visual Studio 方案](#SetupVS)。
+讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以跳到 [設定您的 Visual Studio 方案](#SetupVS)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 解決方案](#SetupVS)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -85,10 +85,10 @@ ms.lasthandoff: 12/18/2017
    ![專案的滑鼠右鍵功能表的螢幕擷取畫面](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. 在 [NuGet] 索引標籤中按一下視窗頂端的 [瀏覽]，然後在搜尋方塊中輸入 **azure documentdb**。
 7. 在結果中尋找 [Microsoft.Azure.DocumentDB.Core]，然後按一下 [安裝]。
-   程式庫的封裝識別碼是[Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)。 如果您是以此 .NET Core NuGet 套件不支援的 .NET Framework 版本 (例如 net461) 為目標，則使用 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)，其支援 .NET Framework 4.5 以後的所有 .NET Framework 版本。
+   程式庫的封裝識別碼為 [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)。 如果您是以此 .NET Core NuGet 套件不支援的 .NET Framework 版本 (例如 net461) 為目標，則使用 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)，其支援 .NET Framework 4.5 以後的所有 .NET Framework 版本。
 8. 在提示字元中，接受 NuGet 套件安裝和授權合約。
 
-太棒了！ 現在安裝程式完成時，讓我們開始撰寫一些程式碼。 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)找到本教學課程的完整程式碼專案。
+太棒了！ 現在安裝程式已完成，讓我們開始撰寫一些程式碼。 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)找到本教學課程的完整程式碼專案。
 
 ## <a id="Connect"></a>步驟 3：連接至 Azure Cosmos DB 帳戶
 首先，在 Program.cs 檔案中，將這些參考新增到 C# 應用程式的開頭：
@@ -125,7 +125,7 @@ class Program
 
 從入口網站複製 URI，並將它貼到 program.cs 檔案的 `<your endpoint URI>` 中。 然後從入口網站複製主要金鑰，並將它貼到 `<your key>`中。 如果您是使用 Azure Cosmos DB 模擬器，請將 `https://localhost:8081` 作為端點，並使用[如何使用 Azure Cosmos DB 模擬器開發](local-emulator.md)中的定義完善授權金鑰。 請務必移除 < 和 > 但保留端點和金鑰的雙引號。
 
-![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，活躍反白顯示、 在 [Azure Cosmos DB 帳戶] 頁面中，反白顯示的 [金鑰] 按鈕與 [金鑰] 頁面上反白顯示的 URI、 主索引鍵和次要金鑰值][keys]
+![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，內含反白顯示的 [主動式] 中樞、[Azure Cosmos DB 帳戶] 頁面上反白顯示的 [金鑰] 按鈕、[金鑰] 頁面上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
 讓我們建立 **DocumentClient**的新執行個體，啟動快速入門應用程式。
 
@@ -143,7 +143,7 @@ private async Task GetStartedDemo()
 }
 ```
 
-加入下列程式碼，以從 **Main** 方法執行非同步工作。 **Main**方法會攔截例外狀況，並將它們寫入至主控台。
+加入下列程式碼，以從 **Main** 方法執行非同步工作。 **Main** 方法會攔截例外狀況並將它們寫入主控台。
 
 ```csharp
 static void Main(string[] args)
@@ -192,7 +192,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 
 您可以使用 **DocumentClient** 類別的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法來建立 Azure Cosmos DB [資料庫](sql-api-resources.md#databases)。 資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。
 
-複製下列程式碼並貼到 **GetStartedDemo** 方法的用戶端建立之下。 這會建立名為*FamilyDB*。
+複製下列程式碼並貼到 **GetStartedDemo** 方法的用戶端建立之下。 這會建立名為 *FamilyDB* 的資料庫。
 
 ```csharp
 private async Task GetStartedDemo()
@@ -209,11 +209,11 @@ private async Task GetStartedDemo()
 
 ## <a id="CreateColl"></a>步驟 5：建立集合
 > [!WARNING]
-> **CreateDocumentCollectionAsync**使用保留輸送量，具有定價影響建立新的集合。 如需詳細資訊，請造訪 [定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。
+> **CreateDocumentCollectionAsync** 會建立含有保留輸送量且具有價格含意的新集合。 如需詳細資訊，請造訪 [定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。
 
 您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](sql-api-resources.md#collections)。 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
 
-複製下列程式碼並貼到 **GetStartedDemo** 方法的資料庫建立之下。 這會建立名為的文件集合*FamilyCollection_oa*。
+複製下列程式碼並貼到 **GetStartedDemo** 方法的資料庫建立之下。 這會建立名為 *FamilyCollection_oa* 的文件集合。
 
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
@@ -453,7 +453,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 ![說明 NoSQL 教學課程用來建立 C# 主控台應用程式之查詢的範圍和意義的圖表](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-因為 Azure Cosmos DB 查詢已侷限於單一集合，所以查詢中的 [FROM](sql-api-sql-query.md#FromClause) 關鍵字是選擇性的。 因此，"FROM Families f" 可以換成 "FROM root r"，或您選擇的任何其他變數名稱。 家族、 根或您選擇，變數的名稱參考目前的集合，根據預設，會推斷 azure Cosmos DB。
+因為 Azure Cosmos DB 查詢已侷限於單一集合，所以查詢中的 [FROM](sql-api-sql-query.md#FromClause) 關鍵字是選擇性的。 因此，"FROM Families f" 可以換成 "FROM root r"，或您選擇的任何其他變數名稱。 依預設，Azure Cosmos DB 會推斷該 Families、root 或您選擇的變數名稱來參考目前的集合。
 
 ## <a id="ReplaceDocument"></a>步驟 8︰取代 JSON 文件
 Azure Cosmos DB 支援取代 JSON 文件。  
@@ -588,11 +588,11 @@ End of demo, press any key to exit.
 * [Azure Cosmos DB 帳戶][create-sql-api-dotnet.md#create-account]。
 * 您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) 方案。
 
-若要還原 Azure Cosmos DB.NET Core SDK 的 Visual Studio 中的 SQL API 的參考，以滑鼠右鍵按一下**GetStarted**方案在方案總管 中，然後按一下**啟用 NuGet 封裝還原**。 接下來，在 Program.cs 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連線至 Azure Cosmos DB 帳戶](#Connect)中所述。
+若要在 Visual Studio 中還原適用於 Azure Cosmos DB .NET Core SDK 之 SQL API 的參考，請在 [方案總管] 的 **GetStarted** 方案上按一下滑鼠右鍵，然後按一下 [啟用 NuGet 套件還原]。 接下來，在 Program.cs 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連線至 Azure Cosmos DB 帳戶](#Connect)中所述。
 
 ## <a name="next-steps"></a>後續步驟
 * 需要更複雜的 ASP.NET MVC 教學課程嗎？ 請參閱 [ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-dotnet-application.md)。
-* 想要開發 Xamarin iOS、 Android 或表單 Azure Cosmos DB.NET Core sdk 中使用 SQL API 的應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
+* 想要使用適用於 Azure Cosmos DB .NET Core SDK 的 SQL API 開發 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
 * 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和級別測試](performance-testing.md)
 * 了解如何[監視 Azure Cosmos DB 要求、使用量及儲存體](monitor-accounts.md)。
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中，針對範例資料集執行查詢。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/01/2018
 
 - **MySQL 資源提供者配接器 VM**：這是執行提供者服務的 Windows 虛擬機器。
 
-- **資源提供者本身**：負責處理佈建要求並公開資料庫資源。
+- **資源提供者本身**，它會處理佈建要求並公開資料庫資源。
 
 - **裝載 MySQL 伺服器的伺服器**：為稱為主控伺服器的資料庫提供容量。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/01/2018
 
     - DependencyFilesLocalPath 中僅存在單一憑證檔案。
     
-    - 檔案名稱不得包含任何特殊字元。
+    - 檔案名稱不得包含任何特殊字元或空格。
 
 
 5. 開啟一個已提高權限 (系統管理) 的**新** PowerShell 主控台。 然後變更至檔案的解壓縮目錄。 使用新視窗，以避免因系統上已載入不正確的 PowerShell 模組而可能發生的問題。

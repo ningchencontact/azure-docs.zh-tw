@@ -16,7 +16,7 @@ ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
 ---
@@ -108,7 +108,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-下列範例會示範如何使用 SendGrid Web API 的主控台應用程式與以電子郵件訊息。
+下列範例會示範如何在主控台應用程式中使用 SendGrid Web API 來傳送電子郵件訊息。
 
     using System;
     using System.Threading.Tasks;
@@ -141,13 +141,13 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
         }
     }
     
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>如何： 從 ASP.NET Core 應用程式開發介面使用 MailHelper 類別傳送電子郵件
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>如何：使用 MailHelper 類別從 ASP .NET Core API 傳送電子郵件
 
-下列範例可用來將單一電子郵件從 ASP.NET Core 應用程式開發介面使用傳送至多個人員`MailHelper`類別`SendGrid.Helpers.Mail`命名空間。 此範例中我們使用 ASP.NET Core 1.0。 
+您可以使用下列範例，以透過 `SendGrid.Helpers.Mail` 命名空間的 `MailHelper` 類別將單一電子郵件從 ASP .NET Core API 傳送給多位人員。 在此範例中，我們會使用 ASP .NET Core 1.0。 
 
-在此範例中，API 金鑰已儲存在`appsettings.json`檔案會覆寫從 Azure 入口網站中的上述範例所示。
+在此範例中，API 金鑰已儲存在 `appsettings.json` 檔案中，您可以如上述範例所示從 Azure 入口網站覆寫此檔案。
 
-內容`appsettings.json`檔案看起來應該類似於：
+`appsettings.json` 檔案的內容看起來應該會像下面這樣：
 
     {
        "Logging": {
@@ -161,7 +161,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
      "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-首先，我們需要加入下列程式碼中`Startup.cs`.NET Core API 專案檔。 這是必要的以便我們可以存取`SENDGRID_API_KEY`從`appsettings.json`API 控制器中使用相依性插入的檔案。 `IConfiguration`介面可在控制器的建構函式中加入它之後插入`ConfigureServices`下列方法。 內容`Startup.cs`檔案後加入必要的程式碼如下：
+首先，我們需要在 .NET Core API 專案的 `Startup.cs` 檔案中新增下列程式碼。 我們必須這麼做，才能在 API 控制器中使用相依性插入從 `appsettings.json` 檔案存取 `SENDGRID_API_KEY`。 在將 `IConfiguration` 介面新增至下面的 `ConfigureServices` 方法後，即可將此介面插入控制器的建構函式中。 在新增必要程式碼後，`Startup.cs` 檔案的內容如下：
 
         public IConfigurationRoot Configuration { get; }
 
@@ -172,7 +172,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
             services.AddSingleton<IConfiguration>(Configuration);
         }
 
-在控制站之後插入,`IConfiguration`介面，我們可以使用`CreateSingleEmailToMultipleRecipients`方法`MailHelper`傳送單一電子郵件給多位收件者的類別。 該方法會接受一個額外附加布林參數名為`showAllRecipients`。 這個參數可用來控制是否電子郵件收件者將能夠看到每個其他電子郵件地址 To 部分電子郵件標頭中的。 控制站的範例程式碼應該類似下面 
+在插入 `IConfiguration` 介面後，我們可以在控制器中使用 `MailHelper` 類別的 `CreateSingleEmailToMultipleRecipients` 方法將單一電子郵件傳送給多位收件者。 該方法會接受一個名為 `showAllRecipients` 的額外布林值參數。 此參數可用來控制電子郵件收件者是否能夠看到電子郵件標頭中「收件者」區段的其他每個電子郵件地址。 控制器的程式碼範例應該會類似下面 
 
     using System;
     using System.Collections.Generic;

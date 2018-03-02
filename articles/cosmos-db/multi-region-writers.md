@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -318,6 +318,6 @@ Azure Cosmos DB 支援周全的[全域複寫](distribute-data-globally.md)，可
 * 了解 Azure Cosmos DB 如何支援[全域發佈](distribute-data-globally.md)
 * 了解 [Azure Cosmos DB 中的自動化和手動容錯移轉](regional-failover.md)
 * 了解 [Azure Cosmos DB 的全域一致性](consistency-levels.md)
-* 開發與使用多個區域[Azure Cosmos DB SQL 應用程式開發介面](tutorial-global-distribution-sql-api.md)
+* 使用 [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md) 進行多區域開發
 * 使用 [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md) 進行多區域開發
 * 使用 [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md) 進行多區域開發

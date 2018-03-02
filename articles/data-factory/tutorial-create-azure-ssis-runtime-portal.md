@@ -3,7 +3,7 @@ title: "使用 Azure Data Factory 佈建 SSIS 整合執行階段 | Microsoft Doc
 description: "本文說明如何使用 Azure Data Factor 建立 Azure-SSIS 整合執行階段。"
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: spelluru
-ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 2e3e1fff385de87e69ea36d8ffec128f662f6e50
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>使用 Azure Data Factory UI 佈建 Azure-SSIS 整合執行階段
 本教學課程提供使用 Azure 入口網站在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段 (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools 或 SQL Server Management Studio，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。 如需 Azure-SSIS IR 的概念資訊，請參閱 [Azure-SSIS 整合執行階段概觀](concepts-integration-runtime.md#azure-ssis-integration-runtime)。

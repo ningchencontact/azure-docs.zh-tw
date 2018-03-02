@@ -2,23 +2,17 @@
 title: "如何從 Java 使用 Azure Blob 儲存體 (物件儲存體) | Microsoft Docs"
 description: "使用 Azure Blob 儲存體 (物件儲存體) 在雲端中儲存非結構化資料。"
 services: storage
-documentationcenter: java
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 91ef09916dbb587305572ea640fb4408ea9aebb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b243aa7a4e9aa3028259258292d1271867d28f4
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>如何使用 Java 的 Blob 儲存體
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]

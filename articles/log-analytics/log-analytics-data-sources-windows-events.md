@@ -1,6 +1,6 @@
 ---
-title: "收集和分析 Azure 記錄分析中的 Windows 事件記錄檔 |Microsoft 文件"
-description: "Windows 事件記錄檔是 Log Analytics 所使用的最常見資料來源之一。  本文說明如何設定 Windows 事件記錄檔的集合，以及他們在記錄分析工作區中建立的記錄詳細資料。"
+title: "收集與分析 Azure Log Analytics 中的 Windows 事件記錄檔 | Microsoft Docs"
+description: "Windows 事件記錄檔是 Log Analytics 所使用的最常見資料來源之一。  本文說明如何設定收集 Windows 事件記錄，以及它們在 Log Analytics 工作區中建立的記錄詳細資料。"
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: bwren
 ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
 ---

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>使用入口網站以 Azure 網路監看員管理封包擷取
 
@@ -61,7 +61,10 @@ ms.lasthandoff: 02/01/2018
 [概觀] 頁面會顯示所有存在的封包擷取清單，無論狀態為何。
 
 > [!NOTE]
-> 封包擷取需要透過連接埠 443 的儲存體帳戶連線。
+> 封包擷取需要下列連線。
+> * 透過連接埠 443 的儲存體帳戶輸出連線。
+> * 對 169.254.169.254 的輸入和輸出連線
+> * 對 168.63.129.16 的輸入和輸出連線
 
 ![封包擷取概觀畫面][1]
 

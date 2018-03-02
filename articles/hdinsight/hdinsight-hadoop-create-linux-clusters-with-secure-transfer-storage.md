@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全傳輸儲存體帳戶建立 Hadoop 叢集
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/06/2017
 
 2. 請依照指示建立具有下列規格的叢集： 
 
-    - 指定 HDInsight 3.6 版。  預設版本為 3.5。 需要 3.6 版或更新版本。
+    - 指定 HDInsight 3.6 版。  需要 3.6 版或更新版本。
     - 指定已啟用安全傳輸的儲存體帳戶。
     - 使用儲存體帳戶的簡短名稱。
     - 必須事先建立儲存體帳戶和 Blob 容器。 

@@ -17,7 +17,7 @@ ms.date: 12/06/2017
 ms.author: cynthn
 ms.openlocfilehash: f4b739fd34cc0c85d47b97b7b42a70eb7f5f5ac7
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/15/2017
 ---
@@ -35,13 +35,13 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="use-powershell-to-move-a-vm"></a>使用 PowerShell 移動 VM
 
-若要將虛擬機器移至另一個資源群組，您必須確定也要移動所有的相依資源。 若要使用 Move-azurermresource cmdlet，您需要每個資源的資源識別碼。 您可以取得一份使用 ResourceId[尋找 AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet。
+若要將虛擬機器移至另一個資源群組，您必須確定也要移動所有的相依資源。 若要使用 Move-AzureRMResource Cmdlet，您需要每項資源的 ResourceId。 您可以使用 [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) Cmdlet 取得 ResourceId 清單。
 
 ```azurepowershell-interactive
  Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-若要移動 VM，我們需要移動多個資源。 我們可以建立的資源識別碼的逗號分隔清單，並傳遞，若要使用尋找 AzureRMResource 輸出[Move-azurermresource](/powershell/module/azurerm.resources/move-azurermresource)將它們移至目的地。 
+若要移動 VM，我們需要移動多個資源。 我們可以使用 Find-AzureRMResource 的輸出來建立以逗號分隔的 ResourceId 清單並傳遞至 [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource)，以將資源移到目的地。 
 
 ```azurepowershell-interactive
 

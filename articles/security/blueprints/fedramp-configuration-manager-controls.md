@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint (藍圖) 自動化 - 組態管理"
-description: "適用於 FedRAMP 的 Web 應用程式 - 組態管理"
+title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 設定管理"
+description: "FedRAMP Web 應用程式自動化 - 設定管理"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>組態管理 (CM)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 構成這個 Azure Blueprint (藍圖) 的 Azure Resource Manager 範本及隨附資源即代表所部署架構的「組態即程式碼」基準。 此解決方案會透過 GitHub 來提供，可用於組態控制。 此解決方案包含所部署之每個虛擬機器的 Desired State Configuration (DSC) 基準。 |
+| **客戶** | 構成此藍圖的 Azure Resource Manager 範本及隨附資源即代表所部署架構的「設定即程式碼」基準。 此解決方案會透過 GitHub 來提供，可用於組態控制。 此解決方案包含所部署之每個虛擬機器的 Desired State Configuration (DSC) 基準。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 構成這個 Azure Blueprint (藍圖) 的 Azure Resource Manager 範本及隨附資源即代表所部署架構的「組態即程式碼」基準。 此解決方案會透過 GitHub 來提供，可用於組態控制。 在 Azure 入口網站中，會為所有部署的資源提供自動化指令碼，並一律呈現這些資源的最新狀態。  |
+| **客戶** | 構成此藍圖的 Azure Resource Manager 範本及隨附資源即代表所部署架構的「設定即程式碼」基準。 此解決方案會透過 GitHub 來提供，可用於組態控制。 在 Azure 入口網站中，會為所有部署的資源提供自動化指令碼，並一律呈現這些資源的最新狀態。  |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3 (1).c** 組織會採用自動化機制來醒目提示在 [指派：組織定義的時間週期] 之前尚未核准或拒絕的所提議資訊系統變更。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-5 (1)** 資訊系統會強制執行存取限制並支援稽核強制動作。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 所部署的虛擬機器會實作 Windows AppLocker，以指定哪些使用者能夠安裝和/或執行特定的應用程式。 此外，還會以數位方式簽署所有 Windows 作業系統更新。 |
+| **客戶** | 此藍圖所部署的虛擬機器會實作 Windows AppLocker，以指定哪些使用者能夠安裝和/或執行特定的應用程式。 此外，還會以數位方式簽署所有 Windows 作業系統更新。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -465,7 +465,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-5 (5).a** 組織會針對變更生產環境或操作環境內的資訊系統元件和系統相關資訊，限制權限。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 包含所部署之每個虛擬機器的 Desired State Configuration (DSC) 基準。 這些宣告式 PowerShell 指令碼會定義並設定作為其套用對象的資源。 客戶可以延伸針對此解決方案所開發之資源包含的基準 DSC 來滿足任務需求。 |
+| **客戶** | 此藍圖包含適用於每部已部署虛擬機器的 Desired State Configuration (DSC) 基準。 這些宣告式 PowerShell 指令碼會定義並設定作為其套用對象的資源。 客戶可以延伸針對此解決方案所開發之資源包含的基準 DSC 來滿足任務需求。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 包含所部署之每個虛擬機器的 Desired State Configuration (DSC) 基準。 在部署期間，會使用自訂的指令碼虛擬機器擴充功能，將基準自動套用至虛擬機器。 |
+| **客戶** | 此藍圖包含適用於每部已部署虛擬機器的 Desired State Configuration (DSC) 基準。 在部署期間，會使用自訂的指令碼虛擬機器擴充功能，將基準自動套用至虛擬機器。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署 Automation DSC。 Automation DSC 會讓電腦組態與特定的組織定義組態一致。 |
+| **客戶** | 此藍圖會部署 Automation DSC。 Automation DSC 會讓電腦組態與特定的組織定義組態一致。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署 Azure Automation DSC。 Automation DSC 會讓電腦組態與特定的組織定義組態一致，並持續監視是否有變更。 |
+| **客戶** | 此藍圖會部署 Azure Automation DSC。 Automation DSC 會讓電腦組態與特定的組織定義組態一致，並持續監視是否有變更。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署 Azure Automation DSC。 部分 Azure Operations Management Suite (OMS) (即 Automation DSC) 可以設定成在偵測到設定錯誤時產生警示或進行補救。 |
+| **客戶** | 此藍圖會部署 Azure Automation DSC。 部分 Azure Operations Management Suite (OMS) (即 Automation DSC) 可以設定成在偵測到設定錯誤時產生警示或進行補救。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 所部署的資源會設定成針對其預定的目的提供最少的功能。 針對所部署的每個虛擬機器都會包含一個 Desired State Configuration (DSC) 基準。 這些宣告式 PowerShell 指令碼會定義並設定作為其套用對象的資源。 客戶可以延伸針對此解決方案所開發之資源包含的基準 DSC，以進一步限制功能來滿足任務需求。 |
+| **客戶** | 此藍圖所部署的資源會設定成針對其預定目的提供最少功能。 針對所部署的每個虛擬機器都會包含一個 Desired State Configuration (DSC) 基準。 這些宣告式 PowerShell 指令碼會定義並設定作為其套用對象的資源。 客戶可以延伸針對此解決方案所開發之資源包含的基準 DSC，以進一步限制功能來滿足任務需求。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會部署「Azure 應用程式閘道」和網路安全性群組，以僅限將連接埠和通訊協定用於必要的功能。 客戶可以進一步設定虛擬機器的「應用程式閘道」、網路安全性群組及 DSC 基準，以僅限將函式、連接埠、通訊協定及服務用於提供預定的功能。 |
+| **客戶** | 此藍圖會部署 Azure 應用程式閘道和網路安全性群組，以限制只能將連接埠和通訊協定用於那些必要功能。 客戶可以進一步設定虛擬機器的「應用程式閘道」、網路安全性群組及 DSC 基準，以僅限將函式、連接埠、通訊協定及服務用於提供預定的功能。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會將所有資源部署到 Azure Resource Manager 資源群組。 Azure Resource Manager 會提供一個一律最新的已部署資源清單，並可經由自訂來將資源標記和分組以進行詳細目錄管理。 系統會給予此解決方案所部署的資源一個可與系統界限關聯的特定資源標記。 |
+| **客戶** | 此藍圖會將所有資源部署到 Azure Resource Manager 資源群組。 Azure Resource Manager 會提供一個一律最新的已部署資源清單，並可經由自訂來將資源標記和分組以進行詳細目錄管理。 系統會給予此解決方案所部署的資源一個可與系統界限關聯的特定資源標記。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會將所有資源部署到 Azure Resource Manager 資源群組。 Azure Resource Manager 會提供一個一律最新、可供在 Azure 入口網站中檢閱的已部署資源清單。 |
+| **客戶** | 此藍圖會將所有資源部署到 Azure Resource Manager 資源群組。 Azure Resource Manager 會提供一個一律最新、可供在 Azure 入口網站中檢閱的已部署資源清單。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會將所有資源部署到 Azure Resource Manager 資源群組。 Azure 入口網站中的資源刀鋒視窗會列出所有已部署的資源，提供一個一律反映最新資源部署和移除情況的詳細目錄。 |
+| **客戶** | 此藍圖會將所有資源部署到 Azure Resource Manager 資源群組。 Azure 入口網站中的資源刀鋒視窗會列出所有已部署的資源，提供一個一律反映最新資源部署和移除情況的詳細目錄。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會將所有資源部署到 Azure Resource Manager 資源群組。 Azure 入口網站中的資源刀鋒視窗會列出所有已部署的資源，提供一個一律反映最新資源部署和移除情況的詳細目錄。 |
+| **客戶** | 此藍圖會將所有資源部署到 Azure Resource Manager 資源群組。 Azure 入口網站中的資源刀鋒視窗會列出所有已部署的資源，提供一個一律反映最新資源部署和移除情況的詳細目錄。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會將所有資源部署到 Azure Resource Manager 資源群組。 Azurey 資源標籤是可用來針對責任和/或管理目的進行資源分類的索引鍵/值組。 |
+| **客戶** | 此藍圖會將所有資源部署到 Azure Resource Manager 資源群組。 Azurey 資源標籤是可用來針對責任和/或管理目的進行資源分類的索引鍵/值組。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 會將所有資源部署到 Azure Resource Manager 資源群組。 Azure Resource Manager 會提供一個一律最新的已部署資源清單。 系統會給予此解決方案所部署的資源一個可與系統界限關聯的特定資源標記。 |
+| **客戶** | 此藍圖會將所有資源部署到 Azure Resource Manager 資源群組。 Azure Resource Manager 會提供一個一律最新的已部署資源清單。 系統會給予此解決方案所部署的資源一個可與系統界限關聯的特定資源標記。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 針對這個 Azure Blueprint (藍圖) 所部署的資源會包含 Windows 和 SQL Server 授權。 這是內建的 Azure 功能。 具備現有軟體授權合約的組織可以考慮部署替代的授權模型。 |
+| **客戶** | 針對此藍圖所部署的資源會包含 Windows 和 SQL Server 授權。 這是內建的 Azure 功能。 具備現有軟體授權合約的組織可以考慮部署替代的授權模型。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 針對這個 Azure Blueprint (藍圖) 所部署的資源會包含 Windows 和 SQL Server 授權。 使用者並不需要個別追蹤授權的使用情況。 |
+| **客戶** | 針對此藍圖所部署的資源會包含 Windows 和 SQL Server 授權。 使用者並不需要個別追蹤授權的使用情況。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **客戶** | 這個 Azure Blueprint (藍圖) 未部署任何對等檔案共用功能。 |
+| **客戶** | 此藍圖未部署任何對等檔案共用功能。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -913,7 +913,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-11.a** 組織會建立管理使用者進行之軟體安裝的 [指派：組織定義的原則]。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-11.c** 組織會依 [指派：組織定義的頻率] 來監視是否符合原則規範。
 
-**責任：**`Customer Only`
+**職責：**`Customer Only`
 
 |||
 |---|---|

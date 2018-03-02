@@ -12,13 +12,13 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test-your-solution-with-simulated-devices"></a>使用模擬裝置來測試您的解決方案
+# <a name="create-a-new-simulated-device"></a>建立新的模擬裝置
 
 本教學課程會示範如何自訂遠端監視預先設定解決方案中的裝置模擬器微服務。 為說明裝置模擬器的功能，本教學課程會使用 Contoso IoT 應用程式中的兩個情節。
 

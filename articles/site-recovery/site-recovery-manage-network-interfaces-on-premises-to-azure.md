@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 036d5c2945bd6730d65f88f72c9377047fefcde6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>管理內部部署至 Azure 情節的虛擬機器網路介面
 
-Azure 中的虛擬機器 (VM) 必須至少擁有一個連接的網路介面。 可連接的網路介面數量上限則不盡相同，須視 VM 大小支援的數量而定。 
+Azure 中的虛擬機器 (VM) 必須至少擁有一個連接的網路介面。 可連接的網路介面數量上限則不盡相同，須視 VM 大小支援的數量而定。
 
 根據預設，系統會將 Azure 虛擬機器連接的第一個網路介面定義為主要網路介面。 虛擬機器中的其他所有網路介面均為次要網路介面。 除此之外，系統在傳送來自虛擬機器的所有輸出流量時，預設都會送出指派給主要網路介面之主要 IP 組態的 IP 位址。
 

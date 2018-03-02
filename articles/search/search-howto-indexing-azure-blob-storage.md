@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: eugenesh
 ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
@@ -255,7 +255,7 @@ blob 索引子可以從下列文件格式擷取文字：
 | AzureSearch_SkipContent |"true" |這是相當於[上方](#PartsOfBlobToIndex)所描述之範圍設定為特定 blob 的 `"dataToExtract" : "allMetadata"` 設定。 |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>錯誤處理
+## <a name="dealing-with-errors"></a>處理錯誤
 
 根據預設，一旦遇到不受支援內容類型 (例如影像) 的 blob 時，blob 索引子就會停止。 您當然可以使用 `excludedFileNameExtensions` 參數來略過特定內容類型。 不過，您可能需要編製 blob 的索引，而不需要事先知道所有可能的內容類型。 若要在遇到不受支援的內容類型時繼續編製索引，請將 `failOnUnsupportedContentType` 組態參數設定為 `false`：
 
@@ -268,11 +268,11 @@ blob 索引子可以從下列文件格式擷取文字：
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-對於某些 blob，Azure 搜尋無法判斷內容類型，或無法處理的文件否則支援的內容類型。 若要略過此失敗模式中，設定`failOnUnprocessableDocument`組態參數設為 false:
+對於某些 blob，Azure 搜尋服務無法判斷內容類型，或無法處理受支援內容類型的文件。 若要略過此失敗模式，請將 `failOnUnprocessableDocument` 組態參數設定為 false：
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-您也可以繼續編製索引如果錯誤會發生在處理剖析 blob 時，或加入索引的文件時的任何時間點。 若要忽略特定錯誤數目，設定`maxFailedItems`和`maxFailedItemsPerBatch`所需值的組態參數。 例如︰
+如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如︰
 
     {
       ... other parts of indexer definition

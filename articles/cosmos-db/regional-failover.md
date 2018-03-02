@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -46,7 +46,7 @@ Cosmos DB 支援明確和原則導向的容錯移轉，可讓您控制在失敗�
 * 以 `West US` 設定為低延遲讀取的第一個慣用區域
 * 以 `North Europe` 設定第二個慣用區域 (為了在區域失敗時有高可用性)
 
-在 SQL API 中，此組態看起來像下列程式碼片段：
+在 SQL API 中，此設定看起來像下列程式碼片段︰
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ do
 ## <a id="NextSteps"></a>後續步驟
 * 了解 Cosmos DB 如何支援[全域散發](distribute-data-globally.md)
 * 了解 [Azure Cosmos DB 的全域一致性](consistency-levels.md)
-* 使用多個區域使用 Azure Cosmos DB 的開發[SQL 應用程式開發介面](tutorial-global-distribution-sql-api.md)
-* 了解如何建置[多區域寫入器架構](multi-region-writers.md)搭配 Azure Cosmos DB
+* 使用 [Azure Cosmos DB 的 SQL API](tutorial-global-distribution-sql-api.md) 進行多區域開發
+* 了解如何使用 Azure Cosmos DB 建置[多區域寫入器架構](multi-region-writers.md)
 

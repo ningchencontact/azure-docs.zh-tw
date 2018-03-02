@@ -14,7 +14,7 @@ ms.date: 04/28/2017
 ms.author: jaboes
 ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 本文件會列出每個 Microsoft Azure Resource Manager 資源提供者可用的作業。 這些作業可用在自訂角色中，以對 Azure 中的資源提供細微的角色型存取控制 (RBAC) 權限。 請注意，這份清單並不完整，而且這些作業可能會隨著每個提供者的更新而有所新增或移除。 作業字串遵循 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 的格式。 
 
 > [!NOTE]
-> 如需完整的目前清單請使用`Get-AzureRmProviderOperation`（以 PowerShell) 或`az provider operation list`（在 Azure CLI v2) 的 Azure 資源提供者的清單作業。
+> 如需完整的現行清單，請使用 `Get-AzureRmProviderOperation` (在 PowerShell 中) 或 `az provider operation list` (在 Azure CLI v2 中) 來列出 Azure 資源提供者的作業。
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -2199,4 +2199,4 @@ ms.lasthandoff: 12/11/2017
 - 了解如何[建立自訂角色](role-based-access-control-custom-roles.md)。
 - 檢閱[內建的 RBAC 角色](role-based-access-built-in-roles.md)。
 - 了解如何[依使用者](role-based-access-control-manage-assignments.md)或[依資源](role-based-access-control-configure.md)來管理存取權指派 
-- 深入了解如何[檢視活動記錄檔，稽核對資源的動作](~/articles/azure-resource-manager/resource-group-audit.md)
+- 了解如何[檢視活動記錄以稽核對資源的動作](~/articles/azure-resource-manager/resource-group-audit.md)

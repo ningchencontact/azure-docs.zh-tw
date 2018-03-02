@@ -16,12 +16,12 @@ ms.date: 09/29/2017
 ms.author: magoedte
 ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自動化中排程 Runbook
-若要排程在指定時間啟動 Azure 自動化中的 Runbook，您會將它連結到一個或多個排程。 在 Azure 入口網站中 runbook 執行一次，或在發生每小時或每日排程，可以設定排程。 您也可以排定它們例如每週、 每月、 每週的特定天數或天數的月份，或特定的月份天數。  Runbook 可以連結至多個排程，而排程可以有多個與其連結的 Runbook。
+若要排程在指定時間啟動 Azure 自動化中的 Runbook，您會將它連結到一個或多個排程。 您可以在 Azure 入口網站中，將 Runbook 排程設定成執行一次，或是每小時或每天重複發生。 您也可以將其排定為在每週、每月、特定的星期幾、月份中的某些日子或月份中的特定日子執行。  Runbook 可以連結至多個排程，而排程可以有多個與其連結的 Runbook。
 
 > [!NOTE]
 > 排程目前不支援 Azure Automation DSC 組態。
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/04/2018
 | [Unregister-AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |從排程分離 Runbook。 |
 
 ## <a name="creating-a-schedule"></a>建立排程
-在 Azure 入口網站或 Windows PowerShell，您可以建立新的排程的 runbook。 當您使用 Azure 傳統入口網站或 Azure 入口網站將 Runbook 連結至排程時，也可以選擇建立新的排程。
+您可以在 Azure 入口網站中或使用 Windows PowerShell，為 Runbook 建立新排程。 當您使用 Azure 傳統入口網站或 Azure 入口網站將 Runbook 連結至排程時，也可以選擇建立新的排程。
 
 > [!NOTE]
 > 執行新的排程工作時，Azure 自動化會使用自動化帳戶中的最新模組。  為了避免影響 Runbook 和它們所自動化的處理序，您應該先使用專用於測試的自動化帳戶測試任何具有連結排程的 Runbook。  這會驗證您排程的 Runbook 會持續正確運作，否則，您可以進一步進行疑難排解，並套用任何必要變更，再將已更新的 Runbook 版本移轉至生產環境。  

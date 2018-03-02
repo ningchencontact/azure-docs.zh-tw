@@ -17,7 +17,7 @@ ms.date: 05/01/2017
 ms.author: liamca
 ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
 ---
@@ -66,7 +66,7 @@ Azure 搜尋服務中原先不支援複雜資料類型，但經過實證的因�
 雖然名為 ‘id’、‘name’ 和 ‘company’ 的欄位可以輕易地逐一對應成 Azure 搜尋服務索引中的欄位，但 ‘locations’ 欄位包含位置陣列，並有一組位置識別碼以及位置描述。 假設 Azure 搜尋服務沒有支援此方法的資料類型，我們需要在 Azure 搜尋服務中進行模型化的不同方法。 
 
 > [!NOTE]
-> 這項技術也描述 Kirk Evans 部落格文章中[使用 Azure 搜尋索引 Azure Cosmos DB](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/)，其中顯示稱為 「 扁平化資料 」 的技術，您必須呼叫欄位`locationsID`和`locationsDescription`兩者都可[集合](https://msdn.microsoft.com/library/azure/dn798938.aspx)（或字串陣列）。   
+> Kirk Evans 也會在部落格文章 [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) 中說明這個技巧，文中顯示稱為「資料扁平化」的技巧，因此您會有稱為 `locationsID` 和 `locationsDescription` 的欄位 (兩者皆為 [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (或字串陣列))。   
 > 
 > 
 

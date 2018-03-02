@@ -3,7 +3,7 @@ title: "將 SSIS 套件部署至 Azure | Microsoft Docs"
 description: "本文說明如何將 SSIS 套件部署至 Azure Data Factory 所提供的 Azure-SSIS 整合執行階段。"
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 2199808533619ed7d9ef8201363f0cef04b0f50f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: abdf09900c59081821467229f81141bea2d7c15c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>將 SQL Server Integration Services 套件部署至 Azure
 本教學課程提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。 在本教學課程中，您會執行下列步驟：

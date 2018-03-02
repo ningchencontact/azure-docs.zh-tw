@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -43,13 +43,13 @@ ms.lasthandoff: 01/02/2018
 1. 10 個分割區。
 1. 1000 個平均散佈於所有分割區上的事件 => 每個分割區中有 100 個訊息。
 
-當第一次啟用您的函式時，是只函式的 1 個執行個體。 讓我們將這個函式執行個體稱為 Function_0。 Function_0 將具有 1 個會設法在所有 10 個分割區上取得租用的 EPH。 它將會開始讀取分割區 0-9 的事件。 從這裡開始，將發生下列其中一件事：
+當您的函式首次啟用時，只會有 1 個該函式的執行個體。 讓我們將這個函式執行個體稱為 Function_0。 Function_0 將具有 1 個會設法在所有 10 個分割區上取得租用的 EPH。 它將會開始讀取分割區 0-9 的事件。 從這裡開始，將發生下列其中一件事：
 
 * **只需要 1 個函式執行個體**：Function_0 能夠在 Azure Functions 的規模調整邏輯開始生效之前完全處理 1000 個。 因此，Function_0 會完全處理 1000 個訊息。
 
 * **新增另 1 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 所擁有的訊息數目比它可處理的還多，因此會建立新的執行個體 Function_1。 事件中樞偵測到新的 EPH 執行個體正在嘗試讀取訊息。 事件中樞將開始在 EPH 執行個體之間進行分割區的負載平衡，例如，將分割區 0-4 指派給 Function_0，並將分割區 5-9 指派給 Function_1。 
 
-* **新增另 N 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 和 Function_1 所擁有的訊息數目比它們可處理的還多。 它將再次進行規模調整，以建立 Function_2…N，其中 N 大於事件中樞分割區數目。 事件中樞將在 Function_0...9 執行個體之間進行分割區的負載平衡。
+* **新增另 N 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 和 Function_1 所擁有的訊息數目比它們可處理的還多。 它將再次針對 Function_2…N 進行規模調整，其中 N 大於事件中樞分割區數目。 事件中樞將在 Function_0...9 執行個體之間進行分割區的負載平衡。
 
 Azure Functions 目前規模調整邏輯特有的事實是 N 大於分割區數目。 這樣做是為了確保一律會有 EPH 的執行個體可方便用來在分割區變成可從其他執行個體使用時，快速取得分割區上的鎖定。 使用者只需針對函式執行個體執行時所使用的資源付費，不需要針對這個過度佈建付費。
 
@@ -66,11 +66,11 @@ Azure Functions 目前規模調整邏輯特有的事實是 N 大於分割區數�
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)記錄之訊息主體的事件中樞的觸發程序。
+下列範例顯示的 [C# 函式](functions-dotnet-class-library.md)，可記錄事件中樞觸發程序的訊息本文。
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
@@ -80,7 +80,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
 {
     log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
 }
@@ -89,7 +89,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
@@ -110,7 +110,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 以下是 C# 指令碼程式碼：
@@ -161,7 +161,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -184,7 +184,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -199,19 +199,19 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在[C# 類別庫](functions-dotnet-class-library.md)，使用[EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，請使用在 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) \(英文\) 中定義的 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) \(英文\) 屬性。
 
 此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序組態](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     ...
 }
 ```
 
-如需完整範例，請參閱[觸發程序-C# 範例](#trigger---c-example)。
+如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
@@ -224,7 +224,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**name** | n/a | 代表函式程式碼中事件項目的變數名稱。 | 
 |**路徑** |**EventHubName** | 事件中樞的名稱。 | 
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，可設定用來訂閱中樞內事件的[取用者群組](../event-hubs/event-hubs-features.md#event-consumers)。 如果省略，則會使用 `$Default` 取用者群組。 | 
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
+|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -249,11 +249,11 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例所示[C# 函式](functions-dotnet-class-library.md)，寫入訊息至事件中心，使用方法的傳回值做為輸出：
+下列範例顯示將訊息寫入事件中樞，並使用方法傳回值作為輸出的 [C# 函式](functions-dotnet-class-library.md)：
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -272,7 +272,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -313,7 +313,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -338,7 +338,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -371,20 +371,20 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-如[C# 類別庫](functions-dotnet-class-library.md)，使用[EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) NuGet 封裝中定義的屬性[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)。
+對於 [C# 類別庫](functions-dotnet-class-library.md)，請使用在 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) \(英文\) 中定義的 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) \(英文\) 屬性。
 
 此屬性的建構函式接受事件中樞的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[輸入 - 組態](#output---configuration)一節。 以下是 `EventHub` 屬性範例：
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     ...
 }
 ```
 
-如需完整範例，請參閱[輸出-C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -405,6 +405,12 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 在 C# 和 C# 指令碼中，使用方法參數 (例如 `out string paramName`) 來傳送訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 若要寫入多則訊息，您可以使用 `ICollector<string>` 或 `IAsyncCollector<string>` 取代 `out string`。
 
 在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 function.json 之 `name` 屬性中指定的值。
+
+## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
+
+| 繫結 | 參考 |
+|---|---|
+| 事件中樞 | [操作指南](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) \(英文\) |
 
 ## <a name="next-steps"></a>後續步驟
 

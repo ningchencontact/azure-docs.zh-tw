@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Genomics： 常見問題 |Microsoft 文件"
+title: "Microsoft Genomics：常見問題 | Microsoft Docs"
 titleSuffix: Azure
-description: "常見的問題客戶的答案詢問有關 Microsoft Genomics。"
+description: "有關 Microsoft Genomics 之客戶常見問題的解答。"
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -13,66 +13,66 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics： 常見的問題
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics：常見問題
 
-本文列出 Microsoft Genomics 查詢，您可能必須與相關聯的頂端。 如需有關 Microsoft Genomics 服務的詳細資訊，請參閱[什麼是 Microsoft Genomics？](overview-what-is-genomics.md) 
-
-
-## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics 的 SLA 是什麼？
-我們保證 99.9%的時間 Microsoft Genomics 服務將可接收工作流程應用程式開發介面的要求。 如需詳細資訊，請參閱 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)。
-
-## <a name="how-does-the-usage-of-microsoft-genomics-show-up-on-my-bill"></a>如何確實 Microsoft Genomics 的使用方式顯示在 我的帳單上？
-Microsoft Genomics 帳單根據 gigabases 處理每個工作流程數目。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/genomics/)。
+本文會列出關於 Microsoft Genomics 的最常見疑問。 如需有關 Microsoft Genomics 服務的詳細資訊，請參閱[什麼是 Microsoft Genomics？](overview-what-is-genomics.md) 
 
 
-## <a name="where-can-i-find-a-list-of-all-possible-commands-and-arguments-for-the-msgen-client"></a>可以在哪裡找到的所有可能的命令和引數清單`msgen`用戶端？
-您可以執行，以取得可用命令與引數的完整清單`msgen help`。 如果沒有其他引數提供，它會顯示一份可用的說明 」 章節，各供一個`submit`， `list`， `cancel`，和`status`。 若要取得特定命令的說明，請輸入`msgen help command`; 例如，`msgen help submit`列出所有送出選項。
+## <a name="what-is-the-sla-for-microsoft-genomics"></a>什麼是適用於 Microsoft Genomics 的 SLA？
+我們保證 99.9% 的時間 Microsoft Genomics 服務都可用於接收工作流程 API 要求。 如需詳細資訊，請參閱 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)。
 
-## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>什麼是最常使用的命令`msgen`用戶端嗎？
-最常使用的命令是引數`msgen`包含用戶端： 
+## <a name="how-does-the-usage-of-microsoft-genomics-show-up-on-my-bill"></a>我的帳單上會用什麼方式顯示 Microsoft Genomics 的使用量？
+Microsoft Genomics 是根據每個工作流程所處理的 Gb 數來計費。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/genomics/)。
+
+
+## <a name="where-can-i-find-a-list-of-all-possible-commands-and-arguments-for-the-msgen-client"></a>哪裡可以找到 `msgen` 用戶端 的所有可能命令和引數清單？
+執行 `msgen help` 即可取得完整的可用命令與引數清單。 如果未提供其他引數，它會顯示可用的說明區段清單，每個 `submit`、`list`、`cancel` 和 `status` 各有一個區段。 若要取得特定命令的說明，請輸入 `msgen help command`；例如，`msgen help submit` 可列出所有提交選項。
+
+## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>`msgen` 用戶端的最常用命令有哪些？
+最常用的命令是 `msgen` 用戶端的引數，包括： 
 
  |**命令**          |  **欄位描述** |
  |:--------------------|:-------------         |
- |`list`               |傳回一份您提交的工作。 對於引數，請參閱`msgen help list`。  |
- |`submit`             |提交服務要求工作流程。 對於引數，請參閱`msgen help submit`。|
- |`status`             |傳回所指定的工作流程狀態`--workflow-id`。 另請參閱`msgen help status`。 |
- |`cancel`             |傳送要求以取消指定工作流程的處理`--workflow-id`。 另請參閱`msgen help cancel`。 |
+ |`list`               |傳回您已提交的工作清單。 如需引數，請參閱 `msgen help list`。  |
+ |`submit`             |將工作流程要求提交至服務。 如需引數，請參閱 `msgen help submit`。|
+ |`status`             |傳回 `--workflow-id` 所指定的工作流程狀態。 另請參閱 `msgen help status`。 |
+ |`cancel`             |傳送要求以取消 `--workflow-id` 所指定的工作流程處理。 另請參閱 `msgen help cancel`。 |
 
-## <a name="where-do-i-get-the-value-for---api-url-base"></a>哪裡取得的值`--api-url-base`？
-前往 Azure 入口網站，並開啟 Genomics 帳戶 頁面。 在下**管理**標題之下，選擇**存取金鑰**。 您會發現 API URL 和存取金鑰。
+## <a name="where-do-i-get-the-value-for---api-url-base"></a>哪裡可取得 `--api-url-base` 的值？
+移至 Azure 入口網站，然後開啟您的 Genomics 帳戶頁面。 在 [管理] 標題之下，選擇 [存取金鑰]。 您可以看到 API URL 以及存取金鑰。
 
-## <a name="where-do-i-get-the-value-for---access-key"></a>哪裡取得的值`--access-key`？
-前往 Azure 入口網站，並開啟 Genomics 帳戶 頁面。 在下**管理**標題之下，選擇**存取金鑰**。 您會發現 API URL 和存取金鑰。
+## <a name="where-do-i-get-the-value-for---access-key"></a>哪裡可取得 `--access-key` 的值？
+移至 Azure 入口網站，然後開啟您的 Genomics 帳戶頁面。 在 [管理] 標題之下，選擇 [存取金鑰]。 您可以看到 API URL 以及存取金鑰。
 
 ## <a name="why-do-i-need-two-access-keys"></a>為什麼需要兩個存取金鑰？
-如果您想要更新 （重新建立），需要兩個存取金鑰它們，而不會中斷服務的使用方式。 例如，您要更新的第一個索引鍵。 在此情況下，您可以切換所有新的工作流程使用的第二個索引鍵。 使用第一個索引鍵已在執行工作流程都完成，然後等候。 唯有如此，更新金鑰。
+如果您想要在不中斷服務使用的情況下更新 (重新產生) 存取金鑰，您就需要兩個存取金鑰。 例如，您想要更新第一個金鑰。 在此情況下，您可以將所有新的工作流程切換成使用第二個金鑰。 然後，等到使用第一個金鑰的執行中工作流程完成為止。 然後才能更新金鑰。
 
-## <a name="do-you-save-my-storage-account-keys"></a>儲存我的儲存體帳戶金鑰？
-儲存體帳戶金鑰用來建立 Microsoft Genomics 服務讀取您輸入的檔案並寫入輸出檔的短期存取權杖。 預設 token 持續時間是 48 小時。 Token 持續時間可以變更與`-sas/--sas-duration`送出命令; 選項的值是以小時為單位。
+## <a name="do-you-save-my-storage-account-keys"></a>您是否會儲存我的儲存體帳戶金鑰？
+您的儲存體帳戶金鑰用來建立 Microsoft Genomics 服務的短期存取權杖，以讀取您的輸入檔案並寫入輸出檔案。 預設權杖持續時間為 48 小時。 使用 submit 命令的 `-sas/--sas-duration` 選項可以變更權杖持續時間；此值是以小時為單位。
 
-## <a name="what-genome-references-can-i-use"></a>哪些 genome 參考我可以使用？
+## <a name="what-genome-references-can-i-use"></a>我可以使用哪些基因組參考？
 
-支援這些參考：
- |參考              | 值`-pa/--process-args` |
+支援以下參考：
+ |參考              | `-pa/--process-args` 的值 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
- |hg38 （沒有 alt 分析） | `R=hg38m1x`                   |  
+ |hg38 (沒有 alt 分析) | `R=hg38m1x`                   |  
  |hg19                   | `R=hg19m1`                    |    
 
-## <a name="how-do-i-format-my-command-line-arguments-as-a-config-file"></a>如何設定我的命令列引數格式為組態檔？ 
+## <a name="how-do-i-format-my-command-line-arguments-as-a-config-file"></a>如何將我的命令列引數格式化為組態檔？ 
 
 msgen 了解以下列格式的組態檔：
-* 從索引鍵以冒號分隔的值做為索引鍵-值組提供所有選項。
+* 所有選項都是以金鑰/值組的形式提供 (以冒號分隔其值與金鑰)。
 空白字元會被忽略。
-* 行開頭`#`都會被忽略。
-* 完整格式的任何命令列引數可以轉換成索引鍵，移除其前置連字號，並取代連字號與底線的文字之間。 以下是某些轉換範例：
+* 以 `#` 開頭的程式碼行會被忽略。
+* 任何長格式的命令列引數都可以轉換成金鑰，方法是移除其前置連字號並以底線取代文字之間的連字號。 以下是一些轉換範例：
 
- |命令列引數            | 設定檔案行 |
+ |命令列引數            | 組態檔程式行 |
  |:-------------                   |:-------------                 |
  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:KEY*              |      
@@ -80,7 +80,7 @@ msgen 了解以下列格式的組態檔：
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用 Microsoft Genomics 使用下列資源：
-- 開始透過 Microsoft Genomics 服務執行您的第一個工作流程。 [透過 Microsoft Genomics 服務執行的工作流程](quickstart-run-genomics-workflow-portal.md)
-- 由 Microsoft Genomics 服務送出處理資料：[配對 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [多個 FASTQ 或 BAM](quickstart-input-multiple.md) 
+使用下列資源來開始使用 Microsoft Genomics：
+- 透過 Microsoft Genomics 服務開始執行您的第一個工作流程。 [透過 Microsoft Genomics 服務執行工作流程](quickstart-run-genomics-workflow-portal.md)
+- 提交您自己的資料以供 Microsoft Genomics 服務處理：[配對的 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [多重 FASTQ 或 BAM](quickstart-input-multiple.md) 
 

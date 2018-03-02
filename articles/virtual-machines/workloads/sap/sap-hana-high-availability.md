@@ -15,7 +15,7 @@ ms.date: 04/25/2017
 ms.author: sedusch
 ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
 ---
@@ -85,12 +85,12 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 (�
 1. 建立負載平衡器 (內部)  
    選取上述步驟的 VNET
 1. 建立虛擬機器 1  
-   使用至少 SLES4SAP 12 SP1，在此範例中，我們將使用 SLES4SAP 12 SP1 BYOS 映像 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   至少使用 SLES4SAP 12 SP1，在此範例中我們將使用 SLES4SAP 12 SP1 BYOS 映像 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    選取儲存體帳戶 1  
    選取可用性設定組  
 1. 建立虛擬機器 2  
-   使用至少 SLES4SAP 12 SP1，在此範例中，我們將使用 SLES4SAP 12 SP1 BYOS 映像 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   至少使用 SLES4SAP 12 SP1，在此範例中我們將使用 SLES4SAP 12 SP1 BYOS 映像 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    選取儲存體帳戶 2   
    選取可用性設定組  
@@ -124,11 +124,11 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 (�
         1. 針對連接埠 3**03**17 重複上述步驟
 
 ### <a name="deploy-with-template"></a>透過範本進行部署
-您可以在 github 上使用的其中一個快速入門範本來部署所需的所有資源。 範本會部署虛擬機器、負載平衡器、可用性設定組等。請遵循下列步驟來部署範本：
+您可以使用 Github 上的其中一個快速入門範本來部署所有必要資源。 範本會部署虛擬機器、負載平衡器、可用性設定組等。請遵循下列步驟來部署範本：
 
-1. 開啟[資料庫範本][ template-multisid-db]或[交集範本][ template-converged]資料庫範本只會建立在 Azure 入口網站負載平衡規則的資料庫，而交集的範本也會建立負載平衡規則 ASCS/SCS 和端 (只有 Linux) 執行個體。 如果您打算安裝 SAP NetWeaver 架構的系統，而且也想要在同一部電腦上安裝 ASCS/SCS 執行個體，請使用[交集範本][template-converged]。
+1. 在 Azure 入口網站上開啟[資料庫範本][template-multisid-db]或[交集範本][template-converged]。資料庫範本只會建立資料庫的負載平衡規則，而交集範本還會建立 ASCS/SCS 和 ERS (僅限 Linux) 執行個體的負載平衡規則。 如果您打算安裝 SAP NetWeaver 架構的系統，而且也想要在同一部電腦上安裝 ASCS/SCS 執行個體，請使用[交集範本][template-converged]。
 1. 輸入下列參數
-    1. Sap 系統識別碼  
+    1. SAP 系統識別碼  
        輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 識別碼將用於已部署資源的前置詞。
     1. 堆疊類型 (只有在您使用交集範本時才適用)  
        選取 SAP NetWeaver 堆疊類型
@@ -252,7 +252,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 (�
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-the-id-of-devsdc1"></a>請記下 /dev/sdc1 識別碼
+    # <a name="write-down-the-id-of-devsdc1"></a>記下 /dev/sdc1 的識別碼
     sudo /sbin/blkid  sudo vi /etc/fstab
     ```
 
@@ -450,7 +450,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 1. 移至 <https://portal.azure.com>
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
-   移至內容，並記下目錄的識別碼。 這是**租用戶識別碼**。
+   移至 [屬性]，並記下目錄識別碼。 這是**租用戶識別碼**。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
 1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http://localhost )，然後按一下 [建立]
@@ -458,7 +458,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 寫下應用程式識別碼。 它正做為使用者名稱 (**登入識別碼**下列步驟中) 的服務主體
+1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
 
 服務主體預設沒有存取您 Azure 資源的權限。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。
 
@@ -622,7 +622,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-移轉會建立一次刪除的位置限制式。
+移轉會建立需要再次刪除的位置條件約束。
 
 <pre><code>
 crm configure edited
@@ -631,7 +631,7 @@ crm configure edited
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-您也需要清除的次要節點資源狀態
+您也必須清除次要節點資源的狀態
 
 <pre><code>
 # switch back to root and cleanup the failed state

@@ -9,16 +9,17 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入門：將 Windows 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Microsoft Monitoring Agent，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的資源啟用資訊安全中心。
@@ -73,7 +74,7 @@ ms.lasthandoff: 01/08/2018
 
 完成時，[Microsoft 監視代理程式] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式已連線。
 
-如需安裝及設定代理程式的詳細資訊，請參閱[連線到 Windows 電腦](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup)。
+如需安裝及設定代理程式的詳細資訊，請參閱[連線到 Windows 電腦](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard)。
 
 您現在可於同一處監視您的 Azure VM 和非 Azure 電腦。 在 [計算] 下，您可以檢視所有 VM 和電腦的概觀及建議。 每一欄表示一組建議。 色彩代表 VM 或電腦目前對於該建議的安全性狀態。 資訊安全中心也會在安全性警示中顯示針對這些電腦所偵測到的任何項目。
 

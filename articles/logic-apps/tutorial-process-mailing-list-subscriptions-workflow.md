@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 26ef6f69ef2f2d50628f4d0b021159526c9a04a7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>使用邏輯應用程式來管理郵寄清單要求
 
@@ -55,7 +55,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="create-your-logic-app"></a>建立邏輯應用程式
 
-1. 從 Azure 主要功能表中，選擇 [新增] > [企業整合] > [邏輯應用程式]。
+1. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
 
    ![建立邏輯應用程式](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 

@@ -1,10 +1,10 @@
 ---
 title: "將傳統虛擬網路連接到 Azure Resource Manager VNet：入口網站 | Microsoft Docs"
-description: "了解如何使用 VPN 閘道和入口網站在傳統 VNet 和 Resource Manager VNet 之間建立 VPN 連線"
+description: "使用 VPN 閘道和入口網站在傳統 VNet 和 Resource Manager VNet 之間建立 VPN 連線"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用入口網站從不同的部署模型連接虛擬網路
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/21/2017
 
 將傳統 VNet 連線至 Resource Manager VNet，類似於將 VNet 連線至內部部署網站位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。 您可以在不同訂用帳戶和不同區域中的 VNet 之間建立連線。 只要設定的閘道是動態或路由式，您也可以連接已連線到內部部署網路的 Vnet。 如需 VNet 對 VNet 連線的詳細資訊，請參閱本文結尾處的 [VNet 對 VNet 常見問題集](#faq) 。 
 
-如果您的 VNet 位在相同區域，可以會改為考慮使用 VNet 對等互連進行連線。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。 
+如果您還沒有虛擬網路閘道，而且不想建立閘道，可能要考慮改為使用 VNet 對等互連連線您的 VNet。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
 ### <a name="before"></a>開始之前
 
@@ -196,16 +196,16 @@ SKU = VpnGw1 <br>
 2. 在您虛擬網路的頁面上，按一下 [概觀]。
 3. 在 [VPN 連線] 區段中，按一下圖形中您本機站台的名稱。
 
-    ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 連線")
+  ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 連線")
 4. 在 [站對站 VPN 連線] 頁面上，按一下站台的名稱。
 
-    ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "本機站台名稱")
+  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "本機站台名稱")
 5. 在您本機站台的 [連線] 頁面上，按一下本機站台的名稱以開啟 [本機站台] 頁面。
 
-    ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "開啟本機站台")
+  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "開啟本機站台")
 6. 在 [本機網站] 頁面上，使用 Resource Manager 閘道的 IP 位址取代 [VPN 閘道 IP 位址]。
 
-    ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "閘道 IP 位址")
+  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "閘道 IP 位址")
 7. 按一下 [確定] 以更新 IP 位址。
 
 ## <a name="RMtoclassic"></a>第 4 節 - 建立 Resource Manager 與傳統的連線
@@ -223,34 +223,46 @@ SKU = VpnGw1 <br>
 9. 建立**共用金鑰**。 這個金鑰也會用於您建立之傳統 VNet 到 Resource Manager VNet 的連線。 您可以產生金鑰或自行建立金鑰。 在我們的範例中，我們使用的是 'abc123'，但是您可以(且應該) 使用更為複雜的值。
 10. 按一下 [確定] 來建立連線。
 
-##<a name="classictoRM"></a>第 5 節 - 建立傳統到 Resource Manager 的連線
+## <a name="classictoRM"></a>第 5 節 - 建立傳統到 Resource Manager 的連線
 
 在這些步驟中，您會設定從傳統 VNet 到 Resource Manager VNet 的連線。 這些步驟需要 PowerShell。 您無法在入口網站中建立此連線。 確定您已下載並安裝傳統 (SM) 和 Resource Manager (RM) PowerShell Cmdlet。
 
 ### <a name="1-connect-to-your-azure-account"></a>1.連線至您的 Azure 帳戶
 
-以提高的權限開啟 PowerShell 主控台並登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，便會下載您的帳戶設定，以供 Azure PowerShell 使用。
+以提高的權限開啟 PowerShell 主控台並登入您的 Azure 帳戶。 登入之後，便會下載您的帳戶設定，以供 Azure PowerShell 使用。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證，以使用 Resource Manager 部署模型：
 
 ```powershell
 Login-AzureRmAccount
 ```
-   
-如果您有多個訂用帳戶，請取得 Azure 訂用帳戶的清單。
+
+取得您的 Azure 訂用帳戶清單。
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-指定您要使用的訂用帳戶。 
+如果您有多個訂用帳戶，請指定您要使用的訂用帳戶。
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 ```
 
-新增您的 Azure 帳戶，才能使用傳統 PowerShell Cmdlet (SM)。 若要這麼做，您可使用下列命令：
+接下來，請登入以使用傳統 PowerShell Cmdlet (服務管理)。 請使用以下命令新增您的 Azure 帳戶，以使用傳統部署模型：
 
 ```powershell
 Add-AzureAccount
+```
+
+取得您的訂用帳戶清單。 新增服務管理 Cmdlet 時，此步驟可能是必要的，需視您安裝的 Azure 模組而定。
+
+```powershell
+Get-AzureSubscription
+```
+
+如果您有多個訂用帳戶，請指定您要使用的訂用帳戶。
+
+```powershell
+Select-AzureSubscription -SubscriptionName "Name of subscription"
 ```
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2.檢視網路組態檔值

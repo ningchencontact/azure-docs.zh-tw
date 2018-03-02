@@ -1,6 +1,6 @@
 ---
-title: "透過 Microsoft Azure expressroute 對等互連設定站對站 VPN |Microsoft 文件"
-description: "設定透過使用站對站 VPN 閘道的 ExpressRoute Microsoft 對等互連電路的 IPsec/IKE 連線至 Azure。"
+title: "透過適用於 Azure ExpressRoute 的 Microsoft 對等互連，設定站對站 VPN | Microsoft Docs"
+description: "使用站對站 VPN 閘道，透過 ExpressRoute Microsoft 對等互連線路，設定 IPsec/IKE 與 Azure 的連線。"
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -16,85 +16,85 @@ ms.date: 12/06/2017
 ms.author: cherylmc
 ms.openlocfilehash: 64203e2cbac1206224f0e0ad8b7d364f19ad0332
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連設定站對站 VPN
+# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連，設定站對站 VPN
 
-這篇文章可協助您設定透過私人 ExpressRoute 連線在內部部署網路與 Azure 虛擬網路 (Vnet) 之間的安全加密的連線。 設定安全通道透過 ExpressRoute 可讓資料交換與機密性、 禁止重新播放、 真實性和完整性。
+本文可協助您在內部部署網路與 Azure 虛擬網路 (VNet) 之間，透過 ExpressRoute 私人連線，設定安全加密的連線。 透過 ExpressRoute 設定安全通道可以在資料交換時，實現機密性、禁止重新播放、真實性和完整性。
 
 ## <a name="architecture"></a>架構
 
-您可以利用 Microsoft 對等互連，建立您選取在內部部署網路與 Azure Vnet 之間的站對站 IPsec/IKE VPN 通道。
+您可以利用 Microsoft 對等互連，在選取的內部部署網路與 Azure VNet 之間，建立站對站 IPsec/IKE VPN 通道。
 
   ![連線概觀](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 
 >[!NOTE]
->當您設定站對站 VPN 透過 Microsoft 對等互連時，您必須支付 VPN 閘道與 VPN 輸出。 如需詳細資訊，請參閱[VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway)。
+>當您透過 Microsoft 對等互連設定站對站 VPN 時，您必須支付 VPN 閘道與 VPN 輸出的費用。 如需詳細資訊，請參閱 [VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway)。
 >
 >
 
-高可用性和備援，您可以設定多個通道透過 ExpressRoute 電路的兩個 MSEE PE 組，及啟用通道之間的負載平衡。
+為獲得高可用性和備援功能，您可以透過 ExpressRoute 線路的兩個 MSEE-PE 組設定多個通道，並在通道之間啟用負載平衡。
 
-  ![高可用性的選項](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
+  ![高可用性選項](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
-使用 VPN 閘道，或透過 Azure Marketplace 中的適當網路虛擬應用裝置 (NVA) 可用時，會終止 VPN 通道，透過 Microsoft 對等互連。 您可以交換路由靜態或動態方式透過加密通道而不會暴露至基礎的 Microsoft 對等的路由交換。 在本文範例中，BGP （不同於用來建立 Microsoft 對等互連 BGP 工作階段） 用來動態交換透過加密通道的 前置詞。
+透過 Microsoft 對等互連的 VPN 通道可以使用 VPN 閘道，或使用透過 Azure Marketplace 取得的適當網路虛擬設備 (NVA) 終止。 您可以使用靜態或動態方式，透過加密通道交換路由，而不會暴露與底層 Microsoft 對等互連交換的路由。 在本文的範例中，BGP (不同於建立 Microsoft 對等互連所使用的 BGP 工作階段) 用於以動態方式，透過加密通道交換前置詞。
 
 >[!IMPORTANT]
->針對在內部部署端，通常是 Microsoft 對等互連在周邊網路上的方式來終止，並私人互連終止核心網路區域上。 兩個區域均會被打散使用防火牆。 如果您要設定 Microsoft 專用的啟用安全通道透過 ExpressRoute 對等互連，請記得透過會開始透過 Microsoft 對等互連通告的感興趣的公用 Ip 篩選。
+>針對內部部署端，Microsoft 對等互連通常是在 DMZ 上終止的，而私人對等互連則是在核心網路區域上終止的。 這兩個區域將會使用防火牆加以隔離。 如果您要專門針對透過 ExpressRoute 啟用安全通道來設定 Microsoft 對等互連，請記得僅篩選感興趣且透過 Microsoft 對等互連通告的公用 IP。
 >
 >
 
 ## <a name="workflow"></a>工作流程
 
-1. 設定 Microsoft 對等 ExpressRoute 電路。
-2. 通告選取 Azure 區域公用前置詞，以透過 Microsoft 對等內部部署網路。
-3. 設定 VPN 閘道，並建立 IPsec 通道
+1. 設定 ExpressRoute 線路的 Microsoft 的對等互連。
+2. 透過 Microsoft 對等互連，向內部部署網路通告選取的 Azure 區域公用前置詞。
+3. 設定 VPN 閘道並建立 IPsec 通道
 4. 設定內部部署 VPN 裝置。
 5. 建立站對站 IPsec/IKE 連線。
-6. （選擇性）防火牆/篩選上設定內部部署 VPN 裝置。
-7. 測試和驗證的 IPsec 通訊透過 ExpressRoute 電路。
+6. (選擇性) 在內部部署 VPN 裝置上設定防火牆/篩選。
+7. 測試並驗證 ExpressRoute 線路上的 IPsec 通訊。
 
 ## <a name="peering"></a>1.設定 Microsoft 對等互連
 
-若要設定站對站 VPN 連線透過 ExpressRoute，您必須利用 ExpressRoute Microsoft 對等互連。
+若要設定 ExpressRoute 上的站對站 VPN 連線，您必須利用 ExpressRoute Microsoft 對等互連。
 
-* 若要設定新的 ExpressRoute 電路，開頭[ExpressRoute 必要條件](expressroute-prerequisites.md)發行項，然後[建立及修改 ExpressRoute 電路](expressroute-howto-circuit-arm.md)。
+* 若要設定新的 ExpressRoute 線路，請從 [ExpressRoute 先決條件](expressroute-prerequisites.md)一文開始，然後閱讀[建立和修改 ExpressRoute 線路](expressroute-howto-circuit-arm.md)一文。
 
-* 如果您已經擁有 ExpressRoute 電路，但不是需要 Microsoft 對等設定，設定 Microsoft 對等互連使用[建立及修改 ExpressRoute 循環的對等互連](expressroute-howto-routing-arm.md#msft)發行項。
+* 如果您已經擁有 ExpressRoute 線路，但還未設定 Microsoft 對等互連，請利用[建立和修改 ExpressRoute 線路的對等互連](expressroute-howto-routing-arm.md#msft)一文，設定 Microsoft 對等互連。
 
-一旦您已設定您的電路及 Microsoft 對等互連，就可以輕鬆地檢視使用**概觀**在 Azure 入口網站頁面。
+一旦您已設定線路及 Microsoft 對等互連，就可以輕鬆地使用 Azure 入口網站中的 [概觀] 頁面來檢視它。
 
-![循環](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
+![線路](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="routefilter"></a>2.設定路由篩選器
+## <a name="routefilter"></a>2.設定路由篩選
 
-路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 就本質上所有的 BGP 社群值的允許清單。 
+路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是所有 BGP 社群值的白名單。 
 
-![路由篩選器](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
+![路由篩選](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-在此範例中，會將部署只在*Azure 美國西部 2*區域。 路由篩選規則已加入，以允許只廣告 Azure 美國西部 2 區域前置詞，其具有 BGP 社群值*12076:51026*。 指定您想要允許選取的區域前置詞**管理規則**。
+在此範例中，部署僅在 *Azure 美國西部 2* 區域中。 系統會新增路由篩選規則，以便僅允許 Azure 美國西部 2 區域前置詞的通告，其 BGP 社群值為 *12076:51026*。 您可以選取 [管理規則] 來指定您想要允許的區域前置詞。
 
-路由篩選條件內部，您也需要選擇路由篩選器所適用的 ExpressRoute 電路。 您可以選擇選取的 ExpressRoute 電路**新增電路**。 在上圖中，路由篩選器是相關聯的 ExpressRoute 電路的範例。
+在路由篩選內，您也需要選擇路由篩選要套用的 ExpressRoute 線路。 您可以選取 [新增線路] 來選擇 ExpressRoute 線路。 在上圖中，路由篩選與範例 ExpressRoute 線路相關聯。
 
-### <a name="configfilter"></a>2.1 設定路由篩選器
+### <a name="configfilter"></a>2.1 設定路由篩選
 
-設定路由篩選器。 如需步驟，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-portal.md)。
+設定路由篩選。 如需步驟，請參閱[針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-portal.md)。
 
-### <a name="verifybgp"></a>2.2 確認 BGP 路由
+### <a name="verifybgp"></a>2.2 驗證 BGP 路由
 
-一旦您已成功建立 Microsoft 對等互連透過 ExpressRoute 電路並聯電路的路由篩選器，您可以確認 BGP 路由對等互連與 MSEEs PE 裝置上收到 MSEEs。 驗證命令會根據您的 PE 裝置的作業系統而異。
+一旦您已在 ExpressRoute 線路上成功建立 Microsoft 對等互連並讓路由篩選與該線路產生關聯，就可以驗證是否從與 MSEE 對等互連的 PE 裝置上收到來自 MSEE 的 BGP 路由。 驗證命令會根據 PE 裝置的作業系統而有所不同。
 
 #### <a name="cisco-examples"></a>Cisco 範例
 
-這個範例會使用 Cisco IOS XE 命令。 在範例中，虛擬路由和轉送 (VRF) 執行個體用來找出對等互連流量。
+此範例會使用 Cisco IOS XE 命令。 在範例中，虛擬路由和轉送 (VRF) 執行個體用於隔離對等互連流量。
 
 ```
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-下列部分輸出顯示 68 前置詞已收到來自芳鄰 *.243.229.34 與 ASN 12076 (MSEE):
+下列部分輸出顯示已從具有 ASN 12076 (MSEE) 的芳鄰 *.243.229.34 收到 68 個前置詞：
 
 ```
 ...
@@ -103,13 +103,13 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 X.243.229.34    4        12076   17671   17650    25228    0    0 1w4d           68
 ```
 
-若要查看來自芳鄰的前置詞清單，請使用下列範例：
+若要查看接收自芳鄰的前置詞清單，請使用下列範例：
 
 ```
 sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 ```
 
-若要確認您收到一組正確的前置詞，您可以跨-確認。 下列 Azure PowerShell 命令輸出會列出公告透過 Microsoft 對等互連，為每個服務和每個 Azure 區域的前置詞：
+若要確認您收到一組正確的前置詞，您可以進行交叉驗證。 下列 Azure PowerShell 命令輸出會針對每個服務和每個 Azure 區域，列出透過 Microsoft 對等互連通告的前置詞：
 
 ```powershell
 Get-AzureRmBgpServiceCommunity
@@ -117,36 +117,36 @@ Get-AzureRmBgpServiceCommunity
 
 ## <a name="vpngateway"></a>3.設定 VPN 閘道和 IPsec 通道
 
-在本節中，Azure VPN 閘道與內部部署 VPN 裝置之間建立 IPsec VPN 通道。 範例會使用 Cisco 雲端服務路由器 (CSR1000) VPN 裝置。
+在本節中，Azure VPN 閘道與內部部署 VPN 裝置之間會建立 IPsec VPN 通道。 這些範例會使用 Cisco Cloud Service Router (CSR1000) VPN 裝置。
 
-下圖顯示 IPsec VPN 通道在內部部署 VPN 裝置 1，與 Azure VPN 閘道執行個體組之間建立。 2 的內部部署 VPN 裝置之間的兩個 IPsec VPN 通道建立 Azure VPN 閘道執行個體組不在圖表中，說明並不會列出組態詳細資料。 不過，其他 VPN 通道，可改善高可用性。
+下圖顯示在內部部署 VPN 裝置 1 與 Azure VPN 閘道執行個體組之間建立的 IPsec VPN 通道。 在內部部署 VPN 裝置 2 和 Azure VPN 閘道執行個體組之間建立的兩個 IPsec VPN 通道未在圖表中說明，而且不會列出設定詳細資料。 不過，擁有額外的 VPN 通道可改善高可用性。
 
   ![VPN 通道](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
 
-透過 IPsec 通道組 eBGP 工作階段建立交換私人網路路由。 下圖顯示建立透過 IPsec 通道對 eBGP 工作階段：
+系統會透過 IPsec 通道組建立 eBGP 工作階段，以交換私人網路路由。 下圖顯示透過 IPsec 通道組建立的 eBGP 工作階段：
 
-  ![透過通道配對的 eBGP 工作階段](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
+  ![透過通道組建立的 eBGP 工作階段](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
 
-下圖顯示範例網路抽象的概觀：
+下圖顯示範例網路的抽象概觀：
 
   ![範例網路](./media/site-to-site-vpn-over-microsoft-peering/OverviewRef.png)
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>關於 Azure Resource Manager 範本範例
 
-在範例中，VPN 閘道和 IPsec 通道終止設定使用 Azure Resource Manager 範本。 如果您不熟悉使用資源管理員範本，或若要了解資源管理員範本，請參閱[瞭解之結構和語法的 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)。 本節中的範本建立綠地 Azure 環境 (VNet)。 不過，如果您有現有的 VNet，您可以參考它在範本中。 如果您不熟悉 VPN 閘道 IPsec/IKE 站對站組態，請參閱[建立站對站連線](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
+在這些範例中，VPN 閘道和 IPsec 通道終止是使用 Azure Resource Manager 範本設定的。 如果您不熟悉如何使用 Resource Manager 範本，或是想要了解 Resource Manager 範本的基本概念，請參閱[了解 Azure Resource Manager 範本的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。 本節中的範本會建立原創 Azure 環境 (VNet)。 但是，如果您有現有的 VNet，可以在範本中加以參考。 如果您不熟悉 VPN 閘道 IPsec/IKE 站對站設定，請參閱[建立站對站連線](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
 
 >[!NOTE]
->您不需要使用 Azure 資源管理員範本，才能建立此設定。 您可以建立這個設定使用 Azure 入口網站或 PowerShell。
+>您不需要使用 Azure Resource Manager 範本，就可以建立此設定。 您可以使用 Azure 入口網站或 PowerShell 建立此設定。
 >
 >
 
-### <a name="variables3"></a>3.1 宣告的變數
+### <a name="variables3"></a>3.1 宣告變數
 
-在此範例中，變數宣告對應至網路的範例。 當您宣告變數，修改此區段，以反映您的環境。
+在此範例中，變數宣告對應至範例網路。 宣告變數時，請修改此區段以反映您的環境。
 
-* 變數**localAddressPrefix**是終止 IPsec 通道的內部 IP 位址的陣列。
-* **GatewaySku**決定 VPN 輸送量。 GatewaySku 和 vpnType 相關的詳細資訊，請參閱[VPN 閘道組態設定](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 如需定價，請參閱[VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway)。
-* 設定**vpnType**至**RouteBased**。
+* 變數 **localAddressPrefix** 是內部部署 IP 位址的陣列，可終止 IPsec 通道。
+* **gatewaySku** 可決定 VPN 輸送量。 如需有關 gatewaySku 和 vpnType 的詳細資訊，請參閱 [VPN 閘道組態設定](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 如需定價，請參閱 [VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway)。
+* 將 **vpnType** 設定為 **RouteBased**。
 
 ```json
 "variables": {
@@ -180,7 +180,7 @@ Get-AzureRmBgpServiceCommunity
 
 ### <a name="vnet"></a>3.2 建立虛擬網路 (VNet)
 
-如果您要與 VPN 通道來產生關聯現有的 VNet，您可以略過此步驟。
+如果您要讓現有的 VNet 與 VPN 通道產生關聯，可以略過此步驟。
 
 ```json
 {
@@ -213,9 +213,9 @@ Get-AzureRmBgpServiceCommunity
 },
 ```
 
-### <a name="ip"></a>3.3 將公用 IP 位址指派給 VPN 閘道器執行個體
+### <a name="ip"></a>3.3 將公用 IP 位址指派給 VPN 閘道執行個體
  
-指定每個執行個體的 VPN 閘道的公用 IP 位址。
+為 VPN 閘道的每個執行個體指派一個公用 IP 位址。
 
 ```json
 {
@@ -240,9 +240,9 @@ Get-AzureRmBgpServiceCommunity
   },
 ```
 
-### <a name="termination"></a>3.4 指定在內部部署 VPN 通道終止 （區域網路閘道）
+### <a name="termination"></a>3.4 指定內部部署 VPN 通道終止 (區域網路閘道)
 
-在內部部署 VPN 裝置指**區域網路閘道**。 下列 json 片段也會指定遠端的 BGP 對等詳細資料：
+內部部署 VPN 裝置指的是**區域網路閘道**。 下列 json 程式碼片段也會指定遠端 BGP 對等詳細資料：
 
 ```json
 {
@@ -267,11 +267,11 @@ Get-AzureRmBgpServiceCommunity
 
 ### <a name="creategw"></a>3.5 建立 VPN 閘道
 
-本章節的範本使用主動-主動組態所需要的設定來設定 VPN 閘道。 請記住下列需求：
+本節的範本使用主動-主動組態所需要的設定來設定 VPN 閘道。 請記住下列需求：
 
-* 建立 VPN 閘道與**"RouteBased"** VpnType。 此設定是強制性，如果您想要啟用 VPN 閘道與 VPN 內部之間的 BGP 路由。
-* 在主動 / 主動模式中，建立 VPN 閘道的兩個執行個體和指定的內部部署裝置之間的 VPN 通道**"activeActive"**參數設定為**true** Resource Manager 範本中. 若要了解有關高可用性的 VPN 閘道的詳細資訊，請參閱[高可用性的 VPN 閘道連線](../vpn-gateway/vpn-gateway-highlyavailable.md)。
-* 若要設定之間的 VPN 通道 eBGP 工作階段，您必須指定兩個不同的 Asn 任一邊。 最好是指定私用的 ASN 編號。 如需詳細資訊，請參閱[BGP 的概觀和 Azure VPN 閘道](../vpn-gateway/vpn-gateway-bgp-overview.md)。
+* 使用 **"RouteBased"** VpnType 建立 VPN 閘道。 如果您想要在 VPN 閘道與 VPN 內部部署之間啟用 BGP 路由，則此設定是強制性的。
+* 若要以主動-主動模式在兩個 VPN 閘道執行個體與指定的內部部署裝置之間建立 VPN 通道，**"activeActive"** 參數在 Resource Manager 範本中必須設為 **true**。 若要深入了解高可用性的 VPN 閘道，請參閱[高可用性的 VPN 閘道連線](../vpn-gateway/vpn-gateway-highlyavailable.md)。
+* 若要在 VPN 通道之間設定 eBGP 工作階段，您必須在任一端指定兩個不同的 ASN。 最好是指定私人 ASN 編號。 如需詳細資訊，請參閱 [BGP 和 Azure VPN 閘道的概觀](../vpn-gateway/vpn-gateway-bgp-overview.md)。
 
 ```json
 {
@@ -329,7 +329,7 @@ Get-AzureRmBgpServiceCommunity
 
 ### <a name="ipsectunnel"></a>3.6 建立 IPsec 通道
 
-指令碼的最後一個動作會建立 Azure VPN 閘道與內部部署 VPN 裝置之間的 IPsec 通道。
+指令碼的最後一個動作會在 Azure VPN 閘道與內部部署 VPN 裝置之間建立 IPsec 通道。
 
 ```json
 {
@@ -359,18 +359,18 @@ Get-AzureRmBgpServiceCommunity
 
 ## <a name="device"></a>4.設定內部部署 VPN 裝置
 
-Azure VPN 閘道會與許多不同廠商的 VPN 裝置相容。 組態資訊及已經過驗證，才能使用 VPN 閘道裝置，請參閱[關於 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md)。
+Azure VPN 閘道與許多不同廠商的 VPN 裝置相容。 如需設定資訊以及已經過驗證，可搭配 VPN 閘道使用的裝置，請參閱[關於 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md)。
 
-當設定 VPN 裝置，您需要下列項目：
+設定 VPN 裝置時，您需要下列項目：
 
-* 共用金鑰。 這是建立您的站對站 VPN 連線時所指定的相同共用的金鑰。 範例會使用基本的共用的金鑰。 我們建議您產生更複雜的金鑰以供使用。
-* 您的 VPN 閘道的公用 IP 位址。 您可以使用 Azure 入口網站、PowerShell 或 CLI 來檢視公用 IP 位址。 若要尋找您使用 Azure 入口網站的 VPN 閘道的公用 IP 位址，請瀏覽至虛擬網路閘道，然後按一下您的閘道名稱。
+* 共用金鑰。 這個共同金鑰與您建立站對站 VPN 連線時指定的共用金鑰相同。 這些範例會使用基本的共用金鑰。 我們建議您產生更複雜的金鑰以供使用。
+* 您 VPN 閘道的公用 IP 位址。 您可以使用 Azure 入口網站、PowerShell 或 CLI 來檢視公用 IP 位址。 若要使用 Azure 入口網站尋找 VPN 閘道的公用 IP 位址，請瀏覽至 [虛擬網路閘道]，然後按一下閘道名稱。
 
-通常 （通常透過 WAN 連線） 直接連接 eBGP 對等。 不過，當您設定透過 ExpressRoute Microsoft 對等互連的 IPsec VPN 通道 eBGP，有多個路由網域 eBGP 對等之間。 使用**ebgp multihop**命令，以不建立兩者間的 eBGP 芳鄰關聯性的直接連接對等。 遵循 ebgp multihop 命令的整數 BGP 封包中指定的 TTL 值。 此命令**最大路徑 eibgp 2**啟用負載平衡的兩個 BGP 路徑之間的流量。
+eBGP 對等通常是直接連線的 (通常透過 WAN 連線)。 不過，當您要透過 ExpressRoute Microsoft 對等互連，在 IPsec VPN 通道上設定 eBGP 時，在 eBGP 對等之間有多個路由網域。 使用 **ebgp-multihop** 命令，在兩個非直接連線的對等之間，建立 eBGP 芳鄰關聯性。 遵循 ebgp-multihop 命令的整數會在 BGP 封包中指定 TTL 值。 **maximum-paths eibgp 2** 命令會針對兩個 BGP 路徑之間的流量，啟用負載平衡。
 
 ### <a name="cisco1"></a>Cisco CSR1000 範例
 
-下列範例會顯示在 HYPER-V 虛擬機器與內部部署 VPN 裝置 Cisco CSR1000 的組態：
+下列範例會在當作內部部署 VPN 裝置的 Hyper-V 虛擬機器中，顯示 Cisco CSR1000 的設定：
 
 ```
 !
@@ -478,13 +478,13 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="firewalls"></a>5.設定 VPN 裝置篩選和防火牆 （選擇性）
+## <a name="firewalls"></a>5.設定 VPN 裝置篩選和防火牆 (選擇性)
 
-設定您的防火牆和篩選，根據您的需求。
+根據您的需求，設定防火牆和篩選。
 
-## <a name="testipsec"></a>6.測試和驗證的 IPsec 通道
+## <a name="testipsec"></a>6.測試並驗證 IPsec 通道
 
-IPsec 通道的狀態可以驗證 Azure VPN 閘道上，透過 Powershell 命令：
+IPsec 通道的狀態可以在 Azure VPN 閘道上，透過 Powershell 命令進行驗證：
 
 ```powershell
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
@@ -498,7 +498,7 @@ EgressBytesTransferred  : 17734660
 IngressBytesTransferred : 10538211
 ```
 
-若要獨立檢查 Azure VPN 閘道器執行個體上的通道的狀態，請使用下列範例：
+若要獨立檢查 Azure VPN 閘道執行個體上通道的狀態，請使用下列範例：
 
 ```powershell
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
@@ -520,7 +520,7 @@ EgressBytesTransferred           : 8980589
 LastConnectionEstablishedUtcTime : 11/04/2017 17:03:13
 ```
 
-您也可以在內部部署 VPN 裝置檢查通道狀態。
+您也可以在內部部署 VPN 裝置上檢查通道狀態。
 
 Cisco CSR1000 範例：
 
@@ -574,7 +574,7 @@ Peer: 52.175.253.112 port 4500 fvrf: (none) ivrf: (none)
         Outbound: #pkts enc'ed 477 drop 0 life (KB/Sec) 4607953/437
 ```
 
-線路通訊協定上虛擬通道介面 (VTI) 不會變更為 「 向上 」 IKE 階段 2 完成為止。 下列命令會驗證安全性關聯：
+虛擬通道介面 (VTI) 上的線路通訊協定在 IKE 階段 2 完成之前，不會變更為「啟動」。 下列命令會驗證安全性關聯：
 
 ```
 csr1#show crypto ikev2 sa
@@ -600,9 +600,9 @@ csr1#show crypto ipsec sa | inc encaps|decaps
     #pkts decaps: 746, #pkts decrypt: 746, #pkts verify: 746
 ```
 
-### <a name="verifye2e"></a>確認內部之間的端對端連線的網路內部部署與 Azure VNet
+### <a name="verifye2e"></a>驗證網路內部部署內部與 Azure VNet 之間的端對端連線
 
-如果 IPsec 通道都已啟動且已正確設定的靜態路由，您應該能夠 ping 遠端 BGP 對等體的 IP 位址：
+如果 IPsec 通道已啟動且靜態路由設定正確，則您應該能夠 Ping 遠端 BGP 對等的 IP 位址：
 
 ```
 csr1#ping 10.2.0.228
@@ -618,9 +618,9 @@ Sending 5, 100-byte ICMP Echos to 10.2.0.229, timeout is 2 seconds:
 Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 ```
 
-### <a name="verifybgp"></a>確認 IPsec 透過 BGP 工作階段
+### <a name="verifybgp"></a>透過 IPsec 驗證 BGP 工作階段
 
-Azure VPN 閘道，請確認 BGP 對等的狀態：
+在 Azure VPN 閘道上，驗證 BGP 對等的狀態：
 
 ```powershell
 Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
@@ -636,13 +636,13 @@ Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw 
 65000 07:13:51.0109601  10.2.0.228              507          500   10.2.0.229               6 Connected
 ```
 
-若要確認收到透過 eBGP VPN 集訊器在從內部網路首碼的清單，您可以篩選由屬性"Origin":
+若要驗證透過 VPN 集訊器內部部署的 eBGP 收到的網路首碼清單，您可以依屬性"Origin" 進行篩選：
 
 ```powershell
 Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
-在此範例輸出，ASN 65010 是在 VPN 內部 BGP 自發系統編號。
+在範例輸出中，ASN 65010 是 VPN 內部部署中的 BGP 自發系統編號。
 
 ```powershell
 AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
@@ -651,7 +651,7 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 65010  10.2.0.228   10.0.0.0/24  172.16.0.10 EBgp   172.16.0.10  32768
 ```
 
-若要查看的通告的路由清單：
+查看通告的路由清單：
 
 ```powershell
 Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
@@ -670,7 +670,7 @@ AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 65010  10.2.0.229   10.0.0.0/24    10.2.0.229 Igp                  0
 ```
 
-例如，在內部部署 Cisco CSR1000:
+內部部署 Cisco CSR1000 的範例：
 
 ```
 csr1#show ip bgp neighbors 10.2.0.228 routes
@@ -691,7 +691,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 4
 ```
 
-可以使用下列命令會列出公告從內部部署 Cisco CSR1000 Azure VPN 閘道的網路清單：
+您可以使用下列命令，列出從內部部署 Cisco CSR1000 向 Azure VPN 閘道通告的網路清單：
 
 ```powershell
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes
@@ -714,4 +714,4 @@ Total number of prefixes 2
 
 * [設定 ExpressRoute 線路的網路效能監視器](how-to-npm.md)
 
-* [新增站對站連線至現有的 VPN 閘道連線的 VNet](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [將站對站連線新增至具有現有 VPN 閘道連線的 VNet](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

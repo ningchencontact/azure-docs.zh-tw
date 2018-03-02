@@ -1,7 +1,7 @@
 ---
 title: "Azure Cosmos DB 的伺服器端 JavaScript 程式設計 | Microsoft Docs"
 description: "了解如何使用 Azure Cosmos DB 來撰寫 JavaScript 預存程序、資料庫觸發程序和使用者定義函數 (UDF)。 取得資料庫程式設計秘訣等等。"
-keywords: "資料庫觸發程序、 預存程序、 預存程序、 資料庫程式、 預存程序、 azure、 Microsoft azure"
+keywords: "資料庫觸發程序, 預存程序, 預存程序, 資料庫程式, sproc, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -17,7 +17,7 @@ ms.date: 12/07/2017
 ms.author: andrl
 ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/14/2017
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/14/2017
   * 它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。 這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
   * 這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-建立和執行的資料庫觸發程序、 預存程序和自訂查詢運算子透過支援[Azure 入口網站](https://portal.azure.com)、 [REST API](/rest/api/documentdb/)， [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)，和[用戶端 Sdk](sql-api-sdk-dotnet.md)用於多種平台包括.NET、 Node.js 和 JavaScript。
+許多平台 (包括 .NET、Node.js 和 JavaScript) 都透過 [Azure 入口網站](https://portal.azure.com)、[REST API](/rest/api/documentdb/)、[Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 和[用戶端 SDK](sql-api-sdk-dotnet.md)來支援建立和執行資料庫觸發程序、預存程序及自訂查詢運算子。
 
 本教學課程使用 [Node.js SDK 搭配 Q Promises](http://azure.github.io/azure-documentdb-node-q/) 來說明預存程序、觸發程序及 UDF 的語法和用法。   
 
@@ -440,7 +440,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 有一點務必要注意，那就是在 Cosmos DB 中觸發程序的「交易式」執行。 此後續觸發程序會在與建立原始文件時的相同交易過程中執行。 因此，如果從後續觸發程序擲出例外狀況 (例如，如果我們無法更新中繼資料文件的話)，則整個交易會失敗並予以回復。 此時不會建立任何文件，並且會傳回例外狀況。  
 
 ## <a id="udf"></a>使用者定義函數
-使用者定義函數 (Udf) 可用來擴充 Azure Cosmos DB SQL 查詢語言文法和實作自訂商務邏輯。 UDF 只能從內部查詢進行呼叫。 它們無法存取內容物件，只能做為計算用途的 JavaScript。 因此，UDF 可以在 Cosmos DB 服務的次要複本上執行。  
+使用者定義的函式 (UDF) 可用來擴充 Azure Cosmos DB SQL 查詢語言文法及實作自訂商務邏輯。 UDF 只能從內部查詢進行呼叫。 它們無法存取內容物件，只能做為計算用途的 JavaScript。 因此，UDF 可以在 Cosmos DB 服務的次要複本上執行。  
 
 下列範例會建立 UDF，根據各種收入級距的稅率計算所得稅，然後在查詢內使用它來尋找繳稅超過 $20,000 的所有人員。
 
@@ -482,7 +482,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript Language Integrated Query API
-除了發出查詢使用 Azure Cosmos DB 的 SQL 文法，伺服器端 SDK 可讓您執行使用 fluent 應用程式開發的 JavaScript 介面，而不知道任何 SQL 最佳化的查詢。 JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。 JavaScript 執行階段會剖析查詢，以使用 Azure Cosmos DB 的索引有效地執行該查詢。
+除了使用 Azure Cosmos DB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。 JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。 JavaScript 執行階段會剖析查詢，以使用 Azure Cosmos DB 的索引有效地執行該查詢。
 
 > [!NOTE]
 > `__` (雙底線) 是 `getContext().getCollection()` 的別名。
@@ -645,7 +645,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 
 
 ## <a name="runtime-support"></a>執行階段支援
-Azure Cosmos DB [JavaScript 伺服器端應用程式開發介面](http://azure.github.io/azure-documentdb-js-server/)提供支援的主流 JavaScript 語言功能，以標準化的大多數[ecma-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)。
+Azure Cosmos DB [JavaScript 伺服器端 API](http://azure.github.io/azure-documentdb-js-server/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 作為標準的大部分主流 JavaScript 語言功能。
 
 ### <a name="security"></a>安全性
 JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料庫層級的快照交易隔離機制，否則某個指令碼的效果不會傳遞到另一個指令碼。 每次執行之後，都會對執行階段環境進行集區化處理，但會清除內容。 因此，環境與環境彼此之間絕對不會有任何未預期的副作用。
@@ -654,7 +654,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 預存程序、觸發程序和 UDF 會隱含地預先編譯為位元組程式碼格式，以避免掉每次叫用指令碼時的編譯成本。 這種作法可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
 ## <a name="client-sdk-support"></a>用戶端 SDK 支援
-除了 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 或 Azure Cosmos DB 受到[.NET](sql-api-sdk-dotnet.md)， [.NET Core](sql-api-sdk-dotnet-core.md)， [Java](sql-api-sdk-java.md)， [JavaScript](http://azure.github.io/azure-documentdb-js/)，和[Python Sdk](sql-api-sdk-python.md) SQL API 的。 使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。 下列範例說明如何使用 .NET 用戶端建立和執行預存程序。 請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
+除了 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 之外，Azure Cosmos DB 也具有適用於 SQL API 的 [.NET](sql-api-sdk-dotnet.md)、[.NET Core](sql-api-sdk-dotnet-core.md)、[Java](sql-api-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和 [Python SDK](sql-api-sdk-python.md)。 使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。 下列範例說明如何使用 .NET 用戶端建立和執行預存程序。 請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -687,7 +687,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-這個範例示範如何使用[SQL.NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)建立前的觸發程序並啟用的觸發程序建立文件。 
+此範例示範如何使用 [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) 來建立預先觸發程序，以及建立已啟用觸發程序的文件。 
 
     Trigger preTrigger = new Trigger()
     {
@@ -708,7 +708,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
         });
 
 
-與下列範例示範如何建立使用者定義函數 (UDF)，並使用它在[SQL 查詢](sql-api-sql-query.md)。
+下列範例則說明如何建立使用者定義函式 (UDF) 並將它用於 [SQL 查詢](sql-api-sql-query.md)中。
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

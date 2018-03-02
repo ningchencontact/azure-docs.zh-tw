@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
 ---
@@ -34,19 +34,19 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 > * 從解決方案中呼叫裝置方法。
 > * 重新設定裝置。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
 如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)教學課程。
 
-## <a name="add-a-simulated-device"></a>新增模擬的裝置
+## <a name="add-a-simulated-device"></a>新增模擬裝置
 
-瀏覽至**裝置**方案中的頁面，然後選擇**新裝置**。 在**新裝置** 面板中，選擇**Simulated**:
+瀏覽至解決方案中的 [裝置] 頁面，然後選擇 [新增裝置]。 在 [新增裝置] 面板中，選擇 [模擬]：
 
 ![佈建模擬的裝置](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-將要佈建的裝置數目設定保留為 **1**。 選擇**故障引擎**為**裝置型號**，然後選擇 **套用**建立模擬的裝置：
+將要佈建的裝置數目設定保留為 **1**。 選擇 [故障引擎] 作為 [裝置型號]，然後選擇 [套用] 以建立模擬的裝置：
 
 ![佈建模擬的引擎裝置](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 ## <a name="act-on-a-device"></a>在裝置上採取行動
 
-若要做一或多個裝置上，在裝置清單中選取它們，然後選擇 **排程**。 **引擎**裝置型號會指定裝置必須支援的四種方法：
+若要在一或多個裝置上採取行動，請在裝置清單中進行選取，然後選擇 [排程]。 **引擎**裝置型號會指定裝置必須支援的四種方法：
 
 ![引擎方法](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 ![排程重新啟動方法](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-若要追蹤工作的狀態上**維護**頁面上，選擇**作業**:
+若要在 [維護] 頁面上追蹤作業的狀態，請選擇 [作業]：
 
 ![監視排程作業](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 ![更新裝置屬性值](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-若要追蹤工作的狀態上**維護**頁面上，選擇**作業**。
+若要在 [維護] 頁面上追蹤作業的狀態，請選擇 [作業]。
 
 ## <a name="next-steps"></a>後續步驟
 

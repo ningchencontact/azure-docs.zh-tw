@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>自行車共享教學課程：使用 Azure Machine Learning Workbench 的進階資料準備
 Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科學，以及進階分析解決方案，適用於專業資料科學家準備資料、開發實驗並部署雲規模模型。
@@ -27,15 +27,17 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 > * 產生資料準備封裝
 > * 使用 Python 執行資料準備封裝
 > * 針對其他輸入檔案重複使用資料準備封裝以產生訓練資料集
+> * 在本機 Azure CLI 視窗中執行指令碼。
+> * 在雲端 Azure HDInsight 環境中執行指令碼。
 
-> [!IMPORTANT]
-> 本教學課程只會準備資料，不會建立預測模型。
->
-> 您可以使用準備的資料來定型您自己的預測模型。 例如，您可以建立一個模型來預測 2 小時期間內的自行車需求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure Machine Learning Workbench 必須安裝在本機上。 如需詳細資訊，請遵循[安裝快速入門](quickstart-installation.md)。
+* 如果您尚未安裝 Azure CLI，請遵循指示以 [安裝最新的 Azure CLI 版本]。(https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [HDInsights Spark 叢集](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)必須在 Azure 中建立。
+* Azure 儲存體帳戶。
 * 熟悉在 Workbench 中建立新專案。
+* 雖然並非必要，但是安裝 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)很有幫助，讓您可以上傳、下載及檢視儲存體帳戶中的 Blob。 
 
 ## <a name="data-acquisition"></a>資料擷取
 本教學課程使用來自 [NOAA](http://www.noaa.gov/)的[波士頓 Hubway 資料集](https://s3.amazonaws.com/hubway-data/index.html)與波士頓天氣資料。
@@ -53,6 +55,22 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. 解壓縮下載後的每個 .zip 檔案。
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>將資料檔案上傳至 Azure Blob 儲存體
+您可以使用 Blob 儲存體來裝載您的資料檔案。
+
+1. 使用與用於 HDInsight 叢集相同的 Azure 儲存體帳戶。
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. 建立名為 '**data-files**' 的新容器以儲存 BikeShare 資料檔案。
+
+3. 上傳資料檔案。 將 `BostonWeather.csv` 上傳到名為 `weather` 的資料夾，然後將資料檔案路由到名為 `tripdata` 的資料夾。
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> 您也可以使用 **Azure 儲存體總管**來上傳 Blob。 當您想要檢視一樣在教學課程中產生之任何檔案的內容時，可以使用這個工具。
 
 ## <a name="learn-about-the-datasets"></a>深入了解資料集
 1. __波士頓天氣__檔案包含下列天氣相關欄位，每小時進行回報：
@@ -78,7 +96,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 1. 從您的開始功能表或啟動程式啟動 **Azure Machine Learning Workbench**。
 
 2. 建立新的 Azure Machine Learning 專案。  按一下 [專案] 頁面上的 **+** 按鈕，或按一下 [檔案] > [新增]。
-   - 使用**空白專案**範本。
+   - 使用 **Bike Share** 範本。
    - 將您的專案命名為 **BikeShare**。 
 
 ## <a id="newdatasource"></a>建立新的資料來源
@@ -97,9 +115,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    ![「檔案/目錄」項目的映像](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **檔案選擇**：新增天氣資料。 瀏覽並選取您稍早下載的 `BostonWeather.csv` 檔案。 按 [下一步] 。
+2. **檔案選擇**：新增天氣資料。 瀏覽並選取您稍早上傳到 __Azure Blob 儲存體__的 `BostonWeather.csv` 檔案。 按 [下一步] 。
 
-   ![包含所選取 BostonWeater.csv 之檔案選取的映像](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![包含所選取 BostonWeater.csv 之檔案選取的映像](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **檔案詳細資料**：確認偵測到的檔案結構描述。 Azure Machine Learning Workbench 會分析檔案中的資料，並推測要使用的結構描述。
 
@@ -136,9 +154,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    若要繼續，請選取 [下一步]。 
 
-5. **取樣**：若要建立取樣配置，請選取 [+ 新增] 按鈕。 選取新增的__前 10000 個__資料列，然後選取 [編輯]。 將__取樣策略__設為**完整檔案**，然後選取 [套用]。
+5. **取樣**：若要建立取樣配置，請選取 [編輯] 按鈕。 選取新增的__前 10000 個__資料列，然後選取 [編輯]。 將__取樣策略__設為**完整檔案**，然後選取 [套用]。
 
-   ![新增取樣策略的映像](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![新增取樣策略的映像](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    若要使用__完整檔案__策略，請選取 [完整檔案] 項目，然後選取 [設定為使用中]。 __完整檔案__旁會出現星號，表示它是使用中的策略。
 
@@ -223,6 +241,8 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    若要移除帶有錯誤的資料列，請用滑鼠右鍵按一下 **HOURLYDRYBULBTEMPF** 資料行標題。 選取 [篩選資料行]。 使用預設的 [我想要] 作為 [保留資料列]。 變更 [條件] 下拉式功能表，以選取 [不是錯誤]。 選取 [確定] 以套用篩選條件。
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. 若要排除其他資料行中剩餘的錯誤資料列，請針對 **HOURLYRelativeHumidity** 和 **HOURLYWindSpeed** 資料行重覆此篩選程序。
 
 ## <a name="use-by-example-transformations"></a>使用實例化轉換
@@ -261,7 +281,10 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    > [!NOTE]
    > Azure ML Workbench 會根據您所提供的範例合成程式，並在其餘資料列上套用相同的程式。 所有其他資料列會根據您提供的範例自動填入。 Workbench 也會分析您的資料，並嘗試找出邊緣案例。 
-  
+
+   > [!IMPORTANT]
+   > 識別邊緣可能無法在 Mac 的目前版本 Workbench 上運作。 在 Mac 上略過以下的__步驟 3__和__步驟 4__。 而是按下__確定__之後，所有資料列都會填入衍生值。
+   
 3. 格線上方的文字**分析資料**表示 Workbench 正嘗試偵測的邊緣案例。 完成時，狀態會變更為**檢閱下一個建議的資料列**或**沒有建議**。 在此範例中，會傳回**檢閱下一個建議的資料列**。
 
 4. 若要檢閱建議的變更，請選取 [檢閱下一個建議的資料列]。 顯示畫面上會醒目提示您應該檢閱並 (視需要) 更正的資料列。
@@ -291,6 +314,11 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    ![範例 `Jan 01, 2015 12AM-2AM 的映像](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > 在 Mac 上，請遵循下列步驟，而不是以下的__步驟 8__。
+   >
+   > * 移至包含 `Feb 01, 2015 12AM-2AM` 的第一個資料格。 它應該是__資料列 15__。 更正 `Jan 02, 2015 12AM-2AM` 的值，然後按 __Enter__ 鍵。 
+   
 
 8. 等待狀態從**分析資料**變更至**檢閱下一個建議的資料列**。 這可能需要數秒鐘的時間。 選取狀態連結，以巡覽至建議的資料列。 
 
@@ -306,6 +334,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
    > [!TIP]
    > 您可以按一下 [步驟] 窗格，以針對此步驟使用**衍生資料行實例化**的進階模式。 在資料格線中，資料行名稱 **DATE\_1** 和 **Hour Range** 資料行旁有核取方塊。 取消勾選 **Hour Range** 資料行旁的核取方塊，以查看此動作如何改變輸出。 如果輸入項目中沒有 **Hour Range** 資料行，則會將 **12AM-2AM** 視為常數，並附加至衍生的值。 選取 [取消] 以返回主要格線，而不套用變更。
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. 若要重新命名資料行，請按兩下標頭。 將名稱變更為 **Date Hour Range**，然後按 **Enter**。
 
@@ -331,7 +360,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
 將數值資料行中的資料變更為 0-1 的範圍，可快速地聚合某些模型。 目前沒有任何內建的轉換，以一般方式執行此轉換，但 Python 指令碼可以用來執行這項作業。
 
-1. 從 [轉換] 功能表，選取 [Transform Dataflow]\(轉換資料流程\)。
+1. 從 [轉換] 功能表，選取 [Transform Dataflow (Script)\] (轉換資料流程 (指令碼)\)。
 
 2. 在出現的文字方塊中輸入下列程式碼。 如果您已使用該資料行名稱，程式碼應該不會修改而直接運作。 您使用 Python 撰寫簡單的最小值-最大值正規化邏輯。
 
@@ -372,6 +401,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
 1. 若要匯入 `201701-hubway-tripdata.csv` 檔案，請使用[建立新的資料來源](#newdatasource)一節中的步驟。 在匯入程序期間，使用下列選項：
 
+    * __檔案選取__：當瀏覽以選取檔案時，選取 [Azure Blob]。
     * __取樣配置__：**完整檔案**取樣配置，讓此樣本處於使用中狀態，以及 
     * __資料類型__：接受預設值。
 
@@ -505,7 +535,12 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
     > 您可以對任何資料列提供範例。 對於此範例，`Jan 01, 2017 12AM-2AM` 值適用於第一個資料列。
 
     ![範例資料的映像](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > 在 Mac 上，請遵循下列步驟，而不是以下的__步驟 3__。
+   >
+   > * 移至包含 `Jan 01, 2017 1AM-2AM` 的第一個資料格。 它應該是__資料列 14__。 更正 `Jan 01, 2017 12AM-2AM` 的值，然後按 __Enter__ 鍵。 
+
 3. 等待應用程式計算所有資料列的值。 這可能需要數秒鐘的時間。 分析完成後，使用__檢閱下一個建議的資料列__連結，以檢閱資料。
 
    ![使用檢閱連結完成分析的映像](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ df.head(10)
 
 ## <a name="save-test-data-as-a-csv-file"></a>將測試資料儲存為 CSV 檔案
 
-若要將**聯結結果**資料流程儲存為 .CSV 檔案，您必須變更 `BikeShare Data Prep.py` 指令碼。 使用下列程式碼更新 Python 指令碼：
+若要將**聯結結果**資料流程儲存為 .CSV 檔案，您必須變更 `BikeShare Data Prep.py` 指令碼。 
 
-```python
-from azureml.dataprep.package import run
+1. 在 VSCode 中開啟要編輯的專案。
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. 使用下列程式碼更新 `BikeShare Data Prep.py` 檔案中的 Python 指令碼：
 
-從畫面頂端選取 [執行]。 指令碼已在本機電腦上提交為**作業**。 當作業狀態變更為__已完成__之後，檔案已寫入指定的位置。
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. 將 `Your Azure Storage blob path` 取代為建立之輸出檔案的路徑。 取代 `blobfolder` 和 `csvfiles` 變數。
+
+## <a name="create-hdinsight-run-configuration"></a>建立 HDInsight 執行設定
+
+1. 在 Azure Machine Learning Workbench 中，開啟命令列視窗，選取 [檔案] 功能表，然後選取 [開啟命令提示字元]。 您的命令提示字元會從專案資料夾的提示字元 `C:\Projects\BikeShare>` 開始。
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >您必須使用命令列視窗 (從 Workbench 開啟)，來完成後續步驟。
+
+2. 使用命令提示字元登入 Azure。 
+
+   對 Azure 資源進行驗證時，Workbench 應用程式和 CLI 會使用獨立的認證快取。 您只需要執行這項操作一次，直到快取的權杖過期為止。 `az account list` 命令會傳回可供您的登入使用的訂用帳戶清單。 如果有一個以上，請使用所需訂用帳戶中的識別碼值。 將該訂用帳戶設為預設帳戶來與 `az account set -s` 命令搭配使用，然後再提供訂用帳戶識別碼值。 然後使用帳戶 `show` 命令來確認設定。
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. 建立 HDInsight 執行設定。您需要叢集名稱和 sshuser 密碼。
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> 建立空白的專案時，預設執行設定是**本機**和 **docker**。 這個步驟會建立新的執行設定，當您執行指令碼時適用於 **Azure Machine Learning Workbench**。 
+
+## <a name="run-in-hdinsight-cluster"></a>在 HDInsight 叢集中執行
+
+返回 **Azure Machine Learning Workbench** 應用程式以在 HDInsight 叢集中執行指令碼。
+
+1. 藉由按一下左側的「首頁」圖示，返回您專案的主畫面。
+
+2. 從下拉式清單選取 [hdinsight]，以在 HDInsight 叢集中執行指令碼。
+
+3. 從畫面頂端選取 [執行]。 指令碼已提交為**作業**。 當作業狀態變更為__已完成__之後，檔案已寫入 **Azure 儲存體容器**的指定位置。
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>取代資料來源
 
@@ -608,7 +719,7 @@ df.to_csv('Your Test Data File Path here')
 
     * __檔案選取__：選取檔案時，複選剩餘的六個路線 tripdata .CSV 檔案。
 
-        ![載入六個剩餘檔案](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![載入六個剩餘檔案](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > __+ 5__ 項目表示除了列出的檔案以外，還有五個附加檔案。
@@ -619,11 +730,13 @@ df.to_csv('Your Test Data File Path here')
 
    請儲存此資料來源的名稱，因為會在後續步驟中使用。
 
-2. 選取資料夾圖示，以檢視專案中的檔案。 展開 __aml\_config__ 目錄，然後選取 `local.runconfig` 檔案。
+2. 選取資料夾圖示，以檢視專案中的檔案。 展開 __aml\_config__ 目錄，然後選取 `hdinsight.runconfig` 檔案。
 
-    ![local.runconfig 位置的映像](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![hdinsight.runconfig 位置的映像](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. 在 `local.runconfig` 檔案的結尾新增下列行，然後選取磁碟圖示以儲存檔案。
+3. 按一下 [編輯] 按鈕，以在 VSCode 中開啟檔案。
+
+4. 在 `hdinsight.runconfig` 檔案的結尾新增下列行，然後選取磁碟圖示以儲存檔案。
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ df.to_csv('Your Test Data File Path here')
 巡覽至您稍早編輯的 Python 檔案 `BikeShare Data Prep.py`，並提供不同的檔案路徑以儲存定型資料。
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-若要提交新的作業，請使用頁面頂端的**執行**圖示。 使用新的設定提交**作業**。 此作業的輸出即為定型資料。 這項資料是使用您稍早建立的相同資料準備步驟所建立。 完成這項作業可能需要幾分鐘的時間。
+1. 針對定型資料輸出使用資料夾名稱 `traindata`。
+
+2. 若要提交新的作業，請使用頁面頂端的**執行**圖示。 確定已選取 [hdinsight]。 使用新的設定提交**作業**。 此作業的輸出即為定型資料。 這項資料是使用您稍早建立的相同資料準備步驟所建立。 完成這項作業可能需要幾分鐘的時間。
+
 
 ## <a name="next-steps"></a>後續步驟
 您已完成「自行車共享資料準備」教學課程。 在本教學課程中，您使用 Azure Machine Learning 服務 (預覽) 了解如何：

@@ -1,6 +1,6 @@
 ---
-title: "設定連接的工廠拓撲 |Microsoft 文件"
-description: "如何設定連接工廠的拓樸預先設定的解決方案。"
+title: "設定連線的工廠拓撲 | Microsoft Docs"
+description: "如何設定連線的工廠拓撲預先設定的解決方案。"
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -16,61 +16,61 @@ ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/02/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>設定連接的工廠預先設定的解決方案
+# <a name="configure-the-connected-factory-preconfigured-solution"></a>設定連線的工廠預先設定的解決方案
 
-預先設定連接的工廠方案顯示虛構公司 Contoso 模擬儀表板。 此公司許多全域位置中已處理站的全域。
+連線的工廠預先設定的解決方案會針對虛構公司 Contoso 顯示模擬的儀表板。 此公司在全球許多地點都有工廠。
 
-描述如何設定連接的工廠解決方案的拓撲，本文會使用 Contoso 做為範例。
+此文章使用 Contoso 作為範例，描述如何為連線的工廠解決方案設定拓撲。
 
-## <a name="simulated-factories-configuration"></a>模擬的處理站組態
+## <a name="simulated-factories-configuration"></a>模擬的工廠設定
 
-每個 Contoso 工廠有三個站台所組成的實際執行線。 每個站台是實際的 OPC UA 伺服器與特定角色：
+每個 Contoso 工廠都有各由三個站台所組成的生產線。 每個站台都是具有特定角色的實際 OPC UA 伺服器：
 
 * 組件站台
 * 測試站台
-* 封裝的站台
+* 封裝站台
 
-這些 OPC UA 伺服器有 OPC UA 節點和[OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher)會將這些節點的值傳送至連接的 factory。 其中包括：
+這些 OPC UA 伺服器會讓 OPC UA 節點和 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher)將這些節點的值傳送至連線的工廠。 其中包括：
 
-* 例如目前的功率耗用量的目前操作狀態。
-* 所產生的實際執行環境資訊，例如產品數目。
+* 目前的操作狀態，例如目前的耗電量。
+* 生產資訊，例如所生產的產品數目。
 
-您可以使用儀表板，Contoso factory 拓樸，從全域檢視站台層級檢視向下鑽研。 連線的 factory 儀表板可讓您︰
+您可以使用儀表板將 Contoso 工廠拓撲從全球檢視向下鑽研到站台層級檢視。 連線的工廠儀表板允許：
 
-* 針對拓撲中每個圖層的 OEE 和 KPI 圖形的視覺效果。
-* 在站台的 OPC UA 節點的目前值的視覺效果。
-* OEE 和 KPI 圖形的站台層級從全域層級彙總。
-* 警示和值到達特定閾值時所要執行動作的視覺效果。
+* 針對拓撲中的每個圖層，將 OEE 和 KPI 數據視覺化。
+* 將站台中 OPC UA 節點的目前值視覺化。
+* 將 OEE 和 KPI 數據從站台層級彙總到全球層級。
+* 在值達到特定閾值時，將警示和要執行的動作視覺化。
 
-## <a name="connected-factory-topology"></a>連線的 factory 拓樸
+## <a name="connected-factory-topology"></a>連線的工廠拓撲
 
-處理站、 生產線條，以及站台的拓撲是階層式：
+工廠、生產線和站台的拓撲是階層式：
 
-* 全域層級有 factory 節點做為子系。
-* 處理站有生產線節點做為子系。
-* 生產線具有工作站節點做為子系。
-* 站台 （OPC UA 伺服器） 具有 OPC UA 節點做為子系。
+* 全球層級將工廠節點當作子系。
+* 工廠將生產線節點當作子系。
+* 生產線將站台節點當作子系。
+* 站台 (OPC UA 伺服器) 將 OPC UA 節點當作子系。
 
-拓撲中的每個節點有一組共同定義的屬性：
+拓撲中的每個節點都有一組共同的屬性，這些屬性定義：
 
-* 拓撲節點唯一識別碼。
-* 的名稱。
+* 拓撲節點的唯一識別碼。
+* 名稱。
 * 描述。
-* 映像。
+* 影像。
 * 拓撲節點的子系。
-* 最小值、 目標和 OEE 和 KPI 數字和警示的動作執行的最大值。
+* OEE 和 KPI 數據的最小值、目標值和最大值與要執行的警示動作。
 
-## <a name="topology-configuration-file"></a>拓撲組態檔
+## <a name="topology-configuration-file"></a>拓撲設定檔
 
-若要設定上一節中所列的屬性，已連線的 factory 解決方案會使用組態檔稱為[ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json)。
+為設定上一節中所列的屬性，連線的工廠解決方案會使用稱為 [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json) 的設定檔。
 
-您可以找到這個檔案中的方案原始程式碼中`WebApp/Contoso/Topology`資料夾。
+您可以在 `WebApp/Contoso/Topology` 資料夾的解決方案原始程式碼中找到這個檔案。
 
-下列程式碼片段顯示的外框`ContosoTopologyDescription.json`組態檔：
+下列程式碼片段顯示 `ContosoTopologyDescription.json` 設定檔的大綱：
 
 ```json
 {
@@ -90,237 +90,237 @@ ms.lasthandoff: 01/02/2018
 }
 ```
 
-通用屬性`<global_configuration>`， `<factory_configuration>`， `<production_line_configuration>`，和`<station_configuration>`是：
+`<global_configuration>`、`<factory_configuration>`、`<production_line_configuration>` 和 `<station_configuration>` 的通用屬性是：
 
-* **名稱**（輸入字串）
+* **Name** (字串類型)
 
-  定義的描述性名稱，它應該只有一個拓撲節點，以在儀表板中顯示文字。
+  定義描述性名稱，這應該是拓撲節點在儀表板中顯示的唯一一個文字。
 
-* **描述**（輸入字串）
+* **Description** (字串類型)
 
-  描述更詳細的拓撲節點。
+  更詳細描述拓撲節點。
 
-* **映像**（輸入字串）
+* **Image** (字串類型)
 
-  WebApp 方案以顯示當拓撲節點有關的資訊會顯示儀表板中的映像的路徑。
+  WebApp 解決方案中影像的路徑，可在儀表板中顯示拓撲節點相關資訊時顯示。
 
-* **OeeOverall**， **OeePerformance**， **OeeAvailability**， **OeeQuality**， **Kpi1**， **Kpi2**(型別`<performance_definition>`)
+* **OeeOverall**、**OeePerformance**、**OeeAvailability**、**OeeQuality**、**Kpi1**、**Kpi2** (類型 `<performance_definition>`)
 
-  這些屬性定義最小、 目標和最大值的作業圖用來產生警示。 這些屬性也會定義如果偵測到警示時執行的動作。
+  這些屬性定義產生警示所使用之操作數據的最小值、目標值和最大值。 這些屬性也會定義偵測到警示時要執行的動作。
 
-`<factory_configuration>`和`<production_line_configuration>`項目具有屬性：
+`<factory_configuration>` 和 `<production_line_configuration>` 項目具有屬性：
 
-* **Guid** （輸入字串）
+* **Guid** (字串類型)
 
-  唯一識別拓撲節點。
+  可唯一識別拓撲節點。
 
-`<factory_configuration>`具有屬性：
+`<factory_configuration>` 具有屬性：
 
-* **位置**(型別`<location_definition>`)
+* **Location** (類型 `<location_definition>`)
 
-  指定之處理站所在的位置。
+  指定工廠所在位置。
 
-`<station_configuration>`具有屬性：
+`<station_configuration>` 具有屬性：
 
-* **OpcUri** （輸入字串）
+* **OpcUri** (字串類型)
 
-  這個屬性必須設定的 OPC UA 伺服器 OPC UA 應用程式的 uri。
-  它必須是全域唯一 OPC UA 規格，因為這個屬性用來識別站台拓撲節點。
+  此屬性必須設定為 OPC UA 伺服器的 OPC UA 應用程式 URI。
+  依照 OPC UA 規格，此屬性必須是全域唯一的，因此可用來識別站台拓撲節點。
 
-* **OpcNodes**，其為 OPC UA 節點陣列 (型別`<opc_node_description>`)
+* **OpcNodes**，它是 OPC UA 節點的陣列 (類型 `<opc_node_description>`)
 
-`<location_definition>`具有屬性：
+`<location_definition>` 具有屬性：
 
-* **縣 （市)** （輸入字串）
+* **City** (字串類型)
 
-  最接近位置城市的名稱
+  最接近位置之城市的名稱
 
-* **國家/地區**（輸入字串）
+* **Country** (字串類型)
 
-  位置的國家/地區
+  位置所在的國家/地區
 
-* **緯度**（double 類型）
+* **Latitude** (雙精確度類型)
 
   位置的緯度
 
-* **經度**（double 類型）
+* **Longitude** (雙精確度類型)
 
-  經度的位置
+  位置的經度
 
-`<performance_definition>`具有屬性：
+`<performance_definition>` 具有屬性：
 
-* **最小值**（double 類型）
+* **Minimum** (雙精確度類型)
 
-  可達到臨界值下限值。 如果目前的值是低於此閾值，則會產生警示。
+  值可達到的閾值下限。 如果目前的值低於此閾值，則會產生警示。
 
-* **目標**（double 類型）
+* **Target** (雙精確度類型)
 
   理想的目標值。
 
-* **最大**（double 類型）
+* **Maximum** (雙精確度類型)
 
-  可能會達到上限臨界值的值。 如果目前的值高於此臨界值，則會產生警示。
+  值可達到的閾值上限。 如果目前的值高於此閾值，則會產生警示。
 
-* **MinimumAlertActions** (型別`<alert_action>`)
+* **MinimumAlertActions** (類型 `<alert_action>`)
 
-  定義可以做為最小的警示回應採取的動作集合。
+  定義可當作最小值警示回應所採取的一組動作。
 
-* **MaximumAlertActions** (型別`<alert_action>`)
+* **MaximumAlertActions** (類型 `<alert_action>`)
 
-  定義可以做為最大警示回應採取的動作集合。
+  定義可當作最大值警示回應所採取的一組動作。
 
 `<alert_action`> 具有屬性：
 
-* **型別**（輸入字串）
+* **Type** (字串類型)
 
-  警示的動作類型。 已知下列類型：
+  警示動作的類型。 下面列出已知類型：
 
-  * **AcknowledgeAlert**： 警示的狀態應該變更為已認可。
-  * **CloseAlert**： 相同類型的所有較舊的警示不會再應該會顯示在儀表板。
-  * **CallOpcMethod**: OPC UA 方法應該呼叫。
-  * **OpenWebPage**： 應開啟瀏覽器視窗，顯示其他內容的相關資訊。
+  * **AcknowledgeAlert**：警示的狀態應該變更為已認可。
+  * **CloseAlert**：相同類型的所有較舊警示應該不會再顯示在儀表板中。
+  * **CallOpcMethod**：應該呼叫 OPC UA 方法。
+  * **OpenWebPage**：應該開啟可顯示其他內容相關資訊的瀏覽器視窗。
 
-* **描述**（輸入字串）
+* **Description** (字串類型)
 
   儀表板中顯示的動作描述。
 
-* **參數**（輸入字串）
+* **Parameter** (字串類型)
 
-  若要執行此動作所需的參數。 值取決於動作類型。
+  執行動作所需的參數。 此值取決於動作類型。
 
-  * **AcknowledgeAlert**： 沒有所需的參數。
-  * **CloseAlert**： 沒有所需的參數。
-  * **CallOpcMethod**： 呼叫格式 」 的父節點，節點識別碼的方法呼叫，OPC UA 伺服器 URI 的 NodeId。 」 的 OPC UA 方法的參數與節點資訊
-  * **OpenWebPage**： 要在瀏覽器視窗中顯示的 URL。
+  * **AcknowledgeAlert**：不需要參數。
+  * **CloseAlert**：不需要參數。
+  * **CallOpcMethod**：以「父節點的 NodeId、要呼叫之方法的 NodeId、OPC UA 伺服器的 URI」格式呼叫之 OPC UA 方法的節點資訊與參數。
+  * **OpenWebPage**：要在瀏覽器視窗中顯示的 URL。
 
-`<opc_node_description>`包含 OPC UA 節點中的站台 （OPC UA 伺服器） 的相關資訊。 代表沒有現有的 OPC UA 節點，但會做為儲存體連接的原廠的計算邏輯中的節點也是有效的。 它有下列屬性：
+`<opc_node_description>` 包含站台 (OPC UA 伺服器) 中 OPC UA 節點的相關資訊。 代表沒有現有 OPC UA 節點，但會當作連線工廠之計算邏輯中的儲存體使用的也有效。 它具有下列屬性：
 
-* **NodeId** （輸入字串）
+* **NodeId** (字串類型)
 
-  OPC UA 工作站 （OPC UA 伺服器的） 中的節點位址空間的位址。 必須是語法 NodeId 的 OPC UA 規格中所指定。
+  站台 (OPC UA 伺服器) 的位址空間中 OPC UA 節點的位址。 語法必須如在 OPC UA 規格中為 NodeId 所指定的語法。
 
-* **SymbolicName** （輸入字串）
+* **SymbolicName** (字串類型)
 
-  顯示這個 OPC UA 節點的值時，儀表板中顯示的名稱。
+  顯示此 OPC UA 節點的值時，要在儀表板中顯示的名稱。
 
-* **相關性**（string 型別陣列）
+* **Relevance** (字串類型的陣列)
 
-  表示 OEE 或 KPI OPC UA 節點值的計算是相關。 每個陣列元素可以是下列值之一：
+  指出與 OPC UA 節點值相關的 OEE 或 KPI 計算。 每個陣列元素都可以是下列其中一個值：
 
-  * **OeeAvailability_Running**: OEE 可用性的計算值無關。
-  * **OeeAvailability_Fault**: OEE 可用性的計算值無關。
-  * **OeePerformance_Ideal**： 值來計算 OEE 效能相關，而且通常是常數值。
-  * **OeePerformance_Actual**: OEE 效能的計算值無關。
-  * **OeeQuality_Good**: OEE 品質的計算值無關。
-  * **OeeQuality_Bad**: OEE 品質的計算值無關。
-  * **Kpi1**: KPI1 的計算值無關。
-  * **Kpi2**: KPI2 的計算值無關。
+  * **OeeAvailability_Running**：此值與 OEE 可用性的計算相關。
+  * **OeeAvailability_Fault**：此值與 OEE 可用性的計算相關。
+  * **OeePerformance_Ideal**：此值與 OEE 效能的計算相關，而且通常是常數值。
+  * **OeePerformance_Actual**：此值與 OEE 效能的計算相關。
+  * **OeeQuality_Good**：此值與 OEE 品質的計算相關。
+  * **OeeQuality_Bad**：此值與 OEE 品質的計算相關。
+  * **Kpi1**：此值與 KPI1 的計算相關。
+  * **Kpi2**：此值與 KPI2 的計算相關。
 
-* **OpCode** （輸入字串）
+* **OpCode** (字串類型)
 
-  表示 OPC UA 節點的值在時間序列深入了解查詢和 OEE/KPI 計算中的處理方式。 每個時間序列深入了解查詢的目標特定的時間範圍，其查詢的參數，並提供結果。 OpCode 控制項如何結果計算，而且可以是下列值之一：
+  指出 OPC UA 節點的值在「時間序列深入解析」查詢和 OEE/KPI 計算中的處理方式。 每個「時間序列深入解析」查詢的目標都是特定的時間範圍，也就是查詢的參數，並提供結果。 OpCode 可控制結果的計算方式，而且可以是下列其中一個值：
 
-  * **Diff**： 範圍中的最後一個及第一個值之間差異。
-  * **Avg**： 範圍中的所有值的平均值。
-  * **Sum**： 範圍中的所有值的總和。
-  * **最後一個**： 目前未使用。
-  * **計數**： 範圍中值的數目。
-  * **最大**： 中範圍的最大值。
-  * **Min**： 中範圍的最小值。
-  * **Const**： 結果是 ConstValue 屬性所指定的值。
-  * **SubMaxMin**： 最大和最小的值之間的差異。
-  * **Timespan**: timespan。
+  * **Diff**：時間範圍中最後一個與第一個值之間的差異。
+  * **Avg**：時間範圍中所有值的平均值。
+  * **Sum**：時間範圍中所有值的總和。
+  * **Last**：目前未使用。
+  * **Count**：時間範圍中的值數目。
+  * **Max**：時間範圍中的最大值。
+  * **Min**：時間範圍中的最小值。
+  * **Const**：結果是 ConstValue 屬性所指定的值。
+  * **SubMaxMin**：最大值和最小值之間的差異。
+  * **Timespan**：時間範圍。
 
-* **單位**（輸入字串）
+* **Units** (字串類型)
 
-  在儀表板中定義之值的顯示單位。
+  定義要在儀表板中顯示之值的單位。
 
-* **可見**（輸入布林值）
+* **Visible** (布林值類型)
 
-  控制是否應該在儀表板中顯示的值。
+  控制是否應該在儀表板中顯示值。
 
-* **ConstValue** （double 類型）
+* **ConstValue** (雙精確度類型)
 
-  如果**OpCode**是**Const**，則這個屬性為節點的值。
+  如果 **OpCode** 是 **Const**，則這個屬性為節點的值。
 
-* **最小值**（double 類型）
+* **Minimum** (雙精確度類型)
 
-  如果目前的值低於此值，則會產生最小的警示。
+  如果目前的值低於此值，則會產生最小警示。
 
-* **最大**（double 類型）
+* **Maximum** (雙精確度類型)
 
-  如果目前的值高於此值引發時，就會產生最大的警示。
+  如果目前的值高於此值，則會產生最大警示。
 
-* **MinimumAlertActions** (型別`<alert_action>`)
+* **MinimumAlertActions** (類型 `<alert_action>`)
 
-  定義可以做為最小的警示回應採取的動作集合。
+  定義可當作最小值警示回應所採取的一組動作。
 
-* **MaximumAlertActions** (型別`<alert_action>`)
+* **MaximumAlertActions** (類型 `<alert_action>`)
 
-  定義可以做為最大警示回應採取的動作集合。
+  定義可當作最大值警示回應所採取的一組動作。
 
-在站台層級中，您也會看到**模擬**物件。 這些物件只會用來設定連接的工廠模擬，而且不應該用來設定實際的拓撲。
+在站台層級中，您也會看到**模擬**物件。 這些物件只用於設定連線的工廠模擬，因此不應該用於設定實際拓撲。
 
-## <a name="how-the-configuration-data-is-used-at-runtime"></a>組態資料在執行階段的使用方式
+## <a name="how-the-configuration-data-is-used-at-runtime"></a>設定資料在執行階段的使用方式
 
-使用組態檔中的所有內容可以都分為不同的分類，根據使用方式。 這些類別如下：
+設定檔中使用的所有屬性都可以根據使用方式而分成不同的類別。 這些類別包括：
 
 ### <a name="visual-appearance"></a>視覺外觀
 
-此類別中的屬性會定義連接的工廠儀表板的視覺外觀。 範例包括：
+此類別中的屬性會定義連線的工廠儀表板的視覺外觀。 範例包括：
 
-* 名稱
-* 說明
-* 映像
-* 位置
+* Name
+* Description
+* Image
+* Location
 * Units
-* 可見
+* Visible
 
-### <a name="internal-topology-tree-addressing"></a>內部的拓樸樹狀定址
+### <a name="internal-topology-tree-addressing"></a>內部拓樸樹狀結構定址
 
-WebApp 維護內部的資料字典，其中包含所有拓撲節點的資訊。 屬性**Guid**和**OpcUri**用做為索引鍵來存取此字典，而且需要是唯一的。
+WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典。 **Guid** 和 **OpcUri** 屬性是當作存取此字典的索引鍵使用，因此必須是唯一的。
 
 ### <a name="oeekpi-computation"></a>OEE/KPI 計算
 
-連線的 factory 模擬 OEE/KPI 數字是由參數化：
+連線的工廠模擬的 OEE/KPI 數據是透過下列值參數化：
 
-* 要包含在計算的 OPC UA 節點值。
-* 如何從遙測值計算圖。
+* 要包含在計算中的 OPC UA 節點值。
+* 如何從遙測值計算數據。
 
-連線的 factory 會使用 OEE 公式，如 http://oeeindustrystandard.oeefoundation.org 所發行。
+連線的工廠使用 OEE 公式，如 http://oeeindustrystandard.oeefoundation.org 所發佈。
 
-OPC UA 節點物件中站台啟用 OEE/KPI 計算中的使用方式的標記。 **相關性**屬性會指出哪些 OEE/KPI 圖對於應該使用 OPC UA 節點值。 **OpCode**屬性會定義如何計算中是否包含的值。
+站台中的 OPC UA 節點物件會啟用可在 OEE/KPI 計算中使用的標記。 **Relevance** 屬性指出 OPC UA 節點值應該用於哪個 OEE/KPI 數據。 **OpCode** 屬性定義如何將值包含在計算中。
 
-### <a name="alert-handling"></a>警示的處理
+### <a name="alert-handling"></a>警示處理
 
-已連線的處理站都會支援簡單最小/最大閾值型警示產生機制。 有數個預先定義的動作來回應這些警示，您可以設定。 下列屬性會控制這項機制：
+連線的工廠支援簡易的最小/最大閾值型警示產生機制。 為回應那些警示，有數個可以設定的預先定義動作。 下列屬性可控制這個機制：
 
-* 最大值
-* 最小值
+* Maximum
+* Minimum
 * MaximumAlertActions
 * MinimumAlertActions
 
-## <a name="correlating-to-telemetry-data"></a>相互關聯至遙測資料
+## <a name="correlating-to-telemetry-data"></a>與遙測資料相互關聯
 
-某些作業，例如視覺化的最後一個值，或建立時間序列深入了解查詢 WebApp 需要內嵌的遙測資料的定址配置。 遙測傳送至已連線的處理站也必須儲存在內部資料結構。 啟用這些作業的兩個屬性是在站台 （OPC UA 伺服器） 和 OPC UA 節點層級：
+針對某些作業 (例如，將最後一個值視覺化，或建立「時間序列深入解析」查詢)，WebApp 需要定址配置，以供內嵌的遙測資料使用。 傳送至連線工廠的遙測也必須儲存在內部資料結構中。 啟用這些作業的兩個屬性分別位於站台 (OPC UA 伺服器) 和 OPC UA 節點層級：
 
 * **OpcUri**
 
-  識別 （全域唯一的） OPC UA 伺服器遙測來自。 在內嵌的訊息中，這個屬性會以傳送**ApplicationUri**。
+  識別遙測來自哪部 (全球唯一的) OPC UA 伺服器。 在內嵌的訊息中，此屬性會當作 **ApplicationUri** 傳送。
 
-* **節點識別碼**
+* **NodeId**
 
-  識別 OPC UA 伺服器中的節點值。 屬性的格式必須為 OPC UA 規格中所指定。 在內嵌的訊息中，這個屬性會以傳送**NodeId**。
+  識別 OPC UA 伺服器中的節點值。 此屬性的格式必須是如在 OPC UA 規格中所指定。 在內嵌訊息中，此屬性會當作 **NodeId** 傳送。
 
-請檢查[這](https://github.com/Azure/iot-edge-opc-publisher)GitHub 頁面，如需如何遙測資料會內嵌至連接使用 OPC 發行者的 factory。
+如需有關如何使用 OPC 發行者將遙測資料內嵌至連線的工廠的詳細資訊，請查閱[這個](https://github.com/Azure/iot-edge-opc-publisher) GitHub 頁面。
 
-## <a name="example-how-kpi1-is-calculated"></a>範例： 如何計算 KPI1
+## <a name="example-how-kpi1-is-calculated"></a>範例：如何計算 KPI1
 
-中的組態`ContosoTopologyDescription.json`檔案可讓您控制 OEE/KPI 圖形的計算方式。 下列範例會示範這個檔案中的屬性如何控制 KPI1 的計算。
+`ContosoTopologyDescription.json` 檔案中的設定可控制 OEE/KPI 數據的計算方式。 下列範例會示範此檔案中的屬性如何控制 KPI1 的計算。
 
-在已連接 KPI1 用來測量的數目已成功處理站會製造產品在過去一小時。 連線的 factory 模擬中的每個站台 (OPC UA server) 提供 OPC UA 節點 (`NodeId: "ns=2;i=385"`)，這樣會提供用來計算此 KPI 遙測。
+在連線的工廠中，KPI1 用於測量過去一小時內成功製造的產品數目。 連線的工廠模擬中的每個站台 (OPC UA 伺服器) 都提供一個 OPC UA 節點 (`NodeId: "ns=2;i=385"`)，這個節點可提供用來計算此 KPI 的遙測。
 
-這個 OPC UA 節點的組態看起來像下列程式碼片段：
+此 OPC UA 節點的設定看起來像下列程式碼片段︰
 
 ```json
 {
@@ -331,18 +331,18 @@ OPC UA 節點物件中站台啟用 OEE/KPI 計算中的使用方式的標記。 
 },
 ```
 
-此設定可啟用此節點中使用時間序列 Insights 遙測值的查詢。 時間序列 Insights 查詢會擷取：
+此設定允許使用「時間序列深入解析」來查詢此節點的遙測值。 「時間序列深入解析」查詢會擷取：
 
 * 值數目。
-* 最小的值。
-* 最大的值。
+* 最小值。
+* 最大值。
 * 所有值的平均值。
-* 所有的所有值的總和唯一**OpcUri** (**ApplicationUri**)， **NodeId**組中給定 timespan。
+* 指定的時間範圍內，所有唯一 **OpcUri** (**ApplicationUri**)、**NodeId** 組中的所有值總和。
 
-一項特性**NumberOfManufactureredProducts**節點值時，它只會增加。 若要計算的 timespan，在製造的產品數目連接處理站會使用**OpCode** **SubMaxMin**。 計算擷取的時間範圍開頭的最小值和結束的時間範圍的最大值。
+**NumberOfManufactureredProducts** 節點值的其中一個特性是它只會增加。 為計算時間範圍內製造的產品數目，連線的工廠會使用 **OpCode** **SubMaxMin**。 計算會在時間範圍開始時擷取最小值，並在時間範圍結束時擷取最大值。
 
-**OpCode**組態中設定的計算邏輯，來計算結果的最大和最小值的差異。 然後這些結果會累積到根 （全域） 層級的下和儀表板中顯示。
+設定中的 **OpCode** 會設定計算邏輯，以計算最大值和最小值差異的結果。 接著，這些結果會由下而上累積到根 (全球) 層級，並顯示在儀表板中。
 
 ## <a name="next-steps"></a>後續步驟
 
-建議採取的後續步驟，是瞭解如何[在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)。
+建議採取的後續步驟，是了解如何[在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)。
