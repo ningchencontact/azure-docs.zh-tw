@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>在 Microsoft Azure 中探索、識別並分類個人資料
 
@@ -59,22 +59,22 @@ ms.lasthandoff: 12/14/2017
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
 
-2. 選取 [更多服務]，在文字方塊中輸入「使用者和群組」，然後選取 **Enter**。
+2. 選取 [所有服務]，在文字方塊中輸入**使用者和群組**，然後選取 **Enter**。
 
    ![如何找出使用者設定檔和工作資訊](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. 在 [使用者和群組] 刀鋒視窗上，選取 [使用者]。
 
-  ![開啟使用者和群組](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![開啟使用者和群組](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. 在 [使用者和群組 - 使用者] 刀鋒視窗中，從清單選取使用者，然後在選取的使用者之刀鋒視窗上，選取 [設定檔] 以檢視可能包含個人資料的使用者設定檔資訊。
 
-  ![選取使用者](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![選取使用者](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. 如果您要新增或變更使用者設定檔資訊，可以這麼做，然後在命令列中選取 [儲存]。
 6. 在選取的使用者之刀鋒視窗上，選取 [工作資訊] 來檢視可能包含個人資料的使用者工作資訊。
 
- ![檢視工作資訊](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![檢視工作資訊](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. 如果您要新增或變更使用者工作資訊，可以這麼做，然後在命令列中選取 [儲存]。
 
@@ -185,7 +185,7 @@ HDInsight 教學課程將引導您完成這整個程序。 它會說明必要條
 
 如需有關建置 SQL 查詢的詳細指引，請瀏覽 [Azure Cosmos DB 文件 DB API 的 SQL 查詢。](../cosmos-db/sql-api-sql-query.md)
 
-如果您還不熟悉 Azure Cosmos DB 並想要了解如何建立資料庫時，新增集合，並加入資料，請瀏覽[Azure Cosmos DB： 建置 SQL API 的 web 應用程式](../cosmos-db/create-sql-api-dotnet.md)快速入門教學課程。 如果您需要使用 .NET 以外的語言 (例如 JAVA 或 Python) 來執行這項操作，在您進入站台後，只要選擇您慣用的語言即可。
+如果您還不熟悉 Azure Cosmos DB 且需要了解如何建立資料庫、新增集合及新增資料，請瀏覽 [Azure Cosmos DB：建置 SQL API 的 web 應用程式](../cosmos-db/create-sql-api-dotnet.md)快速入門教學課程。 如果您需要使用 .NET 以外的語言 (例如 JAVA 或 Python) 來執行這項操作，在您進入站台後，只要選擇您慣用的語言即可。
 
 ## <a name="next-steps"></a>後續步驟
 

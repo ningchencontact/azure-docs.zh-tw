@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Windows Phone 入門 | Microsoft Docs"
+title: "開始使用 Azure AD Windows Phone | Microsoft Docs"
 description: "如何建置 Windows Phone 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
 services: active-directory
 documentationcenter: windows
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/24/2018
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列上按一下您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側瀏覽區中的 [更多服務]，然後選擇 [Azure Active Directory]。
+3. 按一下左側導覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選擇 [新增]。
 5. 遵照提示進行，並建立新的 **原生用戶端應用程式**。
   * 應用程式的 [ **名稱** ] 將對使用者說明您的應用程式

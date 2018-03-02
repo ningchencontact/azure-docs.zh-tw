@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5c850fe9eaf78ab5ee6a175e5433998e1f15ab2e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>重設您的工作密碼或學校密碼
 
@@ -125,12 +125,12 @@ ms.lasthandoff: 01/12/2018
 | 當我嘗試變更密碼時，看到錯誤。 | 不幸的是，您的密碼包含單字、片語或模式，可輕易猜到您的密碼。 請使用不同的密碼再試一次。 | 請選擇較難猜出的密碼。 |
 | 在輸入我的使用者識別碼後，出現了「請連絡您的系統管理員」頁面 | 請連絡您的系統管理員。 <br> <br> 我們偵測到您的使用者帳戶密碼未受到 Microsoft 管理。 因此，我們無法自動重設您的密碼。 <br> <br> 您必須連絡 IT 人員以尋求進一步的協助。 | 您之所以看到此訊息，是因為 IT 人員在內部部署環境中管理您的密碼。 您無法從 [無法存取您的帳戶] 連結重設您的密碼。 <br> <br> 若要重設密碼，請直接向 IT 人員尋求協助，讓他們了解您想要重設密碼，而為您啟用這項功能。|
 | 在輸入我的使用者識別碼後，出現了「您的帳戶未啟用密碼重設」錯誤 | 您的帳戶未啟用密碼重設功能。 <br> <br> 很抱歉，IT 人員還未將您的帳戶設定用於此服務。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為 IT 人員尚未針對您的組織啟用從 [無法存取您的帳戶] 連結重設密碼的功能，或尚未授權您使用該功能。 <br> <br> 若要重設密碼，請選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的 IT 人員，讓他們了解您想要重設密碼，而為您啟用這項功能。 |
-| 在輸入我的使用者識別碼後，出現了「我們無法驗證您的帳戶」錯誤 | 我們無法驗證您的帳戶。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為您已啟用密碼重設，但並未註冊使用此服務。 若要註冊密碼重設，請在重新取得帳戶存取權後移至 http://aka.ms/ssprsetup。 <br> <br> 若要重設密碼，請選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的 IT 人員。 |
+| 在輸入我的使用者識別碼後，出現了「我們無法驗證您的帳戶」錯誤 | 我們無法驗證您的帳戶。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為您已啟用密碼重設，但並未註冊使用此服務。 若要註冊密碼重設，請在重新取得帳戶存取權後移至 https://aka.ms/ssprsetup。 <br> <br> 若要重設密碼，請選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的 IT 人員。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 * [如何註冊使用自助式密碼重設](active-directory-passwords-reset-register.md)
-* [密碼重設註冊頁面](http://aka.ms/ssprsetup)
+* [密碼重設註冊頁面](https://aka.ms/ssprsetup)
 * [密碼重設入口網站](https://passwordreset.microsoftonline.com/)
 * [無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

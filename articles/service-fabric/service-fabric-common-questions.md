@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/14/2017
 需考量的事項： 
 
 1. 目前在 Azure 中的 Service Fabric 叢集資源是地區性的，據以建置叢集的虛擬機器擴展集也是。 這表示在發生區域失敗時，您可能就無法透過 Azure Resource Manager 或 Azure 入口網站來管理叢集。 即使叢集仍在執行，而且您可以直接與其進行互動，還是可能發生此情況。 此外，Azure 目前並無法讓您擁有可跨區域使用的單一虛擬網路。 這表示如果您想在 Azure 中擁有多區域叢集，就需要 [VM 擴展集中每個 VM 的公用 IP 位址](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)或 [Azure VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 這些網路選擇對於成本、效能以及某種程度的應用程式設計會有不同的影響，因此請先謹慎地分析和規劃，再建立這樣的環境。
-2. 維護、管理和監視這些機器的程序可能會變得複雜，特別是在跨_數種類型_的環境時，例如在不同雲端提供者之間或在內部部署資源和 Azure 之間。 請務必謹慎，確保您已了解叢集和應用程式的升級、監視、管理和診斷方式，再於這類環境中執行生產工作負載。 如果您對於在 Azure 或您自己的資料中心內解決這些問題已有豐富經驗，則在建置或執行 Service Fabric 叢集時或許也可以套用同樣的一套解決方案。 
+2. 維護、管理和監視這些機器的程序可能會變得複雜，特別是在跨_數種類型_的環境時，例如在不同雲端提供者之間或在內部部署資源和 Azure 之間。 請務必謹慎，確保您已了解叢集和應用程式的升級、監視、管理和診斷方式，再於這類環境中執行生產工作負載。 如果您對於在 Azure 中或自己的資料中心內解決這些問題已有豐富經驗，則在建置或執行 Service Fabric 叢集時或許也可以套用同樣的一套解決方案。 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 節點是否會自動接收作業系統更新？
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/14/2017
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>我能否在晚上/週末關閉叢集以節省成本？
 
-一般而言不行。 Service Fabric 會將狀態儲存在本機的暫時磁碟上，這表示如果虛擬機器移至不同的主機，資料將不會隨之移動。 在一般的作業中，因為新節點會透過其他節點保持在最新狀態，所以這不會是問題。 不過，如果您停止所有節點並在稍後重新啟動它們，則很有可能讓大部分的節點在新的主機上啟動，而使系統無法復原。
+一般而言不行。 Service Fabric 會將狀態儲存在本機的暫時磁碟上，這表示如果虛擬機器移至不同的主機，資料將不會隨之移動。 在一般作業中，因為新節點會透過其他節點保持在最新狀態，所以這不會是問題。 不過，如果您停止所有節點並在稍後重新啟動它們，則很有可能讓大部分的節點在新的主機上啟動，而使系統無法復原。
 
 如果您要建立叢集以在部署應用程式之前測試應用程式，建議您在[持續整合/持續部署管線](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)中動態建立那些叢集。
 
@@ -85,6 +85,9 @@ ms.lasthandoff: 11/14/2017
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>如何升級我的作業系統 (例如從 Windows Server 2012 升級到 Windows Server 2016)？
 
 在我們努力改善體驗時，您的責任是升級。 您必須升級叢集的虛擬機器上的作業系統映像，一次一部 VM。 
+
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>如何將叢集節點類型 (虛擬機器擴展集) 中已連結的資料磁碟加密？
+是。  如需詳細資訊，請參閱[使用已連結的資料磁碟建立叢集](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)、[加密磁碟 (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)，以及[加密磁碟 (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)。
 
 ## <a name="container-support"></a>容器支援
 
@@ -101,7 +104,7 @@ ms.lasthandoff: 11/14/2017
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>在可靠集合的所有分割中查詢資料的最佳方式為何？
 
-可靠的集合通常[經過分割](service-fabric-concepts-partitioning.md)以使用相應放大來提供更好的效能及輸送量。 這表示指定服務的狀態可能跨越 10 部或 100 部機器。 若要在完整的資料集上執行作業，您有幾個選項：
+可靠的集合通常[經過分割](service-fabric-concepts-partitioning.md)以使用相應放大來提供更好的效能及輸送量。 這表示指定服務的狀態可能跨越數十部或數百部機器。 若要在完整的資料集上執行作業，您有幾個選項：
 
 - 建立會查詢另一個服務所有分割的服務，以提取所需資料。
 - 建立可接收來自另一個服務所有分割之資料的服務。
@@ -112,24 +115,24 @@ ms.lasthandoff: 11/14/2017
 
 動作項目是設計為獨立的狀態與計算單位，因此不建議在執行階段執行動作項目狀態的各種查詢。 如果您有必要查詢完整的動作項目狀態集合，您也應該考慮：
 
-- 以可設定狀態的可靠服務取代動作項目服務，例如收集從動作項目數目到服務中分割數目之所有資料的網路要求的數目。
+- 以可設定狀態的可靠服務取代動作項目服務，以便收集從動作項目數目到服務中分割數目之所有資料的網路要求數目。
 - 設計您的動作項目，定期將其狀態推送至外部存放區以便能夠更容易地查詢。 如上所述，只有在您執行的查詢並非執行階段行為的必要項目時，才適用此方法。
 
 ### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>可靠的集合中能夠儲存多少資料？
 
 可靠的服務通常經過分割，因此您可以儲存的資料量僅受限於叢集中您擁有的機器數量，以及那些機器提供的記憶體數量。
 
-例如，假設您在服務中擁有的可靠集合含有 100 個分割及 3 個複本，儲存的物件大小平均為 1kb。 現在，假設您有 10 部機器的叢集，每部機器均含有 16GB 記憶體。 為了簡單與謹慎起見，假設作業系統及系統服務 (Service Fabric 執行階段以及您的服務) 會使用 6GB 的記憶體，並在每部機器上保留 10GB 以供使用，或是為該叢集保留 100GB 記憶體以供使用。
+例如，假設您在服務中擁有的可靠集合含有 100 個分割及 3 個複本，儲存的物件大小平均為 1 kb。 現在，假設您有 10 部機器的叢集，每部機器均含有 16GB 記憶體。 為了簡單與謹慎起見，假設作業系統及系統服務 (Service Fabric 執行階段以及您的服務) 會使用 6GB 的記憶體，並在每部機器上保留 10GB 以供使用，或是為該叢集保留 100GB 記憶體以供使用。
 
 請記住，每個物件必須儲存三次 (一次主要，兩次複本)，在以完整容量運作的情況下，您會有足夠的記憶體提供您集合中大約 3500 萬個物件使用。 不過，我們建議您要能夠從失敗網域以及升級網域同時遺失情況下還原，這代表約 1/3 的容量，而物件數目會減至約 2300 萬。
 
 請注意，這項計算也假設：
 
-- 資料在所有分割上的分佈大致上是平均的，或您會對叢集資源管理員報告負載計量。 根據預設，Service Fabric 會根據複本數量進行負載平衡。 在我們的上述範例中，會在叢集中的每個節點上放置 10 個主要複本以及 20 個次要複本。 這適用於平均分佈於所有分割的負載。 如果負載不平均，您必須報告負載，以便資源管理員可以將較小的複本封裝在一起，讓較大的複本可以使用個別節點上較多的記憶體。
+- 資料在所有分割上的分佈大致上是平均的，或您會對叢集資源管理員報告負載計量。 根據預設，Service Fabric 會根據複本數量進行負載平衡。 在上述範例中，叢集中的每個節點上會放置 10 個主要複本以及 20 個次要複本。 這適用於平均分佈於所有分割的負載。 如果負載不平均，您必須報告負載，以便資源管理員可以將較小的複本封裝在一起，讓較大的複本可以使用個別節點上較多的記憶體。
 
-- 發生問題的可靠服務為叢集中唯一的儲存狀態。 由於您可以部署多個服務到叢集因此您您必須留意每個服務在執行及管理其狀態時所需的資源。
+- 發生問題的可靠服務為叢集中唯一的儲存狀態。 由於您可以部署多個服務到叢集，因此您必須留意每個服務在執行及管理其狀態時所需的資源。
 
-- 叢集本身不會擴大或縮小。 如果您新增更多機器，Service Fabric 將會重新平衡您的複本以利用額外的容量，直到機器數量超出服務中的分割數量為止，因為個別複本無法跨越機器。 反之，如果您移除機器以縮小叢集大小，您的複本將會更緊密地封裝，並縮小整體容量。
+- 叢集本身不會擴大或縮小。 如果您新增更多機器，Service Fabric 將會重新平衡您的複本以利用額外的容量，直到機器數量超出服務中的分割數量為止，因為個別複本無法跨越機器。 反之，如果您移除機器以縮小叢集大小，您的複本會更緊密地封裝並縮小整體容量。
 
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>動作項目中可儲存多少資料？
 
@@ -143,7 +146,7 @@ ms.lasthandoff: 11/14/2017
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>您打算開放 Service Fabric 原始碼嗎？
 
-我們打算在 GitHub 上開放 Reliable Services 和 Reliable Actors 架構的原始碼，並將接受社群參與這些專案。 請關注 [Service Fabric 部落格](https://blogs.msdn.microsoft.com/azureservicefabric/)，以便在公告更多詳細資料時進行了解。
+我們打算在 GitHub 上開放 Reliable Services 和 Reliable Actors 架構的原始碼，並接受社群參與這些專案。 請關注 [Service Fabric 部落格](https://blogs.msdn.microsoft.com/azureservicefabric/)，以便在公告更多詳細資料時進行了解。
 
 目前並無任何開放 Service Fabric 執行階段原始碼的計畫。
 

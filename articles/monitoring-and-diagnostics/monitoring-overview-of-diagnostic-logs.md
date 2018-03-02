@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -163,7 +163,7 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 
 ![入口網站中的診斷記錄檔刀鋒視窗](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-您可能必須按一下 [更多服務] 才能找到 [監視器] 區段。
+您可能必須按一下 [所有服務] 才能找到 [監視器] 區段。
 
 您可以在此檢視和篩選所有支援診斷設定的資源，以查看它們是否已啟用診斷。 您也可以向下切入，以查看資源上是否設定了多項設定，並確認資料將流向哪個儲存體帳戶、事件中樞命名空間及/或 Log Analytics 工作區。
 

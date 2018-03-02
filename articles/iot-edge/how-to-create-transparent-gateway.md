@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>建立做為透明閘道的 IoT Edge 裝置 - 預覽
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/03/2018
 
 1. 從 GitHub 複製適用於 C 的 Microsoft Azure IoT SDK 和程式庫：
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/03/2018
 
 建立新的裝置憑證：
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ ms.lasthandoff: 02/03/2018
  
 在 `certs` 目錄中執行以下命令，以取得裝置公開金鑰的完整鏈結：
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>Powershell
 
 建立新的裝置憑證： 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/03/2018
  
 在 Linux 中，使用 Bash 輸出：
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ ms.lasthandoff: 02/03/2018
 
 在 Windows 中，使用 PowerShell 輸出：
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ ms.lasthandoff: 02/03/2018
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-依預設，範例指令碼不會對裝置私密金鑰設定複雜密碼。 如果您想設定複雜密碼，請新增下列參數：
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+依預設，範例指令碼不會對裝置私密金鑰設定複雜密碼。 如果您想設定複雜密碼，請新增下列參數：`--device-ca-passphrase {passphrase}`。
 
 指令碼會提示您為 Edge 代理程式憑證設定複雜密碼。 執行此命令之後，請重新啟動 IoT Edge 執行階段：
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ ms.lasthandoff: 02/03/2018
 
 例如，針對 .NET 應用程式，您可以新增下列程式碼片段，來信任 `certPath` 路徑中所儲存的憑證 (PEM 格式)。 視您使用的指令碼版本而定，路徑會參照 `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) 或 `RootCA.pem` (Powershell)。
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

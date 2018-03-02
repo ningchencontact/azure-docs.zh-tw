@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何建立和部署雲端服務
 Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
@@ -59,15 +59,15 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 
 ## <a name="create-and-deploy"></a>建立和部署
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下 [新增] > [計算]，然後向下捲動至 [雲端服務] 並按一下。
+2. 按一下 [建立資源] > [計算]，然後向下捲動至 [雲端服務] 並按一下。
 
     ![發佈您的雲端服務](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. 在新的 [雲端服務] 刀鋒視窗中，輸入 [DNS 名稱] 的值。
+3. 在新的 [雲端服務] 窗格中，輸入 [DNS 名稱] 的值。
 4. 建立新的 [資源群組]  或選取現有的資源群組。
 5. 選取 [位置] 。
-6. 按一下 [封裝] 。 這會開啟 [上傳封裝]  刀鋒視窗。 填寫必要欄位。 如果您的任一個角色包含單一執行個體，請確定核取 [即使一個或多個角色包含單一執行個體，也要部署]  。
+6. 按一下 [封裝] 。 這會開啟 [上傳套件] 窗格。 填寫必要欄位。 如果您的任一個角色包含單一執行個體，請確定核取 [即使一個或多個角色包含單一執行個體，也要部署]  。
 7. 請確定已選取 [開始部署]  。
-8. 按一下 [確定] 以關閉 [上傳套件] 刀鋒視窗。
+8. 按一下 [確定] 以關閉 [上傳套件] 窗格。
 9. 如果您沒有任何憑證可新增，請按一下 [建立] 。
 
     ![發佈您的雲端服務](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 ## <a name="upload-a-certificate"></a>上傳憑證
 如果您的部署套件 [設定為使用憑證](cloud-services-configure-ssl-certificate-portal.md#modify)，您現在可以上傳憑證。
 
-1. 選取 [憑證]，然後在 [新增憑證] 刀鋒視窗中，選取 SSL 憑證 .pfx 檔案，並提供憑證的 [密碼]。
-2. 按一下 [附加憑證]，然後在 [新增憑證] 刀鋒視窗按一下 [確定]。
-3. 在 [雲端服務] 刀鋒視窗按一下 [建立]。 當部署達到了 [就緒]  狀態時，您可以繼續進行接下來的步驟。
+1. 選取 [憑證]，然後在 [新增憑證] 窗格中選取 SSL 憑證 .pfx 檔案，並提供憑證的 [密碼]。
+2. 按一下 [附加憑證]，然後按一下 [新增憑證] 窗格中的 [確定]。
+3. 按一下 [雲端服務] 窗格中的 [建立]。 當部署達到了 [就緒]  狀態時，您可以繼續進行接下來的步驟。
 
     ![發佈您的雲端服務](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

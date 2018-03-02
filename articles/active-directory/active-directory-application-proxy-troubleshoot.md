@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 4291d765bec94ca1edd50b8df0c414524f29fba2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/01/2018
 | 13016 - 因為邊緣權杖或存取 cookie 中沒有 UPN，Azure AD 無法代表使用者擷取 Kerberos 票證。 | STS 組態有問題。 在 STS 中修正 UPN 宣告設定。 |
 | 13019 - 因為下列一般 API 錯誤，Azure AD 無法代表使用者擷取 Kerberos 票證。 | 此事件可能表示 Azure AD 與網域控制站伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 網域控制站拒絕了 Azure AD 所建立的 Kerberos 票證。 確認 Azure AD 和後端應用程式伺服器的設定正確無誤，尤其是 SPN 組態。 確定 Azure AD 的網域已加入至與網域控制站相同的網域，確保網域控制站建立 Azure AD 的信任。 確定 Azure AD 與網域控制站的日期和時間設定已同步。 |
 | 13020 - 因為未定義後端伺服器 SPN，Azure AD 無法代表使用者擷取 Kerberos 票證。 | 此事件可能表示 Azure AD 與網域控制站伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 網域控制站拒絕了 Azure AD 所建立的 Kerberos 票證。 確認 Azure AD 和後端應用程式伺服器的設定正確無誤，尤其是 SPN 組態。 確定 Azure AD 的網域已加入至與網域控制站相同的網域，確保網域控制站建立 Azure AD 的信任。 確定 Azure AD 與網域控制站的日期和時間設定已同步。 |
-| 13022 - 因為後端伺服器以 HTTP 401 錯誤回應 Kerberos 驗證嘗試，Azure AD 便無法驗證使用者。 | 此事件可能表示 Azure AD 與後端應用程式伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 後端伺服器拒絕了 Azure AD 所建立的 Kerberos 票證。 確認 Azure AD 和後端應用程式伺服器的設定正確無誤。 確定 Azure AD 與後端應用程式伺服器的日期和時間設定已同步。 |
+| 13022 - 因為後端伺服器以 HTTP 401 錯誤回應 Kerberos 驗證嘗試，Azure AD 便無法驗證使用者。 | 此事件可能表示 Azure AD 與後端應用程式伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 後端伺服器拒絕了 Azure AD 所建立的 Kerberos 票證。 確認 Azure AD 和後端應用程式伺服器的設定正確無誤。 確定 Azure AD 與後端應用程式伺服器的日期和時間設定已同步。 如需詳細資訊，請參閱[為應用程式 Proxy 疑難排解 Kerberos 限制委派設定](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)。  |
 
 ## <a name="end-user-errors"></a>使用者錯誤
 

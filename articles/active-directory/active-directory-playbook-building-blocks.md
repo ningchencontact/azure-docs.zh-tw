@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -394,7 +394,7 @@ ms.lasthandoff: 12/11/2017
 | 瀏覽至「Azure AD 管理入口網站」中的 [密碼重設] | [Azure AD 管理入口網站：密碼重設](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | 決定密碼重設原則。 針對 POC 用途，您可以使用通話和問與答。建議啟用在登入存取面板時要求註冊的功能 |  |
 | 以資訊工作者身分登出和登入 |  |
-| 提供依步驟 2 設定的「自助式密碼重設」資料 | http://aka.ms/ssprsetup |
+| 提供依步驟 2 設定的「自助式密碼重設」資料 | https://aka.ms/ssprsetup |
 | 關閉瀏覽器 |  |
 | 以您在步驟 4 中使用的資訊工作者身分重新開始登入程序 |  |
 | 重設密碼 | [更新自己的密碼：重設密碼](active-directory-passwords-update-your-own-password.md) |
@@ -445,7 +445,7 @@ ms.lasthandoff: 12/11/2017
 | 已設定 SaaS 應用程式 |  |
 | 已將 PoC 使用者指派給應用程式 |  |
 | 有 POC 使用者的認證可用 |  |
-| 已為 MFA 註冊 POC 使用者。 使用收訊良好的手機 | http://aka.ms/ssprsetup |
+| 已為 MFA 註冊 POC 使用者。 使用收訊良好的手機 | https://aka.ms/ssprsetup |
 | 內部網路中的裝置。 在內部位址範圍內設定的 IP 位址 | 尋找您的 IP 位址：https://www.bing.com/search?q=what%27s+my+ip |
 | 外部網路中的裝置 (可以是使用電訊廠商行動網路的手機) |  |
 
@@ -536,7 +536,7 @@ ms.lasthandoff: 12/11/2017
 | 步驟 | 資源 |
 | --- | --- |
 | 以全域管理員身分登入 https://portal.azure.com，然後開啟 [Identity Protection] 刀鋒視窗 | https://aka.ms/aadipgetstarted |
-| 依下列方式啟用登入風險原則：<br/>- 指派至：POC 使用者<br/>- 條件：中度或更高的登入風險 (從匿名位置登入是視為中度風險層級)<br/>- 控制項：需要 MFA | [Azure Active Directory Identity Protection 腳本：登入風險](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| 依下列方式啟用登入風險原則：<br/>- 指派至：POC 使用者<br/>- 條件：中度或更高的登入風險 (從匿名位置登入是視為中度風險層級)<br/>- 控制項：需要 MFA | [Azure Active Directory Identity Protection 腳本：登入風險](active-directory-identityprotection-playbook.md) |
 | 開啟 Tor 瀏覽器 | [下載 Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | 使用 PoC 使用者帳戶來登入 https://myapps.microsoft.com |  |
 | 注意 MFA 挑戰 | [使用 Azure AD Identity Protection 時的登入體驗：有風險的登入復原](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

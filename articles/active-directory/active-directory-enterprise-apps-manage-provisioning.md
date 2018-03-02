@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 這篇文章說明如何使用 [Azure 入口網站](https://portal.azure.com)來自動化管理使用者帳戶的佈建和解除佈建，以用於支援它的應用程式，尤其是透過 [Azure Active Directory 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)的「精選」類別新增的應用程式。 如需深入了解自動化使用者佈建，請參閱 [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)。
 
 ## <a name="finding-your-apps-in-the-portal"></a>在入口網站中尋找您的應用程式
-目錄管理員使用 [Azure Active Directory 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)為目錄中單一登入設定的所有應用程式，可以在 [Azure 入口網站](https://portal.azure.com)中檢視和管理。 這些應用程式可在入口網站的 [更多服務] &gt; [企業應用程式] 區段中找到。 企業應用程式是您組織內部署和使用的應用程式。
+目錄管理員使用 [Azure Active Directory 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)為目錄中單一登入設定的所有應用程式，可以在 [Azure 入口網站](https://portal.azure.com)中檢視和管理。 這些應用程式可在入口網站的 [所有服務] &gt; [企業應用程式] 區段中找到。 企業應用程式是您組織內部署和使用的應用程式。
 
-![企業應用程式刀鋒視窗][0]
+![企業應用程式窗格][0]
 
-選取左側的 [所有應用程式]  連結會顯示已設定的所有應用程式的清單，包括已從資源庫新增的應用程式。 選取應用程式會載入該應用程式的資源刀鋒視窗，您可以在其中檢視該應用程式的報告，且可管理各種設定。
+選取左側的 [所有應用程式]  連結會顯示已設定的所有應用程式的清單，包括已從資源庫新增的應用程式。 選取應用程式會載入該應用程式的資源窗格，您可以在其中檢視該應用程式的報告，且可管理各種設定。
 
 選取左側的 [佈建]  可以管理使用者帳戶的佈建設定。
 
-![應用程式資源刀鋒視窗][1]
+![應用程式資源窗格][1]
 
 ## <a name="provisioning-modes"></a>佈建模式
-[佈建] 刀鋒視窗的最前方是 [模式] 功能表，會顯示企業應用程式支援哪些佈建模式，並可以設定它們。 可用的選項包括：
+[佈建] 窗格的最前方是 [模式] 功能表，會顯示企業應用程式支援哪些佈建模式，並可以設定它們。 可用的選項包括：
 
 * **自動** - 如果 Azure AD 支援對此應用程式進行使用者帳戶的 API 型自動佈建和/或解除佈建，就會出現此選項。 選取此模式會顯示一介面，引導管理員設定 Azure AD 連接到應用程式的使用者管理 API、建立帳戶對應和工作流程定義 (定義使用者帳戶資料如何在 Azure AD 與應用程式之間的流動)、以及管理 Azure AD 佈建服務。
 * **手動** - 如果 Azure AD 不支援對此應用程式自動佈建使用者帳戶，就會出現此選項。 此選項表示，必須根據該應用程式提供的使用者管理和佈建功能 (可包括 SAML Just-In-Time 佈建)，使用外部程序來管理儲存在應用程式中的使用者帳戶記錄。
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/11/2017
 
 在 Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，有一組預先設定的對應。 有些 app 則管理其他類型的物件，例如群組或連絡人。 選取資料表中這些對應的其中一個，會在右側顯示對應編輯器，可在此處檢視和自訂對應。
 
-![應用程式資源刀鋒視窗][2]
+![應用程式資源窗格][2]
 
 支援的自訂項目包含：
 
@@ -81,6 +81,6 @@ ms.lasthandoff: 12/11/2017
 我們希望您喜歡您的 Azure AD 經驗。 請繼續提供意見反應！ 請將您的意見反應和改進想法張貼在我們的[意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)的**管理員入口網站**區段中。  我們每天都很期待發展酷炫的新功能，並依照您的指導來塑造和定義我們接下來所要發展的項目。
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

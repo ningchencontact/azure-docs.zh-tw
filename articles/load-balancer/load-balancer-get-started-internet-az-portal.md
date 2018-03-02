@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>使用 Azure 入口網站建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-zone-redundant-load-balancer"></a>建立區域備援負載平衡器
 
 1. 透過瀏覽器瀏覽至 Azure 入口網站 [http://portal.azure.com](http://portal.azure.com) ，並使用您的 Azure 帳戶登入。
-2. 在畫面左側選取 [新增] > [網路] > [負載平衡器]。
+2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
 3. 在 [建立負載平衡器] 的 [名稱] 底下輸入 **myPublicLB**。
 4. 在 [類型] 底下選取 [公用]。
 5. 在 SKU 底下選取 [標準 (預覽)]。

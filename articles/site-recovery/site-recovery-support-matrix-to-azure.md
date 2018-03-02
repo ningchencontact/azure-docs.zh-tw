@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>用於從內部部署複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -76,8 +76,8 @@ ms.lasthandoff: 02/09/2018
 >
 > 在 Linux 散發套件上，僅支援屬於散發套件的次要版本/更新的庫存核心。
 >
-> 不支援在 Azure Site Recovery 受保護的 VMware 虛擬機器或實體伺服器上對 Linux 散發套件的主要版本進行升級。 升級主要版本 (例如 CentOS 6.* 至 CentOS 7.*) 的作業系統時，請停用對機器的複寫，並升級機器的作業系統，然後再次啟用複寫。
-> 
+> 不支援在 Azure Site Recovery 受保護的 VMware 虛擬機器或實體伺服器上對 Linux 散發套件的主要版本進行升級。 升級主要版本 (例如 CentOS 6.\* 至 CentOS 7.\*) 的作業系統時，請停用對機器的複寫，並升級機器的作業系統，然後再次啟用複寫。
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/實體伺服器支援的 Ubuntu 核心版本
@@ -166,7 +166,7 @@ SAN (ISCSI) | yes | yes
 VMDK | yes | N/A
 VHD/VHDX | N/A | yes
 第 2 代 VM | N/A | yes
-EFI/UEFI| 僅適用於 Windows Server 2012 和更新版本移轉到 Azure。 </br></br> ** 請參閱表格結尾處的附註。  | yes
+EFI/UEFI| 僅適用於 Windows Server 2012 和更新版 VMware 虛擬機器的移轉到 Azure 作業。 </br></br> ** 請參閱表格結尾處的附註。  | yes
 共用叢集磁碟 | 否 | 否
 已加密磁碟 | 否 | 否
 NFS | 否 | N/A
@@ -182,10 +182,11 @@ RDM | yes<br/><br/> 實體伺服器為 N/A | N/A
 多重路徑 (MPIO) | N/A | yes
 
 > [!NOTE]
-> ** UEFI 開機 VMware 虛擬機器，或執行 Windows Server 2012 或更新版本的實體伺服器，都可以移轉到 Azure。 適用以下限制。
+> ** 將執行 Windows Server 2012 或更新版本的 VMware 虛擬機器進行 UEFI 開機，可移轉到 Azure。 適用以下限制。
 > - 僅移轉到 Azure。 不支援容錯回復至內部部署 VMware 網站。
 > - 不支援在伺服器的 OS 磁碟上有超過 4 個磁碟分割。
 > - 需要 Azure Site Recovery 行動服務 9.13 版或更新版本。
+> - 實體伺服器不支援。
 
 **Azure 儲存體** | **VMware/實體伺服器** | **Hyper-V (含/不含 Virtual Machine Manager)**
 --- | --- | ---

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduction.md#blob-storage)是數個已與 Azure 內容傳遞網路 (CDN) 整合之 Azure 型來源的其中一個。 任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自原始伺服器之 HTTP 回應中的 `Cache-Control` 標頭所決定。 本文章會說明幾種可設定位於 Azure 儲存體中，Blob 上的 `Cache-Control` 標頭的方法。
 
-您也可以藉由設定 [CDN 快取規則](cdn-caching-rules.md)，從 Azure 入口網站控制快取設定。 如果您設定一個或多個快取規則，並將其快取行為設定為 [覆寫] 或 [略過快取]，就會忽略本文所討論之原始提供的快取設定。 如需一般快取概念的相關資訊，請參閱[快取如何運作](cdn-how-caching-works.md)。
+您也可以藉由設定 [CDN 快取規則](#setting-cache-control-headers-by-using-caching-rules)，從 Azure 入口網站控制快取設定。 如果您建立快取規則，並將其快取行為設定為 [覆寫] 或 [略過快取]，就會忽略本文所討論之原始提供的快取設定。 如需一般快取概念的相關資訊，請參閱[快取如何運作](cdn-how-caching-works.md)。
 
 > [!TIP]
 > 您可以選擇不替 blob 設定 TTL。 在此情況下，除非您已在 Azure 入口網站中設定快取規則，否則 Azure CDN 會自動套用七天的預設 TTL。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
@@ -38,6 +38,52 @@ Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduct
 > 
 > 若要深入了解 Azure Blob 儲存體，請參閱 [Blob 儲存體簡介](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)。
  
+
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>使用 CDN 快取規則設定 Cache-Control 標頭
+設定 blob `Cache-Control` 標頭的慣用方法為在 Azure 入口網站中使用快取規則。 如需 CDN 快取規則的詳細資訊，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)。
+
+> [!NOTE] 
+> 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**設定檔。 針對**來自 Verizon Premium 的 Azure CDN** 設定檔，您必須使用 [管理] 入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
+
+**瀏覽至 CDN 快取規則頁面**：
+
+1. 在 Azure 入口網站中，選取 CDN 設定檔，然後選取 blob 的端點。
+
+2. 在左窗格的 [設定] 下方，選取 [快取規則]。
+
+   ![CDN 快取規則按鈕](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
+
+   [快取規則] 頁面隨即出現。
+
+   ![CDN 快取頁面](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
+
+
+**使用全域快取規則設定 blob 儲存體服務的 Cache-Control 標頭：**
+
+1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]，並將 [快取行為] 設定為 [覆寫]。
+      
+2. 在 [快取到期期間] 的 [秒鐘] 方塊中輸入 3600 或在 [小時] 方塊中輸入 1。 
+
+   ![CDN 全域快取規則範例](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
+
+   這個全域快取規則會設定一小時的快取期間，並影響針對端點的所有要求。 它會覆寫由端點指定之原始伺服器所傳送的任何 `Cache-Control` 或 `Expires` HTTP 標頭。   
+
+3. 選取 [ **儲存**]。
+ 
+**使用自訂快取規則設定 blob 檔案的 Cache-Control 標頭：**
+
+1. 在 [自訂快取規則] 下，建立兩個比對條件：
+
+     A. 在第一個比對條件，將 [比對條件] 設為 [路徑]，並在 [符合值] 輸入 `/blobcontainer1/*`。 將 [快取行為] 設定為 [覆寫]，並在 [時數] 方塊中輸入 4。
+
+    B. 在第二個比對條件，將 [比對條件] 設為 [路徑]，並在 [符合值] 輸入 `/blobcontainer1/blob1.txt`。 將 [快取行為] 設定為 [覆寫]，並在 [時數] 方塊中輸入 2。
+
+    ![CDN 自訂快取規則範例](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
+
+    第一個自訂快取規則會替您的端點指定之來源伺服器上 `/blobcontainer1` 資料夾中的所有 blob 檔案，設定四個小時的快取期間。 第二個規則只會針對 `blob1.txt` blob 檔案覆寫第一個規則，為其設定兩個小時的快取期間。
+
+2. 選取 [ **儲存**]。
+
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>使用 Azure PowerShell 設定 Cache-Control 標頭
 [Azure PowerShell](/powershell/azure/overview) 是其中一種最快速、最強大的 Azure 服務管理方式。 請使用 `Get-AzureStorageBlob` Cmdlet 來取得 Blob 的參考，然後設定 `.ICloudBlob.Properties.CacheControl` 屬性。 
@@ -64,7 +110,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>使用 .NET 設定 Cache-Control 標頭
-若要使用 .NET 程式碼設定 Blob 的 `Cache-Control` 標頭，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) \(英文\) 屬性。
+若要使用 .NET 程式碼指定 blob 的 `Cache-Control` 標頭，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。
 
 例如︰
 
@@ -81,10 +127,10 @@ class Program
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create a reference to the container
-        CloudBlobContainer container = blobClient.GetContainerReference("<container name>");
+        CloudBlobContainer <container name> = blobClient.GetContainerReference("<container name>");
 
         // Create a reference to the blob
-        CloudBlob blob = container.GetBlobReference("<blob name>");
+        CloudBlob <blob name> = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
         blob.Properties.CacheControl = "max-age=3600";
@@ -107,7 +153,7 @@ class Program
 若要使用 Azure 儲存體總管更新 blob 的 CacheControl 屬性：
    1. 選取 blob，然後從捷徑功能表選取 [屬性]。 
    2. 向下捲動至 CacheControl 屬性。
-   3. 輸入值，然後按一下 [儲存]。
+   3. 輸入值，然後選取 [儲存]。
 
 
 ![Azure 儲存體總管屬性](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
@@ -116,7 +162,7 @@ class Program
 透過 [Azure 命令列介面](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI)，您可以從命令列管理 Azure Blob 資源。 若要在使用 Azure CLI 上傳 Blob 時設定 Cache-Control 標頭，請使用 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
   
 ```azurecli
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>Azure 儲存體服務 REST API

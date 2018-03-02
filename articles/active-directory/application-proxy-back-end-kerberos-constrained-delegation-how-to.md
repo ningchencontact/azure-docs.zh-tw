@@ -3,7 +3,7 @@ title: "為應用程式 Proxy 疑難排解 Kerberos 限制委派設定 | Microso
 description: "為應用程式 Proxy 疑難排解 Kerberos 限制委派設定。"
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>為應用程式 Proxy 疑難排解 Kerberos 限制委派設定
 
@@ -33,11 +34,11 @@ ms.lasthandoff: 01/12/2018
 
 -   已發佈的目標應用程式是以 IIS 和 Microsoft 的 Kerberos 實作為基礎。
 
--   伺服器和應用程式主機位於單一的 Active Directory 網域中。 如需有關跨網域和樹系案例的詳細資訊，請參閱 [KCD 白皮書 (英文)](http://aka.ms/KCDPaper)。
+-   伺服器和應用程式主機位於單一的 Active Directory 網域中。 如需有關跨網域和樹系案例的詳細資訊，請參閱 [KCD 白皮書 (英文)](https://aka.ms/KCDPaper)。
 
 -   對象應用程式是在已啟用預先驗證的 Azure 租用戶中發佈，而且使用者必須透過表單式驗證向 Azure 驗證。 本文並未涵蓋各種豐富型用戶端驗證案例，但會於未來新增。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure 應用程式 Proxy 可以部署到許多類型的基礎結構或環境，且架構當然會隨組織而有所不同。 造成 KCD 相關問題最常見的一個原因並不是環境本身，而僅僅是設定錯誤或一般性的疏忽。
 
@@ -51,7 +52,7 @@ Azure 應用程式 Proxy 可以部署到許多類型的基礎結構或環境，�
 
 -   您應該盡可能避免在連接器主機和 DC 之間放置任何作用中的 IPS/IDS 裝置，因為這些裝置有時候會侵入及干擾核心 RPC 流量
 
-建議在最簡單的情況下測試委派。 您加入越多的變數，就需要應付更多的問題。 例如，將您的測試限制為單一連接器可以節省寶貴的時間，其他的連接器則可以在問題解決後再加入。
+您應該在最簡單的案例中測試委派。 您加入越多的變數，就需要應付更多的問題。 例如，將您的測試限制為單一連接器可以節省寶貴的時間，其他的連接器則可以在問題解決後再加入。
 
 某些環境因素也可能造成問題。 在測試期間，請盡可能將架構縮減為最低限度，以避免這類環境因素的影響。 例如，由於內部防火牆 ACL 設定錯誤的情況並不罕見，因此可能的話，請允許來自連接器的所有流量直接通往 DC 和後端應用程式。 
 
@@ -79,7 +80,7 @@ Azure 應用程式 Proxy 可以部署到許多類型的基礎結構或環境，�
 
 **用戶端預先驗證**：外部使用者透過瀏覽器向 Azure 進行驗證。
 
-KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如果有發生任何問題，便應該先測試並解決這項問題。 預先驗證階段與 KCD 或已發佈的應用程式無關。 透過例行性檢查 Azure 中是否存在對象帳戶，且該帳戶是否被停用/封鎖，應該就能輕鬆地修正任何不一致。 瀏覽器中的錯誤回應，通常便能提供足夠的資訊以了解原因。 如果您無法確定，也可以查看我們其他的疑難排解文件。
+KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如有任何問題，您應測試此項目並加以解決。 預先驗證階段與 KCD 或已發佈的應用程式無關。 透過例行性檢查 Azure 中是否存在對象帳戶，且該帳戶是否被停用/封鎖，應該就能輕鬆地修正任何不一致。 瀏覽器中的錯誤回應，通常便能提供足夠的資訊以了解原因。 如果您無法確定，也可以查看我們其他的疑難排解文件。
 
 **委派服務** - 代表使用者從 KDC (Kerberos 發佈中心) 取得 Kerberos 服務票證的 Azure Proxy 連接器。
 
@@ -105,7 +106,7 @@ KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如果有�
 
 擷取連接器主機和網域 KDC 之間交換的網路追蹤，將會是針對問題取得更低層級詳細資料的下一個最佳步驟。 如需詳細資訊，請參閱[深入探討疑難排解文件](https://aka.ms/proxytshootpaper)。
 
-如果票證看起來沒問題，則您應該會在記錄檔中看到事件，指出因應用程式傳回 401 而導致驗證失敗。 這通常表示目標應用程式拒絕您的票證，因此請繼續進行接下來的下一個階段。
+如果票證看起來沒問題，則您應該會在記錄檔中看到事件，指出因應用程式傳回 401 而導致驗證失敗。 這通常表示目標應用程式拒絕您的票證，因此請繼續進行接下來的下一個階段：
 
 **目標應用程式** - 連接器所提供之 Kerberos 票證的取用者
 
@@ -125,7 +126,7 @@ KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如果有�
 
 2.  暫時從 IIS 網站上的提供者清單移除 NTLM，然後直接從連接器主機上的 IE 存取應用程式。 當提供者清單中不存在 NTLM 時，您應該便只能使用 Kerberos 存取應用程式。 如果失敗，則表示應用程式的設定有問題，且 Kerberos 驗證無法正常運作。
 
-如果 Kerberos 無法使用，請接著檢查 IIS 中的應用程式驗證設定，以確定交涉已列於最上層，而 NTLM 則位於它的下方。 (並非 Negotiate: kerberos 或 Negotiate: PKU2U)。 只有在 Kerberos 能正常運作的情況下才繼續。
+如果 Kerberos 無法使用，請接著檢查 IIS 中的應用程式驗證設定，以確定交涉已列於最上層，而 NTLM 則位於它的下方。 (並非 Negotiate: Kerberos 或 Negotiate: PKU2U)。 只有在 Kerberos 能正常運作的情況下才繼續。
 
    ![Windows 驗證提供者](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -152,6 +153,16 @@ KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如果有�
 -   移至 IIS 並選取應用程式的 [設定編輯器] 選項，然後瀏覽至 **system.webServer/security/authentication/windowsAuthentication** 以確定 **UseAppPoolCredentials** 值為 **True**
 
    ![IIS 設定應用程式集區認證選項](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+將此值變更為 **True** 之後，所有快取的 Kerberos 票證皆需要從後端伺服器中移除。 做法為執行下列命令：
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+如需詳細資訊，請參閱[清除所有工作階段的 Kerberos 用戶端票證快取](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf)。
+
+
 
 雖然保留核心模式啟用對於改善 Kerberos 作業的效能很有用，但這也會導致要求之服務的票證可以使用電腦帳戶解密。 這也稱為本機系統，因此當應用程式裝載於伺服器陣列中的多部伺服器上時，將此設定設為 true 將會中斷 KCD。
 

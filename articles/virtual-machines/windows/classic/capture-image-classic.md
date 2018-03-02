@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像。
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像
 > [!IMPORTANT]
 > Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需 Resource Manager 模型的資訊，請參閱[在 Azure 中擷取一般化 VM 的受控映像](../capture-image-resource.md)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Azure 會將映像儲存於 [VM 映像 (傳統)] 下方，當您檢視所有 Azu
 
    ![執行 Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep 會將虛擬機器關機，並會在 Azure 入口網站中，將虛擬機器的狀態變更為 [ **已停止**]。
-6. 在 Azure 入口網站中，按一下 [虛擬機器 (傳統)]，然後選取您想要擷取的虛擬機器。 [VM 映像 (傳統)] 群組會在您檢視 [更多服務] 時列於 [計算] 下方。
+6. 在 Azure 入口網站中，按一下 [虛擬機器 (傳統)]，然後選取您想要擷取的虛擬機器。 [VM 映像 (傳統)] 群組會在您檢視 [所有服務] 時列於 [計算] 下方。
 
 7. 按一下命令列上的 [擷取] 。
 
@@ -74,7 +74,7 @@ Azure 會將映像儲存於 [VM 映像 (傳統)] 下方，當您檢視所有 Azu
     ![成功擷取映像](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>後續步驟
-映像已準備好用來建立虛擬機器。 若要這樣做，您將建立虛擬機器，方法是選取服務功能表底部的 [更多服務] 功能表項目，然後選取 [計算] 群組中的 [VM 映像 (傳統)]。 如需指示，請參閱 [從映像建立虛擬機器](createportal.md)。
+映像已準備好用來建立虛擬機器。 若要這樣做，您將建立虛擬機器，方法是選取服務功能表底部的 [所有服務] 功能表項目，然後選取 [計算] 群組中的 [VM 映像 (傳統)]。 如需指示，請參閱 [從映像建立虛擬機器](createportal.md)。
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

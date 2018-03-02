@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>設定已加入網域的 HDInsight 沙箱環境
 
-了解如何使用獨立的 Active Directory 和 [Apache Ranger](http://hortonworks.com/apache/ranger/) 設定 Azure HDInsight 叢集，以利用增強式驗證和豐富的角色型存取控制 (RBAC) 原則。 如需詳細資訊，請參閱[已加入網域的 HDInsight 叢集簡介](apache-domain-joined-introduction.md)。
+了解如何使用獨立的 Active Directory 和 [Apache Ranger](http://hortonworks.com/apache/ranger/) 設定 Azure HDInsight 叢集，以利用增強式驗證和豐富的角色型存取控制 (RBAC) 原則。 如需詳細資訊，請參閱[已加入網域的 HDInsight 叢集簡介](apache-domain-joined-introduction.md)。 
+
+> [!IMPORTANT]
+> 根據預設，只能搭配 Azure 儲存體帳戶使用此設定。 若要搭配使用 Azure Data Lake Store，請將 Active Directory 同步處理至新的 Azure Active Directory。
 
 若未使用已加入網域的 HDInsight 叢集，每個叢集只能有一個 Hadoop HTTP 使用者帳戶，和一個 SSH 使用者帳戶。  若需要多使用者驗證，可透過下列方式：
 
@@ -40,6 +43,7 @@ ms.lasthandoff: 01/25/2018
     - 建立 HDInsight 叢集
 
 > [!IMPORTANT]
+> 
 > Oozie 未在已加入網域的 HDInsight 上啟用。
 
 ## <a name="prerequisite"></a>必要條件
@@ -134,7 +138,7 @@ ms.lasthandoff: 01/25/2018
 
 **新增 Active Directory 憑證服務**
 
-4. 開啟 [伺服器管理員] \(如果尚未開啟)。
+4. 開啟 [伺服器管理員] (如果尚未開啟)。
 5. 按一下 [管理]，然後按一下 [新增角色及功能]。
 
     ![已加入網域的 HDInsight 會新增角色與功能](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)

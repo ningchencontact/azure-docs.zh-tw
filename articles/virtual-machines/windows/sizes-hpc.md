@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>高效能運算 VM 大小
 
@@ -36,13 +36,7 @@ ms.lasthandoff: 11/17/2017
 
 以下是支援 RDMA 的 Windows VM 存取 Azure RDMA 網路的需求： 
 
-* **作業系統**
-  
-  Windows Server 2012 R2、Windows Server 2012
-  
-  > [!NOTE]
-  > Windows Server 2016 目前不支援 Azure 中的 RDMA 連線能力。
-  >
+* **作業系統** - Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
 
 * **可用性設定組或雲端服務** – 在相同的可用性設定組 (如果您使用 Azure Resource Manager 部署模型) 或相同的雲端服務 (如果您使用傳統部署模型) 中部署支援 RDMA 的 VM。 如果您是使用 Azure 批次，支援 RDMA 的 VM 必須在相同的集區中。
 
@@ -52,7 +46,7 @@ ms.lasthandoff: 11/17/2017
 
 * **RDMA 網路位址空間** - Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/16。 若要在 Azure 虛擬網路中已部署的執行個體上執行 MPI 應用程式，請確定虛擬網路位址空間不會與 RDMA 網路重疊。
 
-* **HpcVmDrivers VM 擴充功能** - 在支援 RDMA 的 VM 上，必須新增 HpcVmDrivers 擴充功能，以便安裝 RDMA 連線的 Windows 網路裝置驅動程式。 (在某些 A8 和 A9 執行個體部署中，會自動新增 HpcVmDrivers 擴充功能)。若要將 VM 擴充功能新增至 VM，您可以使用 [Azure PowerShell](/powershell/azure/overview) Cmdlet。 
+* **HpcVmDrivers VM 擴充功能** - 在支援 RDMA 的 VM 上，新增 HpcVmDrivers 擴充功能，以便安裝 RDMA 連線的 Windows 網路裝置驅動程式。 (在某些 A8 和 A9 執行個體部署中，會自動新增 HpcVmDrivers 擴充功能)。若要將 VM 擴充功能新增至 VM，您可以使用 [Azure PowerShell](/powershell/azure/overview) Cmdlet。 
 
   
   下列命令會在支援 RDMA 的虛擬機器 (名稱為 *myVM*，部署在*美國西部*區域中名稱為 *myResourceGroup* 的資源群組) 上安裝最新 1.1 版 HpcVMDrivers 擴充功能：

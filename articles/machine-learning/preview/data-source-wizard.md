@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd603f07c20811543e07b21683b065bc873786a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-source-wizard"></a>資料來源精靈 #
 
-資料來源精靈是一種快速且簡單的方式，不需程式碼，就能將資料集帶入 Azure ML Workbench。 您也可以在其中選取資料集適用的取樣策略。 
+資料來源精靈是一種快速且簡單的方式，不需程式碼，就能將資料集帶入 Azure ML Workbench。 您也可以在其中選取資料集適用的取樣策略，以及每個資料行的資料類型。 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>步驟 1：觸發資料來源精靈 ## 
 
@@ -51,11 +51,13 @@ ms.lasthandoff: 12/18/2017
 
 [資料來源精靈] 會自動偵測資料集資料行的資料類型。 如果它遺漏其中一個，或者您想要強制執行某個資料類型，您可以手動變更資料類型。 [樣本輸出資料] 資料行會顯示資料的外觀範例。
 
+對於「資料準備」推斷會包含日期的資料行，系統可能會提示您選取日期格式中的月份和日期順序。 例如，1/2/2013 可能代表年 1 月 2 日 (為此，請選取 [日-月]) 或 2 月 1 日 (請選取 [月-日])。
+
 ![步驟 6](media/data-source-wizard/step4.png)
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>步驟 6：選擇資料的取樣策略 ##
 
-您可以為資料集指定一或多個取樣策略，並選擇一個作為使用中的策略。 預設值是載入前 10000 個資料列。 您可以按一下工具列中的 [編輯] 按鈕或按一下 [+新增] 來新增策略，藉以編輯此樣本。 以下是我們目前支援策略
+您可以為資料集指定一或多個取樣策略，並選擇一個作為使用中的策略。 預設值是載入前 10000 個資料列。 您可以按一下工具列中的 [編輯] 按鈕或按一下 [+新增] 來新增策略，藉以編輯此樣本。 以下是目前支援的策略
 
 -     前幾個資料列數目
 -     隨機的資料列數目
@@ -70,7 +72,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="step-7-path-column-handling"></a>步驟 7：路徑資料行處理 ##
 
-如果檔案路徑包含重要資料，您可以選擇包含它以作為資料集中的第一個資料行。 如果您想要帶入多個檔案，則這非常有用。 否則，您可以選擇不包含它。
+如果檔案路徑包含重要資料，您可以選擇包含它以作為資料集中的第一個資料行。 如果您想要帶入多個檔案，此選項非常有用。 否則，您可以選擇不包含它。
 
 ![步驟 7](media/data-source-wizard/step6.png)
 

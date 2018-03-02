@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>使用資料收集來收集模型資料
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 01/11/2018
 檢視 Blob 儲存體中收集的資料：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [更多服務]。
+2. 選取 [所有服務]。
 3. 在 [搜尋] 方塊中，輸入**儲存體帳戶**，然後選取 Enter 鍵。
 4. 從 [儲存體帳戶] 搜尋刀鋒視窗中，選取 [儲存體帳戶] 資源。 若要判斷您的儲存體帳戶，請使用下列步驟：
 

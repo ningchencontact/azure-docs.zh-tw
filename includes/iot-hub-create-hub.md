@@ -1,7 +1,7 @@
 1. 登入 [Azure 入口網站][lnk-portal]。
-1. 選取 [新增] > [物聯網] > [IoT 中樞]。
+1. 選取 [建立資源] > [物聯網] > [IoT 中樞]。
    
-    ![Azure 入口網站 Jumpbar][1]
+    ![Azure 入口網站瀏覽到 IoT 中樞的螢幕擷取畫面][1]
 
 1. 在 [IoT 中樞] 窗格中，輸入 IoT 中樞的下列資訊︰
 
@@ -21,8 +21,8 @@
 
 1. 按一下頁面底部的 [新增] 。 建立 IoT 中樞可能需要數分鐘。 您可以在 [通知] 窗格中監視進度。
 <!-- Images -->
-[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
 <!-- Links -->
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/

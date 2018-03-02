@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>開始使用儲存體總管 (預覽)
 ## <a name="overview"></a>概觀
@@ -28,6 +28,16 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
 ## <a name="prerequisites"></a>先決條件
 * [下載並安裝儲存體總管 (預覽)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> 針對 Ubuntu 16.04 以外的 Linux 散發版本，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
+> * libgconf-2-4
+> * libsecret
+> * 最新的 GCC
+>
+> 依據您的散發版本，您可能需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發版本的特定步驟。
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>連接到儲存體帳戶或服務
 儲存體總管 (預覽) 提供數種方式來連線至儲存體帳戶。 例如，您可以：
@@ -239,6 +249,20 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>以 URI 連線至 Azure Data Lake Store
+如果您想要取得資源的存取權，而這些資源不存在於您的訂用帳戶中， 但他人授權給您取得資源的 URI。 在此情況下，您可以在登入後使用 URI 連線至 Data Lake Store。 請參閱下列步驟。
+1. 開啟儲存體 Explorer (預覽)。
+2. 在左窗格中，展開 [本機與已連結的資源]。
+3. 以滑鼠右鍵按一下 **Data Lake Store**，然後從內容功能表中選取 [連線至 Data Lake Store...]。
+
+    ![連線至 Data Lake Store 內容功能表](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. 輸入 URI，工具即會瀏覽至您剛才輸入的 URL 位置。
+
+    ![連線至 Data Lake Store 內容對話方塊](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![連線至 Data Lake Store 結果](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>搜尋儲存體帳戶
 如果您需要尋找儲存體資源，但不知道其所在位置，您可以使用左窗格頂端的搜尋方塊來搜尋此資源。
 
@@ -254,6 +278,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 ## <a name="next-steps"></a>後續步驟
 * [使用儲存體總管 (預覽) 來管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
 * [在 Azure 儲存體總管 (預覽) 中管理 Azure Cosmos DB](./cosmos-db/storage-explorer.md)
+* [使用儲存體總管來管理 Azure Data Lake Store 資源 (預覽)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

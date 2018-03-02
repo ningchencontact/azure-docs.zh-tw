@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 
@@ -36,9 +36,11 @@ ms.lasthandoff: 01/24/2018
 您必須先建立 Azure AD DS，才能建立 HDInsight 叢集。 若要建立 Azure ADDS，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started.md)。 
 
 > [!NOTE]
-> 只有租用戶的管理員具有建立網域服務的權限。 如果您使用 Azure Data Lake Storage (ADLS) 作為 HDInsight 的預設儲存體，則請確定 ADLS 的預設 Azure AD 租用戶與 HDInsight 叢集的網域相同。 
+> 只有租用戶的管理員具有建立網域服務的權限。 如果您使用 Azure Data Lake Storage (ADLS) 作為 HDInsight 的預設儲存體，則請確定 ADLS 的預設 Azure AD 租用戶與 HDInsight 叢集的網域相同。 為了讓這個設定能搭配 Azure Data Lake Store 使用，必須為具有叢集存取權的使用者停用多重要素驗證。
 
 佈建網域服務之後，您需要在 **Azure AD DC 管理員**群組中建立服務帳戶，用於建立 HDInsight 叢集。 服務帳戶必須是 Azure AD 的全域管理員。
+
+您必須啟用 Azure AD 網域服務受控網域的安全 LDAP。 若要啟用安全 LDAP，請參閱[針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)。
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>建立已加入網域的 HDInsight 叢集
 

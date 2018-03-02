@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>如何為串流分析建立資料分析處理工作
 Azure 串流分析中的最上層資源就是串流分析工作。  其包含一或多個輸入資料來源、一個表示資料轉換的查詢，以及一或多個用來寫入結果的輸出目標。 這些功能結合的結果，讓使用者能夠執行串流資料案例的資料分析處理工作。
@@ -27,7 +27,7 @@ Azure 串流分析中的最上層資源就是串流分析工作。  其包含一
 若要開始使用串流分析，您必須先建立新的串流分析工作。  請注意，直到作業開始之前，這個動作不會以任何方式計費。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 選取 [新增]  >  [資料 + 分析]  >  [串流分析作業]。
+2. 選取 [建立資源] > [資料 + 分析] > [串流分析工作]。
 3. 選取 [建立] 。
    
 3. 為串流分析工作指定所需的組態。

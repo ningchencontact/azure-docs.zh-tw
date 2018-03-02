@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
@@ -92,7 +92,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 一旦[註冊您的應用程式](#register-your-application-with-an-azure-ad-tenant)之後，請在 Azure 入口網站中遵循下列步驟，以授與它存取 Batch 服務的權限：
 
-1. 在 Azure 入口網站的左側瀏覽窗格中，選擇 [更多服務]，按一下 [應用程式註冊]。
+1. 在 Azure 入口網站的左側導覽窗格中，選擇 [所有服務]。 按一下 [應用程式註冊]。
 2. 在應用程式註冊清單中搜尋您應用程式的名稱︰
 
     ![搜尋您的應用程式名稱](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 在 Azure 入口網站中遵循下列步驟：
 
-1. 在 Azure 入口網站的左側瀏覽窗格中，選擇 [更多服務]，按一下 [應用程式註冊]。
+1. 在 Azure 入口網站的左側導覽窗格中，選擇 [所有服務]。 按一下 [應用程式註冊]。
 2. 在應用程式註冊清單中搜尋您應用程式的名稱。
 3. 顯示 [設定] 刀鋒視窗。 在 [API 存取] 區段中，選取 [金鑰]。
 4. 若要建立金鑰，請輸入金鑰的描述。 接著選取一或兩年的金鑰持續期間。 

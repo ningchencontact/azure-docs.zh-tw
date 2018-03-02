@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure App Service Web Apps 設定 Python
 本教學課程描述在 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
@@ -36,7 +36,7 @@ Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。 如果您�
 ## <a name="web-app-creation-on-azure-portal"></a>在 Azure 入口網站上建立 Web 應用程式
 本教學課程假設有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。
 
-如果您還沒有 Web 應用程式，則可以從 [Azure 入口網站](https://portal.azure.com)建立。  按一下左上角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
+如果您還沒有 Web 應用程式，則可以從 [Azure 入口網站](https://portal.azure.com)建立。 按一下左上角的 [建立資源]  >  [Web + 行動]  >  [Web 應用程式]。
 
 ## <a name="git-publishing"></a>Git 發行
 依照 [本機 Git 部署至 Azure App Service](app-service-deploy-local-git.md)的指示，為您新建立的 Web 應用程式設定 Git 發佈功能。 本教學課程使用 Git 來建立、管理並將您的 Python Web 應用程式發佈至 Azure App Service。

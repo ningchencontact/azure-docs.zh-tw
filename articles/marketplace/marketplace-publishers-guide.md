@@ -1,7 +1,7 @@
 ---
-title: "Azure Marketplace 發行者指南"
+title: "Azure Marketplace 和 AppSource 發行者指南"
 description: "Azure Marketplace 新發行者的逐步指南與發行檢查清單"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Azure Marketplace 發行者指南
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南
 
-歡迎使用 Azure Marketplace 發行者指南。 本指南旨在協助候選與現有的發行者了解如何運用 Azure Marketplace 和 AppSource 店面，以列出其應用程式和服務來與 Microsoft 合作提升業績。 在本指南結束時，您會深入了解每個主題，並知道哪裡可以找到詳細資訊︰
+歡迎使用 [Azure Marketplace](https://azuremarketplace.microsoft.com) 和 [AppSource](https://appsource.microsoft.com) 發行者指南。 本指南旨在協助新的與現有的發行者了解如何運用 Azure Marketplace 和 AppSource 店面、發佈應用程式和服務所需的步驟，以及如何與 Microsoft 合作提升業績。 在本指南結束時，您會深入了解每個主題，並知道哪裡可以找到詳細資訊︰
 
-- 參與 Marketplace 有哪些優點
+- 名列其中一個市集店面有何優點
 - 什麼是 Azure Marketplace 和 AppSource
 - 如何運用這些店面
 - 您的供應項目與服務適合哪種店面 
@@ -36,30 +36,33 @@ ms.lasthandoff: 02/01/2018
 - 如何最佳化清單和使用上市資源以推動影響
 - 可在何處取得說明和支援。有關 Azure Marketplace、AppSource 或此發行指南的問題，請連絡 Marketplace 小組 (**cloudmarketplace@microsoft.com**)。 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>參與 Marketplace 的優點
+## <a name="benefits-of-participating-in-the-marketplace"></a>參與市集的優點
 
-Marketplace 是與 Microsoft 共同舉辦上市活動的跳板，也是業務成長的推動力。 利用上市推廣、創造需求及聯合銷售與行銷，Marketplace 供應項目組合可成為雲端商務引擎的中心。 參與 Marketplace 無需任何費用。 我們的目標是要連接 Microsoft 客戶與合作夥伴生態系統所提供的最佳解決方案。
+Azure Marketplace 和 AppSource 是與 Microsoft 共同舉辦上市活動的跳板，也是業務成長的推動力。 利用上市推廣、創造需求及聯合銷售與行銷，市集清單可成為雲端商務引擎的中心。 參與市集無需任何費用。 我們的目標是要連接 Microsoft 客戶與合作夥伴生態系統所提供的最佳解決方案和服務。
 
-利用 Marketplace 功能拓展您的業務：
+利用市集功能拓展您的業務：
 
-- **產生潛在客戶與銷售機會。** 在 Microsoft 雲端平台上利用擴充的解決方案產品組合進入新市場。 追加銷售與交叉銷售 Marketplace 供應項目。 
-- **提高商務價值並增加現有和新客戶的交易規模。** 提升交易規模和處理客戶將工作負載移至雲端時遇到的難題。 藉由銷售全套解決方案，增加交易獲利。 
-- **取得可操作的深入解析。** 以成就您的成功為己任。 透過 Cloud Partner 入口網站深入解析當下的概況、您已產生的潛在客戶，以及如何讓行銷活動達到最大效果。
+- **產生潛在客戶與銷售機會。** 在 Microsoft 雲端平台上利用擴充的解決方案產品組合進入新市場。 追加銷售與交叉銷售市集供應項目。 
+- **提高商務價值並增加現有和新客戶的交易規模。** 提升交易規模和處理客戶將工作負載移至雲端時遇到的難題。 利用銷售以特定工作負載和產業實例為目標的完整解決方案，降低銷售循環，並增加交易獲利率。
+- **取得可操作的深入解析。** 以成就您的成功為己任。 透過 Cloud Partner 入口網站獲得您的清單效能的相關見解。 了解在執行什麼、您已產生的潛在客戶，以及如何讓行銷活動達到最大效果。
+
+>[!NOTE]
+>擴充 Office 的應用程式會透過 Office 應用程式發佈程序來存取見解。
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>什麼是 Azure Marketplace 和 AppSource？
 
-Microsoft 提供兩個不同的 Marketplace 店面，可讓合作夥伴列出供應項目、啟用試用版，以及直接和 Microsoft 的客戶與生態系統交易：[Azure Marketplace] (https://azuremarketplace.microsoft.com) 與 [AppSource] (https://appsource.microsoft.com)。 這些店面可讓客戶尋找、試用及購買應用程式與服務，促進數位轉型，以及藉由多加存取 Microsoft 的客戶與合作夥伴生態系統，協助發行者拓展業務。
+Microsoft 提供兩個不同的市集店面，可讓合作夥伴列出供應項目、啟用試用版，以及直接和 Microsoft 的客戶與生態系統交易：[Azure Marketplace] (https://azuremarketplace.microsoft.com) 與 [AppSource] (https://appsource.microsoft.com)。 這些店面可讓客戶尋找、試用及購買應用程式與服務，促進數位轉型，以及藉由多加存取 Microsoft 的客戶與合作夥伴生態系統，協助發行者拓展業務。
  
-Marketplace 店面是專為目標對象與 Microsoft 雲端產品提供，協助客戶找到真正所需。 每個店面都提供專屬的發行選項，有助於讓發行投資發揮最大效用，摘要說明於下表：
+市集店面是專為目標對象與 Microsoft 雲端產品提供，協助客戶找到所需。 每個店面都提供專屬的發行選項，有助於讓發行投資發揮最大效用，摘要說明於下表：
 
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |目標對象     |IT 專業人員、開發人員 (專家角色包括 DBA、SecOp、DevOps 等)    | 企業營運決策者 (專家角色包括採購、製造、會計等)      |
-|建置來擴充     |Azure         | Azure、Dynamics 365、Office 365、Power BI 及 Power Apps       |
-|解決方案和服務類型     |  基礎結構解決方案與專業服務   | 完成的企業營運應用程式和專業人員的服務        |
-|發行選項     |  與我連絡、諮詢服務供應項目、試用版、虛擬機器解決方案範本及受管理應用程式       |  與我連絡、諮詢服務供應項目或試用版       |
-|應用程式內體驗     | Azure 入口網站與 CLI         | Office 365、Dynamics 365、Power BI、Office 用戶端應用程式       |
+|建置採用或要擴充     |Azure         | Azure、Dynamics 365、Office 365、Power BI 及 Power Apps       |
+|解決方案和服務類型     |  基礎結構解決方案與專業服務   | 完整企業營運雲端應用程式、Office 365 增益集，以及專業服務        |
+|發行選項     |  與我連絡、諮詢服務供應項目、試用版、虛擬機器解決方案範本及受管理應用程式       |  免費試用版、立即取得、試用產品、與我連絡、諮詢服務供應項目      |
+|應用程式內體驗提供使用者在其應用程式的內容中對應用程式和服務的存取  | Azure 入口網站與 CLI         | Office 365、Dynamics 365、Power BI、Office 用戶端應用程式       |
 
 ## <a name="leveraging-these-storefronts"></a>運用這些店面
 
@@ -75,33 +78,36 @@ Marketplace 店面是專為目標對象與 Microsoft 雲端產品提供，協助
 |**需要適用於第三方應用程式和服務的可調整部署機制**   | 能夠建立及設定可調整的第三方應用程式和服務部署        |
 |**需求新的應用程式和服務與現有的解決方案整合及搭配運作**  |   輕鬆地整合第三方應用程式和服務與 Azure 上的現有解決方案      |
 
-使用 **AppSource** 吸引商務使用者探索和試用企業營運 SaaS 應用程式與服務： 
+讓商務使用者參與 **AppSource** 以尋找、嘗試及取得企業營運 SaaS 應用程式和實作服務，來協助推動商務成果並並縮短創造價值的時間： 
 
 
 |客戶需求  |AppSource  |
 |---------|---------|
-|**想要擴充 Dynamics 365、Office 365、Power BI 及 Power Apps 功能**   |  可讓客戶使用協力廠商應用程式和服務來擴充 Microsoft 雲端平台功能       |
-|**發現要找到正確的應用程式或服務很具挑戰性**    |   讓您一次達成探索和試用應用程式和服務、增益集等等      |
-|**需要產業特有企業營運解決方案**   | 能有各產業的解決方案，讓客戶可以尋找所需        |
-|**需要特定的商務解決方案**    | 能有各種企業營運與商務問題的解決方案，包括顧客服務、HR、營運等等        |
+|**尋找能與其已在使用的 Microsoft 產品搭配的商務解決方案** | 可讓客戶使用協力廠商應用程式和服務來擴充 Microsoft 的雲端應用程式和技術。       |
+|**能夠輕鬆找到適當的解決方案或實作服務。**    |   讓您一次達成探索、試用和取得應用程式和服務、增益集等等      |
+|**產業特定企業營運解決方案，以解決其特定的商業挑戰**   | 提供完善的端對端產業解決方案，以協助解決許多產業的特定需求     |
+|**應用程式以協助改善生產力、效率與企業洞察力**    | 提供企業營運的應用程式，包括客戶服務、人力資源、作業和更多        |
+| **有經驗的實作合作夥伴，協助調整應用程式以適應其獨特的情況** | 為以 Dynamics 365、Power BI、PowerApps 為基礎的解決方案提供諮詢服務供應項目目錄，並且在 AppSource 上提供協力廠商應用程式，以協助商務使用者尋找其設計目的是要提供可預測結果的諮詢服務 |
 
 ## <a name="understanding-the-differences-between-storefronts"></a>了解店面之間的差異
 
-選擇店面要從識別供應項目的目標對象著手：Azure Marketplace 是專為 IT 專業人員與開發人員需求提供，而 AppSource 是專為商務使用者提供。 如果兩者都是您的解決方案目標，只需發行一次即可列在這兩個店面。
+選擇店面要從識別供應項目的目標對象著手：Azure Marketplace 是對應於 IT 專業人員與開發人員的需求，而 AppSource 則對應於商務使用者的需求。 如果兩者都是您的解決方案目標，只需發行一次即可列在這兩個店面。
  
 請考量各個商店的其他優點：
 
 |店面優點  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**計費有彈性**    | 虛擬機器的「預付型方案」帳務選項使用 Microsoft Enterprise 合約或 Web Direct 銷售模型。 定價選項也包括產品永遠免費的免費層訂用帳戶，以及限時推廣期間內免費的立即試用訂用帳戶，之後就轉換成付費訂用帳戶。 「自備授權」啟用也是用以支援發行者的選項。對於這兩種帳務選項而言，在使用 Azure Apps (例如，解決方案範本或受管理應用程式) 部署虛擬機器的情況下，佈建的所有 Azure 資源都會直接向客戶收費 | AppSource 提供順暢的試用佈建體驗，但目前不提供商務用發行選項；這可讓您運用目前的訂購和帳務基礎架構，而無需其他投資或變更        |
-|**促進與其他合作夥伴的往來**     |Azure Marketplace 目前不允許發行者將服務提供者或交貨合作夥伴連結至供應項目         |  可連結獨立軟體廠商、系統整合商及受管理服務提供者進行特定實作案例、支援對新客戶共同銷售      |
+|**計費有彈性**    | 虛擬機器的「預付型方案」帳務選項使用 Microsoft Enterprise 合約或 Web Direct 銷售模型。 定價選項也包括產品永遠免費的免費層訂用帳戶，以及限時推廣期間內免費的立即試用訂用帳戶，之後就轉換成付費訂用帳戶。 「自備授權」啟用也是用以支援發行者的選項。對於這兩種帳務選項而言，在使用 Azure Apps (例如，解決方案範本或受管理應用程式) 部署虛擬機器的情況下，佈建的所有 Azure 資源都會直接向客戶收費 | AppSource 提供佈建試用的體驗，但目前不提供商務用發行選項；這可讓您運用目前的訂購和帳務基礎架構，而無需其他投資或變更        |
+|**促進與其他合作夥伴的往來**     |Azure Marketplace 目前不允許發行者將服務提供者或交貨合作夥伴連結至供應項目，但將在 2018 年啟動此功能         |  可連結獨立軟體廠商、系統整合商及受管理服務提供者進行特定實作案例、支援對新客戶共同銷售      |
 |**自動化**     |    Azure Marketplace 目前不允許發行者將服務提供者或交貨合作夥伴連結至供應項目     | 使用增益集佈建利用自動化 SaaS，以及使用解決方案範本將 SaaS 式資料收集和部署案例自動化        |可連結獨立軟體廠商、系統整合商及受管理服務提供者進行特定實作案例、支援對新客戶共同銷售
 |**多種雲端類型**     |   透過 Azure Stack 發行公用雲端與內部部署解決方案，或發行至 Azure Government 與地區雲端，包括中國與德國      |    AppSource 目前不支援 Azure Stack、Azure Government 或地區雲端     |
-|**在內容裡呈現給客戶**     |  在內容相關式搜尋的 Azure 入口網站內體驗中提供您的解決方案 (虛擬機器與解決方案範本)       |  在 Microsoft 產品的應用程式內體驗中提供您的解決方案       |
+|**在內容裡呈現給客戶**     |  在內容相關式搜尋的 Azure 入口網站內體驗中提供您的解決方案 (虛擬機器與解決方案範本)       |  透過 Microsoft 產品 (例如 Dynamics 365、Power BI 和 Office 365) 的應用程式內體驗，來觸及更多客戶    |
 
 ## <a name="select-a-publishing-option"></a>選擇發行選項
 
 每個店面都支援多種發行選項與供應項目類型：清單、試用版及交易。 選擇最能呈現應用程式與服務詳細資料的供應項目類型。 所有發行選項可讓協力廠商存取潛在客戶共用。 
+
+本節將引導您完成可供您在這兩個店面使用的選項。 
 
 
 |**發行選項**  | **供應項目類型** | **店面**  |
@@ -114,6 +120,9 @@ Marketplace 店面是專為目標對象與 Microsoft 雲端產品提供，協助
 
 試用版或交易層級參與均不可行時，使用**與我連絡**。 此方法的優點是可讓發行者的解決方案上市，立即開始接到可加強關係以從基礎交易開始向其推廣業務的潛在客戶。 不過，和其他供應項目類型相較之下，缺點是客戶參與率有限。
 
+>[!IMPORTANT]
+>「與我連絡」不是建議的清單類型，並且應該只在沒有任何方法來建立試用體驗的情況下使用。 使用試用版和交易供應項目的客戶參與最佳。 如果您有任何類型的試用體驗，根據您的案例而定，我們的上架程序將引導您進行其中一個選項。
+
 供應項目主要包含專業服務 (例如評量、實作、研討會) 時，請使用**諮詢服務**供應項目類型。 供應項目範圍、期間及價格必須固定，專為單一客戶提供，而且必須在現場執行。
 
 ### <a name="trial"></a>試用版
@@ -122,7 +131,7 @@ Marketplace 店面是專為目標對象與 Microsoft 雲端產品提供，協助
  
 所有試用版選項都部署在試用版環境和/或 Azure 訂用帳戶，而不是客戶的環境或 Azure 訂用帳戶。 試用版應以客戶為導向，而沒有任何其他購買項目，並且只需要最低限度的設定 (若有的話)，即可完成簡單的使用案例。 試用版必須至少包括在試用期間提供免費支援。 應和試用版使用者加強關係並於謹慎的評估路徑沿途監視，以獲得最佳結果。 發行者應該盡可能使用 Marketplace 潛在客戶和發行者自己的應用程式內智慧來監視和管理試用版使用者。
 
-典型的試用版案例有三：
+典型的試用版案例有 4 個：
 
 
 |**試用版選項**  |**主要優點**  |**選擇此選項的前提是...**  |
@@ -130,6 +139,7 @@ Marketplace 店面是專為目標對象與 Microsoft 雲端產品提供，協助
 |**免費試用版**    |     讓客戶先試用產品，再以自動化方法轉換成付費訂用帳戶，以及向客戶提供概念證明並與 Microsoft 銷售團隊共同參與 |     解決方案是虛擬機器或解決方案範本，或解決方案是 SaaS 供應項目且您提供多租用戶 SaaS 產品，您有初次執行體驗可讓客戶快速啟動並執行，如果您有單一租用戶但將客戶新增為「來賓使用者」|
 **試用產品**     |     可讓客戶購買之前，先試用產品，並在預先設定的設定上提供引導式的解決方案體驗 |   解決方案是使用單一租用戶的虛擬機器、解決方案範本或 SaaS 應用程式或很複雜而難以佈建，或是您無法將試用版轉換成付費供應項目 |
 |**互動式示範**    |  可讓客戶查看運作中的產品，設定毫不複雜       |    解決方案所需的設定複雜，在試用期間難以達到     |
+
 
 #### <a name="free-trial"></a>免費試用
 
@@ -159,7 +169,10 @@ Marketplace 店面是專為目標對象與 Microsoft 雲端產品提供，協助
 
 解決方案需要虛擬設備之外的其他部署與設定自動化時，請使用 **Azure 解決方案範本**。 解決方案範本可將一或多個虛擬機器資源的佈建自動化，此外還可以佈建網路和儲存體資源。 在單一虛擬機器以及整個 IaaS 式解決方案的環境上，使用解決方案範本的優點是自動化。 [在這裡](https://github.com/MicrosoftDocs/azure-docs)深入了解建置解決方案範本。
 
-當發行者或客戶希望由 SI 或 MSP 等協力廠商來管理解決方案，而將虛擬機器或整個 IaaS 式解決方案部署至客戶的訂用帳戶時，請使用 Azure 受管理應用程式。 在這裡深入了解[建置受管理應用程式](https://docs.microsoft.com/azure/managed-applications/overview)。 如需常見問題的清單，請參閱 [Azure Marketplace 常見問題集](https://azure.microsoft.com/marketplace/faq/)。
+當發行者或客戶希望由 SI 或 MSP 等協力廠商來管理解決方案，而將虛擬機器或整個 IaaS 式解決方案部署至客戶的訂用帳戶時，請使用 **Azure 受控應用程式**。 在這裡深入了解[建置受管理應用程式](https://docs.microsoft.com/azure/managed-applications/overview)。 如需常見問題的清單，請參閱 [Azure Marketplace 常見問題集](https://azure.microsoft.com/marketplace/faq/)。
+
+>[!NOTE]
+> 受控應用程式必須可透過市集部署。 若擔心與客戶的通訊，請注意，如果您已啟用潛在客戶共用，將可以連絡目標客戶。
 
 ### <a name="azure-certified"></a>Azure 認證
 
@@ -295,7 +308,22 @@ Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證�
 - 開發每個客戶的「試用產品」
 - 建置使用 SSO 的多租用戶範例示範應用程式
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Cloud Partner 入口網站發行前的檢查清單
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>依 Office、Dynamics 和 Power BI 產品的發佈程序
+針對擴充 Office、Dynamics 和 Power BI 的 AppSource 應用程式，您可以在本節的產品特定文件中深入了解特定需求。 
+
+
+|產品 |發行資訊  |
+|---------|---------|
+|Office 365     |    檢閱[發佈程序和指導方針]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)。     |
+|Dynamics 365 for Finance and Operations  |   建置 Enterprise Edition 時，請檢閱[發佈程序和指導方針](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 for Customer Engagement |檢閱[發佈程序和指導方針](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
+|Power BI   |     檢閱[發佈程序和指導方針]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)。    |
+|Cortana Intelligence     |    深入了解 [AppSource 中的 Cortana](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
+|AppSource 諮詢供應項目     |  檢閱[指導方針並了解如何提交您的供應項目。]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Azure Marketplace 的 Cloud Partner 入口網站發行前的檢查清單
 
 在開始發行程序之前，最好先了解建置供應項目所需的元件。 下列是在 Cloud Partner 入口網站完成建立供應項目的發行工作流程所需的構件。 
 
@@ -356,7 +384,7 @@ Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證�
 |**標題 (最多 50 個字元)**    |  交易的虛擬機器、Azure 應用程式 (解決方案範本與受管理應用程式)       |
 |**摘要 (最多 200 個字元)**    |  交易的虛擬機器、Azure 應用程式 (解決方案範本與受管理應用程式)       |
 |**完整摘要 (最多 256 個字元)**     |   交易的虛擬機器、Azure 應用程式 (解決方案範本與受管理應用程式)      |
-|**以 HTML 為基礎的描述 (最多 3000 個字元)**    |  交易的虛擬機器、Azure 應用程式 (解決方案範本與受管理應用程式)       |
+| **以 HTML 為基礎的描述 (最多 3000 個字元)**    |  交易的虛擬機器、Azure 應用程式 (解決方案範本與受管理應用程式)       |
 |**公司標誌 (40x40、90x90、115x115、255x115、815x290)**    |  交易的虛擬機器、Azure 應用程式 (解決方案範本與受管理應用程式)       |
 
 ### <a name="sku"></a>SKU
@@ -381,14 +409,14 @@ Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證�
 |---------|---------|---------|
 |建立 Microsoft ID     |   15 分鐘      |   合作夥伴必須有用以識別其身分的 Microsoft ID。 您將使用此 Microsoft ID 來存取 Cloud Partner 入口網站。       |
 |Marketplace 提名表單     |  1-3 天       |  合作夥伴必須提交表單，Marketplace 才能開始核准程序。 一旦提交表單，Marketplace 上架小組會檢閱應用程式並驗證要求。       |
-|向開發人員中心註冊     |    5-10 天     | 必須向 Microsoft 開發人員中心註冊，Microsoft 才能驗證該合作夥伴是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 開發人員中心可讓合作夥伴成為註冊的 Microsoft 開發人員並提供 Azure 開發人員程式的存取權。 <br><br>注意：如果您尚未完成 Marketplace 提名表單，系統會要求您支付美金 $99 元的註冊費用。若要免除此費用，請完成 Marketplace 提名表單，然後就會透過電子郵件收到促銷代碼。  |
+|向開發人員中心註冊     |    5-10 天     | 必須向 Microsoft 開發人員中心註冊，Microsoft 才能驗證該合作夥伴是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 開發人員中心可讓合作夥伴成為註冊的 Microsoft 開發人員並提供 Azure 開發人員程式的存取權。 <br><br>*注意：如果您尚未填妥 Marketplace 提名表單，系統會要求您支付美金 $99 元的註冊費用。若要免除此費用，請填寫 Marketplace 提名表單，您便會透過電子郵件收到促銷代碼。*  |
 |登入 Cloud Partner 入口網站     |  15 分鐘       |   在合作夥伴的提名項目獲得 Marketplace 小組核准之後，合作夥伴的 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)存取權隨即啟用。 合作夥伴應以提名表單中所用的 Microsoft 識別碼，登入其在 Cloud Partner 入口網站的發行者設定檔。 向開發人員中心註冊之後，合作夥伴必須將開發人員中心帳戶和要發佈的 Azure Marketplace 發行者設定檔產生關聯。      |
 
 #### <a name="create-a-microsoft-id"></a>建立 Microsoft ID
 
 整個 Marketplace 發行程序進行時，都會使用電子郵件地址來識別 Marketplace 帳戶。 此電子郵件地址必須註冊為 Microsoft ID 並會用於 [Microsoft 開發人員中心](https://developer.microsoft.com/)與 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)兩者。 您的 Azure Marketplace 與 AppSource 供應項目應該只有一個 Microsoft ID 帳戶，強烈建議您不要和其他服務或供應項目共用。
 
-選取的電子郵件地址應最好位於貴公司網域內，並由 IT 小組控制。 如需建立識別碼之前的指導方針，請檢閱＜附錄：建立 Microsoft 識別碼以管理 Marketplace 帳戶的指導方針＞與＜附錄：AAD 同盟網域中的 Microsoft ID 指導方針＞。 
+選取的電子郵件地址應最好位於貴公司網域內，並由 IT 小組控制。 如需建立識別碼之前的指導方針，請檢閱[指導方針和作法](#Guidelines-and-How-Tos)中的小節，包含＜建立 Microsoft 識別碼以管理 Marketplace 帳戶的指導方針＞與＜AAD 同盟網域中的 Microsoft ID 指導方針＞。 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>提交 Marketplace 提名表單
 進行 Marketplace 上架程序時，您必須提交提名表單，提交應用程式或服務供應項目、貴公司資訊及所提供支援層級的相關資訊。  
@@ -423,175 +451,6 @@ AppSource 提名：http://aka.ms/listonappsource
 
 如需如何使用 Cloud Partner 入口網站的詳細資訊，請參閱入口網站內的[學習](https://cloudpartner.azure.com/#Learn)功能表，然後按一下 [文件] 區段。 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>如何使用 Marketplace 拓展業務
-
-遵循行銷方面的最佳做法可幫助您在上市與 Microsoft 共同銷售計劃獲致成功，以及透過 Marketplace 獲得最大商業利益。 [Microsoft 合作夥伴網路 (MPN)](https://partner.microsoft.com/membership) 是您取得所有非 Marketplace 相關行銷與程式設計資源的途徑。 
-
-應用程式發行品質和以客戶為中心創造需求及合作夥伴參與的承諾，有助於推動貴公司的客戶成長。 參與這些活動可協助 Microsoft 擴展上市產品，以及跨市集店面提供重要的解決方案。 
-
-本節將根據下列檢查清單逐步引導您進行供應項目的行銷最佳做法：
-
-- 我已將清單最佳化，以促進流量和參與度。
-- 我已在網站上建立訊息，利用獨特的登陸頁面，促進前往 Marketplace 清單的流量。
-- 我已發行試用產品或其他試用版，以便客戶能即時體驗在 Azure 上執行的供應項目。
-- 我打算建立自己的行銷和推廣活動，以提升知悉度和參與度。
-- 我已啟用隨選潛在客戶開發，以便每次有人測試或部署我的應用程式時，都會收到其名稱和連絡人資訊。
-- 我已了解並透過 [Microsoft 合作夥伴網路 (MPN)](https://partner.microsoft.com/membership) 和我可用的合作夥伴資源連接。
-
-### <a name="create-a-great-listing"></a>建立絕佳清單
-
-您在市集的清單有時會是您與潛在客戶的初次互動。 就像任何第一印象，您想讓目標對象留下強烈印象並想要繼續追蹤。 您可進行一些重要事項以協助在市集留下良好的第一印象！
-
-- **找得到：**使用關鍵字和買方會用來搜尋的字詞來撰寫供應項目描述。 
-- **視覺化：**影像和影片有助於向使用者顯示您的重要功能，並可協助說明體驗。 請考慮顯示可協助傳遞價值主張或回應買方首要問題的項目。
-- **提供體驗：**客戶喜歡在購買之前先試用。 從示範、試用版及試用產品開發而來潛在客戶，證實可達成更多客戶交易。 提供的試用版體驗越優秀，開發的潛在客戶越易成交。 我們發現試用產品的潛在客戶 (平均) 有 40% 會完成交易。
-- **幫助目標對象學習：**雖然建議您將概觀空間保持簡潔，但還是有許多空間可用來指向產品的其他相關資源。 使用此空間提供簡明扼要的訊息說明產品用途與為何符合客戶需求；建議您將客戶導向可深入了解的其他資源。 如果這些學習教材或連結能追蹤到您的內容行銷策略更好，如此可讓您和潛在客戶持續加強關係。
-- **運用評等和評論：**讓客戶為您銷售產品。 客戶敘述會是最大的銷售助力，而且買方經常會先查看該敘述，再深入了解產品。 有多篇推薦評論也有助於讓您的供應項目在搜尋結果躍居前茅，並進入重要的精選區域。
-
-### <a name="build-a-great-landing-page"></a>建置絕佳的登陸頁面
-貴公司網站的登陸頁面是從創造需求的活動前往 Azure Marketplace 市集清單的入口。 
-
-一開始，請先識別您的目標。 為您的 Marketplace 解決方案決定目標客戶，以及您希望他們採取何種動作。 範例動作為「試用我們的解決方案」或「立即取得解決方案」。 從活動、廣路廣播及社交媒體至白皮書、技術訓練課程及新聞稿等多項行銷策略都可運用登陸頁面。 您的訊息與呼籲越一致，就越容易找到您的解決方案。
-
-當您的活動計劃就緒時，請遵循下列最佳做法，並考量建置頁面時要避免的事項，以讓登陸頁面發揮最大效用： 
-
-
-|最佳做法  |避免事項  |
-|---------|---------|
-|**說明解決方案能解決哪些客戶問題，以及如何運用 Azure 來實現**    |  無法說明解決方案和 Azure 一起運作的方式       |
-|**建立簡短、易記的 URL**    |    長 URL 不好記且難以找到     |
-|**最佳做法是新增相關視覺化內容：客戶推薦影片或解決方案架構**   |   使用太多文字，讓目標對象抽離並停止探索      |
-|**建立明確的呼籲將訪客導向您的 Marketplace 目錄頁面**    |   頁面上的連結或可能的動作太多       |
-|**將呼籲置於標題或明確劃分的區段**    |  在段落文字中內嵌可連至 Marketplace 清單的連結       |
-|**研究出最佳關鍵字並將頁面最佳化以供搜尋**    | 假設產品名稱的搜尋順位較高        |
-|**多加利用廣告活動的關鍵字**    |  在 Web 資產間使用許多不同的關鍵字，會降低廣告投資的成效       |
-|**將相關產品名稱與關鍵字放在上半部的明顯位置**     | 使用者必須捲動才能看到您展示的產品或解決方案        |
-|**使用品牌影像 (例如 Azure 認證*) 驗證您的解決方案並依據 Microsoft 商標方針處理**    |    使用未經核准的 Microsoft 品牌圖像     |
-
-* 深入了解 [Azure 認證徽章](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ )。 [Microsoft 合作夥伴網路 (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) 成員可透過[品牌中心](https://microsoft.sharepoint.com/teams/brandcentral)存取其他商標資源，以及存取[商標圖案建立工具](https://logobuilder.partner.microsoft.com)。 按一下這裡以了解加入 [MPN](https://partner.microsoft.com/en-us/membership/how-it-works)。 
-
-### <a name="promoting-your-new-offer"></a>推廣新的供應項目
-
-#### <a name="building-an-effective-marketing-campaign"></a>建置有效的行銷活動
-行銷活動是一系列推廣活動或行銷策略，意在促使目標對象採取動作或達到想要結果。 設計活動之前，您應該：
-
-#### <a name="know-your-audience"></a>了解目標對象
-
-首先，請確認誰是買方以及誰是影響者？ 每個群組適用的策略和呼籲可能會不同。 詢問以下評估問題：
-
-- 買方對採購決策的掌控度多寡？ 
-- 影響者可發揮的影響程度高低？ 
-- 影響者可發揮影響的層面為何？ 
-- 是否會影響預算或挑選的解決方案？ 
-
-了解這些問題的答案可幫助您決定投資的項目以及如何分配投資金額。
-
-#### <a name="define-where-your-audience-learns"></a>定義目標對象的學習位置
-
-當買方造訪市集之時，多半已完成其旅程的 90%。 買方會在決策過程中不斷學習有關解決方案的資訊並事先評估各種選項。 您設計的活動最好以買方和影響者的學習來源為目標。 每個 (垂直) 產業或類別都有不同的目標對象。 目標對象是透過電子郵件線上學習、參加商展、透過社交媒體或和信賴的顧問對話來學習嗎？ 您最好根據目標對象的學習來源和學習方式來設計活動，並據以分配行銷預算。 結合這些策略即成為您的活動策略。
-
-#### <a name="create-clear-campaign-goals"></a>建立明確的活動目標
-
-您必須定義市集活動的成功基準或建立明確的 KPI。 您可以執行最終目標各異的多個活動。 當然，人人都希望銷售額成長。 終極的最終目標就是提升營收或獲得客戶。 不過，您的行銷活動可能會和購買週期的其他階段目標相關。
-
-例如，如果您最近在 Marketplace 推出產品，可能會發現您最好將重點放在教育目標對象和開發潛在客戶。 成功與否取決於從市集清單開發而來的潛在客戶數量多寡。 在此情況下，您的行銷策略 (和登陸頁面) 會著重於吸引客戶前往您的市集清單。
-
-如果您在市集設定試用版並知道在購買之前，產品需經過一定程度的參與和體驗，您可以將試用版的下載次數作為活動目標。 在此情況下，活動策略的 CTA 會相當著重於建議使用市集中的試用版。 
-
-如果您的產品或類別比較廣為人知，並已在市集中設定購買功能，您可以決定略過試用步驟，並將目標對象直接導向至市集中的「立即購買」連結。
-
-等到供應項目的市場較為成熟時，您可以決定將活動心力放在向客戶群追加銷售，並改為鼓勵試用，增加購買 Marketplace 中的項目。 您的策略會著重在鼓勵客戶於市集中「立即購買」。 KPI 可能以透過 Marketplace 產生的營收為主。
-
-無論供應項目的市場成熟度或貴組織的目標為何，讓活動發揮最大效用的關鍵在於，持續專注於此目標並安排專為達成此目標的一組整合式行銷策略。
-
-當您成為 Azure Marketplace 的新發行者，我們會提供一些免費的 Marketplace GTM 權益。 您應該認真考慮如何在活動策略中善加運用這些優點。 請讓行銷小組知曉您的市集活動目標與想要的目標對象動作。 我們會自訂這些交付項目來參與您的計劃。
-
-如需包括可推廣業務的範本、Web 內容、訓練及工作在內的其他上市支援，請造訪 [www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com)。如需活動建置與行銷最佳做法的其他內容，請造訪 Microsoft 合作夥伴網路的 [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing) 方案。
-
-#### <a name="marketplace-gtm-benefits"></a>Marketplace GTM 權益
-
-名列 Marketplace 的新加入者都有資格獲得免費的 Marketplace GTM 權益。 列出之後，行銷專家小組會與您聯繫，開始進行這些活動。 您只要在我們聯繫時，與我們聯絡即可。 
-
-我們提供的活動會根據解決方案在市集中的狀態而定。 供應項目若在市集內提供試用版體驗或交易功能，可獲得的權益會大幅增加。
-
-為了讓這些活動的影響力達到最大，建議您備妥要執行的上市計劃。 您可能會想要將其中的許多策略運用在登陸頁面。 請注意，OCP 目錄 (One Commercial Partner Catalog) 是 Microsoft 合作夥伴網路中的成員權益。 
-
-![Marketplace GTM 權益](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-如需包括可推廣業務的範本、Web 內容、訓練及工作在內的支援，請造訪 [Microsoft Go To Market](https://www.microsoftgotomarket.com)。
-
-#### <a name="enable-lead-sharing"></a>啟用潛在客戶共用
-
-確定已在 Marketplace 供應項目啟用潛在客戶管理，您才會收到 Marketplace 客戶的連絡人資訊。 創造需求的活動、現場業務人員的銷售活動以及供應項目如何執行的資訊，就是為了拓展這些基礎的潛在客戶。 
-
-使用這些潛在客戶的最佳做法包括：
-
-- 評估潛在客戶順位並為銷售機會評分
-- 與之加強關係以成為銷售案源
-- 配合整體行銷活動策略投入這些心力
-
-這些潛在客戶代表對您的 Marketplace 供應項目和技術相當感興趣的目標使用者，因此當您想要找到可能會高度參與的客戶時應朝此方向進行。 當您在 Marketplace 中建立潛在客戶時，同時會在 Microsoft 現場銷售人員 CRM 中建立類似的潛在客戶。 
-
-然而，Marketplace 潛在客戶和共同銷售計劃特有的 Microsoft 銷售人員限定潛在客戶不同。 若要了解如何參加共同銷售計劃，請參閱下方。 
-
-#### <a name="promote-your-business-through-microsoft"></a>透過 Microsoft 推廣業務
-
-Microsoft 內許多人員與小組的唯一目標就是支援合作夥伴，減少與我們合作銷售的任何不便。 現在，您已名列我們的市集當中，也因此開放您存取市集計劃與資源。 
-
-如果尚未向 [Microsoft 合作夥伴網路 (MPN)](https://partner.microsoft.com) 註冊，您的第一個步驟就是先註冊。 MPN 提供您瀏覽 Microsoft 的指導方針，從新商機、與小組或合作夥伴連絡，到解決方案相關資訊和協助您發展技能的訓練。
-若要開放存取更多合作夥伴權益與資源，您所能採取的最佳步驟如下：
-
-1.  運用[核心權益](https://partner.microsoft.com/en-US/membership/core-benefits)。加入我們的 Microsoft 合作夥伴網路，您會收到一組核心權益，幫助您節省時間和金錢，同時強化功能、為客戶提供更好的服務，以及建立可觸及所有潛在商機的關係。
-
-2.  獲得[雲端平台專長認證](https://partner.microsoft.com/en-us/membership/cloud-platform-competency)。獲得專長認證可讓您在 Microsoft 的廣泛合作夥伴網路中與眾不同，以及展現技術專業知識，並在市場中成功爭取到客戶。 獲得專長認證也是「共同銷售」等許多重要合作夥伴計劃的必要條件。
-
-3.  [共同銷售準備就緒](https://partner.microsoft.com/en-US/reach-customers/promote-your-business)。此計劃可讓您和 Microsoft 銷售人員與其他合作夥伴直接合作，爭取目標客戶商機和進行帳戶規劃。 銷售人員會在其解決方案目錄中看見您的解決方案，而且會提供獎勵給與您合作並贏得交易的銷售人員。
-
-#### <a name="merchandising"></a>商品化 
-發行程序進行時，您會考慮要建立何種類型的供應項目，並且有機會在 Azure Marketplace 中選擇供應項目的類別。 請務必為您的解決方案選取正確的類別，如此才會準確地向潛在客戶顯示您的方案。 
-
-當您在 Azure Marketplace 中啟用試用版和交易功能，即有資格使用精選應用程式。 檢閱 Marketplace GTM 權益，以了解如何將精選應用程式放入您的 Go-To-Market 權益內容。 
-
-精選應用程式都是從可為使用者提供最佳客戶體驗的應用程式當中選擇，並聯合優質合作夥伴參與行銷。 這包括清楚明確的清單、可靠的技術以及提高客戶平台使用量，還有您盡心參與建立高品質行銷資料。 
-
-為了讓獲選為精選應用程式的機會達到最大，您應該投資在成功的市集供應項目，並考慮下列方法以確保供應項目會有絕佳的客戶體驗： 
-
-- 務必正確地上傳和顯示行銷構件
-- 加入 [Microsoft 合作夥伴網路](https://partner.microsoft.com/membership)並參與合作夥伴生態系統
-- 建立優質的活動創造需求，促使高品質的流量來到您在 Azure Marketplace 的供應項目
-- 務必在 Azure Marketplace 中提供您的所有 Azure 解決方案和應用程式
-- 推動需求、提供優質客戶服務並及時更新產品，提高 Azure Marketplace 供應項目的取用量
-
-## <a name="analytics-and-reporting"></a>分析和報告
-
-在 Cloud Partner 入口網站的 [深入解析] 區段中，您會看到供應項目表現的高階概觀。 此區段中所含的報告如下：  
-- 訂單的摘要快照集
-- 使用量
-- 部署
-- [深入解析] 網頁上的客戶趨勢
-- 詳細的訂單、使用量及客戶資料
-- 以每月摘要或六個月的趨勢檢視方式顯示訂單和使用量
-- 根據數項準則切割使用量/訂單
-
-詳細的報告會顯示客戶資訊，例如公司名稱和地理位置 (包含郵遞區號)，以供您比較客戶和免費提供給賣方。 下列清單包含我們提供的客戶相關特定屬性︰
-- Reseller
-- 名字
-- 姓氏
-- 電子郵件
-- 公司名稱
-- 交易日期
-- 訂用帳戶名稱
-- Azure 訂用帳戶識別碼 (僅 PAYG 客戶)
-- 雲端執行個體名稱
-- Order Count
-- 客戶國家地區
-- 客戶縣/市
-- 客戶通訊文化特性
-- 客戶郵遞區號
-
-取得這些報告中資訊的最佳做法是，和您自己內部的資料協調，並用來協助您設定行銷活動的動作順位。 
-
-Cloud Partner 入口網站深入解析的 [分析] 區段會根據 Power BI 提供豐富的儀表板，讓您查看應用程式的詳細資料頁面上的流量。 此儀表板的新特色是會朝行進的方向推出。 有關 Microsoft 活動的文件同樣也在 Cloud Partner 入口網站內，其是您可在入口網站內設定活動並予以追蹤的機制。
 
 ## <a name="getting-support"></a>取得支援
 

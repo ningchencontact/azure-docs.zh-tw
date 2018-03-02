@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure 成本管理的常見問題集
 
@@ -116,9 +116,9 @@ Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸�
 
 您可能會有多個使用不同貨幣的 Azure 帳戶。 不過，在 Cloudyn 成本報表中，每個報表不會顯示一個以上的貨幣類型。
 
-如果您有使用不同貨幣的多個訂用帳戶，父實體和其子實體貨幣會以 **$** 符號顯示。 建議的最佳作法是避免在相同的實體階層中使用不同的貨幣。 換句話說，在實體結構中組織的所有訂用帳戶都應該使用相同的貨幣。
+如果您有使用不同貨幣的多個訂用帳戶，父實體和其子實體貨幣會以 USD **$** 顯示。 建議的最佳作法是避免在相同的實體階層中使用不同的貨幣。 換句話說，在實體結構中組織的所有訂用帳戶都應該使用相同的貨幣。
 
-Cloudyn 會自動偵測您的 Enterprise 合約訂用帳戶貨幣，並在報表中正確顯示。  不過，Cloudyn 僅會針對 CSP 和 Web-direct Azure 帳戶顯示 **$** 符號。
+Cloudyn 會自動偵測您的 Enterprise 合約訂用帳戶貨幣，並在報表中正確顯示。  不過，Cloudyn 僅會針對 CSP 和 Web-direct Azure 帳戶顯示 USD **$**。
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>什麼是 Cloudyn 資料重新整理時間軸？
 

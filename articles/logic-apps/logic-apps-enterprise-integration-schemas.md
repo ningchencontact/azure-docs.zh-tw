@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>使用適用於 Azure Logic Apps 與企業整合套件的結構描述來驗證 XML
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-a-schema"></a>新增結構描述
 
-1. 在 Azure 入口網站中，選取 [更多服務]。
+1. 在 Azure 入口網站中，選取 [所有服務]。
 
-    ![Azure 入口網站，[更多服務]](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Azure 入口網站中的 [所有服務]](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. 在篩選搜尋方塊中輸入**整合**，然後從結果清單中選取 [整合帳戶]。
 

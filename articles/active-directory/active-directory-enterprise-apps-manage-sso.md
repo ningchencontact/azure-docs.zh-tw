@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>管理企業應用程式的單一登入
 
 本文說明如何使用 [Azure 入口網站](https://portal.azure.com)來管理企業應用程式的單一登入設定。 企業應用程式是您組織內部署和使用的應用程式。 本文特別適用於從 [Azure Active Directory 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)新增的應用程式。 
 
 ## <a name="finding-your-apps-in-the-portal"></a>在入口網站中尋找您的應用程式
-在 Azure 入口網站中可以檢視及管理針對單一登入設定的所有企業應用程式。 這些應用程式可在入口網站的 [更多服務] &gt; [企業應用程式] 區段中找到。 
+在 Azure 入口網站中可以檢視及管理針對單一登入設定的所有企業應用程式。 這些應用程式可在入口網站的 [所有服務] &gt; [企業應用程式] 區段中找到。 
 
 ![企業應用程式刀鋒視窗][1]
 

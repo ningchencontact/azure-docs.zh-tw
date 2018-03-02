@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
@@ -114,8 +114,8 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="launch-copy-wizard"></a>啟動複製精靈
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左上角的 [+ 新增]，並按一下 [智慧 + 分析]，然後按一下 [Data Factory]。
-3. 在 [ **新增 Data Factory** ] 刀鋒視窗中：
+2. 按一下左上角的 [建立資源]，按一下 [智慧 + 分析]，然後按一下 [Data Factory]。
+3. 在 [新增 Data Factory] 窗格中：
 
    1. 輸入 **LoadIntoSQLDWDataFactory** 作為 [名稱]。
        Azure Data Factory 的名稱在全域必須是唯一的。 如果您收到錯誤： **Data Factory 名稱 “LoadIntoSQLDWDataFactory” 無法使用**，請變更 Data Factory 名稱 (例如 yournameLoadIntoSQLDWDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。  

@@ -1,5 +1,5 @@
 ---
-title: "尋找及刪除未連接的 Azure 受控和非受控磁碟 | Microsoft Docs"
+title: "尋找及刪除未連結的 Azure 受控和非受控磁碟 | Microsoft Docs"
 description: "如何使用 Azure PowerShell 尋找及刪除未連接的 Azure 受控和非受控 (VHD/分頁 Blob) 磁碟。"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,21 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: ramankum
-ms.openlocfilehash: a846d3578d40b19762f185381c92bdf8e225b185
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 15c2550472156d5c1f680af77df2fe771edf3444
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>尋找及刪除未連接的 Azure 受控和非受控磁碟
-當您在 Azure 中刪除虛擬機器時，預設不會刪除連接至它的磁碟。 它會防止由於不小心刪除虛擬機器而造成的資料遺失，但是您會繼續支付不必要的未連接磁碟。 使用本文以尋找及刪除所有未連接的磁碟並節省成本。 
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>尋找及刪除未連結的 Azure 受控和非受控磁碟
+當您在 Azure 中刪除虛擬機器 (VM) 時，不會刪除任何連結至 VM 的磁碟。 這項功能有助於預防因為不小心刪除 VM 所造成的資料遺失。 刪除 VM 之後，您將繼續支付未連結的磁碟。 本文示範如何尋找及刪除任何未連結的磁碟，並減少不必要的成本。 
 
 
-## <a name="find-and-delete-unattached-managed-disks"></a>尋找及刪除未連接的受控磁碟 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>受控磁碟：尋找及刪除未連結的磁碟 
 
-下列指令碼會示範如何使用 *ManagedBy* 屬性來尋找未連接的[受控磁碟](managed-disks-overview.md)。 它會針對訂用帳戶中的所有受控磁碟迴圈執行，並且檢查 *ManagedBy* 屬性是否為 Null 以尋找未連接的受控磁碟。 *ManagedBy* 屬性會將虛擬機器的資源 ID 儲存至已連接的受控磁碟。
+下列指令碼會藉由檢查 **ManagedBy** 屬性的值，以尋找未連結的[受控磁碟](managed-disks-overview.md)。 如果受控磁碟已連結至 VM，**ManagedBy** 屬性包含 VM 的資源 ID。 如果未連結受控磁碟，則 **ManagedBy** 屬性為 null。 指令碼會檢查 Azure 訂用帳戶中的所有受控磁碟。 當指令碼找到 **ManagedBy** 屬性設為 null 的受控磁碟時，指令碼會判定該磁碟並未連結。
 
-我們強烈建議您第一次執行指令碼時將 *deleteUnattachedDisks* 變數設為 0，以檢視所有未連接的磁碟。 在檢閱未連接的磁碟之後，將 *deleteUnattachedDisks* 設為 1 來執行指令碼，以刪除所有未連接的磁碟。
+>[!IMPORTANT]
+>首先，將 **deleteUnattachedDisks** 變數設為 0 來執行指令碼。 這個動作可讓您尋找和檢視所有未連結的受控磁碟。
+>
+>檢閱所有未連結磁碟之後，請再次執行指令碼並將 **deleteUnattachedDisks** 變數設為 1。 這個動作可讓您刪除所有未連結的受控磁碟。
+>
 
 ```azurepowershell-interactive
 
@@ -63,12 +67,16 @@ foreach ($md in $managedDisks) {
      
  } 
 ```
-## <a name="find-and-delete-unattached-unmanaged-disks"></a>尋找及刪除未連接的非受控磁碟 
 
-非受控磁碟是在 [Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中儲存為 [分頁 Blob] (/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) 的 VHD 檔。 下列指令碼會示範如何使用 *LeaseStatus* 屬性來尋找未連接的非受控磁碟 (分頁 Blob)。 它會針對訂用帳戶之所有儲存體帳戶中的所有非受控磁碟迴圈執行，並且檢查 *LeaseStatus* 屬性是否解除鎖定，以尋找未連接的非受控磁碟。 如果非受控磁碟連接至虛擬機器，則 *LeaseStatus* 屬性會設為鎖定。
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>非受控磁碟：尋找及刪除未連結的磁碟 
 
-我們強烈建議您第一次執行指令碼時將 *deleteUnattachedVHDs* 變數設為 0，以檢視所有未連接的磁碟。 在檢閱未連接的磁碟之後，將 *deleteUnattachedVHDs* 設為 1 來執行指令碼，以刪除所有未連接的磁碟。
+非受控磁碟是 VHD 檔案，會以[分頁 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) 的形式儲存在 [Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中。 下列指令碼會藉由檢查 **LeaseStatus** 屬性的值，以尋找未連結的非受控磁碟 (分頁 Blob)。 如果非受控磁碟已連結至虛擬機器，則 **LeaseStatus** 屬性會設為 **Locked**。 如果未連結非受控磁碟，則 **LeaseStatus** 屬性會設為 **Unlocked**。 指令碼會檢查 Azure 訂用帳戶中所有 Azure 儲存體帳戶的所有非受控磁碟。 當指令碼找到 **LeaseStatus** 屬性設為 **Unlocked** 的非受控磁碟時，指令碼會判定該磁碟並未連結。
 
+>[!IMPORTANT]
+>首先，將 **deleteUnattachedVHDs** 變數設為 0 來執行指令碼。 這個動作可讓您尋找和檢視所有未連結的非受控 VHD。
+>
+>檢閱所有未連結磁碟之後，請再次執行指令碼並將 **deleteUnattachedVHDs** 變數設為 1。 這個動作可讓您刪除所有未連結的非受控 VHD。
+>
 
 ```azurepowershell-interactive
    
@@ -117,7 +125,6 @@ foreach($storageAccount in $storageAccounts){
     }
 
 }
-
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>搭配連接 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知
 
@@ -50,7 +50,7 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
 
 ### <a name="create-a-service-bus-namespace"></a>建立服務匯流排命名空間
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)上，按一下 [新增] > [企業整合] > [服務匯流排]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [企業整合] > [服務匯流排]。
 1. 請提供下列資訊：
 
    **名稱**︰服務匯流排的名稱。
@@ -111,7 +111,7 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 
-1. 在[Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [企業整合] > [邏輯應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [企業整合] > [邏輯應用程式]。
 1. 輸入以下資訊：
 
    **名稱**︰ 邏輯應用程式的名稱。

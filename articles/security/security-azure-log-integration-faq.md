@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Azure 記錄整合常見問題集
-本文提供 Azure 記錄整合的常見問題集 (FAQ) 解答。 
+
+本文提供 Azure 記錄整合的常見問題集 (FAQ) 解答。
+
+>[!IMPORTANT]
+>整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
 
 Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。 這項整合為您在內部部署或雲端中的所有資產，提供一個整合儀表板。 您可以接著彙總、相互關聯、分析與應用程式建立關聯的安全性事件，並發出警示。
 
@@ -34,7 +38,7 @@ Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將�
 它目前於 Azure Commercial 和 Azure Government 中提供，且無法在中國或德國使用。
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>如何查看 Azure 記錄整合從中提取 Azure VM 記錄的儲存體帳戶？
-執行 **azlog source list**命令。
+執行 **AzLog source list** 命令。
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>如何分辨 Azure 記錄整合記錄來自哪一個訂用帳戶？
 
@@ -47,7 +51,7 @@ Azure Active Directory 稽核記錄包含租用戶識別碼，作為名稱的一
 讀取自事件中樞的診斷記錄不會在名稱中包含訂用帳戶識別碼。 相反地，這些診斷記錄會包含建立事件中樞來源時所指定的易記名稱。 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>如何更新 Proxy 組態？
-如果您的 Proxy 設定不允許直接存取 Azure 儲存體，請開啟 **c:\Program Files\Microsoft Azure Log Integration** 中的 **AZLOG.EXE.CONFIG** 檔案。 更新檔案，以便將組織的 Proxy 位址納入 **defaultProxy** 區段。 更新完成之後，使用 **net stop azlog** 和 **net start azlog** 命令停止並啟動服務。
+如果您的 Proxy 設定不允許直接存取 Azure 儲存體，請開啟 **c:\Program Files\Microsoft Azure Log Integration** 中的 **AZLOG.EXE.CONFIG** 檔案。 更新檔案，以便將組織的 Proxy 位址納入 **defaultProxy** 區段。 更新完成之後，使用 **net stop AzLog** 和 **net start AzLog** 命令停止並啟動服務。
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ Azure Active Directory 稽核記錄包含租用戶識別碼，作為名稱的一
 ![事件 XML][1]
 
 ## <a name="error-messages"></a>錯誤訊息
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>當我執行 **azlog createazureid** 命令時，為什麼收到下列錯誤？
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>執行 ```AzLog createazureid``` 命令時，為什麼收到下列錯誤訊息？
 Error:
 
   *無法建立 AAD 應用程式 - 租用戶 72f988bf-86f1-41af-91ab-2d7cd011db37 - 原因 = 「禁止」 - 訊息 = 「權限不足以完成作業。」*

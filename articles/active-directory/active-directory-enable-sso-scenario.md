@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>使用 Azure Active Directory 來管理應用程式
 在實際工作流程或內容以外，企業對所有應用程式有兩個基本需求：
@@ -90,13 +90,13 @@ SSO 程序有兩個步驟：
 在現代企業中，IT 部門並通常不知道使用的所有雲端應用程式。 結合 Cloud App Discovery，Azure AD 為您提供偵測這些應用程式的解決方案。
 
 ## <a name="account-management"></a>帳戶管理
-傳統上，管理各種應用程式中的帳戶是由組織中的 IT 或支援人員執行的手動程序。 Azure AD 將跨所有服務提供者整合的應用程式和由 Microsoft 預先整合的這些應用程式的帳戶管理完全自動化，可支援自動化使用者佈建或 SAML JIT。
+傳統上，管理各種應用程式中的帳戶是由組織中的 IT 或支援人員執行的手動程序。 Azure AD 將跨所有服務提供者整合的應用程式、和由 Microsoft 預先整合的這些應用程式的帳戶管理完全自動化，可支援自動化使用者佈建或 SAML Just-In-Time 佈建。
 
 ## <a name="automated-user-provisioning"></a>自動的使用者佈建
 某些應用程式提供自動化介面用於建立和移除 (或停用) 帳戶。 如果有提供者提供這樣的介面，Azure AD 會加以利用。 這樣可以減少您的營運成本，因為系統管理工作會自動發生，並改善您環境的安全性，因為它會減少未經授權存取的機會。
 
 ## <a name="access-management"></a>存取管理
-使用 Azure AD，您可以使用個別或規則驅動指派來管理對應用程式的存取。 您也可以將存取管理委派給組織中適當的人員，以獲得確保最佳的監督並減少技術服務人員的負擔。
+透過 Azure AD，您可以使用個別或規則驅動指派來管理對應用程式的存取。 您也可以將存取管理委派給組織中適當的人員，以獲得確保最佳的監督並減少技術服務人員的負擔。
 
 ## <a name="on-premises-applications"></a>內部應用程式
 內建的應用程式 Proxy 可讓您將內部部署應用程式發佈給使用者，以獲得對現代化雲端應用程式一致的存取經驗以及 Azure AD 監視、報告和安全性功能的優點。

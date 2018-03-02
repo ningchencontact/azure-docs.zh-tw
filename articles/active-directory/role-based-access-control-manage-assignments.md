@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>在 Azure 入口網站中檢視使用者和群組的存取指派
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="view-access-assignments"></a>檢視存取權指派
 若要尋找單一使用者或群組的存取權指派，請在 [Azure 入口網站](http://portal.azure.com)的 Azure Active Directory 中開始。
 
-1. 選取 **Azure Active Directory**。 如果您的瀏覽清單上看不到這個選項，選取 [更多服務]，然後向下捲動以尋找 **Azure Active Directory**。
+1. 選取 **Azure Active Directory**。 如果您的瀏覽清單上看不到這個選項，選取 [所有服務]，然後向下捲動以尋找 **Azure Active Directory**。
 2. 選取 [使用者和群組]，然後選取 [所有使用者]或 [所有群組]。 在此範例中，我們將重點放在個別使用者。
     ![在 Azure Active Directory 中管理使用者和群組 - 螢幕擷取畫面](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. 依名稱或使用者名稱搜尋使用者。

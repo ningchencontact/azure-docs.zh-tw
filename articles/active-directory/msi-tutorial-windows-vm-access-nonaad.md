@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 37f50d962ff73330a23c0f7397b93c84dd2e8181
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Key Vault 
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/03/2018
 
 此教學課程中，我們會建立新的 Windows VM。 您也可以在現有的 VM 中啟用 MSI。
 
-1.  按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1.  按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 2.  選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
 3.  輸入虛擬機器資訊。 在此建立的**使用者名稱**和**密碼**是您登入虛擬機器要使用的認證。
 4.  在下拉式清單中選擇適用於虛擬機器的適當**訂用帳戶**。
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/03/2018
 
 首先，我們需要建立 Key Vault 並將 VM 的身分識別存取權授與 Key Vault。   
 
-1. 在左側導覽列的頂端，選取 [+ 新增][安全性 + 身分識別] 然後 [Key Vault]。  
+1. 在左側導覽列的頂端，依序選取 [建立資源]  >  [安全性 + 身分識別]  >  [Key Vault]。  
 2. 提供新 Key Vault 的**名稱**。 
 3. 在與 VM (稍早建立) 相同的訂用帳戶和資源群組中找到 Key Vault。 
 4. 選取 [存取原則]，然後按一下 [新增]。 

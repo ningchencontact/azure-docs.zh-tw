@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>使用 Azure 帳戶註冊 Office 365 訂用帳戶
 如果您是 Azure 訂閱者，您可以使用 Azure 帳戶來註冊 Office 365 訂用帳戶。 如果您屬於具有 Azure 訂用帳戶的組織，您可以為現有 Azure Active Directory (Azure AD) 中的使用者建立 Office 365 訂用帳戶。 使用具有 Azure Active Directory 租用戶中全域管理員或帳務管理員權限的帳戶，來註冊 Office 365。 如需詳細資訊，請參閱[在 Azure AD 中檢查我的帳戶權限](#RoleInAzureAD)和[在 Azure Active Directory 中指派系統管理員角色](../active-directory/active-directory-assign-admin-roles-azure-portal.md)。
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a id="RoleInAzureAD"></a>在 Azure AD 中檢查我的帳戶權限
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下 [更多服務]，然後搜尋 [Active Directory]。
+2. 按一下 [所有服務]，然後搜尋 [Active Directory]。
 
     ![Azure 入口網站中 Active Directory 的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. 按一下 [使用者和群組] > [所有使用者]。

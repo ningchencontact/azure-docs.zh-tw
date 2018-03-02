@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/17/2018
 
 使用者只有在系統管理員已啟用且要求的驗證方法中有資料存在時，才能夠重設其密碼。
 
-如果使用者不想在目錄中顯示其行動電話號碼，但仍想要用於密碼重設，管理員便不應將該號碼填入目錄。 使用者應該透過[密碼重設註冊入口網站](http://aka.ms/ssprsetup)，填妥其**驗證電話**屬性。 管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。
+如果使用者不想在目錄中顯示其行動電話號碼，但仍想要用於密碼重設，管理員便不應將該號碼填入目錄。 使用者應該透過[密碼重設註冊入口網站](https://aka.ms/ssprsetup)，填妥其**驗證電話**屬性。 管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。
 
 ### <a name="the-number-of-authentication-methods-required"></a>必要驗證方法數目
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 01/17/2018
 * 同盟應用程式
 * 使用 Azure AD 自訂應用程式
 
-當要求註冊功能已停用時，使用者仍然可以手動註冊連絡資訊。 使用者可以造訪 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 或選取存取面板中 [設定檔] 索引標籤下方的 [註冊密碼重設] 連結。
+當要求註冊功能已停用時，使用者仍然可以手動註冊連絡資訊。 使用者可以造訪 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 或選取存取面板中 [設定檔] 索引標籤下方的 [註冊密碼重設] 連結。
 
 > [!NOTE]
 > 選取 [取消] 或關閉視窗，即可關閉密碼重設註冊入口網站。 但是當使用者每次登錄時，系統都會提示註冊，直到他們完成註冊為止。

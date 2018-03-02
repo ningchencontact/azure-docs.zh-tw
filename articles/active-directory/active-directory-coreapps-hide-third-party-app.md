@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>從 Azure Active Directory 的使用者體驗中隱藏應用程式
 
@@ -38,8 +38,8 @@ ms.lasthandoff: 01/11/2018
 請使用下列步驟，從使用者的存取面板和 Office 365 應用程式啟動器中隱藏應用程式。
 
 1.  使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2.  選取 [更多服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter**。
-3.  在 [Azure Active Directory - *directoryname*] 畫面上 (也就是您所管理目錄的 Azure AD 畫面上)，選取 [企業應用程式]。
+2.  選取 [所有服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
+3.  在 [Azure Active Directory - \*directoryname\*] 畫面上 (也就是您所管理目錄的 Azure AD 畫面上)，選取 [企業應用程式]。
 ![企業應用程式](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  在 [企業應用程式] 畫面上，選取 [所有應用程式]。 您會看到一份您可以管理的應用程式清單。
 5.  在 [企業應用程式 - 所有應用程式] 畫面上，選取一個應用程式。</br>
@@ -54,8 +54,8 @@ ms.lasthandoff: 01/11/2018
 您可以使用下列步驟從存取面板中隱藏所有 Office 365 應用程式。 這些應用程式仍會顯示在 Office 365 入口網站中。
 
 1.  使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2.  選取 [更多服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter**。
-3.  在 [Azure Active Directory - directoryname] 畫面上 (也就是您所管理目錄的 Azure AD 畫面上)，選取 [使用者設定]。
+2.  選取 [所有服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
+3.  在 [Azure Active Directory - \*directoryname\*] 畫面上 (也就是您所管理目錄的 Azure AD 畫面上)，選取 [使用者設定]。
 4.  在 [使用者設定] 畫面上的 [企業應用程式] 下，針對 [使用者只能在 Office 365 入口網站中看見 Office 365 應用程式] 選取 [是]。
 
 ![企業應用程式](media/active-directory-coreapps-hide-third-party-app/apps4.png)

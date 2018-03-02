@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
 
@@ -27,6 +27,10 @@ ms.lasthandoff: 01/18/2018
 Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大可攜性。 此功能讓程式庫很適合在多個平台和裝置上運作，尤其是在以將磁碟和記憶體使用量降至最低做為優先考量的情況下。
 
 有許多平台已進行過 SDK 測試 (如需詳細資料，請參閱 [Azure IoT 認證裝置目錄](https://catalog.azureiotsuite.com/))。 雖然本文包含在 Windows 平台上執行之範例程式碼的逐步解說，但本文所述的程式碼在各種支援的平台上都完全相同。
+
+下列影片將介紹 Azure IoT SDK for C 的概觀：
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 本文介紹 Azure IoT 裝置 SDK (適用於 C) 的架構。文中會示範如何初始化裝置程式庫，將資料傳送到 IoT 中樞，以及從 IoT 中樞接收訊息。 本文中的資訊應足以讓您開始使用 SDK，但也提供了可取得程式庫其他相關資訊的指標。
 

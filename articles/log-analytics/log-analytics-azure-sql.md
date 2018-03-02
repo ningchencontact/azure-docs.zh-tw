@@ -3,7 +3,7 @@ title: "Log Analytics 中的 Azure SQL Analytics 解決方案 | Microsoft Docs"
 description: "Azure SQL Analytics 解決方案可協助您管理 Azure SQL Database。"
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: magoedte
+ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -31,7 +31,7 @@ Azure Log Analytics 中的 Azure SQL 分析解決方案會收集並以視覺化�
 Azure SQL 分析解決方案，如同其他可用的 Log Analytics，可協助您監視並接收您 Azure 資源健康情況的相關通知，在此情況下為 Azure SQL Database。 Microsoft Azure SQL Database 是可調整的關聯式資料庫服務，可對 Azure 雲端中執行的應用程式提供熟悉的 SQL Server 類似功能。 Log Analytics 可協助您收集、相互關聯，並以視覺化方式檢視結構化和非結構化資料。
 
 如需使用 Azure SQL Analytics 解決方案，以及一般使用案例的實際操作概觀，請觀看內嵌影片：
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -60,14 +60,14 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 執行下列步驟將 Azure SQL 分析解決方案新增至您的工作區。
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將 Azure SQL Analytics 解決方案新增至您的工作區。
-2. 在 Azure 入口網站中，按一下 [新增] \(+ 符號)，然後在資源的清單中，選取 [監視 + 管理]。  
+2. 在 Azure 入口網站中，按一下 [建立群組] > [監視 + 管理]。  
     ![監視 + 管理](./media/log-analytics-azure-sql/monitoring-management.png)
 3. 在 [監視 + 管理] 清單中，按一下 [檢視全部]。
 4. 在 [建議]清單中，按一下 [詳細]，然後在新的清單中，尋找 **Azure SQL 分析 (預覽)**，然後選取它。  
     ![Azure SQL 分析解決方案](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. 在 **Azure SQL 分析 (預覽)** 刀鋒視窗中，按一下 [建立]。  
+5. 在 [Azure SQL 分析 (預覽)] 區域中，按一下 [建立]。  
     ![建立](./media/log-analytics-azure-sql/portal-create.png)
-6. 在 [建立新方案] 刀鋒視窗中，選取您想要新增解決方案的工作區，然後按一下 [建立]。  
+6. 在 [建立新方案] 區域中，選取您想要新增解決方案的工作區，然後按一下 [建立]。  
     ![新增到工作區](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,7 +97,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="viewing-azure-sql-analytics-data"></a>檢視 Azure SQL 分析資料
 
-按一下 [Azure SQL 分析] 圖格以開啟 Azure SQL 分析儀表板。 儀表板包含透過不同檢視方塊監視之所有資料庫的概觀。 若要讓不同的檢視方塊運作，您必須在要串流處理至 Azure Log Analytics 工作區的 SQL 資源上，啟用適當的計量或記錄。 
+按一下 [Azure SQL 分析] 圖格以開啟 Azure SQL 分析儀表板。 儀表板包含透過不同檢視方塊監視之所有資料庫的概觀。 若要讓不同的檢視方塊運作，您必須在要串流處理至 Azure Log Analytics 工作區的 SQL 資源上，啟用適當的計量或記錄。
 
 ![Azure SQL 分析概觀](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -142,7 +142,7 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 您可以使用來自 Azure SQL Database 資源的資料，輕鬆建立警示。 以下是您可用於警示的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 Azure SQL Database 上的高 DTU

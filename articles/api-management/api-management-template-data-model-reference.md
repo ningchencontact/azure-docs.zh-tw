@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理範本資料模型參考
 本主題說明在 Azure API 管理的開發人員入口網站範本資料模型中，所使用之一般項目的實體和類型表示法。  
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/11/2018
 -   [使用者註冊](#UserSignUp)  
   
 ##  <a name="API"></a>API  
- `API` 實體具有下列屬性。  
+ `API` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -62,10 +62,10 @@ ms.lasthandoff: 02/11/2018
 |path|字串|可在 API 管理服務執行個體內唯一識別此 API 及其所有資源路徑的相對 URL。 此路徑會附加至在服務執行個體建立期間所指定的 API 端點基底 URL，以形成此 API 的公用 URL。|  
 |protocols|數字陣列|描述此 API 中的作業可在哪些通訊協定上叫用。 允許的值為 `1 - http` 和 `2 - https`或兩者兼具。|  
 |authenticationSettings|[授權伺服器驗證設定](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|此 API 中所包含之驗證設定的集合。|  
-|subscriptionKeyParameterNames|物件|選擇性屬性，可用來指定包含訂用帳戶金鑰之查詢和/或標頭參數的自訂名稱。 此屬性若存在，其中就至少必須包含下列兩個屬性的其中一個。<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|物件|選擇性屬性，可用來指定包含訂用帳戶金鑰之查詢和/或標頭參數的自訂名稱。 此屬性若存在，其中就至少必須包含下列兩個屬性的其中之一。<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a>API 摘要  
- `API summary` 實體具有下列屬性。  
+ `API summary` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/11/2018
 |說明|字串|API 的描述。 不能空白。 可包含 HTML 格式標籤。 長度上限是 1000 個字元。|  
   
 ##  <a name="Application"></a>應用程式  
- `application` 實體具有下列屬性。  
+ `application` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -92,7 +92,7 @@ ms.lasthandoff: 02/11/2018
 |圖示|[附件](#Attachment)|應用程式的圖示。|  
   
 ##  <a name="Attachment"></a>附件  
- `attachment` 實體具有下列屬性。  
+ `attachment` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 |parameters|[參數](#Parameter)實體的集合。|針對這項作業所定義的參數。|  
   
 ##  <a name="Comment"></a>註解  
- `API` 實體具有下列屬性。  
+ `API` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -145,7 +145,7 @@ ms.lasthandoff: 02/11/2018
 |服務|[API](#API) 實體的集合。|提出問題之使用者所訂閱的 API。|  
   
 ##  <a name="Filtering"></a>篩選  
- `filtering` 實體具有下列屬性。  
+ `filtering` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 |representations|[表示法](#Representation)的陣列|作業回應表示法的集合。|  
   
 ##  <a name="Operation"></a>作業  
- `operation` 實體具有下列屬性。  
+ `operation` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -200,7 +200,7 @@ ms.lasthandoff: 02/11/2018
 |responses|[HTTP 回應](#HTTPResponse)的陣列|作業 [HTTP 回應](#HTTPResponse)實體的陣列。|  
   
 ##  <a name="Menu"></a>作業功能表  
- `operation menu` 實體具有下列屬性。  
+ `operation menu` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -210,7 +210,7 @@ ms.lasthandoff: 02/11/2018
 |MenuItems|[作業功能表項目](#MenuItem)實體的集合。|目前 API 的作業。|  
   
 ##  <a name="MenuItem"></a>作業功能表項目  
- `operation menu item` 實體具有下列屬性。  
+ `operation menu item` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -219,7 +219,7 @@ ms.lasthandoff: 02/11/2018
 |HttpMethod|字串|作業的 HTTP 方法。|  
   
 ##  <a name="Paging"></a>分頁  
- `paging` 實體具有下列屬性。  
+ `paging` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -243,7 +243,7 @@ ms.lasthandoff: 02/11/2018
 |typeName|字串|參數類型。|  
   
 ##  <a name="Product"></a>產品  
- `product` 實體具有下列屬性。  
+ `product` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -256,7 +256,7 @@ ms.lasthandoff: 02/11/2018
 |MultipleSubscriptionsCount|number|允許使用者同時擁有此產品的訂用帳戶數目上限。|  
   
 ##  <a name="Provider"></a>提供者  
- `provider` 實體具有下列屬性。  
+ `provider` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -269,11 +269,11 @@ ms.lasthandoff: 02/11/2018
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|contentType|字串|指定此表示法的已註冊或自訂內容類型，例如 `application/xml`。|  
+|contentType|字串|為此表示法指定已註冊或自訂內容類型，例如 `application/xml`。|  
 |sample|字串|表示法的範例。|  
   
 ##  <a name="Subscription"></a>訂用帳戶  
- `subscription` 實體具有下列屬性。  
+ `subscription` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -285,7 +285,7 @@ ms.lasthandoff: 02/11/2018
 |state|字串|訂用帳戶的狀態。 可能的狀態為：<br /><br /> - `0 - suspended` – 訂用帳戶已遭封鎖，而且訂閱者無法呼叫產品的任何 API。<br /><br /> - `1 - active` – 訂用帳戶是作用中狀態。<br /><br /> - `2 - expired` – 訂用帳戶已達到期日，因此已停用。<br /><br /> - `3 - submitted` – 開發人員已提出訂用帳戶要求，但尚未進行核准或拒絕。<br /><br /> - `4 - rejected` – 系統管理員已拒絕訂用帳戶要求。<br /><br /> - `5 - cancelled` – 開發人員或系統管理員已取消訂用帳戶。|  
 |DisplayName|字串|訂用帳戶的顯示名稱。|  
 |CreatedDate|dateTime|訂用帳戶的建立日期，採用 ISO 8601 格式︰`2014-06-24T16:25:00Z`。|  
-|CanBeCancelled|布林值|目前的使用者是否可以取消訂用帳戶。|  
+|CanBeCancelled|布林值|目前的使用者是否可取消訂用帳戶。|  
 |IsAwaitingApproval|布林值|訂用帳戶是否正在等待核准。|  
 |StartDate|dateTime|訂用帳戶的開始日期，採用 ISO 8601 格式︰`2014-06-24T16:25:00Z`。|  
 |ExpirationDate|dateTime|訂用帳戶的到期日期，採用 ISO 8601 格式︰`2014-06-24T16:25:00Z`。|  
@@ -299,7 +299,7 @@ ms.lasthandoff: 02/11/2018
 |RenewUrl|字串|要更新訂用帳戶的相對 Url。|  
   
 ##  <a name="SubscriptionSummary"></a>訂用帳戶摘要  
- `subscription summary` 實體具有下列屬性。  
+ `subscription summary` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -307,7 +307,7 @@ ms.lasthandoff: 02/11/2018
 |DisplayName|字串|訂用帳戶的顯示名稱|  
   
 ##  <a name="UserAccountInfo"></a>使用者帳戶資訊  
- `user account info` 實體具有下列屬性。  
+ `user account info` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -320,7 +320,7 @@ ms.lasthandoff: 02/11/2018
 |IsBasicAccount|布林值|如果此帳戶是使用電子郵件和密碼進行註冊，則為 true；如果帳戶是使用提供者進行註冊，則為 false。|  
   
 ##  <a name="UseSignIn"></a>使用者登入  
- `user sign in` 實體具有下列屬性。  
+ `user sign in` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
@@ -338,7 +338,7 @@ ms.lasthandoff: 02/11/2018
 |UserRegistrationTermsEnabled|布林值|是否啟用條款。|  
   
 ##  <a name="UserSignUp"></a>使用者註冊  
- `user sign up` 實體具有下列屬性。  
+ `user sign up` 實體具有下列屬性：  
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  

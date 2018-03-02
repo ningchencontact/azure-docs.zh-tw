@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>網路安全性群組 (NSG) 的記錄檔分析
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要使用入口網站來啟用記錄，請登入[入口網站](https://portal.azure.com)。 按一下 [更多服務]，然後輸入網路安全性群組。 選取您想要啟用記錄功能的 NSG。 遵循[在入口網站中啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)一文中非計算資源的指示來進行。 選取 **NetworkSecurityGroupEvent**、**NetworkSecurityGroupRuleCounter**，或兩種類別的記錄檔。
+若要使用入口網站來啟用記錄，請登入[入口網站](https://portal.azure.com)。 按一下 [所有服務]，然後輸入網路安全性群組。 選取您想要啟用記錄功能的 NSG。 遵循[在入口網站中啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)一文中非計算資源的指示來進行。 選取 **NetworkSecurityGroupEvent**、**NetworkSecurityGroupRuleCounter**，或兩種類別的記錄檔。
 
 ### <a name="powershell"></a>PowerShell
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬網路
 
@@ -39,9 +39,9 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 - [PowerShell (傳統)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (傳統)](virtual-networks-create-vnet-classic-cli.md)
 
-您將了解如何從 GitHub 下載和修改現有 ARM 範本，並從 GitHub、PowerShell 和 Azure CLI 部署範本。
+了解如何從 GitHub 下載和修改現有 Azure Resource Manager 範本，以及從 GitHub、PowerShell 和 Azure CLI 部署範本。
 
-如果您只需要直接從 GitHub 部署 ARM 範本而不做任何變更，請跳至 [從 GitHub 部署範本](#deploy-the-arm-template-by-using-click-to-deploy)。
+如果您只需直接從 GitHub 部署 Azure 資源管理員範本而不做任何變更，請跳至[從 GitHub 部署範本](#deploy-the-arm-template-by-using-click-to-deploy)。
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 2. 依序按一下 [azuredeploy.json] 和 [RAW]。
 3. 將檔案儲存至您電腦上的本機資料夾。
 4. 如果您熟悉範本的使用方式，請跳至步驟 7。
-5. 開啟您剛儲存的檔案，並查看第 5 行中 **parameters** 下方的內容。 ARM 範本的參數提供值的預留位置，可以在部署期間填寫。
+5. 開啟您儲存的檔案，查看第 5 行中 **parameters** 之下的內容。 Azure 資源管理員範本的參數提供值的預留位置，可以在部署期間填寫。
    
    | 參數 | 說明 |
    | --- | --- |
-   | **位置** |將會在當中建立 VNet 的 Azure 區域 |
+   | **位置** |在其中建立 VNet 的 Azure 區域 |
    | **vnetName** |新 VNet 的名稱 |
    | **addressPrefix** |以 CIDR 格式表示的 VNet 位址空間 |
    | **subnet1Name** |第一個 VNet 的名稱 |
@@ -71,7 +71,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 6. 檢查 **resources** 下方的內容，並注意以下項目：
    
    * **type**。 範本所建立的資源類型。 在此案例中為 **Microsoft.Network/virtualNetworks**，代表 VNet。
-   * **名稱**。 資源的名稱。 請查看使用 **[parameters('vnetName')]**的項目，這表示此名稱是在部署期間由使用者的輸入內容，或參數檔案提供。
+   * **名稱**。 資源的名稱。 請查看使用 **[parameters('vnetName')]** 的項目，這表示此名稱是在部署期間由使用者輸入的內容，或由參數檔案所提供。
    * **屬性**。 資源屬性的清單。 此範本在 VNet 建立期間會使用位址空間和子網路屬性。
 7. 瀏覽回 [範例範本頁面](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)。
 8. 依序按一下 [azuredeploy-paremeters.json] 和 [RAW]。
@@ -231,7 +231,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
    
     ![在 Preview 入口網站中提交部署磚](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. 一旦部署完成，在 Azure 入口網站中按一下 [更多服務]，在出現的 [篩選] 方塊中輸入「虛擬網路」，然後按一下 [虛擬網路] 就會看到 [虛擬網路] 刀鋒視窗。 按一下刀鋒視窗中的 [TestVNet]。 在 [TestVNet] 刀鋒視窗中，按一下 [子網路] 以查看建立的子網路，如下圖所示︰
+10. 一旦部署完成，在 Azure 入口網站中按一下 [所有服務]，在出現的 [篩選] 方塊中輸入「虛擬網路」，然後按一下 [虛擬網路] 就會看到 [虛擬網路] 刀鋒視窗。 按一下刀鋒視窗中的 [TestVNet]。 在 [TestVNet] 刀鋒視窗中，按一下 [子網路] 以查看建立的子網路，如下圖所示︰
     
      ![在 Preview 入口網站中建立 VNet](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

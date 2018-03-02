@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Hadoop 使用 Ambari Hive 檢視
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-了解如何使用 Ambari Hive 檢視執行 Hive 查詢。 Ambari 是隨著以 Linux 為基礎的 HDInsight 叢集提供的管理和監視公用程式。 透過 Ambari 提供的功能之一是可以用來執行 Hive 查詢的 Web UI。
-
-> [!NOTE]
-> Ambari 有許多本文未討論到的功能。 如需詳細資訊，請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
+了解如何使用 Ambari Hive 檢視執行 Hive 查詢。 Hive 檢視可讓您從網頁瀏覽器編寫、最佳化及執行 Hive 查詢。
 
 ## <a name="prerequisites"></a>先決條件
 
-* 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
+* HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
 
-> [!IMPORTANT]
-> 此文件中的步驟需要使用 Linux 的 Azure HDInsight 叢集。 Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > [!IMPORTANT]
+  > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="open-the-hive-view"></a>開啟 Hive 檢視
+* 網頁瀏覽器
 
-您可以從 Azure 入口網站開啟 Ambari 檢視。 選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]。
+## <a name="run-a-hive-query"></a>執行 HIVE 查詢
 
-![入口網站的 [快速連結] 區段](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. 開啟 [Azure 入口網站](https://portal.azure.com)。
 
-從檢視清單中，選取 [Hive 檢視]。
+2. 選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]。
 
-![已選取 [Hive 檢視]](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![入口網站的 [快速連結] 區段](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> 存取 Ambari 時，系統會提示您對網站進行驗證。 輸入您在建立叢集時所使用的管理 (預設為 `admin`) 帳戶名稱和密碼。
+    出現驗證的提示時，請使用您在建立叢集時提供的叢集登入 (預設為 `admin`) 帳戶名稱和密碼。
 
-您應該會看到類似下圖的頁面：
+3. 從檢視清單中，選取 [Hive 檢視]。
 
-![[Hive 檢視] 的查詢工作表影像](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![已選取 [Hive 檢視]](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>執行查詢
+    Hive 檢視頁面類似於下圖：
 
-若要執行 Hive 查詢，請從 Hive 檢視使用下列步驟。
+    ![[Hive 檢視] 的查詢工作表影像](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. 從 [查詢] 索引標籤中，將下列 HiveQL 陳述式貼到工作表中：
+4. 從 [查詢] 索引標籤中，將下列 HiveQL 陳述式貼到工作表中：
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     這些陳述式會執行下列動作：
@@ -82,42 +87,20 @@ ms.lasthandoff: 01/20/2018
 
    * `SELECT`：選取在資料行 t4 中包含 [ERROR] 值的所有資料列。
 
-     > [!NOTE]
-     > 當您預期會以外部來源更新基礎資料 (例如自動化資料上傳程序或其他 MapReduce 作業)，請使用外部資料表。 捨棄外部資料表並 *不會* 刪除資料，只會刪除資料表定義。
-
     > [!IMPORTANT]
     > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
 
-2. 若要啟動查詢，請使用工作表下方的 [執行] 按鈕。 按鈕會變成橘色，而且文字會變更為 [停止]。
+5. 若要啟動查詢，請使用工作表下方的 [執行] 按鈕。 按鈕會變成橘色，而且文字會變更為 [停止]。
 
-3. 查詢完成之後，[結果] 索引標籤會顯示作業的結果。 下列文字是查詢結果：
+6. 查詢完成之後，[結果] 索引標籤會顯示作業的結果。 下列文字是查詢結果：
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     您可以使用 [記錄] 索引標籤來檢視作業所建立的記錄資訊。
 
    > [!TIP]
    > 從 [查詢程序結果] 區段左上角的 [儲存結果] 下拉式對話方塊下載或儲存結果。
-
-4. 選取此查詢的前四行，然後選取 [執行]。 請注意，作業完成時沒有任何結果。 在選取部分查詢的情況下使用 [執行] 按鈕，只會執行所選的陳述式。 在此情況下，選取項目不包含從資料表擷取資料列的最後一個陳述式。 如果您只選取那一行並使用 [執行]，您應該會看到預期的結果。
-
-5. 若要新增工作表，請使用 [查詢編輯器] 底部的 [新增工作表] 按鈕。 在新的工作表中，輸入下列 HiveQL 陳述式：
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  這些陳述式會執行下列動作：
-
-   * **CREATE TABLE IF NOT EXISTS**：建立資料表 (如果不存在)。 由於未使用 **EXTERNAL** 關鍵字，因此會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
-
-   * **STORED AS ORC**：以最佳化資料列單欄式 (ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
-
-   * **INSERT OVERWRITE ...SELECT**：從包含 `[ERROR]` 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
-
-使用 [查詢] 按鈕執行此查詢。 當查詢傳回零個資料列時，[結果] 索引標籤不會包含任何資訊。 查詢完成後，狀態應該會顯示為 [成功]。
 
 ### <a name="visual-explain"></a>視覺解說
 
@@ -152,9 +135,14 @@ ms.lasthandoff: 01/20/2018
 
 ![[儲存的查詢] 索引標籤影像](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> 已儲存的查詢會存放在預設叢集儲存體中。 您可以路徑 `/user/<username>/hive/scripts` 下找到儲存的查詢。 這些查詢會儲存為純文字 `.hql` 檔案。
+>
+> 如果您刪除該叢集，但保留儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)或 Data Lake 儲存體總管 (從 [Azure 入口網站](https://portal.azure.com)) 之類的公用程式來擷取查詢。
+
 ## <a name="user-defined-functions"></a>使用者定義函式
 
-您也可以透過使用者定義函式 (UDF) 延伸 Hive 。 使用 UDF 在 HiveQL 中實作不易模型化的功能或邏輯。
+您可以透過使用者定義函式 (UDF) 來擴充 Hive 。 使用 UDF 在 HiveQL 中實作不易模型化的功能或邏輯。
 
 使用 [Hive 檢視] 頂端的 [UDF] 索引標籤來宣告並儲存一組 UDF。 這些 UDF 可以在 [查詢編輯器] 中使用。
 

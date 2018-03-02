@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 入口網站中管理 DNS 區域
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
 1. 登入 Azure 入口網站
-2. 在 [中樞] 功能表上，按一下 [新增] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
+2. 在 [中樞] 功能表上，按一下 [建立資源] > [網路]，然後按一下 [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
 
     ![DNS 區域](./media/dns-operations-dnszones-portal/openzone650.png)
 

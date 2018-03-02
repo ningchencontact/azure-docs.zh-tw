@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>從預先建置的範本建立邏輯應用程式工作流程
 
@@ -42,7 +42,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
 1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")，請先登入。
 
-2. 從 Azure 主要功能表中，選擇 [新增] > [企業整合] > [邏輯應用程式]。
+2. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
 
    ![Azure 入口網站, 新增, 企業整合, 邏輯應用程式](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -111,7 +111,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
    ![選擇 [範本]](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. 捲動到 [範本] \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
+3. 捲動到 [範本] (中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
 
    ![選擇邏輯應用程式範本](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 

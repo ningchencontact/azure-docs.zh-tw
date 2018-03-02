@@ -21,9 +21,7 @@
 使用 Azure 入口網站：
 
 1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com)，請先登入。
-2. 在 [中樞] 功能表上按一下 [+新增]，然後按一下 [虛擬機器]。
-   
-    ![替代映像文字](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. 按一下 [建立資源] > [計算]。
 3. 選取您想要使用的 Marketplace 虛擬機器映像。 您可以選擇建立 Linux 或 Windows 虛擬機器。
 4. 確認所選虛擬機器的部署模型設為 [傳統]，然後按一下 [建立]
    
@@ -42,7 +40,7 @@
 在 Azure 入口網站中，您可以將現有的傳統虛擬機器新增至現有的可用性設定組，或為其建立一個新的可用性設定組。 (請注意，相同可用性設定組中的虛擬機器必須隸屬於相同的雲端服務。)步驟幾乎完全相同。 有了 Azure PowerShell，您可以將虛擬機器加入現有的可用性設定組。
 
 1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com)，請先登入。
-2. 在 [中樞] 功能表上，按一下 [虛擬機器 (傳統)] 。
+2. 在左側功能表上，按一下 [虛擬機器 (傳統)]。
    
     ![替代映像文字](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. 從虛擬機器的清單中，選取您想要加入至集合的虛擬機器名稱。

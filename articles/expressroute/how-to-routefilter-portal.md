@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>針對 Microsoft 對等互連設定路由篩選：Azure 入口網站
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ ms.lasthandoff: 12/21/2017
 路由篩選只能有一個規則，且規則的類型必須是 'Allow'。 此規則可以具有與其相關聯的 BGP 社群值清單。
 
 ### <a name="1-create-a-route-filter"></a>1.建立路由篩選
-您可以選取建立新資源的選項來建立路由篩選。 按一下 [新增][網路服務[RouteFilter]] >  > ，如下圖所示：
+您可以選取建立新資源的選項來建立路由篩選。 按一下 [建立資源]  >  [網路]  >  [RouteFilter]，如下圖所示：
 
 ![建立路由篩選](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

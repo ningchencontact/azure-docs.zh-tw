@@ -24,11 +24,13 @@ ACU：195 - 210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | 高                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 極高                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 極高                                 |
-| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 極高                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 極高                                 |
 
-<sup>1</sup>Fsv2 系列 VM 的功能 Intel® 超執行緒技術
+<sup>1</sup> Fsv2 系列 VM 的功能 Intel® 超執行緒技術
 
 <sup>2</sup> 超過 64 個 vCPU 需要下列其中一個支援的客體 OS：Windows Server 2016、Ubuntu 16.04 LTS、SLES 12 SP2 和 Red Hat Enterprise Linux、CentOS 7.3 或 Oracle Linux 7.3 (含 LIS 4.2.1)
+
+<sup>3</sup> 執行個體會隔離至單一客戶專用的硬體。
 
 ## <a name="fs-series-sup1sup"></a>Fs 系列 <sup>1</sup>
 

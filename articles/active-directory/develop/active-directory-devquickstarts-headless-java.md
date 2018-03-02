@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>使用 Java 命令列應用程式存取具有 Azure AD 的 API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列上按一下您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側瀏覽區中的 [更多服務]，然後選擇 [Azure Active Directory]。
+3. 按一下左側瀏覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選擇 [新增]。
 5. 遵照提示進行，並建立新的 **Web 應用程式和/或 WebAPI**。
   * 應用程式的 [ **名稱** ] 將對使用者說明您的應用程式

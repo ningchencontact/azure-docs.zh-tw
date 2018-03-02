@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>新增應用程式時如何選擇要使用的應用程式類型
 
@@ -39,9 +39,9 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 -   **不在資源庫內的應用程式** – 引進您自己的應用程式！ 您想要的任何網頁連結，或任何呈現使用者名稱和密碼欄位的應用程式，都支援 SAML 或 OpenID Connect 通訊協定，或支援您想要與 Azure AD 整合以啟用單一登入的 SCIM。
 
-## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>上述所有應用程式類型所支援的功能
+## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>上述所有應用程式類型所支援的功能
 
-在 Azure AD 中，上述 4 種應用程式類型都支援下列功能︰
+在 Azure AD 中，上述四種應用程式類型都支援下列功能︰
 
 -   **快速啟動** – 依照[簡單部署步驟](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)快速開始使用應用程式
 
@@ -61,7 +61,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>特定應用程式類型所支援的單一登入和佈建模式
 
-下表描述以上每個應用程式類型所支援的不同單一登入和佈建模式。 請利用此表格，協助您了解需要新增哪個應用程式以支援特定目標。
+下表說明前述每個應用程式類型所支援的不同單一登入和佈建模式。 請利用此表格，協助您了解需要新增哪個應用程式以支援特定目標。
 
   ![應用程式類型表格](./media/application-tables/table1.png)
 
@@ -98,7 +98,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>自訂開發之應用程式的單一登入模式
 
-您透過[自訂開發的應用程式](#_Custom-Developed_Applications)經驗所自訂開發的應用程式，也支援以上未列出的其他單一登入模式。 其中包含：
+您透過[自訂開發的應用程式](#_Custom-Developed_Applications)經驗所自訂開發的應用程式，也支援前面未列出的其他單一登入模式，包括：
 
 -   以 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 為基礎的登入
 
@@ -114,13 +114,13 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 若要設定應用程式的**單一登入**模式，請遵循下列指示：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -128,7 +128,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 6.  選取您要設定單一登入的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>如何選擇佈建模式
 
@@ -154,13 +154,13 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 若要設定應用程式的**單一登入**模式，請遵循下列指示：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -168,7 +168,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 6.  選取您要設定佈建的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [佈建]。
+7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [佈建]。
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)

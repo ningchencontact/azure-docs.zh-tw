@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
-Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 應用程式可以連線至裝載於 Azure、Sovereign Clouds 和 Azure Stack 上的儲存體帳戶。
+Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 應用程式可以連線至裝載於 Azure、National Clouds 和 Azure Stack 上的儲存體帳戶。
 
 本指南摘要說明儲存體總管中常見的問題解決方案。
 
@@ -116,7 +116,7 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
     - Linux 是 ~/.config/StorageExplorer
 
 > [!NOTE]
->  如果刪除這些檔案，您必須重新輸入所有認證。
+>  刪除先前的檔案之後，您將必須重新登入帳戶。
 
 ## <a name="proxy-issues"></a>Proxy 問題
 
@@ -173,13 +173,21 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
 
 - 如果 SAS URL 是以存取原則為基礎，請確認尚未撤銷存取原則。
 
-如果您不小心連接無效的 SAS URL ，而且無法中斷連結，請遵循下列步驟：
+如果您不慎以無效的 SAS URL 進行連結，而且無法中斷連結，請遵循下列步驟：
 1.  執行儲存體總管時，按下 F12 以開啟開發人員工具視窗。
 2.  按一下 [應用程式] 索引標籤，然後在左邊樹狀目錄中，按一下 [本機儲存體] > file://。
-3.  尋找與有問題的 SAS URI 服務類型相關聯的索引鍵。 例如，如果是 Blob 容器的 SAS URI 不正確，請尋找名為 "StorageExplorer_AddStorageServiceSAS_v1_blob" 的索引鍵。
+3.  尋找與有問題的 SAS URI 服務類型相關聯的索引鍵。 例如，如果是 Blob 容器的 SAS URI 不正確，請尋找名為 `StorageExplorer_AddStorageServiceSAS_v1_blob` 的索引鍵。
 4.  索引鍵的值應該是 JSON 陣列。 尋找與不正確 URI 相關聯的物件，並將它移除。
 5.  按下 Ctrl+R，重新載入儲存體總管。
 
+## <a name="linux-dependencies"></a>Linux 相依項目
+
+針對 Ubuntu 16.04 以外的 Linux 散發版本，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
+* libgconf-2-4
+* libsecret
+* 最新的 GCC
+
+依據您的散發版本，您可能需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發版本的特定步驟。
 
 ## <a name="next-steps"></a>後續步驟
 

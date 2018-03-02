@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-load-balancing-services-in-azure"></a>在 Azure 中使用負載平衡服務
 
@@ -63,8 +63,8 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>步驟 1︰建立流量管理員設定檔
 
-1. 在 Azure 入口網站中，按一下 [新增]，然後搜尋「流量管理員設定檔」的 Marketplace。
-2. 在 [建立流量管理員設定檔] 刀鋒視窗中，輸入下列的基本資訊︰
+1. 在 Azure 入口網站中，按一下 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
+2. 輸入下列基本資訊：
 
   * **名稱**：為您的流量管理員設定檔提供一個 DNS 首碼名稱。
   * **路由方法**：選取流量路由方法原則。 如需方法的詳細資訊，請參閱[關於流量管理員流量路由方法](traffic-manager-routing-methods.md)。
@@ -78,7 +78,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 ### <a name="step-2-create-the-application-gateways"></a>步驟 2：建立應用程式閘道
 
-1. 在 Azure 入口網站的左窗格中，按一下 [新增] > [網路] > [應用程式閘道]。
+1. 在 Azure 入口網站的左窗格中，按一下 [建立資源] > [網路] > [應用程式閘道]。
 2. 輸入下列關於應用程式閘道的基本資訊︰
 
   * **名稱**：應用程式閘道的名稱。
@@ -100,15 +100,15 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 1. 從資源群組中，移至您在上一節所建立之應用程式閘道的執行個體。
 2. 在 [設定] 下選取 [後端集區]，然後選取 [新增] 以新增您要與 Web 層後端集區相關聯的 VM。
-3. 在 [新增後端集區] 刀鋒視窗中，輸入後端集區的名稱和存放於集區中所有機器的 IP 位址。 在此案例中，我們會連接兩個虛擬機器的後端伺服器集區。
+3. 輸入後端集區的名稱和存放於集區中所有機器的 IP 位址。 在此案例中，我們會連接兩個虛擬機器的後端伺服器集區。
 
-  ![應用程式閘道「新增後端集區」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  ![應用程式閘道「新增後端集區」](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. 在應用程式閘道的 [設定] 下選取 [規則]，然後按一下 [路徑型] 按鈕以新增規則。
 
   ![應用程式閘道規則「路徑型」按鈕](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. 在 [新增路徑型規則] 刀鋒視窗中，提供下列資訊來設定規則。
+5. 提供下列資訊來設定規則。
 
    基本設定：
 
@@ -138,13 +138,13 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
   ![流量管理員端點「新增」按鈕](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. 在 [新增端點] 刀鋒視窗中，輸入下列資訊來建立端點︰
+3. 輸入下列資訊來建立端點︰
 
   * **類型**：選取進行負載平衡之端點的類型。 在此案例中，選取 [Azure 端點]，因為我們正在將它連接到先前已設定的應用程式閘道執行個體。
   * **名稱**：輸入端點的名稱。
   * **目標資源類型**：選取 [公用 IP 位址]，然後在 [目標資源] 下，選取先前已設定的應用程式閘道公用 IP。
 
-   ![流量管理員「新增端點」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   ![流量管理員「新增端點」](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. 現在您可以測試您的安裝程式，方法為使用流量管理員設定檔的 DNS (此範例中為︰TrafficManagerScenario.trafficmanager.net) 來存取它。 您可以重送要求、啟動或關閉在不同區域中建立的 VM 和 Web 伺服器，以及變更流量管理員設定檔設定來測試您的設定。
 
@@ -156,8 +156,8 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 如需有關如何設定內部負載平衡器的詳細資訊，請參閱[在 Azure 入口網站中建立內部負載平衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)。
 
-1. 在 Azure 入口網站的左窗格中，按一下 [新增] > [網路] > [負載平衡器]。
-2. 在 [建立負載平衡器] 刀鋒視窗中，選擇負載平衡器的名稱。
+1. 在 Azure 入口網站的左窗格中，按一下 [建立資源] > [網路] > [負載平衡器]。
+2. 為負載平衡器選擇名稱。
 3. 將 [類型] 設定為 [內部]，並選擇適當的虛擬網路和子網路以供負載平衡器存放。
 4. 在 [IP 位址指派] 下，選取 [動態] 或 [靜態]。
 5. 在 [資源群組] 下，選擇負載平衡器的資源群組。
@@ -169,18 +169,18 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 1. 從資源群組中，尋找先前步驟中所建立的負載平衡器。
 2. 在 [設定] 下，按一下 [後端集區]，然後按一下 [新增] 來新增後端集區。
 
-  ![負載平衡器「新增後端集區」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  ![負載平衡器「新增後端集區」](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. 在 [新增後端集區] 刀鋒視窗中，輸入後端集區的名稱。
+3. 輸入後端集區的名稱。
 4. 將個別機器或可用性設定組新增至後端集區。
 
 #### <a name="configure-a-probe"></a>設定探查
 
 1. 在您的負載平衡器中，於 [設定] 下選取 [探查]，然後按一下 [新增] 來新增探查。
 
- ![負載平衡器「新增探查」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ ![負載平衡器「新增探查」](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. 在 [新增探查] 刀鋒視窗中，輸入探查的名稱。
+2. 輸入探查的名稱。
 3. 選取探查的**通訊協定**。 針對資料庫，您可能想要 TCP 探查，而不是 HTTP 探查。 若要了解有關負載平衡器探查的詳細資訊，請參閱[了解負載平衡器探查](../load-balancer/load-balancer-custom-probe-overview.md)。
 4. 輸入您要用來存取探查的資料庫**連接埠**。
 5. 在 [間隔] 下，指定探查應用程式的頻率。
@@ -190,7 +190,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 #### <a name="configure-the-load-balancing-rules"></a>設定負載平衡規則
 
 1. 在負載平衡器的 [設定] 下，選取 [負載平衡規則]，然後按一下 [新增] 以建立規則。
-2. 在 [新增負載平衡規則] 刀鋒視窗中，輸入負載平衡規則的**名稱**。
+2. 輸入負載平衡規則的 [名稱]。
 3. 依序選擇負載平衡器的 [前端 IP 位址]、[通訊協定] 和 [連接埠]。
 4. 在 [後端連接埠] 下，指定要在後端集區中使用的連接埠。
 5. 選取**後端集區**和在先前步驟中所建立以對其套用規則的**探查**。
@@ -201,7 +201,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>步驟 5︰將 Web 層 VM 連線到負載平衡器
 
-現在我們針對任何資料庫連接，在 Web 層 VM 上執行的應用程式中設定 IP 位址和負載平衡器前端連接埠。 此設定是在這些 VM 上執行之應用程式所特有的。 若要設定目的地 IP 位址和連接埠，請參閱應用程式文件。 若要尋找前端 IP 位址，請在 Azure 入口網站中，移至 [負載平衡器設定] 刀鋒視窗上的前端 IP 集區。
+現在我們針對任何資料庫連接，在 Web 層 VM 上執行的應用程式中設定 IP 位址和負載平衡器前端連接埠。 此設定是在這些 VM 上執行之應用程式所特有的。 若要設定目的地 IP 位址和連接埠，請參閱應用程式文件。 若要尋找前端 IP 位址，請在 Azure 入口網站中，移至 [負載平衡器設定] 上的前端 IP 集區。
 
 ![負載平衡器「前端 IP 集區」瀏覽窗格](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

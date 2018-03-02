@@ -1,30 +1,12 @@
----
-title: "SQL 錯誤碼 - 資料庫連線錯誤 | Microsoft Docs"
-description: "了解 SQL Database 用戶端應用程式的 SQL 錯誤碼，例如常見的資料庫連線錯誤、資料庫副本問題，以及一般錯誤。 "
-keywords: "sql error code,access sql,database connection error,sql error codes,sql 錯誤碼,存取 sql,資料庫連線錯誤,sql 錯誤碼"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ ---
+標題：SQL 錯誤碼 - 資料庫連線錯誤 | Microsoft Docs 說明：了解 SQL Database 用戶端應用程式的 SQL 錯誤碼，例如常見的資料庫連線錯誤、資料庫副本問題，以及一般錯誤。 ' 關鍵字：sql error code,access sql,database connection error,sql error codes services: sql-database documentationcenter: '' author: stevestein manager: jhubbard editor: ''
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
-本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本問題、彈性集區，以及其他錯誤。 大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。
+本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本問題、彈性集區，以及其他錯誤。 大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。 另請參閱[系統錯誤訊息](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx)。
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>資料庫連線錯誤、暫時性錯誤，以及其他暫時的錯誤
 下表涵蓋您的應用程式嘗試存取 SQL Database 可能發生之連線遺失錯誤和其他暫時性錯誤的 SQL 錯誤碼。 如需連線到 Azure SQL Database 的快速入門教學課程，請參閱 [連線到 Azure SQL Database](sql-database-libraries.md)。

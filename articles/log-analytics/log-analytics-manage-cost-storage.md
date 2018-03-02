@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>管理您 Log Analytics 工作區的資料保留成本
 當您註冊 Log Analytics 時，視所選取的方案而定，會限制您將連線來源所產生的資料儲存在工作區中的時間長短。  本文將重點放在 可對此資料的不同保留期成本產生影響的考量，以及如何設定該限制。   
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="change-the-data-retention-period"></a>變更資料保留期 
 
 1. 登入 [Azure 入口網站](http://portal.azure.com)。 
-2. 按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+2. 按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 3. 在 Log Analytics 訂用帳戶窗格中，從清單中選取要修改的工作區。
 4. 在 [工作區] 頁面上，按一下左側窗格中的 [保留期]。
 5. 在工作區保留期窗格上，移動滑桿來增加或減少天數，然後按一下 [儲存]。  如果您位於「免費」層，將無法修改資料保留期，必須升級至付費層，才能控制此設定。<br><br> ![變更工作區資料保留期設定](media/log-analytics-manage-cost/manage-cost-change-retention.png)

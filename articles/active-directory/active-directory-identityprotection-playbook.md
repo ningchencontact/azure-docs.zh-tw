@@ -12,22 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
+
 這個腳本可協助您︰
 
 * 藉由模擬風險事件和弱點，在 Identity Protection 環境中填入資料
 * 設定以風險為基礎的條件式存取原則，並測試這些原則的影響
 
+
 ## <a name="simulating-risk-events"></a>模擬風險事件
+
 本節將為您提供模擬下列風險事件類型的步驟：
 
 * 從匿名 IP 位址登入 (容易)
@@ -37,39 +40,53 @@ ms.lasthandoff: 01/16/2018
 無法以安全的方式模擬其他風險事件。
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>從匿名 IP 位址登入
-此風險事件類型會識別從被視為匿名 Proxy IP 位址的 IP 位址成功登入的使用者。 這些 Proxy 通常由想要隱藏其裝置 IP 位址的人員使用，而且可能用於惡意意圖。
+
+如需此風險事件的詳細資訊，請參閱[從匿名 IP 位址登入](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses)。 
+
+要完成下列程序，您必須使用：
+
+- [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)，用以模擬匿名 IP 位址。 如果您的組織對 Tor 瀏覽器的使用有所限制，您可能需要使用虛擬機器。
+- 尚未註冊多重要素驗證的測試帳戶。
 
 **若要模擬從匿名 IP 登入，請執行下列步驟**：
 
-1. 下載 [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)。
-2. 使用 Tor 瀏覽器，瀏覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)。   
-3. 輸入您要在 [從匿名 IP 位址登入]  報告中顯示之帳戶的認證。
+1. 使用 [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)，導覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)。   
+2. 輸入您要在 [從匿名 IP 位址登入]  報告中顯示之帳戶的認證。
 
-登入將會在 5 分鐘內顯示於 Identity Protection 儀表板上。 
+登入將會在 10 - 15 分鐘內顯示於 [身分識別保護] 儀表板上。 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>從不熟悉的位置登入
-不熟悉的位置風險是一種即時登入評估機制，它會考量過去的登入位置 (IP、經緯度和 ASN) 以判斷新的 / 不熟悉的位置。 系統會儲存使用者先前的 IP、經緯度和 ASN，並將這些視為熟悉的位置。 如果登入位置不符合任何現有的熟悉位置，此登入位置會被視為不熟悉。
 
-Azure Active Directory Identity Protection：  
+如需此風險事件的詳細資訊，請參閱[從不熟悉的位置登入](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations)。 
 
-* 有為期 14 天的初始學習期間，在這段期間內，它不會將任何新位置標示為不熟悉的位置。
-* 忽略從熟悉的裝置以及地理上靠近現有熟悉位置的位置進行的登入。
+若要模擬不熟悉的位置，您必須從測試帳戶未曾用來登入的位置和裝置進行登入。
 
-若要模擬不熟悉的位置，您必須從帳戶未曾用來登入的位置和裝置進行登入。 
+下列程序會使用新建立的：
+
+- VPN 連線，用以模擬新位置。
+
+- 虛擬機器，用以模擬新裝置。
+
+要完成下列程序，您必須使用符合下列條件的使用者帳戶：
+
+- 至少有 30 天的登入歷程記錄。
+- 已啟用多重要素驗證。
+
 
 **若要模擬從不熟悉的位置登入，請執行下列步驟**：
 
-1. 選擇至少有 14 天登入歷程記錄的帳戶。 
-2. 請執行下列其中一項：
+1. 以您的測試帳戶登入時，藉由不傳遞 MFA 挑戰而使 MFA 挑戰失敗。
+2. 使用新的 VPN 導覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)，然後輸入您測試帳戶的認證。
    
-   a. 使用 VPN 時，請瀏覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)，然後輸入您要用於模擬風險事件之帳戶的認證。
-   
-   b. 要求不同位置的關聯以使用帳戶的認證進行登入 (不建議)。
 
-登入將會在 5 分鐘內顯示於 Identity Protection 儀表板上。
+登入將會在 10 - 15 分鐘內顯示於 [身分識別保護] 儀表板上。
 
 ### <a name="impossible-travel-to-atypical-location"></a>不可能到達非典型位置的移動
-模擬不可能的移動情況相當困難，因為此演算法會使用機器學習服務來剔除誤判，例如，不可能來自熟悉裝置的移動，或從目錄中其他使用者所用的 VPN 登入。 此外，此演算法在開始產生風險事件之前，需要使用者 3 到 14 天的登入歷程記錄。
+
+如需此風險事件的詳細資訊，請參閱[不可能到達非慣用位置](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations)。 
+
+模擬不可能的移動情況相當困難，因為此演算法會使用機器學習服務來剔除誤判，例如，不可能來自熟悉裝置的移動，或從目錄中其他使用者所用的 VPN 登入。 此外，使用者必須要有 14 天的登入歷程記錄，且登入 10 次，此演算法才會開始產生風險事件。 由於機器學習模型的複雜性和前述規則，下列步驟有可能不會導致風險事件。 您可以為多個 Azure AD 帳戶複寫這些步驟，以發佈此風險事件。
+
 
 **若要模擬不可能到達非典型位置的移動，請執行下列步驟**：
 
@@ -79,61 +96,80 @@ Azure Active Directory Identity Protection：
 4. 變更您的 IP 位址。 使用 VPN、Tor 附加元件，或在不同資料中心於 Azure 中啟動新機器，即可變更您的 IP 位址。
 5. 在前次登入之後的幾分鐘內，使用與之前相同的認證登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
-登入將會在 2-4 小時內顯示於 Identity Protection 儀表板上。<br>
-因為牽涉到複雜的機器學習服務模型，所以可能達不到。<br> 您可能想要針對多個 Azure AD 帳戶複製這些步驟。
+登入會在 2-4 小時內顯示於 [身分識別保護] 儀表板上。
 
 ## <a name="simulating-vulnerabilities"></a>模擬弱點
 弱點是 Azure AD 環境中不良執行者可以利用的弱點。 Azure AD Identity Protection 中目前顯示 3 種會運用其他 Azure AD 功能的弱點。 一旦設定好這些功能，這些弱點就會自動顯示在 Identity Protection 儀表板上。
 
-* Azure AD [Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [多重要素驗證](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)。
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)。 
 
-## <a name="user-compromise-risk"></a>使用者入侵風險
-**若要測試使用者入侵風險，請執行下列步驟**：
+
+## <a name="testing-security-policies"></a>測試安全性原則
+
+本節為您提供測試使用者風險和登入風險安全性原則的步驟。
+
+
+### <a name="user-risk-security-policy"></a>使用者風險安全性原則
+
+如需詳細資訊，請參閱[使用者風險安全性原則](active-directory-identityprotection.md#user-risk-security-policy)。
+
+![使用者風險](./media/active-directory-identityprotection-playbook/02.png "腳本")
+
+
+**若要測試使用者風險安全性原則，請執行下列步驟**：
 
 1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com](https://portal.azure.com) 。
 2. 瀏覽至 [Identity Protection] 。 
-3. 在主要的 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。 
-4. 在 [入口網站設定] 刀鋒視窗的 [安全性規則] 之下，按一下 [使用者入侵風險]。 
-5. 在 [登入風險] 刀鋒視窗上，關閉 [啟用規則]，然後按一下 [儲存] 設定。
-6. 對於指定的使用者帳戶，模擬不熟悉位置或匿名 IP 風險事件。 這會將該使用者的使用者風險層級提升至 [中] 。
-7. 等候幾分鐘，然後確認使用者的使用者層級為 [中] 。
-8. 移至 [入口網站設定]  刀鋒視窗。
-9. 在 [使用者入侵風險] 刀鋒視窗的 [啟用規則] 之下，選取 [開啟]。 
-10. 選取下列其中一個選項：
-    
-    a. 若要封鎖，請選取 [封鎖登入] 之下的 [中]。
-    
-    b. 若要強制執行安全的密碼變更，請選取 [需要 Multi-Factor Authentication] 之下的 [中]。
-11. 按一下 [檔案] 。
-12. 您現在可以使用具有提高風險等級的使用者進行登入，以測試以風險為基礎的條件式存取。 如果使用者風險為「中」，則視您的原則設定而定，您的登入會被封鎖，或者會強制您變更密碼。 
-    <br><br>
-    ![腳本](./media/active-directory-identityprotection-playbook/201.png "腳本")
-    <br>
+3. 在 [Azure AD Identity Protection] 頁面上，按一下 [使用者風險原則]。
+4. 在 [指派] 區段中，選取所需的使用者 (與群組) 和使用者風險層級。
 
-## <a name="sign-in-risk"></a>登入風險
-**若要測試登入風險，請執行下列步驟：**
+    ![使用者風險](./media/active-directory-identityprotection-playbook/03.png "腳本")
+
+5. 在 [控制] 區段中，選取所需的存取控制 (例如，需要變更密碼)。
+5. 針對 [強制執行原則]，選取 [關閉]。
+6. 提高測試帳戶的使用者風險，例如，藉由模擬其中一個風險事件多次來執行。
+7. 等候幾分鐘，然後確認使用者的使用者層級為 [中]。 如果不是，請為使用者模擬更多風險事件。
+8. 針對 [強制執行原則]，選取 [開啟]。
+9. 您現在可以使用風險層級已提高的使用者進行登入，以測試以使用者風險為基礎的條件式存取。
+    
+    
+
+### <a name="sign-in-risk-security-policy"></a>登入風險安全性原則
+
+如需詳細資訊，請參閱[使用者風險安全性原則](active-directory-identityprotection.md#user-risk-security-policy)。
+
+![登入風險](./media/active-directory-identityprotection-playbook/01.png "腳本")
+
+
+**若要測試登入風險原則，請執行下列步驟：**
 
 1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com ](https://portal.azure.com) 。
-2. 瀏覽至 [Identity Protection] 。
-3. 在主要的 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。 
-4. 在 [入口網站設定] 刀鋒視窗的 [安全性規則] 之下，按一下 [登入風險]。
-5. 在 [登入風險] 刀鋒視窗中，選取 [啟用規則] 之下的 [開啟]。 
-6. 選取下列其中一個選項：
-   
-   a. 若要封鎖，請選取 [封鎖登入] 之下的 [中]
-   
-   b. 若要強制執行安全的密碼變更，請選取 [需要 Multi-Factor Authentication] 之下的 [中]。
-7. 若要封鎖，請選取 [封鎖登入] 之下的 [中]。
-8. 若要強制執行 Multi-Factor Authentication，請選取 [需要 Multi-Factor Authentication] 之下的 [中]。
-9. 按一下 [儲存] 。
-10. 您現在可以藉由模擬不熟悉的位置或匿名 IP 風險事件 (因為它們都是 [中]  風險事件)，測試以風險為基礎的條件式存取。
+
+2. 導覽至 **Azure AD Identity Protection**。
+
+3. 在 [Azure AD Identity Protection] 主頁面上，按一下 [登入風險原則]。 
+
+4. 在 [指派] 區段中，選取所需的使用者 (與群組) 和登入風險層級。
+
+    ![登入風險](./media/active-directory-identityprotection-playbook/04.png "腳本")
 
 
-![腳本](./media/active-directory-identityprotection-playbook/200.png "腳本")
+5. 在 [控制] 區段中，選取所需的存取控制 (例如，**需要多重要素驗證**)。 
+
+6. 針對 [強制執行原則]，選取 [開啟]。
+
+7. 按一下 [檔案] 。
+
+8. 您現在可以使用具風險的工作階段 (例如，藉由使用 Tor 瀏覽器) 進行登入，以測試以登入風險為基礎的條件式存取。 
+
+ 
+
+
 
 
 ## <a name="see-also"></a>另請參閱
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

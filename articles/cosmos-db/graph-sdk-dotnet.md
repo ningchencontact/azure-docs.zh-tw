@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph .NET API：下載和版本資訊
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 12/11/2017
 
 
 ## <a name="release-notes"></a>版本資訊
+
+針對 .NET、Gremlin.Net，我們建議使用開放原始碼 Gremlin 驅動程式。 了解如何開始使用 [Azure Cosmos DB︰使用 .NET 和圖形 API 建立圖表應用程式](create-graph-dotnet.md)。
 
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
 

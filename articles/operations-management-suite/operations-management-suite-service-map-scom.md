@@ -1,6 +1,6 @@
 ---
 title: "服務對應與 System Center Operations Manager 的整合 | Microsoft Docs"
-description: "服務對應是一個 Operations Management Suite 解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文說明使用服務對應在 Operations Manager 中自動建立分散式應用程式圖表。"
+description: "服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文說明使用服務對應在 Operations Manager 中自動建立分散式應用程式圖表。"
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
   > [!NOTE]
   > 這項功能處於公開預覽狀態。
   > 
   
-Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 服務對應可讓您以您對伺服器的理解方式 (一個提供重要服務的互連系統) 來檢視它們。 服務對應不需要進行任何設定，只要安裝代理程式就能顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連線。 如需詳細資訊，請參閱[服務對應文件](operations-management-suite-service-map.md)。
+服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 服務對應可讓您以您對伺服器的理解方式 (一個提供重要服務的互連系統) 來檢視它們。 服務對應不需要進行任何設定，只要安裝代理程式就能顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連線。 如需詳細資訊，請參閱[服務對應文件](operations-management-suite-service-map.md)。
 
 透過這項服務對應與 System Center Operations Manager 之間的整合，您便可以在根據服務對應中動態相依性對應的 Operations Manager 中，自動建立分散式應用程式圖表。
 
 ## <a name="prerequisites"></a>先決條件
 * 管理一組伺服器的 Operations Manager 管理群組 (2012 R2 或更新版)。
-* 已啟用服務對應解決方案的 Operations Management Suite 工作區。
+* 已啟用服務對應解決方案的 Log Analytics 工作區。
 * 由 Operations Manager 管理並傳送資料至服務對應的一組伺服器 (至少一部)。 支援 Windows 和 Linux 伺服器。
-* 可存取與 Operations Management Suite 工作區相關聯之 Azure 訂用帳戶的服務主體。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
+* 可存取與 Log Analytics 工作區相關聯之 Azure 訂用帳戶的服務主體。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
 
 ## <a name="install-the-service-map-management-pack"></a>安裝服務對應管理組件
 您必須透過匯入 Microsoft.SystemCenter.ServiceMap 管理組件配套 (Microsoft.SystemCenter.ServiceMap.mpb)，以啟用 Operations Manager 與服務對應之間的整合。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=55763)下載管理組件配套。 此配套包含下列管理組件︰
@@ -55,7 +55,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
     ![[連線設定] 視窗](media/oms-service-map/scom-config-spn.png)
 
-3. 在 [訂用帳戶選取] 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (即包含 Operations Management Suite 工作區的資源群組) 以及 Operations Management Suite 工作區，然後按一下 [下一步]。
+3. 在 [訂閱選取項目] 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (包含 Log Analytics 工作區的那個)，以及 Log Analytics 工作區，然後按 [下一步]。
 
     ![Operations Manager 設定工作區](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
     ![Operations Manager 設定群組](media/oms-service-map/scom-config-group.png)
 
-6. 選擇性︰選取管理伺服器資源集區以和 Operations Management Suite 通訊，然後按一下 [新增工作區]。
+6. 選擇性 - 選取 [管理伺服器] 資源集區來與 Log Analytics 通訊，然後按一下 [新增工作區]。
 
     ![Operations Manager 設定資源集區](media/oms-service-map/scom-config-pool.png)
 
-    設定和註冊 Operations Management Suite 工作區可能需要一分鐘的時間。 完成設定之後，Operations Manager 就會從 Operations Management Suite 初始化首次的服務對應同步處理。
+    設定和註冊 Log Analytics 工作區可能需要一分鐘的時間。 完成設定之後，Operations Manager 就會初始化首次的服務對應同步處理。
 
     ![Operations Manager 設定資源集區](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>監視服務對應
-連線至 Operations Management Suite 工作區之後，Operations Manager 主控台的 [監視] 窗格中會顯示新的 [服務對應] 資料夾。
+連線至 Log Analytics 工作區之後，Operations Manager 主控台的 [監視] 窗格中會顯示新的 [服務對應] 資料夾。
 
 ![Operations Manager [監視] 窗格](media/oms-service-map/scom-monitoring.png)
 
 服務對應資料夾有四個節點︰
-* **作用中警示**：列出有關 Operations Manager 和服務對應之通訊的所有作用中警示。  請注意，這些警示不是要同步至 Operations Manager 的 Operations Management Suite 警示。 
+* **作用中警示**：列出有關 Operations Manager 和服務對應之通訊的所有作用中警示。  請注意，這些警示不是要同步至 Operations Manager 的 Log Analytics 警示。 
 
 * **伺服器**：列出設定為從服務對應同步處理的受監視伺服器。
 
@@ -103,7 +103,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
     ![Operations Manager 分散式應用程式圖表](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>編輯或刪除工作區
-您可以透過 [服務對應概觀] 窗格 ([系統管理] 窗格 > [Operations Management Suite] > [服務對應]) 編輯或刪除已設定的工作區。 目前您僅可設定一個 Operations Management Suite 工作區。
+您可以透過 [服務對應概觀] 窗格 ([系統管理] 窗格 > [Operations Management Suite] > [服務對應]) 編輯或刪除已設定的工作區。 您現在只能設定一個 Log Analytics 工作區。
 
 ![Operations Manager [編輯工作區] 窗格](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 
 目前的設計有以下問題和限制︰
-* 您只能連線到單一 Operations Management Suite 工作區。
+* 您只能連線到單一 Log Analytics 工作區。
 * 雖然您可以透過 [撰寫] 窗格將伺服器手動新增至服務對應伺服器群組，但這些伺服器的對應不會立即進行同步。  這些對應會在下一個同步週期從服務對應進行同步處理。
 * 如果您對管理組件所建立的「分散式應用程式圖表」進行任何變更，這些變更可能會在下一次與服務對應進行同步時遭到覆寫。
 

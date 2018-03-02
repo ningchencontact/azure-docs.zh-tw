@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>開始使用 Azure AD AngularJS
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 如果登入多個目錄，您可能需要確定檢視正確的目錄。 若要這樣做，請在頂端列上，按一下您的帳戶。 在 [目錄] 清單下，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [更多服務]，然後選取 [Azure Active Directory]。
+3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 遵照提示進行，並建立新的 Web 應用程式和/或 Web API：
   * **名稱**向使用者描述您的應用程式。

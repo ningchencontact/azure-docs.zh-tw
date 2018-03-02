@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
+
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
 
 修補程式協調流程應用程式是 Azure Service Fabric 應用程式，可在 Service Fabric 叢集上將作業系統修補自動化，而不需要停機。
 
@@ -64,12 +70,12 @@ ms.lasthandoff: 11/09/2017
 您可以在設定叢集時從 Azure 入口網站啟用修復管理員。 設定叢集時，選取 [附加元件功能] 底下的 [包含修復管理員] 選項。
 ![從 Azure 入口網站啟用修復管理員的映像](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
-或者，您可以使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)在新的和現有的 Service Fabric 叢集上啟用修復管理員。 取得您想要部署之叢集的範本。 您可以使用範例範本或建立自訂的 Resource Manager 範本。 
+##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 部署模型
+或者，您可以使用 [Azure Resource Manager 部署模型](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)，在新的和現有的 Service Fabric 叢集上啟用修復管理員服務。 取得您想要部署之叢集的範本。 您可以使用範例範本，或建立自訂的 Azure Resource Manager 部署模型範本。 
 
-若要使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)啟用修復管理員服務：
+若要使用 [Azure Resource Manager 部署模型範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)啟用修復管理員服務：
 
-1. 首先，檢查 `Microsoft.ServiceFabric/clusters` 資源的 `apiversion` 是否已設定為 `2017-07-01-preview`，如下列程式碼片段所示。 如果不是，您就需要將 `apiVersion` 更新為 `2017-07-01-preview` 值：
+1. 首先，確認 `Microsoft.ServiceFabric/clusters` 資源的 `apiversion` 已設為 `2017-07-01-preview`。 如果不是，您就需要將 `apiVersion` 更新為 `2017-07-01-preview` 值或更高：
 
     ```json
     {
@@ -142,12 +148,12 @@ ms.lasthandoff: 11/09/2017
 |TaskApprovalPolicy   |例舉 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調器服務在 Service Fabric 叢集節點中用來安裝 Windows 更新的原則。<br>                         允許的值包括： <br>                                                           <b>NodeWise</b>。 一次只會在一個節點上安裝 Windows Update。 <br>                                                           <b>UpgradeDomainWise</b>。 一次只會在一個升級網域上安裝 Windows Update。 (最多，屬於升級網域的所有節點都可以進行 Windows Update。)
 |LogsDiskQuotaInMB   |long  <br> (預設值︰1024)               |修補程式協調流程應用程式記錄的大小上限 (以 MB 為單位)，可在節點上本機保留。
 | WUQuery               | 字串<br>(預設值："IsInstalled=0")                | 用以取得 Windows 更新的查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
-| InstallWindowsOSOnlyUpdates | Bool <br> (預設值︰True)                 | 這個旗標可讓您安裝 Windows 作業系統更新。            |
+| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (預設值︰True)                 | 這個旗標可讓您安裝 Windows 作業系統更新。            |
 | WUOperationTimeOutInMinutes | int <br>(預設值︰90)                   | 指定任何 Windows Update 作業的逾時 (搜尋或下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
 | WURescheduleCount     | int <br> (預設值︰5)                  | 如果作業持續失敗，服務會將 Windows Update 重新排程的次數上限。          |
 | WURescheduleTimeInMinutes | int <br>(預設值︰30) | 如果作業持續失敗，服務會將 Windows Update 重新排程的時間間隔。 |
-| WUFrequency           | 以逗號分隔的字串 (預設值︰"Weekly, Wednesday, 7:00:00")     | 安裝 Windows Update 的頻率。 格式與可能的值如下： <br>-   Monthly, DD,HH:MM:SS，例如 Monthly, 5,12:22:32。 <br> -   Weekly, DAY,HH:MM:SS，例如 Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如 Daily, 12:22:32。  <br> -  None 表示不應該進行 Windows Update。  <br><br> 請注意，所有時間都是 UTC 格式。|
-| AcceptWindowsUpdateEula | Bool <br>(預設值︰true) | 藉由設定這個旗標，應用程式會代表電腦的擁有者接受 Windows Update 的使用者授權合約 (EULA)。              |
+| WUFrequency           | 以逗號分隔的字串 (預設值︰"Weekly, Wednesday, 7:00:00")     | 安裝 Windows Update 的頻率。 格式與可能的值如下： <br>-   Monthly, DD, HH:MM:SS，例如 Monthly, 5,12:22:32。 <br> -   Weekly, DAY, HH:MM:SS，例如 Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如 Daily, 12:22:32。  <br> -  None 表示不應該進行 Windows Update。  <br><br> 請注意，時間會採用 UTC 格式。|
+| AcceptWindowsUpdateEula | BOOLEAN <br>(預設值︰true) | 藉由設定這個旗標，應用程式會代表電腦的擁有者接受 Windows Update 的使用者授權合約 (EULA)。              |
 
 > [!TIP]
 > 如果需要 Windows Update 立即發生，請將 `WUFrequency` 設定為相對於應用程式部署的時間。 例如，假設您的測試叢集有五個節點，計劃於大約下午 5:00 UTC 部署應用程式。 如果您假設應用程式的升級或部署最多會花費 30 分鐘的時間，則將 WUFrequency 設定為 "Daily, 17:30:00"。
@@ -246,7 +252,7 @@ RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | �
 
 收集修補程式協調流程應用程式的記錄，是 Service Fabric 執行階段記錄的一部分。
 
-以免您想要透過您選擇的診斷工具/管線擷取記錄。 修補程式協調流程應用程式使用以下的固定提供者識別碼透過 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 記錄事件
+以免您想要透過您選擇的診斷工具/管線擷取記錄。 修補程式協調流程應用程式使用以下的固定提供者識別碼，透過 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 記錄事件
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -305,9 +311,9 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 - 下載並安裝更新時所需的平均時間，不應該超過幾個小時。
 - VM 和網路頻寬的效能。
 
-問： **為什麼看到 Windows Update 結果中的某些更新是透過 REST API 取得，而不是電腦上的 Windows Update 歷程記錄下？**
+問： **為什麼我在 Windows Update 結果中看到某些更新已透過 REST API 取得，但未出現在電腦的 Windows Update 歷程記錄下？**
 
-A. 某些產品更新需要簽入其各自的更新/修補歷程記錄。 例如，Windows Defender 更新不會顯示在 Windows Server 2016 上的 Windows Update 歷程記錄。
+A. 某些產品更新只會出現在其各自的更新/修補歷程記錄中。 例如，Windows Defender 更新不會顯示在 Windows Server 2016 上的 Windows Update 歷程記錄。
 
 ## <a name="disclaimers"></a>免責聲明
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 作業
 本主題說明您可以使用 Azure Active Directory (Azure AD) Connect Health 來執行的各種作業。
@@ -42,6 +42,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="delete-a-server-or-service-instance"></a>刪除伺服器或服務執行個體
 
+>[!NOTE] 
+> 需要 Azure AD Premium 授權，才能刪除步驟。
+
 在某些情況下，您可能需要移除不要監視的伺服器。 以下是從 Azure AD Connect Health 服務移除伺服器時所需要知道的事項。
 
 刪除伺服器時，請注意下列事項：
@@ -51,7 +54,11 @@ ms.lasthandoff: 12/11/2017
 * 這個動作不會刪除已從這部伺服器收集的資料。 將會依照 Azure 資料保留原則來刪除該資料。
 * 執行此動作之後，如果想要重新開始監視相同的伺服器，您必須在這部伺服器上解除安裝健康情況代理程式，再重新安裝。
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>從 Azure AD Connect Health 服務刪除伺服器
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>從 Azure AD Connect Health 服務刪除伺服器
+
+>[!NOTE] 
+> 需要 Azure AD Premium 授權，才能刪除步驟。
+
 適用於 Active Directory 同盟服務 (AD FS) 和 Azure AD Connect (Sync) 的 Azure AD Connect Health：
 
 1. 從 [伺服器清單] 刀鋒視窗中選取要移除的伺服器名稱，以開啟 [伺服器] 刀鋒視窗。
@@ -133,7 +140,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>步驟 3：與使用者或群組共用刀鋒視窗位置
-1. 指派權限之後，使用者就可以前往[這裡](http://aka.ms/aadconnecthealth)來存取 Azure AD Connect Health。
+1. 指派權限之後，使用者就可以前往[這裡](https://aka.ms/aadconnecthealth)來存取 Azure AD Connect Health。
 2. 在刀鋒視窗上，使用者可以將刀鋒視窗或其他組件釘選到儀表板。 只要按一下 [釘選到儀表板] 圖示即可。<br>
    ![Azure AD Connect Health RBAC 釘選刀鋒視窗的螢幕擷取畫面，其中已醒目提示釘選圖示](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

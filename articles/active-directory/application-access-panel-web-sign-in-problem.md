@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>登入存取面板網站時遇到問題
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 
 -   確定使用者的瀏覽器已將此 URL 新增至**信任的網站**
 
--   確定使用者的帳戶**已啟用**登入。
+-   確定使用者的帳戶**已啟用**可供登入。
 
 -   確定使用者的帳戶**未鎖定**。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 
 -   確定**條件式存取原則**或**身分識別保護**原則未封鎖使用者存取。
 
--   確定使用者的**驗證連絡資訊**為最新版本，而可強制執行 Multi-Factor Authentication 或條件式存取原則。
+-   確定使用者的**驗證連絡資訊**為最新版本，可強制使用執行多重要素驗證或條件式存取原則。
 
 -   也要確定嘗試清除瀏覽器的 Cookie，然後嘗試再次登入。
 
@@ -93,11 +93,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>檢查 Azure Active Directory 中是否存在使用者帳戶
 
-若要檢查使用者的帳戶是否存在，請依照下列步驟執行：
+若要檢查使用者的帳戶是否存在，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -111,11 +111,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="check-a-users-account-status"></a>檢查使用者帳戶的狀態
 
-若要檢查使用者帳戶的狀態，請依照下列步驟執行：
+若要檢查使用者的帳戶狀態，請遵循下列步驟：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -131,11 +131,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="reset-a-users-password"></a>重設使用者的密碼
 
-若要重設使用者的密碼，請依照下列步驟執行：
+若要重設使用者的密碼，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -145,9 +145,9 @@ ms.lasthandoff: 12/11/2017
 
 6.  **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
 
-7.  按一下使用者刀鋒視窗頂端的 [重設密碼]按鈕。
+7.  按一下使用者窗格頂端的 [重設密碼] 按鈕。
 
-8.  在出現的 [重設密碼] 刀鋒視窗上，按一下 [重設密碼] 按鈕。
+8.  在出現的 [重設密碼] 窗格中，按一下 [重設密碼] 按鈕。
 
 9.  為使用者複製**暫時密碼**或**輸入新密碼**。
 
@@ -163,11 +163,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>檢查使用者的多重要素驗證狀態
 
-若要檢查使用者的多重要素驗證狀態，請依照下列步驟執行：
+若要檢查使用者的多重要素驗證狀態，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/11/2017
 
 5.  按一下 [所有使用者]。
 
-6.  按一下刀鋒視窗頂端的 [Multi-Factor Authentication] 按鈕。
+6.  按一下窗格頂端的 [多重要素驗證] 按鈕。
 
 7.  當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
 
@@ -184,17 +184,17 @@ ms.lasthandoff: 12/11/2017
 9.  從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
 
    >[!NOTE]
-   >如果使用者處於 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
+   >如果使用者處於 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 使用者退回之後，您可以再次將他們的狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
    >
    >
 
 ### <a name="check-a-users-authentication-contact-info"></a>檢查使用者的驗證連絡資訊
 
-若要檢查用於多重要素驗證、條件式存取、身分識別保護和密碼重設的使用者驗證連絡資訊，請依照下列步驟執行︰
+若要檢查用於多重要素驗證、條件式存取、身分識別保護和密碼重設的使用者驗證連絡資訊，請遵循下列步驟︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -212,11 +212,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="check-a-users-group-memberships"></a>檢查使用者的群組成員資格
 
-若要檢查使用者的群組成員資格，請依照下列步驟執行：
+若要檢查使用者的群組成員資格，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -230,11 +230,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="check-a-users-assigned-licenses"></a>檢查使用者獲指派的授權
 
-若要檢查使用者獲指派的授權，請依照下列步驟執行：
+若要檢查使用者獲指派的授權，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -248,11 +248,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="assign-a-user-a-license"></a>指派授權至使用者 
 
-若要指派授權至使用者，請依照下列步驟執行︰
+若要指派授權至使用者，請依遵循下列步驟︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 

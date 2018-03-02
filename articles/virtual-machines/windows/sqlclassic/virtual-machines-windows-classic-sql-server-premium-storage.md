@@ -4,7 +4,7 @@ description: "本文會使用以傳統部署模型建立的資源，並提供使
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d3fdd8865a293c5e2f0df6a97910ac8e2a07d4c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/19/2018
 若要使用進階儲存體，您必須使用 DS 系列的虛擬機器 (VM)。 如果您先前未曾在雲端服務中使用過 DS 系列的機器，就必須刪除現有的 VM、保留連結的磁碟，接著先建立新的雲端服務，然後再將 VM 重新建立為 DS* 角色大小。 如需虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ### <a name="cloud-services"></a>雲端服務
-如果 DS* VM 和進階儲存體是建立在新的雲端服務中，則您只能搭配使用它們。 如果您正在 Azure 中使用 SQL Server Always On，Always On 接聽程式將參考與雲端服務相關聯的 Azure 內部或外部負載平衡器 IP 位址。 本文會將重點放在如何於此案例中進行移轉的同時還保有可用性。
+如果 DS* VM 和進階儲存體是建立在新的雲端服務中，則您只能搭配使用它們。 如果您正在 Azure 中使用 SQL Server Always On，Always On 接聽程式會參考與雲端服務相關聯的 Azure 內部或外部負載平衡器 IP 位址。 本文會將重點放在如何於此案例中進行移轉的同時還保有可用性。
 
 > [!NOTE]
 > DS* 系列必須是已部署到新雲端服務的第一個 VM。
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/19/2018
 
 ![RegionalVNET][1]
 
-您可以提高 Microsoft 支援票證以移轉到區域 VNET、Microsoft 將進行變更，然後完成區域 VNET 的移轉，在網路設定中變更屬性 AffinityGroup。 先匯出 PowerShell 中的網路設定，然後使用 **Location** 屬性來取代 **VirtualNetworkSite** 元素中的 **AffinityGroup** 屬性。 指定 `Location = XXXX`，其中 `XXXX` 為 Azure 區域。 接著匯入新設定。
+您可以提出 Microsoft 支援票證來移轉到區域 VNET。 Microsoft 隨後會進行變更。 若要完成移轉到區域 VNET 的作業，請變更網路設定中的 AffinityGroup 屬性。 先匯出 PowerShell 中的網路設定，然後使用 **Location** 屬性來取代 **VirtualNetworkSite** 元素中的 **AffinityGroup** 屬性。 指定 `Location = XXXX`，其中 `XXXX` 為 Azure 區域。 接著匯入新設定。
 
 例如，考量下列 VNET 設定：
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/19/2018
 一旦連結 VHD 之後，就無法更改快取設定。 您需要中斷連結 VHD，然後使用更新的快取設定重新連結。
 
 ### <a name="windows-storage-spaces"></a>Windows 儲存空間
-當您使用先前的標準儲存體來執行此動作時，可以使用 [Windows 儲存空間](https://technet.microsoft.com/library/hh831739.aspx) ，這樣將可允許您移轉已經使用儲存體空間的 VM。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例 (步驟 9 和之前的步驟) 示範如何使用 Powershell 程式碼來擷取和匯入已連結多個 VHD 的 VM。
+當您使用先前的標準儲存體來執行此動作時，可以使用 [Windows 儲存空間](https://technet.microsoft.com/library/hh831739.aspx)，這樣將可允許您移轉已經使用儲存體空間的虛擬機器。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例 (步驟 9 和之前的步驟) 示範如何使用 Powershell 程式碼來擷取和匯入已連結多個 VHD 的 VM。
 
 儲存集區會與標準的 Azure 儲存體帳戶搭配使用，以提高輸送量並降低延遲。 您可能會在針對新部署測試含有進階儲存體的儲存集區時尋找值，但它們會為儲存體設定增加額外的複雜度。
 
@@ -138,14 +138,14 @@ ms.lasthandoff: 01/19/2018
 
 現在您可以使用此資訊，將連結的 VHD 關聯至儲存集區中的實體磁碟。
 
-將 VHD 對應到儲存集區中的實體磁碟之後，接著就可以中斷連結，並將它們複製到進階儲存體帳戶，然後使用正確的快取設定來連結它們。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的範例，步驟 8 到 12。 這些步驟示範如何將與 VM 連結的 VHD 磁碟設定擷取至 CSV 檔案、複製 VHD、更改磁碟設定快取設定，最後重新部署 VM 成為含有所有連結磁碟的 DS 系列 VM。
+將 VHD 對應到儲存集區中的實體磁碟之後，接著就可以中斷連結，並將它們複製到進階儲存體帳戶，然後使用正確的快取設定來連結它們。 請參閱[附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的範例，步驟 8 到 12。 這些步驟示範如何將與 VM 連結的 VHD 磁碟設定擷取至 CSV 檔案、複製 VHD、更改磁碟設定快取設定，最後重新部署 VM 成為含有所有連結磁碟的 DS 系列 VM。
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 儲存體頻寬和 VHD 儲存體輸送量
-儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。 VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。 如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。 虛擬機器對於連結的 VHD 數量以及它們所支援的最大頻寬 (MB/秒) 有不同的容許程度。 如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 提高 IOPS 可透過更大的磁碟大小來達成。 當您考量移轉路徑時，應將這點納入考慮。 如需詳細資訊，請參閱 [適用於 IOPS 和磁碟類型的表格](../premium-storage.md#scalability-and-performance-targets)。
 
-最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。 在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。 例如，Standard_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。 但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
+最後，請考量虛擬機器對於所有連結磁碟所支援的磁碟頻寬上限各有不同。 在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。 例如，Standard_DS14 最多會支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用虛擬機器的磁碟頻寬。 但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
 ## <a name="new-deployments"></a>新的部署
 接下來的兩節示範如何將 SQL Server VM 部署到進階儲存體。 如先前所提及，您不一定需要將作業系統磁碟放置於進階儲存體上。 如果您想要在作業系統 VHD 上放置任何需要大量 IO 的工作負載，就可以選擇執行這個動作。
@@ -197,7 +197,7 @@ ms.lasthandoff: 01/19/2018
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>步驟 5：在標準或進階儲存體上放置作業系統 VHD
-    #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
+    #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
 
     #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
@@ -232,7 +232,7 @@ ms.lasthandoff: 01/19/2018
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
     #Add Data and Log Disks to VM Config
-    #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
+    #Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
     #Utilising the Premium Storage enabled Storage account
 
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -316,7 +316,7 @@ ms.lasthandoff: 01/19/2018
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
 
-    #This will need to be a new cloud service
+    #This needs to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
 
     #Use to DS Series VM
@@ -342,29 +342,29 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>未使用 Always On 可用性群組的現有部署
 > [!NOTE]
-> 針對現有部署，請先參閱本主題的 [必要條件](#prerequisites-for-premium-storage) 一節。
+> 針對現有部署，請先參閱本文的[必要條件](#prerequisites-for-premium-storage)一節。
 >
 >
 
 對於未使用「Always On 可用性群組」的 SQL Server 部署與使用該可用性群組的部署，有不同的考量。 如果您未使用 Always On 且目前擁有獨立的 SQL Server，就可以使用新的雲端服務和儲存體帳戶升級到進階儲存體。 請考量下列選項：
 
 * **建立新的 SQL Server VM**。 您可以建立新的 SQL Server VM 來使用進階儲存體帳戶，如＜新的部署＞中所述。 然後備份並還原 SQL Server 設定和使用者資料庫。 如果您會從內部或外部存取應用程式，就需要更新該應用程式，才能參考新的 SQL Server。 您需要複製所有「超出資料庫範圍」的物件，如同執行並存的 (SxS) SQL Server 移轉一樣。 這包含像是登入、憑證及連結的伺服器等物件。
-* **移轉現有的 SQL Server VM**。 這需要使 SQL Server VM 離線，然後將它傳輸到新的雲端服務，其中包含將其連結的所有 VHD 複製到進階儲存體帳戶。 當 VM 上線時，應用程式將和以前一樣參考伺服器主機名稱。 請注意，現有磁碟的大小將影響效能特性。 例如，400 GB 的磁碟會調高為 P20。 如果您知道不需要該磁碟效能，則可重新建立 VM 做為 DS 系列 VM，然後連結所需大小/效能規格的進階儲存體 VHD。 然後，您可以中斷連結並重新連結 SQL DB 檔案。
+* **移轉現有的 SQL Server VM**。 這需要使 SQL Server VM 離線，然後將它傳輸到新的雲端服務，其中包含將其連結的所有 VHD 複製到進階儲存體帳戶。 當虛擬機器上線時，應用程式會和以前一樣參考伺服器主機名稱。 請注意，現有磁碟的大小會影響效能特性。 例如，400 GB 的磁碟會調高為 P20。 如果您知道不需要該磁碟效能，則可重新建立 VM 做為 DS 系列 VM，然後連結所需大小/效能規格的進階儲存體 VHD。 然後，您可以中斷連結並重新連結 SQL DB 檔案。
 
 > [!NOTE]
-> 複製 VHD 磁碟時，您應該注意大小，取決於大小將意謂著它們會屬於哪一個「進階儲存體磁碟」類型，這會決定磁碟效能規格。 Azure 將調高為最接近的磁碟大小，因此，如果您擁有 400 GB 的磁碟，這將會調高為 P20。 根據您對於作業系統 VHD 的現有 IO 需求而定，可能不需要將此移轉到進階儲存體帳戶。
+> 複製 VHD 磁碟時，您應該注意大小，取決於大小意謂著它們會屬於哪一個「進階儲存體磁碟」類型，這會決定磁碟效能規格。 Azure 會調高為最接近的磁碟大小，因此，如果您擁有 400 GB 的磁碟，這會調高為 P20。 根據您對於作業系統 VHD 的現有 IO 需求而定，可能不需要將此移轉到進階儲存體帳戶。
 >
 >
 
-如果您的 SQL 可從外部存取，則雲端服務 VIP 將會變更。 您也將必須更新端點、ACL 及 DNS 設定。
+如果您的 SQL 可從外部存取，則雲端服務 VIP 會變更。 您也必須更新端點、ACL 及 DNS 設定。
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>使用 Always On 可用性群組的現有部署
 > [!NOTE]
-> 針對現有部署，請先參閱本主題的 [必要條件](#prerequisites-for-premium-storage) 一節。
+> 針對現有部署，請先參閱本文的[必要條件](#prerequisites-for-premium-storage)一節。
 >
 >
 
-在本節一開始，我們將了解 Always On 如何與「Azure 網路」互動。 然後將移轉細分為兩種案例：可容許一段停機時間的移轉，以及必須達到最低停機時間的移轉。
+在本節一開始，我們會了解 Always On 如何與「Azure 網路」互動。 然後會移轉細分為兩種案例：可容許一段停機時間的移轉，以及必須達到最低停機時間的移轉。
 
 內部部署的 SQL Server Always On 可用性群組會使用內部部署的接聽程式，來註冊虛擬 DNS 名稱以及 IP 位址，其可在一或多部 SQL Server 之間共用。 當用戶端連結時，即會透過接聽程式 IP 將它們路由傳送到主要的 SQL Server。 這是當時擁有 Always On IP 資源的伺服器。
 
@@ -373,7 +373,7 @@ ms.lasthandoff: 01/19/2018
 在 Microsoft Azure 中，您只能有一個已指派至 VM 上 NIC 的 IP 位址，因此，為了達到和內部部署一樣的抽象層，Azure 會利用已指派給內部/外部負載平衡器 (ILB/ELB) 的 IP 位址。 在伺服器之間共用的 IP 資源已設為與 ILB/ELB 相同的 IP。 這會在 DNS 中發佈，而用戶端流量是透過 ILB/ELB 傳遞到主要的 SQL Server 複本。 ILB/ELB 知道哪一部是主要的 SQL Server，因為它會使用探查來探查 Always On IP 資源。 在上一個範例中，它會探查每個擁有 ELB/ILB 所參考之端點的節點，無論哪個回應都是主要的 SQL Server。
 
 > [!NOTE]
-> ILB 和 ELB 都已指派給特定的 Azure 雲端服務，因此，Azure 中所有的雲端移轉很可能是表示負載平衡器 IP 將要變更。
+> ILB 和 ELB 都已指派給特定的 Azure 雲端服務，因此，Azure 中所有的雲端移轉很可能是表示負載平衡器 IP 會變更。
 >
 >
 
@@ -390,7 +390,7 @@ ms.lasthandoff: 01/19/2018
 * 叢集驗證。
 * 測試適用於新次要項目的 Always On 容錯移轉
 
-如果您是在 VM 中使用 Windows 儲存集區來提供更高的 IO 輸送量，則將會在完整叢集驗證期間使它們離線。 當您將節點新增到叢集時，需要進行驗證測試。 執行測試的時間各有不同，因此，您應該在具代表性的測試環境中測試此項目，以取得這個動作需要花費的大約時間。
+如果您是在虛擬機器中使用 Windows 儲存集區來提供更高的 IO 輸送量，則會在完整叢集驗證期間使它們離線。 當您將節點新增到叢集時，需要進行驗證測試。 執行測試的時間各有不同，因此，您應該在具代表性的測試環境中測試此項目，以取得這個動作需要花費的大約時間。
 
 您應該佈建可在新增加的節點上執行手動容錯移轉與混亂測試的時間，以確保 Always On 高可用性函式會如預期般運作。
 
@@ -523,8 +523,8 @@ ms.lasthandoff: 01/19/2018
 
 ##### <a name="disadvantages"></a>缺點
 * 根據 SQL Server 的用戶端存取而定，若 SQL Server 是在應用程式的替代 DC 中執行，就可能會增加延遲。
-* 將 VHD 複製到進階儲存體的時間可能會變長。 這可能會影響您對於是否要在可用性群組中保留該節點所做的決策。 如果需要在移轉期間執行需要大量記錄的工作負載，請將這點納入考慮，因為主要節點將必須在其交易記錄中保留未複寫的交易。 因此，這可能會顯著成長。
-* 在此情況下，應使用 Azure **Start-AzureStorageBlobCopy** commandlet (這是非同步的)。 完成時沒有 SLA。 複製的時間各有不同，儘管這取決於在佇列中等候的時間，但它還是會根據要傳輸的資料量來決定。 因此，在第 2 個資料中心只需一個節點，而您應該在複製所需時間比測試時間還長的情況下，採取移轉步驟。 這可能包括下列概念。
+* 將 VHD 複製到進階儲存體的時間可能會變長。 這可能會影響您對於是否要在可用性群組中保留該節點所做的決策。 如果需要在移轉期間執行需要大量記錄的工作負載，請將這點納入考慮，因為主要節點必須在其交易記錄中保留未複寫的交易。 因此，這可能會顯著成長。
+* 在此情況下，應使用 Azure **Start-AzureStorageBlobCopy** commandlet (這是非同步的)。 完成時沒有 SLA。 複製的時間各有不同，儘管這取決於在佇列中等候的時間，但它還是會根據要傳輸的資料量來決定。 因此，在第 2 個資料中心只需一個節點，而您應該在複製所需時間比測試時間還長的情況下，採取移轉步驟。 這些風險降低步驟包括下列概念：
   * 在進行具有議定之停機時間的移轉之前，為 HA 新增第 2 個 SQL 暫時節點。
   * 在 Azure 排定的維護期間以外執行移轉。
   * 確保您已正確設定叢集仲裁。
@@ -546,7 +546,7 @@ ms.lasthandoff: 01/19/2018
 * 將 AFP 切換回 SQL1 和 SQL2
 
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>附錄：將多站台 Always On 叢集移轉到進階儲存體
-本主題的其餘部分提供將多站台 Always On 叢集轉換為「進階儲存體」的詳盡範例。 它還會將接聽程式從使用外部負載平衡器 (ELB) 轉換為內部負載平衡器 (ILB)。
+本文的其餘部分提供將多站台 Always On 叢集轉換為「進階儲存體」的詳盡範例。 它還會將接聽程式從使用外部負載平衡器 (ELB) 轉換為內部負載平衡器 (ILB)。
 
 ### <a name="environment"></a>環境
 * Windows 2k12 / SQL 2k12
@@ -556,7 +556,7 @@ ms.lasthandoff: 01/19/2018
 ![Appendix1][11]
 
 ### <a name="vm"></a>VM：
-在此範例中，我們即將示範從 ELB 移動到 ILB 的方式。 ELB 可在 ILB 之前取得，因此，這會示範如何在移轉期間切換到前者。
+在此範例中，我們即將示範從 ELB 移動到 ILB 的方式。 ELB 可在 ILB 之前取得，因此，這會示範如何在移轉期間切換到 ILB。
 
 ![Appendix2][12]
 
@@ -601,7 +601,7 @@ ms.lasthandoff: 01/19/2018
     New-AzureService $destcloudsvc -Location $location
 
 #### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步驟 2：提高資源上允許發生的失敗數 <Optional>
-在隸屬於 Always On 可用性群組的特定資源上有下列限制：可以在一段期間內發生的失敗次數，而叢集服務將嘗試在其中重新啟動資源群組。 儘管您正在逐步執行此程序，但還是建議您提高此限制， 因為，如果您不會手動進行容錯移轉，以及藉由關閉機器來觸發容錯移轉，就會更接近這個限制。
+在隸屬於 Always On 可用性群組的特定資源上有下列限制：可以在一段期間內發生的失敗次數，而叢集服務會嘗試在其中重新啟動資源群組。 儘管您正在逐步執行此程序，但還是建議您提高此限制， 因為，如果您不會手動進行容錯移轉，以及藉由關閉機器來觸發容錯移轉，就會更接近這個限制。
 
 明智的做法是將容錯度加倍，若要在容錯移轉叢集管理員中執行這個動作，請移至 Always On 資源群組的 [屬性]：
 
@@ -610,16 +610,16 @@ ms.lasthandoff: 01/19/2018
 將 [最大失敗數目] 變更為 6。
 
 #### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步驟 3：新增叢集群組的 IP 位址資源 <Optional>
-如果您只有一個適用於叢集群組的 IP 位址且已將此位址指派給雲端子網路，請注意，如果您不小心在該網路上使雲端中的所有叢集節點離線，則叢集 IP 資源和叢集網路名稱將無法變成上線狀態。 發生這個情況時，將阻止更新其他叢集資源。
+如果您只有一個適用於叢集群組的 IP 位址且已將此位址指派給雲端子網路，請注意，如果您不小心在該網路上使雲端中的所有叢集節點離線，則叢集 IP 資源和叢集網路名稱無法變成上線狀態。 在此情況下，它會阻止更新其他叢集資源。
 
 #### <a name="step-4-dns-configuration"></a>步驟 4：DNS 設定
-若要實作流暢的轉換，需取決於使用和更新 DNS 的方式。
+實作流暢的轉換需取決於使用和更新 DNS 的方式。
 安裝 Always On 時，它會建立 Windows 叢集資源群組，如果您開啟容錯移轉叢集管理員，就會看見它至少具有三個資源，文件中所指的是下列這兩個資源：
 
-* 虛擬網路名稱 (VNN) - 這是 DNS 名稱，當用戶端想要透過 Always On 連線到 SQL Server 時要連接的名稱。
-* IP 位址資源 - 這是與 VNN 相關聯的 IP 位址，您可以擁有一個以上這類位址，而且在多站台設定中，您將針對每個站台/子網路擁有一個 IP 位址。
+* 虛擬網路名稱 (VNN) - DNS 名稱，當用戶端想要透過 Always On 連線到 SQL Server 時要連接的名稱。
+* IP 位址資源 - 與 VNN 相關聯的 IP 位址，您可以擁有一個以上這類位址，而且在多站台設定中，您會針對每個站台/子網路擁有一個 IP 位址。
 
-連線到 SQL Sevrer 時，「SQL Sevrer 用戶端」驅動程式將抓取與接聽程式關聯的 DNS 記錄，並嘗試連線到每個 Always On 關聯 IP 位址，下面將討論可能對此造成影響的一些因素。
+連線到 SQL Sevrer 時，「SQL Sevrer 用戶端」驅動程式會抓取與接聽程式關聯的 DNS 記錄，並嘗試連線到每個 Always On 關聯 IP 位址。 接下來，我們要討論一些可能對此造成影響的因素。
 
 與接聽程式名稱相關聯的並行 DNS 記錄數目不只取決於相關聯的 IP 位址數目，而且還取決於適用於 Always ON VNN 資源之容錯移轉叢集中的 ‘RegisterAllIpProviders’ 設定。
 
@@ -633,7 +633,7 @@ ms.lasthandoff: 01/19/2018
 
 ![Appendix5][15]
 
-下列程式碼將傾印出 VNN 設定，並為您設定它，請注意，若要讓變更生效，您將需要使 VNN 離線，然後再讓它重新上線，這會使「接聽程式」離線而導致用戶端連線中斷。
+下列程式碼會傾印出 VNN 設定，並為您進行設定。 若要讓變更生效，您需要先讓 VNN 離線，再讓其恢復上線。 這會讓接聽程式離線從而導致用戶端連線中斷。
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -642,7 +642,7 @@ ms.lasthandoff: 01/19/2018
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-在後續的移轉步驟中，您需要使用參考負載平衡器的更新 IP 位址來更新 Always On 接聽程式，這將涉及 IP 位址資源的移除與新增。 更新 IP 之後，您需要確定新的 IP 位址已在 DNS 區域中更新，而且用戶端正在更新它們的本機 DNS 快取。
+在後續的移轉步驟中，您需要使用參考負載平衡器的更新 IP 位址來更新 Always On 接聽程式，這涉及 IP 位址資源的移除與新增。 更新 IP 之後，您需要確定新的 IP 位址已在 DNS 區域中更新，而且用戶端正在更新它們的本機 DNS 快取。
 
 如果您的用戶端位於不同的網路區段並參考不同的 DNS 伺服器，您就需要考量在移轉期間「DNS 區域傳輸」會發生什麼情況，因為應用程式重新連線時間至少會受到任何新接聽程式 IP 位址的「區域傳輸時間」限制。 如果您受到此處所討論的時間所限制，就應該與您的 Windows 小組討論並測試強制執行增量區域傳輸，同時降低 DNS 主機記錄的存留時間，讓用戶端能夠更新。 如需詳細資訊，請參閱[增量區域傳輸](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx)。
 
@@ -656,19 +656,20 @@ ms.lasthandoff: 01/19/2018
     #Set HostRecordTTL Examples
     Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
-請注意，‘HostRecordTTL’ 越低，所造成的 DNS 流量就越高。
+> [!NOTE]
+> ‘HostRecordTTL’ 越低，所造成的 DNS 流量就越高。
 
 ##### <a name="client-application-settings"></a>用戶端應用程式設定
-如果您的 SQL 用戶端應用程式支援 .Net 4.5 SQLClient，則您可以使用 ‘MULTISUBNETFAILOVER=TRUE’ 關鍵字，若它允許在容錯移轉期間更快速連線到 SQL Always On 可用性群組，則建議套用這個設定。 它會平行列舉所有與 Always On 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
+如果 SQL 用戶端應用程式支援 .Net 4.5 SQLClient，則您可以使用 ‘MULTISUBNETFAILOVER=TRUE’ 關鍵字。 請套用此關鍵字，因為它可讓您在容錯移轉期間更快連線到 SQL Alwayson 可用性群組。 它會平行列舉所有與 Always On 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
 
-如需有關上述設定的詳細資訊，請參閱 [MultiSubnetFailover 關鍵字和相關聯的功能](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)。 另請參閱[適用於高可用性與災害復原的 SqlClient 支援](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)。
+如需上述設定的詳細資訊，請參閱 [MultiSubnetFailover 關鍵字和相關聯的功能](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)。 另請參閱[適用於高可用性與災害復原的 SqlClient 支援](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)。
 
 #### <a name="step-5-cluster-quorum-settings"></a>步驟 5：叢集仲裁設定
-由於您將一次至少關閉一部 SQL Server，因此您應該修改叢集仲裁設定，如果使用的是含有 2 個節點的「檔案共用見證」(FSW)，您應該設定仲裁以允許節點多數並利用動態投票，這樣就能讓單一節點維持運作。
+由於您將一次至少關閉一部 SQL Server，因此您應該修改叢集仲裁設定，如果使用的是含有兩個節點的「檔案共用見證」(FSW)，您應該設定仲裁以允許節點多數並利用動態投票，以便讓單一節點維持運作。
 
     Set-ClusterQuorum -NodeMajority  
 
-如需管理和設定叢集仲裁的詳細資訊，請參閱 [設定和管理 Windows Server 2012 容錯移轉叢集中的仲裁](https://technet.microsoft.com/library/jj612870.aspx)。
+如需管理和設定叢集仲裁的詳細資訊，請參閱[設定和管理 Windows Server 2012 容錯移轉叢集中的仲裁](https://technet.microsoft.com/library/jj612870.aspx)。
 
 #### <a name="step-6-extract-existing-endpoints-and-acls"></a>步驟 6：擷取現有的端點和 ACL
     #GET Endpoint info
@@ -676,15 +677,15 @@ ms.lasthandoff: 01/19/2018
     #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
-將這些項目儲存為文字檔。
+將此文字儲存至檔案。
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>步驟 7：變更容錯移轉夥伴和複寫模式
-如果您有 2 部以上的 SQL Server，就應該將另一個 DC 上或內部部署中另一個次要項目的容錯移轉變更為 [同步]，並使其成為自動容錯移轉夥伴 (AFP)，這樣一來您就能在進行變更的同時保留 HA。 您可以透過 TSQL 執行這個動作，或透過 SSMS 來修改：
+如果您有不只兩部的 SQL Server，就應該將另一個 DC 上或內部部署中另一個次要項目的容錯移轉變更為 [同步]，並使其成為自動容錯移轉夥伴 (AFP)，這樣一來您就能在進行變更的同時保留 HA。 您可以透過 TSQL 執行這個動作，或透過 SSMS 來修改：
 
 ![Appendix6][16]
 
 #### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>步驟 8：從雲端服務移除次要的 VM
-您應該規劃為先移轉雲端次要節點，如果這是目前的主要節點，就應該初始手動容錯移轉。
+您應該會打算先移轉雲端次要節點。 如果此節點目前是主要節點，請起始手動容錯移轉。
 
     $vmNameToMigrate="dansqlams2"
 
@@ -734,9 +735,9 @@ ms.lasthandoff: 01/19/2018
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>步驟 9：在 CSV 檔案中變更磁碟快取設定，然後儲存
-針對資料磁碟區，應該這些設定設為 READONLY。
+針對資料磁碟區，請將這些設定設為 READONLY。
 
-針對 TLOG 磁碟區，應該這些設定設為 NONE。
+針對 TLOG 磁碟區，請將這些設定設為 NONE。
 
 ![Appendix7][17]
 
@@ -943,9 +944,9 @@ ms.lasthandoff: 01/19/2018
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>步驟 18：在 CSV 檔案中變更磁碟快取設定，然後儲存
-針對資料磁碟區，應該這些設定設為 READONLY。
+針對資料磁碟區，請將快取設定設為 READONLY。
 
-針對 TLOG 磁碟區，應該這些設定設為 NONE。
+針對 TLOG 磁碟區，請將快取設定設為 NONE。
 
 ![Appendix11][21]
 
@@ -1073,22 +1074,22 @@ ms.lasthandoff: 01/19/2018
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>步驟 23：測試容錯移轉
-您現在應該讓已移轉的節點與內部部署的 Always On 節點進行同步、使它處於同步複寫模式，然後等待直到它完成同步為止。 然後從內部部署容錯移轉到第一個移轉的節點，其為 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
+等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然後從內部部署容錯移轉到第一個移轉的節點，其為 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
 
 您應該在所有節點之間測試容錯移轉，並且完整執行混亂測試，以確保容錯移轉會如預期般及時執行。
 
 #### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>步驟 24：回復叢集仲裁設定 / DNS TTL / 容錯移轉夥伴 / 同步設定
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>在同一個子網路上新增 IP 位址資源
-如果您只有 2 部 SQL Server 且想要將它們移轉到新的雲端服務，但卻想讓它們保留於同一個子網路中，則可在您刪除原始的 Always On IP 位址並加入新的 IP 位址時，避免使接聽程式離線。 如果您想要將 VM 移轉到其他子網路，就不需要執行這個動作，因為將有其他叢集網路會參考該子網路。
+如果您只有兩部 SQL Server 且想要將它們移轉到新的雲端服務，但卻想讓它們保留於同一個子網路中，則可在您刪除原始的 Always On IP 位址並加入新的 IP 位址時，避免使接聽程式離線。 如果您想要將 VM 移轉到其他子網路，就不需要執行這個動作，因為有其他叢集網路會參考該子網路。
 
 如果您在容錯移轉現有的主要項目之前，使移轉的次要項目上線，並新增適用於新雲端服務的新 IP 位址資源，就應該在叢集容錯移轉管理員內執行下列步驟：
 
 若要新增 IP 位址，請參閱 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的步驟 14。
 
-1. 針對目前的「IP 位址」資源，將 [可能的擁有者] 變更為「現有的主要 SQL Server」，在下列範例中為 ‘dansqlams4’：
+1. 針對目前的「IP 位址」資源，將 [可能的擁有者] 變更為「現有的主要 SQL Server」，在範例中為 ‘dansqlams4’：
 
     ![Appendix13][23]
-2. 針對新的「IP 位址」資源，將 [可能的擁有者] 變更為「已移轉的次要 SQL Server」，在下列範例中為 ‘dansqlams5’：
+2. 針對新的「IP 位址」資源，將 [可能的擁有者] 變更為「已移轉的次要 SQL Server」，在範例中為 ‘dansqlams5’：
 
     ![Appendix14][24]
 3. 完成此設定後就能進行容錯移轉，並且應該在移轉最後一個節點時編輯 [可能的擁有者]，如此便能新增該節點成為 [可能的擁有者]：

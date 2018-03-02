@@ -23,28 +23,28 @@
 
 ## <a name="before-you-start"></a>開始之前
 
-在您為裝置撰寫任何程式碼之前，您必須先佈建遠端監視預先設定解決方案，並在該解決方案中佈建新的自訂裝置。
+在您為裝置撰寫任何程式碼之前，請先部署遠端監視預先設定解決方案，並將新的實體裝置新增至該解決方案。
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>佈建遠端監視預先設定解決方案
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>部署遠端監視預先設定解決方案
 
 您在本教學課程中建立的 **Chiller** 裝置會將資料傳送給[遠端監視](../articles/iot-suite/iot-suite-remote-monitoring-explore.md)預先設定解決方案的執行個體。 如果您尚未在您的 Azure 帳戶中佈建遠端監視預先設定解決方案，請參閱[部署遠端監視預先設定的解決方案](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-當遠端監視解決方案的佈建程序完成之後，請按一下 [啟動]  ，以在瀏覽器中開啟解決方案儀表板。
+當遠端監視解決方案的部署程序完成之後，請按一下 [啟動] ，以在瀏覽器中開啟解決方案儀表板。
 
 ![解決方案儀表板](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>在遠端監視方案中佈建您的裝置
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>將您的裝置新增到遠端監視解決方案
 
 > [!NOTE]
-> 如果您已經在解決方案中佈建裝置，則可以略過此步驟。 當您建立用戶端應用程式時，您需要裝置連接字串 (可從 Azure 入口網站中擷取)。
+> 如果您已經在解決方案中新增裝置，則可以略過此步驟。 不過，下一個步驟需要您裝置的連接字串。 您可以從 [Azure 入口網站](https://portal.azure.com)或使用 [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI 工具來擷取裝置的連線字串。
 
-對於連線到預先設定解決方案的裝置，該裝置必須使用有效的認證向 IoT 中樞識別自己。 當您新增裝置解決方案時，您會有機會儲存包含認證的裝置連接字串。 稍後在本教學課程中，您會將裝置連接字串包含在您的用戶端應用程式中。
+對於連線到預先設定解決方案的裝置，該裝置必須使用有效的認證向 IoT 中樞識別自己。 當您新增裝置解決方案時，會有機會儲存包含這些認證的裝置連接字串。 稍後在本教學課程中，您會將裝置連接字串包含在您的用戶端應用程式中。
 
 若要在您的遠端監視解決方案中新增裝置，請在解決方案**裝置**頁面中完成下列步驟：
 
 1. 選擇 [+ 新增裝置]，然後選擇 [實體]作為 [裝置類型]：
 
-    ![佈建實體裝置](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![新增實體裝置](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. 輸入 **Physical-chiller** 作為裝置識別碼。 選擇 [對稱金鑰] 和 [自動產生金鑰] 選項：
 
@@ -54,9 +54,7 @@
 
     ![擷取認證](media/iot-suite-selector-connecting/credentials.png)
 
-若要找出認證，必須使用您的裝置連線到預先設定的解決方案，在瀏覽器中瀏覽至您的 Azure 入口網站。 登入您的訂用帳戶。
-
-您現在已在遠端監視預先設定的解決方案中佈建實體裝置。 在下列章節中，您可以實作使用裝置認證來連線到您解決方案的用戶端應用程式。
+您現在已將實體裝置新增至遠端監視預先設定的解決方案中，並將其裝置連接字串記下。 在下列章節中，您可以實作使用裝置連接字串來連線到您解決方案的用戶端應用程式。
 
 用戶端應用程式會實作內建 **Chiller** 裝置型號。 預先設定的解決方案裝置型號會指定下列相關裝置資訊：
 

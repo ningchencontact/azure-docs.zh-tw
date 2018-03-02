@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
 本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>建立儲存體容器並上傳 CSV 輸入檔
 在此步驟中，您可以使用任何 CSV 檔案，例如從 GitHub 取得的檔案。
 
-1. 在 Azure 入口網站中，按一下 [新增] &gt; [儲存體] &gt; [儲存體帳戶]。
+1. 在 Azure 入口網站中，按一下 [建立資源]&gt;[儲存體]&gt;[儲存體帳戶]。
 
    ![建立新的儲存體帳戶](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。  
 
-2. 按一下 [新增] > [物聯網] > [串流分析工作]。 
+2. 按一下 [建立資源] > [物聯網] > [串流分析作業]。 
 
    ![使用新串流分析工作的 Azure 入口網站路徑](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    

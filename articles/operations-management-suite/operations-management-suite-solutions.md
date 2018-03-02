@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>使用 Azure 中的管理解決方案 (預覽)
 > [!NOTE]
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/01/2018
 可以從 Azure 入口網站中的 Azure Marketplace 安裝 Microsoft 和信任的夥伴所提供的管理解決方案。
 
 1. 登入 Azure 管理入口網站。
-2. 在左側窗格中，選取 [更多服務]。
+2. 在左側窗格中選取 [所有服務]。
 3. 向下捲動至 [解決方案]，或在 [篩選] 對話方塊中輸入 solutions。
 4. 按一下 [+新增] 按鈕。
 5. 藉由瀏覽、按一下 [篩選] 按鈕，或在 [搜尋所有項目] 方塊中輸入資料，以搜尋您感興趣的解決方案。
@@ -92,7 +92,7 @@ ms.lasthandoff: 02/01/2018
 使用下列程序，檢視連結至您的 Azure 訂用帳戶的工作區中的管理解決方案。
 
 1. 登入 Azure 管理入口網站。
-2. 在左側窗格中，選取 [更多服務]。
+2. 在左側窗格中選取 [所有服務]。
 3. 向下捲動至 [解決方案]，或在 [篩選] 對話方塊中輸入 solutions。
 4. 將會列出安裝在您所有工作區中的解決方案。
 

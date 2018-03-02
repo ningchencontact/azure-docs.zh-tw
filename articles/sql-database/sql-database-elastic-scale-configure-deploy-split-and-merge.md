@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>部署分割合併服務
 分割合併工具可讓您在分區化資料庫之間移動資料。 請參閱 [在相應放大的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ ms.lasthandoff: 10/31/2017
 2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 在入口網站的 [防火牆設定] 中，確定 [允許存取 Azure 服務] 設定設為 [開啟]。 按一下儲存圖示。
    
    ![允許的服務][1]
-3. 建立要用於診斷輸出的 Azure 儲存體帳戶。 移至 Azure 入口網站。 在左列中，按一下 [新增]，按一下 [資料 + 儲存體]，然後按一下 [儲存體]。
-4. 建立將包含分割合併服務的 Azure 雲端服務。  移至 Azure 入口網站。 在左列中，按一下 [新增]，然後按一下 [計算]、[雲端服務] 和 [建立]。 
+3. 建立要用於診斷輸出的 Azure 儲存體帳戶。 移至 Azure 入口網站。 在左列中，按一下 [建立資源]，按一下 [資料 + 儲存體]，然後按一下 [儲存體]。
+4. 建立將包含分割合併服務的 Azure 雲端服務。  移至 Azure 入口網站。 在左列中，按一下 [建立資源]，然後按一下 [計算]、[雲端服務] 和 [建立]。 
 
 ## <a name="configure-your-split-merge-service"></a>設定分割合併服務
 ### <a name="split-merge-service-configuration"></a>分割合併服務組態

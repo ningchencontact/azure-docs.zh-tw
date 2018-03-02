@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1b3da4d6e4593f3c71995ef9331fcea2d5b6ec19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 
 第一個步驟是建立 Azure 函式來處理警示，以及建立封包擷取。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增] > [計算] > [函數應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [計算] > [函數應用程式]。
 
     ![建立函數應用程式][1-1]
 

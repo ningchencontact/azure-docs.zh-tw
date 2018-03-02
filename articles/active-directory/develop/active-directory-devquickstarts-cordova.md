@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-cordova-getting-started"></a>開始使用 azure AD Cordova
+# <a name="azure-ad-cordova-getting-started"></a>開始使用 Azure AD Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ iOS、Android、Windows 市集和 Windows Phone 上的 Cordova 外掛程式包�
 3. 加入程式碼以使用權杖來查詢 Graph API，並顯示結果。
 4. 使用您想要做為目標的所有平台建立 Cordova 部署專案，新增 Cordova ADAL 外掛程式，並在模擬器中測試解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您需要：
 
 * Azure AD 租用戶，您在其中有一個帳戶具備應用程式開發權限。
@@ -88,7 +88,7 @@ Azure AD 只會發出權杖給已知的應用程式。 您必須先在租用戶�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 在 [目錄] 清單中，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [更多服務]，然後選取 [Azure Active Directory]。
+3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 遵照提示進行，並建立新的**原生用戶端應用程式**。 (雖然 Cordova 應用程式是 HTML 架構，我們在此要建立的是原生用戶端應用程式。 您必須選取 [原生用戶端應用程式] 選項，否則應用程式將無法運作。)
   * **名稱**向使用者描述您的應用程式。

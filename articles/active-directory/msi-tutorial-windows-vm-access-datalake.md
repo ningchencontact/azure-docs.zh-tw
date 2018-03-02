@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 367008c41aee6ee31811f7fa7ee4be69120b8851
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d97f9c2caa26055e9dff22ec2f03cf374d75a3da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/03/2018
 
 此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 中啟用 MSI。
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
 3. 輸入虛擬機器資訊。 在此建立的**使用者名稱**和**密碼**是您登入虛擬機器要使用的認證。
 4. 在下拉式清單中選擇適用於虛擬機器的適當**訂用帳戶**。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>簡介適用於 Azure Cosmos DB 的 Apache Cassandra API
 
@@ -65,7 +65,7 @@ Azure Cosmos DB 提供的 Cassandra API (預覽) 適用於針對 Apache Cassandr
 
 如果您已經有 Azure 訂用帳戶，就可以在 [Azure 入口網站](https://aka.ms/cosmosdb-cassandra-signup)中註冊加入 Cassandra API (預覽) 計劃。  如果您剛接觸到 Azure，可註冊[免費試用版](https://azure.microsoft.com/free)來取得 12 個月的免費 Azure Cosmos DB 存取權。 請完成下列步驟以要求 Cassandra API (預覽) 計劃的存取權。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [新增] > [資料庫] > [Azure Cosmos DB]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源]  >  [資料庫]  >  [Azure Cosmos DB]。 
 
 2. 在 [新增帳戶] 頁面中，於 API 方塊中選取 [Cassandra]。 
 

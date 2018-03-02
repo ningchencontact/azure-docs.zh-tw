@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 7ff6817bafdfe1943d70639c7f3c69c417f5f94a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>應用程式如何出現在存取面板上
 
@@ -26,26 +26,26 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="general-issues-to-check-first"></a>首先檢查的一般問題
 
--   如果才剛從使用者或使用者所屬的群組移除應用程式，請在幾分鐘之後嘗試登入並再次登出使用者的存取面板，查明是否已移除該應用程式。
+-   如果從使用者或使用者所屬的群組移除應用程式，請在幾分鐘之後嘗試登入並再次登出使用者的存取面板，查明是否已移除該應用程式。
 
--   如果才剛從使用者或使用者所屬群組移除授權，則根據群組的大小和複雜度而定，可能要經過一段很長的時間，變更才會生效。 登入存取面板之前，請多等一些時間。
+-   如果從使用者或使用者所屬群組移除授權，則根據群組的大小和複雜度而定，可能要經過一段很長的時間，變更才會生效。 登入存取面板之前，請多等一些時間。
 
 ## <a name="problems-related-to-assigning-applications-to-users"></a>將應用程式指派給使用者的相關問題
 
-使用者可能因為先前已指派至應用程式，而在存取面板上看見該應用程式。 以下是一些檢查方法︰
+使用者可能因為先前已指派至應用程式，而在存取面板上看見該應用程式。 以下是一些檢查方法：
 
--   [檢查使用者是否已指派至應用程式](#check-if-a-user-is-assigned-to-the-application)
+-   [檢查是否已將使用者指派給應用程式](#check-if-a-user-is-assigned-to-the-application)
 
 -   [檢查使用者是否獲得應用程式相關的授權](#check-if-a-user-is-under-a-license-related-to-the-application)
 
 
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>檢查使用者是否已指派至應用程式
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>檢查是否已將使用者指派給應用程式
 
-若要檢查是否已將使用者指派給應用程式，請依照下列步驟執行：
+若要檢查是否已將使用者指派給應用程式，請遵循下列步驟：
 
-1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，然後以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -61,13 +61,13 @@ ms.lasthandoff: 12/11/2017
 
   * 如果您想要從應用程式移除使用者，請**按一下使用者的資料列**，然後選取 [刪除]。
 
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>檢查使用者是否獲得應用程式相關的授權
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>檢查使用者是否已獲應用程式相關的授權
 
-若要檢查指派給使用者的授權，請依照下列步驟執行：
+若要檢查使用者獲指派的授權，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -77,11 +77,11 @@ ms.lasthandoff: 12/11/2017
 
 6.  **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
 
-7.  按一下 [授權]，以查看目前已指派給使用者的授權。
+7.  按一下 [授權]，查看使用者目前已指派的授權。
 
-   * 如果使用者已指派至 Office 授權，這會讓第一方 Office 應用程式出現在使用者的存取面板上。
+   * 如果已為使用者指派 Office 授權，這會讓第一方 Office 應用程式出現在使用者的存取面板上。
 
-## <a name="problems-related-to-assigning-applications-to-groups"></a>指派應用程式給群組的相關問題
+## <a name="problems-related-to-assigning-applications-to-groups"></a>將應用程式指派給群組的相關問題
 
 使用者可能因為屬於已被指派應用程式的群組，所以能在存取面板上看見該應用程式。 以下是一些檢查方法：
 
@@ -91,11 +91,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="check-a-users-group-memberships"></a>檢查使用者的群組成員資格
 
-若要檢查群組的成員資格，請依照下列步驟執行：
+若要檢查群組的成員資格，請遵循下列步驟：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/11/2017
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 12/11/2017
 
 9.  按一下 [授權]，以查看已指派給群組的授權。
 
-  * 如果群組已指派至 Office 授權，這可能會讓某些第一方 Office 應用程式出現在使用者的存取面板上。
+  * 如果已將群組指派給 Office 授權，這可能會讓某些第一方 Office 應用程式出現在使用者的存取面板上。
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>如果這些疑難排解步驟無法解決問題

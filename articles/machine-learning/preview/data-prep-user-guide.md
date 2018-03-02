@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>資料準備使用者指南 
 Azure Machine Learning 資料準備體驗提供許多豐富的功能。 本文說明體驗最深的部分。
@@ -89,7 +89,7 @@ Azure Machine Learning 資料準備體驗提供許多豐富的功能。 本文�
 4. 在 [條件] 之後，選取 [建立包含已篩選出資料列的資料流程]，將未顯示的結果集分支到新的資料流程。
 
 
-這種作法通常用來區隔出一組需要額外準備作業的資料。 在討論過分支的資料集之後，通常會將資料與原始資料流程中的結果集合併。 若要執行合併 (分支作業的相反)，請使用下列其中一個動作：
+這種作法通常用來區隔出一組需要額外準備作業的資料。 在您備妥分支的資料集之後，通常會將資料與原始資料流程中的結果集合併。 若要執行合併 (分支作業的相反)，請使用下列其中一個動作：
 
 - 附加資料列。 以垂直方式合併兩或多個資料流程 (資料列取向)。 
 - 附加資料行。 以水平方式合併兩或多個資料流程 (資料行取向)。

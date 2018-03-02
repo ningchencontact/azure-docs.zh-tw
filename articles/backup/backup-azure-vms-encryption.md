@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 備份來備份及還原加密的虛擬機器
 本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、必要條件的詳細資料，以及的錯誤案例的疑難排解步驟。
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/21/2017
 使用下列步驟來設定備份目標、定義原則、設定項目和觸發備份。
 
 ### <a name="configure-backup"></a>設定備份
-1. 如果您已開啟復原服務保存庫，請繼續下一個步驟。 如果您並未開啟復原服務保存庫，但位於 Azure 入口網站中，請在 [中樞] 功能表上選取 [瀏覽]。
+1. 如果您已開啟復原服務保存庫，請繼續下一個步驟。 如果您並未開啟復原服務保存庫，但位於 Azure 入口網站中，請選取 [所有服務]。
 
    a. 在資源清單中輸入 **復原服務**。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="provide-permissions-to-backup"></a>對備份提供權限
 使用下列步驟來提供相關權限給備份，以供其存取金鑰保存庫並執行已加密 VM 的備份。
-1. 選取 [更多服務]，然後搜尋 [金鑰保存庫]。
+1. 選取 [所有服務]，然後搜尋**金鑰保存庫**。
 
     ![金鑰保存庫](./media/backup-azure-vms-encryption/search-key-vault.png)
     
