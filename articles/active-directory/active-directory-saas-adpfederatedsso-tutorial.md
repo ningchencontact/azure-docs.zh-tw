@@ -14,11 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
+<<<<<<< HEAD
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/24/2018
+=======
 ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
 ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/11/2018
+>>>>>>> a5b079a4107028b330b83565afd4402701751155
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>教學課程：Azure Active Directory 與 ADP Federated SSO 整合
 
@@ -197,7 +205,10 @@ ms.lasthandoff: 02/11/2018
     ![設定單一登入連結][4]
 
 7. 在 [單一登入] 對話方塊中，選取 [連結的登入] 作為 [模式]，以將應用程式連結至 **ADP 同盟 SSO**。
+<<<<<<< HEAD
+=======
 <!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
+>>>>>>> a5b079a4107028b330b83565afd4402701751155
 
     ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 

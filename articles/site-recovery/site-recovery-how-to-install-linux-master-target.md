@@ -3,7 +3,7 @@ title: "如何安裝 Linux 主要目標伺服器以從 Azure 容錯移轉至內�
 description: "在重新保護 Linux 虛擬機器之前，您必須先有 Linux 主要目標伺服器。 了解如何進行安裝。"
 services: site-recovery
 documentationcenter: 
-author: rajani-janaki-ram
+author: nsoneji
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,6 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
+<<<<<<< HEAD
+ms.date: 02/22/2018
+ms.author: nisoneji
+ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/24/2018
+=======
 ms.date: 11/22/2017
 ms.author: rajanaki
 ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
@@ -19,6 +28,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+>>>>>>> a5b079a4107028b330b83565afd4402701751155
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 

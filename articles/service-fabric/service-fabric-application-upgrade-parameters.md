@@ -14,11 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
+<<<<<<< HEAD
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/09/2018
+=======
 ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
 ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+>>>>>>> a5b079a4107028b330b83565afd4402701751155
 ---
 # <a name="application-upgrade-parameters"></a>應用程式升級參數
 本文說明在 Azure Service Fabric 應用程式升級期間套用的各種參數。 參數包含應用程式的名稱和版本。 它們是控制逾時的旋鈕與升級時套用的健康狀態檢查，並且指定升級失敗時必須套用的原則。

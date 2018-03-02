@@ -12,6 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
+<<<<<<< HEAD
+ms.date: 11/28/2017
+ms.author: ruturajd
+ms.openlocfilehash: 7a76ff45fe6209698532a7abc2d561bf7a7b3284
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/09/2018
+=======
 ms.date: 02/22/2018
 ms.author: nisoneji
 ms.openlocfilehash: 50dccf6196b7affd3d21087f851b929d0e850f6d
@@ -19,6 +28,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+>>>>>>> a5b079a4107028b330b83565afd4402701751155
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>從 Azure 容錯回復至內部部署網站
 
