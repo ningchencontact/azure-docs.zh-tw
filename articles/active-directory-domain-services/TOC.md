@@ -1,8 +1,11 @@
+# [Azure AD Domain Services 文件](index.md)
+
 # 概觀
 ## [何謂 Azure AD 網域服務？](active-directory-ds-overview.md)
 ## 適合您嗎？
 ### [與 Windows Server AD 比較](active-directory-ds-comparison.md)
 ### [與 Azure AD 聯結比較](active-directory-ds-compare-with-azure-ad-join.md)
+## [有哪些新功能？](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [特性](active-directory-ds-features.md)
 ## [案例](active-directory-ds-scenarios.md)
 ## [同步處理如何運作](active-directory-ds-synchronization.md)
@@ -16,8 +19,10 @@
 ## [工作 5：啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
 
 # 作法
+## [檢查受控網域健康情況](active-directory-ds-check-health.md)
 ## [在 Azure CSP 訂用帳戶中使用 Azure AD Domain Services](active-directory-ds-csp.md)
 ## [使用 PowerShell 啟用 Azure AD Domain Services](active-directory-ds-enable-using-powershell.md)
+## [檢查您網域的健康情況](active-directory-ds-check-health.md)
 ## 加入受控網域
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [來自範本的 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
@@ -27,15 +32,16 @@
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 管理受控網域
 ### [管理受控網域](active-directory-ds-admin-guide-administer-domain.md)
-### [管理受控網域上的 DNS](active-directory-ds-admin-guide-administer-dns.md)
-### [檢查您網域的健康情況](active-directory-ds-check-health.md)
+### 
+            [管理受控網域上的 DNS](active-directory-ds-admin-guide-administer-dns.md)
 ### 為受控網域設定安全 LDAP
 #### [工作 1 - 取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [工作 2 - 匯出安全 LDAP 憑證](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [工作 3：使用 Azure 入口網站，為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [在受控網域上建立 OU](active-directory-ds-admin-guide-create-ou.md)
-### [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
+### 
+            [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [選取虛擬網路](active-directory-ds-networking.md)
 ## 部署應用程式
 ### [設定 SharePoint 伺服器設定檔同步處理的支援](active-directory-ds-enable-sharepoint-profile-sync.md)

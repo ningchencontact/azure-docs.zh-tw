@@ -15,7 +15,8 @@
 ## [Azure 藍圖](https://azure.microsoft.com/en-us/roadmap/)
 ## [資料庫移轉指南](https://aka.ms/datamigration)
 ## [資料移轉小幫手](https://aka.ms/dma)
-## [定價](https://aka.ms/dms-pricing)
+## [價格](https://aka.ms/dms-pricing)
 ## [必要條件概觀](pre-reqs.md)
 ## [常見問題集](faq.md)
+## [服務更新](https://azure.microsoft.com/en-us/updates/?product=database-migration)
 
