@@ -9,17 +9,17 @@
       href: model-management-overview.md
 - name: 快速入門
   items:
-    - name: 安裝和建立
+    - name: 安裝並啟動
       href: quickstart-installation.md
 - name: 教學課程
   items:
-    - name: 1 - 準備資料
+    - name: '1: 準備資料'
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 - 建立模型
+    - name: 2：建置模型
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 - 部署模型
+    - name: '3: 部署模型'
       href: tutorial-classifying-iris-part-3.md
-    - name: 4 - 進階資料準備
+    - name: '4: 進階資料準備'
       href: tutorial-bikeshare-dataprep.md
 - name: 概念
   items:
@@ -194,25 +194,15 @@
   items:
     - name: 常見問題集
       href: frequently-asked-questions.md
-    - name: 已知問題和疑難排解
+    - name: 問題和疑難排解
       href: known-issues-and-troubleshooting-guide.md
-    - name: Team Data Science Process 文件
-      href: ../team-data-science-process/overview.md
-    - name: Data Science VM 文件
-      href: ../data-science-virtual-machine/overview.md
+    - name: 支援和訓練
+      href: support-for-aml-services.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: MSDN 論壇
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: 堆疊溢位
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: 影片
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: 意見反應論壇
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 支援選項
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Team Data Science Process
+      href: ../team-data-science-process/overview.md

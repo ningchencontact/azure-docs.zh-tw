@@ -1,3 +1,5 @@
+# [Multi-Factor Authentication 文件](index.md)
+
 # 概觀
 ## [什麼是 Azure Multi-Factor Authentication？](multi-factor-authentication.md)
 ## [運作方式](multi-factor-authentication-how-it-works.md)

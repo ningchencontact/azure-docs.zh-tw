@@ -7,8 +7,10 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 設定自動佈建
+    - name: 設定自動佈建 - 入口網站
       href: quick-setup-auto-provision.md
+    - name: 設定自動佈建 - 範本
+      href: quick-setup-auto-provision-rm.md
     - name: 建立模擬裝置
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: 解除佈建裝置
       href: how-to-unprovision-devices.md
+    - name: 執行證明持有 X.509 CA 憑證
+      href: how-to-verify-certificates.md
     - name: 使用 HSM 與 SDK
       href: use-hsm-with-sdk.md
     - name: 控制佈建服務的存取
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: 使用 SDK 工具進行開發
       href: how-to-use-sdk-tools.md
+    - name: 連線至 MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: 參考
   items:
     - name: REST

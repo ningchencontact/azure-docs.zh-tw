@@ -1,3 +1,5 @@
+# [Azure 服務健康狀態](index.md)
+
 # 概觀
 ## [謂 Azure 服務健康情況？](service-health-overview.md)
 ## [何謂 Azure 資源健康狀態？](resource-health-overview.md)

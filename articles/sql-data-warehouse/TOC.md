@@ -1,3 +1,5 @@
+# [SQL 資料倉儲文件](index.md)
+
 # 概觀
 
 ## [關於 Azure SQL 資料倉儲](sql-data-warehouse-overview-what-is.md)

@@ -1,3 +1,5 @@
+# [串流分析文件](index.md)
+
 # 概觀
 ## [什麼是串流分析？](stream-analytics-introduction.md)
 ## [比較 Storm 與串流分析](stream-analytics-comparison-storm.md)

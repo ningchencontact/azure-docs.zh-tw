@@ -77,6 +77,10 @@
       items:
         - name: 使用 Kubernetes 儀表板
           href: kubernetes-dashboard.md
+    - name: 疑難排解
+      items:
+        - name: SSH 節點存取
+          href: aks-ssh.md
 - name: 參考
   items:
     - name: Azure CLI

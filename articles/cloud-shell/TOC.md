@@ -4,10 +4,9 @@
 ## [Bash - 快速入門](quickstart.md)
 ## [PowerShell - 快速入門](quickstart-powershell.md)
 
-# 概念
+# 功能和工具
 ## [Bash - 功能和工具](features.md)
 ## [PowerShell - 功能和工具](features-powershell.md)
-## [限制](limitations.md)
 
 # 作法
 ## [Bash - 持續性儲存體](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [內嵌 Cloud Shell](embed-cloud-shell.md)
 
-# [疑難排解](troubleshooting.md)
+# [疑難排解和限制](troubleshooting.md)
 
 # 參考
 ## [Azure CLI](/cli/azure)

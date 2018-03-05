@@ -5,6 +5,7 @@
     - name: 關於 Azure IoT Edge
       href: how-iot-edge-works.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 部署到 Edge - Linux/Mac
       href: quickstart-linux.md

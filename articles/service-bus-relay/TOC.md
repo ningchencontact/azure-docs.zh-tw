@@ -1,3 +1,5 @@
+# [服務匯流排轉送文件](index.md)
+
 # 概觀
 ## [什麼是轉送？](relay-what-is-it.md)
 ## [常見問題集](relay-faq.md)
@@ -35,7 +37,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [部落格](https://blogs.msdn.microsoft.com/servicebus/)
-## [定價](https://azure.microsoft.com/pricing/details/service-bus/)
+## [價格](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

@@ -1,3 +1,5 @@
+# [Mobile Engagement 文件](index.md)
+
 # [概觀](mobile-engagement-overview.md)
 ## [與相關服務比較](mobile-engagement-comparison.md)
 ## [功能概觀](mobile-engagement-key-features.md)
@@ -129,7 +131,7 @@
 # 資源
 ## [.NET API 範例](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
-## [定價](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [價格](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例示範應用程式](mobile-engagement-demo-apps.md)
 ## [服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)

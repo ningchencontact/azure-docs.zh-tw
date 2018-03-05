@@ -1,3 +1,5 @@
+# [虛擬機器擴展集文件](index.md)
+
 # 概觀
 ## [什麼是虛擬機器擴展集？](virtual-machine-scale-sets-overview.md)
 
@@ -13,6 +15,7 @@
 
 ## 規劃和設計
 ### [設計考量](virtual-machine-scale-sets-design-overview.md)
+### [了解執行個體識別碼](virtual-machine-scale-sets-instance-ids.md)
 
 ## 建立範本
 ### [了解擴展集範本](virtual-machine-scale-sets-mvss-start.md)

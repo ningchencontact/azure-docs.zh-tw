@@ -1,3 +1,5 @@
+# [CDN 文件](index.md)
+
 # [概觀](cdn-overview.md)
 ## [什麼是 Azure CDN？](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 

@@ -1,3 +1,5 @@
+# [Power BI Embedded 文件](index.md)
+
 # 概觀
 ## [關於 Power BI Embedded](what-is-power-bi-embedded.md)
 

@@ -1,3 +1,5 @@
+# [Azure Active Directory 文件](index.md)
+
 # 概觀
 ## [什麼是 Azure Active Directory？](active-directory-whatis.md)
 ## [關於 Azure 身分識別管理](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [組態](active-directory-application-config-content-map.md)
 ##### [登入](active-directory-application-sign-in-content-map.md)
 ##### [佈建](active-directory-application-provisioning-content-map.md)
+###### [驗證是否已佈建使用者](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [佈建費時過長](application-provisioning-when-will-provisioning-finish.md)
+###### [如何設定使用者佈建](application-provisioning-config-how-to.md)
+###### [設定佈建的問題](application-provisioning-config-problem.md)
+###### [儲存管理員認證的問題](application-provisioning-config-problem-storage-limit.md)
+###### [未佈建使用者](application-provisioning-config-problem-no-users-provisioned.md)
+###### [使用者佈建錯誤](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [管理存取](active-directory-application-access-content-map.md)
 ##### [存取面板](active-directory-application-access-panel-content-map.md)
 ##### [應用程式 Proxy](active-directory-application-proxy-content-map.md)
@@ -379,7 +388,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

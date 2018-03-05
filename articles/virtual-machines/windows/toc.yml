@@ -100,6 +100,8 @@
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 針對連接的 VHD 進行疑難排解
+          href: troubleshoot-vhds.md
     - name: 網路
       href: network-overview.md
     - name: 自動調整應用程式

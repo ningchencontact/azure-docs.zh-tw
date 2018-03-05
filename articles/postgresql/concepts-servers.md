@@ -1,19 +1,19 @@
 ---
-title: "適用於 PostgreSQL 的 Azure 資料庫中的伺服器概念 | Microsoft Docs"
-description: "本主題提供設定及管理適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。"
+title: "適用於 PostgreSQL 的 Azure 資料庫中的伺服器概念"
+description: "本文提供設定及管理適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。"
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/02/2017
-ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 02/28/2018
+ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-servers"></a>適用於 PostgreSQL 的 Azure 資料庫伺服器
 本文提供使用適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 - 可在多個版本中使用。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](concepts-supported-versions.md)。
 - 可由使用者加以擴充。 如需詳細資訊，請參閱 [PostgreSQL 擴充功能](concepts-extensions.md)。
 
-在適用於 PostgreSQL 的 Azure 資料庫內，您可以建立一個或多個資料庫。 您可以選擇在每個伺服器建立單一資料庫以利用所有資源，或建立多個資料庫來共用資源。 定價結構是依據每一伺服器，以定價層、計算單位及儲存體 (GB) 的設定為基礎來形成的。 如需詳細資訊，請參閱[定價層](./concepts-service-tiers.md)。
+在適用於 PostgreSQL 的 Azure 資料庫內，您可以建立一個或多個資料庫。 您可以選擇在每個伺服器建立單一資料庫以利用所有資源，或建立多個資料庫來共用資源。 定價結構是依據伺服器，以定價層、虛擬核心及儲存體 (GB) 的設定為基礎來形成的。 如需詳細資訊，請參閱[定價層](./concepts-pricing-tiers.md)。
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>如何連接及驗證適用於 PostgreSQL 的 Azure 資料庫伺服器？
 下列項目有助於確保對資料庫的安全存取：
@@ -56,6 +56,6 @@ PostgreSQL 伺服器參數會判斷伺服器的設定。 在適用於 PostgreSQL
 
 ## <a name="next-steps"></a>後續步驟
 - 如需服務的概觀，請參閱[適用於 PostgreSQL 的 Azure 資料庫概觀](overview.md)。
-- 如需有關以您**服務層**為依據之特定資源配額和限制的資訊，請參閱[服務層](concepts-service-tiers.md)。
+- 如需有關以您**服務層**為依據之特定資源配額和限制的資訊，請參閱[服務層](concepts-pricing-tiers.md)。
 - 如需連接到服務的相關資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。
 - 透過 [Azure 入口網站](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 檢視和編輯伺服器參數。
