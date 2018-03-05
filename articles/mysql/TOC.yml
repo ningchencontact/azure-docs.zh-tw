@@ -66,9 +66,7 @@
     - name: 資源
       items:
         - name: 定價層
-          href: concepts-service-tiers.md
-        - name: 計算單位
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: 限制
           href: concepts-limits.md
     - name: 資料存取和安全性
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: 設定 SSL
           href: concepts-ssl-connection-security.md
+    - name: 業務持續性
+      items:
+        - name: 概觀
+          href: concepts-business-continuity.md
+        - name: 備份與還原
+          href: concepts-backup.md
     - name: 監視
       href: concepts-monitoring.md
     - name: 開發
@@ -137,6 +141,12 @@
       items:
         - name: 建立計量警示
           href: howto-alert-on-metric.md
+    - name: 疑難排解
+      items:
+        - name: 針對查詢效能進行疑難排解
+          href: howto-troubleshoot-query-performance.md
+        - name: 如何使用 sys 結構描述中的檢視
+          href: howto-troubleshoot-sys-schema.md
 - name: 參考
   items:
     - name: Azure CLI

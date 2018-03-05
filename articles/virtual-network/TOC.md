@@ -1,3 +1,5 @@
+# [虛擬網路文件](index.md)
+
 # 概觀
 ## [虛擬網路](virtual-networks-overview.md)
 ## [路由](virtual-networks-udr-overview.md)
@@ -204,7 +206,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
 ## [網路論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定價](https://azure.microsoft.com/pricing/details/virtual-network)
+## [價格](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [網路資源提供者](resource-groups-networking.md)

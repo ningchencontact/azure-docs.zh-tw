@@ -1,3 +1,5 @@
+# [Data Lake Analytics 文件](index.md)
+
 # 概觀
 ## [何謂 Data Lake Analytics？](data-lake-analytics-overview.md)
 

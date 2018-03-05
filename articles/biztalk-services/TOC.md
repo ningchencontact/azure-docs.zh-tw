@@ -1,3 +1,5 @@
+# [BizTalk 服務文件](index.md)
+
 # 概觀
 ## [版本](biztalk-editions-feature-chart.md)
 

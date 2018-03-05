@@ -1,3 +1,5 @@
+# [資料目錄文件](index.md)
+
 # 概觀
 ## [什麼是資料目錄？](data-catalog-what-is-data-catalog.md)
 ## [常見案例](data-catalog-common-scenarios.md)
@@ -34,7 +36,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [Azure 資料目錄的鍵盤快速鍵](data-catalog-keyboard-shortcuts.md)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
-## [價格](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [定價](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [版本資訊](data-catalog-whats-new.md)
 ## [服務更新](https://azure.microsoft.com/updates/?product=data-catalog)

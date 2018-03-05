@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python with PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - 建立 RESTful API
+    - name: 1 - 託管 RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - 對應自訂網域
       href: app-service-web-tutorial-custom-domain.md
@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Resource Manager 範本
+      href: app-service-rm-template-samples.md
 - name: 概念
   items:
     - name: App Service 的運作方式
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: 建立預備環境
           href: web-sites-staged-publishing.md
+        - name: Resource Manager 範本指導方針
+          href: web-sites-rm-template-guidance.md
     - name: 對應自訂網域
       items:
         - name: 購買網域
@@ -226,7 +230,7 @@
     - name: Cookbooks
       items:
         - name: 參考架構
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: 部署指令碼
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 疑難排解

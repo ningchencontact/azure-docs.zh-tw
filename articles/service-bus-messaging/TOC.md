@@ -1,3 +1,5 @@
+# [服務匯流排傳訊文件](index.md)
+
 # 概觀
 ## [什麼是服務匯流排傳訊？](service-bus-messaging-overview.md)
 ## [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
@@ -98,7 +100,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [部落格](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [定價](https://azure.microsoft.com/pricing/details/service-bus/)
+## [價格](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [價格詳細資料](service-bus-pricing-billing.md)
 ## [範例](service-bus-samples.md)

@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: 管理虛擬機器的更新
       href: automation-tutorial-update-management.md
-    - name: 上架更新和變更追蹤
+    - name: 上架更新和依 Runbook 變更追蹤
       href: automation-onboard-solutions.md
     - name: 識別虛擬機器上的軟體
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: 作法
   items:
+    - name: 登入
+      items:
+        - name: 從 Azure 虛擬機器上線
+          href: automation-onboard-solutions-from-vm.md
+        - name: 從自動化帳戶上線
+          href: automation-onboard-solutions-from-automation-account.md
     - name: 更新管理
       items:
-        - name: 概觀
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: 更新管理概觀
+          href: automation-update-management.md
         - name: 管理多個虛擬機器的更新
           href: manage-update-multi.md
-        - name: 整合 SCCM 與 OMS 更新管理
+        - name: 整合 SCCM 與更新管理
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: 變更追蹤
       items:
-        - name: 概觀
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: 追蹤虛擬機器中的變更
-          href: automation-vm-change-tracking.md
+        - name: 變更追蹤概觀
+          href: automation-change-tracking.md
     - name: 清查
       items:
         - name: 使用清查集合來管理虛擬機器

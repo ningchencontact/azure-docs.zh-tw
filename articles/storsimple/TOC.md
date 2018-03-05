@@ -1,3 +1,5 @@
+# [StorSimple 文件](index.md)
+
 # StorSimple Virtual Array
 
 ## 概觀

@@ -1,3 +1,5 @@
+# [應用程式閘道文件](index.md)
+
 # 概觀
 ## [什麼是應用程式閘道？](application-gateway-introduction.md)
 ## [應用程式閘道常見問題](application-gateway-faq.md)

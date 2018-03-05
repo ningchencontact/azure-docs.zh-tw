@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: 使用 Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: 授與 VM MSI 存取資源管理員
+    - name: 設定適用於 Azure VMSS 的 MSI
+      items:
+        - name: 使用 Azure 入口網站
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: 使用 Azure CLI
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: 使用 Azure Resource Manager 範本
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: 授與 VM 或 VMSS MSI 存取資源管理員的權限
       items:
         - name: 使用 Azure 入口網站
           href: msi-howto-assign-access-portal.md

@@ -1,3 +1,5 @@
+# [Load Balancer 文件](index.md)
+
 # 概觀
 ## [何謂負載平衡器？](load-balancer-overview.md)
 ## [何謂 Load Balancer 標準？](load-balancer-standard-overview.md)
@@ -76,6 +78,6 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
-## [價格](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [定價](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=load-balancer)

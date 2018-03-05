@@ -1,3 +1,5 @@
+# [Data Lake Store 文件](index.md)
+
 # 概觀
 ## [Azure Data Lake Store 概觀](data-lake-store-overview.md)
 ## [比較 Azure Data Lake Store 與 Azure 儲存體](data-lake-store-comparison-with-blob-storage.md)

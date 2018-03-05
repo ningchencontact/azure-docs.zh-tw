@@ -1,3 +1,5 @@
+# [IoT 中樞文件](index.md)
+
 # 概觀
 ## [Azure 和 IoT](iot-hub-what-is-azure-iot.md)
 ## [何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md)

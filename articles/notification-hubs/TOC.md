@@ -1,3 +1,5 @@
+# [通知中樞文件](index.md)
+
 # 概觀
 ## [什麼是 Azure 通知中樞？](notification-hubs-push-notification-overview.md)
 # 開始使用
@@ -69,7 +71,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
-## [價格](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [定價](https://azure.microsoft.com/pricing/details/notification-hubs/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
