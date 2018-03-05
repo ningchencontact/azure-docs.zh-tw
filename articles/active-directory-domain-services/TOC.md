@@ -32,16 +32,14 @@
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 管理受控網域
 ### [管理受控網域](active-directory-ds-admin-guide-administer-domain.md)
-### 
-            [管理受控網域上的 DNS](active-directory-ds-admin-guide-administer-dns.md)
+### [管理受控網域上的 DNS](active-directory-ds-admin-guide-administer-dns.md)
 ### 為受控網域設定安全 LDAP
 #### [工作 1 - 取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [工作 2 - 匯出安全 LDAP 憑證](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [工作 3：使用 Azure 入口網站，為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [在受控網域上建立 OU](active-directory-ds-admin-guide-create-ou.md)
-### 
-            [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
+### [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [選取虛擬網路](active-directory-ds-networking.md)
 ## 部署應用程式
 ### [設定 SharePoint 伺服器設定檔同步處理的支援](active-directory-ds-enable-sharepoint-profile-sync.md)
