@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頁面右上角選取您的帳戶，以選擇您的 Azure AD B2C 租用戶。
-3. 在左側導覽窗格中，選擇 [更多服務]，按一下 [應用程式註冊]，然後按一下 [新增]。
+3. 在左側導覽窗格中，選擇 [所有服務]、按一下 [應用程式註冊]，然後按一下 [新增]。
 4. 遵照提示進行，並建立新的應用程式。 
     1. 選取 [Web 應用程式/API] 作為 [應用程式類型]。    
     2. 提供**任何重新導向 URI** (例如 https://B2CGraphAPI)，因為它在此範例中不重要。  
@@ -99,13 +99,13 @@ Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMembe
 ## <a name="download-configure-and-build-the-sample-code"></a>下載、設定和建置範例程式碼
 首先，下載範例程式碼並開始執行。 然後我們會仔細查看。  您可以 [將範例程式碼下載為 .zip 檔案](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)。 您可以將此檔案複製到您選擇的目錄中：
 
-```
+```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
 在 Visual Studio 中開啟 `B2CGraphClient\B2CGraphClient.sln` Visual Studio 方案。 在 `B2CGraphClient` 專案中，開啟 `App.config` 檔案。 使用您自己的值取代三個應用程式設定：
 
-```
+```xml
 <appSettings>
     <add key="b2c:Tenant" value="{Your Tenant Name}" />
     <add key="b2c:ClientId" value="{The ApplicationID from above}" />
@@ -120,9 +120,9 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ## <a name="build-user-crud-operations-by-using-the-graph-api"></a>使用圖形 API 來建置使用者 CRUD 作業
 若要使用 B2CGraphClient，請開啟 `cmd` Windows 命令提示字元，將您的目錄變更為 `Debug` 目錄。 然後執行 `B2C Help` 命令。
 
-```
-> cd B2CGraphClient\bin\Debug
-> B2C Help
+```cmd
+cd B2CGraphClient\bin\Debug
+B2C Help
 ```
 
 這會顯示每個命令的簡短描述。 您每次叫用上述其中一個命令時， `B2CGraphClient` 會對 Azure AD 圖形 API 發出要求。
@@ -179,8 +179,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 若要查看此要求，請執行：
 
- ```
- > B2C Get-User
+ ```cmd
+ B2C Get-User
  ```
 
 有兩個重點值得注意：
@@ -245,9 +245,9 @@ Content-Length: 338
 
 若要查看此要求，請執行下列其中一個命令：
 
-```
-> B2C Create-User ..\..\..\usertemplate-email.json
-> B2C Create-User ..\..\..\usertemplate-username.json
+```cmd
+B2C Create-User ..\..\..\usertemplate-email.json
+B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
 `Create-User` 命令會以 .json 檔案做為輸入參數。 這包含使用者物件的 JSON 表示法。 範例程式碼中有兩個範例 .json 檔案：`usertemplate-email.json` 和 `usertemplate-username.json`。 您可以修改這些檔案以符合您的需求。 除了上述必要欄位以外，這些檔案包含一些您可以使用的選擇性欄位。 [Azure AD 圖形 API 實體參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity)提供選擇性欄位的詳細資訊。
@@ -279,9 +279,9 @@ Content-Length: 37
 
 嘗試以新資料更新 JSON 檔案，進而更新使用者。 然後您可以使用 `B2CGraphClient` 來執行下列其中一個命令：
 
-```
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
+```cmd
+B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
+B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 
 如需有關如何傳送此要求的詳細資訊，請檢閱 `B2CGraphClient.SendGraphPatchRequest(...)` 方法。
@@ -291,16 +291,16 @@ Content-Length: 37
 
 執行下列其中一個命令來搜尋特定的使用者︰
 
-```
-> B2C Get-User <user-object-id>
-> B2C Get-User <filter-query-expression>
+```cmd
+B2C Get-User <user-object-id>
+B2C Get-User <filter-query-expression>
 ```
 
 以下是一些範例︰
 
-```
-> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```cmd
+B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
 ```
 
 ### <a name="delete-users"></a>刪除使用者
@@ -313,8 +313,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 若要查看範例，請輸入此命令並檢視主控台印出的 Delete 要求：
 
-```
-> B2C Delete-User <object-id-of-user>
+```cmd
+B2C Delete-User <object-id-of-user>
 ```
 
 如需有關如何傳送此要求的詳細資訊，請檢閱 `B2CGraphClient.SendGraphDeleteRequest(...)` 方法。
@@ -328,14 +328,14 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 您可以使用 `B2CGraphClient`來檢視 B2C 租用戶中定義的自訂屬性：
 
-```
-> B2C Get-B2C-Application
-> B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
+```cmd
+B2C Get-B2C-Application
+B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
 這些函式的輸出會顯示每個自訂屬性的詳細資料，例如：
 
-```JSON
+```json
 {
       "odata.type": "Microsoft.DirectoryServices.ExtensionProperty",
       "objectType": "ExtensionProperty",
@@ -353,8 +353,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 您可以使用完整名稱做為使用者物件的屬性，例如 `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`。  以新的屬性和該屬性的值更新 .json 檔案，然後執行：
 
-```
-> B2C Update-User <object-id-of-user> <path-to-json-file>
+```cmd
+B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
 使用 `B2CGraphClient`，您會有一個服務應用程式可利用程式設計方式來管理 B2C 租用戶使用者。 `B2CGraphClient` 會使用自己的應用程式身分識別，向 Azure AD 圖形 API 進行驗證。 它也會使用用戶端密碼來取得權杖。 將這項功能納入您的應用程式時，請記住 B2C 應用程式的幾個重點：
