@@ -1,22 +1,22 @@
 ---
-title: "使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫 | Microsoft Docs"
+title: "教學課程 - 使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫"
 description: "本教學課程說明如何使用 Azure 入口網站來設計您的第一個「適用於 PostgreSQL 的 Azure 資料庫」。"
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 11/03/2017
-ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 02/28/2018
+ms.openlocfilehash: 9be88f4ab4f5b2a7970f186b891e0867cc53dde5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫
 
 「適用於 PostgreSQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/21/2018
  ![適用於 PostgreSQL 的 Azure 資料庫 - 建立資料庫](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  在新伺服器詳細資料表單中填入下列資訊，如上圖所示︰
-    - 伺服器名稱：**mypgserver-20170401** (伺服器的名稱會與 DNS 名稱對應，因此必須是全域唯一的) 
+    - 伺服器名稱：**mydemoserver** (伺服器的名稱會與 DNS 名稱對應，因此必須是全域唯一的) 
     - 訂用帳戶：如果您有多個訂用帳戶，請選擇資源所在或作為計費對象的適當訂用帳戶。
     - 資源群組︰**myresourcegroup**
     - 您選擇的伺服器管理員登入和密碼
@@ -56,8 +56,8 @@ ms.lasthandoff: 02/21/2018
   > [!IMPORTANT]
   > 必須要有您在此處指定的伺服器系統管理員登入和密碼，稍後在本快速入門中才能登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
 
-4.  按一下 [定價層] 指定新資料庫的服務層和效能等級。 針對本快速入門，請選取 [基本] 層、[50 個計算單位] 及 [50 GB] 的內含儲存體。
- ![適用於 PostgreSQL 的 Azure 資料庫 - 挑選服務層](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
+4.  按一下 [定價層] 以指定新伺服器的定價層。 本快速入門中，選取 [一般用途]、[Gen 4] 計算世代，2 個 [虛擬核心]，5 GB 的 [儲存體]，以及 7 天的 [備份保留期限]。 在備份備援選項中選取 [異地備援]，將您伺服器的自動備份儲存在異地備援儲存體。
+ ![適用於 PostgreSQL 的 Azure 資料庫 - 挑選定價層](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 5.  按一下 [確定] 。
 6.  按一下 [建立] 以佈建伺服器。 佈建需要幾分鐘的時間。
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/21/2018
 
 「適用於 PostgreSQL 的 Azure 資料庫」服務會使用伺服器層級的防火牆。 根據預設，除非已建立防火牆規則來針對特定 IP 位址範圍打開防火牆，否則此防火牆會防止所有外部應用程式和工具連線到伺服器及伺服器上的任何資料庫。 
 
-1.  完成部署之後，從左側功能表中按一下 [所有資源]，然後輸入名稱 **mypgserver-20170401** 來搜尋新建立的伺服器。 按一下搜尋結果中列出的伺服器名稱。 伺服器的 [概觀] 頁面隨即開啟，並提供可進行進一步設定的選項。
+1.  完成部署之後，從左側功能表中按一下 [所有資源]，然後輸入名稱 **mydemoserver** 來搜尋新建立的伺服器。 按一下搜尋結果中列出的伺服器名稱。 伺服器的 [概觀] 頁面隨即開啟，並提供可進行進一步設定的選項。
  
  ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
@@ -93,13 +93,13 @@ ms.lasthandoff: 02/21/2018
 
 您建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器時，會一併建立預設的 **postgres** 資料庫。 若要連線到您的資料庫伺服器，您必須提供主機資訊和存取認證。
 
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您剛建立的伺服器 **mypgserver-20170401**。
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您剛建立的伺服器。
 
   ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. 按一下伺服器名稱 [mypgserver-20170401]。
+2. 按一下伺服器名稱 **mydemoserver**。
 
-4. 選取伺服器的 [概觀] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
+3. 選取伺服器的 [概觀] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
 
  ![適用於 PostgreSQL 的 Azure 資料庫 - 伺服器管理員登入](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
@@ -120,10 +120,10 @@ ms.lasthandoff: 02/21/2018
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   例如，下列命令會使用存取認證，連線到 PostgreSQL 伺服器 **mypgserver-20170401.postgres.database.azure.com** 上名為 **postgres** 的預設資料庫。 在系統提示時輸入您的伺服器管理員密碼。
+   例如，下列命令會使用存取認證，連線到 PostgreSQL 伺服器 **mydemoserver.postgres.database.azure.com** 上名為 **postgres** 的預設資料庫。 在系統提示時輸入您的伺服器管理員密碼。
 
    ```bash
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
 ## <a name="create-a-new-database"></a>建立新資料庫
@@ -179,7 +179,7 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-data-to-a-previous-point-in-time"></a>將資料還原到先前的時間點
-想像一下您不小心刪除了這個資料表。 這是您無法輕易復原的情況。 「適用於 PostgreSQL 的 Azure 資料庫」可讓您返回到任何時間點 (最長可達過去 7 天 (基本) 和 35 天 (標準))，並將此時間點還原到新資料庫。 您可以使用這個新的伺服器來復原已刪除的資料。 下列步驟會將 **mypgserver-20170401** 伺服器還原到新增清查資料表之前的時間點。
+想像一下您不小心刪除了這個資料表。 這是您無法輕易復原的情況。 適用於 PostgreSQL 的 Azure 資料庫可讓您返回至伺服器上任何有備份的時間點 (取決於您設定的備份保留期限)，並將此時間點還原至新的伺服器。 您可以使用這個新的伺服器來復原已刪除的資料。 下列步驟會將 **mydemoserver** 伺服器還原到新增清查資料表之前的時間點。
 
 1.  在您伺服器之「適用於 PostgreSQL 的 Azure 資料庫」的 [概觀] 頁面上，按一下工具列上的 [還原]。 [還原] 頁面隨即開啟。
   ![Azure 入口網站 - 還原表單選項](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
@@ -190,7 +190,7 @@ SELECT * FROM inventory;
   - **目標伺服器**︰提供要作為還原目的地的新伺服器名稱
   - **位置**︰您無法選取區域，預設是與來源伺服器相同的區域
   - **定價層**︰還原伺服器時，您無法變更此值。 它與來源伺服器相同。 
-3.  按一下 [確定] 以[將伺服器還原到刪除資料表之前的時間點](./howto-restore-server-portal.md)。 如果將伺服器還原到不同的時間點，將會從您指定的時間點 (前提是此時間點在您[服務層](./concepts-service-tiers.md)的保留期限內) 開始，建立重複的新伺服器作為原始伺服器。
+3.  按一下 [確定] 以[將伺服器還原到刪除資料表之前的時間點](./howto-restore-server-portal.md)。 如果將伺服器還原到不同的時間點，將會從您指定的時間點 (前提是此時間點在您[定價層](./concepts-pricing-tiers.md)的保留期限內) 開始，建立重複的新伺服器作為原始伺服器。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何使用 Azure 入口網站和其他公用程式來：

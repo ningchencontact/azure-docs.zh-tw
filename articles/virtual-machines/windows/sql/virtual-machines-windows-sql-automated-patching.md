@@ -4,7 +4,7 @@ description: "說明在使用 Resource Manager 的 Azure 虛擬機器中執行�
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,26 +15,24 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: ae722b4da9131d98e6dc3424fcd6b50e77ae672b
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的 SQL Server 自動修補 (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [傳統](../classic/sql-automated-patching.md)
-> 
-> 
+> * [傳統](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 自動更新只能在此維護時間範圍內安裝。 對 SQL Server 來說，這項限制可確保系統更新及任何關聯的重新啟動都會在對資料庫而言最佳的時機發生。 自動修補相依於 [SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-如需本文的精簡版本，請參閱 [Azure 虛擬機器中的 SQL Server 自動修補 (傳統)](../classic/sql-automated-patching.md)。
+如需本文的精簡版本，請參閱 [Azure 虛擬機器中的 SQL Server 自動修補 (傳統)](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用自動修補，請考慮下列必要條件︰
 
 **作業系統**：
@@ -106,12 +104,12 @@ ms.lasthandoff: 01/05/2018
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
-> 如果尚未安裝擴充功能，安裝此擴充功能會重新啟動 SQL Server 服務。
+> 如果擴充功能尚未安裝，安裝此擴充功能時 SQL Server 服務會重新啟動。
 
 下表會根據此範例來描述對目標 Azure VM 的實際效果：
 

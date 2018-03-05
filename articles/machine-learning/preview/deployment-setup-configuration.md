@@ -4,17 +4,17 @@ description: "本文件說明在 Azure Machine Learning 中安裝和設定模型
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 391c02c5c76a3be3f5338790a81bca0311fb301b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/04/2018
 在本文件結束時，您應該已經設定模型管理環境，並準備部署您的機器學習模型。
 
 ## <a name="what-you-need-to-get-started"></a>若要開始，您需要：
-若要充分利用本指南，您應該具有參與者存取 Azure 訂用帳戶或資源群組，您可以部署您的模型。
+若要善用本指南，您應該對於您可以部署模型的 Azure 訂用帳戶或資源群組具備參與者存取權。
 CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
@@ -42,16 +42,7 @@ CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https:/
 使用系統管理員身分開啟命令提示字元，並執行下列命令：
 
 ```cmd
-pip install azure-cli
-pip install azure-cli-ml
-```
- 
->[!NOTE]
->如果您使用較早的版本，請使用下列命令先加以解除安裝：
->
-
-```cmd
-pip uninstall azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="installing-or-updating-on-linux"></a>在 Linux 上安裝 (或更新)
@@ -59,8 +50,7 @@ pip uninstall azure-cli-ml
 
 ```bash
 sudo -i
-pip install azure-cli
-pip install azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>在 Linux 上設定 Docker
@@ -81,10 +71,10 @@ pip install azure-cli-ml
 
 完成環境設定時：
 - 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟 https://aka.ms/devicelogin 頁面並輸入對於驗證所提供的程式碼。
-- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項： 選取具有有效的 Azure 訂用帳戶和帳戶中建立資源的足夠權限的帳戶。 登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要繼續進行 選取的帳戶。
+- 在驗證過程中，會提示您用來驗證的帳戶。 重要：選取具有有效 Azure 訂用帳戶和有足夠權限可在帳戶中建立資源的帳戶。 完成登入後，即會顯示您的訂用帳戶資訊，且系統會提示您是否要繼續使用選取的帳戶。
 
 ### <a name="environment-setup"></a>環境設定
-若要開始安裝程序，您必須以註冊一些環境提供者輸入下列命令：
+若要開始安裝程序，您必須輸入下列命令來註冊一些環境提供者：
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
@@ -130,7 +120,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 - Application Insights 帳戶
 
 >[!IMPORTANT]
-> 若要成功建立叢集環境中，您必須要有 Azure 訂用帳戶或資源群組上的參與者存取。
+> 若要成功建立叢集環境，您必須要有 Azure 訂用帳戶或資源群組上的參與者存取權。
 
 很快就能夠建立資源群組、儲存體帳戶和 ACR。 ACS 部署最多需要 20 分鐘的時間。 
 

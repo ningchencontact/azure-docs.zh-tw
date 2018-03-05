@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 叢集已知問題
 
@@ -39,12 +39,12 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
    
         yarn application –list
    
-    如果作業是透過未指定明確名稱的 Livy 互動式工作階段而啟動的，預設的作業名稱將是 Livy；如果是由 Jupyter Notebook 啟動的 Livy 工作階段，則作業名稱將會以 remotesparkmagics_* 開頭。 
+    如果使用 Livy 互動式工作階段啟動工作時沒有明確指定名稱，則預設作業名稱會是 Livy。 針對 Jupyter Notebook 啟動的 Livy 工作階段，作業名稱的開頭是 remotesparkmagics_*。 
 3. 執行下列命令以刪除這些作業。 
    
         yarn application –kill <Application ID>
 
-新作業將會開始執行。 
+新的作業開始執行。 
 
 ## <a name="spark-history-server-not-started"></a>Spark 歷程記錄伺服器未啟動
 叢集建立後，不會自動啟動 Spark 歷程記錄伺服器。  
@@ -69,7 +69,7 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 
 **緩和：**
 
-您必須改用 Spark-HBase 連接器。 如需指示，請參閱[如何使用 Spark-HBase 連接器 (英文)](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
+您必須改用 Spark-HBase 連接器。 如需指示，請參閱[如何使用 Spark-HBase 連接器](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 的相關問題
 以下是 Jupyter Notebook 的已知問題。
@@ -99,7 +99,7 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 這會在執行第一個程式碼儲存格時發生。 它會在背景中起始設定工作階段組態，以及設定 SQL、Spark 和 Hive 內容。 設定這些內容後，第一個陳述式才會執行，因此會有陳述式會花很長時間完成的印象。
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter Notebook 建立工作階段逾時
-當 Spark 叢集的資源不足時，Jupyter Notebook 中的 Spark 和 Pyspark 核心在嘗試建立工作階段時將會逾時。 
+當 Spark 叢集的資源不足時，Jupyter Notebook 中的 Spark 和 PySpark 核心在嘗試建立工作階段時將會逾時。 
 
 **緩和措施：** 
 
@@ -116,7 +116,6 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 * [Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
