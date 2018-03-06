@@ -1,176 +1,211 @@
 ---
 title: "Azure Machine Learning 服務的安裝快速入門 | Microsoft Docs"
-description: "本快速入門說明如何建立 Azure Machine Learning 資源，以及如何安裝 Azure Machine Learning Workbench。"
+description: "在本快速入門中，您可以了解如何建立 Azure Machine Learning 資源，以及如何安裝並開始使用 Azure Machine Learning Workbench。"
 services: machine-learning
 author: hning86
-ms.author: haining, raymondl, chhavib
+ms.author: haining, raymondl, chhavib, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/13/2017
-ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 2/22/2018
+ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>建立 Azure Machine Learning 預覽帳戶，並安裝 Azure Machine Learning Workbench
-Azure Machine Learning 服務 (預覽) 是整合、端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
+# <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>快速入門：安裝並開始使用 Azure Machine Learning 服務
+Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
 
-本快速入門示範如何在 Azure Machine Learning 預覽中建立測試與模型管理帳戶。 它也會顯示如何安裝 Azure Machine Learning Workbench 桌面應用程式和 CLI 工具。 接下來，您可以使用[鳶尾花資料集](https://en.wikipedia.org/wiki/iris_flower_data_set)快速導覽 Azure Machine Learning 預覽功能來建置模型，以根據部分實體特性預測鳶尾花的類型。  
+本快速入門示範如何：
+
+* 為 Azure Machine Learning 服務建立服務帳戶
+* 安裝並登入 Azure Machine Learning Workbench。
+* 在 Workbench 中建立專案
+* 在該專案中執行指令碼  
+* 存取命令列介面 (CLI)
+
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+<a name="prerequisites"></a>您可以在下列作業系統上安裝 Azure Machine Learning Workbench 應用程式：
+- Windows 10 或 Windows Server 2016
+- macOS Sierra 或 High Sierra
 
-目前，您只能將 Azure Machine Learning Workbench 桌面應用程式安裝在下列作業系統上： 
-- Windows 10
-- Windows Server 2016
-- macOS Sierra
-- macOS High Sierra
-
-## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
-登入 [Azure 入口網站](https://portal.azure.com/)。
-
-## <a name="create-azure-machine-learning-accounts"></a>建立 Azure Machine Learning 帳戶
+## <a name="create-azure-machine-learning-services-accounts"></a>建立 Azure Machine Learning 服務帳戶
 使用 Azure 入口網站來佈建 Azure Machine Learning 帳戶： 
+1. 使用您將使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 如果您沒有 Azure 訂用帳戶，請立即建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
+
+   ![Azure 入口網站](media/quickstart-installation/portal-dashboard.png)
+
 1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。
 
-2. 在搜尋列中輸入「Machine Learning」。 選取名為 **Machine Learning 測試 (預覽)** 的搜尋結果。  按一下星星圖示，讓此選取項目成為 Azure 入口網站中的我的最愛。
+   ![在 Azure 入口網站中建立資源](media/quickstart-installation/portal-create-a-resource.png)
+
+1. 在搜尋列中輸入「Machine Learning」。 選取名為 **Machine Learning 測試**的搜尋結果。 
 
    ![Azure Machine Learning 搜尋](media/quickstart-installation/portal-more-services.png)
 
-3. 選取 [+ 新增] 來設定新的 Machine Learning 測試帳戶。 詳細表單隨即開啟。
+1. 在 [Machine Learning 測試] 窗格中，捲動到底部並選取 [建立] 即可開始定義您的測試帳戶。  
 
-   ![Machine Learning 測試帳戶](media/quickstart-installation/portal-create-experimentation.png)
+   ![Azure Machine Learning - 建立測試帳戶](media/quickstart-installation/portal-create-account.png)
 
-4. 使用下列資訊填寫 Machine Learning 測試表單：
+1. 在 [ML 測試] 窗格中，設定您的 Machine Learning 測試帳戶。 
 
-   設定|建議的值|說明
+   設定|教學課程的建議值|說明
    ---|---|---
-   測試帳戶名稱 | _唯一的名稱_ |選擇可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
+   測試帳戶名稱 | _唯一的名稱_ |輸入可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
    訂用帳戶 | _您的訂用帳戶_ |選擇您要用於測試的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的適當訂用帳戶。
-   資源群組 | _您的資源群組_ | 您可以產生新的資源群組名稱，或使用您訂用帳戶中現有的資源群組名稱。
-   位置 | 最接近使用者的區域 | 選擇最接近您的使用者與資料資源的位置。
-   基座數目 | 2 | 輸入基座數目。 此選項會影響[定價](https://azure.microsoft.com/pricing/details/machine-learning/)。 前兩個基座是免費的。 基於本快速入門的目的，我們使用兩個基座。 您稍後可以視需要在 Azure 入口網站中更新基座數目。
-   儲存體帳戶 | _唯一的名稱_ | 選取 [建立新項目]，並且提供名稱以建立 Azure 儲存體帳戶。 或者，選取 [使用現有的] ，然後從下拉式清單選取現有的儲存體帳戶。 需要儲存體帳戶，並且是用來儲存專案構件並執行歷程記錄資料。 
-   測試帳戶的工作區 | _唯一的名稱_ | 提供新工作區的名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。
+   資源群組 | _您的資源群組_ | 在您的訂用帳戶中使用現有的資源群組，或輸入一個名稱來為此測試帳戶建立新的資源群組。 
+   位置 | _最接近使用者的區域_ | 選擇最接近您的使用者與資料資源的位置。
+   基座數目 | 2 | 輸入基座數目。 了解[基座如何影響定價](https://azure.microsoft.com/pricing/details/machine-learning/)。<br/><br/>在本快速入門中，您只需要兩個基座。 您可以視需要在 Azure 入口網站中可以新增或移除基座。
+   儲存體帳戶 | _唯一的名稱_ | 選取 [建立新的]，並且提供名稱以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal)。 或者，選取 [使用現有的] ，然後從下拉式清單選取現有的儲存體帳戶。 需要儲存體帳戶，並且是用來儲存專案構件並執行歷程記錄資料。 
+   測試帳戶的工作區 | IrisGarden | 提供此帳戶的工作區名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 此工作區包含您建立、管理及發行實驗所需的工具。
    指派工作區的擁有者 | _您的帳戶_ | 選取您自己的帳戶作為工作區擁有者。
-   建立模型管理帳戶 | *檢查* | 作為測試帳戶建立體驗的一部分，您也可以選擇建立 Machine Learning 模型管理帳戶。 在您在準備好要將您的模型部署和管理為即時 Web 服務時，會使用此資源。 建議您在與測試帳戶的同時建立模型管理帳戶。
+   建立模型管理帳戶 | **檢查** |立即建立模型管理帳戶，當您想要將您的模型當作即時 Web 服務部署及管理時，即可使用此資源。 <br/><br/>隨為選擇性，但建議您在與測試帳戶的同時建立模型管理帳戶。
    帳戶名稱 | _唯一的名稱_ | 選擇可識別您模型管理員帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
    模型管理定價層 | **DEVTEST** | 選取 [未選取任何定價層] 來指定新模型管理帳戶的定價層。 為了節省成本，請選取 **DEVTEST** 定價層 (如果在您的訂用帳戶上可用，限量提供)。 否則請選取 S1 定價層以節省成本。 按一下 [選取] 以儲存定價層選取項目。 
    釘選到儀表板 | _檢查_ | 選取 [釘選到儀表板] 選項，在 Azure 入口網站的前儀表板頁面上輕鬆追蹤 Machine Learning 測試帳戶。
 
-5. 選取 [建立] 來開始建立程序。
+   ![Machine Learning 測試帳戶組態](media/quickstart-installation/portal-create-experimentation.png)
 
-6. 在 Azure 入口網站工具列上，按一下 [通知] \(鈴鐺圖示) 來監視部署程序。 
+5. 選取 [建立] 開始建立測試帳戶及模型管理帳戶的程序。
 
-   通知會顯示「部署進行中」。 一旦完成，狀態會變更為「部署已成功」。 Machine Learning 測試帳戶頁面會在成功時開啟。
+   ![Machine Learning 測試帳戶組態](media/quickstart-installation/portal-create-experimentation-button.png)
+
+   建立帳戶可能需要一些時間。 按一下 Azure 入口網站工具列上的鈴鐺，即可檢查部署程序的狀態。
    
    ![Azure 入口網站通知](media/quickstart-installation/portal-notification.png)
 
-現在，根據您在本機電腦上使用的作業系統，請遵循下面兩個區段中的一個，安裝 Azure Machine Learning Workbench。 
 
-## <a name="install-azure-machine-learning-workbench-on-windows"></a>在 Windows 上安裝 Azure Machine Learning Workbench
-在執行 Windows 10、Windows Server 2016 或更新版本的電腦上安裝 Azure Machine Learning Workbench。
+## <a name="install-and-log-in-to-workbench"></a>安裝及登入 Workbench
 
-1. 下載最新的 Azure Machine Learning Workbench 安裝程式 [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi)。
+Azure Machine Learning Workbench 適用於 Windows 或 macOS。 請查看[支援的平台](#prerequisites)清單。
 
-2. 從檔案總管按兩下所下載的安裝程式 **AmlWorkbenchSetup.msi**。
+>[!WARNING]
+>安裝作業可能需要大約 30 分鐘的時間才能完成。 
 
+1. 下載並啟動最新的 Workbench 安裝程式。 
    >[!IMPORTANT]
    >在磁碟上完整下載安裝程式，然後從該處執行它。 不要直接從瀏覽器的下載小工具執行它。
 
-3. 遵循螢幕上的指示完成安裝。
+   **在 Windows 上：** 
 
-   安裝程式會下載所有必要的相依元件，例如 Python、Miniconda 及其他相關程式庫。 安裝可能需要約半小時才能完成所有元件。 
+   &nbsp;&nbsp;&nbsp;&nbsp;A. 下載 [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi)。  <br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;B. 在檔案總管中按兩下所下載的安裝程式。
 
-4. Azure Machine Learning Workbench 現在已安裝在下列目錄：
+   **在 macOS 上：** 
+
+   &nbsp;&nbsp;&nbsp;&nbsp;A. 下載 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)。 <br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;B. 在搜尋工具中按兩下所下載的安裝程式。<br/><br/>
+
+1. 請依照安裝程式中畫面上的指示來完成。 
+
+   **安裝作業可能需要大約 30 分鐘的時間才能完成。**  
    
-   `C:\Users\<user>\AppData\Local\AmlWorkbench`
+   | |Azure Machine Learning Workbench 的安裝路徑|
+   |--------|------------------------------------------------|
+   |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
+   |macOS|/Applications/Azure ML Workbench.app|
 
-## <a name="install-azure-machine-learning-workbench-on-macos"></a>在 macOS 上安裝 Azure Machine Learning Workbench
-在執行 macOS Sierra 或更新版本的電腦上安裝 Azure Machine Learning Workbench。
+   安裝程式已下載並設定所有必要的相依項目，例如 Python、Miniconda 及其他相關程式庫。    此安裝也包括 Azure 跨平台命令列工具或 Azure CLI。
 
-1. 下載最新的 Azure Machine Learning Workbench 安裝程式 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)。
+  
+1. 選取安裝程式最後一個畫面上的 [啟動 Workbench] 按鈕以啟用 Workbench。 
 
-   >[!IMPORTANT]
-   >在磁碟上完整下載安裝程式，然後從該處執行它。 不要直接從瀏覽器的下載小工具執行它。
+   如果您關閉了安裝程式，它就沒有問題。 
+   + 在 Windows 上，使用 **Machine Learning Workbench** 桌面捷徑來啟動它。 
+   + 在 macOS 上，選取啟動列中的 **Azure ML Workbench**。
 
-2. 從 Finder 按兩下所下載的安裝程式 **AmlWorkbench.dmg**。
+1. 在第一個畫面上，選取 [登入] 以向 Azure Machine Learning Workbench 進行驗證。 使用您在 Azure 入口網站中用來建立測試和模型管理帳戶的相同認證。 
 
-3. 遵循螢幕上的指示完成安裝。
-
-   安裝程式會下載所有必要的相依元件，例如 Python、Miniconda 及其他相關程式庫。 安裝可能需要約半小時才能完成所有元件。 
-
-4. Azure Machine Learning Workbench 現在已安裝在下列目錄： 
-
-   `/Applications/Azure ML Workbench.app`
-
-## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>執行 Azure Machine Learning Workbench 以第一次登入
-1. 安裝程序完成之後，請選取安裝程式之最後一個畫面上的 [啟動 Workbench] 按鈕。 如果您已關閉安裝程式，請在桌面和 [開始] 功能表上尋找名為 **Azure Machine Learning Workbench** 的 Machine Learning Workbench 捷徑，來啟動應用程式。
-
-2. 使用您稍早用來佈建您的 Azure 資源的相同帳戶登入 Workbench。 
-
-3. 登入程序成功時，Workbench 會嘗試尋找您稍早建立的 Machine Learning 測試帳戶。 它會搜尋您的認證具有存取權的所有 Azure 訂用帳戶。 找到至少一個測試帳戶時，即會使用該帳戶開啟 Workbench。 然後它會列出在該帳戶中找到的工作區和專案。 
+   在您登入後，Workbench 會使用它在您的 Azure 訂用帳戶中找到的第一個測試帳戶。  Workbench 會使用它所找到的第一個測試帳戶，並顯示與該帳戶相關聯的所有工作區和專案。 
 
    >[!TIP]
-   > 如果您有一個以上的測試帳戶的存取權，可以選取 Workbench 應用程式左下角的圖像圖示，切換為另一個帳戶。
+   > 您可以使用 Workbench 應用程式視窗左下角的圖示，切換為不同的測試帳戶。
 
-如需建立用於部署 Web 服務之環境的詳細資訊，請參閱[部署環境設定](deployment-setup-configuration.md)。
+## <a name="create-a-project-in-workbench"></a>在 Workbench 中建立專案
 
-## <a name="create-a-new-project"></a>建立新專案
-1. 啟動 Azure Machine Learning Workbench 應用程式並登入。 
+在 Azure Machine Learning 中，專案是用來容納為解決問題所進行之所有工作的邏輯容器。 專案會對應到本機磁碟上的單一檔案資料夾，您可以在其中新增任何檔案或子資料夾。 
 
-2. 選取 [檔案] > [新專案] \(或是選取 **+** 登入 [專案] 窗格)。 
+在此，我們會使用包含[鳶尾花資料集](https://en.wikipedia.org/wiki/iris_flower_data_set)的範本，建立新的 Workbench 專案。 遵循本快速入門的教學課程會依賴此資料來建立模型，以便根據其某些實體特性來預測鳶尾花的類型。  
 
-3. 填寫 [專案名稱] 和 [專案目錄] 方塊。 [專案描述] 為選擇性，但是很有幫助。 目前將 **Visualstudio.com GIT 存放庫 URL** 方塊保持空白。 選擇工作區，然後選取 [分類鳶尾花] 作為專案範本。
+1. 開啟 Azure Machine Learning Workbench 後，在 [專案] 窗格中選取加號 (+)，然後選擇 [新增專案]。  
 
-   >[!TIP]
-   >(選擇性) 您可以使用 [Visual Studio Team Services](https://www.visualstudio.com) 專案中裝載的 Git 存放庫的 URL 來填入 Git 存放庫文字方塊。 這個 Git 儲存機制必須已經存在，且必須是空的且沒有主要分支。 而且，您必須具有其寫入權限。 現在新增 Git 儲存機制，可讓您稍後啟用漫遊及共用案例。 [閱讀更多資訊](using-git-ml-project.md)。
+   ![新增工作區](media/tutorial-classifying-iris/new_ws.png)
 
-4. 選取 [建立] 按鈕以建立專案。 隨即為您建立並開啟新的專案。 此時，您可以瀏覽專案首頁、資料來源、筆記本及原始程式檔。 
+1. 填妥表單欄位並選取 [建立] 按鈕，以在 Workbench 中建立新專案。
 
-    >[!TIP]
-    >您也可以僅僅藉由設定整合式開發環境 (IDE) 連結，在 Visual Studio Code 或其他編輯器中開啟專案，然後再開啟其中的專案目錄。 [閱讀更多資訊](how-to-configure-your-IDE.md)。 
+   欄位|教學課程的建議值|說明
+   ---|---|---
+   專案名稱 | myIris |輸入可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
+   專案目錄 | c:\Temp\ | 指定要在其中建立專案的目錄。
+   專案描述 | _保留空白_ | 適合用於描述專案的選擇性欄位。
+   Visualstudio.com |_保留空白_ | 選擇性欄位。 專案可在 Visual Studio Team Services 上選擇性地與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
+   工作區 | IrisGarden (如果存在的話) | 選擇您在 Azure 入口網站中針對測試帳戶建立的工作區。 <br/>如果您已遵循快速入門，您應該有名稱為 IrisGarden 的工作區。 如果沒有，請選取您建立測試帳戶時所建立的工作區，或任何您想使用的其他工作區。
+   專案範本 | 分類鳶尾花 | 範本包含您可用來瀏覽產品的指令碼和資料。 此範本包含您在本快速入門及此文件網站中的其他教學課程中需要使用的指令碼和資料。 
+
+   ![新增專案](media/tutorial-classifying-iris/new_project.png)
+ 
+ 建立新的專案，專案儀表板隨即開啟並顯示該專案。 此時，您可以瀏覽專案首頁、資料來源、筆記本及原始程式檔。 
+
+>[!TIP]
+>您可以將 Workbench 設定為使用 Python IDE，以獲得順暢的資料科學開發體驗。 然後，您可以在 IDE 中與您的專案互動。 [了解作法](how-to-configure-your-IDE.md)。 
 
 ## <a name="run-a-python-script"></a>執行 Python 指令碼
-讓我們在本機電腦上執行指令碼。 
 
-1. 每個專案會開啟到自己的 [專案儀表板] 頁面。 從接近應用程式最上方的命令列選取 **local** 作為執行目標，以及選取 **iris_sklearn.py** 作為要執行的指令碼。 範例中包含其他檔案，可供您稍後簽出。 
+現在，您可以在本機電腦上執行 **iris_sklearn.py** 指令碼。 此指令碼預設隨附於**分類鳶尾花**專案範本。 此指令碼會使用來自熱門 Python [scikit-learn](http://scikit-learn.org/stable/index.html) 程式庫的[羅吉斯迴歸](https://en.wikipedia.org/wiki/logistic_regression)演算法來建立模型。
+
+1. 在 [專案儀表板] 頁面頂端的命令列中，選取 **local** 作為執行目標，以及選取 **iris_sklearn.py** 作為要執行的指令碼。 預設會預先選取這些值。 
+
+   範例中包含其他檔案，可供您稍後簽出，但是在本快速入門中，我們對 **iris_sklearn.py** 感興趣。 
 
    ![命令列](media/quickstart-installation/run_control.png)
 
-2. 在 [引數] 文字方塊中輸入 **0.01**。 這個數字用於程式碼中，以設定正規化速率。 它是用來設定如何定型線性迴歸模型的值。 
+1. 在 [引數] 文字方塊中輸入 **0.01**。 這個數字用於指令碼程式碼中，以設定正規化速率。 此值用來設定如何訓練線性迴歸模型。 
 
-3. 選取 [執行] 按鈕以開始在您的電腦上執行 **iris_sklearn.py**。 
-
-   此程式碼使用來自受歡迎的 Python [scikit-learn](http://scikit-learn.org/stable/index.html) 程式庫的[羅吉斯迴歸](https://en.wikipedia.org/wiki/logistic_regression)演算法來建置模型。
-
-4. [作業] 面板會從右邊滑出 (如果尚不可見)，且 **iris_sklearn** 作業會在面板中新增。 隨著作業開始執行，其狀態會從**提交中**轉換為**執行中**，然後在幾秒後變成**已完成**。 
+1. 選取 [執行] 以在您的電腦上開始執行指令碼。 **Iris_sklearn** 作業會立即出現在右邊的 [作業] 面板上，所以您可以監視指令碼的執行。
 
    恭喜！ 您已成功在 Azure Machine Learning Workbench 中執行 Python 指令碼。
 
-6. 重複步驟 2-4 數次。 每次都使用不同的引數值，範圍從 **10** 到 **0.001**。
+1. 使用不同的引數值 (範圍從 **0.001** 至 **10**)，重複步驟 2 - 3 數次。 每個執行作業會出現在 [作業] 窗格中。
 
-## <a name="view-run-history"></a>檢視執行歷程記錄
-1. 移至 [執行] 檢視，然後選取執行清單中的 **iris_sklearn.py**。 **iris_sklearn.py** 的執行歷程記錄儀表板隨即開啟。 它會顯示在 **iris_sklearn.py** 上的每次執行。 
+1. 選取 [執行] 檢視，然後選取執行清單中的 **iris_sklearn.py** 來顯示此指令碼的執行歷程記錄，以檢查執行歷程記錄。 
 
    ![執行歷程記錄儀表板](media/quickstart-installation/run_view.png)
 
-2. 執行歷程記錄儀表板也會顯示最上層度量、一組預設圖形和每個執行度量的清單。 您可以藉由排序、篩選和調整設定來自訂此檢視。 只要選取設定圖示或篩選圖示。
+   它會顯示在 **iris_sklearn.py** 上的每次執行。 執行歷程記錄儀表板也會顯示最上層度量、一組預設圖形和每個執行度量的清單。 
+
+1. 您可以使用齒輪或漏斗圖示，藉由排序、篩選和調整組態來自訂此檢視。
 
    ![計量和圖表](media/quickstart-installation/run_dashboard.png)
 
-3. 選取已完成的執行，您可以看到該特定執行的詳細檢視。 詳細資料包括其他計量、它所產生的檔案和其他有用的記錄。
+3. 選取 [作業] 窗格中已完成的執行，可看到該特定執行的詳細檢視。 詳細資料包括其他計量、它所產生的檔案和其他有用的記錄。
+
+## <a name="start-the-cli"></a>啟動 CLI
+
+Azure Machine Learning 命令列介面 (CLI) 也已安裝。 CLI 介面可讓您使用 `az` 命令來執行端對端資料科學工作流程所需的所有工作，進而存取 Azure Machine Learning 服務並與其互動。 [深入了解。](tutorial-iris-azure-cli.md)
+
+您可以使用 [檔案] --> [開啟命令提示字元]，從 Workbench 工具列啟動 azure-cli-ml CLI。
+
+您可以使用 --help 引數，在 azure-cli-ml CLI 中取得命令的說明。
+
+```az ml --help```
+
+## <a name="clean-up-resources"></a>清除資源
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
-您現在已成功建立 Azure Machine Learning 測試帳戶和 Azure Machine Learning 模型管理帳戶。 您已安裝 Azure Machine Learning Workbench 桌面應用程式和命令列介面。 您已透過執行指令碼建立新的專案、建立模型，並探索指令碼的執行歷程記錄。
+您現在已建立必要的 Azure Machine Learning 帳戶，並已安裝 Azure Machine Learning Workbench 應用程式。 在該應用程式中，您已建立專案、執行指令碼，並探索指令碼的執行歷程記錄。
 
 如需此工作流程的更深入體驗，包括如何將鳶尾花模型部署為 Web 服務，請遵循完整的「分類鳶尾花」教學課程。 本教學課程包含[資料準備](tutorial-classifying-iris-part-1.md)、[測試](tutorial-classifying-iris-part-2.md)和[模型管理](tutorial-classifying-iris-part-3.md)的詳細步驟。 
 
 > [!div class="nextstepaction"]
-> [分類鳶尾花教學課程](tutorial-classifying-iris-part-1.md)
+> [教學課程：分類鳶尾花 (第 1 部分)](tutorial-classifying-iris-part-1.md)
+
+>[!NOTE]
+> 雖然您有模型管理帳戶，但您的環境尚未針對部署 Web 服務而設定。  了解如何設定您的[部署環境](deployment-setup-configuration.md)。
