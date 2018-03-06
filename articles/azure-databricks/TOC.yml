@@ -9,6 +9,12 @@
   items:
     - name: 建立 Databricks 工作區
       href: quickstart-create-databricks-workspace-portal.md
+- name: 使用說明指南
+  items:
+    - name: 與 Excel、R 和 Python 連線
+      href: connect-databricks-excel-python-r.md
+    - name: 從 Azure Cloud Shell 使用 Databricks CLI
+      href: databricks-cli-from-azure-cloud-shell.md
 - name: 資源
   items:
     - name: 常見問題

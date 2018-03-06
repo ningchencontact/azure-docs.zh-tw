@@ -39,16 +39,22 @@
           href: logic-apps-serverless-get-started-vs.md
         - name: 從 BizTalk 服務移轉
           href: logic-apps-move-from-mabs.md
+        - name: 控制工作流程執行
+          items:
+            - name: 條件陳述式
+              href: logic-apps-control-flow-conditional-statement.md
+            - name: Switch 陳述式
+              href: logic-apps-control-flow-switch-statement.md
+            - name: 分支
+              href: logic-apps-control-flow-branches.md
+            - name: 迴圈
+              href: logic-apps-control-flow-loops.md
+            - name: 範圍
+              href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: 使用 Azure Functions 新增自訂程式碼
           href: logic-apps-azure-functions.md
         - name: 使用 Azure Functions 呼叫邏輯應用程式
           href: logic-apps-scenario-function-sb-trigger.md
-        - name: 新增條件並執行工作流程
-          href: logic-apps-use-logic-app-features.md
-        - name: 新增 Switch 陳述式
-          href: logic-apps-switch-case.md
-        - name: 迴圈、範圍和解除批次處理資料
-          href: logic-apps-loops-and-scopes.md
         - name: 批次程序訊息
           href: logic-apps-batch-process-send-receive-messages.md
         - name: 依邏輯應用程式定義建置
@@ -152,20 +158,34 @@
           href: ../connectors/connectors-create-api-servicebus.md
         - name: 連接字串
           href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Bing 搜尋
+          href: ../connectors/connectors-create-api-bingsearch.md
+        - name: Box
+          href: ../connectors/connectors-create-api-box.md
         - name: 自訂 API 和 Web 應用程式
           href: logic-apps-create-api-app.md
         - name: DB2
           href: ../connectors/connectors-create-api-db2.md
+        - name: Dropbox
+          href: ../connectors/connectors-create-api-dropbox.md
         - name: Dynamics 365 CRM Online
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
+        - name: Excel
+          href: ../connectors/connectors-create-api-excel.md
+        - name: Facebook
+          href: ../connectors/connectors-create-api-facebook.md
         - name: 檔案系統
           href: logic-apps-using-file-connector.md
         - name: 一般檔案
           href: logic-apps-enterprise-integration-flatfile.md
         - name: FTP
           href: ../connectors/connectors-create-api-ftp.md
+        - name: GitHub
+          href: ../connectors/connectors-create-api-github.md
+        - name: Google 雲端硬碟
+          href: ../connectors/connectors-create-api-googledrive.md
         - name: HTTP
           href: ../connectors/connectors-native-http.md
         - name: HTTP + Swagger
@@ -176,34 +196,62 @@
           href: ../connectors/connectors-create-api-informix.md
         - name: 整合帳戶
           href: logic-apps-enterprise-integration-metadata.md
+        - name: MailChimp
+          href: ../connectors/connectors-create-api-mailchimp.md
+        - name: Microsoft Translator
+          href: ../connectors/connectors-create-api-microsofttranslator.md
         - name: MQ
           href: ../connectors/connectors-create-api-mq.md
         - name: Office 365 Outlook
           href: ../connectors/connectors-create-api-office365-outlook.md
+        - name: Office 365 使用者
+          href: ../connectors/connectors-create-api-office365-users.md
+        - name: Office 365 影片
+          href: ../connectors/connectors-create-api-office365-video.md
+        - name: OneDrive
+          href: ../connectors/connectors-create-api-onedrive.md
+        - name: OneDrive for Business
+          href: ../connectors/connectors-create-api-onedriveforbusiness.md
         - name: Oracle 資料庫
           href: ../connectors/connectors-create-api-oracledatabase.md
+        - name: Project Online
+          href: ../connectors/connectors-create-api-projectonline.md
         - name: 要求/回應
           href: ../connectors/connectors-native-reqres.md
+        - name: RSS
+          href: ../connectors/connectors-create-api-rss.md
         - name: Salesforce
           href: ../connectors/connectors-create-api-salesforce.md
         - name: SAP
           href: logic-apps-using-sap-connector.md
         - name: 排程
           href: ../connectors/connectors-native-recurrence.md
+        - name: SendGrid
+          href: ../connectors/connectors-create-api-sendgrid.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
           href: ../connectors/connectors-create-api-sharepointserver.md
-        - name: SQL Server
+        - name: Slack
+          href: ../connectors/connectors-create-api-slack.md
+        - name: SQL Azure 和 SQL Server
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: 轉換 XML
           href: logic-apps-enterprise-integration-transform.md
+        - name: Trello
+          href: ../connectors/connectors-create-api-trello.md
         - name: Twitter
           href: ../connectors/connectors-create-api-twitter.md
+        - name: Twilio
+          href: ../connectors/connectors-create-api-twilio.md
+        - name: Wunderlist
+          href: ../connectors/connectors-create-api-wunderlist.md
         - name: X12
           href: logic-apps-enterprise-integration-x12.md
         - name: XML 驗證
           href: logic-apps-enterprise-integration-xml-validation.md
+        - name: Yammer
+          href: ../connectors/connectors-create-api-yammer.md
     - name: 管理
       items:
         - name: 管理邏輯應用程式 - Visual Studio
