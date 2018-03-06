@@ -1,21 +1,21 @@
 ---
-title: "Azure 快速入門 - 使用 Azure 儲存體總管在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "快速了解使用 Azure 儲存體總管在 Azure Blob 儲存體之間傳送物件"
+title: "Azure 快速入門 - 使用 Azure 儲存體總管上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
+description: "本快速入門中，您會使用 Azure 儲存體總管來建立儲存體帳戶和容器。 然後使用儲存體總管，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 儲存體總管在 Azure Blob 儲存體之間傳送物件
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入門：使用 Azure 儲存體總管上傳、下載及列出 Blob
 
 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)是多重平台使用者介面，可用來管理儲存體帳戶的內容。 本指南詳細說明如何使用 Azure 儲存體總管在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。
 

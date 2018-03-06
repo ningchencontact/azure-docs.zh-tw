@@ -1,25 +1,21 @@
 ---
-title: "Azure 快速入門 - 使用 .NET 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "快速了解使用 .NET 在 Azure Blob 儲存體之間傳送物件"
+title: "Azure 快速入門 - 使用 .NET 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
+description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 .NET 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>使用 .NET 在 Azure Blob 儲存體之間傳送物件
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>快速入門：使用 .NET 上傳、下載及列出 Blob
 
 在本快速入門中，您會了解如何使用適用於 Azure 儲存體的 .NET 用戶端程式庫來上傳、下載及列出容器中的區塊 Blob。
 

@@ -1,6 +1,6 @@
 ---
 title: "建立 Azure Service Fabric Java 應用程式 | Microsoft Docs"
-description: "為 Azure 建立使用 Service Fabric 之 Java 應用程式的快速入門範例。"
+description: "在本快速入門中，您會使用 Service Fabric 可靠服務範例應用程式建立適用於 Azure 的 Java 應用程式。"
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-java-application"></a>建立 Java 應用程式
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>快速入門：將 Java Service Fabric 可靠服務應用程式部署至 Azure
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
 
 本快速入門示範如何使用 Linux 開發人員機器上的 Eclipse IDE，將第一個 Java 應用程式部署到 Service Fabric。 當您完成時，您會有一個投票應用程式，其 Java Web 前端會將投票結果儲存在叢集中具狀態的後端服務。

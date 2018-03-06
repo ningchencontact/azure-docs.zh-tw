@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -39,6 +39,7 @@ az provider register -n Microsoft.ContainerService
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 使用 [az group create][az-group-create] 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。
+在建立資源群組時，系統會要求您指定位置，這是您的資源存在於 Azure 的位置。 雖然 AKS 處於預覽狀態，但只有一些位置選項可用。 這些是 `eastus, westeurope, centralus, canadacentral, canadaeast`。
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
@@ -88,7 +89,7 @@ az aks install-cli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
+若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。 請注意，這可能需要幾分鐘的時間才會出現。
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>執行應用程式
 
-Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。
+Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 提供的映像是一個範例應用程式，但您可以閱讀[建立映像](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app)和[部署至 Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr)來使用自己的映像。
 
-建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。
+建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。 如果您在本機作業，您可以執行 `code azure-vote.yaml`，使用 Visual Studio Code 來建立此檔案。
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -231,7 +232,7 @@ az group delete --name myResourceGroup --yes --no-wait
 若要深入了解 AKS，並逐步完成部署範例的完整程式碼，請繼續 Kubernetes 叢集教學課程。
 
 > [!div class="nextstepaction"]
-> [管理 AKS 叢集][aks-tutorial]：
+> [ASK 教學課程][aks-tutorial]：
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

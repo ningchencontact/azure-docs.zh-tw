@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>教學課程：使用命令列介面分類 Iris
-Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科學，以及進階分析解決方案，適用於專業資料科學家準備資料、開發實驗並部署雲規模模型。
+Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
 
 在本教學課程中，您會了解如何使用 Azure Machine Learning 預覽功能中的命令列介面 (CLI)，以進行： 
 > [!div class="checklist"]
@@ -28,14 +28,16 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 > * 升級並註冊定型模型
 > * 部署 Web 服務以評分新資料
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
 ## <a name="prerequisites"></a>先決條件
-- 您需要存取 Azure 訂用帳戶與權限，以建立該訂用帳戶中的資源。 
-- 您必須遵循[安裝及建立快速入門](quickstart-installation.md)，以安裝 Azure Machine Learing Workbench 應用程式。 
+若要完成本教學課程，您需要：
+- 存取 Azure 訂用帳戶與權限，以建立該訂用帳戶中的資源。 
+  
+  如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-  >[!NOTE]
-  >您只需要在本機上安裝 Azure Machine Learning Workbench 即可。 您只需要遵循＜安裝 Azure Machine Learning Workbench＞一節中的步驟進行操作，因為帳戶建立以及建立新專案的步驟，將會透過本文中的命令行完成。
+- 如[快速入門：安裝及啟動 Azure Machine Learning 服務](quickstart-installation.md)所述，安裝 Azure Machine Learning Workbench 應用程式。 
+
+  >[!IMPORTANT]
+  >請勿建立 Azure Machine Learning 服務帳戶，因為您會使用本文中的 CLI 來執行該作業。
  
 ## <a name="getting-started"></a>開始使用
 Azure Machine Learning 命令列介面 (CLI) 可讓您執行端對端資料科學工作流程所需的所有工作。 您可透過下列方式存取 CLI 工具：
@@ -51,7 +53,7 @@ Azure Machine Learning 命令列介面 (CLI) 可讓您執行端對端資料科�
 如果您已具備測試帳戶的存取權，便可以成功登入。 接著，您便可以按一下 [檔案] --> [開啟命令提示字元] 功能表，開啟命令列視窗。
 
 ### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>選項 3。 在任意命令列視窗中啟用 Azure ML CLI
-您也可以在任何命令列視窗中啟用 Azure ML CLI。 只要啟動命令視窗，並輸入下列命令：
+您也可以在任何命令列視窗中啟用 Azure ML CLI。 啟動命令視窗，並輸入下列命令即可：
 
 ```sh
 # Windows Command Prompt
@@ -69,9 +71,9 @@ PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 >您可以藉由設定上述環境變數，在您最愛的終端機視窗中啟用 Azure CLI。
 
 ## <a name="step-1-log-in-to-azure"></a>步驟 1. 登入 Azure
-第一個步驟是從 AMLWorkbench 應用程式開啟 CLI (檔案 > 開啟命令提示字元)。 這麼做可確保我們使用正確的 Python 環境，而且有可用的 ML CLI 命令。 
+第一個步驟是從 AMLWorkbench 應用程式開啟 CLI (檔案 > 開啟命令提示字元)。 這麼做可確保您有正確的 Python 環境，而且有可用的 ML CLI 命令。 
 
-然後，我們需要在 CLI 中設定正確的內容，以存取和管理 Azure 資源。
+現在，您可以在 CLI 中設定正確的內容，以存取和管理 Azure 資源。
  
 ```azure-cli
 # log in
@@ -85,7 +87,8 @@ $ az account set -s <subscription id or name>
 ```
 
 ## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>步驟 2. 建立新的 Azure Machine Learning 測試帳戶與工作區
-我們首先會建立一個新的測試帳戶和一個新的工作區。 如需測試帳戶與工作區的詳細資料，請參閱 [Azure Machine Learning 概念](overview-general-concepts.md)。
+
+在此步驟中，您會建立一個新的測試帳戶和一個新的工作區。 如需測試帳戶與工作區的詳細資料，請參閱 [Azure Machine Learning 概念](overview-general-concepts.md)。
 
 > [!NOTE]
 > 測試帳戶需要儲存體帳戶，用來儲存實驗執行的輸出。 儲存體帳戶名稱在 Azure 中必須為全域唯一，因為沒有與其相關聯的 URL。 如果您未指定現有的儲存體帳戶，您的測試帳戶名稱會用來建立新的儲存體帳戶。 請務必使用唯一的名稱，否則您會收到錯誤，例如_「已使用名稱為 \<storage_account_name> 的儲存體帳戶。」_ 或者，您可以使用 `--storage` 引數，以提供現有的儲存體帳戶。
@@ -105,7 +108,7 @@ az ml workspace create --name <workspace name> --account <experimentation accoun
 ```
 
 ## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>步驟 2.a (選用) 與同事共用工作區
-我們將在這裡探討如何與同事共用工作區的存取權。 共用存取測試帳戶或專案的步驟是相同的。 只需要更新獲取 Azure 資源識別碼的方式。
+您可以在這裡探討如何與同事共用工作區的存取權。 共用存取測試帳戶或專案的步驟是相同的。 只需要更新獲取 Azure 資源識別碼的方式。
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -136,7 +139,7 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>建立與雲端 Git 儲存機制相關聯的新專案
-我們可以建立與 VSTS (Visual Studio Team Service) Git 存放庫相關聯的新專案。 每次提交測試時，整個專案資料夾中的快照集就會認可至遠端 Git 存放庫。 如需詳細資料，請參閱[將 Git 儲存機制與 Azure Machine Learning Workbench 專案搭配使用](using-git-ml-project.md)。
+您可以建立與 VSTS (Visual Studio Team Service) Git 存放庫相關聯的新專案。 每次提交測試時，整個專案資料夾中的快照集就會認可至遠端 Git 存放庫。 如需詳細資料，請參閱[將 Git 儲存機制與 Azure Machine Learning Workbench 專案搭配使用](using-git-ml-project.md)。
 
 > [!NOTE]
 > Azure Machine Learning 僅支援在 VSTS 中建立的 Git 存放庫。
@@ -148,7 +151,7 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 > 如果您收到錯誤訊息「存放庫 URL 可能無效或使用者可能沒有存取權」，您可以在 VSTS (在_安全性_、_新增個人存取權杖_功能表底下) 中建立安全性權杖，並在建立專案時，使用 `--vststoken` 引數。 
 
 ### <a name="sample_create"></a>從範例建立新專案
-在此範例中，我們會使用範例專案作為範本來建立新專案。
+在此範例中，您會使用範例專案作為範本來建立新專案。
 
 ```azure-cli
 # List the project samples, find the Classifying Iris sample
@@ -163,7 +166,7 @@ az ml project create --name <project name> --workspace <workspace name> --accoun
 下列步驟假設您具有包含 Iris 範例的專案 (請參閱[從線上範例建立新專案](#sample_create))。
 
 ### <a name="prepare-your-environment"></a>準備您的環境 
-對於 Iris 範例，我們需要安裝 matplotlib。
+對於 Iris 範例，您必須安裝 matplotlib。
 
 ```azure-cli
 $ pip install matplotlib
@@ -192,7 +195,7 @@ $ az ml history list -o table
 執行上述命令會顯示屬於此專案的所有執行清單。 您也可以看到精確度和正規化速率指標也一併列出。 這可以輕鬆地從清單中找出最佳執行。
 
 ## <a name="step-5a-view-attachment-created-by-a-given-run"></a>步驟 5.a 檢視由特定執行建立的附件 
-若要檢視特定執行相關聯的附件，我們可以使用執行歷程記錄的資訊命令。 從上述清單中尋找特定執行的執行識別碼。
+若要檢視特定執行相關聯的附件，您可以使用執行歷程記錄的資訊命令。 從上述清單中尋找特定執行的執行識別碼。
 
 ```azure-cli
 $ az ml history info --run <run id> --artifact driver_log
@@ -206,7 +209,7 @@ $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
 ## <a name="step-6-promote-artifacts-of-a-run"></a>步驟 6. 升級執行的構件 
-我們所做的其中一個執行有更好的 AUC；因此，我們想利用它建立一個評分 Web 服務，以部署到生產。 若要這麼做，我們必須先將構件升級至資產。
+其中一個執行有更好的 AUC；因此，這使用於建立一個評分 Web 服務以部署到生產時。 若要這麼做，您必須先將構件升級至資產。
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
@@ -215,14 +218,14 @@ $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name 
 這會在具有 `model.pkl.link` 檔案的專案目錄中建立 `assets` 資料夾。 此連結檔案是用來參考已升級的資產。
 
 ## <a name="step-7-download-the-files-to-be-operationalized"></a>步驟 7. 下載要實際運作的檔案
-我們現在需要下載升級的模型，讓我們能夠使用這些檔案來建立預測 Web 服務。 
+下載升級的模型，您即可使用這些檔案來建立預測 Web 服務。 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## <a name="step-8-setup-your-model-management-environment"></a>步驟 8。 設定您的模型管理環境 
-我們會建立一個環境以部署 Web 服務。 我們可以使用 Docker 在本機電腦上執行 Web 服務。 或將其部署至 ACS 叢集，以進行可高度調整的作業。 
+## <a name="step-8-set-up-your-model-management-environment"></a>步驟 8。 設定您的模型管理環境 
+建立一個環境以部署 Web 服務。 您可以使用 Docker 在本機電腦上執行 Web 服務。 或將其部署至 ACS 叢集，以進行可高度調整的作業。 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -239,14 +242,14 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 ```
 
 ## <a name="step-10-create-a-web-service"></a>步驟 10. 建立 Web 服務
-然後，建立 Web 服務，使用我們部署的模型傳回預測。 
+建立 Web 服務，以使用您部署的模型傳回預測。 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## <a name="step-10-run-the-web-service"></a>步驟 10. 執行 Web 服務
-使用來自上一步驟之輸出的 Web 服務識別碼，我們可以呼叫 Web 服務並進行測試。 
+## <a name="step-11-run-the-web-service"></a>步驟 11. 執行 Web 服務
+使用來自上一步驟之輸出的 Web 服務識別碼，呼叫 Web 服務並進行測試。 
 
 ```azure-cli
 # Get web service usage infomration
@@ -256,22 +259,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## <a name="deleting-all-the-resources"></a>刪除所有資源 
-刪除我們建立的所有資源以完成本教學課程，除非您想要繼續進行此作業！ 
+## <a name="step-12-deleting-all-the-resources"></a>步驟 12. 刪除所有資源 
+刪除所有已建立的資源以完成本教學課程，除非您想要繼續進行此作業。 
 
-若要這麼做，只需刪除包含所有資源的資源群組即可。 
+若要這麼做，請刪除包含資源的資源群組。 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已經了解如何使用 Azure Machine Learning 預覽功能以 
+在本教學課程中，您已經了解如何使用 Azure Machine Learning 來： 
 > [!div class="checklist"]
 > * 設定測試帳戶並建立工作區
 > * 建立專案
 > * 將實驗提交至多個計算目標
 > * 升級並註冊定型模型
 > * 為模型管理建立模型管理帳戶
-> * 建立部署 Web 服務的環境
+> * 建立一個環境以供部署 Web 服務
 > * 部署 Web 服務並評分新資料

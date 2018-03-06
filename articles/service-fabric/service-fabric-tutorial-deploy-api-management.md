@@ -1,6 +1,6 @@
 ---
 title: "整合 Azure Service Fabric 與 API 管理 | Microsoft Docs"
-description: "了解如何快速開始使用 Azure API 管理與 Service Fabric。"
+description: "在本教學課程中，您會了解如何快速開始使用 Azure API 管理與 Service Fabric。"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>使用 Service Fabric 部署 API 管理
+# <a name="tutorial-deploy-api-management-with-service-fabric"></a>教學課程：使用 Service Fabric 部署 API 管理
 本教學課程是一個系列的第四部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 中，閘道可以是為流量輸入設計的任何無狀態服務，例如 ASP.NET Core 應用程式、事件中樞、IoT 中樞或 Azure API 管理。 
 
 本教學課程示範如何使用 Service Fabric 來設定 [Azure API 管理](../api-management/api-management-key-concepts.md)，以將流量路由傳送至 Service Fabric 中的後端服務。  當您完成時，就已將 API 管理部署至 VNET，已設定 API 作業來將流量傳送到後端無狀態服務。 若要深入了解搭配 Service Fabric 的「Azure API 管理」案例，請參閱[概觀](service-fabric-api-management-overview.md)一文。

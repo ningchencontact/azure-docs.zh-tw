@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/21/2018
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. 選取清單中您想要的項目，然後按一下 [下載]。 這會開始下載您所選項目的 VM 映像。 下載時間會有所不同。
+5. 選取清單中您想要的項目，然後按一下 [下載]。 您所選項目的 VM 映像會開始下載。 下載時間會有所不同。
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/21/2018
 
 1. 以系統管理員身分開啟 PowerShell 主控台，然後[安裝 Azure Stack 特有的 PowerShell 模組](azure-stack-powershell-install.md)。 請確定您已安裝 **PowerShell 1.2.11 版或更高版本**。  
 
-2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要這麼做，請執行未使用任何參數的 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。  
+2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行未使用任何參數的 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。  
 
 3. 如果您有多個訂用帳戶，請執行下列命令以選取您用於註冊的訂用帳戶：  
 
@@ -75,16 +75,16 @@ ms.lasthandoff: 02/21/2018
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/21/2018
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ ms.lasthandoff: 02/21/2018
 
    ![Azure Marketplace 項目快顯視窗](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. 選取您想要下載的映像 (按住 Ctrl 鍵即可選取多個映像) 並記下映像版本，您將使用此版本在下一節中匯入映像 > 按一下 [確定] > 按一下 [是] 以接受法律條款。 您也可以使用 [新增條件] 選項來篩選映像清單。 視映像的大小而定，下載需要一些時間。 下載映像後，可以在您先前提供的目的地路徑中取得該映像。 此下載包含 Azpkg 格式的 VHD 檔案和資源庫項目。  
+7. 選取您想要下載的映像，並記下映像版本。 您可以按住 Ctrl 鍵來選取多個映像。 您可以使用映像版本，在下一節中匯入映像。  接著，按一下 [確定]，然後按一下 [是] 接受法律條款。 您也可以使用 [新增條件] 選項來篩選映像清單。 
+
+   視映像的大小而定，下載需要一些時間。 下載映像後，可以在您先前提供的目的地路徑中取得該映像。 此下載包含 Azpkg 格式的 VHD 檔案和資源庫項目。
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>匯入映像並將它發佈至 Azure Stack Marketplace
 
-1. 下載映像和資源庫套件之後，將它們及 AzureStack-Tools-vnext 資料夾中的內容儲存到卸除式磁碟機，並且複製到 Azure Stack 環境 (您可以將它複製到本機任何位置，例如:"C:\MarketplaceImages")。   
+1. 下載映像和資源庫套件之後，將它們及 AzureStack-Tools-master 資料夾中的內容儲存到卸除式磁碟機，並且複製到 Azure Stack 環境 (您可以將它複製到本機任何位置，例如:"C:\MarketplaceImages")。     
 
 2. 匯入映像之前，您必須使用[設定 Azure Stack 操作人員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)中所述的步驟來連線到 Azure Stack 操作人員的環境。  
 
-3. 使用新增 Add-AzsVMImage Cmdlet 將映像匯入至 Azure Stack。 使用此 Cmdlet 時，務必以您所匯入映像的值，取代 publisher、offer 及其他參數值。 您可以從先前下載之 Azpkg 檔案的 imageReference 物件中取得映像的 “publisher”、“offer”和 “sku” 值，以及從上一節中的步驟 6 取得 “version” 版。
+3. 使用新增 Add-AzsVMImage Cmdlet 將映像匯入至 Azure Stack。 使用此 Cmdlet 時，務必以您所匯入映像的值，取代 publisher、offer 及其他參數值。 您可以從先前下載之 Azpkg 檔案的 imageReference 物件中取得映像的 publisher、offer和 sku 值，以及從上一節中的步驟 6 取得 version 版。
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ ms.lasthandoff: 02/21/2018
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

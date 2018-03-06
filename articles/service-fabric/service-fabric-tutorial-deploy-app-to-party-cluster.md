@@ -1,6 +1,6 @@
 ---
-title: "將 Azure Service Fabric 應用程式部署到合作對象叢集 | Microsoft Docs"
-description: "了解如何將應用程式部署到合作對象叢集。"
+title: "將 Azure Service Fabric 應用程式部署到叢集 | Microsoft Docs"
+description: "在本教學課程中，您會了解如何將應用程式部署到 Service Fabric 叢集。"
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>將應用程式部署到 Azure 中的合作對象叢集
-本教學課程是系列中的第二部分，示範如何部署 Azure Service Fabric 應用程式到 Azure 中的合作對象叢集。
+# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>教學課程：將應用程式部署到 Azure 中的 Service Fabric 叢集
+本教學課程是系列中的第二部分，示範如何將 Azure Service Fabric 應用程式部署到在 Azure 中執行的叢集。
 
 在教學課程系列的第二部分中，您將了解如何：
 > [!div class="checklist"]

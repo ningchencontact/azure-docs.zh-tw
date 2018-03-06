@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric 中之 ASP.NET Core 服務的監視和診斷 | Microsoft Docs"
-description: "了解如何設定 Azure Service Fabric ASP.NET Core 應用程式的監視和診斷。"
+description: "在本教學課程中，您會了解如何設定 Azure Service Fabric ASP.NET Core 應用程式的監視和診斷。"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>教學課程：監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 本教學課程是一個系列的第四部分。 其中會逐步設定使用 Application Insights 來監視和診斷 Service Fabric 叢集上執行的 ASP.NET Core 應用程式。 我們將從教學課程第一部分[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)中所開發的應用程式收集遙測資料。 
 
 在教學課程系列的第四部分，您將了解如何：

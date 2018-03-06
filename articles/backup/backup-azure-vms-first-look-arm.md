@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
@@ -239,7 +239,7 @@ ms.lasthandoff: 02/21/2018
 
     ![選取工作負載](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    選取的虛擬機器便會接受驗證。 如果沒看到應該要有的虛擬機器，請確認其是否位於和復原服務保存庫相同的 Azure 位置。 復原服務保存庫的位置會顯示在保存庫儀表板上。
+    選取的虛擬機器便會接受驗證。 如果沒看到應該要有的虛擬機器，請確認其位於和復原服務保存庫相同的 Azure 位置，且尚未受到保護。 復原服務保存庫的位置會顯示在保存庫儀表板上。
 
 6. 現在您已定義保存庫的所有設定，接下來在 [備份] 刀鋒視窗中按一下 [啟用備份]，以將原則部署至保存庫和 VM。 部署備份原則不會建立虛擬機器的初始復原點。
 

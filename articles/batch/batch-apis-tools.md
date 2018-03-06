@@ -2,17 +2,17 @@
 title: "適用於開發人員的 Azure Batch API 和工具 | Microsoft Docs"
 description: "了解可搭配 Azure Batch 服務用來開發解決方案的 API 和工具。"
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 10/12/2017
-ms.author: tamram
-ms.openlocfilehash: a17856013c8db2e671b8f5201fbcc9223953ab6f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 02/26/2018
+ms.author: danlep
+ms.openlocfilehash: 177601110dd7ec799dc4a350d1a8b88b9f6af4f1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 和工具的概觀
 
@@ -39,20 +39,22 @@ ms.lasthandoff: 10/20/2017
 | API | API 參考資料 | 下載 | 教學課程 | 程式碼範例 | 其他資訊 |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/A |- |- | [支援的版本](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[教學課程](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [版本資訊](http://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[教學課程](batch-python-tutorial.md)|[GitHub][api_sample_python] | [讀我檔案](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[教學課程](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [版本資訊](http://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[教學課程](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [讀我檔案](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[教學課程](batch-nodejs-get-started.md) |- | [讀我檔案](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[讀我檔案][api_sample_java] | [讀我檔案](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[讀我檔案][api_sample_java] | [讀我檔案](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>Batch 管理 API
 
-適用於 Batch 的 Azure Resource Manager API 會提供 Batch 帳戶的程式設計存取方式。 使用這些 API，您可以透過程式設計方式管理 Batch 帳戶、配額和應用程式套件。  
+適用於 Batch 的 Azure Resource Manager API 會提供 Batch 帳戶的程式設計存取方式。 使用這些 API，您可以透過 Microsoft.Batch 提供者，以程式設計方式管理 Batch 帳戶、配額、應用程式套件及其他資雲。  
 
 | API | API 參考資料 | 下載 | 教學課程 | 程式碼範例 |
 | --- | --- | --- | --- | --- |
-| **Batch Resource Manager REST** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Batch Resource Manager .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [教學課程](batch-management-dotnet.md) |[GitHub][api_sample_net] |
-
+| **Batch 管理 REST** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [教學課程](batch-management-dotnet.md) |[GitHub][api_sample_net] |
+| **Batch 管理 Python** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
+| **Batch 管理 Node.js** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
+| **Batch 管理 Java** |- |[Maven][api_java_mgmt_jar] |- |- |
 ## <a name="batch-command-line-tools"></a>Batch 命令列工具
 
 這些命令列工具可提供與 Batch 服務和 Batch 管理 API 相同的功能︰ 
@@ -76,22 +78,28 @@ ms.lasthandoff: 10/20/2017
 ## <a name="next-steps"></a>後續步驟
 
 * 請參閱 [適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，這是任何準備使用 Batch 的人員不可或缺的資訊。 本文包含 Batch 服務資源 (例如集區、節點、作業和工作) 的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。
-* [開始使用適用於 .NET 的 Azure Batch 程式庫](batch-dotnet-get-started.md) ，了解如何使用 C# 和 Batch .NET 程式庫，透過一般的批次工作流程來執行簡單的工作負載。 本文應該是您學習如何使用 Batch 服務的第一站。 [Python 版本](batch-python-tutorial.md)和 [Node.js](batch-nodejs-get-started.md) 版本的教學課程也會提供。
+* [開始使用適用於 .NET 的 Azure Batch 程式庫](tutorial-parallel-dotnet.md) ，了解如何使用 C# 和 Batch .NET 程式庫，透過一般的批次工作流程來執行簡單的工作負載。 也會提供 [Python 版本](tutorial-parallel-python.md)和 [Node.js 教學課程](batch-nodejs-get-started.md)。
 * 下載 [GitHub 上的程式碼範例][github_samples]，看看 C# 和 Python 如何與 Batch 相互作用，以排程和處理範例工作負載。
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[api_java]: http://azure.github.io/azure-sdk-for-java/
+[api_java]: /java/api/overview/azure/batch/clientlibrary:
+[api_java_mgmt]: /java/api/overview/azure/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_net]: /dotnet/api/overview/azure/batch/client
+[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_net]: /dotnet/api/overview/azure/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
 [api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
-[api_nodejs]: /nodejs/api/overview/azure/batch
+[api_nodejs]: /javascript/api/overview/azure/batch/client
+[api_nodejs_mgmt]: /javascript/api/overview/azure/batch/management
 [api_nodejs_npm]: https://www.npmjs.com/package/azure-batch
-[api_python]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html
+[api_nodejs_mgmt_npm]: https://www.npmjs.com/package/azure-arm-batch
+[api_python]: /python/api/overview/azure/batch/client
+[api_python_mgmt]: /python/api/overview/azure/batch/management
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
+[api_python_mgmt_pypi]: https://pypi.python.org/pypi/azure-mgmt-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/

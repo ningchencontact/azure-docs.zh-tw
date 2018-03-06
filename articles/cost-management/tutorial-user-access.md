@@ -1,22 +1,22 @@
 ---
-title: "在 Azure 成本管理中指派存取權 | Microsoft Docs"
-description: "透過定義實體存取層級的使用者帳戶，指派成本管理資料的存取權。"
+title: "教學課程 - 在 Azure 成本管理中指派存取權 | Microsoft Docs"
+description: "在本教學課程中，您會了解如何透過定義實體存取層級的使用者帳戶，指派成本管理資料的存取權。"
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
+# <a name="tutorial-assign-access-to-cost-management-data"></a>教學課程：指派成本管理資料的存取權
 
 成本管理資料的存取權是由使用者或實體管理所提供。 Cloudyn 使用者帳戶可決定「實體」和系統管理功能的存取權。 存取權的類型有兩種：系統管理員和使用者。 除非依照使用者進行修改，否則系統管理員存取權允許使用者無限制使用 Cloudyn 入口網站中的所有功能，包括：使用者管理、收件者清單管理，以及所有實體資料的根實體存取權。 使用者存取權主要可供使用者檢視報告，以及使用其擁有的實體資料存取權來建立報告。
 
@@ -29,7 +29,12 @@ ms.lasthandoff: 02/01/2018
 > * 建立具有使用者存取權的使用者
 > * 管理實體
 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
+## <a name="prerequisites"></a>先決條件
+
+- 您必須具有 Azure 帳號。
+- 您必須有 Azure 成本管理的試用版註冊或付費訂用帳戶。
 
 ## <a name="create-a-user-with-admin-access"></a>建立具有系統管理員存取權的使用者
 
@@ -83,7 +88,7 @@ ms.lasthandoff: 02/01/2018
 > * 建立具有使用者存取權的使用者
 > * 管理實體
 
-前進到下一個教學課程，以了解如何使用歷程記錄資料預測花費。
+若尚未針對您的帳戶啟用 Azure Resource Manager API 存取權，請繼續進行下列文章。
 
 > [!div class="nextstepaction"]
-> [測未來花費](tutorial-forecast-spending.md)
+> [啟動 Azure 訂用帳戶與帳戶](activate-subs-accounts.md)

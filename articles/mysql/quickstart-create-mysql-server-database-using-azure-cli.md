@@ -1,21 +1,21 @@
 ---
-title: "快速入門：建立 Azure Database for MySQL 伺服器 - Azuer CLI | Microsoft Docs"
+title: "快速入門：建立適用於 MySQL 的 Azure 資料庫伺服器 - Azure CLI"
 description: "本快速入門說明如何使用 Azure CLI 在 Azure 資源群組中建立 Azure Database for MySQL 伺服器。"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: aca5d33adda703f3cd50e940ee43bb0624e179a1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 建立 Azure Database for MySQL 伺服器
 本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
@@ -40,13 +40,18 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>新增延伸模組
+使用下列命令，新增已更新的適用於 MySQL 的 Azure 資料庫管理擴充功能：
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-mysql-server"></a>建立適用於 MySQL 的 Azure 資料庫伺服器
 使用 **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)** 命令來建立「適用於 MySQL 的 Azure 資料庫」伺服器。 一部伺服器可以管理多個資料庫。 一般而言，每個專案或每個使用者會使用個別的資料庫。
 
-下列範例會在資源群組 `myresourcegroup` 的 `westus` 中建立名稱為 `myserver4demo` 的「適用於 MySQL 的 Azure 資料庫」伺服器。 此伺服器具有一個名為 `myadmin` 且密碼為 `Password01!` 的系統管理員登入。 建立的伺服器為 [基本] 效能層級，並有 **50** 個計算單位在伺服器中的所有資料庫之間共用。 您可以視應用程式需求而定，相應增加或減少計算和儲存體規模。
-
+下列範例會使用伺服器管理員登入 `myadmin` 在 `myresourcegroup` 資源群組中建立名為 `mydemoserver` 的伺服器 (位於美國西部)。 這是**第 4 代****一般用途**伺服器，其具有 2 個**虛擬核心**。 伺服器的名稱會對應至 DNS 名稱，因此必須是 Azure 中全域唯一的。 將 `<server_admin_password>` 替換成您自己的值。
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
 ## <a name="configure-firewall-rule"></a>設定防火牆規則
@@ -55,15 +60,22 @@ az mysql server create --resource-group myresourcegroup --name myserver4demo --l
 下列範例會建立適用於預先定義之位址範圍的防火牆規則，在此範例中，這是整個可能的 IP 位址範圍。
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
+允許所有的 IP 位址並不安全。 我們為了簡化而提供這個範例，但在真實案例中，您必須知道要為您的應用程式和使用者新增的精確 IP 位址範圍。 
+
+> [!NOTE]
+> Azure Database for MySQL 的連線透過連接埠 3306 進行通訊。 如果您嘗試從公司網路內進行連線，可能不允許透過連接埠 3306 的輸出流量。 若是如此，除非 IT 部門開啟連接埠 3306，否則您無法連線到您的伺服器。
+> 
+
+
 ## <a name="configure-ssl-settings"></a>進行 SSL 設定
 預設會強制執行您的伺服器與用戶端應用程式之間的 SSL 連線。 此預設值可藉由加密透過網際網路的資料流，確保「移動中」資料的安全性。 為了讓本快速入門更容易進行，請停用您伺服器的 SSL 連線。 不建議對生產伺服器停用 SSL。 如需詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。
 
 下列範例會停用在 MySQL 伺服器上強制執行 SSL。
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>取得連線資訊
@@ -71,31 +83,36 @@ az mysql server firewall-rule create --resource-group myresourcegroup --server m
 若要連線到您的伺服器，您必須提供主機資訊和存取認證。
 
 ```azurecli-interactive
-az mysql server show --resource-group myresourcegroup --name myserver4demo
+az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 結果會採用 JSON 格式。 請記下 **fullyQualifiedDomainName** 和 **administratorLogin**。
 ```json
 {
   "administratorLogin": "myadmin",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
   "location": "westus",
-  "name": "myserver4demo",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "MYSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforMySQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "5.7"
 }
 ```
 
@@ -106,7 +123,7 @@ az mysql server show --resource-group myresourcegroup --name myserver4demo
 
 1. 使用 **mysql** 命令列工具連線到伺服器︰
 ```azurecli-interactive
- mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 2. 檢視伺服器狀態：
@@ -116,7 +133,7 @@ az mysql server show --resource-group myresourcegroup --name myserver4demo
 如果一切順利，命令列工具應輸出下列文字︰
 
 ```dos
-C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -141,7 +158,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
+Connection:             mydemoserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -169,9 +186,9 @@ mysql>
 |---|---|---|
 |   連線名稱 | 我的連線 | 指定此連線的標籤 (這可以是任何項目) |
 | 連線方式 | 選擇標準 (TCP/IP) | 使用 TCP/IP 通訊協定來連線到 MySQL> 的 Azure 資料庫 |
-| 主機名稱 | myserver4demo.mysql.database.azure.com | 您先前記下的伺服器名稱。 |
+| 主機名稱 | mydemoserver.mysql.database.azure.com | 您先前記下的伺服器名稱。 |
 | Port | 3306 | 會使用 MySQL 的預設連接埠。 |
-| 使用者名稱 | myadmin@myserver4demo | 先前記下的伺服器管理員登入。 |
+| 使用者名稱 | myadmin@mydemoserver | 先前記下的伺服器管理員登入。 |
 | 密碼 | **** | 使用您稍早設定的管理帳戶密碼。 |
 
 按一下 [測試連線] 以測試所有參數是否都已設定正確。
@@ -182,6 +199,11 @@ mysql>
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
+```
+
+若您只想要刪除一個新建立的伺服器，則可執行 [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) 命令。
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="next-steps"></a>後續步驟

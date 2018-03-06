@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5398605f98c9e115255057cfad0c4c2c2e14737c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -387,6 +387,7 @@ Windows Server 容器 (處理序隔離模式) 可能無法與較新版本的作�
 ```xml
 <ContainerHostPolicies> 
          <ImageOverrides> 
+           <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
@@ -406,6 +407,7 @@ WIndows Server 2016 的組建版本為 14393，而 Windows Server 1709 版本的
 
 如果虛擬機器上的基礎作業系統是組建 16299 (1709 版本)，Service Fabric 會挑選對應至該版 Windows Server 的容器映像。  如果未標記的容器映像也隨著已標記的容器映像一起提供，則 Service Fabric 會將未標記的映像視為可跨版本使用的其中一個容器映像。 建議您明確地標記容器映像。
 
+未標記的容器映會覆寫 ServiceManifest 中提供的映像。 因此映像 "myregistry.azurecr.io/samples/helloworldappDefault" 會覆寫 ServiceManifest 中的 ImageName "myregistry.azurecr.io/samples/helloworldapp"。
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>完整範例 Service Fabric 應用程式和服務資訊清單
 以下是本文中使用的完整服務和應用程式資訊清單。
@@ -430,6 +432,9 @@ WIndows Server 2016 的組建版本為 14393，而 Windows Server 1709 版本的
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
+        <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->    

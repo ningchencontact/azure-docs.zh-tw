@@ -1,6 +1,6 @@
 ---
 title: "建立 Azure Service Fabric Windows 容器應用程式 | Microsoft Docs"
-description: "在 Azure Service Fabric 上建立第一個 Windows 容器應用程式。"
+description: "在本教學課程中，您會在 Azure Service Fabric 上建立第一個 Windows 容器應用程式。"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Windows 容器應用程式
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入門：在 Azure 上部署 Service Fabric Windows 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
 
 在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本快速入門示範如何在 Service Fabric 應用程式中部署預先建立的 Docker 容器映像。 當您完成時，您會有執行中的 Windows Server 2016 Nano Server 和 IIS 容器。 本快速入門說明如何部署 Windows 容器，請閱讀[本快速入門](service-fabric-quickstart-containers-linux.md)以部署 Linux 容器。
@@ -48,21 +48,25 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 
 選取 [Service Fabric 應用程式]，將它命名為 "MyFirstContainer"，然後按一下 [確定]。
 
-從 [服務範本] 的清單中選取 [容器]。
+從 [裝載的容器和應用程式] 範本選取 [容器]。
 
 在 [映像名稱] 中，輸入 "microsoft/iis:nanoserver"、[Windows Server Nano Server 和 IIS 基底映像](https://hub.docker.com/r/microsoft/iis/)。 
 
 將您的服務命名為 "MyContainerService"，然後按一下 [確定]。
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>設定通訊和容器連接埠對主機連接埠的對應
-此服務需要端點進行通訊。  您現在可將通訊協定、連接埠和類型新增至 ServiceManifest.xml 檔案中的 `Endpoint`。 在此快速入門中，容器化服務會接聽連接埠 80： 
+此服務需要端點進行通訊。  在此快速入門中，容器化服務會接聽連接埠 80。  在 [方案總管] 中，開啟 *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*。  更新 ServiceManifest.xml 檔案中現有的 `Endpoint`，並新增通訊協定、連接埠及 uri 配置： 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 提供 `UriScheme`，就會自動向「Service Fabric 命名」服務註冊容器端點以供搜尋。 本文結尾會提供完整的 ServiceManifest.xml 範例檔案。 
 
-在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中指定 `PortBinding`，以設定容器連接埠與主機連接埠的對應。  在本快速入門中，`ContainerPort` 為 80，而 `EndpointRef` 是 "MyContainerServiceTypeEndpoint" (服務資訊清單中所定義的端點)。  通訊埠 80 上服務的連入要求會對應到容器上的連接埠 80。  
+設定容器連接埠對主機的連接埠對應，以便讓通訊埠 80 上服務的連入要求對應到容器上的連接埠 80。  在 [方案總管] 中，開啟 *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* 並在 `ContainerHostPolicies` 中指定 `PortBinding` 原則。  在本快速入門中，`ContainerPort` 為 80，而 `EndpointRef` 是 "MyContainerServiceTypeEndpoint" (服務資訊清單中所定義的端點)。    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 本文結尾會提供完整的 ApplicationManifest.xml 範例檔案。
 
 ## <a name="create-a-cluster"></a>建立叢集
-若要將應用程式部署到 Azure 中的叢集，您可以加入合作對象叢集，或[在 Azure 上建立自己的叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
-
-合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 叢集會針對節點對節點和用戶端對節點安全性，使用單一的自我簽署憑證。 
+若要將應用程式部署到 Azure 中的叢集，您可以加入合作對象叢集。 合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 叢集會針對節點對節點和用戶端對節點安全性，使用單一的自我簽署憑證。 
 
 登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 後續步驟中會使用該憑證和 [連線端點] 值。
 
@@ -108,7 +110,7 @@ Thumbprint                                Subject
 
 以滑鼠右鍵按一下 [方案總管] 中的 **MyFirstContainer**，並選擇 [發佈]。 [發行] 對話方塊隨即出現。
 
-將合作對象叢集頁面上的 [連線端點] 複製到 [連線端點] 欄位。 例如： `zwin7fh14scd.westus.cloudapp.azure.com:19000`。 按一下 [進階連線參數] 並填入下列資訊。  *FindValue* 和 *ServerCertThumbprint* 值必須符合前一個步驟中安裝的憑證指紋。 
+將合作對象叢集頁面上的 [連線端點] 複製到 [連線端點] 欄位。 例如： `zwin7fh14scd.westus.cloudapp.azure.com:19000`。 按一下 [進階連線參數] 並確認連線參數資訊。  *FindValue* 和 *ServerCertThumbprint* 值必須符合前一個步驟中安裝的憑證指紋。 
 
 ![[發佈] 對話方塊](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Thumbprint                                Subject
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

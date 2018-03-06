@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f908b874a8205c2b8738deeccb3d7dd38b9833fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
@@ -97,7 +97,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 ## <a name="next-steps"></a>後續步驟
 
-您已透過 Visual Studio，使用簡單的 HTTP 觸發函式建立 C# 函式應用程式。 
+您已透過 Visual Studio，使用簡單的 HTTP 觸發函式來建立及發佈 C# 函式應用程式。 
 
 + 若要了解如何設定專案以支援其他類型的觸發程序和繫結，請參閱 [Azure Functions Tools for Visual Studio](functions-develop-vs.md) 中的[設定專案以進行本機開發](functions-develop-vs.md#configure-the-project-for-local-development)一節。
 + 若要深入了解如何使用 Azure Functions Core Tools 進行本機測試和偵錯，請參閱[在本機編碼和測試 Azure Functions](functions-run-local.md)。 

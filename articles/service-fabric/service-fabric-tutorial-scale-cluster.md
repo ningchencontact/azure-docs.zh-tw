@@ -1,6 +1,6 @@
 ---
 title: "調整 Azure Service Fabric 叢集 | Microsoft Docs"
-description: "了解如何快速調整 Service Fabric 叢集。"
+description: "在本教學課程中，您會了解如何快速調整 Service Fabric 叢集。"
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>調整 Service Fabric 叢集
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>教學課程：調整 Service Fabric 叢集
 
 本教學課程為系列課程的第二個部分，解說如何相應放大和縮小現有叢集。 完成時，您將知道如何調整叢集，以及如何清除任何剩餘的資源。
 

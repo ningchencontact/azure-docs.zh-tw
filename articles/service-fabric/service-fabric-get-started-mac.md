@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
 
 * 至少 4 GB 的 RAM。
 * 最新版 [Docker](https://www.docker.com/)。
-* 存取 Service Fabric [onebox Docker 容器映像](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)。
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>建立本機容器並設定 Service Fabric
 若要設定本機的 Docker 容器，並在容器上執行 Service Fabric 叢集，請執行下列步驟：
 
-1. 從 Docker 中樞存放庫提取 Service Fabric onebox 容器映像：
+1. 從 Docker Hub 存放庫提取 Service Fabric onebox 容器映像。 根據預設，這會提取包含最新版 Service Fabric 的映像。 如需特定版本，請造訪 [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 頁面。
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. 使用下列設定更新您主機上的 Docker 精靈設定，然後重新啟動 Docker 精靈： 
@@ -71,14 +70,14 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
 3. 啟動 Service Fabric onebox 容器執行個體，然後使用您在第一個步驟中提取的映像：
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >為容器執行個體提供名稱，以便能以更容易辨識的方式來處理。 
     >
     >如果您的應用程式正在特定連接埠上接聽，這些連接埠就必須使用額外的 `-p` 標籤來加以指定。 例如，如果您的應用程式正在連接埠 8080 上接聽，請新增下列 `-p` 標籤：
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. 在互動式 SSH 模式中登入 Docker 容器：
@@ -160,7 +159,7 @@ Azure Service Fabric 會針對 Java IDE 提供 Eclipse Neon 的外掛程式。 �
 最後一個步驟是使用與您的主機共用的路徑將容器具現化。 外掛程式需要這種類型的具現化，才能在您的 Mac 上使用 Docker 容器。 例如︰
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 屬性的定義如下：

@@ -1,6 +1,6 @@
 ---
 title: "使用持續整合 (Team Services) 部署 Azure Service Fabric 應用程式 |Microsoft Docs"
-description: "了解如何使用 Visual Studio Team Services 設定 Service Fabric 應用程式的持續整合和部署。  將應用程式部署到 Azure 中的 Service Fabric 叢集。"
+description: "在本教學課程中，您會了解如何使用 Visual Studio Team Services 設定 Service Fabric 應用程式的持續整合和部署。  將應用程式部署到 Azure 中的 Service Fabric 叢集。"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
 本教學課程是系列中的第三部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
 
 在系列的第三部分中，您將了解如何：

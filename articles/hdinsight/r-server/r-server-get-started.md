@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>開始在 HDInsight 中使用 R 伺服器
 
@@ -61,7 +61,7 @@ Azure HDInsight 包含要整合至 HDInsight 叢集的 R 伺服器選項。 此�
 4. 選取 [叢集類型] 以開啟 [叢集組態] 窗格。 在 [叢集組態] 窗格中，選取下列選項︰
 
     * **叢集類型**：選取 [R 伺服器]。
-    * **版本**︰選取要安裝在叢集上的 R 伺服器版本。 目前可用的版本是 **R 伺服器 9.1 (HDI 3.6)**。 R 伺服器可用版本的版本資訊可在 [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) 上取得。
+    * **版本**︰選取要安裝在叢集上的 R 伺服器版本。 目前可用的版本是 **R 伺服器 9.1 (HDI 3.6)**。 R 伺服器可用版本的版本資訊可在 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91) 上取得。
     * **R 伺服器的 R Studio Community 版本**︰邊緣節點上依預設會安裝這個以瀏覽器為基礎的 IDE。 如果您不想加以安裝，請清除此核取方塊。 如果您選擇加以安裝，則在叢集建立後，您將可在叢集的入口網站應用程式窗格中找到用來存取 RStudio 伺服器登入的 URL。
     * 將其他選項保留為預設值，然後使用 [選取] 按鈕儲存叢集類型。
 
@@ -102,7 +102,7 @@ Azure HDInsight 包含要整合至 HDInsight 叢集的 R 伺服器選項。 此�
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      或者，在用戶端上將私密金鑰檔案納入為 R 伺服器的 Hadoop Spark 計算內容定義的一部分。 如需詳細資訊，請參閱[建立 Spark 的計算內容](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)。
+      或者，在用戶端上將私密金鑰檔案納入為 R 伺服器的 Hadoop Spark 計算內容定義的一部分。 如需詳細資訊，請參閱[建立 Spark 的計算內容](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark)。
 
 8. 快速建立會讓您切換至 [儲存體] 窗格。 在此處，您可以選取叢集所使用之 HDFS 檔案系統的主要位置所要使用的儲存體帳戶設定。 選取新的或現有的 Azure 儲存體帳戶，或選取現有的 Azure Data Lake Store 帳戶。
 
@@ -379,7 +379,7 @@ Azure HDInsight 包含要整合至 HDInsight 叢集的 R 伺服器選項。 此�
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>從 Microsoft R Server 或 Microsoft R Client 的遠端執行個體使用 HDI 上的 R 伺服器
 
-您可以設定從桌上型電腦或膝上型電腦上執行的 Microsoft R Server 或 Microsoft R Client 遠端執行個體，來存取 HDI Hadoop Spark 計算內容。 如需詳細資訊，請參閱[建立 Spark 的計算內容](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md)中的＜使用 Microsoft R Server 作為 Hadoop 用戶端＞一節。 若要這樣做，請在膝上型電腦上定義 RxSpark 計算內容時指定下列選項︰hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript。 以下是範例：
+您可以設定從桌上型電腦或膝上型電腦上執行的 Microsoft R Server 或 Microsoft R Client 遠端執行個體，來存取 HDI Hadoop Spark 計算內容。 如需詳細資訊，請參閱[建立 Spark 的計算內容](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)中的＜使用 Microsoft R Server 作為 Hadoop 用戶端＞一節。 若要這樣做，請在膝上型電腦上定義 RxSpark 計算內容時指定下列選項︰hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript。 以下是範例：
 
 
     myNameNode <- "default"
@@ -705,7 +705,7 @@ R 伺服器 9.1 版所提供的功能，可讓您直接存取 Hive 和 Parquet �
     rxSparkConnect(reset = TRUE)
 
 
-在此階段中，運算化的設定已完成。 現在，您可以使用 R 用戶端上的 mrsdeploy 套件連線至邊緣節點上的運算化。 接著您即可開始使用其功能，例如[遠端執行](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution)和 [Web 服務](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette)。 您可能必須設定透過 SSH 登入的連接埠轉送通道，端視您的叢集是否設定在虛擬網路上而定。
+在此階段中，運算化的設定已完成。 現在，您可以使用 R 用戶端上的 mrsdeploy 套件連線至邊緣節點上的運算化。 接著您即可開始使用其功能，例如[遠端執行](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely)和 [Web 服務](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)。 您可能必須設定透過 SSH 登入的連接埠轉送通道，端視您的叢集是否設定在虛擬網路上而定。
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>虛擬網路上的 R 伺服器叢集
 

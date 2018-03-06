@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: a8af5fb2279f035d305ffc427ad831b0d5bf0cd4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
@@ -168,7 +168,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>從 Mac VPN 用戶端連線
 
-從 [網路] 對話方塊，找出您要使用的用戶端設定檔，然後按一下 [連線]。
+從 [網路] 對話方塊，找出您要使用的用戶端設定檔，指定 [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) 中的設定，然後按一下 [連線]。
 
   ![Mac 連線](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

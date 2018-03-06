@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -35,6 +35,9 @@ ms.lasthandoff: 02/22/2018
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="ide"></a>步驟 1：新增 Application Insights SDK
+
+> [!IMPORTANT]
+> 新增 Application Insights 的程序會因 ASP.NET 範本類型而異。 如果您使用 [空白] 或 [Azure 行動裝置應用程式] 範本，請選取 [專案] > [新增 Application Insights 遙測]。 如需其他所有 ASP.NET 範本，請參閱下面的指示。 
 
 在 [方案總管] 中以滑鼠右鍵按一下 Web 應用程式名稱，然後選擇 [設定 Application Insights]。
 

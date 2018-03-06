@@ -1,22 +1,22 @@
 ---
-title: "使用 Azure 成本管理來管理成本 | Microsoft Docs"
-description: "使用成本配置，以及回報和退款報表來管理成本。"
+title: "教學課程 - 使用 Azure 成本管理來管理成本 | Microsoft Docs"
+description: "在本教學課程中，您會了解如何使用成本配置以及回報和退款報告來管理成本。"
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>使用 Azure 成本管理來管理成本
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>教學課程：使用 Azure 成本管理來管理成本
 
 在 Cloudyn 的 Azure 成本管理中，您會透過以標記為基礎來配置成本的方式，來管理成本並產生回報報表。 成本配置的程序會將成本指派給已使用的雲端資源。 當所有的資源都搭配標記完成分類之後，成本便會被完全配置。 在成本完成配置之後，您可以透過儀表板和報表為使用者提供回報或退款。 不過，當您開始使用成本管理時，有許多資源可能會被取消標記或是無法標記。
 
@@ -27,6 +27,13 @@ ms.lasthandoff: 02/01/2018
 > [!div class="checklist"]
 > * 使用自訂標記來配置成本。
 > * 建立回報和退款報表。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+
+## <a name="prerequisites"></a>先決條件
+
+- 您必須具有 Azure 帳號。
+- 您必須有 Azure 成本管理的試用版註冊或付費訂用帳戶。
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>使用自訂標記來配置成本
 
@@ -122,7 +129,7 @@ Cloudyn 實體標記和您手動建立的標記會出現在所有成本報表中
 
 
 
-若要深入了解 Cloudyn 入門及其功能的使用方式，請參閱 Cloudyn 文件。
+請前進到下一個教學課程，以了解如何控制資料的存取。
 
 > [!div class="nextstepaction"]
-> [Cloudyn 文件](https://support.cloudyn.com/hc/)
+> [控制資料的存取](tutorial-user-access.md)

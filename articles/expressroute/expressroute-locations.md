@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2018
 ms.author: pareshmu
-ms.openlocfilehash: 828532dcb583dc46ecb5c9fc63e47a263ddc2a20
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fd549ff0e6753c854ce9d43cab8e3a672f6502f3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 02/11/2018
 | **[KPN](http://www.kpn.com/cloudconnect)** | 支援 | 支援 | 阿姆斯特丹 | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、拉斯維加斯、倫敦、紐波特、紐約、聖安東尼奧、聖保羅、西雅圖、矽谷、新加坡、東京、華盛頓特區 |
 | **LG CNS** |支援 |支援 |釜山、首爾 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、都柏林、香港、拉斯維加斯、倫敦、洛杉磯、墨爾本、邁阿密、紐約、魁北克市、聖安東尼奧、西雅圖、矽谷、新加坡、新加坡 2、雪梨、多倫多、華盛頓特區 |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、丹佛、都柏林、香港、拉斯維加斯、倫敦、洛杉磯、墨爾本、邁阿密、紐約、魁北克市、聖安東尼奧、西雅圖、矽谷、新加坡、新加坡 2、雪梨、多倫多、華盛頓特區 |
 | **MTN** |支援 |支援 |倫敦 |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |支援 |支援 |邁阿密、聖保羅 |
 | **[新一代資料](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |支援 |支援 |Newport(Wales) |

@@ -1,39 +1,39 @@
 ---
-title: "Azure CLI：還原「適用於 MySQL 的 Azure 資料庫」伺服器"
+title: "Azure CLI 指令碼 - 還原適用於 MySQL 的 Azure 資料庫伺服器"
 description: "此範例 Azure CLI 指令碼示範如何將「適用於 MySQL 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: ed04115ff7e6f83e0357f13d734e4be3738f4c6d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 6d23227640d4d5bb140aeff63663fe3b3cd92a4c
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 還原「適用於 MySQL 的 Azure 資料庫」伺服器
 此範例 CLI 指令碼會將單一「適用於 MySQL 的 Azure 資料庫」伺服器還原至先前的時間點。
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝並使用 CLI，此範例會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本執行 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以檢查版本。 請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli) 來安裝或升級 Azure CLI 版本。 
 
 ## <a name="sample-script"></a>範例指令碼
-在此範例指令碼中，請變更醒目提示的命令列以自訂系統管理員使用者名稱和密碼。 請以您自己的訂用帳戶識別碼取代用於 az monitor 命令中的訂用帳戶識別碼。
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=15-16 "Restore Azure Database for MySQL.")]
+在此範例指令碼中，請編輯醒目提示的命令列，將系統管理員使用者名稱和密碼更新為您自己的使用者名稱和密碼。 請以您自己的訂用帳戶識別碼取代 `az monitor` 命令中使用的訂用帳戶識別碼。
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=18-19 "Restore Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>清除部署
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+執行指令碼之後，請使用下列命令來移除資源群組及其相關聯的所有資源。 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/delete-mysql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>指令碼說明
-此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下表中簡述的命令：
 
 | **命令** | **注意事項** |
 |---|---|

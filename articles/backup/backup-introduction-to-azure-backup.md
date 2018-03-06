@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: a16db0f23f93083e9a17d2b12f9215a964e07c9a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -56,7 +56,7 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 | Azure 備份 (MARS) 代理程式 |<li>備份的檔案和資料夾儲存在實體或虛擬 Windows OS (VM 可以位於內部部署或 Azure 中)<li>不需任何個別的備份伺服器。 |<li>每天備份 3 次 <li>不會感知應用程式；僅有檔案、資料夾和磁碟區層級還原， <li>  不支援 Linux。 |<li>檔案、 <li>資料夾、 <li>系統狀態 |復原服務保存庫 |
 | System Center DPM |<li>應用程式感知快照集 (VSS)<li>具有隨時備份的彈性<li>復原細微度 (全部)<li>可以使用復原服務保存庫<li>Hyper-V 和 VMware VM 的 Linux 支援 <li>使用 DPM 2012 R2 備份並還原 VMware VM |無法備份 Oracle 工作負載。|<li>檔案、 <li>資料夾、<li> 磁碟區、 <li>VM、<li> 應用程式、<li> 工作負載 |<li>復原服務保存庫、<li> 本機連接的磁碟、<li>  磁帶 (僅限內部部署) |
 | Azure 備份伺服器 |<li>應用程式感知快照集 (VSS)<li>具有隨時備份的彈性<li>復原細微度 (全部)<li>可以使用復原服務保存庫<li>Hyper-V 和 VMware VM 的 Linux 支援<li>備份和還原 VMware VM <li>不需要 System Center 授權 |<li>無法備份 Oracle 工作負載。<li>一律需要即時 Azure 訂用帳戶<li>不支援磁帶備份 |<li>檔案、 <li>資料夾、<li> 磁碟區、 <li>VM、<li> 應用程式、<li> 工作負載 |<li>復原服務保存庫、<li> 本機連接的磁碟 |
-| Azure IaaS VM 備份 |<li>適用於 Windows/Linux 的原生備份<li>不需使用特定代理程式安裝<li>不需要備份基礎結構的網狀架構層級備份 |<li>VM 每天備份一次 <li>只在磁碟層級還原 VM<li>無法備份內部部署 |<li>VM、 <li>所有磁碟 (使用 PowerShell) |<p>復原服務保存庫</p> |
+| Azure IaaS VM 備份 |<li>應用程式感知快照集 (VSS)<li>適用於 Windows/Linux 的原生備份<li>不需使用特定代理程式安裝<li>不需要備份基礎結構的網狀架構層級備份 |<li>VM 每天備份一次 <li>只在磁碟層級還原 VM<li>無法備份內部部署 |<li>VM、 <li>所有磁碟 (使用 PowerShell) |<p>復原服務保存庫</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>每個元件的部署案例為何？
 | 元件 | 可以在 Azure 中部署嗎？ | 可以在內部部署嗎？ | 支援的目標儲存體 |
@@ -104,7 +104,7 @@ Azure 備份可保護進階儲存體 VM。 Azure 進階儲存體是一個以固�
 >
 
 ### <a name="restore-premium-storage-vms"></a>還原進階儲存體 VM
-進階儲存體 VM 可以還原至進階儲存體或一般儲存體。 將進階儲存體 VM 的復原點還原到進階儲存體是常見的還原程序。 不過，將進階儲存體 VM 的復原點還原至標準儲存體比較符合成本效益。 如果您需要 VM 檔案的子集，則可以使用此還原類型。
+進階儲存體 VM 可以還原至進階儲存體或標準儲存體。 將進階儲存體 VM 的復原點還原到進階儲存體是常見的還原程序。 不過，將進階儲存體 VM 的復原點還原至標準儲存體比較符合成本效益。 如果您需要 VM 檔案的子集，則可以使用此還原類型。
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>搭配使用受控磁碟 VM 與 Azure 備份
 Azure 備份可保護受控磁碟 VM。 受控磁碟可讓您免於管理虛擬機器的儲存體帳戶，並可大幅簡化 VM 佈建。

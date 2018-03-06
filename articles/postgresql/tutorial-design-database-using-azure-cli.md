@@ -1,23 +1,23 @@
 ---
-title: "使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫 | Microsoft Docs"
-description: "本教學課程說明如何使用 Azure CLI 來設計您的第一個「適用於 PostgreSQL 的 Azure 資料庫」。"
+title: "教學課程 - 使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫"
+description: "本教學課程說明如何使用 Azure CLI 來建立、設定及查詢您的第一個「適用於 PostgreSQL 的 Azure 資料庫」伺服器。"
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.openlocfilehash: 97299ae904115d08c5d03be38be263203552b84b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫 
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
 > [!div class="checklist"]
 > * 建立適用於 PostgreSQL 的 Azure 資料庫伺服器
@@ -45,12 +45,18 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>新增延伸模組
+使用下列命令，新增已更新的適用於 PostgreSQL 的 Azure 資料庫管理擴充功能：
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 使用 [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) 命令來建立[適用於 PostgreSQL 的 Azure 資料庫伺服器](overview.md)。 一個伺服器會包含一組以群組方式管理的資料庫。 
 
-下列範例會使用伺服器管理員登入 `mylogin` 在資源群組 `myresourcegroup` 中建立名為 `mypgserver-20170401` 的伺服器。 伺服器的名稱會對應至 DNS 名稱，因此必須是 Azure 中全域唯一的。 將 `<server_admin_password>` 替換成您自己的值。
+下列範例會使用伺服器管理員登入 `myadmin` 在資源群組 `myresourcegroup` 中建立名為 `mydemoserver` 的伺服器。 伺服器的名稱會對應至 DNS 名稱，因此必須是 Azure 中全域唯一的。 將 `<server_admin_password>` 替換成您自己的值。 這是第 4 代一般用途伺服器，其具有 2 個虛擬核心。
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -68,7 +74,7 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 若要限制只有您的網路才能存取 Azure PostgreSQL 伺服器，您可以將防火牆規則設定成只涵蓋公司的網路 IP 位址範圍。
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -79,31 +85,37 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 若要連線到您的伺服器，您必須提供主機資訊和存取認證。
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 結果會採用 JSON 格式。 請記下 **administratorLogin** 和 **fullyQualifiedDomainName**。
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
   "version": "9.6"
+
 }
 ```
 
@@ -115,10 +127,10 @@ az postgres server show --resource-group myresourcegroup --name mypgserver-20170
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  例如，下列命令會使用存取認證，連線到 PostgreSQL 伺服器 **mypgserver-20170401.postgres.database.azure.com** 上名為 **postgres** 的預設資料庫。 系統提示輸入密碼時，請輸入您選擇的 `<server_admin_password>`。
+  例如，下列命令會使用存取認證，連線到 PostgreSQL 伺服器 **mydemoserver.postgres.database.azure.com** 上名為 **postgres** 的預設資料庫。 系統提示輸入密碼時，請輸入您選擇的 `<server_admin_password>`。
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
 ```
 
 2.  連線到伺服器之後，在提示字元中建立空白資料庫：
@@ -174,20 +186,20 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>將資料庫還原至先前的時間點
-假設您不小心刪除了資料表。 這是您無法輕易復原的情況。 「適用於 PostgreSQL 的 Azure 資料庫」可讓您返回到任何時間點 (最長可達 7 天 (基本) 和 35 天 (標準))，並將此時間點還原到新資料庫。 您可以使用這個新的伺服器來復原已刪除的資料。 
+假設您不小心刪除了資料表。 這是您無法輕易復原的情況。 適用於 PostgreSQL 的 Azure 資料庫可讓您返回至伺服器上任何有備份的時間點 (取決於您設定的備份保留期限)，並將此時間點還原至新的伺服器。 您可以使用這個新的伺服器來復原已刪除的資料。 
 
 下列命令會將範例伺服器還原到新增資料表之前的時間點：
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 `az postgres server restore` 命令需要下列參數：
 | 設定 | 建議的值 | 說明  |
 | --- | --- | --- |
-| --resource-group |  myResourceGroup |  來源伺服器所在的資源群組。  |
-| --name | mypgserver-restored | 還原命令所建立之新伺服器的名稱。 |
+| resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
+| name | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 選取所要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可能會使用您自己的本地時區，例如 `2017-04-13T05:59:00-08:00`，或使用 UTC Zulu 格式 `2017-04-13T13:59:00Z`。 |
-| --source-server | mypgserver-20170401 | 要進行還原的來源伺服器之名稱或識別碼。 |
+| source-server | mydemoserver | 要進行還原的來源伺服器之名稱或識別碼。 |
 
 將伺服器還原至時間點會建立新的伺服器，也就是您所指定時間點的原始伺服器複本。 還原伺服器的位置與定價層值與來源伺服器相同。
 

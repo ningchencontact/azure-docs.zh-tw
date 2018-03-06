@@ -1,35 +1,29 @@
 ---
-title: "Azure 快速入門 - 使用 Azure CLI 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "快速了解使用 Azure CLI 在 Azure Blob 儲存體之間傳送物件"
+title: "Azure 快速入門 - 使用 Azure CLI 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
+description: "本快速入門中，您會使用 Azure CLI 來建立儲存體帳戶和容器。 然後，使用 CLI 將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Blob 儲存體之間傳送物件
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入門：使用 Azure CLI 上傳、下載及列出 Blob
 
-Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 此快速入門詳細說明使用 Azure CLI 在 Azure Blob 儲存體之間上傳和下載資料。
+Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 您可以在瀏覽器中使用它搭配 Azure Cloud Shell。 您也可以將它安裝在 macOS、Linux 或 Windows 上，並從命令列執行。 在本快速入門中，您會了解如何使用 Azure CLI 從 Azure Blob 儲存體上傳和下載資料。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來判斷您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 

@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
@@ -65,12 +65,9 @@ ms.lasthandoff: 01/23/2018
 驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
 此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
 
-如果不符合這些必要條件，將會出現橫幅讓您選擇啟用此解決方案。
+選擇 Log Analytics 工作區和自動化帳戶，然後按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
 
-![更新管理上架設定橫幅](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-若要啟用解決方案，請按一下橫幅。
-如果在驗證之後遺漏下列任何必要條件，就會自動新增：
+如果在上線期間遺漏下列任何必要條件，就會自動新增：
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區
 * [自動化](./automation-offering-get-started.md)

@@ -5,16 +5,16 @@ services: automation
 keywords: "清查、自動化、變更、追蹤"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 
@@ -41,35 +41,17 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
-您必須先在本教學課程中啟用 VM 的變更追蹤和清查。 如果您先前已啟用 VM 的另一個自動化解決方案，就不需要此步驟。
+您必須先在本教學課程中啟用 VM 的變更追蹤和清查。 如果您先前已針對 VM 啟用 [變更追蹤] 解決方案，就不需要此步驟。
 
 1. 在左側功能表上，選取 [虛擬機器]，然後從清單中選取 VM
 2. 在左側功能表的 [作業] 區段下，按一下 [清查]。 [啟用變更追蹤和清查] 頁面隨即開啟。
 
-會執行驗證來判斷此 VM 是否已啟用清查。
-驗證包括檢查 Log Analytics 工作區及連結的自動化帳戶，以及解決方法是否在工作區中。
+![清查上架設定橫幅](./media/automation-tutorial-installed-software/enableinventory.png)
+
+若要啟用此解決方案，請設定位置、Log Analytics 工作區，以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區用來收集功能和服務 (例如清查) 所產生的資料。
 工作區提供單一位置來檢閱和分析來自多個來源的資料。
-
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和混合式背景工作角色佈建。
-此代理程式用來與 VM 通訊，並取得已安裝軟體的相關資訊。
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
-
-如果不符合這些必要條件，將會出現橫幅讓您選擇啟用此解決方案。
-
-![清查上架設定橫幅](./media/automation-tutorial-installed-software/enableinventory.png)
-
-若要啟用解決方案，請按一下橫幅。
-如果在驗證之後遺漏下列任何必要條件，就會自動新增：
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區
-* [自動化](./automation-offering-get-started.md)
-* VM 上已啟用 [Hybrid Runbook 背景工作角色](./automation-hybrid-runbook-worker.md)
-
-[變更追蹤和清查] 畫面隨即開啟。 設定位置、記錄分析工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
-
-![啟用變更追蹤解決方案視窗](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。
 啟用解決方案之後，有關在 VM 上已安裝軟體和變更的相關資訊會流向 Log Analytics。
@@ -137,4 +119,4 @@ ConfigurationData
 如需深入了解，請繼續閱讀變更追蹤和清查解決方案的概觀。
 
 > [!div class="nextstepaction"]
-> [變更管理及清查解決方案](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [變更管理及清查解決方案](automation-change-tracking.md)
