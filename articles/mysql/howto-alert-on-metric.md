@@ -1,19 +1,19 @@
 ---
-title: "在 Azure 入口網站中設定適用於 MySQL 之 Azure 資料庫的計量警示 | Microsoft Docs"
+title: "在 Azure 入口網站中設定適用於 MySQL 的 Azure 資料庫的計量警示"
 description: "本文描述如何從 Azure 入口網站，設定和存取「適用於 MySQL 的 Azure 資料庫」的計量警示。"
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>使用 Azure 入口網站來設定適用於 MySQL 之 Azure 資料庫的計量警示 
 

@@ -1,19 +1,19 @@
 ---
-title: "適用於 MySQL 的 Azure 資料庫的伺服器記錄 | Microsoft Docs"
+title: "適用於 MySQL 的 Azure 資料庫中的伺服器記錄"
 description: "描述適用於 MySQL 的 Azure 資料庫中的可用記錄，以及啟用不同記錄層級的可用參數。"
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 13b30df82c1a6c4c45a621a1f7a40148a55a7648
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.date: 02/28/2018
+ms.openlocfilehash: ce6b6208b74063ea5d6e9868ca414f833b1a2045
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的伺服器記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。 
