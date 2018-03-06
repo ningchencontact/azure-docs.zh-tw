@@ -4,14 +4,14 @@ description: "提供 Azure Migrate 服務的概觀。"
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -48,7 +48,7 @@ Azure Migrate 可協助您：
 
 **屬性** | **詳細資料**
 --- | ---
-**目標位置** | 要作為移轉目的地的 Azure 位置。 根據預設，目標位置會設定為美國西部 2。 
+**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 30 個區域，包括澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、德國中部、德國東北部、美國東部 2、日本東部、日本西部、韓國中部、韓國南部、美國中北部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、美國中西部、西歐、印度西部、美國西部和美國西部 2。 根據預設，目標位置會設定為美國西部 2。 
 **儲存體備援** | Azure VM 會在移轉後使用的[儲存體備援](https://docs.microsoft.com/azure/storage/common/storage-redundancy)類型。 [本地備援儲存體 (LRS)] 是預設值。 請注意，Azure Migrate 只支援以受控磁碟為基礎的評估，而受控磁碟只支援 LRS，因此此屬性目前只有 LRS 選項。 
 **調整大小準則** | Azure Migrate 用於為 Azure 設定適當 VM 大小的準則。 您可以根據內部部署 VM 的「效能歷程記錄」調整大小，或將 Azure 的 VM 大小調整為「內部部署」，而不需考量效能歷程記錄。 預設值是根據效能調整大小。
 **定價方案** | 計算成本時，評估會考量您是否具有軟體保證，以及是否享有 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。 它也會考量您已註冊的 [Azure 優惠](https://azure.microsoft.com/support/legal/offer-details/)，並允許您指定該項優惠所能享有的任何訂用帳戶專屬折扣 (%)。 

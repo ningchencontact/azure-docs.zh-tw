@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d82232d590bcc5c578ebe8ed7c85d25aebcfe097
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>在 Azure Container Service (AKS) 中升級 Kubernetes
 
@@ -35,25 +35,25 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="get-cluster-versions"></a>取得叢集版本
 
-升級叢集之前，請使用 `az aks get-versions` 命令檢查哪些 Kubernetes 版本可進行升級。
+升級叢集之前，請使用 `az aks get-upgrades` 命令檢查哪些 Kubernetes 版本可進行升級。
 
-```azurecli-interactive
-az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
+```azurecli
+az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-您可以看到目前的節點版本是 `1.7.7`，有版本 `1.7.9`、`1.8.1` 和 `1.8.2` 可用。
+您可以看到目前的節點版本是 `1.7.9`，以及 upgrades 資料行下可用的升級版本。
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
--------  ---------------  ---------------  -------------------  ------------------  -------------------
-default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  ----------------------------------
+default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
 ```
 
 ## <a name="upgrade-cluster"></a>升級叢集
 
 使用 `az aks upgrade` 命令升級叢集節點。 下列範例將叢集更新為版本 `1.8.2`。
 
-```azurecli-interactive
+```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
@@ -117,7 +117,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
 
 您現在可以使用 `az aks show` 命令，確認升級是否成功。
 
-```azurecli-interactive
+```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 

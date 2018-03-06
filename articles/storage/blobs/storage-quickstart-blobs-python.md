@@ -1,22 +1,22 @@
 ---
-title: "Azure 快速入門 - 使用 Python 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "快速了解使用 Python 在 Azure Blob 儲存體之間傳送物件"
+title: "Azure 快速入門 - 使用 Python 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
+description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Python 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 02/22/2018
+ms.author: tamram
+ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>使用 Python 在 Azure Blob 儲存體之間傳送物件
+# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
+
 在本快速入門中，您會了解如何在 Azure Blob 儲存體容器中，使用 Python 上傳、下載及列出區塊 Blob。 
 
 ## <a name="prerequisites"></a>先決條件

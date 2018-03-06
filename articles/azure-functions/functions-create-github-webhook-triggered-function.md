@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>建立由 GitHub Webhook 所觸發的函式
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="configure-the-webhook"></a>設定 Webhook
 
-1. 在 GitHub 中，瀏覽至您自己的存放庫。 您也可以使用已分歧的任何存放庫。 如果您需要將存放庫分岔，請使用 <https://github.com/Azure-Samples/functions-quickstart>。
+1. 在 GitHub 中，瀏覽至您自己的存放庫。 您也可以使用已分歧的任何存放庫。 如果您需要讓存放庫產生分支，請使用 <https://github.com/Azure-Samples/functions-quickstart>。
 
 1. 按一下 [設定]，然後按一下 [Webhook] 和 [新增 Webhook]。
 
@@ -80,8 +80,8 @@ ms.lasthandoff: 12/14/2017
 | 設定 | 建議的值 | 說明 |
 |---|---|---|
 | **承載 URL** | 複製的值 | 使用 **</> 取得函式 URL** 所傳回的值。 |
-| **祕密**   | 複製的值 | 使用 **</> 取得 GitHub 祕密**所傳回的值。 |
 | **內容類型** | application/json | 函式預期使用 JSON 承載。 |
+| **祕密**   | 複製的值 | 使用 **</> 取得 GitHub 祕密**所傳回的值。 |
 | 事件觸發程序 | 讓我選取個別事件 | 我們只想對問題註解事件來觸發。  |
 | | 問題註解 |  |
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-您已建立函式，此函式會在收到 GitHub Webhook 所提出的要求時開始執行。
+您已建立函式，此函式會在收到來自 GitHub Webhook 的要求時觸發。
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

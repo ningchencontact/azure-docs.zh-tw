@@ -1,23 +1,21 @@
 ---
-title: "Azure 快速入門 - 使用 Azure 入口網站在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站在 Azure Blob 儲存體中上傳、下載及列出 blob。"
+title: "Azure 快速入門 - 使用 Azure 入口網站上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
+description: "本快速入門中，您會使用 Azure 入口網站來建立儲存體帳戶和容器。 然後，使用 Azure 入口網站將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: f647a5b78ee2fa362c4dea6ee9003ac56e0f7f7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure Blob 儲存體之間傳送物件
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站上傳、下載及列出 Blob
 
 在本快速入門中，您會了解如何使用 [Azure 入口網站](https://portal.azure.com/)在 Azure 儲存體中建立容器，並且在該容器中上傳和下載區塊 blob。
 

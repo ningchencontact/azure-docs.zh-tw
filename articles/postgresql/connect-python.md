@@ -1,24 +1,24 @@
 ---
-title: "從 Python 連線至 Azure Database for PostgreSQL | Microsoft Docs"
+title: "從 Python 連線至適用於 PostgreSQL 的 Azure 資料庫"
 description: "本快速入門提供 Python 程式碼範例，您可用於從 Azure Database for PostgreSQL 連線及查詢資料。"
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Python 連線及查詢資料
-本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。 如需 SDK 的詳細資訊，請參閱[適用於 Python SDK 參考的 Azure PostgreSQL 程式庫](/python/api/overview/azure/postgresql)文件和 [psycopg 範例](http://initd.org/psycopg/docs/usage.html)。
+本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。
 
 ## <a name="prerequisites"></a>先決條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -50,11 +50,10 @@ ms.lasthandoff: 02/14/2018
 取得連線到 Azure Database for PostgreSQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋 **mypgserver-20170401** (您建立的伺服器)。
-3. 按一下伺服器名稱 [mypgserver-20170401]。
-4. 選取伺服器的 [概觀] 頁面，然後記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
- ![Azure Database for PostgreSQL - 伺服器管理員登入](./media/connect-python/1-connection-string.png)
-5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+3. 按一下伺服器名稱。
+4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+ ![適用於 PostgreSQL 的 Azure 資料庫伺服器名稱](./media/connect-python/1-connection-string.png)
 
 ## <a name="how-to-run-python-code"></a>如何執行 Python 程式碼
 本文總共包含四個程式碼範例，各自會執行一項特定函數。 下列指示指出如何建立文字檔、插入程式碼區塊，然後儲存檔案，以便稍後執行。 請務必建立四個不同的檔案，每個程式碼區塊使用一個檔案。
@@ -75,8 +74,8 @@ ms.lasthandoff: 02/14/2018
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -119,8 +118,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -153,8 +152,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -183,8 +182,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"

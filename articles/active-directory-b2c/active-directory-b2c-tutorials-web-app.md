@@ -1,6 +1,6 @@
 ---
 title: "使用在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證的教學課程"
-description: "關於如何使用 Azure Active Directory B2C 在 ASP.NET Web 應用程式中登入和註冊使用者的教學課程。"
+description: "關於如何使用 Azure Active Directory B2C 為 ASP.NET Web 應用程式提供使用者登入的教學課程。"
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>教學課程：在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/09/2018
 
 2. 在 B2C 設定中按一下 [應用程式]，然後按一下 [新增]。
 
-    若要在您的租用戶中註冊範例 Web 應用程式，請使用下列設定。
+    若要在您的租用戶中註冊範例 Web 應用程式，請使用下列設定：
 
     ![新增應用程式](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -147,7 +147,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 範例方案中有兩個專案：
 
-**Web 應用程式範例應用程式 (TaskWebApp)：**用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則，以電子郵件地址來註冊或登入使用者。
+**Web 應用程式範例應用程式 (TaskWebApp)：**用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則來註冊或登入使用者。
 
 **Web API 範例應用程式 (TaskService)：**支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
 
@@ -178,7 +178,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 按 **F5** 鍵以啟動 Web 應用程式。 預設瀏覽器隨即啟動，並顯示本機網站位址 `https://localhost:44316/`。 
 
-範例應用程式支援註冊、登入、編輯設定檔和密碼重設。 以下說明使用者如何以電子郵件地址註冊並使用應用程式。 您可以自行嘗試其他案例。
+範例應用程式支援註冊、登入、編輯設定檔和密碼重設。 本教學課程特別說明使用者如何以電子郵件地址註冊並使用應用程式。 您可以自行探索其他案例。
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
@@ -205,4 +205,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 在本教學課程中，您已了解如何建立 Azure AD B2C 租用戶、建立原則，以及更新範例 Web 應用程式以使用您的 Azure AD B2C 租用戶。 請繼續執行下一個教學課程，以了解如何註冊、設定及呼叫受到 Azure AD B2C 租用戶保護的 ASP.NET Web API。
 
 > [!div class="nextstepaction"]
-> [使用 Azure Active Directory B2C 保護 ASP.NET Web API](active-directory-b2c-tutorials-web-api.md)
+> [教學課程：使用 Azure Active Directory B2C 保護 ASP.NET Web API](active-directory-b2c-tutorials-web-api.md)

@@ -1,6 +1,6 @@
 ---
 title: "升級 Azure Service Fabric 執行階段 | Microsoft Docs"
-description: "了解如何使用 PowerShell 來升級 Azure 裝載的 Service Fabric 叢集執行階段。"
+description: "在本教學課程中，您會了解如何使用 PowerShell 來升級 Azure 裝載的 Service Fabric 叢集執行階段。"
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>升級 Service Fabric 叢集的執行階段
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>教學課程：升級 Service Fabric 叢集的執行階段
 
 本教學課程是一系列教學課程中的第三部分，可示範如何升級 Azure Service Fabric 叢集上的 Service Fabric 執行階段。 這部分的教學課程是針對在 Azure 上執行的 Service Fabric 叢集所撰寫，並不適用於獨立的 Service Fabric 叢集。
 

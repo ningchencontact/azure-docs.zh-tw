@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
 
@@ -33,18 +33,19 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> 在 SQL Server 防火牆設定中，確定 [允許存取 Azure 服務] 選項設為 [開啟]。 此選項會允許 SQL 查詢編輯器存取您的資料庫和資料倉儲。
+
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 
 ## <a name="connect-using-sql-authentication"></a>使用 SQL 驗證進行連線
-> [!NOTE]
-> 在 SQL Server 防火牆設定中，確定 [允許存取 Azure 服務] 選項設為 [開啟]。 此選項會允許 SQL 查詢編輯器存取您的資料庫和資料倉儲。
 
 1. 從左側功能表中按一下 [SQL 資料庫]，然後按一下您要查詢的資料庫。
 
-2. 在您資料庫的 SQL 資料庫分頁上，尋找並按一下左側功能表中的 [資料總管 (預覽)]。
+2. 在您資料庫的 SQL 資料庫頁面上，尋找並按一下左側功能表中的 [查詢編輯器 (預覽)]。
 
     ![尋找查詢編輯器](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

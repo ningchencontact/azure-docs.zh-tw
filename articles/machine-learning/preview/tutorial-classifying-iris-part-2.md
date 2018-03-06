@@ -1,23 +1,23 @@
 ---
-title: "建置 Azure Machine Learning 服務 (預覽) 的模型 | Microsoft Docs"
+title: "建置 Azure Machine Learning 服務 (預覽) 的模型教學課程 | Microsoft Docs"
 description: "這個完整的教學課程會示範如何使用 Azure Machine Learning 服務 (預覽) 端對端。 這是第二部分，會討論測試。"
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>分類鳶尾花第 2 部分：建置模型
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>教學課程：分類鳶尾花第 2 部分 - 建置模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
 
 本教學課程是三部分系列的第二部分。 在本教學課程中，您可以使用 Azure Machine Learning 服務 (預覽) 來：
@@ -33,6 +33,8 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 > * 在雲端 Azure HDInsight 環境中執行指令碼。
 
 本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)。 螢幕擷取畫面是 Windows 專屬，但是 Mac OS 體驗幾乎完全相同。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>先決條件
 完成本教學課程系列的第一個部分。 在開始本教學課程中的步驟之前，請遵循[資料準備教學課程](tutorial-classifying-iris-part-1.md)來建立 Azure Machine Learning 資源，並安裝 Azure Machine Learning Workbench 應用程式。
@@ -374,6 +376,10 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    >針對遠端 HDInsight 叢集執行時，您也可以在 `https://<cluster_name>.azurehdinsight.net/yarnui` 使用 `admin` 使用者帳戶檢視 Yet Another Resource Negotiator (YARN) 作業執行的詳細資料。
 
 
+## <a name="clean-up-resources"></a>清除資源
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>後續步驟
 在三部分教學課程系列的第二部分中，您已經了解如何使用 Azure Machine Learning 服務來：
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 您已準備好進行系列中的第三個部分。 既然您已經建立羅吉斯迴歸模型，讓我們將它部署為即時 Web 服務。
 
 > [!div class="nextstepaction"]
-> [部署模型](tutorial-classifying-iris-part-3.md)
+> [教學課程 3：分類鳶尾花：部署模型](tutorial-classifying-iris-part-3.md)

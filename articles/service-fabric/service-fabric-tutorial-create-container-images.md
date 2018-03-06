@@ -1,6 +1,6 @@
 ---
 title: "建立 Azure Service Fabric 的容器映像 | Microsoft Docs"
-description: "了解如何建立多容器 Service Fabric 應用程式的容器映像。"
+description: "在本教學課程中，了解如何建立多容器 Service Fabric 應用程式的容器映像。"
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-container-images-for-service-fabric"></a>建立 Service Fabric 的容器映像
+# <a name="tutorial-create-container-images-for-service-fabric"></a>教學課程：建立 Service Fabric 的容器映像
 
 本教學課程是一個教學課程系列的第一部分，示範如何在 Linux Service Fabric 叢集中使用容器。 在本教學課程中，多容器應用程式已準備好可與 Service Fabric 搭配使用。 在後續的教學課程中，這些映像可用來作為 Service Fabric 應用程式的一部分。 在本教學課程中，您將了解如何： 
 

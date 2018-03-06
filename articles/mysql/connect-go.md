@@ -1,24 +1,24 @@
 ---
-title: "使用 Go 連線到 Azure Database for MySQL | Microsoft Docs"
+title: "使用 Go 連線到適用於 MySQL 的 Azure 資料庫"
 description: "本快速入門提供數個 Go 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。"
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
-ms.openlocfilehash: 44011c4b1ac5da686954a87bbf17a54b963ff6d8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: af4027835ca503c0875d098d0daf7a98bdef44fb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Go 語言連線及查詢資料
-本快速入門示範如何從 Windows、Ubuntu Linux 和 Apple macOS 平台使用以 [Go](https://golang.org/) 語言撰寫的程式碼，連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文章假設您已熟悉使用 Go 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
+本快速入門示範如何從 Windows、Ubuntu Linux 和 Apple macOS 平台使用以 [Go](https://golang.org/) 語言撰寫的程式碼，連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Go 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>先決條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>安裝 Go 與 MySQL 連接器
-在您自己的電腦上安裝 [Go](https://golang.org/doc/install) 和 [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) (最低需為版本 1.3)。 根據您的平台，遵循適當小節中的步驟：
+在自己的電腦上安裝 [Go](https://golang.org/doc/install) 和 [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)。 根據您的平台，遵循適當小節中的步驟：
 
 ### <a name="windows"></a>Windows
 1. 根據[安裝指示](https://golang.org/doc/install)，[下載](https://golang.org/dl/)並安裝 Go for Microsoft Windows。
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/01/2018
 3. 為您的專案產生資料夾，例如 `mkdir  %USERPROFILE%\go\src\mysqlgo`。
 4. 將目錄切換到專案資料夾，例如 `cd %USERPROFILE%\go\src\mysqlgo`。
 5. 將 GOPATH 環境變數設定為指向來源程式碼目錄。 `set GOPATH=%USERPROFILE%\go`。
-6. 執行 `go get github.com/go-sql-driver/mysql` 命令以安裝 [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)。 最低需為版本 1.3。
+6. 執行 `go get github.com/go-sql-driver/mysql` 命令以安裝 [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)。
 
    總而言之，就是安裝 Go，然後在命令提示字元中執行下列命令：
    ```cmd
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/01/2018
 3. 在主目錄中為您的專案產生資料夾，例如 `mkdir -p ~/go/src/mysqlgo/`。
 4. 將目錄切換到此資料夾，例如 `cd ~/go/src/mysqlgo/`。
 5. 將 GOPATH 環境變數設定為指向有效的來源目錄，例如目前主目錄的 go 資料夾。 在 Bash 殼層，執行 `export GOPATH=~/go` 以將 go 目錄新增為目前殼層工作階段的 GOPATH。
-6. 執行 `go get github.com/go-sql-driver/mysql` 命令以安裝 [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)。 最低需為版本 1.3。
+6. 執行 `go get github.com/go-sql-driver/mysql` 命令以安裝 [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)。
 
    總而言之，就是執行下列 bash 命令：
    ```bash
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/01/2018
 3. 在主目錄中為您的專案產生資料夾，例如 `mkdir -p ~/go/src/mysqlgo/`。
 4. 將目錄切換到此資料夾，例如 `cd ~/go/src/mysqlgo/`。
 5. 將 GOPATH 環境變數設定為指向有效的來源目錄，例如目前主目錄的 go 資料夾。 在 Bash 殼層，執行 `export GOPATH=~/go` 以將 go 目錄新增為目前殼層工作階段的 GOPATH。
-6. 執行 `go get github.com/go-sql-driver/mysql` 命令以安裝 [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)。 最低需為版本 1.3。
+6. 執行 `go get github.com/go-sql-driver/mysql` 命令以安裝 [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)。
 
    總而言之，就是安裝 Go，然後執行下列 bash 命令：
    ```bash
@@ -81,11 +81,10 @@ ms.lasthandoff: 02/01/2018
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **myserver4demo**)。
-3. 按一下伺服器名稱 **myserver4demo**。
-4. 選取伺服器的 [屬性] 頁面，然後記下**伺服器名稱**和**伺服器管理員登入名稱**。
- ![Azure Database for MySQL - 伺服器管理員登入](./media/connect-go/1_server-properties-name-login.png)
-5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+3. 按一下伺服器名稱。
+4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+ ![Azure Database for MySQL 伺服器名稱](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## <a name="build-and-run-go-code"></a>建置並執行 Go 程式碼 
@@ -116,9 +115,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -193,9 +192,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -262,9 +261,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -316,9 +315,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 

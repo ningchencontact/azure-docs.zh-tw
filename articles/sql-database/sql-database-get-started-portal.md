@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 02/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 56fb52cb2dbca1939aac2eb9dd4971a93bf8c0dc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database
 
@@ -38,7 +38,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 
 請遵循下列步驟來建立包含 Adventure Works LT 範例資料的 SQL Database。
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+1. 按一下 Azure 入口網站左上角的 [建立資源]。
 
 2. 從 [新增] 頁面中選取 [資料庫]，然後在 [新增] 頁面的 [SQL Database] 下選取 [建立]。
 
@@ -157,7 +157,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
    ![查詢編輯器結果](./media/sql-database-get-started-portal/query-editor-results.png)
 
-5. 關閉 [資料總管] 分頁，按一下 [確定] 以捨棄未儲存的編輯。
+5. 關閉 [查詢編輯器] 頁面，按一下 [確定] 以捨棄未儲存的編輯。
 
 ## <a name="clean-up-resources"></a>清除資源
 

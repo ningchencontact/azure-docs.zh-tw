@@ -1,6 +1,6 @@
 ---
 title: "容錯移轉與調整 Azure Service Fabric 容器應用程式 | Microsoft Docs"
-description: "了解如何在 Azure Service Fabric 容器應用程式中處理容錯移轉。  亦了解如何調整在叢集中執行的容器與服務。"
+description: "在本教學課程中，您會了解如何在 Azure Service Fabric 容器應用程式中處理容錯移轉。  亦了解如何調整在叢集中執行的容器與服務。"
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 21dd9dfbc90c26236c43e2c334305ca97f63d361
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>示範透過 Service Fabric 容錯移轉與調整容器服務
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>教學課程：示範透過 Service Fabric 容錯移轉與調整容器服務
 
 本教學課程是一個系列課程的第三部分。 在本教學課程中，您會了解如何在 Service Fabric 容器應用程式中處理容錯移轉。 此外，您會了解如何調整容器。 在本教學課程中，您：
 
@@ -45,7 +45,7 @@ Service Fabric 可確保如果發生失敗，容器執行個體會自動移至�
 
 ![noderestart][noderestart]
 
-注意節點名稱如何指出前端容器執行的位置，現在請變更為叢集中的其他節點。 數分鐘後，您應該能夠再次瀏覽至該應用程式，並看見應用程式現在正在不同的節點上執行。
+注意節點名稱 (指出前端容器執行的位置) 如何變更為叢集中的其他節點。 數分鐘後，您應該能夠再次瀏覽至該應用程式，並看見應用程式現在正在不同的節點上執行。
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>調整叢集中的應用程式和服務
 Service Fabric 容器可調整擴充到整個叢集，以容納服務上的負載。 您可以藉由變更叢集中執行的執行個體數目來調整容器。

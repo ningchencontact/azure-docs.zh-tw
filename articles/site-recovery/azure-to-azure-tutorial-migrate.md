@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>將 Azure VM 移轉到另一個區域
 
@@ -123,7 +124,8 @@ Site Recovery 會擷取與訂用帳戶和資源群組建立關聯的 VM 清單�
 2. 在 [容錯移轉] 中，選取 [最新]。 加密金鑰設定不適用於此案例。
 3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 嘗試先關閉來源 VM，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 4. 確認 Azure VM 如預期般出現在 Azure 中。
-5. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會完成移轉程序，並停止複寫 VM。
+5. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [認可]。 這會完成移轉程序。
+6. 認可完成之後，請按一下 [停用複寫]。  這會停止 VM 的複寫。
 
 
 

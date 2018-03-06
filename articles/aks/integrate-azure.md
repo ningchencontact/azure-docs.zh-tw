@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 
@@ -70,51 +70,23 @@ v1beta1.storage.k8s.io               10
 
 下一步是安裝 [Open Service Broker for Azure][open-service-broker-azure]，其中包含用於 Azure 受控服務的類別目錄。 可用 Azure 服務的範例包括適用於 PostgreSQL 的 Azure 資料庫、Azure Redis Cache、適用於 MySQL 的 Azure 資料庫、Azure Cosmos DB、Azure SQL Database 等等。
 
-讓我們從新增 Open Service Broker for Azure Helm 存放庫開始：
+從新增 Open Service Broker for Azure Helm 存放庫開始：
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-使用下列 Azure CLI 命令建立[服務主體][create-service-principal]：
+接著，使用下列指令碼來建立[服務主體][create-service-principal]，然後填入幾個變數。 在執行 Helm 圖表來安裝服務訊息代理程式時，會使用這些變數。
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
+AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
+AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
+AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
+AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-輸出應該類似下面這樣。 請記下 `appId`、`password` 和 `tenant` 值，您在下一個步驟中將會用到這些值。
-
-```JSON
-{
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
-}
-```
-
-使用上述的值設定下列環境變數：
-
-```azurecli-interactive
-AZURE_CLIENT_ID=<appId>
-AZURE_CLIENT_SECRET=<password>
-AZURE_TENANT_ID=<tenant>
-```
-
-現在，取得您的 Azure 訂用帳戶識別碼：
-
-```azurecli-interactive
-az account show --query id --output tsv
-```
-
-再次使用上述的值設定下列環境變數：
-
-```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
-```
-
-既然您已填入這些環境變數，請執行下列命令，使用 Helm 圖表安裝 Open Service Broker for Azure：
+既然您已填入這些環境變數，請執行下列命令來安裝服務訊息代理程式。
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

@@ -1,6 +1,6 @@
 ---
 title: "封裝和部署 Service Fabric 容器應用程式 | Microsoft Docs"
-description: "了解如何使用 Yeoman 來產生 Azure Service Fabric 應用程式定義以及封裝應用程式。"
+description: "在本教學課程中，您會了解如何使用 Yeoman 來產生 Azure Service Fabric 應用程式定義以及封裝應用程式。"
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>建立和部署容器作為 Service Fabric 應用程式
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>教學課程：建立和部署容器作為 Service Fabric 應用程式
 
 本教學課程是一個系列中的第二部分。 本教學課程使用範本產生器工具 (Yeoman)，來產生 Service Fabric 應用程式定義。 此應用程式接著可用來將容器部署到 Service Fabric。 在本教學課程中，您將了解如何： 
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>將更新與變更追蹤解決方案上線至 Azure 自動化
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="onboard-an-azure-vm"></a>使 Azure 虛擬機器上線
 
-若要使 Azure 虛擬機器自動上線，現有的虛擬機器必須使用變更追蹤或更新管理解決方案來讓現有虛擬機器上線。 在此步驟中，您會使用更新管理和變更追蹤來讓虛擬機器上線。
+讓機器上線的方式有很多種，您可以[從虛擬機器](automation-onboard-solutions-from-vm.md)、[從您的自動化帳戶](automation-onboard-solutions-from-automation-account.md)，或透過 Runbook 讓解決方案上線。 本教學課程會引導您透過 Runbook 啟用「更新管理」。 若要使 Azure 虛擬機器大規模上線，現有的虛擬機器必須使用變更追蹤或更新管理解決方案來讓現有虛擬機器上線。 在此步驟中，您會使用更新管理和變更追蹤來讓虛擬機器上線。
 
 ### <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/10/2018
    ![啟用虛擬機器的更新解決方案](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> 如果您沒有等待其他解決方案完成，在啟用下一個解決方案時，您會收到內容如下的訊息：此虛擬機器或不同虛擬機器上正在安裝另一個解決方案。安裝完成時，即可使用 [啟用] 按鈕，然後您就可以要求在這部虛擬機器上安裝解決方案。*
+> 如果您沒有等待其他解決方案完成，在啟用下一個解決方案時，您會收到內容如下的訊息：此虛擬機器或不同虛擬機器上正在安裝另一個解決方案。安裝完成時，即可使用 [啟用] 按鈕，然後您就可以要求在這部虛擬機器上安裝解決方案。
 
 ## <a name="install-and-update-modules"></a>安裝和更新模組
 

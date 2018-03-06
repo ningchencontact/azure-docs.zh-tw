@@ -5,15 +5,15 @@ services: automation
 keywords: "變更, 追蹤, 自動化"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -47,37 +47,19 @@ ms.lasthandoff: 01/10/2018
 您必須先在本教學課程中啟用 VM 的變更追蹤和清查。 如果您先前已啟用 VM 的另一個自動化解決方案，就不需要此步驟。
 
 1. 在左側功能表上，選取 [虛擬機器]，然後從清單中選取 VM
-1. 在左側功能表的 [作業] 區段下，按一下 [清查]。 [啟用變更追蹤和清查] 頁面隨即開啟。
+1. 在左側功能表的 [作業] 區段下，按一下 [清查]。 [變更追蹤] 頁面隨即開啟。
 
-系統會執行驗證來判斷此 VM 是否已啟用變更追蹤和清查。
-驗證包括檢查 Log Analytics 工作區及連結的自動化帳戶，以及解決方法是否在工作區中。
+![啟用變更](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) [變更追蹤] 畫面隨即開啟。 設定位置、記錄分析工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區用來收集功能和服務 (例如清查) 所產生的資料。
 工作區提供單一位置來檢閱和分析來自多個來源的資料。
 
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和混合式背景工作角色佈建。
+在上線期間，會使用 Microsoft Monitoring Agent (MMA) 和混合式背景工作佈建 VM。
 此代理程式用來與 VM 通訊，並取得已安裝軟體的相關資訊。
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
-
-如果不符合這些必要條件，將會出現橫幅讓您選擇啟用此解決方案。
-
-![變更追蹤和清查上架設定橫幅](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-若要啟用解決方案，請按一下橫幅。
-如果在驗證之後遺漏下列任何必要條件，就會自動新增：
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區
-* [自動化](./automation-offering-get-started.md)
-* VM 上已啟用 [Hybrid Runbook 背景工作角色](./automation-hybrid-runbook-worker.md)
-
-[變更追蹤和清查] 畫面隨即開啟。 設定位置、記錄分析工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
-
-![啟用變更追蹤解決方案視窗](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。
 啟用解決方案之後，有關在 VM 上已安裝軟體和變更的相關資訊會流向 Log Analytics。
 可能需要 30 分鐘到 6 小時，資料才可供分析。
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>使用 Log Analytics 中的變更追蹤
 
@@ -107,40 +89,47 @@ ConfigurationChange
 1. 在 [Windows 登錄] 索引標籤上，選取 [新增]。
     [為變更追蹤新增 Windows 登錄] 視窗隨即開啟。
 
-   ![變更追蹤新增登錄](./media/automation-vm-change-tracking/change-add-registry.png)
+3. 在 [為變更追蹤新增 Windows 登錄] 上，輸入要追蹤的機碼資訊，然後按一下 [儲存]
 
-2. 在 [已啟用] 底下，選取 [True]。
-3. 在 [項目名稱] 方塊中新增易記名稱。
-4. (選擇性) 在 [群組] 方塊中輸入群組名稱。
-5. 在 [Windows 登錄機碼] 方塊中，新增您要追蹤的登錄機碼名稱。
-6. 選取 [ **儲存**]。
+|屬性  |說明  |
+|---------|---------|
+|已啟用     | 判斷是否已套用設定        |
+|項目名稱     | 所要追蹤檔案的易記名稱        |
+|群組     | 用於將檔案以邏輯方式分組的群組名稱        |
+|Windows 登錄機碼   | 要檢查檔案的路徑。例如："HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>新增 Windows 檔案
 
 1. 在 [Windows 檔案] 索引標籤上，選取 [新增]。 [為變更追蹤新增 Windows 檔案] 視窗隨即開啟。
 
-   ![變更追蹤新增 Windows 檔案](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. 在 [為變更追蹤新增 Windows 檔案] 上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存]
 
-2. 在 [已啟用] 底下，選取 [True]。
-3. 在 [項目名稱] 方塊中新增易記名稱。
-4. (選擇性) 在 [群組] 方塊中輸入群組名稱。
-5. 在 [輸入路徑] 方塊中，新增您要追蹤之檔案的完整路徑和檔案名稱。
-6. 選取 [ **儲存**]。
+|屬性  |說明  |
+|---------|---------|
+|已啟用     | 判斷是否已套用設定        |
+|項目名稱     | 所要追蹤檔案的易記名稱        |
+|群組     | 用於將檔案以邏輯方式分組的群組名稱        |
+|輸入路徑     | 要檢查檔案的路徑。例如："c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>新增 Linux 檔案
 
 1. 在 [Linux 檔案] 索引標籤上，選取 [新增]。 [為變更追蹤新增 Linux 檔案] 視窗隨即開啟。
 
-   ![變更追蹤新增 Linux 檔案](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. 在 [為變更追蹤新增 Linux 檔案] 上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存]
 
-2. 在 [已啟用] 底下，選取 [True]。
-3. 在 [項目名稱] 方塊中新增易記名稱。
-4. (選擇性) 在 [群組] 方塊中輸入群組名稱。
-5. 在 [輸入路徑] 方塊中，新增您要追蹤之檔案的完整路徑和檔案名稱。
-6. 在 [路徑類型] 方塊中，選取 [檔案] 或 [目錄]。
-7. 若要追蹤指定的路徑及其之下所有檔案和路徑的變更，請在 [遞迴] 底下選取 [開啟]。 若要只追蹤選取的路徑或檔案，請選取 [關閉]。
-8. 若要追蹤的檔案需要 `sudo` **命令才能存取，請在 [使用 Sudo] 底下選取 [開啟]**。 否則，請選取 [關閉]。
-9. 選取 [ **儲存**]。
+|屬性  |說明  |
+|---------|---------|
+|已啟用     | 判斷是否已套用設定        |
+|項目名稱     | 所要追蹤檔案的易記名稱        |
+|群組     | 用於將檔案以邏輯方式分組的群組名稱        |
+|輸入路徑     | 要檢查檔案的路徑。例如："/etc/*.conf"       |
+|路徑類型     | 要追蹤的項目類型，可能值為 [檔案] 和 [目錄]        |
+|遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
+|使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
+|連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄<br>**遵循** - 遵循遞迴期間的符號連結，而且包含參考的檔案/目錄<br>**管理** - 遵循符號連結並允許變更所傳回內容的處理方式      |
+
+   > [!NOTE]   
+   > 不建議選擇「管理」連結選項。 不支援檔案內容擷取。
 
 ## <a name="enable-activity-log-connection"></a>啟用活動記錄連線
 
@@ -188,4 +177,4 @@ ConfigurationChange
 如需深入了解，請繼續閱讀變更追蹤和清查解決方案的概觀。
 
 > [!div class="nextstepaction"]
-> [變更管理及清查解決方案](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [變更管理及清查解決方案](automation-change-tracking.md)

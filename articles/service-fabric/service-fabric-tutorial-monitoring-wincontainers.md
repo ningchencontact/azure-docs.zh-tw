@@ -1,6 +1,6 @@
 ---
 title: "監視和診斷 Azure Service Fabric 中的 Windows 容器 | Microsoft Docs"
-description: "設定監視和診斷 Azure Service Fabric 上協調的 Windows 容器。"
+description: "在本教學課程中，您會設定監視和診斷 Azure Service Fabric 上協調的 Windows 容器。"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>使用 OMS 監視 Service Fabric 上的 Windows 容器
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>教學課程：使用 OMS 監視 Service Fabric 上的 Windows 容器
 
 此為教學課程的第三部分，將逐步引導您設定 OMS 來監視 Service Fabric 上協調的 Windows 容器。
 

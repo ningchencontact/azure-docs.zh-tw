@@ -4,14 +4,14 @@ description: "說明如何使用 Azure Migrate 服務，探索及評估要移轉
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/02/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c8d345d8846994ac1e286d977b62d9ae2b7d660
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -20,6 +20,7 @@ ms.lasthandoff: 02/21/2018
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
+> * 建立 Azure Migrate 用來探索內部部署 VM 的帳戶
 > * 建立 Azure Migrate 專案。
 > * 設定內部部署收集器虛擬機器 (VM)，以探索要評估的內部部署 VMware VM。
 > * 將 VM 分組並建立評估。
@@ -39,16 +40,26 @@ ms.lasthandoff: 02/21/2018
 - **權限**：在 vCenter Server 上，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立 VM。 
 - **統計資料設定**：vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評估，但不會收集儲存體和網路的效能資料。 在此情況下，將根據 CPU 和記憶體的效能資料以及磁碟和網路介面卡的組態資料來提出大小建議。 
 
+## <a name="create-an-account-for-vm-discovery"></a>建立用於 VM 探索的帳戶
+
+Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評量。 建立具有下列屬性的 VMware 帳戶。 您會在 Azure Migrate 設定過程中指定此帳戶。
+
+- 使用者類型：至少是唯讀使用者
+- 權限：資料中心物件 –> 傳播至子物件、角色=唯讀
+- 詳細資訊：在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。
+- 如果要限制存取權，請將具備 [傳播至子物件] 權限的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、VM 及網路)。
+
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+
 登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-project"></a>建立專案
 
 1. 在 Azure 入口網站中，按一下 [建立資源]。
-2. 搜尋 **Azure Migrate**，然後在搜尋結果中選取 [Azure Migrate (預覽)] 服務。 接著，按一下 [建立]。
+2. 搜尋 **Azure Migrate**，然後在搜尋結果中選取 [Azure Migrate] 服務。 接著，按一下 [建立]。
 3. 指定專案名稱，以及專案的 Azure 訂用帳戶。
 4. 建立新的資源群組。
-5. 指定要建立專案的所在位置，然後按一下 [建立]。 在這個預覽版中，您只能在「美國中西部」區域建立 Azure Migrate 專案。 不過，您仍能針對任何目標 Azure 位置規劃移轉。 為專案指定的位置只用於儲存從內部部署虛擬機器收集的中繼資料。 
+5. 指定要建立專案的所在位置，然後按一下 [建立]。 您只能在「美國中西部」或「美國東部」區域建立 Azure Migrate 專案。 不過，您仍能針對任何目標 Azure 位置規劃移轉。 為專案指定的位置只用於儲存從內部部署虛擬機器收集的中繼資料。 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -73,6 +84,14 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 產生的雜湊應符合這些設定。
+    
+    若為 OVA 1.0.9.2 版
+
+    **演算法** | **雜湊值**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
     
     若為 OVA 1.0.8.59 版
 
@@ -181,13 +200,13 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 對於 Azure Migrate 無法識別 Azure 移轉整備程度 (因為資料無法使用) 的虛擬機器會標示為移轉整備程度未知。
 
-除了 Azure 移轉整備程度和大小調整，Azure Migrate 也會建議可供移轉虛擬機器使用的工具。 如果機器適用於原形 (Lift and shift) 移轉，則建議使用 [Azure Site Recovery] 服務。 如果其為資料庫機器，則建議使用 Azure 資料庫移轉服務。
+除了 Azure 移轉整備程度和大小調整，Azure Migrate 也會建議可供移轉虛擬機器使用的工具。 這需要在內部部署環境進行更深入的探索。 [深入探索](how-to-get-migration-tool.md)如何藉由在內部部署電腦上安裝代理程式，以進行更深入的探索。 如果內部部署電腦上未安裝代理程式，則建議使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 進行原形移轉。 如果在內部部署電腦上安裝代理程式，則 Azure Migrate 會查看在電腦內部執行的程序，並識別電腦是否為資料庫電腦。 如果電腦是資料庫電腦，則建議使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)，否則建議使用 Azure Site Recovery 作為移轉工具。
 
   ![評估整備](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### <a name="monthly-cost-estimate"></a>每月成本預估值
 
-此檢視會顯示在 Azure 中執行 VM 的計算和儲存總成本，以及每部電腦的詳細資訊。 在計算成本估計值時，會使用以效能為基礎的大小建議來用於機器和其磁碟以及評估屬性。 
+此檢視會顯示在 Azure 中執行 VM 的計算和儲存總成本，以及每部電腦的詳細資訊。 在計算成本估計值時，會考慮 Azure Migrate 針對一部電腦、其磁碟及評量屬性所做的大小建議。 
 
 > [!NOTE]
 > Azure Migrate 所提供的成本估計適用於執行內部部署 VM 以作為 Azure 基礎結構即服務 (IaaS) VM。 Azure Migrate 不會考慮任何平台即服務 (PaaS) 或軟體即服務 (SaaS) 成本。 
@@ -198,11 +217,11 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 #### <a name="confidence-rating"></a>信賴評等
 
-Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 它可協助您評估 Azure Migrate 提供的大小建議之可靠性。 
+Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。 
 
-信賴評等在您進行「以效能為基礎的大小調整」時非常實用，因為並非所有資料點都可供使用。 對於「如內部部署大小調整」，信賴評等一律是 5 顆星，因為 Azure Migrate 擁有調整虛擬機器大小所需的所有資料。 
+信賴評等在您進行「以效能為基礎的大小調整」時非常實用，因為 Azure Migrate 可能沒有足夠的資料點都可進行以使用率為基礎的大小調整。 對於*作為內部部署調整大小*，信賴評等一律是 5 顆星，因為 Azure Migrate 擁有調整 VM 大小所需的所有資料點。 
 
-對於以效能為基礎的大小調整，Azure Migrate 需要 CPU 和記憶體的使用量資料。 對於連接至虛擬機器的每個磁碟，它需要讀取/寫入 IOPS 及輸送量以便進行以效能為基礎的大小調整。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等：
+對於以效能為基礎的 VM 大小調整，Azure Migrate 需要 CPU 和記憶體的使用量資料。 此外，對於連結至虛擬機器的每個磁碟，它都需要讀取/寫入 IOPS 及輸送量。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等：
 
    **資料點的可用性** | **信賴評等**
    --- | ---
@@ -213,13 +232,13 @@ Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍
    81%-100% | 5 顆星
 
 由於下列原因，評量可能沒有所有可用資料點：
-- vCenter Server 中的統計資料設定未設定為等級 3，且評量的調整大小準則是以效能為基礎的大小調整。 如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未從 vCenter Server 收集。 在此情況下，Azure Migrate 針對磁碟和網路所提供的建議只是根據內部部署的配置。 針對儲存體，Azure Migrate 會建議標準磁碟，因為沒有方法可識別磁碟是否具有高 IOPS/輸送量且需要進階磁碟。
-- vCenter Server 中的統計資料設定會在開始探索前短期設定為等級 3。 例如，如果您今天將統計資料設定變更為等級 3，並在明天 (24 小時後) 使用收集器設備開始探索，則如果您要建立一天的評量，您擁有所有資料點。 但如果您將評量屬性中的效能持續時間變更為一個月，信賴評等會關閉，因無法使用過去一個月的磁碟和網路效能資料。 如果您想考量過去一個月的效能資料，建議您將 vCenter Server 統計資料設定保留在等級 3 一個月，再開始進行探索。 
+- vCenter Server 中的統計資料設定未設定為等級 3，且評量的調整大小準則是以效能為基礎的大小調整。 如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未從 vCenter Server 收集。 在此情況下，Azure Migrate 針對磁碟和網路所提供的建議是以使用率為基礎。 針對儲存體，Azure Migrate 會建議標準磁碟，因為若不考量磁碟的 IOPS/輸送量，Azure Migrate 便無法識別磁碟在 Azure 中是否需要進階磁碟。
+- vCenter Server 中的統計資料設定會在開始探索前短期設定為等級 3。 例如，讓我們考慮以下案例：您今天將統計資料設定變更為等級 3，並在明天 (24 小時後) 使用收集器設備開始探索。 如果您要建立一天的評量，您可擁有所有資料點，且評量的信賴評等會是 5 顆星。 但如果您將評量屬性中的效能持續時間變更為一個月，信賴評等會關閉，因無法使用過去一個月的磁碟和網路效能資料。 如果您想考量過去一個月的效能資料，建議您將 vCenter Server 統計資料設定保留在等級 3 一個月，再開始進行探索。 
 - 少數虛擬機器在評量計算期間關閉。 如果任何虛擬機器在某段期間內電源關閉，則 vCenter Server 不會有這段時間的效能資料。 
 - 少數虛擬機器在評量計算期間才建立。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在這種情況下，新虛擬機器的效能記錄不會在整段期間中出現。
 
 > [!NOTE]
-> 如果任何評量的信賴評等低於 3 顆星，建議您將 vCenter Server 的統計資料設定等級變更為 3，等候您要評量的持續時間 (1 天/1 週/1 個月)，然後再執行探索及評量。 如果無法完成上述內容，則以效能為基礎的大小調整可能不可靠，建議您變更評量屬性以切換至「如內部部署大小調整」。
+> 如果任何評量的信賴評等低於 4 顆星，建議您將 vCenter Server 的統計資料設定等級變更為 3，等候您要評量的持續時間 (1 天/1 週/1 個月)，然後再執行探索及評量。 如果無法完成上述內容，則以效能為基礎的大小調整可能不可靠，建議您變更評量屬性以切換至「如內部部署大小調整」。
  
 ## <a name="next-steps"></a>後續步驟
 

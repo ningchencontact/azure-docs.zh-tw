@@ -1,22 +1,22 @@
 ---
-title: "Azure 快速入門 - 使用 Ruby 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "快速了解使用 Ruby 在 Azure Blob 儲存體之間傳送物件"
+title: "Azure 快速入門 - 使用 Ruby 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
+description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Ruby 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>使用 Ruby 在 Azure Blob 儲存體之間傳送物件
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入門：使用 Ruby 上傳、下載及列出 Blob
+
 在本快速入門中，您會了解如何使用 Ruby 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
 
 ## <a name="prerequisites"></a>先決條件
