@@ -7,6 +7,8 @@
 - name: 快速入門
   expanded: true
   items:
+    - name: 設定自動佈建 - Azure CLI
+      href: quick-setup-auto-provision-cli.md
     - name: 設定自動佈建 - 入口網站
       href: quick-setup-auto-provision.md
     - name: 設定自動佈建 - 範本
@@ -21,6 +23,8 @@
               href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
               href: quick-create-simulated-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
         - name: X.509

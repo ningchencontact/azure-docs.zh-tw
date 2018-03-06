@@ -113,6 +113,7 @@
 #### [設定具名位置](active-directory-named-locations.md)
 #### [尋找活動報告](active-directory-reporting-migration.md)
 #### [使用 Azure Active Directory Power BI 內容套件](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [修復標幟為有風險的使用者](active-directory-report-security-user-at-risk-remediation.md)
 ### 參考
 #### [保留](active-directory-reporting-retention.md)
 #### [延遲](active-directory-reporting-latencies-azure-portal.md)
@@ -388,7 +389,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
+## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

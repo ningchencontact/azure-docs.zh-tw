@@ -5,6 +5,7 @@
 ## [比較 Azure Data Lake Store 與 Azure 儲存體](data-lake-store-comparison-with-blob-storage.md)
 ## [使用 Azure Data Lake Store 處理巨量資料](data-lake-store-data-scenarios.md)
 ## [與 Azure Data Lake Store 搭配使用的開放原始碼應用程式](data-lake-store-compatible-oss-other-applications.md)
+## [使用 Data Lake Store 的最佳做法](data-lake-store-best-practices.md)
 
 # 開始使用
 ## [使用入口網站](data-lake-store-get-started-portal.md)
