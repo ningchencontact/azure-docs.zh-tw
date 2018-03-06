@@ -1,19 +1,19 @@
 ---
-title: "適用於 PostgreSQL 之 Azure 資料庫中的高可用性概念 | Microsoft Docs"
-description: "本主題提供使用「適用於 PostgreSQL 的 Azure 資料庫」時的高可用性資訊"
+title: "適用於 PostgreSQL 之 Azure 資料庫中的高可用性概念"
+description: "本文提供使用「適用於 PostgreSQL 的 Azure 資料庫」時的高可用性資訊。"
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 600896cf064770a5b294f874dc29081f0ce7d942
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 02/28/2018
+ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 之 Azure 資料庫中的高可用性概念
 「適用於 PostgreSQL 的 Azure 資料庫」服務可提供保證的高可用性等級。 以財務為後盾的服務等級協定 (SLA) 在正式運作時可達 99.99%。 使用此服務時幾乎不會有應用程式停機時間。

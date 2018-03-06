@@ -1,20 +1,20 @@
 ---
-title: "使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中存取伺服器記錄檔 | Microsoft Docs"
+title: "使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中存取伺服器記錄"
 description: "本文說明如何使用 Azure CLI 命令列公用程式，在適用於 MySQL 的 Azure 資料庫中存取伺服器記錄。"
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 908f28d8bd3d0dcbd03636e69cd47b5c47f3cfde
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: 8cd83722569eef503030b7e7438a73209cb812d6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
 您可以使用 Azure CLI (Azure 的命令列公用程式) 來下載適用於 MySQL 的 Azure 資料庫的伺服器記錄檔。
@@ -33,25 +33,25 @@ ms.lasthandoff: 11/29/2017
 
 例如，下列 CLI 命令會開啟慢速查詢記錄檔、將長時間查詢的時間設定為 10 秒，並且會關閉慢速管理陳述式的記錄。 最後，它會列出設定選項供您檢閱。
 ```azurecli-interactive
-az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server myserver4demo --value ON
-az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server myserver4demo --value 10
-az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server myserver4demo --value OFF
-az mysql server configuration list --resource-group myresourcegroup --server myserver4demo
+az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
+az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
+az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server mydemoserver --value OFF
+az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>列出適用於 MySQL 的 Azure 資料庫伺服器之記錄
 若要列出伺服器的可用記錄檔，請執行 [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) 命令。
 
-您可以針對資源群組 **myresourcegroup** 下的伺服器 **myserver4demo.mysql.database.azure.com**，列出伺服器的記錄檔，並輸出至名為 **log\_files\_list.txt** 的文字檔。
+您可以針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.mysql.database.azure.com**，列出伺服器的記錄檔，並輸出至名為 **log\_files\_list.txt** 的文字檔。
 ```azurecli-interactive
-az mysql server-logs list --resource-group myresourcegroup --server myserver4demo > log_files_list.txt
+az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>從伺服器下載記錄檔
 [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) 命令讓您可下載您伺服器適用的個別記錄檔。 
 
-此範例會針對資源群組 **myresourcegroup** 下的伺服器 **myserver4demo.mysql.database.azure.com**，將特定的記錄檔下載至您的本機環境。
+此範例會針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.mysql.database.azure.com**，將特定的記錄檔下載至您的本機環境。
 ```azurecli-interactive
-az mysql server-logs download --name 20170414-myserver4demo-mysql.log --resource-group myresourcegroup --server myserver4demo
+az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="next-steps"></a>後續步驟
