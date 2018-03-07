@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 6d9df88d6047fbe674c216dacc6fa01bad8451ec
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 本主題會顯示泛型 Hive 查詢，這類查詢可建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。 同時也會提供一些關於資料分割 Hive 資料表，以及使用最佳化單欄式資料列 (ORC) 格式來提升查詢效能的指引。
@@ -117,7 +117,7 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 ![建立工作區](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2.利用 Hive 編輯器提交 Hive 查詢
-您也可以在網頁瀏覽器中輸入https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor 格式的 URL，以使用查詢主控台 (Hive 編輯器)。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
+您也可以在網頁瀏覽器中輸入*https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* 格式的 URL，以使用查詢主控台 (Hive 編輯器)。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
 
 ### <a name="ps"></a> 3.利用 Azure PowerShell 命令提交 Hive 查詢
 您也可以使用 PowerShell 提交 Hive 查詢。 如需指示，請參閱 [使用 PowerShell 提交 Hive 工作](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)。
@@ -142,11 +142,11 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 以下是您需要插入的欄位和其他設定的說明：
 
-* **&#60;資料庫名稱>**：您要建立之資料庫的名稱。 如果您只想要使用預設資料庫，則可省略「create database...」  查詢。
-* **&#60;資料表名稱>**：您想要在指定資料庫內建立之資料表的名稱。 如果您想要使用預設資料庫，可透過 &#60;資料表名稱> 直接參考資料表，而不需要使用 &#60;資料庫名稱>。
-* **&#60;欄位分隔符號>**：上傳至 Hive 資料表的資料檔中分隔欄位的分隔符號。
-* **&#60;資料行分隔符號>**：用來分隔資料檔中各行的分隔符號。
-* **&#60;儲存體位置>**：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 LOCATION &#60;儲存體位置>，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 hive/warehouse/ 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 這個位置必須是叢集之預設容器的相對位置，其格式為 'wasb:///&#60;directory 1>/' 或 'wasb:///&#60;directory 1>/&#60;directory 2>/' 等。執行查詢之後，系統會在預設容器內建立相對目錄。
+* **<database name>**：您要建立之資料庫的名稱。 如果您只想要使用預設資料庫，則可省略「create database...」  查詢。
+* **<table name>**：您要在指定資料庫內建立之資料表的名稱。 如果您想要使用預設資料庫，可透過 *<table name>* 直接參考資料表，而不需要使用 <database name>。
+* **<field separator>**：要上傳至 Hive 資料表的資料檔案中用來分隔欄位的分隔符號。
+* **<line separator>**：用來分隔資料檔案中各行的分隔符號。
+* **<storage location>**：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 *LOCATION <storage location>*，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 hive/warehouse/ 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 這個位置必須是叢集之預設容器的相對位置，其格式為 'wasb:///<directory 1>/' 或 'wasb:///<directory 1>/<directory 2>/' 等。執行查詢之後，系統會在預設容器內建立相對目錄。
 * **TBLPROPERTIES("skip.header.line.count"="1")**：如果資料檔有標頭行，您就必須在 create table 查詢的**結尾**處新增這個屬性。 否則，載入的標頭行會做為資料表的記錄。 如果資料檔不含標頭行，則可在查詢中省略此設定。
 
 ## <a name="load-data"></a>將資料載入至 Hive 資料表
@@ -154,7 +154,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60;Blob 資料路徑>**：如果要上傳至 Hive 資料表的 Blob 檔案是在 HDInsight Hadoop 叢集的預設容器中，則 &#60;Blob 資料路徑> 的格式應該是 'wasb:///&#60;此容器中的目錄>/&#60;Blob 檔案名稱>'。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下， *&#60;blob 資料路徑>* 的格式應該是 *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*。
+* **<path to blob data>**：如果要上傳至 Hive 資料表的 Blob 檔案是在 HDInsight Hadoop 叢集的預設容器中，則 *<path to blob data>* 的格式應該是 *'wasb:///<directory in this container>/<blob file name>'*。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下，*<path to blob data>* 的格式應該是 *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*。
 
   > [!NOTE]
   > 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。 否則，「LOAD DATA」  查詢會失敗並提報它無法存取資料。
@@ -179,7 +179,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-查詢資料分割資料表時，建議在 **子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
+查詢資料分割資料表時，建議在**子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
 
     select
         field1, field2, ..., fieldN
@@ -221,7 +221,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> 如果 TEXTFILE 資料表 &#60;資料庫名稱>.&#60;外部文字檔資料表名稱> 具有資料分割，則在步驟 3 中，`SELECT * FROM <database name>.<external textfile table name>` 命令會選取資料分割變數做為所傳回資料集中的欄位。 將它插入 &#60;資料庫名稱>.&#60;ORC 資料表名稱> 會失敗，因為 &#60;資料庫名稱>.&#60;ORC 資料表名稱> 沒有資料分割參數可做為資料表結構描述中的欄位。 在此情況下，您需要明確選取要插入 &#60;資料庫名稱>.&#60;ORC 資料表名稱> 的欄位，如下所示：
+> 如果 TEXTFILE 資料表 *<database name>.<external textfile table name>* 具有資料分割，則在步驟 3 中，`SELECT * FROM <database name>.<external textfile table name>` 命令會選取資料分割變數作為所傳回資料集中的欄位。 無法將其插入 *<database name>.<ORC table name>* 中， 因為 *<database name>.<ORC table name>* 沒有在資料表結構描述中作為欄位的資料分割變數。 在此情況下，您需要明確選取要插入 *<database name>.<ORC table name>* 中的欄位， 如下所示：
 >
 >
 
@@ -230,7 +230,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-將所有資料插入 &#60;資料庫名稱>.&#60;ORC 資料表名稱> 之後，當您使用下列查詢時，即可安全捨棄 &#60;外部文字檔資料表名稱>：
+將所有資料插入 *<database name>.<ORC table name>* 之後，當您使用下列查詢時，即可安全地捨棄 *<external textfile table name>*：
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
